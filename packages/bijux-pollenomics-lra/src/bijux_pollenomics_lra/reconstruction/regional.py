@@ -62,6 +62,29 @@ def reveals_cover(
     )
 
 
+def _reveals_cover_batch(
+    pollen: object,
+    ppe: object,
+    deposition: np.ndarray,
+) -> np.ndarray:
+    """Evaluate equation B1 for an already dimensioned draw batch."""
+    pollen_values = matrix(pollen, "pollen draws", nonnegative=True)
+    ppe_values = matrix(ppe, "PPE draws")
+    if pollen_values.shape != ppe_values.shape:
+        raise ValidationError(f"ppe_draws must have shape {pollen_values.shape}")
+    if pollen_values.shape[1] != len(deposition):
+        raise ValidationError("Deposition and pollen taxon dimensions disagree")
+    if np.any(pollen_values.sum(axis=1) <= 0):
+        raise ValidationError("Pollen total must be positive")
+    if np.any(ppe_values <= 0) or np.any(deposition <= 0):
+        raise ValidationError("PPE and deposition factors must be strictly positive")
+
+    combined = ppe_values * deposition[None, :]
+    scale = np.sum(pollen_values / combined, axis=1)
+    cover = 100 * pollen_values / (combined * scale[:, None])
+    return np.asarray(r_round(cover, 3), dtype=float)
+
+
 def _normalise_ppe_table(ppes: object, taxon_count: int) -> pd.DataFrame:
     if isinstance(ppes, pd.DataFrame):
         table = ppes.copy(deep=True)
@@ -130,38 +153,63 @@ def REVEALS(
 
     means = ppe_table["ppe"].to_numpy(dtype=float)
     errors = ppe_table["ppe.error"].to_numpy(dtype=float)
-    samples = np.empty(expected_shape, dtype=float)
+    sampled_ppe = (
+        np.asarray(ppe_draws, dtype=float)
+        if ppe_draws is not None
+        else np.empty(expected_shape, dtype=float)
+    )
+    sampled_pollen = (
+        np.asarray(pollen_draws, dtype=float)
+        if pollen_draws is not None
+        else np.empty(expected_shape, dtype=float)
+    )
 
     for iteration in range(n):
-        if ppe_draws is not None:
-            alpha = np.asarray(ppe_draws, dtype=float)[iteration]
-        elif ppefun is not None:
-            alpha = np.asarray(
-                ppefun(len(means), means.copy(), errors.copy()), dtype=float
-            ).reshape(-1)
-        elif stochastic:
-            alpha = rnorm_reveals(len(means), means, errors, rng=generator)
-        else:
-            alpha = means
+        if ppe_draws is None and ppefun is not None:
+            alpha = vector(
+                np.asarray(
+                    ppefun(len(means), means.copy(), errors.copy()), dtype=float
+                ).reshape(-1),
+                "ppe",
+                nonnegative=True,
+            )
+            if alpha.shape != counts.shape:
+                raise ValidationError(
+                    "pollen, PPE, and deposition must have the same number of taxa"
+                )
+            sampled_ppe[iteration] = alpha
+        elif ppe_draws is None and stochastic:
+            sampled_ppe[iteration] = rnorm_reveals(
+                len(means), means, errors, rng=generator
+            )
+        elif ppe_draws is None:
+            sampled_ppe[iteration] = means
 
-        if pollen_draws is not None:
-            pollen_values = np.asarray(pollen_draws, dtype=float)[iteration]
-        elif pollenfun is not None:
-            pollen_values = np.asarray(
-                pollenfun(n=1, pollen=counts.copy()), dtype=float
-            ).reshape(-1)
-        elif stochastic:
-            pollen_values = rmultinom_reveals(
+        if pollen_draws is None and pollenfun is not None:
+            pollen_values = vector(
+                np.asarray(pollenfun(n=1, pollen=counts.copy()), dtype=float).reshape(
+                    -1
+                ),
+                "pollen",
+                nonnegative=True,
+            )
+            if pollen_values.shape != counts.shape:
+                raise ValidationError(
+                    "pollen, PPE, and deposition must have the same number of taxa"
+                )
+            sampled_pollen[iteration] = pollen_values
+        elif pollen_draws is None and stochastic:
+            sampled_pollen[iteration] = rmultinom_reveals(
                 n=1, pollen=counts, rng=generator
             ).reshape(-1)
-        else:
-            pollen_values = counts
+        elif pollen_draws is None:
+            sampled_pollen[iteration] = counts
 
-        samples[iteration] = reveals_cover(
-            pollen_values,
-            alpha,
-            deposition_values,
-        )
+    samples = _reveals_cover_batch(
+        sampled_pollen,
+        sampled_ppe,
+        deposition_values,
+    )
 
     result: dict[str, np.ndarray] = {
         "meansim": samples.mean(axis=0),
