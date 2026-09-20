@@ -10,10 +10,17 @@ from typing import Protocol, cast
 from ....core.geospatial.distance import wgs84_inverse_geodesic
 from ...lra.engine.discovery import EngineBinding, load_engine
 from ...lra.outputs.publication import LRAProduct
-from ..contracts import Fold, ValidationRefusal, finite_number, manifest_sha256
+from ..contracts import (
+    Fold,
+    TrainingAdmission,
+    ValidationRefusal,
+    finite_number,
+    manifest_sha256,
+)
 from ..metrics import closed_composition
 from ..prediction import ForwardInputs, ForwardModel, predict_withheld_site
 from .configuration import (
+    BLOCK_LOCAL_PROFILE,
     LOCAL_EVALUATION_ROLES,
     LOCAL_METHOD,
     LOCAL_PROFILE,
@@ -21,17 +28,22 @@ from .configuration import (
     ExperimentSite,
     ExperimentSpec,
     LocalPollenSpec,
+    SpatialBlockLocalPollenSpec,
     identity,
     object_list,
     object_mapping,
 )
-from .inputs import admitted_pollen_counts, local_channel_evidence, read_geometry
+from .inputs import (
+    admitted_pollen_counts,
+    block_local_channel_evidence,
+    local_channel_evidence,
+    observation_channels,
+    read_geometry,
+)
 from .reconstruction import FoldFits, extract_reconstruction
 
 
 class PreparedGeometry(Protocol):
-    """Only the public prepared-input fields consumed by this host adapter."""
-
     taxa: tuple[str, ...]
     local_k: Iterable[Iterable[float]]
     terrestrial_fraction: Iterable[float]
@@ -110,7 +122,6 @@ def predict_fold(
     input_root: Path,
     consumed_geometry: set[str] | None = None,
 ) -> tuple[list[dict[str, object]], dict[str, object]]:
-    """Use existing baseline and forward APIs; target pollen is never opened."""
     binding, prepared, geometry, bin_id = prepare_target_forward(
         spec,
         target,
@@ -240,7 +251,6 @@ def prepare_target_forward(
     input_root: Path,
     consumed_geometry: set[str] | None = None,
 ) -> tuple[EngineBinding, PreparedGeometry, dict[str, object], str]:
-    """Share the outcome-free target preparation boundary across explicit experiment profiles."""
     geometry = read_geometry(
         input_root, target, spec, consumed_geometry=consumed_geometry
     )
@@ -264,11 +274,6 @@ def prepare_forward_geometry(
     *,
     local_ring_count: int,
 ) -> tuple[EngineBinding, PreparedGeometry]:
-    """Map admitted host geometry and parameters into the existing engine API.
-
-    This mechanical adapter establishes no temporal or source-lineage admission.
-    Each caller must apply its own supported scientific profile before delegation.
-    """
     import pandas as pd
 
     parameters = [
@@ -421,5 +426,113 @@ def predict_assimilated_local(
         "full_terrestrial_fraction": list(prepared.full_terrestrial_fraction),
         "ring_bounds_m": [list(row) for row in prepared.ring_bounds_m],
         "uncertainty_status": "point_predictions_only_intervals_not_implemented",
+    }
+    return {**row, "prediction_manifest_sha256": manifest_sha256(row)}
+
+
+def predict_assimilated_block_local(
+    spec: SpatialBlockLocalPollenSpec,
+    fold: Fold,
+    target: ExperimentSite,
+    anchor: ExperimentSite,
+    admission: TrainingAdmission,
+    product: LRAProduct,
+    request: dict[str, object],
+    *,
+    input_root: Path,
+    consumed_geometry: set[str] | None = None,
+) -> dict[str, object]:
+    channel = block_local_channel_evidence(spec, fold, target, anchor, admission)
+    composition, regional, extracted = extract_reconstruction(product, request, spec)
+    binding, prepared, geometry, bin_id = prepare_target_forward(
+        spec,
+        target,
+        anchor,
+        regional,
+        input_root=input_root,
+        consumed_geometry=consumed_geometry,
+    )
+    output = cast(ForwardModel, binding.api.forward_deposition)(
+        tuple(composition[taxon] for taxon in prepared.taxa),
+        tuple(prepared.regional_deposition),
+        tuple(tuple(row) for row in prepared.local_k),
+        tuple(prepared.terrestrial_fraction),
+        tuple(prepared.ppe),
+    )
+    if output.method_profile != prepared.method_profile:
+        raise ValidationRefusal("forward_profile_mismatch", output.method_profile)
+    values = tuple(output.pollen_fraction)
+    if len(values) != len(prepared.taxa):
+        raise ValidationRefusal(
+            "taxon_denominator_mismatch", "Forward output shape differs"
+        )
+    pollen = closed_composition(dict(zip(prepared.taxa, values, strict=True)))
+    local = object_mapping(request["local"], "local")
+    sample = object_mapping(object_list(local["samples"], "samples")[0], "sample")
+    counts = admitted_pollen_counts(
+        dict(zip(prepared.taxa, object_list(sample["counts"], "counts"), strict=True)),
+        prepared.taxa,
+    )
+    target_owner = next(
+        row
+        for row in observation_channels(spec)
+        if row.record_id == target.record.record_id
+    )
+    criterion = object_mapping(json.loads(admission.criterion_json), "criterion")
+    supports = object_mapping(criterion["supports"], "supports")
+    row: dict[str, object] = {
+        "profile": BLOCK_LOCAL_PROFILE,
+        "fold_id": fold.fold_id,
+        "record_id": target.record.record_id,
+        "group_id": target_owner.group_id,
+        "bin_id": bin_id,
+        "method": LOCAL_METHOD,
+        "method_kind": "local_pollen_assimilation",
+        "evaluation_roles": LOCAL_EVALUATION_ROLES,
+        "pollen_eligible_for_heldout_acceptance": False,
+        "vegetation_fraction": composition,
+        "pollen_fraction": pollen,
+        "observed_pollen_count": counts,
+        "observed_pollen_unit": "count",
+        "channel_admission": channel,
+        "training_admission_sha256": manifest_sha256(admission.as_dict()),
+        "outer_fold": fold.as_dict(),
+        "observed_local_pollen_source": {
+            "record_id": target.record.record_id,
+            "group_id": target_owner.group_id,
+            "path": target.raw.path,
+            "sha256": target.raw.sha256,
+            "role": "observed_local_pollen",
+        },
+        "regional_pollen_source": {
+            "record_id": anchor.record.record_id,
+            "path": anchor.raw.path,
+            "sha256": anchor.raw.sha256,
+            "role": "buffer_admitted_training_regional_pollen",
+        },
+        "target_support": supports[target.record.record_id],
+        "regional_anchor_support": supports[anchor.record.record_id],
+        "unused_training_record_ids": [
+            record
+            for record in fold.train_record_ids
+            if record != anchor.record.record_id
+        ],
+        "request_manifest": request,
+        "request_sha256": manifest_sha256(request),
+        "numerical_product": extracted,
+        "target_geometry_sha256": target.geometry.sha256,
+        "support_profile": spec.support_profile,
+        "local_support_radius_m": spec.local_support_radius_m,
+        "preparation_profile": prepared.preparation_profile,
+        "forward_method_profile": output.method_profile,
+        "engine_build": binding.as_dict(),
+        "declared_inversion_rings": geometry["inversion_rings"],
+        "declared_forward_rings": geometry["forward_rings"],
+        "regional_cover": list(prepared.regional_cover),
+        "full_k": [list(value) for value in prepared.full_k],
+        "full_terrestrial_fraction": list(prepared.full_terrestrial_fraction),
+        "ring_bounds_m": [list(value) for value in prepared.ring_bounds_m],
+        "uncertainty_status": "point_predictions_only_intervals_not_implemented",
+        "scientific_acceptance": "not_evaluated",
     }
     return {**row, "prediction_manifest_sha256": manifest_sha256(row)}

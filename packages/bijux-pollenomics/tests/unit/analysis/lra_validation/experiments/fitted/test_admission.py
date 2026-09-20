@@ -9,10 +9,13 @@ import pytest
 
 from bijux_pollenomics.analysis.lra_validation.contracts import ValidationRefusal
 from bijux_pollenomics.analysis.lra_validation.experiments.configuration import (
+    BLOCK_LOCAL_PROFILE,
     BLOCK_PROFILE,
     BLOCK_SPLIT,
     FITTED_METHOD,
+    LOCAL_METHOD,
     SpatialBlockExperimentSpec,
+    SpatialBlockLocalPollenSpec,
 )
 from bijux_pollenomics.analysis.lra_validation.experiments.fitted.admission import (
     admit_block_training,
@@ -60,6 +63,35 @@ def block_payload(root: Path) -> dict[str, Any]:
             },
         )
     return value
+
+
+def block_local_payload(root: Path) -> dict[str, Any]:
+    """Reuse the exact support fixture with analytical local-pollen semantics."""
+    value = block_payload(root)
+    value.update(profile=BLOCK_LOCAL_PROFILE, method=LOCAL_METHOD)
+    return value
+
+
+def test_local_profile_reuses_conservative_whole_block_admission(
+    tmp_path: Path,
+) -> None:
+    spec = SpatialBlockLocalPollenSpec(block_local_payload(tmp_path))
+    records = [site.record for site in spec.sites]
+    groups = {
+        record: fold.test_group_ids[0]
+        for fold in grouped_leave_one_out(records)
+        for record in fold.test_record_ids
+    }
+    fold = next(
+        item
+        for item in grouped_block_holdouts(records)
+        if item.fold_id == "block:block-1"
+    )
+    admission = admit_block_training(
+        spec, fold, groups, read_block_supports(spec, tmp_path)
+    )
+    assert admission.excluded_record_ids == ("p01",)
+    assert spec.regional_priority[0] not in admission.admitted_record_ids
 
 
 def test_all_targets_and_regional_priority_obey_support_buffer(tmp_path: Path) -> None:

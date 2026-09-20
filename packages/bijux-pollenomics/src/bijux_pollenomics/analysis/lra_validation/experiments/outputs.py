@@ -24,6 +24,7 @@ from ..contracts import (
 )
 from ..metrics import closed_composition
 from .configuration import (
+    BLOCK_LOCAL_PROFILE,
     BLOCK_PROFILE,
     FITTED_PROFILE,
     LOCAL_METHOD,
@@ -93,6 +94,7 @@ def publish_phase(
         LOCAL_PROFILE,
         FITTED_PROFILE,
         BLOCK_PROFILE,
+        BLOCK_LOCAL_PROFILE,
         TEMPORAL_PROFILE,
     }:
         raise ValidationRefusal("unsupported_experiment_profile", profile)
@@ -144,6 +146,7 @@ def read_experiment_product(
                 LOCAL_PROFILE,
                 FITTED_PROFILE,
                 BLOCK_PROFILE,
+                BLOCK_LOCAL_PROFILE,
                 TEMPORAL_PROFILE,
             }
             or manifest.get("status") != "generated_exploratory"

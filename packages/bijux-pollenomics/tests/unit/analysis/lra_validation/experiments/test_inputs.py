@@ -322,3 +322,47 @@ def test_geometry_tracker_records_only_successful_admission(tmp_path: Path) -> N
     with pytest.raises(ValidationRefusal):
         read_geometry(tmp_path, spec.sites[1], spec, consumed_geometry=consumed)
     assert consumed == {"p01"}
+
+
+def test_block_local_channel_admits_only_target_and_buffered_anchor(
+    tmp_path: Path,
+) -> None:
+    from bijux_pollenomics.analysis.lra_validation import grouped_block_holdouts
+    from bijux_pollenomics.analysis.lra_validation.experiments.configuration import (
+        SpatialBlockLocalPollenSpec,
+    )
+    from bijux_pollenomics.analysis.lra_validation.experiments.fitted.admission import (
+        admit_block_training,
+        read_block_supports,
+    )
+    from bijux_pollenomics.analysis.lra_validation.experiments.inputs import (
+        block_local_channel_evidence,
+    )
+
+    from .fitted.test_admission import block_local_payload
+
+    spec = SpatialBlockLocalPollenSpec(block_local_payload(tmp_path))
+    records = [site.record for site in spec.sites]
+    groups = {
+        record: item.test_group_ids[0]
+        for item in grouped_leave_one_out(records)
+        for record in item.test_record_ids
+    }
+    fold = next(
+        item
+        for item in grouped_block_holdouts(records)
+        if item.fold_id == "block:block-1"
+    )
+    admission = admit_block_training(
+        spec, fold, groups, read_block_supports(spec, tmp_path)
+    )
+    target = next(site for site in spec.sites if site.record.record_id == "p04")
+    anchor = next(site for site in spec.sites if site.record.record_id == "p02")
+    evidence = block_local_channel_evidence(spec, fold, target, anchor, admission)
+    assert set(evidence["pollen_channel_closure"]) == {"raw:p04", "raw:p02", "p02"}
+    sibling = next(site for site in spec.sites if site.record.record_id == "p05")
+    with pytest.raises(ValidationRefusal):
+        block_local_channel_evidence(spec, fold, sibling, target, admission)
+    excluded = next(site for site in spec.sites if site.record.record_id == "p01")
+    with pytest.raises(ValidationRefusal):
+        block_local_channel_evidence(spec, fold, target, excluded, admission)

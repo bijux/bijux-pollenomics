@@ -7,11 +7,14 @@ from pathlib import Path
 import re
 
 from ...contracts import Fold, TrainingAdmission, ValidationRefusal, finite_number
+from ...metrics import closed_composition
 from ...spatial.support import support_separation
 from ...splits import admit_training_groups, grouped_leave_one_out
 from ..configuration import (
     BLOCK_SPLIT,
+    ExperimentSite,
     SpatialBlockExperimentSpec,
+    SpatialBlockLocalPollenSpec,
     object_list,
     object_mapping,
 )
@@ -41,7 +44,7 @@ class BlockSupport:
 
 
 def read_block_supports(
-    spec: SpatialBlockExperimentSpec, input_root: Path
+    spec: SpatialBlockExperimentSpec | SpatialBlockLocalPollenSpec, input_root: Path
 ) -> dict[str, BlockSupport]:
     """Inspect geometry only; target observations and excluded pollen remain unopened."""
     references = dict(spec.support_references)
@@ -110,7 +113,7 @@ def read_block_supports(
 
 
 def admit_block_training(
-    spec: SpatialBlockExperimentSpec,
+    spec: SpatialBlockExperimentSpec | SpatialBlockLocalPollenSpec,
     fold: Fold,
     groups: dict[str, str],
     supports: dict[str, BlockSupport],
@@ -161,7 +164,9 @@ def admit_block_training(
     )
 
 
-def verify_block_supports(spec: SpatialBlockExperimentSpec, input_root: Path) -> None:
+def verify_block_supports(
+    spec: SpatialBlockExperimentSpec | SpatialBlockLocalPollenSpec, input_root: Path
+) -> None:
     """Recheck every consumed support declaration just before phase publication."""
     for _, reference in spec.support_references:
         read_reference(input_root, reference)
@@ -333,3 +338,120 @@ def validate_prediction_support(
                 "block_prediction_support_mismatch",
                 "Training model coordinates differ from buffered source",
             )
+
+
+def validate_block_local_request(
+    spec: SpatialBlockLocalPollenSpec,
+    row: dict[str, object],
+    target: ExperimentSite,
+    anchor: ExperimentSite,
+) -> None:
+    """Bind retained request/sample evidence to its declared source identities."""
+    from ...contracts import canonical_json, manifest_sha256
+
+    record, regional = target.record.record_id, anchor.record.record_id
+    request = object_mapping(row["request_manifest"], "request")
+    template = spec.template()
+    local = object_mapping(request.get("local"), "local")
+    remote = object_mapping(request.get("regional"), "regional")
+    local_rows = object_list(local.get("samples"), "local_samples")
+    remote_rows = object_list(remote.get("samples"), "regional_samples")
+    if len(local_rows) != 1 or len(remote_rows) != 1:
+        raise ValidationRefusal("invalid_block_local_request", record)
+    local_sample = object_mapping(local_rows[0], "local_sample")
+    remote_sample = object_mapping(remote_rows[0], "regional_sample")
+    taxa = tuple(str(value) for value in object_list(template["taxa"], "taxa"))
+    counts = object_mapping(row["observed_pollen_count"], "counts")
+    expected_evidence = [
+        *object_list(template["evidence"], "evidence"),
+        {
+            "evidence_id": "raw:" + record,
+            "role": "raw_snapshot",
+            "path": target.raw.path,
+            "sha256": target.raw.sha256,
+        },
+        {
+            "evidence_id": "geometry:" + record,
+            "role": "geometry",
+            "path": target.geometry.path,
+            "sha256": target.geometry.sha256,
+        },
+        {
+            "evidence_id": "raw:" + regional,
+            "role": "raw_snapshot",
+            "path": anchor.raw.path,
+            "sha256": anchor.raw.sha256,
+        },
+        {
+            "evidence_id": "geometry:" + regional,
+            "role": "geometry",
+            "path": anchor.geometry.path,
+            "sha256": anchor.geometry.sha256,
+        },
+    ]
+    normalized = spec.template()
+    configuration = object_mapping(normalized["configuration"], "configuration")
+    love = object_mapping(configuration["love"], "love")
+    love["max_ring"] = spec.local_ring_count
+    configuration["love"] = love
+    normalized.update(
+        configuration=configuration,
+        evidence=expected_evidence,
+        local=local,
+        regional=remote,
+        rings=request.get("rings"),
+    )
+    rings = [
+        object_mapping(value, "ring")
+        for value in object_list(request.get("rings"), "rings")
+    ]
+    vegetation = closed_composition(
+        {
+            str(key): finite_number(value)
+            for key, value in object_mapping(
+                row["vegetation_fraction"], "vegetation"
+            ).items()
+        }
+    )
+    pollen = closed_composition(
+        {
+            str(key): finite_number(value)
+            for key, value in object_mapping(row["pollen_fraction"], "pollen").items()
+        }
+    )
+    numerical = object_mapping(row["numerical_product"], "numerical_product")
+    checks = (
+        set(request) == set(template) | {"local", "regional", "rings"},
+        manifest_sha256(request) == row.get("request_sha256"),
+        canonical_json(request) == canonical_json(normalized),
+        request.get("pollen_unit") == row.get("observed_pollen_unit") == "count",
+        set(counts) == set(taxa) == set(vegetation) == set(pollen),
+        all(type(value) is int and value >= 0 for value in counts.values()),
+        [counts[taxon] for taxon in taxa]
+        == object_list(local_sample.get("counts"), "counts"),
+        local_sample.get("raw_evidence_id") == "raw:" + record,
+        remote_sample.get("raw_evidence_id") == "raw:" + regional,
+        local_sample.get("site_id") == target.record.site_id,
+        remote_sample.get("site_id") == anchor.record.site_id,
+        all(
+            local_sample.get(key) == remote_sample.get(key)
+            for key in ("coordinate", "bin_id", "age_type")
+        ),
+        local_sample.get("bin_id") == row.get("bin_id"),
+        object_mapping(local.get("basin"), "basin").get("geometry_evidence_id")
+        == "geometry:" + record,
+        object_mapping(remote.get("basin"), "basin").get("geometry_evidence_id")
+        == "geometry:" + regional,
+        bool(rings)
+        and all(
+            ring.get("geometry_evidence_id") == "geometry:" + record for ring in rings
+        ),
+        [
+            {key: value for key, value in ring.items() if key != "geometry_evidence_id"}
+            for ring in rings
+        ]
+        == row.get("declared_inversion_rings"),
+        numerical.get("composition") == vegetation,
+    )
+    if not all(checks):
+        raise ValidationRefusal("block_local_request_mismatch", record)

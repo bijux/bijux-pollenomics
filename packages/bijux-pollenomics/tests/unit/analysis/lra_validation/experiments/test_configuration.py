@@ -11,6 +11,7 @@ from bijux_pollenomics.analysis.lra_validation.experiments.configuration import 
     BLOCK_METHODS,
     FITTED_METHOD,
     InputReference,
+    SpatialBlockLocalPollenSpec,
 )
 
 from .test_inputs import fixture_inputs
@@ -61,3 +62,14 @@ def test_invalid_declared_scope(tmp_path: Path, field: str, value: object) -> No
     payload[field] = value
     with pytest.raises(ValidationRefusal):
         ExperimentSpec(payload)
+
+
+def test_block_local_profile_is_analytical_and_round_trips(tmp_path: Path) -> None:
+    from .fitted.test_admission import block_local_payload
+
+    payload = block_local_payload(tmp_path)
+    spec = SpatialBlockLocalPollenSpec(payload)
+    assert spec.request() == payload
+    payload["method"] = "training_mean"
+    with pytest.raises(ValidationRefusal, match="analytical"):
+        SpatialBlockLocalPollenSpec(payload)

@@ -15,6 +15,7 @@ from ..channels import (
 )
 from ..contracts import (
     Fold,
+    TrainingAdmission,
     ValidationRefusal,
     canonical_json,
     finite_number,
@@ -26,6 +27,7 @@ from .configuration import (
     ExperimentSite,
     InputReference,
     LocalPollenSpec,
+    SpatialBlockLocalPollenSpec,
     identity,
     object_list,
     object_mapping,
@@ -278,17 +280,24 @@ def make_request(
     fold: Fold,
     root: Path,
     *,
+    training_admission: TrainingAdmission | None = None,
     consumed_pollen: set[str] | None = None,
     consumed_geometry: set[str] | None = None,
 ) -> dict[str, object]:
     """Materialize one actual local/regional observation pair, without pooling."""
-    if isinstance(spec, LocalPollenSpec):
+    if isinstance(spec, SpatialBlockLocalPollenSpec):
+        if training_admission is None:
+            raise ValidationRefusal("missing_training_admission", fold.fold_id)
+        block_local_channel_evidence(spec, fold, local, anchor, training_admission)
+    elif isinstance(spec, LocalPollenSpec):
         local_channel_evidence(spec, fold, local, anchor)
     request = spec.template()
     evidence = object_list(request["evidence"], "evidence")
     for role, site in (("local", local), ("regional", anchor)):
         sample = (
-            read_observed_local_pollen(
+            _read_observation(root, site, spec, consumed_geometry=consumed_geometry)
+            if role == "local" and isinstance(spec, SpatialBlockLocalPollenSpec)
+            else read_observed_local_pollen(
                 root, site, fold, spec, consumed_geometry=consumed_geometry
             )
             if role == "local" and isinstance(spec, LocalPollenSpec)
@@ -390,7 +399,6 @@ def observation_channels(spec: LocalPollenSpec) -> tuple[ObservationChannels, ..
 
 
 def channel_catalogue(spec: LocalPollenSpec) -> list[dict[str, object]]:
-    """Administrative ownership contains unused source hashes, separate from fit identity."""
     return [
         {
             "record_id": row.record_id,
@@ -461,9 +469,71 @@ def local_channel_evidence(
         "observed_pollen": {
             "record_id": observed.record_id,
             "group_id": observed.group_id,
-            "pollen_channels": [
-                {"input_id": source.input_id, "source_sha256": source.source_sha256}
-                for source in observed.pollen_channels
-            ],
+            "pollen_channels": [source.__dict__ for source in observed.pollen_channels],
         },
+    }
+
+
+def block_local_channel_evidence(
+    spec: SpatialBlockLocalPollenSpec,
+    fold: Fold,
+    target: ExperimentSite,
+    anchor: ExperimentSite,
+    admission: TrainingAdmission,
+) -> dict[str, object]:
+    admission.validate(fold)
+    if (
+        target not in spec.sites
+        or target.record.record_id not in fold.test_record_ids
+        or anchor not in spec.sites
+        or anchor.record.record_id not in admission.admitted_record_ids
+        or anchor.record.record_id in fold.test_record_ids
+    ):
+        raise ValidationRefusal("invalid_block_local_channel_admission", fold.fold_id)
+    catalogue = observation_channels(spec)
+    target_owner = next(
+        row for row in catalogue if row.record_id == target.record.record_id
+    )
+    observed = ObservedPollenAdmission(
+        target.record.record_id, target_owner.group_id, target_owner.pollen_channels
+    )
+    inputs = (raw_identity(target), raw_identity(anchor))
+    graph = {
+        source.input_id: (
+            () if row.record_id == target.record.record_id else (row.record_id,)
+        )
+        for row in catalogue
+        for source in row.pollen_channels
+    }
+    graph.update(dict.fromkeys(fold.train_record_ids, ()))
+    closure = assert_channel_inputs(
+        fold, inputs, graph, channels=catalogue, observed_pollen=observed
+    )
+    if set(closure) != {*inputs, anchor.record.record_id}:
+        raise ValidationRefusal("invalid_block_local_channel_closure", fold.fold_id)
+    consumed = [
+        {
+            "record_id": row.record_id,
+            "group_id": row.group_id,
+            "input_id": source.input_id,
+            "source_sha256": source.source_sha256,
+        }
+        for row in catalogue
+        for source in row.pollen_channels
+        if source.input_id in closure
+    ]
+    return {
+        "schema_version": "lra-block-local-pollen-channel-admission.v1",
+        "original_fold_sha256": manifest_sha256(fold.as_dict()),
+        "training_admission_sha256": manifest_sha256(admission.as_dict()),
+        "pollen_input_ids": inputs,
+        "pollen_channel_closure": closure,
+        "quantitative_lineage": {key: graph[key] for key in closure},
+        "consumed_pollen_sources": consumed,
+        "observed_pollen": {
+            "record_id": observed.record_id,
+            "group_id": observed.group_id,
+            "pollen_channels": [source.__dict__ for source in observed.pollen_channels],
+        },
+        "regional_anchor_record_id": anchor.record.record_id,
     }
