@@ -459,6 +459,36 @@ ordering—not historical human non-access. HYDE, ESSD and reconstruction output
 remain ineligible as independent measured vegetation; actual source products,
 observation joins, scoring and qualified review are separate downstream gates.
 
+`read_observation_source_products` implements the next engineering gate. It
+accepts only that durable start receipt, reads the fixed measured-vegetation and
+held-out-pollen locators in order, verifies their exact bytes and governed reader
+identity, and publishes either a canonical completion receipt or a canonical
+failure receipt. Its two typed products retain complete available, missing and
+refused denominators; source snapshot/member, rights, reviewed-mapping and
+normalization identities; exact ownership and support; vegetation fractions or
+nulls; and nonnegative integer pollen counts, effort and all-zero status. Reopen
+replays those fields from embedded canonical source bytes without reopening an
+outcome path. These declarations are byte-bound, not independent authentication
+of a provider, rights holder or scientific reviewer.
+
+`build_authenticated_observation_product` accepts only a successful typed source
+completion. It rederives the model-free access assignments and retains the exact
+source-unit envelopes. `build_observed_six_cell_product` then expands each
+assignment over the already frozen model/baseline pair. Prediction failures stay
+prediction failures; missing or refused observations remain a separate source
+terminal and do not rewrite prediction bytes. Available observations attach the
+same values, support and provenance identity to both comparison methods.
+
+`evaluate_observed_six_cell_product` is the release-oriented scoring entry point.
+It rejects a raw tuple, mapping or lazy iterable before row access, reopens the
+joined product, and evaluates grouped-outer and spatial-block protocols under
+their own policy and scope. The result binds every prediction, access, source,
+observation and protocol parent while retaining missing and refused source
+statuses separately. `evaluate_final` remains the generic compatibility scorer;
+its result alone is not release-product evidence. Neither entry point verifies
+reviewer authenticity, grants scientific approval or supplies missing reviewed
+thresholds and real admitted observations.
+
 `bijux_pollenomics_lra.sample_pollen_observations` supplies a separate conditional
 observation model. It accepts predicted pollen fractions, declared counting
 effort, seed, nominal coverage and the host's prediction/effort evidence hashes.
