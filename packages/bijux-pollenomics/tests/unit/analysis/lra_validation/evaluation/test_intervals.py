@@ -25,6 +25,10 @@ from bijux_pollenomics.analysis.lra_validation.experiments import (
     prepare_fitted_spatial_predictions,
     read_withheld_predictions,
 )
+from bijux_pollenomics.analysis.lra_validation.experiments.configuration import (
+    FITTED_METHOD,
+    TRAINING_MEAN_METHOD,
+)
 from bijux_pollenomics.analysis.lra_validation.observation_uncertainty import (
     EffortDeclaration,
     ObservationUncertaintyPlan,
@@ -54,6 +58,36 @@ def _store_effort(root: Path, record_id: str, effort: int) -> tuple[str, str]:
         + "\n"
     )
     return path.name, hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def _evaluation_row(source: dict[str, object], method: str) -> EvaluationRow:
+    pollen = cast(dict[str, float], source["pollen_fraction"])
+    model = (
+        source
+        if method == FITTED_METHOD
+        else cast(dict[str, object], source["baseline_model_manifest"])
+    )
+    training_input_ids = cast(list[str], model["training_input_ids"])
+    return EvaluationRow(
+        fold_id=str(source["fold_id"]),
+        record_id=str(source["record_id"]),
+        model_id=method,
+        target="pollen_composition",
+        experiment="all_target_pollen_withheld",
+        status="predicted",
+        prediction=tuple(sorted(pollen.items())),
+        observation=None,
+        observation_reference_id=None,
+        observation_kind=None,
+        observation_support=None,
+        prediction_sha256=None,
+        prediction_manifest_json=None,
+        fitted_model_sha256=(
+            str(source["model_sha256"]) if method == FITTED_METHOD else None
+        ),
+        prediction_frozen_at=None,
+        fit_input_ids=tuple(training_input_ids),
+    )
 
 
 @pytest.fixture(scope="module")
@@ -106,28 +140,9 @@ def products(
         evidence_root=effort_root,
         destination=tmp_path / "uncertainty",
     )
-    fold_id, method = sorted(rows)[0]
+    fold_id, method = next(key for key in sorted(rows) if key[1] == FITTED_METHOD)
     source = rows[(fold_id, method)]
-    pollen = cast(dict[str, float], source["pollen_fraction"])
-    training_input_ids = cast(list[str], source["training_input_ids"])
-    row = EvaluationRow(
-        fold_id=fold_id,
-        record_id=str(source["record_id"]),
-        model_id=method,
-        target="pollen_composition",
-        experiment="all_target_pollen_withheld",
-        status="predicted",
-        prediction=tuple(sorted(pollen.items())),
-        observation=None,
-        observation_reference_id=None,
-        observation_kind=None,
-        observation_support=None,
-        prediction_sha256=None,
-        prediction_manifest_json=None,
-        fitted_model_sha256=str(source["model_sha256"]),
-        prediction_frozen_at=None,
-        fit_input_ids=tuple(training_input_ids),
-    )
+    row = _evaluation_row(source, method)
     return predictions, uncertainty, row
 
 
@@ -163,10 +178,40 @@ def test_governed_conditional_interval_is_bound_before_outcomes(
     assert frozen.observation is None
     assert frozen.prediction_frozen_at is not None
     assert frozen.prediction_sha256 is not None
+    assert frozen.source_model is not None
+    assert frozen.source_model.kind == "fitted_spatial"
     envelope = json.loads(str(frozen.prediction_manifest_json))
+    assert envelope["schema_version"] == "pollenomics-evaluation-prediction.v2"
     assert envelope["interval"]["limits"] == [
         list(item) for item in frozen.interval.limits
     ]
+
+
+def test_training_mean_interval_uses_distinct_authenticated_source(
+    products: tuple[ExperimentProduct, ExperimentProduct, EvaluationRow],
+) -> None:
+    predictions, uncertainty, _ = products
+    _, _, _, rows, _ = read_withheld_predictions(
+        predictions.directory,
+        expected_manifest_sha256=predictions.manifest_sha256,
+    )
+    _, source = next(
+        (key, value)
+        for key, value in sorted(rows.items())
+        if key[1] == TRAINING_MEAN_METHOD
+    )
+    frozen = freeze_authenticated_pollen_interval(
+        _evaluation_row(source, TRAINING_MEAN_METHOD),
+        predictions=predictions.directory,
+        expected_prediction_manifest_sha256=predictions.manifest_sha256,
+        uncertainty=uncertainty.directory,
+        expected_uncertainty_manifest_sha256=uncertainty.manifest_sha256,
+    )
+    assert frozen.source_model is not None
+    assert frozen.source_model.kind == "admitted_reconstruction_training_mean"
+    assert frozen.fitted_model_sha256 is None
+    envelope = json.loads(str(frozen.prediction_manifest_json))
+    assert envelope["schema_version"] == "pollenomics-evaluation-prediction.v2"
 
 
 @pytest.mark.parametrize(

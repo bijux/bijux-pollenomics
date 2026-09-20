@@ -8,8 +8,10 @@ from ...splits import assert_allowed_inputs
 from ..configuration import (
     BASELINES,
     FITTED_METHOD,
+    FITTED_METHODS,
     FITTED_PROFILE,
     FITTED_ROLES,
+    TRAINING_MEAN_METHOD,
     identity,
     object_list,
     object_mapping,
@@ -41,6 +43,11 @@ def _predictions(
             )
         folds[key] = fold
     fitted = manifest["profile"] == FITTED_PROFILE
+    paired = (
+        fitted
+        and scientific.get("schema_version")
+        == "lra-grouped-outer-paired-predictions.v1"
+    )
     method_field = "method" if fitted else "baseline"
     method_list = "methods" if fitted else "baselines"
     methods = tuple(
@@ -49,7 +56,9 @@ def _predictions(
     if (
         not methods
         or len(set(methods)) != len(methods)
-        or not set(methods).issubset((FITTED_METHOD,) if fitted else BASELINES)
+        or (fitted and not paired and "schema_version" in scientific)
+        or (fitted and methods != (FITTED_METHODS if paired else (FITTED_METHOD,)))
+        or (not fitted and not set(methods).issubset(BASELINES))
         or (fitted and scientific.get("evaluation_roles") != FITTED_ROLES)
     ):
         raise ValidationRefusal(
@@ -63,6 +72,7 @@ def _predictions(
             prediction_key in predictions
             or prediction_key[0] not in folds
             or prediction_key[1] not in methods
+            or any(key.startswith("observed_") or "outcome" in key for key in row)
         ):
             raise ValidationRefusal(
                 "invalid_prediction_inventory", "Duplicate or unknown prediction key"
@@ -74,14 +84,97 @@ def _predictions(
                 "invalid_prediction_inventory",
                 "Prediction target differs from the held-out record",
             )
-        if fitted:
+        if fitted and prediction_key[1] == FITTED_METHOD:
             from ..fitted import validate_fitted_prediction
 
             validate_fitted_prediction(row, folds[prediction_key[0]])
+        elif fitted and prediction_key[1] == TRAINING_MEAN_METHOD:
+            from .training_mean import validate_training_mean_prediction
+
+            validate_training_mean_prediction(row, folds[prediction_key[0]])
         else:
             _validate_baseline_prediction(row, folds[prediction_key[0]])
         predictions[prediction_key] = row
     failures = object_list(scientific["failures"], "failures")
+    if paired:
+        expected = {(fold, method) for fold in folds for method in methods}
+        paired_failures: dict[tuple[str, str], str] = {}
+        for value in failures:
+            row = object_mapping(value, "failure")
+            terminal_key = (identity(row["fold_id"]), identity(row["method"]))
+            outer = folds.get(terminal_key[0])
+            if (
+                outer is None
+                or terminal_key not in expected
+                or terminal_key in predictions
+                or terminal_key in paired_failures
+                or object_list(row.get("record_ids"), "record_ids")
+                != object_list(outer["test_record_ids"], "test_record_ids")
+                or row.get("status") not in {"refused", "not_run"}
+                or not isinstance(row.get("reason_code"), str)
+                or not row["reason_code"]
+                or any(
+                    name.startswith("observed_") or "outcome" in name for name in row
+                )
+            ):
+                raise ValidationRefusal(
+                    "invalid_prediction_inventory",
+                    "Duplicate, contradictory or malformed paired terminal",
+                )
+            status = identity(row["status"])
+            if (status == "not_run") != (
+                row["reason_code"] == "experiment_interrupted"
+            ):
+                raise ValidationRefusal(
+                    "invalid_prediction_inventory",
+                    "Paired interruption status and reason differ",
+                )
+            paired_failures[terminal_key] = status
+        terminal = {terminal_key: "predicted" for terminal_key in predictions}
+        terminal.update(paired_failures)
+        ordered = [(fold, method) for fold in folds for method in methods]
+        first_not_run = next(
+            (
+                index
+                for index, key in enumerate(ordered)
+                if terminal.get(key) == "not_run"
+            ),
+            None,
+        )
+        counts = {
+            "requested_folds": len(folds),
+            "requested_predictions": len(expected),
+            "generated_predictions": len(predictions),
+            "failed_predictions": len(paired_failures),
+            "refused_predictions": sum(
+                value == "refused" for value in paired_failures.values()
+            ),
+            "not_run_predictions": sum(
+                value == "not_run" for value in paired_failures.values()
+            ),
+            "failed_folds": len({terminal_key[0] for terminal_key in paired_failures}),
+        }
+        if (
+            set(predictions) | set(paired_failures) != expected
+            or (
+                first_not_run is not None
+                and any(
+                    terminal.get(key) != "not_run" for key in ordered[first_not_run:]
+                )
+            )
+            or any(
+                type(scientific.get(field)) is not int or scientific[field] != count
+                for field, count in counts.items()
+            )
+            or scientific.get("interrupted") is not (first_not_run is not None)
+            or scientific.get("all_predictions_generated") is not (not paired_failures)
+            or scientific.get("scientific_acceptance") != "not_evaluated"
+        ):
+            raise ValidationRefusal(
+                "invalid_prediction_inventory",
+                "Paired fold/method terminal accounting differs",
+            )
+        return folds, predictions, methods
     failed = {
         identity(object_mapping(value, "failure")["fold_id"]) for value in failures
     }

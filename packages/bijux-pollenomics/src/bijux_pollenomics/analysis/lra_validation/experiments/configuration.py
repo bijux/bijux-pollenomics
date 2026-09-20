@@ -28,7 +28,9 @@ BLOCK_PROFILE = "synthetic-spatial-block-fitted-v1"
 BLOCK_SPLIT = "grouped-spatial-block-support-buffer-v1"
 BLOCK_LOCAL_PROFILE = "synthetic-spatial-block-local-pollen-available-v1"
 FITTED_METHOD = "clr-wgs84-rbf-ridge-v1"
-BLOCK_BASELINE_METHOD = "training_mean"
+TRAINING_MEAN_METHOD = "training_mean"
+BLOCK_BASELINE_METHOD = TRAINING_MEAN_METHOD
+FITTED_METHODS = (FITTED_METHOD, TRAINING_MEAN_METHOD)
 BLOCK_METHODS = (FITTED_METHOD, BLOCK_BASELINE_METHOD)
 FITTED_ROLES = {
     "vegetation_cover": "heldout_prediction",

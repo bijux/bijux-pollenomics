@@ -160,7 +160,7 @@ def score_experiment_predictions(
                 if profile in {FITTED_PROFILE, BLOCK_PROFILE}:
                     method_kind = (
                         "admitted_reconstruction_training_mean"
-                        if profile == BLOCK_PROFILE and method == BLOCK_BASELINE_METHOD
+                        if method == BLOCK_BASELINE_METHOD
                         else "fitted_spatial"
                     )
                     row.update(

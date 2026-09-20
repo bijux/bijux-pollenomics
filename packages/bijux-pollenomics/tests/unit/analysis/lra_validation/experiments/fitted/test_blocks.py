@@ -153,7 +153,7 @@ def training_mean_row_fixture(
         )
 
     monkeypatch.setattr(
-        "bijux_pollenomics.analysis.lra_validation.experiments.fitted.blocks."
+        "bijux_pollenomics.analysis.lra_validation.experiments.fitted.training_mean."
         "prepare_target_forward",
         prepare,
     )
@@ -184,6 +184,9 @@ def test_training_mean_uses_only_admitted_reconstructions_and_has_own_identity(
         "Betula": pytest.approx(0.65),
     }
     model = row["baseline_model_manifest"]
+    assert model["schema_version"] == "lra-spatial-block-training-mean.v1"
+    assert model["training_admission"] == admission
+    assert row["training_admission"] == admission
     excluded = set(outer["train_record_ids"]) - set(
         admission["admitted_training_record_ids"]
     )

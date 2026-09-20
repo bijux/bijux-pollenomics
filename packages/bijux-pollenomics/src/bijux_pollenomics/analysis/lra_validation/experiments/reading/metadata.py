@@ -11,6 +11,7 @@ from ...contracts import (
 )
 from ...splits import grouped_leave_one_out
 from ..configuration import (
+    FITTED_METHOD,
     FITTED_PROFILE,
     PROFILE,
     InputReference,
@@ -36,6 +37,11 @@ def validate_singleton_metadata(
     """Check recorded facts only; historical omitted fitted ring count is not inferred."""
     metadata = object_mapping(value, "experiment")
     fitted = scientific["profile"] == FITTED_PROFILE
+    paired = (
+        fitted
+        and scientific.get("schema_version")
+        == "lra-grouped-outer-paired-predictions.v1"
+    )
     profile = FITTED_PROFILE if fitted else PROFILE
     common = {"profile", "request_template", "regional_priority", "source_catalogue"}
     expected = common | (
@@ -139,7 +145,22 @@ def validate_singleton_metadata(
     ]
     for row in failures:
         outer = folds[identity(row["fold_id"])]
-        _same(row["record_ids"], outer["test_record_ids"], "refusal target accounting")
+        if paired:
+            _same(
+                row["record_ids"],
+                outer["test_record_ids"],
+                "paired refusal target accounting",
+            )
+            if row["method"] not in methods:
+                raise ValidationRefusal(
+                    "invalid_singleton_interruption", "Unknown paired method"
+                )
+        else:
+            _same(
+                row["record_ids"],
+                outer["test_record_ids"],
+                "refusal target accounting",
+            )
         if row["status"] not in {"not_run", "refused"} or (
             (row["status"] == "not_run")
             != (row["reason_code"] == "experiment_interrupted")
@@ -157,8 +178,14 @@ def validate_singleton_metadata(
         "requested_folds": len(originals),
         "requested_predictions": len(originals) * len(methods),
         "generated_predictions": len(predictions),
-        "failed_folds": len(failures),
+        "failed_folds": len({identity(row["fold_id"]) for row in failures}),
     }
+    if paired:
+        counts.update(
+            failed_predictions=len(failures),
+            refused_predictions=sum(row["status"] == "refused" for row in failures),
+            not_run_predictions=sum(row["status"] == "not_run" for row in failures),
+        )
     if any(
         type(scientific[key]) is not int or scientific[key] != value
         for key, value in counts.items()
@@ -231,11 +258,6 @@ def validate_singleton_metadata(
             )
         if fitted:
             _same(row["support"], support, "fitted output support")
-            fit = object_mapping(row["fit_manifest"], "fit_manifest")
-            config = object_mapping(fit["configuration"], "configuration")
-            _same(
-                {key: config[key] for key in method}, method, "fitted method parameters"
-            )
             anchor = next(
                 (
                     record
@@ -247,4 +269,19 @@ def validate_singleton_metadata(
                 ),
                 None,
             )
-            _same(row["regional_anchor_record_id"], anchor, "regional priority")
+            source = (
+                row
+                if row["method"] == FITTED_METHOD
+                else object_mapping(
+                    row["baseline_model_manifest"], "baseline_model_manifest"
+                )
+            )
+            _same(source["regional_anchor_record_id"], anchor, "regional priority")
+            if row["method"] == FITTED_METHOD:
+                fit = object_mapping(row["fit_manifest"], "fit_manifest")
+                config = object_mapping(fit["configuration"], "configuration")
+                _same(
+                    {key: config[key] for key in method},
+                    method,
+                    "fitted method parameters",
+                )

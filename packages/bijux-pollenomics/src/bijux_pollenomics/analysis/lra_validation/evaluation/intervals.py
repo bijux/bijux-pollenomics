@@ -8,7 +8,13 @@ from typing import cast
 
 from ...lra.engine.discovery import load_engine
 from ..contracts import finite_number, manifest_sha256
-from ..experiments.configuration import identity, object_list, object_mapping
+from ..experiments.configuration import (
+    FITTED_METHOD,
+    TRAINING_MEAN_METHOD,
+    identity,
+    object_list,
+    object_mapping,
+)
 from ..experiments.outputs import read_experiment_product, read_member
 from ..observation_uncertainty.contracts import (
     PROFILE as OBSERVATION_PROFILE,
@@ -23,6 +29,7 @@ from ..observation_uncertainty.workflow import (
 from .contracts import (
     EvaluationRow,
     PredictiveInterval,
+    _authenticated_source_model,
     digest,
     freeze_evaluation_prediction,
     refuse,
@@ -203,7 +210,9 @@ def freeze_authenticated_pollen_interval(
         or row.prediction_manifest_json is not None
         or row.prediction_frozen_at is not None
         or row.observed_pollen is not None
+        or row.source_model is not None
         or row.reason is not None
+        or row.model_id not in {FITTED_METHOD, TRAINING_MEAN_METHOD}
     ):
         refuse("Require an outcome-free, unfrozen, all-target-withheld pollen row")
     plan, parent_rows, retained = _authenticated_draws(
@@ -220,19 +229,37 @@ def freeze_authenticated_pollen_interval(
     entry = next((entry for entry in plan.entries if entry.key == key), None)
     if entry is None or entry.record_id != row.record_id:
         refuse("Evaluation record differs from the frozen uncertainty plan")
+    fitted = row.model_id == FITTED_METHOD
+    model = (
+        parent
+        if fitted
+        else object_mapping(
+            parent.get("baseline_model_manifest"), "baseline_model_manifest"
+        )
+    )
+    source_sha256 = digest(
+        cast(
+            str,
+            parent.get("model_sha256")
+            if fitted
+            else parent.get("baseline_model_sha256"),
+        )
+    )
+    inputs = tuple(
+        identity(value)
+        for value in object_list(model.get("training_input_ids"), "training_input_ids")
+    )
     if (
         parent.get("method") != row.model_id
         or parent.get("record_id") != row.record_id
-        or parent.get("model_sha256") != row.fitted_model_sha256
-        or tuple(
-            identity(value)
-            for value in object_list(
-                parent.get("training_input_ids"), "training_input_ids"
-            )
+        or inputs != row.fit_input_ids
+        or (fitted and row.fitted_model_sha256 != source_sha256)
+        or (not fitted and row.fitted_model_sha256 is not None)
+        or (
+            not fitted and manifest_sha256(model) != parent.get("baseline_model_sha256")
         )
-        != row.fit_input_ids
     ):
-        refuse("Only an authenticated fitted prediction can receive a final interval")
+        refuse("Only an authenticated governed prediction can receive an interval")
     prediction = dict(row.prediction)
     pollen = object_mapping(parent["pollen_fraction"], "pollen_fraction")
     if len(prediction) != len(row.prediction) or prediction != pollen:
@@ -270,4 +297,10 @@ def freeze_authenticated_pollen_interval(
         uncertainty_kind="predictive_observation",
         limits=tuple(limits),
     )
-    return freeze_evaluation_prediction(replace(row, interval=interval))
+    source_model = _authenticated_source_model(
+        "fitted_spatial" if fitted else "admitted_reconstruction_training_mean",
+        source_sha256,
+    )
+    return freeze_evaluation_prediction(
+        replace(row, interval=interval, source_model=source_model)
+    )

@@ -212,7 +212,7 @@ def _row(
         _equal(row.get("evaluation_role"), role, "fitted role")
         method_kind = (
             "admitted_reconstruction_training_mean"
-            if profile == BLOCK_PROFILE and method == BLOCK_BASELINE_METHOD
+            if method == BLOCK_BASELINE_METHOD
             else "fitted_spatial"
         )
         _equal(row.get("method_kind"), method_kind, "method kind")

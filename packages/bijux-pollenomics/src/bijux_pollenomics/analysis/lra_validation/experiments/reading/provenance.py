@@ -9,7 +9,13 @@ from ...contracts import (
     finite_number,
     manifest_sha256,
 )
-from ..configuration import FITTED_PROFILE, identity, object_list, object_mapping
+from ..configuration import (
+    FITTED_METHOD,
+    FITTED_PROFILE,
+    identity,
+    object_list,
+    object_mapping,
+)
 from ..outputs import ExperimentProduct, read_member
 
 
@@ -89,8 +95,26 @@ def validate_singleton_provenance(
         fold_rows = [row for key, row in predictions.items() if key[0] == fold_id]
         if not fold_rows:
             continue
-        state = fold_rows[0] if fitted else training[fold_id]
-        _same(state["outer_fold"], outer, "training fold")
+        if fitted:
+            fitted_row = next(
+                (row for row in fold_rows if row.get("method") == FITTED_METHOD),
+                None,
+            )
+            state = (
+                fitted_row
+                if fitted_row is not None
+                else object_mapping(
+                    fold_rows[0]["baseline_model_manifest"],
+                    "baseline_model_manifest",
+                )
+            )
+        else:
+            state = training[fold_id]
+        _same(
+            state["outer_fold"] if "outer_fold" in state else state["fold"],
+            outer,
+            "training fold",
+        )
         _same(state["regional_anchor_record_id"], anchor, "training anchor")
         products = [
             object_mapping(value, "training_product")

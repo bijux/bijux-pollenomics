@@ -297,6 +297,17 @@ forward pollen deposition. Its synthetic singleton folds withhold both target
 observations. Prediction products retain training products, regional ancestry,
 geometry, fitted state and separate vegetation/pollen fractions.
 
+The current grouped-outer producer has a versioned paired payload. Before fitting
+the spatial model it freezes a distinct training-mean model over the same exact
+original-fold reconstructions, then projects both methods through the governed
+target forward model. Reconstruction failure applies to both methods, while a
+spatial-fit refusal can coexist with a successful baseline. Every fold/method is
+predicted, refused or part of the deterministic interrupted `not_run` suffix.
+The strict reader recomputes the baseline mean and complete input closure and
+keeps its `admitted_reconstruction_training_mean` identity separate from the
+fitted model. Historical fitted-only products retain their legacy reader branch;
+the paired schema never accepts an arbitrary method subset.
+
 `prepare_spatial_block_predictions` uses a separate declared spatial-block profile.
 It preserves the original physical-site groups, excludes training groups using
 unrounded footprint separation, selects an admitted regional anchor and fits one
@@ -364,8 +375,9 @@ empirical coverage, first-access timing and scientific acceptance remain false.
 These spatial experiments remain synthetic and exploratory. Joint model
 uncertainty requires separate profiles and evidence.
 
-`read_withheld_predictions` authenticates a caller-pinned saved baseline or fitted
-product before outcome access. It rechecks original folds, training lineage,
+`read_withheld_predictions` authenticates a caller-pinned saved baseline, legacy
+fitted-only or versioned paired grouped-outer product before outcome access. It
+rechecks original folds, the exact method/terminal universe, training lineage,
 forward dimensions and exploratory status, and returns independently owned data.
 Reading and scoring retained products work without installing the numerical
 engine. These consistency checks establish neither external authorship nor

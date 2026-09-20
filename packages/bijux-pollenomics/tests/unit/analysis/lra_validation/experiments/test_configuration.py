@@ -10,16 +10,20 @@ from bijux_pollenomics.analysis.lra_validation.experiments.configuration import 
     BLOCK_BASELINE_METHOD,
     BLOCK_METHODS,
     FITTED_METHOD,
+    FITTED_METHODS,
     InputReference,
     SpatialBlockLocalPollenSpec,
+    TRAINING_MEAN_METHOD,
 )
 
 from .test_inputs import fixture_inputs
 
 
 def test_spatial_block_methods_have_one_ordered_fitted_baseline_pair() -> None:
-    assert BLOCK_BASELINE_METHOD == "training_mean"
+    assert TRAINING_MEAN_METHOD == "training_mean"
+    assert BLOCK_BASELINE_METHOD == TRAINING_MEAN_METHOD
     assert BLOCK_METHODS == (FITTED_METHOD, BLOCK_BASELINE_METHOD)
+    assert FITTED_METHODS == (FITTED_METHOD, TRAINING_MEAN_METHOD)
 
 
 @pytest.mark.parametrize(
