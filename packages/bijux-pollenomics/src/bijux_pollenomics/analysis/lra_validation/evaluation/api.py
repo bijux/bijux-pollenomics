@@ -7,6 +7,7 @@ from .block_intervals import (
     freeze_authenticated_block_pollen_interval,
 )
 from .block_local_rows import adapt_authenticated_spatial_block_local_vegetation_rows
+from .block_products import adapt_authenticated_spatial_block_withheld_vegetation_rows
 from .contracts import (
     AcceptanceCell,
     EvaluationPolicy,
@@ -59,6 +60,7 @@ __all__ = [
     "AUTHENTICATED_BLOCK_CONDITIONAL_INTERVAL_PROFILE",
     "freeze_authenticated_block_pollen_interval",
     "adapt_authenticated_spatial_block_local_vegetation_rows",
+    "adapt_authenticated_spatial_block_withheld_vegetation_rows",
     "FINAL_EVALUATION_RELEASE_PROFILE",
     "FinalEvaluationProtocol",
     "FinalEvaluationReleaseAdmission",

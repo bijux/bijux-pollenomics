@@ -339,7 +339,17 @@ This adapter supplies only the outcome-free spatial-block
 interval for local vegetation exists, so the cell remains ineligible for final
 coverage acceptance. The adapter does not bind a release receipt, open vegetation
 truth, establish first-access timing, approve a threshold or grant scientific
-review. Grouped-outer and all-target-withheld product joins remain separate work.
+review. Grouped-outer and remaining release/product joins remain separate work.
+
+`adapt_authenticated_spatial_block_withheld_vegetation_rows` performs the paired
+point-row projection for the spatial-block all-target-withheld vegetation cell.
+It reopens the caller-pinned product, requires the exact frozen fold and complete
+fitted/training-mean terminal universe, checks target group, bin and taxa, and
+preserves refused/not-run parents as value-free failures. Successful rows carry
+the producer-authenticated fitted or admitted-training-mean identity and remain
+free of target pollen and vegetation outcomes. No governed vegetation predictive
+interval exists, so this adapter also cannot establish empirical coverage or
+release acceptance.
 
 These spatial experiments remain synthetic and exploratory. Joint model
 uncertainty requires separate profiles and evidence.
