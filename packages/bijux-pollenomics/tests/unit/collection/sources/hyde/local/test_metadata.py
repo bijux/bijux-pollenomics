@@ -7,6 +7,8 @@ from pathlib import Path
 import pytest
 
 from bijux_pollenomics.collection.sources.hyde.local.metadata import (
+    MetadataClaim,
+    _evidence_conflicts,
     review_hyde_native_metadata,
 )
 from bijux_pollenomics.collection.sources.quarantine import IntakeRefusal
@@ -60,7 +62,7 @@ The Creative Commons License (CC BY 3.0) applies to all HYDE data.
                     "dataset_file_count": 3,
                     "archive_file_count": 1,
                     "archive_member_count": 2,
-                    "netcdf_named_file_count": 3,
+                    "netcdf_named_file_count": 48,
                 },
                 "scientific_acceptance": "not_evaluated",
                 "public_release_allowed": False,
@@ -79,24 +81,27 @@ The Creative Commons License (CC BY 3.0) applies to all HYDE data.
     )
     rows = []
     for scenario in ("base", "lower", "upper"):
-        rows.append(
-            {
-                "path": f"original/gbc2025_7apr_{scenario}/NetCDF/cropland.nc",
-                "attributes": {
-                    "license": "The Creative Commons License (CC BY 3.0)",
-                    "description": "HYDE3.4 test netCDF",
-                    "version": "HYDE3.4",
-                },
-                "variables": {
-                    "time": {
-                        "attributes": {
-                            "calendar": "365_day",
-                            "units": "days since 1-5-1 00:00:00",
+        for index in range(16):
+            rows.append(
+                {
+                    "path": (
+                        f"original/gbc2025_7apr_{scenario}/NetCDF/cropland-{index}.nc"
+                    ),
+                    "attributes": {
+                        "license": "The Creative Commons License (CC BY 3.0)",
+                        "description": "HYDE3.4 test netCDF",
+                        "version": "HYDE3.4",
+                    },
+                    "variables": {
+                        "time": {
+                            "attributes": {
+                                "calendar": "365_day",
+                                "units": "days since 1-5-1 00:00:00",
+                            }
                         }
-                    }
-                },
-            }
-        )
+                    },
+                }
+            )
     headers_path, headers_hash = _write(tmp_path / "headers.json", json.dumps(rows))
     return {
         "license_path": license_path,
@@ -161,12 +166,76 @@ def test_scenarios_are_not_relabelled_confidence_bounds(tmp_path: Path) -> None:
     scenario = review.payload()["scenario_semantics"]
     assert scenario == {
         "labels": ["base", "lower", "upper"],
-        "netcdf_header_counts": {"base": 1, "lower": 1, "upper": 1},
+        "netcdf_header_counts": {"base": 16, "lower": 16, "upper": 16},
         "role": "provider_estimate_scenarios",
         "confidence_bounds_status": "not_declared",
         "pointwise_ordering_contract": "none",
     }
     assert "scenario_uncertainty_semantics_unresolved" in review.conflicts
+    assert "scenario_inventory_conflict" not in review.conflicts
+
+
+def test_uneven_scenario_inventory_is_explicit_conflict(tmp_path: Path) -> None:
+    inputs = _inputs(tmp_path)
+    headers = inputs["netcdf_headers_path"]
+    assert isinstance(headers, Path)
+    rows = json.loads(headers.read_text())
+    retained = {"lower": 0, "upper": 0}
+    for row in rows:
+        for scenario in retained:
+            marker = f"_{scenario}/"
+            if marker not in row["path"]:
+                continue
+            retained[scenario] += 1
+            if retained[scenario] > 1:
+                row["path"] = row["path"].replace(marker, "_base/")
+    headers.write_text(json.dumps(rows))
+    inputs["netcdf_headers_sha256"] = hashlib.sha256(headers.read_bytes()).hexdigest()
+    review = review_hyde_native_metadata(**inputs)  # type: ignore[arg-type]
+    assert review.payload()["scenario_semantics"] == {
+        "labels": ["base", "lower", "upper"],
+        "netcdf_header_counts": {"base": 46, "lower": 1, "upper": 1},
+        "role": "provider_estimate_scenarios",
+        "confidence_bounds_status": "not_declared",
+        "pointwise_ordering_contract": "none",
+    }
+    assert "scenario_inventory_conflict" in review.conflicts
+    admission = review.payload()["admission"]
+    assert isinstance(admission, dict)
+    assert admission["native_release_status"] == "refused_pending_review"
+
+
+def test_conflict_labels_follow_attributed_claim_values() -> None:
+    claims = [
+        MetadataClaim("release", "readme", "3.4", "title"),
+        MetadataClaim("release", "headers", "HYDE3.4", "48_of_48"),
+        MetadataClaim("coverage_end_year", "readme", "2025", "extension"),
+        MetadataClaim("coverage_end_year", "yoda", "2025", "extension"),
+        MetadataClaim("license", "readme", "CC-BY-3.0", "disclaimer"),
+        MetadataClaim("license", "headers", "CC-BY-3.0", "48_of_48"),
+        MetadataClaim("calendar", "headers", "365_day", "48_of_48"),
+        MetadataClaim("calendar_units", "headers", "days", "48_of_48"),
+        MetadataClaim("calendar_label", "files", "0AD", "9 native paths"),
+    ]
+    scenarios = (("base", 16), ("lower", 16), ("upper", 16))
+    conflicts = _evidence_conflicts(claims, scenarios)
+    assert conflicts == {
+        "calendar_mapping_unresolved",
+        "scenario_uncertainty_semantics_unresolved",
+        "zero_ad_calendar_interpretation_unresolved",
+    }
+    claims.extend(
+        (
+            MetadataClaim("release", "yoda", "3.5", "Description"),
+            MetadataClaim("coverage_end_year", "yoda", "2024", "period covered"),
+            MetadataClaim("license", "yoda", "CC-BY-NC-4.0", "License"),
+        )
+    )
+    assert {
+        "release_identity_conflict",
+        "coverage_end_year_conflict",
+        "license_declaration_conflict",
+    }.issubset(_evidence_conflicts(claims, scenarios))
 
 
 def test_same_pinned_inputs_produce_identical_canonical_review(tmp_path: Path) -> None:
@@ -219,7 +288,7 @@ def test_header_count_disagreement_is_preserved_as_conflict(tmp_path: Path) -> N
     custody = inputs["custody_receipt_path"]
     assert isinstance(custody, Path)
     payload = json.loads(custody.read_text())
-    payload["counts"]["netcdf_named_file_count"] = 48
+    payload["counts"]["netcdf_named_file_count"] = 47
     custody.write_text(json.dumps(payload))
     inputs["custody_receipt_sha256"] = hashlib.sha256(custody.read_bytes()).hexdigest()
     review = review_hyde_native_metadata(**inputs)  # type: ignore[arg-type]

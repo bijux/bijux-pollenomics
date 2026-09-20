@@ -19,6 +19,7 @@ _CUSTODY_LIMIT = 64 * 1024
 _CUSTODY_FILES_LIMIT = 512 * 1024
 _HEADER_LIMIT = 12 * 1024 * 1024
 _SCENARIOS = ("base", "lower", "upper")
+_EXPECTED_SCENARIO_HEADER_COUNTS = tuple((name, 16) for name in _SCENARIOS)
 
 
 @dataclass(frozen=True)
@@ -161,19 +162,12 @@ def review_hyde_native_metadata(
     claims.extend(header_claims)
     counts = _custody_counts(custody)
     custody_header_count = counts.get("netcdf_named_file_count")
-    conflicts = {
-        "calendar_mapping_unresolved",
-        "coverage_end_year_conflict",
-        "license_declaration_conflict",
-        "release_identity_conflict",
-        "scenario_uncertainty_semantics_unresolved",
-        "zero_ad_calendar_interpretation_unresolved",
-    }
+    conflicts = _evidence_conflicts(claims, scenarios)
     if custody_header_count != len(headers):
         conflicts.add("custody_netcdf_header_count_conflict")
     if counts.get("dataset_file_count") != len(custody_files):
         conflicts.add("custody_dataset_file_count_conflict")
-    if tuple(name for name, _ in scenarios) != _SCENARIOS:
+    if scenarios != _EXPECTED_SCENARIO_HEADER_COUNTS:
         conflicts.add("scenario_inventory_conflict")
     return HydeMetadataReview(
         input_files=tuple(
@@ -187,6 +181,37 @@ def review_hyde_native_metadata(
         scenarios=scenarios,
         conflicts=tuple(sorted(conflicts)),
     )
+
+
+def _evidence_conflicts(
+    claims: list[MetadataClaim], scenarios: tuple[tuple[str, int], ...]
+) -> set[str]:
+    """Derive unresolved/conflicting topics from attributed evidence.
+
+    Qualified review remains required even when declarations happen to agree;
+    absence of a lexical conflict is not scientific or release admission.
+    """
+    values: dict[str, set[str]] = {}
+    for claim in claims:
+        value = claim.value
+        if claim.topic == "release":
+            match = re.search(r"[0-9]+(?:\.[0-9]+)+", value)
+            value = match[0] if match is not None else value.casefold()
+        values.setdefault(claim.topic, set()).add(value)
+    conflicts: set[str] = set()
+    if len(values.get("coverage_end_year", set())) > 1:
+        conflicts.add("coverage_end_year_conflict")
+    if len(values.get("license", set())) > 1:
+        conflicts.add("license_declaration_conflict")
+    if len(values.get("release", set())) > 1:
+        conflicts.add("release_identity_conflict")
+    if values.get("calendar") or values.get("calendar_units"):
+        conflicts.add("calendar_mapping_unresolved")
+    if "0AD" in values.get("calendar_label", set()):
+        conflicts.add("zero_ad_calendar_interpretation_unresolved")
+    if scenarios:
+        conflicts.add("scenario_uncertainty_semantics_unresolved")
+    return conflicts
 
 
 def _read_pinned(path: Path, expected: str, limit: int, role: str) -> bytes:
