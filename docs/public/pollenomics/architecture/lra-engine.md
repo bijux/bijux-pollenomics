@@ -493,16 +493,27 @@ site and alias universe, and a spatial fold cannot place one block in both train
 and test. The returned receipt records that no empirical evaluation was performed
 and that scientific acceptance was not evaluated.
 
+For a fitted all-target-withheld pollen prediction,
+`freeze_authenticated_pollen_interval` can attach a governed conditional
+observation interval before outcomes are available. It reopens caller-pinned
+prediction and uncertainty products, checks every planned uncertainty unit and
+effort declaration, and requires observation-process-only propagation with the
+exact taxa, nominal level, model and training-input identities. The frozen
+prediction binds both the uncertainty-product manifest and the governed draw.
+This verifies product lineage and conditional interval semantics; it does not
+authenticate historical preregistration timing, establish empirical coverage or
+grant scientific acceptance.
+
 The immutable evidence binds its projections to retained product identities.
 Caller-pinned product bytes establish retained consistency; they do not
 independently authenticate external raw observations. The readiness result always
 states `final_evaluation_performed=false` and
 `scientific_acceptance=not_evaluated`. Missing historical access timestamps,
 an authenticated prospective prediction-product adapter, reviewed reference
-support, thresholds and predictive intervals remain explicit gaps. A release-
-matrix receipt alone cannot retroactively freeze an experiment or authenticate
-its source observations. Overlapping cross-validation fits do not become an
-independent fixed-model bootstrap cohort.
+support, thresholds and complete interval-bearing benchmark products remain
+explicit gaps. A release-matrix receipt alone cannot retroactively freeze an
+experiment or authenticate its source observations. Overlapping cross-validation
+fits do not become an independent fixed-model bootstrap cohort.
 
 ## Saved-product reporting
 
