@@ -350,8 +350,8 @@ This adapter supplies only the outcome-free spatial-block
 interval for local vegetation exists, so the cell remains ineligible for final
 coverage acceptance. The adapter does not bind a release receipt, open vegetation
 truth, establish first-access timing, approve a threshold or grant scientific
-review. The grouped-local vegetation adapter and remaining release joins remain
-separate work.
+review. The grouped-local vegetation adapter and the factory-only six-cell
+release product remain separate boundaries.
 
 `adapt_authenticated_spatial_block_withheld_vegetation_rows` performs the paired
 point-row projection for the spatial-block all-target-withheld vegetation cell.
@@ -405,8 +405,24 @@ products and exact fold terminals. Operational failures and unobserved items are
 published as scientific refusals unless a genuine interruption starts the
 deterministic `not_run` suffix. Raw status and error evidence remain bound to each
 attempted failure; a post-completion projection refusal is recorded separately
-from the completed numerical batch item. This reader still does not supply the
-missing grouped-local vegetation evaluation adapter.
+from the completed numerical batch item.
+
+`adapt_authenticated_grouped_local_vegetation_rows` joins that strict local
+product with the independently retained grouped training-mean comparator. It
+requires singleton target ownership, the exact fold/bin/taxon/geometry/support
+universe, target-specific observed-pollen bytes and the complete causal input
+closure. The comparator must declare the exact pollen-free training and external
+lineage admitted by the frozen scope. Either parent may retain an independent
+refused or interrupted terminal without inventing a prediction or source. The
+successful pair uses distinct authenticated local-assimilation and training-mean
+source identities and the generic v2 prediction envelope.
+
+This completes the six outcome-free protocol/cell adapter paths, not a release
+evaluation product. Callers still cannot treat an assembled row tuple as release
+evidence; a governed factory must bind the six adapter outputs and their reopened
+product identities before any separately authenticated observation join. The
+grouped-local cell has no vegetation predictive-observation interval, outcome,
+threshold, historical first-access proof or scientific approval.
 
 `bijux_pollenomics_lra.sample_pollen_observations` supplies a separate conditional
 observation model. It accepts predicted pollen fractions, declared counting

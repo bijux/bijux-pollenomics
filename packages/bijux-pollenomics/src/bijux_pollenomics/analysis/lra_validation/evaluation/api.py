@@ -30,6 +30,7 @@ from .grouped_products import (
     adapt_authenticated_grouped_withheld_pollen_rows,
     adapt_authenticated_grouped_withheld_vegetation_rows,
 )
+from .grouped_local_rows import adapt_authenticated_grouped_local_vegetation_rows
 from .intervals import (
     AUTHENTICATED_CONDITIONAL_INTERVAL_PROFILE,
     freeze_authenticated_pollen_interval,
@@ -73,6 +74,7 @@ __all__ = [
     "adapt_authenticated_spatial_block_local_vegetation_rows",
     "adapt_authenticated_spatial_block_withheld_pollen_rows",
     "adapt_authenticated_spatial_block_withheld_vegetation_rows",
+    "adapt_authenticated_grouped_local_vegetation_rows",
     "adapt_authenticated_grouped_withheld_pollen_rows",
     "adapt_authenticated_grouped_withheld_vegetation_rows",
     "FINAL_EVALUATION_RELEASE_PROFILE",
