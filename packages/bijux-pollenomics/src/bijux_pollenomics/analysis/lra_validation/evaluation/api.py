@@ -37,6 +37,14 @@ from .intervals import (
     freeze_authenticated_pollen_rows,
 )
 from .policy import validate_evaluation_policy
+from .prediction_product import (
+    PREDICTION_PRODUCT_PROFILE,
+    ProtocolProductLocators,
+    RetainedProductLocator,
+    SixCellPredictionProduct,
+    SixCellProductLocators,
+    build_six_cell_prediction_product,
+)
 from .release import (
     FINAL_EVALUATION_RELEASE_PROFILE,
     FinalEvaluationProtocol,
@@ -77,6 +85,12 @@ __all__ = [
     "adapt_authenticated_grouped_local_vegetation_rows",
     "adapt_authenticated_grouped_withheld_pollen_rows",
     "adapt_authenticated_grouped_withheld_vegetation_rows",
+    "PREDICTION_PRODUCT_PROFILE",
+    "ProtocolProductLocators",
+    "RetainedProductLocator",
+    "SixCellPredictionProduct",
+    "SixCellProductLocators",
+    "build_six_cell_prediction_product",
     "FINAL_EVALUATION_RELEASE_PROFILE",
     "FinalEvaluationProtocol",
     "FinalEvaluationReleaseAdmission",

@@ -424,6 +424,24 @@ product identities before any separately authenticated observation join. The
 grouped-local cell has no vegetation predictive-observation interval, outcome,
 threshold, historical first-access proof or scientific approval.
 
+`build_six_cell_prediction_product` is that engineering factory boundary. It
+accepts only the two typed release protocols, their factory-minted release
+admission and fixed-schema path/digest locators. It dispatches the six adapters
+itself; callers cannot supply rows, manifest mappings, observations or adapter
+callbacks. Only after every governed reader has reopened and authenticated the
+retained local, withheld and conditional-uncertainty products does the factory
+record those product identities. It then requires the exact protocol, cell,
+fold, record, method and terminal denominator and reopens every successful v2
+prediction envelope.
+
+The resulting private-constructor `SixCellPredictionProduct` stores a canonical
+receipt and immutable outcome-free rows. Reopening the typed product regenerates
+release admission and repeats the row, source, taxa, interval and claim-boundary
+checks. This does not score outcomes: independent observation attachment remains
+a separate governed producer, and caller-built row tuples remain outside this
+release-product boundary. The receipt explicitly records that empirical
+evaluation and scientific acceptance were not performed.
+
 `bijux_pollenomics_lra.sample_pollen_observations` supplies a separate conditional
 observation model. It accepts predicted pollen fractions, declared counting
 effort, seed, nominal coverage and the host's prediction/effort evidence hashes.
