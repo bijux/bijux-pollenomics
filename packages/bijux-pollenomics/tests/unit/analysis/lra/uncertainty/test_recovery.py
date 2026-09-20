@@ -84,6 +84,27 @@ def test_half_open_allocation_retains_excluded_closed_endpoint_mass(
             }
         )
 
+    assert [row["draw_id"] for row in rows] == ["d0-1", "d0-3", "d1-1", "d1-3"]
+    assert [row["status"] for row in rows] == [
+        "success",
+        "success",
+        "refused",
+        "refused",
+    ]
+    assert all(
+        row["selected_samples"]
+        == {
+            "regional": ["regional1"],
+            "local": ["local1"],
+        }
+        for row in rows[:2]
+    )
+    assert all(
+        row["reason_code"] == "missing_role_in_bin"
+        and row["selected_samples"] == {"regional": [], "local": []}
+        for row in rows[2:]
+    )
+
     result = summaries(rows, ["target"])["target"]
     assert result["successful_mass"] == {"numerator": 1, "denominator": 2}
     assert result["failed_mass"] == {"numerator": 1, "denominator": 2}
