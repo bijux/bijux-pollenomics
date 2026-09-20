@@ -87,9 +87,14 @@ class NeotomaEvidence:
         return json_object(self.manifest_bytes)
 
     def assert_unchanged(self) -> None:
+        normalized_inventory = evidence_inventory(self.normalized_root)
+        captured_manifest_sha256 = dict(self.normalized_files).get("manifest.json")
         if (
-            evidence_inventory(self.raw_root) != self.raw_files
-            or evidence_inventory(self.normalized_root) != self.normalized_files
+            captured_manifest_sha256 is None
+            or hashlib.sha256(self.manifest_bytes).hexdigest()
+            != captured_manifest_sha256
+            or evidence_inventory(self.raw_root) != self.raw_files
+            or normalized_inventory != self.normalized_files
         ):
             raise ValueError("Source authority changed during admission audit")
 

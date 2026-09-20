@@ -6,6 +6,8 @@ from collections.abc import Sequence
 from pathlib import Path
 
 from .models import AdmissionReport
+from .neotoma_frontier import NeotomaLraFrontier, assess_neotoma_lra_frontier
+from .reading import read_neotoma_evidence
 from .workflow import run_materialization
 
 
@@ -23,3 +25,14 @@ def audit_neotoma_lra_source(
         output_directory=output_directory,
         selected_sample_ids=selected_sample_ids,
     )
+
+
+def inspect_neotoma_lra_frontier(
+    *,
+    raw_root: Path,
+    normalized_root: Path,
+    selected_sample_ids: Sequence[str] | None = None,
+) -> NeotomaLraFrontier:
+    """Return authenticated prerequisite accounting without creating a request."""
+    evidence = read_neotoma_evidence(raw_root, normalized_root)
+    return assess_neotoma_lra_frontier(evidence, selected_sample_ids)

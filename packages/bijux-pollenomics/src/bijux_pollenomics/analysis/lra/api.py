@@ -11,6 +11,7 @@ from .engine.errors import LRARefusal
 from .execution.cache import CachedLRAProduct, run_lra_cached
 from .execution.service import run_lra_request, validate_lra_inputs
 from .inputs.validation import ValidatedRequest
+from .materialization import NeotomaLraFrontier, inspect_neotoma_lra_frontier
 from .outputs.publication import LRAProduct
 from .outputs.reading import VerifiedLRAProduct, read_lra_product
 from .regional_components import (
@@ -36,11 +37,13 @@ __all__ = [
     "LRABatchResult",
     "LRAProduct",
     "LRARefusal",
+    "NeotomaLraFrontier",
     "RegionalComponentPlan",
     "RegionalComponentSet",
     "ValidatedRequest",
     "VerifiedLRAProduct",
     "bind_regional_component_set",
+    "inspect_neotoma_lra_frontier",
     "read_joint_lra_ensemble",
     "read_lra_product",
     "read_regional_component_set",
