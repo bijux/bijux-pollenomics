@@ -301,15 +301,27 @@ geometry, fitted state and separate vegetation/pollen fractions.
 It preserves the original physical-site groups, excludes training groups using
 unrounded footprint separation, selects an admitted regional anchor and fits one
 model for each held-out block. Each target then receives its own spatial prediction
-and forward pollen calculation. All target pollen remains withheld.
+and forward pollen calculation. The same admitted reconstruction set also freezes
+an independent training-mean vegetation baseline and projects it through the
+governed target-specific forward model. All target pollen remains withheld.
 
 Saved block products retain the complete experiment catalogue, admission
-decisions and per-block fitted state, including models whose target projections
-all refuse. The reader regenerates the declared folds and verifies source,
-support, model and target identities before scoring. Interrupted and refused
-targets retain their requested denominators. Successfully consumed inputs remain
-subject to final hash checks even when later reconstruction fails; this lifecycle
-rule also applies to baseline, singleton fitted and local-pollen experiments.
+decisions, the fitted state when available, and a separately identified baseline
+model. A fitted-model refusal can leave the already frozen baseline usable; a
+baseline target refusal does not discard its fitted counterpart. The reader
+regenerates the declared folds and verifies source, support, model and target
+identities before scoring. Every fold/record/method key is exactly predicted,
+refused or not run, with separate counters for the latter two states. Score pairs
+include the target record identity, so sibling targets in one block cannot reuse
+one another's training-mean score. Successfully consumed inputs remain subject to
+final hash checks even when later reconstruction fails; this lifecycle rule also
+applies to singleton fitted and local-pollen experiments.
+
+The retained reader recomputes baseline vegetation arithmetic and authenticates
+its admitted reconstruction lineage. Forward pollen bytes remain protected by the
+caller-pinned product manifest rather than replaying a potentially different
+optional engine after publication. This boundary does not supply uncertainty,
+empirical accuracy or scientific acceptance.
 
 These spatial experiments remain synthetic and exploratory. Joint model
 uncertainty requires separate profiles and evidence.
