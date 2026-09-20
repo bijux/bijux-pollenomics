@@ -44,6 +44,51 @@ class PublicationContractTests(MapPublicationTestCase):
             "species_attribution_basis": "governed_project_registry",
         }
 
+    @staticmethod
+    def _degraded_raa_layer() -> dict[str, object]:
+        return {
+            "key": "raa-archaeology",
+            "label": "RAÄ archaeology density",
+            "source_name": "RAÄ Fornsök",
+            "coverage_label": "Sweden only; retained historical cells.",
+            "count": 106,
+            "group": "archaeology-context",
+            "semantic_role": "archaeology_context",
+            "contribution_role": "display_only",
+            "default_enabled": True,
+            "applies_country_filter": True,
+            "applies_time_filter": False,
+            "candidate_ranking_eligible": False,
+            "scientific_classification_eligible": False,
+            "scientific_selection_enabled": False,
+            "propagation_status": "refused",
+            "propagation_reason_code": "archaeology_context_only",
+            "edge_count": 0,
+            "authority_status": "degraded",
+            "source_authority_admitted": False,
+            "authority_reason_codes": [
+                "missing_raw_inventory",
+                "missing_raw_summary",
+                "missing_scientific_review",
+            ],
+            "display_warning_codes": ["retained_density_metadata_count_mismatch"],
+            "retained_surface_status": "retained_historical_context",
+            "density_count_accounting": {
+                "status": "observed_retained_normalized_pair",
+                "density_feature_count": 106,
+                "density_cell_count_sum": 339412,
+                "metadata_fornlamning_count": 318265,
+                "difference": 21147,
+                "reconciled": False,
+            },
+            "density_value_label": "Retained cell count (unreconciled)",
+            "density_count_label": (
+                "Retained Swedish one-degree cell values: 339,412 summed cell "
+                "counts versus 318,265 metadata Fornlämning; display only, "
+                "source authority refused."
+            ),
+        }
+
     def test_layer_contract_preserves_zero_and_derives_only_absent_legacy_count(
         self,
     ) -> None:
@@ -59,6 +104,46 @@ class PublicationContractTests(MapPublicationTestCase):
 
         self.assertEqual(zero["count"], 0)
         self.assertEqual(legacy["count"], 2)
+
+    def test_degraded_raa_contract_preserves_display_and_refusal_posture(self) -> None:
+        row = _serialize_layer_contract_row(
+            self._degraded_raa_layer(), policy=resolve_map_scope_policy(None)
+        )
+
+        self.assertEqual(row["authority_status"], "degraded")
+        self.assertIs(row["source_authority_admitted"], False)
+        self.assertEqual(row["contribution_role"], "display_only")
+        self.assertIs(row["default_enabled"], True)
+        self.assertIs(row["applies_time_filter"], False)
+        self.assertIs(row["candidate_ranking_eligible"], False)
+        self.assertIs(row["scientific_classification_eligible"], False)
+        self.assertIs(row["scientific_selection_enabled"], False)
+        self.assertEqual(row["propagation_status"], "refused")
+        self.assertEqual(row["edge_count"], 0)
+        self.assertEqual(
+            row["density_count_accounting"]["difference"],  # type: ignore[index]
+            21147,
+        )
+
+    def test_degraded_raa_contract_fails_closed_on_posture_drift(self) -> None:
+        for field in (
+            "contribution_role",
+            "applies_time_filter",
+            "candidate_ranking_eligible",
+            "propagation_status",
+            "edge_count",
+            "authority_status",
+            "source_authority_admitted",
+            "authority_reason_codes",
+            "display_warning_codes",
+            "density_count_accounting",
+        ):
+            layer = self._degraded_raa_layer()
+            layer.pop(field)
+            with self.subTest(field=field), self.assertRaisesRegex(ValueError, "RAÄ"):
+                _serialize_layer_contract_row(
+                    layer, policy=resolve_map_scope_policy(None)
+                )
 
     def test_point_traceability_normalizes_layer_metadata_without_data_loss(
         self,

@@ -88,10 +88,12 @@ def test_static_map_document_is_small_relative_only_and_offline_loadable(
     assert "aria-busy" in html
     assert ".density-ramp[hidden] { display: none; }" in html
     assert '<div id="density-ramp" class="density-ramp" hidden>' in html
-    assert (
-        "densityRamp.hidden = !visiblePolygonFeatureEntries.some(({ layer }) => "
-        "layer.key === 'raa-archaeology');"
-    ) in html
+    assert 'id="density-ramp-description"' in html
+    assert "visibleRaaDensityLayer?.density_count_label" in html
+    assert "layer.density_value_label || 'Records'" in html
+    assert "Degraded display only" in html
+    assert "layer.display_warning_codes" in html
+    assert "densityRamp.hidden = !visibleRaaDensityLayer;" in html
 
 
 def test_scientific_atlas_document_exposes_comparison_relations_and_detail_drawer(

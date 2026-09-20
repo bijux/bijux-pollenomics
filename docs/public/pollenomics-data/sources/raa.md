@@ -4,7 +4,7 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-07-31
+last_reviewed: 2026-09-21
 ---
 
 # RAÄ
@@ -12,9 +12,10 @@ last_reviewed: 2026-07-31
 RAÄ is intended to supply dense, Sweden-specific archaeology context from
 Riksantikvarieämbetet's published Fornsök/Open Data surfaces. The repository
 retains capture metadata and derived density files for audit, but does not
-currently admit or publish them as governed archaeology evidence. RAÄ authority
-is refused until the raw inventory, raw summary, normalized counts, and
-qualified scientific review reconcile.
+currently admit them as governed archaeology evidence. Under decision D2-033,
+the exact byte-identical v0.1.8 density pair is visible by default as degraded
+historical context. RAÄ authority remains refused until the raw inventory, raw
+summary, normalized counts, and qualified scientific review reconcile.
 
 ## Checked-In Evidence
 
@@ -22,12 +23,14 @@ qualified scientific review reconcile.
 | --- | --- | --- |
 | source inventory denominator | unavailable | no admitted raw inventory and raw summary reconcile the retained metadata |
 | classified-record denominators | unavailable | retained summary values are not governed evidence while authority is refused |
-| density cells | retained but excluded | the derived one-degree surface is audit material, not an admitted public layer |
+| density cells | 106 retained cells, default-visible as degraded context | the exact historical surface is display-only, not admitted RAÄ evidence |
 | temporal evidence | not applicable | the refused density surface cannot contribute dated evidence or same-period comparison |
 
-Missing governed denominators are not scientific zeros. The refusal means the
-repository cannot currently establish which source population the retained
-density cells represent or authorize those cells for analytical or public use.
+Missing governed denominators are not scientific zeros. The 106 retained cell
+values sum to 339,412, while the retained metadata reports 318,265
+`Fornlämning`; the 21,147 disagreement is visible and unresolved. The refusal
+means the repository cannot currently establish which source population the
+cell values represent or authorize them for analytical use.
 
 ```mermaid
 flowchart LR
@@ -39,9 +42,11 @@ flowchart LR
 
 ## Read A Density Cell
 
-A retained cell could answer a bounded question only after authority admission:
-how many governed RAÄ records in the selected class fall within this
-aggregation area? In the current refused state it establishes none of the
+A retained cell currently shows only the numeric value preserved in the exact
+historical one-degree surface. It cannot be called a governed RAÄ record count.
+After authority admission and regeneration, a cell could answer the bounded
+question of how many governed records in a selected class fall within the
+aggregation area. In the current refused state it establishes none of the
 following:
 
 - a complete inventory of past activity;
@@ -60,8 +65,8 @@ the cell with a smooth color ramp does not increase spatial resolution.
 | --- | --- | --- | --- |
 | source summary | published RAÄ registry record | unavailable while authority is refused | national registry population represented by an admitted capture |
 | classified summary | record in a declared RAÄ class | the selected classification population | classification count, not event count |
-| density layer | one-degree cell | unavailable while authority is refused | aggregate registry density within the cell |
-| map rendering | colored cell polygon | no cells currently admitted | visual comparison only after authority admission |
+| density layer | one-degree cell | 106 historical cells; count population unresolved | degraded display of the retained value only |
+| map rendering | colored cell polygon | 106 display members, zero scientifically admitted members | visual orientation with authority and count warnings |
 
 The transformation changes the observation unit. A statement about a density
 cell must cite the cell and classification contract; a statement about an
@@ -98,9 +103,12 @@ contracts are visually similar, not necessarily quantitatively comparable.
 
 ## Audit An Archaeology-Density Claim
 
-1. Confirm that RAÄ authority has been admitted; the current repository state
-   is refused and cannot support an archaeology-density claim.
-2. After admission, identify the Sweden product, RAÄ layer, cell, and
+1. Read the visible authority posture first. The current repository state is
+   degraded/refused and cannot support an archaeology-density claim even though
+   the exact historical layer is displayed.
+2. Identify the Sweden product, RAÄ layer, cell, historical-pair hashes and
+   unresolved 339,412-versus-318,265 count discrepancy. After admission, also
+   identify the current capture and
    classification being read and confirm that its counts share one capture.
 3. Treat the cell value as an aggregate count, not a site-level distance or a
    chronology statement.
@@ -115,7 +123,7 @@ contracts are visually similar, not necessarily quantitatively comparable.
 | Dimension | RAÄ | SEAD |
 | --- | --- | --- |
 | reach | Sweden-specific | broader environmental-archaeology context |
-| current public geometry | none while authority is refused | normalized site points |
+| current public geometry | 106 degraded historical density cells | normalized site points |
 | temporal posture | refused; no admitted time dimension | mixed site envelopes: numeric where linked chronology supports them, otherwise label-only or unresolved |
 | strongest use | retained provenance pending authority admission | wider site-centered archaeology context |
 | invalid shortcut | generalize Swedish density to the Nordic region | infer same-period evidence from undated proximity |
@@ -136,8 +144,10 @@ and capture depth differ.
 - `data/raa/normalized/sweden_archaeology_density.geojson` governs the visible
   density geometry.
 
-Public maps must exclude the RAÄ density surface while authority remains
-refused. Continue to
+Public maps may display only the exact D2-033 historical pair while authority
+remains refused. The layer must remain visibly degraded, display-only,
+chronology-absent and propagation-ineligible; any substituted pair is excluded.
+Continue to
 [RAÄ exports](../publications/raa-exports.md) for the publication role and
 [source comparison](source-comparison.md) before combining RAÄ with another
 family.

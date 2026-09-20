@@ -3,11 +3,16 @@ from __future__ import annotations
 import json
 from pathlib import Path
 import tempfile
+from unittest.mock import patch
 
 from bijux_pollenomics.reporting.context import (
     RAA_ATLAS_INPUT_STATUS_FILENAME,
     build_context_layers,
     build_raa_atlas_input_status,
+)
+from bijux_pollenomics.reporting.context.raa import (
+    RAA_V018_DENSITY_SHA256,
+    RAA_V018_METADATA_SHA256,
 )
 from bijux_pollenomics.reporting.geography import build_published_geography_plan
 
@@ -149,7 +154,7 @@ class ContextLayerPublicationTests(MapPublicationTestCase):
             )
             self.assertTrue(all((output / name).is_file() for name in staged_names))
 
-    def test_retained_raa_density_is_a_degraded_unavailable_default_state(
+    def test_retained_raa_density_is_default_display_only_degraded_context(
         self,
     ) -> None:
         plan = build_published_geography_plan(("Sweden", "Norway"))
@@ -162,7 +167,12 @@ class ContextLayerPublicationTests(MapPublicationTestCase):
             output.mkdir()
             self._write_json(
                 root / "raa/normalized/sweden_archaeology_layer.json",
-                {"counts": {"all_published_sites": 761917}},
+                {
+                    "counts": {
+                        "all_published_sites": 761917,
+                        "fornlamning": 318265,
+                    }
+                },
             )
             self._write_json(
                 root / "raa/normalized/sweden_archaeology_density.geojson",
@@ -183,26 +193,70 @@ class ContextLayerPublicationTests(MapPublicationTestCase):
                                     ]
                                 ],
                             },
-                            "properties": {"country": "Sweden", "count": 318265},
+                            "properties": {"country": "Sweden", "count": 339412},
                         }
                     ],
                 },
             )
 
-            _, polygon_layers, extra_artifacts = build_context_layers(
-                samples=(),
-                version="v66",
-                output_dir=output,
-                context_root=root,
-                geography_scope=nordic_scope,
-            )
+            def retained_hash(path: Path) -> str:
+                if path.name == "sweden_archaeology_layer.json":
+                    return RAA_V018_METADATA_SHA256
+                if path.name == "sweden_archaeology_density.geojson":
+                    return RAA_V018_DENSITY_SHA256
+                raise AssertionError(path)
+
+            with patch(
+                "bijux_pollenomics.reporting.context.raa._file_sha256",
+                side_effect=retained_hash,
+            ):
+                _, polygon_layers, extra_artifacts = build_context_layers(
+                    samples=(),
+                    version="v66",
+                    output_dir=output,
+                    context_root=root,
+                    geography_scope=nordic_scope,
+                )
 
             status = json.loads(
                 (output / RAA_ATLAS_INPUT_STATUS_FILENAME).read_text(encoding="utf-8")
             )
             staged_names = {name for _, name in extra_artifacts}
 
-        self.assertNotIn("raa-archaeology", {layer["key"] for layer in polygon_layers})
+        layer = next(
+            layer for layer in polygon_layers if layer["key"] == "raa-archaeology"
+        )
+        self.assertTrue(layer["default_enabled"])
+        self.assertEqual(layer["authority_status"], "degraded")
+        self.assertFalse(layer["source_authority_admitted"])
+        self.assertEqual(
+            layer["retained_surface_status"], "retained_historical_context"
+        )
+        self.assertEqual(layer["contribution_role"], "display_only")
+        self.assertFalse(layer["candidate_ranking_eligible"])
+        self.assertFalse(layer["scientific_classification_eligible"])
+        self.assertFalse(layer["scientific_selection_enabled"])
+        self.assertEqual(layer["propagation_status"], "refused")
+        self.assertEqual(layer["edge_count"], 0)
+        self.assertFalse(layer["applies_time_filter"])
+        self.assertIn("degraded historical context", layer["description"])
+        self.assertEqual(
+            layer["display_warning_codes"],
+            ["retained_density_metadata_count_mismatch"],
+        )
+        self.assertEqual(
+            layer["density_count_accounting"],
+            {
+                "status": "observed_retained_normalized_pair",
+                "density_feature_count": 1,
+                "density_cell_count_sum": 339412,
+                "metadata_fornlamning_count": 318265,
+                "difference": 21147,
+                "reconciled": False,
+            },
+        )
+        self.assertIn("339,412 summed cell counts", layer["density_count_label"])
+        self.assertIn("318,265 metadata", layer["density_count_label"])
         self.assertEqual(status["atlas_input_status"], "degraded")
         self.assertEqual(
             status["reason_codes"],
@@ -212,10 +266,17 @@ class ContextLayerPublicationTests(MapPublicationTestCase):
                 "missing_scientific_review",
             ],
         )
-        self.assertEqual(status["geometry_publication"]["status"], "withheld")
+        self.assertEqual(status["geometry_publication"]["status"], "retained_context")
         self.assertEqual(
-            status["geometry_publication"]["default_map_state"], "unavailable"
+            status["geometry_publication"]["default_map_state"],
+            "enabled_degraded_context",
         )
+        self.assertTrue(status["geometry_publication"]["default_enabled"])
+        self.assertEqual(
+            status["geometry_publication"]["warning_codes"],
+            ["retained_density_metadata_count_mismatch"],
+        )
+        self.assertEqual(status["retained_context_identity"]["status"], "exact_v0.1.8")
         self.assertFalse(
             status["geometry_publication"]["retained_density_is_authoritative"]
         )
@@ -243,7 +304,59 @@ class ContextLayerPublicationTests(MapPublicationTestCase):
         self.assertEqual(len(status["inputs"]["normalized_density"]["sha256"]), 64)
         self.assertIn("sweden_archaeology_layer.json", staged_names)
         self.assertIn(RAA_ATLAS_INPUT_STATUS_FILENAME, staged_names)
-        self.assertNotIn("sweden_archaeology_density.geojson", staged_names)
+        self.assertIn("sweden_archaeology_density.geojson", staged_names)
+
+    def test_substituted_retained_raa_pair_is_withheld(self) -> None:
+        plan = build_published_geography_plan(("Sweden",))
+        nordic_scope = next(
+            scope for scope in plan.regional_scopes if scope.key == "nordic"
+        )
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            output = root / "nordic-output"
+            output.mkdir()
+            self._write_json(
+                root / "raa/normalized/sweden_archaeology_layer.json",
+                {"counts": {"fornlamning": 1}},
+            )
+            self._write_json(
+                root / "raa/normalized/sweden_archaeology_density.geojson",
+                {
+                    "type": "FeatureCollection",
+                    "features": [
+                        {
+                            "type": "Feature",
+                            "geometry": None,
+                            "properties": {"country": "Sweden", "count": 1},
+                        }
+                    ],
+                },
+            )
+
+            _, polygon_layers, extra_artifacts = build_context_layers(
+                samples=(),
+                version="v66",
+                output_dir=output,
+                context_root=root,
+                geography_scope=nordic_scope,
+            )
+            status = json.loads(
+                (output / RAA_ATLAS_INPUT_STATUS_FILENAME).read_text(encoding="utf-8")
+            )
+
+        self.assertNotIn("raa-archaeology", {layer["key"] for layer in polygon_layers})
+        self.assertEqual(status["atlas_input_status"], "degraded")
+        self.assertEqual(status["retained_context_identity"]["status"], "substituted")
+        self.assertEqual(status["geometry_publication"]["status"], "withheld")
+        self.assertFalse(status["geometry_publication"]["default_enabled"])
+        self.assertIn(
+            "retained_context_identity_mismatch",
+            status["geometry_publication"]["warning_codes"],
+        )
+        self.assertNotIn(
+            "sweden_archaeology_density.geojson",
+            {name for _, name in extra_artifacts},
+        )
 
     def test_reconciled_reviewed_raa_density_is_default_enabled(self) -> None:
         plan = build_published_geography_plan(("Sweden", "Norway"))

@@ -1987,7 +1987,7 @@
           <div id="legend-body" class="legend-body is-collapsed">
             <div id="legend-items" class="legend-list"></div>
             <div id="density-ramp" class="density-ramp" hidden>
-              <div class="legend-item"><span class="legend-swatch" style="background: rgba(239, 68, 68, 0.22); border-color: #7f1d1d;"></span><span>RAÄ archaeology density shows Swedish `Fornlämning` counts in 1° grid cells.</span></div>
+              <div class="legend-item"><span class="legend-swatch" style="background: rgba(239, 68, 68, 0.22); border-color: #7f1d1d;"></span><span id="density-ramp-description">RAÄ density-count posture is loading.</span></div>
               <div class="density-bar"><span></span><span></span><span></span><span></span><span></span><span></span></div>
               <div class="density-labels"><span>Lower density</span><span>Higher density</span></div>
             </div>
@@ -5805,7 +5805,10 @@ __NATIVE_LRA_CONTROLLER__
         legendItems.innerHTML = `${clusterLegendSection}${scientificLegendSection}${sourceConcentrationLegendSection}${LAYER_GROUP_DEFINITIONS
           .map((group) => renderGroup(group.label, activeLegendLayers.filter((layer) => layer.group === group.key)))
           .join('')}` || '<div class="legend-item"><span>No layers are visible. Restore defaults or enable one or more layers.</span></div>';
-        densityRamp.hidden = !visiblePolygonFeatureEntries.some(({ layer }) => layer.key === 'raa-archaeology');
+        const visibleRaaDensityLayer = visiblePolygonFeatureEntries.find(({ layer }) => layer.key === 'raa-archaeology')?.layer || null;
+        densityRamp.hidden = !visibleRaaDensityLayer;
+        const densityRampDescription = document.getElementById('density-ramp-description');
+        if (densityRampDescription) densityRampDescription.textContent = visibleRaaDensityLayer?.density_count_label || 'RAÄ density-count posture unavailable.';
       }
       function sourceChronologyPopupHtml(feature) {
         if (!feature || feature.semantic_role !== 'source_chronology_context') return '';
@@ -6327,7 +6330,14 @@ __NATIVE_LRA_CONTROLLER__
                 return { color: layer.style.stroke, weight: 1.1, fillColor: densityFillColor(count, maxCount), fillOpacity: densityOpacity, opacity: 0.75 };
               },
               onEachFeature(feature, featureLayer) {
-                featureLayer.bindPopup(`<div class="popup-grid"><div><strong>Layer</strong> ${escapeHtml(layer.label)}</div><div><strong>Country</strong> ${escapeHtml(feature.properties.country || '')}</div><div><strong>Records</strong> ${escapeHtml(countDisplayValue(feature.properties.count, feature.properties.count_label))}</div></div>`);
+                const densityValueLabel = layer.density_value_label || 'Records';
+                const authorityLabel = layer.source_authority_admitted === false
+                  ? `Degraded display only · ${layer.authority_status || 'unknown'} authority`
+                  : 'Admitted source authority';
+                const densityWarning = Array.isArray(layer.display_warning_codes) && layer.display_warning_codes.length
+                  ? layer.display_warning_codes.join(', ').replaceAll('_', ' ')
+                  : 'None';
+                featureLayer.bindPopup(`<div class="popup-grid"><div><strong>Layer</strong> ${escapeHtml(layer.label)}</div><div><strong>Country</strong> ${escapeHtml(feature.properties.country || '')}</div><div><strong>${escapeHtml(densityValueLabel)}</strong> ${escapeHtml(countDisplayValue(feature.properties.count, feature.properties.count_label))}</div><div><strong>Authority</strong> ${escapeHtml(authorityLabel)}</div><div><strong>Count warning</strong> ${escapeHtml(densityWarning)}</div></div>`);
                 featureLayer.on('click', () => {
                   const bounds = featureLayer.getBounds();
                   setFocusState({
@@ -6338,7 +6348,9 @@ __NATIVE_LRA_CONTROLLER__
                     meta: [
                       { label: 'Layer', value: layer.label },
                       { label: 'Country', value: feature.properties.country || 'Unassigned' },
-                      { label: 'Records', value: countDisplayValue(feature.properties.count, feature.properties.count_label) },
+                      { label: densityValueLabel, value: countDisplayValue(feature.properties.count, feature.properties.count_label) },
+                      { label: 'Authority', value: authorityLabel },
+                      { label: 'Count warning', value: densityWarning },
                     ],
                     sourceUrl: '',
                     bounds: bounds.isValid() ? [[bounds.getSouth(), bounds.getWest()], [bounds.getNorth(), bounds.getEast()]] : null,
