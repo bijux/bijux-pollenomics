@@ -4,7 +4,7 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-08-01
+last_reviewed: 2026-09-21
 ---
 
 # LandClim
@@ -179,6 +179,35 @@ points). They remain exact source values, while standard errors must remain
 finite and nonnegative. The atlas treats estimates outside the display domain
 as unavailable instead of clipping them. These rules establish source fidelity
 and exclusion accounting, not ecological accuracy or raw-input reproduction.
+
+### Reproduction Evidence And Its Boundary
+
+A separate, locally supplied LandClim II author-example bundle (SHA-256
+`464a05e3a62c0454dfbadb9fdbe786ccddc42c88e051abc0ddd56938621e219c`)
+was replayed through the original R preprocessing steps 1–4. All **17 paired
+example sites** (nine in grid 512 and eight in grid 562) reproduced their
+archived prepared files byte for byte. An independent count check reconciled
+**501,713 raw pollen counts = 202,053 excluded or outside the declared windows
++ 299,660 prepared counts**. The exclusions remain explicit; they are not zero
+cover or missing observations. For those two example grids, the R and Python
+site and regional cover and standard-error results also agree on the declared
+input closure, including missing-value masks.
+
+This establishes reproduction of the supplied examples. The full published
+study identifies 1,128 historical site records whose raw counts, selected
+chronologies, revisions, and reuse rights are not yet authenticated as one
+input closure here. Its complete raw-input run, article figure and table
+comparison, and accuracy against independently measured vegetation remain
+unverified. The published REVEALS estimates are model outputs, not measured
+vegetation reference labels.
+
+The [ESSD article](https://essd.copernicus.org/articles/14/1581/2022/) says
+12 plant functional types, while the [PANGAEA deposit](https://doi.pangaea.de/10.1594/PANGAEA.937075)
+says 11. The captured parameter table assigns 31 taxa to 12 distinct codes
+with 11 distinct descriptions. The archived result headers have 13
+functional-type positions, including populated `ISTS`, which has no matching
+parameter-table code. This count and mapping conflict remains unresolved;
+`ISTS` is preserved rather than silently merged or discarded.
 
 ```mermaid
 flowchart LR
