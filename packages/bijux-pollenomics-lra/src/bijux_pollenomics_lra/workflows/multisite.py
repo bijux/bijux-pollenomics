@@ -21,7 +21,7 @@ from bijux_pollenomics_lra.models.publication import (
 from bijux_pollenomics_lra.models.results import MultisiteRevealsResult
 from bijux_pollenomics_lra.provenance.manifest import build_manifest
 from bijux_pollenomics_lra.reconstruction.publication import (
-    bootstrap_cover_variance,
+    bootstrap_cover_variance_with_draws,
     individual_cover_variance,
 )
 
@@ -91,6 +91,7 @@ def run_reveals_multisite(
     deposition = np.full_like(site_cover, np.nan)
     regional_cover = np.full((bins, taxa), np.nan)
     regional_variance = np.full_like(regional_cover, np.nan)
+    regional_cover_draws: dict[str, np.ndarray] = {}
     diagnostics: list[dict[str, object]] = []
     for time_index, bin_id in enumerate(inputs.bin_ids):
         eligible = np.flatnonzero(inputs.availability[:, time_index])
@@ -128,14 +129,14 @@ def run_reveals_multisite(
             regional_cover[time_index] = site_cover[eligible[0], time_index]
             regional_variance[time_index] = site_variance[eligible[0], time_index]
         else:
-            regional_cover[time_index], regional_variance[time_index] = (
-                bootstrap_cover_variance(
-                    inputs.counts[:, time_index],
-                    deposition[:, time_index],
-                    inputs.ppe,
-                    draws[bin_id],
-                )
+            cover, variance, cover_draws = bootstrap_cover_variance_with_draws(
+                inputs.counts[:, time_index],
+                deposition[:, time_index],
+                inputs.ppe,
+                draws[bin_id],
             )
+            regional_cover[time_index], regional_variance[time_index] = cover, variance
+            regional_cover_draws[bin_id] = cover_draws
     with np.errstate(invalid="ignore"):
         site_se = np.sqrt(site_variance)
         regional_se = np.sqrt(regional_variance)
@@ -157,6 +158,8 @@ def run_reveals_multisite(
                 },
                 "missing_support": "masked_nan_instead_of_source_zero",
                 "single_site_regional_output": "same_individual_cover_and_se",
+                "regional_cover_draws": "closed_Vx_rows_for_multisite_bins_only",
+                "regional_cover_draw_index_base": 0,
                 "time_bins": "explicit_calendar_years_bp_1950CE_younger_older",
             },
             {"inputs": inputs, "bootstrap_indices": draws},
@@ -192,6 +195,9 @@ def run_reveals_multisite(
             name: table(deposition[index]) for index, name in enumerate(inputs.site_ids)
         },
         bootstrap_indices=draws,
+        regional_cover_draws=regional_cover_draws,
+        bin_ids=inputs.bin_ids,
+        taxon_ids=inputs.taxon_ids,
         diagnostics=diagnostics,
         manifest=manifest,
     )

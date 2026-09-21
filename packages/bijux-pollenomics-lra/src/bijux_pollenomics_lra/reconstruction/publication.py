@@ -68,6 +68,24 @@ def bootstrap_cover_variance(
     Counts are deposition-corrected separately for every site's geometry before
     pooling. Mean cover is the ratio of accumulated Qa, not mean closed cover.
     """
+    mean, variance, _ = bootstrap_cover_variance_with_draws(
+        counts, deposition, ppe, site_indices
+    )
+    return mean, variance
+
+
+def bootstrap_cover_variance_with_draws(
+    counts: np.ndarray,
+    deposition: np.ndarray,
+    ppe: np.ndarray,
+    site_indices: np.ndarray,
+) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
+    """Retain source Vx rows beside its unchanged Qa-ratio mean and variance.
+
+    A Vx row is a closed regional cover for one supplied site-index draw. The
+    source's reported mean is instead the ratio of accumulated unclosed Qa;
+    callers must not replace it with the arithmetic mean of these rows.
+    """
     corrected_counts = counts / deposition
     pooled = np.sum(corrected_counts[site_indices], axis=1)
     q = pooled / pooled.sum(axis=1, keepdims=True)
@@ -86,4 +104,5 @@ def bootstrap_cover_variance(
             "Historical bootstrap reconstruction is nonfinite",
             reason_code="nonfinite_reconstruction",
         )
-    return np.asarray(mean), np.asarray(variance)
+    closed.setflags(write=False)
+    return np.asarray(mean), np.asarray(variance), closed

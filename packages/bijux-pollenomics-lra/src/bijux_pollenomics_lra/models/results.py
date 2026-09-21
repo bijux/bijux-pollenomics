@@ -109,6 +109,9 @@ class MultisiteRevealsResult:
     availability: pd.DataFrame
     deposition: Mapping[str, pd.DataFrame]
     bootstrap_indices: Mapping[str, np.ndarray]
+    regional_cover_draws: Mapping[str, np.ndarray]
+    bin_ids: tuple[str, ...]
+    taxon_ids: tuple[str, ...]
     diagnostics: list[dict[str, object]]
     manifest: RunManifest
 

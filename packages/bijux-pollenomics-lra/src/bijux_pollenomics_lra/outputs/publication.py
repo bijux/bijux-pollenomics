@@ -4,17 +4,50 @@ from __future__ import annotations
 
 import json
 from pathlib import Path
+from tempfile import TemporaryDirectory
+
+import numpy as np
+import pandas as pd
 
 from bijux_pollenomics_lra.models.results import MultisiteRevealsResult
 from bijux_pollenomics_lra.outputs.checksums import _write_checksum_manifest
 
 
-def write_multisite_result(
-    result: MultisiteRevealsResult, directory: str | Path
-) -> Path:
-    """Persist site/bin support and uncertainties with opaque positional paths."""
-    destination = Path(directory)
-    destination.mkdir(parents=True, exist_ok=True)
+def _validated_draw_bins(
+    result: MultisiteRevealsResult,
+) -> list[tuple[int, str, np.ndarray]]:
+    """Refuse malformed draw support before writing any bundle files."""
+    if (
+        tuple(result.cover.index) != result.bin_ids
+        or tuple(result.cover.columns) != result.taxon_ids
+    ):
+        raise ValueError("Regional cover axes must match the input bin and taxon IDs")
+    if set(result.regional_cover_draws) != set(result.bootstrap_indices):
+        raise ValueError("Regional cover draws must match multi-site bootstrap bins")
+    bins = []
+    for bin_position, bin_id in enumerate(result.cover.index):
+        if bin_id not in result.regional_cover_draws:
+            continue
+        values = result.regional_cover_draws[bin_id]
+        if (
+            values.shape != (1000, len(result.cover.columns))
+            or not np.isfinite(values).all()
+            or (values < 0).any()
+            or not np.allclose(values.sum(axis=1), 1, rtol=0, atol=1e-12)
+        ):
+            raise ValueError("Regional cover draws must be 1000 closed finite rows")
+        bins.append((bin_position, str(bin_id), values))
+    if len(bins) != len(result.regional_cover_draws):
+        raise ValueError("Regional cover draws contain an unknown bin")
+    return bins
+
+
+def _write_multisite_files(
+    result: MultisiteRevealsResult,
+    destination: Path,
+    draw_bins: list[tuple[int, str, np.ndarray]],
+) -> None:
+    """Build a complete bundle only inside a fresh staging directory."""
     result.cover.to_csv(destination / "regional-cover.csv", index_label="bin_id")
     result.standard_error.to_csv(
         destination / "regional-standard-error.csv", index_label="bin_id"
@@ -46,9 +79,53 @@ def write_multisite_result(
         + "\n",
         encoding="utf-8",
     )
+    draw_root = destination / "regional-cover-draws"
+    draw_root.mkdir(exist_ok=True)
+    draw_index = []
+    for bin_position, bin_id, values in draw_bins:
+        relative = f"bin-{bin_position}.csv"
+        pd.DataFrame(values, columns=result.cover.columns).to_csv(
+            draw_root / relative, index_label="draw_index"
+        )
+        draw_index.append(
+            {
+                "bin_id": bin_id,
+                "path": relative,
+                "draw_index_base": 0,
+                "draw_count": 1000,
+                "taxon_ids": list(result.cover.columns),
+            }
+        )
+    (draw_root / "index.json").write_text(
+        json.dumps(draw_index, indent=2) + "\n", encoding="utf-8"
+    )
     (destination / "diagnostics.json").write_text(
         json.dumps(result.diagnostics, indent=2) + "\n", encoding="utf-8"
     )
     result.manifest.write(destination / "run-manifest.json")
     _write_checksum_manifest(destination)
+
+
+def write_multisite_result(
+    result: MultisiteRevealsResult, directory: str | Path
+) -> Path:
+    """Publish a complete immutable bundle without stale files from prior runs."""
+    draw_bins = _validated_draw_bins(result)
+    destination = Path(directory)
+    if destination.is_symlink() or (
+        destination.exists()
+        and (not destination.is_dir() or any(destination.iterdir()))
+    ):
+        raise FileExistsError(f"Refusing to replace an existing bundle: {destination}")
+    destination.parent.mkdir(parents=True, exist_ok=True)
+    with TemporaryDirectory(
+        prefix=f".{destination.name}.staging-", dir=destination.parent
+    ) as staging:
+        staged = Path(staging) / "bundle"
+        staged.mkdir()
+        _write_multisite_files(result, staged, draw_bins)
+        if destination.exists():
+            # A concurrent new file makes this fail without touching its contents.
+            destination.rmdir()
+        staged.replace(destination)
     return destination

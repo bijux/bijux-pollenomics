@@ -3,9 +3,12 @@
 from __future__ import annotations
 
 from dataclasses import replace
+import hashlib
+import json
 from pathlib import Path
 
 import numpy as np
+import pandas as pd
 import pytest
 
 from bijux_pollenomics_lra.api import (
@@ -51,6 +54,7 @@ def test_single_site_matches_pinned_independent_r_counterexample(
         rtol=0,
     )
     assert result.site_count.iloc[0] == 1
+    assert result.regional_cover_draws == {}
 
 
 def test_bootstrap_corrects_individual_geometry_and_accumulates_unclosed_ratios() -> (
@@ -136,6 +140,124 @@ def test_missing_bin_is_masked_and_bundle_preserves_support(
     assert (tmp_path / "availability.csv").is_file()
     assert (tmp_path / "bootstrap-indices.json").is_file()
     assert (tmp_path / "checksums.json").is_file()
+    assert set(result.regional_cover_draws) == {"recent"}
+    assert result.regional_cover_draws["recent"].shape == (1000, 3)
+
+
+def test_multisite_draws_follow_original_site_indices_and_bundle_checksums(
+    publication_inputs: MultisiteRevealsInput, tmp_path: Path
+) -> None:
+    supplied = draws()
+    result = run_reveals_multisite(
+        publication_inputs,
+        PublicationRevealsConfig("synthetic-bp-v1"),
+        bootstrap_indices=supplied,
+    )
+    values = result.regional_cover_draws["recent"]
+    assert values.shape == (1000, len(publication_inputs.taxon_ids))
+    assert not values.flags.writeable
+    np.testing.assert_allclose(values.sum(axis=1), 1, rtol=0, atol=1e-14)
+    corrected = np.stack(
+        [
+            publication_inputs.counts[position, 0]
+            / result.deposition[site_id].loc["recent"].to_numpy()
+            for position, site_id in enumerate(publication_inputs.site_ids)
+        ]
+    )
+    for draw_index in (0, 1, 2, 3):
+        pooled = corrected[supplied["recent"][draw_index]].sum(axis=0)
+        expected = pooled / publication_inputs.ppe
+        expected /= expected.sum()
+        np.testing.assert_allclose(values[draw_index], expected, rtol=1e-13, atol=1e-13)
+    result.write(tmp_path)
+    draw_index = json.loads(
+        (tmp_path / "regional-cover-draws" / "index.json").read_text()
+    )
+    assert draw_index == [
+        {
+            "bin_id": "recent",
+            "path": "bin-0.csv",
+            "draw_index_base": 0,
+            "draw_count": 1000,
+            "taxon_ids": ["A", "B", "C"],
+        }
+    ]
+    draw_file = tmp_path / "regional-cover-draws" / "bin-0.csv"
+    saved = pd.read_csv(draw_file, index_col="draw_index")
+    assert saved.index.tolist() == list(range(1000))
+    assert saved.columns.tolist() == list(publication_inputs.taxon_ids)
+    np.testing.assert_allclose(saved.to_numpy(), values, rtol=0, atol=2e-16)
+    checksums = json.loads((tmp_path / "checksums.json").read_text())
+    for relative in (
+        "regional-cover-draws/index.json",
+        "regional-cover-draws/bin-0.csv",
+    ):
+        path = tmp_path / relative
+        assert checksums[relative]["bytes"] == path.stat().st_size
+        assert (
+            checksums[relative]["sha256"]
+            == hashlib.sha256(path.read_bytes()).hexdigest()
+        )
+
+
+def test_malformed_multisite_draws_are_refused_before_writing(
+    publication_inputs: MultisiteRevealsInput, tmp_path: Path
+) -> None:
+    result = run_reveals_multisite(
+        publication_inputs,
+        PublicationRevealsConfig("synthetic-bp-v1"),
+        bootstrap_indices=draws(),
+    )
+    malformed = np.array(result.regional_cover_draws["recent"], copy=True)
+    malformed[0, 0] = np.nan
+    for mapping in ({}, {"recent": malformed}):
+        destination = tmp_path / f"refused-{len(list(tmp_path.iterdir()))}"
+        with pytest.raises(ValueError, match="Regional cover draws"):
+            replace(result, regional_cover_draws=mapping).write(destination)
+        assert not destination.exists()
+    reordered = tmp_path / "reordered"
+    with pytest.raises(ValueError, match="Regional cover axes"):
+        replace(result, cover=result.cover.iloc[:, ::-1]).write(reordered)
+    assert not reordered.exists()
+
+
+def test_existing_multisite_bundle_is_preserved_when_support_changes(
+    publication_inputs: MultisiteRevealsInput, tmp_path: Path
+) -> None:
+    multi = run_reveals_multisite(
+        publication_inputs,
+        PublicationRevealsConfig("synthetic-bp-v1"),
+        bootstrap_indices=draws(),
+    )
+    destination = tmp_path / "bundle"
+    multi.write(destination)
+    original_checksums = (destination / "checksums.json").read_bytes()
+    single_inputs = replace(
+        publication_inputs,
+        site_ids=("small",),
+        counts=publication_inputs.counts[:1],
+        availability=publication_inputs.availability[:1],
+        basin_radius_m=publication_inputs.basin_radius_m[:1],
+        basin_type=publication_inputs.basin_type[:1],
+    )
+    single = run_reveals_multisite(
+        single_inputs,
+        PublicationRevealsConfig("synthetic-bp-v1"),
+        bootstrap_indices={},
+    )
+    with pytest.raises(FileExistsError, match="existing bundle"):
+        single.write(destination)
+    assert (destination / "checksums.json").read_bytes() == original_checksums
+    assert (destination / "regional-cover-draws" / "bin-0.csv").is_file()
+    new_destination = tmp_path / "single"
+    single.write(new_destination)
+    assert (
+        json.loads(
+            (new_destination / "regional-cover-draws" / "index.json").read_text()
+        )
+        == []
+    )
+    assert not (new_destination / "regional-cover-draws" / "bin-0.csv").exists()
 
 
 def test_draws_are_owned_and_hashed(
