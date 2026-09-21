@@ -2,10 +2,10 @@
 
 from __future__ import annotations
 
-import json
-import re
 from dataclasses import dataclass
+import json
 from math import fsum
+import re
 from typing import Any
 
 import numpy as np

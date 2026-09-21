@@ -2,11 +2,11 @@
 
 from __future__ import annotations
 
-import re
 from collections.abc import Mapping
 from fractions import Fraction
 from math import comb, fsum, isfinite
 from numbers import Real
+import re
 
 import numpy as np
 import scipy
