@@ -6,6 +6,10 @@ from collections.abc import Sequence
 from pathlib import Path
 
 from .models import AdmissionReport
+from .neotoma_lakeparameters import (
+    NeotomaLakeparameterReview,
+    assess_neotoma_lakeparameters,
+)
 from .neotoma_candidate_groups import (
     NeotomaCandidateGroups,
     summarize_neotoma_candidate_groups,
@@ -85,3 +89,13 @@ def inspect_neotoma_lra_candidate_site_evidence(
     screen = assess_neotoma_pollen_screen(evidence)
     groups = summarize_neotoma_candidate_groups(screen)
     return assess_neotoma_candidate_site_evidence(evidence, groups)
+
+
+def inspect_neotoma_lra_lakeparameters(
+    *, raw_root: Path, normalized_root: Path, capture_root: Path, capture_sha256: str
+) -> NeotomaLakeparameterReview:
+    """Review pinned source lake parameters; retain zero basin admissions."""
+    site_evidence = inspect_neotoma_lra_candidate_site_evidence(
+        raw_root=raw_root, normalized_root=normalized_root
+    )
+    return assess_neotoma_lakeparameters(site_evidence, capture_root, capture_sha256)

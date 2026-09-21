@@ -203,6 +203,26 @@ diameter; their applicability and units for this captured API value require
 source review. A collection date is not a sample age. Historical basin size,
 source aliases, chronology, taxa/PPE and compatible counts remain unresolved.
 
+The host `inspect_neotoma_lra_lakeparameters` review accepts an explicitly
+pinned public Neotoma lakeparameter capture, verifies every captured page and
+type-table hash, and joins only exact source site IDs. The 2026-09-21 bounded
+capture (`capture.json` SHA-256
+`0c800ed252d6bd2bbed72f5ac7798e27d7a72f89330170b8ce33989384c758fd`)
+contains 24,554 lakeparameter rows and 21 parameter types. Five rows match
+five of the 54 candidate source sites: maximum depth 6 m at Swedish
+Klotjärnen and 2.2 m at Lillsjön; reported surface area 2.5 ha at Norwegian
+Liten Cap’pesjav’ri, 5 ha at Over Gunnarsfjorden, and 1.7 ha at Over
+Kobbkrokvatnet. No parameter row was observed for the other 49 sites in
+this capture. The capture used serial live `offset` pages, not a transactional
+snapshot, so absence is not certified. These are native parameter labels and
+reported values, not historical basin dimensions, a derived radius, a
+lake-versus-peatland decision or a scientifically admitted LRA input. The
+three Norwegian site-level `area` values in the earlier review differ from
+their lakeparameter `Area` values; the site-area unit and meaning remain
+unresolved, so those fields are not substituted for each other. The
+review retains source page and row locators; **zero sites or samples are
+admitted** by this source match.
+
 The source-bound priority slice
 `artifacts/v3/taxa-review/neotoma-candidate-priority-20260921/priority-successor.json`
 (SHA-256 `af8e6116776ca320d416a157a79e3a6280aa8332dc72c41661aadac267461e34`)
