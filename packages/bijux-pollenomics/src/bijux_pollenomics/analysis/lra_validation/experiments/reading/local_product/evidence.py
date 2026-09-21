@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 
-import re
 from copy import deepcopy
+import re
 
 from .....lra.batches.models import LRABatchItem
 from ....contracts import ValidationRefusal, canonical_json, finite_number

@@ -2,9 +2,9 @@
 
 from __future__ import annotations
 
-import json
 from collections.abc import Iterator
 from dataclasses import replace
+import json
 from pathlib import Path
 from typing import Any
 

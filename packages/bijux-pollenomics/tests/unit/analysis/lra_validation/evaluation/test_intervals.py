@@ -2,11 +2,11 @@
 
 from __future__ import annotations
 
+from dataclasses import replace
 import hashlib
 import json
-import shutil
-from dataclasses import replace
 from pathlib import Path
+import shutil
 from typing import Any, cast
 
 import pytest

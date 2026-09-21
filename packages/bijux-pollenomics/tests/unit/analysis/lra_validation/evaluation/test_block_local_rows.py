@@ -1,7 +1,7 @@
 """Block-local adaptation preserves causal source and baseline boundaries."""
 
-import json
 from dataclasses import replace
+import json
 from pathlib import Path
 from types import SimpleNamespace
 
