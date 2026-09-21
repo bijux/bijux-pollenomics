@@ -178,7 +178,7 @@ def _raw(record: StudyMetadataRecord, column: str) -> str | None:
         raise StudyInputProductError(
             f"LandClim metadata row {record.worksheet_row} lacks {column!r}"
         )
-    return cast(str | None, matches[0])
+    return matches[0]
 
 
 def _records_bytes(inventory: LandClimStudyMetadataInventory) -> bytes:
