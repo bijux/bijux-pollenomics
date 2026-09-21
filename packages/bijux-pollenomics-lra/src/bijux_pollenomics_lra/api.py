@@ -23,7 +23,10 @@ from bijux_pollenomics_lra.models.publication import (
     MultisiteRevealsInput,
     PublicationRevealsConfig,
 )
-from bijux_pollenomics_lra.models.regional_draw_source import RegionalCoverDrawSource
+from bijux_pollenomics_lra.models.regional_draw_source import (
+    RegionalCoverDrawSource,
+    publication_bin_bounds_sha256,
+)
 from bijux_pollenomics_lra.models.results import (
     ForwardResult,
     LoveResult,
@@ -107,6 +110,7 @@ __all__ = [
     "extension_descriptor",
     "forward_deposition",
     "prepare_forward_inputs",
+    "publication_bin_bounds_sha256",
     "run_love",
     "run_love_from_regional_draws",
     "run_lra",

@@ -11,8 +11,26 @@ import numpy as np
 from bijux_pollenomics_lra.models.errors import ValidationError
 from bijux_pollenomics_lra.provenance.identity import sha256_object
 
-
 _DIGEST = re.compile(r"[0-9a-f]{64}\Z")
+
+
+def publication_bin_bounds_sha256(
+    bounds: tuple[tuple[float, float], ...],
+) -> str:
+    """Identify ordered explicit BP bounds using the engine's source hash rule."""
+    original = np.asarray(bounds)
+    if original.dtype.kind not in "iuf":
+        raise ValidationError("Calendar-BP bounds must be numeric, not coerced")
+    values = np.asarray(original, dtype=np.float64)
+    if (
+        values.ndim != 2
+        or values.shape[1] != 2
+        or not np.isfinite(values).all()
+        or np.any(values[:, 0] >= values[:, 1])
+        or np.any(values[1:, 0] < values[:-1, 1])
+    ):
+        raise ValidationError("Ordered finite calendar-BP bounds are required")
+    return sha256_object(values)
 
 
 @dataclass(frozen=True, slots=True)
@@ -35,6 +53,40 @@ class RegionalCoverDrawSource:
     draw_member_sha256: str
     selected_tensor_sha256: str
     diagnostic_prefix: bool = False
+
+    @classmethod
+    def from_verified_member(
+        cls,
+        *,
+        values: np.ndarray,
+        taxon_ids: tuple[str, ...],
+        bin_id: str,
+        younger_bp: float,
+        older_bp: float,
+        draw_ids: tuple[int, ...],
+        regional_site_ids: tuple[str, ...],
+        eligible_site_ids: tuple[str, ...],
+        parent_manifest_sha256: str,
+        draw_member_sha256: str,
+    ) -> RegionalCoverDrawSource:
+        """Build from host-authenticated file bytes using the engine's identity."""
+        original = np.asarray(values)
+        if original.dtype.kind not in "iuf":
+            raise ValidationError("Verified regional draws must be numeric")
+        canonical = np.asarray(original, dtype=np.float64)
+        return cls(
+            values=canonical,
+            taxon_ids=taxon_ids,
+            bin_id=bin_id,
+            younger_bp=younger_bp,
+            older_bp=older_bp,
+            draw_ids=draw_ids,
+            regional_site_ids=regional_site_ids,
+            eligible_site_ids=eligible_site_ids,
+            parent_manifest_sha256=parent_manifest_sha256,
+            draw_member_sha256=draw_member_sha256,
+            selected_tensor_sha256=sha256_object(canonical),
+        )
 
     def __post_init__(self) -> None:
         """Refuse ambiguous axes, invalid fractions or unverifiable digests."""

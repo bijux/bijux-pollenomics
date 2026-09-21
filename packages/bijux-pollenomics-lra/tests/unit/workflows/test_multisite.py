@@ -331,6 +331,37 @@ def test_replacing_result_ids_and_tables_cannot_leave_stale_source_manifest(
     assert not destination.exists()
 
 
+def test_published_draw_bin_retains_typed_bp_bounds_and_refuses_relabel(
+    publication_inputs: MultisiteRevealsInput, tmp_path: Path
+) -> None:
+    result = run_reveals_multisite(
+        publication_inputs,
+        PublicationRevealsConfig("synthetic-bp-v1"),
+        bootstrap_indices=draws(),
+    )
+    assert result.bin_bounds_bp == ((0.0, 100.0),)
+    assert result.manifest.parameters["bin_bounds_bp"] == [[0.0, 100.0]]
+    result.write(tmp_path / "valid")
+    published = json.loads((tmp_path / "valid" / "run-manifest.json").read_text())
+    assert published["parameters"]["bin_bounds_bp"] == [[0.0, 100.0]]
+    with pytest.raises(ValueError, match="BP bin bounds"):
+        replace(result, bin_bounds_bp=((10.0, 100.0),)).write(tmp_path / "changed")
+    assert not (tmp_path / "changed").exists()
+    with pytest.raises(ValueError, match="BP bin bounds"):
+        replace(result, bin_bounds_bp=((100.0, 0.0),)).write(tmp_path / "reversed")
+    assert not (tmp_path / "reversed").exists()
+    forged_parameters = dict(result.manifest.parameters)
+    forged_parameters["bin_bounds_bp"] = [[10.0, 110.0]]
+    coordinated_relabel = replace(
+        result,
+        bin_bounds_bp=((10.0, 110.0),),
+        manifest=replace(result.manifest, parameters=forged_parameters),
+    )
+    with pytest.raises(ValueError, match="BP bin bounds"):
+        coordinated_relabel.write(tmp_path / "coordinated")
+    assert not (tmp_path / "coordinated").exists()
+
+
 def test_existing_multisite_bundle_is_preserved_when_support_changes(
     publication_inputs: MultisiteRevealsInput, tmp_path: Path
 ) -> None:

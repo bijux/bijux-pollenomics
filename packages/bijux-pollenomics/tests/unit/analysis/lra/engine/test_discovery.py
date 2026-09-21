@@ -14,6 +14,7 @@ from bijux_pollenomics.analysis.lra.api import LRARefusal
 from bijux_pollenomics.analysis.lra.engine import discovery
 from bijux_pollenomics.analysis.lra.engine.discovery import (
     LANDCLIM_ANALYTICAL_LOVE_CAPABILITY,
+    MULTISITE_DRAW_LOVE_CAPABILITY,
     MULTISITE_PUBLICATION_CAPABILITY,
     load_engine,
 )
@@ -136,7 +137,11 @@ def _selected(distribution: SimpleNamespace, api: StubAPI, capability: str) -> N
 
 @pytest.mark.parametrize(
     "capability",
-    [MULTISITE_PUBLICATION_CAPABILITY, LANDCLIM_ANALYTICAL_LOVE_CAPABILITY],
+    [
+        MULTISITE_PUBLICATION_CAPABILITY,
+        LANDCLIM_ANALYTICAL_LOVE_CAPABILITY,
+        MULTISITE_DRAW_LOVE_CAPABILITY,
+    ],
 )
 def test_old_descriptor_retains_default_contract_but_refuses_selected_feature(
     capability: str,
@@ -170,6 +175,27 @@ def test_multisite_capability_requires_actual_callable_and_typed_facade() -> Non
         pytest.raises(LRARefusal) as raised,
     ):
         load_engine(required_capability=MULTISITE_PUBLICATION_CAPABILITY)
+    assert raised.value.reason_code == "lra_extension_capability_invalid"
+
+
+def test_draw_capability_requires_typed_source_and_bounds_identity() -> None:
+    distribution, api = _installed()
+    api.extension_descriptor()["capabilities"] = [MULTISITE_DRAW_LOVE_CAPABILITY]
+    api.RegionalCoverDrawSource = type(
+        "RegionalCoverDrawSource",
+        (),
+        {"from_verified_member": classmethod(lambda cls, **kwargs: cls())},
+    )
+    api.run_love_from_regional_draws = lambda *args: None
+    api.publication_bin_bounds_sha256 = lambda bounds: "0" * 64
+    _selected(distribution, api, MULTISITE_DRAW_LOVE_CAPABILITY)
+    delattr(api, "publication_bin_bounds_sha256")
+    with (
+        patch.object(metadata, "distribution", return_value=distribution),
+        patch.object(discovery, "import_module", return_value=api),
+        pytest.raises(LRARefusal) as raised,
+    ):
+        load_engine(required_capability=MULTISITE_DRAW_LOVE_CAPABILITY)
     assert raised.value.reason_code == "lra_extension_capability_invalid"
 
 

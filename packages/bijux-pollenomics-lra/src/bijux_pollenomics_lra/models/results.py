@@ -112,6 +112,7 @@ class MultisiteRevealsResult:
     regional_cover_draws: Mapping[str, np.ndarray]
     site_ids: tuple[str, ...]
     bin_ids: tuple[str, ...]
+    bin_bounds_bp: tuple[tuple[float, float], ...]
     taxon_ids: tuple[str, ...]
     diagnostics: list[dict[str, object]]
     manifest: RunManifest

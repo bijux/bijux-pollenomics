@@ -11,6 +11,7 @@ import pandas as pd
 
 from bijux_pollenomics_lra.models.results import MultisiteRevealsResult
 from bijux_pollenomics_lra.outputs.checksums import _write_checksum_manifest
+from bijux_pollenomics_lra.provenance.identity import sha256_object
 
 
 def _validated_result_axes(result: MultisiteRevealsResult) -> None:
@@ -25,6 +26,17 @@ def _validated_result_axes(result: MultisiteRevealsResult) -> None:
         raise ValueError(
             "Result axes must match source axes in the scientific manifest"
         )
+    bounds = np.asarray(result.bin_bounds_bp)
+    if (
+        bounds.shape != (len(bins), 2)
+        or bounds.dtype.kind not in "iuf"
+        or not np.isfinite(bounds).all()
+        or np.any(bounds[:, 0] >= bounds[:, 1])
+        or np.any(bounds[1:, 0] < bounds[:-1, 1])
+        or result.manifest.parameters.get("bin_bounds_bp") != bounds.tolist()
+        or result.manifest.inputs.get("bin_bounds_bp") != sha256_object(bounds)
+    ):
+        raise ValueError("BP bin bounds must match the scientific manifest")
     if tuple(result.cover.index) != bins or tuple(result.cover.columns) != taxa:
         raise ValueError("Regional cover axes must match the input bin and taxon IDs")
     if (

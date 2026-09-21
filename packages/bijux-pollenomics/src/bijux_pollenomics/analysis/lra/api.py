@@ -14,6 +14,7 @@ from .inputs.validation import ValidatedRequest
 from .materialization import NeotomaLraFrontier, inspect_neotoma_lra_frontier
 from .outputs.publication import LRAProduct
 from .outputs.reading import VerifiedLRAProduct, read_lra_product
+from .publication_draws import read_multisite_regional_draw_source
 from .regional_components import (
     RegionalComponentPlan,
     RegionalComponentSet,
@@ -46,6 +47,7 @@ __all__ = [
     "inspect_neotoma_lra_frontier",
     "read_joint_lra_ensemble",
     "read_lra_product",
+    "read_multisite_regional_draw_source",
     "read_regional_component_set",
     "run_joint_lra_ensemble",
     "run_lra_batch",

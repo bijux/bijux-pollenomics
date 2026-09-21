@@ -22,9 +22,16 @@ MULTISITE_PUBLICATION_CAPABILITY = "lra.reveals.multisite.publication-source"
 LANDCLIM_ANALYTICAL_LOVE_CAPABILITY = (
     "lra.love.analytical.fall-speed-profile.landclimii-2016-gpm-neutral-analytical-v1"
 )
+MULTISITE_DRAW_LOVE_CAPABILITY = (
+    "lra.love.analytical.multisite-cover-draws.landclimii-2016-v1"
+)
 _LANDCLIM_FALL_SPEED_PROFILE = "landclimii-2016-gpm-neutral-analytical-v1"
 _OPTIONAL_CAPABILITIES = frozenset(
-    (MULTISITE_PUBLICATION_CAPABILITY, LANDCLIM_ANALYTICAL_LOVE_CAPABILITY)
+    (
+        MULTISITE_PUBLICATION_CAPABILITY,
+        LANDCLIM_ANALYTICAL_LOVE_CAPABILITY,
+        MULTISITE_DRAW_LOVE_CAPABILITY,
+    )
 )
 
 
@@ -89,6 +96,14 @@ def _require_optional_capability(
         )
         complete = complete and callable(
             getattr(getattr(api, "MultisiteRevealsResult", None), "write", None)
+        )
+    elif capability == MULTISITE_DRAW_LOVE_CAPABILITY:
+        source_type = getattr(api, "RegionalCoverDrawSource", None)
+        complete = (
+            isinstance(source_type, type)
+            and callable(getattr(source_type, "from_verified_member", None))
+            and callable(getattr(api, "run_love_from_regional_draws", None))
+            and callable(getattr(api, "publication_bin_bounds_sha256", None))
         )
     else:
         config_type = getattr(api, "LoveConfig", None)

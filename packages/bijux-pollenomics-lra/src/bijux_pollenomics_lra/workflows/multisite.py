@@ -166,8 +166,13 @@ def run_reveals_multisite(
                     "bin_ids": inputs.bin_ids,
                     "taxon_ids": inputs.taxon_ids,
                 },
+                "bin_bounds_bp": inputs.bin_bounds_bp.tolist(),
             },
-            {"inputs": inputs, "bootstrap_indices": draws},
+            {
+                "inputs": inputs,
+                "bin_bounds_bp": inputs.bin_bounds_bp,
+                "bootstrap_indices": draws,
+            },
             stochastic=False,
             seed=None,
         ),
@@ -203,6 +208,9 @@ def run_reveals_multisite(
         regional_cover_draws=regional_cover_draws,
         site_ids=inputs.site_ids,
         bin_ids=inputs.bin_ids,
+        bin_bounds_bp=tuple(
+            (float(younger), float(older)) for younger, older in inputs.bin_bounds_bp
+        ),
         taxon_ids=inputs.taxon_ids,
         diagnostics=diagnostics,
         manifest=manifest,
