@@ -30,6 +30,8 @@ VERSION_NAMES = {
 
 @dataclass(frozen=True)
 class SourceIdentity:
+    """Committed, generated, and executed source identities kept separately."""
+
     tracked_files: dict[str, str]
     tracked_git_blobs: dict[str, str]
     generated_files: dict[str, dict[str, Any]]
@@ -166,7 +168,8 @@ def inspect_source_identity(repository: Path, git_tree: bytes) -> SourceIdentity
     for path, expected in blobs.items():
         data = (repository / path).read_bytes()
         actual = hashlib.sha1(
-            b"blob " + str(len(data)).encode("ascii") + b"\0" + data
+            b"blob " + str(len(data)).encode("ascii") + b"\0" + data,
+            usedforsecurity=False,
         ).hexdigest()
         if actual != expected:
             raise ReferenceRefusal(
@@ -224,6 +227,7 @@ def selected_engine_version(identity: SourceIdentity) -> dict[str, Any]:
 
 
 def validate_generated_evidence(root: Path, certificate: dict[str, Any]) -> None:
+    """Match retained generated version bytes to the source certificate."""
     generated = certificate.get("generated_source_files")
     blobs = certificate.get("tracked_git_blobs")
     source_files = certificate.get("source_files")
