@@ -229,6 +229,7 @@ def test_any_input_drift_fails_closed(tmp_path: Path) -> None:
     copied = tmp_path / "source"
     shutil.copytree(SOURCE_ROOT, copied)
     raw = copied / "input/WHH05.csv"
+    raw.chmod(raw.stat().st_mode | 0o200)
     content = raw.read_bytes()
     assert b",301\n" in content
     raw.write_bytes(content.replace(b",301\n", b",302\n", 1))
