@@ -27,10 +27,16 @@ summary, normalized counts, and qualified scientific review reconcile.
 | temporal evidence | not applicable | the refused density surface cannot contribute dated evidence or same-period comparison |
 
 Missing governed denominators are not scientific zeros. The 106 retained cell
-values sum to 339,412, while the retained metadata reports 318,265
-`Fornlämning`; the 21,147 disagreement is visible and unresolved. The refusal
-means the repository cannot currently establish which source population the
-cell values represent or authorize them for analytical use.
+values sum to 339,412, while retained metadata reports 318,265
+`Fornlämning` WFS hits. The historical producer requested the national hit
+count once and each one-degree cell's hit count in a separate BBOX query. It
+did not archive one source inventory and assign each record to one cell. The
+arithmetic difference of 21,147 therefore compares unbound query
+denominators; it is not a measured count of duplicate or missing records.
+Cell-boundary overlap, source changes between requests, and spatial reach are
+possible contributors, but the retained files have no record IDs, per-query
+responses, or capture times to assign any share of the difference. The cell
+values remain display-only and cannot support an analytical RAÄ count.
 
 ```mermaid
 flowchart LR
@@ -63,7 +69,7 @@ the cell with a smooth color ramp does not increase spatial resolution.
 
 | Layer | Observation unit | Defensible denominator | Spatial meaning |
 | --- | --- | --- | --- |
-| source summary | published RAÄ registry record | unavailable while authority is refused | national registry population represented by an admitted capture |
+| source summary | WFS feature hit in the historical query | unavailable while authority is refused | one national query, without an archived disjoint record inventory |
 | classified summary | record in a declared RAÄ class | the selected classification population | classification count, not event count |
 | density layer | one-degree cell | 106 historical cells; count population unresolved | degraded display of the retained value only |
 | map rendering | colored cell polygon | 106 display members, zero scientifically admitted members | visual orientation with authority and count warnings |
@@ -107,9 +113,9 @@ contracts are visually similar, not necessarily quantitatively comparable.
    degraded/refused and cannot support an archaeology-density claim even though
    the exact historical layer is displayed.
 2. Identify the Sweden product, RAÄ layer, cell, historical-pair hashes and
-   unresolved 339,412-versus-318,265 count discrepancy. After admission, also
-   identify the current capture and
-   classification being read and confirm that its counts share one capture.
+   unbound 339,412-cell-sum versus 318,265-national-query comparison. After
+   admission, identify the current capture and classification being read and
+   confirm that its counts share one capture.
 3. Treat the cell value as an aggregate count, not a site-level distance or a
    chronology statement.
 4. State the one-degree spatial support and Sweden-only reach.
