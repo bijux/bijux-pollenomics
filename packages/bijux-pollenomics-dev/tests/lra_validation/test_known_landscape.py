@@ -7,13 +7,14 @@ import inspect
 import json
 from typing import cast
 
-import bijux_pollenomics_dev.lra_validation.known_landscape as oracle
 import pytest
+
 from bijux_pollenomics_dev.lra_validation import (
     KNOWN_LANDSCAPE_PROFILE,
     KnownLandscapeError,
     build_known_landscape_report,
 )
+import bijux_pollenomics_dev.lra_validation.known_landscape as oracle
 
 JsonObject = dict[str, object]
 
