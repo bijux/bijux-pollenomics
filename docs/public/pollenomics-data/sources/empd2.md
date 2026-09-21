@@ -73,6 +73,29 @@ vegetation footprint. The report is a candidate-only local source artifact,
 SHA-256 `5d35aed59cb5e3b49582976264837fab1c8d4ffa3dc1937e73bf2f04f32e2c66`;
 **zero independent vegetation–pollen pairs are admitted**.
 
+## Source context for the nearest leads
+
+The separate `bijux_pollenomics_dev.source_completion.empd2_nfi_provenance`
+producer checks the official SQLite and the spatial report by SHA-256, then
+retains source-native context and publication links for all 16 samples within
+1 km. Eight have a linked publication. Their source age-uncertainty codes are
+five `A`, three `B`, and eight literal `NULL`; eleven source age values are
+missing or source text. The SQLite metadata table has no structured
+collection-date column.
+
+One record, `Nielsen_b4`, has a source note saying the surface sample was
+collected in September 2013. Its **distance-selected** nearest NFI row is
+427.12 m away and has survey year 2013. The note is a concrete lead for
+source and timing review, not an authenticated match: the pollen is lake
+sediment, the small forest plot has different spatial support, and the
+EMPD2–Neotoma identity flag is unresolved. The other 15 leads have no
+collection-time cue in this source note field. The candidate-only dossier is
+retained as a local artifact, SHA-256
+`bcab3834980f6934143f3a2bf4e2a0155bf3c7024850989de4f0f28f89584c31`.
+It excludes the structured `vegdescription` field, but retains unstructured
+source notes for manual review; it is not a model-training input.
+No vegetation–pollen pair is admitted from it.
+
 Source `agebp` is preserved exactly, including missing and literal `NULL`
 values; it is not converted to an exact collection year. This SQLite release
 does not expose a collection-year field. Taxa/PPE, basin support, chronology,
