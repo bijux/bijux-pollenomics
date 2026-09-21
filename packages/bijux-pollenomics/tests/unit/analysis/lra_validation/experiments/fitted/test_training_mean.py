@@ -8,8 +8,8 @@ import pytest
 
 from bijux_pollenomics.analysis.lra_validation import manifest_sha256
 from bijux_pollenomics.analysis.lra_validation.experiments.configuration import (
-    FittedSpatialExperimentSpec,
     TRAINING_MEAN_METHOD,
+    FittedSpatialExperimentSpec,
 )
 from bijux_pollenomics.analysis.lra_validation.experiments.fitted.training_mean import (
     predict_training_mean_target,
@@ -23,8 +23,8 @@ def test_grouped_training_mean_has_own_fold_lineage_and_model_identity(
     tmp_path: Path, monkeypatch: pytest.MonkeyPatch
 ) -> None:
     spec, fold, fits, groups = fitted_fixture(tmp_path, monkeypatch)
-    from bijux_pollenomics.analysis.lra_validation.experiments.fitted import model
     from bijux_pollenomics.analysis.lra_validation.experiments.fitted import (
+        model,
         training_mean,
     )
 

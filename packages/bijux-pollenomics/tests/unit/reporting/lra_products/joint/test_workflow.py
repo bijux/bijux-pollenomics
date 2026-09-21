@@ -7,12 +7,12 @@ from pathlib import Path
 
 import pytest
 
+from bijux_pollenomics.reporting.lra_products.contracts import digest
 from bijux_pollenomics.reporting.lra_products.joint.api import (
     JointLRAPresentation,
     LRAPresentationRefusal,
     render_joint_lra_report,
 )
-from bijux_pollenomics.reporting.lra_products.contracts import digest
 
 from .support import FixtureState, joint_fixture
 

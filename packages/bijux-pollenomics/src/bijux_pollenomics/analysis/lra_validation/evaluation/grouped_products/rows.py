@@ -17,7 +17,6 @@ from ...experiments.configuration import (
 )
 from ...experiments.reading import read_withheld_predictions
 from ...splits import assert_allowed_inputs
-from ..intervals import freeze_authenticated_pollen_rows
 from ..contracts import (
     EvaluationRow,
     EvaluationScope,
@@ -26,6 +25,7 @@ from ..contracts import (
     freeze_evaluation_prediction,
     refuse,
 )
+from ..intervals import freeze_authenticated_pollen_rows
 
 
 def _failure_inventory(

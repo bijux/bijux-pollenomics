@@ -12,9 +12,9 @@ from bijux_pollenomics.analysis.lra_validation.contracts import (
     manifest_sha256,
 )
 from bijux_pollenomics.analysis.lra_validation.evaluation.contracts import (
-    ExternalInput,
     EvaluationScope,
     EvaluationSite,
+    ExternalInput,
     Support,
     validate_frozen_prediction,
 )

@@ -16,7 +16,6 @@ from bijux_pollenomics.collection.sources.landclim import time_windows
 from tests.support.geography import NORDIC_TEST_BBOX, SWEDEN_BOUNDARIES
 from tests.support.workbooks import write_landclim_ii_zip
 
-
 _MEANS_MEMBER = "LANDCLIMII.RV.means.JUN2021/TW1.RV.estimates.jun21.csv"
 _ERRORS_MEMBER = "LANDCLIMII.RV.standarderrors.JUN2021/TW1.standarderrors.jun21.csv"
 

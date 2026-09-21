@@ -2,11 +2,11 @@
 
 from __future__ import annotations
 
-from dataclasses import replace
 import hashlib
 import json
-from pathlib import Path
 import shutil
+from dataclasses import replace
+from pathlib import Path
 from typing import Any, cast
 
 import pytest
@@ -15,13 +15,13 @@ from bijux_pollenomics.analysis.lra_validation.contracts import (
     ValidationRefusal,
     canonical_json,
 )
+from bijux_pollenomics.analysis.lra_validation.evaluation import intervals
 from bijux_pollenomics.analysis.lra_validation.evaluation.api import (
     AUTHENTICATED_CONDITIONAL_INTERVAL_PROFILE,
     EvaluationRow,
     freeze_authenticated_pollen_interval,
     freeze_authenticated_pollen_rows,
 )
-from bijux_pollenomics.analysis.lra_validation.evaluation import intervals
 from bijux_pollenomics.analysis.lra_validation.experiments import (
     ExperimentProduct,
     prepare_fitted_spatial_predictions,

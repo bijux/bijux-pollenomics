@@ -2,11 +2,12 @@
 
 from __future__ import annotations
 
-from dataclasses import asdict, replace
 import hashlib
 import json
+from collections.abc import Callable
+from dataclasses import asdict, replace
 from pathlib import Path
-from typing import Any, Callable
+from typing import Any
 
 import pytest
 

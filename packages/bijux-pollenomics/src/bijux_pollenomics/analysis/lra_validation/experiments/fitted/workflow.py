@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 
-from collections.abc import Mapping
 import os
+from collections.abc import Mapping
 from pathlib import Path
 
 from ....lra.api import LRABatchLimits, LRARefusal
@@ -16,8 +16,8 @@ from ..configuration import (
     FITTED_METHODS,
     FITTED_PROFILE,
     FITTED_ROLES,
-    FittedSpatialExperimentSpec,
     TRAINING_MEAN_METHOD,
+    FittedSpatialExperimentSpec,
 )
 from ..inputs import verify_consumed_sources
 from ..outputs import (

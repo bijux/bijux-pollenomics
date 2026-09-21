@@ -185,9 +185,9 @@ def _authenticated_draws(
     methods = tuple(
         identity(value) for value in object_list(methods_value, "parent_methods")
     )
-    parent_statuses: dict[tuple[str, str], tuple[str, str | None]] = {
-        key: ("predicted", None) for key in parent_rows
-    }
+    parent_statuses: dict[tuple[str, str], tuple[str, str | None]] = dict.fromkeys(
+        parent_rows, ("predicted", None)
+    )
     for value in object_list(scientific["failures"], "parent_failures"):
         failure = object_mapping(value, "parent_failure")
         fold_id = identity(failure["fold_id"])

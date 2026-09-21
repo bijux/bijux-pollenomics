@@ -24,16 +24,33 @@ from ...outputs import (
 from .batch import batch_evidence, validate_failure_batch_evidence
 from .evidence import specification, validate_prediction_evidence
 
-_SCIENTIFIC_FIELDS = set(
-    "profile method method_kind evaluation_roles "
-    "pollen_eligible_for_heldout_acceptance "
-    "folds predictions failures requested_folds requested_predictions "
-    "generated_predictions failed_folds interrupted all_predictions_generated "
-    "implementation engine_identity uncertainty_status".split()
-)
-_FAILURE_FIELDS = set(
-    "fold_id record_ids status reason_code detail batch_item_id".split()
-)
+_SCIENTIFIC_FIELDS = {
+    "profile",
+    "method",
+    "method_kind",
+    "evaluation_roles",
+    "pollen_eligible_for_heldout_acceptance",
+    "folds",
+    "predictions",
+    "failures",
+    "requested_folds",
+    "requested_predictions",
+    "generated_predictions",
+    "failed_folds",
+    "interrupted",
+    "all_predictions_generated",
+    "implementation",
+    "engine_identity",
+    "uncertainty_status",
+}
+_FAILURE_FIELDS = {
+    "fold_id",
+    "record_ids",
+    "status",
+    "reason_code",
+    "detail",
+    "batch_item_id",
+}
 
 
 def _terminal_accounting(
@@ -61,7 +78,7 @@ def _terminal_accounting(
             raise ValidationRefusal("invalid_local_prediction_failure", fold_id)
         identity(reason)
         failures[fold_id] = cast(str, status)
-    terminal = {key: "predicted" for key in predictions}
+    terminal = dict.fromkeys(predictions, "predicted")
     terminal.update(failures)
     first_not_run = next(
         (index for index, key in enumerate(ordered) if terminal.get(key) == "not_run"),

@@ -26,11 +26,11 @@ from .contracts import (
     freeze_evaluation_prediction,
     validate_frozen_prediction,
 )
+from .grouped_local_rows import adapt_authenticated_grouped_local_vegetation_rows
 from .grouped_products import (
     adapt_authenticated_grouped_withheld_pollen_rows,
     adapt_authenticated_grouped_withheld_vegetation_rows,
 )
-from .grouped_local_rows import adapt_authenticated_grouped_local_vegetation_rows
 from .intervals import (
     AUTHENTICATED_CONDITIONAL_INTERVAL_PROFILE,
     freeze_authenticated_pollen_interval,

@@ -1,7 +1,7 @@
 from __future__ import annotations
 
-from dataclasses import replace
 import json
+from dataclasses import replace
 from typing import Any
 
 import pytest
@@ -12,11 +12,12 @@ from bijux_pollenomics.analysis.lra_validation.channels import (
     PollenChannel,
 )
 from bijux_pollenomics.analysis.lra_validation.contracts import ValidationRefusal
+from bijux_pollenomics.analysis.lra_validation.evaluation import scoring
 from bijux_pollenomics.analysis.lra_validation.evaluation.api import (
     evaluate_final,
     validate_evaluation_policy,
 )
-from bijux_pollenomics.analysis.lra_validation.evaluation import scoring
+
 from .support import (
     ACCESS,
     bind_prediction,

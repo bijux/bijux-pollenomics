@@ -142,7 +142,7 @@ def _expected_source_kind(row: EvaluationRow) -> str:
         return "fitted_spatial"
     if row.model_id == TRAINING_MEAN_METHOD:
         return "admitted_reconstruction_training_mean"
-    refuse("Prediction product row uses an unsupported model identity")
+    return refuse("Prediction product row uses an unsupported model identity")
 
 
 def validate_row(

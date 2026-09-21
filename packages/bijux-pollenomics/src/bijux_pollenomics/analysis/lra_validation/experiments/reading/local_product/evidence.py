@@ -12,30 +12,72 @@ from ...configuration import LocalPollenSpec, identity, object_list, object_mapp
 from ...inputs import channel_catalogue
 from ..provenance import _validate_request
 
-_METADATA_FIELDS = set(
-    "profile method request_template regional_priority local_ring_count "
-    "local_support_radius_m support_profile observation_channels "
-    "source_catalogue".split()
-)
-_NUMERICAL_FIELDS = set(
-    "scientific_content_sha256 scientific_identity_sha256 source_radius_label_m "
-    "local_support_radius_m support_profile composition".split()
-)
-_ROW_FIELDS = set(
-    "profile fold_id record_id group_id bin_id method method_kind evaluation_roles "
-    "pollen_eligible_for_heldout_acceptance vegetation_fraction pollen_fraction "
-    "observed_pollen_count observed_pollen_unit channel_admission outer_fold "
-    "observed_local_pollen_source regional_pollen_source unused_training_record_ids "
-    "request_sha256 numerical_product target_geometry_sha256 support_profile "
-    "local_support_radius_m preparation_profile forward_method_profile engine_build "
-    "declared_inversion_rings declared_forward_rings regional_cover full_k "
-    "full_terrestrial_fraction ring_bounds_m uncertainty_status "
-    "prediction_manifest_sha256".split()
-)
-_FORBIDDEN_OUTCOME_FIELDS = set(
-    "observed_vegetation target_vegetation observed_cover vegetation_outcome "
-    "vegetation_outcome_reference outcome score threshold release_admission".split()
-)
+_METADATA_FIELDS = {
+    "profile",
+    "method",
+    "request_template",
+    "regional_priority",
+    "local_ring_count",
+    "local_support_radius_m",
+    "support_profile",
+    "observation_channels",
+    "source_catalogue",
+}
+_NUMERICAL_FIELDS = {
+    "scientific_content_sha256",
+    "scientific_identity_sha256",
+    "source_radius_label_m",
+    "local_support_radius_m",
+    "support_profile",
+    "composition",
+}
+_ROW_FIELDS = {
+    "profile",
+    "fold_id",
+    "record_id",
+    "group_id",
+    "bin_id",
+    "method",
+    "method_kind",
+    "evaluation_roles",
+    "pollen_eligible_for_heldout_acceptance",
+    "vegetation_fraction",
+    "pollen_fraction",
+    "observed_pollen_count",
+    "observed_pollen_unit",
+    "channel_admission",
+    "outer_fold",
+    "observed_local_pollen_source",
+    "regional_pollen_source",
+    "unused_training_record_ids",
+    "request_sha256",
+    "numerical_product",
+    "target_geometry_sha256",
+    "support_profile",
+    "local_support_radius_m",
+    "preparation_profile",
+    "forward_method_profile",
+    "engine_build",
+    "declared_inversion_rings",
+    "declared_forward_rings",
+    "regional_cover",
+    "full_k",
+    "full_terrestrial_fraction",
+    "ring_bounds_m",
+    "uncertainty_status",
+    "prediction_manifest_sha256",
+}
+_FORBIDDEN_OUTCOME_FIELDS = {
+    "observed_vegetation",
+    "target_vegetation",
+    "observed_cover",
+    "vegetation_outcome",
+    "vegetation_outcome_reference",
+    "outcome",
+    "score",
+    "threshold",
+    "release_admission",
+}
 
 
 def digest(value: object, label: str) -> str:

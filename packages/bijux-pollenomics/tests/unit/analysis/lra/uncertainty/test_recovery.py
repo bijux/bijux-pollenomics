@@ -5,6 +5,7 @@ from math import comb
 from pathlib import Path
 
 import pytest
+
 from bijux_pollenomics.analysis.lra.uncertainty.admission import admit
 from bijux_pollenomics.analysis.lra.uncertainty.contracts import JointLRAPlan
 from bijux_pollenomics.analysis.lra.uncertainty.projection import projections

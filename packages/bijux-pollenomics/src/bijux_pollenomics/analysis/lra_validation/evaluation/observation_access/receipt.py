@@ -2,12 +2,13 @@
 
 from __future__ import annotations
 
-from dataclasses import dataclass, replace
-from datetime import UTC, datetime
 import json
 import os
-from pathlib import Path
 import tempfile
+from contextlib import suppress
+from dataclasses import dataclass, replace
+from datetime import UTC, datetime
+from pathlib import Path
 from typing import cast
 
 from ...contracts import canonical_json, manifest_sha256
@@ -249,10 +250,8 @@ def _publish_exclusive(destination: Path, content: bytes) -> None:
     except OSError as exc:
         refuse(f"Cannot durably publish outcome-access receipt: {exc}")
     finally:
-        try:
+        with suppress(FileNotFoundError):
             temporary.unlink()
-        except FileNotFoundError:
-            pass
         if linked:
             _fsync_directory(parent)
 

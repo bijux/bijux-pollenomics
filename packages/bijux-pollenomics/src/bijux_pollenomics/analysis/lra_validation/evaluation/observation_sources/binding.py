@@ -6,12 +6,12 @@ import json
 from typing import cast
 
 from ...contracts import manifest_sha256
+from ..contracts import refuse
 from ..observation_access import (
     HeldoutPollenSourceLocator,
     MeasuredVegetationSourceLocator,
     OutcomeAccessStartReceipt,
 )
-from ..contracts import refuse
 from .contracts import (
     HeldoutPollenCountSourceProduct,
     HeldoutPollenCountUnit,

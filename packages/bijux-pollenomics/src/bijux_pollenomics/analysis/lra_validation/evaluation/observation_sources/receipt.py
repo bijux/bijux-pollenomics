@@ -2,12 +2,13 @@
 
 from __future__ import annotations
 
-from dataclasses import dataclass
-from datetime import UTC, datetime
 import json
 import os
-from pathlib import Path
 import tempfile
+from contextlib import suppress
+from dataclasses import dataclass
+from datetime import UTC, datetime
+from pathlib import Path
 from typing import cast
 
 from ...contracts import ValidationRefusal, canonical_json, manifest_sha256
@@ -15,12 +16,12 @@ from ..contracts import Support, digest, refuse
 from ..observation_access import OutcomeAccessStartReceipt
 from .binding import bind_products_to_start
 from .contracts import (
+    _PRODUCT_FACTORY_TOKEN,
     HeldoutPollenCountSourceProduct,
     HeldoutPollenCountUnit,
     MeasuredVegetationSourceProduct,
     MeasuredVegetationUnit,
     UnitStatus,
-    _PRODUCT_FACTORY_TOKEN,
 )
 from .reading import (
     _read_heldout_pollen_source,
@@ -348,10 +349,8 @@ def _publish_exclusive(destination: Path, content: bytes) -> None:
     except OSError as exc:
         refuse(f"Cannot durably publish observation completion receipt: {exc}")
     finally:
-        try:
+        with suppress(FileNotFoundError):
             temporary.unlink()
-        except FileNotFoundError:
-            pass
 
 
 def _receipt(

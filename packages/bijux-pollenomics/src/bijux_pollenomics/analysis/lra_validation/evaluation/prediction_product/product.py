@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 
-from dataclasses import dataclass
 import json
+from dataclasses import dataclass
 from pathlib import Path
 from typing import cast
 
@@ -26,9 +26,9 @@ from ..release import (
     admit_final_evaluation_release,
 )
 from .receipt import (
-    PREDICTION_PRODUCT_PROFILE,
     _CELLS,
     _PROTOCOLS,
+    PREDICTION_PRODUCT_PROFILE,
     cell_index,
     cell_payload,
     ordered_cell_rows,

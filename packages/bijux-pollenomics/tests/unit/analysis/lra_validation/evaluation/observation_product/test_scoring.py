@@ -2,10 +2,11 @@
 
 from __future__ import annotations
 
-from dataclasses import replace
 import json
+from collections.abc import Iterator
+from dataclasses import replace
 from pathlib import Path
-from typing import Any, Iterator
+from typing import Any
 
 import pytest
 
@@ -32,9 +33,9 @@ from bijux_pollenomics.analysis.lra_validation.experiments.configuration import 
     TRAINING_MEAN_METHOD,
 )
 
-from .test_join import _joined
 from ..observation_sources import test_sources as source_fixture
 from ..prediction_product import test_product as prediction_fixture
+from .test_join import _joined
 
 
 def _scorable_joined(
