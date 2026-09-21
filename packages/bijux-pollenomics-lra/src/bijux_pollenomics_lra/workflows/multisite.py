@@ -196,6 +196,7 @@ def run_reveals_multisite(
         },
         bootstrap_indices=draws,
         regional_cover_draws=regional_cover_draws,
+        site_ids=inputs.site_ids,
         bin_ids=inputs.bin_ids,
         taxon_ids=inputs.taxon_ids,
         diagnostics=diagnostics,

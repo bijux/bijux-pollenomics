@@ -13,15 +13,39 @@ from bijux_pollenomics_lra.models.results import MultisiteRevealsResult
 from bijux_pollenomics_lra.outputs.checksums import _write_checksum_manifest
 
 
+def _validated_result_axes(result: MultisiteRevealsResult) -> None:
+    """Refuse relabelled result tables before any numerical file is written."""
+    bins, taxa = result.bin_ids, result.taxon_ids
+    if tuple(result.cover.index) != bins or tuple(result.cover.columns) != taxa:
+        raise ValueError("Regional cover axes must match the input bin and taxon IDs")
+    if (
+        tuple(result.standard_error.index) != bins
+        or tuple(result.standard_error.columns) != taxa
+    ):
+        raise ValueError("Regional standard-error axes must match the input IDs")
+    if tuple(result.site_count.index) != bins:
+        raise ValueError("Site-count bins must match the input bin IDs")
+    sites = result.site_ids
+    if (
+        tuple(result.availability.index) != bins
+        or tuple(result.availability.columns) != sites
+    ):
+        raise ValueError("Availability axes must match the input bin and site IDs")
+    for name in ("site_cover", "site_standard_error", "deposition"):
+        tables = getattr(result, name)
+        if tuple(tables) != sites:
+            raise ValueError(f"{name} sites must match availability sites in order")
+        if any(
+            tuple(table.index) != bins or tuple(table.columns) != taxa
+            for table in tables.values()
+        ):
+            raise ValueError(f"{name} axes must match the input bin and taxon IDs")
+
+
 def _validated_draw_bins(
     result: MultisiteRevealsResult,
 ) -> list[tuple[int, str, np.ndarray]]:
     """Refuse malformed draw support before writing any bundle files."""
-    if (
-        tuple(result.cover.index) != result.bin_ids
-        or tuple(result.cover.columns) != result.taxon_ids
-    ):
-        raise ValueError("Regional cover axes must match the input bin and taxon IDs")
     if set(result.regional_cover_draws) != set(result.bootstrap_indices):
         raise ValueError("Regional cover draws must match multi-site bootstrap bins")
     bins = []
@@ -110,6 +134,7 @@ def write_multisite_result(
     result: MultisiteRevealsResult, directory: str | Path
 ) -> Path:
     """Publish a complete immutable bundle without stale files from prior runs."""
+    _validated_result_axes(result)
     draw_bins = _validated_draw_bins(result)
     destination = Path(directory)
     if destination.is_symlink() or (

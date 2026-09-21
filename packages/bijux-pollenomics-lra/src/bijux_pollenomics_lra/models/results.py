@@ -110,6 +110,7 @@ class MultisiteRevealsResult:
     deposition: Mapping[str, pd.DataFrame]
     bootstrap_indices: Mapping[str, np.ndarray]
     regional_cover_draws: Mapping[str, np.ndarray]
+    site_ids: tuple[str, ...]
     bin_ids: tuple[str, ...]
     taxon_ids: tuple[str, ...]
     diagnostics: list[dict[str, object]]

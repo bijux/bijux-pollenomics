@@ -221,6 +221,80 @@ def test_malformed_multisite_draws_are_refused_before_writing(
     assert not reordered.exists()
 
 
+@pytest.mark.parametrize(
+    "field",
+    [
+        "standard_error",
+        "site_count",
+        "availability",
+        "site_cover",
+        "site_standard_error",
+        "deposition",
+        "site_cover_keys",
+    ],
+)
+def test_relabelled_multisite_result_tables_are_refused_before_writing(
+    publication_inputs: MultisiteRevealsInput, tmp_path: Path, field: str
+) -> None:
+    result = run_reveals_multisite(
+        publication_inputs,
+        PublicationRevealsConfig("synthetic-bp-v1"),
+        bootstrap_indices=draws(),
+    )
+    if field == "site_count":
+        changed = result.site_count.rename(index={"recent": "wrong"})
+    elif field == "availability":
+        changed = result.availability.rename(index={"recent": "wrong"})
+    elif field == "standard_error":
+        changed = result.standard_error.rename(columns={"A": "wrong"})
+    else:
+        changed = dict(
+            getattr(result, "site_cover" if field == "site_cover_keys" else field)
+        )
+        if field == "site_cover_keys":
+            changed["wrong"] = changed.pop("small")
+        else:
+            changed["small"] = changed["small"].rename(columns={"A": "wrong"})
+    destination = tmp_path / field
+    with pytest.raises(ValueError, match="axes|bins|sites"):
+        replace(
+            result, **{"site_cover" if field == "site_cover_keys" else field: changed}
+        ).write(destination)
+    assert not destination.exists()
+
+
+def test_coordinated_site_relabel_cannot_rewrite_source_identity(
+    publication_inputs: MultisiteRevealsInput, tmp_path: Path
+) -> None:
+    result = run_reveals_multisite(
+        publication_inputs,
+        PublicationRevealsConfig("synthetic-bp-v1"),
+        bootstrap_indices=draws(),
+    )
+    relabelled = replace(
+        result,
+        availability=result.availability.rename(columns={"small": "fabricated"}),
+        site_cover={
+            "fabricated": result.site_cover["small"],
+            "large": result.site_cover["large"],
+        },
+        site_standard_error={
+            "fabricated": result.site_standard_error["small"],
+            "large": result.site_standard_error["large"],
+        },
+        deposition={
+            "fabricated": result.deposition["small"],
+            "large": result.deposition["large"],
+        },
+    )
+    assert relabelled.manifest.inputs == result.manifest.inputs
+    assert relabelled.site_ids == publication_inputs.site_ids
+    destination = tmp_path / "fabricated"
+    with pytest.raises(ValueError, match="Availability axes"):
+        relabelled.write(destination)
+    assert not destination.exists()
+
+
 def test_existing_multisite_bundle_is_preserved_when_support_changes(
     publication_inputs: MultisiteRevealsInput, tmp_path: Path
 ) -> None:
