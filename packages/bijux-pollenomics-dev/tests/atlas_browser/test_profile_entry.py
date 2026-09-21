@@ -9,6 +9,7 @@ import subprocess
 from bijux_pollenomics_dev.ci import atlas_browser
 from bijux_pollenomics_dev.ci.atlas_browser.contracts import (
     NATIVE_LRA_PROFILE,
+    RAA_RETAINED_CONTEXT_PROFILE,
     SIGNED_NATIVE_LRA_PROFILE,
     VERIFICATION_PROFILES,
 )
@@ -25,7 +26,7 @@ def test_actual_profile_and_candidate_entry_guards_match_declared_contract() -> 
         source.index("const verificationProfile") : source.index("const providerHosts")
     ]
     kind = source[
-        source.index("const artifactMode") : source.index("let activeScenario")
+        source.index("const nativeArtifactMode") : source.index("let activeScenario")
     ]
     profiles = [*sorted(VERIFICATION_PROFILES), "unknown", None, True]
     plans = [
@@ -33,6 +34,7 @@ def test_actual_profile_and_candidate_entry_guards_match_declared_contract() -> 
         for schema in [
             "atlas-browser-verification-plan.v2",
             "atlas-browser-verification-plan.v3",
+            "atlas-browser-verification-plan.v4",
             "unsupported",
         ]
         for profile in profiles
@@ -55,7 +57,11 @@ def test_actual_profile_and_candidate_entry_guards_match_declared_contract() -> 
     observed = json.loads(completed.stdout)
     expected = [
         plan["schema_version"]
-        in {"atlas-browser-verification-plan.v2", "atlas-browser-verification-plan.v3"}
+        in {
+            "atlas-browser-verification-plan.v2",
+            "atlas-browser-verification-plan.v3",
+            "atlas-browser-verification-plan.v4",
+        }
         and plan["verification_profile"] in VERIFICATION_PROFILES
         and (
             (plan["schema_version"] == "atlas-browser-verification-plan.v3")
@@ -63,8 +69,10 @@ def test_actual_profile_and_candidate_entry_guards_match_declared_contract() -> 
                 plan["verification_profile"]
                 in {NATIVE_LRA_PROFILE, SIGNED_NATIVE_LRA_PROFILE}
             )
+            and (plan["schema_version"] == "atlas-browser-verification-plan.v4")
+            == (plan["verification_profile"] == RAA_RETAINED_CONTEXT_PROFILE)
         )
         for plan in plans
     ]
     assert observed == expected
-    assert sum(observed) == 4
+    assert sum(observed) == 5

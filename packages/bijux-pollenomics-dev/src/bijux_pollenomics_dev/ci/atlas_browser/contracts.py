@@ -16,6 +16,7 @@ NORDIC_SOURCE_CHRONOLOGY_PROFILE = "nordic-source-chronology-v1"
 GENERIC_TIME_AWARE_PROFILE = "generic-time-aware-atlas-v1"
 NATIVE_LRA_PROFILE = "native-lra-exploratory-v1"
 SIGNED_NATIVE_LRA_PROFILE = "native-lra-signed-calendar-v1"
+RAA_RETAINED_CONTEXT_PROFILE = "raa-retained-context-v1"
 SIGNED_CALENDAR_PROFILE = "calendar-bp1950-signed.v1"
 VERIFICATION_PROFILES = frozenset(
     {
@@ -23,6 +24,7 @@ VERIFICATION_PROFILES = frozenset(
         GENERIC_TIME_AWARE_PROFILE,
         NATIVE_LRA_PROFILE,
         SIGNED_NATIVE_LRA_PROFILE,
+        RAA_RETAINED_CONTEXT_PROFILE,
     }
 )
 
@@ -153,7 +155,66 @@ class AtlasArtifactCandidate:
         return cls(**value)
 
 
-BrowserCandidate = AtlasCandidate | AtlasArtifactCandidate
+@dataclass(frozen=True)
+class AtlasGeneratedReportCandidate:
+    """A managed report publication bound to its receipt and complete inventory."""
+
+    build_id: str
+    generator_repository_head: str
+    generator_repository_tree: str
+    generator_receipt: str
+    generator_receipt_sha256: str
+    presentation_root: str
+    presentation_inventory_sha256: str
+    kind: str = "generated_report_publication"
+
+    def __post_init__(self) -> None:
+        if self.kind != "generated_report_publication":
+            raise AtlasBrowserContractError("unsupported generated report kind")
+        for key in ("generator_repository_head", "generator_repository_tree"):
+            _git_object_id(getattr(self, key), label=key)
+        if _BUILD_ID.fullmatch(self.build_id) is None:
+            raise AtlasBrowserContractError("invalid generated report build_id")
+        for field in fields(self):
+            if field.name.endswith("sha256") and (
+                not isinstance(getattr(self, field.name), str)
+                or re.fullmatch(r"[0-9a-f]{64}", getattr(self, field.name)) is None
+            ):
+                raise AtlasBrowserContractError(
+                    f"invalid generated report digest: {field.name}"
+                )
+        for key in ("generator_receipt", "presentation_root"):
+            value = safe_artifact_path(getattr(self, key))
+            if not value.startswith("artifacts/"):
+                raise AtlasBrowserContractError(f"{key} must be under artifacts/")
+        if not self.generator_receipt.endswith(".json"):
+            raise AtlasBrowserContractError("generator receipt must be JSON")
+        if Path(self.generator_receipt).is_relative_to(self.presentation_root):
+            raise AtlasBrowserContractError(
+                "generator receipt must be outside presentation"
+            )
+
+    def as_json(self) -> JsonObject:
+        return cast(JsonObject, asdict(self))
+
+    @classmethod
+    def from_json(cls, value: object) -> AtlasGeneratedReportCandidate:
+        if not isinstance(value, dict) or set(value) != {
+            field.name for field in fields(cls)
+        }:
+            raise AtlasBrowserContractError(
+                "generated report candidate fields must be exact"
+            )
+        if any(not isinstance(item, str) for item in value.values()):
+            raise AtlasBrowserContractError(
+                "generated report candidate values must be strings"
+            )
+        return cls(**value)
+
+
+BrowserCandidate = (
+    AtlasCandidate | AtlasArtifactCandidate | AtlasGeneratedReportCandidate
+)
 
 
 @dataclass(frozen=True)
@@ -219,14 +280,23 @@ class BrowserVerificationPlan:
             raise AtlasBrowserContractError("scopes must be non-empty and unique")
         if self.verification_profile not in VERIFICATION_PROFILES:
             raise AtlasBrowserContractError("verification_profile is unsupported")
-        if isinstance(self.candidate, AtlasArtifactCandidate):
-            if (
+        if isinstance(
+            self.candidate, (AtlasArtifactCandidate, AtlasGeneratedReportCandidate)
+        ):
+            if isinstance(self.candidate, AtlasArtifactCandidate) and (
                 self.verification_profile
                 not in {NATIVE_LRA_PROFILE, SIGNED_NATIVE_LRA_PROFILE}
                 or len(self.scopes) != 1
             ):
                 raise AtlasBrowserContractError(
                     "artifact candidate requires one native LRA scope"
+                )
+            if isinstance(self.candidate, AtlasGeneratedReportCandidate) and (
+                self.verification_profile != RAA_RETAINED_CONTEXT_PROFILE
+                or {scope.name for scope in self.scopes} != {"nordic"}
+            ):
+                raise AtlasBrowserContractError(
+                    "generated report candidate requires one Nordic RAÄ scope"
                 )
             presentation = repository_root / self.candidate.presentation_root
             receipt = repository_root / self.candidate.generator_receipt
@@ -260,9 +330,10 @@ class BrowserVerificationPlan:
         elif self.verification_profile in {
             NATIVE_LRA_PROFILE,
             SIGNED_NATIVE_LRA_PROFILE,
+            RAA_RETAINED_CONTEXT_PROFILE,
         }:
             raise AtlasBrowserContractError(
-                "native LRA profile requires an artifact candidate"
+                "artifact-only profile requires its artifact candidate"
             )
         scope_names = {scope.name for scope in self.scopes}
         if self.verification_profile == NORDIC_SOURCE_CHRONOLOGY_PROFILE and (
@@ -293,9 +364,13 @@ class BrowserVerificationPlan:
     def as_json(self) -> JsonObject:
         """Return the stable subprocess contract without host-specific inference."""
         return {
-            "schema_version": "atlas-browser-verification-plan.v3"
-            if isinstance(self.candidate, AtlasArtifactCandidate)
-            else "atlas-browser-verification-plan.v2",
+            "schema_version": (
+                "atlas-browser-verification-plan.v3"
+                if isinstance(self.candidate, AtlasArtifactCandidate)
+                else "atlas-browser-verification-plan.v4"
+                if isinstance(self.candidate, AtlasGeneratedReportCandidate)
+                else "atlas-browser-verification-plan.v2"
+            ),
             "repository_root": str(self.repository_root.resolve()),
             "artifact_root": str(self.artifact_root.resolve()),
             "browser_binary": str(self.browser_binary.resolve()),
@@ -326,14 +401,17 @@ class BrowserVerificationPlan:
         if not isinstance(raw["schema_version"], str) or raw["schema_version"] not in {
             "atlas-browser-verification-plan.v2",
             "atlas-browser-verification-plan.v3",
+            "atlas-browser-verification-plan.v4",
         }:
             raise AtlasBrowserContractError("plan schema_version is unsupported")
         candidate = raw["candidate"]
-        artifact = raw["schema_version"] == "atlas-browser-verification-plan.v3"
-        if artifact:
+        schema = raw["schema_version"]
+        if schema == "atlas-browser-verification-plan.v3":
             parsed_candidate: BrowserCandidate = AtlasArtifactCandidate.from_json(
                 candidate
             )
+        elif schema == "atlas-browser-verification-plan.v4":
+            parsed_candidate = AtlasGeneratedReportCandidate.from_json(candidate)
         elif not isinstance(candidate, dict) or set(candidate) != {
             "repository_head",
             "repository_tree",
