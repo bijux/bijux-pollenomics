@@ -201,6 +201,15 @@ comparison, and accuracy against independently measured vegetation remain
 unverified. The published REVEALS estimates are model outputs, not measured
 vegetation reference labels.
 
+A bounded recovery check illustrates this gap. The publication metadata lists
+Amsoldingersee as an ALPADABA record with filename code `E#69`, 23 pollen
+samples and an author chronology. The [current Neotoma site](https://api.neotomadb.org/v2.0/data/sites?sitename=Amsoldingersee)
+has three pollen cores. One has 23 sample IDs but no chronology record; the
+other two have 24 and 52 sample IDs with radiocarbon chronologies. None of the
+three public core responses establishes an `E#69` identity or the historical
+author age model. This one publication row remains excluded from raw-input
+reproduction; a sample-count match alone cannot supply its missing lineage.
+
 The [ESSD article](https://essd.copernicus.org/articles/14/1581/2022/) says
 12 plant functional types, while the [PANGAEA deposit](https://doi.pangaea.de/10.1594/PANGAEA.937075)
 says 11. The captured parameter table assigns 31 taxa to 12 distinct codes
