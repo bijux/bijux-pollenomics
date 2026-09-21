@@ -41,6 +41,13 @@ class LoveMethod(StrEnum):
     OPTIMIZED = "optimized"
 
 
+class OptimizedLoveProfile(StrEnum):
+    """Distinguish the source wrapper from dimension-preserving ring equations."""
+
+    DISQOVER_SOURCE = "disqover-0.9.14-source"
+    RING_TAXON_PRESERVING = "ring-taxon-preserving"
+
+
 def _enum_value(value: str | Enum, enum: type[Enum], name: str) -> str:
     raw = value.value if isinstance(value, Enum) else str(value).strip().lower()
     allowed = {member.value for member in enum}
@@ -128,9 +135,18 @@ class LoveConfig:
     optimizer_max_evaluations: int | None = None
     optimizer_tolerance: float = 0.01
     fall_speed_profile: str = DEFAULT_FALL_SPEED_PROFILE
+    optimized_profile: OptimizedLoveProfile | str = OptimizedLoveProfile.DISQOVER_SOURCE
 
     def __post_init__(self) -> None:
         method = _enum_value(self.method, LoveMethod, "method")
+        optimized_profile = _enum_value(
+            self.optimized_profile, OptimizedLoveProfile, "optimized_profile"
+        )
+        if (
+            method != LoveMethod.OPTIMIZED.value
+            and optimized_profile != OptimizedLoveProfile.DISQOVER_SOURCE.value
+        ):
+            raise ValidationError("optimized_profile requires optimized LOVE")
         basin_type = _enum_value(
             self.regional_basin_type, BasinType, "regional_basin_type"
         )
@@ -175,6 +191,7 @@ class LoveConfig:
         retain_samples = _boolean(self.retain_samples, "retain_samples")
         ppe_error = _boolean(self.ppe_error, "ppe_error")
         object.__setattr__(self, "method", method)
+        object.__setattr__(self, "optimized_profile", optimized_profile)
         object.__setattr__(self, "regional_basin_type", basin_type)
         object.__setattr__(self, "distance_weighting", distance_weighting)
         object.__setattr__(self, "regional_basin_diameter_m", regional_diameter)
@@ -190,7 +207,7 @@ class LoveConfig:
 
     def as_dict(self) -> dict[str, object]:
         """Return JSON-compatible settings."""
-        return {
+        settings: dict[str, object] = {
             "method": self.method,
             "regional_basin_type": self.regional_basin_type,
             "regional_basin_diameter_m": self.regional_basin_diameter_m,
@@ -207,6 +224,9 @@ class LoveConfig:
             "optimizer_max_evaluations": self.optimizer_max_evaluations,
             "optimizer_tolerance": self.optimizer_tolerance,
         }
+        if self.method == LoveMethod.OPTIMIZED.value:
+            settings["optimized_profile"] = self.optimized_profile
+        return settings
 
 
 @dataclass(frozen=True, slots=True)

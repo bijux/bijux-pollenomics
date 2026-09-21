@@ -8,7 +8,11 @@ import tomllib
 
 import jsonschema
 
-from bijux_pollenomics_lra.api import LoveConfig, extension_descriptor
+from bijux_pollenomics_lra.api import (
+    LoveConfig,
+    OptimizedLoveProfile,
+    extension_descriptor,
+)
 from bijux_pollenomics_lra.models.validation import (
     LANDCLIM_II_GPM_ANALYTICAL_FALL_SPEED_PROFILE,
 )
@@ -69,6 +73,22 @@ def test_named_love_capability_matches_validated_profile() -> None:
         fall_speed_profile=profile,
     )
     assert config.as_dict()["fall_speed_profile"] == profile
+
+
+def test_optimized_revised_profile_is_publicly_discoverable() -> None:
+    profile = OptimizedLoveProfile.RING_TAXON_PRESERVING.value
+    capabilities = extension_descriptor()["capabilities"]
+    assert "lra.love.optimized" in capabilities
+    assert "lra.love.optimized." + profile in capabilities
+    config = LoveConfig(
+        method="optimized",
+        regional_basin_type="lake",
+        regional_basin_diameter_m=300,
+        local_basin_diameter_m=12.9,
+        max_ring=1,
+        optimized_profile=profile,
+    )
+    assert config.as_dict()["optimized_profile"] == profile
 
 
 def test_run_manifest_retains_actual_backend_and_valid_schema() -> None:

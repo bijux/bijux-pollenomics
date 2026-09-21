@@ -25,12 +25,15 @@ LANDCLIM_ANALYTICAL_LOVE_CAPABILITY = (
 MULTISITE_DRAW_LOVE_CAPABILITY = (
     "lra.love.analytical.multisite-cover-draws.landclimii-2016-v1"
 )
+OPTIMIZED_RING_TAXON_CAPABILITY = "lra.love.optimized.ring-taxon-preserving"
+OPTIMIZED_RING_TAXON_PROFILE = "ring-taxon-preserving"
 _LANDCLIM_FALL_SPEED_PROFILE = "landclimii-2016-gpm-neutral-analytical-v1"
 _OPTIONAL_CAPABILITIES = frozenset(
     (
         MULTISITE_PUBLICATION_CAPABILITY,
         LANDCLIM_ANALYTICAL_LOVE_CAPABILITY,
         MULTISITE_DRAW_LOVE_CAPABILITY,
+        OPTIMIZED_RING_TAXON_CAPABILITY,
     )
 )
 
@@ -55,6 +58,13 @@ class EngineBinding:
             "extension_name": "lra",
             "extension_target": TARGET,
         }
+
+
+def required_capability_for_profile(method_profile: str) -> str | None:
+    """Select an optional facade only for the revised host method profile."""
+    if method_profile == OPTIMIZED_RING_TAXON_PROFILE:
+        return OPTIMIZED_RING_TAXON_CAPABILITY
+    return None
 
 
 def _require_optional_capability(
@@ -105,6 +115,41 @@ def _require_optional_capability(
             and callable(getattr(api, "run_love_from_regional_draws", None))
             and callable(getattr(api, "publication_bin_bounds_sha256", None))
         )
+    elif capability == OPTIMIZED_RING_TAXON_CAPABILITY:
+        config_type = getattr(api, "LoveConfig", None)
+        profile_type = getattr(api, "OptimizedLoveProfile", None)
+        complete = (
+            isinstance(config_type, type)
+            and is_dataclass(config_type)
+            and {field.name for field in fields(config_type)}
+            >= {"method", "optimized_profile"}
+            and isinstance(profile_type, type)
+            and getattr(
+                getattr(profile_type, "RING_TAXON_PRESERVING", None), "value", None
+            )
+            == OPTIMIZED_RING_TAXON_PROFILE
+            and callable(getattr(api, "run_love", None))
+        )
+        if complete and isinstance(config_type, type):
+            try:
+                selected = config_type(
+                    method="optimized",
+                    regional_basin_type="lake",
+                    regional_basin_diameter_m=300,
+                    local_basin_diameter_m=12.9,
+                    max_ring=1,
+                    optimized_profile=OPTIMIZED_RING_TAXON_PROFILE,
+                    repeats=1,
+                    stochastic=False,
+                )
+                complete = (
+                    selected.method == "optimized"
+                    and selected.optimized_profile == OPTIMIZED_RING_TAXON_PROFILE
+                    and selected.as_dict().get("optimized_profile")
+                    == OPTIMIZED_RING_TAXON_PROFILE
+                )
+            except Exception:
+                complete = False
     else:
         config_type = getattr(api, "LoveConfig", None)
         complete = (
@@ -114,7 +159,7 @@ def _require_optional_capability(
             >= {"method", "distance_weighting", "fall_speed_profile"}
             and callable(getattr(api, "run_love", None))
         )
-        if complete:
+        if complete and isinstance(config_type, type):
             try:
                 draw_parameter = signature(api.run_love).parameters.get(
                     "regional_cover_draws"

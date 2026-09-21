@@ -21,6 +21,7 @@ from bijux_pollenomics_lra.models.validation import (
 )
 from bijux_pollenomics_lra.provenance.identity import sha256_object
 from bijux_pollenomics_lra.provenance.manifest import build_manifest
+from bijux_pollenomics_lra.workflows.local import love_compatibility_mode
 from bijux_pollenomics_lra.workflows.paired import _seed_from_sequence, run_lra
 
 
@@ -120,23 +121,26 @@ def run_lra_series(
             replay_candidates=replay_candidates,
         )
 
-    manifest = build_manifest(
-        "LRA-series",
-        {
-            **config.as_dict(),
-            "coordinates": list(runs),
-            "run_manifest_sha256": {
-                key: sha256_object(run.manifest.scientific_identity())
-                for key, run in runs.items()
+    manifest = replace(
+        build_manifest(
+            "LRA-series",
+            {
+                **config.as_dict(),
+                "coordinates": list(runs),
+                "run_manifest_sha256": {
+                    key: sha256_object(run.manifest.scientific_identity())
+                    for key, run in runs.items()
+                },
             },
-        },
-        {
-            "local_pollen": local,
-            "regional_pollen": regional,
-            "params": params,
-            "rings": rings,
-        },
-        stochastic=bool(config.reveals.stochastic or config.love.stochastic),
-        seed=config.seed,
+            {
+                "local_pollen": local,
+                "regional_pollen": regional,
+                "params": params,
+                "rings": rings,
+            },
+            stochastic=bool(config.reveals.stochastic or config.love.stochastic),
+            seed=config.seed,
+        ),
+        compatibility_mode=love_compatibility_mode(config.love),
     )
     return LRASeriesResult(runs, manifest)

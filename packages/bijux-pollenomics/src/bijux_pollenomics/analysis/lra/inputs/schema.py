@@ -96,7 +96,9 @@ REQUEST_SCHEMA = {
             "schema_version": {"const": "lra-request.v1"},
             "purpose": {"const": "exploratory"},
             "data_kind": {"enum": ["synthetic", "source_observations"]},
-            "method_profile": {"const": "disqover-0.9.14-source-compatible"},
+            "method_profile": {
+                "enum": ["disqover-0.9.14-source-compatible", "ring-taxon-preserving"]
+            },
             "operation": {"enum": ["reveals", "love", "lra", "series"]},
             "pollen_unit": {"const": "count"},
             "taxa": {

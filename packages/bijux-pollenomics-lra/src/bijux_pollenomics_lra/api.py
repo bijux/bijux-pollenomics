@@ -10,6 +10,7 @@ from bijux_pollenomics_lra.models.configuration import (
     ForwardConfig,
     LoveConfig,
     LoveMethod,
+    OptimizedLoveProfile,
     LRAConfig,
     RevealsConfig,
 )
@@ -74,6 +75,7 @@ def extension_descriptor() -> dict[str, Any]:
             + LANDCLIM_II_GPM_ANALYTICAL_FALL_SPEED_PROFILE,
             "lra.love.analytical.multisite-cover-draws.landclimii-2016-v1",
             "lra.love.optimized",
+            "lra.love.optimized." + OptimizedLoveProfile.RING_TAXON_PRESERVING.value,
             "lra.series.exact-coordinate",
             "lra.forward.homogeneous-local",
             "lra.forward.prepare-target-geometry",
@@ -97,6 +99,7 @@ __all__ = [
     "LRASeriesResult",
     "LoveConfig",
     "LoveMethod",
+    "OptimizedLoveProfile",
     "LoveResult",
     "MultisiteRevealsInput",
     "MultisiteRevealsResult",

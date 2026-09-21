@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from dataclasses import replace
 from typing import Any
 
 import numpy as np
@@ -10,6 +11,7 @@ import pandas as pd
 from bijux_pollenomics_lra.models.configuration import (
     LoveConfig,
     LoveMethod,
+    OptimizedLoveProfile,
 )
 from bijux_pollenomics_lra.models.errors import ConvergenceError, ValidationError
 from bijux_pollenomics_lra.models.regional_draw_source import RegionalCoverDrawSource
@@ -26,6 +28,17 @@ from bijux_pollenomics_lra.optimization.solver import ReplayOptimizer
 from bijux_pollenomics_lra.provenance.manifest import build_manifest
 from bijux_pollenomics_lra.reconstruction.analytical import LOVEr
 from bijux_pollenomics_lra.reconstruction.optimized import LOVEoptim
+from bijux_pollenomics_lra.version import COMPATIBILITY_MODE
+
+
+def love_compatibility_mode(config: LoveConfig) -> str:
+    """Name the numerical LOVE equations carried into parent manifests."""
+    if (
+        config.method == LoveMethod.OPTIMIZED.value
+        and config.optimized_profile == OptimizedLoveProfile.RING_TAXON_PRESERVING.value
+    ):
+        return OptimizedLoveProfile.RING_TAXON_PRESERVING.value
+    return COMPATIBILITY_MODE
 
 
 def _prepare_love_params(
@@ -268,6 +281,7 @@ def run_love(
         max_evaluations=config.optimizer_max_evaluations,
         tolerance=config.optimizer_tolerance,
         return_samples=config.retain_samples,
+        optimized_profile=config.optimized_profile,
     )
     if not raw["optimizers"]:
         raise ValidationError(
@@ -305,50 +319,58 @@ def run_love(
             "terrestrial_fraction": raw["terrestrial_fraction"],
         },
         samples=samples,
-        manifest=build_manifest(
-            "LOVE-optimized",
-            {
-                **config.as_dict(),
-                "optimizer_backend": (
-                    "candidate-replay"
-                    if replay_candidates is not None
-                    else "scipy.differential_evolution"
+        manifest=replace(
+            build_manifest(
+                (
+                    "LOVE-optimized-ring-taxon-preserving"
+                    if config.optimized_profile
+                    == OptimizedLoveProfile.RING_TAXON_PRESERVING.value
+                    else "LOVE-optimized"
                 ),
-                "candidate_count": (
-                    len(np.asarray(replay_candidates))
-                    if replay_candidates is not None
-                    else None
-                ),
-                "paired_regional_cover_draws": regional_cover_draws is not None,
-                "paired_local_count_draws": local_count_draws is not None,
-                "source_quirks": [
-                    "calK_forces_peatland",
-                    "sampled_PPE_vector_is_not_used_by_reference_objective",
-                ],
-            },
-            {
-                "local_pollen": local_table,
-                "regional_pollen": regional_table,
-                "params": params,
-                "rings": rings,
-                **(
-                    {"regional_cover_draws": regional_cover_draws}
-                    if regional_cover_draws is not None
-                    else {}
-                ),
-                **(
-                    {"local_count_draws": local_count_draws}
-                    if local_count_draws is not None
-                    else {}
-                ),
-                **(
-                    {"replay_candidates": replay_candidates}
-                    if replay_candidates is not None
-                    else {}
-                ),
-            },
-            stochastic=config.stochastic,
-            seed=config.seed,
+                {
+                    **config.as_dict(),
+                    "optimizer_backend": (
+                        "candidate-replay"
+                        if replay_candidates is not None
+                        else "scipy.differential_evolution"
+                    ),
+                    "candidate_count": (
+                        len(np.asarray(replay_candidates))
+                        if replay_candidates is not None
+                        else None
+                    ),
+                    "paired_regional_cover_draws": regional_cover_draws is not None,
+                    "paired_local_count_draws": local_count_draws is not None,
+                    "source_quirks": [
+                        "calK_forces_peatland",
+                        "sampled_PPE_vector_is_not_used_by_reference_objective",
+                    ],
+                },
+                {
+                    "local_pollen": local_table,
+                    "regional_pollen": regional_table,
+                    "params": params,
+                    "rings": rings,
+                    **(
+                        {"regional_cover_draws": regional_cover_draws}
+                        if regional_cover_draws is not None
+                        else {}
+                    ),
+                    **(
+                        {"local_count_draws": local_count_draws}
+                        if local_count_draws is not None
+                        else {}
+                    ),
+                    **(
+                        {"replay_candidates": replay_candidates}
+                        if replay_candidates is not None
+                        else {}
+                    ),
+                },
+                stochastic=config.stochastic,
+                seed=config.seed,
+            ),
+            compatibility_mode=love_compatibility_mode(config),
         ),
     )
 

@@ -8,6 +8,9 @@ from unittest.mock import patch
 import pytest
 
 from bijux_pollenomics.analysis.lra.engine.errors import LRARefusal
+from bijux_pollenomics.analysis.lra.engine.discovery import (
+    OPTIMIZED_RING_TAXON_CAPABILITY,
+)
 from bijux_pollenomics.analysis.lra.execution import service
 
 from ..outputs.test_publication import Result, binding
@@ -42,3 +45,49 @@ def test_run_binds_inputs_before_and_after_computation(
     )
     assert error.value.reason_code == expected
     assert not destination.exists()
+
+
+def test_revised_profile_selects_optional_engine_before_validation(
+    tmp_path: Path,
+) -> None:
+    payload = request_fixture(tmp_path, "love")
+    payload["method_profile"] = "ring-taxon-preserving"
+    payload["configuration"]["love"].update(
+        method="optimized", optimized_profile="ring-taxon-preserving"
+    )
+    payload["rings"].append(
+        {
+            **payload["rings"][0],
+            "inner_m": 200,
+            "outer_m": 400,
+            "mean_m": 300,
+        }
+    )
+    with (
+        patch.object(service, "load_engine") as loader,
+        patch.object(service, "validate_engine_configuration"),
+    ):
+        service.validate_lra_inputs(payload, input_root=tmp_path)
+    loader.assert_called_once_with(required_capability=OPTIMIZED_RING_TAXON_CAPABILITY)
+
+
+def test_installed_revised_profile_validates_through_host(tmp_path: Path) -> None:
+    payload = request_fixture(tmp_path, "love")
+    payload["method_profile"] = "ring-taxon-preserving"
+    payload["configuration"]["love"].update(
+        method="optimized",
+        optimized_profile="ring-taxon-preserving",
+        repeats=1,
+        optimizer_iterations=2,
+        stochastic=False,
+    )
+    payload["rings"].append(
+        {
+            **payload["rings"][0],
+            "inner_m": 200,
+            "outer_m": 400,
+            "mean_m": 300,
+        }
+    )
+    request = service.validate_lra_inputs(payload, input_root=tmp_path)
+    assert request.payload()["method_profile"] == "ring-taxon-preserving"

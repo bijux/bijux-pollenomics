@@ -4,6 +4,7 @@ from __future__ import annotations
 
 from collections.abc import Callable
 from dataclasses import dataclass
+from enum import StrEnum
 from importlib import metadata
 from types import ModuleType, SimpleNamespace
 from unittest.mock import patch
@@ -16,6 +17,7 @@ from bijux_pollenomics.analysis.lra.engine.discovery import (
     LANDCLIM_ANALYTICAL_LOVE_CAPABILITY,
     MULTISITE_DRAW_LOVE_CAPABILITY,
     MULTISITE_PUBLICATION_CAPABILITY,
+    OPTIMIZED_RING_TAXON_CAPABILITY,
     load_engine,
 )
 
@@ -141,6 +143,7 @@ def _selected(distribution: SimpleNamespace, api: StubAPI, capability: str) -> N
         MULTISITE_PUBLICATION_CAPABILITY,
         LANDCLIM_ANALYTICAL_LOVE_CAPABILITY,
         MULTISITE_DRAW_LOVE_CAPABILITY,
+        OPTIMIZED_RING_TAXON_CAPABILITY,
     ],
 )
 def test_old_descriptor_retains_default_contract_but_refuses_selected_feature(
@@ -196,6 +199,41 @@ def test_draw_capability_requires_typed_source_and_bounds_identity() -> None:
         pytest.raises(LRARefusal) as raised,
     ):
         load_engine(required_capability=MULTISITE_DRAW_LOVE_CAPABILITY)
+    assert raised.value.reason_code == "lra_extension_capability_invalid"
+
+
+class _RevisedProfile(StrEnum):
+    RING_TAXON_PRESERVING = "ring-taxon-preserving"
+
+
+@dataclass
+class _RevisedLoveConfig:
+    method: str
+    regional_basin_type: str
+    regional_basin_diameter_m: float
+    local_basin_diameter_m: float
+    max_ring: int
+    optimized_profile: str
+    repeats: int
+    stochastic: bool
+
+    def as_dict(self) -> dict[str, str]:
+        return {"optimized_profile": self.optimized_profile}
+
+
+def test_revised_optimized_capability_requires_a_typed_profile_facade() -> None:
+    distribution, api = _installed()
+    api.extension_descriptor()["capabilities"] = [OPTIMIZED_RING_TAXON_CAPABILITY]
+    api.LoveConfig = _RevisedLoveConfig
+    api.OptimizedLoveProfile = _RevisedProfile
+    _selected(distribution, api, OPTIMIZED_RING_TAXON_CAPABILITY)
+    delattr(api, "OptimizedLoveProfile")
+    with (
+        patch.object(metadata, "distribution", return_value=distribution),
+        patch.object(discovery, "import_module", return_value=api),
+        pytest.raises(LRARefusal) as raised,
+    ):
+        load_engine(required_capability=OPTIMIZED_RING_TAXON_CAPABILITY)
     assert raised.value.reason_code == "lra_extension_capability_invalid"
 
 

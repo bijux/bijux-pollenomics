@@ -10,10 +10,45 @@ from unittest.mock import patch
 import pytest
 
 from bijux_pollenomics.analysis.lra.engine.errors import LRARefusal
+from bijux_pollenomics.analysis.lra.engine.discovery import (
+    OPTIMIZED_RING_TAXON_CAPABILITY,
+)
 from bijux_pollenomics.analysis.lra.execution import cache
+from bijux_pollenomics.analysis.lra.outputs.publication import LRAProduct
 
 from ..outputs.test_publication import Result, binding
 from ..support import request_fixture
+
+
+def test_revised_cache_request_selects_optional_engine(tmp_path: Path) -> None:
+    engine = binding(tmp_path)
+    payload = request_fixture(tmp_path, "love")
+    payload["method_profile"] = "ring-taxon-preserving"
+    payload["configuration"]["love"].update(
+        method="optimized", optimized_profile="ring-taxon-preserving"
+    )
+    payload["rings"].append(
+        {
+            **payload["rings"][0],
+            "inner_m": 200,
+            "outer_m": 400,
+            "mean_m": 300,
+        }
+    )
+    with (
+        patch.object(cache, "load_engine", return_value=engine) as loader,
+        patch.object(cache, "validate_engine_configuration"),
+        patch.object(cache, "reconstruct", return_value=Result()),
+        patch.object(
+            cache,
+            "publish_result",
+            return_value=LRAProduct(tmp_path / "selected", "0" * 64, "1" * 64),
+        ),
+    ):
+        cache.run_lra_cached(
+            payload, input_root=tmp_path, cache_root=tmp_path / "cache"
+        )
+    loader.assert_called_once_with(required_capability=OPTIMIZED_RING_TAXON_CAPABILITY)
 
 
 def test_warm_cache_skips_computation_and_parameter_changes_do_not(

@@ -74,6 +74,14 @@ def _configuration(
             binding.api.LoveConfig(**love_values) if love_values is not None else None
         )
         if love is not None and (
+            (payload["method_profile"] == "ring-taxon-preserving")
+            != (getattr(love, "optimized_profile", None) == "ring-taxon-preserving")
+        ):
+            raise LRARefusal(
+                "method_profile_configuration_mismatch",
+                "Validated product label and constructed LOVE profile disagree",
+            )
+        if love is not None and (
             love.max_ring > len(payload["rings"])
             or (love.method == "optimized" and love.max_ring >= len(payload["rings"]))
         ):

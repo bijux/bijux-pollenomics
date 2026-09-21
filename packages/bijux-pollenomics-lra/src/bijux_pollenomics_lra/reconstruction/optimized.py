@@ -11,6 +11,7 @@ import pandas as pd
 
 from bijux_pollenomics_lra.dispersal.kernels import DispersalFactorK
 from bijux_pollenomics_lra.dispersal.rounding import r_round
+from bijux_pollenomics_lra.models.configuration import OptimizedLoveProfile
 from bijux_pollenomics_lra.models.errors import ValidationError
 from bijux_pollenomics_lra.models.validation import (
     frame,
@@ -158,6 +159,8 @@ def LOVEoptim(
     max_evaluations: int | None = None,
     tolerance: float = 0.01,
     return_samples: bool = False,
+    optimized_profile: OptimizedLoveProfile
+    | str = OptimizedLoveProfile.DISQOVER_SOURCE,
 ) -> OptimizedOutput:
     """Run the complete native forward-optimization LOVE workflow.
 
@@ -165,6 +168,10 @@ def LOVEoptim(
     both the target and final pollen calculation.  The unused draw is preserved
     for source-compatible random-consumption semantics.
     """
+    try:
+        profile = OptimizedLoveProfile(optimized_profile)
+    except ValueError as error:
+        raise ValidationError("Unknown optimized_profile") from error
     (
         local,
         regional,
@@ -196,12 +203,16 @@ def LOVEoptim(
         )
 
     terrestrial_fraction = terrestrial_area / ring_area
-    if len(taxa) > 1 and (
-        terrestrial_fraction[0] > 0
-        or (
-            maximum_ring == len(radii) - 1
-            and terrestrial_fraction[-1] > 0
-            and np.any(terrestrial_fraction[:maximum_ring] > 0)
+    if (
+        profile == OptimizedLoveProfile.DISQOVER_SOURCE
+        and len(taxa) > 1
+        and (
+            terrestrial_fraction[0] > 0
+            or (
+                maximum_ring == len(radii) - 1
+                and terrestrial_fraction[-1] > 0
+                and np.any(terrestrial_fraction[:maximum_ring] > 0)
+            )
         )
     ):
         raise ValidationError(
