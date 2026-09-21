@@ -158,6 +158,32 @@ contains **10,908 rows** across sources; every selected Neotoma concept remains
 `needs_discussion`. Frequency does not approve a taxon, PPE, count denominator
 or LRA input.
 
+### Observed count mass in prerequisite samples
+
+The source-bound count-mass audit
+`artifacts/v3/source/neotoma-candidate-mass-20260921/mass-snapshot007.json`
+(`sha256:fe589394b134de482195045819437c4cd567ea15833e54cb002fb95648024e19`)
+retains exact integer values for the **3,538** prerequisite samples by sample,
+source unit, source element label and country. It separates reported zero from
+missing or refused values. These are observed source sums, not a reviewed
+compatible pollen denominator. Denmark's zero below applies to the prerequisite
+sample intersection; the whole-source screen above still records Danish pollen
+counts.
+
+| Source partition | Prerequisite samples | Agreeing pollen count observations | `NISP` pollen source sum | `NISP digitized` pollen source sum |
+| --- | ---: | ---: | ---: | ---: |
+| Sweden | 2,379 | 47,722 | 2,032,773 | 12,911 |
+| Denmark | 0 | 0 | 0 | 0 |
+| Norway | 921 | 22,183 | 691,964 | 0 |
+| Finland | 127 | 1,621 | 33,504 | 0 |
+| Unassigned | 111 | 2,033 | 70,578 | 0 |
+
+The audit also retains non-pollen counts, conflicting or missing element labels,
+refused count observations and zeros in separate partitions. `NISP` and
+`NISP digitized` stay separate, and `Unassigned` is not a fifth Nordic country.
+Taxon/PPE, compatible denominator, source rights, selected chronology, basin
+geometry and parameters remain unresolved; **zero samples are admitted to LRA**.
+
 ### Curation Lineage
 
 | Boundary | Governing material | Decision preserved |
