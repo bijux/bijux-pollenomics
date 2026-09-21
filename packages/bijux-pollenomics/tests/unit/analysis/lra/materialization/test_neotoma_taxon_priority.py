@@ -62,6 +62,7 @@ def _inputs(
         "source_unit": "NISP",
         "unit_family": "count",
         "country_code": "SE",
+        "source_value": 0,
     }
     source = {
         "source_family": "neotoma",
@@ -87,7 +88,9 @@ def _inputs(
         ],
     }
     review["bundle_sha256"] = digest(review)
-    evidence = _Evidence([_Row(base), _Row({**base, "source_element_type": "spore"})])
+    evidence = _Evidence(
+        [_Row(base), _Row({**base, "source_element_type": "spore", "source_value": 3})]
+    )
     screen = {
         "schema_version": "neotoma-pollen-prerequisite-screen.v1",
         "source_snapshot_id": "source",
@@ -118,7 +121,10 @@ def _inputs(
 
         @staticmethod
         def observation(row: _Row) -> dict[str, Any]:
-            return {"count_status": "count_candidate"}
+            return {
+                "count_status": "count_candidate",
+                "typed_count": row.payload()["source_value"],
+            }
 
     monkeypatch.setattr(priority, "source_accounting", lambda *args: Accounting())
     return evidence, screen, review
@@ -133,6 +139,10 @@ def test_prioritizes_agreeing_pollen_and_never_admits(
     assert result["candidate_sample_count"] == 1
     assert result["candidate_pollen_observation_count"] == 1
     assert result["candidate_review_row_count"] == 1
+    assert result["schema_version"] == "neotoma-candidate-taxon-review-priority.v2"
+    assert result["rows"][0]["candidate_exact_count_sum"] == 0
+    assert result["rows"][0]["candidate_observed_zero_count"] == 1
+    assert result["rows"][0]["candidate_country_exact_count_sums"] == {"SE": 0}
     assert result["rows"][0]["candidate_country_observation_counts"] == {"SE": 1}
     assert result["rows"][0]["review_state"] == "needs_discussion"
     assert result["lra_accepted_samples"] == 0
@@ -159,4 +169,8 @@ def test_rejects_mismatched_screen_or_review(monkeypatch: pytest.MonkeyPatch) ->
     assert later["publication_allowed"] is False
     evidence.source_rows[0].value["country_code"] = "NO"
     with pytest.raises(ValueError, match="country differs from sample"):
+        priority.prioritize_neotoma_candidate_taxa(evidence, screen, review)
+    evidence.source_rows[0].value["country_code"] = "SE"
+    evidence.source_rows[0].value["source_value"] = 0.5
+    with pytest.raises(ValueError, match="no exact nonnegative count"):
         priority.prioritize_neotoma_candidate_taxa(evidence, screen, review)

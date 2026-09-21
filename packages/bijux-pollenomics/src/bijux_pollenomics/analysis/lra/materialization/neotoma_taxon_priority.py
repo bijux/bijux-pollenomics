@@ -126,8 +126,11 @@ def prioritize_neotoma_candidate_taxa(
         raise ValueError("Screen candidate sample identities do not reconcile")
     accounting = source_accounting(evidence, candidate_ids)
     occurrences: Counter[str] = Counter()
+    exact_sums: Counter[str] = Counter()
+    observed_zeros: Counter[str] = Counter()
     samples: dict[str, set[str]] = defaultdict(set)
     countries: dict[str, Counter[str]] = defaultdict(Counter)
+    country_exact_sums: dict[str, Counter[str]] = defaultdict(Counter)
     screened_samples: Counter[str] = Counter()
     for source in evidence.rows("observations"):
         observation = source.payload()
@@ -156,9 +159,16 @@ def prioritize_neotoma_candidate_taxa(
         country = str(observation["country_code"])
         if country != by_sample[sample_id]["country_code"]:
             raise ValueError("Candidate observation country differs from sample")
+        count = record.get("typed_count")
+        if isinstance(count, bool) or not isinstance(count, int) or count < 0:
+            raise ValueError("Candidate pollen has no exact nonnegative count")
         occurrences[concept_id] += 1
+        exact_sums[concept_id] += count
+        if count == 0:
+            observed_zeros[concept_id] += 1
         samples[concept_id].add(sample_id)
         countries[concept_id][country] += 1
+        country_exact_sums[concept_id][country] += count
         screened_samples[sample_id] += 1
     if any(
         screened_samples[sample_id] != by_sample[sample_id]["pollen_count_observations"]
@@ -183,9 +193,14 @@ def prioritize_neotoma_candidate_taxa(
             ],
             "review_state": concepts_by_id[concept_id]["review_state"],
             "candidate_observation_count": count,
+            "candidate_exact_count_sum": exact_sums[concept_id],
+            "candidate_observed_zero_count": observed_zeros[concept_id],
             "candidate_sample_count": len(samples[concept_id]),
             "candidate_country_observation_counts": dict(
                 sorted(countries[concept_id].items())
+            ),
+            "candidate_country_exact_count_sums": dict(
+                sorted(country_exact_sums[concept_id].items())
             ),
         }
         for concept_id, count in sorted(
@@ -194,7 +209,7 @@ def prioritize_neotoma_candidate_taxa(
     ]
     evidence.assert_unchanged()
     return {
-        "schema_version": "neotoma-candidate-taxon-review-priority.v1",
+        "schema_version": "neotoma-candidate-taxon-review-priority.v2",
         "source_snapshot_id": manifest["source_snapshot_id"],
         "raw_manifest_sha256": dict(evidence.raw_files)["manifest.json"],
         "normalized_manifest_sha256": hashlib.sha256(

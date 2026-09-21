@@ -158,6 +158,16 @@ contains **10,908 rows** across sources; every selected Neotoma concept remains
 `needs_discussion`. Frequency does not approve a taxon, PPE, count denominator
 or LRA input.
 
+The successor priority slice
+`artifacts/v3/taxa-review/neotoma-priority-mass-20260921/priority-mass.json`
+(SHA-256 `1e683bea9f87cb49b6d43efe3df4ee48cfbb6f26d26cf919a256d19b5bca3351`)
+adds the exact observed count sum, reported-zero count and country sums for
+each of the 674 concepts. These values retain the source unit on every row:
+`NISP` and `NISP digitized` remain separate. The previous priority fields and
+sample selection are preserved. The sums help a reviewer focus on source
+material; they do not establish compatible pollen totals, taxon/PPE approval,
+or LRA admission.
+
 ### Observed count mass in prerequisite samples
 
 The source-bound count-mass audit
