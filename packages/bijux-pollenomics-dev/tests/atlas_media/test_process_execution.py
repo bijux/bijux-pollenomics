@@ -1,8 +1,10 @@
 from __future__ import annotations
 
+import asyncio
 import json
 import os
 from pathlib import Path
+import socket
 import sys
 import time
 import venv
@@ -78,23 +80,78 @@ def test_logged_command_timeout_is_bounded_and_receipted(tmp_path: Path) -> None
     assert receipt["duration_seconds"] < 1
 
 
+def _announcing_descendant(port: int, *, resist_term: bool = False) -> str:
+    setup = "import os,signal,socket,time;" if resist_term else "import os,socket,time;"
+    if resist_term:
+        setup += "signal.signal(signal.SIGTERM,signal.SIG_IGN);"
+    return (
+        setup + f"ready=socket.create_connection(('127.0.0.1',{port}),timeout=5);"
+        "ready.sendall((str(os.getpid())+'\\n').encode('ascii'));ready.close();"
+        "time.sleep(60)"
+    )
+
+
+def _wait_for_descendant_before_termination(
+    monkeypatch: pytest.MonkeyPatch,
+) -> tuple[socket.socket, list[tuple[int, float]]]:
+    listener = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    listener.bind(("127.0.0.1", 0))
+    listener.listen(1)
+    listener.setblocking(False)
+    ready_children: list[tuple[int, float]] = []
+    terminate = process_execution._terminate_async_process_tree
+
+    async def terminate_after_ready(
+        process: asyncio.subprocess.Process, *, grace_seconds: float
+    ) -> str:
+        try:
+            loop = asyncio.get_running_loop()
+            connection, _ = await asyncio.wait_for(
+                loop.sock_accept(listener), timeout=5
+            )
+            with connection:
+                connection.setblocking(False)
+                announced = bytearray()
+                while b"\n" not in announced:
+                    chunk = await asyncio.wait_for(
+                        loop.sock_recv(connection, 64), timeout=1
+                    )
+                    if not chunk or len(announced) + len(chunk) > 64:
+                        raise AssertionError("invalid descendant readiness message")
+                    announced.extend(chunk)
+            ready_children.append(
+                (int(announced.partition(b"\n")[0]), time.perf_counter())
+            )
+        finally:
+            # Even a failed readiness handshake must reap the spawned group.
+            termination = await terminate(process, grace_seconds=grace_seconds)
+        return termination
+
+    monkeypatch.setattr(
+        process_execution, "_terminate_async_process_tree", terminate_after_ready
+    )
+    return listener, ready_children
+
+
 @pytest.mark.skipif(os.name != "posix", reason="POSIX process-group contract")
-def test_logged_timeout_terminates_descendant_process_group(tmp_path: Path) -> None:
+def test_logged_timeout_terminates_descendant_process_group(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
     root = tmp_path / "artifacts/media"
     root.mkdir(parents=True)
-    child_pid = root / "child.pid"
+    listener, ready_children = _wait_for_descendant_before_termination(monkeypatch)
     command = (
         sys.executable,
         "-c",
         (
-            "import pathlib,subprocess,sys,time; "
-            "child=subprocess.Popen([sys.executable,'-c','import time;time.sleep(60)']); "
-            f"pathlib.Path({str(child_pid)!r}).write_text(str(child.pid)); "
+            "import subprocess,sys,time; "
+            "subprocess.Popen([sys.executable,'-c',"
+            f"{_announcing_descendant(listener.getsockname()[1])!r}]); "
             "time.sleep(60)"
         ),
     )
 
-    with pytest.raises(AtlasMediaError, match="exceeded"):
+    with listener, pytest.raises(AtlasMediaError, match="exceeded"):
         process_execution._run_logged(
             command,
             cwd=tmp_path,
@@ -103,34 +160,32 @@ def test_logged_timeout_terminates_descendant_process_group(tmp_path: Path) -> N
             timeout_seconds=0.2,
         )
 
-    pid = int(child_pid.read_text(encoding="utf-8"))
+    assert len(ready_children) == 1
+    receipt = json.loads((root / "tree.execution.json").read_text(encoding="utf-8"))
+    assert receipt["timed_out"] is True
+    pid = ready_children[0][0]
     with pytest.raises(ProcessLookupError):
         os.kill(pid, 0)
 
 
 @pytest.mark.skipif(os.name != "posix", reason="POSIX process-group contract")
 def test_timeout_kills_term_resistant_descendant_holding_output_pipes(
-    tmp_path: Path,
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
 ) -> None:
     root = tmp_path / "artifacts/media"
     root.mkdir(parents=True)
-    child_pid = root / "resistant-child.pid"
-    child_program = (
-        "import signal,time;signal.signal(signal.SIGTERM,signal.SIG_IGN);time.sleep(60)"
-    )
+    listener, ready_children = _wait_for_descendant_before_termination(monkeypatch)
     command = (
         sys.executable,
         "-c",
         (
-            "import pathlib,subprocess,sys,time;"
-            f"child=subprocess.Popen([sys.executable,'-c',{child_program!r}]);"
-            f"pathlib.Path({str(child_pid)!r}).write_text(str(child.pid));"
+            "import subprocess,sys,time;"
+            "subprocess.Popen([sys.executable,'-c',"
+            f"{_announcing_descendant(listener.getsockname()[1], resist_term=True)!r}]);"
             "time.sleep(60)"
         ),
     )
-    started = time.perf_counter()
-
-    with pytest.raises(AtlasMediaError, match="exceeded"):
+    with listener, pytest.raises(AtlasMediaError, match="exceeded"):
         process_execution._run_logged(
             command,
             cwd=tmp_path,
@@ -139,12 +194,14 @@ def test_timeout_kills_term_resistant_descendant_holding_output_pipes(
             timeout_seconds=0.2,
         )
 
-    assert time.perf_counter() - started < 2
+    assert len(ready_children) == 1
+    assert time.perf_counter() - ready_children[0][1] < 2
     receipt = json.loads(
         (root / "resistant.execution.json").read_text(encoding="utf-8")
     )
+    assert receipt["timed_out"] is True
     assert receipt["termination"] == "killed_process_group"
-    pid = int(child_pid.read_text(encoding="utf-8"))
+    pid = ready_children[0][0]
     with pytest.raises(ProcessLookupError):
         os.kill(pid, 0)
 
