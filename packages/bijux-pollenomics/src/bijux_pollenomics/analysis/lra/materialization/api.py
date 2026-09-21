@@ -13,6 +13,10 @@ from .neotoma_candidate_groups import (
 from .neotoma_frontier import NeotomaLraFrontier, assess_neotoma_lra_frontier
 from .neotoma_pollen_screen import NeotomaPollenScreen, assess_neotoma_pollen_screen
 from .neotoma_series import NeotomaCandidateSeries, build_neotoma_candidate_series
+from .neotoma_site_evidence import (
+    NeotomaSiteEvidence,
+    assess_neotoma_candidate_site_evidence,
+)
 from .reading import read_neotoma_evidence
 from .workflow import run_materialization
 
@@ -71,3 +75,13 @@ def inspect_neotoma_lra_candidate_groups(
         raw_root=raw_root, normalized_root=normalized_root
     )
     return summarize_neotoma_candidate_groups(screen)
+
+
+def inspect_neotoma_lra_candidate_site_evidence(
+    *, raw_root: Path, normalized_root: Path
+) -> NeotomaSiteEvidence:
+    """Return native fields for basin review, with zero scientific admissions."""
+    evidence = read_neotoma_evidence(raw_root, normalized_root)
+    screen = assess_neotoma_pollen_screen(evidence)
+    groups = summarize_neotoma_candidate_groups(screen)
+    return assess_neotoma_candidate_site_evidence(evidence, groups)

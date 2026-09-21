@@ -171,6 +171,38 @@ benchmark fold. Cross-database aliases, basin identity, chronology, taxa/PPE,
 compatible count denominators and rights remain unresolved. The group report
 admits **zero** samples to numerical LRA or measured held-out scoring.
 
+### What basin evidence accompanies those source locations?
+
+The authenticated site and collection-unit review at
+`artifacts/v3/source/neotoma-site-evidence-20260921/report002.json`
+(SHA-256 `aaded8ed751a8f245a357c50bb2c2a96a8710168deab7223f0c48284180e96ce`)
+retains source row locators and native descriptions, geography, area, collection
+unit type, depositional environment, water depth, location and collection date.
+It covers the same **54 site IDs, 56 collection unit IDs and 3,538 prerequisite
+samples**, with **zero basin or numerical LRA admissions**.
+
+| Source partition | Site descriptions present | Site area values present | Point / polygon site geometries | Collection-unit environment labels present | Water depths present |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| Sweden | 35 / 37 | 5 / 37 | 33 / 4 | 39 / 39 | 7 / 39 |
+| Denmark | 0 / 0 | 0 / 0 | 0 / 0 | 0 / 0 | 0 / 0 |
+| Norway | 14 / 14 | 5 / 14 | 11 / 3 | 14 / 14 | 5 / 14 |
+| Finland | 1 / 1 | 0 / 1 | 1 / 0 | 1 / 1 | 0 / 1 |
+| Unassigned | 2 / 2 | 0 / 2 | 2 / 0 | 2 / 2 | 1 / 2 |
+| **Captured total** | **52 / 54** | **10 / 54** | **47 / 7** | **56 / 56** | **13 / 56** |
+
+The 56 native depositional-environment labels are 20 `Lacustrine`, 20 `Bog`,
+five `Glacial Origin Lake`, four `Raised Bog`, two each `Natural Lake`, `Mire`
+and `Fen`, and one `Fjord`. These are review leads, not an accepted
+lake/peatland classification. [Neotoma's site and collection-unit
+manual](https://open.neotomadb.org/manual/database-design-concepts.html)
+places depositional environment on the collection unit, warns that a site
+polygon can express imprecise or concealed location, and describes this
+environment as present-day context that may change through time. The site's
+`area` and polygon are therefore not converted into a pollen basin radius or
+diameter; their applicability and units for this captured API value require
+source review. A collection date is not a sample age. Historical basin size,
+source aliases, chronology, taxa/PPE and compatible counts remain unresolved.
+
 The source-bound priority slice
 `artifacts/v3/taxa-review/neotoma-candidate-priority-20260921/priority-successor.json`
 (SHA-256 `af8e6116776ca320d416a157a79e3a6280aa8332dc72c41661aadac267461e34`)
