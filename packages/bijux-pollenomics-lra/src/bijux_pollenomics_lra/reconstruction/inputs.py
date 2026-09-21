@@ -24,6 +24,12 @@ def _fallspeeds(
     params: Mapping[str, object],
     taxa: list[str] | None = None,
 ) -> tuple[np.ndarray, list[str]]:
+    """Return positive fall speeds aligned with the requested pollen taxa.
+
+    Values may come from a separate fall-speed input or the PPE table. A table
+    must identify each taxon exactly once; an unnamed vector retains the given
+    taxon order or receives positional names when no taxa were supplied.
+    """
     value = params.get("fallspeed")
     if value is None and "ppes" in params and isinstance(params["ppes"], pd.DataFrame):
         ppe_table = params["ppes"]
@@ -80,6 +86,13 @@ def _prepare_inputs(
     int,
     int,
 ]:
+    """Validate LOVE pollen, PPE, fall speeds, ring geometry and repeat counts.
+
+    Local and regional counts must share the exact taxon names and order.
+    Rings are ordered, nonoverlapping radial intervals in the supplied table;
+    optimized LOVE can require a remaining regional ring. Return the validated
+    inputs and aligned taxon axis without inferring chronology or vegetation.
+    """
     local = frame(pollenLoc, "pollenLoc")
     regional = frame(pollenReg, "pollenReg")
     _, taxa, _ = sample_counts(local, "pollenLoc")
@@ -147,6 +160,11 @@ def _regional_cover(
     draws: object | None,
     repeat_index: int,
 ) -> np.ndarray:
+    """Select an explicit regional cover draw or estimate it with REVEALS.
+
+    Explicit draws are taxon-aligned nonnegative fractions with positive total.
+    The REVEALS path converts its percent means to fractions for the LOVE step.
+    """
     if draws is not None:
         values = np.asarray(draws, dtype=float)
         if values.ndim == 1:
@@ -186,6 +204,12 @@ def _summary_frames(
     include_sd: bool = False,
     mean_na_rm: bool = True,
 ) -> dict[str, pd.DataFrame]:
+    """Summarize replicate arrays by ring radius and taxon.
+
+    Return mean, linear-interpolated 10th and 90th quantiles, and optional
+    sample standard deviation. Missing values are omitted from the mean only
+    when ``mean_na_rm`` is true; quantiles and SD omit them in either case.
+    """
     with warnings.catch_warnings():
         warnings.simplefilter("ignore", RuntimeWarning)
         mean = np.nanmean(values, axis=0) if mean_na_rm else np.mean(values, axis=0)

@@ -36,6 +36,7 @@ class PublicationRevealsConfig:
     profile: str = PUBLICATION_PROFILE
 
     def __post_init__(self) -> None:
+        """Validate the source profile, time-bin identity and positive parameters."""
         if self.profile != PUBLICATION_PROFILE:
             raise ValidationError("Unsupported publication REVEALS profile")
         if (
@@ -57,6 +58,7 @@ class PublicationRevealsConfig:
 
 
 def _identifiers(values: tuple[str, ...], name: str) -> tuple[str, ...]:
+    """Require nonempty unique string identities while preserving their order."""
     result = tuple(values)
     if not result or any(
         not isinstance(value, str) or not value.strip() for value in result
@@ -68,6 +70,11 @@ def _identifiers(values: tuple[str, ...], name: str) -> tuple[str, ...]:
 
 
 def _array(value: object, name: str, shape: tuple[int, ...]) -> np.ndarray:
+    """Own a read-only numeric array of the required shape.
+
+    Integer input above the exact binary64 conversion range is refused; callers
+    validate its domain and missing-value semantics separately.
+    """
     original = np.asarray(value)
     if original.dtype.kind not in "iuf":
         raise ValidationError(
@@ -109,6 +116,12 @@ class MultisiteRevealsInput:
     fall_speed_m_s: np.ndarray
 
     def __post_init__(self) -> None:
+        """Enforce site/bin/taxon shapes, missing support and method units.
+
+        Available cells require nonnegative integral counts and basin radii;
+        unavailable cells retain NaN counts/radii. PPE covariance must be
+        symmetric and positive semidefinite, and BP bins must not overlap.
+        """
         for name in ("site_ids", "bin_ids", "taxon_ids"):
             object.__setattr__(self, name, _identifiers(getattr(self, name), name))
         sites, bins, taxa = len(self.site_ids), len(self.bin_ids), len(self.taxon_ids)

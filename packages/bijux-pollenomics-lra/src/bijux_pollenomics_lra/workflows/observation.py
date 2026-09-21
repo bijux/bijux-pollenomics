@@ -24,18 +24,25 @@ from bijux_pollenomics_lra.version import NUMERICAL_BACKEND, __version__
 
 
 def _digest(value: str, name: str) -> str:
+    """Require a lowercase canonical SHA-256 hex identity."""
     if not isinstance(value, str) or re.fullmatch(r"[0-9a-f]{64}", value) is None:
         raise ValidationError(f"{name} requires a canonical SHA-256")
     return value
 
 
 def _integer(value: int, name: str, minimum: int, maximum: int) -> int:
+    """Require a built-in integer within inclusive declared bounds."""
     if type(value) is not int or not minimum <= value <= maximum:
         raise ValidationError(f"{name} requires an integer in [{minimum}, {maximum}]")
     return integer(value, name, minimum)
 
 
 def _probabilities(values: Mapping[str, float]) -> tuple[tuple[str, ...], np.ndarray]:
+    """Validate named pollen fractions and return them in sorted taxon order.
+
+    One to 128 finite numeric fractions must each lie in [0, 1] and their sum
+    must be within 1e-12 of one. Percentages and boolean values are refused.
+    """
     if not isinstance(values, Mapping) or not 1 <= len(values) <= 128:
         raise ValidationError("Require 1–128 explicitly named pollen fractions")
     if any(not isinstance(k, str) or not k or k != k.strip() for k in values):
@@ -64,6 +71,7 @@ def _probabilities(values: Mapping[str, float]) -> tuple[tuple[str, ...], np.nda
 
 
 def _exact_cdf(k: int, n: int, p: float) -> Fraction:
+    """Evaluate a binomial CDF exactly for the supplied binary64 probability."""
     if k < 0:
         return Fraction(0)
     if k >= n:
@@ -74,6 +82,11 @@ def _exact_cdf(k: int, n: int, p: float) -> Fraction:
 
 
 def _quantile(q: float, n: int, p: float) -> int:
+    """Check a discrete binomial quantile against resolvable CDF boundaries.
+
+    Supports up to 256 trials with exact rational boundary checks; larger
+    supports refuse boundaries that remain ambiguous at 1e-12 separation.
+    """
     if p == 0:
         return 0
     if p == 1:

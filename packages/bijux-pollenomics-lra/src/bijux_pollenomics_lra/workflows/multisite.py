@@ -29,6 +29,11 @@ from bijux_pollenomics_lra.reconstruction.publication import (
 def _bootstrap_draws(
     inputs: MultisiteRevealsInput, supplied: Mapping[str, object]
 ) -> dict[str, np.ndarray]:
+    """Validate and own explicit 1000-row site resamples for supported bins.
+
+    Each column draws an original site index available in that bin. Only bins
+    with multiple available sites may have a supplied bootstrap matrix.
+    """
     required = {
         name
         for position, name in enumerate(inputs.bin_ids)
@@ -165,6 +170,7 @@ def run_reveals_multisite(
     )
 
     def table(values: np.ndarray) -> pd.DataFrame:
+        """Label a bin-by-taxon result matrix with declared identities."""
         return pd.DataFrame(values, index=inputs.bin_ids, columns=inputs.taxon_ids)
 
     return MultisiteRevealsResult(
