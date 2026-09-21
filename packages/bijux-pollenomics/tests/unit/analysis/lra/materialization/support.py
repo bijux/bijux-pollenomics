@@ -32,6 +32,7 @@ def datum(value: object, *, unit: str = "NISP", taxon: int = 10) -> dict[str, An
         "taxonid": taxon,
         "variablename": f"Taxon {taxon}",
         "element": "pollen",
+        "elementtype": "pollen",
         "units": unit,
         "value": value,
     }

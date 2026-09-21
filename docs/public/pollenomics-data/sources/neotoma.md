@@ -4,7 +4,7 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-07-22
+last_reviewed: 2026-09-21
 ---
 
 # Neotoma
@@ -90,6 +90,26 @@ needs source-level review; dropping the refusal would change the denominator.
 Taxon/PPE, count denominator and unit, chronology selection, basin geometry
 and parameter binding still require review. **Zero real Neotoma samples are
 admitted to LRA or held-out vegetation scoring from this report.**
+
+### Bounded candidate sample series
+
+`inspect_neotoma_lra_candidate_series` in the installed host materialization
+API reads the authenticated raw and relational parents and requires an explicit
+list of at most 16 source sample IDs. It returns a canonical, hashed review
+export with each sample's source identity, native observation values and units,
+count decisions, agreement of both source element labels, all typed age-claim
+alternatives and reason-coded refusals. A source label of `pollen` is a review
+lead only when both source element fields agree; it does not establish a
+reviewed taxon mapping, PPE or compatible count denominator. The API never
+chooses an age claim or produces an executable LRA request.
+
+For source samples `552226` through `552229` in one captured Swedish collection
+unit, the bounded export preserves 116 numeric count observations: 109 carry
+the exact source element label `pollen` and seven are labelled spore. It retains
+four comparable typed age claims without ordering or selecting them. The four
+samples remain refused for numerical LRA and held-out scoring pending chronology,
+taxa/PPE, basin, unit and source-conflict review. These four source samples are
+not asserted to be four independent sites or a complete stratigraphic core.
 
 ### Curation Lineage
 
