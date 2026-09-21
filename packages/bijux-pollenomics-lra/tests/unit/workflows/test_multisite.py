@@ -18,6 +18,7 @@ from bijux_pollenomics_lra.api import (
     run_reveals_multisite,
 )
 from bijux_pollenomics_lra.models.publication import PUBLICATION_LIMITATIONS
+from bijux_pollenomics_lra.provenance.identity import sha256_object
 from bijux_pollenomics_lra.reconstruction.publication import bootstrap_cover_variance
 
 
@@ -308,6 +309,9 @@ def test_replacing_result_ids_and_tables_cannot_leave_stale_source_manifest(
         "bin_ids": list(publication_inputs.bin_ids),
         "taxon_ids": list(publication_inputs.taxon_ids),
     }
+    assert result.manifest.inputs["source_axes"] == sha256_object(
+        result.manifest.parameters["source_axes"]
+    )
     replaced = replace(
         result,
         site_ids=("fabricated", "large"),
@@ -328,6 +332,19 @@ def test_replacing_result_ids_and_tables_cannot_leave_stale_source_manifest(
     destination = tmp_path / "stale-manifest"
     with pytest.raises(ValueError, match="source axes in the scientific manifest"):
         replaced.write(destination)
+    assert not destination.exists()
+    forged_parameters = dict(result.manifest.parameters)
+    forged_parameters["source_axes"] = {
+        "site_ids": ["fabricated", "large"],
+        "bin_ids": list(publication_inputs.bin_ids),
+        "taxon_ids": list(publication_inputs.taxon_ids),
+    }
+    coordinated_relabel = replace(
+        replaced, manifest=replace(result.manifest, parameters=forged_parameters)
+    )
+    destination = tmp_path / "forged-parameters"
+    with pytest.raises(ValueError, match="hashed source axes"):
+        coordinated_relabel.write(destination)
     assert not destination.exists()
 
 

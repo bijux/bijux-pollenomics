@@ -26,6 +26,8 @@ def _validated_result_axes(result: MultisiteRevealsResult) -> None:
         raise ValueError(
             "Result axes must match source axes in the scientific manifest"
         )
+    if result.manifest.inputs.get("source_axes") != sha256_object(source_axes):
+        raise ValueError("Result axes must match hashed source axes")
     bounds = np.asarray(result.bin_bounds_bp)
     if (
         bounds.shape != (len(bins), 2)
