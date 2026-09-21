@@ -147,6 +147,30 @@ admission. Taxa/PPE, count compatibility, selected chronology, source rights,
 basin geometry and parameters still need review. **Zero Neotoma samples are
 admitted to numerical LRA or held-out vegetation scoring by this screen.**
 
+### How many source locations are behind the sample leads?
+
+The 3,538 prerequisite samples belong to **54 distinct Neotoma source site
+IDs**, 56 collection unit IDs and 58 dataset IDs in this captured snapshot.
+The source-bound group report at
+`artifacts/v3/source/neotoma-group-frontier-20260921/report.json` has SHA-256
+`6c14877d687c4a72c813f89f2c940d52c31c63b6059850717920047c2d73f714`
+and links every candidate sample back to its source site, collection unit and
+dataset. These are different entity levels, so their counts must not be added.
+
+| Source partition | Prerequisite samples | Source site IDs | Collection unit IDs | Dataset IDs |
+| --- | ---: | ---: | ---: | ---: |
+| Sweden | 2,379 | 37 | 39 | 41 |
+| Denmark | 0 | 0 | 0 | 0 |
+| Norway | 921 | 14 | 14 | 14 |
+| Finland | 127 | 1 | 1 | 1 |
+| Unassigned | 111 | 2 | 2 | 2 |
+| **Captured total** | **3,538** | **54** | **56** | **58** |
+
+A source site ID is a review lead, not proof of an independent basin or a
+benchmark fold. Cross-database aliases, basin identity, chronology, taxa/PPE,
+compatible count denominators and rights remain unresolved. The group report
+admits **zero** samples to numerical LRA or measured held-out scoring.
+
 The source-bound priority slice
 `artifacts/v3/taxa-review/neotoma-candidate-priority-20260921/priority-successor.json`
 (SHA-256 `af8e6116776ca320d416a157a79e3a6280aa8332dc72c41661aadac267461e34`)
