@@ -35,6 +35,57 @@ def test_transitive_duplicate_core_and_source_aliases_are_one_site() -> None:
     assert len(grouped_block_holdouts(rows)) == 2
 
 
+@pytest.mark.parametrize("key", ["p-test", "site:test"])
+def test_one_sided_identity_key_holds_alternate_record_out(key: str) -> None:
+    records = (
+        SiteRecord("p-test", "site:test", block_id="east"),
+        SiteRecord("p-alias", "site:alternate", (key,), "east"),
+        SiteRecord("v-train", "site:train", block_id="west"),
+    )
+    fold = next(
+        fold
+        for fold in grouped_leave_one_out(records)
+        if "p-test" in fold.test_record_ids
+    )
+    assert fold.test_record_ids == ("p-alias", "p-test")
+    assert fold.train_record_ids == ("v-train",)
+    graph = {
+        "p-test": (),
+        "p-alias": (),
+        "v-train": (),
+        "regional": ("p-alias",),
+    }
+    with pytest.raises(ValidationRefusal) as error:
+        assert_allowed_inputs(
+            fold,
+            ("v-train", "regional"),
+            graph,
+            admitted_external_ids=("regional",),
+        )
+    assert error.value.reason_code == "withheld_input_leakage"
+
+
+def test_one_sided_identity_key_crossing_blocks_refuses() -> None:
+    records = (
+        SiteRecord("p-test", "site:test", block_id="east"),
+        SiteRecord("p-alias", "site:alternate", ("p-test",), "west"),
+        SiteRecord("v-train", "site:train", block_id="west"),
+    )
+    with pytest.raises(ValidationRefusal, match="same known block"):
+        grouped_block_holdouts(records)
+
+
+def test_identity_key_matching_unrelated_record_and_site_refuses() -> None:
+    records = (
+        SiteRecord("p-test", "site:test"),
+        SiteRecord("p-other", "p-test"),
+        SiteRecord("p-alias", "site:alias", ("p-test",)),
+    )
+    with pytest.raises(ValidationRefusal) as error:
+        grouped_leave_one_out(records)
+    assert error.value.reason_code == "ambiguous_identity_key"
+
+
 @pytest.mark.parametrize(
     "rows",
     [(), (SiteRecord("r1", "s1"),), (SiteRecord("r1", "s1"), SiteRecord("r1", "s2"))],
