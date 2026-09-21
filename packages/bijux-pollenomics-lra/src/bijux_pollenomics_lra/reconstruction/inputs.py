@@ -10,11 +10,14 @@ import pandas as pd
 
 from bijux_pollenomics_lra.models.errors import ValidationError
 from bijux_pollenomics_lra.models.validation import (
+    DEFAULT_FALL_SPEED_PROFILE,
+    fall_speed_bounds,
     frame,
     integer,
     normalise_parameters,
     parameter_value,
     sample_counts,
+    validate_fall_speeds,
     vector,
 )
 from bijux_pollenomics_lra.reconstruction.regional import REVEALSinR
@@ -23,6 +26,9 @@ from bijux_pollenomics_lra.reconstruction.regional import REVEALSinR
 def _fallspeeds(
     params: Mapping[str, object],
     taxa: list[str] | None = None,
+    *,
+    fall_speed_profile: str = DEFAULT_FALL_SPEED_PROFILE,
+    distance_weighting: str = "lsm unstable",
 ) -> tuple[np.ndarray, list[str]]:
     """Return positive fall speeds aligned with the requested pollen taxa.
 
@@ -55,10 +61,12 @@ def _fallspeeds(
             if missing:
                 raise ValidationError(f"Fall-speed table is missing taxa: {missing}")
             table = table.loc[taxa]
-        values = vector(table["fallspeed"], "fallspeed", positive=True)
+        values = validate_fall_speeds(
+            table["fallspeed"], fall_speed_profile, distance_weighting
+        )
         names = list(table.index)
     else:
-        values = vector(value, "fallspeed", positive=True)
+        values = validate_fall_speeds(value, fall_speed_profile, distance_weighting)
         names = (
             list(taxa)
             if taxa is not None
@@ -76,6 +84,7 @@ def _prepare_inputs(
     repeats: int,
     *,
     require_remaining_regional_ring: bool = False,
+    allow_publication_profile: bool = False,
 ) -> tuple[
     pd.DataFrame,
     pd.DataFrame,
@@ -103,10 +112,38 @@ def _prepare_inputs(
         )
     if "ppes" not in lParams:
         raise ValidationError("LOVE parameters require a ppes table")
-    ppe_table = normalise_parameters(frame(lParams["ppes"], "ppes"), taxa)
-    fall_speeds, _ = _fallspeeds(lParams, taxa)
+    fall_speed_profile = str(
+        parameter_value(lParams, "fall_speed_profile", DEFAULT_FALL_SPEED_PROFILE)
+    )
+    distance_weighting = str(parameter_value(lParams, "dwm", "lsm unstable")).lower()
+    fall_speed_bounds(fall_speed_profile, distance_weighting)
+    if (
+        fall_speed_profile != DEFAULT_FALL_SPEED_PROFILE
+        and not allow_publication_profile
+    ):
+        raise ValidationError(
+            "The LandClim II fall-speed profile requires analytical LOVE"
+        )
+    ppe_table = normalise_parameters(
+        frame(lParams["ppes"], "ppes"),
+        taxa,
+        fall_speed_profile=fall_speed_profile,
+        distance_weighting=distance_weighting,
+    )
+    fall_speeds, _ = _fallspeeds(
+        lParams,
+        taxa,
+        fall_speed_profile=fall_speed_profile,
+        distance_weighting=distance_weighting,
+    )
     if fall_speeds.shape != (len(taxa),):
         raise ValidationError("Fall-speed and pollen dimensions disagree")
+    if fall_speed_profile != DEFAULT_FALL_SPEED_PROFILE and not np.array_equal(
+        fall_speeds, ppe_table["fallspeed"].to_numpy(dtype=float)
+    ):
+        raise ValidationError(
+            "LandClim II fall speeds must agree between PPE and fall-speed tables"
+        )
 
     radii = frame(dfRadii, "dfRadii")
     required = {"inner", "outer", "mean"}

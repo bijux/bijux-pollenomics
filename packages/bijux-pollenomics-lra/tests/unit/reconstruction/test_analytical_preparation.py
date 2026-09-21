@@ -7,9 +7,15 @@ import copy
 import numpy as np
 import pytest
 
-from bijux_pollenomics_lra.models.validation import normalise_parameters
+from bijux_pollenomics_lra.models.errors import ValidationError
+from bijux_pollenomics_lra.models.validation import (
+    LANDCLIM_II_GPM_ANALYTICAL_FALL_SPEED_PROFILE,
+    normalise_parameters,
+)
 from bijux_pollenomics_lra.reconstruction.analytical import LOVEr
+from bijux_pollenomics_lra.reconstruction.optimized import LOVEoptim
 from bijux_pollenomics_lra.reconstruction.preparation import prepare_analytical_inputs
+from bijux_pollenomics_lra.reconstruction.regional import REVEALSinR
 from bijux_pollenomics_lra.resources.examples import load_love_example
 
 
@@ -42,6 +48,73 @@ def test_prepared_arrays_own_labeled_inputs_and_are_read_only() -> None:
         assert not values.flags.writeable
         with pytest.raises(ValueError):
             values[0] = 1
+
+
+def test_named_gpm_profile_is_analytical_only_through_low_level_inputs() -> None:
+    local, regional, original, rings = load_love_example()
+    supported_rings = rings.iloc[8:11].copy(deep=True)
+    params = dict(original)
+    ppes = original["ppes"].copy(deep=True)
+    fallspeed = original["fallspeed"].copy(deep=True)
+    ppes.loc[ppes.index[0], "fallspeed"] = 0.006
+    fallspeed.loc[fallspeed.index[0], "fallspeed"] = 0.006
+    params.update(
+        ppes=ppes,
+        fallspeed=fallspeed,
+        dwm="gpm neutral",
+        fall_speed_profile=LANDCLIM_II_GPM_ANALYTICAL_FALL_SPEED_PROFILE,
+        error=False,
+    )
+    result = LOVEr(
+        local,
+        regional,
+        params,
+        supported_rings,
+        3,
+        repeats=1,
+        stochastic=False,
+        regional_cover_draws=np.full((1, 10), 0.1),
+    )
+    assert np.isfinite(result["Kreg"].to_numpy()).all()
+    with pytest.raises(ValidationError, match="closed fractions"):
+        LOVEr(
+            local,
+            regional,
+            params,
+            supported_rings,
+            3,
+            repeats=1,
+            stochastic=False,
+            regional_cover_draws=np.full((1, 10), 0.09),
+        )
+    with pytest.raises(ValidationError, match="requires analytical LOVE"):
+        LOVEoptim(
+            local, regional, params, supported_rings, 3, repeats=1, stochastic=False
+        )
+    with pytest.raises(ValidationError, match="between 0.01 and 0.15"):
+        REVEALSinR(
+            regional,
+            ppes,
+            "lake",
+            300,
+            dwm="gpm neutral",
+            n=1,
+            stochastic=False,
+            verbose=False,
+        )
+    mismatched = dict(params)
+    mismatched["fallspeed"] = original["fallspeed"]
+    with pytest.raises(ValidationError, match="must agree"):
+        LOVEr(
+            local,
+            regional,
+            mismatched,
+            supported_rings,
+            3,
+            repeats=1,
+            stochastic=False,
+            regional_cover_draws=np.full((1, 10), 0.1),
+        )
 
 
 @pytest.mark.parametrize(

@@ -10,6 +10,35 @@ import pandas as pd
 
 from bijux_pollenomics_lra.models.errors import ValidationError
 
+DEFAULT_FALL_SPEED_PROFILE = "disqover-0.9.14-wrapper-v1"
+LANDCLIM_II_GPM_ANALYTICAL_FALL_SPEED_PROFILE = (
+    "landclimii-2016-gpm-neutral-analytical-v1"
+)
+
+
+def fall_speed_bounds(profile: str, distance_weighting: str) -> tuple[float, float]:
+    """Return method-scoped fall-speed bounds without changing DISQOVER defaults."""
+    if profile == DEFAULT_FALL_SPEED_PROFILE:
+        return 0.01, 0.15
+    if profile == LANDCLIM_II_GPM_ANALYTICAL_FALL_SPEED_PROFILE:
+        if distance_weighting != "gpm neutral":
+            raise ValidationError(
+                "The LandClim II analytical fall-speed profile requires gpm neutral"
+            )
+        return 0.006, 0.15
+    raise ValidationError("Unsupported fall-speed profile")
+
+
+def validate_fall_speeds(
+    values: object, profile: str, distance_weighting: str
+) -> np.ndarray:
+    """Validate source fall speeds in m/s without rounding or clamping."""
+    speeds = vector(values, "fallspeed")
+    minimum, maximum = fall_speed_bounds(profile, distance_weighting)
+    if np.any((speeds < minimum) | (speeds > maximum)):
+        raise ValidationError(f"fallspeed must be between {minimum} and {maximum} m/s")
+    return speeds
+
 
 def scalar(value: Any, name: str = "value") -> Any:
     """Return a scalar, rejecting multi-element containers."""
@@ -119,6 +148,9 @@ def frame(value: Any, name: str) -> pd.DataFrame:
 def normalise_parameters(
     params: pd.DataFrame,
     taxa: Sequence[str] | None = None,
+    *,
+    fall_speed_profile: str = DEFAULT_FALL_SPEED_PROFILE,
+    distance_weighting: str = "lsm unstable",
 ) -> pd.DataFrame:
     """Normalise a DISQOVER-style taxon parameter table.
 
@@ -154,11 +186,11 @@ def normalise_parameters(
             raise ValidationError(f"params is missing taxa: {missing_taxa}")
         table = table.loc[requested]
 
-    fallspeed = table["fallspeed"].to_numpy(dtype=float)
-    if not np.isfinite(fallspeed).all() or np.any(
-        (fallspeed < 0.01) | (fallspeed > 0.15)
-    ):
-        raise ValidationError("fallspeed must be between 0.01 and 0.15 m/s")
+    validate_fall_speeds(
+        table["fallspeed"].to_numpy(dtype=float),
+        fall_speed_profile,
+        distance_weighting,
+    )
     vector(table["ppe"], "ppe", positive=True)
     vector(table["ppe.error"], "ppe.error", nonnegative=True)
     return table

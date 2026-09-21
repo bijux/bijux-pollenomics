@@ -8,7 +8,13 @@ from enum import Enum, StrEnum
 import numpy as np
 
 from bijux_pollenomics_lra.models.errors import ValidationError
-from bijux_pollenomics_lra.models.validation import finite_number, integer
+from bijux_pollenomics_lra.models.validation import (
+    DEFAULT_FALL_SPEED_PROFILE,
+    LANDCLIM_II_GPM_ANALYTICAL_FALL_SPEED_PROFILE,
+    fall_speed_bounds,
+    finite_number,
+    integer,
+)
 
 
 class BasinType(StrEnum):
@@ -121,6 +127,7 @@ class LoveConfig:
     optimizer_iterations: int = 200
     optimizer_max_evaluations: int | None = None
     optimizer_tolerance: float = 0.01
+    fall_speed_profile: str = DEFAULT_FALL_SPEED_PROFILE
 
     def __post_init__(self) -> None:
         method = _enum_value(self.method, LoveMethod, "method")
@@ -130,6 +137,14 @@ class LoveConfig:
         distance_weighting = _enum_value(
             self.distance_weighting, DistanceWeighting, "distance_weighting"
         )
+        fall_speed_bounds(self.fall_speed_profile, distance_weighting)
+        if (
+            self.fall_speed_profile == LANDCLIM_II_GPM_ANALYTICAL_FALL_SPEED_PROFILE
+            and method != LoveMethod.ANALYTICAL.value
+        ):
+            raise ValidationError(
+                "The LandClim II fall-speed profile requires analytical LOVE"
+            )
         regional_diameter = integer(
             self.regional_basin_diameter_m,
             "regional_basin_diameter_m",
@@ -182,6 +197,7 @@ class LoveConfig:
             "local_basin_diameter_m": self.local_basin_diameter_m,
             "max_ring": self.max_ring,
             "distance_weighting": self.distance_weighting,
+            "fall_speed_profile": self.fall_speed_profile,
             "repeats": self.repeats,
             "stochastic": self.stochastic,
             "seed": self.seed,

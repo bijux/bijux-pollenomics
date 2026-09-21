@@ -31,7 +31,12 @@ def _prepare_love_params(
     taxa: list[str],
     config: LoveConfig,
 ) -> dict[str, Any]:
-    table = normalise_parameters(params, taxa)
+    table = normalise_parameters(
+        params,
+        taxa,
+        fall_speed_profile=config.fall_speed_profile,
+        distance_weighting=config.distance_weighting,
+    )
     ppes = table.reset_index().rename(columns={table.index.name or "index": "Taxon"})
     # reset_index uses "index" if the index had no explicit name.
     if "Taxon" not in ppes.columns:
@@ -46,6 +51,7 @@ def _prepare_love_params(
         "tBasin": config.regional_basin_type,
         "tBasinLocal": "lake",
         "dwm": config.distance_weighting,
+        "fall_speed_profile": config.fall_speed_profile,
         "repeats": config.repeats,
         "error": bool(config.ppe_error),
     }
