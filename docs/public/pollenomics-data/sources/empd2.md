@@ -41,6 +41,27 @@ or dataset relationships; none establishes that the physical pollen sample is
 identical or independent across databases. They must be resolved or grouped
 before a split can be frozen.
 
+## Danish modern-pollen age leads
+
+All 20 Danish metadata samples pass the mechanical count screen, with 968
+source count rows and no unresolved EMPD2–Neotoma overlap flag in this pinned
+review. In the source SQLite, all 20 carry age-uncertainty code `A`. Its own
+`ageuncertainties` lookup calls this category “Modern sample” and gives the
+range label “0BP to Present”. Their source-native `agebp` values are `-46`
+(16 samples), `-55` (two), `-48` (one) and `-30` (one). The exact 20 source rows
+and the three lookup definitions are retained in
+`artifacts/v3/reference/empd2-age-lookup-20260921/probe.json` (SHA-256
+`c39ebc03ddd038a8f013767fa7745b57ad6c6e602533fd014963bb540241068f`).
+
+The [EMPD2 source paper](https://essd.copernicus.org/articles/12/2423/2020/)
+describes Age BP as a numeric sample-age field and age uncertainty as a
+categorical field. The `A` label supports a broad modern-sample description;
+it does not supply a verified collection year or a precise age interval for
+matching another observation. We preserve the signed native values without
+converting them into calendar dates. Taxa/PPE, basin and footprint, count
+denominator, source identity, and temporal support still need review before
+numerical LRA or a four-country held-out benchmark can use these rows.
+
 ## Swedish plot proximity screen
 
 The repository's `bijux_pollenomics_dev.source_completion.empd2_nfi` producer
