@@ -13,8 +13,11 @@ from .api import (
     LRAError,
     LRAResult,
     LRASeriesResult,
+    MultisiteRevealsInput,
+    MultisiteRevealsResult,
     PollenObservationDraws,
     PreparedForwardInputs,
+    PublicationRevealsConfig,
     RevealsConfig,
     RevealsResult,
     ValidationError,
@@ -25,6 +28,7 @@ from .api import (
     run_lra,
     run_lra_series,
     run_reveals,
+    run_reveals_multisite,
     sample_pollen_observations,
 )
 from .version import __version__
@@ -42,8 +46,11 @@ __all__ = [
     "LoveConfig",
     "LoveMethod",
     "LoveResult",
+    "MultisiteRevealsInput",
+    "MultisiteRevealsResult",
     "PollenObservationDraws",
     "PreparedForwardInputs",
+    "PublicationRevealsConfig",
     "RevealsConfig",
     "RevealsResult",
     "ValidationError",
@@ -55,5 +62,6 @@ __all__ = [
     "run_lra",
     "run_lra_series",
     "run_reveals",
+    "run_reveals_multisite",
     "sample_pollen_observations",
 ]

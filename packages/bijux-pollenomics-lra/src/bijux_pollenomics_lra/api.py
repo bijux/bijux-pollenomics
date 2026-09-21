@@ -19,17 +19,23 @@ from bijux_pollenomics_lra.models.errors import (
     ValidationError,
 )
 from bijux_pollenomics_lra.models.observation import PollenObservationDraws
+from bijux_pollenomics_lra.models.publication import (
+    MultisiteRevealsInput,
+    PublicationRevealsConfig,
+)
 from bijux_pollenomics_lra.models.results import (
     ForwardResult,
     LoveResult,
     LRAResult,
     LRASeriesResult,
+    MultisiteRevealsResult,
     PreparedForwardInputs,
     RevealsResult,
 )
 from bijux_pollenomics_lra.reconstruction.forward import forward_deposition
 from bijux_pollenomics_lra.workflows.forward import prepare_forward_inputs
 from bijux_pollenomics_lra.workflows.local import run_love
+from bijux_pollenomics_lra.workflows.multisite import run_reveals_multisite
 from bijux_pollenomics_lra.workflows.observation import sample_pollen_observations
 from bijux_pollenomics_lra.workflows.paired import run_lra
 from bijux_pollenomics_lra.workflows.regional import run_reveals
@@ -52,6 +58,7 @@ def extension_descriptor() -> dict[str, Any]:
         "integration_mode": "optional-separate-distribution",
         "capabilities": [
             "lra.reveals.regional",
+            "lra.reveals.multisite.publication-source",
             "lra.love.analytical",
             "lra.love.optimized",
             "lra.series.exact-coordinate",
@@ -78,8 +85,11 @@ __all__ = [
     "LoveConfig",
     "LoveMethod",
     "LoveResult",
+    "MultisiteRevealsInput",
+    "MultisiteRevealsResult",
     "PollenObservationDraws",
     "PreparedForwardInputs",
+    "PublicationRevealsConfig",
     "RevealsConfig",
     "RevealsResult",
     "ValidationError",
@@ -90,5 +100,6 @@ __all__ = [
     "run_lra",
     "run_lra_series",
     "run_reveals",
+    "run_reveals_multisite",
     "sample_pollen_observations",
 ]

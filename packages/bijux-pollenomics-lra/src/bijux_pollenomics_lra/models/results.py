@@ -93,6 +93,32 @@ class ForwardResult:
     method_profile: str = "disqover-0.9.14-homogeneous-local-forward"
 
 
+@dataclass(slots=True)
+class MultisiteRevealsResult:
+    """Publication profile estimates with site support and source limitations.
+
+    Cover and SE are fractions; absent site/bin support is masked NaN. Negative
+    source variance yields NaN SE and explicit diagnostics, never clipped SE.
+    """
+
+    cover: pd.DataFrame
+    standard_error: pd.DataFrame
+    site_cover: Mapping[str, pd.DataFrame]
+    site_standard_error: Mapping[str, pd.DataFrame]
+    site_count: pd.Series
+    availability: pd.DataFrame
+    deposition: Mapping[str, pd.DataFrame]
+    bootstrap_indices: Mapping[str, np.ndarray]
+    diagnostics: list[dict[str, object]]
+    manifest: RunManifest
+
+    def write(self, directory: str | Path) -> Path:
+        """Write estimates, masks, draws and explicit numerical provenance."""
+        from bijux_pollenomics_lra.outputs.publication import write_multisite_result
+
+        return write_multisite_result(self, directory)
+
+
 @dataclass(frozen=True, slots=True)
 class PreparedForwardInputs:
     """Independent read-only numerical inputs; no observed target outcomes."""
