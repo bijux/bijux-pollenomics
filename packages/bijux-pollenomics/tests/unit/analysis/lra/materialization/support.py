@@ -37,7 +37,9 @@ def datum(value: object, *, unit: str = "NISP", taxon: int = 10) -> dict[str, An
     }
 
 
-def authorities(root: Path) -> tuple[Path, Path]:
+def authorities(
+    root: Path, *, context_only_sample: int | None = None
+) -> tuple[Path, Path]:
     raw, normalized = root / "raw", root / "normalized"
     parts = []
     ids = list(range(1, 10))
@@ -58,6 +60,10 @@ def authorities(root: Path) -> tuple[Path, Path]:
                 {"chronologyid": 998, "agetype": "Radiocarbon years BP", "age": 110},
             ],
         }
+        if identity * 100 == context_only_sample:
+            sample["ages"] = [
+                {"chronologyid": 998, "agetype": "Radiocarbon years BP", "age": 110}
+            ]
         row = {
             "site": {
                 "siteid": identity,

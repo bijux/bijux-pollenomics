@@ -78,7 +78,12 @@ def assess_neotoma_lra_frontier(
     samples_with_age_claims = 0
     samples_without_age_claims = 0
     selected_age_claims = 0
+    samples_with_count_and_age_claims = 0
+    samples_with_count_and_comparable_age_claims = 0
     chronology_postures: Counter[str] = Counter()
+    country_chronology_postures: dict[str, Counter[str]] = {
+        country: Counter() for country in COUNTRY_CODES
+    }
     for source in accounting.indexes["samples"].values():
         record = accounting.sample(source)
         if record["selected"] is not True:
@@ -98,15 +103,32 @@ def assess_neotoma_lra_frontier(
         selected_collection_units.add(str(sample["collection_unit_id"]))
         chronology = cast(dict[str, Any], record["chronology"])
         claim_count = cast(int, chronology["claim_count"])
+        projected_claims = cast(list[dict[str, Any]], chronology["claims"])
         selected_age_claims += claim_count
+        country_counts["age_claims"] += claim_count
         if claim_count:
             samples_with_age_claims += 1
+            country_counts["samples_with_age_claims"] += 1
+            if cast(int, record["count_candidate_observations"]) > 0:
+                samples_with_count_and_age_claims += 1
+                country_counts["samples_with_count_and_age_claims"] += 1
+                if any(
+                    projected["source_claim"].get("comparability_status")
+                    == "comparable"
+                    for projected in projected_claims
+                ):
+                    samples_with_count_and_comparable_age_claims += 1
+                    country_counts["samples_with_count_and_comparable_age_claims"] += 1
         else:
             samples_without_age_claims += 1
-        for projected in cast(list[dict[str, Any]], chronology["claims"]):
+            country_counts["samples_without_age_claims"] += 1
+        for projected in projected_claims:
             claim = cast(dict[str, Any], projected["source_claim"])
             posture = claim.get("comparability_status")
             chronology_postures[
+                posture if isinstance(posture, str) else "missing_status"
+            ] += 1
+            country_chronology_postures[country][
                 posture if isinstance(posture, str) else "missing_status"
             ] += 1
 
@@ -117,6 +139,28 @@ def assess_neotoma_lra_frontier(
         raise ValueError("Selected count frontier is not a complete partition")
     if selected_samples != len(accounting.selected_samples):
         raise ValueError("Selected sample frontier is not a complete partition")
+    if (
+        sum(counts["age_claims"] for counts in countries.values())
+        != selected_age_claims
+    ):
+        raise ValueError("Country age-claim frontier is not a complete partition")
+    if (
+        sum(
+            counts["samples_with_count_and_age_claims"] for counts in countries.values()
+        )
+        != samples_with_count_and_age_claims
+    ):
+        raise ValueError("Country count/age intersection is not a complete partition")
+    if (
+        sum(
+            counts["samples_with_count_and_comparable_age_claims"]
+            for counts in countries.values()
+        )
+        != samples_with_count_and_comparable_age_claims
+    ):
+        raise ValueError(
+            "Country comparable-age intersection is not a complete partition"
+        )
 
     selection_ids = sorted(accounting.selected_samples)
     blocker_denominator = {
@@ -128,13 +172,18 @@ def assess_neotoma_lra_frontier(
         "selected_samples",
         "samples_with_count_candidates",
         "samples_without_count_candidates",
+        "samples_with_count_and_age_claims",
+        "samples_with_count_and_comparable_age_claims",
+        "samples_with_age_claims",
+        "samples_without_age_claims",
+        "age_claims",
         "selected_observations",
         "count_candidate_observations",
         "refused_count_observations",
     )
     empty = selected_samples == 0
     payload: dict[str, Any] = {
-        "schema_version": "neotoma-lra-prerequisite-frontier.v1",
+        "schema_version": "neotoma-lra-prerequisite-frontier.v3",
         "source_family": "neotoma",
         "source_snapshot_id": manifest["source_snapshot_id"],
         "normalized_build_id": manifest["build_id"],
@@ -175,10 +224,19 @@ def assess_neotoma_lra_frontier(
             "age_claims": selected_age_claims,
             "samples_with_age_claims": samples_with_age_claims,
             "samples_without_age_claims": samples_without_age_claims,
+            "samples_with_count_and_age_claims": samples_with_count_and_age_claims,
+            "samples_with_count_and_comparable_age_claims": (
+                samples_with_count_and_comparable_age_claims
+            ),
             "age_claim_comparability_counts": dict(sorted(chronology_postures.items())),
         },
         "country_denominators": {
-            country: {field: counts[field] for field in country_fields}
+            country: {
+                **{field: counts[field] for field in country_fields},
+                "age_claim_comparability_counts": dict(
+                    sorted(country_chronology_postures[country].items())
+                ),
+            }
             for country, counts in sorted(countries.items())
         },
         "prerequisites": [

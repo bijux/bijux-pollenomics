@@ -48,6 +48,33 @@ def test_selected_source_sample_has_exact_refused_prerequisite_partition(
     assert selected["collection_units"] == 1
     assert selected["age_claims"] == 2
     assert selected["samples_with_age_claims"] == 1
+    assert selected["samples_with_count_and_age_claims"] == 1
+    assert selected["samples_with_count_and_comparable_age_claims"] == 1
+    assert payload["schema_version"] == "neotoma-lra-prerequisite-frontier.v3"
+    assert (
+        sum(
+            row["samples_with_count_and_age_claims"]
+            for row in payload["country_denominators"].values()
+        )
+        == 1
+    )
+    assert (
+        sum(
+            row["samples_with_count_and_comparable_age_claims"]
+            for row in payload["country_denominators"].values()
+        )
+        == selected["samples_with_count_and_comparable_age_claims"]
+    )
+    assert (
+        sum(row["age_claims"] for row in payload["country_denominators"].values()) == 2
+    )
+    assert (
+        sum(
+            sum(row["age_claim_comparability_counts"].values())
+            for row in payload["country_denominators"].values()
+        )
+        == 2
+    )
     assert set(payload["country_denominators"]) == {
         "SE",
         "DK",
@@ -59,9 +86,15 @@ def test_selected_source_sample_has_exact_refused_prerequisite_partition(
         "selected_samples": 0,
         "samples_with_count_candidates": 0,
         "samples_without_count_candidates": 0,
+        "samples_with_count_and_age_claims": 0,
+        "samples_with_count_and_comparable_age_claims": 0,
+        "samples_with_age_claims": 0,
+        "samples_without_age_claims": 0,
+        "age_claims": 0,
         "selected_observations": 0,
         "count_candidate_observations": 0,
         "refused_count_observations": 0,
+        "age_claim_comparability_counts": {},
     }
     assert [row["prerequisite"] for row in payload["prerequisites"]] == list(
         MISSING_LRA_EVIDENCE
@@ -102,6 +135,18 @@ def test_selection_order_is_canonical_and_source_values_stay_out_of_request(
     assert payload["executable_request"] is None
 
 
+def test_numeric_count_does_not_promote_context_only_age(tmp_path: Path) -> None:
+    raw, normalized = authorities(tmp_path, context_only_sample=100)
+    evidence = read_neotoma_evidence(raw, normalized)
+    selected = assess_neotoma_lra_frontier(evidence, ("neotoma:sample:100",)).as_dict()[
+        "selected_denominators"
+    ]
+    assert selected["count_candidate_observations"] == 2
+    assert selected["samples_with_count_and_age_claims"] == 1
+    assert selected["age_claim_comparability_counts"] == {"context_only": 1}
+    assert selected["samples_with_count_and_comparable_age_claims"] == 0
+
+
 def test_empty_selection_is_not_misreported_as_scientific_refusal(
     tmp_path: Path,
 ) -> None:
@@ -115,6 +160,17 @@ def test_empty_selection_is_not_misreported_as_scientific_refusal(
     assert payload["selected_denominators"]["samples"] == 0
     assert payload["selected_denominators"]["observations"] == 0
     assert payload["selected_denominators"]["count_candidate_observations"] == 0
+    assert payload["selected_denominators"]["samples_with_count_and_age_claims"] == 0
+    assert (
+        payload["selected_denominators"]["samples_with_count_and_comparable_age_claims"]
+        == 0
+    )
+    assert all(
+        row["samples_with_count_and_age_claims"] == 0
+        and row["samples_with_count_and_comparable_age_claims"] == 0
+        and row["age_claims"] == 0
+        for row in payload["country_denominators"].values()
+    )
     assert payload["lra_accepted_samples"] == 0
     assert payload["executable_request"] is None
 

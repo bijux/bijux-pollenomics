@@ -54,6 +54,43 @@ and build
 The manifest validates row counts, stable IDs, country partitions, part hashes,
 and the complete materialization digest.
 
+### Sample-level LRA prerequisite screen
+
+The source-bound prerequisite report
+`artifacts/v3/source/neotoma-chronology-count-frontier001/report002.json`
+checks each relational sample for at least one mechanical numeric-count candidate
+and at least one source age claim marked `comparable`. These conditions are
+screening leads, not a selected chronology, an authenticated pollen count table,
+or an executable LRA request. The report is bound to the raw archive and
+relational manifests and has SHA-256
+`aff96149a10b36bb89e9a781ae1f7a653b219deec6a09d2a6f089d474c3763cb`.
+
+| Source partition | Samples | With numeric-count candidate | With count candidate and comparable age claim |
+| --- | ---: | ---: | ---: |
+| Sweden | 5,764 | 3,093 | 2,379 |
+| Denmark | 279 | 187 | 0 |
+| Norway | 3,884 | 1,233 | 921 |
+| Finland | 2,184 | 402 | 127 |
+| Unassigned | 277 | 194 | 111 |
+| **Captured total** | **12,388** | **5,109** | **3,538** |
+
+Every captured sample has some age claim; the comparable-claim intersection
+therefore narrows the numeric-count leads from 5,109 to 3,538. Denmark's zero
+is specific to this captured source and conservative count screen: its 91
+comparable age claims and 187 count-candidate samples belong to disjoint
+sample sets. `Unassigned` is an accounting partition, not a fifth Nordic
+country. Multiple alternative claims are retained, and no age model is chosen.
+The mechanical count screen also includes non-pollen source elements and
+conservatively refuses observations with source identity conflicts. An
+independent source-part check found 32,899 non-`pollen` elements among the
+140,541 numeric-count observations and 218,833 otherwise numeric observations
+refused because a parent carried a source identity conflict, including
+dataset-level default-chronology assertion conflicts. That coupling still
+needs source-level review; dropping the refusal would change the denominator.
+Taxon/PPE, count denominator and unit, chronology selection, basin geometry
+and parameter binding still require review. **Zero real Neotoma samples are
+admitted to LRA or held-out vegetation scoring from this report.**
+
 ### Curation Lineage
 
 | Boundary | Governing material | Decision preserved |
