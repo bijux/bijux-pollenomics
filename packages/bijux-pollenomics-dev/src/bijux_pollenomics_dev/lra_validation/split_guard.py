@@ -39,7 +39,7 @@ class SplitGuardError(ValueError):
 
 
 def _text(value: object) -> bool:
-    return isinstance(value, str) and bool(value.strip())
+    return isinstance(value, str) and bool(value.strip()) and value == value.strip()
 
 
 def _ids(value: object) -> bool:

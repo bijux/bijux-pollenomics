@@ -96,6 +96,19 @@ def test_one_sided_record_or_site_alias_seals_test_pollen(alias: str) -> None:
     assert result["train_record_ids"] == ["v-train"]
 
 
+def test_padded_shared_alias_cannot_leave_test_site_in_training() -> None:
+    records = [
+        row("p-test", "test", "pollen", "east"),
+        row("p-alias", "other", "pollen", "east", alias=["test "]),
+        row("v-alias", "another", "vegetation", "east", alias=["test "]),
+        row("v-train", "train", "vegetation", "west"),
+    ]
+    with pytest.raises(SplitGuardError, match="invalid_id_list"):
+        build_candidate_split(
+            records, test_record_id="p-test", target="withheld_pollen_prediction"
+        )
+
+
 def test_regional_product_using_one_sided_alias_is_refused() -> None:
     records = [
         row("v-test", "test", "vegetation", "east"),
