@@ -111,6 +111,42 @@ samples remain refused for numerical LRA and held-out scoring pending chronology
 taxa/PPE, basin, unit and source-conflict review. These four source samples are
 not asserted to be four independent sites or a complete stratigraphic core.
 
+### Full-source agreeing-pollen prerequisite screen
+
+`inspect_neotoma_lra_pollen_screen` in the installed host API reads the
+authenticated source and screens every captured sample. It requires at least
+one numeric count observation with **both** source element fields agreeing on
+`pollen`, plus a separate typed, comparable age claim owned by that sample.
+The canonical report is
+`artifacts/v3/source/neotoma-pollen-screen-20260921/report002.json` (SHA-256
+`e8a8f392abb5be421111a01bb75823c7743b6b3d66bc6cbb415f65dc61be4e42`).
+Its independent source reconciliation is recorded in
+`artifacts/v3/source/neotoma-pollen-screen-challenge-20260921/REVIEW.md`.
+
+| Source partition | Samples | Agreeing pollen count observations | Necessary candidate samples | Refused samples |
+| --- | ---: | ---: | ---: | ---: |
+| Sweden | 5,764 | 63,510 | 2,379 | 3,385 |
+| Denmark | 279 | 4,477 | 0 | 279 |
+| Norway | 3,884 | 28,376 | 921 | 2,963 |
+| Finland | 2,184 | 5,172 | 127 | 2,057 |
+| Unassigned | 277 | 6,107 | 111 | 166 |
+| **Captured total** | **12,388** | **107,642** | **3,538** | **8,850** |
+
+The 140,541 mechanical count candidates comprise 107,642 agreeing pollen
+labels, 32,740 non-pollen labels and 159 with a missing second element-type
+field. Another 230,395 observations fail the numeric count screen. Refusal
+reason counts can overlap; 8,850 is the number of distinct refused samples.
+Denmark has pollen count observations, but its 187 samples with such counts are
+disjoint from its 91 samples with an owned comparable age claim. The 3,538
+necessary candidates equal the older count-and-age lead set for this captured
+source by independently checked sample ID, not by assumption. `Unassigned`
+remains an accounting partition, not a fifth Nordic country.
+
+This is a source-screening result, not a reviewed pollen denominator or LRA
+admission. Taxa/PPE, count compatibility, selected chronology, source rights,
+basin geometry and parameters still need review. **Zero Neotoma samples are
+admitted to numerical LRA or held-out vegetation scoring by this screen.**
+
 ### Curation Lineage
 
 | Boundary | Governing material | Decision preserved |
