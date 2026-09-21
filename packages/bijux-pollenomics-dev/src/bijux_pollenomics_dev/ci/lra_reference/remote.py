@@ -16,7 +16,11 @@ MAX_RESPONSE_BYTES = 32 * 1024 * 1024
 
 
 class EvidenceReader(Protocol):
-    def read(self, path: str) -> bytes: ...
+    """Read bytes from a governed remote evidence route."""
+
+    def read(self, path: str) -> bytes:
+        """Return the response body for one evidence route."""
+        ...
 
 
 class _SafeRedirect(HTTPRedirectHandler):
@@ -35,9 +39,11 @@ class GitHubReader:
     """Only GET is exposed; no dispatch, rerun, status mutation or publication."""
 
     def __init__(self) -> None:
+        """Start the five-minute evidence collection deadline."""
         self.started = time.monotonic()
 
     def read(self, path: str) -> bytes:
+        """Fetch a bounded GitHub API route without exposing credentials."""
         if time.monotonic() - self.started > 300:
             raise ReferenceRefusal("Release evidence collection exceeded deadline")
         if (

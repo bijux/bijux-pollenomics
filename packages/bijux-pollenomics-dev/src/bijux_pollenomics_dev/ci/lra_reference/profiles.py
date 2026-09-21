@@ -26,6 +26,7 @@ SOURCE_DOMAIN_SEMANTICS = {
 
 
 def validate_source_domains(root: Path, reference_hash: str) -> dict[str, Any]:
+    """Validate the separate source-domain and corrected-forward R profile."""
     report = read_json((root / "report.json").read_bytes())
     manifest = read_json((root / "case_manifest.json").read_bytes())
     exact = {

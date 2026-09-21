@@ -18,6 +18,7 @@ def review_row(
     domain: str,
     evidence: dict[str, Any],
 ) -> dict[str, Any]:
+    """Create an unresolved review row with source identity and explicit nulls."""
     return {
         "review_row_id": row_id,
         "source_family": source,
@@ -63,6 +64,7 @@ class Occurrences:
     """Count every source observation once; never add incompatible values."""
 
     def __init__(self) -> None:
+        """Initialize identity, country and exact-unit occurrence counters."""
         self.ids: set[str] = set()
         self.countries: dict[str, Counter[str]] = defaultdict(Counter)
         self.counts: Counter[str] = Counter()
@@ -79,6 +81,7 @@ class Occurrences:
         unit: str | None,
         value: object,
     ) -> None:
+        """Count one observation and retain its value state within its source unit."""
         if observation_id in self.ids:
             raise ValueError(f"Duplicate observation identity: {observation_id}")
         self.ids.add(observation_id)
@@ -117,6 +120,7 @@ class Occurrences:
         self.value_states[(key, unit_key, state)] += 1
 
     def annotate(self, row: dict[str, Any], key: str) -> None:
+        """Attach reconciled counts and unit-separated totals to a review row."""
         row["observation_count"] = self.counts[key]
         row["country_counts"] = dict(sorted(self.countries[key].items()))
         row["example_observation_ids"] = sorted(self.examples[key])[:3]

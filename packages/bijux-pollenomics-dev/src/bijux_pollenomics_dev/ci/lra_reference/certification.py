@@ -38,6 +38,7 @@ def certify(
     provision_receipt: Path,
     output: Path,
 ) -> dict[str, Any]:
+    """Run the locked R oracle and write a source-bound certificate bundle."""
     lock_path, repository, library, provision_receipt, output = (
         local_path(path)
         for path in (lock_path, repository, library, provision_receipt, output)

@@ -35,6 +35,7 @@ REPOSITORY = "example/pollenomics"
 
 
 def oracle_fixture() -> tuple[dict[str, Any], list[dict[str, Any]]]:
+    """Build synthetic oracle rows for validator contract tests only."""
     manifest = [
         {
             "id": f"C{index:04d}",
@@ -75,6 +76,7 @@ def oracle_fixture() -> tuple[dict[str, Any], list[dict[str, Any]]]:
 
 
 def bundle_fixture(root: Path) -> dict[str, Any]:
+    """Write a synthetic certificate bundle for refusal and schema tests."""
     from bijux_pollenomics_dev.ci.lra_reference.evidence import file_inventory
 
     root.mkdir()
@@ -178,6 +180,7 @@ def bundle_fixture(root: Path) -> dict[str, Any]:
 
 
 def domain_fixture(root: Path, reference_hash: str) -> None:
+    """Write synthetic source-domain cases with the required 23 identities."""
     root.mkdir()
     semantics = {
         "S001": "source-wrapper-refusal",

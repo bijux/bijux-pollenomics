@@ -11,6 +11,7 @@ from .rows import review_row
 def rootsi_rows(
     reader: EvidenceReader, path: str
 ) -> tuple[list[dict[str, Any]], dict[str, Any]]:
+    """Keep private Rootsi header candidates quarantined from derived analysis."""
     inventory = reader.json(path)
     if (
         inventory is None

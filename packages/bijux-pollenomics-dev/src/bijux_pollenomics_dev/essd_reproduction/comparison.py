@@ -69,6 +69,7 @@ class PublishedEstimateKey:
     feature: str
 
     def __post_init__(self) -> None:
+        """Require a complete explicit key without inferred aliases."""
         _require_identifier(self.grid, "grid")
         _require_identifier(self.window, "window")
         _require_identifier(self.feature, "feature")
@@ -91,6 +92,7 @@ class PublishedEstimateValue:
     standard_error: Decimal | None
 
     def __post_init__(self) -> None:
+        """Keep source decimals and missing values distinct in a value pair."""
         if type(self.key) is not PublishedEstimateKey:
             raise PublishedEstimateComparisonError(
                 "comparison row key must be a PublishedEstimateKey"
@@ -116,6 +118,7 @@ class PublishedEstimateCandidate:
     rows: tuple[PublishedEstimateValue, ...]
 
     def __post_init__(self) -> None:
+        """Validate immutable candidate rows and reject duplicate keys."""
         _require_identifier(self.candidate_id, "candidate_id")
         _require_identifier(self.value_unit, "value_unit")
         if type(self.rows) is not tuple:

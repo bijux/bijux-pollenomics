@@ -89,6 +89,7 @@ def assemble(
 
 
 def build_review(root: Path, *, rootsi_inventory: str | None = None) -> dict[str, Any]:
+    """Assemble a private review projection without admitting proposed mappings."""
     reader = EvidenceReader(root)
     contract_bytes = reader.read_bytes(CONTRACT_PATH)
     if contract_bytes is None:

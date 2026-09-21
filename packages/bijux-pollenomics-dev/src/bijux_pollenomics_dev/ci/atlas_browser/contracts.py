@@ -113,6 +113,7 @@ class AtlasArtifactCandidate:
     kind: str = "local_lra_presentation"
 
     def __post_init__(self) -> None:
+        """Validate local presentation provenance and normalized artifact paths."""
         if self.kind != "local_lra_presentation":
             raise AtlasBrowserContractError("unsupported artifact candidate kind")
         for key in ("generator_repository_head", "generator_repository_tree"):
@@ -142,10 +143,12 @@ class AtlasArtifactCandidate:
             )
 
     def as_json(self) -> JsonObject:
+        """Return the complete local presentation declaration as JSON data."""
         return cast(JsonObject, asdict(self))
 
     @classmethod
     def from_json(cls, value: object) -> AtlasArtifactCandidate:
+        """Reject incomplete or mistyped local presentation declarations."""
         if not isinstance(value, dict) or set(value) != {
             field.name for field in fields(cls)
         }:
@@ -169,6 +172,7 @@ class AtlasGeneratedReportCandidate:
     kind: str = "generated_report_publication"
 
     def __post_init__(self) -> None:
+        """Validate managed report identity, digests, and artifact paths."""
         if self.kind != "generated_report_publication":
             raise AtlasBrowserContractError("unsupported generated report kind")
         for key in ("generator_repository_head", "generator_repository_tree"):
@@ -195,10 +199,12 @@ class AtlasGeneratedReportCandidate:
             )
 
     def as_json(self) -> JsonObject:
+        """Return the complete managed report declaration as JSON data."""
         return cast(JsonObject, asdict(self))
 
     @classmethod
     def from_json(cls, value: object) -> AtlasGeneratedReportCandidate:
+        """Reject incomplete or mistyped managed report declarations."""
         if not isinstance(value, dict) or set(value) != {
             field.name for field in fields(cls)
         }:

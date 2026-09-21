@@ -21,6 +21,7 @@ from ..sources import sha256, verify_sources
 def build_runtime(
     *, lock_path: Path, source_cache: Path, repository: Path, prefix: Path, output: Path
 ) -> dict[str, Any]:
+    """Build the pinned R source into an exclusive local runtime prefix."""
     lock_path, source_cache, repository, prefix, output = (
         local_path(path)
         for path in (lock_path, source_cache, repository, prefix, output)

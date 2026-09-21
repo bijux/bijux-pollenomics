@@ -41,6 +41,7 @@ class KnownLandscapeError(ValueError):
     """A stable refusal from the independent synthetic oracle."""
 
     def __init__(self, reason_code: str, detail: str) -> None:
+        """Retain the refusal code separately from the readable explanation."""
         super().__init__(f"{reason_code}: {detail}")
         self.reason_code = reason_code
         self.detail = detail

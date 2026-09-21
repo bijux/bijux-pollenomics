@@ -49,6 +49,7 @@ class ExperimentLedgerError(ValueError):
     """A stable refusal to write or read an invalid trial record."""
 
     def __init__(self, reason_code: str) -> None:
+        """Preserve the stable trial-refusal code on the exception."""
         super().__init__(reason_code)
         self.reason_code = reason_code
 

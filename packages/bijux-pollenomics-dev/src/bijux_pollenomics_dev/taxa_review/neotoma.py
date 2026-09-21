@@ -15,6 +15,7 @@ from .rows import Occurrences, review_row
 
 
 def neotoma_rows(reader: EvidenceReader) -> tuple[list[dict[str, Any]], dict[str, Any]]:
+    """Reconcile source observations with governed Neotoma concept candidates."""
     manifest_path = "data/neotoma/relational/manifest.json"
     manifest = reader.json(manifest_path)
     if manifest is None:

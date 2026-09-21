@@ -9,6 +9,7 @@ from .contracts import ReferenceRefusal
 
 
 def main() -> int:
+    """Dispatch locked local fetch, build, provision, or certification steps."""
     parser = argparse.ArgumentParser(description=__doc__)
     subparsers = parser.add_subparsers(dest="operation", required=True)
     for operation in ("fetch", "build-r", "provision", "certify"):

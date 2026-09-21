@@ -34,6 +34,7 @@ def provision(
     makevars: Path | None = None,
     runtime_receipt: Path | None = None,
 ) -> dict[str, Any]:
+    """Install verified R sources into a private library and record their bytes."""
     lock_path, source_cache, repository, library, output = (
         local_path(path)
         for path in (lock_path, source_cache, repository, library, output)
@@ -266,6 +267,7 @@ def provision(
 
 
 def main() -> int:
+    """Provision the locked R library from command-line paths."""
     parser = argparse.ArgumentParser()
     parser.add_argument("--lock", type=Path, required=True)
     parser.add_argument("--source-cache", type=Path, required=True)

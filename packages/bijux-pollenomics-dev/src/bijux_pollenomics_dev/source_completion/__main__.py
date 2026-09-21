@@ -14,6 +14,7 @@ from .intakes import audit_intakes, find_hyde_candidates
 
 
 def main() -> int:
+    """Write one content-addressed source audit to the requested new path."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--root", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)

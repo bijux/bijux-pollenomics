@@ -26,6 +26,7 @@ def _write(path: Path, value: object) -> None:
 
 
 def generated_report_plan(root: Path) -> BrowserVerificationPlan:
+    """Build a synthetic report and matching managed publisher receipt."""
     presentation = root / "artifacts/publication/docs-report"
     scope = presentation / "regions/nordic"
     scope.mkdir(parents=True)

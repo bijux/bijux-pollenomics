@@ -9,6 +9,7 @@ from .decisions import load_review_json
 
 
 def main() -> None:
+    """Build a private bundle or validate returned decisions through the CLI."""
     parser = argparse.ArgumentParser(description=__doc__)
     commands = parser.add_subparsers(dest="command", required=True)
     build = commands.add_parser("build")

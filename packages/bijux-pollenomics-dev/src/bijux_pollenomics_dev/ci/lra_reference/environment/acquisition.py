@@ -18,6 +18,7 @@ from ..sources import sha256, verify_archive, verify_sources
 def acquire(
     *, lock_path: Path, source_cache: Path, repository: Path, output: Path
 ) -> dict[str, object]:
+    """Acquire only pinned CRAN sources and admit their verified bytes."""
     lock_path, source_cache, repository, output = (
         local_path(path) for path in (lock_path, source_cache, repository, output)
     )
