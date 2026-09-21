@@ -195,6 +195,23 @@ reuse rights or permission to publish source material. The four ambiguous and
 six missing links remain explicit review cases. Rights review is `not_evaluated`,
 and **zero samples are admitted to numerical LRA** by this lookup.
 
+Neotoma's [2025 Data Use and Embargo Policy](https://www.neotomadb.org/data/data-use-and-embargo-policy)
+(captured 2026-09-21, SHA-256
+`ba75c8f22491f5b5e83a835f964aedea53b62e526cf6ea36bb10b376e774b3a4`)
+states that data available through Neotoma are reusable
+under CC BY 4.0 with attribution. Its publication guidance calls for the
+Neotoma citation, the constituent database, original investigators and primary
+publications, and a site/dataset table with the dataset DOI. The policy's EPD
+appendix recommends Fyfe et al. (2009), plus Giesecke et al. (2014) for
+extensive use of the described chronologies, and supplies an acknowledgment.
+All 58 candidate datasets here identify EPD as their
+constituent database, but **10 lack a unique provider-primary publication**
+(four multiple-primary and six no-link cases). The default license is a
+policy-level rights lead; those citation gaps, possible source-specific
+protections and the scientific eligibility checks still need review before a
+publication-ready LRA input can be declared. The report's rights status remains
+`not_evaluated`, with zero admitted samples.
+
 ### Observed count mass in prerequisite samples
 
 The source-bound count-mass audit
