@@ -168,6 +168,17 @@ sample selection are preserved. The sums help a reviewer focus on source
 material; they do not establish compatible pollen totals, taxon/PPE approval,
 or LRA admission.
 
+The candidate dataset attribution index
+`artifacts/v3/taxa-review/neotoma-priority-provenance-20260921/candidate-attribution.json`
+(SHA-256 `cf5639d2076984bab3454510f78920b12c0bfcade8c7ed6abc2fcfbc098aaaae`)
+links those 674 concepts and 73,559 candidate pollen observations to
+**58 source datasets**. It retains each source dataset ID, constituent database,
+dataset name, source-listed DOI, contributor field and the concept's observation
+and sample counts by dataset. All 58 datasets have at least one source-listed
+DOI. These are attribution leads from the captured Neotoma response; they do
+not verify each original publication, reuse right, taxon assignment, PPE or
+LRA admission.
+
 ### Observed count mass in prerequisite samples
 
 The source-bound count-mass audit
