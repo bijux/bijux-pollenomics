@@ -4,6 +4,7 @@ import csv
 import io
 import json
 from pathlib import Path
+from typing import IO, Any, cast
 
 import pytest
 
@@ -12,7 +13,7 @@ from bijux_pollenomics_dev.taxa_review.rows import Occurrences, review_row
 from bijux_pollenomics_dev.taxa_review.workflow import assemble, csv_bytes, write_review
 
 
-def bundle():
+def bundle() -> dict[str, Any]:
     row = review_row(
         row_id="native:1",
         source="fixture",
@@ -40,7 +41,7 @@ def bundle():
     )
 
 
-def decision(payload):
+def decision(payload: dict[str, Any]) -> dict[str, Any]:
     row = payload["rows"][0]
     return {
         "bundle_sha256": payload["bundle_sha256"],
@@ -61,7 +62,7 @@ def decision(payload):
     }
 
 
-def test_exact_unit_totals_keep_missing_zero_and_countries_distinct():
+def test_exact_unit_totals_keep_missing_zero_and_countries_distinct() -> None:
     counts = Occurrences()
     for index, (unit, value, country) in enumerate(
         [
@@ -74,7 +75,7 @@ def test_exact_unit_totals_keep_missing_zero_and_countries_distinct():
         ]
     ):
         counts.add("taxon", str(index), unit=unit, value=value, country=country)
-    row = {}
+    row: dict[str, Any] = {}
     counts.annotate(row, "taxon")
     assert row["observation_count"] == 6
     assert row["country_counts"] == {"DK": 1, "SE": 4, "UNASSIGNED": 1}
@@ -88,7 +89,7 @@ def test_exact_unit_totals_keep_missing_zero_and_countries_distinct():
 
 def test_projection_is_deterministic_and_preserves_csv_null_and_qualifier(
     tmp_path: Path,
-):
+) -> None:
     payload = bundle()
     assert bundle() == payload
     assert not payload["scientific_admission_allowed"]
@@ -104,13 +105,13 @@ def test_projection_is_deterministic_and_preserves_csv_null_and_qualifier(
         write_review(payload, tmp_path / "review")
 
 
-def test_duplicate_projection_rows_are_refused():
+def test_duplicate_projection_rows_are_refused() -> None:
     payload = bundle()
     with pytest.raises(ValueError, match="Duplicate review"):
         assemble(payload["rows"] * 2, inputs=[], contract={}, summaries={})
 
 
-def test_documented_acceptance_is_only_non_admitting_intent():
+def test_documented_acceptance_is_only_non_admitting_intent() -> None:
     payload = bundle()
     result = validate_decisions(payload, decision(payload))
     assert result["decision_count"] == 1
@@ -132,7 +133,7 @@ def test_documented_acceptance_is_only_non_admitting_intent():
         ("review_state", "admitted_public"),
     ],
 )
-def test_invalid_decision_is_refused(field, value):
+def test_invalid_decision_is_refused(field: str, value: Any) -> None:
     payload = bundle()
     returned = decision(payload)
     returned["decisions"][0][field] = value
@@ -140,7 +141,7 @@ def test_invalid_decision_is_refused(field, value):
         validate_decisions(payload, returned)
 
 
-def test_tampered_bundle_and_duplicate_decisions_are_refused():
+def test_tampered_bundle_and_duplicate_decisions_are_refused() -> None:
     payload = bundle()
     returned = decision(payload)
     returned["decisions"] *= 2
@@ -151,18 +152,18 @@ def test_tampered_bundle_and_duplicate_decisions_are_refused():
         validate_decisions(payload, returned)
 
 
-def test_exact_accounting_does_not_round_large_source_counts():
+def test_exact_accounting_does_not_round_large_source_counts() -> None:
     counts = Occurrences()
     counts.add("taxon", "1", country="SE", unit="count", value=10**40)
     counts.add("taxon", "2", country="SE", unit="count", value=1)
-    row = {}
+    row: dict[str, Any] = {}
     counts.annotate(row, "taxon")
     assert row["value_totals_by_exact_unit"][0]["reported_value_sum"] == str(10**40 + 1)
 
 
 def test_quarantine_retains_all_candidates_and_refuses_permission_promotion(
     tmp_path: Path,
-):
+) -> None:
     from bijux_pollenomics_dev.source_completion.evidence import EvidenceReader
     from bijux_pollenomics_dev.taxa_review.quarantine import rootsi_rows
 
@@ -198,7 +199,7 @@ def test_quarantine_retains_all_candidates_and_refuses_permission_promotion(
         rootsi_rows(EvidenceReader(tmp_path), "inventory.json")
 
 
-def test_occurrence_closure_refuses_omitted_source_or_country_rows():
+def test_occurrence_closure_refuses_omitted_source_or_country_rows() -> None:
     payload = bundle()
     rows = payload["rows"]
     rows[0].update(source_family="sead", observation_count=3, country_counts={"SE": 2})
@@ -213,7 +214,7 @@ def test_occurrence_closure_refuses_omitted_source_or_country_rows():
         )
 
 
-def test_malformed_review_state_is_refused():
+def test_malformed_review_state_is_refused() -> None:
     payload = bundle()
     returned = decision(payload)
     returned["decisions"][0]["review_state"] = []
@@ -222,16 +223,16 @@ def test_malformed_review_state_is_refused():
 
 
 def test_publication_race_refuses_without_touching_other_owner(
-    tmp_path: Path, monkeypatch
-):
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
     target = tmp_path / "review"
     original = Path.mkdir
 
-    def competing(path, *args, **kwargs):
+    def competing(path: Path, *args: Any, **kwargs: Any) -> None:
         if path == target:
             original(path)
             (path / "other-owner").write_text("keep")
-        return original(path, *args, **kwargs)
+        original(path, *args, **kwargs)
 
     monkeypatch.setattr(Path, "mkdir", competing)
     with pytest.raises(FileExistsError):
@@ -241,17 +242,17 @@ def test_publication_race_refuses_without_touching_other_owner(
 
 
 def test_partial_write_cannot_be_consumed_as_complete_review(
-    tmp_path: Path, monkeypatch
-):
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
     from bijux_pollenomics_dev.taxa_review import read_review
 
     target = tmp_path / "review"
     original = Path.open
 
-    def failed(path, *args, **kwargs):
+    def failed(path: Path, *args: Any, **kwargs: Any) -> IO[Any]:
         if path.name == "taxa-review.csv":
             raise OSError("fixture disk failure")
-        return original(path, *args, **kwargs)
+        return cast(IO[Any], original(path, *args, **kwargs))
 
     monkeypatch.setattr(Path, "open", failed)
     with pytest.raises(OSError, match="disk failure"):
@@ -262,7 +263,7 @@ def test_partial_write_cannot_be_consumed_as_complete_review(
         read_review(target)
 
 
-def test_completed_reader_rejects_tampered_member(tmp_path: Path):
+def test_completed_reader_rejects_tampered_member(tmp_path: Path) -> None:
     from bijux_pollenomics_dev.taxa_review import read_review
 
     target = tmp_path / "review"
@@ -274,14 +275,14 @@ def test_completed_reader_rejects_tampered_member(tmp_path: Path):
         read_review(target)
 
 
-def test_duplicate_return_keys_are_refused():
+def test_duplicate_return_keys_are_refused() -> None:
     from bijux_pollenomics_dev.taxa_review.decisions import load_review_json
 
     with pytest.raises(ValueError, match="Duplicate JSON"):
         load_review_json(b'{"decisions": [], "decisions": []}')
 
 
-def test_missing_reference_directory_and_declared_file_refuse(tmp_path: Path):
+def test_missing_reference_directory_and_declared_file_refuse(tmp_path: Path) -> None:
     from bijux_pollenomics_dev.source_completion.evidence import EvidenceReader
     from bijux_pollenomics_dev.taxa_review.context import parameter_rows
 
@@ -300,11 +301,11 @@ def test_missing_reference_directory_and_declared_file_refuse(tmp_path: Path):
         parameter_rows(EvidenceReader(tmp_path))
 
 
-def test_null_empty_and_literal_unprovided_units_never_collide():
+def test_null_empty_and_literal_unprovided_units_never_collide() -> None:
     counts = Occurrences()
     for i, unit in enumerate([None, "", "not_provided_by_source"]):
         counts.add("taxon", str(i), country="SE", unit=unit, value=5)
-    row = {}
+    row: dict[str, Any] = {}
     counts.annotate(row, "taxon")
     assert len(row["source_value_state_counts"]) == 3
     assert len(row["value_totals_by_exact_unit"]) == 1
