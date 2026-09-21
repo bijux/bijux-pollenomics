@@ -1,11 +1,10 @@
-"""Generate an independent, deterministic known-landscape validation oracle.
+"""Generate independent, deterministic synthetic landscape diagnostics.
 
-The simulator deliberately uses a small finite-cell inverse-square deposition
-equation implemented here with the Python standard library.  It does not import
-the production LRA engine, its forward preparation, its kernels, or its inverse
-methods.  The product is therefore suitable as an external synthetic challenge,
-but it is not evidence about real vegetation, calibrated uncertainty, or
-scientific acceptance.
+The original known-landscape profile uses a small finite-cell inverse-square
+deposition equation. A separately named GPM peatland profile tests matched
+method algebra. Both use the Python standard library and import no production
+LRA engine, kernel or inverse method. Neither establishes real vegetation
+accuracy, calibrated uncertainty or scientific acceptance.
 """
 
 from __future__ import annotations
@@ -13,12 +12,13 @@ from __future__ import annotations
 from dataclasses import dataclass
 import hashlib
 import json
-from math import cos, hypot, isclose, sin, sqrt
+from math import cos, exp, hypot, isclose, pi, sin, sqrt
 from typing import cast
 
 JsonObject = dict[str, object]
 
 KNOWN_LANDSCAPE_PROFILE = "independent-finite-cell-known-landscape-v1"
+TRANSPORT_MATCHED_PROFILE = "independent-gpm-neutral-peatland-annuli-v1"
 _RNG_PROFILE = "lcg64-fixed-multiplier-top53-v1"
 _MASK_64 = (1 << 64) - 1
 _TAXA = ("broadleaf", "conifer", "open_land")
@@ -532,3 +532,146 @@ def build_known_landscape_report(*, seed: int = 20_260_921) -> KnownLandscapeRep
         },
     }
     return KnownLandscapeReport(_canonical_bytes(payload))
+
+
+def _neutral_gpm_airborne(distance_m: float, fall_speed_m_s: float) -> float:
+    """Evaluate the independent analytic neutral-plume survival curve.
+
+    The exponent is the Sutton/Prentice GPM profile with diffusion 0.12,
+    turbulence 0.25 and wind 3 m/s. Its form is expressed through an
+    attenuation length, independently of the production LOESS/K code.
+    """
+    if distance_m < 0 or fall_speed_m_s <= 0:
+        raise KnownLandscapeError("invalid_transport_input", "distance or fall speed")
+    attenuation_length = 0.25 * 3.0 * sqrt(pi) * 0.12 / (4.0 * fall_speed_m_s)
+    return exp(-(distance_m**0.125) / attenuation_length)
+
+
+def _peatland_case(
+    case_id: str,
+    *,
+    cover: tuple[float, float, float],
+    basin_diameter_m: int,
+    annulus_edges_m: tuple[int, ...],
+) -> JsonObject:
+    """Generate pollen outside a peatland basin using independent GPM annuli.
+
+    The DISQOVER 0.9.14 source-compatible peatland GPM profile starts at the
+    basin *diameter*. This is a declared method convention, not a claim that
+    diameter is the physical shoreline radius. No vegetation is placed within
+    that effective inner distance. Cover is constant across the annuli because
+    a single regional REVEALS factor cannot identify a spatial gradient.
+    """
+    if (
+        basin_diameter_m <= 0
+        or len(annulus_edges_m) < 2
+        or annulus_edges_m[0] != basin_diameter_m
+        or any(
+            left >= right
+            for left, right in zip(annulus_edges_m, annulus_edges_m[1:], strict=False)
+        )
+    ):
+        raise KnownLandscapeError("invalid_annulus_geometry", case_id)
+    truth = _closed(cover, name=case_id)
+    factors = []
+    contributions: dict[str, list[float]] = {}
+    for taxon in _TAXA:
+        segments = [
+            _neutral_gpm_airborne(float(left), _FALL_SPEED[taxon])
+            - _neutral_gpm_airborne(float(right), _FALL_SPEED[taxon])
+            for left, right in zip(annulus_edges_m, annulus_edges_m[1:], strict=False)
+        ]
+        if any(value <= 0 for value in segments):
+            raise KnownLandscapeError("invalid_transport_factor", taxon)
+        contributions[taxon] = segments
+        factors.append(sum(segments))
+    pollen = _closed(
+        tuple(
+            truth[index] * _PPE[taxon] * factors[index]
+            for index, taxon in enumerate(_TAXA)
+        ),
+        name=f"{case_id} pollen",
+    )
+    corrected = _closed(
+        tuple(
+            pollen[index] / (_PPE[taxon] * factors[index])
+            for index, taxon in enumerate(_TAXA)
+        ),
+        name=f"{case_id} recovered cover",
+    )
+    return {
+        "case_id": case_id,
+        "status": "success",
+        "basin_type": "peatland",
+        "basin_diameter_m": basin_diameter_m,
+        "region_cutoff_m": annulus_edges_m[-1],
+        "annulus_edges_m": list(annulus_edges_m),
+        "vegetation_support": "constant cover on declared external annuli",
+        "true_support_vegetation_fraction": _vector(truth),
+        "independent_annulus_contributions": contributions,
+        "independent_deposition_factor": _vector(tuple(factors)),
+        "expected_pollen_fraction": _vector(pollen),
+        "analytical_true_ppe_recovery_fraction": _vector(corrected),
+        "analytical_true_ppe_mae_fraction": _mae(truth, corrected),
+    }
+
+
+def build_transport_matched_report() -> KnownLandscapeReport:
+    """Return a separate, deterministic GPM peatland method diagnostic.
+
+    Matching the published method algebra creates an inverse-crime control.
+    It checks implementation compatibility, never ecological accuracy or PPE.
+    The original finite-cell oracle and its report bytes are unaffected.
+    """
+    cases = [
+        _peatland_case(
+            "peatland-350m-5km",
+            cover=(0.55, 0.30, 0.15),
+            basin_diameter_m=350,
+            annulus_edges_m=(350, 1_000, 2_500, 5_000),
+        ),
+        _peatland_case(
+            "peatland-200m-8km",
+            cover=(0.42, 0.38, 0.20),
+            basin_diameter_m=200,
+            annulus_edges_m=(200, 800, 2_000, 4_000, 8_000),
+        ),
+    ]
+    return KnownLandscapeReport(
+        _canonical_bytes(
+            {
+                "schema_version": "pollenomics-transport-matched-report.v1",
+                "profile": TRANSPORT_MATCHED_PROFILE,
+                "method_profile": "disqover-0.9.14-source-compatible-gpm-neutral-peatland",
+                "simulator": {
+                    "implementation": "stdlib analytic GPM survival differences across annuli",
+                    "production_forward_imported": False,
+                    "production_inverse_imported": False,
+                    "basin_convention": "GPM peatland inner argument is source basin diameter",
+                    "transport_parameters": {
+                        "diffusion": 0.12,
+                        "turbulence": 0.25,
+                        "wind_speed_m_s": 3.0,
+                    },
+                },
+                "taxa": list(_TAXA),
+                "true_parameters": {"ppe": _PPE, "fall_speed_m_s": _FALL_SPEED},
+                "cases": cases,
+                "denominators": {
+                    "requested_cases": 2,
+                    "successful_cases": 2,
+                    "refused_cases": 0,
+                },
+                "claims": {
+                    "independent_analytic_implementation": True,
+                    "method_compatibility_diagnostic": True,
+                    "inverse_crime_control": True,
+                    "real_observations_used": False,
+                    "empirical_ecological_accuracy": False,
+                    "empirical_ppe_estimated": False,
+                    "held_out_accuracy": False,
+                    "scientifically_approved": False,
+                },
+            }
+        )
+    )

@@ -209,3 +209,60 @@ def test_seed_changes_only_stochastic_draws() -> None:
     assert (
         first["heterogeneous-noisy"]["draws"] != second["heterogeneous-noisy"]["draws"]
     )
+
+
+def test_transport_matched_profile_is_separate_and_preserves_original_bytes() -> None:
+    assert (
+        build_known_landscape_report().sha256
+        == "c53291b9be045fef04334533a8a7f40f8811d7f49c809745522409db8b94aff8"
+    )
+    first = oracle.build_transport_matched_report()
+    assert (
+        first.canonical_bytes == oracle.build_transport_matched_report().canonical_bytes
+    )
+    payload = first.payload()
+    assert payload["profile"] == oracle.TRANSPORT_MATCHED_PROFILE
+    assert payload["profile"] != KNOWN_LANDSCAPE_PROFILE
+    assert payload["denominators"] == {
+        "requested_cases": 2,
+        "successful_cases": 2,
+        "refused_cases": 0,
+    }
+    claims = _object(payload["claims"])
+    assert claims["inverse_crime_control"] is True
+    assert claims["empirical_ecological_accuracy"] is False
+    assert claims["empirical_ppe_estimated"] is False
+    assert claims["held_out_accuracy"] is False
+    assert "bijux_pollenomics_lra" not in inspect.getsource(oracle)
+
+
+def test_transport_matched_cases_exclude_inner_basin_and_recover_analytic_cover() -> (
+    None
+):
+    cases = cast(
+        list[JsonObject], oracle.build_transport_matched_report().payload()["cases"]
+    )
+    assert len(cases) == 2
+    for case in cases:
+        edges = cast(list[int], case["annulus_edges_m"])
+        assert edges[0] == case["basin_diameter_m"]
+        assert edges[-1] == case["region_cutoff_m"]
+        assert edges == sorted(set(edges))
+        factors = cast(dict[str, float], case["independent_deposition_factor"])
+        assert all(factor > 0 for factor in factors.values())
+        assert cast(float, case["analytical_true_ppe_mae_fraction"]) < 1e-15
+        pollen = cast(dict[str, float], case["expected_pollen_fraction"])
+        truth = cast(dict[str, float], case["true_support_vegetation_fraction"])
+        misspecified = {
+            taxon: pollen[taxon] / (factors[taxon] * ppe)
+            for taxon, ppe in (
+                ("broadleaf", 1.92),
+                ("conifer", 1.2),
+                ("open_land", 0.8),
+            )
+        }
+        mass = sum(misspecified.values())
+        wrong_mae = (
+            sum(abs(misspecified[taxon] / mass - truth[taxon]) for taxon in truth) / 3
+        )
+        assert wrong_mae > 0.02
