@@ -10,9 +10,9 @@ import hashlib
 import json
 import math
 import os
-from pathlib import Path
 import re
 import tempfile
+from pathlib import Path
 from typing import Any
 
 _RUN_ID = re.compile(r"[A-Za-z0-9][A-Za-z0-9_.-]{0,95}\Z")
@@ -33,6 +33,7 @@ _START_FIELDS = set(
     }
 )
 _RESULT_FIELDS = {"status", "elapsed_seconds", "metrics", "reason_code"}
+_INVOCATION_FIELDS = {"argv", "cwd", "environment", "result_path"}
 _CONFIG_FIELDS = {
     "method",
     "transport",
@@ -81,7 +82,7 @@ def _validated_record(path: Path) -> dict[str, object]:
             raise ValueError("invalid envelope")
         payload = envelope["payload"]
         if not isinstance(payload, dict):
-            raise ValueError("invalid payload")
+            raise TypeError("invalid payload")
         digest = hashlib.sha256(_bytes(payload)).hexdigest()
         if envelope["sha256"] != digest:
             raise ValueError("digest mismatch")
@@ -125,7 +126,7 @@ def _mapping(value: object, field: str, *, nonempty: bool = True) -> dict[str, o
 
 def start_development_attempt(root: Path, spec: dict[str, object]) -> str:
     """Reserve a unique development trial and persist its full planned inputs."""
-    if set(spec) != _START_FIELDS:
+    if set(spec) not in (_START_FIELDS, _START_FIELDS | {"invocation"}):
         raise ExperimentLedgerError("invalid_start_fields")
     run_id = _identity(spec["run_id"], "run_id")
     digest = spec["policy_sha256"]
@@ -155,6 +156,45 @@ def start_development_attempt(root: Path, spec: dict[str, object]) -> str:
         or spec["seed"] < 0
     ):
         raise ExperimentLedgerError("invalid_seed")
+    if "invocation" in spec:
+        invocation = _mapping(spec["invocation"], "invocation")
+        if set(invocation) != _INVOCATION_FIELDS:
+            raise ExperimentLedgerError("invalid_invocation")
+        argv = invocation["argv"]
+        if (
+            not isinstance(argv, list)
+            or not argv
+            or not all(
+                isinstance(value, str) and value and "\0" not in value for value in argv
+            )
+            or not Path(argv[0]).is_absolute()
+        ):
+            raise ExperimentLedgerError("invalid_invocation_argv")
+        for field in ("cwd", "result_path"):
+            value = invocation[field]
+            if not isinstance(value, str) or not Path(value).is_absolute():
+                raise ExperimentLedgerError(f"invalid_invocation_{field}")
+        environment = _mapping(
+            invocation["environment"], "invocation_environment", nonempty=False
+        )
+        if not all(
+            isinstance(value, str) and "\0" not in value
+            for value in environment.values()
+        ):
+            raise ExperimentLedgerError("invalid_invocation_environment")
+        if any(
+            marker in key.lower()
+            for key in environment
+            for marker in (
+                "token",
+                "secret",
+                "password",
+                "credential",
+                "api_key",
+                "auth",
+            )
+        ):
+            raise ExperimentLedgerError("credential_environment_not_recordable")
     record = _record(spec)
     root.mkdir(parents=True, exist_ok=True)
     trial = root / run_id
