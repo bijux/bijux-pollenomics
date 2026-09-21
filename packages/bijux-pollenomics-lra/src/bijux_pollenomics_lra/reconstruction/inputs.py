@@ -77,7 +77,7 @@ def _fallspeeds(
 
 def _prepare_inputs(
     pollenLoc: pd.DataFrame,
-    pollenReg: pd.DataFrame,
+    pollenReg: pd.DataFrame | None,
     lParams: Mapping[str, object],
     dfRadii: pd.DataFrame,
     maxRingLove: int,
@@ -85,9 +85,10 @@ def _prepare_inputs(
     *,
     require_remaining_regional_ring: bool = False,
     allow_publication_profile: bool = False,
+    allow_draw_only: bool = False,
 ) -> tuple[
     pd.DataFrame,
-    pd.DataFrame,
+    pd.DataFrame | None,
     pd.DataFrame,
     np.ndarray,
     pd.DataFrame,
@@ -103,13 +104,16 @@ def _prepare_inputs(
     inputs and aligned taxon axis without inferring chronology or vegetation.
     """
     local = frame(pollenLoc, "pollenLoc")
-    regional = frame(pollenReg, "pollenReg")
+    if pollenReg is None and not allow_draw_only:
+        raise ValidationError("Regional pollen is required without a draw-only source")
+    regional = None if pollenReg is None else frame(pollenReg, "pollenReg")
     _, taxa, _ = sample_counts(local, "pollenLoc")
-    _, regional_taxa, _ = sample_counts(regional, "pollenReg")
-    if regional_taxa != taxa:
-        raise ValidationError(
-            "Local and regional pollen taxa must agree exactly in name and order"
-        )
+    if regional is not None:
+        _, regional_taxa, _ = sample_counts(regional, "pollenReg")
+        if regional_taxa != taxa:
+            raise ValidationError(
+                "Local and regional pollen taxa must agree exactly in name and order"
+            )
     if "ppes" not in lParams:
         raise ValidationError("LOVE parameters require a ppes table")
     fall_speed_profile = str(
@@ -189,7 +193,7 @@ def _prepare_inputs(
 
 
 def _regional_cover(
-    regional: pd.DataFrame,
+    regional: pd.DataFrame | None,
     ppe_table: pd.DataFrame,
     params: Mapping[str, object],
     rng: np.random.Generator,
@@ -217,6 +221,10 @@ def _regional_cover(
             raise ValidationError("regional_cover_draws must contain fractions")
         return cover
 
+    if regional is None:
+        raise ValidationError(
+            "Regional pollen is required without supplied cover draws"
+        )
     result = REVEALSinR(
         regional,
         ppe_table,

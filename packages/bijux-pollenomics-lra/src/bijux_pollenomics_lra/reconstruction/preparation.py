@@ -29,7 +29,7 @@ class PreparedAnalyticalInputs:
     """Private numerical inputs; no references to caller-owned labeled tables."""
 
     local_counts: np.ndarray
-    regional_counts: np.ndarray
+    regional_counts: np.ndarray | None
     ppe_means: np.ndarray
     ppe_errors: np.ndarray
     regional_deposition: np.ndarray | None
@@ -38,7 +38,7 @@ class PreparedAnalyticalInputs:
 
 def prepare_analytical_inputs(
     local: pd.DataFrame,
-    regional: pd.DataFrame,
+    regional: pd.DataFrame | None,
     ppe_table: pd.DataFrame,
     params: Mapping[str, object],
     *,
@@ -47,9 +47,14 @@ def prepare_analytical_inputs(
 ) -> PreparedAnalyticalInputs:
     """Extract validated arrays and, when needed, regional deposition factors."""
     local_counts, _, _ = sample_counts(local, "vSampleLoc")
-    regional_counts, _, _ = sample_counts(regional, "pollenReg")
+    if regional is None and needs_regional_deposition:
+        raise ValidationError("Regional pollen is required for regional deposition")
+    regional_counts = (
+        None if regional is None else sample_counts(regional, "pollenReg")[0]
+    )
     deposition = None
     if needs_regional_deposition:
+        assert regional is not None
         basin_type = str(parameter_value(params, "tBasinRegional", "lake")).lower()
         diameter = integer(
             parameter_value(params, "dBasinRegional"), "dBasinRegional", minimum=10
@@ -78,7 +83,7 @@ def prepare_analytical_inputs(
             )
     return PreparedAnalyticalInputs(
         _owned(local_counts),
-        _owned(regional_counts),
+        None if regional_counts is None else _owned(regional_counts),
         _owned(ppe_table["ppe"]),
         _owned(ppe_table["ppe.error"]),
         deposition,

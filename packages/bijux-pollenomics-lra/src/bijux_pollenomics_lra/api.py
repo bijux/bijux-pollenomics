@@ -23,6 +23,7 @@ from bijux_pollenomics_lra.models.publication import (
     MultisiteRevealsInput,
     PublicationRevealsConfig,
 )
+from bijux_pollenomics_lra.models.regional_draw_source import RegionalCoverDrawSource
 from bijux_pollenomics_lra.models.results import (
     ForwardResult,
     LoveResult,
@@ -37,7 +38,10 @@ from bijux_pollenomics_lra.models.validation import (
 )
 from bijux_pollenomics_lra.reconstruction.forward import forward_deposition
 from bijux_pollenomics_lra.workflows.forward import prepare_forward_inputs
-from bijux_pollenomics_lra.workflows.local import run_love
+from bijux_pollenomics_lra.workflows.local import (
+    run_love,
+    run_love_from_regional_draws,
+)
 from bijux_pollenomics_lra.workflows.multisite import run_reveals_multisite
 from bijux_pollenomics_lra.workflows.observation import sample_pollen_observations
 from bijux_pollenomics_lra.workflows.paired import run_lra
@@ -65,6 +69,7 @@ def extension_descriptor() -> dict[str, Any]:
             "lra.love.analytical",
             "lra.love.analytical.fall-speed-profile."
             + LANDCLIM_II_GPM_ANALYTICAL_FALL_SPEED_PROFILE,
+            "lra.love.analytical.multisite-cover-draws.landclimii-2016-v1",
             "lra.love.optimized",
             "lra.series.exact-coordinate",
             "lra.forward.homogeneous-local",
@@ -92,6 +97,7 @@ __all__ = [
     "LoveResult",
     "MultisiteRevealsInput",
     "MultisiteRevealsResult",
+    "RegionalCoverDrawSource",
     "PollenObservationDraws",
     "PreparedForwardInputs",
     "PublicationRevealsConfig",
@@ -102,6 +108,7 @@ __all__ = [
     "forward_deposition",
     "prepare_forward_inputs",
     "run_love",
+    "run_love_from_regional_draws",
     "run_lra",
     "run_lra_series",
     "run_reveals",

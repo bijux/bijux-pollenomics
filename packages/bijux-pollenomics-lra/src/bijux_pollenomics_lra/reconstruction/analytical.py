@@ -11,6 +11,7 @@ import pandas as pd
 
 from bijux_pollenomics_lra.dispersal.kernels import DispersalFactorK
 from bijux_pollenomics_lra.models.errors import ValidationError
+from bijux_pollenomics_lra.models.regional_draw_source import RegionalCoverDrawSource
 from bijux_pollenomics_lra.models.validation import (
     DEFAULT_FALL_SPEED_PROFILE,
     LANDCLIM_II_GPM_ANALYTICAL_FALL_SPEED_PROFILE,
@@ -143,6 +144,10 @@ def _prepared_regional_cover(
     stochastic: bool,
 ) -> np.ndarray:
     """Preserve one REVEALS draw, percentage rounding, and fraction conversion."""
+    if prepared.regional_counts is None or prepared.regional_deposition is None:
+        raise ValidationError(
+            "Regional pollen is required without supplied cover draws"
+        )
     alpha = (
         rnorm_reveals(
             len(prepared.ppe_means),
@@ -165,7 +170,7 @@ def _prepared_regional_cover(
 
 def LOVEr(
     pollenLoc: pd.DataFrame,
-    pollenReg: pd.DataFrame,
+    pollenReg: pd.DataFrame | None,
     lParams: Mapping[str, object],
     dfRadii: pd.DataFrame,
     maxRingLove: int,
@@ -177,6 +182,7 @@ def LOVEr(
     local_ppe_draws: object | None = None,
     local_count_draws: object | None = None,
     return_samples: bool = False,
+    draw_source: RegionalCoverDrawSource | None = None,
 ) -> AnalyticalOutput:
     """Run the complete analytical LOVE workflow.
 
@@ -192,6 +198,15 @@ def LOVEr(
     ):
         raise ValidationError(
             "The LandClim II analytical profile requires supplied regional_cover_draws"
+        )
+    if pollenReg is None and (
+        not isinstance(draw_source, RegionalCoverDrawSource)
+        or regional_cover_draws is None
+        or fall_speed_profile != LANDCLIM_II_GPM_ANALYTICAL_FALL_SPEED_PROFILE
+        or regional_cover_draws is not draw_source.values
+    ):
+        raise ValidationError(
+            "Regional pollen is required outside draw-only analytical LOVE"
         )
     (
         local,
@@ -210,6 +225,7 @@ def LOVEr(
         maxRingLove,
         repeats,
         allow_publication_profile=True,
+        allow_draw_only=draw_source is not None,
     )
     if fall_speed_profile == LANDCLIM_II_GPM_ANALYTICAL_FALL_SPEED_PROFILE:
         draws = np.asarray(regional_cover_draws, dtype=float)
