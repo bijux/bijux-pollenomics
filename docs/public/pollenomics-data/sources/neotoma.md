@@ -147,6 +147,17 @@ admission. Taxa/PPE, count compatibility, selected chronology, source rights,
 basin geometry and parameters still need review. **Zero Neotoma samples are
 admitted to numerical LRA or held-out vegetation scoring by this screen.**
 
+The source-bound priority slice
+`artifacts/v3/taxa-review/neotoma-candidate-priority-20260921/priority-successor.json`
+(SHA-256 `af8e6116776ca320d416a157a79e3a6280aa8332dc72c41661aadac267461e34`)
+links the 3,538 prerequisite samples to **73,559** agreeing pollen count
+observations across **674 existing Neotoma review concepts**. It retains each
+concept's stable row ID, source identity, country counts and distinct sample
+frequency for prioritizing Anneli's review. The complete review bundle still
+contains **10,908 rows** across sources; every selected Neotoma concept remains
+`needs_discussion`. Frequency does not approve a taxon, PPE, count denominator
+or LRA input.
+
 ### Curation Lineage
 
 | Boundary | Governing material | Decision preserved |
