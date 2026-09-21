@@ -40,6 +40,7 @@ The opening extent stays tight on Nordic countries so lake, site, and archaeolog
 | Neotoma exact source taxa | `scope_specific_overlay` | Neotoma | Exact source taxon identities without accepted ecological classification or propagation claims. | `215751` |
 | Country boundaries | `region_filtered_layer` | Natural Earth country boundaries | Published country outlines used for framing and scope-aware map filtering. | `4` |
 | LandClim REVEALS time-window grids | `scope_specific_overlay` | LandClim | Time-window-specific REVEALS grid estimates from published LandClim PANGAEA datasets. | `2515` |
+| RAÄ archaeology density | `scope_specific_overlay` | RAÄ Fornsök | Sweden only. Density cells summarize `Fornlämning` counts. | `106` |
 
 ## Filter Surfaces
 

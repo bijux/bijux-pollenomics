@@ -101,8 +101,8 @@ function exactRaaContract(status, contract, manifest, candidate) {
   const asset = assets[0];
   const edges = manifest.domains?.edges;
   if (manifest.build_id !== candidate.build_id || assets.length !== 1 || asset.domain !== 'nodes'
-      || asset.sha256 !== 'f9c34eccd0ca76ef5fc1e4a1a6b46d6678a9389044cbf3a6ce2d925fd30c353b'
-      || asset.payload_sha256 !== '9b37afcf73e93465fc255d8f6fd9e33b711b7c8d6dc6026db1af143f5ff577c1'
+      || asset.sha256 !== 'a030442075107e8024eb4dbf223a10272419bdf956176f05569cb2781e5c939c'
+      || asset.payload_sha256 !== '29eb02bd2359bde3882ab36ec9be5847b95f2857eecc52134ea18306fd4dfadf'
       || asset.record_count !== 106 || asset.untimed_record_count !== 106
       || asset.chronology_absent_record_count !== 106 || asset.time_min_bp !== null || asset.time_max_bp !== null
       || edges?.status !== 'unavailable' || edges?.reason_code !== 'governed_map_edge_model_not_available'

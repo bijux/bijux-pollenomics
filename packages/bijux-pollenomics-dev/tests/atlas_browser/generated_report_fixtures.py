@@ -101,10 +101,10 @@ def generated_report_plan(root: Path) -> BrowserVerificationPlan:
             "records": [
                 [
                     "nodes",
-                    "f9c34eccd0ca76ef5fc1e4a1a6b46d6678a9389044cbf3a6ce2d925fd30c353b",
-                    "9b37afcf73e93465fc255d8f6fd9e33b711b7c8d6dc6026db1af143f5ff577c1",
+                    "a030442075107e8024eb4dbf223a10272419bdf956176f05569cb2781e5c939c",
+                    "29eb02bd2359bde3882ab36ec9be5847b95f2857eecc52134ea18306fd4dfadf",
                     106,
-                    19,
+                    20,
                     "raa-archaeology",
                     "polygon",
                     ["Sweden"],

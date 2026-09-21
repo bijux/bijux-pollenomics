@@ -20,8 +20,8 @@ _COUNTRIES = ["Sweden", "Norway", "Finland", "Denmark"]
 _RAA_KEY = "raa-archaeology"
 _RAA_INPUT_STATUS = "raa_atlas_input_status.json"
 _PUBLICATION_CONTRACT = "nordic_map_publication_contract.json"
-_RAA_ASSET_SHA256 = "f9c34eccd0ca76ef5fc1e4a1a6b46d6678a9389044cbf3a6ce2d925fd30c353b"
-_RAA_PAYLOAD_SHA256 = "9b37afcf73e93465fc255d8f6fd9e33b711b7c8d6dc6026db1af143f5ff577c1"
+_RAA_ASSET_SHA256 = "a030442075107e8024eb4dbf223a10272419bdf956176f05569cb2781e5c939c"
+_RAA_PAYLOAD_SHA256 = "29eb02bd2359bde3882ab36ec9be5847b95f2857eecc52134ea18306fd4dfadf"
 _RETAINED_DENSITY_SHA256 = (
     "acac7a952dc31be8b988ecb35386c877628e2580fae427f32281310635489d20"
 )
