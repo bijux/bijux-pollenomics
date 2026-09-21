@@ -179,6 +179,22 @@ DOI. These are attribution leads from the captured Neotoma response; they do
 not verify each original publication, reuse right, taxon assignment, PPE or
 LRA admission.
 
+The bounded [Neotoma dataset-publications endpoint](https://api.neotomadb.org/api-docs/)
+lookup for these 58 source datasets is retained in
+`artifacts/v3/source/neotoma-publication-intake-20260921/publication-attribution002.json`
+(SHA-256 `220d928fa7596edd4f2553a0b7d0a29cb1f59a09fa6117b774b14154d037b42d`),
+with exact response bytes and hashes in its capture manifest. The 58 responses
+contain 62 linked publication records: 48 datasets have exactly one provider
+`primary=true` publication, 4 have multiple provider-primary publications,
+and 6 have no linked publication. Source dataset coverage is Sweden 41,
+Denmark 0, Norway 14, Finland 1, and unassigned 2. Publication DOI is null
+on 44 of the 62 records; dataset DOI and publication DOI are kept separate.
+The provider's [publication-link schema](https://open.neotomadb.org/dbschema/tables/datasetpublications.html)
+allows a null primary flag. These links are citation-review leads, not verified
+reuse rights or permission to publish source material. The four ambiguous and
+six missing links remain explicit review cases. Rights review is `not_evaluated`,
+and **zero samples are admitted to numerical LRA** by this lookup.
+
 ### Observed count mass in prerequisite samples
 
 The source-bound count-mass audit
