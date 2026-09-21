@@ -104,6 +104,10 @@ retained as a local artifact, SHA-256
 It excludes the structured `vegdescription` field, but retains unstructured
 source notes for manual review; it is not a model-training input.
 No vegetation–pollen pair is admitted from it.
+The [16-lead reviewer sheet](empd2-nfi-review.md) is generated from the
+pinned spatial and source dossiers and the official NFI guide. It preserves
+the source context and nearest-row facts needed for qualified review without
+promoting any lead into a measured vegetation reference.
 
 Source `agebp` is preserved exactly, including missing and literal `NULL`
 values; it is not converted to an exact collection year. This SQLite release
