@@ -38,6 +38,10 @@ def build_lake_archaeology_sensitivity_payload(
     report: LakeEvidenceRichnessReport,
 ) -> dict[str, Any]:
     """Re-rank lakes under bounded archaeology-context weight profiles."""
+    raa_authority = report.methodology.get("raa_density_authority")
+    raa_admitted = (
+        isinstance(raa_authority, dict) and raa_authority.get("admitted") is True
+    )
     profile_rows: dict[str, list[dict[str, Any]]] = {}
     for profile_key, archaeology_weight in _ARCHAEOLOGY_PROFILES:
         weights = _profile_weights(archaeology_weight)
@@ -118,14 +122,18 @@ def build_lake_archaeology_sensitivity_payload(
                 }
             )
 
-    maximum_shift = max(
-        (abs(int(row["rank_shift_from_baseline"])) for row in output_rows),
-        default=0,
+    maximum_shift = (
+        max(abs(int(row["rank_shift_from_baseline"])) for row in output_rows)
+        if output_rows
+        else None
     )
     return {
         "schema_version": "sweden-lake-archaeology-sensitivity.v1",
         "country": report.country,
         "candidate_count": report.candidate_count,
+        "evaluation_status": (
+            "evaluated" if output_rows else "not_evaluated_no_eligible_candidates"
+        ),
         "profiles": [
             {
                 "profile_key": profile_key,
@@ -139,11 +147,19 @@ def build_lake_archaeology_sensitivity_payload(
                 "Archaeology receives 0.07 because it is contextual rather than direct "
                 "lake or sampling evidence. It equals nearby-pollen and area-screen "
                 "weight, remains below direct pollen, and remains far below human aDNA."
+                if output_rows
+                else "The 0.07 archaeology weight is a declared design profile; no "
+                "eligible lake candidates were available to evaluate it."
             ),
             "archaeology_signal_contract": (
                 "SEAD site density contributes 0.40 inside the archaeology signal, "
                 "numeric SEAD chronology 0.20, SEAD chronology overlapping nearby human "
                 "aDNA 0.20, and coarse RAÄ density 0.20."
+                if raa_admitted
+                else "RAÄ density remains display-only because source authority is "
+                "refused. The available SEAD components are renormalized to site "
+                "density 0.50, numeric chronology 0.25, and chronology overlapping "
+                "nearby human aDNA 0.25. No missing RAÄ value is scored as zero."
             ),
             "renormalization_rule": (
                 "When archaeology weight changes, every non-archaeology component is "
@@ -153,6 +169,9 @@ def build_lake_archaeology_sensitivity_payload(
                 "A lake should move upward on archaeology grounds only when linked SEAD "
                 "records are inspected and temporally compatible. RAÄ density alone is "
                 "a discovery prompt, never sufficient promotion evidence."
+                if raa_admitted
+                else "RAÄ density is display-only while source authority is refused; "
+                "it cannot promote a lake or support candidate ranking."
             ),
             "temporal_qualification_rule": (
                 "Each sensitivity row publishes the candidate's available temporal "
@@ -219,7 +238,12 @@ def render_lake_archaeology_sensitivity_markdown(
         f"{int(row['rank_shift_from_baseline']):+d} |"
         for row in emphasized
     )
-    table_rows = f"{rows}\n" if rows else ""
+    table_rows = f"{rows}\n" if rows else "No eligible lake candidates.\n"
+    movement = (
+        f"**{payload['maximum_absolute_rank_shift']} ranks**."
+        if payload["maximum_absolute_rank_shift"] is not None
+        else "**not evaluated**: no eligible lake candidates were available."
+    )
     return f"""# Sweden lake archaeology-weight sensitivity
 
 This report isolates how much the lake shortlist changes when archaeology is
@@ -242,7 +266,7 @@ The archaeology component is itself bounded: {methodology["archaeology_signal_co
 {methodology["ranking_note"]}
 
 The maximum absolute movement across the tested profiles is
-**{payload["maximum_absolute_rank_shift"]} ranks**.
+{movement}
 
 ## Archaeology-Emphasis Top 20
 

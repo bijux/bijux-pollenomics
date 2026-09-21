@@ -32,6 +32,7 @@ def _build_svar_lake_report(
             radii_km,
             candidate_source="svar_lake_registry",
             source_temporal_coverage=context.source_temporal_coverage,
+            raa_authority=context.raa_authority,
         )
     candidates = _derive_svar_lake_candidates(
         svar_lakes,
@@ -51,6 +52,7 @@ def _build_svar_lake_report(
             radii_km,
             candidate_source="svar_lake_registry",
             source_temporal_coverage=context.source_temporal_coverage,
+            raa_authority=context.raa_authority,
         )
     rows = _build_candidate_score_rows(
         candidates=candidates,
@@ -59,6 +61,7 @@ def _build_svar_lake_report(
         animal_points=context.animal_points,
         sead_points=context.sead_points,
         raa_cells=context.raa_cells,
+        raa_density_admitted=context.raa_authority.get("admitted") is True,
         aggregate_radius_weights=_SVAR_AGGREGATE_RADIUS_WEIGHTS,
         total_score_policy=_svar_total_score,
         pollen_points=context.pollen_points,
@@ -70,7 +73,7 @@ def _build_svar_lake_report(
         aggregate_tiebreaker=_svar_aggregate_tiebreaker,
     )
     return LakeEvidenceRichnessReport(
-        schema_version="sweden-lake-evidence-richness.v2",
+        schema_version="sweden-lake-evidence-richness.v3",
         country="Sweden",
         radii_km=radii_km,
         candidate_count=len(assessments),

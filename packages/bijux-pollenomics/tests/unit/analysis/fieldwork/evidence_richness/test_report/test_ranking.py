@@ -167,8 +167,33 @@ def test_build_sweden_lake_evidence_richness_report_ranks_multi_signal_lakes() -
                 ],
             },
         )
-        _admit_raa_density_fixture(root, heritage_site_count=15)
+        refused_report = build_sweden_lake_evidence_richness_report(
+            context_root=root,
+            human_localities=(
+                _locality("Alpha human cluster", 57.02, 14.02, sample_count=8),
+                _locality("Gamma human cluster", 60.12, 16.04, sample_count=2),
+            ),
+            animal_localities=(
+                {
+                    "locality": "Alpha horse",
+                    "latitude": 57.05,
+                    "longitude": 14.04,
+                    "sample_count": 1,
+                },
+            ),
+        )
+        assert refused_report.methodology["raa_density_authority"]["admitted"] is False
+        assert (
+            "RAÄ density is excluded" in refused_report.methodology["archaeology_note"]
+        )
+        assert all(
+            score.raa_density_site_count is None
+            for assessment in refused_report.assessments
+            for score in assessment.band_scores
+        )
+        assert refused_report.assessments[0].band_scores[0].archaeology_signal > 0
 
+        _admit_raa_density_fixture(root, heritage_site_count=15)
         report = build_sweden_lake_evidence_richness_report(
             context_root=root,
             human_localities=(
@@ -185,7 +210,7 @@ def test_build_sweden_lake_evidence_richness_report_ranks_multi_signal_lakes() -
             ),
         )
 
-        assert report.schema_version == "sweden-lake-evidence-richness.v2"
+        assert report.schema_version == "sweden-lake-evidence-richness.v3"
         assert report.candidate_count == 2
         assert [
             assessment.candidate.lake_name for assessment in report.assessments
@@ -200,6 +225,7 @@ def test_build_sweden_lake_evidence_richness_report_ranks_multi_signal_lakes() -
         assert top.band_scores[0].domesticated_animal_locality_count == 1
         assert top.band_scores[0].sead_site_count == 2
         assert top.band_scores[0].raa_density_site_count == 12
+        assert top.band_scores[0].as_dict()["raa_density_site_count"] == 12
         assert report.methodology["raa_density_authority"] == {
             "admitted": True,
             "reason_codes": [],
@@ -209,6 +235,7 @@ def test_build_sweden_lake_evidence_richness_report_ranks_multi_signal_lakes() -
             "density_feature_count": 2,
             "reviewer_id": "test-reviewer",
         }
+        assert "RAÄ contributes coarse" in report.methodology["archaeology_note"]
         assert top.candidate.lake_label == "Alpha"
         assert top.candidate.ambiguity_flags == ()
         assert top.candidate.coordinate_resolution_method == "source_coordinate_medoid"

@@ -87,6 +87,9 @@ def test_lake_evidence_richness_packets_write_reviewable_outputs() -> None:
         scenario_csv_path = root / "lake_evidence_scenarios.csv"
         geojson_path = root / "lake_evidence.geojson"
         markdown = render_lake_evidence_richness_markdown(report)
+        empty_markdown = render_lake_evidence_richness_markdown(
+            replace(report, candidate_count=0, assessments=())
+        )
         report_without_identity_thresholds = replace(
             report,
             methodology={**report.methodology, "identity_diagnostics": {}},
@@ -98,8 +101,20 @@ def test_lake_evidence_richness_packets_write_reviewable_outputs() -> None:
         archaeology_markdown = render_lake_archaeology_sensitivity_markdown(
             archaeology_sensitivity
         )
+        empty_archaeology_sensitivity = build_lake_archaeology_sensitivity_payload(
+            replace(report, candidate_count=0, assessments=())
+        )
         empty_archaeology_markdown = render_lake_archaeology_sensitivity_markdown(
-            {**archaeology_sensitivity, "rows": []}
+            empty_archaeology_sensitivity
+        )
+        admitted_archaeology_sensitivity = build_lake_archaeology_sensitivity_payload(
+            replace(
+                report,
+                methodology={
+                    **report.methodology,
+                    "raa_density_authority": {"admitted": True},
+                },
+            )
         )
         write_lake_evidence_richness_json(json_path, report)
         write_lake_evidence_richness_band_csv(band_csv_path, report)
@@ -117,6 +132,19 @@ def test_lake_evidence_richness_packets_write_reviewable_outputs() -> None:
         geojson = json.loads(geojson_path.read_text(encoding="utf-8"))
 
         assert payload["candidate_count"] == 1
+        assert payload["schema_version"] == "sweden-lake-evidence-richness.v3"
+        assert (
+            payload["assessments"][0]["band_scores"][0]["raa_density_site_count"]
+            is None
+        )
+        assert all(row["raa_density_site_count"] == "" for row in band_rows)
+        assert all(
+            row["raa_density_authority_status"] == "not_admitted" for row in band_rows
+        )
+        assert "| — |" in markdown
+        assert "A numeric zero requires admitted RAÄ density evidence" in markdown
+        assert empty_markdown.count("No eligible lake candidates") == 8
+        assert "| 0.0000 |" not in empty_markdown
         assert "cleaned-name matching within not recorded km" in fallback_markdown
         assert len(band_rows) == len(report.radii_km)
         assert len(registry_rows) == 1
@@ -139,7 +167,31 @@ def test_lake_evidence_richness_packets_write_reviewable_outputs() -> None:
             for profile in archaeology_sensitivity["profiles"]
         )
         assert "Why The Baseline Is 0.07" in archaeology_markdown
-        assert "RAÄ density alone" in archaeology_markdown
+        assert archaeology_sensitivity["evaluation_status"] == "evaluated"
+        assert "RAÄ density is display-only" in archaeology_markdown
+        assert (
+            "No missing RAÄ value is scored as zero"
+            in archaeology_sensitivity["methodology"]["archaeology_signal_contract"]
+        )
+        assert (
+            "RAÄ density alone"
+            in admitted_archaeology_sensitivity["methodology"]["decision_rule"]
+        )
+        assert (
+            "coarse RAÄ density 0.20"
+            in admitted_archaeology_sensitivity["methodology"][
+                "archaeology_signal_contract"
+            ]
+        )
+        assert empty_archaeology_sensitivity["evaluation_status"] == (
+            "not_evaluated_no_eligible_candidates"
+        )
+        assert empty_archaeology_sensitivity["maximum_absolute_rank_shift"] is None
+        assert empty_archaeology_sensitivity["rows"] == []
+        assert (
+            "no eligible lake candidates were available" in empty_archaeology_markdown
+        )
+        assert "0 ranks" not in empty_archaeology_markdown
         assert empty_archaeology_markdown.endswith("\n")
         assert not empty_archaeology_markdown.endswith("\n\n")
         assert "## Interpretation guardrails" in markdown

@@ -74,7 +74,7 @@ def _render_consensus_table(report: LakeEvidenceRichnessReport) -> str:
             )
             for index, assessment in enumerate(ordered, start=1)
         )
-        or "| - | No lake candidates | - | not_available | not_available | 0/0 | - | - | - | - |"
+        or "| — | No eligible lake candidates | — | — | — | — | — | — | — | — |"
     )
     return f"""## Scenario Consensus
 
@@ -103,7 +103,7 @@ def _render_fieldwork_shortlist_table(report: LakeEvidenceRichnessReport) -> str
             )
             for assessment in _fieldwork_rows(report)
         )
-        or "| - | No lake candidates | - | not_available | not_available | 0.0000 | - | - | 0.0000 | - | 0 | 0 |"
+        or "| — | No eligible lake candidates | — | — | — | — | — | — | — | — | — |"
     )
     return f"""## Fieldwork Shortlist
 

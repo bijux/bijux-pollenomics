@@ -86,6 +86,7 @@ def write_lake_evidence_richness_band_csv(
         "time_aware_sead_site_count",
         "human_overlap_sead_site_count",
         "raa_density_site_count",
+        "raa_density_authority_status",
         "evidence_family_count",
         "nearby_pollen_signal",
         "human_signal",
@@ -174,6 +175,11 @@ def write_lake_evidence_richness_band_csv(
                         "time_aware_sead_site_count": band.time_aware_sead_site_count,
                         "human_overlap_sead_site_count": band.human_overlap_sead_site_count,
                         "raa_density_site_count": band.raa_density_site_count,
+                        "raa_density_authority_status": (
+                            "admitted"
+                            if band.raa_density_site_count is not None
+                            else "not_admitted"
+                        ),
                         "evidence_family_count": band.evidence_family_count,
                         "nearby_pollen_signal": band.nearby_pollen_signal,
                         "human_signal": band.human_signal,

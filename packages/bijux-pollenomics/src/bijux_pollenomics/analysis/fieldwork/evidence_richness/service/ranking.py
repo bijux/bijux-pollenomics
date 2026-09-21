@@ -47,6 +47,7 @@ def _build_candidate_score_rows(
     animal_points: Sequence[_PointEvidence],
     sead_points: Sequence[ContextPointRecord],
     raa_cells: Sequence[_DensityCell],
+    raa_density_admitted: bool,
     aggregate_radius_weights: dict[int, float],
     total_score_policy: _TotalScorePolicy,
     pollen_points: Sequence[ContextPointRecord] | None = None,
@@ -78,6 +79,7 @@ def _build_candidate_score_rows(
                 radius_km=radius,
                 raw=raw_scores[candidate.lake_token][radius],
                 maxima=maxima_by_radius[radius],
+                raa_density_admitted=raa_density_admitted,
                 total_score_policy=total_score_policy,
             )
             for radius in radii_km
