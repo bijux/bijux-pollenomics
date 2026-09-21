@@ -52,6 +52,15 @@ measurement columns are not selected, displayed or scored, though the XLSX
 parser necessarily streams the whole worksheet XML. The thresholds below are
 descriptive source leads, not reviewed ecological pairing distances.
 
+The official [SLU NFI calibration guide](https://www.slu.se/globalassets/slu.se/om-slu/organisation/institutioner/skoglig-resurshushallning/riksskogstaxeringen/dokument/dokument/info-data-for-calibration.pdf)
+declares CC0 1.0 for the downloadable plot subset. It limits the data to
+temporary forest plots from 2007–2025, excludes boundary plots, and explicitly
+disallows deriving totals or mean values for a geographic area. A pinned copy
+of that guide is retained locally with SHA-256
+`793d90e287b2c686d0007f02497e12e8a72a47e5a45531918d9fc71d78499bc8`.
+This resolves the stated reuse terms for the supplied plot subset; it does
+not turn plot observations into regional vegetation cover.
+
 | Maximum distance | All EMPD2 samples with an NFI row | Mechanical count candidates with an NFI row | All NFI row/sample pairs | Count-candidate row/sample pairs |
 | --- | ---: | ---: | ---: | ---: |
 | 1 km | 16 / 132 | 16 / 131 | 53 | 53 |
