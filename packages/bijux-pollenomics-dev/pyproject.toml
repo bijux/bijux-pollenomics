@@ -73,3 +73,7 @@ source = "vcs"
 tag-pattern = "^v(?P<version>.*)$"
 fallback-version = "0.1.5"
 raw-options = { git_describe_command = "git describe --dirty --tags --long --match 'v*'", local_scheme = "dirty-tag", version_scheme = "guess-next-dev", root = "../..", search_parent_directories = true }
+
+[tool.codespell]
+# Exact, populated PFT-position header in the archived ESSD output; unresolved.
+ignore-words-list = "ISTS"
