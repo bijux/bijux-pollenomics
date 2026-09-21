@@ -193,6 +193,28 @@ cover or missing observations. For those two example grids, the R and Python
 site and regional cover and standard-error results also agree on the declared
 input closure, including missing-value masks.
 
+A separate method-interface run joined the first time bin (`50`) of author
+grid `512` to analytical LOVE on the committed Python engine
+`c150668d0d878b5d6a5f5f06224c628a43436856`. Five source sites contributed
+to the 31-taxon regional estimate. The same 1,000 archived site-bootstrap
+index rows produced 1,000 regional cover draws, which were supplied to one
+constructed positive-geometry **200–300 m** local LOVE ring. All
+**31,000/31,000** resulting local draw cells were finite, and a deliberately
+truncated 999-draw input was refused. **8,312/31,000** local cells were negative
+(minimum `-0.46953`): the analytical equation leaves mathematical outputs
+unclipped, so finite output here must not be read as valid physical cover.
+The named `landclimii-2016-gpm-neutral-analytical-v1` profile preserved the
+author's Filipendula fall speed of **0.006 m/s**; the default profile still
+refuses that value. The regional draw and local bundle identities are saved in
+the run manifest and checksums under
+`artifacts/v3/lra/multisite-love-join002/result/` (report SHA-256
+`2bd598d15717ed2302d7a561376d866a0e791eba8c584f407d0ce0bba5c8ad6e`).
+An earlier source-R comparison of the same grid/bin's regional draw method
+matched 31,000 cells within `1.8874e-13` absolute difference on a separately
+frozen candidate. The local site, `BROADOWN`, is also in the regional cohort;
+the constructed local ring is a method control. These outputs are neither an
+independent held-out reconstruction nor a measured-vegetation accuracy result.
+
 This establishes reproduction of the supplied examples. The full published
 study identifies 1,128 historical site records whose raw counts, selected
 chronologies, revisions, and reuse rights are not yet authenticated as one
