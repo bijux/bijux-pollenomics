@@ -5,6 +5,7 @@ from __future__ import annotations
 import hashlib
 import inspect
 import json
+import sys
 from typing import cast
 
 import pytest
@@ -212,10 +213,15 @@ def test_seed_changes_only_stochastic_draws() -> None:
 
 
 def test_transport_matched_profile_is_separate_and_preserves_original_bytes() -> None:
-    assert (
-        build_known_landscape_report().sha256
-        == "c53291b9be045fef04334533a8a7f40f8811d7f49c809745522409db8b94aff8"
+    # Python 3.11's float summation differs at the last bit from 3.12+.
+    # Keep exact report pins for both interpreter profiles; neither changes
+    # any counts, statuses or nonnumeric case fields.
+    expected_sha256 = (
+        "1bd4997dfe82490a05182ca2f211f8496a1c68312f8449ee39a5f140958ad551"
+        if sys.version_info < (3, 12)
+        else "c53291b9be045fef04334533a8a7f40f8811d7f49c809745522409db8b94aff8"
     )
+    assert build_known_landscape_report().sha256 == expected_sha256
     first = oracle.build_transport_matched_report()
     assert (
         first.canonical_bytes == oracle.build_transport_matched_report().canonical_bytes
