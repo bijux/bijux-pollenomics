@@ -41,6 +41,38 @@ or dataset relationships; none establishes that the physical pollen sample is
 identical or independent across databases. They must be resolved or grouped
 before a split can be frozen.
 
+## Swedish plot proximity screen
+
+The repository's `bijux_pollenomics_dev.source_completion.empd2_nfi` producer
+compares the 132 Swedish EMPD2 candidate coordinates with 43,892 NFI
+plot-year rows (6,018 tract/plot keys). It checks the NFI workbook and its
+ReadMe-backed SWEREF99TM declaration by hash, transforms only plot geometry,
+and measures unrounded WGS84 inverse-geodesic distance. The final tree
+measurement columns are not selected, displayed or scored, though the XLSX
+parser necessarily streams the whole worksheet XML. The thresholds below are
+descriptive source leads, not reviewed ecological pairing distances.
+
+| Maximum distance | All EMPD2 samples with an NFI row | Mechanical count candidates with an NFI row | All NFI row/sample pairs | Count-candidate row/sample pairs |
+| --- | ---: | ---: | ---: | ---: |
+| 1 km | 16 / 132 | 16 / 131 | 53 | 53 |
+| 5 km | 66 / 132 | 65 / 131 | 696 | 681 |
+| 10 km | 96 / 132 | 95 / 131 | 2,846 | 2,821 |
+
+Five of the 16 samples within 1 km carry unresolved EMPD2–Neotoma identity
+flags. The one Swedish sample with a fractional count is retained in the
+all-metadata 5 and 10 km totals but excluded from the mechanical count
+candidate totals. Mechanical count candidacy is still not scientific
+admission. Repeated NFI years and nearby plots make row-pair totals larger
+than the number of distinct pollen samples. The nearest NFI row is chosen
+only by distance; its inventory year does not date or match the pollen
+sample. The EMPD2 position datum and uncertainty remain unreviewed. The
+source has no explicit collection-year field, and the source age/uncertainty
+codes do not establish matching survey support. Spatial proximity also does
+not prove that a small NFI forest plot represents a pollen basin or regional
+vegetation footprint. The report is a candidate-only local source artifact,
+SHA-256 `5d35aed59cb5e3b49582976264837fab1c8d4ffa3dc1937e73bf2f04f32e2c66`;
+**zero independent vegetation–pollen pairs are admitted**.
+
 Source `agebp` is preserved exactly, including missing and literal `NULL`
 values; it is not converted to an exact collection year. This SQLite release
 does not expose a collection-year field. Taxa/PPE, basin support, chronology,
