@@ -16,6 +16,12 @@ accepts **identity-only** records. Each row must have exactly `record_id`,
 declare the complete cross-database alias and derived-product dependency graph;
 an unknown dependency is refused rather than assumed independent.
 
+An `alias_ids` value may name another row's record, site, core or publication
+ID, or a source-qualified alias shared by at least two rows. A one-sided
+reference is sufficient. An alias that resolves to unrelated identity groups
+or occurs only once without a matching identity is refused. IDs must be
+source-qualified before use so unrelated sources cannot collide by short label.
+
 The guard links records sharing a site, core, publication or alias. It holds
 the entire connected component out, optionally with every site in its
 predeclared spatial block. A component that crosses spatial-block IDs is

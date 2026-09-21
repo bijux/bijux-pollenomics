@@ -129,17 +129,31 @@ def build_candidate_split(
         parent[max(first, second)] = min(first, second)
 
     identity_owner: dict[tuple[str, str], str] = {}
+    identity_values: dict[str, set[str]] = {}
+    alias_owners: dict[str, set[str]] = {}
     for record_id, row in sorted(by_id.items()):
-        tokens = [("site", str(row["site_id"]))]
+        tokens = [("record_id", record_id), ("site_id", str(row["site_id"]))]
         for field in ("core_id", "publication_id"):
             if row[field] is not None:
                 tokens.append((field, str(row[field])))
-        aliases = row["alias_ids"]
-        assert isinstance(aliases, list)
-        tokens.extend(("alias", str(alias)) for alias in aliases)
         for token in tokens:
             owner = identity_owner.setdefault(token, record_id)
             union(record_id, owner)
+            identity_values.setdefault(token[1], set()).add(record_id)
+        aliases = row["alias_ids"]
+        assert isinstance(aliases, list)
+        for alias in aliases:
+            alias_owners.setdefault(str(alias), set()).add(record_id)
+    for alias, owners in sorted(alias_owners.items()):
+        targets = identity_values.get(alias, set())
+        target_groups = {root(target) for target in targets}
+        if len(target_groups) > 1:
+            raise SplitGuardError("ambiguous_alias_reference")
+        if not targets and len(owners) < 2:
+            raise SplitGuardError("unresolved_alias_reference")
+        members = sorted(owners | targets)
+        for member in members[1:]:
+            union(members[0], member)
     groups: dict[str, list[str]] = {}
     for record_id in by_id:
         groups.setdefault(root(record_id), []).append(record_id)

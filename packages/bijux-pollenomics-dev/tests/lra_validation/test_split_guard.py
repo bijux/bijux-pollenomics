@@ -81,6 +81,51 @@ def test_pollen_only_site_can_be_held_out_without_vegetation_score() -> None:
         )
 
 
+@pytest.mark.parametrize("alias", ["p-test", "test"])
+def test_one_sided_record_or_site_alias_seals_test_pollen(alias: str) -> None:
+    records = [
+        row("v-test", "test", "vegetation", "east"),
+        row("p-test", "test", "pollen", "east"),
+        row("p-alias", "different-site", "pollen", "east", alias=[alias]),
+        row("v-train", "train", "vegetation", "west"),
+    ]
+    result = build_candidate_split(
+        records, test_record_id="v-test", target="withheld_pollen_prediction"
+    )
+    assert result["test_pollen_record_ids"] == ["p-alias", "p-test"]
+    assert result["train_record_ids"] == ["v-train"]
+
+
+def test_regional_product_using_one_sided_alias_is_refused() -> None:
+    records = [
+        row("v-test", "test", "vegetation", "east"),
+        row("p-test", "test", "pollen", "east"),
+        row("p-alias", "different-site", "pollen", "east", alias=["p-test"]),
+        row("regional", "regional", "derived", "west", dependencies=["p-alias"]),
+        row("v-train", "train", "vegetation", "west"),
+    ]
+    with pytest.raises(SplitGuardError, match="contaminated_train_input"):
+        build_candidate_split(
+            records, test_record_id="v-test", target="withheld_pollen_prediction"
+        )
+
+
+def test_unresolved_or_ambiguous_alias_is_refused() -> None:
+    records = cohort()
+    records[0]["alias_ids"] = ["unlisted"]
+    with pytest.raises(SplitGuardError, match="unresolved_alias_reference"):
+        build_candidate_split(
+            records, test_record_id="v-test", target="withheld_pollen_prediction"
+        )
+    records[0]["alias_ids"] = ["shared"]
+    records[3]["alias_ids"] = ["p-test"]
+    records[3]["site_id"] = "p-test"
+    with pytest.raises(SplitGuardError, match="ambiguous_alias_reference"):
+        build_candidate_split(
+            records, test_record_id="v-test", target="withheld_pollen_prediction"
+        )
+
+
 def test_local_pollen_is_only_an_explicit_raw_test_input() -> None:
     result = build_candidate_split(
         cohort(),
