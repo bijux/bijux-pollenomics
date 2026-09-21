@@ -42,6 +42,10 @@ or admitted to a product.
 cross-database identity leads. Its 914 mechanical candidates are not admitted
 LRA inputs or independent measured vegetation references.
 
+The [Nordic forest-inventory access review](nordic-nfi-reference-access.md)
+checks four country-level measured tree-plot source leads and records why none
+is yet an admitted vegetation–pollen reference cohort.
+
 ## Choose By Question And Observation Unit
 
 The most convenient layer is not necessarily the right evidence. Select a
