@@ -295,6 +295,42 @@ def test_coordinated_site_relabel_cannot_rewrite_source_identity(
     assert not destination.exists()
 
 
+def test_replacing_result_ids_and_tables_cannot_leave_stale_source_manifest(
+    publication_inputs: MultisiteRevealsInput, tmp_path: Path
+) -> None:
+    result = run_reveals_multisite(
+        publication_inputs,
+        PublicationRevealsConfig("synthetic-bp-v1"),
+        bootstrap_indices=draws(),
+    )
+    assert result.manifest.parameters["source_axes"] == {
+        "site_ids": list(publication_inputs.site_ids),
+        "bin_ids": list(publication_inputs.bin_ids),
+        "taxon_ids": list(publication_inputs.taxon_ids),
+    }
+    replaced = replace(
+        result,
+        site_ids=("fabricated", "large"),
+        availability=result.availability.rename(columns={"small": "fabricated"}),
+        site_cover={
+            "fabricated": result.site_cover["small"],
+            "large": result.site_cover["large"],
+        },
+        site_standard_error={
+            "fabricated": result.site_standard_error["small"],
+            "large": result.site_standard_error["large"],
+        },
+        deposition={
+            "fabricated": result.deposition["small"],
+            "large": result.deposition["large"],
+        },
+    )
+    destination = tmp_path / "stale-manifest"
+    with pytest.raises(ValueError, match="source axes in the scientific manifest"):
+        replaced.write(destination)
+    assert not destination.exists()
+
+
 def test_existing_multisite_bundle_is_preserved_when_support_changes(
     publication_inputs: MultisiteRevealsInput, tmp_path: Path
 ) -> None:

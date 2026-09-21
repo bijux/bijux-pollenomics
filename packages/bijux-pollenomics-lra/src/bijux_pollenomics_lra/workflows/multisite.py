@@ -161,6 +161,11 @@ def run_reveals_multisite(
                 "regional_cover_draws": "closed_Vx_rows_for_multisite_bins_only",
                 "regional_cover_draw_index_base": 0,
                 "time_bins": "explicit_calendar_years_bp_1950CE_younger_older",
+                "source_axes": {
+                    "site_ids": inputs.site_ids,
+                    "bin_ids": inputs.bin_ids,
+                    "taxon_ids": inputs.taxon_ids,
+                },
             },
             {"inputs": inputs, "bootstrap_indices": draws},
             stochastic=False,

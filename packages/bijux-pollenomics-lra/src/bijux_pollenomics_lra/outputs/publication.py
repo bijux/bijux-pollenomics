@@ -16,6 +16,15 @@ from bijux_pollenomics_lra.outputs.checksums import _write_checksum_manifest
 def _validated_result_axes(result: MultisiteRevealsResult) -> None:
     """Refuse relabelled result tables before any numerical file is written."""
     bins, taxa = result.bin_ids, result.taxon_ids
+    source_axes = {
+        "site_ids": list(result.site_ids),
+        "bin_ids": list(bins),
+        "taxon_ids": list(taxa),
+    }
+    if result.manifest.parameters.get("source_axes") != source_axes:
+        raise ValueError(
+            "Result axes must match source axes in the scientific manifest"
+        )
     if tuple(result.cover.index) != bins or tuple(result.cover.columns) != taxa:
         raise ValueError("Regional cover axes must match the input bin and taxon IDs")
     if (
