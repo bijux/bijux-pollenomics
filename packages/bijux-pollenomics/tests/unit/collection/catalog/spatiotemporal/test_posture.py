@@ -124,14 +124,28 @@ def test_public_source_indexes_do_not_promote_refused_or_stale_counts() -> None:
         )
     }
 
+    qualified_raa_disclosures = {
+        "docs/public/pollenomics-data/sources/raa.md",
+        "docs/public/pollenomics-data/publications/raa-exports.md",
+    }
     combined = "\n".join(docs.values())
+    index_combined = "\n".join(
+        text for path, text in docs.items() if path not in qualified_raa_disclosures
+    )
     assert "492 LandClim" not in combined
     assert "2,809 dataset-cell-window" not in combined
     assert "across 88 aggregate cells" not in combined
     assert "RAÄ density source representing 761,917" not in combined
     assert "and 40,565 SVAR lakes" not in combined
     assert "761,917" not in combined
-    assert "318,265" not in combined
+    assert "318,265" not in index_combined
+    for path in qualified_raa_disclosures:
+        disclosure = docs[path]
+        assert "D2-033" in disclosure
+        assert "339,412" in disclosure
+        assert "318,265" in disclosure
+        assert "refused" in disclosure
+        assert "unavailable" in disclosure
     assert "416,913" not in combined
     assert "40,565" not in combined
     assert "27,450" not in combined
