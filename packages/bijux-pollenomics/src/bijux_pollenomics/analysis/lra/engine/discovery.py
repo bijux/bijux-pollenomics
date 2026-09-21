@@ -6,8 +6,9 @@ No plugin enumeration, dynamic fallback or alternate numerical engine is used.
 
 from __future__ import annotations
 
-from dataclasses import dataclass
+from dataclasses import dataclass, fields, is_dataclass
 from importlib import import_module, metadata
+from inspect import Parameter, signature
 from types import ModuleType
 
 from .errors import LRARefusal
@@ -17,6 +18,14 @@ GROUP = "bijux_pollenomics.extensions"
 TARGET = "bijux_pollenomics_lra.api:extension_descriptor"
 API_MODULE = "bijux_pollenomics_lra.api"
 OPERATIONS = ("run_reveals", "run_love", "run_lra", "run_lra_series")
+MULTISITE_PUBLICATION_CAPABILITY = "lra.reveals.multisite.publication-source"
+LANDCLIM_ANALYTICAL_LOVE_CAPABILITY = (
+    "lra.love.analytical.fall-speed-profile.landclimii-2016-gpm-neutral-analytical-v1"
+)
+_LANDCLIM_FALL_SPEED_PROFILE = "landclimii-2016-gpm-neutral-analytical-v1"
+_OPTIONAL_CAPABILITIES = frozenset(
+    (MULTISITE_PUBLICATION_CAPABILITY, LANDCLIM_ANALYTICAL_LOVE_CAPABILITY)
+)
 
 
 @dataclass(frozen=True)
@@ -41,8 +50,97 @@ class EngineBinding:
         }
 
 
-def load_engine() -> EngineBinding:
-    """Load the optional engine, refusing missing or incompatible installs."""
+def _require_optional_capability(
+    api: ModuleType, descriptor: dict[str, object], capability: str
+) -> None:
+    """Verify a selected optional method without changing the legacy contract."""
+    if not isinstance(capability, str) or capability not in _OPTIONAL_CAPABILITIES:
+        raise LRARefusal(
+            "lra_extension_capability_unknown", f"Unknown LRA capability: {capability}"
+        )
+    advertised = descriptor.get("capabilities")
+    if advertised is None:
+        raise LRARefusal(
+            "lra_extension_capability_unavailable",
+            f"Installed LRA extension does not advertise {capability}",
+        )
+    if (
+        not isinstance(advertised, list)
+        or any(not isinstance(item, str) or not item for item in advertised)
+        or len(set(advertised)) != len(advertised)
+    ):
+        raise LRARefusal(
+            "lra_extension_capability_invalid",
+            "Installed LRA extension has malformed optional capabilities",
+        )
+    if capability not in advertised:
+        raise LRARefusal(
+            "lra_extension_capability_unavailable",
+            f"Installed LRA extension does not advertise {capability}",
+        )
+    if capability == MULTISITE_PUBLICATION_CAPABILITY:
+        complete = callable(getattr(api, "run_reveals_multisite", None)) and all(
+            isinstance(getattr(api, name, None), type)
+            for name in (
+                "MultisiteRevealsInput",
+                "PublicationRevealsConfig",
+                "MultisiteRevealsResult",
+            )
+        )
+        complete = complete and callable(
+            getattr(getattr(api, "MultisiteRevealsResult", None), "write", None)
+        )
+    else:
+        config_type = getattr(api, "LoveConfig", None)
+        complete = (
+            isinstance(config_type, type)
+            and is_dataclass(config_type)
+            and {field.name for field in fields(config_type)}
+            >= {"method", "distance_weighting", "fall_speed_profile"}
+            and callable(getattr(api, "run_love", None))
+        )
+        if complete:
+            try:
+                draw_parameter = signature(api.run_love).parameters.get(
+                    "regional_cover_draws"
+                )
+                if draw_parameter is None or draw_parameter.kind not in (
+                    Parameter.KEYWORD_ONLY,
+                    Parameter.POSITIONAL_OR_KEYWORD,
+                ):
+                    complete = False
+                selected = config_type(
+                    method="analytical",
+                    regional_basin_type="lake",
+                    regional_basin_diameter_m=300,
+                    local_basin_diameter_m=12.9,
+                    max_ring=1,
+                    distance_weighting="gpm neutral",
+                    fall_speed_profile=_LANDCLIM_FALL_SPEED_PROFILE,
+                    repeats=1,
+                    stochastic=False,
+                )
+                complete = (
+                    complete
+                    and selected.method == "analytical"
+                    and selected.distance_weighting == "gpm neutral"
+                    and selected.fall_speed_profile == _LANDCLIM_FALL_SPEED_PROFILE
+                    and selected.as_dict().get("fall_speed_profile")
+                    == _LANDCLIM_FALL_SPEED_PROFILE
+                )
+            except Exception:
+                # A broken advertised constructor is an unavailable feature,
+                # not a reason to break unrelated installed LRA operations.
+                complete = False
+    if not complete:
+        raise LRARefusal(
+            "lra_extension_capability_invalid",
+            f"Installed LRA extension advertises {capability} without its facade",
+        )
+
+
+def load_engine(*, required_capability: str | None = None) -> EngineBinding:
+    """Load the optional engine, checking selected features only when requested."""
     try:
         distribution = metadata.distribution(DISTRIBUTION)
     except metadata.PackageNotFoundError as exc:
@@ -86,6 +184,8 @@ def load_engine() -> EngineBinding:
             "lra_extension_incompatible",
             "Installed LRA API, identity or backend is incompatible.",
         )
+    if required_capability is not None:
+        _require_optional_capability(api, descriptor, required_capability)
     return EngineBinding(
         DISTRIBUTION, distribution.version, descriptor["numerical_backend"], api
     )

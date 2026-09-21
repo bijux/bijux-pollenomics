@@ -32,6 +32,9 @@ from bijux_pollenomics_lra.models.results import (
     PreparedForwardInputs,
     RevealsResult,
 )
+from bijux_pollenomics_lra.models.validation import (
+    LANDCLIM_II_GPM_ANALYTICAL_FALL_SPEED_PROFILE,
+)
 from bijux_pollenomics_lra.reconstruction.forward import forward_deposition
 from bijux_pollenomics_lra.workflows.forward import prepare_forward_inputs
 from bijux_pollenomics_lra.workflows.local import run_love
@@ -60,6 +63,8 @@ def extension_descriptor() -> dict[str, Any]:
             "lra.reveals.regional",
             "lra.reveals.multisite.publication-source",
             "lra.love.analytical",
+            "lra.love.analytical.fall-speed-profile."
+            + LANDCLIM_II_GPM_ANALYTICAL_FALL_SPEED_PROFILE,
             "lra.love.optimized",
             "lra.series.exact-coordinate",
             "lra.forward.homogeneous-local",

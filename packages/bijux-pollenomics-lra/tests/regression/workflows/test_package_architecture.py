@@ -8,7 +8,10 @@ import tomllib
 
 import jsonschema
 
-from bijux_pollenomics_lra.api import extension_descriptor
+from bijux_pollenomics_lra.api import LoveConfig, extension_descriptor
+from bijux_pollenomics_lra.models.validation import (
+    LANDCLIM_II_GPM_ANALYTICAL_FALL_SPEED_PROFILE,
+)
 from bijux_pollenomics_lra.provenance.manifest import build_manifest
 from bijux_pollenomics_lra.resources.schemas import load_schema
 
@@ -48,6 +51,24 @@ def test_extension_descriptor_matches_packaged_registration(project_root: Path) 
     assert descriptor["extension_name"] == "lra"
     assert "scripts" not in metadata["project"]
     jsonschema.validate(descriptor, load_schema("extension-descriptor.schema.json"))
+
+
+def test_named_love_capability_matches_validated_profile() -> None:
+    profile = LANDCLIM_II_GPM_ANALYTICAL_FALL_SPEED_PROFILE
+    assert (
+        "lra.love.analytical.fall-speed-profile." + profile
+        in extension_descriptor()["capabilities"]
+    )
+    config = LoveConfig(
+        method="analytical",
+        regional_basin_type="lake",
+        regional_basin_diameter_m=300,
+        local_basin_diameter_m=12.9,
+        max_ring=1,
+        distance_weighting="gpm neutral",
+        fall_speed_profile=profile,
+    )
+    assert config.as_dict()["fall_speed_profile"] == profile
 
 
 def test_run_manifest_retains_actual_backend_and_valid_schema() -> None:
