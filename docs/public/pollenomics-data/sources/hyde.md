@@ -4,7 +4,7 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-09-13
+last_reviewed: 2026-09-21
 ---
 
 # HYDE 3.5
@@ -123,6 +123,24 @@ not assign CRS, area, variable units or calendar meaning; a later geographical
 adapter must explicitly join those declarations to the existing grid contract.
 The retained reader authenticates pinned bytes and internal consistency, rather
 than re-executing the original source read.
+
+`bijux_pollenomics.collection.sources.hyde.ascii.geometry.native_axis_geometry`
+can derive exact decimal source-axis edges from a retained window and the
+archive SHA-256 in its authenticated parent manifest. It uses the source's
+literal `xllcorner`, `yllcorner` and `cellsize`; rows run north to south.
+Because the native step is `0.0833333`, the calculated global east/north edges
+are `179.9998560` and `89.9999280`, rather than rounded longitude/latitude
+limits. The result carries archive, member, window and native scenario labels,
+plus separate missing, nonmissing and zero counts. It explicitly leaves CRS,
+variable units and calendar support unset, and marks country projection and
+public release as unavailable.
+
+The private source-axis envelope for the inspected base 2000AD cropland member
+contains 72,576 selected cells: 29,217 missing, 43,359 nonmissing and 15,307
+numeric zeros. Its source-axis window edges are west `3.9999264`, east
+`31.9999152`, south `53.9999424` and north `71.9999352` in undeclared native
+coordinate units. These are source-index geometry and mask counts, not a
+country overlay, area estimate, admitted Nordic subset or vegetation truth.
 
 Installed-package checks cover seven identical windows in each of base, lower
 and upper cropland for 2000AD: 117 selected cells agree exactly with independent
