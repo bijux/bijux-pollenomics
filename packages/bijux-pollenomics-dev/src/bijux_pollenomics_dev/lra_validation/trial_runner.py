@@ -8,10 +8,10 @@ from __future__ import annotations
 
 import json
 import math
+from pathlib import Path
 import subprocess
 import sys
 import time
-from pathlib import Path
 from typing import Any, cast
 
 from .experiment_ledger import (
@@ -38,7 +38,7 @@ def run_development_trial(plan: dict[str, object]) -> int:
     """Reserve, run and terminate exactly one declared development attempt."""
     if set(plan) != {"schema_version", "ledger_root", "spec", "timeout_seconds"}:
         raise TrialPlanError("invalid_trial_plan_fields")
-    if plan["schema_version"] != "lra-development-trial.v1":
+    if plan["schema_version"] != "lra-development-trial.v2":
         raise TrialPlanError("invalid_trial_plan_version")
     ledger_root = plan["ledger_root"]
     if not isinstance(ledger_root, str) or not Path(ledger_root).is_absolute():

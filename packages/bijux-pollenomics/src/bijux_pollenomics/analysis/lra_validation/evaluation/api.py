@@ -12,6 +12,17 @@ from .block_products import (
     adapt_authenticated_spatial_block_withheld_pollen_rows,
     adapt_authenticated_spatial_block_withheld_vegetation_rows,
 )
+from .cohort import (
+    COHORT_ADMISSION_PROFILE,
+    COHORT_DECISION_PROFILE,
+    FrozenEvaluationScope,
+    ReviewedCohortAdmission,
+    ReviewedEvaluationCohort,
+    admit_reviewed_evaluation_cohort,
+    freeze_evaluation_scope,
+    reopen_cohort_admission,
+    validate_cohort_admission,
+)
 from .contracts import (
     AcceptanceCell,
     EvaluationPolicy,
@@ -25,16 +36,6 @@ from .contracts import (
     Support,
     freeze_evaluation_prediction,
     validate_frozen_prediction,
-)
-from .cohort import (
-    COHORT_ADMISSION_PROFILE,
-    COHORT_DECISION_PROFILE,
-    FrozenEvaluationScope,
-    ReviewedCohortAdmission,
-    ReviewedEvaluationCohort,
-    admit_reviewed_evaluation_cohort,
-    freeze_evaluation_scope,
-    validate_cohort_admission,
 )
 from .grouped_local_rows import adapt_authenticated_grouped_local_vegetation_rows
 from .grouped_products import (
@@ -136,6 +137,7 @@ __all__ = [
     "ReviewedEvaluationCohort",
     "admit_reviewed_evaluation_cohort",
     "freeze_evaluation_scope",
+    "reopen_cohort_admission",
     "validate_cohort_admission",
     "resample_independent_units",
     "validate_evaluation_policy",

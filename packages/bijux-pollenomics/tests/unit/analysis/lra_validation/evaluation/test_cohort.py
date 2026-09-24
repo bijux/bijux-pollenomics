@@ -23,9 +23,13 @@ from bijux_pollenomics.analysis.lra_validation.evaluation.api import (
     COHORT_DECISION_PROFILE,
     EvaluationSite,
     FrozenEvaluationScope,
+    ReviewedCohortAdmission,
     ReviewedEvaluationCohort,
+    Support,
     admit_reviewed_evaluation_cohort,
     freeze_evaluation_scope,
+    reopen_cohort_admission,
+    validate_cohort_admission,
 )
 
 
@@ -227,3 +231,96 @@ def test_cohort_and_frozen_scope_cannot_be_caller_forged() -> None:
             frozen.split_manifest_sha256,
             frozen.cohort_admission,
         )
+    with pytest.raises(ValidationRefusal, match="scope-freezing factory"):
+        ReviewedCohortAdmission(
+            frozen.canonical_admission_json,
+            frozen.admission_sha256,
+            frozen.scope.scope_sha256,
+        )
+
+
+def test_canonical_cohort_admission_reopens_without_promoting_review() -> None:
+    frozen = freeze_evaluation_scope(
+        _cohort(), scope_id="scope:reopened", by_block=False
+    )
+    reopened = reopen_cohort_admission(
+        frozen.canonical_admission_json, frozen.admission_sha256
+    )
+    assert reopened == frozen.cohort_admission
+    assert (
+        validate_cohort_admission(reopened, scope=frozen.scope)["scope_sha256"]
+        == frozen.scope.scope_sha256
+    )
+    payload = json.loads(frozen.canonical_admission_json)
+    assert payload["reviewer_authority"] == "declared_not_authenticated"
+    assert payload["scientific_acceptance"] == "not_evaluated"
+    with pytest.raises(ValidationRefusal, match="bytes or claim boundary"):
+        reopen_cohort_admission(frozen.canonical_admission_json, "f" * 64)
+    payload["reviewer_authority"] = "qualified"
+    with pytest.raises(ValidationRefusal, match="bytes or claim boundary"):
+        reopen_cohort_admission(canonical_json(payload), manifest_sha256(payload))
+    del payload["reviewer_authority"]
+    payload["values"] = {"record:admitted": 0.8}
+    with pytest.raises(ValidationRefusal, match="fields differ"):
+        reopen_cohort_admission(canonical_json(payload), manifest_sha256(payload))
+
+
+@pytest.mark.parametrize(
+    ("partition", "identity"),
+    [
+        ("admitted_record_ids", ""),
+        ("admitted_record_ids", " record:admitted"),
+        ("refused_record_ids", " "),
+        ("refused_record_ids", "record:refused "),
+    ],
+)
+def test_reopened_cohort_refuses_malformed_candidate_identities(
+    partition: str, identity: str
+) -> None:
+    frozen = freeze_evaluation_scope(
+        _cohort(), scope_id="scope:reopened-identities", by_block=False
+    )
+    payload = json.loads(frozen.canonical_admission_json)
+    payload[partition] = [identity]
+    with pytest.raises(ValidationRefusal, match="identities are malformed"):
+        reopen_cohort_admission(canonical_json(payload), manifest_sha256(payload))
+
+
+def test_post_freeze_support_or_channel_mutation_cannot_reuse_receipt() -> None:
+    frozen = freeze_evaluation_scope(
+        _cohort(), scope_id="scope:immutable", by_block=False
+    )
+    support = Support(
+        59.0,
+        18.0,
+        10.0,
+        1.0,
+        0.0,
+        100.0,
+        "c" * 64,
+        "EPSG:4326",
+        "BP",
+        "bounded-footprint-radius-v1",
+        "typed-bp-interval-v1",
+    )
+    changed_site = replace(frozen.scope.sites[0], support=support)
+    changed_support_scope = replace(
+        frozen.scope, sites=(changed_site, *frozen.scope.sites[1:])
+    )
+    with pytest.raises(ValidationRefusal, match="receipt differs"):
+        validate_cohort_admission(frozen.cohort_admission, scope=changed_support_scope)
+
+    channel = frozen.scope.observation_channels[0]
+    changed_channel = replace(
+        channel,
+        pollen_channels=(PollenChannel("pollen:changed", "f" * 64),),
+    )
+    changed_channel_scope = replace(
+        frozen.scope,
+        observation_channels=(
+            changed_channel,
+            *frozen.scope.observation_channels[1:],
+        ),
+    )
+    with pytest.raises(ValidationRefusal, match="receipt differs"):
+        validate_cohort_admission(frozen.cohort_admission, scope=changed_channel_scope)

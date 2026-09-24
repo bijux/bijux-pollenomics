@@ -10,19 +10,25 @@ import hashlib
 import json
 import math
 import os
+from pathlib import Path
 import re
 import tempfile
-from pathlib import Path
 from typing import Any
+
+from bijux_pollenomics.analysis.lra_validation.evaluation.api import (
+    reopen_cohort_admission,
+)
 
 _RUN_ID = re.compile(r"[A-Za-z0-9][A-Za-z0-9_.-]{0,95}\Z")
 _SHA256 = re.compile(r"[0-9a-f]{64}\Z")
+_START_PROFILE = "lra-development-attempt.v2"
 _START_FIELDS = set(
     {
+        "schema_version",
         "run_id",
         "policy_sha256",
         "input_hashes",
-        "target",
+        "evaluation_binding",
         "fold_id",
         "model",
         "configuration",
@@ -34,6 +40,21 @@ _START_FIELDS = set(
 )
 _RESULT_FIELDS = {"status", "elapsed_seconds", "metrics", "reason_code"}
 _INVOCATION_FIELDS = {"argv", "cwd", "environment", "result_path"}
+_EVALUATION_BINDING_FIELDS = {
+    "canonical_cohort_admission_json",
+    "cohort_admission_sha256",
+    "scope_sha256",
+    "split_manifest_sha256",
+    "split_kind",
+    "experiment",
+    "target",
+}
+_SPLIT_KINDS = {"leave_one_site_group_out", "predefined_block"}
+_EXPERIMENT_TARGETS = {
+    ("local_pollen_available", "vegetation_cover"),
+    ("all_target_pollen_withheld", "vegetation_cover"),
+    ("all_target_pollen_withheld", "pollen_composition"),
+}
 _CONFIG_FIELDS = {
     "method",
     "transport",
@@ -124,21 +145,58 @@ def _mapping(value: object, field: str, *, nonempty: bool = True) -> dict[str, o
     return value
 
 
+def _sha256(value: object, field: str) -> str:
+    if not isinstance(value, str) or not _SHA256.fullmatch(value):
+        raise ExperimentLedgerError(f"invalid_{field}")
+    return value
+
+
+def _evaluation_binding(value: object, hashes: dict[str, object]) -> None:
+    binding = _mapping(value, "evaluation_binding")
+    if set(binding) != _EVALUATION_BINDING_FIELDS:
+        raise ExperimentLedgerError("invalid_evaluation_binding")
+    canonical = binding["canonical_cohort_admission_json"]
+    if not isinstance(canonical, str):
+        raise ExperimentLedgerError("invalid_cohort_admission")
+    cohort_sha256 = _sha256(
+        binding["cohort_admission_sha256"], "cohort_admission_sha256"
+    )
+    try:
+        admission = reopen_cohort_admission(canonical, cohort_sha256)
+    except ValueError as exc:
+        raise ExperimentLedgerError("invalid_cohort_admission") from exc
+    scope_sha256 = _sha256(binding["scope_sha256"], "scope_sha256")
+    if admission.scope_sha256 != scope_sha256:
+        raise ExperimentLedgerError("cohort_scope_mismatch")
+    split_sha256 = _sha256(binding["split_manifest_sha256"], "split_manifest_sha256")
+    if hashes.get("split_manifest") != split_sha256:
+        raise ExperimentLedgerError("split_manifest_input_mismatch")
+    split_kind = binding["split_kind"]
+    if not isinstance(split_kind, str) or split_kind not in _SPLIT_KINDS:
+        raise ExperimentLedgerError("invalid_split_kind")
+    experiment, target = binding["experiment"], binding["target"]
+    if (
+        not isinstance(experiment, str)
+        or not isinstance(target, str)
+        or (experiment, target) not in _EXPERIMENT_TARGETS
+    ):
+        raise ExperimentLedgerError("invalid_experiment_target")
+
+
 def start_development_attempt(root: Path, spec: dict[str, object]) -> str:
     """Reserve a unique development trial and persist its full planned inputs."""
     if set(spec) not in (_START_FIELDS, _START_FIELDS | {"invocation"}):
         raise ExperimentLedgerError("invalid_start_fields")
+    if spec["schema_version"] != _START_PROFILE:
+        raise ExperimentLedgerError("invalid_start_version")
     run_id = _identity(spec["run_id"], "run_id")
-    digest = spec["policy_sha256"]
-    if not isinstance(digest, str) or not _SHA256.fullmatch(digest):
-        raise ExperimentLedgerError("invalid_policy_sha256")
+    _sha256(spec["policy_sha256"], "policy_sha256")
     hashes = _mapping(spec["input_hashes"], "input_hashes")
     if not all(
         isinstance(value, str) and _SHA256.fullmatch(value) for value in hashes.values()
     ):
         raise ExperimentLedgerError("invalid_input_hashes")
-    if spec["target"] not in {"local_pollen_available", "withheld_pollen_prediction"}:
-        raise ExperimentLedgerError("invalid_target")
+    _evaluation_binding(spec["evaluation_binding"], hashes)
     for field in ("fold_id", "model", "backend"):
         value = spec[field]
         if not isinstance(value, str) or not value.strip():

@@ -400,22 +400,21 @@ def freeze_evaluation_scope(
     )
 
 
-def validate_cohort_admission(
-    receipt: ReviewedCohortAdmission, *, scope: EvaluationScope
+def _validated_cohort_admission_payload(
+    canonical_admission_json: str, admission_sha256: str
 ) -> dict[str, object]:
-    """Revalidate a factory receipt and its exact scope binding for release."""
-    if not isinstance(receipt, ReviewedCohortAdmission):
-        _refuse("A factory-authenticated cohort admission is required")
     try:
-        loaded = json.loads(receipt.canonical_admission_json)
+        loaded = json.loads(canonical_admission_json)
     except (json.JSONDecodeError, TypeError) as exc:
         _refuse(f"Malformed cohort admission: {exc}")
     if not isinstance(loaded, dict) or frozenset(loaded) != _ADMISSION_KEYS:
         _refuse("Cohort admission fields differ from the exact schema")
-    admitted = loaded["admitted_record_ids"]
-    refused = loaded["refused_record_ids"]
+    payload = cast(dict[str, object], loaded)
+    admitted = payload["admitted_record_ids"]
+    refused = payload["refused_record_ids"]
     if (
         not isinstance(admitted, list)
+        or not admitted
         or not isinstance(refused, list)
         or any(not isinstance(value, str) for value in [*admitted, *refused])
         or admitted != sorted(set(admitted))
@@ -423,20 +422,85 @@ def validate_cohort_admission(
         or set(admitted) & set(refused)
     ):
         _refuse("Cohort admission candidate partitions are malformed")
+    try:
+        for identity in [*admitted, *refused]:
+            required_identity(identity)
+    except ValidationRefusal as exc:
+        raise ValidationRefusal(
+            "invalid_reviewed_evaluation_cohort",
+            "Cohort admission candidate identities are malformed",
+        ) from exc
     if (
-        canonical_json(loaded) != receipt.canonical_admission_json
-        or manifest_sha256(loaded) != digest(receipt.admission_sha256)
-        or receipt.scope_sha256 != scope.scope_sha256
-        or loaded.get("scope_sha256") != scope.scope_sha256
-        or loaded.get("scope_id") != scope.scope_id
-        or loaded.get("profile") != COHORT_ADMISSION_PROFILE
-        or loaded.get("reviewer_authority") != "declared_not_authenticated"
-        or loaded.get("outcome_access_status") != "not_started"
-        or loaded.get("empirical_evaluation_performed") is not False
-        or loaded.get("scientific_acceptance") != "not_evaluated"
-        or set(admitted) != {site.record_id for site in scope.sites}
+        canonical_json(payload) != canonical_admission_json
+        or manifest_sha256(payload) != digest(admission_sha256)
+        or payload.get("profile") != COHORT_ADMISSION_PROFILE
+        or payload.get("reviewer_authority") != "declared_not_authenticated"
+        or payload.get("outcome_access_status") != "not_started"
+        or payload.get("empirical_evaluation_performed") is not False
+        or payload.get("scientific_acceptance") != "not_evaluated"
     ):
-        _refuse("Cohort admission bytes, claims or scope binding differ")
-    digest(cast(str, loaded.get("decision_manifest_sha256")))
-    digest(cast(str, loaded.get("candidate_source_manifest_sha256")))
-    return cast(dict[str, object], loaded)
+        _refuse("Cohort admission bytes or claim boundary differ")
+    for field in ("admission_id", "reviewer_id", "scope_id"):
+        value = payload[field]
+        if not isinstance(value, str):
+            _refuse("Cohort admission identity is malformed")
+        required_identity(value)
+    decision_date = payload["decision_date"]
+    if not isinstance(decision_date, str):
+        _refuse("Cohort admission decision date must be canonical ISO form")
+    try:
+        parsed = date.fromisoformat(decision_date)
+    except ValueError as exc:
+        raise ValidationRefusal(
+            "invalid_reviewed_evaluation_cohort",
+            "Cohort admission decision date must be canonical ISO form",
+        ) from exc
+    if parsed.isoformat() != decision_date:
+        _refuse("Cohort admission decision date must be canonical ISO form")
+    for field in (
+        "decision_manifest_sha256",
+        "candidate_source_manifest_sha256",
+        "scope_sha256",
+    ):
+        value = payload[field]
+        if not isinstance(value, str):
+            _refuse("Cohort admission digest is malformed")
+        digest(value)
+    return payload
+
+
+def reopen_cohort_admission(
+    canonical_admission_json: str, admission_sha256: str
+) -> ReviewedCohortAdmission:
+    """Reopen one canonical receipt without authenticating reviewer authority."""
+    payload = _validated_cohort_admission_payload(
+        canonical_admission_json, admission_sha256
+    )
+    return ReviewedCohortAdmission(
+        canonical_admission_json,
+        admission_sha256,
+        cast(str, payload["scope_sha256"]),
+        _factory_token=_ADMISSION_FACTORY_TOKEN,
+    )
+
+
+def validate_cohort_admission(
+    receipt: ReviewedCohortAdmission, *, scope: EvaluationScope
+) -> dict[str, object]:
+    """Revalidate a factory receipt and its exact scope binding for release."""
+    if not isinstance(receipt, ReviewedCohortAdmission):
+        _refuse("A factory-authenticated cohort admission is required")
+    loaded = _validated_cohort_admission_payload(
+        receipt.canonical_admission_json, receipt.admission_sha256
+    )
+    admitted = loaded["admitted_record_ids"]
+    assert isinstance(admitted, list)
+    if receipt.scope_sha256 != scope.scope_sha256:
+        _refuse("Cohort admission receipt differs from the evaluation scope digest")
+    if loaded.get("scope_sha256") != scope.scope_sha256:
+        _refuse("Canonical cohort admission differs from the evaluation scope digest")
+    if loaded.get("scope_id") != scope.scope_id:
+        _refuse("Canonical cohort admission differs from the evaluation scope identity")
+    if set(admitted) != {site.record_id for site in scope.sites}:
+        _refuse("Cohort admission records differ from the evaluation scope sites")
+    return loaded
