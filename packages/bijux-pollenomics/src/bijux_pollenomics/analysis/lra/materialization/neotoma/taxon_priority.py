@@ -7,10 +7,10 @@ import hashlib
 import json
 from typing import Any, cast
 
-from .models import canonical_bytes
-from .neotoma import source_accounting
-from .neotoma_series import _source_element_status
-from .reading import NeotomaEvidence
+from ..models import canonical_bytes
+from ..reading import NeotomaEvidence
+from .accounting import source_accounting
+from .series import source_element_status
 
 _IDENTITY_FIELDS = (
     "source_family",
@@ -140,7 +140,7 @@ def prioritize_neotoma_candidate_taxa(
         record = accounting.observation(source)
         if (
             record["count_status"] != "count_candidate"
-            or _source_element_status(
+            or source_element_status(
                 observation.get("source_element"),
                 observation.get("source_element_type"),
             )

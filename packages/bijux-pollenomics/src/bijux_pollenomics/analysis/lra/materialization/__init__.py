@@ -10,12 +10,12 @@ from .api import (
     inspect_neotoma_lra_pollen_screen,
 )
 from .models import AdmissionReport
-from .neotoma_candidate_groups import NeotomaCandidateGroups
-from .neotoma_frontier import NeotomaLraFrontier
-from .neotoma_lakeparameters import NeotomaLakeparameterReview
-from .neotoma_pollen_screen import NeotomaPollenScreen
-from .neotoma_series import NeotomaCandidateSeries
-from .neotoma_site_evidence import NeotomaSiteEvidence
+from .neotoma.candidate_groups import NeotomaCandidateGroups
+from .neotoma.frontier import NeotomaLraFrontier
+from .neotoma.lakeparameters import NeotomaLakeparameterReview
+from .neotoma.pollen_screen import NeotomaPollenScreen
+from .neotoma.series import NeotomaCandidateSeries
+from .neotoma.site_evidence import NeotomaSiteEvidence
 
 __all__ = [
     "AdmissionReport",

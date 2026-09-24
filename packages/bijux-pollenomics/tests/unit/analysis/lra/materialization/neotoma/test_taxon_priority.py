@@ -10,11 +10,11 @@ from typing import Any
 import pytest
 
 from bijux_pollenomics.analysis.lra.materialization.models import canonical_bytes
-from bijux_pollenomics.analysis.lra.materialization import (
-    neotoma_taxon_priority as priority,
+from bijux_pollenomics.analysis.lra.materialization.neotoma import (
+    taxon_priority as priority,
 )
-from bijux_pollenomics.analysis.lra.materialization import (
-    neotoma_taxon_provenance as provenance,
+from bijux_pollenomics.analysis.lra.materialization.neotoma import (
+    taxon_provenance as provenance,
 )
 
 

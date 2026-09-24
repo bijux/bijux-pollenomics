@@ -11,10 +11,10 @@ from typing import Any, cast
 
 from bijux_pollenomics.evidence.sources.neotoma.contract import COUNTRY_CODES
 
-from .models import canonical_bytes
-from .neotoma import source_accounting
-from .neotoma_series import _source_element_status
-from .reading import NeotomaEvidence
+from ..models import canonical_bytes
+from ..reading import NeotomaEvidence
+from .accounting import source_accounting
+from .series import source_element_status
 
 
 @dataclass(frozen=True)
@@ -84,7 +84,7 @@ def assess_neotoma_pollen_screen(evidence: NeotomaEvidence) -> NeotomaPollenScre
             continue
         sample_counts["count_candidate_observations"] += 1
         country_counts["count_candidate_observations"] += 1
-        status = _source_element_status(
+        status = source_element_status(
             observation.get("source_element"),
             observation.get("source_element_type"),
         )

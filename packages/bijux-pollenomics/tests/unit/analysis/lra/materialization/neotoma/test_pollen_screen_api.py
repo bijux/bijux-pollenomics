@@ -7,7 +7,7 @@ from bijux_pollenomics.analysis.lra.materialization import (
     inspect_neotoma_lra_pollen_screen,
 )
 
-from .support import authorities
+from ..support import authorities
 
 
 def test_public_pollen_screen_facade_keeps_source_partition_and_refusal(

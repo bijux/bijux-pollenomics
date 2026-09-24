@@ -7,16 +7,16 @@ from pathlib import Path
 
 import pytest
 
-from bijux_pollenomics.analysis.lra.materialization.neotoma_series import (
+from bijux_pollenomics.analysis.lra.materialization.neotoma.series import (
     MAX_SAMPLES,
-    _source_element_status,
     build_neotoma_candidate_series,
+    source_element_status,
 )
 from bijux_pollenomics.analysis.lra.materialization.reading import (
     read_neotoma_evidence,
 )
 
-from .support import authorities
+from ...support import authorities
 
 
 @pytest.mark.parametrize(
@@ -31,7 +31,7 @@ from .support import authorities
 def test_pollen_lead_requires_both_source_element_labels(
     element: object, element_type: object, expected: str
 ) -> None:
-    assert _source_element_status(element, element_type) == expected
+    assert source_element_status(element, element_type) == expected
 
 
 def test_candidate_series_keeps_owned_values_units_and_age_alternatives(

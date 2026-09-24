@@ -13,14 +13,14 @@ from bijux_pollenomics.analysis.lra.api import inspect_neotoma_lra_frontier
 from bijux_pollenomics.analysis.lra.materialization.neotoma import (
     MISSING_LRA_EVIDENCE,
 )
-from bijux_pollenomics.analysis.lra.materialization.neotoma_frontier import (
+from bijux_pollenomics.analysis.lra.materialization.neotoma.frontier import (
     assess_neotoma_lra_frontier,
 )
 from bijux_pollenomics.analysis.lra.materialization.reading import (
     read_neotoma_evidence,
 )
 
-from .support import authorities
+from ..support import authorities
 
 
 def test_selected_source_sample_has_exact_refused_prerequisite_partition(

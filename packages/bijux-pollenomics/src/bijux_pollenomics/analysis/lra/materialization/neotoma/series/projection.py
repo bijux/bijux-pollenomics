@@ -11,9 +11,9 @@ from typing import Any, cast
 
 from bijux_pollenomics.evidence.sources.neotoma.contract import COUNTRY_CODES
 
-from .models import canonical_bytes
-from .neotoma import MISSING_LRA_EVIDENCE, source_accounting
-from .reading import NeotomaEvidence
+from ...models import canonical_bytes
+from ...reading import NeotomaEvidence
+from ..accounting import MISSING_LRA_EVIDENCE, source_accounting
 
 MAX_SAMPLES = 16
 MAX_OBSERVATIONS = 4096
@@ -31,7 +31,7 @@ class NeotomaCandidateSeries:
         return cast(dict[str, Any], json.loads(self.canonical_json))
 
 
-def _source_element_status(value: object, element_type: object) -> str:
+def source_element_status(value: object, element_type: object) -> str:
     if not isinstance(value, str) or not value.strip():
         return "source_element_missing"
     if not isinstance(element_type, str) or not element_type.strip():
@@ -82,7 +82,7 @@ def build_neotoma_candidate_series(
         country = str(observation["country_code"])
         counts = countries[country]
         counts["observations"] += 1
-        element_status = _source_element_status(
+        element_status = source_element_status(
             observation.get("source_element"),
             observation.get("source_element_type"),
         )

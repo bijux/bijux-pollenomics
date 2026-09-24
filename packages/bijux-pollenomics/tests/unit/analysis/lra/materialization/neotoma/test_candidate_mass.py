@@ -9,8 +9,8 @@ from typing import Any
 
 import pytest
 
-from bijux_pollenomics.analysis.lra.materialization import (
-    neotoma_candidate_mass as mass,
+from bijux_pollenomics.analysis.lra.materialization.neotoma import (
+    candidate_mass as mass,
 )
 from bijux_pollenomics.analysis.lra.materialization.models import canonical_bytes
 

@@ -5,14 +5,14 @@ from __future__ import annotations
 from collections import Counter, defaultdict
 from typing import Any, cast
 
-from .neotoma import source_accounting
-from .neotoma_series import _source_element_status
-from .neotoma_taxon_priority import (
+from ..reading import NeotomaEvidence
+from .accounting import source_accounting
+from .series import source_element_status
+from .taxon_priority import (
     _IDENTITY_FIELDS,
     _identity,
     prioritize_neotoma_candidate_taxa,
 )
-from .reading import NeotomaEvidence
 
 
 def _doi_status(value: object) -> str:
@@ -91,7 +91,7 @@ def attribute_neotoma_priority_datasets(
         record = accounting.observation(source)
         if (
             record["count_status"] != "count_candidate"
-            or _source_element_status(
+            or source_element_status(
                 observation.get("source_element"),
                 observation.get("source_element_type"),
             )

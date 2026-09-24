@@ -7,7 +7,7 @@ import json
 
 import pytest
 
-from bijux_pollenomics.analysis.lra.materialization.neotoma_publication_intake import (
+from bijux_pollenomics.analysis.lra.materialization.neotoma.publication_intake import (
     build_candidate_publication_report,
     parse_dataset_publications,
 )

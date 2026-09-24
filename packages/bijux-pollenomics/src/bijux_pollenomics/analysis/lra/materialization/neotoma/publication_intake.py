@@ -8,8 +8,8 @@ from typing import Any, cast
 
 from bijux_pollenomics.evidence.sources.neotoma.contract import COUNTRY_CODES
 
-from .models import canonical_bytes
-from .reading import json_object
+from ..models import canonical_bytes
+from ..reading import json_object
 
 
 def parse_dataset_publications(dataset_id: int, content: bytes) -> list[dict[str, Any]]:

@@ -11,21 +11,21 @@ from bijux_pollenomics.analysis.lra.materialization import (
     inspect_neotoma_lra_candidate_site_evidence,
 )
 from bijux_pollenomics.analysis.lra.materialization.models import canonical_bytes
-from bijux_pollenomics.analysis.lra.materialization.neotoma_candidate_groups import (
+from bijux_pollenomics.analysis.lra.materialization.neotoma.candidate_groups import (
     NeotomaCandidateGroups,
     summarize_neotoma_candidate_groups,
 )
-from bijux_pollenomics.analysis.lra.materialization.neotoma_pollen_screen import (
+from bijux_pollenomics.analysis.lra.materialization.neotoma.pollen_screen import (
     assess_neotoma_pollen_screen,
 )
-from bijux_pollenomics.analysis.lra.materialization.neotoma_site_evidence import (
+from bijux_pollenomics.analysis.lra.materialization.neotoma.site_evidence import (
     assess_neotoma_candidate_site_evidence,
 )
 from bijux_pollenomics.analysis.lra.materialization.reading import (
     read_neotoma_evidence,
 )
 
-from .support import authorities
+from ..support import authorities
 
 
 def _groups(value: dict[str, object]) -> NeotomaCandidateGroups:

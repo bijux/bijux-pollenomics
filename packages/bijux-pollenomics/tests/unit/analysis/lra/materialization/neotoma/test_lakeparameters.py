@@ -9,10 +9,10 @@ from pathlib import Path
 import pytest
 
 from bijux_pollenomics.analysis.lra.materialization.models import canonical_bytes
-from bijux_pollenomics.analysis.lra.materialization.neotoma_lakeparameters import (
+from bijux_pollenomics.analysis.lra.materialization.neotoma.lakeparameters import (
     assess_neotoma_lakeparameters,
 )
-from bijux_pollenomics.analysis.lra.materialization.neotoma_site_evidence import (
+from bijux_pollenomics.analysis.lra.materialization.neotoma.site_evidence import (
     NeotomaSiteEvidence,
 )
 

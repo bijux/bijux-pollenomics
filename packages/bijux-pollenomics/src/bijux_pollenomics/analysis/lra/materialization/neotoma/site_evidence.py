@@ -10,9 +10,9 @@ from typing import Any, cast
 
 from bijux_pollenomics.evidence.sources.neotoma.contract import COUNTRY_CODES
 
-from .models import canonical_bytes
-from .neotoma_candidate_groups import NeotomaCandidateGroups
-from .reading import NeotomaEvidence, json_object
+from ..models import canonical_bytes
+from ..reading import NeotomaEvidence, json_object
+from .candidate_groups import NeotomaCandidateGroups
 
 
 @dataclass(frozen=True)

@@ -5,7 +5,7 @@ from __future__ import annotations
 import hashlib
 from pathlib import Path
 
-from bijux_pollenomics.analysis.lra.materialization.neotoma_pollen_screen import (
+from bijux_pollenomics.analysis.lra.materialization.neotoma.pollen_screen import (
     _comparable_owned_claim,
     assess_neotoma_pollen_screen,
 )
@@ -13,7 +13,7 @@ from bijux_pollenomics.analysis.lra.materialization.reading import (
     read_neotoma_evidence,
 )
 
-from .support import authorities
+from ..support import authorities
 
 
 def test_screen_covers_every_sample_and_keeps_refusal_only_status(

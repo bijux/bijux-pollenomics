@@ -9,7 +9,7 @@ from bijux_pollenomics.analysis.lra.materialization import (
     inspect_neotoma_lra_candidate_series,
 )
 
-from .support import authorities
+from ...support import authorities
 
 
 def test_public_candidate_series_facade_keeps_refusal_and_source_identity(

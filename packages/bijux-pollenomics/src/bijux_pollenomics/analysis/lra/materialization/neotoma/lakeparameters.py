@@ -9,9 +9,9 @@ from pathlib import Path
 import re
 from typing import Any, cast
 
-from .models import canonical_bytes
-from .neotoma_site_evidence import NeotomaSiteEvidence
-from .reading import checked_directory, json_object
+from ..models import canonical_bytes
+from ..reading import checked_directory, json_object
+from .site_evidence import NeotomaSiteEvidence
 
 
 @dataclass(frozen=True)

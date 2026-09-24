@@ -6,18 +6,18 @@ from collections.abc import Sequence
 from pathlib import Path
 
 from .models import AdmissionReport
-from .neotoma_lakeparameters import (
-    NeotomaLakeparameterReview,
-    assess_neotoma_lakeparameters,
-)
-from .neotoma_candidate_groups import (
+from .neotoma.candidate_groups import (
     NeotomaCandidateGroups,
     summarize_neotoma_candidate_groups,
 )
-from .neotoma_frontier import NeotomaLraFrontier, assess_neotoma_lra_frontier
-from .neotoma_pollen_screen import NeotomaPollenScreen, assess_neotoma_pollen_screen
-from .neotoma_series import NeotomaCandidateSeries, build_neotoma_candidate_series
-from .neotoma_site_evidence import (
+from .neotoma.frontier import NeotomaLraFrontier, assess_neotoma_lra_frontier
+from .neotoma.lakeparameters import (
+    NeotomaLakeparameterReview,
+    assess_neotoma_lakeparameters,
+)
+from .neotoma.pollen_screen import NeotomaPollenScreen, assess_neotoma_pollen_screen
+from .neotoma.series import NeotomaCandidateSeries, build_neotoma_candidate_series
+from .neotoma.site_evidence import (
     NeotomaSiteEvidence,
     assess_neotoma_candidate_site_evidence,
 )

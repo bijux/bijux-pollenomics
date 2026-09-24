@@ -10,8 +10,8 @@ from typing import Any, cast
 
 from bijux_pollenomics.evidence.sources.neotoma.contract import COUNTRY_CODES
 
-from .models import canonical_bytes
-from .neotoma_pollen_screen import NeotomaPollenScreen
+from ..models import canonical_bytes
+from .pollen_screen import NeotomaPollenScreen
 
 
 @dataclass(frozen=True)
