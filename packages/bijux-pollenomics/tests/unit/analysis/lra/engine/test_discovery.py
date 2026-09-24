@@ -189,9 +189,28 @@ def test_draw_capability_requires_typed_source_and_bounds_identity() -> None:
         (),
         {"from_verified_member": classmethod(lambda cls, **kwargs: cls())},
     )
+    api.RegionalDrawLoveConfig = _DrawLoveConfig
     api.run_love_from_regional_draws = lambda *args: None
     api.publication_bin_bounds_sha256 = lambda bounds: "0" * 64
     _selected(distribution, api, MULTISITE_DRAW_LOVE_CAPABILITY)
+    for invalid in (
+        None,
+        _IncompleteDrawLoveConfig,
+        _WrongDrawLoveConfig,
+        _IncompleteProvenanceDrawLoveConfig,
+    ):
+        if invalid is None:
+            delattr(api, "RegionalDrawLoveConfig")
+        else:
+            api.RegionalDrawLoveConfig = invalid
+        with (
+            patch.object(metadata, "distribution", return_value=distribution),
+            patch.object(discovery, "import_module", return_value=api),
+            pytest.raises(LRARefusal) as raised,
+        ):
+            load_engine(required_capability=MULTISITE_DRAW_LOVE_CAPABILITY)
+        assert raised.value.reason_code == "lra_extension_capability_invalid"
+    api.RegionalDrawLoveConfig = _DrawLoveConfig
     delattr(api, "publication_bin_bounds_sha256")
     with (
         patch.object(metadata, "distribution", return_value=distribution),
@@ -204,6 +223,54 @@ def test_draw_capability_requires_typed_source_and_bounds_identity() -> None:
 
 class _RevisedProfile(StrEnum):
     RING_TAXON_PRESERVING = "ring-taxon-preserving"
+
+
+@dataclass
+class _DrawLoveConfig:
+    local_basin_diameter_m: float
+    max_ring: int
+    repeats: int = 1000
+    stochastic: bool = True
+    seed: int | None = None
+    retain_samples: bool = False
+    ppe_error: bool = True
+
+    method = "analytical"
+    distance_weighting = "gpm neutral"
+    fall_speed_profile = "landclimii-2016-gpm-neutral-analytical-v1"
+
+    def as_dict(self) -> dict[str, object]:
+        return {
+            "configuration_kind": "regional-cover-draws",
+            "method": self.method,
+            "local_basin_diameter_m": self.local_basin_diameter_m,
+            "max_ring": self.max_ring,
+            "distance_weighting": self.distance_weighting,
+            "fall_speed_profile": self.fall_speed_profile,
+            "repeats": self.repeats,
+            "stochastic": self.stochastic,
+            "seed": self.seed,
+            "retain_samples": self.retain_samples,
+            "ppe_error": self.ppe_error,
+        }
+
+
+@dataclass
+class _IncompleteDrawLoveConfig:
+    local_basin_diameter_m: float
+    max_ring: int
+    repeats: int
+
+
+@dataclass
+class _WrongDrawLoveConfig(_DrawLoveConfig):
+    fall_speed_profile = "unsupported"
+
+
+@dataclass
+class _IncompleteProvenanceDrawLoveConfig(_DrawLoveConfig):
+    def as_dict(self) -> dict[str, object]:
+        return {"configuration_kind": "regional-cover-draws"}
 
 
 @dataclass

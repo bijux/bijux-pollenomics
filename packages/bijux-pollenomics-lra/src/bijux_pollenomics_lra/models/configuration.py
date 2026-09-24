@@ -230,6 +230,60 @@ class LoveConfig:
 
 
 @dataclass(frozen=True, slots=True)
+class RegionalDrawLoveConfig:
+    """Analytical LOVE settings that do not invent a regional pollen basin."""
+
+    local_basin_diameter_m: float
+    max_ring: int
+    repeats: int = 1000
+    stochastic: bool = True
+    seed: int | None = None
+    retain_samples: bool = False
+    ppe_error: bool = True
+
+    method = LoveMethod.ANALYTICAL.value
+    distance_weighting = DistanceWeighting.GPM_NEUTRAL.value
+    fall_speed_profile = LANDCLIM_II_GPM_ANALYTICAL_FALL_SPEED_PROFILE
+
+    def __post_init__(self) -> None:
+        local_diameter = finite_number(
+            self.local_basin_diameter_m,
+            "local_basin_diameter_m",
+            minimum=0,
+            strict_minimum=True,
+        )
+        maximum_ring = integer(self.max_ring, "max_ring")
+        repeats = integer(self.repeats, "repeats")
+        if self.seed is not None:
+            integer(self.seed, "seed", minimum=0)
+        stochastic = _boolean(self.stochastic, "stochastic")
+        retain_samples = _boolean(self.retain_samples, "retain_samples")
+        ppe_error = _boolean(self.ppe_error, "ppe_error")
+        object.__setattr__(self, "local_basin_diameter_m", local_diameter)
+        object.__setattr__(self, "max_ring", maximum_ring)
+        object.__setattr__(self, "repeats", repeats)
+        object.__setattr__(self, "stochastic", stochastic)
+        object.__setattr__(self, "retain_samples", retain_samples)
+        object.__setattr__(self, "ppe_error", ppe_error)
+
+    def as_dict(self) -> dict[str, object]:
+        """Return only settings that affect the draw-fed calculation."""
+        return {
+            "configuration_kind": "regional-cover-draws",
+            "method": self.method,
+            "local_basin_diameter_m": self.local_basin_diameter_m,
+            "max_ring": self.max_ring,
+            "distance_weighting": self.distance_weighting,
+            "fall_speed_profile": self.fall_speed_profile,
+            "repeats": self.repeats,
+            "stochastic": self.stochastic,
+            "seed": self.seed,
+            "retain_samples": self.retain_samples,
+            "ppe_error": self.ppe_error,
+        }
+
+
+@dataclass(frozen=True, slots=True)
 class LRAConfig:
     """Configuration for the two-stage REVEALS then LOVE workflow."""
 

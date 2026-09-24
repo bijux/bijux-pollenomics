@@ -1,10 +1,15 @@
 from __future__ import annotations
 
+from pathlib import Path
+
 import numpy as np
 import pandas as pd
 import pytest
 
-from bijux_pollenomics_lra.models.configuration import LoveConfig
+from bijux_pollenomics_lra.models.configuration import (
+    LoveConfig,
+    RegionalDrawLoveConfig,
+)
 from bijux_pollenomics_lra.models.errors import ValidationError
 from bijux_pollenomics_lra.models.regional_draw_source import RegionalCoverDrawSource
 from bijux_pollenomics_lra.models.validation import (
@@ -54,6 +59,13 @@ def test_draw_only_love_preserves_numerics_without_placeholder_pollen() -> None:
         stochastic=False,
         retain_samples=True,
     )
+    draw_config = RegionalDrawLoveConfig(
+        local_basin_diameter_m=12.9,
+        max_ring=3,
+        repeats=2,
+        stochastic=False,
+        retain_samples=True,
+    )
     historical = run_love(
         local,
         regional,
@@ -67,7 +79,7 @@ def test_draw_only_love_preserves_numerics_without_placeholder_pollen() -> None:
         source,
         params,
         supported_rings,
-        config,
+        draw_config,
         local_site_id="site-a",
         local_sample_id="sample-a",
     )
@@ -79,6 +91,8 @@ def test_draw_only_love_preserves_numerics_without_placeholder_pollen() -> None:
         historical.auxiliary["Kreg"].to_numpy(),
     )
     assert "regional_pollen" not in draw_only.manifest.inputs
+    assert "regional_basin_type" not in draw_only.manifest.parameters
+    assert "regional_basin_diameter_m" not in draw_only.manifest.parameters
     assert draw_only.manifest.inputs["regional_cover_draws"] == sha256_object(draws)
     assert (
         draw_only.manifest.parameters["regional_draw_source"]["draw_member_sha256"]
@@ -139,7 +153,7 @@ def test_draw_only_love_preserves_numerics_without_placeholder_pollen() -> None:
             source,
             params.iloc[::-1],
             supported_rings,
-            config,
+            draw_config,
             local_site_id="site-a",
             local_sample_id="sample-a",
         )
@@ -149,14 +163,9 @@ def test_draw_only_love_preserves_numerics_without_placeholder_pollen() -> None:
             source,
             params,
             supported_rings,
-            LoveConfig(
-                "analytical",
-                "lake",
-                300,
-                12.9,
-                3,
-                distance_weighting="gpm neutral",
-                fall_speed_profile=LANDCLIM_II_GPM_ANALYTICAL_FALL_SPEED_PROFILE,
+            RegionalDrawLoveConfig(
+                local_basin_diameter_m=12.9,
+                max_ring=3,
                 repeats=3,
                 stochastic=False,
             ),
@@ -167,20 +176,20 @@ def test_draw_only_love_preserves_numerics_without_placeholder_pollen() -> None:
 
 def test_regional_draw_source_refuses_invalid_counts_axes_and_digests() -> None:
     draws = np.full((2, 2), 0.5)
-    values = dict(
-        values=draws,
-        taxon_ids=("A", "B"),
-        bin_id="bin-50",
-        younger_bp=1250,
-        older_bp=1750,
-        draw_ids=(0, 1),
-        regional_site_ids=("one", "two"),
-        eligible_site_ids=("one", "two"),
-        parent_manifest_sha256="a" * 64,
-        draw_member_sha256="b" * 64,
-        selected_tensor_sha256=sha256_object(draws),
-        diagnostic_prefix=True,
-    )
+    values = {
+        "values": draws,
+        "taxon_ids": ("A", "B"),
+        "bin_id": "bin-50",
+        "younger_bp": 1250,
+        "older_bp": 1750,
+        "draw_ids": (0, 1),
+        "regional_site_ids": ("one", "two"),
+        "eligible_site_ids": ("one", "two"),
+        "parent_manifest_sha256": "a" * 64,
+        "draw_member_sha256": "b" * 64,
+        "selected_tensor_sha256": sha256_object(draws),
+        "diagnostic_prefix": True,
+    }
     for change in (
         {"draw_ids": (1, 0)},
         {"draw_ids": (False, True)},
@@ -198,35 +207,30 @@ def test_regional_draw_source_refuses_invalid_counts_axes_and_digests() -> None:
             RegionalCoverDrawSource(**(values | change))
 
 
-def test_draw_only_publication_profile_uses_all_1000_draws(tmp_path) -> None:
+def test_draw_only_publication_profile_uses_all_1000_draws(tmp_path: Path) -> None:
     local, _, params, rings = _love_inputs()
     draws = np.full((1000, 10), 0.1)
-    common = dict(
-        values=draws,
-        taxon_ids=tuple(local.columns[1:]),
-        bin_id="bin-50",
-        younger_bp=1250,
-        older_bp=1750,
-        draw_ids=tuple(range(1000)),
-        regional_site_ids=("site-a", "site-b"),
-        eligible_site_ids=("site-a", "site-b"),
-        parent_manifest_sha256="a" * 64,
-        draw_member_sha256="b" * 64,
-        selected_tensor_sha256=sha256_object(draws),
-    )
+    common = {
+        "values": draws,
+        "taxon_ids": tuple(local.columns[1:]),
+        "bin_id": "bin-50",
+        "younger_bp": 1250,
+        "older_bp": 1750,
+        "draw_ids": tuple(range(1000)),
+        "regional_site_ids": ("site-a", "site-b"),
+        "eligible_site_ids": ("site-a", "site-b"),
+        "parent_manifest_sha256": "a" * 64,
+        "draw_member_sha256": "b" * 64,
+        "selected_tensor_sha256": sha256_object(draws),
+    }
     with pytest.raises(ValidationError, match="exactly 1000"):
         RegionalCoverDrawSource(
             **(common | {"values": draws[:-1], "draw_ids": tuple(range(999))})
         )
     source = RegionalCoverDrawSource(**common)
-    config = LoveConfig(
-        "analytical",
-        "lake",
-        300,
-        12.9,
-        3,
-        distance_weighting="gpm neutral",
-        fall_speed_profile=LANDCLIM_II_GPM_ANALYTICAL_FALL_SPEED_PROFILE,
+    config = RegionalDrawLoveConfig(
+        local_basin_diameter_m=12.9,
+        max_ring=3,
         repeats=1000,
         stochastic=False,
         retain_samples=True,

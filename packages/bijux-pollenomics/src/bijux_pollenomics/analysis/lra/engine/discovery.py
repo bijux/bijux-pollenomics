@@ -109,12 +109,66 @@ def _require_optional_capability(
         )
     elif capability == MULTISITE_DRAW_LOVE_CAPABILITY:
         source_type = getattr(api, "RegionalCoverDrawSource", None)
+        config_type = getattr(api, "RegionalDrawLoveConfig", None)
         complete = (
             isinstance(source_type, type)
             and callable(getattr(source_type, "from_verified_member", None))
+            and isinstance(config_type, type)
+            and is_dataclass(config_type)
+            and {field.name for field in fields(config_type)}
+            >= {
+                "local_basin_diameter_m",
+                "max_ring",
+                "repeats",
+                "stochastic",
+                "seed",
+                "retain_samples",
+                "ppe_error",
+            }
             and callable(getattr(api, "run_love_from_regional_draws", None))
             and callable(getattr(api, "publication_bin_bounds_sha256", None))
         )
+        if complete and isinstance(config_type, type):
+            try:
+                selected = config_type(
+                    local_basin_diameter_m=12.9,
+                    max_ring=1,
+                    repeats=1000,
+                    stochastic=False,
+                    seed=7,
+                    retain_samples=True,
+                    ppe_error=False,
+                )
+                settings = selected.as_dict()
+                expected_settings = {
+                    "configuration_kind": "regional-cover-draws",
+                    "method": "analytical",
+                    "local_basin_diameter_m": 12.9,
+                    "max_ring": 1,
+                    "distance_weighting": "gpm neutral",
+                    "fall_speed_profile": _LANDCLIM_FALL_SPEED_PROFILE,
+                    "repeats": 1000,
+                    "stochastic": False,
+                    "seed": 7,
+                    "retain_samples": True,
+                    "ppe_error": False,
+                }
+                complete = (
+                    selected.method == "analytical"
+                    and selected.distance_weighting == "gpm neutral"
+                    and selected.fall_speed_profile == _LANDCLIM_FALL_SPEED_PROFILE
+                    and all(
+                        settings.get(key) == value
+                        for key, value in expected_settings.items()
+                    )
+                    and not {
+                        "regional_basin_type",
+                        "regional_basin_diameter_m",
+                    }
+                    & set(settings)
+                )
+            except Exception:
+                complete = False
     elif capability == OPTIMIZED_RING_TAXON_CAPABILITY:
         config_type = getattr(api, "LoveConfig", None)
         profile_type = getattr(api, "OptimizedLoveProfile", None)

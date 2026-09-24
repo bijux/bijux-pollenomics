@@ -12,6 +12,7 @@ from bijux_pollenomics_lra.models.configuration import (
     LoveConfig,
     LoveMethod,
     OptimizedLoveProfile,
+    RegionalDrawLoveConfig,
 )
 from bijux_pollenomics_lra.models.errors import ConvergenceError, ValidationError
 from bijux_pollenomics_lra.models.regional_draw_source import RegionalCoverDrawSource
@@ -44,7 +45,7 @@ def love_compatibility_mode(config: LoveConfig) -> str:
 def _prepare_love_params(
     params: pd.DataFrame,
     taxa: list[str],
-    config: LoveConfig,
+    config: LoveConfig | RegionalDrawLoveConfig,
 ) -> dict[str, Any]:
     table = normalise_parameters(
         params,
@@ -57,19 +58,23 @@ def _prepare_love_params(
     if "Taxon" not in ppes.columns:
         ppes = ppes.rename(columns={ppes.columns[0]: "Taxon"})
     fallspeed = ppes[["Taxon", "fallspeed"]].copy(deep=True)
-    return {
+    result = {
         "ppes": ppes,
         "fallspeed": fallspeed,
-        "dBasinRegional": config.regional_basin_diameter_m,
         "dBasinLocal": config.local_basin_diameter_m,
-        "tBasinRegional": config.regional_basin_type,
-        "tBasin": config.regional_basin_type,
         "tBasinLocal": "lake",
         "dwm": config.distance_weighting,
         "fall_speed_profile": config.fall_speed_profile,
         "repeats": config.repeats,
         "error": bool(config.ppe_error),
     }
+    if isinstance(config, LoveConfig):
+        result.update(
+            dBasinRegional=config.regional_basin_diameter_m,
+            tBasinRegional=config.regional_basin_type,
+            tBasin=config.regional_basin_type,
+        )
+    return result
 
 
 def run_love(
@@ -77,7 +82,7 @@ def run_love(
     regional_pollen: pd.DataFrame | None,
     params: pd.DataFrame,
     rings: pd.DataFrame,
-    config: LoveConfig,
+    config: LoveConfig | RegionalDrawLoveConfig,
     *,
     replay_candidates: object | None = None,
     regional_cover_draws: object | None = None,
@@ -89,6 +94,11 @@ def run_love(
 ) -> LoveResult:
     """Run analytical or optimized Python LOVE for one paired sample."""
     local_table = frame(local_pollen, "local_pollen")
+    if isinstance(config, RegionalDrawLoveConfig) and _draw_source is None:
+        raise ValidationError(
+            "RegionalDrawLoveConfig is valid only for authenticated draw-only LOVE",
+            reason_code="invalid_draw_only_love",
+        )
     if regional_pollen is None and _draw_source is None:
         raise ValidationError(
             "Regional pollen is required outside draw-only LOVE",
@@ -106,6 +116,7 @@ def run_love(
             )
     if _draw_source is not None and (
         regional_table is not None
+        or not isinstance(config, RegionalDrawLoveConfig)
         or not isinstance(_local_site_id, str)
         or not _local_site_id.strip()
         or not isinstance(_local_sample_id, str)
@@ -256,6 +267,16 @@ def run_love(
             ),
         )
 
+    if not isinstance(config, LoveConfig):
+        raise ValidationError(
+            "Draw-only LOVE supports the analytical method only",
+            reason_code="invalid_draw_only_love",
+        )
+    if regional_table is None:
+        raise ValidationError(
+            "Regional pollen is required for optimized LOVE",
+            reason_code="regional_pollen_required",
+        )
     if local_ppe_draws is not None:
         raise ValidationError(
             "Optimized LOVE does not consume local_ppe_draws in this profile"
@@ -380,7 +401,7 @@ def run_love_from_regional_draws(
     draw_source: RegionalCoverDrawSource,
     params: pd.DataFrame,
     rings: pd.DataFrame,
-    config: LoveConfig,
+    config: RegionalDrawLoveConfig,
     *,
     local_site_id: str,
     local_sample_id: str,

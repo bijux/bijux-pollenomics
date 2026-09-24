@@ -10,8 +10,9 @@ from bijux_pollenomics_lra.models.configuration import (
     ForwardConfig,
     LoveConfig,
     LoveMethod,
-    OptimizedLoveProfile,
     LRAConfig,
+    OptimizedLoveProfile,
+    RegionalDrawLoveConfig,
     RevealsConfig,
 )
 from bijux_pollenomics_lra.models.errors import (
@@ -104,6 +105,7 @@ __all__ = [
     "MultisiteRevealsInput",
     "MultisiteRevealsResult",
     "RegionalCoverDrawSource",
+    "RegionalDrawLoveConfig",
     "PollenObservationDraws",
     "PreparedForwardInputs",
     "PublicationRevealsConfig",
