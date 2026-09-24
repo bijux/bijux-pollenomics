@@ -9,7 +9,10 @@ from bijux_pollenomics.collection.sources.sead.acquisition.admission import (
 )
 
 from ..models import AdmissionReport
+from .frontier import SeadLraFrontier, assess_sead_lra_frontier
 from .workflow import run_audit
+
+__all__ = ["SeadLraFrontier", "assess_sead_lra_frontier", "audit_sead_lra_source"]
 
 
 def audit_sead_lra_source(
