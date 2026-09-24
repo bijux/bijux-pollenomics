@@ -4,7 +4,7 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-09-21
+last_reviewed: 2026-09-24
 ---
 
 # EMPD2 reference candidate
@@ -61,6 +61,38 @@ matching another observation. We preserve the signed native values without
 converting them into calendar dates. Taxa/PPE, basin and footprint, count
 denominator, source identity, and temporal support still need review before
 numerical LRA or a four-country held-out benchmark can use these rows.
+
+## Danish historical paired-reference lead
+
+The official GEUS record for Nielsen and Odgaard (2005) describes a
+potentially valuable paper-internal calibration/test design: pollen
+assemblages and historical land-cover maps for 30 small Danish calibration
+lakes at about AD 1800, followed by nine distinct test sites. This is a
+source-recovery lead, not a locally available benchmark cohort. The exact
+2005 title and DOI match **zero** publication rows in the pinned EMPD2
+database, so they currently link to zero locally held EMPD2 samples.
+
+Seven broad publication-name matches containing Nielsen are different papers
+and cannot establish the missing identity. One of them is the related 2010
+Nielsen and Odgaard LRA paper. Its EMPD2 relation reaches exactly one Danish
+sample, `Nielsen_a1`, with native `agebp=-48`, age-uncertainty category `A`,
+44 pollen-count rows, `ispercent=0`, and `isdigitised=0`. That one modern
+metadata row does not identify any of the 30 circa-AD-1800 calibration lakes
+or nine 2005 test sites.
+
+The bounded source probe preserves the official GEUS page with SHA-256
+`c370fa01cd8efd25b7f9e0d0faf0af06328c9c38653d75dcef620d18bbf96348`.
+Its report SHA-256 is
+`3fede323ba15c6503344e1461c8835b9e6d5a699b08eb9a7801105eb76d6219d`;
+the separate 2010 metadata report SHA-256 is
+`1b6a6d53eb5c04e089680c37d4e403f8a25edc0c8c5e77c1752748db631048a4`.
+Before these publications can contribute an independent paired reference, the
+study still needs exact site identities, raw pollen counts, historical-map
+values and taxon crosswalk, chronology and footprint support, reuse rights,
+and a leakage-safe relation to every locally held sample. The present
+admission denominator remains **zero historical vegetation–pollen pairs**.
+No site-level historical-map label or numerical model score was accessed; the
+public abstract does disclose its qualitative ERV-versus-PLS RMSE conclusion.
 
 ## Swedish plot proximity screen
 
