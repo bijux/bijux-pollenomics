@@ -168,6 +168,25 @@ APPROVED_HOST_IMPORTS: dict[str, dict[str, frozenset[str]]] = {
             {"canonical_json"}
         ),
     },
+    "bijux_pollenomics_dev/source_completion/hyde_nordic_window.py": {
+        "bijux_pollenomics.collection.sources.hyde.ascii": frozenset(
+            {"NativeAsciiWindow", "read_hyde_ascii_window"}
+        ),
+        "bijux_pollenomics.collection.sources.hyde.ascii.geometry": frozenset(
+            {"native_axis_geometry"}
+        ),
+        "bijux_pollenomics.collection.sources.hyde.local.contracts": frozenset(
+            {"checked_path", "decode", "digest", "encode", "sha256"}
+        ),
+        "bijux_pollenomics.collection.sources.hyde.netcdf": frozenset(
+            {
+                "HydeNetcdfDeclarationInventory",
+                "read_hyde_netcdf_declaration_inventory",
+            }
+        ),
+        "bijux_pollenomics.collection.sources.quarantine": frozenset({"IntakeRefusal"}),
+        "bijux_pollenomics.core.owned_tree": frozenset({"publish_new_output_tree"}),
+    },
     "bijux_pollenomics_dev/taxa_review/neotoma.py": {
         "bijux_pollenomics.evidence.classification": frozenset(
             {"build_neotoma_classification_accounting"}

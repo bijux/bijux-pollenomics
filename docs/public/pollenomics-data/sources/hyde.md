@@ -4,7 +4,7 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-09-21
+last_reviewed: 2026-09-24
 ---
 
 # HYDE 3.5
@@ -148,6 +148,26 @@ native reads, including edge orientation, missingness, zeros and member hashes.
 These scenarios are not pointwise bounds: the inspected lower scenario exceeds
 base at source row 230, column 2479. This preview evidence is distinct from
 scientific admission or a vegetation reconstruction test.
+
+The private Nordic-intent bundle extends that byte-bound source-index coverage
+to the same 72,576 positions in each of the base, lower and upper scenario
+members: 72,576 unique positions and 217,728 scenario-token instances. Each
+scenario has 29,217 missing and 43,359 nonmissing cells; the source-native
+numeric-zero counts are 15,307 for base, 15,158 for lower and 15,332 for upper.
+The bundle authenticates each child window and its exact archive and member
+identity, binds their common custody-manifest identity, and authenticates four
+compact declaration parents. It preserves raw tokens, missingness, numeric
+zeros, literal header values and native-axis edges without computing scenario
+totals, means, extrema, areas, fractions or cross-scenario comparisons. The
+names `lower` and `upper` remain source labels; they are not interpreted as
+pointwise ordering or confidence bounds.
+
+Sweden, Denmark, Norway and Finland are recorded as requested country intents,
+not as derived partitions of this rectangular source-axis window. Each country
+row therefore retains null selected-cell, nonmissing-cell, cell-area and value
+quantities, with country projection explicitly not materialized. The bundle
+does not assign remainder cells to an invented unassigned country and does not
+advance HYDE's refused country-ledger entries.
 
 ## Country accounting
 
