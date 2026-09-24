@@ -4,6 +4,7 @@ from .assimilation import prepare_local_pollen_predictions
 from .block_assimilation import prepare_spatial_block_local_pollen_predictions
 from .configuration import (
     ExperimentSpec,
+    SourceExperimentSpec,
     FittedSpatialExperimentSpec,
     LocalPollenSpec,
     SpatialBlockExperimentSpec,
@@ -34,6 +35,7 @@ __all__ = [
     "read_spatial_block_predictions",
     "prepare_fitted_spatial_predictions",
     "ExperimentSpec",
+    "SourceExperimentSpec",
     "LocalPollenSpec",
     "ExperimentProduct",
     "read_experiment_product",

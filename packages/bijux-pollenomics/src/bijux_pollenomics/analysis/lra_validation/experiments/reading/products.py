@@ -20,6 +20,7 @@ from ..configuration import (
     LOCAL_EVALUATION_ROLES,
     LOCAL_METHOD,
     PROFILE,
+    SOURCE_PROFILE,
     SpatialBlockLocalPollenSpec,
     identity,
     object_list,
@@ -251,7 +252,7 @@ def read_withheld_predictions(
     product, manifest = read_experiment_product(
         directory, expected_manifest_sha256=expected_manifest_sha256
     )
-    if manifest["profile"] not in {PROFILE, FITTED_PROFILE}:
+    if manifest["profile"] not in {PROFILE, SOURCE_PROFILE, FITTED_PROFILE}:
         raise ValidationRefusal(
             "experiment_outcome_profile_mismatch",
             "Require an explicit all-target-pollen-withheld profile",

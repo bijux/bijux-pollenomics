@@ -24,6 +24,7 @@ from ...analysis.lra_validation.experiments.configuration import (
     FITTED_PROFILE,
     LOCAL_PROFILE,
     PROFILE,
+    SOURCE_PROFILE,
     TEMPORAL_PROFILE,
 )
 from ...analysis.lra_validation.experiments.outputs import (
@@ -62,7 +63,7 @@ def run_lra_experiment_command(args: argparse.Namespace) -> int:
             request = read_object(args.request)
             profile = request.get("profile")
             prepare: _PredictionOperation
-            if profile == PROFILE:
+            if profile == PROFILE or profile == SOURCE_PROFILE:
                 prepare = prepare_experiment_predictions
             elif profile == LOCAL_PROFILE:
                 prepare = prepare_local_pollen_predictions

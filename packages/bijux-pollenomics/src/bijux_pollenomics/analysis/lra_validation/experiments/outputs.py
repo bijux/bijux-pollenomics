@@ -30,6 +30,7 @@ from .configuration import (
     LOCAL_METHOD,
     LOCAL_PROFILE,
     PROFILE,
+    SOURCE_PROFILE,
     TEMPORAL_PROFILE,
     identity,
     object_list,
@@ -91,6 +92,7 @@ def publish_phase(
     """Publish only an enumerated phase; failures must already be accounted for."""
     if profile not in {
         PROFILE,
+        SOURCE_PROFILE,
         LOCAL_PROFILE,
         FITTED_PROFILE,
         BLOCK_PROFILE,
@@ -143,6 +145,7 @@ def read_experiment_product(
             or manifest.get("profile")
             not in {
                 PROFILE,
+                SOURCE_PROFILE,
                 LOCAL_PROFILE,
                 FITTED_PROFILE,
                 BLOCK_PROFILE,

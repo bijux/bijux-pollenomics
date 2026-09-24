@@ -4,22 +4,25 @@ from __future__ import annotations
 
 from collections.abc import Mapping
 from pathlib import Path
+from typing import cast
 
 from ..contracts import ValidationRefusal, finite_number, manifest_sha256
 from .configuration import (
     BLOCK_BASELINE_METHOD,
     BLOCK_PROFILE,
     FITTED_PROFILE,
+    SOURCE_PROFILE,
     InputReference,
     identity,
     object_list,
     object_mapping,
 )
-from .inputs import read_reference
+from .inputs import SAMPLE_FIELDS, read_reference
 from .outputs import (
     ExperimentProduct,
     publish_phase,
     read_experiment_product,
+    read_member,
     stage_directory,
     write_json,
 )
@@ -37,7 +40,7 @@ def score_experiment_predictions(
     destination: Path,
     purpose: str = "exploratory",
 ) -> ExperimentProduct:
-    """Score both synthetic targets separately; final mode is refused before access."""
+    """Score declared withheld targets separately after prediction authentication."""
     if purpose != "exploratory":
         raise ValidationRefusal(
             "final_experiment_not_implemented",
@@ -55,14 +58,17 @@ def score_experiment_predictions(
             destination=destination,
         )
 
-    if (
-        set(inventory) != {"schema_version", "data_kind", "records"}
-        or inventory["schema_version"] != "lra-experiment-outcomes.v1"
-        or inventory["data_kind"] != "synthetic"
-    ):
+    source_inventory = inventory.get("data_kind") == "source_observations"
+    if set(inventory) != {"schema_version", "data_kind", "records"} or (
+        inventory["schema_version"],
+        inventory["data_kind"],
+    ) not in {
+        ("lra-experiment-outcomes.v1", "synthetic"),
+        ("lra-source-pollen-outcomes.v1", "source_observations"),
+    }:
         raise ValidationRefusal(
             "unsupported_experiment_outcomes",
-            "Initial scoring inventory must explicitly declare synthetic data",
+            "Declare a supported outcome inventory and source posture",
         )
     references = {
         identity(key): InputReference.parse(value, key)
@@ -84,10 +90,47 @@ def score_experiment_predictions(
             "Outcome references must name held-out catalogue records",
         )
     profile = identity(manifest["profile"])
+    if source_inventory != (profile == SOURCE_PROFILE):
+        raise ValidationRefusal(
+            "experiment_outcome_profile_mismatch",
+            "Outcome source posture differs from the prediction profile",
+        )
+    source_taxa: tuple[str, ...] = ()
+    source_sites: dict[str, dict[str, object]] = {}
+    if source_inventory:
+        metadata = object_mapping(read_member(product, "experiment.json"), "experiment")
+        source_taxa = tuple(
+            identity(taxon)
+            for taxon in object_list(
+                object_mapping(metadata["request_template"], "request_template")[
+                    "taxa"
+                ],
+                "taxa",
+            )
+        )
+        source_sites = {
+            identity(site["record_id"]): site
+            for value in object_list(metadata["source_catalogue"], "source_catalogue")
+            if (site := object_mapping(value, "site"))
+        }
+        for record_id, reference in references.items():
+            declared_site = source_sites.get(record_id)
+            if declared_site is None or (
+                reference.path != declared_site["raw_path"]
+                or reference.sha256 != declared_site["raw_sha256"]
+            ):
+                raise ValidationRefusal(
+                    "source_outcome_reference_mismatch",
+                    "Observed pollen must reopen the exact declared raw source",
+                )
     method_field = (
         "method" if profile in {FITTED_PROFILE, BLOCK_PROFILE} else "baseline"
     )
-    targets = ("vegetation_cover", "pollen_composition")
+    targets = (
+        ("pollen_composition",)
+        if source_inventory
+        else ("vegetation_cover", "pollen_composition")
+    )
     stage = stage_directory(destination)
     scores: list[dict[str, object]] = []
     observations: dict[str, dict[str, object]] = {}
@@ -121,7 +164,43 @@ def score_experiment_predictions(
                     write_json(stage, "outcome_access.json", accesses)
                     try:
                         value = read_reference(outcome_root, references[record_id])
-                        if (
+                        if source_inventory:
+                            site = source_sites[record_id]
+                            sample = object_mapping(value.get("sample"), "sample")
+                            counts = object_list(sample.get("counts"), "counts")
+                            if (
+                                set(value) != {"data_kind", "taxa", "sample"}
+                                or value["data_kind"] != "source_observations"
+                                or value["taxa"] != list(source_taxa)
+                                or set(sample) != SAMPLE_FIELDS | {"counts"}
+                                or sample.get("site_id") != site["site_id"]
+                                or sample.get("bin_id") != prediction["bin_id"]
+                                or len(counts) != len(source_taxa)
+                                or any(
+                                    type(count) is not int or count < 0
+                                    for count in counts
+                                )
+                                or not 0
+                                < sum(cast(int, count) for count in counts)
+                                <= 2**53
+                            ):
+                                raise ValidationRefusal(
+                                    "observation_identity_mismatch", record_id
+                                )
+                            identity(sample["sample_id"])
+                            value = {
+                                "schema_version": "lra-source-pollen-observation.v1",
+                                "data_kind": "source_observations",
+                                "record_id": record_id,
+                                "sample_id": sample["sample_id"],
+                                "bin_id": sample["bin_id"],
+                                "pollen_unit": "count",
+                                "pollen_count": dict(
+                                    zip(source_taxa, counts, strict=True)
+                                ),
+                                "source_raw_sha256": references[record_id].sha256,
+                            }
+                        elif (
                             set(value)
                             != {
                                 "schema_version",
@@ -157,6 +236,8 @@ def score_experiment_predictions(
                     "error_unit": "fraction",
                     "bin_id": None if prediction is None else prediction["bin_id"],
                 }
+                if source_inventory:
+                    row["evaluation_role"] = "heldout_pollen_prediction"
                 if profile in {FITTED_PROFILE, BLOCK_PROFILE}:
                     method_kind = (
                         "admitted_reconstruction_training_mean"

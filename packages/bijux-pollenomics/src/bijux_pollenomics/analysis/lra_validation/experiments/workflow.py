@@ -12,7 +12,11 @@ from ...lra.engine.discovery import load_engine
 from ...lra.outputs.identity import capture_code_identity, verify_code_identity
 from ..contracts import ValidationRefusal, manifest_sha256
 from ..splits import grouped_leave_one_out
-from .configuration import PROFILE, ExperimentSpec
+from .configuration import (
+    SOURCE_PROFILE,
+    ExperimentSpec,
+    SourceExperimentSpec,
+)
 from .inputs import verify_consumed_sources
 from .outputs import ExperimentProduct, publish_phase, stage_directory, write_json
 from .prediction import predict_fold
@@ -37,7 +41,12 @@ def prepare_experiment_predictions(
     workers: int = 1,
 ) -> ExperimentProduct:
     """Run actual source-profile inversions; no scoring inventory is accepted."""
-    spec = spec if isinstance(spec, ExperimentSpec) else ExperimentSpec(spec)
+    if not isinstance(spec, ExperimentSpec):
+        spec = (
+            SourceExperimentSpec(spec)
+            if spec.get("profile") == SOURCE_PROFILE
+            else ExperimentSpec(spec)
+        )
     LRABatchLimits(max_workers=workers)
     if workers > (os.cpu_count() or 1):
         raise ValidationRefusal("experiment_worker_budget_exceeded", str(workers))
@@ -144,7 +153,7 @@ def prepare_experiment_predictions(
     verify_code_identity(binding, identity)
     fold_rows = [fold.as_dict() for fold in folds]
     scientific: dict[str, object] = {
-        "profile": PROFILE,
+        "profile": spec.profile,
         "experiment": "all_target_pollen_withheld",
         "folds": fold_rows,
         "baselines": spec.baselines,
@@ -166,7 +175,7 @@ def prepare_experiment_predictions(
         stage,
         "experiment.json",
         {
-            "profile": PROFILE,
+            "profile": spec.profile,
             "request_template": spec.template(),
             "regional_priority": spec.regional_priority,
             "local_ring_count": spec.local_ring_count,
@@ -203,4 +212,10 @@ def prepare_experiment_predictions(
         geometry_record_ids=consumed_geometry,
         template_used=bool(consumed_pollen),
     )
-    return publish_phase(stage, destination, phase="predictions", scientific=scientific)
+    return publish_phase(
+        stage,
+        destination,
+        phase="predictions",
+        scientific=scientific,
+        profile=spec.profile,
+    )

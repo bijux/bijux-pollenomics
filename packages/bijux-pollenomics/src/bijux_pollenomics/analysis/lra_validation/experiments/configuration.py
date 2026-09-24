@@ -1,4 +1,4 @@
-"""Immutable synthetic experiment scope and deferred source references."""
+"""Immutable experiment scope and deferred source references."""
 
 from __future__ import annotations
 
@@ -7,7 +7,7 @@ from dataclasses import dataclass, replace
 import json
 from pathlib import PurePosixPath
 import re
-from typing import Literal, cast
+from typing import ClassVar, Literal, cast
 
 from ..contracts import (
     SiteRecord,
@@ -22,6 +22,7 @@ from ..contracts import (
 Baseline = Literal["training_mean", "nearest_site", "inverse_distance_squared"]
 BASELINES = ("training_mean", "nearest_site", "inverse_distance_squared")
 PROFILE = "synthetic-withheld-site-baselines-v1"
+SOURCE_PROFILE = "source-observations-withheld-site-baselines-v1"
 TEMPORAL_PROFILE = "synthetic-forward-time-persistence-v1"
 FITTED_PROFILE = "synthetic-withheld-site-fitted-spatial-v1"
 BLOCK_PROFILE = "synthetic-spatial-block-fitted-v1"
@@ -138,7 +139,7 @@ def _scope(
     if row["schema_version"] != "lra-experiment.v1" or row["profile"] != profile:
         raise ValidationRefusal(
             "unsupported_experiment_profile",
-            "Only the explicit synthetic exploratory profile is implemented",
+            "Declare an implemented exploratory profile",
         )
     count = row["local_ring_count"]
     if isinstance(count, bool) or not isinstance(count, int) or count < 1:
@@ -195,7 +196,10 @@ def _scope(
             "invalid_experiment",
             "Regional priority must name unique catalogued records",
         )
-    template = validate_template(row["request_template"])
+    template = validate_template(
+        row["request_template"],
+        data_kind="source_observations" if profile == SOURCE_PROFILE else "synthetic",
+    )
     return ExperimentScope(
         tuple(sites),
         priority,
@@ -206,17 +210,20 @@ def _scope(
     )
 
 
-def validate_template(value: object) -> dict[str, object]:
-    """Admit the common synthetic template before execution or retained reopening."""
+def validate_template(
+    value: object, *, data_kind: str = "synthetic"
+) -> dict[str, object]:
+    """Admit a declared source posture before execution or retained reopening."""
     template = object_mapping(value, "request_template")
     if (
-        template.get("data_kind") != "synthetic"
+        data_kind not in {"synthetic", "source_observations"}
+        or template.get("data_kind") != data_kind
         or template.get("purpose") != "exploratory"
         or template.get("operation") != "lra"
     ):
         raise ValidationRefusal(
             "unsupported_experiment_profile",
-            "Real/final experiments require a separately implemented reviewed policy",
+            "Template source posture must match its exploratory experiment profile",
         )
     if any(key in template for key in ("local", "regional", "rings")):
         raise ValidationRefusal(
@@ -277,10 +284,11 @@ def validate_template(value: object) -> dict[str, object]:
 class ExperimentSpec(ExperimentScope):
     """All target pollen withheld; explicit spatial baselines only."""
 
+    profile: ClassVar[str] = PROFILE
     baselines: tuple[Baseline, ...]
 
     def __init__(self, payload: Mapping[str, object]) -> None:
-        scope = _scope(payload, profile=PROFILE, selection_field="baselines")
+        scope = _scope(payload, profile=self.profile, selection_field="baselines")
         row = object_mapping(payload, "experiment")
         methods = object_list(row["baselines"], "baselines")
         if (
@@ -302,6 +310,12 @@ class ExperimentSpec(ExperimentScope):
         object.__setattr__(
             self, "baselines", cast(tuple[Baseline, ...], tuple(methods))
         )
+
+
+class SourceExperimentSpec(ExperimentSpec):
+    """Exploratory source observations with all target pollen withheld."""
+
+    profile: ClassVar[str] = SOURCE_PROFILE
 
 
 @dataclass(frozen=True, init=False)

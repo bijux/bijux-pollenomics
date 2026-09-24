@@ -14,9 +14,21 @@ from bijux_pollenomics.analysis.lra_validation.experiments.configuration import 
     TRAINING_MEAN_METHOD,
     InputReference,
     SpatialBlockLocalPollenSpec,
+    SourceExperimentSpec,
 )
 
-from .test_inputs import fixture_inputs
+from .test_inputs import fixture_inputs, source_fixture_inputs
+
+
+def test_explicit_source_profile_accepts_only_source_posture(tmp_path: Path) -> None:
+    payload = source_fixture_inputs(tmp_path)
+    spec = SourceExperimentSpec(payload)
+    assert spec.template()["data_kind"] == "source_observations"
+    with pytest.raises(ValidationRefusal):
+        ExperimentSpec(payload)
+    payload["request_template"]["data_kind"] = "synthetic"
+    with pytest.raises(ValidationRefusal):
+        SourceExperimentSpec(payload)
 
 
 def test_spatial_block_methods_have_one_ordered_fitted_baseline_pair() -> None:

@@ -15,6 +15,8 @@ from bijux_pollenomics.analysis.lra_validation import (
 from bijux_pollenomics.analysis.lra_validation.experiments.configuration import (
     ExperimentSpec,
     InputReference,
+    SOURCE_PROFILE,
+    SourceExperimentSpec,
     object_list,
     object_mapping,
 )
@@ -145,6 +147,55 @@ def fixture_inputs(root: Path, count: int = 4) -> dict[str, Any]:
         "support_profile": "same-outer-radius-homogeneous-v1",
         "request_template": template,
     }
+
+
+def source_fixture_inputs(root: Path) -> dict[str, Any]:
+    """Construct software-only source-posture inputs without an empirical claim."""
+    payload = fixture_inputs(root)
+    payload["profile"] = SOURCE_PROFILE
+    payload["request_template"]["data_kind"] = "source_observations"
+    for site in payload["sites"]:
+        raw = site["raw"]
+        value = json.loads((root / raw["path"]).read_text())
+        value["data_kind"] = "source_observations"
+        site["raw"] = store(root, raw["path"], value)
+    return payload
+
+
+def test_source_observation_reader_keeps_declared_posture(tmp_path: Path) -> None:
+    spec = SourceExperimentSpec(source_fixture_inputs(tmp_path))
+    fold = grouped_leave_one_out([site.record for site in spec.sites])[0]
+    training = next(
+        site for site in spec.sites if site.record.record_id in fold.train_record_ids
+    )
+    assert read_training_observation(tmp_path, training, fold, spec)["counts"]
+    raw = training.raw
+    value = read_reference(tmp_path, raw)
+    value["data_kind"] = "synthetic"
+    from dataclasses import replace
+
+    wrong = replace(
+        training, raw=InputReference.parse(store(tmp_path, "wrong.json", value), "raw")
+    )
+    with pytest.raises(ValidationRefusal, match="Observation source posture"):
+        read_training_observation(tmp_path, wrong, fold, spec)
+
+
+def test_source_aliases_cannot_cross_a_heldout_fold(tmp_path: Path) -> None:
+    payload = source_fixture_inputs(tmp_path)
+    payload["sites"][0]["identity_keys"] = ["shared-core"]
+    payload["sites"][1]["identity_keys"] = ["shared-core"]
+    spec = SourceExperimentSpec(payload)
+    fold = next(
+        fold
+        for fold in grouped_leave_one_out([site.record for site in spec.sites])
+        if "p01" in fold.test_record_ids
+    )
+    assert set(fold.test_record_ids) == {"p01", "p02"}
+    for site in spec.sites[:2]:
+        with pytest.raises(ValidationRefusal) as error:
+            read_training_observation(tmp_path, site, fold, spec)
+        assert error.value.reason_code == "withheld_input_leakage"
 
 
 def test_withheld_raw_is_refused_before_file_access(tmp_path: Path) -> None:

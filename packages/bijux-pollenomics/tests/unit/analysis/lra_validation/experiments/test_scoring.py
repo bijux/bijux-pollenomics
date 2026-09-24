@@ -15,6 +15,7 @@ from bijux_pollenomics.analysis.lra_validation import (
 )
 from bijux_pollenomics.analysis.lra_validation.experiments.configuration import (
     ExperimentSpec,
+    SourceExperimentSpec,
 )
 from bijux_pollenomics.analysis.lra_validation.experiments.outputs import (
     ExperimentProduct,
@@ -33,11 +34,17 @@ from .reading.test_provenance import (
     retained_fold_evidence,
     write_retained_evidence,
 )
-from .test_inputs import fixture_inputs, store
+from .test_inputs import fixture_inputs, source_fixture_inputs, store
 
 
-def prediction_product(root: Path) -> tuple[ExperimentProduct, dict[str, Any]]:
-    spec = ExperimentSpec(fixture_inputs(root / "inputs"))
+def prediction_product(
+    root: Path, *, source: bool = False
+) -> tuple[ExperimentProduct, dict[str, Any]]:
+    spec = (
+        SourceExperimentSpec(source_fixture_inputs(root / "inputs"))
+        if source
+        else ExperimentSpec(fixture_inputs(root / "inputs"))
+    )
     folds = grouped_leave_one_out([site.record for site in spec.sites])
     methods: list[Literal["training_mean", "nearest_site"]] = [
         "training_mean",
@@ -58,19 +65,24 @@ def prediction_product(root: Path) -> tuple[ExperimentProduct, dict[str, Any]]:
             spec, record, training
         )
         predictors = tuple(training["predictor_group_ids"])
-        outcomes[record] = store(
-            root / "inputs",
-            record + "-outcome.json",
-            {
-                "schema_version": "lra-experiment-observation.v1",
-                "data_kind": "synthetic",
-                "record_id": record,
-                "bin_id": "test-bin",
-                "vegetation_unit": "fraction",
-                "pollen_unit": "count",
-                "vegetation_fraction": {"Alnus": 0.5, "Betula": 0.5},
-                "pollen_count": {"Alnus": 6, "Betula": 4},
-            },
+        outcome = {
+            "schema_version": "lra-experiment-observation.v1",
+            "data_kind": "synthetic",
+            "record_id": record,
+            "bin_id": "test-bin",
+            "vegetation_unit": "fraction",
+            "pollen_unit": "count",
+            "vegetation_fraction": {"Alnus": 0.5, "Betula": 0.5},
+            "pollen_count": {"Alnus": 6, "Betula": 4},
+        }
+        outcomes[record] = (
+            next(
+                site.raw.__dict__
+                for site in spec.sites
+                if site.record.record_id == record
+            )
+            if source
+            else store(root / "inputs", record + "-outcome.json", outcome)
         )
         from bijux_pollenomics.analysis.lra_validation.prediction import (
             ForwardInputs,
@@ -135,7 +147,7 @@ def prediction_product(root: Path) -> tuple[ExperimentProduct, dict[str, Any]]:
                 }
             )
     scientific: dict[str, object] = {
-        "profile": "synthetic-withheld-site-baselines-v1",
+        "profile": spec.profile,
         "experiment": "all_target_pollen_withheld",
         "uncertainty_status": "point_predictions_only_intervals_not_implemented",
         "interrupted": False,
@@ -158,7 +170,7 @@ def prediction_product(root: Path) -> tuple[ExperimentProduct, dict[str, Any]]:
         stage,
         "experiment.json",
         {
-            "profile": "synthetic-withheld-site-baselines-v1",
+            "profile": spec.profile,
             "request_template": spec.template(),
             "regional_priority": spec.regional_priority,
             "local_ring_count": spec.local_ring_count,
@@ -179,12 +191,58 @@ def prediction_product(root: Path) -> tuple[ExperimentProduct, dict[str, Any]]:
         },
     )
     return publish_phase(
-        stage, destination, phase="predictions", scientific=scientific
+        stage,
+        destination,
+        phase="predictions",
+        scientific=scientific,
+        profile=spec.profile,
     ), {
-        "schema_version": "lra-experiment-outcomes.v1",
-        "data_kind": "synthetic",
+        "schema_version": (
+            "lra-source-pollen-outcomes.v1" if source else "lra-experiment-outcomes.v1"
+        ),
+        "data_kind": "source_observations" if source else "synthetic",
         "records": outcomes,
     }
+
+
+def test_source_profile_scores_only_withheld_observed_pollen(tmp_path: Path) -> None:
+    product, inventory = prediction_product(tmp_path, source=True)
+    read_withheld_predictions(
+        product.directory, expected_manifest_sha256=product.manifest_sha256
+    )
+    scored = score_experiment_predictions(
+        product.directory,
+        expected_manifest_sha256=product.manifest_sha256,
+        outcome_root=tmp_path / "inputs",
+        outcome_inventory=inventory,
+        destination=tmp_path / "score",
+    )
+    scores = json.loads((scored.directory / "scores.json").read_text())
+    assert len(scores) == 8
+    assert {row["target"] for row in scores} == {"pollen_composition"}
+    assert all(row["score"]["status"] == "scored" for row in scores)
+    assert all(row["score"]["observed_total_count"] == 1000 for row in scores)
+    assert all("vegetation_fraction" not in row["observation"] for row in scores)
+    original_sha256 = inventory["records"]["p01"]["sha256"]
+    inventory["records"]["p01"]["sha256"] = "0" * 64
+    with pytest.raises(ValidationRefusal, match="exact declared raw source"):
+        score_experiment_predictions(
+            product.directory,
+            expected_manifest_sha256=product.manifest_sha256,
+            outcome_root=tmp_path / "inputs",
+            outcome_inventory=inventory,
+            destination=tmp_path / "wrong-source",
+        )
+    inventory["records"]["p01"]["sha256"] = original_sha256
+    inventory["data_kind"] = "synthetic"
+    with pytest.raises(ValidationRefusal):
+        score_experiment_predictions(
+            product.directory,
+            expected_manifest_sha256=product.manifest_sha256,
+            outcome_root=tmp_path / "inputs",
+            outcome_inventory=inventory,
+            destination=tmp_path / "rejected",
+        )
 
 
 def test_final_access_refused_before_any_paths_are_opened(tmp_path: Path) -> None:

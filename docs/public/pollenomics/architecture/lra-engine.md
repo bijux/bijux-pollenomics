@@ -196,8 +196,8 @@ Changing held-out pollen cannot affect that site's training fit or frozen
 prediction. Vegetation and pollen are scored separately; training mean, nearest
 site and inverse-distance-squared are named baselines. Their deterministic
 predictions have no predictive intervals, and overlapping-fold scores do not
-constitute independent fixed-model evaluation units. The first profile does not
-admit final evaluation or empirical source observations.
+constitute independent fixed-model evaluation units. The synthetic profile does
+not admit final evaluation or empirical source observations.
 
 The host CLI exposes the same two phases. Set the existing batch service's
 numerical thread controls, prepare the declared synthetic experiment, and retain
@@ -215,10 +215,11 @@ bijux-pollenomics score-lra-experiment predictions \
 ```
 
 Preparation dispatches the explicit request `profile`: synthetic withheld-site
-baselines, fitted spatial prediction, or local-pollen assimilation. Local-pollen
-scoring accepts the separate vegetation-only outcome inventory; its pollen
-comparison remains an in-sample diagnostic. All profiles report the requested
-prediction count and retain their own target roles.
+baselines, source-observation withheld-site baselines, fitted spatial prediction,
+or local-pollen assimilation. Local-pollen scoring accepts the separate
+vegetation-only outcome inventory; its pollen comparison remains an in-sample
+diagnostic. All profiles report the requested prediction count and retain their
+own target roles.
 
 The scoring command verifies the expected prediction identity before opening the
 outcome inventory. Both commands emit JSON identifying the saved product and its
@@ -228,6 +229,18 @@ Scoring exits `2` if any requested score is missing, refused or excluded. A zero
 exit reports operational success; `scientific_acceptance` remains
 `not_evaluated`. The original prediction and separate score products retain all
 requested denominators and target-specific results.
+
+The exploratory `source-observations-withheld-site-baselines-v1` profile requires
+`request_template.data_kind: source_observations` and raw observation files with
+the same declared data kind. It uses the same train-only grouped folds and
+source-byte checks as the synthetic baselines. The separate scoring inventory
+uses `schema_version: lra-source-pollen-outcomes.v1` and
+`data_kind: source_observations`; each record reference must point to the exact
+raw file and SHA-256 recorded in the prediction catalogue. Scoring opens those
+counts after prediction authentication and emits only held-out pollen scores.
+Predicted vegetation is not measured vegetation accuracy. Source identity,
+chronology, basin geometry, taxa, parameters and permissions still need an
+eligible cohort; this software profile does not grant source or release approval.
 
 `prepare_local_pollen_predictions` adds the distinct synthetic
 local-pollen-available profile. It runs actual paired regional REVEALS and target

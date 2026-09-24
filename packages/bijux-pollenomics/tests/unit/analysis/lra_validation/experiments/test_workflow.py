@@ -1,14 +1,83 @@
 """Public experiment orchestration refuses invalid budgets before work starts."""
 
+import json
 from pathlib import Path
 
 import pytest
 
 from bijux_pollenomics.analysis.lra_validation.experiments import (
     prepare_experiment_predictions,
+    read_withheld_predictions,
+    score_experiment_predictions,
 )
 
-from .test_inputs import fixture_inputs
+from .test_inputs import fixture_inputs, source_fixture_inputs, store
+
+
+def test_source_fixture_prepare_reopen_and_score(tmp_path: Path) -> None:
+    """Exercise the source-posture route on constructed software inputs only."""
+    inputs = tmp_path / "inputs"
+    payload = source_fixture_inputs(inputs)
+    product = prepare_experiment_predictions(
+        payload,
+        input_root=inputs,
+        cache_root=tmp_path / "cache",
+        destination=tmp_path / "prediction",
+    )
+    _, _, folds, predictions, methods = read_withheld_predictions(
+        product.directory, expected_manifest_sha256=product.manifest_sha256
+    )
+    assert len(folds) == 4
+    assert len(predictions) == 4 * len(methods)
+    training = json.loads((product.directory / "training.json").read_text())
+    assert all(
+        row["outer_fold"]["test_record_ids"][0]
+        not in {item["record_id"] for item in row["training_products"]}
+        for row in training
+    )
+    for (fold_id, _), row in predictions.items():
+        lineage = row["prediction_manifest"]["input_lineage"]
+        regional = next(
+            key for key in lineage if key.startswith("experiment-regional:")
+        )
+        assert set(lineage[regional]) == set(folds[fold_id]["train_record_ids"])
+        assert not set(lineage[regional]) & set(folds[fold_id]["test_record_ids"])
+    inventory = {
+        "schema_version": "lra-source-pollen-outcomes.v1",
+        "data_kind": "source_observations",
+        "records": {site["record_id"]: site["raw"] for site in payload["sites"]},
+    }
+    scored = score_experiment_predictions(
+        product.directory,
+        expected_manifest_sha256=product.manifest_sha256,
+        outcome_root=inputs,
+        outcome_inventory=inventory,
+        destination=tmp_path / "scores",
+    )
+    scores = json.loads((scored.directory / "scores.json").read_text())
+    assert len(scores) == len(predictions)
+    assert all(row["score"]["status"] == "scored" for row in scores)
+    target = payload["sites"][0]
+    raw = json.loads((inputs / target["raw"]["path"]).read_text())
+    raw["sample"]["counts"] = [100, 900]
+    target["raw"] = store(inputs, target["raw"]["path"], raw)
+    perturbed = prepare_experiment_predictions(
+        payload,
+        input_root=inputs,
+        cache_root=tmp_path / "perturbed-cache",
+        destination=tmp_path / "perturbed-prediction",
+    )
+    _, _, _, changed, _ = read_withheld_predictions(
+        perturbed.directory, expected_manifest_sha256=perturbed.manifest_sha256
+    )
+    heldout_fold = next(
+        fold_id
+        for fold_id, fold in folds.items()
+        if fold["test_record_ids"] == [target["record_id"]]
+    )
+    assert {key: row for key, row in predictions.items() if key[0] == heldout_fold} == {
+        key: row for key, row in changed.items() if key[0] == heldout_fold
+    }
 
 
 @pytest.mark.parametrize("workers", [0, -1, True, 1_000_000])
