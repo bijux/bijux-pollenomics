@@ -8,6 +8,10 @@ from typing import Any
 
 import pytest
 
+from bijux_pollenomics.analysis.lra_validation.channels import (
+    ObservationChannels,
+    PollenChannel,
+)
 from bijux_pollenomics.analysis.lra_validation.contracts import (
     Fold,
     SiteRecord,
@@ -18,16 +22,18 @@ from bijux_pollenomics.analysis.lra_validation.contracts import (
 )
 from bijux_pollenomics.analysis.lra_validation.evaluation.api import (
     FINAL_EVALUATION_RELEASE_PROFILE,
+    COHORT_DECISION_PROFILE,
     EvaluationPolicy,
     EvaluationScope,
     EvaluationSite,
     FinalEvaluationProtocol,
     FinalEvaluationReleaseAdmission,
+    FrozenEvaluationScope,
+    admit_reviewed_evaluation_cohort,
     admit_final_evaluation_release,
+    freeze_evaluation_scope,
     validate_evaluation_policy,
 )
-from bijux_pollenomics.analysis.lra_validation.splits import split_manifest
-
 from .support import ACCESS, policy_payload
 
 
@@ -38,10 +44,10 @@ def _records() -> tuple[SiteRecord, ...]:
     )
 
 
-def _scope(manifest: dict[str, object]) -> EvaluationScope:
-    fold_rows = manifest["folds"]
-    assert isinstance(fold_rows, list)
-    folds = tuple(Fold(**row) for row in fold_rows)
+def _frozen(
+    by_block: bool, *, reviewer_id: str = "reviewer:declared"
+) -> FrozenEvaluationScope:
+    records = _records()
     sites = tuple(
         EvaluationSite(
             record_id=record.record_id,
@@ -54,14 +60,49 @@ def _scope(manifest: dict[str, object]) -> EvaluationScope:
             pollen_observation_id=f"pollen:{record.record_id}",
             support=None,
         )
-        for record in _records()
+        for record in records
     )
-    return EvaluationScope(
-        "synthetic-release-boundary",
-        sites,
-        folds,
-        tuple((record.record_id, ()) for record in _records()),
-        ("a", "b"),
+    channels = tuple(
+        ObservationChannels(
+            record_id=record.record_id,
+            group_id=site_group_id((record.record_id,)),
+            pollen_channels=(PollenChannel(f"pollen:{record.record_id}", "a" * 64),),
+            vegetation_input_ids=(f"vegetation:{record.record_id}",),
+        )
+        for record in records
+    )
+    decisions = {
+        "schema_version": COHORT_DECISION_PROFILE,
+        "admission_id": "review:release-cohort",
+        "reviewer_id": reviewer_id,
+        "reviewer_authority": "declared_not_authenticated",
+        "decision_date": "2026-09-24",
+        "rationale": "Outcome-free identities were reviewed before release admission.",
+        "candidate_source_manifest_sha256": "b" * 64,
+        "outcome_access_status": "not_started",
+        "decisions": [
+            {
+                "record_id": record.record_id,
+                "decision": "admitted",
+                "reason_codes": ["reviewed_identity_and_support"],
+                "evidence_reference_ids": [f"evidence:{record.record_id}"],
+            }
+            for record in records
+        ],
+    }
+    cohort = admit_reviewed_evaluation_cohort(
+        canonical_json(decisions),
+        manifest_sha256(decisions),
+        records=records,
+        sites=sites,
+        observation_channels=channels,
+        dependency_graph=tuple((record.record_id, ()) for record in records),
+        taxa=("a", "b"),
+    )
+    return freeze_evaluation_scope(
+        cohort,
+        scope_id="synthetic-release-boundary",
+        by_block=by_block,
     )
 
 
@@ -90,25 +131,24 @@ def _policy(scope: EvaluationScope, *, omit: str | None = None) -> EvaluationPol
 
 
 def _protocols() -> tuple[FinalEvaluationProtocol, FinalEvaluationProtocol]:
-    records = _records()
-    grouped_manifest = split_manifest(records)
-    block_manifest = split_manifest(records, by_block=True)
-    grouped_scope = _scope(grouped_manifest)
-    block_scope = _scope(block_manifest)
+    grouped = _frozen(False)
+    block = _frozen(True)
     return (
         FinalEvaluationProtocol(
             "grouped_outer",
-            grouped_scope,
-            _policy(grouped_scope),
-            canonical_json(grouped_manifest),
-            manifest_sha256(grouped_manifest),
+            grouped.scope,
+            grouped.cohort_admission,
+            _policy(grouped.scope),
+            grouped.canonical_split_manifest_json,
+            grouped.split_manifest_sha256,
         ),
         FinalEvaluationProtocol(
             "spatial_block",
-            block_scope,
-            _policy(block_scope),
-            canonical_json(block_manifest),
-            manifest_sha256(block_manifest),
+            block.scope,
+            block.cohort_admission,
+            _policy(block.scope),
+            block.canonical_split_manifest_json,
+            block.split_manifest_sha256,
         ),
     )
 
@@ -120,6 +160,10 @@ def test_exact_six_cell_two_protocol_matrix_is_engineering_admitted() -> None:
     assert payload["engineering_admission"] == "admitted"
     assert payload["empirical_evaluation_performed"] is False
     assert payload["scientific_acceptance"] == "not_evaluated"
+    assert (
+        payload["cohort_admission_sha256"]
+        == payload["protocols"][0]["cohort_admission_sha256"]
+    )
     assert len(payload["protocols"]) == 2
     assert sum(len(protocol["cells"]) for protocol in payload["protocols"]) == 6
 
@@ -131,6 +175,14 @@ def test_missing_cell_or_protocol_refuses() -> None:
         admit_final_evaluation_release((incomplete, block))
     with pytest.raises(ValidationRefusal, match="exactly grouped-outer"):
         admit_final_evaluation_release((grouped,))
+
+
+def test_different_review_admission_between_protocols_refuses() -> None:
+    grouped, block = _protocols()
+    different = _frozen(True, reviewer_id="reviewer:different")
+    changed = replace(block, cohort_admission=different.cohort_admission)
+    with pytest.raises(ValidationRefusal, match="same cohort admission"):
+        admit_final_evaluation_release((grouped, changed))
 
 
 @pytest.mark.parametrize("mutation", ["kind", "digest"])
@@ -167,6 +219,7 @@ def test_arbitrary_group_disjoint_fold_is_not_a_canonical_grouped_outer_protocol
     changed = FinalEvaluationProtocol(
         "grouped_outer",
         scope,
+        grouped.cohort_admission,
         _policy(scope),
         canonical_json(manifest),
         manifest_sha256(manifest),
@@ -190,6 +243,7 @@ def test_spatial_protocol_refuses_train_test_members_of_one_block() -> None:
     changed = FinalEvaluationProtocol(
         "spatial_block",
         scope,
+        block.cohort_admission,
         _policy(scope),
         canonical_json(manifest),
         manifest_sha256(manifest),

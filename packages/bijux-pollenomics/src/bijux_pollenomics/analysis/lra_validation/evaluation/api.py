@@ -26,6 +26,16 @@ from .contracts import (
     freeze_evaluation_prediction,
     validate_frozen_prediction,
 )
+from .cohort import (
+    COHORT_ADMISSION_PROFILE,
+    COHORT_DECISION_PROFILE,
+    FrozenEvaluationScope,
+    ReviewedCohortAdmission,
+    ReviewedEvaluationCohort,
+    admit_reviewed_evaluation_cohort,
+    freeze_evaluation_scope,
+    validate_cohort_admission,
+)
 from .grouped_local_rows import adapt_authenticated_grouped_local_vegetation_rows
 from .grouped_products import (
     adapt_authenticated_grouped_withheld_pollen_rows,
@@ -119,6 +129,14 @@ __all__ = [
     "evaluate_final",
     "freeze_evaluation_prediction",
     "validate_frozen_prediction",
+    "COHORT_ADMISSION_PROFILE",
+    "COHORT_DECISION_PROFILE",
+    "FrozenEvaluationScope",
+    "ReviewedCohortAdmission",
+    "ReviewedEvaluationCohort",
+    "admit_reviewed_evaluation_cohort",
+    "freeze_evaluation_scope",
+    "validate_cohort_admission",
     "resample_independent_units",
     "validate_evaluation_policy",
     "AUTHENTICATED_CONDITIONAL_INTERVAL_PROFILE",
