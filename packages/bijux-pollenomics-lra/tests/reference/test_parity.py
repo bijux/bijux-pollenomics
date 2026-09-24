@@ -67,7 +67,9 @@ def test_prospective_optimized_declaration_is_frozen_and_covered(
         assert f"{declared.case_id}_intermediates" in prepared
         assert f"{declared.case_id}_taxon_axis" in prepared
         ring_axis = prepared[f"{declared.case_id}_ring_axis"]
-        assert ring_axis.exact_indices == tuple(range(len(ring_axis.expected)))
+        assert ring_axis.expected.dtype.kind in "USO"
+        assert ring_axis.exact_indices == ()
+        assert ring_axis.expected[10] == "24.8"
         wrapper = prepared[f"{declared.case_id}_wrapper_replay"]
         assert wrapper.exact_indices
         assert f"{declared.case_id}_nonfinite_objective" in prepared
@@ -77,6 +79,7 @@ def test_prospective_optimized_declaration_is_frozen_and_covered(
 def test_r_literals_escape_and_encode_arrays() -> None:
     assert r_literal('a"b') == '"a\\"b"'
     assert r_literal(np.nan) == "NA_real_"
+    assert r_literal(24.799999999999997) == "0x1.8ccccccccccccp+4"
     matrix = r_literal(np.array([[1, 2], [3, 4]]))
     assert matrix.startswith("array(c(") and "dim=c(2,2)" in matrix
 
@@ -100,7 +103,9 @@ def test_prepare_only_writes_explicit_nonexecution_report(
     )
     assert completed.returncode == 0, completed.stderr
     report = json.loads((output / "report.json").read_text())
+    oracle = (output / "oracle.R").read_text()
     assert report["status"] == "prepared_not_executed"
     assert report["live_R_executed"] is False
+    assert 'sprintf("%.17g",val)' in oracle
     assert (output / "python_expected_not_R_goldens.npz").is_file()
     assert (output / "oracle.R").is_file()

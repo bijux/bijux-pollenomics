@@ -89,7 +89,12 @@ def main(argv: list[str] | None = None) -> int:
           tryCatch({
             value<-eval(expression,envir=.GlobalEnv)
             if(is.list(value))value<-flatten_numeric(value)
-            if(is.character(value)){kind<-"character";val<-as.vector(value)}else{kind<-"numeric";val<-as.numeric(value)}
+            if(is.character(value)){
+              kind<-"character";val<-as.vector(value)
+            }else{
+              kind<-"numeric";val<-as.numeric(value)
+              val<-ifelse(is.na(val),"NaN",sprintf("%.17g",val))
+            }
             write.csv(data.frame(kind=rep(kind,length(val)),value=val),file.path(outdir,paste0(id,".csv")),row.names=FALSE,na="NaN")
             status[nrow(status)+1L,]<<-list(id,"completed","")
           },error=function(e){status[nrow(status)+1L,]<<-list(id,"error",conditionMessage(e))})
@@ -217,7 +222,9 @@ def main(argv: list[str] | None = None) -> int:
                     else "R output missing"
                 )
                 raise AssertionError(message)
-            raw = pd.read_csv(output / f"{case_id}.csv", keep_default_na=False)
+            raw = pd.read_csv(
+                output / f"{case_id}.csv", keep_default_na=False, dtype=str
+            )
             if case.expected.dtype.kind in "USO":
                 actual = raw["value"].astype(str).to_numpy()
                 np.testing.assert_array_equal(actual, case.expected.astype(str))

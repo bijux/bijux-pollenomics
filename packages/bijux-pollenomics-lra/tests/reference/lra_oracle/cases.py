@@ -104,7 +104,7 @@ def r_literal(value: object) -> str:
             return "Inf"
         if np.isneginf(number):
             return "-Inf"
-        return repr(number)
+        return number.hex()
     raise TypeError(f"Unsupported R literal type: {type(value)!r}")
 
 
@@ -414,12 +414,11 @@ def build_cases(workdir: str | Path) -> tuple[list[str], list[Case]]:
         add(
             f"{declared.case_id}_ring_axis",
             "LOVEoptim",
-            'as.numeric(rownames(F("calK")(lrings,lparams)))',
-            rings["mean"].to_numpy(dtype=float),
+            'rownames(F("calK")(lrings,lparams))',
+            [format(float(value), ".15g") for value in rings["mean"]],
             "prospective_fixed_input",
-            rtol=declaration.rtol,
-            atol=declaration.atol,
-            exact_indices=tuple(range(len(rings))),
+            rtol=0,
+            atol=0,
         )
 
         with warnings.catch_warnings():
