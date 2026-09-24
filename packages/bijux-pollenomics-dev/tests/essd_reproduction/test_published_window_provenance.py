@@ -9,6 +9,7 @@ import pytest
 
 from bijux_pollenomics_dev.essd_reproduction.published_window_provenance import (
     _author_r_values,
+    _mean_vector_diagnostics,
 )
 
 
@@ -61,3 +62,27 @@ def test_author_r_selection_keeps_only_exact_regional_bin_and_scales_units(
     write([{**row, "within_declared_tolerance": "False"}])
     with pytest.raises(ValueError, match="unsupported axes or parity"):
         _author_r_values(path, {"Oak": "Quercus"})
+
+
+def test_mean_vector_diagnostics_preserve_mass_and_absolute_gaps() -> None:
+    rows = [
+        {
+            "grid_id": grid,
+            "metric": "mean",
+            "taxon": f"taxon-{index}",
+            "archive": str((50, 30, 20)[index] if index < 3 else 0),
+            "author_r": str((55, 28, 17)[index] if index < 3 else 0),
+        }
+        for grid in ("512", "562")
+        for index in range(31)
+    ]
+    diagnostics = _mean_vector_diagnostics(rows)
+    assert len(diagnostics) == 2
+    assert diagnostics[0]["archive_mean_sum_percentage_points"] == "100"
+    assert diagnostics[0]["author_r_mean_sum_percentage_points"] == "100"
+    assert diagnostics[0]["mean_l1_gap_percentage_points"] == "10"
+    assert diagnostics[0]["largest_gap_taxon"] == "taxon-0"
+    assert diagnostics[0]["second_largest_gap_taxon"] == "taxon-2"
+    assert Decimal(diagnostics[0]["two_largest_gap_share"]) == Decimal("0.8")
+    with pytest.raises(ValueError, match="taxon axis"):
+        _mean_vector_diagnostics(rows[:-1])
