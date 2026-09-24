@@ -11,6 +11,9 @@ from bijux_pollenomics_dev.essd_reproduction.author_pollen_spatial import (
     SiteGeometry,
     predict_block,
 )
+from bijux_pollenomics_dev.essd_reproduction.author_pollen_spatial.comparison import (
+    _group_comparisons,
+)
 from bijux_pollenomics_dev.essd_reproduction.author_pollen_spatial.scoring import (
     _paired_comparison,
 )
@@ -187,3 +190,39 @@ def test_comparison_uses_only_common_scored_site_bins(tmp_path: Path) -> None:
     assert result["common_scored_site_bins"] == 1
     assert result["common_sites"] == 1
     assert abs(result["spatial_minus_within_grid_mae_fraction"] - 0.2) < 1e-12
+
+
+def test_paired_site_and_block_comparison_preserves_site_weights() -> None:
+    rows: dict[str, dict[tuple[str, str], dict[str, str]]] = {}
+    for method, errors in {
+        "training_mean": (0.1, 0.1, 0.3, 0.2),
+        "nearest_site": (0.0, 0.0, 0.4, 0.1),
+        "inverse_distance_squared": (0.2, 0.2, 0.2, 0.2),
+    }.items():
+        rows[method] = {}
+        for (site_id, bin_id), error in zip(
+            (("A", "1"), ("A", "2"), ("B", "1"), ("C", "1")),
+            errors,
+            strict=True,
+        ):
+            rows[method][site_id, bin_id] = {
+                "block_grid_id": "512" if site_id != "C" else "562",
+                "nearest_training_basin_edge_km": "25",
+                "mae_fraction": str(error),
+                "total_variation": str(2 * error),
+            }
+    scored = list(rows["training_mean"])
+    sites, blocks, directions = _group_comparisons(rows, scored, scored)
+    assert [site["site_id"] for site in sites] == ["A", "B", "C"]
+    first_block = blocks[0]
+    assert first_block["target_sites"] == 2
+    assert first_block["common_scored_site_bins"] == 3
+    block_methods = first_block["methods"]
+    assert isinstance(block_methods, dict)
+    assert abs(block_methods["training_mean"]["mae_fraction"] - 0.2) < 1e-12
+    assert abs(block_methods["nearest_site"]["mae_fraction"] - 0.2) < 1e-12
+    assert directions["nearest_site"]["mae_minus_training_mean_fraction"] == {
+        "sites_lower": 2,
+        "sites_equal": 0,
+        "sites_higher": 1,
+    }

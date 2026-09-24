@@ -12,6 +12,123 @@ from .prediction import METHOD_LABELS, BaselineMethod
 from .source import _hash, _rows
 
 
+def _group_comparisons(
+    rows_by_method: dict[str, dict[tuple[str, str], dict[str, str]]],
+    scored_keys: list[tuple[str, str]],
+    observed_keys: list[tuple[str, str]],
+) -> tuple[
+    list[dict[str, object]],
+    list[dict[str, object]],
+    dict[str, dict[str, dict[str, int]]],
+]:
+    """Compare matched scores at site and independent block resolution."""
+    reference = rows_by_method["training_mean"]
+    sites: list[dict[str, object]] = []
+    for site_id in sorted({site for site, _ in observed_keys}):
+        site_keys = [key for key in scored_keys if key[0] == site_id]
+        observed_site_keys = [key for key in observed_keys if key[0] == site_id]
+        grids = {reference[key]["block_grid_id"] for key in observed_site_keys}
+        if len(grids) != 1:
+            raise ValueError("A physical site spans more than one withheld block")
+        if not site_keys:
+            raise ValueError("An observed site has no comparable scored bins")
+        metrics = {
+            method: {
+                metric: mean(float(method_rows[key][metric]) for key in site_keys)
+                for metric in ("mae_fraction", "total_variation")
+            }
+            for method, method_rows in rows_by_method.items()
+        }
+        sites.append(
+            {
+                "site_id": site_id,
+                "block_grid_id": next(iter(grids)),
+                "observed_site_bins": len(observed_site_keys),
+                "common_scored_site_bins": len(site_keys),
+                "refused_no_training_site_bins": len(observed_site_keys)
+                - len(site_keys),
+                "nearest_training_basin_edge_km": min(
+                    float(reference[key]["nearest_training_basin_edge_km"])
+                    for key in site_keys
+                ),
+                "methods": {
+                    method: {
+                        **values,
+                        "mae_minus_training_mean_fraction": values["mae_fraction"]
+                        - metrics["training_mean"]["mae_fraction"],
+                        "total_variation_minus_training_mean": values["total_variation"]
+                        - metrics["training_mean"]["total_variation"],
+                    }
+                    for method, values in metrics.items()
+                },
+            }
+        )
+    blocks: list[dict[str, object]] = []
+    for grid_id in sorted({str(site["block_grid_id"]) for site in sites}):
+        block_sites = [site for site in sites if site["block_grid_id"] == grid_id]
+        blocks.append(
+            {
+                "block_grid_id": grid_id,
+                "target_sites": len(block_sites),
+                "observed_site_bins": sum(
+                    cast(int, site["observed_site_bins"]) for site in block_sites
+                ),
+                "common_scored_site_bins": sum(
+                    cast(int, site["common_scored_site_bins"]) for site in block_sites
+                ),
+                "refused_no_training_site_bins": sum(
+                    cast(int, site["refused_no_training_site_bins"])
+                    for site in block_sites
+                ),
+                "methods": {
+                    method: {
+                        metric: mean(
+                            cast(dict[str, dict[str, float]], site["methods"])[method][
+                                metric
+                            ]
+                            for site in block_sites
+                        )
+                        for metric in (
+                            "mae_fraction",
+                            "total_variation",
+                            "mae_minus_training_mean_fraction",
+                            "total_variation_minus_training_mean",
+                        )
+                    }
+                    for method in rows_by_method
+                },
+            }
+        )
+    directions = {
+        method: {
+            metric: {
+                "sites_lower": sum(
+                    cast(dict[str, dict[str, float]], site["methods"])[method][metric]
+                    < 0
+                    for site in sites
+                ),
+                "sites_equal": sum(
+                    cast(dict[str, dict[str, float]], site["methods"])[method][metric]
+                    == 0
+                    for site in sites
+                ),
+                "sites_higher": sum(
+                    cast(dict[str, dict[str, float]], site["methods"])[method][metric]
+                    > 0
+                    for site in sites
+                ),
+            }
+            for metric in (
+                "mae_minus_training_mean_fraction",
+                "total_variation_minus_training_mean",
+            )
+        }
+        for method in rows_by_method
+        if method != "training_mean"
+    }
+    return sites, blocks, directions
+
+
 def compare_scores(score_dirs: dict[str, Path], output: Path) -> dict[str, object]:
     """Read separately scored methods and preserve the common target denominator."""
     if set(score_dirs) != set(METHOD_LABELS):
@@ -70,7 +187,14 @@ def compare_scores(score_dirs: dict[str, Path], output: Path) -> dict[str, objec
             baseline = reference[key]
             if any(
                 row[field] != baseline[field]
-                for field in ("block_grid_id", "status", "observed_total_count")
+                for field in (
+                    "block_grid_id",
+                    "status",
+                    "observed_total_count",
+                    "training_sites",
+                    "nearest_training_center_km",
+                    "nearest_training_basin_edge_km",
+                )
             ):
                 raise ValueError("Methods do not share observed target support")
     scored_keys = sorted(
@@ -82,6 +206,9 @@ def compare_scores(score_dirs: dict[str, Path], output: Path) -> dict[str, objec
     if len(scored_keys) != 148 or len(observed_keys) != 184:
         raise ValueError("Common scored support differs from retained result")
     site_ids = sorted({site for site, _ in scored_keys})
+    sites, blocks, directions = _group_comparisons(
+        rows_by_method, scored_keys, observed_keys
+    )
     summaries = []
     for method, method_rows in rows_by_method.items():
         site_mae = [
@@ -120,7 +247,7 @@ def compare_scores(score_dirs: dict[str, Path], output: Path) -> dict[str, objec
             }
         )
     result: dict[str, object] = {
-        "schema_version": "author-observed-pollen-spatial-baseline-comparison.v1",
+        "schema_version": "author-observed-pollen-spatial-baseline-comparison.v2",
         "source": reference_report["source"],
         "split": reference_report["split"],
         "target_sites": len(site_ids),
@@ -129,6 +256,9 @@ def compare_scores(score_dirs: dict[str, Path], output: Path) -> dict[str, objec
         "refused_no_training_site_bins": len(observed_keys) - len(scored_keys),
         "score_receipts": receipts,
         "methods": summaries,
+        "sites": sites,
+        "blocks": blocks,
+        "paired_site_directions": directions,
         "measured_vegetation_accuracy": "not_evaluated",
         "swedish_lra_cohort": "not_evaluated",
     }
@@ -154,8 +284,52 @@ def compare_scores(score_dirs: dict[str, Path], output: Path) -> dict[str, objec
     lines.extend(
         [
             "",
+            "Block means give each site equal weight within its grid. Differences "
+            "are paired against the training mean on the same scored bins; "
+            "negative values indicate lower error.",
+            "",
+            "| Grid | Sites | Scored / observed bins | Nearest-site MAE difference | Inverse-distance MAE difference |",
+            "| --- | ---: | ---: | ---: | ---: |",
+        ]
+    )
+    for block in blocks:
+        block_methods = cast(dict[str, dict[str, float]], block["methods"])
+        lines.append(
+            f"| {block['block_grid_id']} | {block['target_sites']} | "
+            f"{block['common_scored_site_bins']} / {block['observed_site_bins']} | "
+            f"{block_methods['nearest_site']['mae_minus_training_mean_fraction']:+.6f} | "
+            f"{block_methods['inverse_distance_squared']['mae_minus_training_mean_fraction']:+.6f} |"
+        )
+    lines.extend(
+        [
+            "",
+            "| Grid | Site | Scored / observed bins | Nearest training basin edge (km) | Nearest-site MAE difference | Inverse-distance MAE difference |",
+            "| --- | --- | ---: | ---: | ---: | ---: |",
+        ]
+    )
+    for site in sites:
+        site_methods = cast(dict[str, dict[str, float]], site["methods"])
+        lines.append(
+            f"| {site['block_grid_id']} | {site['site_id']} | "
+            f"{site['common_scored_site_bins']} / {site['observed_site_bins']} | "
+            f"{site['nearest_training_basin_edge_km']:.1f} | "
+            f"{site_methods['nearest_site']['mae_minus_training_mean_fraction']:+.6f} | "
+            f"{site_methods['inverse_distance_squared']['mae_minus_training_mean_fraction']:+.6f} |"
+        )
+    for method, metric_directions in directions.items():
+        mae_directions = metric_directions["mae_minus_training_mean_fraction"]
+        lines.append(
+            f"\n{method} has lower / equal / higher site MAE at "
+            f"{mae_directions['sites_lower']} / {mae_directions['sites_equal']} / "
+            f"{mae_directions['sites_higher']} sites relative to the training mean."
+        )
+    lines.extend(
+        [
+            "",
             "These are descriptive author-prepared observed-pollen predictions "
-            "from two adjacent English grids. The fixed distance exponent and "
+            "from only two adjacent English grids. Per-site bins are correlated, "
+            "so no confidence interval or model selection is inferred from them. "
+            "The fixed distance exponent and "
             "buffer were not tuned on these outcomes. This result does not "
             "establish Swedish LRA skill, long-distance transfer, independent "
             "vegetation accuracy, or publication-ready source rights.",
