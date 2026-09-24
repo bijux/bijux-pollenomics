@@ -15,12 +15,14 @@ from bijux_pollenomics.analysis.lra_validation.contracts import (
     ValidationRefusal,
     canonical_json,
 )
-from bijux_pollenomics.analysis.lra_validation.evaluation import intervals
 from bijux_pollenomics.analysis.lra_validation.evaluation.api import (
     AUTHENTICATED_CONDITIONAL_INTERVAL_PROFILE,
     EvaluationRow,
     freeze_authenticated_pollen_interval,
     freeze_authenticated_pollen_rows,
+)
+from bijux_pollenomics.analysis.lra_validation.evaluation.intervals import (
+    conditional as intervals,
 )
 from bijux_pollenomics.analysis.lra_validation.experiments import (
     ExperimentProduct,
@@ -37,8 +39,8 @@ from bijux_pollenomics.analysis.lra_validation.observation_uncertainty import (
     generate_pollen_observation_uncertainty,
 )
 
-from ..experiments.fitted.test_model import payload
-from ..observation_uncertainty.support import rewrite
+from ...experiments.fitted.test_model import payload
+from ...observation_uncertainty.support import rewrite
 
 
 def _store_effort(root: Path, record_id: str, effort: int) -> tuple[str, str]:

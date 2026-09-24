@@ -1,4 +1,4 @@
-"""Block intervals bind exact authenticated fitted and baseline model sources."""
+"""Spatial-block intervals bind exact authenticated fitted and baseline sources."""
 
 from dataclasses import replace
 import json
@@ -10,10 +10,12 @@ from bijux_pollenomics.analysis.lra_validation.contracts import (
     ValidationRefusal,
     manifest_sha256,
 )
-from bijux_pollenomics.analysis.lra_validation.evaluation import block_intervals
 from bijux_pollenomics.analysis.lra_validation.evaluation.contracts import (
     EvaluationRow,
     validate_frozen_prediction,
+)
+from bijux_pollenomics.analysis.lra_validation.evaluation.intervals import (
+    spatial_blocks as block_intervals,
 )
 from bijux_pollenomics.analysis.lra_validation.experiments.configuration import (
     BLOCK_BASELINE_METHOD,
