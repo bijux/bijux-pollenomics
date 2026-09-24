@@ -321,6 +321,36 @@ def _source_evidence_paths(source_key: str) -> dict[str, tuple[str, ...]]:
                 "data/boundaries/normalized/nordic_country_boundaries.geojson",
             ),
         },
+        "empd2": {
+            "site_identity": ("data/empd2/normalized/manifest.json",),
+            "coordinates": ("data/empd2/normalized/manifest.json",),
+            "four_country_coverage": (
+                "data/empd2/review/country_coverage_evidence.json",
+            ),
+            "within_site_hierarchy": ("data/empd2/normalized/manifest.json",),
+            "numeric_chronology": ("data/empd2/normalized/manifest.json",),
+            "chronology_uncertainty": ("data/empd2/normalized/manifest.json",),
+            "taxon_identity": ("data/empd2/normalized/manifest.json",),
+            "quantitative_observation": ("data/empd2/normalized/manifest.json",),
+            "observation_unit": ("data/empd2/normalized/manifest.json",),
+            "dataset_provenance": ("data/empd2/raw/source_manifest.json",),
+        },
+        "nfi": {
+            "site_identity": ("data/nfi/normalized/manifest.json",),
+            "coordinates": ("data/nfi/normalized/manifest.json",),
+            "four_country_coverage": (
+                "data/nfi/review/country_coverage_evidence.json",
+            ),
+            "within_site_hierarchy": ("data/nfi/normalized/manifest.json",),
+            "numeric_chronology": ("data/nfi/normalized/manifest.json",),
+            "chronology_uncertainty": ("data/nfi/normalized/manifest.json",),
+            "taxon_identity": ("data/nfi/normalized/manifest.json",),
+            "native_ecological_class": ("data/nfi/normalized/manifest.json",),
+            "quantitative_observation": ("data/nfi/normalized/manifest.json",),
+            "observation_unit": ("data/nfi/normalized/manifest.json",),
+            "dataset_provenance": ("data/nfi/raw/source_manifest.json",),
+            "non_pollen_context": ("data/nfi/normalized/manifest.json",),
+        },
     }
     try:
         source_evidence = evidence[source_key]

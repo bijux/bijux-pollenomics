@@ -128,7 +128,8 @@ def test_package_has_bounded_intent_modules() -> None:
         "supplementary",
     }
     assert {path.name for path in packages if path.name != "__pycache__"} == {
-        "sead_decisions"
+        "reference_sources",
+        "sead_decisions",
     }
     line_counts = {
         path.name: len(path.read_text(encoding="utf-8").splitlines())

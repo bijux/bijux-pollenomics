@@ -1,6 +1,6 @@
 {
   "schema_version": "source-family-contracts.v1",
-  "row_count": 9,
+  "row_count": 11,
   "source_release_by_key": {
     "hyde": "3.5"
   },
@@ -792,12 +792,187 @@
           ]
         }
       }
+    },
+    {
+      "source_key": "empd2",
+      "display_name": "EMPD2 pollen reference source",
+      "domain_group": "pollen_reference",
+      "evidence_role": "candidate_reference_observations",
+      "primary_question": "Which source-bound EMPD2 records have review evidence sufficient for future admission without treating candidate review as publication?",
+      "raw_layer": {
+        "layer_key": "raw",
+        "repository_path": "data/empd2/raw",
+        "required": true,
+        "purpose": "admitted immutable EMPD2 source capture and custody receipt",
+        "example_artifacts": [
+          "data/empd2/raw/source_manifest.json"
+        ]
+      },
+      "normalized_layer": {
+        "layer_key": "normalized",
+        "repository_path": "data/empd2/normalized",
+        "required": true,
+        "purpose": "source-bound sites, samples, taxa and sealed count observations",
+        "example_artifacts": [
+          "data/empd2/normalized/manifest.json"
+        ]
+      },
+      "reviewed_layer": {
+        "layer_key": "reviewed",
+        "repository_path": "data/empd2/review",
+        "required": true,
+        "purpose": "candidate identity, provenance and pairing review evidence",
+        "example_artifacts": [
+          "data/empd2/review/country_coverage_evidence.json"
+        ]
+      },
+      "published_layer": {
+        "layer_key": "published",
+        "repository_path": "docs/report/regions/nordic/empd2",
+        "required": true,
+        "purpose": "admitted EMPD2 reference observations with explicit denominators",
+        "example_artifacts": [
+          "docs/report/regions/nordic/empd2/manifest.json"
+        ]
+      },
+      "coverage_metric_keys": [
+        "empd2_source_reported_sample_count",
+        "empd2_source_reported_observation_count",
+        "empd2_mechanical_candidate_count",
+        "empd2_unresolved_overlap_lead_count",
+        "empd2_scientifically_admitted_record_count"
+      ],
+      "layer_contracts": {
+        "raw": {
+          "layer_key": "raw",
+          "repository_path": "data/empd2/raw",
+          "required": true,
+          "purpose": "admitted immutable EMPD2 source capture and custody receipt",
+          "example_artifacts": [
+            "data/empd2/raw/source_manifest.json"
+          ]
+        },
+        "normalized": {
+          "layer_key": "normalized",
+          "repository_path": "data/empd2/normalized",
+          "required": true,
+          "purpose": "source-bound sites, samples, taxa and sealed count observations",
+          "example_artifacts": [
+            "data/empd2/normalized/manifest.json"
+          ]
+        },
+        "reviewed": {
+          "layer_key": "reviewed",
+          "repository_path": "data/empd2/review",
+          "required": true,
+          "purpose": "candidate identity, provenance and pairing review evidence",
+          "example_artifacts": [
+            "data/empd2/review/country_coverage_evidence.json"
+          ]
+        },
+        "published": {
+          "layer_key": "published",
+          "repository_path": "docs/report/regions/nordic/empd2",
+          "required": true,
+          "purpose": "admitted EMPD2 reference observations with explicit denominators",
+          "example_artifacts": [
+            "docs/report/regions/nordic/empd2/manifest.json"
+          ]
+        }
+      }
+    },
+    {
+      "source_key": "nfi",
+      "display_name": "Swedish NFI vegetation reference source",
+      "domain_group": "vegetation_reference",
+      "evidence_role": "candidate_reference_observations",
+      "primary_question": "Which source-bound Swedish NFI plot-year records have structural review evidence without opening or publishing held-out vegetation outcomes?",
+      "raw_layer": {
+        "layer_key": "raw",
+        "repository_path": "data/nfi/raw",
+        "required": true,
+        "purpose": "admitted immutable NFI workbook capture and rights receipt",
+        "example_artifacts": [
+          "data/nfi/raw/source_manifest.json"
+        ]
+      },
+      "normalized_layer": {
+        "layer_key": "normalized",
+        "repository_path": "data/nfi/normalized",
+        "required": true,
+        "purpose": "source-bound plot-year identities with sealed vegetation outcomes",
+        "example_artifacts": [
+          "data/nfi/normalized/manifest.json"
+        ]
+      },
+      "reviewed_layer": {
+        "layer_key": "reviewed",
+        "repository_path": "data/nfi/review",
+        "required": true,
+        "purpose": "outcome-blind workbook schema and candidate spatial review evidence",
+        "example_artifacts": [
+          "data/nfi/review/country_coverage_evidence.json"
+        ]
+      },
+      "published_layer": {
+        "layer_key": "published",
+        "repository_path": "docs/report/regions/nordic/nfi",
+        "required": true,
+        "purpose": "admitted NFI reference observations with governed support and units",
+        "example_artifacts": [
+          "docs/report/regions/nordic/nfi/manifest.json"
+        ]
+      },
+      "coverage_metric_keys": [
+        "nfi_plot_year_record_count",
+        "nfi_tract_plot_site_count",
+        "nfi_proximity_lead_count",
+        "nfi_scientifically_admitted_record_count"
+      ],
+      "layer_contracts": {
+        "raw": {
+          "layer_key": "raw",
+          "repository_path": "data/nfi/raw",
+          "required": true,
+          "purpose": "admitted immutable NFI workbook capture and rights receipt",
+          "example_artifacts": [
+            "data/nfi/raw/source_manifest.json"
+          ]
+        },
+        "normalized": {
+          "layer_key": "normalized",
+          "repository_path": "data/nfi/normalized",
+          "required": true,
+          "purpose": "source-bound plot-year identities with sealed vegetation outcomes",
+          "example_artifacts": [
+            "data/nfi/normalized/manifest.json"
+          ]
+        },
+        "reviewed": {
+          "layer_key": "reviewed",
+          "repository_path": "data/nfi/review",
+          "required": true,
+          "purpose": "outcome-blind workbook schema and candidate spatial review evidence",
+          "example_artifacts": [
+            "data/nfi/review/country_coverage_evidence.json"
+          ]
+        },
+        "published": {
+          "layer_key": "published",
+          "repository_path": "docs/report/regions/nordic/nfi",
+          "required": true,
+          "purpose": "admitted NFI reference observations with governed support and units",
+          "example_artifacts": [
+            "docs/report/regions/nordic/nfi/manifest.json"
+          ]
+        }
+      }
     }
   ],
   "capability_contract": {
     "schema_version": "source-capability-contract.v1",
     "dimension_count": 17,
-    "source_count": 9,
+    "source_count": 11,
     "normative_contract": {
       "contract_id": "bijux-pollenomics-source-capability-matrix",
       "schema_version": "1.0.0",
@@ -814,7 +989,9 @@
     },
     "extension_sources": [
       "aadr",
-      "hyde"
+      "empd2",
+      "hyde",
+      "nfi"
     ],
     "source_release_by_key": {
       "hyde": "3.5"
@@ -1570,6 +1747,150 @@
         },
         "human_review_required": true,
         "human_review_reason": "qualified_boundary_inclusion_review_missing"
+      },
+      {
+        "source_key": "empd2",
+        "evidence_class": "observed_paleoecological_reference",
+        "allowed_role": "candidate pollen reference evidence after source admission",
+        "prohibited_claims": [
+          "candidate EMPD2 review evidence is an admitted source layer",
+          "source age fields establish authenticated collection dates",
+          "pollen counts may be opened before evaluation scope is frozen"
+        ],
+        "support_by_dimension": {
+          "site_identity": "supported",
+          "coordinates": "supported",
+          "four_country_coverage": "partial",
+          "within_site_hierarchy": "partial",
+          "numeric_chronology": "partial",
+          "chronology_uncertainty": "partial",
+          "relative_chronology": "unsupported",
+          "taxon_identity": "partial",
+          "native_ecological_class": "unsupported",
+          "derived_pollen_group": "unsupported",
+          "derived_ecological_role": "unsupported",
+          "crop_cereal_resolution": "unsupported",
+          "quantitative_observation": "supported",
+          "observation_unit": "partial",
+          "dataset_provenance": "partial",
+          "pollen_propagation_event": "unsupported",
+          "non_pollen_context": "unsupported"
+        },
+        "evidence_paths_by_dimension": {
+          "site_identity": [
+            "data/empd2/normalized/manifest.json"
+          ],
+          "coordinates": [
+            "data/empd2/normalized/manifest.json"
+          ],
+          "four_country_coverage": [
+            "data/empd2/review/country_coverage_evidence.json"
+          ],
+          "within_site_hierarchy": [
+            "data/empd2/normalized/manifest.json"
+          ],
+          "numeric_chronology": [
+            "data/empd2/normalized/manifest.json"
+          ],
+          "chronology_uncertainty": [
+            "data/empd2/normalized/manifest.json"
+          ],
+          "relative_chronology": [],
+          "taxon_identity": [
+            "data/empd2/normalized/manifest.json"
+          ],
+          "native_ecological_class": [],
+          "derived_pollen_group": [],
+          "derived_ecological_role": [],
+          "crop_cereal_resolution": [],
+          "quantitative_observation": [
+            "data/empd2/normalized/manifest.json"
+          ],
+          "observation_unit": [
+            "data/empd2/normalized/manifest.json"
+          ],
+          "dataset_provenance": [
+            "data/empd2/raw/source_manifest.json"
+          ],
+          "pollen_propagation_event": [],
+          "non_pollen_context": []
+        },
+        "human_review_required": true,
+        "human_review_reason": "qualified_empd2_source_review_missing"
+      },
+      {
+        "source_key": "nfi",
+        "evidence_class": "observed_vegetation_reference",
+        "allowed_role": "candidate Swedish plot-year vegetation reference evidence",
+        "prohibited_claims": [
+          "schema or proximity review admits held-out NFI measurements",
+          "Swedish NFI evidence establishes four-country coverage",
+          "candidate plot proximity proves scientific compatibility"
+        ],
+        "support_by_dimension": {
+          "site_identity": "supported",
+          "coordinates": "supported",
+          "four_country_coverage": "partial",
+          "within_site_hierarchy": "partial",
+          "numeric_chronology": "supported",
+          "chronology_uncertainty": "partial",
+          "relative_chronology": "unsupported",
+          "taxon_identity": "partial",
+          "native_ecological_class": "partial",
+          "derived_pollen_group": "unsupported",
+          "derived_ecological_role": "unsupported",
+          "crop_cereal_resolution": "unsupported",
+          "quantitative_observation": "supported",
+          "observation_unit": "supported",
+          "dataset_provenance": "partial",
+          "pollen_propagation_event": "unsupported",
+          "non_pollen_context": "supported"
+        },
+        "evidence_paths_by_dimension": {
+          "site_identity": [
+            "data/nfi/normalized/manifest.json"
+          ],
+          "coordinates": [
+            "data/nfi/normalized/manifest.json"
+          ],
+          "four_country_coverage": [
+            "data/nfi/review/country_coverage_evidence.json"
+          ],
+          "within_site_hierarchy": [
+            "data/nfi/normalized/manifest.json"
+          ],
+          "numeric_chronology": [
+            "data/nfi/normalized/manifest.json"
+          ],
+          "chronology_uncertainty": [
+            "data/nfi/normalized/manifest.json"
+          ],
+          "relative_chronology": [],
+          "taxon_identity": [
+            "data/nfi/normalized/manifest.json"
+          ],
+          "native_ecological_class": [
+            "data/nfi/normalized/manifest.json"
+          ],
+          "derived_pollen_group": [],
+          "derived_ecological_role": [],
+          "crop_cereal_resolution": [],
+          "quantitative_observation": [
+            "data/nfi/normalized/manifest.json"
+          ],
+          "observation_unit": [
+            "data/nfi/normalized/manifest.json"
+          ],
+          "dataset_provenance": [
+            "data/nfi/raw/source_manifest.json"
+          ],
+          "pollen_propagation_event": [],
+          "non_pollen_context": [
+            "data/nfi/normalized/manifest.json"
+          ]
+        },
+        "human_review_required": true,
+        "human_review_reason": "qualified_nfi_source_review_missing"
       }
     ]
   }

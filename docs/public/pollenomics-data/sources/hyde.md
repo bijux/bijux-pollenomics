@@ -151,7 +151,7 @@ scientific admission or a vegetation reconstruction test.
 
 ## Country accounting
 
-The country ledger includes all nine registered families across six partitions
+The country ledger includes all eleven registered families across six partitions
 (Sweden, Denmark, Norway, Finland, unassigned and outside) and three distinct
 dimensions: source-reported, governed assignment and publication. Its 18 HYDE
 cells retain null quantities and blocked/refused status because no governed

@@ -4,7 +4,11 @@ from __future__ import annotations
 
 from collections.abc import Mapping
 
-from ..constants import INPUT_PATHS
+from ..constants import (
+    EMPD2_SOURCE_ARTIFACT_SHA256,
+    INPUT_PATHS,
+    NFI_SOURCE_ARTIFACT_SHA256,
+)
 from ..decoding import (
     _object,
     _require_sha256_id,
@@ -49,4 +53,6 @@ def _source_snapshot_ids(
     result["animal_adna"] = f"sha256:{_sha256(input_bytes[INPUT_PATHS[14]])}"
     # No country projection exists; external archive custody remains separate.
     result["hyde"] = None
+    result["empd2"] = f"sha256:{EMPD2_SOURCE_ARTIFACT_SHA256}"
+    result["nfi"] = f"sha256:{NFI_SOURCE_ARTIFACT_SHA256}"
     return result

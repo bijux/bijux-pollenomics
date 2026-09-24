@@ -9,16 +9,16 @@ from ..constants import (
     _AUTHORITY_STATUS_VALUES,
     _STAGE_STATUS_VALUES,
     BOUNDARY_METHOD,
+    EMPD2_ASSIGNMENT_NOT_APPLIED,
     HYDE_ASSIGNMENT_NOT_APPLIED,
+    NFI_ASSIGNMENT_NOT_APPLIED,
     PRODUCER_VERSION,
     PUBLICATION_METHOD,
     CountryCoverageError,
 )
-from ..decoding import (
-    _required_text,
-    _text_list,
-)
+from ..decoding import _required_text, _text_list
 from .partitions import _empty_counts
+from .reference_sources import empd2_cell_posture, nfi_cell_posture
 
 
 @dataclass(slots=True)
@@ -72,6 +72,10 @@ def _cell(
         if dimension == "source_reported"
         else HYDE_ASSIGNMENT_NOT_APPLIED
         if source_family == "hyde"
+        else EMPD2_ASSIGNMENT_NOT_APPLIED
+        if source_family == "empd2"
+        else NFI_ASSIGNMENT_NOT_APPLIED
+        if source_family == "nfi"
         else BOUNDARY_METHOD
         if dimension == "governed_assignment"
         else PUBLICATION_METHOD
@@ -112,7 +116,8 @@ def _cell(
         "source_snapshot_id": None if source_family == "hyde" else snapshot_id,
         "boundary_artifact_digest": (
             None
-            if dimension == "source_reported" or source_family == "hyde"
+            if dimension == "source_reported"
+            or source_family in {"hyde", "empd2", "nfi"}
             else boundary_digest
         ),
         "config_digest": config_digest,
@@ -166,6 +171,16 @@ def _apply_source_policy(
             state.availability = "not_available_from_source"
             state.lifecycle = "unavailable"
             state.reasons.append("national_source_sweden_only")
+    elif source_family == "empd2":
+        state.availability, state.lifecycle, reasons = empd2_cell_posture(
+            state.counts, dimension=dimension, country_code=country_code
+        )
+        state.reasons.extend([*reasons, *blocking, *authority_reasons])
+    elif source_family == "nfi":
+        state.availability, state.lifecycle, reasons = nfi_cell_posture(
+            dimension=dimension, country_code=country_code
+        )
+        state.reasons.extend([*reasons, *blocking, *authority_reasons])
     elif source_family == "boundaries":
         state.lifecycle = "review_required"
         state.reasons.extend(authority_reasons)

@@ -220,7 +220,7 @@ def test_empty_repository_audit_is_fail_closed_without_changing_support() -> Non
             source_blockers={},
         )
 
-    assert payload["row_count"] == 9 * 17
+    assert payload["row_count"] == 11 * 17
     rows = {
         (row["source_key"], row["dimension"]): row for row in _rows(payload["rows"])
     }
@@ -430,6 +430,6 @@ def test_state_matrix_embeds_exact_capability_audit_cardinality() -> None:
         )
 
     audit = _object(payload["capability_materialization_audit"])
-    assert audit["source_count"] == payload["row_count"] == 9
+    assert audit["source_count"] == payload["row_count"] == 11
     assert audit["dimension_count"] == 17
-    assert audit["row_count"] == 153
+    assert audit["row_count"] == 187

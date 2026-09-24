@@ -4,7 +4,7 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-07-22
+last_reviewed: 2026-09-24
 ---
 
 # PalaeOpen
@@ -40,7 +40,7 @@ flowchart LR
 
 | Question | Current answer |
 | --- | --- |
-| Is PalaeOpen one of the nine contracted evidence families? | no |
+| Is PalaeOpen one of the eleven contracted evidence families? | no |
 | Does `data/` contain a PalaeOpen capture or normalized layer? | no |
 | Does PalaeOpen add weight to a lake ranking? | no |
 | Is it relevant to cross-proxy metadata and taxonomy design? | yes |

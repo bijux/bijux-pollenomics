@@ -8,6 +8,8 @@ from .constants import (
     COUNT_FIELDS,
     COUNTRIES,
     COUNTRY_DIMENSIONS,
+    EMPD2_ASSIGNMENT_NOT_APPLIED,
+    NFI_ASSIGNMENT_NOT_APPLIED,
     SOURCE_FAMILIES,
     CountryCoverageError,
 )
@@ -116,3 +118,75 @@ def _validate_reconciliation(cells: list[dict[str, object]]) -> None:
         raise CountryCoverageError("boundary admission does not reconcile")
     if boundary_received != total("boundaries", "publication", "published_records"):
         raise CountryCoverageError("boundary publication does not reconcile")
+    _validate_reference_sources(index)
+
+
+def _validate_reference_sources(
+    index: Mapping[tuple[str, str, str], Mapping[str, object]],
+) -> None:
+    empd2 = {
+        "SE": (132, 3_379, 131, 21),
+        "DK": (20, 968, 20, 0),
+        "NO": (622, 19_774, 622, 66),
+        "FI": (141, 3_040, 141, 25),
+    }
+    for country, expected in empd2.items():
+        counts = _object(
+            index[("empd2", "source_reported", country)]["counts"], "counts"
+        )
+        observed = tuple(
+            counts[field]
+            for field in (
+                "received_records",
+                "observations",
+                "possible_candidates",
+                "unresolved_records",
+            )
+        )
+        if observed != expected or counts["samples"] != expected[0]:
+            raise CountryCoverageError(f"EMPD2 {country} denominators changed")
+    if sum(values[0] for values in empd2.values()) != 915:
+        raise CountryCoverageError("EMPD2 reviewed denominator does not reconcile")
+    if sum(values[2] for values in empd2.values()) != 914:
+        raise CountryCoverageError("EMPD2 candidate denominator does not reconcile")
+    if sum(values[3] for values in empd2.values()) != 112:
+        raise CountryCoverageError("EMPD2 unresolved denominator does not reconcile")
+
+    nfi = _object(index[("nfi", "source_reported", "SE")]["counts"], "counts")
+    if (
+        nfi["received_records"],
+        nfi["sites"],
+        nfi["possible_candidates"],
+        nfi["unresolved_records"],
+    ) != (43_892, 6_018, 16, 16):
+        raise CountryCoverageError("Swedish NFI denominators changed")
+
+    assignment_methods = {
+        "empd2": EMPD2_ASSIGNMENT_NOT_APPLIED,
+        "nfi": NFI_ASSIGNMENT_NOT_APPLIED,
+    }
+    for source, method in assignment_methods.items():
+        for dimension in COUNTRY_DIMENSIONS:
+            for country in COUNTRIES:
+                cell = index[(source, dimension, country)]
+                counts = _object(cell["counts"], "counts")
+                if cell["lifecycle_status"] == "admitted":
+                    raise CountryCoverageError(
+                        f"{source} candidate evidence cannot imply admission"
+                    )
+                if dimension != "source_reported" and (
+                    any(value is not None for value in counts.values())
+                    or cell["country_assignment_method"] != method
+                    or cell["boundary_artifact_digest"] is not None
+                ):
+                    raise CountryCoverageError(
+                        f"{source} non-source partition must remain not applied"
+                    )
+        for country in ("UNASSIGNED", "OUTSIDE"):
+            counts = _object(
+                index[(source, "source_reported", country)]["counts"], "counts"
+            )
+            if any(value is not None for value in counts.values()):
+                raise CountryCoverageError(
+                    f"{source} noncountry source partition must remain unknown"
+                )

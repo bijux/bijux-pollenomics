@@ -31,7 +31,7 @@ def test_ledger_has_one_schema_valid_cell_per_complete_partition() -> None:
     ledger = _build()
     cells = _cells(ledger)
 
-    assert ledger["cell_count"] == 162
+    assert ledger["cell_count"] == 198
     assert len(cells) == len(SOURCE_FAMILIES) * len(COUNTRY_DIMENSIONS) * len(COUNTRIES)
     assert {
         (

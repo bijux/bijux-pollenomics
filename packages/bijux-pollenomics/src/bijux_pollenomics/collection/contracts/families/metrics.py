@@ -30,6 +30,10 @@ def _coverage_metrics(
         return {"aadr_file_count": int(counts.get("aadr_file_count", 0))}
     if source_key == "animal_adna":
         return _animal_adna_metrics(output_root)
+    if source_key in {"empd2", "nfi"}:
+        from .reference_sources.metrics import reference_source_metrics
+
+        return reference_source_metrics(output_root, source_key)
     return {}
 
 

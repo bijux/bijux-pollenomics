@@ -1,0 +1,110 @@
+{
+  "countries": [
+    {
+      "candidate_record_count": 131,
+      "country_code": "SE",
+      "reason_codes": [
+        "candidate_screen_only",
+        "cross_source_identity_unresolved",
+        "scientific_admission_not_established"
+      ],
+      "scientifically_admitted_record_count": 0,
+      "source_artifact_sha256": "5634e85d922ee0741c41a77d081010c9cc1c113966b283bc52e2051a9d3722e2",
+      "source_reported_observation_count": 3379,
+      "source_reported_record_count": 132,
+      "source_reported_site_count": null,
+      "source_status": "source_reported_candidate",
+      "unresolved_record_count": 21
+    },
+    {
+      "candidate_record_count": 20,
+      "country_code": "DK",
+      "reason_codes": [
+        "candidate_screen_only",
+        "scientific_admission_not_established"
+      ],
+      "scientifically_admitted_record_count": 0,
+      "source_artifact_sha256": "5634e85d922ee0741c41a77d081010c9cc1c113966b283bc52e2051a9d3722e2",
+      "source_reported_observation_count": 968,
+      "source_reported_record_count": 20,
+      "source_reported_site_count": null,
+      "source_status": "source_reported_candidate",
+      "unresolved_record_count": 0
+    },
+    {
+      "candidate_record_count": 622,
+      "country_code": "NO",
+      "reason_codes": [
+        "candidate_screen_only",
+        "cross_source_identity_unresolved",
+        "scientific_admission_not_established"
+      ],
+      "scientifically_admitted_record_count": 0,
+      "source_artifact_sha256": "5634e85d922ee0741c41a77d081010c9cc1c113966b283bc52e2051a9d3722e2",
+      "source_reported_observation_count": 19774,
+      "source_reported_record_count": 622,
+      "source_reported_site_count": null,
+      "source_status": "source_reported_candidate",
+      "unresolved_record_count": 66
+    },
+    {
+      "candidate_record_count": 141,
+      "country_code": "FI",
+      "reason_codes": [
+        "candidate_screen_only",
+        "cross_source_identity_unresolved",
+        "scientific_admission_not_established"
+      ],
+      "scientifically_admitted_record_count": 0,
+      "source_artifact_sha256": "5634e85d922ee0741c41a77d081010c9cc1c113966b283bc52e2051a9d3722e2",
+      "source_reported_observation_count": 3040,
+      "source_reported_record_count": 141,
+      "source_reported_site_count": null,
+      "source_status": "source_reported_candidate",
+      "unresolved_record_count": 25
+    },
+    {
+      "candidate_record_count": null,
+      "country_code": "UNASSIGNED",
+      "reason_codes": [
+        "source_partition_not_materialized"
+      ],
+      "scientifically_admitted_record_count": null,
+      "source_artifact_sha256": null,
+      "source_reported_observation_count": null,
+      "source_reported_record_count": null,
+      "source_reported_site_count": null,
+      "source_status": "not_materialized",
+      "unresolved_record_count": null
+    },
+    {
+      "candidate_record_count": null,
+      "country_code": "OUTSIDE",
+      "reason_codes": [
+        "source_partition_not_materialized"
+      ],
+      "scientifically_admitted_record_count": null,
+      "source_artifact_sha256": null,
+      "source_reported_observation_count": null,
+      "source_reported_record_count": null,
+      "source_reported_site_count": null,
+      "source_status": "not_materialized",
+      "unresolved_record_count": null
+    }
+  ],
+  "evidence_paths": [
+    {
+      "path": "artifacts/v3/reference/empd2-intake001/EMPD2.sqlite3",
+      "sha256": "5634e85d922ee0741c41a77d081010c9cc1c113966b283bc52e2051a9d3722e2"
+    },
+    {
+      "path": "artifacts/v3/reference/empd2-product-screen001/report003.json",
+      "sha256": "6ca256d6e74d6129ee058bea36e8d28c1199bb276d68c0548e0b998853773aaa"
+    }
+  ],
+  "review_status": "candidate_only",
+  "reviewed_record_count": 915,
+  "schema_version": "source-country-coverage-evidence.v1",
+  "scientifically_admitted_record_count": 0,
+  "source_key": "empd2"
+}

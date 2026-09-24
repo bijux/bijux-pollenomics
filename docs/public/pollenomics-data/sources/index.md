@@ -4,23 +4,28 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-07-22
+last_reviewed: 2026-09-24
 ---
 
 # Source Families
 
-Pollenomics combines nine contracted source families. Their records can share
-a publication, but the source contract preserves what each family measures,
-where it applies, how it was acquired, and which claims it can support.
+Pollenomics distinguishes eleven contracted source families. Their records can
+share a publication, but the source contract preserves what each family
+measures, where it applies, how it was acquired, and which claims it can
+support.
 
 The portfolio and the collection command have deliberately different
-boundaries. Seven families have collectors and appear in `source-support`:
-AADR, boundaries, LandClim, Neotoma, RAÄ, SEAD, and SVAR. Animal ancient-DNA
-evidence enters through a literature-and-archive intake workflow because
-there is no single upstream release to collect. HYDE is registered as external
-modeled land-use context, with locally supplied native files awaiting admission. A support-matrix row therefore means that a collection
-adapter exists; it does not mean that a capture is present, complete, current,
-or admitted to a product.
+boundaries. Exactly seven families have collectors and appear in
+`source-support`: AADR, boundaries, LandClim, Neotoma, RAÄ, SEAD, and SVAR.
+Animal ancient-DNA evidence enters through a literature-and-archive intake
+workflow because there is no single upstream release to collect. HYDE is
+registered as external modeled land-use context, with locally supplied native
+files awaiting admission.
+EMPD2 and the Swedish national forest inventory (NFI) reference use bounded
+source custody and review workflows rather than collection adapters. A
+support-matrix row therefore means that a collection adapter exists; it does
+not mean that a capture is present, complete, current, or admitted to a
+product.
 
 ## Contracted Sources
 
@@ -35,16 +40,22 @@ or admitted to a product.
 | [SMHI SVAR](svar.md) | lake and hydrography context | registered Swedish waters and lake-oriented filtering | registry presence does not establish sampling suitability |
 | [AADR](aadr.md) | human ancient-DNA evidence | release-versioned sample metadata | current scope excludes genotype processing |
 | [Animal source intake](animal-source-intake.md) | sample-owned animal aDNA evidence | project, paper, supplement, sample, locality, and chronology recovery | source completeness varies by project and sample |
+| [EMPD2](empd2.md) | source-bound pollen reference candidates | Nordic source metadata, pollen-count screening, and candidate identity review | source counts and mechanical candidates are not governed country assignments, publication members, or scientifically admitted LRA inputs |
+| [Swedish NFI](nordic-nfi-reference-access.md) | measured tree-plot reference candidates | Swedish source review alongside four-country access leads | only the inspected Swedish subset has bounded local plot-row custody, and it forbids area-level inference; Denmark, Finland, and Norway have no acquired admissible plot cohort |
 
-## Reference candidates outside the family registry
+## Contracted reference candidates without scientific admission
 
-[EMPD2](empd2.md) has a hash-bound Nordic pollen count screen and unresolved
-cross-database identity leads. Its 914 mechanical candidates are not admitted
-LRA inputs or independent measured vegetation references.
+[EMPD2](empd2.md) has 915 source-metadata rows across Sweden, Denmark, Norway,
+and Finland, of which 914 pass a mechanical pollen-count screen. Those source
+counts are not governed country assignments or publication membership. The
+candidate identities remain under review, and none is an admitted LRA input
+or independent measured vegetation reference.
 
 The [Nordic forest-inventory access review](nordic-nfi-reference-access.md)
-checks four country-level measured tree-plot source leads and records why none
-is yet an admitted vegetation–pollen reference cohort.
+checks four country-level measured tree-plot source leads. It records local
+row-level custody only for the contracted Swedish source, not NFI access or
+area coverage for Denmark, Finland, or Norway. The EMPD2–NFI review has zero
+scientifically admitted vegetation–pollen pairs.
 
 ## Choose By Question And Observation Unit
 
@@ -277,7 +288,7 @@ look unchanged.
 
 ### Portfolio Breadth Is Not Claim Coverage
 
-Nine contracted families do not imply nine independent witnesses for every
+Eleven contracted families do not imply eleven independent witnesses for every
 question. Coverage is evaluated per claim dimension and observation unit:
 
 | Proposed claim | Families that may contribute | Families that cannot fill the decisive gap |

@@ -4,7 +4,7 @@ audience: reader
 type: reference
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-08-01
+last_reviewed: 2026-09-24
 ---
 
 # Source Family Matrix
@@ -26,6 +26,8 @@ of scientific importance.
 | boundaries | geography | framing | country and regional polygon | geometry and scope fitness | world, regional, and country selection |
 | AADR | human ancient DNA | direct evidence | release-owned sample metadata | sample locality and chronology posture | human aDNA country and regional layers |
 | animal aDNA | non-human ancient DNA | direct evidence | sample-owned species record | project, paper, supplement, place, time, coordinate, and archive integrity | admitted atlas and country members |
+| EMPD2 | pollen reference | candidate primary context | source-native pollen sample and count rows | source identity, chronology, count integrity, taxa/PPE, basin support, and leakage | no governed assignment or publication; zero scientifically admitted rows |
+| Swedish NFI | measured vegetation reference | candidate observed source | country access lead or source-native Swedish tree-plot observation | release rights, plot identity, time, footprint, tree-variable units, and pollen pairing | no admitted vegetation–pollen cohort; Swedish temporary plots cannot support area-cover inference |
 
 The machine-readable authority for these roles and lifecycle roots is
 `data/source_family_contracts.json`. Publication maturity is reported
@@ -65,6 +67,8 @@ The current stage matrix reports this materialized state:
 | SVAR | present | missing | partial | refused | authority is refused; a source-reported summary and 99-member review registry exist, but the complete contracted normalized registry is absent |
 | AADR | present | missing | present | present | three v66 capture files and a compact accountability receipt reconcile 51,005 rows into 27,755 Genetic IDs; normalized membership and qualified scientific review remain unavailable |
 | animal aDNA | present | present | present | present | 10 species and 1,450 final sample-foundation rows from 21 contributing projects are materialized within a 40-project registry |
+| EMPD2 | missing | missing | present | missing | compact governed review records 915 source-metadata samples, 27,161 count rows, and 914 mechanical candidates; none is a governed assignment, publication member, or scientific admission |
+| Swedish NFI | missing | missing | present | missing | compact governed access and reference review covers four country leads; only the contracted Swedish source has local plot-row custody, with zero admitted pollen–plot pairs and no area-cover authority |
 
 The animal lifecycle count is the population of final species-owned foundation
 rows, not the 1,455 recovered raw project sample-master rows or the 170
@@ -72,6 +76,11 @@ published locality features representing 331 samples. Each quantity is valid
 only with its governing unit. The corrected metric no longer reports zero
 merely because it was reading a field name that the foundation summary does
 not own.
+
+The EMPD2 and Swedish NFI rows both retain authority status `review_required`
+and publication posture `review_required_not_publication_ready`. Public source
+documentation is an explanation of that review state, not a materialized
+published layer.
 
 ### Read The Matrix As An Evaluated Snapshot
 
@@ -123,6 +132,8 @@ keys.
 | boundaries | governed geometry identity and version | point-in-polygon membership | using country membership as coordinate validation |
 | AADR | release-owned sample identifier | explicit reviewed locality or publication relation | matching a human sample by place label alone |
 | animal aDNA | project, accession, sample, and evidence locators | sample-owned locality, chronology, and source relations | collapsing all samples in one project to one place or date |
+| EMPD2 | source SQLite hash plus source-native sample identity | reviewed identity, count, chronology, and support relation | treating source country metadata or mechanical count candidacy as governed assignment or publication admission |
+| Swedish NFI | country authority and release-owned Swedish plot identity | reviewed local plot relation with compatible time, footprint, variable, and taxon semantics | inferring Danish, Finnish, or Norwegian access, or Nordic area cover, from the Swedish temporary-plot subset |
 
 Derived relations retain both member identifiers, the rule that connected
 them, input versions, and the evidence posture of each input. This allows a

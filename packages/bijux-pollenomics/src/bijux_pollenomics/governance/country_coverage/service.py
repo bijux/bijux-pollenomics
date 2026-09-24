@@ -21,8 +21,10 @@ from .constants import (
     COUNT_FIELDS,
     COUNTRIES,
     COUNTRY_DIMENSIONS,
+    EMPD2_COVERAGE_EVIDENCE_PATH,
     INPUT_PATHS,
     LEDGER_SCHEMA_VERSION,
+    NFI_COVERAGE_EVIDENCE_PATH,
     PRODUCER_VERSION,
     SEAD_ADMISSION_PATH,
     SOURCE_FAMILIES,
@@ -73,6 +75,11 @@ def build_country_dimension_coverage_ledger(
         path: _decode_object(payload, (root / path).as_posix())
         for path, payload in input_bytes.items()
     }
+    for path in (EMPD2_COVERAGE_EVIDENCE_PATH, NFI_COVERAGE_EVIDENCE_PATH):
+        if _canonical_bytes(input_documents[path]) != input_bytes[path]:
+            raise CountryCoverageError(
+                f"reference-source coverage evidence is not canonical: {path}"
+            )
     inputs = [
         {
             "path": path,

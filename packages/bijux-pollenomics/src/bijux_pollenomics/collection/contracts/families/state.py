@@ -107,6 +107,22 @@ def build_source_family_state_matrix_payload(
 
 
 def _layer_status(output_root: Path, contract: SourceFamilyLayerContract) -> str:
+    if contract.repository_path in {"data/empd2/review", "data/nfi/review"}:
+        from .reference_sources.metrics import valid_reference_review_bytes
+
+        source_key = contract.repository_path.split("/")[1]
+        evidence_path = _resolve_repository_path(
+            output_root, contract.example_artifacts[0]
+        )
+        try:
+            content = evidence_path.read_bytes()
+        except OSError:
+            return "missing"
+        return (
+            "present"
+            if valid_reference_review_bytes(content, source_key)
+            else "missing"
+        )
     has_evidence = all(
         _path_has_governed_content(_resolve_repository_path(output_root, artifact_path))
         for artifact_path in contract.example_artifacts

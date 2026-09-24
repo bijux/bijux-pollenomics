@@ -1,6 +1,6 @@
 {
   "schema_version": "source-family-evidence-stage-matrix.v2",
-  "row_count": 9,
+  "row_count": 11,
   "rows": [
     {
       "source_key": "landclim",
@@ -224,13 +224,74 @@
         "hyde_35_native_release_admission_unimplemented",
         "unavailable_governed_coverage_metrics"
       ]
+    },
+    {
+      "source_key": "empd2",
+      "display_name": "EMPD2 pollen reference source",
+      "domain_group": "pollen_reference",
+      "evidence_role": "candidate_reference_observations",
+      "primary_question": "Which source-bound EMPD2 records have review evidence sufficient for future admission without treating candidate review as publication?",
+      "raw_status": "missing",
+      "normalized_status": "missing",
+      "reviewed_status": "present",
+      "published_status": "missing",
+      "provenance_depth": "missing_source_capture",
+      "publication_posture": "review_required_not_publication_ready",
+      "authority_status": "review_required",
+      "authority_reasons": [
+        "qualified_empd2_source_review_missing"
+      ],
+      "coverage_metrics": {
+        "empd2_source_reported_sample_count": 915,
+        "empd2_source_reported_observation_count": 27161,
+        "empd2_mechanical_candidate_count": 914,
+        "empd2_unresolved_overlap_lead_count": 112,
+        "empd2_scientifically_admitted_record_count": 0
+      },
+      "blocking_reasons": [
+        "missing_raw_capture",
+        "missing_normalized_outputs",
+        "missing_published_surface",
+        "source_authority_review_required",
+        "qualified_empd2_source_review_missing"
+      ]
+    },
+    {
+      "source_key": "nfi",
+      "display_name": "Swedish NFI vegetation reference source",
+      "domain_group": "vegetation_reference",
+      "evidence_role": "candidate_reference_observations",
+      "primary_question": "Which source-bound Swedish NFI plot-year records have structural review evidence without opening or publishing held-out vegetation outcomes?",
+      "raw_status": "missing",
+      "normalized_status": "missing",
+      "reviewed_status": "present",
+      "published_status": "missing",
+      "provenance_depth": "missing_source_capture",
+      "publication_posture": "review_required_not_publication_ready",
+      "authority_status": "review_required",
+      "authority_reasons": [
+        "qualified_nfi_source_review_missing"
+      ],
+      "coverage_metrics": {
+        "nfi_plot_year_record_count": 43892,
+        "nfi_tract_plot_site_count": 6018,
+        "nfi_proximity_lead_count": 16,
+        "nfi_scientifically_admitted_record_count": 0
+      },
+      "blocking_reasons": [
+        "missing_raw_capture",
+        "missing_normalized_outputs",
+        "missing_published_surface",
+        "source_authority_review_required",
+        "qualified_nfi_source_review_missing"
+      ]
     }
   ],
   "capability_materialization_audit": {
     "schema_version": "source-capability-materialization-audit.v1",
     "dimension_count": 17,
-    "source_count": 9,
-    "row_count": 153,
+    "source_count": 11,
+    "row_count": 187,
     "support_vocabulary": [
       "partial",
       "supported",
@@ -3982,6 +4043,935 @@
           "governed_dimension_evidence_complete",
           "source_authority_review_required",
           "qualified_boundary_inclusion_review_missing"
+        ]
+      },
+      {
+        "source_key": "empd2",
+        "dimension": "site_identity",
+        "support": "supported",
+        "materialization": "missing",
+        "evidence_paths": [
+          "data/empd2/normalized/manifest.json"
+        ],
+        "present_evidence_paths": [],
+        "missing_evidence_paths": [
+          "data/empd2/normalized/manifest.json"
+        ],
+        "evidence_file_count": 0,
+        "required_evidence_count": 1,
+        "coverage_metrics": {
+          "empd2_source_reported_sample_count": 915,
+          "empd2_source_reported_observation_count": 27161,
+          "empd2_mechanical_candidate_count": 914,
+          "empd2_unresolved_overlap_lead_count": 112,
+          "empd2_scientifically_admitted_record_count": 0
+        },
+        "human_review_required": true,
+        "reason_codes": [
+          "governed_dimension_evidence_missing",
+          "missing_raw_capture",
+          "missing_normalized_outputs",
+          "missing_published_surface",
+          "source_authority_review_required",
+          "qualified_empd2_source_review_missing"
+        ]
+      },
+      {
+        "source_key": "empd2",
+        "dimension": "coordinates",
+        "support": "supported",
+        "materialization": "missing",
+        "evidence_paths": [
+          "data/empd2/normalized/manifest.json"
+        ],
+        "present_evidence_paths": [],
+        "missing_evidence_paths": [
+          "data/empd2/normalized/manifest.json"
+        ],
+        "evidence_file_count": 0,
+        "required_evidence_count": 1,
+        "coverage_metrics": {
+          "empd2_source_reported_sample_count": 915,
+          "empd2_source_reported_observation_count": 27161,
+          "empd2_mechanical_candidate_count": 914,
+          "empd2_unresolved_overlap_lead_count": 112,
+          "empd2_scientifically_admitted_record_count": 0
+        },
+        "human_review_required": true,
+        "reason_codes": [
+          "governed_dimension_evidence_missing",
+          "missing_raw_capture",
+          "missing_normalized_outputs",
+          "missing_published_surface",
+          "source_authority_review_required",
+          "qualified_empd2_source_review_missing"
+        ]
+      },
+      {
+        "source_key": "empd2",
+        "dimension": "four_country_coverage",
+        "support": "partial",
+        "materialization": "complete",
+        "evidence_paths": [
+          "data/empd2/review/country_coverage_evidence.json"
+        ],
+        "present_evidence_paths": [
+          "data/empd2/review/country_coverage_evidence.json"
+        ],
+        "missing_evidence_paths": [],
+        "evidence_file_count": 1,
+        "required_evidence_count": 1,
+        "coverage_metrics": {
+          "empd2_source_reported_sample_count": 915,
+          "empd2_source_reported_observation_count": 27161,
+          "empd2_mechanical_candidate_count": 914,
+          "empd2_unresolved_overlap_lead_count": 112,
+          "empd2_scientifically_admitted_record_count": 0
+        },
+        "human_review_required": true,
+        "reason_codes": [
+          "governed_dimension_evidence_complete",
+          "missing_raw_capture",
+          "missing_normalized_outputs",
+          "missing_published_surface",
+          "source_authority_review_required",
+          "qualified_empd2_source_review_missing"
+        ]
+      },
+      {
+        "source_key": "empd2",
+        "dimension": "within_site_hierarchy",
+        "support": "partial",
+        "materialization": "missing",
+        "evidence_paths": [
+          "data/empd2/normalized/manifest.json"
+        ],
+        "present_evidence_paths": [],
+        "missing_evidence_paths": [
+          "data/empd2/normalized/manifest.json"
+        ],
+        "evidence_file_count": 0,
+        "required_evidence_count": 1,
+        "coverage_metrics": {
+          "empd2_source_reported_sample_count": 915,
+          "empd2_source_reported_observation_count": 27161,
+          "empd2_mechanical_candidate_count": 914,
+          "empd2_unresolved_overlap_lead_count": 112,
+          "empd2_scientifically_admitted_record_count": 0
+        },
+        "human_review_required": true,
+        "reason_codes": [
+          "governed_dimension_evidence_missing",
+          "missing_raw_capture",
+          "missing_normalized_outputs",
+          "missing_published_surface",
+          "source_authority_review_required",
+          "qualified_empd2_source_review_missing"
+        ]
+      },
+      {
+        "source_key": "empd2",
+        "dimension": "numeric_chronology",
+        "support": "partial",
+        "materialization": "missing",
+        "evidence_paths": [
+          "data/empd2/normalized/manifest.json"
+        ],
+        "present_evidence_paths": [],
+        "missing_evidence_paths": [
+          "data/empd2/normalized/manifest.json"
+        ],
+        "evidence_file_count": 0,
+        "required_evidence_count": 1,
+        "coverage_metrics": {
+          "empd2_source_reported_sample_count": 915,
+          "empd2_source_reported_observation_count": 27161,
+          "empd2_mechanical_candidate_count": 914,
+          "empd2_unresolved_overlap_lead_count": 112,
+          "empd2_scientifically_admitted_record_count": 0
+        },
+        "human_review_required": true,
+        "reason_codes": [
+          "governed_dimension_evidence_missing",
+          "missing_raw_capture",
+          "missing_normalized_outputs",
+          "missing_published_surface",
+          "source_authority_review_required",
+          "qualified_empd2_source_review_missing"
+        ]
+      },
+      {
+        "source_key": "empd2",
+        "dimension": "chronology_uncertainty",
+        "support": "partial",
+        "materialization": "missing",
+        "evidence_paths": [
+          "data/empd2/normalized/manifest.json"
+        ],
+        "present_evidence_paths": [],
+        "missing_evidence_paths": [
+          "data/empd2/normalized/manifest.json"
+        ],
+        "evidence_file_count": 0,
+        "required_evidence_count": 1,
+        "coverage_metrics": {
+          "empd2_source_reported_sample_count": 915,
+          "empd2_source_reported_observation_count": 27161,
+          "empd2_mechanical_candidate_count": 914,
+          "empd2_unresolved_overlap_lead_count": 112,
+          "empd2_scientifically_admitted_record_count": 0
+        },
+        "human_review_required": true,
+        "reason_codes": [
+          "governed_dimension_evidence_missing",
+          "missing_raw_capture",
+          "missing_normalized_outputs",
+          "missing_published_surface",
+          "source_authority_review_required",
+          "qualified_empd2_source_review_missing"
+        ]
+      },
+      {
+        "source_key": "empd2",
+        "dimension": "relative_chronology",
+        "support": "unsupported",
+        "materialization": "not_applicable",
+        "evidence_paths": [],
+        "present_evidence_paths": [],
+        "missing_evidence_paths": [],
+        "evidence_file_count": 0,
+        "required_evidence_count": 0,
+        "coverage_metrics": {
+          "empd2_source_reported_sample_count": 915,
+          "empd2_source_reported_observation_count": 27161,
+          "empd2_mechanical_candidate_count": 914,
+          "empd2_unresolved_overlap_lead_count": 112,
+          "empd2_scientifically_admitted_record_count": 0
+        },
+        "human_review_required": false,
+        "reason_codes": [
+          "source_dimension_unsupported"
+        ]
+      },
+      {
+        "source_key": "empd2",
+        "dimension": "taxon_identity",
+        "support": "partial",
+        "materialization": "missing",
+        "evidence_paths": [
+          "data/empd2/normalized/manifest.json"
+        ],
+        "present_evidence_paths": [],
+        "missing_evidence_paths": [
+          "data/empd2/normalized/manifest.json"
+        ],
+        "evidence_file_count": 0,
+        "required_evidence_count": 1,
+        "coverage_metrics": {
+          "empd2_source_reported_sample_count": 915,
+          "empd2_source_reported_observation_count": 27161,
+          "empd2_mechanical_candidate_count": 914,
+          "empd2_unresolved_overlap_lead_count": 112,
+          "empd2_scientifically_admitted_record_count": 0
+        },
+        "human_review_required": true,
+        "reason_codes": [
+          "governed_dimension_evidence_missing",
+          "missing_raw_capture",
+          "missing_normalized_outputs",
+          "missing_published_surface",
+          "source_authority_review_required",
+          "qualified_empd2_source_review_missing"
+        ]
+      },
+      {
+        "source_key": "empd2",
+        "dimension": "native_ecological_class",
+        "support": "unsupported",
+        "materialization": "not_applicable",
+        "evidence_paths": [],
+        "present_evidence_paths": [],
+        "missing_evidence_paths": [],
+        "evidence_file_count": 0,
+        "required_evidence_count": 0,
+        "coverage_metrics": {
+          "empd2_source_reported_sample_count": 915,
+          "empd2_source_reported_observation_count": 27161,
+          "empd2_mechanical_candidate_count": 914,
+          "empd2_unresolved_overlap_lead_count": 112,
+          "empd2_scientifically_admitted_record_count": 0
+        },
+        "human_review_required": false,
+        "reason_codes": [
+          "source_dimension_unsupported"
+        ]
+      },
+      {
+        "source_key": "empd2",
+        "dimension": "derived_pollen_group",
+        "support": "unsupported",
+        "materialization": "not_applicable",
+        "evidence_paths": [],
+        "present_evidence_paths": [],
+        "missing_evidence_paths": [],
+        "evidence_file_count": 0,
+        "required_evidence_count": 0,
+        "coverage_metrics": {
+          "empd2_source_reported_sample_count": 915,
+          "empd2_source_reported_observation_count": 27161,
+          "empd2_mechanical_candidate_count": 914,
+          "empd2_unresolved_overlap_lead_count": 112,
+          "empd2_scientifically_admitted_record_count": 0
+        },
+        "human_review_required": false,
+        "reason_codes": [
+          "source_dimension_unsupported"
+        ]
+      },
+      {
+        "source_key": "empd2",
+        "dimension": "derived_ecological_role",
+        "support": "unsupported",
+        "materialization": "not_applicable",
+        "evidence_paths": [],
+        "present_evidence_paths": [],
+        "missing_evidence_paths": [],
+        "evidence_file_count": 0,
+        "required_evidence_count": 0,
+        "coverage_metrics": {
+          "empd2_source_reported_sample_count": 915,
+          "empd2_source_reported_observation_count": 27161,
+          "empd2_mechanical_candidate_count": 914,
+          "empd2_unresolved_overlap_lead_count": 112,
+          "empd2_scientifically_admitted_record_count": 0
+        },
+        "human_review_required": false,
+        "reason_codes": [
+          "source_dimension_unsupported"
+        ]
+      },
+      {
+        "source_key": "empd2",
+        "dimension": "crop_cereal_resolution",
+        "support": "unsupported",
+        "materialization": "not_applicable",
+        "evidence_paths": [],
+        "present_evidence_paths": [],
+        "missing_evidence_paths": [],
+        "evidence_file_count": 0,
+        "required_evidence_count": 0,
+        "coverage_metrics": {
+          "empd2_source_reported_sample_count": 915,
+          "empd2_source_reported_observation_count": 27161,
+          "empd2_mechanical_candidate_count": 914,
+          "empd2_unresolved_overlap_lead_count": 112,
+          "empd2_scientifically_admitted_record_count": 0
+        },
+        "human_review_required": false,
+        "reason_codes": [
+          "source_dimension_unsupported"
+        ]
+      },
+      {
+        "source_key": "empd2",
+        "dimension": "quantitative_observation",
+        "support": "supported",
+        "materialization": "missing",
+        "evidence_paths": [
+          "data/empd2/normalized/manifest.json"
+        ],
+        "present_evidence_paths": [],
+        "missing_evidence_paths": [
+          "data/empd2/normalized/manifest.json"
+        ],
+        "evidence_file_count": 0,
+        "required_evidence_count": 1,
+        "coverage_metrics": {
+          "empd2_source_reported_sample_count": 915,
+          "empd2_source_reported_observation_count": 27161,
+          "empd2_mechanical_candidate_count": 914,
+          "empd2_unresolved_overlap_lead_count": 112,
+          "empd2_scientifically_admitted_record_count": 0
+        },
+        "human_review_required": true,
+        "reason_codes": [
+          "governed_dimension_evidence_missing",
+          "missing_raw_capture",
+          "missing_normalized_outputs",
+          "missing_published_surface",
+          "source_authority_review_required",
+          "qualified_empd2_source_review_missing"
+        ]
+      },
+      {
+        "source_key": "empd2",
+        "dimension": "observation_unit",
+        "support": "partial",
+        "materialization": "missing",
+        "evidence_paths": [
+          "data/empd2/normalized/manifest.json"
+        ],
+        "present_evidence_paths": [],
+        "missing_evidence_paths": [
+          "data/empd2/normalized/manifest.json"
+        ],
+        "evidence_file_count": 0,
+        "required_evidence_count": 1,
+        "coverage_metrics": {
+          "empd2_source_reported_sample_count": 915,
+          "empd2_source_reported_observation_count": 27161,
+          "empd2_mechanical_candidate_count": 914,
+          "empd2_unresolved_overlap_lead_count": 112,
+          "empd2_scientifically_admitted_record_count": 0
+        },
+        "human_review_required": true,
+        "reason_codes": [
+          "governed_dimension_evidence_missing",
+          "missing_raw_capture",
+          "missing_normalized_outputs",
+          "missing_published_surface",
+          "source_authority_review_required",
+          "qualified_empd2_source_review_missing"
+        ]
+      },
+      {
+        "source_key": "empd2",
+        "dimension": "dataset_provenance",
+        "support": "partial",
+        "materialization": "missing",
+        "evidence_paths": [
+          "data/empd2/raw/source_manifest.json"
+        ],
+        "present_evidence_paths": [],
+        "missing_evidence_paths": [
+          "data/empd2/raw/source_manifest.json"
+        ],
+        "evidence_file_count": 0,
+        "required_evidence_count": 1,
+        "coverage_metrics": {
+          "empd2_source_reported_sample_count": 915,
+          "empd2_source_reported_observation_count": 27161,
+          "empd2_mechanical_candidate_count": 914,
+          "empd2_unresolved_overlap_lead_count": 112,
+          "empd2_scientifically_admitted_record_count": 0
+        },
+        "human_review_required": true,
+        "reason_codes": [
+          "governed_dimension_evidence_missing",
+          "missing_raw_capture",
+          "missing_normalized_outputs",
+          "missing_published_surface",
+          "source_authority_review_required",
+          "qualified_empd2_source_review_missing"
+        ]
+      },
+      {
+        "source_key": "empd2",
+        "dimension": "pollen_propagation_event",
+        "support": "unsupported",
+        "materialization": "not_applicable",
+        "evidence_paths": [],
+        "present_evidence_paths": [],
+        "missing_evidence_paths": [],
+        "evidence_file_count": 0,
+        "required_evidence_count": 0,
+        "coverage_metrics": {
+          "empd2_source_reported_sample_count": 915,
+          "empd2_source_reported_observation_count": 27161,
+          "empd2_mechanical_candidate_count": 914,
+          "empd2_unresolved_overlap_lead_count": 112,
+          "empd2_scientifically_admitted_record_count": 0
+        },
+        "human_review_required": false,
+        "reason_codes": [
+          "source_dimension_unsupported"
+        ]
+      },
+      {
+        "source_key": "empd2",
+        "dimension": "non_pollen_context",
+        "support": "unsupported",
+        "materialization": "not_applicable",
+        "evidence_paths": [],
+        "present_evidence_paths": [],
+        "missing_evidence_paths": [],
+        "evidence_file_count": 0,
+        "required_evidence_count": 0,
+        "coverage_metrics": {
+          "empd2_source_reported_sample_count": 915,
+          "empd2_source_reported_observation_count": 27161,
+          "empd2_mechanical_candidate_count": 914,
+          "empd2_unresolved_overlap_lead_count": 112,
+          "empd2_scientifically_admitted_record_count": 0
+        },
+        "human_review_required": false,
+        "reason_codes": [
+          "source_dimension_unsupported"
+        ]
+      },
+      {
+        "source_key": "nfi",
+        "dimension": "site_identity",
+        "support": "supported",
+        "materialization": "missing",
+        "evidence_paths": [
+          "data/nfi/normalized/manifest.json"
+        ],
+        "present_evidence_paths": [],
+        "missing_evidence_paths": [
+          "data/nfi/normalized/manifest.json"
+        ],
+        "evidence_file_count": 0,
+        "required_evidence_count": 1,
+        "coverage_metrics": {
+          "nfi_plot_year_record_count": 43892,
+          "nfi_tract_plot_site_count": 6018,
+          "nfi_proximity_lead_count": 16,
+          "nfi_scientifically_admitted_record_count": 0
+        },
+        "human_review_required": true,
+        "reason_codes": [
+          "governed_dimension_evidence_missing",
+          "missing_raw_capture",
+          "missing_normalized_outputs",
+          "missing_published_surface",
+          "source_authority_review_required",
+          "qualified_nfi_source_review_missing"
+        ]
+      },
+      {
+        "source_key": "nfi",
+        "dimension": "coordinates",
+        "support": "supported",
+        "materialization": "missing",
+        "evidence_paths": [
+          "data/nfi/normalized/manifest.json"
+        ],
+        "present_evidence_paths": [],
+        "missing_evidence_paths": [
+          "data/nfi/normalized/manifest.json"
+        ],
+        "evidence_file_count": 0,
+        "required_evidence_count": 1,
+        "coverage_metrics": {
+          "nfi_plot_year_record_count": 43892,
+          "nfi_tract_plot_site_count": 6018,
+          "nfi_proximity_lead_count": 16,
+          "nfi_scientifically_admitted_record_count": 0
+        },
+        "human_review_required": true,
+        "reason_codes": [
+          "governed_dimension_evidence_missing",
+          "missing_raw_capture",
+          "missing_normalized_outputs",
+          "missing_published_surface",
+          "source_authority_review_required",
+          "qualified_nfi_source_review_missing"
+        ]
+      },
+      {
+        "source_key": "nfi",
+        "dimension": "four_country_coverage",
+        "support": "partial",
+        "materialization": "complete",
+        "evidence_paths": [
+          "data/nfi/review/country_coverage_evidence.json"
+        ],
+        "present_evidence_paths": [
+          "data/nfi/review/country_coverage_evidence.json"
+        ],
+        "missing_evidence_paths": [],
+        "evidence_file_count": 1,
+        "required_evidence_count": 1,
+        "coverage_metrics": {
+          "nfi_plot_year_record_count": 43892,
+          "nfi_tract_plot_site_count": 6018,
+          "nfi_proximity_lead_count": 16,
+          "nfi_scientifically_admitted_record_count": 0
+        },
+        "human_review_required": true,
+        "reason_codes": [
+          "governed_dimension_evidence_complete",
+          "missing_raw_capture",
+          "missing_normalized_outputs",
+          "missing_published_surface",
+          "source_authority_review_required",
+          "qualified_nfi_source_review_missing"
+        ]
+      },
+      {
+        "source_key": "nfi",
+        "dimension": "within_site_hierarchy",
+        "support": "partial",
+        "materialization": "missing",
+        "evidence_paths": [
+          "data/nfi/normalized/manifest.json"
+        ],
+        "present_evidence_paths": [],
+        "missing_evidence_paths": [
+          "data/nfi/normalized/manifest.json"
+        ],
+        "evidence_file_count": 0,
+        "required_evidence_count": 1,
+        "coverage_metrics": {
+          "nfi_plot_year_record_count": 43892,
+          "nfi_tract_plot_site_count": 6018,
+          "nfi_proximity_lead_count": 16,
+          "nfi_scientifically_admitted_record_count": 0
+        },
+        "human_review_required": true,
+        "reason_codes": [
+          "governed_dimension_evidence_missing",
+          "missing_raw_capture",
+          "missing_normalized_outputs",
+          "missing_published_surface",
+          "source_authority_review_required",
+          "qualified_nfi_source_review_missing"
+        ]
+      },
+      {
+        "source_key": "nfi",
+        "dimension": "numeric_chronology",
+        "support": "supported",
+        "materialization": "missing",
+        "evidence_paths": [
+          "data/nfi/normalized/manifest.json"
+        ],
+        "present_evidence_paths": [],
+        "missing_evidence_paths": [
+          "data/nfi/normalized/manifest.json"
+        ],
+        "evidence_file_count": 0,
+        "required_evidence_count": 1,
+        "coverage_metrics": {
+          "nfi_plot_year_record_count": 43892,
+          "nfi_tract_plot_site_count": 6018,
+          "nfi_proximity_lead_count": 16,
+          "nfi_scientifically_admitted_record_count": 0
+        },
+        "human_review_required": true,
+        "reason_codes": [
+          "governed_dimension_evidence_missing",
+          "missing_raw_capture",
+          "missing_normalized_outputs",
+          "missing_published_surface",
+          "source_authority_review_required",
+          "qualified_nfi_source_review_missing"
+        ]
+      },
+      {
+        "source_key": "nfi",
+        "dimension": "chronology_uncertainty",
+        "support": "partial",
+        "materialization": "missing",
+        "evidence_paths": [
+          "data/nfi/normalized/manifest.json"
+        ],
+        "present_evidence_paths": [],
+        "missing_evidence_paths": [
+          "data/nfi/normalized/manifest.json"
+        ],
+        "evidence_file_count": 0,
+        "required_evidence_count": 1,
+        "coverage_metrics": {
+          "nfi_plot_year_record_count": 43892,
+          "nfi_tract_plot_site_count": 6018,
+          "nfi_proximity_lead_count": 16,
+          "nfi_scientifically_admitted_record_count": 0
+        },
+        "human_review_required": true,
+        "reason_codes": [
+          "governed_dimension_evidence_missing",
+          "missing_raw_capture",
+          "missing_normalized_outputs",
+          "missing_published_surface",
+          "source_authority_review_required",
+          "qualified_nfi_source_review_missing"
+        ]
+      },
+      {
+        "source_key": "nfi",
+        "dimension": "relative_chronology",
+        "support": "unsupported",
+        "materialization": "not_applicable",
+        "evidence_paths": [],
+        "present_evidence_paths": [],
+        "missing_evidence_paths": [],
+        "evidence_file_count": 0,
+        "required_evidence_count": 0,
+        "coverage_metrics": {
+          "nfi_plot_year_record_count": 43892,
+          "nfi_tract_plot_site_count": 6018,
+          "nfi_proximity_lead_count": 16,
+          "nfi_scientifically_admitted_record_count": 0
+        },
+        "human_review_required": false,
+        "reason_codes": [
+          "source_dimension_unsupported"
+        ]
+      },
+      {
+        "source_key": "nfi",
+        "dimension": "taxon_identity",
+        "support": "partial",
+        "materialization": "missing",
+        "evidence_paths": [
+          "data/nfi/normalized/manifest.json"
+        ],
+        "present_evidence_paths": [],
+        "missing_evidence_paths": [
+          "data/nfi/normalized/manifest.json"
+        ],
+        "evidence_file_count": 0,
+        "required_evidence_count": 1,
+        "coverage_metrics": {
+          "nfi_plot_year_record_count": 43892,
+          "nfi_tract_plot_site_count": 6018,
+          "nfi_proximity_lead_count": 16,
+          "nfi_scientifically_admitted_record_count": 0
+        },
+        "human_review_required": true,
+        "reason_codes": [
+          "governed_dimension_evidence_missing",
+          "missing_raw_capture",
+          "missing_normalized_outputs",
+          "missing_published_surface",
+          "source_authority_review_required",
+          "qualified_nfi_source_review_missing"
+        ]
+      },
+      {
+        "source_key": "nfi",
+        "dimension": "native_ecological_class",
+        "support": "partial",
+        "materialization": "missing",
+        "evidence_paths": [
+          "data/nfi/normalized/manifest.json"
+        ],
+        "present_evidence_paths": [],
+        "missing_evidence_paths": [
+          "data/nfi/normalized/manifest.json"
+        ],
+        "evidence_file_count": 0,
+        "required_evidence_count": 1,
+        "coverage_metrics": {
+          "nfi_plot_year_record_count": 43892,
+          "nfi_tract_plot_site_count": 6018,
+          "nfi_proximity_lead_count": 16,
+          "nfi_scientifically_admitted_record_count": 0
+        },
+        "human_review_required": true,
+        "reason_codes": [
+          "governed_dimension_evidence_missing",
+          "missing_raw_capture",
+          "missing_normalized_outputs",
+          "missing_published_surface",
+          "source_authority_review_required",
+          "qualified_nfi_source_review_missing"
+        ]
+      },
+      {
+        "source_key": "nfi",
+        "dimension": "derived_pollen_group",
+        "support": "unsupported",
+        "materialization": "not_applicable",
+        "evidence_paths": [],
+        "present_evidence_paths": [],
+        "missing_evidence_paths": [],
+        "evidence_file_count": 0,
+        "required_evidence_count": 0,
+        "coverage_metrics": {
+          "nfi_plot_year_record_count": 43892,
+          "nfi_tract_plot_site_count": 6018,
+          "nfi_proximity_lead_count": 16,
+          "nfi_scientifically_admitted_record_count": 0
+        },
+        "human_review_required": false,
+        "reason_codes": [
+          "source_dimension_unsupported"
+        ]
+      },
+      {
+        "source_key": "nfi",
+        "dimension": "derived_ecological_role",
+        "support": "unsupported",
+        "materialization": "not_applicable",
+        "evidence_paths": [],
+        "present_evidence_paths": [],
+        "missing_evidence_paths": [],
+        "evidence_file_count": 0,
+        "required_evidence_count": 0,
+        "coverage_metrics": {
+          "nfi_plot_year_record_count": 43892,
+          "nfi_tract_plot_site_count": 6018,
+          "nfi_proximity_lead_count": 16,
+          "nfi_scientifically_admitted_record_count": 0
+        },
+        "human_review_required": false,
+        "reason_codes": [
+          "source_dimension_unsupported"
+        ]
+      },
+      {
+        "source_key": "nfi",
+        "dimension": "crop_cereal_resolution",
+        "support": "unsupported",
+        "materialization": "not_applicable",
+        "evidence_paths": [],
+        "present_evidence_paths": [],
+        "missing_evidence_paths": [],
+        "evidence_file_count": 0,
+        "required_evidence_count": 0,
+        "coverage_metrics": {
+          "nfi_plot_year_record_count": 43892,
+          "nfi_tract_plot_site_count": 6018,
+          "nfi_proximity_lead_count": 16,
+          "nfi_scientifically_admitted_record_count": 0
+        },
+        "human_review_required": false,
+        "reason_codes": [
+          "source_dimension_unsupported"
+        ]
+      },
+      {
+        "source_key": "nfi",
+        "dimension": "quantitative_observation",
+        "support": "supported",
+        "materialization": "missing",
+        "evidence_paths": [
+          "data/nfi/normalized/manifest.json"
+        ],
+        "present_evidence_paths": [],
+        "missing_evidence_paths": [
+          "data/nfi/normalized/manifest.json"
+        ],
+        "evidence_file_count": 0,
+        "required_evidence_count": 1,
+        "coverage_metrics": {
+          "nfi_plot_year_record_count": 43892,
+          "nfi_tract_plot_site_count": 6018,
+          "nfi_proximity_lead_count": 16,
+          "nfi_scientifically_admitted_record_count": 0
+        },
+        "human_review_required": true,
+        "reason_codes": [
+          "governed_dimension_evidence_missing",
+          "missing_raw_capture",
+          "missing_normalized_outputs",
+          "missing_published_surface",
+          "source_authority_review_required",
+          "qualified_nfi_source_review_missing"
+        ]
+      },
+      {
+        "source_key": "nfi",
+        "dimension": "observation_unit",
+        "support": "supported",
+        "materialization": "missing",
+        "evidence_paths": [
+          "data/nfi/normalized/manifest.json"
+        ],
+        "present_evidence_paths": [],
+        "missing_evidence_paths": [
+          "data/nfi/normalized/manifest.json"
+        ],
+        "evidence_file_count": 0,
+        "required_evidence_count": 1,
+        "coverage_metrics": {
+          "nfi_plot_year_record_count": 43892,
+          "nfi_tract_plot_site_count": 6018,
+          "nfi_proximity_lead_count": 16,
+          "nfi_scientifically_admitted_record_count": 0
+        },
+        "human_review_required": true,
+        "reason_codes": [
+          "governed_dimension_evidence_missing",
+          "missing_raw_capture",
+          "missing_normalized_outputs",
+          "missing_published_surface",
+          "source_authority_review_required",
+          "qualified_nfi_source_review_missing"
+        ]
+      },
+      {
+        "source_key": "nfi",
+        "dimension": "dataset_provenance",
+        "support": "partial",
+        "materialization": "missing",
+        "evidence_paths": [
+          "data/nfi/raw/source_manifest.json"
+        ],
+        "present_evidence_paths": [],
+        "missing_evidence_paths": [
+          "data/nfi/raw/source_manifest.json"
+        ],
+        "evidence_file_count": 0,
+        "required_evidence_count": 1,
+        "coverage_metrics": {
+          "nfi_plot_year_record_count": 43892,
+          "nfi_tract_plot_site_count": 6018,
+          "nfi_proximity_lead_count": 16,
+          "nfi_scientifically_admitted_record_count": 0
+        },
+        "human_review_required": true,
+        "reason_codes": [
+          "governed_dimension_evidence_missing",
+          "missing_raw_capture",
+          "missing_normalized_outputs",
+          "missing_published_surface",
+          "source_authority_review_required",
+          "qualified_nfi_source_review_missing"
+        ]
+      },
+      {
+        "source_key": "nfi",
+        "dimension": "pollen_propagation_event",
+        "support": "unsupported",
+        "materialization": "not_applicable",
+        "evidence_paths": [],
+        "present_evidence_paths": [],
+        "missing_evidence_paths": [],
+        "evidence_file_count": 0,
+        "required_evidence_count": 0,
+        "coverage_metrics": {
+          "nfi_plot_year_record_count": 43892,
+          "nfi_tract_plot_site_count": 6018,
+          "nfi_proximity_lead_count": 16,
+          "nfi_scientifically_admitted_record_count": 0
+        },
+        "human_review_required": false,
+        "reason_codes": [
+          "source_dimension_unsupported"
+        ]
+      },
+      {
+        "source_key": "nfi",
+        "dimension": "non_pollen_context",
+        "support": "supported",
+        "materialization": "missing",
+        "evidence_paths": [
+          "data/nfi/normalized/manifest.json"
+        ],
+        "present_evidence_paths": [],
+        "missing_evidence_paths": [
+          "data/nfi/normalized/manifest.json"
+        ],
+        "evidence_file_count": 0,
+        "required_evidence_count": 1,
+        "coverage_metrics": {
+          "nfi_plot_year_record_count": 43892,
+          "nfi_tract_plot_site_count": 6018,
+          "nfi_proximity_lead_count": 16,
+          "nfi_scientifically_admitted_record_count": 0
+        },
+        "human_review_required": true,
+        "reason_codes": [
+          "governed_dimension_evidence_missing",
+          "missing_raw_capture",
+          "missing_normalized_outputs",
+          "missing_published_surface",
+          "source_authority_review_required",
+          "qualified_nfi_source_review_missing"
         ]
       }
     ]

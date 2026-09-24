@@ -4,15 +4,16 @@ audience: reader
 type: index
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-09-13
+last_reviewed: 2026-09-24
 ---
 
 # Pollenomics Data
 
 The Pollenomics data system is a version-controlled evidence database that
 preserves the chain between an upstream source and a public claim. It combines
-nine contracted source families without erasing their differences: LandClim,
-Neotoma, SEAD, RAÄ, boundaries, SMHI SVAR, AADR, animal ancient DNA, and HYDE.
+eleven contracted source families without erasing their differences: LandClim,
+Neotoma, SEAD, RAÄ, boundaries, SMHI SVAR, AADR, animal ancient DNA, HYDE,
+EMPD2, and Swedish national forest inventory (NFI) reference evidence.
 
 Every family has an explicit role. Pollen sources provide primary
 palaeoenvironmental context; archaeology sources provide contextual domains;
@@ -20,7 +21,11 @@ boundaries frame geography; SVAR provides a lake registry; AADR provides
 versioned human ancient-DNA context; and animal aDNA is curated as
 sample-owned evidence from papers, supplements, and project archives.
 [HYDE](sources/hyde.md) supplies external modeled land-use context, subject to
-its own grid, calendar, variable and source-admission requirements.
+its own grid, calendar, variable and source-admission requirements. EMPD2
+supplies source-bound pollen-reference candidates, while Swedish NFI supplies
+local tree-plot reference leads alongside a separate four-country access
+review. Neither reference family currently has a scientifically admitted
+vegetation–pollen pair.
 
 <div class="bijux-quicklinks">
   <a class="md-button md-button--primary" href="overview/">Understand the data system</a>
@@ -79,7 +84,7 @@ that owns the question.
 | Question | Governing artifact | Why another summary is insufficient |
 | --- | --- | --- |
 | Which collector-managed trees were captured for `v66`? | `data/collection_summary.json` source inventory, hashes, and retrieval metadata | lifecycle presence does not follow from a source name or hash |
-| Which of the nine contracted families has materialized raw, normalized, reviewed, and published evidence? | `data/source_family_evidence_stage_matrix.json` | the collection summary covers seven collectors and can carry a differently timed embedded state snapshot |
+| Which of the eleven contracted families has materialized raw, normalized, reviewed, and published evidence? | `data/source_family_evidence_stage_matrix.json` | the collection summary covers exactly seven collectors and can carry a differently timed embedded state snapshot |
 | Which record owns a repeated fact? | `data/source_fact_ownership_registry.json` | directory placement and copied fields do not transfer authority |
 | Which spatial or temporal use is permitted? | `data/source_spatiotemporal_posture_registry.json` plus claim-level review | coordinate or date presence does not establish comparability |
 | Which records belong to one public product? | that product's manifest and admission evidence | normalized presence and retained outputs do not imply membership |
@@ -115,11 +120,13 @@ Four machine-readable contracts make this flow inspectable:
   regional, and country artifact shapes.
 
 The collector summary and the evidence-family contract answer different
-inventory questions. `data/collection_summary.json` pins seven
-collector-managed source trees. The evidence system contains nine contracted
-families: animal ancient DNA uses archive, literature, supplement, project and
-sample authorities, while HYDE uses separately retained external native data
-and compact preparation evidence.
+inventory questions. `data/collection_summary.json` pins exactly seven
+collector-managed source trees. The evidence system contains eleven contracted
+families. Animal ancient DNA uses archive, literature, supplement, project and
+sample authorities; HYDE uses separately retained external native data and
+compact preparation evidence; EMPD2 and Swedish NFI use bounded source custody
+and reference-review workflows. Those four workflows do not create additional
+collection adapters.
 
 ### Current Materialized Lifecycle
 
@@ -138,11 +145,18 @@ summary, or the matrix itself as evidence for a stage.
 | AADR | present | missing | present | present | v66 capture and compact source accountability exist; normalized membership and qualified scientific review remain unavailable |
 | animal ancient DNA | present | present | present | present | contracted project, sample, review, and atlas evidence is materialized |
 | HYDE | missing | missing | missing | missing | external native custody exists; the contracted governed release artifacts are not admitted |
+| EMPD2 | missing | missing | present | missing | compact governed review preserves source counts and candidate refusals; the local SQLite is not a materialized governed raw stage, and no assignment or publication is admitted |
+| Swedish NFI | missing | missing | present | missing | compact governed access and reference review exists; the contracted source is Swedish, and no acquired four-country plot population or admitted vegetation–pollen publication exists |
 
 `published` means that a contracted publication artifact exists. It does not
 override an earlier missing stage. A retained product can be inspected at its
 declared version while the current snapshot truthfully refuses to describe it
 as rebuildable from a complete normalized-and-reviewed chain.
+
+EMPD2 and Swedish NFI both have authority status `review_required` and
+publication posture `review_required_not_publication_ready`. Their public
+source pages explain reviewed evidence; those pages are not published data
+layers and do not change the zero scientific-admission denominator.
 
 ### The Database Is A Claim Ledger
 

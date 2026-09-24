@@ -30,6 +30,8 @@ SOURCE_FAMILIES: Final = (
     "aadr",
     "animal_adna",
     "hyde",
+    "empd2",
+    "nfi",
 )
 
 
@@ -48,6 +50,12 @@ CELL_SCHEMA_SHA256: Final = (
 
 
 HYDE_ASSIGNMENT_NOT_APPLIED: Final = "hyde-native-country-projection-not-applied.v1"
+
+
+EMPD2_ASSIGNMENT_NOT_APPLIED: Final = "empd2-governed-country-assignment-not-applied.v1"
+
+
+NFI_ASSIGNMENT_NOT_APPLIED: Final = "nfi-governed-country-assignment-not-applied.v1"
 
 
 BOUNDARY_METHOD: Final = "natural-earth-5.1.1-strict-containment-with-review.v1"
@@ -90,6 +98,22 @@ COUNTRY_COVERAGE_OUTPUT_PATH: Final = "data/country_dimension_coverage.json"
 
 
 COUNTRY_COVERAGE_ARTIFACT_ROOT: Final = "artifacts/execution-control/country-coverage"
+
+
+EMPD2_COVERAGE_EVIDENCE_PATH: Final = "data/empd2/review/country_coverage_evidence.json"
+
+
+NFI_COVERAGE_EVIDENCE_PATH: Final = "data/nfi/review/country_coverage_evidence.json"
+
+
+EMPD2_SOURCE_ARTIFACT_SHA256: Final = (
+    "5634e85d922ee0741c41a77d081010c9cc1c113966b283bc52e2051a9d3722e2"
+)
+
+
+NFI_SOURCE_ARTIFACT_SHA256: Final = (
+    "862d13f26b868e3b32504f0f714f369018e700e54b245fcd2e16c80640316294"
+)
 
 
 COUNT_FIELDS: Final = (
@@ -142,6 +166,8 @@ INPUT_PATHS: Final = (
     BOUNDARY_ARTIFACT_PATH,
     SEAD_EVIDENCE_MANIFEST_PATH,
     SEAD_PUBLIC_SITES_PATH,
+    EMPD2_COVERAGE_EVIDENCE_PATH,
+    NFI_COVERAGE_EVIDENCE_PATH,
 )
 
 

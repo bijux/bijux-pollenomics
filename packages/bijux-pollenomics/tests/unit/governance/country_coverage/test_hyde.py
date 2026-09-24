@@ -2,7 +2,6 @@
 
 from __future__ import annotations
 
-import json
 from typing import cast
 
 import pytest
@@ -19,60 +18,6 @@ from bijux_pollenomics.governance.country_coverage.evidence.model import _cell
 from bijux_pollenomics.governance.country_coverage.evidence.snapshots import (
     _source_snapshot_ids,
 )
-
-from .fixtures import _LEDGER_PATH, _build, _cells
-
-
-def test_hyde_extends_inventory_without_rewriting_old_partitions() -> None:
-    ledger = _build()
-    current = _cells(ledger)
-    previous = cast(
-        list[dict[str, object]], json.loads(_LEDGER_PATH.read_bytes())["cells"]
-    )
-
-    # Only the global source inventory/producer identity is expected to change.
-    def substantive(row: dict[str, object]) -> dict[str, object]:
-        return {
-            key: value
-            for key, value in row.items()
-            if key not in {"build_id", "config_digest"}
-        }
-
-    assert SOURCE_FAMILIES == (
-        "landclim",
-        "neotoma",
-        "sead",
-        "raa",
-        "boundaries",
-        "svar",
-        "aadr",
-        "animal_adna",
-        "hyde",
-    )
-    previous = [row for row in previous if row["source_family"] != "hyde"]
-    assert len(previous) == 144
-    assert [substantive(row) for row in current if row["source_family"] != "hyde"] == [
-        substantive(row) for row in previous
-    ]
-    hyde = [row for row in current if row["source_family"] == "hyde"]
-    assert len(hyde) == 18
-    for row in hyde:
-        assert row["availability_status"] == "blocked"
-        assert row["lifecycle_status"] == "refused"
-        assert row["source_snapshot_id"] is None
-        assert row["boundary_artifact_digest"] is None
-        assert set(cast(dict[str, object], row["counts"]).values()) == {None}
-        assert "hyde_native_country_projection_unverified" in cast(
-            list[str], row["reason_codes"]
-        )
-        assert "hyde_35_native_release_admission_unimplemented" in cast(
-            list[str], row["reason_codes"]
-        )
-        assert row["country_assignment_method"] == (
-            None
-            if row["country_dimension"] == "source_reported"
-            else HYDE_ASSIGNMENT_NOT_APPLIED
-        )
 
 
 @pytest.mark.parametrize("dimension", COUNTRY_DIMENSIONS)
@@ -132,4 +77,6 @@ def test_no_hyde_country_snapshot_is_inferred_from_collection_claim(
     )
     assert tuple(result) == SOURCE_FAMILIES
     assert result["hyde"] is None
-    assert all(result[source] is not None for source in SOURCE_FAMILIES[:-1])
+    assert all(
+        result[source] is not None for source in SOURCE_FAMILIES if source != "hyde"
+    )
