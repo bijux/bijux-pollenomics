@@ -6,6 +6,7 @@ import argparse
 from collections import Counter
 import hashlib
 import json
+from math import isfinite
 from pathlib import Path
 from typing import Any
 
@@ -62,6 +63,57 @@ def _raw_count_summary(datums: list[dict[str, Any]]) -> dict[str, Any]:
             for label in sorted(label_observations)
         },
         "non_nisp_unit_counts": dict(sorted(non_nisp_units.items())),
+    }
+
+
+def _native_series_summary(samples: list[dict[str, Any]]) -> dict[str, Any]:
+    """Audit native count mass and age claims without choosing an LRA denominator."""
+    seen: set[int] = set()
+    totals: Counter[str] = Counter()
+    chronology_names: Counter[str] = Counter()
+    age_units: Counter[str] = Counter()
+    single_ages: list[float] = []
+    for sample in samples:
+        sample_id = sample["sampleid"]
+        if sample_id in seen:
+            raise ValueError("Native series repeats a sample ID")
+        seen.add(sample_id)
+        counts = _raw_count_summary(sample["datum"])
+        totals["pollen_nisp"] += counts["pollen_count"]
+        totals["other_nisp"] += counts["other_nisp_count"]
+        totals["non_nisp_observations"] += counts["non_nisp_observations"]
+        totals["samples_with_pollen"] += counts["pollen_count"] > 0
+        claims = sample["ages"]
+        totals["samples_without_age_claim"] += not claims
+        totals["samples_with_multiple_age_claims"] += len(claims) > 1
+        if len(claims) == 1:
+            claim = claims[0]
+            chronology_names[str(claim["chronologyname"])] += 1
+            age_units[str(claim["agetype"])] += 1
+            age = claim["age"]
+            if (
+                isinstance(age, bool)
+                or not isinstance(age, (int, float))
+                or not isfinite(age)
+            ):
+                raise ValueError("Native single age claim is not finite and numeric")
+            single_ages.append(float(age))
+    return {
+        "native_samples": len(samples),
+        "samples_with_pollen_nisp": totals["samples_with_pollen"],
+        "pure_pollen_nisp": totals["pollen_nisp"],
+        "other_nisp": totals["other_nisp"],
+        "non_nisp_observations": totals["non_nisp_observations"],
+        "samples_without_age_claim": totals["samples_without_age_claim"],
+        "samples_with_multiple_age_claims": totals["samples_with_multiple_age_claims"],
+        "samples_with_single_age_claim": len(single_ages),
+        "single_age_claim_range": [min(single_ages), max(single_ages)]
+        if single_ages and len(age_units) == 1
+        else None,
+        "single_age_chronology_names": dict(sorted(chronology_names.items())),
+        "single_age_units": dict(sorted(age_units.items())),
+        "chronology_selection": "not_evaluated",
+        "pollen_denominator_selection": "not_evaluated",
     }
 
 
@@ -218,6 +270,17 @@ def compare_lakes(
             or age_range[0]["units"] != "Calibrated radiocarbon years BP"
         ):
             raise ValueError("Native dataset age-range units differ")
+        series = _native_series_summary(samples)
+        native_endpoints = series["single_age_claim_range"]
+        if (
+            series["single_age_units"]
+            != {"Calibrated radiocarbon years BP": len(samples)}
+            or native_endpoints is None
+        ):
+            raise ValueError("Native series lacks a common calibrated age axis")
+        if native_endpoints != [age_range[0]["ageyoung"], age_range[0]["ageold"]]:
+            raise ValueError("Native sample and dataset age endpoints differ")
+        published_endpoints = [float(published["N"]), float(published["O"])]
         results.append(
             {
                 "neotoma_site_id": f"neotoma:site:{site_id}",
@@ -236,6 +299,13 @@ def compare_lakes(
                 "neotoma_dataset_age_range": age_range[0],
                 "first_sample_age_claim": age["source_payload"],
                 "first_sample_counts": counts,
+                "native_series_summary": series,
+                "native_minus_published_age_end_labels_bp": [
+                    native - published_age
+                    for native, published_age in zip(
+                        native_endpoints, published_endpoints
+                    )
+                ],
                 "retained_first_sample_nisp_partition": partition,
                 "landclim_metadata_row": workbook_row,
                 "landclim_site_radius_m": int(published["D"]),
@@ -316,6 +386,31 @@ def main() -> int:
             f"{lake['neotoma_elevation_m']} / {lake['landclim_elevation_m']} | "
             f"{lake['landclim_site_radius_m']} | "
             f"{counts['pollen_count']} / {counts['other_nisp_count']} |"
+        )
+    lines.extend(
+        [
+            "",
+            "## Native series coverage",
+            "",
+            "These are source NISP partitions and unselected age claims, not LRA "
+            "pollen denominators or a selected chronology.",
+            "",
+            "| Lake | Samples | Pure pollen NISP | Other NISP | Single age claims | Native age range (calibrated BP) | Native − published end labels (years) |",
+            "| --- | ---: | ---: | ---: | ---: | ---: | ---: |",
+        ]
+    )
+    for lake in lakes:
+        series = lake["native_series_summary"]
+        age_range = series["single_age_claim_range"]
+        age_text = (
+            f"{age_range[0]:g}–{age_range[1]:g}" if age_range is not None else "none"
+        )
+        lines.append(
+            f"| {lake['site_name']} | {series['native_samples']} | "
+            f"{series['pure_pollen_nisp']} | {series['other_nisp']} | "
+            f"{series['samples_with_single_age_claim']} | {age_text} | "
+            f"{lake['native_minus_published_age_end_labels_bp'][0]:+.1f} / "
+            f"{lake['native_minus_published_age_end_labels_bp'][1]:+.1f} |"
         )
     lines.extend(
         [
