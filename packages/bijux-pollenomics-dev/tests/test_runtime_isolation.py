@@ -77,6 +77,26 @@ APPROVED_HOST_IMPORTS: dict[str, dict[str, frozenset[str]]] = {
             {"EVIDENCE_ROLE", "VALUE_UNIT"}
         ),
     },
+    "bijux_pollenomics_dev/essd_reproduction/rootsi_input_closure.py": {
+        "bijux_pollenomics.collection.sources.landclim.study_inventory": frozenset(
+            {
+                "LandClimStudyMetadataInventory",
+                "StudyMetadataRecord",
+                "read_landclim_study_inventory",
+                "reopen_landclim_study_inventory",
+            }
+        ),
+        "bijux_pollenomics.collection.sources.rootsi": frozenset(
+            {"RootsiSiteMetadataClaim", "normalize_rootsi_site_metadata"}
+        ),
+        "bijux_pollenomics.collection.sources.rootsi.authority": frozenset(
+            {"ARCHIVE_SHA256", "METADATA_MEMBER", "METADATA_SHA256"}
+        ),
+        "bijux_pollenomics.collection.sources.rootsi.cells": frozenset(
+            {"read_rootsi_cell_review"}
+        ),
+        "bijux_pollenomics.core.owned_tree": frozenset({"publish_new_output_tree"}),
+    },
     "bijux_pollenomics_dev/essd_reproduction/study_inputs.py": {
         "bijux_pollenomics.collection.sources.landclim.study_inventory": frozenset(
             {
