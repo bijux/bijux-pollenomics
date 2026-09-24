@@ -92,6 +92,62 @@ APPROVED_HOST_IMPORTS: dict[str, dict[str, frozenset[str]]] = {
             {"reopen_cohort_admission"}
         ),
     },
+    "bijux_pollenomics_dev/source_completion/empd2_nfi_reference/admission.py": {
+        "bijux_pollenomics.analysis.lra_validation.channels": frozenset(
+            {"ObservationChannels", "PollenChannel"}
+        ),
+        "bijux_pollenomics.analysis.lra_validation.contracts": frozenset(
+            {"SiteRecord", "site_group_id"}
+        ),
+        "bijux_pollenomics.analysis.lra_validation.evaluation.api": frozenset(
+            {"ExternalInput", "Support"}
+        ),
+    },
+    "bijux_pollenomics_dev/source_completion/empd2_nfi_reference/decisions.py": {
+        "bijux_pollenomics.analysis.lra_validation.channels": frozenset(
+            {"ObservationChannels"}
+        ),
+        "bijux_pollenomics.analysis.lra_validation.contracts": frozenset(
+            {"SiteRecord", "canonical_json", "manifest_sha256"}
+        ),
+        "bijux_pollenomics.analysis.lra_validation.evaluation.api": frozenset(
+            {
+                "COHORT_DECISION_PROFILE",
+                "EvaluationSite",
+                "ExternalInput",
+                "ReviewedEvaluationCohort",
+                "admit_reviewed_evaluation_cohort",
+            }
+        ),
+    },
+    "bijux_pollenomics_dev/source_completion/empd2_nfi_reference/evidence.py": {
+        "bijux_pollenomics.analysis.lra_validation.contracts": frozenset(
+            {"canonical_json"}
+        ),
+        "bijux_pollenomics.core.geospatial.distance": frozenset(
+            {"wgs84_inverse_geodesic"}
+        ),
+    },
+    "bijux_pollenomics_dev/source_completion/empd2_nfi_reference/parameters.py": {
+        "bijux_pollenomics.analysis.lra_validation.contracts": frozenset(
+            {"canonical_json"}
+        ),
+    },
+    "bijux_pollenomics_dev/source_completion/empd2_nfi_reference/pollen_index.py": {
+        "bijux_pollenomics.analysis.lra_validation.contracts": frozenset(
+            {"canonical_json"}
+        ),
+    },
+    "bijux_pollenomics_dev/source_completion/empd2_nfi_reference/projection.py": {
+        "bijux_pollenomics.analysis.lra_validation.contracts": frozenset(
+            {"canonical_json", "manifest_sha256"}
+        ),
+    },
+    "bijux_pollenomics_dev/source_completion/empd2_nfi_reference/taxon_mapping.py": {
+        "bijux_pollenomics.analysis.lra_validation.contracts": frozenset(
+            {"canonical_json"}
+        ),
+    },
     "bijux_pollenomics_dev/taxa_review/neotoma.py": {
         "bijux_pollenomics.evidence.classification": frozenset(
             {"build_neotoma_classification_accounting"}
