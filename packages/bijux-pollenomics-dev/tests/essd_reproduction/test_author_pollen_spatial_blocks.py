@@ -16,6 +16,9 @@ from bijux_pollenomics_dev.essd_reproduction.author_pollen_spatial import (
 from bijux_pollenomics_dev.essd_reproduction.author_pollen_spatial.comparison import (
     _group_comparisons,
 )
+from bijux_pollenomics_dev.essd_reproduction.author_pollen_spatial.hellinger_comparison import (
+    _site_block_summaries,
+)
 from bijux_pollenomics_dev.essd_reproduction.author_pollen_spatial.scoring import (
     _paired_comparison,
 )
@@ -298,3 +301,20 @@ def test_taxon_error_comparison_uses_common_bins_and_equal_site_weights(
     tampered.write_text(text.replace("taxon_0,1,0.0625", "taxon_0,2,0.0625", 1))
     with pytest.raises(ValueError, match="observed taxon counts"):
         compare_taxon_errors(score_dirs, keys, score_rows)
+
+
+def test_hellinger_summary_weights_sites_before_bins() -> None:
+    distances = {
+        "training_mean": {("A", "1"): 0.2, ("A", "2"): 0.4, ("B", "1"): 0.9},
+        "nearest_site": {("A", "1"): 0.1, ("A", "2"): 0.2, ("B", "1"): 0.8},
+        "inverse_distance_squared": {
+            ("A", "1"): 0.3,
+            ("A", "2"): 0.3,
+            ("B", "1"): 0.7,
+        },
+    }
+    sites, blocks, methods = _site_block_summaries(distances, {"A": "512", "B": "562"})
+    assert sites[0]["methods"]["training_mean"] == pytest.approx(0.3)
+    assert [block["scored_bins"] for block in blocks] == [2, 1]
+    assert methods[0]["site_macro_hellinger"] == pytest.approx(0.6)
+    assert methods[1]["hellinger_minus_training_mean"] == pytest.approx(-0.125)

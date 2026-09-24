@@ -1,7 +1,7 @@
 """Separate vegetation/pollen denominators, zeros and invalid analytical outputs."""
 
 import json
-from math import log
+from math import log, sqrt
 from typing import Any
 
 import pytest
@@ -11,6 +11,7 @@ from bijux_pollenomics.analysis.lra_validation import (
     score_pollen,
     score_vegetation,
 )
+from bijux_pollenomics.analysis.lra_validation.metrics import hellinger_distance
 
 
 def test_vegetation_fraction_metrics_have_explicit_taxon_denominator() -> None:
@@ -113,3 +114,13 @@ def test_signed_errors_remain_available_by_taxon_for_cohort_bias() -> None:
     assert dict(score.signed_error_by_taxon) == pytest.approx(
         {"tree": 0.2, "grass": -0.2}
     )
+
+
+def test_hellinger_distance_has_closed_composition_endpoints() -> None:
+    assert hellinger_distance({"tree": 1, "grass": 0}, {"tree": 1, "grass": 0}) == 0
+    assert hellinger_distance({"tree": 1, "grass": 0}, {"tree": 0, "grass": 1}) == 1
+    assert hellinger_distance(
+        {"tree": 1, "grass": 0}, {"tree": 0.5, "grass": 0.5}
+    ) == pytest.approx(sqrt(1 - 1 / sqrt(2)))
+    with pytest.raises(ValidationRefusal, match="taxon keys must match"):
+        hellinger_distance({"tree": 1}, {"grass": 1})
