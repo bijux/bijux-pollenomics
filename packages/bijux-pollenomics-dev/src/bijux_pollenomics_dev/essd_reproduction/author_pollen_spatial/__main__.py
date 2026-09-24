@@ -6,7 +6,7 @@ import argparse
 import json
 from pathlib import Path
 
-from .prediction import predict_block
+from .prediction import METHOD_LABELS, predict_block
 from .scoring import score_blocks
 from .source import GRIDS, _study
 
@@ -18,6 +18,7 @@ def main() -> int:
     parser.add_argument("--reference", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--target-grid", choices=GRIDS)
+    parser.add_argument("--method", choices=tuple(METHOD_LABELS))
     parser.add_argument("--prediction-512", type=Path)
     parser.add_argument("--prediction-562", type=Path)
     parser.add_argument("--local-scores", type=Path)
@@ -26,7 +27,9 @@ def main() -> int:
     if args.operation == "predict":
         if args.target_grid is None:
             raise ValueError("Prediction needs a target grid")
-        result = predict_block(study, args.target_grid, args.output)
+        result = predict_block(
+            study, args.target_grid, args.output, args.method or "training_mean"
+        )
         print(
             json.dumps(
                 {
@@ -36,6 +39,8 @@ def main() -> int:
             )
         )
     else:
+        if args.method is not None:
+            raise ValueError("Scoring inherits the method from persisted predictions")
         if (
             args.prediction_512 is None
             or args.prediction_562 is None

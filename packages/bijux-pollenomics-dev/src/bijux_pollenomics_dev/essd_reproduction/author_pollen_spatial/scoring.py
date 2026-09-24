@@ -10,6 +10,7 @@ from typing import cast
 from bijux_pollenomics.analysis.lra_validation.metrics import score_pollen
 
 from ..observed_pollen_baseline import _checked, _site_counts
+from .prediction import METHOD_LABELS
 from .source import (
     AuthorStudy,
     GRIDS,
@@ -102,6 +103,10 @@ def score_blocks(
             bucket[row["taxon"]] = float(row["predicted_fraction"])
     if {row["target_grid_id"] for row in block_reports} != set(GRIDS):
         raise ValueError("Both independent grid block predictions are required")
+    methods = {report["method"] for report in block_reports}
+    if len(methods) != 1 or not methods.issubset(METHOD_LABELS.values()):
+        raise ValueError("Block predictions require one supported common method")
+    method = next(iter(methods))
     expected = {(site.site_id, bin_id) for site in study.sites for bin_id in study.bins}
     if {
         (row["target_site_id"], row["bin_id_bp"]) for row in statuses
@@ -237,7 +242,7 @@ def score_blocks(
         },
         "source": f"rmfyfe/landclimII@{SOURCE_REVISION}",
         "split": "leave_one_adjacent_one_degree_grid_out_with_20km_basin_edge_buffer",
-        "method": "training_site_mean_31_taxon_observed_pollen_fraction_by_bin",
+        "method": method,
         "target_sites": len(study.sites),
         "independent_outer_blocks": 2,
         "target_bins_total": len(expected),
@@ -279,8 +284,8 @@ def score_blocks(
     (output / "REPORT.md").write_text(
         "# Buffered adjacent-grid pollen prediction\n\n"
         "Two one-degree author grids are withheld in turn. Prediction reads only "
-        "the opposite grid's count tables and uses equal-site training pollen "
-        "fractions in each author bin. A training basin must be at least 20 km "
+        "the opposite grid's count tables and predicts each author bin with "
+        f"{method}. A training basin must be at least 20 km "
         "from every target basin after subtracting both reported basin radii. "
         "The independently reopened target counts are scored afterward.\n\n"
         f"Across {result['target_sites']} author site IDs and "

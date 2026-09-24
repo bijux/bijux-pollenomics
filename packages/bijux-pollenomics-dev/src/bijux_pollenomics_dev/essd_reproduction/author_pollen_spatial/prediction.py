@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import json
 from pathlib import Path
+from typing import Literal
 
 from bijux_pollenomics.analysis.lra_validation.baselines import predict_spatial_baseline
 from bijux_pollenomics.analysis.lra_validation.contracts import Fold, SiteRecord
@@ -24,10 +25,23 @@ from .source import (
 )
 
 
+BaselineMethod = Literal["training_mean", "nearest_site", "inverse_distance_squared"]
+METHOD_LABELS: dict[BaselineMethod, str] = {
+    "training_mean": "training_site_mean_31_taxon_observed_pollen_fraction_by_bin",
+    "nearest_site": "nearest_site_31_taxon_observed_pollen_fraction_by_bin",
+    "inverse_distance_squared": "inverse_distance_squared_31_taxon_observed_pollen_fraction_by_bin",
+}
+
+
 def predict_block(
-    study: AuthorStudy, target_grid: str, output: Path
+    study: AuthorStudy,
+    target_grid: str,
+    output: Path,
+    method: BaselineMethod = "training_mean",
 ) -> dict[str, object]:
     """Read training pollen only; target inputs are geometry and IDs."""
+    if method not in METHOD_LABELS:
+        raise ValueError("Unsupported author pollen baseline")
     if target_grid not in GRIDS:
         raise ValueError("Unsupported author grid block")
     records = [
@@ -95,7 +109,7 @@ def predict_block(
             baseline = predict_spatial_baseline(
                 fold,
                 compositions,
-                method="training_mean",
+                method=method,
                 input_ids=fold.train_record_ids,
                 dependency_graph=graph,
                 predictor_group_ids=tuple(compositions),
@@ -133,7 +147,7 @@ def predict_block(
         "schema_version": "author-observed-pollen-spatial-block-predictions.v1",
         "target_grid_id": target_grid,
         "split": "leave_one_adjacent_one_degree_grid_out",
-        "method": "training_site_mean_31_taxon_observed_pollen_fraction_by_bin",
+        "method": METHOD_LABELS[method],
         "buffer_rule": "minimum_center_distance_minus_both_reported_basin_radii_at_least_20_km_to_every_target_in_block",
         "buffer_km": BUFFER_KM,
         "site_identity": "author_site_ids; no reviewed cross_database_alias_closure",

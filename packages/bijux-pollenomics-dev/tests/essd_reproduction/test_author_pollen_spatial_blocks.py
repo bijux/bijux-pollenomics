@@ -84,6 +84,60 @@ def test_prediction_is_unchanged_when_held_out_counts_change(tmp_path: Path) -> 
     assert first["eligible_training_site_ids"] == ["training"]
 
 
+def test_spatial_methods_use_only_buffered_training_and_distance(
+    tmp_path: Path,
+) -> None:
+    author = tmp_path / "author"
+    working = author / "run.REVEALS.files"
+    working.mkdir(parents=True)
+    target = site("target", "512", 0)
+    training = (site("near", "562", 1), site("far", "562", 2))
+    hashes = {}
+    for item, oak in zip(training, (8, 2), strict=True):
+        path = working / item.count_filename
+        with path.open("w", newline="") as stream:
+            csv.writer(stream).writerows(
+                [
+                    ["TW", "50"],
+                    ["radius", "100"],
+                    ["model", "2"],
+                    ["Oak", str(oak)],
+                    ["Pine", str(10 - oak)],
+                ]
+            )
+        hashes[f"author/run.REVEALS.files/{item.count_filename}"] = hashlib.sha256(
+            path.read_bytes()
+        ).hexdigest()
+    study = AuthorStudy(
+        author,
+        hashes,
+        "a" * 64,
+        "b" * 64,
+        "c" * 64,
+        ["50"],
+        ["oak", "pine"],
+        ["Oak", "Pine"],
+        (target, *training),
+    )
+    values = {}
+    for method in ("training_mean", "nearest_site", "inverse_distance_squared"):
+        output = tmp_path / method
+        report = predict_block(study, "512", output, method)
+        assert report["target_count_files_opened"] == 0
+        assert report["eligible_training_site_ids"] == ["far", "near"]
+        rows = list(csv.DictReader((output / "predictions.csv").open()))
+        values[method] = float(
+            next(row["predicted_fraction"] for row in rows if row["taxon"] == "oak")
+        )
+    assert abs(values["training_mean"] - 0.5) < 1e-12
+    assert abs(values["nearest_site"] - 0.8) < 1e-12
+    assert (
+        values["training_mean"]
+        < values["inverse_distance_squared"]
+        < values["nearest_site"]
+    )
+
+
 def test_comparison_uses_only_common_scored_site_bins(tmp_path: Path) -> None:
     path = tmp_path / "within-grid.csv"
     with path.open("w", newline="") as stream:
