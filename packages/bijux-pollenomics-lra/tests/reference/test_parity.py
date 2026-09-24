@@ -1,15 +1,19 @@
 from __future__ import annotations
 
 import json
-from pathlib import Path
 import subprocess
 import sys
+from pathlib import Path
 
-from lra_oracle.cases import build_cases, r_literal
-from lra_oracle.scope import R_COMPATIBLE_API
-from lra_oracle.stored import run_stored_parity
 import numpy as np
 import pytest
+from lra_oracle.cases import build_cases, r_literal
+from lra_oracle.prospective import (
+    EXPECTED_DECLARATION_SHA256,
+    load_prospective_optimized_declaration,
+)
+from lra_oracle.scope import R_COMPATIBLE_API
+from lra_oracle.stored import run_stored_parity
 
 from bijux_pollenomics_lra.dispersal.rounding import r_round
 
@@ -17,7 +21,7 @@ from bijux_pollenomics_lra.dispersal.rounding import r_round
 @pytest.mark.parametrize("digits", [0, 2, 3, 4])
 def test_r_round_handles_sign_and_nonfinite(digits: int) -> None:
     values = np.array([0.015, 0.025, 2.675, np.inf, np.nan, 0.0])
-    result = r_round(values, digits)
+    result = np.asarray(r_round(values, digits))
     np.testing.assert_allclose(r_round(-values, digits), -result, equal_nan=True)
     assert np.isinf(result[3]) and np.isnan(result[4])
 
@@ -47,6 +51,27 @@ def test_live_oracle_preparation_covers_all_apis(tmp_path: Path) -> None:
     assert any(case.mode == "supplied_random_draws" for case in cases)
     assert any(case.mode == "sampler_and_optimizer_replay" for case in cases)
     assert setup
+
+
+def test_prospective_optimized_declaration_is_frozen_and_covered(
+    tmp_path: Path,
+) -> None:
+    declaration = load_prospective_optimized_declaration()
+    assert declaration.declaration_sha256 == EXPECTED_DECLARATION_SHA256
+    assert len(declaration.cases) == 3
+    assert declaration.rtol == declaration.atol == 1e-10
+    assert len({case.input_sha256 for case in declaration.cases}) == 3
+    _, cases = build_cases(tmp_path)
+    prepared = {case.name: case for case in cases}
+    for declared in declaration.cases:
+        assert f"{declared.case_id}_intermediates" in prepared
+        assert f"{declared.case_id}_taxon_axis" in prepared
+        ring_axis = prepared[f"{declared.case_id}_ring_axis"]
+        assert ring_axis.exact_indices == tuple(range(len(ring_axis.expected)))
+        wrapper = prepared[f"{declared.case_id}_wrapper_replay"]
+        assert wrapper.exact_indices
+        assert f"{declared.case_id}_nonfinite_objective" in prepared
+        assert f"{declared.case_id}_all_nonfinite_refusal" in prepared
 
 
 def test_r_literals_escape_and_encode_arrays() -> None:

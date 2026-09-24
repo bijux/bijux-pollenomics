@@ -12,12 +12,13 @@ import argparse
 import hashlib
 import json
 import os
-from pathlib import Path
 import platform
 import shutil
 import subprocess
 import sys
 import time
+from pathlib import Path
+from typing import Any
 
 import numpy as np
 import pandas as pd
@@ -26,6 +27,9 @@ ROOT = Path(__file__).resolve().parents[3]
 sys.path[:0] = [str(ROOT / "src"), str(ROOT / "tests/reference")]
 
 from lra_oracle.cases import build_cases, r_literal  # noqa: E402
+from lra_oracle.prospective import (  # noqa: E402
+    load_prospective_optimized_declaration,
+)
 from lra_oracle.scope import R_COMPATIBLE_API  # noqa: E402
 
 ARCHIVE = ROOT / "vendor" / "disqover_0.9.14.tar.gz"
@@ -49,6 +53,7 @@ def main(argv: list[str] | None = None) -> int:
     output = args.output.resolve()
     output.mkdir(parents=True, exist_ok=True)
     setup, cases = build_cases(output / "inputs")
+    prospective = load_prospective_optimized_declaration()
     source_hash = hashlib.sha256(ARCHIVE.read_bytes()).hexdigest()
     manifest = [
         {
@@ -58,17 +63,16 @@ def main(argv: list[str] | None = None) -> int:
             "mode": case.mode,
             "rtol": case.rtol,
             "atol": case.atol,
+            "exact_indices": list(case.exact_indices),
             "values": len(case.expected),
         }
         for index, case in enumerate(cases)
     ]
-    np.savez_compressed(
-        output / "python_expected_not_R_goldens.npz",
-        **{
-            item["id"]: case.expected
-            for item, case in zip(manifest, cases, strict=True)
-        },
-    )
+    expected_arrays: dict[str, Any] = {
+        str(item["id"]): case.expected
+        for item, case in zip(manifest, cases, strict=True)
+    }
+    np.savez_compressed(output / "python_expected_not_R_goldens.npz", **expected_arrays)
     _write_json(output / "case_manifest.json", manifest)
 
     script = [
@@ -110,6 +114,16 @@ def main(argv: list[str] | None = None) -> int:
         "python": platform.python_version(),
         "prepared_cases": len(cases),
         "source_compatible_api": list(R_COMPATIBLE_API),
+        "prospective_optimized_love": {
+            "declaration_id": prospective.declaration_id,
+            "declaration_sha256": prospective.declaration_sha256,
+            "case_input_sha256": {
+                case.case_id: case.input_sha256 for case in prospective.cases
+            },
+            "rtol": prospective.rtol,
+            "atol": prospective.atol,
+            "stochastic_optimizer_trajectory": "excluded",
+        },
         "api_covered_by_prepared_cases": sorted({case.api for case in cases}),
         "live_R_executed": False,
         "passed_cases": 0,
@@ -182,6 +196,8 @@ def main(argv: list[str] | None = None) -> int:
 
     status = pd.read_csv(status_path, keep_default_na=False).set_index("id")
     results: list[dict[str, object]] = []
+    passed_cases = 0
+    failed_cases = 0
     for item, case in zip(manifest, cases, strict=True):
         case_result: dict[str, object] = {
             "id": item["id"],
@@ -210,31 +226,44 @@ def main(argv: list[str] | None = None) -> int:
                     raw["value"].replace({"NaN": np.nan, "NA": np.nan}),
                     errors="raise",
                 ).to_numpy(float)
-                np.testing.assert_allclose(
-                    actual,
-                    case.expected.astype(float),
-                    rtol=case.rtol,
-                    atol=case.atol,
-                    equal_nan=True,
-                )
+                expected = case.expected.astype(float)
+                if actual.shape != expected.shape:
+                    raise AssertionError(
+                        f"shape mismatch: actual {actual.shape}, expected {expected.shape}"
+                    )
+                exact = np.asarray(case.exact_indices, dtype=int)
+                if exact.size:
+                    if np.any(exact < 0) or np.any(exact >= len(expected)):
+                        raise AssertionError("Exact comparison index is out of bounds")
+                    np.testing.assert_array_equal(actual[exact], expected[exact])
+                approximate = np.ones(len(expected), dtype=bool)
+                approximate[exact] = False
+                if approximate.any():
+                    np.testing.assert_allclose(
+                        actual[approximate],
+                        expected[approximate],
+                        rtol=case.rtol,
+                        atol=case.atol,
+                        equal_nan=True,
+                    )
                 finite = np.isfinite(actual) & np.isfinite(case.expected)
                 errors = np.abs(actual[finite] - case.expected[finite])
                 case_result["max_abs_error"] = (
                     float(errors.max()) if errors.size else 0.0
                 )
             case_result["status"] = "passed"
-            report["passed_cases"] = int(report["passed_cases"]) + 1
+            passed_cases += 1
         except (AssertionError, ValueError, KeyError, OSError) as error:
             case_result.update(status="failed", reason=str(error))
-            report["failed_cases"] = int(report["failed_cases"]) + 1
+            failed_cases += 1
         results.append(case_result)
 
     report.update(
-        status=(
-            "passed"
-            if int(report["failed_cases"]) == 0 and completed.returncode == 0
-            else "failed"
-        ),
+        status="passed"
+        if failed_cases == 0 and completed.returncode == 0
+        else "failed",
+        passed_cases=passed_cases,
+        failed_cases=failed_cases,
         cases=results,
     )
     save_report()

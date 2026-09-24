@@ -7,15 +7,17 @@ R results are generated only by :mod:`parity.run_live_r`.
 
 from __future__ import annotations
 
-from dataclasses import dataclass
 import json
-from pathlib import Path
 import warnings
+from dataclasses import dataclass
+from pathlib import Path
 
 import numpy as np
 import pandas as pd
+from lra_oracle.prospective import load_prospective_optimized_declaration
 
 from bijux_pollenomics_lra.dispersal.kernels import METHODS, DispersalFactorK
+from bijux_pollenomics_lra.models.errors import ValidationError
 from bijux_pollenomics_lra.optimization.solver import ReplayOptimizer
 from bijux_pollenomics_lra.reconstruction.analytical import LOVEr, lov
 from bijux_pollenomics_lra.reconstruction.optimized import (
@@ -39,6 +41,7 @@ class Case:
     expected: np.ndarray
     rtol: float = 1e-10
     atol: float = 1e-10
+    exact_indices: tuple[int, ...] = ()
 
 
 def r_literal(value: object) -> str:
@@ -138,6 +141,7 @@ def build_cases(workdir: str | Path) -> tuple[list[str], list[Case]]:
         *,
         rtol: float = 1e-10,
         atol: float = 1e-10,
+        exact_indices: tuple[int, ...] = (),
     ) -> None:
         cases.append(
             Case(
@@ -148,6 +152,7 @@ def build_cases(workdir: str | Path) -> tuple[list[str], list[Case]]:
                 expected=flatten(expected),
                 rtol=rtol,
                 atol=atol,
+                exact_indices=exact_indices,
             )
         )
 
@@ -324,5 +329,238 @@ def build_cases(workdir: str | Path) -> tuple[list[str], list[Case]]:
         "sampler_and_optimizer_replay",
         atol=3e-8,
     )
+
+    declaration = load_prospective_optimized_declaration()
+    if tuple(local.columns[1:]) != declaration.taxa:
+        raise AssertionError("Prospective taxon axis differs from source resources")
+    prospective_k = calK(rings, love_params).to_numpy(dtype=float)
+    terrestrial_fraction = rings["terrestrial"].to_numpy(dtype=float) / rings[
+        "ring"
+    ].to_numpy(dtype=float)
+    nominal_ppe = love_params["ppes"]["ppe"].to_numpy(dtype=float)
+
+    for case_index, declared in enumerate(declaration.cases, start=1):
+        stem = f"prospective_{case_index}"
+        local_case = local.copy()
+        regional_case = regional.copy()
+        local_case.iloc[0, 1:] = declared.local_counts
+        regional_case.iloc[0, 1:] = declared.regional_counts
+        variable(f"{stem}_local", local_case)
+        variable(f"{stem}_regional", regional_case)
+        variable(f"{stem}_candidates", declared.candidates)
+
+        regional_result = REVEALSinR(
+            regional_case,
+            love_params["ppes"],
+            str(np.asarray(love_params["tBasinRegional"]).reshape(-1)[0]),
+            int(np.asarray(love_params["dBasinRegional"]).item()),
+            dwm=str(np.asarray(love_params["dwm"]).reshape(-1)[0]),
+            n=1,
+            stochastic=False,
+            verbose=False,
+        )
+        regional_cover = (
+            regional_result.filter(regex=r"\.mean$").iloc[0].to_numpy(dtype=float) / 100
+        )
+        intermediate: list[np.ndarray] = [
+            prospective_k.ravel(order="F"),
+            regional_cover,
+        ]
+        observed = declared.local_counts / declared.local_counts.sum()
+        for ring_index in range(declared.max_ring_love):
+            local_fraction = terrestrial_fraction[: ring_index + 1]
+            if local_fraction.sum() <= 0:
+                continue
+            regional_fraction = terrestrial_fraction[ring_index + 1 :]
+            regional_deposition = np.sum(
+                prospective_k[ring_index + 1 :]
+                * (regional_cover * nominal_ppe)[None, :]
+                * regional_fraction[:, None],
+                axis=0,
+            )
+            local_k = prospective_k[: ring_index + 1]
+            objectives = np.asarray(
+                [
+                    tf(
+                        candidate,
+                        regional_deposition,
+                        local_k,
+                        local_fraction,
+                        observed,
+                        nominal_ppe,
+                    )
+                    for candidate in declared.candidates
+                ]
+            )
+            intermediate.extend((regional_deposition, objectives))
+        add(
+            f"{declared.case_id}_intermediates",
+            "LOVEoptim",
+            f"optimized_intermediates({stem}_local,{stem}_regional,lparams,lrings,{declared.max_ring_love},{stem}_candidates)",
+            np.concatenate(intermediate),
+            "prospective_fixed_input",
+            rtol=declaration.rtol,
+            atol=declaration.atol,
+        )
+        add(
+            f"{declared.case_id}_taxon_axis",
+            "LOVEoptim",
+            'colnames(F("calK")(lrings,lparams))',
+            list(declaration.taxa),
+            "prospective_fixed_input",
+            rtol=0,
+            atol=0,
+        )
+        add(
+            f"{declared.case_id}_ring_axis",
+            "LOVEoptim",
+            'as.numeric(rownames(F("calK")(lrings,lparams)))',
+            rings["mean"].to_numpy(dtype=float),
+            "prospective_fixed_input",
+            rtol=declaration.rtol,
+            atol=declaration.atol,
+            exact_indices=tuple(range(len(rings))),
+        )
+
+        with warnings.catch_warnings():
+            warnings.simplefilter("ignore")
+            prospective_result = LOVEoptim(
+                local_case,
+                regional_case,
+                love_params,
+                rings,
+                declared.max_ring_love,
+                repeats=1,
+                stochastic=False,
+                optimizer=ReplayOptimizer(declared.candidates),
+            )
+        wrapper_expected = {
+            key: prospective_result[key]
+            for key in ("cover", "pollenpercentages", "mBestValue")
+        }
+        diagnostic_expected: list[float] = []
+        for diagnostic in prospective_result["optimizers"]:
+            if (
+                diagnostic.nit != 1
+                or diagnostic.nfev != len(declared.candidates)
+                or not diagnostic.success
+            ):
+                raise AssertionError(
+                    "Replay diagnostics differ from the prospective termination policy"
+                )
+            selected = np.flatnonzero(
+                np.all(declared.candidates == diagnostic.x[None, :], axis=1)
+            )
+            if len(selected) != 1:
+                raise AssertionError(
+                    "Replay winner must identify one declared candidate"
+                )
+            diagnostic_expected.extend(
+                (
+                    diagnostic.fun,
+                    float(diagnostic.nit),
+                    float(diagnostic.nfev),
+                    float(diagnostic.success),
+                    float(selected[0] + 1),
+                )
+            )
+        wrapper_values = [wrapper_expected, np.asarray(diagnostic_expected)]
+        wrapper_result_size = len(flatten(wrapper_expected))
+        exact_diagnostics = tuple(
+            wrapper_result_size + offset + field
+            for offset in range(0, len(diagnostic_expected), 5)
+            for field in (1, 2, 3, 4)
+        )
+        wrapper_expression = f"""{{
+          REPLAY_TRACE<-list()
+          CANDIDATES<-{stem}_candidates
+          result<-with_binding(
+            "RcppDE","DEoptim",replay_de_traced,
+            flatten_numeric(
+              clone_with("LOVEoptim",list(REVEALSinR=fixed_reveals,rmultinom=fixed_multinomial))(
+                {stem}_local,{stem}_regional,lparams,lrings,
+                {declared.max_ring_love},repeats=1
+              )
+            )
+          )
+          c(result,unlist(REPLAY_TRACE,use.names=FALSE))
+        }}"""
+        add(
+            f"{declared.case_id}_wrapper_replay",
+            "LOVEoptim",
+            wrapper_expression,
+            wrapper_values,
+            "prospective_sampler_and_optimizer_replay",
+            rtol=declaration.rtol,
+            atol=declaration.atol,
+            exact_indices=exact_diagnostics,
+        )
+
+        first_active = int(np.flatnonzero(terrestrial_fraction > 0)[0])
+        regional_fraction = terrestrial_fraction[first_active + 1 :]
+        regional_deposition = np.sum(
+            prospective_k[first_active + 1 :]
+            * (regional_cover * nominal_ppe)[None, :]
+            * regional_fraction[:, None],
+            axis=0,
+        )
+        nonfinite_local_k = prospective_k[: first_active + 1]
+        nonfinite_local_fraction = terrestrial_fraction[: first_active + 1]
+        with warnings.catch_warnings():
+            warnings.simplefilter("ignore")
+            zero_objective = tf(
+                np.zeros(len(declaration.taxa)),
+                regional_deposition,
+                nonfinite_local_k,
+                nonfinite_local_fraction,
+                observed,
+                nominal_ppe,
+            )
+        add(
+            f"{declared.case_id}_nonfinite_objective",
+            "tf",
+            f"optimized_zero_objective({stem}_local,{stem}_regional,lparams,lrings,{stem}_candidates)",
+            zero_objective,
+            "prospective_nonfinite",
+            rtol=declaration.rtol,
+            atol=declaration.atol,
+        )
+
+        def invalid_objective(
+            candidate: np.ndarray,
+            regional_input: np.ndarray = regional_deposition,
+            local_k_input: np.ndarray = nonfinite_local_k,
+            local_fraction_input: np.ndarray = nonfinite_local_fraction,
+            observed_input: np.ndarray = observed,
+        ) -> float:
+            return tf(
+                candidate,
+                regional_input,
+                local_k_input,
+                local_fraction_input,
+                observed_input,
+                nominal_ppe,
+            )
+
+        try:
+            ReplayOptimizer(np.zeros((2, len(declaration.taxa)))).solve(
+                invalid_objective,
+                np.zeros(len(declaration.taxa)),
+                np.ones(len(declaration.taxa)),
+            )
+            python_refusal = "accepted"
+        except ValidationError as error:
+            if str(error) != "Every replay candidate has an undefined objective":
+                raise
+            python_refusal = "refused: all replay candidates invalid"
+        add(
+            f"{declared.case_id}_all_nonfinite_refusal",
+            "LOVEoptim",
+            f"optimized_all_nonfinite_refusal({stem}_local,{stem}_regional,lparams,lrings,{stem}_candidates)",
+            python_refusal,
+            "prospective_refusal",
+            rtol=0,
+            atol=0,
+        )
 
     return setup, cases
