@@ -8,8 +8,13 @@ from statistics import mean, median
 from typing import cast
 
 from bijux_pollenomics.analysis.lra_validation.metrics import score_pollen
+from bijux_pollenomics.analysis.lra_validation.spatial import (
+    HALF_COUNT,
+    HALF_COUNT_POLICY,
+)
 
 from ..observed_pollen_baseline import _checked, _site_counts
+from .fitted_prediction import METHOD_LABEL as FITTED_METHOD_LABEL
 from .prediction import METHOD_LABELS
 from .source import (
     AuthorStudy,
@@ -104,9 +109,18 @@ def score_blocks(
     if {row["target_grid_id"] for row in block_reports} != set(GRIDS):
         raise ValueError("Both independent grid block predictions are required")
     methods = {report["method"] for report in block_reports}
-    if len(methods) != 1 or not methods.issubset(METHOD_LABELS.values()):
+    if len(methods) != 1 or not methods.issubset(
+        {*METHOD_LABELS.values(), FITTED_METHOD_LABEL}
+    ):
         raise ValueError("Block predictions require one supported common method")
     method = next(iter(methods))
+    if method == FITTED_METHOD_LABEL and any(
+        report.get("zero_policy") != HALF_COUNT_POLICY
+        or report.get("pseudocount_per_training_taxon") != HALF_COUNT
+        or report.get("ridge_penalty") != 0.01
+        for report in block_reports
+    ):
+        raise ValueError("Fitted block policy differs from declared training fit")
     expected = {(site.site_id, bin_id) for site in study.sites for bin_id in study.bins}
     if {
         (row["target_site_id"], row["bin_id_bp"]) for row in statuses
@@ -143,7 +157,13 @@ def score_blocks(
             mae = tv = None
             total = 0
         elif prediction is None:
-            result_status = "no_training_site_same_bin"
+            if status["status"] not in {
+                "no_training_site_same_bin",
+                "fitted_model_requires_two_training_sites",
+                "no_positive_training_distance",
+            }:
+                raise ValueError("Unsupported prediction refusal reason")
+            result_status = status["status"]
             mae = tv = None
             total = sum(observed.values())
         else:
@@ -226,6 +246,14 @@ def score_blocks(
                 "refused_no_training_site_bins": sum(
                     row["status"] == "no_training_site_same_bin" for row in block_rows
                 ),
+                "refused_insufficient_fit_sites_bins": sum(
+                    row["status"] == "fitted_model_requires_two_training_sites"
+                    for row in block_rows
+                ),
+                "refused_no_positive_scale_bins": sum(
+                    row["status"] == "no_positive_training_distance"
+                    for row in block_rows
+                ),
                 "site_macro_mae_fraction": mean(
                     cast(float, site["mean_mae_fraction"]) for site in block_sites
                 ),
@@ -248,7 +276,17 @@ def score_blocks(
         "target_bins_total": len(expected),
         "attempted_observed_site_bins": attempted,
         "scored_site_bins": scored,
-        "refused_no_training_site_bins": attempted - scored,
+        "refused_no_training_site_bins": sum(
+            row["status"] == "no_training_site_same_bin" for row in rows
+        ),
+        "refusal_reasons": {
+            reason: sum(row["status"] == reason for row in rows)
+            for reason in (
+                "no_training_site_same_bin",
+                "fitted_model_requires_two_training_sites",
+                "no_positive_training_distance",
+            )
+        },
         "site_macro_mae_fraction": mean(
             cast(float, site["mean_mae_fraction"]) for site in scored_sites
         ),
@@ -291,7 +329,8 @@ def score_blocks(
         f"Across {result['target_sites']} author site IDs and "
         f"{result['independent_outer_blocks']} adjacent blocks, "
         f"{attempted} site-bin targets have observed counts, {scored} are "
-        f"scored and {attempted - scored} have no buffered same-bin training site. "
+        f"scored and {attempted - scored} lack the declared fit support "
+        f"({result['refusal_reasons']}). "
         f"Site-macro MAE is {result['site_macro_mae_fraction']:.6f} fractions; "
         f"site-macro total variation is {result['site_macro_total_variation']:.6f}. "
         f"On {paired['common_scored_site_bins']} site bins scored by both methods, "
@@ -300,7 +339,15 @@ def score_blocks(
         f"{paired['within_grid_site_macro_mae_fraction']:.6f} for the retained "
         "within-grid site holdout. This paired difference is descriptive development "
         "evidence; coverage differs between methods.\n\n"
-        "This is a development comparison on author-prepared pollen, not a "
+        + (
+            "The fitted model adds 0.5 to every named training taxon count "
+            "before CLR closure, uses a per-bin median positive training-centre "
+            "distance scale and ridge penalty 0.01. No target count enters fitting; "
+            "the zero policy and scale rule were declared before scoring.\n\n"
+            if method == FITTED_METHOD_LABEL
+            else ""
+        )
+        + "This is a development comparison on author-prepared pollen, not a "
         "Swedish cohort, LRA vegetation reconstruction, or measured vegetation "
         "accuracy. The 20 km basin-edge buffer is a declared diagnostic rule; "
         "the broader pollen source footprints and cross-database site aliases "

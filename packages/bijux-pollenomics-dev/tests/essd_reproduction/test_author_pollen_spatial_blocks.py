@@ -16,6 +16,12 @@ from bijux_pollenomics_dev.essd_reproduction.author_pollen_spatial import (
 from bijux_pollenomics_dev.essd_reproduction.author_pollen_spatial.comparison import (
     _group_comparisons,
 )
+from bijux_pollenomics_dev.essd_reproduction.author_pollen_spatial.fitted_prediction import (
+    predict_fitted_block,
+)
+from bijux_pollenomics_dev.essd_reproduction.author_pollen_spatial.fitted_comparison import (
+    _paired_metrics,
+)
 from bijux_pollenomics_dev.essd_reproduction.author_pollen_spatial.hellinger_comparison import (
     _site_block_summaries,
 )
@@ -147,6 +153,97 @@ def test_spatial_methods_use_only_buffered_training_and_distance(
         < values["inverse_distance_squared"]
         < values["nearest_site"]
     )
+
+
+def test_fitted_block_replaces_training_zeros_without_opening_target_counts(
+    tmp_path: Path,
+) -> None:
+    author = tmp_path / "author"
+    working = author / "run.REVEALS.files"
+    working.mkdir(parents=True)
+    target = site("target", "512", 0)
+    training = (site("near", "562", 1), site("far", "562", 2))
+    hashes = {}
+    for item, oak in zip(training, (8, 0), strict=True):
+        path = working / item.count_filename
+        with path.open("w", newline="") as stream:
+            csv.writer(stream).writerows(
+                [
+                    ["TW", "50"],
+                    ["radius", "100"],
+                    ["model", "2"],
+                    ["Oak", str(oak)],
+                    ["Pine", str(10 - oak)],
+                ]
+            )
+        hashes[f"author/run.REVEALS.files/{item.count_filename}"] = hashlib.sha256(
+            path.read_bytes()
+        ).hexdigest()
+    study = AuthorStudy(
+        author,
+        hashes,
+        "a" * 64,
+        "b" * 64,
+        "c" * 64,
+        ["50"],
+        ["oak", "pine"],
+        ["Oak", "Pine"],
+        (target, *training),
+    )
+    first = predict_fitted_block(study, "512", tmp_path / "fitted-first")
+    target_path = working / target.count_filename
+    target_path.write_text("withheld outcome 1\n")
+    second = predict_fitted_block(study, "512", tmp_path / "fitted-second")
+    target_path.write_text("withheld outcome 2\n")
+    third = predict_fitted_block(study, "512", tmp_path / "fitted-third")
+    assert first["target_count_files_opened"] == 0
+    assert first["pseudocount_per_training_taxon"] == 0.5
+    assert len(first["fits"]) == 1
+    assert (
+        first["predictions_sha256"]
+        == second["predictions_sha256"]
+        == third["predictions_sha256"]
+    )
+    assert (
+        first["statuses_sha256"]
+        == second["statuses_sha256"]
+        == third["statuses_sha256"]
+    )
+
+
+def test_fitted_comparison_uses_common_bins_and_equal_site_weights() -> None:
+    keys = (("A", "1"), ("A", "2"), ("B", "1"))
+    rows = {}
+    for method in (
+        "training_mean",
+        "nearest_site",
+        "inverse_distance_squared",
+        "clr_rbf_ridge_half_count",
+    ):
+        rows[method] = {}
+        for site_id, bin_id in keys:
+            refused = method == "clr_rbf_ridge_half_count" and bin_id == "2"
+            base = 0.1 if site_id == "A" else 0.3
+            error = base + (0.1 if method == "clr_rbf_ridge_half_count" else 0)
+            rows[method][site_id, bin_id] = {
+                "block_grid_id": "512" if site_id == "A" else "562",
+                "status": "fitted_model_requires_two_training_sites"
+                if refused
+                else "scored",
+                "observed_total_count": "10",
+                "mae_fraction": "" if refused else str(error),
+                "total_variation": "" if refused else str(2 * error),
+            }
+    result = _paired_metrics(rows)
+    assert result["common_scored_site_bins"] == 2
+    assert result["common_sites"] == 2
+    fitted = result["methods"][-1]
+    assert fitted["common_site_macro_mae_fraction"] == pytest.approx(0.3)
+    assert fitted["mae_minus_training_mean_fraction"] == pytest.approx(0.1)
+    assert result["blocks"][0]["common_scored_bins"] == 1
+    rows["nearest_site"]["A", "1"]["observed_total_count"] = "11"
+    with pytest.raises(ValueError, match="observed target support"):
+        _paired_metrics(rows)
 
 
 def test_comparison_uses_only_common_scored_site_bins(tmp_path: Path) -> None:
