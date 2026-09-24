@@ -146,7 +146,8 @@ def test_legend_uses_rendered_layer_and_country_colors() -> None:
     assert "Coordinate trust" not in block
     assert "Tracked species" not in block
     assert "visibleScientificSignalIds.has(signal.signal_id)" in block
-    assert "visiblePolygonFeatureEntries.some" in block
+    assert "visiblePolygonFeatureEntries.find" in block
+    assert "visibleRaaDensityLayer?.density_count_label" in block
 
 
 def test_collapsed_chrome_preserves_map_space_and_open_surfaces_are_exclusive() -> None:
