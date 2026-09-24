@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import csv
 from decimal import Decimal
+from math import sqrt
 
 import pytest
 
@@ -81,8 +82,23 @@ def test_mean_vector_diagnostics_preserve_mass_and_absolute_gaps() -> None:
     assert diagnostics[0]["archive_mean_sum_percentage_points"] == "100"
     assert diagnostics[0]["author_r_mean_sum_percentage_points"] == "100"
     assert diagnostics[0]["mean_l1_gap_percentage_points"] == "10"
+    assert diagnostics[0]["mean_total_variation_fraction"] == "0.05"
+    expected_hellinger = sqrt(
+        sum(
+            (sqrt(left / 100) - sqrt(right / 100)) ** 2
+            for left, right in zip((50, 30, 20), (55, 28, 17), strict=True)
+        )
+        / 2
+    )
+    assert float(diagnostics[0]["mean_hellinger_distance"]) == pytest.approx(
+        expected_hellinger, abs=1e-15
+    )
     assert diagnostics[0]["largest_gap_taxon"] == "taxon-0"
     assert diagnostics[0]["second_largest_gap_taxon"] == "taxon-2"
     assert Decimal(diagnostics[0]["two_largest_gap_share"]) == Decimal("0.8")
     with pytest.raises(ValueError, match="taxon axis"):
         _mean_vector_diagnostics(rows[:-1])
+    with pytest.raises(ValueError, match="nonnegative and closed"):
+        _mean_vector_diagnostics([{**rows[0], "archive": "-1"}, *rows[1:]])
+    with pytest.raises(ValueError, match="nonnegative and closed"):
+        _mean_vector_diagnostics([{**rows[0], "archive": "49"}, *rows[1:]])

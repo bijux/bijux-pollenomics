@@ -63,8 +63,17 @@ def _mean_vector_diagnostics(rows: list[dict[str, str]]) -> list[dict[str, str]]
         ]
         if len(means) != 31 or len({row["taxon"] for row in means}) != 31:
             raise ValueError("Mean-vector taxon axis does not close")
-        archive_sum = sum(Decimal(row["archive"]) for row in means)
-        author_sum = sum(Decimal(row["author_r"]) for row in means)
+        archive_sum = sum((Decimal(row["archive"]) for row in means), Decimal(0))
+        author_sum = sum((Decimal(row["author_r"]) for row in means), Decimal(0))
+        if any(
+            Decimal(row[column]) < 0
+            for row in means
+            for column in ("archive", "author_r")
+        ) or any(
+            abs(total - 100) > Decimal("0.000001")
+            for total in (archive_sum, author_sum)
+        ):
+            raise ValueError("Mean vectors must be nonnegative and closed to 100%")
         gaps = sorted(
             (
                 (
@@ -76,6 +85,17 @@ def _mean_vector_diagnostics(rows: list[dict[str, str]]) -> list[dict[str, str]]
             key=lambda item: (-item[1], item[0]),
         )
         l1 = sum((gap for _, gap in gaps), Decimal(0))
+        hellinger_squared = sum(
+            (
+                (
+                    (Decimal(row["author_r"]) / 100).sqrt()
+                    - (Decimal(row["archive"]) / 100).sqrt()
+                )
+                ** 2
+                for row in means
+            ),
+            Decimal(0),
+        ) / Decimal(2)
         diagnostics.append(
             {
                 "grid_id": grid,
@@ -86,6 +106,8 @@ def _mean_vector_diagnostics(rows: list[dict[str, str]]) -> list[dict[str, str]]
                     author_sum - archive_sum
                 ),
                 "mean_l1_gap_percentage_points": str(l1),
+                "mean_total_variation_fraction": str(l1 / 200),
+                "mean_hellinger_distance": str(hellinger_squared.sqrt()),
                 "largest_gap_taxon": gaps[0][0],
                 "largest_gap_percentage_points": str(gaps[0][1]),
                 "second_largest_gap_taxon": gaps[1][0],
@@ -297,10 +319,13 @@ def main() -> int:
             "",
             "The shared 31-taxon means are summed without renormalization. "
             "L1 is the sum of absolute percentage-point gaps across those taxa; "
-            "it is a product correspondence diagnostic, not vegetation accuracy.",
+            "total variation is L1/200, and Hellinger uses the nonnegative "
+            "percentage means divided by 100. Both vectors must sum to 100% "
+            "within 0.000001 percentage points. These are modeled-product "
+            "correspondence distances, not vegetation accuracy.",
             "",
-            "| Grid | Archive mean sum (pp) | Author R mean sum (pp) | Mean L1 gap (pp) | Two largest-gap taxa | Share of L1 |",
-            "| --- | ---: | ---: | ---: | --- | ---: |",
+            "| Grid | Archive mean sum (pp) | Author R mean sum (pp) | Mean L1 gap (pp) | Total variation | Hellinger | Two largest-gap taxa | Share of L1 |",
+            "| --- | ---: | ---: | ---: | ---: | ---: | --- | ---: |",
         ]
     )
     for item in mean_vectors:
@@ -309,6 +334,8 @@ def main() -> int:
             f"{Decimal(item['archive_mean_sum_percentage_points']):.6f} | "
             f"{Decimal(item['author_r_mean_sum_percentage_points']):.6f} | "
             f"{Decimal(item['mean_l1_gap_percentage_points']):.6f} | "
+            f"{Decimal(item['mean_total_variation_fraction']):.6f} | "
+            f"{Decimal(item['mean_hellinger_distance']):.6f} | "
             f"{item['largest_gap_taxon']}, {item['second_largest_gap_taxon']} | "
             f"{Decimal(item['two_largest_gap_share']):.3f} |"
         )
