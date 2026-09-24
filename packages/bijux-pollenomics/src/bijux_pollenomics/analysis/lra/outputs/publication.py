@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from collections.abc import Callable
 from dataclasses import dataclass
 import hashlib
 from importlib import metadata
@@ -46,6 +47,7 @@ def publish_result(
     destination: Path,
     input_root: Path,
     code_identity: CodeIdentity,
+    verify_inputs: Callable[[], object] | None = None,
 ) -> LRAProduct:
     """Preserve explicit units/lineage and publish through one exclusive writer.
 
@@ -110,7 +112,10 @@ def publish_result(
             validate_numerical_tables(stage, payload)
         except (OSError, ValueError, KeyError, TypeError) as exc:
             raise LRARefusal("invalid_lra_product", str(exc)) from exc
-        validate_request(request.payload(), input_root=input_root)
+        if verify_inputs is None:
+            validate_request(request.payload(), input_root=input_root)
+        else:
+            verify_inputs()
         verify_code_identity(binding, code_identity)
         publish_directory(stage, destination)
         return LRAProduct(

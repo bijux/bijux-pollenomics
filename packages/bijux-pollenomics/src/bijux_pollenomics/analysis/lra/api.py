@@ -9,6 +9,10 @@ from .batches.models import (
 )
 from .engine.errors import LRARefusal
 from .execution.cache import CachedLRAProduct, run_lra_cached
+from .execution.regional_draw_love import (
+    run_regional_draw_love_request,
+    validate_regional_draw_love_inputs,
+)
 from .execution.service import run_lra_request, validate_lra_inputs
 from .inputs.validation import ValidatedRequest
 from .materialization import NeotomaLraFrontier, inspect_neotoma_lra_frontier
@@ -53,5 +57,7 @@ __all__ = [
     "run_lra_batch",
     "run_lra_cached",
     "run_lra_request",
+    "run_regional_draw_love_request",
     "validate_lra_inputs",
+    "validate_regional_draw_love_inputs",
 ]
