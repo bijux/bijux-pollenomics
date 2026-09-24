@@ -10,6 +10,7 @@ from typing import cast
 
 from .prediction import METHOD_LABELS, BaselineMethod
 from .source import _hash, _rows
+from .taxon_errors import compare_taxon_errors
 
 
 def _group_comparisons(
@@ -209,6 +210,7 @@ def compare_scores(score_dirs: dict[str, Path], output: Path) -> dict[str, objec
     sites, blocks, directions = _group_comparisons(
         rows_by_method, scored_keys, observed_keys
     )
+    taxa, taxon_receipts = compare_taxon_errors(score_dirs, scored_keys, rows_by_method)
     summaries = []
     for method, method_rows in rows_by_method.items():
         site_mae = [
@@ -247,7 +249,7 @@ def compare_scores(score_dirs: dict[str, Path], output: Path) -> dict[str, objec
             }
         )
     result: dict[str, object] = {
-        "schema_version": "author-observed-pollen-spatial-baseline-comparison.v2",
+        "schema_version": "author-observed-pollen-spatial-baseline-comparison.v3",
         "source": reference_report["source"],
         "split": reference_report["split"],
         "target_sites": len(site_ids),
@@ -259,6 +261,8 @@ def compare_scores(score_dirs: dict[str, Path], output: Path) -> dict[str, objec
         "sites": sites,
         "blocks": blocks,
         "paired_site_directions": directions,
+        "taxon_prediction_sha256": taxon_receipts,
+        "taxa": taxa,
         "measured_vegetation_accuracy": "not_evaluated",
         "swedish_lra_cohort": "not_evaluated",
     }
@@ -322,6 +326,33 @@ def compare_scores(score_dirs: dict[str, Path], output: Path) -> dict[str, objec
             f"\n{method} has lower / equal / higher site MAE at "
             f"{mae_directions['sites_lower']} / {mae_directions['sites_equal']} / "
             f"{mae_directions['sites_higher']} sites relative to the training mean."
+        )
+    lines.extend(
+        [
+            "",
+            "Taxon errors below are site-macro absolute fractions on the same 148 "
+            "site bins. Signed differences compare each method with the training "
+            "mean; all 31 taxa and signed prediction bias are in report.json. "
+            "Taxon ranks are descriptive and were inspected after outer scoring.",
+            "",
+            "| Taxon | Training mean error | Nearest-site difference | Inverse-distance difference |",
+            "| --- | ---: | ---: | ---: |",
+        ]
+    )
+    ranked_taxa = sorted(
+        taxa,
+        key=lambda row: cast(dict[str, dict[str, float]], row["methods"])[
+            "training_mean"
+        ]["site_macro_absolute_error_fraction"],
+        reverse=True,
+    )
+    for item in ranked_taxa[:10]:
+        taxon_methods = cast(dict[str, dict[str, float]], item["methods"])
+        lines.append(
+            f"| {item['taxon']} | "
+            f"{taxon_methods['training_mean']['site_macro_absolute_error_fraction']:.6f} | "
+            f"{taxon_methods['nearest_site']['absolute_error_minus_training_mean_fraction']:+.6f} | "
+            f"{taxon_methods['inverse_distance_squared']['absolute_error_minus_training_mean_fraction']:+.6f} |"
         )
     lines.extend(
         [

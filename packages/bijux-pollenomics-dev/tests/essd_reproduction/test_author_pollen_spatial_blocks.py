@@ -6,6 +6,8 @@ import csv
 import hashlib
 from pathlib import Path
 
+import pytest
+
 from bijux_pollenomics_dev.essd_reproduction.author_pollen_spatial import (
     AuthorStudy,
     SiteGeometry,
@@ -16,6 +18,9 @@ from bijux_pollenomics_dev.essd_reproduction.author_pollen_spatial.comparison im
 )
 from bijux_pollenomics_dev.essd_reproduction.author_pollen_spatial.scoring import (
     _paired_comparison,
+)
+from bijux_pollenomics_dev.essd_reproduction.author_pollen_spatial.taxon_errors import (
+    compare_taxon_errors,
 )
 from bijux_pollenomics_dev.essd_reproduction.author_pollen_spatial.source import (
     _buffered_training,
@@ -226,3 +231,70 @@ def test_paired_site_and_block_comparison_preserves_site_weights() -> None:
         "sites_equal": 0,
         "sites_higher": 1,
     }
+
+
+def test_taxon_error_comparison_uses_common_bins_and_equal_site_weights(
+    tmp_path: Path,
+) -> None:
+    taxa = [f"taxon_{index}" for index in range(31)]
+    keys = [("A", "1"), ("A", "2"), ("B", "1")]
+    fractions = {
+        "training_mean": {key: [1 / 31] * 31 for key in keys},
+        "nearest_site": {
+            ("A", "1"): [2 / 32] + [1 / 32] * 30,
+            ("A", "2"): [2 / 32] + [1 / 32] * 30,
+            ("B", "1"): [1 / 31] * 31,
+        },
+        "inverse_distance_squared": {key: [1 / 31] * 31 for key in keys},
+    }
+    score_dirs = {}
+    score_rows = {}
+    for method, values in fractions.items():
+        directory = tmp_path / method
+        directory.mkdir()
+        score_dirs[method] = directory
+        score_rows[method] = {}
+        with (directory / "scored-predictions.csv").open("w", newline="") as stream:
+            writer = csv.DictWriter(
+                stream,
+                fieldnames=(
+                    "block_grid_id",
+                    "target_site_id",
+                    "bin_id_bp",
+                    "taxon",
+                    "observed_count",
+                    "predicted_fraction",
+                ),
+            )
+            writer.writeheader()
+            for key in keys:
+                errors = [value - 1 / 31 for value in values[key]]
+                score_rows[method][key] = {
+                    "block_grid_id": "512",
+                    "observed_total_count": "31",
+                    "mae_fraction": str(sum(map(abs, errors)) / 31),
+                    "total_variation": str(sum(map(abs, errors)) / 2),
+                }
+                for taxon, predicted in zip(taxa, values[key], strict=True):
+                    writer.writerow(
+                        {
+                            "block_grid_id": "512",
+                            "target_site_id": key[0],
+                            "bin_id_bp": key[1],
+                            "taxon": taxon,
+                            "observed_count": 1,
+                            "predicted_fraction": predicted,
+                        }
+                    )
+    result, receipts = compare_taxon_errors(score_dirs, keys, score_rows)
+    first = result[0]["methods"]["nearest_site"]
+    expected = ((2 / 32 - 1 / 31) + 0) / 2
+    assert abs(first["site_macro_absolute_error_fraction"] - expected) < 1e-12
+    assert first["absolute_error_minus_training_mean_fraction"] > 0
+    assert len(result) == 31 and set(receipts) == set(score_dirs)
+
+    tampered = score_dirs["nearest_site"] / "scored-predictions.csv"
+    text = tampered.read_text()
+    tampered.write_text(text.replace("taxon_0,1,0.0625", "taxon_0,2,0.0625", 1))
+    with pytest.raises(ValueError, match="observed taxon counts"):
+        compare_taxon_errors(score_dirs, keys, score_rows)
