@@ -5,6 +5,7 @@ from __future__ import annotations
 import math
 
 import pytest
+
 from bijux_pollenomics_dev.taxa_review.lra_prerequisites.projection import (
     _basin_rows,
     _country_denominators,

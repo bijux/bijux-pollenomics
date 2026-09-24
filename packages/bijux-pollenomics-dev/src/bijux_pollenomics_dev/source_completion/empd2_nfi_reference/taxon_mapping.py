@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 
-import json
 from hashlib import sha256
+import json
 from typing import Any, cast
 
 from bijux_pollenomics.analysis.lra_validation.contracts import canonical_json

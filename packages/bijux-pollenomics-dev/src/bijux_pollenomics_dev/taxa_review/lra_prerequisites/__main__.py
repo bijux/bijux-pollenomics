@@ -4,8 +4,8 @@ from __future__ import annotations
 
 import argparse
 import os
-import tempfile
 from pathlib import Path
+import tempfile
 
 from bijux_pollenomics.analysis.lra.materialization.reading import (
     read_neotoma_evidence,

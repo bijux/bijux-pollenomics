@@ -10,10 +10,6 @@ from typing import Any
 
 import pytest
 
-from bijux_pollenomics.analysis.lra_validation.channels import (
-    ObservationChannels,
-    PollenChannel,
-)
 from bijux_pollenomics.analysis.lra_validation.contracts import (
     ValidationRefusal,
     canonical_json,
@@ -49,33 +45,7 @@ def _scorable_joined(
     original_row = prediction_fixture._row
 
     def protocols() -> tuple[Any, Any]:
-        result = []
-        for protocol in original_protocols():
-            channels = tuple(
-                ObservationChannels(
-                    value.record_id,
-                    value.group_id,
-                    (
-                        *value.pollen_channels,
-                        PollenChannel(f"raw:{value.record_id}", "d" * 64),
-                    ),
-                    value.vegetation_input_ids,
-                )
-                for value in protocol.scope.observation_channels
-            )
-            graph = dict(protocol.scope.dependency_graph)
-            graph.update({f"raw:{value.record_id}": () for value in channels})
-            result.append(
-                replace(
-                    protocol,
-                    scope=replace(
-                        protocol.scope,
-                        observation_channels=channels,
-                        dependency_graph=tuple(graph.items()),
-                    ),
-                )
-            )
-        return result[0], result[1]
+        return original_protocols()
 
     def row(*args: Any, **kwargs: Any) -> Any:
         value = original_row(*args, **kwargs)
@@ -98,21 +68,40 @@ def _scorable_joined(
                 observed_pollen=None,
                 source_model=None,
             )
+        protocol = next(
+            protocol
+            for protocol in protocols()
+            if any(
+                fold.fold_id == value.fold_id
+                and value.record_id in fold.test_record_ids
+                for fold in protocol.scope.folds
+            )
+        )
         fold = next(
             fold
-            for protocol in protocols()
             for fold in protocol.scope.folds
             if fold.fold_id == value.fold_id and value.record_id in fold.test_record_ids
         )
         fit_inputs = (fold.train_record_ids[0],)
+        observed_pollen = value.observed_pollen
         if value.observed_pollen is not None:
-            fit_inputs = (*fit_inputs, f"raw:{value.record_id}")
+            governed_channel = next(
+                channels.pollen_channels[0]
+                for channels in protocol.scope.observation_channels
+                if channels.record_id == value.record_id
+            )
+            fit_inputs = (*fit_inputs, governed_channel.input_id)
+            observed_pollen = replace(
+                value.observed_pollen,
+                pollen_channels=(governed_channel,),
+            )
         unfrozen = replace(
             value,
             prediction_sha256=None,
             prediction_manifest_json=None,
             prediction_frozen_at=None,
             fit_input_ids=fit_inputs,
+            observed_pollen=observed_pollen,
         )
         return freeze_evaluation_prediction(unfrozen)
 

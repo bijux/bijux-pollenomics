@@ -2,13 +2,14 @@
 
 from __future__ import annotations
 
+from copy import deepcopy
 import hashlib
 import math
-from copy import deepcopy
 from pathlib import Path
 from typing import Any
 
 import pytest
+
 from bijux_pollenomics.analysis.lra.materialization.models import canonical_bytes
 from bijux_pollenomics_dev.taxa_review.lra_prerequisites import (
     projection as projection_module,
@@ -22,7 +23,7 @@ from bijux_pollenomics_dev.taxa_review.lra_prerequisites.projection import (
 
 
 def _projection(*, unassigned: bool = False) -> NeotomaPrerequisiteProjection:
-    chronology = []
+    chronology: list[dict[str, Any]] = []
     for index in (1, 2):
         claim = {
             "chronology_claim_id": f"claim:{index}",
@@ -42,7 +43,7 @@ def _projection(*, unassigned: bool = False) -> NeotomaPrerequisiteProjection:
             **alternate,
             "source_row_sha256": projection_module._digest(alternate),
         }
-        row = {
+        row: dict[str, Any] = {
             "sample_id": f"sample:{index}",
             "site_id": f"site:{index}",
             "country_code": "UNASSIGNED" if unassigned and index == 2 else "SE",
@@ -51,9 +52,9 @@ def _projection(*, unassigned: bool = False) -> NeotomaPrerequisiteProjection:
             "chronology_disposition": "not_evaluated",
         }
         chronology.append({**row, "source_row_sha256": projection_module._digest(row)})
-    basins = []
+    basins: list[dict[str, Any]] = []
     for index in (1, 2):
-        evidence = {
+        evidence: dict[str, Any] = {
             "source_field": "lakeparameters.value:3",
             "source_value": float(index),
             "source_unit": "Surface area (ha)",

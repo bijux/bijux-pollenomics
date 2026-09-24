@@ -7,10 +7,10 @@ from unittest.mock import patch
 
 import pytest
 
-from bijux_pollenomics.analysis.lra.engine.errors import LRARefusal
 from bijux_pollenomics.analysis.lra.engine.discovery import (
     OPTIMIZED_RING_TAXON_CAPABILITY,
 )
+from bijux_pollenomics.analysis.lra.engine.errors import LRARefusal
 from bijux_pollenomics.analysis.lra.execution import service
 
 from ..outputs.test_publication import Result, binding

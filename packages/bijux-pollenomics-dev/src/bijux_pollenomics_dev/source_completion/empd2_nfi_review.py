@@ -77,7 +77,7 @@ def render_review(
         "",
         f"- EMPD2 source dossier SHA-256: `{dossier_sha256}`",
         f"- Unrounded WGS84 spatial report SHA-256: `{spatial_sha256}`",
-        f"- [Official SLU NFI calibration guide](https://www.slu.se/globalassets/slu.se/om-slu/organisation/institutioner/skoglig-resurshushallning/riksskogstaxeringen/dokument/dokument/info-data-for-calibration.pdf) SHA-256: `{guide_sha256}`. It declares CC0 1.0 for this temporary forest-plot subset and says it cannot support geographic-area totals or means.",
+        f"- [Official SLU NFI calibration guide](https://www.slu.se/globalassets/slu.se/om-slu/organisation/institutioner/skoglig-resurshushallning/riksskogstaxeringen/dokument/dokument/info-data-for-calibration.pdf) SHA-256: `{guide_sha256}`. It declares CC0 1.0 for this temporary forest-plot subset and says it cannot support geographic-area totals or means.",  # codespell:ignore dokument
         "",
         "## Source leads within 1 km",
         "",
@@ -155,6 +155,7 @@ def render_review(
 
 
 def main() -> None:
+    """Render and atomically publish the bound candidate review sheet."""
     parser = argparse.ArgumentParser(description=__doc__)
     for name in ("dossier", "spatial", "guide", "output"):
         parser.add_argument(f"--{name}", type=Path, required=True)

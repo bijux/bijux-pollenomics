@@ -5,6 +5,7 @@ from __future__ import annotations
 import hashlib
 import json
 from pathlib import Path
+from typing import Any
 
 import pytest
 
@@ -48,7 +49,7 @@ def _admission() -> tuple[str, str, str]:
     return canonical, hashlib.sha256(canonical.encode()).hexdigest(), scope_sha256
 
 
-def _spec(run_id: str = "trial-1") -> dict[str, object]:
+def _spec(run_id: str = "trial-1") -> dict[str, Any]:
     admission, admission_sha256, scope_sha256 = _admission()
     split_sha256 = "c" * 64
     return {

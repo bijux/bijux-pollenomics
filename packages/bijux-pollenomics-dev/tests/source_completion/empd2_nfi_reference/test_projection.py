@@ -2,10 +2,11 @@
 
 from __future__ import annotations
 
-import json
 from hashlib import sha256
+import json
 
 import pytest
+
 from bijux_pollenomics_dev.source_completion.empd2_nfi_reference import (
     build_empd2_nfi_decision_projection,
     review_empd2_nfi_decisions,

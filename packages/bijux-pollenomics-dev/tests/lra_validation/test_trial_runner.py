@@ -6,6 +6,7 @@ import hashlib
 import json
 from pathlib import Path
 import sys
+from typing import Any
 
 import pytest
 
@@ -50,7 +51,7 @@ def _cohort_binding() -> dict[str, object]:
     }
 
 
-def _plan(root: Path, *, run_id: str, command: list[str]) -> dict[str, object]:
+def _plan(root: Path, *, run_id: str, command: list[str]) -> dict[str, Any]:
     return {
         "schema_version": "lra-development-trial.v2",
         "ledger_root": str(root / "ledger"),

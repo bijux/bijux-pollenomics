@@ -1,12 +1,10 @@
 from __future__ import annotations
 
 import json
+from pathlib import Path
 import subprocess
 import sys
-from pathlib import Path
 
-import numpy as np
-import pytest
 from lra_oracle.cases import build_cases, r_literal
 from lra_oracle.prospective import (
     EXPECTED_DECLARATION_SHA256,
@@ -14,6 +12,8 @@ from lra_oracle.prospective import (
 )
 from lra_oracle.scope import R_COMPATIBLE_API
 from lra_oracle.stored import run_stored_parity
+import numpy as np
+import pytest
 
 from bijux_pollenomics_lra.dispersal.rounding import r_round
 

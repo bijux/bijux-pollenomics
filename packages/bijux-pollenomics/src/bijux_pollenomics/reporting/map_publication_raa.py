@@ -2,7 +2,6 @@
 
 from __future__ import annotations
 
-
 _RAA_CONTEXT_FIXED_POSTURE: dict[str, object] = {
     "key": "raa-archaeology",
     "group": "archaeology-context",

@@ -2,16 +2,19 @@
 
 from __future__ import annotations
 
-import json
+from collections.abc import Callable
 from copy import deepcopy
 from hashlib import sha256
+import json
 from typing import Any
 
 import pytest
+
 from bijux_pollenomics.analysis.lra_validation.evaluation.api import (
     freeze_evaluation_scope,
 )
 from bijux_pollenomics_dev.source_completion.empd2_nfi_reference import (
+    Empd2NfiDecisionResult,
     review_empd2_nfi_decisions,
 )
 from bijux_pollenomics_dev.source_completion.empd2_nfi_reference.parameters import (
@@ -48,7 +51,7 @@ def _review(
     schema_bytes: bytes | None = None,
     schema_sha256: str | None = None,
     supply_default_sources: bool = True,
-):
+) -> Empd2NfiDecisionResult:
     if supply_default_sources and any(
         item.get("disposition") == "declared_inclusion" for item in value["decisions"]
     ):
@@ -343,7 +346,9 @@ def test_all_refused_return_rejects_unused_review_baggage() -> None:
         (lambda row: row.update(independence_status="assumed"), "explicitly"),
     ],
 )
-def test_pinned_evidence_semantics_are_complete(mutation, match: str) -> None:
+def test_pinned_evidence_semantics_are_complete(
+    mutation: Callable[[dict[str, Any]], None], match: str
+) -> None:
     value, receipt_sha, evidence_bytes, _ = returned(admit_first=True)
     assert evidence_bytes is not None
     manifest = _evidence(evidence_bytes)
@@ -356,6 +361,7 @@ def test_pinned_evidence_semantics_are_complete(mutation, match: str) -> None:
 def test_support_radius_is_reviewed_intent_not_inferred_from_distance() -> None:
     value, receipt_sha, evidence_bytes, _ = returned(admit_first=True)
     assert evidence_bytes is not None
+    assert receipt_sha is not None
     manifest = _evidence(evidence_bytes)
     _change_support(manifest["rows"][0], "pollen_support", radius_m=1.0)
     changed = json_bytes(manifest)
@@ -523,7 +529,7 @@ def test_pollen_index_rejects_duplicate_payload_digest_after_full_rehash() -> No
     ],
 )
 def test_pollen_attestation_closes_ddl_query_and_result_checks(
-    mutate, match: str
+    mutate: Callable[[dict[str, Any]], None], match: str
 ) -> None:
     value, receipt_sha, evidence_bytes, evidence_sha = returned(admit_first=True)
     projected = projection()
@@ -762,6 +768,7 @@ def test_returned_document_changes_rebind_validation_and_cohort_manifest() -> No
 def test_shared_nfi_observation_cannot_be_declared_twice() -> None:
     value, receipt_sha, evidence_bytes, _ = returned(admit_first=True)
     assert evidence_bytes is not None
+    assert receipt_sha is not None
     manifest = _evidence(evidence_bytes)
     for index in (2, 3):
         decision = value["decisions"][index]
@@ -775,6 +782,7 @@ def test_shared_nfi_observation_cannot_be_declared_twice() -> None:
 def test_same_physical_nfi_plot_across_years_has_one_group() -> None:
     value, receipt_sha, evidence_bytes, evidence_sha = returned(admit_first=True)
     assert evidence_bytes is not None
+    assert receipt_sha is not None
     manifest = _evidence(evidence_bytes)
     second = value["decisions"][1]
     second["disposition"] = "declared_inclusion"
@@ -798,6 +806,7 @@ def test_shared_nfi_evidence_must_be_identical() -> None:
 def test_all_evidence_rows_must_share_one_exact_estimand() -> None:
     value, receipt_sha, evidence_bytes, _ = returned(admit_first=True)
     assert evidence_bytes is not None
+    assert receipt_sha is not None
     manifest = _evidence(evidence_bytes)
     second_estimand = manifest["rows"][1]["estimand"]
     second_estimand["estimand_id"] = "nfi:point-plot-tree-stem-volume"
@@ -884,6 +893,7 @@ def test_parameter_repin_cannot_change_accepted_taxon_rank() -> None:
 def test_distinct_nfi_observations_freeze_distinct_pollen_channels() -> None:
     value, receipt_sha, evidence_bytes, evidence_sha = returned(admit_first=True)
     assert evidence_bytes is not None
+    assert receipt_sha is not None
     manifest = _evidence(evidence_bytes)
     second = value["decisions"][2]
     second["disposition"] = "declared_inclusion"

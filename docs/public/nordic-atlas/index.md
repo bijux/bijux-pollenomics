@@ -88,13 +88,15 @@ units, roles, and admission contracts differ.
 
 ## Explore the atlas
 
-<div class="bijux-quicklinks">
-  <a class="md-button md-button--primary" href="../../report/regions/nordic/nordic_map.html">Open the Nordic evidence atlas</a>
-  <a class="md-button" href="./chronology-playback/">Watch chronology playback</a>
-  <a class="md-button" href="../../report/">Open the report portal</a>
-  <a class="md-button" href="../../report/world/world_map.html">Open the world parent</a>
-  <a class="md-button" href="../../report/regions/europe-plus/europe-plus_map.html">Open Europe-plus</a>
-  <a class="md-button" href="./sweden-lake-priorities/">Inspect Sweden lake priorities</a>
+<div class="bijux-quicklinks" markdown="span">
+
+[Open the Nordic evidence atlas](../../report/regions/nordic/nordic_map.html){ .md-button .md-button--primary }
+[Watch chronology playback](./chronology-playback/index.md){ .md-button }
+[Open the report portal](../../report/index.md){ .md-button }
+[Open the world parent](../../report/world/world_map.html){ .md-button }
+[Open Europe-plus](../../report/regions/europe-plus/europe-plus_map.html){ .md-button }
+[Inspect Sweden lake priorities](./sweden-lake-priorities/index.md){ .md-button }
+
 </div>
 
 <div class="bijux-map-mobile-note">
@@ -115,7 +117,7 @@ TRSH, UPHE, and AQVP codes, and exact source taxa such as *Secale*. The atlas
 reports both the selected facet denominator and the count visible in the active
 window, so an empty view can be distinguished from missing source data.
 
-The [chronology playback page](./chronology-playback/) provides 25 pre-rendered
+The [chronology playback page](./chronology-playback/index.md) provides 25 pre-rendered
 views for readers who want to inspect the same change through time without
 operating the map controls. Both surfaces preserve the rule that observation
 chronology and modeled context are not propagation claims.

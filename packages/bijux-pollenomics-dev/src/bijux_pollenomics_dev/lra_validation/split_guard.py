@@ -9,9 +9,9 @@ from __future__ import annotations
 import hashlib
 import json
 import os
+from pathlib import Path
 import sys
 import tempfile
-from pathlib import Path
 from typing import Any
 
 _FIELDS = {
@@ -34,6 +34,7 @@ class SplitGuardError(ValueError):
     """A reason-coded refusal to construct a leakage-safe candidate split."""
 
     def __init__(self, reason_code: str) -> None:
+        """Initialize the refusal with its stable reason code."""
         super().__init__(reason_code)
         self.reason_code = reason_code
 

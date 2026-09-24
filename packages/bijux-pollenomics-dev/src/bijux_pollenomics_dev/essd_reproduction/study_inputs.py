@@ -256,8 +256,10 @@ def _refusals_bytes(inventory: LandClimStudyMetadataInventory) -> bytes:
                     requirement,
                     state,
                     reason_code,
-                    "Pinned publication metadata row; "
-                    "no authenticated primary input closure",
+                    (
+                        "Pinned publication metadata row; "
+                        "no authenticated primary input closure"
+                    ),
                 )
             )
     return stream.getvalue().encode("utf-8")

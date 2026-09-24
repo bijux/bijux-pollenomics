@@ -6,6 +6,7 @@ from hashlib import sha256
 import json
 from pathlib import Path
 import sqlite3
+from typing import Any, cast
 
 import pytest
 
@@ -120,7 +121,7 @@ def test_dossier_preserves_source_age_and_citation_without_labels(
     assert result["samples_with_collection_note_cues"] == 1
     assert result["source_age_uncertainty_counts"] == {"A": 1}
     assert result["source_explicit_collection_date_column"] is None
-    row = result["rows"][0]
+    row = cast(list[dict[str, Any]], result["rows"])[0]
     assert row["source_metadata_excluding_vegdescription"]["agebp"] == -63
     assert row["source_age_uncertainty_lookup"] == {
         "source_age_range_label": "0BP to Present",

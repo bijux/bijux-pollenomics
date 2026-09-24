@@ -2,14 +2,15 @@
 
 from __future__ import annotations
 
-import hashlib
-import json
 from collections.abc import Callable
 from dataclasses import asdict
+import hashlib
+import json
 from pathlib import Path
 from typing import Any
 
 import pytest
+
 from bijux_pollenomics.analysis.lra_validation.contracts import (
     ValidationRefusal,
     canonical_json,

@@ -6,6 +6,7 @@ from hashlib import sha256
 import json
 from pathlib import Path
 import sys
+from typing import Any, cast
 from zipfile import ZipFile
 
 from pyproj import Transformer
@@ -124,7 +125,7 @@ def _fixture(tmp_path: Path) -> tuple[Path, str, Path, str, Path, str, Path, str
 
 
 def test_exact_point_is_only_spatial_lead_with_unresolved_time(tmp_path: Path) -> None:
-    report = screen_empd2_nfi_geometry(*_fixture(tmp_path))
+    report = cast(dict[str, Any], screen_empd2_nfi_geometry(*_fixture(tmp_path)))
     assert report["nfi_plot_year_rows"] == 2
     assert report["swedish_pollen_samples"] == 1
     assert report["thresholds_descriptive_only"]["1000"] == {
@@ -159,8 +160,16 @@ def test_input_change_refuses_candidate_claim(tmp_path: Path) -> None:
 def test_count_refusal_remains_in_spatial_total_but_not_candidate_subset(
     tmp_path: Path,
 ) -> None:
-    fixture = list(_fixture(tmp_path))
-    pollen = fixture[6]
+    (
+        workbook,
+        workbook_hash,
+        schema,
+        schema_hash,
+        eligibility,
+        eligibility_hash,
+        pollen,
+        _,
+    ) = _fixture(tmp_path)
     value = json.loads(pollen.read_text(encoding="utf-8"))
     refused = dict(value["samples"][0])
     refused["source_sample_name"] = "fractional-count"
@@ -168,8 +177,20 @@ def test_count_refusal_remains_in_spatial_total_but_not_candidate_subset(
     refused["review_reason_codes"] = ["invalid_count_value"]
     value["samples"].append(refused)
     value["country_counts"]["Sweden"]["metadata_samples"] = 2
-    fixture[7] = _json(pollen, value)
-    report = screen_empd2_nfi_geometry(*fixture)
+    pollen_hash = _json(pollen, value)
+    report = cast(
+        dict[str, Any],
+        screen_empd2_nfi_geometry(
+            workbook,
+            workbook_hash,
+            schema,
+            schema_hash,
+            eligibility,
+            eligibility_hash,
+            pollen,
+            pollen_hash,
+        ),
+    )
     assert report["thresholds_descriptive_only"]["1000"]["pollen_samples"] == 2
     assert (
         report["thresholds_mechanical_count_candidates_only"]["1000"]["pollen_samples"]
@@ -179,17 +200,33 @@ def test_count_refusal_remains_in_spatial_total_but_not_candidate_subset(
 
 
 def test_unproven_coordinate_system_refuses_distance(tmp_path: Path) -> None:
-    fixture = list(_fixture(tmp_path))
-    schema = fixture[2]
+    (
+        workbook,
+        workbook_hash,
+        schema,
+        _,
+        eligibility,
+        _,
+        pollen,
+        pollen_hash,
+    ) = _fixture(tmp_path)
     value = json.loads(schema.read_text(encoding="utf-8"))
     value["selected_readme_descriptions"]["Easting"] = "unknown"
-    fixture[3] = _json(schema, value)
-    eligibility = fixture[4]
+    schema_hash = _json(schema, value)
     value = json.loads(eligibility.read_text(encoding="utf-8"))
-    value["schema_report_sha256"] = fixture[3]
-    fixture[5] = _json(eligibility, value)
+    value["schema_report_sha256"] = schema_hash
+    eligibility_hash = _json(eligibility, value)
     with pytest.raises(ValueError, match="source_identity_or_posture_mismatch"):
-        screen_empd2_nfi_geometry(*fixture)
+        screen_empd2_nfi_geometry(
+            workbook,
+            workbook_hash,
+            schema,
+            schema_hash,
+            eligibility,
+            eligibility_hash,
+            pollen,
+            pollen_hash,
+        )
 
 
 def test_cli_publishes_once_without_replacing_report(

@@ -2,14 +2,15 @@
 
 from __future__ import annotations
 
-import json
 from hashlib import sha256
+import json
 from typing import Any
+
+from pyproj import Geod
 
 from bijux_pollenomics_dev.source_completion.empd2_nfi_reference import (
     build_empd2_nfi_decision_projection,
 )
-from pyproj import Geod
 
 
 def json_bytes(value: object) -> bytes:
@@ -118,7 +119,7 @@ def sources() -> dict[str, Any]:
     workbook = "8" * 64
     source = "5" * 64
     spatial_rows = []
-    dossier_rows = []
+    dossier_rows: list[dict[str, Any]] = []
     for index in range(16):
         sample = f"sample-{index:02d}"
         nfi_index = index - 1 if index in {1, 3, 5} else index

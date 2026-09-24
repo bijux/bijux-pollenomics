@@ -2,11 +2,11 @@
 
 from __future__ import annotations
 
+from collections import Counter
+from dataclasses import dataclass
 import hashlib
 import json
 import math
-from collections import Counter
-from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, ClassVar, cast
 
@@ -52,6 +52,7 @@ class NeotomaPrerequisiteProjection:
     _TOKEN: ClassVar[object] = _AUTHORITY
 
     def __init__(self, canonical_json: bytes, authority: object) -> None:
+        """Initialize a projection from factory-owned canonical bytes."""
         if authority is not self._TOKEN:
             raise ValueError("Projection must be rebuilt from original authorities")
         object.__setattr__(self, "canonical_json", canonical_json)

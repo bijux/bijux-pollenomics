@@ -4,8 +4,10 @@ from __future__ import annotations
 
 import copy
 import json
+from pathlib import Path
 
 import pytest
+
 from bijux_pollenomics_dev.lra_validation.split_guard import (
     SplitGuardError,
     build_candidate_split,
@@ -212,10 +214,8 @@ def test_labels_unresolved_products_and_missing_blocks_refuse(
         )
 
 
-def test_cli_publishes_once_without_labels(tmp_path: object) -> None:
-    from pathlib import Path
-
-    folder = Path(tmp_path)
+def test_cli_publishes_once_without_labels(tmp_path: Path) -> None:
+    folder = tmp_path
     output = folder / "candidate.json"
     plan = folder / "plan.json"
     plan.write_text(

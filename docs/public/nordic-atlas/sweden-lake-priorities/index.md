@@ -261,7 +261,7 @@ ranking because the archaeological report describes mosses/wetlands and no
 unique SVAR lake identity was established. Exclusion from one product does not
 erase them from the research question.
 
-Continue to [southern Sweden land-use synthesis](../southern-sweden-land-use/)
+Continue to [southern Sweden land-use synthesis](../southern-sweden-land-use/index.md)
 to read these places through LandClim windows, SEAD intervals, and aDNA
 chronology rather than as static map labels.
 
