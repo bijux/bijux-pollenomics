@@ -2,12 +2,11 @@
 
 from __future__ import annotations
 
-from dataclasses import replace
 import json
+from dataclasses import replace
 from typing import Any
 
 import pytest
-
 from bijux_pollenomics.analysis.lra_validation.channels import (
     ObservationChannels,
     PollenChannel,
@@ -21,19 +20,21 @@ from bijux_pollenomics.analysis.lra_validation.contracts import (
     site_group_id,
 )
 from bijux_pollenomics.analysis.lra_validation.evaluation.api import (
-    FINAL_EVALUATION_RELEASE_PROFILE,
     COHORT_DECISION_PROFILE,
+    FINAL_EVALUATION_RELEASE_PROFILE,
     EvaluationPolicy,
     EvaluationScope,
     EvaluationSite,
     FinalEvaluationProtocol,
     FinalEvaluationReleaseAdmission,
     FrozenEvaluationScope,
-    admit_reviewed_evaluation_cohort,
+    Support,
     admit_final_evaluation_release,
+    admit_reviewed_evaluation_cohort,
     freeze_evaluation_scope,
     validate_evaluation_policy,
 )
+
 from .support import ACCESS, policy_payload
 
 
@@ -45,7 +46,10 @@ def _records() -> tuple[SiteRecord, ...]:
 
 
 def _frozen(
-    by_block: bool, *, reviewer_id: str = "reviewer:declared"
+    by_block: bool,
+    *,
+    reviewer_id: str = "reviewer:declared",
+    supported_observations: bool = False,
 ) -> FrozenEvaluationScope:
     records = _records()
     sites = tuple(
@@ -58,15 +62,36 @@ def _frozen(
             strata=(),
             vegetation_observation_id=f"vegetation:{record.record_id}",
             pollen_observation_id=f"pollen:{record.record_id}",
-            support=None,
+            support=(
+                Support(
+                    50.0,
+                    index * 0.1,
+                    10.0,
+                    1.0,
+                    0.0,
+                    100.0,
+                    str(index) * 64,
+                    "EPSG:4326",
+                    "BP",
+                    "bounded-footprint-radius-v1",
+                    "typed-bp-interval-v1",
+                )
+                if supported_observations
+                else None
+            ),
         )
-        for record in records
+        for index, record in enumerate(records)
     )
     channels = tuple(
         ObservationChannels(
             record_id=record.record_id,
             group_id=site_group_id((record.record_id,)),
-            pollen_channels=(PollenChannel(f"pollen:{record.record_id}", "a" * 64),),
+            pollen_channels=(
+                PollenChannel(
+                    f"pollen:{record.record_id}",
+                    ("e" if supported_observations else "a") * 64,
+                ),
+            ),
             vegetation_input_ids=(f"vegetation:{record.record_id}",),
         )
         for record in records
@@ -96,7 +121,14 @@ def _frozen(
         records=records,
         sites=sites,
         observation_channels=channels,
-        dependency_graph=tuple((record.record_id, ()) for record in records),
+        dependency_graph=tuple(
+            [(record.record_id, ()) for record in records]
+            + (
+                [(f"pollen:{record.record_id}", ()) for record in records]
+                if supported_observations
+                else []
+            )
+        ),
         taxa=("a", "b"),
     )
     return freeze_evaluation_scope(
@@ -130,9 +162,11 @@ def _policy(scope: EvaluationScope, *, omit: str | None = None) -> EvaluationPol
     return validate_evaluation_policy(payload, scope=scope, first_test_access_at=ACCESS)
 
 
-def _protocols() -> tuple[FinalEvaluationProtocol, FinalEvaluationProtocol]:
-    grouped = _frozen(False)
-    block = _frozen(True)
+def _protocols(
+    *, supported_observations: bool = False
+) -> tuple[FinalEvaluationProtocol, FinalEvaluationProtocol]:
+    grouped = _frozen(False, supported_observations=supported_observations)
+    block = _frozen(True, supported_observations=supported_observations)
     return (
         FinalEvaluationProtocol(
             "grouped_outer",

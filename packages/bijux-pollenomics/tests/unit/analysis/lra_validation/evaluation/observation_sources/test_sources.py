@@ -2,25 +2,19 @@
 
 from __future__ import annotations
 
-from collections.abc import Callable
-from dataclasses import asdict, replace
 import hashlib
 import json
+from collections.abc import Callable
+from dataclasses import asdict
 from pathlib import Path
 from typing import Any
 
 import pytest
-
-from bijux_pollenomics.analysis.lra_validation.channels import (
-    ObservationChannels,
-    PollenChannel,
-)
 from bijux_pollenomics.analysis.lra_validation.contracts import (
     ValidationRefusal,
     canonical_json,
     manifest_sha256,
 )
-from bijux_pollenomics.analysis.lra_validation.evaluation.contracts import Support
 from bijux_pollenomics.analysis.lra_validation.evaluation.observation_access import (
     HeldoutPollenSourceLocator,
     MeasuredVegetationSourceLocator,
@@ -48,46 +42,7 @@ Mutation = Callable[[dict[str, Any], dict[str, Any]], None]
 
 
 def _supported_protocols() -> tuple[Any, Any]:
-    result = []
-    for protocol in base_release_protocols():
-        sites = tuple(
-            replace(
-                site,
-                support=Support(
-                    50.0,
-                    index * 0.1,
-                    10.0,
-                    1.0,
-                    0.0,
-                    100.0,
-                    str(index) * 64,
-                    "EPSG:4326",
-                    "BP",
-                    "bounded-footprint-radius-v1",
-                    "typed-bp-interval-v1",
-                ),
-            )
-            for index, site in enumerate(protocol.scope.sites)
-        )
-        channels = tuple(
-            ObservationChannels(
-                site.record_id,
-                site.group_id,
-                (PollenChannel(f"pollen:{site.record_id}", "e" * 64),),
-                (site.vegetation_observation_id,),
-            )
-            for site in sites
-        )
-        graph = dict(protocol.scope.dependency_graph)
-        graph.update({f"pollen:{site.record_id}": () for site in sites})
-        scope = replace(
-            protocol.scope,
-            sites=sites,
-            observation_channels=channels,
-            dependency_graph=tuple(graph.items()),
-        )
-        result.append(replace(protocol, scope=scope))
-    return result[0], result[1]
+    return base_release_protocols(supported_observations=True)
 
 
 def _prediction(
