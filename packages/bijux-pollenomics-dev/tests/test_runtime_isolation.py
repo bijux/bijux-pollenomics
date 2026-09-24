@@ -87,9 +87,50 @@ APPROVED_HOST_IMPORTS: dict[str, dict[str, frozenset[str]]] = {
             }
         ),
     },
+    "bijux_pollenomics_dev/lra_validation/experiment_ledger.py": {
+        "bijux_pollenomics.analysis.lra_validation.evaluation.api": frozenset(
+            {"reopen_cohort_admission"}
+        ),
+    },
     "bijux_pollenomics_dev/taxa_review/neotoma.py": {
         "bijux_pollenomics.evidence.classification": frozenset(
             {"build_neotoma_classification_accounting"}
+        ),
+    },
+    "bijux_pollenomics_dev/taxa_review/lra_prerequisites/__main__.py": {
+        "bijux_pollenomics.analysis.lra.materialization.reading": frozenset(
+            {"read_neotoma_evidence"}
+        ),
+    },
+    "bijux_pollenomics_dev/taxa_review/lra_prerequisites/decisions.py": {
+        "bijux_pollenomics.analysis.lra.materialization.models": frozenset(
+            {"canonical_bytes"}
+        ),
+        "bijux_pollenomics.analysis.lra.materialization.reading": frozenset(
+            {"NeotomaEvidence"}
+        ),
+    },
+    "bijux_pollenomics_dev/taxa_review/lra_prerequisites/projection.py": {
+        "bijux_pollenomics.analysis.lra.materialization.models": frozenset(
+            {"canonical_bytes"}
+        ),
+        "bijux_pollenomics.analysis.lra.materialization.neotoma.candidate_groups": frozenset(
+            {"summarize_neotoma_candidate_groups"}
+        ),
+        "bijux_pollenomics.analysis.lra.materialization.neotoma.frontier": frozenset(
+            {"assess_neotoma_lra_frontier"}
+        ),
+        "bijux_pollenomics.analysis.lra.materialization.neotoma.lakeparameters": frozenset(
+            {"assess_neotoma_lakeparameters"}
+        ),
+        "bijux_pollenomics.analysis.lra.materialization.neotoma.pollen_screen": frozenset(
+            {"assess_neotoma_pollen_screen"}
+        ),
+        "bijux_pollenomics.analysis.lra.materialization.neotoma.site_evidence": frozenset(
+            {"assess_neotoma_candidate_site_evidence"}
+        ),
+        "bijux_pollenomics.analysis.lra.materialization.reading": frozenset(
+            {"NeotomaEvidence"}
         ),
     },
     "bijux_pollenomics_dev/taxa_review/sead.py": {
