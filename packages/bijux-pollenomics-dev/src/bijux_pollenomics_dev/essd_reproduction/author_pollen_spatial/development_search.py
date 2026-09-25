@@ -73,6 +73,18 @@ def _quantile(values: list[float], q: float) -> float:
     return ordered[lower] * (1 - fraction) + ordered[upper] * fraction
 
 
+def _numeric(value: object) -> float:
+    if isinstance(value, bool) or not isinstance(value, (int, float)):
+        raise ValueError("Expected a finite numeric score")
+    return float(value)
+
+
+def _integer(value: object) -> int:
+    if isinstance(value, bool) or not isinstance(value, int):
+        raise ValueError("Expected an integer score count")
+    return value
+
+
 def _folds(
     sites: tuple[SiteGeometry, ...],
 ) -> list[tuple[str, tuple[SiteGeometry, ...]]]:
@@ -200,6 +212,7 @@ def run_development_search(study: AuthorStudy, output: Path) -> dict[str, object
                     }
                 )
                 if scored is not None and scored.status == "scored":
+                    assert fractions is not None
                     for taxon in study.taxa:
                         prediction_rows.append(
                             {
@@ -348,7 +361,7 @@ def run_development_search(study: AuthorStudy, output: Path) -> dict[str, object
         scored = scored_by_candidate[candidate_id]
         site_means = [
             mean(
-                float(row["mae_fraction"])
+                _numeric(row["mae_fraction"])
                 for key, row in scored.items()
                 if key[1] == site_id
             )
@@ -356,7 +369,7 @@ def run_development_search(study: AuthorStudy, output: Path) -> dict[str, object
         ]
         common_site_means = [
             mean(
-                float(scored[key]["mae_fraction"])
+                _numeric(scored[key]["mae_fraction"])
                 for key in sorted(common_keys)
                 if key[1] == site_id
             )
@@ -379,7 +392,7 @@ def run_development_search(study: AuthorStudy, output: Path) -> dict[str, object
                 else None,
                 "common_site_macro_hellinger_distance": mean(
                     mean(
-                        float(scored[key]["hellinger_distance"])
+                        _numeric(scored[key]["hellinger_distance"])
                         for key in sorted(common_keys)
                         if key[1] == site_id
                     )
@@ -392,15 +405,16 @@ def run_development_search(study: AuthorStudy, output: Path) -> dict[str, object
     eligible = [
         row
         for row in leaderboard
-        if row["coverage_fraction"] >= 0.80 and row["common_scored_site_bins"] > 0
+        if _numeric(row["coverage_fraction"]) >= 0.80
+        and _integer(row["common_scored_site_bins"]) > 0
     ]
     if not eligible:
         raise ValueError("No candidate meets the predeclared 80% coverage boundary")
     winner = min(
         eligible,
         key=lambda row: (
-            float(row["common_site_macro_mae_fraction"]),
-            -float(row["coverage_fraction"]),
+            _numeric(row["common_site_macro_mae_fraction"]),
+            -_numeric(row["coverage_fraction"]),
             str(row["candidate_id"]),
         ),
     )
@@ -500,7 +514,7 @@ def run_development_search(study: AuthorStudy, output: Path) -> dict[str, object
     (output / "design.json").write_text(json.dumps(design, indent=2) + "\n")
     (output / "INTERPRETATION.md").write_text(
         "# Grouped author-pollen development search\n\n"
-        f"The search attempted {len(candidates)} candidates over three deterministic, grid-stratified whole-site folds, with {attempted} observed target site-bin attempts and {len(common_keys)} common scored site-bins. The selected candidate was `{winner['candidate_id']}` at common-support site-macro MAE {float(winner['common_site_macro_mae_fraction']):.6f} fraction and {float(winner['coverage_fraction']):.1%} own-support coverage.\n\n"
+        f"The search attempted {len(candidates)} candidates over three deterministic, grid-stratified whole-site folds, with {attempted} observed target site-bin attempts and {len(common_keys)} common scored site-bins. The selected candidate was `{winner['candidate_id']}` at common-support site-macro MAE {_numeric(winner['common_site_macro_mae_fraction']):.6f} fraction and {_numeric(winner['coverage_fraction']):.1%} own-support coverage.\n\n"
         "The three folds test held-out author site IDs with nearby-site interpolation. The English author-prepared outcomes were previously opened, and these results are development evidence only. Two adjacent grids, unreviewed cross-database aliases, prepared 31-taxon counts and absent independent vegetation truth limit generalization and ecological claims. This search does not establish Swedish LRA readiness or measured vegetation accuracy.\n"
     )
     return design
