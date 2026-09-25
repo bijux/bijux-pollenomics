@@ -171,6 +171,51 @@ APPROVED_HOST_IMPORTS: dict[str, dict[str, frozenset[str]]] = {
         ),
         "bijux_pollenomics.core.owned_tree": frozenset({"publish_new_output_tree"}),
     },
+    "bijux_pollenomics_dev/essd_reproduction/rootsi_workbook_replay.py": {
+        "bijux_pollenomics.collection.sources.rootsi": frozenset(
+            {
+                "RootsiSiteMetadataClaim",
+                "normalize_rootsi_site_metadata",
+            }
+        ),
+        "bijux_pollenomics.collection.sources.rootsi.authority": frozenset(
+            {"ARCHIVE_SHA256", "METADATA_MEMBER", "METADATA_SHA256"}
+        ),
+        "bijux_pollenomics.collection.sources.rootsi.cells": frozenset(
+            {"replay_rootsi_cell_review"}
+        ),
+        "bijux_pollenomics.core.owned_tree": frozenset({"publish_new_output_tree"}),
+    },
+    "bijux_pollenomics_dev/source_completion/abborrtjarne_native_counts.py": {
+        "bijux_pollenomics.collection.sources.rootsi.cells.decoding": frozenset(
+            {"parser"}
+        ),
+    },
+    "bijux_pollenomics_dev/source_completion/bokesjon_native_counts.py": {
+        "bijux_pollenomics.collection.sources.rootsi.cells.decoding": frozenset(
+            {"parser"}
+        ),
+    },
+    "bijux_pollenomics_dev/source_completion/bussjosjon_native_counts.py": {
+        "bijux_pollenomics.collection.sources.rootsi.cells.decoding": frozenset(
+            {"parser"}
+        ),
+    },
+    "bijux_pollenomics_dev/essd_reproduction/author_pollen_spatial/development_search.py": {
+        "bijux_pollenomics.analysis.lra_validation.baselines": frozenset(
+            {"predict_spatial_baseline"}
+        ),
+        "bijux_pollenomics.analysis.lra_validation.contracts": frozenset({"Fold"}),
+        "bijux_pollenomics.analysis.lra_validation.metrics": frozenset(
+            {"hellinger_distance", "score_pollen"}
+        ),
+        "bijux_pollenomics.analysis.lra_validation.spatial": frozenset(
+            {"SpatialConfig", "fit_spatial_model", "half_count_composition"}
+        ),
+        "bijux_pollenomics.analysis.lra_validation.spatial.configuration": frozenset(
+            {"distance_km"}
+        ),
+    },
     "bijux_pollenomics_dev/essd_reproduction/study_inputs.py": {
         "bijux_pollenomics.collection.sources.landclim.study_inventory": frozenset(
             {
