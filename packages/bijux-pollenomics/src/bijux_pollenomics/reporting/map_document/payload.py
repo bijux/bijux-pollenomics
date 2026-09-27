@@ -11,7 +11,7 @@ from ..modeled_context.publication_projection import project_modeled_context_lay
 from .native_lra import bind_native_view, validate_native_layers
 from .state import build_map_document_state
 from .static_assets.budgets import ATLAS_FILTER_MAIN_THREAD_MAX_MS
-from .template import NATIVE_LRA_CONTROLLER
+from .template import NATIVE_LRA_CONTROLLER, SOURCE_RECORD_EXPORT_CONTROLLER
 from .temporal_admission import read_calendar_profile
 
 if TYPE_CHECKING:
@@ -91,6 +91,7 @@ def build_map_document_payload(
         point_layers_json = "hydrateStaticAtlasLayers('point')"
         polygon_layers_json = "hydrateStaticAtlasLayers('polygon')"
     return {
+        "__SOURCE_RECORD_EXPORT_CONTROLLER__": SOURCE_RECORD_EXPORT_CONTROLLER,
         "__NATIVE_LRA_BINDING__": serialize_json_for_script(
             bind_native_view(native_lra) if native_lra is not None else None
         ),

@@ -2306,8 +2306,11 @@ __CHRONOLOGY_PLAYBACK_ACTION__
           </div>
           <div class="focus-actions">
             <button id="focus-zoom" class="toolbar-button is-primary" type="button">Zoom to record</button>
+            <button id="focus-export" class="toolbar-button" type="button" disabled>Download pollen/time-series records</button>
+            <button id="focus-copy-link" class="toolbar-button" type="button">Copy record link</button>
             <a id="focus-source-link" class="toolbar-button focus-link" href="#" target="_blank" rel="noreferrer">Open source</a>
           </div>
+          <p id="focus-export-status" class="search-meta" aria-live="polite"></p>
         </section>
         <div class="map-status">
           <div class="status-pill"><span class="status-pill-label">Zoom</span><span id="zoom-readout" class="status-pill-value">--</span></div>
@@ -2928,6 +2931,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
       const COUNTRIES = __COUNTRIES_JSON__;
 __NATIVE_LRA_CONTROLLER__
       const NATIVE_LRA_BINDING = __NATIVE_LRA_BINDING__;
+__SOURCE_RECORD_EXPORT_CONTROLLER__
       let nativeLraController = null;
       let signedNativeTime = null;
       let signedNativeTimeControls = null;
@@ -3146,6 +3150,9 @@ __NATIVE_LRA_CONTROLLER__
       const focusZoomButton = document.getElementById('focus-zoom');
       const focusSourceLink = document.getElementById('focus-source-link');
       const focusCloseButton = document.getElementById('focus-close');
+      const focusExportButton = document.getElementById('focus-export');
+      const focusCopyLinkButton = document.getElementById('focus-copy-link');
+      const focusExportStatus = document.getElementById('focus-export-status');
       const selectionReadout = document.getElementById('selection-readout');
       const zoomReadout = document.getElementById('zoom-readout');
       const centerReadout = document.getElementById('center-readout');
@@ -3155,6 +3162,7 @@ __NATIVE_LRA_CONTROLLER__
         const raw = window.location.hash.startsWith('#') ? window.location.hash.slice(1) : '';
         const params = new URLSearchParams(raw);
         return {
+          focus: sourceRecordFocusFromHash(params, DETAIL_TAB_DEFINITIONS.map(([key]) => key)),
           countries: params.get('countries'),
           layers: params.get('layers'),
           scientificSignals: params.get('scientific_signals'),
@@ -4928,6 +4936,7 @@ __NATIVE_LRA_CONTROLLER__
         }
         if (!legendCollapsed) params.set('legend', 'expanded');
         if (nativeLraController) nativeLraController.writeHash(params);
+        if (!focusCard.hidden) writeSourceRecordFocusHash(params, focusState, activeFocusTab);
         const nextHash = params.toString();
         const desiredHash = nextHash ? `#${nextHash}` : '';
         if (window.location.hash !== desiredHash) window.history.replaceState(null, '', `${window.location.pathname}${window.location.search}${desiredHash}`);
@@ -5022,6 +5031,7 @@ __NATIVE_LRA_CONTROLLER__
         }
         renderFocusCard();
         if (opening && !focusCard.hidden) focusTabs.querySelector('[aria-selected="true"]').focus({ preventScroll: true });
+        syncHashState();
       }
       function restoreFocusFromCard() {
         const origin = focusCardReturnFocus;
@@ -5218,6 +5228,11 @@ __NATIVE_LRA_CONTROLLER__
         focusDetail.setAttribute('aria-labelledby', `focus-tab-${activeFocusTab}`);
         focusDetail.innerHTML = renderDetailValue(tabs[activeFocusTab], activeFocusTab);
         focusDetail.dataset.detailStatus = tabs[activeFocusTab] && tabs[activeFocusTab].status === 'unavailable' ? 'unavailable' : 'available';
+        focusExportButton.disabled = !sourcePollenExportAvailable(focusState);
+        focusCopyLinkButton.disabled = focusState?.kind !== 'point';
+        focusExportStatus.textContent = focusExportButton.disabled
+          ? 'Pollen record export unavailable: complete sample, chronology and source observation tables are required.'
+          : 'Download includes all source observations, samples and chronology claims, including contextual and refused claims. Map time filters do not trim this complete record.';
         focusTabs.querySelectorAll('[data-focus-tab]').forEach((button) => {
           button.addEventListener('click', () => {
             activeFocusTab = button.dataset.focusTab;
@@ -5239,6 +5254,7 @@ __NATIVE_LRA_CONTROLLER__
           const replacement = [...focusDetail.querySelectorAll('[data-detail-table-page]')].find((button) => button.dataset.detailTablePage === focusedTable && button.dataset.pageDirection === focusedDirection && !button.disabled);
           (replacement || focusDetail).focus({ preventScroll: true });
         }
+        syncHashState();
       }
       function renderFocusCard() {
         const pointEntry = visiblePointEntryForFocus();
@@ -7365,6 +7381,42 @@ __NATIVE_LRA_CONTROLLER__
         }
       });
       focusCloseButton.addEventListener('click', () => setFocusState(null));
+      focusCopyLinkButton.addEventListener('click', async () => {
+        syncHashState();
+        try {
+          await navigator.clipboard.writeText(window.location.href);
+          focusExportStatus.textContent = 'Record link copied.';
+        } catch {
+          focusExportStatus.textContent = 'Copy this record link from your browser address bar.';
+        }
+      });
+      focusExportButton.addEventListener('click', () => {
+        try {
+          if (focusCard.hidden) throw Error('selected_record_not_visible');
+          syncHashState();
+          const selection = {
+            atlas_build_id: STATIC_ATLAS_BOOTSTRAP.build_id || null,
+            shared_url: window.location.href,
+            countries: [...activeCountries].sort(),
+            layers: [...activeLayerKeys].sort(),
+            scientific_signals: [...activeScientificSignalIds].sort(),
+            map_window_bp: TIME_HAS_DATA ? [timeStartBp, timeWindowEndBp()] : null,
+            selected_detail_section: activeFocusTab,
+            basemap: currentBasemap,
+          };
+          const payload = buildSourcePollenRecordExport(focusState, selection, decodeDetailTableRow);
+          const blob = new Blob([`${JSON.stringify(payload, null, 2)}\n`], { type: 'application/json' });
+          const url = URL.createObjectURL(blob);
+          const link = document.createElement('a');
+          link.href = url;
+          link.download = sourcePollenRecordFilename(focusState.recordId);
+          link.click();
+          window.setTimeout(() => URL.revokeObjectURL(url), 1000);
+          focusExportStatus.textContent = `${payload.pollen_observations.record_count} source observations downloaded with ${payload.chronology_claims.record_count} chronology claims.`;
+        } catch (error) {
+          focusExportStatus.textContent = error instanceof Error ? error.message : 'Source pollen export failed.';
+        }
+      });
       focusTabs.addEventListener('keydown', (event) => {
         if (!event.target.matches('[data-focus-tab]')) return;
         const keys = DETAIL_TAB_DEFINITIONS.map(([key]) => key);
@@ -7496,7 +7548,18 @@ __NATIVE_LRA_CONTROLLER__
       setBasemap(currentBasemap, { sync: false });
       setLegendCollapsed(legendCollapsed, false);
       resetView();
-      renderMapState();
+      await renderMapState();
+      if (initialState.focus) {
+        const requestedEntry = uniquePointEntryForFocus(visiblePointEntries, initialState.focus);
+        if (requestedEntry) {
+          await focusPointAtVisibleIndex(visiblePointEntries.indexOf(requestedEntry));
+          activeFocusTab = initialState.focus.tab;
+          renderFocusDetail();
+          syncHashState();
+        } else {
+          topbarStatePill.textContent = 'Shared record is unavailable under the current filters.';
+        }
+      }
       zoomReadout.textContent = map.getZoom().toFixed(1);
       centerReadout.textContent = `${map.getCenter().lat.toFixed(3)}, ${map.getCenter().lng.toFixed(3)}`;
       })().catch((error) => {

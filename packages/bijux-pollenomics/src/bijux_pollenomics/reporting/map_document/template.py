@@ -25,5 +25,15 @@ NATIVE_LRA_CONTROLLER: Final = (
     .joinpath("native-lra.js")
     .read_text(encoding="utf-8")
 )
+SOURCE_RECORD_EXPORT_CONTROLLER: Final = (
+    files(__package__)
+    .joinpath("assets")
+    .joinpath("source-record-export.js")
+    .read_text(encoding="utf-8")
+)
 
-__all__ = ["MAP_DOCUMENT_TEMPLATE", "load_map_document_template"]
+__all__ = [
+    "MAP_DOCUMENT_TEMPLATE",
+    "SOURCE_RECORD_EXPORT_CONTROLLER",
+    "load_map_document_template",
+]
