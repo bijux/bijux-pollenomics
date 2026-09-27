@@ -6,10 +6,20 @@ import { createServer } from 'node:http';
 import { readFile, writeFile, mkdir, rm } from 'node:fs/promises';
 import { extname, resolve, relative, join } from 'node:path';
 
-const [candidateDirectory, outputDirectory, browserBinary] = process.argv.slice(2);
+const [candidateDirectory, outputDirectory, browserBinary, sourceExpectations] = process.argv.slice(2);
 if (!candidateDirectory || !outputDirectory || !browserBinary) throw Error('usage: node detail-focus.mjs CANDIDATE_DIRECTORY OUTPUT_DIRECTORY BROWSER_BINARY');
 const candidateRoot = resolve(candidateDirectory);
 const outputRoot = resolve(outputDirectory);
+const expectations = {
+  fixture_kind: 'synthetic_ui_contract', query: 'evidence-0', title: 'evidence-0',
+  next_title: 'evidence-1', next_detail_status: 'unavailable', sample_count: 26,
+  sample_table_path: 'samples', chronology_text: 'cal BP',
+  composition_text: 'count', composition_record: 'taxon:triticum',
+  provenance_text: 'raw/sites.json#site:1', provenance_build: 'fixture-build',
+  ...(sourceExpectations ? JSON.parse(await readFile(resolve(sourceExpectations), 'utf8')) : {}),
+};
+assert.ok(Number.isSafeInteger(expectations.sample_count) && expectations.sample_count > 25, 'sample pagination requires an integer count above 25');
+for (const key of ['query', 'title', 'next_title', 'next_detail_status', 'sample_table_path', 'chronology_text', 'composition_text', 'composition_record', 'provenance_text', 'provenance_build']) assert.equal(typeof expectations[key], 'string', `invalid expectation: ${key}`);
 await mkdir(outputRoot, { recursive: true });
 const served = new Map();
 const server = createServer(async (request, response) => {
@@ -28,7 +38,7 @@ const browser = spawn(browserBinary, ['--headless=new', '--disable-gpu', '--disa
 const closed = new Promise(accept => browser.once('close', accept));
 let log = '';
 let cdp;
-const receipt = { schema_version: 'atlas-detail-focus-verification.v1', fixture_kind: 'synthetic_ui_contract', status: 'FAIL', assertions: [], runtime_errors: [] };
+const receipt = { schema_version: 'atlas-detail-focus-verification.v1', fixture_kind: expectations.fixture_kind, expectations, status: 'FAIL', assertions: [], runtime_errors: [] };
 const jobTimeout = setTimeout(() => browser.kill('SIGKILL'), 120000);
 try {
   const endpoint = await new Promise((accept, reject) => {
@@ -53,7 +63,7 @@ try {
     await cdp.send('Page.navigate', { url: `http://127.0.0.1:${server.address().port}/index.html?viewport=${width}#basemap=none` });
     await waitFor(`location.search === '?viewport=${width}' && document.getElementById('map')?.getAttribute('aria-busy') === 'false'`);
     await evaluate("document.getElementById('search-toggle').click()");
-    await cdp.send('Input.insertText', { text: 'evidence-0' });
+    await cdp.send('Input.insertText', { text: expectations.query });
     await waitFor("document.querySelector('[data-search-index]') !== null");
     await key('Enter', 13);
     await waitFor("document.getElementById('focus-detail').dataset.detailStatus === 'available'");
@@ -64,28 +74,43 @@ try {
     await check('right-wraps-to-overview', width, "document.activeElement.id === 'focus-tab-overview'");
     await key('End', 35);
     await check('end-selects-provenance', width, "document.activeElement.id === 'focus-tab-provenance'");
-    await check('provenance-retains-raw-locator', width, "document.getElementById('focus-detail').textContent.includes('raw/sites.json#site:1') && document.getElementById('focus-detail').textContent.includes('fixture-build')");
+    await check('provenance-retains-raw-locator', width, `document.getElementById('focus-detail').textContent.includes(${JSON.stringify(expectations.provenance_text)}) && document.getElementById('focus-detail').textContent.includes(${JSON.stringify(expectations.provenance_build)})`);
     await key('Home', 36);
     await key('ArrowRight', 39);
-    await check('samples-selected-and-linked', width, "document.activeElement.id === 'focus-tab-samples' && document.getElementById('focus-detail').getAttribute('aria-labelledby') === 'focus-tab-samples' && document.getElementById('focus-detail').textContent.includes('Showing 1–25 of 26') && document.querySelectorAll('#focus-tabs [tabindex=\"0\"]').length === 1");
+    await check('samples-selected-and-linked', width, `document.activeElement.id === 'focus-tab-samples' && document.getElementById('focus-detail').getAttribute('aria-labelledby') === 'focus-tab-samples' && document.getElementById('focus-detail').textContent.includes('Showing 1–25 of ${expectations.sample_count}') && document.querySelectorAll('#focus-tabs [tabindex="0"]').length === 1`);
     await key('Tab', 9);
     await check('tab-enters-evidence-panel', width, "document.activeElement.id === 'focus-detail'");
-    await key('Tab', 9);
-    await check('tab-skips-disabled-previous', width, "document.activeElement.dataset.pageDirection === 'next'");
+    const pagingRoute = [];
+    for (let step = 0; step < 12; step++) {
+      await key('Tab', 9);
+      const current = await evaluate("({inPanel:document.getElementById('focus-detail').contains(document.activeElement),disabled:document.activeElement.matches(':disabled'),className:document.activeElement.className,path:document.activeElement.dataset.detailTablePage,direction:document.activeElement.dataset.pageDirection})");
+      pagingRoute.push(current);
+      if (!current.inPanel || current.disabled || (current.path === expectations.sample_table_path && current.direction === 'next')) break;
+    }
+    receipt.assertions.push({ name: 'sample-table-keyboard-route', width, route: pagingRoute });
+    await check('tab-reaches-sample-paging-without-disabled-controls', width, `document.activeElement.dataset.pageDirection === 'next' && document.activeElement.dataset.detailTablePage === ${JSON.stringify(expectations.sample_table_path)} && !document.activeElement.matches(':disabled')`);
     await key('Enter', 13);
-    await check('paging-preserves-focus-at-disabled-boundary', width, "document.activeElement.id === 'focus-detail' && document.getElementById('focus-detail').textContent.includes('Showing 26–26 of 26')");
+    const pageFocus = expectations.sample_count <= 50 ? "document.activeElement.id === 'focus-detail'" : `document.activeElement.dataset.pageDirection === 'next' && document.activeElement.dataset.detailTablePage === ${JSON.stringify(expectations.sample_table_path)}`;
+    await check('paging-preserves-focus', width, `${pageFocus} && document.getElementById('focus-detail').textContent.includes('Showing 26–${Math.min(50, expectations.sample_count)} of ${expectations.sample_count}')`);
     await evaluate("document.getElementById('focus-tab-chronology').focus()");
     await key('Enter', 13);
-    await check('tab-click-retains-focus', width, "document.activeElement.id === 'focus-tab-chronology' && document.getElementById('focus-detail').textContent.includes('cal BP')");
+    await check('tab-click-retains-focus', width, `document.activeElement.id === 'focus-tab-chronology' && document.getElementById('focus-detail').textContent.includes(${JSON.stringify(expectations.chronology_text)})`);
     await key('ArrowRight', 39);
-    await check('composition-retains-count-and-unit', width, "document.activeElement.id === 'focus-tab-pollen_composition' && document.getElementById('focus-detail').textContent.includes('taxon:triticum') && document.getElementById('focus-detail').textContent.includes('count')");
+    await check('composition-retains-count-and-unit', width, `document.activeElement.id === 'focus-tab-pollen_composition' && document.getElementById('focus-detail').textContent.includes(${JSON.stringify(expectations.composition_record)}) && document.getElementById('focus-detail').textContent.includes(${JSON.stringify(expectations.composition_text)})`);
+    if (expectations.first_observation) {
+      const actual = await evaluate("[...document.querySelector('#focus-detail .focus-detail-table tbody tr').querySelectorAll('td')].map(cell=>cell.textContent)");
+      const expected = Object.values(expectations.first_observation).map(value => value === null ? 'null (source null)' : value === '' ? 'Unavailable' : typeof value === 'object' ? JSON.stringify(value) : String(value));
+      receipt.assertions.push({ name: 'literal-source-observation-cells', width, actual, expected, passed: JSON.stringify(actual) === JSON.stringify(expected) });
+      assert.deepEqual(actual, expected, 'source observation identifiers/count/unit/null/denominator changed');
+    }
     await evaluate("document.getElementById('focus-next').focus()");
     await key('Enter', 13);
-    await check('next-record-retains-navigation-focus-and-unavailability', width, "document.activeElement.id === 'focus-next' && document.getElementById('focus-title').textContent === 'evidence-1' && document.getElementById('focus-detail').dataset.detailStatus === 'unavailable'");
+    await waitFor(`document.getElementById('focus-detail').dataset.detailStatus === ${JSON.stringify(expectations.next_detail_status)}`);
+    await check('next-record-retains-navigation-focus-and-status', width, `document.activeElement.id === 'focus-next' && document.getElementById('focus-title').textContent === ${JSON.stringify(expectations.next_title)} && document.getElementById('focus-detail').dataset.detailStatus === ${JSON.stringify(expectations.next_detail_status)}`);
     await evaluate("document.getElementById('focus-previous').focus()");
     await key('Enter', 13);
     await waitFor("document.getElementById('focus-detail').dataset.detailStatus === 'available'");
-    await check('previous-record-retains-navigation-focus-and-identity', width, "document.activeElement.id === 'focus-previous' && document.getElementById('focus-title').textContent === 'evidence-0'");
+    await check('previous-record-retains-navigation-focus-and-identity', width, `document.activeElement.id === 'focus-previous' && document.getElementById('focus-title').textContent === ${JSON.stringify(expectations.title)}`);
     await key('Escape', 27);
     await check('escape-closes-and-returns-to-search', width, "document.getElementById('focus-card').hidden && document.activeElement.id === 'search-toggle'");
     await evaluate("document.getElementById('search-toggle').click()");
