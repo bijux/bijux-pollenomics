@@ -2932,6 +2932,7 @@ __STATIC_CHUNK_SCRIPT_TAGS__
 __NATIVE_LRA_CONTROLLER__
       const NATIVE_LRA_BINDING = __NATIVE_LRA_BINDING__;
 __SOURCE_RECORD_EXPORT_CONTROLLER__
+__URL_STATE_CONTROLLER__
       let nativeLraController = null;
       let signedNativeTime = null;
       let signedNativeTimeControls = null;
@@ -3420,6 +3421,13 @@ __SOURCE_RECORD_EXPORT_CONTROLLER__
         refreshTimePlaybackControl();
       }
       const initialState = parseHashState();
+      const atlasURLState = createAtlasURLStateController({
+        readURL: () => window.location.href,
+        publishURL: (href) => window.history.replaceState(null, '', href),
+        replayURL: () => window.location.reload(),
+      });
+      window.addEventListener('hashchange', atlasURLState.observe);
+      window.addEventListener('popstate', atlasURLState.observe);
       const MODELED_CONTEXT_WINDOWS = Object.freeze(Array.isArray(MODELED_CONTEXT.windows_oldest_to_present) ? [...MODELED_CONTEXT.windows_oldest_to_present] : []);
       const MODELED_CONTEXT_FAMILIES = Object.freeze(Array.isArray(MODELED_CONTEXT.metric_families) ? [...MODELED_CONTEXT.metric_families] : []);
       const MODELED_CONTEXT_PALETTE = Object.freeze(Array.isArray(MODELED_CONTEXT.palette) ? [...MODELED_CONTEXT.palette] : []);
@@ -4901,6 +4909,7 @@ __SOURCE_RECORD_EXPORT_CONTROLLER__
           .filter((element) => !element.hidden && getComputedStyle(element).display !== 'none' && getComputedStyle(element).visibility !== 'hidden');
       }
       function syncHashState() {
+        if (!atlasURLState.canPublish()) return;
         const params = new URLSearchParams();
         if (activeCountries.size !== COUNTRIES.length) params.set('countries', activeCountries.size ? [...activeCountries].join(',') : 'none');
         if (activeLayerKeys.size !== DEFAULT_LAYER_KEYS.length || DEFAULT_LAYER_KEYS.some((key) => !activeLayerKeys.has(key))) params.set('layers', activeLayerKeys.size ? [...activeLayerKeys].join(',') : 'none');
@@ -4939,7 +4948,7 @@ __SOURCE_RECORD_EXPORT_CONTROLLER__
         if (!focusCard.hidden) writeSourceRecordFocusHash(params, focusState, activeFocusTab);
         const nextHash = params.toString();
         const desiredHash = nextHash ? `#${nextHash}` : '';
-        if (window.location.hash !== desiredHash) window.history.replaceState(null, '', `${window.location.pathname}${window.location.search}${desiredHash}`);
+        atlasURLState.publish(desiredHash);
       }
       function clearHighlightedPoint() {
         if (!highlightedPointEntry || !highlightedPointEntry.marker) return;

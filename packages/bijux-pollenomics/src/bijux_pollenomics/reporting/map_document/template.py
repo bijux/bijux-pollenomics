@@ -25,6 +25,9 @@ NATIVE_LRA_CONTROLLER: Final = (
     .joinpath("native-lra.js")
     .read_text(encoding="utf-8")
 )
+URL_STATE_CONTROLLER: Final = (
+    files(__package__).joinpath("assets/url-state.js").read_text(encoding="utf-8")
+)
 SOURCE_RECORD_EXPORT_CONTROLLER: Final = (
     files(__package__)
     .joinpath("assets")
@@ -35,5 +38,6 @@ SOURCE_RECORD_EXPORT_CONTROLLER: Final = (
 __all__ = [
     "MAP_DOCUMENT_TEMPLATE",
     "SOURCE_RECORD_EXPORT_CONTROLLER",
+    "URL_STATE_CONTROLLER",
     "load_map_document_template",
 ]

@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from bijux_pollenomics.reporting.map_document.template import (
     SOURCE_RECORD_EXPORT_CONTROLLER,
+    URL_STATE_CONTROLLER,
 )
 
 from .support import run_node_json
@@ -124,3 +125,69 @@ console.log(JSON.stringify({ready:sourcePollenExportAvailable(focus)}));
 """
     )
     assert observed == {"ready": False}
+
+
+def test_url_replay_keeps_internal_publication_in_document() -> None:
+    observed = run_node_json(
+        URL_STATE_CONTROLLER
+        + """
+let url='https://atlas.example/index.html?scope=nordic#basemap=none',replays=0;
+const published=[];
+const controller=createAtlasURLStateController({readURL:()=>url,publishURL:next=>{url=next;published.push(next);},replayURL:()=>replays++});
+controller.publish('countries=Denmark&focus_record=site%3A1');
+controller.observe();
+controller.publish('countries=Finland');
+console.log(JSON.stringify({url,published:published.length,replays,canPublish:controller.canPublish()}));
+"""
+    )
+    assert observed == {
+        "url": "https://atlas.example/index.html?scope=nordic#countries=Finland",
+        "published": 2,
+        "replays": 0,
+        "canPublish": True,
+    }
+
+
+def test_url_replay_preserves_complete_external_url_against_stale_writers() -> None:
+    observed = run_node_json(
+        URL_STATE_CONTROLLER
+        + """
+let url='https://atlas.example/index.html#countries=Sweden',replays=0;
+const published=[];
+const controller=createAtlasURLStateController({readURL:()=>url,publishURL:next=>{url=next;published.push(next);},replayURL:()=>replays++});
+url='https://atlas.example/index.html?scope=nordic#countries=Norway&focus_record=site%3A2&time_start=0&native_view_sha256=exact';
+const incoming=url;
+const stalePublish=controller.publish('countries=Sweden');
+controller.observe();controller.observe();controller.publish('');
+console.log(JSON.stringify({incomingPreserved:url===incoming,replays,published:published.length,stalePublish,canPublish:controller.canPublish()}));
+"""
+    )
+    assert observed == {
+        "incomingPreserved": True,
+        "replays": 1,
+        "published": 0,
+        "stalePublish": False,
+        "canPublish": False,
+    }
+
+
+def test_url_replay_duplicate_history_events_and_latest_navigation_reload_once() -> (
+    None
+):
+    observed = run_node_json(
+        URL_STATE_CONTROLLER
+        + """
+let url='https://atlas.example/#countries=Sweden',replays=0;
+const controller=createAtlasURLStateController({readURL:()=>url,publishURL:next=>url=next,replayURL:()=>replays++});
+url='https://atlas.example/#countries=Denmark';controller.observe();
+url='https://atlas.example/#countries=Finland';controller.observe();controller.publish('countries=Sweden');
+const replay=createAtlasURLStateController({readURL:()=>url,publishURL:next=>url=next,replayURL:()=>replays++});
+replay.observe();replay.publish('countries=Finland');
+console.log(JSON.stringify({url,replays,canPublish:replay.canPublish()}));
+"""
+    )
+    assert observed == {
+        "url": "https://atlas.example/#countries=Finland",
+        "replays": 1,
+        "canPublish": True,
+    }
