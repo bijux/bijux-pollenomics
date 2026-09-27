@@ -1,0 +1,73 @@
+{
+  "schema_version": "lra-runtime-metadata-comparison.v1",
+  "baseline_report": "../python-baseline/report.json",
+  "optimized_report": "report.json",
+  "baseline_commit": "3d6b0495",
+  "comparisons": [
+    {
+      "workload": "reveals-interactive",
+      "baseline_median_seconds": 0.00817791698500514,
+      "optimized_median_seconds": 0.0033562909811735153,
+      "latency_ratio": 2.4365935584481893,
+      "same_config": true,
+      "same_scientific_outputs": true,
+      "same_native_missingness": true
+    },
+    {
+      "workload": "reveals-reference-series",
+      "baseline_median_seconds": 0.028318124823272228,
+      "optimized_median_seconds": 0.021676416974514723,
+      "latency_ratio": 1.3064024767823141,
+      "same_config": true,
+      "same_scientific_outputs": true,
+      "same_native_missingness": true
+    },
+    {
+      "workload": "love-analytical",
+      "baseline_median_seconds": 0.012790790759027004,
+      "optimized_median_seconds": 0.0074783749878406525,
+      "latency_ratio": 1.7103703384524034,
+      "same_config": true,
+      "same_scientific_outputs": true,
+      "same_native_missingness": true
+    },
+    {
+      "workload": "love-optimized-replay",
+      "baseline_median_seconds": 0.02860987465828657,
+      "optimized_median_seconds": 0.023550666868686676,
+      "latency_ratio": 1.2148222730935359,
+      "same_config": true,
+      "same_scientific_outputs": true,
+      "same_native_missingness": true
+    },
+    {
+      "workload": "lra-replicated-series",
+      "baseline_median_seconds": 0.21897187503054738,
+      "optimized_median_seconds": 0.09453212469816208,
+      "latency_ratio": 2.3163752611053363,
+      "same_config": true,
+      "same_scientific_outputs": true,
+      "same_native_missingness": true
+    },
+    {
+      "workload": "forward-validated",
+      "baseline_median_seconds": 4.212465137243271e-05,
+      "optimized_median_seconds": 4.5709311962127686e-05,
+      "latency_ratio": 0.9215770171149145,
+      "same_config": true,
+      "same_scientific_outputs": true,
+      "same_native_missingness": true
+    },
+    {
+      "workload": "forward-dot-compute",
+      "baseline_median_seconds": 5.084089934825897e-06,
+      "optimized_median_seconds": 5.5409036576747894e-06,
+      "latency_ratio": 0.917556097151021,
+      "same_config": true,
+      "same_scientific_outputs": true,
+      "same_native_missingness": true
+    }
+  ],
+  "same_dependency_versions": true,
+  "measurement_scope": "Seven repeated single-thread workloads on the same recorded machine; independent timing runs, no noise-free performance guarantee."
+}

@@ -1,11 +1,15 @@
 from __future__ import annotations
 
+import importlib.metadata
 import json
 from pathlib import Path
+from typing import cast
 
 import numpy as np
 import pandas as pd
+import pytest
 
+from bijux_pollenomics_lra.provenance import manifest as provenance
 from bijux_pollenomics_lra.provenance.identity import (
     canonical_json,
     sha256_file,
@@ -45,3 +49,52 @@ def test_file_hash_and_manifest_write(tmp_path: Path) -> None:
     parsed = json.loads(path.read_text())
     assert parsed["algorithm"] == "test"
     assert len(parsed["inputs"]["table"]) == 64
+
+
+def test_runtime_dependency_reads_are_cached_without_sharing_manifest_mappings(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    calls: list[str] = []
+    versions = {"numpy": "2.4.6", "scipy": "1.17.1", "pandas": "2.3.3"}
+
+    def read_version(distribution: str) -> str:
+        calls.append(distribution)
+        return versions[distribution]
+
+    provenance._version_or_unknown.cache_clear()
+    monkeypatch.setattr(importlib.metadata, "version", read_version)
+    try:
+        first = build_manifest("fixed", {}, {}, stochastic=False, seed=None)
+        second = build_manifest("fixed", {}, {}, stochastic=False, seed=None)
+        assert calls == ["numpy", "scipy", "pandas"]
+        assert first.scientific_identity() == second.scientific_identity()
+        cast(dict[str, str], first.runtime)["numpy"] = "caller mutation"
+        assert second.runtime["numpy"] == versions["numpy"]
+        third = build_manifest("fixed", {}, {}, stochastic=False, seed=None)
+        assert third.runtime["numpy"] == versions["numpy"]
+        assert calls == ["numpy", "scipy", "pandas"]
+    finally:
+        provenance._version_or_unknown.cache_clear()
+
+
+def test_missing_dependency_status_is_preserved_and_cached(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    calls: list[str] = []
+
+    def missing(distribution: str) -> str:
+        calls.append(distribution)
+        raise importlib.metadata.PackageNotFoundError(distribution)
+
+    provenance._version_or_unknown.cache_clear()
+    monkeypatch.setattr(importlib.metadata, "version", missing)
+    try:
+        first = build_manifest("fixed", {}, {}, stochastic=False, seed=None)
+        second = build_manifest("fixed", {}, {}, stochastic=False, seed=None)
+        for distribution in ("numpy", "scipy", "pandas"):
+            assert (
+                first.runtime[distribution] == second.runtime[distribution] == "unknown"
+            )
+        assert calls == ["numpy", "scipy", "pandas"]
+    finally:
+        provenance._version_or_unknown.cache_clear()
