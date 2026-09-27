@@ -56,9 +56,35 @@ cover, modeled pollen or objective summaries. The reported and evaluated values
 must agree within `1e-12` absolute and relative tolerance. That tolerance is fixed
 for this boundary and does not replace the declared R oracle tolerances.
 
-The independent certification evaluation is separate from the backend's reported
-search evaluation count (`nfev`); replay keeps its candidate count. Certification
+The independent certification evaluation is reported as `certification_nfev=1`,
+separate from the search evaluation count (`nfev`); replay keeps its candidate
+count. Native SciPy results use `certification_nfev=0`, since their recorded best
+objective comes from the bounded search itself. Certification
 preserves a backend's failure status and does not establish global optimality or
 convergence parity. `tests/unit/optimization/test_solver.py` checks invalid
 solutions, immutable original bounds, retained failure diagnostics and a complete
 LOVE consumer with a symmetric known cover and forward pollen expectation.
+
+`max_evaluations` limits search objective calls per ring and repeat. A custom
+backend receives a guarded objective and cannot cause further objective
+evaluations after that limit. A returned budgeted result must report the observed
+search call count. Independent certification adds one evaluation beyond this
+search limit, so the maximum numerical work is `max_evaluations + 1` objective
+calls for a custom backend. This is an explicit bounded overhead, not a hidden
+search evaluation. An exhausted custom search retains its best finite evaluated
+candidate with failure status. If its completed iteration count is unavailable,
+`nit=0` and the diagnostic message state that limitation.
+
+Replay evaluates a bounded prefix when its candidate set exceeds the search
+budget. It reports failure until every declared candidate has been evaluated,
+even if the prefix already contains the global best candidate. The public LOVE
+workflow refuses those incomplete results through `ConvergenceError`. A prefix
+with no finite candidate is refused. Complete replay preserves its original
+candidate count and makes no convergence claim.
+
+Custom backends receive `tolerance` and `max_evaluations` when their signatures
+accept those keywords. The original `rng`, `maxiter` and `popsize` calling
+convention remains supported. Search budgets are enforced by the objective
+boundary even for backends with that older signature. Tolerance retains each
+backend's meaning; forwarding it does not establish equivalent stopping rules
+between SciPy, R or another backend.

@@ -2,8 +2,10 @@
 
 from __future__ import annotations
 
-from collections.abc import Callable
+from collections.abc import Callable, Mapping
+from contextlib import suppress
 from dataclasses import dataclass, replace
+from inspect import Parameter, signature
 import warnings
 
 import numpy as np
@@ -31,6 +33,7 @@ class OptimizationResult:
     success: bool
     message: str
     algorithm: str
+    certification_nfev: int = 0
 
     def as_dict(self) -> dict[str, object]:
         """Return a JSON-compatible diagnostic record."""
@@ -42,6 +45,7 @@ class OptimizationResult:
             "success": self.success,
             "message": self.message,
             "algorithm": self.algorithm,
+            "certification_nfev": self.certification_nfev,
         }
 
 
@@ -69,6 +73,7 @@ class ReplayOptimizer:
         objective: Objective,
         lower: np.ndarray | None = None,
         upper: np.ndarray | None = None,
+        max_evaluations: int | None = None,
         **_: object,
     ) -> OptimizationResult:
         """Evaluate all candidates and return the finite minimum."""
@@ -79,21 +84,38 @@ class ReplayOptimizer:
             if np.any(candidates < lower) or np.any(candidates > upper):
                 raise ValidationError("Replay candidates violate optimizer bounds")
 
+        evaluation_count = len(candidates)
+        if max_evaluations is not None:
+            evaluation_count = min(
+                evaluation_count, integer(max_evaluations, "max_evaluations")
+            )
+        complete = evaluation_count == len(candidates)
         values = np.asarray(
-            [float(objective(candidate.copy())) for candidate in candidates],
+            [
+                float(objective(candidate.copy()))
+                for candidate in candidates[:evaluation_count]
+            ],
             dtype=float,
         )
         values = np.where(np.isfinite(values), values, np.inf)
         if np.isinf(values).all():
+            if not complete:
+                raise ValidationError(
+                    "Evaluation budget ended before any finite candidate"
+                )
             raise ValidationError("Every replay candidate has an undefined objective")
         index = int(np.argmin(values))
         return OptimizationResult(
             x=candidates[index].copy(),
             fun=float(values[index]),
             nit=1,
-            nfev=len(candidates),
-            success=True,
-            message="Fixed-candidate replay; optimizer convergence was not tested",
+            nfev=evaluation_count,
+            success=complete,
+            message=(
+                "Fixed-candidate replay; optimizer convergence was not tested"
+                if complete
+                else "Evaluation budget reached before complete candidate replay"
+            ),
             algorithm="candidate-replay",
         )
 
@@ -136,14 +158,78 @@ def optimize_box(
             raise ValidationError(
                 "optimizer must expose solve(objective, lower, upper, ...)"
             )
-        custom_result = optimizer.solve(
-            objective,
-            lower_array.copy(),
-            upper_array.copy(),
-            rng=generator,
-            maxiter=maxiter,
-            popsize=popsize,
+        search_evaluations = 0
+        best_candidate: np.ndarray | None = None
+        best_objective = np.inf
+        budget_reached = False
+
+        class CustomEvaluationBudgetReached(Exception):
+            pass
+
+        def custom_objective(candidate: np.ndarray) -> float:
+            nonlocal search_evaluations, best_candidate, best_objective, budget_reached
+            if max_evaluations is not None and search_evaluations >= max_evaluations:
+                budget_reached = True
+                raise CustomEvaluationBudgetReached
+            search_evaluations += 1
+            owned_candidate = vector(candidate, "optimizer candidate").copy()
+            if owned_candidate.shape != lower_array.shape or np.any(
+                (owned_candidate < lower_array) | (owned_candidate > upper_array)
+            ):
+                raise ValidationError(
+                    "Optimizer candidate violates dimensions or bounds"
+                )
+            value = float(objective(owned_candidate.copy()))
+            if np.isfinite(value) and value < best_objective:
+                best_objective = value
+                best_candidate = owned_candidate
+            return value
+
+        options: dict[str, object] = {
+            "rng": generator,
+            "maxiter": maxiter,
+            "popsize": popsize,
+        }
+        parameters: Mapping[str, Parameter]
+        try:
+            parameters = signature(optimizer.solve).parameters
+        except (TypeError, ValueError):
+            parameters = {}
+        accepts_keywords = any(
+            parameter.kind == Parameter.VAR_KEYWORD for parameter in parameters.values()
         )
+        for name, option in {
+            "tolerance": tolerance,
+            "max_evaluations": max_evaluations,
+        }.items():
+            if accepts_keywords or (
+                name in parameters
+                and parameters[name].kind != Parameter.POSITIONAL_ONLY
+            ):
+                options[name] = option
+
+        custom_result = None
+        with suppress(CustomEvaluationBudgetReached):
+            custom_result = optimizer.solve(
+                custom_objective,
+                lower_array.copy(),
+                upper_array.copy(),
+                **options,
+            )
+        if budget_reached:
+            if best_candidate is None:
+                raise ValidationError(
+                    "Evaluation budget ended before any finite candidate"
+                )
+            custom_result = OptimizationResult(
+                best_candidate,
+                float(best_objective),
+                0,
+                search_evaluations,
+                False,
+                "Evaluation budget reached; completed iterations unavailable",
+                "custom",
+            )
         if not isinstance(custom_result, OptimizationResult):
             raise ValidationError("optimizer.solve must return OptimizationResult")
         candidate = vector(custom_result.x, "optimizer result x").copy()
@@ -163,6 +249,10 @@ def optimize_box(
             )
         nit = integer(custom_result.nit, "optimizer result nit", minimum=0)
         nfev = integer(custom_result.nfev, "optimizer result nfev")
+        if max_evaluations is not None and nfev != search_evaluations:
+            raise ValidationError(
+                "Optimizer result nfev disagrees with observed search calls"
+            )
         if not isinstance(custom_result.success, (bool, np.bool_)):
             raise ValidationError("Optimizer result success must be boolean")
         return replace(
@@ -172,6 +262,7 @@ def optimize_box(
             nit=nit,
             nfev=nfev,
             success=bool(custom_result.success),
+            certification_nfev=1,
         )
 
     if np.all(lower_array == upper_array):
