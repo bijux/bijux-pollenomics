@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 import hashlib
+from importlib import metadata
 import json
 from pathlib import Path
 import shutil
@@ -199,6 +200,24 @@ def summarize(
         "original_source_commit": certificate["source_commit"],
         "current_inputs_sha256": receipt["current_inputs_sha256"],
         "runner_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
+        "analysis_inputs_sha256": {
+            p.relative_to(repository).as_posix(): hashlib.sha256(
+                p.read_bytes()
+            ).hexdigest()
+            for p in sorted(
+                set(
+                    (
+                        repository
+                        / "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/lra_reference"
+                    ).rglob("*.py")
+                )
+                | {Path(__file__), Path(__file__).with_name("reference_replay.py")}
+            )
+            if p.is_file()
+        },
+        "analysis_dependency_versions": {
+            name: metadata.version(name) for name in ("numpy", "pandas")
+        },
         "r_version": receipt["r_version"],
         "rscript_sha256": receipt["rscript_sha256"],
         "source_lock_sha256": receipt["lock_sha256"],

@@ -33,7 +33,30 @@ MODES = frozenset(
         "sampler_and_optimizer_replay",
     }
 )
-CASE_IDS = frozenset(f"C{index:04d}" for index in range(25))
+CORE_CASE_IDS = frozenset(f"C{index:04d}" for index in range(25))
+EXTENDED_CASE_IDS = frozenset(f"C{index:04d}" for index in range(43))
+PROSPECTIVE_CASE_HASHES = {
+    "mixed-canopy-compact": "d84c9d9c6631c208f25b6ef8b5fdd8cc6a5e509eaa371795d1a2c19fee0b12c0",
+    "open-land-extended": "d376065884b1668f6ad89cd14c827bf40c52b53fc16171be8561c71706dd137d",
+    "conifer-rich-broad": "7ef8956c4b031c3b12f497e56ed14dee9bbc3064b59780a6b66de9920348fa03",
+}
+PROSPECTIVE_DECLARATION_SHA256 = (
+    "7bd61e0c7feefadf81428261443674612c6767e957fd25ea65591aeab9602ded"
+)
+PROSPECTIVE_KINDS = {
+    "intermediates": ("LOVEoptim", "prospective_fixed_input", 1e-10, 1e-10, None),
+    "taxon_axis": ("LOVEoptim", "prospective_fixed_input", 0, 0, 10),
+    "ring_axis": ("LOVEoptim", "prospective_fixed_input", 0, 0, 36),
+    "wrapper_replay": (
+        "LOVEoptim",
+        "prospective_sampler_and_optimizer_replay",
+        1e-10,
+        1e-10,
+        None,
+    ),
+    "nonfinite_objective": ("tf", "prospective_nonfinite", 1e-10, 1e-10, 1),
+    "all_nonfinite_refusal": ("LOVEoptim", "prospective_refusal", 0, 0, 1),
+}
 SCHEMA = "lra-live-r-certification.v2"
 
 
@@ -54,18 +77,32 @@ def file_inventory(root: Path) -> dict[str, dict[str, Any]]:
     return result
 
 
-def validate_oracle(report: Any, manifest: Any, reference_hash: str) -> None:
+def validate_oracle(
+    report: Any,
+    manifest: Any,
+    reference_hash: str,
+    *,
+    expected_core_cases: int | None = None,
+) -> int:
     """Require the complete, source-bound actual-R oracle case profile."""
     if not isinstance(report, dict) or not isinstance(manifest, list):
         raise ReferenceRefusal("Oracle report/manifest shape differs")
+    count = report.get("prepared_cases")
+    if (
+        type(count) is not int
+        or count not in {25, 43}
+        or (expected_core_cases is not None and count != expected_core_cases)
+    ):
+        raise ReferenceRefusal("Exact oracle profile denominator differs")
+    ids = CORE_CASE_IDS if count == 25 else EXTENDED_CASE_IDS
     exact = {
         "status": "passed",
         "oracle": "disqover",
         "source_version": "0.9.14",
         "source_archive_sha256": reference_hash,
         "live_R_executed": True,
-        "prepared_cases": 25,
-        "passed_cases": 25,
+        "prepared_cases": count,
+        "passed_cases": count,
         "failed_cases": 0,
         "R_exit_code": 0,
     }
@@ -75,18 +112,18 @@ def validate_oracle(report: Any, manifest: Any, reference_hash: str) -> None:
     ):
         raise ReferenceRefusal("Actual R execution and all cases are required")
     cases = report.get("cases")
-    if not isinstance(cases, list) or len(cases) != 25 or len(manifest) != 25:
+    if not isinstance(cases, list) or len(cases) != count or len(manifest) != count:
         raise ReferenceRefusal("Exact oracle case denominator is missing")
     if any(not isinstance(row, dict) for row in [*cases, *manifest]):
         raise ReferenceRefusal("Malformed oracle case row")
     if (
-        frozenset(row.get("id") for row in cases) != CASE_IDS
-        or frozenset(row.get("id") for row in manifest) != CASE_IDS
+        frozenset(row.get("id") for row in cases) != ids
+        or frozenset(row.get("id") for row in manifest) != ids
     ):
         raise ReferenceRefusal("Oracle case IDs are missing or duplicated")
     if (
         frozenset(row.get("api") for row in cases) != APIS
-        or frozenset(row.get("mode") for row in cases) != MODES
+        or frozenset(row.get("mode") for row in cases[:25]) != MODES
     ):
         raise ReferenceRefusal("Required numerical API/replay coverage is missing")
     if (
@@ -115,6 +152,50 @@ def validate_oracle(report: Any, manifest: Any, reference_hash: str) -> None:
                 raise ReferenceRefusal("Invalid numerical comparison tolerance")
         if type(expected.get("values")) is not int or expected["values"] < 1:
             raise ReferenceRefusal("Oracle value denominator is missing")
+    if count == 43:
+        _validate_prospective_oracle(report, manifest)
+    return count
+
+
+def _validate_prospective_oracle(
+    report: dict[str, Any], manifest: list[dict[str, Any]]
+) -> None:
+    prospective = report.get("prospective_optimized_love")
+    if not isinstance(prospective, dict) or prospective != {
+        "declaration_id": "disqover-0.9.14-optimized-love-prospective-20260924",
+        "declaration_sha256": PROSPECTIVE_DECLARATION_SHA256,
+        "case_input_sha256": PROSPECTIVE_CASE_HASHES,
+        "rtol": 1e-10,
+        "atol": 1e-10,
+        "stochastic_optimizer_trajectory": "excluded",
+    }:
+        raise ReferenceRefusal("Frozen prospective LOVE input declaration differs")
+    ordered = manifest[25:]
+    for index, case_id in enumerate(PROSPECTIVE_CASE_HASHES):
+        for offset, (kind, (api, mode, rtol, atol, values)) in enumerate(
+            PROSPECTIVE_KINDS.items()
+        ):
+            row = ordered[index * 6 + offset]
+            if (
+                row.get("id") != f"C{25 + index * 6 + offset:04d}"
+                or row.get("name") != f"{case_id}_{kind}"
+                or row.get("api") != api
+                or row.get("mode") != mode
+                or row.get("rtol") != rtol
+                or row.get("atol") != atol
+                or (values is not None and row.get("values") != values)
+            ):
+                raise ReferenceRefusal("Prospective LOVE case/profile differs")
+            exact_indices = row.get("exact_indices", [])
+            if (
+                not isinstance(exact_indices, list)
+                or any(
+                    type(item) is not int or item < 0 or item >= row["values"]
+                    for item in exact_indices
+                )
+                or (kind == "wrapper_replay" and not exact_indices)
+            ):
+                raise ReferenceRefusal("Prospective exact-coordinate contract differs")
 
 
 def validate_bundle(
@@ -198,12 +279,20 @@ def validate_bundle(
             raise ReferenceRefusal("Dependency loaded outside the private library")
         report = read_json((root / "oracle/report.json").read_bytes())
         manifest = read_json((root / "oracle/case_manifest.json").read_bytes())
-        validate_oracle(report, manifest, lock.payload["reference"]["sha256"])
+        count = validate_oracle(
+            report,
+            manifest,
+            lock.payload["reference"]["sha256"],
+            expected_core_cases=43 if expected_run is not None else None,
+        )
         required = {
             "oracle/R_case_status.csv",
             "oracle/R_session_info.txt",
             "oracle/oracle.R",
-            *(f"oracle/{name}.csv" for name in CASE_IDS),
+            *(
+                f"oracle/{name}.csv"
+                for name in (CORE_CASE_IDS if count == 25 else EXTENDED_CASE_IDS)
+            ),
         }
         if (
             not required <= inventory.keys()
@@ -215,8 +304,9 @@ def validate_bundle(
             csv.DictReader(io.StringIO((root / "oracle/R_case_status.csv").read_text()))
         )
         if (
-            len(statuses) != 25
-            or frozenset(row.get("id") for row in statuses) != CASE_IDS
+            len(statuses) != count
+            or frozenset(row.get("id") for row in statuses)
+            != (CORE_CASE_IDS if count == 25 else EXTENDED_CASE_IDS)
             or any(row.get("status") != "completed" for row in statuses)
         ):
             raise ReferenceRefusal(
@@ -239,10 +329,13 @@ def validate_bundle(
                         raise ReferenceRefusal(
                             "Malformed raw R numeric value"
                         ) from error
-        if certificate.get("required_profiles") != {
+        required_profiles = {
             "core_source_compatibility": 25,
             "source_domains_corrected_forward": 23,
-        }:
+        }
+        if count == 43:
+            required_profiles["prospective_optimized_love"] = 18
+        if certificate.get("required_profiles") != required_profiles:
             raise ReferenceRefusal("Required reference profile denominators differ")
         from .profiles import validate_source_domains
 

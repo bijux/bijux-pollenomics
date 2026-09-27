@@ -68,7 +68,30 @@
     "packages/bijux-pollenomics-lra/tests/reference/lra_oracle/stored.py": "bc86346078714173c74f10fd37e4e20d89ee922aaa280b413a09bf6f276050a6",
     "packages/bijux-pollenomics-lra/vendor/disqover_0.9.14.tar.gz": "ea496ae82807b52c9dd3d4b39b4dfa294bfac4068e20184ce56187bff70caf5c"
   },
-  "runner_sha256": "cb30e9311523aa813552513d8990ef7c5ca694ed4d6aa8c5e8fecc0d25dd6456",
+  "runner_sha256": "7a1a3a39efb742aabf9aebe7fba5be21282ab7198b464d1483a8914004b17712",
+  "analysis_inputs_sha256": {
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/lra_reference/__init__.py": "a97c9d0b49d1c6781b9597ad2a92a724f01457f28809b698507d8d9a1f460f7a",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/lra_reference/__main__.py": "5f2b842ea0511cec4966abe3ce39c93edb742c112c0c3113422596a045ee929a",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/lra_reference/certification.py": "9b44178197a97ff344c6265292579f0b6b69baa9296c96f7d9dde97ce843caa3",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/lra_reference/contracts.py": "aea00710ec2d83faa04cc48fa42cb0a810a92efd502fd1d355d3e795144b0f8d",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/lra_reference/environment/__init__.py": "8b978e1a954c2881963e571aac9c4b3eb4f41b961ef22014850c16e39354af32",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/lra_reference/environment/acquisition.py": "deaf039c310f684e3dc91c1a47a09f8acbb33036a37760a9ad1c93f3079e99fa",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/lra_reference/environment/build.py": "8a5005b8a11d8531f9aac225611ade9a2aa8b96a1fd4001b3abcec99bbec4e1f",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/lra_reference/environment/provision.py": "68da44beb09a4ac8a0a4a96c77bf93ac35202b2476a66110045ef43a4f097a89",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/lra_reference/evidence.py": "e1fc8e7c9ac57985f60ea1d621fb8f37d9d810c10d0c6af7453cf13ae514e1df",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/lra_reference/paths.py": "0ffae2f52323d516e39fa555a62f7f3ca45d3591a59b77ab2a558a7684e987f8",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/lra_reference/profiles.py": "b76d35091d5f410e919d1b281694f72c05f347535784f75d860a1d9aa69de7c4",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/lra_reference/release_gate.py": "90a7124c27dca9953178949adcc8904d6147a80ec794f8f3449f75b1a6b3e4d3",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/lra_reference/remote.py": "2140ab9bbc0b22c1231f4b38f9495ab641c8f93232eecdb687df1d3dda4cf351",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/lra_reference/source_identity.py": "254f8d45936d61f716a7c70d8592c73095731c5371d796c529fbb5c7d414cce6",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/lra_reference/sources.py": "d40805e556a95b82bf168e26bece330134f77d9035d2e6d978f28c1fb91e907a",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/live_reference_comparison.py": "7a1a3a39efb742aabf9aebe7fba5be21282ab7198b464d1483a8914004b17712",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/reference_replay.py": "6a9f5ed721db3fe0c0ceaeaefa9f1889b3c6ad2058ccd8f87975f1c1e9e32a2f"
+  },
+  "analysis_dependency_versions": {
+    "numpy": "2.4.6",
+    "pandas": "2.3.3"
+  },
   "r_version": "4.6.0",
   "rscript_sha256": "d918ce5022d859e20c38094bb0b6199186cefd8bb96ffeb58618471c9a65a22d",
   "source_lock_sha256": "924871eccfb5035bfc86c18fd863f00f6ec51b2e28042021c5fd663cd224b12f",

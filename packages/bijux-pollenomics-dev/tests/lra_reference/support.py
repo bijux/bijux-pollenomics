@@ -34,7 +34,9 @@ SHA = "1" * 40
 REPOSITORY = "example/pollenomics"
 
 
-def oracle_fixture() -> tuple[dict[str, Any], list[dict[str, Any]]]:
+def oracle_fixture(
+    *, extended: bool = False
+) -> tuple[dict[str, Any], list[dict[str, Any]]]:
     """Build synthetic oracle rows for validator contract tests only."""
     manifest = [
         {
@@ -48,6 +50,27 @@ def oracle_fixture() -> tuple[dict[str, Any], list[dict[str, Any]]]:
         }
         for index in range(25)
     ]
+    if extended:
+        from bijux_pollenomics_dev.ci.lra_reference.evidence import (
+            PROSPECTIVE_CASE_HASHES,
+            PROSPECTIVE_DECLARATION_SHA256,
+            PROSPECTIVE_KINDS,
+        )
+
+        for name in PROSPECTIVE_CASE_HASHES:
+            for kind, (api, mode, rtol, atol, values) in PROSPECTIVE_KINDS.items():
+                manifest.append(
+                    {
+                        "id": f"C{len(manifest):04d}",
+                        "name": f"{name}_{kind}",
+                        "api": api,
+                        "mode": mode,
+                        "rtol": rtol,
+                        "atol": atol,
+                        "values": values or 1,
+                        "exact_indices": [0] if kind == "wrapper_replay" else [],
+                    }
+                )
     report: dict[str, Any] = {
         "schema_version": "1.0.0",
         "oracle": "disqover",
@@ -55,8 +78,8 @@ def oracle_fixture() -> tuple[dict[str, Any], list[dict[str, Any]]]:
         "source_version": "0.9.14",
         "source_archive_sha256": json.loads(LOCK.read_text())["reference"]["sha256"],
         "live_R_executed": True,
-        "prepared_cases": 25,
-        "passed_cases": 25,
+        "prepared_cases": len(manifest),
+        "passed_cases": len(manifest),
         "failed_cases": 0,
         "R_exit_code": 0,
         "source_compatible_api": list(APIS),
@@ -72,6 +95,15 @@ def oracle_fixture() -> tuple[dict[str, Any], list[dict[str, Any]]]:
             for row in manifest
         ],
     }
+    if extended:
+        report["prospective_optimized_love"] = {
+            "declaration_id": "disqover-0.9.14-optimized-love-prospective-20260924",
+            "declaration_sha256": PROSPECTIVE_DECLARATION_SHA256,
+            "case_input_sha256": dict(PROSPECTIVE_CASE_HASHES),
+            "rtol": 1e-10,
+            "atol": 1e-10,
+            "stochastic_optimizer_trajectory": "excluded",
+        }
     return report, manifest
 
 
@@ -85,12 +117,12 @@ def bundle_fixture(root: Path) -> dict[str, Any]:
     lock = json.loads(lock_bytes)
     lock_sha = hashlib.sha256(lock_bytes).hexdigest()
     (root / "source-lock.json").write_bytes(lock_bytes)
-    report, manifest = oracle_fixture()
+    report, manifest = oracle_fixture(extended=True)
     (root / "oracle/report.json").write_text(json.dumps(report))
     (root / "oracle/case_manifest.json").write_text(json.dumps(manifest))
     (root / "oracle/R_case_status.csv").write_text(
         "id,status,message\n"
-        + "".join(f"C{index:04d},completed,\n" for index in range(25))
+        + "".join(f"C{index:04d},completed,\n" for index in range(len(manifest)))
     )
     (root / "oracle/R_session_info.txt").write_text(
         "Synthetic validator fixture. Not an executed runtime."
@@ -98,8 +130,10 @@ def bundle_fixture(root: Path) -> dict[str, Any]:
     (root / "oracle/oracle.R").write_text(
         "# Synthetic contract fixture. This code was not run.\n"
     )
-    for index in range(25):
-        (root / f"oracle/C{index:04d}.csv").write_text("kind,value\nnumeric,0\n")
+    for row in manifest:
+        (root / f"oracle/{row['id']}.csv").write_text(
+            "kind,value\n" + "numeric,0\n" * row["values"]
+        )
     runtime = {
         "version": "4.6.0",
         "Rscript_sha256": "2" * 64,
@@ -143,6 +177,7 @@ def bundle_fixture(root: Path) -> dict[str, Any]:
     certificate = {
         "required_profiles": {
             "core_source_compatibility": 25,
+            "prospective_optimized_love": 18,
             "source_domains_corrected_forward": 23,
         },
         "schema_version": "lra-live-r-certification.v2",
