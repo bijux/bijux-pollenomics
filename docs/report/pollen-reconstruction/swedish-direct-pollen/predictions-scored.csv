@@ -1,0 +1,2497 @@
+candidate_id,target_dataset_id,target_site_id,bin_id,taxon,observed_count,predicted_fraction,target_outcome_opened_after_saved_prediction
+training_mean,19913,13338,-1,Alnus,25,0.09945893961547182,True
+training_mean,19913,13338,-1,Amaranthaceae,2,0.02494976426343073,True
+training_mean,19913,13338,-1,Betula,268,0.48328576901725606,True
+training_mean,19913,13338,-1,Cichorioideae,0,0.027152317880794703,True
+training_mean,19913,13338,-1,Cyperaceae,7,0.02208495899043762,True
+training_mean,19913,13338,-1,Filipendula,0,0.0013245033112582781,True
+training_mean,19913,13338,-1,Frangula alnus,0,0.0059031877213695395,True
+training_mean,19913,13338,-1,Nuphar,0,0.005960264900662252,True
+training_mean,19913,13338,-1,Plantago lanceolata,1,0.015390509550654042,True
+training_mean,19913,13338,-1,Plantago media,0,0.0,True
+training_mean,19913,13338,-1,Populus,0,0.0011806375442739079,True
+training_mean,19913,13338,-1,Quercus,1,0.08781128564391659,True
+training_mean,19913,13338,-1,Rosaceae undiff.,0,0.0026490066225165563,True
+training_mean,19913,13338,-1,Salix,3,0.17860700407359045,True
+training_mean,19913,13338,-1,Thalictrum,0,0.0,True
+training_mean,19913,13338,-1,Ulmus,0,0.044241850864367424,True
+nearest_site,19913,13338,-1,Alnus,25,0.13931523022432113,True
+nearest_site,19913,13338,-1,Amaranthaceae,2,0.0035419126328217238,True
+nearest_site,19913,13338,-1,Betula,268,0.6765053128689492,True
+nearest_site,19913,13338,-1,Cichorioideae,0,0.0,True
+nearest_site,19913,13338,-1,Cyperaceae,7,0.0070838252656434475,True
+nearest_site,19913,13338,-1,Filipendula,0,0.0,True
+nearest_site,19913,13338,-1,Frangula alnus,0,0.011806375442739079,True
+nearest_site,19913,13338,-1,Nuphar,0,0.0,True
+nearest_site,19913,13338,-1,Plantago lanceolata,1,0.008264462809917356,True
+nearest_site,19913,13338,-1,Plantago media,0,0.0,True
+nearest_site,19913,13338,-1,Populus,0,0.0023612750885478157,True
+nearest_site,19913,13338,-1,Quercus,1,0.12396694214876033,True
+nearest_site,19913,13338,-1,Rosaceae undiff.,0,0.0,True
+nearest_site,19913,13338,-1,Salix,3,0.014167650531286895,True
+nearest_site,19913,13338,-1,Thalictrum,0,0.0,True
+nearest_site,19913,13338,-1,Ulmus,0,0.012987012987012988,True
+inverse_distance_squared,19913,13338,-1,Alnus,25,0.09993188243376064,True
+inverse_distance_squared,19913,13338,-1,Amaranthaceae,2,0.024695734359266974,True
+inverse_distance_squared,19913,13338,-1,Betula,268,0.48557855126622457,True
+inverse_distance_squared,19913,13338,-1,Cichorioideae,0,0.026830122976415783,True
+inverse_distance_squared,19913,13338,-1,Cyperaceae,7,0.02190695249879095,True
+inverse_distance_squared,19913,13338,-1,Filipendula,0,0.0013087864866544285,True
+inverse_distance_squared,19913,13338,-1,Frangula alnus,0,0.005973236142714915,True
+inverse_distance_squared,19913,13338,-1,Nuphar,0,0.005889539189944928,True
+inverse_distance_squared,19913,13338,-1,Plantago lanceolata,1,0.015305950436463083,True
+inverse_distance_squared,19913,13338,-1,Plantago media,0,0.0,True
+inverse_distance_squared,19913,13338,-1,Populus,0,0.001194647228542983,True
+inverse_distance_squared,19913,13338,-1,Quercus,1,0.08824031598826795,True
+inverse_distance_squared,19913,13338,-1,Rosaceae undiff.,0,0.002617572973308857,True
+inverse_distance_squared,19913,13338,-1,Salix,3,0.1766557333930064,True
+inverse_distance_squared,19913,13338,-1,Thalictrum,0,0.0,True
+inverse_distance_squared,19913,13338,-1,Ulmus,0,0.043870974626637624,True
+clr_rbf_ridge,19913,13338,-1,Alnus,25,0.11741697994041056,True
+clr_rbf_ridge,19913,13338,-1,Amaranthaceae,2,0.01781568058233179,True
+clr_rbf_ridge,19913,13338,-1,Betula,268,0.5673488946060546,True
+clr_rbf_ridge,19913,13338,-1,Cichorioideae,0,0.007278255102158854,True
+clr_rbf_ridge,19913,13338,-1,Cyperaceae,7,0.02175642760053063,True
+clr_rbf_ridge,19913,13338,-1,Filipendula,0,0.0017871252341519863,True
+clr_rbf_ridge,19913,13338,-1,Frangula alnus,0,0.003665056936018046,True
+clr_rbf_ridge,19913,13338,-1,Nuphar,0,0.003483055670397188,True
+clr_rbf_ridge,19913,13338,-1,Plantago lanceolata,1,0.018314663520964895,True
+clr_rbf_ridge,19913,13338,-1,Plantago media,0,0.000799418343518456,True
+clr_rbf_ridge,19913,13338,-1,Populus,0,0.0017879823857364931,True
+clr_rbf_ridge,19913,13338,-1,Quercus,1,0.10322679437310521,True
+clr_rbf_ridge,19913,13338,-1,Rosaceae undiff.,0,0.002397470169045171,True
+clr_rbf_ridge,19913,13338,-1,Salix,3,0.09101889680656203,True
+clr_rbf_ridge,19913,13338,-1,Thalictrum,0,0.000799418343518456,True
+clr_rbf_ridge,19913,13338,-1,Ulmus,0,0.04110388038549568,True
+training_mean,19913,13338,0,Alnus,284,0.1506417691878294,True
+training_mean,19913,13338,0,Amaranthaceae,0,0.022876960105553904,True
+training_mean,19913,13338,0,Betula,1495,0.35275556586607126,True
+training_mean,19913,13338,0,Cichorioideae,0,0.10525576522955798,True
+training_mean,19913,13338,0,Cyperaceae,100,0.12655050420838196,True
+training_mean,19913,13338,0,Filipendula,1,0.010848092272671254,True
+training_mean,19913,13338,0,Frangula alnus,0,0.003177582119632591,True
+training_mean,19913,13338,0,Nuphar,1,0.0009374614865991489,True
+training_mean,19913,13338,0,Plantago lanceolata,0,0.06054623782976533,True
+training_mean,19913,13338,0,Plantago media,1,0.00046125461254612545,True
+training_mean,19913,13338,0,Populus,12,0.002425891154785811,True
+training_mean,19913,13338,0,Quercus,7,0.13212951014578908,True
+training_mean,19913,13338,0,Rosaceae undiff.,0,0.0036900369003690036,True
+training_mean,19913,13338,0,Salix,29,0.014525442405701071,True
+training_mean,19913,13338,0,Thalictrum,0,0.0002455795677799607,True
+training_mean,19913,13338,0,Ulmus,4,0.012932346906966121,True
+nearest_site,19913,13338,0,Alnus,284,0.1832023575638507,True
+nearest_site,19913,13338,0,Amaranthaceae,0,0.0014734774066797642,True
+nearest_site,19913,13338,0,Betula,1495,0.5496070726915521,True
+nearest_site,19913,13338,0,Cichorioideae,0,0.0029469548133595285,True
+nearest_site,19913,13338,0,Cyperaceae,100,0.0206286836935167,True
+nearest_site,19913,13338,0,Filipendula,1,0.007858546168958742,True
+nearest_site,19913,13338,0,Frangula alnus,0,0.005893909626719057,True
+nearest_site,19913,13338,0,Nuphar,1,0.0004911591355599214,True
+nearest_site,19913,13338,0,Plantago lanceolata,0,0.019155206286836934,True
+nearest_site,19913,13338,0,Plantago media,1,0.0,True
+nearest_site,19913,13338,0,Populus,12,0.003929273084479371,True
+nearest_site,19913,13338,0,Quercus,7,0.16601178781925344,True
+nearest_site,19913,13338,0,Rosaceae undiff.,0,0.0,True
+nearest_site,19913,13338,0,Salix,29,0.022593320235756387,True
+nearest_site,19913,13338,0,Thalictrum,0,0.0004911591355599214,True
+nearest_site,19913,13338,0,Ulmus,4,0.015717092337917484,True
+inverse_distance_squared,19913,13338,0,Alnus,284,0.15102813972548998,True
+inverse_distance_squared,19913,13338,0,Amaranthaceae,0,0.022622982044019153,True
+inverse_distance_squared,19913,13338,0,Betula,1495,0.3550914457234348,True
+inverse_distance_squared,19913,13338,0,Cichorioideae,0,0.10404174815985937,True
+inverse_distance_squared,19913,13338,0,Cyperaceae,100,0.12529361442894377,True
+inverse_distance_squared,19913,13338,0,Filipendula,1,0.01081261771299459,True
+inverse_distance_squared,19913,13338,0,Frangula alnus,0,0.0032098146120941866,True
+inverse_distance_squared,19913,13338,0,Nuphar,1,0.000932165572491614,True
+inverse_distance_squared,19913,13338,0,Plantago lanceolata,0,0.06005508346465121,True
+inverse_distance_squared,19913,13338,0,Plantago media,1,0.00045578127187458187,True
+inverse_distance_squared,19913,13338,0,Populus,12,0.0024437305893125123,True
+inverse_distance_squared,19913,13338,0,Quercus,7,0.13253156411639552,True
+inverse_distance_squared,19913,13338,0,Rosaceae undiff.,0,0.003646250174996655,True
+inverse_distance_squared,19913,13338,0,Salix,29,0.014621177478390174,True
+inverse_distance_squared,19913,13338,0,Thalictrum,0,0.0002484936646797413,True
+inverse_distance_squared,19913,13338,0,Ulmus,4,0.012965391260372121,True
+clr_rbf_ridge,19913,13338,0,Alnus,284,0.19370859114925962,True
+clr_rbf_ridge,19913,13338,0,Amaranthaceae,0,0.011495256819262313,True
+clr_rbf_ridge,19913,13338,0,Betula,1495,0.38530474024259104,True
+clr_rbf_ridge,19913,13338,0,Cichorioideae,0,0.03384273397928543,True
+clr_rbf_ridge,19913,13338,0,Cyperaceae,100,0.0916010749952152,True
+clr_rbf_ridge,19913,13338,0,Filipendula,1,0.01403743399505691,True
+clr_rbf_ridge,19913,13338,0,Frangula alnus,0,0.0027106496665650773,True
+clr_rbf_ridge,19913,13338,0,Nuphar,1,0.0014337070385216169,True
+clr_rbf_ridge,19913,13338,0,Plantago lanceolata,0,0.0585206918112626,True
+clr_rbf_ridge,19913,13338,0,Plantago media,1,0.0006994979798537697,True
+clr_rbf_ridge,19913,13338,0,Populus,12,0.0028853215759709057,True
+clr_rbf_ridge,19913,13338,0,Quercus,7,0.16824558494064257,True
+clr_rbf_ridge,19913,13338,0,Rosaceae undiff.,0,0.0017965377452943,True
+clr_rbf_ridge,19913,13338,0,Salix,29,0.016252547755374026,True
+clr_rbf_ridge,19913,13338,0,Thalictrum,0,0.0005420474307762677,True
+clr_rbf_ridge,19913,13338,0,Ulmus,4,0.0169235828750684,True
+training_mean,19913,13338,1,Alnus,130,0.18133899609654186,True
+training_mean,19913,13338,1,Amaranthaceae,2,0.007219826739866324,True
+training_mean,19913,13338,1,Betula,830,0.40729581458181163,True
+training_mean,19913,13338,1,Cichorioideae,0,0.02078571821273454,True
+training_mean,19913,13338,1,Cyperaceae,41,0.1363471250284709,True
+training_mean,19913,13338,1,Filipendula,2,0.016205830839675472,True
+training_mean,19913,13338,1,Frangula alnus,0,0.004559270516717325,True
+training_mean,19913,13338,1,Nuphar,0,0.0017985752770512792,True
+training_mean,19913,13338,1,Plantago lanceolata,2,0.06732778052669196,True
+training_mean,19913,13338,1,Plantago media,0,0.0014058732514942312,True
+training_mean,19913,13338,1,Populus,7,0.004052684903748734,True
+training_mean,19913,13338,1,Quercus,7,0.12440014765596161,True
+training_mean,19913,13338,1,Rosaceae undiff.,0,0.0009689922480620155,True
+training_mean,19913,13338,1,Salix,10,0.016496430338587685,True
+training_mean,19913,13338,1,Thalictrum,0,0.00025329280648429586,True
+training_mean,19913,13338,1,Ulmus,4,0.009543640976100155,True
+nearest_site,19913,13338,1,Alnus,130,0.19148936170212766,True
+nearest_site,19913,13338,1,Amaranthaceae,2,0.001519756838905775,True
+nearest_site,19913,13338,1,Betula,830,0.5516717325227963,True
+nearest_site,19913,13338,1,Cichorioideae,0,0.001519756838905775,True
+nearest_site,19913,13338,1,Cyperaceae,41,0.027862208713272545,True
+nearest_site,19913,13338,1,Filipendula,2,0.013677811550151976,True
+nearest_site,19913,13338,1,Frangula alnus,0,0.00911854103343465,True
+nearest_site,19913,13338,1,Nuphar,0,0.0010131712259371835,True
+nearest_site,19913,13338,1,Plantago lanceolata,2,0.01773049645390071,True
+nearest_site,19913,13338,1,Plantago media,0,0.001519756838905775,True
+nearest_site,19913,13338,1,Populus,7,0.008105369807497468,True
+nearest_site,19913,13338,1,Quercus,7,0.14285714285714285,True
+nearest_site,19913,13338,1,Rosaceae undiff.,0,0.0,True
+nearest_site,19913,13338,1,Salix,10,0.02330293819655522,True
+nearest_site,19913,13338,1,Thalictrum,0,0.0005065856129685917,True
+nearest_site,19913,13338,1,Ulmus,4,0.008105369807497468,True
+inverse_distance_squared,19913,13338,1,Alnus,130,0.18145944239103728,True
+inverse_distance_squared,19913,13338,1,Amaranthaceae,2,0.007152188555724698,True
+inverse_distance_squared,19913,13338,1,Betula,830,0.4090090084711819,True
+inverse_distance_squared,19913,13338,1,Cichorioideae,0,0.020557104412253096,True
+inverse_distance_squared,19913,13338,1,Cyperaceae,41,0.1350598210350445,True
+inverse_distance_squared,19913,13338,1,Filipendula,2,0.016175832850670185,True
+inverse_distance_squared,19913,13338,1,Frangula alnus,0,0.004613371744267051,True
+inverse_distance_squared,19913,13338,1,Nuphar,0,0.0017892555134768216,True
+inverse_distance_squared,19913,13338,1,Plantago lanceolata,2,0.06673924910666944,True
+inverse_distance_squared,19913,13338,1,Plantago media,0,0.0014072246172125275,True
+inverse_distance_squared,19913,13338,1,Populus,7,0.004100774883792935,True
+inverse_distance_squared,19913,13338,1,Quercus,7,0.12461916209996136,True
+inverse_distance_squared,19913,13338,1,Rosaceae undiff.,0,0.0009574939897520285,True
+inverse_distance_squared,19913,13338,1,Salix,10,0.01657719773966483,True
+inverse_distance_squared,19913,13338,1,Thalictrum,0,0.00025629843023705845,True
+inverse_distance_squared,19913,13338,1,Ulmus,4,0.00952657415905443,True
+clr_rbf_ridge,19913,13338,1,Alnus,130,0.20661557764253755,True
+clr_rbf_ridge,19913,13338,1,Amaranthaceae,2,0.005519141231307644,True
+clr_rbf_ridge,19913,13338,1,Betula,830,0.43432613574140294,True
+clr_rbf_ridge,19913,13338,1,Cichorioideae,0,0.009635238433007428,True
+clr_rbf_ridge,19913,13338,1,Cyperaceae,41,0.09455901092737892,True
+clr_rbf_ridge,19913,13338,1,Filipendula,2,0.018562981367267882,True
+clr_rbf_ridge,19913,13338,1,Frangula alnus,0,0.0019832588216746497,True
+clr_rbf_ridge,19913,13338,1,Nuphar,0,0.002185813729223163,True
+clr_rbf_ridge,19913,13338,1,Plantago lanceolata,2,0.05230242685297628,True
+clr_rbf_ridge,19913,13338,1,Plantago media,0,0.0019279719486209733,True
+clr_rbf_ridge,19913,13338,1,Populus,7,0.0018729582675841808,True
+clr_rbf_ridge,19913,13338,1,Quercus,7,0.14050833213159689,True
+clr_rbf_ridge,19913,13338,1,Rosaceae undiff.,0,0.0008619221612524492,True
+clr_rbf_ridge,19913,13338,1,Salix,10,0.017500010825115944,True
+clr_rbf_ridge,19913,13338,1,Thalictrum,0,0.0005645164782295461,True
+clr_rbf_ridge,19913,13338,1,Ulmus,4,0.011074703440823657,True
+training_mean,19913,13338,2,Alnus,83,0.2157136853528035,True
+training_mean,19913,13338,2,Amaranthaceae,0,0.003566421503576796,True
+training_mean,19913,13338,2,Betula,670,0.30180625189106125,True
+training_mean,19913,13338,2,Cichorioideae,0,0.005175817209439311,True
+training_mean,19913,13338,2,Cyperaceae,28,0.10812890774160601,True
+training_mean,19913,13338,2,Filipendula,0,0.022894267494619862,True
+training_mean,19913,13338,2,Frangula alnus,0,0.001158173395102581,True
+training_mean,19913,13338,2,Nuphar,0,0.0002339728591483388,True
+training_mean,19913,13338,2,Plantago lanceolata,0,0.06632131797794183,True
+training_mean,19913,13338,2,Plantago media,0,0.0002339728591483388,True
+training_mean,19913,13338,2,Populus,0,0.0021909986568626207,True
+training_mean,19913,13338,2,Quercus,11,0.21807710543829728,True
+training_mean,19913,13338,2,Rosaceae undiff.,1,0.0025737014506317267,True
+training_mean,19913,13338,2,Salix,4,0.01877465734821882,True
+training_mean,19913,13338,2,Thalictrum,0,0.0008673719196025279,True
+training_mean,19913,13338,2,Ulmus,3,0.032283376901939206,True
+nearest_site,19913,13338,2,Alnus,83,0.22038385175380543,True
+nearest_site,19913,13338,2,Amaranthaceae,0,0.001985440105890139,True
+nearest_site,19913,13338,2,Betula,670,0.3944407677035076,True
+nearest_site,19913,13338,2,Cichorioideae,0,0.0009927200529450694,True
+nearest_site,19913,13338,2,Cyperaceae,28,0.0066181336863004635,True
+nearest_site,19913,13338,2,Filipendula,0,0.006949040370615486,True
+nearest_site,19913,13338,2,Frangula alnus,0,0.002316346790205162,True
+nearest_site,19913,13338,2,Nuphar,0,0.0,True
+nearest_site,19913,13338,2,Plantago lanceolata,0,0.011912640635340834,True
+nearest_site,19913,13338,2,Plantago media,0,0.0,True
+nearest_site,19913,13338,2,Populus,0,0.0029781601588352085,True
+nearest_site,19913,13338,2,Quercus,11,0.3084050297816016,True
+nearest_site,19913,13338,2,Rosaceae undiff.,1,0.0,True
+nearest_site,19913,13338,2,Salix,4,0.001985440105890139,True
+nearest_site,19913,13338,2,Thalictrum,0,0.00033090668431502316,True
+nearest_site,19913,13338,2,Ulmus,3,0.04070152217074785,True
+inverse_distance_squared,19913,13338,2,Alnus,83,0.215769102493381,True
+inverse_distance_squared,19913,13338,2,Amaranthaceae,0,0.003547661258043106,True
+inverse_distance_squared,19913,13338,2,Betula,670,0.3029054718212128,True
+inverse_distance_squared,19913,13338,2,Cichorioideae,0,0.005126179731185652,True
+inverse_distance_squared,19913,13338,2,Cyperaceae,28,0.10692436033302867,True
+inverse_distance_squared,19913,13338,2,Filipendula,0,0.022705058199447587,True
+inverse_distance_squared,19913,13338,2,Frangula alnus,0,0.0011719165152268938,True
+inverse_distance_squared,19913,13338,2,Nuphar,0,0.00023119648980442057,True
+inverse_distance_squared,19913,13338,2,Plantago lanceolata,0,0.06567569359070739,True
+inverse_distance_squared,19913,13338,2,Plantago media,0,0.00023119648980442057,True
+inverse_distance_squared,19913,13338,2,Populus,0,0.0022003392747049822,True
+inverse_distance_squared,19913,13338,2,Quercus,11,0.21914895488681613,True
+inverse_distance_squared,19913,13338,2,Rosaceae undiff.,1,0.002543161387848626,True
+inverse_distance_squared,19913,13338,2,Salix,4,0.018575433095330444,True
+inverse_distance_squared,19913,13338,2,Thalictrum,0,0.0008610061144456751,True
+inverse_distance_squared,19913,13338,2,Ulmus,3,0.0323832683190123,True
+clr_rbf_ridge,19913,13338,2,Alnus,83,0.25481564222778147,True
+clr_rbf_ridge,19913,13338,2,Amaranthaceae,0,0.004015509147880493,True
+clr_rbf_ridge,19913,13338,2,Betula,670,0.33936031757399726,True
+clr_rbf_ridge,19913,13338,2,Cichorioideae,0,0.003933403726849786,True
+clr_rbf_ridge,19913,13338,2,Cyperaceae,28,0.04451746935543345,True
+clr_rbf_ridge,19913,13338,2,Filipendula,0,0.01967644434701529,True
+clr_rbf_ridge,19913,13338,2,Frangula alnus,0,0.0008998347639360233,True
+clr_rbf_ridge,19913,13338,2,Nuphar,0,0.00040219020441072735,True
+clr_rbf_ridge,19913,13338,2,Plantago lanceolata,0,0.045104719981209615,True
+clr_rbf_ridge,19913,13338,2,Plantago media,0,0.00040219020441072735,True
+clr_rbf_ridge,19913,13338,2,Populus,0,0.002678751079183704,True
+clr_rbf_ridge,19913,13338,2,Quercus,11,0.2346142425677852,True
+clr_rbf_ridge,19913,13338,2,Rosaceae undiff.,1,0.0011132763958160514,True
+clr_rbf_ridge,19913,13338,2,Salix,4,0.010353801186627194,True
+clr_rbf_ridge,19913,13338,2,Thalictrum,0,0.0010641350988763684,True
+clr_rbf_ridge,19913,13338,2,Ulmus,3,0.037048072138786706,True
+training_mean,19913,13338,3,Alnus,241,0.2691528479732179,True
+training_mean,19913,13338,3,Amaranthaceae,1,0.003839245592620984,True
+training_mean,19913,13338,3,Betula,1922,0.27169162577019285,True
+training_mean,19913,13338,3,Cichorioideae,1,0.006500847936687394,True
+training_mean,19913,13338,3,Cyperaceae,79,0.11506013463732372,True
+training_mean,19913,13338,3,Filipendula,2,0.020444602494847985,True
+training_mean,19913,13338,3,Frangula alnus,0,0.0012717652459463705,True
+training_mean,19913,13338,3,Nuphar,0,0.0008949976860899056,True
+training_mean,19913,13338,3,Plantago lanceolata,0,0.0537257680122012,True
+training_mean,19913,13338,3,Plantago media,0,0.0,True
+training_mean,19913,13338,3,Populus,13,0.0011539729640619848,True
+training_mean,19913,13338,3,Quercus,27,0.2085956867523009,True
+training_mean,19913,13338,3,Rosaceae undiff.,1,0.0022611644997173543,True
+training_mean,19913,13338,3,Salix,29,0.004946157557987071,True
+training_mean,19913,13338,3,Thalictrum,2,0.0003297065611605671,True
+training_mean,19913,13338,3,Ulmus,8,0.0401314763156438,True
+nearest_site,19913,13338,3,Alnus,241,0.28222881635344543,True
+nearest_site,19913,13338,3,Amaranthaceae,1,0.0003297065611605671,True
+nearest_site,19913,13338,3,Betula,1922,0.35344543356412794,True
+nearest_site,19913,13338,3,Cichorioideae,1,0.0,True
+nearest_site,19913,13338,3,Cyperaceae,79,0.0023079459281239697,True
+nearest_site,19913,13338,3,Filipendula,2,0.0013188262446422684,True
+nearest_site,19913,13338,3,Frangula alnus,0,0.0019782393669634025,True
+nearest_site,19913,13338,3,Nuphar,0,0.0006594131223211342,True
+nearest_site,19913,13338,3,Plantago lanceolata,0,0.006264424662050775,True
+nearest_site,19913,13338,3,Plantago media,0,0.0,True
+nearest_site,19913,13338,3,Populus,13,0.0023079459281239697,True
+nearest_site,19913,13338,3,Quercus,27,0.2871744147708539,True
+nearest_site,19913,13338,3,Rosaceae undiff.,1,0.0,True
+nearest_site,19913,13338,3,Salix,29,0.0019782393669634025,True
+nearest_site,19913,13338,3,Thalictrum,2,0.0006594131223211342,True
+nearest_site,19913,13338,3,Ulmus,8,0.05934718100890208,True
+inverse_distance_squared,19913,13338,3,Alnus,241,0.26930801006289384,True
+inverse_distance_squared,19913,13338,3,Amaranthaceae,1,0.0037976006915256245,True
+inverse_distance_squared,19913,13338,3,Betula,1922,0.2726617330148275,True
+inverse_distance_squared,19913,13338,3,Cichorioideae,1,0.006423707558155497,True
+inverse_distance_squared,19913,13338,3,Cyperaceae,79,0.11372219432522351,True
+inverse_distance_squared,19913,13338,3,Filipendula,2,0.02021765215944158,True
+inverse_distance_squared,19913,13338,3,Frangula alnus,0,0.0012801484109809943,True
+inverse_distance_squared,19913,13338,3,Nuphar,0,0.000892202191932469,True
+inverse_distance_squared,19913,13338,3,Plantago lanceolata,0,0.05316258209748366,True
+inverse_distance_squared,19913,13338,3,Plantago media,0,0.0,True
+inverse_distance_squared,19913,13338,3,Populus,13,0.0011676662410206636,True
+inverse_distance_squared,19913,13338,3,Quercus,27,0.20952811785712616,True
+inverse_distance_squared,19913,13338,3,Rosaceae undiff.,1,0.0022343330637062597,True
+inverse_distance_squared,19913,13338,3,Salix,29,0.004910939639503667,True
+inverse_distance_squared,19913,13338,3,Thalictrum,2,0.00033361892600590394,True
+inverse_distance_squared,19913,13338,3,Ulmus,8,0.0403594937601728,True
+clr_rbf_ridge,19913,13338,3,Alnus,241,0.32539196362681483,True
+clr_rbf_ridge,19913,13338,3,Amaranthaceae,1,0.002348462974157293,True
+clr_rbf_ridge,19913,13338,3,Betula,1922,0.3136747301075075,True
+clr_rbf_ridge,19913,13338,3,Cichorioideae,1,0.0017884763401682887,True
+clr_rbf_ridge,19913,13338,3,Cyperaceae,79,0.028701720109579457,True
+clr_rbf_ridge,19913,13338,3,Filipendula,2,0.009294716703473076,True
+clr_rbf_ridge,19913,13338,3,Frangula alnus,0,0.0016304614312948262,True
+clr_rbf_ridge,19913,13338,3,Nuphar,0,0.001305128773415182,True
+clr_rbf_ridge,19913,13338,3,Plantago lanceolata,0,0.030875875271316182,True
+clr_rbf_ridge,19913,13338,3,Plantago media,0,0.00026102575468303657,True
+clr_rbf_ridge,19913,13338,3,Populus,13,0.001011356313866371,True
+clr_rbf_ridge,19913,13338,3,Quercus,27,0.23402839812425025,True
+clr_rbf_ridge,19913,13338,3,Rosaceae undiff.,1,0.0010757826175737594,True
+clr_rbf_ridge,19913,13338,3,Salix,29,0.005067597654148769,True
+clr_rbf_ridge,19913,13338,3,Thalictrum,2,0.0005838112865195589,True
+clr_rbf_ridge,19913,13338,3,Ulmus,8,0.04296049291123167,True
+training_mean,19913,13338,4,Alnus,314,0.2776426332710683,True
+training_mean,19913,13338,4,Amaranthaceae,2,0.008603909224800633,True
+training_mean,19913,13338,4,Betula,3546,0.23520345391191894,True
+training_mean,19913,13338,4,Cichorioideae,0,0.010579064587973273,True
+training_mean,19913,13338,4,Cyperaceae,75,0.1314440917091745,True
+training_mean,19913,13338,4,Filipendula,3,0.020495815072921905,True
+training_mean,19913,13338,4,Frangula alnus,0,0.0005040322580645161,True
+training_mean,19913,13338,4,Nuphar,2,0.0022271714922048997,True
+training_mean,19913,13338,4,Plantago lanceolata,2,0.052221221890940445,True
+training_mean,19913,13338,4,Plantago media,0,0.0,True
+training_mean,19913,13338,4,Populus,47,0.0010080645161290322,True
+training_mean,19913,13338,4,Quercus,24,0.21557482128744881,True
+training_mean,19913,13338,4,Rosaceae undiff.,1,0.0016703786191536749,True
+training_mean,19913,13338,4,Salix,30,0.001365601875134708,True
+training_mean,19913,13338,4,Thalictrum,3,0.0,True
+training_mean,19913,13338,4,Ulmus,20,0.04145974028306631,True
+nearest_site,19913,13338,4,Alnus,314,0.3069556451612903,True
+nearest_site,19913,13338,4,Amaranthaceae,2,0.0005040322580645161,True
+nearest_site,19913,13338,4,Betula,3546,0.2933467741935484,True
+nearest_site,19913,13338,4,Cichorioideae,0,0.0,True
+nearest_site,19913,13338,4,Cyperaceae,75,0.0045362903225806455,True
+nearest_site,19913,13338,4,Filipendula,3,0.0020161290322580645,True
+nearest_site,19913,13338,4,Frangula alnus,0,0.0010080645161290322,True
+nearest_site,19913,13338,4,Nuphar,2,0.0,True
+nearest_site,19913,13338,4,Plantago lanceolata,2,0.007560483870967742,True
+nearest_site,19913,13338,4,Plantago media,0,0.0,True
+nearest_site,19913,13338,4,Populus,47,0.0020161290322580645,True
+nearest_site,19913,13338,4,Quercus,24,0.3119959677419355,True
+nearest_site,19913,13338,4,Rosaceae undiff.,1,0.0,True
+nearest_site,19913,13338,4,Salix,30,0.0005040322580645161,True
+nearest_site,19913,13338,4,Thalictrum,3,0.0,True
+nearest_site,19913,13338,4,Ulmus,20,0.06955645161290322,True
+inverse_distance_squared,19913,13338,4,Alnus,314,0.2779904674082677,True
+inverse_distance_squared,19913,13338,4,Amaranthaceae,2,0.008507794443873423,True
+inverse_distance_squared,19913,13338,4,Betula,3546,0.2358933943288166,True
+inverse_distance_squared,19913,13338,4,Cichorioideae,0,0.010453531264508783,True
+inverse_distance_squared,19913,13338,4,Cyperaceae,75,0.12993817802945828,True
+inverse_distance_squared,19913,13338,4,Filipendula,3,0.020276531374824235,True
+inverse_distance_squared,19913,13338,4,Frangula alnus,0,0.0005100132069435013,True
+inverse_distance_squared,19913,13338,4,Nuphar,2,0.0022007434241071125,True
+inverse_distance_squared,19913,13338,4,Plantago lanceolata,2,0.05169126852640595,True
+inverse_distance_squared,19913,13338,4,Plantago media,0,0.0,True
+inverse_distance_squared,19913,13338,4,Populus,47,0.0010200264138870026,True
+inverse_distance_squared,19913,13338,4,Quercus,24,0.21671897414387895,True
+inverse_distance_squared,19913,13338,4,Rosaceae undiff.,1,0.0016505575680803345,True
+inverse_distance_squared,19913,13338,4,Salix,30,0.0013553783155253068,True
+inverse_distance_squared,19913,13338,4,Thalictrum,3,0.0,True
+inverse_distance_squared,19913,13338,4,Ulmus,20,0.04179314155142293,True
+clr_rbf_ridge,19913,13338,4,Alnus,314,0.3397488784086902,True
+clr_rbf_ridge,19913,13338,4,Amaranthaceae,2,0.00443637139931067,True
+clr_rbf_ridge,19913,13338,4,Betula,3546,0.2805947988083166,True
+clr_rbf_ridge,19913,13338,4,Cichorioideae,0,0.002872319835944732,True
+clr_rbf_ridge,19913,13338,4,Cyperaceae,75,0.043234846048801456,True
+clr_rbf_ridge,19913,13338,4,Filipendula,3,0.011629319821799326,True
+clr_rbf_ridge,19913,13338,4,Frangula alnus,0,0.0010292636587747555,True
+clr_rbf_ridge,19913,13338,4,Nuphar,2,0.0013801192549099464,True
+clr_rbf_ridge,19913,13338,4,Plantago lanceolata,2,0.03388639801258285,True
+clr_rbf_ridge,19913,13338,4,Plantago media,0,0.0004601903551765315,True
+clr_rbf_ridge,19913,13338,4,Populus,47,0.0013810230240588034,True
+clr_rbf_ridge,19913,13338,4,Quercus,24,0.2375777176075968,True
+clr_rbf_ridge,19913,13338,4,Rosaceae undiff.,1,0.0012171963444813035,True
+clr_rbf_ridge,19913,13338,4,Salix,30,0.0017821739586095487,True
+clr_rbf_ridge,19913,13338,4,Thalictrum,3,0.0004601903551765315,True
+clr_rbf_ridge,19913,13338,4,Ulmus,20,0.038309193105769954,True
+training_mean,19913,13338,5,Alnus,318,0.3110077229696064,True
+training_mean,19913,13338,5,Amaranthaceae,0,0.006388888888888889,True
+training_mean,19913,13338,5,Betula,3535,0.2777354260089686,True
+training_mean,19913,13338,5,Cichorioideae,1,0.0075,True
+training_mean,19913,13338,5,Cyperaceae,53,0.10336322869955157,True
+training_mean,19913,13338,5,Filipendula,2,0.016393871449925265,True
+training_mean,19913,13338,5,Frangula alnus,0,0.0011210762331838565,True
+training_mean,19913,13338,5,Nuphar,0,0.0011160936721474838,True
+training_mean,19913,13338,5,Plantago lanceolata,0,0.060863228699551575,True
+training_mean,19913,13338,5,Plantago media,0,0.0,True
+training_mean,19913,13338,5,Populus,71,0.0005605381165919282,True
+training_mean,19913,13338,5,Quercus,23,0.17282262082710512,True
+training_mean,19913,13338,5,Rosaceae undiff.,0,0.001388888888888889,True
+training_mean,19913,13338,5,Salix,42,0.0027827603388141504,True
+training_mean,19913,13338,5,Thalictrum,0,0.0,True
+training_mean,19913,13338,5,Ulmus,36,0.03695565520677628,True
+nearest_site,19913,13338,5,Alnus,318,0.289237668161435,True
+nearest_site,19913,13338,5,Amaranthaceae,0,0.0,True
+nearest_site,19913,13338,5,Betula,3535,0.3654708520179372,True
+nearest_site,19913,13338,5,Cichorioideae,1,0.0,True
+nearest_site,19913,13338,5,Cyperaceae,53,0.006726457399103139,True
+nearest_site,19913,13338,5,Filipendula,2,0.0011210762331838565,True
+nearest_site,19913,13338,5,Frangula alnus,0,0.002242152466367713,True
+nearest_site,19913,13338,5,Nuphar,0,0.0011210762331838565,True
+nearest_site,19913,13338,5,Plantago lanceolata,0,0.006726457399103139,True
+nearest_site,19913,13338,5,Plantago media,0,0.0,True
+nearest_site,19913,13338,5,Populus,71,0.0011210762331838565,True
+nearest_site,19913,13338,5,Quercus,23,0.2600896860986547,True
+nearest_site,19913,13338,5,Rosaceae undiff.,0,0.0,True
+nearest_site,19913,13338,5,Salix,42,0.0011210762331838565,True
+nearest_site,19913,13338,5,Thalictrum,0,0.0,True
+nearest_site,19913,13338,5,Ulmus,36,0.06502242152466367,True
+inverse_distance_squared,19913,13338,5,Alnus,318,0.31074939508916405,True
+inverse_distance_squared,19913,13338,5,Amaranthaceae,0,0.006313077039098376,True
+inverse_distance_squared,19913,13338,5,Betula,3535,0.27877651234707446,True
+inverse_distance_squared,19913,13338,5,Cichorioideae,1,0.007411003480680701,True
+inverse_distance_squared,19913,13338,5,Cyperaceae,53,0.1022165171950189,True
+inverse_distance_squared,19913,13338,5,Filipendula,2,0.016212641367983074,True
+inverse_distance_squared,19913,13338,5,Frangula alnus,0,0.0011343791508698505,True
+inverse_distance_squared,19913,13338,5,Nuphar,0,0.0011161527962260881,True
+inverse_distance_squared,19913,13338,5,Plantago lanceolata,0,0.06022083080449493,True
+inverse_distance_squared,19913,13338,5,Plantago media,0,0.0,True
+inverse_distance_squared,19913,13338,5,Populus,71,0.0005671895754349252,True
+inverse_distance_squared,19913,13338,5,Quercus,23,0.17385814950182218,True
+inverse_distance_squared,19913,13338,5,Rosaceae undiff.,0,0.0013724080519779077,True
+inverse_distance_squared,19913,13338,5,Salix,42,0.002763042458599577,True
+inverse_distance_squared,19913,13338,5,Thalictrum,0,0.0,True
+inverse_distance_squared,19913,13338,5,Ulmus,36,0.03728870114155496,True
+clr_rbf_ridge,19913,13338,5,Alnus,318,0.3712367203696947,True
+clr_rbf_ridge,19913,13338,5,Amaranthaceae,0,0.003231099453200326,True
+clr_rbf_ridge,19913,13338,5,Betula,3535,0.315390979467202,True
+clr_rbf_ridge,19913,13338,5,Cichorioideae,1,0.0034952043505379576,True
+clr_rbf_ridge,19913,13338,5,Cyperaceae,53,0.04562784897588777,True
+clr_rbf_ridge,19913,13338,5,Filipendula,2,0.008754354545061604,True
+clr_rbf_ridge,19913,13338,5,Frangula alnus,0,0.0010547259062247526,True
+clr_rbf_ridge,19913,13338,5,Nuphar,0,0.0018262619373759232,True
+clr_rbf_ridge,19913,13338,5,Plantago lanceolata,0,0.034619608079203605,True
+clr_rbf_ridge,19913,13338,5,Plantago media,0,0.0004715746886247326,True
+clr_rbf_ridge,19913,13338,5,Populus,71,0.0008169250060982044,True
+clr_rbf_ridge,19913,13338,5,Quercus,23,0.17876506201266631,True
+clr_rbf_ridge,19913,13338,5,Rosaceae undiff.,0,0.0015634777120090344,True
+clr_rbf_ridge,19913,13338,5,Salix,42,0.003366846779119375,True
+clr_rbf_ridge,19913,13338,5,Thalictrum,0,0.0004715746886247326,True
+clr_rbf_ridge,19913,13338,5,Ulmus,36,0.029307736028468905,True
+training_mean,19913,13338,6,Alnus,320,0.5223876520804518,True
+training_mean,19913,13338,6,Amaranthaceae,0,0.0024567802259439046,True
+training_mean,19913,13338,6,Betula,3233,0.2142611305417779,True
+training_mean,19913,13338,6,Cichorioideae,2,0.0008237232289950577,True
+training_mean,19913,13338,6,Cyperaceae,33,0.0038008733521864638,True
+training_mean,19913,13338,6,Filipendula,3,0.006589785831960461,True
+training_mean,19913,13338,6,Frangula alnus,0,0.0010695187165775401,True
+training_mean,19913,13338,6,Nuphar,1,0.001098297638660077,True
+training_mean,19913,13338,6,Plantago lanceolata,0,0.006546617448836656,True
+training_mean,19913,13338,6,Plantago media,0,0.0,True
+training_mean,19913,13338,6,Populus,72,0.0013440931262425594,True
+training_mean,19913,13338,6,Quercus,17,0.19513694949299176,True
+training_mean,19913,13338,6,Rosaceae undiff.,0,0.001098297638660077,True
+training_mean,19913,13338,6,Salix,30,0.004899170990846541,True
+training_mean,19913,13338,6,Thalictrum,0,0.0,True
+training_mean,19913,13338,6,Ulmus,36,0.038487109685869256,True
+nearest_site,19913,13338,6,Alnus,320,0.29518716577540105,True
+nearest_site,19913,13338,6,Amaranthaceae,0,0.0010695187165775401,True
+nearest_site,19913,13338,6,Betula,3233,0.360427807486631,True
+nearest_site,19913,13338,6,Cichorioideae,2,0.0,True
+nearest_site,19913,13338,6,Cyperaceae,33,0.0032085561497326204,True
+nearest_site,19913,13338,6,Filipendula,3,0.0,True
+nearest_site,19913,13338,6,Frangula alnus,0,0.0021390374331550803,True
+nearest_site,19913,13338,6,Nuphar,1,0.0,True
+nearest_site,19913,13338,6,Plantago lanceolata,0,0.0032085561497326204,True
+nearest_site,19913,13338,6,Plantago media,0,0.0,True
+nearest_site,19913,13338,6,Populus,72,0.0021390374331550803,True
+nearest_site,19913,13338,6,Quercus,17,0.2716577540106952,True
+nearest_site,19913,13338,6,Rosaceae undiff.,0,0.0,True
+nearest_site,19913,13338,6,Salix,30,0.0032085561497326204,True
+nearest_site,19913,13338,6,Thalictrum,0,0.0,True
+nearest_site,19913,13338,6,Ulmus,36,0.057754010695187166,True
+inverse_distance_squared,19913,13338,6,Alnus,320,0.5196916450846116,True
+inverse_distance_squared,19913,13338,6,Amaranthaceae,0,0.002440318699848006,True
+inverse_distance_squared,19913,13338,6,Betula,3233,0.21599557394025262,True
+inverse_distance_squared,19913,13338,6,Cichorioideae,2,0.0008139487622933224,True
+inverse_distance_squared,19913,13338,6,Cyperaceae,33,0.0037938447962729527,True
+inverse_distance_squared,19913,13338,6,Filipendula,3,0.006511590098346579,True
+inverse_distance_squared,19913,13338,6,Frangula alnus,0,0.0010822098423271728,True
+inverse_distance_squared,19913,13338,6,Nuphar,1,0.0010852650163910968,True
+inverse_distance_squared,19913,13338,6,Plantago lanceolata,0,0.006507007337250694,True
+inverse_distance_squared,19913,13338,6,Plantago media,0,0.0,True
+inverse_distance_squared,19913,13338,6,Populus,72,0.001353526096424947,True
+inverse_distance_squared,19913,13338,6,Quercus,17,0.19604496086067016,True
+inverse_distance_squared,19913,13338,6,Rosaceae undiff.,0,0.0010852650163910968,True
+inverse_distance_squared,19913,13338,6,Salix,30,0.004879109812664049,True
+inverse_distance_squared,19913,13338,6,Thalictrum,0,0.0,True
+inverse_distance_squared,19913,13338,6,Ulmus,36,0.038715734636255765,True
+clr_rbf_ridge,19913,13338,6,Alnus,320,0.5420120991967263,True
+clr_rbf_ridge,19913,13338,6,Amaranthaceae,0,0.002958632489118616,True
+clr_rbf_ridge,19913,13338,6,Betula,3233,0.18088600553074025,True
+clr_rbf_ridge,19913,13338,6,Cichorioideae,2,0.001166841902345749,True
+clr_rbf_ridge,19913,13338,6,Cyperaceae,33,0.004811771163608899,True
+clr_rbf_ridge,19913,13338,6,Filipendula,3,0.0030862787152026072,True
+clr_rbf_ridge,19913,13338,6,Frangula alnus,0,0.0009866838419826745,True
+clr_rbf_ridge,19913,13338,6,Nuphar,1,0.0013230248218904798,True
+clr_rbf_ridge,19913,13338,6,Plantago lanceolata,0,0.007097919212790738,True
+clr_rbf_ridge,19913,13338,6,Plantago media,0,0.0004411526471550267,True
+clr_rbf_ridge,19913,13338,6,Populus,72,0.0017087068779166525,True
+clr_rbf_ridge,19913,13338,6,Quercus,17,0.2071105352071544,True
+clr_rbf_ridge,19913,13338,6,Rosaceae undiff.,0,0.0013230248218904798,True
+clr_rbf_ridge,19913,13338,6,Salix,30,0.005834794405927352,True
+clr_rbf_ridge,19913,13338,6,Thalictrum,0,0.0004411526471550267,True
+clr_rbf_ridge,19913,13338,6,Ulmus,36,0.03881137651839466,True
+training_mean,19913,13338,7,Alnus,314,0.5780158977556109,True
+training_mean,19913,13338,7,Amaranthaceae,1,0.0,True
+training_mean,19913,13338,7,Betula,3119,0.1593204488778055,True
+training_mean,19913,13338,7,Cichorioideae,1,0.0,True
+training_mean,19913,13338,7,Cyperaceae,26,0.0024976620947630922,True
+training_mean,19913,13338,7,Filipendula,7,0.0003117206982543641,True
+training_mean,19913,13338,7,Frangula alnus,0,0.0018742206982543643,True
+training_mean,19913,13338,7,Nuphar,0,0.0003117206982543641,True
+training_mean,19913,13338,7,Plantago lanceolata,0,0.0059265897755610975,True
+training_mean,19913,13338,7,Plantago media,0,0.0,True
+training_mean,19913,13338,7,Populus,71,0.003125,True
+training_mean,19913,13338,7,Quercus,23,0.20769560473815463,True
+training_mean,19913,13338,7,Rosaceae undiff.,0,0.0009351620947630922,True
+training_mean,19913,13338,7,Salix,28,0.0015625,True
+training_mean,19913,13338,7,Thalictrum,0,0.0,True
+training_mean,19913,13338,7,Ulmus,36,0.03842347256857855,True
+nearest_site,19913,13338,7,Alnus,314,0.31875,True
+nearest_site,19913,13338,7,Amaranthaceae,1,0.0,True
+nearest_site,19913,13338,7,Betula,3119,0.275,True
+nearest_site,19913,13338,7,Cichorioideae,1,0.0,True
+nearest_site,19913,13338,7,Cyperaceae,26,0.003125,True
+nearest_site,19913,13338,7,Filipendula,7,0.0,True
+nearest_site,19913,13338,7,Frangula alnus,0,0.003125,True
+nearest_site,19913,13338,7,Nuphar,0,0.0,True
+nearest_site,19913,13338,7,Plantago lanceolata,0,0.003125,True
+nearest_site,19913,13338,7,Plantago media,0,0.0,True
+nearest_site,19913,13338,7,Populus,71,0.00625,True
+nearest_site,19913,13338,7,Quercus,23,0.321875,True
+nearest_site,19913,13338,7,Rosaceae undiff.,0,0.0,True
+nearest_site,19913,13338,7,Salix,28,0.003125,True
+nearest_site,19913,13338,7,Thalictrum,0,0.0,True
+nearest_site,19913,13338,7,Ulmus,36,0.065625,True
+inverse_distance_squared,19913,13338,7,Alnus,314,0.5749393960918187,True
+inverse_distance_squared,19913,13338,7,Amaranthaceae,1,0.0,True
+inverse_distance_squared,19913,13338,7,Betula,3119,0.1606931258653114,True
+inverse_distance_squared,19913,13338,7,Cichorioideae,1,0.0,True
+inverse_distance_squared,19913,13338,7,Cyperaceae,26,0.0025051062134301785,True
+inverse_distance_squared,19913,13338,7,Filipendula,7,0.0003080217573017748,True
+inverse_distance_squared,19913,13338,7,Frangula alnus,0,0.001889062698826629,True
+inverse_distance_squared,19913,13338,7,Nuphar,0,0.0003080217573017748,True
+inverse_distance_squared,19913,13338,7,Plantago lanceolata,0,0.005893345543749702,True
+inverse_distance_squared,19913,13338,7,Plantago media,0,0.0,True
+inverse_distance_squared,19913,13338,7,Populus,71,0.003162081883049708,True
+inverse_distance_squared,19913,13338,7,Quercus,23,0.2090504805723262,True
+inverse_distance_squared,19913,13338,7,Rosaceae undiff.,0,0.0009240652719053243,True
+inverse_distance_squared,19913,13338,7,Salix,28,0.001581040941524854,True
+inverse_distance_squared,19913,13338,7,Thalictrum,0,0.0,True
+inverse_distance_squared,19913,13338,7,Ulmus,36,0.038746251403453884,True
+clr_rbf_ridge,19913,13338,7,Alnus,314,0.6079373128840312,True
+clr_rbf_ridge,19913,13338,7,Amaranthaceae,1,0.0008194350006558037,True
+clr_rbf_ridge,19913,13338,7,Betula,3119,0.1294569619292617,True
+clr_rbf_ridge,19913,13338,7,Cichorioideae,1,0.0008194350006558037,True
+clr_rbf_ridge,19913,13338,7,Cyperaceae,26,0.00375464897346735,True
+clr_rbf_ridge,19913,13338,7,Filipendula,7,0.001419070792537407,True
+clr_rbf_ridge,19913,13338,7,Frangula alnus,0,0.0024583050019674098,True
+clr_rbf_ridge,19913,13338,7,Nuphar,0,0.001419070792537407,True
+clr_rbf_ridge,19913,13338,7,Plantago lanceolata,0,0.0076405981902061835,True
+clr_rbf_ridge,19913,13338,7,Plantago media,0,0.0008194350006558037,True
+clr_rbf_ridge,19913,13338,7,Populus,71,0.001832751724184978,True
+clr_rbf_ridge,19913,13338,7,Quercus,23,0.20453079617556102,True
+clr_rbf_ridge,19913,13338,7,Rosaceae undiff.,0,0.002167392854106355,True
+clr_rbf_ridge,19913,13338,7,Salix,28,0.001419535354749561,True
+clr_rbf_ridge,19913,13338,7,Thalictrum,0,0.0008194350006558037,True
+clr_rbf_ridge,19913,13338,7,Ulmus,36,0.03268581532476615,True
+training_mean,19913,13338,8,Alnus,504,0.5163156339876096,True
+training_mean,19913,13338,8,Amaranthaceae,0,0.0002465483234714004,True
+training_mean,19913,13338,8,Betula,3770,0.18954507877754234,True
+training_mean,19913,13338,8,Cichorioideae,0,0.0,True
+training_mean,19913,13338,8,Cyperaceae,30,0.004149118135902277,True
+training_mean,19913,13338,8,Filipendula,2,0.0,True
+training_mean,19913,13338,8,Frangula alnus,0,0.0015733165512901196,True
+training_mean,19913,13338,8,Nuphar,0,0.00031466331025802394,True
+training_mean,19913,13338,8,Plantago lanceolata,0,0.0012586532410320957,True
+training_mean,19913,13338,8,Plantago media,0,0.0,True
+training_mean,19913,13338,8,Populus,59,0.0028319697923222154,True
+training_mean,19913,13338,8,Quercus,34,0.21354839670664816,True
+training_mean,19913,13338,8,Rosaceae undiff.,0,0.0002465483234714004,True
+training_mean,19913,13338,8,Salix,46,0.0026276248319623448,True
+training_mean,19913,13338,8,Thalictrum,2,0.00031466331025802394,True
+training_mean,19913,13338,8,Ulmus,47,0.06702778470823202,True
+nearest_site,19913,13338,8,Alnus,504,0.32158590308370044,True
+nearest_site,19913,13338,8,Amaranthaceae,0,0.0,True
+nearest_site,19913,13338,8,Betula,3770,0.3184392699811202,True
+nearest_site,19913,13338,8,Cichorioideae,0,0.0,True
+nearest_site,19913,13338,8,Cyperaceae,30,0.0018879798615481435,True
+nearest_site,19913,13338,8,Filipendula,2,0.0,True
+nearest_site,19913,13338,8,Frangula alnus,0,0.0031466331025802393,True
+nearest_site,19913,13338,8,Nuphar,0,0.0006293266205160479,True
+nearest_site,19913,13338,8,Plantago lanceolata,0,0.0025173064820641915,True
+nearest_site,19913,13338,8,Plantago media,0,0.0,True
+nearest_site,19913,13338,8,Populus,59,0.005663939584644431,True
+nearest_site,19913,13338,8,Quercus,34,0.2850849590937697,True
+nearest_site,19913,13338,8,Rosaceae undiff.,0,0.0,True
+nearest_site,19913,13338,8,Salix,46,0.003775959723096287,True
+nearest_site,19913,13338,8,Thalictrum,2,0.0006293266205160479,True
+nearest_site,19913,13338,8,Ulmus,47,0.056639395846444306,True
+inverse_distance_squared,19913,13338,8,Alnus,504,0.5140049315531521,True
+inverse_distance_squared,19913,13338,8,Amaranthaceae,0,0.00024362273112033865,True
+inverse_distance_squared,19913,13338,8,Betula,3770,0.19107456336122164,True
+inverse_distance_squared,19913,13338,8,Cichorioideae,0,0.0,True
+inverse_distance_squared,19913,13338,8,Cyperaceae,30,0.0041222870110866556,True
+inverse_distance_squared,19913,13338,8,Filipendula,2,0.0,True
+inverse_distance_squared,19913,13338,8,Frangula alnus,0,0.001591985844203755,True
+inverse_distance_squared,19913,13338,8,Nuphar,0,0.000318397168840751,True
+inverse_distance_squared,19913,13338,8,Plantago lanceolata,0,0.001273588675363004,True
+inverse_distance_squared,19913,13338,8,Plantago media,0,0.0,True
+inverse_distance_squared,19913,13338,8,Populus,59,0.002865574519566759,True
+inverse_distance_squared,19913,13338,8,Quercus,34,0.21439726404751772,True
+inverse_distance_squared,19913,13338,8,Rosaceae undiff.,0,0.00024362273112033865,True
+inverse_distance_squared,19913,13338,8,Salix,46,0.002641251206405522,True
+inverse_distance_squared,19913,13338,8,Thalictrum,2,0.000318397168840751,True
+inverse_distance_squared,19913,13338,8,Ulmus,47,0.06690451398156076,True
+clr_rbf_ridge,19913,13338,8,Alnus,504,0.5327604413927594,True
+clr_rbf_ridge,19913,13338,8,Amaranthaceae,0,0.0005371280983365887,True
+clr_rbf_ridge,19913,13338,8,Betula,3770,0.1551789555392965,True
+clr_rbf_ridge,19913,13338,8,Cichorioideae,0,0.000310161808647817,True
+clr_rbf_ridge,19913,13338,8,Cyperaceae,30,0.004263162504224997,True
+clr_rbf_ridge,19913,13338,8,Filipendula,2,0.000310161808647817,True
+clr_rbf_ridge,19913,13338,8,Frangula alnus,0,0.0010290578684570742,True
+clr_rbf_ridge,19913,13338,8,Nuphar,0,0.0005373039383432228,True
+clr_rbf_ridge,19913,13338,8,Plantago lanceolata,0,0.0009307900396175026,True
+clr_rbf_ridge,19913,13338,8,Plantago media,0,0.000310161808647817,True
+clr_rbf_ridge,19913,13338,8,Populus,59,0.0013525571200558436,True
+clr_rbf_ridge,19913,13338,8,Quercus,34,0.2243929110514308,True
+clr_rbf_ridge,19913,13338,8,Rosaceae undiff.,0,0.0005371280983365887,True
+clr_rbf_ridge,19913,13338,8,Salix,46,0.002959027941531408,True
+clr_rbf_ridge,19913,13338,8,Thalictrum,2,0.0005373039383432228,True
+clr_rbf_ridge,19913,13338,8,Ulmus,47,0.07405374704332343,True
+training_mean,19913,13338,9,Alnus,371,0.5349152610396691,True
+training_mean,19913,13338,9,Amaranthaceae,2,0.0003368312310008082,True
+training_mean,19913,13338,9,Betula,2232,0.1992098240892944,True
+training_mean,19913,13338,9,Cichorioideae,0,0.0008556828394407944,True
+training_mean,19913,13338,9,Cyperaceae,23,0.0068636023981113875,True
+training_mean,19913,13338,9,Filipendula,3,0.0006645926207091006,True
+training_mean,19913,13338,9,Frangula alnus,1,0.0014749262536873156,True
+training_mean,19913,13338,9,Nuphar,1,0.0,True
+training_mean,19913,13338,9,Plantago lanceolata,0,0.002703719689298982,True
+training_mean,19913,13338,9,Plantago media,0,0.00016388069485414618,True
+training_mean,19913,13338,9,Populus,38,0.0008194034742707309,True
+training_mean,19913,13338,9,Quercus,16,0.19990258990451837,True
+training_mean,19913,13338,9,Rosaceae undiff.,3,0.0006736624620016164,True
+training_mean,19913,13338,9,Salix,22,0.0010014238517099087,True
+training_mean,19913,13338,9,Thalictrum,0,0.0,True
+training_mean,19913,13338,9,Ulmus,35,0.050414599451433326,True
+nearest_site,19913,13338,9,Alnus,371,0.3382497541789577,True
+nearest_site,19913,13338,9,Amaranthaceae,2,0.00032776138970829236,True
+nearest_site,19913,13338,9,Betula,2232,0.3448049819731236,True
+nearest_site,19913,13338,9,Cichorioideae,0,0.00032776138970829236,True
+nearest_site,19913,13338,9,Cyperaceae,23,0.0019665683382497543,True
+nearest_site,19913,13338,9,Filipendula,3,0.0009832841691248771,True
+nearest_site,19913,13338,9,Frangula alnus,1,0.0029498525073746312,True
+nearest_site,19913,13338,9,Nuphar,1,0.0,True
+nearest_site,19913,13338,9,Plantago lanceolata,0,0.0022943297279580466,True
+nearest_site,19913,13338,9,Plantago media,0,0.00032776138970829236,True
+nearest_site,19913,13338,9,Populus,38,0.0016388069485414618,True
+nearest_site,19913,13338,9,Quercus,16,0.2635201573254671,True
+nearest_site,19913,13338,9,Rosaceae undiff.,3,0.0006555227794165847,True
+nearest_site,19913,13338,9,Salix,22,0.0013110455588331695,True
+nearest_site,19913,13338,9,Thalictrum,0,0.0,True
+nearest_site,19913,13338,9,Ulmus,35,0.04064241232382825,True
+inverse_distance_squared,19913,13338,9,Alnus,371,0.5325815882955666,True
+inverse_distance_squared,19913,13338,9,Amaranthaceae,2,0.00033672360642669996,True
+inverse_distance_squared,19913,13338,9,Betula,2232,0.20093748572681505,True
+inverse_distance_squared,19913,13338,9,Cichorioideae,0,0.0008494184165741023,True
+inverse_distance_squared,19913,13338,9,Cyperaceae,23,0.006805493199935955,True
+inverse_distance_squared,19913,13338,9,Filipendula,3,0.0006683742791818316,True
+inverse_distance_squared,19913,13338,9,Frangula alnus,1,0.0014924280273980923,True
+inverse_distance_squared,19913,13338,9,Nuphar,1,0.0,True
+inverse_distance_squared,19913,13338,9,Plantago lanceolata,0,0.0026988617850851678,True
+inverse_distance_squared,19913,13338,9,Plantago media,0,0.0001658253363775658,True
+inverse_distance_squared,19913,13338,9,Populus,38,0.0008291266818878291,True
+inverse_distance_squared,19913,13338,9,Quercus,16,0.20065748884692178,True
+inverse_distance_squared,19913,13338,9,Rosaceae undiff.,3,0.0006734472128533999,True
+inverse_distance_squared,19913,13338,9,Salix,22,0.0010050978856085315,True
+inverse_distance_squared,19913,13338,9,Thalictrum,0,0.0,True
+inverse_distance_squared,19913,13338,9,Ulmus,35,0.05029864069936749,True
+clr_rbf_ridge,19913,13338,9,Alnus,371,0.5609060038098769,True
+clr_rbf_ridge,19913,13338,9,Amaranthaceae,2,0.000569345916044686,True
+clr_rbf_ridge,19913,13338,9,Betula,2232,0.153597772211359,True
+clr_rbf_ridge,19913,13338,9,Cichorioideae,0,0.0009859746772628252,True
+clr_rbf_ridge,19913,13338,9,Cyperaceae,23,0.005682548989623406,True
+clr_rbf_ridge,19913,13338,9,Filipendula,3,0.0008698000320909613,True
+clr_rbf_ridge,19913,13338,9,Frangula alnus,1,0.000827603368145346,True
+clr_rbf_ridge,19913,13338,9,Nuphar,1,0.00018978197201489544,True
+clr_rbf_ridge,19913,13338,9,Plantago lanceolata,0,0.0032037756158001395,True
+clr_rbf_ridge,19913,13338,9,Plantago media,0,0.00032876581883081664,True
+clr_rbf_ridge,19913,13338,9,Populus,38,0.0006296604744621675,True
+clr_rbf_ridge,19913,13338,9,Quercus,16,0.21385410018564704,True
+clr_rbf_ridge,19913,13338,9,Rosaceae undiff.,3,0.0009489098600744764,True
+clr_rbf_ridge,19913,13338,9,Salix,22,0.0012732076502917256,True
+clr_rbf_ridge,19913,13338,9,Thalictrum,0,0.00018978197201489544,True
+clr_rbf_ridge,19913,13338,9,Ulmus,35,0.05594296744646074,True
+training_mean,19913,13338,10,Alnus,439,0.49022974296428407,True
+training_mean,19913,13338,10,Amaranthaceae,2,0.0003201980063980296,True
+training_mean,19913,13338,10,Betula,3491,0.25106637234830753,True
+training_mean,19913,13338,10,Cichorioideae,1,0.0001684068710003368,True
+training_mean,19913,13338,10,Cyperaceae,19,0.0035554095415836137,True
+training_mean,19913,13338,10,Filipendula,3,0.0003201980063980296,True
+training_mean,19913,13338,10,Frangula alnus,0,0.0015179113539769277,True
+training_mean,19913,13338,10,Nuphar,0,0.0001684068710003368,True
+training_mean,19913,13338,10,Plantago lanceolata,0,0.00414595834757174,True
+training_mean,19913,13338,10,Plantago media,0,0.0,True
+training_mean,19913,13338,10,Populus,58,0.0029006473081588068,True
+training_mean,19913,13338,10,Quercus,11,0.20479655897829485,True
+training_mean,19913,13338,10,Rosaceae undiff.,0,0.0003368137420006736,True
+training_mean,19913,13338,10,Salix,39,0.005073320895560542,True
+training_mean,19913,13338,10,Thalictrum,0,0.00015179113539769278,True
+training_mean,19913,13338,10,Ulmus,43,0.035248263630066855,True
+nearest_site,19913,13338,10,Alnus,439,0.3600485731633273,True
+nearest_site,19913,13338,10,Amaranthaceae,2,0.00030358227079538557,True
+nearest_site,19913,13338,10,Betula,3491,0.3482088646023072,True
+nearest_site,19913,13338,10,Cichorioideae,1,0.0,True
+nearest_site,19913,13338,10,Cyperaceae,19,0.00273224043715847,True
+nearest_site,19913,13338,10,Filipendula,3,0.00030358227079538557,True
+nearest_site,19913,13338,10,Frangula alnus,0,0.0030358227079538553,True
+nearest_site,19913,13338,10,Nuphar,0,0.0,True
+nearest_site,19913,13338,10,Plantago lanceolata,0,0.004250151791135397,True
+nearest_site,19913,13338,10,Plantago media,0,0.0,True
+nearest_site,19913,13338,10,Populus,58,0.00546448087431694,True
+nearest_site,19913,13338,10,Quercus,11,0.2459016393442623,True
+nearest_site,19913,13338,10,Rosaceae undiff.,0,0.0,True
+nearest_site,19913,13338,10,Salix,39,0.005768063145112325,True
+nearest_site,19913,13338,10,Thalictrum,0,0.00030358227079538557,True
+nearest_site,19913,13338,10,Ulmus,43,0.023679417122040074,True
+inverse_distance_squared,19913,13338,10,Alnus,439,0.48868498683185746,True
+inverse_distance_squared,19913,13338,10,Amaranthaceae,2,0.00032000084071342094,True
+inverse_distance_squared,19913,13338,10,Betula,3491,0.25221908484012195,True
+inverse_distance_squared,19913,13338,10,Cichorioideae,1,0.00016640852095387227,True
+inverse_distance_squared,19913,13338,10,Cyperaceae,19,0.003545641650236277,True
+inverse_distance_squared,19913,13338,10,Filipendula,3,0.00032000084071342094,True
+inverse_distance_squared,19913,13338,10,Frangula alnus,0,0.0015359231975954867,True
+inverse_distance_squared,19913,13338,10,Nuphar,0,0.00016640852095387227,True
+inverse_distance_squared,19913,13338,10,Plantago lanceolata,0,0.004147194728080148,True
+inverse_distance_squared,19913,13338,10,Plantago media,0,0.0,True
+inverse_distance_squared,19913,13338,10,Populus,58,0.0029310702766257484,True
+inverse_distance_squared,19913,13338,10,Quercus,11,0.20528432018881634,True
+inverse_distance_squared,19913,13338,10,Rosaceae undiff.,0,0.00033281704190774454,True
+inverse_distance_squared,19913,13338,10,Salix,39,0.005081564847831764,True
+inverse_distance_squared,19913,13338,10,Thalictrum,0,0.00015359231975954868,True
+inverse_distance_squared,19913,13338,10,Ulmus,43,0.035110985353833044,True
+clr_rbf_ridge,19913,13338,10,Alnus,439,0.4942149981974546,True
+clr_rbf_ridge,19913,13338,10,Amaranthaceae,2,0.0005014158225571226,True
+clr_rbf_ridge,19913,13338,10,Betula,3491,0.2422357085136632,True
+clr_rbf_ridge,19913,13338,10,Cichorioideae,1,0.00028944518606823584,True
+clr_rbf_ridge,19913,13338,10,Cyperaceae,19,0.003785408282828466,True
+clr_rbf_ridge,19913,13338,10,Filipendula,3,0.0005014158225571226,True
+clr_rbf_ridge,19913,13338,10,Frangula alnus,0,0.0007662727753630992,True
+clr_rbf_ridge,19913,13338,10,Nuphar,0,0.00028944518606823584,True
+clr_rbf_ridge,19913,13338,10,Plantago lanceolata,0,0.00450044423888732,True
+clr_rbf_ridge,19913,13338,10,Plantago media,0,0.00016713860751904085,True
+clr_rbf_ridge,19913,13338,10,Populus,58,0.0017615736506619763,True
+clr_rbf_ridge,19913,13338,10,Quercus,11,0.20992189058653887,True
+clr_rbf_ridge,19913,13338,10,Rosaceae undiff.,0,0.00037364369421854176,True
+clr_rbf_ridge,19913,13338,10,Salix,39,0.00542393848757886,True
+clr_rbf_ridge,19913,13338,10,Thalictrum,0,0.0002895399419441541,True
+clr_rbf_ridge,19913,13338,10,Ulmus,43,0.03497772100609103,True
+training_mean,19913,13338,11,Alnus,561,0.46875097411995215,True
+training_mean,19913,13338,11,Amaranthaceae,0,0.00037313432835820896,True
+training_mean,19913,13338,11,Betula,2483,0.19749549121622123,True
+training_mean,19913,13338,11,Cichorioideae,0,0.0,True
+training_mean,19913,13338,11,Cyperaceae,23,0.0018656716417910447,True
+training_mean,19913,13338,11,Filipendula,3,0.0002486325211337643,True
+training_mean,19913,13338,11,Frangula alnus,2,0.0029850746268656717,True
+training_mean,19913,13338,11,Nuphar,0,0.0002486325211337643,True
+training_mean,19913,13338,11,Plantago lanceolata,1,0.0,True
+training_mean,19913,13338,11,Plantago media,0,0.0,True
+training_mean,19913,13338,11,Populus,68,0.0018656716417910447,True
+training_mean,19913,13338,11,Quercus,10,0.24037550932557503,True
+training_mean,19913,13338,11,Rosaceae undiff.,0,0.0,True
+training_mean,19913,13338,11,Salix,13,0.002487067397967893,True
+training_mean,19913,13338,11,Thalictrum,0,0.0,True
+training_mean,19913,13338,11,Ulmus,82,0.08330414065921017,True
+nearest_site,19913,13338,11,Alnus,561,0.3164179104477612,True
+nearest_site,19913,13338,11,Amaranthaceae,0,0.0007462686567164179,True
+nearest_site,19913,13338,11,Betula,2483,0.32686567164179103,True
+nearest_site,19913,13338,11,Cichorioideae,0,0.0,True
+nearest_site,19913,13338,11,Cyperaceae,23,0.0037313432835820895,True
+nearest_site,19913,13338,11,Filipendula,3,0.0,True
+nearest_site,19913,13338,11,Frangula alnus,2,0.005970149253731343,True
+nearest_site,19913,13338,11,Nuphar,0,0.0,True
+nearest_site,19913,13338,11,Plantago lanceolata,1,0.0,True
+nearest_site,19913,13338,11,Plantago media,0,0.0,True
+nearest_site,19913,13338,11,Populus,68,0.0037313432835820895,True
+nearest_site,19913,13338,11,Quercus,10,0.2902985074626866,True
+nearest_site,19913,13338,11,Rosaceae undiff.,0,0.0,True
+nearest_site,19913,13338,11,Salix,13,0.0029850746268656717,True
+nearest_site,19913,13338,11,Thalictrum,0,0.0,True
+nearest_site,19913,13338,11,Ulmus,82,0.049253731343283584,True
+inverse_distance_squared,19913,13338,11,Alnus,561,0.4669433591274095,True
+inverse_distance_squared,19913,13338,11,Amaranthaceae,0,0.00037756201588653234,True
+inverse_distance_squared,19913,13338,11,Betula,2483,0.1990306239844326,True
+inverse_distance_squared,19913,13338,11,Cichorioideae,0,0.0,True
+inverse_distance_squared,19913,13338,11,Cyperaceae,23,0.0018878100794326616,True
+inverse_distance_squared,19913,13338,11,Filipendula,3,0.0002456821972710327,True
+inverse_distance_squared,19913,13338,11,Frangula alnus,2,0.0030204961270922587,True
+inverse_distance_squared,19913,13338,11,Nuphar,0,0.0002456821972710327,True
+inverse_distance_squared,19913,13338,11,Plantago lanceolata,1,0.0,True
+inverse_distance_squared,19913,13338,11,Plantago media,0,0.0,True
+inverse_distance_squared,19913,13338,11,Populus,68,0.0018878100794326616,True
+inverse_distance_squared,19913,13338,11,Quercus,10,0.24096790573466662,True
+inverse_distance_squared,19913,13338,11,Rosaceae undiff.,0,0.0,True
+inverse_distance_squared,19913,13338,11,Salix,13,0.0024929768526302603,True
+inverse_distance_squared,19913,13338,11,Thalictrum,0,0.0,True
+inverse_distance_squared,19913,13338,11,Ulmus,82,0.08290009160447485,True
+clr_rbf_ridge,19913,13338,11,Alnus,561,0.48525107936904716,True
+clr_rbf_ridge,19913,13338,11,Amaranthaceae,0,0.0005772063302888053,True
+clr_rbf_ridge,19913,13338,11,Betula,2483,0.1636592498118692,True
+clr_rbf_ridge,19913,13338,11,Cichorioideae,0,0.0003331956953775104,True
+clr_rbf_ridge,19913,13338,11,Cyperaceae,23,0.001105479922106028,True
+clr_rbf_ridge,19913,13338,11,Filipendula,3,0.000577017431682813,True
+clr_rbf_ridge,19913,13338,11,Frangula alnus,2,0.0013743809940585325,True
+clr_rbf_ridge,19913,13338,11,Nuphar,0,0.000577017431682813,True
+clr_rbf_ridge,19913,13338,11,Plantago lanceolata,1,0.0003331956953775104,True
+clr_rbf_ridge,19913,13338,11,Plantago media,0,0.0003331956953775104,True
+clr_rbf_ridge,19913,13338,11,Populus,68,0.001105479922106028,True
+clr_rbf_ridge,19913,13338,11,Quercus,10,0.25755310927106323,True
+clr_rbf_ridge,19913,13338,11,Rosaceae undiff.,0,0.0003331956953775104,True
+clr_rbf_ridge,19913,13338,11,Salix,13,0.0029987612583975923,True
+clr_rbf_ridge,19913,13338,11,Thalictrum,0,0.0003331956953775104,True
+clr_rbf_ridge,19913,13338,11,Ulmus,82,0.08355523978081023,True
+training_mean,53995,28869,-1,Alnus,45,0.11037422749001072,True
+training_mean,53995,28869,-1,Amaranthaceae,35,0.005028285306638875,True
+training_mean,53995,28869,-1,Betula,219,0.7747347411250284,True
+training_mean,53995,28869,-1,Cichorioideae,41,0.0,True
+training_mean,53995,28869,-1,Cyperaceae,28,0.014942564098619769,True
+training_mean,53995,28869,-1,Filipendula,2,0.0,True
+training_mean,53995,28869,-1,Frangula alnus,0,0.0059031877213695395,True
+training_mean,53995,28869,-1,Nuphar,9,0.0,True
+training_mean,53995,28869,-1,Plantago lanceolata,17,0.005760895900072684,True
+training_mean,53995,28869,-1,Plantago media,0,0.0,True
+training_mean,53995,28869,-1,Populus,0,0.0011806375442739079,True
+training_mean,53995,28869,-1,Quercus,39,0.06361213556949417,True
+training_mean,53995,28869,-1,Rosaceae undiff.,4,0.0,True
+training_mean,53995,28869,-1,Salix,259,0.011969818750985467,True
+training_mean,53995,28869,-1,Thalictrum,0,0.0,True
+training_mean,53995,28869,-1,Ulmus,57,0.006493506493506494,True
+nearest_site,53995,28869,-1,Alnus,45,0.13931523022432113,True
+nearest_site,53995,28869,-1,Amaranthaceae,35,0.0035419126328217238,True
+nearest_site,53995,28869,-1,Betula,219,0.6765053128689492,True
+nearest_site,53995,28869,-1,Cichorioideae,41,0.0,True
+nearest_site,53995,28869,-1,Cyperaceae,28,0.0070838252656434475,True
+nearest_site,53995,28869,-1,Filipendula,2,0.0,True
+nearest_site,53995,28869,-1,Frangula alnus,0,0.011806375442739079,True
+nearest_site,53995,28869,-1,Nuphar,9,0.0,True
+nearest_site,53995,28869,-1,Plantago lanceolata,17,0.008264462809917356,True
+nearest_site,53995,28869,-1,Plantago media,0,0.0,True
+nearest_site,53995,28869,-1,Populus,0,0.0023612750885478157,True
+nearest_site,53995,28869,-1,Quercus,39,0.12396694214876033,True
+nearest_site,53995,28869,-1,Rosaceae undiff.,4,0.0,True
+nearest_site,53995,28869,-1,Salix,259,0.014167650531286895,True
+nearest_site,53995,28869,-1,Thalictrum,0,0.0,True
+nearest_site,53995,28869,-1,Ulmus,57,0.012987012987012988,True
+inverse_distance_squared,53995,28869,-1,Alnus,45,0.13926790127596567,True
+inverse_distance_squared,53995,28869,-1,Amaranthaceae,35,0.0035443433867303523,True
+inverse_distance_squared,53995,28869,-1,Betula,219,0.6766659533132212,True
+inverse_distance_squared,53995,28869,-1,Cichorioideae,41,0.0,True
+inverse_distance_squared,53995,28869,-1,Cyperaceae,28,0.007096677130099547,True
+inverse_distance_squared,53995,28869,-1,Filipendula,2,0.0,True
+inverse_distance_squared,53995,28869,-1,Frangula alnus,0,0.011796721607681524,True
+inverse_distance_squared,53995,28869,-1,Nuphar,9,0.0,True
+inverse_distance_squared,53995,28869,-1,Plantago lanceolata,17,0.008260368577590015,True
+inverse_distance_squared,53995,28869,-1,Plantago media,0,0.0,True
+inverse_distance_squared,53995,28869,-1,Populus,0,0.002359344321536305,True
+inverse_distance_squared,53995,28869,-1,Quercus,39,0.12386824033286896,True
+inverse_distance_squared,53995,28869,-1,Rosaceae undiff.,4,0.0,True
+inverse_distance_squared,53995,28869,-1,Salix,259,0.014164056285856671,True
+inverse_distance_squared,53995,28869,-1,Thalictrum,0,0.0,True
+inverse_distance_squared,53995,28869,-1,Ulmus,57,0.012976393768449678,True
+clr_rbf_ridge,53995,28869,-1,Alnus,45,0.1385032596920795,True
+clr_rbf_ridge,53995,28869,-1,Amaranthaceae,35,0.004109747789642915,True
+clr_rbf_ridge,53995,28869,-1,Betula,219,0.6723175077290171,True
+clr_rbf_ridge,53995,28869,-1,Cichorioideae,41,0.0005878676557071325,True
+clr_rbf_ridge,53995,28869,-1,Cyperaceae,28,0.007646489929882635,True
+clr_rbf_ridge,53995,28869,-1,Filipendula,2,0.0005878676557071325,True
+clr_rbf_ridge,53995,28869,-1,Frangula alnus,0,0.012201402125999511,True
+clr_rbf_ridge,53995,28869,-1,Nuphar,9,0.0005878676557071325,True
+clr_rbf_ridge,53995,28869,-1,Plantago lanceolata,17,0.008763559576252085,True
+clr_rbf_ridge,53995,28869,-1,Plantago media,0,0.0005878676557071325,True
+clr_rbf_ridge,53995,28869,-1,Populus,0,0.002921186525417364,True
+clr_rbf_ridge,53995,28869,-1,Quercus,39,0.12202601819723248,True
+clr_rbf_ridge,53995,28869,-1,Rosaceae undiff.,4,0.0005878676557071325,True
+clr_rbf_ridge,53995,28869,-1,Salix,259,0.014624860377511208,True
+clr_rbf_ridge,53995,28869,-1,Thalictrum,0,0.0005878676557071325,True
+clr_rbf_ridge,53995,28869,-1,Ulmus,57,0.013358762122722525,True
+training_mean,53995,28869,0,Alnus,256,0.16502413638275265,True
+training_mean,53995,28869,0,Amaranthaceae,96,0.0007367387033398821,True
+training_mean,53995,28869,0,Betula,338,0.6613081899135114,True
+training_mean,53995,28869,0,Cichorioideae,450,0.0014734774066797642,True
+training_mean,53995,28869,0,Cyperaceae,504,0.036167495931556694,True
+training_mean,53995,28869,0,Filipendula,30,0.004187804625327355,True
+training_mean,53995,28869,0,Frangula alnus,1,0.0029469548133595285,True
+training_mean,53995,28869,0,Nuphar,3,0.0005041111086279441,True
+training_mean,53995,28869,0,Plantago lanceolata,221,0.009577603143418467,True
+training_mean,53995,28869,0,Plantago media,2,0.0002585315408479835,True
+training_mean,53995,28869,0,Populus,2,0.005067015032415486,True
+training_mean,53995,28869,0,Quercus,213,0.0848156146955626,True
+training_mean,53995,28869,0,Rosaceae undiff.,16,0.0,True
+training_mean,53995,28869,0,Salix,14,0.018794074802469713,True
+training_mean,53995,28869,0,Thalictrum,0,0.0002455795677799607,True
+training_mean,53995,28869,0,Ulmus,22,0.008892672332350676,True
+nearest_site,53995,28869,0,Alnus,256,0.1832023575638507,True
+nearest_site,53995,28869,0,Amaranthaceae,96,0.0014734774066797642,True
+nearest_site,53995,28869,0,Betula,338,0.5496070726915521,True
+nearest_site,53995,28869,0,Cichorioideae,450,0.0029469548133595285,True
+nearest_site,53995,28869,0,Cyperaceae,504,0.0206286836935167,True
+nearest_site,53995,28869,0,Filipendula,30,0.007858546168958742,True
+nearest_site,53995,28869,0,Frangula alnus,1,0.005893909626719057,True
+nearest_site,53995,28869,0,Nuphar,3,0.0004911591355599214,True
+nearest_site,53995,28869,0,Plantago lanceolata,221,0.019155206286836934,True
+nearest_site,53995,28869,0,Plantago media,2,0.0,True
+nearest_site,53995,28869,0,Populus,2,0.003929273084479371,True
+nearest_site,53995,28869,0,Quercus,213,0.16601178781925344,True
+nearest_site,53995,28869,0,Rosaceae undiff.,16,0.0,True
+nearest_site,53995,28869,0,Salix,14,0.022593320235756387,True
+nearest_site,53995,28869,0,Thalictrum,0,0.0004911591355599214,True
+nearest_site,53995,28869,0,Ulmus,22,0.015717092337917484,True
+inverse_distance_squared,53995,28869,0,Alnus,256,0.1831726296342633,True
+inverse_distance_squared,53995,28869,0,Amaranthaceae,96,0.0014722725739252827,True
+inverse_distance_squared,53995,28869,0,Betula,338,0.5497897441924942,True
+inverse_distance_squared,53995,28869,0,Cichorioideae,450,0.0029445451478505654,True
+inverse_distance_squared,53995,28869,0,Cyperaceae,504,0.02065409524019568,True
+inverse_distance_squared,53995,28869,0,Filipendula,30,0.007852543186320591,True
+inverse_distance_squared,53995,28869,0,Frangula alnus,1,0.005889090295701131,True
+inverse_distance_squared,53995,28869,0,Nuphar,3,0.0004911803166941781,True
+inverse_distance_squared,53995,28869,0,Plantago lanceolata,221,0.019139543461028675,True
+inverse_distance_squared,53995,28869,0,Plantago media,2,4.227920524171837e-07,True
+inverse_distance_squared,53995,28869,0,Populus,2,0.003931133701763093,True
+inverse_distance_squared,53995,28869,0,Quercus,213,0.1658790028732821,True
+inverse_distance_squared,53995,28869,0,Rosaceae undiff.,16,0.0,True
+inverse_distance_squared,53995,28869,0,Salix,14,0.022587107103041102,True
+inverse_distance_squared,53995,28869,0,Thalictrum,0,0.0004907575246417609,True
+inverse_distance_squared,53995,28869,0,Ulmus,22,0.015705931956746015,True
+clr_rbf_ridge,53995,28869,0,Alnus,256,0.18301336628687884,True
+clr_rbf_ridge,53995,28869,0,Amaranthaceae,96,0.0017039721999812043,True
+clr_rbf_ridge,53995,28869,0,Betula,338,0.5497374522683967,True
+clr_rbf_ridge,53995,28869,0,Cichorioideae,450,0.003156988881957392,True
+clr_rbf_ridge,53995,28869,0,Cyperaceae,504,0.020915812861737222,True
+clr_rbf_ridge,53995,28869,0,Filipendula,30,0.008019049271691881,True
+clr_rbf_ridge,53995,28869,0,Frangula alnus,1,0.006055871169047296,True
+clr_rbf_ridge,53995,28869,0,Nuphar,3,0.0007357638348417574,True
+clr_rbf_ridge,53995,28869,0,Plantago lanceolata,221,0.019051994744237175,True
+clr_rbf_ridge,53995,28869,0,Plantago media,2,0.00024629386006184533,True
+clr_rbf_ridge,53995,28869,0,Populus,2,0.004175521882419862,True
+clr_rbf_ridge,53995,28869,0,Quercus,213,0.16362053857494793,True
+clr_rbf_ridge,53995,28869,0,Rosaceae undiff.,16,0.0002452546116139191,True
+clr_rbf_ridge,53995,28869,0,Salix,14,0.022768764471744536,True
+clr_rbf_ridge,53995,28869,0,Thalictrum,0,0.0007326592449700995,True
+clr_rbf_ridge,53995,28869,0,Ulmus,22,0.015820695835472354,True
+training_mean,53995,28869,1,Alnus,265,0.1585466132182136,True
+training_mean,53995,28869,1,Amaranthaceae,20,0.0017260619943321146,True
+training_mean,53995,28869,1,Betula,407,0.6768020498362775,True
+training_mean,53995,28869,1,Cichorioideae,62,0.0007598784194528875,True
+training_mean,53995,28869,1,Cyperaceae,379,0.033737867641660424,True
+training_mean,53995,28869,1,Filipendula,29,0.007805089349955215,True
+training_mean,53995,28869,1,Frangula alnus,0,0.004559270516717325,True
+training_mean,53995,28869,1,Nuphar,4,0.0005065856129685917,True
+training_mean,53995,28869,1,Plantago lanceolata,181,0.009831431801829582,True
+training_mean,53995,28869,1,Plantago media,2,0.0007598784194528875,True
+training_mean,53995,28869,1,Populus,0,0.007434327415826029,True
+training_mean,53995,28869,1,Quercus,164,0.07481021394064873,True
+training_mean,53995,28869,1,Rosaceae undiff.,3,0.0,True
+training_mean,53995,28869,1,Salix,15,0.016482386972673745,True
+training_mean,53995,28869,1,Thalictrum,0,0.00025329280648429586,True
+training_mean,53995,28869,1,Ulmus,17,0.005985052053507188,True
+nearest_site,53995,28869,1,Alnus,265,0.19148936170212766,True
+nearest_site,53995,28869,1,Amaranthaceae,20,0.001519756838905775,True
+nearest_site,53995,28869,1,Betula,407,0.5516717325227963,True
+nearest_site,53995,28869,1,Cichorioideae,62,0.001519756838905775,True
+nearest_site,53995,28869,1,Cyperaceae,379,0.027862208713272545,True
+nearest_site,53995,28869,1,Filipendula,29,0.013677811550151976,True
+nearest_site,53995,28869,1,Frangula alnus,0,0.00911854103343465,True
+nearest_site,53995,28869,1,Nuphar,4,0.0010131712259371835,True
+nearest_site,53995,28869,1,Plantago lanceolata,181,0.01773049645390071,True
+nearest_site,53995,28869,1,Plantago media,2,0.001519756838905775,True
+nearest_site,53995,28869,1,Populus,0,0.008105369807497468,True
+nearest_site,53995,28869,1,Quercus,164,0.14285714285714285,True
+nearest_site,53995,28869,1,Rosaceae undiff.,3,0.0,True
+nearest_site,53995,28869,1,Salix,15,0.02330293819655522,True
+nearest_site,53995,28869,1,Thalictrum,0,0.0005065856129685917,True
+nearest_site,53995,28869,1,Ulmus,17,0.008105369807497468,True
+inverse_distance_squared,53995,28869,1,Alnus,265,0.19143548846020875,True
+inverse_distance_squared,53995,28869,1,Amaranthaceae,20,0.0015200942220343515,True
+inverse_distance_squared,53995,28869,1,Betula,407,0.5518763655958173,True
+inverse_distance_squared,53995,28869,1,Cichorioideae,62,0.0015185141643930475,True
+inverse_distance_squared,53995,28869,1,Cyperaceae,379,0.027871817528852604,True
+inverse_distance_squared,53995,28869,1,Filipendula,29,0.013668207537178732,True
+inverse_distance_squared,53995,28869,1,Frangula alnus,0,0.009111084986358283,True
+inverse_distance_squared,53995,28869,1,Nuphar,4,0.0010123427762620317,True
+inverse_distance_squared,53995,28869,1,Plantago lanceolata,181,0.017717578642226856,True
+inverse_distance_squared,53995,28869,1,Plantago media,2,0.0015185141643930475,True
+inverse_distance_squared,53995,28869,1,Populus,0,0.008104272411840818,True
+inverse_distance_squared,53995,28869,1,Quercus,164,0.142745861654691,True
+inverse_distance_squared,53995,28869,1,Rosaceae undiff.,3,0.0,True
+inverse_distance_squared,53995,28869,1,Salix,15,0.023291784142233245,True
+inverse_distance_squared,53995,28869,1,Thalictrum,0,0.0005061713881310159,True
+inverse_distance_squared,53995,28869,1,Ulmus,17,0.008101902325378862,True
+clr_rbf_ridge,53995,28869,1,Alnus,265,0.19095948307374594,True
+clr_rbf_ridge,53995,28869,1,Amaranthaceae,20,0.0017707649228973386,True
+clr_rbf_ridge,53995,28869,1,Betula,407,0.5513517989789628,True
+clr_rbf_ridge,53995,28869,1,Cichorioideae,62,0.001759829642686246,True
+clr_rbf_ridge,53995,28869,1,Cyperaceae,379,0.02808422074198848,True
+clr_rbf_ridge,53995,28869,1,Filipendula,29,0.01380319919014387,True
+clr_rbf_ridge,53995,28869,1,Frangula alnus,0,0.009242535819327354,True
+clr_rbf_ridge,53995,28869,1,Nuphar,4,0.0012586501404016502,True
+clr_rbf_ridge,53995,28869,1,Plantago lanceolata,181,0.017801171553033228,True
+clr_rbf_ridge,53995,28869,1,Plantago media,2,0.001759829642686246,True
+clr_rbf_ridge,53995,28869,1,Populus,0,0.0083333819445259,True
+clr_rbf_ridge,53995,28869,1,Quercus,164,0.14112631963230543,True
+clr_rbf_ridge,53995,28869,1,Rosaceae undiff.,3,0.0002532942353921258,True
+clr_rbf_ridge,53995,28869,1,Salix,15,0.023421830595057595,True
+clr_rbf_ridge,53995,28869,1,Thalictrum,0,0.0007566763456004315,True
+clr_rbf_ridge,53995,28869,1,Ulmus,17,0.008317013541245385,True
+training_mean,53995,28869,2,Alnus,451,0.16206692587690272,True
+training_mean,53995,28869,2,Amaranthaceae,11,0.0009927200529450694,True
+training_mean,53995,28869,2,Betula,447,0.6159703838517538,True
+training_mean,53995,28869,2,Cichorioideae,20,0.0004963600264725347,True
+training_mean,53995,28869,2,Cyperaceae,448,0.020809066843150235,True
+training_mean,53995,28869,2,Filipendula,83,0.003474520185307743,True
+training_mean,53995,28869,2,Frangula alnus,0,0.001158173395102581,True
+training_mean,53995,28869,2,Nuphar,1,0.0,True
+training_mean,53995,28869,2,Plantago lanceolata,258,0.005956320317670417,True
+training_mean,53995,28869,2,Plantago media,1,0.0,True
+training_mean,53995,28869,2,Populus,3,0.0014890800794176043,True
+training_mean,53995,28869,2,Quercus,273,0.1610775148908008,True
+training_mean,53995,28869,2,Rosaceae undiff.,11,0.000625,True
+training_mean,53995,28869,2,Salix,76,0.0034927200529450697,True
+training_mean,53995,28869,2,Thalictrum,3,0.00016545334215751158,True
+training_mean,53995,28869,2,Ulmus,51,0.022225761085373927,True
+nearest_site,53995,28869,2,Alnus,451,0.22038385175380543,True
+nearest_site,53995,28869,2,Amaranthaceae,11,0.001985440105890139,True
+nearest_site,53995,28869,2,Betula,447,0.3944407677035076,True
+nearest_site,53995,28869,2,Cichorioideae,20,0.0009927200529450694,True
+nearest_site,53995,28869,2,Cyperaceae,448,0.0066181336863004635,True
+nearest_site,53995,28869,2,Filipendula,83,0.006949040370615486,True
+nearest_site,53995,28869,2,Frangula alnus,0,0.002316346790205162,True
+nearest_site,53995,28869,2,Nuphar,1,0.0,True
+nearest_site,53995,28869,2,Plantago lanceolata,258,0.011912640635340834,True
+nearest_site,53995,28869,2,Plantago media,1,0.0,True
+nearest_site,53995,28869,2,Populus,3,0.0029781601588352085,True
+nearest_site,53995,28869,2,Quercus,273,0.3084050297816016,True
+nearest_site,53995,28869,2,Rosaceae undiff.,11,0.0,True
+nearest_site,53995,28869,2,Salix,76,0.001985440105890139,True
+nearest_site,53995,28869,2,Thalictrum,3,0.00033090668431502316,True
+nearest_site,53995,28869,2,Ulmus,51,0.04070152217074785,True
+inverse_distance_squared,53995,28869,2,Alnus,451,0.22028848260580405,True
+inverse_distance_squared,53995,28869,2,Amaranthaceae,11,0.001983816651563121,True
+inverse_distance_squared,53995,28869,2,Betula,447,0.3948030483009748,True
+inverse_distance_squared,53995,28869,2,Cichorioideae,20,0.0009919083257815605,True
+inverse_distance_squared,53995,28869,2,Cyperaceae,448,0.006641340965905189,True
+inverse_distance_squared,53995,28869,2,Filipendula,83,0.006943358280470923,True
+inverse_distance_squared,53995,28869,2,Frangula alnus,0,0.002314452760156974,True
+inverse_distance_squared,53995,28869,2,Nuphar,1,0.0,True
+inverse_distance_squared,53995,28869,2,Plantago lanceolata,258,0.011902899909378725,True
+inverse_distance_squared,53995,28869,2,Plantago media,1,0.0,True
+inverse_distance_squared,53995,28869,2,Populus,3,0.0029757249773446812,True
+inverse_distance_squared,53995,28869,2,Quercus,273,0.3081640963071254,True
+inverse_distance_squared,53995,28869,2,Rosaceae undiff.,11,1.0220997867185414e-06,True
+inverse_distance_squared,53995,28869,2,Salix,76,0.001987905050709995,True
+inverse_distance_squared,53995,28869,2,Thalictrum,3,0.00033063610859385346,True
+inverse_distance_squared,53995,28869,2,Ulmus,51,0.04067130765640413,True
+clr_rbf_ridge,53995,28869,2,Alnus,451,0.2201364440419551,True
+clr_rbf_ridge,53995,28869,2,Amaranthaceae,11,0.0021428404389615815,True
+clr_rbf_ridge,53995,28869,2,Betula,447,0.396150206587819,True
+clr_rbf_ridge,53995,28869,2,Cichorioideae,20,0.0011565896091221444,True
+clr_rbf_ridge,53995,28869,2,Cyperaceae,448,0.006833899165836527,True
+clr_rbf_ridge,53995,28869,2,Filipendula,83,0.0070552973936828965,True
+clr_rbf_ridge,53995,28869,2,Frangula alnus,0,0.0024711467554880896,True
+clr_rbf_ridge,53995,28869,2,Nuphar,1,0.00016646922724741339,True
+clr_rbf_ridge,53995,28869,2,Plantago lanceolata,258,0.011953223429730257,True
+clr_rbf_ridge,53995,28869,2,Plantago media,1,0.00016646922724741339,True
+clr_rbf_ridge,53995,28869,2,Populus,3,0.0031272726042143846,True
+clr_rbf_ridge,53995,28869,2,Quercus,273,0.3052568330573933,True
+clr_rbf_ridge,53995,28869,2,Rosaceae undiff.,11,0.0001671746284013649,True
+clr_rbf_ridge,53995,28869,2,Salix,76,0.002161039174070638,True
+clr_rbf_ridge,53995,28869,2,Thalictrum,3,0.00049730040769975,True
+clr_rbf_ridge,53995,28869,2,Ulmus,51,0.04055779425113018,True
+training_mean,53995,28869,3,Alnus,453,0.19292008315522657,True
+training_mean,53995,28869,3,Amaranthaceae,13,0.0003798145875450299,True
+training_mean,53995,28869,3,Betula,336,0.5898783487683065,True
+training_mean,53995,28869,3,Cichorioideae,23,0.00021496130696474635,True
+training_mean,53995,28869,3,Cyperaceae,403,0.01813591621427695,True
+training_mean,53995,28869,3,Filipendula,70,0.001089335736250627,True
+training_mean,53995,28869,3,Frangula alnus,1,0.0009891196834817012,True
+training_mean,53995,28869,3,Nuphar,2,0.0003297065611605671,True
+training_mean,53995,28869,3,Plantago lanceolata,179,0.0031322123310253873,True
+training_mean,53995,28869,3,Plantago media,0,0.0,True
+training_mean,53995,28869,3,Populus,0,0.003948469954603687,True
+training_mean,53995,28869,3,Quercus,230,0.1493911626734751,True
+training_mean,53995,28869,3,Rosaceae undiff.,8,0.00021496130696474635,True
+training_mean,53995,28869,3,Salix,14,0.007222997585459345,True
+training_mean,53995,28869,3,Thalictrum,0,0.0007596291750900598,True
+training_mean,53995,28869,3,Ulmus,37,0.03139328096016901,True
+nearest_site,53995,28869,3,Alnus,453,0.28222881635344543,True
+nearest_site,53995,28869,3,Amaranthaceae,13,0.0003297065611605671,True
+nearest_site,53995,28869,3,Betula,336,0.35344543356412794,True
+nearest_site,53995,28869,3,Cichorioideae,23,0.0,True
+nearest_site,53995,28869,3,Cyperaceae,403,0.0023079459281239697,True
+nearest_site,53995,28869,3,Filipendula,70,0.0013188262446422684,True
+nearest_site,53995,28869,3,Frangula alnus,1,0.0019782393669634025,True
+nearest_site,53995,28869,3,Nuphar,2,0.0006594131223211342,True
+nearest_site,53995,28869,3,Plantago lanceolata,179,0.006264424662050775,True
+nearest_site,53995,28869,3,Plantago media,0,0.0,True
+nearest_site,53995,28869,3,Populus,0,0.0023079459281239697,True
+nearest_site,53995,28869,3,Quercus,230,0.2871744147708539,True
+nearest_site,53995,28869,3,Rosaceae undiff.,8,0.0,True
+nearest_site,53995,28869,3,Salix,14,0.0019782393669634025,True
+nearest_site,53995,28869,3,Thalictrum,0,0.0006594131223211342,True
+nearest_site,53995,28869,3,Ulmus,37,0.05934718100890208,True
+inverse_distance_squared,53995,28869,3,Alnus,453,0.28208276445399905,True
+inverse_distance_squared,53995,28869,3,Amaranthaceae,13,0.0003297885058054958,True
+inverse_distance_squared,53995,28869,3,Betula,336,0.35383208641565345,True
+inverse_distance_squared,53995,28869,3,Cichorioideae,23,3.5153904960224993e-07,True
+inverse_distance_squared,53995,28869,3,Cyperaceae,403,0.0023338303522098328,True
+inverse_distance_squared,53995,28869,3,Filipendula,70,0.001318450945122779,True
+inverse_distance_squared,53995,28869,3,Frangula alnus,1,0.0019766218005353615,True
+inverse_distance_squared,53995,28869,3,Nuphar,2,0.0006588739335117871,True
+inverse_distance_squared,53995,28869,3,Plantago lanceolata,179,0.006259302368361978,True
+inverse_distance_squared,53995,28869,3,Plantago media,0,0.0,True
+inverse_distance_squared,53995,28869,3,Populus,0,0.0023106287749360844,True
+inverse_distance_squared,53995,28869,3,Quercus,230,0.28694908959872256,True
+inverse_distance_squared,53995,28869,3,Rosaceae undiff.,8,3.5153904960224993e-07,True
+inverse_distance_squared,53995,28869,3,Salix,14,0.0019868164329738267,True
+inverse_distance_squared,53995,28869,3,Thalictrum,0,0.0006595770116109916,True
+inverse_distance_squared,53995,28869,3,Ulmus,37,0.05930146632845766,True
+clr_rbf_ridge,53995,28869,3,Alnus,453,0.2817281173954735,True
+clr_rbf_ridge,53995,28869,3,Amaranthaceae,13,0.000495804269398337,True
+clr_rbf_ridge,53995,28869,3,Betula,336,0.35529728335429883,True
+clr_rbf_ridge,53995,28869,3,Cichorioideae,23,0.0001659684012214636,True
+clr_rbf_ridge,53995,28869,3,Cyperaceae,403,0.002501650238352181,True
+clr_rbf_ridge,53995,28869,3,Filipendula,70,0.001484051569913921,True
+clr_rbf_ridge,53995,28869,3,Frangula alnus,1,0.002127379047455084,True
+clr_rbf_ridge,53995,28869,3,Nuphar,2,0.0008212374202198339,True
+clr_rbf_ridge,53995,28869,3,Plantago lanceolata,179,0.00635520741655727,True
+clr_rbf_ridge,53995,28869,3,Plantago media,0,0.00016526808979944565,True
+clr_rbf_ridge,53995,28869,3,Populus,0,0.0024846360989451057,True
+clr_rbf_ridge,53995,28869,3,Quercus,230,0.2842558507952622,True
+clr_rbf_ridge,53995,28869,3,Rosaceae undiff.,8,0.0001659684012214636,True
+clr_rbf_ridge,53995,28869,3,Salix,14,0.002161029774636039,True
+clr_rbf_ridge,53995,28869,3,Thalictrum,0,0.0008263404489972283,True
+clr_rbf_ridge,53995,28869,3,Ulmus,37,0.058964207278248144,True
+training_mean,53995,28869,4,Alnus,223,0.19206224135675723,True
+training_mean,53995,28869,4,Amaranthaceae,15,0.0004977767581794687,True
+training_mean,53995,28869,4,Betula,159,0.5824069825747786,True
+training_mean,53995,28869,4,Cichorioideae,19,0.0,True
+training_mean,53995,28869,4,Cyperaceae,232,0.011484168754310721,True
+training_mean,53995,28869,4,Filipendula,35,0.001376705459849848,True
+training_mean,53995,28869,4,Frangula alnus,0,0.0005040322580645161,True
+training_mean,53995,28869,4,Nuphar,4,0.0002457606291472106,True
+training_mean,53995,28869,4,Plantago lanceolata,87,0.004026002564631081,True
+training_mean,53995,28869,4,Plantago media,0,0.0,True
+training_mean,53995,28869,4,Populus,0,0.006783439301088482,True
+training_mean,53995,28869,4,Quercus,107,0.15894711142073428,True
+training_mean,53995,28869,4,Rosaceae undiff.,3,0.0001228803145736053,True
+training_mean,53995,28869,4,Salix,2,0.003938425566240417,True
+training_mean,53995,28869,4,Thalictrum,0,0.00036864094372081595,True
+training_mean,53995,28869,4,Ulmus,12,0.037235832097923714,True
+nearest_site,53995,28869,4,Alnus,223,0.3069556451612903,True
+nearest_site,53995,28869,4,Amaranthaceae,15,0.0005040322580645161,True
+nearest_site,53995,28869,4,Betula,159,0.2933467741935484,True
+nearest_site,53995,28869,4,Cichorioideae,19,0.0,True
+nearest_site,53995,28869,4,Cyperaceae,232,0.0045362903225806455,True
+nearest_site,53995,28869,4,Filipendula,35,0.0020161290322580645,True
+nearest_site,53995,28869,4,Frangula alnus,0,0.0010080645161290322,True
+nearest_site,53995,28869,4,Nuphar,4,0.0,True
+nearest_site,53995,28869,4,Plantago lanceolata,87,0.007560483870967742,True
+nearest_site,53995,28869,4,Plantago media,0,0.0,True
+nearest_site,53995,28869,4,Populus,0,0.0020161290322580645,True
+nearest_site,53995,28869,4,Quercus,107,0.3119959677419355,True
+nearest_site,53995,28869,4,Rosaceae undiff.,3,0.0,True
+nearest_site,53995,28869,4,Salix,2,0.0005040322580645161,True
+nearest_site,53995,28869,4,Thalictrum,0,0.0,True
+nearest_site,53995,28869,4,Ulmus,12,0.06955645161290322,True
+inverse_distance_squared,53995,28869,4,Alnus,223,0.30676775312365195,True
+inverse_distance_squared,53995,28869,4,Amaranthaceae,15,0.0005040220280723588,True
+inverse_distance_squared,53995,28869,4,Betula,159,0.2938194915972848,True
+inverse_distance_squared,53995,28869,4,Cichorioideae,19,0.0,True
+inverse_distance_squared,53995,28869,4,Cyperaceae,232,0.0045476526026817935,True
+inverse_distance_squared,53995,28869,4,Filipendula,35,0.0020150833447428944,True
+inverse_distance_squared,53995,28869,4,Frangula alnus,0,0.001007240242107485,True
+inverse_distance_squared,53995,28869,4,Nuphar,4,4.019070186162856e-07,True
+inverse_distance_squared,53995,28869,4,Plantago lanceolata,87,0.007554703722824755,True
+inverse_distance_squared,53995,28869,4,Plantago media,0,0.0,True
+inverse_distance_squared,53995,28869,4,Populus,0,0.0020239252991524526,True
+inverse_distance_squared,53995,28869,4,Quercus,107,0.31174567781649004,True
+inverse_distance_squared,53995,28869,4,Rosaceae undiff.,3,2.009535093081428e-07,True
+inverse_distance_squared,53995,28869,4,Salix,2,0.0005096487263329868,True
+inverse_distance_squared,53995,28869,4,Thalictrum,0,6.028605279244286e-07,True
+inverse_distance_squared,53995,28869,4,Ulmus,12,0.06950359577560264,True
+clr_rbf_ridge,53995,28869,4,Alnus,223,0.30613885377817374,True
+clr_rbf_ridge,53995,28869,4,Amaranthaceae,15,0.0007568257143413869,True
+clr_rbf_ridge,53995,28869,4,Betula,159,0.2953698530947895,True
+clr_rbf_ridge,53995,28869,4,Cichorioideae,19,0.0002517797198641074,True
+clr_rbf_ridge,53995,28869,4,Cyperaceae,232,0.004822133585842443,True
+clr_rbf_ridge,53995,28869,4,Filipendula,35,0.0022638266427431044,True
+clr_rbf_ridge,53995,28869,4,Frangula alnus,0,0.001251124326878773,True
+clr_rbf_ridge,53995,28869,4,Nuphar,4,0.0002533442359521428,True
+clr_rbf_ridge,53995,28869,4,Plantago lanceolata,87,0.0077505511227921485,True
+clr_rbf_ridge,53995,28869,4,Plantago media,0,0.0002517797198641074,True
+clr_rbf_ridge,53995,28869,4,Populus,0,0.0022866650576147418,True
+clr_rbf_ridge,53995,28869,4,Quercus,107,0.30810056421810456,True
+clr_rbf_ridge,53995,28869,4,Rosaceae undiff.,3,0.00025284661798017597,True
+clr_rbf_ridge,53995,28869,4,Salix,2,0.0007641474968913477,True
+clr_rbf_ridge,53995,28869,4,Thalictrum,0,0.0002536725434003554,True
+clr_rbf_ridge,53995,28869,4,Ulmus,12,0.06923203212476738,True
+training_mean,53995,28869,5,Alnus,599,0.18357987304175644,True
+training_mean,53995,28869,5,Amaranthaceae,23,0.0,True
+training_mean,53995,28869,5,Betula,342,0.6158400572268073,True
+training_mean,53995,28869,5,Cichorioideae,27,0.00012251899044351874,True
+training_mean,53995,28869,5,Cyperaceae,360,0.009856735193058064,True
+training_mean,53995,28869,5,Filipendula,57,0.0008055760974789658,True
+training_mean,53995,28869,5,Frangula alnus,0,0.0011210762331838565,True
+training_mean,53995,28869,5,Nuphar,2,0.0005605381165919282,True
+training_mean,53995,28869,5,Plantago lanceolata,207,0.0033632286995515697,True
+training_mean,53995,28869,5,Plantago media,0,0.0,True
+training_mean,53995,28869,5,Populus,0,0.00925938643808176,True
+training_mean,53995,28869,5,Quercus,154,0.13286277982952827,True
+training_mean,53995,28869,5,Rosaceae undiff.,5,0.0,True
+training_mean,53995,28869,5,Salix,8,0.005706335715219716,True
+training_mean,53995,28869,5,Thalictrum,0,0.0,True
+training_mean,53995,28869,5,Ulmus,16,0.03692189441829851,True
+nearest_site,53995,28869,5,Alnus,599,0.289237668161435,True
+nearest_site,53995,28869,5,Amaranthaceae,23,0.0,True
+nearest_site,53995,28869,5,Betula,342,0.3654708520179372,True
+nearest_site,53995,28869,5,Cichorioideae,27,0.0,True
+nearest_site,53995,28869,5,Cyperaceae,360,0.006726457399103139,True
+nearest_site,53995,28869,5,Filipendula,57,0.0011210762331838565,True
+nearest_site,53995,28869,5,Frangula alnus,0,0.002242152466367713,True
+nearest_site,53995,28869,5,Nuphar,2,0.0011210762331838565,True
+nearest_site,53995,28869,5,Plantago lanceolata,207,0.006726457399103139,True
+nearest_site,53995,28869,5,Plantago media,0,0.0,True
+nearest_site,53995,28869,5,Populus,0,0.0011210762331838565,True
+nearest_site,53995,28869,5,Quercus,154,0.2600896860986547,True
+nearest_site,53995,28869,5,Rosaceae undiff.,5,0.0,True
+nearest_site,53995,28869,5,Salix,8,0.0011210762331838565,True
+nearest_site,53995,28869,5,Thalictrum,0,0.0,True
+nearest_site,53995,28869,5,Ulmus,16,0.06502242152466367,True
+inverse_distance_squared,53995,28869,5,Alnus,599,0.2890648796656638,True
+inverse_distance_squared,53995,28869,5,Amaranthaceae,23,0.0,True
+inverse_distance_squared,53995,28869,5,Betula,342,0.365880295715929,True
+inverse_distance_squared,53995,28869,5,Cichorioideae,27,2.0036261440206646e-07,True
+inverse_distance_squared,53995,28869,5,Cyperaceae,360,0.006731576529128053,True
+inverse_distance_squared,53995,28869,5,Filipendula,57,0.0011205602769895947,True
+inverse_distance_squared,53995,28869,5,Frangula alnus,0,0.0022403191035215812,True
+inverse_distance_squared,53995,28869,5,Nuphar,2,0.0011201595517607906,True
+inverse_distance_squared,53995,28869,5,Plantago lanceolata,207,0.006720957310564744,True
+inverse_distance_squared,53995,28869,5,Plantago media,0,0.0,True
+inverse_distance_squared,53995,28869,5,Populus,0,0.0011343852973833373,True
+inverse_distance_squared,53995,28869,5,Quercus,154,0.2598816243486346,True
+inverse_distance_squared,53995,28869,5,Rosaceae undiff.,5,0.0,True
+inverse_distance_squared,53995,28869,5,Salix,8,0.0011285747815656774,True
+inverse_distance_squared,53995,28869,5,Thalictrum,0,0.0,True
+inverse_distance_squared,53995,28869,5,Ulmus,16,0.06497646705624431,True
+clr_rbf_ridge,53995,28869,5,Alnus,599,0.28710808555556655,True
+clr_rbf_ridge,53995,28869,5,Amaranthaceae,23,0.0005548888263216495,True
+clr_rbf_ridge,53995,28869,5,Betula,342,0.365679935891754,True
+clr_rbf_ridge,53995,28869,5,Cichorioideae,27,0.000557240127068785,True
+clr_rbf_ridge,53995,28869,5,Cyperaceae,360,0.007272316834742315,True
+clr_rbf_ridge,53995,28869,5,Filipendula,57,0.0016679426468009305,True
+clr_rbf_ridge,53995,28869,5,Frangula alnus,0,0.002757310674977811,True
+clr_rbf_ridge,53995,28869,5,Nuphar,2,0.0016576423409935652,True
+clr_rbf_ridge,53995,28869,5,Plantago lanceolata,207,0.007142690789347889,True
+clr_rbf_ridge,53995,28869,5,Plantago media,0,0.0005548888263216495,True
+clr_rbf_ridge,53995,28869,5,Populus,0,0.0016896103212930079,True
+clr_rbf_ridge,53995,28869,5,Quercus,154,0.25575721099973087,True
+clr_rbf_ridge,53995,28869,5,Rosaceae undiff.,5,0.0005548888263216495,True
+clr_rbf_ridge,53995,28869,5,Salix,8,0.0016862307944675054,True
+clr_rbf_ridge,53995,28869,5,Thalictrum,0,0.0005548888263216495,True
+clr_rbf_ridge,53995,28869,5,Ulmus,16,0.06480422771797016,True
+training_mean,53995,28869,6,Alnus,1365,0.19029441021623,True
+training_mean,53995,28869,6,Amaranthaceae,7,0.0005347593582887701,True
+training_mean,53995,28869,6,Betula,124,0.611625699846865,True
+training_mean,53995,28869,6,Cichorioideae,3,0.0002668801708033093,True
+training_mean,53995,28869,6,Cyperaceae,8,0.006007800893120914,True
+training_mean,53995,28869,6,Filipendula,24,0.00040032025620496394,True
+training_mean,53995,28869,6,Frangula alnus,0,0.0010695187165775401,True
+training_mean,53995,28869,6,Nuphar,4,0.00013344008540165466,True
+training_mean,53995,28869,6,Plantago lanceolata,18,0.0016042780748663102,True
+training_mean,53995,28869,6,Plantago media,0,0.0,True
+training_mean,53995,28869,6,Populus,1,0.010677204865496675,True
+training_mean,53995,28869,6,Quercus,216,0.13809735845717572,True
+training_mean,53995,28869,6,Rosaceae undiff.,4,0.0,True
+training_mean,53995,28869,6,Salix,12,0.005607480636915949,True
+training_mean,53995,28869,6,Thalictrum,0,0.0,True
+training_mean,53995,28869,6,Ulmus,35,0.03368084842205315,True
+nearest_site,53995,28869,6,Alnus,1365,0.29518716577540105,True
+nearest_site,53995,28869,6,Amaranthaceae,7,0.0010695187165775401,True
+nearest_site,53995,28869,6,Betula,124,0.360427807486631,True
+nearest_site,53995,28869,6,Cichorioideae,3,0.0,True
+nearest_site,53995,28869,6,Cyperaceae,8,0.0032085561497326204,True
+nearest_site,53995,28869,6,Filipendula,24,0.0,True
+nearest_site,53995,28869,6,Frangula alnus,0,0.0021390374331550803,True
+nearest_site,53995,28869,6,Nuphar,4,0.0,True
+nearest_site,53995,28869,6,Plantago lanceolata,18,0.0032085561497326204,True
+nearest_site,53995,28869,6,Plantago media,0,0.0,True
+nearest_site,53995,28869,6,Populus,1,0.0021390374331550803,True
+nearest_site,53995,28869,6,Quercus,216,0.2716577540106952,True
+nearest_site,53995,28869,6,Rosaceae undiff.,4,0.0,True
+nearest_site,53995,28869,6,Salix,12,0.0032085561497326204,True
+nearest_site,53995,28869,6,Thalictrum,0,0.0,True
+nearest_site,53995,28869,6,Ulmus,35,0.057754010695187166,True
+inverse_distance_squared,53995,28869,6,Alnus,1365,0.2950156283944645,True
+inverse_distance_squared,53995,28869,6,Amaranthaceae,7,0.001068644192695856,True
+inverse_distance_squared,53995,28869,6,Betula,124,0.3608386063861599,True
+inverse_distance_squared,53995,28869,6,Cichorioideae,3,4.364450650519526e-07,True
+inverse_distance_squared,53995,28869,6,Cyperaceae,8,0.0032131339216609246,True
+inverse_distance_squared,53995,28869,6,Filipendula,24,6.546675975779288e-07,True
+inverse_distance_squared,53995,28869,6,Frangula alnus,0,0.002137288385391712,True
+inverse_distance_squared,53995,28869,6,Nuphar,4,2.182225325259763e-07,True
+inverse_distance_squared,53995,28869,6,Plantago lanceolata,18,0.0032059325780875677,True
+inverse_distance_squared,53995,28869,6,Plantago media,0,0.0,True
+inverse_distance_squared,53995,28869,6,Populus,1,0.002153000407733582,True
+inverse_distance_squared,53995,28869,6,Quercus,216,0.27143933472780035,True
+inverse_distance_squared,53995,28869,6,Rosaceae undiff.,4,0.0,True
+inverse_distance_squared,53995,28869,6,Salix,12,0.0032124792540633466,True
+inverse_distance_squared,53995,28869,6,Thalictrum,0,0.0,True
+inverse_distance_squared,53995,28869,6,Ulmus,35,0.05771464241674715,True
+clr_rbf_ridge,53995,28869,6,Alnus,1365,0.29323491646512184,True
+clr_rbf_ridge,53995,28869,6,Amaranthaceae,7,0.0015831736749426226,True
+clr_rbf_ridge,53995,28869,6,Betula,124,0.36084842197407885,True
+clr_rbf_ridge,53995,28869,6,Cichorioideae,3,0.0005332538378808078,True
+clr_rbf_ridge,53995,28869,6,Cyperaceae,8,0.0037421177772320787,True
+clr_rbf_ridge,53995,28869,6,Filipendula,24,0.0005339448786937407,True
+clr_rbf_ridge,53995,28869,6,Frangula alnus,0,0.00263344001676903,True
+clr_rbf_ridge,53995,28869,6,Nuphar,4,0.0005322064223264244,True
+clr_rbf_ridge,53995,28869,6,Plantago lanceolata,18,0.00368204448161219,True
+clr_rbf_ridge,53995,28869,6,Plantago media,0,0.0005299607524658752,True
+clr_rbf_ridge,53995,28869,6,Populus,1,0.0026843699575014148,True
+clr_rbf_ridge,53995,28869,6,Quercus,216,0.26698480262927915,True
+clr_rbf_ridge,53995,28869,6,Rosaceae undiff.,4,0.0005299607524658752,True
+clr_rbf_ridge,53995,28869,6,Salix,12,0.003740766738083995,True
+clr_rbf_ridge,53995,28869,6,Thalictrum,0,0.0005299607524658752,True
+clr_rbf_ridge,53995,28869,6,Ulmus,35,0.05767665888908027,True
+training_mean,53995,28869,7,Alnus,1343,0.2026734004412576,True
+training_mean,53995,28869,7,Amaranthaceae,0,0.0001378929950358522,True
+training_mean,53995,28869,7,Betula,70,0.5675882515168229,True
+training_mean,53995,28869,7,Cichorioideae,0,0.0001378929950358522,True
+training_mean,53995,28869,7,Cyperaceae,3,0.005147717870932157,True
+training_mean,53995,28869,7,Filipendula,1,0.0009652509652509653,True
+training_mean,53995,28869,7,Frangula alnus,1,0.0015625,True
+training_mean,53995,28869,7,Nuphar,1,0.0,True
+training_mean,53995,28869,7,Plantago lanceolata,14,0.0015625,True
+training_mean,53995,28869,7,Plantago media,0,0.0,True
+training_mean,53995,28869,7,Populus,0,0.012915402647545506,True
+training_mean,53995,28869,7,Quercus,150,0.16410903888582462,True
+training_mean,53995,28869,7,Rosaceae undiff.,3,0.0,True
+training_mean,53995,28869,7,Salix,0,0.005423503861003862,True
+training_mean,53995,28869,7,Thalictrum,0,0.0,True
+training_mean,53995,28869,7,Ulmus,18,0.03777664782129068,True
+nearest_site,53995,28869,7,Alnus,1343,0.31875,True
+nearest_site,53995,28869,7,Amaranthaceae,0,0.0,True
+nearest_site,53995,28869,7,Betula,70,0.275,True
+nearest_site,53995,28869,7,Cichorioideae,0,0.0,True
+nearest_site,53995,28869,7,Cyperaceae,3,0.003125,True
+nearest_site,53995,28869,7,Filipendula,1,0.0,True
+nearest_site,53995,28869,7,Frangula alnus,1,0.003125,True
+nearest_site,53995,28869,7,Nuphar,1,0.0,True
+nearest_site,53995,28869,7,Plantago lanceolata,14,0.003125,True
+nearest_site,53995,28869,7,Plantago media,0,0.0,True
+nearest_site,53995,28869,7,Populus,0,0.00625,True
+nearest_site,53995,28869,7,Quercus,150,0.321875,True
+nearest_site,53995,28869,7,Rosaceae undiff.,3,0.0,True
+nearest_site,53995,28869,7,Salix,0,0.003125,True
+nearest_site,53995,28869,7,Thalictrum,0,0.0,True
+nearest_site,53995,28869,7,Ulmus,18,0.065625,True
+inverse_distance_squared,53995,28869,7,Alnus,1343,0.31856017301175676,True
+inverse_distance_squared,53995,28869,7,Amaranthaceae,0,2.2550464130580068e-07,True
+inverse_distance_squared,53995,28869,7,Betula,70,0.2754784870231547,True
+inverse_distance_squared,53995,28869,7,Cichorioideae,0,2.2550464130580068e-07,True
+inverse_distance_squared,53995,28869,7,Cyperaceae,3,0.003128307871207155,True
+inverse_distance_squared,53995,28869,7,Filipendula,1,1.5785324891406047e-06,True
+inverse_distance_squared,53995,28869,7,Frangula alnus,1,0.003122444750533204,True
+inverse_distance_squared,53995,28869,7,Nuphar,1,0.0,True
+inverse_distance_squared,53995,28869,7,Plantago lanceolata,14,0.003122444750533204,True
+inverse_distance_squared,53995,28869,7,Plantago media,0,0.0,True
+inverse_distance_squared,53995,28869,7,Populus,0,0.006260900330599119,True
+inverse_distance_squared,53995,28869,7,Quercus,150,0.32161699591167003,True
+inverse_distance_squared,53995,28869,7,Rosaceae undiff.,3,0.0,True
+inverse_distance_squared,53995,28869,7,Salix,0,0.0031287588804897663,True
+inverse_distance_squared,53995,28869,7,Thalictrum,0,0.0,True
+inverse_distance_squared,53995,28869,7,Ulmus,18,0.06557945792828429,True
+clr_rbf_ridge,53995,28869,7,Alnus,1343,0.3127234237487962,True
+clr_rbf_ridge,53995,28869,7,Amaranthaceae,0,0.0015253479610452384,True
+clr_rbf_ridge,53995,28869,7,Betula,70,0.2725590573938988,True
+clr_rbf_ridge,53995,28869,7,Cichorioideae,0,0.0015253479610452384,True
+clr_rbf_ridge,53995,28869,7,Cyperaceae,3,0.004607379437100188,True
+clr_rbf_ridge,53995,28869,7,Filipendula,1,0.0015348262122173175,True
+clr_rbf_ridge,53995,28869,7,Frangula alnus,1,0.004537507695788521,True
+clr_rbf_ridge,53995,28869,7,Nuphar,1,0.0015189116840683555,True
+clr_rbf_ridge,53995,28869,7,Plantago lanceolata,14,0.004537507695788521,True
+clr_rbf_ridge,53995,28869,7,Plantago media,0,0.0015189116840683555,True
+clr_rbf_ridge,53995,28869,7,Populus,0,0.007693216740565579,True
+clr_rbf_ridge,53995,28869,7,Quercus,150,0.31262568238987953,True
+clr_rbf_ridge,53995,28869,7,Rosaceae undiff.,3,0.0015189116840683555,True
+clr_rbf_ridge,53995,28869,7,Salix,0,0.004608669892065405,True
+clr_rbf_ridge,53995,28869,7,Thalictrum,0,0.0015189116840683555,True
+clr_rbf_ridge,53995,28869,7,Ulmus,18,0.06544638613553608,True
+training_mean,53995,28869,8,Alnus,1442,0.21686771789699041,True
+training_mean,53995,28869,8,Amaranthaceae,1,0.0,True
+training_mean,53995,28869,8,Betula,123,0.578667788083573,True
+training_mean,53995,28869,8,Cichorioideae,0,0.0,True
+training_mean,53995,28869,8,Cyperaceae,13,0.004281773642389559,True
+training_mean,53995,28869,8,Filipendula,0,0.00022251891410769915,True
+training_mean,53995,28869,8,Frangula alnus,0,0.0015733165512901196,True
+training_mean,53995,28869,8,Nuphar,0,0.00031466331025802394,True
+training_mean,53995,28869,8,Plantago lanceolata,0,0.0012586532410320957,True
+training_mean,53995,28869,8,Plantago media,0,0.0,True
+training_mean,53995,28869,8,Populus,0,0.009396277758499341,True
+training_mean,53995,28869,8,Quercus,288,0.14632530108671574,True
+training_mean,53995,28869,8,Rosaceae undiff.,1,0.0,True
+training_mean,53995,28869,8,Salix,3,0.007005914886025224,True
+training_mean,53995,28869,8,Thalictrum,0,0.000537182224365723,True
+training_mean,53995,28869,8,Ulmus,157,0.03354889240475308,True
+nearest_site,53995,28869,8,Alnus,1442,0.32158590308370044,True
+nearest_site,53995,28869,8,Amaranthaceae,1,0.0,True
+nearest_site,53995,28869,8,Betula,123,0.3184392699811202,True
+nearest_site,53995,28869,8,Cichorioideae,0,0.0,True
+nearest_site,53995,28869,8,Cyperaceae,13,0.0018879798615481435,True
+nearest_site,53995,28869,8,Filipendula,0,0.0,True
+nearest_site,53995,28869,8,Frangula alnus,0,0.0031466331025802393,True
+nearest_site,53995,28869,8,Nuphar,0,0.0006293266205160479,True
+nearest_site,53995,28869,8,Plantago lanceolata,0,0.0025173064820641915,True
+nearest_site,53995,28869,8,Plantago media,0,0.0,True
+nearest_site,53995,28869,8,Populus,0,0.005663939584644431,True
+nearest_site,53995,28869,8,Quercus,288,0.2850849590937697,True
+nearest_site,53995,28869,8,Rosaceae undiff.,1,0.0,True
+nearest_site,53995,28869,8,Salix,3,0.003775959723096287,True
+nearest_site,53995,28869,8,Thalictrum,0,0.0006293266205160479,True
+nearest_site,53995,28869,8,Ulmus,157,0.056639395846444306,True
+inverse_distance_squared,53995,28869,8,Alnus,1442,0.32141465118810864,True
+inverse_distance_squared,53995,28869,8,Amaranthaceae,1,0.0,True
+inverse_distance_squared,53995,28869,8,Betula,123,0.3188648372016812,True
+inverse_distance_squared,53995,28869,8,Cichorioideae,0,0.0,True
+inverse_distance_squared,53995,28869,8,Cyperaceae,13,0.0018918945753286975,True
+inverse_distance_squared,53995,28869,8,Filipendula,0,3.638984554405132e-07,True
+inverse_distance_squared,53995,28869,8,Frangula alnus,0,0.0031440601641618163,True
+inverse_distance_squared,53995,28869,8,Nuphar,0,0.0006288120328323633,True
+inverse_distance_squared,53995,28869,8,Plantago lanceolata,0,0.0025152481313294533,True
+inverse_distance_squared,53995,28869,8,Plantago media,0,0.0,True
+inverse_distance_squared,53995,28869,8,Populus,0,0.0056700432999267645,True
+inverse_distance_squared,53995,28869,8,Quercus,288,0.2848580371468031,True
+inverse_distance_squared,53995,28869,8,Rosaceae undiff.,1,0.0,True
+inverse_distance_squared,53995,28869,8,Salix,3,0.003781241861469311,True
+inverse_distance_squared,53995,28869,8,Thalictrum,0,0.0006291759312878039,True
+inverse_distance_squared,53995,28869,8,Ulmus,157,0.05660163456861555,True
+clr_rbf_ridge,53995,28869,8,Alnus,1442,0.32041945762961493,True
+clr_rbf_ridge,53995,28869,8,Amaranthaceae,1,0.00031323211361166027,True
+clr_rbf_ridge,53995,28869,8,Betula,123,0.3197652697315004,True
+clr_rbf_ridge,53995,28869,8,Cichorioideae,0,0.00031323211361166027,True
+clr_rbf_ridge,53995,28869,8,Cyperaceae,13,0.002210971786960195,True
+clr_rbf_ridge,53995,28869,8,Filipendula,0,0.0003151784843570852,True
+clr_rbf_ridge,53995,28869,8,Frangula alnus,0,0.0034138994519461764,True
+clr_rbf_ridge,53995,28869,8,Nuphar,0,0.0009357312482277618,True
+clr_rbf_ridge,53995,28869,8,Plantago lanceolata,0,0.0027953486595420694,True
+clr_rbf_ridge,53995,28869,8,Plantago media,0,0.00031323211361166027,True
+clr_rbf_ridge,53995,28869,8,Populus,0,0.005993585130561536,True
+clr_rbf_ridge,53995,28869,8,Quercus,288,0.2812985890980593,True
+clr_rbf_ridge,53995,28869,8,Rosaceae undiff.,1,0.00031323211361166027,True
+clr_rbf_ridge,53995,28869,8,Salix,3,0.004102973296349117,True
+clr_rbf_ridge,53995,28869,8,Thalictrum,0,0.0009415457220571868,True
+clr_rbf_ridge,53995,28869,8,Ulmus,157,0.056554521306377586,True
+training_mean,53995,28869,9,Alnus,2115,0.23665308968503762,True
+training_mean,53995,28869,9,Amaranthaceae,1,0.0005279141859353256,True
+training_mean,53995,28869,9,Betula,155,0.5786638670331581,True
+training_mean,53995,28869,9,Cichorioideae,4,0.00016388069485414618,True
+training_mean,53995,28869,9,Cyperaceae,34,0.005169669316558441,True
+training_mean,53995,28869,9,Filipendula,1,0.001037692321184208,True
+training_mean,53995,28869,9,Frangula alnus,0,0.0016569429992279053,True
+training_mean,53995,28869,9,Nuphar,0,0.00018201674554058973,True
+training_mean,53995,28869,9,Plantago lanceolata,9,0.0011471648639790233,True
+training_mean,53995,28869,9,Plantago media,0,0.00016388069485414618,True
+training_mean,53995,28869,9,Populus,0,0.007736039804813141,True
+training_mean,53995,28869,9,Quercus,394,0.13467234659138297,True
+training_mean,53995,28869,9,Rosaceae undiff.,2,0.0008738116263300615,True
+training_mean,53995,28869,9,Salix,2,0.004659891181309559,True
+training_mean,53995,28869,9,Thalictrum,0,0.0,True
+training_mean,53995,28869,9,Ulmus,174,0.026691792255834765,True
+nearest_site,53995,28869,9,Alnus,2115,0.3382497541789577,True
+nearest_site,53995,28869,9,Amaranthaceae,1,0.00032776138970829236,True
+nearest_site,53995,28869,9,Betula,155,0.3448049819731236,True
+nearest_site,53995,28869,9,Cichorioideae,4,0.00032776138970829236,True
+nearest_site,53995,28869,9,Cyperaceae,34,0.0019665683382497543,True
+nearest_site,53995,28869,9,Filipendula,1,0.0009832841691248771,True
+nearest_site,53995,28869,9,Frangula alnus,0,0.0029498525073746312,True
+nearest_site,53995,28869,9,Nuphar,0,0.0,True
+nearest_site,53995,28869,9,Plantago lanceolata,9,0.0022943297279580466,True
+nearest_site,53995,28869,9,Plantago media,0,0.00032776138970829236,True
+nearest_site,53995,28869,9,Populus,0,0.0016388069485414618,True
+nearest_site,53995,28869,9,Quercus,394,0.2635201573254671,True
+nearest_site,53995,28869,9,Rosaceae undiff.,2,0.0006555227794165847,True
+nearest_site,53995,28869,9,Salix,2,0.0013110455588331695,True
+nearest_site,53995,28869,9,Thalictrum,0,0.0,True
+nearest_site,53995,28869,9,Ulmus,174,0.04064241232382825,True
+inverse_distance_squared,53995,28869,9,Alnus,2115,0.33808360709238083,True
+inverse_distance_squared,53995,28869,9,Amaranthaceae,1,0.000328088711516828,True
+inverse_distance_squared,53995,28869,9,Betula,155,0.34518742535959096,True
+inverse_distance_squared,53995,28869,9,Cichorioideae,4,0.00032749338583108,True
+inverse_distance_squared,53995,28869,9,Cyperaceae,34,0.001971806560372582,True
+inverse_distance_squared,53995,28869,9,Filipendula,1,0.0009833731460218622,True
+inverse_distance_squared,53995,28869,9,Frangula alnus,0,0.0029477381353225944,True
+inverse_distance_squared,53995,28869,9,Nuphar,0,2.976628428739837e-07,True
+inverse_distance_squared,53995,28869,9,Plantago lanceolata,9,0.0022924537008175605,True
+inverse_distance_squared,53995,28869,9,Plantago media,0,0.00032749338583108,True
+inverse_distance_squared,53995,28869,9,Populus,0,0.0016487781171846117,True
+inverse_distance_squared,53995,28869,9,Quercus,394,0.26330944481367435,True
+inverse_distance_squared,53995,28869,9,Rosaceae undiff.,2,0.000655879760190782,True
+inverse_distance_squared,53995,28869,9,Salix,2,0.0013165221258675478,True
+inverse_distance_squared,53995,28869,9,Thalictrum,0,0.0,True
+inverse_distance_squared,53995,28869,9,Ulmus,174,0.040619598042554515,True
+clr_rbf_ridge,53995,28869,9,Alnus,2115,0.33770435633697765,True
+clr_rbf_ridge,53995,28869,9,Amaranthaceae,1,0.000493515045935263,True
+clr_rbf_ridge,53995,28869,9,Betula,155,0.3466045860318028,True
+clr_rbf_ridge,53995,28869,9,Cichorioideae,4,0.0004904673656667484,True
+clr_rbf_ridge,53995,28869,9,Cyperaceae,34,0.002144948702207386,True
+clr_rbf_ridge,53995,28869,9,Filipendula,1,0.0011492732654532556,True
+clr_rbf_ridge,53995,28869,9,Frangula alnus,0,0.0030973725413914665,True
+clr_rbf_ridge,53995,28869,9,Nuphar,0,0.00016487760381616145,True
+clr_rbf_ridge,53995,28869,9,Plantago lanceolata,9,0.0024371925310625155,True
+clr_rbf_ridge,53995,28869,9,Plantago media,0,0.0004904673656667484,True
+clr_rbf_ridge,53995,28869,9,Populus,0,0.0018195779555330695,True
+clr_rbf_ridge,53995,28869,9,Quercus,394,0.2602460605751055,True
+clr_rbf_ridge,53995,28869,9,Rosaceae undiff.,2,0.0008219732875476403,True
+clr_rbf_ridge,53995,28869,9,Salix,2,0.0014868188393538414,True
+clr_rbf_ridge,53995,28869,9,Thalictrum,0,0.00016418189506475076,True
+clr_rbf_ridge,53995,28869,9,Ulmus,174,0.040684330657415176,True
+training_mean,53995,28869,10,Alnus,1842,0.2334826402104995,True
+training_mean,53995,28869,10,Amaranthaceae,1,0.00039533716559740054,True
+training_mean,53995,28869,10,Betula,457,0.5992140280147434,True
+training_mean,53995,28869,10,Cichorioideae,1,0.00012177301509985388,True
+training_mean,53995,28869,10,Cyperaceae,13,0.0036798075054764586,True
+training_mean,53995,28869,10,Filipendula,1,0.0005171101806972543,True
+training_mean,53995,28869,10,Frangula alnus,0,0.0015179113539769277,True
+training_mean,53995,28869,10,Nuphar,1,0.0,True
+training_mean,53995,28869,10,Plantago lanceolata,12,0.0021250758955676987,True
+training_mean,53995,28869,10,Plantago media,0,0.0,True
+training_mean,53995,28869,10,Populus,1,0.009795075312949994,True
+training_mean,53995,28869,10,Quercus,486,0.12429032283822954,True
+training_mean,53995,28869,10,Rosaceae undiff.,2,0.0,True
+training_mean,53995,28869,10,Salix,13,0.007633179161450464,True
+training_mean,53995,28869,10,Thalictrum,0,0.00015179113539769278,True
+training_mean,53995,28869,10,Ulmus,139,0.017075948210313753,True
+nearest_site,53995,28869,10,Alnus,1842,0.3600485731633273,True
+nearest_site,53995,28869,10,Amaranthaceae,1,0.00030358227079538557,True
+nearest_site,53995,28869,10,Betula,457,0.3482088646023072,True
+nearest_site,53995,28869,10,Cichorioideae,1,0.0,True
+nearest_site,53995,28869,10,Cyperaceae,13,0.00273224043715847,True
+nearest_site,53995,28869,10,Filipendula,1,0.00030358227079538557,True
+nearest_site,53995,28869,10,Frangula alnus,0,0.0030358227079538553,True
+nearest_site,53995,28869,10,Nuphar,1,0.0,True
+nearest_site,53995,28869,10,Plantago lanceolata,12,0.004250151791135397,True
+nearest_site,53995,28869,10,Plantago media,0,0.0,True
+nearest_site,53995,28869,10,Populus,1,0.00546448087431694,True
+nearest_site,53995,28869,10,Quercus,486,0.2459016393442623,True
+nearest_site,53995,28869,10,Rosaceae undiff.,2,0.0,True
+nearest_site,53995,28869,10,Salix,13,0.005768063145112325,True
+nearest_site,53995,28869,10,Thalictrum,0,0.00030358227079538557,True
+nearest_site,53995,28869,10,Ulmus,139,0.023679417122040074,True
+inverse_distance_squared,53995,28869,10,Alnus,1842,0.35984159234240426,True
+inverse_distance_squared,53995,28869,10,Amaranthaceae,1,0.0003037323230488376,True
+inverse_distance_squared,53995,28869,10,Betula,457,0.34861934832068975,True
+inverse_distance_squared,53995,28869,10,Cichorioideae,1,1.99142676418615e-07,True
+inverse_distance_squared,53995,28869,10,Cyperaceae,13,0.002733790050115957,True
+inverse_distance_squared,53995,28869,10,Filipendula,1,0.0003039314657252562,True
+inverse_distance_squared,53995,28869,10,Frangula alnus,0,0.0030333403769600034,True
+inverse_distance_squared,53995,28869,10,Nuphar,1,0.0,True
+inverse_distance_squared,53995,28869,10,Plantago lanceolata,12,0.004246676527744005,True
+inverse_distance_squared,53995,28869,10,Plantago media,0,0.0,True
+inverse_distance_squared,53995,28869,10,Populus,1,0.005471562953760286,True
+inverse_distance_squared,53995,28869,10,Quercus,486,0.2457027611032009,True
+inverse_distance_squared,53995,28869,10,Rosaceae undiff.,2,0.0,True
+inverse_distance_squared,53995,28869,10,Salix,13,0.005771113280604333,True
+inverse_distance_squared,53995,28869,10,Thalictrum,0,0.0003033340376960004,True
+inverse_distance_squared,53995,28869,10,Ulmus,139,0.02366861807537403,True
+clr_rbf_ridge,53995,28869,10,Alnus,1842,0.3593814795380955,True
+clr_rbf_ridge,53995,28869,10,Amaranthaceae,1,0.00045697575829175554,True
+clr_rbf_ridge,53995,28869,10,Betula,457,0.35039729642925765,True
+clr_rbf_ridge,53995,28869,10,Cichorioideae,1,0.00015267025524304161,True
+clr_rbf_ridge,53995,28869,10,Cyperaceae,13,0.002896501052643726,True
+clr_rbf_ridge,53995,28869,10,Filipendula,1,0.0004575679507469571,True
+clr_rbf_ridge,53995,28869,10,Frangula alnus,0,0.0031553548226403885,True
+clr_rbf_ridge,53995,28869,10,Nuphar,1,0.0001520260559691905,True
+clr_rbf_ridge,53995,28869,10,Plantago lanceolata,12,0.004351984794291273,True
+clr_rbf_ridge,53995,28869,10,Plantago media,0,0.0001520260559691905,True
+clr_rbf_ridge,53995,28869,10,Populus,1,0.005649944129176552,True
+clr_rbf_ridge,53995,28869,10,Quercus,486,0.2424309266089124,True
+clr_rbf_ridge,53995,28869,10,Rosaceae undiff.,2,0.0001520260559691905,True
+clr_rbf_ridge,53995,28869,10,Salix,13,0.00594514663925342,True
+clr_rbf_ridge,53995,28869,10,Thalictrum,0,0.0004541537247728055,True
+clr_rbf_ridge,53995,28869,10,Ulmus,139,0.023813920128766992,True
+training_mean,53995,28869,11,Alnus,1249,0.24462300328303033,True
+training_mean,53995,28869,11,Amaranthaceae,0,0.00037313432835820896,True
+training_mean,53995,28869,11,Betula,137,0.5459035690310002,True
+training_mean,53995,28869,11,Cichorioideae,0,0.0,True
+training_mean,53995,28869,11,Cyperaceae,0,0.005408493576479893,True
+training_mean,53995,28869,11,Filipendula,1,0.0004621072088724584,True
+training_mean,53995,28869,11,Frangula alnus,0,0.0032931460994473105,True
+training_mean,53995,28869,11,Nuphar,1,0.0,True
+training_mean,53995,28869,11,Plantago lanceolata,0,0.00015403573629081948,True
+training_mean,53995,28869,11,Plantago media,0,0.0,True
+training_mean,53995,28869,11,Populus,0,0.012340101709566769,True
+training_mean,53995,28869,11,Quercus,383,0.1466896110942515,True
+training_mean,53995,28869,11,Rosaceae undiff.,0,0.0,True
+training_mean,53995,28869,11,Salix,4,0.0034950018852134886,True
+training_mean,53995,28869,11,Thalictrum,0,0.0,True
+training_mean,53995,28869,11,Ulmus,236,0.03725779604748899,True
+nearest_site,53995,28869,11,Alnus,1249,0.3164179104477612,True
+nearest_site,53995,28869,11,Amaranthaceae,0,0.0007462686567164179,True
+nearest_site,53995,28869,11,Betula,137,0.32686567164179103,True
+nearest_site,53995,28869,11,Cichorioideae,0,0.0,True
+nearest_site,53995,28869,11,Cyperaceae,0,0.0037313432835820895,True
+nearest_site,53995,28869,11,Filipendula,1,0.0,True
+nearest_site,53995,28869,11,Frangula alnus,0,0.005970149253731343,True
+nearest_site,53995,28869,11,Nuphar,1,0.0,True
+nearest_site,53995,28869,11,Plantago lanceolata,0,0.0,True
+nearest_site,53995,28869,11,Plantago media,0,0.0,True
+nearest_site,53995,28869,11,Populus,0,0.0037313432835820895,True
+nearest_site,53995,28869,11,Quercus,383,0.2902985074626866,True
+nearest_site,53995,28869,11,Rosaceae undiff.,0,0.0,True
+nearest_site,53995,28869,11,Salix,4,0.0029850746268656717,True
+nearest_site,53995,28869,11,Thalictrum,0,0.0,True
+nearest_site,53995,28869,11,Ulmus,236,0.049253731343283584,True
+inverse_distance_squared,53995,28869,11,Alnus,1249,0.31630049995288034,True
+inverse_distance_squared,53995,28869,11,Amaranthaceae,0,0.0007456584478885262,True
+inverse_distance_squared,53995,28869,11,Betula,137,0.3272238773829187,True
+inverse_distance_squared,53995,28869,11,Cichorioideae,0,0.0,True
+inverse_distance_squared,53995,28869,11,Cyperaceae,0,0.003734086027512755,True
+inverse_distance_squared,53995,28869,11,Filipendula,1,7.557114874074244e-07,True
+inverse_distance_squared,53995,28869,11,Frangula alnus,0,0.005965771390766482,True
+inverse_distance_squared,53995,28869,11,Nuphar,1,0.0,True
+inverse_distance_squared,53995,28869,11,Plantago lanceolata,0,2.5190382913580817e-07,True
+inverse_distance_squared,53995,28869,11,Plantago media,0,0.0,True
+inverse_distance_squared,53995,28869,11,Populus,0,0.0037454216998238665,True
+inverse_distance_squared,53995,28869,11,Quercus,383,0.29006365526692807,True
+inverse_distance_squared,53995,28869,11,Rosaceae undiff.,0,0.0,True
+inverse_distance_squared,53995,28869,11,Salix,4,0.0029859085413328702,True
+inverse_distance_squared,53995,28869,11,Thalictrum,0,0.0,True
+inverse_distance_squared,53995,28869,11,Ulmus,236,0.04923411367463187,True
+clr_rbf_ridge,53995,28869,11,Alnus,1249,0.3156875556789267,True
+clr_rbf_ridge,53995,28869,11,Amaranthaceae,0,0.001109601633266514,True
+clr_rbf_ridge,53995,28869,11,Betula,137,0.3279294585536471,True
+clr_rbf_ridge,53995,28869,11,Cichorioideae,0,0.00037143449629719103,True
+clr_rbf_ridge,53995,28869,11,Cyperaceae,0,0.0041086813089706116,True
+clr_rbf_ridge,53995,28869,11,Filipendula,1,0.0003742268576404528,True
+clr_rbf_ridge,53995,28869,11,Frangula alnus,0,0.006284714240137623,True
+clr_rbf_ridge,53995,28869,11,Nuphar,1,0.00037143449629719103,True
+clr_rbf_ridge,53995,28869,11,Plantago lanceolata,0,0.000373008422761786,True
+clr_rbf_ridge,53995,28869,11,Plantago media,0,0.00037143449629719103,True
+clr_rbf_ridge,53995,28869,11,Populus,0,0.0041256345313162995,True
+clr_rbf_ridge,53995,28869,11,Quercus,383,0.28535107201378657,True
+clr_rbf_ridge,53995,28869,11,Rosaceae undiff.,0,0.00037143449629719103,True
+clr_rbf_ridge,53995,28869,11,Salix,4,0.003357075804856073,True
+clr_rbf_ridge,53995,28869,11,Thalictrum,0,0.00037143449629719103,True
+clr_rbf_ridge,53995,28869,11,Ulmus,236,0.04944179847320427,True
+training_mean,54001,28872,-1,Alnus,118,0.07051793688116142,True
+training_mean,54001,28872,-1,Amaranthaceae,3,0.026436136937247882,True
+training_mean,54001,28872,-1,Betula,573,0.5815151972733352,True
+training_mean,54001,28872,-1,Cichorioideae,0,0.027152317880794703,True
+training_mean,54001,28872,-1,Cyperaceae,6,0.02994369782341394,True
+training_mean,54001,28872,-1,Filipendula,0,0.0013245033112582781,True
+training_mean,54001,28872,-1,Frangula alnus,10,0.0,True
+training_mean,54001,28872,-1,Nuphar,0,0.005960264900662252,True
+training_mean,54001,28872,-1,Plantago lanceolata,7,0.012886942640809371,True
+training_mean,54001,28872,-1,Plantago media,0,0.0,True
+training_mean,54001,28872,-1,Populus,2,0.0,True
+training_mean,54001,28872,-1,Quercus,105,0.02745647906465043,True
+training_mean,54001,28872,-1,Rosaceae undiff.,0,0.0026490066225165563,True
+training_mean,54001,28872,-1,Salix,12,0.17640917229328903,True
+training_mean,54001,28872,-1,Thalictrum,0,0.0,True
+training_mean,54001,28872,-1,Ulmus,11,0.03774834437086093,True
+nearest_site,54001,28872,-1,Alnus,118,0.059602649006622516,True
+nearest_site,54001,28872,-1,Amaranthaceae,3,0.046357615894039736,True
+nearest_site,54001,28872,-1,Betula,573,0.2900662251655629,True
+nearest_site,54001,28872,-1,Cichorioideae,0,0.054304635761589407,True
+nearest_site,54001,28872,-1,Cyperaceae,6,0.03708609271523179,True
+nearest_site,54001,28872,-1,Filipendula,0,0.0026490066225165563,True
+nearest_site,54001,28872,-1,Frangula alnus,10,0.0,True
+nearest_site,54001,28872,-1,Nuphar,0,0.011920529801324504,True
+nearest_site,54001,28872,-1,Plantago lanceolata,7,0.022516556291390728,True
+nearest_site,54001,28872,-1,Plantago media,0,0.0,True
+nearest_site,54001,28872,-1,Populus,2,0.0,True
+nearest_site,54001,28872,-1,Quercus,105,0.051655629139072845,True
+nearest_site,54001,28872,-1,Rosaceae undiff.,0,0.005298013245033113,True
+nearest_site,54001,28872,-1,Salix,12,0.343046357615894,True
+nearest_site,54001,28872,-1,Thalictrum,0,0.0,True
+nearest_site,54001,28872,-1,Ulmus,11,0.07549668874172186,True
+inverse_distance_squared,54001,28872,-1,Alnus,118,0.05962092778982849,True
+inverse_distance_squared,54001,28872,-1,Amaranthaceae,3,0.04632425530848498,True
+inverse_distance_squared,54001,28872,-1,Betula,573,0.2905542867392009,True
+inverse_distance_squared,54001,28872,-1,Cichorioideae,0,0.05425916638526263,True
+inverse_distance_squared,54001,28872,-1,Cyperaceae,6,0.03707413203317746,True
+inverse_distance_squared,54001,28872,-1,Filipendula,0,0.002646788604159153,True
+inverse_distance_squared,54001,28872,-1,Frangula alnus,10,0.0,True
+inverse_distance_squared,54001,28872,-1,Nuphar,0,0.011910548718716189,True
+inverse_distance_squared,54001,28872,-1,Plantago lanceolata,7,0.0225004305032027,True
+inverse_distance_squared,54001,28872,-1,Plantago media,0,0.0,True
+inverse_distance_squared,54001,28872,-1,Populus,2,0.0,True
+inverse_distance_squared,54001,28872,-1,Quercus,105,0.05161510514895338,True
+inverse_distance_squared,54001,28872,-1,Rosaceae undiff.,0,0.005293577208318306,True
+inverse_distance_squared,54001,28872,-1,Salix,12,0.34276730634215996,True
+inverse_distance_squared,54001,28872,-1,Thalictrum,0,0.0,True
+inverse_distance_squared,54001,28872,-1,Ulmus,11,0.07543347521853586,True
+clr_rbf_ridge,54001,28872,-1,Alnus,118,0.06094559104561091,True
+clr_rbf_ridge,54001,28872,-1,Amaranthaceae,3,0.046428283796841156,True
+clr_rbf_ridge,54001,28872,-1,Betula,573,0.29666764432175896,True
+clr_rbf_ridge,54001,28872,-1,Cichorioideae,0,0.05318260818728978,True
+clr_rbf_ridge,54001,28872,-1,Cyperaceae,6,0.03784372582062985,True
+clr_rbf_ridge,54001,28872,-1,Filipendula,0,0.003309147409240755,True
+clr_rbf_ridge,54001,28872,-1,Frangula alnus,10,0.0006742137844743647,True
+clr_rbf_ridge,54001,28872,-1,Nuphar,0,0.01238286432178559,True
+clr_rbf_ridge,54001,28872,-1,Plantago lanceolata,7,0.022939047755998917,True
+clr_rbf_ridge,54001,28872,-1,Plantago media,0,0.0006742137844743647,True
+clr_rbf_ridge,54001,28872,-1,Populus,2,0.0006742137844743647,True
+clr_rbf_ridge,54001,28872,-1,Quercus,105,0.05129343030631837,True
+clr_rbf_ridge,54001,28872,-1,Rosaceae undiff.,0,0.0059162716205187335,True
+clr_rbf_ridge,54001,28872,-1,Salix,12,0.3329840533480821,True
+clr_rbf_ridge,54001,28872,-1,Thalictrum,0,0.0006742137844743647,True
+clr_rbf_ridge,54001,28872,-1,Ulmus,11,0.07341047692802731,True
+training_mean,54001,28872,0,Alnus,373,0.13246354800673135,True
+training_mean,54001,28872,0,Amaranthaceae,3,0.02214022140221402,True
+training_mean,54001,28872,0,Betula,1119,0.46445668308803045,True
+training_mean,54001,28872,0,Cichorioideae,6,0.10378228782287822,True
+training_mean,54001,28872,0,Cyperaceae,42,0.14208931644642195,True
+training_mean,54001,28872,0,Filipendula,16,0.007177350729039866,True
+training_mean,54001,28872,0,Frangula alnus,12,0.00023062730627306272,True
+training_mean,54001,28872,0,Nuphar,1,0.0009504134596671716,True
+training_mean,54001,28872,0,Plantago lanceolata,39,0.05096863468634686,True
+training_mean,54001,28872,0,Plantago media,0,0.0007197861533941089,True
+training_mean,54001,28872,0,Populus,8,0.0035636331027219265,True
+training_mean,54001,28872,0,Quercus,338,0.05093333702209825,True
+training_mean,54001,28872,0,Rosaceae undiff.,0,0.0036900369003690036,True
+training_mean,54001,28872,0,Salix,46,0.010726196972414398,True
+training_mean,54001,28872,0,Thalictrum,1,0.0,True
+training_mean,54001,28872,0,Ulmus,32,0.006107926901399314,True
+nearest_site,54001,28872,0,Alnus,373,0.11808118081180811,True
+nearest_site,54001,28872,0,Amaranthaceae,3,0.04428044280442804,True
+nearest_site,54001,28872,0,Betula,1119,0.1559040590405904,True
+nearest_site,54001,28872,0,Cichorioideae,6,0.20756457564575645,True
+nearest_site,54001,28872,0,Cyperaceae,42,0.23247232472324722,True
+nearest_site,54001,28872,0,Filipendula,16,0.013837638376383764,True
+nearest_site,54001,28872,0,Frangula alnus,12,0.00046125461254612545,True
+nearest_site,54001,28872,0,Nuphar,1,0.0013837638376383763,True
+nearest_site,54001,28872,0,Plantago lanceolata,39,0.10193726937269372,True
+nearest_site,54001,28872,0,Plantago media,0,0.0009225092250922509,True
+nearest_site,54001,28872,0,Populus,8,0.0009225092250922509,True
+nearest_site,54001,28872,0,Quercus,338,0.09824723247232472,True
+nearest_site,54001,28872,0,Rosaceae undiff.,0,0.007380073800738007,True
+nearest_site,54001,28872,0,Salix,46,0.006457564575645757,True
+nearest_site,54001,28872,0,Thalictrum,1,0.0,True
+nearest_site,54001,28872,0,Ulmus,32,0.01014760147601476,True
+inverse_distance_squared,54001,28872,0,Alnus,373,0.11810526557942638,True
+inverse_distance_squared,54001,28872,0,Amaranthaceae,3,0.04424336670421019,True
+inverse_distance_squared,54001,28872,0,Betula,1119,0.15642076245578398,True
+inverse_distance_squared,54001,28872,0,Cichorioideae,6,0.20739078142598527,True
+inverse_distance_squared,54001,28872,0,Cyperaceae,42,0.23232096898872293,True
+inverse_distance_squared,54001,28872,0,Filipendula,16,0.013826485032981879,True
+inverse_distance_squared,54001,28872,0,Frangula alnus,12,0.0004608684031688562,True
+inverse_distance_squared,54001,28872,0,Nuphar,1,0.0013830381474227629,True
+inverse_distance_squared,54001,28872,0,Plantago lanceolata,39,0.10185191710031721,True
+inverse_distance_squared,54001,28872,0,Plantago media,0,0.0009221697442539067,True
+inverse_distance_squared,54001,28872,0,Populus,8,0.0009269320613320448,True
+inverse_distance_squared,54001,28872,0,Quercus,338,0.09816800044037972,True
+inverse_distance_squared,54001,28872,0,Rosaceae undiff.,0,0.007373894450701699,True
+inverse_distance_squared,54001,28872,0,Salix,46,0.006464712843933624,True
+inverse_distance_squared,54001,28872,0,Thalictrum,1,0.0,True
+inverse_distance_squared,54001,28872,0,Ulmus,32,0.010140836621379613,True
+clr_rbf_ridge,54001,28872,0,Alnus,373,0.12181734998324271,True
+clr_rbf_ridge,54001,28872,0,Amaranthaceae,3,0.0430827269813096,True
+clr_rbf_ridge,54001,28872,0,Betula,1119,0.16334077218115228,True
+clr_rbf_ridge,54001,28872,0,Cichorioideae,6,0.19758885625447903,True
+clr_rbf_ridge,54001,28872,0,Cyperaceae,42,0.23490553890962465,True
+clr_rbf_ridge,54001,28872,0,Filipendula,16,0.013974423689333288,True
+clr_rbf_ridge,54001,28872,0,Frangula alnus,12,0.0007025847507758076,True
+clr_rbf_ridge,54001,28872,0,Nuphar,1,0.0016441171244085972,True
+clr_rbf_ridge,54001,28872,0,Plantago lanceolata,39,0.09794741290062554,True
+clr_rbf_ridge,54001,28872,0,Plantago media,0,0.001178929902274149,True
+clr_rbf_ridge,54001,28872,0,Populus,8,0.0012080780775618122,True
+clr_rbf_ridge,54001,28872,0,Quercus,338,0.09744255891318997,True
+clr_rbf_ridge,54001,28872,0,Rosaceae undiff.,0,0.007517881553554157,True
+clr_rbf_ridge,54001,28872,0,Salix,46,0.006934650806337166,True
+clr_rbf_ridge,54001,28872,0,Thalictrum,1,0.00023717749666841593,True
+clr_rbf_ridge,54001,28872,0,Ulmus,32,0.010476940475462871,True
+training_mean,54001,28872,1,Alnus,378,0.1483962476126278,True
+training_mean,54001,28872,1,Amaranthaceae,3,0.007426131895292664,True
+training_mean,54001,28872,1,Betula,1089,0.5324261318952926,True
+training_mean,54001,28872,1,Cichorioideae,3,0.020025839793281652,True
+training_mean,54001,28872,1,Cyperaceae,55,0.14222278395685878,True
+training_mean,54001,28872,1,Filipendula,27,0.01033310863947871,True
+training_mean,54001,28872,1,Frangula alnus,18,0.0,True
+training_mean,54001,28872,1,Nuphar,2,0.0012919896640826874,True
+training_mean,54001,28872,1,Plantago lanceolata,35,0.059428715874620834,True
+training_mean,54001,28872,1,Plantago media,3,0.0006459948320413437,True
+training_mean,54001,28872,1,Populus,16,0.003381642512077295,True
+training_mean,54001,28872,1,Quercus,282,0.05635321873946748,True
+training_mean,54001,28872,1,Rosaceae undiff.,0,0.0009689922480620155,True
+training_mean,54001,28872,1,Salix,46,0.009675879114706212,True
+training_mean,54001,28872,1,Thalictrum,1,0.0,True
+training_mean,54001,28872,1,Ulmus,16,0.007423323222109875,True
+nearest_site,54001,28872,1,Alnus,378,0.17118863049095606,True
+nearest_site,54001,28872,1,Amaranthaceae,3,0.012919896640826873,True
+nearest_site,54001,28872,1,Betula,1089,0.2629198966408269,True
+nearest_site,54001,28872,1,Cichorioideae,3,0.040051679586563305,True
+nearest_site,54001,28872,1,Cyperaceae,55,0.24483204134366926,True
+nearest_site,54001,28872,1,Filipendula,27,0.018733850129198967,True
+nearest_site,54001,28872,1,Frangula alnus,18,0.0,True
+nearest_site,54001,28872,1,Nuphar,2,0.002583979328165375,True
+nearest_site,54001,28872,1,Plantago lanceolata,35,0.11692506459948321,True
+nearest_site,54001,28872,1,Plantago media,3,0.0012919896640826874,True
+nearest_site,54001,28872,1,Populus,16,0.0,True
+nearest_site,54001,28872,1,Quercus,282,0.10594315245478036,True
+nearest_site,54001,28872,1,Rosaceae undiff.,0,0.001937984496124031,True
+nearest_site,54001,28872,1,Salix,46,0.009689922480620155,True
+nearest_site,54001,28872,1,Thalictrum,1,0.0,True
+nearest_site,54001,28872,1,Ulmus,16,0.010981912144702842,True
+inverse_distance_squared,54001,28872,1,Alnus,378,0.1711504622786131,True
+inverse_distance_squared,54001,28872,1,Amaranthaceae,3,0.01291069676117895,True
+inverse_distance_squared,54001,28872,1,Betula,1089,0.2633712128226349,True
+inverse_distance_squared,54001,28872,1,Cichorioideae,3,0.040018144237948944,True
+inverse_distance_squared,54001,28872,1,Cyperaceae,55,0.24466021148519404,True
+inverse_distance_squared,54001,28872,1,Filipendula,27,0.018719782215074764,True
+inverse_distance_squared,54001,28872,1,Frangula alnus,18,0.0,True
+inverse_distance_squared,54001,28872,1,Nuphar,2,0.002581815757287029,True
+inverse_distance_squared,54001,28872,1,Plantago lanceolata,35,0.11682878099198186,True
+inverse_distance_squared,54001,28872,1,Plantago media,3,0.0012909078786435145,True
+inverse_distance_squared,54001,28872,1,Populus,16,5.662911603323147e-06,True
+inverse_distance_squared,54001,28872,1,Quercus,282,0.10586010896037151,True
+inverse_distance_squared,54001,28872,1,Rosaceae undiff.,0,0.0019363618179652716,True
+inverse_distance_squared,54001,28872,1,Salix,46,0.009689898963545392,True
+inverse_distance_squared,54001,28872,1,Thalictrum,1,0.0,True
+inverse_distance_squared,54001,28872,1,Ulmus,16,0.010975952917957485,True
+clr_rbf_ridge,54001,28872,1,Alnus,378,0.1723531796923589,True
+clr_rbf_ridge,54001,28872,1,Amaranthaceae,3,0.013095902226694146,True
+clr_rbf_ridge,54001,28872,1,Betula,1089,0.26890405779849536,True
+clr_rbf_ridge,54001,28872,1,Cichorioideae,3,0.03869308483790646,True
+clr_rbf_ridge,54001,28872,1,Cyperaceae,55,0.24212961688856433,True
+clr_rbf_ridge,54001,28872,1,Filipendula,27,0.01876647796159202,True
+clr_rbf_ridge,54001,28872,1,Frangula alnus,18,0.00032724867529344587,True
+clr_rbf_ridge,54001,28872,1,Nuphar,2,0.002871629288921162,True
+clr_rbf_ridge,54001,28872,1,Plantago lanceolata,35,0.11307020330449616,True
+clr_rbf_ridge,54001,28872,1,Plantago media,3,0.0016061880236830912,True
+clr_rbf_ridge,54001,28872,1,Populus,16,0.0003376178746520855,True
+clr_rbf_ridge,54001,28872,1,Quercus,282,0.10390236957228995,True
+clr_rbf_ridge,54001,28872,1,Rosaceae undiff.,0,0.00223996458963621,True
+clr_rbf_ridge,54001,28872,1,Salix,46,0.010099298758099813,True
+clr_rbf_ridge,54001,28872,1,Thalictrum,1,0.00032724867529344587,True
+clr_rbf_ridge,54001,28872,1,Ulmus,16,0.011275911832023372,True
+training_mean,54001,28872,2,Alnus,666,0.1573967594759008,True
+training_mean,54001,28872,2,Amaranthaceae,6,0.0025737014506317267,True
+training_mean,54001,28872,2,Betula,1192,0.5233358680393074,True
+training_mean,54001,28872,2,Cichorioideae,3,0.004679457182966776,True
+training_mean,54001,28872,2,Cyperaceae,20,0.12231984089845578,True
+training_mean,54001,28872,2,Filipendula,21,0.01941974730931212,True
+training_mean,54001,28872,2,Frangula alnus,7,0.0,True
+training_mean,54001,28872,2,Nuphar,0,0.0002339728591483388,True
+training_mean,54001,28872,2,Plantago lanceolata,36,0.06036499766027141,True
+training_mean,54001,28872,2,Plantago media,0,0.0002339728591483388,True
+training_mean,54001,28872,2,Populus,9,0.0007019185774450163,True
+training_mean,54001,28872,2,Quercus,932,0.0707495905474965,True
+training_mean,54001,28872,2,Rosaceae undiff.,0,0.003198701450631727,True
+training_mean,54001,28872,2,Salix,6,0.020281937295273746,True
+training_mean,54001,28872,2,Thalictrum,1,0.0007019185774450163,True
+training_mean,54001,28872,2,Ulmus,123,0.013807615816565278,True
+nearest_site,54001,28872,2,Alnus,666,0.2110435189518016,True
+nearest_site,54001,28872,2,Amaranthaceae,6,0.005147402901263453,True
+nearest_site,54001,28872,2,Betula,1192,0.2091717360786149,True
+nearest_site,54001,28872,2,Cichorioideae,3,0.009358914365933552,True
+nearest_site,54001,28872,2,Cyperaceae,20,0.20963968179691156,True
+nearest_site,54001,28872,2,Filipendula,21,0.03883949461862424,True
+nearest_site,54001,28872,2,Frangula alnus,7,0.0,True
+nearest_site,54001,28872,2,Nuphar,0,0.0004679457182966776,True
+nearest_site,54001,28872,2,Plantago lanceolata,36,0.12072999532054282,True
+nearest_site,54001,28872,2,Plantago media,0,0.0004679457182966776,True
+nearest_site,54001,28872,2,Populus,9,0.0014038371548900327,True
+nearest_site,54001,28872,2,Quercus,932,0.12774918109499298,True
+nearest_site,54001,28872,2,Rosaceae undiff.,0,0.005147402901263453,True
+nearest_site,54001,28872,2,Salix,6,0.035563874590547495,True
+nearest_site,54001,28872,2,Thalictrum,1,0.0014038371548900327,True
+nearest_site,54001,28872,2,Ulmus,123,0.023865231633130556,True
+inverse_distance_squared,54001,28872,2,Alnus,666,0.21095368188131536,True
+inverse_distance_squared,54001,28872,2,Amaranthaceae,6,0.005143092970880151,True
+inverse_distance_squared,54001,28872,2,Betula,1192,0.20969783654661953,True
+inverse_distance_squared,54001,28872,2,Cichorioideae,3,0.009351078128873001,True
+inverse_distance_squared,54001,28872,2,Cyperaceae,20,0.20949345565430244,True
+inverse_distance_squared,54001,28872,2,Filipendula,21,0.038806974234822954,True
+inverse_distance_squared,54001,28872,2,Frangula alnus,7,0.0,True
+inverse_distance_squared,54001,28872,2,Nuphar,0,0.00046755390644365007,True
+inverse_distance_squared,54001,28872,2,Plantago lanceolata,36,0.12062890786246172,True
+inverse_distance_squared,54001,28872,2,Plantago media,0,0.00046755390644365007,True
+inverse_distance_squared,54001,28872,2,Populus,9,0.0014026617193309502,True
+inverse_distance_squared,54001,28872,2,Quercus,932,0.12765372936065286,True
+inverse_distance_squared,54001,28872,2,Rosaceae undiff.,0,0.005144139598292551,True
+inverse_distance_squared,54001,28872,2,Salix,6,0.035538283399367,True
+inverse_distance_squared,54001,28872,2,Thalictrum,1,0.0014026617193309502,True
+inverse_distance_squared,54001,28872,2,Ulmus,123,0.02384838911086335,True
+clr_rbf_ridge,54001,28872,2,Alnus,666,0.21226618873050113,True
+clr_rbf_ridge,54001,28872,2,Amaranthaceae,6,0.0053171411172301284,True
+clr_rbf_ridge,54001,28872,2,Betula,1192,0.2155172880084251,True
+clr_rbf_ridge,54001,28872,2,Cichorioideae,3,0.00941547562407167,True
+clr_rbf_ridge,54001,28872,2,Cyperaceae,20,0.20827697551178004,True
+clr_rbf_ridge,54001,28872,2,Filipendula,21,0.03773540294370568,True
+clr_rbf_ridge,54001,28872,2,Frangula alnus,7,0.0002396824607187904,True
+clr_rbf_ridge,54001,28872,2,Nuphar,0,0.0007100051408539404,True
+clr_rbf_ridge,54001,28872,2,Plantago lanceolata,36,0.11531074529055024,True
+clr_rbf_ridge,54001,28872,2,Plantago media,0,0.0007100051408539404,True
+clr_rbf_ridge,54001,28872,2,Populus,9,0.0016405879238030165,True
+clr_rbf_ridge,54001,28872,2,Quercus,932,0.12640675572245558,True
+clr_rbf_ridge,54001,28872,2,Rosaceae undiff.,0,0.005384857349486207,True
+clr_rbf_ridge,54001,28872,2,Salix,6,0.03549392267364597,True
+clr_rbf_ridge,54001,28872,2,Thalictrum,1,0.0016405879238030165,True
+clr_rbf_ridge,54001,28872,2,Ulmus,123,0.023934378438115453,True
+training_mean,54001,28872,3,Alnus,856,0.17984411477499906,True
+training_mean,54001,28872,3,Amaranthaceae,1,0.003889353619005447,True
+training_mean,54001,28872,3,Betula,1072,0.5081245409743714,True
+training_mean,54001,28872,3,Cichorioideae,0,0.006715809243652141,True
+training_mean,54001,28872,3,Cyperaceae,7,0.1308881049234767,True
+training_mean,54001,28872,3,Filipendula,4,0.020215111986456345,True
+training_mean,54001,28872,3,Frangula alnus,6,0.0002826455624646693,True
+training_mean,54001,28872,3,Nuphar,2,0.0005652911249293386,True
+training_mean,54001,28872,3,Plantago lanceolata,19,0.05059355568117581,True
+training_mean,54001,28872,3,Plantago media,0,0.0,True
+training_mean,54001,28872,3,Populus,7,0.0027944969905417025,True
+training_mean,54001,28872,3,Quercus,871,0.0708124346549221,True
+training_mean,54001,28872,3,Rosaceae undiff.,0,0.0024761258066821005,True
+training_mean,54001,28872,3,Salix,6,0.010190915776483015,True
+training_mean,54001,28872,3,Thalictrum,2,0.0004299226139294927,True
+training_mean,54001,28872,3,Ulmus,180,0.012177576266910736,True
+nearest_site,54001,28872,3,Alnus,856,0.2560768795929904,True
+nearest_site,54001,28872,3,Amaranthaceae,1,0.007348784624081402,True
+nearest_site,54001,28872,3,Betula,1072,0.18993781797625778,True
+nearest_site,54001,28872,3,Cichorioideae,0,0.013001695873374788,True
+nearest_site,54001,28872,3,Cyperaceae,7,0.22781232334652346,True
+nearest_site,54001,28872,3,Filipendula,4,0.0395703787450537,True
+nearest_site,54001,28872,3,Frangula alnus,6,0.0005652911249293386,True
+nearest_site,54001,28872,3,Nuphar,2,0.0011305822498586771,True
+nearest_site,54001,28872,3,Plantago lanceolata,19,0.10118711136235162,True
+nearest_site,54001,28872,3,Plantago media,0,0.0,True
+nearest_site,54001,28872,3,Populus,7,0.0,True
+nearest_site,54001,28872,3,Quercus,871,0.13001695873374788,True
+nearest_site,54001,28872,3,Rosaceae undiff.,0,0.0045223289994347085,True
+nearest_site,54001,28872,3,Salix,6,0.00791407574901074,True
+nearest_site,54001,28872,3,Thalictrum,2,0.0,True
+nearest_site,54001,28872,3,Ulmus,180,0.020915771622385528,True
+inverse_distance_squared,54001,28872,3,Alnus,856,0.25594921991078,True
+inverse_distance_squared,54001,28872,3,Amaranthaceae,1,0.007342991447567453,True
+inverse_distance_squared,54001,28872,3,Betula,1072,0.19047065469074023,True
+inverse_distance_squared,54001,28872,3,Cichorioideae,0,0.01299116950336214,True
+inverse_distance_squared,54001,28872,3,Cyperaceae,7,0.2276500136762403,True
+inverse_distance_squared,54001,28872,3,Filipendula,4,0.03953796634063153,True
+inverse_distance_squared,54001,28872,3,Frangula alnus,6,0.0005648178055794687,True
+inverse_distance_squared,54001,28872,3,Nuphar,2,0.0011296356111589374,True
+inverse_distance_squared,54001,28872,3,Plantago lanceolata,19,0.10110238719872491,True
+inverse_distance_squared,54001,28872,3,Plantago media,0,0.0,True
+inverse_distance_squared,54001,28872,3,Populus,7,4.679675446671965e-06,True
+inverse_distance_squared,54001,28872,3,Quercus,871,0.1299178146092055,True
+inverse_distance_squared,54001,28872,3,Rosaceae undiff.,0,0.0045189024196701085,True
+inverse_distance_squared,54001,28872,3,Salix,6,0.007917888554108984,True
+inverse_distance_squared,54001,28872,3,Thalictrum,2,7.199500687187639e-07,True
+inverse_distance_squared,54001,28872,3,Ulmus,180,0.02090113860671522,True
+clr_rbf_ridge,54001,28872,3,Alnus,856,0.25708156027408546,True
+clr_rbf_ridge,54001,28872,3,Amaranthaceae,1,0.007516015991867515,True
+clr_rbf_ridge,54001,28872,3,Betula,1072,0.1960422295410031,True
+clr_rbf_ridge,54001,28872,3,Cichorioideae,0,0.013000161415929658,True
+clr_rbf_ridge,54001,28872,3,Cyperaceae,7,0.22613252504068102,True
+clr_rbf_ridge,54001,28872,3,Filipendula,4,0.03873731233229948,True
+clr_rbf_ridge,54001,28872,3,Frangula alnus,6,0.0008457484338615402,True
+clr_rbf_ridge,54001,28872,3,Nuphar,2,0.0014013107377198561,True
+clr_rbf_ridge,54001,28872,3,Plantago lanceolata,19,0.09578069343753264,True
+clr_rbf_ridge,54001,28872,3,Plantago media,0,0.0002855064760984572,True
+clr_rbf_ridge,54001,28872,3,Populus,7,0.0002965541543535927,True
+clr_rbf_ridge,54001,28872,3,Quercus,871,0.12843424784858368,True
+clr_rbf_ridge,54001,28872,3,Rosaceae undiff.,0,0.00475759221183277,True
+clr_rbf_ridge,54001,28872,3,Salix,6,0.008347704746452474,True
+clr_rbf_ridge,54001,28872,3,Thalictrum,2,0.00029084893771239663,True
+clr_rbf_ridge,54001,28872,3,Ulmus,180,0.021049988419986416,True
+training_mean,54001,28872,4,Alnus,609,0.16274922946653522,True
+training_mean,54001,28872,4,Amaranthaceae,1,0.008597653724915586,True
+training_mean,54001,28872,4,Betula,582,0.5242636622931492,True
+training_mean,54001,28872,4,Cichorioideae,0,0.010579064587973273,True
+training_mean,54001,28872,4,Cyperaceae,9,0.1383919701409046,True
+training_mean,54001,28872,4,Filipendula,4,0.01985639150051369,True
+training_mean,54001,28872,4,Frangula alnus,2,0.0,True
+training_mean,54001,28872,4,Nuphar,0,0.0024729321213521104,True
+training_mean,54001,28872,4,Plantago lanceolata,15,0.04868674058460378,True
+training_mean,54001,28872,4,Plantago media,0,0.0,True
+training_mean,54001,28872,4,Populus,4,0.00577537478495945,True
+training_mean,54001,28872,4,Quercus,619,0.0625259649662476,True
+training_mean,54001,28872,4,Rosaceae undiff.,0,0.0017932589337272802,True
+training_mean,54001,28872,4,Salix,1,0.004799995183310609,True
+training_mean,54001,28872,4,Thalictrum,0,0.00036864094372081595,True
+training_mean,54001,28872,4,Ulmus,138,0.009139120768086807,True
+nearest_site,54001,28872,4,Alnus,609,0.24832962138084633,True
+nearest_site,54001,28872,4,Amaranthaceae,1,0.01670378619153675,True
+nearest_site,54001,28872,4,Betula,582,0.17706013363028952,True
+nearest_site,54001,28872,4,Cichorioideae,0,0.021158129175946547,True
+nearest_site,54001,28872,4,Cyperaceae,9,0.2583518930957684,True
+nearest_site,54001,28872,4,Filipendula,4,0.03897550111358575,True
+nearest_site,54001,28872,4,Frangula alnus,2,0.0,True
+nearest_site,54001,28872,4,Nuphar,0,0.004454342984409799,True
+nearest_site,54001,28872,4,Plantago lanceolata,15,0.09688195991091314,True
+nearest_site,54001,28872,4,Plantago media,0,0.0,True
+nearest_site,54001,28872,4,Populus,4,0.0,True
+nearest_site,54001,28872,4,Quercus,619,0.11915367483296214,True
+nearest_site,54001,28872,4,Rosaceae undiff.,0,0.0033407572383073497,True
+nearest_site,54001,28872,4,Salix,1,0.0022271714922048997,True
+nearest_site,54001,28872,4,Thalictrum,0,0.0,True
+nearest_site,54001,28872,4,Ulmus,138,0.013363028953229399,True
+inverse_distance_squared,54001,28872,4,Alnus,609,0.24818630812622006,True
+inverse_distance_squared,54001,28872,4,Amaranthaceae,1,0.016690211630819775,True
+inverse_distance_squared,54001,28872,4,Betula,582,0.17764156199953837,True
+inverse_distance_squared,54001,28872,4,Cichorioideae,0,0.021140413433554033,True
+inverse_distance_squared,54001,28872,4,Cyperaceae,9,0.2581510077457621,True
+inverse_distance_squared,54001,28872,4,Filipendula,4,0.038943484178831,True
+inverse_distance_squared,54001,28872,4,Frangula alnus,2,0.0,True
+inverse_distance_squared,54001,28872,4,Nuphar,0,0.004451024906130595,True
+inverse_distance_squared,54001,28872,4,Plantago lanceolata,15,0.09680125201060348,True
+inverse_distance_squared,54001,28872,4,Plantago media,0,0.0,True
+inverse_distance_squared,54001,28872,4,Populus,4,9.671464906914807e-06,True
+inverse_distance_squared,54001,28872,4,Quercus,619,0.11905884585144547,True
+inverse_distance_squared,54001,28872,4,Rosaceae undiff.,0,0.0033381657916734045,True
+inverse_distance_squared,54001,28872,4,Salix,1,0.002231479952688713,True
+inverse_distance_squared,54001,28872,4,Thalictrum,0,6.173275472498814e-07,True
+inverse_distance_squared,54001,28872,4,Ulmus,138,0.01335595558027895,True
+clr_rbf_ridge,54001,28872,4,Alnus,609,0.2486441914638488,True
+clr_rbf_ridge,54001,28872,4,Amaranthaceae,1,0.016818840549277694,True
+clr_rbf_ridge,54001,28872,4,Betula,582,0.18317635002321608,True
+clr_rbf_ridge,54001,28872,4,Cichorioideae,0,0.02071566878337726,True
+clr_rbf_ridge,54001,28872,4,Cyperaceae,9,0.2543244728902727,True
+clr_rbf_ridge,54001,28872,4,Filipendula,4,0.03830277877418667,True
+clr_rbf_ridge,54001,28872,4,Frangula alnus,2,0.0005540666536981804,True
+clr_rbf_ridge,54001,28872,4,Nuphar,0,0.004952950735885205,True
+clr_rbf_ridge,54001,28872,4,Plantago lanceolata,15,0.09307086692078163,True
+clr_rbf_ridge,54001,28872,4,Plantago media,0,0.0005540666536981804,True
+clr_rbf_ridge,54001,28872,4,Populus,4,0.0005839069511633777,True
+clr_rbf_ridge,54001,28872,4,Quercus,619,0.11711227215260746,True
+clr_rbf_ridge,54001,28872,4,Rosaceae undiff.,0,0.0038407963917525094,True
+clr_rbf_ridge,54001,28872,4,Salix,1,0.002851319767138417,True
+clr_rbf_ridge,54001,28872,4,Thalictrum,0,0.000566626389989115,True
+clr_rbf_ridge,54001,28872,4,Ulmus,138,0.013930824899106688,True
+training_mean,54001,28872,5,Alnus,258,0.20534992784992784,True
+training_mean,54001,28872,5,Amaranthaceae,0,0.006388888888888889,True
+training_mean,54001,28872,5,Betula,326,0.5281046312178388,True
+training_mean,54001,28872,5,Cichorioideae,0,0.007622518990443519,True
+training_mean,54001,28872,5,Cyperaceae,6,0.1064935064935065,True
+training_mean,54001,28872,5,Filipendula,1,0.016078371314220373,True
+training_mean,54001,28872,5,Frangula alnus,2,0.0,True
+training_mean,54001,28872,5,Nuphar,1,0.0005555555555555556,True
+training_mean,54001,28872,5,Plantago lanceolata,6,0.0575,True
+training_mean,54001,28872,5,Plantago media,0,0.0,True
+training_mean,54001,28872,5,Populus,1,0.008698848321489832,True
+training_mean,54001,28872,5,Quercus,232,0.04559571455797871,True
+training_mean,54001,28872,5,Rosaceae undiff.,0,0.001388888888888889,True
+training_mean,54001,28872,5,Salix,1,0.0073680198208500094,True
+training_mean,54001,28872,5,Thalictrum,0,0.0,True
+training_mean,54001,28872,5,Ulmus,58,0.008855128100411119,True
+nearest_site,54001,28872,5,Alnus,258,0.3327777777777778,True
+nearest_site,54001,28872,5,Amaranthaceae,0,0.012777777777777779,True
+nearest_site,54001,28872,5,Betula,326,0.19,True
+nearest_site,54001,28872,5,Cichorioideae,0,0.015,True
+nearest_site,54001,28872,5,Cyperaceae,6,0.2,True
+nearest_site,54001,28872,5,Filipendula,1,0.03166666666666667,True
+nearest_site,54001,28872,5,Frangula alnus,2,0.0,True
+nearest_site,54001,28872,5,Nuphar,1,0.0011111111111111111,True
+nearest_site,54001,28872,5,Plantago lanceolata,6,0.115,True
+nearest_site,54001,28872,5,Plantago media,0,0.0,True
+nearest_site,54001,28872,5,Populus,1,0.0,True
+nearest_site,54001,28872,5,Quercus,232,0.08555555555555555,True
+nearest_site,54001,28872,5,Rosaceae undiff.,0,0.002777777777777778,True
+nearest_site,54001,28872,5,Salix,1,0.0044444444444444444,True
+nearest_site,54001,28872,5,Thalictrum,0,0.0,True
+nearest_site,54001,28872,5,Ulmus,58,0.008888888888888889,True
+inverse_distance_squared,54001,28872,5,Alnus,258,0.33256438660843757,True
+inverse_distance_squared,54001,28872,5,Amaranthaceae,0,0.01276707891978436,True
+inverse_distance_squared,54001,28872,5,Betula,326,0.19056619132046715,True
+inverse_distance_squared,54001,28872,5,Cichorioideae,0,0.014987645641825503,True
+inverse_distance_squared,54001,28872,5,Cyperaceae,6,0.19984341366505398,True
+inverse_distance_squared,54001,28872,5,Filipendula,1,0.031640562447101145,True
+inverse_distance_squared,54001,28872,5,Frangula alnus,2,0.0,True
+inverse_distance_squared,54001,28872,5,Nuphar,1,0.0011101807756334224,True
+inverse_distance_squared,54001,28872,5,Plantago lanceolata,6,0.11490371027805922,True
+inverse_distance_squared,54001,28872,5,Plantago media,0,0.0,True
+inverse_distance_squared,54001,28872,5,Populus,1,1.4567124975328226e-05,True
+inverse_distance_squared,54001,28872,5,Quercus,232,0.08548863865158243,True
+inverse_distance_squared,54001,28872,5,Rosaceae undiff.,0,0.002775451939083556,True
+inverse_distance_squared,54001,28872,5,Salix,1,0.004449340275054307,True
+inverse_distance_squared,54001,28872,5,Thalictrum,0,0.0,True
+inverse_distance_squared,54001,28872,5,Ulmus,58,0.008888832352942194,True
+clr_rbf_ridge,54001,28872,5,Alnus,258,0.3335863639045237,True
+clr_rbf_ridge,54001,28872,5,Amaranthaceae,0,0.012600562703062227,True
+clr_rbf_ridge,54001,28872,5,Betula,326,0.19720672305686918,True
+clr_rbf_ridge,54001,28872,5,Cichorioideae,0,0.014906113951374747,True
+clr_rbf_ridge,54001,28872,5,Cyperaceae,6,0.19767159068576493,True
+clr_rbf_ridge,54001,28872,5,Filipendula,1,0.031086019225443417,True
+clr_rbf_ridge,54001,28872,5,Frangula alnus,2,0.00028025487447612646,True
+clr_rbf_ridge,54001,28872,5,Nuphar,1,0.0013755350500921565,True
+clr_rbf_ridge,54001,28872,5,Plantago lanceolata,6,0.10850347961065276,True
+clr_rbf_ridge,54001,28872,5,Plantago media,0,0.00028025487447612646,True
+clr_rbf_ridge,54001,28872,5,Populus,1,0.0002967431796651604,True
+clr_rbf_ridge,54001,28872,5,Quercus,232,0.08474042175215953,True
+clr_rbf_ridge,54001,28872,5,Rosaceae undiff.,0,0.0029988167958259933,True
+clr_rbf_ridge,54001,28872,5,Salix,1,0.004853484137900544,True
+clr_rbf_ridge,54001,28872,5,Thalictrum,0,0.00028025487447612646,True
+clr_rbf_ridge,54001,28872,5,Ulmus,58,0.009333381323237277,True
+training_mean,54001,28872,6,Alnus,276,0.4174948965212807,True
+training_mean,54001,28872,6,Amaranthaceae,1,0.0019220208676551346,True
+training_mean,54001,28872,6,Betula,337,0.4654590229020119,True
+training_mean,54001,28872,6,Cichorioideae,0,0.001090603399798367,True
+training_mean,54001,28872,6,Cyperaceae,3,0.006600118095574758,True
+training_mean,54001,28872,6,Filipendula,0,0.006990106088165426,True
+training_mean,54001,28872,6,Frangula alnus,2,0.0,True
+training_mean,54001,28872,6,Nuphar,0,0.0012317377240617315,True
+training_mean,54001,28872,6,Plantago lanceolata,3,0.004942339373970346,True
+training_mean,54001,28872,6,Plantago media,0,0.0,True
+training_mean,54001,28872,6,Populus,2,0.009882260558584153,True
+training_mean,54001,28872,6,Quercus,254,0.06157655393947228,True
+training_mean,54001,28872,6,Rosaceae undiff.,0,0.001098297638660077,True
+training_mean,54001,28872,6,Salix,3,0.00729809547802987,True
+training_mean,54001,28872,6,Thalictrum,0,0.0,True
+training_mean,54001,28872,6,Ulmus,54,0.01441394741273524,True
+nearest_site,54001,28872,6,Alnus,276,0.7495881383855024,True
+nearest_site,54001,28872,6,Amaranthaceae,1,0.003844041735310269,True
+nearest_site,54001,28872,6,Betula,337,0.06809445359692477,True
+nearest_site,54001,28872,6,Cichorioideae,0,0.0016474464579901153,True
+nearest_site,54001,28872,6,Cyperaceae,3,0.004393190554640308,True
+nearest_site,54001,28872,6,Filipendula,0,0.013179571663920923,True
+nearest_site,54001,28872,6,Frangula alnus,2,0.0,True
+nearest_site,54001,28872,6,Nuphar,0,0.002196595277320154,True
+nearest_site,54001,28872,6,Plantago lanceolata,3,0.009884678747940691,True
+nearest_site,54001,28872,6,Plantago media,0,0.0,True
+nearest_site,54001,28872,6,Populus,2,0.0005491488193300384,True
+nearest_site,54001,28872,6,Quercus,254,0.1186161449752883,True
+nearest_site,54001,28872,6,Rosaceae undiff.,0,0.002196595277320154,True
+nearest_site,54001,28872,6,Salix,3,0.006589785831960461,True
+nearest_site,54001,28872,6,Thalictrum,0,0.0,True
+nearest_site,54001,28872,6,Ulmus,54,0.019220208676551345,True
+inverse_distance_squared,54001,28872,6,Alnus,276,0.7490320137608499,True
+inverse_distance_squared,54001,28872,6,Amaranthaceae,1,0.0038408231117466017,True
+inverse_distance_squared,54001,28872,6,Betula,337,0.06875988183844668,True
+inverse_distance_squared,54001,28872,6,Cichorioideae,0,0.0016465139664555426,True
+inverse_distance_squared,54001,28872,6,Cyperaceae,3,0.0043968862840187434,True
+inverse_distance_squared,54001,28872,6,Filipendula,0,0.013169206760977418,True
+inverse_distance_squared,54001,28872,6,Frangula alnus,2,0.0,True
+inverse_distance_squared,54001,28872,6,Nuphar,0,0.002194979523137272,True
+inverse_distance_squared,54001,28872,6,Plantago lanceolata,3,0.009876402287348403,True
+inverse_distance_squared,54001,28872,6,Plantago media,0,0.0,True
+inverse_distance_squared,54001,28872,6,Populus,2,0.00056477808427291,True
+inverse_distance_squared,54001,28872,6,Quercus,254,0.11852062625597605,True
+inverse_distance_squared,54001,28872,6,Rosaceae undiff.,0,0.002194756063855201,True
+inverse_distance_squared,54001,28872,6,Salix,3,0.006590971970027732,True
+inverse_distance_squared,54001,28872,6,Thalictrum,0,0.0,True
+inverse_distance_squared,54001,28872,6,Ulmus,54,0.01921216009288756,True
+clr_rbf_ridge,54001,28872,6,Alnus,276,0.7445605399770535,True
+clr_rbf_ridge,54001,28872,6,Amaranthaceae,1,0.004030629757510263,True
+clr_rbf_ridge,54001,28872,6,Betula,337,0.07166751776175577,True
+clr_rbf_ridge,54001,28872,6,Cichorioideae,0,0.0019330538659425342,True
+clr_rbf_ridge,54001,28872,6,Cyperaceae,3,0.004787835148422496,True
+clr_rbf_ridge,54001,28872,6,Filipendula,0,0.013282825827049961,True
+clr_rbf_ridge,54001,28872,6,Frangula alnus,2,0.00027722295102133306,True
+clr_rbf_ridge,54001,28872,6,Nuphar,0,0.0024636310866998972,True
+clr_rbf_ridge,54001,28872,6,Plantago lanceolata,3,0.009839354434245108,True
+clr_rbf_ridge,54001,28872,6,Plantago media,0,0.00027722295102133306,True
+clr_rbf_ridge,54001,28872,6,Populus,2,0.0008696639637483303,True
+clr_rbf_ridge,54001,28872,6,Quercus,254,0.11660934745118558,True
+clr_rbf_ridge,54001,28872,6,Rosaceae undiff.,0,0.0024326501703946244,True
+clr_rbf_ridge,54001,28872,6,Salix,3,0.007002152744145116,True
+clr_rbf_ridge,54001,28872,6,Thalictrum,0,0.00027722295102133306,True
+clr_rbf_ridge,54001,28872,6,Ulmus,54,0.01968912895878283,True
+training_mean,54001,28872,7,Alnus,102,0.4619392981968686,True
+training_mean,54001,28872,7,Amaranthaceae,0,0.0001378929950358522,True
+training_mean,54001,28872,7,Betula,88,0.45190870039462844,True
+training_mean,54001,28872,7,Cichorioideae,0,0.0001378929950358522,True
+training_mean,54001,28872,7,Cyperaceae,1,0.004520379965695249,True
+training_mean,54001,28872,7,Filipendula,0,0.0012769716635053292,True
+training_mean,54001,28872,7,Frangula alnus,1,0.0003117206982543641,True
+training_mean,54001,28872,7,Nuphar,0,0.0003117206982543641,True
+training_mean,54001,28872,7,Plantago lanceolata,1,0.004364089775561097,True
+training_mean,54001,28872,7,Plantago media,0,0.0,True
+training_mean,54001,28872,7,Populus,2,0.009790402647545505,True
+training_mean,54001,28872,7,Quercus,103,0.04992964362397922,True
+training_mean,54001,28872,7,Rosaceae undiff.,0,0.0009351620947630922,True
+training_mean,54001,28872,7,Salix,1,0.003861003861003861,True
+training_mean,54001,28872,7,Thalictrum,0,0.0,True
+training_mean,54001,28872,7,Ulmus,21,0.010575120389869231,True
+nearest_site,54001,28872,7,Alnus,102,0.837281795511222,True
+nearest_site,54001,28872,7,Amaranthaceae,0,0.0,True
+nearest_site,54001,28872,7,Betula,88,0.043640897755610975,True
+nearest_site,54001,28872,7,Cichorioideae,0,0.0,True
+nearest_site,54001,28872,7,Cyperaceae,1,0.0018703241895261845,True
+nearest_site,54001,28872,7,Filipendula,0,0.0006234413965087282,True
+nearest_site,54001,28872,7,Frangula alnus,1,0.0006234413965087282,True
+nearest_site,54001,28872,7,Nuphar,0,0.0006234413965087282,True
+nearest_site,54001,28872,7,Plantago lanceolata,1,0.008728179551122194,True
+nearest_site,54001,28872,7,Plantago media,0,0.0,True
+nearest_site,54001,28872,7,Populus,2,0.0,True
+nearest_site,54001,28872,7,Quercus,103,0.09351620947630923,True
+nearest_site,54001,28872,7,Rosaceae undiff.,0,0.0018703241895261845,True
+nearest_site,54001,28872,7,Salix,1,0.0,True
+nearest_site,54001,28872,7,Thalictrum,0,0.0,True
+nearest_site,54001,28872,7,Ulmus,21,0.011221945137157107,True
+inverse_distance_squared,54001,28872,7,Alnus,102,0.8366532455164575,True
+inverse_distance_squared,54001,28872,7,Amaranthaceae,0,2.3091614173191462e-07,True
+inverse_distance_squared,54001,28872,7,Betula,88,0.04432458459375861,True
+inverse_distance_squared,54001,28872,7,Cichorioideae,0,2.3091614173191462e-07,True
+inverse_distance_squared,54001,28872,7,Cyperaceae,1,0.0018747619831577483,True
+inverse_distance_squared,54001,28872,7,Filipendula,0,0.0006245358008163628,True
+inverse_distance_squared,54001,28872,7,Frangula alnus,1,0.0006229193878242395,True
+inverse_distance_squared,54001,28872,7,Nuphar,0,0.0006229193878242395,True
+inverse_distance_squared,54001,28872,7,Plantago lanceolata,1,0.008720871429539352,True
+inverse_distance_squared,54001,28872,7,Plantago media,0,0.0,True
+inverse_distance_squared,54001,28872,7,Populus,2,1.639504606296594e-05,True
+inverse_distance_squared,54001,28872,7,Quercus,103,0.09344321924489576,True
+inverse_distance_squared,54001,28872,7,Rosaceae undiff.,0,0.0018687581634727185,True
+inverse_distance_squared,54001,28872,7,Salix,1,6.465651968493609e-06,True
+inverse_distance_squared,54001,28872,7,Thalictrum,0,0.0,True
+inverse_distance_squared,54001,28872,7,Ulmus,21,0.01122086196193866,True
+clr_rbf_ridge,54001,28872,7,Alnus,102,0.8313027061918363,True
+clr_rbf_ridge,54001,28872,7,Amaranthaceae,0,0.0003186043464083393,True
+clr_rbf_ridge,54001,28872,7,Betula,88,0.04633765608989914,True
+clr_rbf_ridge,54001,28872,7,Cichorioideae,0,0.0003186043464083393,True
+clr_rbf_ridge,54001,28872,7,Cyperaceae,1,0.002254140974551781,True
+clr_rbf_ridge,54001,28872,7,Filipendula,0,0.0009614538722324482,True
+clr_rbf_ridge,54001,28872,7,Frangula alnus,1,0.0009319249058363766,True
+clr_rbf_ridge,54001,28872,7,Nuphar,0,0.0009319249058363766,True
+clr_rbf_ridge,54001,28872,7,Plantago lanceolata,1,0.008776232948346022,True
+clr_rbf_ridge,54001,28872,7,Plantago media,0,0.0003145977990628944,True
+clr_rbf_ridge,54001,28872,7,Populus,2,0.00033310661013154626,True
+clr_rbf_ridge,54001,28872,7,Quercus,103,0.09268989023622178,True
+clr_rbf_ridge,54001,28872,7,Rosaceae undiff.,0,0.002153371374984095,True
+clr_rbf_ridge,54001,28872,7,Salix,1,0.00032959590726650955,True
+clr_rbf_ridge,54001,28872,7,Thalictrum,0,0.0003145977990628944,True
+clr_rbf_ridge,54001,28872,7,Ulmus,21,0.011731591691915177,True
+training_mean,54001,28872,8,Alnus,511,0.41159744880089955,True
+training_mean,54001,28872,8,Amaranthaceae,0,0.0002465483234714004,True
+training_mean,54001,28872,8,Betula,506,0.4497735968799952,True
+training_mean,54001,28872,8,Cichorioideae,0,0.0,True
+training_mean,54001,28872,8,Cyperaceae,3,0.0065429119167436925,True
+training_mean,54001,28872,8,Filipendula,0,0.00022251891410769915,True
+training_mean,54001,28872,8,Frangula alnus,5,0.0,True
+training_mean,54001,28872,8,Nuphar,1,0.0,True
+training_mean,54001,28872,8,Plantago lanceolata,4,0.0,True
+training_mean,54001,28872,8,Plantago media,0,0.0,True
+training_mean,54001,28872,8,Populus,9,0.006564307966177125,True
+training_mean,54001,28872,8,Quercus,453,0.0747887386995942,True
+training_mean,54001,28872,8,Rosaceae undiff.,0,0.0002465483234714004,True
+training_mean,54001,28872,8,Salix,6,0.005857579994891282,True
+training_mean,54001,28872,8,Thalictrum,1,0.00022251891410769915,True
+training_mean,54001,28872,8,Ulmus,90,0.0439372812665408,True
+nearest_site,54001,28872,8,Alnus,511,0.7110453648915187,True
+nearest_site,54001,28872,8,Amaranthaceae,0,0.0004930966469428008,True
+nearest_site,54001,28872,8,Betula,506,0.060650887573964495,True
+nearest_site,54001,28872,8,Cichorioideae,0,0.0,True
+nearest_site,54001,28872,8,Cyperaceae,3,0.00641025641025641,True
+nearest_site,54001,28872,8,Filipendula,0,0.0,True
+nearest_site,54001,28872,8,Frangula alnus,5,0.0,True
+nearest_site,54001,28872,8,Nuphar,1,0.0,True
+nearest_site,54001,28872,8,Plantago lanceolata,4,0.0,True
+nearest_site,54001,28872,8,Plantago media,0,0.0,True
+nearest_site,54001,28872,8,Populus,9,0.0,True
+nearest_site,54001,28872,8,Quercus,453,0.14201183431952663,True
+nearest_site,54001,28872,8,Rosaceae undiff.,0,0.0004930966469428008,True
+nearest_site,54001,28872,8,Salix,6,0.0014792899408284023,True
+nearest_site,54001,28872,8,Thalictrum,1,0.0,True
+nearest_site,54001,28872,8,Ulmus,90,0.07741617357001973,True
+inverse_distance_squared,54001,28872,8,Alnus,511,0.7105439082554125,True
+inverse_distance_squared,54001,28872,8,Amaranthaceae,0,0.0004926837761686786,True
+inverse_distance_squared,54001,28872,8,Betula,506,0.061302513964919716,True
+inverse_distance_squared,54001,28872,8,Cichorioideae,0,0.0,True
+inverse_distance_squared,54001,28872,8,Cyperaceae,3,0.006410478555679603,True
+inverse_distance_squared,54001,28872,8,Filipendula,0,3.7263103245212385e-07,True
+inverse_distance_squared,54001,28872,8,Frangula alnus,5,0.0,True
+inverse_distance_squared,54001,28872,8,Nuphar,1,0.0,True
+inverse_distance_squared,54001,28872,8,Plantago lanceolata,4,0.0,True
+inverse_distance_squared,54001,28872,8,Plantago media,0,0.0,True
+inverse_distance_squared,54001,28872,8,Populus,9,1.0992615457337655e-05,True
+inverse_distance_squared,54001,28872,8,Quercus,453,0.14189926226413113,True
+inverse_distance_squared,54001,28872,8,Rosaceae undiff.,0,0.0004926837761686786,True
+inverse_distance_squared,54001,28872,8,Salix,6,0.0014866218422524345,True
+inverse_distance_squared,54001,28872,8,Thalictrum,1,3.7263103245212385e-07,True
+inverse_distance_squared,54001,28872,8,Ulmus,90,0.07736010968774516,True
+clr_rbf_ridge,54001,28872,8,Alnus,511,0.7073681800418515,True
+clr_rbf_ridge,54001,28872,8,Amaranthaceae,0,0.0007351578384333715,True
+clr_rbf_ridge,54001,28872,8,Betula,506,0.06376099862753085,True
+clr_rbf_ridge,54001,28872,8,Cichorioideae,0,0.0002481734702941618,True
+clr_rbf_ridge,54001,28872,8,Cyperaceae,3,0.006763889357213687,True
+clr_rbf_ridge,54001,28872,8,Filipendula,0,0.0002528173482781676,True
+clr_rbf_ridge,54001,28872,8,Frangula alnus,5,0.0002481734702941618,True
+clr_rbf_ridge,54001,28872,8,Nuphar,1,0.0002481734702941618,True
+clr_rbf_ridge,54001,28872,8,Plantago lanceolata,4,0.0002481734702941618,True
+clr_rbf_ridge,54001,28872,8,Plantago media,0,0.0002481734702941618,True
+clr_rbf_ridge,54001,28872,8,Populus,9,0.0002622187994855175,True
+clr_rbf_ridge,54001,28872,8,Quercus,453,0.13973550735333154,True
+clr_rbf_ridge,54001,28872,8,Rosaceae undiff.,0,0.0007351578384333715,True
+clr_rbf_ridge,54001,28872,8,Salix,6,0.0017897558777622588,True
+clr_rbf_ridge,54001,28872,8,Thalictrum,1,0.0002528173482781676,True
+clr_rbf_ridge,54001,28872,8,Ulmus,90,0.07710263221793076,True
+training_mean,54001,28872,9,Alnus,1032,0.43331859654574906,True
+training_mean,54001,28872,9,Amaranthaceae,1,0.0005369840272278415,True
+training_mean,54001,28872,9,Betula,1052,0.43306870914932893,True
+training_mean,54001,28872,9,Cichorioideae,1,0.0006918021445866483,True
+training_mean,54001,28872,9,Cyperaceae,6,0.010066703376420074,True
+training_mean,54001,28872,9,Filipendula,3,0.0007190007727684313,True
+training_mean,54001,28872,9,Frangula alnus,9,0.00018201674554058973,True
+training_mean,54001,28872,9,Nuphar,0,0.00018201674554058973,True
+training_mean,54001,28872,9,Plantago lanceolata,7,0.0015565548253199586,True
+training_mean,54001,28872,9,Plantago media,1,0.0,True
+training_mean,54001,28872,9,Populus,5,0.00691663633054241,True
+training_mean,54001,28872,9,Quercus,804,0.07105477917043428,True
+training_mean,54001,28872,9,Rosaceae undiff.,2,0.0008919513089150934,True
+training_mean,54001,28872,9,Salix,4,0.004350269474186298,True
+training_mean,54001,28872,9,Thalictrum,0,0.0,True
+training_mean,54001,28872,9,Ulmus,124,0.036463979383439836,True
+nearest_site,54001,28872,9,Alnus,1032,0.7315807679003805,True
+nearest_site,54001,28872,9,Amaranthaceae,1,0.0003459010722933241,True
+nearest_site,54001,28872,9,Betula,1052,0.05361466620546524,True
+nearest_site,54001,28872,9,Cichorioideae,1,0.0013836042891732965,True
+nearest_site,54001,28872,9,Cyperaceae,6,0.01176063645797302,True
+nearest_site,54001,28872,9,Filipendula,3,0.0003459010722933241,True
+nearest_site,54001,28872,9,Frangula alnus,9,0.0,True
+nearest_site,54001,28872,9,Nuphar,0,0.0,True
+nearest_site,54001,28872,9,Plantago lanceolata,7,0.003113109650639917,True
+nearest_site,54001,28872,9,Plantago media,1,0.0,True
+nearest_site,54001,28872,9,Populus,5,0.0,True
+nearest_site,54001,28872,9,Quercus,804,0.1362850224835697,True
+nearest_site,54001,28872,9,Rosaceae undiff.,2,0.0006918021445866483,True
+nearest_site,54001,28872,9,Salix,4,0.0006918021445866483,True
+nearest_site,54001,28872,9,Thalictrum,0,0.0,True
+nearest_site,54001,28872,9,Ulmus,124,0.06018678657903839,True
+inverse_distance_squared,54001,28872,9,Alnus,1032,0.7310812969169859,True
+inverse_distance_squared,54001,28872,9,Amaranthaceae,1,0.00034622106054720713,True
+inverse_distance_squared,54001,28872,9,Betula,1052,0.054250101410410874,True
+inverse_distance_squared,54001,28872,9,Cichorioideae,1,0.0013824457946317265,True
+inverse_distance_squared,54001,28872,9,Cyperaceae,6,0.011757799791096342,True
+inverse_distance_squared,54001,28872,9,Filipendula,3,0.0003465258664918449,True
+inverse_distance_squared,54001,28872,9,Frangula alnus,9,3.048059446377584e-07,True
+inverse_distance_squared,54001,28872,9,Nuphar,0,3.048059446377584e-07,True
+inverse_distance_squared,54001,28872,9,Plantago lanceolata,7,0.0031105030379213845,True
+inverse_distance_squared,54001,28872,9,Plantago media,1,0.0,True
+inverse_distance_squared,54001,28872,9,Populus,5,1.158262589623482e-05,True
+inverse_distance_squared,54001,28872,9,Quercus,804,0.13617578766633923,True
+inverse_distance_squared,54001,28872,9,Rosaceae undiff.,2,0.0006921373151497764,True
+inverse_distance_squared,54001,28872,9,Salix,4,0.0006979286280978939,True
+inverse_distance_squared,54001,28872,9,Thalictrum,0,0.0,True
+inverse_distance_squared,54001,28872,9,Ulmus,124,0.06014706027454241,True
+clr_rbf_ridge,54001,28872,9,Alnus,1032,0.7290653211944472,True
+clr_rbf_ridge,54001,28872,9,Amaranthaceae,1,0.0005305207059914975,True
+clr_rbf_ridge,54001,28872,9,Betula,1052,0.056378600965234074,True
+clr_rbf_ridge,54001,28872,9,Cichorioideae,1,0.0015426807460686268,True
+clr_rbf_ridge,54001,28872,9,Cyperaceae,6,0.012076854825283461,True
+clr_rbf_ridge,54001,28872,9,Filipendula,3,0.0005325809218193783,True
+clr_rbf_ridge,54001,28872,9,Frangula alnus,9,0.0001780416450480426,True
+clr_rbf_ridge,54001,28872,9,Nuphar,0,0.0001780416450480426,True
+clr_rbf_ridge,54001,28872,9,Plantago lanceolata,7,0.003228858915832511,True
+clr_rbf_ridge,54001,28872,9,Plantago media,1,0.0001758027167710516,True
+clr_rbf_ridge,54001,28872,9,Populus,5,0.00018482311779152236,True
+clr_rbf_ridge,54001,28872,9,Quercus,804,0.13372812465472791,True
+clr_rbf_ridge,54001,28872,9,Rosaceae undiff.,2,0.000882427131484839,True
+clr_rbf_ridge,54001,28872,9,Salix,4,0.0009015454355206214,True
+clr_rbf_ridge,54001,28872,9,Thalictrum,0,0.0001758027167710516,True
+clr_rbf_ridge,54001,28872,9,Ulmus,124,0.0602399726621601,True
+training_mean,54001,28872,10,Alnus,1186,0.36366381001145626,True
+training_mean,54001,28872,10,Amaranthaceae,1,0.00041195290120004454,True
+training_mean,54001,28872,10,Betula,1147,0.5020715357607438,True
+training_mean,54001,28872,10,Cichorioideae,0,0.0002901798861001907,True
+training_mean,54001,28872,10,Cyperaceae,9,0.004502976609901602,True
+training_mean,54001,28872,10,Filipendula,1,0.0005337259162998985,True
+training_mean,54001,28872,10,Frangula alnus,10,0.0,True
+training_mean,54001,28872,10,Nuphar,0,0.0001684068710003368,True
+training_mean,54001,28872,10,Plantago lanceolata,14,0.0020208824520040417,True
+training_mean,54001,28872,10,Plantago media,0,0.0,True
+training_mean,54001,28872,10,Populus,18,0.007231241746791862,True
+training_mean,54001,28872,10,Quercus,810,0.08318524247226208,True
+training_mean,54001,28872,10,Rosaceae undiff.,0,0.0003368137420006736,True
+training_mean,54001,28872,10,Salix,19,0.006938436911898679,True
+training_mean,54001,28872,10,Thalictrum,1,0.0,True
+training_mean,54001,28872,10,Ulmus,78,0.028644794718340534,True
+nearest_site,54001,28872,10,Alnus,1186,0.6204109127652409,True
+nearest_site,54001,28872,10,Amaranthaceae,1,0.0003368137420006736,True
+nearest_site,54001,28872,10,Betula,1147,0.15392388009430785,True
+nearest_site,54001,28872,10,Cichorioideae,0,0.0003368137420006736,True
+nearest_site,54001,28872,10,Cyperaceae,9,0.004378578646008757,True
+nearest_site,54001,28872,10,Filipendula,1,0.0003368137420006736,True
+nearest_site,54001,28872,10,Frangula alnus,10,0.0,True
+nearest_site,54001,28872,10,Nuphar,0,0.0003368137420006736,True
+nearest_site,54001,28872,10,Plantago lanceolata,14,0.0040417649040080834,True
+nearest_site,54001,28872,10,Plantago media,0,0.0,True
+nearest_site,54001,28872,10,Populus,18,0.0003368137420006736,True
+nearest_site,54001,28872,10,Quercus,810,0.16369147861232738,True
+nearest_site,54001,28872,10,Rosaceae undiff.,0,0.0006736274840013472,True
+nearest_site,54001,28872,10,Salix,19,0.004378578646008757,True
+nearest_site,54001,28872,10,Thalictrum,1,0.0,True
+nearest_site,54001,28872,10,Ulmus,78,0.046817110138093636,True
+inverse_distance_squared,54001,28872,10,Alnus,1186,0.6199809630759667,True
+inverse_distance_squared,54001,28872,10,Amaranthaceae,1,0.00033693957032669404,True
+inverse_distance_squared,54001,28872,10,Betula,1147,0.15450688950228106,True
+inverse_distance_squared,54001,28872,10,Cichorioideae,0,0.0003367356487655835,True
+inverse_distance_squared,54001,28872,10,Cyperaceae,9,0.004378786963319249,True
+inverse_distance_squared,54001,28872,10,Filipendula,1,0.00033714349188780456,True
+inverse_distance_squared,54001,28872,10,Frangula alnus,10,0.0,True
+inverse_distance_squared,54001,28872,10,Nuphar,0,0.00033653172720447296,True
+inverse_distance_squared,54001,28872,10,Plantago lanceolata,14,0.004038380726453675,True
+inverse_distance_squared,54001,28872,10,Plantago media,0,0.0,True
+inverse_distance_squared,54001,28872,10,Populus,18,0.0003483591777488849,True
+inverse_distance_squared,54001,28872,10,Quercus,810,0.16355666255854606,True
+inverse_distance_squared,54001,28872,10,Rosaceae undiff.,0,0.0006730634544089459,True
+inverse_distance_squared,54001,28872,10,Salix,19,0.00438286539454146,True
+inverse_distance_squared,54001,28872,10,Thalictrum,1,0.0,True
+inverse_distance_squared,54001,28872,10,Ulmus,78,0.046786678708549495,True
+clr_rbf_ridge,54001,28872,10,Alnus,1186,0.6174763929559073,True
+clr_rbf_ridge,54001,28872,10,Amaranthaceae,1,0.0005140787856710817,True
+clr_rbf_ridge,54001,28872,10,Betula,1147,0.15956624857926244,True
+clr_rbf_ridge,54001,28872,10,Cichorioideae,0,0.0005110626944509182,True
+clr_rbf_ridge,54001,28872,10,Cyperaceae,9,0.004619088706787278,True
+clr_rbf_ridge,54001,28872,10,Filipendula,1,0.0005160751512022591,True
+clr_rbf_ridge,54001,28872,10,Frangula alnus,10,0.00017035423148363917,True
+clr_rbf_ridge,54001,28872,10,Nuphar,0,0.0005046359243679264,True
+clr_rbf_ridge,54001,28872,10,Plantago lanceolata,14,0.00410383506420252,True
+clr_rbf_ridge,54001,28872,10,Plantago media,0,0.00017035423148363917,True
+clr_rbf_ridge,54001,28872,10,Populus,18,0.0005330916030909348,True
+clr_rbf_ridge,54001,28872,10,Quercus,810,0.1587564008611178,True
+clr_rbf_ridge,54001,28872,10,Rosaceae undiff.,0,0.000836125390415715,True
+clr_rbf_ridge,54001,28872,10,Salix,19,0.004656800492712515,True
+clr_rbf_ridge,54001,28872,10,Thalictrum,1,0.00017035423148363917,True
+clr_rbf_ridge,54001,28872,10,Ulmus,78,0.04689510109636033,True
+training_mean,54001,28872,11,Alnus,424,0.3969560669552213,True
+training_mean,54001,28872,11,Amaranthaceae,1,0.0,True
+training_mean,54001,28872,11,Betula,438,0.41653338860543043,True
+training_mean,54001,28872,11,Cichorioideae,0,0.0,True
+training_mean,54001,28872,11,Cyperaceae,5,0.003542821934688848,True
+training_mean,54001,28872,11,Filipendula,0,0.0007107397300062227,True
+training_mean,54001,28872,11,Frangula alnus,8,0.00030807147258163895,True
+training_mean,54001,28872,11,Nuphar,0,0.0002486325211337643,True
+training_mean,54001,28872,11,Plantago lanceolata,0,0.00015403573629081948,True
+training_mean,54001,28872,11,Plantago media,0,0.0,True
+training_mean,54001,28872,11,Populus,5,0.010474430067775724,True
+training_mean,54001,28872,11,Quercus,389,0.09676661295713992,True
+training_mean,54001,28872,11,Rosaceae undiff.,0,0.0,True
+training_mean,54001,28872,11,Salix,4,0.0029969946563157103,True
+training_mean,54001,28872,11,Thalictrum,0,0.0,True
+training_mean,54001,28872,11,Ulmus,66,0.07130820536341557,True
+nearest_site,54001,28872,11,Alnus,424,0.6210840377921432,True
+nearest_site,54001,28872,11,Amaranthaceae,1,0.0,True
+nearest_site,54001,28872,11,Betula,438,0.06812531079065141,True
+nearest_site,54001,28872,11,Cichorioideae,0,0.0,True
+nearest_site,54001,28872,11,Cyperaceae,5,0.0,True
+nearest_site,54001,28872,11,Filipendula,0,0.0004972650422675286,True
+nearest_site,54001,28872,11,Frangula alnus,8,0.0,True
+nearest_site,54001,28872,11,Nuphar,0,0.0004972650422675286,True
+nearest_site,54001,28872,11,Plantago lanceolata,0,0.0,True
+nearest_site,54001,28872,11,Plantago media,0,0.0,True
+nearest_site,54001,28872,11,Populus,5,0.0,True
+nearest_site,54001,28872,11,Quercus,389,0.19045251118846346,True
+nearest_site,54001,28872,11,Rosaceae undiff.,0,0.0,True
+nearest_site,54001,28872,11,Salix,4,0.001989060169070114,True
+nearest_site,54001,28872,11,Thalictrum,0,0.0,True
+nearest_site,54001,28872,11,Ulmus,66,0.11735454997513675,True
+inverse_distance_squared,54001,28872,11,Alnus,424,0.6207087122270817,True
+inverse_distance_squared,54001,28872,11,Amaranthaceae,1,0.0,True
+inverse_distance_squared,54001,28872,11,Betula,438,0.06870875630255943,True
+inverse_distance_squared,54001,28872,11,Cichorioideae,0,0.0,True
+inverse_distance_squared,54001,28872,11,Cyperaceae,5,5.932823286555211e-06,True
+inverse_distance_squared,54001,28872,11,Filipendula,0,0.000497622527803594,True
+inverse_distance_squared,54001,28872,11,Frangula alnus,8,5.158976770917574e-07,True
+inverse_distance_squared,54001,28872,11,Nuphar,0,0.0004968486812879563,True
+inverse_distance_squared,54001,28872,11,Plantago lanceolata,0,2.579488385458787e-07,True
+inverse_distance_squared,54001,28872,11,Plantago media,0,0.0,True
+inverse_distance_squared,54001,28872,11,Populus,5,1.7540521021119753e-05,True
+inverse_distance_squared,54001,28872,11,Quercus,389,0.19029562442167275,True
+inverse_distance_squared,54001,28872,11,Rosaceae undiff.,0,0.0,True
+inverse_distance_squared,54001,28872,11,Salix,4,0.001990748060052922,True
+inverse_distance_squared,54001,28872,11,Thalictrum,0,0.0,True
+inverse_distance_squared,54001,28872,11,Ulmus,66,0.11727744058871846,True
+clr_rbf_ridge,54001,28872,11,Alnus,424,0.6209137166912176,True
+clr_rbf_ridge,54001,28872,11,Amaranthaceae,1,0.00025076480567179864,True
+clr_rbf_ridge,54001,28872,11,Betula,438,0.0712977889581564,True
+clr_rbf_ridge,54001,28872,11,Cichorioideae,0,0.00025076480567179864,True
+clr_rbf_ridge,54001,28872,11,Cyperaceae,5,0.000262136609075129,True
+clr_rbf_ridge,54001,28872,11,Filipendula,0,0.0007596728527151812,True
+clr_rbf_ridge,54001,28872,11,Frangula alnus,8,0.0002554571733082039,True
+clr_rbf_ridge,54001,28872,11,Nuphar,0,0.0007428340840555212,True
+clr_rbf_ridge,54001,28872,11,Plantago lanceolata,0,0.00025395841055234167,True
+clr_rbf_ridge,54001,28872,11,Plantago media,0,0.00025076480567179864,True
+clr_rbf_ridge,54001,28872,11,Populus,5,0.0002653870464980933,True
+clr_rbf_ridge,54001,28872,11,Quercus,389,0.18452807421873252,True
+clr_rbf_ridge,54001,28872,11,Rosaceae undiff.,0,0.00025076480567179864,True
+clr_rbf_ridge,54001,28872,11,Salix,4,0.0022856256949710767,True
+clr_rbf_ridge,54001,28872,11,Thalictrum,0,0.00025076480567179864,True
+clr_rbf_ridge,54001,28872,11,Ulmus,66,0.11718152423235881,True

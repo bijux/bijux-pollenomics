@@ -1,0 +1,83 @@
+{
+  "schema_version": "swedish-direct-pollen-design.v1",
+  "closed_taxa": [
+    "Alnus",
+    "Amaranthaceae",
+    "Betula",
+    "Cichorioideae",
+    "Cyperaceae",
+    "Filipendula",
+    "Frangula alnus",
+    "Nuphar",
+    "Plantago lanceolata",
+    "Plantago media",
+    "Populus",
+    "Quercus",
+    "Rosaceae undiff.",
+    "Salix",
+    "Thalictrum",
+    "Ulmus"
+  ],
+  "age_bin_width_cal_bp": 500,
+  "common_age_bin_ids": [
+    -1,
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+  ],
+  "sites": {
+    "19913": {
+      "label": "Abborrtjärnen",
+      "site_id": "13338",
+      "record_id": "neotoma-dataset:19913",
+      "group_id": "neotoma-site:13338",
+      "latitude": 63.88333,
+      "longitude": 14.45
+    },
+    "53995": {
+      "label": "Bussjösjön",
+      "site_id": "28869",
+      "record_id": "neotoma-dataset:53995",
+      "group_id": "neotoma-site:28869",
+      "latitude": 55.46667,
+      "longitude": 13.81667
+    },
+    "54001": {
+      "label": "Bökesjön",
+      "site_id": "28872",
+      "record_id": "neotoma-dataset:54001",
+      "group_id": "neotoma-site:28872",
+      "latitude": 55.57556,
+      "longitude": 13.4375
+    }
+  },
+  "allowed_inputs": [
+    "held-out target WGS84 coordinate",
+    "fixed 500-cal-BP bin label"
+  ],
+  "held_out_outcomes": "Target Neotoma counts are excluded from each site's prediction process and opened only in scoring after its prediction JSON has been written.",
+  "methods": [
+    "training_mean",
+    "nearest_site",
+    "inverse_distance_squared",
+    "clr_rbf_ridge"
+  ],
+  "fixed_clr_rbf": {
+    "distance_scale": "median positive pairwise distance among the two outer-training sites, recomputed per bin and fold",
+    "ridge_penalty": 0.01,
+    "training_zero_handling": "add 0.5 to each declared training taxon only",
+    "target_zero_handling": "none"
+  },
+  "grouping": "one Neotoma dataset/core/site per physical site group; no Rootsi workbook rows are included",
+  "scores": "per-site-bin pollen fraction MAE and Hellinger; macro average bins within sites, then equal-weight sites",
+  "prior_exposure": "Prior local review of source data and design means exploratory development evidence, not an untouched confirmatory test."
+}

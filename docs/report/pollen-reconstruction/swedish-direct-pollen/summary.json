@@ -1,0 +1,94 @@
+{
+  "clr_rbf_ridge": {
+    "attempted": 39,
+    "per_site": {
+      "Abborrtj\u00e4rnen": {
+        "scored_bins": 13,
+        "site_macro_hellinger": 0.4773892070729118,
+        "site_macro_mae_fraction": 0.07101609918836273
+      },
+      "Bussj\u00f6sj\u00f6n": {
+        "scored_bins": 13,
+        "site_macro_hellinger": 0.38311201803973494,
+        "site_macro_mae_fraction": 0.05394427666678907
+      },
+      "B\u00f6kesj\u00f6n": {
+        "scored_bins": 13,
+        "site_macro_hellinger": 0.38030163329336963,
+        "site_macro_mae_fraction": 0.05346684112513416
+      }
+    },
+    "scored": 39,
+    "site_macro_hellinger": 0.4136009528020055,
+    "site_macro_mae_fraction": 0.05947573899342865
+  },
+  "inverse_distance_squared": {
+    "attempted": 39,
+    "per_site": {
+      "Abborrtj\u00e4rnen": {
+        "scored_bins": 13,
+        "site_macro_hellinger": 0.48331730755451197,
+        "site_macro_mae_fraction": 0.07196798763673132
+      },
+      "Bussj\u00f6sj\u00f6n": {
+        "scored_bins": 13,
+        "site_macro_hellinger": 0.38645176312619556,
+        "site_macro_mae_fraction": 0.054098932787869605
+      },
+      "B\u00f6kesj\u00f6n": {
+        "scored_bins": 13,
+        "site_macro_hellinger": 0.38576632617735623,
+        "site_macro_mae_fraction": 0.05402960773430155
+      }
+    },
+    "scored": 39,
+    "site_macro_hellinger": 0.4185117989526879,
+    "site_macro_mae_fraction": 0.06003217605296749
+  },
+  "nearest_site": {
+    "attempted": 39,
+    "per_site": {
+      "Abborrtj\u00e4rnen": {
+        "scored_bins": 13,
+        "site_macro_hellinger": 0.41431213999237004,
+        "site_macro_mae_fraction": 0.05793950143012509
+      },
+      "Bussj\u00f6sj\u00f6n": {
+        "scored_bins": 13,
+        "site_macro_hellinger": 0.38643125080219104,
+        "site_macro_mae_fraction": 0.05408704678601945
+      },
+      "B\u00f6kesj\u00f6n": {
+        "scored_bins": 13,
+        "site_macro_hellinger": 0.38643125080219104,
+        "site_macro_mae_fraction": 0.05408704678601945
+      }
+    },
+    "scored": 39,
+    "site_macro_hellinger": 0.3957248805322507,
+    "site_macro_mae_fraction": 0.05537119833405466
+  },
+  "training_mean": {
+    "attempted": 39,
+    "per_site": {
+      "Abborrtj\u00e4rnen": {
+        "scored_bins": 13,
+        "site_macro_hellinger": 0.4843807547157229,
+        "site_macro_mae_fraction": 0.07215300590926706
+      },
+      "Bussj\u00f6sj\u00f6n": {
+        "scored_bins": 13,
+        "site_macro_hellinger": 0.45340041830607447,
+        "site_macro_mae_fraction": 0.06444950326355783
+      },
+      "B\u00f6kesj\u00f6n": {
+        "scored_bins": 13,
+        "site_macro_hellinger": 0.2814150133009744,
+        "site_macro_mae_fraction": 0.03492860901611121
+      }
+    },
+    "scored": 39,
+    "site_macro_hellinger": 0.4063987287742572,
+    "site_macro_mae_fraction": 0.057177039396312045
+  }
+}

@@ -214,6 +214,26 @@ APPROVED_HOST_IMPORTS: dict[str, dict[str, frozenset[str]]] = {
             {"distance_km"}
         ),
     },
+    "bijux_pollenomics_dev/source_completion/swedish_direct_pollen.py": {
+        "bijux_pollenomics.analysis.lra_validation.baselines": frozenset(
+            {"predict_spatial_baseline"}
+        ),
+        "bijux_pollenomics.analysis.lra_validation.contracts": frozenset({"Fold"}),
+        "bijux_pollenomics.analysis.lra_validation.metrics": frozenset(
+            {"hellinger_distance", "score_pollen"}
+        ),
+        "bijux_pollenomics.analysis.lra_validation.spatial": frozenset(
+            {
+                "SiteCoordinate",
+                "SpatialConfig",
+                "fit_spatial_model",
+                "half_count_composition",
+            }
+        ),
+        "bijux_pollenomics.analysis.lra_validation.spatial.configuration": frozenset(
+            {"distance_km"}
+        ),
+    },
     "bijux_pollenomics_dev/source_completion/bokesjon_native_counts.py": {
         "bijux_pollenomics.collection.sources.rootsi.cells.decoding": frozenset(
             {"parser"}
