@@ -29,6 +29,11 @@ product.
 
 ## Contracted Sources
 
+The [Nordic source and country limitations](country-source-limitations.md)
+are generated from the governed source-stage and country-dimension ledgers.
+They keep source-reported coverage, governed assignment, and publication
+counts separate for all four countries.
+
 | Family | Evidence role | Suitable questions | Principal limit |
 | --- | --- | --- | --- |
 | [LandClim](landclim.md) | primary pollen context | pollen sequences and modelled vegetation context | model grids and observed sites have different semantics |

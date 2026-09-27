@@ -36,6 +36,10 @@ remaining scientifically qualified.
 
 ## Lifecycle Coverage
 
+The [Nordic country limitations](country-source-limitations.md) present the
+current source-reported, governed, and publication dimensions side by side.
+Their source resolution does not imply site or grid precision.
+
 ```mermaid
 flowchart LR
     Contract["source-family contract"] --> Capture["captured layer"]
