@@ -2288,7 +2288,7 @@ __CHRONOLOGY_PLAYBACK_ACTION__
             </div>
           </div>
         </aside>
-        <section id="focus-card" class="focus-card" hidden aria-live="polite">
+        <section id="focus-card" class="focus-card" hidden aria-live="polite" aria-labelledby="focus-title">
           <div class="focus-card-head">
             <div>
               <div class="focus-card-kicker">Focused Record</div>
@@ -2299,7 +2299,7 @@ __CHRONOLOGY_PLAYBACK_ACTION__
           </div>
           <div id="focus-meta" class="focus-meta"></div>
           <div id="focus-tabs" class="focus-tabs" role="tablist" aria-label="Evidence detail sections"></div>
-          <div id="focus-detail" class="focus-detail" role="tabpanel"></div>
+          <div id="focus-detail" class="focus-detail" role="tabpanel" tabindex="0"></div>
           <div class="focus-nav">
             <button id="focus-previous" class="toolbar-button" type="button">Previous</button>
             <button id="focus-next" class="toolbar-button" type="button">Next</button>
@@ -4513,6 +4513,7 @@ __NATIVE_LRA_CONTROLLER__
       let legendCollapsed = initialState.legend !== 'expanded';
       let focusState = null;
       let activeFocusTab = 'overview';
+      let focusCardReturnFocus = null;
       const DETAIL_TABLE_PAGE_SIZE = 25;
       const detailTablePages = new Map();
       let staticAtlasLoadGeneration = 0;
@@ -5000,6 +5001,11 @@ __NATIVE_LRA_CONTROLLER__
         return uniquePointEntryForFocus(visiblePointEntries, state);
       }
       function setFocusState(nextState) {
+        const opening = Boolean(nextState) && focusCard.hidden;
+        if (opening) {
+          const origin = document.activeElement;
+          focusCardReturnFocus = topbarSearch.contains(origin) ? searchToggleButton : origin;
+        }
         if (nextState) {
           setPanelCollapsed(true, false);
           mobilePanelReturnFocus = null;
@@ -5015,6 +5021,16 @@ __NATIVE_LRA_CONTROLLER__
           clearHighlightedPoint();
         }
         renderFocusCard();
+        if (opening && !focusCard.hidden) focusTabs.querySelector('[aria-selected="true"]').focus({ preventScroll: true });
+      }
+      function restoreFocusFromCard() {
+        const origin = focusCardReturnFocus;
+        focusCardReturnFocus = null;
+        if (origin instanceof HTMLElement && origin.isConnected && origin.getClientRects().length && !origin.matches(':disabled')) {
+          origin.focus({ preventScroll: true });
+        } else {
+          document.getElementById('map').focus({ preventScroll: true });
+        }
       }
       function unavailableDetailTabs(reasonCode) {
         return Object.fromEntries(DETAIL_TAB_DEFINITIONS.map(([key]) => [key, { status: 'unavailable', reason_code: reasonCode }]));
@@ -5192,9 +5208,14 @@ __NATIVE_LRA_CONTROLLER__
         return `<span>${escapeHtml(String(value))}</span>`;
       }
       function renderFocusDetail() {
+        const focused = document.activeElement;
+        const focusedTab = focusTabs.contains(focused) ? focused.dataset.focusTab : null;
+        const focusedTable = focusDetail.contains(focused) ? focused.dataset.detailTablePage : null;
+        const focusedDirection = focusedTable ? focused.dataset.pageDirection : null;
         const tabs = focusState && focusState.detailTabs ? focusState.detailTabs : unavailableDetailTabs('record_level_evidence_not_available');
         if (!Object.prototype.hasOwnProperty.call(tabs, activeFocusTab)) activeFocusTab = 'overview';
-        focusTabs.innerHTML = DETAIL_TAB_DEFINITIONS.map(([key, label]) => `<button class="focus-tab" type="button" role="tab" data-focus-tab="${key}" aria-selected="${String(activeFocusTab === key)}">${escapeHtml(label)}</button>`).join('');
+        focusTabs.innerHTML = DETAIL_TAB_DEFINITIONS.map(([key, label]) => `<button id="focus-tab-${key}" class="focus-tab" type="button" role="tab" data-focus-tab="${key}" aria-selected="${String(activeFocusTab === key)}" aria-controls="focus-detail" tabindex="${activeFocusTab === key ? '0' : '-1'}">${escapeHtml(label)}</button>`).join('');
+        focusDetail.setAttribute('aria-labelledby', `focus-tab-${activeFocusTab}`);
         focusDetail.innerHTML = renderDetailValue(tabs[activeFocusTab], activeFocusTab);
         focusDetail.dataset.detailStatus = tabs[activeFocusTab] && tabs[activeFocusTab].status === 'unavailable' ? 'unavailable' : 'available';
         focusTabs.querySelectorAll('[data-focus-tab]').forEach((button) => {
@@ -5212,6 +5233,12 @@ __NATIVE_LRA_CONTROLLER__
             renderFocusDetail();
           });
         });
+        if (focusedTab) {
+          document.getElementById(`focus-tab-${activeFocusTab}`).focus({ preventScroll: true });
+        } else if (focusedTable) {
+          const replacement = [...focusDetail.querySelectorAll('[data-detail-table-page]')].find((button) => button.dataset.detailTablePage === focusedTable && button.dataset.pageDirection === focusedDirection && !button.disabled);
+          (replacement || focusDetail).focus({ preventScroll: true });
+        }
       }
       function renderFocusCard() {
         const pointEntry = visiblePointEntryForFocus();
@@ -5219,12 +5246,14 @@ __NATIVE_LRA_CONTROLLER__
           ? visibleGovernedEdges().some((edge) => edge.edge_id === focusState.edgeId)
           : true;
         if (!focusState || !activeLayerKeys.has(focusState.layerKey) || (focusState.kind === 'point' && !pointEntry) || !edgeVisible) {
+          const containedFocus = focusCard.contains(document.activeElement);
           focusCard.hidden = true;
           focusSourceLink.hidden = true;
           focusPreviousButton.disabled = true;
           focusNextButton.disabled = true;
           focusTabs.innerHTML = '';
           focusDetail.innerHTML = '';
+          if (containedFocus) restoreFocusFromCard();
           return;
         }
         focusCard.hidden = false;
@@ -7336,6 +7365,20 @@ __NATIVE_LRA_CONTROLLER__
         }
       });
       focusCloseButton.addEventListener('click', () => setFocusState(null));
+      focusTabs.addEventListener('keydown', (event) => {
+        if (!event.target.matches('[data-focus-tab]')) return;
+        const keys = DETAIL_TAB_DEFINITIONS.map(([key]) => key);
+        const index = keys.indexOf(event.target.dataset.focusTab);
+        let nextIndex;
+        if (event.key === 'ArrowRight') nextIndex = (index + 1) % keys.length;
+        else if (event.key === 'ArrowLeft') nextIndex = (index + keys.length - 1) % keys.length;
+        else if (event.key === 'Home') nextIndex = 0;
+        else if (event.key === 'End') nextIndex = keys.length - 1;
+        else return;
+        event.preventDefault();
+        activeFocusTab = keys[nextIndex];
+        renderFocusDetail();
+      });
       focusPreviousButton.addEventListener('click', () => {
         if (!focusState || focusState.kind !== 'point' || !visiblePointEntries.length) return;
         const currentIndex = visiblePointEntries.indexOf(visiblePointEntryForFocus(focusState));
@@ -7395,6 +7438,11 @@ __NATIVE_LRA_CONTROLLER__
         }
         if (event.key === 'Escape' && !helpDialog.hidden) {
           closeHelpDialog();
+          return;
+        }
+        if (event.key === 'Escape' && !focusCard.hidden && focusCard.contains(document.activeElement)) {
+          event.preventDefault();
+          setFocusState(null);
           return;
         }
         if (event.key === 'Escape' && !topbarSearch.hidden) {
