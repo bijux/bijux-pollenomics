@@ -1,0 +1,139 @@
+{
+  "schema_version": "pollenomics-v5-scoped-study-report.v1",
+  "status": "scoped_development_report_with_external_source_blockers",
+  "as_of": "2026-09-27",
+  "confirmatory_result": false,
+  "outcome_access_for_report": "tracked_results_and_existing_retained_outputs_only; no new final outcome access",
+  "primary_prediction_cohort": {
+    "source": "previously opened English author-prepared pollen counts",
+    "site_count": 17,
+    "taxon_count": 31,
+    "grouping": "whole author site IDs; cross-database alias closure unreviewed",
+    "fold_count": 3,
+    "attempted_site_bins": 184,
+    "common_scored_site_bins": 174,
+    "outcomes_used_for_development_selection": true
+  },
+  "selected_development_candidate": {
+    "candidate_id": "clr_rbf_q25_ridge_0.1",
+    "method": "clr_wgs84_rbf_ridge",
+    "distance_quantile": 0.25,
+    "ridge_penalty": 0.1,
+    "training_zero_policy": "half-count per taxon for CLR fit only",
+    "selection_rule": "minimum common-support site-macro MAE among candidates with at least 80 percent own scored-bin coverage; ties prefer greater own coverage then candidate ID",
+    "scoring": "original observed counts; site-macro MAE and Hellinger distance",
+    "status": "exploratory_prior_exposed_development_evidence"
+  },
+  "excluded_claims": [
+    "Nordic LRA, independent vegetation accuracy, and Denmark direct-pollen transfer: no admitted inputs for those claims; Norway and Finland direct-pollen results are exploratory, prior-exposed subcomposition predictions only",
+    "Independent vegetation accuracy: no eligible measured pairs",
+    "HYDE covariate value or Nordic country transfer: exact source semantics and country partition unresolved",
+    "Whole-paper historical reproduction: source inputs, chronology, rights and PFT mapping unresolved",
+    "Untouched confirmatory prediction skill: all author pollen outcomes were previously exposed",
+    "Swedish LRA prediction: no fold run because time-matched basin geometry and parameterized count denominator remain unresolved"
+  ],
+  "producer_and_source_identities": {
+    "author_development_design": "docs/report/pollen-reconstruction/author-development-design.json",
+    "author_development_source_manifest_sha256": "48d853468f979a04636642c6c757e9d05edf708d799b29cbae4d2286a9ac0acb",
+    "swedish_direct_pollen_producer": "bijux_pollenomics_dev.source_completion.swedish_direct_pollen",
+    "swedish_direct_pollen_configuration": "docs/report/pollen-reconstruction/swedish-direct-pollen/config.json",
+    "swedish_direct_pollen_input_manifest": "docs/report/pollen-reconstruction/swedish-direct-pollen/input-manifest.json",
+    "swedish_direct_pollen_source_files": {
+      "part-004.json": "d96046c88b497ba07082120e446fecacad0d9b5533d8960bdbc03811976ea435",
+      "part-008.json": "9cdcb2d394bc8ef23bf2b4b5e3f1f3ae5916aae16db71542c58f4b80a2dd1134"
+    },
+    "paper_correspondence": "docs/report/pollen-reconstruction/paper-correspondence.md",
+    "swedish_source_questions": "docs/report/pollen-reconstruction/swedish-source-questions.csv",
+    "nordic_direct_pollen_producer": "bijux_pollenomics_dev.source_completion.nordic_direct_pollen",
+    "nordic_direct_pollen_report": "docs/report/regions/nordic/direct-pollen/RESULTS.md",
+    "nordic_direct_pollen_manifest": "docs/report/regions/nordic/direct-pollen/manifest.json",
+    "nordic_direct_pollen_source_snapshot": "sha256:b2bcb99157e10b0c9f13c228acc12eabcb39d96a1f39c86ec25e34aacd78c791",
+    "nordic_direct_pollen_relational_build": "sha256:92dd52619837f3641d004a1a5dbe38f9ab6023a79f61989314bb90e612eb58e1",
+    "nordic_direct_pollen_scored_rows": 624,
+    "nordic_direct_pollen_prediction_rows": {
+      "FI": 8,
+      "NO": 616
+    },
+    "delivery_commits": [
+      "21fa4ae8",
+      "907c948f",
+      "20ecd351"
+    ],
+    "final_development_suite": "1,097 passed before final cache guard failure; 3 opt-in skipped; guard rechecked in a 10-test managed selection",
+    "focused_delivery_verification": "10 passed; read set unchanged; Ruff check/format and mypy passed",
+    "isolated_package_build": "passed; wheel and sdist built; not published",
+    "rootsi_source_review": "docs/public/pollenomics-data/sources/landclim.md"
+  },
+  "scientific_acceptance": "not_evaluated_for_full_nordic_lra_objective; exploratory_direct_pollen_results_available_for_NO_and_FI",
+  "program_delivery_acceptance": "s9_test_selection_1097_passed_before_cache_guard_failure; focused_guard_rerun_passed; isolated_package_build_passed; full_scientific_objective_incomplete_due_to_external_source_blockers",
+  "additional_exploratory_prediction_cohort": {
+    "source": "EPD native Neotoma pollen datasets 19913/13338 (Abborrtj\u00e4rnen), 53995/28869 (Bussj\u00f6sj\u00f6n), and 54001/28872 (B\u00f6kesj\u00f6n)",
+    "site_count": 3,
+    "source_sample_rows": 228,
+    "taxon_count": 16,
+    "age_support": "sample-owned calibrated radiocarbon years BP; bounds absent; exploratory 500-year bins",
+    "folds": "whole physical site held out; target coordinates allowed; target pollen withheld until frozen prediction scoring",
+    "attempted_site_bins_per_candidate": 39,
+    "common_bins": 13,
+    "candidates": [
+      "training_mean",
+      "nearest_site",
+      "inverse_distance_squared",
+      "clr_rbf_ridge"
+    ],
+    "outcomes_previously_exposed": true,
+    "status": "exploratory_prior_exposed_swedish_direct_observed_pollen_prediction"
+  },
+  "nordic_direct_pollen_country_holdout": {
+    "source": "Neotoma/EPD datasets from retained relational build",
+    "target_countries": [
+      "FI",
+      "NO"
+    ],
+    "screen_candidates": {
+      "FI": {
+        "samples": 127,
+        "sites": 1
+      },
+      "NO": {
+        "samples": 921,
+        "sites": 14
+      },
+      "DK": {
+        "samples": 0,
+        "screened_samples": 279
+      }
+    },
+    "scored_site_bins": {
+      "FI": 2,
+      "NO": 154
+    },
+    "scored_sites": {
+      "FI": 1,
+      "NO": 12
+    },
+    "unsupported_or_empty_bins": {
+      "FI": 0,
+      "NO": 95
+    },
+    "prediction_rows": {
+      "FI": 8,
+      "NO": 616
+    },
+    "methods": [
+      "training_mean",
+      "nearest_site",
+      "inverse_distance_squared",
+      "clr_rbf_ridge"
+    ],
+    "outcomes_previously_exposed": true,
+    "response": "fixed 16 exact-label direct-pollen subcomposition",
+    "status": "exploratory_prior_exposed_country_held_out_direct_observed_pollen_prediction",
+    "excluded_claims": [
+      "measured vegetation accuracy",
+      "LRA skill",
+      "Denmark transfer",
+      "all-Nordic population-level skill"
+    ]
+  }
+}

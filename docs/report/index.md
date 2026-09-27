@@ -17,6 +17,7 @@ internal functions that emitted each file.
 ## Start Here
 
 - [how to read the report tree](./how-to-read.md) if you are new to the repository
+- [Swedish pollen and Nordic transfer study](./pollen-reconstruction/README.md) for direct-pollen results, numerical correspondence, and source limits
 - [map surfaces](./maps/index.md) if you want the interactive world, Europe-plus, or Nordic view
 - [scope-filtered outputs](./scopes/index.md) if your question is world, region, or country specific
 - [evidence reviews](./reviews/index.md) if you want chronology, intake, sample-database, or point-support reviews

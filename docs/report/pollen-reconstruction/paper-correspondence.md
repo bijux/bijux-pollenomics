@@ -1,0 +1,27 @@
+# Paper correspondence interpretation
+
+## Numerical result
+
+The installed Python publication profile agrees with the independent author-R replay on 14,074 supported mean and standard-error values across the retained author examples. Maximum residuals are about 1.84e-13 for means and 7.16e-14 for standard errors in fractional units, inside the predeclared comparison tolerances. The implementation itself therefore does not explain the larger archive differences on the directly matched TW2 window.
+
+For exact 100–350 BP support, the archived PANGAEA 937075 means differ from the author-R replay by maximum 9.19787 percentage points in grid 512 and 10.5527 in grid 562. Standard-error gaps are 3.21615 and 4.25814 points. The largest mean discrepancies are Cyperaceae and Calluna vulgaris. Each vector sums to 100 percent, and Python-to-R residuals are near 1e-11 points or smaller. These are product differences, not vegetation accuracy estimates. The archive and 2016 author example have not been shown to use identical historical source records.
+
+The time-window axis has only one exact interval match out of 25: TW2, 100–350 BP. Most later author windows begin and end 50 years later than the corresponding PANGAEA windows; TW1 starts at -65 BP in the author axis and 0 BP in the published label. The direct numerical archive comparison therefore stays on TW2. No retrospective shift was applied to make the other rows appear comparable.
+
+All 31 taxon mean ± one-SE envelopes overlap in each grid. That is a descriptive comparison of two reported uncertainty scales; dependence between versions and raw-input identity are unknown, so the overlap is not a significance test.
+
+## Historical reproduction boundary
+
+The retained Rootsi candidate closure has 79 unique publication-metadata candidates among 1,128 publication records, but zero authenticated historical primary-input records and zero reproduction-ready rows. I replayed the exact retained bytes for all 79 typed workbook candidates. The replay records 7,459 header positions, 5,170 mechanical data rows and the original sample-count claims; 78 claims agree with row counts, while EKE claims 25 and has 42 mechanical data rows. This verifies the structure of the retained candidate files. It does not verify their membership in a native LandClim archive or authenticate them as the published study inputs. No workbook output is cleared for public release, and scientific acceptance was not evaluated.
+
+The local evidence still leaves the paper's 12-PFT statement, PANGAEA's 11-PFT description and 13 archived PFT positions unresolved. `ISTS` remains unmapped. The numerical 31-taxon comparison does not resolve that separate functional-type question. Historical chronology choices, per-sequence rights, source revisions, basin/profile semantics and full-paper raw-input closure also remain open.
+
+The next causal resolution needs the source owner to identify the historical raw sequence revisions and selected chronologies for a fully specified published row, then confirm taxon/count and PFT/ISTS transformations. The unresolved source-owner questions are summarized in `swedish-source-questions.csv`. No message was sent.
+
+## Repository evidence
+
+- Author computation, archive-window differences, interval alignment and uncertainty envelopes: `paper-correspondence.csv`.
+- Numerical implementation and comparison code: `packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/`.
+- Rootsi source boundary and workbook replay summary: `docs/public/pollenomics-data/sources/landclim.md` and `swedish-source-questions.csv`.
+- Independent vegetation review: `docs/public/pollenomics-data/sources/empd2-nfi-review.md` and `nordic-nfi-reference-access.md`.
+- HYDE source boundary: `docs/public/pollenomics-data/sources/hyde.md`.

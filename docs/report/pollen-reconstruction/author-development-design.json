@@ -1,0 +1,133 @@
+{
+  "schema_version": "author-pollen-grouped-development-search.v1",
+  "status": "completed_development_evidence",
+  "source_manifest_sha256": "48d853468f979a04636642c6c757e9d05edf708d799b29cbae4d2286a9ac0acb",
+  "metadata_sha256": "72949e9e3faf417be0b7425fc111a9638b37c4a38aab8f8d82e0c3d8739da2de",
+  "taxon_crosswalk_sha256": "3a0f598ba5e550ca39da52b2047b7020b013dad013d15f79bef8e1c3c1a979c3",
+  "source": "English author-prepared pollen; previously opened development data",
+  "grouping": "whole author site IDs; no reviewed cross-database alias closure",
+  "folds": {
+    "site-fold-1": [
+      "BECKHAM",
+      "BROADOWN",
+      "GOURTEMIRES",
+      "HARESDOWN",
+      "MOLECHAM",
+      "WHH11"
+    ],
+    "site-fold-2": [
+      "COMERSLA",
+      "CUTHILL2",
+      "LARKBARR",
+      "LOBBSBOG",
+      "NTWITCHEN",
+      "WINDMILL"
+    ],
+    "site-fold-3": [
+      "EXEBRID",
+      "HANGINGS",
+      "LONGBREACH",
+      "WHH05",
+      "WINNEYS"
+    ]
+  },
+  "candidate_count": 12,
+  "candidates": [
+    {
+      "candidate_id": "training_mean",
+      "model": "training_mean",
+      "configuration": {}
+    },
+    {
+      "candidate_id": "nearest_site",
+      "model": "nearest_site",
+      "configuration": {}
+    },
+    {
+      "candidate_id": "inverse_distance_squared",
+      "model": "inverse_distance_squared",
+      "configuration": {}
+    },
+    {
+      "candidate_id": "clr_rbf_q25_ridge_0.001",
+      "model": "clr_wgs84_rbf_ridge",
+      "configuration": {
+        "distance_quantile": 0.25,
+        "ridge_penalty": 0.001
+      }
+    },
+    {
+      "candidate_id": "clr_rbf_q25_ridge_0.01",
+      "model": "clr_wgs84_rbf_ridge",
+      "configuration": {
+        "distance_quantile": 0.25,
+        "ridge_penalty": 0.01
+      }
+    },
+    {
+      "candidate_id": "clr_rbf_q25_ridge_0.1",
+      "model": "clr_wgs84_rbf_ridge",
+      "configuration": {
+        "distance_quantile": 0.25,
+        "ridge_penalty": 0.1
+      }
+    },
+    {
+      "candidate_id": "clr_rbf_q50_ridge_0.001",
+      "model": "clr_wgs84_rbf_ridge",
+      "configuration": {
+        "distance_quantile": 0.5,
+        "ridge_penalty": 0.001
+      }
+    },
+    {
+      "candidate_id": "clr_rbf_q50_ridge_0.01",
+      "model": "clr_wgs84_rbf_ridge",
+      "configuration": {
+        "distance_quantile": 0.5,
+        "ridge_penalty": 0.01
+      }
+    },
+    {
+      "candidate_id": "clr_rbf_q50_ridge_0.1",
+      "model": "clr_wgs84_rbf_ridge",
+      "configuration": {
+        "distance_quantile": 0.5,
+        "ridge_penalty": 0.1
+      }
+    },
+    {
+      "candidate_id": "clr_rbf_q75_ridge_0.001",
+      "model": "clr_wgs84_rbf_ridge",
+      "configuration": {
+        "distance_quantile": 0.75,
+        "ridge_penalty": 0.001
+      }
+    },
+    {
+      "candidate_id": "clr_rbf_q75_ridge_0.01",
+      "model": "clr_wgs84_rbf_ridge",
+      "configuration": {
+        "distance_quantile": 0.75,
+        "ridge_penalty": 0.01
+      }
+    },
+    {
+      "candidate_id": "clr_rbf_q75_ridge_0.1",
+      "model": "clr_wgs84_rbf_ridge",
+      "configuration": {
+        "distance_quantile": 0.75,
+        "ridge_penalty": 0.1
+      }
+    }
+  ],
+  "training_zero_policy": "half-count per taxon for CLR fit only",
+  "scoring": "original observed integer counts; site-macro MAE; Hellinger distance",
+  "selection_rule": "minimum common-support site-macro MAE among candidates with at least 80% own scored-bin coverage; ties prefer greater own coverage then candidate ID",
+  "common_scored_site_bins": 174,
+  "attempted_observed_site_bins": 184,
+  "selected_candidate_id": "clr_rbf_q25_ridge_0.1",
+  "target_outcomes_used_for_selection": true,
+  "confirmatory_claim": "not_supported; these outcomes were previously opened and informed study design",
+  "eligible_groups": 17
+}
