@@ -1,0 +1,3300 @@
+{
+  "schema_version": "pollenomics-synthetic-spatial-eligibility.v1",
+  "source_kind": "fabricated_coordinates_and_BP_intervals",
+  "prospective_contract": {
+    "pair_attempts": 18,
+    "regional_events": 4,
+    "regional_source_neighbors": 3,
+    "maximum_distance_km": 100.0,
+    "maximum_lag_years": 100.0,
+    "equatorial_semimajor_metres": 6378137.0,
+    "distance_absolute_tolerance_km": 1e-11,
+    "eligibility_threshold_tolerance_km": 0.0,
+    "truth_method": "stdlib degrees(distance_metres / WGS84_semimajor_metres); exact equatorial arc",
+    "exact_boundary_constructor_maximum_ulp_steps": 32
+  },
+  "cases": [
+    {
+      "case_id": "inside-threshold",
+      "inputs": {
+        "source": {
+          "source_family": "synthetic-spatial-truth",
+          "evidence_domain": "pollen_context",
+          "source_snapshot_id": "synthetic-spatial-truth",
+          "source_record_id": "record:equator-source",
+          "site_id": "site:equator-source",
+          "observation_ids": [
+            "observation:equator-source"
+          ],
+          "country_code": "NO",
+          "latitude": 0.0,
+          "longitude": 0.0,
+          "coordinate_quality": "fabricated_fixture",
+          "event_type": "reported_positive_observation",
+          "resolution": "whole_pollen",
+          "feature_key": "whole:pollen",
+          "chronology_claim_id": "chronology:equator-source",
+          "younger_bp": 5600.0,
+          "older_bp": 5600.0,
+          "comparability_status": "comparable",
+          "threshold_profile_id": "synthetic-reported-positive",
+          "classification_contract_version": null,
+          "provenance_record_id": "provenance:equator-source",
+          "input_digest": "8adf7a1061fc3e9cb1a2820c360c6142c61fa096b8b70bd623163fe7852ad035",
+          "config_digest": "synthetic-spatial-config",
+          "producer_version": "synthetic-spatial-eligibility.v1",
+          "build_id": "synthetic-spatial-truth",
+          "measurement_semantics_id": "synthetic-presence",
+          "evidence_method_id": "synthetic-known-truth",
+          "method_compatibility_key": "synthetic-whole-pollen",
+          "subject_granularity": "sample",
+          "preaggregation_valid": true,
+          "role_membership_explicit": false,
+          "accepted_taxon_concept_id": null,
+          "taxonomic_qualifier": null,
+          "temporal_contract_version": "1.0.0",
+          "event_id": "event:8388528ecd35db4c708bd27e",
+          "schema_version": "1.0.0"
+        },
+        "target": {
+          "source_family": "synthetic-spatial-truth",
+          "evidence_domain": "pollen_context",
+          "source_snapshot_id": "synthetic-spatial-truth",
+          "source_record_id": "record:inside-threshold",
+          "site_id": "site:inside-threshold",
+          "observation_ids": [
+            "observation:inside-threshold"
+          ],
+          "country_code": "SE",
+          "latitude": 0.0,
+          "longitude": 0.8983152751363686,
+          "coordinate_quality": "fabricated_fixture",
+          "event_type": "reported_positive_observation",
+          "resolution": "whole_pollen",
+          "feature_key": "whole:pollen",
+          "chronology_claim_id": "chronology:inside-threshold",
+          "younger_bp": 5500.0,
+          "older_bp": 5500.0,
+          "comparability_status": "comparable",
+          "threshold_profile_id": "synthetic-reported-positive",
+          "classification_contract_version": null,
+          "provenance_record_id": "provenance:inside-threshold",
+          "input_digest": "ac7f4ae80366ea250357341a27a11938827e9dbcde3ebb67087a30509d172ccc",
+          "config_digest": "synthetic-spatial-config",
+          "producer_version": "synthetic-spatial-eligibility.v1",
+          "build_id": "synthetic-spatial-truth",
+          "measurement_semantics_id": "synthetic-presence",
+          "evidence_method_id": "synthetic-known-truth",
+          "method_compatibility_key": "synthetic-whole-pollen",
+          "subject_granularity": "sample",
+          "preaggregation_valid": true,
+          "role_membership_explicit": false,
+          "accepted_taxon_concept_id": null,
+          "taxonomic_qualifier": null,
+          "temporal_contract_version": "1.0.0",
+          "event_id": "event:3d64c28e6e1ea9e4a7bc55a4",
+          "schema_version": "1.0.0"
+        }
+      },
+      "independent_expected_status": "definite_candidate",
+      "independent_equatorial_distance_km": 99.999999,
+      "constructor_ulp_steps": 0,
+      "output": {
+        "edge_id": "edge:ca54c6b393250fb16e6fe656",
+        "source_event_id": "event:8388528ecd35db4c708bd27e",
+        "target_event_id": "event:3d64c28e6e1ea9e4a7bc55a4",
+        "source_site_id": "site:equator-source",
+        "target_site_id": "site:inside-threshold",
+        "source_country_code": "NO",
+        "target_country_code": "SE",
+        "cross_border": true,
+        "shared_location": false,
+        "resolution": "whole_pollen",
+        "feature_key": "whole:pollen",
+        "distance_km_unrounded": 99.999999,
+        "distance_km_display": 100.0,
+        "distance_algorithm": "WGS84 inverse geodesic",
+        "distance_library": "pyproj",
+        "distance_library_version": "3.7.2",
+        "minimum_lag_years": 100.0,
+        "maximum_lag_years": 100.0,
+        "candidate_status": "definite_candidate",
+        "reason_code": "all_thresholds_pass",
+        "scenario_id": "rectangular_100km_100yr_v1",
+        "threshold_profile_id": "synthetic-reported-positive",
+        "temporal_contract_version": "1.0.0",
+        "classification_contract_version": null,
+        "event_manifest_digest": "5a215decd251b6ff3683daeca322a37eeaf918107553ce6afb89b753edc38623",
+        "config_digest": "8fb355e4862e3ee4f4c9bde59aa4efc2b09af22966087c16975323ab5a8a1f92",
+        "build_id": "synthetic-spatial-truth",
+        "directional_arrow_allowed": true,
+        "schema_version": "1.0.0",
+        "propagation_contract_version": "1.0.0",
+        "producer_version": "propagation-network.v1",
+        "map_geometry_role": "endpoint_connection_only",
+        "route_interpretation_allowed": false
+      },
+      "status": "evaluated",
+      "expected_lag_bounds_years": [
+        100.0,
+        100.0
+      ],
+      "distance_error_km": 0.0,
+      "raw_distance_hex": "0x1.8fffffbce4218p+6",
+      "raw_distance_roundtrip_identical": true,
+      "six_decimal_distance_km": 99.999999,
+      "contract_status": "passed"
+    },
+    {
+      "case_id": "exact-threshold",
+      "inputs": {
+        "source": {
+          "source_family": "synthetic-spatial-truth",
+          "evidence_domain": "pollen_context",
+          "source_snapshot_id": "synthetic-spatial-truth",
+          "source_record_id": "record:equator-source",
+          "site_id": "site:equator-source",
+          "observation_ids": [
+            "observation:equator-source"
+          ],
+          "country_code": "NO",
+          "latitude": 0.0,
+          "longitude": 0.0,
+          "coordinate_quality": "fabricated_fixture",
+          "event_type": "reported_positive_observation",
+          "resolution": "whole_pollen",
+          "feature_key": "whole:pollen",
+          "chronology_claim_id": "chronology:equator-source",
+          "younger_bp": 5600.0,
+          "older_bp": 5600.0,
+          "comparability_status": "comparable",
+          "threshold_profile_id": "synthetic-reported-positive",
+          "classification_contract_version": null,
+          "provenance_record_id": "provenance:equator-source",
+          "input_digest": "8adf7a1061fc3e9cb1a2820c360c6142c61fa096b8b70bd623163fe7852ad035",
+          "config_digest": "synthetic-spatial-config",
+          "producer_version": "synthetic-spatial-eligibility.v1",
+          "build_id": "synthetic-spatial-truth",
+          "measurement_semantics_id": "synthetic-presence",
+          "evidence_method_id": "synthetic-known-truth",
+          "method_compatibility_key": "synthetic-whole-pollen",
+          "subject_granularity": "sample",
+          "preaggregation_valid": true,
+          "role_membership_explicit": false,
+          "accepted_taxon_concept_id": null,
+          "taxonomic_qualifier": null,
+          "temporal_contract_version": "1.0.0",
+          "event_id": "event:8388528ecd35db4c708bd27e",
+          "schema_version": "1.0.0"
+        },
+        "target": {
+          "source_family": "synthetic-spatial-truth",
+          "evidence_domain": "pollen_context",
+          "source_snapshot_id": "synthetic-spatial-truth",
+          "source_record_id": "record:exact-threshold",
+          "site_id": "site:exact-threshold",
+          "observation_ids": [
+            "observation:exact-threshold"
+          ],
+          "country_code": "SE",
+          "latitude": 0.0,
+          "longitude": 0.8983152841195214,
+          "coordinate_quality": "fabricated_fixture",
+          "event_type": "reported_positive_observation",
+          "resolution": "whole_pollen",
+          "feature_key": "whole:pollen",
+          "chronology_claim_id": "chronology:exact-threshold",
+          "younger_bp": 5500.0,
+          "older_bp": 5500.0,
+          "comparability_status": "comparable",
+          "threshold_profile_id": "synthetic-reported-positive",
+          "classification_contract_version": null,
+          "provenance_record_id": "provenance:exact-threshold",
+          "input_digest": "b66f8df7a8ac07f383339da300807e10c02f09418b8b485c7644d7e70d3724b3",
+          "config_digest": "synthetic-spatial-config",
+          "producer_version": "synthetic-spatial-eligibility.v1",
+          "build_id": "synthetic-spatial-truth",
+          "measurement_semantics_id": "synthetic-presence",
+          "evidence_method_id": "synthetic-known-truth",
+          "method_compatibility_key": "synthetic-whole-pollen",
+          "subject_granularity": "sample",
+          "preaggregation_valid": true,
+          "role_membership_explicit": false,
+          "accepted_taxon_concept_id": null,
+          "taxonomic_qualifier": null,
+          "temporal_contract_version": "1.0.0",
+          "event_id": "event:2dd0f29164d54e7973c437ad",
+          "schema_version": "1.0.0"
+        }
+      },
+      "independent_expected_status": "definite_candidate",
+      "independent_equatorial_distance_km": 100.0,
+      "constructor_ulp_steps": 0,
+      "output": {
+        "edge_id": "edge:936faa05bb18cd390e342e2f",
+        "source_event_id": "event:8388528ecd35db4c708bd27e",
+        "target_event_id": "event:2dd0f29164d54e7973c437ad",
+        "source_site_id": "site:equator-source",
+        "target_site_id": "site:exact-threshold",
+        "source_country_code": "NO",
+        "target_country_code": "SE",
+        "cross_border": true,
+        "shared_location": false,
+        "resolution": "whole_pollen",
+        "feature_key": "whole:pollen",
+        "distance_km_unrounded": 100.0,
+        "distance_km_display": 100.0,
+        "distance_algorithm": "WGS84 inverse geodesic",
+        "distance_library": "pyproj",
+        "distance_library_version": "3.7.2",
+        "minimum_lag_years": 100.0,
+        "maximum_lag_years": 100.0,
+        "candidate_status": "definite_candidate",
+        "reason_code": "all_thresholds_pass",
+        "scenario_id": "rectangular_100km_100yr_v1",
+        "threshold_profile_id": "synthetic-reported-positive",
+        "temporal_contract_version": "1.0.0",
+        "classification_contract_version": null,
+        "event_manifest_digest": "6431b0f283b1b9e40c2832c956a9fd96e78509cc69366b7a096d62a5ae42da85",
+        "config_digest": "8fb355e4862e3ee4f4c9bde59aa4efc2b09af22966087c16975323ab5a8a1f92",
+        "build_id": "synthetic-spatial-truth",
+        "directional_arrow_allowed": true,
+        "schema_version": "1.0.0",
+        "propagation_contract_version": "1.0.0",
+        "producer_version": "propagation-network.v1",
+        "map_geometry_role": "endpoint_connection_only",
+        "route_interpretation_allowed": false
+      },
+      "status": "evaluated",
+      "expected_lag_bounds_years": [
+        100.0,
+        100.0
+      ],
+      "distance_error_km": 0.0,
+      "raw_distance_hex": "0x1.9000000000000p+6",
+      "raw_distance_roundtrip_identical": true,
+      "six_decimal_distance_km": 100.0,
+      "contract_status": "passed"
+    },
+    {
+      "case_id": "millimetre-outside",
+      "inputs": {
+        "source": {
+          "source_family": "synthetic-spatial-truth",
+          "evidence_domain": "pollen_context",
+          "source_snapshot_id": "synthetic-spatial-truth",
+          "source_record_id": "record:equator-source",
+          "site_id": "site:equator-source",
+          "observation_ids": [
+            "observation:equator-source"
+          ],
+          "country_code": "NO",
+          "latitude": 0.0,
+          "longitude": 0.0,
+          "coordinate_quality": "fabricated_fixture",
+          "event_type": "reported_positive_observation",
+          "resolution": "whole_pollen",
+          "feature_key": "whole:pollen",
+          "chronology_claim_id": "chronology:equator-source",
+          "younger_bp": 5600.0,
+          "older_bp": 5600.0,
+          "comparability_status": "comparable",
+          "threshold_profile_id": "synthetic-reported-positive",
+          "classification_contract_version": null,
+          "provenance_record_id": "provenance:equator-source",
+          "input_digest": "8adf7a1061fc3e9cb1a2820c360c6142c61fa096b8b70bd623163fe7852ad035",
+          "config_digest": "synthetic-spatial-config",
+          "producer_version": "synthetic-spatial-eligibility.v1",
+          "build_id": "synthetic-spatial-truth",
+          "measurement_semantics_id": "synthetic-presence",
+          "evidence_method_id": "synthetic-known-truth",
+          "method_compatibility_key": "synthetic-whole-pollen",
+          "subject_granularity": "sample",
+          "preaggregation_valid": true,
+          "role_membership_explicit": false,
+          "accepted_taxon_concept_id": null,
+          "taxonomic_qualifier": null,
+          "temporal_contract_version": "1.0.0",
+          "event_id": "event:8388528ecd35db4c708bd27e",
+          "schema_version": "1.0.0"
+        },
+        "target": {
+          "source_family": "synthetic-spatial-truth",
+          "evidence_domain": "pollen_context",
+          "source_snapshot_id": "synthetic-spatial-truth",
+          "source_record_id": "record:millimetre-outside",
+          "site_id": "site:millimetre-outside",
+          "observation_ids": [
+            "observation:millimetre-outside"
+          ],
+          "country_code": "SE",
+          "latitude": 0.0,
+          "longitude": 0.8983152931026743,
+          "coordinate_quality": "fabricated_fixture",
+          "event_type": "reported_positive_observation",
+          "resolution": "whole_pollen",
+          "feature_key": "whole:pollen",
+          "chronology_claim_id": "chronology:millimetre-outside",
+          "younger_bp": 5500.0,
+          "older_bp": 5500.0,
+          "comparability_status": "comparable",
+          "threshold_profile_id": "synthetic-reported-positive",
+          "classification_contract_version": null,
+          "provenance_record_id": "provenance:millimetre-outside",
+          "input_digest": "553899ae9463f5e3452ea029d5477087edb8a7d998a6d49f462e6f7a275d539d",
+          "config_digest": "synthetic-spatial-config",
+          "producer_version": "synthetic-spatial-eligibility.v1",
+          "build_id": "synthetic-spatial-truth",
+          "measurement_semantics_id": "synthetic-presence",
+          "evidence_method_id": "synthetic-known-truth",
+          "method_compatibility_key": "synthetic-whole-pollen",
+          "subject_granularity": "sample",
+          "preaggregation_valid": true,
+          "role_membership_explicit": false,
+          "accepted_taxon_concept_id": null,
+          "taxonomic_qualifier": null,
+          "temporal_contract_version": "1.0.0",
+          "event_id": "event:ae6b59abc462fbe2b49224b8",
+          "schema_version": "1.0.0"
+        }
+      },
+      "independent_expected_status": "excluded_spatial",
+      "independent_equatorial_distance_km": 100.000001,
+      "constructor_ulp_steps": 0,
+      "output": {
+        "edge_id": "edge:4d773a9bc66e812fa43838dc",
+        "source_event_id": "event:8388528ecd35db4c708bd27e",
+        "target_event_id": "event:ae6b59abc462fbe2b49224b8",
+        "source_site_id": "site:equator-source",
+        "target_site_id": "site:millimetre-outside",
+        "source_country_code": "NO",
+        "target_country_code": "SE",
+        "cross_border": true,
+        "shared_location": false,
+        "resolution": "whole_pollen",
+        "feature_key": "whole:pollen",
+        "distance_km_unrounded": 100.000001,
+        "distance_km_display": 100.0,
+        "distance_algorithm": "WGS84 inverse geodesic",
+        "distance_library": "pyproj",
+        "distance_library_version": "3.7.2",
+        "minimum_lag_years": 100.0,
+        "maximum_lag_years": 100.0,
+        "candidate_status": "excluded_spatial",
+        "reason_code": "spatial_threshold_exceeded",
+        "scenario_id": "rectangular_100km_100yr_v1",
+        "threshold_profile_id": "synthetic-reported-positive",
+        "temporal_contract_version": "1.0.0",
+        "classification_contract_version": null,
+        "event_manifest_digest": "45a32c97b92113db98e252cc5d04196cc775301889928c59cf0e02d0cf60a350",
+        "config_digest": "8fb355e4862e3ee4f4c9bde59aa4efc2b09af22966087c16975323ab5a8a1f92",
+        "build_id": "synthetic-spatial-truth",
+        "directional_arrow_allowed": false,
+        "schema_version": "1.0.0",
+        "propagation_contract_version": "1.0.0",
+        "producer_version": "propagation-network.v1",
+        "map_geometry_role": "endpoint_connection_only",
+        "route_interpretation_allowed": false
+      },
+      "status": "evaluated",
+      "expected_lag_bounds_years": [
+        100.0,
+        100.0
+      ],
+      "distance_error_km": 0.0,
+      "raw_distance_hex": "0x1.900000431bde8p+6",
+      "raw_distance_roundtrip_identical": true,
+      "six_decimal_distance_km": 100.000001,
+      "contract_status": "passed"
+    },
+    {
+      "case_id": "submillimetre-outside",
+      "inputs": {
+        "source": {
+          "source_family": "synthetic-spatial-truth",
+          "evidence_domain": "pollen_context",
+          "source_snapshot_id": "synthetic-spatial-truth",
+          "source_record_id": "record:equator-source",
+          "site_id": "site:equator-source",
+          "observation_ids": [
+            "observation:equator-source"
+          ],
+          "country_code": "NO",
+          "latitude": 0.0,
+          "longitude": 0.0,
+          "coordinate_quality": "fabricated_fixture",
+          "event_type": "reported_positive_observation",
+          "resolution": "whole_pollen",
+          "feature_key": "whole:pollen",
+          "chronology_claim_id": "chronology:equator-source",
+          "younger_bp": 5600.0,
+          "older_bp": 5600.0,
+          "comparability_status": "comparable",
+          "threshold_profile_id": "synthetic-reported-positive",
+          "classification_contract_version": null,
+          "provenance_record_id": "provenance:equator-source",
+          "input_digest": "8adf7a1061fc3e9cb1a2820c360c6142c61fa096b8b70bd623163fe7852ad035",
+          "config_digest": "synthetic-spatial-config",
+          "producer_version": "synthetic-spatial-eligibility.v1",
+          "build_id": "synthetic-spatial-truth",
+          "measurement_semantics_id": "synthetic-presence",
+          "evidence_method_id": "synthetic-known-truth",
+          "method_compatibility_key": "synthetic-whole-pollen",
+          "subject_granularity": "sample",
+          "preaggregation_valid": true,
+          "role_membership_explicit": false,
+          "accepted_taxon_concept_id": null,
+          "taxonomic_qualifier": null,
+          "temporal_contract_version": "1.0.0",
+          "event_id": "event:8388528ecd35db4c708bd27e",
+          "schema_version": "1.0.0"
+        },
+        "target": {
+          "source_family": "synthetic-spatial-truth",
+          "evidence_domain": "pollen_context",
+          "source_snapshot_id": "synthetic-spatial-truth",
+          "source_record_id": "record:submillimetre-outside",
+          "site_id": "site:submillimetre-outside",
+          "observation_ids": [
+            "observation:submillimetre-outside"
+          ],
+          "country_code": "SE",
+          "latitude": 0.0,
+          "longitude": 0.8983152877127827,
+          "coordinate_quality": "fabricated_fixture",
+          "event_type": "reported_positive_observation",
+          "resolution": "whole_pollen",
+          "feature_key": "whole:pollen",
+          "chronology_claim_id": "chronology:submillimetre-outside",
+          "younger_bp": 5500.0,
+          "older_bp": 5500.0,
+          "comparability_status": "comparable",
+          "threshold_profile_id": "synthetic-reported-positive",
+          "classification_contract_version": null,
+          "provenance_record_id": "provenance:submillimetre-outside",
+          "input_digest": "143f4d348ea9efd484fd87a4956241994ed40ceb10f1f2d6aab878fc6b02ac51",
+          "config_digest": "synthetic-spatial-config",
+          "producer_version": "synthetic-spatial-eligibility.v1",
+          "build_id": "synthetic-spatial-truth",
+          "measurement_semantics_id": "synthetic-presence",
+          "evidence_method_id": "synthetic-known-truth",
+          "method_compatibility_key": "synthetic-whole-pollen",
+          "subject_granularity": "sample",
+          "preaggregation_valid": true,
+          "role_membership_explicit": false,
+          "accepted_taxon_concept_id": null,
+          "taxonomic_qualifier": null,
+          "temporal_contract_version": "1.0.0",
+          "event_id": "event:ad26789e0525f2cda7baf41a",
+          "schema_version": "1.0.0"
+        }
+      },
+      "independent_expected_status": "excluded_spatial",
+      "independent_equatorial_distance_km": 100.0000004,
+      "constructor_ulp_steps": 0,
+      "output": {
+        "edge_id": "edge:d69b5b1cf2e9b29da45a74ff",
+        "source_event_id": "event:8388528ecd35db4c708bd27e",
+        "target_event_id": "event:ad26789e0525f2cda7baf41a",
+        "source_site_id": "site:equator-source",
+        "target_site_id": "site:submillimetre-outside",
+        "source_country_code": "NO",
+        "target_country_code": "SE",
+        "cross_border": true,
+        "shared_location": false,
+        "resolution": "whole_pollen",
+        "feature_key": "whole:pollen",
+        "distance_km_unrounded": 100.00000040000002,
+        "distance_km_display": 100.0,
+        "distance_algorithm": "WGS84 inverse geodesic",
+        "distance_library": "pyproj",
+        "distance_library_version": "3.7.2",
+        "minimum_lag_years": 100.0,
+        "maximum_lag_years": 100.0,
+        "candidate_status": "excluded_spatial",
+        "reason_code": "spatial_threshold_exceeded",
+        "scenario_id": "rectangular_100km_100yr_v1",
+        "threshold_profile_id": "synthetic-reported-positive",
+        "temporal_contract_version": "1.0.0",
+        "classification_contract_version": null,
+        "event_manifest_digest": "a706f312405345913bac9d03fe399461d54bd9f468d6232512a01560ed185c34",
+        "config_digest": "8fb355e4862e3ee4f4c9bde59aa4efc2b09af22966087c16975323ab5a8a1f92",
+        "build_id": "synthetic-spatial-truth",
+        "directional_arrow_allowed": false,
+        "schema_version": "1.0.0",
+        "propagation_contract_version": "1.0.0",
+        "producer_version": "propagation-network.v1",
+        "map_geometry_role": "endpoint_connection_only",
+        "route_interpretation_allowed": false
+      },
+      "status": "evaluated",
+      "expected_lag_bounds_years": [
+        100.0,
+        100.0
+      ],
+      "distance_error_km": 1.4210854715202004e-14,
+      "raw_distance_hex": "0x1.9000001ad7f2bp+6",
+      "raw_distance_roundtrip_identical": true,
+      "six_decimal_distance_km": 100.0,
+      "contract_status": "passed"
+    },
+    {
+      "case_id": "malmo-lund",
+      "inputs": {
+        "source": {
+          "source_family": "synthetic-spatial-truth",
+          "evidence_domain": "pollen_context",
+          "source_snapshot_id": "synthetic-spatial-truth",
+          "source_record_id": "record:malmo",
+          "site_id": "site:malmo",
+          "observation_ids": [
+            "observation:malmo"
+          ],
+          "country_code": "NO",
+          "latitude": 55.605,
+          "longitude": 13.0038,
+          "coordinate_quality": "fabricated_fixture",
+          "event_type": "reported_positive_observation",
+          "resolution": "whole_pollen",
+          "feature_key": "whole:pollen",
+          "chronology_claim_id": "chronology:malmo",
+          "younger_bp": 5600.0,
+          "older_bp": 5600.0,
+          "comparability_status": "comparable",
+          "threshold_profile_id": "synthetic-reported-positive",
+          "classification_contract_version": null,
+          "provenance_record_id": "provenance:malmo",
+          "input_digest": "86c8729ce3a1d4b236de9b8b8a441cd9fe8e2a7feadae07f90ceaef4a11e1d45",
+          "config_digest": "synthetic-spatial-config",
+          "producer_version": "synthetic-spatial-eligibility.v1",
+          "build_id": "synthetic-spatial-truth",
+          "measurement_semantics_id": "synthetic-presence",
+          "evidence_method_id": "synthetic-known-truth",
+          "method_compatibility_key": "synthetic-whole-pollen",
+          "subject_granularity": "sample",
+          "preaggregation_valid": true,
+          "role_membership_explicit": false,
+          "accepted_taxon_concept_id": null,
+          "taxonomic_qualifier": null,
+          "temporal_contract_version": "1.0.0",
+          "event_id": "event:ae24aa0c6837e8ae44fcb35f",
+          "schema_version": "1.0.0"
+        },
+        "target": {
+          "source_family": "synthetic-spatial-truth",
+          "evidence_domain": "pollen_context",
+          "source_snapshot_id": "synthetic-spatial-truth",
+          "source_record_id": "record:lund",
+          "site_id": "site:lund",
+          "observation_ids": [
+            "observation:lund"
+          ],
+          "country_code": "SE",
+          "latitude": 55.7047,
+          "longitude": 13.191,
+          "coordinate_quality": "fabricated_fixture",
+          "event_type": "reported_positive_observation",
+          "resolution": "whole_pollen",
+          "feature_key": "whole:pollen",
+          "chronology_claim_id": "chronology:lund",
+          "younger_bp": 5500,
+          "older_bp": 5500,
+          "comparability_status": "comparable",
+          "threshold_profile_id": "synthetic-reported-positive",
+          "classification_contract_version": null,
+          "provenance_record_id": "provenance:lund",
+          "input_digest": "ccb1ef5715f0cf9e282936b207c448d7000be677c022cada6a2a55e180df8975",
+          "config_digest": "synthetic-spatial-config",
+          "producer_version": "synthetic-spatial-eligibility.v1",
+          "build_id": "synthetic-spatial-truth",
+          "measurement_semantics_id": "synthetic-presence",
+          "evidence_method_id": "synthetic-known-truth",
+          "method_compatibility_key": "synthetic-whole-pollen",
+          "subject_granularity": "sample",
+          "preaggregation_valid": true,
+          "role_membership_explicit": false,
+          "accepted_taxon_concept_id": null,
+          "taxonomic_qualifier": null,
+          "temporal_contract_version": "1.0.0",
+          "event_id": "event:396f752196a834723a9d708b",
+          "schema_version": "1.0.0"
+        }
+      },
+      "independent_expected_status": "definite_candidate",
+      "independent_equatorial_distance_km": null,
+      "constructor_ulp_steps": 0,
+      "output": {
+        "edge_id": "edge:380c6a4efa858e9695e21729",
+        "source_event_id": "event:ae24aa0c6837e8ae44fcb35f",
+        "target_event_id": "event:396f752196a834723a9d708b",
+        "source_site_id": "site:malmo",
+        "target_site_id": "site:lund",
+        "source_country_code": "NO",
+        "target_country_code": "SE",
+        "cross_border": true,
+        "shared_location": false,
+        "resolution": "whole_pollen",
+        "feature_key": "whole:pollen",
+        "distance_km_unrounded": 16.18861101448624,
+        "distance_km_display": 16.189,
+        "distance_algorithm": "WGS84 inverse geodesic",
+        "distance_library": "pyproj",
+        "distance_library_version": "3.7.2",
+        "minimum_lag_years": 100.0,
+        "maximum_lag_years": 100.0,
+        "candidate_status": "definite_candidate",
+        "reason_code": "all_thresholds_pass",
+        "scenario_id": "rectangular_100km_100yr_v1",
+        "threshold_profile_id": "synthetic-reported-positive",
+        "temporal_contract_version": "1.0.0",
+        "classification_contract_version": null,
+        "event_manifest_digest": "2b4010c274b8ea275c71349fbbad315afad81a7c2dcebbb87c8a1d3e5151238e",
+        "config_digest": "8fb355e4862e3ee4f4c9bde59aa4efc2b09af22966087c16975323ab5a8a1f92",
+        "build_id": "synthetic-spatial-truth",
+        "directional_arrow_allowed": true,
+        "schema_version": "1.0.0",
+        "propagation_contract_version": "1.0.0",
+        "producer_version": "propagation-network.v1",
+        "map_geometry_role": "endpoint_connection_only",
+        "route_interpretation_allowed": false
+      },
+      "status": "evaluated",
+      "expected_lag_bounds_years": [
+        100.0,
+        100.0
+      ],
+      "distance_error_km": null,
+      "raw_distance_hex": "0x1.03048cfbae240p+4",
+      "raw_distance_roundtrip_identical": true,
+      "six_decimal_distance_km": 16.188611,
+      "contract_status": "passed"
+    },
+    {
+      "case_id": "country-label-swap",
+      "inputs": {
+        "source": {
+          "source_family": "synthetic-spatial-truth",
+          "evidence_domain": "pollen_context",
+          "source_snapshot_id": "synthetic-spatial-truth",
+          "source_record_id": "record:malmo",
+          "site_id": "site:malmo",
+          "observation_ids": [
+            "observation:malmo"
+          ],
+          "country_code": "SE",
+          "latitude": 55.605,
+          "longitude": 13.0038,
+          "coordinate_quality": "fabricated_fixture",
+          "event_type": "reported_positive_observation",
+          "resolution": "whole_pollen",
+          "feature_key": "whole:pollen",
+          "chronology_claim_id": "chronology:malmo",
+          "younger_bp": 5600.0,
+          "older_bp": 5600.0,
+          "comparability_status": "comparable",
+          "threshold_profile_id": "synthetic-reported-positive",
+          "classification_contract_version": null,
+          "provenance_record_id": "provenance:malmo",
+          "input_digest": "86c8729ce3a1d4b236de9b8b8a441cd9fe8e2a7feadae07f90ceaef4a11e1d45",
+          "config_digest": "synthetic-spatial-config",
+          "producer_version": "synthetic-spatial-eligibility.v1",
+          "build_id": "synthetic-spatial-truth",
+          "measurement_semantics_id": "synthetic-presence",
+          "evidence_method_id": "synthetic-known-truth",
+          "method_compatibility_key": "synthetic-whole-pollen",
+          "subject_granularity": "sample",
+          "preaggregation_valid": true,
+          "role_membership_explicit": false,
+          "accepted_taxon_concept_id": null,
+          "taxonomic_qualifier": null,
+          "temporal_contract_version": "1.0.0",
+          "event_id": "event:ae24aa0c6837e8ae44fcb35f",
+          "schema_version": "1.0.0"
+        },
+        "target": {
+          "source_family": "synthetic-spatial-truth",
+          "evidence_domain": "pollen_context",
+          "source_snapshot_id": "synthetic-spatial-truth",
+          "source_record_id": "record:lund",
+          "site_id": "site:lund",
+          "observation_ids": [
+            "observation:lund"
+          ],
+          "country_code": "NO",
+          "latitude": 55.7047,
+          "longitude": 13.191,
+          "coordinate_quality": "fabricated_fixture",
+          "event_type": "reported_positive_observation",
+          "resolution": "whole_pollen",
+          "feature_key": "whole:pollen",
+          "chronology_claim_id": "chronology:lund",
+          "younger_bp": 5500,
+          "older_bp": 5500,
+          "comparability_status": "comparable",
+          "threshold_profile_id": "synthetic-reported-positive",
+          "classification_contract_version": null,
+          "provenance_record_id": "provenance:lund",
+          "input_digest": "ccb1ef5715f0cf9e282936b207c448d7000be677c022cada6a2a55e180df8975",
+          "config_digest": "synthetic-spatial-config",
+          "producer_version": "synthetic-spatial-eligibility.v1",
+          "build_id": "synthetic-spatial-truth",
+          "measurement_semantics_id": "synthetic-presence",
+          "evidence_method_id": "synthetic-known-truth",
+          "method_compatibility_key": "synthetic-whole-pollen",
+          "subject_granularity": "sample",
+          "preaggregation_valid": true,
+          "role_membership_explicit": false,
+          "accepted_taxon_concept_id": null,
+          "taxonomic_qualifier": null,
+          "temporal_contract_version": "1.0.0",
+          "event_id": "event:396f752196a834723a9d708b",
+          "schema_version": "1.0.0"
+        }
+      },
+      "independent_expected_status": "definite_candidate",
+      "independent_equatorial_distance_km": null,
+      "constructor_ulp_steps": 0,
+      "output": {
+        "edge_id": "edge:380c6a4efa858e9695e21729",
+        "source_event_id": "event:ae24aa0c6837e8ae44fcb35f",
+        "target_event_id": "event:396f752196a834723a9d708b",
+        "source_site_id": "site:malmo",
+        "target_site_id": "site:lund",
+        "source_country_code": "SE",
+        "target_country_code": "NO",
+        "cross_border": true,
+        "shared_location": false,
+        "resolution": "whole_pollen",
+        "feature_key": "whole:pollen",
+        "distance_km_unrounded": 16.18861101448624,
+        "distance_km_display": 16.189,
+        "distance_algorithm": "WGS84 inverse geodesic",
+        "distance_library": "pyproj",
+        "distance_library_version": "3.7.2",
+        "minimum_lag_years": 100.0,
+        "maximum_lag_years": 100.0,
+        "candidate_status": "definite_candidate",
+        "reason_code": "all_thresholds_pass",
+        "scenario_id": "rectangular_100km_100yr_v1",
+        "threshold_profile_id": "synthetic-reported-positive",
+        "temporal_contract_version": "1.0.0",
+        "classification_contract_version": null,
+        "event_manifest_digest": "27435d24ecc7a14a1b0be9bd2b4d79ad5e4afddb0eae422a4cf242e0cb4d8c45",
+        "config_digest": "8fb355e4862e3ee4f4c9bde59aa4efc2b09af22966087c16975323ab5a8a1f92",
+        "build_id": "synthetic-spatial-truth",
+        "directional_arrow_allowed": true,
+        "schema_version": "1.0.0",
+        "propagation_contract_version": "1.0.0",
+        "producer_version": "propagation-network.v1",
+        "map_geometry_role": "endpoint_connection_only",
+        "route_interpretation_allowed": false
+      },
+      "status": "evaluated",
+      "expected_lag_bounds_years": [
+        100.0,
+        100.0
+      ],
+      "distance_error_km": null,
+      "raw_distance_hex": "0x1.03048cfbae240p+4",
+      "raw_distance_roundtrip_identical": true,
+      "six_decimal_distance_km": 16.188611,
+      "contract_status": "passed"
+    },
+    {
+      "case_id": "outside-cross-border",
+      "inputs": {
+        "source": {
+          "source_family": "synthetic-spatial-truth",
+          "evidence_domain": "pollen_context",
+          "source_snapshot_id": "synthetic-spatial-truth",
+          "source_record_id": "record:equator-source",
+          "site_id": "site:equator-source",
+          "observation_ids": [
+            "observation:equator-source"
+          ],
+          "country_code": "SE",
+          "latitude": 0.0,
+          "longitude": 0.0,
+          "coordinate_quality": "fabricated_fixture",
+          "event_type": "reported_positive_observation",
+          "resolution": "whole_pollen",
+          "feature_key": "whole:pollen",
+          "chronology_claim_id": "chronology:equator-source",
+          "younger_bp": 5600.0,
+          "older_bp": 5600.0,
+          "comparability_status": "comparable",
+          "threshold_profile_id": "synthetic-reported-positive",
+          "classification_contract_version": null,
+          "provenance_record_id": "provenance:equator-source",
+          "input_digest": "8adf7a1061fc3e9cb1a2820c360c6142c61fa096b8b70bd623163fe7852ad035",
+          "config_digest": "synthetic-spatial-config",
+          "producer_version": "synthetic-spatial-eligibility.v1",
+          "build_id": "synthetic-spatial-truth",
+          "measurement_semantics_id": "synthetic-presence",
+          "evidence_method_id": "synthetic-known-truth",
+          "method_compatibility_key": "synthetic-whole-pollen",
+          "subject_granularity": "sample",
+          "preaggregation_valid": true,
+          "role_membership_explicit": false,
+          "accepted_taxon_concept_id": null,
+          "taxonomic_qualifier": null,
+          "temporal_contract_version": "1.0.0",
+          "event_id": "event:8388528ecd35db4c708bd27e",
+          "schema_version": "1.0.0"
+        },
+        "target": {
+          "source_family": "synthetic-spatial-truth",
+          "evidence_domain": "pollen_context",
+          "source_snapshot_id": "synthetic-spatial-truth",
+          "source_record_id": "record:outside-finland",
+          "site_id": "site:outside-finland",
+          "observation_ids": [
+            "observation:outside-finland"
+          ],
+          "country_code": "FI",
+          "latitude": 0.0,
+          "longitude": 2.0,
+          "coordinate_quality": "fabricated_fixture",
+          "event_type": "reported_positive_observation",
+          "resolution": "whole_pollen",
+          "feature_key": "whole:pollen",
+          "chronology_claim_id": "chronology:outside-finland",
+          "younger_bp": 5500,
+          "older_bp": 5500,
+          "comparability_status": "comparable",
+          "threshold_profile_id": "synthetic-reported-positive",
+          "classification_contract_version": null,
+          "provenance_record_id": "provenance:outside-finland",
+          "input_digest": "8e73f3b231f079ee2ed75641de87068dcc252c9cd79e7b8a8967596d96960944",
+          "config_digest": "synthetic-spatial-config",
+          "producer_version": "synthetic-spatial-eligibility.v1",
+          "build_id": "synthetic-spatial-truth",
+          "measurement_semantics_id": "synthetic-presence",
+          "evidence_method_id": "synthetic-known-truth",
+          "method_compatibility_key": "synthetic-whole-pollen",
+          "subject_granularity": "sample",
+          "preaggregation_valid": true,
+          "role_membership_explicit": false,
+          "accepted_taxon_concept_id": null,
+          "taxonomic_qualifier": null,
+          "temporal_contract_version": "1.0.0",
+          "event_id": "event:fe0fc633503d0ea2e3a4f90b",
+          "schema_version": "1.0.0"
+        }
+      },
+      "independent_expected_status": "excluded_spatial",
+      "independent_equatorial_distance_km": null,
+      "constructor_ulp_steps": 0,
+      "output": {
+        "edge_id": "edge:005976fd925d79f42d05a4f3",
+        "source_event_id": "event:8388528ecd35db4c708bd27e",
+        "target_event_id": "event:fe0fc633503d0ea2e3a4f90b",
+        "source_site_id": "site:equator-source",
+        "target_site_id": "site:outside-finland",
+        "source_country_code": "SE",
+        "target_country_code": "FI",
+        "cross_border": true,
+        "shared_location": false,
+        "resolution": "whole_pollen",
+        "feature_key": "whole:pollen",
+        "distance_km_unrounded": 222.63898158654712,
+        "distance_km_display": 222.639,
+        "distance_algorithm": "WGS84 inverse geodesic",
+        "distance_library": "pyproj",
+        "distance_library_version": "3.7.2",
+        "minimum_lag_years": 100.0,
+        "maximum_lag_years": 100.0,
+        "candidate_status": "excluded_spatial",
+        "reason_code": "spatial_threshold_exceeded",
+        "scenario_id": "rectangular_100km_100yr_v1",
+        "threshold_profile_id": "synthetic-reported-positive",
+        "temporal_contract_version": "1.0.0",
+        "classification_contract_version": null,
+        "event_manifest_digest": "1695740e6ed02afdbc69b7a3dc570658291235cdcfc074071e5d2e408dd44e20",
+        "config_digest": "8fb355e4862e3ee4f4c9bde59aa4efc2b09af22966087c16975323ab5a8a1f92",
+        "build_id": "synthetic-spatial-truth",
+        "directional_arrow_allowed": false,
+        "schema_version": "1.0.0",
+        "propagation_contract_version": "1.0.0",
+        "producer_version": "propagation-network.v1",
+        "map_geometry_role": "endpoint_connection_only",
+        "route_interpretation_allowed": false
+      },
+      "status": "evaluated",
+      "expected_lag_bounds_years": [
+        100.0,
+        100.0
+      ],
+      "distance_error_km": null,
+      "raw_distance_hex": "0x1.bd47289831eeap+7",
+      "raw_distance_roundtrip_identical": true,
+      "six_decimal_distance_km": 222.638982,
+      "contract_status": "passed"
+    },
+    {
+      "case_id": "distinct-sites-shared-location",
+      "inputs": {
+        "source": {
+          "source_family": "synthetic-spatial-truth",
+          "evidence_domain": "pollen_context",
+          "source_snapshot_id": "synthetic-spatial-truth",
+          "source_record_id": "record:equator-source",
+          "site_id": "site:equator-source",
+          "observation_ids": [
+            "observation:equator-source"
+          ],
+          "country_code": "NO",
+          "latitude": 0.0,
+          "longitude": 0.0,
+          "coordinate_quality": "fabricated_fixture",
+          "event_type": "reported_positive_observation",
+          "resolution": "whole_pollen",
+          "feature_key": "whole:pollen",
+          "chronology_claim_id": "chronology:equator-source",
+          "younger_bp": 5600.0,
+          "older_bp": 5600.0,
+          "comparability_status": "comparable",
+          "threshold_profile_id": "synthetic-reported-positive",
+          "classification_contract_version": null,
+          "provenance_record_id": "provenance:equator-source",
+          "input_digest": "8adf7a1061fc3e9cb1a2820c360c6142c61fa096b8b70bd623163fe7852ad035",
+          "config_digest": "synthetic-spatial-config",
+          "producer_version": "synthetic-spatial-eligibility.v1",
+          "build_id": "synthetic-spatial-truth",
+          "measurement_semantics_id": "synthetic-presence",
+          "evidence_method_id": "synthetic-known-truth",
+          "method_compatibility_key": "synthetic-whole-pollen",
+          "subject_granularity": "sample",
+          "preaggregation_valid": true,
+          "role_membership_explicit": false,
+          "accepted_taxon_concept_id": null,
+          "taxonomic_qualifier": null,
+          "temporal_contract_version": "1.0.0",
+          "event_id": "event:8388528ecd35db4c708bd27e",
+          "schema_version": "1.0.0"
+        },
+        "target": {
+          "source_family": "synthetic-spatial-truth",
+          "evidence_domain": "pollen_context",
+          "source_snapshot_id": "synthetic-spatial-truth",
+          "source_record_id": "record:shared-location",
+          "site_id": "site:shared-location",
+          "observation_ids": [
+            "observation:shared-location"
+          ],
+          "country_code": "SE",
+          "latitude": 0.0,
+          "longitude": 0.0,
+          "coordinate_quality": "fabricated_fixture",
+          "event_type": "reported_positive_observation",
+          "resolution": "whole_pollen",
+          "feature_key": "whole:pollen",
+          "chronology_claim_id": "chronology:shared-location",
+          "younger_bp": 5500,
+          "older_bp": 5500,
+          "comparability_status": "comparable",
+          "threshold_profile_id": "synthetic-reported-positive",
+          "classification_contract_version": null,
+          "provenance_record_id": "provenance:shared-location",
+          "input_digest": "77775b01f53096f3a761cc2a5613a6d94c135015cf93ff9235e5aefaabd594c2",
+          "config_digest": "synthetic-spatial-config",
+          "producer_version": "synthetic-spatial-eligibility.v1",
+          "build_id": "synthetic-spatial-truth",
+          "measurement_semantics_id": "synthetic-presence",
+          "evidence_method_id": "synthetic-known-truth",
+          "method_compatibility_key": "synthetic-whole-pollen",
+          "subject_granularity": "sample",
+          "preaggregation_valid": true,
+          "role_membership_explicit": false,
+          "accepted_taxon_concept_id": null,
+          "taxonomic_qualifier": null,
+          "temporal_contract_version": "1.0.0",
+          "event_id": "event:dd31298d287a0f5dbe51c7e6",
+          "schema_version": "1.0.0"
+        }
+      },
+      "independent_expected_status": "definite_candidate",
+      "independent_equatorial_distance_km": 0.0,
+      "constructor_ulp_steps": 0,
+      "output": {
+        "edge_id": "edge:bbf9e72c8a5b9299333143b2",
+        "source_event_id": "event:8388528ecd35db4c708bd27e",
+        "target_event_id": "event:dd31298d287a0f5dbe51c7e6",
+        "source_site_id": "site:equator-source",
+        "target_site_id": "site:shared-location",
+        "source_country_code": "NO",
+        "target_country_code": "SE",
+        "cross_border": true,
+        "shared_location": true,
+        "resolution": "whole_pollen",
+        "feature_key": "whole:pollen",
+        "distance_km_unrounded": 0.0,
+        "distance_km_display": 0.0,
+        "distance_algorithm": "WGS84 inverse geodesic",
+        "distance_library": "pyproj",
+        "distance_library_version": "3.7.2",
+        "minimum_lag_years": 100.0,
+        "maximum_lag_years": 100.0,
+        "candidate_status": "definite_candidate",
+        "reason_code": "all_thresholds_pass",
+        "scenario_id": "rectangular_100km_100yr_v1",
+        "threshold_profile_id": "synthetic-reported-positive",
+        "temporal_contract_version": "1.0.0",
+        "classification_contract_version": null,
+        "event_manifest_digest": "8544d094b5fc8e676e2a2152bf422391e53b258e024c634c258b13fa7a44f529",
+        "config_digest": "8fb355e4862e3ee4f4c9bde59aa4efc2b09af22966087c16975323ab5a8a1f92",
+        "build_id": "synthetic-spatial-truth",
+        "directional_arrow_allowed": true,
+        "schema_version": "1.0.0",
+        "propagation_contract_version": "1.0.0",
+        "producer_version": "propagation-network.v1",
+        "map_geometry_role": "endpoint_connection_only",
+        "route_interpretation_allowed": false
+      },
+      "status": "evaluated",
+      "expected_lag_bounds_years": [
+        100.0,
+        100.0
+      ],
+      "distance_error_km": 0.0,
+      "raw_distance_hex": "0x0.0p+0",
+      "raw_distance_roundtrip_identical": true,
+      "six_decimal_distance_km": 0.0,
+      "contract_status": "passed"
+    },
+    {
+      "case_id": "same-governed-site",
+      "inputs": {
+        "source": {
+          "source_family": "synthetic-spatial-truth",
+          "evidence_domain": "pollen_context",
+          "source_snapshot_id": "synthetic-spatial-truth",
+          "source_record_id": "record:equator-source",
+          "site_id": "site:equator-source",
+          "observation_ids": [
+            "observation:equator-source"
+          ],
+          "country_code": "NO",
+          "latitude": 0.0,
+          "longitude": 0.0,
+          "coordinate_quality": "fabricated_fixture",
+          "event_type": "reported_positive_observation",
+          "resolution": "whole_pollen",
+          "feature_key": "whole:pollen",
+          "chronology_claim_id": "chronology:equator-source",
+          "younger_bp": 5600.0,
+          "older_bp": 5600.0,
+          "comparability_status": "comparable",
+          "threshold_profile_id": "synthetic-reported-positive",
+          "classification_contract_version": null,
+          "provenance_record_id": "provenance:equator-source",
+          "input_digest": "8adf7a1061fc3e9cb1a2820c360c6142c61fa096b8b70bd623163fe7852ad035",
+          "config_digest": "synthetic-spatial-config",
+          "producer_version": "synthetic-spatial-eligibility.v1",
+          "build_id": "synthetic-spatial-truth",
+          "measurement_semantics_id": "synthetic-presence",
+          "evidence_method_id": "synthetic-known-truth",
+          "method_compatibility_key": "synthetic-whole-pollen",
+          "subject_granularity": "sample",
+          "preaggregation_valid": true,
+          "role_membership_explicit": false,
+          "accepted_taxon_concept_id": null,
+          "taxonomic_qualifier": null,
+          "temporal_contract_version": "1.0.0",
+          "event_id": "event:8388528ecd35db4c708bd27e",
+          "schema_version": "1.0.0"
+        },
+        "target": {
+          "source_family": "synthetic-spatial-truth",
+          "evidence_domain": "pollen_context",
+          "source_snapshot_id": "synthetic-spatial-truth",
+          "source_record_id": "record:shared-location",
+          "site_id": "site:equator-source",
+          "observation_ids": [
+            "observation:shared-location"
+          ],
+          "country_code": "SE",
+          "latitude": 0.0,
+          "longitude": 0.0,
+          "coordinate_quality": "fabricated_fixture",
+          "event_type": "reported_positive_observation",
+          "resolution": "whole_pollen",
+          "feature_key": "whole:pollen",
+          "chronology_claim_id": "chronology:shared-location",
+          "younger_bp": 5500,
+          "older_bp": 5500,
+          "comparability_status": "comparable",
+          "threshold_profile_id": "synthetic-reported-positive",
+          "classification_contract_version": null,
+          "provenance_record_id": "provenance:shared-location",
+          "input_digest": "77775b01f53096f3a761cc2a5613a6d94c135015cf93ff9235e5aefaabd594c2",
+          "config_digest": "synthetic-spatial-config",
+          "producer_version": "synthetic-spatial-eligibility.v1",
+          "build_id": "synthetic-spatial-truth",
+          "measurement_semantics_id": "synthetic-presence",
+          "evidence_method_id": "synthetic-known-truth",
+          "method_compatibility_key": "synthetic-whole-pollen",
+          "subject_granularity": "sample",
+          "preaggregation_valid": true,
+          "role_membership_explicit": false,
+          "accepted_taxon_concept_id": null,
+          "taxonomic_qualifier": null,
+          "temporal_contract_version": "1.0.0",
+          "event_id": "event:dd31298d287a0f5dbe51c7e6",
+          "schema_version": "1.0.0"
+        }
+      },
+      "independent_expected_status": "same_governed_site",
+      "independent_equatorial_distance_km": null,
+      "constructor_ulp_steps": 0,
+      "output": {
+        "pair_id": "pair-refusal:115255287f4963447881ad25",
+        "source_event_id": "event:8388528ecd35db4c708bd27e",
+        "target_event_id": "event:dd31298d287a0f5dbe51c7e6",
+        "source_country_code": "NO",
+        "target_country_code": "SE",
+        "feature_key": "whole:pollen",
+        "scenario_id": "rectangular_100km_100yr_v1",
+        "reason_code": "same_governed_site"
+      },
+      "status": "pair_refused",
+      "contract_status": "passed"
+    },
+    {
+      "case_id": "missing-coordinate",
+      "inputs": {
+        "source": {
+          "source_family": "synthetic-spatial-truth",
+          "evidence_domain": "pollen_context",
+          "source_snapshot_id": "synthetic-spatial-truth",
+          "source_record_id": "record:equator-source",
+          "site_id": "site:equator-source",
+          "observation_ids": [
+            "observation:equator-source"
+          ],
+          "country_code": "NO",
+          "latitude": 0.0,
+          "longitude": 0.0,
+          "coordinate_quality": "fabricated_fixture",
+          "event_type": "reported_positive_observation",
+          "resolution": "whole_pollen",
+          "feature_key": "whole:pollen",
+          "chronology_claim_id": "chronology:equator-source",
+          "younger_bp": 5600.0,
+          "older_bp": 5600.0,
+          "comparability_status": "comparable",
+          "threshold_profile_id": "synthetic-reported-positive",
+          "classification_contract_version": null,
+          "provenance_record_id": "provenance:equator-source",
+          "input_digest": "8adf7a1061fc3e9cb1a2820c360c6142c61fa096b8b70bd623163fe7852ad035",
+          "config_digest": "synthetic-spatial-config",
+          "producer_version": "synthetic-spatial-eligibility.v1",
+          "build_id": "synthetic-spatial-truth",
+          "measurement_semantics_id": "synthetic-presence",
+          "evidence_method_id": "synthetic-known-truth",
+          "method_compatibility_key": "synthetic-whole-pollen",
+          "subject_granularity": "sample",
+          "preaggregation_valid": true,
+          "role_membership_explicit": false,
+          "accepted_taxon_concept_id": null,
+          "taxonomic_qualifier": null,
+          "temporal_contract_version": "1.0.0",
+          "event_id": "event:8388528ecd35db4c708bd27e",
+          "schema_version": "1.0.0"
+        },
+        "target": {
+          "source_family": "synthetic-spatial-truth",
+          "evidence_domain": "pollen_context",
+          "source_snapshot_id": "synthetic-spatial-truth",
+          "source_record_id": "record:missing",
+          "site_id": "site:missing",
+          "observation_ids": [
+            "observation:missing"
+          ],
+          "country_code": "SE",
+          "latitude": null,
+          "longitude": null,
+          "coordinate_quality": "fabricated_fixture",
+          "event_type": "reported_positive_observation",
+          "resolution": "whole_pollen",
+          "feature_key": "whole:pollen",
+          "chronology_claim_id": "chronology:missing",
+          "younger_bp": 5500,
+          "older_bp": 5500,
+          "comparability_status": "comparable",
+          "threshold_profile_id": "synthetic-reported-positive",
+          "classification_contract_version": null,
+          "provenance_record_id": "provenance:missing",
+          "input_digest": "ffa63583dfa6706b87d284b86b0d693a161e4840aad2c5cf6b5d27c3b9621f7d",
+          "config_digest": "synthetic-spatial-config",
+          "producer_version": "synthetic-spatial-eligibility.v1",
+          "build_id": "synthetic-spatial-truth",
+          "measurement_semantics_id": "synthetic-presence",
+          "evidence_method_id": "synthetic-known-truth",
+          "method_compatibility_key": "synthetic-whole-pollen",
+          "subject_granularity": "sample",
+          "preaggregation_valid": true,
+          "role_membership_explicit": false,
+          "accepted_taxon_concept_id": null,
+          "taxonomic_qualifier": null,
+          "temporal_contract_version": "1.0.0",
+          "event_id": "event:ed118bedcd7b859cfefe533f",
+          "schema_version": "1.0.0"
+        }
+      },
+      "independent_expected_status": "invalid_or_missing_coordinate",
+      "independent_equatorial_distance_km": null,
+      "constructor_ulp_steps": 0,
+      "output": {
+        "pair_id": "pair-refusal:90548ff6835681d12745d03b",
+        "source_event_id": "event:8388528ecd35db4c708bd27e",
+        "target_event_id": "event:ed118bedcd7b859cfefe533f",
+        "source_country_code": "NO",
+        "target_country_code": "SE",
+        "feature_key": "whole:pollen",
+        "scenario_id": "rectangular_100km_100yr_v1",
+        "reason_code": "invalid_or_missing_coordinate"
+      },
+      "status": "pair_refused",
+      "contract_status": "passed"
+    },
+    {
+      "case_id": "overlap-cross-border",
+      "inputs": {
+        "source": {
+          "source_family": "synthetic-spatial-truth",
+          "evidence_domain": "pollen_context",
+          "source_snapshot_id": "synthetic-spatial-truth",
+          "source_record_id": "record:overlap-cross-border:older",
+          "site_id": "site:overlap-cross-border:older",
+          "observation_ids": [
+            "observation:overlap-cross-border:older"
+          ],
+          "country_code": "SE",
+          "latitude": 0.0,
+          "longitude": 0.0,
+          "coordinate_quality": "fabricated_fixture",
+          "event_type": "reported_positive_observation",
+          "resolution": "whole_pollen",
+          "feature_key": "whole:pollen",
+          "chronology_claim_id": "chronology:overlap-cross-border:older",
+          "younger_bp": 5500.0,
+          "older_bp": 5600.0,
+          "comparability_status": "comparable",
+          "threshold_profile_id": "synthetic-reported-positive",
+          "classification_contract_version": null,
+          "provenance_record_id": "provenance:overlap-cross-border:older",
+          "input_digest": "3433281b38336e3b957d6ee220566d198eb89e55a309e6a7555e5ebe5c1a6285",
+          "config_digest": "synthetic-spatial-config",
+          "producer_version": "synthetic-spatial-eligibility.v1",
+          "build_id": "synthetic-spatial-truth",
+          "measurement_semantics_id": "synthetic-presence",
+          "evidence_method_id": "synthetic-known-truth",
+          "method_compatibility_key": "synthetic-whole-pollen",
+          "subject_granularity": "sample",
+          "preaggregation_valid": true,
+          "role_membership_explicit": false,
+          "accepted_taxon_concept_id": null,
+          "taxonomic_qualifier": null,
+          "temporal_contract_version": "1.0.0",
+          "event_id": "event:462345c3319a15516a349040",
+          "schema_version": "1.0.0"
+        },
+        "target": {
+          "source_family": "synthetic-spatial-truth",
+          "evidence_domain": "pollen_context",
+          "source_snapshot_id": "synthetic-spatial-truth",
+          "source_record_id": "record:overlap-cross-border:younger",
+          "site_id": "site:overlap-cross-border:younger",
+          "observation_ids": [
+            "observation:overlap-cross-border:younger"
+          ],
+          "country_code": "DK",
+          "latitude": 0.0,
+          "longitude": 0.1,
+          "coordinate_quality": "fabricated_fixture",
+          "event_type": "reported_positive_observation",
+          "resolution": "whole_pollen",
+          "feature_key": "whole:pollen",
+          "chronology_claim_id": "chronology:overlap-cross-border:younger",
+          "younger_bp": 5550.0,
+          "older_bp": 5650.0,
+          "comparability_status": "comparable",
+          "threshold_profile_id": "synthetic-reported-positive",
+          "classification_contract_version": null,
+          "provenance_record_id": "provenance:overlap-cross-border:younger",
+          "input_digest": "5c7cc2d7077184b1a1118fcb47d940cc321f2e49a435da49ea72f253da77387b",
+          "config_digest": "synthetic-spatial-config",
+          "producer_version": "synthetic-spatial-eligibility.v1",
+          "build_id": "synthetic-spatial-truth",
+          "measurement_semantics_id": "synthetic-presence",
+          "evidence_method_id": "synthetic-known-truth",
+          "method_compatibility_key": "synthetic-whole-pollen",
+          "subject_granularity": "sample",
+          "preaggregation_valid": true,
+          "role_membership_explicit": false,
+          "accepted_taxon_concept_id": null,
+          "taxonomic_qualifier": null,
+          "temporal_contract_version": "1.0.0",
+          "event_id": "event:9b2e802841c1375be7c4eab4",
+          "schema_version": "1.0.0"
+        }
+      },
+      "independent_expected_status": "indeterminate_order",
+      "independent_equatorial_distance_km": null,
+      "constructor_ulp_steps": 0,
+      "output": {
+        "edge_id": "edge:dc6d1970dc9070da4eb86302",
+        "source_event_id": "event:462345c3319a15516a349040",
+        "target_event_id": "event:9b2e802841c1375be7c4eab4",
+        "source_site_id": "site:overlap-cross-border:older",
+        "target_site_id": "site:overlap-cross-border:younger",
+        "source_country_code": "SE",
+        "target_country_code": "DK",
+        "cross_border": true,
+        "shared_location": false,
+        "resolution": "whole_pollen",
+        "feature_key": "whole:pollen",
+        "distance_km_unrounded": 11.131949079327358,
+        "distance_km_display": 11.132,
+        "distance_algorithm": "WGS84 inverse geodesic",
+        "distance_library": "pyproj",
+        "distance_library_version": "3.7.2",
+        "minimum_lag_years": -150.0,
+        "maximum_lag_years": 50.0,
+        "candidate_status": "indeterminate_order",
+        "reason_code": "temporal_order_indeterminate",
+        "scenario_id": "rectangular_100km_100yr_v1",
+        "threshold_profile_id": "synthetic-reported-positive",
+        "temporal_contract_version": "1.0.0",
+        "classification_contract_version": null,
+        "event_manifest_digest": "cac32dc33b1adb7d43e9e7e26ef234ada0b6e7c60f3b51b0fe4444de34821f11",
+        "config_digest": "8fb355e4862e3ee4f4c9bde59aa4efc2b09af22966087c16975323ab5a8a1f92",
+        "build_id": "synthetic-spatial-truth",
+        "directional_arrow_allowed": false,
+        "schema_version": "1.0.0",
+        "propagation_contract_version": "1.0.0",
+        "producer_version": "propagation-network.v1",
+        "map_geometry_role": "endpoint_connection_only",
+        "route_interpretation_allowed": false
+      },
+      "status": "evaluated",
+      "expected_lag_bounds_years": [
+        -150.0,
+        50.0
+      ],
+      "distance_error_km": null,
+      "raw_distance_hex": "0x1.6438ed468e589p+3",
+      "raw_distance_roundtrip_identical": true,
+      "six_decimal_distance_km": 11.131949,
+      "contract_status": "passed"
+    },
+    {
+      "case_id": "chronology-gap",
+      "inputs": {
+        "source": {
+          "source_family": "synthetic-spatial-truth",
+          "evidence_domain": "pollen_context",
+          "source_snapshot_id": "synthetic-spatial-truth",
+          "source_record_id": "record:chronology-gap:older",
+          "site_id": "site:chronology-gap:older",
+          "observation_ids": [
+            "observation:chronology-gap:older"
+          ],
+          "country_code": "SE",
+          "latitude": 0.0,
+          "longitude": 0.0,
+          "coordinate_quality": "fabricated_fixture",
+          "event_type": "reported_positive_observation",
+          "resolution": "whole_pollen",
+          "feature_key": "whole:pollen",
+          "chronology_claim_id": "chronology:chronology-gap:older",
+          "younger_bp": null,
+          "older_bp": null,
+          "comparability_status": "unresolved",
+          "threshold_profile_id": "synthetic-reported-positive",
+          "classification_contract_version": null,
+          "provenance_record_id": "provenance:chronology-gap:older",
+          "input_digest": "491f0a4ff74ed8e9f92336e199daca455282fc420df4790d0be846da4f2b1e90",
+          "config_digest": "synthetic-spatial-config",
+          "producer_version": "synthetic-spatial-eligibility.v1",
+          "build_id": "synthetic-spatial-truth",
+          "measurement_semantics_id": "synthetic-presence",
+          "evidence_method_id": "synthetic-known-truth",
+          "method_compatibility_key": "synthetic-whole-pollen",
+          "subject_granularity": "sample",
+          "preaggregation_valid": true,
+          "role_membership_explicit": false,
+          "accepted_taxon_concept_id": null,
+          "taxonomic_qualifier": null,
+          "temporal_contract_version": "1.0.0",
+          "event_id": "event:d9b81881f83a38d62bcf8389",
+          "schema_version": "1.0.0"
+        },
+        "target": {
+          "source_family": "synthetic-spatial-truth",
+          "evidence_domain": "pollen_context",
+          "source_snapshot_id": "synthetic-spatial-truth",
+          "source_record_id": "record:chronology-gap:younger",
+          "site_id": "site:chronology-gap:younger",
+          "observation_ids": [
+            "observation:chronology-gap:younger"
+          ],
+          "country_code": "DK",
+          "latitude": 0.0,
+          "longitude": 0.1,
+          "coordinate_quality": "fabricated_fixture",
+          "event_type": "reported_positive_observation",
+          "resolution": "whole_pollen",
+          "feature_key": "whole:pollen",
+          "chronology_claim_id": "chronology:chronology-gap:younger",
+          "younger_bp": 5500.0,
+          "older_bp": 5500.0,
+          "comparability_status": "comparable",
+          "threshold_profile_id": "synthetic-reported-positive",
+          "classification_contract_version": null,
+          "provenance_record_id": "provenance:chronology-gap:younger",
+          "input_digest": "713d7a570383d31ea357dfb4d167679fde93752024b1e79a4aa2d17604b59d13",
+          "config_digest": "synthetic-spatial-config",
+          "producer_version": "synthetic-spatial-eligibility.v1",
+          "build_id": "synthetic-spatial-truth",
+          "measurement_semantics_id": "synthetic-presence",
+          "evidence_method_id": "synthetic-known-truth",
+          "method_compatibility_key": "synthetic-whole-pollen",
+          "subject_granularity": "sample",
+          "preaggregation_valid": true,
+          "role_membership_explicit": false,
+          "accepted_taxon_concept_id": null,
+          "taxonomic_qualifier": null,
+          "temporal_contract_version": "1.0.0",
+          "event_id": "event:cd97db243c6933a5924e18af",
+          "schema_version": "1.0.0"
+        }
+      },
+      "independent_expected_status": "unresolved",
+      "independent_equatorial_distance_km": null,
+      "constructor_ulp_steps": 0,
+      "output": {
+        "edge_id": "edge:9e320748d29940b567c38808",
+        "source_event_id": "event:d9b81881f83a38d62bcf8389",
+        "target_event_id": "event:cd97db243c6933a5924e18af",
+        "source_site_id": "site:chronology-gap:older",
+        "target_site_id": "site:chronology-gap:younger",
+        "source_country_code": "SE",
+        "target_country_code": "DK",
+        "cross_border": true,
+        "shared_location": false,
+        "resolution": "whole_pollen",
+        "feature_key": "whole:pollen",
+        "distance_km_unrounded": 11.131949079327358,
+        "distance_km_display": 11.132,
+        "distance_algorithm": "WGS84 inverse geodesic",
+        "distance_library": "pyproj",
+        "distance_library_version": "3.7.2",
+        "minimum_lag_years": null,
+        "maximum_lag_years": null,
+        "candidate_status": "unresolved",
+        "reason_code": "chronology_unresolved",
+        "scenario_id": "rectangular_100km_100yr_v1",
+        "threshold_profile_id": "synthetic-reported-positive",
+        "temporal_contract_version": "1.0.0",
+        "classification_contract_version": null,
+        "event_manifest_digest": "3c4037181123b97bbde804e17bb09f12c277966a5cdfdfadfd7d3ef9eb0a8103",
+        "config_digest": "8fb355e4862e3ee4f4c9bde59aa4efc2b09af22966087c16975323ab5a8a1f92",
+        "build_id": "synthetic-spatial-truth",
+        "directional_arrow_allowed": false,
+        "schema_version": "1.0.0",
+        "propagation_contract_version": "1.0.0",
+        "producer_version": "propagation-network.v1",
+        "map_geometry_role": "endpoint_connection_only",
+        "route_interpretation_allowed": false
+      },
+      "status": "evaluated",
+      "expected_lag_bounds_years": null,
+      "distance_error_km": null,
+      "raw_distance_hex": "0x1.6438ed468e589p+3",
+      "raw_distance_roundtrip_identical": true,
+      "six_decimal_distance_km": 11.131949,
+      "contract_status": "passed"
+    },
+    {
+      "case_id": "lag-too-large",
+      "inputs": {
+        "source": {
+          "source_family": "synthetic-spatial-truth",
+          "evidence_domain": "pollen_context",
+          "source_snapshot_id": "synthetic-spatial-truth",
+          "source_record_id": "record:lag-too-large:older",
+          "site_id": "site:lag-too-large:older",
+          "observation_ids": [
+            "observation:lag-too-large:older"
+          ],
+          "country_code": "SE",
+          "latitude": 0.0,
+          "longitude": 0.0,
+          "coordinate_quality": "fabricated_fixture",
+          "event_type": "reported_positive_observation",
+          "resolution": "whole_pollen",
+          "feature_key": "whole:pollen",
+          "chronology_claim_id": "chronology:lag-too-large:older",
+          "younger_bp": 5601.0,
+          "older_bp": 5601.0,
+          "comparability_status": "comparable",
+          "threshold_profile_id": "synthetic-reported-positive",
+          "classification_contract_version": null,
+          "provenance_record_id": "provenance:lag-too-large:older",
+          "input_digest": "18bcf88805e4ee06384cbafd8cbee20fcfd0bbd6c69db8476c6dadd892d522f3",
+          "config_digest": "synthetic-spatial-config",
+          "producer_version": "synthetic-spatial-eligibility.v1",
+          "build_id": "synthetic-spatial-truth",
+          "measurement_semantics_id": "synthetic-presence",
+          "evidence_method_id": "synthetic-known-truth",
+          "method_compatibility_key": "synthetic-whole-pollen",
+          "subject_granularity": "sample",
+          "preaggregation_valid": true,
+          "role_membership_explicit": false,
+          "accepted_taxon_concept_id": null,
+          "taxonomic_qualifier": null,
+          "temporal_contract_version": "1.0.0",
+          "event_id": "event:c73374992665155ec1a8d17c",
+          "schema_version": "1.0.0"
+        },
+        "target": {
+          "source_family": "synthetic-spatial-truth",
+          "evidence_domain": "pollen_context",
+          "source_snapshot_id": "synthetic-spatial-truth",
+          "source_record_id": "record:lag-too-large:younger",
+          "site_id": "site:lag-too-large:younger",
+          "observation_ids": [
+            "observation:lag-too-large:younger"
+          ],
+          "country_code": "DK",
+          "latitude": 0.0,
+          "longitude": 0.1,
+          "coordinate_quality": "fabricated_fixture",
+          "event_type": "reported_positive_observation",
+          "resolution": "whole_pollen",
+          "feature_key": "whole:pollen",
+          "chronology_claim_id": "chronology:lag-too-large:younger",
+          "younger_bp": 5500.0,
+          "older_bp": 5500.0,
+          "comparability_status": "comparable",
+          "threshold_profile_id": "synthetic-reported-positive",
+          "classification_contract_version": null,
+          "provenance_record_id": "provenance:lag-too-large:younger",
+          "input_digest": "2bac24bc93f667ab4ceb29f87feddab808408d0dd337a8352a9758a8b41fc843",
+          "config_digest": "synthetic-spatial-config",
+          "producer_version": "synthetic-spatial-eligibility.v1",
+          "build_id": "synthetic-spatial-truth",
+          "measurement_semantics_id": "synthetic-presence",
+          "evidence_method_id": "synthetic-known-truth",
+          "method_compatibility_key": "synthetic-whole-pollen",
+          "subject_granularity": "sample",
+          "preaggregation_valid": true,
+          "role_membership_explicit": false,
+          "accepted_taxon_concept_id": null,
+          "taxonomic_qualifier": null,
+          "temporal_contract_version": "1.0.0",
+          "event_id": "event:f0a0acfc3795c286ae2ecd75",
+          "schema_version": "1.0.0"
+        }
+      },
+      "independent_expected_status": "excluded_temporal_too_large",
+      "independent_equatorial_distance_km": null,
+      "constructor_ulp_steps": 0,
+      "output": {
+        "edge_id": "edge:db5f900289ebe4f649905882",
+        "source_event_id": "event:c73374992665155ec1a8d17c",
+        "target_event_id": "event:f0a0acfc3795c286ae2ecd75",
+        "source_site_id": "site:lag-too-large:older",
+        "target_site_id": "site:lag-too-large:younger",
+        "source_country_code": "SE",
+        "target_country_code": "DK",
+        "cross_border": true,
+        "shared_location": false,
+        "resolution": "whole_pollen",
+        "feature_key": "whole:pollen",
+        "distance_km_unrounded": 11.131949079327358,
+        "distance_km_display": 11.132,
+        "distance_algorithm": "WGS84 inverse geodesic",
+        "distance_library": "pyproj",
+        "distance_library_version": "3.7.2",
+        "minimum_lag_years": 101.0,
+        "maximum_lag_years": 101.0,
+        "candidate_status": "excluded_temporal_too_large",
+        "reason_code": "temporal_threshold_exceeded",
+        "scenario_id": "rectangular_100km_100yr_v1",
+        "threshold_profile_id": "synthetic-reported-positive",
+        "temporal_contract_version": "1.0.0",
+        "classification_contract_version": null,
+        "event_manifest_digest": "7bd6619408871d6e053d9b1f628ad48ac7e2b7f4170712d54e710801f8265d41",
+        "config_digest": "8fb355e4862e3ee4f4c9bde59aa4efc2b09af22966087c16975323ab5a8a1f92",
+        "build_id": "synthetic-spatial-truth",
+        "directional_arrow_allowed": false,
+        "schema_version": "1.0.0",
+        "propagation_contract_version": "1.0.0",
+        "producer_version": "propagation-network.v1",
+        "map_geometry_role": "endpoint_connection_only",
+        "route_interpretation_allowed": false
+      },
+      "status": "evaluated",
+      "expected_lag_bounds_years": [
+        101.0,
+        101.0
+      ],
+      "distance_error_km": null,
+      "raw_distance_hex": "0x1.6438ed468e589p+3",
+      "raw_distance_roundtrip_identical": true,
+      "six_decimal_distance_km": 11.131949,
+      "contract_status": "passed"
+    },
+    {
+      "case_id": "uncertain-lag-threshold",
+      "inputs": {
+        "source": {
+          "source_family": "synthetic-spatial-truth",
+          "evidence_domain": "pollen_context",
+          "source_snapshot_id": "synthetic-spatial-truth",
+          "source_record_id": "record:uncertain-lag-threshold:older",
+          "site_id": "site:uncertain-lag-threshold:older",
+          "observation_ids": [
+            "observation:uncertain-lag-threshold:older"
+          ],
+          "country_code": "SE",
+          "latitude": 0.0,
+          "longitude": 0.0,
+          "coordinate_quality": "fabricated_fixture",
+          "event_type": "reported_positive_observation",
+          "resolution": "whole_pollen",
+          "feature_key": "whole:pollen",
+          "chronology_claim_id": "chronology:uncertain-lag-threshold:older",
+          "younger_bp": 5590.0,
+          "older_bp": 5610.0,
+          "comparability_status": "comparable",
+          "threshold_profile_id": "synthetic-reported-positive",
+          "classification_contract_version": null,
+          "provenance_record_id": "provenance:uncertain-lag-threshold:older",
+          "input_digest": "a7e0a211f7e3e2a9ba0cedcd8ffeaad107205b8271efc9497b5d9cff67bb6bc0",
+          "config_digest": "synthetic-spatial-config",
+          "producer_version": "synthetic-spatial-eligibility.v1",
+          "build_id": "synthetic-spatial-truth",
+          "measurement_semantics_id": "synthetic-presence",
+          "evidence_method_id": "synthetic-known-truth",
+          "method_compatibility_key": "synthetic-whole-pollen",
+          "subject_granularity": "sample",
+          "preaggregation_valid": true,
+          "role_membership_explicit": false,
+          "accepted_taxon_concept_id": null,
+          "taxonomic_qualifier": null,
+          "temporal_contract_version": "1.0.0",
+          "event_id": "event:74f23949de05114d3cf500d3",
+          "schema_version": "1.0.0"
+        },
+        "target": {
+          "source_family": "synthetic-spatial-truth",
+          "evidence_domain": "pollen_context",
+          "source_snapshot_id": "synthetic-spatial-truth",
+          "source_record_id": "record:uncertain-lag-threshold:younger",
+          "site_id": "site:uncertain-lag-threshold:younger",
+          "observation_ids": [
+            "observation:uncertain-lag-threshold:younger"
+          ],
+          "country_code": "DK",
+          "latitude": 0.0,
+          "longitude": 0.1,
+          "coordinate_quality": "fabricated_fixture",
+          "event_type": "reported_positive_observation",
+          "resolution": "whole_pollen",
+          "feature_key": "whole:pollen",
+          "chronology_claim_id": "chronology:uncertain-lag-threshold:younger",
+          "younger_bp": 5500.0,
+          "older_bp": 5500.0,
+          "comparability_status": "comparable",
+          "threshold_profile_id": "synthetic-reported-positive",
+          "classification_contract_version": null,
+          "provenance_record_id": "provenance:uncertain-lag-threshold:younger",
+          "input_digest": "d18648fe4b5f27c74a31a849308cb846f0d6d9f9c478e5be22b8033f9c661269",
+          "config_digest": "synthetic-spatial-config",
+          "producer_version": "synthetic-spatial-eligibility.v1",
+          "build_id": "synthetic-spatial-truth",
+          "measurement_semantics_id": "synthetic-presence",
+          "evidence_method_id": "synthetic-known-truth",
+          "method_compatibility_key": "synthetic-whole-pollen",
+          "subject_granularity": "sample",
+          "preaggregation_valid": true,
+          "role_membership_explicit": false,
+          "accepted_taxon_concept_id": null,
+          "taxonomic_qualifier": null,
+          "temporal_contract_version": "1.0.0",
+          "event_id": "event:5b0bf366dff9c44e9dd81a9b",
+          "schema_version": "1.0.0"
+        }
+      },
+      "independent_expected_status": "possible_candidate",
+      "independent_equatorial_distance_km": null,
+      "constructor_ulp_steps": 0,
+      "output": {
+        "edge_id": "edge:a4cb90e4e79b56f3bdf9172d",
+        "source_event_id": "event:74f23949de05114d3cf500d3",
+        "target_event_id": "event:5b0bf366dff9c44e9dd81a9b",
+        "source_site_id": "site:uncertain-lag-threshold:older",
+        "target_site_id": "site:uncertain-lag-threshold:younger",
+        "source_country_code": "SE",
+        "target_country_code": "DK",
+        "cross_border": true,
+        "shared_location": false,
+        "resolution": "whole_pollen",
+        "feature_key": "whole:pollen",
+        "distance_km_unrounded": 11.131949079327358,
+        "distance_km_display": 11.132,
+        "distance_algorithm": "WGS84 inverse geodesic",
+        "distance_library": "pyproj",
+        "distance_library_version": "3.7.2",
+        "minimum_lag_years": 90.0,
+        "maximum_lag_years": 110.0,
+        "candidate_status": "possible_candidate",
+        "reason_code": "temporal_threshold_uncertain",
+        "scenario_id": "rectangular_100km_100yr_v1",
+        "threshold_profile_id": "synthetic-reported-positive",
+        "temporal_contract_version": "1.0.0",
+        "classification_contract_version": null,
+        "event_manifest_digest": "0235bc00794a10379927550029f68408dd905a22dcef23f184f2312d3fcbf917",
+        "config_digest": "8fb355e4862e3ee4f4c9bde59aa4efc2b09af22966087c16975323ab5a8a1f92",
+        "build_id": "synthetic-spatial-truth",
+        "directional_arrow_allowed": true,
+        "schema_version": "1.0.0",
+        "propagation_contract_version": "1.0.0",
+        "producer_version": "propagation-network.v1",
+        "map_geometry_role": "endpoint_connection_only",
+        "route_interpretation_allowed": false
+      },
+      "status": "evaluated",
+      "expected_lag_bounds_years": [
+        90.0,
+        110.0
+      ],
+      "distance_error_km": null,
+      "raw_distance_hex": "0x1.6438ed468e589p+3",
+      "raw_distance_roundtrip_identical": true,
+      "six_decimal_distance_km": 11.131949,
+      "contract_status": "passed"
+    },
+    {
+      "case_id": "invalid-latitude",
+      "inputs": {
+        "latitude": 91.0,
+        "longitude": 0.0
+      },
+      "status": "ingestion_refused",
+      "reason_code": "invalid_event_schema",
+      "detail": "latitude is outside the valid EPSG:4326 range",
+      "contract_status": "passed"
+    },
+    {
+      "case_id": "invalid-longitude",
+      "inputs": {
+        "latitude": 0.0,
+        "longitude": 181.0
+      },
+      "status": "ingestion_refused",
+      "reason_code": "invalid_event_schema",
+      "detail": "longitude is outside the valid EPSG:4326 range",
+      "contract_status": "passed"
+    },
+    {
+      "case_id": "partial-coordinate",
+      "inputs": {
+        "latitude": null,
+        "longitude": 13.0
+      },
+      "status": "ingestion_refused",
+      "reason_code": "invalid_event_schema",
+      "detail": "coordinates must either both be present or both be null",
+      "contract_status": "passed"
+    },
+    {
+      "case_id": "reversed-nordic-axis",
+      "inputs": [
+        13.0038,
+        55.605
+      ],
+      "fixture_range": {
+        "latitude": [
+          54,
+          72
+        ],
+        "longitude": [
+          4,
+          32
+        ]
+      },
+      "status": "fixture_refused",
+      "reason_code": "outside_declared_fixture_range",
+      "silent_axis_swap": false,
+      "contract_status": "passed"
+    }
+  ],
+  "regional_search": {
+    "inputs": [
+      {
+        "source_family": "synthetic-spatial-truth",
+        "evidence_domain": "pollen_context",
+        "source_snapshot_id": "synthetic-spatial-truth",
+        "source_record_id": "record:northern-se",
+        "site_id": "site:northern-se",
+        "observation_ids": [
+          "observation:northern-se"
+        ],
+        "country_code": "SE",
+        "latitude": 68.0,
+        "longitude": 20.0,
+        "coordinate_quality": "fabricated_fixture",
+        "event_type": "reported_positive_observation",
+        "resolution": "whole_pollen",
+        "feature_key": "whole:pollen",
+        "chronology_claim_id": "chronology:northern-se",
+        "younger_bp": 5600.0,
+        "older_bp": 5600.0,
+        "comparability_status": "comparable",
+        "threshold_profile_id": "synthetic-reported-positive",
+        "classification_contract_version": null,
+        "provenance_record_id": "provenance:northern-se",
+        "input_digest": "47878454492b84f300a9247a488466b47b2850df9458597b218fb05d193ca2c5",
+        "config_digest": "synthetic-spatial-config",
+        "producer_version": "synthetic-spatial-eligibility.v1",
+        "build_id": "synthetic-spatial-truth",
+        "measurement_semantics_id": "synthetic-presence",
+        "evidence_method_id": "synthetic-known-truth",
+        "method_compatibility_key": "synthetic-whole-pollen",
+        "subject_granularity": "sample",
+        "preaggregation_valid": true,
+        "role_membership_explicit": false,
+        "accepted_taxon_concept_id": null,
+        "taxonomic_qualifier": null,
+        "temporal_contract_version": "1.0.0",
+        "event_id": "event:87a3fcc443cd4da989ceaa6a",
+        "schema_version": "1.0.0"
+      },
+      {
+        "source_family": "synthetic-spatial-truth",
+        "evidence_domain": "pollen_context",
+        "source_snapshot_id": "synthetic-spatial-truth",
+        "source_record_id": "record:northern-NO",
+        "site_id": "site:northern-NO",
+        "observation_ids": [
+          "observation:northern-NO"
+        ],
+        "country_code": "NO",
+        "latitude": 68.0,
+        "longitude": 19.9,
+        "coordinate_quality": "fabricated_fixture",
+        "event_type": "reported_positive_observation",
+        "resolution": "whole_pollen",
+        "feature_key": "whole:pollen",
+        "chronology_claim_id": "chronology:northern-NO",
+        "younger_bp": 5500,
+        "older_bp": 5500,
+        "comparability_status": "comparable",
+        "threshold_profile_id": "synthetic-reported-positive",
+        "classification_contract_version": null,
+        "provenance_record_id": "provenance:northern-NO",
+        "input_digest": "648627fc646fb9529a9e28c144385a9f94e6471bbf87b8e4ba36cd980c639f38",
+        "config_digest": "synthetic-spatial-config",
+        "producer_version": "synthetic-spatial-eligibility.v1",
+        "build_id": "synthetic-spatial-truth",
+        "measurement_semantics_id": "synthetic-presence",
+        "evidence_method_id": "synthetic-known-truth",
+        "method_compatibility_key": "synthetic-whole-pollen",
+        "subject_granularity": "sample",
+        "preaggregation_valid": true,
+        "role_membership_explicit": false,
+        "accepted_taxon_concept_id": null,
+        "taxonomic_qualifier": null,
+        "temporal_contract_version": "1.0.0",
+        "event_id": "event:3b3fb5a91158e04221185f5a",
+        "schema_version": "1.0.0"
+      },
+      {
+        "source_family": "synthetic-spatial-truth",
+        "evidence_domain": "pollen_context",
+        "source_snapshot_id": "synthetic-spatial-truth",
+        "source_record_id": "record:northern-FI",
+        "site_id": "site:northern-FI",
+        "observation_ids": [
+          "observation:northern-FI"
+        ],
+        "country_code": "FI",
+        "latitude": 68.0,
+        "longitude": 20.1,
+        "coordinate_quality": "fabricated_fixture",
+        "event_type": "reported_positive_observation",
+        "resolution": "whole_pollen",
+        "feature_key": "whole:pollen",
+        "chronology_claim_id": "chronology:northern-FI",
+        "younger_bp": 5500,
+        "older_bp": 5500,
+        "comparability_status": "comparable",
+        "threshold_profile_id": "synthetic-reported-positive",
+        "classification_contract_version": null,
+        "provenance_record_id": "provenance:northern-FI",
+        "input_digest": "71645674aee6692e9f1617dde830532425b51e400c8a274f68cd2b351641da49",
+        "config_digest": "synthetic-spatial-config",
+        "producer_version": "synthetic-spatial-eligibility.v1",
+        "build_id": "synthetic-spatial-truth",
+        "measurement_semantics_id": "synthetic-presence",
+        "evidence_method_id": "synthetic-known-truth",
+        "method_compatibility_key": "synthetic-whole-pollen",
+        "subject_granularity": "sample",
+        "preaggregation_valid": true,
+        "role_membership_explicit": false,
+        "accepted_taxon_concept_id": null,
+        "taxonomic_qualifier": null,
+        "temporal_contract_version": "1.0.0",
+        "event_id": "event:c19e1c3f30abb31b092d2a84",
+        "schema_version": "1.0.0"
+      },
+      {
+        "source_family": "synthetic-spatial-truth",
+        "evidence_domain": "pollen_context",
+        "source_snapshot_id": "synthetic-spatial-truth",
+        "source_record_id": "record:northern-SE",
+        "site_id": "site:northern-SE",
+        "observation_ids": [
+          "observation:northern-SE"
+        ],
+        "country_code": "SE",
+        "latitude": 68.0,
+        "longitude": 20.2,
+        "coordinate_quality": "fabricated_fixture",
+        "event_type": "reported_positive_observation",
+        "resolution": "whole_pollen",
+        "feature_key": "whole:pollen",
+        "chronology_claim_id": "chronology:northern-SE",
+        "younger_bp": 5500,
+        "older_bp": 5500,
+        "comparability_status": "comparable",
+        "threshold_profile_id": "synthetic-reported-positive",
+        "classification_contract_version": null,
+        "provenance_record_id": "provenance:northern-SE",
+        "input_digest": "8f445d5baf5fa34eecc2b78e8eb98fdf8f098577daa2fdfaa499a9d49d1548a6",
+        "config_digest": "synthetic-spatial-config",
+        "producer_version": "synthetic-spatial-eligibility.v1",
+        "build_id": "synthetic-spatial-truth",
+        "measurement_semantics_id": "synthetic-presence",
+        "evidence_method_id": "synthetic-known-truth",
+        "method_compatibility_key": "synthetic-whole-pollen",
+        "subject_granularity": "sample",
+        "preaggregation_valid": true,
+        "role_membership_explicit": false,
+        "accepted_taxon_concept_id": null,
+        "taxonomic_qualifier": null,
+        "temporal_contract_version": "1.0.0",
+        "event_id": "event:1fb0d2fc8ada200c17415918",
+        "schema_version": "1.0.0"
+      }
+    ],
+    "evaluated_pairs": [
+      {
+        "edge_id": "edge:a53621bc3b516eea36691a64",
+        "source_event_id": "event:1fb0d2fc8ada200c17415918",
+        "target_event_id": "event:3b3fb5a91158e04221185f5a",
+        "source_site_id": "site:northern-SE",
+        "target_site_id": "site:northern-NO",
+        "source_country_code": "SE",
+        "target_country_code": "NO",
+        "cross_border": true,
+        "shared_location": false,
+        "resolution": "whole_pollen",
+        "feature_key": "whole:pollen",
+        "distance_km_unrounded": 12.546446504241894,
+        "distance_km_display": 12.546,
+        "distance_algorithm": "WGS84 inverse geodesic",
+        "distance_library": "pyproj",
+        "distance_library_version": "3.7.2",
+        "minimum_lag_years": 0.0,
+        "maximum_lag_years": 0.0,
+        "candidate_status": "excluded_temporal_nonpositive",
+        "reason_code": "temporal_direction_nonpositive",
+        "scenario_id": "rectangular_100km_100yr_v1",
+        "threshold_profile_id": "synthetic-reported-positive",
+        "temporal_contract_version": "1.0.0",
+        "classification_contract_version": null,
+        "event_manifest_digest": "042328429c01cab1968e29e929b4c9ed16666f7d964b732cf7bdb9a78d378a9f",
+        "config_digest": "8fb355e4862e3ee4f4c9bde59aa4efc2b09af22966087c16975323ab5a8a1f92",
+        "build_id": "synthetic-spatial-truth",
+        "directional_arrow_allowed": false,
+        "schema_version": "1.0.0",
+        "propagation_contract_version": "1.0.0",
+        "producer_version": "propagation-network.v1",
+        "map_geometry_role": "endpoint_connection_only",
+        "route_interpretation_allowed": false
+      },
+      {
+        "edge_id": "edge:4ba823570475d62e10e405f7",
+        "source_event_id": "event:1fb0d2fc8ada200c17415918",
+        "target_event_id": "event:87a3fcc443cd4da989ceaa6a",
+        "source_site_id": "site:northern-SE",
+        "target_site_id": "site:northern-se",
+        "source_country_code": "SE",
+        "target_country_code": "SE",
+        "cross_border": false,
+        "shared_location": false,
+        "resolution": "whole_pollen",
+        "feature_key": "whole:pollen",
+        "distance_km_unrounded": 8.364302232754213,
+        "distance_km_display": 8.364,
+        "distance_algorithm": "WGS84 inverse geodesic",
+        "distance_library": "pyproj",
+        "distance_library_version": "3.7.2",
+        "minimum_lag_years": -100.0,
+        "maximum_lag_years": -100.0,
+        "candidate_status": "excluded_temporal_nonpositive",
+        "reason_code": "temporal_direction_nonpositive",
+        "scenario_id": "rectangular_100km_100yr_v1",
+        "threshold_profile_id": "synthetic-reported-positive",
+        "temporal_contract_version": "1.0.0",
+        "classification_contract_version": null,
+        "event_manifest_digest": "042328429c01cab1968e29e929b4c9ed16666f7d964b732cf7bdb9a78d378a9f",
+        "config_digest": "8fb355e4862e3ee4f4c9bde59aa4efc2b09af22966087c16975323ab5a8a1f92",
+        "build_id": "synthetic-spatial-truth",
+        "directional_arrow_allowed": false,
+        "schema_version": "1.0.0",
+        "propagation_contract_version": "1.0.0",
+        "producer_version": "propagation-network.v1",
+        "map_geometry_role": "endpoint_connection_only",
+        "route_interpretation_allowed": false
+      },
+      {
+        "edge_id": "edge:fce2ce46ea808d6c97100272",
+        "source_event_id": "event:1fb0d2fc8ada200c17415918",
+        "target_event_id": "event:c19e1c3f30abb31b092d2a84",
+        "source_site_id": "site:northern-SE",
+        "target_site_id": "site:northern-FI",
+        "source_country_code": "SE",
+        "target_country_code": "FI",
+        "cross_border": true,
+        "shared_location": false,
+        "resolution": "whole_pollen",
+        "feature_key": "whole:pollen",
+        "distance_km_unrounded": 4.182152485354822,
+        "distance_km_display": 4.182,
+        "distance_algorithm": "WGS84 inverse geodesic",
+        "distance_library": "pyproj",
+        "distance_library_version": "3.7.2",
+        "minimum_lag_years": 0.0,
+        "maximum_lag_years": 0.0,
+        "candidate_status": "excluded_temporal_nonpositive",
+        "reason_code": "temporal_direction_nonpositive",
+        "scenario_id": "rectangular_100km_100yr_v1",
+        "threshold_profile_id": "synthetic-reported-positive",
+        "temporal_contract_version": "1.0.0",
+        "classification_contract_version": null,
+        "event_manifest_digest": "042328429c01cab1968e29e929b4c9ed16666f7d964b732cf7bdb9a78d378a9f",
+        "config_digest": "8fb355e4862e3ee4f4c9bde59aa4efc2b09af22966087c16975323ab5a8a1f92",
+        "build_id": "synthetic-spatial-truth",
+        "directional_arrow_allowed": false,
+        "schema_version": "1.0.0",
+        "propagation_contract_version": "1.0.0",
+        "producer_version": "propagation-network.v1",
+        "map_geometry_role": "endpoint_connection_only",
+        "route_interpretation_allowed": false
+      },
+      {
+        "edge_id": "edge:dea8cfa83c34f5bf45a1751e",
+        "source_event_id": "event:3b3fb5a91158e04221185f5a",
+        "target_event_id": "event:1fb0d2fc8ada200c17415918",
+        "source_site_id": "site:northern-NO",
+        "target_site_id": "site:northern-SE",
+        "source_country_code": "NO",
+        "target_country_code": "SE",
+        "cross_border": true,
+        "shared_location": false,
+        "resolution": "whole_pollen",
+        "feature_key": "whole:pollen",
+        "distance_km_unrounded": 12.546446504241894,
+        "distance_km_display": 12.546,
+        "distance_algorithm": "WGS84 inverse geodesic",
+        "distance_library": "pyproj",
+        "distance_library_version": "3.7.2",
+        "minimum_lag_years": 0.0,
+        "maximum_lag_years": 0.0,
+        "candidate_status": "excluded_temporal_nonpositive",
+        "reason_code": "temporal_direction_nonpositive",
+        "scenario_id": "rectangular_100km_100yr_v1",
+        "threshold_profile_id": "synthetic-reported-positive",
+        "temporal_contract_version": "1.0.0",
+        "classification_contract_version": null,
+        "event_manifest_digest": "042328429c01cab1968e29e929b4c9ed16666f7d964b732cf7bdb9a78d378a9f",
+        "config_digest": "8fb355e4862e3ee4f4c9bde59aa4efc2b09af22966087c16975323ab5a8a1f92",
+        "build_id": "synthetic-spatial-truth",
+        "directional_arrow_allowed": false,
+        "schema_version": "1.0.0",
+        "propagation_contract_version": "1.0.0",
+        "producer_version": "propagation-network.v1",
+        "map_geometry_role": "endpoint_connection_only",
+        "route_interpretation_allowed": false
+      },
+      {
+        "edge_id": "edge:bf349d48beb2dd4eda5e20db",
+        "source_event_id": "event:3b3fb5a91158e04221185f5a",
+        "target_event_id": "event:87a3fcc443cd4da989ceaa6a",
+        "source_site_id": "site:northern-NO",
+        "target_site_id": "site:northern-se",
+        "source_country_code": "NO",
+        "target_country_code": "SE",
+        "cross_border": true,
+        "shared_location": false,
+        "resolution": "whole_pollen",
+        "feature_key": "whole:pollen",
+        "distance_km_unrounded": 4.18215248535497,
+        "distance_km_display": 4.182,
+        "distance_algorithm": "WGS84 inverse geodesic",
+        "distance_library": "pyproj",
+        "distance_library_version": "3.7.2",
+        "minimum_lag_years": -100.0,
+        "maximum_lag_years": -100.0,
+        "candidate_status": "excluded_temporal_nonpositive",
+        "reason_code": "temporal_direction_nonpositive",
+        "scenario_id": "rectangular_100km_100yr_v1",
+        "threshold_profile_id": "synthetic-reported-positive",
+        "temporal_contract_version": "1.0.0",
+        "classification_contract_version": null,
+        "event_manifest_digest": "042328429c01cab1968e29e929b4c9ed16666f7d964b732cf7bdb9a78d378a9f",
+        "config_digest": "8fb355e4862e3ee4f4c9bde59aa4efc2b09af22966087c16975323ab5a8a1f92",
+        "build_id": "synthetic-spatial-truth",
+        "directional_arrow_allowed": false,
+        "schema_version": "1.0.0",
+        "propagation_contract_version": "1.0.0",
+        "producer_version": "propagation-network.v1",
+        "map_geometry_role": "endpoint_connection_only",
+        "route_interpretation_allowed": false
+      },
+      {
+        "edge_id": "edge:b47372c0068a3af43fbebcd7",
+        "source_event_id": "event:3b3fb5a91158e04221185f5a",
+        "target_event_id": "event:c19e1c3f30abb31b092d2a84",
+        "source_site_id": "site:northern-NO",
+        "target_site_id": "site:northern-FI",
+        "source_country_code": "NO",
+        "target_country_code": "FI",
+        "cross_border": true,
+        "shared_location": false,
+        "resolution": "whole_pollen",
+        "feature_key": "whole:pollen",
+        "distance_km_unrounded": 8.364302232754364,
+        "distance_km_display": 8.364,
+        "distance_algorithm": "WGS84 inverse geodesic",
+        "distance_library": "pyproj",
+        "distance_library_version": "3.7.2",
+        "minimum_lag_years": 0.0,
+        "maximum_lag_years": 0.0,
+        "candidate_status": "excluded_temporal_nonpositive",
+        "reason_code": "temporal_direction_nonpositive",
+        "scenario_id": "rectangular_100km_100yr_v1",
+        "threshold_profile_id": "synthetic-reported-positive",
+        "temporal_contract_version": "1.0.0",
+        "classification_contract_version": null,
+        "event_manifest_digest": "042328429c01cab1968e29e929b4c9ed16666f7d964b732cf7bdb9a78d378a9f",
+        "config_digest": "8fb355e4862e3ee4f4c9bde59aa4efc2b09af22966087c16975323ab5a8a1f92",
+        "build_id": "synthetic-spatial-truth",
+        "directional_arrow_allowed": false,
+        "schema_version": "1.0.0",
+        "propagation_contract_version": "1.0.0",
+        "producer_version": "propagation-network.v1",
+        "map_geometry_role": "endpoint_connection_only",
+        "route_interpretation_allowed": false
+      },
+      {
+        "edge_id": "edge:9e048696a5b023fa739b939d",
+        "source_event_id": "event:87a3fcc443cd4da989ceaa6a",
+        "target_event_id": "event:1fb0d2fc8ada200c17415918",
+        "source_site_id": "site:northern-se",
+        "target_site_id": "site:northern-SE",
+        "source_country_code": "SE",
+        "target_country_code": "SE",
+        "cross_border": false,
+        "shared_location": false,
+        "resolution": "whole_pollen",
+        "feature_key": "whole:pollen",
+        "distance_km_unrounded": 8.364302232754213,
+        "distance_km_display": 8.364,
+        "distance_algorithm": "WGS84 inverse geodesic",
+        "distance_library": "pyproj",
+        "distance_library_version": "3.7.2",
+        "minimum_lag_years": 100.0,
+        "maximum_lag_years": 100.0,
+        "candidate_status": "definite_candidate",
+        "reason_code": "all_thresholds_pass",
+        "scenario_id": "rectangular_100km_100yr_v1",
+        "threshold_profile_id": "synthetic-reported-positive",
+        "temporal_contract_version": "1.0.0",
+        "classification_contract_version": null,
+        "event_manifest_digest": "042328429c01cab1968e29e929b4c9ed16666f7d964b732cf7bdb9a78d378a9f",
+        "config_digest": "8fb355e4862e3ee4f4c9bde59aa4efc2b09af22966087c16975323ab5a8a1f92",
+        "build_id": "synthetic-spatial-truth",
+        "directional_arrow_allowed": true,
+        "schema_version": "1.0.0",
+        "propagation_contract_version": "1.0.0",
+        "producer_version": "propagation-network.v1",
+        "map_geometry_role": "endpoint_connection_only",
+        "route_interpretation_allowed": false
+      },
+      {
+        "edge_id": "edge:d5f599d8c70f53a91deb965c",
+        "source_event_id": "event:87a3fcc443cd4da989ceaa6a",
+        "target_event_id": "event:3b3fb5a91158e04221185f5a",
+        "source_site_id": "site:northern-se",
+        "target_site_id": "site:northern-NO",
+        "source_country_code": "SE",
+        "target_country_code": "NO",
+        "cross_border": true,
+        "shared_location": false,
+        "resolution": "whole_pollen",
+        "feature_key": "whole:pollen",
+        "distance_km_unrounded": 4.18215248535497,
+        "distance_km_display": 4.182,
+        "distance_algorithm": "WGS84 inverse geodesic",
+        "distance_library": "pyproj",
+        "distance_library_version": "3.7.2",
+        "minimum_lag_years": 100.0,
+        "maximum_lag_years": 100.0,
+        "candidate_status": "definite_candidate",
+        "reason_code": "all_thresholds_pass",
+        "scenario_id": "rectangular_100km_100yr_v1",
+        "threshold_profile_id": "synthetic-reported-positive",
+        "temporal_contract_version": "1.0.0",
+        "classification_contract_version": null,
+        "event_manifest_digest": "042328429c01cab1968e29e929b4c9ed16666f7d964b732cf7bdb9a78d378a9f",
+        "config_digest": "8fb355e4862e3ee4f4c9bde59aa4efc2b09af22966087c16975323ab5a8a1f92",
+        "build_id": "synthetic-spatial-truth",
+        "directional_arrow_allowed": true,
+        "schema_version": "1.0.0",
+        "propagation_contract_version": "1.0.0",
+        "producer_version": "propagation-network.v1",
+        "map_geometry_role": "endpoint_connection_only",
+        "route_interpretation_allowed": false
+      },
+      {
+        "edge_id": "edge:6da51b379f1ef7d19eb0062a",
+        "source_event_id": "event:87a3fcc443cd4da989ceaa6a",
+        "target_event_id": "event:c19e1c3f30abb31b092d2a84",
+        "source_site_id": "site:northern-se",
+        "target_site_id": "site:northern-FI",
+        "source_country_code": "SE",
+        "target_country_code": "FI",
+        "cross_border": true,
+        "shared_location": false,
+        "resolution": "whole_pollen",
+        "feature_key": "whole:pollen",
+        "distance_km_unrounded": 4.18215248535497,
+        "distance_km_display": 4.182,
+        "distance_algorithm": "WGS84 inverse geodesic",
+        "distance_library": "pyproj",
+        "distance_library_version": "3.7.2",
+        "minimum_lag_years": 100.0,
+        "maximum_lag_years": 100.0,
+        "candidate_status": "definite_candidate",
+        "reason_code": "all_thresholds_pass",
+        "scenario_id": "rectangular_100km_100yr_v1",
+        "threshold_profile_id": "synthetic-reported-positive",
+        "temporal_contract_version": "1.0.0",
+        "classification_contract_version": null,
+        "event_manifest_digest": "042328429c01cab1968e29e929b4c9ed16666f7d964b732cf7bdb9a78d378a9f",
+        "config_digest": "8fb355e4862e3ee4f4c9bde59aa4efc2b09af22966087c16975323ab5a8a1f92",
+        "build_id": "synthetic-spatial-truth",
+        "directional_arrow_allowed": true,
+        "schema_version": "1.0.0",
+        "propagation_contract_version": "1.0.0",
+        "producer_version": "propagation-network.v1",
+        "map_geometry_role": "endpoint_connection_only",
+        "route_interpretation_allowed": false
+      },
+      {
+        "edge_id": "edge:62973ed1718b766e64bc55d5",
+        "source_event_id": "event:c19e1c3f30abb31b092d2a84",
+        "target_event_id": "event:1fb0d2fc8ada200c17415918",
+        "source_site_id": "site:northern-FI",
+        "target_site_id": "site:northern-SE",
+        "source_country_code": "FI",
+        "target_country_code": "SE",
+        "cross_border": true,
+        "shared_location": false,
+        "resolution": "whole_pollen",
+        "feature_key": "whole:pollen",
+        "distance_km_unrounded": 4.182152485354822,
+        "distance_km_display": 4.182,
+        "distance_algorithm": "WGS84 inverse geodesic",
+        "distance_library": "pyproj",
+        "distance_library_version": "3.7.2",
+        "minimum_lag_years": 0.0,
+        "maximum_lag_years": 0.0,
+        "candidate_status": "excluded_temporal_nonpositive",
+        "reason_code": "temporal_direction_nonpositive",
+        "scenario_id": "rectangular_100km_100yr_v1",
+        "threshold_profile_id": "synthetic-reported-positive",
+        "temporal_contract_version": "1.0.0",
+        "classification_contract_version": null,
+        "event_manifest_digest": "042328429c01cab1968e29e929b4c9ed16666f7d964b732cf7bdb9a78d378a9f",
+        "config_digest": "8fb355e4862e3ee4f4c9bde59aa4efc2b09af22966087c16975323ab5a8a1f92",
+        "build_id": "synthetic-spatial-truth",
+        "directional_arrow_allowed": false,
+        "schema_version": "1.0.0",
+        "propagation_contract_version": "1.0.0",
+        "producer_version": "propagation-network.v1",
+        "map_geometry_role": "endpoint_connection_only",
+        "route_interpretation_allowed": false
+      },
+      {
+        "edge_id": "edge:dc839776709cba612bebeb15",
+        "source_event_id": "event:c19e1c3f30abb31b092d2a84",
+        "target_event_id": "event:3b3fb5a91158e04221185f5a",
+        "source_site_id": "site:northern-FI",
+        "target_site_id": "site:northern-NO",
+        "source_country_code": "FI",
+        "target_country_code": "NO",
+        "cross_border": true,
+        "shared_location": false,
+        "resolution": "whole_pollen",
+        "feature_key": "whole:pollen",
+        "distance_km_unrounded": 8.364302232754364,
+        "distance_km_display": 8.364,
+        "distance_algorithm": "WGS84 inverse geodesic",
+        "distance_library": "pyproj",
+        "distance_library_version": "3.7.2",
+        "minimum_lag_years": 0.0,
+        "maximum_lag_years": 0.0,
+        "candidate_status": "excluded_temporal_nonpositive",
+        "reason_code": "temporal_direction_nonpositive",
+        "scenario_id": "rectangular_100km_100yr_v1",
+        "threshold_profile_id": "synthetic-reported-positive",
+        "temporal_contract_version": "1.0.0",
+        "classification_contract_version": null,
+        "event_manifest_digest": "042328429c01cab1968e29e929b4c9ed16666f7d964b732cf7bdb9a78d378a9f",
+        "config_digest": "8fb355e4862e3ee4f4c9bde59aa4efc2b09af22966087c16975323ab5a8a1f92",
+        "build_id": "synthetic-spatial-truth",
+        "directional_arrow_allowed": false,
+        "schema_version": "1.0.0",
+        "propagation_contract_version": "1.0.0",
+        "producer_version": "propagation-network.v1",
+        "map_geometry_role": "endpoint_connection_only",
+        "route_interpretation_allowed": false
+      },
+      {
+        "edge_id": "edge:33f01b7c5ea92d1e25caa10e",
+        "source_event_id": "event:c19e1c3f30abb31b092d2a84",
+        "target_event_id": "event:87a3fcc443cd4da989ceaa6a",
+        "source_site_id": "site:northern-FI",
+        "target_site_id": "site:northern-se",
+        "source_country_code": "FI",
+        "target_country_code": "SE",
+        "cross_border": true,
+        "shared_location": false,
+        "resolution": "whole_pollen",
+        "feature_key": "whole:pollen",
+        "distance_km_unrounded": 4.18215248535497,
+        "distance_km_display": 4.182,
+        "distance_algorithm": "WGS84 inverse geodesic",
+        "distance_library": "pyproj",
+        "distance_library_version": "3.7.2",
+        "minimum_lag_years": -100.0,
+        "maximum_lag_years": -100.0,
+        "candidate_status": "excluded_temporal_nonpositive",
+        "reason_code": "temporal_direction_nonpositive",
+        "scenario_id": "rectangular_100km_100yr_v1",
+        "threshold_profile_id": "synthetic-reported-positive",
+        "temporal_contract_version": "1.0.0",
+        "classification_contract_version": null,
+        "event_manifest_digest": "042328429c01cab1968e29e929b4c9ed16666f7d964b732cf7bdb9a78d378a9f",
+        "config_digest": "8fb355e4862e3ee4f4c9bde59aa4efc2b09af22966087c16975323ab5a8a1f92",
+        "build_id": "synthetic-spatial-truth",
+        "directional_arrow_allowed": false,
+        "schema_version": "1.0.0",
+        "propagation_contract_version": "1.0.0",
+        "producer_version": "propagation-network.v1",
+        "map_geometry_role": "endpoint_connection_only",
+        "route_interpretation_allowed": false
+      }
+    ],
+    "pair_refusals": [],
+    "directed_candidates": [
+      {
+        "edge_id": "edge:9e048696a5b023fa739b939d",
+        "source_event_id": "event:87a3fcc443cd4da989ceaa6a",
+        "target_event_id": "event:1fb0d2fc8ada200c17415918",
+        "source_site_id": "site:northern-se",
+        "target_site_id": "site:northern-SE",
+        "source_country_code": "SE",
+        "target_country_code": "SE",
+        "cross_border": false,
+        "shared_location": false,
+        "resolution": "whole_pollen",
+        "feature_key": "whole:pollen",
+        "distance_km_unrounded": 8.364302232754213,
+        "distance_km_display": 8.364,
+        "distance_algorithm": "WGS84 inverse geodesic",
+        "distance_library": "pyproj",
+        "distance_library_version": "3.7.2",
+        "minimum_lag_years": 100.0,
+        "maximum_lag_years": 100.0,
+        "candidate_status": "definite_candidate",
+        "reason_code": "all_thresholds_pass",
+        "scenario_id": "rectangular_100km_100yr_v1",
+        "threshold_profile_id": "synthetic-reported-positive",
+        "temporal_contract_version": "1.0.0",
+        "classification_contract_version": null,
+        "event_manifest_digest": "042328429c01cab1968e29e929b4c9ed16666f7d964b732cf7bdb9a78d378a9f",
+        "config_digest": "8fb355e4862e3ee4f4c9bde59aa4efc2b09af22966087c16975323ab5a8a1f92",
+        "build_id": "synthetic-spatial-truth",
+        "directional_arrow_allowed": true,
+        "schema_version": "1.0.0",
+        "propagation_contract_version": "1.0.0",
+        "producer_version": "propagation-network.v1",
+        "map_geometry_role": "endpoint_connection_only",
+        "route_interpretation_allowed": false
+      },
+      {
+        "edge_id": "edge:d5f599d8c70f53a91deb965c",
+        "source_event_id": "event:87a3fcc443cd4da989ceaa6a",
+        "target_event_id": "event:3b3fb5a91158e04221185f5a",
+        "source_site_id": "site:northern-se",
+        "target_site_id": "site:northern-NO",
+        "source_country_code": "SE",
+        "target_country_code": "NO",
+        "cross_border": true,
+        "shared_location": false,
+        "resolution": "whole_pollen",
+        "feature_key": "whole:pollen",
+        "distance_km_unrounded": 4.18215248535497,
+        "distance_km_display": 4.182,
+        "distance_algorithm": "WGS84 inverse geodesic",
+        "distance_library": "pyproj",
+        "distance_library_version": "3.7.2",
+        "minimum_lag_years": 100.0,
+        "maximum_lag_years": 100.0,
+        "candidate_status": "definite_candidate",
+        "reason_code": "all_thresholds_pass",
+        "scenario_id": "rectangular_100km_100yr_v1",
+        "threshold_profile_id": "synthetic-reported-positive",
+        "temporal_contract_version": "1.0.0",
+        "classification_contract_version": null,
+        "event_manifest_digest": "042328429c01cab1968e29e929b4c9ed16666f7d964b732cf7bdb9a78d378a9f",
+        "config_digest": "8fb355e4862e3ee4f4c9bde59aa4efc2b09af22966087c16975323ab5a8a1f92",
+        "build_id": "synthetic-spatial-truth",
+        "directional_arrow_allowed": true,
+        "schema_version": "1.0.0",
+        "propagation_contract_version": "1.0.0",
+        "producer_version": "propagation-network.v1",
+        "map_geometry_role": "endpoint_connection_only",
+        "route_interpretation_allowed": false
+      },
+      {
+        "edge_id": "edge:6da51b379f1ef7d19eb0062a",
+        "source_event_id": "event:87a3fcc443cd4da989ceaa6a",
+        "target_event_id": "event:c19e1c3f30abb31b092d2a84",
+        "source_site_id": "site:northern-se",
+        "target_site_id": "site:northern-FI",
+        "source_country_code": "SE",
+        "target_country_code": "FI",
+        "cross_border": true,
+        "shared_location": false,
+        "resolution": "whole_pollen",
+        "feature_key": "whole:pollen",
+        "distance_km_unrounded": 4.18215248535497,
+        "distance_km_display": 4.182,
+        "distance_algorithm": "WGS84 inverse geodesic",
+        "distance_library": "pyproj",
+        "distance_library_version": "3.7.2",
+        "minimum_lag_years": 100.0,
+        "maximum_lag_years": 100.0,
+        "candidate_status": "definite_candidate",
+        "reason_code": "all_thresholds_pass",
+        "scenario_id": "rectangular_100km_100yr_v1",
+        "threshold_profile_id": "synthetic-reported-positive",
+        "temporal_contract_version": "1.0.0",
+        "classification_contract_version": null,
+        "event_manifest_digest": "042328429c01cab1968e29e929b4c9ed16666f7d964b732cf7bdb9a78d378a9f",
+        "config_digest": "8fb355e4862e3ee4f4c9bde59aa4efc2b09af22966087c16975323ab5a8a1f92",
+        "build_id": "synthetic-spatial-truth",
+        "directional_arrow_allowed": true,
+        "schema_version": "1.0.0",
+        "propagation_contract_version": "1.0.0",
+        "producer_version": "propagation-network.v1",
+        "map_geometry_role": "endpoint_connection_only",
+        "route_interpretation_allowed": false
+      }
+    ],
+    "reconciliation": {
+      "input_event_count": 4,
+      "eligible_event_count": 4,
+      "excluded_non_pollen_event_count": 0,
+      "evidence_domain_event_counts": [
+        [
+          "pollen_context",
+          4
+        ],
+        [
+          "human_ancient_dna",
+          0
+        ],
+        [
+          "animal_ancient_dna",
+          0
+        ]
+      ],
+      "evaluated_pair_count": 12,
+      "refused_pair_count": 0,
+      "status_counts": [
+        [
+          "definite_candidate",
+          3
+        ],
+        [
+          "possible_candidate",
+          0
+        ],
+        [
+          "indeterminate_order",
+          0
+        ],
+        [
+          "unresolved",
+          0
+        ],
+        [
+          "excluded_spatial",
+          0
+        ],
+        [
+          "excluded_temporal_nonpositive",
+          9
+        ],
+        [
+          "excluded_temporal_too_large",
+          0
+        ]
+      ],
+      "ordered_country_pair_counts": [
+        [
+          "SE-SE",
+          [
+            [
+              "definite_candidate",
+              1
+            ],
+            [
+              "possible_candidate",
+              0
+            ],
+            [
+              "indeterminate_order",
+              0
+            ],
+            [
+              "unresolved",
+              0
+            ],
+            [
+              "excluded_spatial",
+              0
+            ],
+            [
+              "excluded_temporal_nonpositive",
+              1
+            ],
+            [
+              "excluded_temporal_too_large",
+              0
+            ],
+            [
+              "refused",
+              0
+            ]
+          ]
+        ],
+        [
+          "SE-NO",
+          [
+            [
+              "definite_candidate",
+              1
+            ],
+            [
+              "possible_candidate",
+              0
+            ],
+            [
+              "indeterminate_order",
+              0
+            ],
+            [
+              "unresolved",
+              0
+            ],
+            [
+              "excluded_spatial",
+              0
+            ],
+            [
+              "excluded_temporal_nonpositive",
+              1
+            ],
+            [
+              "excluded_temporal_too_large",
+              0
+            ],
+            [
+              "refused",
+              0
+            ]
+          ]
+        ],
+        [
+          "SE-FI",
+          [
+            [
+              "definite_candidate",
+              1
+            ],
+            [
+              "possible_candidate",
+              0
+            ],
+            [
+              "indeterminate_order",
+              0
+            ],
+            [
+              "unresolved",
+              0
+            ],
+            [
+              "excluded_spatial",
+              0
+            ],
+            [
+              "excluded_temporal_nonpositive",
+              1
+            ],
+            [
+              "excluded_temporal_too_large",
+              0
+            ],
+            [
+              "refused",
+              0
+            ]
+          ]
+        ],
+        [
+          "SE-DK",
+          [
+            [
+              "definite_candidate",
+              0
+            ],
+            [
+              "possible_candidate",
+              0
+            ],
+            [
+              "indeterminate_order",
+              0
+            ],
+            [
+              "unresolved",
+              0
+            ],
+            [
+              "excluded_spatial",
+              0
+            ],
+            [
+              "excluded_temporal_nonpositive",
+              0
+            ],
+            [
+              "excluded_temporal_too_large",
+              0
+            ],
+            [
+              "refused",
+              0
+            ]
+          ]
+        ],
+        [
+          "NO-SE",
+          [
+            [
+              "definite_candidate",
+              0
+            ],
+            [
+              "possible_candidate",
+              0
+            ],
+            [
+              "indeterminate_order",
+              0
+            ],
+            [
+              "unresolved",
+              0
+            ],
+            [
+              "excluded_spatial",
+              0
+            ],
+            [
+              "excluded_temporal_nonpositive",
+              2
+            ],
+            [
+              "excluded_temporal_too_large",
+              0
+            ],
+            [
+              "refused",
+              0
+            ]
+          ]
+        ],
+        [
+          "NO-NO",
+          [
+            [
+              "definite_candidate",
+              0
+            ],
+            [
+              "possible_candidate",
+              0
+            ],
+            [
+              "indeterminate_order",
+              0
+            ],
+            [
+              "unresolved",
+              0
+            ],
+            [
+              "excluded_spatial",
+              0
+            ],
+            [
+              "excluded_temporal_nonpositive",
+              0
+            ],
+            [
+              "excluded_temporal_too_large",
+              0
+            ],
+            [
+              "refused",
+              0
+            ]
+          ]
+        ],
+        [
+          "NO-FI",
+          [
+            [
+              "definite_candidate",
+              0
+            ],
+            [
+              "possible_candidate",
+              0
+            ],
+            [
+              "indeterminate_order",
+              0
+            ],
+            [
+              "unresolved",
+              0
+            ],
+            [
+              "excluded_spatial",
+              0
+            ],
+            [
+              "excluded_temporal_nonpositive",
+              1
+            ],
+            [
+              "excluded_temporal_too_large",
+              0
+            ],
+            [
+              "refused",
+              0
+            ]
+          ]
+        ],
+        [
+          "NO-DK",
+          [
+            [
+              "definite_candidate",
+              0
+            ],
+            [
+              "possible_candidate",
+              0
+            ],
+            [
+              "indeterminate_order",
+              0
+            ],
+            [
+              "unresolved",
+              0
+            ],
+            [
+              "excluded_spatial",
+              0
+            ],
+            [
+              "excluded_temporal_nonpositive",
+              0
+            ],
+            [
+              "excluded_temporal_too_large",
+              0
+            ],
+            [
+              "refused",
+              0
+            ]
+          ]
+        ],
+        [
+          "FI-SE",
+          [
+            [
+              "definite_candidate",
+              0
+            ],
+            [
+              "possible_candidate",
+              0
+            ],
+            [
+              "indeterminate_order",
+              0
+            ],
+            [
+              "unresolved",
+              0
+            ],
+            [
+              "excluded_spatial",
+              0
+            ],
+            [
+              "excluded_temporal_nonpositive",
+              2
+            ],
+            [
+              "excluded_temporal_too_large",
+              0
+            ],
+            [
+              "refused",
+              0
+            ]
+          ]
+        ],
+        [
+          "FI-NO",
+          [
+            [
+              "definite_candidate",
+              0
+            ],
+            [
+              "possible_candidate",
+              0
+            ],
+            [
+              "indeterminate_order",
+              0
+            ],
+            [
+              "unresolved",
+              0
+            ],
+            [
+              "excluded_spatial",
+              0
+            ],
+            [
+              "excluded_temporal_nonpositive",
+              1
+            ],
+            [
+              "excluded_temporal_too_large",
+              0
+            ],
+            [
+              "refused",
+              0
+            ]
+          ]
+        ],
+        [
+          "FI-FI",
+          [
+            [
+              "definite_candidate",
+              0
+            ],
+            [
+              "possible_candidate",
+              0
+            ],
+            [
+              "indeterminate_order",
+              0
+            ],
+            [
+              "unresolved",
+              0
+            ],
+            [
+              "excluded_spatial",
+              0
+            ],
+            [
+              "excluded_temporal_nonpositive",
+              0
+            ],
+            [
+              "excluded_temporal_too_large",
+              0
+            ],
+            [
+              "refused",
+              0
+            ]
+          ]
+        ],
+        [
+          "FI-DK",
+          [
+            [
+              "definite_candidate",
+              0
+            ],
+            [
+              "possible_candidate",
+              0
+            ],
+            [
+              "indeterminate_order",
+              0
+            ],
+            [
+              "unresolved",
+              0
+            ],
+            [
+              "excluded_spatial",
+              0
+            ],
+            [
+              "excluded_temporal_nonpositive",
+              0
+            ],
+            [
+              "excluded_temporal_too_large",
+              0
+            ],
+            [
+              "refused",
+              0
+            ]
+          ]
+        ],
+        [
+          "DK-SE",
+          [
+            [
+              "definite_candidate",
+              0
+            ],
+            [
+              "possible_candidate",
+              0
+            ],
+            [
+              "indeterminate_order",
+              0
+            ],
+            [
+              "unresolved",
+              0
+            ],
+            [
+              "excluded_spatial",
+              0
+            ],
+            [
+              "excluded_temporal_nonpositive",
+              0
+            ],
+            [
+              "excluded_temporal_too_large",
+              0
+            ],
+            [
+              "refused",
+              0
+            ]
+          ]
+        ],
+        [
+          "DK-NO",
+          [
+            [
+              "definite_candidate",
+              0
+            ],
+            [
+              "possible_candidate",
+              0
+            ],
+            [
+              "indeterminate_order",
+              0
+            ],
+            [
+              "unresolved",
+              0
+            ],
+            [
+              "excluded_spatial",
+              0
+            ],
+            [
+              "excluded_temporal_nonpositive",
+              0
+            ],
+            [
+              "excluded_temporal_too_large",
+              0
+            ],
+            [
+              "refused",
+              0
+            ]
+          ]
+        ],
+        [
+          "DK-FI",
+          [
+            [
+              "definite_candidate",
+              0
+            ],
+            [
+              "possible_candidate",
+              0
+            ],
+            [
+              "indeterminate_order",
+              0
+            ],
+            [
+              "unresolved",
+              0
+            ],
+            [
+              "excluded_spatial",
+              0
+            ],
+            [
+              "excluded_temporal_nonpositive",
+              0
+            ],
+            [
+              "excluded_temporal_too_large",
+              0
+            ],
+            [
+              "refused",
+              0
+            ]
+          ]
+        ],
+        [
+          "DK-DK",
+          [
+            [
+              "definite_candidate",
+              0
+            ],
+            [
+              "possible_candidate",
+              0
+            ],
+            [
+              "indeterminate_order",
+              0
+            ],
+            [
+              "unresolved",
+              0
+            ],
+            [
+              "excluded_spatial",
+              0
+            ],
+            [
+              "excluded_temporal_nonpositive",
+              0
+            ],
+            [
+              "excluded_temporal_too_large",
+              0
+            ],
+            [
+              "refused",
+              0
+            ]
+          ]
+        ]
+      ],
+      "connected_component_count": 1
+    },
+    "exhaustive_reference_edges": [
+      {
+        "edge_id": "edge:9e048696a5b023fa739b939d",
+        "source_event_id": "event:87a3fcc443cd4da989ceaa6a",
+        "target_event_id": "event:1fb0d2fc8ada200c17415918",
+        "source_site_id": "site:northern-se",
+        "target_site_id": "site:northern-SE",
+        "source_country_code": "SE",
+        "target_country_code": "SE",
+        "cross_border": false,
+        "shared_location": false,
+        "resolution": "whole_pollen",
+        "feature_key": "whole:pollen",
+        "distance_km_unrounded": 8.364302232754213,
+        "distance_km_display": 8.364,
+        "distance_algorithm": "WGS84 inverse geodesic",
+        "distance_library": "pyproj",
+        "distance_library_version": "3.7.2",
+        "minimum_lag_years": 100.0,
+        "maximum_lag_years": 100.0,
+        "candidate_status": "definite_candidate",
+        "reason_code": "all_thresholds_pass",
+        "scenario_id": "rectangular_100km_100yr_v1",
+        "threshold_profile_id": "synthetic-reported-positive",
+        "temporal_contract_version": "1.0.0",
+        "classification_contract_version": null,
+        "event_manifest_digest": "042328429c01cab1968e29e929b4c9ed16666f7d964b732cf7bdb9a78d378a9f",
+        "config_digest": "8fb355e4862e3ee4f4c9bde59aa4efc2b09af22966087c16975323ab5a8a1f92",
+        "build_id": "synthetic-spatial-truth",
+        "directional_arrow_allowed": true,
+        "schema_version": "1.0.0",
+        "propagation_contract_version": "1.0.0",
+        "producer_version": "propagation-network.v1",
+        "map_geometry_role": "endpoint_connection_only",
+        "route_interpretation_allowed": false
+      },
+      {
+        "edge_id": "edge:d5f599d8c70f53a91deb965c",
+        "source_event_id": "event:87a3fcc443cd4da989ceaa6a",
+        "target_event_id": "event:3b3fb5a91158e04221185f5a",
+        "source_site_id": "site:northern-se",
+        "target_site_id": "site:northern-NO",
+        "source_country_code": "SE",
+        "target_country_code": "NO",
+        "cross_border": true,
+        "shared_location": false,
+        "resolution": "whole_pollen",
+        "feature_key": "whole:pollen",
+        "distance_km_unrounded": 4.18215248535497,
+        "distance_km_display": 4.182,
+        "distance_algorithm": "WGS84 inverse geodesic",
+        "distance_library": "pyproj",
+        "distance_library_version": "3.7.2",
+        "minimum_lag_years": 100.0,
+        "maximum_lag_years": 100.0,
+        "candidate_status": "definite_candidate",
+        "reason_code": "all_thresholds_pass",
+        "scenario_id": "rectangular_100km_100yr_v1",
+        "threshold_profile_id": "synthetic-reported-positive",
+        "temporal_contract_version": "1.0.0",
+        "classification_contract_version": null,
+        "event_manifest_digest": "042328429c01cab1968e29e929b4c9ed16666f7d964b732cf7bdb9a78d378a9f",
+        "config_digest": "8fb355e4862e3ee4f4c9bde59aa4efc2b09af22966087c16975323ab5a8a1f92",
+        "build_id": "synthetic-spatial-truth",
+        "directional_arrow_allowed": true,
+        "schema_version": "1.0.0",
+        "propagation_contract_version": "1.0.0",
+        "producer_version": "propagation-network.v1",
+        "map_geometry_role": "endpoint_connection_only",
+        "route_interpretation_allowed": false
+      },
+      {
+        "edge_id": "edge:6da51b379f1ef7d19eb0062a",
+        "source_event_id": "event:87a3fcc443cd4da989ceaa6a",
+        "target_event_id": "event:c19e1c3f30abb31b092d2a84",
+        "source_site_id": "site:northern-se",
+        "target_site_id": "site:northern-FI",
+        "source_country_code": "SE",
+        "target_country_code": "FI",
+        "cross_border": true,
+        "shared_location": false,
+        "resolution": "whole_pollen",
+        "feature_key": "whole:pollen",
+        "distance_km_unrounded": 4.18215248535497,
+        "distance_km_display": 4.182,
+        "distance_algorithm": "WGS84 inverse geodesic",
+        "distance_library": "pyproj",
+        "distance_library_version": "3.7.2",
+        "minimum_lag_years": 100.0,
+        "maximum_lag_years": 100.0,
+        "candidate_status": "definite_candidate",
+        "reason_code": "all_thresholds_pass",
+        "scenario_id": "rectangular_100km_100yr_v1",
+        "threshold_profile_id": "synthetic-reported-positive",
+        "temporal_contract_version": "1.0.0",
+        "classification_contract_version": null,
+        "event_manifest_digest": "042328429c01cab1968e29e929b4c9ed16666f7d964b732cf7bdb9a78d378a9f",
+        "config_digest": "8fb355e4862e3ee4f4c9bde59aa4efc2b09af22966087c16975323ab5a8a1f92",
+        "build_id": "synthetic-spatial-truth",
+        "directional_arrow_allowed": true,
+        "schema_version": "1.0.0",
+        "propagation_contract_version": "1.0.0",
+        "producer_version": "propagation-network.v1",
+        "map_geometry_role": "endpoint_connection_only",
+        "route_interpretation_allowed": false
+      }
+    ],
+    "contract_status": "passed"
+  },
+  "country_label_invariance_passed": true,
+  "denominators": {
+    "requested_pair_attempts": 18,
+    "attempted_pairs": 18,
+    "evaluated": 12,
+    "pair_refused": 2,
+    "ingestion_refused": 3,
+    "fixture_refused": 1,
+    "contract_passed": 18,
+    "regional_requested_neighbors": 3,
+    "regional_eligible_neighbors": 3
+  },
+  "claims": {
+    "synthetic_only": true,
+    "historical_routes": false,
+    "country_only_display_context_verified": false,
+    "coordinate_axis_detection": "declared_fixture_box_only",
+    "partial_coordinates": "refused_at_event_ingestion; paired_nulls_retained_in_pair_refusal_ledger"
+  }
+}
