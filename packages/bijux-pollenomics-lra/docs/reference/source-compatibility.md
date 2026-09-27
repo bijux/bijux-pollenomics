@@ -47,3 +47,18 @@ and independent parity baseline.
 SciPy differential evolution is a Python backend, not a reimplementation of
 RcppDE/DEoptim. Compare model objectives on common candidates separately from
 convergence behavior. `ReplayOptimizer` exists for that purpose.
+
+A supplied optimizer must return a finite vector within the original box, a
+finite objective, nonnegative iteration count, positive search evaluation count
+and boolean success. The boundary owns the returned vector and independently
+evaluates the deterministic objective on it before LOVE publishes reconstructed
+cover, modeled pollen or objective summaries. The reported and evaluated values
+must agree within `1e-12` absolute and relative tolerance. That tolerance is fixed
+for this boundary and does not replace the declared R oracle tolerances.
+
+The independent certification evaluation is separate from the backend's reported
+search evaluation count (`nfev`); replay keeps its candidate count. Certification
+preserves a backend's failure status and does not establish global optimality or
+convergence parity. `tests/unit/optimization/test_solver.py` checks invalid
+solutions, immutable original bounds, retained failure diagnostics and a complete
+LOVE consumer with a symmetric known cover and forward pollen expectation.

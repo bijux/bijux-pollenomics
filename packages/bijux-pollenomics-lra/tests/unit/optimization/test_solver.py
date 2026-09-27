@@ -11,8 +11,16 @@ import pytest
 
 from bijux_pollenomics_lra.api import ConvergenceError, LoveConfig, run_love
 from bijux_pollenomics_lra.models.errors import ValidationError
-from bijux_pollenomics_lra.optimization.solver import ReplayOptimizer, optimize_box
-from bijux_pollenomics_lra.reconstruction.optimized import tf
+from bijux_pollenomics_lra.optimization.solver import (
+    OptimizationResult,
+    ReplayOptimizer,
+    optimize_box,
+)
+from bijux_pollenomics_lra.reconstruction.optimized import (
+    LOVEoptim,
+    OptimizedOutput,
+    tf,
+)
 
 
 def _objective(name: str, candidate: np.ndarray) -> float:
@@ -140,7 +148,7 @@ def test_maximum_iterations_and_undefined_objectives_are_not_success() -> None:
     assert fixed.success and fixed.nit == 0 and fixed.nfev == 1
 
 
-def test_public_supported_optimized_and_analytical_symmetry_and_refusal() -> None:
+def _symmetric_inputs() -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
     pollen = pd.DataFrame({"coordinate": [1], "Alnus": [50], "Betula": [50]})
     params = pd.DataFrame(
         {
@@ -164,6 +172,11 @@ def test_public_supported_optimized_and_analytical_symmetry_and_refusal() -> Non
             "terrestrial": area * [0, 1, 1, 1],
         }
     )
+    return pollen, params, rings
+
+
+def test_public_supported_optimized_and_analytical_symmetry_and_refusal() -> None:
+    pollen, params, rings = _symmetric_inputs()
     common = LoveConfig(
         method="analytical",
         regional_basin_type="lake",
@@ -209,3 +222,120 @@ def test_public_supported_optimized_and_analytical_symmetry_and_refusal() -> Non
     assert len(failure.value.diagnostics) == 1
     assert failure.value.diagnostics[0]["nit"] == 2
     assert failure.value.diagnostics[0]["nfev"] == 60
+
+
+class _SuppliedResultOptimizer:
+    def __init__(self, result: OptimizationResult) -> None:
+        self.result = result
+
+    def solve(self, *args: object, **kwargs: object) -> OptimizationResult:
+        return self.result
+
+
+@pytest.mark.parametrize(
+    "change,message",
+    [
+        ({"x": np.array([0.5])}, "dimensionality"),
+        ({"x": np.array([[0.5, 0.5]])}, "one-dimensional"),
+        ({"x": np.array([np.nan, 0.5])}, "finite"),
+        ({"x": np.array([-0.1, 0.5])}, "bounds"),
+        ({"x": np.array([1.1, 0.5])}, "bounds"),
+        ({"fun": float("nan")}, "finite"),
+        ({"fun": -1.0}, "disagrees"),
+        ({"nit": -1}, "nit"),
+        ({"nfev": 0}, "nfev"),
+        ({"success": "yes"}, "boolean"),
+    ],
+)
+def test_custom_solution_refuses_invalid_numerics_and_diagnostics(
+    change: dict[str, object], message: str
+) -> None:
+    supplied = OptimizationResult(np.array([0.5, 0.5]), 0.5, 1, 2, True, "", "custom")
+    for name, value in change.items():
+        setattr(supplied, name, value)
+    with pytest.raises(ValidationError, match=message):
+        optimize_box(
+            lambda x: float(np.dot(x, x)),
+            np.zeros(2),
+            np.ones(2),
+            optimizer=_SuppliedResultOptimizer(supplied),
+        )
+
+
+def test_custom_solution_retains_failure_and_owns_verified_coordinates() -> None:
+    supplied = OptimizationResult(
+        np.array([0.5, 0.5]), 0.5, 1, 2, False, "Budget reached", "custom"
+    )
+    result = optimize_box(
+        lambda x: float(np.dot(x, x)),
+        np.zeros(2),
+        np.ones(2),
+        optimizer=_SuppliedResultOptimizer(supplied),
+    )
+    supplied.x[:] = 1
+    np.testing.assert_array_equal(result.x, [0.5, 0.5])
+    assert result.fun == 0.5
+    assert not result.success
+    assert result.nfev == 2
+    assert result.message == "Budget reached"
+    with pytest.raises(ValidationError, match="undefined objective"):
+        optimize_box(
+            lambda _x: float("nan"),
+            np.zeros(2),
+            np.ones(2),
+            optimizer=_SuppliedResultOptimizer(replace(supplied, fun=0.5)),
+        )
+
+
+def test_custom_backend_cannot_redefine_bounds() -> None:
+    class MutatingOptimizer:
+        def solve(
+            self, objective: object, lower: np.ndarray, upper: np.ndarray, **_: object
+        ) -> OptimizationResult:
+            lower[:] = -10
+            upper[:] = 10
+            return OptimizationResult(np.array([2.0, 2.0]), 8, 1, 1, True, "", "custom")
+
+    with pytest.raises(ValidationError, match="bounds"):
+        optimize_box(
+            lambda x: float(np.dot(x, x)),
+            np.zeros(2),
+            np.ones(2),
+            optimizer=MutatingOptimizer(),
+        )
+
+
+def test_love_custom_backend_certifies_forward_pollen_and_objective() -> None:
+    pollen, params, rings = _symmetric_inputs()
+    expected_objective = math.sqrt(2) * abs(math.log(0.5 / 0.501))
+    supplied = OptimizationResult(
+        np.array([0.5, 0.5]), expected_objective, 1, 1, True, "", "custom"
+    )
+
+    def consume(solution: OptimizationResult) -> OptimizedOutput:
+        return LOVEoptim(
+            pollen,
+            pollen,
+            {
+                "ppes": params,
+                "fallspeed": params[["Taxon", "fallspeed"]],
+                "dwm": "lsm unstable",
+            },
+            rings,
+            2,
+            repeats=1,
+            stochastic=False,
+            regional_cover_draws=np.array([[0.5, 0.5]]),
+            return_samples=True,
+            optimizer=_SuppliedResultOptimizer(solution),
+        )
+
+    result = consume(supplied)
+    np.testing.assert_array_equal(result["cover_samples"][0, 1], [0.5, 0.5])
+    np.testing.assert_array_equal(result["pollen_samples"][0, 1], [50.0, 50.0])
+    assert result["mBestValue"].iloc[1, 0] == pytest.approx(
+        expected_objective, abs=1e-14
+    )
+    assert result["optimizers"][0].success
+    with pytest.raises(ValidationError, match="disagrees"):
+        consume(replace(supplied, fun=0.0))

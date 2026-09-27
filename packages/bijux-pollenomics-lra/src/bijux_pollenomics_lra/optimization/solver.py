@@ -3,14 +3,19 @@
 from __future__ import annotations
 
 from collections.abc import Callable
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 import warnings
 
 import numpy as np
 from scipy.optimize import Bounds, differential_evolution
 
 from bijux_pollenomics_lra.models.errors import NativeOptimizerWarning, ValidationError
-from bijux_pollenomics_lra.models.validation import integer, rng_from, vector
+from bijux_pollenomics_lra.models.validation import (
+    finite_number,
+    integer,
+    rng_from,
+    vector,
+)
 
 Objective = Callable[[np.ndarray], float]
 
@@ -133,15 +138,41 @@ def optimize_box(
             )
         custom_result = optimizer.solve(
             objective,
-            lower_array,
-            upper_array,
+            lower_array.copy(),
+            upper_array.copy(),
             rng=generator,
             maxiter=maxiter,
             popsize=popsize,
         )
         if not isinstance(custom_result, OptimizationResult):
             raise ValidationError("optimizer.solve must return OptimizationResult")
-        return custom_result
+        candidate = vector(custom_result.x, "optimizer result x").copy()
+        if candidate.shape != lower_array.shape:
+            raise ValidationError("Optimizer result dimensionality is invalid")
+        if np.any(candidate < lower_array) or np.any(candidate > upper_array):
+            raise ValidationError("Optimizer result violates bounds")
+        reported_value = finite_number(custom_result.fun, "optimizer result fun")
+        # The model objective is deterministic for a frozen repeat's inputs.
+        # Certify it independently before downstream cover/pollen publication.
+        verified_value = float(objective(candidate.copy()))
+        if not np.isfinite(verified_value):
+            raise ValidationError("Optimizer result has an undefined objective")
+        if not np.isclose(reported_value, verified_value, rtol=1e-12, atol=1e-12):
+            raise ValidationError(
+                "Optimizer result objective disagrees with evaluation"
+            )
+        nit = integer(custom_result.nit, "optimizer result nit", minimum=0)
+        nfev = integer(custom_result.nfev, "optimizer result nfev")
+        if not isinstance(custom_result.success, (bool, np.bool_)):
+            raise ValidationError("Optimizer result success must be boolean")
+        return replace(
+            custom_result,
+            x=candidate,
+            fun=verified_value,
+            nit=nit,
+            nfev=nfev,
+            success=bool(custom_result.success),
+        )
 
     if np.all(lower_array == upper_array):
         value = float(objective(lower_array.copy()))
