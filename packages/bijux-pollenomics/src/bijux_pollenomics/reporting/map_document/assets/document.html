@@ -1846,10 +1846,16 @@
         }
         .floating-legend {
           right: 8px;
-          bottom: 72px;
+          bottom: calc(136px + env(safe-area-inset-bottom));
           width: min(188px, calc(100vw - 16px));
           --legend-max-height: min(24vh, 184px);
           padding: 8px;
+        }
+        .legend-toggle {
+          min-height: 44px;
+        }
+        .leaflet-bottom .leaflet-control-scale {
+          margin-bottom: calc(136px + env(safe-area-inset-bottom));
         }
         .control-panel {
           left: 8px;
