@@ -1,0 +1,24 @@
+id,kind,semantics,method,radius,count,mask,taxa_count,iterations,cover0,cover1,cover2,cover_profile
+S001,wrapper_refusal,source-wrapper-refusal,lsm unstable,10.0,2,all,1,1,0.6,0.1,0.3,closed-fractions
+S002,wrapper_refusal,source-wrapper-refusal,lsm unstable,10.0,2,all,1,2,0.6,0.1,0.3,closed-fractions
+S003,ring_refusal,legacy-source-refusal,lsm unstable,10.0,1,all,3,1,0.6,0.1,0.3,closed-fractions
+S004,ring_refusal,legacy-source-refusal,lsm unstable,10.0,3,all,3,1,0.6,0.1,0.3,closed-fractions
+S005,optimized,source-supported-zero-local,lsm unstable,10.0,2,zero_first,3,1,0.6,0.1,0.3,closed-fractions
+S006,optimized,source-supported-zero-regional,lsm unstable,10.0,3,zero_last,3,1,0.6,0.1,0.3,closed-fractions
+S007,optimized,source-supported-supplied-regional,lsm unstable,10.0,1,all,1,1,0.6,0.1,0.3,closed-fractions
+S008,analytical,source-supported-supplied-regional,lsm unstable,10.0,1,all,1,1,0.6,0.1,0.3,closed-fractions
+S009,analytical,source-supported-supplied-regional,lsm unstable,10.0,3,all,1,1,0.6,0.1,0.3,closed-fractions
+S010,analytical,source-supported-supplied-regional,lsm unstable,10.0,4,all,1,1,0.6,0.1,0.3,closed-fractions
+F001,forward,corrected-matrix-forward,lsm unstable,10.0,2,all,3,1,0.6,0.1,0.3,closed-fractions
+F002,forward,corrected-matrix-forward,lsm unstable,40.0,2,all,3,1,0.6,0.1,0.3,closed-fractions
+F003,forward,corrected-matrix-forward,lsm unstable low,10.0,2,all,3,1,0.6,0.1,0.3,closed-fractions
+F004,forward,corrected-matrix-forward,lsm unstable low,40.0,2,all,3,1,0.6,0.1,0.3,closed-fractions
+F005,forward,corrected-matrix-forward,gpm neutral,10.0,2,all,3,1,0.6,0.1,0.3,closed-fractions
+F006,forward,corrected-matrix-forward,gpm neutral,40.0,2,all,3,1,0.6,0.1,0.3,closed-fractions
+F007,forward,corrected-matrix-forward,gpm unstable,10.0,2,all,3,1,0.6,0.1,0.3,closed-fractions
+F008,forward,corrected-matrix-forward,gpm unstable,40.0,2,all,3,1,0.6,0.1,0.3,closed-fractions
+F009,forward,corrected-matrix-forward,1overd,10.0,2,all,3,1,0.6,0.1,0.3,closed-fractions
+F010,forward,corrected-matrix-forward,1overd,40.0,2,all,3,1,0.6,0.1,0.3,closed-fractions
+F011,forward,corrected-matrix-single-local,lsm unstable,10.0,1,all,3,1,0.6,0.1,0.3,closed-fractions
+F012,forward,corrected-matrix-single-regional,lsm unstable,10.0,3,all,3,1,0.6,0.1,0.3,closed-fractions
+F013,forward,corrected-matrix-rounded-cover,lsm unstable,10.0,2,all,3,1,0.33333,0.33333,0.33333,disqover-rounded-fractions

@@ -1,0 +1,389 @@
+{
+  "schema_version": "1.0.0",
+  "oracle": "disqover",
+  "source_version": "0.9.14",
+  "source_archive_sha256": "ea496ae82807b52c9dd3d4b39b4dfa294bfac4068e20184ce56187bff70caf5c",
+  "python": "3.11.13",
+  "prepared_cases": 43,
+  "source_compatible_api": [
+    "DispersalFactorK",
+    "REVEALS",
+    "REVEALSinR",
+    "LOVEr",
+    "LOVEoptim",
+    "lov",
+    "calK",
+    "tf",
+    "logeuclidean"
+  ],
+  "prospective_optimized_love": {
+    "declaration_id": "disqover-0.9.14-optimized-love-prospective-20260924",
+    "declaration_sha256": "7bd61e0c7feefadf81428261443674612c6767e957fd25ea65591aeab9602ded",
+    "case_input_sha256": {
+      "mixed-canopy-compact": "d84c9d9c6631c208f25b6ef8b5fdd8cc6a5e509eaa371795d1a2c19fee0b12c0",
+      "open-land-extended": "d376065884b1668f6ad89cd14c827bf40c52b53fc16171be8561c71706dd137d",
+      "conifer-rich-broad": "7ef8956c4b031c3b12f497e56ed14dee9bbc3064b59780a6b66de9920348fa03"
+    },
+    "rtol": 1e-10,
+    "atol": 1e-10,
+    "stochastic_optimizer_trajectory": "excluded"
+  },
+  "api_covered_by_prepared_cases": [
+    "DispersalFactorK",
+    "LOVEoptim",
+    "LOVEr",
+    "REVEALS",
+    "REVEALSinR",
+    "calK",
+    "logeuclidean",
+    "lov",
+    "tf"
+  ],
+  "live_R_executed": true,
+  "passed_cases": 43,
+  "failed_cases": 0,
+  "scope_notes": [
+    "Supplied draws isolate stochastic wrapper mathematics from RNG-stream differences.",
+    "Candidate replay isolates LOVE objective/wrapper parity from optimizer trajectories.",
+    "A pass does not establish ecological validity against held-out observations."
+  ],
+  "elapsed_seconds": 10.817072082776576,
+  "R_exit_code": 0,
+  "status": "passed",
+  "cases": [
+    {
+      "id": "C0000",
+      "name": "K_lsm_unstable_peatland",
+      "api": "DispersalFactorK",
+      "mode": "unmodified_function",
+      "max_abs_error": 1.1102230246251565e-16,
+      "status": "passed"
+    },
+    {
+      "id": "C0001",
+      "name": "K_lsm_unstable_lake",
+      "api": "DispersalFactorK",
+      "mode": "unmodified_function",
+      "max_abs_error": 2.220446049250313e-16,
+      "status": "passed"
+    },
+    {
+      "id": "C0002",
+      "name": "K_lsm_unstable_low_peatland",
+      "api": "DispersalFactorK",
+      "mode": "unmodified_function",
+      "max_abs_error": 1.1102230246251565e-16,
+      "status": "passed"
+    },
+    {
+      "id": "C0003",
+      "name": "K_lsm_unstable_low_lake",
+      "api": "DispersalFactorK",
+      "mode": "unmodified_function",
+      "max_abs_error": 1.1102230246251565e-16,
+      "status": "passed"
+    },
+    {
+      "id": "C0004",
+      "name": "K_gpm_neutral_peatland",
+      "api": "DispersalFactorK",
+      "mode": "unmodified_function",
+      "max_abs_error": 5.551115123125783e-17,
+      "status": "passed"
+    },
+    {
+      "id": "C0005",
+      "name": "K_gpm_neutral_lake",
+      "api": "DispersalFactorK",
+      "mode": "unmodified_function",
+      "max_abs_error": 5.551115123125783e-17,
+      "status": "passed"
+    },
+    {
+      "id": "C0006",
+      "name": "K_gpm_unstable_peatland",
+      "api": "DispersalFactorK",
+      "mode": "unmodified_function",
+      "max_abs_error": 5.551115123125783e-17,
+      "status": "passed"
+    },
+    {
+      "id": "C0007",
+      "name": "K_gpm_unstable_lake",
+      "api": "DispersalFactorK",
+      "mode": "unmodified_function",
+      "max_abs_error": 3.885780586188048e-16,
+      "status": "passed"
+    },
+    {
+      "id": "C0008",
+      "name": "K_1overd_peatland",
+      "api": "DispersalFactorK",
+      "mode": "unmodified_function",
+      "max_abs_error": 3.903127820947816e-17,
+      "status": "passed"
+    },
+    {
+      "id": "C0009",
+      "name": "K_1overd_lake",
+      "api": "DispersalFactorK",
+      "mode": "unmodified_function",
+      "max_abs_error": 7.28583859910259e-17,
+      "status": "passed"
+    },
+    {
+      "id": "C0010",
+      "name": "K_rounding_0.015",
+      "api": "DispersalFactorK",
+      "mode": "unmodified_function",
+      "max_abs_error": 0.0,
+      "status": "passed"
+    },
+    {
+      "id": "C0011",
+      "name": "K_rounding_0.025",
+      "api": "DispersalFactorK",
+      "mode": "unmodified_function",
+      "max_abs_error": 0.0,
+      "status": "passed"
+    },
+    {
+      "id": "C0012",
+      "name": "K_rounding_0.045",
+      "api": "DispersalFactorK",
+      "mode": "unmodified_function",
+      "max_abs_error": 0.0,
+      "status": "passed"
+    },
+    {
+      "id": "C0013",
+      "name": "K_rounding_0.055",
+      "api": "DispersalFactorK",
+      "mode": "unmodified_function",
+      "max_abs_error": 0.0,
+      "status": "passed"
+    },
+    {
+      "id": "C0014",
+      "name": "K_rounding_0.075",
+      "api": "DispersalFactorK",
+      "mode": "unmodified_function",
+      "max_abs_error": 2.220446049250313e-16,
+      "status": "passed"
+    },
+    {
+      "id": "C0015",
+      "name": "REVEALSinR_deterministic_1",
+      "api": "REVEALSinR",
+      "mode": "sampler_instrumented_wrapper",
+      "max_abs_error": 0.0,
+      "status": "passed"
+    },
+    {
+      "id": "C0016",
+      "name": "REVEALSinR_deterministic_3",
+      "api": "REVEALSinR",
+      "mode": "sampler_instrumented_wrapper",
+      "max_abs_error": 2.175583928816829e-15,
+      "status": "passed"
+    },
+    {
+      "id": "C0017",
+      "name": "REVEALSinR_labels",
+      "api": "REVEALSinR",
+      "mode": "sampler_instrumented_wrapper",
+      "status": "passed"
+    },
+    {
+      "id": "C0018",
+      "name": "REVEALS_paired_draws",
+      "api": "REVEALS",
+      "mode": "supplied_random_draws",
+      "max_abs_error": 3.552713678800501e-15,
+      "status": "passed"
+    },
+    {
+      "id": "C0019",
+      "name": "lov_deterministic",
+      "api": "lov",
+      "mode": "unmodified_function",
+      "max_abs_error": 6.245004513516506e-17,
+      "status": "passed"
+    },
+    {
+      "id": "C0020",
+      "name": "calK_full",
+      "api": "calK",
+      "mode": "unmodified_function",
+      "max_abs_error": 5.162537064506978e-15,
+      "status": "passed"
+    },
+    {
+      "id": "C0021",
+      "name": "logeuclidean",
+      "api": "logeuclidean",
+      "mode": "unmodified_function",
+      "max_abs_error": 5.551115123125783e-17,
+      "status": "passed"
+    },
+    {
+      "id": "C0022",
+      "name": "tf_objective",
+      "api": "tf",
+      "mode": "unmodified_function",
+      "max_abs_error": 0.0,
+      "status": "passed"
+    },
+    {
+      "id": "C0023",
+      "name": "LOVEr_deterministic",
+      "api": "LOVEr",
+      "mode": "sampler_instrumented_wrapper",
+      "max_abs_error": 2.4868995751603507e-14,
+      "status": "passed"
+    },
+    {
+      "id": "C0024",
+      "name": "LOVEoptim_candidate_replay",
+      "api": "LOVEoptim",
+      "mode": "sampler_and_optimizer_replay",
+      "max_abs_error": 1.1102230246251565e-15,
+      "status": "passed"
+    },
+    {
+      "id": "C0025",
+      "name": "mixed-canopy-compact_intermediates",
+      "api": "LOVEoptim",
+      "mode": "prospective_fixed_input",
+      "max_abs_error": 5.162537064506978e-15,
+      "status": "passed"
+    },
+    {
+      "id": "C0026",
+      "name": "mixed-canopy-compact_taxon_axis",
+      "api": "LOVEoptim",
+      "mode": "prospective_fixed_input",
+      "status": "passed"
+    },
+    {
+      "id": "C0027",
+      "name": "mixed-canopy-compact_ring_axis",
+      "api": "LOVEoptim",
+      "mode": "prospective_fixed_input",
+      "status": "passed"
+    },
+    {
+      "id": "C0028",
+      "name": "mixed-canopy-compact_wrapper_replay",
+      "api": "LOVEoptim",
+      "mode": "prospective_sampler_and_optimizer_replay",
+      "max_abs_error": 6.661338147750939e-16,
+      "status": "passed"
+    },
+    {
+      "id": "C0029",
+      "name": "mixed-canopy-compact_nonfinite_objective",
+      "api": "tf",
+      "mode": "prospective_nonfinite",
+      "max_abs_error": 0.0,
+      "status": "passed"
+    },
+    {
+      "id": "C0030",
+      "name": "mixed-canopy-compact_all_nonfinite_refusal",
+      "api": "LOVEoptim",
+      "mode": "prospective_refusal",
+      "status": "passed"
+    },
+    {
+      "id": "C0031",
+      "name": "open-land-extended_intermediates",
+      "api": "LOVEoptim",
+      "mode": "prospective_fixed_input",
+      "max_abs_error": 5.162537064506978e-15,
+      "status": "passed"
+    },
+    {
+      "id": "C0032",
+      "name": "open-land-extended_taxon_axis",
+      "api": "LOVEoptim",
+      "mode": "prospective_fixed_input",
+      "status": "passed"
+    },
+    {
+      "id": "C0033",
+      "name": "open-land-extended_ring_axis",
+      "api": "LOVEoptim",
+      "mode": "prospective_fixed_input",
+      "status": "passed"
+    },
+    {
+      "id": "C0034",
+      "name": "open-land-extended_wrapper_replay",
+      "api": "LOVEoptim",
+      "mode": "prospective_sampler_and_optimizer_replay",
+      "max_abs_error": 6.661338147750939e-16,
+      "status": "passed"
+    },
+    {
+      "id": "C0035",
+      "name": "open-land-extended_nonfinite_objective",
+      "api": "tf",
+      "mode": "prospective_nonfinite",
+      "max_abs_error": 0.0,
+      "status": "passed"
+    },
+    {
+      "id": "C0036",
+      "name": "open-land-extended_all_nonfinite_refusal",
+      "api": "LOVEoptim",
+      "mode": "prospective_refusal",
+      "status": "passed"
+    },
+    {
+      "id": "C0037",
+      "name": "conifer-rich-broad_intermediates",
+      "api": "LOVEoptim",
+      "mode": "prospective_fixed_input",
+      "max_abs_error": 5.162537064506978e-15,
+      "status": "passed"
+    },
+    {
+      "id": "C0038",
+      "name": "conifer-rich-broad_taxon_axis",
+      "api": "LOVEoptim",
+      "mode": "prospective_fixed_input",
+      "status": "passed"
+    },
+    {
+      "id": "C0039",
+      "name": "conifer-rich-broad_ring_axis",
+      "api": "LOVEoptim",
+      "mode": "prospective_fixed_input",
+      "status": "passed"
+    },
+    {
+      "id": "C0040",
+      "name": "conifer-rich-broad_wrapper_replay",
+      "api": "LOVEoptim",
+      "mode": "prospective_sampler_and_optimizer_replay",
+      "max_abs_error": 3.3306690738754696e-16,
+      "status": "passed"
+    },
+    {
+      "id": "C0041",
+      "name": "conifer-rich-broad_nonfinite_objective",
+      "api": "tf",
+      "mode": "prospective_nonfinite",
+      "max_abs_error": 0.0,
+      "status": "passed"
+    },
+    {
+      "id": "C0042",
+      "name": "conifer-rich-broad_all_nonfinite_refusal",
+      "api": "LOVEoptim",
+      "mode": "prospective_refusal",
+      "status": "passed"
+    }
+  ]
+}
