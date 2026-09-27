@@ -48,11 +48,13 @@ The compiler/binary hashes and R version are in the report. The numerical thread
 variables were one. The two-call concurrency regression is an explicit bounded
 ownership check, not a parallel scaling measurement.
 
-Isolated per-method peak RSS, other platforms, alternate bindings, cancellation,
-platform wheels, source-R parity, SBOM and complete-pipeline throughput remain
-separate acceptance surfaces. The binary is a regenerable root artifact; the
-standalone C++ source, Python producer and R equation are retained in the
-development package. Ordinary runtime installation gains no compiler dependency.
+An [isolated worker measurement](../native-memory/README.md) now records per-method
+process peak RSS and startup/export cost on the same machine. Other platforms,
+alternate bindings, cancellation, platform wheels, source-R parity, SBOM and
+complete-pipeline throughput remain separate acceptance surfaces. The binary is
+a regenerable root artifact; the standalone C++ source, Python producer and R
+equation are retained in the development package. Ordinary runtime installation
+gains no compiler dependency.
 
 ## Reproduce
 

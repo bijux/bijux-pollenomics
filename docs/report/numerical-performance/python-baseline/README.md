@@ -62,6 +62,8 @@ recorded machine, software, caches and system load.
 
 The prospective native comparison requires at least 2× end-to-end benefit, no
 more than 1.25× peak RSS and the stated scientific tolerances on identical inputs.
-This result establishes a bounded Python baseline. It does not decide native
-adoption, certify R/C++ parity, measure isolated startup or parallel scaling,
-or settle the full backend investigation. Those need their own consumers.
+This result establishes a bounded Python baseline. A later
+[forward comparison](../native-forward/README.md) and
+[isolated worker measurement](../native-memory/README.md) make a scoped
+non-adoption decision for one C++ batch boundary. This baseline alone does not
+certify source-R/C++ parity, parallel scaling or the full backend investigation.
