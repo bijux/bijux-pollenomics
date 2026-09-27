@@ -24,7 +24,11 @@ eleven present source artifacts. The review does not turn a broad or contextual
 date into a direct radiocarbon date.
 
 The [foundation validation](../../animal_foundation_validation.json) still
-fails its paper-linkage check for **11 PRJNA705960 sample rows**. Two pig point
+fails its paper-linkage check for **11 PRJNA705960 sample rows**. A separate
+[primary-paper review](galician-cattle-paper.md) now identifies the DOI and
+reconciles all eleven source-owned BioSample aliases to paper labels, while
+retaining the mixed *Bos taurus*/*Bos primigenius* project conflict. The
+paper link has not been promoted into the project catalog. Two pig point
 features name alternative evidence paths where the supplementary workbook is
 present but the named project archive HTML is absent. Their exact feature IDs
 and source-path status are in the machine-readable report. A missing alternate
