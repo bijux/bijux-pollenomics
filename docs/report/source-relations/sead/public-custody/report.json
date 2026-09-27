@@ -1,0 +1,806 @@
+{
+  "schema_version": "sead-public-source-custody.v1",
+  "posture": "source-to-Nordic-map identity and relation replay; no scientific admission",
+  "raw_and_public_site_count": 2069,
+  "country_counts": {
+    "Denmark": 59,
+    "Finland": 40,
+    "Norway": 45,
+    "Sweden": 1925
+  },
+  "excluded_decision_count": 126,
+  "excluded_status_counts": {
+    "review": 103,
+    "unassigned": 23
+  },
+  "site_uuid_country_bindings_sha256": "dec356327327cec379f4b3afa62e75c47b5fb64f96b3bf067a5fcb377269004f",
+  "join_edge_count": 86,
+  "join_null_reference_count": 37634,
+  "join_edges": [
+    {
+      "edge": "abundance_elements.abundances",
+      "child_row_count": 19614,
+      "referenced_child_row_count": 19614,
+      "matched_child_count": 19614,
+      "null_reference_child_count": 4042,
+      "orphan_child_count": 0,
+      "unexplained_loss_count": 0
+    },
+    {
+      "edge": "abundances.ident_levels",
+      "child_row_count": 467,
+      "referenced_child_row_count": 467,
+      "matched_child_count": 467,
+      "null_reference_child_count": 0,
+      "orphan_child_count": 0,
+      "unexplained_loss_count": 0
+    },
+    {
+      "edge": "abundances.modifications",
+      "child_row_count": 7214,
+      "referenced_child_row_count": 7214,
+      "matched_child_count": 7214,
+      "null_reference_child_count": 0,
+      "orphan_child_count": 0,
+      "unexplained_loss_count": 0
+    },
+    {
+      "edge": "abundances.properties",
+      "child_row_count": 0,
+      "referenced_child_row_count": 0,
+      "matched_child_count": 0,
+      "null_reference_child_count": 0,
+      "orphan_child_count": 0,
+      "unexplained_loss_count": 0
+    },
+    {
+      "edge": "age_types.analysis_dating_ranges",
+      "child_row_count": 7377,
+      "referenced_child_row_count": 7377,
+      "matched_child_count": 7377,
+      "null_reference_child_count": 0,
+      "orphan_child_count": 0,
+      "unexplained_loss_count": 0
+    },
+    {
+      "edge": "age_types.dendro_dates",
+      "child_row_count": 6947,
+      "referenced_child_row_count": 6947,
+      "matched_child_count": 6947,
+      "null_reference_child_count": 0,
+      "orphan_child_count": 0,
+      "unexplained_loss_count": 0
+    },
+    {
+      "edge": "analysis_entities.abundances",
+      "child_row_count": 23656,
+      "referenced_child_row_count": 23656,
+      "matched_child_count": 23656,
+      "null_reference_child_count": 0,
+      "orphan_child_count": 0,
+      "unexplained_loss_count": 0
+    },
+    {
+      "edge": "analysis_entities.analysis_entity_ages",
+      "child_row_count": 641,
+      "referenced_child_row_count": 641,
+      "matched_child_count": 641,
+      "null_reference_child_count": 0,
+      "orphan_child_count": 0,
+      "unexplained_loss_count": 0
+    },
+    {
+      "edge": "analysis_entities.analysis_values",
+      "child_row_count": 68705,
+      "referenced_child_row_count": 68705,
+      "matched_child_count": 68705,
+      "null_reference_child_count": 0,
+      "orphan_child_count": 0,
+      "unexplained_loss_count": 0
+    },
+    {
+      "edge": "analysis_entities.dendro_dates",
+      "child_row_count": 6947,
+      "referenced_child_row_count": 6947,
+      "matched_child_count": 6947,
+      "null_reference_child_count": 0,
+      "orphan_child_count": 0,
+      "unexplained_loss_count": 0
+    },
+    {
+      "edge": "analysis_entities.dimensions",
+      "child_row_count": 0,
+      "referenced_child_row_count": 0,
+      "matched_child_count": 0,
+      "null_reference_child_count": 0,
+      "orphan_child_count": 0,
+      "unexplained_loss_count": 0
+    },
+    {
+      "edge": "analysis_entities.geochronology",
+      "child_row_count": 87,
+      "referenced_child_row_count": 87,
+      "matched_child_count": 87,
+      "null_reference_child_count": 0,
+      "orphan_child_count": 0,
+      "unexplained_loss_count": 0
+    },
+    {
+      "edge": "analysis_entities.measured_values",
+      "child_row_count": 85402,
+      "referenced_child_row_count": 85402,
+      "matched_child_count": 85402,
+      "null_reference_child_count": 0,
+      "orphan_child_count": 0,
+      "unexplained_loss_count": 0
+    },
+    {
+      "edge": "analysis_entities.relative_dates",
+      "child_row_count": 10057,
+      "referenced_child_row_count": 10057,
+      "matched_child_count": 10057,
+      "null_reference_child_count": 0,
+      "orphan_child_count": 0,
+      "unexplained_loss_count": 0
+    },
+    {
+      "edge": "analysis_values.analysis_boolean_values",
+      "child_row_count": 11603,
+      "referenced_child_row_count": 11603,
+      "matched_child_count": 11603,
+      "null_reference_child_count": 0,
+      "orphan_child_count": 0,
+      "unexplained_loss_count": 0
+    },
+    {
+      "edge": "analysis_values.analysis_categorical_values",
+      "child_row_count": 4800,
+      "referenced_child_row_count": 4800,
+      "matched_child_count": 4800,
+      "null_reference_child_count": 0,
+      "orphan_child_count": 0,
+      "unexplained_loss_count": 0
+    },
+    {
+      "edge": "analysis_values.analysis_dating_ranges",
+      "child_row_count": 7377,
+      "referenced_child_row_count": 7377,
+      "matched_child_count": 7377,
+      "null_reference_child_count": 0,
+      "orphan_child_count": 0,
+      "unexplained_loss_count": 0
+    },
+    {
+      "edge": "analysis_values.analysis_integer_values",
+      "child_row_count": 24701,
+      "referenced_child_row_count": 24701,
+      "matched_child_count": 24701,
+      "null_reference_child_count": 0,
+      "orphan_child_count": 0,
+      "unexplained_loss_count": 0
+    },
+    {
+      "edge": "analysis_values.analysis_numerical_values",
+      "child_row_count": 60,
+      "referenced_child_row_count": 60,
+      "matched_child_count": 60,
+      "null_reference_child_count": 0,
+      "orphan_child_count": 0,
+      "unexplained_loss_count": 0
+    },
+    {
+      "edge": "analysis_values.analysis_taxon_counts",
+      "child_row_count": 0,
+      "referenced_child_row_count": 0,
+      "matched_child_count": 0,
+      "null_reference_child_count": 0,
+      "orphan_child_count": 0,
+      "unexplained_loss_count": 0
+    },
+    {
+      "edge": "analysis_values.analysis_value_dimensions",
+      "child_row_count": 0,
+      "referenced_child_row_count": 0,
+      "matched_child_count": 0,
+      "null_reference_child_count": 0,
+      "orphan_child_count": 0,
+      "unexplained_loss_count": 0
+    },
+    {
+      "edge": "biblio.dataset_masters",
+      "child_row_count": 0,
+      "referenced_child_row_count": 0,
+      "matched_child_count": 0,
+      "null_reference_child_count": 5,
+      "orphan_child_count": 0,
+      "unexplained_loss_count": 0
+    },
+    {
+      "edge": "biblio.datasets",
+      "child_row_count": 37239,
+      "referenced_child_row_count": 37239,
+      "matched_child_count": 37239,
+      "null_reference_child_count": 6153,
+      "orphan_child_count": 0,
+      "unexplained_loss_count": 0
+    },
+    {
+      "edge": "biblio.ecocode_systems",
+      "child_row_count": 1,
+      "referenced_child_row_count": 1,
+      "matched_child_count": 1,
+      "null_reference_child_count": 2,
+      "orphan_child_count": 0,
+      "unexplained_loss_count": 0
+    },
+    {
+      "edge": "biblio.relative_age_refs",
+      "child_row_count": 8,
+      "referenced_child_row_count": 8,
+      "matched_child_count": 8,
+      "null_reference_child_count": 0,
+      "orphan_child_count": 0,
+      "unexplained_loss_count": 0
+    },
+    {
+      "edge": "biblio.sample_group_references",
+      "child_row_count": 925,
+      "referenced_child_row_count": 925,
+      "matched_child_count": 925,
+      "null_reference_child_count": 0,
+      "orphan_child_count": 0,
+      "unexplained_loss_count": 0
+    },
+    {
+      "edge": "biblio.site_references",
+      "child_row_count": 747,
+      "referenced_child_row_count": 747,
+      "matched_child_count": 747,
+      "null_reference_child_count": 0,
+      "orphan_child_count": 0,
+      "unexplained_loss_count": 0
+    },
+    {
+      "edge": "contact_types.dataset_contacts",
+      "child_row_count": 39668,
+      "referenced_child_row_count": 39668,
+      "matched_child_count": 39668,
+      "null_reference_child_count": 0,
+      "orphan_child_count": 0,
+      "unexplained_loss_count": 0
+    },
+    {
+      "edge": "contacts.dataset_contacts",
+      "child_row_count": 39668,
+      "referenced_child_row_count": 39668,
+      "matched_child_count": 39668,
+      "null_reference_child_count": 0,
+      "orphan_child_count": 0,
+      "unexplained_loss_count": 0
+    },
+    {
+      "edge": "contacts.dataset_masters",
+      "child_row_count": 1,
+      "referenced_child_row_count": 1,
+      "matched_child_count": 1,
+      "null_reference_child_count": 4,
+      "orphan_child_count": 0,
+      "unexplained_loss_count": 0
+    },
+    {
+      "edge": "data_type_groups.data_types",
+      "child_row_count": 17,
+      "referenced_child_row_count": 17,
+      "matched_child_count": 17,
+      "null_reference_child_count": 0,
+      "orphan_child_count": 0,
+      "unexplained_loss_count": 0
+    },
+    {
+      "edge": "data_types.datasets",
+      "child_row_count": 43392,
+      "referenced_child_row_count": 43392,
+      "matched_child_count": 43392,
+      "null_reference_child_count": 0,
+      "orphan_child_count": 0,
+      "unexplained_loss_count": 0
+    },
+    {
+      "edge": "data_types.value_types",
+      "child_row_count": 10,
+      "referenced_child_row_count": 10,
+      "matched_child_count": 10,
+      "null_reference_child_count": 7,
+      "orphan_child_count": 0,
+      "unexplained_loss_count": 0
+    },
+    {
+      "edge": "dataset_masters.datasets",
+      "child_row_count": 43392,
+      "referenced_child_row_count": 43392,
+      "matched_child_count": 43392,
+      "null_reference_child_count": 0,
+      "orphan_child_count": 0,
+      "unexplained_loss_count": 0
+    },
+    {
+      "edge": "datasets.analysis_entities",
+      "child_row_count": 129893,
+      "referenced_child_row_count": 129893,
+      "matched_child_count": 129893,
+      "null_reference_child_count": 25,
+      "orphan_child_count": 0,
+      "unexplained_loss_count": 0
+    },
+    {
+      "edge": "datasets.dataset_contacts",
+      "child_row_count": 39668,
+      "referenced_child_row_count": 39668,
+      "matched_child_count": 39668,
+      "null_reference_child_count": 0,
+      "orphan_child_count": 0,
+      "unexplained_loss_count": 0
+    },
+    {
+      "edge": "datasets.dataset_methods",
+      "child_row_count": 0,
+      "referenced_child_row_count": 0,
+      "matched_child_count": 0,
+      "null_reference_child_count": 0,
+      "orphan_child_count": 0,
+      "unexplained_loss_count": 0
+    },
+    {
+      "edge": "dating_uncertainty.analysis_dating_ranges",
+      "child_row_count": 0,
+      "referenced_child_row_count": 0,
+      "matched_child_count": 0,
+      "null_reference_child_count": 7377,
+      "orphan_child_count": 0,
+      "unexplained_loss_count": 0
+    },
+    {
+      "edge": "dating_uncertainty.dendro_dates",
+      "child_row_count": 1097,
+      "referenced_child_row_count": 1097,
+      "matched_child_count": 1097,
+      "null_reference_child_count": 5850,
+      "orphan_child_count": 0,
+      "unexplained_loss_count": 0
+    },
+    {
+      "edge": "dating_uncertainty.geochronology",
+      "child_row_count": 57,
+      "referenced_child_row_count": 57,
+      "matched_child_count": 57,
+      "null_reference_child_count": 30,
+      "orphan_child_count": 0,
+      "unexplained_loss_count": 0
+    },
+    {
+      "edge": "dating_uncertainty.relative_dates",
+      "child_row_count": 210,
+      "referenced_child_row_count": 210,
+      "matched_child_count": 210,
+      "null_reference_child_count": 9847,
+      "orphan_child_count": 0,
+      "unexplained_loss_count": 0
+    },
+    {
+      "edge": "dimensions.analysis_entity_dimensions",
+      "child_row_count": 0,
+      "referenced_child_row_count": 0,
+      "matched_child_count": 0,
+      "null_reference_child_count": 0,
+      "orphan_child_count": 0,
+      "unexplained_loss_count": 0
+    },
+    {
+      "edge": "dimensions.analysis_value_dimensions",
+      "child_row_count": 0,
+      "referenced_child_row_count": 0,
+      "matched_child_count": 0,
+      "null_reference_child_count": 0,
+      "orphan_child_count": 0,
+      "unexplained_loss_count": 0
+    },
+    {
+      "edge": "dimensions.measured_value_dimensions",
+      "child_row_count": 0,
+      "referenced_child_row_count": 0,
+      "matched_child_count": 0,
+      "null_reference_child_count": 0,
+      "orphan_child_count": 0,
+      "unexplained_loss_count": 0
+    },
+    {
+      "edge": "dimensions.sample_dimensions",
+      "child_row_count": 2506,
+      "referenced_child_row_count": 2506,
+      "matched_child_count": 2506,
+      "null_reference_child_count": 0,
+      "orphan_child_count": 0,
+      "unexplained_loss_count": 0
+    },
+    {
+      "edge": "dimensions.sample_group_dimensions",
+      "child_row_count": 133,
+      "referenced_child_row_count": 133,
+      "matched_child_count": 133,
+      "null_reference_child_count": 0,
+      "orphan_child_count": 0,
+      "unexplained_loss_count": 0
+    },
+    {
+      "edge": "ecocode_definitions.ecocodes",
+      "child_row_count": 9260,
+      "referenced_child_row_count": 9260,
+      "matched_child_count": 9260,
+      "null_reference_child_count": 0,
+      "orphan_child_count": 0,
+      "unexplained_loss_count": 0
+    },
+    {
+      "edge": "ecocode_groups.definitions",
+      "child_row_count": 253,
+      "referenced_child_row_count": 253,
+      "matched_child_count": 253,
+      "null_reference_child_count": 0,
+      "orphan_child_count": 0,
+      "unexplained_loss_count": 0
+    },
+    {
+      "edge": "ecocode_systems.groups",
+      "child_row_count": 17,
+      "referenced_child_row_count": 17,
+      "matched_child_count": 17,
+      "null_reference_child_count": 0,
+      "orphan_child_count": 0,
+      "unexplained_loss_count": 0
+    },
+    {
+      "edge": "identification_levels.abundance_ident_levels",
+      "child_row_count": 467,
+      "referenced_child_row_count": 467,
+      "matched_child_count": 467,
+      "null_reference_child_count": 0,
+      "orphan_child_count": 0,
+      "unexplained_loss_count": 0
+    },
+    {
+      "edge": "measured_values.dimensions",
+      "child_row_count": 0,
+      "referenced_child_row_count": 0,
+      "matched_child_count": 0,
+      "null_reference_child_count": 0,
+      "orphan_child_count": 0,
+      "unexplained_loss_count": 0
+    },
+    {
+      "edge": "methods.dataset_methods",
+      "child_row_count": 0,
+      "referenced_child_row_count": 0,
+      "matched_child_count": 0,
+      "null_reference_child_count": 0,
+      "orphan_child_count": 0,
+      "unexplained_loss_count": 0
+    },
+    {
+      "edge": "methods.datasets",
+      "child_row_count": 43392,
+      "referenced_child_row_count": 43392,
+      "matched_child_count": 43392,
+      "null_reference_child_count": 0,
+      "orphan_child_count": 0,
+      "unexplained_loss_count": 0
+    },
+    {
+      "edge": "methods.relative_dates",
+      "child_row_count": 9195,
+      "referenced_child_row_count": 9195,
+      "matched_child_count": 9195,
+      "null_reference_child_count": 862,
+      "orphan_child_count": 0,
+      "unexplained_loss_count": 0
+    },
+    {
+      "edge": "methods.sample_dimensions",
+      "child_row_count": 2506,
+      "referenced_child_row_count": 2506,
+      "matched_child_count": 2506,
+      "null_reference_child_count": 0,
+      "orphan_child_count": 0,
+      "unexplained_loss_count": 0
+    },
+    {
+      "edge": "methods.value_classes",
+      "child_row_count": 52,
+      "referenced_child_row_count": 52,
+      "matched_child_count": 52,
+      "null_reference_child_count": 0,
+      "orphan_child_count": 0,
+      "unexplained_loss_count": 0
+    },
+    {
+      "edge": "modification_types.abundance_modifications",
+      "child_row_count": 7214,
+      "referenced_child_row_count": 7214,
+      "matched_child_count": 7214,
+      "null_reference_child_count": 0,
+      "orphan_child_count": 0,
+      "unexplained_loss_count": 0
+    },
+    {
+      "edge": "physical_samples.analysis_entities",
+      "child_row_count": 129918,
+      "referenced_child_row_count": 129918,
+      "matched_child_count": 129918,
+      "null_reference_child_count": 0,
+      "orphan_child_count": 0,
+      "unexplained_loss_count": 0
+    },
+    {
+      "edge": "physical_samples.dimensions",
+      "child_row_count": 2506,
+      "referenced_child_row_count": 2506,
+      "matched_child_count": 2506,
+      "null_reference_child_count": 0,
+      "orphan_child_count": 0,
+      "unexplained_loss_count": 0
+    },
+    {
+      "edge": "property_types.abundance_properties",
+      "child_row_count": 0,
+      "referenced_child_row_count": 0,
+      "matched_child_count": 0,
+      "null_reference_child_count": 0,
+      "orphan_child_count": 0,
+      "unexplained_loss_count": 0
+    },
+    {
+      "edge": "record_types.abundance_elements",
+      "child_row_count": 23,
+      "referenced_child_row_count": 23,
+      "matched_child_count": 23,
+      "null_reference_child_count": 0,
+      "orphan_child_count": 0,
+      "unexplained_loss_count": 0
+    },
+    {
+      "edge": "record_types.taxon_orders",
+      "child_row_count": 30,
+      "referenced_child_row_count": 30,
+      "matched_child_count": 30,
+      "null_reference_child_count": 0,
+      "orphan_child_count": 0,
+      "unexplained_loss_count": 0
+    },
+    {
+      "edge": "relative_ages.relative_age_refs",
+      "child_row_count": 8,
+      "referenced_child_row_count": 8,
+      "matched_child_count": 8,
+      "null_reference_child_count": 0,
+      "orphan_child_count": 0,
+      "unexplained_loss_count": 0
+    },
+    {
+      "edge": "relative_ages.relative_dates",
+      "child_row_count": 10057,
+      "referenced_child_row_count": 10057,
+      "matched_child_count": 10057,
+      "null_reference_child_count": 0,
+      "orphan_child_count": 0,
+      "unexplained_loss_count": 0
+    },
+    {
+      "edge": "sample_groups.dimensions",
+      "child_row_count": 133,
+      "referenced_child_row_count": 133,
+      "matched_child_count": 133,
+      "null_reference_child_count": 0,
+      "orphan_child_count": 0,
+      "unexplained_loss_count": 0
+    },
+    {
+      "edge": "sample_groups.physical_samples",
+      "child_row_count": 32308,
+      "referenced_child_row_count": 32308,
+      "matched_child_count": 32308,
+      "null_reference_child_count": 0,
+      "orphan_child_count": 0,
+      "unexplained_loss_count": 0
+    },
+    {
+      "edge": "sample_groups.sample_group_references",
+      "child_row_count": 925,
+      "referenced_child_row_count": 925,
+      "matched_child_count": 925,
+      "null_reference_child_count": 0,
+      "orphan_child_count": 0,
+      "unexplained_loss_count": 0
+    },
+    {
+      "edge": "sites.sample_groups",
+      "child_row_count": 4432,
+      "referenced_child_row_count": 4432,
+      "matched_child_count": 4432,
+      "null_reference_child_count": 0,
+      "orphan_child_count": 0,
+      "unexplained_loss_count": 0
+    },
+    {
+      "edge": "sites.site_references",
+      "child_row_count": 747,
+      "referenced_child_row_count": 747,
+      "matched_child_count": 747,
+      "null_reference_child_count": 0,
+      "orphan_child_count": 0,
+      "unexplained_loss_count": 0
+    },
+    {
+      "edge": "taxa.abundances",
+      "child_row_count": 23656,
+      "referenced_child_row_count": 23656,
+      "matched_child_count": 23656,
+      "null_reference_child_count": 0,
+      "orphan_child_count": 0,
+      "unexplained_loss_count": 0
+    },
+    {
+      "edge": "taxa.analysis_taxon_counts",
+      "child_row_count": 0,
+      "referenced_child_row_count": 0,
+      "matched_child_count": 0,
+      "null_reference_child_count": 0,
+      "orphan_child_count": 0,
+      "unexplained_loss_count": 0
+    },
+    {
+      "edge": "taxa.ecocodes",
+      "child_row_count": 9260,
+      "referenced_child_row_count": 9260,
+      "matched_child_count": 9260,
+      "null_reference_child_count": 0,
+      "orphan_child_count": 0,
+      "unexplained_loss_count": 0
+    },
+    {
+      "edge": "taxon_authors.taxa",
+      "child_row_count": 1198,
+      "referenced_child_row_count": 1198,
+      "matched_child_count": 1198,
+      "null_reference_child_count": 776,
+      "orphan_child_count": 0,
+      "unexplained_loss_count": 0
+    },
+    {
+      "edge": "taxon_families.genera",
+      "child_row_count": 925,
+      "referenced_child_row_count": 925,
+      "matched_child_count": 925,
+      "null_reference_child_count": 0,
+      "orphan_child_count": 0,
+      "unexplained_loss_count": 0
+    },
+    {
+      "edge": "taxon_genera.taxa",
+      "child_row_count": 1974,
+      "referenced_child_row_count": 1974,
+      "matched_child_count": 1974,
+      "null_reference_child_count": 0,
+      "orphan_child_count": 0,
+      "unexplained_loss_count": 0
+    },
+    {
+      "edge": "taxon_orders.families",
+      "child_row_count": 207,
+      "referenced_child_row_count": 207,
+      "matched_child_count": 207,
+      "null_reference_child_count": 0,
+      "orphan_child_count": 0,
+      "unexplained_loss_count": 0
+    },
+    {
+      "edge": "units.dimensions",
+      "child_row_count": 15,
+      "referenced_child_row_count": 15,
+      "matched_child_count": 15,
+      "null_reference_child_count": 0,
+      "orphan_child_count": 0,
+      "unexplained_loss_count": 0
+    },
+    {
+      "edge": "units.value_types",
+      "child_row_count": 2,
+      "referenced_child_row_count": 2,
+      "matched_child_count": 2,
+      "null_reference_child_count": 15,
+      "orphan_child_count": 0,
+      "unexplained_loss_count": 0
+    },
+    {
+      "edge": "value_classes.analysis_values",
+      "child_row_count": 68705,
+      "referenced_child_row_count": 68705,
+      "matched_child_count": 68705,
+      "null_reference_child_count": 0,
+      "orphan_child_count": 0,
+      "unexplained_loss_count": 0
+    },
+    {
+      "edge": "value_classes.property_types",
+      "child_row_count": 0,
+      "referenced_child_row_count": 0,
+      "matched_child_count": 0,
+      "null_reference_child_count": 0,
+      "orphan_child_count": 0,
+      "unexplained_loss_count": 0
+    },
+    {
+      "edge": "value_qualifiers.sample_dimensions",
+      "child_row_count": 0,
+      "referenced_child_row_count": 0,
+      "matched_child_count": 0,
+      "null_reference_child_count": 2506,
+      "orphan_child_count": 0,
+      "unexplained_loss_count": 0
+    },
+    {
+      "edge": "value_qualifiers.sample_group_dimensions",
+      "child_row_count": 0,
+      "referenced_child_row_count": 0,
+      "matched_child_count": 0,
+      "null_reference_child_count": 133,
+      "orphan_child_count": 0,
+      "unexplained_loss_count": 0
+    },
+    {
+      "edge": "value_type_items.categorical_values",
+      "child_row_count": 4800,
+      "referenced_child_row_count": 4800,
+      "matched_child_count": 4800,
+      "null_reference_child_count": 0,
+      "orphan_child_count": 0,
+      "unexplained_loss_count": 0
+    },
+    {
+      "edge": "value_types.items",
+      "child_row_count": 13,
+      "referenced_child_row_count": 13,
+      "matched_child_count": 13,
+      "null_reference_child_count": 0,
+      "orphan_child_count": 0,
+      "unexplained_loss_count": 0
+    },
+    {
+      "edge": "value_types.property_types",
+      "child_row_count": 0,
+      "referenced_child_row_count": 0,
+      "matched_child_count": 0,
+      "null_reference_child_count": 0,
+      "orphan_child_count": 0,
+      "unexplained_loss_count": 0
+    },
+    {
+      "edge": "value_types.value_classes",
+      "child_row_count": 52,
+      "referenced_child_row_count": 52,
+      "matched_child_count": 52,
+      "null_reference_child_count": 0,
+      "orphan_child_count": 0,
+      "unexplained_loss_count": 0
+    }
+  ],
+  "source_run_id": "sead-full-evidence-39bfff6a-ce80714e",
+  "acquisition_bundle_sha256": "sha256:fdcda26e7de9a09383b0d9aae7ab7f9e8846c7cbf05513da17fdb8e329331ba9",
+  "inputs_sha256": {
+    "data/sead/normalized/nordic_environmental_sites.geojson": "d05e7f20d9a3b8a870a94570461899e4d403bae4c05dd65ca94f1120d8809bd0",
+    "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/admission.json": "69f93b6bd34e457bedc4047077024de1beefc900142f45051fab60dce03751ea",
+    "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/country-decisions.json": "e08c2fa2f70d9a3491b95a87b81c992ec3902051aa6e30c35dbcb0f86e214528",
+    "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/manifest.json": "6fc2428046d148f9ce6c158f982afbbbbaea39de2132850a4fb8f41acf8a4c14",
+    "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_sites.json": "b5cb28e935fdd2293999ffce7fe72c064571d4f7fc9e98b5e8bc4681a2b93479",
+    "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/reconciliation/joins.json": "e728ecf4462b13561fc2ab9d1a7202a1dc149cacfe5f00ab25364b110c7c155a",
+    "docs/report/regions/nordic/nordic_point_traceability.json": "8306eb5e5caeb05a781bc765da0d918e6c02a6c3e3f300479c5e0263d046eadd"
+  }
+}
