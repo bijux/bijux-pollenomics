@@ -1,0 +1,3831 @@
+{
+  "browser": {
+    "browser": {
+      "jsVersion": "15.3.76.13",
+      "product": "Chrome/153.0.8010.53",
+      "protocolVersion": "1.3",
+      "revision": "@b395074596c663e344272cde7f7d7bd3d496e7e",
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36"
+    },
+    "hash_replays": [
+      {
+        "complete_state_and_download_equal": true,
+        "index": 0,
+        "kind": "modeled",
+        "no_reload_loop": true,
+        "same_document_command": true,
+        "width": 1440
+      },
+      {
+        "complete_state_and_download_equal": true,
+        "index": 1,
+        "kind": "modeled",
+        "no_reload_loop": true,
+        "same_document_command": true,
+        "width": 1440
+      },
+      {
+        "complete_state_and_download_equal": true,
+        "index": 2,
+        "kind": "modeled",
+        "no_reload_loop": true,
+        "same_document_command": true,
+        "width": 1440
+      },
+      {
+        "complete_state_and_download_equal": true,
+        "index": 3,
+        "kind": "modeled",
+        "no_reload_loop": true,
+        "same_document_command": true,
+        "width": 1440
+      },
+      {
+        "complete_state_and_download_equal": true,
+        "index": 0,
+        "kind": "native",
+        "no_reload_loop": true,
+        "same_document_command": true,
+        "width": 1440
+      },
+      {
+        "complete_state_and_download_equal": true,
+        "index": 1,
+        "kind": "native",
+        "no_reload_loop": true,
+        "same_document_command": true,
+        "width": 1440
+      },
+      {
+        "complete_state_and_download_equal": true,
+        "index": 2,
+        "kind": "native",
+        "no_reload_loop": true,
+        "same_document_command": true,
+        "width": 1440
+      },
+      {
+        "complete_state_and_download_equal": true,
+        "index": 3,
+        "kind": "native",
+        "no_reload_loop": true,
+        "same_document_command": true,
+        "width": 1440
+      },
+      {
+        "complete_state_and_download_equal": true,
+        "index": 0,
+        "kind": "modeled",
+        "no_reload_loop": true,
+        "same_document_command": true,
+        "width": 390
+      },
+      {
+        "complete_state_and_download_equal": true,
+        "index": 1,
+        "kind": "modeled",
+        "no_reload_loop": true,
+        "same_document_command": true,
+        "width": 390
+      },
+      {
+        "complete_state_and_download_equal": true,
+        "index": 2,
+        "kind": "modeled",
+        "no_reload_loop": true,
+        "same_document_command": true,
+        "width": 390
+      },
+      {
+        "complete_state_and_download_equal": true,
+        "index": 3,
+        "kind": "modeled",
+        "no_reload_loop": true,
+        "same_document_command": true,
+        "width": 390
+      },
+      {
+        "complete_state_and_download_equal": true,
+        "index": 0,
+        "kind": "native",
+        "no_reload_loop": true,
+        "same_document_command": true,
+        "width": 390
+      },
+      {
+        "complete_state_and_download_equal": true,
+        "index": 1,
+        "kind": "native",
+        "no_reload_loop": true,
+        "same_document_command": true,
+        "width": 390
+      },
+      {
+        "complete_state_and_download_equal": true,
+        "index": 2,
+        "kind": "native",
+        "no_reload_loop": true,
+        "same_document_command": true,
+        "width": 390
+      },
+      {
+        "complete_state_and_download_equal": true,
+        "index": 3,
+        "kind": "native",
+        "no_reload_loop": true,
+        "same_document_command": true,
+        "width": 390
+      }
+    ],
+    "history_replays": [
+      {
+        "complete_state_and_download_equal": true,
+        "direction": "back",
+        "index": 2,
+        "kind": "modeled",
+        "no_reload_loop": true,
+        "width": 1440
+      },
+      {
+        "complete_state_and_download_equal": true,
+        "direction": "back",
+        "index": 1,
+        "kind": "modeled",
+        "no_reload_loop": true,
+        "width": 1440
+      },
+      {
+        "complete_state_and_download_equal": true,
+        "direction": "back",
+        "index": 0,
+        "kind": "modeled",
+        "no_reload_loop": true,
+        "width": 1440
+      },
+      {
+        "complete_state_and_download_equal": true,
+        "direction": "forward",
+        "index": 1,
+        "kind": "modeled",
+        "no_reload_loop": true,
+        "width": 1440
+      },
+      {
+        "complete_state_and_download_equal": true,
+        "direction": "forward",
+        "index": 2,
+        "kind": "modeled",
+        "no_reload_loop": true,
+        "width": 1440
+      },
+      {
+        "complete_state_and_download_equal": true,
+        "direction": "forward",
+        "index": 3,
+        "kind": "modeled",
+        "no_reload_loop": true,
+        "width": 1440
+      },
+      {
+        "complete_state_and_download_equal": true,
+        "direction": "back",
+        "index": 2,
+        "kind": "native",
+        "no_reload_loop": true,
+        "width": 1440
+      },
+      {
+        "complete_state_and_download_equal": true,
+        "direction": "back",
+        "index": 1,
+        "kind": "native",
+        "no_reload_loop": true,
+        "width": 1440
+      },
+      {
+        "complete_state_and_download_equal": true,
+        "direction": "back",
+        "index": 0,
+        "kind": "native",
+        "no_reload_loop": true,
+        "width": 1440
+      },
+      {
+        "complete_state_and_download_equal": true,
+        "direction": "forward",
+        "index": 1,
+        "kind": "native",
+        "no_reload_loop": true,
+        "width": 1440
+      },
+      {
+        "complete_state_and_download_equal": true,
+        "direction": "forward",
+        "index": 2,
+        "kind": "native",
+        "no_reload_loop": true,
+        "width": 1440
+      },
+      {
+        "complete_state_and_download_equal": true,
+        "direction": "forward",
+        "index": 3,
+        "kind": "native",
+        "no_reload_loop": true,
+        "width": 1440
+      },
+      {
+        "complete_state_and_download_equal": true,
+        "direction": "back",
+        "index": 2,
+        "kind": "modeled",
+        "no_reload_loop": true,
+        "width": 390
+      },
+      {
+        "complete_state_and_download_equal": true,
+        "direction": "back",
+        "index": 1,
+        "kind": "modeled",
+        "no_reload_loop": true,
+        "width": 390
+      },
+      {
+        "complete_state_and_download_equal": true,
+        "direction": "back",
+        "index": 0,
+        "kind": "modeled",
+        "no_reload_loop": true,
+        "width": 390
+      },
+      {
+        "complete_state_and_download_equal": true,
+        "direction": "forward",
+        "index": 1,
+        "kind": "modeled",
+        "no_reload_loop": true,
+        "width": 390
+      },
+      {
+        "complete_state_and_download_equal": true,
+        "direction": "forward",
+        "index": 2,
+        "kind": "modeled",
+        "no_reload_loop": true,
+        "width": 390
+      },
+      {
+        "complete_state_and_download_equal": true,
+        "direction": "forward",
+        "index": 3,
+        "kind": "modeled",
+        "no_reload_loop": true,
+        "width": 390
+      },
+      {
+        "complete_state_and_download_equal": true,
+        "direction": "back",
+        "index": 2,
+        "kind": "native",
+        "no_reload_loop": true,
+        "width": 390
+      },
+      {
+        "complete_state_and_download_equal": true,
+        "direction": "back",
+        "index": 1,
+        "kind": "native",
+        "no_reload_loop": true,
+        "width": 390
+      },
+      {
+        "complete_state_and_download_equal": true,
+        "direction": "back",
+        "index": 0,
+        "kind": "native",
+        "no_reload_loop": true,
+        "width": 390
+      },
+      {
+        "complete_state_and_download_equal": true,
+        "direction": "forward",
+        "index": 1,
+        "kind": "native",
+        "no_reload_loop": true,
+        "width": 390
+      },
+      {
+        "complete_state_and_download_equal": true,
+        "direction": "forward",
+        "index": 2,
+        "kind": "native",
+        "no_reload_loop": true,
+        "width": 390
+      },
+      {
+        "complete_state_and_download_equal": true,
+        "direction": "forward",
+        "index": 3,
+        "kind": "native",
+        "no_reload_loop": true,
+        "width": 390
+      }
+    ],
+    "modeled_frames": [
+      {
+        "countries": [
+          "Denmark",
+          "Finland",
+          "Norway",
+          "Sweden"
+        ],
+        "evidence_role": "context_only",
+        "family": "source_land_cover_types",
+        "features": 75,
+        "interpolation_allowed": false,
+        "metric": "OL",
+        "no_pollen_data_null_records": 48,
+        "path": "modeled/1440-baseline-0/pangaea-937075-ol-11200-11700-bp.geojson",
+        "propagation_use_allowed": false,
+        "sha256": "caacdd7697af041efdf37aa3ed0de4e34e00bc8403f1d22058cb38cee3482176",
+        "source_records_equal": true,
+        "stage": "baseline-0",
+        "width": 1440,
+        "window": "11200-11700 BP"
+      },
+      {
+        "countries": [
+          "Denmark"
+        ],
+        "evidence_role": "context_only",
+        "family": "source_pft_codes",
+        "features": 6,
+        "interpolation_allowed": false,
+        "metric": "ISTS",
+        "no_pollen_data_null_records": 3,
+        "path": "modeled/1440-baseline-1/pangaea-937075-ists-5200-5700-bp.geojson",
+        "propagation_use_allowed": false,
+        "sha256": "ca75f1f438f5f6b1c74e616d4f0355e4a2553cc39f4031049e721ff465e95d99",
+        "source_records_equal": true,
+        "stage": "baseline-1",
+        "width": 1440,
+        "window": "5200-5700 BP"
+      },
+      {
+        "countries": [
+          "Finland"
+        ],
+        "evidence_role": "context_only",
+        "family": "exact_taxa",
+        "features": 19,
+        "interpolation_allowed": false,
+        "metric": "Alnus.glutinosa",
+        "no_pollen_data_null_records": 3,
+        "path": "modeled/1440-baseline-2/pangaea-937075-alnus-glutinosa-0-100-bp.geojson",
+        "propagation_use_allowed": false,
+        "sha256": "4b884f9aec3024ad208ec450e01afa3be3faa8cc003dda4cebe6bf0758e60105",
+        "source_records_equal": true,
+        "stage": "baseline-2",
+        "width": 1440,
+        "window": "0-100 BP"
+      },
+      {
+        "countries": [
+          "Denmark",
+          "Finland",
+          "Norway",
+          "Sweden"
+        ],
+        "evidence_role": "context_only",
+        "family": "source_land_cover_types",
+        "features": 75,
+        "interpolation_allowed": false,
+        "metric": "ET",
+        "no_pollen_data_null_records": 10,
+        "path": "modeled/1440-baseline-3/pangaea-937075-et-0-100-bp.geojson",
+        "propagation_use_allowed": false,
+        "sha256": "5af59d74ea943fff3c47b78048ff0c46f9a3eafc2cdd5bb5d6272eaa3143dd9c",
+        "source_records_equal": true,
+        "stage": "baseline-3",
+        "width": 1440,
+        "window": "0-100 BP"
+      },
+      {
+        "countries": [
+          "Denmark",
+          "Finland",
+          "Norway",
+          "Sweden"
+        ],
+        "evidence_role": "context_only",
+        "family": "source_land_cover_types",
+        "features": 75,
+        "interpolation_allowed": false,
+        "metric": "OL",
+        "no_pollen_data_null_records": 48,
+        "path": "modeled/1440-hash-0/pangaea-937075-ol-11200-11700-bp.geojson",
+        "propagation_use_allowed": false,
+        "sha256": "caacdd7697af041efdf37aa3ed0de4e34e00bc8403f1d22058cb38cee3482176",
+        "source_records_equal": true,
+        "stage": "hash-0",
+        "width": 1440,
+        "window": "11200-11700 BP"
+      },
+      {
+        "countries": [
+          "Denmark"
+        ],
+        "evidence_role": "context_only",
+        "family": "source_pft_codes",
+        "features": 6,
+        "interpolation_allowed": false,
+        "metric": "ISTS",
+        "no_pollen_data_null_records": 3,
+        "path": "modeled/1440-hash-1/pangaea-937075-ists-5200-5700-bp.geojson",
+        "propagation_use_allowed": false,
+        "sha256": "ca75f1f438f5f6b1c74e616d4f0355e4a2553cc39f4031049e721ff465e95d99",
+        "source_records_equal": true,
+        "stage": "hash-1",
+        "width": 1440,
+        "window": "5200-5700 BP"
+      },
+      {
+        "countries": [
+          "Finland"
+        ],
+        "evidence_role": "context_only",
+        "family": "exact_taxa",
+        "features": 19,
+        "interpolation_allowed": false,
+        "metric": "Alnus.glutinosa",
+        "no_pollen_data_null_records": 3,
+        "path": "modeled/1440-hash-2/pangaea-937075-alnus-glutinosa-0-100-bp.geojson",
+        "propagation_use_allowed": false,
+        "sha256": "4b884f9aec3024ad208ec450e01afa3be3faa8cc003dda4cebe6bf0758e60105",
+        "source_records_equal": true,
+        "stage": "hash-2",
+        "width": 1440,
+        "window": "0-100 BP"
+      },
+      {
+        "countries": [
+          "Denmark",
+          "Finland",
+          "Norway",
+          "Sweden"
+        ],
+        "evidence_role": "context_only",
+        "family": "source_land_cover_types",
+        "features": 75,
+        "interpolation_allowed": false,
+        "metric": "ET",
+        "no_pollen_data_null_records": 10,
+        "path": "modeled/1440-hash-3/pangaea-937075-et-0-100-bp.geojson",
+        "propagation_use_allowed": false,
+        "sha256": "5af59d74ea943fff3c47b78048ff0c46f9a3eafc2cdd5bb5d6272eaa3143dd9c",
+        "source_records_equal": true,
+        "stage": "hash-3",
+        "width": 1440,
+        "window": "0-100 BP"
+      },
+      {
+        "countries": [
+          "Finland"
+        ],
+        "evidence_role": "context_only",
+        "family": "exact_taxa",
+        "features": 19,
+        "interpolation_allowed": false,
+        "metric": "Alnus.glutinosa",
+        "no_pollen_data_null_records": 3,
+        "path": "modeled/1440-back-2/pangaea-937075-alnus-glutinosa-0-100-bp.geojson",
+        "propagation_use_allowed": false,
+        "sha256": "4b884f9aec3024ad208ec450e01afa3be3faa8cc003dda4cebe6bf0758e60105",
+        "source_records_equal": true,
+        "stage": "back-2",
+        "width": 1440,
+        "window": "0-100 BP"
+      },
+      {
+        "countries": [
+          "Denmark"
+        ],
+        "evidence_role": "context_only",
+        "family": "source_pft_codes",
+        "features": 6,
+        "interpolation_allowed": false,
+        "metric": "ISTS",
+        "no_pollen_data_null_records": 3,
+        "path": "modeled/1440-back-1/pangaea-937075-ists-5200-5700-bp.geojson",
+        "propagation_use_allowed": false,
+        "sha256": "ca75f1f438f5f6b1c74e616d4f0355e4a2553cc39f4031049e721ff465e95d99",
+        "source_records_equal": true,
+        "stage": "back-1",
+        "width": 1440,
+        "window": "5200-5700 BP"
+      },
+      {
+        "countries": [
+          "Denmark",
+          "Finland",
+          "Norway",
+          "Sweden"
+        ],
+        "evidence_role": "context_only",
+        "family": "source_land_cover_types",
+        "features": 75,
+        "interpolation_allowed": false,
+        "metric": "OL",
+        "no_pollen_data_null_records": 48,
+        "path": "modeled/1440-back-0/pangaea-937075-ol-11200-11700-bp.geojson",
+        "propagation_use_allowed": false,
+        "sha256": "caacdd7697af041efdf37aa3ed0de4e34e00bc8403f1d22058cb38cee3482176",
+        "source_records_equal": true,
+        "stage": "back-0",
+        "width": 1440,
+        "window": "11200-11700 BP"
+      },
+      {
+        "countries": [
+          "Denmark"
+        ],
+        "evidence_role": "context_only",
+        "family": "source_pft_codes",
+        "features": 6,
+        "interpolation_allowed": false,
+        "metric": "ISTS",
+        "no_pollen_data_null_records": 3,
+        "path": "modeled/1440-forward-1/pangaea-937075-ists-5200-5700-bp.geojson",
+        "propagation_use_allowed": false,
+        "sha256": "ca75f1f438f5f6b1c74e616d4f0355e4a2553cc39f4031049e721ff465e95d99",
+        "source_records_equal": true,
+        "stage": "forward-1",
+        "width": 1440,
+        "window": "5200-5700 BP"
+      },
+      {
+        "countries": [
+          "Finland"
+        ],
+        "evidence_role": "context_only",
+        "family": "exact_taxa",
+        "features": 19,
+        "interpolation_allowed": false,
+        "metric": "Alnus.glutinosa",
+        "no_pollen_data_null_records": 3,
+        "path": "modeled/1440-forward-2/pangaea-937075-alnus-glutinosa-0-100-bp.geojson",
+        "propagation_use_allowed": false,
+        "sha256": "4b884f9aec3024ad208ec450e01afa3be3faa8cc003dda4cebe6bf0758e60105",
+        "source_records_equal": true,
+        "stage": "forward-2",
+        "width": 1440,
+        "window": "0-100 BP"
+      },
+      {
+        "countries": [
+          "Denmark",
+          "Finland",
+          "Norway",
+          "Sweden"
+        ],
+        "evidence_role": "context_only",
+        "family": "source_land_cover_types",
+        "features": 75,
+        "interpolation_allowed": false,
+        "metric": "ET",
+        "no_pollen_data_null_records": 10,
+        "path": "modeled/1440-forward-3/pangaea-937075-et-0-100-bp.geojson",
+        "propagation_use_allowed": false,
+        "sha256": "5af59d74ea943fff3c47b78048ff0c46f9a3eafc2cdd5bb5d6272eaa3143dd9c",
+        "source_records_equal": true,
+        "stage": "forward-3",
+        "width": 1440,
+        "window": "0-100 BP"
+      },
+      {
+        "countries": [
+          "Denmark",
+          "Finland",
+          "Norway",
+          "Sweden"
+        ],
+        "evidence_role": "context_only",
+        "family": "source_land_cover_types",
+        "features": 75,
+        "interpolation_allowed": false,
+        "metric": "OL",
+        "no_pollen_data_null_records": 48,
+        "path": "modeled/390-baseline-0/pangaea-937075-ol-11200-11700-bp.geojson",
+        "propagation_use_allowed": false,
+        "sha256": "caacdd7697af041efdf37aa3ed0de4e34e00bc8403f1d22058cb38cee3482176",
+        "source_records_equal": true,
+        "stage": "baseline-0",
+        "width": 390,
+        "window": "11200-11700 BP"
+      },
+      {
+        "countries": [
+          "Denmark"
+        ],
+        "evidence_role": "context_only",
+        "family": "source_pft_codes",
+        "features": 6,
+        "interpolation_allowed": false,
+        "metric": "ISTS",
+        "no_pollen_data_null_records": 3,
+        "path": "modeled/390-baseline-1/pangaea-937075-ists-5200-5700-bp.geojson",
+        "propagation_use_allowed": false,
+        "sha256": "ca75f1f438f5f6b1c74e616d4f0355e4a2553cc39f4031049e721ff465e95d99",
+        "source_records_equal": true,
+        "stage": "baseline-1",
+        "width": 390,
+        "window": "5200-5700 BP"
+      },
+      {
+        "countries": [
+          "Finland"
+        ],
+        "evidence_role": "context_only",
+        "family": "exact_taxa",
+        "features": 19,
+        "interpolation_allowed": false,
+        "metric": "Alnus.glutinosa",
+        "no_pollen_data_null_records": 3,
+        "path": "modeled/390-baseline-2/pangaea-937075-alnus-glutinosa-0-100-bp.geojson",
+        "propagation_use_allowed": false,
+        "sha256": "4b884f9aec3024ad208ec450e01afa3be3faa8cc003dda4cebe6bf0758e60105",
+        "source_records_equal": true,
+        "stage": "baseline-2",
+        "width": 390,
+        "window": "0-100 BP"
+      },
+      {
+        "countries": [
+          "Denmark",
+          "Finland",
+          "Norway",
+          "Sweden"
+        ],
+        "evidence_role": "context_only",
+        "family": "source_land_cover_types",
+        "features": 75,
+        "interpolation_allowed": false,
+        "metric": "ET",
+        "no_pollen_data_null_records": 10,
+        "path": "modeled/390-baseline-3/pangaea-937075-et-0-100-bp.geojson",
+        "propagation_use_allowed": false,
+        "sha256": "5af59d74ea943fff3c47b78048ff0c46f9a3eafc2cdd5bb5d6272eaa3143dd9c",
+        "source_records_equal": true,
+        "stage": "baseline-3",
+        "width": 390,
+        "window": "0-100 BP"
+      },
+      {
+        "countries": [
+          "Denmark",
+          "Finland",
+          "Norway",
+          "Sweden"
+        ],
+        "evidence_role": "context_only",
+        "family": "source_land_cover_types",
+        "features": 75,
+        "interpolation_allowed": false,
+        "metric": "OL",
+        "no_pollen_data_null_records": 48,
+        "path": "modeled/390-hash-0/pangaea-937075-ol-11200-11700-bp.geojson",
+        "propagation_use_allowed": false,
+        "sha256": "caacdd7697af041efdf37aa3ed0de4e34e00bc8403f1d22058cb38cee3482176",
+        "source_records_equal": true,
+        "stage": "hash-0",
+        "width": 390,
+        "window": "11200-11700 BP"
+      },
+      {
+        "countries": [
+          "Denmark"
+        ],
+        "evidence_role": "context_only",
+        "family": "source_pft_codes",
+        "features": 6,
+        "interpolation_allowed": false,
+        "metric": "ISTS",
+        "no_pollen_data_null_records": 3,
+        "path": "modeled/390-hash-1/pangaea-937075-ists-5200-5700-bp.geojson",
+        "propagation_use_allowed": false,
+        "sha256": "ca75f1f438f5f6b1c74e616d4f0355e4a2553cc39f4031049e721ff465e95d99",
+        "source_records_equal": true,
+        "stage": "hash-1",
+        "width": 390,
+        "window": "5200-5700 BP"
+      },
+      {
+        "countries": [
+          "Finland"
+        ],
+        "evidence_role": "context_only",
+        "family": "exact_taxa",
+        "features": 19,
+        "interpolation_allowed": false,
+        "metric": "Alnus.glutinosa",
+        "no_pollen_data_null_records": 3,
+        "path": "modeled/390-hash-2/pangaea-937075-alnus-glutinosa-0-100-bp.geojson",
+        "propagation_use_allowed": false,
+        "sha256": "4b884f9aec3024ad208ec450e01afa3be3faa8cc003dda4cebe6bf0758e60105",
+        "source_records_equal": true,
+        "stage": "hash-2",
+        "width": 390,
+        "window": "0-100 BP"
+      },
+      {
+        "countries": [
+          "Denmark",
+          "Finland",
+          "Norway",
+          "Sweden"
+        ],
+        "evidence_role": "context_only",
+        "family": "source_land_cover_types",
+        "features": 75,
+        "interpolation_allowed": false,
+        "metric": "ET",
+        "no_pollen_data_null_records": 10,
+        "path": "modeled/390-hash-3/pangaea-937075-et-0-100-bp.geojson",
+        "propagation_use_allowed": false,
+        "sha256": "5af59d74ea943fff3c47b78048ff0c46f9a3eafc2cdd5bb5d6272eaa3143dd9c",
+        "source_records_equal": true,
+        "stage": "hash-3",
+        "width": 390,
+        "window": "0-100 BP"
+      },
+      {
+        "countries": [
+          "Finland"
+        ],
+        "evidence_role": "context_only",
+        "family": "exact_taxa",
+        "features": 19,
+        "interpolation_allowed": false,
+        "metric": "Alnus.glutinosa",
+        "no_pollen_data_null_records": 3,
+        "path": "modeled/390-back-2/pangaea-937075-alnus-glutinosa-0-100-bp.geojson",
+        "propagation_use_allowed": false,
+        "sha256": "4b884f9aec3024ad208ec450e01afa3be3faa8cc003dda4cebe6bf0758e60105",
+        "source_records_equal": true,
+        "stage": "back-2",
+        "width": 390,
+        "window": "0-100 BP"
+      },
+      {
+        "countries": [
+          "Denmark"
+        ],
+        "evidence_role": "context_only",
+        "family": "source_pft_codes",
+        "features": 6,
+        "interpolation_allowed": false,
+        "metric": "ISTS",
+        "no_pollen_data_null_records": 3,
+        "path": "modeled/390-back-1/pangaea-937075-ists-5200-5700-bp.geojson",
+        "propagation_use_allowed": false,
+        "sha256": "ca75f1f438f5f6b1c74e616d4f0355e4a2553cc39f4031049e721ff465e95d99",
+        "source_records_equal": true,
+        "stage": "back-1",
+        "width": 390,
+        "window": "5200-5700 BP"
+      },
+      {
+        "countries": [
+          "Denmark",
+          "Finland",
+          "Norway",
+          "Sweden"
+        ],
+        "evidence_role": "context_only",
+        "family": "source_land_cover_types",
+        "features": 75,
+        "interpolation_allowed": false,
+        "metric": "OL",
+        "no_pollen_data_null_records": 48,
+        "path": "modeled/390-back-0/pangaea-937075-ol-11200-11700-bp.geojson",
+        "propagation_use_allowed": false,
+        "sha256": "caacdd7697af041efdf37aa3ed0de4e34e00bc8403f1d22058cb38cee3482176",
+        "source_records_equal": true,
+        "stage": "back-0",
+        "width": 390,
+        "window": "11200-11700 BP"
+      },
+      {
+        "countries": [
+          "Denmark"
+        ],
+        "evidence_role": "context_only",
+        "family": "source_pft_codes",
+        "features": 6,
+        "interpolation_allowed": false,
+        "metric": "ISTS",
+        "no_pollen_data_null_records": 3,
+        "path": "modeled/390-forward-1/pangaea-937075-ists-5200-5700-bp.geojson",
+        "propagation_use_allowed": false,
+        "sha256": "ca75f1f438f5f6b1c74e616d4f0355e4a2553cc39f4031049e721ff465e95d99",
+        "source_records_equal": true,
+        "stage": "forward-1",
+        "width": 390,
+        "window": "5200-5700 BP"
+      },
+      {
+        "countries": [
+          "Finland"
+        ],
+        "evidence_role": "context_only",
+        "family": "exact_taxa",
+        "features": 19,
+        "interpolation_allowed": false,
+        "metric": "Alnus.glutinosa",
+        "no_pollen_data_null_records": 3,
+        "path": "modeled/390-forward-2/pangaea-937075-alnus-glutinosa-0-100-bp.geojson",
+        "propagation_use_allowed": false,
+        "sha256": "4b884f9aec3024ad208ec450e01afa3be3faa8cc003dda4cebe6bf0758e60105",
+        "source_records_equal": true,
+        "stage": "forward-2",
+        "width": 390,
+        "window": "0-100 BP"
+      },
+      {
+        "countries": [
+          "Denmark",
+          "Finland",
+          "Norway",
+          "Sweden"
+        ],
+        "evidence_role": "context_only",
+        "family": "source_land_cover_types",
+        "features": 75,
+        "interpolation_allowed": false,
+        "metric": "ET",
+        "no_pollen_data_null_records": 10,
+        "path": "modeled/390-forward-3/pangaea-937075-et-0-100-bp.geojson",
+        "propagation_use_allowed": false,
+        "sha256": "5af59d74ea943fff3c47b78048ff0c46f9a3eafc2cdd5bb5d6272eaa3143dd9c",
+        "source_records_equal": true,
+        "stage": "forward-3",
+        "width": 390,
+        "window": "0-100 BP"
+      }
+    ],
+    "native_refusals": [
+      {
+        "export_refused": true,
+        "history_recovery_equal": true,
+        "incoming_invalid_profile_preserved": true,
+        "no_selected_rows": true,
+        "profile": "calendar-bp1950-incompatible",
+        "visible_refusal": true,
+        "width": 1440
+      },
+      {
+        "export_refused": true,
+        "history_recovery_equal": true,
+        "incoming_invalid_profile_preserved": true,
+        "no_selected_rows": true,
+        "profile": "calendar-bp1950-incompatible",
+        "visible_refusal": true,
+        "width": 390
+      }
+    ],
+    "native_selections": [
+      {
+        "calendar_window": [
+          -0.75,
+          0.75
+        ],
+        "missing_values": 4,
+        "path": "native/1440-baseline-0/lra-selection-ea166f59946f7bf8a74dc51d2b2d226e3bbd57238c6d321b3acb29ecee998767.json",
+        "posterior_draw_channel": "unavailable_in_retained_paired_view",
+        "profile": "calendar-bp1950-signed.v1",
+        "publication_authorized": false,
+        "scientific_acceptance": "not_evaluated",
+        "selected_rows": 18,
+        "selection": {
+          "bin_ids": [
+            "test-bin"
+          ],
+          "roles": [
+            "local",
+            "regional"
+          ],
+          "site_ids": [
+            "local-site",
+            "regional-site"
+          ],
+          "taxa": [
+            "Alnus",
+            "Betula"
+          ]
+        },
+        "sha256": "ea166f59946f7bf8a74dc51d2b2d226e3bbd57238c6d321b3acb29ecee998767",
+        "source_rows_equal": true,
+        "stage": "baseline-0",
+        "width": 1440
+      },
+      {
+        "calendar_window": [
+          -0.25,
+          0.25
+        ],
+        "missing_values": 1,
+        "path": "native/1440-baseline-1/lra-selection-d2610f16de5f97ac12fca4059f95ab8f6e550f837e3523d8a614a40108345195.json",
+        "posterior_draw_channel": "unavailable_in_retained_paired_view",
+        "profile": "calendar-bp1950-signed.v1",
+        "publication_authorized": false,
+        "scientific_acceptance": "not_evaluated",
+        "selected_rows": 5,
+        "selection": {
+          "bin_ids": [
+            "test-bin"
+          ],
+          "roles": [
+            "regional"
+          ],
+          "site_ids": [
+            "local-site",
+            "regional-site"
+          ],
+          "taxa": [
+            "Alnus"
+          ]
+        },
+        "sha256": "d2610f16de5f97ac12fca4059f95ab8f6e550f837e3523d8a614a40108345195",
+        "source_rows_equal": true,
+        "stage": "baseline-1",
+        "width": 1440
+      },
+      {
+        "calendar_window": [
+          0,
+          0
+        ],
+        "missing_values": 2,
+        "path": "native/1440-baseline-2/lra-selection-f5c9e2509d5f8bde3035afe15c139f9e8e5ff31ee026c0d68ffe7f9c7b52e72a.json",
+        "posterior_draw_channel": "unavailable_in_retained_paired_view",
+        "profile": "calendar-bp1950-signed.v1",
+        "publication_authorized": false,
+        "scientific_acceptance": "not_evaluated",
+        "selected_rows": 8,
+        "selection": {
+          "bin_ids": [
+            "test-bin"
+          ],
+          "roles": [
+            "local"
+          ],
+          "site_ids": [
+            "local-site",
+            "regional-site"
+          ],
+          "taxa": [
+            "Alnus",
+            "Betula"
+          ]
+        },
+        "sha256": "f5c9e2509d5f8bde3035afe15c139f9e8e5ff31ee026c0d68ffe7f9c7b52e72a",
+        "source_rows_equal": true,
+        "stage": "baseline-2",
+        "width": 1440
+      },
+      {
+        "calendar_window": [
+          -0.5,
+          0.5
+        ],
+        "missing_values": 0,
+        "path": "native/1440-baseline-3/lra-selection-321c6726d0ceb6f8f5801089796e9ab56d226db520a12212a719da8274c0c980.json",
+        "posterior_draw_channel": "unavailable_in_retained_paired_view",
+        "profile": "calendar-bp1950-signed.v1",
+        "publication_authorized": false,
+        "scientific_acceptance": "not_evaluated",
+        "selected_rows": 0,
+        "selection": {
+          "bin_ids": [
+            "test-bin"
+          ],
+          "roles": [],
+          "site_ids": [
+            "local-site",
+            "regional-site"
+          ],
+          "taxa": [
+            "Alnus",
+            "Betula"
+          ]
+        },
+        "sha256": "321c6726d0ceb6f8f5801089796e9ab56d226db520a12212a719da8274c0c980",
+        "source_rows_equal": true,
+        "stage": "baseline-3",
+        "width": 1440
+      },
+      {
+        "calendar_window": [
+          -0.75,
+          0.75
+        ],
+        "missing_values": 4,
+        "path": "native/1440-hash-0/lra-selection-ea166f59946f7bf8a74dc51d2b2d226e3bbd57238c6d321b3acb29ecee998767.json",
+        "posterior_draw_channel": "unavailable_in_retained_paired_view",
+        "profile": "calendar-bp1950-signed.v1",
+        "publication_authorized": false,
+        "scientific_acceptance": "not_evaluated",
+        "selected_rows": 18,
+        "selection": {
+          "bin_ids": [
+            "test-bin"
+          ],
+          "roles": [
+            "local",
+            "regional"
+          ],
+          "site_ids": [
+            "local-site",
+            "regional-site"
+          ],
+          "taxa": [
+            "Alnus",
+            "Betula"
+          ]
+        },
+        "sha256": "ea166f59946f7bf8a74dc51d2b2d226e3bbd57238c6d321b3acb29ecee998767",
+        "source_rows_equal": true,
+        "stage": "hash-0",
+        "width": 1440
+      },
+      {
+        "calendar_window": [
+          -0.25,
+          0.25
+        ],
+        "missing_values": 1,
+        "path": "native/1440-hash-1/lra-selection-d2610f16de5f97ac12fca4059f95ab8f6e550f837e3523d8a614a40108345195.json",
+        "posterior_draw_channel": "unavailable_in_retained_paired_view",
+        "profile": "calendar-bp1950-signed.v1",
+        "publication_authorized": false,
+        "scientific_acceptance": "not_evaluated",
+        "selected_rows": 5,
+        "selection": {
+          "bin_ids": [
+            "test-bin"
+          ],
+          "roles": [
+            "regional"
+          ],
+          "site_ids": [
+            "local-site",
+            "regional-site"
+          ],
+          "taxa": [
+            "Alnus"
+          ]
+        },
+        "sha256": "d2610f16de5f97ac12fca4059f95ab8f6e550f837e3523d8a614a40108345195",
+        "source_rows_equal": true,
+        "stage": "hash-1",
+        "width": 1440
+      },
+      {
+        "calendar_window": [
+          0,
+          0
+        ],
+        "missing_values": 2,
+        "path": "native/1440-hash-2/lra-selection-f5c9e2509d5f8bde3035afe15c139f9e8e5ff31ee026c0d68ffe7f9c7b52e72a.json",
+        "posterior_draw_channel": "unavailable_in_retained_paired_view",
+        "profile": "calendar-bp1950-signed.v1",
+        "publication_authorized": false,
+        "scientific_acceptance": "not_evaluated",
+        "selected_rows": 8,
+        "selection": {
+          "bin_ids": [
+            "test-bin"
+          ],
+          "roles": [
+            "local"
+          ],
+          "site_ids": [
+            "local-site",
+            "regional-site"
+          ],
+          "taxa": [
+            "Alnus",
+            "Betula"
+          ]
+        },
+        "sha256": "f5c9e2509d5f8bde3035afe15c139f9e8e5ff31ee026c0d68ffe7f9c7b52e72a",
+        "source_rows_equal": true,
+        "stage": "hash-2",
+        "width": 1440
+      },
+      {
+        "calendar_window": [
+          -0.5,
+          0.5
+        ],
+        "missing_values": 0,
+        "path": "native/1440-hash-3/lra-selection-321c6726d0ceb6f8f5801089796e9ab56d226db520a12212a719da8274c0c980.json",
+        "posterior_draw_channel": "unavailable_in_retained_paired_view",
+        "profile": "calendar-bp1950-signed.v1",
+        "publication_authorized": false,
+        "scientific_acceptance": "not_evaluated",
+        "selected_rows": 0,
+        "selection": {
+          "bin_ids": [
+            "test-bin"
+          ],
+          "roles": [],
+          "site_ids": [
+            "local-site",
+            "regional-site"
+          ],
+          "taxa": [
+            "Alnus",
+            "Betula"
+          ]
+        },
+        "sha256": "321c6726d0ceb6f8f5801089796e9ab56d226db520a12212a719da8274c0c980",
+        "source_rows_equal": true,
+        "stage": "hash-3",
+        "width": 1440
+      },
+      {
+        "calendar_window": [
+          0,
+          0
+        ],
+        "missing_values": 2,
+        "path": "native/1440-back-2/lra-selection-f5c9e2509d5f8bde3035afe15c139f9e8e5ff31ee026c0d68ffe7f9c7b52e72a.json",
+        "posterior_draw_channel": "unavailable_in_retained_paired_view",
+        "profile": "calendar-bp1950-signed.v1",
+        "publication_authorized": false,
+        "scientific_acceptance": "not_evaluated",
+        "selected_rows": 8,
+        "selection": {
+          "bin_ids": [
+            "test-bin"
+          ],
+          "roles": [
+            "local"
+          ],
+          "site_ids": [
+            "local-site",
+            "regional-site"
+          ],
+          "taxa": [
+            "Alnus",
+            "Betula"
+          ]
+        },
+        "sha256": "f5c9e2509d5f8bde3035afe15c139f9e8e5ff31ee026c0d68ffe7f9c7b52e72a",
+        "source_rows_equal": true,
+        "stage": "back-2",
+        "width": 1440
+      },
+      {
+        "calendar_window": [
+          -0.25,
+          0.25
+        ],
+        "missing_values": 1,
+        "path": "native/1440-back-1/lra-selection-d2610f16de5f97ac12fca4059f95ab8f6e550f837e3523d8a614a40108345195.json",
+        "posterior_draw_channel": "unavailable_in_retained_paired_view",
+        "profile": "calendar-bp1950-signed.v1",
+        "publication_authorized": false,
+        "scientific_acceptance": "not_evaluated",
+        "selected_rows": 5,
+        "selection": {
+          "bin_ids": [
+            "test-bin"
+          ],
+          "roles": [
+            "regional"
+          ],
+          "site_ids": [
+            "local-site",
+            "regional-site"
+          ],
+          "taxa": [
+            "Alnus"
+          ]
+        },
+        "sha256": "d2610f16de5f97ac12fca4059f95ab8f6e550f837e3523d8a614a40108345195",
+        "source_rows_equal": true,
+        "stage": "back-1",
+        "width": 1440
+      },
+      {
+        "calendar_window": [
+          -0.75,
+          0.75
+        ],
+        "missing_values": 4,
+        "path": "native/1440-back-0/lra-selection-ea166f59946f7bf8a74dc51d2b2d226e3bbd57238c6d321b3acb29ecee998767.json",
+        "posterior_draw_channel": "unavailable_in_retained_paired_view",
+        "profile": "calendar-bp1950-signed.v1",
+        "publication_authorized": false,
+        "scientific_acceptance": "not_evaluated",
+        "selected_rows": 18,
+        "selection": {
+          "bin_ids": [
+            "test-bin"
+          ],
+          "roles": [
+            "local",
+            "regional"
+          ],
+          "site_ids": [
+            "local-site",
+            "regional-site"
+          ],
+          "taxa": [
+            "Alnus",
+            "Betula"
+          ]
+        },
+        "sha256": "ea166f59946f7bf8a74dc51d2b2d226e3bbd57238c6d321b3acb29ecee998767",
+        "source_rows_equal": true,
+        "stage": "back-0",
+        "width": 1440
+      },
+      {
+        "calendar_window": [
+          -0.25,
+          0.25
+        ],
+        "missing_values": 1,
+        "path": "native/1440-forward-1/lra-selection-d2610f16de5f97ac12fca4059f95ab8f6e550f837e3523d8a614a40108345195.json",
+        "posterior_draw_channel": "unavailable_in_retained_paired_view",
+        "profile": "calendar-bp1950-signed.v1",
+        "publication_authorized": false,
+        "scientific_acceptance": "not_evaluated",
+        "selected_rows": 5,
+        "selection": {
+          "bin_ids": [
+            "test-bin"
+          ],
+          "roles": [
+            "regional"
+          ],
+          "site_ids": [
+            "local-site",
+            "regional-site"
+          ],
+          "taxa": [
+            "Alnus"
+          ]
+        },
+        "sha256": "d2610f16de5f97ac12fca4059f95ab8f6e550f837e3523d8a614a40108345195",
+        "source_rows_equal": true,
+        "stage": "forward-1",
+        "width": 1440
+      },
+      {
+        "calendar_window": [
+          0,
+          0
+        ],
+        "missing_values": 2,
+        "path": "native/1440-forward-2/lra-selection-f5c9e2509d5f8bde3035afe15c139f9e8e5ff31ee026c0d68ffe7f9c7b52e72a.json",
+        "posterior_draw_channel": "unavailable_in_retained_paired_view",
+        "profile": "calendar-bp1950-signed.v1",
+        "publication_authorized": false,
+        "scientific_acceptance": "not_evaluated",
+        "selected_rows": 8,
+        "selection": {
+          "bin_ids": [
+            "test-bin"
+          ],
+          "roles": [
+            "local"
+          ],
+          "site_ids": [
+            "local-site",
+            "regional-site"
+          ],
+          "taxa": [
+            "Alnus",
+            "Betula"
+          ]
+        },
+        "sha256": "f5c9e2509d5f8bde3035afe15c139f9e8e5ff31ee026c0d68ffe7f9c7b52e72a",
+        "source_rows_equal": true,
+        "stage": "forward-2",
+        "width": 1440
+      },
+      {
+        "calendar_window": [
+          -0.5,
+          0.5
+        ],
+        "missing_values": 0,
+        "path": "native/1440-forward-3/lra-selection-321c6726d0ceb6f8f5801089796e9ab56d226db520a12212a719da8274c0c980.json",
+        "posterior_draw_channel": "unavailable_in_retained_paired_view",
+        "profile": "calendar-bp1950-signed.v1",
+        "publication_authorized": false,
+        "scientific_acceptance": "not_evaluated",
+        "selected_rows": 0,
+        "selection": {
+          "bin_ids": [
+            "test-bin"
+          ],
+          "roles": [],
+          "site_ids": [
+            "local-site",
+            "regional-site"
+          ],
+          "taxa": [
+            "Alnus",
+            "Betula"
+          ]
+        },
+        "sha256": "321c6726d0ceb6f8f5801089796e9ab56d226db520a12212a719da8274c0c980",
+        "source_rows_equal": true,
+        "stage": "forward-3",
+        "width": 1440
+      },
+      {
+        "calendar_window": [
+          -0.5,
+          0.5
+        ],
+        "missing_values": 0,
+        "path": "native/1440-refusal-back-recovery/lra-selection-321c6726d0ceb6f8f5801089796e9ab56d226db520a12212a719da8274c0c980.json",
+        "posterior_draw_channel": "unavailable_in_retained_paired_view",
+        "profile": "calendar-bp1950-signed.v1",
+        "publication_authorized": false,
+        "scientific_acceptance": "not_evaluated",
+        "selected_rows": 0,
+        "selection": {
+          "bin_ids": [
+            "test-bin"
+          ],
+          "roles": [],
+          "site_ids": [
+            "local-site",
+            "regional-site"
+          ],
+          "taxa": [
+            "Alnus",
+            "Betula"
+          ]
+        },
+        "sha256": "321c6726d0ceb6f8f5801089796e9ab56d226db520a12212a719da8274c0c980",
+        "source_rows_equal": true,
+        "stage": "refusal-back-recovery",
+        "width": 1440
+      },
+      {
+        "calendar_window": [
+          -0.75,
+          0.75
+        ],
+        "missing_values": 4,
+        "path": "native/390-baseline-0/lra-selection-ea166f59946f7bf8a74dc51d2b2d226e3bbd57238c6d321b3acb29ecee998767.json",
+        "posterior_draw_channel": "unavailable_in_retained_paired_view",
+        "profile": "calendar-bp1950-signed.v1",
+        "publication_authorized": false,
+        "scientific_acceptance": "not_evaluated",
+        "selected_rows": 18,
+        "selection": {
+          "bin_ids": [
+            "test-bin"
+          ],
+          "roles": [
+            "local",
+            "regional"
+          ],
+          "site_ids": [
+            "local-site",
+            "regional-site"
+          ],
+          "taxa": [
+            "Alnus",
+            "Betula"
+          ]
+        },
+        "sha256": "ea166f59946f7bf8a74dc51d2b2d226e3bbd57238c6d321b3acb29ecee998767",
+        "source_rows_equal": true,
+        "stage": "baseline-0",
+        "width": 390
+      },
+      {
+        "calendar_window": [
+          -0.25,
+          0.25
+        ],
+        "missing_values": 1,
+        "path": "native/390-baseline-1/lra-selection-d2610f16de5f97ac12fca4059f95ab8f6e550f837e3523d8a614a40108345195.json",
+        "posterior_draw_channel": "unavailable_in_retained_paired_view",
+        "profile": "calendar-bp1950-signed.v1",
+        "publication_authorized": false,
+        "scientific_acceptance": "not_evaluated",
+        "selected_rows": 5,
+        "selection": {
+          "bin_ids": [
+            "test-bin"
+          ],
+          "roles": [
+            "regional"
+          ],
+          "site_ids": [
+            "local-site",
+            "regional-site"
+          ],
+          "taxa": [
+            "Alnus"
+          ]
+        },
+        "sha256": "d2610f16de5f97ac12fca4059f95ab8f6e550f837e3523d8a614a40108345195",
+        "source_rows_equal": true,
+        "stage": "baseline-1",
+        "width": 390
+      },
+      {
+        "calendar_window": [
+          0,
+          0
+        ],
+        "missing_values": 2,
+        "path": "native/390-baseline-2/lra-selection-f5c9e2509d5f8bde3035afe15c139f9e8e5ff31ee026c0d68ffe7f9c7b52e72a.json",
+        "posterior_draw_channel": "unavailable_in_retained_paired_view",
+        "profile": "calendar-bp1950-signed.v1",
+        "publication_authorized": false,
+        "scientific_acceptance": "not_evaluated",
+        "selected_rows": 8,
+        "selection": {
+          "bin_ids": [
+            "test-bin"
+          ],
+          "roles": [
+            "local"
+          ],
+          "site_ids": [
+            "local-site",
+            "regional-site"
+          ],
+          "taxa": [
+            "Alnus",
+            "Betula"
+          ]
+        },
+        "sha256": "f5c9e2509d5f8bde3035afe15c139f9e8e5ff31ee026c0d68ffe7f9c7b52e72a",
+        "source_rows_equal": true,
+        "stage": "baseline-2",
+        "width": 390
+      },
+      {
+        "calendar_window": [
+          -0.5,
+          0.5
+        ],
+        "missing_values": 0,
+        "path": "native/390-baseline-3/lra-selection-321c6726d0ceb6f8f5801089796e9ab56d226db520a12212a719da8274c0c980.json",
+        "posterior_draw_channel": "unavailable_in_retained_paired_view",
+        "profile": "calendar-bp1950-signed.v1",
+        "publication_authorized": false,
+        "scientific_acceptance": "not_evaluated",
+        "selected_rows": 0,
+        "selection": {
+          "bin_ids": [
+            "test-bin"
+          ],
+          "roles": [],
+          "site_ids": [
+            "local-site",
+            "regional-site"
+          ],
+          "taxa": [
+            "Alnus",
+            "Betula"
+          ]
+        },
+        "sha256": "321c6726d0ceb6f8f5801089796e9ab56d226db520a12212a719da8274c0c980",
+        "source_rows_equal": true,
+        "stage": "baseline-3",
+        "width": 390
+      },
+      {
+        "calendar_window": [
+          -0.75,
+          0.75
+        ],
+        "missing_values": 4,
+        "path": "native/390-hash-0/lra-selection-ea166f59946f7bf8a74dc51d2b2d226e3bbd57238c6d321b3acb29ecee998767.json",
+        "posterior_draw_channel": "unavailable_in_retained_paired_view",
+        "profile": "calendar-bp1950-signed.v1",
+        "publication_authorized": false,
+        "scientific_acceptance": "not_evaluated",
+        "selected_rows": 18,
+        "selection": {
+          "bin_ids": [
+            "test-bin"
+          ],
+          "roles": [
+            "local",
+            "regional"
+          ],
+          "site_ids": [
+            "local-site",
+            "regional-site"
+          ],
+          "taxa": [
+            "Alnus",
+            "Betula"
+          ]
+        },
+        "sha256": "ea166f59946f7bf8a74dc51d2b2d226e3bbd57238c6d321b3acb29ecee998767",
+        "source_rows_equal": true,
+        "stage": "hash-0",
+        "width": 390
+      },
+      {
+        "calendar_window": [
+          -0.25,
+          0.25
+        ],
+        "missing_values": 1,
+        "path": "native/390-hash-1/lra-selection-d2610f16de5f97ac12fca4059f95ab8f6e550f837e3523d8a614a40108345195.json",
+        "posterior_draw_channel": "unavailable_in_retained_paired_view",
+        "profile": "calendar-bp1950-signed.v1",
+        "publication_authorized": false,
+        "scientific_acceptance": "not_evaluated",
+        "selected_rows": 5,
+        "selection": {
+          "bin_ids": [
+            "test-bin"
+          ],
+          "roles": [
+            "regional"
+          ],
+          "site_ids": [
+            "local-site",
+            "regional-site"
+          ],
+          "taxa": [
+            "Alnus"
+          ]
+        },
+        "sha256": "d2610f16de5f97ac12fca4059f95ab8f6e550f837e3523d8a614a40108345195",
+        "source_rows_equal": true,
+        "stage": "hash-1",
+        "width": 390
+      },
+      {
+        "calendar_window": [
+          0,
+          0
+        ],
+        "missing_values": 2,
+        "path": "native/390-hash-2/lra-selection-f5c9e2509d5f8bde3035afe15c139f9e8e5ff31ee026c0d68ffe7f9c7b52e72a.json",
+        "posterior_draw_channel": "unavailable_in_retained_paired_view",
+        "profile": "calendar-bp1950-signed.v1",
+        "publication_authorized": false,
+        "scientific_acceptance": "not_evaluated",
+        "selected_rows": 8,
+        "selection": {
+          "bin_ids": [
+            "test-bin"
+          ],
+          "roles": [
+            "local"
+          ],
+          "site_ids": [
+            "local-site",
+            "regional-site"
+          ],
+          "taxa": [
+            "Alnus",
+            "Betula"
+          ]
+        },
+        "sha256": "f5c9e2509d5f8bde3035afe15c139f9e8e5ff31ee026c0d68ffe7f9c7b52e72a",
+        "source_rows_equal": true,
+        "stage": "hash-2",
+        "width": 390
+      },
+      {
+        "calendar_window": [
+          -0.5,
+          0.5
+        ],
+        "missing_values": 0,
+        "path": "native/390-hash-3/lra-selection-321c6726d0ceb6f8f5801089796e9ab56d226db520a12212a719da8274c0c980.json",
+        "posterior_draw_channel": "unavailable_in_retained_paired_view",
+        "profile": "calendar-bp1950-signed.v1",
+        "publication_authorized": false,
+        "scientific_acceptance": "not_evaluated",
+        "selected_rows": 0,
+        "selection": {
+          "bin_ids": [
+            "test-bin"
+          ],
+          "roles": [],
+          "site_ids": [
+            "local-site",
+            "regional-site"
+          ],
+          "taxa": [
+            "Alnus",
+            "Betula"
+          ]
+        },
+        "sha256": "321c6726d0ceb6f8f5801089796e9ab56d226db520a12212a719da8274c0c980",
+        "source_rows_equal": true,
+        "stage": "hash-3",
+        "width": 390
+      },
+      {
+        "calendar_window": [
+          0,
+          0
+        ],
+        "missing_values": 2,
+        "path": "native/390-back-2/lra-selection-f5c9e2509d5f8bde3035afe15c139f9e8e5ff31ee026c0d68ffe7f9c7b52e72a.json",
+        "posterior_draw_channel": "unavailable_in_retained_paired_view",
+        "profile": "calendar-bp1950-signed.v1",
+        "publication_authorized": false,
+        "scientific_acceptance": "not_evaluated",
+        "selected_rows": 8,
+        "selection": {
+          "bin_ids": [
+            "test-bin"
+          ],
+          "roles": [
+            "local"
+          ],
+          "site_ids": [
+            "local-site",
+            "regional-site"
+          ],
+          "taxa": [
+            "Alnus",
+            "Betula"
+          ]
+        },
+        "sha256": "f5c9e2509d5f8bde3035afe15c139f9e8e5ff31ee026c0d68ffe7f9c7b52e72a",
+        "source_rows_equal": true,
+        "stage": "back-2",
+        "width": 390
+      },
+      {
+        "calendar_window": [
+          -0.25,
+          0.25
+        ],
+        "missing_values": 1,
+        "path": "native/390-back-1/lra-selection-d2610f16de5f97ac12fca4059f95ab8f6e550f837e3523d8a614a40108345195.json",
+        "posterior_draw_channel": "unavailable_in_retained_paired_view",
+        "profile": "calendar-bp1950-signed.v1",
+        "publication_authorized": false,
+        "scientific_acceptance": "not_evaluated",
+        "selected_rows": 5,
+        "selection": {
+          "bin_ids": [
+            "test-bin"
+          ],
+          "roles": [
+            "regional"
+          ],
+          "site_ids": [
+            "local-site",
+            "regional-site"
+          ],
+          "taxa": [
+            "Alnus"
+          ]
+        },
+        "sha256": "d2610f16de5f97ac12fca4059f95ab8f6e550f837e3523d8a614a40108345195",
+        "source_rows_equal": true,
+        "stage": "back-1",
+        "width": 390
+      },
+      {
+        "calendar_window": [
+          -0.75,
+          0.75
+        ],
+        "missing_values": 4,
+        "path": "native/390-back-0/lra-selection-ea166f59946f7bf8a74dc51d2b2d226e3bbd57238c6d321b3acb29ecee998767.json",
+        "posterior_draw_channel": "unavailable_in_retained_paired_view",
+        "profile": "calendar-bp1950-signed.v1",
+        "publication_authorized": false,
+        "scientific_acceptance": "not_evaluated",
+        "selected_rows": 18,
+        "selection": {
+          "bin_ids": [
+            "test-bin"
+          ],
+          "roles": [
+            "local",
+            "regional"
+          ],
+          "site_ids": [
+            "local-site",
+            "regional-site"
+          ],
+          "taxa": [
+            "Alnus",
+            "Betula"
+          ]
+        },
+        "sha256": "ea166f59946f7bf8a74dc51d2b2d226e3bbd57238c6d321b3acb29ecee998767",
+        "source_rows_equal": true,
+        "stage": "back-0",
+        "width": 390
+      },
+      {
+        "calendar_window": [
+          -0.25,
+          0.25
+        ],
+        "missing_values": 1,
+        "path": "native/390-forward-1/lra-selection-d2610f16de5f97ac12fca4059f95ab8f6e550f837e3523d8a614a40108345195.json",
+        "posterior_draw_channel": "unavailable_in_retained_paired_view",
+        "profile": "calendar-bp1950-signed.v1",
+        "publication_authorized": false,
+        "scientific_acceptance": "not_evaluated",
+        "selected_rows": 5,
+        "selection": {
+          "bin_ids": [
+            "test-bin"
+          ],
+          "roles": [
+            "regional"
+          ],
+          "site_ids": [
+            "local-site",
+            "regional-site"
+          ],
+          "taxa": [
+            "Alnus"
+          ]
+        },
+        "sha256": "d2610f16de5f97ac12fca4059f95ab8f6e550f837e3523d8a614a40108345195",
+        "source_rows_equal": true,
+        "stage": "forward-1",
+        "width": 390
+      },
+      {
+        "calendar_window": [
+          0,
+          0
+        ],
+        "missing_values": 2,
+        "path": "native/390-forward-2/lra-selection-f5c9e2509d5f8bde3035afe15c139f9e8e5ff31ee026c0d68ffe7f9c7b52e72a.json",
+        "posterior_draw_channel": "unavailable_in_retained_paired_view",
+        "profile": "calendar-bp1950-signed.v1",
+        "publication_authorized": false,
+        "scientific_acceptance": "not_evaluated",
+        "selected_rows": 8,
+        "selection": {
+          "bin_ids": [
+            "test-bin"
+          ],
+          "roles": [
+            "local"
+          ],
+          "site_ids": [
+            "local-site",
+            "regional-site"
+          ],
+          "taxa": [
+            "Alnus",
+            "Betula"
+          ]
+        },
+        "sha256": "f5c9e2509d5f8bde3035afe15c139f9e8e5ff31ee026c0d68ffe7f9c7b52e72a",
+        "source_rows_equal": true,
+        "stage": "forward-2",
+        "width": 390
+      },
+      {
+        "calendar_window": [
+          -0.5,
+          0.5
+        ],
+        "missing_values": 0,
+        "path": "native/390-forward-3/lra-selection-321c6726d0ceb6f8f5801089796e9ab56d226db520a12212a719da8274c0c980.json",
+        "posterior_draw_channel": "unavailable_in_retained_paired_view",
+        "profile": "calendar-bp1950-signed.v1",
+        "publication_authorized": false,
+        "scientific_acceptance": "not_evaluated",
+        "selected_rows": 0,
+        "selection": {
+          "bin_ids": [
+            "test-bin"
+          ],
+          "roles": [],
+          "site_ids": [
+            "local-site",
+            "regional-site"
+          ],
+          "taxa": [
+            "Alnus",
+            "Betula"
+          ]
+        },
+        "sha256": "321c6726d0ceb6f8f5801089796e9ab56d226db520a12212a719da8274c0c980",
+        "source_rows_equal": true,
+        "stage": "forward-3",
+        "width": 390
+      },
+      {
+        "calendar_window": [
+          -0.5,
+          0.5
+        ],
+        "missing_values": 0,
+        "path": "native/390-refusal-back-recovery/lra-selection-321c6726d0ceb6f8f5801089796e9ab56d226db520a12212a719da8274c0c980.json",
+        "posterior_draw_channel": "unavailable_in_retained_paired_view",
+        "profile": "calendar-bp1950-signed.v1",
+        "publication_authorized": false,
+        "scientific_acceptance": "not_evaluated",
+        "selected_rows": 0,
+        "selection": {
+          "bin_ids": [
+            "test-bin"
+          ],
+          "roles": [],
+          "site_ids": [
+            "local-site",
+            "regional-site"
+          ],
+          "taxa": [
+            "Alnus",
+            "Betula"
+          ]
+        },
+        "sha256": "321c6726d0ceb6f8f5801089796e9ab56d226db520a12212a719da8274c0c980",
+        "source_rows_equal": true,
+        "stage": "refusal-back-recovery",
+        "width": 390
+      }
+    ],
+    "runtime_errors": [],
+    "schema_version": "atlas-populated-frame-url-replay-verification.v1",
+    "served_files_sha256": {
+      "modeled/_map_assets/leaflet/leaflet.css": "a7837102824184820dfa198d1ebcd109ff6d0ff9a2672a074b9a1b4d147d04c6",
+      "modeled/_map_assets/leaflet/leaflet.js": "db49d009c841f5ca34a888c96511ae936fd9f5533e90d8b2c4d57596f4e5641a",
+      "modeled/_map_assets/markercluster/MarkerCluster.Default.css": "61258232d98d64dc2a7b1e02130d67421bc5b9bda5994eef70228ff97570c170",
+      "modeled/_map_assets/markercluster/MarkerCluster.css": "614dea0a98ff3f4ead74f04918f6b1d1b9ba435c25b5fc23b21a394d1e3e4d87",
+      "modeled/_map_assets/markercluster/leaflet.markercluster.js": "1e4e1d22972a3926f48598e0caf14e3fe7049835d428a344fed4f9e3665b3508",
+      "modeled/index.html": "78f316f6d2888e77df665b26b58dfb5e69af55ce0c507d41c3f61d1f554b17bb",
+      "modeled/modeled-source.atlas-edges.0006.888ed0134ce4b69e.js": "888ed0134ce4b69eec75c17bf43fadf4bb187a4d8b928ba3dedfea4c4ae01123",
+      "modeled/modeled-source.atlas-nodes.0001.8d2927acad83dc63.js": "8d2927acad83dc6311ba99fb7bb3a5f136f23172388e4d582f5eef6d4bc6f769",
+      "modeled/modeled-source.atlas-nodes.0002.35a7a8d7263c8263.js": "35a7a8d7263c8263b99af7c4879bde02db0eedc19b6ab716808ed9a6822cfb8e",
+      "modeled/modeled-source.atlas-nodes.0003.7ceaff5413b6bdaa.js": "7ceaff5413b6bdaac3263b76e71b3860cc5796272213a457d6d94732044934b0",
+      "modeled/modeled-source.atlas-nodes.0004.8ec319d16051c543.js": "8ec319d16051c543a056ab86596b67f9c46e8aac13207d69ed5be563ec9caff9",
+      "modeled/modeled-source.atlas-nodes.0005.a89264c609e13cc9.js": "a89264c609e13cc9d7bce65e56810124749c3618ec2a6acfc45c5d0ef616ae4f",
+      "modeled/modeled-source.atlas-provenance.0000.cfa6e1230d4c7c11.js": "cfa6e1230d4c7c110f841d5e3d96a8552f9c2e97b24d941d49df78ff94855e65",
+      "modeled/modeled-source.atlas-sequences.0007.a119ff4c79247a07.js": "a119ff4c79247a07051a2cf36be303204dcdb402fa28eb90ceea7764a79854d4",
+      "native/_map_assets/leaflet/leaflet.css": "a7837102824184820dfa198d1ebcd109ff6d0ff9a2672a074b9a1b4d147d04c6",
+      "native/_map_assets/leaflet/leaflet.js": "db49d009c841f5ca34a888c96511ae936fd9f5533e90d8b2c4d57596f4e5641a",
+      "native/_map_assets/markercluster/MarkerCluster.Default.css": "61258232d98d64dc2a7b1e02130d67421bc5b9bda5994eef70228ff97570c170",
+      "native/_map_assets/markercluster/MarkerCluster.css": "614dea0a98ff3f4ead74f04918f6b1d1b9ba435c25b5fc23b21a394d1e3e4d87",
+      "native/_map_assets/markercluster/leaflet.markercluster.js": "1e4e1d22972a3926f48598e0caf14e3fe7049835d428a344fed4f9e3665b3508",
+      "native/lra-exploratory.atlas-edges.0003.67b2c05078930730.js": "67b2c05078930730c0dea514677f939add14d46f449e261e366c1cb2ffc2921a",
+      "native/lra-exploratory.atlas-nodes.0001.86c6024f94b6a294.js": "86c6024f94b6a2940d7cdb7853273a09c3648139c3ef2997b2c3dddaca3dcdea",
+      "native/lra-exploratory.atlas-nodes.0002.fafec6db8f9eed00.js": "fafec6db8f9eed00aa4e23a48cc059e56c479730e7e79870faf78039ff50461f",
+      "native/lra-exploratory.atlas-provenance.0000.443b946a24e2e99c.js": "443b946a24e2e99c862e750066703d76154a022e1b1f242b5208f9a2e72bd556",
+      "native/lra-exploratory.atlas-sequences.0004.b29cf96a71d76dbf.js": "b29cf96a71d76dbf41571124be7cf055e371f501a42381179c7d977a5ad01b5d",
+      "native/map.html": "b34219f3c0383cef8a787d347085eed9e521a8618e224f0f4711391320bb25e9"
+    },
+    "status": "PASS",
+    "verifier_imports_sha256": {
+      "native-lra.mjs": "283a9dd9bdc5203f866b5cf843102590f362530fbe559142e9ac42c67354ac4d",
+      "signed-native-lra.mjs": "7389819c720123843eb132da915c5896dc115aad249322efb9673298d4660fea"
+    },
+    "verifier_sha256": "99387f169108bd5cb840d2896fa879e79ae8e84a9d4e6e5db5d587a72e96c6e7"
+  },
+  "evidence_id": "atlas-populated-modeled-native-frame-url-replay",
+  "generation": {
+    "inputs_sha256": {
+      "artifacts/v2/signed-calendar/browser-postcommit/candidate001/zero-crossing/presentation/display-geometry.json": "52afc5687e5ab39b6cf3445cdefb12096be050938b12f3cc9436b3da51b761bd",
+      "artifacts/v2/signed-calendar/browser-postcommit/candidate001/zero-crossing/presentation/product/manifest.json": "de45206119e4f2663fe1d24cb4b52a481f025fa8cf7561c5ac7a188c624c07e9",
+      "artifacts/v2/signed-calendar/browser-postcommit/candidate001/zero-crossing/presentation/product/numerical/checksums.json": "757e7026438889d5a205d752669727706ca529231301489682158d363ae073e4",
+      "artifacts/v2/signed-calendar/browser-postcommit/candidate001/zero-crossing/presentation/product/numerical/local_love/aux_Kloc.csv": "a41152d27a3a0f19d4aee6a0bcb3c62928e57c6bb8e90a8532e717bc898fc5f7",
+      "artifacts/v2/signed-calendar/browser-postcommit/candidate001/zero-crossing/presentation/product/numerical/local_love/aux_Kreg.csv": "c1df40f37a91a65cddd03d80d8cb0472d4434ffc5f7d0c2f9671e229682428aa",
+      "artifacts/v2/signed-calendar/browser-postcommit/candidate001/zero-crossing/presentation/product/numerical/local_love/aux_valid_ring.csv": "d5fe9b9f888333c1caebe2230fb19b7c2769742a555f2232c71be134308669cc",
+      "artifacts/v2/signed-calendar/browser-postcommit/candidate001/zero-crossing/presentation/product/numerical/local_love/checksums.json": "86d1a1245010c2396ef56c32a4423c73d312a62c86849e50a1de6654f9a2d462",
+      "artifacts/v2/signed-calendar/browser-postcommit/candidate001/zero-crossing/presentation/product/numerical/local_love/cover_mean.csv": "07c3dbf06216fa8b2f9350fda88ffc0d42b559120fe7dad7c6fc6956cd69b216",
+      "artifacts/v2/signed-calendar/browser-postcommit/candidate001/zero-crossing/presentation/product/numerical/local_love/cover_q10.csv": "07c3dbf06216fa8b2f9350fda88ffc0d42b559120fe7dad7c6fc6956cd69b216",
+      "artifacts/v2/signed-calendar/browser-postcommit/candidate001/zero-crossing/presentation/product/numerical/local_love/cover_q90.csv": "07c3dbf06216fa8b2f9350fda88ffc0d42b559120fe7dad7c6fc6956cd69b216",
+      "artifacts/v2/signed-calendar/browser-postcommit/candidate001/zero-crossing/presentation/product/numerical/local_love/cover_sd.csv": "2bd0352a1744175c8046cbfa9aaf3759ef0569cd16e61d01c2852b1aafda890c",
+      "artifacts/v2/signed-calendar/browser-postcommit/candidate001/zero-crossing/presentation/product/numerical/local_love/outliers.csv": "c2ff9f037972ff5b617faea0ecab410f3261737d35eca8d6bf67eb79690e6b41",
+      "artifacts/v2/signed-calendar/browser-postcommit/candidate001/zero-crossing/presentation/product/numerical/local_love/outliers_quantiles.csv": "ef612e417cdce7571db14c93c74b8823667222d8941a8b5f93e4e48978d7a41c",
+      "artifacts/v2/signed-calendar/browser-postcommit/candidate001/zero-crossing/presentation/product/numerical/local_love/result_contract.json": "32bf9d587a2cb77f63ce9f906422bec4cc0b65b2a821b7e3411aa85730499e32",
+      "artifacts/v2/signed-calendar/browser-postcommit/candidate001/zero-crossing/presentation/product/numerical/local_love/run_manifest.json": "0ab40a6f78870f7800dc991782dda465fb50075632ed74cb24e4fee59e74d645",
+      "artifacts/v2/signed-calendar/browser-postcommit/candidate001/zero-crossing/presentation/product/numerical/product_manifest.json": "f95aa1a91c0be48ef2216a9c81105b3308cfc2dc8ab415e81e2130904277972e",
+      "artifacts/v2/signed-calendar/browser-postcommit/candidate001/zero-crossing/presentation/product/numerical/regional_reveals/checksums.json": "87211e0833280b78dd0c64305c2a51b537e0ed79576692a5ed1b78db81cddd7d",
+      "artifacts/v2/signed-calendar/browser-postcommit/candidate001/zero-crossing/presentation/product/numerical/regional_reveals/deposition_factors.csv": "e93b7822018b0f00694914a9b892d4ff3a010913d68fcfaf2105c2cba367c2fe",
+      "artifacts/v2/signed-calendar/browser-postcommit/candidate001/zero-crossing/presentation/product/numerical/regional_reveals/reconstruction.csv": "ef26369c24e3ba952a29a642637edd8e0036baf6e9cf983979e798dffacb7162",
+      "artifacts/v2/signed-calendar/browser-postcommit/candidate001/zero-crossing/presentation/product/numerical/regional_reveals/result_contract.json": "a8924b7e4bbcf33a7e372473fbc0da683bde5df05be88c6661f0f638a557b253",
+      "artifacts/v2/signed-calendar/browser-postcommit/candidate001/zero-crossing/presentation/product/numerical/regional_reveals/run_manifest.json": "40d6d364361beb7bd6828d8a8b84a49da33ed3d08dc09dbb3968041b0e41f5d6",
+      "artifacts/v2/signed-calendar/browser-postcommit/candidate001/zero-crossing/presentation/product/numerical/run_manifest.json": "02eb1ba0d6db87c18a23c2b1763d92407424a3a9c3968280bcffcfbc87b912d2",
+      "artifacts/v2/signed-calendar/browser-postcommit/candidate001/zero-crossing/presentation/product/request.json": "230be6390d0437205ea6afa1f68b7a8cc2d3f1b9d34e373fc92efe3a6dd77f82",
+      "artifacts/v2/signed-calendar/browser-postcommit/candidate001/zero-crossing/presentation/product/scientific_manifest.json": "70205a492e88340d8bee3d8302f2ac534abb90c1d01d59b2f5290026fea2e9ee",
+      "configs/scientific-contracts/country-coverage.schema.json": "9e1763379825d3868c743d19e54ec0cac8d8b15cc5e9d335872f4f346e7259bf",
+      "configs/scientific-contracts/ecological-classification.v1.yaml": "311dbdb3f7ff4df9b1012d40e9ebc612c35775d4d391e10c4fa6564aab3dc772",
+      "configs/scientific-contracts/map-visual-profile.v1.yaml": "8648052ad99fd92ca61df547de38c04bcccc0e252eb4f8dc8baab657fdc23732",
+      "configs/scientific-contracts/phenomenon-event.schema.json": "db9576611858e687843087e1e07d46fe7ad0c2cfe68b899ec7e3549258abd9c0",
+      "configs/scientific-contracts/propagation-candidate.schema.json": "cc1f3cf38e00e6afe48d0bdbd4435960aeb2bdca9f19354d5601e3335cba8315",
+      "configs/scientific-contracts/propagation-model.v1.yaml": "cd3c6ebdb01d1d3e2759df1984b8bc0e8993e19891e517dffe6babb77e11acea",
+      "data/landclim/normalized/nordic_reveals_temporal_grid_cells.geojson": "2c04cff11aee3ea191540ef00084854402f90ebe8c3b09e0605d22827d29b15e",
+      "docs/report/regions/nordic/nordic.atlas-nodes.0166.ab88457c018ff562.js": "ab88457c018ff562771ade80883fe13827501114e95366b70d9f5c4e0e39ee23",
+      "docs/report/regions/nordic/nordic.atlas-nodes.0167.168275548a3c7384.js": "168275548a3c73843b96150de34a90631b6fb410afbc889b0bea85ff4d5a44dc",
+      "docs/report/regions/nordic/nordic.atlas-nodes.0168.7f35fadf5b5488bb.js": "7f35fadf5b5488bb007dbf2919c3e9aa4bcc1505bd440b019ac536e3cf22ac70",
+      "docs/report/regions/nordic/nordic.atlas-nodes.0169.5f3ece6bae17b5ea.js": "5f3ece6bae17b5ea7bee25ad6cf1309e39f3d0d353475c52999c1e42d3fd27a7",
+      "docs/report/regions/nordic/nordic.atlas-nodes.0170.22c45ef423b81f72.js": "22c45ef423b81f72014e63872eca5f5a57f59f927973082f86261e302498ef98",
+      "docs/report/regions/nordic/nordic.atlas-nodes.0171.8ec343f935b4fa1f.js": "8ec343f935b4fa1f301a54b99aef55f58651edf282bfd3707e5fe3d5084ab9c0",
+      "docs/report/regions/nordic/nordic.atlas-provenance.0000.d159c78f54f84c39.js": "d159c78f54f84c39313fe183842892874045d84c6140e5067fb0374f14dc415a",
+      "docs/report/regions/nordic/nordic_map.html": "790278550add51f919daebc915bd49de1bc87c6749c55f59a1effe955ad61f59",
+      "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/atlas_browser/context_frame_candidate.py": "a065ec18a8ec00f27bf56586c3ae3320fcfb26399b68939002472acac0a01a3b",
+      "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/__init__.py": "efaec7b04707508db414b67fa386c432e7d5392bc9c34529d007641f4a8eda2d",
+      "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/_build_version.py": "f8313262a25b1ddee87f05b0a119d314b3ec031096cc003a124c49bfca0a9513",
+      "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/api.py": "6d38f5fce85e01da5cba64e6f429e1a024edf617bad60cc7a6e362018e02d586",
+      "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/dispersal/__init__.py": "d9f9b56935570b5e5996a4a8a033ac052ec7597a1b9652dc48b7985045da7066",
+      "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/dispersal/kernels.py": "3cc137c3c13d752adaacdc078cbfee33fd8fc1a065ca6662c6f862dd7a097c0d",
+      "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/dispersal/loess.py": "3c631b0c5877801b477c6bfec32773b7f60b5058946f5ff56aebf51de2a8ecf4",
+      "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/dispersal/publication.py": "707eefbed4f6e3231fb49de255dafbe3f26691206f90026b58caa6f2fb1f0a89",
+      "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/dispersal/rounding.py": "d4370f315599b5a87f8c87fbed1a89b0bac4f324dbd687a4d36e5d6cbe39e231",
+      "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/models/__init__.py": "5c684fb536c58944bae01da0e9e6b668c961cf9c0114c325a5f77884b429d41a",
+      "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/models/configuration.py": "12a06fa95f8d436d7c2465b9de07b767e95193dc8dff28cb6ed3f1cafa4f56f0",
+      "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/models/errors.py": "95977107f59fb7aa118dcbfcee57fd81655d2ae7f540d94e657ef19d1b69737e",
+      "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/models/observation.py": "ba15436199128f43ac32967db0cfa7bc9bd19a73d0539fb06906eeb2c02d3479",
+      "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/models/publication.py": "3793aee7e8dc6f837cc0337a3e218abc3f982ecc1afff1c67933ae4b707b0585",
+      "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/models/regional_draw_source.py": "5bf348137efc831390d7f049f985021ba48638c1aad31665e60cfb3cec4937e4",
+      "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/models/results.py": "5b4e709b2d1d4ce2ea1e98eec9d481716740fdc723b6d3606ae9a50b1245d2be",
+      "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/models/validation.py": "1c7584947d3248b522151045210f2c9056e41ac3732a5c25dd88eabb6c954414",
+      "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/optimization/__init__.py": "6715afeb562c188f23d6357bf7c1dfee1d64bcbdf17c7d1313ad8f29543ad6c5",
+      "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/optimization/solver.py": "318b6d58b45940608cc7735693d78022cba5e3d9b00b8b9ae0aa9c2461605bfc",
+      "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/outputs/__init__.py": "d08fdfb713ac5c837e1b91c7389ff40c5c579911a84a4904835162f0c3b87a52",
+      "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/outputs/checksums.py": "95e100ecd0a9f112830aaa9346abed077b4e2e61ff840deafda7b102547aad01",
+      "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/outputs/publication.py": "74a15a49d4cddc9e526160274a6561b767a6d457641403dd12ca417756b63e8b",
+      "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/outputs/serialization.py": "a6ba7a8628319ccf9e0d969942546eced8ddbfc16ef447a3e5923ab76095ef52",
+      "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/provenance/__init__.py": "48c463deef270fbae3f89caa1c69f1278871134e7e9ca9848d467ef7b36e6fd4",
+      "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/provenance/identity.py": "0947a99e3e98780ece802c2e018380059e9bf42867ff2d1c021cf2ae7514d9ff",
+      "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/provenance/manifest.py": "304317faa6c89dfd43bbdb7b1f1dc82d9226cc1b2fb9ffba08bc7b03c2277ed6",
+      "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/__init__.py": "ea9afa16257735c495eeb5468fe4ac5c43b93b331148b52ebc18e17de7e42caf",
+      "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/analytical.py": "ebf5a2b6a20ccee96b06851f2ea85db9b36c05da123d21b59197b92d25f30269",
+      "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/draws.py": "d2f6171d08a7ece80770f6f99c58b4b79bdbfecd91a405df1b50832242e7d27d",
+      "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/forward.py": "a267ddcd2cbe07c215cddd26f4e763ea3fb1b780741196bf8aa6fb951dab4d57",
+      "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/inputs.py": "e0fce6132380512fefa7254e52a8802a6c84ab92c247089b8990b890ec4887eb",
+      "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/optimized.py": "6bc70cccd28a69660f4b65c0e546371c1fa559ec16994707ea6084a2dbb81eaf",
+      "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/preparation.py": "a2585b7eb9fcfa2587bbf60a0bdd7579fcb903626e2a5e9b2c91698ed99f0f27",
+      "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/publication.py": "b2bb0e68e4475111e555cae5727c984c04c252d29401966465d8c12e97576c03",
+      "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/regional.py": "73d7d2f22c0f7ab9671b90b938c7149b3d1fcedb2405a26ad2a726ca55a729bc",
+      "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/__init__.py": "f6fa13667a633dd13d01657038e619363de49409eb02c3c562093df826acadbe",
+      "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/data/LOVEexampleParams.json": "34e861280b7a6ee4bc2d938f2f7c891ea057c44cdc3bfd60e5c27eadca915430",
+      "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/data/LOVEexamplePollen.json": "40e94bd1b261097ba6417054975f60a6d525b239cf3604079030e0929f0e0fcc",
+      "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/data/LOVEexampleRings.json": "bd574247e704e446dd2d3d70895aeefeae6d6d9f067436e289692cf3a5048445",
+      "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/data/Tiefer_See.json": "2118278c3d5417043d5f58032cfbf1cda4db01875986dd48b7274184fee0363e",
+      "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/data/upstream_data_manifest.json": "2e6c8cadbd6055b3df8adbf9b4d2eb0160bbd0aa70be211b16d02e4060c83efe",
+      "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/examples.py": "f5471ce866452832ed8aef10cc9774a23f5617da874f1a213c2fd01f500938de",
+      "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/schemas/__init__.py": "d2bbd87589c87c798941856592b47fedee50b9da817b60ee51f291360d5e7829",
+      "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/schemas/extension-descriptor.schema.json": "6554d7704de5d79b695347b3752e3aeae52f940561256fd237ed8642c67a8973",
+      "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/schemas/run-manifest.schema.json": "27589c2cda866f0c26d2983ac82fb696200c1fb34282e40795e51c727903b53d",
+      "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/version.py": "c6ad1a1f6f861f7b1efc6d4ab7f39bf503cebcab8eb7e4d10b0ef03d9dacda8d",
+      "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/workflows/__init__.py": "00eb0f15a9358eba47078dffc08589e4f00aa9e5c5ecad9dfdf5b5a334cbd5ab",
+      "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/workflows/forward.py": "ef05a86be898f4903a63edea9a2dddf35fba2d097bf24f430c72a123b368a4be",
+      "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/workflows/local.py": "01c22ca754a6882122421346582512e02c320989c6c859883823da717297fcdd",
+      "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/workflows/multisite.py": "6fd244753ce97bcdb93ae9514392d1196b1dc39cd2fad2047953dcdde35c44a4",
+      "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/workflows/observation.py": "73971f320bb4612a7003323514d8972aca154296f7c18efeabfff6551c3ef0d2",
+      "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/workflows/paired.py": "7a1c9d287aa5d874a61e7fd0a5f915e1fe6bfb54123393ef0e6ad1c6a4510dc2",
+      "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/workflows/regional.py": "f81f4a7361f63eaca5d672f611a3a241b2cf0c0bd68c5d6edf677352bf62cd71",
+      "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/workflows/series.py": "9b05be03acf62ff02d466993066108f8f9a00989138020c085227747cb1819df",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/__init__.py": "0b32f5e6a2570c2bbb5eb08286fa8f0c3a444caffb5b3ea8404094770d958b11",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/api.py": "2e0a8cb4c0c2073e7d901a143c8a3ef62cb051b4d8c7b3f13abbffd27f766bf1",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/batches/__init__.py": "f38f522680078412cc7bce2c2f5d01b39df1c95135e978d48df37acaff7bcc68",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/batches/execution.py": "f114389cd375e9ee021f38eda7e30786069f8033a2487493db821d2a97d862fd",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/batches/models.py": "4f752f6db2c981ee777b62485bed68791cba211708f32795d8c25beada6b71f8",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/batches/receipts.py": "c515863f34608c54eca6c15526ff8554dc5ddedf8903fb3862134bedffbe7f55",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/engine/__init__.py": "7445cb60d306d95efa2bf87e6ce7fcf8b4859b5e33c5c37c6640990d73d9d5cb",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/engine/discovery.py": "fb638aca094aa0b106d3ea169a6dee1f95779f2bbbaf8a73604d7344786251a1",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/engine/errors.py": "570fbdd2aa9e4769d48883c7be604c9030e7fd95ae5dc4362119730ea4beeddc",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/execution/__init__.py": "3c984fd44b85ef39f7b6e03c60faeef080325aab7c07e587d900c5f4066d0470",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/execution/adapter.py": "03eb7b10f7588161f3289cadd1b72ecad57025e655ade54978734a14cf3dc880",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/execution/cache.py": "36c2a7da86223104aff6d27581601201627981a47a2e58935d1663316715bc68",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/execution/regional_draw_love.py": "14a02353b4329e312d946b849d9a826998b37255b1c24cd9e994596c31cd0aa3",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/execution/service.py": "639c9ab4e41d144a0a9f31a660b4f135ac7aae0e93ed2079119fa4d8c9cc3d44",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/inputs/__init__.py": "dd8db7867b7e288dc6e2f084dcb115e05e44efa54dd18ae4921bbd02bd7d2739",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/inputs/regional_draw_love.py": "04b7fc1c4974af05ccb7a177b5efad2e5c52011f883be0d1afe861e9d811d879",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/inputs/schema.py": "fc04ace9ac707406feacd6bb3c8662d9020e4c66cdc0e47a5495e9925372cbca",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/inputs/validation.py": "cac73b0f1fc922768b07761ed65107bdc6b650d8dbf3279c4f37fccf592d5e2f",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/__init__.py": "31d0ae5c621f4784df5a9d479618714e69ecf054019a1a5a55b5beef22cc843b",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/api.py": "4b47c5e1a1430f4a20a95e0ed34f9dac1f67f4b0e9698f6df3ce433b9e941e9f",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/chronology.py": "c6cc10e92073fdea39b3ddc951c0e58444a56d1450eb511bb9237be09f3797b7",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/counts.py": "8cd0cb378e4c692990cf72470d9cb1b31fae37b5113a3842222a084eeb653a02",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/models.py": "51b9f12136664b55b8d7e806accc993a71ea74adef2e0726d64addc410cf19a6",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/neotoma/__init__.py": "9baf803a9f3457f88fce593c3e53f6baee88a1c583db091f8c2d8b7b83e04ca3",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/neotoma/accounting.py": "a0c1b2e9386bf2af9dc850ed5b1884b9cffcb1d2b361675b6d1adac76de584de",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/neotoma/candidate_groups.py": "348c9abfa218ec226a09799406af9c40804cd541eca9d4be53faccb56f5c533b",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/neotoma/candidate_mass.py": "36c119b3e05b9071f7031c00826267056ee4e618501c249f69b2b07eeb615b17",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/neotoma/frontier.py": "3430e30e668ccb93a61edf5658bf94d484d2292f4d197b56070242b75df32503",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/neotoma/lakeparameters.py": "bbbe943945c09917c9d15df66da2a8b7f323fc17c6eda2ef53e06939249b259b",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/neotoma/pollen_screen.py": "80a057147637f55a89aacc79f50f20490d0513692946e39d8e58857afaff0c03",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/neotoma/publication_intake.py": "21e0245fe42ba97fddb11f00521c7767e401efa0d0cde17b359a8a1d041c9d82",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/neotoma/series/__init__.py": "2772531087d8c18fb3fb2b519386618796d725019f87ff5ccd7cb8f212bf3a39",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/neotoma/series/projection.py": "7991e61dd7b27a9fde34847b84449472f04df11615fe0e4304478a087e9af6ac",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/neotoma/site_evidence.py": "1288d8ef4b69cc200ea07d3ead3a27e78ec6eaa2d48653e53f49b3049313a081",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/neotoma/taxon_priority.py": "b87cd460c4e2ec9ae08acf3a271ad05793ee3108142f836194c03b5687529785",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/neotoma/taxon_provenance.py": "2aa2d1aee6943b400db59755c51a23cf3d4d625f9785c102605777be28bbeb66",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/paths.py": "26922417f9ce82a2d18215ce3579327d096debf07e6dd8b3c01818c05d7eaae1",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/reading.py": "307471303872d20757924ef98b2733c2b4f121e48a8fbc34e2f6ed6591111b29",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/requests/__init__.py": "1fcda7c98bd580574f29a01d794fe04303355dbc726fe93848dc6f99fd4502b9",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/requests/api.py": "eb91767e49522a94238621b2c54dd71c6dd0357bcc9628a094f1c08789710a55",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/requests/inputs.py": "dd2d5bce83ddf305d2d5c4bb5f08178ea9164c834a2c196be5cbd9ed8d415d27",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/requests/models.py": "f9b95658428a515bd634f9423b353d1f00e8be916f200add1ab8e03c636449c1",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/requests/projection.py": "925310f6f4c61331d74c159af31acd1724ba05cf9aaa0a8f182ab7365d0669e3",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/requests/publication.py": "cca8dcf28f5297f61860f578e082b9020c6da645380c08ccd48c76bd54d86f90",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/sead/__init__.py": "052ea84d4f0a94cdb8909ea88d415a51c1cadf0776bdd8af6c97a631c30b87a7",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/sead/api.py": "caa6aabf6c31c4ecbf30eb27c4fd36b603f1334a2081c46c1dcaa858f051dadf",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/sead/chronology.py": "49504f6057e4893af454e7f56292a27b1029fae0273501d0581bac8ff15fd3c5",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/sead/frontier.py": "b6ec459fc7b0e3b391c244f859566547b5a687cc1de1e7322cfd8cf178514f9a",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/sead/observations.py": "f41c34d649b65a3a9ad0a596dafb15bba649023f5e2c0a05b5d7c5dcedec9613",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/sead/reading.py": "a123991c4e4486a0a30f1de713ea4830152dcca659f91ae1424a8c3f38c68b3d",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/sead/workflow.py": "c9b015938e30c80e23bd598ebd61ac42d25eba247ac6ea5c2f04a9a7727cdc58",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/workflow.py": "c6cbe0ee52f7e6451734a5c37fca57a0d8e6b6389a02a9447afe5a26b19cf7da",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/outputs/__init__.py": "9da50c60d7d92d494f1246d691449205a3b39ab5175c611aacd7b1e33aaa8acb",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/outputs/atomic.py": "bc53f1aead08be22853101a079c22874f3105ea247af2d9224465fa0165d4c57",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/outputs/contracts.py": "38210aef1f912cc1e154271433432de825bf970c3a45b0f806a2d107997da6c6",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/outputs/identity.py": "0a551add445866d30f65577bf1fa02c7a05e25a76100e4062c397b6223b0ccbe",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/outputs/publication.py": "6274f31ffc197337c99b3a9ba74b0b14bfacb4c5c4809210db032b5f12d0e141",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/outputs/reading.py": "dfdf307c76427b97b1bd230d7ba49508e6ec23b73d3c87d20b7979d0fdb0be3a",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/publication_draws.py": "7e74667616e80a8e5ef09a25d9dbc7f457db5b27bc48ec147b518d1cc3077217",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/regional_components/__init__.py": "cb2deeba652bd4529b0c6c47dcf9d7d36703f3c428348044f703b5316d0bae92",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/regional_components/contracts.py": "4f1378a00f1ea7e1cd7e0464862b2e8e4267dd60bbc7403cdeb51bbfecb67ac6",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/regional_components/publication.py": "704ff99b26886596e9f4ecac38b4cf9ddd36317a8df5d5eb5898cbc5cdb7ae7b",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/regional_components/reading.py": "0177dfc80385667d3f27215a9a37e36ba3be51403facee1ca1002b75cc68fb83",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/regional_components/workflow.py": "0790c8b63710db0f46d353a5e47afc16794108fcde1f2625f283cc6c6180e220",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/uncertainty/__init__.py": "4ad851dbc9109376e45ff30d5f973e769709368884994f2577e575be81663a8e",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/uncertainty/admission.py": "d4f07d86cb98ad0927cd173aa3f8ffe8222cd1c56c122c9ee0ec6d8dd48f51d0",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/uncertainty/api.py": "41b1c1196dc7b808568ce4271659e52c9739b8ef5ddab0800de0a4a334cc25d8",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/uncertainty/contracts.py": "46961f32713c93d4f605affb2e29bb38b6cdc48c4b30bf75035ad7976566d391",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/uncertainty/projection.py": "713ff00190467805cf258005e0243ee8807481d39ada17b64ed560eb96377e9b",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/uncertainty/reading.py": "03050271b53921c982721a26d780daadefb64f60d8c1910c53bad95ad4de0c05",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/uncertainty/statistics.py": "24d49203e5467a293483ca2b08abe4d05974c1cf8f589db8bd3cc68ee99557f8",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/uncertainty/workflow.py": "eaeb2f0b22dea0f99d1f8d61083c6f6a901c4ae04425ad0e10d43a1d26b5f01a",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/core/__init__.py": "c238c8813ed1336f964b2b286d485954434e08dda090cb702f92da2a48e04cc7",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/core/bp_time.py": "3da4c9030d78268b5650d2e80beb125cfb70266404507f98f8229d174cbd748c",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/core/calendar_support/__init__.py": "5311b9237a21147b09d25a0da0d7608e2e043478f6bf263d72514d1ebe8a1d39",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/core/calendar_support/values.py": "460078023e6babd7cb5fd7b982d098ba4f58f5d7ff7161c31e4d5de95ad369ef",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/core/files.py": "fda27a9b01a63d4445d2ccac81c6ddd13ecbcea917028002f79c5591bc26fdef",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/core/geospatial/__init__.py": "13139b77db119b22f2f74d90777f420d48f44458f6c293a1a4a5bb41ec07cc09",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/core/geospatial/distance.py": "2eea7f3882ed49e3e6be1995fe78b21b2bbedef3f3ee614b368657a3c74692eb",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/core/geospatial/geojson.py": "829a4eb9c1bb473d3b1e2b787c727c3929a30950405b3e41b0aa5b378979e98b",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/core/http.py": "c9e08f0fa08d5b7174e425daa344f8677d796d7509f9ac41ef27700eeaad9873",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/core/owned_tree.py": "6c9fe17568309d0a134d2748f3a3abae55467d59b7b6b36611760d8facdb1767",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/core/records.py": "b80f1cb0797e0f391ccd75b735e370fe8e2a96ff563b1482c9848f2212331df9",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/core/repository.py": "f39cdf4f011f26146b261ae514182b57bfa059c4604938ff0ea0c6389b1118fb",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/core/tabular.py": "d816127398e6e1ac928c27016786218a5b1963c3382c915ddf819e1c524501b5",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/core/temporal_semantics.py": "a03985bd548d8ac2874e0c8637edb96ab310c5cae1ac85bd53e1ad6c51aef7ed",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/core/text.py": "fe61352bcb5023c087aea4782aa334402ac4bccd413601d7f49e2656fba11cf4",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/core/xml_security.py": "0eecda6ce921c2da8c8cf1819fbce2095e99922be697a0c0254f242fdbe6a151",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/__init__.py": "285a7d53937b912552298bd0aab00d0ad6f2da370d5eaa71b03fa295405390ab",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/aadr/__init__.py": "3538a0b31fd9ce88b55cdf9bcc5ccc63d215e376021ab7f333e712a96067e417",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/aadr/api.py": "27436bda8da6f010bb74072796f7afe744416705e4f864d74dbf089280ba3c63",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/aadr/localities.py": "e70dabbc9aac740db9077c1b14a3c26c53b7c6043f847c77f0c6be282a1a40b1",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/aadr/samples.py": "509435e0943ed9a39e53821c02ada6513a51924c154749d54edeffaf7b6ea813",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/aadr/schema.py": "848ce2e99d77d1b3992ff12791683fba84dee3fdcf80d11dc91082b1dc9c4cd3",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/adna/__init__.py": "a3bbef40559964885de80ab0852c1334747c48305026a8e1431dda59c698867b",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/adna/animal_localities/__init__.py": "98308c22fef63b34e8a223bac6a961e54cf8a1d7de50fe70a6fe2bf358cff7e5",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/adna/animal_localities/assembly.py": "4f29406a82a89f4ee3b7ecc2b2199d4b71136769c725f51c5fd140fd2f86ae95",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/adna/animal_localities/features.py": "40640871b2c1c838479c1fd4f3e42f292013e22b5adb40275b0f9ed19cb21a3b",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/adna/animal_localities/layers.py": "00c27e1031215e38b5fd38a2905c0e05cd8572e9fb4e125a30ed1d228c6d22ed",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/adna/animal_localities/model.py": "35ef1c919b5a7dde6276cef47e122ea578fdac827be3fa843d9123947f28471e",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/adna/animal_localities/publication.py": "6ea5fc36c8906d0a2cc73c7eadab2ffaa9ce955979f88d9bfc7db2a533ad89fd",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/adna/animal_localities/review.py": "7457b8560db3144651b655ddd9fe3e6596cf77f58eae9b7e64ac0d258c2adb43",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/adna/api.py": "a33eb1760164f9373bd8effdb977b49bc54c36c63e08988c8347283450303f6f",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/adna/atlas_evidence_rows/__init__.py": "a60992edeee51ba39f8ad59bd67732ac3c3dfc6c902163a3ce34be23d5447228",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/adna/atlas_evidence_rows/chronology.py": "9ccb38ef3c642b98c5cf71b93da2d16e802620b46667e5edf370b1ea6328f28b",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/adna/atlas_evidence_rows/coordinate_review.py": "a9f30fb50502ac6202cef074e2844441f5239e47b43d085154922a8834c3d939",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/adna/atlas_evidence_rows/localities.py": "5963141f8d8f4632bb2dc75759f625c087e8e544f1681efca71ff6540defca9c",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/adna/atlas_evidence_rows/models.py": "b6fede28df8097910cb13a4cfb2b9bdf90a64925b9f7174f09a331acc926a1df",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/adna/atlas_evidence_rows/row_factory.py": "12cc054d7e6f756cc40d5190c12c38cb043b76972dcd91f0043b1a74dca79f67",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/adna/atlas_evidence_rows/sample_support.py": "75bfb597ca22e2fa7b2a1e257c0e027719edcc98833d652f9b1e8452bef3ef82",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/adna/atlas_evidence_rows/service.py": "363ed11562315091abe4c49a182d81ce1f8a3b86be51353e61b7d65cd70dcac7",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/adna/atlas_evidence_rows/source_records.py": "c81efb9b1b3221983759f009871a6e58e52ee6d626fb48bef7a1348a8ef27007",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/adna/atlas_evidence_rows/validation.py": "1e4adbcc8749bd93ce3eb022aea3ed4b08d08f7e391bdb5e52f134f84d4720e5",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/adna/comparison_contracts.py": "c6bd797160c62f6de64057d1fca01d8bf2aced922efeb911023c9e416e129db9",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/adna/country_outputs/__init__.py": "f1e547830d5ab905dec9b264c173b92b10375256cc887a9f6dbf7479228b55e4",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/adna/country_outputs/models.py": "3a6695adfe39d5a13dc27aef9e0adea757e2208adf751816008311167a567b09",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/adna/country_outputs/projection/__init__.py": "a92f65845289f174098a2f960792f87e2f9d8717adc7d4a3089870e8169b8c7b",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/adna/country_outputs/projection/assignment.py": "e7037ec67c3e3ee98742ccbf72a163912d56900b43af56b372d03b2d0dd3baaf",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/adna/country_outputs/projection/citations.py": "a0d7f012a66f2e3b48c304fcc12119b53985c7b7cecef0253fbaabee5ab19650",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/adna/country_outputs/projection/samples.py": "c8f27377ac86ae21cb8a36f5c9c3b4f527c191b829c0d46e2a4eb0f6d45f7a67",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/adna/country_outputs/projection/species.py": "d4e3de285af2d605830aad1039c5677881f98ae44fd3dedd1306705fa2a7fda8",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/adna/country_outputs/projection/summaries.py": "c01d05b050d63b3417d8be0f8064445ce04ee2970f41ce07b9324e8ce9258312",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/adna/country_outputs/projection/warnings.py": "a02b80e84cdc9c07584411c2c806d0c362f935f4d9805482b758e46f762cf10e",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/adna/country_outputs/publication/__init__.py": "e484260fa844a389c3afa30d51bf14aec595e4a807b3b2c7c743444cf606a76c",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/adna/country_outputs/publication/csv_exports.py": "f97e0aa8ff65aff23b3d67789da03b7d01c5f818045e866149f2e3149a40c4b2",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/adna/country_outputs/publication/geojson.py": "e61b4fd55eb2c9e426a644837f69a9542866c87559ecd500a31bca69462df7d6",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/adna/country_outputs/publication/markdown.py": "4c4ffdcb59bb715a2a72c659d77f4e856090ac753e91c1a2225ed9fe519d7505",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/adna/country_outputs/service.py": "5cd052c238e5b2fb2123d33aeb9ca9d58ca8212150cc098328ceb951a8cf036d",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/adna/foundation_outputs/__init__.py": "0968c2ea44a296201cdb0ec508264ef531bd61465b6881309ba72be4fa1b137e",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/adna/foundation_outputs/chronology.py": "db7122f2d70fc201a8828dc50156027fc850b0e55f82e28a2772c1384e7538d2",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/adna/foundation_outputs/drift.py": "6646403fb078fcd20629536a4ba69cf9973d496b7d50c0fba1c57ee0345117d0",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/adna/foundation_outputs/publication.py": "296bcdab21eb0dba2f21ee35f260f327540014d8ef0ded885fe027ee53c646f3",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/adna/foundation_outputs/recovery.py": "59c4769f22382d3e9e30d8fe3d8e738b7a085fe71f1ba5a5b86b75ecb9c52976",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/adna/foundation_outputs/release.py": "802a11e89a94e70b783ac328d2f30e2c5faeae90b5da0d136d61b5ed83261b60",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/adna/foundation_outputs/rendering.py": "4951e9c943ace2e83a97d938e63ebf923a95f4c73dcd63770ed5ff7b5cb5ab33",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/adna/foundation_outputs/repository.py": "81ab76dec7f5ef0a9894822a5f4d062a139a8711a3e6dbba73c6f428dd7e2539",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/adna/foundation_outputs/review.py": "a312e9aa104bf96df12ec88479b879872503708f0adcb692a573ada27db39633",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/adna/foundation_outputs/validation.py": "99524c49225bcafed584dce7efe50978ea8cfe0ad81dd18899d30cd03e3faf22",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/adna/homo_sapiens.py": "a242f314c25fd1c5fc535c110753b75cbcd1f80498acf4495c3dcc64abb3faa9",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/adna/materialization.py": "a379e2c02fb47e5be5e7c1d2fdce6c6294e400efd8a3d8dcb839de71f463f23b",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/adna/public_outputs/__init__.py": "6faa3e468b967ec12357881940c5d4b07163ff4ab73507e1b5fd3f80c702191c",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/adna/public_outputs/atlas_readiness.py": "45e9f6c3b822e8b99008967ba820e8fbbfc3c7a9383b71cd32b25dd41b757bbd",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/adna/public_outputs/chronology_comparisons.py": "1e7553c0e60d74bcc6df731ccf5364fba7ced3f20432fc48974ed139e43294cc",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/adna/public_outputs/country_coverage.py": "25e8a043d2dfd40f5b36c3a875fbfcb349a40025268a51fa8d68a69734128785",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/adna/public_outputs/farming_scenario.py": "e9be6dd227afba64a52ee2224d809768be00c7b767b70c82b0bef1f33c518c81",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/adna/public_outputs/first_appearance.py": "6247fe11647b0ad65d3d2f96e2f6bfc59e67d1002c74d424d90b195e91a98323",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/adna/public_outputs/publication.py": "685c0049882af79d2f6746cd9a1ccf6f22e2d50889a0404d448cb303d9f6ca26",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/adna/public_outputs/rendering.py": "146768b608e1f1c2c99cc00adedbd7a6ae8cb4f9aef1b226a882cdcc05e95e6e",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/adna/sample_chronology_context/__init__.py": "6df184f9e6fe78fe17376c9772ccb7a4f5da96b9eda1bdd5924edb2754aa2535",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/adna/sample_chronology_context/contracts.py": "7660d612ad8db011f127a7b44ec8d431af84ca4120744463ec6e27f4ef96ff4e",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/adna/sample_chronology_context/integrity.py": "d5508bcea24e5c81989a02d3115628e3bc6a075a34e5008197d98dd4712be310",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/adna/sample_chronology_context/node_materialization.py": "a60964e0d06aca9533ec25aa949db658117c16ed8d3e8b1846ba3714936e488d",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/adna/sample_chronology_context/projection.py": "04a98853526d91678c58efe8afc393684324230206d1ae465f24d5f8b43f87c3",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/adna/sample_chronology_context/repository.py": "fb946e416d869be105d083e83e0fce390a8e395b6daf0736cba09593e3c952b0",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/api.py": "0bd8a5121ba53f5458b3605b0c2f6260e94d7206b29465e1836f30c221d747ce",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/assembly/__init__.py": "749f3944321b01d93827db64153ce9a838572a8e2fadd70c457d869f3e83d1b6",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/assembly/value_selection.py": "f04b68d7e41ba770d4685471ab8088a2d161ba2154c935731d9a908527ae4707",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/assets/map/leaflet/images/layers-2x.png": "066daca850d8ffbef007af00b06eac0015728dee279c51f3cb6c716df7c42edf",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/assets/map/leaflet/images/layers.png": "1dbbe9d028e292f36fcba8f8b3a28d5e8932754fc2215b9ac69e4cdecf5107c6",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/assets/map/leaflet/images/marker-icon-2x.png": "00179c4c1ee830d3a108412ae0d294f55776cfeb085c60129a39aa6fc4ae2528",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/assets/map/leaflet/images/marker-icon.png": "574c3a5cca85f4114085b6841596d62f00d7c892c7b03f28cbfa301deb1dc437",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/assets/map/leaflet/images/marker-shadow.png": "264f5c640339f042dd729062cfc04c17f8ea0f29882b538e3848ed8f10edb4da",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/assets/map/leaflet/leaflet.css": "a7837102824184820dfa198d1ebcd109ff6d0ff9a2672a074b9a1b4d147d04c6",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/assets/map/leaflet/leaflet.js": "db49d009c841f5ca34a888c96511ae936fd9f5533e90d8b2c4d57596f4e5641a",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/assets/map/markercluster/MarkerCluster.Default.css": "61258232d98d64dc2a7b1e02130d67421bc5b9bda5994eef70228ff97570c170",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/assets/map/markercluster/MarkerCluster.css": "614dea0a98ff3f4ead74f04918f6b1d1b9ba435c25b5fc23b21a394d1e3e4d87",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/assets/map/markercluster/leaflet.markercluster.js": "1e4e1d22972a3926f48598e0caf14e3fe7049835d428a344fed4f9e3665b3508",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/bundles/__init__.py": "accd8a19180981d1cc2bfe671393580b7995b34dcbad6f37c3e2872b37e7ed56",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/bundles/atlas_bundle/__init__.py": "5a746daed96342cab88e80fc44c42708a094436319f4d9cb79b956e216744759",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/bundles/atlas_bundle/animal_chronology_publication/__init__.py": "dd5c3654e2e0a70ba8bb2c7dda1fcccc62585a325b6bc950d6da035937916d90",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/bundles/atlas_bundle/animal_chronology_publication/contract_values.py": "9a1537c28e07d99f74dcdbefe4a6b49dfe54eb9c5d20934ff3c2835003b3d4ec",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/bundles/atlas_bundle/animal_chronology_publication/corpus_reconciliation.py": "da6e6ab42082065b0f9b632a467a2ff52110acef17efa8e8f15a17e825198903",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/bundles/atlas_bundle/animal_chronology_publication/feature_reconciliation.py": "e66421b547e5385f38cad73445e89d17e56eeafc1acefb2914d6b6ecd682543c",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/bundles/atlas_bundle/animal_chronology_publication/geography_reconciliation.py": "a63c1ba4a3c9b4d7b5f2ebc897b487dea1e7fb95a47a5b1b6afb42e5b0c03696",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/bundles/atlas_bundle/animal_chronology_publication/identity.py": "f81f6ae8fdd60ec89c7caad52889b5aeccc3d7d62d9873a3cf6e677dbe894e09",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/bundles/atlas_bundle/animal_chronology_publication/service.py": "f284c03947769c499830208fd87e4be735d695889a1dfd6d15f4c2c445b20d38",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/bundles/atlas_bundle/context.py": "61e65a8c0b56dc8dfef11cbf0fff7d09707de20e51eb1adcf965aa2c8c4dc06b",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/bundles/atlas_bundle/contracts.py": "5674253433e951e2f06254c03437ba533574119f45dd2c548e3f9ba684d4c65d",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/bundles/atlas_bundle/evidence.py": "ddc7a8ecee29f91fc9314a787af3e181703dea80e3c71db343c0152dbe42f489",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/bundles/atlas_bundle/finalization.py": "fcf8be43d6c73e7acc3be4db275bdcb8e2a8d9a81069e00dbe35432185375cd6",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/bundles/atlas_bundle/layers.py": "1042f3210ba1b16d7b776370c82470de0d4a320ad99ea7ab1925a4f11a904746",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/bundles/atlas_bundle/operations_api.py": "1237c261bd34487bbe66efd0fba1f8ea5afa5b0ee81ed91dabe8f033b4b6bce3",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/bundles/atlas_bundle/playback.py": "39c0211ba063c1482973c8baf843096ccf993043af2173a236b00c55f7e103fd",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/bundles/atlas_bundle/ranking_context.py": "ecb3cd59e9ac89e0b9513d71654bd8de2eff739b014564473fc30704cd08e077",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/bundles/atlas_bundle/workflow.py": "ec95b59e5cd910866cc0196d32b983d0e78cc17f22304bf41e84904f58edae2c",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/bundles/country_bundle.py": "c1671b10e374ee611436888668779b9e51cd25891eaed5d116d57ce414f30819",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/bundles/country_selection.py": "62cd6e46f947a1dde228af25200142e733a558fa57ebe786867ecc4f26cc10b1",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/bundles/map_inputs.py": "15886c3850fe38f177f44fad905b1c3ec873ef75a5fcdef686e4c379bd2cf7ca",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/bundles/paths.py": "dcb156e836844d5f3f1ce42776945dd5d7943b66994581312c23b967b5dde864",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/bundles/published_reports.py": "d7fd64d118d1963395ac77da643e0f5e052aa7f7907ec1e97236cad27e5a063e",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/bundles/report_partitions/__init__.py": "f50d8c1f42cbbbbd5028ffc47d679f719f7f0158ac6a4d1062854cb9c1d28a83",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/bundles/report_partitions/__main__.py": "22cc0b6d7928a4e10e35754001b5d8666f6ae0f3fbdba78f85b674a3163c8d93",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/bundles/report_partitions/artifacts.py": "bf139b5cfd63d2e663fd64c22d9860ef94430354088b1f8a575af39d409610c9",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/bundles/report_partitions/inventory.py": "d6cb06e3d27928a697c98ef301b420f5fbe6d0ceed282b291d9e9ce051ac7b4e",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/bundles/report_partitions/loading.py": "c46e8c1627398187719c3426d5af2bceb7d4edf1022b9796a8312e9d03beea7a",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/bundles/report_partitions/models.py": "7086503152da0f547bbe354581f374987602889d0f7a1aa4a854bda6ca6d33d2",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/bundles/report_partitions/operations.py": "d4c84a49e63e79493e723ad39aaecff5b3049c3ea70c2cf47dba5bd057ca81ae",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/bundles/report_partitions/planning.py": "aee0d0b6f126ea14479e40217343d561e0a31c05ad79ce75ad11b5c93c38919b",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/bundles/report_partitions/publication.py": "ea845a0c538be11c33eec3053edb0e6a88091918f990d93556bfc149c9ac4a96",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/bundles/report_partitions/reducer.py": "163f187e574111d30fc51a143262e6d811bd9408fd94aaed15eed27b605590cf",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/bundles/staging.py": "e7cdf1ea612480ec1d3667fb5df2153e2a10c092a9ca0bbed167c80c35a7d356",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/bundles/summary_builders/__init__.py": "4147ebdbcc466d8d01117e711e7f4c6a9bc576d6cc657eaac64caeb3dc529a8f",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/bundles/summary_builders/atlas.py": "14bbd3d6ee4a3264dc15dc8eb689578f83829d54515aee131e1d199cd0ed1ab6",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/bundles/summary_builders/country.py": "96eca1f0b3468a3e4256989986724937958df300bf1bd7fe7ecd888ed5fd5129",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/bundles/summary_builders/published.py": "0d9ebaa46393f9cee947589f1d34ed4931ef7813eb747b1716becd3b06529cb8",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/bundles/sweden_lake_layers.py": "a6af64d8e10b79c82d6e86daef50eb65bb80dee305460d837b5b1ceda807bc9f",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/context/__init__.py": "9e72cd1316e72e3ede8cc3889b80df46d2aa09f2d4c41ac3ac696cb48640675b",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/context/artifacts.py": "e66a7a8efb8e79a853840b68eb8e3fa09a0da2dc377cbe6df7eef7a3619be3a5",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/context/layers.py": "856aad34ba553cd98bc6dc9cba119cca1ba180d37c89d4780496e76a551687fe",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/context/points/__init__.py": "62115697b7f485a67128253419d54c74b1166f541b0f333d10e986cd1a90e79d",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/context/points/aadr.py": "33dbdce4f72b6a4ad62d878dff0422fda8371e3b7319ec1ab83c9c47c883cde5",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/context/points/external.py": "626d59373984ca443645e629591a96b0bb83e1eae6ab95d50ef388ce75794744",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/context/points/fieldwork.py": "06470082eefcdd8c59a932b35846e27620e62aea492f9cadfe437009c1cd14fb",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/context/points/shared.py": "f6e7166b06e9024553ba4f2a341c49bc0db362eacef40914a59ef747d634adca",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/context/polygons/__init__.py": "31842c81a149e34fd1ba498c42d37b01acaa806fc2c82396cfe659dacf6fb52b",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/context/polygons/boundaries.py": "169f6944d888059fe9c320a69feaf99fdf838a99ca5be1c6f810ef4c4821308c",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/context/polygons/density.py": "6c33652cf1b97f57ebc5b25813f906eccfeb35c55bc8e3b645b79f0535134df6",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/context/polygons/external.py": "f75638ce056a0b5843ca90ff077090c0a174138a5f85f45de6caca676d94ce79",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/context/polygons/shared.py": "0eaecc05b7f26b503bf9751434d1d8fb57121e799b2668da34e0cbd8a194bd4e",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/context/raa.py": "6808a2a72e30544232dd73865a43bceb107ac888a6077a2daa6e5c270d955514",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/context/time.py": "3c477e56e9ab3b728105bf11d2269901966e0c0da66071030eca47196b089b99",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/geography.py": "bf8a3172d89295fca5ad6087076e0b9097e7d8571e13fa7dfa2cdc75b425c5e7",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/lra_products/__init__.py": "08cdb05f6e46ff826f985aa18d477ca0715b270ea53344af2e96f58a1d0889b4",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/lra_products/api.py": "7b44a803156c46a2c680a0a085a70260ebb4862d2273b3915489ca37b35ef4f8",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/lra_products/contracts.py": "28bb1232a00e4a14794b9db3408f6ba90f1f35bca3d8263b5498123deb54f8fc",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/lra_products/downloads.py": "d0c2bfb55e3b1b9486abc1f50b4425915e804a3e50caae9ceabbaa2f55dfe36b",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/lra_products/geometry.py": "087f7ea3b6f4ded82871c5dce80430e930410b4728ae234121a7099c92b14379",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/lra_products/joint/__init__.py": "800072bd4d896923131addccd73a8a2b3dd3324e98fab415bd03b048f9df4e3a",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/lra_products/joint/api.py": "fb41e0f9738279cc7f935aa93ddea4502f85dde9694e5d320d9bc95eef2cd78e",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/lra_products/joint/contracts.py": "7e9e04d36ab0cec39d8082b019577cb63ff9ae42c5548c817d7ca29e6db4dcef",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/lra_products/joint/downloads.py": "9ff4d5d459eec7b0aeda7ccbde663452ff5c1d2e2ce78ee5f7dcde7de7db275e",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/lra_products/joint/projection.py": "dff15fd89a9014289a341ae0044183de05912cd3e261aa287664878a3c41ccc4",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/lra_products/joint/rendering.py": "9b4f55546d29aba20558667e26a1679a98f63baea35d0faa8e08bb849189dab2",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/lra_products/joint/workflow.py": "b2b6917ecf16320a7b6ff50be8c260335775e61a0ce0a01bff525a216013e580",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/lra_products/projection.py": "ca6964cb7f69369872986037c7c92f10afc0f82776a61f731ef8f6f72a7b54f2",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/lra_products/tables.py": "0d3029393571d2f14af064127ff6191eb8ee9cfaa38a7aa32c87b782cd3ec532",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/lra_products/workflow.py": "b9e8af47a6369d89604bb78e61daf388bd02964862fd19055fbb93662bd92a9e",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/__init__.py": "7475911f82e1b4db0d9a6876e72dd1adaf853458daf0966a23793bdfab7db297",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/assets/document.html": "667630c6535c9e14f38057405d25eb79501188e80484b6505a8c38475c7254db",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/assets/native-lra.js": "33bd7c0644279d96c37d07960279be04f986c4d91ae42cbaa460536aa659818e",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/assets/source-record-export.js": "733d6c172381f2d9555cb7bf4290f48e97d8bc8dceb57b3697676d97e78ce43b",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/assets/url-state.js": "7f112ee6e727d3e51058724f2c80af9b610890ce793110f6404562800d2be682",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/coordinates.py": "066e553e1c58295c848e917577ef3e688f2fdf4faa40ef2fd8b5c394c90341fd",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/evidence.py": "b9b694dd0d0546a806e5f22fcf9cd503a0638267e0cf6e18424d571a24e4cd89",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/evidence_projection/__init__.py": "770d80bb6ac812fea5dd09f8c120fffc97f1c0e3f9bf43f407c38b40062d3cb7",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/evidence_projection/constants.py": "8c228dce3e1b6ac932e3e2d3aebeee8e28891b5e57874e7ea403014367f1f986",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/evidence_projection/io.py": "dde30ca2cf224f178a3d85f73fd633b4cd8f0e9f33c1f06cf394018fb776a7dc",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/evidence_projection/models.py": "2d3d43830973a98c8f79f172c6bb4de9e15808efe172f2d742a72003f95a82fe",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/evidence_projection/neotoma.py": "d9c37bbcc962063ad4abfc57b34b51cf6f37248dffd32eccc5ed00cec4ebaf73",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/evidence_projection/records.py": "38c68f150a22450a244aff47eddf9d8087aa7a4f635d29ff6a67a11e814e28c7",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/evidence_projection/sead/__init__.py": "09d8c0ceeb013541c6b8ae200f52448e40511bd7f5d899fd9412cf7340be7577",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/evidence_projection/sead/accounting.py": "f5db877900e8b6e06ba7e742c5d4c293f7597f200fd68985c3c23f7227bbfd80",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/evidence_projection/sead/admission.py": "fc9faf672ee0cf9315f2280dd7b898ebd7718aed4a09bea297aff23cc5fbd134",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/evidence_projection/sead/chronology.py": "a7384b4718c8043389f237a885e04255580057be5b61bc67743d8e05261e3e9f",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/evidence_projection/sead/detail_records.py": "0c6a7b5e391c677d7f78fe3ed0d3ecb0fa5c2e3a6051755e62863ceed9e06870",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/evidence_projection/sead/models.py": "e66b4a216bab40e505cb3abf1d83daad2a8a791da38823a18dbe9fe50c98b09f",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/evidence_projection/sead/observations.py": "5db7926fb8f89d5de974f743074bccee62b34a24a626d6a7ea83fd654723a0b4",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/evidence_projection/sead/projection.py": "f326308c502dabe14c02e0eeb5348cba9898fbc3e0892f8b2ee4a96206545ffe",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/evidence_projection/sead/provenance.py": "d483c8b346c94c4502569e069ee15e583610f3c74354b927dce01255be3cf620",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/evidence_projection/sead/relations.py": "abe3ce1dad847a51cc7d1c36be86e7a885c5f64f4b1c190ae29e4e9716c543dd",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/evidence_projection/sead/sites.py": "1eef187b51b2568407653bbea1a2550fd2bcef59bb3e0c45812a1b76c89e6786",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/evidence_projection/sead_claims.py": "747480541006ebc87df5b3d461a42f6bd7470eaa86d855c2863682c6b5579c56",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/evidence_projection/sead_records.py": "6bcf8f3575f8308568f2cd44656a92d6fd5cbdeb98b7b6403ca052c824ba5af3",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/evidence_projection/service.py": "cd11e76268f0abcb2a541136da6112a6e5a5ab9e23c8e3ad1365c7cc5b1b94b0",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/native_lra.py": "b443d56a9b0b807d2922857b0cfa7641fa8147ad21cb243aab98414f60260fad",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/payload.py": "e131724adacd5471cdc1b236079b5d091b33ed618ed5e1e1c8afab49363a0e57",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/render.py": "5214ac7f8ba86805b5a7e0bfd5529e5ecb3d3042854abcfc1340505400e99dc0",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/state.py": "50bd3e0a59d82f70c1c7ccd2934f05c2306161dc31f09e45d12bf61daaec1044",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/static_assets/__init__.py": "ae5191883dd9d1c2bcf2f793e5215d313abc09660dfcb9ef3a20a5566e484314",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/static_assets/asset_inventory.py": "dccd61cc2a03bbd20d89a4ef95e397bafc1ed3bd2736bb430761f0f691391bab",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/static_assets/budgets.py": "afa643cdd77e43b9bc1dc57adeea7572c2efcbd983a021d93b729b462877734b",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/static_assets/index_bundles.py": "b67d42828cd96dcff45b757c1924c3bb01e568c23228e817196bff8228b61ec0",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/static_assets/indexes.py": "596ca95bba4979e654fbb477b654741671e2a361cf12e77b41c3dfc09fd0fbd0",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/static_assets/models.py": "f5aa9f01bbcf8d6ec861d64e629f4359a39925084f57cb1c654e71f62ea268c0",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/static_assets/nodes.py": "70db748025f7fc8c3484ca0daddadaa867248ea57216c86c41f968ab670f9f09",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/static_assets/serialization.py": "4f517d2bbef9e7b19ccdeb2f9ef587c0214bf4b7884b7b6ab742abf6f0e2654f",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/static_assets/validation.py": "0603633df5605270d4ec1ba6e76b6d219d61bbaecdcd96a0eeac1fc3479cc246",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/static_assets/writer.py": "b8cde394647be01a8380b36935ef85af7474969f4eebcd65788d26a2e410fb7f",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/template.py": "29a3d6a20fcdd24a726369e61ae4bfabb83466020424ed3221bdd8eaaefc69bb",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/temporal_admission.py": "755f485ddddc41afa580e4361fd13aa620229ae807a86ec8c0835b8a1e91bc2d",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_playback/__init__.py": "6fbe8d512d95f3313b1d0c4753c9e2f7d0c4302968a8599b62589122887554a0",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_playback/candidate_succession.py": "e0ef3ce4afeb9c213ab381077e1fe654d2e1c189710c54131897a178d1243be8",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_playback/contracts.py": "f296983d56a920de3d73d55b4fd8cef79cfcf1d67cc2c665e1e51199379a2a48",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_playback/feature_reconciliation.py": "75bd037230e4a428a048910dab556d29f8963e59a0d35a8e1fb9ef93f5ed4069",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_playback/manifest.py": "7b9b928fc5d75269f51a0d93a623cc0f9cbfec8f6b84b06d0e00d8a6007474d3",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_playback/modeled_context.py": "8b7d7b11e379dec3230308a9ec895f2425c5b39d6d4f1f0c91d2c55487bee02f",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_playback/source_chronology.py": "31f0eeef6e3f7df5747c34f65bed59cdd7b7881794c349a4000366fb8bc8a9cc",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_publication.py": "2e2a277de4dcd1923ed84417a617d1dabaa35679544dd680f7a56239f49de08e",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_publication_raa.py": "ad0fb373c7dd1d146de8564b4feb3fc0265616f44388ad05c87fdb634b677e61",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/modeled_context/__init__.py": "cfbccb6a8cb25f7715f6bb1711069c7ff3adc5459e8e7337e5957420b75c89bc",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/modeled_context/contracts.py": "15facb66f40c1458381d79e1ff2811bae8f9d909428ec371ebb6c59677d13d4c",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/modeled_context/manifest.py": "d628b1942fe97be65c9c55c6c7c7503aec1162f1ff5da4fa2f1bf8bcd063071f",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/modeled_context/metric_families.py": "621d2fe9df9b8328e03ef6524eae28bf246cdb0f871da0df81db6b3510d51e67",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/modeled_context/publication_projection.py": "f2905c720d8d30f85185f0a418a0be98bfeadc67601d6f902645584855af4a11",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/modeled_context/validation.py": "69e36496b9527416184c8dbf3ece5bfbebbdb9163c2af48154c84d4d93869efa",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/models.py": "2a59380f977e9c90e84c0e0995eca2e340ec2b1bf40228bf559c9c17dd6498ec",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/presentation/__init__.py": "eea726acb6050fbb84301a148560673f435d5965bfdfe920b653830ef01a0b7d",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/presentation/report_portal/__init__.py": "33ad015c8f0269a623528757adb7ad022e3ad3c5879cf005cd4e2262db379140",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/presentation/report_portal/markdown.py": "fc43f8a1b70011d305ab0a165b6633e170ceff660dfc13e028592f6a4037c6e7",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/presentation/report_portal/narrative_quality.py": "1875c1584bb58eaa1f0e911176387377198029bf4b883d9b55176571ffafecb2",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/presentation/report_portal/pages.py": "7c9f94e1ae73ae305d1eec1de879c3e51520c8636c88cd799209c2a7c02c3098",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/presentation/report_portal/publication.py": "99ecdc084cb4c1573d31525e62e5a78b63e9c03ec5e86bebf848a57520106ee0",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/presentation/report_portal/surfaces.py": "64ca107f9d5573c44e9e4f4738f54205505dff5c1b6ff47837fd7402d99e2dae",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/presentation/text.py": "e58465388ff37f80a7e91bbe3507d0bf8157dd65760e3e117924844b3c258138",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/rendering/__init__.py": "505be9e333c7c653319c2b9f4975e90935bc07e3b4de575103c520f6fb701b04",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/rendering/artifacts.py": "69a32459b80a89f2f7d5b07786c9419fc0b14a2012f858ac71a47cfdcdc4adff",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/rendering/html.py": "a8636d8cf609dd99918973b4261b8fc90d16b56bbdc7d4ee644b2afe0f856fc1",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/rendering/markdown.py": "35a681a07f0c8e8d3374c20adcb1776648cfd17af889dcf6f4362802d520a9d1",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/rendering/record_exports.py": "22c88c38bb12c53717763c7ec1eb0c04ea037e3f6efa769d076163c8c9637c62",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/review/__init__.py": "9698060eb82dd98b1d98cb8e8bfe4c2785a8cbbddba91fda6cdf464735f3a369",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/review/repository_truth_outputs.py": "3d54aab8d57476a09f8ef035012c71b83e5e0bd57e24fd2939785df84d771814",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/review/sead_context_outputs.py": "7a2119d644eb5fe3ae7fe10b356d2e4f5e980f1caad5b814055438adb8ba347b",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/review/sustainability_outputs.py": "2d9332ff093c322351ec1b8c7c4038d770f4857cd11d0f75584f4f82b768de5d",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/scope_policy.py": "390dedffd808188fa91c940c8ff4cc7efbac28993e44fc2c257a4bf2591aa644",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/service.py": "526084320eea728348f6bd681350d402bc10b6c36784ba341234699aedd1f207",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/source_chronology/__init__.py": "6e4299be4b778079eed2a5dc47c064ffff9ee09fcf11b03fae60aa7d72f0ea3c",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/source_chronology/facet_accountability.py": "e73e3b83e1d4ae4dfca9534a5322a0a3d5e1971144753e9115e7d3789c27cf17",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/source_chronology/facet_validation.py": "257f674ec37bacf71ed6a66de7ea89ca5dd96e6f4a57f9a8617f9d34d4275e23",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/source_chronology/facets.py": "496d430bbf8fce974263b275bb2556cd50800ea72a1a0a6bae8b556935d33fe4",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/source_chronology/features.py": "ddf0605c0a0f1476c9ff6d7ce33235a84ca552eff2323e3e7737dcb9d034361e",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/source_chronology/layers.py": "1605e89fc80d8f205452d8c253a54b506593cda05d0db6c236be026d8a04e026",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/source_chronology/models.py": "16d66b07dc888a3046b0ab95fa9f10ba87550b29f284b45803a8f43a48b55091",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/source_chronology/source_label_presets.py": "2cc0b8cb2c603ccba1192e5aa63f4382bb5f15f92c7b53f3540a1a5e14367208",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/source_chronology/time_density.py": "d0b989e95d0cee50628b8e95ffcc1bd50216192025f9dd08f0dccdbc996386df",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/source_chronology/validation.py": "bcb5d1502b0acbf56177ec587bf595168b7b1a5cc364989e4563e9a5c26c9248"
+    },
+    "modeled": {
+      "build_id": "atlas-f417d9d6ca1b579ba21d0c00838b9afc089f66b46c24698a7e3e6614cd654451",
+      "manifest": {
+        "cell_count": 75,
+        "country_cell_counts": {
+          "Denmark": 6,
+          "Finland": 19,
+          "Norway": 24,
+          "Sweden": 26
+        },
+        "country_quality_class_counts": {
+          "Denmark": {
+            "high": 50,
+            "low": 24,
+            "no_pollen_data": 76
+          },
+          "Finland": {
+            "high": 84,
+            "low": 291,
+            "no_pollen_data": 100
+          },
+          "Norway": {
+            "high": 226,
+            "low": 325,
+            "no_pollen_data": 49
+          },
+          "Sweden": {
+            "high": 268,
+            "low": 300,
+            "no_pollen_data": 82
+          }
+        },
+        "dataset_doi": "https://doi.org/10.1594/PANGAEA.937075",
+        "dataset_id": "937075",
+        "default_metric_family_key": "source_land_cover_types",
+        "download_schema_version": "modeled-context-visible-frame.v3",
+        "estimate_standard_error_pair_count": 88125,
+        "evidence_role": "context_only",
+        "feature_count": 1875,
+        "interpolation_allowed": false,
+        "land_cover_pft_reconciliation_count": 5625,
+        "layer_key": "landclim-reveals-temporal-grid",
+        "method_citation": "Githumbi et al. (2022), European pollen-based REVEALS land-cover reconstructions for the Holocene",
+        "method_doi": "https://doi.org/10.5194/essd-14-1581-2022",
+        "metric_count": 47,
+        "metric_families": [
+          {
+            "default_metric_key": "Abies.alba",
+            "key": "exact_taxa",
+            "label": "Exact taxa / pollen-morphological types",
+            "membership_evidence": [
+              "data/landclim/raw/landclim_ii_reveals_results.zip::LANDCLIMII.RV.means.JUN2021/TW1.RV.estimates.jun21.csv#header",
+              "data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv"
+            ],
+            "metric_count": 31,
+            "metrics": [
+              {
+                "definition": null,
+                "key": "Abies.alba",
+                "label": "Abies alba",
+                "membership_evidence": "data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv",
+                "source_label": "Abies alba"
+              },
+              {
+                "definition": null,
+                "key": "Alnus.glutinosa",
+                "label": "Alnus glutinosa",
+                "membership_evidence": "data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv",
+                "source_label": "Alnus glutinosa"
+              },
+              {
+                "definition": null,
+                "key": "Amanranthaceae.Chenopodiaceae",
+                "label": "Amaranthaceae/Chenopodiaceae",
+                "membership_evidence": "data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv",
+                "source_label": "Amaranthaceae/Chenopodiaceae"
+              },
+              {
+                "definition": null,
+                "key": "Artemisia",
+                "label": "Artemisia",
+                "membership_evidence": "data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv",
+                "source_label": "Artemisia"
+              },
+              {
+                "definition": null,
+                "key": "Betula",
+                "label": "Betula",
+                "membership_evidence": "data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv",
+                "source_label": "Betula"
+              },
+              {
+                "definition": null,
+                "key": "Buxus.sempervirens",
+                "label": "Buxus sempervirens",
+                "membership_evidence": "data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv",
+                "source_label": "Buxus sempervirens"
+              },
+              {
+                "definition": null,
+                "key": "Calluna.vulgaris",
+                "label": "Calluna vulgaris",
+                "membership_evidence": "data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv",
+                "source_label": "Calluna vulgaris"
+              },
+              {
+                "definition": null,
+                "key": "Carpinus.betulus",
+                "label": "Carpinus betulus",
+                "membership_evidence": "data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv",
+                "source_label": "Carpinus betulus"
+              },
+              {
+                "definition": null,
+                "key": "Carpinus.orientalis",
+                "label": "Carpinus orientalis",
+                "membership_evidence": "data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv",
+                "source_label": "Carpinus orientalis"
+              },
+              {
+                "definition": null,
+                "key": "Castanea",
+                "label": "Castanea sativa",
+                "membership_evidence": "data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv",
+                "source_label": "Castanea sativa"
+              },
+              {
+                "definition": null,
+                "key": "Cerealia.t",
+                "label": "Cerealia-t",
+                "membership_evidence": "data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv",
+                "source_label": "Cerealia-t"
+              },
+              {
+                "definition": null,
+                "key": "Corylus.avellana",
+                "label": "Corylus avellana",
+                "membership_evidence": "data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv",
+                "source_label": "Corylus avellana"
+              },
+              {
+                "definition": null,
+                "key": "Cyperaceae",
+                "label": "Cyperaceae",
+                "membership_evidence": "data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv",
+                "source_label": "Cyperaceae"
+              },
+              {
+                "definition": null,
+                "key": "Ericaceae",
+                "label": "Ericaceae**",
+                "membership_evidence": "data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv",
+                "source_label": "Ericaceae**"
+              },
+              {
+                "definition": null,
+                "key": "Fagus.sylvatica",
+                "label": "Fagus sylvatica",
+                "membership_evidence": "data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv",
+                "source_label": "Fagus sylvatica"
+              },
+              {
+                "definition": null,
+                "key": "Filipendula",
+                "label": "Filipendula",
+                "membership_evidence": "data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv",
+                "source_label": "Filipendula"
+              },
+              {
+                "definition": null,
+                "key": "Fraxinus",
+                "label": "Fraxinus",
+                "membership_evidence": "data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv",
+                "source_label": "Fraxinus"
+              },
+              {
+                "definition": null,
+                "key": "Juniperus",
+                "label": "Juniperus communis",
+                "membership_evidence": "data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv",
+                "source_label": "Juniperus communis"
+              },
+              {
+                "definition": null,
+                "key": "Phillyrea",
+                "label": "Phillyrea",
+                "membership_evidence": "data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv",
+                "source_label": "Phillyrea"
+              },
+              {
+                "definition": null,
+                "key": "Picea",
+                "label": "Picea abies",
+                "membership_evidence": "data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv",
+                "source_label": "Picea abies"
+              },
+              {
+                "definition": null,
+                "key": "Pinus",
+                "label": "Pinus sylvestris",
+                "membership_evidence": "data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv",
+                "source_label": "Pinus sylvestris"
+              },
+              {
+                "definition": null,
+                "key": "Pistacia",
+                "label": "Pistacia",
+                "membership_evidence": "data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv",
+                "source_label": "Pistacia"
+              },
+              {
+                "definition": null,
+                "key": "Plantago.lanceolata.type",
+                "label": "Plantago lanceolata",
+                "membership_evidence": "data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv",
+                "source_label": "Plantago lanceolata"
+              },
+              {
+                "definition": null,
+                "key": "Poaceae",
+                "label": "Poaceae",
+                "membership_evidence": "data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv",
+                "source_label": "Poaceae"
+              },
+              {
+                "definition": null,
+                "key": "Quercus.deciduous",
+                "label": "Quercus deciduous t.",
+                "membership_evidence": "data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv",
+                "source_label": "Quercus deciduous t."
+              },
+              {
+                "definition": null,
+                "key": "Quercus.evergreen",
+                "label": "Quercus evergreen t.",
+                "membership_evidence": "data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv",
+                "source_label": "Quercus evergreen t."
+              },
+              {
+                "definition": null,
+                "key": "Rumex.acetosa.t",
+                "label": "Rumex acetosa-t",
+                "membership_evidence": "data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv",
+                "source_label": "Rumex acetosa-t"
+              },
+              {
+                "definition": null,
+                "key": "Salix",
+                "label": "Salix",
+                "membership_evidence": "data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv",
+                "source_label": "Salix"
+              },
+              {
+                "definition": null,
+                "key": "Secale",
+                "label": "Secale cereale",
+                "membership_evidence": "data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv",
+                "source_label": "Secale cereale"
+              },
+              {
+                "definition": null,
+                "key": "Tilia",
+                "label": "Tilia",
+                "membership_evidence": "data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv",
+                "source_label": "Tilia"
+              },
+              {
+                "definition": null,
+                "key": "Ulmus",
+                "label": "Ulmus",
+                "membership_evidence": "data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv",
+                "source_label": "Ulmus"
+              }
+            ]
+          },
+          {
+            "default_metric_key": "TBE1",
+            "key": "source_pft_codes",
+            "label": "Source plant-functional-type codes",
+            "membership_evidence": [
+              "data/landclim/raw/landclim_ii_reveals_results.zip::LANDCLIMII.RV.means.JUN2021/TW1.RV.estimates.jun21.csv#header",
+              "data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv"
+            ],
+            "metric_count": 13,
+            "metrics": [
+              {
+                "definition": "Shade-tolerant evergreen trees",
+                "key": "TBE1",
+                "label": "Shade-tolerant evergreen trees (TBE1)",
+                "membership_evidence": "data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv",
+                "source_label": "TBE1"
+              },
+              {
+                "definition": "Shade-tolerant evergreen trees",
+                "key": "TBE2",
+                "label": "Shade-tolerant evergreen trees (TBE2)",
+                "membership_evidence": "data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv",
+                "source_label": "TBE2"
+              },
+              {
+                "definition": "Shade-intolerant evergreen trees",
+                "key": "IBE",
+                "label": "Shade-intolerant evergreen trees (IBE)",
+                "membership_evidence": "data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv",
+                "source_label": "IBE"
+              },
+              {
+                "definition": "Mediterranean shade-tolerant broadleaved evergreen trees",
+                "key": "MTBE",
+                "label": "Mediterranean shade-tolerant broadleaved evergreen trees (MTBE)",
+                "membership_evidence": "data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv",
+                "source_label": "MTBE"
+              },
+              {
+                "definition": "Tall shrub, evergreen",
+                "key": "TSE",
+                "label": "Tall shrub, evergreen (TSE)",
+                "membership_evidence": "data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv",
+                "source_label": "TSE"
+              },
+              {
+                "definition": "Mediterranean broadleaved tall shrubs, evergreen",
+                "key": "MTSE",
+                "label": "Mediterranean broadleaved tall shrubs, evergreen (MTSE)",
+                "membership_evidence": "data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv",
+                "source_label": "MTSE"
+              },
+              {
+                "definition": "Shade-intolerant summer-green trees",
+                "key": "IBS",
+                "label": "Shade-intolerant summer-green trees (IBS)",
+                "membership_evidence": "data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv",
+                "source_label": "IBS"
+              },
+              {
+                "definition": null,
+                "key": "ISTS",
+                "label": "ISTS (definition unavailable)",
+                "membership_evidence": "data/landclim/raw/landclim_ii_reveals_results.zip::LANDCLIMII.RV.means.JUN2021/TW1.RV.estimates.jun21.csv#header",
+                "source_label": "ISTS"
+              },
+              {
+                "definition": "Shade-tolerant summer-green trees",
+                "key": "TBS",
+                "label": "Shade-tolerant summer-green trees (TBS)",
+                "membership_evidence": "data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv",
+                "source_label": "TBS"
+              },
+              {
+                "definition": "Tall shrub, summer-green",
+                "key": "TSD",
+                "label": "Tall shrub, summer-green (TSD)",
+                "membership_evidence": "data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv",
+                "source_label": "TSD"
+              },
+              {
+                "definition": "Low shrub, broadleaved evergreen",
+                "key": "LSE",
+                "label": "Low shrub, broadleaved evergreen (LSE)",
+                "membership_evidence": "data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv",
+                "source_label": "LSE"
+              },
+              {
+                "definition": "Grassland - all herbs",
+                "key": "GL",
+                "label": "Grassland - all herbs (GL)",
+                "membership_evidence": "data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv",
+                "source_label": "GL"
+              },
+              {
+                "definition": "Agricultural land - cereals",
+                "key": "AL",
+                "label": "Agricultural land - cereals (AL)",
+                "membership_evidence": "data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv",
+                "source_label": "AL"
+              }
+            ]
+          },
+          {
+            "default_metric_key": "OL",
+            "key": "source_land_cover_types",
+            "label": "Source land-cover types",
+            "membership_evidence": [
+              "data/landclim/raw/landclim_ii_reveals_results.zip::LANDCLIMII.RV.means.JUN2021/TW1.RV.estimates.jun21.csv#header",
+              "data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv"
+            ],
+            "metric_count": 3,
+            "metrics": [
+              {
+                "definition": "Evergreen trees",
+                "key": "ET",
+                "label": "Evergreen trees (ET)",
+                "membership_evidence": "data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv",
+                "source_label": "Evergreen trees (ET)"
+              },
+              {
+                "definition": "Summer-green trees",
+                "key": "ST",
+                "label": "Summer-green trees (ST)",
+                "membership_evidence": "data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv",
+                "source_label": "Summer-green trees (ST)"
+              },
+              {
+                "definition": "Open land",
+                "key": "OL",
+                "label": "Open land (OL)",
+                "membership_evidence": "data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv",
+                "source_label": "Open land (OL)"
+              }
+            ]
+          }
+        ],
+        "metric_family_count": 3,
+        "metric_key": "OL",
+        "metric_label": "Open land",
+        "no_pollen_data_display_posture": "null_not_zero",
+        "palette": [
+          {
+            "color": "#1b4332",
+            "label": "0\u201320%",
+            "maximum": 20
+          },
+          {
+            "color": "#52796f",
+            "label": ">20\u201340%",
+            "maximum": 40
+          },
+          {
+            "color": "#a7c957",
+            "label": ">40\u201360%",
+            "maximum": 60
+          },
+          {
+            "color": "#f2cc8f",
+            "label": ">60\u201380%",
+            "maximum": 80
+          },
+          {
+            "color": "#d97706",
+            "label": ">80\u2013100%",
+            "maximum": 100
+          }
+        ],
+        "propagation_use_allowed": false,
+        "quality_class_counts": {
+          "high": 628,
+          "low": 940,
+          "no_pollen_data": 307
+        },
+        "quality_classes": [
+          "high",
+          "low",
+          "no_pollen_data"
+        ],
+        "reason_code": null,
+        "schema_version": "modeled-context-manifest.v3",
+        "status": "available",
+        "value_unit": "percentage_cover",
+        "windows_oldest_to_present": [
+          {
+            "country_counts": {
+              "Denmark": 6,
+              "Finland": 19,
+              "Norway": 24,
+              "Sweden": 26
+            },
+            "country_quality_class_counts": {
+              "Denmark": {
+                "high": 0,
+                "low": 1,
+                "no_pollen_data": 5
+              },
+              "Finland": {
+                "high": 1,
+                "low": 2,
+                "no_pollen_data": 16
+              },
+              "Norway": {
+                "high": 5,
+                "low": 7,
+                "no_pollen_data": 12
+              },
+              "Sweden": {
+                "high": 4,
+                "low": 7,
+                "no_pollen_data": 15
+              }
+            },
+            "feature_count": 75,
+            "label": "11200-11700 BP",
+            "no_pollen_data_count": 48,
+            "quality_class_counts": {
+              "high": 10,
+              "low": 17,
+              "no_pollen_data": 48
+            },
+            "time_end_bp": 11700,
+            "time_start_bp": 11200
+          },
+          {
+            "country_counts": {
+              "Denmark": 6,
+              "Finland": 19,
+              "Norway": 24,
+              "Sweden": 26
+            },
+            "country_quality_class_counts": {
+              "Denmark": {
+                "high": 0,
+                "low": 2,
+                "no_pollen_data": 4
+              },
+              "Finland": {
+                "high": 1,
+                "low": 6,
+                "no_pollen_data": 12
+              },
+              "Norway": {
+                "high": 6,
+                "low": 9,
+                "no_pollen_data": 9
+              },
+              "Sweden": {
+                "high": 7,
+                "low": 7,
+                "no_pollen_data": 12
+              }
+            },
+            "feature_count": 75,
+            "label": "10700-11200 BP",
+            "no_pollen_data_count": 37,
+            "quality_class_counts": {
+              "high": 14,
+              "low": 24,
+              "no_pollen_data": 37
+            },
+            "time_end_bp": 11200,
+            "time_start_bp": 10700
+          },
+          {
+            "country_counts": {
+              "Denmark": 6,
+              "Finland": 19,
+              "Norway": 24,
+              "Sweden": 26
+            },
+            "country_quality_class_counts": {
+              "Denmark": {
+                "high": 1,
+                "low": 1,
+                "no_pollen_data": 4
+              },
+              "Finland": {
+                "high": 2,
+                "low": 7,
+                "no_pollen_data": 10
+              },
+              "Norway": {
+                "high": 8,
+                "low": 11,
+                "no_pollen_data": 5
+              },
+              "Sweden": {
+                "high": 7,
+                "low": 9,
+                "no_pollen_data": 10
+              }
+            },
+            "feature_count": 75,
+            "label": "10200-10700 BP",
+            "no_pollen_data_count": 29,
+            "quality_class_counts": {
+              "high": 18,
+              "low": 28,
+              "no_pollen_data": 29
+            },
+            "time_end_bp": 10700,
+            "time_start_bp": 10200
+          },
+          {
+            "country_counts": {
+              "Denmark": 6,
+              "Finland": 19,
+              "Norway": 24,
+              "Sweden": 26
+            },
+            "country_quality_class_counts": {
+              "Denmark": {
+                "high": 2,
+                "low": 0,
+                "no_pollen_data": 4
+              },
+              "Finland": {
+                "high": 3,
+                "low": 9,
+                "no_pollen_data": 7
+              },
+              "Norway": {
+                "high": 9,
+                "low": 12,
+                "no_pollen_data": 3
+              },
+              "Sweden": {
+                "high": 8,
+                "low": 10,
+                "no_pollen_data": 8
+              }
+            },
+            "feature_count": 75,
+            "label": "9700-10200 BP",
+            "no_pollen_data_count": 22,
+            "quality_class_counts": {
+              "high": 22,
+              "low": 31,
+              "no_pollen_data": 22
+            },
+            "time_end_bp": 10200,
+            "time_start_bp": 9700
+          },
+          {
+            "country_counts": {
+              "Denmark": 6,
+              "Finland": 19,
+              "Norway": 24,
+              "Sweden": 26
+            },
+            "country_quality_class_counts": {
+              "Denmark": {
+                "high": 2,
+                "low": 0,
+                "no_pollen_data": 4
+              },
+              "Finland": {
+                "high": 3,
+                "low": 12,
+                "no_pollen_data": 4
+              },
+              "Norway": {
+                "high": 10,
+                "low": 12,
+                "no_pollen_data": 2
+              },
+              "Sweden": {
+                "high": 11,
+                "low": 9,
+                "no_pollen_data": 6
+              }
+            },
+            "feature_count": 75,
+            "label": "9200-9700 BP",
+            "no_pollen_data_count": 16,
+            "quality_class_counts": {
+              "high": 26,
+              "low": 33,
+              "no_pollen_data": 16
+            },
+            "time_end_bp": 9700,
+            "time_start_bp": 9200
+          },
+          {
+            "country_counts": {
+              "Denmark": 6,
+              "Finland": 19,
+              "Norway": 24,
+              "Sweden": 26
+            },
+            "country_quality_class_counts": {
+              "Denmark": {
+                "high": 2,
+                "low": 0,
+                "no_pollen_data": 4
+              },
+              "Finland": {
+                "high": 3,
+                "low": 12,
+                "no_pollen_data": 4
+              },
+              "Norway": {
+                "high": 10,
+                "low": 12,
+                "no_pollen_data": 2
+              },
+              "Sweden": {
+                "high": 11,
+                "low": 9,
+                "no_pollen_data": 6
+              }
+            },
+            "feature_count": 75,
+            "label": "8700-9200 BP",
+            "no_pollen_data_count": 16,
+            "quality_class_counts": {
+              "high": 26,
+              "low": 33,
+              "no_pollen_data": 16
+            },
+            "time_end_bp": 9200,
+            "time_start_bp": 8700
+          },
+          {
+            "country_counts": {
+              "Denmark": 6,
+              "Finland": 19,
+              "Norway": 24,
+              "Sweden": 26
+            },
+            "country_quality_class_counts": {
+              "Denmark": {
+                "high": 2,
+                "low": 1,
+                "no_pollen_data": 3
+              },
+              "Finland": {
+                "high": 3,
+                "low": 12,
+                "no_pollen_data": 4
+              },
+              "Norway": {
+                "high": 10,
+                "low": 14,
+                "no_pollen_data": 0
+              },
+              "Sweden": {
+                "high": 11,
+                "low": 10,
+                "no_pollen_data": 5
+              }
+            },
+            "feature_count": 75,
+            "label": "8200-8700 BP",
+            "no_pollen_data_count": 12,
+            "quality_class_counts": {
+              "high": 26,
+              "low": 37,
+              "no_pollen_data": 12
+            },
+            "time_end_bp": 8700,
+            "time_start_bp": 8200
+          },
+          {
+            "country_counts": {
+              "Denmark": 6,
+              "Finland": 19,
+              "Norway": 24,
+              "Sweden": 26
+            },
+            "country_quality_class_counts": {
+              "Denmark": {
+                "high": 2,
+                "low": 1,
+                "no_pollen_data": 3
+              },
+              "Finland": {
+                "high": 3,
+                "low": 12,
+                "no_pollen_data": 4
+              },
+              "Norway": {
+                "high": 10,
+                "low": 14,
+                "no_pollen_data": 0
+              },
+              "Sweden": {
+                "high": 11,
+                "low": 12,
+                "no_pollen_data": 3
+              }
+            },
+            "feature_count": 75,
+            "label": "7700-8200 BP",
+            "no_pollen_data_count": 10,
+            "quality_class_counts": {
+              "high": 26,
+              "low": 39,
+              "no_pollen_data": 10
+            },
+            "time_end_bp": 8200,
+            "time_start_bp": 7700
+          },
+          {
+            "country_counts": {
+              "Denmark": 6,
+              "Finland": 19,
+              "Norway": 24,
+              "Sweden": 26
+            },
+            "country_quality_class_counts": {
+              "Denmark": {
+                "high": 2,
+                "low": 1,
+                "no_pollen_data": 3
+              },
+              "Finland": {
+                "high": 4,
+                "low": 11,
+                "no_pollen_data": 4
+              },
+              "Norway": {
+                "high": 10,
+                "low": 14,
+                "no_pollen_data": 0
+              },
+              "Sweden": {
+                "high": 11,
+                "low": 13,
+                "no_pollen_data": 2
+              }
+            },
+            "feature_count": 75,
+            "label": "7200-7700 BP",
+            "no_pollen_data_count": 9,
+            "quality_class_counts": {
+              "high": 27,
+              "low": 39,
+              "no_pollen_data": 9
+            },
+            "time_end_bp": 7700,
+            "time_start_bp": 7200
+          },
+          {
+            "country_counts": {
+              "Denmark": 6,
+              "Finland": 19,
+              "Norway": 24,
+              "Sweden": 26
+            },
+            "country_quality_class_counts": {
+              "Denmark": {
+                "high": 2,
+                "low": 1,
+                "no_pollen_data": 3
+              },
+              "Finland": {
+                "high": 4,
+                "low": 11,
+                "no_pollen_data": 4
+              },
+              "Norway": {
+                "high": 10,
+                "low": 14,
+                "no_pollen_data": 0
+              },
+              "Sweden": {
+                "high": 11,
+                "low": 13,
+                "no_pollen_data": 2
+              }
+            },
+            "feature_count": 75,
+            "label": "6700-7200 BP",
+            "no_pollen_data_count": 9,
+            "quality_class_counts": {
+              "high": 27,
+              "low": 39,
+              "no_pollen_data": 9
+            },
+            "time_end_bp": 7200,
+            "time_start_bp": 6700
+          },
+          {
+            "country_counts": {
+              "Denmark": 6,
+              "Finland": 19,
+              "Norway": 24,
+              "Sweden": 26
+            },
+            "country_quality_class_counts": {
+              "Denmark": {
+                "high": 2,
+                "low": 1,
+                "no_pollen_data": 3
+              },
+              "Finland": {
+                "high": 4,
+                "low": 12,
+                "no_pollen_data": 3
+              },
+              "Norway": {
+                "high": 10,
+                "low": 14,
+                "no_pollen_data": 0
+              },
+              "Sweden": {
+                "high": 12,
+                "low": 12,
+                "no_pollen_data": 2
+              }
+            },
+            "feature_count": 75,
+            "label": "6200-6700 BP",
+            "no_pollen_data_count": 8,
+            "quality_class_counts": {
+              "high": 28,
+              "low": 39,
+              "no_pollen_data": 8
+            },
+            "time_end_bp": 6700,
+            "time_start_bp": 6200
+          },
+          {
+            "country_counts": {
+              "Denmark": 6,
+              "Finland": 19,
+              "Norway": 24,
+              "Sweden": 26
+            },
+            "country_quality_class_counts": {
+              "Denmark": {
+                "high": 2,
+                "low": 1,
+                "no_pollen_data": 3
+              },
+              "Finland": {
+                "high": 3,
+                "low": 12,
+                "no_pollen_data": 4
+              },
+              "Norway": {
+                "high": 10,
+                "low": 14,
+                "no_pollen_data": 0
+              },
+              "Sweden": {
+                "high": 12,
+                "low": 12,
+                "no_pollen_data": 2
+              }
+            },
+            "feature_count": 75,
+            "label": "5700-6200 BP",
+            "no_pollen_data_count": 9,
+            "quality_class_counts": {
+              "high": 27,
+              "low": 39,
+              "no_pollen_data": 9
+            },
+            "time_end_bp": 6200,
+            "time_start_bp": 5700
+          },
+          {
+            "country_counts": {
+              "Denmark": 6,
+              "Finland": 19,
+              "Norway": 24,
+              "Sweden": 26
+            },
+            "country_quality_class_counts": {
+              "Denmark": {
+                "high": 2,
+                "low": 1,
+                "no_pollen_data": 3
+              },
+              "Finland": {
+                "high": 4,
+                "low": 12,
+                "no_pollen_data": 3
+              },
+              "Norway": {
+                "high": 10,
+                "low": 14,
+                "no_pollen_data": 0
+              },
+              "Sweden": {
+                "high": 11,
+                "low": 14,
+                "no_pollen_data": 1
+              }
+            },
+            "feature_count": 75,
+            "label": "5200-5700 BP",
+            "no_pollen_data_count": 7,
+            "quality_class_counts": {
+              "high": 27,
+              "low": 41,
+              "no_pollen_data": 7
+            },
+            "time_end_bp": 5700,
+            "time_start_bp": 5200
+          },
+          {
+            "country_counts": {
+              "Denmark": 6,
+              "Finland": 19,
+              "Norway": 24,
+              "Sweden": 26
+            },
+            "country_quality_class_counts": {
+              "Denmark": {
+                "high": 2,
+                "low": 1,
+                "no_pollen_data": 3
+              },
+              "Finland": {
+                "high": 4,
+                "low": 13,
+                "no_pollen_data": 2
+              },
+              "Norway": {
+                "high": 10,
+                "low": 14,
+                "no_pollen_data": 0
+              },
+              "Sweden": {
+                "high": 12,
+                "low": 13,
+                "no_pollen_data": 1
+              }
+            },
+            "feature_count": 75,
+            "label": "4700-5200 BP",
+            "no_pollen_data_count": 6,
+            "quality_class_counts": {
+              "high": 28,
+              "low": 41,
+              "no_pollen_data": 6
+            },
+            "time_end_bp": 5200,
+            "time_start_bp": 4700
+          },
+          {
+            "country_counts": {
+              "Denmark": 6,
+              "Finland": 19,
+              "Norway": 24,
+              "Sweden": 26
+            },
+            "country_quality_class_counts": {
+              "Denmark": {
+                "high": 2,
+                "low": 1,
+                "no_pollen_data": 3
+              },
+              "Finland": {
+                "high": 4,
+                "low": 13,
+                "no_pollen_data": 2
+              },
+              "Norway": {
+                "high": 10,
+                "low": 13,
+                "no_pollen_data": 1
+              },
+              "Sweden": {
+                "high": 12,
+                "low": 12,
+                "no_pollen_data": 2
+              }
+            },
+            "feature_count": 75,
+            "label": "4200-4700 BP",
+            "no_pollen_data_count": 8,
+            "quality_class_counts": {
+              "high": 28,
+              "low": 39,
+              "no_pollen_data": 8
+            },
+            "time_end_bp": 4700,
+            "time_start_bp": 4200
+          },
+          {
+            "country_counts": {
+              "Denmark": 6,
+              "Finland": 19,
+              "Norway": 24,
+              "Sweden": 26
+            },
+            "country_quality_class_counts": {
+              "Denmark": {
+                "high": 2,
+                "low": 1,
+                "no_pollen_data": 3
+              },
+              "Finland": {
+                "high": 3,
+                "low": 15,
+                "no_pollen_data": 1
+              },
+              "Norway": {
+                "high": 9,
+                "low": 15,
+                "no_pollen_data": 0
+              },
+              "Sweden": {
+                "high": 12,
+                "low": 13,
+                "no_pollen_data": 1
+              }
+            },
+            "feature_count": 75,
+            "label": "3700-4200 BP",
+            "no_pollen_data_count": 5,
+            "quality_class_counts": {
+              "high": 26,
+              "low": 44,
+              "no_pollen_data": 5
+            },
+            "time_end_bp": 4200,
+            "time_start_bp": 3700
+          },
+          {
+            "country_counts": {
+              "Denmark": 6,
+              "Finland": 19,
+              "Norway": 24,
+              "Sweden": 26
+            },
+            "country_quality_class_counts": {
+              "Denmark": {
+                "high": 2,
+                "low": 1,
+                "no_pollen_data": 3
+              },
+              "Finland": {
+                "high": 4,
+                "low": 15,
+                "no_pollen_data": 0
+              },
+              "Norway": {
+                "high": 10,
+                "low": 14,
+                "no_pollen_data": 0
+              },
+              "Sweden": {
+                "high": 12,
+                "low": 14,
+                "no_pollen_data": 0
+              }
+            },
+            "feature_count": 75,
+            "label": "3200-3700 BP",
+            "no_pollen_data_count": 3,
+            "quality_class_counts": {
+              "high": 28,
+              "low": 44,
+              "no_pollen_data": 3
+            },
+            "time_end_bp": 3700,
+            "time_start_bp": 3200
+          },
+          {
+            "country_counts": {
+              "Denmark": 6,
+              "Finland": 19,
+              "Norway": 24,
+              "Sweden": 26
+            },
+            "country_quality_class_counts": {
+              "Denmark": {
+                "high": 2,
+                "low": 1,
+                "no_pollen_data": 3
+              },
+              "Finland": {
+                "high": 4,
+                "low": 14,
+                "no_pollen_data": 1
+              },
+              "Norway": {
+                "high": 10,
+                "low": 14,
+                "no_pollen_data": 0
+              },
+              "Sweden": {
+                "high": 12,
+                "low": 13,
+                "no_pollen_data": 1
+              }
+            },
+            "feature_count": 75,
+            "label": "2700-3200 BP",
+            "no_pollen_data_count": 5,
+            "quality_class_counts": {
+              "high": 28,
+              "low": 42,
+              "no_pollen_data": 5
+            },
+            "time_end_bp": 3200,
+            "time_start_bp": 2700
+          },
+          {
+            "country_counts": {
+              "Denmark": 6,
+              "Finland": 19,
+              "Norway": 24,
+              "Sweden": 26
+            },
+            "country_quality_class_counts": {
+              "Denmark": {
+                "high": 2,
+                "low": 1,
+                "no_pollen_data": 3
+              },
+              "Finland": {
+                "high": 4,
+                "low": 15,
+                "no_pollen_data": 0
+              },
+              "Norway": {
+                "high": 10,
+                "low": 12,
+                "no_pollen_data": 2
+              },
+              "Sweden": {
+                "high": 11,
+                "low": 15,
+                "no_pollen_data": 0
+              }
+            },
+            "feature_count": 75,
+            "label": "2200-2700 BP",
+            "no_pollen_data_count": 5,
+            "quality_class_counts": {
+              "high": 27,
+              "low": 43,
+              "no_pollen_data": 5
+            },
+            "time_end_bp": 2700,
+            "time_start_bp": 2200
+          },
+          {
+            "country_counts": {
+              "Denmark": 6,
+              "Finland": 19,
+              "Norway": 24,
+              "Sweden": 26
+            },
+            "country_quality_class_counts": {
+              "Denmark": {
+                "high": 2,
+                "low": 1,
+                "no_pollen_data": 3
+              },
+              "Finland": {
+                "high": 5,
+                "low": 12,
+                "no_pollen_data": 2
+              },
+              "Norway": {
+                "high": 10,
+                "low": 13,
+                "no_pollen_data": 1
+              },
+              "Sweden": {
+                "high": 12,
+                "low": 14,
+                "no_pollen_data": 0
+              }
+            },
+            "feature_count": 75,
+            "label": "1700-2200 BP",
+            "no_pollen_data_count": 6,
+            "quality_class_counts": {
+              "high": 29,
+              "low": 40,
+              "no_pollen_data": 6
+            },
+            "time_end_bp": 2200,
+            "time_start_bp": 1700
+          },
+          {
+            "country_counts": {
+              "Denmark": 6,
+              "Finland": 19,
+              "Norway": 24,
+              "Sweden": 26
+            },
+            "country_quality_class_counts": {
+              "Denmark": {
+                "high": 2,
+                "low": 1,
+                "no_pollen_data": 3
+              },
+              "Finland": {
+                "high": 4,
+                "low": 14,
+                "no_pollen_data": 1
+              },
+              "Norway": {
+                "high": 10,
+                "low": 13,
+                "no_pollen_data": 1
+              },
+              "Sweden": {
+                "high": 11,
+                "low": 15,
+                "no_pollen_data": 0
+              }
+            },
+            "feature_count": 75,
+            "label": "1200-1700 BP",
+            "no_pollen_data_count": 5,
+            "quality_class_counts": {
+              "high": 27,
+              "low": 43,
+              "no_pollen_data": 5
+            },
+            "time_end_bp": 1700,
+            "time_start_bp": 1200
+          },
+          {
+            "country_counts": {
+              "Denmark": 6,
+              "Finland": 19,
+              "Norway": 24,
+              "Sweden": 26
+            },
+            "country_quality_class_counts": {
+              "Denmark": {
+                "high": 2,
+                "low": 1,
+                "no_pollen_data": 3
+              },
+              "Finland": {
+                "high": 5,
+                "low": 12,
+                "no_pollen_data": 2
+              },
+              "Norway": {
+                "high": 8,
+                "low": 14,
+                "no_pollen_data": 2
+              },
+              "Sweden": {
+                "high": 12,
+                "low": 13,
+                "no_pollen_data": 1
+              }
+            },
+            "feature_count": 75,
+            "label": "700-1200 BP",
+            "no_pollen_data_count": 8,
+            "quality_class_counts": {
+              "high": 27,
+              "low": 40,
+              "no_pollen_data": 8
+            },
+            "time_end_bp": 1200,
+            "time_start_bp": 700
+          },
+          {
+            "country_counts": {
+              "Denmark": 6,
+              "Finland": 19,
+              "Norway": 24,
+              "Sweden": 26
+            },
+            "country_quality_class_counts": {
+              "Denmark": {
+                "high": 2,
+                "low": 2,
+                "no_pollen_data": 2
+              },
+              "Finland": {
+                "high": 3,
+                "low": 14,
+                "no_pollen_data": 2
+              },
+              "Norway": {
+                "high": 7,
+                "low": 16,
+                "no_pollen_data": 1
+              },
+              "Sweden": {
+                "high": 12,
+                "low": 14,
+                "no_pollen_data": 0
+              }
+            },
+            "feature_count": 75,
+            "label": "350-700 BP",
+            "no_pollen_data_count": 5,
+            "quality_class_counts": {
+              "high": 24,
+              "low": 46,
+              "no_pollen_data": 5
+            },
+            "time_end_bp": 700,
+            "time_start_bp": 350
+          },
+          {
+            "country_counts": {
+              "Denmark": 6,
+              "Finland": 19,
+              "Norway": 24,
+              "Sweden": 26
+            },
+            "country_quality_class_counts": {
+              "Denmark": {
+                "high": 5,
+                "low": 1,
+                "no_pollen_data": 0
+              },
+              "Finland": {
+                "high": 4,
+                "low": 10,
+                "no_pollen_data": 5
+              },
+              "Norway": {
+                "high": 7,
+                "low": 13,
+                "no_pollen_data": 4
+              },
+              "Sweden": {
+                "high": 12,
+                "low": 14,
+                "no_pollen_data": 0
+              }
+            },
+            "feature_count": 75,
+            "label": "100-350 BP",
+            "no_pollen_data_count": 9,
+            "quality_class_counts": {
+              "high": 28,
+              "low": 38,
+              "no_pollen_data": 9
+            },
+            "time_end_bp": 350,
+            "time_start_bp": 100
+          },
+          {
+            "country_counts": {
+              "Denmark": 6,
+              "Finland": 19,
+              "Norway": 24,
+              "Sweden": 26
+            },
+            "country_quality_class_counts": {
+              "Denmark": {
+                "high": 4,
+                "low": 1,
+                "no_pollen_data": 1
+              },
+              "Finland": {
+                "high": 2,
+                "low": 14,
+                "no_pollen_data": 3
+              },
+              "Norway": {
+                "high": 7,
+                "low": 13,
+                "no_pollen_data": 4
+              },
+              "Sweden": {
+                "high": 11,
+                "low": 13,
+                "no_pollen_data": 2
+              }
+            },
+            "feature_count": 75,
+            "label": "0-100 BP",
+            "no_pollen_data_count": 10,
+            "quality_class_counts": {
+              "high": 24,
+              "low": 41,
+              "no_pollen_data": 10
+            },
+            "time_end_bp": 100,
+            "time_start_bp": 0
+          }
+        ]
+      },
+      "source_feature_count": 1875,
+      "source_feature_sha256": "581e7b48f9cbb19b6b423885efe0cd1ea60a96dc15064255a4ec422ad5fae344",
+      "source_features_equal": true
+    },
+    "native": {
+      "data_kind": "synthetic",
+      "geometry_sha256": "52afc5687e5ab39b6cf3445cdefb12096be050938b12f3cc9436b3da51b761bd",
+      "missing_value_count": 4,
+      "native_view_sha256": "c7276b4b90bd57750af6182cb65ae8674e349f332cc6f606bd23dcb19e13a6e8",
+      "posterior_draw_channel": "unavailable_in_retained_paired_view",
+      "product_manifest_sha256": "de45206119e4f2663fe1d24cb4b52a481f025fa8cf7561c5ac7a188c624c07e9",
+      "publication_authorized": false,
+      "row_count": 18,
+      "scientific_acceptance": "not_evaluated",
+      "temporal_profile": "calendar-bp1950-signed.v1"
+    },
+    "numerical_execution": "none; render existing retained products only",
+    "schema_version": "atlas-retained-context-frame-candidate.v1",
+    "source_atlas_build_id": "atlas-0a15c7029a76a7959aaf03f3635624edce91d151f70df9127ffd92f7cdfefa81"
+  },
+  "limitations": [
+    "modeled context only; interpolation/propagation disabled",
+    "synthetic exploratory native view; scientific acceptance not evaluated",
+    "retained native paired view has no posterior draw selector",
+    "no accepted cross-border edge matrix or source-wide completeness certification",
+    "full accessibility/performance/provider/deployment unverified"
+  ],
+  "producer": {
+    "module": "bijux_pollenomics_dev.ci.atlas_browser.context_frame_candidate",
+    "path": "../../../../packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/atlas_browser/context_frame_candidate.py"
+  },
+  "schema_version": "atlas-populated-frame-url-replay-review.v1",
+  "selected_checks": {
+    "mypy": "PASS; producer source",
+    "node_syntax": "PASS; browser verifier",
+    "producer_regressions": "5 passed in 0.62s",
+    "ruff_check_and_format": "PASS; producer and focused tests"
+  },
+  "status": "PASS",
+  "verifier": {
+    "path": "../../../../packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/atlas_browser/frame-url-replay.mjs"
+  }
+}
