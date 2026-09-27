@@ -14,7 +14,7 @@ def test_mobile_legend_clears_status_and_keeps_a_touch_sized_toggle() -> None:
     ].split("}", 1)[0]
     status_rule = mobile_css.split("\n        .map-status {", 1)[1].split("}", 1)[0]
 
-    assert "bottom: calc(136px + env(safe-area-inset-bottom));" in legend_rule
+    assert "bottom: calc(176px + env(safe-area-inset-bottom));" in legend_rule
     assert "min-height: 44px;" in toggle_rule
-    assert "margin-bottom: calc(136px + env(safe-area-inset-bottom));" in scale_rule
+    assert "margin-bottom: calc(176px + env(safe-area-inset-bottom));" in scale_rule
     assert "bottom: 8px;" in status_rule
