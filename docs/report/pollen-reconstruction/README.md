@@ -58,13 +58,33 @@ The Nordic direct-pollen study uses the exact 16-label response selected for the
 
 Development predictions, per-candidate coverage, score definitions, source hashes and refusal rows are retained in the linked repository outputs. No new final outcome access or outcome-informed confirmatory redesign occurred for this report.
 
-To verify the report and every retained source/output digest locally, run:
+To verify the tracked result, configuration and producer digests locally, run:
 
 ```sh
 .venv/bin/python docs/report/pollen-reconstruction/verify_report.py
 ```
 
 The Swedish producer is `bijux_pollenomics_dev.source_completion.swedish_direct_pollen`; its exact configuration, source hashes, cohort, prepared profiles, frozen predictions, scores and exclusions are retained under `swedish-direct-pollen/`. The author development design, leaderboard, coverage, candidate scores and compressed predictions are retained in this directory. The Nordic country-held-out outputs are retained under `docs/report/regions/nordic/direct-pollen/`. Raw source snapshots remain governed by their source repositories and the public source reviews.
+
+### Author source custody and reproduction
+
+The author development study consumes private source files in addition to its tracked producer. The exact original input manifest and its 193 source/reference files (2,282,688 bytes excluding the manifest) are retained under `landclim/author-reference` in the external source-data store. This includes the prepared counts, site geometry, time-window axis, taxon crosswalk and independent R reference files. The grouped-development consumer requires 22 of those files plus the original manifest. Source inputs and reference files remain private because redistribution rights are unresolved; neither source custody nor the existing author geometry admits the separate Swedish Neotoma cohort to LRA.
+
+The [custody record](author-source-custody.json) binds the exact manifest, consumed input hashes, source revision, producer and source reader. It preserves source identity independently of disposable run directories. Supply the private capsule path to authenticate it with the study's existing source reader, then reproduce the previously exposed development comparison:
+
+```sh
+author_source_root=/path/to/private/source/store/landclim/author-reference
+.venv/bin/python docs/report/pollen-reconstruction/verify_report.py \
+  --author-source-root "$author_source_root"
+OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 \
+  NUMEXPR_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 \
+  .venv/bin/python -m bijux_pollenomics_dev.essd_reproduction.author_pollen_spatial.development_search \
+  --author "$author_source_root/author" \
+  --reference "$author_source_root/reference" \
+  --output artifacts/author-pollen-development-reproduction
+```
+
+The output directory is disposable; the documented results and private source capsule survive its removal. A recipient without access to the private source files can inspect the retained predictions and scores but cannot rerun the source-backed study from the report alone.
 
 ## Software delivery verification
 

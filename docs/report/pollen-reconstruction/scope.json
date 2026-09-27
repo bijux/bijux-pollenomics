@@ -62,7 +62,9 @@
     "final_development_suite": "1,097 passed before final cache guard failure; 3 opt-in skipped; guard rechecked in a 10-test managed selection",
     "focused_delivery_verification": "10 passed; read set unchanged; Ruff check/format and mypy passed",
     "isolated_package_build": "passed; wheel and sdist built; not published",
-    "rootsi_source_review": "docs/public/pollenomics-data/sources/landclim.md"
+    "rootsi_source_review": "docs/public/pollenomics-data/sources/landclim.md",
+    "author_source_custody": "docs/report/pollen-reconstruction/author-source-custody.json",
+    "author_private_source_store_relative_path": "landclim/author-reference"
   },
   "scientific_acceptance": "not_evaluated_for_full_nordic_lra_objective; exploratory_direct_pollen_results_available_for_NO_and_FI",
   "program_delivery_acceptance": "s9_test_selection_1097_passed_before_cache_guard_failure; focused_guard_rerun_passed; isolated_package_build_passed; full_scientific_objective_incomplete_due_to_external_source_blockers",

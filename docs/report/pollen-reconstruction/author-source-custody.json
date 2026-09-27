@@ -1,0 +1,141 @@
+{
+  "schema_version": "author-pollen-source-custody.v1",
+  "source_kind": "private_author_source_and_independent_R_reference",
+  "source_repository": "https://github.com/rmfyfe/landclimII",
+  "source_revision": "57ead2e2fcc493d099be4e5a3092fc396e1c3d3a",
+  "source_archive_sha256": "cd6cc688e6c44dd61d0ed038f53d118f4aade0696c37dc6174d613a38097bb38",
+  "redistribution_status": "not_cleared; source and independent reference files remain private in the external source-data store",
+  "source_store_relative_path": "landclim/author-reference",
+  "original_manifest_filename": "snapshot-manifest.json",
+  "original_manifest_sha256": "48d853468f979a04636642c6c757e9d05edf708d799b29cbae4d2286a9ac0acb",
+  "original_manifest_schema": "v3-landclim-two-grid-snapshot.v1",
+  "retained_manifest_file_count": 193,
+  "retained_manifest_file_bytes": 2282688,
+  "preserved_original_manifest": true,
+  "producer": {
+    "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/author_pollen_spatial/development_search.py",
+    "sha256": "a0bdd0efc2294d959b5de31958ade5f6f844d9694add448e4cf46e000a585770"
+  },
+  "source_reader": {
+    "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/author_pollen_spatial/source.py",
+    "sha256": "e5d213948f22c269545b8ea86680347179a715f46b3c835882e3dc6a4e291da1"
+  },
+  "required_development_files": [
+    {
+      "path": "author/TWlookup.csv",
+      "sha256": "888a2d5d035c8a49bd957917ca0658bb08824240ac15c1da4b717c633ddae3dd",
+      "bytes": 200
+    },
+    {
+      "path": "author/run.REVEALS.files/LRAready_BECKHAM.csv",
+      "sha256": "1982eb43353cb632319d97943decde8539d98111a7ade7ecaaa5757532231b5e",
+      "bytes": 2373
+    },
+    {
+      "path": "author/run.REVEALS.files/LRAready_BROADOWN.csv",
+      "sha256": "1eb04f58c13321fc9f284186df85003d4f73803f2485b842984f49a64c21a0c8",
+      "bytes": 2476
+    },
+    {
+      "path": "author/run.REVEALS.files/LRAready_COMERSLA.csv",
+      "sha256": "bc702bc41f578a5ffad078144d50961d1f47f1d003f0ace5a63b019f4b3340b3",
+      "bytes": 2409
+    },
+    {
+      "path": "author/run.REVEALS.files/LRAready_CUTHILL2.csv",
+      "sha256": "a17ad8a86c4fb7fdffda4799dbc8de6909a037f7b106e07263fdd727c4c7f283",
+      "bytes": 2452
+    },
+    {
+      "path": "author/run.REVEALS.files/LRAready_EXEBRID.csv",
+      "sha256": "80a5294684564c1475bd3311e049cde2de78e5c7e098af0277dda49d353bb698",
+      "bytes": 2401
+    },
+    {
+      "path": "author/run.REVEALS.files/LRAready_GOURTEMIRES.csv",
+      "sha256": "c10e7acd64a7065cc7681554dd3e07730087dddc3f816a312e304268109201dd",
+      "bytes": 2402
+    },
+    {
+      "path": "author/run.REVEALS.files/LRAready_HANGINGS.csv",
+      "sha256": "8249ce97a114048400a1497924cac0bc1c07fc7ae110dd5f868accd9425eda2f",
+      "bytes": 2474
+    },
+    {
+      "path": "author/run.REVEALS.files/LRAready_HARESDOWN.csv",
+      "sha256": "406896858243381630c3e7a66f29c97d8ee7725c4f418f72396c4d31095e33d9",
+      "bytes": 2367
+    },
+    {
+      "path": "author/run.REVEALS.files/LRAready_LARKBARR.csv",
+      "sha256": "07daff782dae844eaa787e547d1b49937f975f49ea457a9576b9db58ddc4bbf6",
+      "bytes": 2337
+    },
+    {
+      "path": "author/run.REVEALS.files/LRAready_LOBBSBOG.csv",
+      "sha256": "13b8ad5fa65022aeb6ad351317c77e68710b398e2abd7d6b7159811e880ad8a7",
+      "bytes": 2370
+    },
+    {
+      "path": "author/run.REVEALS.files/LRAready_LONGBREACH.csv",
+      "sha256": "512ff3258e6badcb5c85c0c315bbd1dc00c2035243c2337d172eb55ca54abb3b",
+      "bytes": 2449
+    },
+    {
+      "path": "author/run.REVEALS.files/LRAready_MOLECHAM.csv",
+      "sha256": "8addaceb66b78791f77bf1b8ff37cb282506baf8b3524b286f0113dde214bc57",
+      "bytes": 2386
+    },
+    {
+      "path": "author/run.REVEALS.files/LRAready_NTWITCHEN.csv",
+      "sha256": "eaae23b481debf5cbb13b54f94b5ae97187a79d2a0c716ff309d52a7c347a328",
+      "bytes": 2413
+    },
+    {
+      "path": "author/run.REVEALS.files/LRAready_WHH05.csv",
+      "sha256": "298b66d7033703ce42d27f933b4d3ccec3a16f68b35a6fbf7a61806c01c88273",
+      "bytes": 2309
+    },
+    {
+      "path": "author/run.REVEALS.files/LRAready_WHH11.csv",
+      "sha256": "d38734ceb0c134eeffbb40091a81d3a8a8d32143dd14504296cc7baa38bf735e",
+      "bytes": 2341
+    },
+    {
+      "path": "author/run.REVEALS.files/LRAready_WINDMILL.csv",
+      "sha256": "5cbfff585068fd2d3b27bb4d1156bde39b6b80f975ca78433cee960ce854c20f",
+      "bytes": 2350
+    },
+    {
+      "path": "author/run.REVEALS.files/LRAready_WINNEYS.csv",
+      "sha256": "b268187404a6ec1b0d0935990acd70bce678c55c95a2fadf38b7e50f27e29dd6",
+      "bytes": 2507
+    },
+    {
+      "path": "author/run.REVEALS.files/site.list.512.csv",
+      "sha256": "c0c04cfb53f0ac28a93aa2a96c0a2480751577e9c60462cb178ab198f3cda2c7",
+      "bytes": 192
+    },
+    {
+      "path": "author/run.REVEALS.files/site.list.562.csv",
+      "sha256": "0dbbc3ea5a982cea7b692a11befbbbcceddc4ab8b7d7adf4e0b44662a8a9081b",
+      "bytes": 180
+    },
+    {
+      "path": "author/site.metadata.csv",
+      "sha256": "72949e9e3faf417be0b7425fc111a9638b37c4a38aab8f8d82e0c3d8739da2de",
+      "bytes": 1019
+    },
+    {
+      "path": "reference/taxon-name-crosswalk.csv",
+      "sha256": "3a0f598ba5e550ca39da52b2047b7020b013dad013d15f79bef8e1c3c1a979c3",
+      "bytes": 930
+    }
+  ],
+  "expected_cohort": {
+    "sites": 17,
+    "taxa": 31,
+    "bins": 25
+  },
+  "scientific_scope": "previously_exposed_English_author_development_and_numerical_reference_only; no_Swedish_LRA_admission"
+}

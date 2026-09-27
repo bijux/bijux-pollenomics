@@ -31,8 +31,8 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/README.md",
-      "sha256": "e3ed97c4c1e31845de7ea27c2ddd2504cc4e50157445b745b3e35a60ec3a357b",
-      "bytes": 17972
+      "sha256": "da86d8c4b3c0ad5a6a9f4a831538823124d6a0b979da3eb5ac59be716e246382",
+      "bytes": 19933
     },
     {
       "path": "docs/report/pollen-reconstruction/author-development-design.json",
@@ -48,6 +48,11 @@
       "path": "docs/report/pollen-reconstruction/author-development-predictions.csv.gz",
       "sha256": "c18bd6d405ca5c31ab22f61fc0f8771098602f3eefebad305275553df5efbf92",
       "bytes": 762912
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/author-source-custody.json",
+      "sha256": "a69c65a2696aae98b1b624171e5fecb8335845c48c8e22b834cad270d186b493",
+      "bytes": 5498
     },
     {
       "path": "docs/report/pollen-reconstruction/coverage.csv",
@@ -76,8 +81,8 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/scope.json",
-      "sha256": "143d6d4ebd444733cec5b501c400eef95545e0652087cccf529a406c6e246360",
-      "bytes": 6563
+      "sha256": "09dfffab3b8d84c29d9208110caf036fcbfb839ec910225be867b6045a3d6b5e",
+      "bytes": 6734
     },
     {
       "path": "docs/report/pollen-reconstruction/scores.csv",
@@ -161,8 +166,8 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/verify_report.py",
-      "sha256": "a56badf5707b49c4f9b7ca20e03847754e49e2e50dfd747d8207c93418e93f67",
-      "bytes": 3808
+      "sha256": "8219704fdfed10d96c24317f9e26f686384ce8be59b1d8b3cb2c67d45e4a8530",
+      "bytes": 6965
     },
     {
       "path": "docs/report/regions/nordic/README.md",
@@ -223,6 +228,26 @@
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/author_example_correspondence.py",
       "sha256": "c56f4f960bd7bf22dbe9c2840c329f817ae9001f77e13e8b4dacf1f08e822c02",
       "bytes": 15161
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/author_pollen_spatial/development_search.py",
+      "sha256": "a0bdd0efc2294d959b5de31958ade5f6f844d9694add448e4cf46e000a585770",
+      "bytes": 21944
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/author_pollen_spatial/fitted_prediction.py",
+      "sha256": "580c0126b25b8e42393f479e9c631aa68ebdc9b3ab7c719179ea69260ad224f2",
+      "bytes": 9138
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/author_pollen_spatial/source.py",
+      "sha256": "e5d213948f22c269545b8ea86680347179a715f46b3c835882e3dc6a4e291da1",
+      "bytes": 7078
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/observed_pollen_baseline.py",
+      "sha256": "ab52539c7a835e75a7f53202038d4ae860af40d5a3de860e7a0f95ad930285c5",
+      "bytes": 17997
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/published_window_alignment.py",
