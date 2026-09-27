@@ -27,6 +27,7 @@ from .contract import (
     surface_schema_version,
     validate_reconciliation_counts,
 )
+from .ownership import NeotomaOwnershipIndex
 
 _SHA256_PATTERN = re.compile(r"[0-9a-f]{64}\Z")
 
@@ -34,7 +35,7 @@ _SHA256_PATTERN = re.compile(r"[0-9a-f]{64}\Z")
 def validate_neotoma_relational_materialization(
     output_root: Path,
 ) -> dict[str, object]:
-    """Validate schemas, counts, paths, ordering, and all published digests."""
+    """Validate schemas, ownership, counts, paths, ordering and published digests."""
     root = Path(output_root)
     if not root.is_absolute():
         raise ValueError("Neotoma materialization path must be absolute")
@@ -68,6 +69,7 @@ def validate_neotoma_relational_materialization(
     digest_records: list[dict[str, str]] = []
     surface_row_counts: dict[str, int] = {}
     country_partitions: dict[str, Counter[str]] = {}
+    ownership = NeotomaOwnershipIndex()
     site_statuses: Counter[str] = Counter()
     site_eligibility: Counter[str] = Counter()
     for surface_name, id_field in SURFACE_ID_FIELDS.items():
@@ -187,6 +189,7 @@ def validate_neotoma_relational_materialization(
             if part_row_count > rows_per_part:
                 raise ValueError(f"Part exceeds rows_per_part: {relative_path}")
             row_ids = _row_ids(rows, id_field=id_field, surface_name=surface_name)
+            ownership.validate_rows(surface_name, rows)
             if country_partition is not None:
                 accumulate_country_partition(
                     rows,

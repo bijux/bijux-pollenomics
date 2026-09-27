@@ -5,6 +5,7 @@ import hashlib
 import json
 from pathlib import Path
 import tempfile
+from typing import Any, cast
 import unittest
 from unittest.mock import patch
 
@@ -21,7 +22,7 @@ from bijux_pollenomics.evidence.sources.neotoma.contract import (
 )
 
 
-def _snapshot() -> dict[str, object]:
+def _snapshot() -> dict[str, Any]:
     surfaces: dict[str, object] = {
         "sites": [
             {
@@ -58,15 +59,34 @@ def _snapshot() -> dict[str, object]:
                 "country_code": "UNASSIGNED",
             },
         ],
-        "datasets": [],
+        "datasets": [
+            {
+                "dataset_id": "neotoma:dataset:3",
+                "site_id": "neotoma:site:3",
+                "collection_unit_id": "neotoma:collection-unit:3",
+                "country_code": "UNASSIGNED",
+            }
+        ],
         "chronologies": [],
         "chronology_controls": [],
-        "samples": [],
+        "samples": [
+            {
+                "sample_id": "neotoma:sample:3",
+                "site_id": "neotoma:site:3",
+                "collection_unit_id": "neotoma:collection-unit:3",
+                "dataset_id": "neotoma:dataset:3",
+                "country_code": "UNASSIGNED",
+            }
+        ],
         "age_claims": [],
-        "variables": [],
+        "variables": [{"variable_id": "neotoma:variable:3"}],
         "observations": [
             {
                 "observation_id": "neotoma:observation:3",
+                "collection_unit_id": "neotoma:collection-unit:3",
+                "dataset_id": "neotoma:dataset:3",
+                "sample_id": "neotoma:sample:3",
+                "variable_id": "neotoma:variable:3",
                 "site_id": "neotoma:site:3",
                 "country_code": "UNASSIGNED",
                 "source_value": 0,
@@ -91,7 +111,13 @@ def _snapshot() -> dict[str, object]:
     }
     country_counts["SE"].update({"sites": 1, "collection_units": 1})
     country_counts["UNASSIGNED"].update(
-        {"sites": 2, "collection_units": 1, "observation_rows": 1}
+        {
+            "sites": 2,
+            "collection_units": 1,
+            "datasets": 1,
+            "samples": 1,
+            "observation_rows": 1,
+        }
     )
     return {
         "schema_version": "neotoma-relational-snapshot.v2",
@@ -103,12 +129,12 @@ def _snapshot() -> dict[str, object]:
             "normalized_row_counts": {
                 "sites": 3,
                 "collection_units": 2,
-                "datasets": 0,
+                "datasets": 1,
                 "chronologies": 0,
                 "chronology_controls": 0,
-                "samples": 0,
+                "samples": 1,
                 "age_claims": 0,
-                "variables": 0,
+                "variables": 1,
                 "observations": 1,
             },
             "conflict_count": 0,
@@ -158,7 +184,7 @@ class NeotomaMaterializationTests(unittest.TestCase):
                 manifest["schema_version"],
                 "neotoma-relational-materialization-manifest.v1",
             )
-            site_surface = manifest["surfaces"]["sites"]
+            site_surface = cast(dict[str, Any], manifest["surfaces"])["sites"]
             self.assertEqual(site_surface["row_count"], 3)
             self.assertEqual(site_surface["part_count"], 2)
             first_part_record = site_surface["parts"][0]
@@ -193,6 +219,46 @@ class NeotomaMaterializationTests(unittest.TestCase):
             )
             self.assertFalse((workspace / ".first-relational.staging").exists())
             self.assertFalse((workspace / ".first-relational.recovery").exists())
+
+    def test_refuses_wrong_sample_parent_before_atomic_publication(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary_directory:
+            output = Path(temporary_directory) / "relational"
+            snapshot = _snapshot()
+            cast(list[dict[str, object]], snapshot["observations"])[0]["sample_id"] = (
+                "neotoma:sample:missing"
+            )
+            with self.assertRaisesRegex(ValueError, "missing parent"):
+                materialize_neotoma_relational_snapshot(output, snapshot)
+            self.assertFalse(output.exists())
+            self.assertFalse((output.parent / ".relational.staging").exists())
+
+    def test_correctly_rehashed_missing_sample_parent_is_refused(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary_directory:
+            output = Path(temporary_directory) / "relational"
+            materialize_neotoma_relational_snapshot(output, _snapshot())
+            manifest = json.loads((output / "manifest.json").read_text())
+            part_record = manifest["surfaces"]["observations"]["parts"][0]
+            part_path = output / part_record["path"]
+            part = json.loads(part_path.read_text())
+            part["rows"][0]["sample_id"] = "neotoma:sample:missing"
+            content = canonical_json_bytes(part)
+            part_path.write_bytes(content)
+            part_record["sha256"] = hashlib.sha256(content).hexdigest()
+            records = [
+                {"path": part["path"], "sha256": part["sha256"]}
+                for surface in manifest["surfaces"].values()
+                for part in surface["parts"]
+            ]
+            records.append(
+                {
+                    "path": manifest["reconciliation"]["path"],
+                    "sha256": manifest["reconciliation"]["sha256"],
+                }
+            )
+            manifest["materialization_sha256"] = materialization_digest(records)
+            (output / "manifest.json").write_bytes(canonical_json_bytes(manifest))
+            with self.assertRaisesRegex(ValueError, "missing parent"):
+                validate_neotoma_relational_materialization(output)
 
     def test_refuses_duplicate_row_identifiers_without_publishing(self) -> None:
         with tempfile.TemporaryDirectory() as temporary_directory:
@@ -288,7 +354,7 @@ class NeotomaMaterializationTests(unittest.TestCase):
             site_part_record = manifest["surfaces"]["sites"]["parts"][0]
             site_part_path = output_root / site_part_record["path"]
             site_part = json.loads(site_part_path.read_text())
-            site_part["rows"][0]["country_code"] = "UNASSIGNED"
+            site_part["rows"][1]["country_code"] = "SE"
             site_content = canonical_json_bytes(site_part)
             site_part_path.write_bytes(site_content)
             site_part_record["sha256"] = hashlib.sha256(site_content).hexdigest()
