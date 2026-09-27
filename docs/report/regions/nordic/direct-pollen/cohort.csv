@@ -1,0 +1,16 @@
+country,site_id,site_name,candidate_samples,candidate_age_bins,coordinate_source,dataset_ids,dataset_names,dataset_dois,contributors
+FI,neotoma:site:30965,Palomaa,127,0;1,Neotoma site geometry centroid (WGS84),neotoma:dataset:58530,Palomaa - pollen,10.21233/MKRP-9818;10.21233/d49m-jd45,Walter Finsinger;Kristian Schoning;Sheila P. Hicks;Andreas Lücke;Tomasz Goslar;Friederike Wagner-Cremer;Heidi Hyyppä
+NO,neotoma:site:13476,Liten Cap’pesjav’ri,72,0;1;2;3;4;5;6;7;8;9;10;11;12;13;14;15;16;17;18;19;20;21;22;23;24;25;26;27,Neotoma site geometry centroid (WGS84),neotoma:dataset:20279,,10.21233/d73q-6954,Judy R. M. Allen;Brian Huntley;Antony J. Long
+NO,neotoma:site:13478,Over Gunnarsfjorden,116,0;1;2;3;4;5;6;7;8;9;10;11;12;13;14;15;16;17;18;19;20,Neotoma site geometry centroid (WGS84),neotoma:dataset:20285,,10.21233/8s7z-k891,Judy R. M. Allen;Brian Huntley;Antony J. Long
+NO,neotoma:site:13481,Over Kobbkrokvatnet,69,0;1;2;3;4;5;6;7;8;9;10;11;12;13;14;15;16;17;18;19;20;22;23;24;25;26,Neotoma site geometry centroid (WGS84),neotoma:dataset:20293,,10.21233/snyf-b526,Judy R. M. Allen;Brian Huntley;Antony J. Long
+NO,neotoma:site:28412,Lake Topptjønna,93,12;13;14;15;16;17;18;19;20;21;22;23;24;25;26;27;28;29;30,Neotoma site geometry centroid (WGS84),neotoma:dataset:53002,EPD E# 2837,10.21233/GPQJ-3Z71;10.21233/6met-8m49,Aage Paus
+NO,neotoma:site:28431,Lake Heimtjønna,55,0;1;2;3;4;5;6;7;8;9;10;13;15;16;17;19;21;22;23;24;25;26;27;28;29,Neotoma site geometry centroid (WGS84),neotoma:dataset:53081,EPD E# 2839,10.21233/EQ06-JE33;10.21233/nyhn-6s41,Aage Paus
+NO,neotoma:site:28440,Lake Store Finnsjøen,70,2;3;4;5;6;7;8;9;10;11;12;13;14;15;16;17;18;19;20;21;22;23;24;25,Neotoma site geometry centroid (WGS84),neotoma:dataset:53098,EPD E# 2840,10.21233/5XR8-GV26;10.21233/sxnn-hq25,Aage Paus
+NO,neotoma:site:28451,Lervahå bog,35,0;2;5;7;8;9;10;11;12;13;14;15;19;20;21;22;23,Neotoma site geometry centroid (WGS84),neotoma:dataset:53119,EPD E# 2842,10.21233/CW1K-S256;10.21233/2fqt-bf37,Aage Paus
+NO,neotoma:site:28452,Liastemmen bog,73,19;20;21;22;23;24;25;26;27;28,Neotoma site geometry centroid (WGS84),neotoma:dataset:53121,EPD E# 2843,10.21233/THQE-1669;10.21233/601x-3v68,Aage Paus
+NO,neotoma:site:28455,Eigebakken bog,69,19;20;21;22;23;24;25;26;27;28,Neotoma site geometry centroid (WGS84),neotoma:dataset:53127,EPD E# 2844,10.21233/13JA-1E40;10.21233/k5p8-rg87,Aage Paus
+NO,neotoma:site:28457,Reinskaret bog,30,0;1;2;4;5;6;8;9;10;11;12;13;14;15;16;17,Neotoma site geometry centroid (WGS84),neotoma:dataset:53131,EPD E# 2845,10.21233/ZXYB-ZX29;10.21233/5gy8-vx07,Aage Paus
+NO,neotoma:site:28459,Hemma,12,12;17;19;20,Neotoma site geometry centroid (WGS84),neotoma:dataset:53135,EPD E# 2846,10.21233/WHB3-8G28,Aage Paus
+NO,neotoma:site:33292,Svanåvatnet,81,0;1;2;3;4;5;6;7;8;9;10;11;12;13;14;15;16;17,Neotoma site geometry centroid (WGS84),neotoma:dataset:62017,SVAN pollen,10.21233/sg1z-jc18,Anne Elisabeth Bjune
+NO,neotoma:site:33300,Brattheivatnet,63,14;15;16;17;18;19;20;21;22;23;24;25;26;27;28;29;30,Neotoma site geometry centroid (WGS84),neotoma:dataset:62035,BRATTHEI pollen,10.21233/wps4-dn37,Anne Elisabeth Bjune
+NO,neotoma:site:33301,Lusvatnet,83,14;15;16;17;18;19;20;21;22;23;24;25;26;27,Neotoma site geometry centroid (WGS84),neotoma:dataset:62037,LUSVATN pollen,10.21233/y9q5-4164,Anne Elisabeth Bjune

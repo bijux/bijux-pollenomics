@@ -1,0 +1,187 @@
+{
+  "cohort_sha256": "88e8104a3d42c87189f2dad2d6942ca2291f2028dde5ea8e8520626258ae77e2",
+  "coverage_sha256": "7180899cac6ad0fa1ad730570e3525954f7ada0a0c2a1c1a82bf624d4d94c07c",
+  "input_identity": {
+    "age_bin_width_bp": 500,
+    "country_candidate_samples": {
+      "FI": 127,
+      "NO": 921
+    },
+    "pollen_screen_sha256": "059ab1e92b1665c0665b5d09dd746b8ceeb3b2f64dfc49f76499f99a2c3180ef",
+    "relational_build_id": "sha256:92dd52619837f3641d004a1a5dbe38f9ab6023a79f61989314bb90e612eb58e1",
+    "relational_file_sha256": {
+      "manifest.json": "ec328de623b16a2f77b2376a5e94b8c3c3baea8511202b197474d89385d9e57d",
+      "surfaces/age_claims/part-00001.json": "6b8983b43138ec68895d96070508218d0b7c4f9908bf87860f96b79d2725c558",
+      "surfaces/datasets/part-00001.json": "be7fccfa6e0284ac7984e64c844618a6d8682c03282296cef5cabaab594e27e9",
+      "surfaces/observations/part-00001.json": "6afa864a9e06384678e63e9f85b13ca79882a87f5c14751cb27af46df60539be",
+      "surfaces/observations/part-00002.json": "571b55edc7ce7b6472cacc0db41c41c0e5ccb7d11f0890f88e7ba5f99ef3c719",
+      "surfaces/observations/part-00003.json": "a96543819902f5cf5b2b2de355558fd1dd85946c2c08254ec84fad6f9e43fcb5",
+      "surfaces/observations/part-00004.json": "b78776421961eb1bf64d886340e2e0f5a42dfe6d0a4ca937d028eb66b1ca0219",
+      "surfaces/observations/part-00005.json": "c4705ced69897dcb8f154435d0ba6bdfb0baa942642de94b18f3c856cbfc2e3a",
+      "surfaces/observations/part-00006.json": "a33597470799a6b85add81bb699c8a32ec6b55881809345f44351f5530d4d2b7",
+      "surfaces/observations/part-00007.json": "48a285e8be25f0ffc9d41feb0cd08ac8c2b6ba54783cf7f3ceeb57e4595ef1bf",
+      "surfaces/observations/part-00008.json": "517a9b6fd807cd420dbaf7f2d09a5c93d6a4d4374bc823d25fba7307bc0852dd",
+      "surfaces/samples/part-00001.json": "c959e77f7c645b814bffe92a92ff2d8fabcc077b4fc4c894e6315e448d14100c",
+      "surfaces/sites/part-00001.json": "b6ca4e49d0aec59aee576fc540c77b6c2e21601ce28338227e98717ee0bb93e9"
+    },
+    "runner_sha256": "353418ffc6da5067d8e42673bb1bde5ce6ddb347a30bec5b35079dc6cf446526",
+    "schema_version": "nordic-direct-pollen-inputs.v1",
+    "source_screen_country_denominators": {
+      "DK": {
+        "count_candidate_observations": 5263,
+        "count_candidate_source_label_statuses": {
+          "source_element_not_pollen": 786,
+          "source_element_type_missing": 0,
+          "source_label_pollen": 4477
+        },
+        "observations": 9247,
+        "pollen_count_observations": 4477,
+        "refused_count_observations": 3984,
+        "sample_refusal_reason_occurrences": {
+          "no_numeric_count_candidate": 92,
+          "no_sample_owned_comparable_typed_age": 188
+        },
+        "samples": 279,
+        "samples_with_count_and_comparable_age": 0,
+        "samples_with_count_candidates": 187,
+        "samples_with_owned_comparable_age": 91,
+        "samples_with_pollen_count": 187,
+        "screen_candidate_samples": 0,
+        "screen_refused_samples": 279
+      },
+      "FI": {
+        "count_candidate_observations": 7358,
+        "count_candidate_source_label_statuses": {
+          "source_element_not_pollen": 2186,
+          "source_element_type_missing": 0,
+          "source_label_pollen": 5172
+        },
+        "observations": 46241,
+        "pollen_count_observations": 5172,
+        "refused_count_observations": 38883,
+        "sample_refusal_reason_occurrences": {
+          "no_numeric_count_candidate": 1782,
+          "no_sample_owned_comparable_typed_age": 340
+        },
+        "samples": 2184,
+        "samples_with_count_and_comparable_age": 127,
+        "samples_with_count_candidates": 402,
+        "samples_with_owned_comparable_age": 1844,
+        "samples_with_pollen_count": 402,
+        "screen_candidate_samples": 127,
+        "screen_refused_samples": 2057
+      },
+      "NO": {
+        "count_candidate_observations": 39033,
+        "count_candidate_source_label_statuses": {
+          "source_element_not_pollen": 10657,
+          "source_element_type_missing": 0,
+          "source_label_pollen": 28376
+        },
+        "observations": 143065,
+        "pollen_count_observations": 28376,
+        "refused_count_observations": 104032,
+        "sample_refusal_reason_occurrences": {
+          "no_numeric_count_candidate": 2651,
+          "no_sample_owned_comparable_typed_age": 340
+        },
+        "samples": 3884,
+        "samples_with_count_and_comparable_age": 921,
+        "samples_with_count_candidates": 1233,
+        "samples_with_owned_comparable_age": 3544,
+        "samples_with_pollen_count": 1233,
+        "screen_candidate_samples": 921,
+        "screen_refused_samples": 2963
+      },
+      "SE": {
+        "count_candidate_observations": 80996,
+        "count_candidate_source_label_statuses": {
+          "source_element_not_pollen": 17327,
+          "source_element_type_missing": 159,
+          "source_label_pollen": 63510
+        },
+        "observations": 162683,
+        "pollen_count_observations": 63510,
+        "refused_count_observations": 81687,
+        "sample_refusal_reason_occurrences": {
+          "no_numeric_count_candidate": 2671,
+          "no_sample_owned_comparable_typed_age": 753
+        },
+        "samples": 5764,
+        "samples_with_count_and_comparable_age": 2379,
+        "samples_with_count_candidates": 3093,
+        "samples_with_owned_comparable_age": 5011,
+        "samples_with_pollen_count": 3093,
+        "screen_candidate_samples": 2379,
+        "screen_refused_samples": 3385
+      },
+      "UNASSIGNED": {
+        "count_candidate_observations": 7891,
+        "count_candidate_source_label_statuses": {
+          "source_element_not_pollen": 1784,
+          "source_element_type_missing": 0,
+          "source_label_pollen": 6107
+        },
+        "observations": 9700,
+        "pollen_count_observations": 6107,
+        "refused_count_observations": 1809,
+        "sample_refusal_reason_occurrences": {
+          "no_numeric_count_candidate": 83,
+          "no_sample_owned_comparable_typed_age": 83
+        },
+        "samples": 277,
+        "samples_with_count_and_comparable_age": 111,
+        "samples_with_count_candidates": 194,
+        "samples_with_owned_comparable_age": 194,
+        "samples_with_pollen_count": 194,
+        "screen_candidate_samples": 111,
+        "screen_refused_samples": 166
+      }
+    },
+    "source_snapshot_id": "sha256:b2bcb99157e10b0c9f13c228acc12eabcb39d96a1f39c86ec25e34aacd78c791",
+    "swedish_raw_file_sha256": {
+      "part-004.json": "d96046c88b497ba07082120e446fecacad0d9b5533d8960bdbc03811976ea435",
+      "part-008.json": "9cdcb2d394bc8ef23bf2b4b5e3f1f3ae5916aae16db71542c58f4b80a2dd1134"
+    },
+    "swedish_training_datasets": [
+      "19913",
+      "53995",
+      "54001"
+    ],
+    "target_outcomes_in_prediction_inputs": false,
+    "taxon_axis": [
+      "Alnus",
+      "Amaranthaceae",
+      "Betula",
+      "Cichorioideae",
+      "Cyperaceae",
+      "Filipendula",
+      "Frangula alnus",
+      "Nuphar",
+      "Plantago lanceolata",
+      "Plantago media",
+      "Populus",
+      "Quercus",
+      "Rosaceae undiff.",
+      "Salix",
+      "Thalictrum",
+      "Ulmus"
+    ]
+  },
+  "prediction_counts": {
+    "FI": 8,
+    "NO": 616
+  },
+  "prediction_sha256": {
+    "FI": "60e3d0de262f1989012703d94c51809197ed5dac60dd7737f7597b125ecb634d",
+    "NO": "4fb126b962fe97e8a035ffd66e3356ce50b1d284ffb92267465088f615c3255a"
+  },
+  "prediction_table_sha256": "f470a92828ccdbc9a12e8b584acdbb77de173f485d432b73824c4a0e8b8dadef",
+  "results_sha256": "bd195c7f8e4fb3cbf1304a005b807619ac5f98d6066ab32a508ce8e2f87fcde8",
+  "schema_version": "nordic-direct-pollen-results.v1",
+  "scored_rows": 624,
+  "scores_sha256": "faac69dc368ad1085197f4e152f515f05978d71362438c334112aef4c6571fcc",
+  "site_scores_sha256": "d30b0a8b9aafb64990f5d459040c80c0170962700aef7a01e99f652dc59c9c75",
+  "source_snapshot_id": "sha256:b2bcb99157e10b0c9f13c228acc12eabcb39d96a1f39c86ec25e34aacd78c791",
+  "training_sources_sha256": "c7fdd9db457815a5085febd44e0a772df31e6f97eeb9a9887656625e05b91ab3"
+}
