@@ -4,7 +4,8 @@
 
 | Species | Sample rows | Atlas rows | Country sample rows | Drift |
 | --- | ---: | ---: | ---: | --- |
-| Bos taurus | 132 | 22 | 5 | `false` |
+| Bos primigenius | 3 | 0 | 0 | `false` |
+| Bos taurus | 129 | 22 | 5 | `false` |
 | Camelus dromedarius | 13 | 0 | 0 | `false` |
 | Canis lupus familiaris | 4 | 0 | 0 | `false` |
 | Capra hircus | 82 | 27 | 0 | `false` |

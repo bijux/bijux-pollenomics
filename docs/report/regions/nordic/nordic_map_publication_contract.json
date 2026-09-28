@@ -139,7 +139,7 @@
       "label": "Sweden archaeology site discovery",
       "source_name": "SEAD with RA\u00c4 density context",
       "coverage_label": "Every geolocated Swedish SEAD site, represented by each linked numeric chronology interval or by one explicitly unresolved temporal record.",
-      "count": 9727,
+      "count": 8799,
       "publication_role": "scope_specific_overlay",
       "scope_visibility": "scope_owned",
       "default_enabled": true,
@@ -469,7 +469,7 @@
     "domains": {
       "nodes": {
         "status": "available",
-        "record_count": 267262
+        "record_count": 266334
       },
       "edges": {
         "status": "unavailable",
@@ -498,15 +498,15 @@
       },
       "indexes": {
         "status": "available",
-        "record_count": 266899
+        "record_count": 265971
       }
     }
   },
   "animal_sample_chronology_context": {
     "artifact": "nordic_animal_sample_chronology_context.json",
-    "content_sha256": "b3e7c260e12e871d4f27b6a894778283e347877dfeead9f05fc340368ac03785",
-    "input_identity_sha256": "5b220aa1bf9199d6001179f64aaf679e577f7936a585068c24e6ee370c17a2ab",
-    "corpus_identity_sha256": "dce6a8a6382d9a5f17d4b88330f0f879b010e38ade52e6deb51fe9346f8a62e7",
+    "content_sha256": "35b1bef23c25a31ab6f2769e24dee50bde8f9664f4fe3add74e8db2f49535b7a",
+    "input_identity_sha256": "a2c6ea844cc384e8f72f94d685dfeee75bb38e7f4806e10572f3b32acfd52ae9",
+    "corpus_identity_sha256": "4503ed7b06a8148e390fe6e2f2470b9264a09ad233d17702c6bb514c929db6db",
     "scope": {
       "key": "nordic",
       "kind": "region",
@@ -552,11 +552,11 @@
     "schema_version": "atlas-evidence-projection.v2",
     "status": "reconciled",
     "source_layer_count": 6,
-    "source_feature_count": 262893,
-    "matched_feature_count": 262893,
+    "source_feature_count": 261965,
+    "matched_feature_count": 261965,
     "detail_record_count": 2262,
     "unique_feature_record_id_count": 2262,
-    "repeated_feature_reference_count": 260631,
+    "repeated_feature_reference_count": 259703,
     "unmatched_feature_count": 0,
     "unreferenced_detail_count": 0,
     "tab_availability": {
@@ -621,7 +621,7 @@
         ],
         "source_snapshot_id": "sha256:b2bcb99157e10b0c9f13c228acc12eabcb39d96a1f39c86ec25e34aacd78c791",
         "build_id": "sha256:92dd52619837f3641d004a1a5dbe38f9ab6023a79f61989314bb90e612eb58e1",
-        "materialization_sha256": "e295ddccefdf3fa9f8519985843b4108975a367af14e16e9b4272157f183b4dd",
+        "materialization_sha256": "7d9bf04538f6fc9db0582a85656defc3b262b86b782d99bf310d2fec4ae96406",
         "detail_row_counts": {
           "collection_units": 206,
           "datasets": 209,
@@ -676,7 +676,7 @@
         }
       },
       "sead": {
-        "source_feature_count": 11796,
+        "source_feature_count": 10868,
         "source_site_denominator": 2069,
         "source_site_uuid_denominator": 2069,
         "bbox_site_denominator": 2195,
@@ -741,7 +741,7 @@
         "acquisition_manifest_sha256": "6fc2428046d148f9ce6c158f982afbbbbaea39de2132850a4fb8f41acf8a4c14",
         "parent_admission_sha256": "168ad1efe6fa68cdb7789246a6cce16670377cdbacd14d1673beaab8ddd1ebd1",
         "acquisition_release_status": "refused",
-        "evidence_file_set_sha256": "3a18b6e11ccccdc61f3c1fcbc5f301fd1132313ad14c8dba2fa87c6a9b3174cf",
+        "evidence_file_set_sha256": "2a0fc194bfa32cd6b870982a13085803a97bf716095828911adc3d37464743c7",
         "country_site_counts": {
           "Denmark": 59,
           "Finland": 40,
@@ -752,7 +752,7 @@
           "Denmark": 59,
           "Finland": 40,
           "Norway": 45,
-          "Sweden": 11652
+          "Sweden": 10724
         }
       }
     }

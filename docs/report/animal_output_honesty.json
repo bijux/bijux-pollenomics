@@ -11,6 +11,9 @@
     {
       "species_latin_name": "Bos taurus",
       "species_common_name": "cattle",
+      "source_taxon_mismatches": {
+        "Bos primigenius": 3
+      },
       "tracked_sample_count": 132,
       "mapped_sample_count": 31,
       "blocked_sample_count": 101,
@@ -20,6 +23,7 @@
     {
       "species_latin_name": "Camelus dromedarius",
       "species_common_name": "dromedary camel",
+      "source_taxon_mismatches": {},
       "tracked_sample_count": 13,
       "mapped_sample_count": 0,
       "blocked_sample_count": 13,
@@ -29,6 +33,7 @@
     {
       "species_latin_name": "Canis lupus familiaris",
       "species_common_name": "dog",
+      "source_taxon_mismatches": {},
       "tracked_sample_count": 4,
       "mapped_sample_count": 0,
       "blocked_sample_count": 4,
@@ -38,6 +43,7 @@
     {
       "species_latin_name": "Capra hircus",
       "species_common_name": "goat",
+      "source_taxon_mismatches": {},
       "tracked_sample_count": 82,
       "mapped_sample_count": 82,
       "blocked_sample_count": 0,
@@ -47,6 +53,7 @@
     {
       "species_latin_name": "Equus caballus",
       "species_common_name": "horse",
+      "source_taxon_mismatches": {},
       "tracked_sample_count": 550,
       "mapped_sample_count": 157,
       "blocked_sample_count": 393,
@@ -56,6 +63,7 @@
     {
       "species_latin_name": "Felis catus",
       "species_common_name": "cat",
+      "source_taxon_mismatches": {},
       "tracked_sample_count": 106,
       "mapped_sample_count": 54,
       "blocked_sample_count": 52,
@@ -65,6 +73,7 @@
     {
       "species_latin_name": "Ovis aries",
       "species_common_name": "sheep",
+      "source_taxon_mismatches": {},
       "tracked_sample_count": 200,
       "mapped_sample_count": 5,
       "blocked_sample_count": 195,
@@ -74,6 +83,7 @@
     {
       "species_latin_name": "Rangifer tarandus",
       "species_common_name": "reindeer",
+      "source_taxon_mismatches": {},
       "tracked_sample_count": 20,
       "mapped_sample_count": 0,
       "blocked_sample_count": 20,
@@ -83,6 +93,7 @@
     {
       "species_latin_name": "Sus scrofa domesticus",
       "species_common_name": "pig",
+      "source_taxon_mismatches": {},
       "tracked_sample_count": 343,
       "mapped_sample_count": 2,
       "blocked_sample_count": 341,

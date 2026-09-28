@@ -82,8 +82,8 @@
       },
       "sead_archaeology": {
         "record_count": 1925,
-        "numeric_interval_record_count": 739,
-        "numeric_interval_share": 0.3839,
+        "numeric_interval_record_count": 0,
+        "numeric_interval_share": 0.0,
         "capture_posture": "linked_chronology_captured",
         "site_inventory_only_record_count": 838,
         "spatial_representation": "site inventory plus record-level chronology points",
@@ -95,8 +95,8 @@
         "detail_metrics": {
           "unresolved_site_count": 1219,
           "captured_chronology_record_count": 25109,
-          "mapped_temporal_feature_count": 8172,
-          "mapped_chronology_record_count": 14264
+          "mapped_temporal_feature_count": 7244,
+          "mapped_chronology_record_count": 13170
         }
       }
     },

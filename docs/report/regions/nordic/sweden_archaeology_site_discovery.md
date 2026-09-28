@@ -8,7 +8,7 @@ This governed surface publishes every geolocated Swedish SEAD site. Its order me
 - Sites with linked numeric chronology: 370
 - Sites with unresolved chronology: 1,555
 - Sites with linked bibliography: 1,074
-- Time-aware and explicitly unresolved map features: 9,727
+- Time-aware and explicitly unresolved map features: 8,799
 
 ## Interpretation contract
 
@@ -21,45 +21,45 @@ This governed surface publishes every geolocated Swedish SEAD site. Its order me
 
 | Rank | Site | Readiness | Chronology intervals | Bibliography | Datasets |
 | ---: | --- | --- | ---: | ---: | ---: |
-| 1 | [Grävsten herrgård](https://browser.sead.se/site/4149) | chronology_and_bibliography_ready | 89 | 691 | 690 |
-| 2 | [Tvartorps gård](https://browser.sead.se/site/3973) | chronology_and_bibliography_ready | 152 | 504 | 504 |
-| 3 | [Norra Mellby kyrka](https://browser.sead.se/site/4052) | chronology_and_bibliography_ready | 216 | 454 | 454 |
-| 4 | [Lärbro kyrka](https://browser.sead.se/site/4066) | chronology_and_bibliography_ready | 109 | 426 | 426 |
-| 5 | [Kvarteret Ciselören](https://browser.sead.se/site/3890) | chronology_and_bibliography_ready | 102 | 378 | 378 |
-| 6 | [Ösjöfors handpappersbruk](https://browser.sead.se/site/3924) | chronology_and_bibliography_ready | 78 | 406 | 406 |
-| 7 | [Glimmingehus](https://browser.sead.se/site/4152) | chronology_and_bibliography_ready | 163 | 548 | 548 |
-| 8 | [Rogslösa kyrka](https://browser.sead.se/site/4034) | chronology_and_bibliography_ready | 143 | 361 | 360 |
-| 9 | [Hunnebergsgatan](https://browser.sead.se/site/3906) | chronology_and_bibliography_ready | 86 | 434 | 434 |
-| 10 | [Föllingsö säteri](https://browser.sead.se/site/4161) | chronology_and_bibliography_ready | 65 | 258 | 258 |
-| 11 | [Cramérska huset](https://browser.sead.se/site/4191) | chronology_and_bibliography_ready | 94 | 258 | 258 |
-| 12 | [Norra Åsums kyrka](https://browser.sead.se/site/4049) | chronology_and_bibliography_ready | 141 | 335 | 335 |
-| 13 | [Härnevi kyrka](https://browser.sead.se/site/4112) | chronology_and_bibliography_ready | 108 | 318 | 318 |
-| 14 | [Flöxhult säteri](https://browser.sead.se/site/4169) | chronology_and_bibliography_ready | 79 | 319 | 319 |
-| 15 | [Verksgatan](https://browser.sead.se/site/3843) | chronology_and_bibliography_ready | 32 | 204 | 204 |
-| 16 | [Smedstorp](https://browser.sead.se/site/4005) | chronology_and_bibliography_ready | 26 | 222 | 222 |
-| 17 | [Hunnebergsgatan 30A](https://browser.sead.se/site/4117) | chronology_and_bibliography_ready | 44 | 292 | 292 |
-| 18 | [Hammarlunda kyrka](https://browser.sead.se/site/4135) | chronology_and_bibliography_ready | 101 | 282 | 282 |
-| 19 | [Fröken Löfgrens gård](https://browser.sead.se/site/4165) | chronology_and_bibliography_ready | 36 | 234 | 234 |
-| 20 | [Skarp-Ösby](https://browser.sead.se/site/4013) | chronology_and_bibliography_ready | 26 | 168 | 168 |
-| 21 | [Krapperups borg](https://browser.sead.se/site/4098) | chronology_and_bibliography_ready | 107 | 283 | 283 |
-| 22 | [Fjellskäfte säteri](https://browser.sead.se/site/4172) | chronology_and_bibliography_ready | 51 | 203 | 203 |
-| 23 | [Sundbyviks gård](https://browser.sead.se/site/3990) | chronology_and_bibliography_ready | 6 | 162 | 162 |
-| 24 | [Hovdala slott](https://browser.sead.se/site/4121) | chronology_and_bibliography_ready | 73 | 218 | 217 |
-| 25 | [Ingatorp](https://browser.sead.se/site/3900) | chronology_and_bibliography_ready | 80 | 239 | 239 |
-| 26 | [Bankekinds kyrka](https://browser.sead.se/site/4222) | chronology_and_bibliography_ready | 74 | 162 | 162 |
-| 27 | [Färlövs kyrka](https://browser.sead.se/site/4162) | chronology_and_bibliography_ready | 88 | 156 | 156 |
-| 28 | [Perstorps kyrka](https://browser.sead.se/site/4039) | chronology_and_bibliography_ready | 76 | 202 | 202 |
-| 29 | [Furingstads kyrka](https://browser.sead.se/site/4164) | chronology_and_bibliography_ready | 73 | 160 | 160 |
-| 30 | [Skabersjö slott](https://browser.sead.se/site/4014) | chronology_and_bibliography_ready | 52 | 188 | 188 |
-| 31 | [Bjärsjöholms slott](https://browser.sead.se/site/4214) | chronology_and_bibliography_ready | 58 | 162 | 162 |
-| 32 | [Friggestad](https://browser.sead.se/site/3913) | chronology_and_bibliography_ready | 60 | 144 | 144 |
-| 33 | [Stora Köpinge kyrka](https://browser.sead.se/site/3994) | chronology_and_bibliography_ready | 68 | 168 | 168 |
-| 34 | [Vippröste](https://browser.sead.se/site/3840) | chronology_and_bibliography_ready | 12 | 140 | 140 |
-| 35 | [Finntorp](https://browser.sead.se/site/4174) | chronology_and_bibliography_ready | 6 | 120 | 120 |
-| 36 | [Lau Kyrka](https://browser.sead.se/site/4080) | chronology_and_bibliography_ready | 26 | 120 | 120 |
-| 37 | [Kvarteret Boktryckaren](https://browser.sead.se/site/3893) | chronology_and_bibliography_ready | 30 | 144 | 144 |
-| 38 | [Hejde kyrka](https://browser.sead.se/site/4130) | chronology_and_bibliography_ready | 29 | 123 | 123 |
-| 39 | [Biskops](https://browser.sead.se/site/4219) | chronology_and_bibliography_ready | 46 | 114 | 114 |
-| 40 | [Hagebyhöga kyrka](https://browser.sead.se/site/4142) | chronology_and_bibliography_ready | 60 | 211 | 211 |
+| 1 | [Grävsten herrgård](https://browser.sead.se/site/4149) | chronology_and_bibliography_ready | 73 | 691 | 690 |
+| 2 | [Tvartorps gård](https://browser.sead.se/site/3973) | chronology_and_bibliography_ready | 151 | 504 | 504 |
+| 3 | [Kvarteret Ciselören](https://browser.sead.se/site/3890) | chronology_and_bibliography_ready | 101 | 378 | 378 |
+| 4 | [Ösjöfors handpappersbruk](https://browser.sead.se/site/3924) | chronology_and_bibliography_ready | 77 | 406 | 406 |
+| 5 | [Norra Mellby kyrka](https://browser.sead.se/site/4052) | chronology_and_bibliography_ready | 190 | 454 | 454 |
+| 6 | [Lärbro kyrka](https://browser.sead.se/site/4066) | chronology_and_bibliography_ready | 86 | 426 | 426 |
+| 7 | [Hunnebergsgatan](https://browser.sead.se/site/3906) | chronology_and_bibliography_ready | 85 | 434 | 434 |
+| 8 | [Glimmingehus](https://browser.sead.se/site/4152) | chronology_and_bibliography_ready | 129 | 548 | 548 |
+| 9 | [Rogslösa kyrka](https://browser.sead.se/site/4034) | chronology_and_bibliography_ready | 113 | 361 | 360 |
+| 10 | [Föllingsö säteri](https://browser.sead.se/site/4161) | chronology_and_bibliography_ready | 55 | 258 | 258 |
+| 11 | [Flöxhult säteri](https://browser.sead.se/site/4169) | chronology_and_bibliography_ready | 77 | 319 | 319 |
+| 12 | [Härnevi kyrka](https://browser.sead.se/site/4112) | chronology_and_bibliography_ready | 102 | 318 | 318 |
+| 13 | [Norra Åsums kyrka](https://browser.sead.se/site/4049) | chronology_and_bibliography_ready | 120 | 335 | 335 |
+| 14 | [Smedstorp](https://browser.sead.se/site/4005) | chronology_and_bibliography_ready | 23 | 222 | 222 |
+| 15 | [Hunnebergsgatan 30A](https://browser.sead.se/site/4117) | chronology_and_bibliography_ready | 42 | 292 | 292 |
+| 16 | [Cramérska huset](https://browser.sead.se/site/4191) | chronology_and_bibliography_ready | 73 | 258 | 258 |
+| 17 | [Verksgatan](https://browser.sead.se/site/3843) | chronology_and_bibliography_ready | 25 | 204 | 204 |
+| 18 | [Fröken Löfgrens gård](https://browser.sead.se/site/4165) | chronology_and_bibliography_ready | 36 | 234 | 234 |
+| 19 | [Fjellskäfte säteri](https://browser.sead.se/site/4172) | chronology_and_bibliography_ready | 49 | 203 | 203 |
+| 20 | [Sundbyviks gård](https://browser.sead.se/site/3990) | chronology_and_bibliography_ready | 6 | 162 | 162 |
+| 21 | [Skarp-Ösby](https://browser.sead.se/site/4013) | chronology_and_bibliography_ready | 21 | 168 | 168 |
+| 22 | [Hammarlunda kyrka](https://browser.sead.se/site/4135) | chronology_and_bibliography_ready | 83 | 282 | 282 |
+| 23 | [Ingatorp](https://browser.sead.se/site/3900) | chronology_and_bibliography_ready | 79 | 239 | 239 |
+| 24 | [Krapperups borg](https://browser.sead.se/site/4098) | chronology_and_bibliography_ready | 86 | 283 | 283 |
+| 25 | [Hovdala slott](https://browser.sead.se/site/4121) | chronology_and_bibliography_ready | 67 | 218 | 217 |
+| 26 | [Skabersjö slott](https://browser.sead.se/site/4014) | chronology_and_bibliography_ready | 52 | 188 | 188 |
+| 27 | [Perstorps kyrka](https://browser.sead.se/site/4039) | chronology_and_bibliography_ready | 71 | 202 | 202 |
+| 28 | [Furingstads kyrka](https://browser.sead.se/site/4164) | chronology_and_bibliography_ready | 71 | 160 | 160 |
+| 29 | [Friggestad](https://browser.sead.se/site/3913) | chronology_and_bibliography_ready | 59 | 144 | 144 |
+| 30 | [Färlövs kyrka](https://browser.sead.se/site/4162) | chronology_and_bibliography_ready | 77 | 156 | 156 |
+| 31 | [Bankekinds kyrka](https://browser.sead.se/site/4222) | chronology_and_bibliography_ready | 58 | 162 | 162 |
+| 32 | [Finntorp](https://browser.sead.se/site/4174) | chronology_and_bibliography_ready | 6 | 120 | 120 |
+| 33 | [Vippröste](https://browser.sead.se/site/3840) | chronology_and_bibliography_ready | 11 | 140 | 140 |
+| 34 | [Bjärsjöholms slott](https://browser.sead.se/site/4214) | chronology_and_bibliography_ready | 52 | 162 | 162 |
+| 35 | [Stora Köpinge kyrka](https://browser.sead.se/site/3994) | chronology_and_bibliography_ready | 61 | 168 | 168 |
+| 36 | [Kvarteret Boktryckaren](https://browser.sead.se/site/3893) | chronology_and_bibliography_ready | 24 | 144 | 144 |
+| 37 | [Hagby kyrka](https://browser.sead.se/site/4143) | chronology_and_bibliography_ready | 28 | 132 | 132 |
+| 38 | [Hejde kyrka](https://browser.sead.se/site/4130) | chronology_and_bibliography_ready | 26 | 123 | 123 |
+| 39 | [Lau Kyrka](https://browser.sead.se/site/4080) | chronology_and_bibliography_ready | 22 | 120 | 120 |
+| 40 | [Borntorp](https://browser.sead.se/site/3916) | chronology_and_bibliography_ready | 18 | 131 | 131 |
 
 The JSON and CSV companions contain the complete ranked registry; the GeoJSON companion contains every temporal interval plus one unresolved feature for each site lacking linked numeric chronology.

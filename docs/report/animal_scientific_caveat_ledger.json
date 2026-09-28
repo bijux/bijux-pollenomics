@@ -2062,8 +2062,8 @@
         "review_note": "No location evidence has been extracted yet for this recovered sample row."
       },
       {
-        "species_latin_name": "Bos taurus",
-        "species_common_name": "cattle",
+        "species_latin_name": "Bos primigenius",
+        "species_common_name": "aurochs",
         "project_accession": "PRJNA705960",
         "repo_stable_sample_id": "prjna705960:samn18106827",
         "preferred_sample_label": "SAMN18106827",
@@ -2089,8 +2089,8 @@
         "review_note": "No location evidence has been extracted yet for this recovered sample row."
       },
       {
-        "species_latin_name": "Bos taurus",
-        "species_common_name": "cattle",
+        "species_latin_name": "Bos primigenius",
+        "species_common_name": "aurochs",
         "project_accession": "PRJNA705960",
         "repo_stable_sample_id": "prjna705960:samn18106828",
         "preferred_sample_label": "SAMN18106828",
@@ -2116,8 +2116,8 @@
         "review_note": "No location evidence has been extracted yet for this recovered sample row."
       },
       {
-        "species_latin_name": "Bos taurus",
-        "species_common_name": "cattle",
+        "species_latin_name": "Bos primigenius",
+        "species_common_name": "aurochs",
         "project_accession": "PRJNA705960",
         "repo_stable_sample_id": "prjna705960:samn18106829",
         "preferred_sample_label": "SAMN18106829",
@@ -2388,6 +2388,36 @@
     ],
     "unresolved_sample_rows": [
       {
+        "species_latin_name": "Bos primigenius",
+        "species_common_name": "aurochs",
+        "project_accession": "PRJNA705960",
+        "stable_sample_id": "bos_taurus:sample:prjna705960:samn18106827",
+        "site_label": "site detail not yet extracted from tracked source support",
+        "paper_doi": "",
+        "supplementary_source": "",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Bos primigenius",
+        "species_common_name": "aurochs",
+        "project_accession": "PRJNA705960",
+        "stable_sample_id": "bos_taurus:sample:prjna705960:samn18106828",
+        "site_label": "site detail not yet extracted from tracked source support",
+        "paper_doi": "",
+        "supplementary_source": "",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
+        "species_latin_name": "Bos primigenius",
+        "species_common_name": "aurochs",
+        "project_accession": "PRJNA705960",
+        "stable_sample_id": "bos_taurus:sample:prjna705960:samn18106829",
+        "site_label": "site detail not yet extracted from tracked source support",
+        "paper_doi": "",
+        "supplementary_source": "",
+        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
+      },
+      {
         "species_latin_name": "Bos taurus",
         "species_common_name": "cattle",
         "project_accession": "PRJEB31621",
@@ -2604,36 +2634,6 @@
         "stable_sample_id": "bos_taurus:sample:prjeb75467:samea115574440",
         "site_label": "site detail not yet extracted from tracked source support",
         "paper_doi": "10.1038/s41586-024-08112-6",
-        "supplementary_source": "",
-        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
-      },
-      {
-        "species_latin_name": "Bos taurus",
-        "species_common_name": "cattle",
-        "project_accession": "PRJNA705960",
-        "stable_sample_id": "bos_taurus:sample:prjna705960:samn18106827",
-        "site_label": "site detail not yet extracted from tracked source support",
-        "paper_doi": "",
-        "supplementary_source": "",
-        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
-      },
-      {
-        "species_latin_name": "Bos taurus",
-        "species_common_name": "cattle",
-        "project_accession": "PRJNA705960",
-        "stable_sample_id": "bos_taurus:sample:prjna705960:samn18106828",
-        "site_label": "site detail not yet extracted from tracked source support",
-        "paper_doi": "",
-        "supplementary_source": "",
-        "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
-      },
-      {
-        "species_latin_name": "Bos taurus",
-        "species_common_name": "cattle",
-        "project_accession": "PRJNA705960",
-        "stable_sample_id": "bos_taurus:sample:prjna705960:samn18106829",
-        "site_label": "site detail not yet extracted from tracked source support",
-        "paper_doi": "",
         "supplementary_source": "",
         "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
       },

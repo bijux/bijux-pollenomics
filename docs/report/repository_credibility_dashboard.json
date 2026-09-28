@@ -27,7 +27,7 @@
       "dimension_key": "source_family_coverage",
       "display_name": "Source-family coverage",
       "score": 4,
-      "finding": "16 directly explainable source-family pages keep the repository broader than one aDNA recovery story",
+      "finding": "22 directly explainable source-family pages keep the repository broader than one aDNA recovery story",
       "evidence_anchors": [
         "docs/report/repository_source_family_matrix.json",
         "docs/report/repository_source_explainer_audit.json"

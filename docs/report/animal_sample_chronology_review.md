@@ -15,6 +15,9 @@
 
 | Species | Project accession | Sample id | Strength | Evidence class | Precision posture | Normalization | Chronology |
 | --- | --- | --- | --- | --- | --- | --- | --- |
+| Bos primigenius | PRJNA705960 | prjna705960:samn18106827 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos primigenius | PRJNA705960 | prjna705960:samn18106828 | unresolved | unresolved | unresolved | unresolved |  |
+| Bos primigenius | PRJNA705960 | prjna705960:samn18106829 | unresolved | unresolved | unresolved | unresolved |  |
 | Bos taurus | PRJEB31621 | prjeb31621:samea5577008 | unresolved | unresolved | unresolved | unresolved |  |
 | Bos taurus | PRJEB31621 | prjeb31621:samea5577009 | unresolved | unresolved | unresolved | unresolved |  |
 | Bos taurus | PRJEB31621 | prjeb31621:samea5577010 | unresolved | unresolved | unresolved | unresolved |  |
@@ -138,9 +141,6 @@
 | Bos taurus | PRJEB75467 | prjeb75467:samea115574456 | sample_owned_interval | modeled_sample_date | sample_approximate_or_modeled | normalized_interval | 6754-7744 BP |
 | Bos taurus | PRJEB75467 | prjeb75467:samea115574457 | sample_owned_interval | modeled_sample_date | sample_approximate_or_modeled | normalized_interval | 6748-7744 BP |
 | Bos taurus | PRJEB75467 | prjeb75467:supplement:fre1 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 10422-10751 BP |
-| Bos taurus | PRJNA705960 | prjna705960:samn18106827 | unresolved | unresolved | unresolved | unresolved |  |
-| Bos taurus | PRJNA705960 | prjna705960:samn18106828 | unresolved | unresolved | unresolved | unresolved |  |
-| Bos taurus | PRJNA705960 | prjna705960:samn18106829 | unresolved | unresolved | unresolved | unresolved |  |
 | Bos taurus | PRJNA705960 | prjna705960:samn18106830 | unresolved | unresolved | unresolved | unresolved |  |
 | Bos taurus | PRJNA705960 | prjna705960:samn18106831 | unresolved | unresolved | unresolved | unresolved |  |
 | Bos taurus | PRJNA705960 | prjna705960:samn18106832 | unresolved | unresolved | unresolved | unresolved |  |

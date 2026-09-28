@@ -17,7 +17,6 @@ internal functions that emitted each file.
 ## Start Here
 
 - [how to read the report tree](./how-to-read.md) if you are new to the repository
-- [Swedish pollen and Nordic transfer study](./pollen-reconstruction/README.md) for direct-pollen results, numerical correspondence, and source limits
 - [map surfaces](./maps/index.md) if you want the interactive world, Europe-plus, or Nordic view
 - [scope-filtered outputs](./scopes/index.md) if your question is world, region, or country specific
 - [evidence reviews](./reviews/index.md) if you want chronology, intake, sample-database, or point-support reviews
@@ -29,7 +28,7 @@ internal functions that emitted each file.
 | Family | Surface count | Reader value |
 | --- | ---: | --- |
 | Map surfaces | `84` | interactive surfaces, traceability, contracts, and atlas-facing evidence rows |
-| Scope-filtered outputs | `525` | world, regional, and country bundles that answer geography-first reading questions |
+| Scope-filtered outputs | `524` | world, regional, and country bundles that answer geography-first reading questions |
 | Evidence reviews | `32` | animal evidence, chronology, recovery, and cross-family review surfaces |
 | Scientific caveats | `8` | blocked, thin, overclaim-sensitive, and honesty-oriented publication surfaces |
 | Maintainer truth surfaces | `50` | repository truth, docs integrity, source audits, and geography governance surfaces |
@@ -48,5 +47,5 @@ Use the tree in this order: reader portal first, scope bundle second, evidence r
 ## Audience Mix
 
 - Maintainer diagnostic: `53`
-- Public reading surface: `528`
+- Public reading surface: `527`
 - Scientific review surface: `118`

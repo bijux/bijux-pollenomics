@@ -4,6 +4,9 @@
 
 | Species | Project | Sample record | Locality | Inclusion status | Mapping posture | Exclusion reason |
 | --- | --- | --- | --- | --- | --- | --- |
+| Bos primigenius | PRJNA705960 | bos_taurus:sample:prjna705960:samn18106827 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
+| Bos primigenius | PRJNA705960 | bos_taurus:sample:prjna705960:samn18106828 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
+| Bos primigenius | PRJNA705960 | bos_taurus:sample:prjna705960:samn18106829 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
 | Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577008 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
 | Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577009 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
 | Bos taurus | PRJEB31621 | bos_taurus:sample:prjeb31621:samea5577010 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
@@ -94,9 +97,6 @@
 | Bos taurus | PRJEB75467 | bos_taurus:sample:prjeb75467:samea115574443 | Former Soviet Union | site_curated |  | no coordinate provenance row currently supports point publication |
 | Bos taurus | PRJEB75467 | bos_taurus:sample:prjeb75467:samea115574444 | Former Soviet Union | site_curated |  | no coordinate provenance row currently supports point publication |
 | Bos taurus | PRJEB75467 | bos_taurus:sample:prjeb75467:samea115574447 | Uralsk | site_curated | mappable_point | chronology remains unresolved enough that the sample stays out of the public map |
-| Bos taurus | PRJNA705960 | bos_taurus:sample:prjna705960:samn18106827 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
-| Bos taurus | PRJNA705960 | bos_taurus:sample:prjna705960:samn18106828 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
-| Bos taurus | PRJNA705960 | bos_taurus:sample:prjna705960:samn18106829 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
 | Bos taurus | PRJNA705960 | bos_taurus:sample:prjna705960:samn18106830 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
 | Bos taurus | PRJNA705960 | bos_taurus:sample:prjna705960:samn18106831 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
 | Bos taurus | PRJNA705960 | bos_taurus:sample:prjna705960:samn18106832 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |

@@ -21,12 +21,12 @@ link farms or coded operator notes.
 | `docs/report/animal_atlas_exclusion_report.md` | `structured_reference` | 0 | 0 | 1 | 1121 | 1 | Page is table-heavy, but it behaves like a reference surface rather than a loose link dump. |
 | `docs/report/animal_atlas_readiness.md` | `structured_reference` | 0 | 0 | 1 | 12 | 1 | Page is table-heavy, but it behaves like a reference surface rather than a loose link dump. |
 | `docs/report/animal_country_species_coverage.md` | `structured_reference` | 0 | 0 | 0 | 7 | 1 | Page is table-heavy, but it behaves like a reference surface rather than a loose link dump. |
-| `docs/report/animal_cross_surface_drift.md` | `structured_reference` | 0 | 0 | 0 | 11 | 1 | Page is table-heavy, but it behaves like a reference surface rather than a loose link dump. |
+| `docs/report/animal_cross_surface_drift.md` | `structured_reference` | 0 | 0 | 0 | 12 | 1 | Page is table-heavy, but it behaves like a reference surface rather than a loose link dump. |
 | `docs/report/animal_first_appearance_by_country.md` | `structured_reference` | 0 | 0 | 0 | 7 | 1 | Page is table-heavy, but it behaves like a reference surface rather than a loose link dump. |
 | `docs/report/animal_foundation_review.md` | `reader_ready` | 3 | 0 | 11 | 0 | 3 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/animal_foundation_validation.md` | `structured_reference` | 0 | 0 | 0 | 9 | 1 | Page is table-heavy, but it behaves like a reference surface rather than a loose link dump. |
 | `docs/report/animal_human_chronology_overlap.md` | `thin_structure` | 1 | 0 | 1 | 7 | 1 | Page explains itself but still needs stronger internal wayfinding. |
-| `docs/report/animal_intake_recovery_review.md` | `reader_ready` | 3 | 0 | 13 | 22 | 4 | Page explains its purpose before or alongside artifact links. |
+| `docs/report/animal_intake_recovery_review.md` | `reader_ready` | 4 | 0 | 13 | 22 | 4 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/animal_output_audit.md` | `reader_ready` | 2 | 0 | 2 | 12 | 2 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/animal_output_honesty.md` | `structured_reference` | 0 | 0 | 0 | 11 | 1 | Page is table-heavy, but it behaves like a reference surface rather than a loose link dump. |
 | `docs/report/animal_point_evidence_review.md` | `reader_ready` | 170 | 0 | 342 | 0 | 171 | Page explains its purpose before or alongside artifact links. |
@@ -72,7 +72,7 @@ link farms or coded operator notes.
 | `docs/report/regions/europe-plus/europe-plus_map_publication_contract.md` | `reader_ready` | 6 | 0 | 6 | 13 | 7 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/regions/europe-plus/europe-plus_point_traceability.md` | `reader_ready` | 1 | 0 | 0 | 42 | 3 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/regions/europe-plus/europe-plus_scientific_review.md` | `reader_ready` | 3 | 0 | 8 | 196 | 10 | Page explains its purpose before or alongside artifact links. |
-| `docs/report/regions/nordic/README.md` | `reader_ready` | 10 | 0 | 310 | 38 | 14 | Page explains its purpose before or alongside artifact links. |
+| `docs/report/regions/nordic/README.md` | `reader_ready` | 10 | 0 | 309 | 38 | 14 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/regions/nordic/nordic_candidate_site_sensitivity.md` | `thin_structure` | 1 | 0 | 0 | 449 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/regions/nordic/nordic_candidate_sites.md` | `thin_structure` | 4 | 0 | 0 | 449 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/regions/nordic/nordic_evidence_surface.md` | `reader_ready` | 1 | 0 | 0 | 47 | 4 | Page explains its purpose before or alongside artifact links. |
