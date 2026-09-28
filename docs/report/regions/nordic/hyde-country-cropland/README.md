@@ -34,8 +34,8 @@ states a 2023 endpoint. The local Yoda metadata and `License.txt` say CC BY-NC
 derived summaries under the more restrictive declaration pending a provider
 resolution; no native HYDE files are redistributed here. A
 [native grid-to-country check](grid-conservation/README.md) now verifies the
-three 2000 CE cropland grids against their source country tables. Broader
-variable/year conservation, rights reconciliation, chronology alignment and a
+21 cropland grids at the seven selected CE labels against their source country
+tables. Other variables and years, rights reconciliation, chronology alignment and a
 matched no-HYDE/HYDE model comparison remain open.
 
 From the repository root, regenerate into a new artifacts directory with:

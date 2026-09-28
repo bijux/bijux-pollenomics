@@ -142,7 +142,7 @@ def publish(source_root: Path, output: Path) -> dict[str, object]:
         "rights": "Local Yoda metadata and License.txt say CC BY-NC 4.0; README and NetCDF declarations say CC BY 3.0. Derived summary retained under restrictive interpretation; redistribution review pending.",
         "interpretation": "These are native source country totals, not a new grid-country overlay, independent observed vegetation, uncertainty intervals, or pollen covariates. CE labels are retained without BP/NetCDF calendar conversion. The 2025 column exists in these tables while release coverage prose conflicts.",
         "remaining": [
-            "grid_country_conservation",
+            "unreviewed_grid_variables_and_years",
             "release_rights_reconciliation",
             "time_mapping_for_pollen_study",
             "paired_no_hyde_hyde_ablation",

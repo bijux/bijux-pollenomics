@@ -1,6 +1,6 @@
 {
   "schema_version": "hyde-nordic-native-country-conservation.v1",
-  "measure": "2000AD cropland km2 per source ISO country, three native scenarios",
+  "measure": "Native cropland km2 per source ISO country, seven CE labels and three scenarios",
   "country_codes": {
     "DK": "208",
     "FI": "246",
@@ -9,7 +9,16 @@
   },
   "scenario_count": 3,
   "country_count": 4,
-  "rows": 12,
+  "source_year_ce_labels": [
+    500,
+    1000,
+    1500,
+    1700,
+    1900,
+    2000,
+    2025
+  ],
+  "rows": 84,
   "inputs": [
     {
       "path": "original/general_files.zip",
@@ -21,13 +30,68 @@
       "sha256": "d3ddee4c611af206f5324243c6676c2c9648306970e8c7e108d3cf5d418099bb"
     },
     {
+      "path": "original/gbc2025_7apr_base/zip/500AD_lu.zip",
+      "sha256": "7f6ab5077ad2bc0ce81480baf85bbc022dce72735bf23b30d4149c4c55a311a1",
+      "member": "cropland500AD.asc"
+    },
+    {
+      "path": "original/gbc2025_7apr_base/zip/1000AD_lu.zip",
+      "sha256": "46ffc934f4470800284106997e282dfff64953ffe43191d83be848383b9a05fa",
+      "member": "cropland1000AD.asc"
+    },
+    {
+      "path": "original/gbc2025_7apr_base/zip/1500AD_lu.zip",
+      "sha256": "e1b441a2e8b941212887cd89b5b4583b3b44a36b130cb3276b88af2ee5444979",
+      "member": "cropland1500AD.asc"
+    },
+    {
+      "path": "original/gbc2025_7apr_base/zip/1700AD_lu.zip",
+      "sha256": "d4ccccdb190d9038c44bcb4830fc6386215a1ad42b56137d5757e74cf5f5f1ba",
+      "member": "cropland1700AD.asc"
+    },
+    {
+      "path": "original/gbc2025_7apr_base/zip/1900AD_lu.zip",
+      "sha256": "d8eb34580d9f09849bf8b2aff437d247b64135a65c4fc53eaea13223f31113c4",
+      "member": "cropland1900AD.asc"
+    },
+    {
       "path": "original/gbc2025_7apr_base/zip/2000AD_lu.zip",
       "sha256": "d0a762ccce3256d25c36e1c58894c6a6b05f93075006366854cc7e6176c7d09f",
       "member": "cropland2000AD.asc"
     },
     {
+      "path": "original/gbc2025_7apr_base/zip/2025AD_lu.zip",
+      "sha256": "eaf8a0023c6536b22d87578d84a3d803318ed511f1ea1a15ba0d1d43bd244ec6",
+      "member": "cropland2025AD.asc"
+    },
+    {
       "path": "original/gbc2025_7apr_lower/txt/cropland_c.txt",
       "sha256": "b4aa002fe3d0217b4cbdb81513c2d3e2184a2620cb52b39822a42bd9723b8268"
+    },
+    {
+      "path": "original/gbc2025_7apr_lower/zip/500AD_lu.zip",
+      "sha256": "f3b785b83a599cce38c18574988b4e6b7f917e6c3004a09c92b0306ed0f7fc47",
+      "member": "cropland500AD.asc"
+    },
+    {
+      "path": "original/gbc2025_7apr_lower/zip/1000AD_lu.zip",
+      "sha256": "d4a465b03e53c397cda38c4b3c1188e73197f6c9f9ab641175bb93d1836d0070",
+      "member": "cropland1000AD.asc"
+    },
+    {
+      "path": "original/gbc2025_7apr_lower/zip/1500AD_lu.zip",
+      "sha256": "e0e1f965a43ded010f9c9bc22a70da135325f4b91968b61446229599057a59e4",
+      "member": "cropland1500AD.asc"
+    },
+    {
+      "path": "original/gbc2025_7apr_lower/zip/1700AD_lu.zip",
+      "sha256": "80d606005ea35ee47fb625e8a1047f7fcce0aeabfdcbcb081ee1e1e7898f63d8",
+      "member": "cropland1700AD.asc"
+    },
+    {
+      "path": "original/gbc2025_7apr_lower/zip/1900AD_lu.zip",
+      "sha256": "e209df53fdf6d10a486071b6150e67f0c4bed8366a90c8ddfc3587efa78c015f",
+      "member": "cropland1900AD.asc"
     },
     {
       "path": "original/gbc2025_7apr_lower/zip/2000AD_lu.zip",
@@ -35,15 +99,50 @@
       "member": "cropland2000AD.asc"
     },
     {
+      "path": "original/gbc2025_7apr_lower/zip/2025AD_lu.zip",
+      "sha256": "c3db6d83778185e0b021a197670a4aa1eba3c5c1173b693cbfe708d15078752f",
+      "member": "cropland2025AD.asc"
+    },
+    {
       "path": "original/gbc2025_7apr_upper/txt/cropland_c.txt",
       "sha256": "e8f186147691e99d7406e21d17f421b5f8893f45941ef3884c0c45b77df48f1e"
+    },
+    {
+      "path": "original/gbc2025_7apr_upper/zip/500AD_lu.zip",
+      "sha256": "ee1902f0a1c092cc1b5f207889724e3a2a31cf8fd6ef96fbf96e1c15dae4f366",
+      "member": "cropland500AD.asc"
+    },
+    {
+      "path": "original/gbc2025_7apr_upper/zip/1000AD_lu.zip",
+      "sha256": "3f899bb19b912707b28b495fdfd5d20a302a2f6f67b3937b81f492c01fe1aebc",
+      "member": "cropland1000AD.asc"
+    },
+    {
+      "path": "original/gbc2025_7apr_upper/zip/1500AD_lu.zip",
+      "sha256": "fba6b8977870ee62031a402d390e257403c39330eba8a4fe0250c3b44aa8f1ce",
+      "member": "cropland1500AD.asc"
+    },
+    {
+      "path": "original/gbc2025_7apr_upper/zip/1700AD_lu.zip",
+      "sha256": "2b2800198f43bfa73944e2a60bd03f799f98dbbf97810849d5162880499c2a1a",
+      "member": "cropland1700AD.asc"
+    },
+    {
+      "path": "original/gbc2025_7apr_upper/zip/1900AD_lu.zip",
+      "sha256": "708f6b53f713f3060876113ab198fc7fabbe18c839262ea0c414602fde16798b",
+      "member": "cropland1900AD.asc"
     },
     {
       "path": "original/gbc2025_7apr_upper/zip/2000AD_lu.zip",
       "sha256": "8a3a518655e16e7a49c72c6463ef4a377588c271d0a381f32c60dd8a801f7ea9",
       "member": "cropland2000AD.asc"
+    },
+    {
+      "path": "original/gbc2025_7apr_upper/zip/2025AD_lu.zip",
+      "sha256": "e80546e9d2132026b18471f2b887f08d86704d5cdcf8326d78378a69458d4f2f",
+      "member": "cropland2025AD.asc"
     }
   ],
   "conservation_tolerance_km2": "0.000001",
-  "interpretation": "The native ISO and cropland ASCII grids have identical literal headers, every selected ISO cell has a nonnegative cropland value, and its exact decimal sum agrees with the source country table at the stated tolerance. This checks four countries, one CE label and cropland only; it does not resolve formal CRS, BP calendar, release rights or independent vegetation truth."
+  "interpretation": "The native ISO and cropland ASCII grids have identical literal headers, every selected ISO cell has a nonnegative cropland value, and its exact decimal sum agrees with the source country table at the stated tolerance for seven CE labels. This checks four countries and cropland only; it does not resolve formal CRS, BP calendar, release rights or independent vegetation truth."
 }

@@ -18,15 +18,15 @@ from .hyde_country_cropland import (
     GENERAL,
     SCENARIOS,
     TABLE,
+    YEARS,
     _country_codes,
     _table,
 )
 
 
-YEAR = 2000
-ZIP_PATH = "original/gbc2025_7apr_{scenario}/zip/2000AD_lu.zip"
+ZIP_PATH = "original/gbc2025_7apr_{scenario}/zip/{year}AD_lu.zip"
 ISO_MEMBER = "general_files/iso_cr.asc"
-CROP_MEMBER = "cropland2000AD.asc"
+CROP_MEMBER = "cropland{year}AD.asc"
 HEADER = (
     ("ncols", "4320"),
     ("nrows", "2160"),
@@ -82,13 +82,13 @@ def _iso_positions(
 
 
 def _crop_totals(
-    archive: bytes, positions: list[dict[str, list[int]]]
+    archive: bytes, positions: list[dict[str, list[int]]], member: str
 ) -> tuple[dict[str, Decimal], dict[str, int], dict[str, int]]:
     totals = {country: Decimal(0) for country in COUNTRIES}
     valid = {country: 0 for country in COUNTRIES}
     zeros = {country: 0 for country in COUNTRIES}
-    _require_unique_member(archive, CROP_MEMBER)
-    with ZipFile(BytesIO(archive)) as zipped, zipped.open(CROP_MEMBER) as stream:
+    _require_unique_member(archive, member)
+    with ZipFile(BytesIO(archive)) as zipped, zipped.open(member) as stream:
         _header(stream)
         for selected in positions:
             tokens = stream.readline().split()
@@ -127,45 +127,46 @@ def publish(source_root: Path, output: Path) -> dict[str, object]:
         table = (root / table_path).read_bytes()
         inputs.append({"path": table_path, "sha256": _sha(table)})
         source_totals = _table(table, codes)
-        zip_path = ZIP_PATH.format(scenario=scenario)
-        archive = (root / zip_path).read_bytes()
-        inputs.append(
-            {"path": zip_path, "sha256": _sha(archive), "member": CROP_MEMBER}
-        )
-        totals, valid, zeros = _crop_totals(archive, positions)
-        for country in COUNTRIES:
-            expected = source_totals[(country, YEAR)]
-            difference = totals[country] - expected
-            if valid[country] != cells[country] or abs(difference) > Decimal(
-                "0.000001"
-            ):
-                raise ValueError(
-                    f"HYDE {scenario} {country} grid/country conservation failed: {difference}"
+        for year in YEARS:
+            zip_path = ZIP_PATH.format(scenario=scenario, year=year)
+            member = CROP_MEMBER.format(year=year)
+            archive = (root / zip_path).read_bytes()
+            inputs.append({"path": zip_path, "sha256": _sha(archive), "member": member})
+            totals, valid, zeros = _crop_totals(archive, positions, member)
+            for country in COUNTRIES:
+                expected = source_totals[(country, year)]
+                difference = totals[country] - expected
+                if valid[country] != cells[country] or abs(difference) > Decimal(
+                    "0.000001"
+                ):
+                    raise ValueError(
+                        f"HYDE {scenario} {country} {year} grid/country conservation failed: {difference}"
+                    )
+                rows.append(
+                    {
+                        "scenario": scenario,
+                        "country": country,
+                        "hyde_iso_code": codes[country],
+                        "source_year_ce_label": year,
+                        "iso_grid_cells": cells[country],
+                        "valid_cropland_cells": valid[country],
+                        "zero_cropland_cells": zeros[country],
+                        "grid_cropland_km2": str(totals[country]),
+                        "source_country_cropland_km2": str(expected),
+                        "grid_minus_country_km2": str(difference),
+                    }
                 )
-            rows.append(
-                {
-                    "scenario": scenario,
-                    "country": country,
-                    "hyde_iso_code": codes[country],
-                    "source_year_ce_label": YEAR,
-                    "iso_grid_cells": cells[country],
-                    "valid_cropland_cells": valid[country],
-                    "zero_cropland_cells": zeros[country],
-                    "grid_cropland_km2": str(totals[country]),
-                    "source_country_cropland_km2": str(expected),
-                    "grid_minus_country_km2": str(difference),
-                }
-            )
     report: dict[str, object] = {
         "schema_version": "hyde-nordic-native-country-conservation.v1",
-        "measure": "2000AD cropland km2 per source ISO country, three native scenarios",
+        "measure": "Native cropland km2 per source ISO country, seven CE labels and three scenarios",
         "country_codes": codes,
         "scenario_count": len(SCENARIOS),
         "country_count": len(COUNTRIES),
+        "source_year_ce_labels": list(YEARS),
         "rows": len(rows),
         "inputs": inputs,
         "conservation_tolerance_km2": "0.000001",
-        "interpretation": "The native ISO and cropland ASCII grids have identical literal headers, every selected ISO cell has a nonnegative cropland value, and its exact decimal sum agrees with the source country table at the stated tolerance. This checks four countries, one CE label and cropland only; it does not resolve formal CRS, BP calendar, release rights or independent vegetation truth.",
+        "interpretation": "The native ISO and cropland ASCII grids have identical literal headers, every selected ISO cell has a nonnegative cropland value, and its exact decimal sum agrees with the source country table at the stated tolerance for seven CE labels. This checks four countries and cropland only; it does not resolve formal CRS, BP calendar, release rights or independent vegetation truth.",
     }
     output.mkdir(parents=True, exist_ok=False)
     buffer = StringIO(newline="")

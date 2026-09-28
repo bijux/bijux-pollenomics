@@ -188,11 +188,11 @@ source-reported quantity is separate from the generic count-only country ledger:
 it does not change that ledger's refused grid assignment or publication cells,
 or establish a matched pollen comparison.
 
-For 2000 CE cropland, a separate
+For cropland at seven selected CE labels, a separate
 [native ISO-grid reconciliation](../../../report/regions/nordic/hyde-country-cropland/grid-conservation/README.md)
-now reproduces all four source country totals in base, lower and upper scenarios
-to within 0.000001 km². This is a bounded internal source-consistency result,
-not a general release, calendar, rights or scientific model admission.
+now reproduces all 84 four-country/year/scenario source totals from native
+grids to within 0.000001 km². This is a bounded internal source-consistency
+result, not a general release, calendar, rights or scientific model admission.
 
 ## Inspected local release
 
