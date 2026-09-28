@@ -10,9 +10,10 @@
   "raw_author_target_count_max": 24,
   "total_prepared_target_rows_without_raw_source_name": 168,
   "positive_prepared_target_rows_without_literal_raw_name": 5,
+  "whitespace_name_candidate_count": 5,
   "all_targets_measured_admitted": false,
   "reviewed_reveals_profile_admitted": false,
-  "interpretation": "Prepared matrices contain 31 target rows at every site. Most targets without an exact raw source-name lead have all-zero prepared rows, but one site's positive prepared targets also lack literal raw-name leads. Neither zero nor positive prepared rows establish a measured-taxon mask without the author's preprocessing decisions and original counting semantics.",
+  "interpretation": "Prepared matrices contain 31 target rows at every site. Most targets without an exact raw source-name lead have all-zero prepared rows, but one site's positive prepared targets also lack literal raw-name leads. Neither zero nor positive prepared rows establish a measured-taxon mask without the original counting semantics. The five whitespace-normalized WHH05 raw-name and count-sum matches have a separate retained R read.csv parser witness; the author formatter calls that parser before its literal name match.",
   "inputs": [
     {
       "source_root_role": "external_landclim_author_reference",
@@ -31,6 +32,12 @@
       "path": "reference/taxon-name-crosswalk.csv",
       "bytes": 930,
       "sha256": "3a0f598ba5e550ca39da52b2047b7020b013dad013d15f79bef8e1c3c1a979c3"
+    },
+    {
+      "source_root_role": "external_landclim_author_reference",
+      "path": "author/RV.file.format.LANDCLIMII.r",
+      "bytes": 7436,
+      "sha256": "f7463b6e625781dbfdc58186fad70011af9c9f7f03f724ea29abe2489040e118"
     },
     {
       "source_root_role": "external_landclim_author_reference",
@@ -276,6 +283,7 @@
       ],
       "positive_prepared_targets_without_literal_raw_name": [],
       "positive_prepared_without_raw_name_count": 0,
+      "whitespace_name_candidates": [],
       "raw_names_without_author_lookup": [],
       "all_targets_measured_admitted": false
     },
@@ -306,6 +314,7 @@
       ],
       "positive_prepared_targets_without_literal_raw_name": [],
       "positive_prepared_without_raw_name_count": 0,
+      "whitespace_name_candidates": [],
       "raw_names_without_author_lookup": [],
       "all_targets_measured_admitted": false
     },
@@ -334,6 +343,7 @@
       ],
       "positive_prepared_targets_without_literal_raw_name": [],
       "positive_prepared_without_raw_name_count": 0,
+      "whitespace_name_candidates": [],
       "raw_names_without_author_lookup": [],
       "all_targets_measured_admitted": false
     },
@@ -364,6 +374,7 @@
       ],
       "positive_prepared_targets_without_literal_raw_name": [],
       "positive_prepared_without_raw_name_count": 0,
+      "whitespace_name_candidates": [],
       "raw_names_without_author_lookup": [
         "",
         "",
@@ -403,6 +414,7 @@
       ],
       "positive_prepared_targets_without_literal_raw_name": [],
       "positive_prepared_without_raw_name_count": 0,
+      "whitespace_name_candidates": [],
       "raw_names_without_author_lookup": [],
       "all_targets_measured_admitted": false
     },
@@ -463,6 +475,53 @@
         }
       ],
       "positive_prepared_without_raw_name_count": 5,
+      "whitespace_name_candidates": [
+        {
+          "source_column_index": 8,
+          "raw_header": "Fagus  ",
+          "trimmed_name": "Fagus",
+          "candidate_author_target": "Fagus sylvatica",
+          "raw_column_sum": 5.0,
+          "prepared_target_sum": 5.0,
+          "sums_equal": true
+        },
+        {
+          "source_column_index": 9,
+          "raw_header": "Fraxinus  ",
+          "trimmed_name": "Fraxinus",
+          "candidate_author_target": "Fraxinus",
+          "raw_column_sum": 1.0,
+          "prepared_target_sum": 1.0,
+          "sums_equal": true
+        },
+        {
+          "source_column_index": 14,
+          "raw_header": "Juniperus  ",
+          "trimmed_name": "Juniperus",
+          "candidate_author_target": "Juniperus",
+          "raw_column_sum": 2.0,
+          "prepared_target_sum": 2.0,
+          "sums_equal": true
+        },
+        {
+          "source_column_index": 17,
+          "raw_header": "Calluna  ",
+          "trimmed_name": "Calluna",
+          "candidate_author_target": "Calluna vulgaris",
+          "raw_column_sum": 1364.0,
+          "prepared_target_sum": 1364.0,
+          "sums_equal": true
+        },
+        {
+          "source_column_index": 18,
+          "raw_header": "Poaceae  ",
+          "trimmed_name": "Poaceae",
+          "candidate_author_target": "Poaceae",
+          "raw_column_sum": 138.0,
+          "prepared_target_sum": 138.0,
+          "sums_equal": true
+        }
+      ],
       "raw_names_without_author_lookup": [
         "Fagus  ",
         "Fraxinus  ",
@@ -509,6 +568,7 @@
       ],
       "positive_prepared_targets_without_literal_raw_name": [],
       "positive_prepared_without_raw_name_count": 0,
+      "whitespace_name_candidates": [],
       "raw_names_without_author_lookup": [
         "Prunus spp",
         "Hedera Helix",
@@ -546,6 +606,7 @@
       ],
       "positive_prepared_targets_without_literal_raw_name": [],
       "positive_prepared_without_raw_name_count": 0,
+      "whitespace_name_candidates": [],
       "raw_names_without_author_lookup": [
         "",
         "",
@@ -586,6 +647,7 @@
       ],
       "positive_prepared_targets_without_literal_raw_name": [],
       "positive_prepared_without_raw_name_count": 0,
+      "whitespace_name_candidates": [],
       "raw_names_without_author_lookup": [],
       "all_targets_measured_admitted": false
     },
@@ -615,6 +677,7 @@
       ],
       "positive_prepared_targets_without_literal_raw_name": [],
       "positive_prepared_without_raw_name_count": 0,
+      "whitespace_name_candidates": [],
       "raw_names_without_author_lookup": [],
       "all_targets_measured_admitted": false
     },
@@ -649,6 +712,7 @@
       ],
       "positive_prepared_targets_without_literal_raw_name": [],
       "positive_prepared_without_raw_name_count": 0,
+      "whitespace_name_candidates": [],
       "raw_names_without_author_lookup": [],
       "all_targets_measured_admitted": false
     },
@@ -678,6 +742,7 @@
       ],
       "positive_prepared_targets_without_literal_raw_name": [],
       "positive_prepared_without_raw_name_count": 0,
+      "whitespace_name_candidates": [],
       "raw_names_without_author_lookup": [],
       "all_targets_measured_admitted": false
     },
@@ -706,6 +771,7 @@
       ],
       "positive_prepared_targets_without_literal_raw_name": [],
       "positive_prepared_without_raw_name_count": 0,
+      "whitespace_name_candidates": [],
       "raw_names_without_author_lookup": [],
       "all_targets_measured_admitted": false
     },
@@ -735,6 +801,7 @@
       ],
       "positive_prepared_targets_without_literal_raw_name": [],
       "positive_prepared_without_raw_name_count": 0,
+      "whitespace_name_candidates": [],
       "raw_names_without_author_lookup": [],
       "all_targets_measured_admitted": false
     },
@@ -762,6 +829,7 @@
       ],
       "positive_prepared_targets_without_literal_raw_name": [],
       "positive_prepared_without_raw_name_count": 0,
+      "whitespace_name_candidates": [],
       "raw_names_without_author_lookup": [],
       "all_targets_measured_admitted": false
     },
@@ -793,6 +861,7 @@
       ],
       "positive_prepared_targets_without_literal_raw_name": [],
       "positive_prepared_without_raw_name_count": 0,
+      "whitespace_name_candidates": [],
       "raw_names_without_author_lookup": [],
       "all_targets_measured_admitted": false
     },
@@ -824,6 +893,7 @@
       ],
       "positive_prepared_targets_without_literal_raw_name": [],
       "positive_prepared_without_raw_name_count": 0,
+      "whitespace_name_candidates": [],
       "raw_names_without_author_lookup": [
         "",
         ""

@@ -18,6 +18,7 @@ from bijux_pollenomics_dev.source_completion.landclim_taxonomy_mass import (
 
 PARAMETERS = Path("author/run.REVEALS.files/av-RPP.all.landclimII.csv")
 CROSSWALK = Path("reference/taxon-name-crosswalk.csv")
+FORMAT_SCRIPT = Path("author/RV.file.format.LANDCLIMII.r")
 GRIDS = {"512": 9, "562": 8}
 
 
@@ -55,8 +56,16 @@ def publish(source_root: Path, output: Path) -> dict[str, object]:
     prepared_names = dict(crosswalk_rows[1:])
     inputs = [
         _identity(source_root / relative, source_root)
-        for relative in (LOOKUP, PARAMETERS, CROSSWALK)
+        for relative in (LOOKUP, PARAMETERS, CROSSWALK, FORMAT_SCRIPT)
     ]
+    format_script = (source_root / FORMAT_SCRIPT).read_text(encoding="utf-8")
+    if (
+        "lookup$RPP.LANDCLIMII[match(names(poll.data), lookup$oldvar)]"
+        not in format_script
+        or "poll.joined[is.na(poll.joined)] <- 0" not in format_script
+        or "trimws" in format_script
+    ):
+        raise ValueError("Retained author formatting source changed")
     rows: list[dict[str, object]] = []
     seen_sites: set[str] = set()
     for grid, expected_sites in GRIDS.items():
@@ -111,6 +120,29 @@ def publish(source_root: Path, output: Path) -> dict[str, object]:
                     float(value) != 0 for value in row_by_name[prepared_names[target]]
                 )
             ]
+            whitespace_candidates = [
+                {
+                    "source_column_index": index,
+                    "raw_header": name,
+                    "trimmed_name": name.strip(),
+                    "candidate_author_target": lookup[name.strip()],
+                    "raw_column_sum": sum(
+                        float(raw_row[index]) for raw_row in raw_rows[1:]
+                    ),
+                    "prepared_target_sum": sum(
+                        float(value)
+                        for value in row_by_name[prepared_names[lookup[name.strip()]]]
+                    ),
+                }
+                for index, name in enumerate(header[2:], start=2)
+                if name not in lookup
+                and name.strip() != name
+                and lookup.get(name.strip()) in targets
+            ]
+            for candidate in whitespace_candidates:
+                candidate["sums_equal"] = (
+                    candidate["raw_column_sum"] == candidate["prepared_target_sum"]
+                )
             rows.append(
                 {
                     "grid_id": grid,
@@ -133,6 +165,7 @@ def publish(source_root: Path, output: Path) -> dict[str, object]:
                     "positive_prepared_without_raw_name_count": len(
                         positive_without_literal_name
                     ),
+                    "whitespace_name_candidates": whitespace_candidates,
                     "raw_names_without_author_lookup": [
                         name for name in header[2:] if name not in lookup
                     ],
@@ -156,6 +189,9 @@ def publish(source_root: Path, output: Path) -> dict[str, object]:
         "positive_prepared_target_rows_without_literal_raw_name": sum(
             cast(int, row["positive_prepared_without_raw_name_count"]) for row in rows
         ),
+        "whitespace_name_candidate_count": sum(
+            len(cast(list[object], row["whitespace_name_candidates"])) for row in rows
+        ),
         "all_targets_measured_admitted": False,
         "reviewed_reveals_profile_admitted": False,
         "interpretation": (
@@ -163,8 +199,11 @@ def publish(source_root: Path, output: Path) -> dict[str, object]:
             "targets without an exact raw source-name lead have all-zero "
             "prepared rows, but one site's positive prepared targets also "
             "lack literal raw-name leads. Neither zero nor positive prepared "
-            "rows establish a measured-taxon mask without the author's "
-            "preprocessing decisions and original counting semantics."
+            "rows establish a measured-taxon mask without the original "
+            "counting semantics. The five whitespace-normalized WHH05 "
+            "raw-name and count-sum matches have a separate retained "
+            "R read.csv parser witness; the author formatter calls that "
+            "parser before its literal name match."
         ),
         "inputs": inputs,
         "rows": rows,
