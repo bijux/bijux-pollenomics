@@ -8,7 +8,10 @@ from pathlib import Path
 
 import pytest
 
-from bijux_pollenomics_dev.source_completion.source_capability import derive
+from bijux_pollenomics_dev.source_completion.source_capability import (
+    _validate_status_counts,
+    derive,
+)
 
 ROOT = Path(__file__).resolve().parents[4]
 
@@ -77,3 +80,50 @@ def test_missing_source_stage_refuses(
     rows.pop()
     with pytest.raises(ValueError, match="denominator"):
         derive(stage, coverage)
+
+
+def test_country_consumer_rejects_numeric_zero_in_blocked_cell(
+    ledgers: tuple[dict[str, object], dict[str, object]],
+) -> None:
+    stage, coverage = deepcopy(ledgers)
+    cells = coverage["cells"]
+    assert isinstance(cells, list)
+    blocked = next(cell for cell in cells if cell["availability_status"] == "blocked")
+    blocked["counts"]["sites"] = 0
+    with pytest.raises(ValueError, match="blocked country coverage"):
+        derive(stage, coverage)
+
+
+@pytest.mark.parametrize(
+    ("status", "counts", "reason"),
+    [
+        ("zero_observations", {"sites": None}, "requires only observed zeros"),
+        ("zero_observations", {"sites": 1}, "requires only observed zeros"),
+        ("blocked", {"sites": 0}, "must not carry numeric counts"),
+        ("not_available_from_source", {"sites": 0}, "must not carry numeric counts"),
+        ("not_applicable", {"sites": 0}, "must not carry numeric counts"),
+        ("available_not_collected", {"sites": 0}, "must not carry numeric counts"),
+        ("unresolved", {"sites": None}, "requires source counts"),
+        ("unknown", {"sites": None}, "Unknown country coverage"),
+    ],
+)
+def test_availability_status_refuses_false_numeric_claims(
+    status: str, counts: dict[str, int | None], reason: str
+) -> None:
+    with pytest.raises(ValueError, match=reason):
+        _validate_status_counts(status, counts)
+
+
+@pytest.mark.parametrize(
+    ("status", "counts"),
+    [
+        ("zero_observations", {"sites": 0, "observations": None}),
+        ("blocked", {"sites": None}),
+        ("available_not_collected", {"sites": None}),
+        ("unresolved", {"sites": 7, "accepted_records": 0}),
+    ],
+)
+def test_availability_status_preserves_distinct_valid_states(
+    status: str, counts: dict[str, int | None]
+) -> None:
+    _validate_status_counts(status, counts)

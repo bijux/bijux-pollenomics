@@ -26,6 +26,42 @@ FAMILIES = (
 )
 STAGE_PATH = Path("data/source_family_evidence_stage_matrix.json")
 COVERAGE_PATH = Path("data/country_dimension_coverage.json")
+AVAILABILITY_STATUSES = frozenset(
+    {
+        "available_collected",
+        "available_not_collected",
+        "available_partial",
+        "blocked",
+        "not_applicable",
+        "not_available_from_source",
+        "unresolved",
+        "zero_observations",
+    }
+)
+NULL_ONLY_STATUSES = frozenset(
+    {
+        "available_not_collected",
+        "blocked",
+        "not_applicable",
+        "not_available_from_source",
+    }
+)
+
+
+def _validate_status_counts(status: object, counts: dict[str, Any]) -> None:
+    """Keep absent, unavailable, blocked and observed-zero states distinct."""
+    if not isinstance(status, str) or status not in AVAILABILITY_STATUSES:
+        raise ValueError(f"Unknown country coverage availability status: {status}")
+    values = [value for value in counts.values() if value is not None]
+    if status in NULL_ONLY_STATUSES and values:
+        raise ValueError(f"{status} country coverage must not carry numeric counts")
+    if status == "zero_observations" and (not values or any(values)):
+        raise ValueError("Explicit zero country coverage requires only observed zeros")
+    if (
+        status in {"available_collected", "available_partial", "unresolved"}
+        and not values
+    ):
+        raise ValueError(f"{status} country coverage requires source counts")
 
 
 def _object_unique(pairs: list[tuple[str, object]]) -> dict[str, object]:
@@ -106,6 +142,7 @@ def derive(stage: dict[str, Any], coverage: dict[str, Any]) -> dict[str, Any]:
                     for value in counts.values()
                 ):
                     raise ValueError("Country coverage counts invalid")
+                _validate_status_counts(cell["availability_status"], counts)
                 dimensions[dimension] = {
                     "availability_status": cell["availability_status"],
                     "lifecycle_status": cell["lifecycle_status"],
