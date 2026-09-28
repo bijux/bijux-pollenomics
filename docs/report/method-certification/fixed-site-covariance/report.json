@@ -1,0 +1,165 @@
+{
+  "schema_version": "reveals-fixed-site-covariance-example.v1",
+  "profile": "reveals-fixed-site-delta-covariance-v1",
+  "site_ids": [
+    "small_peatland",
+    "larger_lake"
+  ],
+  "taxon_ids": [
+    "A",
+    "B",
+    "C"
+  ],
+  "count_unit": "integer pollen count",
+  "basins": [
+    {
+      "site_id": "small_peatland",
+      "type": "peatland",
+      "radius_m": 75.0
+    },
+    {
+      "site_id": "larger_lake",
+      "type": "lake",
+      "radius_m": 300.0
+    }
+  ],
+  "wind_speed_m_s": 3.0,
+  "regional_extent_m": 100000.0,
+  "counts": [
+    [
+      30,
+      20,
+      50
+    ],
+    [
+      20,
+      65,
+      15
+    ]
+  ],
+  "ppe": [
+    1.0,
+    1.5,
+    0.75
+  ],
+  "ppe_covariance": [
+    [
+      0.04,
+      0.015,
+      -0.005
+    ],
+    [
+      0.015,
+      0.09,
+      0.01
+    ],
+    [
+      -0.005,
+      0.01,
+      0.0225
+    ]
+  ],
+  "fall_speed_m_s": [
+    0.03,
+    0.035,
+    0.045
+  ],
+  "deposition": [
+    [
+      0.233306963942759,
+      0.1972776530978482,
+      0.13582371845128524
+    ],
+    [
+      53011.48700079029,
+      43929.491938882355,
+      29041.833014778094
+    ]
+  ],
+  "cover": [
+    0.18716890628017155,
+    0.09837982782444984,
+    0.7144512658953787
+  ],
+  "standard_error": [
+    0.055315152575235706,
+    0.02947244695885363,
+    0.06745353426315717
+  ],
+  "counting_covariance": [
+    [
+      0.0011461034882200923,
+      1.293848320249887e-05,
+      -0.0011590419714225912
+    ],
+    [
+      1.2938483202498842e-05,
+      0.0005034926387677381,
+      -0.000516431121970237
+    ],
+    [
+      -0.0011590419714225912,
+      -0.000516431121970237,
+      0.0016754730933928284
+    ]
+  ],
+  "ppe_component_covariance": [
+    [
+      0.0019136626162015132,
+      0.0002978555420109371,
+      -0.0022115181582124505
+    ],
+    [
+      0.00029785554201093703,
+      0.0003651324909747026,
+      -0.0006629880329856396
+    ],
+    [
+      -0.00221151815821245,
+      -0.0006629880329856396,
+      0.00287450619119809
+    ]
+  ],
+  "total_covariance": [
+    [
+      0.0030597661044216053,
+      0.000310794025213436,
+      -0.0033705601296350417
+    ],
+    [
+      0.00031079402521343586,
+      0.0008686251297424407,
+      -0.0011794191549558766
+    ],
+    [
+      -0.0033705601296350413,
+      -0.0011794191549558766,
+      0.0045499792845909185
+    ]
+  ],
+  "standard_error_without_ppe_uncertainty": [
+    0.033854150236272244,
+    0.022438641642660503,
+    0.04093254320699886
+  ],
+  "counting_model": "independent fixed-total multinomial within each fixed site",
+  "parameter_model": "shared full PPE covariance independent of site counts",
+  "site_selection_uncertainty_included": false,
+  "chronology_uncertainty_included": false,
+  "geometry_uncertainty_included": false,
+  "transport_uncertainty_included": false,
+  "source_r_parity_claimed": false,
+  "ecological_accuracy_claimed": false,
+  "source_files": [
+    {
+      "path": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/fixed_site_covariance.py",
+      "bytes": 4048,
+      "sha256": "15f409fe2112a52bd76b784fc03563270ef6c8510fedbc49098af04f30721161"
+    },
+    {
+      "path": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/dispersal/publication.py",
+      "bytes": 1645,
+      "sha256": "707eefbed4f6e3231fb49de255dafbe3f26691206f90026b58caa6f2fb1f0a89"
+    }
+  ]
+}
