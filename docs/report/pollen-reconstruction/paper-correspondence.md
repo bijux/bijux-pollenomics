@@ -32,6 +32,19 @@ the Quercus assignment and aggregated uncertainty.
 
 The next causal resolution needs the source owner to identify the historical raw sequence revisions and selected chronologies for a fully specified published row, then confirm taxon/count and PFT/ISTS transformations. The unresolved source-owner questions are summarized in `swedish-source-questions.csv`. No message was sent.
 
+## HYDE modeled context
+
+The [HYDE country result](../regions/nordic/hyde-country-cropland/README.md)
+now retains 84 source-reported cropland quantities for Denmark, Finland,
+Norway and Sweden across seven native CE labels and three scenarios. Its
+[native grid check](../regions/nordic/hyde-country-cropland/grid-conservation/README.md)
+reproduces all 12 year-2000 country/scenario totals from the release's ISO and
+cropland ASCII grids with a maximum absolute difference of about
+`7.04e-11` km², below the declared `1e-6` km² tolerance. This establishes a
+bounded internal modeled-source correspondence. No HYDE-assisted pollen model
+or independent vegetation validation has been scored; release rights, formal
+CRS and historical time support still require resolution.
+
 ## Repository evidence
 
 - Author computation, archive-window differences, interval alignment and uncertainty envelopes: `paper-correspondence.csv`.
@@ -39,4 +52,4 @@ The next causal resolution needs the source owner to identify the historical raw
 - Archived PFT/LCT and ISTS/TBS mean arithmetic: `docs/report/publication-replay/landclim-pft-crosswalk/`.
 - Rootsi source boundary and workbook replay summary: `docs/public/pollenomics-data/sources/landclim.md` and `swedish-source-questions.csv`.
 - Independent vegetation review: `docs/public/pollenomics-data/sources/empd2-nfi-review.md` and `nordic-nfi-reference-access.md`.
-- HYDE source boundary: `docs/public/pollenomics-data/sources/hyde.md`.
+- HYDE country totals and native grid reconciliation: `docs/report/regions/nordic/hyde-country-cropland/`; source limitations: `docs/public/pollenomics-data/sources/hyde.md`.
