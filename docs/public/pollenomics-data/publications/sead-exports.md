@@ -38,6 +38,12 @@ The current governed full-evidence run is `sead-full-evidence-39bfff6a-ce80714e`
 Site, feature, claim, observation, relation, and event counts are different units. The atlas may display SEAD chronology and source-native detail, but it must not turn the refused event population into migration or propagation evidence.
 <!-- sead-evidence:generated:end -->
 
+The [pollen-named dataset screen](../../../report/source-relations/sead/pollen-named-dataset-screen/README.md)
+exports 2,063 source-native observations with physical sample identities. Their
+dataset names alone do not confirm a pollen proxy, and none has an eligible
+analysis-entity chronology or exposed unit. No pollen time series or LRA sample
+is admitted from this screen.
+
 ## Choose An Artifact
 
 | Need | Use | Why |
