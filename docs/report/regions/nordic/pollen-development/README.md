@@ -33,9 +33,10 @@ RBF model improves transfer. The gains over IDW in the Finnish and Norwegian
 development sets are small absolute fraction differences (about 0.000387 and
 0.000662). All target sites were already part of source families under prior
 inspection; spatial grouping here is by physical site, not a buffered spatial
-block. The published outer-country result remains the fixed-method comparison
-until selected settings are applied to country-excluded training data and their
-predictions are frozen before target counts are opened for scoring.
+block. The selected settings were subsequently applied to country-excluded
+training data. The [frozen paired transfer result](../selected-pollen-transfer/README.md)
+shows that the tuned Finnish and Norwegian RBF settings did not beat IDW on
+their matched, previously exposed target-country support.
 
 Reproduction requires the current relational Neotoma snapshot and the retained
 Swedish training records. From the repository root, prepare exact input files

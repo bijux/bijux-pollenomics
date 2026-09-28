@@ -27,7 +27,7 @@
   "excluded_claims": [
     "Nordic LRA and independent vegetation accuracy: no admitted inputs for those claims; DK/FI/NO direct-pollen results are exploratory, prior-exposed subcomposition predictions only",
     "Independent vegetation accuracy: no eligible measured pairs",
-    "HYDE covariate value or HYDE-based Nordic country transfer: exact source semantics and country partition unresolved",
+    "HYDE-assisted pollen covariate effect: not evaluated; source country cropland and a 2000 CE native grid reconciliation are modeled context, not measured vegetation",
     "Whole-paper historical reproduction: source inputs, chronology, rights and PFT mapping unresolved",
     "Untouched confirmatory prediction skill: all author pollen outcomes were previously exposed",
     "Swedish LRA prediction: no fold run because time-matched basin geometry and parameterized count denominator remain unresolved"
@@ -160,5 +160,24 @@
     "ring_rows_with_zero_local_positive_regional": 42,
     "zero_local_positive_regional_taxon_cells": 134,
     "equation_max_abs_residual": 2.6645352591003757e-15
+  },
+  "nordic_selected_pollen_transfer": {
+    "source_report": "docs/report/regions/nordic/selected-pollen-transfer/report.json",
+    "freeze_sha256": "35e7245be19dfa7346fdb6408e5b5056e203e4f2342f957a88137cff12dda916",
+    "paired_scores_sha256": "6946b25a779d47954958b7fa965d5d98b56362c54c68f02a8c067cea0366f31d",
+    "paired_scored_site_bins": 1543,
+    "site_macro_selected_minus_idw_mae": {
+      "DK": 0.0,
+      "FI": 0.000496306435025834,
+      "NO": 0.006930021467741869
+    },
+    "status": "prior_exposed_development; selected RBF worse than IDW in FI and NO"
+  },
+  "hyde_modeled_country_context": {
+    "country_result": "docs/report/regions/nordic/hyde-country-cropland/report.json",
+    "grid_result": "docs/report/regions/nordic/hyde-country-cropland/grid-conservation/report.json",
+    "source_country_values": 84,
+    "conserved_2000_ce_country_scenario_pairs": 12,
+    "pollen_ablation": "not_run; release rights, formal CRS and historical time support remain unresolved"
   }
 }
