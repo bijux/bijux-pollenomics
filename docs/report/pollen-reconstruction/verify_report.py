@@ -160,6 +160,125 @@ def verify_author_target_pollen() -> None:
                 )
 
 
+def verify_swedish_author_target_pollen() -> None:
+    """Check Swedish exclusion, source mass, frozen predictions and scores."""
+    directory = (
+        REPOSITORY_ROOT / "docs/report/regions/nordic/swedish-author-target-pollen"
+    )
+    report = json.loads((directory / "report.json").read_text(encoding="utf-8"))
+    manifest_path = directory / "input-manifest.json"
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    parent = REPOSITORY_ROOT / "docs/report/regions/nordic/author-target-pollen"
+    if (
+        sha256(manifest_path) != report["input_manifest_sha256"]
+        or sha256(parent / "input-manifest.json")
+        != manifest["parent_input_manifest_sha256"]
+        or manifest["target_outcomes_in_prediction_inputs"] is not False
+        or len(manifest["axis"]) != 31
+        or manifest["axis"] != report["axis"]
+    ):
+        raise ValueError("Swedish author-target input identity changed")
+    for relative, digest in manifest["parent_training_sha256"].items():
+        if sha256(parent / relative) != digest:
+            raise ValueError("Swedish author-target parent training changed")
+    for relative, digest in manifest["produced_file_sha256"].items():
+        if sha256(directory / relative) != digest:
+            raise ValueError("Swedish author-target prepared input changed")
+    with gzip.open(directory / "inputs/training-SE.json.gz", "rt") as stream:
+        training = json.load(stream)
+    if len(training) != 81 or {row["country"] for row in training.values()} != {
+        "DK",
+        "FI",
+        "NO",
+    }:
+        raise ValueError("Swedish pollen occurs in cross-border training")
+    prediction_path = directory / "predictions/predictions-SE.json.gz"
+    if sha256(prediction_path) != report["prediction_sha256"]["SE"]:
+        raise ValueError("Swedish author-target predictions changed")
+    with gzip.open(prediction_path, "rt") as stream:
+        predictions = json.load(stream)
+    if predictions["country"] != "SE" or predictions["axis"] != report["axis"]:
+        raise ValueError("Swedish author-target prediction axis changed")
+    for row in predictions["predictions"]:
+        fractions = row["fractions"]
+        if (
+            row["target_pollen_counts_read"] is not False
+            or set(fractions) != set(report["axis"])
+            or any(
+                not math.isfinite(value) or value < 0 for value in fractions.values()
+            )
+            or abs(sum(fractions.values()) - 1) > 1e-10
+        ):
+            raise ValueError("invalid Swedish author-target prediction")
+    for filename, field in {
+        "scores.csv": "scores_sha256",
+        "coverage.csv": "coverage_sha256",
+        "site-scores.csv": "site_scores_sha256",
+        "taxon-diagnostics.csv": "taxon_diagnostics_sha256",
+    }.items():
+        if sha256(directory / filename) != report[field]:
+            raise ValueError("Swedish author-target score digest changed")
+    with (directory / "scores.csv").open(newline="", encoding="utf-8") as stream:
+        scores = list(csv.DictReader(stream))
+    with (directory / "coverage.csv").open(newline="", encoding="utf-8") as stream:
+        coverage = list(csv.DictReader(stream))
+    if (
+        len(scores) != report["score_rows"]
+        or len(scores) != len(report["methods"]) * 51
+        or len(predictions["refusals"]) != 3
+        or len(predictions["predictions"]) != len(scores)
+        or len(coverage) != 1
+        or int(coverage[0]["candidate_site_bins"]) != 54
+        or int(coverage[0]["positive_target_and_predicted_site_bins"]) != 51
+    ):
+        raise ValueError("Swedish author-target score support changed")
+    with gzip.open(directory / "sealed-outcomes/outcomes-SE.json.gz", "rt") as stream:
+        outcomes = json.load(stream)
+    bins = [cell for site in outcomes.values() for cell in site.values()]
+    denominator = report["country_source_denominators"]["SE"]
+    if (
+        len(outcomes) != denominator["sites"]
+        or sum(cell["all_pollen_nisp"] for cell in bins) != denominator["native_nisp"]
+        or sum(cell["closed_nisp"] for cell in bins) != denominator["assigned_nisp"]
+        or denominator["assigned_nisp"]
+        + denominator["author_excluded_nisp"]
+        + denominator["unmapped_nisp"]
+        != denominator["native_nisp"]
+    ):
+        raise ValueError("Swedish author-target source mass changed")
+    mass_path = (
+        REPOSITORY_ROOT
+        / "docs/report/source-relations/neotoma/author-taxonomy-mass/report.json"
+    )
+    config_path = (
+        REPOSITORY_ROOT
+        / "docs/report/pollen-reconstruction/swedish-direct-pollen/config.json"
+    )
+    if (
+        sha256(mass_path) != manifest["swedish_common_bin_mass_sha256"]
+        or sha256(config_path) != manifest["swedish_common_bin_config_sha256"]
+    ):
+        raise ValueError("Swedish common-bin source identity changed")
+    mass = json.loads(mass_path.read_text(encoding="utf-8"))
+    common = set(
+        json.loads(config_path.read_text(encoding="utf-8"))["common_age_bin_ids"]
+    )
+    common_cells = [
+        cell
+        for site in outcomes.values()
+        for bin_id, cell in site.items()
+        if int(bin_id) in common
+    ]
+    if (
+        len(common_cells) != mass["common_bin_count"]
+        or sum(cell["all_pollen_nisp"] for cell in common_cells)
+        != sum(site["all_native_nisp"] for site in mass["sites"])
+        or sum(cell["closed_nisp"] for cell in common_cells)
+        != sum(site["author_assigned_nisp"] for site in mass["sites"])
+    ):
+        raise ValueError("Swedish common-bin author target mass differs")
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
@@ -266,6 +385,20 @@ def main() -> None:
         or author_target_scope["fixed_method_score_rows"] != author_target["score_rows"]
     ):
         raise ValueError("author-target scope differs from the retained study")
+
+    verify_swedish_author_target_pollen()
+    swedish_author_scope = scope["swedish_author_target_pollen"]
+    swedish_author = json.loads(
+        (REPOSITORY_ROOT / swedish_author_scope["report"]).read_text(encoding="utf-8")
+    )
+    if (
+        swedish_author_scope["input_manifest_sha256"]
+        != swedish_author["input_manifest_sha256"]
+        or swedish_author_scope["fixed_method_score_rows"]
+        != swedish_author["score_rows"]
+        or swedish_author_scope["author_target_taxa"] != len(swedish_author["axis"])
+    ):
+        raise ValueError("Swedish author-target scope differs from the retained study")
 
     print(
         f"verified {len(manifest['files'])} retained files, "
