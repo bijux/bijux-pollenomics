@@ -156,6 +156,9 @@
     "local_cover_rows_with_negative_fractions": 54,
     "local_cover_rows": 54,
     "status": "exploratory_numerical_refusal_under_declared_geometry_assumptions",
-    "report": "docs/report/pollen-reconstruction/author-lra-development/report.json"
+    "report": "docs/report/pollen-reconstruction/author-lra-development/report.json",
+    "ring_rows_with_zero_local_positive_regional": 42,
+    "zero_local_positive_regional_taxon_cells": 134,
+    "equation_max_abs_residual": 2.6645352591003757e-15
   }
 }

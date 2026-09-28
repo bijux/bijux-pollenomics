@@ -51,13 +51,13 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/author-lra-development/README.md",
-      "sha256": "190a72a8465902c362cd597595d45536f9c9fc1754f3b0f44ae777a75a9e2470",
-      "bytes": 2988
+      "sha256": "05bf600fc82e7367cb0b80a79ffb8eafa4e2159c4e377b25dc2444d3c7ec2e71",
+      "bytes": 3784
     },
     {
       "path": "docs/report/pollen-reconstruction/author-lra-development/cover-diagnostics.csv",
-      "sha256": "8ff57cf2725171bbf4c12eb28bbb2cb28d7ae305f1983fb0b65992d342bb450d",
-      "bytes": 8098
+      "sha256": "df35d30d48af8df508ee89a3e2bf633f40efea5c6ba663311900a5ba66edd1f8",
+      "bytes": 9269
     },
     {
       "path": "docs/report/pollen-reconstruction/author-lra-development/folds.csv",
@@ -66,8 +66,8 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/author-lra-development/report.json",
-      "sha256": "45120ebb1a45778a499f19660a01896c816703ca43b10c77ae25a8ed2d98c64b",
-      "bytes": 1513
+      "sha256": "cf36b604ed37ddc22b1c0bba4e9efb39df9a9099bb19c318a2fe92012e0e8013",
+      "bytes": 1672
     },
     {
       "path": "docs/report/pollen-reconstruction/author-source-custody.json",
@@ -96,13 +96,13 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/results.csv",
-      "sha256": "6fadccf426b52cb8797f202587f7c2ef17d0d24b7d1a0377b009d5488e7f107f",
-      "bytes": 6612
+      "sha256": "5109bedd5ab925866f864c3bb2b2b56abbe0853492e43345e525556734722f1d",
+      "bytes": 6733
     },
     {
       "path": "docs/report/pollen-reconstruction/scope.json",
-      "sha256": "d31b82b31402929f39a10f55bb7d86a8d01cb30ee6b30277e2ff90c62fc40273",
-      "bytes": 7374
+      "sha256": "ec263cc096e69b90a5844141d00b65bece7b372bde4cd76667bdcbc2a783408c",
+      "bytes": 7539
     },
     {
       "path": "docs/report/pollen-reconstruction/scores.csv",
@@ -336,8 +336,8 @@
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/author_lra_report.py",
-      "sha256": "4cf2d203af38a2b2479ff207c52201e237da98e5a40396b89104cebfe7379285",
-      "bytes": 7855
+      "sha256": "11b4f9d4077cd1e040d4853caf8bdae2512b266b815a813dfca9619413fd26f8",
+      "bytes": 11441
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/author_lra_run.py",

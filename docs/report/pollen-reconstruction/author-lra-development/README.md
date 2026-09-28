@@ -23,11 +23,23 @@ also exceeded one. The fractions sum to one numerically, but they are not valid
 compositions. No baseline prediction or score was generated. These values were
 neither clipped nor renormalized.
 
+The retained reader independently replays analytical LOVE's local equation from
+each product's pollen counts, PPE, regional cover and kernel tables. All 54 rows
+agree within `2.67e-15` absolute difference. In 42 rows, 134 taxon cells have
+zero local pollen and positive regional correction; their analytical estimate
+must be negative because the local pollen term is zero and the regional term is
+subtracted. The remaining 12 rows also have negative estimates under the same
+equation. This checks the saved products' arithmetic, not the historical basin
+assumption or every upstream kernel against original R. The separate retained
+[original R reference](../../method-certification/original-r-reference/README.md)
+tests the analytical implementation on its bounded cases.
+
 [report.json](report.json) binds the source, experiment and prediction identities
 and records the denominators. [folds.csv](folds.csv) retains each refusal;
 [cover-diagnostics.csv](cover-diagnostics.csv) retains each authenticated
-numerical product's two local ring summaries. The report reader verifies every
-prediction and numerical-product manifest before producing those files.
+numerical product's two local ring summaries and equation residuals. The report
+reader verifies every prediction and numerical-product manifest before producing
+those files.
 
 To reproduce with the private capsule and an empty `artifacts/` destination:
 

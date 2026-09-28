@@ -30,6 +30,11 @@ def _write_csv(
         writer.writerows(rows)
 
 
+def _read_rows(path: Path) -> list[dict[str, str]]:
+    with path.open(newline="") as stream:
+        return list(csv.DictReader(stream))
+
+
 def summarize_author_lra(
     inputs: Path, predictions: Path, cache_root: Path, output: Path
 ) -> Path:
@@ -100,13 +105,69 @@ def summarize_author_lra(
 
     cover_rows: list[dict[str, Any]] = []
     for digest, item in sorted(unique.items()):
-        path = Path(item["directory"]) / "numerical/local_love/cover_mean.csv"
-        with path.open(newline="") as stream:
-            rows = list(csv.DictReader(stream))
-        for row in rows:
-            values = [float(value) for key, value in row.items() if key != "index"]
+        product_root = Path(item["directory"])
+        request = json.loads((product_root / "request.json").read_text())
+        taxa = request["taxa"]
+        counts = request["local"]["samples"][0]["counts"]
+        ppe = [parameter["ppe"] for parameter in request["parameters"]]
+        if (
+            len(taxa) != 31
+            or len(counts) != len(taxa)
+            or len(ppe) != len(taxa)
+            or [parameter["taxon"] for parameter in request["parameters"]] != taxa
+        ):
+            raise ValueError("Author analytical taxon axes changed")
+        regional = _read_rows(
+            product_root / "numerical/regional_reveals/reconstruction.csv"
+        )
+        kreg = _read_rows(product_root / "numerical/local_love/aux_Kreg.csv")
+        kloc = _read_rows(product_root / "numerical/local_love/aux_Kloc.csv")
+        rows = _read_rows(product_root / "numerical/local_love/cover_mean.csv")
+        if len(regional) != 1 or len(kreg) != len(kloc) != len(rows):
+            raise ValueError("Author analytical numerical axes changed")
+        weighted = [
+            count / parameter for count, parameter in zip(counts, ppe, strict=True)
+        ]
+        weighted_total = sum(weighted)
+        if weighted_total <= 0:
+            raise ValueError("Author local pollen has no positive PPE-weighted mass")
+        regional_cover = [float(regional[0][taxon + ".mean"]) / 100 for taxon in taxa]
+        for index, row in enumerate(rows):
+            if (
+                row["index"] != kreg[index]["index"]
+                or row["index"] != kloc[index]["index"]
+            ):
+                raise ValueError("Author analytical ring axes changed")
+            values = [float(row[taxon]) for taxon in taxa]
             if len(values) != 31 or not all(math.isfinite(x) for x in values):
                 raise ValueError("Author LOVE cover axis or finite domain changed")
+            regional_kernel = [float(kreg[index][taxon]) for taxon in taxa]
+            local_kernel = [float(kloc[index][taxon]) for taxon in taxa]
+            denominator = sum(
+                value * kernel
+                for value, kernel in zip(regional_cover, local_kernel, strict=True)
+            )
+            if not math.isfinite(denominator) or denominator <= 0:
+                raise ValueError("Author analytical regional denominator changed")
+            correction = [
+                value * kernel / denominator
+                for value, kernel in zip(regional_cover, regional_kernel, strict=True)
+            ]
+            correction_total = sum(correction)
+            replayed = [
+                weight / weighted_total * (1 + correction_total) - regional_term
+                for weight, regional_term in zip(weighted, correction, strict=True)
+            ]
+            residual = max(
+                abs(actual - expected)
+                for actual, expected in zip(values, replayed, strict=True)
+            )
+            zero_local_positive_regional = sum(
+                count == 0 and regional_term > 0
+                for count, regional_term in zip(counts, correction, strict=True)
+            )
+            if residual > 1e-10:
+                raise ValueError("Author analytical LOVE equation replay differs")
             cover_rows.append(
                 {
                     "product_manifest_sha256": digest,
@@ -117,6 +178,8 @@ def summarize_author_lra(
                     "fraction_sum": sum(values),
                     "negative_taxa": sum(x < -1e-12 for x in values),
                     "above_one_taxa": sum(x > 1 + 1e-12 for x in values),
+                    "equation_max_abs_residual": residual,
+                    "zero_local_positive_regional_taxa": zero_local_positive_regional,
                 }
             )
     negative = sum(row["negative_taxa"] > 0 for row in cover_rows)
@@ -141,6 +204,8 @@ def summarize_author_lra(
             "fraction_sum",
             "negative_taxa",
             "above_one_taxa",
+            "equation_max_abs_residual",
+            "zero_local_positive_regional_taxa",
         ),
         cover_rows,
     )
@@ -163,6 +228,15 @@ def summarize_author_lra(
         "local_cover_ring_rows": len(cover_rows),
         "ring_rows_with_negative_cover": negative,
         "ring_rows_with_cover_above_one": out_of_range,
+        "ring_rows_with_zero_local_positive_regional": sum(
+            row["zero_local_positive_regional_taxa"] > 0 for row in cover_rows
+        ),
+        "zero_local_positive_regional_taxon_cells": sum(
+            row["zero_local_positive_regional_taxa"] for row in cover_rows
+        ),
+        "equation_max_abs_residual": max(
+            row["equation_max_abs_residual"] for row in cover_rows
+        ),
         "minimum_cover_fraction": min(row["minimum_fraction"] for row in cover_rows),
         "maximum_cover_fraction": max(row["maximum_fraction"] for row in cover_rows),
         "age_support_bp": source["age_support_bp"],

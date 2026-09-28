@@ -38,6 +38,9 @@
   "local_cover_ring_rows": 54,
   "ring_rows_with_negative_cover": 54,
   "ring_rows_with_cover_above_one": 19,
+  "ring_rows_with_zero_local_positive_regional": 42,
+  "zero_local_positive_regional_taxon_cells": 134,
+  "equation_max_abs_residual": 2.6645352591003757e-15,
   "minimum_cover_fraction": -5.066149527702115,
   "maximum_cover_fraction": 7.119870550658303,
   "age_support_bp": [
