@@ -1,0 +1,426 @@
+{
+  "schema_version": "nordic-observed-pollen-development.v1",
+  "question": "Which declared predictor has lowest site-macro MAE in country-excluded, three-fold, whole-site training-only development?",
+  "prior_exposure": "All three outer country outcomes were previously inspected; these are development comparisons, not confirmatory held-out tests.",
+  "response": "16-label exact-name Neotoma pollen subcomposition, fixed before this search",
+  "candidates": [
+    {
+      "id": "training_mean",
+      "model": "training_mean"
+    },
+    {
+      "id": "nearest_site",
+      "model": "nearest_site"
+    },
+    {
+      "id": "inverse_distance_squared",
+      "model": "inverse_distance_squared"
+    },
+    {
+      "id": "clr_rbf_q25_ridge_0.001",
+      "model": "clr_wgs84_rbf_ridge",
+      "training_pairwise_distance_quantile": 0.25,
+      "ridge_penalty": 0.001
+    },
+    {
+      "id": "clr_rbf_q25_ridge_0.01",
+      "model": "clr_wgs84_rbf_ridge",
+      "training_pairwise_distance_quantile": 0.25,
+      "ridge_penalty": 0.01
+    },
+    {
+      "id": "clr_rbf_q25_ridge_0.1",
+      "model": "clr_wgs84_rbf_ridge",
+      "training_pairwise_distance_quantile": 0.25,
+      "ridge_penalty": 0.1
+    },
+    {
+      "id": "clr_rbf_q50_ridge_0.001",
+      "model": "clr_wgs84_rbf_ridge",
+      "training_pairwise_distance_quantile": 0.5,
+      "ridge_penalty": 0.001
+    },
+    {
+      "id": "clr_rbf_q50_ridge_0.01",
+      "model": "clr_wgs84_rbf_ridge",
+      "training_pairwise_distance_quantile": 0.5,
+      "ridge_penalty": 0.01
+    },
+    {
+      "id": "clr_rbf_q50_ridge_0.1",
+      "model": "clr_wgs84_rbf_ridge",
+      "training_pairwise_distance_quantile": 0.5,
+      "ridge_penalty": 0.1
+    },
+    {
+      "id": "clr_rbf_q75_ridge_0.001",
+      "model": "clr_wgs84_rbf_ridge",
+      "training_pairwise_distance_quantile": 0.75,
+      "ridge_penalty": 0.001
+    },
+    {
+      "id": "clr_rbf_q75_ridge_0.01",
+      "model": "clr_wgs84_rbf_ridge",
+      "training_pairwise_distance_quantile": 0.75,
+      "ridge_penalty": 0.01
+    },
+    {
+      "id": "clr_rbf_q75_ridge_0.1",
+      "model": "clr_wgs84_rbf_ridge",
+      "training_pairwise_distance_quantile": 0.75,
+      "ridge_penalty": 0.1
+    }
+  ],
+  "countries": [
+    {
+      "outer_country": "DK",
+      "training_site_count": 83,
+      "inner_folds": 3,
+      "positive_target_site_bins": 1666,
+      "eligible_target_site_bins": 1656,
+      "fit_attempts": 882,
+      "selection_rule": "complete eligible-bin coverage, then lowest site-macro MAE, Hellinger and candidate-id ties",
+      "selected_candidate": "inverse_distance_squared",
+      "candidates": [
+        {
+          "candidate": "training_mean",
+          "attempted_site_bins": 1656,
+          "scored_site_bins": 1656,
+          "scored_sites": 83,
+          "site_macro_mae_fraction": 0.03320494488345968,
+          "site_macro_hellinger": 0.3060096900459604
+        },
+        {
+          "candidate": "nearest_site",
+          "attempted_site_bins": 1656,
+          "scored_site_bins": 1656,
+          "scored_sites": 83,
+          "site_macro_mae_fraction": 0.03169525894530044,
+          "site_macro_hellinger": 0.2805352862299768
+        },
+        {
+          "candidate": "inverse_distance_squared",
+          "attempted_site_bins": 1656,
+          "scored_site_bins": 1656,
+          "scored_sites": 83,
+          "site_macro_mae_fraction": 0.02803807634822467,
+          "site_macro_hellinger": 0.25073041095917625
+        },
+        {
+          "candidate": "clr_rbf_q25_ridge_0.001",
+          "attempted_site_bins": 1656,
+          "scored_site_bins": 1656,
+          "scored_sites": 83,
+          "site_macro_mae_fraction": 0.030923503915893106,
+          "site_macro_hellinger": 0.26605735868387226
+        },
+        {
+          "candidate": "clr_rbf_q25_ridge_0.01",
+          "attempted_site_bins": 1656,
+          "scored_site_bins": 1656,
+          "scored_sites": 83,
+          "site_macro_mae_fraction": 0.029155661557136996,
+          "site_macro_hellinger": 0.25488096965665286
+        },
+        {
+          "candidate": "clr_rbf_q25_ridge_0.1",
+          "attempted_site_bins": 1656,
+          "scored_site_bins": 1656,
+          "scored_sites": 83,
+          "site_macro_mae_fraction": 0.028368572691740847,
+          "site_macro_hellinger": 0.25127701965208404
+        },
+        {
+          "candidate": "clr_rbf_q50_ridge_0.001",
+          "attempted_site_bins": 1656,
+          "scored_site_bins": 1656,
+          "scored_sites": 83,
+          "site_macro_mae_fraction": 0.029285102251389753,
+          "site_macro_hellinger": 0.2580323656920307
+        },
+        {
+          "candidate": "clr_rbf_q50_ridge_0.01",
+          "attempted_site_bins": 1656,
+          "scored_site_bins": 1656,
+          "scored_sites": 83,
+          "site_macro_mae_fraction": 0.028508477920865007,
+          "site_macro_hellinger": 0.25423797887877
+        },
+        {
+          "candidate": "clr_rbf_q50_ridge_0.1",
+          "attempted_site_bins": 1656,
+          "scored_site_bins": 1656,
+          "scored_sites": 83,
+          "site_macro_mae_fraction": 0.028234968858693827,
+          "site_macro_hellinger": 0.2546160925974325
+        },
+        {
+          "candidate": "clr_rbf_q75_ridge_0.001",
+          "attempted_site_bins": 1656,
+          "scored_site_bins": 1656,
+          "scored_sites": 83,
+          "site_macro_mae_fraction": 0.02847208512712432,
+          "site_macro_hellinger": 0.2541484809076083
+        },
+        {
+          "candidate": "clr_rbf_q75_ridge_0.01",
+          "attempted_site_bins": 1656,
+          "scored_site_bins": 1656,
+          "scored_sites": 83,
+          "site_macro_mae_fraction": 0.028147853025953355,
+          "site_macro_hellinger": 0.2538383676729968
+        },
+        {
+          "candidate": "clr_rbf_q75_ridge_0.1",
+          "attempted_site_bins": 1656,
+          "scored_site_bins": 1656,
+          "scored_sites": 83,
+          "site_macro_mae_fraction": 0.028402516645932747,
+          "site_macro_hellinger": 0.25820661634550884
+        }
+      ]
+    },
+    {
+      "outer_country": "FI",
+      "training_site_count": 56,
+      "inner_folds": 3,
+      "positive_target_site_bins": 1255,
+      "eligible_target_site_bins": 1245,
+      "fit_attempts": 882,
+      "selection_rule": "complete eligible-bin coverage, then lowest site-macro MAE, Hellinger and candidate-id ties",
+      "selected_candidate": "clr_rbf_q75_ridge_0.1",
+      "candidates": [
+        {
+          "candidate": "training_mean",
+          "attempted_site_bins": 1245,
+          "scored_site_bins": 1245,
+          "scored_sites": 56,
+          "site_macro_mae_fraction": 0.03190991283665452,
+          "site_macro_hellinger": 0.3035765930629426
+        },
+        {
+          "candidate": "nearest_site",
+          "attempted_site_bins": 1245,
+          "scored_site_bins": 1245,
+          "scored_sites": 56,
+          "site_macro_mae_fraction": 0.03462379080211865,
+          "site_macro_hellinger": 0.30674113259881464
+        },
+        {
+          "candidate": "inverse_distance_squared",
+          "attempted_site_bins": 1245,
+          "scored_site_bins": 1245,
+          "scored_sites": 56,
+          "site_macro_mae_fraction": 0.029131818931373468,
+          "site_macro_hellinger": 0.26358917311409313
+        },
+        {
+          "candidate": "clr_rbf_q25_ridge_0.001",
+          "attempted_site_bins": 1245,
+          "scored_site_bins": 1245,
+          "scored_sites": 56,
+          "site_macro_mae_fraction": 0.034746437005725814,
+          "site_macro_hellinger": 0.2924397808024824
+        },
+        {
+          "candidate": "clr_rbf_q25_ridge_0.01",
+          "attempted_site_bins": 1245,
+          "scored_site_bins": 1245,
+          "scored_sites": 56,
+          "site_macro_mae_fraction": 0.03173556547433288,
+          "site_macro_hellinger": 0.27486101963203874
+        },
+        {
+          "candidate": "clr_rbf_q25_ridge_0.1",
+          "attempted_site_bins": 1245,
+          "scored_site_bins": 1245,
+          "scored_sites": 56,
+          "site_macro_mae_fraction": 0.030009883339282752,
+          "site_macro_hellinger": 0.266848319055563
+        },
+        {
+          "candidate": "clr_rbf_q50_ridge_0.001",
+          "attempted_site_bins": 1245,
+          "scored_site_bins": 1245,
+          "scored_sites": 56,
+          "site_macro_mae_fraction": 0.030463619683610135,
+          "site_macro_hellinger": 0.27151984680341007
+        },
+        {
+          "candidate": "clr_rbf_q50_ridge_0.01",
+          "attempted_site_bins": 1245,
+          "scored_site_bins": 1245,
+          "scored_sites": 56,
+          "site_macro_mae_fraction": 0.029999797946038832,
+          "site_macro_hellinger": 0.26991962425535904
+        },
+        {
+          "candidate": "clr_rbf_q50_ridge_0.1",
+          "attempted_site_bins": 1245,
+          "scored_site_bins": 1245,
+          "scored_sites": 56,
+          "site_macro_mae_fraction": 0.02997012903111305,
+          "site_macro_hellinger": 0.2700241241349062
+        },
+        {
+          "candidate": "clr_rbf_q75_ridge_0.001",
+          "attempted_site_bins": 1245,
+          "scored_site_bins": 1245,
+          "scored_sites": 56,
+          "site_macro_mae_fraction": 0.029901325802971997,
+          "site_macro_hellinger": 0.27020192967932777
+        },
+        {
+          "candidate": "clr_rbf_q75_ridge_0.01",
+          "attempted_site_bins": 1245,
+          "scored_site_bins": 1245,
+          "scored_sites": 56,
+          "site_macro_mae_fraction": 0.02901075748598067,
+          "site_macro_hellinger": 0.26692553795705576
+        },
+        {
+          "candidate": "clr_rbf_q75_ridge_0.1",
+          "attempted_site_bins": 1245,
+          "scored_site_bins": 1245,
+          "scored_sites": 56,
+          "site_macro_mae_fraction": 0.02874481851192394,
+          "site_macro_hellinger": 0.26751981742290476
+        }
+      ]
+    },
+    {
+      "outer_country": "NO",
+      "training_site_count": 32,
+      "inner_folds": 3,
+      "positive_target_site_bins": 513,
+      "eligible_target_site_bins": 510,
+      "fit_attempts": 675,
+      "selection_rule": "complete eligible-bin coverage, then lowest site-macro MAE, Hellinger and candidate-id ties",
+      "selected_candidate": "clr_rbf_q50_ridge_0.1",
+      "candidates": [
+        {
+          "candidate": "training_mean",
+          "attempted_site_bins": 510,
+          "scored_site_bins": 510,
+          "scored_sites": 32,
+          "site_macro_mae_fraction": 0.036151731102594745,
+          "site_macro_hellinger": 0.31641281865840626
+        },
+        {
+          "candidate": "nearest_site",
+          "attempted_site_bins": 510,
+          "scored_site_bins": 510,
+          "scored_sites": 32,
+          "site_macro_mae_fraction": 0.032007653132215125,
+          "site_macro_hellinger": 0.278780308506282
+        },
+        {
+          "candidate": "inverse_distance_squared",
+          "attempted_site_bins": 510,
+          "scored_site_bins": 510,
+          "scored_sites": 32,
+          "site_macro_mae_fraction": 0.029840350793447067,
+          "site_macro_hellinger": 0.25477329545329835
+        },
+        {
+          "candidate": "clr_rbf_q25_ridge_0.001",
+          "attempted_site_bins": 510,
+          "scored_site_bins": 510,
+          "scored_sites": 32,
+          "site_macro_mae_fraction": 0.037181864969911126,
+          "site_macro_hellinger": 0.3054864070536872
+        },
+        {
+          "candidate": "clr_rbf_q25_ridge_0.01",
+          "attempted_site_bins": 510,
+          "scored_site_bins": 510,
+          "scored_sites": 32,
+          "site_macro_mae_fraction": 0.032463671858773885,
+          "site_macro_hellinger": 0.2704195218657145
+        },
+        {
+          "candidate": "clr_rbf_q25_ridge_0.1",
+          "attempted_site_bins": 510,
+          "scored_site_bins": 510,
+          "scored_sites": 32,
+          "site_macro_mae_fraction": 0.030017577094462018,
+          "site_macro_hellinger": 0.25456661456098045
+        },
+        {
+          "candidate": "clr_rbf_q50_ridge_0.001",
+          "attempted_site_bins": 510,
+          "scored_site_bins": 510,
+          "scored_sites": 32,
+          "site_macro_mae_fraction": 0.03048414132268901,
+          "site_macro_hellinger": 0.2591892847393867
+        },
+        {
+          "candidate": "clr_rbf_q50_ridge_0.01",
+          "attempted_site_bins": 510,
+          "scored_site_bins": 510,
+          "scored_sites": 32,
+          "site_macro_mae_fraction": 0.029388338007758627,
+          "site_macro_hellinger": 0.2519503061637978
+        },
+        {
+          "candidate": "clr_rbf_q50_ridge_0.1",
+          "attempted_site_bins": 510,
+          "scored_site_bins": 510,
+          "scored_sites": 32,
+          "site_macro_mae_fraction": 0.029178381294353364,
+          "site_macro_hellinger": 0.25387518896321115
+        },
+        {
+          "candidate": "clr_rbf_q75_ridge_0.001",
+          "attempted_site_bins": 510,
+          "scored_site_bins": 510,
+          "scored_sites": 32,
+          "site_macro_mae_fraction": 0.03027620986278404,
+          "site_macro_hellinger": 0.25605878844324714
+        },
+        {
+          "candidate": "clr_rbf_q75_ridge_0.01",
+          "attempted_site_bins": 510,
+          "scored_site_bins": 510,
+          "scored_sites": 32,
+          "site_macro_mae_fraction": 0.029552497375855174,
+          "site_macro_hellinger": 0.2559826794649573
+        },
+        {
+          "candidate": "clr_rbf_q75_ridge_0.1",
+          "attempted_site_bins": 510,
+          "scored_site_bins": 510,
+          "scored_sites": 32,
+          "site_macro_mae_fraction": 0.03099877947535082,
+          "site_macro_hellinger": 0.2685012077460207
+        }
+      ]
+    }
+  ],
+  "trial_score_rows": 40932,
+  "trial_scores_sha256": "377a467844c34ea6f6ceab6f9d786f750621ae69a9e3deb0a7dfe51c5da2db1c",
+  "outer_target_outcome_files_read": 0,
+  "lra_or_vegetation_validation": false,
+  "inputs": [
+    {
+      "path": "docs/report/regions/nordic/direct-pollen/manifest.json",
+      "sha256": "3e7814bf9697783397cdce11639ebc861620a6a3c9d9295d1357ab69bc7b5edf"
+    },
+    {
+      "path": "input-manifest.json",
+      "sha256": "d1e20733eeabde12ab8ab2ee3ff687cd854c2fee4269fb20fe175365267d99d5"
+    },
+    {
+      "path": "inputs/training-DK.json",
+      "sha256": "def96acd422e9a4975ee8fff3b79a2127c4d1747b3345d2d24296b9670070700"
+    },
+    {
+      "path": "inputs/training-FI.json",
+      "sha256": "908f2868c5b8020878119329cb0de3c941ac680f54fdb4ca073a83776920793f"
+    },
+    {
+      "path": "inputs/training-NO.json",
+      "sha256": "c16fd213650f022076ad157a4b3f09c96c4c9d6bfd889c06180e068dceae305f"
+    }
+  ]
+}
