@@ -9,6 +9,7 @@ from pathlib import Path
 import pytest
 
 from bijux_pollenomics_dev.source_completion.sweden_land_use_replay import (
+    compare_historical,
     semantic_diff,
 )
 
@@ -65,3 +66,24 @@ def test_new_unclassified_product_field_refuses_semantic_replay() -> None:
     changed["rows"][0]["unreviewed_measure"] = 1
     with pytest.raises(ValueError, match="Unclassified rows"):
         semantic_diff(published, changed, renderings_equal=True)
+
+
+def test_real_named_lake_revision_explains_membership_change(tmp_path: Path) -> None:
+    comparison = compare_historical(REPOSITORY, "0a3a42ad", tmp_path)
+    assert comparison["direct_source_paths_changed"] == []
+    assert comparison["baseline_target_count"] == 2
+    assert comparison["current_target_count"] == 6
+    assert comparison["baseline_time_row_count"] == 50
+    assert comparison["current_time_row_count"] == 150
+    assert comparison["change_counts"] == {
+        "source_membership": 106,
+        "normalized_identity_or_value": 0,
+        "policy_or_weighting": 1,
+        "admission_or_exclusion": 1,
+        "scientific_result": 0,
+        "presentation": 0,
+    }
+    assert any(
+        path.endswith("/targets.py")
+        for path in comparison["land_use_policy_paths_changed"]
+    )

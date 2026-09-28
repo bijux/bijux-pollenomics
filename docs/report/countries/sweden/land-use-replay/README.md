@@ -15,6 +15,19 @@ locality, animal locality and lake-decision products consumed along the country
 report path. The source files are the current repository bytes; this replay
 does not reconstruct an earlier historical source revision.
 
+The [historical comparison](historical-comparison.json) reads the earlier
+committed product at `0a3a42ade39112b256faa527b898fb98df2c57cf` without
+switching branches. Its seven direct source files are unchanged in the current
+worktree. Four land-use producer paths changed. The previous product contained
+two wetland targets and 50 windows; the current one contains those wetlands
+plus four governed named lakes and 150 windows. The diff records 106 product
+membership entries: four target decisions, 100 target-window rows and two
+derived count fields. It records one policy-rule change and one coverage/admission
+count change. Existing wetland scientific values did not change. This narrows
+the product revision to target selection and presentation policy; it is not a
+claim that land cover changed in the past. The historical comparison SHA-256 is
+`e1332c72d19be249be19099cfadade66817c1f59425677391f8b0564f42e6d41`.
+
 The [producer](../../../../../packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sweden_land_use_replay.py)
 classifies target or source-window membership, normalized identity/value,
 policy or weighting, admission/exclusion, scientific-result and presentation
@@ -30,10 +43,11 @@ PYTHONDONTWRITEBYTECODE=1 OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 \
   MKL_NUM_THREADS=1 NUMEXPR_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 \
   .venv/bin/python -m \
   bijux_pollenomics_dev.source_completion.sweden_land_use_replay \
-  --repository . --output artifacts/semantic-replay/sweden-reproduction
+  --repository . --output artifacts/semantic-replay/sweden-reproduction \
+  --historical-revision 0a3a42ad
 ```
 
-Compare the resulting `receipt.json` with the governed receipt. The replay
+Compare both resulting JSON files with the governed receipts. The replay
 answers product reproducibility and semantic-diff questions. It does not turn
 modeled LandClim cover, dated SEAD context or spatial overlap into independent
 vegetation truth or a multi-evidence causal trajectory.

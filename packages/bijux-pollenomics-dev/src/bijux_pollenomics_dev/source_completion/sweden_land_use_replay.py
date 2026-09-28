@@ -6,6 +6,8 @@ import argparse
 import hashlib
 import json
 from pathlib import Path
+import re
+import subprocess
 from typing import Any
 
 from bijux_pollenomics.reporting.service import generate_country_report
@@ -286,13 +288,103 @@ def replay(repository: Path, output: Path) -> dict[str, object]:
     return receipt
 
 
+def _git(repository: Path, *arguments: str) -> bytes:
+    completed = subprocess.run(  # nosec B603
+        ("git", "-C", str(repository), *arguments),
+        check=True,
+        capture_output=True,
+        stdin=subprocess.DEVNULL,
+        shell=False,
+    )
+    return completed.stdout
+
+
+def compare_historical(
+    repository: Path, revision: str, output: Path
+) -> dict[str, object]:
+    """Compare a committed earlier product using its real Git source identity."""
+    if not re.fullmatch(r"[0-9a-f]{8,40}", revision):
+        raise ValueError("Historical revision must be a hexadecimal Git commit")
+    repository = repository.resolve()
+    commit = _git(repository, "rev-parse", "--verify", f"{revision}^{{commit}}")
+    full_revision = commit.decode("ascii").strip()
+    product = PRODUCT / OUTPUT_FILES[0]
+    before_bytes = _git(repository, "show", f"{full_revision}:{product.as_posix()}")
+    after_bytes = (repository / product).read_bytes()
+    baseline = json.loads(before_bytes)
+    candidate = json.loads(after_bytes)
+    renderings_equal = all(
+        _git(repository, "show", f"{full_revision}:{(PRODUCT / name).as_posix()}")
+        == (repository / PRODUCT / name).read_bytes()
+        for name in OUTPUT_FILES[1:]
+    )
+    changes = semantic_diff(baseline, candidate, renderings_equal=renderings_equal)
+    source_changes = (
+        _git(
+            repository,
+            "diff",
+            "--name-only",
+            full_revision,
+            "--",
+            *(path.as_posix() for path in SOURCE_FILES),
+        )
+        .decode("utf-8")
+        .splitlines()
+    )
+    policy_root = Path(
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/fieldwork/land_use"
+    )
+    policy_changes = (
+        _git(
+            repository,
+            "diff",
+            "--name-only",
+            full_revision,
+            "--",
+            policy_root.as_posix(),
+        )
+        .decode("utf-8")
+        .splitlines()
+    )
+    report: dict[str, object] = {
+        "schema_version": "sweden-land-use-historical-comparison.v1",
+        "baseline_revision": full_revision,
+        "baseline_product_sha256": hashlib.sha256(before_bytes).hexdigest(),
+        "current_product_sha256": hashlib.sha256(after_bytes).hexdigest(),
+        "baseline_target_count": baseline["target_count"],
+        "current_target_count": candidate["target_count"],
+        "baseline_time_row_count": baseline["time_row_count"],
+        "current_time_row_count": candidate["time_row_count"],
+        "direct_source_paths_changed": source_changes,
+        "land_use_policy_paths_changed": policy_changes,
+        "change_counts": {key: len(value) for key, value in changes.items()},
+        "semantic_changes": changes,
+        "interpretation": (
+            "This is a product and policy comparison between the named Git baseline "
+            "and the current worktree. Unchanged direct source files and changed "
+            "producer paths narrow the revision cause; they do not establish a "
+            "historical landscape change."
+        ),
+    }
+    (output / "historical-comparison.json").write_text(
+        json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
+    )
+    return report
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repository", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--historical-revision")
     args = parser.parse_args()
     receipt = replay(args.repository, args.output)
     print(receipt["status"], receipt["change_counts"])
+    if args.historical_revision:
+        historical = compare_historical(
+            args.repository, args.historical_revision, args.output
+        )
+        print("historical", historical["change_counts"])
 
 
 if __name__ == "__main__":

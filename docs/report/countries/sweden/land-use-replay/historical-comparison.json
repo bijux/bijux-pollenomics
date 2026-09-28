@@ -1,0 +1,589 @@
+{
+  "schema_version": "sweden-land-use-historical-comparison.v1",
+  "baseline_revision": "0a3a42ade39112b256faa527b898fb98df2c57cf",
+  "baseline_product_sha256": "17c7dc55520d67d98f3824a8a279b310ec49e98a0d98fc2b6ed77fa3e2f0defe",
+  "current_product_sha256": "c9aa7a1a57aabd0673c4411677da29b8add4a8d604c5db30aab6003a2a4d0380",
+  "baseline_target_count": 2,
+  "current_target_count": 6,
+  "baseline_time_row_count": 50,
+  "current_time_row_count": 150,
+  "direct_source_paths_changed": [],
+  "land_use_policy_paths_changed": [
+    "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/fieldwork/land_use/__init__.py",
+    "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/fieldwork/land_use/outputs.py",
+    "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/fieldwork/land_use/synthesis.py",
+    "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/fieldwork/land_use/targets.py"
+  ],
+  "change_counts": {
+    "source_membership": 106,
+    "normalized_identity_or_value": 0,
+    "policy_or_weighting": 1,
+    "admission_or_exclusion": 1,
+    "scientific_result": 0,
+    "presentation": 0
+  },
+  "semantic_changes": {
+    "source_membership": [
+      {
+        "path": "product.target_count",
+        "before": 2,
+        "after": 6
+      },
+      {
+        "path": "product.time_row_count",
+        "before": 50,
+        "after": 150
+      },
+      {
+        "path": "target_decisions[Bjäresjösjön]",
+        "before": false,
+        "after": true
+      },
+      {
+        "path": "target_decisions[Finjasjön]",
+        "before": false,
+        "after": true
+      },
+      {
+        "path": "target_decisions[Havgårdssjön]",
+        "before": false,
+        "after": true
+      },
+      {
+        "path": "target_decisions[Östra Ringsjön]",
+        "before": false,
+        "after": true
+      },
+      {
+        "path": "rows[Bjäresjösjön|937075:779:0-100-bp]",
+        "before": false,
+        "after": true
+      },
+      {
+        "path": "rows[Bjäresjösjön|937075:779:100-350-bp]",
+        "before": false,
+        "after": true
+      },
+      {
+        "path": "rows[Bjäresjösjön|937075:779:10200-10700-bp]",
+        "before": false,
+        "after": true
+      },
+      {
+        "path": "rows[Bjäresjösjön|937075:779:10700-11200-bp]",
+        "before": false,
+        "after": true
+      },
+      {
+        "path": "rows[Bjäresjösjön|937075:779:11200-11700-bp]",
+        "before": false,
+        "after": true
+      },
+      {
+        "path": "rows[Bjäresjösjön|937075:779:1200-1700-bp]",
+        "before": false,
+        "after": true
+      },
+      {
+        "path": "rows[Bjäresjösjön|937075:779:1700-2200-bp]",
+        "before": false,
+        "after": true
+      },
+      {
+        "path": "rows[Bjäresjösjön|937075:779:2200-2700-bp]",
+        "before": false,
+        "after": true
+      },
+      {
+        "path": "rows[Bjäresjösjön|937075:779:2700-3200-bp]",
+        "before": false,
+        "after": true
+      },
+      {
+        "path": "rows[Bjäresjösjön|937075:779:3200-3700-bp]",
+        "before": false,
+        "after": true
+      },
+      {
+        "path": "rows[Bjäresjösjön|937075:779:350-700-bp]",
+        "before": false,
+        "after": true
+      },
+      {
+        "path": "rows[Bjäresjösjön|937075:779:3700-4200-bp]",
+        "before": false,
+        "after": true
+      },
+      {
+        "path": "rows[Bjäresjösjön|937075:779:4200-4700-bp]",
+        "before": false,
+        "after": true
+      },
+      {
+        "path": "rows[Bjäresjösjön|937075:779:4700-5200-bp]",
+        "before": false,
+        "after": true
+      },
+      {
+        "path": "rows[Bjäresjösjön|937075:779:5200-5700-bp]",
+        "before": false,
+        "after": true
+      },
+      {
+        "path": "rows[Bjäresjösjön|937075:779:5700-6200-bp]",
+        "before": false,
+        "after": true
+      },
+      {
+        "path": "rows[Bjäresjösjön|937075:779:6200-6700-bp]",
+        "before": false,
+        "after": true
+      },
+      {
+        "path": "rows[Bjäresjösjön|937075:779:6700-7200-bp]",
+        "before": false,
+        "after": true
+      },
+      {
+        "path": "rows[Bjäresjösjön|937075:779:700-1200-bp]",
+        "before": false,
+        "after": true
+      },
+      {
+        "path": "rows[Bjäresjösjön|937075:779:7200-7700-bp]",
+        "before": false,
+        "after": true
+      },
+      {
+        "path": "rows[Bjäresjösjön|937075:779:7700-8200-bp]",
+        "before": false,
+        "after": true
+      },
+      {
+        "path": "rows[Bjäresjösjön|937075:779:8200-8700-bp]",
+        "before": false,
+        "after": true
+      },
+      {
+        "path": "rows[Bjäresjösjön|937075:779:8700-9200-bp]",
+        "before": false,
+        "after": true
+      },
+      {
+        "path": "rows[Bjäresjösjön|937075:779:9200-9700-bp]",
+        "before": false,
+        "after": true
+      },
+      {
+        "path": "rows[Bjäresjösjön|937075:779:9700-10200-bp]",
+        "before": false,
+        "after": true
+      },
+      {
+        "path": "rows[Finjasjön|937075:829:0-100-bp]",
+        "before": false,
+        "after": true
+      },
+      {
+        "path": "rows[Finjasjön|937075:829:100-350-bp]",
+        "before": false,
+        "after": true
+      },
+      {
+        "path": "rows[Finjasjön|937075:829:10200-10700-bp]",
+        "before": false,
+        "after": true
+      },
+      {
+        "path": "rows[Finjasjön|937075:829:10700-11200-bp]",
+        "before": false,
+        "after": true
+      },
+      {
+        "path": "rows[Finjasjön|937075:829:11200-11700-bp]",
+        "before": false,
+        "after": true
+      },
+      {
+        "path": "rows[Finjasjön|937075:829:1200-1700-bp]",
+        "before": false,
+        "after": true
+      },
+      {
+        "path": "rows[Finjasjön|937075:829:1700-2200-bp]",
+        "before": false,
+        "after": true
+      },
+      {
+        "path": "rows[Finjasjön|937075:829:2200-2700-bp]",
+        "before": false,
+        "after": true
+      },
+      {
+        "path": "rows[Finjasjön|937075:829:2700-3200-bp]",
+        "before": false,
+        "after": true
+      },
+      {
+        "path": "rows[Finjasjön|937075:829:3200-3700-bp]",
+        "before": false,
+        "after": true
+      },
+      {
+        "path": "rows[Finjasjön|937075:829:350-700-bp]",
+        "before": false,
+        "after": true
+      },
+      {
+        "path": "rows[Finjasjön|937075:829:3700-4200-bp]",
+        "before": false,
+        "after": true
+      },
+      {
+        "path": "rows[Finjasjön|937075:829:4200-4700-bp]",
+        "before": false,
+        "after": true
+      },
+      {
+        "path": "rows[Finjasjön|937075:829:4700-5200-bp]",
+        "before": false,
+        "after": true
+      },
+      {
+        "path": "rows[Finjasjön|937075:829:5200-5700-bp]",
+        "before": false,
+        "after": true
+      },
+      {
+        "path": "rows[Finjasjön|937075:829:5700-6200-bp]",
+        "before": false,
+        "after": true
+      },
+      {
+        "path": "rows[Finjasjön|937075:829:6200-6700-bp]",
+        "before": false,
+        "after": true
+      },
+      {
+        "path": "rows[Finjasjön|937075:829:6700-7200-bp]",
+        "before": false,
+        "after": true
+      },
+      {
+        "path": "rows[Finjasjön|937075:829:700-1200-bp]",
+        "before": false,
+        "after": true
+      },
+      {
+        "path": "rows[Finjasjön|937075:829:7200-7700-bp]",
+        "before": false,
+        "after": true
+      },
+      {
+        "path": "rows[Finjasjön|937075:829:7700-8200-bp]",
+        "before": false,
+        "after": true
+      },
+      {
+        "path": "rows[Finjasjön|937075:829:8200-8700-bp]",
+        "before": false,
+        "after": true
+      },
+      {
+        "path": "rows[Finjasjön|937075:829:8700-9200-bp]",
+        "before": false,
+        "after": true
+      },
+      {
+        "path": "rows[Finjasjön|937075:829:9200-9700-bp]",
+        "before": false,
+        "after": true
+      },
+      {
+        "path": "rows[Finjasjön|937075:829:9700-10200-bp]",
+        "before": false,
+        "after": true
+      },
+      {
+        "path": "rows[Havgårdssjön|937075:779:0-100-bp]",
+        "before": false,
+        "after": true
+      },
+      {
+        "path": "rows[Havgårdssjön|937075:779:100-350-bp]",
+        "before": false,
+        "after": true
+      },
+      {
+        "path": "rows[Havgårdssjön|937075:779:10200-10700-bp]",
+        "before": false,
+        "after": true
+      },
+      {
+        "path": "rows[Havgårdssjön|937075:779:10700-11200-bp]",
+        "before": false,
+        "after": true
+      },
+      {
+        "path": "rows[Havgårdssjön|937075:779:11200-11700-bp]",
+        "before": false,
+        "after": true
+      },
+      {
+        "path": "rows[Havgårdssjön|937075:779:1200-1700-bp]",
+        "before": false,
+        "after": true
+      },
+      {
+        "path": "rows[Havgårdssjön|937075:779:1700-2200-bp]",
+        "before": false,
+        "after": true
+      },
+      {
+        "path": "rows[Havgårdssjön|937075:779:2200-2700-bp]",
+        "before": false,
+        "after": true
+      },
+      {
+        "path": "rows[Havgårdssjön|937075:779:2700-3200-bp]",
+        "before": false,
+        "after": true
+      },
+      {
+        "path": "rows[Havgårdssjön|937075:779:3200-3700-bp]",
+        "before": false,
+        "after": true
+      },
+      {
+        "path": "rows[Havgårdssjön|937075:779:350-700-bp]",
+        "before": false,
+        "after": true
+      },
+      {
+        "path": "rows[Havgårdssjön|937075:779:3700-4200-bp]",
+        "before": false,
+        "after": true
+      },
+      {
+        "path": "rows[Havgårdssjön|937075:779:4200-4700-bp]",
+        "before": false,
+        "after": true
+      },
+      {
+        "path": "rows[Havgårdssjön|937075:779:4700-5200-bp]",
+        "before": false,
+        "after": true
+      },
+      {
+        "path": "rows[Havgårdssjön|937075:779:5200-5700-bp]",
+        "before": false,
+        "after": true
+      },
+      {
+        "path": "rows[Havgårdssjön|937075:779:5700-6200-bp]",
+        "before": false,
+        "after": true
+      },
+      {
+        "path": "rows[Havgårdssjön|937075:779:6200-6700-bp]",
+        "before": false,
+        "after": true
+      },
+      {
+        "path": "rows[Havgårdssjön|937075:779:6700-7200-bp]",
+        "before": false,
+        "after": true
+      },
+      {
+        "path": "rows[Havgårdssjön|937075:779:700-1200-bp]",
+        "before": false,
+        "after": true
+      },
+      {
+        "path": "rows[Havgårdssjön|937075:779:7200-7700-bp]",
+        "before": false,
+        "after": true
+      },
+      {
+        "path": "rows[Havgårdssjön|937075:779:7700-8200-bp]",
+        "before": false,
+        "after": true
+      },
+      {
+        "path": "rows[Havgårdssjön|937075:779:8200-8700-bp]",
+        "before": false,
+        "after": true
+      },
+      {
+        "path": "rows[Havgårdssjön|937075:779:8700-9200-bp]",
+        "before": false,
+        "after": true
+      },
+      {
+        "path": "rows[Havgårdssjön|937075:779:9200-9700-bp]",
+        "before": false,
+        "after": true
+      },
+      {
+        "path": "rows[Havgårdssjön|937075:779:9700-10200-bp]",
+        "before": false,
+        "after": true
+      },
+      {
+        "path": "rows[Östra Ringsjön|937075:779:0-100-bp]",
+        "before": false,
+        "after": true
+      },
+      {
+        "path": "rows[Östra Ringsjön|937075:779:100-350-bp]",
+        "before": false,
+        "after": true
+      },
+      {
+        "path": "rows[Östra Ringsjön|937075:779:10200-10700-bp]",
+        "before": false,
+        "after": true
+      },
+      {
+        "path": "rows[Östra Ringsjön|937075:779:10700-11200-bp]",
+        "before": false,
+        "after": true
+      },
+      {
+        "path": "rows[Östra Ringsjön|937075:779:11200-11700-bp]",
+        "before": false,
+        "after": true
+      },
+      {
+        "path": "rows[Östra Ringsjön|937075:779:1200-1700-bp]",
+        "before": false,
+        "after": true
+      },
+      {
+        "path": "rows[Östra Ringsjön|937075:779:1700-2200-bp]",
+        "before": false,
+        "after": true
+      },
+      {
+        "path": "rows[Östra Ringsjön|937075:779:2200-2700-bp]",
+        "before": false,
+        "after": true
+      },
+      {
+        "path": "rows[Östra Ringsjön|937075:779:2700-3200-bp]",
+        "before": false,
+        "after": true
+      },
+      {
+        "path": "rows[Östra Ringsjön|937075:779:3200-3700-bp]",
+        "before": false,
+        "after": true
+      },
+      {
+        "path": "rows[Östra Ringsjön|937075:779:350-700-bp]",
+        "before": false,
+        "after": true
+      },
+      {
+        "path": "rows[Östra Ringsjön|937075:779:3700-4200-bp]",
+        "before": false,
+        "after": true
+      },
+      {
+        "path": "rows[Östra Ringsjön|937075:779:4200-4700-bp]",
+        "before": false,
+        "after": true
+      },
+      {
+        "path": "rows[Östra Ringsjön|937075:779:4700-5200-bp]",
+        "before": false,
+        "after": true
+      },
+      {
+        "path": "rows[Östra Ringsjön|937075:779:5200-5700-bp]",
+        "before": false,
+        "after": true
+      },
+      {
+        "path": "rows[Östra Ringsjön|937075:779:5700-6200-bp]",
+        "before": false,
+        "after": true
+      },
+      {
+        "path": "rows[Östra Ringsjön|937075:779:6200-6700-bp]",
+        "before": false,
+        "after": true
+      },
+      {
+        "path": "rows[Östra Ringsjön|937075:779:6700-7200-bp]",
+        "before": false,
+        "after": true
+      },
+      {
+        "path": "rows[Östra Ringsjön|937075:779:700-1200-bp]",
+        "before": false,
+        "after": true
+      },
+      {
+        "path": "rows[Östra Ringsjön|937075:779:7200-7700-bp]",
+        "before": false,
+        "after": true
+      },
+      {
+        "path": "rows[Östra Ringsjön|937075:779:7700-8200-bp]",
+        "before": false,
+        "after": true
+      },
+      {
+        "path": "rows[Östra Ringsjön|937075:779:8200-8700-bp]",
+        "before": false,
+        "after": true
+      },
+      {
+        "path": "rows[Östra Ringsjön|937075:779:8700-9200-bp]",
+        "before": false,
+        "after": true
+      },
+      {
+        "path": "rows[Östra Ringsjön|937075:779:9200-9700-bp]",
+        "before": false,
+        "after": true
+      },
+      {
+        "path": "rows[Östra Ringsjön|937075:779:9700-10200-bp]",
+        "before": false,
+        "after": true
+      }
+    ],
+    "normalized_identity_or_value": [],
+    "policy_or_weighting": [
+      {
+        "path": "product.methodology",
+        "before": {
+          "land_cover_rule": "Forest is published ET plus ST cover; OL is open, GL is grassland, and AL is agricultural percentage cover. no_pollen_data retains the source window while all modeled cover values are unavailable.",
+          "cereal_rule": "High- and low-quality rows retain published Cerealia.t and Secale modeled pollen-cover values; no_pollen_data retains nulls. These are not observed crop acreage or proof of cultivation at the target.",
+          "temporal_join_rule": "SEAD and aDNA context counts require both spatial proximity within 20 km and numeric interval overlap with the published LandClim window.",
+          "target_coverage_rule": "Every ranked SVAR lake and named archaeological wetland stays in scope. Targets outside the governed LandClim grid retain a decision row but receive no fabricated temporal values.",
+          "interpretation_rule": "Cross-proxy alignment is descriptive context. It does not identify a cause, migration route, farming event, or viable coring location."
+        },
+        "after": {
+          "land_cover_rule": "Forest is published ET plus ST cover; OL is open, GL is grassland, and AL is agricultural percentage cover. no_pollen_data retains the source window while all modeled cover values are unavailable.",
+          "cereal_rule": "High- and low-quality rows retain published Cerealia.t and Secale modeled pollen-cover values; no_pollen_data retains nulls. These are not observed crop acreage or proof of cultivation at the target.",
+          "temporal_join_rule": "SEAD and aDNA context counts require both spatial proximity within 20 km and numeric interval overlap with the published LandClim window.",
+          "target_coverage_rule": "Every governed named lake or wetland and every additional ranked SVAR lake stays in scope. Targets outside the governed LandClim grid retain a decision row but receive no fabricated temporal values.",
+          "interpretation_rule": "Cross-proxy alignment is descriptive context. It does not identify a cause, migration route, farming event, or viable coring location."
+        }
+      }
+    ],
+    "admission_or_exclusion": [
+      {
+        "path": "product.landclim_covered_target_count",
+        "before": 2,
+        "after": 6
+      }
+    ],
+    "scientific_result": [],
+    "presentation": []
+  },
+  "interpretation": "This is a product and policy comparison between the named Git baseline and the current worktree. Unchanged direct source files and changed producer paths narrow the revision cause; they do not establish a historical landscape change."
+}

@@ -1,17 +1,17 @@
 {
   "schema_version": "report-surface-registry.v1",
-  "surface_count": 1368,
+  "surface_count": 1369,
   "family_counts": {
     "caveats": 10,
     "maintenance": 695,
     "maps": 85,
     "portal": 2,
     "reviews": 33,
-    "scopes": 543
+    "scopes": 544
   },
   "audience_counts": {
     "maintainer_diagnostic": 697,
-    "public_reading_surface": 552,
+    "public_reading_surface": 553,
     "scientific_review_surface": 119
   },
   "geography_counts": {
@@ -21,7 +21,7 @@
     "nordic": 306,
     "norway": 14,
     "report_root": 743,
-    "sweden": 42,
+    "sweden": 43,
     "world": 172
   },
   "rows": [
@@ -2208,6 +2208,18 @@
       "caution_level": "medium",
       "explanation": "Reader-facing entry page for one scope bundle.",
       "reader_route": "start_here"
+    },
+    {
+      "repository_path": "docs/report/countries/sweden/land-use-replay/historical-comparison.json",
+      "family": "scopes",
+      "family_label": "Scope-filtered outputs",
+      "audience": "public_reading_surface",
+      "audience_label": "Public reading surface",
+      "format": "json",
+      "geography": "sweden",
+      "caution_level": "medium",
+      "explanation": "Governed report artifact.",
+      "reader_route": "scope_bundle"
     },
     {
       "repository_path": "docs/report/countries/sweden/land-use-replay/receipt.json",
