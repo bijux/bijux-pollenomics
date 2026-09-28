@@ -39,6 +39,12 @@ source-name LUT has no exact `Quercus deciduous t.` row, and the paper does not
 define the extra `ISTS` archive code. Neither source licenses relabeling the
 archived column as TBS.
 
+The [publisher's machine-readable Table 1](publisher-table-review.md) independently
+lists all nine paper `TBS` taxa, including Corylus, Fraxinus and deciduous
+Quercus, and contains no `ISTS` code. Its exact source bytes and license are
+recorded there. This confirms the paper-side grouping but does not identify
+the archive-producing transformation.
+
 The [released-script lineage review](author-release-lineage.md) matches the
 public author wrapper and its 31-taxon header to the custody-bound source
 capsule and archived taxon column names. The archive's 13 PFT and three LCT
