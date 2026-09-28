@@ -28,8 +28,6 @@ from bijux_pollenomics.analysis.lra.materialization.neotoma.site_evidence import
 )
 from bijux_pollenomics.analysis.lra.materialization.reading import NeotomaEvidence
 
-NECESSARY_SAMPLE_COUNT = 3_538
-SOURCE_SITE_COUNT = 54
 NORDIC_COUNTRY_CODES = ("DK", "FI", "NO", "SE")
 _AUTHORITY = object()
 
@@ -272,14 +270,23 @@ def build_neotoma_prerequisite_projection(
     lake_report = lakeparameters.as_dict()
     frontier = assess_neotoma_lra_frontier(evidence, necessary_ids)
     frontier_report = frontier.as_dict()
+    expected_samples = len(necessary_ids)
+    expected_sites = len(
+        {
+            row["site_id"]
+            for row in screen_report["sample_decisions"]
+            if row["screen_status"] == "necessary_candidate"
+        }
+    )
     if (
-        len(necessary_ids) != NECESSARY_SAMPLE_COUNT
+        not expected_samples
+        or not expected_sites
         or screen_report["screen_denominators"]["necessary_candidate_samples"]
-        != NECESSARY_SAMPLE_COUNT
-        or frontier_report["selected_denominators"]["samples"] != NECESSARY_SAMPLE_COUNT
-        or site_report["denominators"]["candidate_samples"] != NECESSARY_SAMPLE_COUNT
-        or site_report["denominators"]["candidate_source_sites"] != SOURCE_SITE_COUNT
-        or lake_report["candidate_source_sites"] != SOURCE_SITE_COUNT
+        != expected_samples
+        or frontier_report["selected_denominators"]["samples"] != expected_samples
+        or site_report["denominators"]["candidate_samples"] != expected_samples
+        or site_report["denominators"]["candidate_source_sites"] != expected_sites
+        or lake_report["candidate_source_sites"] != expected_sites
     ):
         raise ValueError("Real Neotoma prerequisite denominators differ")
     chronology_rows = _chronology_rows(
@@ -324,9 +331,7 @@ def build_neotoma_prerequisite_projection(
 
 
 __all__ = [
-    "NECESSARY_SAMPLE_COUNT",
     "NORDIC_COUNTRY_CODES",
-    "SOURCE_SITE_COUNT",
     "NeotomaPrerequisiteProjection",
     "build_neotoma_prerequisite_projection",
 ]

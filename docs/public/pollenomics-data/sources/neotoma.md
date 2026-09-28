@@ -81,6 +81,14 @@ The [Nordic country-held-out direct-pollen study](../../../report/regions/nordic
 uses a separately declared 16-label observed-pollen subcomposition and retains
 all target-country exclusions and scores.
 
+Those 10,637 prerequisite samples occupy 163 source site IDs, 167 collection
+unit IDs and 169 dataset IDs. Sweden contributes 5,011 samples at 77 sites;
+Denmark 91 at one site; Norway 3,544 at 52 sites; Finland 1,797 at 28 sites;
+and the unassigned review partition 194 at five sites. These counts are derived
+from the sample IDs and parent IDs in the current governed screen. The earlier
+3,538-sample, 54-site basin and taxon reviews below cover a narrower historical
+screen and cannot certify this current candidate population.
+
 For Abborrtjärnen, a [cross-source ABBO profile comparison](../../../report/source-relations/neotoma/abbo-profile/README.md)
 matches 107 sample depths and 535 selected taxon-count cells against a separate
 EPD/PANGAEA record. That record reports a 3 ha lake, but its June 2002 core
