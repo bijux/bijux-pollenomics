@@ -1,5 +1,8 @@
 from __future__ import annotations
 
+import json
+from unittest.mock import patch
+
 from bijux_pollenomics.governance import (
     build_repository_atlas_input_audit,
     build_repository_cross_domain_evidence_matrix,
@@ -17,11 +20,67 @@ from bijux_pollenomics.governance import (
     render_repository_source_explainer_audit_markdown,
     render_repository_source_family_matrix_markdown,
 )
+from bijux_pollenomics.governance.repository_truth.metrics.filesystem import (
+    _count_geojson_features,
+)
 
 from .support import RepositoryTruthTestCase
 
 
 class RepositorySourceEvidenceTests(RepositoryTruthTestCase):
+    def test_published_sead_population_agrees_across_truth_surfaces(self) -> None:
+        def report(stem):  # type: ignore[no-untyped-def]
+            return json.loads((self.report_root / f"{stem}.json").read_text())
+
+        matrix = report("repository_source_family_matrix")
+        atlas = report("repository_atlas_input_audit")
+        cross_domain = report("repository_cross_domain_evidence_matrix")
+        posture = report("repository_truth_posture")
+        claim = report("repository_claim_audit")
+        source_row = next(row for row in matrix["rows"] if row["source_key"] == "sead")
+        atlas_row = next(row for row in atlas["rows"] if row["input_key"] == "sead")
+        archaeology = next(
+            row
+            for row in cross_domain["rows"]
+            if row["domain_key"] == "archaeology_context"
+        )
+        published = _count_geojson_features(
+            self.report_root
+            / "regions"
+            / "nordic"
+            / "nordic_environmental_sites.geojson"
+        )
+        assert published == 2069
+        assert source_row["visible_count"] == published
+        assert atlas_row["metrics"]["site_count"] == published
+        assert archaeology["tracked_metrics"]["sead_site_count"] == published
+        for truth in (posture, claim):
+            assert truth["counts"]["tracked_sead_site_count"] == published
+            assert truth["counts"]["sead_source_bbox_site_count"] == 2195
+
+    def test_published_sead_site_denominator_must_match_normalized_layer(self) -> None:
+        published = (
+            self.report_root
+            / "regions"
+            / "nordic"
+            / "nordic_environmental_sites.geojson"
+        )
+
+        def changed_count(path):  # type: ignore[no-untyped-def]
+            count = _count_geojson_features(path)
+            return count + 1 if path == published else count
+
+        with patch(
+            "bijux_pollenomics.governance.repository_truth.metrics.counts._count_geojson_features",
+            side_effect=changed_count,
+        ):
+            with self.assertRaisesRegex(ValueError, "Published SEAD site count"):
+                build_repository_source_family_matrix(
+                    data_root=self.data_root,
+                    docs_root=self.docs_root,
+                    report_root=self.report_root,
+                )
+
     def test_source_family_matrix_and_acquisition_queue_keep_cross_domain_pressure_visible(
         self,
     ) -> None:
@@ -54,6 +113,10 @@ class RepositorySourceEvidenceTests(RepositoryTruthTestCase):
             row for row in matrix_payload["rows"] if row["source_key"] == "raa"
         )
         self.assertEqual(raa_row["visible_count"], 0)
+        sead_row = next(
+            row for row in matrix_payload["rows"] if row["source_key"] == "sead"
+        )
+        self.assertEqual(sead_row["visible_count"], 2069)
         self.assertEqual(
             raa_row["acquisition_posture"], "refused_not_publication_ready"
         )
@@ -146,6 +209,11 @@ class RepositorySourceEvidenceTests(RepositoryTruthTestCase):
         raa_input = next(
             row for row in atlas_payload["rows"] if row["input_key"] == "raa"
         )
+        sead_input = next(
+            row for row in atlas_payload["rows"] if row["input_key"] == "sead"
+        )
+        self.assertEqual(sead_input["metrics"]["site_count"], 2069)
+        self.assertEqual(sead_input["metrics"]["source_bounding_box_site_count"], 2195)
         self.assertEqual(
             raa_input["metrics"]["publication_status"],
             "refused_not_publication_ready",

@@ -32,6 +32,7 @@ class _SourceAssessmentCounts(TypedDict):
     tracked_landclim_grid_cell_count: int
     tracked_neotoma_site_count: int
     tracked_sead_site_count: int
+    sead_source_bbox_site_count: int
     tracked_raa_published_site_count: int
     tracked_raa_density_cell_count: int
     raa_density_admitted: bool

@@ -60,9 +60,10 @@
       ],
       "refresh_anchor": "data/sead/raw/nordic_sites.json",
       "metrics": {
-        "site_count": 2195
+        "site_count": 2069,
+        "source_bounding_box_site_count": 2195
       },
-      "note": "SEAD is broader environmental archaeology context and should stay visible as its own source family."
+      "note": "SEAD is broader environmental archaeology context. The published four-country site layer is a subset of the raw bounding-box capture."
     },
     {
       "input_key": "raa",

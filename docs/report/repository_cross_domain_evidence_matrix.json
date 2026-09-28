@@ -37,7 +37,7 @@
         "raa"
       ],
       "tracked_metrics": {
-        "sead_site_count": 2195,
+        "sead_site_count": 2069,
         "raa_publication_status": "refused_not_publication_ready",
         "raa_published_site_count": null,
         "raa_density_cell_count": null,
