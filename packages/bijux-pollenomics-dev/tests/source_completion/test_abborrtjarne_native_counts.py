@@ -2,10 +2,24 @@
 
 from __future__ import annotations
 
+import json
+from pathlib import Path
+
 import pytest
 
 from bijux_pollenomics_dev.source_completion.abborrtjarne_native_counts import (
+    _source_samples,
+    _workbook_rows,
     compare_native_counts,
+)
+
+REPOSITORY = Path(__file__).resolve().parents[4]
+SOURCE = (
+    REPOSITORY.parent
+    / "bijux-pollenomics-data/landclim/rootsi-workbooks/rootsi/ABB.xls"
+)
+GOVERNED = (
+    REPOSITORY / "docs/report/source-relations/neotoma/abbo-native-correspondence"
 )
 
 
@@ -71,3 +85,20 @@ def test_source_unit_and_sample_axis_are_required() -> None:
     workbook[0]["sample_label"] = 649
     with pytest.raises(ValueError, match="sample-label axes differ"):
         compare_native_counts(["Betula", "Pinus"], workbook, samples)
+
+
+def test_retained_source_replays_counts_and_age_divergence() -> None:
+    if not SOURCE.is_file():
+        pytest.skip("Private Rootsi workbook is not installed")
+    taxa, rows = _workbook_rows(SOURCE)
+    samples = _source_samples(
+        REPOSITORY / "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-004.json"
+    )
+    _, summary = compare_native_counts(taxa, rows, samples)
+    governed = json.loads((GOVERNED / "report.json").read_text())
+    assert summary == {key: governed[key] for key in summary}
+    assert summary["counts"]["equal_explicit_pairs"] == 2183
+    assert summary["numeric_age_label_difference_range_unqualified"] == [
+        -238.0,
+        129.0,
+    ]

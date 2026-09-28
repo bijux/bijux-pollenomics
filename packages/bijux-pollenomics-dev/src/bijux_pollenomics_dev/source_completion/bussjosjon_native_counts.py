@@ -184,6 +184,55 @@ def compare_casefold_counts(
                     "status": status,
                 }
             )
+    zero_duplicate_candidates: list[dict[str, object]] = []
+    for key, positions in sorted(header_positions.items()):
+        if len(positions) != 2 or len(source_names.get(key, set())) != 1:
+            continue
+        column_mass = [
+            sum(
+                _count(
+                    cast(list[object], row["counts"])[column],
+                    "duplicate workbook count",
+                )
+                for row in workbook_rows
+            )
+            for column in positions
+        ]
+        if sum(mass > 0 for mass in column_mass) != 1:
+            continue
+        retained_column = positions[
+            next(i for i, mass in enumerate(column_mass) if mass)
+        ]
+        source_pairs = equal_pairs = source_mass = 0
+        for label in sorted(workbook_by_label):
+            row = workbook_by_label[label]
+            sample = source_by_label[label]
+            matches = [
+                datum
+                for datum in sample["datum"]
+                if str(datum["variablename"]).casefold() == key
+            ]
+            if len(matches) != 1 or matches[0]["units"] != "NISP":
+                raise ValueError(f"Duplicate-column source identity changed: {key}")
+            source_count = _count(matches[0]["value"], "duplicate source count")
+            workbook_count = _count(
+                cast(list[object], row["counts"])[retained_column],
+                "duplicate workbook count",
+            )
+            source_pairs += 1
+            equal_pairs += source_count == workbook_count
+            source_mass += source_count
+        zero_duplicate_candidates.append(
+            {
+                "casefold_label": key,
+                "workbook_positions": positions,
+                "workbook_column_mass": column_mass,
+                "source_pairs": source_pairs,
+                "equal_pairs": equal_pairs,
+                "source_mass": source_mass,
+                "status": "unapplied_zero_only_duplicate_column_candidate",
+            }
+        )
     return cells, {
         "samples": len(workbook_rows),
         "workbook_header_columns": len(headers),
@@ -193,6 +242,7 @@ def compare_casefold_counts(
             for key, positions in sorted(header_positions.items())
             if len(positions) > 1
         },
+        "zero_only_duplicate_column_candidates": zero_duplicate_candidates,
         "cell_status_counts": dict(sorted(totals.items())),
         "comparison_rule": "unique casefold labels only; no semantic taxon mapping",
         "workbook_age_column": "absent",
@@ -231,6 +281,9 @@ def main() -> int:
         json.dumps(report, indent=2, ensure_ascii=False) + "\n"
     )
     status = cast(dict[str, int], summary["cell_status_counts"])
+    duplicate_candidates = cast(
+        list[dict[str, object]], summary["zero_only_duplicate_column_candidates"]
+    )
     (args.output / "REPORT.md").write_text(
         "# Bussjösjön native count correspondence\n\n"
         f"All {summary['samples']} numeric workbook sample labels match Neotoma dataset {DATASET_ID} depth labels. "
@@ -240,8 +293,10 @@ def main() -> int:
         f"The {status['absent_source_workbook_zero']} workbook-zero cells without Neotoma rows "
         "remain absent source observations, not imputed zeros. Duplicated BETULA and PINUS "
         "workbook columns are excluded from the label join.\n\n"
-        "The workbook has no sample-age column. This orthographic count correspondence "
-        "does not establish a taxon/PPE profile, selected chronology, count denominator, "
+        "The workbook has no sample-age column. "
+        f"A separate unapplied zero-only duplicate-column check finds {sum(cast(int, row['equal_pairs']) for row in duplicate_candidates)} matching source cells; "
+        "it does not change the primary unique-label count denominator. "
+        "This orthographic count correspondence does not establish a taxon/PPE profile, selected chronology, count denominator, "
         "physical core/basin identity, 69 m published radius applicability or analytical-use "
         "rights. No LRA sample is admitted.\n"
     )
