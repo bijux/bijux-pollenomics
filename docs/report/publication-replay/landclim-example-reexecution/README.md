@@ -31,3 +31,10 @@ PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=packages/bijux-pollenomics-dev/src:packages
 ```
 
 The result does not resolve private-input redistribution rights, the publication PFT-count disagreement, full-study input identity, or independent vegetation accuracy.
+
+A separate [tagged Petr Kuneš R comparison](../../method-certification/petrkunes-r-comparison/README.md)
+checks one 225 BP author window on single, unequal-pair, six-active-site and
+full-nine-site inputs. It finds zero original-versus-tagged R residuals on
+those selected cases. The tagged source shares the historical implementation
+lineage, and its one-window random stream differs from this full 25-window
+receipt.

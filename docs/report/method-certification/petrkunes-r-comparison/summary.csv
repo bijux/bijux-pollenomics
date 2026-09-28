@@ -1,0 +1,5 @@
+"scenario","supplied_sites","radius_m","finite_cover_pairs","max_absolute_cover_difference","finite_se_pairs","max_absolute_se_difference","original_no_sites","secondary_no_sites","reveals_body_identical","kpf_body_identical"
+"single",1,"150",31,0,31,0,1,1,FALSE,TRUE
+"unequal_pair",2,"150;10",31,0,31,0,2,2,FALSE,TRUE
+"six_sites",6,"150;100;10;15;10;200",31,0,31,0,6,6,FALSE,TRUE
+"full_grid",9,"150;0;100;10;15;0;0;10;200",31,0,31,0,6,6,FALSE,TRUE
