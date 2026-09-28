@@ -122,6 +122,8 @@ def render_source_recovery_progress_markdown(payload: dict[str, Any]) -> str:
         "",
         "## Sample Evidence Depth",
         "",
+        f"The four mutually exclusive buckets partition `{payload['sample_evidence_depth_accounting']['counted_sample_rows']}` recovered sample rows. A site-only row has no normalized chronology; a site-and-chronology row has no coordinate text. The final bucket has coordinate text, not necessarily an approved mapped point.",
+        "",
     ]
     for key, value in payload["sample_evidence_depth_counts"].items():
         lines.append(f"- {key.replace('_', ' ')}: `{value}`")

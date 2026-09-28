@@ -9,10 +9,20 @@ from typing import Any
 def build_progress(output_root: Path, *, surface: Any) -> dict[str, Any]:
     rows = surface._project_recovery_rows(output_root)
     sample_depth_counts = surface._sample_evidence_depth_counts(output_root)
+    sample_total = sum(surface._int_value(row["final_sample_count"]) for row in rows)
+    if sum(sample_depth_counts.values()) != sample_total:
+        raise ValueError(
+            "Sample evidence depth buckets do not partition recovered rows"
+        )
     return {
         "schema_version": "animal-source-recovery-progress.v1",
         "project_count": len(rows),
         "sample_evidence_depth_counts": sample_depth_counts,
+        "sample_evidence_depth_accounting": {
+            "partition": "mutually_exclusive",
+            "counted_sample_rows": sample_total,
+            "coordinate_rule": "nonempty latitude and longitude text; not mapped-point approval",
+        },
         "project_counts": {
             "projects_with_sample_identity_rows": sum(
                 1 for row in rows if surface._int_value(row["final_sample_count"]) > 0

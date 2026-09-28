@@ -139,6 +139,10 @@ class AnimalFoundationEvidenceReviewTests(AnimalFoundationOutputsTestCase):
         )
         self.assertIn("source_recovery_progress", payload["direct_links"])
         self.assertTrue(payload["top_gap_projects"])
+        self.assertEqual(
+            sum(payload["sample_evidence_depth_counts"].values()),
+            payload["sample_evidence_depth_accounting"]["counted_sample_rows"],
+        )
 
     def test_sample_database_review_packet_proves_sample_owned_public_posture(
         self,

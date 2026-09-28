@@ -107,6 +107,11 @@
     "sample_with_site_and_chronology": 335,
     "sample_with_site_chronology_and_coordinates": 557
   },
+  "sample_evidence_depth_accounting": {
+    "partition": "mutually_exclusive",
+    "counted_sample_rows": 1450,
+    "coordinate_rule": "nonempty latitude and longitude text; not mapped-point approval"
+  },
   "top_gap_projects": [
     {
       "project_accession": "PRJEB31621",
