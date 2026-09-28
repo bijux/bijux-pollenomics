@@ -17,7 +17,9 @@ from bijux_pollenomics_dev.essd_reproduction.pft_crosswalk import (
     _finite,
     _members,
     _source_mapping,
+    _source_tbs_taxa,
     build,
+    build_taxon_arithmetic,
     reconcile,
 )
 
@@ -69,6 +71,9 @@ def test_parameter_group_drift_is_refused() -> None:
     changed = source.replace(b",TBS,", b",ISTS,", 1)
     with pytest.raises(ValueError, match="source PFT/LCT grouping changed"):
         _source_mapping(changed)
+    altered_taxon = source.replace(b"Castanea sativa", b"Castanea sp.", 1)
+    with pytest.raises(ValueError, match="parameter TBS taxon rows changed"):
+        _source_tbs_taxa(altered_taxon)
 
 
 def test_incomplete_archive_and_nonfinite_output_are_refused() -> None:
@@ -91,3 +96,44 @@ def test_governed_crosswalk_replays_byte_identically(tmp_path: Path) -> None:
         assert (output / name).read_bytes() == (GOVERNED / name).read_bytes()
     governed = json.loads((GOVERNED / "report.json").read_text())
     assert governed["inputs"] == report["inputs"]
+
+
+def test_published_ists_tbs_taxon_arithmetic_replays_from_pinned_source(
+    tmp_path: Path,
+) -> None:
+    output = tmp_path / "taxon-arithmetic"
+    report = build_taxon_arithmetic(REPOSITORY, output)
+    assert report["parameter_table_tbs_taxa"] == [
+        "Carpinus betulus",
+        "Carpinus orientalis",
+        "Castanea sativa",
+        "Corylus avellana",
+        "Fagus sylvatica",
+        "Fraxinus",
+        "Quercus deciduous t.",
+        "Tilia",
+        "Ulmus",
+    ]
+    assert report["published_mean_addends"] == {
+        "ISTS": ["Corylus.avellana", "Fraxinus", "Quercus.deciduous"],
+        "TBS": [
+            "Carpinus.betulus",
+            "Carpinus.orientalis",
+            "Castanea",
+            "Fagus.sylvatica",
+            "Tilia",
+            "Ulmus",
+        ],
+    }
+    assert report["mean_grid_window_rows_checked"] == 10_500
+    assert all(
+        cast(float, residual) < 1e-12
+        for residual in cast(
+            dict[str, object], report["maximum_absolute_mean_residual"]
+        ).values()
+    )
+    assert report["ists_biological_definition_admitted"] is False
+    assert report["paper_dataset_pft_count_reconciled"] is False
+    assert (output / "report.json").read_bytes() == (
+        GOVERNED / "tbs-taxon-arithmetic/report.json"
+    ).read_bytes()

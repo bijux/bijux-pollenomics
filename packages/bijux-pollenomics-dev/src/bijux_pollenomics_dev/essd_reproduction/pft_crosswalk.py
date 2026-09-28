@@ -33,6 +33,29 @@ OBSERVED_MEAN_GROUPS = {
     "ST": ("IBS", "ISTS", "TBS", "TSD"),
     "OL": SOURCE_GROUPS["OL"],
 }
+# The source table places all nine rows under TBS. These pairs disclose the
+# taxon-name translation being tested; arithmetic alone cannot establish why
+# the published output split them into two columns.
+TBS_SOURCE_TO_OUTPUT = (
+    ("Carpinus betulus", "Carpinus.betulus"),
+    ("Carpinus orientalis", "Carpinus.orientalis"),
+    ("Castanea sativa", "Castanea"),
+    ("Corylus avellana", "Corylus.avellana"),
+    ("Fagus sylvatica", "Fagus.sylvatica"),
+    ("Fraxinus", "Fraxinus"),
+    ("Quercus deciduous t.", "Quercus.deciduous"),
+    ("Tilia", "Tilia"),
+    ("Ulmus", "Ulmus"),
+)
+ISTS_OUTPUT_TAXA = ("Corylus.avellana", "Fraxinus", "Quercus.deciduous")
+TBS_OUTPUT_TAXA = (
+    "Carpinus.betulus",
+    "Carpinus.orientalis",
+    "Castanea",
+    "Fagus.sylvatica",
+    "Tilia",
+    "Ulmus",
+)
 COLUMN_FIELDS = (
     "column_kind",
     "code",
@@ -103,6 +126,20 @@ def _source_mapping(
     return codes, definitions, groups
 
 
+def _source_tbs_taxa(content: bytes) -> list[str]:
+    """Read the nine TBS taxon rows from the pinned parameter table."""
+    rows = csv.DictReader(io.StringIO(content.decode("utf-8-sig")))
+    current_pft = ""
+    taxa: list[str] = []
+    for row in rows:
+        current_pft = row["PFT"] or current_pft
+        if current_pft == "TBS":
+            taxa.append(row["Plant taxa/Pollen-morphological types"])
+    if taxa != [source for source, _ in TBS_SOURCE_TO_OUTPUT]:
+        raise ValueError("PANGAEA parameter TBS taxon rows changed")
+    return taxa
+
+
 def _members(archive: zipfile.ZipFile) -> dict[str, dict[int, str]]:
     result: dict[str, dict[int, str]] = {"mean": {}, "se": {}}
     for name in archive.namelist():
@@ -149,6 +186,110 @@ def _finite(row: dict[str, str], code: str) -> float:
     if not math.isfinite(value):
         raise ValueError(f"PANGAEA output has nonfinite {code}")
     return value
+
+
+def _verified_sources(repository: Path) -> tuple[bytes, list[dict[str, object]]]:
+    """Verify exact local source assets and their PANGAEA acquisition receipt."""
+    inputs: list[dict[str, object]] = []
+    mapping_content = b""
+    for relative, expected in PINNED.items():
+        path = repository / relative
+        if path.is_symlink() or not path.is_file():
+            raise ValueError(f"PANGAEA source input missing or linked: {relative}")
+        data = path.read_bytes()
+        if _sha(data) != expected:
+            raise ValueError(f"PANGAEA source input changed: {relative}")
+        if relative == MAPPING:
+            mapping_content = data
+        inputs.append(
+            {"path": relative.as_posix(), "bytes": len(data), "sha256": expected}
+        )
+    receipt = json.loads((repository / SOURCE_RECEIPT).read_text())
+    if not any(
+        dataset["dataset_id"] == "937075"
+        and dataset["doi"] == "https://doi.org/10.1594/PANGAEA.937075"
+        and MAPPING.name in dataset["files"]
+        and ARCHIVE.name in dataset["files"]
+        for dataset in receipt["datasets"]
+    ):
+        raise ValueError("PANGAEA 937075 asset receipt changed")
+    return mapping_content, inputs
+
+
+def build_taxon_arithmetic(repository: Path, output: Path) -> dict[str, object]:
+    """Check the archived ISTS/TBS mean split against nine source TBS rows."""
+    repository, output = repository.resolve(), output.resolve()
+    if output.exists() or output.is_symlink():
+        raise ValueError("Absent output destination required")
+    mapping_content, inputs = _verified_sources(repository)
+    _source_mapping(mapping_content)
+    source_taxa = _source_tbs_taxa(mapping_content)
+    expected_output_taxa = {name for _, name in TBS_SOURCE_TO_OUTPUT}
+    if set(ISTS_OUTPUT_TAXA) | set(TBS_OUTPUT_TAXA) != expected_output_taxa:
+        raise ValueError("Published TBS split omits source taxon mapping")
+    if set(ISTS_OUTPUT_TAXA) & set(TBS_OUTPUT_TAXA):
+        raise ValueError("Published TBS split repeats an output taxon")
+    maximum_residual = {"ISTS": 0.0, "TBS": 0.0, "ISTS_plus_TBS": 0.0}
+    nonzero_rows = {"ISTS": 0, "TBS": 0}
+    rows_checked = 0
+    with zipfile.ZipFile(repository / ARCHIVE) as archive:
+        members = _members(archive)
+        header: list[str] | None = None
+        for window in range(1, 26):
+            header, rows = _records(archive, members["mean"][window], header)
+            if not expected_output_taxa.issubset(header) or not {
+                "ISTS",
+                "TBS",
+            }.issubset(header):
+                raise ValueError("PANGAEA ISTS/TBS or taxon output columns changed")
+            for row in rows:
+                observed_ists, observed_tbs = _finite(row, "ISTS"), _finite(row, "TBS")
+                calculated_ists = sum(_finite(row, name) for name in ISTS_OUTPUT_TAXA)
+                calculated_tbs = sum(_finite(row, name) for name in TBS_OUTPUT_TAXA)
+                residuals = {
+                    "ISTS": abs(observed_ists - calculated_ists),
+                    "TBS": abs(observed_tbs - calculated_tbs),
+                    "ISTS_plus_TBS": abs(
+                        observed_ists + observed_tbs - calculated_ists - calculated_tbs
+                    ),
+                }
+                for code, residual in residuals.items():
+                    maximum_residual[code] = max(maximum_residual[code], residual)
+                    if residual > MEAN_SUM_ABS_TOLERANCE:
+                        raise ValueError(
+                            f"PANGAEA {code} taxon mean arithmetic differs"
+                        )
+                nonzero_rows["ISTS"] += observed_ists != 0.0
+                nonzero_rows["TBS"] += observed_tbs != 0.0
+                rows_checked += 1
+    report: dict[str, object] = {
+        "schema_version": "landclim-tbs-taxon-arithmetic.v1",
+        "dataset_doi": "10.1594/PANGAEA.937075",
+        "inputs": inputs,
+        "parameter_table_tbs_taxa": source_taxa,
+        "declared_source_to_output_taxa": [
+            {"parameter_taxon": source, "output_column": output_name}
+            for source, output_name in TBS_SOURCE_TO_OUTPUT
+        ],
+        "published_mean_addends": {
+            "ISTS": list(ISTS_OUTPUT_TAXA),
+            "TBS": list(TBS_OUTPUT_TAXA),
+        },
+        "mean_grid_window_rows_checked": rows_checked,
+        "nonzero_mean_rows": nonzero_rows,
+        "absolute_tolerance": MEAN_SUM_ABS_TOLERANCE,
+        "maximum_absolute_mean_residual": maximum_residual,
+        "standard_error_aggregation_admitted": False,
+        "source_taxon_name_translation_authenticated": False,
+        "ists_biological_definition_admitted": False,
+        "paper_dataset_pft_count_reconciled": False,
+    }
+    output.mkdir(parents=True)
+    (output / "report.json").write_text(
+        json.dumps(report, ensure_ascii=False, indent=2, sort_keys=True) + "\n",
+        encoding="utf-8",
+    )
+    return report
 
 
 def reconcile(
@@ -291,29 +432,8 @@ def build(repository: Path, output: Path) -> dict[str, object]:
     repository, output = repository.resolve(), output.resolve()
     if output.exists() or output.is_symlink():
         raise ValueError("Absent output destination required")
-    inputs: list[dict[str, object]] = []
-    for relative, expected in PINNED.items():
-        path = repository / relative
-        if path.is_symlink() or not path.is_file():
-            raise ValueError(f"PANGAEA source input missing or linked: {relative}")
-        data = path.read_bytes()
-        if _sha(data) != expected:
-            raise ValueError(f"PANGAEA source input changed: {relative}")
-        inputs.append(
-            {"path": relative.as_posix(), "bytes": len(data), "sha256": expected}
-        )
-    receipt = json.loads((repository / SOURCE_RECEIPT).read_text())
-    if not any(
-        dataset["dataset_id"] == "937075"
-        and dataset["doi"] == "https://doi.org/10.1594/PANGAEA.937075"
-        and MAPPING.name in dataset["files"]
-        and ARCHIVE.name in dataset["files"]
-        for dataset in receipt["datasets"]
-    ):
-        raise ValueError("PANGAEA 937075 asset receipt changed")
-    columns, groups, windows, summary = reconcile(
-        (repository / MAPPING).read_bytes(), repository / ARCHIVE
-    )
+    mapping_content, inputs = _verified_sources(repository)
+    columns, groups, windows, summary = reconcile(mapping_content, repository / ARCHIVE)
     output.mkdir(parents=True)
     for name, fields, records in (
         ("columns.csv", COLUMN_FIELDS, columns),
@@ -354,8 +474,16 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repository", required=True, type=Path)
     parser.add_argument("--output", required=True, type=Path)
+    parser.add_argument(
+        "--taxon-arithmetic",
+        action="store_true",
+        help="check the published ISTS/TBS mean split",
+    )
     args = parser.parse_args()
-    build(args.repository, args.output)
+    if args.taxon_arithmetic:
+        build_taxon_arithmetic(args.repository, args.output)
+    else:
+        build(args.repository, args.output)
 
 
 if __name__ == "__main__":

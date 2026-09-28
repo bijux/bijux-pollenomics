@@ -16,6 +16,8 @@ For all **10,500 mean grid/window rows**, the archived LCT values agree within t
 
 The maximum absolute residual is below `2e-13` for each LCT. The parameter table's ST block lists IBS, TBS and TSD; the output's ST mean includes the additional `ISTS` column numerically. This is an observed property of this archived output version, not an admission of `ISTS` taxonomy or of the paper's PFT count.
 
+The [taxon arithmetic report](tbs-taxon-arithmetic/report.json) checks the more specific ST split against the same pinned parameter table and all 10,500 archived mean grid/window rows. The parameter table puts nine taxa under TBS. In the published output, `ISTS` equals `Corylus.avellana + Fraxinus + Quercus.deciduous` (maximum absolute residual `5.69e-14`), and `TBS` equals `Carpinus.betulus + Carpinus.orientalis + Castanea + Fagus.sylvatica + Tilia + Ulmus` (maximum `4.98e-14`). Their sum equals the sum of all nine corresponding taxon columns (maximum `1.02e-13`). The report records the parameter-table names and the declared output-name translations, including `Castanea sativa` to `Castanea`. This proves numerical correspondence in these means; it does not authenticate the taxon-name translation, define `ISTS` biologically, settle the 11/12/13 PFT count, or establish a standard-error summation rule.
+
 Standard errors must be handled separately. A naive sum of constituent PFT standard-error columns differs from the LCT standard error in 7,588 ET rows, 7,892 ST rows, and 5,921 OL rows. The source files do not provide a complete LCT covariance or aggregation lineage here, so this review does not infer an SE formula or allow SEs to be pooled by the mean formula.
 
 ## Reproduce
@@ -30,3 +32,13 @@ PYTHONDONTWRITEBYTECODE=1 .venv/bin/python \
 ```
 
 The producer refuses changed input hashes, a missing or duplicated window, mismatched mean/SE grid identities, changed table/output code sets, or a mean arithmetic disagreement beyond the declared tolerance. No private author input or historical R execution is used.
+
+To replay the taxon arithmetic into another absent destination:
+
+```sh
+PYTHONDONTWRITEBYTECODE=1 .venv/bin/python \
+  -m bijux_pollenomics_dev.essd_reproduction.pft_crosswalk \
+  --repository . \
+  --output artifacts/jobs/landclim-tbs-taxon-arithmetic/replay \
+  --taxon-arithmetic
+```
