@@ -16,7 +16,7 @@ no scientific weight to a feature inside a polygon.
 
 ## Captured State
 
-The [boundary source receipt](../../../../data/boundaries/raw/source_manifest.json)
+The repository boundary source receipt `data/boundaries/raw/source_manifest.json`
 identifies Natural Earth **Admin 0 - Countries, version 5.1.1**, captured on
 `2026-09-04` under public-domain terms. Its CRS is `EPSG:4326`; the selection
 retains all geometry parts for each of the four countries. The source asset
@@ -26,7 +26,7 @@ the normalized GeoJSON SHA-256 is
 The collector snapshot label `v66` belongs to a different inventory layer and
 does not identify the Natural Earth release.
 
-The [country decision review](../../../../data/boundaries/review/manifest.json)
+The country decision review at `data/boundaries/review/manifest.json`
 evaluates 3,048 points from animal aDNA, LandClim, Neotoma, and SEAD. It retains
 147 point reviews. Qualified inclusion review is still pending, so the
 boundary review release posture is `blocked_pending_qualified_boundary_review`.
@@ -44,7 +44,7 @@ These are two different partitions of the same 3,048 source points: decision
 status and governed country. A review status can retain a source country
 without receiving a governed assignment, so `UNASSIGNED` is not simply the
 sum of every row labeled review or unassigned. Inspect the source-specific
-[decision ledgers](../../../../data/boundaries/review/manifest.json) before
+decision ledgers in `data/boundaries/review/manifest.json` before
 interpreting an individual point.
 
 The normalized artifact is

@@ -25,12 +25,12 @@ MultiPolygon features:
 | Finland | country membership, map framing, and Nordic composition |
 | Denmark | country membership, map framing, and Nordic composition |
 
-The [source receipt](../../../../data/boundaries/raw/source_manifest.json)
+The repository source receipt `data/boundaries/raw/source_manifest.json`
 pins Natural Earth Admin 0 - Countries version **5.1.1**, captured on
 `2026-09-04`, to the normalized GeoJSON digest
 `bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f`.
 The collector snapshot label `v66` is a separate inventory identity, not the
-Natural Earth release. The [boundary review](../../../../data/boundaries/review/manifest.json)
+Natural Earth release. The boundary review at `data/boundaries/review/manifest.json`
 retains 147 point reviews among 3,048 evaluated points and remains
 `blocked_pending_qualified_boundary_review`. Scope exports must carry that
 qualification; polygon membership does not grant historical or scientific

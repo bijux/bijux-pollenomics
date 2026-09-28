@@ -9,7 +9,7 @@ last_reviewed: 2026-09-28
 
 # Nordic Source and Country Limitations
 
-This table is generated from the [source-stage matrix](../../../../data/source_family_evidence_stage_matrix.json) and [country-dimension ledger](../../../../data/country_dimension_coverage.json). It retains source-reported coverage, governed country assignment, and publication as separate claims. Each count belongs to its named dimension and observation unit; `count unresolved` is not zero. An `available_collected` publication is a product record, not universal scientific admission.
+This table is generated from the repository source-stage matrix `data/source_family_evidence_stage_matrix.json` and country-dimension ledger `data/country_dimension_coverage.json`. It retains source-reported coverage, governed country assignment, and publication as separate claims. Each count belongs to its named dimension and observation unit; `count unresolved` is not zero. An `available_collected` publication is a product record, not universal scientific admission.
 
 The ledgers cover 11 families, 4 Nordic countries plus `UNASSIGNED` and `OUTSIDE`, and 198 family/partition/dimension cells. The source-stage matrix distinguishes capability from materialization across 187 audit rows. Country cells use the ledger's `source` resolution; this says nothing about site or grid precision within a country.
 

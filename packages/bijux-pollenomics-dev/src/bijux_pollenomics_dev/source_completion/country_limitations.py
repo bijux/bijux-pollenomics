@@ -67,8 +67,9 @@ def render(
         "",
         "# Nordic Source and Country Limitations",
         "",
-        "This table is generated from the [source-stage matrix](../../../../data/source_family_evidence_stage_matrix.json) "
-        "and [country-dimension ledger](../../../../data/country_dimension_coverage.json). "
+        "This table is generated from the repository source-stage matrix "
+        "`data/source_family_evidence_stage_matrix.json` and country-dimension "
+        "ledger `data/country_dimension_coverage.json`. "
         "It retains source-reported coverage, governed country assignment, and "
         "publication as separate claims. Each count belongs to its named dimension "
         "and observation unit; `count unresolved` is not zero. An `available_collected` "
