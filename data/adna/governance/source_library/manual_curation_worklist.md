@@ -27,9 +27,9 @@
 | `PRJEB36540` | `Ovis aries` | `chronology_recovery` | `pending_source_recovery` | `33` | blocks chronology honesty and publication precision |
 | `PRJEB41594` | `Ovis aries` | `chronology_recovery` | `pending_source_recovery` | `4` | blocks chronology honesty and publication precision |
 | `PRJEB59481` | `Ovis aries` | `chronology_recovery` | `pending_source_recovery` | `2` | blocks chronology honesty and publication precision |
-| `PRJEB60484` | `Rangifer tarandus` | `chronology_recovery` | `pending_source_recovery` | `8` | blocks chronology honesty and publication precision |
-| `PRJEB60484` | `Rangifer tarandus` | `locality_string_resolution` | `pending_manual_curation` | `3` | blocks coordinate derivation and exact locality publication |
-| `PRJEB60484` | `Rangifer tarandus` | `site_resolution` | `pending_manual_curation` | `3` | blocks exact site, coordinate, and publication recovery |
+| `PRJEB60484` | `Rangifer tarandus` | `chronology_recovery` | `pending_source_recovery` | `2` | blocks chronology honesty and publication precision |
+| `PRJEB60484` | `Rangifer tarandus` | `locality_string_resolution` | `pending_manual_curation` | `1` | blocks coordinate derivation and exact locality publication |
+| `PRJEB60484` | `Rangifer tarandus` | `site_resolution` | `pending_manual_curation` | `1` | blocks exact site, coordinate, and publication recovery |
 | `PRJEB30282` | `Sus scrofa domesticus` | `chronology_recovery` | `pending_source_recovery` | `684` | blocks chronology honesty and publication precision |
 | `PRJEB30282` | `Sus scrofa domesticus` | `locality_string_resolution` | `pending_manual_curation` | `23` | blocks coordinate derivation and exact locality publication |
 | `PRJEB30282` | `Sus scrofa domesticus` | `site_resolution` | `pending_manual_curation` | `23` | blocks exact site, coordinate, and publication recovery |

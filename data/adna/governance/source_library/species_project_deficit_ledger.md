@@ -37,7 +37,7 @@
 | `Ovis aries` | `PRJEB69690` | `0` | `0` | `0` | `blocked` |
 | `Ovis aries` | `PRJEB81145` | `0` | `0` | `0` | `blocked` |
 | `Rangifer tarandus` | `PRJEB57293` | `0` | `0` | `0` | `not_required` |
-| `Rangifer tarandus` | `PRJEB60484` | `0` | `3` | `4` | `blocked` |
+| `Rangifer tarandus` | `PRJEB60484` | `0` | `1` | `1` | `blocked` |
 | `Rangifer tarandus` | `PRJEB61721` | `0` | `0` | `0` | `not_required` |
 | `Rangifer tarandus` | `PRJNA634908` | `0` | `0` | `0` | `not_required` |
 | `Sus scrofa domesticus` | `PRJEB30282` | `0` | `23` | `341` | `blocked` |

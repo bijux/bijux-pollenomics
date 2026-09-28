@@ -778,8 +778,8 @@
 | Rangifer tarandus | PRJEB60484 | rangifer_tarandus:sample:prjeb60484:samea112757336 | Barentsøya | comparator_site_curated |  | no coordinate provenance row currently supports point publication |
 | Rangifer tarandus | PRJEB60484 | rangifer_tarandus:sample:prjeb60484:samea112757337 | Wijdefjorden | comparator_site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
 | Rangifer tarandus | PRJEB60484 | rangifer_tarandus:sample:prjeb60484:samea112757338 | Wijdefjorden | comparator_site_curated |  | no coordinate provenance row currently supports point publication |
-| Rangifer tarandus | PRJEB60484 | rangifer_tarandus:sample:prjeb60484:samea112757339 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
-| Rangifer tarandus | PRJEB60484 | rangifer_tarandus:sample:prjeb60484:samea112757340 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
+| Rangifer tarandus | PRJEB60484 | rangifer_tarandus:sample:prjeb60484:samea112757339 | Wijdefjorden | comparator_site_curated |  | no coordinate provenance row currently supports point publication |
+| Rangifer tarandus | PRJEB60484 | rangifer_tarandus:sample:prjeb60484:samea112757340 | Wijdefjorden | comparator_site_curated |  | no coordinate provenance row currently supports point publication |
 | Rangifer tarandus | PRJEB60484 | rangifer_tarandus:sample:prjeb60484:samea114857470 | Kapp Flora | comparator_site_curated |  | no coordinate provenance row currently supports point publication |
 | Rangifer tarandus | PRJEB60484 | rangifer_tarandus:sample:prjeb60484:samea114857471 | Tchaiabukta/Hooken Island | comparator_site_curated |  | no coordinate provenance row currently supports point publication |
 | Sus scrofa domesticus | PRJEB30282 | sus_scrofa_domesticus:sample:prjeb30282:samea5160866 | Nivå | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |

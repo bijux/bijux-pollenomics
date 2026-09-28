@@ -11,4 +11,4 @@
 | PRJNA705960 | 11 |  | recovered_sample_rows_still_lack_any_location_claim |
 | PRJEB81815 | 3 |  | recovered_sample_rows_still_lack_any_location_claim |
 | SRS1407451 | 1 |  | recovered_sample_rows_still_lack_any_location_claim |
-| PRJEB60484 | 3 |  | recovered_sample_rows_still_lack_any_location_claim |
+| PRJEB60484 | 1 |  | recovered_sample_rows_still_lack_any_location_claim |

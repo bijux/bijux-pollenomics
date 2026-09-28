@@ -33,6 +33,7 @@
 
 ## Known Assets
 
+- `adna/governance/source_library/papers/10.1111-mec.17274/author_preprint.pdf`
 - `adna/governance/source_library/papers/10.1111-mec.17274/crossref.json`
 - `adna/governance/source_library/projects/PRJEB60484/ena_samples/SAMEA112757323.xml`
 - `adna/governance/source_library/projects/PRJEB60484/ena_samples/SAMEA112757323.xml.metadata.json`
@@ -88,6 +89,6 @@
 
 ## Manual Curation Work Units
 
-- `chronology_recovery`: 8 item(s), blocks chronology honesty and publication precision
-- `locality_string_resolution`: 3 item(s), blocks coordinate derivation and exact locality publication
-- `site_resolution`: 3 item(s), blocks exact site, coordinate, and publication recovery
+- `chronology_recovery`: 2 item(s), blocks chronology honesty and publication precision
+- `locality_string_resolution`: 1 item(s), blocks coordinate derivation and exact locality publication
+- `site_resolution`: 1 item(s), blocks exact site, coordinate, and publication recovery

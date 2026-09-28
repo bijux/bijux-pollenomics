@@ -15,12 +15,12 @@
     },
     "input_identity": {
       "identity_algorithm": "sha256-length-framed-logical-path-and-bytes.v1",
-      "combined_sha256": "4683a1ec111ecc040461c082ecc9bf2144c561d5b9877af41d1cbbf159835baa",
+      "combined_sha256": "b36d6a3c1d085b4ee54434d9e18bdb140dfe10dcb6dacfbda6681f1e6b937a81",
       "family_sha256": {
         "project_registry.json": "bb58eec7cc91001981127d16285998f2921fe5c92652f6c5118c4d8673dc76b3",
-        "sample_chronology.json": "729c571217376aff9d2a37035494129a91f2df644edd641da2b94fc011e0e4a1",
-        "sample_master.json": "72652dabfd7124670dc4c448156c5b007139b4b4534801b254c9d4225545c22b",
-        "sample_sites.json": "e5dfe2dc21d3a9c1ec8a95e6190329d446c1ebb51ff60410b5596a9bced0265a"
+        "sample_chronology.json": "a7f4fa763f768d7c4ca8c79ce8c6cd805c7e677990d3c6a7f65d4a8e6cf67c58",
+        "sample_master.json": "c23fa01939fe104058477f420828ac6b47daaae4c786e52f94bd837a939ce265",
+        "sample_sites.json": "301dece664c4f5b8a460fbcbc413b27891eec96361dd345162763ab0a1bbc958"
       },
       "artifact_count": 121,
       "artifacts": [
@@ -316,18 +316,18 @@
         },
         {
           "logical_path": "adna/governance/source_library/projects/PRJEB60484/sample_chronology.json",
-          "byte_count": 28476,
-          "sha256": "d86c63aa70e5d89fba5888f4877bb4fef38615f69387340946f84803992ba36f"
+          "byte_count": 29923,
+          "sha256": "b1a8a97a9ef05d52efc82b4c8b642a92461d925f6444b4ac5a840e0edddbec94"
         },
         {
           "logical_path": "adna/governance/source_library/projects/PRJEB60484/sample_master.json",
-          "byte_count": 36301,
-          "sha256": "b771baed90f342ce0d617ca52f0fc04f8ab8043cd0f8737930731a346badc237"
+          "byte_count": 37511,
+          "sha256": "1ebe892350682d3dbd57488d5c373dfe021d0abff4d859de8acdf54eab162bea"
         },
         {
           "logical_path": "adna/governance/source_library/projects/PRJEB60484/sample_sites.json",
-          "byte_count": 30561,
-          "sha256": "53232ac6cfa8b306942972351b1e5da10c414ad44a8f08f0e66f7c0ef2935150"
+          "byte_count": 31888,
+          "sha256": "210ab2b5785cd42991bf565cba5bb6a125eb9744ad127bf3d8874b5b0e6b5890"
         },
         {
           "logical_path": "adna/governance/source_library/projects/PRJEB61721/sample_chronology.json",
@@ -642,14 +642,14 @@
     "refusal_counts": {
       "sequencing_experiment_identity": 20,
       "sample_identity_not_final": 5,
-      "source_chronology_not_comparable": 539,
-      "source_coordinate_not_mappable": 354,
+      "source_chronology_not_comparable": 536,
+      "source_coordinate_not_mappable": 357,
       "sample_provenance_unavailable": 0,
       "chronology_provenance_unavailable": 0,
       "site_provenance_unavailable": 0
     },
     "refusal_count": 918,
-    "refusal_rows_sha256": "6137166b38d370d494f79a25833df122dd363ffec24bfeec08b1768ce8416630",
+    "refusal_rows_sha256": "f2a3ff8f864841a44b1b5ffdddb5be7383e0efd1d9850d94c531c9e475750f5a",
     "global_admitted_node_count": 557,
     "projected_node_count": 14,
     "excluded_by_scope_count": 543,
@@ -4505,7 +4505,7 @@
     {
       "project_accession": "PRJEB60484",
       "repo_stable_sample_id": "prjeb60484:samea112757327",
-      "reason_code": "source_chronology_not_comparable"
+      "reason_code": "source_coordinate_not_mappable"
     },
     {
       "project_accession": "PRJEB60484",
@@ -4565,12 +4565,12 @@
     {
       "project_accession": "PRJEB60484",
       "repo_stable_sample_id": "prjeb60484:samea112757339",
-      "reason_code": "source_chronology_not_comparable"
+      "reason_code": "source_coordinate_not_mappable"
     },
     {
       "project_accession": "PRJEB60484",
       "repo_stable_sample_id": "prjeb60484:samea112757340",
-      "reason_code": "source_chronology_not_comparable"
+      "reason_code": "source_coordinate_not_mappable"
     },
     {
       "project_accession": "PRJEB60484",
@@ -5555,12 +5555,12 @@
   ],
   "input_identity": {
     "identity_algorithm": "sha256-length-framed-logical-path-and-bytes.v1",
-    "combined_sha256": "4683a1ec111ecc040461c082ecc9bf2144c561d5b9877af41d1cbbf159835baa",
+    "combined_sha256": "b36d6a3c1d085b4ee54434d9e18bdb140dfe10dcb6dacfbda6681f1e6b937a81",
     "family_sha256": {
       "project_registry.json": "bb58eec7cc91001981127d16285998f2921fe5c92652f6c5118c4d8673dc76b3",
-      "sample_chronology.json": "729c571217376aff9d2a37035494129a91f2df644edd641da2b94fc011e0e4a1",
-      "sample_master.json": "72652dabfd7124670dc4c448156c5b007139b4b4534801b254c9d4225545c22b",
-      "sample_sites.json": "e5dfe2dc21d3a9c1ec8a95e6190329d446c1ebb51ff60410b5596a9bced0265a"
+      "sample_chronology.json": "a7f4fa763f768d7c4ca8c79ce8c6cd805c7e677990d3c6a7f65d4a8e6cf67c58",
+      "sample_master.json": "c23fa01939fe104058477f420828ac6b47daaae4c786e52f94bd837a939ce265",
+      "sample_sites.json": "301dece664c4f5b8a460fbcbc413b27891eec96361dd345162763ab0a1bbc958"
     },
     "artifact_count": 121,
     "artifacts": [
@@ -5856,18 +5856,18 @@
       },
       {
         "logical_path": "adna/governance/source_library/projects/PRJEB60484/sample_chronology.json",
-        "byte_count": 28476,
-        "sha256": "d86c63aa70e5d89fba5888f4877bb4fef38615f69387340946f84803992ba36f"
+        "byte_count": 29923,
+        "sha256": "b1a8a97a9ef05d52efc82b4c8b642a92461d925f6444b4ac5a840e0edddbec94"
       },
       {
         "logical_path": "adna/governance/source_library/projects/PRJEB60484/sample_master.json",
-        "byte_count": 36301,
-        "sha256": "b771baed90f342ce0d617ca52f0fc04f8ab8043cd0f8737930731a346badc237"
+        "byte_count": 37511,
+        "sha256": "1ebe892350682d3dbd57488d5c373dfe021d0abff4d859de8acdf54eab162bea"
       },
       {
         "logical_path": "adna/governance/source_library/projects/PRJEB60484/sample_sites.json",
-        "byte_count": 30561,
-        "sha256": "53232ac6cfa8b306942972351b1e5da10c414ad44a8f08f0e66f7c0ef2935150"
+        "byte_count": 31888,
+        "sha256": "210ab2b5785cd42991bf565cba5bb6a125eb9744ad127bf3d8874b5b0e6b5890"
       },
       {
         "logical_path": "adna/governance/source_library/projects/PRJEB61721/sample_chronology.json",
@@ -6173,9 +6173,9 @@
   },
   "corpus_identity": {
     "schema_version": "animal-sample-chronology-corpus-identity.v1",
-    "input_identity_sha256": "4683a1ec111ecc040461c082ecc9bf2144c561d5b9877af41d1cbbf159835baa",
+    "input_identity_sha256": "b36d6a3c1d085b4ee54434d9e18bdb140dfe10dcb6dacfbda6681f1e6b937a81",
     "admitted_rows_sha256": "3f8b3533b1cd31497dc60a62d7328050de2bb986610ce2d989e52105e60599d2",
-    "refusal_rows_sha256": "6137166b38d370d494f79a25833df122dd363ffec24bfeec08b1768ce8416630",
+    "refusal_rows_sha256": "f2a3ff8f864841a44b1b5ffdddb5be7383e0efd1d9850d94c531c9e475750f5a",
     "source_counts": {
       "project_count": 40,
       "sample_master_row_count": 1475,
@@ -6187,8 +6187,8 @@
     "refusal_counts": {
       "sequencing_experiment_identity": 20,
       "sample_identity_not_final": 5,
-      "source_chronology_not_comparable": 539,
-      "source_coordinate_not_mappable": 354,
+      "source_chronology_not_comparable": 536,
+      "source_coordinate_not_mappable": 357,
       "sample_provenance_unavailable": 0,
       "chronology_provenance_unavailable": 0,
       "site_provenance_unavailable": 0
@@ -6458,7 +6458,7 @@
     ],
     "time_min_bp": 17,
     "time_max_bp": 68764,
-    "content_sha256": "8aa55f75f360e95c64a1079f3fd6ee622d2641ad170c1e6039b5fba66f96bc99"
+    "content_sha256": "dd4fa72c4727bccb81aef297a6c71ebd902ad52437ee61a68420f6438ccdbc7a"
   },
-  "content_sha256": "8da1611a7f74ccfce3bfdc360af5f33aff357b48c384959884557202d31c4d63"
+  "content_sha256": "247aad25b9abd1356c7ac565a5a81c64d3b6280f598fdc31d9b4a567e3b699bc"
 }

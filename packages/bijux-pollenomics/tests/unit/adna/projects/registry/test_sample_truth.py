@@ -17,12 +17,21 @@ from bijux_pollenomics.adna import (
 from bijux_pollenomics.adna.species.tracked_data import (
     materialize_tracked_species_adna,
 )
+from tests.unit.adna.sources.library.registries.materialization.support import (
+    materialize_test_library,
+)
 from tests.support.repository import REPOSITORY_ROOT
 
 pytestmark = pytest.mark.generated_artifacts
 
 
 class AdnaSampleTruthUnitTests(unittest.TestCase):
+    def test_reindeer_unresolved_placeholder_is_not_a_source_backed_site(self) -> None:
+        drift_rows = build_project_locality_count_drift(REPOSITORY_ROOT / "data")
+        self.assertFalse(
+            any(row["project_accession"] == "PRJEB60484" for row in drift_rows)
+        )
+
     def test_animal_sample_product_contract_defines_mandatory_sample_fields(
         self,
     ) -> None:
@@ -55,10 +64,10 @@ class AdnaSampleTruthUnitTests(unittest.TestCase):
         self.assertEqual(summary["tracked_project_count"], 21)
         self.assertEqual(summary["sample_row_count"], 1450)
         self.assertEqual(summary["fully_grounded_count"], 557)
-        self.assertEqual(summary["partially_grounded_count"], 335)
+        self.assertEqual(summary["partially_grounded_count"], 355)
         self.assertEqual(summary["blocked_missing_metadata_count"], 11)
-        self.assertEqual(summary["blocked_missing_location_detail_count"], 391)
-        self.assertEqual(summary["blocked_weak_chronology_count"], 156)
+        self.assertEqual(summary["blocked_missing_location_detail_count"], 368)
+        self.assertEqual(summary["blocked_weak_chronology_count"], 159)
         self.assertEqual(
             sum(
                 int(summary[field])
@@ -89,6 +98,7 @@ class AdnaSampleTruthUnitTests(unittest.TestCase):
     ) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             data_root = Path(tmp) / "data"
+            materialize_test_library(data_root)
             materialize_tracked_species_adna(data_root)
 
             drift_rows = build_species_sample_count_drift(data_root)

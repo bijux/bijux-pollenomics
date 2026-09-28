@@ -486,18 +486,20 @@
         "longitude_text": "",
         "confidence": "unknown"
       },
-      "sample_count": 2,
+      "sample_count": 4,
       "sample_ids": [
         "prjeb60484:samea112757337",
-        "prjeb60484:samea112757338"
+        "prjeb60484:samea112757338",
+        "prjeb60484:samea112757339",
+        "prjeb60484:samea112757340"
       ],
       "datasets": [
         "rangifer_tarandus:project:PRJEB60484"
       ],
       "chronology": {
-        "original_text": "8-277 BP",
-        "time_start_bp": 8,
-        "time_end_bp": 277,
+        "original_text": "1-282 BP",
+        "time_start_bp": 1,
+        "time_end_bp": 282,
         "time_mean_bp": 142,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",

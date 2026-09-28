@@ -12,6 +12,7 @@
   "paper_download_status": "partial",
   "supplement_download_status": "missing",
   "local_artifact_ids": [
+    "10.1111-mec.17274:author_preprint.pdf",
     "10.1111-mec.17274:crossref.json",
     "PRJEB60484:SAMEA112757323.xml",
     "PRJEB60484:SAMEA112757323.xml.metadata.json",
@@ -56,6 +57,7 @@
     "PRJEB60484:archive_metadata.html"
   ],
   "local_artifact_paths": [
+    "adna/governance/source_library/papers/10.1111-mec.17274/author_preprint.pdf",
     "adna/governance/source_library/papers/10.1111-mec.17274/crossref.json",
     "adna/governance/source_library/projects/PRJEB60484/ena_samples/SAMEA112757323.xml",
     "adna/governance/source_library/projects/PRJEB60484/ena_samples/SAMEA112757323.xml.metadata.json",

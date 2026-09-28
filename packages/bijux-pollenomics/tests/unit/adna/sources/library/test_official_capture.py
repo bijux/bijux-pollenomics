@@ -85,6 +85,16 @@ def test_reindeer_custody_uses_primary_doi_and_publisher_sample_workbook() -> No
     assert bundle.paper_download_status == "partial"
     assert "missing_local_paper_evidence" in bundle.blockers
     assert paper.article_download_status == "partial"
+    preprint = (
+        DATA_ROOT
+        / "adna/governance/source_library/papers/10.1111-mec.17274/author_preprint.pdf"
+    )
+    digest = "59862eade5dee058b4e0050001c189ec1c7edc18dea06cf15dadba353600f2af"
+    assert sha256(preprint.read_bytes()).hexdigest() == digest
+    receipt = json.loads(preprint.with_suffix(".pdf.metadata.json").read_text())
+    assert receipt["content_sha256"] == digest
+    assert receipt["preprint_doi"] == "10.1101/2023.09.21.558762"
+    assert receipt["artifact_kind"] == "author_preprint_pdf"
 
 
 class OfficialSourceCaptureTests(unittest.TestCase):

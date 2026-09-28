@@ -1,6 +1,6 @@
 # Sample locality conflict ledger
 
-- Conflicting rows: `1934`
+- Conflicting rows: `1942`
 
 | Project accession | Sample id | Sample locality | Conflicting surface | Conflicting locality | Reason |
 | --- | --- | --- | --- | --- | --- |
@@ -1549,6 +1549,14 @@
 | PRJEB60484 | prjeb60484:samea112757338 | Wijdefjorden | archive_metadata | Svalbard archipelago reindeer context | project_context_disagrees_with_sample_owned_site |
 | PRJEB60484 | prjeb60484:samea112757338 | Wijdefjorden | coordinate_resolution | Svalbard ancient reindeer context | project_context_disagrees_with_sample_owned_site |
 | PRJEB60484 | prjeb60484:samea112757338 | Wijdefjorden | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
+| PRJEB60484 | prjeb60484:samea112757339 | Wijdefjorden | archive_metadata | Svalbard ancient reindeer context | project_context_disagrees_with_sample_owned_site |
+| PRJEB60484 | prjeb60484:samea112757339 | Wijdefjorden | archive_metadata | Svalbard archipelago reindeer context | project_context_disagrees_with_sample_owned_site |
+| PRJEB60484 | prjeb60484:samea112757339 | Wijdefjorden | coordinate_resolution | Svalbard ancient reindeer context | project_context_disagrees_with_sample_owned_site |
+| PRJEB60484 | prjeb60484:samea112757339 | Wijdefjorden | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
+| PRJEB60484 | prjeb60484:samea112757340 | Wijdefjorden | archive_metadata | Svalbard ancient reindeer context | project_context_disagrees_with_sample_owned_site |
+| PRJEB60484 | prjeb60484:samea112757340 | Wijdefjorden | archive_metadata | Svalbard archipelago reindeer context | project_context_disagrees_with_sample_owned_site |
+| PRJEB60484 | prjeb60484:samea112757340 | Wijdefjorden | coordinate_resolution | Svalbard ancient reindeer context | project_context_disagrees_with_sample_owned_site |
+| PRJEB60484 | prjeb60484:samea112757340 | Wijdefjorden | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
 | PRJEB60484 | prjeb60484:samea114857470 | Kapp Flora | archive_metadata | Svalbard ancient reindeer context | project_context_disagrees_with_sample_owned_site |
 | PRJEB60484 | prjeb60484:samea114857470 | Kapp Flora | archive_metadata | Svalbard archipelago reindeer context | project_context_disagrees_with_sample_owned_site |
 | PRJEB60484 | prjeb60484:samea114857470 | Kapp Flora | coordinate_resolution | Svalbard ancient reindeer context | project_context_disagrees_with_sample_owned_site |

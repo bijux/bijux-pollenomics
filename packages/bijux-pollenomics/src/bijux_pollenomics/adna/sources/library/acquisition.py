@@ -131,7 +131,7 @@ def refresh_source_library(
                         "content_type": content_type,
                         "byte_size": len(payload),
                         "project_accession": project.project_accession,
-                        **_official_xml_receipt_metadata(
+                        **_official_source_receipt_metadata(
                             asset,
                             retrieved_at_utc=retrieved_at_utc,
                         ),
@@ -171,7 +171,7 @@ def refresh_source_library(
                         "content_type": content_type,
                         "byte_size": len(payload),
                         "paper_doi": doi,
-                        **_official_xml_receipt_metadata(
+                        **_official_source_receipt_metadata(
                             asset,
                             retrieved_at_utc=retrieved_at_utc,
                         ),
@@ -408,9 +408,26 @@ def _official_source_receipt_refusal_reason(
     return None
 
 
-def _official_xml_receipt_metadata(
+def _official_source_receipt_metadata(
     asset: _RemoteArtifactSpec, *, retrieved_at_utc: str
 ) -> dict[str, object]:
+    if asset.artifact_kind == "author_preprint_pdf":
+        return {
+            "preprint_doi": "10.1101/2023.09.21.558762",
+            "retrieved_at_utc": retrieved_at_utc,
+            "license_name": "Creative Commons Attribution 4.0 International",
+            "license_url": "https://creativecommons.org/licenses/by/4.0/",
+            "evidence_locators": [
+                {
+                    "claim_family": "specimen_site_chronology",
+                    "locator": "Table 1, pp. 41–43",
+                },
+                {
+                    "claim_family": "source_role",
+                    "locator": "preprint DOI and version on each page",
+                },
+            ],
+        }
     if asset.artifact_kind == "ena_sample_xml":
         accession = Path(asset.relative_path).stem
         locators = [

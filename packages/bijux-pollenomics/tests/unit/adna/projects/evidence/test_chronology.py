@@ -242,14 +242,14 @@ class AdnaProjectSampleChronologyUnitTests(unittest.TestCase):
         self.assertEqual(sheep_review["sample_owned_interval_count"], 167)
         self.assertEqual(sheep_review["text_only_unparsed_count"], 13)
         self.assertEqual(audit["sample_row_count"], 1455)
-        self.assertEqual(audit["normalized_interval_count"], 385)
+        self.assertEqual(audit["normalized_interval_count"], 388)
         self.assertEqual(audit["normalized_point_count"], 528)
-        self.assertEqual(audit["unresolved_count"], 406)
+        self.assertEqual(audit["unresolved_count"], 403)
         self.assertEqual(audit["precision_counts"]["contextual_interval"], 16)
         self.assertEqual(
             audit["precision_counts"]["sample_approximate_or_modeled"], 200
         )
-        self.assertEqual(audit["precision_counts"]["sample_precise_interval"], 325)
+        self.assertEqual(audit["precision_counts"]["sample_precise_interval"], 328)
         self.assertFalse(
             any(
                 row["project_accession"]

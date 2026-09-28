@@ -2,11 +2,11 @@
 
 - Rows audited: `1455`
 - Precise point rows: `468`
-- Precise interval rows: `325`
+- Precise interval rows: `328`
 - Approximate or modeled rows: `200`
 - Contextual rows: `16`
 - Broad period rows: `40`
-- Unresolved rows: `406`
+- Unresolved rows: `403`
 
 | Project accession | Sample id | Evidence class | Precision posture | Normalization | Chronology |
 | --- | --- | --- | --- | --- | --- |
@@ -668,7 +668,4 @@
 | PRJNA1178732 | prjna1178732:fs17 | historical_or_recent_date | sample_approximate_or_modeled | text_only_unparsed | 1797 - 1944 cal. CE |
 | PRJNA1178732 | prjna1178732:fs24 | historical_or_recent_date | sample_approximate_or_modeled | text_only_unparsed | 44 cal. BCE - 76 cal. CE |
 | SRS1407451 | srs1407451:srs1407451 | unresolved | unresolved | unresolved |  |
-| PRJEB60484 | prjeb60484:samea112757327 | unresolved | unresolved | unresolved |  |
 | PRJEB60484 | prjeb60484:samea112757337 | unresolved | unresolved | unresolved |  |
-| PRJEB60484 | prjeb60484:samea112757339 | unresolved | unresolved | unresolved |  |
-| PRJEB60484 | prjeb60484:samea112757340 | unresolved | unresolved | unresolved |  |

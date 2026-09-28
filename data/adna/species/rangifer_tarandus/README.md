@@ -27,7 +27,7 @@ flowchart LR
 - Curated site rows: `8`
 - Direct-coordinate rows: `0`
 - Geocoded rows: `0`
-- Unresolved sample rows: `3`
+- Unresolved sample rows: `1`
 - Mapped Nordic rows: `8`
 - Tracked intake projects: `4`
 - Projects with sample recovery gaps: `0`

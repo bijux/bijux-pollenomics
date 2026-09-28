@@ -150,6 +150,15 @@ def _paper_source_specs() -> dict[str, _PaperSourceSpec]:
             article_kind="article_html",
             article_note="Primary Molecular Ecology article links the project to its 18 ancient Svalbard specimens; full article capture remains unavailable.",
             parsing_status="full_paper_download_blocked",
+            additional_assets=(
+                _RemoteArtifactSpec(
+                    artifact_kind="author_preprint_pdf",
+                    label="author bioRxiv preprint",
+                    source_url="https://www.biorxiv.org/content/10.1101/2023.09.21.558762v1.full.pdf",
+                    relative_path="papers/10.1111-mec.17274/author_preprint.pdf",
+                    remote_note="Author preprint Table 1 provides specimen-level Svalbard UTM grid values and calibrated ages; it is distinct from the uncaptured peer-reviewed article.",
+                ),
+            ),
         ),
         "10.1126/science.aam5298": _PaperSourceSpec(
             doi="10.1126/science.aam5298",

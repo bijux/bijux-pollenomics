@@ -260,11 +260,9 @@
       ],
       "final_decision": "",
       "decision_rationale": "",
-      "queued_sample_count": 3,
+      "queued_sample_count": 1,
       "queued_sample_ids": [
-        "prjeb60484:samea112757327",
-        "prjeb60484:samea112757339",
-        "prjeb60484:samea112757340"
+        "prjeb60484:samea112757327"
       ],
       "recommended_source_surfaces": [
         "archive_metadata",

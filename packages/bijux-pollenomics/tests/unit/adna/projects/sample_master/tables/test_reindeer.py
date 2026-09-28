@@ -18,14 +18,15 @@ def test_reindeer_table_joins_keep_geography_and_unresolved_aliases() -> None:
     assert len(rows) == len(by_alias) == 20
     assert (
         sum(row.sample_evidence_status == "direct_table_extracted" for row in rows)
-        == 17
+        == 20
     )
     assert {alias for alias, row in by_alias.items() if not row.locality_text} == {
-        "B20",
-        "R29a",
-        "R36",
+        "B20"
     }
     assert by_alias["B20"].supplementary_table_sample_label == ""
+    assert by_alias["B20"].chronology_text == "2329-2460 BP"
+    assert "author_preprint.pdf" in by_alias["R29a"].sample_lineage_path
+    assert by_alias["R29a"].locality_text == "Wijdefjorden"
     assert by_alias["FJL1a"].political_entity == "Russia"
     assert by_alias["FJL3"].locality_text == "Tchaiabukta/Hooken Island"
     assert by_alias["FJL1a"].paper_native_sample_label == ""
@@ -38,7 +39,7 @@ def test_reindeer_chronology_uses_own_table_row_and_holds_disputed_date() -> Non
     rows = build_project_sample_chronology_rows(REPOSITORY_ROOT / "data", "PRJEB60484")
     by_alias = {row.preferred_sample_label: row for row in rows}
 
-    assert sum(row.chronology_strength == "sample_owned_interval" for row in rows) == 16
+    assert sum(row.chronology_strength == "sample_owned_interval" for row in rows) == 19
     assert (by_alias["MLM12"].time_start_bp, by_alias["MLM12"].time_end_bp) == (
         1298,
         1349,
@@ -53,4 +54,5 @@ def test_reindeer_chronology_uses_own_table_row_and_holds_disputed_date() -> Non
         alias
         for alias, row in by_alias.items()
         if row.chronology_strength == "unresolved"
-    } == {"B20", "R20", "R29a", "R36"}
+    } == {"R20"}
+    assert by_alias["B20"].chronology_provenance_path.endswith("author_preprint.pdf")
