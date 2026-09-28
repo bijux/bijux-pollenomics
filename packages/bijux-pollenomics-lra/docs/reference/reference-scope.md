@@ -23,13 +23,13 @@ variance/covariance and multi-site bootstrap workflow is therefore a useful
 secondary REVEALS reference, but it cannot serve as the complete REVEALS + LOVE
 oracle requested for this package.
 
-Version 0.1.0 does **not** claim parity with that package's separate multi-site
-aggregation routine. The canonical Bijux workflow handles multiple
-age/depth/time coordinates through `run_lra_series`, while each regional LOVE
-input remains an explicitly selected regional pollen sample. A future
-multi-basin aggregation module should have its own contract and an independent
-live-R oracle rather than being silently conflated with DISQOVER's
-`REVEALSinR` behavior.
+The separate `run_reveals_multisite` workflow now implements the historical
+Petr Kuneš aggregation profile. The [tagged R comparison](../../../../docs/report/method-certification/petrkunes-r-comparison/README.md)
+checks single and heterogeneous multi-site inputs with shared bootstrap draws.
+It remains a distinct profile from DISQOVER's `REVEALSinR` and from
+`run_lra_series`, which pairs exact age/depth/time coordinates. Each regional
+LOVE input still requires an explicitly selected regional pollen sample or
+qualified regional cover draws.
 
 ## Why the distinction matters
 
