@@ -20,6 +20,8 @@ from bijux_pollenomics.analysis.lra.materialization.neotoma.site_evidence import
 def _input(tmp_path: Path) -> tuple[NeotomaSiteEvidence, Path, str]:
     sites = {
         "schema_version": "neotoma-candidate-site-evidence.v1",
+        "source_snapshot_id": "source:snapshot",
+        "raw_manifest_sha256": "a" * 64,
         "lra_admission_status": "refused",
         "denominators": {"lra_accepted_samples": 0, "candidate_source_sites": 2},
         "country_denominators": {"SE": {}, "NO": {}},
@@ -138,3 +140,33 @@ def test_summary_cannot_hide_or_invent_source_rows(tmp_path: Path) -> None:
         assess_neotoma_lakeparameters(
             evidence, root, hashlib.sha256(altered).hexdigest()
         )
+
+
+def test_full_source_capture_can_project_larger_same_source_cohort(
+    tmp_path: Path,
+) -> None:
+    original, root, capture_digest = _input(tmp_path)
+    (root / "site-evidence.json").write_bytes(original.canonical_json)
+    current_sites = original.as_dict()
+    current_sites["denominators"]["candidate_source_sites"] = 3
+    current_sites["site_rows"].append(
+        {
+            "site_id": "neotoma:site:999",
+            "country_code": "SE",
+            "source_site_name": "Additional lake",
+        }
+    )
+    current_bytes = canonical_bytes(current_sites)
+    current = NeotomaSiteEvidence(
+        current_bytes, hashlib.sha256(current_bytes).hexdigest()
+    )
+    result = assess_neotoma_lakeparameters(current, root, capture_digest).as_dict()
+    assert result["capture_site_evidence_sha256"] == original.result_digest
+    assert result["site_evidence_sha256"] == current.result_digest
+    assert result["candidate_source_sites"] == 3
+    assert result["candidate_sites_with_observed_parameter_rows"] == 2
+    assert result["lra_admitted_samples"] == 0
+
+    (root / "site-evidence.json").write_bytes(b"{}")
+    with pytest.raises(ValueError, match="Original capture site review digest"):
+        assess_neotoma_lakeparameters(current, root, capture_digest)

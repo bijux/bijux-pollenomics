@@ -88,6 +88,12 @@ and the unassigned review partition 194 at five sites. These counts are derived
 from the sample IDs and parent IDs in the current governed screen. The earlier
 3,538-sample, 54-site basin and taxon reviews below cover a narrower historical
 screen and cannot certify this current candidate population.
+The [current source-bound LRA prerequisite review](../../../report/source-relations/neotoma/lra-prerequisites/README.md)
+retains all 10,637 sample chronology alternatives and 163 site basin review
+rows. It verifies the original 54-site lakeparameter receipt before reusing its
+exact full-table source pages for the current cohort. Fourteen source parameter
+rows match 13 current sites, without approving historical basin geometry;
+zero samples are admitted to LRA.
 
 For Abborrtjärnen, a [cross-source ABBO profile comparison](../../../report/source-relations/neotoma/abbo-profile/README.md)
 matches 107 sample depths and 535 selected taxon-count cells against a separate
