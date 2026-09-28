@@ -24,7 +24,7 @@ The opening extent stays tight on Nordic countries so lake, site, and archaeolog
 | Fieldwork documentation | `scope_specific_overlay` | Bijux fieldwork | Observed sampling location documented on 2026-02-26 at Lyngsjön Lake. | `1` |
 | LandClim pollen sites | `scope_specific_overlay` | LandClim | Pollen sequences staged from the LandClim normalization bundle. | `490` |
 | Neotoma pollen sites | `scope_specific_overlay` | Neotoma | Pollen and paleoecology sites staged from the Neotoma normalization bundle. | `193` |
-| SEAD sites | `scope_specific_overlay` | SEAD | Environmental archaeology sites staged from the SEAD normalization bundle. | `2069` |
+| SEAD sites | `scope_specific_overlay` | SEAD | SEAD site inventory for spatial context. Site envelopes summarize source chronology and are not dated events or interval evidence. | `2069` |
 | Sweden archaeology site discovery | `scope_specific_overlay` | SEAD with RAÄ density context | Every geolocated Swedish SEAD site, represented by each linked numeric chronology interval or by one explicitly unresolved temporal record. | `8799` |
 | Cattle aDNA site evidence (wild or progenitor context) | `shared_world_scale_layer` | Tracked animal aDNA localities | Mapped animal features staged from traceable evidence rows built from species-owned sample, site, coordinate, and citation surfaces. | `4` |
 | Sheep aDNA site evidence (domesticated core) | `shared_world_scale_layer` | Tracked animal aDNA localities | Mapped animal features staged from traceable evidence rows built from species-owned sample, site, coordinate, and citation surfaces. | `2` |

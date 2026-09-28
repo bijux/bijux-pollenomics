@@ -125,13 +125,13 @@
       "key": "sead-sites",
       "label": "SEAD sites",
       "source_name": "SEAD",
-      "coverage_label": "Environmental archaeology sites staged from the SEAD normalization bundle.",
+      "coverage_label": "SEAD site inventory for spatial context. Site envelopes summarize source chronology and are not dated events or interval evidence.",
       "count": 2069,
       "publication_role": "scope_specific_overlay",
       "scope_visibility": "scope_owned",
       "default_enabled": false,
       "applies_country_filter": true,
-      "applies_time_filter": true,
+      "applies_time_filter": false,
       "scope_caveat": "This overlay is visible only in Nordic scope because its source family is still Nordic-specific."
     },
     {
