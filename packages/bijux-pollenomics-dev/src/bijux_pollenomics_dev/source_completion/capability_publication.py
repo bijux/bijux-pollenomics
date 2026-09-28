@@ -116,19 +116,30 @@ def render(report: dict[str, Any], review_sha256: str) -> str:
     return "\n".join(lines)
 
 
+def require_current_review(
+    current: dict[str, Any],
+    reviewed: dict[str, Any],
+    input_identities: list[dict[str, int | str]],
+) -> None:
+    """Refuse a retained report whose inputs or evidence bytes have drifted."""
+    if reviewed.get("inputs") != input_identities:
+        raise ValueError("Capability evidence review input identities are stale")
+    for field, value in current.items():
+        if value != reviewed.get(field):
+            raise ValueError(f"Capability evidence review is stale: {field}")
+
+
 def run(repository: Path, output: Path) -> Path:
     repository, output = repository.resolve(), output.resolve()
     if output.exists() or not output.is_relative_to(repository / "artifacts"):
         raise ValueError("Absent repository artifact destination required")
-    contract, _ = _read(repository, CONTRACT)
-    stage, _ = _read(repository, STAGES)
+    contract, contract_identity = _read(repository, CONTRACT)
+    stage, stage_identity = _read(repository, STAGES)
     current = derive(repository, contract, stage)
     review_path = repository / REVIEW
     review_bytes = review_path.read_bytes()
     reviewed = json.loads(review_bytes)
-    for field in current:
-        if current[field] != reviewed.get(field):
-            raise ValueError(f"Capability evidence review is stale: {field}")
+    require_current_review(current, reviewed, [contract_identity, stage_identity])
     output.mkdir(parents=True)
     path = output / "source-capability-and-materialization.md"
     path.write_text(render(current, hashlib.sha256(review_bytes).hexdigest()))
