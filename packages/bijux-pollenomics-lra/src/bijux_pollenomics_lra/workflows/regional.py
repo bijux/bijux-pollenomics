@@ -41,6 +41,7 @@ def run_reveals(
         pollen_draws=pollen_draws,
         output_dir=".",
         collect_samples=config.retain_samples,
+        fall_speed_profile=config.fall_speed_profile,
     )
     manifest = build_manifest(
         "REVEALS",

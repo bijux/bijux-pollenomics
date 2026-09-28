@@ -125,6 +125,26 @@ def test_nonzero_totals_preserve_individual_zero_counts(tmp_path: Path) -> None:
     ][0]["counts"] == [0, 10]
 
 
+def test_published_filipendula_fall_speed_is_admitted(tmp_path: Path) -> None:
+    payload = request_fixture(tmp_path, "lra")
+    payload["parameters"][0]["fallspeed_m_s"] = 0.006
+    with pytest.raises(LRARefusal) as error:
+        validate_request(payload, input_root=tmp_path)
+    assert error.value.reason_code == "unsupported_fall_speed_profile"
+    for method in ("reveals", "love"):
+        payload["configuration"][method]["fall_speed_profile"] = (
+            "landclimii-2016-gpm-neutral-analytical-v1"
+        )
+        payload["configuration"][method]["distance_weighting"] = "gpm neutral"
+    payload["configuration"]["love"]["method"] = "analytical"
+    accepted = validate_request(payload, input_root=tmp_path)
+    assert accepted.payload()["parameters"][0]["fallspeed_m_s"] == 0.006
+    payload["parameters"][0]["fallspeed_m_s"] = 0.005
+    with pytest.raises(LRARefusal) as error:
+        validate_request(payload, input_root=tmp_path)
+    assert error.value.reason_code == "invalid_lra_schema"
+
+
 @pytest.mark.parametrize(
     "kind",
     [

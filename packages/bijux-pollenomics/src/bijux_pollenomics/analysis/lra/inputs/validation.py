@@ -207,6 +207,25 @@ def _method_profile(payload: dict[str, Any]) -> None:
             "The request method profile must match optimized LOVE configuration",
         )
 
+    if any(row["fallspeed_m_s"] < 0.01 for row in payload["parameters"]):
+        named = "landclimii-2016-gpm-neutral-analytical-v1"
+        required = (
+            ("reveals", "love")
+            if payload["operation"] in {"lra", "series"}
+            else (payload["operation"],)
+        )
+        for method in required:
+            config = payload["configuration"].get(method, {})
+            if (
+                config.get("fall_speed_profile") != named
+                or config.get("distance_weighting") != "gpm neutral"
+                or (method == "love" and config.get("method") != "analytical")
+            ):
+                _refuse(
+                    "unsupported_fall_speed_profile",
+                    "Fall speeds below 0.01 m/s require the named LandClim II gpm-neutral analytical profile",
+                )
+
 
 def validate_request(
     payload: Mapping[str, object], *, input_root: Path
