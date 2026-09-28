@@ -1,0 +1,136 @@
+{
+  "schema_version": "swedish-pollen-landclim-input-lineage.v1",
+  "question": "Can the current southern Sweden LandClim model rows independently validate the Swedish Neotoma pollen sites?",
+  "answer": "No independent validation is established: the LandClim metadata place the matching BUS and BOKE site records in the grid used by five synthesis targets. Exact sample-level reuse and model influence require separate source proof.",
+  "matched_site_count": 3,
+  "target_count": 6,
+  "targets_sharing_bus_boke_grid": 5,
+  "sites": [
+    {
+      "neotoma_site_id": 13338,
+      "neotoma_dataset_id": 19913,
+      "landclim_record_id": "937075:ABB",
+      "site": "Abborrtjärnen",
+      "sample_count_each": 107,
+      "coordinate_distance_km": 0.000334,
+      "landclim_grid_record_id": 1180,
+      "landclim_access_marker": "NR",
+      "conclusion": "same_site_metadata_not_authenticated_sample_identity"
+    },
+    {
+      "neotoma_site_id": 28869,
+      "neotoma_dataset_id": 53995,
+      "landclim_record_id": "937075:BUS",
+      "site": "Bussjösjön",
+      "sample_count_each": 69,
+      "coordinate_distance_km": 0.000383,
+      "landclim_grid_record_id": 779,
+      "landclim_access_marker": "NR",
+      "conclusion": "same_site_metadata_not_authenticated_sample_identity"
+    },
+    {
+      "neotoma_site_id": 28872,
+      "neotoma_dataset_id": 54001,
+      "landclim_record_id": "937075:BOKE",
+      "site": "Bökesjön",
+      "sample_count_each": 52,
+      "coordinate_distance_km": 0.000445,
+      "landclim_grid_record_id": 779,
+      "landclim_access_marker": "NR",
+      "conclusion": "same_site_metadata_not_authenticated_sample_identity"
+    }
+  ],
+  "targets": [
+    {
+      "target": "Bjäresjösjön",
+      "landclim_grid_record_id": 779,
+      "shared_input_site_records": [
+        "937075:BUS",
+        "937075:BOKE"
+      ],
+      "distances_to_matching_sites_km": {
+        "937075:BUS": 4.165,
+        "937075:BOKE": 23.643
+      },
+      "independent_model_validation": "unestablished_input_reuse_risk"
+    },
+    {
+      "target": "Finjasjön",
+      "landclim_grid_record_id": 829,
+      "shared_input_site_records": [],
+      "distances_to_matching_sites_km": {},
+      "independent_model_validation": "unassessed"
+    },
+    {
+      "target": "Gullåkra",
+      "landclim_grid_record_id": 779,
+      "shared_input_site_records": [
+        "937075:BUS",
+        "937075:BOKE"
+      ],
+      "distances_to_matching_sites_km": {
+        "937075:BUS": 43.573,
+        "937075:BOKE": 16.863
+      },
+      "independent_model_validation": "unestablished_input_reuse_risk"
+    },
+    {
+      "target": "Havgårdssjön",
+      "landclim_grid_record_id": 779,
+      "shared_input_site_records": [
+        "937075:BUS",
+        "937075:BOKE"
+      ],
+      "distances_to_matching_sites_km": {
+        "937075:BUS": 29.189,
+        "937075:BOKE": 11.258
+      },
+      "independent_model_validation": "unestablished_input_reuse_risk"
+    },
+    {
+      "target": "Vesums mossar",
+      "landclim_grid_record_id": 779,
+      "shared_input_site_records": [
+        "937075:BUS",
+        "937075:BOKE"
+      ],
+      "distances_to_matching_sites_km": {
+        "937075:BUS": 43.555,
+        "937075:BOKE": 16.864
+      },
+      "independent_model_validation": "unestablished_input_reuse_risk"
+    },
+    {
+      "target": "Östra Ringsjön",
+      "landclim_grid_record_id": 779,
+      "shared_input_site_records": [
+        "937075:BUS",
+        "937075:BOKE"
+      ],
+      "distances_to_matching_sites_km": {
+        "937075:BUS": 48.402,
+        "937075:BOKE": 33.562
+      },
+      "independent_model_validation": "unestablished_input_reuse_risk"
+    }
+  ],
+  "source_roles": {
+    "neotoma": "observed pollen site/count metadata",
+    "landclim_sites": "published model input site metadata; not independently measured vegetation",
+    "synthesis": "modeled cover by published grid/time window"
+  },
+  "inputs": [
+    {
+      "path": "docs/report/pollen-reconstruction/swedish-direct-pollen/cohort.csv",
+      "sha256": "f37cd64cfe3799a92d5492a558e58b4ce81888e25dcf53025ca94df301e65349"
+    },
+    {
+      "path": "data/landclim/normalized/nordic_pollen_site_sequences.geojson",
+      "sha256": "674f64d75a150424eacb47b2b777b03fff477c792cc5ff39f0425c21e58ca19e"
+    },
+    {
+      "path": "docs/report/countries/sweden/sweden_land_use_synthesis_v66.csv",
+      "sha256": "a534469cf5f411bd8b017b307f94784918df070e9c5d5005f1a03b0a966ed3d5"
+    }
+  ]
+}
