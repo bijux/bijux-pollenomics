@@ -7,6 +7,7 @@ import csv
 import gzip
 import hashlib
 import json
+import math
 from pathlib import Path
 
 
@@ -65,6 +66,98 @@ def verify_author_source(source_root: Path) -> None:
         f"authenticated private author inputs: {observed['sites']} sites, "
         f"{observed['taxa']} taxa and {observed['bins']} bins"
     )
+
+
+def verify_author_target_pollen() -> None:
+    """Check the retained 31-target split, frozen predictions and score support."""
+    directory = REPOSITORY_ROOT / "docs/report/regions/nordic/author-target-pollen"
+    report = json.loads((directory / "report.json").read_text(encoding="utf-8"))
+    manifest_path = directory / "input-manifest.json"
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    if sha256(manifest_path) != report["input_manifest_sha256"]:
+        raise ValueError("author-target input manifest digest mismatch")
+    if manifest["target_outcomes_in_prediction_inputs"] is not False:
+        raise ValueError("author-target predictor input includes target outcomes")
+    axis = set(report["axis"])
+    if len(axis) != 31 or axis != set(manifest["axis"]):
+        raise ValueError("author-target response axis changed")
+    for relative, digest in manifest["produced_file_sha256"].items():
+        if sha256(directory / relative) != digest:
+            raise ValueError(f"author-target prepared file digest mismatch: {relative}")
+    for country in ("DK", "FI", "NO"):
+        with gzip.open(
+            directory / "inputs" / f"training-{country}.json.gz", "rt"
+        ) as stream:
+            training = json.load(stream)
+        if any(profile["country"] == country for profile in training.values()):
+            raise ValueError("held-out country occurs in author-target training")
+        path = directory / "predictions" / f"predictions-{country}.json.gz"
+        if sha256(path) != report["prediction_sha256"][country]:
+            raise ValueError("author-target frozen prediction digest mismatch")
+        with gzip.open(path, "rt") as stream:
+            prediction = json.load(stream)
+        if prediction["country"] != country or set(prediction["axis"]) != axis:
+            raise ValueError("author-target prediction identity changed")
+        for row in prediction["predictions"]:
+            fractions = row["fractions"]
+            if (
+                row["target_pollen_counts_read"] is not False
+                or set(fractions) != axis
+                or any(
+                    not math.isfinite(value) or value < 0
+                    for value in fractions.values()
+                )
+                or abs(sum(fractions.values()) - 1) > 1e-10
+            ):
+                raise ValueError("invalid author-target prediction composition")
+    for filename, digest_field in {
+        "scores.csv": "scores_sha256",
+        "coverage.csv": "coverage_sha256",
+        "site-scores.csv": "site_scores_sha256",
+        "taxon-diagnostics.csv": "taxon_diagnostics_sha256",
+    }.items():
+        if sha256(directory / filename) != report[digest_field]:
+            raise ValueError(f"author-target scored output digest mismatch: {filename}")
+    with (directory / "scores.csv").open(newline="", encoding="utf-8") as stream:
+        scores = list(csv.DictReader(stream))
+    with (directory / "coverage.csv").open(newline="", encoding="utf-8") as stream:
+        coverage = list(csv.DictReader(stream))
+    scored_keys = {
+        (row["country"], row["site_id"], row["bin_id"], row["method"]) for row in scores
+    }
+    if (
+        len(scores) != report["score_rows"]
+        or len(scored_keys) != len(scores)
+        or any(row["status"] != "scored" for row in scores)
+        or len(scores)
+        != len(report["methods"])
+        * sum(int(row["positive_target_and_predicted_site_bins"]) for row in coverage)
+    ):
+        raise ValueError("author-target score support does not close")
+    author_mass = json.loads(
+        (
+            REPOSITORY_ROOT
+            / "docs/report/regions/nordic/author-taxonomy-mass/report.json"
+        ).read_text(encoding="utf-8")
+    )
+    for row in author_mass["countries"]:
+        country = row["country"]
+        expected = report["country_source_denominators"][country]
+        for field in (
+            "selected_samples",
+            "all_native_nisp",
+            "author_assigned_nisp",
+            "author_excluded_nisp",
+            "unmapped_nisp",
+        ):
+            reported_field = {
+                "all_native_nisp": "native_nisp",
+                "author_assigned_nisp": "assigned_nisp",
+            }.get(field, field)
+            if row[field] != expected[reported_field]:
+                raise ValueError(
+                    f"author-target source denominator changed: {country} {field}"
+                )
 
 
 def main() -> None:
@@ -160,6 +253,19 @@ def main() -> None:
     ) as stream:
         if not stream.read(1):
             raise ValueError("compressed development predictions are empty")
+
+    verify_author_target_pollen()
+    author_target_scope = scope["nordic_author_target_pollen"]
+    author_target = json.loads(
+        (REPOSITORY_ROOT / author_target_scope["report"]).read_text(encoding="utf-8")
+    )
+    if (
+        author_target_scope["input_manifest_sha256"]
+        != author_target["input_manifest_sha256"]
+        or author_target_scope["author_target_taxa"] != len(author_target["axis"])
+        or author_target_scope["fixed_method_score_rows"] != author_target["score_rows"]
+    ):
+        raise ValueError("author-target scope differs from the retained study")
 
     print(
         f"verified {len(manifest['files'])} retained files, "

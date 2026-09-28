@@ -26,6 +26,7 @@
   },
   "excluded_claims": [
     "Nordic LRA and independent vegetation accuracy: no admitted inputs for those claims; DK/FI/NO direct-pollen results are exploratory, prior-exposed subcomposition predictions only",
+    "The 31-author-target Nordic pollen response has a different axis and denominator from the 16-label response; their MAE values are not a paired method-improvement comparison",
     "Independent vegetation accuracy: no eligible measured pairs",
     "HYDE-assisted pollen covariate effect: not evaluated; source country cropland and seven selected CE-label native grid reconciliations are modeled context, not measured vegetation",
     "Whole-paper historical reproduction: source inputs, chronology, rights and PFT mapping unresolved",
@@ -172,6 +173,15 @@
       "NO": 0.006930021467741869
     },
     "status": "prior_exposed_development; selected RBF worse than IDW in FI and NO"
+  },
+  "nordic_author_target_pollen": {
+    "report": "docs/report/regions/nordic/author-target-pollen/report.json",
+    "input_manifest_sha256": "392e6cb60d971e2644f59d7e283a12716a911e3825b168198cd7fd552eedb0ee",
+    "author_target_taxa": 31,
+    "paired_scored_site_bins": 1543,
+    "fixed_method_score_rows": 4629,
+    "norwegian_training_support_refusals": 94,
+    "status": "prior_exposed_observed_pollen_subcomposition; no LRA or measured vegetation claim"
   },
   "hyde_modeled_country_context": {
     "country_result": "docs/report/regions/nordic/hyde-country-cropland/report.json",
