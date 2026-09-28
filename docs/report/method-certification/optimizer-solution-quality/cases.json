@@ -1,0 +1,31 @@
+{
+  "schema_version": "love-objective-cases.1",
+  "optimizer_seed": 7,
+  "iterations": 400,
+  "cases": [
+    {
+      "name": "symmetric-interior",
+      "regional": [0, 0],
+      "local_k": [[0.5, 0.5], [0.5, 0.5]],
+      "local_fraction": [1, 1],
+      "observed": [0.5, 0.5],
+      "ppe": [1, 1]
+    },
+    {
+      "name": "constrained-boundary",
+      "regional": [1, 1],
+      "local_k": [[1, 1], [1, 1]],
+      "local_fraction": [1, 1],
+      "observed": [1, 0],
+      "ppe": [1, 1]
+    },
+    {
+      "name": "composition-ambiguous",
+      "regional": [1, 1, 1],
+      "local_k": [[0, 0, 1], [0, 0, 1]],
+      "local_fraction": [1, 1],
+      "observed": [0.25, 0.25, 0.5],
+      "ppe": [1, 1, 1]
+    }
+  ]
+}
