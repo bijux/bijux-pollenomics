@@ -12,6 +12,14 @@ All 31 taxon mean ± one-SE envelopes overlap in each grid. That is a descriptiv
 
 ## Historical reproduction boundary
 
+The [released author raw-to-prepared replay](../source-relations/landclim/author-example-taxon-support/README.md)
+reproduces all 17 example `LRAready` files byte-for-byte from their pinned
+raw site files and formatter lookups: 871 raw sample rows and 15,028 matching
+prepared cells. This closes the formatting lineage of the retained two-grid
+example, including the five `WHH05` headers trimmed by R `read.csv`. It does
+not authenticate the historical Nordic archive input revisions or turn
+formatter-filled zeros into observed taxon absences.
+
 The retained Rootsi candidate closure has 79 unique publication-metadata candidates among 1,128 publication records, but zero authenticated historical primary-input records and zero reproduction-ready rows. I replayed the exact retained bytes for all 79 typed workbook candidates. The replay records 7,459 header positions, 5,170 mechanical data rows and the original sample-count claims; 78 claims agree with row counts, while EKE claims 25 and has 42 mechanical data rows. This verifies the structure of the retained candidate files. It does not verify their membership in a native LandClim archive or authenticate them as the published study inputs. No workbook output is cleared for public release, and scientific acceptance was not evaluated.
 
 The paper's 12-PFT statement, PANGAEA's 11-PFT description and 13 archived PFT positions remain unreconciled. The [publisher's machine-readable Table 1](../publication-replay/landclim-pft-crosswalk/publisher-table-review.md) independently lists nine paper TBS taxa and no `ISTS` code. A separate [source-bound taxon arithmetic replay](../publication-replay/landclim-pft-crosswalk/README.md) shows that archived `ISTS` means equal the sum of three published taxon means (`Corylus.avellana`, `Fraxinus` and `Quercus.deciduous`) in all 10,500 grid/window rows. Archived `TBS` means equal the other six taxa listed under TBS in the parameter table. The maximum absolute split residual is about `1.02e-13` percentage points. The [private author-name review](../publication-replay/landclim-pft-crosswalk/author-name-review/report.json) supports seven of nine parameter-to-output names by exact author-crosswalk source names and an eighth, `Castanea sativa`, through the custody-bound author LUT's `Castanea` mapping. `Quercus deciduous t.` has no exact source-name row in either author file. This establishes version-specific mean arithmetic and bounded name evidence, not the biological definition of `ISTS`, an authenticated archived-release taxon transformation, an SE aggregation rule, or the historical paper's PFT count. Historical chronology choices, per-sequence rights, source revisions, basin/profile semantics and full-paper raw-input closure also remain open.

@@ -63,3 +63,37 @@ membership, raw header identities and positive prepared rows without exact
 raw-name leads before retaining the result. The separate
 [R witness script](whh05_header_parity.R) checks the actual parsed names,
 author lookup targets and source/prepared sums for the five `WHH05` rows.
+
+## Full author formatting replay
+
+The [site comparison](sites.csv) replays the released R formatter's harmonize,
+aggregate, missing-PPE-row fill and time-window operations for the 17 listed
+author sites. It consumes 871 raw sample rows. All **17 prepared files** match
+the retained author files byte-for-byte; all **15,028 cells** match, including
+taxon labels, window values and the zero-filled rows. The comparison CSV has
+SHA-256 `13b26b7828ade00ba4037ac334207c9b865a5032f33c40ffe17dc951397321ba`.
+The [replay script](author_prepared_replay.R) transcribes the calculation with
+absolute source paths and per-site scratch files under `artifacts/`; it does not
+claim execution of the original Windows-path wrapper unmodified.
+
+The additional exact source identities are: `run.all.taxa.100219.csv`
+`055a38b01755b5c47510199b44f7adebaf7fb33c6e75927544a76e2ceeb9df72`,
+`bins.csv` `62cac73bafacb8be8d8b7007e9871494024e661ab1a2f28774dcf7cb7046a71f`,
+`TWlookup.csv` `888a2d5d035c8a49bd957917ca0658bb08824240ac15c1da4b717c633ddae3dd`,
+and `site.metadata.csv`
+`72949e9e3faf417be0b7425fc111a9638b37c4a38aab8f8d82e0c3d8739da2de`.
+The formatter SHA-256 is
+`f7463b6e625781dbfdc58186fad70011af9c9f7f03f724ea29abe2489040e118`;
+the ledger above hashes that script and all 17 raw/prepared pairs. Replay used
+R 4.6.0. The exact numerical match explains how this released source produces
+its prepared example files; it does not identify the historical inputs to the
+published Nordic archive, establish a source count denominator for each window,
+or convert formatter-inserted zeros to observed absences.
+
+```sh
+OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 \
+  Rscript docs/report/source-relations/landclim/author-example-taxon-support/author_prepared_replay.R \
+  /path/to/landclim/author-reference artifacts/jobs/author-prepared-replay
+cmp docs/report/source-relations/landclim/author-example-taxon-support/sites.csv \
+  artifacts/jobs/author-prepared-replay/sites.csv
+```
