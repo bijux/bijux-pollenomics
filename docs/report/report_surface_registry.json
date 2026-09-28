@@ -1,16 +1,16 @@
 {
   "schema_version": "report-surface-registry.v1",
-  "surface_count": 1374,
+  "surface_count": 1377,
   "family_counts": {
     "caveats": 10,
-    "maintenance": 700,
+    "maintenance": 703,
     "maps": 85,
     "portal": 2,
     "reviews": 33,
     "scopes": 544
   },
   "audience_counts": {
-    "maintainer_diagnostic": 702,
+    "maintainer_diagnostic": 705,
     "public_reading_surface": 553,
     "scientific_review_surface": 119
   },
@@ -20,7 +20,7 @@
     "finland": 14,
     "nordic": 306,
     "norway": 14,
-    "report_root": 748,
+    "report_root": 751,
     "sweden": 43,
     "world": 172
   },
@@ -13611,6 +13611,42 @@
     },
     {
       "repository_path": "docs/report/source-relations/neotoma/abbo-profile/report.json",
+      "family": "maintenance",
+      "family_label": "Maintainer truth surfaces",
+      "audience": "maintainer_diagnostic",
+      "audience_label": "Maintainer diagnostic",
+      "format": "json",
+      "geography": "report_root",
+      "caution_level": "high",
+      "explanation": "Maintainer-facing truth or governance surface.",
+      "reader_route": "maintainer_truth"
+    },
+    {
+      "repository_path": "docs/report/source-relations/neotoma/author-taxonomy-mass/README.md",
+      "family": "maintenance",
+      "family_label": "Maintainer truth surfaces",
+      "audience": "maintainer_diagnostic",
+      "audience_label": "Maintainer diagnostic",
+      "format": "md",
+      "geography": "report_root",
+      "caution_level": "high",
+      "explanation": "Reader-facing entry page for one scope bundle.",
+      "reader_route": "start_here"
+    },
+    {
+      "repository_path": "docs/report/source-relations/neotoma/author-taxonomy-mass/bins.csv",
+      "family": "maintenance",
+      "family_label": "Maintainer truth surfaces",
+      "audience": "maintainer_diagnostic",
+      "audience_label": "Maintainer diagnostic",
+      "format": "csv",
+      "geography": "report_root",
+      "caution_level": "high",
+      "explanation": "Maintainer-facing truth or governance surface.",
+      "reader_route": "maintainer_truth"
+    },
+    {
+      "repository_path": "docs/report/source-relations/neotoma/author-taxonomy-mass/report.json",
       "family": "maintenance",
       "family_label": "Maintainer truth surfaces",
       "audience": "maintainer_diagnostic",

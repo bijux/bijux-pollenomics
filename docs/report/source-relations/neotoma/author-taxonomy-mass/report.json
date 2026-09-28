@@ -1,0 +1,351 @@
+{
+  "schema_version": "swedish-neotoma-landclim-author-taxonomy-mass.v1",
+  "source_role": "author_lookup_candidate_screen",
+  "source_lookup_rows": 10788,
+  "source_lookup_distinct_names": 9731,
+  "source_lookup_nonexcluded_targets": 31,
+  "count_unit": "native_NISP",
+  "common_bin_count": 39,
+  "site_count": 3,
+  "lra_admitted_samples": 0,
+  "scientific_admission_allowed": false,
+  "interpretation": "Author lookup assignments preserve source-name and exclusion decisions. They do not establish a matched core, sample-time basin geometry, version-qualified PPE/FSP binding, or LRA admission.",
+  "sites": [
+    {
+      "dataset_id": "19913",
+      "site_id": "13338",
+      "site": "Abborrtjärnen",
+      "all_native_nisp": 88004,
+      "author_assigned_nisp": 86691,
+      "author_excluded_nisp": 1311,
+      "unmapped_nisp": 2,
+      "author_assigned_fraction": 0.98508,
+      "author_target_counts": {
+        "Alnus glutinosa": 3904,
+        "Amanranthaceae/Chenopodiaceae": 12,
+        "Artemisia": 50,
+        "Betula": 30594,
+        "Calluna vulgaris": 117,
+        "Carpinus betulus": 23,
+        "Corylus avellana": 288,
+        "Cyperaceae": 537,
+        "Ericaceae": 94,
+        "Fagus sylvatica": 15,
+        "Filipendula": 31,
+        "Fraxinus": 74,
+        "Juniperus": 746,
+        "Picea": 6617,
+        "Pinus": 42044,
+        "Plantago lanceolata type": 6,
+        "Poaceae": 557,
+        "Quercus deciduous": 211,
+        "Rumex acetosa-t": 77,
+        "Salix": 325,
+        "Secale": 4,
+        "Tilia": 11,
+        "Ulmus": 354
+      },
+      "leading_unmapped_names": [
+        {
+          "name": "Rhododendron tomentosum",
+          "count": 2
+        }
+      ],
+      "leading_author_excluded_names": [
+        {
+          "name": "Populus",
+          "count": 516
+        },
+        {
+          "name": "Nymphaea alba",
+          "count": 182
+        },
+        {
+          "name": "Sorbus aucuparia",
+          "count": 166
+        },
+        {
+          "name": "Indeterminable",
+          "count": 94
+        },
+        {
+          "name": "Melampyrum",
+          "count": 75
+        },
+        {
+          "name": "Empetrum nigrum",
+          "count": 72
+        },
+        {
+          "name": "Potamogeton",
+          "count": 53
+        },
+        {
+          "name": "Potentilla-type",
+          "count": 27
+        },
+        {
+          "name": "Urtica",
+          "count": 17
+        },
+        {
+          "name": "Humulus lupulus",
+          "count": 10
+        }
+      ]
+    },
+    {
+      "dataset_id": "53995",
+      "site_id": "28869",
+      "site": "Bussjösjön",
+      "all_native_nisp": 56450,
+      "author_assigned_nisp": 40915,
+      "author_excluded_nisp": 9277,
+      "unmapped_nisp": 6258,
+      "author_assigned_fraction": 0.724801,
+      "author_target_counts": {
+        "Alnus glutinosa": 11648,
+        "Amanranthaceae/Chenopodiaceae": 223,
+        "Artemisia": 572,
+        "Betula": 3314,
+        "Calluna vulgaris": 117,
+        "Carpinus betulus": 234,
+        "Cerealia-t": 478,
+        "Corylus avellana": 8391,
+        "Cyperaceae": 2425,
+        "Ericaceae": 3,
+        "Fagus sylvatica": 676,
+        "Filipendula": 334,
+        "Fraxinus": 1086,
+        "Juniperus": 53,
+        "Picea": 72,
+        "Pinus": 2263,
+        "Plantago lanceolata type": 1203,
+        "Poaceae": 1432,
+        "Quercus deciduous": 3097,
+        "Rumex acetosa-t": 893,
+        "Salix": 422,
+        "Secale": 583,
+        "Tilia": 425,
+        "Ulmus": 971
+      },
+      "leading_unmapped_names": [
+        {
+          "name": "Poaceae undiff. (<40 µm)",
+          "count": 6096
+        },
+        {
+          "name": "Poaceae undiff. (>40 µm)",
+          "count": 158
+        },
+        {
+          "name": "cf. Myrica",
+          "count": 2
+        },
+        {
+          "name": "Knautia-type",
+          "count": 1
+        },
+        {
+          "name": "Polygonum sensu lato undiff.",
+          "count": 1
+        }
+      ],
+      "leading_author_excluded_names": [
+        {
+          "name": "Humulus/Cannabis",
+          "count": 4647
+        },
+        {
+          "name": "Typha angustifolia-type",
+          "count": 1036
+        },
+        {
+          "name": "Cichorioideae",
+          "count": 650
+        },
+        {
+          "name": "Brassicaceae",
+          "count": 528
+        },
+        {
+          "name": "Apiaceae",
+          "count": 376
+        },
+        {
+          "name": "Ranunculus-type",
+          "count": 299
+        },
+        {
+          "name": "Polygonum aviculare",
+          "count": 227
+        },
+        {
+          "name": "Myriophyllum spicatum/M. verticillatum",
+          "count": 208
+        },
+        {
+          "name": "Anthemis-type",
+          "count": 178
+        },
+        {
+          "name": "Rubiaceae",
+          "count": 106
+        }
+      ]
+    },
+    {
+      "dataset_id": "54001",
+      "site_id": "28872",
+      "site": "Bökesjön",
+      "all_native_nisp": 42548,
+      "author_assigned_nisp": 41407,
+      "author_excluded_nisp": 1110,
+      "unmapped_nisp": 31,
+      "author_assigned_fraction": 0.973183,
+      "author_target_counts": {
+        "Alnus glutinosa": 6789,
+        "Amanranthaceae/Chenopodiaceae": 21,
+        "Artemisia": 163,
+        "Betula": 9521,
+        "Calluna vulgaris": 104,
+        "Carpinus betulus": 138,
+        "Cerealia-t": 45,
+        "Corylus avellana": 9596,
+        "Cyperaceae": 172,
+        "Fagus sylvatica": 2470,
+        "Filipendula": 77,
+        "Fraxinus": 1374,
+        "Juniperus": 61,
+        "Picea": 16,
+        "Pinus": 927,
+        "Plantago lanceolata type": 186,
+        "Poaceae": 1177,
+        "Quercus deciduous": 6192,
+        "Rumex acetosa-t": 183,
+        "Salix": 155,
+        "Secale": 89,
+        "Tilia": 960,
+        "Ulmus": 991
+      },
+      "leading_unmapped_names": [
+        {
+          "name": "Rumex acetosa group",
+          "count": 16
+        },
+        {
+          "name": "Vaccinium sect. Vitis-idaea",
+          "count": 4
+        },
+        {
+          "name": "Angelica palustris-type",
+          "count": 2
+        },
+        {
+          "name": "Daucus carota-type",
+          "count": 2
+        },
+        {
+          "name": "Vaccinium cf V. uliginosum",
+          "count": 2
+        },
+        {
+          "name": "Anthyllis vulneraria",
+          "count": 1
+        },
+        {
+          "name": "Cephalanthera sp.",
+          "count": 1
+        },
+        {
+          "name": "Helosciadium inundatum",
+          "count": 1
+        },
+        {
+          "name": "Persicaria maculosa",
+          "count": 1
+        },
+        {
+          "name": "Rosa cf. R. canina",
+          "count": 1
+        }
+      ],
+      "leading_author_excluded_names": [
+        {
+          "name": "Sorbus aucuparia",
+          "count": 300
+        },
+        {
+          "name": "Frangula alnus",
+          "count": 92
+        },
+        {
+          "name": "Populus",
+          "count": 88
+        },
+        {
+          "name": "Humulus",
+          "count": 70
+        },
+        {
+          "name": "Cicuta virosa",
+          "count": 55
+        },
+        {
+          "name": "Acer campestre-type",
+          "count": 47
+        },
+        {
+          "name": "Urtica dioica",
+          "count": 46
+        },
+        {
+          "name": "Nymphaea",
+          "count": 44
+        },
+        {
+          "name": "Fragaria vesca",
+          "count": 30
+        },
+        {
+          "name": "Hedera",
+          "count": 23
+        }
+      ]
+    }
+  ],
+  "inputs": [
+    {
+      "source_root_role": "external_landclim_author_reference",
+      "path": "author/LANDCLIM.ALLEUROPE.taxa.LUT.080219.csv",
+      "bytes": 329074,
+      "sha256": "3a745f9b7606e5d0b59feaba2683b930c8d3990e4810f8217b69160a29a1b507"
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/swedish-direct-pollen/config.json",
+      "bytes": 2238,
+      "sha256": "9e330aec087180acb11638f544e773f53b6ffc1444da4e4d9840e53ad1849fd0"
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/swedish-direct-pollen/exclusions.csv",
+      "bytes": 371092,
+      "sha256": "f12714ca2532842a5248d86f27efcc0ea8f48d736ce7b2f4aee243590b78f26e"
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/swedish-direct-pollen/prepared/dataset-19913.json",
+      "bytes": 13553,
+      "sha256": "fad881f64fae9fcf632854068274375f4f842398cfe2255ba71b68e9a6335d79"
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/swedish-direct-pollen/prepared/dataset-53995.json",
+      "bytes": 13679,
+      "sha256": "7ff0ce9286983ab726e6fb9bcd95df3cf393ef0df7efde81a79b78d2c3fd92e5"
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/swedish-direct-pollen/prepared/dataset-54001.json",
+      "bytes": 10357,
+      "sha256": "3231eb8ca83f99b3ecdeca8eb8aacc7f60c4bbf2547dca2c0e2c23a98e98b520"
+    }
+  ],
+  "bins_csv_sha256": "889a208cee92ce9786447ad2cd1e24a5f707cf1991ac714d01c4576c99bd9e2a"
+}
