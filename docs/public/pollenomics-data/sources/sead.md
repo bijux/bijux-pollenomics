@@ -99,13 +99,14 @@ site envelope but is still contextual evidence, not proof of a lake event.
 
 A site has a normalized `time_start_bp` and `time_end_bp` derived from
 captured temporal relations. It may also retain the original relative-period
-labels and uncertainty notes. The atlas can test interval overlap for this
-site.
+labels and uncertainty notes. The optional site-inventory layer displays this
+envelope as context; its points are never time-filtered. Only eligible linked
+record intervals in the Swedish discovery layer enter the atlas BP filter.
 
 For example, Agerod V (`4237`) is published with a site envelope of
-`7000–10000 BP`. That makes it eligible for a map window that overlaps the
-interval. It does not prove that every Agerod V observation belongs to every
-year in that span.
+`7000–10000 BP`. That envelope does not make the site present in every
+overlapping map window. An Agerod V discovery feature appears in a selected
+window only when its own eligible source-record interval overlaps.
 
 ### Source label without numeric support
 
@@ -130,7 +131,9 @@ flowchart TD
     Numeric -->|no| Label{"source period label?"}
     Label -->|yes| Context["contextual label only"]
     Label -->|no| Unresolved["unresolved"]
-    Timed --> Slider["numeric timeline filtering"]
+    Timed --> Display["site-envelope display context"]
+    Relations --> Record["eligible linked record interval"]
+    Record --> Slider["numeric timeline filtering"]
     Context --> Reading["popup and source interpretation"]
     Unresolved --> Reading
 ```
@@ -164,6 +167,25 @@ layers such as boundaries are likewise unaffected.
 The normalized temporal-evidence product remains available for audit and reuse.
 It is not loaded beside the discovery layer because that would duplicate the
 same record intervals.
+
+## What The Current Capture Cannot Resolve
+
+Of the 2,069 assigned sites, 1,219 have no defensible numeric site envelope:
+1,217 are unresolved and two retain contextual labels only. The captured
+bibliography offers a directly followable DOI or URL for three sites; 2,066
+require the source site page or further primary evidence. The per-site
+dispositions and affected UUIDs are retained in
+`data/sead/review/temporal_review.json`,
+`data/sead/review/access_model.json`, and
+`data/sead/review/recovery_requirements.json`. These are different gaps: a
+bibliography relation does not supply a sample date.
+
+Earlier backlog counts of 1,268 sites without numeric chronology and 2,192
+without a direct bibliography link belong to a different captured population.
+Their differences from the current counts are **not** evidence that individual
+sites were recovered. A new date or link needs an identified source relation,
+stable source page, or citable primary record; otherwise the row stays
+contextual with its reason visible.
 
 ## Compare SEAD With LANDCLIM And AADR Carefully
 
