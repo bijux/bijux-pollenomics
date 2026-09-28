@@ -7,8 +7,8 @@
   },
   "title": "Ageröds Mosse",
   "selection": {
-    "atlas_build_id": "atlas-4bb3b566b4951e26fcbaec7f29caf5578f218897f9c4bbd8c27207573cab37ab",
-    "shared_url": "http://127.0.0.1:50766/index.html?viewport=390&scenario=tile-free#basemap=none&focus_layer=neotoma-pollen&focus_feature=evidence%3A12&focus_record=neotoma%3Asite%3A12&focus_tab=chronology",
+    "atlas_build_id": "atlas-ee0c85dd860bce72123c877990bc3bf54a39795dfa77735379ffe5b6350de6ee",
+    "shared_url": "http://127.0.0.1:52135/index.html?viewport=390&scenario=tile-free#basemap=none&focus_layer=neotoma-pollen&focus_feature=evidence%3A12&focus_record=neotoma%3Asite%3A12&focus_tab=chronology",
     "countries": [
       "Denmark",
       "Finland",

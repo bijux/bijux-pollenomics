@@ -286,7 +286,7 @@
     "revision": "@b395074596c663e344272cde7f7d7bd3d496e7e",
     "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36"
   },
-  "browser_command": "node packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/atlas_browser/detail-focus.mjs artifacts/sead-detail-browser-candidate artifacts/sead-detail-browser-result '/Applications/Brave Browser.app/Contents/MacOS/Brave Browser' artifacts/sead-detail-browser-candidate/expectations.json",
+  "browser_command": "node packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/atlas_browser/detail-focus.mjs artifacts/sead-context-browser/detail-candidate artifacts/sead-context-browser/detail-browser '/Applications/Brave Browser.app/Contents/MacOS/Brave Browser' artifacts/sead-context-browser/detail-candidate/expectations.json",
   "environment": {
     "MKL_NUM_THREADS": "1",
     "NUMEXPR_NUM_THREADS": "1",
@@ -333,12 +333,12 @@
     "candidate_build_id": "atlas-143696b68ab32fc70914190dbda7d1c9810f3ba07620726b92021a8a13408642",
     "candidate_document_sha256": "a26deeb3acba85c769c2e5e9ca5d0c1f9eb4fdc47e29c012cf4ddd410f57a812",
     "inputs_sha256": {
-      "docs/report/regions/nordic/nordic.atlas-details.0172.5746018efbad0903.js": "5746018efbad090398003769a6df4070eb4ba60dd8a77aa0be86a604b4faeac5",
-      "docs/report/regions/nordic/nordic.atlas-details.0190.e3ea4c419ccb3150.js": "e3ea4c419ccb31501945f29a71c070d89e4a5c08f9d90c928679a2431027ec94",
-      "docs/report/regions/nordic/nordic.atlas-indexes.0238.7ca898032f71d5c3.js": "7ca898032f71d5c3c0d9d8cc517e385b1f15bf5218fac824e1af4cf71ba0f340",
-      "docs/report/regions/nordic/nordic.atlas-nodes.0013.a14b784f23f101cb.js": "a14b784f23f101cb28c2d314c95879781ea2be70444c13131c636c27265cd56c",
-      "docs/report/regions/nordic/nordic.atlas-provenance.0000.f6f150288d8723f5.js": "f6f150288d8723f597a4ee21c6f15ecd6d597a3e62004cc14c896a4b60556d6c",
-      "docs/report/regions/nordic/nordic_map.html": "136f08cd72d1c7e1fd42ab6891cb7534f2b40bf011ed195e933fcb64b3e3a2ef",
+      "docs/report/regions/nordic/nordic.atlas-details.0172.d944d95be35546bb.js": "d944d95be35546bb5426810637975918d7e981724b7ef916eb98eecafa0f30b0",
+      "docs/report/regions/nordic/nordic.atlas-details.0190.70859f9e1971bff1.js": "70859f9e1971bff13a627ae70db9d96c7054f02c8091ed3bf1c41aac91550d05",
+      "docs/report/regions/nordic/nordic.atlas-indexes.0238.3f42c142d3addfaa.js": "3f42c142d3addfaa505d89785b94c8827b68dd61e6cff71689a3d2580bc8562d",
+      "docs/report/regions/nordic/nordic.atlas-nodes.0013.ec92b89d5e02e1a7.js": "ec92b89d5e02e1a7dae8fd6942ff8d32f8801bb030f9ff19f1335a10ee399f85",
+      "docs/report/regions/nordic/nordic.atlas-provenance.0000.9e610aeeaccd210b.js": "9e610aeeaccd210b798d17c515281e55b56007ad12851b412f9bbe467e40e89e",
+      "docs/report/regions/nordic/nordic_map.html": "83d0cc9eb8ea5d9bde6787a5c2922adc72d0ed399886118c7519515466e9b8a4",
       "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/atlas_browser/source_detail_candidate.py": "5d80fa3a8e3fc102aec0026e682b27e5dbbfb58d7bae03d974c3321c3e237f4b",
       "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/assets/map/leaflet/images/layers-2x.png": "066daca850d8ffbef007af00b06eac0015728dee279c51f3cb6c716df7c42edf",
       "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/assets/map/leaflet/images/layers.png": "1dbbe9d028e292f36fcba8f8b3a28d5e8932754fc2215b9ac69e4cdecf5107c6",
@@ -398,7 +398,7 @@
     },
     "schema_version": "atlas-retained-source-detail-candidate.v1",
     "scientific_posture": "source_owned_site_context; preserve chronology refusals; no reviewed classification or propagation claim",
-    "source_atlas_build_id": "atlas-3487cf228d748acf7e4d45174cf64fa0174afe16afb07d351f6b15d98df7817e",
+    "source_atlas_build_id": "atlas-77be437a84bc823b81933728de0fa81a5da6f7d1a38683ec361d7a3c49a65897",
     "source_records": [
       {
         "chronology_claim_count": 270,
@@ -461,7 +461,7 @@
       }
     ]
   },
-  "generation_command": ".venv/bin/python -m bijux_pollenomics_dev.ci.atlas_browser.source_detail_candidate --repository . --destination artifacts/sead-detail-browser-candidate",
+  "generation_command": ".venv/bin/python -m bijux_pollenomics_dev.ci.atlas_browser.source_detail_candidate --repository . --destination artifacts/sead-context-browser/detail-candidate",
   "limits": [
     "Two retained Swedish Neotoma site contexts; no four-country, full atlas or SEAD consumer claim.",
     "Calibrated/refused/contextual source chronology claims retained; site aggregate ranges remain contextual and are not continuous time support.",
@@ -491,6 +491,6 @@
   "source_test_result": "12 atlas browser producer regressions passed in 0.66s",
   "status": "PASS",
   "terminal_exit_code": 0,
-  "terminal_session": 28431,
+  "terminal_session": 75657,
   "verifier_sha256": "77e3bd4f3ae0bf2b04ea4002aed29705ad9caeba74cd4fd89f4b1c128da04b1f"
 }

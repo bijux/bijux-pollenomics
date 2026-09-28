@@ -73,7 +73,7 @@
       },
       "screenshot": {
         "path": "390-provider-failure.png",
-        "sha256": "310a7170a45594df4087a8216ef0fc0f80b7d21698066d17c4b65d4b43daad0c"
+        "sha256": "b564da1998d367c4e2dfaa52a14e4d03740253123f303b0225fc5ca7a66b668d"
       }
     }
   ],
@@ -147,7 +147,7 @@
       },
       "screenshot": {
         "path": "390-tile-free.png",
-        "sha256": "bd9250c8c8ee7fdfa9bf244ec0358076de7a0de8bc4eb7a4154103335546986f"
+        "sha256": "0bf4756e21e13bc88ac746093403b95bcf43115733847201603de2242bdf7eef"
       }
     }
   ],
@@ -223,7 +223,7 @@
       "scenario": "provider-failure",
       "record_id": "neotoma:site:12",
       "path": "1440-provider-failure-source/neotoma-site-12.pollen-series.json",
-      "sha256": "a59e4b32fe686fc2d0b6b8701d7ef62a1daf7b1f6901b2995e4240aa6d996e71",
+      "sha256": "91ead6a3550ae80ecfd59621846b17a36f3a22428a9783428c2ab4e497e4bd57",
       "source_tables_equal": true,
       "chronology_claims": 270,
       "pollen_observations": 2580
@@ -233,7 +233,7 @@
       "scenario": "tile-free",
       "record_id": "neotoma:site:12",
       "path": "1440-tile-free-source/neotoma-site-12.pollen-series.json",
-      "sha256": "ae0ec8c00f0d49b64fff47bd2352e50a629c937ff921d9d19cae73501d8e765e",
+      "sha256": "c713af4835bfe1970231874a57b6244a8e09b5a52b48dcbb99f8251f0b7ea94a",
       "source_tables_equal": true,
       "chronology_claims": 270,
       "pollen_observations": 2580
@@ -243,7 +243,7 @@
       "scenario": "provider-failure",
       "record_id": "neotoma:site:12",
       "path": "390-provider-failure-source/neotoma-site-12.pollen-series.json",
-      "sha256": "873b725464d463c75a2b82f1ee81484d5f4e21400be56c20ae8823e5709debcb",
+      "sha256": "3b2a3104f46520b73f3f05ad3d8eff30efa98c1132b50a46effaa61a7e266b61",
       "source_tables_equal": true,
       "chronology_claims": 270,
       "pollen_observations": 2580
@@ -253,7 +253,7 @@
       "scenario": "tile-free",
       "record_id": "neotoma:site:12",
       "path": "390-tile-free-source/neotoma-site-12.pollen-series.json",
-      "sha256": "6b06864b0175b2479663ae4cf4dfb1f7b5cbfea0a0fb57292c6e06a2347c635a",
+      "sha256": "c78cddd317c1dc60e54ecf1b77adc124a93af305b30f28a84a5423131aee20bb",
       "source_tables_equal": true,
       "chronology_claims": 270,
       "pollen_observations": 2580
@@ -273,20 +273,20 @@
     "_map_assets/markercluster/MarkerCluster.Default.css": "61258232d98d64dc2a7b1e02130d67421bc5b9bda5994eef70228ff97570c170",
     "_map_assets/markercluster/MarkerCluster.css": "614dea0a98ff3f4ead74f04918f6b1d1b9ba435c25b5fc23b21a394d1e3e4d87",
     "_map_assets/markercluster/leaflet.markercluster.js": "1e4e1d22972a3926f48598e0caf14e3fe7049835d428a344fed4f9e3665b3508",
-    "index.html": "e181beb02fa533f65d75a3100f8f76c692e5e27be8de6fdfebb9401acfcc7a90",
-    "nordic-source.atlas-details.0009.60f53f7029c8d5f0.js": "60f53f7029c8d5f085d43a12942b24e3aa10000147fb255dbf9d4c12f55a2167",
-    "nordic-source.atlas-edges.0010.10226e04df26ce9f.js": "10226e04df26ce9f8820cb9917cf2e8346459110b25989c2c375fa74b049c08a",
-    "nordic-source.atlas-indexes.0012.f82272f31cc62595.js": "f82272f31cc62595fad676810d82504959959b376fcd2b3572a356a53ef9704c",
-    "nordic-source.atlas-nodes.0001.7ba6e9a2ae056d12.js": "7ba6e9a2ae056d127f91e94d9e624c55509743c2dbce098f050c5e9db11e953b",
-    "nordic-source.atlas-nodes.0002.39c6b6b0ac6996d0.js": "39c6b6b0ac6996d083d3071b88540954ff9b45a06023c39915ef6e5946118b80",
-    "nordic-source.atlas-nodes.0003.73f997e71b68f97c.js": "73f997e71b68f97c22ba285a20180f228845d34046a41819ef87cfc5eb3be03d",
-    "nordic-source.atlas-nodes.0004.a9bf2275936f0081.js": "a9bf2275936f008106dda1f8bfb562b803abfa234e98dfbfd1319c9064fbfc73",
-    "nordic-source.atlas-nodes.0005.929d1e158052e6aa.js": "929d1e158052e6aa0a8b6579c12d16a464655dbdafdac742ff565dcebb1ecf76",
-    "nordic-source.atlas-nodes.0006.22310fcd07ddd3c0.js": "22310fcd07ddd3c098e0ace60497e79c55717538c1cd8c9efffa148411c26b8d",
-    "nordic-source.atlas-nodes.0007.d624e9ad6df2ad22.js": "d624e9ad6df2ad22d67257bb6e564b9b2d4ce1ad5f273cd26547488a01255b52",
-    "nordic-source.atlas-nodes.0008.6c6bd67254da7eb6.js": "6c6bd67254da7eb6f99e8246ca97c7510eef938703fb1bb69f7c00bf66435c14",
-    "nordic-source.atlas-provenance.0000.b7d22e5297f1eaa4.js": "b7d22e5297f1eaa45b233410f6f954f1450cbece651c4c300471d092e48a4171",
-    "nordic-source.atlas-sequences.0011.6489df014901bee2.js": "6489df014901bee2e9dd307ff466f853493dff2a1a729cba329ef7b200071ea1"
+    "index.html": "c1502cfc696eefbbcf4f59e83bb73db77a01f722c1ab7726d9db0e2a31836957",
+    "nordic-source.atlas-details.0009.e4b1948334c0b0ac.js": "e4b1948334c0b0ac27515025ab417bfe19c972c989dddd00a934cd2c526b3986",
+    "nordic-source.atlas-edges.0010.616412a6d2c998b2.js": "616412a6d2c998b2ffa59e81a8ca0aaf9e02ca326f98fef17c01473fefe0d3f1",
+    "nordic-source.atlas-indexes.0012.b85c8937582b8a48.js": "b85c8937582b8a48ba88d39fc2b5ccf3614e574b23dfa590e3c77fb5398b35d3",
+    "nordic-source.atlas-nodes.0001.1447f39e6a66baf2.js": "1447f39e6a66baf2eb8f5ac7bf3289eef6365f9060a11f174420b87e04deac58",
+    "nordic-source.atlas-nodes.0002.77c7e342901b7a7c.js": "77c7e342901b7a7ce44eda70e89d7e8d7b6ae46bd91aa4678610b7f561bd27f7",
+    "nordic-source.atlas-nodes.0003.b6f3d598a8c93aae.js": "b6f3d598a8c93aaec762f0b81e0bb0219437f1ee27d971ea57de4d8dd6d217ac",
+    "nordic-source.atlas-nodes.0004.92d041c1d633210d.js": "92d041c1d633210d5ffb40fcdd200c10a01cb59133e413db8dc14c4a9b7da0b4",
+    "nordic-source.atlas-nodes.0005.cff0e4eb52487930.js": "cff0e4eb524879302ef865be8cb5b2bb299436cce8f853de6aea4c32afc0bdda",
+    "nordic-source.atlas-nodes.0006.0cd63937eac79294.js": "0cd63937eac79294f53a1b8d0e1fd14ee2bc2eb2545946d32ea1228717ba67a1",
+    "nordic-source.atlas-nodes.0007.3c3727616489cfd8.js": "3c3727616489cfd8764e08c4536e82c131770be96ef3a69a2010d50e993c07c6",
+    "nordic-source.atlas-nodes.0008.97f86eadfb4b2256.js": "97f86eadfb4b2256fed90e8ffcbe7edb949452722ada25ba7227f33b38154427",
+    "nordic-source.atlas-provenance.0000.9349a52b7633a210.js": "9349a52b7633a210afa6bb41a47e1741ae813096de596f50cdb9f9f730ba8135",
+    "nordic-source.atlas-sequences.0011.9ad125061a96796f.js": "9ad125061a96796fb9cab775c3c2cbbe36eba70505f897619d0315995d370543"
   },
   "verifier_sha256": "1638c4a80ed08d4f1274513b3b4dd828e7f7af06dd0e6f1af675477c02d0e0f5"
 }
