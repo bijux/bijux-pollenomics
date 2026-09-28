@@ -14,7 +14,7 @@ All 31 taxon mean ± one-SE envelopes overlap in each grid. That is a descriptiv
 
 The retained Rootsi candidate closure has 79 unique publication-metadata candidates among 1,128 publication records, but zero authenticated historical primary-input records and zero reproduction-ready rows. I replayed the exact retained bytes for all 79 typed workbook candidates. The replay records 7,459 header positions, 5,170 mechanical data rows and the original sample-count claims; 78 claims agree with row counts, while EKE claims 25 and has 42 mechanical data rows. This verifies the structure of the retained candidate files. It does not verify their membership in a native LandClim archive or authenticate them as the published study inputs. No workbook output is cleared for public release, and scientific acceptance was not evaluated.
 
-The local evidence still leaves the paper's 12-PFT statement, PANGAEA's 11-PFT description and 13 archived PFT positions unresolved. `ISTS` remains unmapped. The numerical 31-taxon comparison does not resolve that separate functional-type question. Historical chronology choices, per-sequence rights, source revisions, basin/profile semantics and full-paper raw-input closure also remain open.
+The paper's 12-PFT statement, PANGAEA's 11-PFT description and 13 archived PFT positions remain unreconciled. A separate [source-bound taxon arithmetic replay](../publication-replay/landclim-pft-crosswalk/README.md) now shows that archived `ISTS` means equal the sum of three published taxon means (`Corylus.avellana`, `Fraxinus` and `Quercus.deciduous`) in all 10,500 grid/window rows. Archived `TBS` means equal the other six taxa listed under TBS in the parameter table. The maximum absolute split residual is about `1.02e-13` percentage points. This establishes mean arithmetic for that archive, not the biological definition of `ISTS`, authenticated source-to-output taxon translation, an SE aggregation rule, or the historical paper's PFT count. Historical chronology choices, per-sequence rights, source revisions, basin/profile semantics and full-paper raw-input closure also remain open.
 
 The next causal resolution needs the source owner to identify the historical raw sequence revisions and selected chronologies for a fully specified published row, then confirm taxon/count and PFT/ISTS transformations. The unresolved source-owner questions are summarized in `swedish-source-questions.csv`. No message was sent.
 
@@ -22,6 +22,7 @@ The next causal resolution needs the source owner to identify the historical raw
 
 - Author computation, archive-window differences, interval alignment and uncertainty envelopes: `paper-correspondence.csv`.
 - Numerical implementation and comparison code: `packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/`.
+- Archived PFT/LCT and ISTS/TBS mean arithmetic: `docs/report/publication-replay/landclim-pft-crosswalk/`.
 - Rootsi source boundary and workbook replay summary: `docs/public/pollenomics-data/sources/landclim.md` and `swedish-source-questions.csv`.
 - Independent vegetation review: `docs/public/pollenomics-data/sources/empd2-nfi-review.md` and `nordic-nfi-reference-access.md`.
 - HYDE source boundary: `docs/public/pollenomics-data/sources/hyde.md`.

@@ -31,8 +31,8 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/README.md",
-      "sha256": "7b37cee36da30fa9ac5470108380f0009e9d8a02a7d8146bd35c9468a9538b52",
-      "bytes": 19968
+      "sha256": "728a0cc654570397d16f6383c625176618d7d73c20d28643c9bee74e6b7f77b1",
+      "bytes": 20366
     },
     {
       "path": "docs/report/pollen-reconstruction/author-development-design.json",
@@ -66,13 +66,13 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/paper-correspondence.csv",
-      "sha256": "2741a3f48a104ff871f12d7c2e3d657ba8a22aa2ea44ebb2132e273c1445f75d",
-      "bytes": 5863
+      "sha256": "853272a59bdc16b82f0618102ea39f60aae8aabbbe9c6096d1cbe2c16f7a61a6",
+      "bytes": 6152
     },
     {
       "path": "docs/report/pollen-reconstruction/paper-correspondence.md",
-      "sha256": "17f123a1119c931e90e438a11091275a64eb468a7a8e8b95942ebc228805876a",
-      "bytes": 3812
+      "sha256": "95c35af9935fc3e4bcc193fd5138abc24dce2f789328570f70cf4391604caab4",
+      "bytes": 4422
     },
     {
       "path": "docs/report/pollen-reconstruction/results.csv",
@@ -168,6 +168,21 @@
       "path": "docs/report/pollen-reconstruction/verify_report.py",
       "sha256": "3fb7072370808aad0da661bdaba293c782ce02b2db2d3885084da1f76f4a19af",
       "bytes": 7532
+    },
+    {
+      "path": "docs/report/publication-replay/landclim-pft-crosswalk/README.md",
+      "sha256": "151a2c48f8fc449dfda76a84c5314fa91d5b32d1d9b6644f123dc0e92ddc8994",
+      "bytes": 4052
+    },
+    {
+      "path": "docs/report/publication-replay/landclim-pft-crosswalk/report.json",
+      "sha256": "8db955ac324acb2bc6d52059a84088dd456393704e265e7d2dedee9d9bb65a94",
+      "bytes": 2430
+    },
+    {
+      "path": "docs/report/publication-replay/landclim-pft-crosswalk/tbs-taxon-arithmetic/report.json",
+      "sha256": "12194e17dc74f71843a727835b7a781ed8fd7795c7614e4388225185e9a362d4",
+      "bytes": 2546
     },
     {
       "path": "docs/report/regions/nordic/README.md",
@@ -268,6 +283,11 @@
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/observed_pollen_baseline.py",
       "sha256": "ab52539c7a835e75a7f53202038d4ae860af40d5a3de860e7a0f95ad930285c5",
       "bytes": 17997
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/pft_crosswalk.py",
+      "sha256": "ec34a856bb6b0497eccd612989d88cc6b6d06a66d75216f9a60ca8267680972b",
+      "bytes": 20231
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/published_window_alignment.py",

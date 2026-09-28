@@ -35,6 +35,12 @@ The selected development candidate is a WGS84 radial-basis-function model fitted
 
 The selected CLR-RBF therefore improves the development score against the declared simple baselines on common support, but does not establish Swedish transfer, LRA-derived prediction skill, vegetation accuracy, publication reproduction or HYDE value. A separate fixed fitted-RBF diagnostic on two adjacent buffered author grids performed worse than the training mean (MAE 0.040564 versus 0.025298 on 140 common bins); it remains a distinct, previously exposed diagnostic and is not the selected three-fold model.
 
+The [archived PFT taxon arithmetic](../publication-replay/landclim-pft-crosswalk/README.md)
+now identifies the three published taxon-mean columns that sum to `ISTS` and
+the six that sum to `TBS` in all 10,500 grid/window rows. It does not define
+`ISTS` biologically, authenticate the source-to-output name changes, settle the
+paper/archive PFT count discrepancy, or supply an SE aggregation rule.
+
 The Nordic direct-pollen study uses the exact 16-label response selected for the Swedish direct-pollen cohort and excludes the target country from each training set. The corrected Neotoma screen finds 91 Denmark, 1,797 Finland and 3,544 Norway candidate samples across 1, 28 and 52 physical sites. The held-out score table contains 6,172 method rows over 24 Danish, 435 Finnish and 1,084 Norwegian scored bins. Norway retains 94 refused target bins. These are prior-exposed observed-pollen results, not independent landscape or vegetation truth. Direct-pollen eligibility does not admit these data to LRA: basin geometry, exact PPE/FSP support, count-denominator choices and other source decisions remain unresolved. Independent vegetation screening admitted zero EMPD2 records in Denmark, Norway or Finland; the reviewed NFI sources lack an admitted country cohort. The source review and exact output digests are in the [Nordic direct-pollen report](../regions/nordic/direct-pollen/RESULTS.md), its [manifest](../regions/nordic/direct-pollen/manifest.json), and the public source reviews for [LandClim](../../public/pollenomics-data/sources/landclim.md), [Neotoma/EPD](../../public/pollenomics-data/sources/neotoma.md), [vegetation references](../../public/pollenomics-data/sources/empd2-nfi-review.md), and [HYDE](../../public/pollenomics-data/sources/hyde.md).
 
 ## Denominators and exclusions
