@@ -27,6 +27,7 @@ def build_synthesis(
     cross_proxy_posture: Callable[..., str],
     dataset_id: str,
     context_radius_km: int,
+    named_registry: dict[str, dict[str, object]] | None = None,
 ) -> dict[str, object]:
     landclim_features = load_features(
         context_root
@@ -51,6 +52,18 @@ def build_synthesis(
         )
         for target in targets
     ]
+    if named_registry:
+        for row in target_rows:
+            match = named_registry.get(str(row["requested_name"]))
+            if match is None:
+                continue
+            if row["registry_name"] != match["registry_name"] or (
+                row["registry_id"] and row["registry_id"] != match["registry_id"]
+            ):
+                raise ValueError("Named lake differs from governed SVAR match")
+            row["registry_id"] = match["registry_id"]
+            row["lake_area_km2"] = match["lake_area_km2"]
+            row["source_url"] = match["source_url"]
     rows = []
     for target in targets:
         for feature in landclim_by_target[target]:
@@ -196,8 +209,9 @@ def build_synthesis(
                 "km and numeric interval overlap with the published LandClim window."
             ),
             "target_coverage_rule": (
-                "Every ranked SVAR lake and named archaeological wetland stays in "
-                "scope. Targets outside the governed LandClim grid retain a decision "
+                "Every governed named lake or wetland and every additional ranked "
+                "SVAR lake stays in scope. Targets outside the governed LandClim "
+                "grid retain a decision "
                 "row but receive no fabricated temporal values."
             ),
             "interpretation_rule": (

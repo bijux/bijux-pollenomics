@@ -44,6 +44,6 @@ def test_serialized_output_bytes_match_the_monolith_contract(tmp_path: Path) -> 
         428,
     )
     assert (_digest(markdown_path), len(markdown_path.read_bytes())) == (
-        "5b7fa53969478ba2523090962343f027a999274513b8f94fc318426ff5674b3a",
+        "2e8a02a01022d9b8f7f7fbaaf1d964cc9dfe658b887b03cf8ab1d528cfe174f4",
         1919,
     )

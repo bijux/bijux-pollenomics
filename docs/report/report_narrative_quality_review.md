@@ -60,7 +60,7 @@ link farms or coded operator notes.
 | `docs/report/countries/sweden/sweden_lake_archaeology_sensitivity_v66.md` | `reader_ready` | 7 | 0 | 0 | 2 | 4 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/countries/sweden/sweden_lake_evidence_richness_v66.md` | `thin_structure` | 2 | 0 | 4 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/countries/sweden/sweden_lake_fieldwork_preparation_v66.md` | `reader_ready` | 2 | 0 | 9 | 3 | 3 | Page explains its purpose before or alongside artifact links. |
-| `docs/report/countries/sweden/sweden_land_use_synthesis_v66.md` | `reader_ready` | 5 | 0 | 5 | 8 | 4 | Page explains its purpose before or alongside artifact links. |
+| `docs/report/countries/sweden/sweden_land_use_synthesis_v66.md` | `reader_ready` | 5 | 0 | 5 | 16 | 4 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/nordic_farming_history_scenario.md` | `reader_ready` | 3 | 0 | 8 | 0 | 4 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/publication_country_onboarding_contract.md` | `reader_ready` | 7 | 0 | 16 | 0 | 9 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/publication_geography_registry.md` | `reader_ready` | 2 | 0 | 0 | 9 | 3 | Page explains its purpose before or alongside artifact links. |

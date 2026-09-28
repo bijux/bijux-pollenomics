@@ -1,9 +1,51 @@
 from __future__ import annotations
 
 from collections.abc import Callable, Iterable
+import json
+from pathlib import Path
 from typing import Any
 
 from .models import _Target as Target
+
+
+def named_registry_details(context_root: Path) -> dict[str, dict[str, object]]:
+    """Bind named lake decisions to exact current SVAR review identities."""
+    review_path = (
+        context_root / "svar" / "review" / "lake_candidate_registry_review.json"
+    )
+    features_path = (
+        context_root / "svar" / "review" / "sweden_lake_candidate_registry.geojson"
+    )
+    if not review_path.exists() and not features_path.exists():
+        return {}
+    if not review_path.is_file() or not features_path.is_file():
+        raise ValueError("Named SVAR review is incomplete")
+    review = json.loads(review_path.read_text(encoding="utf-8"))
+    features = json.loads(features_path.read_text(encoding="utf-8"))
+    by_id: dict[str, dict[str, object]] = {}
+    for feature in features["features"]:
+        properties = feature["properties"]
+        record_id = properties["record_id"]
+        if record_id in by_id:
+            raise ValueError("Named SVAR registry ID is duplicated")
+        by_id[record_id] = properties
+    result: dict[str, dict[str, object]] = {}
+    for row in review["named_targets"]:
+        if row["registry_status"] != "matched":
+            continue
+        source = by_id.get(row["registry_match"])
+        if source is None or source["source"] != "SMHI SVAR":
+            raise ValueError("Named SVAR match has no source feature")
+        name = row["requested_name"]
+        if name in result:
+            raise ValueError("Named SVAR target is duplicated")
+        result[name] = {
+            "registry_id": source["record_id"],
+            "registry_name": source["name"],
+            "lake_area_km2": source["area_km2"],
+            "source_url": source["source_url"],
+        }
+    return result
 
 
 def synthesis_targets(
@@ -15,14 +57,12 @@ def synthesis_targets(
     named_lake_targets = {
         target.registry_name: target
         for target in governed_named_targets
-        if target.registry_name
+        if target.target_class == "registered_lake" and target.registry_name
     }
-    ranked_targets = []
+    ranked_targets = list(named_lake_targets.values())
     for assessment in lake_report.assessments:
         candidate = assessment.candidate
-        governed_target = named_lake_targets.get(candidate.lake_name)
-        if governed_target is not None:
-            ranked_targets.append(governed_target)
+        if candidate.lake_name in named_lake_targets:
             continue
         ranked_targets.append(
             target_type(

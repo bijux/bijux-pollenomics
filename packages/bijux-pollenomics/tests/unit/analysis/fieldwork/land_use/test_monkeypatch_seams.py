@@ -122,5 +122,17 @@ def test_target_selection_resolves_the_facade_target_type(
         SimpleNamespace(assessments=(SimpleNamespace(candidate=candidate),))
     )
 
-    assert targets[0].requested_name == "Registry Lake"
+    assert any(target.requested_name == "Registry Lake" for target in targets)
     assert created[0]["coordinate_source"] == "official SVAR lake representative point"
+
+
+def test_named_lakes_remain_in_synthesis_without_ranked_assessments() -> None:
+    targets = land_use._synthesis_targets(SimpleNamespace(assessments=()))
+    assert {target.requested_name for target in targets} == {
+        "Finjasjön",
+        "Östra Ringsjön",
+        "Havgårdssjön",
+        "Bjäresjösjön",
+        "Gullåkra",
+        "Vesums mossar",
+    }

@@ -70,10 +70,10 @@ For the 100–350 BP window around Finjasjön, the published model cell reports:
 | Cerealia-type pollen | 1.319 |
 | rye pollen | 20.820 |
 
-Eight SEAD sites have at least one numeric chronology interval that both lies
+Seven SEAD sites have at least one numeric source-record interval that both lies
 within 20 km and overlaps this window. The correct reading is that modeled
 open/agricultural cover and time-compatible archaeology context coexist in the
-declared cell and window. It is not evidence that those eight sites caused the
+declared cell and window. It is not evidence that those seven sites caused the
 vegetation estimate or cultivated the shore of Finjasjön.
 
 Now compare 0–100 BP: forest is 44.300, open land 55.700, agricultural land
