@@ -12949,7 +12949,7 @@
     },
     "relational_detail": {
       "build_id": "sha256:92dd52619837f3641d004a1a5dbe38f9ab6023a79f61989314bb90e612eb58e1",
-      "materialization_sha256": "e295ddccefdf3fa9f8519985843b4108975a367af14e16e9b4272157f183b4dd",
+      "materialization_sha256": "7d9bf04538f6fc9db0582a85656defc3b262b86b782d99bf310d2fec4ae96406",
       "path": "data/neotoma/relational",
       "source_snapshot_id": "sha256:b2bcb99157e10b0c9f13c228acc12eabcb39d96a1f39c86ec25e34aacd78c791"
     }

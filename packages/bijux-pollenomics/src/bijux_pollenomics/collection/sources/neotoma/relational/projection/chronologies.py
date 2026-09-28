@@ -24,6 +24,7 @@ def project_chronologies(
     default_source_id = optional_source_id(unit.get("defaultchronology"))
     chronology_ids_by_source: dict[str, str] = {}
     flagged_default_ids: list[str] = []
+    flagged_by_age_type: dict[str, list[str]] = {}
     chronologies = unit.get("chronologies")
     if not isinstance(chronologies, list):
         chronologies = []
@@ -64,6 +65,11 @@ def project_chronologies(
         source_is_default = chronology_metadata.get("isdefault") is True
         if source_is_default and chronology_source_id is not None:
             flagged_default_ids.append(chronology_source_id)
+            age_type = chronology_metadata.get("modelagetype")
+            if isinstance(age_type, str) and age_type.strip():
+                flagged_by_age_type.setdefault(age_type.strip(), []).append(
+                    chronology_source_id
+                )
         register_record(
             state.tables["chronologies"],
             {
@@ -95,8 +101,22 @@ def project_chronologies(
             country_code=country_code,
         )
 
-    expected_flags = [default_source_id] if default_source_id is not None else []
-    if sorted(flagged_default_ids) != expected_flags:
+    # Neotoma permits one default chronology *per age type*. The collection
+    # unit's scalar reference selects one chronology for its own presentation.
+    duplicate_age_types = {
+        age_type: ids for age_type, ids in flagged_by_age_type.items() if len(ids) > 1
+    }
+    missing_flag_age_type = len(flagged_default_ids) != sum(
+        len(ids) for ids in flagged_by_age_type.values()
+    )
+    if (
+        duplicate_age_types
+        or missing_flag_age_type
+        or (
+            default_source_id is not None
+            and default_source_id not in flagged_default_ids
+        )
+    ):
         add_conflict(
             state.conflicts,
             "default_chronology_assertions_conflict",
@@ -112,6 +132,10 @@ def project_chronologies(
                     f"neotoma:chronology:{unit_source_id}:{source_id}"
                     for source_id in sorted(flagged_default_ids)
                 ],
+                "duplicate_default_age_types": {
+                    age_type: sorted(ids)
+                    for age_type, ids in sorted(duplicate_age_types.items())
+                },
                 "governing_selection": "collection_unit.defaultchronology",
             },
         )

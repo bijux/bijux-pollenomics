@@ -4,7 +4,14 @@ The [retained result](summary.json) verifies the unchanged relational snapshot
 through the production materialization reader. It includes 200 sites, 206
 collection units, 209 datasets, 384 chronologies, 2,798 chronology controls,
 12,388 samples, 23,281 age claims, 1,262 variables and 370,936 observations.
-The source also retains 144 conflict records and 52 orphan records.
+The source retains 33 conflict records and 52 orphan records. The 33 include
+32 chronology-control payload conflicts and one actual same-age-type default
+chronology conflict. The earlier materialization reported 144 conflicts because
+it treated multiple default chronologies of different age types as contradictory.
+[Neotoma's chronology manual](https://open.neotomadb.org/manual/chronology-age-related-tables-1.html)
+permits one default per age type; the corrected producer preserves those valid
+radiocarbon/calibrated pairs. The raw source and all other relational row counts
+are unchanged.
 
 The reader checks parent existence and consistent site, collection unit, dataset
 and country ownership across the source graph, alongside manifested file hashes,
@@ -13,7 +20,8 @@ compact parent index does not retain the observation population. The atomic
 materializer uses the same reader before publishing its staging directory.
 
 Unresolved chronology references remain explicit nulls; missing reference fields
-are refused. Source zeros and source conflict/orphan records remain unchanged.
+are refused. Source zeros remain unchanged, while corrected default conflict
+accounting is fully manifested.
 This validates relational transport, not chronological comparability, taxon
 review, propagation eligibility or measured vegetation accuracy.
 
