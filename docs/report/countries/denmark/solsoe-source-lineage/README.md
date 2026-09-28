@@ -51,6 +51,13 @@ samples use the latter model's comparable ages. This narrows core identity but
 does not select the LandClim II author chronology or establish a historical
 basin outline.
 
+The [primary 1981 pollen-count join](pangaea-pollen-profile/README.md) now
+also matches all 66 core depths and all 2,881 positive counts to the Neotoma
+1981 core, with 129 exact parameter names and 18 unique numerical rename
+candidates. The complete 147-parameter count total is 128,653. This
+authenticates that core's Neotoma count lineage, but still does not identify
+the 79 LandClim II author samples or their 31-target counting denominator.
+
 The LandClim II metadata mark access `R` and use an **authors chronology**;
 the 91 selected Neotoma samples have calibrated age claims.
 The site-level similarity supports a shared Solsø location and a concrete
