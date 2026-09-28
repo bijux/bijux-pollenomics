@@ -1,0 +1,7 @@
+group,discovered_with_governed_country,source_reported_country_count,governed_assigned,retrieved_payload,normalized_consumer,source_country_posture,admission_posture
+SE,1925,not_supplied,1925,1925,1925,not_supplied,governed_site_context
+DK,59,not_supplied,59,59,59,not_supplied,governed_site_context
+NO,45,not_supplied,45,45,45,not_supplied,governed_site_context
+FI,40,not_supplied,40,40,40,not_supplied,governed_site_context
+REVIEW,103,not_supplied,0,0,0,not_supplied,excluded_pending_review
+UNASSIGNED,23,not_supplied,0,0,0,not_supplied,excluded_pending_review
