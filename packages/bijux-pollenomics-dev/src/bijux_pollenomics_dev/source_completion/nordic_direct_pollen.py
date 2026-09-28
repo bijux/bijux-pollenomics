@@ -39,7 +39,7 @@ BASELINE_METHODS: tuple[
     "inverse_distance_squared",
 )
 METHODS = BASELINE_METHODS + ("clr_rbf_ridge",)
-COUNTRIES = ("FI", "NO")
+COUNTRIES = ("DK", "FI", "NO")
 SWEDISH_DATASETS = {
     "19913": {"label": "Abborrtjärnen", "site_id": "13338", "part": "part-004.json"},
     "53995": {"label": "Bussjösjön", "site_id": "28869", "part": "part-008.json"},
@@ -132,6 +132,22 @@ def _is_direct_pollen_count(row: dict[str, Any]) -> bool:
         and isinstance(name, str)
         and bool(name.strip())
     )
+
+
+def _select_comparable_age(
+    claims: list[dict[str, Any]], chronologies: dict[str, dict[str, Any]]
+) -> dict[str, Any] | None:
+    """Select the sole comparable age or a unique source-flagged default."""
+    if not claims:
+        return None
+    if len(claims) == 1:
+        return claims[0]
+    flagged = [
+        claim
+        for claim in claims
+        if chronologies[claim["chronology_id"]]["source_is_default_assertion"]
+    ]
+    return flagged[0] if len(flagged) == 1 else None
 
 
 def _site_coordinate(geography: str) -> SiteCoordinate:
@@ -322,6 +338,7 @@ def _neotoma_candidates(
     datasets = surface_rows("datasets")
     sites = surface_rows("sites")
     ages = surface_rows("age_claims")
+    chronologies = surface_rows("chronologies")
     observations = surface_rows("observations")
     screen = inspect_neotoma_lra_pollen_screen(
         raw_root=raw_root,
@@ -336,6 +353,7 @@ def _neotoma_candidates(
         ):
             age_by_sample[age_claim["subject_id"]].append(age_claim)
     dataset_by_id = {row["dataset_id"]: row for row in datasets}
+    chronology_by_id = {row["chronology_id"]: row for row in chronologies}
     site_by_id = {row["site_id"]: row for row in sites}
     sample_by_id = {row["sample_id"]: row for row in samples}
     candidate_ids: set[str] = {
@@ -344,36 +362,45 @@ def _neotoma_candidates(
         if sample_id in sample_by_id
         and sample_by_id[sample_id]["country_code"] in COUNTRIES
     }
-    if (
-        len([sid for sid in candidate_ids if sample_by_id[sid]["country_code"] == "NO"])
-        != 921
-    ):
-        raise ValueError(
-            "Norway direct-pollen screen no longer matches the retained 921 candidates"
-        )
-    if (
-        len([sid for sid in candidate_ids if sample_by_id[sid]["country_code"] == "FI"])
-        != 127
-    ):
-        raise ValueError(
-            "Finland direct-pollen screen no longer matches the retained 127 candidates"
-        )
+    for country in COUNTRIES:
+        if (
+            sum(
+                sample_by_id[sample_id]["country_code"] == country
+                for sample_id in candidate_ids
+            )
+            != screen["country_denominators"][country]["screen_candidate_samples"]
+        ):
+            raise ValueError(f"{country} pollen screen candidate count differs")
 
     profiles: dict[str, dict[str, Any]] = {}
     target_metadata: dict[str, dict[str, Any]] = {}
     age_basis_by_sample: dict[str, tuple[float, str]] = {}
+    selected_age_claims_by_sample: dict[str, str] = {}
     for country in COUNTRIES:
         country_sample_ids = sorted(
             sid for sid in candidate_ids if sample_by_id[sid]["country_code"] == country
         )
+        selected_country_sample_ids: list[str] = []
+        excluded_age_claims: list[dict[str, Any]] = []
         site_records: dict[str, dict[str, Any]] = {}
         for sample_id in country_sample_ids:
             claims = age_by_sample[sample_id]
-            if len(claims) != 1:
-                raise ValueError(
-                    f"candidate sample has ambiguous comparable ages: {sample_id}"
+            if not claims:
+                raise ValueError(f"screen candidate has no comparable age: {sample_id}")
+            claim = _select_comparable_age(claims, chronology_by_id)
+            if claim is None:
+                excluded_age_claims.append(
+                    {
+                        "sample_id": sample_id,
+                        "reason": "multiple_comparable_ages_without_one_source_default",
+                        "claim_ids": sorted(
+                            claim["chronology_claim_id"] for claim in claims
+                        ),
+                    }
                 )
-            claim = claims[0]
+                continue
+            selected_country_sample_ids.append(sample_id)
+            selected_age_claims_by_sample[sample_id] = claim["chronology_claim_id"]
             age_type = claim["source_age_type"]
             if age_type not in {"Calibrated radiocarbon years BP", "Calendar years BP"}:
                 raise ValueError(f"unsupported comparable BP basis: {age_type}")
@@ -430,7 +457,7 @@ def _neotoma_candidates(
             detail["sample_age_bases"][age_basis] += 1
 
         country_bins: dict[str, set[str]] = defaultdict(set)
-        for sample_id in country_sample_ids:
+        for sample_id in selected_country_sample_ids:
             sample_row = sample_by_id[sample_id]
             sample_age_bp, _ = age_basis_by_sample[sample_id]
             country_bins[sample_row["site_id"]].add(
@@ -476,7 +503,13 @@ def _neotoma_candidates(
             profiles[f"{country}:{site_id}"] = profile
         target_metadata[country] = {
             "country": country,
-            "candidate_samples": len(country_sample_ids),
+            "candidate_samples": len(selected_country_sample_ids),
+            "source_screen_candidate_samples": len(country_sample_ids),
+            "excluded_age_claims": excluded_age_claims,
+            "selected_age_claim_ids": {
+                sample_id: selected_age_claims_by_sample[sample_id]
+                for sample_id in selected_country_sample_ids
+            },
             "sites": metadata_sites,
         }
 
@@ -485,7 +518,7 @@ def _neotoma_candidates(
     for row in observations:
         sample_id = row["sample_id"]
         candidate_sample = sample_by_id.get(sample_id)
-        if sample_id not in candidate_ids or candidate_sample is None:
+        if sample_id not in selected_age_claims_by_sample or candidate_sample is None:
             continue
         if not _is_direct_pollen_count(row):
             continue
@@ -763,12 +796,16 @@ def _nordic_target_outcomes(
     ages = _read_rows(
         relational_root / manifest["surfaces"]["age_claims"]["parts"][0]["path"]
     )
+    selected_age_claim_ids = metadata["selected_age_claim_ids"]
     age_by_sample = {
         row["subject_id"]: row
         for row in ages
         if row["subject_type"] == "sample"
         and row["comparability_status"] == "comparable"
+        and selected_age_claim_ids.get(row["subject_id"]) == row["chronology_claim_id"]
     }
+    if set(age_by_sample) != set(selected_age_claim_ids):
+        raise ValueError("selected target age-claim identities changed before scoring")
     sample_by_id = {row["sample_id"]: row for row in samples}
     outcome_ids: set[str] = set()
     for site in metadata["sites"]:
@@ -1130,7 +1167,7 @@ def _publish_results(
         "",
         "This is a prior-exposed exploratory prediction of a closed 16-label, exact-name Neotoma pollen subcomposition. It predicts observed pollen composition; it is not an LRA reconstruction, measured vegetation estimate, or confirmatory test.",
         "",
-        "The entire target country is omitted from each prediction's training set. Finland is one physical site group and Norway has 14; all Swedish training groups are the three previously admitted Neotoma sites. Targets use sample-owned Neotoma ages and site coordinates only. Prediction files are saved and hashed before the scoring command reads held-out count profiles.",
+        "The entire target country is omitted from each prediction's training set. Denmark, Finland and Norway contribute the source-backed physical site groups counted below; Sweden contributes the three previously admitted Neotoma training sites. Targets use selected sample-owned Neotoma ages and site coordinates only. Prediction files are saved and hashed before the scoring command reads held-out count profiles.",
         "",
         "The fixed methods are training mean, nearest site, inverse-distance-squared, and the existing CLR/WGS84 RBF-ridge (half-count smoothing on training cells, median positive training-distance scale, ridge 0.01). They are comparisons, not a Nordic-tuned winner search. No target-country outcome is used to choose taxa: the 16 literal labels are inherited from the earlier Swedish direct-pollen cohort.",
         "",
@@ -1153,13 +1190,6 @@ def _publish_results(
         lines.append(
             f"| {country} | {cohort_counts[country]['candidate_samples']} | {cohort_counts[country]['candidate_sites']} | {candidate_bins} | {eligible_bins} | {predicted_bins} | {scored_bins} | {refused_bins} |"
         )
-    denmark = input_manifest["source_screen_country_denominators"]["DK"]
-    lines.extend(
-        [
-            "",
-            f"Denmark has {denmark['samples']} samples in the same retained screen but {denmark['screen_candidate_samples']} agreeing-pollen/count plus comparable-age candidate samples; no country-held-out prediction was eligible.",
-        ]
-    )
     lines.extend(
         [
             "",
@@ -1184,19 +1214,19 @@ def _publish_results(
     lines.extend(
         [
             "",
-            "Site-macro scores average bins within each physical site and then weight sites equally within country. The single Finnish site cannot estimate between-site Finnish variation. Country-held-out scores are descriptive transfer results from this captured EPD subset, not evidence for all Nordic landscapes or all time periods. `coverage.csv` retains site-level age/count candidate bins and separates positive closed-axis outcomes, predicted bins, scored bins, empty/refused target outcomes, and eligible bins without a prediction.",
+            "Site-macro scores average bins within each physical site and then weight sites equally within country. Denmark has one physical site group and cannot estimate between-site Danish variation. Country-held-out scores are descriptive transfer results from this captured EPD subset, not evidence for all Nordic landscapes or all time periods. `coverage.csv` retains site-level age/count candidate bins and separates positive closed-axis outcomes, predicted bins, scored bins, empty/refused target outcomes, and eligible bins without a prediction.",
             "",
             "## Source and limits",
             "",
-            "The Norwegian and Finnish candidates and the Swedish training cohorts come from European Pollen Database datasets distributed through Neotoma. The [Neotoma source review](../../../../public/pollenomics-data/sources/neotoma.md) records EPD reuse under CC BY 4.0 with Neotoma, EPD, and original investigator attribution. Dataset identifiers, DOIs, and contributors are retained in `cohort.csv` and `training-sources.csv`. No PPE, fall-speed, basin-area, or vegetation-reference assumption is needed for observed-pollen prediction; those inputs remain blocked for LRA and measured-vegetation claims.",
+            "The Danish, Finnish, Norwegian and Swedish cohorts come from European Pollen Database datasets distributed through Neotoma. The [Neotoma source review](../../../../public/pollenomics-data/sources/neotoma.md) records EPD reuse under CC BY 4.0 with Neotoma, EPD, and original investigator attribution. Dataset identifiers, DOIs, and contributors are retained in `cohort.csv` and `training-sources.csv`. No PPE, fall-speed, basin-area, or vegetation-reference assumption is needed for observed-pollen prediction; those inputs remain blocked for LRA and measured-vegetation claims.",
             "",
-            "All candidates have one source-owned comparable sample-age claim in the retained snapshot. Norway contains both calibrated radiocarbon years BP and calendar years BP, which share the BP calendar reference but retain their distinct source labels in the input profile. Finland candidates are calendar years BP. Chronology uncertainty bounds are not supplied. Fixed 500-year bins are an exploratory alignment choice.",
+            "All selected candidates have one source-owned comparable sample-age claim after the declared chronology rule: when several comparable claims exist, use the unique source-flagged default for its age type; otherwise refuse the sample. Neotoma permits one default chronology per age type, so a radiocarbon and a calibrated chronology can both be flagged without contradicting each other ([Neotoma chronology manual](https://open.neotomadb.org/manual/chronology-age-related-tables-1.html)). The corrected source projection removes false cross-age-type conflicts while retaining genuine same-age-type conflicts. Sample age type labels remain in the input profiles. Source uncertainty bounds vary by record and are not propagated into the exploratory fixed 500-year bins.",
             "",
             "Target bins lacking two positive-count training sites, bins with no positive count on the fixed 16-label axis, and predictions without target outcomes remain unscored; the CSV files retain the actual prediction and scoring denominators. Spatial coordinates from polygon geometry centroids are approximate source locations. No independent vegetation truth was used.",
             "",
             "## Reproduction",
             "",
-            "From the repository root, run `PYTHONPATH=packages/bijux-pollenomics/src:packages/bijux-pollenomics-dev/src .venv/bin/python -m bijux_pollenomics_dev.source_completion.nordic_direct_pollen prepare --relational-root data/neotoma/relational --raw-root data/neotoma/raw/neotoma_pollen_dataset_downloads --workdir artifacts/nordic-direct-pollen`, then run `predict` separately for `NO` and `FI`, then run `score` with `--relational-root data/neotoma/relational --workdir artifacts/nordic-direct-pollen --publish-dir docs/report/regions/nordic/direct-pollen`. The prediction commands do not read the held-out outcome inputs. Input and prediction hashes are retained in `manifest.json`.",
+            "From the repository root, run `PYTHONPATH=packages/bijux-pollenomics/src:packages/bijux-pollenomics-dev/src .venv/bin/python -m bijux_pollenomics_dev.source_completion.nordic_direct_pollen prepare --relational-root data/neotoma/relational --raw-root data/neotoma/raw/neotoma_pollen_dataset_downloads --workdir artifacts/nordic-direct-pollen`, then run `predict` separately for `DK`, `FI` and `NO`, then run `score` with `--relational-root data/neotoma/relational --workdir artifacts/nordic-direct-pollen --publish-dir docs/report/regions/nordic/direct-pollen`. The prediction commands do not read the held-out outcome inputs. Input and prediction hashes are retained in `manifest.json`.",
             "",
         ]
     )

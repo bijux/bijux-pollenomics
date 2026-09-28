@@ -4,7 +4,7 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-09-21
+last_reviewed: 2026-09-28
 ---
 
 # Neotoma
@@ -42,7 +42,7 @@ chronologies, 2,798 chronology controls, 12,388 samples, 23,281 age claims,
 1,262 variables, and 370,936 observations.
 
 The age claims remain partitioned by comparability: 11,526 comparable, 10,622
-context-only, 294 refused, and 839 unresolved. The snapshot also preserves 150
+context-only, 294 refused, and 839 unresolved. The corrected snapshot preserves 33
 conflict records and 52 orphan records rather than hiding them. Of the 200
 sites, 193 have assigned governed-country decisions and are spatially eligible;
 7 remain in review under `UNASSIGNED` and are blocked from propagation.
@@ -53,6 +53,41 @@ and build
 `sha256:92dd52619837f3641d004a1a5dbe38f9ab6023a79f61989314bb90e612eb58e1`.
 The manifest validates row counts, stable IDs, country partitions, part hashes,
 and the complete materialization digest.
+
+### Current sample-level pollen screen
+
+The [governed prerequisite screen](../../../report/source-relations/neotoma/pollen-screen/README.md)
+uses the corrected relational projection and the captured raw source. Neotoma
+allows one default chronology per age type; a radiocarbon and a calibrated
+default within one collection unit do not constitute a conflict. The earlier
+projection incorrectly treated these as contradictory and excluded valid
+count observations. The [chronology manual](https://open.neotomadb.org/manual/chronology-age-related-tables-1.html)
+states this source rule.
+
+| Source partition | Captured samples | Agreeing pollen count observations | Necessary candidate samples | Refused samples |
+| --- | ---: | ---: | ---: | ---: |
+| Sweden | 5,764 | 125,067 | 5,011 | 753 |
+| Denmark | 279 | 7,930 | 91 | 188 |
+| Norway | 3,884 | 91,852 | 3,544 | 340 |
+| Finland | 2,184 | 33,171 | 1,797 | 387 |
+| Unassigned | 277 | 7,503 | 194 | 83 |
+| **Captured total** | **12,388** | **265,523** | **10,637** | **1,751** |
+
+These are source prerequisites: agreeing source pollen labels, finite integer
+counts and a sample-owned comparable typed age. They are not selected LRA
+taxa, PPE, basin geometry or a validated pollen denominator. No real source
+sample has been admitted to LRA or measured-vegetation accuracy evaluation.
+The [Nordic country-held-out direct-pollen study](../../../report/regions/nordic/direct-pollen/RESULTS.md)
+uses a separately declared 16-label observed-pollen subcomposition and retains
+all target-country exclusions and scores.
+
+### Historical screen before chronology correction
+
+The following 21 September source screens and derived priority/mass reviews
+were made with the former projection. Their counts and artifact paths document
+the earlier decision only; they do not describe the current relational
+snapshot or current country cohort. Do not use their candidate counts as present
+LRA or held-out prediction denominators.
 
 ### Sample-level LRA prerequisite screen
 

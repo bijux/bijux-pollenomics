@@ -6,6 +6,7 @@ import pytest
 
 from bijux_pollenomics_dev.source_completion.nordic_direct_pollen import (
     _is_direct_pollen_count,
+    _select_comparable_age,
     _site_coordinate,
 )
 
@@ -65,3 +66,16 @@ def test_direct_count_requires_literal_pollen_nisp_integer(
     row.update(changes)
 
     assert _is_direct_pollen_count(row) is expected
+
+
+def test_comparable_age_prefers_one_source_default_and_refuses_ambiguity() -> None:
+    first = {"chronology_id": "source-default", "source_age_value": 200}
+    second = {"chronology_id": "alternative", "source_age_value": 260}
+    chronologies = {
+        "source-default": {"source_is_default_assertion": True},
+        "alternative": {"source_is_default_assertion": False},
+    }
+    assert _select_comparable_age([second, first], chronologies) == first
+    assert _select_comparable_age([second], chronologies) == second
+    chronologies["alternative"]["source_is_default_assertion"] = True
+    assert _select_comparable_age([second, first], chronologies) is None

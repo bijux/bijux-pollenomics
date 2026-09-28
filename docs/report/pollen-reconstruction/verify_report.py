@@ -122,6 +122,16 @@ def main() -> None:
 
     nordic_dir = REPOSITORY_ROOT / "docs/report/regions/nordic/direct-pollen"
     nordic = json.loads((nordic_dir / "manifest.json").read_text(encoding="utf-8"))
+    declared = scope["producer_and_source_identities"]
+    if (
+        declared["nordic_direct_pollen_scored_rows"] != nordic["scored_rows"]
+        or declared["nordic_direct_pollen_prediction_rows"]
+        != nordic["prediction_counts"]
+    ):
+        raise ValueError("Nordic report scope differs from retained prediction counts")
+    countries = set(scope["nordic_direct_pollen_country_holdout"]["target_countries"])
+    if countries != set(nordic["prediction_sha256"]):
+        raise ValueError("Nordic target countries differ from retained predictions")
     for field, filename in {
         "results_sha256": "RESULTS.md",
         "cohort_sha256": "cohort.csv",
@@ -133,7 +143,7 @@ def main() -> None:
     }.items():
         if nordic[field] != sha256(nordic_dir / filename):
             raise ValueError(f"Nordic direct-pollen digest mismatch: {filename}")
-    for country in ("FI", "NO"):
+    for country in sorted(countries):
         prediction_path = nordic_dir / f"predictions-{country}.json"
         if nordic["prediction_sha256"][country] != sha256(prediction_path):
             raise ValueError(
