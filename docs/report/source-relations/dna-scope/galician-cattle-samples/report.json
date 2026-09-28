@@ -1,0 +1,145 @@
+{
+  "admission_posture": {
+    "atlas_point_admitted": false,
+    "nordic_relevance": "none_galician_source_context",
+    "project_paper_linkage_promoted": false,
+    "sample_chronology_resolved": false,
+    "sample_site_resolved": false,
+    "sample_species_resolved": true
+  },
+  "curated_consumer": {
+    "inclusion_status": "sample_context_blocked",
+    "sample_count": 11,
+    "species_counts": {
+      "Bos primigenius": 3,
+      "Bos taurus": 8
+    }
+  },
+  "governed_normalized_samples": {
+    "sample_records.csv": {
+      "bytes": 165713,
+      "path": "data/adna/species/bos_taurus/normalized/sample_records.csv",
+      "sha256": "d404c42c5ca825158a813aaf8405a00cc5c5cdfefc7c66e0bb7aba4491bb1345"
+    },
+    "sample_records.json": {
+      "bytes": 583693,
+      "path": "data/adna/species/bos_taurus/normalized/sample_records.json",
+      "sha256": "83f91ca05b2a86ab67e981a99a2e3deacf00da16ed7d7b5d20c2374505270311"
+    }
+  },
+  "governed_sample_master": {
+    "sample_master.csv": {
+      "bytes": 5225,
+      "path": "data/adna/governance/source_library/projects/PRJNA705960/sample_master.csv",
+      "sha256": "9625685fe27082ac19f2ee3fc78d3fc474de013db30613913c7dcaa582e1b038"
+    },
+    "sample_master.json": {
+      "bytes": 16440,
+      "path": "data/adna/governance/source_library/projects/PRJNA705960/sample_master.json",
+      "sha256": "978176d4b0c235c71a7a55179eb3f5b002b5d0b1c0c40d38fa8a81658e1dda6f"
+    }
+  },
+  "paper_specimen_count": 18,
+  "project_accession": "PRJNA705960",
+  "project_species_latin_name": "Bos taurus",
+  "sample_count": 11,
+  "sample_review_csv": {
+    "path": "samples.csv",
+    "row_count": 11,
+    "sha256": "a423250b6e9d7f963bbda64f8ff483a906147b611ef32e51ec6a5745341adc39"
+  },
+  "sample_species_counts": {
+    "Bos primigenius": 3,
+    "Bos taurus": 8
+  },
+  "schema_version": "galician-cattle-sample-species-review.v1",
+  "source_hashes": {
+    "paper_crosswalk_report": {
+      "bytes": 7889,
+      "path": "docs/report/source-relations/dna-scope/galician-cattle-paper.json",
+      "sha256": "2a4d441163c5b30d0fd8c89a44a4a641f5cd7f2f2d1b0506f4d3af0798c2dacd"
+    },
+    "primary_captures": {
+      "archive": {
+        "bytes": 808,
+        "path": "data/adna/governance/source_library/projects/PRJNA705960/archive_metadata.html.gz",
+        "sha256": "8ed410e6f0087bed960f68b96b9443ff10cf596e9cde831f5c2a6a4db6bd8d11"
+      },
+      "article": {
+        "bytes": 226377,
+        "path": "artifacts/jobs/galician-cattle-paper/article.html",
+        "sha256": "618f06180b93d15a8a8fc370d87223ae9222a86ea13b4d343501f292e845ff92"
+      },
+      "biosample:SAMN18106827": {
+        "bytes": 3289,
+        "path": "artifacts/jobs/galician-cattle-paper/biosamples/SAMN18106827.xml",
+        "sha256": "1b5e69845740f1082db59ffad160c4d767f7a526c705637057bcbf17d59dbc56"
+      },
+      "biosample:SAMN18106828": {
+        "bytes": 3289,
+        "path": "artifacts/jobs/galician-cattle-paper/biosamples/SAMN18106828.xml",
+        "sha256": "279554633080208492faf6ffe08375b1a1cdce2469471974409c1128e517173c"
+      },
+      "biosample:SAMN18106829": {
+        "bytes": 3289,
+        "path": "artifacts/jobs/galician-cattle-paper/biosamples/SAMN18106829.xml",
+        "sha256": "87fad38a24d58089a96666abacd8cfb176b3bce6530c3d7ba00c2fca2f6f4e55"
+      },
+      "biosample:SAMN18106830": {
+        "bytes": 3270,
+        "path": "artifacts/jobs/galician-cattle-paper/biosamples/SAMN18106830.xml",
+        "sha256": "738218c9d8102867e71c4539d355c4b941ef329988133df396668329a3a3984f"
+      },
+      "biosample:SAMN18106831": {
+        "bytes": 3280,
+        "path": "artifacts/jobs/galician-cattle-paper/biosamples/SAMN18106831.xml",
+        "sha256": "aca9dcfec5be35071c69fd855afc213e671719731f77d5b21e78ae5a2c9409c7"
+      },
+      "biosample:SAMN18106832": {
+        "bytes": 3276,
+        "path": "artifacts/jobs/galician-cattle-paper/biosamples/SAMN18106832.xml",
+        "sha256": "815954804fc3adf2c4b287d3ea7d922aebf18e92ec9dee5edb03e719f6f4aae3"
+      },
+      "biosample:SAMN18106833": {
+        "bytes": 3279,
+        "path": "artifacts/jobs/galician-cattle-paper/biosamples/SAMN18106833.xml",
+        "sha256": "94b2c74229efde8db1fc0d17f3feab81233ce3c7230b6cf5874f5a837592f1b1"
+      },
+      "biosample:SAMN18106834": {
+        "bytes": 3278,
+        "path": "artifacts/jobs/galician-cattle-paper/biosamples/SAMN18106834.xml",
+        "sha256": "324cbf93ae1e80f39487834a428ac72aa0dfa38887d23860a7ed768d1eb56046"
+      },
+      "biosample:SAMN18106835": {
+        "bytes": 3281,
+        "path": "artifacts/jobs/galician-cattle-paper/biosamples/SAMN18106835.xml",
+        "sha256": "96f54308d4c6fb9c7c0b5f73542aa04a8c39814810532921f420b79fb4c7e58e"
+      },
+      "biosample:SAMN18106836": {
+        "bytes": 3280,
+        "path": "artifacts/jobs/galician-cattle-paper/biosamples/SAMN18106836.xml",
+        "sha256": "aecb76241436816799ae35ffae7b44514de2571567233cab2898672d70eb67e3"
+      },
+      "biosample:SAMN18106837": {
+        "bytes": 3264,
+        "path": "artifacts/jobs/galician-cattle-paper/biosamples/SAMN18106837.xml",
+        "sha256": "f32998eb1b55095ee6449f15d6194d050d0927e1e481fbd2e7d60c84f8266e70"
+      },
+      "correction": {
+        "bytes": 74903,
+        "path": "artifacts/jobs/galician-cattle-paper/correction.html",
+        "sha256": "224262535ab0a64c08eda4c051277f4de82106a96ea046044b650879ded335e2"
+      },
+      "dating_table": {
+        "bytes": 8374,
+        "path": "artifacts/jobs/galician-cattle-paper/dating-table.xlsx",
+        "sha256": "b719eaa15c9a86c5fa06ca3f28690330a0202a82e29800fc47b98fdd5087be03"
+      },
+      "mapping_table": {
+        "bytes": 6450,
+        "path": "artifacts/jobs/galician-cattle-paper/mapping-table.xlsx",
+        "sha256": "e4cd547dd6983fb7974a84ec73ae5617009f9379da0e69880d96b97ac7ce88a4"
+      }
+    }
+  }
+}

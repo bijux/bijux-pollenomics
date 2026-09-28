@@ -27,6 +27,10 @@ from .identity import (
     _taxon_alignment_status,
 )
 from .models import AdnaProjectSampleMaster, AdnaProjectSampleMasterRow
+from .tables.galician_cattle import (
+    resolve_galician_sample_species,
+    validate_galician_archive_samples,
+)
 
 
 def _empty_sample_master_row(master: AdnaProjectSampleMaster) -> dict[str, object]:
@@ -168,8 +172,15 @@ def _project_scope_archive_sample_rows(
     if not archive_path.is_file():
         return ()
     archive_samples = read_archive_project_samples(archive_path)
+    if project.project_accession == "PRJNA705960":
+        validate_galician_archive_samples(archive_samples)
     rows = []
     for sample in archive_samples:
+        sample_species = (
+            resolve_galician_sample_species(sample)
+            if project.project_accession == "PRJNA705960"
+            else (species.latin_name, species.common_name)
+        )
         experiment_only = (
             sample.source_native_identity_kind == "sequencing_experiment_accession"
         )
@@ -180,8 +191,8 @@ def _project_scope_archive_sample_rows(
         )
         rows.append(
             AdnaProjectSampleMasterRow(
-                species_latin_name=species.latin_name,
-                species_common_name=species.common_name,
+                species_latin_name=sample_species[0],
+                species_common_name=sample_species[1],
                 project_accession=project.project_accession,
                 repo_stable_sample_id=(
                     f"{project.project_accession}:"

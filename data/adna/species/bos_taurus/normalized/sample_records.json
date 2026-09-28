@@ -10660,7 +10660,7 @@
         "namespace": "bos_taurus:curated_sample",
         "stable_token": "bos_taurus:sample:prjna705960:samn18106827",
         "accession_lineage": [
-          "species:Bos taurus",
+          "species:Bos primigenius",
           "source:ENA",
           "project:PRJNA705960",
           "sample:prjna705960:samn18106827"
@@ -10676,8 +10676,8 @@
           "archive_project_sample_accession_anchor"
         ]
       },
-      "species_latin_name": "Bos taurus",
-      "species_common_name": "cattle",
+      "species_latin_name": "Bos primigenius",
+      "species_common_name": "aurochs",
       "source_family": "ENA",
       "source_release": "PRJNA705960",
       "record_modality": "mitogenome_only",
@@ -10748,7 +10748,7 @@
         "namespace": "bos_taurus:curated_sample",
         "stable_token": "bos_taurus:sample:prjna705960:samn18106828",
         "accession_lineage": [
-          "species:Bos taurus",
+          "species:Bos primigenius",
           "source:ENA",
           "project:PRJNA705960",
           "sample:prjna705960:samn18106828"
@@ -10764,8 +10764,8 @@
           "archive_project_sample_accession_anchor"
         ]
       },
-      "species_latin_name": "Bos taurus",
-      "species_common_name": "cattle",
+      "species_latin_name": "Bos primigenius",
+      "species_common_name": "aurochs",
       "source_family": "ENA",
       "source_release": "PRJNA705960",
       "record_modality": "mitogenome_only",
@@ -10836,7 +10836,7 @@
         "namespace": "bos_taurus:curated_sample",
         "stable_token": "bos_taurus:sample:prjna705960:samn18106829",
         "accession_lineage": [
-          "species:Bos taurus",
+          "species:Bos primigenius",
           "source:ENA",
           "project:PRJNA705960",
           "sample:prjna705960:samn18106829"
@@ -10852,8 +10852,8 @@
           "archive_project_sample_accession_anchor"
         ]
       },
-      "species_latin_name": "Bos taurus",
-      "species_common_name": "cattle",
+      "species_latin_name": "Bos primigenius",
+      "species_common_name": "aurochs",
       "source_family": "ENA",
       "source_release": "PRJNA705960",
       "record_modality": "mitogenome_only",

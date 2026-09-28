@@ -151,7 +151,7 @@ def _build_sample_records(
                         f"{species.slug}:sample:{row.stable_sample_id.casefold()}"
                     ),
                     accession_lineage=(
-                        f"species:{species.latin_name}",
+                        f"species:{row.species_latin_name}",
                         f"source:{row.source_family}",
                         f"project:{row.project_accession}",
                         f"sample:{row.stable_sample_id}",
