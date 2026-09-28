@@ -58,6 +58,14 @@ candidates. The complete 147-parameter count total is 128,653. This
 authenticates that core's Neotoma count lineage, but still does not identify
 the 79 LandClim II author samples or their 31-target counting denominator.
 
+The [original Solsø study comparison](original-core-selection/README.md)
+independently matches all seven published 1983 radiocarbon controls to
+Neotoma and identifies which 1981/1983 core intervals Odgaard used. Applying
+those intervals to Neotoma calibrated ages yields 76 candidate samples, or
+74 within LandClim II's published age span; neither recovers its reported 79.
+The paper's 9000 BC basin reconstruction is age-specific, and the original
+study does not supply a radius for every selected pollen sample.
+
 The LandClim II metadata mark access `R` and use an **authors chronology**;
 the 91 selected Neotoma samples have calibrated age claims.
 The site-level similarity supports a shared Solsø location and a concrete

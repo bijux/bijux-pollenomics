@@ -1,0 +1,73 @@
+{
+  "schema_version": "solsoe-original-core-selection.v1",
+  "publication": {
+    "title": "The Holocene vegetation history of northern West Jutland",
+    "author": "Bent Vad Odgaard",
+    "year": 1994,
+    "url": "https://pure.au.dk/portal/en/publications/the-holocene-vegetation-history-of-northern-west-jutland/",
+    "pdf_url": "https://pure.au.dk/ws/files/39023242/Odgaard_1994_combined.pdf",
+    "pdf_sha256": "f6959549f955a5bf17540f41ca6c295f11f584c88e550627718fc555a9c3dadd",
+    "pdf_bytes": 12519377,
+    "source_pages": {
+      "basin_and_core_locations": "printed 35–36; PDF 32–33",
+      "core_selection": "printed 42; PDF 39",
+      "radiocarbon_controls": "printed 45; PDF 42"
+    }
+  },
+  "core_locations_in_paper_local_metres": {
+    "1981": {
+      "east": -33,
+      "north": 64
+    },
+    "1983": {
+      "east": -50,
+      "north": 70
+    },
+    "separation_metres": 18.027756377319946,
+    "georeferenced": false
+  },
+  "published_1983_controls": 7,
+  "neotoma_1983_control_rows": 14,
+  "neotoma_1983_chronologies": [
+    "neotoma:chronology:4304:25739",
+    "neotoma:chronology:4304:25740"
+  ],
+  "exact_published_control_matches": 7,
+  "paper_calendar_year_intervals": {
+    "1981": [
+      "9700–5260 BC",
+      "1540 BC–AD 1981"
+    ],
+    "1983": [
+      "5230–1750 BC"
+    ]
+  },
+  "proxy_age_rule": "BP = BC + 1950, applied to Neotoma calibrated sample ages, not the author's age model",
+  "neotoma_calibrated_samples": 92,
+  "paper_interval_proxy_samples": 76,
+  "paper_interval_proxy_by_core": {
+    "neotoma:collection-unit:4303": 56,
+    "neotoma:collection-unit:4304": 20
+  },
+  "paper_interval_and_landclim_age_span_proxy_samples": 74,
+  "paper_interval_and_landclim_age_span_proxy_by_core": {
+    "neotoma:collection-unit:4303": 54,
+    "neotoma:collection-unit:4304": 20
+  },
+  "landclim_ii_reported_sample_count": 79,
+  "paper_interval_proxy_gap_to_landclim_ii": 3,
+  "bounded_proxy_gap_to_landclim_ii": 5,
+  "input_identities": [
+    {
+      "path": "data/neotoma/relational/surfaces/chronology_controls/part-00001.json",
+      "bytes": 3908881,
+      "sha256": "bb84e43a97c3ac548505ad34e489c551ce44ab6c072d28aaa88bc287dbeeac84"
+    },
+    {
+      "path": "data/neotoma/relational/surfaces/age_claims/part-00001.json",
+      "bytes": 37052858,
+      "sha256": "6b8983b43138ec68895d96070508218d0b7c4f9908bf87860f96b79d2725c558"
+    }
+  ],
+  "lra_admitted_samples": 0
+}
