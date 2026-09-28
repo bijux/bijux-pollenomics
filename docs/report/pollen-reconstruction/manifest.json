@@ -11,8 +11,8 @@
     },
     {
       "path": "docs/public/pollenomics-data/sources/hyde.md",
-      "sha256": "4524fe6fb65bce89b68e18952932590bf6e9f545323245baab534f1104f90572",
-      "bytes": 13078
+      "sha256": "76b9a89a8efd32678578123bc1273f2aa87021eb002e57618efb9da7352ede19",
+      "bytes": 13098
     },
     {
       "path": "docs/public/pollenomics-data/sources/neotoma.md",
@@ -31,8 +31,8 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/README.md",
-      "sha256": "240efaf3fab7cefbae3265bb999e216b934b595b1f03f30a7dd6dea3d1621ff9",
-      "bytes": 24567
+      "sha256": "916861d44f22323a9fac48b08b722c82f0522c05a1df6594d0dd3179ff0bc399",
+      "bytes": 24702
     },
     {
       "path": "docs/report/pollen-reconstruction/author-development-design.json",
@@ -86,23 +86,23 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/paper-correspondence.csv",
-      "sha256": "fea0bef75a6cd1c0644b31022a502a154e3fe5fe66b7b74f58f5b6b47624fca3",
-      "bytes": 7962
+      "sha256": "c5cf637e717243a917c0fa3f5f74143f793c40a78636972d4c6f7fb1d3403a6c",
+      "bytes": 8013
     },
     {
       "path": "docs/report/pollen-reconstruction/paper-correspondence.md",
-      "sha256": "8c7ea09a884f5858c519009ed6405c0819032a4af41975c5ba5aa4dbbdfa33b6",
-      "bytes": 6736
+      "sha256": "62f2c66414ff781ff63715727f38a25877ca2076f8930171e7c75cc78f654089",
+      "bytes": 6759
     },
     {
       "path": "docs/report/pollen-reconstruction/results.csv",
-      "sha256": "b15dcdc1f78f29f0733b0fa21d0068a1e01e8ba1905d67089f6aedddd65a1f5d",
-      "bytes": 7681
+      "sha256": "1d528ab19c4830d7cc39d8304fa8c5cc38bb413cbff746d647b163fdcddf0c22",
+      "bytes": 7674
     },
     {
       "path": "docs/report/pollen-reconstruction/scope.json",
-      "sha256": "9b6367571a00fea845e52fbf36e4d11d860bf11b755b811e930f22a7d512611c",
-      "bytes": 8579
+      "sha256": "d0447eff41817c8f48f00b154b8cc9c9653f44110c43e0226410da3bd1b22e61",
+      "bytes": 8591
     },
     {
       "path": "docs/report/pollen-reconstruction/scores.csv",
@@ -301,8 +301,8 @@
     },
     {
       "path": "docs/report/regions/nordic/hyde-country-cropland/README.md",
-      "sha256": "ea5f8b7761bd545affb90da104cad75d2f7629e7d134d300c6ae865cd3465143",
-      "bytes": 2985
+      "sha256": "50e8022192a52ebd2a3fa1c8262a3e606140f504c7b319ebf5cd72a8458809ba",
+      "bytes": 2997
     },
     {
       "path": "docs/report/regions/nordic/hyde-country-cropland/country-years.csv",
@@ -311,23 +311,23 @@
     },
     {
       "path": "docs/report/regions/nordic/hyde-country-cropland/grid-conservation/README.md",
-      "sha256": "6c56f754a8e2af28ff507db3df490cc31f202fd3a32a5d6138e76efba9340b4d",
-      "bytes": 2123
+      "sha256": "4f953577e7956366939389999dbb73e93a0824d42a0cfed925c9c640db781035",
+      "bytes": 2296
     },
     {
       "path": "docs/report/regions/nordic/hyde-country-cropland/grid-conservation/grid-conservation.csv",
-      "sha256": "dae8262548355016ea27a513ecacc66750b3e464830c2a962b46836d6d79181b",
-      "bytes": 1283
+      "sha256": "1e2da01a1fd2d2f4a2c2cdc1c652ed4ef9b0d2c00b0c2d9989c8db33c643b368",
+      "bytes": 7884
     },
     {
       "path": "docs/report/regions/nordic/hyde-country-cropland/grid-conservation/report.json",
-      "sha256": "bacc2bf834db6f62510759f039acd8a8d010a2fe63dadc27fff8a3cfe43b7f8a",
-      "bytes": 2013
+      "sha256": "adee39b87859b3adac60c4f9c8a33d987c446950572f058b545ed1010c098628",
+      "bytes": 5668
     },
     {
       "path": "docs/report/regions/nordic/hyde-country-cropland/report.json",
-      "sha256": "9e57634d090177d84a74723e50aa6bcae97d86701b1a8f7475371c424b014340",
-      "bytes": 1819
+      "sha256": "55d2e679fcacaabb0e64c641aae6f0ed9d5c90920adaeec91840b6117e725cbb",
+      "bytes": 1829
     },
     {
       "path": "docs/report/regions/nordic/pollen-development/README.md",
@@ -506,13 +506,13 @@
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/hyde_country_cropland.py",
-      "sha256": "e8cb5d18235b7c61025809868745a6974c3e432f286ebbfae3bacd7491fee5d4",
-      "bytes": 7070
+      "sha256": "f9e02d91ffb46f90ed3838500b97e0e15b5d783103b3a22a05b30c624f9e8f12",
+      "bytes": 7080
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/hyde_country_grid_conservation.py",
-      "sha256": "24582bd08bdeb28f06b0470e4ef246effc3c8225e83561248c851e33a470ad6f",
-      "bytes": 7673
+      "sha256": "985b21f3bd160ddacc157dd5a14b59d36c1d65b48bb78e54d342e71f8cbe9335",
+      "bytes": 7929
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/nordic_direct_pollen.py",

@@ -38,11 +38,12 @@ The [HYDE country result](../regions/nordic/hyde-country-cropland/README.md)
 now retains 84 source-reported cropland quantities for Denmark, Finland,
 Norway and Sweden across seven native CE labels and three scenarios. Its
 [native grid check](../regions/nordic/hyde-country-cropland/grid-conservation/README.md)
-reproduces all 12 year-2000 country/scenario totals from the release's ISO and
-cropland ASCII grids with a maximum absolute difference of about
-`7.04e-11` km², below the declared `1e-6` km² tolerance. This establishes a
-bounded internal modeled-source correspondence. No HYDE-assisted pollen model
-or independent vegetation validation has been scored; release rights, formal
+reproduces all 84 country/year/scenario totals at seven selected CE labels
+from the release's ISO and cropland ASCII grids with a maximum absolute
+difference of about `8.50e-11` km², below the declared `1e-6` km² tolerance.
+This establishes a bounded internal modeled-source correspondence. No
+HYDE-assisted pollen model or independent vegetation validation has been
+scored; release rights, formal
 CRS and historical time support still require resolution.
 
 ## Repository evidence

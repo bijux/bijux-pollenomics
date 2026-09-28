@@ -27,7 +27,7 @@
   "excluded_claims": [
     "Nordic LRA and independent vegetation accuracy: no admitted inputs for those claims; DK/FI/NO direct-pollen results are exploratory, prior-exposed subcomposition predictions only",
     "Independent vegetation accuracy: no eligible measured pairs",
-    "HYDE-assisted pollen covariate effect: not evaluated; source country cropland and a 2000 CE native grid reconciliation are modeled context, not measured vegetation",
+    "HYDE-assisted pollen covariate effect: not evaluated; source country cropland and seven selected CE-label native grid reconciliations are modeled context, not measured vegetation",
     "Whole-paper historical reproduction: source inputs, chronology, rights and PFT mapping unresolved",
     "Untouched confirmatory prediction skill: all author pollen outcomes were previously exposed",
     "Swedish LRA prediction: no fold run because time-matched basin geometry and parameterized count denominator remain unresolved"
@@ -177,7 +177,7 @@
     "country_result": "docs/report/regions/nordic/hyde-country-cropland/report.json",
     "grid_result": "docs/report/regions/nordic/hyde-country-cropland/grid-conservation/report.json",
     "source_country_values": 84,
-    "conserved_2000_ce_country_scenario_pairs": 12,
+    "conserved_country_year_scenario_pairs": 84,
     "pollen_ablation": "not_run; release rights, formal CRS and historical time support remain unresolved"
   }
 }
