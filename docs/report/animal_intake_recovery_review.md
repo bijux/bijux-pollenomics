@@ -35,7 +35,7 @@ The four mutually exclusive buckets partition `1450` species-normalized sample r
 | `PRJEB7537` | `Equus caballus` | `extractable_sources_but_no_governed_samples` | `0` | `missing_primary_paper_linkage` |
 | `PRJEB81815` | `Felis catus` | `minimum_expected_floor_met` | `0` | `site_assignment_gap; chronology_gap` |
 | `PRJEB36540` | `Ovis aries` | `minimum_expected_floor_met` | `0` | `chronology_gap` |
-| `PRJEB41594` | `Ovis aries` | `minimum_expected_floor_met` | `0` | `site_assignment_gap; chronology_gap` |
+| `PRJEB41594` | `Ovis aries` | `minimum_expected_floor_met` | `0` | `chronology_gap` |
 | `PRJEB61808` | `Ovis aries` | `extractable_sources_but_no_governed_samples` | `0` | `missing_primary_paper_linkage` |
 | `PRJEB69690` | `Ovis aries` | `extractable_sources_but_no_governed_samples` | `0` | `missing_primary_paper_linkage` |
 | `PRJEB81145` | `Ovis aries` | `extractable_sources_but_no_governed_samples` | `0` | `missing_primary_paper_linkage` |

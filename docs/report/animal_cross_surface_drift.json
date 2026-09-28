@@ -55,7 +55,7 @@
     },
     {
       "species_latin_name": "Capra hircus",
-      "normalized_sample_row_count": 82,
+      "normalized_sample_row_count": 83,
       "normalized_site_evidence_count": 27,
       "normalized_coordinate_row_count": 27,
       "mappable_coordinate_row_count": 27,
@@ -94,8 +94,8 @@
     },
     {
       "species_latin_name": "Ovis aries",
-      "normalized_sample_row_count": 200,
-      "normalized_site_evidence_count": 8,
+      "normalized_sample_row_count": 199,
+      "normalized_site_evidence_count": 9,
       "normalized_coordinate_row_count": 2,
       "mappable_coordinate_row_count": 2,
       "atlas_evidence_row_count": 2,

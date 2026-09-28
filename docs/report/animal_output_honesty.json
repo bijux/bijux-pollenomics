@@ -4,7 +4,7 @@
     "tracked_sample_count": 1450,
     "mapped_sample_count": 331,
     "blocked_sample_count": 1119,
-    "unresolved_sample_count": 402,
+    "unresolved_sample_count": 398,
     "country_published_sample_count": 12
   },
   "rows": [
@@ -73,11 +73,13 @@
     {
       "species_latin_name": "Ovis aries",
       "species_common_name": "sheep",
-      "source_taxon_mismatches": {},
+      "source_taxon_mismatches": {
+        "Capra hircus": 1
+      },
       "tracked_sample_count": 200,
       "mapped_sample_count": 5,
       "blocked_sample_count": 195,
-      "unresolved_sample_count": 5,
+      "unresolved_sample_count": 1,
       "country_published_sample_count": 5
     },
     {

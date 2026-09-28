@@ -122,6 +122,7 @@
 | Canis lupus familiaris | KX379528-KX379529 | canis_lupus_familiaris:sample:kx379528-kx379529:kx379529 | Herxheim | site_curated |  | no coordinate provenance row currently supports point publication |
 | Canis lupus familiaris | SRS1407451 | canis_lupus_familiaris:sample:srs1407451:srs1407451 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
 | Canis lupus familiaris | SRS1407453 | canis_lupus_familiaris:sample:srs1407453:srs1407453 | Herxheim | site_curated |  | no coordinate provenance row currently supports point publication |
+| Capra hircus | PRJEB41594 | ovis_aries:sample:prjeb41594:samea8022722 | Obishir V | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
 | Equus caballus | PRJEB19970 | equus_caballus:sample:prjeb19970:cgg_1_016168 | Berel' | site_curated |  | no coordinate provenance row currently supports point publication |
 | Equus caballus | PRJEB19970 | equus_caballus:sample:prjeb19970:cgg_1_016169 | Berel' | site_curated |  | no coordinate provenance row currently supports point publication |
 | Equus caballus | PRJEB19970 | equus_caballus:sample:prjeb19970:cgg_1_016171 | Berel' | site_curated |  | no coordinate provenance row currently supports point publication |
@@ -757,11 +758,10 @@
 | Ovis aries | PRJEB36540 | ovis_aries:sample:prjeb36540:ulu4 | Ulucak Höyük | site_curated |  | no coordinate provenance row currently supports point publication |
 | Ovis aries | PRJEB36540 | ovis_aries:sample:prjeb36540:ulu6 | Ulucak Höyük | site_curated |  | no coordinate provenance row currently supports point publication |
 | Ovis aries | PRJEB36540 | ovis_aries:sample:prjeb36540:ulu9 | Ulucak Höyük | site_curated |  | no coordinate provenance row currently supports point publication |
-| Ovis aries | PRJEB41594 | ovis_aries:sample:prjeb41594:samea8022720 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
-| Ovis aries | PRJEB41594 | ovis_aries:sample:prjeb41594:samea8022721 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
-| Ovis aries | PRJEB41594 | ovis_aries:sample:prjeb41594:samea8022722 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
-| Ovis aries | PRJEB41594 | ovis_aries:sample:prjeb41594:samea8022723 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
-| Ovis aries | PRJEB41594 | ovis_aries:sample:prjeb41594:samea8022724 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
+| Ovis aries | PRJEB41594 | ovis_aries:sample:prjeb41594:samea8022720 | Obishir V | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
+| Ovis aries | PRJEB41594 | ovis_aries:sample:prjeb41594:samea8022721 | Obishir V | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
+| Ovis aries | PRJEB41594 | ovis_aries:sample:prjeb41594:samea8022723 | Obishir V | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
+| Ovis aries | PRJEB41594 | ovis_aries:sample:prjeb41594:samea8022724 | Obishir V | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
 | Rangifer tarandus | PRJEB60484 | rangifer_tarandus:sample:prjeb60484:samea112757323 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
 | Rangifer tarandus | PRJEB60484 | rangifer_tarandus:sample:prjeb60484:samea112757324 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
 | Rangifer tarandus | PRJEB60484 | rangifer_tarandus:sample:prjeb60484:samea112757325 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |

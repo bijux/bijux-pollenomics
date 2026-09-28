@@ -850,7 +850,7 @@
       "ingestion_status": "paper_source_archived",
       "paper_download_status": "archived",
       "supplement_download_status": "archived",
-      "unresolved_sample_count": 5,
+      "unresolved_sample_count": 1,
       "region_only_site_count": 0,
       "blockers": [
         "sample_context_blocked"

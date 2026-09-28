@@ -12,7 +12,7 @@
 - Tracked papers: `18`
 - Tracked supplements: `72`
 - Sample rows: `1450`
-- Site evidence rows: `537`
+- Site evidence rows: `538`
 - Sample site rows: `1455`
 - Chronology rows: `1455`
 - Coordinate rows: `308`
