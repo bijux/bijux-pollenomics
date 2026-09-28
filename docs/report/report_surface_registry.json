@@ -1,16 +1,16 @@
 {
   "schema_version": "report-surface-registry.v1",
-  "surface_count": 1373,
+  "surface_count": 1374,
   "family_counts": {
     "caveats": 10,
-    "maintenance": 699,
+    "maintenance": 700,
     "maps": 85,
     "portal": 2,
     "reviews": 33,
     "scopes": 544
   },
   "audience_counts": {
-    "maintainer_diagnostic": 701,
+    "maintainer_diagnostic": 702,
     "public_reading_surface": 553,
     "scientific_review_surface": 119
   },
@@ -20,7 +20,7 @@
     "finland": 14,
     "nordic": 306,
     "norway": 14,
-    "report_root": 747,
+    "report_root": 748,
     "sweden": 43,
     "world": 172
   },
@@ -13623,6 +13623,18 @@
     },
     {
       "repository_path": "docs/report/source-relations/neotoma/boke-basin/README.md",
+      "family": "maintenance",
+      "family_label": "Maintainer truth surfaces",
+      "audience": "maintainer_diagnostic",
+      "audience_label": "Maintainer diagnostic",
+      "format": "md",
+      "geography": "report_root",
+      "caution_level": "high",
+      "explanation": "Reader-facing entry page for one scope bundle.",
+      "reader_route": "start_here"
+    },
+    {
+      "repository_path": "docs/report/source-relations/neotoma/bussjosjon-basin/README.md",
       "family": "maintenance",
       "family_label": "Maintainer truth surfaces",
       "audience": "maintainer_diagnostic",

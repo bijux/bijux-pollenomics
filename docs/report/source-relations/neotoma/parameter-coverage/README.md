@@ -22,6 +22,9 @@ from genus to species or another parameter taxon would require a qualified
 source decision. Even Abborrtjärnen's high literal fraction does not establish
 its historical basin geometry, appropriate PPE/FSP profile, complete counting
 denominator or LRA eligibility. All 39 bins remain **unadmitted for LRA**.
+The [Bussjösjön basin review](../bussjosjon-basin/README.md) also records a
+2.5264 km mismatch between a published lake-inventory point and the Neotoma
+site point; its 3 ha inventory area cannot be assigned to these pollen bins.
 
 The [report](report.json) pins every consumed path, byte count and SHA-256, the
 separate direct-pollen response fraction, and the largest unmatched native
