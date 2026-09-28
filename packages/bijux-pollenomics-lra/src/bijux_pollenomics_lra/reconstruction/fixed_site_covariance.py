@@ -28,6 +28,8 @@ def fixed_site_cover_covariance(
     deposition: np.ndarray,
     ppe: np.ndarray,
     ppe_covariance: np.ndarray,
+    *,
+    taxon_measured: np.ndarray,
 ) -> FixedSiteCovariance:
     """Propagate conditional multinomial counts and independent PPE uncertainty.
 
@@ -48,6 +50,16 @@ def fixed_site_cover_covariance(
         if np.asarray(value).dtype.kind not in "iuf":
             raise ValidationError("Fixed-site parameters must be numeric, not coerced")
     n = np.asarray(raw_counts, dtype=float)
+    measured = np.asarray(taxon_measured)
+    if measured.dtype != bool or measured.shape != n.shape:
+        raise ValidationError(
+            "Measured-taxon mask must be boolean with site/taxon axes"
+        )
+    if not measured.all():
+        raise ValidationError(
+            "Unmeasured source taxa cannot be treated as observed zero counts",
+            reason_code="taxon_measurement_unresolved",
+        )
     k = np.asarray(deposition, dtype=float)
     p = np.asarray(ppe, dtype=float)
     cp = np.asarray(ppe_covariance, dtype=float)

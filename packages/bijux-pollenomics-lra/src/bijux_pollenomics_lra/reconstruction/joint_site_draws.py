@@ -28,6 +28,8 @@ def joint_site_cover_draws(
     site_indices: np.ndarray,
     count_draws: np.ndarray,
     ppe_draws: np.ndarray,
+    *,
+    taxon_measured: np.ndarray,
 ) -> JointSiteDrawResult:
     """Close supplied joint draws after correcting each sampled site's geometry.
 
@@ -43,6 +45,16 @@ def joint_site_cover_draws(
         for value in (counts, deposition, site_indices, count_draws, ppe_draws)
     ]
     n, k, indices, sampled, ppe = raw
+    measured = np.asarray(taxon_measured)
+    if measured.dtype != bool or measured.shape != n.shape:
+        raise ValidationError(
+            "Measured-taxon mask must be boolean with site/taxon axes"
+        )
+    if not measured.all():
+        raise ValidationError(
+            "Unmeasured source taxa cannot be treated as observed zero counts",
+            reason_code="taxon_measurement_unresolved",
+        )
     if (
         any(value.dtype.kind not in "iuf" for value in (n, k, sampled, ppe))
         or indices.dtype.kind not in "iu"

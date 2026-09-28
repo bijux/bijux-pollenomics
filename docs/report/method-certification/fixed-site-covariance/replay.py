@@ -27,6 +27,7 @@ SOURCE_FILES = (
 def replay(repository: Path) -> dict[str, object]:
     """Run one fixed-site example with distinct lake and peatland geometry."""
     counts = np.array([[30, 20, 50], [20, 65, 15]])
+    taxon_measured = np.ones_like(counts, dtype=bool)
     ppe = np.array([1.0, 1.5, 0.75])
     covariance = np.array(
         [[0.04, 0.015, -0.005], [0.015, 0.09, 0.01], [-0.005, 0.01, 0.0225]]
@@ -39,9 +40,15 @@ def replay(repository: Path) -> dict[str, object]:
             for kind, radius in basins
         ]
     )
-    result = fixed_site_cover_covariance(counts, deposition, ppe, covariance)
+    result = fixed_site_cover_covariance(
+        counts, deposition, ppe, covariance, taxon_measured=taxon_measured
+    )
     no_ppe_covariance = fixed_site_cover_covariance(
-        counts, deposition, ppe, np.zeros_like(covariance)
+        counts,
+        deposition,
+        ppe,
+        np.zeros_like(covariance),
+        taxon_measured=taxon_measured,
     )
     inputs = []
     for relative in SOURCE_FILES:
@@ -68,6 +75,7 @@ def replay(repository: Path) -> dict[str, object]:
         "wind_speed_m_s": 3.0,
         "regional_extent_m": 100_000.0,
         "counts": counts.tolist(),
+        "taxon_measured": taxon_measured.tolist(),
         "ppe": ppe.tolist(),
         "ppe_covariance": covariance.tolist(),
         "fall_speed_m_s": fall_speed.tolist(),

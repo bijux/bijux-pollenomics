@@ -5,7 +5,7 @@ source-bound deposition factors in the [fixed-site covariance
 example](../fixed-site-covariance/README.md). It retains **2,048** explicit
 paired replicates: [original-site indices and count/PPE draws](draws.json) and
 the resulting [closed cover draws](joint-cover-draws.csv). The report SHA-256
-is `ff4e5238ef7b12950a1e6b9a06e07f5c54fb946c83dc9af73fc507c7d216c090`.
+is `ab16d5edfffb56d2377782e75857d0f60ab76b19563d38ed2563d5af8a634152`.
 Each draw file has its own SHA-256 and byte count in the report. The declared
 seed is a reproduction aid; the retained arrays are the draw identities.
 
@@ -17,7 +17,9 @@ selected site entries. Counts are divided by their own site's deposition
 factor before pooling, then by the shared PPE and closed to fractions. The
 reported mean is the arithmetic mean of closed replicate covers. This
 definition differs from the historical R release's ratio of accumulated
-unclosed weights.
+unclosed weights. The synthetic fixture marks all three taxa as measured at
+both sites; the API refuses any unresolved not-measured taxon rather than
+converting it to an observed zero.
 
 | Paired scenario | A SE | B SE | C SE |
 | --- | ---: | ---: | ---: |

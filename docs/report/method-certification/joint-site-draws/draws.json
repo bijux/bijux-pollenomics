@@ -1,16 +1,16 @@
 {
   "schema_version": "reveals-explicit-joint-draws.v1",
-  "source_report_sha256": "6f80a5f7bc7db086334cd089b2412d1520ad76e5b2bc0f9b2ff7c99f9cd9a953",
+  "source_report_sha256": "8b7c137687ab1b964a698463456ebe6fd656840b9fa3ff88942f83804827f9fa",
   "source_files": [
     {
       "path": "docs/report/method-certification/joint-site-draws/replay.py",
-      "bytes": 6640,
-      "sha256": "818c84cc1a984e2f29d24d4319a46a95b8b0010d916845893f56e262b45abdcf"
+      "bytes": 6973,
+      "sha256": "1ed39453ebb319584a057ea4249bce9526f3e2c11c5f27ec25bea4f81fdf7f33"
     },
     {
       "path": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/joint_site_draws.py",
-      "bytes": 3688,
-      "sha256": "84d2faa4bd0bf2474633959319dfc92b9e3bb677cff565ab666944c53b50001f"
+      "bytes": 4145,
+      "sha256": "368d6fa8d4f6c02e80719c5fb8233f9b6e31fdc4c2d6a69569ed11b02df98ac2"
     }
   ],
   "draw_index_base": 0,
@@ -23,6 +23,18 @@
     "A",
     "B",
     "C"
+  ],
+  "taxon_measured": [
+    [
+      true,
+      true,
+      true
+    ],
+    [
+      true,
+      true,
+      true
+    ]
   ],
   "site_indices": [
     [

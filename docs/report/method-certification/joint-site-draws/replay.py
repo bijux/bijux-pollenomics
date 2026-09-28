@@ -14,7 +14,7 @@ import numpy as np
 from bijux_pollenomics_lra.api import joint_site_cover_draws
 
 SOURCE = Path("docs/report/method-certification/fixed-site-covariance/report.json")
-SOURCE_SHA256 = "6f80a5f7bc7db086334cd089b2412d1520ad76e5b2bc0f9b2ff7c99f9cd9a953"
+SOURCE_SHA256 = "8b7c137687ab1b964a698463456ebe6fd656840b9fa3ff88942f83804827f9fa"
 SOURCE_FILES = (
     Path("docs/report/method-certification/joint-site-draws/replay.py"),
     Path(
@@ -56,10 +56,16 @@ def publish(repository: Path, output: Path) -> dict[str, object]:
         raise ValueError("Fixed-site geometry or PPE example changed")
     source = json.loads(source_bytes)
     counts = np.asarray(source["counts"], dtype=int)
+    taxon_measured = np.asarray(source["taxon_measured"], dtype=bool)
     deposition = np.asarray(source["deposition"], dtype=float)
     ppe = np.asarray(source["ppe"], dtype=float)
     covariance = np.asarray(source["ppe_covariance"], dtype=float)
-    if counts.shape != (2, 3) or len(source["taxon_ids"]) != 3:
+    if (
+        counts.shape != (2, 3)
+        or taxon_measured.shape != counts.shape
+        or not taxon_measured.all()
+        or len(source["taxon_ids"]) != 3
+    ):
         raise ValueError("Heterogeneous-basin example axes changed")
     generator = np.random.default_rng(SEED)
     site_indices = generator.integers(0, 2, size=(REPEATS, 2), dtype=np.int64)
@@ -91,7 +97,9 @@ def publish(repository: Path, output: Path) -> dict[str, object]:
         "ppe_only": (fixed_indices, fixed_counts, ppe_draws),
     }
     outcomes = {
-        name: joint_site_cover_draws(counts, deposition, *arrays)
+        name: joint_site_cover_draws(
+            counts, deposition, *arrays, taxon_measured=taxon_measured
+        )
         for name, arrays in scenarios.items()
     }
     draw_payload = {
@@ -102,6 +110,7 @@ def publish(repository: Path, output: Path) -> dict[str, object]:
         "site_index_base": 0,
         "site_ids": source["site_ids"],
         "taxon_ids": source["taxon_ids"],
+        "taxon_measured": taxon_measured.tolist(),
         "site_indices": site_indices.tolist(),
         "count_draws_by_original_site": count_draws.tolist(),
         "shared_ppe_draws": ppe_draws.tolist(),
@@ -115,6 +124,7 @@ def publish(repository: Path, output: Path) -> dict[str, object]:
         "source_report_sha256": SOURCE_SHA256,
         "site_ids": source["site_ids"],
         "taxon_ids": source["taxon_ids"],
+        "taxon_measured": taxon_measured.tolist(),
         "draw_count": REPEATS,
         "seed": SEED,
         "draw_generation": (

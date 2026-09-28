@@ -37,6 +37,18 @@
       15
     ]
   ],
+  "taxon_measured": [
+    [
+      true,
+      true,
+      true
+    ],
+    [
+      true,
+      true,
+      true
+    ]
+  ],
   "ppe": [
     1.0,
     1.5,
@@ -153,8 +165,8 @@
   "source_files": [
     {
       "path": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/fixed_site_covariance.py",
-      "bytes": 4048,
-      "sha256": "15f409fe2112a52bd76b784fc03563270ef6c8510fedbc49098af04f30721161"
+      "bytes": 4505,
+      "sha256": "9118edf5239f5b0179018ea476afb63916cc0af8ace501182198ff192d42effd"
     },
     {
       "path": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/dispersal/publication.py",

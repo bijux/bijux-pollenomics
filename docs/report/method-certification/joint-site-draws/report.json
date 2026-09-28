@@ -2,7 +2,7 @@
   "schema_version": "reveals-joint-site-draws-example.v1",
   "profile": "reveals-joint-site-count-ppe-draws-v1",
   "source_report": "docs/report/method-certification/fixed-site-covariance/report.json",
-  "source_report_sha256": "6f80a5f7bc7db086334cd089b2412d1520ad76e5b2bc0f9b2ff7c99f9cd9a953",
+  "source_report_sha256": "8b7c137687ab1b964a698463456ebe6fd656840b9fa3ff88942f83804827f9fa",
   "site_ids": [
     "small_peatland",
     "larger_lake"
@@ -12,6 +12,18 @@
     "B",
     "C"
   ],
+  "taxon_measured": [
+    [
+      true,
+      true,
+      true
+    ],
+    [
+      true,
+      true,
+      true
+    ]
+  ],
   "draw_count": 2048,
   "seed": 20260928,
   "draw_generation": "uniform site bootstrap with replacement; independent fixed-total multinomial count draws per original site; shared whole-vector positive multivariate normal PPE draws from the declared covariance",
@@ -19,8 +31,8 @@
   "draw_files": [
     {
       "path": "draws.json",
-      "bytes": 482936,
-      "sha256": "b4ae204731b792ba7b58edfd121398780f15dca3a17495a86bebb176e130f368"
+      "bytes": 483058,
+      "sha256": "75acab9c92bc36f94209ffba8e0bd1b69716f78b45a2e43c25673ecea88beca6"
     },
     {
       "path": "joint-cover-draws.csv",

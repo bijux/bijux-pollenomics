@@ -8,7 +8,7 @@ three taxon count vectors with a shared PPE vector and its **full covariance**.
 The [machine result](report.json) retains the counts, physical parameters,
 deposition factors, component covariance matrices, source-file identities and
 declared limitations. The result SHA-256 is
-`6f80a5f7bc7db086334cd089b2412d1520ad76e5b2bc0f9b2ff7c99f9cd9a953`.
+`8b7c137687ab1b964a698463456ebe6fd656840b9fa3ff88942f83804827f9fa`.
 
 For taxon $i$, the unclosed weight is
 $w_i = \sum_s n_{si}/(K_{si} p_i)$, and the cover is $w_i/\sum_j w_j$.
@@ -17,7 +17,8 @@ each fixed site and the full covariance of the shared PPE vector. Counting and
 PPE components are reported separately; their covariance matrices add to the
 conditional total. Every output is a fraction, with standard errors in
 fraction units. Site selection, age, basin geometry and transport uncertainty
-are held fixed.
+are held fixed. The example explicitly marks every taxon as measured at both
+sites; the API refuses an unmeasured taxon rather than treating it as zero.
 
 | Taxon | Fixed-site cover | Counting and PPE SE | Counting-only SE |
 | --- | ---: | ---: | ---: |

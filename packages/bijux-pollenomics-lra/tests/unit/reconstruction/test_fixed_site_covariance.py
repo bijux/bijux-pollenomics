@@ -17,7 +17,11 @@ def test_two_sites_reduce_to_conditional_binomial_variance() -> None:
     assert lra.fixed_site_cover_covariance is fixed_site_cover_covariance
     counts = np.array([[30, 70], [80, 20]])
     result = fixed_site_cover_covariance(
-        counts, np.ones_like(counts), np.ones(2), np.zeros((2, 2))
+        counts,
+        np.ones_like(counts),
+        np.ones(2),
+        np.zeros((2, 2)),
+        taxon_measured=np.ones_like(counts, dtype=bool),
     )
     expected = (100 * 0.3 * 0.7 + 100 * 0.8 * 0.2) / 200**2
     np.testing.assert_allclose(result.cover, [0.55, 0.45], atol=1e-15)
@@ -34,9 +38,19 @@ def test_heterogeneous_geometry_full_ppe_covariance_and_order_invariance() -> No
     covariance = np.array(
         [[0.04, 0.015, -0.005], [0.015, 0.09, 0.01], [-0.005, 0.01, 0.0225]]
     )
-    result = fixed_site_cover_covariance(counts, deposition, ppe, covariance)
+    result = fixed_site_cover_covariance(
+        counts,
+        deposition,
+        ppe,
+        covariance,
+        taxon_measured=np.ones_like(counts, dtype=bool),
+    )
     diagonal_only = fixed_site_cover_covariance(
-        counts, deposition, ppe, np.diag(np.diag(covariance))
+        counts,
+        deposition,
+        ppe,
+        np.diag(np.diag(covariance)),
+        taxon_measured=np.ones_like(counts, dtype=bool),
     )
     assert not np.allclose(result.ppe_covariance, diagonal_only.ppe_covariance)
     assert not np.allclose(result.standard_error, diagonal_only.standard_error)
@@ -48,6 +62,7 @@ def test_heterogeneous_geometry_full_ppe_covariance_and_order_invariance() -> No
         deposition[:, permutation],
         ppe[permutation],
         covariance[np.ix_(permutation, permutation)],
+        taxon_measured=np.ones_like(counts, dtype=bool)[:, permutation],
     )
     np.testing.assert_allclose(reordered.cover, result.cover[permutation])
     np.testing.assert_allclose(
@@ -65,12 +80,32 @@ def test_invalid_parameter_covariance_and_count_types_are_refused() -> None:
             np.ones_like(counts),
             np.ones(2),
             np.array([[1, 2], [2, 1]]),
+            taxon_measured=np.ones_like(counts, dtype=bool),
         )
     with pytest.raises(ValidationError, match="numeric"):
         fixed_site_cover_covariance(
-            counts.astype(str), np.ones_like(counts), np.ones(2), np.eye(2)
+            counts.astype(str),
+            np.ones_like(counts),
+            np.ones(2),
+            np.eye(2),
+            taxon_measured=np.ones_like(counts, dtype=bool),
         )
     with pytest.raises(ValidationError, match="numeric"):
         fixed_site_cover_covariance(
-            counts * 2**53, np.ones_like(counts), np.ones(2), np.eye(2)
+            counts * 2**53,
+            np.ones_like(counts),
+            np.ones(2),
+            np.eye(2),
+            taxon_measured=np.ones_like(counts, dtype=bool),
         )
+
+
+def test_unmeasured_taxon_is_not_a_zero_count() -> None:
+    counts = np.array([[30, 70], [80, 20]])
+    measured = np.ones_like(counts, dtype=bool)
+    measured[1, 0] = False
+    with pytest.raises(ValidationError) as error:
+        fixed_site_cover_covariance(
+            counts, np.ones_like(counts), np.ones(2), np.eye(2), taxon_measured=measured
+        )
+    assert error.value.reason_code == "taxon_measurement_unresolved"
