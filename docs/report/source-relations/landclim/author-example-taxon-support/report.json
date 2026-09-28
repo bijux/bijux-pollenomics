@@ -1,0 +1,834 @@
+{
+  "schema_version": "landclim-author-example-taxon-support.v1",
+  "site_count": 17,
+  "grid_site_counts": {
+    "512": 9,
+    "562": 8
+  },
+  "author_target_count": 31,
+  "raw_author_target_count_min": 12,
+  "raw_author_target_count_max": 24,
+  "total_prepared_target_rows_without_raw_source_name": 168,
+  "positive_prepared_target_rows_without_literal_raw_name": 5,
+  "all_targets_measured_admitted": false,
+  "reviewed_reveals_profile_admitted": false,
+  "interpretation": "Prepared matrices contain 31 target rows at every site. Most targets without an exact raw source-name lead have all-zero prepared rows, but one site's positive prepared targets also lack literal raw-name leads. Neither zero nor positive prepared rows establish a measured-taxon mask without the author's preprocessing decisions and original counting semantics.",
+  "inputs": [
+    {
+      "source_root_role": "external_landclim_author_reference",
+      "path": "author/LANDCLIM.ALLEUROPE.taxa.LUT.080219.csv",
+      "bytes": 329074,
+      "sha256": "3a745f9b7606e5d0b59feaba2683b930c8d3990e4810f8217b69160a29a1b507"
+    },
+    {
+      "source_root_role": "external_landclim_author_reference",
+      "path": "author/run.REVEALS.files/av-RPP.all.landclimII.csv",
+      "bytes": 772,
+      "sha256": "066ebadbe6ab10aead80c74a184284e05b9db3cd1f5daff04249596170a663e2"
+    },
+    {
+      "source_root_role": "external_landclim_author_reference",
+      "path": "reference/taxon-name-crosswalk.csv",
+      "bytes": 930,
+      "sha256": "3a0f598ba5e550ca39da52b2047b7020b013dad013d15f79bef8e1c3c1a979c3"
+    },
+    {
+      "source_root_role": "external_landclim_author_reference",
+      "path": "author/run.REVEALS.files/site.list.512.csv",
+      "bytes": 192,
+      "sha256": "c0c04cfb53f0ac28a93aa2a96c0a2480751577e9c60462cb178ab198f3cda2c7"
+    },
+    {
+      "source_root_role": "external_landclim_author_reference",
+      "path": "author/input/BROADOWN.csv",
+      "bytes": 7916,
+      "sha256": "a8cae297f7c5ad443c9e383608c39d89296ebe5034a6d377b017dff07b903571"
+    },
+    {
+      "source_root_role": "external_landclim_author_reference",
+      "path": "author/run.REVEALS.files/LRAready_BROADOWN.csv",
+      "bytes": 2476,
+      "sha256": "1eb04f58c13321fc9f284186df85003d4f73803f2485b842984f49a64c21a0c8"
+    },
+    {
+      "source_root_role": "external_landclim_author_reference",
+      "path": "author/input/CUTHILL2.csv",
+      "bytes": 10548,
+      "sha256": "1056fb2b2a441fada77c3f5cb1727a40186e5c9b96431a08c8ac7904ba5113bd"
+    },
+    {
+      "source_root_role": "external_landclim_author_reference",
+      "path": "author/run.REVEALS.files/LRAready_CUTHILL2.csv",
+      "bytes": 2452,
+      "sha256": "a17ad8a86c4fb7fdffda4799dbc8de6909a037f7b106e07263fdd727c4c7f283"
+    },
+    {
+      "source_root_role": "external_landclim_author_reference",
+      "path": "author/input/HANGINGS.csv",
+      "bytes": 8938,
+      "sha256": "ceed0ee6d5f7ea067101d04e66fd31d6a5679d6373216d3ba7e1a245557cb5a6"
+    },
+    {
+      "source_root_role": "external_landclim_author_reference",
+      "path": "author/run.REVEALS.files/LRAready_HANGINGS.csv",
+      "bytes": 2474,
+      "sha256": "8249ce97a114048400a1497924cac0bc1c07fc7ae110dd5f868accd9425eda2f"
+    },
+    {
+      "source_root_role": "external_landclim_author_reference",
+      "path": "author/input/HARESDOWN.csv",
+      "bytes": 18449,
+      "sha256": "e7442895e27850c33e4084af15b679fc53ab9cdd127cf4dfbf3c65d3692b2888"
+    },
+    {
+      "source_root_role": "external_landclim_author_reference",
+      "path": "author/run.REVEALS.files/LRAready_HARESDOWN.csv",
+      "bytes": 2367,
+      "sha256": "406896858243381630c3e7a66f29c97d8ee7725c4f418f72396c4d31095e33d9"
+    },
+    {
+      "source_root_role": "external_landclim_author_reference",
+      "path": "author/input/LOBBSBOG.csv",
+      "bytes": 22946,
+      "sha256": "916cc1ddeaf0fa1b313002a303956b280e33c1abf47d38868afc6bd35ee53af3"
+    },
+    {
+      "source_root_role": "external_landclim_author_reference",
+      "path": "author/run.REVEALS.files/LRAready_LOBBSBOG.csv",
+      "bytes": 2370,
+      "sha256": "13b8ad5fa65022aeb6ad351317c77e68710b398e2abd7d6b7159811e880ad8a7"
+    },
+    {
+      "source_root_role": "external_landclim_author_reference",
+      "path": "author/input/WHH05.csv",
+      "bytes": 1037,
+      "sha256": "977b32b96578aeb701288e77e37ab137e0475acd99274ddbdcc05180a8a99469"
+    },
+    {
+      "source_root_role": "external_landclim_author_reference",
+      "path": "author/run.REVEALS.files/LRAready_WHH05.csv",
+      "bytes": 2309,
+      "sha256": "298b66d7033703ce42d27f933b4d3ccec3a16f68b35a6fbf7a61806c01c88273"
+    },
+    {
+      "source_root_role": "external_landclim_author_reference",
+      "path": "author/input/WHH11.csv",
+      "bytes": 5489,
+      "sha256": "d889a693cec0597e06b179ccf34e0906c0149977efbfc065da1b50fcbf3c91f8"
+    },
+    {
+      "source_root_role": "external_landclim_author_reference",
+      "path": "author/run.REVEALS.files/LRAready_WHH11.csv",
+      "bytes": 2341,
+      "sha256": "d38734ceb0c134eeffbb40091a81d3a8a8d32143dd14504296cc7baa38bf735e"
+    },
+    {
+      "source_root_role": "external_landclim_author_reference",
+      "path": "author/input/WINDMILL.csv",
+      "bytes": 14246,
+      "sha256": "bdc665514c054d7c879952c5c07dcea10951ef3cdaca7720d33ec2e1dca6315a"
+    },
+    {
+      "source_root_role": "external_landclim_author_reference",
+      "path": "author/run.REVEALS.files/LRAready_WINDMILL.csv",
+      "bytes": 2350,
+      "sha256": "5cbfff585068fd2d3b27bb4d1156bde39b6b80f975ca78433cee960ce854c20f"
+    },
+    {
+      "source_root_role": "external_landclim_author_reference",
+      "path": "author/input/WINNEYS.csv",
+      "bytes": 12519,
+      "sha256": "7cd4c1e0b5d6e8d582c5eaa67805381af5d9b5925c342adb0394db701d0a6212"
+    },
+    {
+      "source_root_role": "external_landclim_author_reference",
+      "path": "author/run.REVEALS.files/LRAready_WINNEYS.csv",
+      "bytes": 2507,
+      "sha256": "b268187404a6ec1b0d0935990acd70bce678c55c95a2fadf38b7e50f27e29dd6"
+    },
+    {
+      "source_root_role": "external_landclim_author_reference",
+      "path": "author/run.REVEALS.files/site.list.562.csv",
+      "bytes": 180,
+      "sha256": "0dbbc3ea5a982cea7b692a11befbbbcceddc4ab8b7d7adf4e0b44662a8a9081b"
+    },
+    {
+      "source_root_role": "external_landclim_author_reference",
+      "path": "author/input/BECKHAM.csv",
+      "bytes": 5979,
+      "sha256": "6f3ec4d7f0a8b34194b4f487562547847df0936b1b25bf997cc4617c210611c8"
+    },
+    {
+      "source_root_role": "external_landclim_author_reference",
+      "path": "author/run.REVEALS.files/LRAready_BECKHAM.csv",
+      "bytes": 2373,
+      "sha256": "1982eb43353cb632319d97943decde8539d98111a7ade7ecaaa5757532231b5e"
+    },
+    {
+      "source_root_role": "external_landclim_author_reference",
+      "path": "author/input/COMERSLA.csv",
+      "bytes": 6137,
+      "sha256": "7697d1fc988ec5af169796ce8974862b87142fa645fb41c32f20b1d9e41072c6"
+    },
+    {
+      "source_root_role": "external_landclim_author_reference",
+      "path": "author/run.REVEALS.files/LRAready_COMERSLA.csv",
+      "bytes": 2409,
+      "sha256": "bc702bc41f578a5ffad078144d50961d1f47f1d003f0ace5a63b019f4b3340b3"
+    },
+    {
+      "source_root_role": "external_landclim_author_reference",
+      "path": "author/input/EXEBRID.csv",
+      "bytes": 10956,
+      "sha256": "8e148c9151323ae4d749deb7d28408fdc564b45f6ee996913a677f74a4f7371f"
+    },
+    {
+      "source_root_role": "external_landclim_author_reference",
+      "path": "author/run.REVEALS.files/LRAready_EXEBRID.csv",
+      "bytes": 2401,
+      "sha256": "80a5294684564c1475bd3311e049cde2de78e5c7e098af0277dda49d353bb698"
+    },
+    {
+      "source_root_role": "external_landclim_author_reference",
+      "path": "author/input/GOURTEMIRES.csv",
+      "bytes": 9971,
+      "sha256": "4c18262c065ea2da760f9e0787be1cfeab88a76addef25d68dd014ab742726dd"
+    },
+    {
+      "source_root_role": "external_landclim_author_reference",
+      "path": "author/run.REVEALS.files/LRAready_GOURTEMIRES.csv",
+      "bytes": 2402,
+      "sha256": "c10e7acd64a7065cc7681554dd3e07730087dddc3f816a312e304268109201dd"
+    },
+    {
+      "source_root_role": "external_landclim_author_reference",
+      "path": "author/input/LARKBARR.csv",
+      "bytes": 5247,
+      "sha256": "d7897e8b18788fce8e584f403dbb44b6e8255693513f58bbb0c3824f4ce4dcc6"
+    },
+    {
+      "source_root_role": "external_landclim_author_reference",
+      "path": "author/run.REVEALS.files/LRAready_LARKBARR.csv",
+      "bytes": 2337,
+      "sha256": "07daff782dae844eaa787e547d1b49937f975f49ea457a9576b9db58ddc4bbf6"
+    },
+    {
+      "source_root_role": "external_landclim_author_reference",
+      "path": "author/input/LONGBREACH.csv",
+      "bytes": 9127,
+      "sha256": "af10eaa8aacb350cd49c21234753f6da04c403b67532ed07e11ab3b1f82f40e1"
+    },
+    {
+      "source_root_role": "external_landclim_author_reference",
+      "path": "author/run.REVEALS.files/LRAready_LONGBREACH.csv",
+      "bytes": 2449,
+      "sha256": "512ff3258e6badcb5c85c0c315bbd1dc00c2035243c2337d172eb55ca54abb3b"
+    },
+    {
+      "source_root_role": "external_landclim_author_reference",
+      "path": "author/input/MOLECHAM.csv",
+      "bytes": 10496,
+      "sha256": "b25697032e23aa7236d106c357dd81d666017f332c518fec378b4b7d311fa5ee"
+    },
+    {
+      "source_root_role": "external_landclim_author_reference",
+      "path": "author/run.REVEALS.files/LRAready_MOLECHAM.csv",
+      "bytes": 2386,
+      "sha256": "8addaceb66b78791f77bf1b8ff37cb282506baf8b3524b286f0113dde214bc57"
+    },
+    {
+      "source_root_role": "external_landclim_author_reference",
+      "path": "author/input/NTWITCHEN.csv",
+      "bytes": 34400,
+      "sha256": "526c665de0ee4b135b87083c5fe3db9d83cd47e1f59710d5a7dee4e453a4a525"
+    },
+    {
+      "source_root_role": "external_landclim_author_reference",
+      "path": "author/run.REVEALS.files/LRAready_NTWITCHEN.csv",
+      "bytes": 2413,
+      "sha256": "eaae23b481debf5cbb13b54f94b5ae97187a79d2a0c716ff309d52a7c347a328"
+    }
+  ],
+  "rows": [
+    {
+      "grid_id": "512",
+      "site_id": "BROADOWN",
+      "raw_sample_row_count": 59,
+      "raw_source_taxon_column_count": 52,
+      "raw_axis_headers": [
+        "depth",
+        "age.cal.BP"
+      ],
+      "duplicate_raw_source_names": {},
+      "raw_author_target_count": 22,
+      "prepared_target_row_count": 31,
+      "prepared_target_without_raw_name_count": 9,
+      "targets_without_raw_source_name": [
+        "Abies alba",
+        "Buxus sempervirens",
+        "Carpinus orientalis",
+        "Castanea",
+        "Juniperus",
+        "Phillyrea",
+        "Picea",
+        "Pistacia",
+        "Quercus evergreen"
+      ],
+      "positive_prepared_targets_without_literal_raw_name": [],
+      "positive_prepared_without_raw_name_count": 0,
+      "raw_names_without_author_lookup": [],
+      "all_targets_measured_admitted": false
+    },
+    {
+      "grid_id": "512",
+      "site_id": "CUTHILL2",
+      "raw_sample_row_count": 77,
+      "raw_source_taxon_column_count": 56,
+      "raw_axis_headers": [
+        "sample",
+        "age.cal.BP"
+      ],
+      "duplicate_raw_source_names": {},
+      "raw_author_target_count": 21,
+      "prepared_target_row_count": 31,
+      "prepared_target_without_raw_name_count": 10,
+      "targets_without_raw_source_name": [
+        "Abies alba",
+        "Buxus sempervirens",
+        "Carpinus orientalis",
+        "Castanea",
+        "Juniperus",
+        "Phillyrea",
+        "Picea",
+        "Pistacia",
+        "Quercus evergreen",
+        "Secale"
+      ],
+      "positive_prepared_targets_without_literal_raw_name": [],
+      "positive_prepared_without_raw_name_count": 0,
+      "raw_names_without_author_lookup": [],
+      "all_targets_measured_admitted": false
+    },
+    {
+      "grid_id": "512",
+      "site_id": "HANGINGS",
+      "raw_sample_row_count": 61,
+      "raw_source_taxon_column_count": 59,
+      "raw_axis_headers": [
+        "depth",
+        "age.cal.BP"
+      ],
+      "duplicate_raw_source_names": {},
+      "raw_author_target_count": 23,
+      "prepared_target_row_count": 31,
+      "prepared_target_without_raw_name_count": 8,
+      "targets_without_raw_source_name": [
+        "Abies alba",
+        "Buxus sempervirens",
+        "Carpinus orientalis",
+        "Castanea",
+        "Phillyrea",
+        "Picea",
+        "Pistacia",
+        "Quercus evergreen"
+      ],
+      "positive_prepared_targets_without_literal_raw_name": [],
+      "positive_prepared_without_raw_name_count": 0,
+      "raw_names_without_author_lookup": [],
+      "all_targets_measured_admitted": false
+    },
+    {
+      "grid_id": "512",
+      "site_id": "HARESDOWN",
+      "raw_sample_row_count": 39,
+      "raw_source_taxon_column_count": 92,
+      "raw_axis_headers": [
+        "depth",
+        "age.cal.BP"
+      ],
+      "duplicate_raw_source_names": {
+        "": 8
+      },
+      "raw_author_target_count": 23,
+      "prepared_target_row_count": 31,
+      "prepared_target_without_raw_name_count": 8,
+      "targets_without_raw_source_name": [
+        "Buxus sempervirens",
+        "Carpinus orientalis",
+        "Castanea",
+        "Juniperus",
+        "Phillyrea",
+        "Picea",
+        "Pistacia",
+        "Quercus evergreen"
+      ],
+      "positive_prepared_targets_without_literal_raw_name": [],
+      "positive_prepared_without_raw_name_count": 0,
+      "raw_names_without_author_lookup": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "all_targets_measured_admitted": false
+    },
+    {
+      "grid_id": "512",
+      "site_id": "LOBBSBOG",
+      "raw_sample_row_count": 48,
+      "raw_source_taxon_column_count": 87,
+      "raw_axis_headers": [
+        "depth",
+        "age.cal.BP"
+      ],
+      "duplicate_raw_source_names": {
+        "Centaurea": 2
+      },
+      "raw_author_target_count": 23,
+      "prepared_target_row_count": 31,
+      "prepared_target_without_raw_name_count": 8,
+      "targets_without_raw_source_name": [
+        "Abies alba",
+        "Buxus sempervirens",
+        "Carpinus orientalis",
+        "Castanea",
+        "Juniperus",
+        "Phillyrea",
+        "Pistacia",
+        "Quercus evergreen"
+      ],
+      "positive_prepared_targets_without_literal_raw_name": [],
+      "positive_prepared_without_raw_name_count": 0,
+      "raw_names_without_author_lookup": [],
+      "all_targets_measured_admitted": false
+    },
+    {
+      "grid_id": "512",
+      "site_id": "WHH05",
+      "raw_sample_row_count": 8,
+      "raw_source_taxon_column_count": 31,
+      "raw_axis_headers": [
+        "depth",
+        "age.cal.BP"
+      ],
+      "duplicate_raw_source_names": {},
+      "raw_author_target_count": 12,
+      "prepared_target_row_count": 31,
+      "prepared_target_without_raw_name_count": 19,
+      "targets_without_raw_source_name": [
+        "Abies alba",
+        "Amanranthaceae/Chenopodiaceae",
+        "Buxus sempervirens",
+        "Calluna vulgaris",
+        "Carpinus betulus",
+        "Carpinus orientalis",
+        "Castanea",
+        "Cerealia-t",
+        "Fagus sylvatica",
+        "Filipendula",
+        "Fraxinus",
+        "Juniperus",
+        "Phillyrea",
+        "Picea",
+        "Pistacia",
+        "Poaceae",
+        "Quercus evergreen",
+        "Rumex acetosa-t",
+        "Secale"
+      ],
+      "positive_prepared_targets_without_literal_raw_name": [
+        {
+          "author_target": "Calluna vulgaris",
+          "prepared_value_sum": 1364.0
+        },
+        {
+          "author_target": "Fagus sylvatica",
+          "prepared_value_sum": 5.0
+        },
+        {
+          "author_target": "Fraxinus",
+          "prepared_value_sum": 1.0
+        },
+        {
+          "author_target": "Juniperus",
+          "prepared_value_sum": 2.0
+        },
+        {
+          "author_target": "Poaceae",
+          "prepared_value_sum": 138.0
+        }
+      ],
+      "positive_prepared_without_raw_name_count": 5,
+      "raw_names_without_author_lookup": [
+        "Fagus  ",
+        "Fraxinus  ",
+        "Sorbus  ",
+        "Hedera  ",
+        "Juniperus  ",
+        "Empetrum  ",
+        "Calluna  ",
+        "Poaceae  ",
+        "Potentilla type ",
+        "Urtica type ",
+        "Sum"
+      ],
+      "all_targets_measured_admitted": false
+    },
+    {
+      "grid_id": "512",
+      "site_id": "WHH11",
+      "raw_sample_row_count": 56,
+      "raw_source_taxon_column_count": 36,
+      "raw_axis_headers": [
+        "depth",
+        "age.cal.BP"
+      ],
+      "duplicate_raw_source_names": {},
+      "raw_author_target_count": 17,
+      "prepared_target_row_count": 31,
+      "prepared_target_without_raw_name_count": 14,
+      "targets_without_raw_source_name": [
+        "Abies alba",
+        "Amanranthaceae/Chenopodiaceae",
+        "Buxus sempervirens",
+        "Carpinus betulus",
+        "Carpinus orientalis",
+        "Castanea",
+        "Cerealia-t",
+        "Filipendula",
+        "Phillyrea",
+        "Picea",
+        "Pistacia",
+        "Quercus evergreen",
+        "Rumex acetosa-t",
+        "Secale"
+      ],
+      "positive_prepared_targets_without_literal_raw_name": [],
+      "positive_prepared_without_raw_name_count": 0,
+      "raw_names_without_author_lookup": [
+        "Prunus spp",
+        "Hedera Helix",
+        "Filipendunla",
+        "Ranunculus acris-type`",
+        "Sum"
+      ],
+      "all_targets_measured_admitted": false
+    },
+    {
+      "grid_id": "512",
+      "site_id": "WINDMILL",
+      "raw_sample_row_count": 32,
+      "raw_source_taxon_column_count": 88,
+      "raw_axis_headers": [
+        "depth",
+        "age.cal.BP"
+      ],
+      "duplicate_raw_source_names": {
+        "": 11,
+        "Hypericum": 2
+      },
+      "raw_author_target_count": 23,
+      "prepared_target_row_count": 31,
+      "prepared_target_without_raw_name_count": 8,
+      "targets_without_raw_source_name": [
+        "Buxus sempervirens",
+        "Carpinus betulus",
+        "Carpinus orientalis",
+        "Castanea",
+        "Phillyrea",
+        "Picea",
+        "Pistacia",
+        "Quercus evergreen"
+      ],
+      "positive_prepared_targets_without_literal_raw_name": [],
+      "positive_prepared_without_raw_name_count": 0,
+      "raw_names_without_author_lookup": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ],
+      "all_targets_measured_admitted": false
+    },
+    {
+      "grid_id": "512",
+      "site_id": "WINNEYS",
+      "raw_sample_row_count": 81,
+      "raw_source_taxon_column_count": 64,
+      "raw_axis_headers": [
+        "depth",
+        "age.cal.bp"
+      ],
+      "duplicate_raw_source_names": {},
+      "raw_author_target_count": 23,
+      "prepared_target_row_count": 31,
+      "prepared_target_without_raw_name_count": 8,
+      "targets_without_raw_source_name": [
+        "Abies alba",
+        "Buxus sempervirens",
+        "Carpinus orientalis",
+        "Castanea",
+        "Phillyrea",
+        "Picea",
+        "Pistacia",
+        "Quercus evergreen"
+      ],
+      "positive_prepared_targets_without_literal_raw_name": [],
+      "positive_prepared_without_raw_name_count": 0,
+      "raw_names_without_author_lookup": [],
+      "all_targets_measured_admitted": false
+    },
+    {
+      "grid_id": "562",
+      "site_id": "BECKHAM",
+      "raw_sample_row_count": 26,
+      "raw_source_taxon_column_count": 88,
+      "raw_axis_headers": [
+        "depth",
+        "age.cal.BP"
+      ],
+      "duplicate_raw_source_names": {},
+      "raw_author_target_count": 22,
+      "prepared_target_row_count": 31,
+      "prepared_target_without_raw_name_count": 9,
+      "targets_without_raw_source_name": [
+        "Abies alba",
+        "Buxus sempervirens",
+        "Carpinus orientalis",
+        "Castanea",
+        "Juniperus",
+        "Phillyrea",
+        "Picea",
+        "Pistacia",
+        "Quercus evergreen"
+      ],
+      "positive_prepared_targets_without_literal_raw_name": [],
+      "positive_prepared_without_raw_name_count": 0,
+      "raw_names_without_author_lookup": [],
+      "all_targets_measured_admitted": false
+    },
+    {
+      "grid_id": "562",
+      "site_id": "COMERSLA",
+      "raw_sample_row_count": 40,
+      "raw_source_taxon_column_count": 56,
+      "raw_axis_headers": [
+        "depth",
+        "age.cal.BP"
+      ],
+      "duplicate_raw_source_names": {},
+      "raw_author_target_count": 17,
+      "prepared_target_row_count": 31,
+      "prepared_target_without_raw_name_count": 14,
+      "targets_without_raw_source_name": [
+        "Abies alba",
+        "Artemisia",
+        "Buxus sempervirens",
+        "Carpinus betulus",
+        "Carpinus orientalis",
+        "Castanea",
+        "Cerealia-t",
+        "Fagus sylvatica",
+        "Juniperus",
+        "Phillyrea",
+        "Picea",
+        "Pistacia",
+        "Quercus evergreen",
+        "Secale"
+      ],
+      "positive_prepared_targets_without_literal_raw_name": [],
+      "positive_prepared_without_raw_name_count": 0,
+      "raw_names_without_author_lookup": [],
+      "all_targets_measured_admitted": false
+    },
+    {
+      "grid_id": "562",
+      "site_id": "EXEBRID",
+      "raw_sample_row_count": 57,
+      "raw_source_taxon_column_count": 76,
+      "raw_axis_headers": [
+        "depth",
+        "age.cal.BP"
+      ],
+      "duplicate_raw_source_names": {},
+      "raw_author_target_count": 22,
+      "prepared_target_row_count": 31,
+      "prepared_target_without_raw_name_count": 9,
+      "targets_without_raw_source_name": [
+        "Abies alba",
+        "Buxus sempervirens",
+        "Carpinus orientalis",
+        "Castanea",
+        "Fagus sylvatica",
+        "Phillyrea",
+        "Pistacia",
+        "Quercus evergreen",
+        "Secale"
+      ],
+      "positive_prepared_targets_without_literal_raw_name": [],
+      "positive_prepared_without_raw_name_count": 0,
+      "raw_names_without_author_lookup": [],
+      "all_targets_measured_admitted": false
+    },
+    {
+      "grid_id": "562",
+      "site_id": "GOURTEMIRES",
+      "raw_sample_row_count": 48,
+      "raw_source_taxon_column_count": 83,
+      "raw_axis_headers": [
+        "depth",
+        "age.cal.BP"
+      ],
+      "duplicate_raw_source_names": {},
+      "raw_author_target_count": 23,
+      "prepared_target_row_count": 31,
+      "prepared_target_without_raw_name_count": 8,
+      "targets_without_raw_source_name": [
+        "Abies alba",
+        "Buxus sempervirens",
+        "Carpinus orientalis",
+        "Castanea",
+        "Phillyrea",
+        "Picea",
+        "Pistacia",
+        "Quercus evergreen"
+      ],
+      "positive_prepared_targets_without_literal_raw_name": [],
+      "positive_prepared_without_raw_name_count": 0,
+      "raw_names_without_author_lookup": [],
+      "all_targets_measured_admitted": false
+    },
+    {
+      "grid_id": "562",
+      "site_id": "LARKBARR",
+      "raw_sample_row_count": 22,
+      "raw_source_taxon_column_count": 89,
+      "raw_axis_headers": [
+        "depth",
+        "age.cal.BP"
+      ],
+      "duplicate_raw_source_names": {},
+      "raw_author_target_count": 22,
+      "prepared_target_row_count": 31,
+      "prepared_target_without_raw_name_count": 9,
+      "targets_without_raw_source_name": [
+        "Abies alba",
+        "Buxus sempervirens",
+        "Carpinus orientalis",
+        "Castanea",
+        "Juniperus",
+        "Phillyrea",
+        "Picea",
+        "Pistacia",
+        "Quercus evergreen"
+      ],
+      "positive_prepared_targets_without_literal_raw_name": [],
+      "positive_prepared_without_raw_name_count": 0,
+      "raw_names_without_author_lookup": [],
+      "all_targets_measured_admitted": false
+    },
+    {
+      "grid_id": "562",
+      "site_id": "LONGBREACH",
+      "raw_sample_row_count": 47,
+      "raw_source_taxon_column_count": 77,
+      "raw_axis_headers": [
+        "depth",
+        "age.cal.BP"
+      ],
+      "duplicate_raw_source_names": {},
+      "raw_author_target_count": 24,
+      "prepared_target_row_count": 31,
+      "prepared_target_without_raw_name_count": 7,
+      "targets_without_raw_source_name": [
+        "Buxus sempervirens",
+        "Carpinus orientalis",
+        "Castanea",
+        "Phillyrea",
+        "Picea",
+        "Pistacia",
+        "Quercus evergreen"
+      ],
+      "positive_prepared_targets_without_literal_raw_name": [],
+      "positive_prepared_without_raw_name_count": 0,
+      "raw_names_without_author_lookup": [],
+      "all_targets_measured_admitted": false
+    },
+    {
+      "grid_id": "562",
+      "site_id": "MOLECHAM",
+      "raw_sample_row_count": 53,
+      "raw_source_taxon_column_count": 75,
+      "raw_axis_headers": [
+        "depth",
+        "age.cal.BP"
+      ],
+      "duplicate_raw_source_names": {},
+      "raw_author_target_count": 20,
+      "prepared_target_row_count": 31,
+      "prepared_target_without_raw_name_count": 11,
+      "targets_without_raw_source_name": [
+        "Abies alba",
+        "Buxus sempervirens",
+        "Carpinus orientalis",
+        "Castanea",
+        "Cerealia-t",
+        "Juniperus",
+        "Phillyrea",
+        "Picea",
+        "Pistacia",
+        "Quercus evergreen",
+        "Secale"
+      ],
+      "positive_prepared_targets_without_literal_raw_name": [],
+      "positive_prepared_without_raw_name_count": 0,
+      "raw_names_without_author_lookup": [],
+      "all_targets_measured_admitted": false
+    },
+    {
+      "grid_id": "562",
+      "site_id": "NTWITCHEN",
+      "raw_sample_row_count": 117,
+      "raw_source_taxon_column_count": 91,
+      "raw_axis_headers": [
+        "depth",
+        "age.cal.BP"
+      ],
+      "duplicate_raw_source_names": {
+        "": 2
+      },
+      "raw_author_target_count": 22,
+      "prepared_target_row_count": 31,
+      "prepared_target_without_raw_name_count": 9,
+      "targets_without_raw_source_name": [
+        "Abies alba",
+        "Buxus sempervirens",
+        "Carpinus orientalis",
+        "Castanea",
+        "Juniperus",
+        "Phillyrea",
+        "Picea",
+        "Pistacia",
+        "Quercus evergreen"
+      ],
+      "positive_prepared_targets_without_literal_raw_name": [],
+      "positive_prepared_without_raw_name_count": 0,
+      "raw_names_without_author_lookup": [
+        "",
+        ""
+      ],
+      "all_targets_measured_admitted": false
+    }
+  ]
+}
