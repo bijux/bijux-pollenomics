@@ -200,5 +200,12 @@
     "fixed_method_score_rows": 153,
     "training_support_refusals": 3,
     "status": "prior_exposed_observed_pollen_subcomposition; no LRA or measured vegetation claim"
+  },
+  "pft_uncertainty_bounds": {
+    "report": "docs/report/publication-replay/landclim-pft-crosswalk/uncertainty-bounds/report.json",
+    "groups": 5,
+    "grid_window_rows_per_group": 10500,
+    "necessary_bound_violations": 0,
+    "same_draw_covariance_aggregation_verified": false
   }
 }

@@ -9,6 +9,7 @@ import hashlib
 import json
 import math
 from pathlib import Path
+from typing import Any
 
 
 REPORT_DIR = Path(__file__).resolve().parent
@@ -279,6 +280,50 @@ def verify_swedish_author_target_pollen() -> None:
         raise ValueError("Swedish common-bin author target mass differs")
 
 
+def verify_pft_uncertainty_bounds() -> dict[str, Any]:
+    """Check source identity and complete published uncertainty-bound coverage."""
+    directory = (
+        REPOSITORY_ROOT
+        / "docs/report/publication-replay/landclim-pft-crosswalk/uncertainty-bounds"
+    )
+    report = json.loads((directory / "report.json").read_text(encoding="utf-8"))
+    if sha256(directory / "windows.csv") != report["window_csv_sha256"]:
+        raise ValueError("PFT uncertainty window ledger changed")
+    for source in report["inputs"]:
+        if sha256(REPOSITORY_ROOT / source["path"]) != source["sha256"]:
+            raise ValueError("PFT uncertainty source changed")
+    with (directory / "windows.csv").open(newline="", encoding="utf-8") as stream:
+        windows = list(csv.DictReader(stream))
+    if (
+        len(windows) != 125
+        or report["same_draw_covariance_aggregation_verified"] is not False
+        or set(report["summary"]) != {"ET", "ST", "OL", "ISTS", "TBS"}
+    ):
+        raise ValueError("PFT uncertainty support changed")
+    for group, summary in report["summary"].items():
+        selected = [row for row in windows if row["group"] == group]
+        if (
+            len(selected) != 25
+            or {int(row["window"]) for row in selected} != set(range(1, 26))
+            or any(int(row["grid_rows"]) != 420 for row in selected)
+            or sum(int(row["grid_rows"]) for row in selected)
+            != summary["grid_window_rows"]
+            or any(
+                sum(int(row[field]) for row in selected) != summary[field]
+                for field in (
+                    "below_lower_bound_rows",
+                    "above_upper_bound_rows",
+                    "nondegenerate_bound_rows",
+                    "strictly_inside_bound_rows",
+                )
+            )
+            or summary["below_lower_bound_rows"]
+            or summary["above_upper_bound_rows"]
+        ):
+            raise ValueError(f"PFT uncertainty support differs: {group}")
+    return report
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
@@ -399,6 +444,17 @@ def main() -> None:
         or swedish_author_scope["author_target_taxa"] != len(swedish_author["axis"])
     ):
         raise ValueError("Swedish author-target scope differs from the retained study")
+
+    pft_bounds = verify_pft_uncertainty_bounds()
+    pft_scope = scope["pft_uncertainty_bounds"]
+    if (
+        pft_scope["groups"] != len(pft_bounds["summary"])
+        or pft_scope["grid_window_rows_per_group"] != 10500
+        or pft_scope["necessary_bound_violations"] != 0
+        or pft_scope["same_draw_covariance_aggregation_verified"]
+        != pft_bounds["same_draw_covariance_aggregation_verified"]
+    ):
+        raise ValueError("PFT uncertainty scope differs from retained result")
 
     print(
         f"verified {len(manifest['files'])} retained files, "

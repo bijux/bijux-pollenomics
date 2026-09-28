@@ -16,6 +16,15 @@ The retained Rootsi candidate closure has 79 unique publication-metadata candida
 
 The paper's 12-PFT statement, PANGAEA's 11-PFT description and 13 archived PFT positions remain unreconciled. The [publisher's machine-readable Table 1](../publication-replay/landclim-pft-crosswalk/publisher-table-review.md) independently lists nine paper TBS taxa and no `ISTS` code. A separate [source-bound taxon arithmetic replay](../publication-replay/landclim-pft-crosswalk/README.md) shows that archived `ISTS` means equal the sum of three published taxon means (`Corylus.avellana`, `Fraxinus` and `Quercus.deciduous`) in all 10,500 grid/window rows. Archived `TBS` means equal the other six taxa listed under TBS in the parameter table. The maximum absolute split residual is about `1.02e-13` percentage points. The [private author-name review](../publication-replay/landclim-pft-crosswalk/author-name-review/report.json) supports seven of nine parameter-to-output names by exact author-crosswalk source names and an eighth, `Castanea sativa`, through the custody-bound author LUT's `Castanea` mapping. `Quercus deciduous t.` has no exact source-name row in either author file. This establishes version-specific mean arithmetic and bounded name evidence, not the biological definition of `ISTS`, an authenticated archived-release taxon transformation, an SE aggregation rule, or the historical paper's PFT count. Historical chronology choices, per-sequence rights, source revisions, basin/profile semantics and full-paper raw-input closure also remain open.
 
+The [archived uncertainty-bound replay](../publication-replay/landclim-pft-crosswalk/uncertainty-bounds/report.json)
+checks all 10,500 grid/window rows for each observed ET, ST, OL, ISTS and
+TBS mean-addend group. Every aggregate SE lies between the lower and upper
+standard-deviation bounds implied by its component SEs. There are 7,588 ET,
+7,892 ST, 5,921 OL, 7,013 ISTS and 5,859 TBS rows with a nondegenerate
+bound and a value strictly inside it. These necessary inequalities are
+compatible with some covariance; they do not identify the archived covariance
+or replay the paper's delta-method uncertainty.
+
 The [paper's Sect. 3.2](https://essd.copernicus.org/articles/14/1581/2022/)
 assigns deciduous Quercus type to TBS, whereas the archive's
 `Quercus.deciduous` mean is an `ISTS` addend. This is a documented
