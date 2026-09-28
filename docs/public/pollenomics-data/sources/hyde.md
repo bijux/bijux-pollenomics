@@ -179,6 +179,15 @@ native country projection has been admitted. The recorded assignment policy is
 explicitly not applied; no country snapshot or boundary digest is invented.
 External archive custody remains available independently of that refusal.
 
+The release also supplies source-reported country cropland tables. A bounded
+[Nordic country result](../../../report/regions/nordic/hyde-country-cropland/README.md)
+now reads the release's ISO-code workbook and base/lower/upper `cropland_c.txt`
+tables at seven native CE year labels. It records modeled cropland area in km²
+for Denmark, Finland, Norway and Sweden without projecting grid cells. This
+source-reported quantity is separate from the generic count-only country ledger:
+it does not change that ledger's refused grid assignment or publication cells,
+or establish a matched pollen comparison.
+
 ## Inspected local release
 
 The September 2026 local inventory contains 1,574 dataset files totaling

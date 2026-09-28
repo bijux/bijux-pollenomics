@@ -1,0 +1,53 @@
+{
+  "schema_version": "hyde-source-reported-nordic-cropland.v1",
+  "measure": "HYDE source-reported country cropland area in km2; modeled land use",
+  "source_family": "HYDE 3.5 local gbc2025_7apr release",
+  "country_codes": {
+    "DK": "208",
+    "FI": "246",
+    "NO": "578",
+    "SE": "752"
+  },
+  "source_year_ce_labels": [
+    500,
+    1000,
+    1500,
+    1700,
+    1900,
+    2000,
+    2025
+  ],
+  "scenarios": [
+    "base",
+    "lower",
+    "upper"
+  ],
+  "rows": 84,
+  "country_years": 28,
+  "inputs": [
+    {
+      "path": "original/general_files.zip",
+      "sha256": "6c85ebaaa4e18b569be4833454ee0139588acb9001a7c57ca678265c1816f923"
+    },
+    {
+      "path": "original/gbc2025_7apr_base/txt/cropland_c.txt",
+      "sha256": "d3ddee4c611af206f5324243c6676c2c9648306970e8c7e108d3cf5d418099bb"
+    },
+    {
+      "path": "original/gbc2025_7apr_lower/txt/cropland_c.txt",
+      "sha256": "b4aa002fe3d0217b4cbdb81513c2d3e2184a2620cb52b39822a42bd9723b8268"
+    },
+    {
+      "path": "original/gbc2025_7apr_upper/txt/cropland_c.txt",
+      "sha256": "e8f186147691e99d7406e21d17f421b5f8893f45941ef3884c0c45b77df48f1e"
+    }
+  ],
+  "rights": "Local Yoda metadata and License.txt say CC BY-NC 4.0; README and NetCDF declarations say CC BY 3.0. Derived summary retained under restrictive interpretation; redistribution review pending.",
+  "interpretation": "These are native source country totals, not a new grid-country overlay, independent observed vegetation, uncertainty intervals, or pollen covariates. CE labels are retained without BP/NetCDF calendar conversion. The 2025 column exists in these tables while release coverage prose conflicts.",
+  "remaining": [
+    "grid_country_conservation",
+    "release_rights_reconciliation",
+    "time_mapping_for_pollen_study",
+    "paired_no_hyde_hyde_ablation"
+  ]
+}
