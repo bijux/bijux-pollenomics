@@ -42,3 +42,41 @@ def test_public_boundary_release_and_review_are_source_bound(page: Path) -> None
     for target in re.findall(r"\]\(([^)]+)\)", text):
         if "://" not in target and not target.startswith("#"):
             assert (page.parent / target.split("#")[0]).exists(), target
+
+
+def test_public_boundary_decision_denominators_match_governed_manifest() -> None:
+    review = json.loads((ROOT / "data/boundaries/review/manifest.json").read_text())
+    text = PAGES[0].read_text()
+    labels = {
+        "animal_adna": "animal aDNA",
+        "landclim": "LandClim",
+        "neotoma": "Neotoma",
+        "sead": "SEAD",
+    }
+    summaries = review["source_summaries"]
+    assert sum(row["row_count"] for row in summaries.values()) == review["point_count"]
+    assert (
+        sum(
+            row["review_requirement_counts"].get("qualified_review_required", 0)
+            for row in summaries.values()
+        )
+        == review["point_review_count"]
+    )
+    for key, summary in summaries.items():
+        statuses = summary["decision_status_counts"]
+        assert sum(statuses.values()) == summary["row_count"]
+        expected = (
+            "| "
+            + " | ".join(
+                [
+                    labels[key],
+                    f"{summary['row_count']:,}",
+                    f"{statuses.get('assigned', 0):,}",
+                    f"{statuses.get('review', 0):,}",
+                    f"{statuses.get('unassigned', 0):,}",
+                    f"{summary['country_counts']['UNASSIGNED']:,}",
+                ]
+            )
+            + " |"
+        )
+        assert expected in text

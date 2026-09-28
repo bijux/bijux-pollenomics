@@ -33,6 +33,20 @@ boundary review release posture is `blocked_pending_qualified_boundary_review`.
 The point decisions and polygons are reusable with this qualification; they do
 not constitute final boundary suitability approval.
 
+| Source point population | Rows | Assigned | Review | Unassigned | `UNASSIGNED` country partition |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| animal aDNA | 170 | 6 | 1 | 163 | 164 |
+| LandClim | 490 | 470 | 18 | 2 | 16 |
+| Neotoma | 193 | 193 | 0 | 0 | 0 |
+| SEAD | 2,195 | 2,069 | 103 | 23 | 126 |
+
+These are two different partitions of the same 3,048 source points: decision
+status and governed country. A review status can retain a source country
+without receiving a governed assignment, so `UNASSIGNED` is not simply the
+sum of every row labeled review or unassigned. Inspect the source-specific
+[decision ledgers](../../../../data/boundaries/review/manifest.json) before
+interpreting an individual point.
+
 The normalized artifact is
 `data/boundaries/normalized/nordic_country_boundaries.geojson`. It contains one
 MultiPolygon feature for each Nordic publication country:
