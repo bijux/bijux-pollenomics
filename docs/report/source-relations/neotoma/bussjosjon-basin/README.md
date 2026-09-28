@@ -22,6 +22,17 @@ site point is **2.5264 km** (haversine, Earth radius 6371.0088 km). The
 inventory is a published source for its own lake entry, but neither its
 coordinate nor its 3 ha area identifies the Neotoma `BUS` pollen core.
 
+As a present-day spatial check, the inventory point lies inside
+[OpenStreetMap lake way 247465403, version 2](https://www.openstreetmap.org/way/247465403/history/2).
+The closed 50-node polygon (version 2, dated 2019-11-13, and tagged as reviewed
+against an LM topographic map) spans 55.4443921–55.446581° N and
+13.7998235–13.8029397° E. A local planar shoelace calculation gives
+approximately **2.27 ha**, in the vicinity of the inventory's 3 ha. This
+community map corroborates that the inventory coordinate points at a mapped
+lake; it does not establish the lake's name, historical size, collection-unit
+identity or accuracy of the Neotoma site point. The polygon is not an admitted
+historical LRA basin.
+
 A [Lund University literature synthesis (2019), PDF page 16](https://lup.lub.lu.se/luur/download?fileOId=8985529&func=downloadFile&recordOId=8985524)
 places Bussjösjön at the coarse 55°28′ N, 13°49′ E, close to the Neotoma
 site point. It reports approximately **2 ha in the early Holocene** and
@@ -60,9 +71,10 @@ radius. The existing [Swedish source questions](../../../pollen-reconstruction/s
 also retain a 2 ha source value. These numbers have different source roles
 and possible time meanings. The field study's approximately 0.3 ha modern
 lake is smaller than either circular `BUS` radius area or the 3 ha inventory
-value. The 2016 inventory coordinate could reflect a transcription error or
-a distinct location; the available records do not decide which. None binds
-a time-specific lake boundary or radius to the Neotoma pollen samples.
+value. The present-day mapped-water check strengthens the inventory coordinate
+as a lake-location lead, while leaving the Neotoma point and core identity
+unresolved. None of these records binds a time-specific lake boundary or radius
+to the Neotoma pollen samples.
 **Historical basin geometry and every Bussjösjön LRA sample remain
 unadmitted.** Resolve the inventory coordinate against the mapped 1986 lake,
 then link the `BUS` core and its calibrated sample ages to dated basin outlines
