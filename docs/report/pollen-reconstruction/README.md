@@ -37,7 +37,7 @@ The selected CLR-RBF therefore improves the development score against the declar
 
 The [archived PFT taxon arithmetic](../publication-replay/landclim-pft-crosswalk/README.md)
 now identifies the three published taxon-mean columns that sum to `ISTS` and
-the six that sum to `TBS` in all 10,500 grid/window rows. It does not define
+the six that sum to `TBS` in all 10,500 grid/window rows. A custody-bound author crosswalk supports seven of the nine parameter-to-output taxon names exactly; two parameter names have no exact author source-name row. This evidence does not define
 `ISTS` biologically, authenticate the source-to-output name changes, settle the
 paper/archive PFT count discrepancy, or supply an SE aggregation rule.
 

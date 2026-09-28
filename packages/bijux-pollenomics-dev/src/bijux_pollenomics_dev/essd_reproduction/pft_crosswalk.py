@@ -17,6 +17,8 @@ import zipfile
 MAPPING = Path("data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv")
 ARCHIVE = Path("data/landclim/raw/landclim_ii_reveals_results.zip")
 SOURCE_RECEIPT = Path("data/landclim/raw/landclim_sources.json")
+AUTHOR_CUSTODY = Path("docs/report/pollen-reconstruction/author-source-custody.json")
+AUTHOR_TAXON_CROSSWALK = Path("reference/taxon-name-crosswalk.csv")
 PINNED = {
     MAPPING: "32eac151566b41c186745dd077fabcddde06f64f9a3a2056699e88dbabd76d4d",
     ARCHIVE: "c585f0691ad95342b8aba083b90fe91dc398f985b6b7fbc19561299389c4fb86",
@@ -292,6 +294,102 @@ def build_taxon_arithmetic(repository: Path, output: Path) -> dict[str, object]:
     return report
 
 
+def build_author_name_review(
+    repository: Path, author_source_root: Path, output: Path
+) -> dict[str, object]:
+    """Test exact parameter names against the custody-bound author crosswalk."""
+    repository, author_source_root, output = (
+        repository.resolve(),
+        author_source_root.resolve(),
+        output.resolve(),
+    )
+    if output.exists() or output.is_symlink():
+        raise ValueError("Absent output destination required")
+    mapping_content, inputs = _verified_sources(repository)
+    _source_tbs_taxa(mapping_content)
+    custody_path = repository / AUTHOR_CUSTODY
+    custody_content = custody_path.read_bytes()
+    custody = json.loads(custody_content)
+    manifest_path = author_source_root / custody["original_manifest_filename"]
+    manifest_content = manifest_path.read_bytes()
+    if _sha(manifest_content) != custody["original_manifest_sha256"]:
+        raise ValueError("Private author source manifest digest mismatch")
+    source_manifest = json.loads(manifest_content)
+    crosswalk_path = author_source_root / AUTHOR_TAXON_CROSSWALK
+    if crosswalk_path.is_symlink() or not crosswalk_path.is_file():
+        raise ValueError("Private author taxon crosswalk missing or linked")
+    crosswalk_content = crosswalk_path.read_bytes()
+    expected = source_manifest["files"][AUTHOR_TAXON_CROSSWALK.as_posix()]
+    if _sha(crosswalk_content) != expected:
+        raise ValueError("Private author taxon crosswalk digest mismatch")
+    author_rows = list(
+        csv.DictReader(io.StringIO(crosswalk_content.decode("utf-8-sig")))
+    )
+    if len(author_rows) != 31 or any(
+        set(row) != {"source", "prepared"} for row in author_rows
+    ):
+        raise ValueError("Private author taxon crosswalk shape changed")
+    author_mapping = {row["source"]: row["prepared"] for row in author_rows}
+    if (
+        len(author_mapping) != len(author_rows)
+        or len(set(author_mapping.values())) != 31
+    ):
+        raise ValueError("Private author taxon crosswalk identities are not unique")
+    with zipfile.ZipFile(repository / ARCHIVE) as archive:
+        members = _members(archive)
+        header, _ = _records(archive, members["mean"][1], None)
+    decisions = []
+    for source_name, output_name in TBS_SOURCE_TO_OUTPUT:
+        match = author_mapping.get(source_name) == output_name
+        alternatives = sorted(
+            name for name, prepared in author_mapping.items() if prepared == output_name
+        )
+        if output_name not in header:
+            raise ValueError(f"Published taxon output absent: {output_name}")
+        decisions.append(
+            {
+                "parameter_taxon": source_name,
+                "published_output_column": output_name,
+                "author_crosswalk_source_names_for_output": alternatives,
+                "decision": (
+                    "exact_author_source_name_and_output_match"
+                    if match
+                    else "parameter_name_absent_from_author_crosswalk"
+                ),
+            }
+        )
+    counts = Counter(row["decision"] for row in decisions)
+    report: dict[str, object] = {
+        "schema_version": "landclim-author-tbs-name-review.v1",
+        "inputs": inputs
+        + [
+            {"path": AUTHOR_CUSTODY.as_posix(), "sha256": _sha(custody_content)},
+            {
+                "path": "private-author-snapshot-manifest",
+                "sha256": _sha(manifest_content),
+            },
+            {
+                "path": AUTHOR_TAXON_CROSSWALK.as_posix(),
+                "bytes": len(crosswalk_content),
+                "sha256": _sha(crosswalk_content),
+                "custody": "private",
+            },
+        ],
+        "author_crosswalk_rows": len(author_rows),
+        "parameter_tbs_taxa_reviewed": len(decisions),
+        "decision_counts": dict(sorted(counts.items())),
+        "decisions": decisions,
+        "historical_published_taxon_translation_admitted": False,
+        "ists_biological_definition_admitted": False,
+    }
+    output.mkdir(parents=True)
+    (output / "report.json").write_text(
+        json.dumps(report, ensure_ascii=False, indent=2, sort_keys=True) + "\n",
+        encoding="utf-8",
+    )
+    return report
+
+
 def reconcile(
     mapping_content: bytes, archive_path: Path
 ) -> tuple[
@@ -479,8 +577,18 @@ def main() -> None:
         action="store_true",
         help="check the published ISTS/TBS mean split",
     )
+    parser.add_argument(
+        "--author-name-review",
+        action="store_true",
+        help="compare source taxon names against the private author crosswalk",
+    )
+    parser.add_argument("--author-source-root", type=Path)
     args = parser.parse_args()
-    if args.taxon_arithmetic:
+    if args.author_name_review:
+        if args.taxon_arithmetic or args.author_source_root is None:
+            parser.error("author name review requires only --author-source-root")
+        build_author_name_review(args.repository, args.author_source_root, args.output)
+    elif args.taxon_arithmetic:
         build_taxon_arithmetic(args.repository, args.output)
     else:
         build(args.repository, args.output)
