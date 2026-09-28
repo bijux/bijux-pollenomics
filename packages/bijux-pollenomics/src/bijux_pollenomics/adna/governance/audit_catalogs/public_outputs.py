@@ -4,6 +4,9 @@ import json
 from pathlib import Path
 from typing import cast
 
+from bijux_pollenomics.adna.species.definitions import resolve_species_definition
+from bijux_pollenomics.adna.species.tracked_species import TRACKED_ADNA_SPECIES
+
 from .atlas_accountability import build_animal_atlas_candidate_accountability
 from .contracts import (
     AnimalOutputHonesty,
@@ -91,80 +94,55 @@ def build_public_animal_output_honesty(
         "country_published_sample_count": 0,
     }
     sample_species: set[str] = set()
+    project_species_by_slug = {
+        resolve_species_definition(name).slug: name for name in TRACKED_ADNA_SPECIES
+    }
     for root in _species_roots(data_root):
         if root.name == "homo_sapiens":
             continue
         sample_rows = _load_sample_rows(root)
         if not sample_rows:
             continue
-        species_names = {
-            str(row.get("species_latin_name", "")).strip() for row in sample_rows
-        }
-        common_names = {
-            str(row.get("species_common_name", "")).strip() for row in sample_rows
-        }
-        if len(species_names) != 1 or "" in species_names:
-            raise ValueError(
-                f"Animal sample rows have mixed species identity in {root}"
-            )
-        if len(common_names) != 1 or "" in common_names:
-            raise ValueError(
-                f"Animal sample rows have mixed common-name identity in {root}"
-            )
-        species_name = species_names.pop()
-        common_name = common_names.pop()
-        sample_species.add(species_name)
-        sample_ids = [
-            _nested_string(row, "identity", "stable_token") for row in sample_rows
-        ]
-        if any(not sample_id for sample_id in sample_ids):
-            raise ValueError(
-                f"Animal sample rows contain blank stable IDs for {species_name}"
-            )
-        tracked_sample_ids = set(sample_ids)
-        if len(tracked_sample_ids) != len(sample_ids):
-            raise ValueError(
-                f"Animal sample rows contain duplicate stable IDs for {species_name}"
-            )
-        mapped_sample_ids = mapped_sample_ids_by_species.get(species_name, set())
-        if not mapped_sample_ids <= tracked_sample_ids:
-            raise ValueError(
-                f"Animal mapped sample IDs are not tracked for {species_name}"
-            )
-        unresolved_sample_ids = {
-            sample_id
-            for sample_id, row in zip(sample_ids, sample_rows, strict=True)
-            if str(row.get("inclusion_status", "")).strip() == "sample_context_blocked"
-        }
-        country_published_sample_ids = country_sample_ids_by_species.get(
-            species_name, set()
+        project_species = project_species_by_slug.get(root.name)
+        if project_species is None:
+            raise ValueError(f"Animal sample root has unknown project species: {root}")
+        project_common_name = resolve_species_definition(project_species).common_name
+        source_taxon_mismatches: dict[str, int] = {}
+        for sample in sample_rows:
+            species_name = str(sample.get("species_latin_name", "")).strip()
+            common_name = str(sample.get("species_common_name", "")).strip()
+            if not species_name or (
+                species_name != project_species
+                and (
+                    sample.get("taxon_alignment_status") != "project_species_mismatch"
+                    or sample.get("source_native_scientific_name") != species_name
+                    or sample.get("inclusion_status") != "sample_context_blocked"
+                )
+            ):
+                raise ValueError(
+                    f"Animal sample rows have mixed species identity in {root}"
+                )
+            if not common_name or (
+                species_name == project_species and common_name != project_common_name
+            ):
+                raise ValueError(
+                    f"Animal sample rows have mixed common-name identity in {root}"
+                )
+            if species_name != project_species:
+                source_taxon_mismatches[species_name] = (
+                    source_taxon_mismatches.get(species_name, 0) + 1
+                )
+        sample_species.add(project_species)
+        _append_honesty_row(
+            species_name=project_species,
+            common_name=project_common_name,
+            sample_rows=sample_rows,
+            source_taxon_mismatches=source_taxon_mismatches,
+            mapped_sample_ids_by_species=mapped_sample_ids_by_species,
+            country_sample_ids_by_species=country_sample_ids_by_species,
+            rows=rows,
+            totals=totals,
         )
-        if not country_published_sample_ids <= mapped_sample_ids:
-            raise ValueError(
-                f"Animal country-published sample IDs are not mapped for {species_name}"
-            )
-        blocked_sample_count = len(tracked_sample_ids - mapped_sample_ids)
-        if not unresolved_sample_ids <= tracked_sample_ids - mapped_sample_ids:
-            raise ValueError(
-                f"Animal unresolved sample IDs are not blocked for {species_name}"
-            )
-        row: HonestyRow = {
-            "species_latin_name": species_name,
-            "species_common_name": common_name,
-            "tracked_sample_count": len(tracked_sample_ids),
-            "mapped_sample_count": len(mapped_sample_ids),
-            "blocked_sample_count": blocked_sample_count,
-            "unresolved_sample_count": len(unresolved_sample_ids),
-            "country_published_sample_count": len(country_published_sample_ids),
-        }
-        rows.append(row)
-        totals["tracked_sample_count"] += row["tracked_sample_count"]
-        totals["mapped_sample_count"] += row["mapped_sample_count"]
-        totals["blocked_sample_count"] += row["blocked_sample_count"]
-        totals["unresolved_sample_count"] += row["unresolved_sample_count"]
-        totals["country_published_sample_count"] += row[
-            "country_published_sample_count"
-        ]
     if any(
         sample_ids and species_name not in sample_species
         for species_name, sample_ids in mapped_sample_ids_by_species.items()
@@ -180,3 +158,64 @@ def build_public_animal_output_honesty(
         "totals": totals,
         "rows": rows,
     }
+
+
+def _append_honesty_row(
+    *,
+    species_name: str,
+    common_name: str,
+    sample_rows: list[dict[str, object]],
+    source_taxon_mismatches: dict[str, int],
+    mapped_sample_ids_by_species: dict[str, set[str]],
+    country_sample_ids_by_species: dict[str, set[str]],
+    rows: list[HonestyRow],
+    totals: HonestyTotals,
+) -> None:
+    sample_ids = [
+        _nested_string(row, "identity", "stable_token") for row in sample_rows
+    ]
+    if any(not sample_id for sample_id in sample_ids):
+        raise ValueError(
+            f"Animal sample rows contain blank stable IDs for {species_name}"
+        )
+    tracked_sample_ids = set(sample_ids)
+    if len(tracked_sample_ids) != len(sample_ids):
+        raise ValueError(
+            f"Animal sample rows contain duplicate stable IDs for {species_name}"
+        )
+    mapped_sample_ids = mapped_sample_ids_by_species.get(species_name, set())
+    if not mapped_sample_ids <= tracked_sample_ids:
+        raise ValueError(f"Animal mapped sample IDs are not tracked for {species_name}")
+    unresolved_sample_ids = {
+        sample_id
+        for sample_id, row in zip(sample_ids, sample_rows, strict=True)
+        if str(row.get("inclusion_status", "")).strip() == "sample_context_blocked"
+    }
+    country_published_sample_ids = country_sample_ids_by_species.get(
+        species_name, set()
+    )
+    if not country_published_sample_ids <= mapped_sample_ids:
+        raise ValueError(
+            f"Animal country-published sample IDs are not mapped for {species_name}"
+        )
+    blocked_sample_count = len(tracked_sample_ids - mapped_sample_ids)
+    if not unresolved_sample_ids <= tracked_sample_ids - mapped_sample_ids:
+        raise ValueError(
+            f"Animal unresolved sample IDs are not blocked for {species_name}"
+        )
+    row: HonestyRow = {
+        "species_latin_name": species_name,
+        "species_common_name": common_name,
+        "source_taxon_mismatches": source_taxon_mismatches,
+        "tracked_sample_count": len(tracked_sample_ids),
+        "mapped_sample_count": len(mapped_sample_ids),
+        "blocked_sample_count": blocked_sample_count,
+        "unresolved_sample_count": len(unresolved_sample_ids),
+        "country_published_sample_count": len(country_published_sample_ids),
+    }
+    rows.append(row)
+    totals["tracked_sample_count"] += row["tracked_sample_count"]
+    totals["mapped_sample_count"] += row["mapped_sample_count"]
+    totals["blocked_sample_count"] += row["blocked_sample_count"]
+    totals["unresolved_sample_count"] += row["unresolved_sample_count"]
+    totals["country_published_sample_count"] += row["country_published_sample_count"]
