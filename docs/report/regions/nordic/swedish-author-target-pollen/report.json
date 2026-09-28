@@ -1,0 +1,77 @@
+{
+  "axis": [
+    "Abies alba",
+    "Alnus glutinosa",
+    "Amanranthaceae/Chenopodiaceae",
+    "Artemisia",
+    "Betula",
+    "Buxus sempervirens",
+    "Calluna vulgaris",
+    "Carpinus betulus",
+    "Carpinus orientalis",
+    "Castanea",
+    "Cerealia-t",
+    "Corylus avellana",
+    "Cyperaceae",
+    "Ericaceae",
+    "Fagus sylvatica",
+    "Filipendula",
+    "Fraxinus",
+    "Juniperus",
+    "Phillyrea",
+    "Picea",
+    "Pinus",
+    "Pistacia",
+    "Plantago lanceolata type",
+    "Poaceae",
+    "Quercus deciduous",
+    "Quercus evergreen",
+    "Rumex acetosa-t",
+    "Salix",
+    "Secale",
+    "Tilia",
+    "Ulmus"
+  ],
+  "country_source_denominators": {
+    "SE": {
+      "assigned_nisp": 221800,
+      "author_excluded_nisp": 12779,
+      "native_nisp": 240966,
+      "selected_samples": 228,
+      "sites": 3,
+      "unmapped_nisp": 6387
+    }
+  },
+  "coverage_sha256": "ab9b499b9fa8db1860497d4ce51dd7f19c8beaf00e774c16d5b9240a37dfea39",
+  "input_manifest_sha256": "035d1eabde7246da0d0331f7de102346b18f31ce6fca727f49fa50f2581e4ae4",
+  "interpretation": "Previously exposed country-held-out observed-pollen subcomposition on 31 author lookup targets; not LRA, measured vegetation validation or independent confirmation.",
+  "methods": [
+    "training_mean",
+    "nearest_site",
+    "inverse_distance_squared"
+  ],
+  "prediction_sha256": {
+    "SE": "d80795914f5d812bda259dc6dfe057f3690136224a85f0a741a76aaf5c50b483"
+  },
+  "schema_version": "nordic-author-target-pollen-study.v1",
+  "score_rows": 153,
+  "scores_sha256": "c83a21c3ec4c6814f10059563187d8a88e51e21ba0b3341d708f0c6eac906cc0",
+  "site_macro_hellinger_distance": {
+    "SE": {
+      "inverse_distance_squared": 0.4131110332281111,
+      "nearest_site": 0.44773584443062875,
+      "training_mean": 0.4511080711451369
+    }
+  },
+  "site_macro_mae_fraction": {
+    "SE": {
+      "inverse_distance_squared": 0.028740151112828596,
+      "nearest_site": 0.029249004716252355,
+      "training_mean": 0.03161531062663379
+    }
+  },
+  "site_score_rows": 9,
+  "site_scores_sha256": "35b8a2a6815f2e67c1e6e74c93b4bcd1d825b1086797790ff7b743b8cece377f",
+  "taxon_diagnostic_rows": 93,
+  "taxon_diagnostics_sha256": "b0fc3ed956c77360a42e6c5cfebd2aa3a2fbe7b9a185770369928707c49bbaba"
+}

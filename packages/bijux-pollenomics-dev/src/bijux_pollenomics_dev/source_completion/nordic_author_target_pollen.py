@@ -308,11 +308,13 @@ def prepare(repository: Path, author_source_root: Path, output: Path) -> None:
     _json_write(output / "input-manifest.json", receipt)
 
 
-def predict(prepared: Path, output: Path) -> None:
+def predict(
+    prepared: Path, output: Path, countries: tuple[str, ...] = COUNTRIES
+) -> None:
     manifest = json.loads((prepared / "input-manifest.json").read_text())
     axis = manifest["axis"]
     output.mkdir(parents=True, exist_ok=False)
-    for country in COUNTRIES:
+    for country in countries:
         training_path = prepared / "inputs" / f"training-{country}.json.gz"
         metadata_path = prepared / "inputs" / f"metadata-{country}.json.gz"
         for path in (training_path, metadata_path):
@@ -408,7 +410,12 @@ def predict(prepared: Path, output: Path) -> None:
         )
 
 
-def score(prepared: Path, predictions: Path, output: Path) -> None:
+def score(
+    prepared: Path,
+    predictions: Path,
+    output: Path,
+    countries: tuple[str, ...] = COUNTRIES,
+) -> None:
     manifest_path = prepared / "input-manifest.json"
     manifest = json.loads(manifest_path.read_text())
     axis = manifest["axis"]
@@ -417,7 +424,7 @@ def score(prepared: Path, predictions: Path, output: Path) -> None:
     country_denominators: dict[str, dict[str, int]] = {}
     taxon_errors: dict[tuple[str, str, str, str], list[float]] = defaultdict(list)
     prediction_hashes: dict[str, str] = {}
-    for country in COUNTRIES:
+    for country in countries:
         path = predictions / f"predictions-{country}.json.gz"
         payload = _compressed_read(path)
         if payload["country"] != country or payload["axis"] != axis:
@@ -566,7 +573,7 @@ def score(prepared: Path, predictions: Path, output: Path) -> None:
                 if c == country and m == method and t == taxon
             ),
         }
-        for country in COUNTRIES
+        for country in countries
         for method in BASELINE_METHODS
         for taxon in axis
     ]
@@ -593,7 +600,7 @@ def score(prepared: Path, predictions: Path, output: Path) -> None:
             )
             for method in BASELINE_METHODS
         }
-        for country in COUNTRIES
+        for country in countries
     }
     macro_hellinger = {
         country: {
@@ -604,7 +611,7 @@ def score(prepared: Path, predictions: Path, output: Path) -> None:
             )
             for method in BASELINE_METHODS
         }
-        for country in COUNTRIES
+        for country in countries
     }
     _json_write(
         output / "report.json",
