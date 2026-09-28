@@ -70,14 +70,14 @@ def test_admitted_sead_claims_reconcile_and_match_the_generated_bundle() -> None
         "relative_period": 10_057,
     }
     assert bundle["comparability_counts"] == {
-        "comparable": 14_264,
-        "context_only": 10_144,
+        "comparable": 13_170,
+        "context_only": 11_238,
         "refused": 60,
         "unresolved": 641,
     }
     assert bundle["chronology_eligibility_counts"] == {
-        "eligible": 14_264,
-        "refused": 10_845,
+        "eligible": 13_170,
+        "refused": 11_939,
     }
     assert bundle["propagation_status"] == "refused"
     assert bundle["propagation_reason_code"] == "source_classification_not_accepted"
@@ -118,7 +118,7 @@ def test_every_sead_claim_retains_subject_geography_and_raw_parent_identity() ->
     eligible = [
         claim for claim in claims if claim["chronology_eligibility"] == "eligible"
     ]
-    assert len(eligible) == 14_264
+    assert len(eligible) == 13_170
     assert all(isinstance(claim["younger_bp"], int) for claim in eligible)
     assert all(isinstance(claim["older_bp"], int) for claim in eligible)
     refused_negative = [

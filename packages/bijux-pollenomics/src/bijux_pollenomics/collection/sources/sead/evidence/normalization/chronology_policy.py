@@ -73,6 +73,20 @@ def sead_claim_age_policy(
             reason_code="age_type_not_governed",
         )
 
+    if (
+        kind == "dendrochronology"
+        and clean_optional_text(source_row.get("uncertainty_label")).casefold()
+        == "from"
+    ):
+        return non_comparable_age_policy(
+            source_age_type=source_age_type,
+            source_age_unit=source_age_unit,
+            calibration_status=calibration_status,
+            comparability_status="context_only",
+            reason_code="open_ended_dendro_from_uncertainty",
+            transformation_id=transformation_id,
+        )
+
     if interval is not None and interval[0] < 0:
         return non_comparable_age_policy(
             source_age_type=source_age_type,

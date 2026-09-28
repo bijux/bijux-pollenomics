@@ -5,14 +5,14 @@
     "description": "Anno Domini, Christian era; calendar era dates according to the Gregorian calendar."
   },
   "chronology_eligibility_counts": {
-    "eligible": 14264,
-    "refused": 10845
+    "eligible": 13170,
+    "refused": 11939
   },
   "claim_count": 25109,
   "claim_review_csv": {
     "path": "claims.csv",
     "row_count": 25109,
-    "sha256": "cad5cd95ffd4a3190c92c85f487dfaa15f4fb0ce80c4cc9f801013468806e47c"
+    "sha256": "e3ec1cc2c01cb9addea5247a1d116b4009b436fdab9f062efcb4ffde0a9c6546"
   },
   "claim_type_counts": {
     "analysis_entity_age": 641,
@@ -22,8 +22,8 @@
     "relative_period": 10057
   },
   "comparability_counts": {
-    "comparable": 14264,
-    "context_only": 10144,
+    "comparable": 13170,
+    "context_only": 11238,
     "refused": 60,
     "unresolved": 641
   },
@@ -100,13 +100,31 @@
       "source_table": "tbl_dendro_dates",
       "uncertainty_label": ""
     },
-    "dendrochronology:ad_calendar_year_to_1950_bp": {
+    "dendrochronology:ad_calendar_year_open_ended_from_context": {
       "captured_bp_endpoints": "107;107",
       "chronology_claim_id": "sead:000ef3d9-389f-46cd-8cf9-a9c49507f5cd:dendrochronology:2708",
+      "chronology_eligibility": "refused",
+      "claim_type": "dendrochronology",
+      "comparability_status": "context_only",
+      "native_year_values": "1843",
+      "propagation_eligibility": "refused",
+      "publication_role": "review_only",
+      "reason_codes": "chronology_not_comparable;open_ended_dendro_from_uncertainty",
+      "reviewed_age_basis": "ad_calendar_year_open_ended_from_context",
+      "source_age_type": "AD",
+      "source_age_type_id": "1",
+      "source_age_unit": "calendar_year",
+      "source_record_id": "2708",
+      "source_table": "tbl_dendro_dates",
+      "uncertainty_label": "From"
+    },
+    "dendrochronology:ad_calendar_year_to_1950_bp": {
+      "captured_bp_endpoints": "105;105",
+      "chronology_claim_id": "sead:000ef3d9-389f-46cd-8cf9-a9c49507f5cd:dendrochronology:2709",
       "chronology_eligibility": "eligible",
       "claim_type": "dendrochronology",
       "comparability_status": "comparable",
-      "native_year_values": "1843",
+      "native_year_values": "1845",
       "propagation_eligibility": "refused",
       "publication_role": "chronology_display_only",
       "reason_codes": "",
@@ -114,9 +132,9 @@
       "source_age_type": "AD",
       "source_age_type_id": "1",
       "source_age_unit": "calendar_year",
-      "source_record_id": "2708",
+      "source_record_id": "2709",
       "source_table": "tbl_dendro_dates",
-      "uncertainty_label": "From"
+      "uncertainty_label": ""
     },
     "geochronology:geochronology_calibration_posture_unknown": {
       "captured_bp_endpoints": "5020;5180",
@@ -157,37 +175,37 @@
   },
   "input_hashes": {
     "admission_sha256": "69f93b6bd34e457bedc4047077024de1beefc900142f45051fab60dce03751ea",
-    "claim_index_sha256": "57d240d66f782d1ccb9ecf0db1868a4889ffb8dbbe6a80393c28322460ce85f9",
+    "claim_index_sha256": "b9accf421059eebf95b75a8c22fd237f4d51991fbc868e79530d20a694e6cd21",
     "claim_parts": [
       {
         "path": "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/chronology_claims/claims-00001.json",
-        "row_count": 4438,
-        "sha256": "f7848132d49be7865d136722df0fa113e08d4a9a10284411061d94c7fcc49521"
+        "row_count": 4434,
+        "sha256": "d8f789b05966c07e7435159d96ee30de715133787556f18686f7011cecdba860"
       },
       {
         "path": "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/chronology_claims/claims-00002.json",
-        "row_count": 4457,
-        "sha256": "892b4a8e59892cbaff2524be9c5c310ca86663861b23bdeb79fb12f07fc5b6a6"
+        "row_count": 4452,
+        "sha256": "b3d3b749eff439f92e9e39915682522b40d21ee6ae9156ba24a2ac5a42c93cbf"
       },
       {
         "path": "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/chronology_claims/claims-00003.json",
-        "row_count": 4416,
-        "sha256": "a67f1d7873cc1be9592210b2ed12a920cda66c192ef1bb32148d1a7990a85f2f"
+        "row_count": 4412,
+        "sha256": "56aea4298888e1aa74cf8e155b8cf7a2f2e149f06b11451f75177b219aff8bb8"
       },
       {
         "path": "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/chronology_claims/claims-00004.json",
-        "row_count": 4431,
-        "sha256": "6dc2ae3097dd1c37c85fc1d46a40a50cec5b4ed5559e1bef124818eb11233f42"
+        "row_count": 4428,
+        "sha256": "2202cec94d5d43eaaa91b2366620f41deb325a98b89b086f20b08a687ff3af11"
       },
       {
         "path": "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/chronology_claims/claims-00005.json",
-        "row_count": 4465,
-        "sha256": "2d849acbcb2573663e50c967f225985da323ac3bbb9cc8d454b4c875cacaf04f"
+        "row_count": 4464,
+        "sha256": "88272c0f4cea6b6c5123fcb2729abf8498bb451e5f0db36fb8badfdb508b1274"
       },
       {
         "path": "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/chronology_claims/claims-00006.json",
-        "row_count": 2902,
-        "sha256": "a8b5158d3fb2ac90a6b756c65b35f8f4ae41a88b86a56eec22bb4f0bfa7d5549"
+        "row_count": 2919,
+        "sha256": "6f3d502ec3f1df6d339e7da946bf20e4179b1272ddddb0d68ba87df58295c26a"
       }
     ],
     "manifest_sha256": "6fc2428046d148f9ce6c158f982afbbbbaea39de2132850a4fb8f41acf8a4c14",
@@ -239,9 +257,10 @@
   },
   "refusal_reason_counts": {
     "analysis_entity_age_basis_unspecified": 641,
-    "chronology_not_comparable": 10845,
+    "chronology_not_comparable": 11939,
     "geochronology_calibration_posture_unknown": 87,
     "negative_bp": 60,
+    "open_ended_dendro_from_uncertainty": 1094,
     "relative_period_requires_governed_mapping": 10057
   },
   "requirement_id": "SEAD-003",
@@ -254,7 +273,8 @@
   },
   "reviewed_age_basis_counts": {
     "ad_calendar_year_negative_bp_refused": 60,
-    "ad_calendar_year_to_1950_bp": 14264,
+    "ad_calendar_year_open_ended_from_context": 1094,
+    "ad_calendar_year_to_1950_bp": 13170,
     "analysis_entity_age_basis_unspecified": 641,
     "geochronology_calibration_posture_unknown": 87,
     "relative_period_requires_governed_mapping": 10057

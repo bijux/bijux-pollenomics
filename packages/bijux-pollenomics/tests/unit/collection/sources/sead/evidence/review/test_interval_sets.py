@@ -95,23 +95,23 @@ def test_actual_pinned_site_retains_disjoint_phases_and_all_claims() -> None:
     report, rows = build_sead_interval_set_review(ROOT / "data")
     denominators = report["denominators"]
     assert denominators["native_reviewed_claims"] == 25_109
-    assert denominators["eligible_record_claims"] == 14_264
-    assert denominators["refused_or_contextual_claims_excluded"] == 10_845
-    assert denominators["exported_record_intervals"] == 8_172
+    assert denominators["eligible_record_claims"] == 13_170
+    assert denominators["refused_or_contextual_claims_excluded"] == 11_939
+    assert denominators["exported_record_intervals"] == 7_244
     assert denominators["exported_sites"] == len(rows) == 2_069
     assert denominators["sites_with_record_intervals"] == 370
     site = next(row for row in rows if row["source_site_id"] == "3840")
     assert (site["display_start_bp"], site["display_end_bp"]) == (82, 107)
     assert json.loads(str(site["phases_json"])) == [[82, 83], [105, 107]]
     assert json.loads(str(site["gaps_json"])) == [[84, 104]]
-    assert site["eligible_claim_count"] == 80
-    assert site["record_interval_count"] == 12
+    assert site["eligible_claim_count"] == 79
+    assert site["record_interval_count"] == 11
     gold = next(
         example
         for example in report["gold_disjoint_sites"]
         if example["source_site_id"] == "3840"
     )
-    assert len(gold["native_claims"]) == 80
+    assert len(gold["native_claims"]) == 79
     assert {
         (claim["younger_bp"], claim["older_bp"]) for claim in gold["native_claims"]
     } == {(82, 82), (83, 83), (105, 105), (106, 106), (107, 107)}

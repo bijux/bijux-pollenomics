@@ -25,10 +25,10 @@ _EXPECTED_LINEAGE = {
         "168ad1efe6fa68cdb7789246a6cce16670377cdbacd14d1673beaab8ddd1ebd1"
     ),
     "evidence_manifest_sha256": (
-        "c5ec51e8e7360e4f47cffceeb7a907e022da4445caf853317cbcc908269b0093"
+        "383151443d04da5a6e127ea2e4344b4b10bb210137dd1d13b77e50dbfae93508"
     ),
     "evidence_file_set_sha256": (
-        "3a18b6e11ccccdc61f3c1fcbc5f301fd1132313ad14c8dba2fa87c6a9b3174cf"
+        "2a0fc194bfa32cd6b870982a13085803a97bf716095828911adc3d37464743c7"
     ),
 }
 _EXPECTED_TAXONOMY_TABLE_COUNTS = {
@@ -352,22 +352,23 @@ def validate_sead_scientific_classification_review(packet: JsonObject) -> None:
     }:
         raise ValueError("SEAD chronology claim types changed")
     if chronology.get("comparability_counts") != {
-        "comparable": 14_264,
-        "context_only": 10_144,
+        "comparable": 13_170,
+        "context_only": 11_238,
         "refused": 60,
         "unresolved": 641,
     }:
         raise ValueError("SEAD chronology comparability changed")
     if chronology.get("chronology_eligibility_counts") != {
-        "eligible": 14_264,
-        "refused": 10_845,
+        "eligible": 13_170,
+        "refused": 11_939,
     }:
         raise ValueError("SEAD chronology eligibility changed")
     if chronology.get("refusal_reason_counts") != {
         "analysis_entity_age_basis_unspecified": 641,
-        "chronology_not_comparable": 10_845,
+        "chronology_not_comparable": 11_939,
         "geochronology_calibration_posture_unknown": 87,
         "negative_bp": 60,
+        "open_ended_dendro_from_uncertainty": 1_094,
         "relative_period_requires_governed_mapping": 10_057,
     }:
         raise ValueError("SEAD chronology authority gaps changed")

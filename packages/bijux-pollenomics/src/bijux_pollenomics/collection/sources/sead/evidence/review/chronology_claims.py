@@ -11,7 +11,7 @@ from typing import Any
 
 SOURCE_RUN_ID = "sead-full-evidence-39bfff6a-ce80714e"
 PINNED_CLAIM_INDEX_SHA256 = (
-    "57d240d66f782d1ccb9ecf0db1868a4889ffb8dbbe6a80393c28322460ce85f9"
+    "b9accf421059eebf95b75a8c22fd237f4d51991fbc868e79530d20a694e6cd21"
 )
 EXPECTED_CLAIM_COUNT = 25_109
 _NATIVE_FIELDS = {
@@ -212,24 +212,44 @@ def review_claim_age_basis(
         )
         if captured != expected_interval:
             raise ValueError(f"SEAD AD conversion differs from native year: {claim_id}")
-        negative = expected_interval[0] < 0
-        expected_status = "refused" if negative else "comparable"
-        expected_eligibility = "refused" if negative else "eligible"
-        expected_reasons = (
-            {"negative_bp", "chronology_not_comparable"} if negative else set()
+        open_ended = (
+            kind == "dendrochronology" and native.get("dating_uncertainty_id") == 4
         )
-        expected_published = "review_only" if negative else "chronology_display_only"
+        if open_ended and (
+            source.get("uncertainty_label") != "From"
+            or native.get("age_younger") is not None
+        ):
+            raise ValueError(f"SEAD open-ended dendro source changed: {claim_id}")
+        negative = expected_interval[0] < 0
+        expected_status = (
+            "context_only" if open_ended else "refused" if negative else "comparable"
+        )
+        expected_eligibility = "refused" if open_ended or negative else "eligible"
+        expected_reasons = (
+            {"open_ended_dendro_from_uncertainty", "chronology_not_comparable"}
+            if open_ended
+            else {"negative_bp", "chronology_not_comparable"}
+            if negative
+            else set()
+        )
+        expected_published = (
+            "review_only" if open_ended or negative else "chronology_display_only"
+        )
         if (
             claim.get("comparability_status") != expected_status
             or claim.get("chronology_eligibility") != expected_eligibility
             or claim.get("publication_role") != expected_published
             or set(claim.get("reason_codes", [])) != expected_reasons
-            or claim.get("younger_bp") != (None if negative else expected_interval[0])
-            or claim.get("older_bp") != (None if negative else expected_interval[1])
+            or claim.get("younger_bp")
+            != (None if open_ended or negative else expected_interval[0])
+            or claim.get("older_bp")
+            != (None if open_ended or negative else expected_interval[1])
         ):
             raise ValueError(f"SEAD AD claim status or interval changed: {claim_id}")
         basis = (
-            "ad_calendar_year_negative_bp_refused"
+            "ad_calendar_year_open_ended_from_context"
+            if open_ended
+            else "ad_calendar_year_negative_bp_refused"
             if negative
             else "ad_calendar_year_to_1950_bp"
         )

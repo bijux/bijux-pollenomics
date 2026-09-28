@@ -69,12 +69,13 @@ def test_pinned_age_review_accounts_for_every_claim_and_source_basis() -> None:
     assert report["age_type_authority"]["age_type"] == "AD"
     assert report["reviewed_age_basis_counts"] == {
         "ad_calendar_year_negative_bp_refused": 60,
-        "ad_calendar_year_to_1950_bp": 14_264,
+        "ad_calendar_year_open_ended_from_context": 1_094,
+        "ad_calendar_year_to_1950_bp": 13_170,
         "analysis_entity_age_basis_unspecified": 641,
         "geochronology_calibration_posture_unknown": 87,
         "relative_period_requires_governed_mapping": 10_057,
     }
-    assert len(report["gold_examples"]) == 7
+    assert len(report["gold_examples"]) == 8
     assert report["review_posture"]["scientific_chronology_admission_approved"] is False
     assert report["review_posture"]["event_propagation_approved"] is False
     assert all(row["propagation_eligibility"] == "refused" for row in rows)

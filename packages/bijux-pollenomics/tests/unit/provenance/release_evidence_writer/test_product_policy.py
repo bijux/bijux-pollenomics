@@ -89,7 +89,7 @@ def test_product_request_policy_has_exact_inventory_and_reconciliation_counts() 
         chronology_claims.unresolved_count,
         chronology_claims.excluded_count,
         chronology_claims.refused_count,
-    ) == (25_109, 24_468, 14_264, 641, 0, 10_204)
+    ) == (25_109, 24_468, 13_170, 641, 0, 11_298)
 
     observations = by_identity["neotoma.observations.country.unassigned"]
     assert observations.count_status == "reported"
