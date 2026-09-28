@@ -4,7 +4,7 @@ This review checks whether the report-facing Markdown surfaces explain
 themselves in prose or structured reference form instead of behaving like bare
 link farms or coded operator notes.
 
-- Reviewed markdown pages: `167`
+- Reviewed markdown pages: `168`
 
 ## Quality Postures
 
@@ -12,7 +12,7 @@ link farms or coded operator notes.
 | --- | ---: |
 | `reader_ready` | 97 |
 | `structured_reference` | 20 |
-| `thin_structure` | 50 |
+| `thin_structure` | 51 |
 
 ## Reviewed Pages
 
@@ -154,6 +154,7 @@ link farms or coded operator notes.
 | `docs/report/source-relations/neotoma/lakeparameters/README.md` | `thin_structure` | 3 | 0 | 0 | 7 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/source-relations/neotoma/lra-prerequisites/README.md` | `thin_structure` | 4 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/source-relations/neotoma/parameter-candidates/README.md` | `thin_structure` | 5 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
+| `docs/report/source-relations/neotoma/parameter-coverage/README.md` | `thin_structure` | 4 | 0 | 0 | 5 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/source-relations/neotoma/pollen-screen/README.md` | `reader_ready` | 6 | 0 | 0 | 0 | 2 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/source-relations/neotoma/taxon-priority/README.md` | `thin_structure` | 6 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/source-relations/openland-intake/README.md` | `thin_structure` | 6 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
