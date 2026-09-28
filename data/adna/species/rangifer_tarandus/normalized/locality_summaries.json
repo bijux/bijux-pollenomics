@@ -1,5 +1,519 @@
 {
   "schema_version": "adna-locality-summary-export.v1",
   "species_latin_name": "Rangifer tarandus",
-  "localities": []
+  "localities": [
+    {
+      "identity": {
+        "namespace": "rangifer_tarandus:project_locality",
+        "stable_token": "rangifer_tarandus:locality:prjeb60484:barentsya:norway",
+        "locality_text": "Barentsøya",
+        "political_entity": "Norway",
+        "source_anchor_tokens": [
+          "PRJEB60484",
+          "",
+          ""
+        ]
+      },
+      "species_latin_name": "Rangifer tarandus",
+      "species_common_name": "reindeer",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB60484"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "comparator_only"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Barentsøya",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "unknown"
+      },
+      "sample_count": 5,
+      "sample_ids": [
+        "prjeb60484:samea112757326",
+        "prjeb60484:samea112757329",
+        "prjeb60484:samea112757334",
+        "prjeb60484:samea112757335",
+        "prjeb60484:samea112757336"
+      ],
+      "datasets": [
+        "rangifer_tarandus:project:PRJEB60484"
+      ],
+      "chronology": {
+        "original_text": "27-3973 BP",
+        "time_start_bp": 27,
+        "time_end_bp": 3973,
+        "time_mean_bp": 2000,
+        "date_stddev_bp": "",
+        "source_mean_bp_text": "",
+        "dating_basis": "radiocarbon",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_interval",
+        "refusal_reason_code": ""
+      },
+      "sample_namespace": "rangifer_tarandus:sample_locality",
+      "project_accessions": [
+        "PRJEB60484"
+      ],
+      "original_location_text": "Barentsøya",
+      "nordic_inclusion": true,
+      "nordic_inclusion_reason": "This locality falls inside the Nordic publication footprint through direct Norway sample evidence.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "rangifer_tarandus:project_locality",
+        "stable_token": "rangifer_tarandus:locality:prjeb60484:diskobukta:norway",
+        "locality_text": "Diskobukta",
+        "political_entity": "Norway",
+        "source_anchor_tokens": [
+          "PRJEB60484",
+          "",
+          ""
+        ]
+      },
+      "species_latin_name": "Rangifer tarandus",
+      "species_common_name": "reindeer",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB60484"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "comparator_only"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Diskobukta",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "unknown"
+      },
+      "sample_count": 3,
+      "sample_ids": [
+        "prjeb60484:samea112757323",
+        "prjeb60484:samea112757325",
+        "prjeb60484:samea112757328"
+      ],
+      "datasets": [
+        "rangifer_tarandus:project:PRJEB60484"
+      ],
+      "chronology": {
+        "original_text": "1298-2046 BP",
+        "time_start_bp": 1298,
+        "time_end_bp": 2046,
+        "time_mean_bp": 1672,
+        "date_stddev_bp": "",
+        "source_mean_bp_text": "",
+        "dating_basis": "radiocarbon",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_interval",
+        "refusal_reason_code": ""
+      },
+      "sample_namespace": "rangifer_tarandus:sample_locality",
+      "project_accessions": [
+        "PRJEB60484"
+      ],
+      "original_location_text": "Diskobukta",
+      "nordic_inclusion": true,
+      "nordic_inclusion_reason": "This locality falls inside the Nordic publication footprint through direct Norway sample evidence.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "rangifer_tarandus:project_locality",
+        "stable_token": "rangifer_tarandus:locality:prjeb60484:gipsdalen:norway",
+        "locality_text": "Gipsdalen",
+        "political_entity": "Norway",
+        "source_anchor_tokens": [
+          "PRJEB60484",
+          "",
+          ""
+        ]
+      },
+      "species_latin_name": "Rangifer tarandus",
+      "species_common_name": "reindeer",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB60484"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "comparator_only"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Gipsdalen",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "unknown"
+      },
+      "sample_count": 2,
+      "sample_ids": [
+        "prjeb60484:samea112757331",
+        "prjeb60484:samea112757332"
+      ],
+      "datasets": [
+        "rangifer_tarandus:project:PRJEB60484"
+      ],
+      "chronology": {
+        "original_text": "525-768 BP",
+        "time_start_bp": 525,
+        "time_end_bp": 768,
+        "time_mean_bp": 646,
+        "date_stddev_bp": "",
+        "source_mean_bp_text": "",
+        "dating_basis": "radiocarbon",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_interval",
+        "refusal_reason_code": ""
+      },
+      "sample_namespace": "rangifer_tarandus:sample_locality",
+      "project_accessions": [
+        "PRJEB60484"
+      ],
+      "original_location_text": "Gipsdalen",
+      "nordic_inclusion": true,
+      "nordic_inclusion_reason": "This locality falls inside the Nordic publication footprint through direct Norway sample evidence.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "rangifer_tarandus:project_locality",
+        "stable_token": "rangifer_tarandus:locality:prjeb60484:kappflora:russia",
+        "locality_text": "Kapp Flora",
+        "political_entity": "Russia",
+        "source_anchor_tokens": [
+          "PRJEB60484",
+          "",
+          ""
+        ]
+      },
+      "species_latin_name": "Rangifer tarandus",
+      "species_common_name": "reindeer",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB60484"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "comparator_only"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Kapp Flora",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "unknown"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "prjeb60484:samea114857470"
+      ],
+      "datasets": [
+        "rangifer_tarandus:project:PRJEB60484"
+      ],
+      "chronology": {
+        "original_text": "2725-2841 BP",
+        "time_start_bp": 2725,
+        "time_end_bp": 2841,
+        "time_mean_bp": 2783,
+        "date_stddev_bp": "",
+        "source_mean_bp_text": "",
+        "dating_basis": "radiocarbon",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_interval",
+        "refusal_reason_code": ""
+      },
+      "sample_namespace": "rangifer_tarandus:sample_locality",
+      "project_accessions": [
+        "PRJEB60484"
+      ],
+      "original_location_text": "Kapp Flora",
+      "nordic_inclusion": true,
+      "nordic_inclusion_reason": "The ancient Svalbard reindeer comparator is a real Nordic lead, but it is still not promoted into shipped mapped animal locality outputs.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "rangifer_tarandus:project_locality",
+        "stable_token": "rangifer_tarandus:locality:prjeb60484:rijpjorden:norway",
+        "locality_text": "Rijpjorden",
+        "political_entity": "Norway",
+        "source_anchor_tokens": [
+          "PRJEB60484",
+          "",
+          ""
+        ]
+      },
+      "species_latin_name": "Rangifer tarandus",
+      "species_common_name": "reindeer",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB60484"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "comparator_only"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Rijpjorden",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "unknown"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "prjeb60484:samea112757330"
+      ],
+      "datasets": [
+        "rangifer_tarandus:project:PRJEB60484"
+      ],
+      "chronology": {
+        "original_text": "500-521 BP",
+        "time_start_bp": 500,
+        "time_end_bp": 521,
+        "time_mean_bp": 510,
+        "date_stddev_bp": "",
+        "source_mean_bp_text": "",
+        "dating_basis": "radiocarbon",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_interval",
+        "refusal_reason_code": ""
+      },
+      "sample_namespace": "rangifer_tarandus:sample_locality",
+      "project_accessions": [
+        "PRJEB60484"
+      ],
+      "original_location_text": "Rijpjorden",
+      "nordic_inclusion": true,
+      "nordic_inclusion_reason": "This locality falls inside the Nordic publication footprint through direct Norway sample evidence.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "rangifer_tarandus:project_locality",
+        "stable_token": "rangifer_tarandus:locality:prjeb60484:sassendalen:norway",
+        "locality_text": "Sassendalen",
+        "political_entity": "Norway",
+        "source_anchor_tokens": [
+          "PRJEB60484",
+          "",
+          ""
+        ]
+      },
+      "species_latin_name": "Rangifer tarandus",
+      "species_common_name": "reindeer",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB60484"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "comparator_only"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Sassendalen",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "unknown"
+      },
+      "sample_count": 2,
+      "sample_ids": [
+        "prjeb60484:samea112757324",
+        "prjeb60484:samea112757333"
+      ],
+      "datasets": [
+        "rangifer_tarandus:project:PRJEB60484"
+      ],
+      "chronology": {
+        "original_text": "0-1057 BP",
+        "time_start_bp": 0,
+        "time_end_bp": 1057,
+        "time_mean_bp": 528,
+        "date_stddev_bp": "",
+        "source_mean_bp_text": "",
+        "dating_basis": "radiocarbon",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_interval",
+        "refusal_reason_code": ""
+      },
+      "sample_namespace": "rangifer_tarandus:sample_locality",
+      "project_accessions": [
+        "PRJEB60484"
+      ],
+      "original_location_text": "Sassendalen",
+      "nordic_inclusion": true,
+      "nordic_inclusion_reason": "This locality falls inside the Nordic publication footprint through direct Norway sample evidence.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "rangifer_tarandus:project_locality",
+        "stable_token": "rangifer_tarandus:locality:prjeb60484:tchaiabuktahookenisland:russia",
+        "locality_text": "Tchaiabukta/Hooken Island",
+        "political_entity": "Russia",
+        "source_anchor_tokens": [
+          "PRJEB60484",
+          "",
+          ""
+        ]
+      },
+      "species_latin_name": "Rangifer tarandus",
+      "species_common_name": "reindeer",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB60484"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "comparator_only"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Tchaiabukta/Hooken Island",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "unknown"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "prjeb60484:samea114857471"
+      ],
+      "datasets": [
+        "rangifer_tarandus:project:PRJEB60484"
+      ],
+      "chronology": {
+        "original_text": "4652-4846 BP",
+        "time_start_bp": 4652,
+        "time_end_bp": 4846,
+        "time_mean_bp": 4749,
+        "date_stddev_bp": "",
+        "source_mean_bp_text": "",
+        "dating_basis": "radiocarbon",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_interval",
+        "refusal_reason_code": ""
+      },
+      "sample_namespace": "rangifer_tarandus:sample_locality",
+      "project_accessions": [
+        "PRJEB60484"
+      ],
+      "original_location_text": "Tchaiabukta/Hooken Island",
+      "nordic_inclusion": true,
+      "nordic_inclusion_reason": "The ancient Svalbard reindeer comparator is a real Nordic lead, but it is still not promoted into shipped mapped animal locality outputs.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "rangifer_tarandus:project_locality",
+        "stable_token": "rangifer_tarandus:locality:prjeb60484:wijdefjorden:norway",
+        "locality_text": "Wijdefjorden",
+        "political_entity": "Norway",
+        "source_anchor_tokens": [
+          "PRJEB60484",
+          "",
+          ""
+        ]
+      },
+      "species_latin_name": "Rangifer tarandus",
+      "species_common_name": "reindeer",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB60484"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "comparator_only"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Wijdefjorden",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "unknown"
+      },
+      "sample_count": 2,
+      "sample_ids": [
+        "prjeb60484:samea112757337",
+        "prjeb60484:samea112757338"
+      ],
+      "datasets": [
+        "rangifer_tarandus:project:PRJEB60484"
+      ],
+      "chronology": {
+        "original_text": "8-277 BP",
+        "time_start_bp": 8,
+        "time_end_bp": 277,
+        "time_mean_bp": 142,
+        "date_stddev_bp": "",
+        "source_mean_bp_text": "",
+        "dating_basis": "radiocarbon",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_interval",
+        "refusal_reason_code": ""
+      },
+      "sample_namespace": "rangifer_tarandus:sample_locality",
+      "project_accessions": [
+        "PRJEB60484"
+      ],
+      "original_location_text": "Wijdefjorden",
+      "nordic_inclusion": true,
+      "nordic_inclusion_reason": "This locality falls inside the Nordic publication footprint through direct Norway sample evidence.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    }
+  ]
 }

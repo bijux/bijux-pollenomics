@@ -24,7 +24,7 @@ from ..storage import (
     _source_library_cache_key,
     build_source_artifact_index,
 )
-from .bundles import _fold_fetch_status
+from .bundles import _fold_fetch_status, _fold_paper_status
 from .paper_evidence import (
     _article_readability_status,
     _expected_supplementary_file_families,
@@ -85,7 +85,7 @@ def _build_paper_registry_uncached(
             for item in doi_artifacts
             if item.artifact_kind.startswith("supplementary_")
         )
-        article_download_status = _fold_fetch_status(article_artifacts)
+        article_download_status = _fold_paper_status(article_artifacts)
         supplementary_download_status = _fold_fetch_status(supplement_artifacts)
         supplement_parse_status = _supplement_parse_status(
             output_root,

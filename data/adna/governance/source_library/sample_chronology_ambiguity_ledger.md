@@ -1,6 +1,6 @@
 # Sample chronology ambiguity ledger
 
-- Rows requiring chronology review: `678`
+- Rows requiring chronology review: `662`
 
 | Project accession | Sample id | Strength | Normalization | Chronology | Note |
 | --- | --- | --- | --- | --- | --- |
@@ -662,23 +662,7 @@
 | PRJNA1178732 | prjna1178732:fs17 | sample_owned_text_only / sample_approximate_or_modeled | text_only_unparsed | 1797 - 1944 cal. CE | Chronology comes from the recovered sample-owned source row. |
 | PRJNA1178732 | prjna1178732:fs24 | sample_owned_text_only / sample_approximate_or_modeled | text_only_unparsed | 44 cal. BCE - 76 cal. CE | Chronology comes from the recovered sample-owned source row. |
 | SRS1407451 | srs1407451:srs1407451 | unresolved / unresolved | unresolved |  | No chronology claim has been recovered yet for this sample row. |
-| PRJEB60484 | prjeb60484:samea112757323 | unresolved / unresolved | unresolved |  | No chronology claim has been recovered yet for this sample row. |
-| PRJEB60484 | prjeb60484:samea112757324 | unresolved / unresolved | unresolved |  | No chronology claim has been recovered yet for this sample row. |
-| PRJEB60484 | prjeb60484:samea112757325 | unresolved / unresolved | unresolved |  | No chronology claim has been recovered yet for this sample row. |
-| PRJEB60484 | prjeb60484:samea112757326 | unresolved / unresolved | unresolved |  | No chronology claim has been recovered yet for this sample row. |
 | PRJEB60484 | prjeb60484:samea112757327 | unresolved / unresolved | unresolved |  | No chronology claim has been recovered yet for this sample row. |
-| PRJEB60484 | prjeb60484:samea112757328 | unresolved / unresolved | unresolved |  | No chronology claim has been recovered yet for this sample row. |
-| PRJEB60484 | prjeb60484:samea112757329 | unresolved / unresolved | unresolved |  | No chronology claim has been recovered yet for this sample row. |
-| PRJEB60484 | prjeb60484:samea112757330 | unresolved / unresolved | unresolved |  | No chronology claim has been recovered yet for this sample row. |
-| PRJEB60484 | prjeb60484:samea112757331 | unresolved / unresolved | unresolved |  | No chronology claim has been recovered yet for this sample row. |
-| PRJEB60484 | prjeb60484:samea112757332 | unresolved / unresolved | unresolved |  | No chronology claim has been recovered yet for this sample row. |
-| PRJEB60484 | prjeb60484:samea112757333 | unresolved / unresolved | unresolved |  | No chronology claim has been recovered yet for this sample row. |
-| PRJEB60484 | prjeb60484:samea112757334 | unresolved / unresolved | unresolved |  | No chronology claim has been recovered yet for this sample row. |
-| PRJEB60484 | prjeb60484:samea112757335 | unresolved / unresolved | unresolved |  | No chronology claim has been recovered yet for this sample row. |
-| PRJEB60484 | prjeb60484:samea112757336 | unresolved / unresolved | unresolved |  | No chronology claim has been recovered yet for this sample row. |
 | PRJEB60484 | prjeb60484:samea112757337 | unresolved / unresolved | unresolved |  | No chronology claim has been recovered yet for this sample row. |
-| PRJEB60484 | prjeb60484:samea112757338 | unresolved / unresolved | unresolved |  | No chronology claim has been recovered yet for this sample row. |
 | PRJEB60484 | prjeb60484:samea112757339 | unresolved / unresolved | unresolved |  | No chronology claim has been recovered yet for this sample row. |
 | PRJEB60484 | prjeb60484:samea112757340 | unresolved / unresolved | unresolved |  | No chronology claim has been recovered yet for this sample row. |
-| PRJEB60484 | prjeb60484:samea114857470 | unresolved / unresolved | unresolved |  | No chronology claim has been recovered yet for this sample row. |
-| PRJEB60484 | prjeb60484:samea114857471 | unresolved / unresolved | unresolved |  | No chronology claim has been recovered yet for this sample row. |

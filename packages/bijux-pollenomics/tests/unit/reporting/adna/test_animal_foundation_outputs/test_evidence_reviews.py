@@ -57,16 +57,16 @@ class AnimalFoundationEvidenceReviewTests(AnimalFoundationOutputsTestCase):
             payload["schema_version"], "animal-sample-chronology-review.v1"
         )
         self.assertEqual(payload["row_count"], 1455)
-        self.assertEqual(payload["normalization_counts"]["normalized_interval"], 369)
+        self.assertEqual(payload["normalization_counts"]["normalized_interval"], 385)
         self.assertEqual(payload["normalization_counts"]["normalized_point"], 528)
-        self.assertEqual(payload["normalization_counts"]["unresolved"], 422)
+        self.assertEqual(payload["normalization_counts"]["unresolved"], 406)
         self.assertEqual(payload["precision_counts"]["contextual_interval"], 16)
-        self.assertEqual(payload["comparability_counts"]["numeric_interval"], 777)
+        self.assertEqual(payload["comparability_counts"]["numeric_interval"], 793)
         self.assertEqual(
             payload["comparability_counts"]["numeric_interval_with_caveat"], 120
         )
         self.assertEqual(payload["comparability_counts"]["contextual_label_only"], 136)
-        self.assertEqual(payload["comparability_counts"]["unresolved"], 422)
+        self.assertEqual(payload["comparability_counts"]["unresolved"], 406)
         pig_rows = [
             row for row in payload["rows"] if row["project_accession"] == "PRJEB30282"
         ]
@@ -192,7 +192,7 @@ class AnimalFoundationEvidenceReviewTests(AnimalFoundationOutputsTestCase):
                 ("Trelleborg", "SAMEA5160868", "archaeological_context"),
             },
         )
-        self.assertEqual(payload["counts"]["papers_with_archived_supplements"], 18)
+        self.assertEqual(payload["counts"]["papers_with_archived_supplements"], 17)
         self.assertGreater(payload["counts"]["locality_conflict_row_count"], 0)
         self.assertGreater(payload["counts"]["locality_dictionary_row_count"], 0)
         self.assertGreater(

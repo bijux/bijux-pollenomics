@@ -136,6 +136,23 @@
       "blocker_categories": []
     },
     {
+      "project_accession": "PRJEB60484",
+      "species_latin_name": "Rangifer tarandus",
+      "paper_doi": "10.1111/mec.17274",
+      "paper_title": "A palaeogenomic investigation of overharvest implications in an endemic wild reindeer subspecies",
+      "archive_status": "comparator_only",
+      "paper_download_status": "partial",
+      "supplement_download_status": "missing",
+      "blockers": [
+        "missing_local_paper_evidence"
+      ],
+      "blocker_categories": [
+        "missing_paper_capture",
+        "missing_sample_identifiers",
+        "missing_readable_tables"
+      ]
+    },
+    {
       "project_accession": "PRJEB61721",
       "species_latin_name": "Rangifer tarandus",
       "paper_doi": null,
@@ -213,6 +230,23 @@
       "blockers": [
         "missing_local_paper_evidence",
         "paper_linkage_not_curated"
+      ],
+      "blocker_categories": [
+        "missing_paper_capture",
+        "missing_sample_identifiers",
+        "missing_readable_tables"
+      ]
+    },
+    {
+      "project_accession": "PRJEB90141",
+      "species_latin_name": "Capra hircus",
+      "paper_doi": "10.1093/gbe/evaf181",
+      "paper_title": "Inferring Domestic Goat Demographic History Through Ancient Genome Imputation",
+      "archive_status": "paper_pinned_core",
+      "paper_download_status": "partial",
+      "supplement_download_status": "archived",
+      "blockers": [
+        "missing_local_paper_evidence"
       ],
       "blocker_categories": [
         "missing_paper_capture",

@@ -14,8 +14,8 @@
         "docs/public/pollenomics-data/sources/animal-source-intake.md"
       ],
       "visible_count": 18,
-      "acquisition_posture": "all_tracked_supplements_archived",
-      "main_gap": "Archived supplements cover all tracked animal papers; sample-owned identity, locality and chronology extraction remains incomplete"
+      "acquisition_posture": "repository_supplement_capture_incomplete",
+      "main_gap": "Archived supplements cover 17 of 18 tracked animal papers; sample-owned extraction remains incomplete"
     },
     {
       "source_key": "aadr",

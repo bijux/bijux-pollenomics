@@ -1,11 +1,11 @@
 # Source storage audit
 
-- Archived artifacts: `173`
+- Archived artifacts: `215`
 - Archived HTML artifacts: `54`
 - Compressed HTML artifacts: `54`
 - Uncompressed HTML artifacts: `0`
-- Archived payload bytes: `382235298`
-- Archived storage bytes: `374565993`
+- Archived payload bytes: `382933090`
+- Archived storage bytes: `375263785`
 - HTML payload bytes: `9222810`
 - HTML storage bytes: `1553505`
 
@@ -46,7 +46,6 @@
 | 10.1038-s41586-024-08112-6:article.html | article_html | `adna/governance/source_library/papers/10.1038-s41586-024-08112-6/article.html` | `adna/governance/source_library/papers/10.1038-s41586-024-08112-6/article.html.gz` | `gzip` | 606869 | 99569 |
 | PRJEB75467:archive_metadata.html | archive_metadata_html | `adna/governance/source_library/projects/PRJEB75467/archive_metadata.html` | `adna/governance/source_library/projects/PRJEB75467/archive_metadata.html.gz` | `gzip` | 274385 | 36798 |
 | 10.1038-s41598-024-54296-2:article.html | article_html | `adna/governance/source_library/papers/10.1038-s41598-024-54296-2/article.html` | `adna/governance/source_library/papers/10.1038-s41598-024-54296-2/article.html.gz` | `gzip` | 633827 | 115825 |
-| PRJEB60484:archive_metadata.html | archive_metadata_html | `adna/governance/source_library/projects/PRJEB60484/archive_metadata.html` | `adna/governance/source_library/projects/PRJEB60484/archive_metadata.html.gz` | `gzip` | 55868 | 7478 |
 | PRJEB36540:archive_metadata.html | archive_metadata_html | `adna/governance/source_library/projects/PRJEB36540/archive_metadata.html` | `adna/governance/source_library/projects/PRJEB36540/archive_metadata.html.gz` | `gzip` | 2495 | 638 |
 | 10.1073-pnas.1901169116:article.html | article_html | `adna/governance/source_library/papers/10.1073-pnas.1901169116/article.html` | `adna/governance/source_library/papers/10.1073-pnas.1901169116/article.html.gz` | `gzip` | 291189 | 59000 |
 | PRJEB30282:archive_metadata.html | archive_metadata_html | `adna/governance/source_library/projects/PRJEB30282/archive_metadata.html` | `adna/governance/source_library/projects/PRJEB30282/archive_metadata.html.gz` | `gzip` | 172426 | 24701 |
@@ -55,6 +54,7 @@
 | 10.1111-1755-0998.12551:article.html | article_html | `adna/governance/source_library/papers/10.1111-1755-0998.12551/article.html` | `adna/governance/source_library/papers/10.1111-1755-0998.12551/article.html.gz` | `gzip` | 273976 | 57176 |
 | KU605068-KU605080:archive_metadata.html | archive_metadata_html | `adna/governance/source_library/projects/KU605068-KU605080/archive_metadata.html` | `adna/governance/source_library/projects/KU605068-KU605080/archive_metadata.html.gz` | `gzip` | 90233 | 16824 |
 | SRP073444:archive_metadata.html | archive_metadata_html | `adna/governance/source_library/projects/SRP073444/archive_metadata.html` | `adna/governance/source_library/projects/SRP073444/archive_metadata.html.gz` | `gzip` | 85258 | 16220 |
+| PRJEB60484:archive_metadata.html | archive_metadata_html | `adna/governance/source_library/projects/PRJEB60484/archive_metadata.html` | `adna/governance/source_library/projects/PRJEB60484/archive_metadata.html.gz` | `gzip` | 55868 | 7478 |
 | 10.1126-science.aam5298:article.html | article_html | `adna/governance/source_library/papers/10.1126-science.aam5298/article.html` | `adna/governance/source_library/papers/10.1126-science.aam5298/article.html.gz` | `gzip` | 190166 | 27592 |
 | PRJEB19970:archive_metadata.html | archive_metadata_html | `adna/governance/source_library/projects/PRJEB19970/archive_metadata.html` | `adna/governance/source_library/projects/PRJEB19970/archive_metadata.html.gz` | `gzip` | 86627 | 10796 |
 | 10.1126-science.aao3297:article.html | article_html | `adna/governance/source_library/papers/10.1126-science.aao3297/article.html` | `adna/governance/source_library/papers/10.1126-science.aao3297/article.html.gz` | `gzip` | 213349 | 30197 |

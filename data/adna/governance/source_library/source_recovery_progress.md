@@ -12,8 +12,8 @@
 The four mutually exclusive buckets partition `1450` species-normalized sample rows. The project source master has `1450` final rows; alignment is `aligned`. A site-only row has no normalized chronology; a site-and-chronology row has no coordinate text. The final bucket has coordinate text, not necessarily an approved mapped point.
 
 - sample identity only: `0`
-- sample with site: `555`
-- sample with site and chronology: `338`
+- sample with site: `539`
+- sample with site and chronology: `354`
 - sample with site chronology and coordinates: `557`
 
 | Project | Species | Completed stages | Required stages | Recovery depth score |
@@ -26,7 +26,7 @@ The four mutually exclusive buckets partition `1450` species-normalized sample r
 | `KX379528-KX379529` | `Canis lupus familiaris` | `7` | `8` | `0.875` |
 | `SRS1407451` | `Canis lupus familiaris` | `4` | `8` | `0.5` |
 | `SRS1407453` | `Canis lupus familiaris` | `7` | `8` | `0.875` |
-| `PRJEB90141` | `Capra hircus` | `8` | `8` | `1.0` |
+| `PRJEB90141` | `Capra hircus` | `7` | `8` | `0.875` |
 | `PRJEB90261` | `Capra hircus` | `8` | `8` | `1.0` |
 | `PRJNA1328209` | `Capra hircus` | `8` | `8` | `1.0` |
 | `PRJEB43564` | `Equus asinus` | `1` | `7` | `0.1429` |
@@ -51,7 +51,7 @@ The four mutually exclusive buckets partition `1450` species-normalized sample r
 | `PRJEB69690` | `Ovis aries` | `1` | `7` | `0.1429` |
 | `PRJEB81145` | `Ovis aries` | `1` | `7` | `0.1429` |
 | `PRJEB57293` | `Rangifer tarandus` | `1` | `1` | `1.0` |
-| `PRJEB60484` | `Rangifer tarandus` | `4` | `8` | `0.5` |
+| `PRJEB60484` | `Rangifer tarandus` | `2` | `7` | `0.2857` |
 | `PRJEB61721` | `Rangifer tarandus` | `1` | `1` | `1.0` |
 | `PRJNA634908` | `Rangifer tarandus` | `1` | `1` | `1.0` |
 | `PRJEB30282` | `Sus scrofa domesticus` | `4` | `8` | `0.5` |

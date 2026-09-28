@@ -123,19 +123,6 @@
       ]
     },
     {
-      "paper_doi": "10.1038/s41598-024-54296-2",
-      "project_accessions": [
-        "PRJEB60484"
-      ],
-      "supplementary_verification_status": "supplement_archived_in_repo",
-      "repository_supplement_capture_status": "archived",
-      "supplement_parse_status": "repository_supplement_archived",
-      "expected_supplementary_file_families": [],
-      "expected_supplementary_artifacts": [
-        "adna/governance/source_library/papers/10.1038-s41598-024-54296-2/supplementary/41598_2024_64499_MOESM1_ESM.pdf"
-      ]
-    },
-    {
       "paper_doi": "10.1038/s42003-021-02794-8",
       "project_accessions": [
         "PRJEB36540"
@@ -211,6 +198,17 @@
       "expected_supplementary_artifacts": [
         "adna/governance/source_library/papers/10.1111-1755-0998.12551/supplementary/men12551-sup-0001-supinfo.docx"
       ]
+    },
+    {
+      "paper_doi": "10.1111/mec.17274",
+      "project_accessions": [
+        "PRJEB60484"
+      ],
+      "supplementary_verification_status": "supplement_not_verified_yet",
+      "repository_supplement_capture_status": "missing",
+      "supplement_parse_status": "missing",
+      "expected_supplementary_file_families": [],
+      "expected_supplementary_artifacts": []
     },
     {
       "paper_doi": "10.1126/science.aam5298",

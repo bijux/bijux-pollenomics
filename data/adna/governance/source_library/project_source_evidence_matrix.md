@@ -1,7 +1,7 @@
 # Project source evidence matrix
 
 - Project rows: `40`
-- Repository supplement-captured projects: `21`
+- Repository supplement-captured projects: `20`
 - Local-reference supplement-staged projects: `0`
 
 | Project | Paper | Repo article | Repo supplement | Local supplement | Sample master | Site table | Chronology table | Acquisition state |
@@ -39,7 +39,7 @@
 | `PRJEB69690` | `none` | `no_linked_paper` | `not_applicable` | `missing` | `published_empty` | `published_empty` | `published_empty` | `paper_linkage_not_curated` |
 | `PRJEB81145` | `none` | `no_linked_paper` | `not_applicable` | `missing` | `published_empty` | `published_empty` | `published_empty` | `paper_linkage_not_curated` |
 | `PRJEB57293` | `none` | `no_linked_paper` | `not_applicable` | `missing` | `published_empty` | `published_empty` | `published_empty` | `scope_rejected` |
-| `PRJEB60484` | `10.1038/s41598-024-54296-2` | `readable_html` | `repository_supplement_archived` | `missing` | `project_sample_master_published` | `published` | `published` | `sample_tables_published` |
+| `PRJEB60484` | `10.1111/mec.17274` | `partial_capture` | `missing` | `missing` | `project_sample_master_published` | `published` | `published` | `sample_tables_published` |
 | `PRJEB61721` | `none` | `no_linked_paper` | `not_applicable` | `missing` | `published_empty` | `published_empty` | `published_empty` | `scope_rejected` |
 | `PRJNA634908` | `none` | `no_linked_paper` | `not_applicable` | `missing` | `published_empty` | `published_empty` | `published_empty` | `scope_rejected` |
 | `PRJEB30282` | `10.1073/pnas.1901169116` | `readable_html` | `repository_supplement_archived` | `missing` | `project_sample_master_published` | `published` | `published` | `sample_tables_published` |

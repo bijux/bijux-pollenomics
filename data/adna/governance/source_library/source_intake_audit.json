@@ -1,12 +1,12 @@
 {
   "schema_version": "adna-source-library.v1",
-  "sample_extractable_paper_count": 18,
-  "supplementary_manifested_paper_count": 18,
+  "sample_extractable_paper_count": 17,
+  "supplementary_manifested_paper_count": 17,
   "supplement_zip_member_count": 11,
   "blocker_counts": {
-    "missing_paper_capture_count": 13,
+    "missing_paper_capture_count": 15,
     "missing_supplementary_capture_count": 0,
-    "missing_readable_tables_count": 13,
+    "missing_readable_tables_count": 15,
     "missing_sample_identifier_count": 30
   },
   "sample_extractable_violations": [],
@@ -101,7 +101,9 @@
       "expected_sample_count_status": "not_yet_curated",
       "sample_identifier_status": "paper_or_supplement_targets_curated",
       "blocker_categories": [
-        "missing_sample_identifiers"
+        "missing_paper_capture",
+        "missing_sample_identifiers",
+        "missing_readable_tables"
       ]
     },
     {
@@ -388,9 +390,11 @@
       "inventory_disposition": "tracked_intake_candidate",
       "expected_sample_count": null,
       "expected_sample_count_status": "not_yet_curated",
-      "sample_identifier_status": "paper_or_supplement_targets_curated",
+      "sample_identifier_status": "manual_curation_required",
       "blocker_categories": [
-        "missing_sample_identifiers"
+        "missing_paper_capture",
+        "missing_sample_identifiers",
+        "missing_readable_tables"
       ]
     },
     {

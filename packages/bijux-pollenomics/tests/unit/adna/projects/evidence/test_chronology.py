@@ -159,7 +159,7 @@ class AdnaProjectSampleChronologyUnitTests(unittest.TestCase):
     def test_project_context_does_not_become_biological_sample_chronology(
         self,
     ) -> None:
-        for accession in ("PRJNA705960", "PRJEB60484", "SRS1407451"):
+        for accession in ("PRJNA705960", "SRS1407451"):
             rows = build_project_sample_chronology_rows(self.data_root, accession)
             self.assertTrue(rows)
             self.assertTrue(
@@ -242,14 +242,14 @@ class AdnaProjectSampleChronologyUnitTests(unittest.TestCase):
         self.assertEqual(sheep_review["sample_owned_interval_count"], 167)
         self.assertEqual(sheep_review["text_only_unparsed_count"], 13)
         self.assertEqual(audit["sample_row_count"], 1455)
-        self.assertEqual(audit["normalized_interval_count"], 369)
+        self.assertEqual(audit["normalized_interval_count"], 385)
         self.assertEqual(audit["normalized_point_count"], 528)
-        self.assertEqual(audit["unresolved_count"], 422)
+        self.assertEqual(audit["unresolved_count"], 406)
         self.assertEqual(audit["precision_counts"]["contextual_interval"], 16)
         self.assertEqual(
             audit["precision_counts"]["sample_approximate_or_modeled"], 200
         )
-        self.assertEqual(audit["precision_counts"]["sample_precise_interval"], 309)
+        self.assertEqual(audit["precision_counts"]["sample_precise_interval"], 325)
         self.assertFalse(
             any(
                 row["project_accession"]

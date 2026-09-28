@@ -16,11 +16,12 @@
     "animal_sample_site_extraction",
     "animal_sample_chronology_extraction",
     "animal_coordinate_resolution",
+    "supplement_capture_recovery",
     "atlas_depth_recovery"
   ],
   "counts": {
     "tracked_paper_count": 18,
-    "papers_with_archived_supplements": 18,
+    "papers_with_archived_supplements": 17,
     "published_atlas_point_count": 170,
     "published_country_bundle_count": 4,
     "reference_stash_doi_count": 0,
@@ -31,7 +32,7 @@
     "animal_tracked_sample_count": 1450,
     "animal_mapped_sample_count": 331,
     "animal_blocked_sample_count": 1119,
-    "animal_unresolved_sample_count": 398,
+    "animal_unresolved_sample_count": 381,
     "animal_coordinate_mappable_provenance_count": 304,
     "animal_coordinate_refused_provenance_count": 4,
     "animal_coordinate_provenance_count": 308,
@@ -60,12 +61,13 @@
     "zero_collection_summary_surfaces": []
   },
   "recovery_priorities": [
-    "extract sample-owned locality and chronology evidence from archived supplementary material",
+    "archive missing supplementary material before extracting sample-owned locality and chronology evidence",
     "rebuild animal locality extraction so sample rows do not collapse into project-level or region-level geography",
     "rebuild chronology extraction so atlas and country outputs stop depending on broad or unresolved sample dates",
     "keep pollen, environmental, archaeology, and boundary explanation first-class while animal aDNA recovery continues"
   ],
   "claim_freeze_reasons": [
+    "supplement recovery is still far below paper coverage",
     "tracked animal samples still include unresolved locality assignments",
     "animal coordinate provenance still includes refused or unpublished rows",
     "RA\u00c4 density remains refused until source inventory and qualified review reconcile"

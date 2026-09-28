@@ -11,12 +11,12 @@
 | `10.1038/s41562-021-01083-y` | `supplement_archived_in_repo` | `archived` | `repository_supplement_archived` | `` |
 | `10.1038/s41586-021-04018-9` | `supplement_archived_in_repo` | `archived` | `repository_supplement_archived` | `` |
 | `10.1038/s41586-024-08112-6` | `supplement_archived_in_repo` | `archived` | `repository_supplement_archived` | `` |
-| `10.1038/s41598-024-54296-2` | `supplement_archived_in_repo` | `archived` | `repository_supplement_archived` | `` |
 | `10.1038/s42003-021-02794-8` | `supplement_archived_in_repo` | `archived` | `zip_member_inventory_published` | `pdf_appendix; zip_bundle` |
 | `10.1073/pnas.1901169116` | `supplement_archived_in_repo` | `archived` | `repository_supplement_archived` | `` |
 | `10.1093/gbe/evae114` | `supplement_archived_in_repo` | `archived` | `repository_supplement_archived` | `` |
 | `10.1093/gbe/evaf181` | `supplement_archived_in_repo` | `archived` | `repository_supplement_archived` | `` |
 | `10.1111/1755-0998.12551` | `supplement_archived_in_repo` | `archived` | `repository_supplement_archived` | `` |
+| `10.1111/mec.17274` | `supplement_not_verified_yet` | `missing` | `missing` | `` |
 | `10.1126/science.aam5298` | `supplement_archived_in_repo` | `archived` | `repository_supplement_archived` | `` |
 | `10.1126/science.aao3297` | `supplement_archived_in_repo` | `archived` | `repository_supplement_archived` | `` |
 | `10.1126/science.aav1002` | `supplement_archived_in_repo` | `archived` | `repository_supplement_archived` | `` |

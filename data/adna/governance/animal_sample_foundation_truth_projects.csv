@@ -19,4 +19,4 @@ Canis lupus familiaris,dog,SRS1407453,1,0,1,0,0,0,1,1,false,primary_article_acce
 Felis catus,cat,PRJEB81815,84,35,10,0,0,39,61,61,false,archive_supplement_exact_join
 Felis catus,cat,PRJNA1178732,22,0,17,0,0,5,14,14,false,supplementary_table_sample_label_anchor
 Camelus dromedarius,dromedary camel,KU605068-KU605080,13,0,13,0,0,0,9,9,false,primary_article_accession_mapping
-Rangifer tarandus,reindeer,PRJEB60484,20,0,0,0,20,0,0,0,false,archive_project_sample_accession_anchor
+Rangifer tarandus,reindeer,PRJEB60484,20,0,16,0,3,1,8,8,false,archive_project_sample_accession_anchor

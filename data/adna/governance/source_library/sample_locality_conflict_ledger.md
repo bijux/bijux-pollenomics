@@ -1,6 +1,6 @@
 # Sample locality conflict ledger
 
-- Conflicting rows: `1866`
+- Conflicting rows: `1934`
 
 | Project accession | Sample id | Sample locality | Conflicting surface | Conflicting locality | Reason |
 | --- | --- | --- | --- | --- | --- |
@@ -1489,6 +1489,74 @@
 | PRJEB31621 | prjeb31621:samea5577408 | Tel es-Safi | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
 | PRJEB31621 | prjeb31621:samea5577409 | Tel es-Safi | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
 | PRJEB31621 | prjeb31621:supplement:men1 | Menteşe | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
+| PRJEB60484 | prjeb60484:samea112757323 | Diskobukta | archive_metadata | Svalbard ancient reindeer context | project_context_disagrees_with_sample_owned_site |
+| PRJEB60484 | prjeb60484:samea112757323 | Diskobukta | archive_metadata | Svalbard archipelago reindeer context | project_context_disagrees_with_sample_owned_site |
+| PRJEB60484 | prjeb60484:samea112757323 | Diskobukta | coordinate_resolution | Svalbard ancient reindeer context | project_context_disagrees_with_sample_owned_site |
+| PRJEB60484 | prjeb60484:samea112757323 | Diskobukta | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
+| PRJEB60484 | prjeb60484:samea112757324 | Sassendalen | archive_metadata | Svalbard ancient reindeer context | project_context_disagrees_with_sample_owned_site |
+| PRJEB60484 | prjeb60484:samea112757324 | Sassendalen | archive_metadata | Svalbard archipelago reindeer context | project_context_disagrees_with_sample_owned_site |
+| PRJEB60484 | prjeb60484:samea112757324 | Sassendalen | coordinate_resolution | Svalbard ancient reindeer context | project_context_disagrees_with_sample_owned_site |
+| PRJEB60484 | prjeb60484:samea112757324 | Sassendalen | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
+| PRJEB60484 | prjeb60484:samea112757325 | Diskobukta | archive_metadata | Svalbard ancient reindeer context | project_context_disagrees_with_sample_owned_site |
+| PRJEB60484 | prjeb60484:samea112757325 | Diskobukta | archive_metadata | Svalbard archipelago reindeer context | project_context_disagrees_with_sample_owned_site |
+| PRJEB60484 | prjeb60484:samea112757325 | Diskobukta | coordinate_resolution | Svalbard ancient reindeer context | project_context_disagrees_with_sample_owned_site |
+| PRJEB60484 | prjeb60484:samea112757325 | Diskobukta | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
+| PRJEB60484 | prjeb60484:samea112757326 | Barentsøya | archive_metadata | Svalbard ancient reindeer context | project_context_disagrees_with_sample_owned_site |
+| PRJEB60484 | prjeb60484:samea112757326 | Barentsøya | archive_metadata | Svalbard archipelago reindeer context | project_context_disagrees_with_sample_owned_site |
+| PRJEB60484 | prjeb60484:samea112757326 | Barentsøya | coordinate_resolution | Svalbard ancient reindeer context | project_context_disagrees_with_sample_owned_site |
+| PRJEB60484 | prjeb60484:samea112757326 | Barentsøya | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
+| PRJEB60484 | prjeb60484:samea112757328 | Diskobukta | archive_metadata | Svalbard ancient reindeer context | project_context_disagrees_with_sample_owned_site |
+| PRJEB60484 | prjeb60484:samea112757328 | Diskobukta | archive_metadata | Svalbard archipelago reindeer context | project_context_disagrees_with_sample_owned_site |
+| PRJEB60484 | prjeb60484:samea112757328 | Diskobukta | coordinate_resolution | Svalbard ancient reindeer context | project_context_disagrees_with_sample_owned_site |
+| PRJEB60484 | prjeb60484:samea112757328 | Diskobukta | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
+| PRJEB60484 | prjeb60484:samea112757329 | Barentsøya | archive_metadata | Svalbard ancient reindeer context | project_context_disagrees_with_sample_owned_site |
+| PRJEB60484 | prjeb60484:samea112757329 | Barentsøya | archive_metadata | Svalbard archipelago reindeer context | project_context_disagrees_with_sample_owned_site |
+| PRJEB60484 | prjeb60484:samea112757329 | Barentsøya | coordinate_resolution | Svalbard ancient reindeer context | project_context_disagrees_with_sample_owned_site |
+| PRJEB60484 | prjeb60484:samea112757329 | Barentsøya | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
+| PRJEB60484 | prjeb60484:samea112757330 | Rijpjorden | archive_metadata | Svalbard ancient reindeer context | project_context_disagrees_with_sample_owned_site |
+| PRJEB60484 | prjeb60484:samea112757330 | Rijpjorden | archive_metadata | Svalbard archipelago reindeer context | project_context_disagrees_with_sample_owned_site |
+| PRJEB60484 | prjeb60484:samea112757330 | Rijpjorden | coordinate_resolution | Svalbard ancient reindeer context | project_context_disagrees_with_sample_owned_site |
+| PRJEB60484 | prjeb60484:samea112757330 | Rijpjorden | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
+| PRJEB60484 | prjeb60484:samea112757331 | Gipsdalen | archive_metadata | Svalbard ancient reindeer context | project_context_disagrees_with_sample_owned_site |
+| PRJEB60484 | prjeb60484:samea112757331 | Gipsdalen | archive_metadata | Svalbard archipelago reindeer context | project_context_disagrees_with_sample_owned_site |
+| PRJEB60484 | prjeb60484:samea112757331 | Gipsdalen | coordinate_resolution | Svalbard ancient reindeer context | project_context_disagrees_with_sample_owned_site |
+| PRJEB60484 | prjeb60484:samea112757331 | Gipsdalen | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
+| PRJEB60484 | prjeb60484:samea112757332 | Gipsdalen | archive_metadata | Svalbard ancient reindeer context | project_context_disagrees_with_sample_owned_site |
+| PRJEB60484 | prjeb60484:samea112757332 | Gipsdalen | archive_metadata | Svalbard archipelago reindeer context | project_context_disagrees_with_sample_owned_site |
+| PRJEB60484 | prjeb60484:samea112757332 | Gipsdalen | coordinate_resolution | Svalbard ancient reindeer context | project_context_disagrees_with_sample_owned_site |
+| PRJEB60484 | prjeb60484:samea112757332 | Gipsdalen | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
+| PRJEB60484 | prjeb60484:samea112757333 | Sassendalen | archive_metadata | Svalbard ancient reindeer context | project_context_disagrees_with_sample_owned_site |
+| PRJEB60484 | prjeb60484:samea112757333 | Sassendalen | archive_metadata | Svalbard archipelago reindeer context | project_context_disagrees_with_sample_owned_site |
+| PRJEB60484 | prjeb60484:samea112757333 | Sassendalen | coordinate_resolution | Svalbard ancient reindeer context | project_context_disagrees_with_sample_owned_site |
+| PRJEB60484 | prjeb60484:samea112757333 | Sassendalen | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
+| PRJEB60484 | prjeb60484:samea112757334 | Barentsøya | archive_metadata | Svalbard ancient reindeer context | project_context_disagrees_with_sample_owned_site |
+| PRJEB60484 | prjeb60484:samea112757334 | Barentsøya | archive_metadata | Svalbard archipelago reindeer context | project_context_disagrees_with_sample_owned_site |
+| PRJEB60484 | prjeb60484:samea112757334 | Barentsøya | coordinate_resolution | Svalbard ancient reindeer context | project_context_disagrees_with_sample_owned_site |
+| PRJEB60484 | prjeb60484:samea112757334 | Barentsøya | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
+| PRJEB60484 | prjeb60484:samea112757335 | Barentsøya | archive_metadata | Svalbard ancient reindeer context | project_context_disagrees_with_sample_owned_site |
+| PRJEB60484 | prjeb60484:samea112757335 | Barentsøya | archive_metadata | Svalbard archipelago reindeer context | project_context_disagrees_with_sample_owned_site |
+| PRJEB60484 | prjeb60484:samea112757335 | Barentsøya | coordinate_resolution | Svalbard ancient reindeer context | project_context_disagrees_with_sample_owned_site |
+| PRJEB60484 | prjeb60484:samea112757335 | Barentsøya | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
+| PRJEB60484 | prjeb60484:samea112757336 | Barentsøya | archive_metadata | Svalbard ancient reindeer context | project_context_disagrees_with_sample_owned_site |
+| PRJEB60484 | prjeb60484:samea112757336 | Barentsøya | archive_metadata | Svalbard archipelago reindeer context | project_context_disagrees_with_sample_owned_site |
+| PRJEB60484 | prjeb60484:samea112757336 | Barentsøya | coordinate_resolution | Svalbard ancient reindeer context | project_context_disagrees_with_sample_owned_site |
+| PRJEB60484 | prjeb60484:samea112757336 | Barentsøya | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
+| PRJEB60484 | prjeb60484:samea112757337 | Wijdefjorden | archive_metadata | Svalbard ancient reindeer context | project_context_disagrees_with_sample_owned_site |
+| PRJEB60484 | prjeb60484:samea112757337 | Wijdefjorden | archive_metadata | Svalbard archipelago reindeer context | project_context_disagrees_with_sample_owned_site |
+| PRJEB60484 | prjeb60484:samea112757337 | Wijdefjorden | coordinate_resolution | Svalbard ancient reindeer context | project_context_disagrees_with_sample_owned_site |
+| PRJEB60484 | prjeb60484:samea112757337 | Wijdefjorden | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
+| PRJEB60484 | prjeb60484:samea112757338 | Wijdefjorden | archive_metadata | Svalbard ancient reindeer context | project_context_disagrees_with_sample_owned_site |
+| PRJEB60484 | prjeb60484:samea112757338 | Wijdefjorden | archive_metadata | Svalbard archipelago reindeer context | project_context_disagrees_with_sample_owned_site |
+| PRJEB60484 | prjeb60484:samea112757338 | Wijdefjorden | coordinate_resolution | Svalbard ancient reindeer context | project_context_disagrees_with_sample_owned_site |
+| PRJEB60484 | prjeb60484:samea112757338 | Wijdefjorden | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
+| PRJEB60484 | prjeb60484:samea114857470 | Kapp Flora | archive_metadata | Svalbard ancient reindeer context | project_context_disagrees_with_sample_owned_site |
+| PRJEB60484 | prjeb60484:samea114857470 | Kapp Flora | archive_metadata | Svalbard archipelago reindeer context | project_context_disagrees_with_sample_owned_site |
+| PRJEB60484 | prjeb60484:samea114857470 | Kapp Flora | coordinate_resolution | Svalbard ancient reindeer context | project_context_disagrees_with_sample_owned_site |
+| PRJEB60484 | prjeb60484:samea114857470 | Kapp Flora | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
+| PRJEB60484 | prjeb60484:samea114857471 | Tchaiabukta/Hooken Island | archive_metadata | Svalbard ancient reindeer context | project_context_disagrees_with_sample_owned_site |
+| PRJEB60484 | prjeb60484:samea114857471 | Tchaiabukta/Hooken Island | archive_metadata | Svalbard archipelago reindeer context | project_context_disagrees_with_sample_owned_site |
+| PRJEB60484 | prjeb60484:samea114857471 | Tchaiabukta/Hooken Island | coordinate_resolution | Svalbard ancient reindeer context | project_context_disagrees_with_sample_owned_site |
+| PRJEB60484 | prjeb60484:samea114857471 | Tchaiabukta/Hooken Island | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
 | PRJEB75467 | prjeb75467:samea115574404 | Barguzin river, Baikal | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
 | PRJEB75467 | prjeb75467:samea115574405 | Bedburg-Königshoven | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
 | PRJEB75467 | prjeb75467:samea115574407 | Borly 4, Pavlodar region | tracked_source_artifact |  | project_context_cannot_substitute_for_sample_owned_or_unresolved_sample_locality |

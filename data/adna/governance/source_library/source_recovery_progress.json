@@ -3,8 +3,8 @@
   "project_count": 40,
   "sample_evidence_depth_counts": {
     "sample_identity_only": 0,
-    "sample_with_site": 555,
-    "sample_with_site_and_chronology": 338,
+    "sample_with_site": 539,
+    "sample_with_site_and_chronology": 354,
     "sample_with_site_chronology_and_coordinates": 557
   },
   "sample_evidence_depth_accounting": {
@@ -106,9 +106,9 @@
     {
       "project_accession": "PRJEB90141",
       "species_latin_name": "Capra hircus",
-      "completed_stage_count": 8,
+      "completed_stage_count": 7,
       "required_stage_count": 8,
-      "recovery_depth_score": 1.0,
+      "recovery_depth_score": 0.875,
       "final_sample_count": 4,
       "minimum_gap_count": 0,
       "publication_readiness_status": "complete"
@@ -356,9 +356,9 @@
     {
       "project_accession": "PRJEB60484",
       "species_latin_name": "Rangifer tarandus",
-      "completed_stage_count": 4,
-      "required_stage_count": 8,
-      "recovery_depth_score": 0.5,
+      "completed_stage_count": 2,
+      "required_stage_count": 7,
+      "recovery_depth_score": 0.2857,
       "final_sample_count": 20,
       "minimum_gap_count": 0,
       "publication_readiness_status": "blocked"

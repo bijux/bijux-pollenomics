@@ -20,7 +20,7 @@
       "denominator": 1450,
       "mapped": 331,
       "blocked": 1119,
-      "unresolved_subset_of_blocked": 398
+      "unresolved_subset_of_blocked": 381
     }
   },
   "rows": [
@@ -237,7 +237,7 @@
       "species_common_name": "reindeer",
       "direct_coordinate_backed": 0,
       "indirectly_geocoded": 0,
-      "unresolved_sample_count": 20,
+      "unresolved_sample_count": 3,
       "refused_coordinate_provenance_count": 1,
       "region_only_coordinate_refusal_count": 1,
       "unresolved_location_coordinate_refusal_count": 0,

@@ -66,7 +66,7 @@
 | Ovis aries | PRJEB69690 | archive_verified_needs_paper_pinning | tracked_intake_candidate | - | not_yet_curated | - |
 | Ovis aries | PRJEB81145 | archive_verified_needs_paper_pinning | tracked_intake_candidate | - | not_yet_curated | - |
 | Rangifer tarandus | PRJEB57293 | reject_or_out_of_scope | retained_rejected_reference | - | not_yet_curated | - |
-| Rangifer tarandus | PRJEB60484 | comparator_only | tracked_intake_candidate | - | not_yet_curated | 10.1038/s41598-024-54296-2 |
+| Rangifer tarandus | PRJEB60484 | comparator_only | tracked_intake_candidate | - | not_yet_curated | 10.1111/mec.17274 |
 | Rangifer tarandus | PRJEB61721 | reject_or_out_of_scope | retained_rejected_reference | - | not_yet_curated | - |
 | Rangifer tarandus | PRJNA634908 | reject_or_out_of_scope | retained_rejected_reference | - | not_yet_curated | - |
 | Sus scrofa domesticus | PRJEB30282 | paper_pinned_core | tracked_intake_candidate | - | not_yet_curated | 10.1073/pnas.1901169116 |
@@ -85,12 +85,12 @@
 | 10.1038/s41562-021-01083-y | Evidence for early dispersal of domestic sheep into Central Asia | PRJEB41594 | supplement_extractable | 4 |
 | 10.1038/s41586-021-04018-9 | The origins and spread of domestic horses from the Western Eurasian steppes | PRJEB44430 | supplement_extractable | 5 |
 | 10.1038/s41586-024-08112-6 | The genomic natural history of the aurochs | PRJEB75467 | supplement_extractable | 4 |
-| 10.1038/s41598-024-54296-2 | Ancient reindeer mitogenomes reveal island-hopping colonisation of the Arctic archipelagos | PRJEB60484 | supplement_extractable | 1 |
 | 10.1038/s42003-021-02794-8 | Archaeogenetic analysis of Neolithic sheep from Anatolia suggests a complex demographic history since domestication | PRJEB36540 | supplement_extractable | 5 |
 | 10.1073/pnas.1901169116 | Ancient pigs reveal a near-complete genomic turnover following their introduction to Europe | PRJEB30282 | supplement_extractable | 3 |
 | 10.1093/gbe/evae114 | Ancient Sheep Genomes Reveal Four Millennia of North European Short-Tailed Sheep in the Baltic Sea Region | PRJEB59481 | supplement_extractable | 2 |
 | 10.1093/gbe/evaf181 | Inferring Domestic Goat Demographic History Through Ancient Genome Imputation | PRJEB90141 | supplement_extractable | 2 |
 | 10.1111/1755-0998.12551 | Combined hybridization capture and shotgun sequencing for ancient DNA analysis of extinct wild and domestic dromedary camel | KU605068-KU605080; SRP073444 | supplement_extractable | 1 |
+| 10.1111/mec.17274 | A palaeogenomic investigation of overharvest implications in an endemic wild reindeer subspecies | PRJEB60484 | full_paper_capture_blocked | 0 |
 | 10.1126/science.aam5298 | Ancient genomic changes associated with domestication of the horse | PRJEB19970 | supplement_extractable | 6 |
 | 10.1126/science.aao3297 | Ancient genomes revisit the ancestry of domestic and Przewalski's horses | PRJEB22390 | supplement_extractable | 12 |
 | 10.1126/science.aav1002 | Ancient cattle genomics, origins, and rapid turnover in the Fertile Crescent | PRJEB31621 | supplement_extractable | 1 |

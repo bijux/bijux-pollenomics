@@ -88,7 +88,7 @@
     {
       "project_accession": "PRJEB60484",
       "species_latin_name": "Rangifer tarandus",
-      "queued_sample_count": 20,
+      "queued_sample_count": 3,
       "queue_reasons": [
         "recovered_sample_rows_still_lack_any_location_claim"
       ],

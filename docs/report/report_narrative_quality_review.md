@@ -143,7 +143,7 @@ link farms or coded operator notes.
 | `docs/report/repository_source_ecosystem_review.md` | `reader_ready` | 3 | 0 | 6 | 4 | 4 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/repository_source_explainer_audit.md` | `thin_structure` | 1 | 0 | 1 | 18 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/repository_source_family_matrix.md` | `structured_reference` | 0 | 0 | 0 | 10 | 1 | Page is table-heavy, but it behaves like a reference surface rather than a loose link dump. |
-| `docs/report/repository_truth_posture.md` | `reader_ready` | 5 | 0 | 21 | 0 | 5 | Page explains its purpose before or alongside artifact links. |
+| `docs/report/repository_truth_posture.md` | `reader_ready` | 5 | 0 | 22 | 0 | 5 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/source-relations/dna-scope/README.md` | `reader_ready` | 5 | 0 | 0 | 6 | 2 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/source-relations/dna-scope/galician-cattle-paper.md` | `reader_ready` | 5 | 0 | 0 | 5 | 2 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/source-relations/dna-scope/galician-cattle-samples/README.md` | `thin_structure` | 3 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |

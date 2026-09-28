@@ -419,7 +419,7 @@ def _official_xml_receipt_metadata(
                 "locator": f"./SAMPLE[@accession='{accession}']",
             },
         ]
-        if "PRJEB41594" in Path(asset.relative_path).parts:
+        if {"PRJEB41594", "PRJEB60484"} & set(Path(asset.relative_path).parts):
             locators.extend(
                 (
                     {

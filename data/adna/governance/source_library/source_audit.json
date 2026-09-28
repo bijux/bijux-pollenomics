@@ -3,7 +3,7 @@
   "archive_sufficient_count": 6,
   "paper_dependent_count": 34,
   "supplement_dependent_count": 2,
-  "blocked_count": 19,
+  "blocked_count": 21,
   "rows": [
     {
       "project_accession": "KU605068-KU605080",
@@ -243,9 +243,11 @@
       "archive_metadata_sufficient": false,
       "paper_required": true,
       "supplement_required": false,
-      "paper_download_status": "archived",
-      "supplement_download_status": "archived",
-      "blockers": []
+      "paper_download_status": "partial",
+      "supplement_download_status": "missing",
+      "blockers": [
+        "missing_local_paper_evidence"
+      ]
     },
     {
       "project_accession": "PRJEB61721",
@@ -345,9 +347,11 @@
       "archive_metadata_sufficient": false,
       "paper_required": true,
       "supplement_required": false,
-      "paper_download_status": "archived",
+      "paper_download_status": "partial",
       "supplement_download_status": "archived",
-      "blockers": []
+      "blockers": [
+        "missing_local_paper_evidence"
+      ]
     },
     {
       "project_accession": "PRJEB90261",

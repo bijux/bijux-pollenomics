@@ -40,7 +40,7 @@ class AdnaSiteEvidenceUnitTests(unittest.TestCase):
 
         self.assertEqual(
             [row.project_accession for row in rows],
-            ["PRJEB59481", "PRJEB59481", "PRJEB60484"],
+            ["PRJEB59481", "PRJEB59481", *["PRJEB60484"] * 8],
         )
 
     def test_baltic_sheep_sites_are_sample_bound_without_invented_time(self) -> None:
@@ -110,13 +110,25 @@ class AdnaSiteEvidenceUnitTests(unittest.TestCase):
     def test_context_sources_do_not_gain_unsupported_coordinates_or_numeric_time(
         self,
     ) -> None:
-        for accession in ("SRS1407451", "PRJEB60484", "SRP073444"):
+        for accession in ("SRS1407451", "SRP073444"):
             row = resolve_project_site_evidence(accession)[0]
             self.assertEqual(row.coordinate_basis, "unresolved_location_state")
             self.assertEqual(row.latitude_text, "")
             self.assertEqual(row.longitude_text, "")
             self.assertIsNone(row.time_start_bp)
             self.assertIsNone(row.time_end_bp)
+
+        reindeer_rows = resolve_project_site_evidence("PRJEB60484")
+        self.assertTrue(
+            all(
+                row.coordinate_basis == "site_level_localities"
+                and not row.latitude_text
+                and not row.longitude_text
+                and row.time_start_bp is None
+                and row.time_end_bp is None
+                for row in reindeer_rows
+            )
+        )
 
         camel = resolve_project_site_evidence("SRP073444")[0]
         self.assertEqual(
@@ -132,6 +144,12 @@ class AdnaSiteEvidenceUnitTests(unittest.TestCase):
         self.assertTrue(donkey.comparator_context)
         self.assertEqual(reindeer.domestication_context, "comparator_context")
         self.assertEqual(donkey.domestication_context, "comparator_context")
+        wijdefjorden = next(
+            row
+            for row in resolve_project_site_evidence("PRJEB60484")
+            if row.site_label == "Wijdefjorden"
+        )
+        self.assertEqual(wijdefjorden.chronology_text, "")
 
     def test_aurochs_sites_remain_wild_or_progenitor_context(self) -> None:
         rows = resolve_project_site_evidence("PRJEB75467")

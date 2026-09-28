@@ -4,18 +4,27 @@ from __future__ import annotations
 
 import io
 from pathlib import Path
+import shutil
 import zipfile
 
 from bijux_pollenomics.adna.sources.library import (
     materialize_source_library,
     refresh_source_library,
 )
+from bijux_pollenomics.adna.workflow.source_artifacts import read_source_artifact_bytes
 from tests.support.repository import REPOSITORY_ROOT
 
 
 def materialize_test_library(output_root: Path) -> Path:
     """Build one deterministic source library for all materialization assertions."""
     refresh_source_library(output_root, downloader=_fixture_downloader)
+    source_dir = (
+        "adna/governance/source_library/papers/10.1038-s41562-021-01083-y/supplementary"
+    )
+    for name in ("41562_2021_1083_MOESM1_ESM.pdf", "41562_2021_1083_MOESM2_ESM.pdf"):
+        destination = output_root / source_dir / name
+        destination.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copyfile(REPOSITORY_ROOT / "data" / source_dir / name, destination)
     materialize_source_library(output_root)
     return output_root
 
@@ -26,14 +35,45 @@ def source_library_root(output_root: Path) -> Path:
 
 
 def _fixture_downloader(url: str) -> tuple[bytes, str]:
-    if "/ena/browser/api/xml/SAMEA11296029" in url:
-        accession = url.rsplit("/", maxsplit=1)[-1]
+    if any(
+        f"accession={accession}" in url
+        for accession in ("PRJEB41594", "PRJEB60484", "PRJNA705960")
+    ):
+        accession = next(
+            accession
+            for accession in ("PRJEB41594", "PRJEB60484", "PRJNA705960")
+            if f"accession={accession}" in url
+        )
         source_path = (
             REPOSITORY_ROOT
-            / "data/adna/governance/source_library/projects/PRJEB59481/ena_samples"
-            / f"{accession}.xml"
+            / "data/adna/governance/source_library/projects"
+            / accession
+            / "archive_metadata.html"
         )
-        return (source_path.read_bytes(), "application/xml")
+        return (read_source_artifact_bytes(source_path), "text/plain")
+    if "/ena/browser/api/xml/SAMEA" in url:
+        accession = url.rsplit("/", maxsplit=1)[-1]
+        for project in ("PRJEB41594", "PRJEB59481", "PRJEB60484"):
+            source_path = (
+                REPOSITORY_ROOT
+                / "data/adna/governance/source_library/projects"
+                / project
+                / "ena_samples"
+                / f"{accession}.xml"
+            )
+            if source_path.is_file():
+                return (source_path.read_bytes(), "application/xml")
+        raise ValueError(f"Unrecognized official ENA fixture accession: {accession}")
+    if "41598_2024_54296_MOESM2_ESM.xlsx" in url:
+        source_path = (
+            REPOSITORY_ROOT
+            / "data/adna/governance/source_library/papers/10.1038-s41598-024-54296-2/"
+            "supplementary/41598_2024_54296_MOESM2_ESM.xlsx"
+        )
+        return (
+            source_path.read_bytes(),
+            "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+        )
     if url.endswith("PMC11162877/fullTextXML"):
         source_path = (
             REPOSITORY_ROOT

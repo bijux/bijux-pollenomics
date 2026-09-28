@@ -95,7 +95,8 @@
     "sample_identity_resolution": 1
   },
   "missing_source_queue_counts": {
-    "missing_primary_paper_linkage": 13
+    "missing_primary_paper_linkage": 13,
+    "missing_repository_paper_capture": 2
   },
   "release_guard": {
     "passing": true,
@@ -103,8 +104,8 @@
   },
   "sample_evidence_depth_counts": {
     "sample_identity_only": 0,
-    "sample_with_site": 555,
-    "sample_with_site_and_chronology": 338,
+    "sample_with_site": 539,
+    "sample_with_site_and_chronology": 354,
     "sample_with_site_chronology_and_coordinates": 557
   },
   "sample_evidence_depth_accounting": {

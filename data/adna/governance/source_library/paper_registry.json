@@ -406,48 +406,6 @@
       "supplementary_acquisition_checklist_path": "data/adna/governance/source_library/supplement_acquisition_checklist.json"
     },
     {
-      "paper_doi": "10.1038/s41598-024-54296-2",
-      "canonical_url": "https://doi.org/10.1038/s41598-024-54296-2",
-      "article_source_url": "https://www.nature.com/articles/s41598-024-54296-2",
-      "journal": "Scientific Reports",
-      "publication_year": 2024,
-      "title": "Ancient reindeer mitogenomes reveal island-hopping colonisation of the Arctic archipelagos",
-      "species_latin_names": [
-        "Rangifer tarandus"
-      ],
-      "project_accessions": [
-        "PRJEB60484"
-      ],
-      "article_download_status": "archived",
-      "article_readability_status": "readable_html",
-      "article_local_path": "data/adna/governance/source_library/papers/10.1038-s41598-024-54296-2/article.html",
-      "supplementary_download_status": "archived",
-      "supplement_parse_status": "repository_supplement_archived",
-      "supplementary_verification_status": "supplement_archived_in_repo",
-      "local_reference_article_status": "missing",
-      "local_reference_supplement_status": "missing",
-      "supplementary_count": 1,
-      "parsing_status": "ready_for_project_sample_extraction",
-      "sample_extractability": "supplement_extractable",
-      "sample_table_extraction_status": "project_sample_master_published",
-      "evidence_acquisition_state": "sample_tables_published",
-      "expected_supplementary_file_families": [],
-      "expected_supplementary_artifacts": [
-        "adna/governance/source_library/papers/10.1038-s41598-024-54296-2/supplementary/41598_2024_64499_MOESM1_ESM.pdf"
-      ],
-      "sample_identifier_targets": [
-        "adna/governance/source_library/papers/10.1038-s41598-024-54296-2/supplementary/41598_2024_64499_MOESM1_ESM.pdf"
-      ],
-      "sample_site_targets": [
-        "adna/governance/source_library/papers/10.1038-s41598-024-54296-2/supplementary/41598_2024_64499_MOESM1_ESM.pdf"
-      ],
-      "chronology_targets": [
-        "adna/governance/source_library/papers/10.1038-s41598-024-54296-2/supplementary/41598_2024_64499_MOESM1_ESM.pdf"
-      ],
-      "supplementary_manifest_path": "data/adna/governance/source_library/papers/10.1038-s41598-024-54296-2/supplementary_manifest.json",
-      "supplementary_acquisition_checklist_path": "data/adna/governance/source_library/supplement_acquisition_checklist.json"
-    },
-    {
       "paper_doi": "10.1038/s42003-021-02794-8",
       "canonical_url": "https://doi.org/10.1038/s42003-021-02794-8",
       "article_source_url": "https://www.nature.com/articles/s42003-021-02794-8",
@@ -691,6 +649,46 @@
         "adna/governance/source_library/papers/10.1111-1755-0998.12551/supplementary/men12551-sup-0001-supinfo.docx"
       ],
       "supplementary_manifest_path": "data/adna/governance/source_library/papers/10.1111-1755-0998.12551/supplementary_manifest.json",
+      "supplementary_acquisition_checklist_path": "data/adna/governance/source_library/supplement_acquisition_checklist.json"
+    },
+    {
+      "paper_doi": "10.1111/mec.17274",
+      "canonical_url": "https://doi.org/10.1111/mec.17274",
+      "article_source_url": "https://onlinelibrary.wiley.com/doi/full/10.1111/mec.17274",
+      "journal": "Molecular Ecology",
+      "publication_year": 2024,
+      "title": "A palaeogenomic investigation of overharvest implications in an endemic wild reindeer subspecies",
+      "species_latin_names": [
+        "Rangifer tarandus"
+      ],
+      "project_accessions": [
+        "PRJEB60484"
+      ],
+      "article_download_status": "partial",
+      "article_readability_status": "partial_capture",
+      "article_local_path": "data/adna/governance/source_library/papers/10.1111-mec.17274/article.html",
+      "supplementary_download_status": "missing",
+      "supplement_parse_status": "missing",
+      "supplementary_verification_status": "supplement_not_verified_yet",
+      "local_reference_article_status": "missing",
+      "local_reference_supplement_status": "missing",
+      "supplementary_count": 0,
+      "parsing_status": "full_paper_download_blocked",
+      "sample_extractability": "full_paper_capture_blocked",
+      "sample_table_extraction_status": "project_sample_master_published",
+      "evidence_acquisition_state": "sample_tables_published",
+      "expected_supplementary_file_families": [],
+      "expected_supplementary_artifacts": [],
+      "sample_identifier_targets": [
+        "data/adna/governance/source_library/papers/10.1111-mec.17274/article.html"
+      ],
+      "sample_site_targets": [
+        "data/adna/governance/source_library/papers/10.1111-mec.17274/article.html"
+      ],
+      "chronology_targets": [
+        "data/adna/governance/source_library/papers/10.1111-mec.17274/article.html"
+      ],
+      "supplementary_manifest_path": "data/adna/governance/source_library/papers/10.1111-mec.17274/supplementary_manifest.json",
       "supplementary_acquisition_checklist_path": "data/adna/governance/source_library/supplement_acquisition_checklist.json"
     },
     {

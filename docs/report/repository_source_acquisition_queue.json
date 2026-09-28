@@ -3,12 +3,12 @@
   "row_count": 1,
   "rows": [
     {
-      "queue_key": "animal_adna_sample_extraction",
+      "queue_key": "animal_adna_repo_ingestion",
       "source_family": "animal_adna",
       "priority": "high",
-      "current_gap": "all tracked paper supplements are archived, but sample, site, and chronology extraction still lags",
-      "required_outcome": "use the archived paper supplements to publish sample-owned identity, locality, chronology, and coordinate evidence",
-      "evidence_anchor": "data/adna/governance/source_library/project_source_evidence_matrix.json"
+      "current_gap": "archived supplements cover 17 of 18 tracked animal papers",
+      "required_outcome": "recover or confirm absence of missing paper supplements before source-backed sample extraction",
+      "evidence_anchor": "data/adna/governance/source_library/supplement_recovery_audit.json"
     }
   ]
 }

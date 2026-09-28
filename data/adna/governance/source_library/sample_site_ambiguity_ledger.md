@@ -1,6 +1,6 @@
 # Sample site ambiguity ledger
 
-- Ambiguous or weak site rows: `82`
+- Ambiguous or weak site rows: `65`
 
 | Project accession | Sample id | Status | Locality | Note |
 | --- | --- | --- | --- | --- |
@@ -66,23 +66,6 @@
 | PRJEB81815 | prjeb81815:samea120246598 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
 | PRJEB81815 | prjeb81815:samea120246599 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
 | SRS1407451 | srs1407451:srs1407451 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| PRJEB60484 | prjeb60484:samea112757323 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| PRJEB60484 | prjeb60484:samea112757324 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| PRJEB60484 | prjeb60484:samea112757325 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| PRJEB60484 | prjeb60484:samea112757326 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
 | PRJEB60484 | prjeb60484:samea112757327 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| PRJEB60484 | prjeb60484:samea112757328 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| PRJEB60484 | prjeb60484:samea112757329 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| PRJEB60484 | prjeb60484:samea112757330 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| PRJEB60484 | prjeb60484:samea112757331 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| PRJEB60484 | prjeb60484:samea112757332 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| PRJEB60484 | prjeb60484:samea112757333 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| PRJEB60484 | prjeb60484:samea112757334 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| PRJEB60484 | prjeb60484:samea112757335 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| PRJEB60484 | prjeb60484:samea112757336 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| PRJEB60484 | prjeb60484:samea112757337 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| PRJEB60484 | prjeb60484:samea112757338 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
 | PRJEB60484 | prjeb60484:samea112757339 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
 | PRJEB60484 | prjeb60484:samea112757340 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| PRJEB60484 | prjeb60484:samea114857470 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| PRJEB60484 | prjeb60484:samea114857471 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |

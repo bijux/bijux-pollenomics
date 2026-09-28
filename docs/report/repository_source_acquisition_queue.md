@@ -9,4 +9,4 @@ credible publication posture.
 
 | Source family | Priority | Current gap | Required outcome |
 | --- | --- | --- | --- |
-| `animal_adna` | `high` | all tracked paper supplements are archived, but sample, site, and chronology extraction still lags | use the archived paper supplements to publish sample-owned identity, locality, chronology, and coordinate evidence |
+| `animal_adna` | `high` | archived supplements cover 17 of 18 tracked animal papers | recover or confirm absence of missing paper supplements before source-backed sample extraction |

@@ -9,7 +9,7 @@
   "archive_metadata_sufficient": false,
   "paper_required": true,
   "supplement_required": false,
-  "paper_download_status": "archived",
+  "paper_download_status": "partial",
   "supplement_download_status": "archived",
   "local_artifact_ids": [
     "10.1093-gbe-evaf181:GBE_Supplementary_Tables_S1-18_Goat_imputation.xlsx",
@@ -23,5 +23,7 @@
     "adna/governance/source_library/papers/10.1093-gbe-evaf181/crossref.json",
     "adna/governance/source_library/projects/PRJEB90141/archive_metadata.html"
   ],
-  "blockers": []
+  "blockers": [
+    "missing_local_paper_evidence"
+  ]
 }

@@ -2,7 +2,7 @@
   "schema_version": "adna-source-inventory.v1",
   "row_count": 40,
   "counts": {
-    "repository_supplement_captured": 21,
+    "repository_supplement_captured": 20,
     "local_reference_supplement_staged": 0,
     "sample_master_published": 22,
     "sample_site_published": 21,
@@ -186,7 +186,7 @@
       "source_family": "ENA",
       "paper_doi": "10.1093/gbe/evaf181",
       "archive_metadata_status": "archived",
-      "repository_article_capture_status": "archived",
+      "repository_article_capture_status": "partial",
       "repository_article_readability_status": "partial_capture",
       "repository_supplement_capture_status": "archived",
       "repository_supplement_parse_status": "repository_supplement_archived",
@@ -199,7 +199,9 @@
       "sample_chronology_table_status": "published",
       "sample_chronology_row_count": 4,
       "evidence_acquisition_state": "sample_tables_published",
-      "blockers": []
+      "blockers": [
+        "missing_local_paper_evidence"
+      ]
     },
     {
       "project_accession": "PRJEB90261",
@@ -745,12 +747,12 @@
       "project_accession": "PRJEB60484",
       "species_latin_name": "Rangifer tarandus",
       "source_family": "ENA",
-      "paper_doi": "10.1038/s41598-024-54296-2",
+      "paper_doi": "10.1111/mec.17274",
       "archive_metadata_status": "archived",
-      "repository_article_capture_status": "archived",
-      "repository_article_readability_status": "readable_html",
-      "repository_supplement_capture_status": "archived",
-      "repository_supplement_parse_status": "repository_supplement_archived",
+      "repository_article_capture_status": "partial",
+      "repository_article_readability_status": "partial_capture",
+      "repository_supplement_capture_status": "missing",
+      "repository_supplement_parse_status": "missing",
       "local_reference_article_status": "missing",
       "local_reference_supplement_status": "missing",
       "sample_table_extraction_status": "project_sample_master_published",
@@ -760,7 +762,9 @@
       "sample_chronology_table_status": "published",
       "sample_chronology_row_count": 20,
       "evidence_acquisition_state": "sample_tables_published",
-      "blockers": []
+      "blockers": [
+        "missing_local_paper_evidence"
+      ]
     },
     {
       "project_accession": "PRJEB61721",

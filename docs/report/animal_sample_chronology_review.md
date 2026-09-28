@@ -1,15 +1,15 @@
 # Animal sample chronology review
 
 - Sample chronology rows: `1455`
-- Normalized intervals: `369`
+- Normalized intervals: `385`
 - Normalized points: `528`
 - Text-only rows: `136`
-- Unresolved rows: `422`
-- Direct radiocarbon rows: `803`
+- Unresolved rows: `406`
+- Direct radiocarbon rows: `819`
 - Modeled rows: `6`
 - Contextual rows: `101`
 - Broad period rows: `1`
-- Numeric interval rows: `777`
+- Numeric interval rows: `793`
 - Numeric rows with caveat: `120`
 - Context-only rows: `136`
 
@@ -1107,26 +1107,26 @@
 | Ovis aries | PRJEB59481 | prjeb59481:samea112960293 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 3699-3957 BP |
 | Ovis aries | PRJEB59481 | prjeb59481:samea112960294 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 3936-4151 BP |
 | Ovis aries | PRJEB59481 | prjeb59481:samea112960295 | sample_owned_text_only | broad_period_label | broad_period_only | text_only_unparsed | Late Neolithic |
-| Rangifer tarandus | PRJEB60484 | prjeb60484:samea112757323 | unresolved | unresolved | unresolved | unresolved |  |
-| Rangifer tarandus | PRJEB60484 | prjeb60484:samea112757324 | unresolved | unresolved | unresolved | unresolved |  |
-| Rangifer tarandus | PRJEB60484 | prjeb60484:samea112757325 | unresolved | unresolved | unresolved | unresolved |  |
-| Rangifer tarandus | PRJEB60484 | prjeb60484:samea112757326 | unresolved | unresolved | unresolved | unresolved |  |
+| Rangifer tarandus | PRJEB60484 | prjeb60484:samea112757323 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 1298-1349 BP |
+| Rangifer tarandus | PRJEB60484 | prjeb60484:samea112757324 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 916-1057 BP |
+| Rangifer tarandus | PRJEB60484 | prjeb60484:samea112757325 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 1894-2046 BP |
+| Rangifer tarandus | PRJEB60484 | prjeb60484:samea112757326 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 3063-3212 BP |
 | Rangifer tarandus | PRJEB60484 | prjeb60484:samea112757327 | unresolved | unresolved | unresolved | unresolved |  |
-| Rangifer tarandus | PRJEB60484 | prjeb60484:samea112757328 | unresolved | unresolved | unresolved | unresolved |  |
-| Rangifer tarandus | PRJEB60484 | prjeb60484:samea112757329 | unresolved | unresolved | unresolved | unresolved |  |
-| Rangifer tarandus | PRJEB60484 | prjeb60484:samea112757330 | unresolved | unresolved | unresolved | unresolved |  |
-| Rangifer tarandus | PRJEB60484 | prjeb60484:samea112757331 | unresolved | unresolved | unresolved | unresolved |  |
-| Rangifer tarandus | PRJEB60484 | prjeb60484:samea112757332 | unresolved | unresolved | unresolved | unresolved |  |
-| Rangifer tarandus | PRJEB60484 | prjeb60484:samea112757333 | unresolved | unresolved | unresolved | unresolved |  |
-| Rangifer tarandus | PRJEB60484 | prjeb60484:samea112757334 | unresolved | unresolved | unresolved | unresolved |  |
-| Rangifer tarandus | PRJEB60484 | prjeb60484:samea112757335 | unresolved | unresolved | unresolved | unresolved |  |
-| Rangifer tarandus | PRJEB60484 | prjeb60484:samea112757336 | unresolved | unresolved | unresolved | unresolved |  |
+| Rangifer tarandus | PRJEB60484 | prjeb60484:samea112757328 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 1716-1821 BP |
+| Rangifer tarandus | PRJEB60484 | prjeb60484:samea112757329 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 3846-3973 BP |
+| Rangifer tarandus | PRJEB60484 | prjeb60484:samea112757330 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 500-521 BP |
+| Rangifer tarandus | PRJEB60484 | prjeb60484:samea112757331 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 525-644 BP |
+| Rangifer tarandus | PRJEB60484 | prjeb60484:samea112757332 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 668-768 BP |
+| Rangifer tarandus | PRJEB60484 | prjeb60484:samea112757333 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 0-447 BP |
+| Rangifer tarandus | PRJEB60484 | prjeb60484:samea112757334 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 27-260 BP |
+| Rangifer tarandus | PRJEB60484 | prjeb60484:samea112757335 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 549-647 BP |
+| Rangifer tarandus | PRJEB60484 | prjeb60484:samea112757336 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 1825-1935 BP |
 | Rangifer tarandus | PRJEB60484 | prjeb60484:samea112757337 | unresolved | unresolved | unresolved | unresolved |  |
-| Rangifer tarandus | PRJEB60484 | prjeb60484:samea112757338 | unresolved | unresolved | unresolved | unresolved |  |
+| Rangifer tarandus | PRJEB60484 | prjeb60484:samea112757338 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 8-277 BP |
 | Rangifer tarandus | PRJEB60484 | prjeb60484:samea112757339 | unresolved | unresolved | unresolved | unresolved |  |
 | Rangifer tarandus | PRJEB60484 | prjeb60484:samea112757340 | unresolved | unresolved | unresolved | unresolved |  |
-| Rangifer tarandus | PRJEB60484 | prjeb60484:samea114857470 | unresolved | unresolved | unresolved | unresolved |  |
-| Rangifer tarandus | PRJEB60484 | prjeb60484:samea114857471 | unresolved | unresolved | unresolved | unresolved |  |
+| Rangifer tarandus | PRJEB60484 | prjeb60484:samea114857470 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 2725-2841 BP |
+| Rangifer tarandus | PRJEB60484 | prjeb60484:samea114857471 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 4652-4846 BP |
 | Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160866 | unresolved | unresolved | unresolved | unresolved |  |
 | Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160867 | sample_owned_interval | archaeological_context_date | sample_approximate_or_modeled | normalized_point | 4700 BP |
 | Sus scrofa domesticus | PRJEB30282 | prjeb30282:samea5160868 | sample_owned_interval | archaeological_context_date | sample_approximate_or_modeled | normalized_point | 1000 BP |

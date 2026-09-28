@@ -409,8 +409,16 @@ PRJEB52849,Equus asinus,Africa to Europe and Asia donkey spread context,africato
 PRJEB52849,Equus asinus,North African donkey domestication and spread transect,northafricandonkeydomesticationandspreadtransect,North Africa and Levant dispersal extent;North African donkey domestication and spread transect,North Africa and Levant dispersal extent,archive_metadata;coordinate_resolution,broader_locality
 PRJEB59481,Ovis aries,Kastelholm,kastelholm,Kastelholm,,supplementary_table,excavation_site
 PRJEB59481,Ovis aries,Stora Förvar,storaförvar,Stora Förvar,,supplementary_table,excavation_site
+PRJEB60484,Rangifer tarandus,Barentsøya,barentsøya,Barentsøya,,supplementary_table,excavation_site
+PRJEB60484,Rangifer tarandus,Diskobukta,diskobukta,Diskobukta,,supplementary_table,excavation_site
+PRJEB60484,Rangifer tarandus,Gipsdalen,gipsdalen,Gipsdalen,,supplementary_table,excavation_site
+PRJEB60484,Rangifer tarandus,Kapp Flora,kappflora,Kapp Flora,,supplementary_table,excavation_site
+PRJEB60484,Rangifer tarandus,Rijpjorden,rijpjorden,Rijpjorden,,supplementary_table,excavation_site
+PRJEB60484,Rangifer tarandus,Sassendalen,sassendalen,Sassendalen,,supplementary_table,excavation_site
 PRJEB60484,Rangifer tarandus,Svalbard ancient reindeer context,svalbardancientreindeercontext,Svalbard ancient reindeer context;Svalbard archipelago,Svalbard archipelago,archive_metadata;coordinate_resolution,broader_locality
 PRJEB60484,Rangifer tarandus,Svalbard archipelago reindeer context,svalbardarchipelagoreindeercontext,Svalbard archipelago reindeer context,,archive_metadata,broader_locality
+PRJEB60484,Rangifer tarandus,Tchaiabukta/Hooken Island,tchaiabuktahookenisland,Tchaiabukta/Hooken Island,,supplementary_table,excavation_site
+PRJEB60484,Rangifer tarandus,Wijdefjorden,wijdefjorden,Wijdefjorden,,supplementary_table,excavation_site
 PRJEB75467,Bos taurus,"Barche di Solferino, near Mantova",barchedisolferinonearmantova,"Barche di Solferino, near Mantova",,supplementary_table,excavation_site
 PRJEB75467,Bos taurus,"Barguzin river, Baikal",barguzinriverbaikal,"Barguzin river, Baikal",,supplementary_table,excavation_site
 PRJEB75467,Bos taurus,Bedburg-Königshoven,bedburgkönigshoven,Bedburg-Königshoven,,supplementary_table,excavation_site

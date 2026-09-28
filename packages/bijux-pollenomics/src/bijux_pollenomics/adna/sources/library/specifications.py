@@ -83,6 +83,22 @@ def _paper_source_specs() -> dict[str, _PaperSourceSpec]:
             article_local_path=f"{ADNA_SOURCE_LIBRARY_DIR}/papers/10.1038-s41598-024-54296-2/article.html",
             article_kind="article_html",
             article_note="Scientific Reports article page is archived as the accessible paper surface.",
+            supplementary_assets=(
+                _RemoteArtifactSpec(
+                    artifact_kind="supplementary_pdf",
+                    label="reindeer supplementary figures",
+                    source_url="https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41598-024-54296-2/MediaObjects/41598_2024_54296_MOESM1_ESM.pdf",
+                    relative_path="papers/10.1038-s41598-024-54296-2/supplementary/41598_2024_54296_MOESM1_ESM.pdf",
+                    remote_note="Publisher-linked supplementary figures for the reindeer article.",
+                ),
+                _RemoteArtifactSpec(
+                    artifact_kind="supplementary_spreadsheet",
+                    label="reindeer supplementary tables",
+                    source_url="https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41598-024-54296-2/MediaObjects/41598_2024_54296_MOESM2_ESM.xlsx",
+                    relative_path="papers/10.1038-s41598-024-54296-2/supplementary/41598_2024_54296_MOESM2_ESM.xlsx",
+                    remote_note="Publisher-linked Table S1 supplies specimen locality and calibrated age evidence.",
+                ),
+            ),
         ),
         "10.1038/ncomms16082": _PaperSourceSpec(
             doi="10.1038/ncomms16082",
@@ -126,6 +142,14 @@ def _paper_source_specs() -> dict[str, _PaperSourceSpec]:
             article_local_path=f"{ADNA_SOURCE_LIBRARY_DIR}/papers/10.1111-1755-0998.12551/article.html",
             article_kind="article_html",
             article_note="PMC full-text HTML is archived for the camel paper.",
+        ),
+        "10.1111/mec.17274": _PaperSourceSpec(
+            doi="10.1111/mec.17274",
+            article_source_url="https://onlinelibrary.wiley.com/doi/full/10.1111/mec.17274",
+            article_local_path=f"{ADNA_SOURCE_LIBRARY_DIR}/papers/10.1111-mec.17274/article.html",
+            article_kind="article_html",
+            article_note="Primary Molecular Ecology article links the project to its 18 ancient Svalbard specimens; full article capture remains unavailable.",
+            parsing_status="full_paper_download_blocked",
         ),
         "10.1126/science.aam5298": _PaperSourceSpec(
             doi="10.1126/science.aam5298",
@@ -257,25 +281,30 @@ def _expand_remote_assets(
 
 
 def _project_remote_assets(project_accession: str) -> tuple[_RemoteArtifactSpec, ...]:
-    if project_accession not in {"PRJEB41594", "PRJEB59481"}:
-        return ()
-    accessions = (
-        (
+    sample_accessions = {
+        "PRJEB41594": (
             "SAMEA8022720",
             "SAMEA8022721",
             "SAMEA8022722",
             "SAMEA8022723",
             "SAMEA8022724",
-        )
-        if project_accession == "PRJEB41594"
-        else (
+        ),
+        "PRJEB59481": (
             "SAMEA112960291",
             "SAMEA112960292",
             "SAMEA112960293",
             "SAMEA112960294",
             "SAMEA112960295",
-        )
-    )
+        ),
+        "PRJEB60484": (
+            *(f"SAMEA{number}" for number in range(112757323, 112757341)),
+            "SAMEA114857470",
+            "SAMEA114857471",
+        ),
+    }
+    accessions = sample_accessions.get(project_accession)
+    if accessions is None:
+        return ()
     return tuple(
         _RemoteArtifactSpec(
             artifact_kind="ena_sample_xml",
@@ -287,8 +316,11 @@ def _project_remote_assets(project_accession: str) -> tuple[_RemoteArtifactSpec,
                 "identity, source-native alias and taxonomy; locality and date "
                 "require separate source evidence."
                 if project_accession == "PRJEB41594"
-                else "Official ENA biological-sample record supplies exact sample "
-                "identity, source-native lat_lon, taxonomy, and material wording."
+                else (
+                    "Official ENA biological-sample record supplies exact specimen alias and taxonomy; locality and date require a source-matched paper row."
+                    if project_accession == "PRJEB60484"
+                    else "Official ENA biological-sample record supplies exact sample identity, source-native lat_lon, taxonomy, and material wording."
+                )
             ),
         )
         for accession in accessions

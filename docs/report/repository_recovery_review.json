@@ -77,11 +77,11 @@
         "tracked_papers": 18,
         "sample_accounting_available": true,
         "coordinate_accounting_available": true,
-        "papers_with_archived_supplements": 18,
+        "papers_with_archived_supplements": 17,
         "published_atlas_points": 170,
         "tracked_samples": 1450,
         "mapped_samples": 331,
-        "unresolved_samples": 398,
+        "unresolved_samples": 381,
         "mappable_coordinate_provenance": 304,
         "refused_coordinate_provenance": 4
       },

@@ -185,27 +185,6 @@
       ]
     },
     {
-      "paper_doi": "10.1038/s41598-024-54296-2",
-      "paper_title": "Ancient reindeer mitogenomes reveal island-hopping colonisation of the Arctic archipelagos",
-      "project_accessions": [
-        "PRJEB60484"
-      ],
-      "sample_extractability": "supplement_extractable",
-      "article_download_status": "archived",
-      "supplementary_download_status": "archived",
-      "supplement_parse_status": "repository_supplement_archived",
-      "recovered_final_sample_count": 20,
-      "exact_expected_sample_count_total": 0,
-      "projects_with_unknown_expected_total": 1,
-      "projects_with_implausibly_low_recovery": 0,
-      "yield_recovery_posture": "expected_total_still_partially_unbounded",
-      "expected_contribution_surfaces": [
-        "adna/governance/source_library/papers/10.1038-s41598-024-54296-2/supplementary/41598_2024_64499_MOESM1_ESM.pdf",
-        "data/adna/governance/source_library/papers/10.1038-s41598-024-54296-2/article.html",
-        "data/adna/governance/source_library/projects/PRJEB60484/archive_metadata.html"
-      ]
-    },
-    {
       "paper_doi": "10.1038/s42003-021-02794-8",
       "paper_title": "Archaeogenetic analysis of Neolithic sheep from Anatolia suggests a complex demographic history since domestication",
       "project_accessions": [
@@ -318,6 +297,26 @@
         "data/adna/governance/source_library/papers/10.1111-1755-0998.12551/article.html",
         "data/adna/governance/source_library/projects/KU605068-KU605080/archive_metadata.html",
         "data/adna/governance/source_library/projects/SRP073444/archive_metadata.html"
+      ]
+    },
+    {
+      "paper_doi": "10.1111/mec.17274",
+      "paper_title": "A palaeogenomic investigation of overharvest implications in an endemic wild reindeer subspecies",
+      "project_accessions": [
+        "PRJEB60484"
+      ],
+      "sample_extractability": "full_paper_capture_blocked",
+      "article_download_status": "partial",
+      "supplementary_download_status": "missing",
+      "supplement_parse_status": "missing",
+      "recovered_final_sample_count": 20,
+      "exact_expected_sample_count_total": 0,
+      "projects_with_unknown_expected_total": 1,
+      "projects_with_implausibly_low_recovery": 0,
+      "yield_recovery_posture": "expected_total_still_partially_unbounded",
+      "expected_contribution_surfaces": [
+        "data/adna/governance/source_library/papers/10.1111-mec.17274/article.html",
+        "data/adna/governance/source_library/projects/PRJEB60484/archive_metadata.html"
       ]
     },
     {

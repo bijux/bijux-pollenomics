@@ -17,6 +17,9 @@ from bijux_pollenomics.adna.projects.sample_master.tables.baltic_sheep import (
 from bijux_pollenomics.adna.projects.sample_master.tables.obishir_sheep import (
     obishir_chronology_evidence,
 )
+from bijux_pollenomics.adna.projects.sample_master.tables.reindeer import (
+    reindeer_chronology_evidence,
+)
 from bijux_pollenomics.adna.sources.archive import (
     AdnaArchiveProject,
     build_archive_project_catalog,
@@ -45,7 +48,11 @@ def build_project_sample_chronology_rows(
     for master_row in master_rows:
         if master_row.source_native_identity_kind == "sequencing_experiment_accession":
             continue
-        site_row = _matching_site_row(master_row, site_rows)
+        site_row = (
+            None
+            if project_accession == "PRJEB60484"
+            else _matching_site_row(master_row, site_rows)
+        )
         dating_basis = (
             master_row.chronology_dating_basis or project.dating_basis or "unknown"
         )
@@ -55,6 +62,15 @@ def build_project_sample_chronology_rows(
         )
         if project_accession == "PRJEB41594":
             evidence = obishir_chronology_evidence(master_row.archive_native_sample_id)
+            if evidence is not None:
+                chronology_master_row = replace(
+                    chronology_master_row,
+                    sample_lineage_path=evidence[0],
+                    sample_lineage_locator=evidence[1],
+                    sample_lineage_excerpt=evidence[2],
+                )
+        if project_accession == "PRJEB60484":
+            evidence = reindeer_chronology_evidence(master_row)
             if evidence is not None:
                 chronology_master_row = replace(
                     chronology_master_row,

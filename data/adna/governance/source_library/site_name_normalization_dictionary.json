@@ -6574,6 +6574,102 @@
     {
       "project_accession": "PRJEB60484",
       "species_latin_name": "Rangifer tarandus",
+      "normalized_display_spelling": "Barentsøya",
+      "geocoding_safe_token": "barentsøya",
+      "original_source_spellings": [
+        "Barentsøya"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB60484",
+      "species_latin_name": "Rangifer tarandus",
+      "normalized_display_spelling": "Diskobukta",
+      "geocoding_safe_token": "diskobukta",
+      "original_source_spellings": [
+        "Diskobukta"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB60484",
+      "species_latin_name": "Rangifer tarandus",
+      "normalized_display_spelling": "Gipsdalen",
+      "geocoding_safe_token": "gipsdalen",
+      "original_source_spellings": [
+        "Gipsdalen"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB60484",
+      "species_latin_name": "Rangifer tarandus",
+      "normalized_display_spelling": "Kapp Flora",
+      "geocoding_safe_token": "kappflora",
+      "original_source_spellings": [
+        "Kapp Flora"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB60484",
+      "species_latin_name": "Rangifer tarandus",
+      "normalized_display_spelling": "Rijpjorden",
+      "geocoding_safe_token": "rijpjorden",
+      "original_source_spellings": [
+        "Rijpjorden"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB60484",
+      "species_latin_name": "Rangifer tarandus",
+      "normalized_display_spelling": "Sassendalen",
+      "geocoding_safe_token": "sassendalen",
+      "original_source_spellings": [
+        "Sassendalen"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB60484",
+      "species_latin_name": "Rangifer tarandus",
       "normalized_display_spelling": "Svalbard ancient reindeer context",
       "geocoding_safe_token": "svalbardancientreindeercontext",
       "original_source_spellings": [
@@ -6605,6 +6701,38 @@
       ],
       "locality_classes": [
         "broader_locality"
+      ]
+    },
+    {
+      "project_accession": "PRJEB60484",
+      "species_latin_name": "Rangifer tarandus",
+      "normalized_display_spelling": "Tchaiabukta/Hooken Island",
+      "geocoding_safe_token": "tchaiabuktahookenisland",
+      "original_source_spellings": [
+        "Tchaiabukta/Hooken Island"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB60484",
+      "species_latin_name": "Rangifer tarandus",
+      "normalized_display_spelling": "Wijdefjorden",
+      "geocoding_safe_token": "wijdefjorden",
+      "original_source_spellings": [
+        "Wijdefjorden"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
       ]
     },
     {
