@@ -10,6 +10,7 @@ from __future__ import annotations
 
 import argparse
 import hashlib
+import io
 import json
 import os
 from pathlib import Path
@@ -42,6 +43,13 @@ def _write_json(path: Path, value: object) -> None:
     )
 
 
+def _expected_digest(values: np.ndarray) -> str:
+    """Bind dtype, shape and values without depending on ZIP member timestamps."""
+    buffer = io.BytesIO()
+    np.save(buffer, values, allow_pickle=False)
+    return hashlib.sha256(buffer.getvalue()).hexdigest()
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", type=Path, default=ROOT / "reports" / "live_r")
@@ -65,6 +73,15 @@ def main(argv: list[str] | None = None) -> int:
             "atol": case.atol,
             "exact_indices": list(case.exact_indices),
             "values": len(case.expected),
+            "input_sha256": hashlib.sha256(
+                json.dumps(
+                    {"setup": setup, "expression": case.expression},
+                    ensure_ascii=False,
+                    sort_keys=True,
+                    separators=(",", ":"),
+                ).encode("utf-8")
+            ).hexdigest(),
+            "python_expected_sha256": _expected_digest(case.expected),
         }
         for index, case in enumerate(cases)
     ]

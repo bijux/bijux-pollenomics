@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 from pathlib import Path
+import re
 import subprocess
 import sys
 
@@ -103,9 +104,17 @@ def test_prepare_only_writes_explicit_nonexecution_report(
     )
     assert completed.returncode == 0, completed.stderr
     report = json.loads((output / "report.json").read_text())
+    manifest = json.loads((output / "case_manifest.json").read_text())
     oracle = (output / "oracle.R").read_text()
     assert report["status"] == "prepared_not_executed"
     assert report["live_R_executed"] is False
+    assert len(manifest) == 43
+    assert len({row["id"] for row in manifest}) == 43
+    assert all(
+        re.fullmatch(r"[0-9a-f]{64}", row[field])
+        for row in manifest
+        for field in ("input_sha256", "python_expected_sha256")
+    )
     assert 'sprintf("%.17g",val)' in oracle
     assert (output / "python_expected_not_R_goldens.npz").is_file()
     assert (output / "oracle.R").is_file()
