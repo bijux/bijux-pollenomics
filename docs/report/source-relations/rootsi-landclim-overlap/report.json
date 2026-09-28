@@ -1,0 +1,104 @@
+{
+  "admission": {
+    "grid_window_contributor_lineage_resolved": false,
+    "historical_workbook_identity_authenticated": false,
+    "independent_vegetation_ground_truth": false,
+    "per_sequence_rights_cleared": false,
+    "raw_pollen_independence_from_landclim_model": false,
+    "sample_chronology_admitted": false
+  },
+  "candidate_pair_identity_sha256": "ca94f04342f5c54212dc3ef9acfa0cbeea6e92419878f951ec23b2a0acf5cfd6",
+  "denominators": {
+    "landclim_ii_site_features": 223,
+    "negative_bp_coverage_refusals": 36,
+    "numeric_site_coverage_intervals": 35,
+    "partial_coverage_refusals": 8,
+    "publication_metadata_rows": 1128,
+    "refused_site_coverage_intervals": 44,
+    "rootsi_metadata_rows": 81,
+    "sample_count_agreement": 78,
+    "sample_count_disagreement": 1,
+    "unique_metadata_candidate_pairs": 79,
+    "unmatched_publication_rows": 1049,
+    "unmatched_rootsi_rows": 2
+  },
+  "dependency_edges": [
+    {
+      "from": "Rootsi typed workbook claim",
+      "status": "member_and_hash_only",
+      "to": "Rootsi metadata row"
+    },
+    {
+      "from": "Rootsi metadata row",
+      "status": "unique_metadata_candidate",
+      "to": "LandClim II publication metadata row"
+    },
+    {
+      "from": "LandClim II publication metadata row",
+      "status": "exact_sequence_and_source_metadata_join",
+      "to": "normalized LandClim II site feature"
+    },
+    {
+      "from": "LandClim II site feature",
+      "status": "dataset_context_only_exact_contributor_lineage_unresolved",
+      "to": "REVEALS grid/window/value/SE"
+    }
+  ],
+  "inputs": [
+    {
+      "bytes": 3510,
+      "path": "artifacts/v3/landclim/rootsi-input-closure-841cf13b/real-generation003/candidate-a/manifest.json",
+      "sha256": "714f60289143e38f38a9e6acb75d4a150be79ba6637f6c222d89998c291b5ffe"
+    },
+    {
+      "bytes": 770960,
+      "path": "artifacts/v3/landclim/rootsi-input-closure-841cf13b/real-generation003/candidate-a/publication-candidates.jsonl",
+      "sha256": "d54b2266c4b7c7386edef9d5694c49a20c1cc1eadab3155358aca4dd386a79c3"
+    },
+    {
+      "bytes": 29508,
+      "path": "artifacts/v3/landclim/rootsi-input-closure-841cf13b/real-generation003/candidate-a/rootsi-crosswalk.csv",
+      "sha256": "ee76ac6af9d79ce4d81224a566e8edd7dc71eb940402b352fda809bba7e93588"
+    },
+    {
+      "bytes": 1366173,
+      "path": "artifacts/v3/landclim/rootsi-input-closure-841cf13b/real-generation003/candidate-a/requirement-status.csv",
+      "sha256": "7852bb8ca7a7c064844b23a71e385030ae35d8e0b5031994eefe71253e3b7362"
+    },
+    {
+      "bytes": 3400,
+      "path": "artifacts/v3/landclim/rootsi-input-closure-841cf13b/real-generation003/candidate-a/report.json",
+      "sha256": "10ddc1d588411d1eb55d369d7a886ef0846acbe92fb1f6698e631fc82363c70d"
+    },
+    {
+      "bytes": 264067,
+      "path": "data/landclim/raw/landclim_ii_site_metadata.xlsx",
+      "sha256": "2d4a0cf1401e36c2606f7761cecc85c4bbc15272460c2a4926cb1702d4565ebb"
+    },
+    {
+      "bytes": 4880,
+      "path": "data/landclim/raw/landclim_sources.json",
+      "sha256": "eb4350724c176d0dbcb7e441f2d21489bdae1cfff7ebe3088eab27093f315677"
+    },
+    {
+      "bytes": 831329,
+      "path": "data/landclim/normalized/nordic_pollen_site_sequences.csv",
+      "sha256": "3f0bbc4978d54ee9bff164594e1f358c4adee544de5c198ef970699511cc9b9e"
+    }
+  ],
+  "matching_profile": "normalized-sequence-label-or-normalized-site-name-plus-exact-sample-count-with-exact-SWE-to-Sweden-country-filter.v1",
+  "notes": [
+    "Pairing is metadata candidate overlap, not authenticated identity of historical input cells.",
+    "Site BP bounds describe sequence coverage; they are not sample ages or event times.",
+    "Shared site metadata creates a possible circular comparison; LandClim model output is not independent vegetation truth for these candidates.",
+    "LCGRID_ID and site time coverage do not prove which site contributed to a modeled grid/window or its value and standard error.",
+    "EKE reports 25 Rootsi samples and 42 LandClim publication/site samples; its candidate status does not erase this disagreement.",
+    "Only 35 site coverage intervals remain numerically comparable; 36 negative-BP and 8 partial source intervals are refused."
+  ],
+  "overlap_csv": {
+    "bytes": 35349,
+    "sha256": "34bb9b19d1a3ba3a479ce77174ea85e87c52f1bae51e42a44b57eaf5739165c6"
+  },
+  "schema_version": "rootsi-landclim-overlap.v1",
+  "source": "https://doi.org/10.1594/PANGAEA.937075"
+}
