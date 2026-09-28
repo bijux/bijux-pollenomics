@@ -4,12 +4,26 @@
   "source_lookup_rows": 10788,
   "source_lookup_distinct_names": 9731,
   "source_lookup_nonexcluded_targets": 31,
+  "size_variant_candidates": [
+    {
+      "native_name": "Poaceae undiff. (<40 µm)",
+      "author_witness_name": "Poaceae undiff. <40um",
+      "witness_target": "Poaceae",
+      "disposition": "source_witnessed_candidate_not_applied"
+    },
+    {
+      "native_name": "Poaceae undiff. (>40 µm)",
+      "author_witness_name": "Poaceae undiff. >40um",
+      "witness_target": "Cerealia-t",
+      "disposition": "source_witnessed_candidate_not_applied"
+    }
+  ],
   "count_unit": "native_NISP",
   "common_bin_count": 39,
   "site_count": 3,
   "lra_admitted_samples": 0,
   "scientific_admission_allowed": false,
-  "interpretation": "Author lookup assignments preserve source-name and exclusion decisions. They do not establish a matched core, sample-time basin geometry, version-qualified PPE/FSP binding, or LRA admission.",
+  "interpretation": "Author lookup assignments preserve source-name and exclusion decisions. Two size-qualified BUS names have separate author-witnessed candidate targets; their counts remain in unmapped mass and are not applied. The screen does not establish a matched core, sample-time basin geometry, or LRA admission.",
   "sites": [
     {
       "dataset_id": "19913",
@@ -19,6 +33,9 @@
       "author_assigned_nisp": 86691,
       "author_excluded_nisp": 1311,
       "unmapped_nisp": 2,
+      "size_variant_candidate_nisp": 0,
+      "size_variant_candidate_targets": {},
+      "assigned_plus_size_candidate_fraction": 0.98508,
       "author_assigned_fraction": 0.98508,
       "author_target_counts": {
         "Alnus glutinosa": 3904,
@@ -102,6 +119,12 @@
       "author_assigned_nisp": 40915,
       "author_excluded_nisp": 9277,
       "unmapped_nisp": 6258,
+      "size_variant_candidate_nisp": 6254,
+      "size_variant_candidate_targets": {
+        "Cerealia-t": 158,
+        "Poaceae": 6096
+      },
+      "assigned_plus_size_candidate_fraction": 0.835589,
       "author_assigned_fraction": 0.724801,
       "author_target_counts": {
         "Alnus glutinosa": 11648,
@@ -202,6 +225,9 @@
       "author_assigned_nisp": 41407,
       "author_excluded_nisp": 1110,
       "unmapped_nisp": 31,
+      "size_variant_candidate_nisp": 0,
+      "size_variant_candidate_targets": {},
+      "assigned_plus_size_candidate_fraction": 0.973183,
       "author_assigned_fraction": 0.973183,
       "author_target_counts": {
         "Alnus glutinosa": 6789,
@@ -347,5 +373,5 @@
       "sha256": "3231eb8ca83f99b3ecdeca8eb8aacc7f60c4bbf2547dca2c0e2c23a98e98b520"
     }
   ],
-  "bins_csv_sha256": "889a208cee92ce9786447ad2cd1e24a5f707cf1991ac714d01c4576c99bd9e2a"
+  "bins_csv_sha256": "517233709c946b71fd19c172eb499f326c27bcc764ced37e3eb307b9b00198f0"
 }

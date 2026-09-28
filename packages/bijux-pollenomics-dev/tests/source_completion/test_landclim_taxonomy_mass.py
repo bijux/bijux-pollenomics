@@ -49,6 +49,17 @@ def test_actual_author_lookup_closes_swedish_native_bins(tmp_path: Path) -> None
     assert by_dataset["53995"]["author_target_counts"]["Corylus avellana"] == 8391
     assert by_dataset["54001"]["author_target_counts"]["Quercus deciduous"] == 6192
     assert by_dataset["53995"]["unmapped_nisp"] == 6258
+    assert by_dataset["53995"]["size_variant_candidate_nisp"] == 6254
+    assert by_dataset["53995"]["size_variant_candidate_targets"] == {
+        "Cerealia-t": 158,
+        "Poaceae": 6096,
+    }
+    assert by_dataset["53995"]["assigned_plus_size_candidate_fraction"] == 0.835589
+    assert all(
+        site["size_variant_candidate_nisp"] == 0
+        for dataset, site in by_dataset.items()
+        if dataset != "53995"
+    )
     assert json.loads((replay / "report.json").read_text()) == report
 
 

@@ -16,6 +16,10 @@ from .neotoma_parameter_mass import DATASETS, POLLEN, _identity
 LOOKUP = Path("author/LANDCLIM.ALLEUROPE.taxa.LUT.080219.csv")
 LOOKUP_SHA256 = "3a745f9b7606e5d0b59feaba2683b930c8d3990e4810f8217b69160a29a1b507"
 EXCLUDED_TARGETS = frozenset({"zz.do not use", "aage.cal.BP"})
+SIZE_VARIANT_CANDIDATES = {
+    "Poaceae undiff. (<40 µm)": ("Poaceae undiff. <40um", "Poaceae"),
+    "Poaceae undiff. (>40 µm)": ("Poaceae undiff. >40um", "Cerealia-t"),
+}
 
 
 def _lookup(path: Path) -> tuple[dict[str, str], int]:
@@ -53,6 +57,9 @@ def publish(repository: Path, author_source_root: Path, output: Path) -> dict[st
     repository = repository.resolve()
     lookup_path = author_source_root.resolve() / LOOKUP
     mapping, source_row_count = _lookup(lookup_path)
+    for source_name, (witness_name, witness_target) in SIZE_VARIANT_CANDIDATES.items():
+        if source_name in mapping or mapping.get(witness_name) != witness_target:
+            raise ValueError("Author size-variant witness changed")
     config_path = repository / POLLEN / "config.json"
     exclusion_path = repository / POLLEN / "exclusions.csv"
     config = json.loads(config_path.read_text(encoding="utf-8"))
@@ -93,6 +100,7 @@ def publish(repository: Path, author_source_root: Path, output: Path) -> dict[st
             raise ValueError("Prepared Swedish pollen identity changed")
         totals: Counter[str] = Counter()
         targets: Counter[str] = Counter()
+        size_variant_targets: Counter[str] = Counter()
         missing: Counter[str] = Counter()
         rejected: Counter[str] = Counter()
         for index in config["common_age_bin_ids"]:
@@ -108,13 +116,22 @@ def publish(repository: Path, author_source_root: Path, output: Path) -> dict[st
                 if target is None:
                     status["unmapped"] += count
                     missing[name] += count
+                    if name in SIZE_VARIANT_CANDIDATES:
+                        status["size_variant_candidate"] += count
+                        size_variant_targets[SIZE_VARIANT_CANDIDATES[name][1]] += count
                 elif target in EXCLUDED_TARGETS:
                     status["author_excluded"] += count
                     rejected[name] += count
                 else:
                     status["author_assigned"] += count
                     targets[target] += count
-            if sum(status.values()) != denominator:
+            if (
+                status["author_assigned"]
+                + status["author_excluded"]
+                + status["unmapped"]
+                != denominator
+                or status["size_variant_candidate"] > status["unmapped"]
+            ):
                 raise ValueError("Swedish author taxonomy mass does not close")
             bins.append(
                 {
@@ -126,6 +143,7 @@ def publish(repository: Path, author_source_root: Path, output: Path) -> dict[st
                     "author_assigned_nisp": status["author_assigned"],
                     "author_excluded_nisp": status["author_excluded"],
                     "unmapped_nisp": status["unmapped"],
+                    "size_variant_candidate_nisp": status["size_variant_candidate"],
                     "author_assigned_fraction": round(
                         status["author_assigned"] / denominator, 6
                     ),
@@ -133,7 +151,9 @@ def publish(repository: Path, author_source_root: Path, output: Path) -> dict[st
                 }
             )
             totals.update(status)
-        total = sum(totals.values())
+        total = (
+            totals["author_assigned"] + totals["author_excluded"] + totals["unmapped"]
+        )
         sites.append(
             {
                 "dataset_id": dataset,
@@ -143,6 +163,15 @@ def publish(repository: Path, author_source_root: Path, output: Path) -> dict[st
                 "author_assigned_nisp": totals["author_assigned"],
                 "author_excluded_nisp": totals["author_excluded"],
                 "unmapped_nisp": totals["unmapped"],
+                "size_variant_candidate_nisp": totals["size_variant_candidate"],
+                "size_variant_candidate_targets": dict(
+                    sorted(size_variant_targets.items())
+                ),
+                "assigned_plus_size_candidate_fraction": round(
+                    (totals["author_assigned"] + totals["size_variant_candidate"])
+                    / total,
+                    6,
+                ),
                 "author_assigned_fraction": round(totals["author_assigned"] / total, 6),
                 "author_target_counts": dict(sorted(targets.items())),
                 "leading_unmapped_names": [
@@ -168,6 +197,15 @@ def publish(repository: Path, author_source_root: Path, output: Path) -> dict[st
         "source_lookup_rows": source_row_count,
         "source_lookup_distinct_names": len(mapping),
         "source_lookup_nonexcluded_targets": 31,
+        "size_variant_candidates": [
+            {
+                "native_name": name,
+                "author_witness_name": witness,
+                "witness_target": target,
+                "disposition": "source_witnessed_candidate_not_applied",
+            }
+            for name, (witness, target) in SIZE_VARIANT_CANDIDATES.items()
+        ],
         "count_unit": "native_NISP",
         "common_bin_count": len(bins),
         "site_count": len(sites),
@@ -175,8 +213,10 @@ def publish(repository: Path, author_source_root: Path, output: Path) -> dict[st
         "scientific_admission_allowed": False,
         "interpretation": (
             "Author lookup assignments preserve source-name and exclusion decisions. "
-            "They do not establish a matched core, sample-time basin geometry, "
-            "version-qualified PPE/FSP binding, or LRA admission."
+            "Two size-qualified BUS names have separate author-witnessed candidate "
+            "targets; their counts remain in unmapped mass and are not applied. "
+            "The screen does not establish a matched core, sample-time basin "
+            "geometry, or LRA admission."
         ),
         "sites": sites,
         "inputs": inputs,

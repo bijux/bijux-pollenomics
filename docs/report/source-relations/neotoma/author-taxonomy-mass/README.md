@@ -30,6 +30,17 @@ does **not** cover BUS `Poaceae undiff. (<40 µm)` (6,096 counts) or
 `Poaceae undiff. (>40 µm)` (158 counts); those remain unmapped without a
 source-backed, size-specific decision.
 
+The author lookup does explicitly assign its separate spellings
+`Poaceae undiff. <40um` to `Poaceae` and `Poaceae undiff. >40um` to
+`Cerealia-t`. These are source-witnessed candidates for the two BUS labels,
+which differ in punctuation and the micrometre symbol. If those two name
+variants were accepted, **6,254** BUS counts would move from unmapped mass:
+6,096 to `Poaceae` and 158 to `Cerealia-t`. The BUS author-assigned fraction
+would rise from **72.4801%** to **83.5589%**. The governed bin and site
+results retain that scenario in separate candidate fields; the actual author
+lookup counts and the **6,258** unmapped BUS counts remain unchanged. No
+other name is normalized by this rule.
+
 These are **author lookup assignments**, not an independently reviewed
 biological identification or a numerical reconstruction. The lookup target
 names are not identical to every published PPE/FSP parameter label; for
