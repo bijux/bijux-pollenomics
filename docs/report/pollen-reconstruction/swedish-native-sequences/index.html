@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Swedish native pollen sequences</title>
+  <style>
+    body { font: 16px/1.5 system-ui, sans-serif; max-width: 1100px; margin: auto; padding: 1rem; color: #18312b; background: #f7f8f4; }
+    h1, h2 { line-height: 1.2; }
+    .panel { background: white; padding: 1rem; margin: 1rem 0; border: 1px solid #c6d2cb; border-radius: .4rem; }
+    .controls { display: flex; flex-wrap: wrap; gap: 1rem; align-items: end; }
+    label { display: grid; gap: .3rem; }
+    select { font: inherit; max-width: 100%; padding: .35rem; }
+    svg { width: 100%; height: auto; }
+    .axis { stroke: #5b6d64; stroke-width: 1; }
+    .point { fill: #176d59; }
+    .site-point { fill: #b34825; stroke: white; stroke-width: 2; cursor: pointer; }
+    .site-point:focus { outline: 2px solid #18312b; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border-bottom: 1px solid #d4ddd8; padding: .3rem; text-align: left; }
+    .scroll { max-height: 23rem; overflow: auto; }
+    a { color: #075d49; }
+    .error { color: #a01818; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Swedish observed pollen sequences</h1>
+    <p>Three EPD datasets accessed through Neotoma. Points are source sample ages and reported pollen NISP counts. Percentages divide each count by the sum of reported pollen NISP rows in that sample. Missing taxa are not plotted as zero. No age interpolation, vegetation reconstruction or independent validation is implied.</p>
+    <div class="panel controls">
+      <label>Lake <select id="site"></select></label>
+      <label>Native taxon <select id="taxon"></select></label>
+      <div id="identity" aria-live="polite"></div>
+    </div>
+    <section class="panel" aria-labelledby="chart-heading">
+      <h2 id="chart-heading">Reported sample trajectory</h2>
+      <p id="chart-summary" aria-live="polite"></p>
+      <svg id="chart" viewBox="0 0 900 340" role="img" aria-label="Sample age versus percent of reported pollen NISP"></svg>
+      <p>Horizontal position is calibrated years BP (older samples to the right); vertical position is percent of reported pollen NISP. Each dot is one reported observation, with no connecting line.</p>
+      <div class="scroll"><table><thead><tr><th>Calibrated BP</th><th>Sample ID</th><th>Source depth</th><th>NISP</th><th>Sample denominator</th><th>Percent</th><th>Source row</th></tr></thead><tbody id="rows"></tbody></table></div>
+    </section>
+    <section class="panel" aria-labelledby="map-heading">
+      <h2 id="map-heading">Site map summary</h2>
+      <svg id="map" viewBox="0 0 300 340" role="img" aria-label="Source site positions by longitude and latitude"></svg>
+      <p id="map-summary"></p>
+    </section>
+    <section class="panel">
+      <h2>Source tables</h2>
+      <p><a href="observations.json" download>Download observed counts and derived percentages</a> · <a href="samples.json" download>Samples and selected ages</a> · <a href="chronology-controls.json" download>Chronology controls</a> · <a href="sites.json" download>Sites and provenance</a> · <a href="map-summary.geojson" download>Map summary GeoJSON</a> · <a href="manifest.json" download>Source hashes and counts</a></p>
+      <p>Source ages are the dataset's selected chronology; age uncertainty bounds are absent for these sample rows. Control ages and limits are preserved separately. Native labels are not grouped into vegetation types.</p>
+    </section>
+  </main>
+  <script>
+    const svgNS = 'http://www.w3.org/2000/svg';
+    const $ = id => document.getElementById(id);
+    const node = (name, attributes, content) => {
+      const element = document.createElementNS(svgNS, name);
+      for (const [key, value] of Object.entries(attributes)) element.setAttribute(key, String(value));
+      if (content !== undefined) element.textContent = String(content);
+      return element;
+    };
+    const option = (value, label) => {
+      const element = document.createElement('option');
+      element.value = value;
+      element.textContent = label;
+      return element;
+    };
+    let sites, observations, features;
+    function draw() {
+      const site = sites.find(row => row.dataset_id === $('site').value);
+      const selected = observations.filter(row => row.dataset_id === site.dataset_id && row.taxon_native === $('taxon').value);
+      const all = observations.filter(row => row.dataset_id === site.dataset_id);
+      const ages = all.map(row => Number(row.calibrated_age_bp));
+      const low = Math.min(...ages), high = Math.max(...ages);
+      const maximum = Math.max(1, ...selected.map(row => row.percent_of_reported_pollen_nisp));
+      const chart = $('chart'); chart.replaceChildren();
+      chart.append(node('line', {x1: 65, y1: 290, x2: 860, y2: 290, class: 'axis'}));
+      chart.append(node('line', {x1: 65, y1: 35, x2: 65, y2: 290, class: 'axis'}));
+      chart.append(node('text', {x: 65, y: 317}, `${low.toFixed(0)} BP`));
+      chart.append(node('text', {x: 795, y: 317}, `${high.toFixed(0)} BP`));
+      chart.append(node('text', {x: 12, y: 45}, `${maximum.toFixed(1)}%`));
+      chart.append(node('text', {x: 26, y: 291}, '0%'));
+      for (const row of selected) {
+        const x = 65 + 795 * (Number(row.calibrated_age_bp) - low) / Math.max(1, high - low);
+        const y = 290 - 245 * row.percent_of_reported_pollen_nisp / maximum;
+        const dot = node('circle', {cx: x, cy: y, r: 4, class: 'point'});
+        dot.append(node('title', {}, `${row.taxon_native}: ${row.count} NISP / ${row.denominator} at ${row.calibrated_age_bp} BP, sample ${row.sample_id}`));
+        chart.append(dot);
+      }
+      $('chart-summary').textContent = `${site.site_name}: ${selected.length} reported ${$('taxon').value} rows among ${new Set(all.map(row => row.sample_id)).size} source samples. Dataset ${site.dataset_id}; chronology ${site.chronology_name} (${site.age_model}).`;
+      $('identity').textContent = `DOI: ${site.dataset_doi.join(', ')} · contributors: ${site.dataset_contributors.join(', ')}`;
+      const body = $('rows'); body.replaceChildren();
+      for (const row of selected) {
+        const tr = document.createElement('tr');
+        for (const value of [row.calibrated_age_bp, row.sample_id, row.depth, row.count, row.denominator, row.percent_of_reported_pollen_nisp.toFixed(3), row.source_locator]) {
+          const td = document.createElement('td'); td.textContent = String(value); tr.append(td);
+        }
+        body.append(tr);
+      }
+      const map = $('map'); map.replaceChildren();
+      map.append(node('rect', {x: 1, y: 1, width: 298, height: 338, fill: '#e8f1ed', stroke: '#8da99c'}));
+      for (const feature of features) {
+        const [longitude, latitude] = feature.geometry.coordinates;
+        const marker = node('circle', {cx: 35 + (longitude - 10) * 45, cy: 315 - (latitude - 55) * 27, r: feature.properties.dataset_id === site.dataset_id ? 9 : 6, class: 'site-point', tabindex: 0});
+        marker.append(node('title', {}, `${feature.properties.site_name}: ${feature.properties.sample_count} samples, ${feature.properties.observation_count} reported NISP rows`));
+        marker.addEventListener('click', () => { $('site').value = feature.properties.dataset_id; changeSite(); });
+        marker.addEventListener('keydown', event => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); $('site').value = feature.properties.dataset_id; changeSite(); } });
+        map.append(marker);
+        map.append(node('text', {x: 48 + (longitude - 10) * 45, y: 320 - (latitude - 55) * 27, 'font-size': 11}, feature.properties.site_name));
+      }
+      const summary = features.find(feature => feature.properties.dataset_id === site.dataset_id).properties;
+      $('map-summary').textContent = `${summary.site_name}: ${summary.sample_count} samples, ${summary.observation_count} reported pollen rows, ${summary.reported_pollen_nisp} NISP; sampled age range ${summary.age_min_cal_bp} to ${summary.age_max_cal_bp} calibrated BP. Points show coordinates only, without a basemap.`;
+    }
+    function changeSite() {
+      const prior = $('taxon').value;
+      const rows = observations.filter(row => row.dataset_id === $('site').value);
+      const totals = new Map();
+      for (const row of rows) totals.set(row.taxon_native, (totals.get(row.taxon_native) || 0) + row.count);
+      $('taxon').replaceChildren(...[...totals].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0])).map(([name]) => option(name, name)));
+      if (totals.has(prior)) $('taxon').value = prior;
+      draw();
+    }
+    Promise.all(['sites.json', 'observations.json', 'map-summary.geojson'].map(path => fetch(path).then(response => { if (!response.ok) throw Error(`${path}: ${response.status}`); return response.json(); })))
+      .then(([siteRows, observationRows, map]) => {
+        sites = siteRows; observations = observationRows; features = map.features;
+        $('site').replaceChildren(...sites.map(row => option(row.dataset_id, row.site_name)));
+        $('site').addEventListener('change', changeSite);
+        $('taxon').addEventListener('change', draw);
+        changeSite();
+      }).catch(error => { $('chart-summary').className = 'error'; $('chart-summary').textContent = `Unable to load source tables: ${error.message}`; });
+  </script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          14.45,
+          63.88333
+        ]
+      },
+      "properties": {
+        "dataset_id": "19913",
+        "site_name": "Abborrtjärnen",
+        "sample_count": 107,
+        "observation_count": 2121,
+        "reported_pollen_nisp": 129750,
+        "age_min_cal_bp": -52,
+        "age_max_cal_bp": 9815,
+        "source_locator": "part-004.json#rows/16/site/collectionunit/dataset"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.81667,
+          55.46667
+        ]
+      },
+      "properties": {
+        "dataset_id": "53995",
+        "site_name": "Bussjösjön",
+        "sample_count": 69,
+        "observation_count": 1871,
+        "reported_pollen_nisp": 68668,
+        "age_min_cal_bp": -52.5,
+        "age_max_cal_bp": 9261.6,
+        "source_locator": "part-008.json#rows/12/site/collectionunit/dataset"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          13.4375,
+          55.57556
+        ]
+      },
+      "properties": {
+        "dataset_id": "54001",
+        "site_name": "Bökesjön",
+        "sample_count": 52,
+        "observation_count": 1472,
+        "reported_pollen_nisp": 42548,
+        "age_min_cal_bp": -39.6,
+        "age_max_cal_bp": 5605.2,
+        "source_locator": "part-008.json#rows/15/site/collectionunit/dataset"
+      }
+    }
+  ]
+}

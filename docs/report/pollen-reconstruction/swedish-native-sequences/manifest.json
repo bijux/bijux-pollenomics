@@ -1,0 +1,20 @@
+{
+  "schema_version": "swedish-native-pollen-sequences.v1",
+  "source_files_sha256": {
+    "part-004.json": "d96046c88b497ba07082120e446fecacad0d9b5533d8960bdbc03811976ea435",
+    "part-008.json": "9cdcb2d394bc8ef23bf2b4b5e3f1f3ae5916aae16db71542c58f4b80a2dd1134"
+  },
+  "selection": "three declared Swedish EPD/Neotoma direct-pollen cohort datasets; all native NISP pollen rows",
+  "denominator": "sum of reported native pollen NISP rows within each sample; no zero rows inferred",
+  "age_posture": "sample-owned selected calibrated ages and source controls; no new age model or interpolation",
+  "sample_count": 228,
+  "observation_count": 5464,
+  "control_count": 46,
+  "files_sha256": {
+    "sites.json": "9956683a701d5ed576836e1f37d894dce81d8e6cb1050a10dfc3980190140b37",
+    "samples.json": "abbeca209bed0d5464bbe18b4c812cdd3b8ffcdad40979efd2783ede5199c45d",
+    "observations.json": "7ffa39bb8436aa16a958bf274a1f823e6b0de93fe1dfe5eb76061c43646cbf8a",
+    "chronology-controls.json": "26b31797bfc6f21d324324af3a90602bb8b6c93e4c8e5ae486ec4adc7cb44cd2",
+    "map-summary.geojson": "5439b70710442878bf66a9ea6e05431976a5ed4f23196f49d54e59100fd3b7f2"
+  }
+}

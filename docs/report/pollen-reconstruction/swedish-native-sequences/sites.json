@@ -1,0 +1,64 @@
+[
+  {
+    "dataset_id": "19913",
+    "site_id": "13338",
+    "site_name": "Abborrtjärnen",
+    "longitude": 14.45,
+    "latitude": 63.88333,
+    "collection_unit_id": "14910",
+    "collection_unit_handle": "ABBO",
+    "collection_date": "2002-01-01",
+    "dataset_doi": [
+      "10.21233/2vzb-bg61"
+    ],
+    "dataset_contributors": [
+      "Giesecke, Thomas"
+    ],
+    "chronology_id": 11516,
+    "chronology_name": "EPD 1",
+    "age_model": "linear interpolation",
+    "source_locator": "part-004.json#rows/16/site/collectionunit/dataset"
+  },
+  {
+    "dataset_id": "53995",
+    "site_id": "28869",
+    "site_name": "Bussjösjön",
+    "longitude": 13.81667,
+    "latitude": 55.46667,
+    "collection_unit_id": "39238",
+    "collection_unit_handle": "BUS",
+    "collection_date": "1984-01-01",
+    "dataset_doi": [
+      "10.21233/PQFT-GY26",
+      "10.21233/mhqn-eq25"
+    ],
+    "dataset_contributors": [
+      "Regnéll, Joachim"
+    ],
+    "chronology_id": 38418,
+    "chronology_name": "LANDCLIM",
+    "age_model": "smoothing spline (smoothness 0.5)",
+    "source_locator": "part-008.json#rows/12/site/collectionunit/dataset"
+  },
+  {
+    "dataset_id": "54001",
+    "site_id": "28872",
+    "site_name": "Bökesjön",
+    "longitude": 13.4375,
+    "latitude": 55.57556,
+    "collection_unit_id": "39241",
+    "collection_unit_handle": "BOKE",
+    "collection_date": null,
+    "dataset_doi": [
+      "10.21233/A5HN-WW50",
+      "10.21233/0msh-1a51"
+    ],
+    "dataset_contributors": [
+      "Gaillard-Lemdahl, Marie-José"
+    ],
+    "chronology_id": 38422,
+    "chronology_name": "LANDCLIM",
+    "age_model": "Smoothing spline (smoothness 0.5)",
+    "source_locator": "part-008.json#rows/15/site/collectionunit/dataset"
+  }
+]
