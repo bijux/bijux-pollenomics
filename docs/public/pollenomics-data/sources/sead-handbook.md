@@ -50,7 +50,7 @@ relational neighbourhood, not automatically a stronger chronology.
 | --- | --- | --- |
 | temporal-evidence feature | one interval shared by identified linked chronology rows | included when that interval overlaps |
 | dated site summary | the widest captured chronology envelope beneath one site | useful for overview, too coarse for event-level reading |
-| unresolved site inventory | spatial identity without captured numeric chronology | withheld from narrowed windows |
+| optional site inventory | four-country spatial identity, with any site envelope used only for display | visible when enabled at any BP window; excluded from time-matched counts |
 
 ### 4. Return to the intended claim
 
@@ -136,13 +136,12 @@ stateDiagram-v2
     FullExtent: temporal evidence visible; site inventory optional
     FullExtent --> NarrowWindow: reader narrows BP range
     NarrowWindow: record-level interval overlaps visible
-    NarrowWindow: unresolved site inventory withheld
+    NarrowWindow: unresolved discovery features withheld; optional site inventory remains spatial context
     NarrowWindow --> FullExtent: reader restores full span
 ```
 
-This behavior prevents two opposite errors: discarding valuable undated
-spatial context from the overview, and pretending that undated sites are
-present in every period.
+This behavior retains undated spatial context without pretending that an
+undated site is present in the selected period.
 
 ## Use The Governed Sweden Discovery Surface
 

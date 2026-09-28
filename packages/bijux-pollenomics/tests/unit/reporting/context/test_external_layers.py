@@ -292,7 +292,7 @@ class ExternalLayerTests(unittest.TestCase):
 
         self.assertFalse(layer["applies_time_filter"])
 
-    def test_external_point_layers_enable_time_filter_for_mixed_sead_chronology(
+    def test_external_site_inventory_stays_contextual_with_mixed_sead_chronology(
         self,
     ) -> None:
         layer = build_external_point_layer(
@@ -332,7 +332,7 @@ class ExternalLayerTests(unittest.TestCase):
             }
         )
 
-        self.assertTrue(layer["applies_time_filter"])
+        self.assertFalse(layer["applies_time_filter"])
         self.assertFalse(layer["default_enabled"])
 
     def test_external_polygon_layers_enable_time_filter_when_temporal_properties_exist(

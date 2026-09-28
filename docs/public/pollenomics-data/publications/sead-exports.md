@@ -89,8 +89,9 @@ rule.
 
 ## Atlas Behavior
 
-The Nordic Atlas publishes the governed Sweden discovery layer rather than
-loading the two normalized SEAD layers beside it:
+The Nordic Atlas publishes the governed Sweden discovery layer for interval
+filtering and the optional four-country site inventory for spatial context.
+It does not load the normalized temporal-evidence layer a second time:
 
 | Atlas state | Numeric discovery features | Unresolved discovery features |
 | --- | --- | --- |
@@ -99,7 +100,9 @@ loading the two normalized SEAD layers beside it:
 
 This makes the full view useful for spatial exploration while keeping a
 narrowed view scientifically honest. A withheld unresolved point is not a
-negative finding about the selected period.
+negative finding about the selected period. The optional site inventory remains
+visible when enabled at any BP window, but its site envelopes do not enter the
+time filter or the count of matching intervals.
 
 ## Follow Two Concrete Rows
 
@@ -119,7 +122,7 @@ repository has not invented a BP conversion for the label.
 
 ```mermaid
 flowchart TD
-    Feature["normalized SEAD feature"] --> Bounds{"numeric BP bounds?"}
+    Feature["Swedish discovery feature"] --> Bounds{"eligible record interval?"}
     Bounds -->|yes| Overlap["test interval overlap"]
     Bounds -->|no| Full{"full temporal extent?"}
     Full -->|yes| Context["show as spatial context"]
@@ -149,7 +152,8 @@ Before publishing a SEAD-derived result, verify that it retains:
 - capture and mapped denominators relevant to the claim;
 - coordinate and country-membership basis;
 - temporal posture and numeric bounds, if any;
-- the observation unit: chronology interval or site envelope;
+- the unit used for time comparison: an eligible source-record interval;
+- any site envelope identified as display-only spatial context;
 - uncertainty and original period labels;
 - the distance or interval-overlap rule used; and
 - a clear distinction between absence, exclusion, and unknown temporal

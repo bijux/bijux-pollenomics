@@ -144,8 +144,9 @@ admission to the current canonical timeline remains governed separately.
 
 ## How The Atlas Timeline Treats SEAD
 
-The Nordic Atlas exposes one governed Sweden archaeology discovery layer. It
-contains all 1,925 assigned Swedish SEAD sites as 7,244 linked numeric
+The Nordic Atlas exposes a governed Sweden archaeology discovery layer and an
+optional four-country SEAD site-inventory layer. The discovery layer contains
+all 1,925 assigned Swedish SEAD sites as 7,244 linked numeric
 chronology features plus 1,555 explicitly unresolved site features. Once a reader narrows
 the time window:
 
@@ -155,12 +156,14 @@ the time window:
 
 This is different from declaring unresolved sites absent from the selected
 period. The interface is refusing a comparison it cannot make.
-Static layers such as boundaries are unaffected by this rule.
+The optional 2,069-site inventory remains spatial context at any BP window.
+Its derived site envelopes are displayed for orientation and never used for
+interval filtering or counted as evidence within the selected period. Static
+layers such as boundaries are likewise unaffected.
 
-The Nordic normalized site and temporal-evidence products remain available for
-audit and reuse. They are not loaded beside the discovery layer because doing
-so would duplicate the same SEAD population and obscure the governed
-discovery contract.
+The normalized temporal-evidence product remains available for audit and reuse.
+It is not loaded beside the discovery layer because that would duplicate the
+same record intervals.
 
 ## Compare SEAD With LANDCLIM And AADR Carefully
 
