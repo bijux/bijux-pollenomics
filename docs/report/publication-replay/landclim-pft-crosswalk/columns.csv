@@ -1,0 +1,17 @@
+column_kind,code,output_position,parameter_table_present,parameter_definition,parameter_lct_code,mean_files_present,se_files_present,admission
+PFT_position,TBE1,35,true,Shade-tolerant evergreen trees,ET,25,25,source_code_identity_only
+PFT_position,TBE2,36,true,Shade-tolerant evergreen trees,ET,25,25,source_code_identity_only
+PFT_position,IBE,37,true,Shade-intolerant evergreen trees,ET,25,25,source_code_identity_only
+PFT_position,MTBE,38,true,Mediterranean shade-tolerant broadleaved evergreen trees,ET,25,25,source_code_identity_only
+PFT_position,TSE,39,true,"Tall shrub, evergreen",ET,25,25,source_code_identity_only
+PFT_position,MTSE,40,true,"Mediterranean broadleaved tall shrubs, evergreen",ET,25,25,source_code_identity_only
+PFT_position,IBS,41,true,Shade-intolerant summer-green trees,ST,25,25,source_code_identity_only
+PFT_position,ISTS,42,false,,,25,25,unmapped_output_code_refused
+PFT_position,TBS,43,true,Shade-tolerant summer-green trees,ST,25,25,source_code_identity_only
+PFT_position,TSD,44,true,"Tall shrub, summer-green",ST,25,25,source_code_identity_only
+PFT_position,LSE,45,true,"Low shrub, broadleaved evergreen",OL,25,25,source_code_identity_only
+PFT_position,GL,46,true,Grassland - all herbs,OL,25,25,source_code_identity_only
+PFT_position,AL,47,true,Agricultural land - cereals,OL,25,25,source_code_identity_only
+LCT_position,ET,48,true,,ET,25,25,source_lct_code_and_observed_mean_arithmetic
+LCT_position,ST,49,true,,ST,25,25,source_lct_code_and_observed_mean_arithmetic
+LCT_position,OL,50,true,,OL,25,25,source_lct_code_and_observed_mean_arithmetic

@@ -1,0 +1,4 @@
+lct_code,parameter_table_pft_codes,observed_mean_addends,additional_output_code,mean_rows_checked,maximum_absolute_mean_residual,se_naive_sum_disagreement_rows,admission
+ET,TBE1;TBE2;IBE;MTBE;TSE;MTSE,TBE1;TBE2;IBE;MTBE;TSE;MTSE,,10500,9.947598300641403e-14,7588,version_specific_output_mean_identity_only
+ST,IBS;TBS;TSD,IBS;ISTS;TBS;TSD,ISTS,10500,1.9184653865522705e-13,7892,version_specific_output_mean_identity_only
+OL,LSE;GL;AL,LSE;GL;AL,,10500,1.3500311979441904e-13,5921,version_specific_output_mean_identity_only
