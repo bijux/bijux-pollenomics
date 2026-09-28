@@ -1,0 +1,117 @@
+{
+  "schema_version": "solsoe-source-lineage.v1",
+  "site_id": "neotoma:site:3432",
+  "landclim_i": {
+    "source_locator": "landclim_i_land_cover_types.xlsx#SiteData!617",
+    "reported_site_area_ha": 2.5,
+    "source_archive": "Bent Odgaard",
+    "source_basin_type": "L"
+  },
+  "landclim_ii": {
+    "source_locator": "landclim_ii_site_metadata.xlsx#LANDCLIMII metadata file!95",
+    "reported_site_radius_unit_unstated": 89.0,
+    "conditional_circular_area_if_radius_metres_ha": 2.488456,
+    "reported_pollen_samples": 79,
+    "reported_time_windows": 25,
+    "reported_age_range_bp": [
+      10,
+      11659
+    ],
+    "reported_chronology_source": "Authors chronology",
+    "reported_access_marker": "R",
+    "grid_id": 824
+  },
+  "neotoma": {
+    "site_geometry_type": "Polygon",
+    "source_site_area_unit_unstated": 25563.444301605225,
+    "site_centroid_to_landclim_ii_km": 0.069249,
+    "source_sample_count": 92,
+    "held_out_selected_sample_count": 91,
+    "cores": [
+      {
+        "dataset_id": "neotoma:dataset:4445",
+        "collection_unit_id": "neotoma:collection-unit:4303",
+        "handle": "SOLSOE81",
+        "collection_date": "1981-11-01",
+        "depositional_environment": "Drained Lake",
+        "source_sample_count": 66,
+        "selected_sample_count": 65,
+        "selected_depth_range_source_unit_unstated": [
+          114,
+          586
+        ],
+        "selected_comparable_age_types": {
+          "Calibrated radiocarbon years BP": 65
+        },
+        "source_dois": [
+          "10.21233/4r4q-0m97"
+        ],
+        "source_hiatus_note": "The Solsø 1981 core shows a hiatus at 472-480 cm (ca. 4200- 6000 14C yrs BP). The Solso 1983 core covers this interval, and a bit more."
+      },
+      {
+        "dataset_id": "neotoma:dataset:4446",
+        "collection_unit_id": "neotoma:collection-unit:4304",
+        "handle": "SOLSOE83",
+        "collection_date": "1983-11-01",
+        "depositional_environment": "Drained Lake",
+        "source_sample_count": 26,
+        "selected_sample_count": 26,
+        "selected_depth_range_source_unit_unstated": [
+          386,
+          570
+        ],
+        "selected_comparable_age_types": {
+          "Calibrated radiocarbon years BP": 26
+        },
+        "source_dois": [
+          "10.21233/mtmk-d772"
+        ],
+        "source_hiatus_note": null
+      }
+    ],
+    "excluded_sample": {
+      "sample_id": "neotoma:sample:352996",
+      "source_depth_unit_unstated": 98,
+      "age_claims": [
+        {
+          "age_type": "Calibrated radiocarbon years BP",
+          "age": 7,
+          "younger": -41,
+          "comparability_status": "refused",
+          "admission_reason": "negative_bp"
+        },
+        {
+          "age_type": "Radiocarbon years BP",
+          "age": 720,
+          "younger": null,
+          "comparability_status": "context_only",
+          "admission_reason": "uncalibrated_radiocarbon"
+        }
+      ]
+    }
+  },
+  "lra_admitted_samples": 0,
+  "interpretation": "Published Solsø site metadata and Neotoma cores share a close site lineage, but the 79-versus-92/91 sample denominators and author chronology do not authenticate a common historical input. The reported LandClim I area and conditional LandClim II radius arithmetic are not sample-age basin boundaries.",
+  "inputs": [
+    {
+      "path": "data/landclim/raw/landclim_i_land_cover_types.xlsx",
+      "sha256": "851774cece8fb87928028a0da0e9ab7314ac083fdcca2d1565c00a7aa24d7081"
+    },
+    {
+      "path": "data/landclim/raw/landclim_ii_site_metadata.xlsx",
+      "sha256": "2d4a0cf1401e36c2606f7761cecc85c4bbc15272460c2a4926cb1702d4565ebb"
+    },
+    {
+      "path": "docs/report/regions/nordic/direct-pollen/cohort.csv",
+      "sha256": "03fc3f0522c2e65082ea245785db84a76431eb6a099b81ce0358fbe9e249dc32"
+    },
+    {
+      "path": "docs/report/regions/nordic/direct-pollen/manifest.json",
+      "sha256": "3e7814bf9697783397cdce11639ebc861620a6a3c9d9295d1357ab69bc7b5edf"
+    },
+    {
+      "path": "data/neotoma/relational/manifest.json",
+      "sha256": "6f6777a40b67bd0704eb1a982f19e6d451cad0d6e4a41dfebf5e3f28be33105b"
+    }
+  ]
+}
