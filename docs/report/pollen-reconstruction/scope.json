@@ -143,5 +143,19 @@
       "all-Nordic population-level skill",
       "between-site Danish skill"
     ]
+  },
+  "author_lra_development": {
+    "source": "private LandClim II author-prepared TW5 window, previously exposed",
+    "eligible_sites": 15,
+    "taxa": 31,
+    "pollen_counts": 20732,
+    "requested_folds": 15,
+    "requested_method_predictions": 45,
+    "generated_method_predictions": 0,
+    "failed_folds": 15,
+    "local_cover_rows_with_negative_fractions": 54,
+    "local_cover_rows": 54,
+    "status": "exploratory_numerical_refusal_under_declared_geometry_assumptions",
+    "report": "docs/report/pollen-reconstruction/author-lra-development/report.json"
   }
 }

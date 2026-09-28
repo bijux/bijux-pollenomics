@@ -1,0 +1,49 @@
+{
+  "schema_version": "author-lra-development-report.v1",
+  "source_manifest_sha256": "48d853468f979a04636642c6c757e9d05edf708d799b29cbae4d2286a9ac0acb",
+  "experiment_sha256": "58de0bc64c7d2615fd02edea5643cc99ca93396e0769997bd1f156a396a78c28",
+  "prediction_manifest_sha256": "c6be593737e82ff74fbf2a03365c5038e1d81a5240798aa819b88d38c34c7988",
+  "prediction_scientific_content_sha256": "09bca8c47b9e7078bbd4c4dd63f9741c1f5a0d7ac5b18789493086daa3805994",
+  "eligible_sites": [
+    "BECKHAM",
+    "BROADOWN",
+    "COMERSLA",
+    "CUTHILL2",
+    "GOURTEMIRES",
+    "HANGINGS",
+    "HARESDOWN",
+    "LARKBARR",
+    "LOBBSBOG",
+    "LONGBREACH",
+    "MOLECHAM",
+    "NTWITCHEN",
+    "WHH05",
+    "WINDMILL",
+    "WINNEYS"
+  ],
+  "zero_count_sites": [
+    "EXEBRID",
+    "WHH11"
+  ],
+  "source_pollen_count": 20732,
+  "requested_folds": 15,
+  "requested_method_predictions": 45,
+  "generated_method_predictions": 0,
+  "failed_folds_by_reason": {
+    "invalid_composition": 15
+  },
+  "training_items_completed": 195,
+  "training_cache_hits": 168,
+  "unique_numerical_products": 27,
+  "local_cover_ring_rows": 54,
+  "ring_rows_with_negative_cover": 54,
+  "ring_rows_with_cover_above_one": 19,
+  "minimum_cover_fraction": -5.066149527702115,
+  "maximum_cover_fraction": 7.119870550658303,
+  "age_support_bp": [
+    1250,
+    1750
+  ],
+  "ring_geometry": "declared circular/homogeneous modeling assumption",
+  "interpretation": "exploratory author-prepared numerical failure; no vegetation accuracy or Nordic LRA claim"
+}
