@@ -1,7 +1,7 @@
 {
   "schema_version": "repository-brutal-honesty-review.v1",
   "overall_posture": "harder_to_fool_yourself",
-  "average_score": 3.0,
+  "average_score": 3.4,
   "rows": [
     {
       "question_key": "more_elegant",
@@ -24,7 +24,7 @@
     },
     {
       "question_key": "more_extensible",
-      "score": 2,
+      "score": 4,
       "answer": "yes, because world, region, and country publication are now explicitly contract-driven",
       "evidence_anchors": [
         "docs/report/publication_country_onboarding_contract.json",
