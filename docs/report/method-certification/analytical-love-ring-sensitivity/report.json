@@ -1,0 +1,28 @@
+{
+  "schema_version": "analytical-love-ring-sensitivity.1",
+  "profile": "disqover-0.9.14-source-compatible-deterministic",
+  "status": "passed",
+  "input_sha256": {
+    "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/data/LOVEexamplePollen.json": "40e94bd1b261097ba6417054975f60a6d525b239cf3604079030e0929f0e0fcc",
+    "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/data/LOVEexampleParams.json": "34e861280b7a6ee4bc2d938f2f7c891ea057c44cdc3bfd60e5c27eadca915430",
+    "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/data/LOVEexampleRings.json": "bd574247e704e446dd2d3d70895aeefeae6d6d9f067436e289692cf3a5048445",
+    "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/analytical.py": "ebf5a2b6a20ccee96b06851f2ea85db9b36c05da123d21b59197b92d25f30269",
+    "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/inputs.py": "e0fce6132380512fefa7254e52a8802a6c84ab92c247089b8990b890ec4887eb",
+    "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/dispersal/kernels.py": "3cc137c3c13d752adaacdc078cbfee33fd8fc1a065ca6662c6f862dd7a097c0d"
+  },
+  "ring_count": 10,
+  "valid_ring_count": 3,
+  "valid_mean_radii": [
+    9.0,
+    12.65,
+    17.75
+  ],
+  "taxon_count": 10,
+  "negative_cells": 16,
+  "above_one_cells": 6,
+  "min_cover_fraction": -7.644292029603825,
+  "max_cover_fraction": 8.499006870140043,
+  "largest_taxon_ring_span": 6.260559412780759,
+  "ring_cover_sha256": "714fdd94f40ca8c4b90f23b290190754bc5f2d82ede22395b871f2384910442e",
+  "r_parity_case": "C0023"
+}
