@@ -504,9 +504,9 @@
   },
   "animal_sample_chronology_context": {
     "artifact": "nordic_animal_sample_chronology_context.json",
-    "content_sha256": "15e8a20476e94280538f44db979c9ce53e0a6feda506011cdc59d82005473c09",
-    "input_identity_sha256": "776ec44d21dfafdcbd78dbd3914a5c3944870ea50a3d8865983da043f370311c",
-    "corpus_identity_sha256": "59758fcaf943f9c0641efa71710c3982424cebf593c4fe9dbaa45176f16daaf5",
+    "content_sha256": "17e3c457ff72c9ee7c9ca6f4247a06bc5e6e0222c01268fdb9303d8512ff7b32",
+    "input_identity_sha256": "bb9c4727d82fc16b13b9016fc8aa19d5e753f0ddb83517c2a7d7b03eced8fdfb",
+    "corpus_identity_sha256": "eb6c6edb12cd7d080ae0d7ab496f58c8db81bc7ec61d60a6a71f9a6de7e5e798",
     "scope": {
       "key": "nordic",
       "kind": "region",

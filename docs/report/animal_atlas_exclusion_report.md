@@ -759,9 +759,9 @@
 | Ovis aries | PRJEB36540 | ovis_aries:sample:prjeb36540:ulu6 | Ulucak Höyük | site_curated |  | no coordinate provenance row currently supports point publication |
 | Ovis aries | PRJEB36540 | ovis_aries:sample:prjeb36540:ulu9 | Ulucak Höyük | site_curated |  | no coordinate provenance row currently supports point publication |
 | Ovis aries | PRJEB41594 | ovis_aries:sample:prjeb41594:samea8022720 | Obishir V | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Ovis aries | PRJEB41594 | ovis_aries:sample:prjeb41594:samea8022721 | Obishir V | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
+| Ovis aries | PRJEB41594 | ovis_aries:sample:prjeb41594:samea8022721 | Obishir V | site_curated |  | no coordinate provenance row currently supports point publication |
 | Ovis aries | PRJEB41594 | ovis_aries:sample:prjeb41594:samea8022723 | Obishir V | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
-| Ovis aries | PRJEB41594 | ovis_aries:sample:prjeb41594:samea8022724 | Obishir V | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
+| Ovis aries | PRJEB41594 | ovis_aries:sample:prjeb41594:samea8022724 | Obishir V | site_curated |  | no coordinate provenance row currently supports point publication |
 | Rangifer tarandus | PRJEB60484 | rangifer_tarandus:sample:prjeb60484:samea112757323 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
 | Rangifer tarandus | PRJEB60484 | rangifer_tarandus:sample:prjeb60484:samea112757324 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
 | Rangifer tarandus | PRJEB60484 | rangifer_tarandus:sample:prjeb60484:samea112757325 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |

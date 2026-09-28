@@ -1,15 +1,15 @@
 # Animal sample chronology review
 
 - Sample chronology rows: `1455`
-- Normalized intervals: `366`
+- Normalized intervals: `369`
 - Normalized points: `528`
 - Text-only rows: `136`
-- Unresolved rows: `425`
-- Direct radiocarbon rows: `800`
+- Unresolved rows: `422`
+- Direct radiocarbon rows: `803`
 - Modeled rows: `6`
 - Contextual rows: `101`
 - Broad period rows: `1`
-- Numeric interval rows: `774`
+- Numeric interval rows: `777`
 - Numeric rows with caveat: `120`
 - Context-only rows: `136`
 
@@ -166,7 +166,7 @@
 | Canis lupus familiaris | KX379528-KX379529 | kx379528-kx379529:kx379529 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 5223-5040 BCE |
 | Canis lupus familiaris | SRS1407451 | srs1407451:srs1407451 | unresolved | unresolved | unresolved | unresolved |  |
 | Canis lupus familiaris | SRS1407453 | srs1407453:srs1407453 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 5223-5040 BCE |
-| Capra hircus | PRJEB41594 | prjeb41594:samea8022722 | unresolved | unresolved | unresolved | unresolved |  |
+| Capra hircus | PRJEB41594 | prjeb41594:samea8022722 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 1045-835 cal BCE |
 | Capra hircus | PRJEB90141 | prjeb90141:samea4453841 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 11367-11220 BCE |
 | Capra hircus | PRJEB90141 | prjeb90141:samea4588077 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 6081-5891 BCE |
 | Capra hircus | PRJEB90141 | prjeb90141:samea4591758 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 6221-5990 BCE |
@@ -1099,9 +1099,9 @@
 | Ovis aries | PRJEB36540 | prjeb36540:ulu6 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 7000-6500 BCE |
 | Ovis aries | PRJEB36540 | prjeb36540:ulu9 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 7000-6500 BCE |
 | Ovis aries | PRJEB41594 | prjeb41594:samea8022720 | unresolved | unresolved | unresolved | unresolved |  |
-| Ovis aries | PRJEB41594 | prjeb41594:samea8022721 | unresolved | unresolved | unresolved | unresolved |  |
+| Ovis aries | PRJEB41594 | prjeb41594:samea8022721 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 5991-5771 cal BCE |
 | Ovis aries | PRJEB41594 | prjeb41594:samea8022723 | unresolved | unresolved | unresolved | unresolved |  |
-| Ovis aries | PRJEB41594 | prjeb41594:samea8022724 | unresolved | unresolved | unresolved | unresolved |  |
+| Ovis aries | PRJEB41594 | prjeb41594:samea8022724 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 3003-2701 cal BCE |
 | Ovis aries | PRJEB59481 | prjeb59481:samea112960291 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 340-527 BP |
 | Ovis aries | PRJEB59481 | prjeb59481:samea112960292 | sample_owned_interval | archaeological_context_date | contextual_interval | normalized_interval | 400-450 BP |
 | Ovis aries | PRJEB59481 | prjeb59481:samea112960293 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 3699-3957 BP |

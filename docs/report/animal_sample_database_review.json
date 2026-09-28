@@ -46,18 +46,18 @@
     "unresolved_geography_count": 82
   },
   "chronology_status_counts": {
-    "normalized_interval": 366,
+    "normalized_interval": 369,
     "normalized_point": 528,
     "text_only_unparsed": 136,
-    "unresolved": 425
+    "unresolved": 422
   },
   "chronology_precision_counts": {
     "sample_precise_point": 468,
-    "sample_precise_interval": 306,
+    "sample_precise_interval": 309,
     "sample_approximate_or_modeled": 200,
     "contextual_interval": 16,
     "broad_period_only": 40,
-    "unresolved": 425
+    "unresolved": 422
   },
   "intake_recovery_counts": {
     "blocked_projects": 24,
