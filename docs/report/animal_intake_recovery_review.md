@@ -8,7 +8,7 @@
 
 ## Sample Evidence Depth
 
-The four mutually exclusive buckets partition `1450` recovered sample rows. A site-only row has no normalized chronology; a site-and-chronology row has no coordinate text. The final bucket has coordinate text, not necessarily an approved mapped point.
+The four mutually exclusive buckets partition `1450` species-normalized sample rows. The project source master has `1450` final rows; alignment is `aligned`. A site-only row has no normalized chronology; a site-and-chronology row has no coordinate text. The final bucket has coordinate text, not necessarily an approved mapped point.
 
 - sample identity only: `0`
 - sample with site: `558`

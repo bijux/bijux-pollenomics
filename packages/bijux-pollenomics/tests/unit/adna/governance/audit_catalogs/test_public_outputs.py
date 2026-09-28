@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import json
 from pathlib import Path
 
 import pytest
@@ -86,6 +87,16 @@ def test_output_honesty_reconciles_tracked_mapped_and_blocked_samples(
     assert totals["country_published_sample_count"] == 0
     assert sum(row["tracked_sample_count"] for row in honesty["rows"]) == 1450
     assert "Tracked sample rows: `1450`" in markdown
+    progress = json.loads(
+        (
+            catalog_data_root
+            / "adna/governance/source_library/source_recovery_progress.json"
+        ).read_text(encoding="utf-8")
+    )
+    accounting = progress["sample_evidence_depth_accounting"]
+    assert accounting["counted_sample_rows"] == 1450
+    assert accounting["project_source_master_final_sample_rows"] == 1450
+    assert accounting["source_master_species_alignment"] == "aligned"
 
 
 def _sample_row(

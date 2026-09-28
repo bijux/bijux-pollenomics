@@ -28,12 +28,19 @@ def _sample_evidence_depth_counts(output_root: Path) -> dict[str, int]:
     species_root = output_root / "adna" / "species"
     if not species_root.is_dir():
         return counts
+    sample_row_count = 0
     for root in species_root.iterdir():
         sample_path = root / "normalized" / "sample_records.json"
         if not sample_path.is_file():
             continue
         payload = json.loads(sample_path.read_text(encoding="utf-8"))
-        for row in payload.get("samples", []):
+        samples = payload.get("samples", [])
+        if not isinstance(samples, list):
+            raise ValueError(f"Invalid species sample rows: {sample_path}")
+        sample_row_count += len(samples)
+        for row in samples:
+            if not isinstance(row, dict):
+                raise ValueError(f"Invalid species sample row: {sample_path}")
             has_site = bool(
                 str(row.get("locality", "") or row.get("site_label", "")).strip()
             ) or bool(row.get("locality_identity"))
@@ -56,6 +63,8 @@ def _sample_evidence_depth_counts(output_root: Path) -> dict[str, int]:
                 counts["sample_with_site_and_chronology"] += 1
             else:
                 counts["sample_with_site_chronology_and_coordinates"] += 1
+    if sum(counts.values()) != sample_row_count:
+        raise ValueError("Sample evidence depth buckets do not partition species rows")
     return counts
 
 

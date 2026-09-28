@@ -57,11 +57,11 @@ def materialize_tracked_species_adna(
     species_names: tuple[str, ...] = TRACKED_ADNA_SPECIES,
 ) -> None:
     """Write the tracked species-owned animal aDNA files under one data root."""
-    materialize_source_library(Path(output_root))
     for species_name in species_names:
         materialize_tracked_species_root(output_root, species_name)
-    # Source-library audits consume species-owned generated data. Refresh them after
-    # every species root so one invocation reaches the same state as a replay.
+    # Recovery audits need the completed species rows. The second materialization
+    # incorporates the sample-master evidence produced by the first one.
+    materialize_source_library(Path(output_root))
     materialize_source_library(Path(output_root))
     _materialize_cross_species_adna_artifacts(Path(output_root))
 

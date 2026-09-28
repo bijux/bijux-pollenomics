@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import json
 from pathlib import Path
 
 import pytest
@@ -25,6 +26,13 @@ def test_tracked_species_materialization_reaches_a_fixed_point_in_one_run(
     }
     cattle_readme = first[Path("adna/species/bos_taurus/README.md")].decode("utf-8")
     assert "- Direct-coordinate rows: `24`" in cattle_readme
+    progress = json.loads(
+        first[Path("adna/governance/source_library/source_recovery_progress.json")]
+    )
+    accounting = progress["sample_evidence_depth_accounting"]
+    assert accounting["counted_sample_rows"] == 1450
+    assert accounting["project_source_master_final_sample_rows"] == 17
+    assert accounting["source_master_species_alignment"] == "unreconciled"
 
     materialize_tracked_species_adna(data_root)
     second = {

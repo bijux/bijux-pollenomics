@@ -110,6 +110,9 @@
   "sample_evidence_depth_accounting": {
     "partition": "mutually_exclusive",
     "counted_sample_rows": 1450,
+    "count_basis": "species_normalized_sample_rows",
+    "project_source_master_final_sample_rows": 1450,
+    "source_master_species_alignment": "aligned",
     "coordinate_rule": "nonempty latitude and longitude text; not mapped-point approval"
   },
   "top_gap_projects": [
