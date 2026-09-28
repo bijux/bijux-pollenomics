@@ -28,6 +28,16 @@ the review bundle identity and the count of review rows outside the selected
 Neotoma concepts; it does not change any selected concept, country count, native
 unit or exact count sum.
 
+The [dataset attribution](dataset-attribution.json) has SHA-256
+`aa4920ea2466ee16b00cbc1aecf5d8b3f512ac009e6c4d7a02096063512d1c52`.
+It reconciles every selected concept and all 228,323 observations to 169
+source dataset IDs: Sweden 82, Denmark 2, Norway 52, Finland 28 and unassigned
+5. All 169 identify the European Pollen Database and have a source-listed DOI
+value. A dataset DOI is an attribution lead, not verification of a particular
+original publication or a reuse decision. The complete concept-to-dataset
+observation and distinct-sample counts remain in the machine-readable export;
+zero samples are admitted to LRA.
+
 To replay, read the governed screen `report.json`, the scoped concept ledger and
 the validated Neotoma raw and relational roots. Call
 `prioritize_neotoma_candidate_taxa` from
@@ -37,3 +47,6 @@ those three inputs, then serialize the result with
 The consumer verifies the raw and normalized manifests, source sample identities,
 review digest, concept identities and every screened pollen observation before
 returning the table.
+Run `attribute_neotoma_priority_datasets` from the adjacent
+`taxon_provenance` module with the same source evidence, screen and concept
+ledger plus the governed priority table to replay the dataset attribution.
