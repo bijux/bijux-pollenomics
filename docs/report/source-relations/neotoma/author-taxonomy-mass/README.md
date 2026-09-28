@@ -41,6 +41,16 @@ results retain that scenario in separate candidate fields; the actual author
 lookup counts and the **6,258** unmapped BUS counts remain unchanged. No
 other name is normalized by this rule.
 
+The exclusion is especially consequential in BUS bin **500–1000 cal BP**:
+`Humulus/Cannabis` contributes **3,369 of 7,175** native NISP counts
+(**46.9547%**) there. In bin **0–500 cal BP** it contributes **1,254 of
+9,341** counts (**13.4247%**). These are direct native source counts in the
+enumerated [exclusions](../../../pollen-reconstruction/swedish-direct-pollen/exclusions.csv),
+not vegetation percentages. A 31-target reconstruction would address the
+author-selected pollen subcomposition, with markedly different retained mass
+across these two bins; the excluded taxon must remain visible in any score or
+interpretation.
+
 These are **author lookup assignments**, not an independently reviewed
 biological identification or a numerical reconstruction. The lookup target
 names are not identical to every published PPE/FSP parameter label; for
