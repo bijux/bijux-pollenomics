@@ -20,15 +20,15 @@ The [taxon arithmetic report](tbs-taxon-arithmetic/report.json) checks the more 
 
 The [author-name review](author-name-review/report.json) checks those nine
 parameter-table names against the separately custody-bound 31-row author
-taxon crosswalk and the archived output header. Seven parameter names have an
-exact source-name and output-column match. `Castanea sativa` and
-`Quercus deciduous t.` have no exact source-name row there; the author crosswalk
-instead has `Castanea` and `Quercus deciduous` for the corresponding output
-columns. The author example's crosswalk is not authenticated as the archived
-publication's transformation, so even the seven matches remain supporting
-identity evidence rather than a release-wide taxon admission. The two different
-names need source-version or author confirmation before their translation can
-be accepted.
+taxon crosswalk, its 10,788-row source-name LUT and the archived output header.
+Seven parameter names match author crosswalk source names and output columns
+exactly. `Castanea sativa` maps to `Castanea` in the author LUT, then to the
+archived `Castanea` column in the author crosswalk. `Quercus deciduous t.` has
+no exact source-name row in either author file; the crosswalk instead has
+`Quercus deciduous`. The author example's files are not authenticated as the
+archived publication's transformation, so these eight supported author routes
+remain version-bounded evidence, not a release-wide taxon admission. The
+Quercus translation and publication-version linkage need source confirmation.
 
 Standard errors must be handled separately. A naive sum of constituent PFT standard-error columns differs from the LCT standard error in 7,588 ET rows, 7,892 ST rows, and 5,921 OL rows. The source files do not provide a complete LCT covariance or aggregation lineage here, so this review does not infer an SE formula or allow SEs to be pooled by the mean formula.
 
@@ -56,8 +56,8 @@ PYTHONDONTWRITEBYTECODE=1 .venv/bin/python \
 ```
 
 To reproduce the bounded author-name review, supply the separately retained
-private source capsule; the producer authenticates its manifest and exact
-crosswalk bytes before comparing source names:
+private source capsule; the producer authenticates its manifest, crosswalk and
+source-name LUT bytes before comparing source names:
 
 ```sh
 PYTHONDONTWRITEBYTECODE=1 .venv/bin/python \

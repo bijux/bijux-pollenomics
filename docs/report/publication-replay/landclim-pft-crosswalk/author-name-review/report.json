@@ -1,12 +1,17 @@
 {
   "author_crosswalk_rows": 31,
+  "author_lut_rows": 10788,
   "decision_counts": {
+    "author_lut_to_crosswalk_name_match": 1,
     "exact_author_source_name_and_output_match": 7,
-    "parameter_name_absent_from_author_crosswalk": 2
+    "parameter_name_absent_from_author_lut_and_crosswalk": 1
   },
   "decisions": [
     {
       "author_crosswalk_source_names_for_output": [
+        "Carpinus betulus"
+      ],
+      "author_lut_targets": [
         "Carpinus betulus"
       ],
       "decision": "exact_author_source_name_and_output_match",
@@ -17,6 +22,9 @@
       "author_crosswalk_source_names_for_output": [
         "Carpinus orientalis"
       ],
+      "author_lut_targets": [
+        "Carpinus orientalis"
+      ],
       "decision": "exact_author_source_name_and_output_match",
       "parameter_taxon": "Carpinus orientalis",
       "published_output_column": "Carpinus.orientalis"
@@ -25,12 +33,18 @@
       "author_crosswalk_source_names_for_output": [
         "Castanea"
       ],
-      "decision": "parameter_name_absent_from_author_crosswalk",
+      "author_lut_targets": [
+        "Castanea"
+      ],
+      "decision": "author_lut_to_crosswalk_name_match",
       "parameter_taxon": "Castanea sativa",
       "published_output_column": "Castanea"
     },
     {
       "author_crosswalk_source_names_for_output": [
+        "Corylus avellana"
+      ],
+      "author_lut_targets": [
         "Corylus avellana"
       ],
       "decision": "exact_author_source_name_and_output_match",
@@ -41,12 +55,18 @@
       "author_crosswalk_source_names_for_output": [
         "Fagus sylvatica"
       ],
+      "author_lut_targets": [
+        "Fagus sylvatica"
+      ],
       "decision": "exact_author_source_name_and_output_match",
       "parameter_taxon": "Fagus sylvatica",
       "published_output_column": "Fagus.sylvatica"
     },
     {
       "author_crosswalk_source_names_for_output": [
+        "Fraxinus"
+      ],
+      "author_lut_targets": [
         "Fraxinus"
       ],
       "decision": "exact_author_source_name_and_output_match",
@@ -57,12 +77,16 @@
       "author_crosswalk_source_names_for_output": [
         "Quercus deciduous"
       ],
-      "decision": "parameter_name_absent_from_author_crosswalk",
+      "author_lut_targets": [],
+      "decision": "parameter_name_absent_from_author_lut_and_crosswalk",
       "parameter_taxon": "Quercus deciduous t.",
       "published_output_column": "Quercus.deciduous"
     },
     {
       "author_crosswalk_source_names_for_output": [
+        "Tilia"
+      ],
+      "author_lut_targets": [
         "Tilia"
       ],
       "decision": "exact_author_source_name_and_output_match",
@@ -71,6 +95,9 @@
     },
     {
       "author_crosswalk_source_names_for_output": [
+        "Ulmus"
+      ],
+      "author_lut_targets": [
         "Ulmus"
       ],
       "decision": "exact_author_source_name_and_output_match",
@@ -108,9 +135,15 @@
       "custody": "private",
       "path": "reference/taxon-name-crosswalk.csv",
       "sha256": "3a0f598ba5e550ca39da52b2047b7020b013dad013d15f79bef8e1c3c1a979c3"
+    },
+    {
+      "bytes": 329074,
+      "custody": "private",
+      "path": "author/LANDCLIM.ALLEUROPE.taxa.LUT.080219.csv",
+      "sha256": "3a745f9b7606e5d0b59feaba2683b930c8d3990e4810f8217b69160a29a1b507"
     }
   ],
   "ists_biological_definition_admitted": false,
   "parameter_tbs_taxa_reviewed": 9,
-  "schema_version": "landclim-author-tbs-name-review.v1"
+  "schema_version": "landclim-author-tbs-name-review.v2"
 }

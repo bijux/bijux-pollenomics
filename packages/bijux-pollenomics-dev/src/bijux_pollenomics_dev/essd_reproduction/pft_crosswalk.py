@@ -19,6 +19,7 @@ ARCHIVE = Path("data/landclim/raw/landclim_ii_reveals_results.zip")
 SOURCE_RECEIPT = Path("data/landclim/raw/landclim_sources.json")
 AUTHOR_CUSTODY = Path("docs/report/pollen-reconstruction/author-source-custody.json")
 AUTHOR_TAXON_CROSSWALK = Path("reference/taxon-name-crosswalk.csv")
+AUTHOR_TAXON_LUT = Path("author/LANDCLIM.ALLEUROPE.taxa.LUT.080219.csv")
 PINNED = {
     MAPPING: "32eac151566b41c186745dd077fabcddde06f64f9a3a2056699e88dbabd76d4d",
     ARCHIVE: "c585f0691ad95342b8aba083b90fe91dc398f985b6b7fbc19561299389c4fb86",
@@ -315,13 +316,18 @@ def build_author_name_review(
     if _sha(manifest_content) != custody["original_manifest_sha256"]:
         raise ValueError("Private author source manifest digest mismatch")
     source_manifest = json.loads(manifest_content)
-    crosswalk_path = author_source_root / AUTHOR_TAXON_CROSSWALK
-    if crosswalk_path.is_symlink() or not crosswalk_path.is_file():
-        raise ValueError("Private author taxon crosswalk missing or linked")
-    crosswalk_content = crosswalk_path.read_bytes()
-    expected = source_manifest["files"][AUTHOR_TAXON_CROSSWALK.as_posix()]
-    if _sha(crosswalk_content) != expected:
-        raise ValueError("Private author taxon crosswalk digest mismatch")
+    private_inputs = {}
+    for relative in (AUTHOR_TAXON_CROSSWALK, AUTHOR_TAXON_LUT):
+        path = author_source_root / relative
+        if path.is_symlink() or not path.is_file():
+            raise ValueError(
+                f"Private author taxon input missing or linked: {relative}"
+            )
+        content = path.read_bytes()
+        if _sha(content) != source_manifest["files"][relative.as_posix()]:
+            raise ValueError(f"Private author taxon input digest mismatch: {relative}")
+        private_inputs[relative] = content
+    crosswalk_content = private_inputs[AUTHOR_TAXON_CROSSWALK]
     author_rows = list(
         csv.DictReader(io.StringIO(crosswalk_content.decode("utf-8-sig")))
     )
@@ -335,12 +341,31 @@ def build_author_name_review(
         or len(set(author_mapping.values())) != 31
     ):
         raise ValueError("Private author taxon crosswalk identities are not unique")
+    lut_content = private_inputs[AUTHOR_TAXON_LUT]
+    lut_reader = csv.DictReader(
+        io.StringIO(lut_content.decode("utf-8", errors="replace"))
+    )
+    if lut_reader.fieldnames != ["oldvar", "RPP.LANDCLIMII"]:
+        raise ValueError("Private author taxon LUT header changed")
+    lut_rows = list(lut_reader)
+    if len(lut_rows) != 10788:
+        raise ValueError("Private author taxon LUT row count changed")
     with zipfile.ZipFile(repository / ARCHIVE) as archive:
         members = _members(archive)
         header, _ = _records(archive, members["mean"][1], None)
     decisions = []
     for source_name, output_name in TBS_SOURCE_TO_OUTPUT:
         match = author_mapping.get(source_name) == output_name
+        lut_targets = sorted(
+            {row["RPP.LANDCLIMII"] for row in lut_rows if row["oldvar"] == source_name}
+        )
+        if len(lut_targets) > 1:
+            raise ValueError(
+                f"Private author taxon LUT has conflicting targets: {source_name}"
+            )
+        lut_match = (
+            bool(lut_targets) and author_mapping.get(lut_targets[0]) == output_name
+        )
         alternatives = sorted(
             name for name, prepared in author_mapping.items() if prepared == output_name
         )
@@ -351,16 +376,21 @@ def build_author_name_review(
                 "parameter_taxon": source_name,
                 "published_output_column": output_name,
                 "author_crosswalk_source_names_for_output": alternatives,
+                "author_lut_targets": lut_targets,
                 "decision": (
                     "exact_author_source_name_and_output_match"
                     if match
-                    else "parameter_name_absent_from_author_crosswalk"
+                    else (
+                        "author_lut_to_crosswalk_name_match"
+                        if lut_match
+                        else "parameter_name_absent_from_author_lut_and_crosswalk"
+                    )
                 ),
             }
         )
     counts = Counter(row["decision"] for row in decisions)
     report: dict[str, object] = {
-        "schema_version": "landclim-author-tbs-name-review.v1",
+        "schema_version": "landclim-author-tbs-name-review.v2",
         "inputs": inputs
         + [
             {"path": AUTHOR_CUSTODY.as_posix(), "sha256": _sha(custody_content)},
@@ -374,8 +404,15 @@ def build_author_name_review(
                 "sha256": _sha(crosswalk_content),
                 "custody": "private",
             },
+            {
+                "path": AUTHOR_TAXON_LUT.as_posix(),
+                "bytes": len(lut_content),
+                "sha256": _sha(lut_content),
+                "custody": "private",
+            },
         ],
         "author_crosswalk_rows": len(author_rows),
+        "author_lut_rows": len(lut_rows),
         "parameter_tbs_taxa_reviewed": len(decisions),
         "decision_counts": dict(sorted(counts.items())),
         "decisions": decisions,
