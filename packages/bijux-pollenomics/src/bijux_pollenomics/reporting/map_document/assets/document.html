@@ -7319,17 +7319,21 @@ __URL_STATE_CONTROLLER__
       timePlaybackToggle.addEventListener('click', () => {
         if (timePlaybackTimer === null) startTimePlayback(); else stopTimePlayback();
       });
-      timeStepOlder.addEventListener('click', () => {
+      timeStepOlder.addEventListener('click', async () => {
+        const restoreFocus = document.activeElement === timeStepOlder;
         stopTimePlayback();
         deactivateModeledContext();
         timeStartBp = previousPlaybackTimeStart(timeStartBp, timeIntervalYears);
-        renderMapState();
+        await renderMapState();
+        if (restoreFocus && timeStepOlder.disabled && !timeStepNewer.disabled) timeStepNewer.focus({ preventScroll: true });
       });
-      timeStepNewer.addEventListener('click', () => {
+      timeStepNewer.addEventListener('click', async () => {
+        const restoreFocus = document.activeElement === timeStepNewer;
         stopTimePlayback();
         deactivateModeledContext();
         timeStartBp = nextPlaybackTimeStart(timeStartBp, timeIntervalYears);
-        renderMapState();
+        await renderMapState();
+        if (restoreFocus && timeStepNewer.disabled && !timeStepOlder.disabled) timeStepOlder.focus({ preventScroll: true });
       });
       modeledContextFamily.addEventListener('change', () => {
         const family = modeledContextFamilyByKey(modeledContextFamily.value);
