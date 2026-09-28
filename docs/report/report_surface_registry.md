@@ -4,14 +4,14 @@ This registry classifies the current `docs/report/` tree by family, audience,
 scope, and explanation role so the publication system can be navigated as one
 coherent report surface instead of a loose artifact dump.
 
-- Surface count: `1377`
+- Surface count: `1379`
 
 ## Family Counts
 
 | Family | Count |
 | --- | ---: |
 | Scientific caveats | 10 |
-| Maintainer truth surfaces | 703 |
+| Maintainer truth surfaces | 705 |
 | Map surfaces | 85 |
 | Portal guidance | 2 |
 | Evidence reviews | 33 |
@@ -21,7 +21,7 @@ coherent report surface instead of a loose artifact dump.
 
 | Audience | Count |
 | --- | ---: |
-| Maintainer diagnostic | 705 |
+| Maintainer diagnostic | 707 |
 | Public reading surface | 553 |
 | Scientific review surface | 119 |
 
@@ -1162,6 +1162,8 @@ coherent report surface instead of a loose artifact dump.
 | `docs/report/source-relations/neotoma/README.md` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `md` | Reader-facing entry page for one scope bundle. |
 | `docs/report/source-relations/neotoma/abbo-profile/README.md` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `md` | Reader-facing entry page for one scope bundle. |
 | `docs/report/source-relations/neotoma/abbo-profile/report.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
+| `docs/report/source-relations/neotoma/author-parameter-binding/README.md` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `md` | Reader-facing entry page for one scope bundle. |
+| `docs/report/source-relations/neotoma/author-parameter-binding/report.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
 | `docs/report/source-relations/neotoma/author-taxonomy-mass/README.md` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `md` | Reader-facing entry page for one scope bundle. |
 | `docs/report/source-relations/neotoma/author-taxonomy-mass/bins.csv` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `csv` | Maintainer-facing truth or governance surface. |
 | `docs/report/source-relations/neotoma/author-taxonomy-mass/report.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |

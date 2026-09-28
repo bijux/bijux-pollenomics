@@ -1,0 +1,253 @@
+{
+  "schema_version": "swedish-landclim-author-parameter-binding.v1",
+  "source_role": "exact_author_lookup_target_to_author_REVEALS_parameter_binding",
+  "author_target_count": 31,
+  "targets_with_swedish_native_nisp": 24,
+  "swedish_all_native_nisp": 187002,
+  "swedish_author_assigned_nisp": 169013,
+  "covariance_nonzero_offdiagonal_cells": 0,
+  "lra_admitted_samples": 0,
+  "scientific_admission_allowed": false,
+  "interpretation": "This exact author code profile binds lookup target names to the author's alpha, fall-speed and PPE covariance inputs. It does not resolve sample-time lake geometry, source exclusions, unmapped counts, or a valid Swedish LRA sample.",
+  "parameters": [
+    {
+      "author_target": "Abies alba",
+      "alpha_source_text": "6.875",
+      "fall_speed_source_text": "0.12",
+      "alpha_variance_source_text": "2.079133286",
+      "swedish_native_nisp_assigned": 0
+    },
+    {
+      "author_target": "Alnus glutinosa",
+      "alpha_source_text": "13.562",
+      "fall_speed_source_text": "0.021",
+      "alpha_variance_source_text": "0.085936336",
+      "swedish_native_nisp_assigned": 22341
+    },
+    {
+      "author_target": "Amanranthaceae/Chenopodiaceae",
+      "alpha_source_text": "4.28",
+      "fall_speed_source_text": "0.019",
+      "alpha_variance_source_text": "0.0729",
+      "swedish_native_nisp_assigned": 256
+    },
+    {
+      "author_target": "Artemisia",
+      "alpha_source_text": "3.93667",
+      "fall_speed_source_text": "0.025",
+      "alpha_variance_source_text": "0.02138877",
+      "swedish_native_nisp_assigned": 785
+    },
+    {
+      "author_target": "Betula",
+      "alpha_source_text": "5.10571",
+      "fall_speed_source_text": "0.024",
+      "alpha_variance_source_text": "0.092006056",
+      "swedish_native_nisp_assigned": 43429
+    },
+    {
+      "author_target": "Buxus sempervirens",
+      "alpha_source_text": "1.89",
+      "fall_speed_source_text": "0.032",
+      "alpha_variance_source_text": "0.004624",
+      "swedish_native_nisp_assigned": 0
+    },
+    {
+      "author_target": "Calluna vulgaris",
+      "alpha_source_text": "1.085",
+      "fall_speed_source_text": "0.038",
+      "alpha_variance_source_text": "0.000850002",
+      "swedish_native_nisp_assigned": 338
+    },
+    {
+      "author_target": "Carpinus betulus",
+      "alpha_source_text": "4.52",
+      "fall_speed_source_text": "0.042",
+      "alpha_variance_source_text": "0.180851171",
+      "swedish_native_nisp_assigned": 395
+    },
+    {
+      "author_target": "Carpinus orientalis",
+      "alpha_source_text": "0.24",
+      "fall_speed_source_text": "0.042",
+      "alpha_variance_source_text": "0.0049",
+      "swedish_native_nisp_assigned": 0
+    },
+    {
+      "author_target": "Castanea",
+      "alpha_source_text": "3.258",
+      "fall_speed_source_text": "0.01",
+      "alpha_variance_source_text": "0.003481",
+      "swedish_native_nisp_assigned": 0
+    },
+    {
+      "author_target": "Cerealia-t",
+      "alpha_source_text": "1.85",
+      "fall_speed_source_text": "0.06",
+      "alpha_variance_source_text": "0.145122141",
+      "swedish_native_nisp_assigned": 523
+    },
+    {
+      "author_target": "Corylus avellana",
+      "alpha_source_text": "1.71",
+      "fall_speed_source_text": "0.025",
+      "alpha_variance_source_text": "0.009995081",
+      "swedish_native_nisp_assigned": 18275
+    },
+    {
+      "author_target": "Cyperaceae",
+      "alpha_source_text": "0.9625",
+      "fall_speed_source_text": "0.035",
+      "alpha_variance_source_text": "0.002562496",
+      "swedish_native_nisp_assigned": 3134
+    },
+    {
+      "author_target": "Ericaceae",
+      "alpha_source_text": "4.265",
+      "fall_speed_source_text": "0.038",
+      "alpha_variance_source_text": "0.008836",
+      "swedish_native_nisp_assigned": 97
+    },
+    {
+      "author_target": "Fagus sylvatica",
+      "alpha_source_text": "5.86333",
+      "fall_speed_source_text": "0.057",
+      "alpha_variance_source_text": "0.031088742",
+      "swedish_native_nisp_assigned": 3161
+    },
+    {
+      "author_target": "Filipendula",
+      "alpha_source_text": "3",
+      "fall_speed_source_text": "0.006",
+      "alpha_variance_source_text": "0.08111104",
+      "swedish_native_nisp_assigned": 442
+    },
+    {
+      "author_target": "Fraxinus",
+      "alpha_source_text": "1.044",
+      "fall_speed_source_text": "0.022",
+      "alpha_variance_source_text": "0.002273764",
+      "swedish_native_nisp_assigned": 2534
+    },
+    {
+      "author_target": "Juniperus",
+      "alpha_source_text": "2.07",
+      "fall_speed_source_text": "0.016",
+      "alpha_variance_source_text": "0.0016",
+      "swedish_native_nisp_assigned": 860
+    },
+    {
+      "author_target": "Phillyrea",
+      "alpha_source_text": "0.512",
+      "fall_speed_source_text": "0.015",
+      "alpha_variance_source_text": "0.005625",
+      "swedish_native_nisp_assigned": 0
+    },
+    {
+      "author_target": "Picea",
+      "alpha_source_text": "5.4375",
+      "fall_speed_source_text": "0.056",
+      "alpha_variance_source_text": "0.009440571",
+      "swedish_native_nisp_assigned": 6705
+    },
+    {
+      "author_target": "Pinus",
+      "alpha_source_text": "6.05833",
+      "fall_speed_source_text": "0.031",
+      "alpha_variance_source_text": "0.056016002",
+      "swedish_native_nisp_assigned": 45234
+    },
+    {
+      "author_target": "Pistacia",
+      "alpha_source_text": "0.755",
+      "fall_speed_source_text": "0.03",
+      "alpha_variance_source_text": "0.040401",
+      "swedish_native_nisp_assigned": 0
+    },
+    {
+      "author_target": "Plantago lanceolata type",
+      "alpha_source_text": "2.33",
+      "fall_speed_source_text": "0.029",
+      "alpha_variance_source_text": "0.040578074",
+      "swedish_native_nisp_assigned": 1395
+    },
+    {
+      "author_target": "Poaceae",
+      "alpha_source_text": "1",
+      "fall_speed_source_text": "0.035",
+      "alpha_variance_source_text": "0",
+      "swedish_native_nisp_assigned": 3166
+    },
+    {
+      "author_target": "Quercus deciduous",
+      "alpha_source_text": "4.53667",
+      "fall_speed_source_text": "0.035",
+      "alpha_variance_source_text": "0.007427785",
+      "swedish_native_nisp_assigned": 9500
+    },
+    {
+      "author_target": "Quercus evergreen",
+      "alpha_source_text": "11.043",
+      "fall_speed_source_text": "0.035",
+      "alpha_variance_source_text": "0.068121",
+      "swedish_native_nisp_assigned": 0
+    },
+    {
+      "author_target": "Rumex acetosa-t",
+      "alpha_source_text": "3.02",
+      "fall_speed_source_text": "0.018",
+      "alpha_variance_source_text": "0.077498208",
+      "swedish_native_nisp_assigned": 1153
+    },
+    {
+      "author_target": "Salix",
+      "alpha_source_text": "1.182",
+      "fall_speed_source_text": "0.022",
+      "alpha_variance_source_text": "0.005868004",
+      "swedish_native_nisp_assigned": 902
+    },
+    {
+      "author_target": "Secale",
+      "alpha_source_text": "3.99",
+      "fall_speed_source_text": "0.06",
+      "alpha_variance_source_text": "0.102681794",
+      "swedish_native_nisp_assigned": 676
+    },
+    {
+      "author_target": "Tilia",
+      "alpha_source_text": "1.21",
+      "fall_speed_source_text": "0.032",
+      "alpha_variance_source_text": "0.013488964",
+      "swedish_native_nisp_assigned": 1396
+    },
+    {
+      "author_target": "Ulmus",
+      "alpha_source_text": "1.27",
+      "fall_speed_source_text": "0.032",
+      "alpha_variance_source_text": "0.0025",
+      "swedish_native_nisp_assigned": 2316
+    }
+  ],
+  "inputs": [
+    {
+      "path": "docs/report/source-relations/neotoma/author-taxonomy-mass/report.json",
+      "bytes": 8971,
+      "sha256": "b779a63352ff60c49f978e9f8cc9a2bc9a427872c3a870cc66d495eeabcbaa76"
+    },
+    {
+      "path": "author/run.REVEALS.files/av-RPP.all.landclimII.csv",
+      "bytes": 772,
+      "sha256": "066ebadbe6ab10aead80c74a184284e05b9db3cd1f5daff04249596170a663e2"
+    },
+    {
+      "path": "author/run.REVEALS.files/avar-RPP.all.landclimII.csv",
+      "bytes": 2977,
+      "sha256": "8821de94682c454e3a751897b487c8bf1612cf60994dc6246fb33284a73e9918"
+    },
+    {
+      "path": "author/Kunes_REVEALS_iterate_across_sitelists.R",
+      "bytes": 2685,
+      "sha256": "bc20b58bc1dc5933eb046233d44739d7da006624031aa4863e9a2731b077e341"
+    }
+  ]
+}

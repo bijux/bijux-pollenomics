@@ -25,6 +25,9 @@ denominator or LRA eligibility. All 39 bins remain **unadmitted for LRA**.
 The [Bussjösjön basin review](../bussjosjon-basin/README.md) also records a
 2.5264 km mismatch between a published lake-inventory point and the Neotoma
 site point; its 3 ha inventory area cannot be assigned to these pollen bins.
+The [author taxonomy and parameter review](../author-parameter-binding/README.md)
+uses the authors' explicit synonym table and model inputs to resolve name and
+parameter leads while retaining excluded and unmapped source mass.
 
 The [report](report.json) pins every consumed path, byte count and SHA-256, the
 separate direct-pollen response fraction, and the largest unmatched native

@@ -34,9 +34,11 @@ These are **author lookup assignments**, not an independently reviewed
 biological identification or a numerical reconstruction. The lookup target
 names are not identical to every published PPE/FSP parameter label; for
 example it emits `Quercus deciduous` and `Picea`, while the parameter table
-uses `Quercus deciduous t.` and `Picea abies`. Applying the parameters still
-requires a source-version binding, a complete counting-denominator decision,
-and sample-time basin geometry. In particular the
+uses `Quercus deciduous t.` and `Picea abies`. The separate
+[author parameter binding](../author-parameter-binding/README.md) resolves
+the exact target-to-RPP/FSP correspondence in the retained author code
+profile. Applying it to Neotoma still requires a complete counting-denominator
+decision and sample-time basin geometry. In particular the
 [Bussjösjön basin review](../bussjosjon-basin/README.md) records a material
 coordinate conflict. **No Swedish LRA sample is admitted.**
 
