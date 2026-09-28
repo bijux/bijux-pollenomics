@@ -87,6 +87,11 @@ EPD/PANGAEA record. That record reports a 3 ha lake, but its June 2002 core
 date differs from the Neotoma January 2002 collection date. Its area has no
 sample-age-specific basin boundary and does not admit numerical LRA.
 
+For Bökesjön, a [primary basin source review](../../../report/source-relations/neotoma/boke-basin/README.md)
+finds a 1984 depth map and a 1.5 ha lake area, while another lake study reports
+1.6 ha. Neither source links its sampling point or modern area to the Neotoma
+pollen core's historical basin boundary. BOKE remains unadmitted to LRA.
+
 ### Historical screen before chronology correction
 
 The following 21 September source screens and derived priority/mass reviews

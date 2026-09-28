@@ -17,6 +17,9 @@ matches all 107 Abborrtjärnen depths after an exact 100-to-1 conversion and
 535 selected taxon-count cells. It reports a 3 ha event area but does not
 establish historical basin geometry; its core date differs from the Neotoma
 collection-unit date. Neither fact changes the LRA refusal below.
+The [Bökesjön basin review](../source-relations/neotoma/boke-basin/README.md)
+adds a 1984 mapped lake and two modern area measurements but does not bind
+their geometry to the fossil-pollen core or its sample ages.
 
 ## Scope and conclusion
 
