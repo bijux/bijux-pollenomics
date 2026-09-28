@@ -1,0 +1,43 @@
+{
+  "schema_version": "atlas-cross-border-neighbor-verification.v1",
+  "status": "PASS",
+  "candidate_status": "controlled_cross_border_only",
+  "scientific_admission": "not_evaluated",
+  "geometry_status": "controlled_schematic_rectangles_only",
+  "producer": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/atlas_browser/cross_border_neighbor_candidate.py",
+  "verifier": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/atlas_browser/cross-border-neighbor.mjs",
+  "candidate": "artifacts/atlas-cross-border-neighbor/candidate-final/generation.json",
+  "baseline_receipt": "artifacts/atlas-cross-border-neighbor/browser-baseline-country/receipt.json",
+  "baseline_receipt_sha256": "4bbf1c81c8c7523ed9ed47f2a22a5206a2d66ee17f4e37c8857a222ce49314fc",
+  "receipt": "artifacts/atlas-cross-border-neighbor/browser-final-bound/receipt.json",
+  "receipt_sha256": "e1177e6980236814dc64721300ab66ce9023b5213de0a965046e646854a02db4",
+  "generation_sha256": "790a43fa95a71bae0f77b093fd7b665b78530656b8bf29ada5112abcdf77966d",
+  "fixture_sha256": "37e5f60e56f35cc770a691dcb8df9707fbf99614d81c4097cb42581947a40a38",
+  "renderer_sha256": "7e1767bea8df9c9b768cb4d3425e86e5307e6f0d2987894e6922bb93c62c7669",
+  "verifier_sha256": "1d813d1eb83188bc7af17b34e417552a490f5fa33b532fa908a9d1ce6d92064c",
+  "edge_relation": {
+    "source_record_id": "controlled:no:older",
+    "source_country": "Norway",
+    "target_record_id": "controlled:se:younger",
+    "target_country": "Sweden",
+    "cross_border": true,
+    "lag_years": 100,
+    "wgs84_distance_km": 50.6723134140697
+  },
+  "producer_input_count": 62,
+  "candidate_output_count": 22,
+  "served_file_count": 15,
+  "screenshot_count": 16,
+  "scenario_count": 4,
+  "scenario_widths_px": [320, 1440],
+  "scenario_modes": ["provider-failure", "tile-free"],
+  "runtime_error_count": 0,
+  "checks": {
+    "affected_pytest": "89 passed",
+    "ruff_check": "PASS",
+    "ruff_format": "PASS",
+    "mypy": "PASS",
+    "node_syntax": "PASS",
+    "git_diff_check": "PASS"
+  }
+}
