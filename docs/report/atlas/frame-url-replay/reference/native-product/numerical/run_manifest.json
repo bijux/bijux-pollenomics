@@ -1,0 +1,64 @@
+{
+  "algorithm": "LRA",
+  "parameters": {
+    "couple_regional_draws": true,
+    "local_child_manifest_sha256": "c57b952504062657e23da9445a3e3d3fe23924ab0011bf5f2774492b84c21e8d",
+    "love": {
+      "distance_weighting": "lsm unstable",
+      "local_basin_diameter_m": 20.0,
+      "max_ring": 1,
+      "method": "analytical",
+      "optimizer_iterations": 200,
+      "optimizer_max_evaluations": null,
+      "optimizer_tolerance": 0.01,
+      "ppe_error": true,
+      "regional_basin_diameter_m": 300,
+      "regional_basin_type": "lake",
+      "repeats": 1,
+      "retain_samples": false,
+      "seed": 7,
+      "stochastic": false
+    },
+    "regional_child_manifest_sha256": "27c82ab33ae1a93102c7edc4d02e35e5fbf7098b4ecc6bbdda7c4c7a8e824241",
+    "regional_draw_handoff": true,
+    "reveals": {
+      "basin_diameter_m": 300,
+      "basin_type": "lake",
+      "distance_weighting": "lsm unstable",
+      "iterations": 1,
+      "region_cutoff_m": 100000.0,
+      "retain_samples": false,
+      "seed": 7,
+      "stochastic": false
+    },
+    "seed": 7,
+    "stage_order": [
+      "REVEALS",
+      "LOVE-analytical"
+    ]
+  },
+  "inputs": {
+    "local_pollen": "e7fabc5a9b2f6172eb747f36770a233f4888415d9e474551331808f01c80efac",
+    "params": "11ac6bdca53ddc7bfda9372545a1cf8ae3f85146728603a06405854db83332d2",
+    "regional_pollen": "814c607b04b815445674c56fe30c205e5de9936dc7cfe0e284869f4f331bf4d5",
+    "rings": "b53c0de96222347df45b91719628ab89f00f50efce7b0774865fe37bbfed70b7"
+  },
+  "stochastic": false,
+  "seed": 7,
+  "compatibility_mode": "disqover-0.9.14",
+  "package": "bijux-pollenomics-lra",
+  "package_version": "0.1.9.dev37",
+  "reference_package": "disqover",
+  "reference_version": "0.9.14",
+  "reference_archive_sha256": "ea496ae82807b52c9dd3d4b39b4dfa294bfac4068e20184ce56187bff70caf5c",
+  "schema_version": "1.0.0",
+  "generated_at_utc": "2026-09-13T03:27:49.102793+00:00",
+  "runtime": {
+    "numerical_backend": "python-numpy-scipy",
+    "numpy": "2.4.6",
+    "pandas": "2.3.3",
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "python": "3.11.13",
+    "scipy": "1.17.1"
+  }
+}

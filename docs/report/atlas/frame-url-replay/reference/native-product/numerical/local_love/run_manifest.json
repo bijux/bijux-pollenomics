@@ -1,0 +1,52 @@
+{
+  "algorithm": "LOVE-analytical",
+  "parameters": {
+    "distance_weighting": "lsm unstable",
+    "equations": [
+      "Sugita-2007-6",
+      "Sugita-2007-7"
+    ],
+    "local_basin_diameter_m": 20.0,
+    "max_ring": 1,
+    "method": "analytical",
+    "optimizer_iterations": 200,
+    "optimizer_max_evaluations": null,
+    "optimizer_tolerance": 0.01,
+    "paired_local_count_draws": false,
+    "paired_local_ppe_draws": false,
+    "paired_regional_cover_draws": true,
+    "ppe_error": true,
+    "regional_basin_diameter_m": 300,
+    "regional_basin_type": "lake",
+    "repeats": 1,
+    "retain_samples": false,
+    "seed": 3618983171,
+    "source_geometry": "disqover-0.9.14",
+    "stochastic": false
+  },
+  "inputs": {
+    "local_pollen": "e7fabc5a9b2f6172eb747f36770a233f4888415d9e474551331808f01c80efac",
+    "params": "11ac6bdca53ddc7bfda9372545a1cf8ae3f85146728603a06405854db83332d2",
+    "regional_cover_draws": "1e1bee03173adfe2ccb1eeaffb0ed3dc8964e1f75408fc07f21095fce83291c4",
+    "regional_pollen": "814c607b04b815445674c56fe30c205e5de9936dc7cfe0e284869f4f331bf4d5",
+    "rings": "b53c0de96222347df45b91719628ab89f00f50efce7b0774865fe37bbfed70b7"
+  },
+  "stochastic": false,
+  "seed": 3618983171,
+  "compatibility_mode": "disqover-0.9.14",
+  "package": "bijux-pollenomics-lra",
+  "package_version": "0.1.9.dev37",
+  "reference_package": "disqover",
+  "reference_version": "0.9.14",
+  "reference_archive_sha256": "ea496ae82807b52c9dd3d4b39b4dfa294bfac4068e20184ce56187bff70caf5c",
+  "schema_version": "1.0.0",
+  "generated_at_utc": "2026-09-13T03:27:49.097472+00:00",
+  "runtime": {
+    "numerical_backend": "python-numpy-scipy",
+    "numpy": "2.4.6",
+    "pandas": "2.3.3",
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "python": "3.11.13",
+    "scipy": "1.17.1"
+  }
+}

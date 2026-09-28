@@ -33,12 +33,9 @@ including identifiers, count, native `NISP` unit, null denominator and denominat
 status. No-basemap mode was active and tile provider requests were blocked.
 
 The browser records its route through Chromium's keyboard-focusable overflow
-tables before reaching sample paging. The default synthetic profile independently
-passed its existing 30 browser assertions with the extended verifier. Three source
-candidate regressions and two synthetic fixture regressions passed. Earlier
-collection/verifier diagnostics remain identified in the receipt. The original
-[synthetic drawer evidence](../detail-focus/README.md) retains its original verifier
-identity and has not been rewritten as a new pass.
+tables before reaching sample paging. Twelve current candidate producer regressions passed. The original
+[synthetic drawer evidence](../detail-focus/README.md) retains its own verifier
+identity.
 
 ## Reproduce
 

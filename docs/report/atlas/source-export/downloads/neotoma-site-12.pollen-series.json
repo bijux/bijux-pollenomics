@@ -7,8 +7,8 @@
   },
   "title": "Ageröds Mosse",
   "selection": {
-    "atlas_build_id": "atlas-e1041ebb99258f503d47d60f92e5c1c7c4ebab15c249cc79954b42ff0ee53a4b",
-    "shared_url": "http://127.0.0.1:49572/index.html?viewport=1440#basemap=none&focus_layer=neotoma-pollen&focus_feature=evidence%3A12&focus_record=neotoma%3Asite%3A12&focus_tab=chronology",
+    "atlas_build_id": "atlas-143696b68ab32fc70914190dbda7d1c9810f3ba07620726b92021a8a13408642",
+    "shared_url": "http://127.0.0.1:50473/index.html?viewport=1440#basemap=none&focus_layer=neotoma-pollen&focus_feature=evidence%3A12&focus_record=neotoma%3Asite%3A12&focus_tab=chronology",
     "countries": [
       "Sweden"
     ],
@@ -23,7 +23,7 @@
   "source_provenance": {
     "build_id": "sha256:92dd52619837f3641d004a1a5dbe38f9ab6023a79f61989314bb90e612eb58e1",
     "compact_lineage_path": "data/neotoma/review/compact_relational_lineage.json",
-    "materialization_sha256": "e295ddccefdf3fa9f8519985843b4108975a367af14e16e9b4272157f183b4dd",
+    "materialization_sha256": "7d9bf04538f6fc9db0582a85656defc3b262b86b782d99bf310d2fec4ae96406",
     "observation_locator_contract": "surfaces/observations/part-{source_part_number:05d}.json#observation_id={observation_id}",
     "record_locator": "surfaces/sites#site_id=neotoma:site:12",
     "source_snapshot_id": "sha256:b2bcb99157e10b0c9f13c228acc12eabcb39d96a1f39c86ec25e34aacd78c791"

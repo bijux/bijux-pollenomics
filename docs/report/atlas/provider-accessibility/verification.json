@@ -1,327 +1,339 @@
 {
-  "schema_version": "atlas-provider-accessibility-review.v1",
-  "status": "PASS",
-  "producer": {
-    "path": "../../../../packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/atlas_browser/nordic_source_candidate.py",
-    "candidate_build_id": "atlas-f920a047dcfc96b5d7c750a46ae21314fe7ff98d18a8f278437d31e23954d6b1",
-    "source_atlas_build_id": "atlas-0a15c7029a76a7959aaf03f3635624edce91d151f70df9127ffd92f7cdfefa81",
-    "generation_sha256": "5cac9ae2c255f21a177a0d7cb93baf537881b9a082f4871b324e51bbb8fd46a8",
-    "input_count": 75,
-    "renderer_sha256": "9b28b87560cbd681ca8ed831a875879bf2299d9ea0a3afbf84e73600193c9d0d",
-    "selected_source_record_equality": true,
-    "countries": [
-      "Denmark",
-      "Finland",
-      "Norway",
-      "Sweden"
-    ],
-    "scientific_posture": "retained source display only; no accepted classifications or propagation edges; preserve unresolved/refused/context-only claims"
-  },
-  "verifier": {
-    "path": "../../../../packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/atlas_browser/provider-accessibility.mjs",
-    "sha256": "1638c4a80ed08d4f1274513b3b4dd828e7f7af06dd0e6f1af675477c02d0e0f5"
-  },
   "browser": {
-    "schema_version": "atlas-provider-accessibility-verification.v1",
-    "status": "PASS",
-    "provider_fallbacks": [
+    "browser": {
+      "jsVersion": "15.3.76.13",
+      "product": "Chrome/153.0.8010.53",
+      "protocolVersion": "1.3",
+      "revision": "@b395074596c663e344272cde7f7d7bd3d496e7e",
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36"
+    },
+    "downloads": [
       {
-        "width": 1440,
-        "street_tile_failures": 24,
-        "terrain_tile_failures": 24,
-        "keyless_requests": true,
-        "final_basemap": "none",
-        "visible_source_sites": 8,
-        "readout": "Basemap degraded: terrain unavailable; no-basemap mode active. Evidence data unaffected.",
-        "legend_touch_target": {
-          "rect": {
-            "left": 1350.3125,
-            "top": 774,
-            "right": 1413,
-            "bottom": 803,
-            "height": 29
-          },
-          "center_hit": true,
-          "hit_id": "legend-toggle",
-          "hit_class": "legend-toggle"
-        },
-        "scale_control": {
-          "line": "300 km",
-          "rect": {
-            "left": 5,
-            "top": 876.8125,
-            "right": 76,
-            "bottom": 895
-          },
-          "status_top": 817,
-          "center_hit": true,
-          "hit_class": "leaflet-control-scale-line"
-        },
-        "screenshot": {
-          "path": "1440-provider-failure.png",
-          "sha256": "8a5c220380b5b2fe950d4f5f2d895388bcfb62f9cd449df4e216006e90e58599"
-        }
+        "chronology_claims": 270,
+        "path": "1440-provider-failure-source/neotoma-site-12.pollen-series.json",
+        "pollen_observations": 2580,
+        "record_id": "neotoma:site:12",
+        "scenario": "provider-failure",
+        "sha256": "a59e4b32fe686fc2d0b6b8701d7ef62a1daf7b1f6901b2995e4240aa6d996e71",
+        "source_tables_equal": true,
+        "width": 1440
       },
       {
-        "width": 390,
-        "street_tile_failures": 12,
-        "terrain_tile_failures": 12,
-        "keyless_requests": true,
-        "final_basemap": "none",
-        "visible_source_sites": 8,
-        "readout": "Basemap degraded: terrain unavailable; no-basemap mode active. Evidence data unaffected.",
-        "legend_touch_target": {
-          "rect": {
-            "left": 308.3125,
-            "top": 711,
-            "right": 371,
-            "bottom": 755,
-            "height": 44
-          },
-          "center_hit": true,
-          "hit_id": "legend-toggle",
-          "hit_class": "legend-toggle"
-        },
-        "scale_control": {
-          "line": "500 km",
-          "rect": {
-            "left": 5,
-            "top": 745.8125,
-            "right": 65,
-            "bottom": 764
-          },
-          "status_top": 789,
-          "center_hit": true,
-          "hit_class": "leaflet-control-scale-line"
-        },
-        "screenshot": {
-          "path": "390-provider-failure.png",
-          "sha256": "74246a36cf00089f65fe1f4f126056d3979914f1955ecefda81c02b6c4547d79"
-        }
-      }
-    ],
-    "tile_free_modes": [
-      {
-        "width": 1440,
-        "tile_requests": 0,
-        "visible_source_sites": 8,
-        "scale": "300 km",
-        "coordinates": "64.437, 19.500",
-        "readout": "Basemap degraded: no basemap. Evidence data unaffected.",
-        "legend_touch_target": {
-          "rect": {
-            "left": 1350.3125,
-            "top": 774,
-            "right": 1413,
-            "bottom": 803,
-            "height": 29
-          },
-          "center_hit": true,
-          "hit_id": "legend-toggle",
-          "hit_class": "legend-toggle"
-        },
-        "scale_control": {
-          "line": "300 km",
-          "rect": {
-            "left": 5,
-            "top": 876.8125,
-            "right": 76,
-            "bottom": 895
-          },
-          "status_top": 817,
-          "center_hit": true,
-          "hit_class": "leaflet-control-scale-line"
-        },
-        "screenshot": {
-          "path": "1440-tile-free.png",
-          "sha256": "43e9d49a5b86ca41a2014404c305b71d778cff8d5989a7e6482218de230cbc6c"
-        }
+        "chronology_claims": 270,
+        "path": "1440-tile-free-source/neotoma-site-12.pollen-series.json",
+        "pollen_observations": 2580,
+        "record_id": "neotoma:site:12",
+        "scenario": "tile-free",
+        "sha256": "ae0ec8c00f0d49b64fff47bd2352e50a629c937ff921d9d19cae73501d8e765e",
+        "source_tables_equal": true,
+        "width": 1440
       },
       {
-        "width": 390,
-        "tile_requests": 0,
-        "visible_source_sites": 8,
-        "scale": "500 km",
-        "coordinates": "64.437, 19.500",
-        "readout": "Basemap degraded: no basemap. Evidence data unaffected.",
-        "legend_touch_target": {
-          "rect": {
-            "left": 308.3125,
-            "top": 711,
-            "right": 371,
-            "bottom": 755,
-            "height": 44
-          },
-          "center_hit": true,
-          "hit_id": "legend-toggle",
-          "hit_class": "legend-toggle"
-        },
-        "scale_control": {
-          "line": "500 km",
-          "rect": {
-            "left": 5,
-            "top": 745.8125,
-            "right": 65,
-            "bottom": 764
-          },
-          "status_top": 805,
-          "center_hit": true,
-          "hit_class": "leaflet-control-scale-line"
-        },
-        "screenshot": {
-          "path": "390-tile-free.png",
-          "sha256": "bac47ad681e95adb14e52f26eba64bd783d335f9e824ddd2114a4c92d70ac4f9"
-        }
+        "chronology_claims": 270,
+        "path": "390-provider-failure-source/neotoma-site-12.pollen-series.json",
+        "pollen_observations": 2580,
+        "record_id": "neotoma:site:12",
+        "scenario": "provider-failure",
+        "sha256": "873b725464d463c75a2b82f1ee81484d5f4e21400be56c20ae8823e5709debcb",
+        "source_tables_equal": true,
+        "width": 390
+      },
+      {
+        "chronology_claims": 270,
+        "path": "390-tile-free-source/neotoma-site-12.pollen-series.json",
+        "pollen_observations": 2580,
+        "record_id": "neotoma:site:12",
+        "scenario": "tile-free",
+        "sha256": "6b06864b0175b2479663ae4cf4dfb1f7b5cbfea0a0fb57292c6e06a2347c635a",
+        "source_tables_equal": true,
+        "width": 390
       }
     ],
     "keyboard_routes": [
       {
-        "width": 1440,
+        "arrow_home_end_tabs": true,
+        "clear_returns_to_search": true,
+        "drawer_roles": {
+          "card": "polite",
+          "panel": "tabpanel",
+          "selected": "true",
+          "tabs": "tablist"
+        },
+        "help_modal_escape_returns_to_help": true,
+        "refusal_table_page": 1,
         "scenario": "provider-failure",
         "search_announcement": "1 matches · 8 visible",
-        "drawer_roles": {
-          "card": "polite",
-          "tabs": "tablist",
-          "panel": "tabpanel",
-          "selected": "true"
-        },
-        "arrow_home_end_tabs": true,
-        "clear_returns_to_search": true,
-        "help_modal_escape_returns_to_help": true,
         "source_chronology_context_refusal_visible": true,
-        "refusal_table_page": 1
+        "width": 1440
       },
       {
-        "width": 1440,
+        "arrow_home_end_tabs": true,
+        "clear_returns_to_search": true,
+        "drawer_roles": {
+          "card": "polite",
+          "panel": "tabpanel",
+          "selected": "true",
+          "tabs": "tablist"
+        },
+        "help_modal_escape_returns_to_help": true,
+        "refusal_table_page": 1,
         "scenario": "tile-free",
         "search_announcement": "1 matches · 8 visible",
-        "drawer_roles": {
-          "card": "polite",
-          "tabs": "tablist",
-          "panel": "tabpanel",
-          "selected": "true"
-        },
-        "arrow_home_end_tabs": true,
-        "clear_returns_to_search": true,
-        "help_modal_escape_returns_to_help": true,
         "source_chronology_context_refusal_visible": true,
-        "refusal_table_page": 1
+        "width": 1440
       },
       {
-        "width": 390,
+        "arrow_home_end_tabs": true,
+        "clear_returns_to_search": true,
+        "drawer_roles": {
+          "card": "polite",
+          "panel": "tabpanel",
+          "selected": "true",
+          "tabs": "tablist"
+        },
+        "help_modal_escape_returns_to_help": true,
+        "refusal_table_page": 1,
         "scenario": "provider-failure",
         "search_announcement": "1 matches · 8 visible",
-        "drawer_roles": {
-          "card": "polite",
-          "tabs": "tablist",
-          "panel": "tabpanel",
-          "selected": "true"
-        },
-        "arrow_home_end_tabs": true,
-        "clear_returns_to_search": true,
-        "help_modal_escape_returns_to_help": true,
         "source_chronology_context_refusal_visible": true,
-        "refusal_table_page": 1
+        "width": 390
       },
       {
-        "width": 390,
-        "scenario": "tile-free",
-        "search_announcement": "1 matches · 8 visible",
-        "drawer_roles": {
-          "card": "polite",
-          "tabs": "tablist",
-          "panel": "tabpanel",
-          "selected": "true"
-        },
         "arrow_home_end_tabs": true,
         "clear_returns_to_search": true,
+        "drawer_roles": {
+          "card": "polite",
+          "panel": "tabpanel",
+          "selected": "true",
+          "tabs": "tablist"
+        },
         "help_modal_escape_returns_to_help": true,
+        "refusal_table_page": 1,
+        "scenario": "tile-free",
+        "search_announcement": "1 matches · 8 visible",
         "source_chronology_context_refusal_visible": true,
-        "refusal_table_page": 1
+        "width": 390
       }
     ],
-    "downloads": [
+    "provider_fallbacks": [
       {
-        "width": 1440,
-        "scenario": "provider-failure",
-        "record_id": "neotoma:site:12",
-        "path": "1440-provider-failure-source/neotoma-site-12.pollen-series.json",
-        "sha256": "cc8ef52c9a1a73fdbc068752dbe3f944a701b0f172bacd013934934efb7935cf",
-        "source_tables_equal": true,
-        "chronology_claims": 270,
-        "pollen_observations": 2580
+        "final_basemap": "none",
+        "keyless_requests": true,
+        "legend_touch_target": {
+          "center_hit": true,
+          "hit_class": "legend-toggle",
+          "hit_id": "legend-toggle",
+          "rect": {
+            "bottom": 803,
+            "height": 29,
+            "left": 1350.3125,
+            "right": 1413,
+            "top": 774
+          }
+        },
+        "readout": "Basemap degraded: terrain unavailable; no-basemap mode active. Evidence data unaffected.",
+        "scale_control": {
+          "center_hit": true,
+          "hit_class": "leaflet-control-scale-line",
+          "line": "300 km",
+          "rect": {
+            "bottom": 895,
+            "left": 5,
+            "right": 76,
+            "top": 876.8125
+          },
+          "status_top": 817
+        },
+        "screenshot": {
+          "path": "1440-provider-failure.png",
+          "sha256": "fa74993e1a948a9c6728d9042fd066a5e117e539d333c8356f389d9efbb9444f"
+        },
+        "street_tile_failures": 24,
+        "terrain_tile_failures": 24,
+        "visible_source_sites": 8,
+        "width": 1440
       },
       {
-        "width": 1440,
-        "scenario": "tile-free",
-        "record_id": "neotoma:site:12",
-        "path": "1440-tile-free-source/neotoma-site-12.pollen-series.json",
-        "sha256": "313353265220292aef060114bd37cea125194ab023b6ec9df87cb141ad719440",
-        "source_tables_equal": true,
-        "chronology_claims": 270,
-        "pollen_observations": 2580
-      },
-      {
-        "width": 390,
-        "scenario": "provider-failure",
-        "record_id": "neotoma:site:12",
-        "path": "390-provider-failure-source/neotoma-site-12.pollen-series.json",
-        "sha256": "e372fc7c9b60141f94ab59b7e093e9cb07141cdba8a0a33f76b35ee667db2659",
-        "source_tables_equal": true,
-        "chronology_claims": 270,
-        "pollen_observations": 2580
-      },
-      {
-        "width": 390,
-        "scenario": "tile-free",
-        "record_id": "neotoma:site:12",
-        "path": "390-tile-free-source/neotoma-site-12.pollen-series.json",
-        "sha256": "6c3a844a5e70944c326b1088c66d9d5842cca577a1954a07d9fa19650540b605",
-        "source_tables_equal": true,
-        "chronology_claims": 270,
-        "pollen_observations": 2580
+        "final_basemap": "none",
+        "keyless_requests": true,
+        "legend_touch_target": {
+          "center_hit": true,
+          "hit_class": "legend-toggle",
+          "hit_id": "legend-toggle",
+          "rect": {
+            "bottom": 715,
+            "height": 44,
+            "left": 308.3125,
+            "right": 371,
+            "top": 671
+          }
+        },
+        "readout": "Basemap degraded: terrain unavailable; no-basemap mode active. Evidence data unaffected.",
+        "scale_control": {
+          "center_hit": true,
+          "hit_class": "leaflet-control-scale-line",
+          "line": "500 km",
+          "rect": {
+            "bottom": 724,
+            "left": 5,
+            "right": 65,
+            "top": 705.8125
+          },
+          "status_top": 750
+        },
+        "screenshot": {
+          "path": "390-provider-failure.png",
+          "sha256": "310a7170a45594df4087a8216ef0fc0f80b7d21698066d17c4b65d4b43daad0c"
+        },
+        "street_tile_failures": 12,
+        "terrain_tile_failures": 12,
+        "visible_source_sites": 8,
+        "width": 390
       }
     ],
     "runtime_errors": [],
-    "browser": {
-      "protocolVersion": "1.3",
-      "product": "Chrome/153.0.8010.53",
-      "revision": "@b395074596c663e344272cde7f7d7bd3d496e7e",
-      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
-      "jsVersion": "15.3.76.13"
-    },
+    "schema_version": "atlas-provider-accessibility-verification.v1",
     "served_files_sha256": {
       "_map_assets/leaflet/leaflet.css": "a7837102824184820dfa198d1ebcd109ff6d0ff9a2672a074b9a1b4d147d04c6",
       "_map_assets/leaflet/leaflet.js": "db49d009c841f5ca34a888c96511ae936fd9f5533e90d8b2c4d57596f4e5641a",
       "_map_assets/markercluster/MarkerCluster.Default.css": "61258232d98d64dc2a7b1e02130d67421bc5b9bda5994eef70228ff97570c170",
       "_map_assets/markercluster/MarkerCluster.css": "614dea0a98ff3f4ead74f04918f6b1d1b9ba435c25b5fc23b21a394d1e3e4d87",
       "_map_assets/markercluster/leaflet.markercluster.js": "1e4e1d22972a3926f48598e0caf14e3fe7049835d428a344fed4f9e3665b3508",
-      "index.html": "2ea6efb1294df58436feabd13c1f37d81fbe73c4b028fe4329f1b00ab7e17e06",
-      "nordic-source.atlas-details.0009.5f2b629da48af77a.js": "5f2b629da48af77a712bb57db91d9fa678eed96dc1a09dd225fc45b14df1000b",
-      "nordic-source.atlas-edges.0010.1b2c1472372d24f4.js": "1b2c1472372d24f4449bac86d64ebd20fbdd6099caab936b18c97247103a6be3",
-      "nordic-source.atlas-indexes.0012.f23ba152813a4e1d.js": "f23ba152813a4e1d8ca90734547641a3236ddf85e7f9e78aeec864972d6261ea",
-      "nordic-source.atlas-nodes.0001.f50337be380ca4dc.js": "f50337be380ca4dce75c1ad621b4e7c74ed55cdcb36d848b65387a81b82c6f1d",
-      "nordic-source.atlas-nodes.0002.da89644a7649406f.js": "da89644a7649406fc54c33807fcaff67685ac6d541f60a72f5e3733a4402c8b9",
-      "nordic-source.atlas-nodes.0003.9a80c80864c28ca7.js": "9a80c80864c28ca75fb47bb797be91f6cbe0e97a14ffa4deabba650b6393fb17",
-      "nordic-source.atlas-nodes.0004.ec73a9a9d99107f9.js": "ec73a9a9d99107f916ebbad0e0be16b56a0ffcb35a99a986024943208c66908c",
-      "nordic-source.atlas-nodes.0005.b2ea850571709803.js": "b2ea85057170980303d926d4c37b831ccf158bce0c3f71c3740b05acf746bde3",
-      "nordic-source.atlas-nodes.0006.77586ff6d58454e0.js": "77586ff6d58454e0235b1bc7aa95ab0500a7b7621b7f723e7f49c2e2b0e84d0e",
-      "nordic-source.atlas-nodes.0007.665875bb2eb3fd10.js": "665875bb2eb3fd103a1cc5596ca5a655de05f46667b8f8dc6c199556cee7dc24",
-      "nordic-source.atlas-nodes.0008.d75fec52f89b439d.js": "d75fec52f89b439d09465f36113d6bf4878c2284ddd0d683e556db42f36e4064",
-      "nordic-source.atlas-provenance.0000.31800995a2084ffd.js": "31800995a2084ffda113727c1595cfc0af435418d7a1334180b25f756536c8f7",
-      "nordic-source.atlas-sequences.0011.105c6c8919cbb30a.js": "105c6c8919cbb30a8d4c880a1525b2b2075b0160cadc70970da2449dcce3d356"
+      "index.html": "e181beb02fa533f65d75a3100f8f76c692e5e27be8de6fdfebb9401acfcc7a90",
+      "nordic-source.atlas-details.0009.60f53f7029c8d5f0.js": "60f53f7029c8d5f085d43a12942b24e3aa10000147fb255dbf9d4c12f55a2167",
+      "nordic-source.atlas-edges.0010.10226e04df26ce9f.js": "10226e04df26ce9f8820cb9917cf2e8346459110b25989c2c375fa74b049c08a",
+      "nordic-source.atlas-indexes.0012.f82272f31cc62595.js": "f82272f31cc62595fad676810d82504959959b376fcd2b3572a356a53ef9704c",
+      "nordic-source.atlas-nodes.0001.7ba6e9a2ae056d12.js": "7ba6e9a2ae056d127f91e94d9e624c55509743c2dbce098f050c5e9db11e953b",
+      "nordic-source.atlas-nodes.0002.39c6b6b0ac6996d0.js": "39c6b6b0ac6996d083d3071b88540954ff9b45a06023c39915ef6e5946118b80",
+      "nordic-source.atlas-nodes.0003.73f997e71b68f97c.js": "73f997e71b68f97c22ba285a20180f228845d34046a41819ef87cfc5eb3be03d",
+      "nordic-source.atlas-nodes.0004.a9bf2275936f0081.js": "a9bf2275936f008106dda1f8bfb562b803abfa234e98dfbfd1319c9064fbfc73",
+      "nordic-source.atlas-nodes.0005.929d1e158052e6aa.js": "929d1e158052e6aa0a8b6579c12d16a464655dbdafdac742ff565dcebb1ecf76",
+      "nordic-source.atlas-nodes.0006.22310fcd07ddd3c0.js": "22310fcd07ddd3c098e0ace60497e79c55717538c1cd8c9efffa148411c26b8d",
+      "nordic-source.atlas-nodes.0007.d624e9ad6df2ad22.js": "d624e9ad6df2ad22d67257bb6e564b9b2d4ce1ad5f273cd26547488a01255b52",
+      "nordic-source.atlas-nodes.0008.6c6bd67254da7eb6.js": "6c6bd67254da7eb6f99e8246ca97c7510eef938703fb1bb69f7c00bf66435c14",
+      "nordic-source.atlas-provenance.0000.b7d22e5297f1eaa4.js": "b7d22e5297f1eaa45b233410f6f954f1450cbece651c4c300471d092e48a4171",
+      "nordic-source.atlas-sequences.0011.6489df014901bee2.js": "6489df014901bee2e9dd307ff466f853493dff2a1a729cba329ef7b200071ea1"
     },
+    "status": "PASS",
+    "tile_free_modes": [
+      {
+        "coordinates": "64.437, 19.500",
+        "legend_touch_target": {
+          "center_hit": true,
+          "hit_class": "legend-toggle",
+          "hit_id": "legend-toggle",
+          "rect": {
+            "bottom": 803,
+            "height": 29,
+            "left": 1350.3125,
+            "right": 1413,
+            "top": 774
+          }
+        },
+        "readout": "Basemap degraded: no basemap. Evidence data unaffected.",
+        "scale": "300 km",
+        "scale_control": {
+          "center_hit": true,
+          "hit_class": "leaflet-control-scale-line",
+          "line": "300 km",
+          "rect": {
+            "bottom": 895,
+            "left": 5,
+            "right": 76,
+            "top": 876.8125
+          },
+          "status_top": 817
+        },
+        "screenshot": {
+          "path": "1440-tile-free.png",
+          "sha256": "90dee4918397ed9bf8362cb1c3e623b547569506bb85f9df3563a4d2b9d6fafc"
+        },
+        "tile_requests": 0,
+        "visible_source_sites": 8,
+        "width": 1440
+      },
+      {
+        "coordinates": "64.437, 19.500",
+        "legend_touch_target": {
+          "center_hit": true,
+          "hit_class": "legend-toggle",
+          "hit_id": "legend-toggle",
+          "rect": {
+            "bottom": 715,
+            "height": 44,
+            "left": 308.3125,
+            "right": 371,
+            "top": 671
+          }
+        },
+        "readout": "Basemap degraded: no basemap. Evidence data unaffected.",
+        "scale": "500 km",
+        "scale_control": {
+          "center_hit": true,
+          "hit_class": "leaflet-control-scale-line",
+          "line": "500 km",
+          "rect": {
+            "bottom": 724,
+            "left": 5,
+            "right": 65,
+            "top": 705.8125
+          },
+          "status_top": 750
+        },
+        "screenshot": {
+          "path": "390-tile-free.png",
+          "sha256": "bd9250c8c8ee7fdfa9bf244ec0358076de7a0de8bc4eb7a4154103335546986f"
+        },
+        "tile_requests": 0,
+        "visible_source_sites": 8,
+        "width": 390
+      }
+    ],
     "verifier_sha256": "1638c4a80ed08d4f1274513b3b4dd828e7f7af06dd0e6f1af675477c02d0e0f5"
   },
-  "selected_checks": {
-    "browser_semantics": "77 passed",
-    "node_syntax": "PASS; provider-accessibility.mjs",
-    "ruff_check_and_format": "PASS; focused mobile clearance test"
-  },
+  "browser_receipt_path": "browser-receipt.json",
+  "candidate_generation_path": "candidate-generation.json",
   "limitations": [
     "Two observed viewport sizes in one local Brave build; this is not a full accessibility or provider browser matrix.",
     "Provider tiles were deliberately blocked; keyless request shape and automatic fallback were observed, not remote provider service availability or terms.",
     "Retained candidate contains point source sites, not country boundary polygons; boundary retention is not asserted by this browser check.",
     "Retained source display is not scientific classification, interpolation, or accepted propagation."
-  ]
+  ],
+  "producer": {
+    "candidate_build_id": "atlas-4bb3b566b4951e26fcbaec7f29caf5578f218897f9c4bbd8c27207573cab37ab",
+    "countries": [
+      "Denmark",
+      "Finland",
+      "Norway",
+      "Sweden"
+    ],
+    "generation_sha256": "8c1d2d248d6db3bc6e07be8c6e7d5af6fd0de99dc1510b9f2e58f2749de27c5a",
+    "input_count": 75,
+    "path": "../../../../packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/atlas_browser/nordic_source_candidate.py",
+    "renderer_sha256": "4527ee0a1a5598b6b676c8066ecc1c92fb57c9773219accbb6e50d90d282fd99",
+    "scientific_posture": "retained source display only; no accepted classifications or propagation edges; preserve unresolved/refused/context-only claims",
+    "selected_source_record_equality": true,
+    "source_atlas_build_id": "atlas-3487cf228d748acf7e4d45174cf64fa0174afe16afb07d351f6b15d98df7817e"
+  },
+  "retained_observations_sha256": {
+    "observations/1440-provider-failure-source/neotoma-site-12.pollen-series.json": "a59e4b32fe686fc2d0b6b8701d7ef62a1daf7b1f6901b2995e4240aa6d996e71",
+    "observations/1440-provider-failure.png": "fa74993e1a948a9c6728d9042fd066a5e117e539d333c8356f389d9efbb9444f",
+    "observations/1440-tile-free-source/neotoma-site-12.pollen-series.json": "ae0ec8c00f0d49b64fff47bd2352e50a629c937ff921d9d19cae73501d8e765e",
+    "observations/1440-tile-free.png": "90dee4918397ed9bf8362cb1c3e623b547569506bb85f9df3563a4d2b9d6fafc",
+    "observations/390-provider-failure-source/neotoma-site-12.pollen-series.json": "873b725464d463c75a2b82f1ee81484d5f4e21400be56c20ae8823e5709debcb",
+    "observations/390-provider-failure.png": "310a7170a45594df4087a8216ef0fc0f80b7d21698066d17c4b65d4b43daad0c",
+    "observations/390-tile-free-source/neotoma-site-12.pollen-series.json": "6b06864b0175b2479663ae4cf4dfb1f7b5cbfea0a0fb57292c6e06a2347c635a",
+    "observations/390-tile-free.png": "bd9250c8c8ee7fdfa9bf244ec0358076de7a0de8bc4eb7a4154103335546986f"
+  },
+  "schema_version": "atlas-provider-accessibility-review.v1",
+  "selected_checks": {
+    "candidate_producer_regressions": "12 passed in 0.66s",
+    "map_document_and_browser_semantics": "139 passed in 4.08s",
+    "provider_browser": "PASS; four keyboard routes and four source-equal downloads, zero runtime errors"
+  },
+  "status": "PASS",
+  "verifier": {
+    "path": "../../../../packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/atlas_browser/provider-accessibility.mjs",
+    "sha256": "1638c4a80ed08d4f1274513b3b4dd828e7f7af06dd0e6f1af675477c02d0e0f5"
+  }
 }

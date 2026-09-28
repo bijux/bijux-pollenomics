@@ -6,7 +6,7 @@
 
 The [producer](../../../../packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/atlas_browser/context_frame_candidate.py) authenticates the retained Nordic chunk inventory, reads the exact local normalized grid rows, and verifies that the current null-preserving publication projection equals every retained published feature. It then requires the static writer to preserve all selected published records exactly. The source manifest retains 628 high, 940 low, and 307 no-pollen-data features; every no-pollen estimate and standard-error field is null in the served publication and downloaded frames. No gaps are interpolated between source windows.
 
-The native input is the retained `artifacts/v2/signed-calendar/browser-postcommit/candidate001/zero-crossing/presentation/product` plus its byte-bound display geometry. The producer checks their exact digests before rendering the current atlas and rechecks every consumed input afterward. The native view identity remains `c7276b4b90bd57750af6182cb65ae8674e349f332cc6f606bd23dcb19e13a6e8`; the original product manifest is `de45206119e4f2663fe1d24cb4b52a481f025fa8cf7561c5ac7a188c624c07e9`. Source native units, missing values, and geometry refusals retain their distinct meanings. This paired view has no posterior draw channel or draw selector; the receipt records that absence.
+The signed synthetic native input is retained in this report under [`reference/native-product`](reference/native-product) with [`reference/display-geometry.json`](reference/display-geometry.json). The producer checks their exact digests before rendering the current atlas and rechecks every consumed input afterward. The native view identity remains `c7276b4b90bd57750af6182cb65ae8674e349f332cc6f606bd23dcb19e13a6e8`; the original product manifest is `de45206119e4f2663fe1d24cb4b52a481f025fa8cf7561c5ac7a188c624c07e9`. Source native units, missing values, and geometry refusals retain their distinct meanings. This paired view has no posterior draw channel or draw selector; the receipt records that absence.
 
 ## Actual browser result
 
@@ -19,7 +19,7 @@ The [browser verifier](../../../../packages/bijux-pollenomics-dev/src/bijux_poll
 
 All modeled frames are labeled `context_only`, with interpolation and propagation disabled. The native outputs are synthetic exploratory views with `scientific_acceptance: not_evaluated` and `publication_authorized: false`. Accepted pollen propagation, posterior draw comparison, and a four-country accepted edge matrix are not asserted.
 
-Five focused producer regressions passed in 0.62 seconds. Producer mypy, Ruff and formatting checks, browser verifier Node syntax, input hashes, served byte hashes, and report links passed.
+Twelve focused atlas browser candidate producer regressions passed. The current browser verifier passed with zero runtime errors; the receipt binds the input and served byte hashes.
 
 ## Reproduction
 
@@ -29,8 +29,8 @@ From the repository root, use an absent destination below `artifacts/` and the r
 PYTHONDONTWRITEBYTECODE=1 OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 NUMEXPR_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 \
   .venv/bin/python -m bijux_pollenomics_dev.ci.atlas_browser.context_frame_candidate \
   --repository . --destination artifacts/atlas-frame-url-replay/replay-candidate \
-  --native-product artifacts/v2/signed-calendar/browser-postcommit/candidate001/zero-crossing/presentation/product \
-  --native-geometry artifacts/v2/signed-calendar/browser-postcommit/candidate001/zero-crossing/presentation/display-geometry.json \
+  --native-product docs/report/atlas/frame-url-replay/reference/native-product \
+  --native-geometry docs/report/atlas/frame-url-replay/reference/display-geometry.json \
   --product-manifest-sha256 de45206119e4f2663fe1d24cb4b52a481f025fa8cf7561c5ac7a188c624c07e9 \
   --geometry-sha256 52afc5687e5ab39b6cf3445cdefb12096be050938b12f3cc9436b3da51b761bd
 node packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/atlas_browser/frame-url-replay.mjs \
@@ -38,7 +38,7 @@ node packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/atlas_browser/f
   '/Applications/Brave Browser.app/Contents/MacOS/Brave Browser'
 ```
 
-The retained final artifacts are `artifacts/atlas-frame-url-replay/owned-candidate` and `artifacts/atlas-frame-url-replay/browser-owned`. Download files remain under the browser artifact directory, and the browser profile is removed after the observed terminal result. The receipt stores each download hash and source-supported selection.
+Candidate and browser output directories are disposable reproduction products. The receipt stores each download hash and source-supported selection; the synthetic input bytes are retained in this report.
 
 ## Scope
 

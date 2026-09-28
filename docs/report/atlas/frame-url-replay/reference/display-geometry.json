@@ -1,0 +1,33 @@
+{
+  "coordinate_order": "longitude_latitude",
+  "crs": "OGC:CRS84",
+  "data_kind": "synthetic",
+  "product_manifest_sha256": "de45206119e4f2663fe1d24cb4b52a481f025fa8cf7561c5ac7a188c624c07e9",
+  "request_sha256": "713d77ae1182ddeacbd4b6951e09d752abc9acb366373b1196b0bdc6d362b8e9",
+  "schema_version": "lra-display-geometry.v1",
+  "scientific_content_sha256": "6ae7d7f39e29af762f9f9058bd55ce30f18e8e0cd875365704bb01dc528ff49e",
+  "sites": [
+    {
+      "basis": "synthetic_fixture",
+      "disposition": "declared_anchor",
+      "position": [
+        18.0,
+        59.0
+      ],
+      "role": "regional",
+      "site_id": "regional-site",
+      "source_locator": "Explicit synthetic display fixture; no native calendar conversion or measured geometry"
+    },
+    {
+      "basis": "synthetic_fixture",
+      "disposition": "declared_anchor",
+      "position": [
+        18.01,
+        59.01
+      ],
+      "role": "local",
+      "site_id": "local-site",
+      "source_locator": "Explicit synthetic display fixture; no native calendar conversion or measured geometry"
+    }
+  ]
+}

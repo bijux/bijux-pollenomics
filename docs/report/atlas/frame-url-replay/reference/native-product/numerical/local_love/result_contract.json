@@ -1,0 +1,12 @@
+{
+  "schema_version": "1.0.0",
+  "result_type": "love",
+  "method": "analytical",
+  "primary_artifact": "cover_mean.csv",
+  "units": {
+    "cover": "fraction",
+    "pollen_percentages": "percent",
+    "distance": "metre"
+  },
+  "cover_is_not_clipped": true
+}

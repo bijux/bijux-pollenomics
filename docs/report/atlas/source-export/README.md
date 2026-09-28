@@ -24,7 +24,7 @@ not included in the measured download/URL checks.
 
 ## Retained downloads
 
-These files are the actual desktop browser downloads, with unchanged bytes:
+These files are the current desktop browser downloads, with byte hashes in the [verification receipt](verification.json):
 
 | Source record | Samples | Chronology claims | Pollen observations | Download |
 |---|---:|---:|---:|---|
@@ -49,12 +49,9 @@ runtime errors. It completed six downloads: selected record, shared-link reload
 of the same record, and next record at each width. The restored downloads were
 byte-identical to their original selections. Four URL outcomes cover successful
 record/tab restoration and refusal to restore a record excluded by filters at
-both widths. The affected browser-semantics/rendering batch passed 77 tests.
+both widths. Twelve current candidate producer regressions passed.
 
-The earlier verifier timeout is retained in the receipt: a same-document browser
-navigation did not emit a page-load event. The corrected verifier forces a
-document reload when the navigation has no loader identity. The source data and
-passing rendering checks were reused.
+The current verifier completed all six downloads and four URL outcomes with zero runtime errors.
 
 Run from the repository root with the installed Python environment and Chromium
 browser. Set `PYTHONDONTWRITEBYTECODE=1` and set `OMP_NUM_THREADS`,
@@ -74,5 +71,4 @@ and the browser consumer is
 This result covers two retained Swedish source contexts. It does not certify SEAD
 navigation, four-country coverage, time-series diagrams, approved pollen sums or
 taxa mappings, propagation, full accessibility/provider/performance gates, or
-deployment/release readiness. Retained whole-atlas HTML needs its governed
-publication producer to receive the new controls.
+deployment/release readiness. The governed Nordic atlas now includes the source download controls.

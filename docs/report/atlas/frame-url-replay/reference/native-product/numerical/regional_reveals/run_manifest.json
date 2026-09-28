@@ -1,0 +1,38 @@
+{
+  "algorithm": "REVEALS",
+  "parameters": {
+    "basin_diameter_m": 300,
+    "basin_type": "lake",
+    "distance_weighting": "lsm unstable",
+    "equation": "Sugita-2007-B1",
+    "iterations": 1,
+    "paired_pollen_draws": false,
+    "paired_ppe_draws": false,
+    "region_cutoff_m": 100000.0,
+    "retain_samples": true,
+    "seed": 1201125462,
+    "stochastic": false
+  },
+  "inputs": {
+    "params": "11ac6bdca53ddc7bfda9372545a1cf8ae3f85146728603a06405854db83332d2",
+    "pollen": "814c607b04b815445674c56fe30c205e5de9936dc7cfe0e284869f4f331bf4d5"
+  },
+  "stochastic": false,
+  "seed": 1201125462,
+  "compatibility_mode": "disqover-0.9.14",
+  "package": "bijux-pollenomics-lra",
+  "package_version": "0.1.9.dev37",
+  "reference_package": "disqover",
+  "reference_version": "0.9.14",
+  "reference_archive_sha256": "ea496ae82807b52c9dd3d4b39b4dfa294bfac4068e20184ce56187bff70caf5c",
+  "schema_version": "1.0.0",
+  "generated_at_utc": "2026-09-13T03:27:49.089861+00:00",
+  "runtime": {
+    "numerical_backend": "python-numpy-scipy",
+    "numpy": "2.4.6",
+    "pandas": "2.3.3",
+    "platform": "macOS-26.6.2-arm64-arm-64bit",
+    "python": "3.11.13",
+    "scipy": "1.17.1"
+  }
+}

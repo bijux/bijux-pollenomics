@@ -19,7 +19,7 @@ Brave Chromium at widths 1440 and 390 passed 12 country-filter outcomes, 16 exac
 
 Every cell of all 626 retained chronology rows was compared independently with the rendered table across all pages at each width: 1,252 row comparisons. The checks include nested source age values, source relation paths, source-native identifiers, alternate chronology statuses, refusal reasons, uncertainty nulls, and numeric nulls. The unresolved Swedish SEAD site shows its original unavailable reason. Source build identities and classification/relation refusals remain visible when switching tabs. Keyboard activation of Next reaches the other selected source in the focal country and writes its exact record identity to the URL.
 
-The browser receipt preserves actual served byte hashes and verifier identity. The producer receipt preserves original source build, source provenance, selected feature/detail hashes, and every consumed input byte hash. Source graph/detail equality and input integrity were checked after generation. Seven focused producer regressions passed in 0.52 seconds; selected Ruff checks and Node syntax checks passed.
+The browser receipt preserves actual served byte hashes and verifier identity. The producer receipt preserves original source build, source provenance, selected feature/detail hashes, and every consumed input byte hash. Source graph/detail equality and input integrity were checked after generation. Twelve focused atlas browser candidate producer regressions passed. The current source navigation verifier passed at both viewport widths with zero runtime errors.
 
 ## Reproduction
 
@@ -34,7 +34,7 @@ node packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/atlas_browser/n
   '/Applications/Brave Browser.app/Contents/MacOS/Brave Browser'
 ```
 
-The [producer](../../../../packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/atlas_browser/nordic_source_candidate.py) and [browser verifier](../../../../packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/atlas_browser/nordic-country.mjs) use existing local dependencies. The retained run used `artifacts/atlas-nordic-source/frozen-candidate` and `artifacts/atlas-nordic-source/browser-frozen`. The browser profile is removed after its observed terminal result.
+The [producer](../../../../packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/atlas_browser/nordic_source_candidate.py) and [browser verifier](../../../../packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/atlas_browser/nordic-country.mjs) use existing local dependencies. The verification receipt stores the current generated and served byte identities; artifact output directories are disposable reproduction products.
 
 ## Scope of this evidence
 

@@ -1,0 +1,46 @@
+{
+  "aux_Kloc.csv": {
+    "sha256": "a41152d27a3a0f19d4aee6a0bcb3c62928e57c6bb8e90a8532e717bc898fc5f7",
+    "bytes": 63
+  },
+  "aux_Kreg.csv": {
+    "sha256": "c1df40f37a91a65cddd03d80d8cb0472d4434ffc5f7d0c2f9671e229682428aa",
+    "bytes": 63
+  },
+  "aux_valid_ring.csv": {
+    "sha256": "d5fe9b9f888333c1caebe2230fb19b7c2769742a555f2232c71be134308669cc",
+    "bytes": 23
+  },
+  "cover_mean.csv": {
+    "sha256": "07c3dbf06216fa8b2f9350fda88ffc0d42b559120fe7dad7c6fc6956cd69b216",
+    "bytes": 64
+  },
+  "cover_q10.csv": {
+    "sha256": "07c3dbf06216fa8b2f9350fda88ffc0d42b559120fe7dad7c6fc6956cd69b216",
+    "bytes": 64
+  },
+  "cover_q90.csv": {
+    "sha256": "07c3dbf06216fa8b2f9350fda88ffc0d42b559120fe7dad7c6fc6956cd69b216",
+    "bytes": 64
+  },
+  "cover_sd.csv": {
+    "sha256": "2bd0352a1744175c8046cbfa9aaf3759ef0569cd16e61d01c2852b1aafda890c",
+    "bytes": 27
+  },
+  "outliers.csv": {
+    "sha256": "c2ff9f037972ff5b617faea0ecab410f3261737d35eca8d6bf67eb79690e6b41",
+    "bytes": 34
+  },
+  "outliers_quantiles.csv": {
+    "sha256": "ef612e417cdce7571db14c93c74b8823667222d8941a8b5f93e4e48978d7a41c",
+    "bytes": 42
+  },
+  "result_contract.json": {
+    "sha256": "32bf9d587a2cb77f63ce9f906422bec4cc0b65b2a821b7e3411aa85730499e32",
+    "bytes": 259
+  },
+  "run_manifest.json": {
+    "sha256": "0ab40a6f78870f7800dc991782dda465fb50075632ed74cb24e4fee59e74d645",
+    "bytes": 1789
+  }
+}
