@@ -38,6 +38,11 @@ original publication or a reuse decision. The complete concept-to-dataset
 observation and distinct-sample counts remain in the machine-readable export;
 zero samples are admitted to LRA.
 
+The [published parameter-name candidate review](../parameter-candidates/README.md)
+binds these source concepts to literal strings in the LandClim II PPE/FSP table.
+It retains unmatched names and distinct native/digitized count units without
+approving any taxon or LRA parameter mapping.
+
 To replay, read the governed screen `report.json`, the scoped concept ledger and
 the validated Neotoma raw and relational roots. Call
 `prioritize_neotoma_candidate_taxa` from
