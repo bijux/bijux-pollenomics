@@ -35,6 +35,7 @@ The result does not resolve private-input redistribution rights, the publication
 A separate [tagged Petr Kuneš R comparison](../../method-certification/petrkunes-r-comparison/README.md)
 checks one 225 BP author window on single, unequal-pair, six-active-site and
 full-nine-site inputs. It finds zero original-versus-tagged R residuals on
-those selected cases. The tagged source shares the historical implementation
-lineage, and its one-window random stream differs from this full 25-window
-receipt.
+those selected cases. A direct native replay using the tagged R full-grid
+site draws matches 31 cover and 31 SE values within the declared source
+tolerances. The tagged source shares the historical implementation lineage,
+and its one-window random stream differs from this full 25-window receipt.

@@ -68,12 +68,36 @@ extract <- function(result, single) {
   }
 }
 for (name in names(cases)) {
+  original_draws <- list()
+  secondary_draws <- list()
+  original_environment$sample <- function(x, ...) {
+    draw <- base::sample(x, ...)
+    original_draws[[length(original_draws) + 1L]] <<- draw
+    draw
+  }
+  secondary_environment$sample <- function(x, ...) {
+    draw <- base::sample(x, ...)
+    secondary_draws[[length(secondary_draws) + 1L]] <<- draw
+    draw
+  }
   set.seed(750225)
   first <- original_environment$REVEALS(cases[[name]], avg, alvc, 3, 100000,
                                          "gpm neutral")
   set.seed(750225)
   second <- secondary_environment$REVEALS(cases[[name]], avg, alvc, 3, 100000,
                                            "gpm neutral")
+  if (!identical(original_draws, secondary_draws)) {
+    stop(paste("Original and tagged R site draws differ:", name))
+  }
+  if (name == "full_grid") {
+    if (length(secondary_draws) != 1000 ||
+        any(lengths(secondary_draws) != 6)) {
+      stop("Full-grid R bootstrap draw shape changed")
+    }
+    write.table(do.call(rbind, secondary_draws) - 1L,
+                file.path(output, "bootstrap-full-grid.csv"), sep = ",",
+                row.names = FALSE, col.names = FALSE)
+  }
   first_values <- extract(first, is.data.frame(cases[[name]]))
   second_values <- extract(second, is.data.frame(cases[[name]]))
   cover_first <- first_values$cover

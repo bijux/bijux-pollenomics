@@ -30,6 +30,19 @@ author body's parsed R expression; the `REVEALS` bodies differ. This is a
 version comparison within a shared code lineage, not an independent model
 derivation or a corrected uncertainty certification.
 
+The R replay also retains the full grid's [1,000 original-site bootstrap
+indices](bootstrap-full-grid.csv) (SHA-256
+`1515f0b680e066bfc1810b0ce691e70dea56856076bf9a149c70d00f4efb9a45`)
+and verifies that both R versions sampled identical indices. The
+[direct native comparison](native-report.json) feeds those exact zero-based
+indices and the same full nine-site, 31-taxon, 100–350 BP input into the
+historical native profile. Against the tagged R output, all 31 cover values
+pass the predeclared `1e-11` absolute/`1e-10` relative tolerance (maximum
+residual `1.21958e-13`); all 31 SE values pass `5e-8` absolute/`1e-9`
+relative tolerance (maximum residual `2.86438e-14`). Six sites have
+source support in that window. The native report SHA-256 is
+`273c1b129551e6392ca926988bf594a66c7de9f435b299832e24b771731d8995`.
+
 The isolated one-window calculation does not replay the full 25-window R
 random-number stream from the [two-grid author/native result](../../publication-replay/landclim-example-reexecution/README.md).
 That prior result's 225 BP values must not be compared to these outputs as if
@@ -59,6 +72,15 @@ cmp docs/report/method-certification/petrkunes-r-comparison/summary.csv \
   artifacts/jobs/petrkunes-r-comparison/replay/summary.csv
 cmp docs/report/method-certification/petrkunes-r-comparison/taxa.csv \
   artifacts/jobs/petrkunes-r-comparison/replay/taxa.csv
+cmp docs/report/method-certification/petrkunes-r-comparison/bootstrap-full-grid.csv \
+  artifacts/jobs/petrkunes-r-comparison/replay/bootstrap-full-grid.csv
+PYTHONDONTWRITEBYTECODE=1 OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 \
+  MKL_NUM_THREADS=1 .venv/bin/python \
+  docs/report/method-certification/petrkunes-r-comparison/native_comparison.py \
+  --repository . --private-root /path/to/landclim/author-reference \
+  --output artifacts/jobs/petrkunes-r-comparison/native-replay
+cmp docs/report/method-certification/petrkunes-r-comparison/native-report.json \
+  artifacts/jobs/petrkunes-r-comparison/native-replay/native-report.json
 ```
 
 The governed summary SHA-256 is
