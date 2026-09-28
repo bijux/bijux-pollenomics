@@ -1,0 +1,513 @@
+{
+  "pollen_columns": [
+    "age",
+    "Alnus",
+    "Betula",
+    "Corylus",
+    "Fagus",
+    "Fraxinus",
+    "Pinus",
+    "Tilia",
+    "Ulmus",
+    "Gras",
+    "Secale"
+  ],
+  "local": [
+    1.0,
+    30.0,
+    594.0,
+    45.0,
+    55.0,
+    4.0,
+    230.0,
+    12.0,
+    4.0,
+    16.0,
+    9.0
+  ],
+  "regional": [
+    1.0,
+    46.0,
+    424.0,
+    54.0,
+    76.0,
+    2.0,
+    358.0,
+    11.0,
+    6.0,
+    18.0,
+    5.0
+  ],
+  "ppes": [
+    {
+      "Taxon": "Alnus",
+      "fallspeed": 0.024,
+      "ppe": 4.0,
+      "ppe.error": 0.4
+    },
+    {
+      "Taxon": "Betula",
+      "fallspeed": 0.024,
+      "ppe": 4.0,
+      "ppe.error": 0.4
+    },
+    {
+      "Taxon": "Corylus",
+      "fallspeed": 0.024,
+      "ppe": 3.0,
+      "ppe.error": 0.3
+    },
+    {
+      "Taxon": "Fagus",
+      "fallspeed": 0.06,
+      "ppe": 1.0,
+      "ppe.error": 0.1
+    },
+    {
+      "Taxon": "Fraxinus",
+      "fallspeed": 0.02,
+      "ppe": 0.8,
+      "ppe.error": 0.08
+    },
+    {
+      "Taxon": "Pinus",
+      "fallspeed": 0.035,
+      "ppe": 2.0,
+      "ppe.error": 0.2
+    },
+    {
+      "Taxon": "Tilia",
+      "fallspeed": 0.035,
+      "ppe": 0.3,
+      "ppe.error": 0.03
+    },
+    {
+      "Taxon": "Ulmus",
+      "fallspeed": 0.03,
+      "ppe": 0.5,
+      "ppe.error": 0.05
+    },
+    {
+      "Taxon": "Gras",
+      "fallspeed": 0.03,
+      "ppe": 0.6,
+      "ppe.error": 0.06
+    },
+    {
+      "Taxon": "Secale",
+      "fallspeed": 0.06,
+      "ppe": 0.3,
+      "ppe.error": 0.03
+    }
+  ],
+  "fallspeed": [
+    {
+      "Taxon": "Alnus",
+      "fallspeed": 0.024
+    },
+    {
+      "Taxon": "Betula",
+      "fallspeed": 0.024
+    },
+    {
+      "Taxon": "Corylus",
+      "fallspeed": 0.024
+    },
+    {
+      "Taxon": "Fagus",
+      "fallspeed": 0.06
+    },
+    {
+      "Taxon": "Fraxinus",
+      "fallspeed": 0.02
+    },
+    {
+      "Taxon": "Pinus",
+      "fallspeed": 0.035
+    },
+    {
+      "Taxon": "Tilia",
+      "fallspeed": 0.035
+    },
+    {
+      "Taxon": "Ulmus",
+      "fallspeed": 0.03
+    },
+    {
+      "Taxon": "Gras",
+      "fallspeed": 0.03
+    },
+    {
+      "Taxon": "Secale",
+      "fallspeed": 0.06
+    }
+  ],
+  "rings": [
+    {
+      "no": 1.0,
+      "mean": 0.5,
+      "ring": 3.1,
+      "circle": 3.1,
+      "inner": 0.0,
+      "outer": 1.0,
+      "terrestrial": 0.0,
+      "peatland": 0.0
+    },
+    {
+      "no": 2.0,
+      "mean": 1.2,
+      "ring": 3.1,
+      "circle": 6.2,
+      "inner": 1.0,
+      "outer": 1.4,
+      "terrestrial": 0.0,
+      "peatland": 0.0
+    },
+    {
+      "no": 3.0,
+      "mean": 1.7,
+      "ring": 6.4,
+      "circle": 12.6,
+      "inner": 1.4,
+      "outer": 2.0,
+      "terrestrial": 0.0,
+      "peatland": 0.0
+    },
+    {
+      "no": 4.0,
+      "mean": 2.35,
+      "ring": 10.3,
+      "circle": 22.9,
+      "inner": 2.0,
+      "outer": 2.7,
+      "terrestrial": 0.0,
+      "peatland": 0.0
+    },
+    {
+      "no": 5.0,
+      "mean": 3.25,
+      "ring": 22.5,
+      "circle": 45.4,
+      "inner": 2.7,
+      "outer": 3.8,
+      "terrestrial": 0.0,
+      "peatland": 0.0
+    },
+    {
+      "no": 6.0,
+      "mean": 4.6,
+      "ring": 46.2,
+      "circle": 91.6,
+      "inner": 3.8,
+      "outer": 5.4,
+      "terrestrial": 0.0,
+      "peatland": 0.0
+    },
+    {
+      "no": 7.0,
+      "mean": 6.45,
+      "ring": 85.1,
+      "circle": 176.7,
+      "inner": 5.4,
+      "outer": 7.5,
+      "terrestrial": 42.0,
+      "peatland": 0.0
+    },
+    {
+      "no": 8.0,
+      "mean": 9.0,
+      "ring": 169.7,
+      "circle": 346.4,
+      "inner": 7.5,
+      "outer": 10.5,
+      "terrestrial": 164.0,
+      "peatland": 0.0
+    },
+    {
+      "no": 9.0,
+      "mean": 12.65,
+      "ring": 341.7,
+      "circle": 688.1,
+      "inner": 10.5,
+      "outer": 14.8,
+      "terrestrial": 342.0,
+      "peatland": 0.0
+    },
+    {
+      "no": 10.0,
+      "mean": 17.75,
+      "ring": 658.0,
+      "circle": 1346.1,
+      "inner": 14.8,
+      "outer": 20.7,
+      "terrestrial": 658.0,
+      "peatland": 0.0
+    },
+    {
+      "no": 11.0,
+      "mean": 24.799999999999997,
+      "ring": 1277.8,
+      "circle": 2623.9,
+      "inner": 20.7,
+      "outer": 28.9,
+      "terrestrial": 1277.0,
+      "peatland": 0.0
+    },
+    {
+      "no": 12.0,
+      "mean": 34.7,
+      "ring": 2529.1,
+      "circle": 5153.0,
+      "inner": 28.9,
+      "outer": 40.5,
+      "terrestrial": 2528.0,
+      "peatland": 0.0
+    },
+    {
+      "no": 13.0,
+      "mean": 48.6,
+      "ring": 4946.9,
+      "circle": 10099.9,
+      "inner": 40.5,
+      "outer": 56.7,
+      "terrestrial": 4945.0,
+      "peatland": 0.0
+    },
+    {
+      "no": 14.0,
+      "mean": 68.05000000000001,
+      "ring": 9705.8,
+      "circle": 19805.7,
+      "inner": 56.7,
+      "outer": 79.4,
+      "terrestrial": 9701.0,
+      "peatland": 0.0
+    },
+    {
+      "no": 15.0,
+      "mean": 95.25,
+      "ring": 18971.6,
+      "circle": 38777.3,
+      "inner": 79.4,
+      "outer": 111.1,
+      "terrestrial": 18963.0,
+      "peatland": 0.0
+    },
+    {
+      "no": 16.0,
+      "mean": 133.35,
+      "ring": 37284.9,
+      "circle": 76062.2,
+      "inner": 111.1,
+      "outer": 155.6,
+      "terrestrial": 37231.0,
+      "peatland": 0.0
+    },
+    {
+      "no": 17.0,
+      "mean": 186.7,
+      "ring": 72965.0,
+      "circle": 149027.2,
+      "inner": 155.6,
+      "outer": 217.8,
+      "terrestrial": 66443.0,
+      "peatland": 0.0
+    },
+    {
+      "no": 18.0,
+      "mean": 261.35,
+      "ring": 143027.9,
+      "circle": 292055.1,
+      "inner": 217.8,
+      "outer": 304.9,
+      "terrestrial": 134472.0,
+      "peatland": 0.0
+    },
+    {
+      "no": 19.0,
+      "mean": 365.9,
+      "ring": 280480.1,
+      "circle": 572535.2,
+      "inner": 304.9,
+      "outer": 426.9,
+      "terrestrial": 280352.0,
+      "peatland": 0.0
+    },
+    {
+      "no": 20.0,
+      "mean": 512.25,
+      "ring": 549408.5,
+      "circle": 1121943.7,
+      "inner": 426.9,
+      "outer": 597.6,
+      "terrestrial": 549157.0,
+      "peatland": 0.0
+    },
+    {
+      "no": 21.0,
+      "mean": 717.1500000000001,
+      "ring": 1077381.3,
+      "circle": 2199325.0,
+      "inner": 597.6,
+      "outer": 836.7,
+      "terrestrial": 1076889.0,
+      "peatland": 0.0
+    },
+    {
+      "no": 22.0,
+      "mean": 1004.0500000000001,
+      "ring": 2111499.2,
+      "circle": 4310824.2,
+      "inner": 836.7,
+      "outer": 1171.4,
+      "terrestrial": 2110535.0,
+      "peatland": 0.0
+    },
+    {
+      "no": 23.0,
+      "mean": 1405.65,
+      "ring": 4137773.0,
+      "circle": 8448597.2,
+      "inner": 1171.4,
+      "outer": 1639.9,
+      "terrestrial": 4104377.0,
+      "peatland": 0.0
+    },
+    {
+      "no": 24.0,
+      "mean": 1967.9,
+      "ring": 8111230.3,
+      "circle": 16559827.5,
+      "inner": 1639.9,
+      "outer": 2295.9,
+      "terrestrial": 7298213.0,
+      "peatland": 0.0
+    },
+    {
+      "no": 25.0,
+      "mean": 2755.05,
+      "ring": 15896222.7,
+      "circle": 32456050.2,
+      "inner": 2295.9,
+      "outer": 3214.2,
+      "terrestrial": 14613173.0,
+      "peatland": 0.0
+    },
+    {
+      "no": 26.0,
+      "mean": 3857.0499999999997,
+      "ring": 31158373.6,
+      "circle": 63614423.8,
+      "inner": 3214.2,
+      "outer": 4499.9,
+      "terrestrial": 29182723.0,
+      "peatland": 0.0
+    },
+    {
+      "no": 27.0,
+      "mean": 5399.85,
+      "ring": 61067471.9,
+      "circle": 124681895.7,
+      "inner": 4499.9,
+      "outer": 6299.8,
+      "terrestrial": 56687862.0,
+      "peatland": 0.0
+    },
+    {
+      "no": 28.0,
+      "mean": 7559.799999999999,
+      "ring": 119699053.2,
+      "circle": 244380948.9,
+      "inner": 6299.8,
+      "outer": 8819.8,
+      "terrestrial": 107949842.0,
+      "peatland": 0.0
+    },
+    {
+      "no": 29.0,
+      "mean": 10583.75,
+      "ring": 234604159.3,
+      "circle": 478985108.2,
+      "inner": 8819.8,
+      "outer": 12347.7,
+      "terrestrial": 230805512.0,
+      "peatland": 0.0
+    },
+    {
+      "no": 30.0,
+      "mean": 14817.2,
+      "ring": 459817014.7,
+      "circle": 938802122.9,
+      "inner": 12347.7,
+      "outer": 17286.7,
+      "terrestrial": 441085338.0,
+      "peatland": 0.0
+    },
+    {
+      "no": 31.0,
+      "mean": 20744.050000000003,
+      "ring": 901253079.2,
+      "circle": 1840055202.1,
+      "inner": 17286.7,
+      "outer": 24201.4,
+      "terrestrial": 861679102.0,
+      "peatland": 0.0
+    },
+    {
+      "no": 32.0,
+      "mean": 29041.7,
+      "ring": 1766461509.5,
+      "circle": 3606516711.6,
+      "inner": 24201.4,
+      "outer": 33882.0,
+      "terrestrial": 1683124839.0,
+      "peatland": 0.0
+    },
+    {
+      "no": 33.0,
+      "mean": 40658.4,
+      "ring": 3462256043.2,
+      "circle": 7068772754.8,
+      "inner": 33882.0,
+      "outer": 47434.8,
+      "terrestrial": 3293227832.0,
+      "peatland": 0.0
+    },
+    {
+      "no": 34.0,
+      "mean": 56921.75,
+      "ring": 6786013499.4,
+      "circle": 13854786254.2,
+      "inner": 47434.8,
+      "outer": 66408.7,
+      "terrestrial": 6095015806.0,
+      "peatland": 0.0
+    },
+    {
+      "no": 35.0,
+      "mean": 79690.45,
+      "ring": 13300606487.4,
+      "circle": 27155392741.6,
+      "inner": 66408.7,
+      "outer": 92972.2,
+      "terrestrial": 9350201464.0,
+      "peatland": 0.0
+    },
+    {
+      "no": 36.0,
+      "mean": 96486.1,
+      "ring": 4260533794.3,
+      "circle": 31415926535.9,
+      "inner": 92972.2,
+      "outer": 100000.0,
+      "terrestrial": 3010584930.0,
+      "peatland": 0.0
+    }
+  ],
+  "params": {
+    "dBasinRegional": 300.0,
+    "dBasinLocal": 12.9,
+    "tBasinRegional": "lake",
+    "dwm": "lsm unstable"
+  }
+}

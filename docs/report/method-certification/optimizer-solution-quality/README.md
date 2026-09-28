@@ -25,9 +25,10 @@ compares achieved objective quality and common-candidate function values,
 not identical search trajectories or stochastic full-wrapper draws. The
 [original R oracle](../original-r-reference/README.md) separately pairs the
 LOVE objective and wrapper on supplied candidates, and pairs regional REVEALS
-count/PPE draws. Paired **local stochastic LOVE** draws remain an open
-comparison. Neither result establishes ecological prediction skill or a global
-guarantee for arbitrary LOVE landscapes.
+count/PPE draws. The separate [local stochastic LOVE comparison](../paired-love-draws/README.md)
+pairs explicit local count/PPE draws. None of these results establishes
+ecological prediction skill or a global guarantee for arbitrary LOVE
+landscapes.
 
 Replay with the exact installed DISQOVER 0.9.14 source library and Rscript,
 using a new absent output directory under `artifacts/`:
