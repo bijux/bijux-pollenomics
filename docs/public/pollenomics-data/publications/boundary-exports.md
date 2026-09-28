@@ -4,7 +4,7 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-07-22
+last_reviewed: 2026-09-28
 ---
 
 # Boundary Exports
@@ -25,11 +25,16 @@ MultiPolygon features:
 | Finland | country membership, map framing, and Nordic composition |
 | Denmark | country membership, map framing, and Nordic composition |
 
-The collection summary pins the boundary family to collection version `v66`,
-retrieval date `2026-06-22`, acquisition method `collector_pipeline`, and
-captured and normalized SHA-256 digests. Those values identify the geometry
-state used by publication; they do not assign historical meaning to the
-polygons.
+The [source receipt](../../../../data/boundaries/raw/source_manifest.json)
+pins Natural Earth Admin 0 - Countries version **5.1.1**, captured on
+`2026-09-04`, to the normalized GeoJSON digest
+`bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f`.
+The collector snapshot label `v66` is a separate inventory identity, not the
+Natural Earth release. The [boundary review](../../../../data/boundaries/review/manifest.json)
+retains 147 point reviews among 3,048 evaluated points and remains
+`blocked_pending_qualified_boundary_review`. Scope exports must carry that
+qualification; polygon membership does not grant historical or scientific
+meaning.
 
 ```mermaid
 flowchart LR

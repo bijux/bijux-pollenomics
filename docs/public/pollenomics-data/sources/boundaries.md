@@ -4,7 +4,7 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-07-22
+last_reviewed: 2026-09-28
 ---
 
 # Boundaries
@@ -16,11 +16,22 @@ no scientific weight to a feature inside a polygon.
 
 ## Captured State
 
-The collection summary identifies the boundary family as version `v66`,
-retrieved on `2026-06-22` through the collector pipeline under public geodata
-terms. It records separate SHA-256 digests for the captured and normalized
-state, plus a dispute token that identifies the exact snapshot used by
-publication.
+The [boundary source receipt](../../../../data/boundaries/raw/source_manifest.json)
+identifies Natural Earth **Admin 0 - Countries, version 5.1.1**, captured on
+`2026-09-04` under public-domain terms. Its CRS is `EPSG:4326`; the selection
+retains all geometry parts for each of the four countries. The source asset
+SHA-256 is `239eec57ac17f100a11e2536cffc56752c318b50ae765b0918ff7aab4ce8f255`;
+the normalized GeoJSON SHA-256 is
+`bc248e555d39828187df43e27f6150c73bcbd209ce43cb3e41be2c914510b32f`.
+The collector snapshot label `v66` belongs to a different inventory layer and
+does not identify the Natural Earth release.
+
+The [country decision review](../../../../data/boundaries/review/manifest.json)
+evaluates 3,048 points from animal aDNA, LandClim, Neotoma, and SEAD. It retains
+147 point reviews. Qualified inclusion review is still pending, so the
+boundary review release posture is `blocked_pending_qualified_boundary_review`.
+The point decisions and polygons are reusable with this qualification; they do
+not constitute final boundary suitability approval.
 
 The normalized artifact is
 `data/boundaries/normalized/nordic_country_boundaries.geojson`. It contains one
