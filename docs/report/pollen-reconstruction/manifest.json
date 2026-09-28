@@ -66,13 +66,13 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/paper-correspondence.csv",
-      "sha256": "d9cbb82c838961daf73fd0a6ddc21e6e3c7ee44cc0e9f3d87cea9415d0c85c70",
-      "bytes": 7415
+      "sha256": "df3ae68befaed31b56915b59055cfab6189c5fa4c6198ccdcef1c1b546c82573",
+      "bytes": 7767
     },
     {
       "path": "docs/report/pollen-reconstruction/paper-correspondence.md",
-      "sha256": "3860b6e8230092a57baecb6d1adaf27dce1e16e1968d61c45a71bff4a87e8709",
-      "bytes": 5232
+      "sha256": "e5e59f5f4e994c42bdf3c502b979079ca357321e3b82c0eedef76afec8e6c123",
+      "bytes": 5685
     },
     {
       "path": "docs/report/pollen-reconstruction/results.csv",
@@ -191,13 +191,18 @@
     },
     {
       "path": "docs/report/publication-replay/landclim-pft-crosswalk/README.md",
-      "sha256": "ad6d78a2c7073b4229b509dbdbaa35b9424b54750197dc9cad12352c566fdc94",
-      "bytes": 6053
+      "sha256": "0353fd8c77378279da9b78efe01eabab6cd3de28e2695c7c32200e48ec0a6f57",
+      "bytes": 6477
     },
     {
       "path": "docs/report/publication-replay/landclim-pft-crosswalk/author-name-review/report.json",
       "sha256": "f9451525e7bce8b0d678b366366548b380194ed16bde16bbc4f3b30698b0b9d4",
       "bytes": 4549
+    },
+    {
+      "path": "docs/report/publication-replay/landclim-pft-crosswalk/author-release-lineage.md",
+      "sha256": "908b0345da6188714380a690142c9a0256b30b85380c0da109739ff1c2412afe",
+      "bytes": 2443
     },
     {
       "path": "docs/report/publication-replay/landclim-pft-crosswalk/report.json",

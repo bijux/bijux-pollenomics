@@ -23,6 +23,13 @@ paper-versus-archive classification difference, not a reason to silently
 relabel the output. The same paper describes delta-method SE aggregation;
 the observed mean sum cannot be applied to archived SE columns.
 
+The [public author script lineage](../publication-replay/landclim-pft-crosswalk/author-release-lineage.md)
+narrows this source gap. Its 31 taxon header names match the corresponding
+archived mean header positions exactly, but the released scripts do not
+produce the archive's 13 PFT and three LCT columns. An authenticated
+archive-producing PFT/LCT transformation is still needed to interpret `ISTS`,
+the Quercus assignment and aggregated uncertainty.
+
 The next causal resolution needs the source owner to identify the historical raw sequence revisions and selected chronologies for a fully specified published row, then confirm taxon/count and PFT/ISTS transformations. The unresolved source-owner questions are summarized in `swedish-source-questions.csv`. No message was sent.
 
 ## Repository evidence

@@ -39,6 +39,13 @@ source-name LUT has no exact `Quercus deciduous t.` row, and the paper does not
 define the extra `ISTS` archive code. Neither source licenses relabeling the
 archived column as TBS.
 
+The [released-script lineage review](author-release-lineage.md) matches the
+public author wrapper and its 31-taxon header to the custody-bound source
+capsule and archived taxon column names. The archive's 13 PFT and three LCT
+columns are outside that released script's output. Their producing
+transformation and version remain unverified; the paper/archive Quercus
+discrepancy cannot be resolved by the taxon-only wrapper.
+
 Standard errors must be handled separately. The paper's Sect. 2.4 describes
 delta-method aggregation of taxon, PFT and LCT uncertainty. A naive sum of
 constituent PFT standard-error columns differs from the archived LCT standard
