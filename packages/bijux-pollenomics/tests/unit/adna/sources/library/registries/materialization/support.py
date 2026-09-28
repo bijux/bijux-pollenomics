@@ -35,6 +35,18 @@ def source_library_root(output_root: Path) -> Path:
 
 
 def _fixture_downloader(url: str) -> tuple[bytes, str]:
+    if url.endswith("/sra?term=SRP073444"):
+        source_path = (
+            REPOSITORY_ROOT
+            / "data/adna/governance/source_library/projects/SRP073444/archive_metadata.html"
+        )
+        return (read_source_artifact_bytes(source_path), "text/html")
+    if "accession=SRP073444&result=read_run" in url:
+        source_path = (
+            REPOSITORY_ROOT
+            / "data/adna/governance/source_library/projects/SRP073444/ena_run_samples.tsv"
+        )
+        return (source_path.read_bytes(), "text/tab-separated-values")
     if any(
         f"accession={accession}" in url
         for accession in ("PRJEB41594", "PRJEB60484", "PRJNA705960")

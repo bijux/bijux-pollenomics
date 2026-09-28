@@ -468,17 +468,17 @@
     {
       "project_accession": "SRP073444",
       "species_latin_name": "Camelus dromedarius",
-      "recovered_sample_row_count": 0,
+      "recovered_sample_row_count": 20,
       "exact_site_evidence_count": 0,
       "broader_locality_evidence_count": 0,
-      "unresolved_geography_count": 0,
+      "unresolved_geography_count": 20,
       "excavation_site_count": 0,
       "broader_locality_count": 0,
       "municipality_count": 0,
       "region_count": 0,
       "country_count": 0,
       "inferred_place_string_count": 0,
-      "locality_unresolved_count": 0,
+      "locality_unresolved_count": 20,
       "locality_completeness_ratio": 0.0
     },
     {

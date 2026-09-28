@@ -1,12 +1,12 @@
 # Sample chronology precision audit
 
-- Rows audited: `1455`
+- Rows audited: `1475`
 - Precise point rows: `468`
 - Precise interval rows: `328`
 - Approximate or modeled rows: `200`
 - Contextual rows: `16`
 - Broad period rows: `40`
-- Unresolved rows: `403`
+- Unresolved rows: `423`
 
 | Project accession | Sample id | Evidence class | Precision posture | Normalization | Chronology |
 | --- | --- | --- | --- | --- | --- |
@@ -668,4 +668,24 @@
 | PRJNA1178732 | prjna1178732:fs17 | historical_or_recent_date | sample_approximate_or_modeled | text_only_unparsed | 1797 - 1944 cal. CE |
 | PRJNA1178732 | prjna1178732:fs24 | historical_or_recent_date | sample_approximate_or_modeled | text_only_unparsed | 44 cal. BCE - 76 cal. CE |
 | SRS1407451 | srs1407451:srs1407451 | unresolved | unresolved | unresolved |  |
+| SRP073444 | srp073444:samn04631877 | unresolved | unresolved | unresolved |  |
+| SRP073444 | srp073444:samn04631949 | unresolved | unresolved | unresolved |  |
+| SRP073444 | srp073444:samn04631950 | unresolved | unresolved | unresolved |  |
+| SRP073444 | srp073444:samn04631951 | unresolved | unresolved | unresolved |  |
+| SRP073444 | srp073444:samn04631952 | unresolved | unresolved | unresolved |  |
+| SRP073444 | srp073444:samn04631953 | unresolved | unresolved | unresolved |  |
+| SRP073444 | srp073444:samn04631954 | unresolved | unresolved | unresolved |  |
+| SRP073444 | srp073444:samn04631955 | unresolved | unresolved | unresolved |  |
+| SRP073444 | srp073444:samn04631956 | unresolved | unresolved | unresolved |  |
+| SRP073444 | srp073444:samn04631957 | unresolved | unresolved | unresolved |  |
+| SRP073444 | srp073444:samn04631958 | unresolved | unresolved | unresolved |  |
+| SRP073444 | srp073444:samn04631959 | unresolved | unresolved | unresolved |  |
+| SRP073444 | srp073444:samn04631960 | unresolved | unresolved | unresolved |  |
+| SRP073444 | srp073444:samn04631961 | unresolved | unresolved | unresolved |  |
+| SRP073444 | srp073444:samn04631962 | unresolved | unresolved | unresolved |  |
+| SRP073444 | srp073444:samn04631963 | unresolved | unresolved | unresolved |  |
+| SRP073444 | srp073444:samn04631964 | unresolved | unresolved | unresolved |  |
+| SRP073444 | srp073444:samn04631965 | unresolved | unresolved | unresolved |  |
+| SRP073444 | srp073444:samn04631966 | unresolved | unresolved | unresolved |  |
+| SRP073444 | srp073444:samn04631967 | unresolved | unresolved | unresolved |  |
 | PRJEB60484 | prjeb60484:samea112757337 | unresolved | unresolved | unresolved |  |

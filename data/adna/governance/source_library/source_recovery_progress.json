@@ -11,12 +11,12 @@
     "partition": "mutually_exclusive",
     "counted_sample_rows": 1450,
     "count_basis": "species_normalized_sample_rows",
-    "project_source_master_final_sample_rows": 1450,
-    "source_master_species_alignment": "aligned",
+    "project_source_master_final_sample_rows": 1470,
+    "source_master_species_alignment": "unreconciled",
     "coordinate_rule": "nonempty latitude and longitude text; not mapped-point approval"
   },
   "project_counts": {
-    "projects_with_sample_identity_rows": 21,
+    "projects_with_sample_identity_rows": 22,
     "projects_with_defensible_site_rows": 13,
     "projects_with_sample_owned_chronology": 10,
     "projects_with_mappable_coordinates": 11,
@@ -66,11 +66,11 @@
     {
       "project_accession": "SRP073444",
       "species_latin_name": "Camelus dromedarius",
-      "completed_stage_count": 3,
+      "completed_stage_count": 4,
       "required_stage_count": 8,
-      "recovery_depth_score": 0.375,
-      "final_sample_count": 0,
-      "minimum_gap_count": 1,
+      "recovery_depth_score": 0.5,
+      "final_sample_count": 20,
+      "minimum_gap_count": 0,
       "publication_readiness_status": "blocked"
     },
     {

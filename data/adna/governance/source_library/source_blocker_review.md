@@ -1,11 +1,10 @@
 # Source blocker review
 
-- Blocked project rows: `20`
+- Blocked project rows: `19`
 
 | Project | Stage | Required evidence | Explanation |
 | --- | --- | --- | --- |
 | `PRJNA705960` | `paper_capture` | `archived_article_surface; stable_doi_linkage` | The tracked project still lacks a reliable readable paper surface inside the repository. |
-| `SRP073444` | `site_extraction` | `project_sample_sites` | Sample identities exist, but exact locality extraction is not yet published. |
 | `PRJEB43564` | `paper_capture` | `archived_article_surface; stable_doi_linkage` | The tracked project still lacks a reliable readable paper surface inside the repository. |
 | `PRJEB50952` | `paper_capture` | `archived_article_surface; stable_doi_linkage` | The tracked project still lacks a reliable readable paper surface inside the repository. |
 | `PRJEB52590` | `paper_capture` | `archived_article_surface; stable_doi_linkage` | The tracked project still lacks a reliable readable paper surface inside the repository. |

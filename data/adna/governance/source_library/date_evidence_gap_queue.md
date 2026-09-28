@@ -1,10 +1,11 @@
 # Date evidence gap queue
 
-- Projects still needing stronger sample-level chronology: `12`
+- Projects still needing stronger sample-level chronology: `13`
 
 | Project accession | Species | Sample rows | Exact sample dates | Contextual dates | Broad labels | Missing dates | Gap reasons |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | --- |
 | PRJEB30282 | Sus scrofa domesticus | 343 | 0 | 0 | 0 | 341 | missing_sample_level_date_evidence |
+| SRP073444 | Camelus dromedarius | 20 | 0 | 0 | 0 | 20 | no_sample_owned_chronology_recovered, missing_sample_level_date_evidence |
 | PRJEB31621 | Bos taurus | 78 | 0 | 7 | 0 | 13 | missing_sample_level_date_evidence, project_context_dates_still_dominate |
 | PRJEB75467 | Bos taurus | 45 | 28 | 0 | 0 | 11 | missing_sample_level_date_evidence |
 | PRJNA705960 | Bos taurus | 11 | 0 | 0 | 0 | 11 | no_sample_owned_chronology_recovered, missing_sample_level_date_evidence |

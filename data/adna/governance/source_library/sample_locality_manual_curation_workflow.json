@@ -439,6 +439,47 @@
       ]
     },
     {
+      "project_accession": "SRP073444",
+      "species_latin_name": "Camelus dromedarius",
+      "decision_status": "pending_manual_curation",
+      "locality_resolution_status": "unresolved",
+      "unresolved_place_string": "",
+      "candidate_matches": [
+        "Site 1040 near Wadi Halfa",
+        "Site 1040 near Wadi Halfa dromedary context"
+      ],
+      "final_decision": "",
+      "decision_rationale": "",
+      "queued_sample_count": 20,
+      "queued_sample_ids": [
+        "srp073444:samn04631877",
+        "srp073444:samn04631949",
+        "srp073444:samn04631950",
+        "srp073444:samn04631951",
+        "srp073444:samn04631952",
+        "srp073444:samn04631953",
+        "srp073444:samn04631954",
+        "srp073444:samn04631955",
+        "srp073444:samn04631956",
+        "srp073444:samn04631957",
+        "srp073444:samn04631958",
+        "srp073444:samn04631959",
+        "srp073444:samn04631960",
+        "srp073444:samn04631961",
+        "srp073444:samn04631962",
+        "srp073444:samn04631963",
+        "srp073444:samn04631964",
+        "srp073444:samn04631965",
+        "srp073444:samn04631966",
+        "srp073444:samn04631967"
+      ],
+      "recommended_source_surfaces": [
+        "article_text",
+        "coordinate_resolution",
+        "tracked_source_artifact"
+      ]
+    },
+    {
       "project_accession": "SRS1407451",
       "species_latin_name": "Canis lupus familiaris",
       "decision_status": "pending_manual_curation",

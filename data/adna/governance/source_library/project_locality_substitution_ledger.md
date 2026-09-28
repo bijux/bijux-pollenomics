@@ -1,6 +1,6 @@
 # Project locality substitution ledger
 
-- Flagged projects: `9`
+- Flagged projects: `10`
 
 | Project accession | Publication blocked | Reason | Distinct sample-owned localities | Blocked sample count |
 | --- | --- | --- | ---: | ---: |
@@ -13,3 +13,4 @@
 | PRJEB81815 | false | project_context_rows_cannot_substitute_for_multi_site_sample_owned_localities | 61 | 0 |
 | PRJNA1328209 | true | project_level_locality_row_cannot_stand_in_for_all_samples | 0 | 5 |
 | PRJNA705960 | true | project_level_locality_row_cannot_stand_in_for_all_samples | 0 | 11 |
+| SRP073444 | true | project_level_locality_row_cannot_stand_in_for_all_samples | 0 | 20 |

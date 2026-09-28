@@ -1,7 +1,7 @@
 # Source recovery progress
 
 - Tracked projects: `40`
-- Sample identity rows present: `21`
+- Sample identity rows present: `22`
 - Defensible site rows present: `13`
 - Sample-owned chronology present: `10`
 - Mappable coordinate projects: `11`
@@ -9,7 +9,7 @@
 
 ## Sample Evidence Depth
 
-The four mutually exclusive buckets partition `1450` species-normalized sample rows. The project source master has `1450` final rows; alignment is `aligned`. A site-only row has no normalized chronology; a site-and-chronology row has no coordinate text. The final bucket has coordinate text, not necessarily an approved mapped point.
+The four mutually exclusive buckets partition `1450` species-normalized sample rows. The project source master has `1470` final rows; alignment is `unreconciled`. A site-only row has no normalized chronology; a site-and-chronology row has no coordinate text. The final bucket has coordinate text, not necessarily an approved mapped point.
 
 - sample identity only: `0`
 - sample with site: `536`
@@ -22,7 +22,7 @@ The four mutually exclusive buckets partition `1450` species-normalized sample r
 | `PRJEB75467` | `Bos taurus` | `4` | `8` | `0.5` |
 | `PRJNA705960` | `Bos taurus` | `2` | `7` | `0.2857` |
 | `KU605068-KU605080` | `Camelus dromedarius` | `7` | `8` | `0.875` |
-| `SRP073444` | `Camelus dromedarius` | `3` | `8` | `0.375` |
+| `SRP073444` | `Camelus dromedarius` | `4` | `8` | `0.5` |
 | `KX379528-KX379529` | `Canis lupus familiaris` | `7` | `8` | `0.875` |
 | `SRS1407451` | `Canis lupus familiaris` | `4` | `8` | `0.5` |
 | `SRS1407453` | `Canis lupus familiaris` | `7` | `8` | `0.875` |

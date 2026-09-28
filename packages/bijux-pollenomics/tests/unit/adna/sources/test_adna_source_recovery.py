@@ -71,10 +71,11 @@ class AdnaSourceRecoveryUnitTests(unittest.TestCase):
         srp = next(
             row for row in payload["rows"] if row["project_accession"] == "SRP073444"
         )
-        self.assertEqual(srp["recovered_sample_count"], 0)
-        self.assertEqual(srp["final_sample_count"], 0)
-        self.assertEqual(srp["stage_statuses"]["sample_identity_recovery"], "blocked")
-        self.assertIn("sample_recovery_gap", srp["major_deficit_reasons"])
+        self.assertEqual(srp["recovered_sample_count"], 20)
+        self.assertEqual(srp["final_sample_count"], 20)
+        self.assertEqual(srp["stage_statuses"]["sample_identity_recovery"], "complete")
+        self.assertIn("site_assignment_gap", srp["major_deficit_reasons"])
+        self.assertIn("chronology_gap", srp["major_deficit_reasons"])
 
     def test_paper_species_and_manual_work_surfaces_stay_actionable(self) -> None:
         paper_payload = build_paper_expected_sample_yield_review(self.data_root)

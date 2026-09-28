@@ -10,7 +10,7 @@
 | `PRJEB75467` | `10.1038/s41586-024-08112-6` | `readable_html` | `repository_supplement_archived` | `missing` | `project_sample_master_published` | `published` | `published` | `sample_tables_published` |
 | `PRJNA705960` | `none` | `no_linked_paper` | `not_applicable` | `missing` | `project_sample_master_published` | `published` | `published` | `paper_linkage_not_curated` |
 | `KU605068-KU605080` | `10.1111/1755-0998.12551` | `readable_html` | `repository_supplement_archived` | `missing` | `project_sample_master_published` | `published` | `published` | `sample_tables_published` |
-| `SRP073444` | `10.1111/1755-0998.12551` | `readable_html` | `repository_supplement_archived` | `missing` | `project_sample_master_published` | `published_empty` | `published_empty` | `sample_tables_published` |
+| `SRP073444` | `10.1111/1755-0998.12551` | `readable_html` | `repository_supplement_archived` | `missing` | `project_sample_master_published` | `published` | `published` | `sample_tables_published` |
 | `KX379528-KX379529` | `10.1038/ncomms16082` | `readable_html` | `repository_supplement_archived` | `missing` | `project_sample_master_published` | `published` | `published` | `sample_tables_published` |
 | `SRS1407451` | `10.1038/ncomms16082` | `readable_html` | `repository_supplement_archived` | `missing` | `project_sample_master_published` | `published` | `published` | `sample_tables_published` |
 | `SRS1407453` | `10.1038/ncomms16082` | `readable_html` | `repository_supplement_archived` | `missing` | `project_sample_master_published` | `published` | `published` | `sample_tables_published` |

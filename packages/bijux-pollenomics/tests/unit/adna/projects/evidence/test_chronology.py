@@ -149,12 +149,14 @@ class AdnaProjectSampleChronologyUnitTests(unittest.TestCase):
             "Zea2": (6748, 7744, 7296),
         }
 
-    def test_experiment_only_archive_evidence_does_not_become_sample_chronology(
+    def test_camel_biosample_identity_does_not_invent_sample_chronology(
         self,
     ) -> None:
         rows = build_project_sample_chronology_rows(self.data_root, "SRP073444")
 
-        self.assertEqual(rows, ())
+        self.assertEqual(len(rows), 20)
+        self.assertTrue(all(row.chronology_strength == "unresolved" for row in rows))
+        self.assertTrue(all(row.time_start_bp is None for row in rows))
 
     def test_project_context_does_not_become_biological_sample_chronology(
         self,

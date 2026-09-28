@@ -8,7 +8,7 @@
 | `Bos taurus` | `PRJEB75467` | `0` | `10` | `11` | `blocked` |
 | `Bos taurus` | `PRJNA705960` | `0` | `11` | `11` | `blocked` |
 | `Camelus dromedarius` | `KU605068-KU605080` | `0` | `0` | `0` | `complete` |
-| `Camelus dromedarius` | `SRP073444` | `1` | `0` | `0` | `blocked` |
+| `Camelus dromedarius` | `SRP073444` | `0` | `20` | `20` | `blocked` |
 | `Canis lupus familiaris` | `KX379528-KX379529` | `0` | `0` | `0` | `complete` |
 | `Canis lupus familiaris` | `SRS1407451` | `0` | `1` | `1` | `blocked` |
 | `Canis lupus familiaris` | `SRS1407453` | `0` | `0` | `0` | `complete` |

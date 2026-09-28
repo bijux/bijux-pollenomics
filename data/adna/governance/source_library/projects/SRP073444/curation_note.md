@@ -16,6 +16,8 @@ Paper-level evidence is required; locally curated supplementary evidence is also
 - `adna/governance/source_library/papers/10.1111-1755-0998.12551/crossref.json`
 - `adna/governance/source_library/papers/10.1111-1755-0998.12551/supplementary/men12551-sup-0001-supinfo.docx`
 - `adna/governance/source_library/projects/SRP073444/archive_metadata.html`
+- `adna/governance/source_library/projects/SRP073444/ena_run_samples.tsv`
+- `adna/governance/source_library/projects/SRP073444/ena_run_samples.tsv.metadata.json`
 
 ## Blockers
 

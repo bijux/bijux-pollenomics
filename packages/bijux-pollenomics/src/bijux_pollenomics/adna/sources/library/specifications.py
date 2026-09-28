@@ -293,6 +293,24 @@ def _expand_remote_assets(
 
 
 def _project_remote_assets(project_accession: str) -> tuple[_RemoteArtifactSpec, ...]:
+    if project_accession == "SRP073444":
+        return (
+            _RemoteArtifactSpec(
+                artifact_kind="ena_run_report_tsv",
+                label="ENA run-to-BioSample report",
+                source_url=(
+                    "https://www.ebi.ac.uk/ena/portal/api/filereport?"
+                    "accession=SRP073444&result=read_run&fields=study_accession,"
+                    "sample_accession,experiment_accession,run_accession"
+                    "&format=tsv&limit=0"
+                ),
+                relative_path="projects/SRP073444/ena_run_samples.tsv",
+                remote_note=(
+                    "Official ENA mirror binds SRA experiments to biological sample "
+                    "accessions; paper Table S1 locality and age remain separate."
+                ),
+            ),
+        )
     sample_accessions = {
         "PRJEB41594": (
             "SAMEA8022720",

@@ -1,0 +1,23 @@
+{
+  "schema_version": "adna-source-library.v1",
+  "source_url": "https://www.ebi.ac.uk/ena/portal/api/filereport?accession=SRP073444&result=read_run&fields=study_accession,sample_accession,experiment_accession,run_accession&format=tsv&limit=0",
+  "artifact_kind": "ena_run_report_tsv",
+  "content_type": "text/tab-separated-values",
+  "byte_size": 5097,
+  "project_accession": "SRP073444",
+  "retrieved_at_utc": "2026-09-28T23:56:22Z",
+  "license_name": "EMBL-EBI Terms of Use",
+  "license_url": "https://www.ebi.ac.uk/about/terms-of-use/",
+  "license_note": "Official ENA mirror relation; source owner retains underlying data rights.",
+  "evidence_locators": [
+    {
+      "claim_family": "experiment_to_biological_sample",
+      "locator": "experiment_accession=SRX1711539..SRX1711558; exact TSV rows"
+    }
+  ],
+  "content_sha256": "e732170881351bb3199b250c60fa1c2b53c5e7cde6ccb30db5ee00d84ffbf99a",
+  "storage_byte_size": 5097,
+  "storage_sha256": "e732170881351bb3199b250c60fa1c2b53c5e7cde6ccb30db5ee00d84ffbf99a",
+  "storage_path": "adna/governance/source_library/projects/SRP073444/ena_run_samples.tsv",
+  "content_encoding": null
+}

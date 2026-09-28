@@ -5,8 +5,8 @@
     "repository_supplement_captured": 20,
     "local_reference_supplement_staged": 0,
     "sample_master_published": 22,
-    "sample_site_published": 21,
-    "sample_chronology_published": 21
+    "sample_site_published": 22,
+    "sample_chronology_published": 22
   },
   "rows": [
     {
@@ -110,10 +110,10 @@
       "local_reference_supplement_status": "missing",
       "sample_table_extraction_status": "project_sample_master_published",
       "sample_master_row_count": 20,
-      "sample_site_table_status": "published_empty",
-      "sample_site_row_count": 0,
-      "sample_chronology_table_status": "published_empty",
-      "sample_chronology_row_count": 0,
+      "sample_site_table_status": "published",
+      "sample_site_row_count": 20,
+      "sample_chronology_table_status": "published",
+      "sample_chronology_row_count": 20,
       "evidence_acquisition_state": "sample_tables_published",
       "blockers": []
     },

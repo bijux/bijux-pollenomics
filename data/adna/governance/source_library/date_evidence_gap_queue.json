@@ -16,6 +16,21 @@
       ]
     },
     {
+      "project_accession": "SRP073444",
+      "species_latin_name": "Camelus dromedarius",
+      "recovered_sample_row_count": 20,
+      "sample_owned_date_row_count": 0,
+      "exact_sample_date_count": 0,
+      "modeled_or_approximate_sample_date_count": 0,
+      "contextual_date_count": 0,
+      "broad_label_count": 0,
+      "missing_date_count": 20,
+      "gap_reasons": [
+        "no_sample_owned_chronology_recovered",
+        "missing_sample_level_date_evidence"
+      ]
+    },
+    {
       "project_accession": "PRJEB31621",
       "species_latin_name": "Bos taurus",
       "recovered_sample_row_count": 78,

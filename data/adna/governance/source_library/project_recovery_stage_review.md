@@ -10,7 +10,7 @@
 | `PRJEB75467` | `Bos taurus` | `blocked_projects` | `site_recovery` | `publication_readiness` |
 | `PRJNA705960` | `Bos taurus` | `blocked_projects` | `paper_capture` | `paper_capture; coordinate_derivation; publication_readiness` |
 | `KU605068-KU605080` | `Camelus dromedarius` | `ready_for_publication_review` | `coordinate_derivation` | `none` |
-| `SRP073444` | `Camelus dromedarius` | `blocked_projects` | `sample_identity_recovery` | `sample_identity_recovery; site_recovery; chronology_recovery; coordinate_derivation; publication_readiness` |
+| `SRP073444` | `Camelus dromedarius` | `blocked_projects` | `site_recovery` | `publication_readiness` |
 | `KX379528-KX379529` | `Canis lupus familiaris` | `ready_for_publication_review` | `coordinate_derivation` | `none` |
 | `SRS1407451` | `Canis lupus familiaris` | `blocked_projects` | `site_recovery` | `coordinate_derivation; publication_readiness` |
 | `SRS1407453` | `Canis lupus familiaris` | `ready_for_publication_review` | `coordinate_derivation` | `none` |

@@ -199,23 +199,31 @@ class TaxonomyTests(SampleMasterRecoveryTestCase):
         )
         self.assertEqual(leopard.taxon_alignment_status, "project_species_mismatch")
 
-    def test_ncbi_sra_capture_preserves_experiment_accessions_and_labels(self) -> None:
+    def test_camel_ena_report_binds_experiments_to_distinct_biosamples(self) -> None:
         rows = build_project_sample_master_rows(self.data_root, "SRP073444")
 
         self.assertEqual(len(rows), 20)
+        self.assertEqual(len({row.archive_native_sample_id for row in rows}), 20)
+        self.assertTrue(all(row.sample_identity_resolution == "final" for row in rows))
         palm = next(
             row for row in rows if row.archive_native_experiment_id == "SRX1711558"
         )
-        self.assertEqual(palm.archive_native_sample_id, "")
-        self.assertEqual(palm.preferred_sample_label, "Palm143_II")
-        self.assertEqual(palm.sample_lineage_locator, "experiment_accession:SRX1711558")
-        self.assertEqual(
-            palm.source_native_identity_kind, "sequencing_experiment_accession"
+        other_palm = next(
+            row for row in rows if row.archive_native_experiment_id == "SRX1711548"
         )
-        self.assertEqual(palm.sample_evidence_status, "experiment_level_only")
-        self.assertEqual(palm.sample_identity_resolution, "provisional")
-        self.assertIn("not a biological sample", palm.sample_ambiguity_note)
+        self.assertEqual(palm.archive_native_sample_id, "SAMN04631967")
+        self.assertEqual(other_palm.archive_native_sample_id, "SAMN04631877")
+        self.assertEqual(palm.preferred_sample_label, "Palm143_II")
+        self.assertIn("experiment_accession:SRX1711558", palm.sample_lineage_locator)
+        self.assertIn("sample_accession:SAMN04631967", palm.sample_lineage_locator)
+        self.assertEqual(
+            palm.source_native_identity_kind, "biological_sample_accession"
+        )
+        self.assertEqual(palm.sample_evidence_status, "archive_native")
+        self.assertEqual(palm.sample_identity_resolution, "final")
+        self.assertEqual(palm.sample_ambiguity_note, "")
         self.assertEqual(palm.taxon_alignment_status, "not_reported")
+        self.assertFalse(any("thomasi" in row.preferred_sample_label for row in rows))
 
     def test_merged_taxon_alignment_is_order_independent(self) -> None:
         base = build_project_sample_master_rows(self.data_root, "KU605068-KU605080")[0]

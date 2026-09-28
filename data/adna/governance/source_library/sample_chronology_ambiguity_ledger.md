@@ -1,6 +1,6 @@
 # Sample chronology ambiguity ledger
 
-- Rows requiring chronology review: `659`
+- Rows requiring chronology review: `679`
 
 | Project accession | Sample id | Strength | Normalization | Chronology | Note |
 | --- | --- | --- | --- | --- | --- |
@@ -662,4 +662,24 @@
 | PRJNA1178732 | prjna1178732:fs17 | sample_owned_text_only / sample_approximate_or_modeled | text_only_unparsed | 1797 - 1944 cal. CE | Chronology comes from the recovered sample-owned source row. |
 | PRJNA1178732 | prjna1178732:fs24 | sample_owned_text_only / sample_approximate_or_modeled | text_only_unparsed | 44 cal. BCE - 76 cal. CE | Chronology comes from the recovered sample-owned source row. |
 | SRS1407451 | srs1407451:srs1407451 | unresolved / unresolved | unresolved |  | No chronology claim has been recovered yet for this sample row. |
+| SRP073444 | srp073444:samn04631877 | unresolved / unresolved | unresolved |  | No chronology claim has been recovered yet for this sample row. |
+| SRP073444 | srp073444:samn04631949 | unresolved / unresolved | unresolved |  | No chronology claim has been recovered yet for this sample row. |
+| SRP073444 | srp073444:samn04631950 | unresolved / unresolved | unresolved |  | No chronology claim has been recovered yet for this sample row. |
+| SRP073444 | srp073444:samn04631951 | unresolved / unresolved | unresolved |  | No chronology claim has been recovered yet for this sample row. |
+| SRP073444 | srp073444:samn04631952 | unresolved / unresolved | unresolved |  | No chronology claim has been recovered yet for this sample row. |
+| SRP073444 | srp073444:samn04631953 | unresolved / unresolved | unresolved |  | No chronology claim has been recovered yet for this sample row. |
+| SRP073444 | srp073444:samn04631954 | unresolved / unresolved | unresolved |  | No chronology claim has been recovered yet for this sample row. |
+| SRP073444 | srp073444:samn04631955 | unresolved / unresolved | unresolved |  | No chronology claim has been recovered yet for this sample row. |
+| SRP073444 | srp073444:samn04631956 | unresolved / unresolved | unresolved |  | No chronology claim has been recovered yet for this sample row. |
+| SRP073444 | srp073444:samn04631957 | unresolved / unresolved | unresolved |  | No chronology claim has been recovered yet for this sample row. |
+| SRP073444 | srp073444:samn04631958 | unresolved / unresolved | unresolved |  | No chronology claim has been recovered yet for this sample row. |
+| SRP073444 | srp073444:samn04631959 | unresolved / unresolved | unresolved |  | No chronology claim has been recovered yet for this sample row. |
+| SRP073444 | srp073444:samn04631960 | unresolved / unresolved | unresolved |  | No chronology claim has been recovered yet for this sample row. |
+| SRP073444 | srp073444:samn04631961 | unresolved / unresolved | unresolved |  | No chronology claim has been recovered yet for this sample row. |
+| SRP073444 | srp073444:samn04631962 | unresolved / unresolved | unresolved |  | No chronology claim has been recovered yet for this sample row. |
+| SRP073444 | srp073444:samn04631963 | unresolved / unresolved | unresolved |  | No chronology claim has been recovered yet for this sample row. |
+| SRP073444 | srp073444:samn04631964 | unresolved / unresolved | unresolved |  | No chronology claim has been recovered yet for this sample row. |
+| SRP073444 | srp073444:samn04631965 | unresolved / unresolved | unresolved |  | No chronology claim has been recovered yet for this sample row. |
+| SRP073444 | srp073444:samn04631966 | unresolved / unresolved | unresolved |  | No chronology claim has been recovered yet for this sample row. |
+| SRP073444 | srp073444:samn04631967 | unresolved / unresolved | unresolved |  | No chronology claim has been recovered yet for this sample row. |
 | PRJEB60484 | prjeb60484:samea112757337 | unresolved / unresolved | unresolved |  | No chronology claim has been recovered yet for this sample row. |

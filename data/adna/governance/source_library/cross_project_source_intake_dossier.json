@@ -2,8 +2,8 @@
   "schema_version": "adna-source-inventory.v1",
   "row_count": 40,
   "counts": {
-    "projects_with_site_expectation": 1,
-    "projects_with_chronology_expectation": 1,
+    "projects_with_site_expectation": 0,
+    "projects_with_chronology_expectation": 0,
     "projects_with_identifier_expectation": 27
   },
   "rows": [
@@ -83,10 +83,7 @@
       "evidence_acquisition_state": "sample_tables_published",
       "expected_contributions": [
         "sample_identifiers",
-        "taxonomic_context",
-        "site_names",
-        "coordinate_resolution_candidate",
-        "chronology"
+        "taxonomic_context"
       ],
       "expected_sample_count_status": "not_yet_curated",
       "sample_identifier_status": "paper_or_supplement_targets_curated",

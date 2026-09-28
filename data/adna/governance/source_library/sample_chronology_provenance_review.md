@@ -1,6 +1,6 @@
 # Sample chronology provenance review
 
-- Provenance packets: `1455`
+- Provenance packets: `1475`
 
 | Project accession | Sample id | Published wording | Provenance surface | Provenance locator | Normalization rule | Uncertainty note |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -1457,5 +1457,25 @@
 | PRJNA705960 | prjna705960:samn18106835 |  |  |  | keep the row unresolved until stronger chronology evidence exists | No chronology claim has been recovered yet for this sample row. |
 | PRJNA705960 | prjna705960:samn18106836 |  |  |  | keep the row unresolved until stronger chronology evidence exists | No chronology claim has been recovered yet for this sample row. |
 | PRJNA705960 | prjna705960:samn18106837 |  |  |  | keep the row unresolved until stronger chronology evidence exists | No chronology claim has been recovered yet for this sample row. |
+| SRP073444 | srp073444:samn04631877 |  |  |  | keep the row unresolved until stronger chronology evidence exists | No chronology claim has been recovered yet for this sample row. |
+| SRP073444 | srp073444:samn04631949 |  |  |  | keep the row unresolved until stronger chronology evidence exists | No chronology claim has been recovered yet for this sample row. |
+| SRP073444 | srp073444:samn04631950 |  |  |  | keep the row unresolved until stronger chronology evidence exists | No chronology claim has been recovered yet for this sample row. |
+| SRP073444 | srp073444:samn04631951 |  |  |  | keep the row unresolved until stronger chronology evidence exists | No chronology claim has been recovered yet for this sample row. |
+| SRP073444 | srp073444:samn04631952 |  |  |  | keep the row unresolved until stronger chronology evidence exists | No chronology claim has been recovered yet for this sample row. |
+| SRP073444 | srp073444:samn04631953 |  |  |  | keep the row unresolved until stronger chronology evidence exists | No chronology claim has been recovered yet for this sample row. |
+| SRP073444 | srp073444:samn04631954 |  |  |  | keep the row unresolved until stronger chronology evidence exists | No chronology claim has been recovered yet for this sample row. |
+| SRP073444 | srp073444:samn04631955 |  |  |  | keep the row unresolved until stronger chronology evidence exists | No chronology claim has been recovered yet for this sample row. |
+| SRP073444 | srp073444:samn04631956 |  |  |  | keep the row unresolved until stronger chronology evidence exists | No chronology claim has been recovered yet for this sample row. |
+| SRP073444 | srp073444:samn04631957 |  |  |  | keep the row unresolved until stronger chronology evidence exists | No chronology claim has been recovered yet for this sample row. |
+| SRP073444 | srp073444:samn04631958 |  |  |  | keep the row unresolved until stronger chronology evidence exists | No chronology claim has been recovered yet for this sample row. |
+| SRP073444 | srp073444:samn04631959 |  |  |  | keep the row unresolved until stronger chronology evidence exists | No chronology claim has been recovered yet for this sample row. |
+| SRP073444 | srp073444:samn04631960 |  |  |  | keep the row unresolved until stronger chronology evidence exists | No chronology claim has been recovered yet for this sample row. |
+| SRP073444 | srp073444:samn04631961 |  |  |  | keep the row unresolved until stronger chronology evidence exists | No chronology claim has been recovered yet for this sample row. |
+| SRP073444 | srp073444:samn04631962 |  |  |  | keep the row unresolved until stronger chronology evidence exists | No chronology claim has been recovered yet for this sample row. |
+| SRP073444 | srp073444:samn04631963 |  |  |  | keep the row unresolved until stronger chronology evidence exists | No chronology claim has been recovered yet for this sample row. |
+| SRP073444 | srp073444:samn04631964 |  |  |  | keep the row unresolved until stronger chronology evidence exists | No chronology claim has been recovered yet for this sample row. |
+| SRP073444 | srp073444:samn04631965 |  |  |  | keep the row unresolved until stronger chronology evidence exists | No chronology claim has been recovered yet for this sample row. |
+| SRP073444 | srp073444:samn04631966 |  |  |  | keep the row unresolved until stronger chronology evidence exists | No chronology claim has been recovered yet for this sample row. |
+| SRP073444 | srp073444:samn04631967 |  |  |  | keep the row unresolved until stronger chronology evidence exists | No chronology claim has been recovered yet for this sample row. |
 | SRS1407451 | srs1407451:srs1407451 |  |  |  | keep the row unresolved until stronger chronology evidence exists | No chronology claim has been recovered yet for this sample row. |
 | SRS1407453 | srs1407453:srs1407453 | 5223-5040 BCE | adna/governance/source_library/papers/10.1038-ncomms16082/article.html | Results: Archaeological samples and ancient DNA sequencing; Data availability | keep one normalized interval and preserve its evidence class and precision posture | Chronology comes from the recovered sample-owned source row. |

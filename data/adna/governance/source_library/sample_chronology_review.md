@@ -1,6 +1,6 @@
 # Sample chronology review
 
-- Sample chronology rows: `1455`
+- Sample chronology rows: `1475`
 
 | Species | Project accession | Sample id | Strength | Evidence class | Precision posture | Normalization | Chronology | Provenance |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -151,6 +151,26 @@
 | Camelus dromedarius | KU605068-KU605080 | ku605068-ku605080:ku605078 | sample_owned_interval | historical_or_recent_date | sample_precise_point | normalized_point | 0 BP (modern comparator) | adna/governance/source_library/papers/10.1111-1755-0998.12551/article.html |
 | Camelus dromedarius | KU605068-KU605080 | ku605068-ku605080:ku605079 | sample_owned_interval | historical_or_recent_date | sample_precise_point | normalized_point | 0 BP (modern comparator) | adna/governance/source_library/papers/10.1111-1755-0998.12551/article.html |
 | Camelus dromedarius | KU605068-KU605080 | ku605068-ku605080:ku605080 | sample_owned_interval | historical_or_recent_date | sample_precise_point | normalized_point | 0 BP (modern comparator) | adna/governance/source_library/papers/10.1111-1755-0998.12551/article.html |
+| Camelus dromedarius | SRP073444 | srp073444:samn04631877 | unresolved | unresolved | unresolved | unresolved |  |  |
+| Camelus dromedarius | SRP073444 | srp073444:samn04631949 | unresolved | unresolved | unresolved | unresolved |  |  |
+| Camelus dromedarius | SRP073444 | srp073444:samn04631950 | unresolved | unresolved | unresolved | unresolved |  |  |
+| Camelus dromedarius | SRP073444 | srp073444:samn04631951 | unresolved | unresolved | unresolved | unresolved |  |  |
+| Camelus dromedarius | SRP073444 | srp073444:samn04631952 | unresolved | unresolved | unresolved | unresolved |  |  |
+| Camelus dromedarius | SRP073444 | srp073444:samn04631953 | unresolved | unresolved | unresolved | unresolved |  |  |
+| Camelus dromedarius | SRP073444 | srp073444:samn04631954 | unresolved | unresolved | unresolved | unresolved |  |  |
+| Camelus dromedarius | SRP073444 | srp073444:samn04631955 | unresolved | unresolved | unresolved | unresolved |  |  |
+| Camelus dromedarius | SRP073444 | srp073444:samn04631956 | unresolved | unresolved | unresolved | unresolved |  |  |
+| Camelus dromedarius | SRP073444 | srp073444:samn04631957 | unresolved | unresolved | unresolved | unresolved |  |  |
+| Camelus dromedarius | SRP073444 | srp073444:samn04631958 | unresolved | unresolved | unresolved | unresolved |  |  |
+| Camelus dromedarius | SRP073444 | srp073444:samn04631959 | unresolved | unresolved | unresolved | unresolved |  |  |
+| Camelus dromedarius | SRP073444 | srp073444:samn04631960 | unresolved | unresolved | unresolved | unresolved |  |  |
+| Camelus dromedarius | SRP073444 | srp073444:samn04631961 | unresolved | unresolved | unresolved | unresolved |  |  |
+| Camelus dromedarius | SRP073444 | srp073444:samn04631962 | unresolved | unresolved | unresolved | unresolved |  |  |
+| Camelus dromedarius | SRP073444 | srp073444:samn04631963 | unresolved | unresolved | unresolved | unresolved |  |  |
+| Camelus dromedarius | SRP073444 | srp073444:samn04631964 | unresolved | unresolved | unresolved | unresolved |  |  |
+| Camelus dromedarius | SRP073444 | srp073444:samn04631965 | unresolved | unresolved | unresolved | unresolved |  |  |
+| Camelus dromedarius | SRP073444 | srp073444:samn04631966 | unresolved | unresolved | unresolved | unresolved |  |  |
+| Camelus dromedarius | SRP073444 | srp073444:samn04631967 | unresolved | unresolved | unresolved | unresolved |  |  |
 | Canis lupus familiaris | KX379528-KX379529 | kx379528-kx379529:kx379528 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 2900-2632 BCE | adna/governance/source_library/papers/10.1038-ncomms16082/article.html |
 | Canis lupus familiaris | KX379528-KX379529 | kx379528-kx379529:kx379529 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 5223-5040 BCE | adna/governance/source_library/papers/10.1038-ncomms16082/article.html |
 | Canis lupus familiaris | SRS1407451 | srs1407451:srs1407451 | unresolved | unresolved | unresolved | unresolved |  |  |
