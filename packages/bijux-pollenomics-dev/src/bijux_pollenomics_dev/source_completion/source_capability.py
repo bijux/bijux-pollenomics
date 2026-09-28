@@ -46,6 +46,12 @@ NULL_ONLY_STATUSES = frozenset(
         "not_available_from_source",
     }
 )
+SOURCE_ROLE_BOUNDARIES = {
+    "landclim": "primary_context",
+    "sead": "contextual_domain",
+    "raa": "contextual_domain",
+    "hyde": "external_model_comparison",
+}
 
 
 def _validate_status_counts(status: object, counts: dict[str, Any]) -> None:
@@ -125,6 +131,17 @@ def derive(stage: dict[str, Any], coverage: dict[str, Any]) -> dict[str, Any]:
         raise ValueError("Country coverage Cartesian inventory changed")
     by_key = {key: cell for key, cell in zip(actual, cells, strict=True)}
     by_stage = {row["source_key"]: row for row in rows}
+    for family, role in SOURCE_ROLE_BOUNDARIES.items():
+        if by_stage[family]["evidence_role"] != role:
+            raise ValueError(f"Source evidence role changed: {family}")
+    for country in COUNTRIES:
+        for dimension in DIMENSIONS:
+            raa = by_key[("raa", country, dimension)]
+            expected_status = (
+                "blocked" if country == "SE" else "not_available_from_source"
+            )
+            if raa["availability_status"] != expected_status:
+                raise ValueError(f"National RAÄ country scope changed: {country}")
     entries = []
     for family in FAMILIES:
         for country in COUNTRIES:

@@ -95,6 +95,52 @@ def test_country_consumer_rejects_numeric_zero_in_blocked_cell(
 
 
 @pytest.mark.parametrize(
+    ("family", "incorrect_role"),
+    [
+        ("landclim", "observation"),
+        ("sead", "pollen_observation"),
+        ("raa", "pollen_observation"),
+        ("hyde", "observed_vegetation"),
+    ],
+)
+def test_context_and_model_roles_cannot_become_observations(
+    ledgers: tuple[dict[str, object], dict[str, object]],
+    family: str,
+    incorrect_role: str,
+) -> None:
+    stage, coverage = deepcopy(ledgers)
+    rows = stage["rows"]
+    assert isinstance(rows, list)
+    next(row for row in rows if row["source_key"] == family)["evidence_role"] = (
+        incorrect_role
+    )
+    with pytest.raises(ValueError, match=f"Source evidence role changed: {family}"):
+        derive(stage, coverage)
+
+
+@pytest.mark.parametrize("country", ["DK", "NO", "FI"])
+def test_national_raa_cannot_become_nordic_publication(
+    ledgers: tuple[dict[str, object], dict[str, object]], country: str
+) -> None:
+    stage, coverage = deepcopy(ledgers)
+    cells = coverage["cells"]
+    assert isinstance(cells, list)
+    cell = next(
+        item
+        for item in cells
+        if item["source_family"] == "raa"
+        and item["country_code"] == country
+        and item["country_dimension"] == "publication"
+    )
+    cell["availability_status"] = "zero_observations"
+    cell["counts"]["sites"] = 0
+    with pytest.raises(
+        ValueError, match=f"National RAÄ country scope changed: {country}"
+    ):
+        derive(stage, coverage)
+
+
+@pytest.mark.parametrize(
     ("status", "counts", "reason"),
     [
         ("zero_observations", {"sites": None}, "requires only observed zeros"),
