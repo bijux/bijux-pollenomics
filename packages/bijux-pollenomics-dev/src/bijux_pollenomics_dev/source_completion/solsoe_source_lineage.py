@@ -181,6 +181,47 @@ def publish(repository: Path, output: Path) -> dict[str, Any]:
         != "negative_bp"
     ):
         raise ValueError("Solsø excluded sample age reason changed")
+    published_age_bounds = (
+        int(_required(ii, "TopBP")),
+        int(_required(ii, "BotBP")),
+    )
+    if published_age_bounds[0] > published_age_bounds[1]:
+        raise ValueError("LandClim II Solsø age range is reversed")
+    calibrated_claims = [
+        claim
+        for sample_id in source_ids
+        for claim in claims_by_sample[sample_id]
+        if claim["calibration_status"] == "calibrated"
+    ]
+    if (
+        len(calibrated_claims) != len(samples)
+        or {claim["subject_id"] for claim in calibrated_claims} != source_ids
+        or any(claim["source_age_value"] is None for claim in calibrated_claims)
+    ):
+        raise ValueError("Solsø calibrated sample-age denominator changed")
+    within_age_span = [
+        claim
+        for claim in calibrated_claims
+        if published_age_bounds[0]
+        <= claim["source_age_value"]
+        <= published_age_bounds[1]
+    ]
+    outside_age_span = sorted(
+        (
+            {
+                "sample_id": claim["subject_id"],
+                "collection_unit_id": claim["collection_unit_id"],
+                "calibrated_age_bp": claim["source_age_value"],
+            }
+            for claim in calibrated_claims
+            if not (
+                published_age_bounds[0]
+                <= claim["source_age_value"]
+                <= published_age_bounds[1]
+            )
+        ),
+        key=lambda row: row["sample_id"],
+    )
     cores: list[dict[str, Any]] = []
     for dataset_id, dataset in sorted(datasets.items()):
         collection_id = dataset["collection_unit_id"]
@@ -251,8 +292,7 @@ def publish(repository: Path, output: Path) -> dict[str, Any]:
             "reported_pollen_samples": int(_required(ii, "nPollenSamples")),
             "reported_time_windows": int(_required(ii, "nTWs")),
             "reported_age_range_bp": [
-                int(_required(ii, "TopBP")),
-                int(_required(ii, "BotBP")),
+                *published_age_bounds,
             ],
             "reported_chronology_source": ii["chronologySource"],
             "reported_access_marker": ii["DataRestricted/NotRestriced"],
@@ -268,6 +308,21 @@ def publish(repository: Path, output: Path) -> dict[str, Any]:
             ),
             "source_sample_count": len(samples),
             "held_out_selected_sample_count": len(selected_ids),
+            "calibrated_age_span_comparison": {
+                "source_age_type": "Calibrated radiocarbon years BP",
+                "source_calibrated_sample_count": len(calibrated_claims),
+                "within_published_bounds_inclusive": len(within_age_span),
+                "within_published_bounds_by_core": dict(
+                    sorted(
+                        Counter(
+                            claim["collection_unit_id"] for claim in within_age_span
+                        ).items()
+                    )
+                ),
+                "outside_published_bounds": outside_age_span,
+                "within_bounds_excess_over_published_sample_count": len(within_age_span)
+                - int(_required(ii, "nPollenSamples")),
+            },
             "cores": cores,
             "excluded_sample": {
                 "sample_id": excluded_ids[0],
@@ -291,7 +346,7 @@ def publish(repository: Path, output: Path) -> dict[str, Any]:
             },
         },
         "lra_admitted_samples": 0,
-        "interpretation": "Published Solsø site metadata and Neotoma cores share a close site lineage, but the 79-versus-92/91 sample denominators and author chronology do not authenticate a common historical input. The reported LandClim I area and conditional LandClim II radius arithmetic are not sample-age basin boundaries.",
+        "interpretation": "Published Solsø site metadata and Neotoma cores share a close site lineage. Applying the published 10–11659 BP age bounds to all 92 Neotoma calibrated sample ages retains 90, still 11 more than the published 79; this conditional screen cannot explain the denominator and does not identify the author chronology or input subset. The reported LandClim I area and conditional LandClim II radius arithmetic are not sample-age basin boundaries.",
         "inputs": [
             {"path": str(LANDCLIM_I), "sha256": _sha(i_path)},
             {"path": str(LANDCLIM_II), "sha256": inventory.workbook_sha256},

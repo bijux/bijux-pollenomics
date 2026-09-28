@@ -73,7 +73,7 @@
     },
     {
       "path": "docs/report/countries/denmark/solsoe-source-lineage/report.json",
-      "sha256": "55ebb73e8d94812b404bf6e9167a386cea2c2a11b841d36b8718715a39d96383"
+      "sha256": "b50e6719aeb80ad8c27655ed66e0926a4939ca740b2cb924b8db6a6db126747e"
     }
   ],
   "interpretation": "The PANGAEA EPD event binds 2.5 ha and 30 exact radiocarbon controls to the 1981 Sols\u00f8 core; 24 matched controls recur in both Neotoma chronologies. The collection-unit-selected EPD default is a radiocarbon linear-interpolation model, whereas the later MADCAP record is a calibrated-radiocarbon clam model. The 65 held-out 1981 pollen samples use MADCAP comparable age claims, not the EPD default's context-only uncalibrated ages. Shared dated material does not identify the LandClim II author chronology. Four primary lab labels have no retained Neotoma control. The event area is not an age-specific historical basin outline, and this join does not identify the 79 LandClim II samples.",

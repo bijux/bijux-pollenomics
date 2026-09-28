@@ -27,6 +27,28 @@
     "site_centroid_to_landclim_ii_km": 0.069249,
     "source_sample_count": 92,
     "held_out_selected_sample_count": 91,
+    "calibrated_age_span_comparison": {
+      "source_age_type": "Calibrated radiocarbon years BP",
+      "source_calibrated_sample_count": 92,
+      "within_published_bounds_inclusive": 90,
+      "within_published_bounds_by_core": {
+        "neotoma:collection-unit:4303": 64,
+        "neotoma:collection-unit:4304": 26
+      },
+      "outside_published_bounds": [
+        {
+          "sample_id": "neotoma:sample:352996",
+          "collection_unit_id": "neotoma:collection-unit:4303",
+          "calibrated_age_bp": 7
+        },
+        {
+          "sample_id": "neotoma:sample:353061",
+          "collection_unit_id": "neotoma:collection-unit:4303",
+          "calibrated_age_bp": 12417
+        }
+      ],
+      "within_bounds_excess_over_published_sample_count": 11
+    },
     "cores": [
       {
         "dataset_id": "neotoma:dataset:4445",
@@ -91,7 +113,7 @@
     }
   },
   "lra_admitted_samples": 0,
-  "interpretation": "Published Solsø site metadata and Neotoma cores share a close site lineage, but the 79-versus-92/91 sample denominators and author chronology do not authenticate a common historical input. The reported LandClim I area and conditional LandClim II radius arithmetic are not sample-age basin boundaries.",
+  "interpretation": "Published Solsø site metadata and Neotoma cores share a close site lineage. Applying the published 10–11659 BP age bounds to all 92 Neotoma calibrated sample ages retains 90, still 11 more than the published 79; this conditional screen cannot explain the denominator and does not identify the author chronology or input subset. The reported LandClim I area and conditional LandClim II radius arithmetic are not sample-age basin boundaries.",
   "inputs": [
     {
       "path": "data/landclim/raw/landclim_i_land_cover_types.xlsx",

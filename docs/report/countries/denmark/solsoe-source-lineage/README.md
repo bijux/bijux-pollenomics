@@ -23,6 +23,14 @@ notes a hiatus near source depths 472–480 and says the 1983 core covers that
 interval. This makes core and chronology selection material to an historical
 reconstruction.
 
+A conditional check of the published LandClim II age span (**10–11659 BP**)
+against all 92 Neotoma calibrated sample ages retains **90**: 64 from the 1981
+core and 26 from the 1983 core. The two outside values are **7** and **12417
+BP**. This still exceeds the published **79** samples by 11, so applying that
+age span alone does not recover its input selection. LandClim II's author
+chronology might assign different ages; this check does not equate the two
+chronologies.
+
 The Neotoma site-polygon centroid lies about **69 m** from the LandClim II
 site point. A circle of radius 89 m would have area **2.488 ha**, close to
 the LandClim I and primary 1981 core event value of 2.5 ha. This is
