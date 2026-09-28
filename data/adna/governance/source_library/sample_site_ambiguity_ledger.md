@@ -1,16 +1,11 @@
 # Sample site ambiguity ledger
 
-- Ambiguous or weak site rows: `87`
+- Ambiguous or weak site rows: `82`
 
 | Project accession | Sample id | Status | Locality | Note |
 | --- | --- | --- | --- | --- |
 | PRJEB19970 | prjeb19970:connemara_0004a | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
 | PRJEB19970 | prjeb19970:somali_0226a | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| PRJEB41594 | prjeb41594:samea8022720 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| PRJEB41594 | prjeb41594:samea8022721 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| PRJEB41594 | prjeb41594:samea8022722 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| PRJEB41594 | prjeb41594:samea8022723 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| PRJEB41594 | prjeb41594:samea8022724 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
 | PRJEB30282 | prjeb30282:samea5772905 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
 | PRJEB30282 | prjeb30282:samea5772906 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
 | PRJEB30282 | prjeb30282:samea5772907 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |

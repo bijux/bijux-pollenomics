@@ -359,6 +359,15 @@ def _xml_capture_refusal_reason(
             )
         except ValueError:
             return "ena_sample_source_semantic_mismatch"
+    if "/projects/PRJEB41594/ena_samples/" in path_text:
+        try:
+            from bijux_pollenomics.adna.projects.sample_master.tables.obishir_sheep import (
+                parse_obishir_ena_sample,
+            )
+
+            parse_obishir_ena_sample(payload, accession=logical_path.stem)
+        except ValueError:
+            return "ena_sample_source_semantic_mismatch"
     if (
         "/papers/10.1093-gbe-evae114/" in path_text
         and logical_path.name == "article_full_text.xml"
@@ -404,6 +413,41 @@ def _official_xml_receipt_metadata(
 ) -> dict[str, object]:
     if asset.artifact_kind == "ena_sample_xml":
         accession = Path(asset.relative_path).stem
+        locators = [
+            {
+                "claim_family": "sample_identity",
+                "locator": f"./SAMPLE[@accession='{accession}']",
+            },
+        ]
+        if "PRJEB41594" in Path(asset.relative_path).parts:
+            locators.extend(
+                (
+                    {
+                        "claim_family": "sample_alias",
+                        "locator": f"./SAMPLE[@accession='{accession}']/@alias",
+                    },
+                    {
+                        "claim_family": "sample_taxonomy",
+                        "locator": "./SAMPLE/SAMPLE_ATTRIBUTES/SAMPLE_ATTRIBUTE[TAG='scientific_name']/VALUE",
+                    },
+                )
+            )
+        else:
+            locators.extend(
+                (
+                    {
+                        "claim_family": "sample_locality",
+                        "locator": (
+                            "./SAMPLE/SAMPLE_ATTRIBUTES/"
+                            "SAMPLE_ATTRIBUTE[TAG='lat_lon']/VALUE"
+                        ),
+                    },
+                    {
+                        "claim_family": "sample_material",
+                        "locator": "./SAMPLE/DESCRIPTION",
+                    },
+                )
+            )
         return {
             "sample_accession": accession,
             "retrieved_at_utc": retrieved_at_utc,
@@ -414,23 +458,7 @@ def _official_xml_receipt_metadata(
                 "scientific data beyond rights retained by the original data owner; "
                 "attribution is expected."
             ),
-            "evidence_locators": [
-                {
-                    "claim_family": "sample_identity",
-                    "locator": f"./SAMPLE[@accession='{accession}']",
-                },
-                {
-                    "claim_family": "sample_locality",
-                    "locator": (
-                        "./SAMPLE/SAMPLE_ATTRIBUTES/"
-                        "SAMPLE_ATTRIBUTE[TAG='lat_lon']/VALUE"
-                    ),
-                },
-                {
-                    "claim_family": "sample_material",
-                    "locator": "./SAMPLE/DESCRIPTION",
-                },
-            ],
+            "evidence_locators": locators,
         }
     if asset.artifact_kind == "article_full_text_xml":
         return {

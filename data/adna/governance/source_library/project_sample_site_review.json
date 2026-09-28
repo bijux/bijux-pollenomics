@@ -124,16 +124,14 @@
       "project_accession": "PRJEB41594",
       "species_latin_name": "Ovis aries",
       "recovered_sample_row_count": 5,
-      "direct_sample_site_count": 0,
+      "direct_sample_site_count": 5,
       "sample_group_site_count": 0,
       "project_level_site_only_count": 0,
       "named_place_inferred_count": 0,
       "region_only_count": 0,
-      "unresolved_count": 5,
-      "lacking_defensible_site_assignment_count": 5,
-      "missing_reasons": [
-        "unresolved"
-      ]
+      "unresolved_count": 0,
+      "lacking_defensible_site_assignment_count": 0,
+      "missing_reasons": []
     },
     {
       "project_accession": "PRJEB59481",

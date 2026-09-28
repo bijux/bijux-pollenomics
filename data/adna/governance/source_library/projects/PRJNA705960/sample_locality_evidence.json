@@ -6,8 +6,8 @@
   "rows": [
     {
       "project_accession": "PRJNA705960",
-      "species_latin_name": "Bos taurus",
-      "species_common_name": "cattle",
+      "species_latin_name": "Bos primigenius",
+      "species_common_name": "aurochs",
       "repo_stable_sample_id": "prjna705960:samn18106827",
       "preferred_sample_label": "SAMN18106827",
       "sample_basis": "archive_project_sample_accession_anchor",
@@ -38,8 +38,8 @@
     },
     {
       "project_accession": "PRJNA705960",
-      "species_latin_name": "Bos taurus",
-      "species_common_name": "cattle",
+      "species_latin_name": "Bos primigenius",
+      "species_common_name": "aurochs",
       "repo_stable_sample_id": "prjna705960:samn18106828",
       "preferred_sample_label": "SAMN18106828",
       "sample_basis": "archive_project_sample_accession_anchor",
@@ -70,8 +70,8 @@
     },
     {
       "project_accession": "PRJNA705960",
-      "species_latin_name": "Bos taurus",
-      "species_common_name": "cattle",
+      "species_latin_name": "Bos primigenius",
+      "species_common_name": "aurochs",
       "repo_stable_sample_id": "prjna705960:samn18106829",
       "preferred_sample_label": "SAMN18106829",
       "sample_basis": "archive_project_sample_accession_anchor",

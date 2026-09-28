@@ -11,16 +11,15 @@
     "paper_capture": "complete",
     "supplement_capture": "complete",
     "sample_identity_recovery": "complete",
-    "site_recovery": "in_progress",
+    "site_recovery": "complete",
     "chronology_recovery": "in_progress",
-    "coordinate_derivation": "blocked",
+    "coordinate_derivation": "in_progress",
     "publication_readiness": "blocked"
   },
   "blocking_stages": [
-    "coordinate_derivation",
     "publication_readiness"
   ],
-  "next_required_stage": "site_recovery",
+  "next_required_stage": "chronology_recovery",
   "publication_readiness_status": "blocked",
   "expected_sample_count": null,
   "expected_sample_count_status": "not_yet_curated",
@@ -43,6 +42,16 @@
     "adna/governance/source_library/papers/10.1038-s41562-021-01083-y/supplementary/41562_2021_1083_MOESM4_ESM.xlsx",
     "adna/governance/source_library/papers/10.1038-s41562-021-01083-y/article.html",
     "adna/governance/source_library/papers/10.1038-s41562-021-01083-y/crossref.json",
+    "adna/governance/source_library/projects/PRJEB41594/ena_samples/SAMEA8022720.xml",
+    "adna/governance/source_library/projects/PRJEB41594/ena_samples/SAMEA8022720.xml.metadata.json",
+    "adna/governance/source_library/projects/PRJEB41594/ena_samples/SAMEA8022721.xml",
+    "adna/governance/source_library/projects/PRJEB41594/ena_samples/SAMEA8022721.xml.metadata.json",
+    "adna/governance/source_library/projects/PRJEB41594/ena_samples/SAMEA8022722.xml",
+    "adna/governance/source_library/projects/PRJEB41594/ena_samples/SAMEA8022722.xml.metadata.json",
+    "adna/governance/source_library/projects/PRJEB41594/ena_samples/SAMEA8022723.xml",
+    "adna/governance/source_library/projects/PRJEB41594/ena_samples/SAMEA8022723.xml.metadata.json",
+    "adna/governance/source_library/projects/PRJEB41594/ena_samples/SAMEA8022724.xml",
+    "adna/governance/source_library/projects/PRJEB41594/ena_samples/SAMEA8022724.xml.metadata.json",
     "adna/governance/source_library/projects/PRJEB41594/archive_metadata.html",
     "data/adna/governance/source_library/projects/PRJEB41594/sample_master.json",
     "data/adna/governance/source_library/projects/PRJEB41594/sample_sites.json",
@@ -50,14 +59,11 @@
     "data/adna/governance/source_library/projects/PRJEB41594/sample_locality_evidence.json"
   ],
   "missing_assets": [
-    "Some recovered sample rows still lack a defensible site assignment.",
     "Some recovered sample rows still lack sample-level chronology."
   ],
   "expected_contributions": [
     "sample_identities",
     "taxonomic_context",
-    "site_evidence",
-    "coordinate_candidates",
     "sample_chronology"
   ],
   "expected_contribution_surfaces": [
@@ -68,9 +74,7 @@
     "adna/governance/source_library/papers/10.1038-s41562-021-01083-y/supplementary/41562_2021_1083_MOESM3_ESM.pdf",
     "adna/governance/source_library/papers/10.1038-s41562-021-01083-y/supplementary/41562_2021_1083_MOESM4_ESM.xlsx"
   ],
-  "contradictory_evidence": [
-    "Locality substitution review still blocks publication because project-level geography would flatten distinct sample evidence."
-  ],
+  "contradictory_evidence": [],
   "inferred_claims": [],
   "manual_curation_work_units": [
     {
@@ -85,32 +89,9 @@
         "data/adna/governance/source_library/projects/PRJEB41594/sample_chronology.json",
         "data/adna/governance/source_library/projects/PRJEB41594/intake_dossier.json"
       ]
-    },
-    {
-      "project_accession": "PRJEB41594",
-      "species_latin_name": "Ovis aries",
-      "work_unit_type": "locality_string_resolution",
-      "work_unit_state": "pending_manual_curation",
-      "open_item_count": 5,
-      "rationale": "unresolved",
-      "downstream_impact": "blocks coordinate derivation and exact locality publication",
-      "recommended_source_surfaces": [
-        "tracked_source_artifact"
-      ]
-    },
-    {
-      "project_accession": "PRJEB41594",
-      "species_latin_name": "Ovis aries",
-      "work_unit_type": "site_resolution",
-      "work_unit_state": "pending_manual_curation",
-      "open_item_count": 5,
-      "rationale": "recovered_sample_rows_still_lack_any_location_claim",
-      "downstream_impact": "blocks exact site, coordinate, and publication recovery",
-      "recommended_source_surfaces": []
     }
   ],
   "major_deficit_reasons": [
-    "site_assignment_gap",
     "chronology_gap"
   ]
 }

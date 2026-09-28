@@ -17,7 +17,7 @@
   },
   "project_counts": {
     "projects_with_sample_identity_rows": 21,
-    "projects_with_defensible_site_rows": 12,
+    "projects_with_defensible_site_rows": 13,
     "projects_with_sample_owned_chronology": 10,
     "projects_with_mappable_coordinates": 11,
     "projects_ready_for_publication_review": 10
@@ -296,9 +296,9 @@
     {
       "project_accession": "PRJEB41594",
       "species_latin_name": "Ovis aries",
-      "completed_stage_count": 4,
+      "completed_stage_count": 5,
       "required_stage_count": 8,
-      "recovery_depth_score": 0.5,
+      "recovery_depth_score": 0.625,
       "final_sample_count": 5,
       "minimum_gap_count": 0,
       "publication_readiness_status": "blocked"

@@ -18,6 +18,16 @@ Paper-level evidence is required; locally curated supplementary evidence is also
 - `adna/governance/source_library/papers/10.1038-s41562-021-01083-y/supplementary/41562_2021_1083_MOESM4_ESM.xlsx`
 - `adna/governance/source_library/papers/10.1038-s41562-021-01083-y/article.html`
 - `adna/governance/source_library/papers/10.1038-s41562-021-01083-y/crossref.json`
+- `adna/governance/source_library/projects/PRJEB41594/ena_samples/SAMEA8022720.xml`
+- `adna/governance/source_library/projects/PRJEB41594/ena_samples/SAMEA8022720.xml.metadata.json`
+- `adna/governance/source_library/projects/PRJEB41594/ena_samples/SAMEA8022721.xml`
+- `adna/governance/source_library/projects/PRJEB41594/ena_samples/SAMEA8022721.xml.metadata.json`
+- `adna/governance/source_library/projects/PRJEB41594/ena_samples/SAMEA8022722.xml`
+- `adna/governance/source_library/projects/PRJEB41594/ena_samples/SAMEA8022722.xml.metadata.json`
+- `adna/governance/source_library/projects/PRJEB41594/ena_samples/SAMEA8022723.xml`
+- `adna/governance/source_library/projects/PRJEB41594/ena_samples/SAMEA8022723.xml.metadata.json`
+- `adna/governance/source_library/projects/PRJEB41594/ena_samples/SAMEA8022724.xml`
+- `adna/governance/source_library/projects/PRJEB41594/ena_samples/SAMEA8022724.xml.metadata.json`
 - `adna/governance/source_library/projects/PRJEB41594/archive_metadata.html`
 
 ## Blockers

@@ -1,11 +1,11 @@
 # Source storage audit
 
-- Archived artifacts: `163`
+- Archived artifacts: `173`
 - Archived HTML artifacts: `54`
 - Compressed HTML artifacts: `54`
 - Uncompressed HTML artifacts: `0`
-- Archived payload bytes: `382215849`
-- Archived storage bytes: `374546544`
+- Archived payload bytes: `382235298`
+- Archived storage bytes: `374565993`
 - HTML payload bytes: `9222810`
 - HTML storage bytes: `1553505`
 

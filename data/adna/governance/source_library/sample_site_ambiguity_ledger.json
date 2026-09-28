@@ -24,61 +24,6 @@
       "location_evidence_locator": ""
     },
     {
-      "project_accession": "PRJEB41594",
-      "species_latin_name": "Ovis aries",
-      "repo_stable_sample_id": "prjeb41594:samea8022720",
-      "preferred_sample_label": "SAMEA8022720",
-      "locality_resolution_status": "unresolved",
-      "locality_text": "",
-      "review_note": "No location evidence has been extracted yet for this recovered sample row.",
-      "location_evidence_artifact_path": "",
-      "location_evidence_locator": ""
-    },
-    {
-      "project_accession": "PRJEB41594",
-      "species_latin_name": "Ovis aries",
-      "repo_stable_sample_id": "prjeb41594:samea8022721",
-      "preferred_sample_label": "SAMEA8022721",
-      "locality_resolution_status": "unresolved",
-      "locality_text": "",
-      "review_note": "No location evidence has been extracted yet for this recovered sample row.",
-      "location_evidence_artifact_path": "",
-      "location_evidence_locator": ""
-    },
-    {
-      "project_accession": "PRJEB41594",
-      "species_latin_name": "Ovis aries",
-      "repo_stable_sample_id": "prjeb41594:samea8022722",
-      "preferred_sample_label": "SAMEA8022722",
-      "locality_resolution_status": "unresolved",
-      "locality_text": "",
-      "review_note": "No location evidence has been extracted yet for this recovered sample row.",
-      "location_evidence_artifact_path": "",
-      "location_evidence_locator": ""
-    },
-    {
-      "project_accession": "PRJEB41594",
-      "species_latin_name": "Ovis aries",
-      "repo_stable_sample_id": "prjeb41594:samea8022723",
-      "preferred_sample_label": "SAMEA8022723",
-      "locality_resolution_status": "unresolved",
-      "locality_text": "",
-      "review_note": "No location evidence has been extracted yet for this recovered sample row.",
-      "location_evidence_artifact_path": "",
-      "location_evidence_locator": ""
-    },
-    {
-      "project_accession": "PRJEB41594",
-      "species_latin_name": "Ovis aries",
-      "repo_stable_sample_id": "prjeb41594:samea8022724",
-      "preferred_sample_label": "SAMEA8022724",
-      "locality_resolution_status": "unresolved",
-      "locality_text": "",
-      "review_note": "No location evidence has been extracted yet for this recovered sample row.",
-      "location_evidence_artifact_path": "",
-      "location_evidence_locator": ""
-    },
-    {
       "project_accession": "PRJEB30282",
       "species_latin_name": "Sus scrofa domesticus",
       "repo_stable_sample_id": "prjeb30282:samea5772905",

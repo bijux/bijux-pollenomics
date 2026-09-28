@@ -51,15 +51,15 @@
     },
     {
       "species_latin_name": "Capra hircus",
-      "recovered_sample_row_count": 82,
+      "recovered_sample_row_count": 83,
       "normalized_row_count": 82,
       "exact_sample_date_count": 9,
       "modeled_or_approximate_sample_date_count": 73,
       "contextual_date_count": 0,
       "broad_label_count": 0,
       "text_only_unparsed_count": 73,
-      "unresolved_count": 0,
-      "chronology_completeness_ratio": 1.0
+      "unresolved_count": 1,
+      "chronology_completeness_ratio": 0.988
     },
     {
       "species_latin_name": "Equus caballus",
@@ -87,15 +87,15 @@
     },
     {
       "species_latin_name": "Ovis aries",
-      "recovered_sample_row_count": 200,
+      "recovered_sample_row_count": 199,
       "normalized_row_count": 184,
       "exact_sample_date_count": 170,
       "modeled_or_approximate_sample_date_count": 13,
       "contextual_date_count": 1,
       "broad_label_count": 1,
       "text_only_unparsed_count": 14,
-      "unresolved_count": 15,
-      "chronology_completeness_ratio": 0.92
+      "unresolved_count": 14,
+      "chronology_completeness_ratio": 0.9246
     },
     {
       "species_latin_name": "Rangifer tarandus",

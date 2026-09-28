@@ -14,18 +14,6 @@
       "recommended_next_surface": ""
     },
     {
-      "project_accession": "PRJEB41594",
-      "species_latin_name": "Ovis aries",
-      "queued_sample_count": 5,
-      "queue_reasons": [
-        "recovered_sample_rows_still_lack_any_location_claim"
-      ],
-      "sample_site_targets": [],
-      "expected_supplementary_artifacts": [],
-      "local_artifact_paths": [],
-      "recommended_next_surface": ""
-    },
-    {
       "project_accession": "PRJEB30282",
       "species_latin_name": "Sus scrofa domesticus",
       "queued_sample_count": 23,

@@ -4664,6 +4664,22 @@
       ]
     },
     {
+      "project_accession": "PRJEB41594",
+      "species_latin_name": "Ovis aries",
+      "normalized_display_spelling": "Obishir V",
+      "geocoding_safe_token": "obishirv",
+      "original_source_spellings": [
+        "Obishir V"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "excavation_site"
+      ]
+    },
+    {
       "project_accession": "PRJEB44430",
       "species_latin_name": "Equus caballus",
       "normalized_display_spelling": "Acemhoyuk",

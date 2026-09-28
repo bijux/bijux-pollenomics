@@ -6,8 +6,8 @@
 - Fully grounded rows: `557`
 - Partially grounded rows: `335`
 - Blocked by missing metadata: `11`
-- Blocked by missing location detail: `391`
-- Blocked by weak chronology: `156`
+- Blocked by missing location detail: `387`
+- Blocked by weak chronology: `160`
 
 ## Species rows
 
@@ -15,7 +15,7 @@
 | --- | ---: | ---: | ---: | ---: | ---: |
 | Equus caballus | 550 | 476 | 0 | 2 | 13 |
 | Sus scrofa domesticus | 343 | 2 | 0 | 341 | 0 |
-| Ovis aries | 200 | 4 | 0 | 5 | 24 |
+| Ovis aries | 200 | 4 | 0 | 1 | 28 |
 | Bos taurus | 132 | 31 | 11 | 22 | 2 |
 | Capra hircus | 82 | 9 | 0 | 0 | 73 |
 | Canis lupus familiaris | 4 | 0 | 0 | 1 | 0 |

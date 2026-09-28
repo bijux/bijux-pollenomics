@@ -257,26 +257,41 @@ def _expand_remote_assets(
 
 
 def _project_remote_assets(project_accession: str) -> tuple[_RemoteArtifactSpec, ...]:
-    if project_accession != "PRJEB59481":
+    if project_accession not in {"PRJEB41594", "PRJEB59481"}:
         return ()
-    return tuple(
-        _RemoteArtifactSpec(
-            artifact_kind="ena_sample_xml",
-            label=f"ENA sample XML {accession}",
-            source_url=f"https://www.ebi.ac.uk/ena/browser/api/xml/{accession}",
-            relative_path=(f"projects/PRJEB59481/ena_samples/{accession}.xml"),
-            remote_note=(
-                "Official ENA biological-sample record supplies exact sample "
-                "identity, source-native lat_lon, taxonomy, and material wording."
-            ),
+    accessions = (
+        (
+            "SAMEA8022720",
+            "SAMEA8022721",
+            "SAMEA8022722",
+            "SAMEA8022723",
+            "SAMEA8022724",
         )
-        for accession in (
+        if project_accession == "PRJEB41594"
+        else (
             "SAMEA112960291",
             "SAMEA112960292",
             "SAMEA112960293",
             "SAMEA112960294",
             "SAMEA112960295",
         )
+    )
+    return tuple(
+        _RemoteArtifactSpec(
+            artifact_kind="ena_sample_xml",
+            label=f"ENA sample XML {accession}",
+            source_url=f"https://www.ebi.ac.uk/ena/browser/api/xml/{accession}",
+            relative_path=(f"projects/{project_accession}/ena_samples/{accession}.xml"),
+            remote_note=(
+                "Official ENA biological-sample record supplies exact sample "
+                "identity, source-native alias and taxonomy; locality and date "
+                "require separate source evidence."
+                if project_accession == "PRJEB41594"
+                else "Official ENA biological-sample record supplies exact sample "
+                "identity, source-native lat_lon, taxonomy, and material wording."
+            ),
+        )
+        for accession in accessions
     )
 
 

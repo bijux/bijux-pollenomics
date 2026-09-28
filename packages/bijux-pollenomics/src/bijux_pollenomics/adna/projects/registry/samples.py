@@ -194,6 +194,16 @@ def build_species_curated_sample_rows(
                         "source reports no sample-owned locality or date and no "
                         "domesticated-core publication admission exists."
                     )
+                if (
+                    master_row.species_latin_name != species.latin_name
+                    and master_row.taxon_alignment_status == "project_species_mismatch"
+                ):
+                    inclusion_status = "sample_context_blocked"
+                    inclusion_note = (
+                        "Source-native taxonomy differs from this project's species. "
+                        "The sample's locality remains in source review, but its "
+                        "cross-species publication ownership is unresolved."
+                    )
                 rows.append(
                     AdnaCuratedSampleRow(
                         species_latin_name=master_row.species_latin_name,

@@ -33,7 +33,7 @@
 | `PRJEB81815` | `Felis catus` | `blocked_projects` | `site_recovery` | `publication_readiness` |
 | `PRJNA1178732` | `Felis catus` | `ready_for_publication_review` | `coordinate_derivation` | `none` |
 | `PRJEB36540` | `Ovis aries` | `blocked_projects` | `chronology_recovery` | `publication_readiness` |
-| `PRJEB41594` | `Ovis aries` | `blocked_projects` | `site_recovery` | `coordinate_derivation; publication_readiness` |
+| `PRJEB41594` | `Ovis aries` | `blocked_projects` | `chronology_recovery` | `publication_readiness` |
 | `PRJEB59481` | `Ovis aries` | `ready_for_publication_review` | `none` | `none` |
 | `PRJEB61808` | `Ovis aries` | `blocked_projects` | `paper_capture` | `paper_capture; site_recovery; chronology_recovery; coordinate_derivation; publication_readiness` |
 | `PRJEB69690` | `Ovis aries` | `blocked_projects` | `paper_capture` | `paper_capture; site_recovery; chronology_recovery; coordinate_derivation; publication_readiness` |

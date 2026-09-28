@@ -7,8 +7,8 @@
     "fully_grounded_count": 557,
     "partially_grounded_count": 335,
     "blocked_missing_metadata_count": 11,
-    "blocked_missing_location_detail_count": 391,
-    "blocked_weak_chronology_count": 156
+    "blocked_missing_location_detail_count": 387,
+    "blocked_weak_chronology_count": 160
   },
   "species_rows": [
     {
@@ -44,8 +44,8 @@
       "fully_grounded_count": 4,
       "partially_grounded_count": 167,
       "blocked_missing_metadata_count": 0,
-      "blocked_missing_location_detail_count": 5,
-      "blocked_weak_chronology_count": 24,
+      "blocked_missing_location_detail_count": 1,
+      "blocked_weak_chronology_count": 28,
       "project_count": 3,
       "reported_curated_sample_count": 200,
       "uses_project_level_sample_anchor": false
@@ -253,10 +253,10 @@
       "fully_grounded_count": 0,
       "partially_grounded_count": 0,
       "blocked_missing_metadata_count": 0,
-      "blocked_missing_location_detail_count": 5,
-      "blocked_weak_chronology_count": 0,
-      "sample_backed_site_count": 0,
-      "project_locality_summary_count": 0,
+      "blocked_missing_location_detail_count": 1,
+      "blocked_weak_chronology_count": 4,
+      "sample_backed_site_count": 1,
+      "project_locality_summary_count": 1,
       "uses_project_level_sample_anchor": false,
       "sample_basis_values": [
         "archive_project_sample_accession_anchor"

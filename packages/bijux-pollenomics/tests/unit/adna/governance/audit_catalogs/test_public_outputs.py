@@ -83,7 +83,7 @@ def test_output_honesty_reconciles_tracked_mapped_and_blocked_samples(
     assert totals["mapped_sample_count"] == 331
     assert totals["blocked_sample_count"] == 1119
     assert totals["mapped_sample_count"] + totals["blocked_sample_count"] == 1450
-    assert totals["unresolved_sample_count"] == 402
+    assert totals["unresolved_sample_count"] == 398
     assert totals["country_published_sample_count"] == 0
     assert sum(row["tracked_sample_count"] for row in honesty["rows"]) == 1450
     assert "Tracked sample rows: `1450`" in markdown

@@ -7,22 +7,22 @@
     {
       "project_accession": "PRJEB41594",
       "species_latin_name": "Ovis aries",
-      "source_surface": "tracked_source_artifact",
-      "source_claim_scope": "project_context_site",
+      "source_surface": "supplementary_table",
+      "source_claim_scope": "sample_owned_locality",
       "supporting_sample_count": 5,
-      "original_locality_text": "",
-      "resolved_locality_text": "",
-      "locality_class": "unresolved",
-      "site_name": "",
+      "original_locality_text": "Obishir V",
+      "resolved_locality_text": "Obishir V",
+      "locality_class": "excavation_site",
+      "site_name": "Obishir V",
       "municipality_name": "",
       "region_name": "",
-      "country_name": "",
+      "country_name": "Kyrgyzstan",
       "broader_geography": "",
-      "geocoding_safe_token": "",
-      "source_artifact_path": "",
-      "source_artifact_kind": "",
-      "source_locator": "",
-      "source_excerpt": ""
+      "geocoding_safe_token": "obishirv",
+      "source_artifact_path": "data/adna/governance/source_library/projects/PRJEB41594/ena_samples/SAMEA8022720.xml || data/adna/governance/source_library/papers/10.1038-s41562-021-01083-y/supplementary/41562_2021_1083_MOESM2_ESM.pdf",
+      "source_artifact_kind": "supplementary_pdf_text",
+      "source_locator": "SAMPLE[@accession='SAMEA8022720']/@alias || Reporting Summary p. 3, Specimen provenance",
+      "source_excerpt": "ENA BioSample SAMEA8022720 has specimen alias OB20-01; the paper reporting summary assigns all study specimens to Obishir V."
     }
   ]
 }

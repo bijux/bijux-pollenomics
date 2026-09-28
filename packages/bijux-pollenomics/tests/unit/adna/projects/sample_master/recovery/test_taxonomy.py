@@ -3,6 +3,9 @@
 from __future__ import annotations
 
 from dataclasses import replace
+from pathlib import Path
+import shutil
+import tempfile
 
 import pytest
 
@@ -12,6 +15,12 @@ from bijux_pollenomics.adna.projects.sample_master import (
 from bijux_pollenomics.adna.projects.sample_master.identity import (
     _merge_sample_row_group,
 )
+from bijux_pollenomics.adna.projects.registry.sites import (
+    build_project_sample_site_rows,
+)
+from bijux_pollenomics.adna.projects.registry.samples import (
+    build_species_curated_sample_rows,
+)
 
 from .support import SampleMasterRecoveryTestCase
 
@@ -19,6 +28,118 @@ pytestmark = pytest.mark.generated_artifacts
 
 
 class TaxonomyTests(SampleMasterRecoveryTestCase):
+    def test_obishir_samples_keep_alias_site_and_goat_identity(self) -> None:
+        rows = build_project_sample_master_rows(self.data_root, "PRJEB41594")
+        sites = build_project_sample_site_rows(self.data_root, "PRJEB41594")
+
+        self.assertEqual(
+            {
+                row.archive_native_sample_id: row.paper_native_sample_label
+                for row in rows
+            },
+            {
+                "SAMEA8022720": "OB20-01",
+                "SAMEA8022721": "OB20-06",
+                "SAMEA8022722": "OB21-04",
+                "SAMEA8022723": "OB21-06",
+                "SAMEA8022724": "OB20-04",
+            },
+        )
+        self.assertEqual(
+            {
+                row.species_latin_name
+                for row in rows
+                if row.archive_native_sample_id == "SAMEA8022722"
+            },
+            {"Capra hircus"},
+        )
+        self.assertTrue(all(row.chronology_text == "" for row in rows))
+        self.assertTrue(
+            all(not row.latitude_text and not row.longitude_text for row in rows)
+        )
+        self.assertTrue(
+            all("Reporting Summary p. 3" in row.sample_lineage_locator for row in rows)
+        )
+        self.assertTrue(
+            all(
+                row.locality_text == "Obishir V"
+                and row.country_name == "Kyrgyzstan"
+                and row.locality_resolution_status == "direct_sample_site"
+                for row in sites
+            )
+        )
+        goat = next(
+            row
+            for row in build_species_curated_sample_rows(
+                "Ovis aries", output_root=self.data_root
+            )
+            if row.archive_native_sample_id == "SAMEA8022722"
+        )
+        self.assertEqual(goat.species_latin_name, "Capra hircus")
+        self.assertEqual(goat.inclusion_status, "sample_context_blocked")
+        for accession in ("SAMEA8022720", "SAMEA8022722"):
+            self.assert_source_receipt_closes(
+                self.data_root
+                / "adna/governance/source_library/projects/PRJEB41594/ena_samples"
+                / f"{accession}.xml",
+                "PRJEB41594",
+            )
+
+    def test_obishir_alias_change_is_refused(self) -> None:
+        from bijux_pollenomics.adna.projects.sample_master.tables.obishir_sheep import (
+            build_obishir_sample_rows,
+        )
+        from bijux_pollenomics.adna.projects.sample_master.archive import (
+            _project_scope_archive_sample_rows,
+            _project_by_accession,
+        )
+        from bijux_pollenomics.adna.species.definitions import (
+            resolve_species_definition,
+        )
+        from bijux_pollenomics.adna.sources.library.acquisition import (
+            _xml_capture_refusal_reason,
+        )
+
+        tmp_path = Path(
+            tempfile.mkdtemp(
+                prefix="obishir-alias-", dir=self.data_root.parent / "artifacts"
+            )
+        )
+        relative_files = [
+            "adna/governance/source_library/papers/10.1038-s41562-021-01083-y/supplementary/41562_2021_1083_MOESM2_ESM.pdf",
+            "adna/governance/source_library/projects/PRJEB41594/archive_metadata.html.gz",
+        ]
+        for accession in range(8022720, 8022725):
+            prefix = f"adna/governance/source_library/projects/PRJEB41594/ena_samples/SAMEA{accession}.xml"
+            relative_files.extend((prefix, prefix + ".metadata.json"))
+        for relative in relative_files:
+            destination = tmp_path / relative
+            destination.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copyfile(self.data_root / relative, destination)
+
+        project = _project_by_accession("PRJEB41594")
+        archive_rows = _project_scope_archive_sample_rows(
+            tmp_path, resolve_species_definition("Ovis aries"), project
+        )
+        alias_file = tmp_path / (
+            "adna/governance/source_library/projects/PRJEB41594/ena_samples/"
+            "SAMEA8022720.xml"
+        )
+        alias_file.write_bytes(
+            alias_file.read_bytes().replace(b'alias="OB20-01"', b'alias="OB20-99"')
+        )
+        self.assertEqual(
+            _xml_capture_refusal_reason(
+                logical_path=alias_file,
+                payload=alias_file.read_bytes(),
+                content_type="application/xml",
+            ),
+            "ena_sample_source_semantic_mismatch",
+        )
+        with pytest.raises(ValueError, match="ENA receipt changed"):
+            build_obishir_sample_rows(tmp_path, archive_rows)
+        shutil.rmtree(tmp_path)
+
     def test_archive_taxonomy_is_preserved_without_project_species_coercion(
         self,
     ) -> None:

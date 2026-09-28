@@ -10693,7 +10693,7 @@
         "namespace": "bos_taurus:curated_sample",
         "stable_token": "bos_taurus:sample:prjna705960:samn18106827",
         "accession_lineage": [
-          "species:Bos taurus",
+          "species:Bos primigenius",
           "source:ENA",
           "project:PRJNA705960",
           "sample:prjna705960:samn18106827"
@@ -10709,8 +10709,8 @@
           "archive_project_sample_accession_anchor"
         ]
       },
-      "species_latin_name": "Bos taurus",
-      "species_common_name": "cattle",
+      "species_latin_name": "Bos primigenius",
+      "species_common_name": "aurochs",
       "source_family": "ENA",
       "source_release": "PRJNA705960",
       "record_modality": "mitogenome_only",
@@ -10752,7 +10752,7 @@
       "paper_url": "",
       "supplementary_source": "",
       "inclusion_status": "sample_context_blocked",
-      "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support.",
+      "inclusion_note": "Source-native taxonomy differs from this project's species. The sample's locality remains in source review, but its cross-species publication ownership is unresolved.",
       "chronology_strength": "unresolved",
       "chronology_normalization_status": "unresolved",
       "chronology_provenance_path": "",
@@ -10781,7 +10781,7 @@
         "namespace": "bos_taurus:curated_sample",
         "stable_token": "bos_taurus:sample:prjna705960:samn18106828",
         "accession_lineage": [
-          "species:Bos taurus",
+          "species:Bos primigenius",
           "source:ENA",
           "project:PRJNA705960",
           "sample:prjna705960:samn18106828"
@@ -10797,8 +10797,8 @@
           "archive_project_sample_accession_anchor"
         ]
       },
-      "species_latin_name": "Bos taurus",
-      "species_common_name": "cattle",
+      "species_latin_name": "Bos primigenius",
+      "species_common_name": "aurochs",
       "source_family": "ENA",
       "source_release": "PRJNA705960",
       "record_modality": "mitogenome_only",
@@ -10840,7 +10840,7 @@
       "paper_url": "",
       "supplementary_source": "",
       "inclusion_status": "sample_context_blocked",
-      "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support.",
+      "inclusion_note": "Source-native taxonomy differs from this project's species. The sample's locality remains in source review, but its cross-species publication ownership is unresolved.",
       "chronology_strength": "unresolved",
       "chronology_normalization_status": "unresolved",
       "chronology_provenance_path": "",
@@ -10869,7 +10869,7 @@
         "namespace": "bos_taurus:curated_sample",
         "stable_token": "bos_taurus:sample:prjna705960:samn18106829",
         "accession_lineage": [
-          "species:Bos taurus",
+          "species:Bos primigenius",
           "source:ENA",
           "project:PRJNA705960",
           "sample:prjna705960:samn18106829"
@@ -10885,8 +10885,8 @@
           "archive_project_sample_accession_anchor"
         ]
       },
-      "species_latin_name": "Bos taurus",
-      "species_common_name": "cattle",
+      "species_latin_name": "Bos primigenius",
+      "species_common_name": "aurochs",
       "source_family": "ENA",
       "source_release": "PRJNA705960",
       "record_modality": "mitogenome_only",
@@ -10928,7 +10928,7 @@
       "paper_url": "",
       "supplementary_source": "",
       "inclusion_status": "sample_context_blocked",
-      "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support.",
+      "inclusion_note": "Source-native taxonomy differs from this project's species. The sample's locality remains in source review, but its cross-species publication ownership is unresolved.",
       "chronology_strength": "unresolved",
       "chronology_normalization_status": "unresolved",
       "chronology_provenance_path": "",
