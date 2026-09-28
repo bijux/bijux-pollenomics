@@ -1995,7 +1995,7 @@
   </head>
   <body>
     <div class="app-shell">
-      <button id="mobile-scrim" class="mobile-scrim" type="button" aria-label="Close controls" aria-hidden="true"></button>
+      <button id="mobile-scrim" class="mobile-scrim" type="button" tabindex="-1" aria-label="Close controls" aria-hidden="true"></button>
       <main class="map-stage">
         <div class="map-topbar">
           <div class="map-topbar-main">
@@ -2059,7 +2059,7 @@
             </div>
           </div>
         </div>
-        <aside id="sidebar" class="control-panel is-collapsed" aria-label="Map controls">
+        <aside id="sidebar" class="control-panel is-collapsed" aria-label="Map controls" inert>
           <div class="control-panel-card">
             <div class="control-panel-head">
               <div>
@@ -4899,7 +4899,6 @@ __URL_STATE_CONTROLLER__
         panelToggleButton.setAttribute('aria-expanded', String(!sidebar.classList.contains('is-collapsed')));
         panelToggleButton.setAttribute('aria-controls', 'sidebar');
         mobileScrim.classList.toggle('is-visible', mobileOpen);
-        mobileScrim.setAttribute('aria-hidden', mobileOpen ? 'false' : 'true');
         document.body.classList.toggle('has-mobile-panel-open', mobileOpen);
       }
       function setPanelCollapsed(collapsed, persist = true) {
@@ -4908,6 +4907,7 @@ __URL_STATE_CONTROLLER__
           if (!topbarSearch.hidden) setSearchOpen(false);
         }
         sidebar.classList.toggle('is-collapsed', collapsed);
+        sidebar.inert = collapsed;
         updatePanelToggleLabel();
         syncMobilePanelState();
         window.setTimeout(() => map.invalidateSize(), 180);
