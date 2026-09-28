@@ -105,10 +105,10 @@ in this period.”
 | assigned four-country sites | 2,069 |
 | Swedish sites with comparable chronology | 370 |
 | Swedish sites without comparable chronology | 1,555 |
-| Swedish numeric chronology features | 8,172 |
+| Swedish numeric chronology features | 7,244 |
 | chronology claims | 25,109 |
-| comparable chronology claims | 14,264 |
-| context-only chronology claims | 10,144 |
+| comparable chronology claims | 13,170 |
+| context-only chronology claims | 11,238 |
 | temporal-contract-refused chronology claims | 60 |
 | unresolved chronology claims | 641 |
 | country-review rows | 103 |
@@ -116,15 +116,15 @@ in this period.”
 
 The 25,109 chronology claims comprise 7,377 dating ranges, 10,057 relative
 period rows, 641 analysis-entity ages, 87 geochronology rows, and 6,947
-dendrochronology rows. Exactly 14,264 claims are comparable; 10,144 remain
+dendrochronology rows. Exactly 13,170 claims are comparable; 11,238 remain
 context-only, 60 are explicitly refused by the nonnegative-BP contract, and 641
-are unresolved. The atlas renders the comparable Swedish relations as 8,172
+are unresolved. The atlas renders the comparable Swedish relations as 7,244
 interval features without promoting the other claims.
 
 ## Use The Timeline Correctly
 
 The temporal-evidence layer is the comparison mode and is enabled by default.
-All 8,172 of its Swedish features are eligible for interval filtering. The
+All 7,244 of its Swedish features are eligible for interval filtering. The
 site-inventory layer is optional: turn it on to inspect the full 2,069-site
 four-country spatial population. Claims without comparable intervals remain
 context-only, explicitly refused, or unresolved and cannot enter a narrowed

@@ -26,7 +26,7 @@ authority, but cannot promote it.
 | LandClim | pollen site sequence and REVEALS grid cell | environmental context | time-aware pollen and vegetation-reconstruction coverage |
 | HYDE 3.5 | modeled variable, scenario, native grid cell and time | external model comparison | local custody pending native release and semantic admission; no independently measured vegetation truth |
 | Neotoma | pollen site | environmental context | site-level pollen coverage under explicit temporal posture |
-| SEAD | linked chronology claim for comparison; site row for spatial discovery | archaeology context | 25,109 claims include 14,264 comparable claims; the atlas carries 2,069 four-country site features and 9,727 Swedish chronology-discovery features |
+| SEAD | linked chronology claim for comparison; site row for spatial discovery | archaeology context | 25,109 claims include 13,170 comparable claims; the atlas carries 2,069 four-country site features and 8,799 Swedish chronology-discovery features |
 | RAÄ | published heritage record aggregated to density cells | archaeology context | Sweden-specific registry density under a declared classification |
 | AADR | release-pinned human aDNA annotation row | direct human evidence | admitted human sample metadata within a versioned product |
 | animal ancient DNA | project-owned sample and its claim records | direct or qualified animal evidence | sample identity, locality, chronology, and coordinate claims that pass the product contract |

@@ -163,6 +163,11 @@ def test_public_sead_claims_reject_superseded_snapshot_denominators() -> None:
         "2,007",
         "1,267",
         "1,268",
+        "14,264",
+        "10,144",
+        "8,172",
+        "9,727",
+        "11,796",
     )
     for path in sorted((REPOSITORY_ROOT / "docs/public").rglob("*.md")):
         paragraphs = path.read_text(encoding="utf-8").split("\n\n")
