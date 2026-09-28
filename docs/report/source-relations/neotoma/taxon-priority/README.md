@@ -42,6 +42,9 @@ The [published parameter-name candidate review](../parameter-candidates/README.m
 binds these source concepts to literal strings in the LandClim II PPE/FSP table.
 It retains unmatched names and distinct native/digitized count units without
 approving any taxon or LRA parameter mapping.
+The [author taxonomy candidate ledger](../author-taxonomy-candidates/README.md)
+also compares all 1,006 priority concepts with the author's broader taxonomy
+lookup, retaining excluded and unmatched names for qualified review.
 
 To replay, read the governed screen `report.json`, the scoped concept ledger and
 the validated Neotoma raw and relational roots. Call
