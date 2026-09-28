@@ -28807,7 +28807,7 @@
       "sample_basis": "archive_project_sample_accession_anchor",
       "sample_evidence_status": "direct_table_extracted",
       "sample_identity_resolution": "final",
-      "sample_ambiguity_note": "Secondary table age differs from the primary article's Table 1 interval; chronology awaits primary-source capture.",
+      "sample_ambiguity_note": "Secondary table reports 41\u2013252 BP; the published primary article and author preprint both report 0\u2013450 BP. The chronology selection remains unresolved.",
       "chronology_text": "",
       "chronology_strength": "unresolved",
       "chronology_evidence_class": "unresolved",

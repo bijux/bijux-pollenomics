@@ -305,8 +305,8 @@
       "project_accessions": [
         "PRJEB60484"
       ],
-      "sample_extractability": "full_paper_capture_blocked",
-      "article_download_status": "partial",
+      "sample_extractability": "manual_curation_required",
+      "article_download_status": "archived",
       "supplementary_download_status": "missing",
       "supplement_parse_status": "missing",
       "recovered_final_sample_count": 20,
@@ -315,7 +315,7 @@
       "projects_with_implausibly_low_recovery": 0,
       "yield_recovery_posture": "expected_total_still_partially_unbounded",
       "expected_contribution_surfaces": [
-        "data/adna/governance/source_library/papers/10.1111-mec.17274/article.html",
+        "data/adna/governance/source_library/papers/10.1111-mec.17274/article.pdf",
         "data/adna/governance/source_library/projects/PRJEB60484/archive_metadata.html"
       ]
     },

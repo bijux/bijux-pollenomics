@@ -39,7 +39,7 @@
 | `PRJEB69690` | `Ovis aries` | `blocked_projects` | `paper_capture` | `paper_capture; site_recovery; chronology_recovery; coordinate_derivation; publication_readiness` |
 | `PRJEB81145` | `Ovis aries` | `blocked_projects` | `paper_capture` | `paper_capture; site_recovery; chronology_recovery; coordinate_derivation; publication_readiness` |
 | `PRJEB57293` | `Rangifer tarandus` | `complete_projects` | `none` | `none` |
-| `PRJEB60484` | `Rangifer tarandus` | `blocked_projects` | `paper_capture` | `paper_capture; coordinate_derivation; publication_readiness` |
+| `PRJEB60484` | `Rangifer tarandus` | `blocked_projects` | `site_recovery` | `coordinate_derivation; publication_readiness` |
 | `PRJEB61721` | `Rangifer tarandus` | `complete_projects` | `none` | `none` |
 | `PRJNA634908` | `Rangifer tarandus` | `complete_projects` | `none` | `none` |
 | `PRJEB30282` | `Sus scrofa domesticus` | `blocked_projects` | `site_recovery` | `publication_readiness` |

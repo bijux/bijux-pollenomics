@@ -749,8 +749,8 @@
       "source_family": "ENA",
       "paper_doi": "10.1111/mec.17274",
       "archive_metadata_status": "archived",
-      "repository_article_capture_status": "partial",
-      "repository_article_readability_status": "partial_capture",
+      "repository_article_capture_status": "archived",
+      "repository_article_readability_status": "readable_pdf",
       "repository_supplement_capture_status": "missing",
       "repository_supplement_parse_status": "missing",
       "local_reference_article_status": "missing",
@@ -762,9 +762,7 @@
       "sample_chronology_table_status": "published",
       "sample_chronology_row_count": 20,
       "evidence_acquisition_state": "sample_tables_published",
-      "blockers": [
-        "missing_local_paper_evidence"
-      ]
+      "blockers": []
     },
     {
       "project_accession": "PRJEB61721",

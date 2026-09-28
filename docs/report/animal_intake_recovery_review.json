@@ -96,7 +96,7 @@
   },
   "missing_source_queue_counts": {
     "missing_primary_paper_linkage": 13,
-    "missing_repository_paper_capture": 2
+    "missing_repository_paper_capture": 1
   },
   "release_guard": {
     "passing": true,

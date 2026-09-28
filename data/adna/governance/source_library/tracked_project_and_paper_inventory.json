@@ -936,15 +936,15 @@
       "primary_paper_doi": "10.1111/mec.17274",
       "primary_paper_url": "https://doi.org/10.1111/mec.17274",
       "source_bundle_path": "data/adna/governance/source_library/projects/PRJEB60484/bundle_manifest.json",
-      "paper_download_status": "partial",
-      "article_readability_status": "partial_capture",
+      "paper_download_status": "archived",
+      "article_readability_status": "readable_pdf",
       "supplement_download_status": "missing",
       "supplement_parse_status": "missing",
       "local_reference_article_status": "missing",
       "local_reference_supplement_status": "missing",
       "sample_table_extraction_status": "project_sample_master_published",
       "evidence_acquisition_state": "sample_tables_published",
-      "ingestion_status": "blocked",
+      "ingestion_status": "paper_source_archived",
       "expected_sample_count": null,
       "expected_sample_count_status": "not_yet_curated",
       "expected_sample_count_provenance": "No trustworthy expected sample count is published yet because the current archive or paper capture is still too weak.",
@@ -1776,7 +1776,7 @@
     {
       "paper_doi": "10.1111/mec.17274",
       "canonical_url": "https://doi.org/10.1111/mec.17274",
-      "article_source_url": "https://onlinelibrary.wiley.com/doi/full/10.1111/mec.17274",
+      "article_source_url": "https://api.nva.unit.no/publication/0198cc66e16f-a743d6e1-054b-400e-a2c4-dd186a645095/filelink/dfe8ba06-53e4-4e80-856e-7a12dd0dbd3f",
       "journal": "Molecular Ecology",
       "publication_year": 2024,
       "title": "A palaeogenomic investigation of overharvest implications in an endemic wild reindeer subspecies",
@@ -1786,29 +1786,29 @@
       "project_accessions": [
         "PRJEB60484"
       ],
-      "article_download_status": "partial",
-      "article_readability_status": "partial_capture",
-      "article_local_path": "data/adna/governance/source_library/papers/10.1111-mec.17274/article.html",
+      "article_download_status": "archived",
+      "article_readability_status": "readable_pdf",
+      "article_local_path": "data/adna/governance/source_library/papers/10.1111-mec.17274/article.pdf",
       "supplementary_download_status": "missing",
       "supplement_parse_status": "missing",
       "supplementary_verification_status": "supplement_not_verified_yet",
       "local_reference_article_status": "missing",
       "local_reference_supplement_status": "missing",
       "supplementary_count": 0,
-      "parsing_status": "full_paper_download_blocked",
-      "sample_extractability": "full_paper_capture_blocked",
+      "parsing_status": "ready_for_project_sample_extraction",
+      "sample_extractability": "manual_curation_required",
       "sample_table_extraction_status": "project_sample_master_published",
       "evidence_acquisition_state": "sample_tables_published",
       "expected_supplementary_file_families": [],
       "expected_supplementary_artifacts": [],
       "sample_identifier_targets": [
-        "data/adna/governance/source_library/papers/10.1111-mec.17274/article.html"
+        "data/adna/governance/source_library/papers/10.1111-mec.17274/article.pdf"
       ],
       "sample_site_targets": [
-        "data/adna/governance/source_library/papers/10.1111-mec.17274/article.html"
+        "data/adna/governance/source_library/papers/10.1111-mec.17274/article.pdf"
       ],
       "chronology_targets": [
-        "data/adna/governance/source_library/papers/10.1111-mec.17274/article.html"
+        "data/adna/governance/source_library/papers/10.1111-mec.17274/article.pdf"
       ],
       "supplementary_manifest_path": "data/adna/governance/source_library/papers/10.1111-mec.17274/supplementary_manifest.json",
       "supplementary_acquisition_checklist_path": "data/adna/governance/source_library/supplement_acquisition_checklist.json"

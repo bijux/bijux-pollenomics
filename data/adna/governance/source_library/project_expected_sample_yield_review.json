@@ -2732,7 +2732,7 @@
       "minimum_gap_count": 0,
       "sample_identifier_status": "manual_curation_required",
       "sample_table_extraction_status": "project_sample_master_published",
-      "paper_download_status": "partial",
+      "paper_download_status": "archived",
       "supplement_download_status": "missing",
       "lacking_defensible_site_assignment_count": 1,
       "named_place_inferred_count": 0,
@@ -2754,11 +2754,11 @@
       ],
       "expected_contribution_surfaces": [
         "data/adna/governance/source_library/projects/PRJEB60484/archive_metadata.html",
-        "data/adna/governance/source_library/papers/10.1111-mec.17274/article.html"
+        "data/adna/governance/source_library/papers/10.1111-mec.17274/article.pdf"
       ],
       "stage_statuses": {
         "project_admission": "complete",
-        "paper_capture": "blocked",
+        "paper_capture": "complete",
         "supplement_capture": "not_required",
         "sample_identity_recovery": "complete",
         "site_recovery": "in_progress",
@@ -2767,20 +2767,20 @@
         "publication_readiness": "blocked"
       },
       "blocking_stages": [
-        "paper_capture",
         "coordinate_derivation",
         "publication_readiness"
       ],
-      "next_required_stage": "paper_capture",
+      "next_required_stage": "site_recovery",
       "publication_readiness_status": "blocked",
       "overall_recovery_status": "blocked_projects",
-      "completed_stage_count": 2,
+      "completed_stage_count": 3,
       "required_stage_count": 7,
-      "recovery_depth_score": 0.2857,
+      "recovery_depth_score": 0.4286,
       "recovery_gap_status": "minimum_expected_floor_met",
       "implausibly_low_recovery": false,
       "implausibly_low_recovery_reason": "",
       "known_assets": [
+        "adna/governance/source_library/papers/10.1111-mec.17274/article.pdf",
         "adna/governance/source_library/papers/10.1111-mec.17274/author_preprint.pdf",
         "adna/governance/source_library/papers/10.1111-mec.17274/crossref.json",
         "adna/governance/source_library/projects/PRJEB60484/ena_samples/SAMEA112757323.xml",
@@ -2830,7 +2830,6 @@
         "data/adna/governance/source_library/projects/PRJEB60484/sample_locality_evidence.json"
       ],
       "missing_assets": [
-        "Readable repository paper capture is still missing.",
         "Some recovered sample rows still lack a defensible site assignment.",
         "Some recovered sample rows still lack sample-level chronology."
       ],

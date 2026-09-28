@@ -29,7 +29,7 @@
 | PRJEB69690 | Ovis aries | paper_or_metadata_capture | missing_local_paper_evidence, paper_linkage_not_curated |
 | PRJEB81145 | Ovis aries | paper_or_metadata_capture | missing_local_paper_evidence, paper_linkage_not_curated |
 | PRJEB57293 | Rangifer tarandus | paper_or_metadata_capture | paper_linkage_not_curated |
-| PRJEB60484 | Rangifer tarandus | paper_or_metadata_capture | missing_local_paper_evidence, region_only_geography, sample_context_blocked |
+| PRJEB60484 | Rangifer tarandus | site_extraction | region_only_geography, sample_context_blocked |
 | PRJEB61721 | Rangifer tarandus | paper_or_metadata_capture | paper_linkage_not_curated |
 | PRJNA634908 | Rangifer tarandus | paper_or_metadata_capture | paper_linkage_not_curated |
 | PRJNA421430 | Sus scrofa domesticus | paper_or_metadata_capture | paper_linkage_not_curated |

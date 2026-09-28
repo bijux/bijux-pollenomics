@@ -5,7 +5,7 @@
 - Inventory disposition: `tracked_intake_candidate`
 - Paper DOI: `10.1111/mec.17274`
 - Publication readiness: `blocked`
-- Next required stage: `paper_capture`
+- Next required stage: `site_recovery`
 - Exact expected sample count: `unknown`
 - Minimum expected sample count: `1`
 - Final recovered sample rows: `20`
@@ -15,7 +15,7 @@
 ## Stage Statuses
 
 - `project_admission`: `complete`
-- `paper_capture`: `blocked`
+- `paper_capture`: `complete`
 - `supplement_capture`: `not_required`
 - `sample_identity_recovery`: `complete`
 - `site_recovery`: `in_progress`
@@ -33,6 +33,7 @@
 
 ## Known Assets
 
+- `adna/governance/source_library/papers/10.1111-mec.17274/article.pdf`
 - `adna/governance/source_library/papers/10.1111-mec.17274/author_preprint.pdf`
 - `adna/governance/source_library/papers/10.1111-mec.17274/crossref.json`
 - `adna/governance/source_library/projects/PRJEB60484/ena_samples/SAMEA112757323.xml`
@@ -83,7 +84,6 @@
 
 ## Missing Assets
 
-- Readable repository paper capture is still missing.
 - Some recovered sample rows still lack a defensible site assignment.
 - Some recovered sample rows still lack sample-level chronology.
 

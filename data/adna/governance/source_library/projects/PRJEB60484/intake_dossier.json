@@ -8,7 +8,7 @@
   "inventory_disposition": "tracked_intake_candidate",
   "stage_statuses": {
     "project_admission": "complete",
-    "paper_capture": "blocked",
+    "paper_capture": "complete",
     "supplement_capture": "not_required",
     "sample_identity_recovery": "complete",
     "site_recovery": "in_progress",
@@ -17,11 +17,10 @@
     "publication_readiness": "blocked"
   },
   "blocking_stages": [
-    "paper_capture",
     "coordinate_derivation",
     "publication_readiness"
   ],
-  "next_required_stage": "paper_capture",
+  "next_required_stage": "site_recovery",
   "publication_readiness_status": "blocked",
   "expected_sample_count": null,
   "expected_sample_count_status": "not_yet_curated",
@@ -38,6 +37,7 @@
   "implausibly_low_recovery": false,
   "implausibly_low_recovery_reason": "",
   "known_assets": [
+    "adna/governance/source_library/papers/10.1111-mec.17274/article.pdf",
     "adna/governance/source_library/papers/10.1111-mec.17274/author_preprint.pdf",
     "adna/governance/source_library/papers/10.1111-mec.17274/crossref.json",
     "adna/governance/source_library/projects/PRJEB60484/ena_samples/SAMEA112757323.xml",
@@ -87,7 +87,6 @@
     "data/adna/governance/source_library/projects/PRJEB60484/sample_locality_evidence.json"
   ],
   "missing_assets": [
-    "Readable repository paper capture is still missing.",
     "Some recovered sample rows still lack a defensible site assignment.",
     "Some recovered sample rows still lack sample-level chronology."
   ],
@@ -100,7 +99,7 @@
   ],
   "expected_contribution_surfaces": [
     "data/adna/governance/source_library/projects/PRJEB60484/archive_metadata.html",
-    "data/adna/governance/source_library/papers/10.1111-mec.17274/article.html"
+    "data/adna/governance/source_library/papers/10.1111-mec.17274/article.pdf"
   ],
   "contradictory_evidence": [],
   "inferred_claims": [],

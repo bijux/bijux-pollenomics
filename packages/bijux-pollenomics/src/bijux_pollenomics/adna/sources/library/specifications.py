@@ -145,18 +145,21 @@ def _paper_source_specs() -> dict[str, _PaperSourceSpec]:
         ),
         "10.1111/mec.17274": _PaperSourceSpec(
             doi="10.1111/mec.17274",
-            article_source_url="https://onlinelibrary.wiley.com/doi/full/10.1111/mec.17274",
-            article_local_path=f"{ADNA_SOURCE_LIBRARY_DIR}/papers/10.1111-mec.17274/article.html",
-            article_kind="article_html",
-            article_note="Primary Molecular Ecology article links the project to its 18 ancient Svalbard specimens; full article capture remains unavailable.",
-            parsing_status="full_paper_download_blocked",
+            article_source_url=(
+                "https://api.nva.unit.no/publication/"
+                "0198cc66e16f-a743d6e1-054b-400e-a2c4-dd186a645095/"
+                "filelink/dfe8ba06-53e4-4e80-856e-7a12dd0dbd3f"
+            ),
+            article_local_path=f"{ADNA_SOURCE_LIBRARY_DIR}/papers/10.1111-mec.17274/article.pdf",
+            article_kind="article_pdf",
+            article_note="Published Molecular Ecology article deposited as an open file in Norway's National Research Archive; Table 1 identifies 18 Svalbard specimens.",
             additional_assets=(
                 _RemoteArtifactSpec(
                     artifact_kind="author_preprint_pdf",
                     label="author bioRxiv preprint",
                     source_url="https://www.biorxiv.org/content/10.1101/2023.09.21.558762v1.full.pdf",
                     relative_path="papers/10.1111-mec.17274/author_preprint.pdf",
-                    remote_note="Author preprint Table 1 provides specimen-level Svalbard UTM grid values and calibrated ages; it is distinct from the uncaptured peer-reviewed article.",
+                    remote_note="Author preprint Table 1 independently confirms specimen-level Svalbard UTM grid values and calibrated ages in the captured published article.",
                 ),
             ),
         ),

@@ -51,7 +51,7 @@ The four mutually exclusive buckets partition `1450` species-normalized sample r
 | `PRJEB69690` | `Ovis aries` | `1` | `7` | `0.1429` |
 | `PRJEB81145` | `Ovis aries` | `1` | `7` | `0.1429` |
 | `PRJEB57293` | `Rangifer tarandus` | `1` | `1` | `1.0` |
-| `PRJEB60484` | `Rangifer tarandus` | `2` | `7` | `0.2857` |
+| `PRJEB60484` | `Rangifer tarandus` | `3` | `7` | `0.4286` |
 | `PRJEB61721` | `Rangifer tarandus` | `1` | `1` | `1.0` |
 | `PRJNA634908` | `Rangifer tarandus` | `1` | `1` | `1.0` |
 | `PRJEB30282` | `Sus scrofa domesticus` | `4` | `8` | `0.5` |

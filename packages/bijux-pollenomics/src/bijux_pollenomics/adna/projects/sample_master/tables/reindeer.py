@@ -251,7 +251,7 @@ def build_reindeer_sample_rows(
                 sample_lineage_locator=f"SAMPLE[@accession='{accession}']/@alias || {locator}",
                 sample_lineage_excerpt=excerpt,
                 sample_ambiguity_note=(
-                    "Secondary table age differs from the primary article's Table 1 interval; chronology awaits primary-source capture."
+                    "Secondary table reports 41–252 BP; the published primary article and author preprint both report 0–450 BP. The chronology selection remains unresolved."
                     if not dated
                     else ""
                 ),

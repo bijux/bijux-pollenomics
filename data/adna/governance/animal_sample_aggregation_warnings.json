@@ -7,7 +7,7 @@
     "sample_accession_anchor_count": 1,
     "project_locality_summary_count": 0,
     "projects_with_project_level_sample_anchors": 0,
-    "projects_with_locality_count_drift": 1,
+    "projects_with_locality_count_drift": 0,
     "species_with_summary_count_drift": 0
   },
   "warning_rows": [
@@ -23,7 +23,7 @@
     },
     {
       "warning_class": "locality_count_drift",
-      "count": 1,
+      "count": 0,
       "detail": "Projects where project-level locality summaries disagree with sample-backed site counts."
     },
     {
@@ -32,16 +32,6 @@
       "detail": "Species summaries that disagree with the current sample-master counts."
     }
   ],
-  "project_locality_drift_rows": [
-    {
-      "species_latin_name": "Rangifer tarandus",
-      "project_accession": "PRJEB60484",
-      "sample_row_count": 20,
-      "sample_backed_site_count": 8,
-      "sample_source_backed_locality_count": 9,
-      "project_locality_summary_count": 8,
-      "drift_detected": true
-    }
-  ],
+  "project_locality_drift_rows": [],
   "species_sample_drift_rows": []
 }

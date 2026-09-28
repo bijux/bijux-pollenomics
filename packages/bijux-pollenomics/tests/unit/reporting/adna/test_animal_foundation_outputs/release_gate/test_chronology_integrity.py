@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from pathlib import Path
 import tempfile
+from unittest.mock import patch
 
 import pytest
 
@@ -134,16 +135,28 @@ class AnimalChronologyReleaseGateTests(AnimalFoundationOutputsTestCase):
                 encoding="utf-8",
             )
 
-            gate_payload = build_animal_publication_release_gate(
-                data_root=data_root,
-                report_root=report_root,
-                docs_root=docs_root,
-                point_payload=point_payload,
-                review_payload=review_payload,
-                sample_database_review_payload=sample_database_review_payload,
-                intake_recovery_payload=intake_recovery_payload,
-                temporal_comparison_payload={"published_feature_guard_findings": []},
-            )
+            with (
+                patch(
+                    "bijux_pollenomics.reporting.adna.foundation_outputs.release.build_project_locality_substitution_ledger",
+                    return_value=(),
+                ),
+                patch(
+                    "bijux_pollenomics.reporting.adna.foundation_outputs.release._load_all_project_sample_site_rows",
+                    return_value=[],
+                ),
+            ):
+                gate_payload = build_animal_publication_release_gate(
+                    data_root=data_root,
+                    report_root=report_root,
+                    docs_root=docs_root,
+                    point_payload=point_payload,
+                    review_payload=review_payload,
+                    sample_database_review_payload=sample_database_review_payload,
+                    intake_recovery_payload=intake_recovery_payload,
+                    temporal_comparison_payload={
+                        "published_feature_guard_findings": []
+                    },
+                )
 
         self.assertFalse(gate_payload["overall_ok"])
         self.assertTrue(

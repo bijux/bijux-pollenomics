@@ -1593,7 +1593,7 @@
         "sample_lineage_locator": "SAMPLE[@accession='SAMEA112757337']/@alias || SI Table S1 row 33, Sample ID R20*",
         "sample_lineage_excerpt": "ENA BioSample SAMEA112757337 aliases R20; supplementary table row 33 reports Spitsbergen, Wijdefjorden, 41-252 BP (2 sigma), median 123 BP; ENA BioProject field: PRJEB60484.",
         "sample_identity_resolution": "final",
-        "sample_ambiguity_note": "Secondary table age differs from the primary article's Table 1 interval; chronology awaits primary-source capture.",
+        "sample_ambiguity_note": "Secondary table reports 41–252 BP; the published primary article and author preprint both report 0–450 BP. The chronology selection remains unresolved.",
         "source_native_tax_id": "3082113",
         "source_native_scientific_name": "Rangifer tarandus platyrhynchus",
         "taxon_alignment_status": "project_species_mismatch",

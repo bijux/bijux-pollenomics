@@ -2399,21 +2399,21 @@
       "content_encoding": "gzip"
     },
     {
-      "artifact_id": "10.1111-mec.17274:article.html",
-      "artifact_kind": "article_html",
+      "artifact_id": "10.1111-mec.17274:article.pdf",
+      "artifact_kind": "article_pdf",
       "label": "article source",
-      "source_url": "https://onlinelibrary.wiley.com/doi/full/10.1111/mec.17274",
-      "local_path": "adna/governance/source_library/papers/10.1111-mec.17274/article.html",
-      "fetch_status": "missing",
-      "remote_note": "Primary Molecular Ecology article links the project to its 18 ancient Svalbard specimens; full article capture remains unavailable.",
+      "source_url": "https://api.nva.unit.no/publication/0198cc66e16f-a743d6e1-054b-400e-a2c4-dd186a645095/filelink/dfe8ba06-53e4-4e80-856e-7a12dd0dbd3f",
+      "local_path": "adna/governance/source_library/papers/10.1111-mec.17274/article.pdf",
+      "fetch_status": "archived",
+      "remote_note": "Published Molecular Ecology article deposited as an open file in Norway's National Research Archive; Table 1 identifies 18 Svalbard specimens.",
       "project_accessions": [
         "PRJEB60484"
       ],
       "paper_doi": "10.1111/mec.17274",
-      "content_type": null,
-      "byte_size": null,
-      "storage_path": null,
-      "storage_byte_size": null,
+      "content_type": "application/pdf",
+      "byte_size": 8867790,
+      "storage_path": "adna/governance/source_library/papers/10.1111-mec.17274/article.pdf",
+      "storage_byte_size": 8867790,
       "content_encoding": null
     },
     {

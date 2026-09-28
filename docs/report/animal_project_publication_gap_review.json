@@ -5,7 +5,7 @@
     "archive_sufficient_count": 6,
     "paper_dependent_count": 34,
     "supplement_dependent_count": 2,
-    "blocked_count": 21,
+    "blocked_count": 20,
     "rows": [
       {
         "project_accession": "KU605068-KU605080",
@@ -245,11 +245,9 @@
         "archive_metadata_sufficient": false,
         "paper_required": true,
         "supplement_required": false,
-        "paper_download_status": "partial",
+        "paper_download_status": "archived",
         "supplement_download_status": "missing",
-        "blockers": [
-          "missing_local_paper_evidence"
-        ]
+        "blockers": []
       },
       {
         "project_accession": "PRJEB61721",
@@ -939,17 +937,16 @@
       "project_url": "https://www.ebi.ac.uk/ena/portal/api/filereport?accession=PRJEB60484&result=read_run&fields=study_accession,sample_accession,experiment_accession,run_accession,tax_id,scientific_name,library_layout,library_source,library_strategy,instrument_model,base_count,read_count,fastq_bytes,fastq_ftp,submitted_ftp,sra_ftp&format=tsv&download=true&limit=0",
       "archive_status": "comparator_only",
       "evidence_strength": "primary_paper_pinned",
-      "ingestion_status": "blocked",
-      "paper_download_status": "partial",
+      "ingestion_status": "paper_source_archived",
+      "paper_download_status": "archived",
       "supplement_download_status": "missing",
       "unresolved_sample_count": 1,
       "region_only_site_count": 1,
       "blockers": [
-        "missing_local_paper_evidence",
         "region_only_geography",
         "sample_context_blocked"
       ],
-      "absence_stage": "paper_or_metadata_capture"
+      "absence_stage": "site_extraction"
     },
     {
       "project_accession": "PRJEB61721",

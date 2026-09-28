@@ -90,7 +90,7 @@
 | 10.1093/gbe/evae114 | Ancient Sheep Genomes Reveal Four Millennia of North European Short-Tailed Sheep in the Baltic Sea Region | PRJEB59481 | supplement_extractable | 2 |
 | 10.1093/gbe/evaf181 | Inferring Domestic Goat Demographic History Through Ancient Genome Imputation | PRJEB90141 | supplement_extractable | 2 |
 | 10.1111/1755-0998.12551 | Combined hybridization capture and shotgun sequencing for ancient DNA analysis of extinct wild and domestic dromedary camel | KU605068-KU605080; SRP073444 | supplement_extractable | 1 |
-| 10.1111/mec.17274 | A palaeogenomic investigation of overharvest implications in an endemic wild reindeer subspecies | PRJEB60484 | full_paper_capture_blocked | 0 |
+| 10.1111/mec.17274 | A palaeogenomic investigation of overharvest implications in an endemic wild reindeer subspecies | PRJEB60484 | manual_curation_required | 0 |
 | 10.1126/science.aam5298 | Ancient genomic changes associated with domestication of the horse | PRJEB19970 | supplement_extractable | 6 |
 | 10.1126/science.aao3297 | Ancient genomes revisit the ancestry of domestic and Przewalski's horses | PRJEB22390 | supplement_extractable | 12 |
 | 10.1126/science.aav1002 | Ancient cattle genomics, origins, and rapid turnover in the Fertile Crescent | PRJEB31621 | supplement_extractable | 1 |

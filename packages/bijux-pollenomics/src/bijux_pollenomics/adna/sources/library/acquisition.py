@@ -8,6 +8,7 @@ import hashlib
 import json
 from pathlib import Path
 from urllib.error import HTTPError, URLError
+from urllib.parse import urlparse
 from urllib.request import Request, urlopen
 
 from defusedxml import ElementTree as ET  # type: ignore[import-untyped]
@@ -411,6 +412,24 @@ def _official_source_receipt_refusal_reason(
 def _official_source_receipt_metadata(
     asset: _RemoteArtifactSpec, *, retrieved_at_utc: str
 ) -> dict[str, object]:
+    if asset.relative_path == "papers/10.1111-mec.17274/article.pdf":
+        return {
+            "published_article_doi": "10.1111/mec.17274",
+            "repository_record": "https://nva.sikt.no/registration/0198cc66e16f-a743d6e1-054b-400e-a2c4-dd186a645095",
+            "retrieved_at_utc": retrieved_at_utc,
+            "license_name": "Creative Commons Attribution 4.0 International",
+            "license_url": "https://creativecommons.org/licenses/by/4.0/",
+            "evidence_locators": [
+                {
+                    "claim_family": "specimen_site_chronology",
+                    "locator": "Table 1, published page 4",
+                },
+                {
+                    "claim_family": "source_role",
+                    "locator": "Data Availability Statement, published page 13",
+                },
+            ],
+        }
     if asset.artifact_kind == "author_preprint_pdf":
         return {
             "preprint_doi": "10.1101/2023.09.21.558762",
@@ -561,4 +580,32 @@ def _download_url(url: str) -> tuple[bytes, str]:
     with urlopen(request, timeout=60) as response:  # nosec B310
         payload = response.read()
         content_type = response.headers.get("Content-Type", "application/octet-stream")
+    if urlparse(url).hostname == "api.nva.unit.no" and "/filelink/" in url:
+        record = json.loads(payload)
+        file_identifier = url.rsplit("/", 1)[-1]
+        if (
+            record.get("type") != "PresignedUriResponse"
+            or record.get("fileIdentifier") != file_identifier
+        ):
+            raise ValueError("NVA article file link changed identity")
+        signed_url = record.get("id")
+        if not isinstance(signed_url, str):
+            raise ValueError("NVA article file link lacks a download URL")
+        parsed = urlparse(signed_url)
+        if (
+            parsed.scheme != "https"
+            or parsed.hostname
+            != "nva-resource-storage-755923822223.s3.eu-west-1.amazonaws.com"
+            or parsed.path != f"/{file_identifier}"
+        ):
+            raise ValueError("NVA article file link changed storage origin")
+        with urlopen(
+            Request(signed_url, headers={"User-Agent": _USER_AGENT}), timeout=60
+        ) as response:  # nosec B310
+            payload = response.read()
+            content_type = response.headers.get(
+                "Content-Type", "application/octet-stream"
+            )
+        if not payload.startswith(b"%PDF-"):
+            raise ValueError("NVA article file is not a PDF")
     return payload, content_type

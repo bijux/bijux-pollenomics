@@ -82,9 +82,22 @@ def test_reindeer_custody_uses_primary_doi_and_publisher_sample_workbook() -> No
         for row in build_paper_registry(DATA_ROOT)
         if row.paper_doi == "10.1111/mec.17274"
     )
-    assert bundle.paper_download_status == "partial"
-    assert "missing_local_paper_evidence" in bundle.blockers
-    assert paper.article_download_status == "partial"
+    assert bundle.paper_download_status == "archived"
+    assert "missing_local_paper_evidence" not in bundle.blockers
+    assert paper.article_download_status == "archived"
+    assert paper.article_readability_status == "readable_pdf"
+    article = (
+        DATA_ROOT
+        / "adna/governance/source_library/papers/10.1111-mec.17274/article.pdf"
+    )
+    article_digest = "1446b3d42f066605e162cd043ae4eb2da1ef14748534af7b1205cada19d0fb3f"
+    assert sha256(article.read_bytes()).hexdigest() == article_digest
+    article_receipt = json.loads(article.with_suffix(".pdf.metadata.json").read_text())
+    assert article_receipt["content_sha256"] == article_digest
+    assert article_receipt["published_article_doi"] == "10.1111/mec.17274"
+    assert (
+        article_receipt["license_url"] == "https://creativecommons.org/licenses/by/4.0/"
+    )
     preprint = (
         DATA_ROOT
         / "adna/governance/source_library/papers/10.1111-mec.17274/author_preprint.pdf"

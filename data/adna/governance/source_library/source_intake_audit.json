@@ -4,9 +4,9 @@
   "supplementary_manifested_paper_count": 17,
   "supplement_zip_member_count": 11,
   "blocker_counts": {
-    "missing_paper_capture_count": 15,
+    "missing_paper_capture_count": 14,
     "missing_supplementary_capture_count": 0,
-    "missing_readable_tables_count": 15,
+    "missing_readable_tables_count": 14,
     "missing_sample_identifier_count": 30
   },
   "sample_extractable_violations": [],
@@ -392,9 +392,7 @@
       "expected_sample_count_status": "not_yet_curated",
       "sample_identifier_status": "manual_curation_required",
       "blocker_categories": [
-        "missing_paper_capture",
-        "missing_sample_identifiers",
-        "missing_readable_tables"
+        "missing_sample_identifiers"
       ]
     },
     {
