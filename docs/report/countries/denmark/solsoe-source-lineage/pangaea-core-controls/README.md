@@ -17,9 +17,18 @@ years BP), and δ13C. Those controls occupy **54** Neotoma control rows because
 values for primary labels that are present. The two remaining Neotoma control
 rows are not counted as primary radiocarbon matches.
 
+The Neotoma 1981 core has two distinct age models. Chronology `25731` is the
+collection unit's selected **EPD default**, with linear interpolation in
+radiocarbon years BP (range 720–9790 BP); it contains 25 of the matched
+control rows. Chronology `25732` is **Giesecke et al. 2014 (MADCAP)**, a `clam`
+model in calibrated radiocarbon years BP (range 0–12420 BP); it contains 29.
+These are records of different age models sharing radiocarbon measurements.
+The [report](report.json) pins the chronology source rows and identities.
+
 This establishes a strong 1981 core and age-control relationship. The
 LandClim II 79-sample sequence still lacks an authenticated sample/core join
-to either of the two Neotoma cores and uses an author chronology. A 2.5 ha
+to either of the two Neotoma cores and uses an author chronology that does not
+identify either Neotoma model. A 2.5 ha
 site area cannot supply an age-specific basin radius or correct historical
 water-level change. **Zero Solsø samples are admitted to LRA** from this join.
 

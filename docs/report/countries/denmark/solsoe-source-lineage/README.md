@@ -36,9 +36,11 @@ The [primary 1981 age-control join](pangaea-core-controls/README.md) links the
 area claim directly to `SOLSOE81` and exactly matches 30 of its 34 published
 radiocarbon rows to retained Neotoma controls on lab, depth, age, errors and
 δ13C. Four published lab controls are absent in the retained Neotoma controls;
-24 of the matching controls recur across both Neotoma chronologies. This
-narrows core identity but does not select the author chronology or establish a
-historical basin outline.
+24 of the matching controls recur across both Neotoma chronologies. The
+collection unit selects an EPD default linear radiocarbon model; a separate
+MADCAP chronology is a calibrated `clam` model. This narrows core identity but
+does not select the LandClim II author chronology or establish a historical
+basin outline.
 
 The LandClim II metadata mark access `R` and use an **authors chronology**;
 the 91 selected Neotoma samples have calibrated age claims.

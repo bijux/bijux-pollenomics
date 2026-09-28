@@ -12,6 +12,30 @@
     "neotoma:chronology:4303:25731": 25,
     "neotoma:chronology:4303:25732": 29
   },
+  "neotoma_1981_chronologies": [
+    {
+      "chronology_id": "neotoma:chronology:4303:25731",
+      "name": "EPD default",
+      "model": "Linear interpolation",
+      "age_type": "Radiocarbon years BP",
+      "age_range_bp": {
+        "ageboundolder": 9790,
+        "ageboundyounger": 720
+      },
+      "selected_by_collection_unit_reference": true
+    },
+    {
+      "chronology_id": "neotoma:chronology:4303:25732",
+      "name": "Giesecke et al. 2014 (MADCAP)",
+      "model": "clam",
+      "age_type": "Calibrated radiocarbon years BP",
+      "age_range_bp": {
+        "ageboundolder": 12420,
+        "ageboundyounger": 0
+      },
+      "selected_by_collection_unit_reference": false
+    }
+  ],
   "primary_labels_absent_from_neotoma_controls": [
     "K-3970",
     "K-4012",
@@ -34,11 +58,15 @@
       "sha256": "bb84e43a97c3ac548505ad34e489c551ce44ab6c072d28aaa88bc287dbeeac84"
     },
     {
+      "path": "data/neotoma/relational/surfaces/chronologies/part-00001.json",
+      "sha256": "0703828826bde8a4860d5ea03100cf85145702a042bb3d29dafcb8a3bef4f569"
+    },
+    {
       "path": "docs/report/countries/denmark/solsoe-source-lineage/report.json",
       "sha256": "55ebb73e8d94812b404bf6e9167a386cea2c2a11b841d36b8718715a39d96383"
     }
   ],
-  "interpretation": "The PANGAEA EPD event binds 2.5 ha and 30 exact radiocarbon controls to the 1981 Sols\u00f8 core; 24 matched controls recur in both Neotoma chronologies. Four primary lab labels have no retained Neotoma control. The event area is not an age-specific historical basin outline, and neither it nor this join identifies the 79 LandClim II samples or author chronology.",
+  "interpretation": "The PANGAEA EPD event binds 2.5 ha and 30 exact radiocarbon controls to the 1981 Sols\u00f8 core; 24 matched controls recur in both Neotoma chronologies. The selected EPD default is a radiocarbon linear-interpolation model, whereas the later MADCAP record is a calibrated-radiocarbon clam model. Shared dated material does not identify the LandClim II author chronology. Four primary lab labels have no retained Neotoma control. The event area is not an age-specific historical basin outline, and this join does not identify the 79 LandClim II samples.",
   "source_rights": "PANGAEA EPD CC BY-NC 3.0; source table retained only in the external data store, not redistributed here.",
   "lra_admitted_samples": 0
 }
