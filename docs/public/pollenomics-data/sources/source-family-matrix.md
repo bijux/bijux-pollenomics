@@ -34,6 +34,10 @@ The machine-readable authority for these roles and lifecycle roots is
 separately because a family can have a complete structural contract while
 remaining scientifically qualified.
 
+The [source capability and materialization matrix](source-capability-and-materialization.md)
+lists all 187 source–dimension cells. It reports source support separately
+from the presence of each declared repository evidence file.
+
 ## Lifecycle Coverage
 
 The [Nordic country limitations](country-source-limitations.md) present the
