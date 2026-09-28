@@ -27,6 +27,13 @@ and it does not assert continuous temporal support, vegetation composition, or
 LRA reconstruction. The atlas point layer has not yet been wired to this sequence
 surface; its source export and this trajectory remain separate consumers.
 
+The [source overlap report](source-overlap.json) detects eight same-name,
+near-coordinate LandClim metadata leads across all three lakes (maximum point
+gap below 0.45 m). This flags possible shared source lineage before any
+agreement is described as independent corroboration. Name and point agreement
+do not prove that original cores or samples are identical; that source review
+remains open. LandClim model cells are not counted as observations here.
+
 Regenerate into an empty directory under `artifacts/` and compare the five data
 files and manifest with this directory:
 
@@ -40,3 +47,13 @@ The focused replay test also checks the published table against the existing
 Swedish direct-pollen cohort's sample and native NISP counts. These source
 sequences expose the native observations used by that separate binned predictor;
 the trajectory itself reports no predictive skill.
+
+Reproduce the overlap check with the same source-site table and retained
+LandClim site metadata:
+
+```sh
+PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -m bijux_pollenomics_dev.source_completion.swedish_pollen_overlap \
+  --sites docs/report/pollen-reconstruction/swedish-native-sequences/sites.json \
+  --landclim data/landclim/normalized/nordic_pollen_site_sequences.csv \
+  --output artifacts/swedish-native-sequences/overlap-replay
+```
