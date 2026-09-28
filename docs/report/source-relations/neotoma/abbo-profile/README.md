@@ -26,6 +26,11 @@ PANGAEA event metadata; it does not establish a historical lake outline or
 time-specific basin geometry for the 107 pollen samples. This comparison
 does not admit LRA inputs or independent vegetation truth.
 
+The separate [ABBO age-control comparison](../abbo-age-controls/README.md)
+matches all six published radiocarbon dates to the Neotoma chronology's dated
+controls. Its calibrated control limits do not supply uncertainty bounds for
+the interpolated ages of individual pollen samples.
+
 ## Reproduce
 
 Download the profile from the DOI above into the external source store,
