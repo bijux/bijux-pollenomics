@@ -19,7 +19,7 @@ database.
 ## Snapshot At A Glance
 
 <!-- sead-evidence:generated:start -->
-The current governed full-evidence run is `sead-full-evidence-39bfff6a-ce80714e` (`sha256:ce80714e4c9e9974b24913e5da50f49854670ed642879c1ca5076499e1d56725`). Its denominators are:
+The current governed full-evidence run is `sead-full-evidence-39bfff6a-ce80714e` (`sha256:ce80714e4c9e9974b24913e5da50f49854670ed642879c1ca5076499e1d56725`). Its raw-parent admission SHA-256 is `168ad1efe6fa68cdb7789246a6cce16670377cdbacd14d1673beaab8ddd1ebd1`. Its denominators are:
 
 | Governed population | Count | Interpretation |
 | --- | ---: | --- |

@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from datetime import date
+import hashlib
 import json
 from pathlib import Path
 
@@ -23,6 +24,11 @@ from bijux_pollenomics.collection.sources.sead.review import write_sead_review_o
 from bijux_pollenomics.collection.sources.sead.review.publication import (
     review_lineage_from_admission,
 )
+from .repository_surfaces.contract import (
+    SEAD_NORMALIZED_LINEAGE_INPUTS,
+    SEAD_NORMALIZED_LINEAGE_PATH,
+)
+from bijux_pollenomics.core.files import write_json
 
 
 def write_source_surfaces(
@@ -82,6 +88,21 @@ def write_repository_surfaces(
         context_data_root=context_data_root,
         review_lineage=review_lineage_from_admission(admission),
         generated_on=generated_on,
+    )
+    lineage = review_lineage_from_admission(admission)
+    write_json(
+        output_data_root / SEAD_NORMALIZED_LINEAGE_PATH,
+        {
+            "schema_version": "sead-normalized-surface-lineage.v1",
+            **lineage,
+            "acquisition_bundle_sha256": admission["acquisition_bundle_sha256"],
+            "normalized_surface_sha256": {
+                str(path.relative_to("sead")): hashlib.sha256(
+                    (output_data_root / path).read_bytes()
+                ).hexdigest()
+                for path in SEAD_NORMALIZED_LINEAGE_INPUTS
+            },
+        },
     )
     return normalized_csv_path, normalized_geojson_path
 

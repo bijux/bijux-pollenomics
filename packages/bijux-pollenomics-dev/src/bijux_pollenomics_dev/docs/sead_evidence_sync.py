@@ -29,6 +29,7 @@ class SeadEvidenceFacts:
 
     source_run_id: str
     build_id: str
+    parent_admission_sha256: str
     source_table_count: int
     bbox_site_count: int
     assigned_site_count: int
@@ -119,6 +120,9 @@ def load_sead_evidence_facts(repository_root: Path) -> SeadEvidenceFacts:
     manifest = _load_object(manifest_path)
     source_run_id = _required_string(manifest, "source_run_id", "manifest")
     build_id = _required_string(manifest, "build_id", "manifest")
+    parent_admission_sha256 = _required_string(
+        manifest, "parent_admission_sha256", "manifest"
+    )
     if Path(source_run_id).name != source_run_id:
         raise SeadEvidenceSyncError("manifest.source_run_id must be one path segment")
     acquisition_root = repository_root / "data/sead/raw/acquisitions" / source_run_id
@@ -156,6 +160,17 @@ def load_sead_evidence_facts(repository_root: Path) -> SeadEvidenceFacts:
     }
     if len(set(identities.values())) != 1:
         raise SeadEvidenceSyncError(f"SEAD run/build identities diverge: {identities}")
+    parent_hashes = {
+        "manifest": parent_admission_sha256,
+        "admission": _required_string(
+            admission, "parent_admission_sha256", "admission"
+        ),
+        "atlas": _required_string(atlas_sead, "parent_admission_sha256", "atlas.sead"),
+    }
+    if len(set(parent_hashes.values())) != 1:
+        raise SeadEvidenceSyncError(
+            f"SEAD raw-parent identities diverge: {parent_hashes}"
+        )
     for owner, payload in (
         ("chronology", chronology),
         ("observations", observations),
@@ -266,6 +281,7 @@ def load_sead_evidence_facts(repository_root: Path) -> SeadEvidenceFacts:
     return SeadEvidenceFacts(
         source_run_id=source_run_id,
         build_id=build_id,
+        parent_admission_sha256=parent_admission_sha256,
         source_table_count=source_table_count,
         bbox_site_count=_required_count(
             country_accounting, "bbox_site_count", "admission.country_accounting"
@@ -310,7 +326,9 @@ def render_sead_evidence_block(facts: SeadEvidenceFacts) -> str:
             START_MARKER,
             (
                 "The current governed full-evidence run is "
-                f"`{facts.source_run_id}` (`{facts.build_id}`). Its denominators are:"
+                f"`{facts.source_run_id}` (`{facts.build_id}`). "
+                f"Its raw-parent admission SHA-256 is `{facts.parent_admission_sha256}`. "
+                "Its denominators are:"
             ),
             "",
             "| Governed population | Count | Interpretation |",

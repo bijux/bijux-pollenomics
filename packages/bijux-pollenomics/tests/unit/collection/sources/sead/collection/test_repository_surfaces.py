@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import hashlib
 import os
 from pathlib import Path
 
@@ -12,6 +13,10 @@ from bijux_pollenomics.collection.sources.sead.collection.repository_surfaces im
     prepare_repository_surface_transaction,
     publish_repository_surface_candidate,
     validate_repository_surface_candidate,
+)
+from bijux_pollenomics.collection.sources.sead.collection.repository_surfaces.contract import (
+    SEAD_NORMALIZED_LINEAGE_INPUTS,
+    SEAD_NORMALIZED_LINEAGE_PATH,
 )
 from bijux_pollenomics.collection.sources.sead.collection.repository_surfaces import (
     validation as surface_validation,
@@ -189,6 +194,26 @@ def test_repository_surface_baseline_refuses_partial_population(tmp_path: Path) 
         )
 
 
+def test_repository_surface_baseline_admits_missing_new_lineage_only(
+    tmp_path: Path,
+) -> None:
+    data_root = tmp_path / "data"
+    data_root.mkdir()
+    _write_population(data_root, prefix="old")
+    (data_root / SEAD_NORMALIZED_LINEAGE_PATH).unlink()
+
+    transaction = prepare_repository_surface_transaction(
+        data_root, artifacts_root=tmp_path / "artifacts"
+    )
+
+    assert not next(
+        item
+        for item in transaction.baseline
+        if item.relative_path == SEAD_NORMALIZED_LINEAGE_PATH
+    ).existed
+    transaction.lock_path.unlink()
+
+
 def test_cross_format_validation_requires_direct_uuid_reconciliation(
     tmp_path: Path,
 ) -> None:
@@ -231,6 +256,32 @@ def test_cross_format_validation_requires_direct_uuid_reconciliation(
         (review / f"{stem}.json").write_text(
             json.dumps({"row_count": 0}), encoding="utf-8"
         )
+    lineage = {
+        "source_run_id": "source-run",
+        "build_id": "source-build",
+        "acquisition_manifest_sha256": "manifest-hash",
+        "parent_admission_sha256": "parent-hash",
+    }
+    (review / "temporal_review.json").write_text(
+        json.dumps({"row_count": 0, "lineage": lineage}), encoding="utf-8"
+    )
+    (normalized / "chronology_claims.json").write_text("{}\n", encoding="utf-8")
+    (root.parent / SEAD_NORMALIZED_LINEAGE_PATH).write_text(
+        json.dumps(
+            {
+                "schema_version": "sead-normalized-surface-lineage.v1",
+                **lineage,
+                "acquisition_bundle_sha256": "bundle-hash",
+                "normalized_surface_sha256": {
+                    str(path.relative_to("sead")): hashlib.sha256(
+                        (root.parent / path).read_bytes()
+                    ).hexdigest()
+                    for path in SEAD_NORMALIZED_LINEAGE_INPUTS
+                },
+            }
+        ),
+        encoding="utf-8",
+    )
     (derived / "sweden_archaeology_site_discovery.csv").write_text(
         f"site_id,site_uuid\n1,{site_uuid}\n", encoding="utf-8"
     )
@@ -278,6 +329,17 @@ def test_cross_format_validation_requires_direct_uuid_reconciliation(
     )
 
     surface_validation.validate_cross_format_counts(candidate)
+
+    lineage_path = root.parent / SEAD_NORMALIZED_LINEAGE_PATH
+    original_lineage = lineage_path.read_text(encoding="utf-8")
+    lineage_payload = json.loads(original_lineage)
+    lineage_payload["normalized_surface_sha256"][
+        "normalized/nordic_environmental_sites.geojson"
+    ] = "wrong-source-hash"
+    lineage_path.write_text(json.dumps(lineage_payload), encoding="utf-8")
+    with pytest.raises(ValueError, match="surface hashes differ"):
+        surface_validation.validate_cross_format_counts(candidate)
+    lineage_path.write_text(original_lineage, encoding="utf-8")
 
     value = json.loads(discovery_geojson.read_text(encoding="utf-8"))
     value["features"][0]["properties"]["site_uuid"] = (

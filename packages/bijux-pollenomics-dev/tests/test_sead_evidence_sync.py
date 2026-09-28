@@ -28,6 +28,7 @@ def _write_json(path: Path, payload: object) -> None:
 def _fixture_repository(root: Path) -> None:
     run_id = "sead-test-run"
     build_id = "sha256:test-build"
+    parent_admission_sha256 = "test-parent-admission-hash"
     evidence_root = root / "data/sead/normalized/acquisitions" / run_id
     raw_root = root / "data/sead/raw/acquisitions" / run_id
     _write_json(
@@ -51,6 +52,7 @@ def _fixture_repository(root: Path) -> None:
         {
             "source_run_id": run_id,
             "build_id": build_id,
+            "parent_admission_sha256": parent_admission_sha256,
             "source_table_count": 61,
             "chronology_claim_count": 9,
             "observation_count": 8,
@@ -63,6 +65,7 @@ def _fixture_repository(root: Path) -> None:
         {
             "run_id": run_id,
             "build_id": build_id,
+            "parent_admission_sha256": parent_admission_sha256,
             "table_counts": {f"table_{index}": 0 for index in range(61)},
             "country_accounting": {
                 "bbox_site_count": 12,
@@ -118,6 +121,7 @@ def _fixture_repository(root: Path) -> None:
                     "sead": {
                         "source_run_id": run_id,
                         "build_id": build_id,
+                        "parent_admission_sha256": parent_admission_sha256,
                         "source_feature_count": 17,
                         "assigned_site_count": 10,
                         "source_claim_denominator": 9,
@@ -192,6 +196,7 @@ def test_sync_replaces_only_governed_blocks_and_then_reaches_fixed_point(
         assert text.startswith("before\n")
         assert text.endswith("\nafter\n")
         assert "| source tables | 61 |" in text
+        assert "raw-parent admission SHA-256 is `test-parent-admission-hash`" in text
         assert "| assigned four-country sites | 10 | SE 4, DK 3, NO 2, FI 1 |" in text
         assert "| eligible / refused propagation events | 0 / 8 |" in text
 
@@ -224,4 +229,18 @@ def test_denominator_drift_fails_closed(tmp_path: Path) -> None:
     chronology["comparability_counts"]["unresolved"] = 3
     _write_json(chronology_path, chronology)
     with pytest.raises(SeadEvidenceSyncError, match="comparability does not reconcile"):
+        load_sead_evidence_facts(tmp_path)
+
+
+def test_raw_parent_drift_fails_closed(tmp_path: Path) -> None:
+    _fixture_repository(tmp_path)
+    contract_path = (
+        tmp_path / "docs/report/regions/nordic/nordic_map_publication_contract.json"
+    )
+    contract = json.loads(contract_path.read_text(encoding="utf-8"))
+    contract["detail_projection"]["sources"]["sead"]["parent_admission_sha256"] = (
+        "another-parent"
+    )
+    _write_json(contract_path, contract)
+    with pytest.raises(SeadEvidenceSyncError, match="raw-parent identities diverge"):
         load_sead_evidence_facts(tmp_path)
