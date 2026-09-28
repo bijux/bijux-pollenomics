@@ -1,0 +1,442 @@
+{
+  "schema_version": "landclim-author-site-uncertainty.v1",
+  "source_role": "released author example; numerical development only",
+  "grid_id": "512",
+  "window_midpoint_bp": 225,
+  "site_ids": [
+    "BROADOWN",
+    "HANGINGS",
+    "HARESDOWN",
+    "LOBBSBOG",
+    "WINDMILL",
+    "WINNEYS"
+  ],
+  "source_radius_values": [
+    150.0,
+    100.0,
+    10.0,
+    15.0,
+    10.0,
+    200.0
+  ],
+  "radius_interpretation": "source static radius values passed as metres to lake deposition; age-specific basin geometry unverified",
+  "source_model_code": 2,
+  "prepared_targets": [
+    "Alnus.glutinosa",
+    "Betula",
+    "Calluna.vulgaris",
+    "Cerealia.t",
+    "Corylus.avellana",
+    "Cyperaceae",
+    "Pinus",
+    "Plantago.lanceolata.type",
+    "Poaceae",
+    "Quercus.deciduous"
+  ],
+  "source_parameter_targets": [
+    "Alnus glutinosa",
+    "Betula",
+    "Calluna vulgaris",
+    "Cerealia-t",
+    "Corylus avellana",
+    "Cyperaceae",
+    "Pinus",
+    "Plantago lanceolata type",
+    "Poaceae",
+    "Quercus deciduous"
+  ],
+  "taxon_axis_rule": "positive prepared count in all six active sites; exploratory selection",
+  "denominator": "sum of the ten selected taxon counts within each site/window",
+  "selected_counts_by_site": [
+    289,
+    293,
+    2223,
+    2786,
+    4251,
+    562
+  ],
+  "all_author_target_counts_by_site": [
+    299,
+    298,
+    2347,
+    2853,
+    4360,
+    590
+  ],
+  "source_counting_absence_claimed": false,
+  "taxon_measured_basis": "each selected taxon has a positive prepared source count at every selected site",
+  "ppe": [
+    13.562,
+    5.10571,
+    1.085,
+    1.85,
+    1.71,
+    0.9625,
+    6.05833,
+    2.33,
+    1.0,
+    4.53667
+  ],
+  "ppe_covariance": [
+    [
+      0.085936336,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.092006056,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      0.000850002,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      0.145122141,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.009995081,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.002562496,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.056016002,
+      0.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.040578074,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.007427785
+    ]
+  ],
+  "fall_speed_m_s": [
+    0.021,
+    0.024,
+    0.038,
+    0.06,
+    0.025,
+    0.035,
+    0.031,
+    0.029,
+    0.035,
+    0.035
+  ],
+  "wind_speed_m_s": 3.0,
+  "regional_extent_m": 100000.0,
+  "deposition": [
+    [
+      19697.793347904288,
+      18339.921595783282,
+      11552.456601874306,
+      4754.975395106912,
+      17853.218817833324,
+      12903.655937886977,
+      14837.620244422344,
+      15842.349465023848,
+      12903.655937886977,
+      12903.655937886977
+    ],
+    [
+      9334.766676246496,
+      8731.491001514392,
+      5629.588757131664,
+      2412.3917844173093,
+      8513.143811147807,
+      6255.430811387033,
+      7144.464886139002,
+      7603.077688058784,
+      6255.430811387033,
+      6255.430811387033
+    ],
+    [
+      125.43902335979212,
+      120.06848527712796,
+      86.98456867823093,
+      45.604399381609404,
+      117.98909886850846,
+      94.16941149311899,
+      103.96806586468591,
+      108.82570846689205,
+      94.16941149311899,
+      94.16941149311899
+    ],
+    [
+      269.8722336828375,
+      257.3687215366045,
+      183.00919967966914,
+      92.90528715632848,
+      252.59428553927256,
+      198.9528502683416,
+      220.84892706690397,
+      231.7802832602072,
+      198.9528502683416,
+      198.9528502683416
+    ],
+    [
+      125.43902335979212,
+      120.06848527712796,
+      86.98456867823093,
+      45.604399381609404,
+      117.98909886850846,
+      94.16941149311899,
+      103.96806586468591,
+      108.82570846689205,
+      94.16941149311899,
+      94.16941149311899
+    ],
+    [
+      33368.25100460947,
+      30963.190616884207,
+      19174.736835477943,
+      7663.290162893673,
+      30106.85348133317,
+      21498.99175392076,
+      24843.799455418342,
+      26590.28853200607,
+      21498.99175392076,
+      21498.99175392076
+    ]
+  ],
+  "fixed_site_cover": [
+    0.0006178334702219188,
+    0.0005871184083066193,
+    0.07320854032070347,
+    0.017263881995886066,
+    0.006861675969720392,
+    0.462911736928906,
+    0.0026366594605157206,
+    0.008664270880349201,
+    0.4167758021555957,
+    0.010472480409794791
+  ],
+  "fixed_site_standard_error": [
+    6.936591289184271e-05,
+    0.00011338469179100992,
+    0.003904244392705773,
+    0.003849724181987777,
+    0.0007737574938443507,
+    0.01424964030178013,
+    0.0002491574851807242,
+    0.001008328243951469,
+    0.011598502406150523,
+    0.0006355450626560409
+  ],
+  "joint_mean_cover": [
+    0.0006312904867491199,
+    0.0006545626792351036,
+    0.07654381353972184,
+    0.017606425689981716,
+    0.007073964125927521,
+    0.46283294776865347,
+    0.002804801321856252,
+    0.00858363548815812,
+    0.4129767177656445,
+    0.010291841134073117
+  ],
+  "joint_standard_error": [
+    0.0001872657096766807,
+    0.0004436307873577589,
+    0.045267918743492785,
+    0.0048935716776773224,
+    0.0035958220648437556,
+    0.12156631848538582,
+    0.0007021867754083316,
+    0.003726043132476256,
+    0.10107576916643798,
+    0.001378786471813282
+  ],
+  "joint_replicate_count": 1024,
+  "joint_seed": 630512225,
+  "ppe_draw_model": "positive multivariate lognormal moment-matched to author mean/covariance",
+  "count_draw_model": "one conditional multinomial draw per original site and replicate",
+  "site_draw_model": "bootstrap six original site identities with replacement",
+  "chronology_geometry_transport_fixed": true,
+  "historical_source_r_parity_claimed": false,
+  "ecological_accuracy_claimed": false,
+  "private_source_inputs": [
+    {
+      "path": "author/run.REVEALS.files/av-RPP.all.landclimII.csv",
+      "bytes": 772,
+      "sha256": "066ebadbe6ab10aead80c74a184284e05b9db3cd1f5daff04249596170a663e2"
+    },
+    {
+      "path": "author/run.REVEALS.files/avar-RPP.all.landclimII.csv",
+      "bytes": 2977,
+      "sha256": "8821de94682c454e3a751897b487c8bf1612cf60994dc6246fb33284a73e9918"
+    },
+    {
+      "path": "author/run.REVEALS.files/site.list.512.csv",
+      "bytes": 192,
+      "sha256": "c0c04cfb53f0ac28a93aa2a96c0a2480751577e9c60462cb178ab198f3cda2c7"
+    },
+    {
+      "path": "reference/taxon-name-crosswalk.csv",
+      "bytes": 930,
+      "sha256": "3a0f598ba5e550ca39da52b2047b7020b013dad013d15f79bef8e1c3c1a979c3"
+    },
+    {
+      "path": "author/run.REVEALS.files/LRAready_BROADOWN.csv",
+      "bytes": 2476,
+      "sha256": "1eb04f58c13321fc9f284186df85003d4f73803f2485b842984f49a64c21a0c8"
+    },
+    {
+      "path": "author/run.REVEALS.files/LRAready_CUTHILL2.csv",
+      "bytes": 2452,
+      "sha256": "a17ad8a86c4fb7fdffda4799dbc8de6909a037f7b106e07263fdd727c4c7f283"
+    },
+    {
+      "path": "author/run.REVEALS.files/LRAready_HANGINGS.csv",
+      "bytes": 2474,
+      "sha256": "8249ce97a114048400a1497924cac0bc1c07fc7ae110dd5f868accd9425eda2f"
+    },
+    {
+      "path": "author/run.REVEALS.files/LRAready_HARESDOWN.csv",
+      "bytes": 2367,
+      "sha256": "406896858243381630c3e7a66f29c97d8ee7725c4f418f72396c4d31095e33d9"
+    },
+    {
+      "path": "author/run.REVEALS.files/LRAready_LOBBSBOG.csv",
+      "bytes": 2370,
+      "sha256": "13b8ad5fa65022aeb6ad351317c77e68710b398e2abd7d6b7159811e880ad8a7"
+    },
+    {
+      "path": "author/run.REVEALS.files/LRAready_WHH05.csv",
+      "bytes": 2309,
+      "sha256": "298b66d7033703ce42d27f933b4d3ccec3a16f68b35a6fbf7a61806c01c88273"
+    },
+    {
+      "path": "author/run.REVEALS.files/LRAready_WHH11.csv",
+      "bytes": 2341,
+      "sha256": "d38734ceb0c134eeffbb40091a81d3a8a8d32143dd14504296cc7baa38bf735e"
+    },
+    {
+      "path": "author/run.REVEALS.files/LRAready_WINDMILL.csv",
+      "bytes": 2350,
+      "sha256": "5cbfff585068fd2d3b27bb4d1156bde39b6b80f975ca78433cee960ce854c20f"
+    },
+    {
+      "path": "author/run.REVEALS.files/LRAready_WINNEYS.csv",
+      "bytes": 2507,
+      "sha256": "b268187404a6ec1b0d0935990acd70bce678c55c95a2fadf38b7e50f27e29dd6"
+    }
+  ],
+  "author_prepared_lineage": {
+    "path": "docs/report/source-relations/landclim/author-example-taxon-support/sites.csv",
+    "bytes": 759,
+    "sha256": "13b26b7828ade00ba4037ac334207c9b865a5032f33c40ffe17dc951397321ba"
+  },
+  "repository_code_inputs": [
+    {
+      "path": "docs/report/method-certification/author-site-uncertainty/replay.py",
+      "bytes": 10301,
+      "sha256": "7394219759d112d69272e4a18d42fad5efb872b0d2798be209d2fc100ec4b760"
+    },
+    {
+      "path": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/fixed_site_covariance.py",
+      "bytes": 4505,
+      "sha256": "9118edf5239f5b0179018ea476afb63916cc0af8ace501182198ff192d42effd"
+    },
+    {
+      "path": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/joint_site_draws.py",
+      "bytes": 4145,
+      "sha256": "368d6fa8d4f6c02e80719c5fb8233f9b6e31fdc4c2d6a69569ed11b02df98ac2"
+    },
+    {
+      "path": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/dispersal/publication.py",
+      "bytes": 1645,
+      "sha256": "707eefbed4f6e3231fb49de255dafbe3f26691206f90026b58caa6f2fb1f0a89"
+    }
+  ],
+  "draws_sha256": "84da401dc862452bc329d11df074d2c6d7353b3e34b223892b5fd6702fae4390",
+  "cover_draws_sha256": "dffe151e3b4aa177cbe17332ba9c10f73fa0119f9dbc9c607b4d060f935f6885"
+}

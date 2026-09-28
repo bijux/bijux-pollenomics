@@ -40,6 +40,9 @@ lake or pollen sample is admitted by this synthetic result.
 The [author raw/prepared taxon comparison](../../source-relations/landclim/author-example-taxon-support/README.md)
 shows why the retained 17 real author sites cannot simply use an all-measured
 31-target mask in this reviewed profile.
+The [restricted author-site calculation](../author-site-uncertainty/README.md)
+therefore selects only ten taxa with positive counts at all six sites in one
+window and reports its separate closed-subcomposition uncertainty.
 
 The [calculation](../../../../packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/joint_site_draws.py)
 requires explicit arrays and refuses changed site totals, invalid identities,
