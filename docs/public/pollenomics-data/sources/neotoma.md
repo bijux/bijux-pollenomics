@@ -149,13 +149,15 @@ lead only when both source element fields agree; it does not establish a
 reviewed taxon mapping, PPE or compatible count denominator. The API never
 chooses an age claim or produces an executable LRA request.
 
-For source samples `552226` through `552229` in one captured Swedish collection
-unit, the bounded export preserves 116 numeric count observations: 109 carry
-the exact source element label `pollen` and seven are labelled spore. It retains
-four comparable typed age claims without ordering or selecting them. The four
-samples remain refused for numerical LRA and held-out scoring pending chronology,
-taxa/PPE, basin, unit and source-conflict review. These four source samples are
-not asserted to be four independent sites or a complete stratigraphic core.
+The [retained Ageröds Mosse source series](../../../report/source-relations/neotoma/pollen-screen/agerods-mosse.sample-series.json)
+uses the current corrected source projection. Its 16 consecutive source samples
+at one site contain 409 native observations, including 360 agreeing
+pollen-labelled integer count candidates, and 32 alternative age claims. Four
+samples lack a comparable owned age; the following 12 pass that necessary age
+screen. Every sample remains refused for numerical LRA while chronology choice,
+classification, PPE/parameter binding and historical basin geometry are
+unapproved. These 16 rows are one bounded source series, not independent sites
+or a complete basin-qualified reconstruction.
 
 ### Full-source agreeing-pollen prerequisite screen
 
