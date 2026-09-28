@@ -53,7 +53,16 @@ class TaxonomyTests(SampleMasterRecoveryTestCase):
             },
             {"Capra hircus"},
         )
-        self.assertTrue(all(row.chronology_text == "" for row in rows))
+        self.assertEqual(
+            {row.preferred_sample_label: row.chronology_text for row in rows},
+            {
+                "OB20-01": "",
+                "OB20-06": "5991-5771 cal BCE",
+                "OB21-04": "1045-835 cal BCE",
+                "OB21-06": "",
+                "OB20-04": "3003-2701 cal BCE",
+            },
+        )
         self.assertTrue(
             all(not row.latitude_text and not row.longitude_text for row in rows)
         )
@@ -107,6 +116,7 @@ class TaxonomyTests(SampleMasterRecoveryTestCase):
         )
         relative_files = [
             "adna/governance/source_library/papers/10.1038-s41562-021-01083-y/supplementary/41562_2021_1083_MOESM2_ESM.pdf",
+            "adna/governance/source_library/papers/10.1038-s41562-021-01083-y/supplementary/41562_2021_1083_MOESM1_ESM.pdf",
             "adna/governance/source_library/projects/PRJEB41594/archive_metadata.html.gz",
         ]
         for accession in range(8022720, 8022725):
@@ -121,6 +131,15 @@ class TaxonomyTests(SampleMasterRecoveryTestCase):
         archive_rows = _project_scope_archive_sample_rows(
             tmp_path, resolve_species_definition("Ovis aries"), project
         )
+        date_file = tmp_path / (
+            "adna/governance/source_library/papers/10.1038-s41562-021-01083-y/"
+            "supplementary/41562_2021_1083_MOESM1_ESM.pdf"
+        )
+        date_bytes = date_file.read_bytes()
+        date_file.write_bytes(date_bytes + b"changed")
+        with pytest.raises(ValueError, match="radiocarbon supplement changed"):
+            build_obishir_sample_rows(tmp_path, archive_rows)
+        date_file.write_bytes(date_bytes)
         alias_file = tmp_path / (
             "adna/governance/source_library/projects/PRJEB41594/ena_samples/"
             "SAMEA8022720.xml"

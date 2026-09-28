@@ -9,7 +9,7 @@
 | Project | Minimum sample gap | Site gap | Chronology gap | Publication status |
 | --- | ---: | ---: | ---: | --- |
 | `PRJEB36540` | `0` | `0` | `10` | `blocked` |
-| `PRJEB41594` | `0` | `0` | `5` | `blocked` |
+| `PRJEB41594` | `0` | `0` | `2` | `blocked` |
 | `PRJEB59481` | `0` | `0` | `0` | `complete` |
 | `PRJEB61808` | `0` | `0` | `0` | `blocked` |
 | `PRJEB69690` | `0` | `0` | `0` | `blocked` |

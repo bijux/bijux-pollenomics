@@ -14,6 +14,9 @@ from bijux_pollenomics.adna.projects.sample_master.tables.baltic_sheep import (
     baltic_sheep_official_evidence_available,
     load_baltic_sheep_official_evidence,
 )
+from bijux_pollenomics.adna.projects.sample_master.tables.obishir_sheep import (
+    obishir_chronology_evidence,
+)
 from bijux_pollenomics.adna.sources.archive import (
     AdnaArchiveProject,
     build_archive_project_catalog,
@@ -50,6 +53,15 @@ def build_project_sample_chronology_rows(
             master_row,
             baltic_sheep_evidence.get(master_row.archive_native_sample_id),
         )
+        if project_accession == "PRJEB41594":
+            evidence = obishir_chronology_evidence(master_row.archive_native_sample_id)
+            if evidence is not None:
+                chronology_master_row = replace(
+                    chronology_master_row,
+                    sample_lineage_path=evidence[0],
+                    sample_lineage_locator=evidence[1],
+                    sample_lineage_excerpt=evidence[2],
+                )
         source = _resolve_chronology_source(
             master_row=chronology_master_row,
             site_row=site_row,

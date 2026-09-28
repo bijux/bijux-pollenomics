@@ -32,6 +32,40 @@ _REPORTING_SUMMARY = (
 _REPORTING_SUMMARY_SHA256 = (
     "f99a65b2b80618c64bff71f29f415de9207ba4f2775127b5e752168bd8fb440f"
 )
+_RADIOCARBON_SUPPLEMENT = (
+    f"{ADNA_SOURCE_LIBRARY_DIR}/papers/10.1038-s41562-021-01083-y/"
+    "supplementary/41562_2021_1083_MOESM1_ESM.pdf"
+)
+_RADIOCARBON_SUPPLEMENT_SHA256 = (
+    "d6fcdfae2d835883c68585aa6ff87ad197cc8561c434f654099322fefeb156a9"
+)
+# Table 2 identifies these teeth by the specimen number inside the context label.
+# The starred 20.4 measurement is stratigraphically inconsistent in the source.
+_DIRECT_DATES = {
+    "SAMEA8022721": ("20.6", "7012 ± 45 14C BP", "5991-5771 cal BCE", "AA-114606"),
+    "SAMEA8022722": ("21.4", "2796 ± 34 14C BP", "1045-835 cal BCE", "AA-114608"),
+    "SAMEA8022724": ("20.4", "4260 ± 36 14C BP*", "3003-2701 cal BCE", "AA-114607"),
+}
+
+
+def obishir_chronology_evidence(
+    accession: str,
+) -> tuple[str, str, str] | None:
+    """Return the exact Table 2 provenance for a directly dated specimen."""
+    date = _DIRECT_DATES.get(accession)
+    if date is None:
+        return None
+    specimen, radiocarbon, calibrated, lab = date
+    warning = (
+        "; source marks the measurement stratigraphically inconsistent"
+        if specimen == "20.4"
+        else ""
+    )
+    return (
+        _RADIOCARBON_SUPPLEMENT,
+        f"Supplementary Table 2 p. 11, context ({specimen}), lab {lab}",
+        f"Obishir V tooth ({specimen}): {radiocarbon}; {calibrated} (2 sigma){warning}.",
+    )
 
 
 def parse_obishir_ena_sample(payload: bytes, *, accession: str) -> tuple[str, str]:
@@ -67,6 +101,9 @@ def build_obishir_sample_rows(
     report_path = output_root / _REPORTING_SUMMARY.removeprefix("data/")
     if sha256(report_path.read_bytes()).hexdigest() != _REPORTING_SUMMARY_SHA256:
         raise ValueError("Obishir V specimen-provenance supplement changed")
+    date_path = output_root / _RADIOCARBON_SUPPLEMENT.removeprefix("data/")
+    if sha256(date_path.read_bytes()).hexdigest() != _RADIOCARBON_SUPPLEMENT_SHA256:
+        raise ValueError("Obishir V radiocarbon supplement changed")
     archive_path = (
         output_root
         / "adna/governance/source_library/projects/PRJEB41594/archive_metadata.html"
@@ -97,6 +134,7 @@ def build_obishir_sample_rows(
         alias, species = parse_obishir_ena_sample(payload, accession=accession)
         if row.source_native_scientific_name != species:
             raise ValueError(f"Obishir V sample identity changed: {accession}")
+        direct_date = _DIRECT_DATES.get(accession)
         result.append(
             replace(
                 row,
@@ -116,6 +154,14 @@ def build_obishir_sample_rows(
                 ),
                 locality_text="Obishir V",
                 political_entity="Kyrgyzstan",
+                chronology_text="" if direct_date is None else direct_date[2],
+                chronology_dating_basis="" if direct_date is None else "radiocarbon",
+                chronology_evidence_class=(
+                    "" if direct_date is None else "direct_radiocarbon_date"
+                ),
+                chronology_precision_posture=(
+                    "" if direct_date is None else "sample_precise_interval"
+                ),
             )
         )
     return tuple(result)

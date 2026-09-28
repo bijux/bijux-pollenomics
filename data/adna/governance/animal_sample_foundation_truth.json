@@ -5,10 +5,10 @@
     "tracked_project_count": 21,
     "sample_row_count": 1450,
     "fully_grounded_count": 557,
-    "partially_grounded_count": 335,
+    "partially_grounded_count": 337,
     "blocked_missing_metadata_count": 11,
     "blocked_missing_location_detail_count": 387,
-    "blocked_weak_chronology_count": 160
+    "blocked_weak_chronology_count": 158
   },
   "species_rows": [
     {
@@ -42,10 +42,10 @@
       "species_common_name": "sheep",
       "sample_row_count": 200,
       "fully_grounded_count": 4,
-      "partially_grounded_count": 167,
+      "partially_grounded_count": 169,
       "blocked_missing_metadata_count": 0,
       "blocked_missing_location_detail_count": 1,
-      "blocked_weak_chronology_count": 28,
+      "blocked_weak_chronology_count": 26,
       "project_count": 3,
       "reported_curated_sample_count": 200,
       "uses_project_level_sample_anchor": false
@@ -251,10 +251,10 @@
       "project_accession": "PRJEB41594",
       "sample_row_count": 5,
       "fully_grounded_count": 0,
-      "partially_grounded_count": 0,
+      "partially_grounded_count": 2,
       "blocked_missing_metadata_count": 0,
       "blocked_missing_location_detail_count": 1,
-      "blocked_weak_chronology_count": 4,
+      "blocked_weak_chronology_count": 2,
       "sample_backed_site_count": 1,
       "project_locality_summary_count": 1,
       "uses_project_level_sample_anchor": false,

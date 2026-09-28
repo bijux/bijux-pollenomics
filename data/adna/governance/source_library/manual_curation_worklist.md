@@ -25,7 +25,7 @@
 | `PRJEB81815` | `Felis catus` | `sample_identity_resolution` | `pending_manual_curation` | `3` | blocks trustworthy project-level sample recovery counts |
 | `PRJEB81815` | `Felis catus` | `site_resolution` | `pending_manual_curation` | `3` | blocks exact site, coordinate, and publication recovery |
 | `PRJEB36540` | `Ovis aries` | `chronology_recovery` | `pending_source_recovery` | `33` | blocks chronology honesty and publication precision |
-| `PRJEB41594` | `Ovis aries` | `chronology_recovery` | `pending_source_recovery` | `10` | blocks chronology honesty and publication precision |
+| `PRJEB41594` | `Ovis aries` | `chronology_recovery` | `pending_source_recovery` | `4` | blocks chronology honesty and publication precision |
 | `PRJEB59481` | `Ovis aries` | `chronology_recovery` | `pending_source_recovery` | `2` | blocks chronology honesty and publication precision |
 | `PRJEB60484` | `Rangifer tarandus` | `chronology_recovery` | `pending_source_recovery` | `40` | blocks chronology honesty and publication precision |
 | `PRJEB60484` | `Rangifer tarandus` | `locality_string_resolution` | `pending_manual_curation` | `20` | blocks coordinate derivation and exact locality publication |

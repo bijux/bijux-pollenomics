@@ -103,21 +103,6 @@
       ]
     },
     {
-      "project_accession": "PRJEB41594",
-      "species_latin_name": "Ovis aries",
-      "recovered_sample_row_count": 5,
-      "sample_owned_date_row_count": 0,
-      "exact_sample_date_count": 0,
-      "modeled_or_approximate_sample_date_count": 0,
-      "contextual_date_count": 0,
-      "broad_label_count": 0,
-      "missing_date_count": 5,
-      "gap_reasons": [
-        "no_sample_owned_chronology_recovered",
-        "missing_sample_level_date_evidence"
-      ]
-    },
-    {
       "project_accession": "PRJEB81815",
       "species_latin_name": "Felis catus",
       "recovered_sample_row_count": 87,
@@ -139,6 +124,20 @@
       "recovered_sample_row_count": 15,
       "sample_owned_date_row_count": 13,
       "exact_sample_date_count": 13,
+      "modeled_or_approximate_sample_date_count": 0,
+      "contextual_date_count": 0,
+      "broad_label_count": 0,
+      "missing_date_count": 2,
+      "gap_reasons": [
+        "missing_sample_level_date_evidence"
+      ]
+    },
+    {
+      "project_accession": "PRJEB41594",
+      "species_latin_name": "Ovis aries",
+      "recovered_sample_row_count": 5,
+      "sample_owned_date_row_count": 3,
+      "exact_sample_date_count": 3,
       "modeled_or_approximate_sample_date_count": 0,
       "contextual_date_count": 0,
       "broad_label_count": 0,

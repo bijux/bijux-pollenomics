@@ -3,9 +3,9 @@ Bos primigenius,3,0,0,0,0,0,0,3,0.0
 Bos taurus,131,99,28,64,7,0,0,32,0.7557
 Camelus dromedarius,13,13,13,0,0,0,0,0,1.0
 Canis lupus familiaris,4,3,3,0,0,0,0,1,0.75
-Capra hircus,83,82,9,73,0,0,73,1,0.988
+Capra hircus,83,83,10,73,0,0,73,0,1.0
 Equus caballus,550,540,535,5,0,0,5,10,0.9818
 Felis catus,109,67,16,43,8,39,44,3,0.6147
-Ovis aries,199,184,170,13,1,1,14,14,0.9246
+Ovis aries,199,186,172,13,1,1,14,12,0.9347
 Rangifer tarandus,20,0,0,0,0,0,0,20,0.0
 Sus scrofa domesticus,343,2,0,2,0,0,0,341,0.0058

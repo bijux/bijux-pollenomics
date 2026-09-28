@@ -47,6 +47,34 @@ class AdnaProjectSampleChronologyUnitTests(unittest.TestCase):
     def setUp(self) -> None:
         self.data_root = REPOSITORY_ROOT / "data"
 
+    def test_obishir_dates_are_specimen_bound_and_keep_source_caution(self) -> None:
+        rows = build_project_sample_chronology_rows(self.data_root, "PRJEB41594")
+        by_label = {row.preferred_sample_label: row for row in rows}
+        self.assertEqual(len(by_label), 5)
+        for label, interval, lab in (
+            ("OB20-06", (7720, 7940), "AA-114606"),
+            ("OB20-04", (4650, 4952), "AA-114607"),
+            ("OB21-04", (2784, 2994), "AA-114608"),
+        ):
+            row = by_label[label]
+            self.assertEqual((row.time_start_bp, row.time_end_bp), interval)
+            self.assertEqual(row.chronology_strength, "sample_owned_interval")
+            self.assertEqual(row.chronology_evidence_class, "direct_radiocarbon_date")
+            self.assertEqual(
+                row.chronology_precision_posture, "sample_precise_interval"
+            )
+            self.assertIn(
+                "41562_2021_1083_MOESM1_ESM.pdf", row.chronology_provenance_path
+            )
+            self.assertIn(lab, row.chronology_provenance_locator)
+        self.assertIn(
+            "stratigraphically inconsistent",
+            by_label["OB20-04"].chronology_provenance_text,
+        )
+        for label in ("OB20-01", "OB21-06"):
+            self.assertEqual(by_label[label].chronology_strength, "unresolved")
+            self.assertIsNone(by_label[label].time_start_bp)
+
     def test_sheep_project_sample_chronology_rows_publish_strengths_and_provenance(
         self,
     ) -> None:
@@ -214,14 +242,14 @@ class AdnaProjectSampleChronologyUnitTests(unittest.TestCase):
         self.assertEqual(sheep_review["sample_owned_interval_count"], 167)
         self.assertEqual(sheep_review["text_only_unparsed_count"], 13)
         self.assertEqual(audit["sample_row_count"], 1455)
-        self.assertEqual(audit["normalized_interval_count"], 366)
+        self.assertEqual(audit["normalized_interval_count"], 369)
         self.assertEqual(audit["normalized_point_count"], 528)
-        self.assertEqual(audit["unresolved_count"], 425)
+        self.assertEqual(audit["unresolved_count"], 422)
         self.assertEqual(audit["precision_counts"]["contextual_interval"], 16)
         self.assertEqual(
             audit["precision_counts"]["sample_approximate_or_modeled"], 200
         )
-        self.assertEqual(audit["precision_counts"]["sample_precise_interval"], 306)
+        self.assertEqual(audit["precision_counts"]["sample_precise_interval"], 309)
         self.assertFalse(
             any(
                 row["project_accession"]
@@ -242,7 +270,12 @@ class AdnaProjectSampleChronologyUnitTests(unittest.TestCase):
         sheep_species = next(
             row for row in species_rows if row["species_latin_name"] == "Ovis aries"
         )
-        self.assertEqual(sheep_species["normalized_row_count"], 184)
+        self.assertEqual(sheep_species["normalized_row_count"], 186)
+        obishir_project = next(
+            row for row in project_rows if row["project_accession"] == "PRJEB41594"
+        )
+        self.assertEqual(obishir_project["exact_sample_date_count"], 3)
+        self.assertEqual(obishir_project["unresolved_count"], 2)
         baltic_sheep_project = next(
             row for row in project_rows if row["project_accession"] == "PRJEB59481"
         )

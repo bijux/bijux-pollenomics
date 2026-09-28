@@ -82,8 +82,8 @@
       "species_latin_name": "Ovis aries",
       "work_unit_type": "chronology_recovery",
       "work_unit_state": "pending_source_recovery",
-      "open_item_count": 10,
-      "rationale": "no_sample_owned_chronology_recovered; missing_sample_level_date_evidence",
+      "open_item_count": 4,
+      "rationale": "missing_sample_level_date_evidence",
       "downstream_impact": "blocks chronology honesty and publication precision",
       "recommended_source_surfaces": [
         "data/adna/governance/source_library/projects/PRJEB41594/sample_chronology.json",

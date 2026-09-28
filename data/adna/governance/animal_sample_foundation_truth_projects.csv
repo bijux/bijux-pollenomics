@@ -5,7 +5,7 @@ Equus caballus,horse,PRJEB31613,245,234,3,0,0,8,95,95,false,supplementary_table_
 Equus caballus,horse,PRJEB44430,248,242,1,0,0,5,114,114,false,supplementary_table_sample_label_anchor
 Sus scrofa domesticus,pig,PRJEB30282,343,2,0,0,341,0,2,105,false,archive_project_sample_accession_anchor
 Ovis aries,sheep,PRJEB36540,190,0,167,0,0,23,6,6,false,supplementary_table_sample_label_anchor
-Ovis aries,sheep,PRJEB41594,5,0,0,0,1,4,1,1,false,archive_project_sample_accession_anchor
+Ovis aries,sheep,PRJEB41594,5,0,2,0,1,2,1,1,false,archive_project_sample_accession_anchor
 Ovis aries,sheep,PRJEB59481,5,4,0,0,0,1,2,2,false,supplementary_table_archive_identity_and_official_evidence_join
 Bos taurus,cattle,PRJEB31621,77,0,64,0,12,1,40,40,false,archive_project_sample_accession_anchor;archive_supplement_primary_source_join
 Bos taurus,cattle,PRJEB75467,44,31,2,0,10,1,24,24,false,archive_project_sample_accession_anchor;supplementary_table_archive_primary_source_join

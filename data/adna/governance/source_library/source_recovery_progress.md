@@ -12,8 +12,8 @@
 The four mutually exclusive buckets partition `1450` species-normalized sample rows. The project source master has `1450` final rows; alignment is `aligned`. A site-only row has no normalized chronology; a site-and-chronology row has no coordinate text. The final bucket has coordinate text, not necessarily an approved mapped point.
 
 - sample identity only: `0`
-- sample with site: `558`
-- sample with site and chronology: `335`
+- sample with site: `555`
+- sample with site and chronology: `338`
 - sample with site chronology and coordinates: `557`
 
 | Project | Species | Completed stages | Required stages | Recovery depth score |

@@ -38,11 +38,11 @@
       "minimum_expected_sample_count": 1,
       "minimum_gap_count": 0,
       "lacking_defensible_site_assignment_count": 0,
-      "missing_chronology_count": 5,
+      "missing_chronology_count": 2,
       "chronology_conflict_count": 0,
       "material_evidence_expected_count": 0,
       "material_evidence_conflict_count": 0,
-      "chronology_ambiguity_count": 5,
+      "chronology_ambiguity_count": 2,
       "coordinate_blocked_count": 0,
       "publication_readiness_status": "blocked",
       "major_deficit_reasons": [
