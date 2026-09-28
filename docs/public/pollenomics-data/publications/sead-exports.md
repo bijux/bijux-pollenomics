@@ -29,7 +29,7 @@ The current governed full-evidence run is `sead-full-evidence-39bfff6a-ce80714e`
 | sites requiring country review | 103 | retained outside assigned publication membership |
 | unassigned sites | 23 | retained without a governed country assignment |
 | atlas SEAD features | 11,796 | 2,069 four-country site features plus 9,727 Swedish chronology-discovery features; not a distinct-site count |
-| chronology claims | 25,109 | 14,264 comparable, 10,144 context-only, 60 refused by the numeric BP contract, 641 unresolved |
+| chronology claims | 25,109 | 13,170 comparable, 11,238 context-only, 60 refused by the numeric BP contract, 641 unresolved |
 | source-native observations | 177,763 | quantitative observation denominator |
 | source-native taxon relations | 1,974 | preserved source taxonomy, not accepted cross-source classification |
 | dimension relations | 2,639 | explicit source-native measurement dimensions |
