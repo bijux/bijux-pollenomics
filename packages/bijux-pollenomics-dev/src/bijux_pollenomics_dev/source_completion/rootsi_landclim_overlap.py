@@ -9,15 +9,20 @@ import hashlib
 import io
 import json
 from pathlib import Path
-from typing import Any
+from typing import Any, cast
 
-ROOTSI = Path(
-    "artifacts/v3/landclim/rootsi-input-closure-841cf13b/real-generation003/candidate-a"
-)
+ROOTSI = Path("data/landclim/review/rootsi-candidate-inputs")
 SITES = Path("data/landclim/normalized/nordic_pollen_site_sequences.csv")
 RAW_METADATA = Path("data/landclim/raw/landclim_ii_site_metadata.xlsx")
 SOURCE_RECEIPT = Path("data/landclim/raw/landclim_sources.json")
 EXPECTED_PAIR_SHA = "ca94f04342f5c54212dc3ef9acfa0cbeea6e92419878f951ec23b2a0acf5cfd6"
+EXPECTED_CANDIDATE_SHA256 = {
+    "manifest.json": "714f60289143e38f38a9e6acb75d4a150be79ba6637f6c222d89998c291b5ffe",
+    "publication-candidates.jsonl": "d54b2266c4b7c7386edef9d5694c49a20c1cc1eadab3155358aca4dd386a79c3",
+    "rootsi-crosswalk.csv": "ee76ac6af9d79ce4d81224a566e8edd7dc71eb940402b352fda809bba7e93588",
+    "requirement-status.csv": "7852bb8ca7a7c064844b23a71e385030ae35d8e0b5031994eefe71253e3b7362",
+    "report.json": "10ddc1d588411d1eb55d369d7a886ef0846acbe92fb1f6698e631fc82363c70d",
+}
 DOI = "https://doi.org/10.1594/PANGAEA.937075"
 FIELDS = (
     "publication_row",
@@ -68,6 +73,45 @@ def _identity(path: Path, root: Path) -> dict[str, object]:
         "bytes": len(data),
         "sha256": _sha(data),
     }
+
+
+def verify_candidate_inputs(candidate_dir: Path) -> dict[str, Any]:
+    """Require the complete byte-identical derived candidate closure."""
+    if (
+        candidate_dir.is_symlink()
+        or not candidate_dir.is_dir()
+        or {path.name for path in candidate_dir.iterdir()}
+        != set(EXPECTED_CANDIDATE_SHA256)
+    ):
+        raise ValueError("Rootsi review input set changed")
+    for name, expected_sha in EXPECTED_CANDIDATE_SHA256.items():
+        path = candidate_dir / name
+        if (
+            path.is_symlink()
+            or not path.is_file()
+            or _sha(path.read_bytes()) != expected_sha
+        ):
+            raise ValueError(f"Rootsi review input digest changed: {name}")
+    manifest = json.loads((candidate_dir / "manifest.json").read_bytes())
+    if (
+        manifest["output_contract"]["candidate_pair_identity_sha256"]
+        != EXPECTED_PAIR_SHA
+        or manifest["output_contract"]["output_file_count"] != 5
+        or manifest["claims"]["rootsi_is_authenticated_historical_input"] is not False
+        or manifest["claims"]["per_sequence_rights_cleared"] is not False
+        or manifest["claims"]["scientifically_accepted"] is not False
+    ):
+        raise ValueError("Rootsi manifest changed scientific posture")
+    if {entry["path"] for entry in manifest["artifacts"]} != (
+        set(EXPECTED_CANDIDATE_SHA256) - {"manifest.json"}
+    ):
+        raise ValueError("Rootsi manifest artifact set changed")
+    for artifact in manifest["artifacts"]:
+        path = candidate_dir / artifact["path"]
+        data = path.read_bytes()
+        if _sha(data) != artifact["sha256"] or len(data) != artifact["byte_count"]:
+            raise ValueError(f"Rootsi candidate artifact changed: {path.name}")
+    return cast(dict[str, Any], manifest)
 
 
 def reconcile(
@@ -251,20 +295,7 @@ def build(repository: Path, output: Path) -> dict[str, object]:
         raise ValueError("Absent destination required")
     candidate_dir = repository / ROOTSI
     manifest_path = candidate_dir / "manifest.json"
-    manifest = json.loads(manifest_path.read_text())
-    if (
-        manifest["output_contract"]["candidate_pair_identity_sha256"]
-        != EXPECTED_PAIR_SHA
-        or manifest["claims"]["rootsi_is_authenticated_historical_input"] is not False
-        or manifest["claims"]["per_sequence_rights_cleared"] is not False
-        or manifest["claims"]["scientifically_accepted"] is not False
-    ):
-        raise ValueError("Rootsi manifest changed scientific posture")
-    for artifact in manifest["artifacts"]:
-        path = candidate_dir / artifact["path"]
-        data = path.read_bytes()
-        if _sha(data) != artifact["sha256"] or len(data) != artifact["byte_count"]:
-            raise ValueError(f"Rootsi candidate artifact changed: {path.name}")
+    manifest = verify_candidate_inputs(candidate_dir)
     metadata_path = repository / RAW_METADATA
     if (
         _sha(metadata_path.read_bytes())

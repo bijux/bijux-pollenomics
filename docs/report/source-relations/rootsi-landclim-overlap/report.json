@@ -47,27 +47,27 @@
   "inputs": [
     {
       "bytes": 3510,
-      "path": "artifacts/v3/landclim/rootsi-input-closure-841cf13b/real-generation003/candidate-a/manifest.json",
+      "path": "data/landclim/review/rootsi-candidate-inputs/manifest.json",
       "sha256": "714f60289143e38f38a9e6acb75d4a150be79ba6637f6c222d89998c291b5ffe"
     },
     {
       "bytes": 770960,
-      "path": "artifacts/v3/landclim/rootsi-input-closure-841cf13b/real-generation003/candidate-a/publication-candidates.jsonl",
+      "path": "data/landclim/review/rootsi-candidate-inputs/publication-candidates.jsonl",
       "sha256": "d54b2266c4b7c7386edef9d5694c49a20c1cc1eadab3155358aca4dd386a79c3"
     },
     {
       "bytes": 29508,
-      "path": "artifacts/v3/landclim/rootsi-input-closure-841cf13b/real-generation003/candidate-a/rootsi-crosswalk.csv",
+      "path": "data/landclim/review/rootsi-candidate-inputs/rootsi-crosswalk.csv",
       "sha256": "ee76ac6af9d79ce4d81224a566e8edd7dc71eb940402b352fda809bba7e93588"
     },
     {
       "bytes": 1366173,
-      "path": "artifacts/v3/landclim/rootsi-input-closure-841cf13b/real-generation003/candidate-a/requirement-status.csv",
+      "path": "data/landclim/review/rootsi-candidate-inputs/requirement-status.csv",
       "sha256": "7852bb8ca7a7c064844b23a71e385030ae35d8e0b5031994eefe71253e3b7362"
     },
     {
       "bytes": 3400,
-      "path": "artifacts/v3/landclim/rootsi-input-closure-841cf13b/real-generation003/candidate-a/report.json",
+      "path": "data/landclim/review/rootsi-candidate-inputs/report.json",
       "sha256": "10ddc1d588411d1eb55d369d7a886ef0846acbe92fb1f6698e631fc82363c70d"
     },
     {

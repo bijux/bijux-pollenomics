@@ -4,20 +4,51 @@ from __future__ import annotations
 
 from copy import deepcopy
 import csv
+import hashlib
 import json
 from pathlib import Path
+import shutil
 from typing import Any
 
 import pytest
 
 from bijux_pollenomics_dev.source_completion.rootsi_landclim_overlap import (
+    EXPECTED_CANDIDATE_SHA256,
     ROOTSI,
     SITES,
     build,
     reconcile,
+    verify_candidate_inputs,
 )
 
 REPOSITORY = Path(__file__).resolve().parents[4]
+
+
+def test_review_inputs_are_complete_tracked_candidate_bytes(tmp_path: Path) -> None:
+    assert ROOTSI.parts[:3] == ("data", "landclim", "review")
+    source = REPOSITORY / ROOTSI
+    manifest = verify_candidate_inputs(source)
+    assert manifest["output_contract"]["candidate_pair_identity_sha256"]
+    for name, expected_sha in EXPECTED_CANDIDATE_SHA256.items():
+        assert hashlib.sha256((source / name).read_bytes()).hexdigest() == expected_sha
+
+    changed = tmp_path / "changed"
+    changed.mkdir()
+    for name in EXPECTED_CANDIDATE_SHA256:
+        shutil.copyfile(source / name, changed / name)
+    (changed / "rootsi-crosswalk.csv").write_bytes(
+        (changed / "rootsi-crosswalk.csv").read_bytes() + b"\n"
+    )
+    with pytest.raises(ValueError, match="digest changed"):
+        verify_candidate_inputs(changed)
+    (changed / "rootsi-crosswalk.csv").unlink()
+    with pytest.raises(ValueError, match="input set changed"):
+        verify_candidate_inputs(changed)
+
+    linked = tmp_path / "linked"
+    linked.symlink_to(source, target_is_directory=True)
+    with pytest.raises(ValueError, match="input set changed"):
+        verify_candidate_inputs(linked)
 
 
 @pytest.fixture(scope="module")
