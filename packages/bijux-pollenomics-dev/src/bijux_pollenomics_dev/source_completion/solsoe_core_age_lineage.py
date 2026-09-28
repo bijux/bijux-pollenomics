@@ -17,6 +17,7 @@ SOURCE_SHA256 = "9934dd802fa7b7094c2a6cc08fff90ef29c1c630a092787c4f4a3aac96be6be
 DOI = "10.1594/PANGAEA.740759"
 CONTROL = Path("data/neotoma/relational/surfaces/chronology_controls/part-00001.json")
 CHRONOLOGIES = Path("data/neotoma/relational/surfaces/chronologies/part-00001.json")
+AGE_CLAIMS = Path("data/neotoma/relational/surfaces/age_claims/part-00001.json")
 MANIFEST = Path("data/neotoma/relational/manifest.json")
 SOLSOE = Path("docs/report/countries/denmark/solsoe-source-lineage/report.json")
 UNIT = "neotoma:collection-unit:4303"
@@ -121,6 +122,31 @@ def publish(repository: Path, source_root: Path, output: Path) -> dict[str, Any]
             }
         )
     profiles.sort(key=lambda profile: profile["chronology_id"])
+    age_parts = manifest["surfaces"]["age_claims"]["parts"]
+    if (
+        len(age_parts) != 1
+        or age_parts[0]["path"] != "surfaces/age_claims/part-00001.json"
+    ):
+        raise ValueError("Neotoma age-claim surface changed")
+    raw_age_claims = (repository / AGE_CLAIMS).read_bytes()
+    if _sha(raw_age_claims) != age_parts[0]["sha256"]:
+        raise ValueError("Neotoma age-claim source changed")
+    age_rows = json.loads(raw_age_claims)["rows"]
+    if len(age_rows) != age_parts[0]["row_count"]:
+        raise ValueError("Neotoma age-claim count changed")
+    sample_age_rows = [
+        row
+        for row in age_rows
+        if row["collection_unit_id"] == UNIT and row["subject_type"] == "sample"
+    ]
+    age_dispositions = Counter(
+        (
+            row["chronology_id"],
+            row["comparability_status"],
+            row["admission_reason"],
+        )
+        for row in sample_age_rows
+    )
     by_lab: dict[str, list[dict[str, Any]]] = defaultdict(list)
     for row in controls:
         geo = row["source_payload"].get("geochron")
@@ -180,6 +206,31 @@ def publish(repository: Path, source_root: Path, output: Path) -> dict[str, Any]
         or prior["neotoma"]["cores"][0]["collection_unit_id"] != UNIT
     ):
         raise ValueError("Published Solsø source lineage changed")
+    first_core = prior["neotoma"]["cores"][0]
+    source_samples = first_core["source_sample_count"]
+    selected_samples = first_core["selected_sample_count"]
+    refused_ids = {
+        row["subject_id"]
+        for row in sample_age_rows
+        if row["comparability_status"] == "refused"
+    }
+    if (
+        len({row["subject_id"] for row in sample_age_rows}) != source_samples
+        or len(sample_age_rows) != 2 * source_samples
+        or refused_ids != {prior["neotoma"]["excluded_sample"]["sample_id"]}
+        or age_dispositions
+        != {
+            (
+                "neotoma:chronology:4303:25731",
+                "context_only",
+                "uncalibrated_radiocarbon",
+            ): source_samples,
+            ("neotoma:chronology:4303:25732", "comparable", None): selected_samples,
+            ("neotoma:chronology:4303:25732", "refused", "negative_bp"): source_samples
+            - selected_samples,
+        }
+    ):
+        raise ValueError("Solsø sample ages differ from the held-out cohort")
     report: dict[str, Any] = {
         "schema_version": "solsoe-primary-core-age-lineage.v1",
         "primary_doi": DOI,
@@ -194,6 +245,20 @@ def publish(repository: Path, source_root: Path, output: Path) -> dict[str, Any]
             sorted(matched_chronologies.items())
         ),
         "neotoma_1981_chronologies": profiles,
+        "neotoma_1981_sample_age_claims": {
+            "source_samples": source_samples,
+            "selected_calibrated_madcap_samples": selected_samples,
+            "epd_default_uncalibrated_context_claims": age_dispositions[
+                (
+                    "neotoma:chronology:4303:25731",
+                    "context_only",
+                    "uncalibrated_radiocarbon",
+                )
+            ],
+            "madcap_negative_bp_refusals": age_dispositions[
+                ("neotoma:chronology:4303:25732", "refused", "negative_bp")
+            ],
+        },
         "primary_labels_absent_from_neotoma_controls": sorted(missing_labels),
         "primary_labels_with_nonmatching_neotoma_controls": sorted(
             partial_or_conflicting
@@ -207,9 +272,10 @@ def publish(repository: Path, source_root: Path, output: Path) -> dict[str, Any]
             {"path": MANIFEST.as_posix(), "sha256": _sha(manifest_path.read_bytes())},
             {"path": CONTROL.as_posix(), "sha256": _sha(raw_controls)},
             {"path": CHRONOLOGIES.as_posix(), "sha256": _sha(raw_chronologies)},
+            {"path": AGE_CLAIMS.as_posix(), "sha256": _sha(raw_age_claims)},
             {"path": SOLSOE.as_posix(), "sha256": _sha(prior_path.read_bytes())},
         ],
-        "interpretation": "The PANGAEA EPD event binds 2.5 ha and 30 exact radiocarbon controls to the 1981 Solsø core; 24 matched controls recur in both Neotoma chronologies. The selected EPD default is a radiocarbon linear-interpolation model, whereas the later MADCAP record is a calibrated-radiocarbon clam model. Shared dated material does not identify the LandClim II author chronology. Four primary lab labels have no retained Neotoma control. The event area is not an age-specific historical basin outline, and this join does not identify the 79 LandClim II samples.",
+        "interpretation": "The PANGAEA EPD event binds 2.5 ha and 30 exact radiocarbon controls to the 1981 Solsø core; 24 matched controls recur in both Neotoma chronologies. The collection-unit-selected EPD default is a radiocarbon linear-interpolation model, whereas the later MADCAP record is a calibrated-radiocarbon clam model. The 65 held-out 1981 pollen samples use MADCAP comparable age claims, not the EPD default's context-only uncalibrated ages. Shared dated material does not identify the LandClim II author chronology. Four primary lab labels have no retained Neotoma control. The event area is not an age-specific historical basin outline, and this join does not identify the 79 LandClim II samples.",
         "source_rights": "PANGAEA EPD CC BY-NC 3.0; source table retained only in the external data store, not redistributed here.",
         "lra_admitted_samples": 0,
     }

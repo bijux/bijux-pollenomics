@@ -24,6 +24,13 @@ control rows. Chronology `25732` is **Giesecke et al. 2014 (MADCAP)**, a `clam`
 model in calibrated radiocarbon years BP (range 0–12420 BP); it contains 29.
 These are records of different age models sharing radiocarbon measurements.
 The [report](report.json) pins the chronology source rows and identities.
+All **66** 1981 source samples have an EPD default uncalibrated age claim,
+marked context only. The **65** samples selected for the held-out pollen study
+instead have comparable calibrated MADCAP claims; the remaining sample's
+MADCAP claim is refused because its younger bound is negative. Thus the
+held-out age basis follows the later model despite the collection unit's
+selected EPD default reference. Neither model is identified as LandClim II's
+author chronology.
 
 This establishes a strong 1981 core and age-control relationship. The
 LandClim II 79-sample sequence still lacks an authenticated sample/core join

@@ -38,7 +38,8 @@ radiocarbon rows to retained Neotoma controls on lab, depth, age, errors and
 δ13C. Four published lab controls are absent in the retained Neotoma controls;
 24 of the matching controls recur across both Neotoma chronologies. The
 collection unit selects an EPD default linear radiocarbon model; a separate
-MADCAP chronology is a calibrated `clam` model. This narrows core identity but
+MADCAP chronology is a calibrated `clam` model. All 65 selected 1981 pollen
+samples use the latter model's comparable ages. This narrows core identity but
 does not select the LandClim II author chronology or establish a historical
 basin outline.
 
