@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from urllib.error import URLError
+from urllib.error import HTTPError, URLError
 
 import pytest
 
@@ -9,6 +9,59 @@ from bijux_pollenomics.collection.sources.sead.acquisition.full import (
 )
 
 from .support import _acquire
+
+
+def test_rate_limit_retry_honors_server_delay() -> None:
+    from bijux_pollenomics.collection.sources.sead.acquisition.full import (
+        acquire_sead_table,
+    )
+
+    waits: list[float] = []
+    responses: list[object] = [
+        HTTPError(
+            "https://browser.sead.se", 429, "rate limited", {"Retry-After": "7"}, None
+        ),
+        [{"site_id": 1}],
+    ]
+
+    def fetch_json(_url: str, **_kwargs: object) -> object:
+        value = responses.pop(0)
+        if isinstance(value, Exception):
+            raise value
+        return value
+
+    result = acquire_sead_table(
+        "tbl_sites",
+        fetch_json_fn=fetch_json,
+        select="site_id",
+        order_by=("site_id",),
+        country_scope=("SE", "DK", "NO", "FI"),
+        spatial_scope={"bbox": [4, 54, 35, 72]},
+        parent_run_id="rate-limit-test",
+        build_id="rate-limit-test",
+        sleep_fn=waits.append,
+    )
+    assert waits == [7.0]
+    assert result.receipt["status"] == "complete"
+    assert result.receipt["result"]["retry_count"] == 1
+
+
+def test_long_server_delay_fails_closed_without_early_retry() -> None:
+    calls = 0
+
+    def fetch_json(_url: str, **_kwargs: object) -> object:
+        nonlocal calls
+        calls += 1
+        raise HTTPError(
+            "https://browser.sead.se", 429, "rate limited", {"Retry-After": "120"}, None
+        )
+
+    with pytest.raises(SeadAcquisitionError) as raised:
+        _acquire(fetch_json)
+
+    assert calls == 1
+    assert raised.value.result.receipt["status"] == "failed"
+    assert raised.value.result.receipt["failure_reason"] == "terminal_request_failure"
 
 
 def test_complete_paginated_receipt_captures_retry_schema_and_content() -> None:

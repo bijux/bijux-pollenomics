@@ -1,6 +1,8 @@
 from __future__ import annotations
 
 from collections.abc import Callable, Iterable
+from datetime import UTC, datetime
+from email.utils import parsedate_to_datetime
 import time
 from urllib.error import HTTPError, URLError
 
@@ -9,6 +11,7 @@ SEAD_FILTER_BATCH_SIZE = 100
 SEAD_POSTGREST_ROOT = "https://browser.sead.se/postgrest"
 SEAD_REQUEST_RETRIES = 5
 SEAD_REQUEST_TIMEOUT_SECONDS = 60.0
+SEAD_MAX_RETRY_AFTER_SECONDS = 60.0
 
 
 def fetch_sead_rows(
@@ -101,7 +104,10 @@ def fetch_sead_chunk(
         except (TimeoutError, URLError, HTTPError) as exc:
             if not sead_retryable_error(exc) or attempt + 1 >= request_retries:
                 raise
-            time.sleep(float(attempt + 1))
+            delay = sead_retry_delay(exc, attempt + 1)
+            if delay is None:
+                raise
+            time.sleep(delay)
     raise RuntimeError("SEAD request retries exhausted unexpectedly")
 
 
@@ -110,6 +116,27 @@ def sead_retryable_error(exc: Exception) -> bool:
     if isinstance(exc, HTTPError):
         return exc.code == 429 or 500 <= exc.code <= 599
     return isinstance(exc, (TimeoutError, URLError))
+
+
+def sead_retry_delay(exc: Exception, attempt: int) -> float | None:
+    """Honor server retry timing or refuse a wait beyond the bounded client policy."""
+    if isinstance(exc, HTTPError) and exc.code in {429, 503}:
+        value = exc.headers.get("Retry-After") if exc.headers is not None else None
+        if value is not None:
+            if value.isdecimal():
+                delay = float(value)
+            else:
+                try:
+                    retry_at = parsedate_to_datetime(value)
+                except (TypeError, ValueError, IndexError):
+                    retry_at = None
+                delay = (
+                    max(0.0, (retry_at - datetime.now(UTC)).total_seconds())
+                    if retry_at is not None and retry_at.tzinfo is not None
+                    else float(attempt)
+                )
+            return delay if delay <= SEAD_MAX_RETRY_AFTER_SECONDS else None
+    return float(attempt)
 
 
 def build_sead_in_filter(values: list[int]) -> str:
