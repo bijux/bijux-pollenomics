@@ -32,9 +32,11 @@ converted to BP. The table has a 2025 column although source release prose also
 states a 2023 endpoint. The local Yoda metadata and `License.txt` say CC BY-NC
 4.0, whereas the README and NetCDF attributes say CC BY 3.0. Treat these small
 derived summaries under the more restrictive declaration pending a provider
-resolution; no native HYDE files are redistributed here. A grid-country
-conservation check, rights reconciliation, chronology alignment and a matched
-no-HYDE/HYDE model comparison remain open.
+resolution; no native HYDE files are redistributed here. A
+[native grid-to-country check](grid-conservation/README.md) now verifies the
+three 2000 CE cropland grids against their source country tables. Broader
+variable/year conservation, rights reconciliation, chronology alignment and a
+matched no-HYDE/HYDE model comparison remain open.
 
 From the repository root, regenerate into a new artifacts directory with:
 

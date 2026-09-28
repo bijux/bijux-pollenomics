@@ -1,0 +1,49 @@
+{
+  "schema_version": "hyde-nordic-native-country-conservation.v1",
+  "measure": "2000AD cropland km2 per source ISO country, three native scenarios",
+  "country_codes": {
+    "DK": "208",
+    "FI": "246",
+    "NO": "578",
+    "SE": "752"
+  },
+  "scenario_count": 3,
+  "country_count": 4,
+  "rows": 12,
+  "inputs": [
+    {
+      "path": "original/general_files.zip",
+      "sha256": "6c85ebaaa4e18b569be4833454ee0139588acb9001a7c57ca678265c1816f923",
+      "member": "general_files/iso_cr.asc"
+    },
+    {
+      "path": "original/gbc2025_7apr_base/txt/cropland_c.txt",
+      "sha256": "d3ddee4c611af206f5324243c6676c2c9648306970e8c7e108d3cf5d418099bb"
+    },
+    {
+      "path": "original/gbc2025_7apr_base/zip/2000AD_lu.zip",
+      "sha256": "d0a762ccce3256d25c36e1c58894c6a6b05f93075006366854cc7e6176c7d09f",
+      "member": "cropland2000AD.asc"
+    },
+    {
+      "path": "original/gbc2025_7apr_lower/txt/cropland_c.txt",
+      "sha256": "b4aa002fe3d0217b4cbdb81513c2d3e2184a2620cb52b39822a42bd9723b8268"
+    },
+    {
+      "path": "original/gbc2025_7apr_lower/zip/2000AD_lu.zip",
+      "sha256": "e763c82b62e7fd6c19d68113bcff23bfebaf5e71732f39824762a951e738480b",
+      "member": "cropland2000AD.asc"
+    },
+    {
+      "path": "original/gbc2025_7apr_upper/txt/cropland_c.txt",
+      "sha256": "e8f186147691e99d7406e21d17f421b5f8893f45941ef3884c0c45b77df48f1e"
+    },
+    {
+      "path": "original/gbc2025_7apr_upper/zip/2000AD_lu.zip",
+      "sha256": "8a3a518655e16e7a49c72c6463ef4a377588c271d0a381f32c60dd8a801f7ea9",
+      "member": "cropland2000AD.asc"
+    }
+  ],
+  "conservation_tolerance_km2": "0.000001",
+  "interpretation": "The native ISO and cropland ASCII grids have identical literal headers, every selected ISO cell has a nonnegative cropland value, and its exact decimal sum agrees with the source country table at the stated tolerance. This checks four countries, one CE label and cropland only; it does not resolve formal CRS, BP calendar, release rights or independent vegetation truth."
+}
