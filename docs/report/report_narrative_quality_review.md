@@ -4,7 +4,7 @@ This review checks whether the report-facing Markdown surfaces explain
 themselves in prose or structured reference form instead of behaving like bare
 link farms or coded operator notes.
 
-- Reviewed markdown pages: `165`
+- Reviewed markdown pages: `166`
 
 ## Quality Postures
 
@@ -12,7 +12,7 @@ link farms or coded operator notes.
 | --- | ---: |
 | `reader_ready` | 97 |
 | `structured_reference` | 20 |
-| `thin_structure` | 48 |
+| `thin_structure` | 49 |
 
 ## Reviewed Pages
 
@@ -69,6 +69,7 @@ link farms or coded operator notes.
 | `docs/report/countries/norway/norway_animal_adna_v66_samples.md` | `thin_structure` | 1 | 0 | 0 | 3 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/countries/norway/norway_animal_adna_v66_warnings.md` | `thin_structure` | 1 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/countries/sweden/README.md` | `reader_ready` | 11 | 0 | 38 | 25 | 12 | Page explains its purpose before or alongside artifact links. |
+| `docs/report/countries/sweden/land-use-replay/README.md` | `thin_structure` | 5 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/countries/sweden/sweden_aadr_v66_samples.md` | `structured_reference` | 0 | 0 | 0 | 418 | 1 | Page is table-heavy, but it behaves like a reference surface rather than a loose link dump. |
 | `docs/report/countries/sweden/sweden_animal_adna_v66_citations.md` | `thin_structure` | 1 | 0 | 0 | 4 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/countries/sweden/sweden_animal_adna_v66_samples.md` | `thin_structure` | 1 | 0 | 0 | 7 | 1 | Page explains itself but still needs stronger internal wayfinding. |

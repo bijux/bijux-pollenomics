@@ -1,0 +1,131 @@
+{
+  "schema_version": "sweden-land-use-semantic-replay.v1",
+  "product": "docs/report/countries/sweden",
+  "source_files": [
+    {
+      "path": "data/aadr/v66/release_manifest.json",
+      "sha256": "317d71cbf82354be73e83bdd01bd382cdd8c7b1c1d536a04b0f642544e0ddde3"
+    },
+    {
+      "path": "data/aadr/v66/1240k/v66.1240K.aadr.PUB.anno",
+      "sha256": "a2b204a4d1bedb9d2e2930c1402f8414c1176afb2a1634ad3d6c7b38aaf288b3"
+    },
+    {
+      "path": "data/aadr/v66/ho/v66.HO.aadr.PUB.anno",
+      "sha256": "3f571288de0578478d91126d46c30e80bd06193769ffa3e7cf50bd2885e8fdbe"
+    },
+    {
+      "path": "data/landclim/normalized/nordic_reveals_temporal_grid_cells.geojson",
+      "sha256": "2c04cff11aee3ea191540ef00084854402f90ebe8c3b09e0605d22827d29b15e"
+    },
+    {
+      "path": "data/sead/normalized/nordic_temporal_evidence.geojson",
+      "sha256": "4baba82c1a2ede8fda974d05641ee21ff7d7e4e6ddcfddec4c85d54b8f0e2f58"
+    },
+    {
+      "path": "data/svar/review/lake_candidate_registry_review.json",
+      "sha256": "004f7e5542d577976f34d265ce5db1aff4fde695ffe2b3786367faa5a5c40d09"
+    },
+    {
+      "path": "data/svar/review/sweden_lake_candidate_registry.geojson",
+      "sha256": "05b7e51b615836f14af2090ac577dc2a862c6ed462132db906cdc3d25ca45957"
+    }
+  ],
+  "policy_files": [
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/fieldwork/land_use/__init__.py",
+      "sha256": "137c5b3a06f69df51d0bfd5d58b3e266b56a4ab6104b94755c49bd384eb64484"
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/fieldwork/land_use/context.py",
+      "sha256": "797faf9528bcfe10db913e4c803cee3047e450df2523a040995fd13b9aa9a880"
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/fieldwork/land_use/inputs.py",
+      "sha256": "00f2aed13b79b83cc1da787ad8502c93ef786a417305f1eedda0cf79350fc656"
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/fieldwork/land_use/interpretation.py",
+      "sha256": "01bbbed767962fce43aba48e1f7a86586754639070c62290f82b115e8d4cc9ea"
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/fieldwork/land_use/models.py",
+      "sha256": "919a57442e748a083bb8d501fe371e5f99ab27f77ea45b058ab81e02ddd72210"
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/fieldwork/land_use/outputs.py",
+      "sha256": "e92bc54663d27c162ee0d17ca6f88905598dbf190e7cfead9a05af4787065656"
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/fieldwork/land_use/quality.py",
+      "sha256": "7fdb0e5a04e7706997e1fa2da00bc1ae514821f980bd8de444973a6d98b672c5"
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/fieldwork/land_use/spatial.py",
+      "sha256": "38b2dc00b9d6a21e48fbe6a6077602a517d5ab57062a44c959bd6c8ead210a84"
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/fieldwork/land_use/synthesis.py",
+      "sha256": "2a7b4088620463d51468700fc1a03a5bde53e324d3a596e82c5d09763446ba93"
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/fieldwork/land_use/targets.py",
+      "sha256": "268539043efc85baea65c4f0a9afb21a0509dd18c2b09dd0b52da040ddea7ddd"
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/fieldwork/land_use/temporal.py",
+      "sha256": "3ccc38e6389bb973d2f00b5df85f362a8e2f674d9ab6eef4adc32687169433ce"
+    }
+  ],
+  "upstream_products": [
+    {
+      "path": "docs/report/countries/sweden/sweden_aadr_v66_localities.csv",
+      "published_sha256": "5d00df28727080ae8832747ec4f967f4c0d535b8adc354f4d6144a2bbc443adb",
+      "replay_sha256": "5d00df28727080ae8832747ec4f967f4c0d535b8adc354f4d6144a2bbc443adb"
+    },
+    {
+      "path": "docs/report/countries/sweden/sweden_animal_adna_v66_localities.geojson",
+      "published_sha256": "725903c1a792f73048b9880a7e2e9c4bb0bee7b4aea9c78fffdd8167f6cbd314",
+      "replay_sha256": "725903c1a792f73048b9880a7e2e9c4bb0bee7b4aea9c78fffdd8167f6cbd314"
+    },
+    {
+      "path": "docs/report/countries/sweden/sweden_lake_evidence_richness_v66.json",
+      "published_sha256": "52d63f4a264017606928d88b01b58ae00149bc64eaa070ec63a983133e59c596",
+      "replay_sha256": "52d63f4a264017606928d88b01b58ae00149bc64eaa070ec63a983133e59c596"
+    }
+  ],
+  "outputs": [
+    {
+      "path": "docs/report/countries/sweden/sweden_land_use_synthesis_v66.json",
+      "published_sha256": "c9aa7a1a57aabd0673c4411677da29b8add4a8d604c5db30aab6003a2a4d0380",
+      "replay_sha256": "c9aa7a1a57aabd0673c4411677da29b8add4a8d604c5db30aab6003a2a4d0380"
+    },
+    {
+      "path": "docs/report/countries/sweden/sweden_land_use_synthesis_v66.csv",
+      "published_sha256": "a534469cf5f411bd8b017b307f94784918df070e9c5d5005f1a03b0a966ed3d5",
+      "replay_sha256": "a534469cf5f411bd8b017b307f94784918df070e9c5d5005f1a03b0a966ed3d5"
+    },
+    {
+      "path": "docs/report/countries/sweden/sweden_land_use_synthesis_v66.md",
+      "published_sha256": "828273af8dd07f9fe612f2936fecbfd5bcb99c40a5cb32677843c8a415fd6fd7",
+      "replay_sha256": "828273af8dd07f9fe612f2936fecbfd5bcb99c40a5cb32677843c8a415fd6fd7"
+    }
+  ],
+  "semantic_changes": {
+    "source_membership": [],
+    "normalized_identity_or_value": [],
+    "policy_or_weighting": [],
+    "admission_or_exclusion": [],
+    "scientific_result": [],
+    "presentation": []
+  },
+  "change_counts": {
+    "source_membership": 0,
+    "normalized_identity_or_value": 0,
+    "policy_or_weighting": 0,
+    "admission_or_exclusion": 0,
+    "scientific_result": 0,
+    "presentation": 0
+  },
+  "status": "identical"
+}

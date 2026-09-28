@@ -141,6 +141,7 @@ not proposed coring coordinates.
 - [Reader report](../../../report/countries/sweden/sweden_land_use_synthesis_v66.md)
 - [Complete JSON](../../../report/countries/sweden/sweden_land_use_synthesis_v66.json)
 - [Complete CSV](../../../report/countries/sweden/sweden_land_use_synthesis_v66.csv)
+- [Product replay and semantic diff](../../../report/countries/sweden/land-use-replay/README.md)
 - [Sweden lake priorities](../sweden-lake-priorities/index.md)
 - [LandClim source guidance](../../pollenomics-data/sources/landclim.md)
 - [SEAD handbook](../../pollenomics-data/sources/sead-handbook.md)

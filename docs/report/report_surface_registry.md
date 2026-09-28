@@ -4,7 +4,7 @@ This registry classifies the current `docs/report/` tree by family, audience,
 scope, and explanation role so the publication system can be navigated as one
 coherent report surface instead of a loose artifact dump.
 
-- Surface count: `1366`
+- Surface count: `1368`
 
 ## Family Counts
 
@@ -15,14 +15,14 @@ coherent report surface instead of a loose artifact dump.
 | Map surfaces | 85 |
 | Portal guidance | 2 |
 | Evidence reviews | 33 |
-| Scope-filtered outputs | 541 |
+| Scope-filtered outputs | 543 |
 
 ## Audience Counts
 
 | Audience | Count |
 | --- | ---: |
 | Maintainer diagnostic | 697 |
-| Public reading surface | 550 |
+| Public reading surface | 552 |
 | Scientific review surface | 119 |
 
 ## Classified Surfaces
@@ -210,6 +210,8 @@ coherent report surface instead of a loose artifact dump.
 | `docs/report/countries/sweden/_map_assets/markercluster/MarkerCluster.Default.css` | Scope-filtered outputs | Public reading surface | `sweden` | `css` | Governed report artifact. |
 | `docs/report/countries/sweden/_map_assets/markercluster/MarkerCluster.css` | Scope-filtered outputs | Public reading surface | `sweden` | `css` | Governed report artifact. |
 | `docs/report/countries/sweden/_map_assets/markercluster/leaflet.markercluster.js` | Scope-filtered outputs | Public reading surface | `sweden` | `js` | Governed report artifact. |
+| `docs/report/countries/sweden/land-use-replay/README.md` | Scope-filtered outputs | Public reading surface | `sweden` | `md` | Reader-facing entry page for one scope bundle. |
+| `docs/report/countries/sweden/land-use-replay/receipt.json` | Scope-filtered outputs | Public reading surface | `sweden` | `json` | Governed report artifact. |
 | `docs/report/countries/sweden/sweden_aadr_v66_bundle.json` | Scope-filtered outputs | Public reading surface | `sweden` | `json` | Governed report artifact. |
 | `docs/report/countries/sweden/sweden_aadr_v66_localities.csv` | Scope-filtered outputs | Public reading surface | `sweden` | `csv` | Governed report artifact. |
 | `docs/report/countries/sweden/sweden_aadr_v66_samples.csv` | Scope-filtered outputs | Public reading surface | `sweden` | `csv` | Scope-filtered sample or locality export. |
