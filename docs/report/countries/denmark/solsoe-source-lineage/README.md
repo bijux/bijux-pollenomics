@@ -7,11 +7,12 @@ and [LandClim II](https://doi.org/10.1594/PANGAEA.937075). The primary
 published products are modeled vegetation reconstructions. Their site metadata
 describe possible pollen input lineage, not independent vegetation observations.
 
-| Source | Solsø record | Pollen sample denominator | Basin information |
+| Source | Solsø record | Reported count and type | Basin information |
 | --- | --- | ---: | --- |
-| LandClim I `SiteData` | named Solsø, Bent Odgaard | not given in this row | `Area of site (ha) (*Actual size)` = **2.5 ha** |
-| LandClim II metadata, row 95 | `Solsoe`, grid **824**, author chronology | **79** | `siteradius` = **89**, with no unit in that column |
-| Neotoma EPD site 3432 | 1981 and 1983 cores | **92** source samples; **91** selected | drained-lake description, polygon site geometry and an `area` field with no established unit |
+| LandClim I `SiteData` | named Solsø, Bent Odgaard | pollen count not given | `Area of site (ha) (*Actual size)` = **2.5 ha** |
+| LandClim II metadata, row 95 | `Solsoe`, grid **824**, author chronology | **79 pollen samples** | `siteradius` = **89**, with no unit in that column |
+| [EPD/PANGAEA 740759](https://doi.pangaea.de/10.1594/PANGAEA.740759) | central `SOLSOE81` 1981 core, Bent V. Odgaard | **34 radiocarbon controls** | event explicitly reports **2.5 ha**; drained lake, now mostly fen |
+| Neotoma EPD site 3432 | 1981 and 1983 cores | **92 pollen samples**; **91** selected | drained-lake description, polygon site geometry and an `area` field with no established unit |
 
 The Neotoma source has **66** samples in core `SOLSOE81` and **26** in
 `SOLSOE83`; **65** and **26**, respectively, are in the held-out cohort. The
@@ -24,11 +25,20 @@ reconstruction.
 
 The Neotoma site-polygon centroid lies about **69 m** from the LandClim II
 site point. A circle of radius 89 m would have area **2.488 ha**, close to
-the LandClim I value of 2.5 ha. This is conditional arithmetic: the LandClim
-II radius column does not state its unit, and neither source binds a historical
+the LandClim I and primary 1981 core event value of 2.5 ha. This is
+conditional arithmetic: the LandClim II radius column does not state its
+unit, and neither source binds a historical
 lake outline to the 1981 or 1983 sample ages. The Neotoma polygon is a source
 site geometry, not a dated lake shoreline. The 79 LandClim II pollen samples
 also do not identify which 79 of Neotoma's 92 samples, if any, were used.
+
+The [primary 1981 age-control join](pangaea-core-controls/README.md) links the
+area claim directly to `SOLSOE81` and exactly matches 30 of its 34 published
+radiocarbon rows to retained Neotoma controls on lab, depth, age, errors and
+δ13C. Four published lab controls are absent in the retained Neotoma controls;
+24 of the matching controls recur across both Neotoma chronologies. This
+narrows core identity but does not select the author chronology or establish a
+historical basin outline.
 
 The LandClim II metadata mark access `R` and use an **authors chronology**;
 the 91 selected Neotoma samples have calibrated age claims.
