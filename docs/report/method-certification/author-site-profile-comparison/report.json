@@ -1,0 +1,193 @@
+{
+  "schema_version": "author-site-profile-comparison.v1",
+  "source_role": "released author example; restricted ten-taxon numerical development",
+  "grid_id": "512",
+  "window_midpoint_bp": 225,
+  "site_ids": [
+    "BROADOWN",
+    "HANGINGS",
+    "HARESDOWN",
+    "LOBBSBOG",
+    "WINDMILL",
+    "WINNEYS"
+  ],
+  "taxon_axis": [
+    "Alnus.glutinosa",
+    "Betula",
+    "Calluna.vulgaris",
+    "Cerealia.t",
+    "Corylus.avellana",
+    "Cyperaceae",
+    "Pinus",
+    "Plantago.lanceolata.type",
+    "Poaceae",
+    "Quercus.deciduous"
+  ],
+  "selected_counts_by_site": [
+    289,
+    293,
+    2223,
+    2786,
+    4251,
+    562
+  ],
+  "paired_site_draw_count": 1000,
+  "paired_draw_rule": "first 1000 retained joint author draw identities",
+  "historical_profile": "landclimii-2016-release-source-v1 fixed-count/PPE site bootstrap",
+  "reviewed_profile": "closed-draw arithmetic mean with original-site bootstrap, conditional multinomial counts and shared correlated PPE",
+  "historical_source_r_parity_basis": "separate tagged-R full-grid comparison; no new R run on this selected ten-taxon case",
+  "same_site_only_closed_draws": true,
+  "max_historical_vs_reviewed_site_only_mean_gap": 0.0016233449666228639,
+  "max_historical_vs_reviewed_site_only_se_gap": 2.55351295663786e-15,
+  "rows": [
+    {
+      "taxon": "Alnus.glutinosa",
+      "historical_ratio_mean": 0.000632462120496652,
+      "reviewed_site_only_mean": 0.0006348191823774299,
+      "historical_site_only_se": 0.00015459221725641292,
+      "reviewed_site_only_se": 0.00015459221725641392,
+      "reviewed_joint_mean": 0.0006316040278776797,
+      "reviewed_joint_se": 0.00018848567923059937
+    },
+    {
+      "taxon": "Betula",
+      "historical_ratio_mean": 0.0006461043435381484,
+      "reviewed_site_only_mean": 0.0006513571779141295,
+      "historical_site_only_se": 0.00035446733106733226,
+      "reviewed_site_only_se": 0.00035446733106733215,
+      "reviewed_joint_mean": 0.0006555679477699104,
+      "reviewed_joint_se": 0.0004473210862507138
+    },
+    {
+      "taxon": "Calluna.vulgaris",
+      "historical_ratio_mean": 0.07590626213765234,
+      "reviewed_site_only_mean": 0.07659377359573274,
+      "historical_site_only_se": 0.04466702532366361,
+      "reviewed_site_only_se": 0.044667025323663324,
+      "reviewed_joint_mean": 0.07662323070417354,
+      "reviewed_joint_se": 0.045785576849119144
+    },
+    {
+      "taxon": "Cerealia.t",
+      "historical_ratio_mean": 0.017005958829755263,
+      "reviewed_site_only_mean": 0.01702017749491763,
+      "historical_site_only_se": 0.0025044962302613574,
+      "reviewed_site_only_se": 0.002504496230261585,
+      "reviewed_joint_mean": 0.01761342768743784,
+      "reviewed_joint_se": 0.004901928335540178
+    },
+    {
+      "taxon": "Corylus.avellana",
+      "historical_ratio_mean": 0.007035056579449691,
+      "reviewed_site_only_mean": 0.007089878069225795,
+      "historical_site_only_se": 0.0035194878702867263,
+      "reviewed_site_only_se": 0.003519487870286699,
+      "reviewed_joint_mean": 0.007077171354235099,
+      "reviewed_joint_se": 0.0036367813815501742
+    },
+    {
+      "taxon": "Cyperaceae",
+      "historical_ratio_mean": 0.4638179471265981,
+      "reviewed_site_only_mean": 0.4621946021599752,
+      "historical_site_only_se": 0.12072512317971888,
+      "reviewed_site_only_se": 0.12072512317972144,
+      "reviewed_joint_mean": 0.4628983376758519,
+      "reviewed_joint_se": 0.12195654703398867
+    },
+    {
+      "taxon": "Pinus",
+      "historical_ratio_mean": 0.002824784145938075,
+      "reviewed_site_only_mean": 0.002824453481013288,
+      "historical_site_only_se": 0.0006173699166483448,
+      "reviewed_site_only_se": 0.0006173699166483447,
+      "reviewed_joint_mean": 0.0028060707091851545,
+      "reviewed_joint_se": 0.0007062741186912341
+    },
+    {
+      "taxon": "Plantago.lanceolata.type",
+      "historical_ratio_mean": 0.008512771714462582,
+      "reviewed_site_only_mean": 0.008565380861297147,
+      "historical_site_only_se": 0.0036229677332183428,
+      "reviewed_site_only_se": 0.0036229677332183783,
+      "reviewed_joint_mean": 0.008587126229065918,
+      "reviewed_joint_se": 0.003758707171000254
+    },
+    {
+      "taxon": "Poaceae",
+      "historical_ratio_mean": 0.4133011778907914,
+      "reviewed_site_only_mean": 0.41409688612020973,
+      "historical_site_only_se": 0.10024293189893989,
+      "reviewed_site_only_se": 0.10024293189893893,
+      "reviewed_joint_mean": 0.4128121707120864,
+      "reviewed_joint_se": 0.1012251797009288
+    },
+    {
+      "taxon": "Quercus.deciduous",
+      "historical_ratio_mean": 0.010317475111314159,
+      "reviewed_site_only_mean": 0.010328671857336708,
+      "historical_site_only_se": 0.0010811773897734882,
+      "reviewed_site_only_se": 0.001081177389773665,
+      "reviewed_joint_mean": 0.010295292952317308,
+      "reviewed_joint_se": 0.0013849747153563661
+    }
+  ],
+  "input_identities": [
+    {
+      "path": "docs/report/method-certification/author-site-uncertainty/report.json",
+      "bytes": 10125,
+      "sha256": "415185927514de10a71b6a7ba6c26d7bc1fd3ed8cc140760ec2e3e9f58f1c243"
+    },
+    {
+      "path": "docs/report/method-certification/author-site-uncertainty/draws.json",
+      "bytes": 398124,
+      "sha256": "84da401dc862452bc329d11df074d2c6d7353b3e34b223892b5fd6702fae4390"
+    },
+    {
+      "path": "author/run.REVEALS.files/LRAready_BROADOWN.csv",
+      "bytes": 2476,
+      "sha256": "1eb04f58c13321fc9f284186df85003d4f73803f2485b842984f49a64c21a0c8"
+    },
+    {
+      "path": "author/run.REVEALS.files/LRAready_HANGINGS.csv",
+      "bytes": 2474,
+      "sha256": "8249ce97a114048400a1497924cac0bc1c07fc7ae110dd5f868accd9425eda2f"
+    },
+    {
+      "path": "author/run.REVEALS.files/LRAready_HARESDOWN.csv",
+      "bytes": 2367,
+      "sha256": "406896858243381630c3e7a66f29c97d8ee7725c4f418f72396c4d31095e33d9"
+    },
+    {
+      "path": "author/run.REVEALS.files/LRAready_LOBBSBOG.csv",
+      "bytes": 2370,
+      "sha256": "13b8ad5fa65022aeb6ad351317c77e68710b398e2abd7d6b7159811e880ad8a7"
+    },
+    {
+      "path": "author/run.REVEALS.files/LRAready_WINDMILL.csv",
+      "bytes": 2350,
+      "sha256": "5cbfff585068fd2d3b27bb4d1156bde39b6b80f975ca78433cee960ce854c20f"
+    },
+    {
+      "path": "author/run.REVEALS.files/LRAready_WINNEYS.csv",
+      "bytes": 2507,
+      "sha256": "b268187404a6ec1b0d0935990acd70bce678c55c95a2fadf38b7e50f27e29dd6"
+    },
+    {
+      "path": "docs/report/method-certification/author-site-profile-comparison/replay.py",
+      "bytes": 6938,
+      "sha256": "4591e8129a0f3d893d9a8839a8dc013bfc05554891c20eae161862d29098488d"
+    },
+    {
+      "path": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/publication.py",
+      "bytes": 4200,
+      "sha256": "b2bb0e68e4475111e555cae5727c984c04c252d29401966465d8c12e97576c03"
+    },
+    {
+      "path": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/joint_site_draws.py",
+      "bytes": 4145,
+      "sha256": "368d6fa8d4f6c02e80719c5fb8233f9b6e31fdc4c2d6a69569ed11b02df98ac2"
+    }
+  ],
+  "chronology_geometry_transport_fixed": true,
+  "ecological_accuracy_claimed": false
+}
