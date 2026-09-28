@@ -214,6 +214,9 @@ def compare_cells(
         "neotoma_only_taxon_labels": sorted(source_taxa - set(taxa)),
         "cell_status_counts": dict(sorted(totals.items())),
         "max_absolute_numeric_age_label_difference": max(map(abs, age_differences)),
+        "age_labels_within_0_05_of_neotoma": sum(
+            abs(difference) <= 0.05 for difference in age_differences
+        ),
         "workbook_age_header": "Sample age (LANDCLIM)",
         "neotoma_age_type": "Calibrated radiocarbon years BP",
         "age_model_identity": "not_established",
@@ -267,9 +270,10 @@ def main() -> int:
         f"{status['absent_source_workbook_positive']} workbook-positive cells without a Neotoma row; "
         f"{status['ambiguous_source_duplicate']} cells have repeated Neotoma taxon labels with distinct source elements. "
         "None is converted to a Neotoma zero or merged count.\n\n"
-        f"The largest absolute numeric age-label difference is {summary['max_absolute_numeric_age_label_difference']:.6f}. "
+        f"All {summary['age_labels_within_0_05_of_neotoma']} numeric age labels are within 0.05 of their depth-matched Neotoma age; "
+        f"the largest absolute difference is {summary['max_absolute_numeric_age_label_difference']:.6f}. "
         "The workbook names LANDCLIM in its age header and Neotoma names a LANDCLIM chronology, "
-        "but matched selected ages and their uncertainty are not established. The unmatched taxon "
+        "but the workbook does not state an age unit and neither source gives interpolated sample-age bounds. The unmatched taxon "
         "labels, denominator, core/basin identity, 80 m published radius applicability, method "
         "parameters and analytical-use rights remain unqualified. No LRA sample is admitted.\n"
     )

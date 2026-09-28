@@ -2,9 +2,25 @@
 
 from __future__ import annotations
 
+import json
+from pathlib import Path
+
 import pytest
 
-from bijux_pollenomics_dev.source_completion.bokesjon_native_counts import compare_cells
+from bijux_pollenomics_dev.source_completion.bokesjon_native_counts import (
+    _source_samples,
+    _workbook,
+    compare_cells,
+)
+
+REPOSITORY = Path(__file__).resolve().parents[4]
+SOURCE = (
+    REPOSITORY.parent
+    / "bijux-pollenomics-data/landclim/rootsi-workbooks/rootsi/BOKE.xls"
+)
+GOVERNED = (
+    REPOSITORY / "docs/report/source-relations/neotoma/boke-native-correspondence"
+)
 
 
 def _inputs():
@@ -70,7 +86,22 @@ def test_fractional_depth_keeps_discrepancy_and_absent_source_distinct() -> None
         "workbook_mass_on_explicit_pairs": 8,
     }
     assert report["max_absolute_numeric_age_label_difference"] == pytest.approx(0.02)
+    assert report["age_labels_within_0_05_of_neotoma"] == 2
     assert report["lra_admitted_samples"] == 0
+
+
+def test_retained_source_replays_governed_numeric_alignment() -> None:
+    if not SOURCE.is_file():
+        pytest.skip("Private Rootsi workbook is not installed")
+    taxa, rows = _workbook(SOURCE)
+    samples = _source_samples(
+        REPOSITORY / "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-008.json"
+    )
+    _, summary = compare_cells(taxa, rows, samples)
+    governed = json.loads((GOVERNED / "report.json").read_text())
+    assert summary["age_labels_within_0_05_of_neotoma"] == 52
+    assert summary["max_absolute_numeric_age_label_difference"] < 0.05
+    assert summary == {key: governed[key] for key in summary}
 
 
 def test_invalid_count_unit_and_depth_axis_refuse() -> None:
