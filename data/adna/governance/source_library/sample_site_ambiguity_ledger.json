@@ -575,7 +575,7 @@
     },
     {
       "project_accession": "PRJNA705960",
-      "species_latin_name": "Bos taurus",
+      "species_latin_name": "Bos primigenius",
       "repo_stable_sample_id": "prjna705960:samn18106827",
       "preferred_sample_label": "SAMN18106827",
       "locality_resolution_status": "unresolved",
@@ -586,7 +586,7 @@
     },
     {
       "project_accession": "PRJNA705960",
-      "species_latin_name": "Bos taurus",
+      "species_latin_name": "Bos primigenius",
       "repo_stable_sample_id": "prjna705960:samn18106828",
       "preferred_sample_label": "SAMN18106828",
       "locality_resolution_status": "unresolved",
@@ -597,7 +597,7 @@
     },
     {
       "project_accession": "PRJNA705960",
-      "species_latin_name": "Bos taurus",
+      "species_latin_name": "Bos primigenius",
       "repo_stable_sample_id": "prjna705960:samn18106829",
       "preferred_sample_label": "SAMN18106829",
       "locality_resolution_status": "unresolved",

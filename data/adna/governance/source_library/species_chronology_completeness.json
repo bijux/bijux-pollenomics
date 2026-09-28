@@ -2,16 +2,28 @@
   "schema_version": "animal-species-chronology-completeness.v1",
   "rows": [
     {
+      "species_latin_name": "Bos primigenius",
+      "recovered_sample_row_count": 3,
+      "normalized_row_count": 0,
+      "exact_sample_date_count": 0,
+      "modeled_or_approximate_sample_date_count": 0,
+      "contextual_date_count": 0,
+      "broad_label_count": 0,
+      "text_only_unparsed_count": 0,
+      "unresolved_count": 3,
+      "chronology_completeness_ratio": 0.0
+    },
+    {
       "species_latin_name": "Bos taurus",
-      "recovered_sample_row_count": 134,
+      "recovered_sample_row_count": 131,
       "normalized_row_count": 99,
       "exact_sample_date_count": 28,
       "modeled_or_approximate_sample_date_count": 64,
       "contextual_date_count": 7,
       "broad_label_count": 0,
       "text_only_unparsed_count": 0,
-      "unresolved_count": 35,
-      "chronology_completeness_ratio": 0.7388
+      "unresolved_count": 32,
+      "chronology_completeness_ratio": 0.7557
     },
     {
       "species_latin_name": "Camelus dromedarius",
