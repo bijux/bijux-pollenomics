@@ -35,6 +35,9 @@ def build_repository_source_family_matrix(
 ) -> dict[str, object]:
     """Describe the main tracked source families with one cross-domain matrix."""
     counts = _build_core_counts(data_root, docs_root, report_root)
+    archived_supplements = counts["papers_with_archived_supplements"]
+    tracked_papers = counts["tracked_paper_count"]
+    staged_supplements = counts["papers_with_local_reference_supplements"]
     rows = [
         _source_family_row(
             "animal_adna",
@@ -46,11 +49,18 @@ def build_repository_source_family_matrix(
             ],
             ["docs/public/pollenomics-data/sources/animal-source-intake.md"],
             counts["tracked_paper_count"],
-            "local_reference_staging_ahead_of_repo_capture"
-            if counts["papers_with_local_reference_supplements"]
-            > counts["papers_with_archived_supplements"]
-            else "repo_capture_matches_visible_staging",
-            "tracked animal papers still need more supplement ingestion and sample-owned extraction before the atlas becomes representative",
+            (
+                "local_reference_staging_ahead_of_repo_capture"
+                if staged_supplements > archived_supplements
+                else "all_tracked_supplements_archived"
+                if tracked_papers > 0 and archived_supplements >= tracked_papers
+                else "repository_supplement_capture_incomplete"
+            ),
+            (
+                "Archived supplements cover all tracked animal papers; sample-owned identity, locality and chronology extraction remains incomplete"
+                if tracked_papers > 0 and archived_supplements >= tracked_papers
+                else f"Archived supplements cover {archived_supplements} of {tracked_papers} tracked animal papers; sample-owned extraction remains incomplete"
+            ),
         ),
         _source_family_row(
             "aadr",

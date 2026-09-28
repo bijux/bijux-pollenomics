@@ -16,7 +16,6 @@
     "animal_sample_site_extraction",
     "animal_sample_chronology_extraction",
     "animal_coordinate_resolution",
-    "supplement_capture_recovery",
     "atlas_depth_recovery"
   ],
   "counts": {
@@ -55,12 +54,12 @@
     "boundary_raw_file_count": 5,
     "boundary_normalized_file_count": 1,
     "fieldwork_page_count": 2,
-    "source_explainer_count": 16,
+    "source_explainer_count": 22,
     "landing_page_count": 6,
     "zero_collection_summary_surfaces": []
   },
   "recovery_priorities": [
-    "archive missing supplementary material and convert it into sample-owned locality and chronology evidence",
+    "extract sample-owned locality and chronology evidence from archived supplementary material",
     "rebuild animal locality extraction so sample rows do not collapse into project-level or region-level geography",
     "rebuild chronology extraction so atlas and country outputs stop depending on broad or unresolved sample dates",
     "keep pollen, environmental, archaeology, and boundary explanation first-class while animal aDNA recovery continues"

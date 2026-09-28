@@ -8,6 +8,7 @@ from bijux_pollenomics.governance import (
     build_repository_source_ecosystem_review,
     build_repository_source_explainer_audit,
     build_repository_source_family_matrix,
+    build_repository_truth_posture,
     render_repository_atlas_input_audit_markdown,
     render_repository_cross_domain_evidence_matrix_markdown,
     render_repository_scientific_progress_audit_markdown,
@@ -60,6 +61,38 @@ class RepositorySourceEvidenceTests(RepositoryTruthTestCase):
         self.assertIn("Animal aDNA papers and supplements", matrix_markdown)
         self.assertIn("animal_adna", queue_markdown)
         self.assertNotIn("sead_temporal_reference_capture", queue_markdown)
+
+    def test_archived_supplements_do_not_remain_an_acquisition_gap(self) -> None:
+        matrix = build_repository_source_family_matrix(
+            data_root=self.data_root,
+            docs_root=self.docs_root,
+            report_root=self.report_root,
+        )
+        queue = build_repository_source_acquisition_queue(
+            data_root=self.data_root,
+            docs_root=self.docs_root,
+            report_root=self.report_root,
+        )
+        posture = build_repository_truth_posture(
+            data_root=self.data_root,
+            docs_root=self.docs_root,
+            report_root=self.report_root,
+        )
+        counts = posture["counts"]
+        self.assertEqual(counts["tracked_paper_count"], 18)
+        self.assertEqual(counts["papers_with_archived_supplements"], 18)
+        animal_row = next(
+            row for row in matrix["rows"] if row["source_key"] == "animal_adna"
+        )
+        self.assertEqual(
+            animal_row["acquisition_posture"], "all_tracked_supplements_archived"
+        )
+        self.assertNotIn("supplement ingestion", animal_row["main_gap"])
+        self.assertNotIn("supplement_capture_recovery", posture["incomplete_programs"])
+        self.assertEqual(queue["rows"][0]["queue_key"], "animal_adna_sample_extraction")
+        self.assertTrue(
+            all("archive missing" not in row for row in posture["recovery_priorities"])
+        )
 
     def test_source_explainer_atlas_input_and_cross_domain_packets_keep_pollen_first(
         self,

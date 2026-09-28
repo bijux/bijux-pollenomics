@@ -12,7 +12,7 @@
 - Published animal atlas points: `170`
 - Unresolved animal samples: `402 of 1450`
 - Refused animal coordinate-provenance rows: `4 of 308`
-- Source-family explainer count: `16`
+- Source-family explainer count: `22`
 
 ## Claim Freeze Reasons
 
@@ -22,7 +22,7 @@
 
 ## Recovery Priorities
 
-- archive missing supplementary material and convert it into sample-owned locality and chronology evidence
+- extract sample-owned locality and chronology evidence from archived supplementary material
 - rebuild animal locality extraction so sample rows do not collapse into project-level or region-level geography
 - rebuild chronology extraction so atlas and country outputs stop depending on broad or unresolved sample dates
 - keep pollen, environmental, archaeology, and boundary explanation first-class while animal aDNA recovery continues
