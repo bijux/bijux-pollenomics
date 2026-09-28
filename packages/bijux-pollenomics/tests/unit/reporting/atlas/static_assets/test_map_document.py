@@ -11,6 +11,7 @@ import pytest
 from bijux_pollenomics.reporting.geography import build_published_geography_plan
 from bijux_pollenomics.reporting.map_document import render_multi_country_map_html
 from bijux_pollenomics.reporting.map_document.payload import serialize_json_for_script
+from bijux_pollenomics.reporting.map_document.template import MAP_DOCUMENT_TEMPLATE
 from bijux_pollenomics.reporting.map_document.static_assets import (
     ATLAS_DOCUMENT_MAX_BYTES,
     write_static_atlas_assets,
@@ -63,6 +64,11 @@ def test_static_map_document_is_small_relative_only_and_offline_loadable(
     )
 
     assert len(html.encode("utf-8")) <= ATLAS_DOCUMENT_MAX_BYTES
+    source_css = MAP_DOCUMENT_TEMPLATE.split("<style>", 1)[1].split("</style>", 1)[0]
+    rendered_css = html.split("<style>", 1)[1].split("</style>", 1)[0]
+    assert rendered_css == "\n".join(
+        line.lstrip(" \t") for line in source_css.split("\n")
+    )
     assert all(line == line.rstrip() for line in html.splitlines())
     assert 'id="atlas-static-bootstrap"' in html
     assert "selection_aware_static_scripts" in html

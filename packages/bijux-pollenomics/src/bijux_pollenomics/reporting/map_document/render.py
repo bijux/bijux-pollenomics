@@ -10,6 +10,15 @@ from .static_assets import StaticAtlasAssets, validate_static_atlas_document
 from .template import MAP_DOCUMENT_TEMPLATE
 
 
+def _compact_inline_stylesheet(document: str) -> str:
+    """Save document bytes without changing CSS tokens or source readability."""
+    start = document.index("<style>") + len("<style>")
+    end = document.index("</style>", start)
+    stylesheet = document[start:end]
+    compact = "\n".join(line.lstrip(" \t") for line in stylesheet.split("\n"))
+    return document[:start] + compact + document[end:]
+
+
 def render_multi_country_map_html(
     title: str,
     version: str,
@@ -24,7 +33,11 @@ def render_multi_country_map_html(
     native_lra: dict[str, Any] | None = None,
 ) -> str:
     """Render the standalone interactive map document."""
-    rendered_document = MAP_DOCUMENT_TEMPLATE
+    rendered_document = (
+        _compact_inline_stylesheet(MAP_DOCUMENT_TEMPLATE)
+        if static_assets is not None
+        else MAP_DOCUMENT_TEMPLATE
+    )
     for placeholder, value in build_map_document_payload(
         title=title,
         version=version,
