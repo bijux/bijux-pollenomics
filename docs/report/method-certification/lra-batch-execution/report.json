@@ -1,0 +1,196 @@
+{
+  "schema_version": "installed-lra-batch-execution.v1",
+  "scope": "synthetic installed-host integration; no scientific input admission",
+  "platform": "macOS arm64, CPython 3.11.13",
+  "installed_host_wheel_sha256": "5beb2e7059bc9be24b0607ae8bd1e5046bf8fd5619ede4599362034d0d01b374",
+  "installed_lra_wheel_sha256": "260702b46ad92f79bfacae0b5fa1badb51ec50ab300160440ed85845045ec84d",
+  "request_fixture_source_sha256": "060614933edb3cd7cb8b7f0c5f457fcef849a81545a737617820ed8544cedf6a",
+  "workload": {
+    "items": 3,
+    "max_workers": 2,
+    "max_items": 3,
+    "numerical_threads_per_worker": 1,
+    "routes": [
+      "reveals",
+      "analytical-love",
+      "paired-lra"
+    ],
+    "failure": "paired Alnus PPE set to -1",
+    "parameter_change": "reveals Alnus PPE changed from 4 to 5",
+    "input_root": "one synthetic evidence directory with seven role files"
+  },
+  "attempts": {
+    "failure": {
+      "batch_request_sha256": "0667d7dede1977557868fab2c1c8b620c08dbfda0adec966947a4546cdd760b9",
+      "result_stdout_sha256": "82a360e00baaa2a278d6ef19240ce12fd335a1d636e7a9845327df2f8464f279",
+      "exit_code": 2,
+      "elapsed_seconds": 3.48,
+      "maximum_resident_set_size_bytes_reported_by_time_l": 201637888,
+      "counts": {
+        "completed": 2,
+        "failed": 0,
+        "not_run": 0,
+        "refused": 1,
+        "unobserved": 0
+      },
+      "items": [
+        {
+          "cache_hit": false,
+          "cache_key": "9dddfce23058d34961bb06de38fe61d862bec05f5e5df3c619bf90cfb99adb0f",
+          "item_id": "reveals",
+          "item_status": "completed",
+          "request_sha256": "391ba9b9c1032e3d3832b128bb542f942a345d487261d7ce54f052b8f74a0717",
+          "scientific_content_sha256": "7629d2570d4d4eef011cc4d4403bbcfdc4569cafe992913fea31994ce1f46ef2"
+        },
+        {
+          "cache_hit": false,
+          "cache_key": "ceb88802342e37ade166a6b57c81db8158af1491dc0c7092b649c573ad162653",
+          "item_id": "analytical",
+          "item_status": "completed",
+          "request_sha256": "25514c6b513675d0535d79abcdcd99f0363e867b27522dd635a8ef662af8049c",
+          "scientific_content_sha256": "540d9f4414120771a47f1575c79a8860ccd76299b4b1c36138063329f657e0f1"
+        },
+        {
+          "error": {
+            "detail": "parameters/0/ppe: -1 is less than or equal to the minimum of 0",
+            "reason_code": "invalid_lra_schema",
+            "status": "refused"
+          },
+          "item_id": "paired",
+          "item_status": "refused",
+          "request_sha256": "bdbc9d2d838d2767191c16137b3762d90e0a2a7ab6f3bf18d7bcddd022542b7c"
+        }
+      ],
+      "batch_sha256": "0b251acd46b8d85a378cfd4724b11ba762f97a9fb14704e6fa00650866e0d700"
+    },
+    "resume": {
+      "batch_request_sha256": "a01cb954ae533359a5a9bedacb829fd1cfa598313be7d157bad7de07e8cc74b3",
+      "result_stdout_sha256": "d13eb18a6691084b422133e2f1fe04813d65ca700816be365c44a5ac386255d3",
+      "exit_code": 0,
+      "elapsed_seconds": 3.2,
+      "maximum_resident_set_size_bytes_reported_by_time_l": 205815808,
+      "counts": {
+        "completed": 3,
+        "failed": 0,
+        "not_run": 0,
+        "refused": 0,
+        "unobserved": 0
+      },
+      "items": [
+        {
+          "cache_hit": true,
+          "cache_key": "9dddfce23058d34961bb06de38fe61d862bec05f5e5df3c619bf90cfb99adb0f",
+          "item_id": "reveals",
+          "item_status": "completed",
+          "request_sha256": "391ba9b9c1032e3d3832b128bb542f942a345d487261d7ce54f052b8f74a0717",
+          "scientific_content_sha256": "7629d2570d4d4eef011cc4d4403bbcfdc4569cafe992913fea31994ce1f46ef2"
+        },
+        {
+          "cache_hit": true,
+          "cache_key": "ceb88802342e37ade166a6b57c81db8158af1491dc0c7092b649c573ad162653",
+          "item_id": "analytical",
+          "item_status": "completed",
+          "request_sha256": "25514c6b513675d0535d79abcdcd99f0363e867b27522dd635a8ef662af8049c",
+          "scientific_content_sha256": "540d9f4414120771a47f1575c79a8860ccd76299b4b1c36138063329f657e0f1"
+        },
+        {
+          "cache_hit": false,
+          "cache_key": "43396437518cdb337df6a84bbaef68b4bbd513be6b7e9bc66cfb7959be6a37da",
+          "item_id": "paired",
+          "item_status": "completed",
+          "request_sha256": "df1281f9e05eaa60e9dea2b76ac5b6493be8f72a9fd65195249fa9547e32ecc8",
+          "scientific_content_sha256": "cae8a1eb519cc9dd778f9cd6185fa163ddf23773d8a2fb11202352846ec32752"
+        }
+      ],
+      "batch_sha256": "19f448694e3e031b91d850e6b1e0e222010bdd97b83b460e7125e4e3d6698fa4"
+    },
+    "warm": {
+      "batch_request_sha256": "a01cb954ae533359a5a9bedacb829fd1cfa598313be7d157bad7de07e8cc74b3",
+      "result_stdout_sha256": "e0497e571fe91b02cc1b8e01dbfd84722ce3ed2459a013b512dbe48659883d87",
+      "exit_code": 0,
+      "elapsed_seconds": 3.13,
+      "maximum_resident_set_size_bytes_reported_by_time_l": 204406784,
+      "counts": {
+        "completed": 3,
+        "failed": 0,
+        "not_run": 0,
+        "refused": 0,
+        "unobserved": 0
+      },
+      "items": [
+        {
+          "cache_hit": true,
+          "cache_key": "9dddfce23058d34961bb06de38fe61d862bec05f5e5df3c619bf90cfb99adb0f",
+          "item_id": "reveals",
+          "item_status": "completed",
+          "request_sha256": "391ba9b9c1032e3d3832b128bb542f942a345d487261d7ce54f052b8f74a0717",
+          "scientific_content_sha256": "7629d2570d4d4eef011cc4d4403bbcfdc4569cafe992913fea31994ce1f46ef2"
+        },
+        {
+          "cache_hit": true,
+          "cache_key": "ceb88802342e37ade166a6b57c81db8158af1491dc0c7092b649c573ad162653",
+          "item_id": "analytical",
+          "item_status": "completed",
+          "request_sha256": "25514c6b513675d0535d79abcdcd99f0363e867b27522dd635a8ef662af8049c",
+          "scientific_content_sha256": "540d9f4414120771a47f1575c79a8860ccd76299b4b1c36138063329f657e0f1"
+        },
+        {
+          "cache_hit": true,
+          "cache_key": "43396437518cdb337df6a84bbaef68b4bbd513be6b7e9bc66cfb7959be6a37da",
+          "item_id": "paired",
+          "item_status": "completed",
+          "request_sha256": "df1281f9e05eaa60e9dea2b76ac5b6493be8f72a9fd65195249fa9547e32ecc8",
+          "scientific_content_sha256": "cae8a1eb519cc9dd778f9cd6185fa163ddf23773d8a2fb11202352846ec32752"
+        }
+      ],
+      "batch_sha256": "19f448694e3e031b91d850e6b1e0e222010bdd97b83b460e7125e4e3d6698fa4"
+    },
+    "parameter": {
+      "batch_request_sha256": "0f1614be5ba85a3c648d371949cf563674d3bff7f12cf4bc14924136cdc634a4",
+      "result_stdout_sha256": "9ef30ee03d0a7da20786af4b11148892413b0932c3938ab437351e543e1971b1",
+      "exit_code": 0,
+      "elapsed_seconds": 3.13,
+      "maximum_resident_set_size_bytes_reported_by_time_l": 206749696,
+      "counts": {
+        "completed": 3,
+        "failed": 0,
+        "not_run": 0,
+        "refused": 0,
+        "unobserved": 0
+      },
+      "items": [
+        {
+          "cache_hit": false,
+          "cache_key": "b69d69764f4847345696baa8c5e3a2795b64c0db4cacd98428a709e4e062000c",
+          "item_id": "reveals",
+          "item_status": "completed",
+          "request_sha256": "f6e97a40aa414bdf1a3b9639976eb47ccdb92afe18890f04ccef73e5eaf7281d",
+          "scientific_content_sha256": "29da0325ce990f6fd0e51832fc2bb7aafb22b2d4d7ab4390acef05b086f19895"
+        },
+        {
+          "cache_hit": true,
+          "cache_key": "ceb88802342e37ade166a6b57c81db8158af1491dc0c7092b649c573ad162653",
+          "item_id": "analytical",
+          "item_status": "completed",
+          "request_sha256": "25514c6b513675d0535d79abcdcd99f0363e867b27522dd635a8ef662af8049c",
+          "scientific_content_sha256": "540d9f4414120771a47f1575c79a8860ccd76299b4b1c36138063329f657e0f1"
+        },
+        {
+          "cache_hit": true,
+          "cache_key": "43396437518cdb337df6a84bbaef68b4bbd513be6b7e9bc66cfb7959be6a37da",
+          "item_id": "paired",
+          "item_status": "completed",
+          "request_sha256": "df1281f9e05eaa60e9dea2b76ac5b6493be8f72a9fd65195249fa9547e32ecc8",
+          "scientific_content_sha256": "cae8a1eb519cc9dd778f9cd6185fa163ddf23773d8a2fb11202352846ec32752"
+        }
+      ],
+      "batch_sha256": "1e1a485057daeeccd92c5ae88ab26ca38b34a7de2ad825d756ec1aac75dcc744"
+    }
+  },
+  "comparisons": {
+    "first_two_reused_after_failure": true,
+    "warm_all_three_equal_content_and_keys": true,
+    "parameter_change_misses_and_changes_scientific_content": true
+  },
+  "scientific_acceptance": "not_evaluated"
+}
