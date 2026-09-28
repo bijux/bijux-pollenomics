@@ -95,6 +95,12 @@ exact full-table source pages for the current cohort. Fourteen source parameter
 rows match 13 current sites, without approving historical basin geometry;
 zero samples are admitted to LRA.
 
+The [current pollen-concept priority](../../../report/source-relations/neotoma/taxon-priority/README.md)
+joins the corrected 10,637-sample cohort to 1,006 Neotoma review concepts and
+228,323 source-pollen-labelled count observations. All selected concepts remain
+unapproved; exact `NISP` and `NISP digitized` count sums stay separate. The
+historical 674-concept priority below applies only to the older cohort.
+
 For Abborrtjärnen, a [cross-source ABBO profile comparison](../../../report/source-relations/neotoma/abbo-profile/README.md)
 matches 107 sample depths and 535 selected taxon-count cells against a separate
 EPD/PANGAEA record. That record reports a 3 ha lake, but its June 2002 core
