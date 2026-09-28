@@ -1,16 +1,16 @@
 {
   "schema_version": "report-surface-registry.v1",
-  "surface_count": 1379,
+  "surface_count": 1381,
   "family_counts": {
     "caveats": 10,
-    "maintenance": 705,
+    "maintenance": 707,
     "maps": 85,
     "portal": 2,
     "reviews": 33,
     "scopes": 544
   },
   "audience_counts": {
-    "maintainer_diagnostic": 707,
+    "maintainer_diagnostic": 709,
     "public_reading_surface": 553,
     "scientific_review_surface": 119
   },
@@ -20,7 +20,7 @@
     "finland": 14,
     "nordic": 306,
     "norway": 14,
-    "report_root": 753,
+    "report_root": 755,
     "sweden": 43,
     "world": 172
   },
@@ -13779,6 +13779,30 @@
     },
     {
       "repository_path": "docs/report/source-relations/neotoma/parameter-candidates/report.json",
+      "family": "maintenance",
+      "family_label": "Maintainer truth surfaces",
+      "audience": "maintainer_diagnostic",
+      "audience_label": "Maintainer diagnostic",
+      "format": "json",
+      "geography": "report_root",
+      "caution_level": "high",
+      "explanation": "Maintainer-facing truth or governance surface.",
+      "reader_route": "maintainer_truth"
+    },
+    {
+      "repository_path": "docs/report/source-relations/neotoma/parameter-correspondence/README.md",
+      "family": "maintenance",
+      "family_label": "Maintainer truth surfaces",
+      "audience": "maintainer_diagnostic",
+      "audience_label": "Maintainer diagnostic",
+      "format": "md",
+      "geography": "report_root",
+      "caution_level": "high",
+      "explanation": "Reader-facing entry page for one scope bundle.",
+      "reader_route": "start_here"
+    },
+    {
+      "repository_path": "docs/report/source-relations/neotoma/parameter-correspondence/report.json",
       "family": "maintenance",
       "family_label": "Maintainer truth surfaces",
       "audience": "maintainer_diagnostic",

@@ -28,6 +28,8 @@ resolves parameter-name matching for assigned counts but does not prove that
 Neotoma's BUS/ABB/BOKE core ages, radii or basin boundaries match those in the
 authors' original run. The [Bussjösjön coordinate conflict](../bussjosjon-basin/README.md)
 remains open. **Zero Swedish LRA samples are admitted.**
+The [published-table comparison](../parameter-correspondence/README.md) pairs
+all 31 author mean and fall-speed values and retains three small SD differences.
 
 The source identities in the report pin the author driver
 (`bc20b58bc1dc5933eb046233d44739d7da006624031aa4863e9a2731b077e341`),
