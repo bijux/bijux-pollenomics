@@ -32,15 +32,39 @@ the Neotoma samples. [Olsson et al. (1997)](https://link.springer.com/article/10
 independently describe rerouting of the drainage system and a large reduction
 in effective catchment area; catchment area is not lake surface area.
 
+The primary [Thuning and Linderson (1986) Lund field study](https://lup.lub.lu.se/student-papers/record/2371167)
+reports **approximately 0.3 ha** for Bussjösjön in its site description
+(printed page 5, PDF page 5) and places it around **24 m above sea level**
+(printed page 6, PDF page 6). It says that the incoming stream was culverted
+around the lake in **1954**, sharply reducing the former **180 ha drainage
+area** (printed page 7, PDF page 7). Figure 12 (printed page 27, PDF page 18)
+maps the maximum extent of gyttja and peat deposits at about 1:1100 scale.
+The authors place the mapped gyttja edge **35–55 m from the then-current shore**
+on the north, west and south, while the eastern edge is not bounded by their
+profiles (printed page 26, PDF page 17). Pollen sample `F` assigns maximum
+gyttja extent to Boreal zone 1, **8,500–9,600 uncalibrated radiocarbon BP**
+in their Table 1 (printed page 25, PDF page 16); that is not a calibrated
+boundary series for the Neotoma bins. Their study uses 59 sediment profiles
+and local pollen analyses; it does not identify its profiles as the Neotoma
+collection unit `39238`. The inspected 72-page PDF has SHA-256
+`91c54054a237b6ea50b8a63c6572494215afaf027e2b0291cc12c447e90b8875`.
+The three records also disagree in reported altitude: Neotoma site `28869`
+gives **49 m**, Jenny et al. Table S2 gives **40 m**, and the 1986 field
+study gives approximately **24 m above sea level**. Reference points and
+vertical datums have not been reconciled, so altitude cannot settle the
+coordinate discrepancy by itself.
+
 The [LandClim metadata](https://doi.org/10.1594/PANGAEA.937075) give `BUS`
 `siteradius` 69 m, equivalent to **1.4957 ha** if treated as a circular lake
 radius. The existing [Swedish source questions](../../../pollen-reconstruction/swedish-source-questions.csv)
 also retain a 2 ha source value. These numbers have different source roles
-and possible time meanings. The 2016 inventory coordinate could reflect a
-transcription error or a distinct location; the available records do not
-decide which. None binds a time-specific lake boundary or radius to the
-Neotoma pollen samples. **Historical basin geometry and every Bussjösjön LRA
-sample remain unadmitted.** Resolve the inventory coordinate against the
-original lake survey and link the `BUS` core to dated basin outlines before
-selecting an LRA radius. The direct observed-pollen result remains valid for
-its declared coordinate-based estimand.
+and possible time meanings. The field study's approximately 0.3 ha modern
+lake is smaller than either circular `BUS` radius area or the 3 ha inventory
+value. The 2016 inventory coordinate could reflect a transcription error or
+a distinct location; the available records do not decide which. None binds
+a time-specific lake boundary or radius to the Neotoma pollen samples.
+**Historical basin geometry and every Bussjösjön LRA sample remain
+unadmitted.** Resolve the inventory coordinate against the mapped 1986 lake,
+then link the `BUS` core and its calibrated sample ages to dated basin outlines
+before selecting an LRA radius. The direct observed-pollen result remains
+valid for its declared coordinate-based estimand.
