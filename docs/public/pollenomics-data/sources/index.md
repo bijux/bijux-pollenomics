@@ -36,7 +36,7 @@ counts separate for all four countries.
 
 | Family | Evidence role | Suitable questions | Principal limit |
 | --- | --- | --- | --- |
-| [LandClim](landclim.md) | primary pollen context | pollen sequences and modelled vegetation context | model grids and observed sites have different semantics |
+| [LandClim](landclim.md) | primary pollen context | pollen sequences and [modeled Nordic vegetation panels](landclim-modeled-panels.md) | model grids and observed sites have different semantics |
 | [HYDE 3.5](hyde.md) | external modeled land-use context | comparisons at matched spatial and temporal support | local native files require release, rights, and semantic review; modeled quantities are not independent vegetation truth |
 | [Neotoma](neotoma.md) | primary pollen context | palaeoecological site and pollen comparison | temporal coverage and resolution vary by site |
 | [SEAD](sead.md) | environmental archaeology context | archaeological and environmental context | access, normalization, and chronology require explicit review |
