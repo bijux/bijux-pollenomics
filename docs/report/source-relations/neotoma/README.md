@@ -1,5 +1,10 @@
 # Neotoma source relationship validation
 
+The [Nordic lake-parameter review](lakeparameters/README.md) retains the exact
+five public source matches, the 54-site candidate denominator and a replay
+against the externally retained page capture. It admits zero historical basins
+or LRA samples.
+
 The [retained result](summary.json) verifies the unchanged relational snapshot
 through the production materialization reader. It includes 200 sites, 206
 collection units, 209 datasets, 384 chronologies, 2,798 chronology controls,

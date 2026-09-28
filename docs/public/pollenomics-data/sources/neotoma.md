@@ -219,8 +219,8 @@ admits **zero** samples to numerical LRA or measured held-out scoring.
 
 ### What basin evidence accompanies those source locations?
 
-The authenticated site and collection-unit review at
-`artifacts/v3/source/neotoma-site-evidence-20260921/report002.json`
+The authenticated site and collection-unit review retained in the external
+Neotoma source-data store
 (SHA-256 `aaded8ed751a8f245a357c50bb2c2a96a8710168deab7223f0c48284180e96ce`)
 retains source row locators and native descriptions, geography, area, collection
 unit type, depositional environment, water depth, location and collection date.
@@ -249,7 +249,8 @@ diameter; their applicability and units for this captured API value require
 source review. A collection date is not a sample age. Historical basin size,
 source aliases, chronology, taxa/PPE and compatible counts remain unresolved.
 
-The host `inspect_neotoma_lra_lakeparameters` review accepts an explicitly
+The [retained lake-parameter source review](../../../report/source-relations/neotoma/lakeparameters/README.md)
+and host `inspect_neotoma_lra_lakeparameters` consumer accept an explicitly
 pinned public Neotoma lakeparameter capture, verifies every captured page and
 type-table hash, and joins only exact source site IDs. The 2026-09-21 bounded
 capture (`capture.json` SHA-256

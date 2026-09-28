@@ -16,8 +16,8 @@
     },
     {
       "path": "docs/public/pollenomics-data/sources/neotoma.md",
-      "sha256": "cbaf6667668f1b40148104d6fcb9b57a4106eccd0ecd83b3c3d0bcd3a0c64653",
-      "bytes": 32185
+      "sha256": "796b2594b065b994cf4bab829dd90b2b02563067c8cf8308ef8312e238bca01f",
+      "bytes": 32277
     },
     {
       "path": "docs/public/pollenomics-data/sources/nordic-nfi-reference-access.md",
@@ -300,6 +300,11 @@
       "bytes": 33382
     },
     {
+      "path": "docs/report/source-relations/neotoma/README.md",
+      "sha256": "74fa44791fdbba55952d940c6e7db89c84042e282ae17a323d8ecbabcd8516eb",
+      "bytes": 2869
+    },
+    {
       "path": "docs/report/source-relations/neotoma/abbo-profile/README.md",
       "sha256": "b75f31af949a8414a38bcf0e70d31b845b3421fe676d4f6144299803d4085c84",
       "bytes": 2364
@@ -313,6 +318,21 @@
       "path": "docs/report/source-relations/neotoma/boke-basin/README.md",
       "sha256": "5f98f626009b775982e548996a63135c3c6553f6f2afd9b8c2eb82f9fa7a891f",
       "bytes": 1964
+    },
+    {
+      "path": "docs/report/source-relations/neotoma/lakeparameters/README.md",
+      "sha256": "3b78c812f4f69e9868c1c462f9ac378cf2769fbd20be9181f8972e7c7e892b28",
+      "bytes": 2309
+    },
+    {
+      "path": "docs/report/source-relations/neotoma/lakeparameters/report.json",
+      "sha256": "6f67e43c1475cdc30866325517ebef5c02c715f4512ee0a1588607ca45907dce",
+      "bytes": 2720
+    },
+    {
+      "path": "docs/report/source-relations/neotoma/lakeparameters/verify.py",
+      "sha256": "e662381e95756701df6dcdfdccb5e877c68ad5cdf1930b88cb4477fce1768dc5",
+      "bytes": 1566
     },
     {
       "path": "docs/report/source-relations/neotoma/pollen-screen/README.md",
