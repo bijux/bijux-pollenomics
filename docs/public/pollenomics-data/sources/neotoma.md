@@ -81,6 +81,12 @@ The [Nordic country-held-out direct-pollen study](../../../report/regions/nordic
 uses a separately declared 16-label observed-pollen subcomposition and retains
 all target-country exclusions and scores.
 
+For Abborrtjärnen, a [cross-source ABBO profile comparison](../../../report/source-relations/neotoma/abbo-profile/README.md)
+matches 107 sample depths and 535 selected taxon-count cells against a separate
+EPD/PANGAEA record. That record reports a 3 ha lake, but its June 2002 core
+date differs from the Neotoma January 2002 collection date. Its area has no
+sample-age-specific basin boundary and does not admit numerical LRA.
+
 ### Historical screen before chronology correction
 
 The following 21 September source screens and derived priority/mass reviews

@@ -120,6 +120,12 @@ def main() -> None:
     if input_manifest["runner_sha256"] != sha256(producer):
         raise ValueError("Swedish direct-pollen producer digest mismatch")
 
+    native = REPORT_DIR / "swedish-native-sequences"
+    native_manifest = json.loads((native / "manifest.json").read_text())
+    for filename, expected in native_manifest["files_sha256"].items():
+        if sha256(native / filename) != expected:
+            raise ValueError(f"Swedish native sequence digest mismatch: {filename}")
+
     nordic_dir = REPOSITORY_ROOT / "docs/report/regions/nordic/direct-pollen"
     nordic = json.loads((nordic_dir / "manifest.json").read_text(encoding="utf-8"))
     declared = scope["producer_and_source_identities"]

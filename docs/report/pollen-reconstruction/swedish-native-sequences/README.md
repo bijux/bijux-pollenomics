@@ -17,7 +17,13 @@ attribution to Neotoma, EPD and the original investigators. The exact source-fil
 hashes and output hashes are in [the manifest](manifest.json).
 
 The raw Neotoma record does not label the depth unit in these rows, so the
-published depth unit remains unknown. The calculated percentage uses only
+published depth unit remains unknown. A [separate source-bound ABBO comparison](../../source-relations/neotoma/abbo-profile/README.md)
+finds that all 107 Abborrtjärnen depths match the PANGAEA meter depths after
+division by 100 and five taxon count series agree at all 107 positions. This
+supports a centimeter interpretation for that one native series, while leaving
+the Neotoma source field and the other two lakes' units unchanged. The
+PANGAEA event's 3 ha area is not a time-specific historical basin boundary.
+The calculated percentage uses only
 reported pollen NISP rows in each sample.
 The source supplies no separate denominator. Unreported taxa are not filled with
 zero, and counts retain their native labels. Sample age bounds are absent; the

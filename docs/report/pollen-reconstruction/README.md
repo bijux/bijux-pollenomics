@@ -12,6 +12,11 @@ last_reviewed: 2026-09-28
 The [Swedish native pollen sequences](swedish-native-sequences/README.md) expose
 the three Neotoma/EPD lakes' sample-level observed counts, selected ages, source
 chronology controls and browsable taxon trajectories separately from prediction.
+An [independent PANGAEA EPD profile comparison](../source-relations/neotoma/abbo-profile/README.md)
+matches all 107 Abborrtjärnen depths after an exact 100-to-1 conversion and
+535 selected taxon-count cells. It reports a 3 ha event area but does not
+establish historical basin geometry; its core date differs from the Neotoma
+collection-unit date. Neither fact changes the LRA refusal below.
 
 ## Scope and conclusion
 
