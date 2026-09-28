@@ -16,6 +16,13 @@ The retained Rootsi candidate closure has 79 unique publication-metadata candida
 
 The paper's 12-PFT statement, PANGAEA's 11-PFT description and 13 archived PFT positions remain unreconciled. A separate [source-bound taxon arithmetic replay](../publication-replay/landclim-pft-crosswalk/README.md) shows that archived `ISTS` means equal the sum of three published taxon means (`Corylus.avellana`, `Fraxinus` and `Quercus.deciduous`) in all 10,500 grid/window rows. Archived `TBS` means equal the other six taxa listed under TBS in the parameter table. The maximum absolute split residual is about `1.02e-13` percentage points. The [private author-name review](../publication-replay/landclim-pft-crosswalk/author-name-review/report.json) supports seven of nine parameter-to-output names by exact author-crosswalk source names and an eighth, `Castanea sativa`, through the custody-bound author LUT's `Castanea` mapping. `Quercus deciduous t.` has no exact source-name row in either author file. This establishes version-specific mean arithmetic and bounded name evidence, not the biological definition of `ISTS`, an authenticated archived-release taxon transformation, an SE aggregation rule, or the historical paper's PFT count. Historical chronology choices, per-sequence rights, source revisions, basin/profile semantics and full-paper raw-input closure also remain open.
 
+The [paper's Sect. 3.2](https://essd.copernicus.org/articles/14/1581/2022/)
+assigns deciduous Quercus type to TBS, whereas the archive's
+`Quercus.deciduous` mean is an `ISTS` addend. This is a documented
+paper-versus-archive classification difference, not a reason to silently
+relabel the output. The same paper describes delta-method SE aggregation;
+the observed mean sum cannot be applied to archived SE columns.
+
 The next causal resolution needs the source owner to identify the historical raw sequence revisions and selected chronologies for a fully specified published row, then confirm taxon/count and PFT/ISTS transformations. The unresolved source-owner questions are summarized in `swedish-source-questions.csv`. No message was sent.
 
 ## Repository evidence

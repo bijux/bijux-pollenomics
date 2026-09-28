@@ -30,7 +30,21 @@ archived publication's transformation, so these eight supported author routes
 remain version-bounded evidence, not a release-wide taxon admission. The
 Quercus translation and publication-version linkage need source confirmation.
 
-Standard errors must be handled separately. A naive sum of constituent PFT standard-error columns differs from the LCT standard error in 7,588 ET rows, 7,892 ST rows, and 5,921 OL rows. The source files do not provide a complete LCT covariance or aggregation lineage here, so this review does not infer an SE formula or allow SEs to be pooled by the mean formula.
+The [published paper, Sect. 3.2](https://essd.copernicus.org/articles/14/1581/2022/)
+explicitly assigns deciduous Quercus type to TBS. In the retained PANGAEA
+archive, the `Quercus.deciduous` mean instead contributes to `ISTS` and not
+`TBS`, as the exact 10,500-row arithmetic above demonstrates. This is a
+paper-versus-archive functional-type classification discrepancy. The author
+source-name LUT has no exact `Quercus deciduous t.` row, and the paper does not
+define the extra `ISTS` archive code. Neither source licenses relabeling the
+archived column as TBS.
+
+Standard errors must be handled separately. The paper's Sect. 2.4 describes
+delta-method aggregation of taxon, PFT and LCT uncertainty. A naive sum of
+constituent PFT standard-error columns differs from the archived LCT standard
+error in 7,588 ET rows, 7,892 ST rows, and 5,921 OL rows. The retained
+archive does not provide the complete covariance or aggregation lineage needed
+to replay those SEs, so this review does not pool them by the mean formula.
 
 ## Reproduce
 

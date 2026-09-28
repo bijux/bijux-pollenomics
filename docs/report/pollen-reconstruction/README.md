@@ -39,7 +39,11 @@ The [archived PFT taxon arithmetic](../publication-replay/landclim-pft-crosswalk
 now identifies the three published taxon-mean columns that sum to `ISTS` and
 the six that sum to `TBS` in all 10,500 grid/window rows. Custody-bound author files support seven of nine parameter-to-output taxon names exactly and `Castanea sativa` through a source-name LUT; `Quercus deciduous t.` has no exact author source-name row. This evidence does not define
 `ISTS` biologically, authenticate the source-to-output name changes, settle the
-paper/archive PFT count discrepancy, or supply an SE aggregation rule.
+paper/archive PFT count discrepancy, or supply an SE aggregation rule. The
+[paper's Sect. 3.2](https://essd.copernicus.org/articles/14/1581/2022/)
+assigns deciduous Quercus type to TBS, while the archive's corresponding taxon
+mean is an ISTS addend. The disagreement remains explicit in the
+[paper correspondence](paper-correspondence.md).
 
 The Nordic direct-pollen study uses the exact 16-label response selected for the Swedish direct-pollen cohort and excludes the target country from each training set. The corrected Neotoma screen finds 91 Denmark, 1,797 Finland and 3,544 Norway candidate samples across 1, 28 and 52 physical sites. The held-out score table contains 6,172 method rows over 24 Danish, 435 Finnish and 1,084 Norwegian scored bins. Norway retains 94 refused target bins. These are prior-exposed observed-pollen results, not independent landscape or vegetation truth. Direct-pollen eligibility does not admit these data to LRA: basin geometry, exact PPE/FSP support, count-denominator choices and other source decisions remain unresolved. Independent vegetation screening admitted zero EMPD2 records in Denmark, Norway or Finland; the reviewed NFI sources lack an admitted country cohort. The source review and exact output digests are in the [Nordic direct-pollen report](../regions/nordic/direct-pollen/RESULTS.md), its [manifest](../regions/nordic/direct-pollen/manifest.json), and the public source reviews for [LandClim](../../public/pollenomics-data/sources/landclim.md), [Neotoma/EPD](../../public/pollenomics-data/sources/neotoma.md), [vegetation references](../../public/pollenomics-data/sources/empd2-nfi-review.md), and [HYDE](../../public/pollenomics-data/sources/hyde.md).
 
