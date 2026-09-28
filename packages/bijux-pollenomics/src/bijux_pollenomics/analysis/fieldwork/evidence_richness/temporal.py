@@ -135,7 +135,11 @@ def _attach_temporal_context(
         *(_context_point_evidence(point) for point in pollen_points),
         *human_points,
         *animal_points,
-        *(_context_point_evidence(point) for point in sead_points),
+        *(
+            _context_point_evidence(point)
+            for point in sead_points
+            if not _is_sead_site_display_envelope(point)
+        ),
     )
     numeric_evidence = tuple(
         point
@@ -296,11 +300,18 @@ def _time_aware_ratio(points: Sequence[ContextPointRecord]) -> float:
 
 
 def _context_point_has_numeric_interval(point: ContextPointRecord) -> bool:
+    if _is_sead_site_display_envelope(point):
+        return False
     if point.temporal_semantics and not temporal_semantics_has_numeric_interval(
         point.temporal_semantics
     ):
         return False
     return _validated_interval(point.time_start_bp, point.time_end_bp) is not None
+
+
+def _is_sead_site_display_envelope(point: ContextPointRecord) -> bool:
+    """Site-level SEAD spans are display context, not one continuous dated event."""
+    return point.source == "SEAD" and point.layer_key == "sead-sites"
 
 
 def _human_context_overlap_ratio(
