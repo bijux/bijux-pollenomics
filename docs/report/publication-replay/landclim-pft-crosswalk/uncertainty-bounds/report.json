@@ -1,0 +1,105 @@
+{
+  "absolute_tolerance_percentage_points": 1e-09,
+  "dataset_doi": "10.1594/PANGAEA.937075",
+  "inputs": [
+    {
+      "bytes": 1773,
+      "path": "data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv",
+      "sha256": "32eac151566b41c186745dd077fabcddde06f64f9a3a2056699e88dbabd76d4d"
+    },
+    {
+      "bytes": 4007032,
+      "path": "data/landclim/raw/landclim_ii_reveals_results.zip",
+      "sha256": "c585f0691ad95342b8aba083b90fe91dc398f985b6b7fbc19561299389c4fb86"
+    },
+    {
+      "bytes": 4880,
+      "path": "data/landclim/raw/landclim_sources.json",
+      "sha256": "eb4350724c176d0dbcb7e441f2d21489bdae1cfff7ebe3088eab27093f315677"
+    }
+  ],
+  "interpretation": "Archived standard errors satisfy necessary covariance-feasibility bounds for observed mean-addend groups. This neither identifies the original covariance nor replays the published delta method.",
+  "necessary_bounds": "max(0, 2*max(component_SE)-sum(component_SE)) <= aggregate_SE <= sum(component_SE)",
+  "same_draw_covariance_aggregation_verified": false,
+  "schema_version": "landclim-published-se-sum-bounds.v1",
+  "summary": {
+    "ET": {
+      "above_upper_bound_rows": 0,
+      "addends": [
+        "TBE1",
+        "TBE2",
+        "IBE",
+        "MTBE",
+        "TSE",
+        "MTSE"
+      ],
+      "below_lower_bound_rows": 0,
+      "grid_window_rows": 10500,
+      "minimum_lower_bound_margin": 0.0,
+      "minimum_upper_bound_margin": 0.0,
+      "nondegenerate_bound_rows": 7588,
+      "strictly_inside_bound_rows": 7588
+    },
+    "ISTS": {
+      "above_upper_bound_rows": 0,
+      "addends": [
+        "Corylus.avellana",
+        "Fraxinus",
+        "Quercus.deciduous"
+      ],
+      "below_lower_bound_rows": 0,
+      "grid_window_rows": 10500,
+      "minimum_lower_bound_margin": 0.0,
+      "minimum_upper_bound_margin": 0.0,
+      "nondegenerate_bound_rows": 7013,
+      "strictly_inside_bound_rows": 7013
+    },
+    "OL": {
+      "above_upper_bound_rows": 0,
+      "addends": [
+        "LSE",
+        "GL",
+        "AL"
+      ],
+      "below_lower_bound_rows": 0,
+      "grid_window_rows": 10500,
+      "minimum_lower_bound_margin": 0.0,
+      "minimum_upper_bound_margin": 0.0,
+      "nondegenerate_bound_rows": 5921,
+      "strictly_inside_bound_rows": 5921
+    },
+    "ST": {
+      "above_upper_bound_rows": 0,
+      "addends": [
+        "IBS",
+        "ISTS",
+        "TBS",
+        "TSD"
+      ],
+      "below_lower_bound_rows": 0,
+      "grid_window_rows": 10500,
+      "minimum_lower_bound_margin": 0.0,
+      "minimum_upper_bound_margin": 0.0,
+      "nondegenerate_bound_rows": 7892,
+      "strictly_inside_bound_rows": 7892
+    },
+    "TBS": {
+      "above_upper_bound_rows": 0,
+      "addends": [
+        "Carpinus.betulus",
+        "Carpinus.orientalis",
+        "Castanea",
+        "Fagus.sylvatica",
+        "Tilia",
+        "Ulmus"
+      ],
+      "below_lower_bound_rows": 0,
+      "grid_window_rows": 10500,
+      "minimum_lower_bound_margin": 0.0,
+      "minimum_upper_bound_margin": 0.0,
+      "nondegenerate_bound_rows": 5859,
+      "strictly_inside_bound_rows": 5859
+    }
+  },
+  "window_csv_sha256": "e8746f36f13a0ca64c4fbf3a10cdac848fdd86e65ed84815231c57cffca78fdd"
+}

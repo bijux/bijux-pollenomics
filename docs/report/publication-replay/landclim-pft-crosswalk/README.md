@@ -59,6 +59,19 @@ error in 7,588 ET rows, 7,892 ST rows, and 5,921 OL rows. The retained
 archive does not provide the complete covariance or aggregation lineage needed
 to replay those SEs, so this review does not pool them by the mean formula.
 
+The [source-bound uncertainty check](uncertainty-bounds/report.json) applies
+the necessary standard-deviation bounds for a sum to all 10,500 grid/window
+rows in each of ET, ST, OL, ISTS and TBS. The lower bound is the largest
+component SE minus the sum of all other component SEs, floored at zero; the
+upper bound is the sum of component SEs. **No archived aggregate SE falls
+outside either bound** at an absolute tolerance of `1e-9` percentage points.
+The bounds are nondegenerate and both strict in 7,588 ET, 7,892 ST, 5,921 OL,
+7,013 ISTS and 5,859 TBS rows; the [window ledger](uncertainty-bounds/windows.csv)
+retains each denominator. This is consistent with some joint covariance for
+each observed mean-addend group, but it neither identifies that covariance
+nor reproduces the published delta-method computation. The author/archive
+version and `ISTS` classification questions remain open.
+
 ## Reproduce
 
 From the repository root with the development package available, choose an absent output directory:
@@ -93,4 +106,12 @@ PYTHONDONTWRITEBYTECODE=1 .venv/bin/python \
   --output artifacts/jobs/landclim-author-tbs-name-review/replay \
   --author-name-review \
   --author-source-root /path/to/private/landclim/author-reference
+```
+
+To replay the necessary archived SE bounds:
+
+```sh
+PYTHONDONTWRITEBYTECODE=1 .venv/bin/python \
+  -m bijux_pollenomics_dev.essd_reproduction.pft_uncertainty_bounds \
+  --repository . --output artifacts/jobs/landclim-pft-se-bounds-replay
 ```
