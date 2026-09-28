@@ -19,6 +19,11 @@ bounding-box population is 2,195 sites: 2,069 assigned (SE 1,925; DK 59; NO 45;
 FI 40), 103 requiring review and 23 unassigned. Review and unassigned sites remain
 outside the assigned country population.
 
+The [country discovery and retrieval ledger](../sead-country-retrieval/README.md)
+checks each of those 2,195 identities against its boundary decision, the
+retrieved source site row and the normalized site consumer. Its country counts
+are governed boundary assignments because the source supplied no country field.
+
 ## Scientific boundary
 
 The raw acquisition's release and downstream statuses are preserved exactly.
