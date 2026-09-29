@@ -309,6 +309,7 @@ weight merely because a lake is close to another layer.
 ## Choose A Route
 
 - [Foundation](foundation/index.md) defines the scientific and product scope.
+- [Scientific evidence](science/index.md) presents checked sources, method correspondence, pollen results, model use and open limits.
 - [Architecture](architecture/index.md) follows evidence from a command to a
   tracked artifact and public output.
 - [Interfaces](interfaces/index.md) covers the CLI, Python API, and artifact
