@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import csv
+from pathlib import Path
 
 import pytest
 
@@ -51,7 +52,9 @@ def test_held_out_pollen_never_enters_its_training_mean() -> None:
     assert summary["refused_no_training_site_bins"] == 1
 
 
-def test_source_reader_refuses_noninteger_counts_and_missing_basin(tmp_path) -> None:
+def test_source_reader_refuses_noninteger_counts_and_missing_basin(
+    tmp_path: Path,
+) -> None:
     path = tmp_path / "LRAready_A.csv"
 
     def write(count: str, radius: str) -> None:
@@ -69,7 +72,9 @@ def test_source_reader_refuses_noninteger_counts_and_missing_basin(tmp_path) -> 
         _site_counts(path, "A", ["50"], ["Oak"], ["oak"])
 
 
-def test_source_reader_does_not_turn_zero_count_into_observation(tmp_path) -> None:
+def test_source_reader_does_not_turn_zero_count_into_observation(
+    tmp_path: Path,
+) -> None:
     path = tmp_path / "LRAready_A.csv"
     with path.open("w", newline="") as stream:
         csv.writer(stream).writerows(

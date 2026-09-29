@@ -198,7 +198,9 @@ def test_fitted_block_replaces_training_zeros_without_opening_target_counts(
     third = predict_fitted_block(study, "512", tmp_path / "fitted-third")
     assert first["target_count_files_opened"] == 0
     assert first["pseudocount_per_training_taxon"] == 0.5
-    assert len(first["fits"]) == 1
+    fits = first["fits"]
+    assert isinstance(fits, list)
+    assert len(fits) == 1
     assert (
         first["predictions_sha256"]
         == second["predictions_sha256"]
@@ -213,7 +215,7 @@ def test_fitted_block_replaces_training_zeros_without_opening_target_counts(
 
 def test_fitted_comparison_uses_common_bins_and_equal_site_weights() -> None:
     keys = (("A", "1"), ("A", "2"), ("B", "1"))
-    rows = {}
+    rows: dict[str, dict[tuple[str, str], dict[str, str]]] = {}
     for method in (
         "training_mean",
         "nearest_site",
@@ -237,10 +239,16 @@ def test_fitted_comparison_uses_common_bins_and_equal_site_weights() -> None:
     result = _paired_metrics(rows)
     assert result["common_scored_site_bins"] == 2
     assert result["common_sites"] == 2
-    fitted = result["methods"][-1]
+    methods = result["methods"]
+    assert isinstance(methods, list)
+    fitted = methods[-1]
+    assert isinstance(fitted, dict)
     assert fitted["common_site_macro_mae_fraction"] == pytest.approx(0.3)
     assert fitted["mae_minus_training_mean_fraction"] == pytest.approx(0.1)
-    assert result["blocks"][0]["common_scored_bins"] == 1
+    blocks = result["blocks"]
+    assert isinstance(blocks, list)
+    assert isinstance(blocks[0], dict)
+    assert blocks[0]["common_scored_bins"] == 1
     rows["nearest_site"]["A", "1"]["observed_total_count"] = "11"
     with pytest.raises(ValueError, match="observed target support"):
         _paired_metrics(rows)
@@ -273,7 +281,7 @@ def test_comparison_uses_only_common_scored_site_bins(tmp_path: Path) -> None:
                         "total_variation": "0.2" if bin_index == 0 else "",
                     }
                 )
-    block = [
+    block: list[dict[str, object]] = [
         {
             "block_grid_id": "512",
             "target_site_id": "S0",
@@ -294,7 +302,9 @@ def test_comparison_uses_only_common_scored_site_bins(tmp_path: Path) -> None:
     result = _paired_comparison(block, path)
     assert result["common_scored_site_bins"] == 1
     assert result["common_sites"] == 1
-    assert abs(result["spatial_minus_within_grid_mae_fraction"] - 0.2) < 1e-12
+    difference = result["spatial_minus_within_grid_mae_fraction"]
+    assert isinstance(difference, float)
+    assert abs(difference - 0.2) < 1e-12
 
 
 def test_paired_site_and_block_comparison_preserves_site_weights() -> None:
@@ -347,8 +357,8 @@ def test_taxon_error_comparison_uses_common_bins_and_equal_site_weights(
         },
         "inverse_distance_squared": {key: [1 / 31] * 31 for key in keys},
     }
-    score_dirs = {}
-    score_rows = {}
+    score_dirs: dict[str, Path] = {}
+    score_rows: dict[str, dict[tuple[str, str], dict[str, str]]] = {}
     for method, values in fractions.items():
         directory = tmp_path / method
         directory.mkdir()
@@ -387,7 +397,10 @@ def test_taxon_error_comparison_uses_common_bins_and_equal_site_weights(
                         }
                     )
     result, receipts = compare_taxon_errors(score_dirs, keys, score_rows)
-    first = result[0]["methods"]["nearest_site"]
+    methods = result[0]["methods"]
+    assert isinstance(methods, dict)
+    first = methods["nearest_site"]
+    assert isinstance(first, dict)
     expected = ((2 / 32 - 1 / 31) + 0) / 2
     assert abs(first["site_macro_absolute_error_fraction"] - expected) < 1e-12
     assert first["absolute_error_minus_training_mean_fraction"] > 0
@@ -411,7 +424,9 @@ def test_hellinger_summary_weights_sites_before_bins() -> None:
         },
     }
     sites, blocks, methods = _site_block_summaries(distances, {"A": "512", "B": "562"})
-    assert sites[0]["methods"]["training_mean"] == pytest.approx(0.3)
+    site_methods = sites[0]["methods"]
+    assert isinstance(site_methods, dict)
+    assert site_methods["training_mean"] == pytest.approx(0.3)
     assert [block["scored_bins"] for block in blocks] == [2, 1]
     assert methods[0]["site_macro_hellinger"] == pytest.approx(0.6)
     assert methods[1]["hellinger_minus_training_mean"] == pytest.approx(-0.125)
