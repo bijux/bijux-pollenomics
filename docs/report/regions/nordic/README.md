@@ -1,6 +1,6 @@
 # Nordic Evidence Surface
 
-This shared interactive map bundle was generated on `2026-09-28` from Homo
+This shared interactive map bundle was generated on `2026-09-29` from Homo
 sapiens AADR `v66` plus any governed contextual and animal surfaces that
 the active scope contract allows.
 
