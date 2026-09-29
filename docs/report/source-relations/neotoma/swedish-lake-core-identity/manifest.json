@@ -1,0 +1,55 @@
+{
+  "schema_version": "swedish-lake-core-identity-custody.v1",
+  "inputs": {
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/swedish_lake_core_correspondence.py": {
+      "bytes": 18691,
+      "sha256": "8b309353858583eb296f9e5c9f762b1a86d038694e0b96d0f05d4f10f137eebd"
+    },
+    "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-008.json": {
+      "bytes": 24477671,
+      "sha256": "9cdcb2d394bc8ef23bf2b4b5e3f1f3ae5916aae16db71542c58f4b80a2dd1134"
+    },
+    "data/neotoma/raw/neotoma_pollen_dataset_downloads/manifest.json": {
+      "bytes": 9449,
+      "sha256": "248dc5c1a8aedc441484f2c0a5d4bc54317329aa4fb96f4a3a16f8cec80c947d"
+    },
+    "data/landclim/raw/landclim_ii_site_metadata.xlsx": {
+      "bytes": 264067,
+      "sha256": "2d4a0cf1401e36c2606f7761cecc85c4bbc15272460c2a4926cb1702d4565ebb"
+    },
+    "data/landclim/raw/landclim_sources.json": {
+      "bytes": 4880,
+      "sha256": "eb4350724c176d0dbcb7e441f2d21489bdae1cfff7ebe3088eab27093f315677"
+    },
+    "docs/report/source-relations/neotoma/swedish-lake-core-identity/count-mass-crosscheck.json": {
+      "bytes": 2781,
+      "sha256": "afff295e29fb5210ff94dbf599ba0b1530191b6e06abc3f96e35bb06f05812d9"
+    },
+    "docs/report/source-relations/neotoma/lra-prerequisites/projection.json": {
+      "bytes": 22907955,
+      "sha256": "26135d91bbe5d729dcca3a1f6f0ea69f5cec4dc00a54a6dd740d5004d4e4b809"
+    }
+  },
+  "outputs": {
+    "REPORT.md": {
+      "bytes": 1507,
+      "sha256": "29f506526a7d19f94289a6ae7bd4ec352a9f1cad36cdee71836c4662370d588c"
+    },
+    "report.json": {
+      "bytes": 7918,
+      "sha256": "d2b80a81ed26c7d3f327488290927de6220a3ca39c8d7d15514c258c75dc7594"
+    }
+  },
+  "historical_comparison": {
+    "report_json": {
+      "bytes": 7918,
+      "sha256": "9416552ffdd6538d17ae4d67b76e7e222032fe13777ac701f7289d90c5adae7f"
+    },
+    "report_markdown": {
+      "bytes": 1507,
+      "sha256": "29f506526a7d19f94289a6ae7bd4ec352a9f1cad36cdee71836c4662370d588c"
+    },
+    "relation": "Markdown exact; every JSON field except input_sha256 equal. Current replay uses governed prerequisite projection and selected independent count-mass rows."
+  },
+  "admission": "zero core identities, basin radii, count denominators, rights or LRA samples admitted"
+}

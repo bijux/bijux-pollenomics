@@ -15,6 +15,11 @@ The [Abborrtjärnen core comparison](abbo-core-identity/README.md) retains a
 same-name, 107-sample and 0.334 m point lead but refuses to transfer the
 published radius or age labels to the Neotoma core.
 
+The [Bussjösjön and Bökesjön core comparison](swedish-lake-core-identity/README.md)
+retains their full native count and age-claim coverage alongside published
+site metadata. Close source points and similar series-end numbers still do
+not establish historical basin radii or core identity.
+
 The [retained result](summary.json) verifies the unchanged relational snapshot
 through the production materialization reader. It includes 200 sites, 206
 collection units, 209 datasets, 384 chronologies, 2,798 chronology controls,
