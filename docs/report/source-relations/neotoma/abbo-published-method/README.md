@@ -69,3 +69,15 @@ geometry, selected LandClim chronology, complete taxon/PPE mapping, and
 analytical-use rights remain unresolved. The LandClim row's 98 m **site**
 radius and the PANGAEA 3 ha area do not establish an age-specific basin
 radius. No ABBO LRA reconstruction is admitted.
+
+The [LandClimII method](https://essd.copernicus.org/articles/14/1581/2022/)
+uses a source-reported lake radius where possible and otherwise derives a
+radius from measured area under a circular-shape approximation. For **3 ha**,
+`sqrt(30,000 m² / pi) = 97.7205 m`; a circle of radius **98 m** has area
+`3.0172 ha`. Thus the PANGAEA event area and LandClim site-radius values are
+numerically compatible at their reported precision. This does not establish
+that the LandClim `ABB` radius was derived from that event, that either value
+describes the basin at every sample age, or that a circular ABB source profile
+has been approved. The paper's 3 m/s wind, 100 km regional extent and neutral
+atmosphere are named LandClimII REVEALS settings, not missing ABB core evidence
+or automatically transferable LOVE parameters.

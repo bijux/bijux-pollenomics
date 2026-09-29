@@ -36,7 +36,9 @@ Poska shared Rootsi material is a provenance lead for a versioned author/source
 packet; authorship and access do not establish analytical or redistribution
 rights. A circle-derived radius is a testable approximation only after its
 area, date and source are bound to this core. The 3 ha event area and 98 m
-site radius are not a historical basin series. The original paper's
+site radius agree numerically with a 97.7205 m area-equivalent circle,
+as [the source-method review](../../docs/report/source-relations/neotoma/abbo-published-method/README.md)
+shows; they are not a historical basin series. The original paper's
 IntCal98/BCal polynomial is not proven to be the selected LandClim model, and
 `E(T500)` is not a 500-grain raw
 denominator. Source custodians or a qualified LandClim reviewer can resolve
