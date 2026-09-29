@@ -71,8 +71,8 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/README.md",
-      "sha256": "0926e9e2872091ad6005dbcef43b087bf342c2a494607371f275266cfd8c3a67",
-      "bytes": 37461
+      "sha256": "ef64fa99f36c9c7f19f2a39d790511a930be26c1c188267314cbe9e8b91f3ba5",
+      "bytes": 38216
     },
     {
       "path": "docs/report/pollen-reconstruction/author-buffered-pollen/README.md",
@@ -436,13 +436,13 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/results.csv",
-      "sha256": "39ea02ad59fd6168f4600dd03eab501cffd9c98f2cb8a17ce5731e359308ef58",
-      "bytes": 13265
+      "sha256": "617d6d9fa3cb947ce3d26eb451a9f9dfe25aa5bcefb94acd8a43d6843bc6f4ab",
+      "bytes": 14020
     },
     {
       "path": "docs/report/pollen-reconstruction/scope.json",
-      "sha256": "fb68d7faa9e0c0bf3988f306095d748c0738aaa3d8f68a6084a2ac3085685a47",
-      "bytes": 13968
+      "sha256": "538fc85626123627932edcfd28e8f6519d5c83c92dbf5329a3b7d7ba5f253bf2",
+      "bytes": 14276
     },
     {
       "path": "docs/report/pollen-reconstruction/scores.csv",
@@ -546,8 +546,8 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/verify_report.py",
-      "sha256": "a4cf2e5e91f886a0483106f769b68645658a09fba8eed7b4fb595ce95e10a875",
-      "bytes": 34975
+      "sha256": "5b85c184b5e72d4d890dabb77342f8c81e3fc8d9a2bbe3744e91b74c7f13a44d",
+      "bytes": 37127
     },
     {
       "path": "docs/report/publication-replay/landclim-author-example-correspondence/README.md",
@@ -688,6 +688,36 @@
       "path": "docs/report/publication-replay/landclim-published-window-uncertainty/taxon-envelopes.csv",
       "sha256": "66df138e45330a5674e5d9130f115022c6ed59a4de33f87bc985332feda550fa",
       "bytes": 8574
+    },
+    {
+      "path": "docs/report/publication-replay/landclim-study-inputs/README.md",
+      "sha256": "5c254ccda06edb4b360a18c1f66ea68ff7d5703dd67693e7626c14875c3b747f",
+      "bytes": 2192
+    },
+    {
+      "path": "docs/report/publication-replay/landclim-study-inputs/manifest.json",
+      "sha256": "aaab3414a4168c910210b3e275b759f19fe478501de3ec5656f2e1ddcec58e93",
+      "bytes": 3390
+    },
+    {
+      "path": "docs/report/publication-replay/landclim-study-inputs/primary-source-crosswalk.csv",
+      "sha256": "7252e1424a072775cbbdd1172d35ab28d9b76f089040164df4bfe940fce61893",
+      "bytes": 239514
+    },
+    {
+      "path": "docs/report/publication-replay/landclim-study-inputs/records.jsonl",
+      "sha256": "9ce0d30784d62b8d9f718994b471eb4c9cc839616a1647015ff91f5902a3828a",
+      "bytes": 3664403
+    },
+    {
+      "path": "docs/report/publication-replay/landclim-study-inputs/refusals.csv",
+      "sha256": "055f960736e349a2cd1be12dbfd201fa31040d007342f619a5e98612f2c4655f",
+      "bytes": 1160987
+    },
+    {
+      "path": "docs/report/publication-replay/landclim-study-inputs/report.json",
+      "sha256": "6c6f28f22b3c46d4a9adcd7b8814f07b1db304306ac0cf6c02e85cbd170c2e02",
+      "bytes": 4184
     },
     {
       "path": "docs/report/publication-replay/landclim-window-alignment/README.md",

@@ -256,6 +256,13 @@
     "training_mean_common_site_macro_mae_fraction": 0.025298319144157262,
     "status": "prior_exposed_english_direct_pollen_development_diagnostic"
   },
+  "publication_input_inventory": {
+    "directory": "docs/report/publication-replay/landclim-study-inputs",
+    "publication_metadata_records": 1128,
+    "refusal_ledger_records": 4512,
+    "reproduction_ready_records": 0,
+    "status": "metadata_only_no_authenticated_historical_primary_input_closure"
+  },
   "publication_correspondence": {
     "author_example": {
       "directory": "docs/report/publication-replay/landclim-author-example-correspondence",

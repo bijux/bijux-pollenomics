@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+from collections import Counter
 import csv
 import gzip
 import hashlib
@@ -143,6 +144,45 @@ def verify_publication_correspondence(scope: dict[str, Any]) -> None:
         or correspondence["window_alignment"]["exact_tw_indices"] != exact
     ):
         raise ValueError("publication window alignment differs from retained claims")
+
+
+def verify_publication_input_inventory(scope: dict[str, Any]) -> None:
+    """Keep publication metadata distinct from authenticated primary inputs."""
+    declared = scope["publication_input_inventory"]
+    directory = REPOSITORY_ROOT / declared["directory"]
+    manifest = json.loads((directory / "manifest.json").read_text(encoding="utf-8"))
+    report = json.loads((directory / "report.json").read_text(encoding="utf-8"))
+    source = manifest["source"]
+    for key in ("receipt", "workbook"):
+        item = source[key]
+        if sha256(REPOSITORY_ROOT / item["path"]) != item["sha256"]:
+            raise ValueError(f"publication metadata source differs: {key}")
+    for item in manifest["artifacts"]:
+        path = directory / item["path"]
+        if path.stat().st_size != item["byte_count"] or sha256(path) != item["sha256"]:
+            raise ValueError(f"publication inventory artifact differs: {item['path']}")
+    with (directory / "primary-source-crosswalk.csv").open(
+        newline="", encoding="utf-8"
+    ) as stream:
+        crosswalk = list(csv.DictReader(stream))
+    with (directory / "refusals.csv").open(newline="", encoding="utf-8") as stream:
+        refusals = list(csv.DictReader(stream))
+    rows = {row["worksheet_row"] for row in crosswalk}
+    if (
+        len(crosswalk) != declared["publication_metadata_records"]
+        or len(rows) != len(crosswalk)
+        or any(row["crosswalk_status"] != "unresolved" for row in crosswalk)
+        or len(refusals) != declared["refusal_ledger_records"]
+        or {row["worksheet_row"] for row in refusals} != rows
+        or set(Counter(row["worksheet_row"] for row in refusals).values()) != {4}
+        or any(
+            row["state"] not in {"not_authenticated", "unresolved"} for row in refusals
+        )
+        or report["denominators"]["reproduction_ready_records"]
+        != declared["reproduction_ready_records"]
+        or report["claims"]["whole_paper_reproduction_certified"] is not False
+    ):
+        raise ValueError("publication input inventory differs from retained claims")
 
 
 def verify_author_buffered_pollen(scope: dict[str, Any]) -> None:
@@ -550,6 +590,7 @@ def main() -> None:
     if scope.get("confirmatory_result") is not False:
         raise ValueError("scoped report must not declare a confirmatory result")
     verify_publication_correspondence(scope)
+    verify_publication_input_inventory(scope)
     verify_author_buffered_pollen(scope)
     with (REPORT_DIR / "swedish-source-questions.csv").open(
         newline="", encoding="utf-8"
