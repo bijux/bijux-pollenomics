@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import json
 from pathlib import Path
+from typing import Any
 
 import pytest
 
@@ -23,7 +24,7 @@ GOVERNED = (
 )
 
 
-def _rows():
+def _rows() -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
     workbook = [
         {"sample_label": 648, "age_label": 3.0, "counts": {"Betula": 2, "Pinus": 0}},
         {"sample_label": 650, "age_label": 68.0, "counts": {"Betula": 0, "Pinus": 5}},
@@ -97,7 +98,9 @@ def test_retained_source_replays_counts_and_age_divergence() -> None:
     _, summary = compare_native_counts(taxa, rows, samples)
     governed = json.loads((GOVERNED / "report.json").read_text())
     assert summary == {key: governed[key] for key in summary}
-    assert summary["counts"]["equal_explicit_pairs"] == 2183
+    counts = summary["counts"]
+    assert isinstance(counts, dict)
+    assert counts["equal_explicit_pairs"] == 2183
     assert summary["numeric_age_label_difference_range_unqualified"] == [
         -238.0,
         129.0,

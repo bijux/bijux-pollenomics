@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import json
 from pathlib import Path
+from typing import Any
 
 import pytest
 
@@ -23,7 +24,7 @@ GOVERNED = (
 )
 
 
-def _inputs():
+def _inputs() -> tuple[list[dict[str, Any]], list[dict[str, Any]]]:
     workbook = [
         {
             "sample_depth_label": 207.5,
@@ -37,7 +38,7 @@ def _inputs():
         },
     ]
 
-    def age(value):
+    def age(value: float) -> list[dict[str, Any]]:
         return [
             {
                 "chronologyname": "LANDCLIM",
@@ -100,7 +101,9 @@ def test_retained_source_replays_governed_numeric_alignment() -> None:
     _, summary = compare_cells(taxa, rows, samples)
     governed = json.loads((GOVERNED / "report.json").read_text())
     assert summary["age_labels_within_0_05_of_neotoma"] == 52
-    assert summary["max_absolute_numeric_age_label_difference"] < 0.05
+    difference = summary["max_absolute_numeric_age_label_difference"]
+    assert isinstance(difference, (int, float))
+    assert difference < 0.05
     assert summary == {key: governed[key] for key in summary}
 
 
@@ -135,4 +138,6 @@ def test_repeated_source_name_keeps_distinct_elements() -> None:
     )
     assert selected["status"] == "ambiguous_source_duplicate"
     assert selected["neotoma_explicit_nisp"] == ""
-    assert report["cell_status_counts"]["ambiguous_source_duplicate"] == 1
+    counts = report["cell_status_counts"]
+    assert isinstance(counts, dict)
+    assert counts["ambiguous_source_duplicate"] == 1

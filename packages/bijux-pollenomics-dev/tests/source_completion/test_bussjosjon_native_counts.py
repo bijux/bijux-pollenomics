@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import json
 from pathlib import Path
+from typing import Any
 
 import pytest
 
@@ -21,7 +22,7 @@ SOURCE = (
 GOVERNED = REPOSITORY / "docs/report/source-relations/neotoma/bus-native-correspondence"
 
 
-def _inputs():
+def _inputs() -> tuple[list[str], list[dict[str, Any]], list[dict[str, Any]]]:
     headers = ["BETULA", "PINUS", "BETULA"]
     rows = [
         {"sample_label": 0.0, "counts": [3, 5, 2]},
@@ -69,10 +70,14 @@ def test_retained_zero_only_columns_remain_unapplied_candidates() -> None:
     governed = json.loads((GOVERNED / "report.json").read_text())
     assert summary == {key: governed[key] for key in summary}
     candidates = summary["zero_only_duplicate_column_candidates"]
+    assert isinstance(candidates, list)
+    assert all(isinstance(row, dict) for row in candidates)
     assert {row["casefold_label"] for row in candidates} == {"betula", "pinus"}
     assert sum(row["equal_pairs"] for row in candidates) == 138
     assert sum(row["source_mass"] for row in candidates) == 9076
-    assert summary["cell_status_counts"]["explicit_neotoma_mass"] == 44079
+    counts = summary["cell_status_counts"]
+    assert isinstance(counts, dict)
+    assert counts["explicit_neotoma_mass"] == 44079
 
 
 def test_source_unit_and_sample_axis_refuse() -> None:
