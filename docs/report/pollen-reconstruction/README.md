@@ -26,8 +26,14 @@ a strongly drained lake. The captured Neotoma dataset 4445 binds the same
 core handle to collection unit 4303 and reports a 25,563 m² site area, but
 its site polygon centroid (8.61341° E, 56.12846° N) is 1.352 km from the
 PANGAEA event point (8.63333° E, 56.13333° N) by WGS84 inverse geodesic.
-This corroborates a core-specific area while leaving the location conflict
-and age-specific basin extent unresolved. Dataset 4446 is a separate
+An [author's later Danish lake comparison](https://doi.org/10.1046/j.1365-2745.2000.00490.x)
+lists Solsø as `SOL` with 4 ha area and 2 m maximum depth (Table 1), citing
+Odgaard (1994), but does not identify either EPD core handle or an age-specific
+shoreline. Its area differs from the 2.5 ha `SOLSOE81` event record, and its
+maximum lake depth is not the 0.98 m water depth at that core. Neither area can
+be selected for LRA rings across the fossil sequence without resolving the
+record and time support. The core-specific record therefore leaves the location
+conflict and age-specific basin extent unresolved. Dataset 4446 is a separate
 `SOLSOE83` core; the 1981 record does not bind its geometry. The PANGAEA
 record carries a CC BY-NC 3.0 license; no source data from it are reproduced
 here. Neither core is admitted to an LRA run on this evidence alone.
