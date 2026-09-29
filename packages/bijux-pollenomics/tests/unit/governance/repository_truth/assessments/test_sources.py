@@ -127,7 +127,7 @@ class RepositorySourceEvidenceTests(RepositoryTruthTestCase):
         self.assertIn("animal_adna", queue_markdown)
         self.assertNotIn("sead_temporal_reference_capture", queue_markdown)
 
-    def test_missing_reindeer_supplement_remains_an_acquisition_gap(self) -> None:
+    def test_archived_reindeer_supplement_leaves_sample_extraction_open(self) -> None:
         matrix = build_repository_source_family_matrix(
             data_root=self.data_root,
             docs_root=self.docs_root,
@@ -145,19 +145,19 @@ class RepositorySourceEvidenceTests(RepositoryTruthTestCase):
         )
         counts = posture["counts"]
         self.assertEqual(counts["tracked_paper_count"], 18)
-        self.assertEqual(counts["papers_with_archived_supplements"], 17)
+        self.assertEqual(counts["papers_with_archived_supplements"], 18)
         animal_row = next(
             row for row in matrix["rows"] if row["source_key"] == "animal_adna"
         )
         self.assertEqual(
             animal_row["acquisition_posture"],
-            "repository_supplement_capture_incomplete",
+            "all_tracked_supplements_archived",
         )
-        self.assertIn("17 of 18", animal_row["main_gap"])
-        self.assertIn("supplement_capture_recovery", posture["incomplete_programs"])
-        self.assertEqual(queue["rows"][0]["queue_key"], "animal_adna_repo_ingestion")
+        self.assertIn("all tracked animal papers", animal_row["main_gap"])
+        self.assertIn("animal_sample_site_extraction", posture["incomplete_programs"])
+        self.assertEqual(queue["rows"][0]["queue_key"], "animal_adna_sample_extraction")
         self.assertTrue(
-            any("archive missing" in row for row in posture["recovery_priorities"])
+            any("extract sample-owned" in row for row in posture["recovery_priorities"])
         )
 
     def test_source_explainer_atlas_input_and_cross_domain_packets_keep_pollen_first(
@@ -285,8 +285,7 @@ class RepositorySourceEvidenceTests(RepositoryTruthTestCase):
         self.assertIn("checked-in JSON file count", payload["anti_measures"])
         self.assertTrue(
             any(
-                "only 17 of 18 tracked papers currently ship archived supplementary material"
-                in row
+                "all 18 tracked papers now ship archived supplementary material" in row
                 for row in payload["findings"]
             )
         )
