@@ -1,0 +1,70 @@
+{
+  "schema_version": "swedish-lake-transfer-run-custody.v1",
+  "artifact_prefix": "artifacts/jobs/swedish-lake-transfer",
+  "file_count": 10,
+  "all_files_equal_governed_study": true,
+  "files": [
+    {
+      "artifact_path": "artifacts/jobs/swedish-lake-transfer/predictions/predictions-SE.json.gz",
+      "governed_path": "docs/report/regions/nordic/swedish-lake-transfer/predictions/predictions-SE.json.gz",
+      "sha256": "eb10b5e7225cef3c51b544c1a25cebc264d9b5ab10477d9c4216b83a38bad909",
+      "bytes": 53238
+    },
+    {
+      "artifact_path": "artifacts/jobs/swedish-lake-transfer/prepared/input-manifest.json",
+      "governed_path": "docs/report/regions/nordic/swedish-lake-transfer/input-manifest.json",
+      "sha256": "8c266e2c44fabe0e7c3a31c38fc0058b27b3db08cff670b65ca239ea5eeb7905",
+      "bytes": 3279
+    },
+    {
+      "artifact_path": "artifacts/jobs/swedish-lake-transfer/prepared/inputs/metadata-SE.json.gz",
+      "governed_path": "docs/report/regions/nordic/swedish-lake-transfer/inputs/metadata-SE.json.gz",
+      "sha256": "83895824a229cad9d974ace2887275e37d174beda2057433fb5bb0c7f692d5b4",
+      "bytes": 1016
+    },
+    {
+      "artifact_path": "artifacts/jobs/swedish-lake-transfer/prepared/inputs/training-SE.json.gz",
+      "governed_path": "docs/report/regions/nordic/swedish-lake-transfer/inputs/training-SE.json.gz",
+      "sha256": "de2683e4a01ab4d3aa3e8add4891ddbb487f4cc0ee650aada57ed839abecce80",
+      "bytes": 99397
+    },
+    {
+      "artifact_path": "artifacts/jobs/swedish-lake-transfer/prepared/sealed-outcomes/outcomes-SE.json.gz",
+      "governed_path": "docs/report/regions/nordic/swedish-lake-transfer/sealed-outcomes/outcomes-SE.json.gz",
+      "sha256": "44c4ea3b2c607436b1c882d0881c2a1f8d0fe733a7a95c674b6481db9754473a",
+      "bytes": 4718
+    },
+    {
+      "artifact_path": "artifacts/jobs/swedish-lake-transfer/scored/coverage.csv",
+      "governed_path": "docs/report/regions/nordic/swedish-lake-transfer/coverage.csv",
+      "sha256": "bf94946b02002eea74e464d211fd098e718246b9c62790aba00afba77ec59142",
+      "bytes": 137
+    },
+    {
+      "artifact_path": "artifacts/jobs/swedish-lake-transfer/scored/report.json",
+      "governed_path": "docs/report/regions/nordic/swedish-lake-transfer/report.json",
+      "sha256": "9e70b542d843466cbb2933a6d0c9cbb7c5c4ae6ddfc9fd4e8f8a73ab42d4789c",
+      "bytes": 2241
+    },
+    {
+      "artifact_path": "artifacts/jobs/swedish-lake-transfer/scored/scores.csv",
+      "governed_path": "docs/report/regions/nordic/swedish-lake-transfer/scores.csv",
+      "sha256": "8104c864f81264022d6535fce008cd877b998ea84f870a88d223a920b531290b",
+      "bytes": 31503
+    },
+    {
+      "artifact_path": "artifacts/jobs/swedish-lake-transfer/scored/site-scores.csv",
+      "governed_path": "docs/report/regions/nordic/swedish-lake-transfer/site-scores.csv",
+      "sha256": "6bcc1063abb058f4f958aecbaa34ba1e5d28c49e7bdecc82a8e09bdce208d75c",
+      "bytes": 820
+    },
+    {
+      "artifact_path": "artifacts/jobs/swedish-lake-transfer/scored/taxon-diagnostics.csv",
+      "governed_path": "docs/report/regions/nordic/swedish-lake-transfer/taxon-diagnostics.csv",
+      "sha256": "8d2302c4cd8b1523e7d647158181c20f4a2d4c3059acbef6d3c79b00b9a4f722",
+      "bytes": 4964
+    }
+  ],
+  "consumer_status": "historical reproduction command only; governed report owns all ten output bytes",
+  "interpretation": "three previously exposed Swedish lake direct-pollen transfer; no LRA or vegetation truth"
+}

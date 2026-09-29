@@ -453,3 +453,13 @@ runner and two earlier differing summaries. The archive was reopened and every
 member checked against the original path and SHA-256 inventory before the
 inactive artifact directory was retired. This preserves numerical process
 evidence without treating cached predictions as scientific acceptance.
+
+## Swedish lake-transfer run custody
+
+The [lake-transfer run receipt](swedish-lake-transfer-run-custody.json)
+maps all ten files from the inactive three-lake process directory to byte-identical
+governed [study inputs, frozen predictions and scores](../../regions/nordic/swedish-lake-transfer/README.md).
+The original folder contains no distinct process evidence or live consumer; its
+reproduction command names a future disposable output. It was retired after
+the exact byte and open-handle checks. The prior-exposed direct-pollen result
+remains separate from LRA and vegetation accuracy.
