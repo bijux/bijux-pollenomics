@@ -79,7 +79,10 @@ def authorities(
                         {
                             "chronology": {
                                 "chronologyid": 999,
-                                "chronology": {"isdefault": True},
+                                "chronology": {
+                                    "isdefault": True,
+                                    "modelagetype": age_type,
+                                },
                             }
                         }
                     ],
