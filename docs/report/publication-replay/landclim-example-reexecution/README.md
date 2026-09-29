@@ -2,7 +2,11 @@
 
 The [fresh-run report](report.json) records a new execution of the retained author R function and the current native REVEALS implementation for author example grids 512 and 562. The R runner completed first; the native comparison then read its newly generated bootstrap draws and numerical outputs. The R wrapper memoizes exact repeated inputs to the pure `KPf` function while preserving the author `KPf` and `REVEALS` function bodies. Both processes exited successfully, and every declared regional and site-level cover and standard-error comparison passed. This is a source-bound two-grid result, not a reconstruction of all 1,128 paper records or a test against measured vegetation.
 
-The private author snapshot remains outside this repository. Before execution, the producer verified all 193 members of its manifest by SHA-256. It checked the author R source hash `7675b6e615cddba328bad506692b3a6a31e00d9273cef5ad4641a1737fddfd87`, pinned `zipfR` 0.6.70, and hashed the three execution/comparison scripts plus 46 native Python source files before and after the run. The original R receipt embeds exact hashes for 26 used inputs and 77 output CSV files. The governed report retains that receipt, the complete comparison report, source hashes, process exit codes, runtime versions, raw-report hashes, and SHA-256 identities for the two native output checksum manifests. Those manifests cover 53 files for grid 512 and 52 files for grid 562. Raw R/native output remains under `artifacts/jobs/landclim-example-reexecution/fresh-run/`.
+The private author snapshot remains outside this repository. Before execution, the producer verified all 193 members of its manifest by SHA-256. It checked the author R source hash `7675b6e615cddba328bad506692b3a6a31e00d9273cef5ad4641a1737fddfd87`, pinned `zipfR` 0.6.70, and hashed the three execution/comparison scripts plus 46 native Python source files before and after the run. The original R receipt embeds exact hashes for 26 used inputs and 77 output CSV files. The governed report retains that receipt, the complete comparison report, source hashes, process exit codes, runtime versions, raw-report hashes, and SHA-256 identities for the two native output checksum manifests. Those manifests cover 53 files for grid 512 and 52 files for grid 562. This run installed `zipfR` from the private source archive into `artifacts/jobs/landclim-example-reexecution/zipfr-library/`; its R/native output remains under `artifacts/jobs/landclim-example-reexecution/independent-r-library-run/`. All reported regional maximum errors match the prior retained run exactly.
+
+The 77 original-R CSV outputs and 101 native grid data files are byte-identical
+to the prior retained run. Timing and path-bearing manifests changed with the
+new execution.
 
 | Author grid | Sites | Time bins | Taxa | Available site-bins | Regional cover maximum absolute error | Regional SE maximum absolute error |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
@@ -19,13 +23,27 @@ PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=packages/bijux-pollenomics-dev/src \
   --verify-report docs/report/publication-replay/landclim-example-reexecution/report.json
 ```
 
-Add `--output artifacts/jobs/landclim-example-reexecution/fresh-run` to verify the locally retained R output CSVs, every native output listed by its checksum manifest, reference and comparison reports, and execution logs by SHA-256. To produce an independent fresh execution, supply the acquired snapshot through `--private` and choose absent `--output` and `--report` paths:
+Add `--output artifacts/jobs/landclim-example-reexecution/independent-r-library-run` to verify the locally retained R output CSVs, every native output listed by its checksum manifest, reference and comparison reports, and execution logs by SHA-256.
+
+For a fresh execution, install the pinned `zipfR` source archive (SHA-256
+`0c318569cf5dd13ab5ea22f7cf797a2daeda09d8332d89ba54fd2d7c643ecf96`)
+from the private source store into a run directory:
+
+```sh
+mkdir -p artifacts/jobs/landclim-example-reexecution/zipfr-library
+R CMD INSTALL -l artifacts/jobs/landclim-example-reexecution/zipfr-library \
+  "$BIJUX_POLLENOMICS_SOURCE_ROOT/lra/dependencies/zipfR_0.6-70.tar.gz"
+```
+
+Supply the author snapshot through `--private`, that installed package through
+`--r-library`, and choose absent `--output` and `--report` paths:
 
 ```sh
 PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=packages/bijux-pollenomics-dev/src:packages/bijux-pollenomics-lra/src \
   OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 \
   .venv/bin/python -m bijux_pollenomics_dev.essd_reproduction.example_reexecution \
   --repository . --private "$BIJUX_LANDCLIM_AUTHOR_REFERENCE" \
+  --r-library artifacts/jobs/landclim-example-reexecution/zipfr-library \
   --output artifacts/jobs/landclim-example-reexecution/another-run \
   --report artifacts/jobs/landclim-example-reexecution/another-report.json
 ```

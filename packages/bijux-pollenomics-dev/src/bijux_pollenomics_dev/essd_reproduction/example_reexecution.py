@@ -44,7 +44,7 @@ def _source_hashes(repository: Path) -> dict[str, str]:
     return {path.as_posix(): _sha(repository / path) for path in paths}
 
 
-def _environment(repository: Path) -> dict[str, str]:
+def _environment(library: Path) -> dict[str, str]:
     rscript = subprocess.run(
         ["Rscript", "--version"], capture_output=True, text=True, check=True
     )
@@ -54,11 +54,7 @@ def _environment(repository: Path) -> dict[str, str]:
             "--vanilla",
             "-e",
             'cat(as.character(packageVersion("zipfR", lib.loc=commandArgs(TRUE)[1])))',
-            str(
-                (
-                    repository / "artifacts/v2/engine/publication-runtime/r-library"
-                ).resolve()
-            ),
+            str(library),
         ],
         capture_output=True,
         text=True,
@@ -177,12 +173,17 @@ def _native_output_closure(raw_output: Path) -> dict[str, dict[str, object]]:
 
 
 def execute(
-    repository: Path, private: Path, output: Path, report_path: Path
+    repository: Path,
+    private: Path,
+    library: Path,
+    output: Path,
+    report_path: Path,
 ) -> dict[str, object]:
     """Run the existing R and native consumers on an immutable source snapshot."""
-    repository, private, output, report_path = (
+    repository, private, library, output, report_path = (
         repository.resolve(),
         private.resolve(),
+        library.resolve(),
         output.resolve(),
         report_path.resolve(),
     )
@@ -195,8 +196,7 @@ def execute(
     ):
         raise ValueError("Private author R source changed")
     source_hashes = _source_hashes(repository)
-    environment = _environment(repository)
-    library = repository / "artifacts/v2/engine/publication-runtime/r-library"
+    environment = _environment(library)
     output.mkdir(parents=True)
     process_environment = dict(os.environ)
     process_environment.update(
@@ -383,6 +383,7 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repository", type=Path)
     parser.add_argument("--private", type=Path)
+    parser.add_argument("--r-library", type=Path)
     parser.add_argument("--output", type=Path)
     parser.add_argument("--report", type=Path)
     parser.add_argument("--verify-report", type=Path)
@@ -394,12 +395,20 @@ def main() -> None:
         return
     if any(
         value is None
-        for value in (args.repository, args.private, args.output, args.report)
+        for value in (
+            args.repository,
+            args.private,
+            args.r_library,
+            args.output,
+            args.report,
+        )
     ):
         parser.error(
-            "Execution requires --repository, --private, --output and --report"
+            "Execution requires --repository, --private, --r-library, --output and --report"
         )
-    result = execute(args.repository, args.private, args.output, args.report)
+    result = execute(
+        args.repository, args.private, args.r_library, args.output, args.report
+    )
     if not result["passed"]:
         raise SystemExit("Two-grid original-R/native comparison did not pass")
 
