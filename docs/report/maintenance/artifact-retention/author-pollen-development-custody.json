@@ -62,6 +62,8 @@
       "custody_relation": "byte_identical_after_gzip_decompression"
     }
   ],
-  "consumer_review": "No product source, data or documentation consumer names this exact artifact directory; no open file was reported by lsof before retirement.",
-  "current_verification": "docs/report/pollen-reconstruction/verify_report.py verified the current retained outputs at commit 843a90ed; the report distinguishes this development result from held-out confirmation."
+  "consumer_review": "No product source, data or documentation consumer names either exact artifact directory; lsof reported no open file in either directory before retirement.",
+  "current_verification": "docs/report/pollen-reconstruction/verify_report.py verified the current retained outputs at commit 843a90ed; the report distinguishes this development result from held-out confirmation.",
+  "identical_duplicate_artifact_directory": "artifacts/v5/author-pollen-development-search",
+  "duplicate_review": "The six same-named files in this second directory matched the recorded artifact SHA-256 and byte counts exactly; no product source/data/documentation consumer named the directory, and lsof reported no open file before retirement."
 }

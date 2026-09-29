@@ -154,10 +154,11 @@ a live source of report claims or a valid check against the current worktree.
 ## Author pollen development custody
 
 The [author development custody record](author-pollen-development-custody.json)
-binds six historical output files to the governed 17-site exploratory study.
+binds two byte-identical six-file artifact directories to the governed 17-site
+exploratory study.
 Design and interpretation bytes match exactly. Predictions match after
 decompressing the retained CSV. Coverage, scores and leaderboard contain the
 same ordered records; only CRLF versus LF line endings differ. The current
 scientific report verifier authenticated those retained outputs. No product
-consumer or live open file depended on the retired artifact directory. This
+consumer or live open file depended on either retired artifact directory. This
 does not turn previously exposed development outcomes into confirmatory data.
