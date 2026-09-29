@@ -291,6 +291,13 @@ alongside the already retained 11/12/13 source disagreement. The old note was
 retired after its source-backed observations were checked against the pinned CSV
 and archive; no PFT assignment was inferred from the description count.
 
+The [historical public-note custody](landclim-public-note-custody.json) retains
+seven check scripts, plans and results in the private source store. Both checked
+page hashes predate the current committed and user-staged LandClim source page,
+so these process files do not validate today's prose. Their 17-site count
+arithmetic is represented in the governed publication replay; the original
+artifact directory was retired only after exact private-byte and liveness checks.
+
 ## WHH05 author preparation process custody
 
 The [one-site R process custody](whh05-author-preparation-custody.json) accounts

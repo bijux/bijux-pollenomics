@@ -61,8 +61,8 @@
     },
     {
       "path": "docs/report/maintenance/artifact-retention/README.md",
-      "bytes": 22672,
-      "sha256": "1c9a2b9ccf35eee10e576b01e14c1cee1e4e4da333452dfb5d281055da778aca"
+      "bytes": 23145,
+      "sha256": "490b63fb0bc42406336fd6ddab72f74f7c54e9575567f2f264603af821bfef3c"
     },
     {
       "path": "docs/report/maintenance/artifact-retention/landclim-pft-audit-custody.json",
@@ -78,6 +78,11 @@
       "path": "docs/report/maintenance/artifact-retention/landclim-provider-description-custody.json",
       "bytes": 1287,
       "sha256": "82464c8192e95cb675da6098fe65e4797fea57a1f59aa4af05a5bb8f581ae1e1"
+    },
+    {
+      "path": "docs/report/maintenance/artifact-retention/landclim-public-note-custody.json",
+      "bytes": 2565,
+      "sha256": "d46f54e140b232748c42cb18357192b20f6a82b42e3fb14d43c9ddb80a68c155"
     },
     {
       "path": "docs/report/maintenance/artifact-retention/scientific-report-provenance/README.md",
