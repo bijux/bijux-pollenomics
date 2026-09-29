@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from pathlib import Path
 
-from .models import _RemoteArtifactSpec
+from ..models import _RemoteArtifactSpec
 
 
 def _official_source_receipt_metadata(

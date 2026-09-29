@@ -40,7 +40,7 @@ from .models import (
     _SourceCaptureAssessment,
     _SourceCaptureDisposition,
 )
-from .receipt_metadata import _official_source_receipt_metadata
+from .receipts.metadata import _official_source_receipt_metadata
 from .specifications import (
     _expand_remote_assets,
     _paper_source_specs,

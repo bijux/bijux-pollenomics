@@ -15,7 +15,10 @@ from ..library.registries import (
     build_project_source_bundles,
 )
 from ..library.specifications import _doi_slug
-from ..library.storage import _reference_stash_records, _resolve_reference_stash_root
+from ..library.reference_stash import (
+    _reference_stash_records,
+    _resolve_reference_stash_root,
+)
 from ..recovery import (
     build_manual_curation_worklist,
     build_missing_source_queue,

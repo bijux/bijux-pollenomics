@@ -42,10 +42,8 @@ from .registries import (
     build_supplement_zip_member_registry,
 )
 from .specifications import _doi_slug as _doi_slug
-from .storage import (
+from .reference_stash import (
     _reference_stash_records as _reference_stash_records,
-)
-from .storage import (
     _resolve_reference_stash_root as _resolve_reference_stash_root,
 )
 from .storage import build_source_artifact_index, build_source_storage_audit
