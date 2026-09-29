@@ -274,7 +274,7 @@ def test_repository_audit_records_paths_counts_and_unclosed_human_review() -> No
     assert "animal_source_recovery_guard_failed" not in animal["blocking_reasons"]
     assert (
         "experiment_to_biological_sample_mapping_unavailable"
-        in animal["blocking_reasons"]
+        not in animal["blocking_reasons"]
     )
     assert "qualified_animal_source_review_missing" in animal["blocking_reasons"]
 

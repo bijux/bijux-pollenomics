@@ -181,17 +181,15 @@
       "publication_posture": "review_required_not_publication_ready",
       "authority_status": "review_required",
       "authority_reasons": [
-        "experiment_to_biological_sample_mapping_unavailable",
         "qualified_animal_source_review_missing"
       ],
       "coverage_metrics": {
         "animal_species_count": 10,
         "animal_project_count": 40,
-        "animal_sample_count": 1450
+        "animal_sample_count": 1470
       },
       "blocking_reasons": [
         "source_authority_review_required",
-        "experiment_to_biological_sample_mapping_unavailable",
         "qualified_animal_source_review_missing"
       ]
     },
@@ -3280,13 +3278,12 @@
         "coverage_metrics": {
           "animal_species_count": 10,
           "animal_project_count": 40,
-          "animal_sample_count": 1450
+          "animal_sample_count": 1470
         },
         "human_review_required": true,
         "reason_codes": [
           "governed_dimension_evidence_complete",
           "source_authority_review_required",
-          "experiment_to_biological_sample_mapping_unavailable",
           "qualified_animal_source_review_missing",
           "qualified_animal_adna_source_review_missing"
         ]
@@ -3308,13 +3305,12 @@
         "coverage_metrics": {
           "animal_species_count": 10,
           "animal_project_count": 40,
-          "animal_sample_count": 1450
+          "animal_sample_count": 1470
         },
         "human_review_required": true,
         "reason_codes": [
           "governed_dimension_evidence_complete",
           "source_authority_review_required",
-          "experiment_to_biological_sample_mapping_unavailable",
           "qualified_animal_source_review_missing",
           "qualified_animal_adna_source_review_missing"
         ]
@@ -3336,13 +3332,12 @@
         "coverage_metrics": {
           "animal_species_count": 10,
           "animal_project_count": 40,
-          "animal_sample_count": 1450
+          "animal_sample_count": 1470
         },
         "human_review_required": true,
         "reason_codes": [
           "governed_dimension_evidence_complete",
           "source_authority_review_required",
-          "experiment_to_biological_sample_mapping_unavailable",
           "qualified_animal_source_review_missing",
           "qualified_animal_adna_source_review_missing"
         ]
@@ -3364,13 +3359,12 @@
         "coverage_metrics": {
           "animal_species_count": 10,
           "animal_project_count": 40,
-          "animal_sample_count": 1450
+          "animal_sample_count": 1470
         },
         "human_review_required": true,
         "reason_codes": [
           "governed_dimension_evidence_complete",
           "source_authority_review_required",
-          "experiment_to_biological_sample_mapping_unavailable",
           "qualified_animal_source_review_missing",
           "qualified_animal_adna_source_review_missing"
         ]
@@ -3392,13 +3386,12 @@
         "coverage_metrics": {
           "animal_species_count": 10,
           "animal_project_count": 40,
-          "animal_sample_count": 1450
+          "animal_sample_count": 1470
         },
         "human_review_required": true,
         "reason_codes": [
           "governed_dimension_evidence_complete",
           "source_authority_review_required",
-          "experiment_to_biological_sample_mapping_unavailable",
           "qualified_animal_source_review_missing",
           "qualified_animal_adna_source_review_missing"
         ]
@@ -3420,13 +3413,12 @@
         "coverage_metrics": {
           "animal_species_count": 10,
           "animal_project_count": 40,
-          "animal_sample_count": 1450
+          "animal_sample_count": 1470
         },
         "human_review_required": true,
         "reason_codes": [
           "governed_dimension_evidence_complete",
           "source_authority_review_required",
-          "experiment_to_biological_sample_mapping_unavailable",
           "qualified_animal_source_review_missing",
           "qualified_animal_adna_source_review_missing"
         ]
@@ -3448,13 +3440,12 @@
         "coverage_metrics": {
           "animal_species_count": 10,
           "animal_project_count": 40,
-          "animal_sample_count": 1450
+          "animal_sample_count": 1470
         },
         "human_review_required": true,
         "reason_codes": [
           "governed_dimension_evidence_complete",
           "source_authority_review_required",
-          "experiment_to_biological_sample_mapping_unavailable",
           "qualified_animal_source_review_missing",
           "qualified_animal_adna_source_review_missing"
         ]
@@ -3476,13 +3467,12 @@
         "coverage_metrics": {
           "animal_species_count": 10,
           "animal_project_count": 40,
-          "animal_sample_count": 1450
+          "animal_sample_count": 1470
         },
         "human_review_required": true,
         "reason_codes": [
           "governed_dimension_evidence_complete",
           "source_authority_review_required",
-          "experiment_to_biological_sample_mapping_unavailable",
           "qualified_animal_source_review_missing",
           "qualified_animal_adna_source_review_missing"
         ]
@@ -3504,13 +3494,12 @@
         "coverage_metrics": {
           "animal_species_count": 10,
           "animal_project_count": 40,
-          "animal_sample_count": 1450
+          "animal_sample_count": 1470
         },
         "human_review_required": true,
         "reason_codes": [
           "governed_dimension_evidence_missing",
           "source_authority_review_required",
-          "experiment_to_biological_sample_mapping_unavailable",
           "qualified_animal_source_review_missing",
           "qualified_animal_adna_source_review_missing"
         ]
@@ -3528,7 +3517,7 @@
         "coverage_metrics": {
           "animal_species_count": 10,
           "animal_project_count": 40,
-          "animal_sample_count": 1450
+          "animal_sample_count": 1470
         },
         "human_review_required": false,
         "reason_codes": [
@@ -3548,7 +3537,7 @@
         "coverage_metrics": {
           "animal_species_count": 10,
           "animal_project_count": 40,
-          "animal_sample_count": 1450
+          "animal_sample_count": 1470
         },
         "human_review_required": false,
         "reason_codes": [
@@ -3568,7 +3557,7 @@
         "coverage_metrics": {
           "animal_species_count": 10,
           "animal_project_count": 40,
-          "animal_sample_count": 1450
+          "animal_sample_count": 1470
         },
         "human_review_required": false,
         "reason_codes": [
@@ -3592,13 +3581,12 @@
         "coverage_metrics": {
           "animal_species_count": 10,
           "animal_project_count": 40,
-          "animal_sample_count": 1450
+          "animal_sample_count": 1470
         },
         "human_review_required": true,
         "reason_codes": [
           "governed_dimension_evidence_missing",
           "source_authority_review_required",
-          "experiment_to_biological_sample_mapping_unavailable",
           "qualified_animal_source_review_missing",
           "qualified_animal_adna_source_review_missing"
         ]
@@ -3620,13 +3608,12 @@
         "coverage_metrics": {
           "animal_species_count": 10,
           "animal_project_count": 40,
-          "animal_sample_count": 1450
+          "animal_sample_count": 1470
         },
         "human_review_required": true,
         "reason_codes": [
           "governed_dimension_evidence_missing",
           "source_authority_review_required",
-          "experiment_to_biological_sample_mapping_unavailable",
           "qualified_animal_source_review_missing",
           "qualified_animal_adna_source_review_missing"
         ]
@@ -3648,13 +3635,12 @@
         "coverage_metrics": {
           "animal_species_count": 10,
           "animal_project_count": 40,
-          "animal_sample_count": 1450
+          "animal_sample_count": 1470
         },
         "human_review_required": true,
         "reason_codes": [
           "governed_dimension_evidence_complete",
           "source_authority_review_required",
-          "experiment_to_biological_sample_mapping_unavailable",
           "qualified_animal_source_review_missing",
           "qualified_animal_adna_source_review_missing"
         ]
@@ -3672,7 +3658,7 @@
         "coverage_metrics": {
           "animal_species_count": 10,
           "animal_project_count": 40,
-          "animal_sample_count": 1450
+          "animal_sample_count": 1470
         },
         "human_review_required": false,
         "reason_codes": [
@@ -3696,13 +3682,12 @@
         "coverage_metrics": {
           "animal_species_count": 10,
           "animal_project_count": 40,
-          "animal_sample_count": 1450
+          "animal_sample_count": 1470
         },
         "human_review_required": true,
         "reason_codes": [
           "governed_dimension_evidence_complete",
           "source_authority_review_required",
-          "experiment_to_biological_sample_mapping_unavailable",
           "qualified_animal_source_review_missing",
           "qualified_animal_adna_source_review_missing"
         ]
