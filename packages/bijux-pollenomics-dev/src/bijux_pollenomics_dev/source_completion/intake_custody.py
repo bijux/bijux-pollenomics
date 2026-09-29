@@ -8,6 +8,9 @@ import json
 from pathlib import Path
 from typing import Any
 
+from jsonschema import Draft202012Validator
+
+INTAKE_SCHEMA = Path("data/source_intake_contract.schema.json")
 INTAKE_IDS = {
     "EXT-2026-09-04-OPENLAND-001",
     "EXT-2026-09-04-OPENLAND-002",
@@ -48,6 +51,11 @@ def build_intake_custody_report(
     repository: Path, private_source_root: Path
 ) -> dict[str, Any]:
     """Reconcile historical receipts with private bytes and current source reports."""
+    repository = repository.resolve()
+    schema_bytes = (repository / INTAKE_SCHEMA).read_bytes()
+    schema = _json_object(schema_bytes, INTAKE_SCHEMA.as_posix())
+    Draft202012Validator.check_schema(schema)
+    validator = Draft202012Validator(schema)
     root = private_source_root.resolve()
     custody_path = root / "source-intakes/custody.json"
     custody_bytes = custody_path.read_bytes()
@@ -80,6 +88,13 @@ def build_intake_custody_report(
         )
         if receipt.get("intake_id") != ident:
             raise ValueError(f"Receipt identity changed: {ident}")
+        first_error = next(validator.iter_errors(receipt), None)
+        if first_error is not None:
+            location = "/".join(map(str, first_error.absolute_path)) or "root"
+            raise ValueError(
+                f"Invalid intake receipt contract: {ident}: {location} "
+                f"({first_error.validator})"
+            )
         coverage = receipt.get("country_coverage")
         if (
             not isinstance(coverage, list)
@@ -133,7 +148,6 @@ def build_intake_custody_report(
             }
         )
 
-    repository = repository.resolve()
     current_inputs = []
     for ident, relative in sorted(CURRENT_REPORTS.items()):
         path = repository / relative
@@ -165,6 +179,7 @@ def build_intake_custody_report(
         )
     return {
         "schema_version": "source-intake-custody-review.v1",
+        "intake_contract_sha256": hashlib.sha256(schema_bytes).hexdigest(),
         "private_custody_manifest_sha256": hashlib.sha256(custody_bytes).hexdigest(),
         "receipt_count": len(rows),
         "verified_original_archives": len(archive_specs),
