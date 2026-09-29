@@ -61,3 +61,57 @@ source-row frequencies, not comparable pollen mass or coverage percentages.
 Current mapping statuses are 7,459 quarantined unclassified, 1,410 unmapped,
 1,974 not accepted, 53 not applicable, 11 not applicable to pollen and one
 unresolved. These statuses are source projection labels, not reviewer decisions.
+
+## Neotoma priority and citation coverage
+
+The current governed Neotoma source screen yields 10,637 prerequisite samples,
+228,323 agreeing pollen count observations and 1,006 unresolved review
+concepts across 169 datasets. The country partition and exact source-unit sums
+are reported on the [Neotoma source page](../../public/pollenomics-data/sources/neotoma.md).
+The replay binds the full private review bundle to the governed raw and
+relational Neotoma manifests. Its priority, dataset attribution and screen
+SHA-256 values are respectively:
+
+- `68cc019466e4e251e66bff0cdeb6627419b6e6444d844cf5cd01eed25ee2054c`
+- `9bb1bebdf9155fa8ba2ebb7afb5b743258730aad967201fba6c0bdef13a5eb63`
+- `7d1ec565e9eec4317c61414b553a05b43cfd476a6fd0c087f0a536da8f2554ee`
+
+All 1,006 priority rows and all 169 dataset-attribution rows equal the
+[governed scoped review](../source-relations/neotoma/taxon-priority/README.md)
+exactly. Their whole-file hashes differ because the private replay binds the
+10,908-row full review bundle while the public table binds only its 1,351
+Neotoma concepts.
+
+The exact dataset-publication responses reside in the private source store at
+`neotoma/publication-links/2026-09-29/`. Its 169-response capture manifest has
+SHA-256 `d6dee3065e6fcfae8a7e484406cf37e2b5aa0424bee66d3a6922bbbdc1e867da`.
+The manifest retains each source URL, retrieval time, byte count and digest;
+58 prior exact responses were reused and 111 additional datasets were queried.
+The replayed citation report has SHA-256
+`9f37bb406b30beef6d8a2f274cc27ec509441c6c5b0d4d3a31c87aca6e93e24d`.
+It records 223 linked publication records across 169 datasets: 149 with one
+provider-primary publication, seven with multiple provider-primary links, two
+with links but no primary flag and eleven without a linked publication.
+Publication DOI is null on 172 records. All 169 datasets identify the European
+Pollen Database as their constituent database. The citation leads have not
+been independently checked against original publications.
+
+Set `NEOTOMA_PUBLICATION_ROOT` to the private
+`neotoma/publication-links/2026-09-29` directory. After building the private
+review package as above, reproduce the current source replay with an absent
+output directory:
+
+```sh
+PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -m \
+  bijux_pollenomics_dev.taxa_review.neotoma_priority \
+  --repository . \
+  --review-directory artifacts/jobs/taxa-review/complete-review \
+  --capture-root "$NEOTOMA_PUBLICATION_ROOT" \
+  --output artifacts/jobs/taxa-review/neotoma-replay
+```
+
+The replay verifies every capture member, source manifest and candidate
+dataset identity before writing its four reports and receipt. All outputs
+remain private review projections (`publication_allowed=false`,
+`scientific_admission_allowed=false`). The old 3,538-sample, 58-dataset
+projection used an earlier source screen and is not the current cohort.
