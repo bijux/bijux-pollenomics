@@ -205,6 +205,10 @@ choose the last occurrence. Finder metadata is outside this dataset-file count.
 
 Release declarations conflict. The supplied Yoda metadata and `License.txt`
 state CC BY-NC 4.0, while the README and NetCDF attributes state CC BY 3.0.
+The [current DOI metadata review](../../../report/source-relations/hyde/provider-record/README.md)
+adds a third, timestamped claim: DataCite lists CC BY 4.0 after a 2026-09-28
+record update. That remote record has not been bound to the exact local file
+release, so it does not resolve the conflict or authorize redistribution.
 The exact local metadata and license text have SHA-256 identities
 `44dacada9b1b9ade1886bf0f2a26277a2b964afbff46f9ee64c17069f7b57b3a`
 and `3711f963c05d0be80d53e5923308a6dee31b203da23435c9cfb7c7b6e4dd5e19`.
