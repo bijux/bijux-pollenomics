@@ -183,6 +183,14 @@ is retained byte for byte with its historical status explained; current Swedish
 source questions supersede its admission claims. No file was open or had another
 hardlink, and the sole repository path mention is historical replay provenance.
 
+The [Swedish site comparison retirement receipt](swedish-site-identity-retirement.json)
+binds 25 process and result files from the earlier 37-site cross-source review.
+The governed [current comparison](../../source-relations/neotoma/landclim-site-identity/README.md)
+uses the 77-site prerequisite projection and includes all 37 earlier rows with
+identical values. Its manifest retains the old selection IDs and summary, so
+the earlier denominator remains interpretable after the working directory is
+removed. No open file, multiple hardlink or live consumer depended on it.
+
 The [earlier scientific report provenance](scientific-report-provenance/README.md)
 retains exact results, scope, and evidence-manifest bytes from the previous
 11-result study. The current report has 17 result rows and a passing 170-file
