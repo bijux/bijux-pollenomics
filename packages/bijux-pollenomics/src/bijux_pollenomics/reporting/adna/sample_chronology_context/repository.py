@@ -4,7 +4,6 @@ from __future__ import annotations
 
 from collections import Counter
 from collections.abc import Mapping
-import json
 from pathlib import Path
 from typing import cast
 
@@ -34,6 +33,7 @@ from .contracts import (
     AnimalSampleChronologyRefusal,
 )
 from .node_materialization import build_input_identity, build_node
+from .source_json import _Row, _read_object, _rows
 
 _REGISTRY_SCHEMA = "adna-source-library.v1"
 _SURFACE_SCHEMAS = {
@@ -73,7 +73,6 @@ _REFUSAL_ORDER = (
     "site_provenance_unavailable",
 )
 
-_Row = dict[str, object]
 _SampleKey = tuple[str, str]
 
 
@@ -179,27 +178,6 @@ def load_animal_sample_chronology_corpus(
             (reason, refusal_counts[reason]) for reason in _REFUSAL_ORDER
         ),
     )
-
-
-def _read_object(path: Path, *, captured_inputs: dict[Path, bytes]) -> _Row:
-    if not path.is_file() or path.is_symlink():
-        raise ValueError(f"governed animal chronology input is unavailable: {path}")
-    try:
-        content = path.read_bytes()
-        value = json.loads(content.decode("utf-8"))
-    except (OSError, UnicodeDecodeError, json.JSONDecodeError) as exc:
-        raise ValueError(f"invalid governed animal chronology JSON: {path}") from exc
-    if not isinstance(value, dict):
-        raise ValueError(f"governed animal chronology root must be an object: {path}")
-    captured_inputs[path] = content
-    return cast(_Row, value)
-
-
-def _rows(payload: Mapping[str, object], label: str) -> list[_Row]:
-    value = payload.get("rows")
-    if not isinstance(value, list) or any(not isinstance(row, dict) for row in value):
-        raise ValueError(f"{label} rows must be a list of objects")
-    return cast(list[_Row], value)
 
 
 def _project_inventory(rows: list[_Row]) -> dict[str, _Row]:
