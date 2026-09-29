@@ -1,0 +1,58 @@
+{
+  "decision": "retire_four_inactive_derived_notes",
+  "scope": "Four exact artifacts/v5 source-refusal directories; no raw source, result data, or other artifact paths",
+  "files": [
+    {
+      "path": "artifacts/v5/hyde-extension/BLOCKER.md",
+      "sha256": "b0dc371b0d24322c5c0e82d34090a3b19d0a48f1209934177da3015e014d9447",
+      "bytes": 3588,
+      "current_evidence": [
+        "docs/public/pollenomics-data/sources/hyde.md",
+        "docs/report/regions/nordic/hyde-country-cropland/README.md",
+        "docs/report/regions/nordic/hyde-country-cropland/grid-conservation/README.md"
+      ],
+      "disposition": "The old rectangular window and its country refusal precede the source-country tables and ISO-grid conservation study. Release, rights, calendar, scenario and pollen-ablation limits remain explicit in current evidence."
+    },
+    {
+      "path": "artifacts/v5/swedish-direct-lra/BLOCKER.md",
+      "sha256": "4fbbe617ad570cad596d505e9e2e66cdf79ce7db6dc3dac32196500793754859",
+      "bytes": 4256,
+      "current_evidence": [
+        "docs/report/pollen-reconstruction/swedish-direct-pollen/REPORT.md",
+        "docs/report/pollen-reconstruction/swedish-source-questions.csv",
+        "docs/report/source-relations/neotoma/lra-prerequisites/README.md"
+      ],
+      "disposition": "The six exact-name parameter rows and NISP support are in the governed Swedish report. Site, core, denominator and historical basin questions remain unresolved; reported lake areas and equivalent-circle radii are not admitted geometry."
+    },
+    {
+      "path": "artifacts/v5/vegetation-reference/BLOCKER.md",
+      "sha256": "607bf49dc076ae7b96bdccd667ba2b2ed9fb9ec91c311259ff76f3396452d9ac",
+      "bytes": 2651,
+      "current_evidence": [
+        "docs/public/pollenomics-data/sources/empd2-nfi-review.md",
+        "docs/public/pollenomics-data/sources/empd2.md",
+        "docs/report/pollen-reconstruction/paper-correspondence.csv"
+      ],
+      "disposition": "The 16 spatial leads, unresolved collection dates and identity concerns, NFI scope and zero admitted pairs remain in governed review. No vegetation score exists."
+    },
+    {
+      "path": "artifacts/v5/nordic-extension/BLOCKER.md",
+      "sha256": "9ce9541340539ba0ae3b045d0497ea1a027909de2a1c177ce509bc2b2f1104a8",
+      "bytes": 2556,
+      "current_evidence": [
+        "docs/report/regions/nordic/direct-pollen/RESULTS.md",
+        "docs/report/regions/nordic/author-target-pollen/README.md",
+        "docs/public/pollenomics-data/sources/neotoma.md",
+        "docs/public/pollenomics-data/sources/nordic-nfi-reference-access.md"
+      ],
+      "historical_evidence": "docs/report/maintenance/artifact-retention/scientific-report-provenance/results.csv",
+      "disposition": "The 144-conflict prerequisite screen and absence of direct country scores are historical. Current source and pollen reports supersede those counts, while Nordic LRA and measured-vegetation admission remain open."
+    }
+  ],
+  "retirement_checks": {
+    "file_inventory": "Each named directory contained only the named regular file; each link count was one.",
+    "liveness": "lsof of the four exact files returned no open handles before removal.",
+    "consumer_review": "A bounded repository search found references only in the retained historical scientific-report snapshot, which is not a live source of current claims.",
+    "hashes": "SHA-256 and byte lengths were verified against each exact file immediately before removal."
+  }
+}

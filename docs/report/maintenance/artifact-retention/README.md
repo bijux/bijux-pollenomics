@@ -162,3 +162,14 @@ same ordered records; only CRLF versus LF line endings differ. The current
 scientific report verifier authenticated those retained outputs. No product
 consumer or live open file depended on either retired artifact directory. This
 does not turn previously exposed development outcomes into confirmatory data.
+
+## Scientific source refusal custody
+
+The [source refusal custody record](scientific-source-refusal-custody.json) binds
+four earlier derived notes to their exact hashes and current repository evidence.
+Their HYDE, Swedish LRA, vegetation and Nordic scientific limits remain open
+where source admission is unresolved. The older Nordic screen counts are
+historical; current country pollen results and source screens supersede them.
+Only the four recorded inactive note directories were retired. The retained
+scientific-report provenance may still name their former paths as historical
+evidence, not as live report inputs.
