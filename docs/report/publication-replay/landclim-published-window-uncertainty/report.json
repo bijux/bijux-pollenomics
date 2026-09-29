@@ -1,0 +1,30 @@
+{
+  "schema_version": "landclimii-published-window-uncertainty-envelope.v1",
+  "source_revision": "57ead2e2fcc493d099be4e5a3092fc396e1c3d3a",
+  "published_archive_sha256": "c585f0691ad95342b8aba083b90fe91dc398f985b6b7fbc19561299389c4fb86",
+  "provenance_report_sha256": "f188d1d0277fbfed1c4c2f8b28ade15c1fcef5c4d6e881af85ea1c8c7d748f6c",
+  "correspondence_csv_sha256": "dfecc6d9a36f4f458e2d09a05f4764cb138e42df39f39e646c528025bdc07eb0",
+  "window": "100-350 BP",
+  "envelope_definition": "mean plus or minus one reported standard error",
+  "summaries": [
+    {
+      "grid_id": "512",
+      "taxa": 31,
+      "disjoint_one_se_envelopes": 0,
+      "overlapping_one_se_envelopes": 31,
+      "largest_separation_taxon": "none",
+      "largest_separation_percentage_points": "0"
+    },
+    {
+      "grid_id": "562",
+      "taxa": 31,
+      "disjoint_one_se_envelopes": 0,
+      "overlapping_one_se_envelopes": 31,
+      "largest_separation_taxon": "none",
+      "largest_separation_percentage_points": "0"
+    }
+  ],
+  "historical_raw_input_closure": "not_established",
+  "inferential_comparison": "not_evaluated",
+  "measured_vegetation_accuracy": "not_evaluated"
+}
