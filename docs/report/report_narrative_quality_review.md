@@ -4,7 +4,7 @@ This review checks whether the report-facing Markdown surfaces explain
 themselves in prose or structured reference form instead of behaving like bare
 link farms or coded operator notes.
 
-- Reviewed markdown pages: `209`
+- Reviewed markdown pages: `210`
 
 ## Quality Postures
 
@@ -12,7 +12,7 @@ link farms or coded operator notes.
 | --- | ---: |
 | `reader_ready` | 101 |
 | `structured_reference` | 20 |
-| `thin_structure` | 88 |
+| `thin_structure` | 89 |
 
 ## Reviewed Pages
 
@@ -146,7 +146,7 @@ link farms or coded operator notes.
 | `docs/report/regions/nordic/nordic_scientific_review.md` | `reader_ready` | 3 | 0 | 8 | 324 | 10 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/regions/nordic/pollen-development/README.md` | `thin_structure` | 5 | 0 | 0 | 5 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/regions/nordic/selected-pollen-transfer/README.md` | `thin_structure` | 6 | 0 | 0 | 5 | 1 | Page explains itself but still needs stronger internal wayfinding. |
-| `docs/report/regions/nordic/source-capability/README.md` | `reader_ready` | 4 | 0 | 0 | 13 | 2 | Page explains its purpose before or alongside artifact links. |
+| `docs/report/regions/nordic/source-capability/README.md` | `reader_ready` | 5 | 0 | 0 | 13 | 2 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/regions/nordic/sweden_archaeology_site_discovery.md` | `reader_ready` | 4 | 0 | 4 | 42 | 4 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/regions/nordic/swedish-author-target-pollen/README.md` | `thin_structure` | 6 | 0 | 0 | 5 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/repository_atlas_input_audit.md` | `structured_reference` | 0 | 0 | 0 | 8 | 1 | Page is table-heavy, but it behaves like a reference surface rather than a loose link dump. |
@@ -205,6 +205,7 @@ link farms or coded operator notes.
 | `docs/report/source-relations/sead/public-custody/README.md` | `reader_ready` | 3 | 0 | 0 | 0 | 2 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/source-relations/source-capability-evidence/README.md` | `reader_ready` | 4 | 0 | 0 | 0 | 2 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/source-relations/source-intake-custody/README.md` | `thin_structure` | 4 | 0 | 0 | 5 | 1 | Page explains itself but still needs stronger internal wayfinding. |
+| `docs/report/source-relations/source-reconciliation/README.md` | `thin_structure` | 5 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/source-relations/svar/normalized-export/README.md` | `thin_structure` | 4 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/synthetic-validation/change-time/README.md` | `reader_ready` | 10 | 0 | 0 | 17 | 4 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/synthetic-validation/propagation/README.md` | `reader_ready` | 9 | 0 | 0 | 8 | 4 | Page explains its purpose before or alongside artifact links. |

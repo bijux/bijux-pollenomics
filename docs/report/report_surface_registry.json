@@ -1,16 +1,16 @@
 {
   "schema_version": "report-surface-registry.v1",
-  "surface_count": 1529,
+  "surface_count": 1531,
   "family_counts": {
     "caveats": 10,
-    "maintenance": 790,
+    "maintenance": 792,
     "maps": 85,
     "portal": 2,
     "reviews": 34,
     "scopes": 608
   },
   "audience_counts": {
-    "maintainer_diagnostic": 792,
+    "maintainer_diagnostic": 794,
     "public_reading_surface": 617,
     "scientific_review_surface": 120
   },
@@ -20,7 +20,7 @@
     "finland": 14,
     "nordic": 355,
     "norway": 14,
-    "report_root": 839,
+    "report_root": 841,
     "sweden": 48,
     "world": 172
   },
@@ -15975,6 +15975,30 @@
     },
     {
       "repository_path": "docs/report/source-relations/source-intake-custody/report.json",
+      "family": "maintenance",
+      "family_label": "Maintainer truth surfaces",
+      "audience": "maintainer_diagnostic",
+      "audience_label": "Maintainer diagnostic",
+      "format": "json",
+      "geography": "report_root",
+      "caution_level": "high",
+      "explanation": "Maintainer-facing truth or governance surface.",
+      "reader_route": "maintainer_truth"
+    },
+    {
+      "repository_path": "docs/report/source-relations/source-reconciliation/README.md",
+      "family": "maintenance",
+      "family_label": "Maintainer truth surfaces",
+      "audience": "maintainer_diagnostic",
+      "audience_label": "Maintainer diagnostic",
+      "format": "md",
+      "geography": "report_root",
+      "caution_level": "high",
+      "explanation": "Reader-facing entry page for one scope bundle.",
+      "reader_route": "start_here"
+    },
+    {
+      "repository_path": "docs/report/source-relations/source-reconciliation/report.json",
       "family": "maintenance",
       "family_label": "Maintainer truth surfaces",
       "audience": "maintainer_diagnostic",
