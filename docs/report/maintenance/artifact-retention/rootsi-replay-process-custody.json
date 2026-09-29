@@ -1,0 +1,75 @@
+{
+  "schema_version": "rootsi-replay-process-custody.v1",
+  "scope": "two inactive interrupted structural replay directories, no source workbook deletion",
+  "private_source_root": "../bijux-pollenomics-data",
+  "directories": [
+    {
+      "artifact_directory": "artifacts/v5/.rootsi-workbook-replay-casefold-pythonpath.pending-peyisf88",
+      "files": [
+        {
+          "path": "data-row-candidates.jsonl",
+          "bytes": 162233289,
+          "sha256": "09cc7875cdbe238799a19db4eee7dc9fcaf9f1e182403176da4f078f485af316",
+          "private_retained_path": "landclim/rootsi-workbooks/structural-review/data-row-candidates.jsonl"
+        },
+        {
+          "path": "header-fields.jsonl",
+          "bytes": 4663058,
+          "sha256": "dde2f5a80ff702ec62dd4be542649210c4a3f667a97f4b721d22bfaca99ee2d3",
+          "private_retained_path": "landclim/rootsi-workbooks/structural-review/header-fields.jsonl"
+        },
+        {
+          "path": "workbook-profiles.jsonl",
+          "bytes": 100315,
+          "sha256": "203fa74068474a4002e3332097c0cb4190470eea4753efcffcd5ee43078293fc",
+          "private_retained_path": "landclim/rootsi-workbooks/structural-review/workbook-profiles.jsonl"
+        }
+      ]
+    },
+    {
+      "artifact_directory": "artifacts/v5/.rootsi-workbook-replay-exact-closure.pending-5yx0rqas",
+      "files": [
+        {
+          "path": "data-row-candidates.jsonl",
+          "bytes": 162233289,
+          "sha256": "09cc7875cdbe238799a19db4eee7dc9fcaf9f1e182403176da4f078f485af316",
+          "private_retained_path": "landclim/rootsi-workbooks/structural-review/data-row-candidates.jsonl"
+        },
+        {
+          "path": "header-fields.jsonl",
+          "bytes": 4663058,
+          "sha256": "dde2f5a80ff702ec62dd4be542649210c4a3f667a97f4b721d22bfaca99ee2d3",
+          "private_retained_path": "landclim/rootsi-workbooks/structural-review/header-fields.jsonl"
+        },
+        {
+          "path": "manifest.json",
+          "bytes": 15036,
+          "sha256": "1ffb055cf6545009478e95d5c6e1d032055ad561c1102a71ab17037339d03cd9",
+          "private_retained_path": "landclim/rootsi-workbooks/structural-review/exact-closure-manifest.json"
+        },
+        {
+          "path": "report.json",
+          "bytes": 3905,
+          "sha256": "3dd96443ce497aa08f1739922943bc1b89f0533558ddc06e7398c0fe13a2d37c",
+          "private_retained_path": "landclim/rootsi-workbooks/structural-review/report.json"
+        },
+        {
+          "path": "sample-denominator-review.csv",
+          "bytes": 18887,
+          "sha256": "a443c0fa0b8e49582c25d42e6e1f44d8629a08a8d4880a4f4d46517528b82d33",
+          "private_retained_path": "landclim/rootsi-workbooks/structural-review/sample-denominator-review.csv"
+        },
+        {
+          "path": "workbook-profiles.jsonl",
+          "bytes": 100315,
+          "sha256": "203fa74068474a4002e3332097c0cb4190470eea4753efcffcd5ee43078293fc",
+          "private_retained_path": "landclim/rootsi-workbooks/structural-review/workbook-profiles.jsonl"
+        }
+      ]
+    }
+  ],
+  "unique_process_manifest_sha256": "1ffb055cf6545009478e95d5c6e1d032055ad561c1102a71ab17037339d03cd9",
+  "unique_manifest_delta": "Only the producer hash differs from prior private structural-review manifests; all scientific output files match retained private evidence. Exact historical producer bytes remain unavailable.",
+  "scientific_admission": "refused",
+  "rights_cleared": false
+}

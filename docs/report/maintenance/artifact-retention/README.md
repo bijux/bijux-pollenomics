@@ -201,3 +201,16 @@ one-file directory had no open handle, and a bounded source, documentation,
 configuration and data search found no consumer. It was retired after its exact
 text was verified in the custody record. Its historical assumptions do not
 supersede the governed study.
+
+## Rootsi replay process custody
+
+The [replay custody record](rootsi-replay-process-custody.json) covers two
+inactive interrupted structural-review directories. Eight result files match
+the existing private review custody by exact SHA-256. The ninth file is a
+distinct manifest, now retained in the private source store with its own
+metadata receipt; it differs from the two earlier manifests only in a producer
+hash. The historical producer bytes for that hash are unavailable, so the
+manifest does not authenticate a new scientific transformation. The source
+workbooks, unqualified rights and refused LRA use are unaffected. Both
+interrupted directories were retired after file, handle and bounded consumer
+checks.
