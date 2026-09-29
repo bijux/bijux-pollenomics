@@ -161,6 +161,19 @@ def _paper_source_specs() -> dict[str, _PaperSourceSpec]:
                     relative_path="papers/10.1111-mec.17274/author_preprint.pdf",
                     remote_note="Author preprint Table 1 independently confirms specimen-level Svalbard UTM grid values and calibrated ages in the captured published article.",
                 ),
+                _RemoteArtifactSpec(
+                    artifact_kind="author_preprint_supplementary_xlsx",
+                    label="author bioRxiv Table S3",
+                    source_url=(
+                        "https://www.biorxiv.org/content/biorxiv/early/2023/09/22/"
+                        "2023.09.21.558762/DC2/embed/media-2.xlsx?download=true"
+                    ),
+                    relative_path=(
+                        "papers/10.1111-mec.17274/supplementary/"
+                        "author-preprint-table-s3.xlsx"
+                    ),
+                    remote_note="Author preprint Table S3 has 18 ancient specimen rows and a distinct version role from the published Wiley appendix.",
+                ),
             ),
         ),
         "10.1126/science.aam5298": _PaperSourceSpec(

@@ -23812,22 +23812,6 @@
     {
       "project_accession": "PRJEB60484",
       "species_latin_name": "Rangifer tarandus",
-      "repo_stable_sample_id": "prjeb60484:samea112757323",
-      "preferred_sample_label": "MLM12",
-      "sample_locality_text": "Diskobukta",
-      "sample_locality_class": "excavation_site",
-      "sample_resolution_status": "direct_sample_site",
-      "conflicting_source_surface": "tracked_source_artifact",
-      "conflicting_claim_scope": "project_context_site",
-      "conflicting_locality_text": "",
-      "conflicting_locality_class": "unresolved",
-      "source_artifact_path": "",
-      "source_locator": "",
-      "conflict_reason": "project_context_disagrees_with_sample_owned_site"
-    },
-    {
-      "project_accession": "PRJEB60484",
-      "species_latin_name": "Rangifer tarandus",
       "repo_stable_sample_id": "prjeb60484:samea112757324",
       "preferred_sample_label": "M72",
       "sample_locality_text": "Sassendalen",
@@ -23871,22 +23855,6 @@
       "conflicting_locality_class": "broader_locality",
       "source_artifact_path": "adna/governance/source_library/projects/PRJEB60484/archive_metadata.html",
       "source_locator": "source description snapshot",
-      "conflict_reason": "project_context_disagrees_with_sample_owned_site"
-    },
-    {
-      "project_accession": "PRJEB60484",
-      "species_latin_name": "Rangifer tarandus",
-      "repo_stable_sample_id": "prjeb60484:samea112757324",
-      "preferred_sample_label": "M72",
-      "sample_locality_text": "Sassendalen",
-      "sample_locality_class": "excavation_site",
-      "sample_resolution_status": "direct_sample_site",
-      "conflicting_source_surface": "tracked_source_artifact",
-      "conflicting_claim_scope": "project_context_site",
-      "conflicting_locality_text": "",
-      "conflicting_locality_class": "unresolved",
-      "source_artifact_path": "",
-      "source_locator": "",
       "conflict_reason": "project_context_disagrees_with_sample_owned_site"
     },
     {
@@ -23940,26 +23908,10 @@
     {
       "project_accession": "PRJEB60484",
       "species_latin_name": "Rangifer tarandus",
-      "repo_stable_sample_id": "prjeb60484:samea112757325",
-      "preferred_sample_label": "MLM51",
-      "sample_locality_text": "Diskobukta",
-      "sample_locality_class": "excavation_site",
-      "sample_resolution_status": "direct_sample_site",
-      "conflicting_source_surface": "tracked_source_artifact",
-      "conflicting_claim_scope": "project_context_site",
-      "conflicting_locality_text": "",
-      "conflicting_locality_class": "unresolved",
-      "source_artifact_path": "",
-      "source_locator": "",
-      "conflict_reason": "project_context_disagrees_with_sample_owned_site"
-    },
-    {
-      "project_accession": "PRJEB60484",
-      "species_latin_name": "Rangifer tarandus",
       "repo_stable_sample_id": "prjeb60484:samea112757326",
       "preferred_sample_label": "MLM82",
       "sample_locality_text": "Barentsøya",
-      "sample_locality_class": "excavation_site",
+      "sample_locality_class": "broader_locality",
       "sample_resolution_status": "direct_sample_site",
       "conflicting_source_surface": "archive_metadata",
       "conflicting_claim_scope": "project_context_site",
@@ -23967,7 +23919,7 @@
       "conflicting_locality_class": "broader_locality",
       "source_artifact_path": "adna/governance/source_library/projects/PRJEB60484/archive_metadata.html",
       "source_locator": "source description snapshot",
-      "conflict_reason": "project_context_disagrees_with_sample_owned_site"
+      "conflict_reason": "project_context_cannot_substitute_for_sample_owned_or_unresolved_sample_locality"
     },
     {
       "project_accession": "PRJEB60484",
@@ -23975,7 +23927,7 @@
       "repo_stable_sample_id": "prjeb60484:samea112757326",
       "preferred_sample_label": "MLM82",
       "sample_locality_text": "Barentsøya",
-      "sample_locality_class": "excavation_site",
+      "sample_locality_class": "broader_locality",
       "sample_resolution_status": "direct_sample_site",
       "conflicting_source_surface": "archive_metadata",
       "conflicting_claim_scope": "original_place_string",
@@ -23983,7 +23935,7 @@
       "conflicting_locality_class": "broader_locality",
       "source_artifact_path": "adna/governance/source_library/projects/PRJEB60484/archive_metadata.html",
       "source_locator": "source description snapshot",
-      "conflict_reason": "project_context_disagrees_with_sample_owned_site"
+      "conflict_reason": "project_context_cannot_substitute_for_sample_owned_or_unresolved_sample_locality"
     },
     {
       "project_accession": "PRJEB60484",
@@ -23991,7 +23943,7 @@
       "repo_stable_sample_id": "prjeb60484:samea112757326",
       "preferred_sample_label": "MLM82",
       "sample_locality_text": "Barentsøya",
-      "sample_locality_class": "excavation_site",
+      "sample_locality_class": "broader_locality",
       "sample_resolution_status": "direct_sample_site",
       "conflicting_source_surface": "coordinate_resolution",
       "conflicting_claim_scope": "resolved_place_string",
@@ -23999,23 +23951,55 @@
       "conflicting_locality_class": "broader_locality",
       "source_artifact_path": "adna/governance/source_library/projects/PRJEB60484/archive_metadata.html",
       "source_locator": "source description snapshot",
-      "conflict_reason": "project_context_disagrees_with_sample_owned_site"
+      "conflict_reason": "coordinate_resolution_names_a_different_place_than_the_sample_row"
     },
     {
       "project_accession": "PRJEB60484",
       "species_latin_name": "Rangifer tarandus",
-      "repo_stable_sample_id": "prjeb60484:samea112757326",
-      "preferred_sample_label": "MLM82",
-      "sample_locality_text": "Barentsøya",
-      "sample_locality_class": "excavation_site",
+      "repo_stable_sample_id": "prjeb60484:samea112757327",
+      "preferred_sample_label": "B20",
+      "sample_locality_text": "Edgeøya",
+      "sample_locality_class": "broader_locality",
       "sample_resolution_status": "direct_sample_site",
-      "conflicting_source_surface": "tracked_source_artifact",
+      "conflicting_source_surface": "archive_metadata",
       "conflicting_claim_scope": "project_context_site",
-      "conflicting_locality_text": "",
-      "conflicting_locality_class": "unresolved",
-      "source_artifact_path": "",
-      "source_locator": "",
-      "conflict_reason": "project_context_disagrees_with_sample_owned_site"
+      "conflicting_locality_text": "Svalbard ancient reindeer context",
+      "conflicting_locality_class": "broader_locality",
+      "source_artifact_path": "adna/governance/source_library/projects/PRJEB60484/archive_metadata.html",
+      "source_locator": "source description snapshot",
+      "conflict_reason": "project_context_cannot_substitute_for_sample_owned_or_unresolved_sample_locality"
+    },
+    {
+      "project_accession": "PRJEB60484",
+      "species_latin_name": "Rangifer tarandus",
+      "repo_stable_sample_id": "prjeb60484:samea112757327",
+      "preferred_sample_label": "B20",
+      "sample_locality_text": "Edgeøya",
+      "sample_locality_class": "broader_locality",
+      "sample_resolution_status": "direct_sample_site",
+      "conflicting_source_surface": "archive_metadata",
+      "conflicting_claim_scope": "original_place_string",
+      "conflicting_locality_text": "Svalbard archipelago reindeer context",
+      "conflicting_locality_class": "broader_locality",
+      "source_artifact_path": "adna/governance/source_library/projects/PRJEB60484/archive_metadata.html",
+      "source_locator": "source description snapshot",
+      "conflict_reason": "project_context_cannot_substitute_for_sample_owned_or_unresolved_sample_locality"
+    },
+    {
+      "project_accession": "PRJEB60484",
+      "species_latin_name": "Rangifer tarandus",
+      "repo_stable_sample_id": "prjeb60484:samea112757327",
+      "preferred_sample_label": "B20",
+      "sample_locality_text": "Edgeøya",
+      "sample_locality_class": "broader_locality",
+      "sample_resolution_status": "direct_sample_site",
+      "conflicting_source_surface": "coordinate_resolution",
+      "conflicting_claim_scope": "resolved_place_string",
+      "conflicting_locality_text": "Svalbard ancient reindeer context",
+      "conflicting_locality_class": "broader_locality",
+      "source_artifact_path": "adna/governance/source_library/projects/PRJEB60484/archive_metadata.html",
+      "source_locator": "source description snapshot",
+      "conflict_reason": "coordinate_resolution_names_a_different_place_than_the_sample_row"
     },
     {
       "project_accession": "PRJEB60484",
@@ -24068,26 +24052,10 @@
     {
       "project_accession": "PRJEB60484",
       "species_latin_name": "Rangifer tarandus",
-      "repo_stable_sample_id": "prjeb60484:samea112757328",
-      "preferred_sample_label": "MLM16",
-      "sample_locality_text": "Diskobukta",
-      "sample_locality_class": "excavation_site",
-      "sample_resolution_status": "direct_sample_site",
-      "conflicting_source_surface": "tracked_source_artifact",
-      "conflicting_claim_scope": "project_context_site",
-      "conflicting_locality_text": "",
-      "conflicting_locality_class": "unresolved",
-      "source_artifact_path": "",
-      "source_locator": "",
-      "conflict_reason": "project_context_disagrees_with_sample_owned_site"
-    },
-    {
-      "project_accession": "PRJEB60484",
-      "species_latin_name": "Rangifer tarandus",
       "repo_stable_sample_id": "prjeb60484:samea112757329",
       "preferred_sample_label": "MLM80",
       "sample_locality_text": "Barentsøya",
-      "sample_locality_class": "excavation_site",
+      "sample_locality_class": "broader_locality",
       "sample_resolution_status": "direct_sample_site",
       "conflicting_source_surface": "archive_metadata",
       "conflicting_claim_scope": "project_context_site",
@@ -24095,7 +24063,7 @@
       "conflicting_locality_class": "broader_locality",
       "source_artifact_path": "adna/governance/source_library/projects/PRJEB60484/archive_metadata.html",
       "source_locator": "source description snapshot",
-      "conflict_reason": "project_context_disagrees_with_sample_owned_site"
+      "conflict_reason": "project_context_cannot_substitute_for_sample_owned_or_unresolved_sample_locality"
     },
     {
       "project_accession": "PRJEB60484",
@@ -24103,7 +24071,7 @@
       "repo_stable_sample_id": "prjeb60484:samea112757329",
       "preferred_sample_label": "MLM80",
       "sample_locality_text": "Barentsøya",
-      "sample_locality_class": "excavation_site",
+      "sample_locality_class": "broader_locality",
       "sample_resolution_status": "direct_sample_site",
       "conflicting_source_surface": "archive_metadata",
       "conflicting_claim_scope": "original_place_string",
@@ -24111,7 +24079,7 @@
       "conflicting_locality_class": "broader_locality",
       "source_artifact_path": "adna/governance/source_library/projects/PRJEB60484/archive_metadata.html",
       "source_locator": "source description snapshot",
-      "conflict_reason": "project_context_disagrees_with_sample_owned_site"
+      "conflict_reason": "project_context_cannot_substitute_for_sample_owned_or_unresolved_sample_locality"
     },
     {
       "project_accession": "PRJEB60484",
@@ -24119,7 +24087,7 @@
       "repo_stable_sample_id": "prjeb60484:samea112757329",
       "preferred_sample_label": "MLM80",
       "sample_locality_text": "Barentsøya",
-      "sample_locality_class": "excavation_site",
+      "sample_locality_class": "broader_locality",
       "sample_resolution_status": "direct_sample_site",
       "conflicting_source_surface": "coordinate_resolution",
       "conflicting_claim_scope": "resolved_place_string",
@@ -24127,23 +24095,7 @@
       "conflicting_locality_class": "broader_locality",
       "source_artifact_path": "adna/governance/source_library/projects/PRJEB60484/archive_metadata.html",
       "source_locator": "source description snapshot",
-      "conflict_reason": "project_context_disagrees_with_sample_owned_site"
-    },
-    {
-      "project_accession": "PRJEB60484",
-      "species_latin_name": "Rangifer tarandus",
-      "repo_stable_sample_id": "prjeb60484:samea112757329",
-      "preferred_sample_label": "MLM80",
-      "sample_locality_text": "Barentsøya",
-      "sample_locality_class": "excavation_site",
-      "sample_resolution_status": "direct_sample_site",
-      "conflicting_source_surface": "tracked_source_artifact",
-      "conflicting_claim_scope": "project_context_site",
-      "conflicting_locality_text": "",
-      "conflicting_locality_class": "unresolved",
-      "source_artifact_path": "",
-      "source_locator": "",
-      "conflict_reason": "project_context_disagrees_with_sample_owned_site"
+      "conflict_reason": "coordinate_resolution_names_a_different_place_than_the_sample_row"
     },
     {
       "project_accession": "PRJEB60484",
@@ -24191,22 +24143,6 @@
       "conflicting_locality_class": "broader_locality",
       "source_artifact_path": "adna/governance/source_library/projects/PRJEB60484/archive_metadata.html",
       "source_locator": "source description snapshot",
-      "conflict_reason": "project_context_disagrees_with_sample_owned_site"
-    },
-    {
-      "project_accession": "PRJEB60484",
-      "species_latin_name": "Rangifer tarandus",
-      "repo_stable_sample_id": "prjeb60484:samea112757330",
-      "preferred_sample_label": "BBH7",
-      "sample_locality_text": "Rijpjorden",
-      "sample_locality_class": "excavation_site",
-      "sample_resolution_status": "direct_sample_site",
-      "conflicting_source_surface": "tracked_source_artifact",
-      "conflicting_claim_scope": "project_context_site",
-      "conflicting_locality_text": "",
-      "conflicting_locality_class": "unresolved",
-      "source_artifact_path": "",
-      "source_locator": "",
       "conflict_reason": "project_context_disagrees_with_sample_owned_site"
     },
     {
@@ -24260,22 +24196,6 @@
     {
       "project_accession": "PRJEB60484",
       "species_latin_name": "Rangifer tarandus",
-      "repo_stable_sample_id": "prjeb60484:samea112757331",
-      "preferred_sample_label": "M44",
-      "sample_locality_text": "Gipsdalen",
-      "sample_locality_class": "excavation_site",
-      "sample_resolution_status": "direct_sample_site",
-      "conflicting_source_surface": "tracked_source_artifact",
-      "conflicting_claim_scope": "project_context_site",
-      "conflicting_locality_text": "",
-      "conflicting_locality_class": "unresolved",
-      "source_artifact_path": "",
-      "source_locator": "",
-      "conflict_reason": "project_context_disagrees_with_sample_owned_site"
-    },
-    {
-      "project_accession": "PRJEB60484",
-      "species_latin_name": "Rangifer tarandus",
       "repo_stable_sample_id": "prjeb60484:samea112757332",
       "preferred_sample_label": "M46",
       "sample_locality_text": "Gipsdalen",
@@ -24319,22 +24239,6 @@
       "conflicting_locality_class": "broader_locality",
       "source_artifact_path": "adna/governance/source_library/projects/PRJEB60484/archive_metadata.html",
       "source_locator": "source description snapshot",
-      "conflict_reason": "project_context_disagrees_with_sample_owned_site"
-    },
-    {
-      "project_accession": "PRJEB60484",
-      "species_latin_name": "Rangifer tarandus",
-      "repo_stable_sample_id": "prjeb60484:samea112757332",
-      "preferred_sample_label": "M46",
-      "sample_locality_text": "Gipsdalen",
-      "sample_locality_class": "excavation_site",
-      "sample_resolution_status": "direct_sample_site",
-      "conflicting_source_surface": "tracked_source_artifact",
-      "conflicting_claim_scope": "project_context_site",
-      "conflicting_locality_text": "",
-      "conflicting_locality_class": "unresolved",
-      "source_artifact_path": "",
-      "source_locator": "",
       "conflict_reason": "project_context_disagrees_with_sample_owned_site"
     },
     {
@@ -24388,26 +24292,10 @@
     {
       "project_accession": "PRJEB60484",
       "species_latin_name": "Rangifer tarandus",
-      "repo_stable_sample_id": "prjeb60484:samea112757333",
-      "preferred_sample_label": "M68",
-      "sample_locality_text": "Sassendalen",
-      "sample_locality_class": "excavation_site",
-      "sample_resolution_status": "direct_sample_site",
-      "conflicting_source_surface": "tracked_source_artifact",
-      "conflicting_claim_scope": "project_context_site",
-      "conflicting_locality_text": "",
-      "conflicting_locality_class": "unresolved",
-      "source_artifact_path": "",
-      "source_locator": "",
-      "conflict_reason": "project_context_disagrees_with_sample_owned_site"
-    },
-    {
-      "project_accession": "PRJEB60484",
-      "species_latin_name": "Rangifer tarandus",
       "repo_stable_sample_id": "prjeb60484:samea112757334",
       "preferred_sample_label": "MB60",
       "sample_locality_text": "Barentsøya",
-      "sample_locality_class": "excavation_site",
+      "sample_locality_class": "broader_locality",
       "sample_resolution_status": "direct_sample_site",
       "conflicting_source_surface": "archive_metadata",
       "conflicting_claim_scope": "project_context_site",
@@ -24415,7 +24303,7 @@
       "conflicting_locality_class": "broader_locality",
       "source_artifact_path": "adna/governance/source_library/projects/PRJEB60484/archive_metadata.html",
       "source_locator": "source description snapshot",
-      "conflict_reason": "project_context_disagrees_with_sample_owned_site"
+      "conflict_reason": "project_context_cannot_substitute_for_sample_owned_or_unresolved_sample_locality"
     },
     {
       "project_accession": "PRJEB60484",
@@ -24423,7 +24311,7 @@
       "repo_stable_sample_id": "prjeb60484:samea112757334",
       "preferred_sample_label": "MB60",
       "sample_locality_text": "Barentsøya",
-      "sample_locality_class": "excavation_site",
+      "sample_locality_class": "broader_locality",
       "sample_resolution_status": "direct_sample_site",
       "conflicting_source_surface": "archive_metadata",
       "conflicting_claim_scope": "original_place_string",
@@ -24431,7 +24319,7 @@
       "conflicting_locality_class": "broader_locality",
       "source_artifact_path": "adna/governance/source_library/projects/PRJEB60484/archive_metadata.html",
       "source_locator": "source description snapshot",
-      "conflict_reason": "project_context_disagrees_with_sample_owned_site"
+      "conflict_reason": "project_context_cannot_substitute_for_sample_owned_or_unresolved_sample_locality"
     },
     {
       "project_accession": "PRJEB60484",
@@ -24439,7 +24327,7 @@
       "repo_stable_sample_id": "prjeb60484:samea112757334",
       "preferred_sample_label": "MB60",
       "sample_locality_text": "Barentsøya",
-      "sample_locality_class": "excavation_site",
+      "sample_locality_class": "broader_locality",
       "sample_resolution_status": "direct_sample_site",
       "conflicting_source_surface": "coordinate_resolution",
       "conflicting_claim_scope": "resolved_place_string",
@@ -24447,23 +24335,7 @@
       "conflicting_locality_class": "broader_locality",
       "source_artifact_path": "adna/governance/source_library/projects/PRJEB60484/archive_metadata.html",
       "source_locator": "source description snapshot",
-      "conflict_reason": "project_context_disagrees_with_sample_owned_site"
-    },
-    {
-      "project_accession": "PRJEB60484",
-      "species_latin_name": "Rangifer tarandus",
-      "repo_stable_sample_id": "prjeb60484:samea112757334",
-      "preferred_sample_label": "MB60",
-      "sample_locality_text": "Barentsøya",
-      "sample_locality_class": "excavation_site",
-      "sample_resolution_status": "direct_sample_site",
-      "conflicting_source_surface": "tracked_source_artifact",
-      "conflicting_claim_scope": "project_context_site",
-      "conflicting_locality_text": "",
-      "conflicting_locality_class": "unresolved",
-      "source_artifact_path": "",
-      "source_locator": "",
-      "conflict_reason": "project_context_disagrees_with_sample_owned_site"
+      "conflict_reason": "coordinate_resolution_names_a_different_place_than_the_sample_row"
     },
     {
       "project_accession": "PRJEB60484",
@@ -24471,7 +24343,7 @@
       "repo_stable_sample_id": "prjeb60484:samea112757335",
       "preferred_sample_label": "MDV11",
       "sample_locality_text": "Barentsøya",
-      "sample_locality_class": "excavation_site",
+      "sample_locality_class": "broader_locality",
       "sample_resolution_status": "direct_sample_site",
       "conflicting_source_surface": "archive_metadata",
       "conflicting_claim_scope": "project_context_site",
@@ -24479,7 +24351,7 @@
       "conflicting_locality_class": "broader_locality",
       "source_artifact_path": "adna/governance/source_library/projects/PRJEB60484/archive_metadata.html",
       "source_locator": "source description snapshot",
-      "conflict_reason": "project_context_disagrees_with_sample_owned_site"
+      "conflict_reason": "project_context_cannot_substitute_for_sample_owned_or_unresolved_sample_locality"
     },
     {
       "project_accession": "PRJEB60484",
@@ -24487,7 +24359,7 @@
       "repo_stable_sample_id": "prjeb60484:samea112757335",
       "preferred_sample_label": "MDV11",
       "sample_locality_text": "Barentsøya",
-      "sample_locality_class": "excavation_site",
+      "sample_locality_class": "broader_locality",
       "sample_resolution_status": "direct_sample_site",
       "conflicting_source_surface": "archive_metadata",
       "conflicting_claim_scope": "original_place_string",
@@ -24495,7 +24367,7 @@
       "conflicting_locality_class": "broader_locality",
       "source_artifact_path": "adna/governance/source_library/projects/PRJEB60484/archive_metadata.html",
       "source_locator": "source description snapshot",
-      "conflict_reason": "project_context_disagrees_with_sample_owned_site"
+      "conflict_reason": "project_context_cannot_substitute_for_sample_owned_or_unresolved_sample_locality"
     },
     {
       "project_accession": "PRJEB60484",
@@ -24503,7 +24375,7 @@
       "repo_stable_sample_id": "prjeb60484:samea112757335",
       "preferred_sample_label": "MDV11",
       "sample_locality_text": "Barentsøya",
-      "sample_locality_class": "excavation_site",
+      "sample_locality_class": "broader_locality",
       "sample_resolution_status": "direct_sample_site",
       "conflicting_source_surface": "coordinate_resolution",
       "conflicting_claim_scope": "resolved_place_string",
@@ -24511,23 +24383,7 @@
       "conflicting_locality_class": "broader_locality",
       "source_artifact_path": "adna/governance/source_library/projects/PRJEB60484/archive_metadata.html",
       "source_locator": "source description snapshot",
-      "conflict_reason": "project_context_disagrees_with_sample_owned_site"
-    },
-    {
-      "project_accession": "PRJEB60484",
-      "species_latin_name": "Rangifer tarandus",
-      "repo_stable_sample_id": "prjeb60484:samea112757335",
-      "preferred_sample_label": "MDV11",
-      "sample_locality_text": "Barentsøya",
-      "sample_locality_class": "excavation_site",
-      "sample_resolution_status": "direct_sample_site",
-      "conflicting_source_surface": "tracked_source_artifact",
-      "conflicting_claim_scope": "project_context_site",
-      "conflicting_locality_text": "",
-      "conflicting_locality_class": "unresolved",
-      "source_artifact_path": "",
-      "source_locator": "",
-      "conflict_reason": "project_context_disagrees_with_sample_owned_site"
+      "conflict_reason": "coordinate_resolution_names_a_different_place_than_the_sample_row"
     },
     {
       "project_accession": "PRJEB60484",
@@ -24535,7 +24391,7 @@
       "repo_stable_sample_id": "prjeb60484:samea112757336",
       "preferred_sample_label": "MLM61",
       "sample_locality_text": "Barentsøya",
-      "sample_locality_class": "excavation_site",
+      "sample_locality_class": "broader_locality",
       "sample_resolution_status": "direct_sample_site",
       "conflicting_source_surface": "archive_metadata",
       "conflicting_claim_scope": "project_context_site",
@@ -24543,7 +24399,7 @@
       "conflicting_locality_class": "broader_locality",
       "source_artifact_path": "adna/governance/source_library/projects/PRJEB60484/archive_metadata.html",
       "source_locator": "source description snapshot",
-      "conflict_reason": "project_context_disagrees_with_sample_owned_site"
+      "conflict_reason": "project_context_cannot_substitute_for_sample_owned_or_unresolved_sample_locality"
     },
     {
       "project_accession": "PRJEB60484",
@@ -24551,7 +24407,7 @@
       "repo_stable_sample_id": "prjeb60484:samea112757336",
       "preferred_sample_label": "MLM61",
       "sample_locality_text": "Barentsøya",
-      "sample_locality_class": "excavation_site",
+      "sample_locality_class": "broader_locality",
       "sample_resolution_status": "direct_sample_site",
       "conflicting_source_surface": "archive_metadata",
       "conflicting_claim_scope": "original_place_string",
@@ -24559,7 +24415,7 @@
       "conflicting_locality_class": "broader_locality",
       "source_artifact_path": "adna/governance/source_library/projects/PRJEB60484/archive_metadata.html",
       "source_locator": "source description snapshot",
-      "conflict_reason": "project_context_disagrees_with_sample_owned_site"
+      "conflict_reason": "project_context_cannot_substitute_for_sample_owned_or_unresolved_sample_locality"
     },
     {
       "project_accession": "PRJEB60484",
@@ -24567,7 +24423,7 @@
       "repo_stable_sample_id": "prjeb60484:samea112757336",
       "preferred_sample_label": "MLM61",
       "sample_locality_text": "Barentsøya",
-      "sample_locality_class": "excavation_site",
+      "sample_locality_class": "broader_locality",
       "sample_resolution_status": "direct_sample_site",
       "conflicting_source_surface": "coordinate_resolution",
       "conflicting_claim_scope": "resolved_place_string",
@@ -24575,23 +24431,7 @@
       "conflicting_locality_class": "broader_locality",
       "source_artifact_path": "adna/governance/source_library/projects/PRJEB60484/archive_metadata.html",
       "source_locator": "source description snapshot",
-      "conflict_reason": "project_context_disagrees_with_sample_owned_site"
-    },
-    {
-      "project_accession": "PRJEB60484",
-      "species_latin_name": "Rangifer tarandus",
-      "repo_stable_sample_id": "prjeb60484:samea112757336",
-      "preferred_sample_label": "MLM61",
-      "sample_locality_text": "Barentsøya",
-      "sample_locality_class": "excavation_site",
-      "sample_resolution_status": "direct_sample_site",
-      "conflicting_source_surface": "tracked_source_artifact",
-      "conflicting_claim_scope": "project_context_site",
-      "conflicting_locality_text": "",
-      "conflicting_locality_class": "unresolved",
-      "source_artifact_path": "",
-      "source_locator": "",
-      "conflict_reason": "project_context_disagrees_with_sample_owned_site"
+      "conflict_reason": "coordinate_resolution_names_a_different_place_than_the_sample_row"
     },
     {
       "project_accession": "PRJEB60484",
@@ -24639,22 +24479,6 @@
       "conflicting_locality_class": "broader_locality",
       "source_artifact_path": "adna/governance/source_library/projects/PRJEB60484/archive_metadata.html",
       "source_locator": "source description snapshot",
-      "conflict_reason": "project_context_disagrees_with_sample_owned_site"
-    },
-    {
-      "project_accession": "PRJEB60484",
-      "species_latin_name": "Rangifer tarandus",
-      "repo_stable_sample_id": "prjeb60484:samea112757337",
-      "preferred_sample_label": "R20",
-      "sample_locality_text": "Wijdefjorden",
-      "sample_locality_class": "excavation_site",
-      "sample_resolution_status": "direct_sample_site",
-      "conflicting_source_surface": "tracked_source_artifact",
-      "conflicting_claim_scope": "project_context_site",
-      "conflicting_locality_text": "",
-      "conflicting_locality_class": "unresolved",
-      "source_artifact_path": "",
-      "source_locator": "",
       "conflict_reason": "project_context_disagrees_with_sample_owned_site"
     },
     {
@@ -24708,22 +24532,6 @@
     {
       "project_accession": "PRJEB60484",
       "species_latin_name": "Rangifer tarandus",
-      "repo_stable_sample_id": "prjeb60484:samea112757338",
-      "preferred_sample_label": "R25a",
-      "sample_locality_text": "Wijdefjorden",
-      "sample_locality_class": "excavation_site",
-      "sample_resolution_status": "direct_sample_site",
-      "conflicting_source_surface": "tracked_source_artifact",
-      "conflicting_claim_scope": "project_context_site",
-      "conflicting_locality_text": "",
-      "conflicting_locality_class": "unresolved",
-      "source_artifact_path": "",
-      "source_locator": "",
-      "conflict_reason": "project_context_disagrees_with_sample_owned_site"
-    },
-    {
-      "project_accession": "PRJEB60484",
-      "species_latin_name": "Rangifer tarandus",
       "repo_stable_sample_id": "prjeb60484:samea112757339",
       "preferred_sample_label": "R29a",
       "sample_locality_text": "Wijdefjorden",
@@ -24767,22 +24575,6 @@
       "conflicting_locality_class": "broader_locality",
       "source_artifact_path": "adna/governance/source_library/projects/PRJEB60484/archive_metadata.html",
       "source_locator": "source description snapshot",
-      "conflict_reason": "project_context_disagrees_with_sample_owned_site"
-    },
-    {
-      "project_accession": "PRJEB60484",
-      "species_latin_name": "Rangifer tarandus",
-      "repo_stable_sample_id": "prjeb60484:samea112757339",
-      "preferred_sample_label": "R29a",
-      "sample_locality_text": "Wijdefjorden",
-      "sample_locality_class": "excavation_site",
-      "sample_resolution_status": "direct_sample_site",
-      "conflicting_source_surface": "tracked_source_artifact",
-      "conflicting_claim_scope": "project_context_site",
-      "conflicting_locality_text": "",
-      "conflicting_locality_class": "unresolved",
-      "source_artifact_path": "",
-      "source_locator": "",
       "conflict_reason": "project_context_disagrees_with_sample_owned_site"
     },
     {
@@ -24836,22 +24628,6 @@
     {
       "project_accession": "PRJEB60484",
       "species_latin_name": "Rangifer tarandus",
-      "repo_stable_sample_id": "prjeb60484:samea112757340",
-      "preferred_sample_label": "R36",
-      "sample_locality_text": "Wijdefjorden",
-      "sample_locality_class": "excavation_site",
-      "sample_resolution_status": "direct_sample_site",
-      "conflicting_source_surface": "tracked_source_artifact",
-      "conflicting_claim_scope": "project_context_site",
-      "conflicting_locality_text": "",
-      "conflicting_locality_class": "unresolved",
-      "source_artifact_path": "",
-      "source_locator": "",
-      "conflict_reason": "project_context_disagrees_with_sample_owned_site"
-    },
-    {
-      "project_accession": "PRJEB60484",
-      "species_latin_name": "Rangifer tarandus",
       "repo_stable_sample_id": "prjeb60484:samea114857470",
       "preferred_sample_label": "FJL1a",
       "sample_locality_text": "Kapp Flora",
@@ -24900,22 +24676,6 @@
     {
       "project_accession": "PRJEB60484",
       "species_latin_name": "Rangifer tarandus",
-      "repo_stable_sample_id": "prjeb60484:samea114857470",
-      "preferred_sample_label": "FJL1a",
-      "sample_locality_text": "Kapp Flora",
-      "sample_locality_class": "excavation_site",
-      "sample_resolution_status": "direct_sample_site",
-      "conflicting_source_surface": "tracked_source_artifact",
-      "conflicting_claim_scope": "project_context_site",
-      "conflicting_locality_text": "",
-      "conflicting_locality_class": "unresolved",
-      "source_artifact_path": "",
-      "source_locator": "",
-      "conflict_reason": "project_context_disagrees_with_sample_owned_site"
-    },
-    {
-      "project_accession": "PRJEB60484",
-      "species_latin_name": "Rangifer tarandus",
       "repo_stable_sample_id": "prjeb60484:samea114857471",
       "preferred_sample_label": "FJL3",
       "sample_locality_text": "Tchaiabukta/Hooken Island",
@@ -24959,22 +24719,6 @@
       "conflicting_locality_class": "broader_locality",
       "source_artifact_path": "adna/governance/source_library/projects/PRJEB60484/archive_metadata.html",
       "source_locator": "source description snapshot",
-      "conflict_reason": "project_context_disagrees_with_sample_owned_site"
-    },
-    {
-      "project_accession": "PRJEB60484",
-      "species_latin_name": "Rangifer tarandus",
-      "repo_stable_sample_id": "prjeb60484:samea114857471",
-      "preferred_sample_label": "FJL3",
-      "sample_locality_text": "Tchaiabukta/Hooken Island",
-      "sample_locality_class": "excavation_site",
-      "sample_resolution_status": "direct_sample_site",
-      "conflicting_source_surface": "tracked_source_artifact",
-      "conflicting_claim_scope": "project_context_site",
-      "conflicting_locality_text": "",
-      "conflicting_locality_class": "unresolved",
-      "source_artifact_path": "",
-      "source_locator": "",
       "conflict_reason": "project_context_disagrees_with_sample_owned_site"
     },
     {

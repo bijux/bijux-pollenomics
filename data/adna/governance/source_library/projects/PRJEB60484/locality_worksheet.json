@@ -72,7 +72,7 @@
       "supporting_sample_count": 5,
       "original_locality_text": "Barentsøya",
       "resolved_locality_text": "Barentsøya",
-      "locality_class": "excavation_site",
+      "locality_class": "broader_locality",
       "site_name": "Barentsøya",
       "municipality_name": "",
       "region_name": "",
@@ -103,6 +103,26 @@
       "source_artifact_kind": "supplementary_spreadsheet_row",
       "source_locator": "SAMPLE[@accession='SAMEA112757323']/@alias || SI Table S1 row 27, Sample ID MLM12",
       "source_excerpt": "ENA BioSample SAMEA112757323 aliases MLM12; supplementary table row 27 reports Edgeøya, Diskobukta, 1298-1349 BP (2 sigma), median 1326 BP; ENA BioProject field: PRJEB60484."
+    },
+    {
+      "project_accession": "PRJEB60484",
+      "species_latin_name": "Rangifer tarandus",
+      "source_surface": "supplementary_table",
+      "source_claim_scope": "sample_owned_locality",
+      "supporting_sample_count": 1,
+      "original_locality_text": "Edgeøya",
+      "resolved_locality_text": "Edgeøya",
+      "locality_class": "broader_locality",
+      "site_name": "Edgeøya",
+      "municipality_name": "",
+      "region_name": "",
+      "country_name": "Norway",
+      "broader_geography": "",
+      "geocoding_safe_token": "edgeøya",
+      "source_artifact_path": "data/adna/governance/source_library/projects/PRJEB60484/ena_samples/SAMEA112757327.xml || data/adna/governance/source_library/papers/10.1111-mec.17274/author_preprint.pdf || data/adna/governance/source_library/papers/10.1111-mec.17274/supplementary/author-preprint-table-s3.xlsx",
+      "source_artifact_kind": "supplementary_spreadsheet_row",
+      "source_locator": "SAMPLE[@accession='SAMEA112757327']/@alias || Table 1 pp. 41-43, ID B20 || Table S3 row 5, ID B20",
+      "source_excerpt": "ENA BioSample SAMEA112757327 aliases B20; author bioRxiv preprint Table 1 pp. 41-43, ID B20 reports E-Svalbard, 2329-2460 BP (2 sigma), UTM E 651368 m and N 8661900 m. The UTM zone is not given; no WGS84 point is derived. Author preprint Table S3 row 5 names Edgeøya."
     },
     {
       "project_accession": "PRJEB60484",
@@ -223,26 +243,6 @@
       "source_artifact_kind": "supplementary_spreadsheet_row",
       "source_locator": "SAMPLE[@accession='SAMEA112757337']/@alias || SI Table S1 row 33, Sample ID R20*",
       "source_excerpt": "ENA BioSample SAMEA112757337 aliases R20; supplementary table row 33 reports Spitsbergen, Wijdefjorden, 41-252 BP (2 sigma), median 123 BP; ENA BioProject field: PRJEB60484."
-    },
-    {
-      "project_accession": "PRJEB60484",
-      "species_latin_name": "Rangifer tarandus",
-      "source_surface": "tracked_source_artifact",
-      "source_claim_scope": "project_context_site",
-      "supporting_sample_count": 1,
-      "original_locality_text": "",
-      "resolved_locality_text": "",
-      "locality_class": "unresolved",
-      "site_name": "",
-      "municipality_name": "",
-      "region_name": "",
-      "country_name": "",
-      "broader_geography": "",
-      "geocoding_safe_token": "",
-      "source_artifact_path": "",
-      "source_artifact_kind": "",
-      "source_locator": "",
-      "source_excerpt": ""
     }
   ]
 }

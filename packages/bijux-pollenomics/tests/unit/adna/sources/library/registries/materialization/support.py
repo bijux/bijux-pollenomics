@@ -100,6 +100,16 @@ def _fixture_downloader(url: str) -> tuple[bytes, str]:
             / "data/adna/governance/source_library/papers/10.1111-mec.17274/author_preprint.pdf"
         )
         return (source_path.read_bytes(), "application/pdf")
+    if "2023.09.21.558762/DC2/embed/media-2.xlsx" in url:
+        source_path = (
+            REPOSITORY_ROOT
+            / "data/adna/governance/source_library/papers/10.1111-mec.17274/"
+            "supplementary/author-preprint-table-s3.xlsx"
+        )
+        return (
+            source_path.read_bytes(),
+            "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+        )
     if url.endswith("PMC11162877/fullTextXML"):
         source_path = (
             REPOSITORY_ROOT

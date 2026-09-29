@@ -2489,6 +2489,24 @@
       "content_encoding": null
     },
     {
+      "artifact_id": "10.1111-mec.17274:author-preprint-table-s3.xlsx",
+      "artifact_kind": "author_preprint_supplementary_xlsx",
+      "label": "author bioRxiv Table S3",
+      "source_url": "https://www.biorxiv.org/content/biorxiv/early/2023/09/22/2023.09.21.558762/DC2/embed/media-2.xlsx?download=true",
+      "local_path": "adna/governance/source_library/papers/10.1111-mec.17274/supplementary/author-preprint-table-s3.xlsx",
+      "fetch_status": "archived",
+      "remote_note": "Author preprint Table S3 has 18 ancient specimen rows and a distinct version role from the published Wiley appendix.",
+      "project_accessions": [
+        "PRJEB60484"
+      ],
+      "paper_doi": "10.1111/mec.17274",
+      "content_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+      "byte_size": 60061,
+      "storage_path": "adna/governance/source_library/papers/10.1111-mec.17274/supplementary/author-preprint-table-s3.xlsx",
+      "storage_byte_size": 60061,
+      "content_encoding": null
+    },
+    {
       "artifact_id": "10.1111-mec.17274:author_preprint.pdf",
       "artifact_kind": "author_preprint_pdf",
       "label": "author bioRxiv preprint",

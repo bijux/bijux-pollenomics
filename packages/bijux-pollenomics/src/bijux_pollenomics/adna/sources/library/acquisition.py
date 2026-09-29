@@ -447,6 +447,26 @@ def _official_source_receipt_metadata(
                 },
             ],
         }
+    if asset.artifact_kind == "author_preprint_supplementary_xlsx":
+        return {
+            "preprint_doi": "10.1101/2023.09.21.558762",
+            "preprint_version": "1",
+            "retrieved_at_utc": retrieved_at_utc,
+            "license_name": "Creative Commons Attribution 4.0 International",
+            "license_url": "https://creativecommons.org/licenses/by/4.0/",
+            "license_evidence_url": "https://api.biorxiv.org/details/biorxiv/10.1101/2023.09.21.558762/na",
+            "published_appendix_equivalence": "unverified",
+            "evidence_locators": [
+                {
+                    "claim_family": "specimen_site_chronology",
+                    "locator": "Tabellenblatt1 rows 3-20, columns A-I",
+                },
+                {
+                    "claim_family": "source_role",
+                    "locator": "preprint supplementary listing, Table S3",
+                },
+            ],
+        }
     if asset.artifact_kind == "ena_sample_xml":
         accession = Path(asset.relative_path).stem
         locators = [

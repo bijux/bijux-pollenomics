@@ -124,17 +124,17 @@
     {
       "species_latin_name": "Rangifer tarandus",
       "recovered_sample_row_count": 20,
-      "exact_site_evidence_count": 19,
-      "broader_locality_evidence_count": 0,
-      "unresolved_geography_count": 1,
-      "excavation_site_count": 19,
-      "broader_locality_count": 0,
+      "exact_site_evidence_count": 14,
+      "broader_locality_evidence_count": 6,
+      "unresolved_geography_count": 0,
+      "excavation_site_count": 14,
+      "broader_locality_count": 6,
       "municipality_count": 0,
       "region_count": 0,
       "country_count": 0,
       "inferred_place_string_count": 0,
-      "locality_unresolved_count": 1,
-      "locality_completeness_ratio": 0.95
+      "locality_unresolved_count": 0,
+      "locality_completeness_ratio": 0.7
     },
     {
       "species_latin_name": "Sus scrofa domesticus",

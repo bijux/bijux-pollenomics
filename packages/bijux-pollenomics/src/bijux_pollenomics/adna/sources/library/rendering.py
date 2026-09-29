@@ -20,7 +20,7 @@ def _render_curation_note(bundle: AdnaSourceBundleManifest) -> str:
             "evidence is also available."
             if bundle.paper_required
             and bundle.supplement_download_status in {"archived", "partial"}
-            else "Paper-level evidence is required, and no supplementary artifact "
+            else "Paper-level evidence is required, and no publisher supplement "
             "is currently curated."
             if bundle.paper_required
             else "Archive metadata is sufficient for the current curation posture."

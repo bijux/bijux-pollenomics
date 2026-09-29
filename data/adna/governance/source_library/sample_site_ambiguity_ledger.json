@@ -682,17 +682,6 @@
       "review_note": "No location evidence has been extracted yet for this recovered sample row.",
       "location_evidence_artifact_path": "",
       "location_evidence_locator": ""
-    },
-    {
-      "project_accession": "PRJEB60484",
-      "species_latin_name": "Rangifer tarandus",
-      "repo_stable_sample_id": "prjeb60484:samea112757327",
-      "preferred_sample_label": "B20",
-      "locality_resolution_status": "unresolved",
-      "locality_text": "",
-      "review_note": "No location evidence has been extracted yet for this recovered sample row.",
-      "location_evidence_artifact_path": "",
-      "location_evidence_locator": ""
     }
   ]
 }

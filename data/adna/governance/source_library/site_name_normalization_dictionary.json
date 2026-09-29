@@ -6584,7 +6584,7 @@
         "supplementary_table"
       ],
       "locality_classes": [
-        "excavation_site"
+        "broader_locality"
       ]
     },
     {
@@ -6601,6 +6601,22 @@
       ],
       "locality_classes": [
         "excavation_site"
+      ]
+    },
+    {
+      "project_accession": "PRJEB60484",
+      "species_latin_name": "Rangifer tarandus",
+      "normalized_display_spelling": "Edgeøya",
+      "geocoding_safe_token": "edgeøya",
+      "original_source_spellings": [
+        "Edgeøya"
+      ],
+      "alternative_spellings": [],
+      "source_surfaces": [
+        "supplementary_table"
+      ],
+      "locality_classes": [
+        "broader_locality"
       ]
     },
     {

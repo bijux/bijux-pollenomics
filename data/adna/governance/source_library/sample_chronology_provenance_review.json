@@ -52806,7 +52806,7 @@
       "repo_stable_sample_id": "prjeb60484:samea112757327",
       "preferred_sample_label": "B20",
       "published_wording": "2329-2460 BP",
-      "source_wording_excerpt": "ENA BioSample SAMEA112757327 aliases B20; author bioRxiv preprint Table 1 pp. 41-43, ID B20 reports E-Svalbard, 2329-2460 BP (2 sigma), UTM E 651368 m and N 8661900 m. The UTM zone is not given; no WGS84 point is derived.",
+      "source_wording_excerpt": "ENA BioSample SAMEA112757327 aliases B20; author bioRxiv preprint Table 1 pp. 41-43, ID B20 reports E-Svalbard, 2329-2460 BP (2 sigma), UTM E 651368 m and N 8661900 m. The UTM zone is not given; no WGS84 point is derived. Author preprint Table S3 row 5 names Edgeøya.",
       "provenance_surface": "data/adna/governance/source_library/papers/10.1111-mec.17274/author_preprint.pdf",
       "provenance_kind": "supplementary_pdf_text",
       "provenance_locator": "Table 1 pp. 41-43, ID B20",
@@ -52836,7 +52836,7 @@
         "refusal_reason_code": "",
         "provenance_path": "data/adna/governance/source_library/papers/10.1111-mec.17274/author_preprint.pdf",
         "provenance_locator": "Table 1 pp. 41-43, ID B20",
-        "provenance_excerpt": "ENA BioSample SAMEA112757327 aliases B20; author bioRxiv preprint Table 1 pp. 41-43, ID B20 reports E-Svalbard, 2329-2460 BP (2 sigma), UTM E 651368 m and N 8661900 m. The UTM zone is not given; no WGS84 point is derived.",
+        "provenance_excerpt": "ENA BioSample SAMEA112757327 aliases B20; author bioRxiv preprint Table 1 pp. 41-43, ID B20 reports E-Svalbard, 2329-2460 BP (2 sigma), UTM E 651368 m and N 8661900 m. The UTM zone is not given; no WGS84 point is derived. Author preprint Table S3 row 5 names Edgeøya.",
         "original_labels": [
           "2329-2460 BP"
         ],

@@ -8,11 +8,12 @@
 - Paper download status: `archived`
 - Supplement download status: `missing`
 
-Paper-level evidence is required, and no supplementary artifact is currently curated.
+Paper-level evidence is required, and no publisher supplement is currently curated.
 
 ## Local artifacts
 
 - `adna/governance/source_library/papers/10.1111-mec.17274/article.pdf`
+- `adna/governance/source_library/papers/10.1111-mec.17274/supplementary/author-preprint-table-s3.xlsx`
 - `adna/governance/source_library/papers/10.1111-mec.17274/author_preprint.pdf`
 - `adna/governance/source_library/papers/10.1111-mec.17274/crossref.json`
 - `adna/governance/source_library/projects/PRJEB60484/ena_samples/SAMEA112757323.xml`
