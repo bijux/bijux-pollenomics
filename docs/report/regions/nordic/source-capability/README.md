@@ -26,6 +26,13 @@ observed-pollen study and 124 do not. Its separate sample prerequisites do not
 admit any dataset to LRA or measured-vegetation validation. Entity decisions
 for the other source families still require their own source evidence.
 
+The [used-dataset publication ledger](neotoma-attribution/README.md) joins
+those 85 Neotoma study datasets to exact provider citation responses. Seventy-nine
+have one provider-flagged primary publication; six need primary-link review.
+Thirteen carry distinct source DOI names, with 18 datasets in the union of
+citation-review cases. Neotoma's policy-level CC BY 4.0 statement and these
+metadata do not resolve sample-specific scientific admission or vegetation truth.
+
 The existing [SEAD site ledger](../../../source-relations/sead-country-retrieval/README.md)
 already records all 2,195 discovered site IDs and UUIDs. Governed boundaries
 assign 2,069 to SE/DK/NO/FI and retain 103 for review plus 23 unassigned;
