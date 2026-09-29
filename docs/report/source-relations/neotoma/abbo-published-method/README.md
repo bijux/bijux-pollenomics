@@ -51,6 +51,15 @@ SHA-256 `d96046c88b497ba07082120e446fecacad0d9b5533d8960bdbc03811976ea435`;
 the [core comparison manifest](../abbo-core-identity/manifest.json) pins
 the same bytes.
 
+Separately, the retained [author taxonomy lookup](../author-taxonomy-mass/README.md)
+(SHA-256 `3a745f9b7606e5d0b59feaba2683b930c8d3990e4810f8217b69160a29a1b507`)
+assigns **1,190 of 1,206 pollen NISP** in this Neotoma sample to **13**
+LandClim author targets. It labels the remaining **16** grains excluded and
+leaves none unmapped. This is a sample-level source-lookup partition of pollen
+only. It neither includes the nonsphagnum spores in the 2005 percentage
+candidate nor establishes the time-window pooling, historical input revision,
+or reviewed REVEALS denominator for the LandClim ABB sequence.
+
 The [core identity lead](../abbo-core-identity/README.md) supplies Neotoma
 dataset `19913`, site `13338`, collection unit `ABBO`, sample `173174`, and
 LandClim II site metadata row 968 for sequence `ABB`. The [native count
