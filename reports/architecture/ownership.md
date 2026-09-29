@@ -71,3 +71,9 @@ The [Swedish author-target country holdout](../science/sweden-author-pollen.md)
 completes the four-country reader set. Its website citation page and master
 ledger point to the root narrative, while the 51 scored and three refused
 bins remain in the producer-owned numeric outputs.
+
+The [Nordic observed-pollen selection](../science/nordic-observed-pollen-selection.md)
+and [matched transfer](../science/nordic-observed-pollen-transfer.md) accounts
+are separately root-owned. The search's trial ledger and the transfer's
+frozen predictions and paired scores remain with their respective producers;
+the old website pages preserve citations to both methods.

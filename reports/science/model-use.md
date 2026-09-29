@@ -32,7 +32,7 @@ Its own coverage is 174/184 attempted bins versus 178/184 for inverse
 distance. These are previously exposed English outcomes, not a parameter
 recommendation for new Nordic sites.
 
-The [Nordic inner-fold search](../../docs/report/regions/nordic/pollen-development/README.md)
+The [Nordic inner-fold search](nordic-observed-pollen-selection.md)
 tested three fixed baselines and nine CLR-RBF combinations for each excluded
 country. The candidates used training-site distance quantiles 0.25, 0.50 or
 0.75 and ridge 0.001, 0.01 or 0.1. They were selected by complete eligible
@@ -40,7 +40,7 @@ coverage, equal-site MAE, then Hellinger and candidate ID. It retained 40,932
 candidate-bin trials and 2,439 RBF fits. Training selected IDW for Denmark,
 RBF q75/ridge 0.1 for Finland and RBF q50/ridge 0.1 for Norway.
 
-The [frozen matched country transfer](../../docs/report/regions/nordic/selected-pollen-transfer/README.md)
+The [frozen matched country transfer](nordic-observed-pollen-transfer.md)
 shows why inner-fold selection is not a general improvement claim:
 
 | Excluded country | Selected method | Scored sites/bins | Selected MAE | IDW MAE |
