@@ -1,16 +1,16 @@
 {
   "schema_version": "report-surface-registry.v1",
-  "surface_count": 1525,
+  "surface_count": 1526,
   "family_counts": {
     "caveats": 10,
-    "maintenance": 786,
+    "maintenance": 787,
     "maps": 85,
     "portal": 2,
     "reviews": 34,
     "scopes": 608
   },
   "audience_counts": {
-    "maintainer_diagnostic": 788,
+    "maintainer_diagnostic": 789,
     "public_reading_surface": 617,
     "scientific_review_surface": 120
   },
@@ -20,7 +20,7 @@
     "finland": 14,
     "nordic": 355,
     "norway": 14,
-    "report_root": 835,
+    "report_root": 836,
     "sweden": 48,
     "world": 172
   },
@@ -2796,6 +2796,18 @@
       "caution_level": "high",
       "explanation": "Reader-facing entry page for one scope bundle.",
       "reader_route": "start_here"
+    },
+    {
+      "repository_path": "docs/report/maintenance/artifact-retention/linux-r-oracle-retirement.json",
+      "family": "maintenance",
+      "family_label": "Maintainer truth surfaces",
+      "audience": "maintainer_diagnostic",
+      "audience_label": "Maintainer diagnostic",
+      "format": "json",
+      "geography": "report_root",
+      "caution_level": "high",
+      "explanation": "Maintainer-facing truth or governance surface.",
+      "reader_route": "maintainer_truth"
     },
     {
       "repository_path": "docs/report/maintenance/artifact-retention/nordic-tox-lane-receipts.json",

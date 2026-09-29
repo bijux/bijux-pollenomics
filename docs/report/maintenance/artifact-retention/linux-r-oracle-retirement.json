@@ -1,0 +1,19 @@
+{
+  "schema_version": "lra-reference-artifact-retirement.v1",
+  "private_custody_manifest_sha256": "0398b643a2124ce44d9854a6979b1939c6c93337ddea30d1e030439de44d3575",
+  "removed_directories": [
+    "artifacts/v2/validation/live-r-integration/acquire-001/sources",
+    "artifacts/v2/linux-r-runtime/build001",
+    "artifacts/v2/linux-r-runtime/provision001"
+  ],
+  "retained_private_source_archives": 37,
+  "retained_private_runtime_files": 1227,
+  "retained_private_library_files": 2784,
+  "retained_private_process_evidence_files": 130,
+  "original_process_pids_absent": [
+    51768,
+    55317,
+    64752
+  ],
+  "scope": "three exact inactive generated/source-cache directories; sibling artifact trees untouched"
+}

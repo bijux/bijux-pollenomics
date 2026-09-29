@@ -101,3 +101,19 @@ available lane-result objects from the six later removed snapshots, including ex
 environment and JUnit identities. Each original receipt byte hash was checked
 against the custody record before inclusion. The earlier removed snapshot has
 only its compact outcome record; its full lane objects were not retained.
+
+## Linux R oracle input and build custody
+
+The [R oracle retirement receipt](linux-r-oracle-retirement.json) records three
+subsequent exact removals: the v2 locked source cache, the source-built R
+runtime tree, and the provisioned private R library tree. Their source-lock
+archives, **1,227 runtime files**, **2,784 library files**, and **130 acquisition,
+build and provision process files** were first checked and retained in the
+private `lra-reference/` store. Its custody manifest has SHA-256
+`0398b643a2124ce44d9854a6979b1939c6c93337ddea30d1e030439de44d3575`.
+The three recorded process IDs were absent before removal. The unpacked R source
+and build intermediates were generated from the locked archive; the original
+receipts and step logs remain in private custody. The governed
+[Linux R oracle report](../../method-certification/linux-r-oracle/README.md)
+now uses that custody for reproduction. Other v2–v5 artifact paths were not
+covered by this retirement decision.

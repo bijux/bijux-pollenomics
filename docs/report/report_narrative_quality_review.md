@@ -86,7 +86,7 @@ link farms or coded operator notes.
 | `docs/report/countries/sweden/sweden_land_use_synthesis_v66.md` | `reader_ready` | 5 | 0 | 5 | 16 | 4 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/host-lra-distribution/README.md` | `reader_ready` | 8 | 0 | 0 | 11 | 2 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/lra-distribution/README.md` | `thin_structure` | 3 | 0 | 0 | 4 | 1 | Page explains itself but still needs stronger internal wayfinding. |
-| `docs/report/maintenance/artifact-retention/README.md` | `reader_ready` | 12 | 0 | 0 | 0 | 5 | Page explains its purpose before or alongside artifact links. |
+| `docs/report/maintenance/artifact-retention/README.md` | `reader_ready` | 13 | 0 | 0 | 0 | 6 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/method-certification/analytical-love-ring-sensitivity/README.md` | `thin_structure` | 4 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/method-certification/author-site-profile-comparison/README.md` | `thin_structure` | 4 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/method-certification/author-site-uncertainty/README.md` | `thin_structure` | 4 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
