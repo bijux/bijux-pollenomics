@@ -601,8 +601,8 @@
     },
     {
       "path": "docs/report/publication-replay/landclim-pft-crosswalk/README.md",
-      "sha256": "bbc2388613bac0716e2e6242bc4bd1a1b70ca5fdb2a932e7574e8de375337440",
-      "bytes": 8659
+      "sha256": "89a4dff0863cbc3f48cb21bca97b3f9ee45caa0ad95a7f9bade5bdd56f2c33b7",
+      "bytes": 8694
     },
     {
       "path": "docs/report/publication-replay/landclim-pft-crosswalk/author-name-review/report.json",
@@ -621,8 +621,8 @@
     },
     {
       "path": "docs/report/publication-replay/landclim-pft-crosswalk/report.json",
-      "sha256": "8db955ac324acb2bc6d52059a84088dd456393704e265e7d2dedee9d9bb65a94",
-      "bytes": 2430
+      "sha256": "2e6b2cff68c2a573ebf4310a3df883086861e703724e0ba63f11ff6707bd9da3",
+      "bytes": 2672
     },
     {
       "path": "docs/report/publication-replay/landclim-pft-crosswalk/tbs-taxon-arithmetic/report.json",
@@ -1361,8 +1361,8 @@
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/pft_crosswalk.py",
-      "sha256": "18b1e308b855d923df123c450fac1d10cbdcac4f182fea2ab41544d8cb311e38",
-      "bytes": 26606
+      "sha256": "e7ce6641d1ba32278c259472b3169a00dd1d8dbfd06b914bf3e877eeb1758b4e",
+      "bytes": 27051
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/pft_uncertainty_bounds.py",

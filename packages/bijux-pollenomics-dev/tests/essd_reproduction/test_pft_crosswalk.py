@@ -30,6 +30,10 @@ GOVERNED = REPOSITORY / "docs/report/publication-replay/landclim-pft-crosswalk"
 def test_parameter_table_retains_twelve_source_codes_and_three_lcts() -> None:
     codes, definitions, groups = _source_mapping((REPOSITORY / MAPPING).read_bytes())
     assert len(codes) == len(definitions) == 12
+    assert len(set(definitions.values())) == 11
+    assert (
+        definitions["TBE1"] == definitions["TBE2"] == "Shade-tolerant evergreen trees"
+    )
     assert groups == SOURCE_GROUPS
     assert "ISTS" not in codes
 
@@ -61,6 +65,13 @@ def test_full_published_output_supports_only_mean_arithmetic() -> None:
         "OL": 5921,
     }
     assert summary["pft_taxon_definition_admitted_for_ists"] is False
+    assert summary["source_parameter_definition_count"] == 11
+    assert summary["source_parameter_duplicate_definition_groups"] == [
+        {
+            "definition": "Shade-tolerant evergreen trees",
+            "codes": ["TBE1", "TBE2"],
+        }
+    ]
     assert summary["lct_standard_error_aggregation_admitted"] is False
     assert summary["paper_dataset_pft_count_reconciled"] is False
 
