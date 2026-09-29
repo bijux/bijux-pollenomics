@@ -212,6 +212,16 @@ cell-level CSVs remain reproducible from the retained source inputs. No file
 was open or multiply linked, and the sole repository path mention is
 historical.
 
+The [published-window retirement receipt](landclim-published-window-retirement.json)
+binds 98 files and 13 pytest symlinks from the earlier time-window and
+numerical-provenance workspace. Governed reports now retain the
+[three-way numerical ledger](../../publication-replay/landclim-published-window-provenance/README.md),
+[reported uncertainty envelopes](../../publication-replay/landclim-published-window-uncertainty/README.md)
+and [25-window axis comparison](../../publication-replay/landclim-window-alignment/README.md).
+Their manifests bind original final outputs and current source inputs. The
+early runs are superseded by those checked results; no live consumer or open
+file depends on this working directory.
+
 The [earlier scientific report provenance](scientific-report-provenance/README.md)
 retains exact results, scope, and evidence-manifest bytes from the previous
 11-result study. The current report has 17 result rows and a passing 170-file

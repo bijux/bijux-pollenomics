@@ -1,0 +1,682 @@
+{
+  "schema_version": "landclim-published-window-artifact-retirement.v1",
+  "retired_directory": "artifacts/v4/published-window-provenance",
+  "entries": [
+    {
+      "path": "alignment-corrected-test-cache/.gitignore",
+      "bytes": 37,
+      "type": "regular",
+      "sha256": "3ed731b65d06150c138e2dadb0be0697550888a6b47eb8c45ecc9adba8b8e9bd"
+    },
+    {
+      "path": "alignment-corrected-test-cache/CACHEDIR.TAG",
+      "bytes": 191,
+      "type": "regular",
+      "sha256": "37dc88ef9a0abeddbe81053a6dd8fdfb13afb613045ea1eb4a5c815a74a3bde4"
+    },
+    {
+      "path": "alignment-corrected-test-cache/README.md",
+      "bytes": 302,
+      "type": "regular",
+      "sha256": "73fd6fccdd802c419a6b2d983d6c3173b7da97558ac4b589edec2dfe443db9ad"
+    },
+    {
+      "path": "alignment-corrected-test-cache/v/cache/nodeids",
+      "bytes": 128,
+      "type": "regular",
+      "sha256": "915d9dba48de566850c03962bf7465890baee14a35e7b1fc94959aae4afdcc9b"
+    },
+    {
+      "path": "alignment-plans.py",
+      "bytes": 2806,
+      "type": "regular",
+      "sha256": "896bca45dc3ddc90b8e9e8106d7e7ba89049c05d51fe7384c37d013317d0501e"
+    },
+    {
+      "path": "alignment-retry-plans.py",
+      "bytes": 879,
+      "type": "regular",
+      "sha256": "50a5e95f7d171763119991276f390f57a5417a8c1f9035bb96949980c699971c"
+    },
+    {
+      "path": "alignment-test-cache/.gitignore",
+      "bytes": 37,
+      "type": "regular",
+      "sha256": "3ed731b65d06150c138e2dadb0be0697550888a6b47eb8c45ecc9adba8b8e9bd"
+    },
+    {
+      "path": "alignment-test-cache/CACHEDIR.TAG",
+      "bytes": 191,
+      "type": "regular",
+      "sha256": "37dc88ef9a0abeddbe81053a6dd8fdfb13afb613045ea1eb4a5c815a74a3bde4"
+    },
+    {
+      "path": "alignment-test-cache/README.md",
+      "bytes": 302,
+      "type": "regular",
+      "sha256": "73fd6fccdd802c419a6b2d983d6c3173b7da97558ac4b589edec2dfe443db9ad"
+    },
+    {
+      "path": "alignment-test-cache/v/cache/nodeids",
+      "bytes": 128,
+      "type": "regular",
+      "sha256": "915d9dba48de566850c03962bf7465890baee14a35e7b1fc94959aae4afdcc9b"
+    },
+    {
+      "path": "author-r-archive/REPORT.md",
+      "bytes": 1223,
+      "type": "regular",
+      "sha256": "7bafc146f6bd0b5d654df74fd45c31133f5af8b9b339d65167f7d284b6be143d"
+    },
+    {
+      "path": "author-r-archive/paper-correspondence.csv",
+      "bytes": 18376,
+      "type": "regular",
+      "sha256": "5e347d8236287342b423b14d67e24c9128efc05d4569b775f65fae3ac66305d5"
+    },
+    {
+      "path": "author-r-archive/report.json",
+      "bytes": 2422,
+      "type": "regular",
+      "sha256": "cab865a854c1f386bfe2600e751e2b78e78282921f3fecd83550bfc6742abfb9"
+    },
+    {
+      "path": "checks-b.plan.json",
+      "bytes": 2529,
+      "type": "regular",
+      "sha256": "f841154de07c40bcb918a9553f63afc3b06da18cb303b1c121307c3f4bc9b636"
+    },
+    {
+      "path": "checks.plan.json",
+      "bytes": 2520,
+      "type": "regular",
+      "sha256": "8280f6a331198464bd0aa24ecb5de546befd2912423dfb9ae23eee0e5a9ca73f"
+    },
+    {
+      "path": "mean-composition-checks-typed.plan.json",
+      "bytes": 1307,
+      "type": "regular",
+      "sha256": "524542a74658d8424727f5e24bcdc152e71d5c56814d6a1e944b5456e47ef040"
+    },
+    {
+      "path": "mean-composition-checks.plan.json",
+      "bytes": 1301,
+      "type": "regular",
+      "sha256": "9fa98281cd4a2bf867650f873821629877e4220984967c712bfd423550bda1b1"
+    },
+    {
+      "path": "mean-composition-distance/REPORT.md",
+      "bytes": 2002,
+      "type": "regular",
+      "sha256": "2a19ff9e6c146b29654a90c4713160f0d9113225db92dd57766317ef5bb70040"
+    },
+    {
+      "path": "mean-composition-distance/paper-correspondence.csv",
+      "bytes": 18376,
+      "type": "regular",
+      "sha256": "5e347d8236287342b423b14d67e24c9128efc05d4569b775f65fae3ac66305d5"
+    },
+    {
+      "path": "mean-composition-distance/report.json",
+      "bytes": 3956,
+      "type": "regular",
+      "sha256": "5f45f5e0bd748047d232c062b9c635074c4cf9a40ac7566ecd1589fa9175f00d"
+    },
+    {
+      "path": "mean-composition-distance-typed/REPORT.md",
+      "bytes": 2002,
+      "type": "regular",
+      "sha256": "2a19ff9e6c146b29654a90c4713160f0d9113225db92dd57766317ef5bb70040"
+    },
+    {
+      "path": "mean-composition-distance-typed/paper-correspondence.csv",
+      "bytes": 18376,
+      "type": "regular",
+      "sha256": "5e347d8236287342b423b14d67e24c9128efc05d4569b775f65fae3ac66305d5"
+    },
+    {
+      "path": "mean-composition-distance-typed/report.json",
+      "bytes": 3956,
+      "type": "regular",
+      "sha256": "5f45f5e0bd748047d232c062b9c635074c4cf9a40ac7566ecd1589fa9175f00d"
+    },
+    {
+      "path": "mean-composition-distance-typed.plan.json",
+      "bytes": 2691,
+      "type": "regular",
+      "sha256": "6a944370a8c61502f6361022c679bc812cb1624eb5c7ea10c0936ecf4bea8508"
+    },
+    {
+      "path": "mean-composition-distance.plan.json",
+      "bytes": 2673,
+      "type": "regular",
+      "sha256": "340bd7ff88c524347c903d981fc576c7b44fc63a868fdf4fe8f01c8aa5c5d2ad"
+    },
+    {
+      "path": "mean-composition-tests-typed.plan.json",
+      "bytes": 1249,
+      "type": "regular",
+      "sha256": "2691a788b2e073d27b5f277f651fc3ed49155b1ce91c9be0cd463ba6dedee1f2"
+    },
+    {
+      "path": "mean-composition-tests.plan.json",
+      "bytes": 1225,
+      "type": "regular",
+      "sha256": "c14c7a5ca7b665659d595baa434ed120af0add38b4db2bc0ce057d606901f24d"
+    },
+    {
+      "path": "mean-distance-pytest-tmp/test_author_r_selection_keeps_0/author.csv",
+      "bytes": 243,
+      "type": "regular",
+      "sha256": "1010aac4ef8da89d35b01b7ba06630c91e3f54cc7f6e9951cdec2beb7714dad4"
+    },
+    {
+      "path": "mean-distance-pytest-tmp/test_author_r_selection_keeps_current",
+      "bytes": 134,
+      "type": "symlink",
+      "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/v4/published-window-provenance/mean-distance-pytest-tmp/test_author_r_selection_keeps_0"
+    },
+    {
+      "path": "mean-distance-typed-pytest-tmp/test_author_r_selection_keeps_0/author.csv",
+      "bytes": 243,
+      "type": "regular",
+      "sha256": "1010aac4ef8da89d35b01b7ba06630c91e3f54cc7f6e9951cdec2beb7714dad4"
+    },
+    {
+      "path": "mean-distance-typed-pytest-tmp/test_author_r_selection_keeps_current",
+      "bytes": 140,
+      "type": "symlink",
+      "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/v4/published-window-provenance/mean-distance-typed-pytest-tmp/test_author_r_selection_keeps_0"
+    },
+    {
+      "path": "mean-vector-check-corrected.plan.json",
+      "bytes": 2524,
+      "type": "regular",
+      "sha256": "79e43d188cd91e776d6f617e7f391ec554b3ae1641cd0f27b428a0472932052e"
+    },
+    {
+      "path": "mean-vector-check-taxa.plan.json",
+      "bytes": 2499,
+      "type": "regular",
+      "sha256": "c227ab37c6537c669cf25f38672f74de07b8e077067e123720f094cb8489545c"
+    },
+    {
+      "path": "mean-vector-check.plan.json",
+      "bytes": 2474,
+      "type": "regular",
+      "sha256": "08ba1ec80065368e0dc1456ae81b76bf927d09e7bc7aad8ec2fc2f77b945f5ce"
+    },
+    {
+      "path": "mean-vector-corrected.plan.json",
+      "bytes": 2681,
+      "type": "regular",
+      "sha256": "7ef1e4cd4fcd227477f550a627f805bef9fe099d2c3f8b1be73b1c8b2e0229fb"
+    },
+    {
+      "path": "mean-vector-diagnostic/paper-correspondence.csv",
+      "bytes": 18376,
+      "type": "regular",
+      "sha256": "5e347d8236287342b423b14d67e24c9128efc05d4569b775f65fae3ac66305d5"
+    },
+    {
+      "path": "mean-vector-diagnostic/report.json",
+      "bytes": 3456,
+      "type": "regular",
+      "sha256": "3d965d5d69266bf50cbdcb157d39110e57ce0790a785423104a17935c2d2c3a8"
+    },
+    {
+      "path": "mean-vector-diagnostic-corrected/REPORT.md",
+      "bytes": 1673,
+      "type": "regular",
+      "sha256": "c712c72996fb0638c6e0bd5d15ef8fb7862991604af3c6e232103532baf2cc04"
+    },
+    {
+      "path": "mean-vector-diagnostic-corrected/paper-correspondence.csv",
+      "bytes": 18376,
+      "type": "regular",
+      "sha256": "5e347d8236287342b423b14d67e24c9128efc05d4569b775f65fae3ac66305d5"
+    },
+    {
+      "path": "mean-vector-diagnostic-corrected/report.json",
+      "bytes": 3456,
+      "type": "regular",
+      "sha256": "3d965d5d69266bf50cbdcb157d39110e57ce0790a785423104a17935c2d2c3a8"
+    },
+    {
+      "path": "mean-vector-diagnostic-taxa/REPORT.md",
+      "bytes": 1745,
+      "type": "regular",
+      "sha256": "5d128f0f991955ade21113292e076d2d2a19b7fe676746a1ff2251d5dcc96b8c"
+    },
+    {
+      "path": "mean-vector-diagnostic-taxa/paper-correspondence.csv",
+      "bytes": 18376,
+      "type": "regular",
+      "sha256": "5e347d8236287342b423b14d67e24c9128efc05d4569b775f65fae3ac66305d5"
+    },
+    {
+      "path": "mean-vector-diagnostic-taxa/report.json",
+      "bytes": 3691,
+      "type": "regular",
+      "sha256": "ad8ada69c96cff9477092eebd76844f24fbdad33dd36bf5abdabfed72cb9611e"
+    },
+    {
+      "path": "mean-vector-pytest-cache-corrected/.gitignore",
+      "bytes": 37,
+      "type": "regular",
+      "sha256": "3ed731b65d06150c138e2dadb0be0697550888a6b47eb8c45ecc9adba8b8e9bd"
+    },
+    {
+      "path": "mean-vector-pytest-cache-corrected/CACHEDIR.TAG",
+      "bytes": 191,
+      "type": "regular",
+      "sha256": "37dc88ef9a0abeddbe81053a6dd8fdfb13afb613045ea1eb4a5c815a74a3bde4"
+    },
+    {
+      "path": "mean-vector-pytest-cache-corrected/README.md",
+      "bytes": 302,
+      "type": "regular",
+      "sha256": "73fd6fccdd802c419a6b2d983d6c3173b7da97558ac4b589edec2dfe443db9ad"
+    },
+    {
+      "path": "mean-vector-pytest-cache-corrected/v/cache/nodeids",
+      "bytes": 148,
+      "type": "regular",
+      "sha256": "8c1cc050645af6b3a49b5385e10b1075153384d71caf7b02fd26cd7b01e034fb"
+    },
+    {
+      "path": "mean-vector-pytest-cache-taxa/.gitignore",
+      "bytes": 37,
+      "type": "regular",
+      "sha256": "3ed731b65d06150c138e2dadb0be0697550888a6b47eb8c45ecc9adba8b8e9bd"
+    },
+    {
+      "path": "mean-vector-pytest-cache-taxa/CACHEDIR.TAG",
+      "bytes": 191,
+      "type": "regular",
+      "sha256": "37dc88ef9a0abeddbe81053a6dd8fdfb13afb613045ea1eb4a5c815a74a3bde4"
+    },
+    {
+      "path": "mean-vector-pytest-cache-taxa/README.md",
+      "bytes": 302,
+      "type": "regular",
+      "sha256": "73fd6fccdd802c419a6b2d983d6c3173b7da97558ac4b589edec2dfe443db9ad"
+    },
+    {
+      "path": "mean-vector-pytest-cache-taxa/v/cache/nodeids",
+      "bytes": 148,
+      "type": "regular",
+      "sha256": "8c1cc050645af6b3a49b5385e10b1075153384d71caf7b02fd26cd7b01e034fb"
+    },
+    {
+      "path": "mean-vector-pytest-tmp-corrected/test_author_r_selection_keeps_0/author.csv",
+      "bytes": 243,
+      "type": "regular",
+      "sha256": "1010aac4ef8da89d35b01b7ba06630c91e3f54cc7f6e9951cdec2beb7714dad4"
+    },
+    {
+      "path": "mean-vector-pytest-tmp-corrected/test_author_r_selection_keeps_current",
+      "bytes": 142,
+      "type": "symlink",
+      "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/v4/published-window-provenance/mean-vector-pytest-tmp-corrected/test_author_r_selection_keeps_0"
+    },
+    {
+      "path": "mean-vector-pytest-tmp-taxa/test_author_r_selection_keeps_0/author.csv",
+      "bytes": 243,
+      "type": "regular",
+      "sha256": "1010aac4ef8da89d35b01b7ba06630c91e3f54cc7f6e9951cdec2beb7714dad4"
+    },
+    {
+      "path": "mean-vector-pytest-tmp-taxa/test_author_r_selection_keeps_current",
+      "bytes": 137,
+      "type": "symlink",
+      "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/v4/published-window-provenance/mean-vector-pytest-tmp-taxa/test_author_r_selection_keeps_0"
+    },
+    {
+      "path": "mean-vector-taxa.plan.json",
+      "bytes": 2666,
+      "type": "regular",
+      "sha256": "2fccc0269aaed93cd3c4e4f6b33d01ccb8eed8d057e34c9956c60bfddf1a19f9"
+    },
+    {
+      "path": "mean-vector.plan.json",
+      "bytes": 2651,
+      "type": "regular",
+      "sha256": "d34f44da6f77c7c23691426de376fe1602c21fe96abc9031889b778874df04d5"
+    },
+    {
+      "path": "pytest-cache-b/.gitignore",
+      "bytes": 37,
+      "type": "regular",
+      "sha256": "3ed731b65d06150c138e2dadb0be0697550888a6b47eb8c45ecc9adba8b8e9bd"
+    },
+    {
+      "path": "pytest-cache-b/CACHEDIR.TAG",
+      "bytes": 191,
+      "type": "regular",
+      "sha256": "37dc88ef9a0abeddbe81053a6dd8fdfb13afb613045ea1eb4a5c815a74a3bde4"
+    },
+    {
+      "path": "pytest-cache-b/README.md",
+      "bytes": 302,
+      "type": "regular",
+      "sha256": "73fd6fccdd802c419a6b2d983d6c3173b7da97558ac4b589edec2dfe443db9ad"
+    },
+    {
+      "path": "pytest-cache-b/v/cache/nodeids",
+      "bytes": 278,
+      "type": "regular",
+      "sha256": "ddc5564736e9fa3d8c98c7f3f6a6154ef9213398a58f9b5698c6c77eed2906a4"
+    },
+    {
+      "path": "pytest-tmp-b/test_archive_reader_rejects_me0/archive.zip",
+      "bytes": 1242,
+      "type": "regular",
+      "sha256": "4f13ebc9dddd80cc2281ad2c7421cc4c4194358e6180778b143e5b64d5ab0190"
+    },
+    {
+      "path": "pytest-tmp-b/test_archive_reader_rejects_mecurrent",
+      "bytes": 122,
+      "type": "symlink",
+      "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/v4/published-window-provenance/pytest-tmp-b/test_archive_reader_rejects_me0"
+    },
+    {
+      "path": "pytest-tmp-b/test_author_r_selection_keeps_0/author.csv",
+      "bytes": 243,
+      "type": "regular",
+      "sha256": "1010aac4ef8da89d35b01b7ba06630c91e3f54cc7f6e9951cdec2beb7714dad4"
+    },
+    {
+      "path": "pytest-tmp-b/test_author_r_selection_keeps_current",
+      "bytes": 122,
+      "type": "symlink",
+      "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/v4/published-window-provenance/pytest-tmp-b/test_author_r_selection_keeps_0"
+    },
+    {
+      "path": "pytest-tmp-b/test_exact_window_accepts_only0/TWlookup.csv",
+      "bytes": 228,
+      "type": "regular",
+      "sha256": "126c6e15cfe97d6bb0b5c1149fd3e93f266ef406e6c0476f80d81e1a320a783e"
+    },
+    {
+      "path": "pytest-tmp-b/test_exact_window_accepts_only0/bins.csv",
+      "bytes": 130,
+      "type": "regular",
+      "sha256": "c4790f89f91225d8dd7376ba247f1c9c4f1a59a8e64d74e05bd8203d29c7adc6"
+    },
+    {
+      "path": "pytest-tmp-b/test_exact_window_accepts_onlycurrent",
+      "bytes": 122,
+      "type": "symlink",
+      "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/v4/published-window-provenance/pytest-tmp-b/test_exact_window_accepts_only0"
+    },
+    {
+      "path": "pytest-tmp-b/test_fraction_candidate_is_exp0/regional-cover.csv",
+      "bytes": 30,
+      "type": "regular",
+      "sha256": "636e104d1be4f72d4fcf403daacc1bc4bcfe6d2f0837ceb36bd067f4e0473015"
+    },
+    {
+      "path": "pytest-tmp-b/test_fraction_candidate_is_expcurrent",
+      "bytes": 122,
+      "type": "symlink",
+      "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/v4/published-window-provenance/pytest-tmp-b/test_fraction_candidate_is_exp0"
+    },
+    {
+      "path": "science.plan.json",
+      "bytes": 2647,
+      "type": "regular",
+      "sha256": "cfbbf59f608519aef87599590ea9a58bfa48073e6c4e54392190aedc9596315a"
+    },
+    {
+      "path": "uncertainty-envelope/REPORT.md",
+      "bytes": 822,
+      "type": "regular",
+      "sha256": "6d4b71a1c43ad6deec76bb6a9201576a48ad559e0c4a7e5ca2c34df6ed636757"
+    },
+    {
+      "path": "uncertainty-envelope/report.json",
+      "bytes": 1177,
+      "type": "regular",
+      "sha256": "a8f12724b5da38a3b51852adeff70b008f8b03dbe54e07eaf72669085b4ec780"
+    },
+    {
+      "path": "uncertainty-envelope/taxon-envelopes.csv",
+      "bytes": 8637,
+      "type": "regular",
+      "sha256": "99ba4a3ec18b431136d7bc52a30444c877400f3ddf759b17bb8337fedf405d82"
+    },
+    {
+      "path": "uncertainty-envelope-verified/REPORT.md",
+      "bytes": 810,
+      "type": "regular",
+      "sha256": "b1107abfac52027ccc42b2114f8e2184dd5ef177c5d4129b57e3a3a8c6f82a73"
+    },
+    {
+      "path": "uncertainty-envelope-verified/report.json",
+      "bytes": 1163,
+      "type": "regular",
+      "sha256": "56bb62a2ad41c5dfbdca60841a54ad464c228ca3c93b6c3767eaad639de2e750"
+    },
+    {
+      "path": "uncertainty-envelope-verified/taxon-envelopes.csv",
+      "bytes": 8637,
+      "type": "regular",
+      "sha256": "99ba4a3ec18b431136d7bc52a30444c877400f3ddf759b17bb8337fedf405d82"
+    },
+    {
+      "path": "uncertainty-pytest-tmp/test_envelopes_keep_exact_taxo0/correspondence.csv",
+      "bytes": 7119,
+      "type": "regular",
+      "sha256": "e1f622efc699e7f16d1f6cc62dd5f87ab977bd59cd8762ed117c5b05762dfee1"
+    },
+    {
+      "path": "uncertainty-pytest-tmp/test_envelopes_keep_exact_taxo0/provenance.json",
+      "bytes": 339,
+      "type": "regular",
+      "sha256": "11f8513904465ce37d5d7f72304eafca4da3562ca136b68283fbcc9f640d27e6"
+    },
+    {
+      "path": "uncertainty-pytest-tmp/test_envelopes_keep_exact_taxocurrent",
+      "bytes": 132,
+      "type": "symlink",
+      "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/v4/published-window-provenance/uncertainty-pytest-tmp/test_envelopes_keep_exact_taxo0"
+    },
+    {
+      "path": "uncertainty-pytest-tmp/test_envelopes_refuse_wrong_ax0/correspondence.csv",
+      "bytes": 7120,
+      "type": "regular",
+      "sha256": "a9e9a8038c37118231e2353714ccc406b663bec859d36a8932aef63fcd27cf39"
+    },
+    {
+      "path": "uncertainty-pytest-tmp/test_envelopes_refuse_wrong_ax0/provenance.json",
+      "bytes": 339,
+      "type": "regular",
+      "sha256": "c8ccc93868dca0ac2962b5532c3125d716b09a6c03d5730be42f1c467daca331"
+    },
+    {
+      "path": "uncertainty-pytest-tmp/test_envelopes_refuse_wrong_axcurrent",
+      "bytes": 132,
+      "type": "symlink",
+      "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/v4/published-window-provenance/uncertainty-pytest-tmp/test_envelopes_refuse_wrong_ax0"
+    },
+    {
+      "path": "uncertainty-verified-pytest-tmp/test_envelopes_keep_exact_taxo0/correspondence.csv",
+      "bytes": 7119,
+      "type": "regular",
+      "sha256": "e1f622efc699e7f16d1f6cc62dd5f87ab977bd59cd8762ed117c5b05762dfee1"
+    },
+    {
+      "path": "uncertainty-verified-pytest-tmp/test_envelopes_keep_exact_taxo0/provenance.json",
+      "bytes": 339,
+      "type": "regular",
+      "sha256": "11f8513904465ce37d5d7f72304eafca4da3562ca136b68283fbcc9f640d27e6"
+    },
+    {
+      "path": "uncertainty-verified-pytest-tmp/test_envelopes_keep_exact_taxocurrent",
+      "bytes": 141,
+      "type": "symlink",
+      "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/v4/published-window-provenance/uncertainty-verified-pytest-tmp/test_envelopes_keep_exact_taxo0"
+    },
+    {
+      "path": "uncertainty-verified-pytest-tmp/test_envelopes_refuse_wrong_ax0/correspondence.csv",
+      "bytes": 7120,
+      "type": "regular",
+      "sha256": "a9e9a8038c37118231e2353714ccc406b663bec859d36a8932aef63fcd27cf39"
+    },
+    {
+      "path": "uncertainty-verified-pytest-tmp/test_envelopes_refuse_wrong_ax0/provenance.json",
+      "bytes": 339,
+      "type": "regular",
+      "sha256": "c8ccc93868dca0ac2962b5532c3125d716b09a6c03d5730be42f1c467daca331"
+    },
+    {
+      "path": "uncertainty-verified-pytest-tmp/test_envelopes_refuse_wrong_axcurrent",
+      "bytes": 141,
+      "type": "symlink",
+      "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/v4/published-window-provenance/uncertainty-verified-pytest-tmp/test_envelopes_refuse_wrong_ax0"
+    },
+    {
+      "path": "uncertainty-verified-pytest-tmp/test_overlapping_envelopes_hav0/correspondence.csv",
+      "bytes": 7119,
+      "type": "regular",
+      "sha256": "81963a6041956c17742a1ee10719b8e4f941a288ed0f2cacae4cfa8f2f28094d"
+    },
+    {
+      "path": "uncertainty-verified-pytest-tmp/test_overlapping_envelopes_hav0/provenance.json",
+      "bytes": 339,
+      "type": "regular",
+      "sha256": "11f8513904465ce37d5d7f72304eafca4da3562ca136b68283fbcc9f640d27e6"
+    },
+    {
+      "path": "uncertainty-verified-pytest-tmp/test_overlapping_envelopes_havcurrent",
+      "bytes": 141,
+      "type": "symlink",
+      "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/v4/published-window-provenance/uncertainty-verified-pytest-tmp/test_overlapping_envelopes_hav0"
+    },
+    {
+      "path": "v4-published-uncertainty-science-20260925.plan.json",
+      "bytes": 1698,
+      "type": "regular",
+      "sha256": "e1c495392dc5f20ec6e76259e328038197f8833bcb6311770eecd495d5bb86c7"
+    },
+    {
+      "path": "v4-published-uncertainty-science-verified-20260925.plan.json",
+      "bytes": 1725,
+      "type": "regular",
+      "sha256": "de903f05a0b40ecf5e8d6c1400c2d1354567bae6bf6dd4505837b554650d90b4"
+    },
+    {
+      "path": "v4-published-uncertainty-style-20260925.plan.json",
+      "bytes": 1297,
+      "type": "regular",
+      "sha256": "8f13eac0f48f92e1034e14d6843fe9464b0ddade178787df7dd34b6fa0a8c61f"
+    },
+    {
+      "path": "v4-published-uncertainty-style-verified-20260925.plan.json",
+      "bytes": 1306,
+      "type": "regular",
+      "sha256": "8b3fe1e871ec03a87f41d39720733670de322bfd79fd4f47dc1f6fb09a5c00ca"
+    },
+    {
+      "path": "v4-published-uncertainty-test-20260925.plan.json",
+      "bytes": 1240,
+      "type": "regular",
+      "sha256": "482d9c8c2ffdbb17437291a08630b56325cccac933719ec3d3f21e9428fbfd7f"
+    },
+    {
+      "path": "v4-published-uncertainty-test-verified-20260925.plan.json",
+      "bytes": 1276,
+      "type": "regular",
+      "sha256": "81aecb38fe475b40cb7f025f322e1e28bc8d1cb29df047eec15d42ad97ecaed4"
+    },
+    {
+      "path": "v4-published-window-alignment-check-20260925.json",
+      "bytes": 1474,
+      "type": "regular",
+      "sha256": "614b24fae704f9bf6492cfc308dc82df0556eed5b7a8ca9855553d115ec8b70d"
+    },
+    {
+      "path": "v4-published-window-alignment-check-corrected-20260925.json",
+      "bytes": 1484,
+      "type": "regular",
+      "sha256": "c1be3b8de6ce9a0866835c1b4fbdcd49df92b036697aa9b0d5b991b464c11516"
+    },
+    {
+      "path": "v4-published-window-alignment-format-20260925.json",
+      "bytes": 1031,
+      "type": "regular",
+      "sha256": "eb5e7ed4542585270a0df5aa9959c58269fff0ccf357b71683fee457f4ce2995"
+    },
+    {
+      "path": "v4-published-window-alignment-science-20260925.json",
+      "bytes": 2188,
+      "type": "regular",
+      "sha256": "4a6b61d70b0cd06c5aded942fc89041cb5d0d612fe1f7c4888a85695a7b4b7d2"
+    },
+    {
+      "path": "v4-published-window-alignment-science-corrected-20260925.json",
+      "bytes": 2218,
+      "type": "regular",
+      "sha256": "c15a2d2f1272e9dcf68e0f473c52e9988fbfae029f16773748f158ea48ac032a"
+    },
+    {
+      "path": "v4-published-window-alignment-test-20260925.json",
+      "bytes": 1562,
+      "type": "regular",
+      "sha256": "772411642686aa08c652c54ad944a126ceed0e9c19f61df5f4a58b27ac27cb0f"
+    },
+    {
+      "path": "v4-published-window-alignment-test-corrected-20260925.json",
+      "bytes": 1602,
+      "type": "regular",
+      "sha256": "7c16dff019f6b97b95e05e507fcf170bdf9a58ce66be75c39ba6b734fc7a1c2e"
+    },
+    {
+      "path": "window-alignment/REPORT.md",
+      "bytes": 2322,
+      "type": "regular",
+      "sha256": "55bef5ee8ee73e525eaef368bbf978e6dbb87ffe9bb3117ac03369966be85a5d"
+    },
+    {
+      "path": "window-alignment/report.json",
+      "bytes": 915,
+      "type": "regular",
+      "sha256": "5b2892b1972934e484d2530078e9b7c844b6ebc0bcd1aeb08d167d8b7f7bd8f6"
+    },
+    {
+      "path": "window-alignment/window-correspondence.csv",
+      "bytes": 1565,
+      "type": "regular",
+      "sha256": "548d80974a3d96d71ce61e6a5925a60583b853e605cf31a0b3aab9b0873fc160"
+    },
+    {
+      "path": "window-alignment-corrected/REPORT.md",
+      "bytes": 2322,
+      "type": "regular",
+      "sha256": "55bef5ee8ee73e525eaef368bbf978e6dbb87ffe9bb3117ac03369966be85a5d"
+    },
+    {
+      "path": "window-alignment-corrected/report.json",
+      "bytes": 915,
+      "type": "regular",
+      "sha256": "5b2892b1972934e484d2530078e9b7c844b6ebc0bcd1aeb08d167d8b7f7bd8f6"
+    },
+    {
+      "path": "window-alignment-corrected/window-correspondence.csv",
+      "bytes": 1565,
+      "type": "regular",
+      "sha256": "548d80974a3d96d71ce61e6a5925a60583b853e605cf31a0b3aab9b0873fc160"
+    }
+  ],
+  "governed_reports": [
+    "docs/report/publication-replay/landclim-published-window-provenance/README.md",
+    "docs/report/publication-replay/landclim-published-window-uncertainty/README.md",
+    "docs/report/publication-replay/landclim-window-alignment/README.md"
+  ],
+  "result_relation": "Final three-way provenance retains all 124 parsed rows and numerical JSON values; earlier mean-vector runs are subsets and the initial R/archive report differs only by schema version. The 62 taxon envelopes and 25 window-alignment rows match the governed reports after newline normalization. Early uncertainty summaries were superseded by the verified envelope result; the corrected window report is the retained source. Original final and current result hashes are pinned in the three governed manifests.",
+  "process_files": "Job plans, two alignment planning scripts, pytest caches and fixture directories are process products. Durable producers and focused tests remain in the development package.",
+  "consumer_check": "The sole repository mention is a frozen historical scientific-report provenance manifest; it is not a current read dependency.",
+  "liveness_check": "lsof +D returned no open files; 98 regular files have one hardlink each and 13 pytest symlinks point within this directory.",
+  "scientific_admission": "Only the two-grid exact TW2 cross-version comparison is numerical; historical raw-input identity, full study and vegetation accuracy remain unresolved."
+}
