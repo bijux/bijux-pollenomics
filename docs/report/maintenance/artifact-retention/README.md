@@ -264,6 +264,18 @@ scientific report verifier authenticated those retained outputs. No product
 consumer or live open file depended on either retired artifact directory. This
 does not turn previously exposed development outcomes into confirmatory data.
 
+## LandClim provider description custody
+
+The [LandClim provider-description custody](landclim-provider-description-custody.json)
+retains the five exact files from the earlier PFT count source capture in the
+private source store. The captured ESSD article and PANGAEA deposit pages,
+their 2026-09-21 retrieval receipt, and the capture code are bound by byte
+counts and SHA-256. No current repository consumer or open process used the
+artifact directory when it was retired. These page descriptions help explain
+the public 11/12 PFT wording, while the separately pinned archive actually
+contains 13 PFT columns. They do not authenticate the missing archive-producing
+PFT/LCT transformation or resolve the `ISTS` classification.
+
 ## Scientific source refusal custody
 
 The [source refusal custody record](scientific-source-refusal-custody.json) binds
