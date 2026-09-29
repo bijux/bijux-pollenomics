@@ -119,7 +119,7 @@ required source, field, or decision.
 Some real capabilities carry narrower claims because the evidence is uneven:
 
 - animal source recovery tracks 40 projects, 1,475 recovered raw sample rows,
-  and 1,470 final rows, while expected-sample denominators remain incomplete;
+  and 1,468 final rows, while expected-sample denominators remain incomplete;
 - animal point publication admits 170 sample-backed locality features
   representing 331 distinct samples without presenting locality and sample
   counts as one homogeneous population;
@@ -133,7 +133,7 @@ Some real capabilities carry narrower claims because the evidence is uneven:
   dependent on bathymetry, access, permissions, and on-site verification.
 
 The animal database also contains different governed populations: 1,475
-recovered raw project sample-master rows, 1,470 final sample-foundation rows,
+recovered raw project sample-master rows, 1,468 final sample-foundation rows,
 331 distinct admitted samples, and 170 point-publication locality features.
 These are distinct contracts rather than a single attrition funnel. The public
 layer contains 117 domesticated-core and 53 wild/progenitor-context features,
