@@ -1,0 +1,17 @@
+{
+  "origin": "artifacts/v5/swedish-cohort-questions/questions.csv",
+  "retained": "docs/report/maintenance/artifact-retention/scientific-report-provenance/source-questions.csv",
+  "bytes": 4271,
+  "sha256": "5c35a661070a25ea3d6ce9f737356885ceb4abd06f8078d66d25413becbbda37",
+  "historical_rows": 10,
+  "current_question_path": "docs/report/pollen-reconstruction/swedish-source-questions.csv",
+  "current_rows": 10,
+  "row_key_sets_equal": true,
+  "disposition": "Historical question text retained exactly. Current source questions preserve the ten site/use keys and update source findings; neither table admits Swedish LRA.",
+  "retirement_checks": {
+    "inventory": "One regular source file in the named directory; no symlink and source hard-link count one.",
+    "identity": "Origin and retained copy each have 4,271 bytes and SHA-256 5c35a661070a25ea3d6ce9f737356885ceb4abd06f8078d66d25413becbbda37.",
+    "consumers": "Bounded repository search found only the frozen historical results/manifest and this new custody note; current report uses docs/report/pollen-reconstruction/swedish-source-questions.csv.",
+    "liveness": "lsof returned no open handle immediately before retirement."
+  }
+}

@@ -150,6 +150,11 @@ retains exact results, scope, and evidence-manifest bytes from the previous
 11-result study. The current report has 16 result rows and a passing 152-file
 verifier. The historical manifest records the earlier input closure and is not
 a live source of report claims or a valid check against the current worktree.
+Its ten-row Swedish question artifact is now retained byte for byte beside that
+snapshot, with a [custody receipt](scientific-report-provenance/source-questions-custody.json)
+and a mapping to the current source questions. The original one-file artifact
+directory was retired after its exact hash, file type, links, consumers and open
+handles were checked.
 
 ## Author pollen development custody
 

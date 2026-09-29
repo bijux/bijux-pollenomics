@@ -21,6 +21,14 @@ country assignment; the current report separately verifies country totals and
 grid conservation while leaving a pollen covariate ablation blocked. Neither
 snapshot establishes LRA skill or measured-vegetation validation.
 
+The [historical Swedish source questions](source-questions.csv) preserve the
+earlier artifact's exact ten rows. The [custody receipt](source-questions-custody.json)
+binds its bytes and maps the same ten site/use keys to the [current source
+questions](../../../pollen-reconstruction/swedish-source-questions.csv), which
+contain later source findings. The frozen results and manifest below still name
+the old artifact path as historical evidence; the retained copy supplies those
+bytes after the inactive artifact is retired.
+
 | Preserved file | SHA-256 of original and retained bytes |
 | --- | --- |
 | `manifest.json` | `95619eccaa73b205de8b6669b6afe3d128435ac1638c100badd7232cc1e97a97` |
