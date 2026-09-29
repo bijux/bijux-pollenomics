@@ -41,3 +41,16 @@ and a custody manifest are retained under
 `bijux-pollenomics-data/adna/prjeb60484/published-article-and-alignment/`.
 Direct publisher and Dryad byte parity remain unverified. These two files are
 not consumed by the sample-master join or treated as new specimens.
+
+The FASTA headers account for all **110** published Table S3 specimen labels:
+49 match exactly, 60 match after removing one or more leading `Svalbard_`
+prefixes, and `T11` corresponds to the table's `T-11` spelling. All 20
+ancient Table S3 labels match FASTA headers exactly. Two additional FASTA
+headers, `B16` and `Svalbard_B-64`, have no separate published Table S3 row;
+`B16` must not be silently merged with the distinct `B-16` header. These
+are header-level correspondences only. They do not establish the origin of
+the two additional sequences, sequence quality, or independent biological
+specimens. The comparison used the retained Table S3 and FASTA bytes with
+the hashes above, counting populated Table S3 rows and FASTA `>` headers.
+The `B16` and `B-16` alignment strings differ at 2,863 of 16,362 positions;
+neither extra header duplicates another complete sequence in this file.
