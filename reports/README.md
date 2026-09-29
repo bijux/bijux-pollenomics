@@ -14,7 +14,7 @@ updating that lock.
 
 | Question | Read first | Evidence boundary |
 | --- | --- | --- |
-| What can the Nordic pollen data predict? | [Pollen prediction synthesis](science/pollen-prediction.md), [four-country author-axis study](../docs/report/regions/nordic/author-target-pollen/README.md) | Observed pollen, prior-exposed development; no independent vegetation score. |
+| What can the Nordic pollen data predict? | [Pollen prediction synthesis](science/pollen-prediction.md), [four-country author-axis study](science/four-country-author-pollen.md) | Observed pollen, prior-exposed development; no independent vegetation score. |
 | Which cohorts and source fields are fit for each analysis? | [Source cohort account](science/source-cohorts.md) | Four-country count mass and LRA source gates remain separate. |
 | Has real LRA been run and compared? | [Constrained English LOVE study](../docs/report/pollen-reconstruction/author-lra-constrained/README.md) | 14 of 15 source folds predicted; one optimizer refusal; English author examples only. |
 | Which model and parameters should I use? | [Model-use guide](science/model-use.md) | Choices are conditional on target, source admission, cohort, support and metric. |

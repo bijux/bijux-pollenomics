@@ -1,6 +1,6 @@
 # Source cohorts and admissible comparisons
 
-The four-country [31-target observed-pollen study](../../docs/report/regions/nordic/author-target-pollen/README.md)
+The four-country [31-target observed-pollen study](four-country-author-pollen.md)
 uses selected Neotoma/EPD counts and the authors' exact taxonomy lookup.
 Country exclusion is applied to the training input before prediction. This
 supports a bounded test of pollen composition transfer, with one Danish site,
@@ -11,9 +11,9 @@ the earlier 16-label result. Neither result admits these samples to LRA.
 
 | Country | Physical sites | Selected samples | Assigned/native pollen NISP | Scored/attempted 500 BP bins | Source account |
 | --- | ---: | ---: | ---: | ---: | --- |
-| Denmark | 1 | 91 | 122,998/129,768 | 24/24 | [Country study](../../docs/report/regions/nordic/author-target-pollen/README.md), [Solsø lineage](../../docs/report/countries/denmark/solsoe-source-lineage/README.md) |
-| Finland | 28 | 1,797 | 1,229,019/1,260,281 | 435/435 | [Country study](../../docs/report/regions/nordic/author-target-pollen/README.md) |
-| Norway | 52 | 3,544 | 2,018,295/2,286,020 | 1,084/1,178 | [Country study](../../docs/report/regions/nordic/author-target-pollen/README.md) |
+| Denmark | 1 | 91 | 122,998/129,768 | 24/24 | [Country study](four-country-author-pollen.md), [Solsø lineage](../../docs/report/countries/denmark/solsoe-source-lineage/README.md) |
+| Finland | 28 | 1,797 | 1,229,019/1,260,281 | 435/435 | [Country study](four-country-author-pollen.md) |
+| Norway | 52 | 3,544 | 2,018,295/2,286,020 | 1,084/1,178 | [Country study](four-country-author-pollen.md) |
 | Sweden | 3 | 228 | 221,800/240,966 | 51/54 | [Swedish account](nordic-pollen-study.md), [ABB method](../../docs/report/source-relations/neotoma/abbo-published-method/README.md) |
 
 The country study's [input manifest](../../docs/report/regions/nordic/author-target-pollen/input-manifest.json),

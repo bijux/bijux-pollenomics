@@ -60,3 +60,9 @@ second migrated narrative. Its former `docs/report/pollen-reconstruction/README.
 website path is a citation page; the result table, scientific scope, manifest,
 scripts and numeric products still have their governed owner. Both narrative
 locations and the three presentation citations were checked together.
+
+The [four-country author-target pollen report](../science/four-country-author-pollen.md)
+is root-owned on the same terms. Its score, coverage, input manifest, sealed
+outcomes and predictions remain with the scientific producer. The prior
+website path is a citation page, and the master result ledger names the root
+narrative.

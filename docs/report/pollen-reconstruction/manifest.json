@@ -616,8 +616,8 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/results.csv",
-      "sha256": "cf8d6e871394f74e55efc4b687ab51475562720c89268b38836bfc71aa00787e",
-      "bytes": 14741
+      "sha256": "b7015014dae025952cfbbd569f710d1711c7185a5a20f176a91f794a06234889",
+      "bytes": 14729
     },
     {
       "path": "docs/report/pollen-reconstruction/scope.json",
@@ -946,8 +946,8 @@
     },
     {
       "path": "docs/report/regions/nordic/author-target-pollen/README.md",
-      "sha256": "e064eb0eef326246286181eaa596f29de8b5dea075d0463a5eaf25836753c5b7",
-      "bytes": 4531
+      "sha256": "44545fbdceef07eaa04200f894657ef55d8f7bdf8355e30435663f252d0b9b13",
+      "bytes": 465
     },
     {
       "path": "docs/report/regions/nordic/author-target-pollen/coverage.csv",
@@ -1815,9 +1815,14 @@
       "bytes": 14038
     },
     {
+      "path": "reports/science/four-country-author-pollen.md",
+      "sha256": "c204f2077285c7424dd08c548553765f377aec1b26d47704a1014ff6dc9e0490",
+      "bytes": 5126
+    },
+    {
       "path": "reports/science/nordic-pollen-study.md",
-      "sha256": "e79280db513a97f26f843af8d8e8bdc157da32b3140f2d8d48025f1a540203b1",
-      "bytes": 43858
+      "sha256": "d9be143a28a84a7b378a553af6466534426964f664e65511b5f327484b12536a",
+      "bytes": 43790
     },
     {
       "path": "reports/science/publication-correspondence.md",

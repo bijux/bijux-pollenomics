@@ -51,7 +51,7 @@ shows why inner-fold selection is not a general improvement claim:
 
 The Finnish and Norwegian selected RBF models did not beat the fixed IDW
 baseline on matched target support. The 16-label country response in this
-search differs from the separate 31-author-target [four-country fixed study](../../docs/report/regions/nordic/author-target-pollen/README.md);
+search differs from the separate 31-author-target [four-country fixed study](four-country-author-pollen.md);
 their MAEs should not be compared as if the denominators were equal. Denmark
 has one physical target site. Prior outcome exposure limits all these
 comparisons to development evidence.
