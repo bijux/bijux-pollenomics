@@ -1,0 +1,81 @@
+\input{presentation/shared.tex}
+\title{Bijux Pollenomics: evidence and open decisions}
+\subtitle{Nordic pollen, source custody and scientific limits}
+\author{Bijux Pollenomics}
+\date{29 September 2026}
+\begin{document}
+\frame{\titlepage}
+
+\begin{frame}{What the project can answer today}
+\begin{itemize}
+\item Trace pollen, chronology, geography and other source records to governed outputs.
+\item Reproduce selected published author calculations and locate genuine archive differences.
+\item Test observed-pollen transfer for Denmark, Finland, Norway and Sweden on a declared taxon axis.
+\item Run a bounded English LRA reconstruction and forward-pollen prediction study.
+\end{itemize}
+\scope{These are distinct evidence claims; none is an independent measured-vegetation accuracy result.}
+\evidence{reports/README.md}
+\end{frame}
+
+\begin{frame}{Four Nordic countries: observed pollen}
+\small
+\begin{tabular}{lrrrl}
+\toprule
+Target & Sites & Samples & Scored bins & Best fixed baseline, site-macro MAE \\
+\midrule
+Denmark & 1 & 91 & 24/24 & nearest: 0.023242 \\
+Finland & 28 & 1,797 & 435/435 & nearest: 0.017335 \\
+Norway & 52 & 3,544 & 1,084/1,178 & inverse-distance-squared: 0.019459 \\
+Sweden & 3 & 228 & 51/54 & inverse-distance-squared: 0.028740 \\
+\bottomrule
+\end{tabular}
+\scope{Country withheld from training; 31 author pollen targets. Previously viewed outcomes make this development evidence. Denmark has one site.}
+\evidence{docs/report/regions/nordic/author-target-pollen/README.md; docs/report/pollen-reconstruction/README.md}
+\end{frame}
+
+\begin{frame}{English LRA: a real reconstruction, bounded interpretation}
+\begin{itemize}
+\item 15 author sites, 1250--1750 BP, 30 pollen targets after a declared transport exclusion.
+\item 14 sites have three frozen forward-pollen predictions each; one fold refuses after three training optimizations fail.
+\item No measured vegetation target is available for reconstruction accuracy.
+\end{itemize}
+\scope{This demonstrates an executable source-bound workflow, not a Nordic LRA validation.}
+\evidence{docs/report/pollen-reconstruction/author-lra-constrained/README.md}
+\end{frame}
+
+\begin{frame}{On matched English pollen targets, direct methods score lower}
+\small
+\begin{tabular}{lrrrr}
+\toprule
+ & \multicolumn{2}{c}{Pollen MAE} & \multicolumn{2}{c}{Hellinger} \\
+Method & Direct & LRA forward & Direct & LRA forward \\
+\midrule
+Training mean & .020496 & .026273 & .282082 & .360671 \\
+Nearest site & .019552 & .021132 & .255767 & .286001 \\
+Inverse distance squared & .018579 & .021088 & .243673 & .285415 \\
+\bottomrule
+\end{tabular}
+\scope{14 paired sites, 30 taxa; site-macro development scores. Training information differs between routes. Lower pollen error does not establish better vegetation reconstruction.}
+\evidence{reports/science/pollen-prediction.md; docs/report/pollen-reconstruction/author-lra-constrained/direct-pollen/paired-hellinger.json}
+\end{frame}
+
+\begin{frame}{Published calculation and archived product are different questions}
+\begin{itemize}
+\item Python matches independent author-R replay on 14,074 supported means/SE values; maximum fractional residuals $1.84\times10^{-13}$ and $7.16\times10^{-14}$.
+\item The exact 100--350 BP archive window differs from the author replay by up to 9.20 and 10.55 percentage points in the two grids.
+\item Only one of 25 window intervals matches exactly. Source revisions and PFT transformation remain unresolved.
+\end{itemize}
+\scope{Numerical correspondence is established for the selected author examples; full historical paper reconstruction is open.}
+\evidence{docs/report/pollen-reconstruction/paper-correspondence.md}
+\end{frame}
+
+\begin{frame}{The next decisions need source evidence}
+\begin{enumerate}
+\item Bind Swedish and other Nordic cores to selected ages, historical basin geometry, count denominators and permitted PPE use.
+\item Obtain a qualified independent vegetation reference before claiming ecological accuracy.
+\item Authenticate historical paper input revisions and the archive PFT/uncertainty transformation.
+\item Freeze a new cohort before viewing outcomes for independent confirmation.
+\end{enumerate}
+\evidence{reports/needed/README.md}
+\end{frame}
+\end{document}

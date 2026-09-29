@@ -1,0 +1,28 @@
+{
+  "decks": [
+    "big-picture",
+    "developer",
+    "scientific-evidence"
+  ],
+  "source_date_epoch": 1790726400,
+  "sources": {
+    "docs/public/pollenomics/architecture/package-split.md": "001e560408f4c909dcdcc78beae3333618b3b9cd6acf3e1eaae3260130e69315",
+    "docs/report/method-certification/original-r-reference/README.md": "c366c13945eedb6283046a8744cf5c84b2e681939526aea37f6146d739cbf9ef",
+    "docs/report/pollen-reconstruction/README.md": "3667c2ca87d7c27842c660c822069a244c50dd31202f4919609a7fff5c48f92d",
+    "docs/report/pollen-reconstruction/author-lra-constrained/README.md": "459dab4f2ad6cd66a83a89af9a31ac95deddc724b8e880aafea8047f98f7eab0",
+    "docs/report/pollen-reconstruction/author-lra-constrained/direct-pollen/paired-hellinger.json": "91255eda5f958f7072ea489dfc36201360b7aaa5f019e5f0c91f3e2a59830950",
+    "docs/report/pollen-reconstruction/paper-correspondence.md": "cc6892b793950d4a8c8d429a9f8badf0b027773eae2529387fcd1ce7cba3d8dd",
+    "docs/report/pollen-reconstruction/verify_report.py": "5b85c184b5e72d4d890dabb77342f8c81e3fc8d9a2bbe3744e91b74c7f13a44d",
+    "docs/report/regions/nordic/author-target-pollen/README.md": "e064eb0eef326246286181eaa596f29de8b5dea075d0463a5eaf25836753c5b7",
+    "packages/bijux-pollenomics/pyproject.toml": "5210c72e9ee4827f64c81f7ca1906e2fe4465cb6cf227311378fc77038ed8aaf",
+    "presentation/README.md": "c4c8e910feee73159bfda2dc0f1c70480963c9be7cf6911db9f7a66d2755f075",
+    "presentation/big-picture.tex": "9c27c861aa1b6dafe8ed0989980d45d7c9fb9c12e0b214c7972e3f92a3cf877b",
+    "presentation/build.py": "a1ee7ca37524c7b3d096a9cb3eeb20563bd52240aa5887e9fad767c6df05daf0",
+    "presentation/developer.tex": "24657f0736c8d6a140b1901909aa37dc371b601343c99da2f97586d8debc917c",
+    "presentation/scientific-evidence.tex": "61a40992841a14852d91993b9e53c0483d88391310532a146626783abeaa628e",
+    "presentation/shared.tex": "2aa40954975f75241ded20a78d0c698c0f864274222e30c148bda4cf4b0bf17a",
+    "reports/README.md": "8b06c5e53f6f6e4bc53248d762409211064309089beeea9e010c4bd6df84b975",
+    "reports/needed/README.md": "98e8d569b753c09ff9a62ea0b59306e465efab8b324d93c94b3e046ec9bd52b7",
+    "reports/science/pollen-prediction.md": "f63b14bf4af6c463f6c0f44e667e3ed70562f3205f9bab634b6f7a1a01014dc5"
+  }
+}
