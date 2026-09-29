@@ -173,3 +173,16 @@ historical; current country pollen results and source screens supersede them.
 Only the four recorded inactive note directories were retired. The retained
 scientific-report provenance may still name their former paths as historical
 evidence, not as live report inputs.
+
+## Swedish direct-pollen run copies
+
+The [Swedish run custody record](swedish-direct-pollen-run-custody.json) binds
+two complete derived copies of the three-lake direct-pollen study. Their 13
+relative files matched each other byte for byte. All 12 scientific data and
+manifest files in each copy also match the governed
+[Swedish report](../../pollen-reconstruction/swedish-direct-pollen/REPORT.md).
+The older run README lacks the report's later parameter-coverage finding and
+reproduction instructions. The two inactive copies were retired after exact
+file, link, consumer and open-handle checks. The original v5 working directory,
+which contains a distinct historical producer and earlier tables, remains
+outside this decision.

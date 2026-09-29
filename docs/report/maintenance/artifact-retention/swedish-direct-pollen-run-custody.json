@@ -1,0 +1,105 @@
+{
+  "schema_version": "bijux-swedish-direct-pollen-run-custody.v1",
+  "disposition": "two_inactive_derived_run_copies_retired",
+  "artifact_directories": [
+    "artifacts/v5/swedish-direct-pollen-published",
+    "artifacts/v5/swedish-direct-pollen-reproduction"
+  ],
+  "file_count_each": 13,
+  "files": [
+    {
+      "relative_path": "REPORT.md",
+      "bytes": 3332,
+      "sha256": "0bf164f88c55499b4ad146bd6fcb82320ecc85a3c1006ee5b412fb77ffb08ca4",
+      "governed_path": "docs/report/pollen-reconstruction/swedish-direct-pollen/REPORT.md",
+      "governed_bytes_equal": false
+    },
+    {
+      "relative_path": "cohort.csv",
+      "bytes": 2404,
+      "sha256": "f37cd64cfe3799a92d5492a558e58b4ce81888e25dcf53025ca94df301e65349",
+      "governed_path": "docs/report/pollen-reconstruction/swedish-direct-pollen/cohort.csv",
+      "governed_bytes_equal": true
+    },
+    {
+      "relative_path": "exclusions.csv",
+      "bytes": 371092,
+      "sha256": "f12714ca2532842a5248d86f27efcc0ea8f48d736ce7b2f4aee243590b78f26e",
+      "governed_path": "docs/report/pollen-reconstruction/swedish-direct-pollen/exclusions.csv",
+      "governed_bytes_equal": true
+    },
+    {
+      "relative_path": "input-manifest.json",
+      "bytes": 1073,
+      "sha256": "b3fd45f9e0765b752260161ed3c4189c3dce0f0f1e6dc91c9bc48fd60c1e9643",
+      "governed_path": "docs/report/pollen-reconstruction/swedish-direct-pollen/input-manifest.json",
+      "governed_bytes_equal": true
+    },
+    {
+      "relative_path": "predictions/site-13338.json",
+      "bytes": 100034,
+      "sha256": "d4ac566aec99afe1351e267b7736dc059b92580388bd340b9df5cfa961e6da9a",
+      "governed_path": "docs/report/pollen-reconstruction/swedish-direct-pollen/predictions/site-13338.json",
+      "governed_bytes_equal": true
+    },
+    {
+      "relative_path": "predictions/site-28869.json",
+      "bytes": 99817,
+      "sha256": "58c8396d849c4b2275b111a35c7605b61c8cc0456bbbe870e8d3cf6713a7e52d",
+      "governed_path": "docs/report/pollen-reconstruction/swedish-direct-pollen/predictions/site-28869.json",
+      "governed_bytes_equal": true
+    },
+    {
+      "relative_path": "predictions/site-28872.json",
+      "bytes": 99861,
+      "sha256": "89eb64b226c67b86a07e15f34d97b78a42f4849140f5831ca3b0fa6263cb0926",
+      "governed_path": "docs/report/pollen-reconstruction/swedish-direct-pollen/predictions/site-28872.json",
+      "governed_bytes_equal": true
+    },
+    {
+      "relative_path": "predictions-scored.csv",
+      "bytes": 169481,
+      "sha256": "b5d10daa3884e21981625b037c23b4357c58af09892bdd42ee34ac6b2f4b5665",
+      "governed_path": "docs/report/pollen-reconstruction/swedish-direct-pollen/predictions-scored.csv",
+      "governed_bytes_equal": true
+    },
+    {
+      "relative_path": "prepared/dataset-19913.json",
+      "bytes": 13553,
+      "sha256": "fad881f64fae9fcf632854068274375f4f842398cfe2255ba71b68e9a6335d79",
+      "governed_path": "docs/report/pollen-reconstruction/swedish-direct-pollen/prepared/dataset-19913.json",
+      "governed_bytes_equal": true
+    },
+    {
+      "relative_path": "prepared/dataset-53995.json",
+      "bytes": 13679,
+      "sha256": "7ff0ce9286983ab726e6fb9bcd95df3cf393ef0df7efde81a79b78d2c3fd92e5",
+      "governed_path": "docs/report/pollen-reconstruction/swedish-direct-pollen/prepared/dataset-53995.json",
+      "governed_bytes_equal": true
+    },
+    {
+      "relative_path": "prepared/dataset-54001.json",
+      "bytes": 10357,
+      "sha256": "3231eb8ca83f99b3ecdeca8eb8aacc7f60c4bbf2547dca2c0e2c23a98e98b520",
+      "governed_path": "docs/report/pollen-reconstruction/swedish-direct-pollen/prepared/dataset-54001.json",
+      "governed_bytes_equal": true
+    },
+    {
+      "relative_path": "scores.csv",
+      "bytes": 30400,
+      "sha256": "3ac45ac3f764ce3784b0d6afb36fe5217d56d8670cbab19a3bb9e6df8ada439b",
+      "governed_path": "docs/report/pollen-reconstruction/swedish-direct-pollen/scores.csv",
+      "governed_bytes_equal": true
+    },
+    {
+      "relative_path": "summary.json",
+      "bytes": 2860,
+      "sha256": "a42c2feaf536cd3ef026c84a650e37080574afd406073d49e8c70f545688a64e",
+      "governed_path": "docs/report/pollen-reconstruction/swedish-direct-pollen/summary.json",
+      "governed_bytes_equal": true
+    }
+  ],
+  "report_difference": "The governed REPORT.md adds exact-name parameter coverage and current reproduction instructions. The retired REPORT.md was identical between the two run copies and had no unique scientific result.",
+  "producer": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/swedish_direct_pollen.py",
+  "verification": "All 13 relative files matched between directories; 12 non-README files matched the governed report byte-for-byte; no symlinks, hardlinks, open handles or product-consumer references were found in the bounded review. Historical provenance remains separately retained."
+}
