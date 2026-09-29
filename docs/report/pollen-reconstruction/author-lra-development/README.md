@@ -53,6 +53,11 @@ numerical product's two local ring summaries and equation residuals. The report
 reader verifies every prediction and numerical-product manifest before producing
 those files.
 
+The [process custody receipt](../../maintenance/artifact-retention/landclim-author-lra-development-custody.json)
+retains the original 27 numerical products and 195 batch-item records in a
+private exact-byte archive. The final summary equals this governed report;
+two earlier process summaries remain archived as historical evidence.
+
 To reproduce with the private capsule and an empty `artifacts/` destination:
 
 ```sh

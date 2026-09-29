@@ -61,13 +61,18 @@
     },
     {
       "path": "docs/report/maintenance/artifact-retention/README.md",
-      "sha256": "6ed302e8a61ad42fc14e0a6925a76b677090e0d1c0c15fb8da42cac8ffcd3c48",
-      "bytes": 28162
+      "sha256": "797fe260569133a91e374bad5dbee17cfe2840dba8ab67bbe206c952456bb3f4",
+      "bytes": 29062
     },
     {
       "path": "docs/report/maintenance/artifact-retention/landclim-amsoldingersee-custody.json",
       "bytes": 15084,
       "sha256": "eab4595d161d0f8000ee02ec2dcf6eb2644d117a83015641b8fa8821e6f0280f"
+    },
+    {
+      "path": "docs/report/maintenance/artifact-retention/landclim-author-lra-development-custody.json",
+      "sha256": "a2e079e3c0aeec7c912d5409951b936156e6c80ad7f0c2b1b746df2cc845d722",
+      "bytes": 1255
     },
     {
       "path": "docs/report/maintenance/artifact-retention/landclim-author-preparation-audit-custody.json",
@@ -446,8 +451,8 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/author-lra-development/README.md",
-      "sha256": "180035a57c33ae2e8c7d79f8cacebc60f4ead244756e824d029cf72db75f4111",
-      "bytes": 4725
+      "sha256": "658e67e08677b2317c7128d84c2e8a7b6434992509ab8c96815a31176e8205be",
+      "bytes": 5059
     },
     {
       "path": "docs/report/pollen-reconstruction/author-lra-development/cover-diagnostics.csv",

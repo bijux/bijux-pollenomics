@@ -439,3 +439,17 @@ rebuilds the exact 30-taxon requests from the retained author capsule; all
 byte. The 25-file pilot and 57-file replay process prefixes contained no
 published LRA product or live consumer. They were retired after the exact
 file, private-copy and open-handle checks.
+
+## Author LRA development process custody
+
+The [analytical author LRA receipt](landclim-author-lra-development-custody.json)
+accounts for the original 938-file English development run. The 37 source input
+files in each of its two working copies match a fresh materialization from the
+private author capsule. Its final three equation-summary files match the
+[governed negative result](../../pollen-reconstruction/author-lra-development/README.md)
+byte for byte. An exact private archive retains the other 861 files, including
+27 cached numerical products, 195 training-item batch records, the original
+runner and two earlier differing summaries. The archive was reopened and every
+member checked against the original path and SHA-256 inventory before the
+inactive artifact directory was retired. This preserves numerical process
+evidence without treating cached predictions as scientific acceptance.
