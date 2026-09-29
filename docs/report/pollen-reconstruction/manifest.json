@@ -481,13 +481,23 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/author-lra-optimized-feasibility/README.md",
-      "sha256": "92c53d10e4fc95a84d6dc2cd2b686598c5b3b2d0e1e5f7b9a999396a3aab1537",
-      "bytes": 3228
+      "sha256": "18a2cb5b0b88725920950c49a3fbadb5dd9cb587ef6c4e7efb8f8c04e76e4308",
+      "bytes": 5087
     },
     {
       "path": "docs/report/pollen-reconstruction/author-lra-optimized-feasibility/custody.json",
       "sha256": "08ae43aac0cc18675aa6773da0a84abc41b373d34d8f387bf6130d7ae3f97e5e",
       "bytes": 2442
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/author-lra-optimized-feasibility/finite-candidate.json",
+      "sha256": "0de8b9f2558c60c8dd405c01a31cae6542f908e225aa28b698e7c645a2cc2cf1",
+      "bytes": 1431
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/author-lra-optimized-feasibility/finite_candidate.py",
+      "sha256": "508cbe3471633d1738d6f2528d12d583d24f1fa2b36a642bb528aa6eb0979e9e",
+      "bytes": 6335
     },
     {
       "path": "docs/report/pollen-reconstruction/author-lra-optimized-feasibility/prepare.py",

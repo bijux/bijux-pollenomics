@@ -26,6 +26,27 @@ published. The optimizer is SciPy differential evolution; its search trajectory
 does not establish original R optimizer parity. Further tuning on these exposed
 rows would be a new development study with a separate declared selection rule.
 
+The pinned DISQOVER 0.9.14 source archive (`ea496ae82807b52c9dd3d4b39b4dfa294bfac4068e20184ce56187bff70caf5c`)
+uses RcppDE's returned `bestmem` and `bestval` without checking a convergence
+flag. The pinned RcppDE 0.1.9 source archive
+(`f48aeea87e379beb1a408aef11d65c3f2b8ce09e97c2add6f42f9446ea92fe3b`)
+returns those fields and an iteration count, not a success field. This source
+behavior justifies inspecting a finite best candidate, while the host's
+convergence refusal still governs product publication.
+
+The separate [finite-candidate diagnostic](finite-candidate.json) reruns the
+unchanged extended request and coupled regional handoff, then reads the raw
+optimized LOVE output before the product gate. Both local rings reached the
+20,000-evaluation cap after 65 complete generations; neither converged. Their
+best objective values were **6.9601** and **6.7633**, with forward-pollen mean
+absolute errors of **4.3355** and **4.4585 percentage points** against the same
+training local sample. The largest taxon error exceeded **62 percentage points**
+in each ring. The finite cover vectors have no negative entries, but that does
+not certify the search, make a held-out prediction, or replace the original
+31-taxon analytical result. The [diagnostic producer](finite_candidate.py)
+checks the exact request digest and revalidates its source evidence after the
+calculation; it publishes no LRA product.
+
 [report.json](report.json) retains the request identities, count denominator,
 budgets and refusal outcomes. [prepare.py](prepare.py) rebuilds and validates
 both exact request bytes from the private 193-file author source capsule, without
@@ -50,3 +71,13 @@ MKL_NUM_THREADS=1 NUMEXPR_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 \
 This one-pair negative feasibility result does not show that every optimized
 budget fails. It does not supply source-backed Swedish lake geometry, an LRA
 prediction, vegetation truth or a Nordic transfer estimate.
+
+To reproduce the finite-candidate diagnostic after preparing the source-bound
+requests into the absent job directory above:
+
+```sh
+PYTHONDONTWRITEBYTECODE=1 OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 \
+MKL_NUM_THREADS=1 NUMEXPR_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 \
+  .venv/bin/python docs/report/pollen-reconstruction/author-lra-optimized-feasibility/finite_candidate.py \
+  --inputs "$job/extended/inputs" --output "$job/finite-candidate.json"
+```
