@@ -7,6 +7,10 @@ while their producer paths are migrated by domain.
 
 The [claim-to-evidence index](evidence-index.md) goes directly from each
 headline result to its numeric table, input identity, producer and scope.
+Run `python3 reports/verify.py` after changing a scientific report or its
+governed source. It checks the root page inventory, local links and the
+selected result identities in `source-lock.json`; review changed claims before
+updating that lock.
 
 | Question | Read first | Evidence boundary |
 | --- | --- | --- |

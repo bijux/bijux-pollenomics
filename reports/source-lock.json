@@ -1,0 +1,43 @@
+{
+  "schema_version": "research-report-source-lock.v1",
+  "reports": [
+    "reports/README.md",
+    "reports/architecture/ownership.md",
+    "reports/engineering/lra-installation.md",
+    "reports/evidence-index.md",
+    "reports/needed/README.md",
+    "reports/science/method-correspondence.md",
+    "reports/science/model-use.md",
+    "reports/science/nordic-pollen-study.md",
+    "reports/science/pollen-prediction.md",
+    "reports/science/publication-correspondence.md",
+    "reports/science/source-cohorts.md"
+  ],
+  "sources": {
+    "docs/public/pollenomics/science/index.md": "cd9721c856ac9682c7138bbedd0b83e0c55fff3624ce4fa7950727bda8643f42",
+    "docs/public/pollenomics/science/results.md": "fac241d42233ba0d21148b1b3fa97bfcfef42559fe87e59b3349724ce5fce646",
+    "docs/public/pollenomics/science/sources.md": "0d4ec1e0bfb4b917d38b805a543d5b037eae6a0add8f7e867f1fc06b744715ae",
+    "docs/report/pollen-reconstruction/author-lra-constrained/direct-pollen/paired-hellinger-sensitivity.json": "180381b5a81e4838be7a11c2d9e02ef504ef5d296aaad213d9fafbdf148af4c9",
+    "docs/report/pollen-reconstruction/author-lra-constrained/report.json": "99bc052531b052ee218f91d36645cdeaaf2b1641ca8bd20140afa1b4e87f8150",
+    "docs/report/pollen-reconstruction/manifest.json": "b9f8e92e58c6a77239de2e8617ed35d051449441c2fec0ad3146ecc51980ba76",
+    "docs/report/publication-replay/landclim-author-example-correspondence/report.json": "a9bbb131a8094a2c0b1efaa83b6afba09f3f59f6e20257934d73a470de36fc9f",
+    "docs/report/regions/nordic/author-target-pollen/report.json": "e202d4264b34a5b2508dac1d38f404884e9225f5a3c6b85c8f0a519223ad9361",
+    "docs/report/regions/nordic/hyde-country-cropland/report.json": "55d2e679fcacaabb0e64c641aae6f0ed9d5c90920adaeec91840b6117e725cbb",
+    "docs/report/regions/nordic/swedish-author-target-pollen/report.json": "5d63bafec3595d01a4977cb3916d81e72894f1ca4f76ec3efe6528e324cb7cdc",
+    "docs/report/source-relations/dna-scope/report.json": "b44651d55f6cb74e833fd2e508144f08647c164ae72931b0f8c19c695f598a81",
+    "docs/report/source-relations/neotoma/abbo-native-correspondence/report.json": "ba96d3cccd80a2a31116bcdb0c0e1da6e196584f0b1b95c0a24e08446714b80a",
+    "docs/report/validation/empd2-nfi-pairing/report.json": "c5a5fb4738e48a924e178346dc2dd625b1b683e73cca276bccf1ae2f079adb8f",
+    "reports/README.md": "27b2bfc3b6174239579841e6a477d25f6b8ca0bf762d755dcdd1be1093727fec",
+    "reports/architecture/ownership.md": "9685fdf190d6509cee39d2f7cce9e5e0a61e38d8d1d3a1ced5246eabf7b1ccaf",
+    "reports/engineering/lra-installation.md": "75d80fb0439e2a259328d1b134405f8ae26798a5caa52406881f5e158450266c",
+    "reports/evidence-index.md": "0edb45cacd60a61ec36e372c5d15cd6a87ecd651e574eb6dc5dfb0109c0f27c6",
+    "reports/needed/README.md": "0f13bcf5f9bcecdb4421d19225c66ccea69adfbe14d73a3921f4a55942319c95",
+    "reports/science/method-correspondence.md": "13f981f16d362b85cad6a2c6924e911ddce0eb285fe3d6a38ca91d3b7395323f",
+    "reports/science/model-use.md": "99aac7de8c0aba0fbbfce84660777bce3eaf042e745fb28d22be7901d9d0cc2f",
+    "reports/science/nordic-pollen-study.md": "e79280db513a97f26f843af8d8e8bdc157da32b3140f2d8d48025f1a540203b1",
+    "reports/science/pollen-prediction.md": "67a360e32ccfbada66ee404d286a1cd5fcb3225d8f671a9bec8092d705362117",
+    "reports/science/publication-correspondence.md": "9d68468e9320180099ab517709374cb82d38068c3ef458c5c696c535037f41a4",
+    "reports/science/source-cohorts.md": "93652173068fc1434d576128e6dab195cac748ebc683c02ce2944d41fc8f064a",
+    "reports/verify.py": "889b1efdad83fc44921d5cea62613394fde010b5d20e1db09bd85a6c14607bed"
+  }
+}
