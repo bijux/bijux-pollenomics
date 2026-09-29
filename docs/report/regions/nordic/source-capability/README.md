@@ -26,6 +26,14 @@ observed-pollen study and 124 do not. Its separate sample prerequisites do not
 admit any dataset to LRA or measured-vegetation validation. Entity decisions
 for the other source families still require their own source evidence.
 
+The existing [SEAD site ledger](../../../source-relations/sead-country-retrieval/README.md)
+already records all 2,195 discovered site IDs and UUIDs. Governed boundaries
+assign 2,069 to SE/DK/NO/FI and retain 103 for review plus 23 unassigned;
+only assigned sites occur in the retrieved and normalized site consumers.
+This is archaeological site context and country accountability. It does not
+admit a SEAD pollen series, an LRA cohort, or vegetation truth. The two linked
+entity ledgers therefore cover different scientific roles and denominators.
+
 | Family | Governed raw stage | Governed published stage | Four-country publication availability | Qualification |
 | --- | --- | --- | --- | --- |
 | AADR | present | present | collected in SE/DK/NO/FI | authority and source review required |
