@@ -49,6 +49,20 @@ rows and the BECKHAM refusal. Site-mean pollen MAE on the 14 scored sites is
 exposed author examples, with overlapping outer training sets. No vegetation
 accuracy, uncertainty interval or broader spatial generalization is claimed.
 
+The [matched direct-pollen comparison](direct-pollen/comparison.json) applies
+the same three fixed spatial methods to observed training pollen on these
+exact 14 sites and 30 taxa. Its prediction manifest and all 45 unscored
+site-method [prediction rows](direct-pollen/predictions.json) were retained
+before the direct target outcomes were opened; the [paired scores](direct-pollen/matched-scores.csv)
+exclude BECKHAM to match the LRA support. Direct-pollen MAE is 0.020496
+versus LRA 0.026273 for training mean, 0.019552 versus 0.021132 for nearest
+site, and 0.018579 versus 0.021088 for inverse-distance-squared. All three
+fixed direct-pollen baselines are lower on this matched development support.
+This compares pollen prediction under the declared center-distance geometry;
+the direct method uses all 14 training pollen sites, while the LRA route uses
+one as its regional anchor and 13 as local reconstruction predictors. It does
+not measure vegetation accuracy or establish an independent final test.
+
 From the repository root, with a private author source capsule and an absent
 output destination:
 
@@ -77,11 +91,20 @@ PYTHONDONTWRITEBYTECODE=1 .venv/bin/python \
   --scores "$job/scores" --destination "$job/report" \
   --prediction-manifest-sha256 "$published_prediction_sha256" \
   --score-manifest-sha256 "$published_score_sha256"
+PYTHONDONTWRITEBYTECODE=1 .venv/bin/python \
+  docs/report/pollen-reconstruction/author-lra-constrained/direct_comparison.py predict \
+  --inputs "$job/constrained-inputs" --destination "$job/direct-predictions"
+PYTHONDONTWRITEBYTECODE=1 .venv/bin/python \
+  docs/report/pollen-reconstruction/author-lra-constrained/direct_comparison.py compare \
+  --inputs "$job/constrained-inputs" --direct-predictions "$job/direct-predictions" \
+  --lra-scores "$job/report/scores.csv" --destination "$job/direct-comparison" \
+  --prediction-manifest-sha256 "$published_direct_sha256"
 ```
 
 Set `published_prediction_sha256` to the digest printed by the prediction
 command, and `published_score_sha256` to the digest printed by the score
-command. Retain each before invoking its consumer.
+command. Set `published_direct_sha256` to the digest printed by the direct
+prediction command. Retain each before invoking its consumer.
 
 The execution command requires the repository's installed package environment;
 the local package source roots can be supplied through `PYTHONPATH` when using
