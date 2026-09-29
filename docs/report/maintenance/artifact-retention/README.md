@@ -89,11 +89,15 @@ decision for other artifact paths in the original inventory.
 
 The `7bb6a614` snapshot was removed after its five recorded lane processes
 were confirmed absent. Its five lane outcomes, including the failed map-legend
-test, remain in the custody record. The exact snapshot path is absent. The
-other six snapshots remain in place pending their own removal decisions.
+test, remain in the custody record. The other six exact snapshots were then
+removed after verifying each candidate-manifest digest and every available
+lane-result digest against committed custody. All seven paths are absent, while
+all seven candidate Git trees still resolve. Their prior path-apparent total
+was at most **182,010,481,152 bytes** at the earlier native `du` scan. This is
+not a measurement of physical disk space freed because copies can share blocks.
 
-The [complete lane receipts](nordic-tox-lane-receipts.json) now retain all 19
-available lane-result objects from those six snapshots, including exact
+The [complete lane receipts](nordic-tox-lane-receipts.json) retain all 19
+available lane-result objects from the six later removed snapshots, including exact
 environment and JUnit identities. Each original receipt byte hash was checked
 against the custody record before inclusion. The earlier removed snapshot has
 only its compact outcome record; its full lane objects were not retained.

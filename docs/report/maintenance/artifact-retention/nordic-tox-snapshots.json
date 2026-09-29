@@ -76,7 +76,8 @@
           "selected_failures": []
         }
       ],
-      "local_artifact_status": "retained_pending_review"
+      "local_artifact_status": "removed_after_custody_review",
+      "prior_path_apparent_512_byte_units": 58471972
     },
     {
       "artifact_path": "artifacts/v3/tox-nordic-coverage-4af586d3",
@@ -138,7 +139,8 @@
           "selected_failures": []
         }
       ],
-      "local_artifact_status": "retained_pending_review"
+      "local_artifact_status": "removed_after_custody_review",
+      "prior_path_apparent_512_byte_units": 53433857
     },
     {
       "artifact_path": "artifacts/v3/tox-nordic-coverage-7bb6a614",
@@ -213,7 +215,8 @@
           "selected_failures": []
         }
       ],
-      "local_artifact_status": "removed_after_custody_review"
+      "local_artifact_status": "removed_after_custody_review",
+      "prior_path_apparent_512_byte_units": 60699721
     },
     {
       "artifact_path": "artifacts/v3/tox-nordic-coverage-7dedc5bf",
@@ -234,7 +237,8 @@
         "run.REVEALS.files/LRA-REVEALS-release.R"
       ],
       "lanes": [],
-      "local_artifact_status": "retained_pending_review"
+      "local_artifact_status": "removed_after_custody_review",
+      "prior_path_apparent_512_byte_units": 27387333
     },
     {
       "artifact_path": "artifacts/v3/tox-nordic-coverage-9e9b3156",
@@ -255,7 +259,8 @@
         "run.REVEALS.files/LRA-REVEALS-release.R"
       ],
       "lanes": [],
-      "local_artifact_status": "retained_pending_review"
+      "local_artifact_status": "removed_after_custody_review",
+      "prior_path_apparent_512_byte_units": 36032938
     },
     {
       "artifact_path": "artifacts/v3/tox-nordic-coverage-c5cb6442",
@@ -327,7 +332,8 @@
           "selected_failures": []
         }
       ],
-      "local_artifact_status": "retained_pending_review"
+      "local_artifact_status": "removed_after_custody_review",
+      "prior_path_apparent_512_byte_units": 59453880
     },
     {
       "artifact_path": "artifacts/v3/tox-nordic-coverage-cf51d2d5",
@@ -402,7 +408,9 @@
           "selected_failures": []
         }
       ],
-      "local_artifact_status": "retained_pending_review"
+      "local_artifact_status": "removed_after_custody_review",
+      "prior_path_apparent_512_byte_units": 60009520
     }
-  ]
+  ],
+  "removed_prior_path_apparent_bytes_upper_bound": 182010481152
 }
