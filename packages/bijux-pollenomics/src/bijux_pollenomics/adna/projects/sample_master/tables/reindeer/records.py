@@ -12,8 +12,8 @@ from bijux_pollenomics.adna.sources.library import ADNA_SOURCE_LIBRARY_DIR
 from bijux_pollenomics.adna.workflow.source_artifacts import read_source_artifact_bytes
 from bijux_pollenomics.core.xml_security import parse_hardened_xml
 
-from ..models import AdnaProjectSampleMasterRow
-from .workbook import _read_xlsx_rows
+from ...models import AdnaProjectSampleMasterRow
+from ..workbook import _read_xlsx_rows
 
 _WORKBOOK = (
     f"{ADNA_SOURCE_LIBRARY_DIR}/papers/10.1038-s41598-024-54296-2/"
