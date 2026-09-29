@@ -71,8 +71,278 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/README.md",
-      "sha256": "2b222d84a79e868b26bc23e674b99052b90b3665eec9fdf83b2d7b4472a14d6f",
-      "bytes": 36943
+      "sha256": "0926e9e2872091ad6005dbcef43b087bf342c2a494607371f275266cfd8c3a67",
+      "bytes": 37461
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/author-buffered-pollen/README.md",
+      "sha256": "18d85a605e7eabbc3222b8390acbf2244091d18eac27c181e6412102daa24cae",
+      "bytes": 3729
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/author-buffered-pollen/comparisons/baseline/REPORT.md",
+      "sha256": "5dfb4d7a3fa14d371a5124f9c65b41cfca4000ee16943cf59502217080795057",
+      "bytes": 918
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/author-buffered-pollen/comparisons/baseline/report.json",
+      "sha256": "19f9d1de88e9f7283d3ef1c60ad17d3c8b6b15ba12a0573aa39ddfbb2c9910f9",
+      "bytes": 1987
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/author-buffered-pollen/comparisons/fitted-common-support/REPORT.md",
+      "sha256": "6c8eab1a9ff11367dd701c6ecf52d1d20a761827f06c9e12342671ee35c86534",
+      "bytes": 1141
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/author-buffered-pollen/comparisons/fitted-common-support/report.json",
+      "sha256": "8c9d218fd294cfbe485a153d1e635f953146e408bd5aa31321e2cf1b4036754a",
+      "bytes": 14936
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/author-buffered-pollen/comparisons/hellinger/REPORT.md",
+      "sha256": "c487058983afc90da1e77c2974222aefa6c8edfb02d9d858e5d64d7b53458fe5",
+      "bytes": 1263
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/author-buffered-pollen/comparisons/hellinger/report.json",
+      "sha256": "4c9628c0bacecf20866c044cb203522059159996495f21758385e307adaba525",
+      "bytes": 6414
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/author-buffered-pollen/comparisons/hellinger/scores.csv",
+      "sha256": "65dd74dc9ab35d1405dd519c6ce9810f3e7384be073612ffec52de72846d0eb0",
+      "bytes": 24761
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/author-buffered-pollen/comparisons/strict-clr-support/REPORT.md",
+      "sha256": "ae4dabe9fdfa3017e81d47b152bbb3e46f882d0fca7dea218c861ef0a5d23f96",
+      "bytes": 864
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/author-buffered-pollen/comparisons/strict-clr-support/replay.py",
+      "sha256": "4cb3ddb77d7afe9a6ca2c0da06608d4b305dd2e54f567a638621b3a10e513ef8",
+      "bytes": 5533
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/author-buffered-pollen/comparisons/strict-clr-support/report.json",
+      "sha256": "82696876e0890c5f3b0973156b9d1dc0f74d2b28faad8980574333ab6a75981a",
+      "bytes": 19260
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/author-buffered-pollen/comparisons/taxon/REPORT.md",
+      "sha256": "eb8b72cf9f7d3d550ec722b29bdfbd88ae5b239507b6172638b204dead8d6589",
+      "bytes": 3738
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/author-buffered-pollen/comparisons/taxon/report.json",
+      "sha256": "e3fe6ba62e1983dddb4b1f1a324e96979a8b60c3d4416110e864a70c2d0ced1a",
+      "bytes": 48064
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/author-buffered-pollen/fitted-clr-rbf/grid-512/predictions.csv",
+      "sha256": "ad5e8644c61f3f25d75eb87965372f92f190553d1383f05f98d51ca5f641846a",
+      "bytes": 327925
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/author-buffered-pollen/fitted-clr-rbf/grid-512/report.json",
+      "sha256": "cf73be27204501674670e05fe5068c4629371c6a8ff4ed75e58f0fa9b675eb48",
+      "bytes": 8704
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/author-buffered-pollen/fitted-clr-rbf/grid-512/statuses.csv",
+      "sha256": "c6d6c130bf6537b4861c7a3392efd524cad81ff278b9c3027772a66bfcf64255",
+      "bytes": 18810
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/author-buffered-pollen/fitted-clr-rbf/grid-562/predictions.csv",
+      "sha256": "f6f5d50e2b2ecfd972ea5dc01171bd7ac4f23c2abb2e5f19e01c62ad45f78cdf",
+      "bytes": 500734
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/author-buffered-pollen/fitted-clr-rbf/grid-562/report.json",
+      "sha256": "06a746aec2c8d92ccb6cd91c162aa0bdee75b718e1d1d0d782c1833b2fdcb80b",
+      "bytes": 14948
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/author-buffered-pollen/fitted-clr-rbf/grid-562/statuses.csv",
+      "sha256": "7f4ff7bd19a261e1a0fa80aca5a09ef508d2cc5087b781f26e4cd68b8e146a90",
+      "bytes": 21619
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/author-buffered-pollen/fitted-clr-rbf/scores/REPORT.md",
+      "sha256": "3b822cfad5c39cac9d12ed70859e17e6d967f1d5323d7ec33526757254e9df9c",
+      "bytes": 1771
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/author-buffered-pollen/fitted-clr-rbf/scores/report.json",
+      "sha256": "a2b883dfac3732d30d7c02d53e5c19309093fc26f24a244828d0955d5f82790f",
+      "bytes": 32398
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/author-buffered-pollen/fitted-clr-rbf/scores/scored-predictions.csv",
+      "sha256": "dc5fe5fe3e46eb972bf8921ab5a21d977162c3c370b263899ef655bcad8a47de",
+      "bytes": 242476
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/author-buffered-pollen/fitted-clr-rbf/scores/scores.csv",
+      "sha256": "1d8e737b7e41d0e390beee8d3916e8f087713ebbcf9096f8493a92e1fd2db828",
+      "bytes": 46648
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/author-buffered-pollen/inverse-distance-squared/grid-512/predictions.csv",
+      "sha256": "f89c5c467e48bf0045038f4cc5ec23b400527317118ba26315df596208076a58",
+      "bytes": 339889
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/author-buffered-pollen/inverse-distance-squared/grid-512/report.json",
+      "sha256": "9685d80e30def4f6836f4a41bb2add29b0157af506836599cb1d394078dabfe7",
+      "bytes": 1786
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/author-buffered-pollen/inverse-distance-squared/grid-512/statuses.csv",
+      "sha256": "913657b9b0a0baf61a0fb34fab99171ac1ae1f1be98781f13b1f33229e0779f1",
+      "bytes": 19444
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/author-buffered-pollen/inverse-distance-squared/grid-562/predictions.csv",
+      "sha256": "39dcacd1d784219e8a08faa6cf4f16b616f9c32c1e58ed61ae8c3c5c24340186",
+      "bytes": 496221
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/author-buffered-pollen/inverse-distance-squared/grid-562/report.json",
+      "sha256": "5c6ea9fc1f48d51aba57ec388ea1d9bdd58b0b33b37ca9140a1b49a6ee748648",
+      "bytes": 1948
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/author-buffered-pollen/inverse-distance-squared/grid-562/statuses.csv",
+      "sha256": "7916259258379bc606293b2207b81ab26aeb15a627fff90ba7c5fce21cb14530",
+      "bytes": 22247
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/author-buffered-pollen/inverse-distance-squared/scores/REPORT.md",
+      "sha256": "7c6fe4e82cea7e443411b9410706fe28f288cd1665e9961478ab82baed630084",
+      "bytes": 1394
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/author-buffered-pollen/inverse-distance-squared/scores/report.json",
+      "sha256": "7f8a43087e50e394438890d0e8839b7d6ee671d011a50f1940bdaf8370340afd",
+      "bytes": 10138
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/author-buffered-pollen/inverse-distance-squared/scores/scored-predictions.csv",
+      "sha256": "3de42a8201102f1d32f37de9816f48c71e8edd8d1851cb10be5661cc5aba1159",
+      "bytes": 224436
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/author-buffered-pollen/inverse-distance-squared/scores/scores.csv",
+      "sha256": "7cd59b4495d51ada1288c83abb682e57a78e03427f5d9f8e1d3c7a77ea889376",
+      "bytes": 48548
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/author-buffered-pollen/manifest.json",
+      "sha256": "d51f8b437c0554070512fd644e5d64463c23ea3b0a776844d86e2cb3d9b5c0a2",
+      "bytes": 11171
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/author-buffered-pollen/nearest-site/grid-512/predictions.csv",
+      "sha256": "559588228fbb2a2a863d8bf6da48bd25214e819dd8070c86b75168c27ddeed16",
+      "bytes": 336939
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/author-buffered-pollen/nearest-site/grid-512/report.json",
+      "sha256": "384c1d8efcdd5e2738b10abe92f4fce3d5dba7f2ec5c9d409f200d723429b5f9",
+      "bytes": 1774
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/author-buffered-pollen/nearest-site/grid-512/statuses.csv",
+      "sha256": "9b38036102656a43e6e25e3798902482d20188d412342bf84760bd25c4e9a908",
+      "bytes": 19444
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/author-buffered-pollen/nearest-site/grid-562/predictions.csv",
+      "sha256": "d0c06921d65c31728e579eff40dd5a44bdae448ff64994947eb42c34b5359701",
+      "bytes": 482602
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/author-buffered-pollen/nearest-site/grid-562/report.json",
+      "sha256": "737594dcd61c22f68093caef39fe25d7046b314f16adbf6a78edae6516335c54",
+      "bytes": 1936
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/author-buffered-pollen/nearest-site/grid-562/statuses.csv",
+      "sha256": "1fcd1dc17ee51135d266055197acff24390257b65e8f7ef0689101a9c6705199",
+      "bytes": 22247
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/author-buffered-pollen/nearest-site/scores/REPORT.md",
+      "sha256": "0836124a2052bced4694d71715d57b9c7dde7fd363142ecf45b0470f0f7e9202",
+      "bytes": 1382
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/author-buffered-pollen/nearest-site/scores/report.json",
+      "sha256": "394473048d6a49756a005115c362a5c24ac2beccfd0847207735e63b80fe8249",
+      "bytes": 10104
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/author-buffered-pollen/nearest-site/scores/scored-predictions.csv",
+      "sha256": "e240bc22d523edd240f94ad564235debf87255b9ff0a4d7adda239fcce113c38",
+      "bytes": 214916
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/author-buffered-pollen/nearest-site/scores/scores.csv",
+      "sha256": "e8c43e62a5cae82465da2801f2d9877955ad3c8cfc1cc4c916a13a3c18c45b6d",
+      "bytes": 48549
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/author-buffered-pollen/training-mean/grid-512/predictions.csv",
+      "sha256": "80699e171c8bc9249e782c2156a70f4946413493c4e731434571b9a5027e8ecd",
+      "bytes": 340017
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/author-buffered-pollen/training-mean/grid-512/report.json",
+      "sha256": "ff5a4d6210132c814ceae2200032930a53e4cf9741ed90069e65a0a4311e0ec9",
+      "bytes": 1780
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/author-buffered-pollen/training-mean/grid-512/statuses.csv",
+      "sha256": "80529c37079be2f9844ed8ccd80b78bb8f13d6728e4c625358a7ab97f8087b41",
+      "bytes": 19444
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/author-buffered-pollen/training-mean/grid-562/predictions.csv",
+      "sha256": "5dd7ae50c43343d2286a0f279f7f8a738f3af11b0e871c01750cd34b6131da5a",
+      "bytes": 496282
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/author-buffered-pollen/training-mean/grid-562/report.json",
+      "sha256": "406288282bbca400a5d8f3fc12798e1adef6873910bdc8b88ec44df15c747bb3",
+      "bytes": 1942
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/author-buffered-pollen/training-mean/grid-562/statuses.csv",
+      "sha256": "93eba74a875e60ae20cd2b330f4c17748efddf9358f093989d76c2deec57959c",
+      "bytes": 22247
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/author-buffered-pollen/training-mean/scores/REPORT.md",
+      "sha256": "99e7b4e2dc8aaf6c6197956aa7465026e3871c92fec020e00665aaf87570cf72",
+      "bytes": 1359
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/author-buffered-pollen/training-mean/scores/report.json",
+      "sha256": "05a1f85d82c0e18a509760ecc33b0e4bda5d540fc73749966cecdfb21cabae23",
+      "bytes": 10124
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/author-buffered-pollen/training-mean/scores/scored-predictions.csv",
+      "sha256": "de91d032886a48834ed5764e8b7f36a79b7ee714d4cb1f2dbbd6875b467f5bb3",
+      "bytes": 224549
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/author-buffered-pollen/training-mean/scores/scores.csv",
+      "sha256": "2acee3f7f75ab3dfc2539e6a88264b25b818cb80b807f8c9e66dc7b31e5d3ae7",
+      "bytes": 48524
     },
     {
       "path": "docs/report/pollen-reconstruction/author-development-design.json",
@@ -166,13 +436,13 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/results.csv",
-      "sha256": "260bac2b5224a7e78a10592897c2678f68ca6c8b4e5c4eb1b70975c3d2b0be90",
-      "bytes": 12480
+      "sha256": "39ea02ad59fd6168f4600dd03eab501cffd9c98f2cb8a17ce5731e359308ef58",
+      "bytes": 13265
     },
     {
       "path": "docs/report/pollen-reconstruction/scope.json",
-      "sha256": "7bb639cd3e5f8ba752ea69c608afdcf9e421728b43b3a24ae004f1bd8719242f",
-      "bytes": 13420
+      "sha256": "fb68d7faa9e0c0bf3988f306095d748c0738aaa3d8f68a6084a2ac3085685a47",
+      "bytes": 13968
     },
     {
       "path": "docs/report/pollen-reconstruction/scores.csv",
@@ -276,8 +546,8 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/verify_report.py",
-      "sha256": "ddabd30e977ff16d7c3d8cd1e072a2237e89d9c27072e521843f7bb78acae7c7",
-      "bytes": 31480
+      "sha256": "a4cf2e5e91f886a0483106f769b68645658a09fba8eed7b4fb595ce95e10a875",
+      "bytes": 34975
     },
     {
       "path": "docs/report/publication-replay/landclim-author-example-correspondence/README.md",

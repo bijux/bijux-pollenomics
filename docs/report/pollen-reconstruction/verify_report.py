@@ -145,6 +145,80 @@ def verify_publication_correspondence(scope: dict[str, Any]) -> None:
         raise ValueError("publication window alignment differs from retained claims")
 
 
+def verify_author_buffered_pollen(scope: dict[str, Any]) -> None:
+    """Bind the buffered four-method diagnostic to frozen source and scores."""
+    declared = scope["author_buffered_spatial_pollen"]
+    directory = REPOSITORY_ROOT / declared["directory"]
+    manifest = json.loads((directory / "manifest.json").read_text(encoding="utf-8"))
+    if (
+        manifest["private_source_manifest_sha256"]
+        != declared["private_source_manifest_sha256"]
+        or len(manifest["files"]) != 53
+    ):
+        raise ValueError("buffered author source custody differs")
+    for item in manifest["files"]:
+        path = directory / item["path"]
+        if path.stat().st_size != item["bytes"] or sha256(path) != item["sha256"]:
+            raise ValueError(f"buffered author output differs: {item['path']}")
+    for relative, digest in manifest["producer_sha256"].items():
+        if sha256(REPOSITORY_ROOT / relative) != digest:
+            raise ValueError(f"buffered author producer differs: {relative}")
+
+    comparison = json.loads(
+        (directory / "comparisons/fitted-common-support/report.json").read_text(
+            encoding="utf-8"
+        )
+    )
+    baseline = json.loads(
+        (directory / "comparisons/taxon/report.json").read_text(encoding="utf-8")
+    )
+    strict = json.loads(
+        (directory / "comparisons/strict-clr-support/report.json").read_text(
+            encoding="utf-8"
+        )
+    )
+    if (
+        comparison["observed_site_bins"] != declared["observed_site_bins"]
+        or baseline["common_scored_site_bins"] != declared["fixed_baseline_scored_bins"]
+        or comparison["common_scored_site_bins"]
+        != declared["four_method_common_scored_bins"]
+        or any(block["bins_with_strict_clr_fit"] != 0 for block in strict["blocks"])
+    ):
+        raise ValueError("buffered author support differs from retained claims")
+    method_dirs = {
+        "training_mean": "training-mean",
+        "nearest_site": "nearest-site",
+        "inverse_distance_squared": "inverse-distance-squared",
+        "clr_rbf_ridge_half_count": "fitted-clr-rbf",
+    }
+    metrics = {item["method"]: item for item in comparison["methods"]}
+    if (
+        metrics["clr_rbf_ridge_half_count"]["common_site_macro_mae_fraction"]
+        != declared["fitted_site_macro_mae_fraction"]
+        or metrics["training_mean"]["common_site_macro_mae_fraction"]
+        != declared["training_mean_common_site_macro_mae_fraction"]
+    ):
+        raise ValueError("buffered author method scores differ")
+    for method, name in method_dirs.items():
+        scores_dir = directory / name / "scores"
+        report_path = scores_dir / "report.json"
+        score_path = scores_dir / "scores.csv"
+        receipt = comparison["score_receipts"][method]
+        report = json.loads(report_path.read_text(encoding="utf-8"))
+        if (
+            sha256(report_path) != receipt["report_sha256"]
+            or sha256(score_path) != receipt["scores_sha256"]
+            or report["scored_site_bins"]
+            != comparison["method_specific_scored_bins"][method]
+        ):
+            raise ValueError(f"buffered author score receipt differs: {method}")
+        for grid, digest in report["prediction_report_sha256"].items():
+            if sha256(directory / name / f"grid-{grid}/report.json") != digest:
+                raise ValueError(
+                    f"buffered author prediction receipt differs: {method}"
+                )
+
+
 def verify_author_source(source_root: Path) -> None:
     """Authenticate private inputs with the same reader used by the study."""
     from bijux_pollenomics_dev.essd_reproduction.author_pollen_spatial.source import (
@@ -476,6 +550,7 @@ def main() -> None:
     if scope.get("confirmatory_result") is not False:
         raise ValueError("scoped report must not declare a confirmatory result")
     verify_publication_correspondence(scope)
+    verify_author_buffered_pollen(scope)
     with (REPORT_DIR / "swedish-source-questions.csv").open(
         newline="", encoding="utf-8"
     ) as stream:

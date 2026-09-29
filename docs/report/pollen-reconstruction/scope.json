@@ -246,6 +246,16 @@
     "site_macro_total_variation": 0.29370261399256353,
     "status": "prior_exposed_development_baseline_not_confirmatory"
   },
+  "author_buffered_spatial_pollen": {
+    "directory": "docs/report/pollen-reconstruction/author-buffered-pollen",
+    "private_source_manifest_sha256": "48d853468f979a04636642c6c757e9d05edf708d799b29cbae4d2286a9ac0acb",
+    "observed_site_bins": 184,
+    "fixed_baseline_scored_bins": 148,
+    "four_method_common_scored_bins": 140,
+    "fitted_site_macro_mae_fraction": 0.040564201040558065,
+    "training_mean_common_site_macro_mae_fraction": 0.025298319144157262,
+    "status": "prior_exposed_english_direct_pollen_development_diagnostic"
+  },
   "publication_correspondence": {
     "author_example": {
       "directory": "docs/report/publication-replay/landclim-author-example-correspondence",
