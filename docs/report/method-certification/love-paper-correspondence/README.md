@@ -19,6 +19,14 @@ DISQOVER 0.9.14 archive used by our R oracle; the article accessed DISQOVER in
 February 2024, whereas that archive was packaged in January 2026. Archive
 parity therefore does not establish the exact software version behind Figure 2.
 
+The [published parameter tables](paper-parameter-tables.json) transcribe all
+11 map-unit fractions from Table 1 and the ten taxon fall-speed, PPE and PPE SD
+values from Table 2 of the retained PDF (page 6). Each map-unit row sums to
+one, and every printed PPE SD is 10% of its PPE. Table 2 does not state a
+fall-speed unit, so the transcription does not assign one. These constants
+resolve a bounded paper input; they do not identify the spatial extent of
+each map unit, the pond placements or the random realizations behind Figure 2.
+
 | Paper method or assumption | Current executable evidence | Scope of correspondence |
 | --- | --- | --- |
 | Small-site pollen deposition combines local and regional contributions. | [Optimized forward objective](../../../../packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/optimized.py) and [analytical subtraction](../../../../packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/analytical.py). | Source equations have bounded R/Python parity; no ecological truth is inferred. |
