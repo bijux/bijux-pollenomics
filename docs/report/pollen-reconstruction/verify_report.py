@@ -347,7 +347,9 @@ def verify_pft_uncertainty_bounds() -> dict[str, Any]:
         REPOSITORY_ROOT
         / "docs/report/publication-replay/landclim-pft-crosswalk/uncertainty-bounds"
     )
-    report = json.loads((directory / "report.json").read_text(encoding="utf-8"))
+    report: dict[str, Any] = json.loads(
+        (directory / "report.json").read_text(encoding="utf-8")
+    )
     if sha256(directory / "windows.csv") != report["window_csv_sha256"]:
         raise ValueError("PFT uncertainty window ledger changed")
     for source in report["inputs"]:
@@ -569,6 +571,36 @@ def main() -> None:
         or swedish_author_scope["author_target_taxa"] != len(swedish_author["axis"])
     ):
         raise ValueError("Swedish author-target scope differs from the retained study")
+
+    lake_scope = scope["swedish_lake_transfer"]
+    lake_dir = REPOSITORY_ROOT / Path(lake_scope["report"]).parent
+    lake_report = json.loads((lake_dir / "report.json").read_text())
+    lake_inputs = json.loads((lake_dir / "input-manifest.json").read_text())
+    lake_freeze = json.loads((lake_dir / "prediction-freeze.json").read_text())
+    with (lake_dir / "coverage.csv").open(newline="", encoding="utf-8") as stream:
+        lake_coverage = list(csv.DictReader(stream))
+    lake_denominator = lake_report["country_source_denominators"]["SE"]
+    if (
+        lake_scope["protocol"]
+        != str(Path(lake_scope["report"]).parent / "protocol.json")
+        or lake_scope["prediction_freeze"]
+        != str(Path(lake_scope["report"]).parent / "prediction-freeze.json")
+        or lake_scope["prediction_freeze_sha256"]
+        != sha256(lake_dir / "prediction-freeze.json")
+        or lake_freeze["prediction_sha256"] != lake_report["prediction_sha256"]["SE"]
+        or lake_scope["physical_lake_sites"] != lake_denominator["sites"]
+        or lake_scope["selected_samples"] != lake_denominator["selected_samples"]
+        or lake_scope["excluded_source_samples"]
+        != lake_inputs["excluded_source_samples"]
+        or lake_scope["native_pollen_nisp"] != lake_denominator["native_nisp"]
+        or lake_scope["author_assigned_nisp"] != lake_denominator["assigned_nisp"]
+        or lake_scope["fixed_method_score_rows"] != lake_report["score_rows"]
+        or len(lake_coverage) != 1
+        or lake_scope["candidate_and_scored_site_bins"]
+        != int(lake_coverage[0]["positive_target_and_predicted_site_bins"])
+        or "swedish-lake-transfer" not in {row[0] for row in results[1:]}
+    ):
+        raise ValueError("Swedish lake transfer scope differs from retained result")
 
     pft_bounds = verify_pft_uncertainty_bounds()
     pft_scope = scope["pft_uncertainty_bounds"]

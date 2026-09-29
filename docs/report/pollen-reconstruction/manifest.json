@@ -71,8 +71,8 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/README.md",
-      "sha256": "788e3c18d1ba6f02d99c9c6485f18e194b596e37c038b7893b984ab73c10cf84",
-      "bytes": 34321
+      "sha256": "bfb3e323e5c0c924feedfb1fc89db82734992e5e8a2cbc59aafc7ae71ec9acc0",
+      "bytes": 35458
     },
     {
       "path": "docs/report/pollen-reconstruction/author-development-design.json",
@@ -166,13 +166,13 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/results.csv",
-      "bytes": 11364,
-      "sha256": "155ec4c98ef5fa15c10a9db30df14a1e46108b56227ce795fc7b9351334deb38"
+      "sha256": "4f20e8b161a8019a84bfb4014f79d104e1f5e7bb9a4da474d6b593bb69e40767",
+      "bytes": 12092
     },
     {
       "path": "docs/report/pollen-reconstruction/scope.json",
-      "bytes": 11908,
-      "sha256": "f9434744037e60667f7fd328b13e508817316797c91fb1e5aedff24923457bb2"
+      "sha256": "f74eeb13bd0e06171eb428b92174470d0292967b14cc33f7e0c9232b6d47d5b5",
+      "bytes": 12647
     },
     {
       "path": "docs/report/pollen-reconstruction/scores.csv",
@@ -276,8 +276,8 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/verify_report.py",
-      "bytes": 26997,
-      "sha256": "d0802eb2249d42c5cc393e0bc1eb29815fa7eb56a642e019fb930727e25078b1"
+      "sha256": "28f5bdd7ea2f0d471455dfbbda0b97a65bed23a6977a9c1198bbce62b885c276",
+      "bytes": 28824
     },
     {
       "path": "docs/report/publication-replay/landclim-author-example-correspondence/README.md",
@@ -660,6 +660,81 @@
       "bytes": 4933
     },
     {
+      "path": "docs/report/regions/nordic/swedish-lake-transfer/README.md",
+      "sha256": "e658351ef06d26a997e0c49da6c8bccea137eb18fb4d05b09f70143efa795036",
+      "bytes": 4058
+    },
+    {
+      "path": "docs/report/regions/nordic/swedish-lake-transfer/coverage.csv",
+      "sha256": "bf94946b02002eea74e464d211fd098e718246b9c62790aba00afba77ec59142",
+      "bytes": 137
+    },
+    {
+      "path": "docs/report/regions/nordic/swedish-lake-transfer/input-manifest.json",
+      "sha256": "8c266e2c44fabe0e7c3a31c38fc0058b27b3db08cff670b65ca239ea5eeb7905",
+      "bytes": 3279
+    },
+    {
+      "path": "docs/report/regions/nordic/swedish-lake-transfer/inputs/metadata-SE.json.gz",
+      "sha256": "83895824a229cad9d974ace2887275e37d174beda2057433fb5bb0c7f692d5b4",
+      "bytes": 1016
+    },
+    {
+      "path": "docs/report/regions/nordic/swedish-lake-transfer/inputs/training-SE.json.gz",
+      "sha256": "de2683e4a01ab4d3aa3e8add4891ddbb487f4cc0ee650aada57ed839abecce80",
+      "bytes": 99397
+    },
+    {
+      "path": "docs/report/regions/nordic/swedish-lake-transfer/manifest.json",
+      "sha256": "78e819cd5f917d5d9b78debdd5bace349bf91900966f535e481ac8f82f3f0009",
+      "bytes": 2587
+    },
+    {
+      "path": "docs/report/regions/nordic/swedish-lake-transfer/prediction-freeze.json",
+      "sha256": "3aa60965e7d79b02674a0a61d8806e267bc04a7e2d37df711feb003ef289f18a",
+      "bytes": 1193
+    },
+    {
+      "path": "docs/report/regions/nordic/swedish-lake-transfer/predictions/predictions-SE.json.gz",
+      "sha256": "eb10b5e7225cef3c51b544c1a25cebc264d9b5ab10477d9c4216b83a38bad909",
+      "bytes": 53238
+    },
+    {
+      "path": "docs/report/regions/nordic/swedish-lake-transfer/protocol.json",
+      "sha256": "046be3fa589fde3cba0d67f3d4a46f21f73a81a2dd2e089c454775affebabade",
+      "bytes": 3662
+    },
+    {
+      "path": "docs/report/regions/nordic/swedish-lake-transfer/report.json",
+      "sha256": "9e70b542d843466cbb2933a6d0c9cbb7c5c4ae6ddfc9fd4e8f8a73ab42d4789c",
+      "bytes": 2241
+    },
+    {
+      "path": "docs/report/regions/nordic/swedish-lake-transfer/scores.csv",
+      "sha256": "8104c864f81264022d6535fce008cd877b998ea84f870a88d223a920b531290b",
+      "bytes": 31503
+    },
+    {
+      "path": "docs/report/regions/nordic/swedish-lake-transfer/sealed-outcomes/outcomes-SE.json.gz",
+      "sha256": "44c4ea3b2c607436b1c882d0881c2a1f8d0fe733a7a95c674b6481db9754473a",
+      "bytes": 4718
+    },
+    {
+      "path": "docs/report/regions/nordic/swedish-lake-transfer/site-scores.csv",
+      "sha256": "6bcc1063abb058f4f958aecbaa34ba1e5d28c49e7bdecc82a8e09bdce208d75c",
+      "bytes": 820
+    },
+    {
+      "path": "docs/report/regions/nordic/swedish-lake-transfer/taxon-diagnostics.csv",
+      "sha256": "8d2302c4cd8b1523e7d647158181c20f4a2d4c3059acbef6d3c79b00b9a4f722",
+      "bytes": 4964
+    },
+    {
+      "path": "docs/report/regions/nordic/swedish-lake-transfer/verify.py",
+      "sha256": "1dc50aaa2ce11891c33785ac3a46731f9b92925f221e39e6f3a014d33f779aa7",
+      "bytes": 9656
+    },
+    {
       "path": "docs/report/regions/nordic/swedish-neotoma-holdout/README.md",
       "bytes": 4227,
       "sha256": "ec426fb53531311cbb59a8caeee70ef2c0de76a6e5f292f8edbc282a2b0fdf8c"
@@ -908,6 +983,11 @@
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/swedish_direct_pollen.py",
       "sha256": "4b4dd7819ac6dc116388d376f902b823c8492f294ea79114c85c006bb7fb2a14",
       "bytes": 30628
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/swedish_lake_transfer.py",
+      "sha256": "3c4321f729c5ea4cc53172b3ebf0a22b782f0e873ae88ad67225b43a0ad01b62",
+      "bytes": 13425
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/swedish_neotoma_duplicate_review.py",

@@ -214,6 +214,20 @@
     "author_assigned_nisp": 35505,
     "status": "additional_prior_exposed_development_transfer; no LRA, vegetation or country-wide claim"
   },
+  "swedish_lake_transfer": {
+    "report": "docs/report/regions/nordic/swedish-lake-transfer/report.json",
+    "protocol": "docs/report/regions/nordic/swedish-lake-transfer/protocol.json",
+    "prediction_freeze": "docs/report/regions/nordic/swedish-lake-transfer/prediction-freeze.json",
+    "prediction_freeze_sha256": "3aa60965e7d79b02674a0a61d8806e267bc04a7e2d37df711feb003ef289f18a",
+    "physical_lake_sites": 3,
+    "selected_samples": 268,
+    "excluded_source_samples": 5,
+    "candidate_and_scored_site_bins": 63,
+    "fixed_method_score_rows": 189,
+    "native_pollen_nisp": 238797,
+    "author_assigned_nisp": 231115,
+    "status": "additional_prior_exposed_development_transfer; no LRA, vegetation or country-wide claim"
+  },
   "pft_uncertainty_bounds": {
     "report": "docs/report/publication-replay/landclim-pft-crosswalk/uncertainty-bounds/report.json",
     "groups": 5,
