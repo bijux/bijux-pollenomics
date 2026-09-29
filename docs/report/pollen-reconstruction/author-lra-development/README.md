@@ -39,10 +39,12 @@ of **0.006 m/s**. The host's
 [`lra-request.v1` validation](https://github.com/bijux/bijux-pollenomics/blob/828081f963fa574cd217c8f9c4c2cfcdb9397d52/packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/inputs/validation.py)
 requires the named LandClim II GPM-neutral analytical profile when any fall
 speed is below 0.01 m/s. Its optimized LOVE route cannot consume this exact
-profile without a different parameter or taxon decision. Such a change would
-define a new exploratory input and would not resolve the negative analytical
-result above. The source-bound next step is a qualified geometry and count
-denominator for a Swedish cohort, not an optimizer substitution.
+profile without a different parameter or taxon decision. A separately declared
+[30-taxon optimized feasibility pilot](../author-lra-optimized-feasibility/README.md)
+excluded `Filipendula` with its 159/20,732 source-count mass disclosed. Both
+bounded requests on one training pair refused optimizer convergence, producing
+no LRA prediction or score. The original analytical result remains intact.
+Source-backed Swedish geometry and a count-denominator decision are still needed.
 
 [report.json](report.json) binds the source, experiment and prediction identities
 and records the denominators. [folds.csv](folds.csv) retains each refusal;

@@ -70,6 +70,11 @@ The selected development candidate is a WGS84 radial-basis-function model fitted
 | Are predictions accurate against independent measured vegetation? | The existing EMPD2–NFI review selected 16 spatial leads within 1 km and admitted 0 independent vegetation pairs. Fifteen lack an authenticated pollen collection date; one source note needs review; five retain cross-source identity concerns. | Not evaluated. NFI plot measurements do not by themselves provide matched landscape-wide pollen taxon fractions. |
 | Do HYDE or extra countries add useful information? | Native ISO-grid sums agree with 84 four-country cropland totals at seven CE labels and three scenarios. The separate count-only private-window adapter still refuses country assignments. No paired pollen ablation was run. | Source-grid correspondence established for selected cropland labels; matched pollen use remains blocked by rights, formal CRS, calendar, covariate support and scenario interpretation. |
 
+The separate [30-taxon optimized LOVE feasibility pilot](author-lra-optimized-feasibility/README.md)
+retained the excluded `Filipendula` count mass and source request identities. Its
+two bounded one-pair requests both refused optimizer convergence; it produced no
+LRA prediction or score.
+
 The selected CLR-RBF therefore improves the development score against the declared simple baselines on common support, but does not establish Swedish transfer, LRA-derived prediction skill, vegetation accuracy, publication reproduction or HYDE value. A separate [buffered author spatial study](author-buffered-pollen/README.md) on two adjacent grids retained four methods' frozen predictions and scores. Its fixed fitted-RBF diagnostic performed worse than the training mean (MAE 0.040564 versus 0.025298 on 140 common bins); it remains a distinct, previously exposed diagnostic and is not the selected three-fold model.
 
 The [archived PFT taxon arithmetic](../publication-replay/landclim-pft-crosswalk/README.md)

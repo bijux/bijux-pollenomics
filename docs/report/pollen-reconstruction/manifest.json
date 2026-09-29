@@ -126,8 +126,8 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/README.md",
-      "sha256": "01b545036707c2953076ef1529185b91d50d790f4703bd48c9e8eddefed9e1b7",
-      "bytes": 40287
+      "sha256": "cd9194e218d10c281cb540a93dfad75f92364deb9a04631bc042d2551d715a58",
+      "bytes": 40577
     },
     {
       "path": "docs/report/pollen-reconstruction/author-buffered-pollen/README.md",
@@ -446,8 +446,8 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/author-lra-development/README.md",
-      "sha256": "762a9a276c9cbb171219e6616ab8f27fd5fc3ca3f32f753bbae77ab1b18678c2",
-      "bytes": 4541
+      "sha256": "180035a57c33ae2e8c7d79f8cacebc60f4ead244756e824d029cf72db75f4111",
+      "bytes": 4725
     },
     {
       "path": "docs/report/pollen-reconstruction/author-lra-development/cover-diagnostics.csv",
@@ -463,6 +463,21 @@
       "path": "docs/report/pollen-reconstruction/author-lra-development/report.json",
       "sha256": "cf36b604ed37ddc22b1c0bba4e9efb39df9a9099bb19c318a2fe92012e0e8013",
       "bytes": 1672
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/author-lra-optimized-feasibility/README.md",
+      "sha256": "8b44ae8c2119e5e1e27ef608fc23460e83f6afb749061b007dad466a55246b7d",
+      "bytes": 3004
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/author-lra-optimized-feasibility/prepare.py",
+      "sha256": "da95cfa034480cab61b18028239cf1a2b8da753a07b97d8824df4f356ca64e06",
+      "bytes": 7549
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/author-lra-optimized-feasibility/report.json",
+      "sha256": "2d2202914ec86f70aad49d63782066c10a198997ef628f65d4e9134f2aefb869",
+      "bytes": 2061
     },
     {
       "path": "docs/report/pollen-reconstruction/author-source-custody.json",
@@ -491,8 +506,8 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/results.csv",
-      "sha256": "617d6d9fa3cb947ce3d26eb451a9f9dfe25aa5bcefb94acd8a43d6843bc6f4ab",
-      "bytes": 14020
+      "sha256": "f53f2d95338312dcd38fbd299d1c43f6f20dcab58cdbc53db4d25377e6b996a5",
+      "bytes": 14697
     },
     {
       "path": "docs/report/pollen-reconstruction/scope.json",
