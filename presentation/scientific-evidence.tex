@@ -2,7 +2,7 @@
 \title{Bijux Pollenomics: scientific evidence}
 \subtitle{Sources, method correspondence, predictions and model use}
 \author{Bijux Pollenomics}
-\date{29 September 2026}
+\date{30 September 2026}
 \begin{document}
 \frame{\titlepage}
 
@@ -32,6 +32,16 @@ Sweden & 3 & 228 & 221,800/240,966 & 51/54 \\
 \end{tabular}
 \scope{Closed 31-target author pollen composition. Excluded/unmapped mass remains outside the score. Zero Nordic samples are admitted to LRA by this study.}
 \evidence{reports/science/denmark-finland-norway-author-pollen.md; reports/science/sweden-author-pollen.md}
+\end{frame}
+
+\begin{frame}{Swedish training scope on shared pollen targets}
+\begin{itemize}
+\item Hold out each Swedish site; train on the other two Swedish sites or those same two plus 81 DK/FI/NO sites.
+\item On 39 shared site-bins, inverse-distance-squared equal-site pollen MAE is 0.032846 versus 0.023226, favoring four-country training.
+\item Sweden-only refuses 15 of 54 candidate bins; four-country training predicts all 54.
+\end{itemize}
+\scope{Three previously exposed sites; most mean gain comes from Abborrtjarnen. No LRA or independent vegetation accuracy follows.}
+\evidence{reports/science/sweden-training-scope.md; docs/report/regions/nordic/swedish-training-scope/paired-scores.csv}
 \end{frame}
 
 \begin{frame}{What reproduces numerically}

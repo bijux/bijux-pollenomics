@@ -87,3 +87,9 @@ The [four-country HYDE cropland account](../science/hyde-cropland-source-account
 is root-owned. Its 84 source totals and native-grid reconciliations stay in
 the producer tree; the old website path remains a citation page. The
 scientific result and paper correspondence ledgers now name the root account.
+
+The [Swedish training-scope comparison](../science/sweden-training-scope.md)
+uses the same boundary: interpretation and limits live in the root report;
+the six fold inputs, frozen predictions, coverage, scores and machine report
+stay in the governed producer tree. Its former website path is a citation
+page, and the master result ledger cites the root narrative.

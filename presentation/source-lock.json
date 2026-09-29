@@ -10,20 +10,22 @@
     "docs/report/method-certification/original-r-reference/README.md": "c366c13945eedb6283046a8744cf5c84b2e681939526aea37f6146d739cbf9ef",
     "docs/report/pollen-reconstruction/author-lra-constrained/direct-pollen/paired-hellinger.json": "91255eda5f958f7072ea489dfc36201360b7aaa5f019e5f0c91f3e2a59830950",
     "docs/report/pollen-reconstruction/verify_report.py": "5b85c184b5e72d4d890dabb77342f8c81e3fc8d9a2bbe3744e91b74c7f13a44d",
+    "docs/report/regions/nordic/swedish-training-scope/paired-scores.csv": "d1d5456cf8ab2a10a859a19b2d8eae52ef962cfeb84b08e8b268ff2e67b092c4",
     "packages/bijux-pollenomics/pyproject.toml": "5210c72e9ee4827f64c81f7ca1906e2fe4465cb6cf227311378fc77038ed8aaf",
     "presentation/README.md": "c4c8e910feee73159bfda2dc0f1c70480963c9be7cf6911db9f7a66d2755f075",
     "presentation/big-picture.tex": "6a01b462b18dcac4ac8e4c7a92aeadd66c272c90585af636ddba353fbcf15bd4",
     "presentation/build.py": "a1ee7ca37524c7b3d096a9cb3eeb20563bd52240aa5887e9fad767c6df05daf0",
     "presentation/developer.tex": "855ea504de4bba7b0941ad3d3b95b2f481f730a8c6c911883aed7fca68e10291",
-    "presentation/scientific-evidence.tex": "6ec76eaa6c0ffc0f1cd2cc574c2b987784b7b11216e454e3b60e15571c1ec833",
+    "presentation/scientific-evidence.tex": "ce1da96c98859471eb379c57771c4255c952f783cb7820e47c581f746c693bb5",
     "presentation/shared.tex": "2aa40954975f75241ded20a78d0c698c0f864274222e30c148bda4cf4b0bf17a",
-    "reports/README.md": "4b7cdc826be92d3636734943fbdac105ed5aff6be3cb34cbd981cef7aba8cf6f",
+    "reports/README.md": "3016986e49c542176f8bf88de77c006fcb62d06ba13c9fc7f571d651918a303e",
     "reports/needed/README.md": "579cc10fb01a74477acb39342ad190745ddf789248a2f8b4a94d7c818283601f",
     "reports/science/denmark-finland-norway-author-pollen.md": "c204f2077285c7424dd08c548553765f377aec1b26d47704a1014ff6dc9e0490",
     "reports/science/english-lra-pollen-prediction.md": "85d9460efb0f76c87161a7e7a62c79b5a1aa570a553599af9f6ff5390d9442a3",
-    "reports/science/model-use.md": "6fb32556a04d32f105b5929d38f390c285ae9bcfe4f6620aa6c0f9535d1d78e7",
-    "reports/science/pollen-prediction.md": "6391f68afd03bba3ddeeecf166e8eec9ddea57d46056f53d4fbb8d1f7af61027",
+    "reports/science/model-use.md": "41c4cb8ded12d85883c1aeb3ad9ddec222942ce8885b55937c8d66c927fffa4c",
+    "reports/science/pollen-prediction.md": "b336df0c8925bb5ad3b31df2ea01c72cba12c0f9907e44d8c53adb4f7bebce86",
     "reports/science/publication-correspondence.md": "13bad061db56b3cfe9b55587c98f7c77d4e053f7c4be23ec2dce79e4d5d95ac6",
-    "reports/science/sweden-author-pollen.md": "138e78bc39e9fca2545a573c4cd07afc3d57aa73843b8ee3a43afbcea672343a"
+    "reports/science/sweden-author-pollen.md": "17912b9ff205302cfa95f37c6279ece5521c29ce2f21bda7859755078b1ae683",
+    "reports/science/sweden-training-scope.md": "674e411dcd443c122f02e619dc76d8023a6648903bb49b8195dd5c37019e277e"
   }
 }

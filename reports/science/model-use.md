@@ -57,6 +57,15 @@ their MAEs should not be compared as if the denominators were equal. Denmark
 has one physical target site. Prior outcome exposure limits all these
 comparisons to development evidence.
 
+The [Swedish training-scope study](sweden-training-scope.md) holds out each of
+three Swedish sites while comparing the other two Swedish sites against those
+same two plus 81 DK/FI/NO sites. On 39 bins shared by both scopes, IDW
+equal-site observed-pollen MAE is 0.032846 versus 0.023226, respectively.
+Sweden-only training refuses 15 of 54 candidate bins; four-country training
+predicts all 54. The gain is concentrated at one site and the outcomes were
+previously exposed. This comparison cannot select LRA parameters or establish
+independent spatial skill.
+
 ## The real English LRA profile
 
 The [constrained LOVE study](english-lra-pollen-prediction.md)

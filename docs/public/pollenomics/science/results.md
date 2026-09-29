@@ -4,7 +4,7 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-09-29
+last_reviewed: 2026-09-30
 ---
 
 # Results and model use
@@ -57,6 +57,21 @@ finds the lower direct mean Hellinger distance persists after any one scored
 site is omitted. Individual sites still disagree, especially for nearest
 site, where only seven of 14 favor direct. This is a descriptive sensitivity
 check on previously explored examples, not a confidence interval.
+
+## Swedish training scope on matched pollen targets
+
+The [whole-site comparison](../../../report/regions/nordic/swedish-training-scope/README.md)
+holds out each of three Swedish sites. It compares the other two Swedish
+sites with those same two plus 81 Denmark, Finland and Norway sites. On the
+39 bins shared by both scopes, inverse-distance-squared equal-site
+observed-pollen MAE is 0.032846 with Sweden-only training and 0.023226 with
+four-country training. Sweden-only training refuses 15 of 54 candidate
+bins; four-country training predicts all 54. The
+[paired rows](../../../report/regions/nordic/swedish-training-scope/paired-scores.csv)
+retain the exact common support. These three Swedish sites and their outcomes
+were previously explored, and most of the mean improvement comes from one
+site. The comparison does not establish independent prediction skill or LRA
+vegetation accuracy.
 
 ## Parameters and next experiments
 

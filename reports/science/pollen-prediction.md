@@ -16,6 +16,20 @@ cohort, and 94 Norwegian bins have no eligible prediction. The study reports
 observed-pollen transfer, not a vegetation estimate. Prior outer outcomes were
 already exposed, so it does not establish confirmatory country transfer skill.
 
+## Swedish training scope on matched targets
+
+The [Swedish training-scope comparison](sweden-training-scope.md) asks whether
+adding 81 DK/FI/NO sites to two Swedish training sites changes prediction at
+the third Swedish site. On 39 bins common to both scopes, three fixed methods
+have 117 paired score rows. Inverse-distance-squared equal-site pollen MAE is
+0.032846 with Sweden-only training and 0.023226 with four-country training.
+Sweden-only has 15 support refusals among 54 candidate bins; four-country
+training predicts all 54. The mean IDW advantage is concentrated in
+Abborrtjärnen, and only three previously exposed Swedish sites are available.
+This compares observed pollen, not LRA-derived vegetation or independent
+ecological truth. It does not yet test time displacement or population-level
+spatial generalization.
+
 ## Matched English direct pollen and LRA forward pollen
 
 The [constrained LOVE source study](english-lra-pollen-prediction.md)

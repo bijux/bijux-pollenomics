@@ -47,6 +47,12 @@ cohort, no independent vegetation truth and **zero LRA admissions**. The
 historical lake geometry and source decisions in the [Swedish source review](../../docs/report/pollen-reconstruction/swedish-source-questions.csv)
 still govern LRA use.
 
+The separate [matched training-scope study](sweden-training-scope.md) rotates
+each Swedish lake as a whole-site target and compares the other two Swedish
+sites alone with those same sites plus DK/FI/NO training. Its 39 shared bins
+answer a different question from this study's 51 scored bins with **all**
+Swedish sites excluded from training.
+
 Reproduce from the repository root into absent directories under `artifacts/`:
 
 ```sh

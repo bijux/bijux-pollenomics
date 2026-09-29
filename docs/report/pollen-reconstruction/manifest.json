@@ -616,8 +616,8 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/results.csv",
-      "sha256": "c7a614846d5508bcf65b5aa74574255d46cb4fa97fe662b315ffcbbb64d3f04d",
-      "bytes": 15473
+      "sha256": "09c8bac6ca6a6721f0638c459392d5e64eb5c1700aecd12427a5b4f03152fe84",
+      "bytes": 15454
     },
     {
       "path": "docs/report/pollen-reconstruction/scope.json",
@@ -1416,8 +1416,8 @@
     },
     {
       "path": "docs/report/regions/nordic/swedish-training-scope/README.md",
-      "sha256": "22a4a495ec21a69710626e0bad2e739134f8fcfb1c3167c18fb57cb6551fc3ad",
-      "bytes": 4139
+      "sha256": "4b462d34faefdb591524e55595333ecda0ab3ecb5529e48c54300190eb0de522",
+      "bytes": 415
     },
     {
       "path": "docs/report/regions/nordic/swedish-training-scope/coverage.csv",
@@ -2031,8 +2031,13 @@
     },
     {
       "path": "reports/science/sweden-author-pollen.md",
-      "sha256": "138e78bc39e9fca2545a573c4cd07afc3d57aa73843b8ee3a43afbcea672343a",
-      "bytes": 4612
+      "sha256": "17912b9ff205302cfa95f37c6279ece5521c29ce2f21bda7859755078b1ae683",
+      "bytes": 4956
+    },
+    {
+      "path": "reports/science/sweden-training-scope.md",
+      "sha256": "674e411dcd443c122f02e619dc76d8023a6648903bb49b8195dd5c37019e277e",
+      "bytes": 4531
     }
   ]
 }
