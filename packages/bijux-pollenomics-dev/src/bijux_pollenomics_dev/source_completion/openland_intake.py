@@ -67,7 +67,9 @@ def _file_sha(path: Path) -> str:
 
 
 def _git_blob_sha(data: bytes) -> str:
-    return hashlib.sha1(f"blob {len(data)}\0".encode() + data).hexdigest()
+    return hashlib.sha1(
+        f"blob {len(data)}\0".encode() + data, usedforsecurity=False
+    ).hexdigest()
 
 
 def validate_upstream_tree(payload: dict[str, Any]) -> dict[str, dict[str, Any]]:
