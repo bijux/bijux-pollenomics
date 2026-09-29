@@ -1,13 +1,13 @@
 # Sample chronology normalization audit
 
 - Sample rows: `1475`
-- Normalized intervals: `388`
+- Normalized intervals: `404`
 - Normalized points: `528`
 - Text-only rows: `136`
-- Unresolved rows: `423`
+- Unresolved rows: `407`
 - Direct radiocarbon rows: `822`
 - Modeled sample-date rows: `6`
-- Archaeological-context rows: `101`
+- Archaeological-context rows: `117`
 - Broad period rows: `1`
 
 ## Projects requiring manual chronology review
@@ -60,7 +60,7 @@
 | SRS1407451 | 1 | 0 | 0 | 0 | 1 | 0 |
 | SRS1407453 | 1 | 1 | 0 | 0 | 0 | 0 |
 | KX379528-KX379529 | 2 | 2 | 0 | 0 | 0 | 0 |
-| SRP073444 | 20 | 0 | 0 | 0 | 20 | 0 |
+| SRP073444 | 20 | 16 | 0 | 0 | 4 | 0 |
 | KU605068-KU605080 | 13 | 4 | 9 | 0 | 0 | 0 |
 | PRJEB50952 | 0 | 0 | 0 | 0 | 0 | 0 |
 | PRJEB52849 | 0 | 0 | 0 | 0 | 0 | 0 |

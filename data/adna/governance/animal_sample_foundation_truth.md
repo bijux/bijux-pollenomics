@@ -1,13 +1,13 @@
 # Animal sample foundation truth
 
 - Tracked species: `10`
-- Tracked projects: `21`
-- Sample rows: `1450`
+- Tracked projects: `22`
+- Sample rows: `1470`
 - Fully grounded rows: `557`
-- Partially grounded rows: `355`
+- Partially grounded rows: `371`
 - Blocked by missing metadata: `11`
 - Blocked by missing location detail: `368`
-- Blocked by weak chronology: `159`
+- Blocked by weak chronology: `163`
 
 ## Species rows
 
@@ -20,6 +20,6 @@
 | Capra hircus | 82 | 9 | 0 | 0 | 73 |
 | Canis lupus familiaris | 4 | 0 | 0 | 1 | 0 |
 | Felis catus | 106 | 35 | 0 | 0 | 44 |
-| Camelus dromedarius | 13 | 0 | 0 | 0 | 0 |
+| Camelus dromedarius | 33 | 0 | 0 | 0 | 4 |
 | Rangifer tarandus | 20 | 0 | 0 | 1 | 1 |
 | Equus asinus | 0 | 0 | 0 | 0 | 0 |

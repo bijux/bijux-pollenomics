@@ -74,7 +74,7 @@ class IdentityIntegrityTests(SampleMasterRecoveryTestCase):
         self.assert_source_receipt_closes(ena_path, "SRP073444")
         with ena_path.open(encoding="utf-8", newline="") as handle:
             camel_biosamples = {
-                row["experiment_accession"]: row["sample_accession"]
+                row["experiment_accession"]: row
                 for row in csv.DictReader(handle, delimiter="\t")
             }
         raw_expected: dict[tuple[str, str], tuple[str, str, str, str, str, str]] = {}
@@ -93,20 +93,27 @@ class IdentityIntegrityTests(SampleMasterRecoveryTestCase):
                     raw_row.archive_native_sample_id
                     or raw_row.archive_native_experiment_id
                 )
-                camel_sample_id = (
+                camel_link = (
                     camel_biosamples[raw_row.archive_native_experiment_id]
                     if project_accession == "SRP073444"
-                    else raw_row.archive_native_sample_id
+                    else None
+                )
+                source_names = (
+                    camel_link["scientific_name"] if camel_link is not None else names
                 )
                 raw_expected[(project_accession, archive_source_identity)] = (
-                    camel_sample_id,
+                    camel_link["sample_accession"]
+                    if camel_link is not None
+                    else raw_row.archive_native_sample_id,
                     raw_row.archive_native_experiment_id,
                     "biological_sample_accession"
-                    if project_accession == "SRP073444"
+                    if camel_link is not None
                     else raw_row.source_native_identity_kind,
-                    " | ".join(raw_row.source_native_tax_ids),
-                    names,
-                    expected_taxon_alignment(configured_species, names),
+                    camel_link["tax_id"]
+                    if camel_link is not None
+                    else " | ".join(raw_row.source_native_tax_ids),
+                    source_names,
+                    expected_taxon_alignment(configured_species, source_names),
                 )
 
         cat_workbook = (

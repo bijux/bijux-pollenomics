@@ -1,11 +1,11 @@
 {
   "schema_version": "adna-source-library.v1",
-  "archived_artifact_count": 219,
+  "archived_artifact_count": 221,
   "archived_html_artifact_count": 54,
   "compressed_html_artifact_count": 54,
   "uncompressed_html_artifact_count": 0,
-  "archived_payload_byte_count": 394418358,
-  "archived_storage_byte_count": 386749053,
+  "archived_payload_byte_count": 394427759,
+  "archived_storage_byte_count": 386758454,
   "html_payload_byte_count": 9222810,
   "html_storage_byte_count": 1553505,
   "rows": [

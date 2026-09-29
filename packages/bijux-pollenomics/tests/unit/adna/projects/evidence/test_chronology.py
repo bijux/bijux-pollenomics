@@ -149,14 +149,26 @@ class AdnaProjectSampleChronologyUnitTests(unittest.TestCase):
             "Zea2": (6748, 7744, 7296),
         }
 
-    def test_camel_biosample_identity_does_not_invent_sample_chronology(
+    def test_camel_paper_table_s1_assigns_contextual_sample_chronology(
         self,
     ) -> None:
         rows = build_project_sample_chronology_rows(self.data_root, "SRP073444")
 
         self.assertEqual(len(rows), 20)
-        self.assertTrue(all(row.chronology_strength == "unresolved" for row in rows))
-        self.assertTrue(all(row.time_start_bp is None for row in rows))
+        dated = [row for row in rows if row.time_start_bp is not None]
+        self.assertEqual(len(dated), 16)
+        self.assertEqual(
+            sum(row.chronology_strength == "unresolved" for row in rows), 4
+        )
+        self.assertTrue(
+            all(
+                row.chronology_precision_posture == "contextual_interval"
+                for row in dated
+            )
+        )
+        palm = next(row for row in rows if row.preferred_sample_label == "Palm143_II")
+        self.assertEqual((palm.time_start_bp, palm.time_end_bp), (1650, 2050))
+        self.assertEqual(palm.chronology_evidence_class, "archaeological_context_date")
 
     def test_project_context_does_not_become_biological_sample_chronology(
         self,
@@ -243,11 +255,11 @@ class AdnaProjectSampleChronologyUnitTests(unittest.TestCase):
         )
         self.assertEqual(sheep_review["sample_owned_interval_count"], 167)
         self.assertEqual(sheep_review["text_only_unparsed_count"], 13)
-        self.assertEqual(audit["sample_row_count"], 1455)
-        self.assertEqual(audit["normalized_interval_count"], 388)
+        self.assertEqual(audit["sample_row_count"], 1475)
+        self.assertEqual(audit["normalized_interval_count"], 404)
         self.assertEqual(audit["normalized_point_count"], 528)
-        self.assertEqual(audit["unresolved_count"], 403)
-        self.assertEqual(audit["precision_counts"]["contextual_interval"], 16)
+        self.assertEqual(audit["unresolved_count"], 407)
+        self.assertEqual(audit["precision_counts"]["contextual_interval"], 32)
         self.assertEqual(
             audit["precision_counts"]["sample_approximate_or_modeled"], 200
         )
@@ -292,6 +304,11 @@ class AdnaProjectSampleChronologyUnitTests(unittest.TestCase):
             if row["project_accession"] == "KU605068-KU605080"
         )
         self.assertEqual(camel_project["unresolved_count"], 0)
+        camel_sra_project = next(
+            row for row in project_rows if row["project_accession"] == "SRP073444"
+        )
+        self.assertEqual(camel_sra_project["contextual_date_count"], 16)
+        self.assertEqual(camel_sra_project["unresolved_count"], 4)
         goat_project = next(
             row for row in project_rows if row["project_accession"] == "PRJNA1328209"
         )
@@ -323,8 +340,8 @@ class AdnaProjectSampleChronologyUnitTests(unittest.TestCase):
                 for row in gap_queue
             )
         )
-        self.assertEqual(len(sample_review_rows), 1455)
-        self.assertEqual(len(provenance_rows), 1455)
+        self.assertEqual(len(sample_review_rows), 1475)
+        self.assertEqual(len(provenance_rows), 1475)
         horse_provenance = next(
             row
             for row in provenance_rows

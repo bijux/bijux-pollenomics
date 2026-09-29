@@ -1,0 +1,16 @@
+{
+  "schema_version": "adna-curated-paper-table-bridge.v1",
+  "source_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC5324683/supplementaryFiles",
+  "source_article_doi": "10.1111/1755-0998.12551",
+  "source_archive_sha256": "53a13186de7bdee427adce5d88d06ad14614c84719e6790dc7d86fd205e4fc1f",
+  "source_archive_location": "external private source store: adna/pmc5324683/supplementary-files.zip",
+  "source_archive_member": "MEN-17-300-s001.docx",
+  "source_locator": "Table S1, first Word table, one-based rows in table_row",
+  "derivation": "Select 20 BioSample-linked SRA experiments by exact ENA sample title stem and author Table S1 Sample ID. Retain separate BioSample accessions for both Palm143 aliases. Trim Word run spacing in place names and age text; canonical chronology_text extracts the printed interval. The cross-era Palm143 interval follows the article 1650-2050 BP representation. Empty chronology_text means Table S1 says Not known.",
+  "row_count": 20,
+  "distinct_paper_sample_label_count": 19,
+  "unknown_paper_age_count": 4,
+  "excluded_table_s1_label": "C.thomasi, Wadi Halfa Site 1040: no experiment/BioSample bridge in this cohort",
+  "content_sha256": "7f42433a4a046874217ba6eb9d8d5d31e093c78e3240ce725be65f3b1d619e5d",
+  "byte_size": 2196
+}

@@ -301,13 +301,14 @@ def _project_remote_assets(project_accession: str) -> tuple[_RemoteArtifactSpec,
                 source_url=(
                     "https://www.ebi.ac.uk/ena/portal/api/filereport?"
                     "accession=SRP073444&result=read_run&fields=study_accession,"
-                    "sample_accession,experiment_accession,run_accession"
+                    "sample_accession,experiment_accession,run_accession,"
+                    "sample_alias,sample_title,scientific_name,tax_id"
                     "&format=tsv&limit=0"
                 ),
                 relative_path="projects/SRP073444/ena_run_samples.tsv",
                 remote_note=(
-                    "Official ENA mirror binds SRA experiments to biological sample "
-                    "accessions; paper Table S1 locality and age remain separate."
+                    "Official ENA mirror binds SRA experiments to biological samples, "
+                    "submitted specimen titles, and source taxonomy."
                 ),
             ),
         )

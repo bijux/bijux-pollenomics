@@ -25,6 +25,14 @@ def materialize_test_library(output_root: Path) -> Path:
         destination = output_root / source_dir / name
         destination.parent.mkdir(parents=True, exist_ok=True)
         shutil.copyfile(REPOSITORY_ROOT / "data" / source_dir / name, destination)
+    camel_source_dir = "adna/governance/source_library/projects/SRP073444"
+    for name in (
+        "paper_table_s1_sample_bridge.csv",
+        "paper_table_s1_sample_bridge.csv.metadata.json",
+    ):
+        destination = output_root / camel_source_dir / name
+        destination.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copyfile(REPOSITORY_ROOT / "data" / camel_source_dir / name, destination)
     materialize_source_library(output_root)
     return output_root
 

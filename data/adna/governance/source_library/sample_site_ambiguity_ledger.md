@@ -1,6 +1,6 @@
 # Sample site ambiguity ledger
 
-- Ambiguous or weak site rows: `83`
+- Ambiguous or weak site rows: `63`
 
 | Project accession | Sample id | Status | Locality | Note |
 | --- | --- | --- | --- | --- |
@@ -66,24 +66,4 @@
 | PRJEB81815 | prjeb81815:samea120246598 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
 | PRJEB81815 | prjeb81815:samea120246599 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
 | SRS1407451 | srs1407451:srs1407451 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| SRP073444 | srp073444:samn04631877 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| SRP073444 | srp073444:samn04631949 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| SRP073444 | srp073444:samn04631950 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| SRP073444 | srp073444:samn04631951 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| SRP073444 | srp073444:samn04631952 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| SRP073444 | srp073444:samn04631953 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| SRP073444 | srp073444:samn04631954 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| SRP073444 | srp073444:samn04631955 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| SRP073444 | srp073444:samn04631956 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| SRP073444 | srp073444:samn04631957 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| SRP073444 | srp073444:samn04631958 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| SRP073444 | srp073444:samn04631959 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| SRP073444 | srp073444:samn04631960 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| SRP073444 | srp073444:samn04631961 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| SRP073444 | srp073444:samn04631962 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| SRP073444 | srp073444:samn04631963 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| SRP073444 | srp073444:samn04631964 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| SRP073444 | srp073444:samn04631965 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| SRP073444 | srp073444:samn04631966 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| SRP073444 | srp073444:samn04631967 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
 | PRJEB60484 | prjeb60484:samea112757327 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |

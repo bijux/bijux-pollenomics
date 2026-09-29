@@ -17,7 +17,9 @@
     "10.1111-1755-0998.12551:men12551-sup-0001-supinfo.docx",
     "SRP073444:archive_metadata.html",
     "SRP073444:ena_run_samples.tsv",
-    "SRP073444:ena_run_samples.tsv.metadata.json"
+    "SRP073444:ena_run_samples.tsv.metadata.json",
+    "SRP073444:paper_table_s1_sample_bridge.csv",
+    "SRP073444:paper_table_s1_sample_bridge.csv.metadata.json"
   ],
   "local_artifact_paths": [
     "adna/governance/source_library/papers/10.1111-1755-0998.12551/article.html",
@@ -25,7 +27,9 @@
     "adna/governance/source_library/papers/10.1111-1755-0998.12551/supplementary/men12551-sup-0001-supinfo.docx",
     "adna/governance/source_library/projects/SRP073444/archive_metadata.html",
     "adna/governance/source_library/projects/SRP073444/ena_run_samples.tsv",
-    "adna/governance/source_library/projects/SRP073444/ena_run_samples.tsv.metadata.json"
+    "adna/governance/source_library/projects/SRP073444/ena_run_samples.tsv.metadata.json",
+    "adna/governance/source_library/projects/SRP073444/paper_table_s1_sample_bridge.csv",
+    "adna/governance/source_library/projects/SRP073444/paper_table_s1_sample_bridge.csv.metadata.json"
   ],
   "blockers": []
 }

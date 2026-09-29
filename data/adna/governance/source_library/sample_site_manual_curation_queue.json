@@ -86,18 +86,6 @@
       "recommended_next_surface": ""
     },
     {
-      "project_accession": "SRP073444",
-      "species_latin_name": "Camelus dromedarius",
-      "queued_sample_count": 20,
-      "queue_reasons": [
-        "recovered_sample_rows_still_lack_any_location_claim"
-      ],
-      "sample_site_targets": [],
-      "expected_supplementary_artifacts": [],
-      "local_artifact_paths": [],
-      "recommended_next_surface": ""
-    },
-    {
       "project_accession": "PRJEB60484",
       "species_latin_name": "Rangifer tarandus",
       "queued_sample_count": 1,

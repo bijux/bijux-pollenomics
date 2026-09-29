@@ -28,14 +28,14 @@
     {
       "species_latin_name": "Camelus dromedarius",
       "recovered_sample_row_count": 33,
-      "normalized_row_count": 13,
+      "normalized_row_count": 29,
       "exact_sample_date_count": 13,
       "modeled_or_approximate_sample_date_count": 0,
-      "contextual_date_count": 0,
+      "contextual_date_count": 16,
       "broad_label_count": 0,
       "text_only_unparsed_count": 0,
-      "unresolved_count": 20,
-      "chronology_completeness_ratio": 0.3939
+      "unresolved_count": 4,
+      "chronology_completeness_ratio": 0.8788
     },
     {
       "species_latin_name": "Canis lupus familiaris",

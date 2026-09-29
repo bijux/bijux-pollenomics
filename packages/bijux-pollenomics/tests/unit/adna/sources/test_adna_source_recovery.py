@@ -74,7 +74,7 @@ class AdnaSourceRecoveryUnitTests(unittest.TestCase):
         self.assertEqual(srp["recovered_sample_count"], 20)
         self.assertEqual(srp["final_sample_count"], 20)
         self.assertEqual(srp["stage_statuses"]["sample_identity_recovery"], "complete")
-        self.assertIn("site_assignment_gap", srp["major_deficit_reasons"])
+        self.assertEqual(srp["stage_statuses"]["site_recovery"], "complete")
         self.assertIn("chronology_gap", srp["major_deficit_reasons"])
 
     def test_paper_species_and_manual_work_surfaces_stay_actionable(self) -> None:

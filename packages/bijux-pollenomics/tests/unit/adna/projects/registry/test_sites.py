@@ -77,16 +77,17 @@ class AdnaProjectSampleSitesUnitTests(unittest.TestCase):
         self.assertEqual(uppsala.coordinate_confidence, "exact")
         self.assertEqual(uppsala.chronology_text, "1217-1417 BP")
 
-    def test_camel_biosample_identity_does_not_invent_sample_sites(
+    def test_camel_paper_table_s1_assigns_sample_sites_without_wadi_context(
         self,
     ) -> None:
         rows = build_project_sample_site_rows(self.data_root, "SRP073444")
 
         self.assertEqual(len(rows), 20)
         self.assertTrue(
-            all(row.locality_resolution_status == "unresolved" for row in rows)
+            all(row.locality_resolution_status == "direct_sample_site" for row in rows)
         )
-        self.assertTrue(all(row.country_name == "" for row in rows))
+        self.assertEqual({row.country_name for row in rows}, {"UAE", "Syria", "Jordan"})
+        self.assertTrue(all("Wadi" not in row.locality_text for row in rows))
 
     def test_review_rows_ambiguity_ledger_and_manual_queue_stay_reader_visible(
         self,

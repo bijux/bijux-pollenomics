@@ -4,9 +4,9 @@
 - Precise point rows: `468`
 - Precise interval rows: `328`
 - Approximate or modeled rows: `200`
-- Contextual rows: `16`
+- Contextual rows: `32`
 - Broad period rows: `40`
-- Unresolved rows: `423`
+- Unresolved rows: `407`
 
 | Project accession | Sample id | Evidence class | Precision posture | Normalization | Chronology |
 | --- | --- | --- | --- | --- | --- |
@@ -668,24 +668,24 @@
 | PRJNA1178732 | prjna1178732:fs17 | historical_or_recent_date | sample_approximate_or_modeled | text_only_unparsed | 1797 - 1944 cal. CE |
 | PRJNA1178732 | prjna1178732:fs24 | historical_or_recent_date | sample_approximate_or_modeled | text_only_unparsed | 44 cal. BCE - 76 cal. CE |
 | SRS1407451 | srs1407451:srs1407451 | unresolved | unresolved | unresolved |  |
-| SRP073444 | srp073444:samn04631877 | unresolved | unresolved | unresolved |  |
-| SRP073444 | srp073444:samn04631949 | unresolved | unresolved | unresolved |  |
-| SRP073444 | srp073444:samn04631950 | unresolved | unresolved | unresolved |  |
+| SRP073444 | srp073444:samn04631877 | archaeological_context_date | contextual_interval | normalized_interval | 1650-2050 BP |
+| SRP073444 | srp073444:samn04631949 | archaeological_context_date | contextual_interval | normalized_interval | 2000-1600 BCE |
+| SRP073444 | srp073444:samn04631950 | archaeological_context_date | contextual_interval | normalized_interval | 2000-1600 BCE |
 | SRP073444 | srp073444:samn04631951 | unresolved | unresolved | unresolved |  |
 | SRP073444 | srp073444:samn04631952 | unresolved | unresolved | unresolved |  |
-| SRP073444 | srp073444:samn04631953 | unresolved | unresolved | unresolved |  |
+| SRP073444 | srp073444:samn04631953 | archaeological_context_date | contextual_interval | normalized_interval | 1260-1130 BCE |
 | SRP073444 | srp073444:samn04631954 | unresolved | unresolved | unresolved |  |
-| SRP073444 | srp073444:samn04631955 | unresolved | unresolved | unresolved |  |
-| SRP073444 | srp073444:samn04631956 | unresolved | unresolved | unresolved |  |
+| SRP073444 | srp073444:samn04631955 | archaeological_context_date | contextual_interval | normalized_interval | 5000-4000 BCE |
+| SRP073444 | srp073444:samn04631956 | archaeological_context_date | contextual_interval | normalized_interval | 5000-4000 BCE |
 | SRP073444 | srp073444:samn04631957 | unresolved | unresolved | unresolved |  |
-| SRP073444 | srp073444:samn04631958 | unresolved | unresolved | unresolved |  |
-| SRP073444 | srp073444:samn04631959 | unresolved | unresolved | unresolved |  |
-| SRP073444 | srp073444:samn04631960 | unresolved | unresolved | unresolved |  |
-| SRP073444 | srp073444:samn04631961 | unresolved | unresolved | unresolved |  |
-| SRP073444 | srp073444:samn04631962 | unresolved | unresolved | unresolved |  |
-| SRP073444 | srp073444:samn04631963 | unresolved | unresolved | unresolved |  |
-| SRP073444 | srp073444:samn04631964 | unresolved | unresolved | unresolved |  |
-| SRP073444 | srp073444:samn04631965 | unresolved | unresolved | unresolved |  |
-| SRP073444 | srp073444:samn04631966 | unresolved | unresolved | unresolved |  |
-| SRP073444 | srp073444:samn04631967 | unresolved | unresolved | unresolved |  |
+| SRP073444 | srp073444:samn04631958 | archaeological_context_date | contextual_interval | normalized_interval | 800-500 BCE |
+| SRP073444 | srp073444:samn04631959 | archaeological_context_date | contextual_interval | normalized_interval | 3000-2000 BCE |
+| SRP073444 | srp073444:samn04631960 | archaeological_context_date | contextual_interval | normalized_interval | 400-600 CE |
+| SRP073444 | srp073444:samn04631961 | archaeological_context_date | contextual_interval | normalized_interval | 1260-1456 CE |
+| SRP073444 | srp073444:samn04631962 | archaeological_context_date | contextual_interval | normalized_interval | 1260-1456 CE |
+| SRP073444 | srp073444:samn04631963 | archaeological_context_date | contextual_interval | normalized_interval | 1456-1870 CE |
+| SRP073444 | srp073444:samn04631964 | archaeological_context_date | contextual_interval | normalized_interval | 1260-1456 CE |
+| SRP073444 | srp073444:samn04631965 | archaeological_context_date | contextual_interval | normalized_interval | 1456-1870 CE |
+| SRP073444 | srp073444:samn04631966 | archaeological_context_date | contextual_interval | normalized_interval | 1260-1456 CE |
+| SRP073444 | srp073444:samn04631967 | archaeological_context_date | contextual_interval | normalized_interval | 1650-2050 BP |
 | PRJEB60484 | prjeb60484:samea112757337 | unresolved | unresolved | unresolved |  |

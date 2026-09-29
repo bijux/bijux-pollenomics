@@ -1,6 +1,6 @@
 # Sample locality manual curation workflow
 
-- Queued locality strings: `9`
+- Queued locality strings: `8`
 
 | Project accession | Status | Unresolved place string | Candidate matches | Queued samples |
 | --- | --- | --- | --- | ---: |
@@ -11,5 +11,4 @@
 | PRJEB75467 | unresolved |  | Barche di Solferino, near Mantova, Barguzin river, Baikal, Bedburg-Königshoven, Borly 4, Pavlodar region, Former Soviet Union, Frederiksborg, Alsønderup, Grotta dell'Uzzo, Sicily, Gyumri district, Herxheim, Hjørring, Tofte Bæk, Lundby I, Nevishög, Novoil`inka-VI (Новоильинка-VI), O Courel, Galicia, Padova, Palidoro, Latium, Roshchinskoe, Skåne, Trier-Brüderkrankenhaus, Tula district, Upper Rhine Valley, Uralsk, Varfolomeevka, Vratsa, Yorkshire | 10 |
 | PRJEB81815 | unresolved |  | Alba Fucens -Cisterna (Fucino, Abruzzi), Arene Candide (Finale Ligure, Savona, Liguria), Aşıklı Höyük, Bademağacı, Bank of Portugal, Bernhardsthal, Bremen; 201-Altstadt, Marktplatz, Bremen; 253-Altstadt, Am Wall, Castiglione in Sabina, Cova de Els Trocs, Huesca, Demircihüyük, Durankulak, Ecly, Galgenbühel/Dos de la Forca-Salorno, Genoni Santu Antine, Sardinia, Glencurran Cave, Co. Clare, Graffignano (Viterbo, Latium), Grotta del Cocci (Narni, Umbria), Haithabu, settlement area, Iznik - Roman theatre, Kassope, Koprivec, Labastida, Lauchheim-Mittelhofen, Mautern - vicus Ost, Menteşe, Musarna (Viterbo, Latium), Nardò “torre santa Caterina”, North Africa to Europe cat population context, Padova Via Cesare Battisti (Veneto), Palatino North East slope (Rome), Palmela Castle, Parco delle Dolomiti Lucane, Parking 58, Brussels, Partanna C. da Capo d'acqua, Petronell-Carnuntum, Pomorie, Forestry station (Поморие, горско стопанство), Probabilly Sicily, Roca vecchia (Melendugno, Lecce), Rome, S. Cecilia in Trastevere, Rugo Storto, Fanna, PN, Sagalassos, Salzburg - Residenz, Saracena (Cosenza, Calabria), Sardinia, Sardinia, Monte Arcosu, Sardinia, Nuoro - around Bitti, Sassari, palazzo ducale, Sardinia, Sicily, monti Nebrodi, Tabernas, Spain, Tertenia, Sardinia, Tongeren, Industrie Oost, Traismauer, Tuscany, Tuscany - Maremma - Bivio Gavorrano, Umbria - Perugia - Cascia, Umbria - Perugia - Vallo di Nera, Viminacium-Nad Klepačkom, Viminacium/Amphitheatre, Yenikapı, Marmaray exc., nuraghe Flumenelongu, Sardinia, village Belene, Svishtov district (с. Белене, Свищовско) | 3 |
 | PRJNA705960 | unresolved |  | Galician mountain cave cattle context, different mountain caves in Galicia | 11 |
-| SRP073444 | unresolved |  | Site 1040 near Wadi Halfa, Site 1040 near Wadi Halfa dromedary context | 20 |
 | SRS1407451 | unresolved |  | Ancient European dog CTC sample context, Herxheim and Cherry Tree Cave ancient dog contexts | 1 |

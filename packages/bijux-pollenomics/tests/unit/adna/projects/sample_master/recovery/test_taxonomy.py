@@ -204,6 +204,7 @@ class TaxonomyTests(SampleMasterRecoveryTestCase):
 
         self.assertEqual(len(rows), 20)
         self.assertEqual(len({row.archive_native_sample_id for row in rows}), 20)
+        self.assertEqual(len({row.paper_native_sample_label for row in rows}), 19)
         self.assertTrue(all(row.sample_identity_resolution == "final" for row in rows))
         palm = next(
             row for row in rows if row.archive_native_experiment_id == "SRX1711558"
@@ -214,15 +215,22 @@ class TaxonomyTests(SampleMasterRecoveryTestCase):
         self.assertEqual(palm.archive_native_sample_id, "SAMN04631967")
         self.assertEqual(other_palm.archive_native_sample_id, "SAMN04631877")
         self.assertEqual(palm.preferred_sample_label, "Palm143_II")
+        self.assertEqual(palm.paper_native_sample_label, "Palm143")
+        self.assertEqual(other_palm.paper_native_sample_label, "Palm143")
+        self.assertEqual(palm.locality_text, "Palmyra")
+        self.assertEqual(palm.political_entity, "Syria")
+        self.assertEqual(palm.chronology_text, "1650-2050 BP")
         self.assertIn("experiment_accession:SRX1711558", palm.sample_lineage_locator)
         self.assertIn("sample_accession:SAMN04631967", palm.sample_lineage_locator)
+        self.assertIn("Table S1:row 12", palm.sample_lineage_locator)
         self.assertEqual(
             palm.source_native_identity_kind, "biological_sample_accession"
         )
         self.assertEqual(palm.sample_evidence_status, "archive_native")
         self.assertEqual(palm.sample_identity_resolution, "final")
-        self.assertEqual(palm.sample_ambiguity_note, "")
-        self.assertEqual(palm.taxon_alignment_status, "not_reported")
+        self.assertIn("physical specimen independence", palm.sample_ambiguity_note)
+        self.assertEqual(palm.taxon_alignment_status, "project_species_match")
+        self.assertEqual(palm.source_native_tax_id, "9838")
         self.assertFalse(any("thomasi" in row.preferred_sample_label for row in rows))
 
     def test_merged_taxon_alignment_is_order_independent(self) -> None:
