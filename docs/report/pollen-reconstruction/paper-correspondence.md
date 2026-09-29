@@ -47,7 +47,48 @@ produce the archive's 13 PFT and three LCT columns. An authenticated
 archive-producing PFT/LCT transformation is still needed to interpret `ISTS`,
 the Quercus assignment and aggregated uncertainty.
 
-The next causal resolution needs the source owner to identify the historical raw sequence revisions and selected chronologies for a fully specified published row, then confirm taxon/count and PFT/ISTS transformations. The unresolved source-owner questions are summarized in `swedish-source-questions.csv`. No message was sent.
+The next causal resolution needs the source owner to identify the historical
+raw sequence revisions and selected chronologies for a fully specified
+published row, then confirm taxon/count and PFT/ISTS transformations. The
+separate `swedish-source-questions.csv` records questions about matched
+Swedish cores and basins.
+
+## Unsent publication source questions
+
+These questions concern PANGAEA 937075's June 2021 results and the author
+examples at `rmfyfe/landclimII` revision
+`57ead2e2fcc493d099be4e5a3092fc396e1c3d3a`. They are a local draft;
+no message was sent.
+
+1. Which source sequence revisions, selected sample ages and chronology
+   decisions produced grid 512's published TW2 (100–350 BP) vector? The
+   maximum author-R/archive gaps are 9.19787 percentage points for the mean
+   and 3.21615 for the standard error, with Cyperaceae the largest mean gap.
+   Which input rows and transformation account for them?
+2. Which historical revisions and chronology decisions produced grid 562's
+   TW2 vector? Its maximum mean and standard-error gaps are 10.5527 and
+   4.25814 percentage points, with Calluna vulgaris largest for both.
+3. Which boundary convention and chronology definition governs the other
+   windows? Only TW2 has an exact interval match among 25 windows. Most later
+   author intervals differ by 50 years at both bounds, and TW1 starts at
+   −65 BP in the author axis versus 0 BP in the published label.
+4. What publication-specific PFT list, `ISTS` definition and transformation
+   generated the archive? The paper, deposit description and archived header
+   expose 12, 11 and 13 PFT counts or positions respectively. The released
+   taxon means show a three-taxon `ISTS` split from the paper's nine-taxon TBS
+   group, including deciduous Quercus; its biological classification and
+   uncertainty transformation remain unidentified.
+5. Which authenticated workbook or archive members and per-sequence analytical
+   terms belong to one fully specified published row? The 79 Rootsi metadata
+   candidates among 1,128 publication records have verified workbook
+   structure but no authenticated historical primary-input membership. The
+   answer must bind chronology, taxon/count denominator, basin geometry and
+   parameter-profile records for that row.
+
+The Python profile matches the independent author-R replay within the
+declared numerical tolerances. These questions target source identity,
+chronology and publication transformation rather than an observed Python/R
+calculation failure.
 
 ## HYDE modeled context
 
