@@ -26,7 +26,10 @@ def _manifest(root: Path) -> tuple[bytes, list[dict[str, Any]]]:
         or any(not isinstance(row, dict) for row in rows)
     ):
         raise ReferenceRefusal("Native/live case inventory must contain 43 records")
-    if {row.get("id") for row in rows} != EXTENDED_CASE_IDS:
+    case_ids = [row.get("id") for row in rows]
+    if not all(isinstance(case_id, str) for case_id in case_ids):
+        raise ReferenceRefusal("Native/live case identifiers differ from the oracle")
+    if set(case_ids) != set(EXTENDED_CASE_IDS):
         raise ReferenceRefusal("Native/live case identifiers differ from the oracle")
     if any(
         not isinstance(row.get(field), str)

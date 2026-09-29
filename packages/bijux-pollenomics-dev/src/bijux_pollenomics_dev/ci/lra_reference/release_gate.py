@@ -184,7 +184,11 @@ def _verify_parity_receipt(output: Path, target_sha: str, lock_hash: str) -> str
     if not isinstance(receipt, dict) or not isinstance(manifest, list):
         raise ReferenceRefusal("Parity receipt or case inventory is invalid")
     case_ids = [row.get("id") for row in manifest if isinstance(row, dict)]
-    if len(manifest) != 43 or len(case_ids) != 43 or set(case_ids) != EXTENDED_CASE_IDS:
+    if len(manifest) != 43 or len(case_ids) != 43:
+        raise ReferenceRefusal("Live-R case inventory is incomplete")
+    if not all(isinstance(case_id, str) for case_id in case_ids):
+        raise ReferenceRefusal("Live-R case inventory is incomplete")
+    if set(case_ids) != set(EXTENDED_CASE_IDS):
         raise ReferenceRefusal("Live-R case inventory is incomplete")
     expected = {
         "schema_version": "lra-native-live-r-parity-gate.v1",
