@@ -349,6 +349,18 @@ supersede that run's then-open preprocessing limitation. This is method
 parity on author examples, not the historical 1,128-input study or measured
 vegetation accuracy.
 
+The [earlier example-review custody](landclim-historical-example-review-custody.json)
+retains 12 more historical files. Its independent WHH05 R challenge found
+301 raw counts, four explicit exclusions and an exact 297-count prepared
+author reference; a one-count `Calluna` perturbation produced one detected
+cell mismatch. The current [17-site formatter
+replay](../../source-relations/landclim/author-example-taxon-support/README.md)
+and count audit supersede that one-site preparation status. The other eight
+files checked 13 claims against a LandClim page hash that still matches the
+current committed page. The distinct user-staged page has not been checked
+by that historical run. Exact source and process bytes remain in private
+custody.
+
 ## WHH05 author preparation process custody
 
 The [one-site R process custody](whh05-author-preparation-custody.json) accounts
