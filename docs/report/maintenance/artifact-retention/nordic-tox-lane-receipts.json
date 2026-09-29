@@ -1,0 +1,1727 @@
+{
+  "schema_version": "nordic-tox-lane-receipts.1",
+  "snapshots": [
+    {
+      "candidate_commit": "03610b87ccc8d13c84e1540e4490791b8a0300ea",
+      "lanes": [
+        {
+          "name": "alias",
+          "original_sha256": "731163e33f56057376006e900d0fa399f6bbfac8cb3097843fbf870767cc0620",
+          "receipt": {
+            "candidate_commit": "03610b87ccc8d13c84e1540e4490791b8a0300ea",
+            "candidate_manifest_sha256": "5353033e8c71f0d79cdee346b82d23d28ad27f3033e7d99511607b4a031b1f5f",
+            "candidate_tree": "2dd608ca921b8ac15a2e6d3ffd8fc7549efc246d",
+            "duration_seconds": 130.20652413368225,
+            "environment_count": 6,
+            "environments": [
+              "test-alias",
+              "lint-alias",
+              "quality-alias",
+              "security-alias",
+              "build-alias",
+              "sbom-alias"
+            ],
+            "fixture_failures": [],
+            "fixture_integrity": true,
+            "installed_versions": {
+              "build-alias": {
+                "bijux-pollenomics": "0.1.9.dev203",
+                "bijux-pollenomics-dev": "0.1.9.dev203",
+                "bijux-pollenomics-lra": "0.1.9.dev203",
+                "pollenomics": "0.1.9.dev203"
+              },
+              "lint-alias": {
+                "bijux-pollenomics": "0.1.9.dev203",
+                "bijux-pollenomics-dev": "0.1.9.dev203",
+                "bijux-pollenomics-lra": "0.1.9.dev203",
+                "pollenomics": "0.1.9.dev203"
+              },
+              "quality-alias": {
+                "bijux-pollenomics": "0.1.9.dev203",
+                "bijux-pollenomics-dev": "0.1.9.dev203",
+                "bijux-pollenomics-lra": "0.1.9.dev203",
+                "pollenomics": "0.1.9.dev203"
+              },
+              "sbom-alias": {
+                "bijux-pollenomics": "0.1.9.dev203",
+                "bijux-pollenomics-dev": "0.1.9.dev203",
+                "bijux-pollenomics-lra": "0.1.9.dev203",
+                "pollenomics": "0.1.9.dev203"
+              },
+              "security-alias": {
+                "bijux-pollenomics": "0.1.9.dev203",
+                "bijux-pollenomics-dev": "0.1.9.dev203",
+                "bijux-pollenomics-lra": "0.1.9.dev203",
+                "pollenomics": "0.1.9.dev203"
+              },
+              "test-alias": {
+                "bijux-pollenomics": "0.1.9.dev203",
+                "bijux-pollenomics-dev": "0.1.9.dev203",
+                "bijux-pollenomics-lra": "0.1.9.dev203",
+                "pollenomics": "0.1.9.dev203"
+              }
+            },
+            "junit": [
+              {
+                "bytes": 1093,
+                "path": "artifacts/pollenomics/test/junit.xml",
+                "sha256": "c2e722a142fdabb172ff76717a58bea29e137d0e909ac214d5509e70e44de5e8",
+                "valid_xml": true
+              }
+            ],
+            "lane": "alias",
+            "schema_version": "nordic-coverage-tox-lane.v1",
+            "supported_version": "0.1.9.dev203",
+            "tox_executable_sha256": "a3a2e8442971cb81481487bff3cdf01e2e5ad5af380d154e48ecfe8869394348",
+            "tox_exit_code": 1,
+            "tracked_failures": [],
+            "tracked_integrity": true,
+            "version_failures": []
+          }
+        },
+        {
+          "name": "core",
+          "original_sha256": "657b8817511652c2f3ff531882307a72816d5c6b2f7410a8661ef5f209afdfbb",
+          "receipt": {
+            "candidate_commit": "03610b87ccc8d13c84e1540e4490791b8a0300ea",
+            "candidate_manifest_sha256": "5353033e8c71f0d79cdee346b82d23d28ad27f3033e7d99511607b4a031b1f5f",
+            "candidate_tree": "2dd608ca921b8ac15a2e6d3ffd8fc7549efc246d",
+            "duration_seconds": 388.8242287635803,
+            "environment_count": 7,
+            "environments": [
+              "test-core",
+              "lint-core",
+              "quality-core",
+              "security-core",
+              "build-core",
+              "sbom-core",
+              "api-core"
+            ],
+            "fixture_failures": [],
+            "fixture_integrity": true,
+            "installed_versions": {
+              "api-core": {
+                "bijux-pollenomics": "0.1.9.dev203",
+                "bijux-pollenomics-dev": "0.1.9.dev203",
+                "bijux-pollenomics-lra": "0.1.9.dev203",
+                "pollenomics": "0.1.9.dev203"
+              },
+              "build-core": {
+                "bijux-pollenomics": "0.1.9.dev203",
+                "bijux-pollenomics-dev": "0.1.9.dev203",
+                "bijux-pollenomics-lra": "0.1.9.dev203",
+                "pollenomics": "0.1.9.dev203"
+              },
+              "lint-core": {
+                "bijux-pollenomics": "0.1.9.dev203",
+                "bijux-pollenomics-dev": "0.1.9.dev203",
+                "bijux-pollenomics-lra": "0.1.9.dev203",
+                "pollenomics": "0.1.9.dev203"
+              },
+              "quality-core": {
+                "bijux-pollenomics": "0.1.9.dev203",
+                "bijux-pollenomics-dev": "0.1.9.dev203",
+                "bijux-pollenomics-lra": "0.1.9.dev203",
+                "pollenomics": "0.1.9.dev203"
+              },
+              "sbom-core": {
+                "bijux-pollenomics": "0.1.9.dev203",
+                "bijux-pollenomics-dev": "0.1.9.dev203",
+                "bijux-pollenomics-lra": "0.1.9.dev203",
+                "pollenomics": "0.1.9.dev203"
+              },
+              "security-core": {
+                "bijux-pollenomics": "0.1.9.dev203",
+                "bijux-pollenomics-dev": "0.1.9.dev203",
+                "bijux-pollenomics-lra": "0.1.9.dev203",
+                "pollenomics": "0.1.9.dev203"
+              },
+              "test-core": {
+                "bijux-pollenomics": "0.1.9.dev203",
+                "bijux-pollenomics-dev": "0.1.9.dev203",
+                "bijux-pollenomics-lra": "0.1.9.dev203",
+                "pollenomics": "0.1.9.dev203"
+              }
+            },
+            "junit": [
+              {
+                "bytes": 194111,
+                "path": "artifacts/bijux-pollenomics/test/junit.xml",
+                "sha256": "2533cb70453ab9382926a2dc618c3b605da97400c9bdacb4834834fb8b69b845",
+                "valid_xml": true
+              }
+            ],
+            "lane": "core",
+            "schema_version": "nordic-coverage-tox-lane.v1",
+            "supported_version": "0.1.9.dev203",
+            "tox_executable_sha256": "a3a2e8442971cb81481487bff3cdf01e2e5ad5af380d154e48ecfe8869394348",
+            "tox_exit_code": 1,
+            "tracked_failures": [],
+            "tracked_integrity": true,
+            "version_failures": []
+          }
+        },
+        {
+          "name": "dev",
+          "original_sha256": "76e48ea57212850c10b4dd9762de7357b0c008e3981d357e3dca94f9712d5a81",
+          "receipt": {
+            "candidate_commit": "03610b87ccc8d13c84e1540e4490791b8a0300ea",
+            "candidate_manifest_sha256": "5353033e8c71f0d79cdee346b82d23d28ad27f3033e7d99511607b4a031b1f5f",
+            "candidate_tree": "2dd608ca921b8ac15a2e6d3ffd8fc7549efc246d",
+            "duration_seconds": 300.27458810806274,
+            "environment_count": 6,
+            "environments": [
+              "test-dev",
+              "lint-dev",
+              "quality-dev",
+              "security-dev",
+              "build-dev",
+              "sbom-dev"
+            ],
+            "fixture_failures": [],
+            "fixture_integrity": true,
+            "installed_versions": {
+              "build-dev": {
+                "bijux-pollenomics": "0.1.9.dev203",
+                "bijux-pollenomics-dev": "0.1.9.dev203",
+                "bijux-pollenomics-lra": "0.1.9.dev203",
+                "pollenomics": "0.1.9.dev203"
+              },
+              "lint-dev": {
+                "bijux-pollenomics": "0.1.9.dev203",
+                "bijux-pollenomics-dev": "0.1.9.dev203",
+                "bijux-pollenomics-lra": "0.1.9.dev203",
+                "pollenomics": "0.1.9.dev203"
+              },
+              "quality-dev": {
+                "bijux-pollenomics": "0.1.9.dev203",
+                "bijux-pollenomics-dev": "0.1.9.dev203",
+                "bijux-pollenomics-lra": "0.1.9.dev203",
+                "pollenomics": "0.1.9.dev203"
+              },
+              "sbom-dev": {
+                "bijux-pollenomics": "0.1.9.dev203",
+                "bijux-pollenomics-dev": "0.1.9.dev203",
+                "bijux-pollenomics-lra": "0.1.9.dev203",
+                "pollenomics": "0.1.9.dev203"
+              },
+              "security-dev": {
+                "bijux-pollenomics": "0.1.9.dev203",
+                "bijux-pollenomics-dev": "0.1.9.dev203",
+                "bijux-pollenomics-lra": "0.1.9.dev203",
+                "pollenomics": "0.1.9.dev203"
+              },
+              "test-dev": {
+                "bijux-pollenomics": "0.1.9.dev203",
+                "bijux-pollenomics-dev": "0.1.9.dev203",
+                "bijux-pollenomics-lra": "0.1.9.dev203",
+                "pollenomics": "0.1.9.dev203"
+              }
+            },
+            "junit": [
+              {
+                "bytes": 174206,
+                "path": "artifacts/bijux-pollenomics-dev/test/junit.xml",
+                "sha256": "a65876f7f1fa1e3a23cc7ca931ef9ae9a146f381660d6dfdb4efad8861efc652",
+                "valid_xml": true
+              },
+              {
+                "bytes": 238,
+                "path": "artifacts/bijux-pollenomics-dev/test/tmp/test_declared_generated_date_i0/artifacts/evidence/results.junit.xml",
+                "sha256": "026a7848ede2ca33e5074819ad6c0c8df2ae3d1e8e8cb09d046504d1b3dd72b3",
+                "valid_xml": true
+              },
+              {
+                "bytes": 468,
+                "path": "artifacts/bijux-pollenomics-dev/test/tmp/test_dirty_governed_input_refu0/artifacts/proof/results.junit.xml",
+                "sha256": "ca540e1d6521d1fa27fd3ea69854aede6b30d3cab3721f37f5e4dd097777127a",
+                "valid_xml": true
+              },
+              {
+                "bytes": 222,
+                "path": "artifacts/bijux-pollenomics-dev/test/tmp/test_fixed_point_pass_cleans_c0/artifacts/proof/results.junit.xml",
+                "sha256": "cd14576dd96de2968e8599fa10095aedf2f1fe2d21d8c5e9c1b93dd48208d3fe",
+                "valid_xml": true
+              },
+              {
+                "bytes": 314,
+                "path": "artifacts/bijux-pollenomics-dev/test/tmp/test_generator_failure_emits_m0/artifacts/evidence/results.junit.xml",
+                "sha256": "dfde80a643e7828ee4ed0ed5ffbaa2d0f6062d4ca8e9e09ca17f743eef5f9642",
+                "valid_xml": true
+              },
+              {
+                "bytes": 331,
+                "path": "artifacts/bijux-pollenomics-dev/test/tmp/test_generator_failure_keeps_p0/artifacts/proof/results.junit.xml",
+                "sha256": "a2393757c03149c746f6f04f9c081a82519ac9087d392d7228807c98f0256751",
+                "valid_xml": true
+              },
+              {
+                "bytes": 305,
+                "path": "artifacts/bijux-pollenomics-dev/test/tmp/test_input_change_during_build0/artifacts/evidence/results.junit.xml",
+                "sha256": "df2d704449d3565deeb54f3c78b2d983d6648c86badd9635450cf3e6af2e9dd3",
+                "valid_xml": true
+              },
+              {
+                "bytes": 503,
+                "path": "artifacts/bijux-pollenomics-dev/test/tmp/test_input_mutation_invalidate0/artifacts/proof/results.junit.xml",
+                "sha256": "4fbf2b76b01d3c2324248716aa624eacf335e14bc7cd12d79ff9a49fb9343acb",
+                "valid_xml": true
+              },
+              {
+                "bytes": 261,
+                "path": "artifacts/bijux-pollenomics-dev/test/tmp/test_junit_attests_only_succes0/artifacts/reconciliation.junit.xml",
+                "sha256": "05b029132f78d8f736a54dfcfd6a6e315ba1691079bc8baceb3c3a68796e066c",
+                "valid_xml": true
+              },
+              {
+                "bytes": 620,
+                "path": "artifacts/bijux-pollenomics-dev/test/tmp/test_matching_rebuilds_that_dr0/artifacts/proof/results.junit.xml",
+                "sha256": "17d151d6b91c88e7d36a13f40eac27e6345d83f2fcf8db5d65c0c8a608b3bb78",
+                "valid_xml": true
+              },
+              {
+                "bytes": 323,
+                "path": "artifacts/bijux-pollenomics-dev/test/tmp/test_partitioned_rebuild_detec0/artifacts/final/results.junit.xml",
+                "sha256": "41dbe441132d11ce11e2312bd5cba923e5c0dfcb64c850301e197b06fa2e79c3",
+                "valid_xml": true
+              },
+              {
+                "bytes": 238,
+                "path": "artifacts/bijux-pollenomics-dev/test/tmp/test_partitioned_rebuild_requi0/artifacts/final/results.junit.xml",
+                "sha256": "026a7848ede2ca33e5074819ad6c0c8df2ae3d1e8e8cb09d046504d1b3dd72b3",
+                "valid_xml": true
+              },
+              {
+                "bytes": 315,
+                "path": "artifacts/bijux-pollenomics-dev/test/tmp/test_replay_content_change_fai0/artifacts/evidence/results.junit.xml",
+                "sha256": "7ad050b5b1729c03f1d580791479b7c96db7eabddb61fa9b9c58915a378ffe0b",
+                "valid_xml": true
+              },
+              {
+                "bytes": 617,
+                "path": "artifacts/bijux-pollenomics-dev/test/tmp/test_replay_mismatch_fails_and0/artifacts/proof/results.junit.xml",
+                "sha256": "9436e1449163adcbbef424bc4301ed5558f66c1d93bcc315866c1e8e6a701d94",
+                "valid_xml": true
+              },
+              {
+                "bytes": 360,
+                "path": "artifacts/bijux-pollenomics-dev/test/tmp/test_tracked_inventory_path_ch0/artifacts/evidence/results.junit.xml",
+                "sha256": "35460b08283147fa1c3e386d8658d7adf05cdc8092dcb1b61ee71525fce0a0d6",
+                "valid_xml": true
+              },
+              {
+                "bytes": 238,
+                "path": "artifacts/bijux-pollenomics-dev/test/tmp/test_two_builds_and_tracked_tr0/artifacts/evidence/results.junit.xml",
+                "sha256": "026a7848ede2ca33e5074819ad6c0c8df2ae3d1e8e8cb09d046504d1b3dd72b3",
+                "valid_xml": true
+              }
+            ],
+            "lane": "dev",
+            "schema_version": "nordic-coverage-tox-lane.v1",
+            "supported_version": "0.1.9.dev203",
+            "tox_executable_sha256": "a3a2e8442971cb81481487bff3cdf01e2e5ad5af380d154e48ecfe8869394348",
+            "tox_exit_code": 1,
+            "tracked_failures": [],
+            "tracked_integrity": true,
+            "version_failures": []
+          }
+        },
+        {
+          "name": "lra",
+          "original_sha256": "746a60358f5641890e120285301f1db3d50cdd519a9d65125ca0836c9fbf4fc1",
+          "receipt": {
+            "candidate_commit": "03610b87ccc8d13c84e1540e4490791b8a0300ea",
+            "candidate_manifest_sha256": "5353033e8c71f0d79cdee346b82d23d28ad27f3033e7d99511607b4a031b1f5f",
+            "candidate_tree": "2dd608ca921b8ac15a2e6d3ffd8fc7549efc246d",
+            "duration_seconds": 158.3662669658661,
+            "environment_count": 6,
+            "environments": [
+              "test-lra",
+              "lint-lra",
+              "quality-lra",
+              "security-lra",
+              "build-lra",
+              "sbom-lra"
+            ],
+            "fixture_failures": [],
+            "fixture_integrity": true,
+            "installed_versions": {
+              "build-lra": {
+                "bijux-pollenomics": "0.1.9.dev203",
+                "bijux-pollenomics-dev": "0.1.9.dev203",
+                "bijux-pollenomics-lra": "0.1.9.dev203",
+                "pollenomics": "0.1.9.dev203"
+              },
+              "lint-lra": {
+                "bijux-pollenomics": "0.1.9.dev203",
+                "bijux-pollenomics-dev": "0.1.9.dev203",
+                "bijux-pollenomics-lra": "0.1.9.dev203",
+                "pollenomics": "0.1.9.dev203"
+              },
+              "quality-lra": {
+                "bijux-pollenomics": "0.1.9.dev203",
+                "bijux-pollenomics-dev": "0.1.9.dev203",
+                "bijux-pollenomics-lra": "0.1.9.dev203",
+                "pollenomics": "0.1.9.dev203"
+              },
+              "sbom-lra": {
+                "bijux-pollenomics": "0.1.9.dev203",
+                "bijux-pollenomics-dev": "0.1.9.dev203",
+                "bijux-pollenomics-lra": "0.1.9.dev203",
+                "pollenomics": "0.1.9.dev203"
+              },
+              "security-lra": {
+                "bijux-pollenomics": "0.1.9.dev203",
+                "bijux-pollenomics-dev": "0.1.9.dev203",
+                "bijux-pollenomics-lra": "0.1.9.dev203",
+                "pollenomics": "0.1.9.dev203"
+              },
+              "test-lra": {
+                "bijux-pollenomics": "0.1.9.dev203",
+                "bijux-pollenomics-dev": "0.1.9.dev203",
+                "bijux-pollenomics-lra": "0.1.9.dev203",
+                "pollenomics": "0.1.9.dev203"
+              }
+            },
+            "junit": [
+              {
+                "bytes": 63329,
+                "path": "artifacts/bijux-pollenomics-lra/test/junit.xml",
+                "sha256": "26f9a1f28f591c8abe42baab3f929de1aca636d583abf1a454f9622dcb01b06b",
+                "valid_xml": true
+              }
+            ],
+            "lane": "lra",
+            "schema_version": "nordic-coverage-tox-lane.v1",
+            "supported_version": "0.1.9.dev203",
+            "tox_executable_sha256": "a3a2e8442971cb81481487bff3cdf01e2e5ad5af380d154e48ecfe8869394348",
+            "tox_exit_code": 1,
+            "tracked_failures": [],
+            "tracked_integrity": true,
+            "version_failures": []
+          }
+        },
+        {
+          "name": "root",
+          "original_sha256": "efedc2ee498d8400ba0c6525e28a96513fd29af165a14abf4217fe39c4cad318",
+          "receipt": {
+            "candidate_commit": "03610b87ccc8d13c84e1540e4490791b8a0300ea",
+            "candidate_manifest_sha256": "5353033e8c71f0d79cdee346b82d23d28ad27f3033e7d99511607b4a031b1f5f",
+            "candidate_tree": "2dd608ca921b8ac15a2e6d3ffd8fc7549efc246d",
+            "duration_seconds": 185.6796658039093,
+            "environment_count": 2,
+            "environments": [
+              "security",
+              "docs"
+            ],
+            "fixture_failures": [],
+            "fixture_integrity": true,
+            "installed_versions": {
+              "docs": {
+                "bijux-pollenomics": "0.1.9.dev203",
+                "bijux-pollenomics-dev": "0.1.9.dev203",
+                "bijux-pollenomics-lra": "0.1.9.dev203",
+                "pollenomics": "0.1.9.dev203"
+              },
+              "security": {
+                "bijux-pollenomics": "0.1.9.dev203",
+                "bijux-pollenomics-dev": "0.1.9.dev203",
+                "bijux-pollenomics-lra": "0.1.9.dev203",
+                "pollenomics": "0.1.9.dev203"
+              }
+            },
+            "junit": [],
+            "lane": "root",
+            "schema_version": "nordic-coverage-tox-lane.v1",
+            "supported_version": "0.1.9.dev203",
+            "tox_executable_sha256": "a3a2e8442971cb81481487bff3cdf01e2e5ad5af380d154e48ecfe8869394348",
+            "tox_exit_code": 1,
+            "tracked_failures": [],
+            "tracked_integrity": true,
+            "version_failures": []
+          }
+        }
+      ]
+    },
+    {
+      "candidate_commit": "4af586d3d044702432a46c8e477ea0ce6d75b56e",
+      "lanes": [
+        {
+          "name": "alias",
+          "original_sha256": "f7a1043e3b7d7028f70111a4f5b88ee8d2b179a9eb45fb1aaa7bcdca2915050f",
+          "receipt": {
+            "candidate_commit": "4af586d3d044702432a46c8e477ea0ce6d75b56e",
+            "candidate_manifest_sha256": "0644d26c0c19ea0179d922cc5f88ddcf0980b1b04e2096c97f815c2057eebb25",
+            "candidate_tree": "072b4ba16f3bc5b9360ff5cdedc6537f02b00f1c",
+            "duration_seconds": 125.33715415000916,
+            "environment_count": 6,
+            "environments": [
+              "test-alias",
+              "lint-alias",
+              "quality-alias",
+              "security-alias",
+              "build-alias",
+              "sbom-alias"
+            ],
+            "fixture_failures": [],
+            "fixture_integrity": true,
+            "installed_versions": {
+              "build-alias": {
+                "bijux-pollenomics": "0.1.9.dev205",
+                "bijux-pollenomics-dev": "0.1.9.dev205",
+                "bijux-pollenomics-lra": "0.1.9.dev205",
+                "pollenomics": "0.1.9.dev205"
+              },
+              "lint-alias": {
+                "bijux-pollenomics": "0.1.9.dev205",
+                "bijux-pollenomics-dev": "0.1.9.dev205",
+                "bijux-pollenomics-lra": "0.1.9.dev205",
+                "pollenomics": "0.1.9.dev205"
+              },
+              "quality-alias": {
+                "bijux-pollenomics": "0.1.9.dev205",
+                "bijux-pollenomics-dev": "0.1.9.dev205",
+                "bijux-pollenomics-lra": "0.1.9.dev205",
+                "pollenomics": "0.1.9.dev205"
+              },
+              "sbom-alias": {
+                "bijux-pollenomics": "0.1.9.dev205",
+                "bijux-pollenomics-dev": "0.1.9.dev205",
+                "bijux-pollenomics-lra": "0.1.9.dev205",
+                "pollenomics": "0.1.9.dev205"
+              },
+              "security-alias": {
+                "bijux-pollenomics": "0.1.9.dev205",
+                "bijux-pollenomics-dev": "0.1.9.dev205",
+                "bijux-pollenomics-lra": "0.1.9.dev205",
+                "pollenomics": "0.1.9.dev205"
+              },
+              "test-alias": {
+                "bijux-pollenomics": "0.1.9.dev205",
+                "bijux-pollenomics-dev": "0.1.9.dev205",
+                "bijux-pollenomics-lra": "0.1.9.dev205",
+                "pollenomics": "0.1.9.dev205"
+              }
+            },
+            "junit": [
+              {
+                "bytes": 1092,
+                "path": "artifacts/pollenomics/test/junit.xml",
+                "sha256": "f12af73b6e9d3020cf1b4f18a95587b7c19f72a878cc96674c81e24777dcbd55",
+                "valid_xml": true
+              }
+            ],
+            "lane": "alias",
+            "schema_version": "nordic-coverage-tox-lane.v1",
+            "snapshot_provenance_integrity": true,
+            "supported_version": "0.1.9.dev205",
+            "tox_executable_integrity": true,
+            "tox_executable_sha256": "a3a2e8442971cb81481487bff3cdf01e2e5ad5af380d154e48ecfe8869394348",
+            "tox_exit_code": 0,
+            "tracked_failures": [],
+            "tracked_integrity": true,
+            "version_failures": []
+          }
+        },
+        {
+          "name": "dev",
+          "original_sha256": "d3174b3dcf5890c6fee030e16506f1027c30cf7a65bad8af41ba5604a568316e",
+          "receipt": {
+            "candidate_commit": "4af586d3d044702432a46c8e477ea0ce6d75b56e",
+            "candidate_manifest_sha256": "0644d26c0c19ea0179d922cc5f88ddcf0980b1b04e2096c97f815c2057eebb25",
+            "candidate_tree": "072b4ba16f3bc5b9360ff5cdedc6537f02b00f1c",
+            "duration_seconds": 284.9192669391632,
+            "environment_count": 6,
+            "environments": [
+              "test-dev",
+              "lint-dev",
+              "quality-dev",
+              "security-dev",
+              "build-dev",
+              "sbom-dev"
+            ],
+            "fixture_failures": [],
+            "fixture_integrity": true,
+            "installed_versions": {
+              "build-dev": {
+                "bijux-pollenomics": "0.1.9.dev205",
+                "bijux-pollenomics-dev": "0.1.9.dev205",
+                "bijux-pollenomics-lra": "0.1.9.dev205",
+                "pollenomics": "0.1.9.dev205"
+              },
+              "lint-dev": {
+                "bijux-pollenomics": "0.1.9.dev205",
+                "bijux-pollenomics-dev": "0.1.9.dev205",
+                "bijux-pollenomics-lra": "0.1.9.dev205",
+                "pollenomics": "0.1.9.dev205"
+              },
+              "quality-dev": {
+                "bijux-pollenomics": "0.1.9.dev205",
+                "bijux-pollenomics-dev": "0.1.9.dev205",
+                "bijux-pollenomics-lra": "0.1.9.dev205",
+                "pollenomics": "0.1.9.dev205"
+              },
+              "sbom-dev": {
+                "bijux-pollenomics": "0.1.9.dev205",
+                "bijux-pollenomics-dev": "0.1.9.dev205",
+                "bijux-pollenomics-lra": "0.1.9.dev205",
+                "pollenomics": "0.1.9.dev205"
+              },
+              "security-dev": {
+                "bijux-pollenomics": "0.1.9.dev205",
+                "bijux-pollenomics-dev": "0.1.9.dev205",
+                "bijux-pollenomics-lra": "0.1.9.dev205",
+                "pollenomics": "0.1.9.dev205"
+              },
+              "test-dev": {
+                "bijux-pollenomics": "0.1.9.dev205",
+                "bijux-pollenomics-dev": "0.1.9.dev205",
+                "bijux-pollenomics-lra": "0.1.9.dev205",
+                "pollenomics": "0.1.9.dev205"
+              }
+            },
+            "junit": [
+              {
+                "bytes": 174206,
+                "path": "artifacts/bijux-pollenomics-dev/test/junit.xml",
+                "sha256": "6e1d33d959f823f008484a7c35ef078d08d18b6715c0e816ea5c20831961615e",
+                "valid_xml": true
+              },
+              {
+                "bytes": 238,
+                "path": "artifacts/bijux-pollenomics-dev/test/tmp/test_declared_generated_date_i0/artifacts/evidence/results.junit.xml",
+                "sha256": "026a7848ede2ca33e5074819ad6c0c8df2ae3d1e8e8cb09d046504d1b3dd72b3",
+                "valid_xml": true
+              },
+              {
+                "bytes": 468,
+                "path": "artifacts/bijux-pollenomics-dev/test/tmp/test_dirty_governed_input_refu0/artifacts/proof/results.junit.xml",
+                "sha256": "ca540e1d6521d1fa27fd3ea69854aede6b30d3cab3721f37f5e4dd097777127a",
+                "valid_xml": true
+              },
+              {
+                "bytes": 222,
+                "path": "artifacts/bijux-pollenomics-dev/test/tmp/test_fixed_point_pass_cleans_c0/artifacts/proof/results.junit.xml",
+                "sha256": "cd14576dd96de2968e8599fa10095aedf2f1fe2d21d8c5e9c1b93dd48208d3fe",
+                "valid_xml": true
+              },
+              {
+                "bytes": 314,
+                "path": "artifacts/bijux-pollenomics-dev/test/tmp/test_generator_failure_emits_m0/artifacts/evidence/results.junit.xml",
+                "sha256": "dfde80a643e7828ee4ed0ed5ffbaa2d0f6062d4ca8e9e09ca17f743eef5f9642",
+                "valid_xml": true
+              },
+              {
+                "bytes": 331,
+                "path": "artifacts/bijux-pollenomics-dev/test/tmp/test_generator_failure_keeps_p0/artifacts/proof/results.junit.xml",
+                "sha256": "a2393757c03149c746f6f04f9c081a82519ac9087d392d7228807c98f0256751",
+                "valid_xml": true
+              },
+              {
+                "bytes": 305,
+                "path": "artifacts/bijux-pollenomics-dev/test/tmp/test_input_change_during_build0/artifacts/evidence/results.junit.xml",
+                "sha256": "df2d704449d3565deeb54f3c78b2d983d6648c86badd9635450cf3e6af2e9dd3",
+                "valid_xml": true
+              },
+              {
+                "bytes": 503,
+                "path": "artifacts/bijux-pollenomics-dev/test/tmp/test_input_mutation_invalidate0/artifacts/proof/results.junit.xml",
+                "sha256": "4fbf2b76b01d3c2324248716aa624eacf335e14bc7cd12d79ff9a49fb9343acb",
+                "valid_xml": true
+              },
+              {
+                "bytes": 261,
+                "path": "artifacts/bijux-pollenomics-dev/test/tmp/test_junit_attests_only_succes0/artifacts/reconciliation.junit.xml",
+                "sha256": "05b029132f78d8f736a54dfcfd6a6e315ba1691079bc8baceb3c3a68796e066c",
+                "valid_xml": true
+              },
+              {
+                "bytes": 620,
+                "path": "artifacts/bijux-pollenomics-dev/test/tmp/test_matching_rebuilds_that_dr0/artifacts/proof/results.junit.xml",
+                "sha256": "17d151d6b91c88e7d36a13f40eac27e6345d83f2fcf8db5d65c0c8a608b3bb78",
+                "valid_xml": true
+              },
+              {
+                "bytes": 323,
+                "path": "artifacts/bijux-pollenomics-dev/test/tmp/test_partitioned_rebuild_detec0/artifacts/final/results.junit.xml",
+                "sha256": "41dbe441132d11ce11e2312bd5cba923e5c0dfcb64c850301e197b06fa2e79c3",
+                "valid_xml": true
+              },
+              {
+                "bytes": 238,
+                "path": "artifacts/bijux-pollenomics-dev/test/tmp/test_partitioned_rebuild_requi0/artifacts/final/results.junit.xml",
+                "sha256": "026a7848ede2ca33e5074819ad6c0c8df2ae3d1e8e8cb09d046504d1b3dd72b3",
+                "valid_xml": true
+              },
+              {
+                "bytes": 315,
+                "path": "artifacts/bijux-pollenomics-dev/test/tmp/test_replay_content_change_fai0/artifacts/evidence/results.junit.xml",
+                "sha256": "7ad050b5b1729c03f1d580791479b7c96db7eabddb61fa9b9c58915a378ffe0b",
+                "valid_xml": true
+              },
+              {
+                "bytes": 617,
+                "path": "artifacts/bijux-pollenomics-dev/test/tmp/test_replay_mismatch_fails_and0/artifacts/proof/results.junit.xml",
+                "sha256": "9436e1449163adcbbef424bc4301ed5558f66c1d93bcc315866c1e8e6a701d94",
+                "valid_xml": true
+              },
+              {
+                "bytes": 360,
+                "path": "artifacts/bijux-pollenomics-dev/test/tmp/test_tracked_inventory_path_ch0/artifacts/evidence/results.junit.xml",
+                "sha256": "35460b08283147fa1c3e386d8658d7adf05cdc8092dcb1b61ee71525fce0a0d6",
+                "valid_xml": true
+              },
+              {
+                "bytes": 238,
+                "path": "artifacts/bijux-pollenomics-dev/test/tmp/test_two_builds_and_tracked_tr0/artifacts/evidence/results.junit.xml",
+                "sha256": "026a7848ede2ca33e5074819ad6c0c8df2ae3d1e8e8cb09d046504d1b3dd72b3",
+                "valid_xml": true
+              }
+            ],
+            "lane": "dev",
+            "schema_version": "nordic-coverage-tox-lane.v1",
+            "snapshot_provenance_integrity": true,
+            "supported_version": "0.1.9.dev205",
+            "tox_executable_integrity": true,
+            "tox_executable_sha256": "a3a2e8442971cb81481487bff3cdf01e2e5ad5af380d154e48ecfe8869394348",
+            "tox_exit_code": 0,
+            "tracked_failures": [],
+            "tracked_integrity": true,
+            "version_failures": []
+          }
+        },
+        {
+          "name": "lra",
+          "original_sha256": "f6db9b2a917f30b253c48b9a7952e36f73ab60293492b25195470b37dd7b5de0",
+          "receipt": {
+            "candidate_commit": "4af586d3d044702432a46c8e477ea0ce6d75b56e",
+            "candidate_manifest_sha256": "0644d26c0c19ea0179d922cc5f88ddcf0980b1b04e2096c97f815c2057eebb25",
+            "candidate_tree": "072b4ba16f3bc5b9360ff5cdedc6537f02b00f1c",
+            "duration_seconds": 170.5457992553711,
+            "environment_count": 6,
+            "environments": [
+              "test-lra",
+              "lint-lra",
+              "quality-lra",
+              "security-lra",
+              "build-lra",
+              "sbom-lra"
+            ],
+            "fixture_failures": [],
+            "fixture_integrity": true,
+            "installed_versions": {
+              "build-lra": {
+                "bijux-pollenomics": "0.1.9.dev205",
+                "bijux-pollenomics-dev": "0.1.9.dev205",
+                "bijux-pollenomics-lra": "0.1.9.dev205",
+                "pollenomics": "0.1.9.dev205"
+              },
+              "lint-lra": {
+                "bijux-pollenomics": "0.1.9.dev205",
+                "bijux-pollenomics-dev": "0.1.9.dev205",
+                "bijux-pollenomics-lra": "0.1.9.dev205",
+                "pollenomics": "0.1.9.dev205"
+              },
+              "quality-lra": {
+                "bijux-pollenomics": "0.1.9.dev205",
+                "bijux-pollenomics-dev": "0.1.9.dev205",
+                "bijux-pollenomics-lra": "0.1.9.dev205",
+                "pollenomics": "0.1.9.dev205"
+              },
+              "sbom-lra": {
+                "bijux-pollenomics": "0.1.9.dev205",
+                "bijux-pollenomics-dev": "0.1.9.dev205",
+                "bijux-pollenomics-lra": "0.1.9.dev205",
+                "pollenomics": "0.1.9.dev205"
+              },
+              "security-lra": {
+                "bijux-pollenomics": "0.1.9.dev205",
+                "bijux-pollenomics-dev": "0.1.9.dev205",
+                "bijux-pollenomics-lra": "0.1.9.dev205",
+                "pollenomics": "0.1.9.dev205"
+              },
+              "test-lra": {
+                "bijux-pollenomics": "0.1.9.dev205",
+                "bijux-pollenomics-dev": "0.1.9.dev205",
+                "bijux-pollenomics-lra": "0.1.9.dev205",
+                "pollenomics": "0.1.9.dev205"
+              }
+            },
+            "junit": [
+              {
+                "bytes": 63329,
+                "path": "artifacts/bijux-pollenomics-lra/test/junit.xml",
+                "sha256": "199ecfa1d2ed9f49ab3cab4206804e3469c650bbf3700b6bcc7cd414a3e2f3da",
+                "valid_xml": true
+              }
+            ],
+            "lane": "lra",
+            "schema_version": "nordic-coverage-tox-lane.v1",
+            "snapshot_provenance_integrity": true,
+            "supported_version": "0.1.9.dev205",
+            "tox_executable_integrity": true,
+            "tox_executable_sha256": "a3a2e8442971cb81481487bff3cdf01e2e5ad5af380d154e48ecfe8869394348",
+            "tox_exit_code": 0,
+            "tracked_failures": [],
+            "tracked_integrity": true,
+            "version_failures": []
+          }
+        },
+        {
+          "name": "root",
+          "original_sha256": "6853e10626d32deedd3a718d003f768960ed18e13a175b89b040aa59a5a15eca",
+          "receipt": {
+            "candidate_commit": "4af586d3d044702432a46c8e477ea0ce6d75b56e",
+            "candidate_manifest_sha256": "0644d26c0c19ea0179d922cc5f88ddcf0980b1b04e2096c97f815c2057eebb25",
+            "candidate_tree": "072b4ba16f3bc5b9360ff5cdedc6537f02b00f1c",
+            "duration_seconds": 136.35347080230713,
+            "environment_count": 2,
+            "environments": [
+              "security",
+              "docs"
+            ],
+            "fixture_failures": [],
+            "fixture_integrity": true,
+            "installed_versions": {
+              "docs": {
+                "bijux-pollenomics": "0.1.9.dev205",
+                "bijux-pollenomics-dev": "0.1.9.dev205",
+                "bijux-pollenomics-lra": "0.1.9.dev205",
+                "pollenomics": "0.1.9.dev205"
+              },
+              "security": {
+                "bijux-pollenomics": "0.1.9.dev205",
+                "bijux-pollenomics-dev": "0.1.9.dev205",
+                "bijux-pollenomics-lra": "0.1.9.dev205",
+                "pollenomics": "0.1.9.dev205"
+              }
+            },
+            "junit": [],
+            "lane": "root",
+            "schema_version": "nordic-coverage-tox-lane.v1",
+            "snapshot_provenance_integrity": true,
+            "supported_version": "0.1.9.dev205",
+            "tox_executable_integrity": true,
+            "tox_executable_sha256": "a3a2e8442971cb81481487bff3cdf01e2e5ad5af380d154e48ecfe8869394348",
+            "tox_exit_code": 0,
+            "tracked_failures": [],
+            "tracked_integrity": true,
+            "version_failures": []
+          }
+        }
+      ]
+    },
+    {
+      "candidate_commit": "7dedc5bf35df3d7354ee1d2f2526363a66e90bd8",
+      "lanes": []
+    },
+    {
+      "candidate_commit": "9e9b315609003056c8841bd6f8db4c153930075f",
+      "lanes": []
+    },
+    {
+      "candidate_commit": "c5cb644285fb0883bb0c032e25a4614f6877633c",
+      "lanes": [
+        {
+          "name": "alias",
+          "original_sha256": "9d553873594f71b4e7e9702d1e8dcda10ea44b396567035002ca15401c1e4ffa",
+          "receipt": {
+            "candidate_commit": "c5cb644285fb0883bb0c032e25a4614f6877633c",
+            "candidate_manifest_sha256": "6a059030dd0e371adfdf733ef55932f3888d12f0322ca2e059d3977d8e2b2afc",
+            "candidate_tree": "29c0b9470f620acea6eec77c7a46d0562d543715",
+            "duration_seconds": 129.56953811645508,
+            "environment_count": 6,
+            "environments": [
+              "test-alias",
+              "lint-alias",
+              "quality-alias",
+              "security-alias",
+              "build-alias",
+              "sbom-alias"
+            ],
+            "fixture_failures": [],
+            "fixture_integrity": true,
+            "installed_versions": {
+              "build-alias": {
+                "bijux-pollenomics": "0.1.9.dev207",
+                "bijux-pollenomics-dev": "0.1.9.dev207",
+                "bijux-pollenomics-lra": "0.1.9.dev207",
+                "pollenomics": "0.1.9.dev207"
+              },
+              "lint-alias": {
+                "bijux-pollenomics": "0.1.9.dev207",
+                "bijux-pollenomics-dev": "0.1.9.dev207",
+                "bijux-pollenomics-lra": "0.1.9.dev207",
+                "pollenomics": "0.1.9.dev207"
+              },
+              "quality-alias": {
+                "bijux-pollenomics": "0.1.9.dev207",
+                "bijux-pollenomics-dev": "0.1.9.dev207",
+                "bijux-pollenomics-lra": "0.1.9.dev207",
+                "pollenomics": "0.1.9.dev207"
+              },
+              "sbom-alias": {
+                "bijux-pollenomics": "0.1.9.dev207",
+                "bijux-pollenomics-dev": "0.1.9.dev207",
+                "bijux-pollenomics-lra": "0.1.9.dev207",
+                "pollenomics": "0.1.9.dev207"
+              },
+              "security-alias": {
+                "bijux-pollenomics": "0.1.9.dev207",
+                "bijux-pollenomics-dev": "0.1.9.dev207",
+                "bijux-pollenomics-lra": "0.1.9.dev207",
+                "pollenomics": "0.1.9.dev207"
+              },
+              "test-alias": {
+                "bijux-pollenomics": "0.1.9.dev207",
+                "bijux-pollenomics-dev": "0.1.9.dev207",
+                "bijux-pollenomics-lra": "0.1.9.dev207",
+                "pollenomics": "0.1.9.dev207"
+              }
+            },
+            "junit": [
+              {
+                "bytes": 1093,
+                "path": "artifacts/pollenomics/test/junit.xml",
+                "sha256": "21795bccbc97d296d555950f28429d6b01f2a10767603170ce5ffe850d963d20",
+                "valid_xml": true
+              }
+            ],
+            "lane": "alias",
+            "schema_version": "nordic-coverage-tox-lane.v1",
+            "snapshot_provenance_integrity": true,
+            "supported_version": "0.1.9.dev207",
+            "tox_executable_integrity": true,
+            "tox_executable_sha256": "a3a2e8442971cb81481487bff3cdf01e2e5ad5af380d154e48ecfe8869394348",
+            "tox_exit_code": 0,
+            "tracked_failures": [],
+            "tracked_integrity": true,
+            "version_failures": []
+          }
+        },
+        {
+          "name": "core",
+          "original_sha256": "23a779a0ef61c9414ad2fc3aade242d416e9204c9acf3192153d1c5ac63973ae",
+          "receipt": {
+            "candidate_commit": "c5cb644285fb0883bb0c032e25a4614f6877633c",
+            "candidate_manifest_sha256": "6a059030dd0e371adfdf733ef55932f3888d12f0322ca2e059d3977d8e2b2afc",
+            "candidate_tree": "29c0b9470f620acea6eec77c7a46d0562d543715",
+            "duration_seconds": 1393.0404920578003,
+            "environment_count": 7,
+            "environments": [
+              "test-core",
+              "lint-core",
+              "quality-core",
+              "security-core",
+              "build-core",
+              "sbom-core",
+              "api-core"
+            ],
+            "fixture_failures": [],
+            "fixture_integrity": true,
+            "installed_versions": {
+              "api-core": {
+                "bijux-pollenomics": "0.1.9.dev207",
+                "bijux-pollenomics-dev": "0.1.9.dev207",
+                "bijux-pollenomics-lra": "0.1.9.dev207",
+                "pollenomics": "0.1.9.dev207"
+              },
+              "build-core": {
+                "bijux-pollenomics": "0.1.9.dev207",
+                "bijux-pollenomics-dev": "0.1.9.dev207",
+                "bijux-pollenomics-lra": "0.1.9.dev207",
+                "pollenomics": "0.1.9.dev207"
+              },
+              "lint-core": {
+                "bijux-pollenomics": "0.1.9.dev207",
+                "bijux-pollenomics-dev": "0.1.9.dev207",
+                "bijux-pollenomics-lra": "0.1.9.dev207",
+                "pollenomics": "0.1.9.dev207"
+              },
+              "quality-core": {
+                "bijux-pollenomics": "0.1.9.dev207",
+                "bijux-pollenomics-dev": "0.1.9.dev207",
+                "bijux-pollenomics-lra": "0.1.9.dev207",
+                "pollenomics": "0.1.9.dev207"
+              },
+              "sbom-core": {
+                "bijux-pollenomics": "0.1.9.dev207",
+                "bijux-pollenomics-dev": "0.1.9.dev207",
+                "bijux-pollenomics-lra": "0.1.9.dev207",
+                "pollenomics": "0.1.9.dev207"
+              },
+              "security-core": {
+                "bijux-pollenomics": "0.1.9.dev207",
+                "bijux-pollenomics-dev": "0.1.9.dev207",
+                "bijux-pollenomics-lra": "0.1.9.dev207",
+                "pollenomics": "0.1.9.dev207"
+              },
+              "test-core": {
+                "bijux-pollenomics": "0.1.9.dev207",
+                "bijux-pollenomics-dev": "0.1.9.dev207",
+                "bijux-pollenomics-lra": "0.1.9.dev207",
+                "pollenomics": "0.1.9.dev207"
+              }
+            },
+            "junit": [
+              {
+                "bytes": 2060,
+                "path": "artifacts/bijux-pollenomics/test/junit.xml",
+                "sha256": "beb8b454d204fd8f42394bd136295709fd9df5fd96643faf4e4a18d29a275167",
+                "valid_xml": true
+              }
+            ],
+            "lane": "core",
+            "schema_version": "nordic-coverage-tox-lane.v1",
+            "snapshot_provenance_integrity": true,
+            "supported_version": "0.1.9.dev207",
+            "tox_executable_integrity": true,
+            "tox_executable_sha256": "a3a2e8442971cb81481487bff3cdf01e2e5ad5af380d154e48ecfe8869394348",
+            "tox_exit_code": 0,
+            "tracked_failures": [],
+            "tracked_integrity": true,
+            "version_failures": []
+          }
+        },
+        {
+          "name": "dev",
+          "original_sha256": "c9888e5b84ad786ceac2fdef7b68f4c0c17b00b51b21dd28c05cad942463c33b",
+          "receipt": {
+            "candidate_commit": "c5cb644285fb0883bb0c032e25a4614f6877633c",
+            "candidate_manifest_sha256": "6a059030dd0e371adfdf733ef55932f3888d12f0322ca2e059d3977d8e2b2afc",
+            "candidate_tree": "29c0b9470f620acea6eec77c7a46d0562d543715",
+            "duration_seconds": 290.5105330944061,
+            "environment_count": 6,
+            "environments": [
+              "test-dev",
+              "lint-dev",
+              "quality-dev",
+              "security-dev",
+              "build-dev",
+              "sbom-dev"
+            ],
+            "fixture_failures": [],
+            "fixture_integrity": true,
+            "installed_versions": {
+              "build-dev": {
+                "bijux-pollenomics": "0.1.9.dev207",
+                "bijux-pollenomics-dev": "0.1.9.dev207",
+                "bijux-pollenomics-lra": "0.1.9.dev207",
+                "pollenomics": "0.1.9.dev207"
+              },
+              "lint-dev": {
+                "bijux-pollenomics": "0.1.9.dev207",
+                "bijux-pollenomics-dev": "0.1.9.dev207",
+                "bijux-pollenomics-lra": "0.1.9.dev207",
+                "pollenomics": "0.1.9.dev207"
+              },
+              "quality-dev": {
+                "bijux-pollenomics": "0.1.9.dev207",
+                "bijux-pollenomics-dev": "0.1.9.dev207",
+                "bijux-pollenomics-lra": "0.1.9.dev207",
+                "pollenomics": "0.1.9.dev207"
+              },
+              "sbom-dev": {
+                "bijux-pollenomics": "0.1.9.dev207",
+                "bijux-pollenomics-dev": "0.1.9.dev207",
+                "bijux-pollenomics-lra": "0.1.9.dev207",
+                "pollenomics": "0.1.9.dev207"
+              },
+              "security-dev": {
+                "bijux-pollenomics": "0.1.9.dev207",
+                "bijux-pollenomics-dev": "0.1.9.dev207",
+                "bijux-pollenomics-lra": "0.1.9.dev207",
+                "pollenomics": "0.1.9.dev207"
+              },
+              "test-dev": {
+                "bijux-pollenomics": "0.1.9.dev207",
+                "bijux-pollenomics-dev": "0.1.9.dev207",
+                "bijux-pollenomics-lra": "0.1.9.dev207",
+                "pollenomics": "0.1.9.dev207"
+              }
+            },
+            "junit": [
+              {
+                "bytes": 174206,
+                "path": "artifacts/bijux-pollenomics-dev/test/junit.xml",
+                "sha256": "98a3815b000978b4a8960a08784ef5306c0da4d9718e2c3490f2350bd9fa63da",
+                "valid_xml": true
+              },
+              {
+                "bytes": 238,
+                "path": "artifacts/bijux-pollenomics-dev/test/tmp/test_declared_generated_date_i0/artifacts/evidence/results.junit.xml",
+                "sha256": "026a7848ede2ca33e5074819ad6c0c8df2ae3d1e8e8cb09d046504d1b3dd72b3",
+                "valid_xml": true
+              },
+              {
+                "bytes": 468,
+                "path": "artifacts/bijux-pollenomics-dev/test/tmp/test_dirty_governed_input_refu0/artifacts/proof/results.junit.xml",
+                "sha256": "ca540e1d6521d1fa27fd3ea69854aede6b30d3cab3721f37f5e4dd097777127a",
+                "valid_xml": true
+              },
+              {
+                "bytes": 222,
+                "path": "artifacts/bijux-pollenomics-dev/test/tmp/test_fixed_point_pass_cleans_c0/artifacts/proof/results.junit.xml",
+                "sha256": "cd14576dd96de2968e8599fa10095aedf2f1fe2d21d8c5e9c1b93dd48208d3fe",
+                "valid_xml": true
+              },
+              {
+                "bytes": 314,
+                "path": "artifacts/bijux-pollenomics-dev/test/tmp/test_generator_failure_emits_m0/artifacts/evidence/results.junit.xml",
+                "sha256": "dfde80a643e7828ee4ed0ed5ffbaa2d0f6062d4ca8e9e09ca17f743eef5f9642",
+                "valid_xml": true
+              },
+              {
+                "bytes": 331,
+                "path": "artifacts/bijux-pollenomics-dev/test/tmp/test_generator_failure_keeps_p0/artifacts/proof/results.junit.xml",
+                "sha256": "a2393757c03149c746f6f04f9c081a82519ac9087d392d7228807c98f0256751",
+                "valid_xml": true
+              },
+              {
+                "bytes": 305,
+                "path": "artifacts/bijux-pollenomics-dev/test/tmp/test_input_change_during_build0/artifacts/evidence/results.junit.xml",
+                "sha256": "df2d704449d3565deeb54f3c78b2d983d6648c86badd9635450cf3e6af2e9dd3",
+                "valid_xml": true
+              },
+              {
+                "bytes": 503,
+                "path": "artifacts/bijux-pollenomics-dev/test/tmp/test_input_mutation_invalidate0/artifacts/proof/results.junit.xml",
+                "sha256": "4fbf2b76b01d3c2324248716aa624eacf335e14bc7cd12d79ff9a49fb9343acb",
+                "valid_xml": true
+              },
+              {
+                "bytes": 261,
+                "path": "artifacts/bijux-pollenomics-dev/test/tmp/test_junit_attests_only_succes0/artifacts/reconciliation.junit.xml",
+                "sha256": "05b029132f78d8f736a54dfcfd6a6e315ba1691079bc8baceb3c3a68796e066c",
+                "valid_xml": true
+              },
+              {
+                "bytes": 620,
+                "path": "artifacts/bijux-pollenomics-dev/test/tmp/test_matching_rebuilds_that_dr0/artifacts/proof/results.junit.xml",
+                "sha256": "17d151d6b91c88e7d36a13f40eac27e6345d83f2fcf8db5d65c0c8a608b3bb78",
+                "valid_xml": true
+              },
+              {
+                "bytes": 323,
+                "path": "artifacts/bijux-pollenomics-dev/test/tmp/test_partitioned_rebuild_detec0/artifacts/final/results.junit.xml",
+                "sha256": "41dbe441132d11ce11e2312bd5cba923e5c0dfcb64c850301e197b06fa2e79c3",
+                "valid_xml": true
+              },
+              {
+                "bytes": 238,
+                "path": "artifacts/bijux-pollenomics-dev/test/tmp/test_partitioned_rebuild_requi0/artifacts/final/results.junit.xml",
+                "sha256": "026a7848ede2ca33e5074819ad6c0c8df2ae3d1e8e8cb09d046504d1b3dd72b3",
+                "valid_xml": true
+              },
+              {
+                "bytes": 315,
+                "path": "artifacts/bijux-pollenomics-dev/test/tmp/test_replay_content_change_fai0/artifacts/evidence/results.junit.xml",
+                "sha256": "7ad050b5b1729c03f1d580791479b7c96db7eabddb61fa9b9c58915a378ffe0b",
+                "valid_xml": true
+              },
+              {
+                "bytes": 617,
+                "path": "artifacts/bijux-pollenomics-dev/test/tmp/test_replay_mismatch_fails_and0/artifacts/proof/results.junit.xml",
+                "sha256": "9436e1449163adcbbef424bc4301ed5558f66c1d93bcc315866c1e8e6a701d94",
+                "valid_xml": true
+              },
+              {
+                "bytes": 360,
+                "path": "artifacts/bijux-pollenomics-dev/test/tmp/test_tracked_inventory_path_ch0/artifacts/evidence/results.junit.xml",
+                "sha256": "35460b08283147fa1c3e386d8658d7adf05cdc8092dcb1b61ee71525fce0a0d6",
+                "valid_xml": true
+              },
+              {
+                "bytes": 238,
+                "path": "artifacts/bijux-pollenomics-dev/test/tmp/test_two_builds_and_tracked_tr0/artifacts/evidence/results.junit.xml",
+                "sha256": "026a7848ede2ca33e5074819ad6c0c8df2ae3d1e8e8cb09d046504d1b3dd72b3",
+                "valid_xml": true
+              }
+            ],
+            "lane": "dev",
+            "schema_version": "nordic-coverage-tox-lane.v1",
+            "snapshot_provenance_integrity": true,
+            "supported_version": "0.1.9.dev207",
+            "tox_executable_integrity": true,
+            "tox_executable_sha256": "a3a2e8442971cb81481487bff3cdf01e2e5ad5af380d154e48ecfe8869394348",
+            "tox_exit_code": 0,
+            "tracked_failures": [],
+            "tracked_integrity": true,
+            "version_failures": []
+          }
+        },
+        {
+          "name": "lra",
+          "original_sha256": "541ab6dee5d7da9fd5d65bd6efacc6dc5bd9291e5ab1aff2ba926f78866ae283",
+          "receipt": {
+            "candidate_commit": "c5cb644285fb0883bb0c032e25a4614f6877633c",
+            "candidate_manifest_sha256": "6a059030dd0e371adfdf733ef55932f3888d12f0322ca2e059d3977d8e2b2afc",
+            "candidate_tree": "29c0b9470f620acea6eec77c7a46d0562d543715",
+            "duration_seconds": 174.94887280464172,
+            "environment_count": 6,
+            "environments": [
+              "test-lra",
+              "lint-lra",
+              "quality-lra",
+              "security-lra",
+              "build-lra",
+              "sbom-lra"
+            ],
+            "fixture_failures": [],
+            "fixture_integrity": true,
+            "installed_versions": {
+              "build-lra": {
+                "bijux-pollenomics": "0.1.9.dev207",
+                "bijux-pollenomics-dev": "0.1.9.dev207",
+                "bijux-pollenomics-lra": "0.1.9.dev207",
+                "pollenomics": "0.1.9.dev207"
+              },
+              "lint-lra": {
+                "bijux-pollenomics": "0.1.9.dev207",
+                "bijux-pollenomics-dev": "0.1.9.dev207",
+                "bijux-pollenomics-lra": "0.1.9.dev207",
+                "pollenomics": "0.1.9.dev207"
+              },
+              "quality-lra": {
+                "bijux-pollenomics": "0.1.9.dev207",
+                "bijux-pollenomics-dev": "0.1.9.dev207",
+                "bijux-pollenomics-lra": "0.1.9.dev207",
+                "pollenomics": "0.1.9.dev207"
+              },
+              "sbom-lra": {
+                "bijux-pollenomics": "0.1.9.dev207",
+                "bijux-pollenomics-dev": "0.1.9.dev207",
+                "bijux-pollenomics-lra": "0.1.9.dev207",
+                "pollenomics": "0.1.9.dev207"
+              },
+              "security-lra": {
+                "bijux-pollenomics": "0.1.9.dev207",
+                "bijux-pollenomics-dev": "0.1.9.dev207",
+                "bijux-pollenomics-lra": "0.1.9.dev207",
+                "pollenomics": "0.1.9.dev207"
+              },
+              "test-lra": {
+                "bijux-pollenomics": "0.1.9.dev207",
+                "bijux-pollenomics-dev": "0.1.9.dev207",
+                "bijux-pollenomics-lra": "0.1.9.dev207",
+                "pollenomics": "0.1.9.dev207"
+              }
+            },
+            "junit": [
+              {
+                "bytes": 63329,
+                "path": "artifacts/bijux-pollenomics-lra/test/junit.xml",
+                "sha256": "9fa8e4e1de93914cf5ef6605af04c6d952f2dda25e183ec1987be41ca97a2d28",
+                "valid_xml": true
+              }
+            ],
+            "lane": "lra",
+            "schema_version": "nordic-coverage-tox-lane.v1",
+            "snapshot_provenance_integrity": true,
+            "supported_version": "0.1.9.dev207",
+            "tox_executable_integrity": true,
+            "tox_executable_sha256": "a3a2e8442971cb81481487bff3cdf01e2e5ad5af380d154e48ecfe8869394348",
+            "tox_exit_code": 0,
+            "tracked_failures": [],
+            "tracked_integrity": true,
+            "version_failures": []
+          }
+        },
+        {
+          "name": "root",
+          "original_sha256": "4e8b1aae6767e8afdacf56f97c0d48cf5fba4b34f6591729f41c5de72c21f55d",
+          "receipt": {
+            "candidate_commit": "c5cb644285fb0883bb0c032e25a4614f6877633c",
+            "candidate_manifest_sha256": "6a059030dd0e371adfdf733ef55932f3888d12f0322ca2e059d3977d8e2b2afc",
+            "candidate_tree": "29c0b9470f620acea6eec77c7a46d0562d543715",
+            "duration_seconds": 147.6590211391449,
+            "environment_count": 2,
+            "environments": [
+              "security",
+              "docs"
+            ],
+            "fixture_failures": [],
+            "fixture_integrity": true,
+            "installed_versions": {
+              "docs": {
+                "bijux-pollenomics": "0.1.9.dev207",
+                "bijux-pollenomics-dev": "0.1.9.dev207",
+                "bijux-pollenomics-lra": "0.1.9.dev207",
+                "pollenomics": "0.1.9.dev207"
+              },
+              "security": {
+                "bijux-pollenomics": "0.1.9.dev207",
+                "bijux-pollenomics-dev": "0.1.9.dev207",
+                "bijux-pollenomics-lra": "0.1.9.dev207",
+                "pollenomics": "0.1.9.dev207"
+              }
+            },
+            "junit": [],
+            "lane": "root",
+            "schema_version": "nordic-coverage-tox-lane.v1",
+            "snapshot_provenance_integrity": true,
+            "supported_version": "0.1.9.dev207",
+            "tox_executable_integrity": true,
+            "tox_executable_sha256": "a3a2e8442971cb81481487bff3cdf01e2e5ad5af380d154e48ecfe8869394348",
+            "tox_exit_code": 0,
+            "tracked_failures": [],
+            "tracked_integrity": true,
+            "version_failures": []
+          }
+        }
+      ]
+    },
+    {
+      "candidate_commit": "cf51d2d59aaa9b7191f5d3a94a1eb06ed5975ddf",
+      "lanes": [
+        {
+          "name": "alias",
+          "original_sha256": "e703459d55e54e46e66a63e62f29fcbd625f8c280d4b6a4be1c3c48fefd61f2c",
+          "receipt": {
+            "candidate_commit": "cf51d2d59aaa9b7191f5d3a94a1eb06ed5975ddf",
+            "candidate_manifest_sha256": "ce78913806cbd4caded5ed57656b13dd94a2b336e8b91e7a148e29c4d39fed07",
+            "candidate_tree": "fd90c40b39a99e315b30e93671b3a79801c53cb9",
+            "duration_seconds": 137.67852997779846,
+            "environment_count": 6,
+            "environments": [
+              "test-alias",
+              "lint-alias",
+              "quality-alias",
+              "security-alias",
+              "build-alias",
+              "sbom-alias"
+            ],
+            "fixture_failures": [],
+            "fixture_integrity": true,
+            "installed_versions": {
+              "build-alias": {
+                "bijux-pollenomics": "0.1.9.dev204",
+                "bijux-pollenomics-dev": "0.1.9.dev204",
+                "bijux-pollenomics-lra": "0.1.9.dev204",
+                "pollenomics": "0.1.9.dev204"
+              },
+              "lint-alias": {
+                "bijux-pollenomics": "0.1.9.dev204",
+                "bijux-pollenomics-dev": "0.1.9.dev204",
+                "bijux-pollenomics-lra": "0.1.9.dev204",
+                "pollenomics": "0.1.9.dev204"
+              },
+              "quality-alias": {
+                "bijux-pollenomics": "0.1.9.dev204",
+                "bijux-pollenomics-dev": "0.1.9.dev204",
+                "bijux-pollenomics-lra": "0.1.9.dev204",
+                "pollenomics": "0.1.9.dev204"
+              },
+              "sbom-alias": {
+                "bijux-pollenomics": "0.1.9.dev204",
+                "bijux-pollenomics-dev": "0.1.9.dev204",
+                "bijux-pollenomics-lra": "0.1.9.dev204",
+                "pollenomics": "0.1.9.dev204"
+              },
+              "security-alias": {
+                "bijux-pollenomics": "0.1.9.dev204",
+                "bijux-pollenomics-dev": "0.1.9.dev204",
+                "bijux-pollenomics-lra": "0.1.9.dev204",
+                "pollenomics": "0.1.9.dev204"
+              },
+              "test-alias": {
+                "bijux-pollenomics": "0.1.9.dev204",
+                "bijux-pollenomics-dev": "0.1.9.dev204",
+                "bijux-pollenomics-lra": "0.1.9.dev204",
+                "pollenomics": "0.1.9.dev204"
+              }
+            },
+            "junit": [
+              {
+                "bytes": 1092,
+                "path": "artifacts/pollenomics/test/junit.xml",
+                "sha256": "9d0836bd2c583d8d46fef77eb1cec7e4c9d8d94904772d083f9c728747a2e8f9",
+                "valid_xml": true
+              }
+            ],
+            "lane": "alias",
+            "schema_version": "nordic-coverage-tox-lane.v1",
+            "snapshot_provenance_integrity": true,
+            "supported_version": "0.1.9.dev204",
+            "tox_executable_integrity": true,
+            "tox_executable_sha256": "a3a2e8442971cb81481487bff3cdf01e2e5ad5af380d154e48ecfe8869394348",
+            "tox_exit_code": 0,
+            "tracked_failures": [],
+            "tracked_integrity": true,
+            "version_failures": []
+          }
+        },
+        {
+          "name": "core",
+          "original_sha256": "aeb21667fb443e211a1d2f3385ecedb2eb11f6186d82293288a1460f3487b079",
+          "receipt": {
+            "candidate_commit": "cf51d2d59aaa9b7191f5d3a94a1eb06ed5975ddf",
+            "candidate_manifest_sha256": "ce78913806cbd4caded5ed57656b13dd94a2b336e8b91e7a148e29c4d39fed07",
+            "candidate_tree": "fd90c40b39a99e315b30e93671b3a79801c53cb9",
+            "duration_seconds": 461.01428723335266,
+            "environment_count": 7,
+            "environments": [
+              "test-core",
+              "lint-core",
+              "quality-core",
+              "security-core",
+              "build-core",
+              "sbom-core",
+              "api-core"
+            ],
+            "fixture_failures": [],
+            "fixture_integrity": true,
+            "installed_versions": {
+              "api-core": {
+                "bijux-pollenomics": "0.1.9.dev204",
+                "bijux-pollenomics-dev": "0.1.9.dev204",
+                "bijux-pollenomics-lra": "0.1.9.dev204",
+                "pollenomics": "0.1.9.dev204"
+              },
+              "build-core": {
+                "bijux-pollenomics": "0.1.9.dev204",
+                "bijux-pollenomics-dev": "0.1.9.dev204",
+                "bijux-pollenomics-lra": "0.1.9.dev204",
+                "pollenomics": "0.1.9.dev204"
+              },
+              "lint-core": {
+                "bijux-pollenomics": "0.1.9.dev204",
+                "bijux-pollenomics-dev": "0.1.9.dev204",
+                "bijux-pollenomics-lra": "0.1.9.dev204",
+                "pollenomics": "0.1.9.dev204"
+              },
+              "quality-core": {
+                "bijux-pollenomics": "0.1.9.dev204",
+                "bijux-pollenomics-dev": "0.1.9.dev204",
+                "bijux-pollenomics-lra": "0.1.9.dev204",
+                "pollenomics": "0.1.9.dev204"
+              },
+              "sbom-core": {
+                "bijux-pollenomics": "0.1.9.dev204",
+                "bijux-pollenomics-dev": "0.1.9.dev204",
+                "bijux-pollenomics-lra": "0.1.9.dev204",
+                "pollenomics": "0.1.9.dev204"
+              },
+              "security-core": {
+                "bijux-pollenomics": "0.1.9.dev204",
+                "bijux-pollenomics-dev": "0.1.9.dev204",
+                "bijux-pollenomics-lra": "0.1.9.dev204",
+                "pollenomics": "0.1.9.dev204"
+              },
+              "test-core": {
+                "bijux-pollenomics": "0.1.9.dev204",
+                "bijux-pollenomics-dev": "0.1.9.dev204",
+                "bijux-pollenomics-lra": "0.1.9.dev204",
+                "pollenomics": "0.1.9.dev204"
+              }
+            },
+            "junit": [
+              {
+                "bytes": 386380,
+                "path": "artifacts/bijux-pollenomics/test/junit.xml",
+                "sha256": "124da981d818daaeadcb5105db3bf7946f2c98bb94e4d04fd7b11c12cf85c2c2",
+                "valid_xml": true
+              }
+            ],
+            "lane": "core",
+            "schema_version": "nordic-coverage-tox-lane.v1",
+            "snapshot_provenance_integrity": true,
+            "supported_version": "0.1.9.dev204",
+            "tox_executable_integrity": true,
+            "tox_executable_sha256": "a3a2e8442971cb81481487bff3cdf01e2e5ad5af380d154e48ecfe8869394348",
+            "tox_exit_code": 1,
+            "tracked_failures": [],
+            "tracked_integrity": true,
+            "version_failures": []
+          }
+        },
+        {
+          "name": "dev",
+          "original_sha256": "c9e201ba7dca4908f20da7e51e21240f5702a45903793d8f8dea5975c715d5c1",
+          "receipt": {
+            "candidate_commit": "cf51d2d59aaa9b7191f5d3a94a1eb06ed5975ddf",
+            "candidate_manifest_sha256": "ce78913806cbd4caded5ed57656b13dd94a2b336e8b91e7a148e29c4d39fed07",
+            "candidate_tree": "fd90c40b39a99e315b30e93671b3a79801c53cb9",
+            "duration_seconds": 305.00316286087036,
+            "environment_count": 6,
+            "environments": [
+              "test-dev",
+              "lint-dev",
+              "quality-dev",
+              "security-dev",
+              "build-dev",
+              "sbom-dev"
+            ],
+            "fixture_failures": [],
+            "fixture_integrity": true,
+            "installed_versions": {
+              "build-dev": {
+                "bijux-pollenomics": "0.1.9.dev204",
+                "bijux-pollenomics-dev": "0.1.9.dev204",
+                "bijux-pollenomics-lra": "0.1.9.dev204",
+                "pollenomics": "0.1.9.dev204"
+              },
+              "lint-dev": {
+                "bijux-pollenomics": "0.1.9.dev204",
+                "bijux-pollenomics-dev": "0.1.9.dev204",
+                "bijux-pollenomics-lra": "0.1.9.dev204",
+                "pollenomics": "0.1.9.dev204"
+              },
+              "quality-dev": {
+                "bijux-pollenomics": "0.1.9.dev204",
+                "bijux-pollenomics-dev": "0.1.9.dev204",
+                "bijux-pollenomics-lra": "0.1.9.dev204",
+                "pollenomics": "0.1.9.dev204"
+              },
+              "sbom-dev": {
+                "bijux-pollenomics": "0.1.9.dev204",
+                "bijux-pollenomics-dev": "0.1.9.dev204",
+                "bijux-pollenomics-lra": "0.1.9.dev204",
+                "pollenomics": "0.1.9.dev204"
+              },
+              "security-dev": {
+                "bijux-pollenomics": "0.1.9.dev204",
+                "bijux-pollenomics-dev": "0.1.9.dev204",
+                "bijux-pollenomics-lra": "0.1.9.dev204",
+                "pollenomics": "0.1.9.dev204"
+              },
+              "test-dev": {
+                "bijux-pollenomics": "0.1.9.dev204",
+                "bijux-pollenomics-dev": "0.1.9.dev204",
+                "bijux-pollenomics-lra": "0.1.9.dev204",
+                "pollenomics": "0.1.9.dev204"
+              }
+            },
+            "junit": [
+              {
+                "bytes": 174206,
+                "path": "artifacts/bijux-pollenomics-dev/test/junit.xml",
+                "sha256": "ff8706b0f894d6c1a525ddac90a2502bb150fffadfc14a1ae01438e91dc19b80",
+                "valid_xml": true
+              },
+              {
+                "bytes": 238,
+                "path": "artifacts/bijux-pollenomics-dev/test/tmp/test_declared_generated_date_i0/artifacts/evidence/results.junit.xml",
+                "sha256": "026a7848ede2ca33e5074819ad6c0c8df2ae3d1e8e8cb09d046504d1b3dd72b3",
+                "valid_xml": true
+              },
+              {
+                "bytes": 468,
+                "path": "artifacts/bijux-pollenomics-dev/test/tmp/test_dirty_governed_input_refu0/artifacts/proof/results.junit.xml",
+                "sha256": "ca540e1d6521d1fa27fd3ea69854aede6b30d3cab3721f37f5e4dd097777127a",
+                "valid_xml": true
+              },
+              {
+                "bytes": 222,
+                "path": "artifacts/bijux-pollenomics-dev/test/tmp/test_fixed_point_pass_cleans_c0/artifacts/proof/results.junit.xml",
+                "sha256": "cd14576dd96de2968e8599fa10095aedf2f1fe2d21d8c5e9c1b93dd48208d3fe",
+                "valid_xml": true
+              },
+              {
+                "bytes": 314,
+                "path": "artifacts/bijux-pollenomics-dev/test/tmp/test_generator_failure_emits_m0/artifacts/evidence/results.junit.xml",
+                "sha256": "dfde80a643e7828ee4ed0ed5ffbaa2d0f6062d4ca8e9e09ca17f743eef5f9642",
+                "valid_xml": true
+              },
+              {
+                "bytes": 331,
+                "path": "artifacts/bijux-pollenomics-dev/test/tmp/test_generator_failure_keeps_p0/artifacts/proof/results.junit.xml",
+                "sha256": "a2393757c03149c746f6f04f9c081a82519ac9087d392d7228807c98f0256751",
+                "valid_xml": true
+              },
+              {
+                "bytes": 305,
+                "path": "artifacts/bijux-pollenomics-dev/test/tmp/test_input_change_during_build0/artifacts/evidence/results.junit.xml",
+                "sha256": "df2d704449d3565deeb54f3c78b2d983d6648c86badd9635450cf3e6af2e9dd3",
+                "valid_xml": true
+              },
+              {
+                "bytes": 503,
+                "path": "artifacts/bijux-pollenomics-dev/test/tmp/test_input_mutation_invalidate0/artifacts/proof/results.junit.xml",
+                "sha256": "4fbf2b76b01d3c2324248716aa624eacf335e14bc7cd12d79ff9a49fb9343acb",
+                "valid_xml": true
+              },
+              {
+                "bytes": 261,
+                "path": "artifacts/bijux-pollenomics-dev/test/tmp/test_junit_attests_only_succes0/artifacts/reconciliation.junit.xml",
+                "sha256": "05b029132f78d8f736a54dfcfd6a6e315ba1691079bc8baceb3c3a68796e066c",
+                "valid_xml": true
+              },
+              {
+                "bytes": 620,
+                "path": "artifacts/bijux-pollenomics-dev/test/tmp/test_matching_rebuilds_that_dr0/artifacts/proof/results.junit.xml",
+                "sha256": "17d151d6b91c88e7d36a13f40eac27e6345d83f2fcf8db5d65c0c8a608b3bb78",
+                "valid_xml": true
+              },
+              {
+                "bytes": 323,
+                "path": "artifacts/bijux-pollenomics-dev/test/tmp/test_partitioned_rebuild_detec0/artifacts/final/results.junit.xml",
+                "sha256": "41dbe441132d11ce11e2312bd5cba923e5c0dfcb64c850301e197b06fa2e79c3",
+                "valid_xml": true
+              },
+              {
+                "bytes": 238,
+                "path": "artifacts/bijux-pollenomics-dev/test/tmp/test_partitioned_rebuild_requi0/artifacts/final/results.junit.xml",
+                "sha256": "026a7848ede2ca33e5074819ad6c0c8df2ae3d1e8e8cb09d046504d1b3dd72b3",
+                "valid_xml": true
+              },
+              {
+                "bytes": 315,
+                "path": "artifacts/bijux-pollenomics-dev/test/tmp/test_replay_content_change_fai0/artifacts/evidence/results.junit.xml",
+                "sha256": "7ad050b5b1729c03f1d580791479b7c96db7eabddb61fa9b9c58915a378ffe0b",
+                "valid_xml": true
+              },
+              {
+                "bytes": 617,
+                "path": "artifacts/bijux-pollenomics-dev/test/tmp/test_replay_mismatch_fails_and0/artifacts/proof/results.junit.xml",
+                "sha256": "9436e1449163adcbbef424bc4301ed5558f66c1d93bcc315866c1e8e6a701d94",
+                "valid_xml": true
+              },
+              {
+                "bytes": 360,
+                "path": "artifacts/bijux-pollenomics-dev/test/tmp/test_tracked_inventory_path_ch0/artifacts/evidence/results.junit.xml",
+                "sha256": "35460b08283147fa1c3e386d8658d7adf05cdc8092dcb1b61ee71525fce0a0d6",
+                "valid_xml": true
+              },
+              {
+                "bytes": 238,
+                "path": "artifacts/bijux-pollenomics-dev/test/tmp/test_two_builds_and_tracked_tr0/artifacts/evidence/results.junit.xml",
+                "sha256": "026a7848ede2ca33e5074819ad6c0c8df2ae3d1e8e8cb09d046504d1b3dd72b3",
+                "valid_xml": true
+              }
+            ],
+            "lane": "dev",
+            "schema_version": "nordic-coverage-tox-lane.v1",
+            "snapshot_provenance_integrity": true,
+            "supported_version": "0.1.9.dev204",
+            "tox_executable_integrity": true,
+            "tox_executable_sha256": "a3a2e8442971cb81481487bff3cdf01e2e5ad5af380d154e48ecfe8869394348",
+            "tox_exit_code": 0,
+            "tracked_failures": [],
+            "tracked_integrity": true,
+            "version_failures": []
+          }
+        },
+        {
+          "name": "lra",
+          "original_sha256": "5cfe0f7f726da67d19768e34a6d3afc882875a032ac9f1fc1d9b3ea52c9aed40",
+          "receipt": {
+            "candidate_commit": "cf51d2d59aaa9b7191f5d3a94a1eb06ed5975ddf",
+            "candidate_manifest_sha256": "ce78913806cbd4caded5ed57656b13dd94a2b336e8b91e7a148e29c4d39fed07",
+            "candidate_tree": "fd90c40b39a99e315b30e93671b3a79801c53cb9",
+            "duration_seconds": 191.81524896621704,
+            "environment_count": 6,
+            "environments": [
+              "test-lra",
+              "lint-lra",
+              "quality-lra",
+              "security-lra",
+              "build-lra",
+              "sbom-lra"
+            ],
+            "fixture_failures": [],
+            "fixture_integrity": true,
+            "installed_versions": {
+              "build-lra": {
+                "bijux-pollenomics": "0.1.9.dev204",
+                "bijux-pollenomics-dev": "0.1.9.dev204",
+                "bijux-pollenomics-lra": "0.1.9.dev204",
+                "pollenomics": "0.1.9.dev204"
+              },
+              "lint-lra": {
+                "bijux-pollenomics": "0.1.9.dev204",
+                "bijux-pollenomics-dev": "0.1.9.dev204",
+                "bijux-pollenomics-lra": "0.1.9.dev204",
+                "pollenomics": "0.1.9.dev204"
+              },
+              "quality-lra": {
+                "bijux-pollenomics": "0.1.9.dev204",
+                "bijux-pollenomics-dev": "0.1.9.dev204",
+                "bijux-pollenomics-lra": "0.1.9.dev204",
+                "pollenomics": "0.1.9.dev204"
+              },
+              "sbom-lra": {
+                "bijux-pollenomics": "0.1.9.dev204",
+                "bijux-pollenomics-dev": "0.1.9.dev204",
+                "bijux-pollenomics-lra": "0.1.9.dev204",
+                "pollenomics": "0.1.9.dev204"
+              },
+              "security-lra": {
+                "bijux-pollenomics": "0.1.9.dev204",
+                "bijux-pollenomics-dev": "0.1.9.dev204",
+                "bijux-pollenomics-lra": "0.1.9.dev204",
+                "pollenomics": "0.1.9.dev204"
+              },
+              "test-lra": {
+                "bijux-pollenomics": "0.1.9.dev204",
+                "bijux-pollenomics-dev": "0.1.9.dev204",
+                "bijux-pollenomics-lra": "0.1.9.dev204",
+                "pollenomics": "0.1.9.dev204"
+              }
+            },
+            "junit": [
+              {
+                "bytes": 63329,
+                "path": "artifacts/bijux-pollenomics-lra/test/junit.xml",
+                "sha256": "6f56c66dec23b67550b21cab47a4a4bc674e1bf283c66205a6fe2d6d1672a805",
+                "valid_xml": true
+              }
+            ],
+            "lane": "lra",
+            "schema_version": "nordic-coverage-tox-lane.v1",
+            "snapshot_provenance_integrity": true,
+            "supported_version": "0.1.9.dev204",
+            "tox_executable_integrity": true,
+            "tox_executable_sha256": "a3a2e8442971cb81481487bff3cdf01e2e5ad5af380d154e48ecfe8869394348",
+            "tox_exit_code": 0,
+            "tracked_failures": [],
+            "tracked_integrity": true,
+            "version_failures": []
+          }
+        },
+        {
+          "name": "root",
+          "original_sha256": "d04f1c1f6ed8c9509a260519d3c6b1b6fc912c0258ec84d959464ab15b11ed6f",
+          "receipt": {
+            "candidate_commit": "cf51d2d59aaa9b7191f5d3a94a1eb06ed5975ddf",
+            "candidate_manifest_sha256": "ce78913806cbd4caded5ed57656b13dd94a2b336e8b91e7a148e29c4d39fed07",
+            "candidate_tree": "fd90c40b39a99e315b30e93671b3a79801c53cb9",
+            "duration_seconds": 160.26256394386292,
+            "environment_count": 2,
+            "environments": [
+              "security",
+              "docs"
+            ],
+            "fixture_failures": [],
+            "fixture_integrity": true,
+            "installed_versions": {
+              "docs": {
+                "bijux-pollenomics": "0.1.9.dev204",
+                "bijux-pollenomics-dev": "0.1.9.dev204",
+                "bijux-pollenomics-lra": "0.1.9.dev204",
+                "pollenomics": "0.1.9.dev204"
+              },
+              "security": {
+                "bijux-pollenomics": "0.1.9.dev204",
+                "bijux-pollenomics-dev": "0.1.9.dev204",
+                "bijux-pollenomics-lra": "0.1.9.dev204",
+                "pollenomics": "0.1.9.dev204"
+              }
+            },
+            "junit": [],
+            "lane": "root",
+            "schema_version": "nordic-coverage-tox-lane.v1",
+            "snapshot_provenance_integrity": true,
+            "supported_version": "0.1.9.dev204",
+            "tox_executable_integrity": true,
+            "tox_executable_sha256": "a3a2e8442971cb81481487bff3cdf01e2e5ad5af380d154e48ecfe8869394348",
+            "tox_exit_code": 1,
+            "tracked_failures": [],
+            "tracked_integrity": true,
+            "version_failures": []
+          }
+        }
+      ]
+    }
+  ]
+}

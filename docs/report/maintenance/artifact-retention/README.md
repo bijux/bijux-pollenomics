@@ -91,3 +91,9 @@ The `7bb6a614` snapshot was removed after its five recorded lane processes
 were confirmed absent. Its five lane outcomes, including the failed map-legend
 test, remain in the custody record. The exact snapshot path is absent. The
 other six snapshots remain in place pending their own removal decisions.
+
+The [complete lane receipts](nordic-tox-lane-receipts.json) now retain all 19
+available lane-result objects from those six snapshots, including exact
+environment and JUnit identities. Each original receipt byte hash was checked
+against the custody record before inclusion. The earlier removed snapshot has
+only its compact outcome record; its full lane objects were not retained.
