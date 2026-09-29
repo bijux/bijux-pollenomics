@@ -481,8 +481,8 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/author-lra-constrained/README.md",
-      "sha256": "6c2b0b7bea398a9f7093649cbd2c402c4849a4f07b3ea62ee212063f0977176e",
-      "bytes": 384
+      "sha256": "aa04b2fee46cbd33b7de30bfa510993d68dc05ada97aad60ee1a3956c14e37aa",
+      "bytes": 582
     },
     {
       "path": "docs/report/pollen-reconstruction/author-lra-constrained/direct-pollen/comparison.json",
@@ -538,6 +538,31 @@
       "path": "docs/report/pollen-reconstruction/author-lra-constrained/prepare.py",
       "sha256": "ad721f9ea0e6c0b3ce3acd4d95c3c62e574e1137de3aaf11a14fa54a87e77c62",
       "bytes": 5503
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/author-lra-constrained/radius-sensitivity/README.md",
+      "sha256": "3a7989f91dcbff52d5d24714e9a69071644c62ca6dc67341bcb9f16cca532c98",
+      "bytes": 3338
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/author-lra-constrained/radius-sensitivity/frozen/predictions.json",
+      "sha256": "ca244e33f47ac9768dab60b3e62e59ea06e524cdd0e3d7e21477cb61bb592c44",
+      "bytes": 238449
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/author-lra-constrained/radius-sensitivity/scored/report.json",
+      "sha256": "d2c10a128acb00425c5c785ce195ad245bcf1b428f0f4a4d75d0f7aa95f11129",
+      "bytes": 3086
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/author-lra-constrained/radius-sensitivity/scored/scores.csv",
+      "sha256": "60bf6b4cc25bf94a9afbb241370d55e7be17239c20e25881b4cc862e452eb494",
+      "bytes": 20025
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/author-lra-constrained/radius_sensitivity.py",
+      "sha256": "081e556c044dc652e0f59edaf39d32410e0b24d0388a1dea77f8503f8edb0187",
+      "bytes": 11478
     },
     {
       "path": "docs/report/pollen-reconstruction/author-lra-constrained/report.json",
@@ -641,8 +666,8 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/scope.json",
-      "sha256": "f8e4ba8d2631430782a07c1210b2de071b4b614016915b1285a939482aefdca8",
-      "bytes": 16196
+      "sha256": "c92b963d007e491714455e1e5bc6423f2d3d55ecb6be662d1d4d172b81e293c0",
+      "bytes": 16748
     },
     {
       "path": "docs/report/pollen-reconstruction/scores.csv",
@@ -746,8 +771,8 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/verify_report.py",
-      "sha256": "5b85c184b5e72d4d890dabb77342f8c81e3fc8d9a2bbe3744e91b74c7f13a44d",
-      "bytes": 37127
+      "sha256": "f66348d230c31b9454e3f1ad4cda1d1b8cf15477e3b47868bab7bb16f7e23be6",
+      "bytes": 40723
     },
     {
       "path": "docs/report/publication-replay/landclim-amsoldingersee-source-review/README.md",
@@ -2096,8 +2121,8 @@
     },
     {
       "path": "reports/science/english-lra-pollen-prediction.md",
-      "sha256": "85d9460efb0f76c87161a7e7a62c79b5a1aa570a553599af9f6ff5390d9442a3",
-      "bytes": 10578
+      "sha256": "45f9d2aaeddac708c05f4bc719e91955e12d3fc7a6c173fda16ec9fe826a9929",
+      "bytes": 12321
     },
     {
       "path": "reports/science/hyde-cropland-source-account.md",

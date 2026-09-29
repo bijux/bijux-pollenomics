@@ -58,6 +58,15 @@ site is omitted. Individual sites still disagree, especially for nearest
 site, where only seven of 14 favor direct. This is a descriptive sensitivity
 check on previously explored examples, not a confidence interval.
 
+We also varied the declared English author lake radii by 20% in the actual
+LRA forward-pollen consumer, keeping fitted vegetation and regional cover
+fixed. The [governed prediction freeze and scores](../../../report/pollen-reconstruction/author-lra-constrained/radius-sensitivity/README.md)
+cover 126 projections on the same 14 scored sites. For inverse-distance-squared
+vegetation, site-macro pollen MAE is 0.021032, 0.021088 and 0.021457 at
+80%, 100% and 120% of the assumed radius. This diagnoses forward transport
+sensitivity on prior-exposed English examples; it neither calibrates a lake
+radius nor admits Swedish basins to LRA.
+
 ## Swedish training scope on matched pollen targets
 
 The [whole-site comparison](../../../report/regions/nordic/swedish-training-scope/README.md)

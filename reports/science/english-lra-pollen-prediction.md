@@ -88,6 +88,7 @@ without smoothing target counts. Site-macro distances are:
 
 These are descriptive distances on the same prior-exposed English support. The
 14 sites do not provide a sampling interval or independent vegetation truth.
+
 The [site influence result](../../docs/report/pollen-reconstruction/author-lra-constrained/direct-pollen/paired-hellinger-sensitivity.json)
 pins that Hellinger report and omits each site in turn. Every omitted-site
 mean direct-minus-LRA difference remains negative: training mean
@@ -97,6 +98,30 @@ direct at only 7/14 individual sites, so the negative average alone does not
 say every site agrees. This is influence accounting, not an independent
 confidence interval or a vegetation score.
 
+## Basin radius in the forward consumer
+
+We tested the effect of the declared author-example lake radius on the
+forward-pollen calculation. We kept all 42 published LRA vegetation estimates,
+regional cover values, PPE, fall speeds and training fits fixed, and changed
+each target's circular radius to 80% or 120% of its declared value. The
+[prediction freeze](../../docs/report/pollen-reconstruction/author-lra-constrained/radius-sensitivity/frozen/predictions.json)
+contains 126 projections for the 14 scored sites and three fixed methods.
+At the original radius, all 42 pollen fractions reproduce exactly. We then
+opened the observed target counts and retained the
+[126 paired scores](../../docs/report/pollen-reconstruction/author-lra-constrained/radius-sensitivity/scored/scores.csv)
+and [method summaries](../../docs/report/pollen-reconstruction/author-lra-constrained/radius-sensitivity/scored/report.json).
+
+For inverse-distance-squared vegetation, site-macro MAE is 0.021032 at 80%,
+0.021088 at the declared radius and 0.021457 at 120%; Hellinger is 0.283976,
+0.285415 and 0.289825. The nearest-site method follows the same aggregate
+direction, while training-mean MAE changes in the opposite direction and its
+Hellinger result is mixed. Individual site directions also differ. We treat
+this as a forward-transport sensitivity on already exposed English outcomes,
+not radius selection or a refitted LRA score. The original basin circles are
+model assumptions; the diagnostic cannot transfer a radius to a Swedish core
+or establish age-specific basin geometry. The
+[governed method account](../../docs/report/pollen-reconstruction/author-lra-constrained/radius-sensitivity/README.md)
+gives all method values and reproduction commands.
 From the repository root, with a private author source capsule and an absent
 output destination:
 
