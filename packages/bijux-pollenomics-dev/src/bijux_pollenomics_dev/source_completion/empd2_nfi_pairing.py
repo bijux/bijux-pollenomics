@@ -294,7 +294,7 @@ def build(
             "empd2_doi": "https://doi.org/10.1594/PANGAEA.909130",
             "empd2_source_license": "CC BY 4.0 per PANGAEA source page",
             "nfi_provider": "Swedish University of Agricultural Sciences, National Forest Inventory",
-            "nfi_guide_url": "https://www.slu.se/globalassets/slu.se/om-slu/organisation/institutioner/skoglig-resurshushallning/riksskogstaxeringen/dokument/dokument/info-data-for-calibration.pdf",
+            "nfi_guide_url": "https://www.slu.se/globalassets/slu.se/om-slu/organisation/institutioner/skoglig-resurshushallning/riksskogstaxeringen/dokument/dokument/info-data-for-calibration.pdf",  # codespell:ignore dokument
             "nfi_guide_license": "CC0 1.0 per SLU calibration guide",
             "nfi_source_crs": "SWEREF99 TM / EPSG:3006",
             "distance_method": "WGS84 inverse geodesic; unrounded source values",
