@@ -22,9 +22,37 @@ plot, year, date, or coordinates.
 
 [PANGAEA's EMPD2 source record](https://doi.org/10.1594/PANGAEA.909130) identifies the pollen source and CC BY 4.0 terms. The [SLU National Forest Inventory calibration guide](https://www.slu.se/globalassets/slu.se/om-slu/organisation/institutioner/skoglig-resurshushallning/riksskogstaxeringen/dokument/dokument/info-data-for-calibration.pdf) states CC0 1.0 terms and describes temporary forest plot observations intended for calibration or validation of remote-sensing products. Plot observations cannot by themselves establish regional vegetation area totals or means.
 
+The [source measurement schema](nfi-measurement-schema.json) reads the original
+workbook's field dictionary and only inventory date, plot area and land-use
+metadata from its 43,892 plot-year rows. The dictionary describes an undivided
+circular plot with radius 7 m and area 153.94 m²; every plot-year row has that
+area. Five tree-group basal-area columns are labeled in m²/ha: pine, contorta,
+spruce, birch and other deciduous trees. The workbook also contains five
+land-use codes; their meanings are not assigned by this receipt. Inventory
+dates remain source-native Excel serial values. No basal-area or other tree
+measurement outcome cell was decoded, and no target taxon composition or
+minimum benchmark threshold was chosen. Five other workbook headers lack exact
+field-dictionary names and remain listed in the schema receipt. To reproduce
+this bounded schema read:
+
+```sh
+PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=packages/bijux-pollenomics-dev/src \
+  .venv/bin/python -m bijux_pollenomics_dev.source_completion.empd2_nfi_reference.measurement_schema \
+  --private-source-store /path/to/private/source-store \
+  --output artifacts/jobs/empd2-nfi-pairing/nfi-measurement-schema.json
+```
+
 ## Current decision
 
-All 16 leads lack an authenticated pollen collection date, an opened and unit-checked NFI tree measurement target, an effective plot-area denominator, a pollen taxon denominator and tree-taxon crosswalk, and a reviewed rule mapping a plot observation to the pollen basin or reconstruction support. Five leads also have unresolved cross-source physical sample identity; one collection note requires authentication. The benchmark still lacks a qualified independent-source/leakage review and non-null predeclared minimum sample and error thresholds. Each missing field is explicit in the CSV. The 16 rows are **refusals for the current benchmark**, not 16 negative measured observations.
+All 16 leads lack an authenticated pollen collection date, opened NFI tree
+measurement values, a pollen taxon denominator and tree-taxon crosswalk, and a
+reviewed rule mapping a 153.94 m² plot observation to the pollen basin or
+reconstruction support. Five leads also have unresolved cross-source physical
+sample identity; one collection note requires authentication. The benchmark
+still lacks a qualified independent-source/leakage review and non-null
+predeclared minimum sample and error thresholds. Each missing field is explicit
+in the CSV. The 16 rows are **refusals for the current benchmark**, not 16
+negative measured observations.
 
 The bounded decision can be replayed with the original raw holdings and tracked review inputs:
 
