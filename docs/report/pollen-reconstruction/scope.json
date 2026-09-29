@@ -259,6 +259,24 @@
       "window": "100-350 BP",
       "unit": "percentage_cover",
       "status": "descriptive_cross_revision_difference_without_pass_tolerance"
+    },
+    "three_way_provenance": {
+      "directory": "docs/report/publication-replay/landclim-published-window-provenance",
+      "paired_mean_se_values": 124,
+      "unit": "percentage_cover",
+      "status": "author_R_and_installed_python_agree_archive_difference_is_cross_revision"
+    },
+    "uncertainty_envelopes": {
+      "directory": "docs/report/publication-replay/landclim-published-window-uncertainty",
+      "taxon_envelopes": 62,
+      "disjoint_one_se_envelopes": 0,
+      "status": "descriptive_overlap_without_inferential_test"
+    },
+    "window_alignment": {
+      "directory": "docs/report/publication-replay/landclim-window-alignment",
+      "compared_windows": 25,
+      "exact_tw_indices": ["2"],
+      "status": "only_TW2_has_exact_shared_bounds"
     }
   }
 }

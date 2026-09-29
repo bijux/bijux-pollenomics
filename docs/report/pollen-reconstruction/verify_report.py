@@ -26,7 +26,7 @@ def sha256(path: Path) -> str:
 
 
 def verify_publication_correspondence(scope: dict[str, Any]) -> None:
-    """Keep the two numerical ledgers bound to their distinct scientific claims."""
+    """Keep publication ledgers bound to their distinct scientific claims."""
     correspondence = scope["publication_correspondence"]
     author_dir = REPOSITORY_ROOT / correspondence["author_example"]["directory"]
     author = json.loads((author_dir / "report.json").read_text(encoding="utf-8"))
@@ -84,6 +84,65 @@ def verify_publication_correspondence(scope: dict[str, Any]) -> None:
         )
     ):
         raise ValueError("published-window correspondence differs from retained claims")
+
+    provenance_dir = (
+        REPOSITORY_ROOT / correspondence["three_way_provenance"]["directory"]
+    )
+    provenance = json.loads(
+        (provenance_dir / "report.json").read_text(encoding="utf-8")
+    )
+    with (provenance_dir / "paper-correspondence.csv").open(
+        newline="", encoding="utf-8"
+    ) as stream:
+        provenance_rows = list(csv.DictReader(stream))
+    if (
+        provenance["paired_mean_se_values"] != 124
+        or len(provenance_rows) != 124
+        or {row["metric"] for row in provenance_rows} != {"mean", "standard_error"}
+        or {row["grid_id"] for row in provenance_rows} != {"512", "562"}
+        or provenance["historical_raw_input_closure"] != "not_established"
+        or correspondence["three_way_provenance"]["paired_mean_se_values"] != 124
+    ):
+        raise ValueError(
+            "three-way publication provenance differs from retained claims"
+        )
+
+    envelopes_dir = (
+        REPOSITORY_ROOT / correspondence["uncertainty_envelopes"]["directory"]
+    )
+    envelopes = json.loads((envelopes_dir / "report.json").read_text(encoding="utf-8"))
+    with (envelopes_dir / "taxon-envelopes.csv").open(
+        newline="", encoding="utf-8"
+    ) as stream:
+        envelope_rows = list(csv.DictReader(stream))
+    if (
+        len(envelope_rows) != 62
+        or any(row["one_se_envelopes_disjoint"] != "False" for row in envelope_rows)
+        or any(
+            grid["disjoint_one_se_envelopes"] != 0 for grid in envelopes["summaries"]
+        )
+        or envelopes["inferential_comparison"] != "not_evaluated"
+        or correspondence["uncertainty_envelopes"]["taxon_envelopes"] != 62
+        or correspondence["uncertainty_envelopes"]["disjoint_one_se_envelopes"] != 0
+    ):
+        raise ValueError("uncertainty envelopes differ from retained claims")
+
+    alignment_dir = REPOSITORY_ROOT / correspondence["window_alignment"]["directory"]
+    alignment = json.loads((alignment_dir / "report.json").read_text(encoding="utf-8"))
+    with (alignment_dir / "window-correspondence.csv").open(
+        newline="", encoding="utf-8"
+    ) as stream:
+        alignment_rows = list(csv.DictReader(stream))
+    exact = [row["tw_index"] for row in alignment_rows if row["exact_bounds"] == "True"]
+    if (
+        len(alignment_rows) != 25
+        or exact != ["2"]
+        or alignment["compared_windows"] != 25
+        or alignment["exact_tw_indices"] != exact
+        or correspondence["window_alignment"]["compared_windows"] != 25
+        or correspondence["window_alignment"]["exact_tw_indices"] != exact
+    ):
+        raise ValueError("publication window alignment differs from retained claims")
 
 
 def verify_author_source(source_root: Path) -> None:
