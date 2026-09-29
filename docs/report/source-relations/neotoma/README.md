@@ -11,6 +11,10 @@ LandClim sequences. It retains 34 same-name point leads, including 16 within
 10 m, while refusing source identity and radius transfer for every row. The
 older 37-site comparison is contained row for row in this wider cohort.
 
+The [Abborrtjärnen core comparison](abbo-core-identity/README.md) retains a
+same-name, 107-sample and 0.334 m point lead but refuses to transfer the
+published radius or age labels to the Neotoma core.
+
 The [retained result](summary.json) verifies the unchanged relational snapshot
 through the production materialization reader. It includes 200 sites, 206
 collection units, 209 datasets, 384 chronologies, 2,798 chronology controls,

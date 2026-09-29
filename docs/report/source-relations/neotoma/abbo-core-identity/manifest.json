@@ -1,0 +1,55 @@
+{
+  "schema_version": "abbo-core-identity-custody.v1",
+  "inputs": {
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/abborrtjarne_core.py": {
+      "bytes": 15832,
+      "sha256": "434c6c1e0caa0e77373cda083ca0ee3459c2b12420293a0cfcc4e947c47a6973"
+    },
+    "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-004.json": {
+      "bytes": 20614788,
+      "sha256": "d96046c88b497ba07082120e446fecacad0d9b5533d8960bdbc03811976ea435"
+    },
+    "data/neotoma/raw/neotoma_pollen_dataset_downloads/manifest.json": {
+      "bytes": 9449,
+      "sha256": "248dc5c1a8aedc441484f2c0a5d4bc54317329aa4fb96f4a3a16f8cec80c947d"
+    },
+    "data/landclim/raw/landclim_ii_site_metadata.xlsx": {
+      "bytes": 264067,
+      "sha256": "2d4a0cf1401e36c2606f7761cecc85c4bbc15272460c2a4926cb1702d4565ebb"
+    },
+    "data/landclim/raw/landclim_sources.json": {
+      "bytes": 4880,
+      "sha256": "eb4350724c176d0dbcb7e441f2d21489bdae1cfff7ebe3088eab27093f315677"
+    },
+    "docs/report/source-relations/neotoma/lra-prerequisites/projection.json": {
+      "bytes": 22907955,
+      "sha256": "26135d91bbe5d729dcca3a1f6f0ea69f5cec4dc00a54a6dd740d5004d4e4b809"
+    },
+    "docs/report/source-relations/neotoma/abbo-core-identity/count-mass-crosscheck.json": {
+      "bytes": 1464,
+      "sha256": "fea274f27de4ea834eb38ac4ad8c3a07766aec27bc6a1633e1088f8e247f8e2f"
+    }
+  },
+  "outputs": {
+    "REPORT.md": {
+      "bytes": 1353,
+      "sha256": "b5d9ff1f62aafb0aa12e933a49114c01bfdf3400aa259257fbe9d954f35bbffe"
+    },
+    "report.json": {
+      "bytes": 2253,
+      "sha256": "e7b22e4cc7caf8831422307dd6b89b7da9b6f8afc07daadb84f07268fdcaa2ea"
+    }
+  },
+  "historical_comparison": {
+    "report_json": {
+      "bytes": 2253,
+      "sha256": "8d8ed70c940882098b31d4a76ecdedd58884d614f6ffe3f68e76648c3ae88d3e"
+    },
+    "report_markdown": {
+      "bytes": 1353,
+      "sha256": "b5d9ff1f62aafb0aa12e933a49114c01bfdf3400aa259257fbe9d954f35bbffe"
+    },
+    "relation": "Markdown exact; every JSON field except input_sha256 equal. Current replay uses a governed prerequisite projection and a selected independent count-mass cross-check instead of disposable process inputs."
+  },
+  "admission": "core identity, radius transfer, denominator, rights and LRA remain unadmitted"
+}

@@ -24,6 +24,10 @@ pollen trajectory to a published ABBO profile. Neither result identifies
 the Rootsi workbook's selected age model or resolves its historical-input
 status, rights or sample-age uncertainty.
 
+The separate [LandClim metadata core lead](../abbo-core-identity/README.md)
+retains the source point, reported radius and differing chronology end labels
+without transferring them to the Neotoma pollen core.
+
 The workbook source is retained externally as
 `landclim/rootsi-workbooks/rootsi/ABB.xls`, SHA-256
 `205e7f77adde19b2c590d222acdd526d472e76ac22d0b8f27f7728acf451fa49`.
