@@ -1,0 +1,62 @@
+{
+  "schema_version": "author-example-site-mean-holdout-custody.v1",
+  "producer": {
+    "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/observed_pollen_baseline.py",
+    "bytes": 17997,
+    "sha256": "ab52539c7a835e75a7f53202038d4ae860af40d5a3de860e7a0f95ad930285c5"
+  },
+  "private_source_store_relative_path": "landclim/author-reference",
+  "private_reference_receipt_sha256": "947a0b65ea9237a285fefcb2a71e9d6cc3e02fd5493e77dad5f64c3e09d639f7",
+  "source_revision": "57ead2e2fcc493d099be4e5a3092fc396e1c3d3a",
+  "replayed_against": "artifacts/v4/author-pollen-holdout/run-verified and fresh owned replay; all four generated output files byte-identical",
+  "files": [
+    {
+      "path": "REPORT.md",
+      "bytes": 1293,
+      "sha256": "8d136b9b09284df76803ef002754709cf6b52508be5addab63893eb5621debc7"
+    },
+    {
+      "path": "README.md",
+      "bytes": 2104,
+      "sha256": "4b26b419550f6801567d4bca1b88f7792e8bcfb887260cf18480d0db892bf099"
+    },
+    {
+      "path": "predictions.csv",
+      "bytes": 630499,
+      "sha256": "ef41a225f53f55323144457d377f87ebc719df1e329fb607a30a5c16470db84d"
+    },
+    {
+      "path": "report.json",
+      "bytes": 7853,
+      "sha256": "a18e74cf74a3891c54b8496918290cb8028968261c55c9a782fe2b9848e3b2ca"
+    },
+    {
+      "path": "scores.csv",
+      "bytes": 35032,
+      "sha256": "baf477c6a5389699d247e0d2a1e3055fd3d2a4454142c46eb9c6f0148f1e5797"
+    }
+  ],
+  "scientific_status": "prior_exposed_development_baseline_not_confirmatory",
+  "original_v4_outputs": {
+    "REPORT.md": {
+      "bytes": 1293,
+      "sha256": "8d136b9b09284df76803ef002754709cf6b52508be5addab63893eb5621debc7",
+      "retained_relation": "exact_bytes"
+    },
+    "predictions.csv": {
+      "bytes": 635987,
+      "sha256": "7df865bdbab5cebe8953fd12330b62b56eabd603c3980daf9045e5d83021f9bb",
+      "retained_relation": "newline_normalized_equal"
+    },
+    "report.json": {
+      "bytes": 7853,
+      "sha256": "a18e74cf74a3891c54b8496918290cb8028968261c55c9a782fe2b9848e3b2ca",
+      "retained_relation": "exact_bytes"
+    },
+    "scores.csv": {
+      "bytes": 35458,
+      "sha256": "644ca0bd0049f0fe682b75fa24bca1ab9b9a456de3cb4704c2976f33d1c974c9",
+      "retained_relation": "newline_normalized_equal"
+    }
+  }
+}

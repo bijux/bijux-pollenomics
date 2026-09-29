@@ -1,0 +1,198 @@
+{
+  "schema_version": "author-example-observed-pollen-site-holdout.v1",
+  "source": "rmfyfe/landclimII@57ead2e2fcc493d099be4e5a3092fc396e1c3d3a",
+  "reference_receipt_sha256": "947a0b65ea9237a285fefcb2a71e9d6cc3e02fd5493e77dad5f64c3e09d639f7",
+  "taxon_crosswalk_sha256": "3a0f598ba5e550ca39da52b2047b7020b013dad013d15f79bef8e1c3c1a979c3",
+  "method": "site_mean_of_training_observed_pollen_fractions_per_grid_bin",
+  "split": "leave_one_author_site_id_out_within_each_grid",
+  "count_denominator": "31_author_prepared_pollen_taxa",
+  "score_units": "fraction",
+  "measured_vegetation_accuracy": "not_evaluated",
+  "swedish_cohort": "not_evaluated",
+  "attempted_site_bins": 184,
+  "scored_site_bins": 177,
+  "refused_no_training_site_bins": 7,
+  "site_macro_mae_fraction": 0.01894855574145571,
+  "site_macro_total_variation": 0.29370261399256353,
+  "grids": [
+    {
+      "grid_id": "512",
+      "sites": 9,
+      "bins": 25,
+      "taxa": 31,
+      "attempted_site_bins": 97,
+      "scored_site_bins": 96,
+      "refused_no_training_site_bins": 1,
+      "site_macro_mae_fraction": 0.018878103672823887,
+      "site_macro_total_variation": 0.2926106069287703,
+      "site_scores": [
+        {
+          "site_id": "WHH05",
+          "attempted_site_bins": 8,
+          "scored_site_bins": 8,
+          "refused_no_training_site_bins": 0,
+          "mean_mae_fraction": 0.033917348427099515,
+          "mean_total_variation": 0.5257189006200426,
+          "source_sha256": "298b66d7033703ce42d27f933b4d3ccec3a16f68b35a6fbf7a61806c01c88273"
+        },
+        {
+          "site_id": "WINDMILL",
+          "attempted_site_bins": 7,
+          "scored_site_bins": 7,
+          "refused_no_training_site_bins": 0,
+          "mean_mae_fraction": 0.023405545821184065,
+          "mean_total_variation": 0.362785960228353,
+          "source_sha256": "5cbfff585068fd2d3b27bb4d1156bde39b6b80f975ca78433cee960ce854c20f"
+        },
+        {
+          "site_id": "HARESDOWN",
+          "attempted_site_bins": 7,
+          "scored_site_bins": 7,
+          "refused_no_training_site_bins": 0,
+          "mean_mae_fraction": 0.020603880171949737,
+          "mean_total_variation": 0.3193601426652209,
+          "source_sha256": "406896858243381630c3e7a66f29c97d8ee7725c4f418f72396c4d31095e33d9"
+        },
+        {
+          "site_id": "LOBBSBOG",
+          "attempted_site_bins": 7,
+          "scored_site_bins": 7,
+          "refused_no_training_site_bins": 0,
+          "mean_mae_fraction": 0.022359694201118805,
+          "mean_total_variation": 0.3465752601173415,
+          "source_sha256": "13b8ad5fa65022aeb6ad351317c77e68710b398e2abd7d6b7159811e880ad8a7"
+        },
+        {
+          "site_id": "HANGINGS",
+          "attempted_site_bins": 17,
+          "scored_site_bins": 17,
+          "refused_no_training_site_bins": 0,
+          "mean_mae_fraction": 0.013780729273522852,
+          "mean_total_variation": 0.2136013037396042,
+          "source_sha256": "8249ce97a114048400a1497924cac0bc1c07fc7ae110dd5f868accd9425eda2f"
+        },
+        {
+          "site_id": "WHH11",
+          "attempted_site_bins": 4,
+          "scored_site_bins": 4,
+          "refused_no_training_site_bins": 0,
+          "mean_mae_fraction": 0.011598207182089116,
+          "mean_total_variation": 0.1797722113223813,
+          "source_sha256": "d38734ceb0c134eeffbb40091a81d3a8a8d32143dd14504296cc7baa38bf735e"
+        },
+        {
+          "site_id": "WINNEYS",
+          "attempted_site_bins": 17,
+          "scored_site_bins": 16,
+          "refused_no_training_site_bins": 1,
+          "mean_mae_fraction": 0.015170721254822599,
+          "mean_total_variation": 0.23514617944975028,
+          "source_sha256": "b268187404a6ec1b0d0935990acd70bce678c55c95a2fadf38b7e50f27e29dd6"
+        },
+        {
+          "site_id": "BROADOWN",
+          "attempted_site_bins": 17,
+          "scored_site_bins": 17,
+          "refused_no_training_site_bins": 0,
+          "mean_mae_fraction": 0.015132820515755525,
+          "mean_total_variation": 0.23455871799421063,
+          "source_sha256": "1eb04f58c13321fc9f284186df85003d4f73803f2485b842984f49a64c21a0c8"
+        },
+        {
+          "site_id": "CUTHILL2",
+          "attempted_site_bins": 13,
+          "scored_site_bins": 13,
+          "refused_no_training_site_bins": 0,
+          "mean_mae_fraction": 0.013933986207872765,
+          "mean_total_variation": 0.21597678622202787,
+          "source_sha256": "a17ad8a86c4fb7fdffda4799dbc8de6909a037f7b106e07263fdd727c4c7f283"
+        }
+      ]
+    },
+    {
+      "grid_id": "562",
+      "sites": 8,
+      "bins": 25,
+      "taxa": 31,
+      "attempted_site_bins": 87,
+      "scored_site_bins": 81,
+      "refused_no_training_site_bins": 6,
+      "site_macro_mae_fraction": 0.019027814318666514,
+      "site_macro_total_variation": 0.29493112193933096,
+      "site_scores": [
+        {
+          "site_id": "GOURTEMIRES",
+          "attempted_site_bins": 9,
+          "scored_site_bins": 9,
+          "refused_no_training_site_bins": 0,
+          "mean_mae_fraction": 0.011285326746783324,
+          "mean_total_variation": 0.17492256457514155,
+          "source_sha256": "c10e7acd64a7065cc7681554dd3e07730087dddc3f816a312e304268109201dd"
+        },
+        {
+          "site_id": "LARKBARR",
+          "attempted_site_bins": 9,
+          "scored_site_bins": 9,
+          "refused_no_training_site_bins": 0,
+          "mean_mae_fraction": 0.018668247216020496,
+          "mean_total_variation": 0.2893578318483177,
+          "source_sha256": "07daff782dae844eaa787e547d1b49937f975f49ea457a9576b9db58ddc4bbf6"
+        },
+        {
+          "site_id": "MOLECHAM",
+          "attempted_site_bins": 7,
+          "scored_site_bins": 7,
+          "refused_no_training_site_bins": 0,
+          "mean_mae_fraction": 0.017708611239417346,
+          "mean_total_variation": 0.27448347421096886,
+          "source_sha256": "8addaceb66b78791f77bf1b8ff37cb282506baf8b3524b286f0113dde214bc57"
+        },
+        {
+          "site_id": "NTWITCHEN",
+          "attempted_site_bins": 10,
+          "scored_site_bins": 10,
+          "refused_no_training_site_bins": 0,
+          "mean_mae_fraction": 0.013568677168818025,
+          "mean_total_variation": 0.21031449611667938,
+          "source_sha256": "eaae23b481debf5cbb13b54f94b5ae97187a79d2a0c716ff309d52a7c347a328"
+        },
+        {
+          "site_id": "LONGBREACH",
+          "attempted_site_bins": 15,
+          "scored_site_bins": 15,
+          "refused_no_training_site_bins": 0,
+          "mean_mae_fraction": 0.014964860830039424,
+          "mean_total_variation": 0.23195534286561106,
+          "source_sha256": "512ff3258e6badcb5c85c0c315bbd1dc00c2035243c2337d172eb55ca54abb3b"
+        },
+        {
+          "site_id": "BECKHAM",
+          "attempted_site_bins": 11,
+          "scored_site_bins": 11,
+          "refused_no_training_site_bins": 0,
+          "mean_mae_fraction": 0.019518375922537183,
+          "mean_total_variation": 0.30253482679932636,
+          "source_sha256": "1982eb43353cb632319d97943decde8539d98111a7ade7ecaaa5757532231b5e"
+        },
+        {
+          "site_id": "EXEBRID",
+          "attempted_site_bins": 10,
+          "scored_site_bins": 4,
+          "refused_no_training_site_bins": 6,
+          "mean_mae_fraction": 0.035235924361649414,
+          "mean_total_variation": 0.5461568276055659,
+          "source_sha256": "80a5294684564c1475bd3311e049cde2de78e5c7e098af0277dda49d353bb698"
+        },
+        {
+          "site_id": "COMERSLA",
+          "attempted_site_bins": 16,
+          "scored_site_bins": 16,
+          "refused_no_training_site_bins": 0,
+          "mean_mae_fraction": 0.021272491064066888,
+          "mean_total_variation": 0.3297236114930368,
+          "source_sha256": "bc702bc41f578a5ffad078144d50961d1f47f1d003f0ace5a63b019f4b3340b3"
+        }
+      ]
+    }
+  ]
+}

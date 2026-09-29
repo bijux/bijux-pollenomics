@@ -375,6 +375,47 @@ def main() -> None:
         )
     ):
         raise ValueError("Swedish source questions have missing or shifted columns")
+    baseline_scope = scope["author_example_site_mean_holdout"]
+    baseline_path = (
+        "docs/report/pollen-reconstruction/author-example-site-mean-holdout/report.json"
+    )
+    if baseline_scope["report"] != baseline_path:
+        raise ValueError("Author site-mean report path changed")
+    baseline = json.loads((REPOSITORY_ROOT / baseline_path).read_text())
+    for field in (
+        "attempted_site_bins",
+        "scored_site_bins",
+        "refused_no_training_site_bins",
+        "site_macro_mae_fraction",
+        "site_macro_total_variation",
+    ):
+        if baseline_scope[field] != baseline[field]:
+            raise ValueError(f"Author site-mean scope differs: {field}")
+    baseline_dir = REPOSITORY_ROOT / Path(baseline_path).parent
+    with (baseline_dir / "scores.csv").open(newline="", encoding="utf-8") as stream:
+        baseline_scores = list(csv.DictReader(stream))
+    with (baseline_dir / "predictions.csv").open(
+        newline="", encoding="utf-8"
+    ) as stream:
+        baseline_predictions = list(csv.DictReader(stream))
+    scored_keys = {
+        (row["grid_id"], row["held_out_site_id"], row["bin_id_bp"])
+        for row in baseline_scores
+        if row["status"] == "scored"
+    }
+    prediction_keys = {
+        (row["grid_id"], row["held_out_site_id"], row["bin_id_bp"])
+        for row in baseline_predictions
+    }
+    if (
+        len(baseline_scores) != 425
+        or len(scored_keys) != baseline["scored_site_bins"]
+        or sum(row["status"] == "no_training_site_same_bin" for row in baseline_scores)
+        != baseline["refused_no_training_site_bins"]
+        or prediction_keys != scored_keys
+        or len(baseline_predictions) != baseline["scored_site_bins"] * 31
+    ):
+        raise ValueError("Author site-mean score and prediction support differs")
     custody = json.loads((REPORT_DIR / "author-source-custody.json").read_text())
     for field in ("producer", "source_reader"):
         identity = custody[field]

@@ -12,7 +12,7 @@ The [current scientific report](../../../pollen-reconstruction/README.md),
 [current results](../../../pollen-reconstruction/results.csv),
 [current scope](../../../pollen-reconstruction/scope.json), and
 [current verifier](../../../pollen-reconstruction/verify_report.py) govern live
-claims. All 11 earlier result IDs occur in the current 16-row results table.
+claims. All 11 earlier result IDs occur in the current 17-row results table.
 The earlier Nordic direct-pollen cohort had Finland and Norway scores and no
 qualifying Denmark candidates. The current report uses a wider screened cohort,
 adds qualifying Denmark candidates, and scores Denmark, Finland and Norway;
@@ -40,5 +40,5 @@ The artifact's superseded `REPORT.md` had SHA-256
 its verifier had SHA-256
 `0dc7a523699457d02aaacab8631657c2d79a8efeb2a3935d98b2386183c289a0`.
 The current report retains and corrects the scientific interpretation; the
-current verifier checks 152 retained files, 16 result rows, and source-specific
+current verifier checks 158 retained files, 17 result rows, and source-specific
 invariants. These two historical files were not retained as live interfaces.

@@ -1,7 +1,7 @@
 {
   "schema_version": "pollenomics-v5-scoped-study-report.v1",
   "status": "scoped_development_report_with_external_source_blockers",
-  "as_of": "2026-09-28",
+  "as_of": "2026-09-29",
   "confirmatory_result": false,
   "outcome_access_for_report": "previously exposed outcomes scored after frozen country predictions; no untouched confirmatory outcome",
   "primary_prediction_cohort": {
@@ -72,7 +72,7 @@
   "scientific_acceptance": "not_evaluated_for_full_nordic_lra_objective; exploratory_direct_pollen_results_available_for_DK_FI_NO",
   "program_delivery_acceptance": "s9_test_selection_1097_passed_before_cache_guard_failure; focused_guard_rerun_passed; isolated_package_build_passed; full_scientific_objective_incomplete_due_to_external_source_blockers",
   "additional_exploratory_prediction_cohort": {
-    "source": "EPD native Neotoma pollen datasets 19913/13338 (Abborrtjärnen), 53995/28869 (Bussjösjön), and 54001/28872 (Bökesjön)",
+    "source": "EPD native Neotoma pollen datasets 19913/13338 (Abborrtj\u00e4rnen), 53995/28869 (Bussj\u00f6sj\u00f6n), and 54001/28872 (B\u00f6kesj\u00f6n)",
     "site_count": 3,
     "source_sample_rows": 228,
     "taxon_count": 16,
@@ -207,5 +207,16 @@
     "grid_window_rows_per_group": 10500,
     "necessary_bound_violations": 0,
     "same_draw_covariance_aggregation_verified": false
+  },
+  "author_example_site_mean_holdout": {
+    "report": "docs/report/pollen-reconstruction/author-example-site-mean-holdout/report.json",
+    "source_revision": "57ead2e2fcc493d099be4e5a3092fc396e1c3d3a",
+    "site_count": 17,
+    "attempted_site_bins": 184,
+    "scored_site_bins": 177,
+    "refused_no_training_site_bins": 7,
+    "site_macro_mae_fraction": 0.01894855574145571,
+    "site_macro_total_variation": 0.29370261399256353,
+    "status": "prior_exposed_development_baseline_not_confirmatory"
   }
 }

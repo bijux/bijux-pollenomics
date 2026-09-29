@@ -31,8 +31,8 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/README.md",
-      "sha256": "c12a537698d32cd5996deeb1b31a85925d1581a8436e4e2a3d7bbf515b1623a9",
-      "bytes": 30193
+      "sha256": "24c9adf988572a4fcb06af322c1ffb7ac85addfccdde84b3fd267e18e9621b43",
+      "bytes": 30744
     },
     {
       "path": "docs/report/pollen-reconstruction/author-development-design.json",
@@ -48,6 +48,36 @@
       "path": "docs/report/pollen-reconstruction/author-development-predictions.csv.gz",
       "sha256": "c18bd6d405ca5c31ab22f61fc0f8771098602f3eefebad305275553df5efbf92",
       "bytes": 762912
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/author-example-site-mean-holdout/README.md",
+      "sha256": "4b26b419550f6801567d4bca1b88f7792e8bcfb887260cf18480d0db892bf099",
+      "bytes": 2104
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/author-example-site-mean-holdout/REPORT.md",
+      "sha256": "8d136b9b09284df76803ef002754709cf6b52508be5addab63893eb5621debc7",
+      "bytes": 1293
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/author-example-site-mean-holdout/manifest.json",
+      "sha256": "f96bbc170cfbdde9eb6bbf43c2be06f079af9802017b4ac4f23f77102baf2d66",
+      "bytes": 2278
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/author-example-site-mean-holdout/predictions.csv",
+      "sha256": "ef41a225f53f55323144457d377f87ebc719df1e329fb607a30a5c16470db84d",
+      "bytes": 630499
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/author-example-site-mean-holdout/report.json",
+      "sha256": "a18e74cf74a3891c54b8496918290cb8028968261c55c9a782fe2b9848e3b2ca",
+      "bytes": 7853
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/author-example-site-mean-holdout/scores.csv",
+      "sha256": "baf477c6a5389699d247e0d2a1e3055fd3d2a4454142c46eb9c6f0148f1e5797",
+      "bytes": 35032
     },
     {
       "path": "docs/report/pollen-reconstruction/author-lra-development/README.md",
@@ -96,13 +126,13 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/results.csv",
-      "sha256": "a60a90e2572ca713bdcb9830e70b8c78a0262fa5dd08cdd56910a1e41cf59598",
-      "bytes": 9866
+      "sha256": "710f02b2a98837dff92ee940f5f152cc297f10bbea5b4f7007f59948773696c6",
+      "bytes": 10442
     },
     {
       "path": "docs/report/pollen-reconstruction/scope.json",
-      "sha256": "cefc7023d52b53f54d24b3ac5cab87ab9da01566ce3386778966e71cb446b02b",
-      "bytes": 10155
+      "sha256": "3b17d49c9f1cf5b371420c3b91fda50d03c72a9cfa6ea8de5f0cf3d12d37582d",
+      "bytes": 10681
     },
     {
       "path": "docs/report/pollen-reconstruction/scores.csv",
@@ -206,8 +236,8 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/verify_report.py",
-      "sha256": "3cc88cfdf51dff9ec50bcf8cdc5bc0a0022f4e8fdef7be593a0856da7255bd3b",
-      "bytes": 22384
+      "sha256": "437625b42a779f35719c0ef0019b11d0775a6bbb20b58a80d0c40f68ab9a7f81",
+      "bytes": 24200
     },
     {
       "path": "docs/report/publication-replay/landclim-pft-crosswalk/README.md",
