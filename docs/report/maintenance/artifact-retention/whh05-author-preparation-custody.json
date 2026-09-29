@@ -1,0 +1,269 @@
+{
+  "schema_version": "landclim-author-prepared-process-custody.v1",
+  "artifact_prefix": "artifacts/v3/landclim/whh05-preprocess001",
+  "source_file_count": 37,
+  "unique_process_file_count": 9,
+  "author_source_duplicate_file_count": 24,
+  "files": [
+    {
+      "source_path": "REVIEW.md",
+      "bytes": 4180,
+      "sha256": "8dab7751b7f2c59490c103975739d89e5a08f78a03dec9bb122e54293a7a1f7f",
+      "classification": "retained_process",
+      "private_retained_path": "landclim/author-prepared-provenance/whh05/REVIEW.md"
+    },
+    {
+      "source_path": "audit_intermediates.py",
+      "bytes": 5926,
+      "sha256": "816379c3e8cc09781f3ce1b6c6a0407a6a1c919a0437d4db9326d2d6e4992284",
+      "classification": "retained_process",
+      "private_retained_path": "landclim/author-prepared-provenance/whh05/audit_intermediates.py"
+    },
+    {
+      "source_path": "intermediate-audit.json",
+      "bytes": 4420,
+      "sha256": "488c35e765b17a16e2baa702678dcaabe176cba44cde677244cd9d291b1a232e",
+      "classification": "retained_process",
+      "private_retained_path": "landclim/author-prepared-provenance/whh05/intermediate-audit.json"
+    },
+    {
+      "source_path": "report002.json",
+      "bytes": 7389,
+      "sha256": "bbc4b0e414f9506a9ac1b85d410807d02ccc52d3564511afe8853d5908fc350b",
+      "classification": "retained_process",
+      "private_retained_path": "landclim/author-prepared-provenance/whh05/report002.json"
+    },
+    {
+      "source_path": "run.py",
+      "bytes": 8233,
+      "sha256": "71be3da6e46b54c0592a4f4cc769223e7f3dc8a60f36b760c818d463ff85722f",
+      "classification": "retained_process",
+      "private_retained_path": "landclim/author-prepared-provenance/whh05/run.py"
+    },
+    {
+      "source_path": "script-patch.json",
+      "bytes": 1056,
+      "sha256": "b98e546c0d18414020e0d069fb3d857ef59192070d7196bc4a6d77531c6b16b2",
+      "classification": "retained_process",
+      "private_retained_path": "landclim/author-prepared-provenance/whh05/script-patch.json"
+    },
+    {
+      "source_path": "script-patch002.json",
+      "bytes": 1056,
+      "sha256": "b98e546c0d18414020e0d069fb3d857ef59192070d7196bc4a6d77531c6b16b2",
+      "classification": "retained_process",
+      "private_retained_path": "landclim/author-prepared-provenance/whh05/script-patch.json"
+    },
+    {
+      "source_path": "snapshot/LANDCLIM.ALLEUROPE.taxa.LUT.080219.csv",
+      "bytes": 329074,
+      "sha256": "3a745f9b7606e5d0b59feaba2683b930c8d3990e4810f8217b69160a29a1b507",
+      "classification": "author_source_duplicate",
+      "private_retained_path": "landclim/author-reference/author/LANDCLIM.ALLEUROPE.taxa.LUT.080219.csv"
+    },
+    {
+      "source_path": "snapshot/LRA.ready.files/LRAready_WHH05.csv",
+      "bytes": 2309,
+      "sha256": "298b66d7033703ce42d27f933b4d3ccec3a16f68b35a6fbf7a61806c01c88273",
+      "classification": "author_source_duplicate",
+      "private_retained_path": "landclim/author-reference/author/run.REVEALS.files/LRAready_WHH05.csv"
+    },
+    {
+      "source_path": "snapshot/RV.file.format.LANDCLIMII.r",
+      "bytes": 7436,
+      "sha256": "f7463b6e625781dbfdc58186fad70011af9c9f7f03f724ea29abe2489040e118",
+      "classification": "author_source_duplicate",
+      "private_retained_path": "landclim/author-reference/author/RV.file.format.LANDCLIMII.r"
+    },
+    {
+      "source_path": "snapshot/TWlookup.csv",
+      "bytes": 200,
+      "sha256": "888a2d5d035c8a49bd957917ca0658bb08824240ac15c1da4b717c633ddae3dd",
+      "classification": "author_source_duplicate",
+      "private_retained_path": "landclim/author-reference/author/TWlookup.csv"
+    },
+    {
+      "source_path": "snapshot/bins.csv",
+      "bytes": 130,
+      "sha256": "62cac73bafacb8be8d8b7007e9871494024e661ab1a2f28774dcf7cb7046a71f",
+      "classification": "author_source_duplicate",
+      "private_retained_path": "landclim/author-reference/author/bins.csv"
+    },
+    {
+      "source_path": "snapshot/input/WHH05.csv",
+      "bytes": 1037,
+      "sha256": "977b32b96578aeb701288e77e37ab137e0475acd99274ddbdcc05180a8a99469",
+      "classification": "author_source_duplicate",
+      "private_retained_path": "landclim/author-reference/author/input/WHH05.csv"
+    },
+    {
+      "source_path": "snapshot/replay-steps-1-to-4.R",
+      "bytes": 5978,
+      "sha256": "f2f683e460b0605e5ab777f7893d9c0d4bfadf56b23d73f22db6c89658aa9637",
+      "classification": "retained_process",
+      "private_retained_path": "landclim/author-prepared-provenance/whh05/snapshot/replay-steps-1-to-4.R"
+    },
+    {
+      "source_path": "snapshot/run.REVEALS.files/LRAready_WHH05.csv",
+      "bytes": 2309,
+      "sha256": "298b66d7033703ce42d27f933b4d3ccec3a16f68b35a6fbf7a61806c01c88273",
+      "classification": "author_source_duplicate",
+      "private_retained_path": "landclim/author-reference/author/run.REVEALS.files/LRAready_WHH05.csv"
+    },
+    {
+      "source_path": "snapshot/run.REVEALS.files/av-RPP.all.landclimII.csv",
+      "bytes": 772,
+      "sha256": "066ebadbe6ab10aead80c74a184284e05b9db3cd1f5daff04249596170a663e2",
+      "classification": "author_source_duplicate",
+      "private_retained_path": "landclim/author-reference/author/run.REVEALS.files/av-RPP.all.landclimII.csv"
+    },
+    {
+      "source_path": "snapshot/run.REVEALS.files/avar-RPP.all.landclimII.csv",
+      "bytes": 2977,
+      "sha256": "8821de94682c454e3a751897b487c8bf1612cf60994dc6246fb33284a73e9918",
+      "classification": "author_source_duplicate",
+      "private_retained_path": "landclim/author-reference/author/run.REVEALS.files/avar-RPP.all.landclimII.csv"
+    },
+    {
+      "source_path": "snapshot/run.REVEALS.files/taxa.csv",
+      "bytes": 402,
+      "sha256": "6aac6ac4615d203383fb3c73eac7581db592984ba08dd2ddf7e08c52165dd237",
+      "classification": "author_source_duplicate",
+      "private_retained_path": "landclim/author-reference/author/run.REVEALS.files/taxa.csv"
+    },
+    {
+      "source_path": "snapshot/run.all.taxa.100219.csv",
+      "bytes": 405,
+      "sha256": "055a38b01755b5c47510199b44f7adebaf7fb33c6e75927544a76e2ceeb9df72",
+      "classification": "author_source_duplicate",
+      "private_retained_path": "landclim/author-reference/author/run.all.taxa.100219.csv"
+    },
+    {
+      "source_path": "snapshot/site.metadata.csv",
+      "bytes": 1019,
+      "sha256": "72949e9e3faf417be0b7425fc111a9638b37c4a38aab8f8d82e0c3d8739da2de",
+      "classification": "author_source_duplicate",
+      "private_retained_path": "landclim/author-reference/author/site.metadata.csv"
+    },
+    {
+      "source_path": "snapshot/temp.output01/rpp.excl.WHH05.csv",
+      "bytes": 654,
+      "sha256": "be9ba101464a131c92825eeeba1ff55bb69a776cfbc5d525eda493000f5346ef",
+      "classification": "retained_process",
+      "private_retained_path": "landclim/author-prepared-provenance/whh05/snapshot/temp.output01/rpp.excl.WHH05.csv"
+    },
+    {
+      "source_path": "snapshot/temp.output02/ready_rpp.excl.WHH05.csv",
+      "bytes": 2645,
+      "sha256": "33f47f77e58f442d250e284c0a547bf1b5193b0d7f32bc96b7ca512e53a203c5",
+      "classification": "retained_process",
+      "private_retained_path": "landclim/author-prepared-provenance/whh05/snapshot/temp.output02/ready_rpp.excl.WHH05.csv"
+    },
+    {
+      "source_path": "snapshot002/LANDCLIM.ALLEUROPE.taxa.LUT.080219.csv",
+      "bytes": 329074,
+      "sha256": "3a745f9b7606e5d0b59feaba2683b930c8d3990e4810f8217b69160a29a1b507",
+      "classification": "author_source_duplicate",
+      "private_retained_path": "landclim/author-reference/author/LANDCLIM.ALLEUROPE.taxa.LUT.080219.csv"
+    },
+    {
+      "source_path": "snapshot002/LRA.ready.files/LRAready_WHH05.csv",
+      "bytes": 2309,
+      "sha256": "298b66d7033703ce42d27f933b4d3ccec3a16f68b35a6fbf7a61806c01c88273",
+      "classification": "author_source_duplicate",
+      "private_retained_path": "landclim/author-reference/author/run.REVEALS.files/LRAready_WHH05.csv"
+    },
+    {
+      "source_path": "snapshot002/RV.file.format.LANDCLIMII.r",
+      "bytes": 7436,
+      "sha256": "f7463b6e625781dbfdc58186fad70011af9c9f7f03f724ea29abe2489040e118",
+      "classification": "author_source_duplicate",
+      "private_retained_path": "landclim/author-reference/author/RV.file.format.LANDCLIMII.r"
+    },
+    {
+      "source_path": "snapshot002/TWlookup.csv",
+      "bytes": 200,
+      "sha256": "888a2d5d035c8a49bd957917ca0658bb08824240ac15c1da4b717c633ddae3dd",
+      "classification": "author_source_duplicate",
+      "private_retained_path": "landclim/author-reference/author/TWlookup.csv"
+    },
+    {
+      "source_path": "snapshot002/bins.csv",
+      "bytes": 130,
+      "sha256": "62cac73bafacb8be8d8b7007e9871494024e661ab1a2f28774dcf7cb7046a71f",
+      "classification": "author_source_duplicate",
+      "private_retained_path": "landclim/author-reference/author/bins.csv"
+    },
+    {
+      "source_path": "snapshot002/input/WHH05.csv",
+      "bytes": 1037,
+      "sha256": "977b32b96578aeb701288e77e37ab137e0475acd99274ddbdcc05180a8a99469",
+      "classification": "author_source_duplicate",
+      "private_retained_path": "landclim/author-reference/author/input/WHH05.csv"
+    },
+    {
+      "source_path": "snapshot002/replay-steps-1-to-4.R",
+      "bytes": 5978,
+      "sha256": "f2f683e460b0605e5ab777f7893d9c0d4bfadf56b23d73f22db6c89658aa9637",
+      "classification": "retained_process",
+      "private_retained_path": "landclim/author-prepared-provenance/whh05/snapshot/replay-steps-1-to-4.R"
+    },
+    {
+      "source_path": "snapshot002/run.REVEALS.files/LRAready_WHH05.csv",
+      "bytes": 2309,
+      "sha256": "298b66d7033703ce42d27f933b4d3ccec3a16f68b35a6fbf7a61806c01c88273",
+      "classification": "author_source_duplicate",
+      "private_retained_path": "landclim/author-reference/author/run.REVEALS.files/LRAready_WHH05.csv"
+    },
+    {
+      "source_path": "snapshot002/run.REVEALS.files/av-RPP.all.landclimII.csv",
+      "bytes": 772,
+      "sha256": "066ebadbe6ab10aead80c74a184284e05b9db3cd1f5daff04249596170a663e2",
+      "classification": "author_source_duplicate",
+      "private_retained_path": "landclim/author-reference/author/run.REVEALS.files/av-RPP.all.landclimII.csv"
+    },
+    {
+      "source_path": "snapshot002/run.REVEALS.files/avar-RPP.all.landclimII.csv",
+      "bytes": 2977,
+      "sha256": "8821de94682c454e3a751897b487c8bf1612cf60994dc6246fb33284a73e9918",
+      "classification": "author_source_duplicate",
+      "private_retained_path": "landclim/author-reference/author/run.REVEALS.files/avar-RPP.all.landclimII.csv"
+    },
+    {
+      "source_path": "snapshot002/run.REVEALS.files/taxa.csv",
+      "bytes": 402,
+      "sha256": "6aac6ac4615d203383fb3c73eac7581db592984ba08dd2ddf7e08c52165dd237",
+      "classification": "author_source_duplicate",
+      "private_retained_path": "landclim/author-reference/author/run.REVEALS.files/taxa.csv"
+    },
+    {
+      "source_path": "snapshot002/run.all.taxa.100219.csv",
+      "bytes": 405,
+      "sha256": "055a38b01755b5c47510199b44f7adebaf7fb33c6e75927544a76e2ceeb9df72",
+      "classification": "author_source_duplicate",
+      "private_retained_path": "landclim/author-reference/author/run.all.taxa.100219.csv"
+    },
+    {
+      "source_path": "snapshot002/site.metadata.csv",
+      "bytes": 1019,
+      "sha256": "72949e9e3faf417be0b7425fc111a9638b37c4a38aab8f8d82e0c3d8739da2de",
+      "classification": "author_source_duplicate",
+      "private_retained_path": "landclim/author-reference/author/site.metadata.csv"
+    },
+    {
+      "source_path": "snapshot002/temp.output01/rpp.excl.WHH05.csv",
+      "bytes": 654,
+      "sha256": "be9ba101464a131c92825eeeba1ff55bb69a776cfbc5d525eda493000f5346ef",
+      "classification": "retained_process",
+      "private_retained_path": "landclim/author-prepared-provenance/whh05/snapshot/temp.output01/rpp.excl.WHH05.csv"
+    },
+    {
+      "source_path": "snapshot002/temp.output02/ready_rpp.excl.WHH05.csv",
+      "bytes": 2645,
+      "sha256": "33f47f77e58f442d250e284c0a547bf1b5193b0d7f32bc96b7ca512e53a203c5",
+      "classification": "retained_process",
+      "private_retained_path": "landclim/author-prepared-provenance/whh05/snapshot/temp.output02/ready_rpp.excl.WHH05.csv"
+    }
+  ],
+  "scope": "One-site historical R wrapper process evidence; governed 17-site author formatter replay supersedes the one-site numerical claim. No historical full-study input or scientific acceptance is inferred."
+}

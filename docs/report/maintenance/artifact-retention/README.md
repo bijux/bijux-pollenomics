@@ -276,6 +276,21 @@ the public 11/12 PFT wording, while the separately pinned archive actually
 contains 13 PFT columns. They do not authenticate the missing archive-producing
 PFT/LCT transformation or resolve the `ISTS` classification.
 
+## WHH05 author preparation process custody
+
+The [one-site R process custody](whh05-author-preparation-custody.json) accounts
+for all 37 files in the earlier WHH05 raw-to-prepared artifact. Twenty-four
+paths match exact author source files already held privately; 13 paths reduce
+to nine unique process files, now retained in the private source store. The
+historical run's 2,309-byte prepared matrix matches the author file, and its
+source/parser audit explains 301 raw `Sum` counts minus four excluded counts
+equals 297. The governed [17-site formatter replay](../../source-relations/landclim/author-example-taxon-support/README.md)
+subsumes that numerical result with 15,028 matching cells. The older one-site
+run, its failure diagnostic and its adapted R script remain available as
+historical process evidence; they do not authenticate the full published study.
+The inactive artifact prefix was retired after every source and retained file
+hash matched the custody record.
+
 ## Scientific source refusal custody
 
 The [source refusal custody record](scientific-source-refusal-custody.json) binds
