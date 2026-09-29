@@ -34,6 +34,15 @@ This is archaeological site context and country accountability. It does not
 admit a SEAD pollen series, an LRA cohort, or vegetation truth. The two linked
 entity ledgers therefore cover different scientific roles and denominators.
 
+LandClim's governed [sequence inventory](../../../../../data/landclim/normalized/nordic_pollen_site_sequences.csv)
+supplies 490 context rows: Sweden 198, Denmark 127, Norway 93 and Finland 72.
+These rows already feed the atlas and describe source site coverage, not
+authenticated historical counts. The separate [1,128-row LandClim II study
+crosswalk](../../../publication-replay/landclim-study-inputs/README.md) leaves
+every historical primary input identity unresolved; its Nordic country labels
+are publication metadata. Neither inventory supplies measured vegetation truth
+or a qualified LRA cohort for the current Neotoma sites.
+
 | Family | Governed raw stage | Governed published stage | Four-country publication availability | Qualification |
 | --- | --- | --- | --- | --- |
 | AADR | present | present | collected in SE/DK/NO/FI | authority and source review required |
