@@ -152,6 +152,17 @@ def test_source_support_cannot_be_promoted_by_audit(
         derive(root, contract, stage)
 
 
+def test_supported_dimension_cannot_hide_review_requirement(
+    documents: tuple[Path, dict[str, Any], dict[str, Any]],
+) -> None:
+    root, contract, stage = deepcopy(documents)
+    stage["capability_materialization_audit"]["rows"][0]["human_review_required"] = (
+        False
+    )
+    with pytest.raises(ValueError, match="review requirement differs"):
+        derive(root, contract, stage)
+
+
 def test_invalid_coverage_metric_refuses(
     documents: tuple[Path, dict[str, Any], dict[str, Any]],
 ) -> None:
