@@ -10,7 +10,7 @@
 - Tracked paper count: `18`
 - Papers with archived supplements: `17`
 - Published animal atlas points: `170`
-- Unresolved animal samples: `379 of 1450`
+- Unresolved animal samples: `379 of 1470`
 - Refused animal coordinate-provenance rows: `4 of 308`
 - Source-family explainer count: `22`
 

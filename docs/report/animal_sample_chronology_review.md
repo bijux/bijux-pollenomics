@@ -1,16 +1,16 @@
 # Animal sample chronology review
 
-- Sample chronology rows: `1455`
-- Normalized intervals: `388`
+- Sample chronology rows: `1475`
+- Normalized intervals: `404`
 - Normalized points: `528`
 - Text-only rows: `136`
-- Unresolved rows: `403`
+- Unresolved rows: `407`
 - Direct radiocarbon rows: `822`
 - Modeled rows: `6`
-- Contextual rows: `101`
+- Contextual rows: `117`
 - Broad period rows: `1`
 - Numeric interval rows: `796`
-- Numeric rows with caveat: `120`
+- Numeric rows with caveat: `136`
 - Context-only rows: `136`
 
 | Species | Project accession | Sample id | Strength | Evidence class | Precision posture | Normalization | Chronology |
@@ -162,6 +162,26 @@
 | Camelus dromedarius | KU605068-KU605080 | ku605068-ku605080:ku605078 | sample_owned_interval | historical_or_recent_date | sample_precise_point | normalized_point | 0 BP (modern comparator) |
 | Camelus dromedarius | KU605068-KU605080 | ku605068-ku605080:ku605079 | sample_owned_interval | historical_or_recent_date | sample_precise_point | normalized_point | 0 BP (modern comparator) |
 | Camelus dromedarius | KU605068-KU605080 | ku605068-ku605080:ku605080 | sample_owned_interval | historical_or_recent_date | sample_precise_point | normalized_point | 0 BP (modern comparator) |
+| Camelus dromedarius | SRP073444 | srp073444:samn04631877 | sample_owned_interval | archaeological_context_date | contextual_interval | normalized_interval | 1650-2050 BP |
+| Camelus dromedarius | SRP073444 | srp073444:samn04631949 | sample_owned_interval | archaeological_context_date | contextual_interval | normalized_interval | 2000-1600 BCE |
+| Camelus dromedarius | SRP073444 | srp073444:samn04631950 | sample_owned_interval | archaeological_context_date | contextual_interval | normalized_interval | 2000-1600 BCE |
+| Camelus dromedarius | SRP073444 | srp073444:samn04631951 | unresolved | unresolved | unresolved | unresolved |  |
+| Camelus dromedarius | SRP073444 | srp073444:samn04631952 | unresolved | unresolved | unresolved | unresolved |  |
+| Camelus dromedarius | SRP073444 | srp073444:samn04631953 | sample_owned_interval | archaeological_context_date | contextual_interval | normalized_interval | 1260-1130 BCE |
+| Camelus dromedarius | SRP073444 | srp073444:samn04631954 | unresolved | unresolved | unresolved | unresolved |  |
+| Camelus dromedarius | SRP073444 | srp073444:samn04631955 | sample_owned_interval | archaeological_context_date | contextual_interval | normalized_interval | 5000-4000 BCE |
+| Camelus dromedarius | SRP073444 | srp073444:samn04631956 | sample_owned_interval | archaeological_context_date | contextual_interval | normalized_interval | 5000-4000 BCE |
+| Camelus dromedarius | SRP073444 | srp073444:samn04631957 | unresolved | unresolved | unresolved | unresolved |  |
+| Camelus dromedarius | SRP073444 | srp073444:samn04631958 | sample_owned_interval | archaeological_context_date | contextual_interval | normalized_interval | 800-500 BCE |
+| Camelus dromedarius | SRP073444 | srp073444:samn04631959 | sample_owned_interval | archaeological_context_date | contextual_interval | normalized_interval | 3000-2000 BCE |
+| Camelus dromedarius | SRP073444 | srp073444:samn04631960 | sample_owned_interval | archaeological_context_date | contextual_interval | normalized_interval | 400-600 CE |
+| Camelus dromedarius | SRP073444 | srp073444:samn04631961 | sample_owned_interval | archaeological_context_date | contextual_interval | normalized_interval | 1260-1456 CE |
+| Camelus dromedarius | SRP073444 | srp073444:samn04631962 | sample_owned_interval | archaeological_context_date | contextual_interval | normalized_interval | 1260-1456 CE |
+| Camelus dromedarius | SRP073444 | srp073444:samn04631963 | sample_owned_interval | archaeological_context_date | contextual_interval | normalized_interval | 1456-1870 CE |
+| Camelus dromedarius | SRP073444 | srp073444:samn04631964 | sample_owned_interval | archaeological_context_date | contextual_interval | normalized_interval | 1260-1456 CE |
+| Camelus dromedarius | SRP073444 | srp073444:samn04631965 | sample_owned_interval | archaeological_context_date | contextual_interval | normalized_interval | 1456-1870 CE |
+| Camelus dromedarius | SRP073444 | srp073444:samn04631966 | sample_owned_interval | archaeological_context_date | contextual_interval | normalized_interval | 1260-1456 CE |
+| Camelus dromedarius | SRP073444 | srp073444:samn04631967 | sample_owned_interval | archaeological_context_date | contextual_interval | normalized_interval | 1650-2050 BP |
 | Canis lupus familiaris | KX379528-KX379529 | kx379528-kx379529:kx379528 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 2900-2632 BCE |
 | Canis lupus familiaris | KX379528-KX379529 | kx379528-kx379529:kx379529 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 5223-5040 BCE |
 | Canis lupus familiaris | SRS1407451 | srs1407451:srs1407451 | unresolved | unresolved | unresolved | unresolved |  |

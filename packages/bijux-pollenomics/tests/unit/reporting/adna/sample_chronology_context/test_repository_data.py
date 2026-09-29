@@ -26,16 +26,16 @@ def test_real_governed_source_denominators_and_exclusive_waterfall() -> None:
     assert dict(corpus.source_counts) == {
         "project_count": 40,
         "sample_master_row_count": 1475,
-        "sample_chronology_row_count": 1455,
-        "sample_site_row_count": 1455,
+        "sample_chronology_row_count": 1475,
+        "sample_site_row_count": 1475,
         "admitted_node_count": 557,
         "refused_master_row_count": 918,
     }
     assert dict(corpus.refusal_counts) == {
-        "sequencing_experiment_identity": 20,
+        "sequencing_experiment_identity": 0,
         "sample_identity_not_final": 5,
-        "source_chronology_not_comparable": 555,
-        "source_coordinate_not_mappable": 338,
+        "source_chronology_not_comparable": 540,
+        "source_coordinate_not_mappable": 373,
         "sample_provenance_unavailable": 0,
         "chronology_provenance_unavailable": 0,
         "site_provenance_unavailable": 0,

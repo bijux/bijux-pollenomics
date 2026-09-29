@@ -6,7 +6,7 @@
 | --- | ---: | ---: | ---: | --- |
 | Bos primigenius | 3 | 0 | 0 | `false` |
 | Bos taurus | 129 | 22 | 5 | `false` |
-| Camelus dromedarius | 13 | 0 | 0 | `false` |
+| Camelus dromedarius | 33 | 0 | 0 | `false` |
 | Canis lupus familiaris | 4 | 0 | 0 | `false` |
 | Capra hircus | 83 | 27 | 0 | `false` |
 | Equus caballus | 550 | 78 | 0 | `false` |

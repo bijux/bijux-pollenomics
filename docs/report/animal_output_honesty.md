@@ -1,14 +1,14 @@
 # Animal output honesty
 
-- Tracked sample rows: `1450`
+- Tracked sample rows: `1470`
 - Mapped sample rows: `331`
-- Blocked sample rows: `1119`
+- Blocked sample rows: `1139`
 - Unresolved sample rows: `379`
 
 | Species | Tracked samples | Mapped samples | Blocked samples | Unresolved samples | Country-published samples |
 | --- | ---: | ---: | ---: | ---: | ---: |
 | Bos taurus | 132 | 31 | 101 | 33 | 5 |
-| Camelus dromedarius | 13 | 0 | 13 | 0 | 0 |
+| Camelus dromedarius | 33 | 0 | 33 | 0 | 0 |
 | Canis lupus familiaris | 4 | 0 | 4 | 1 | 0 |
 | Capra hircus | 82 | 82 | 0 | 0 | 0 |
 | Equus caballus | 550 | 157 | 393 | 2 | 0 |

@@ -13,8 +13,8 @@
     "projects_with_minimum_expected_floor": 22,
     "projects_with_implausibly_low_recovery": 0,
     "exact_expected_sample_total": 17,
-    "recovered_final_sample_total": 1450,
-    "minimum_gap_total": 1
+    "recovered_final_sample_total": 1470,
+    "minimum_gap_total": 0
   },
   "species_deficit_counts": {
     "Bos taurus": {
@@ -26,9 +26,9 @@
     },
     "Camelus dromedarius": {
       "project_count": 2,
-      "projects_with_sample_gap": 1,
+      "projects_with_sample_gap": 0,
       "projects_with_site_gap": 0,
-      "projects_with_chronology_gap": 0,
+      "projects_with_chronology_gap": 1,
       "projects_blocked_before_publication": 1
     },
     "Canis lupus familiaris": {
@@ -89,7 +89,7 @@
     }
   },
   "manual_curation_counts": {
-    "chronology_recovery": 12,
+    "chronology_recovery": 13,
     "locality_string_resolution": 8,
     "site_resolution": 8,
     "sample_identity_resolution": 1
@@ -104,15 +104,15 @@
   },
   "sample_evidence_depth_counts": {
     "sample_identity_only": 0,
-    "sample_with_site": 536,
-    "sample_with_site_and_chronology": 357,
+    "sample_with_site": 540,
+    "sample_with_site_and_chronology": 373,
     "sample_with_site_chronology_and_coordinates": 557
   },
   "sample_evidence_depth_accounting": {
     "partition": "mutually_exclusive",
-    "counted_sample_rows": 1450,
+    "counted_sample_rows": 1470,
     "count_basis": "species_normalized_sample_rows",
-    "project_source_master_final_sample_rows": 1450,
+    "project_source_master_final_sample_rows": 1470,
     "source_master_species_alignment": "aligned",
     "coordinate_rule": "nonempty latitude and longitude text; not mapped-point approval"
   },
@@ -152,10 +152,10 @@
     {
       "project_accession": "SRP073444",
       "species_latin_name": "Camelus dromedarius",
-      "recovery_gap_status": "paper_or_capture_gap_blocks_estimate",
-      "minimum_gap_count": 1,
+      "recovery_gap_status": "minimum_expected_floor_met",
+      "minimum_gap_count": 0,
       "major_deficit_reasons": [
-        "sample_recovery_gap"
+        "chronology_gap"
       ]
     },
     {

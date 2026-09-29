@@ -8,11 +8,11 @@
 
 ## Sample Evidence Depth
 
-The four mutually exclusive buckets partition `1450` species-normalized sample rows. The project source master has `1450` final rows; alignment is `aligned`. A site-only row has no normalized chronology; a site-and-chronology row has no coordinate text. The final bucket has coordinate text, not necessarily an approved mapped point.
+The four mutually exclusive buckets partition `1470` species-normalized sample rows. The project source master has `1470` final rows; alignment is `aligned`. A site-only row has no normalized chronology; a site-and-chronology row has no coordinate text. The final bucket has coordinate text, not necessarily an approved mapped point.
 
 - sample identity only: `0`
-- sample with site: `536`
-- sample with site and chronology: `357`
+- sample with site: `540`
+- sample with site and chronology: `373`
 - sample with site chronology and coordinates: `557`
 
 ## Top Gap Projects
@@ -22,7 +22,7 @@ The four mutually exclusive buckets partition `1450` species-normalized sample r
 | `PRJEB31621` | `Bos taurus` | `minimum_expected_floor_met` | `0` | `site_assignment_gap; chronology_gap` |
 | `PRJEB75467` | `Bos taurus` | `minimum_expected_floor_met` | `0` | `site_assignment_gap; chronology_gap` |
 | `PRJNA705960` | `Bos taurus` | `minimum_expected_floor_met` | `0` | `site_assignment_gap; chronology_gap; coordinate_precision_gap; missing_primary_paper_linkage` |
-| `SRP073444` | `Camelus dromedarius` | `paper_or_capture_gap_blocks_estimate` | `1` | `sample_recovery_gap` |
+| `SRP073444` | `Camelus dromedarius` | `minimum_expected_floor_met` | `0` | `chronology_gap` |
 | `SRS1407451` | `Canis lupus familiaris` | `recovered_to_exact_expected_count` | `0` | `site_assignment_gap; chronology_gap; coordinate_precision_gap` |
 | `PRJEB43564` | `Equus asinus` | `extractable_sources_but_no_governed_samples` | `0` | `missing_primary_paper_linkage` |
 | `PRJEB50952` | `Equus asinus` | `extractable_sources_but_no_governed_samples` | `0` | `missing_primary_paper_linkage` |

@@ -56,17 +56,17 @@ class AnimalFoundationEvidenceReviewTests(AnimalFoundationOutputsTestCase):
         self.assertEqual(
             payload["schema_version"], "animal-sample-chronology-review.v1"
         )
-        self.assertEqual(payload["row_count"], 1455)
-        self.assertEqual(payload["normalization_counts"]["normalized_interval"], 388)
+        self.assertEqual(payload["row_count"], 1475)
+        self.assertEqual(payload["normalization_counts"]["normalized_interval"], 404)
         self.assertEqual(payload["normalization_counts"]["normalized_point"], 528)
-        self.assertEqual(payload["normalization_counts"]["unresolved"], 403)
-        self.assertEqual(payload["precision_counts"]["contextual_interval"], 16)
+        self.assertEqual(payload["normalization_counts"]["unresolved"], 407)
+        self.assertEqual(payload["precision_counts"]["contextual_interval"], 32)
         self.assertEqual(payload["comparability_counts"]["numeric_interval"], 796)
         self.assertEqual(
-            payload["comparability_counts"]["numeric_interval_with_caveat"], 120
+            payload["comparability_counts"]["numeric_interval_with_caveat"], 136
         )
         self.assertEqual(payload["comparability_counts"]["contextual_label_only"], 136)
-        self.assertEqual(payload["comparability_counts"]["unresolved"], 403)
+        self.assertEqual(payload["comparability_counts"]["unresolved"], 407)
         pig_rows = [
             row for row in payload["rows"] if row["project_accession"] == "PRJEB30282"
         ]
@@ -172,7 +172,7 @@ class AnimalFoundationEvidenceReviewTests(AnimalFoundationOutputsTestCase):
         self.assertFalse(payload["region_agnostic_contract_ready"])
         self.assertEqual(payload["counts"]["published_atlas_point_count"], 170)
         self.assertEqual(payload["counts"]["mapped_sample_count"], 331)
-        self.assertEqual(payload["counts"]["mapped_sample_share"], 0.2283)
+        self.assertEqual(payload["counts"]["mapped_sample_share"], 0.2252)
         pig_points = [
             row
             for row in point_payload["rows"]
