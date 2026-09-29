@@ -97,6 +97,25 @@ The scanned report is retained privately at
 `e9168e64d725867ba1e5e0be4365bb27ba8c667e5f8af233835d217b77d772ce`.
 Neotoma's two false primary flags remain unchanged.
 
+## Norwegian multiple-primary review
+
+Four exact external metadata responses for the three Norwegian cases are
+retained in the private source store at
+`neotoma/publication-evidence/norway`; the manifest SHA-256 is
+`e9d72ba7b0f7d22f8a8e1f77d1e608c3f69477adbb11018ff5227d6d7f651803`.
+This review keeps provider flags and DOI strings intact.
+
+| Dataset | Source match and citation decision | Remaining distinction |
+| --- | --- | --- |
+| `45347`, Råtåsjøen (`OTTRAT`) | The deposited lake core was collected in 1999 and has 68 Neotoma samples at 801–998 cm. [Velle and colleagues' 2005 lake study](https://doi.org/10.1007/s10933-004-2689-x) is the original site-specific publication identified by the provider and publisher DOI metadata. Cite it with the [dataset DOI](https://doi.org/10.21233/0zgh-6r09). | The other flagged work is a 2012 excursion guide. Its direct use of these 68 pollen samples was not verified; retain it as a linked contextual work pending a source-specific check. |
+| `52255`, Lake Skogstjern (`SKOGSTJE`) | The Neotoma core is 418 cm and has 236 samples at 2–418 cm. [PANGAEA's independently published pollen record](https://doi.pangaea.de/10.1594/PANGAEA.885277) identifies the same 418 cm lake core, Usinger corer and location, and explicitly relates **both** the [2017 landscape study](https://doi.org/10.1177/0959683617715691) and [2018 Mesolithic study](https://doi.org/10.1016/j.jasrep.2017.12.045). Cite both original applications with the [Neotoma dataset DOI](https://doi.org/10.21233/wq3m-e377). | PANGAEA describes 245 pollen spectra, while the governed Neotoma surface contains 236 samples; no complete row-level equivalence is claimed. Neotoma's two literal DOI strings differ only in ASCII case and refer to one DOI name under the DOI Handbook rule above. |
+| `53098`, Lake Store Finnsjøen (`FINNSTOT`) | The [2015 original lake study](https://doi.org/10.1016/j.quascirev.2015.05.004) describes the pollen sequence, and the [2019 cold-event study](https://doi.org/10.1016/j.quascirev.2018.12.009) analyzes pollen at this lake and Flåfattjønna. They are source-supported site publications. The [2017 forest-line study](https://doi.org/10.1177/0959683616660172) compares megafossils and pollen and cites the 2015 study; its specific contribution of new pollen data to the deposited `FINNSTOT` sequence remains unverified. | Neotoma exposes 70 samples at 1483–2197 cm. The 2015 paper reports 45 sampled pollen levels, so exact sample-to-paper lineage still needs reconciliation. DataCite has **two separate registrations**, [10.21233/5XR8-GV26](https://doi.org/10.21233/5XR8-GV26) created in 2022 and [10.21233/sxnn-hq25](https://doi.org/10.21233/sxnn-hq25) created in 2025, both pointing to dataset `53098` but without a declared equivalence relation. Preserve both and request a source-owner citation choice. |
+
+The Norwegian source review supports named citations for the actual lake studies
+but does not turn the three provider multiple-primary states into three unique
+primary flags. The 2012 guide, 2017 Finnsjøen comparison, sample-count
+differences and distinct Finnsjøen DOI registrations remain explicit.
+
 None of these citation records supplies LRA basin geometry, PPE, or
 independent vegetation truth.
 
