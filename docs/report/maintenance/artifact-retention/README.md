@@ -145,6 +145,12 @@ historical publication input equivalence or affect any other artifact path.
 
 ## Earlier scientific report provenance
 
+The [earlier Swedish direct-pollen run](historical-swedish-direct-pollen-run/README.md)
+retains its unique producer, input manifest and report bytes. Its custody ledger
+maps the other 12 files to byte-identical or newline-normalized current study
+outputs, so the inactive 15-file working directory can be retired without
+losing its scientific or process record.
+
 The [earlier scientific report provenance](scientific-report-provenance/README.md)
 retains exact results, scope, and evidence-manifest bytes from the previous
 11-result study. The current report has 16 result rows and a passing 152-file

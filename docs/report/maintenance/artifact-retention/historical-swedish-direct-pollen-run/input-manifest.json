@@ -1,0 +1,35 @@
+{
+  "age_bin_width_cal_bp": 500,
+  "config_sha256": "9e330aec087180acb11638f544e773f53b6ffc1444da4e4d9840e53ad1849fd0",
+  "dataset_ids": [
+    "19913",
+    "53995",
+    "54001"
+  ],
+  "runner_sha256": "b219e8bbe362f89010ac10642c298eb4a45127b75d9148252b76a33046e66fa9",
+  "schema_version": "swedish-direct-pollen-input-manifest.v1",
+  "source": "Neotoma API frozen EPD downloads",
+  "source_files": {
+    "part-004.json": "d96046c88b497ba07082120e446fecacad0d9b5533d8960bdbc03811976ea435",
+    "part-008.json": "9cdcb2d394bc8ef23bf2b4b5e3f1f3ae5916aae16db71542c58f4b80a2dd1134"
+  },
+  "taxon_denominator": [
+    "Alnus",
+    "Amaranthaceae",
+    "Betula",
+    "Cichorioideae",
+    "Cyperaceae",
+    "Filipendula",
+    "Frangula alnus",
+    "Nuphar",
+    "Plantago lanceolata",
+    "Plantago media",
+    "Populus",
+    "Quercus",
+    "Rosaceae undiff.",
+    "Salix",
+    "Thalictrum",
+    "Ulmus"
+  ],
+  "zero_interpretation": "Neotoma observed-count matrix; unlisted taxon cells are zero-filled for this explicit subcomposition, following the documented Neotoma workflow"
+}
