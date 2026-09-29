@@ -56,7 +56,7 @@ keeps two more entity populations distinct. AADR v66 has 51,005 annotation
 rows across its 1240K and HO captures, representing 27,755 Genetic IDs;
 these are human-source accountability units. The animal point surface has
 170 features backed by 331 distinct sample IDs, of which eight Nordic
-locality features represent 12 sample IDs. Its 1,450-row foundation still
+locality features represent 12 sample IDs. Its 1,468-row foundation still
 has eleven unresolved paper-link rows. Neither population supplies pollen
 counts or an independent vegetation reference, and the eight animal locality
 features are not a Nordic pollen cohort.
