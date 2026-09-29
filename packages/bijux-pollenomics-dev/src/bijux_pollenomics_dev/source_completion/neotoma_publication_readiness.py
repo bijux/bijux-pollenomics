@@ -13,7 +13,6 @@ from bijux_pollenomics.analysis.lra.materialization.neotoma.publication_intake i
     parse_dataset_publications,
 )
 
-
 ENTITY = Path(
     "docs/report/regions/nordic/source-capability/neotoma-entities/report.json"
 )

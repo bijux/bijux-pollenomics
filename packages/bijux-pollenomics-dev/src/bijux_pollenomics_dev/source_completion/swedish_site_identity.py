@@ -88,10 +88,10 @@ def published_sites(workbook: Path, receipt_path: Path) -> list[dict[str, Any]]:
     if digest(workbook) != asset["sha256"]:
         raise ValueError("Pinned LandClim II workbook digest differs")
     with ZipFile(workbook) as archive:
-        definitions = dict(
-            (row.get("A"), row.get("B"))
+        definitions = {
+            row.get("A"): row.get("B")
             for _, row in sheet_rows(archive, "xl/worksheets/sheet1.xml")
-        )
+        }
         if definitions.get("siteradius") != "radius of the site in meters":
             raise ValueError(
                 "Published geometry unit is not documented radius in metres"

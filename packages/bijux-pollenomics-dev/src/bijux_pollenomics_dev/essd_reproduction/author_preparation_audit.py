@@ -11,7 +11,6 @@ import json
 from pathlib import Path
 from typing import Any
 
-
 CUSTODY = Path(
     "docs/report/maintenance/artifact-retention/landclim-author-preparation-audit-custody.json"
 )
@@ -124,7 +123,7 @@ def _site_categories(
                 counts["excluded_not_ppe"] += amount
             else:
                 counts["retained"] += amount
-    unmapped = [
+    unmapped: list[dict[str, str | int]] = [
         {
             "source_column_index_zero_based": index,
             "native_header": header[index],

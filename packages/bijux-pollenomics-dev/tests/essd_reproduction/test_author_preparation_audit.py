@@ -10,7 +10,6 @@ import pytest
 
 from bijux_pollenomics_dev.essd_reproduction.author_preparation_audit import build
 
-
 REPOSITORY = Path(__file__).resolve().parents[4]
 GOVERNED = (
     REPOSITORY

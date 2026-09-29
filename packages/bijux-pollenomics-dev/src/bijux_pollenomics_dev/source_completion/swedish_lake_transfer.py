@@ -29,7 +29,6 @@ from .nordic_direct_pollen import (
 )
 from .swedish_neotoma_holdout import RELATIONAL, _rows
 
-
 PROTOCOL = Path("docs/report/regions/nordic/swedish-lake-transfer/protocol.json")
 
 
@@ -68,7 +67,7 @@ def prepare(repository: Path, author_source_root: Path, output: Path) -> None:
         protocol["schema_version"] != "swedish-lake-pollen-transfer-protocol.v1"
         or protocol["decision_stage"] != "fixed_before_target_observation_read"
         or tuple(BASELINE_METHODS) != tuple(protocol["fixed_methods"])
-        or AGE_WIDTH != protocol["response"]["age_bin_width_bp"]
+        or protocol["response"]["age_bin_width_bp"] != AGE_WIDTH
     ):
         raise ValueError("Locked lake transfer design changed")
     manifest_path = repository / RELATIONAL / "manifest.json"
@@ -96,7 +95,7 @@ def prepare(repository: Path, author_source_root: Path, output: Path) -> None:
             samples_by_site[row["site_id"]].append(row)
     claims = _selected_claims(ages)
     claims_by_site: dict[str, list[dict[str, Any]]] = defaultdict(list)
-    for sample_id, claim in claims.items():
+    for claim in claims.values():
         claims_by_site[claim["site_id"]].append(claim)
     excluded = set(protocol["previous_swedish_target_site_ids"])
     eligible = {

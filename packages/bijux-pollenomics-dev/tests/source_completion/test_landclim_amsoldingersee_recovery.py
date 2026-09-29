@@ -12,7 +12,6 @@ from bijux_pollenomics_dev.source_completion.landclim_amsoldingersee_recovery im
     build,
 )
 
-
 REPOSITORY = Path(__file__).resolve().parents[4]
 GOVERNED = (
     REPOSITORY

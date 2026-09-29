@@ -7,7 +7,6 @@ from pathlib import Path
 
 from bijux_pollenomics_dev.source_completion.neotoma_entity_decisions import build
 
-
 REPOSITORY = Path(__file__).resolve().parents[4]
 
 

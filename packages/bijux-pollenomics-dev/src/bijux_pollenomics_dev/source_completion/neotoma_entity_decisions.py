@@ -10,7 +10,6 @@ import json
 from pathlib import Path
 from typing import Any
 
-
 DATASETS = Path("data/neotoma/relational/surfaces/datasets/part-00001.json")
 MANIFEST = Path("data/neotoma/relational/manifest.json")
 RAW_MANIFEST = Path("data/neotoma/raw/neotoma_pollen_dataset_downloads/manifest.json")

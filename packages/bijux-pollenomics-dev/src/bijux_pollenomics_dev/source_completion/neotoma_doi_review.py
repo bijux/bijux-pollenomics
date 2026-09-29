@@ -10,7 +10,6 @@ from pathlib import Path
 from typing import Any
 from urllib.parse import quote, urlsplit
 
-
 ATTRIBUTION = Path(
     "docs/report/regions/nordic/source-capability/neotoma-attribution/report.json"
 )

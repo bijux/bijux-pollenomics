@@ -10,7 +10,6 @@ import json
 from pathlib import Path
 from typing import Any
 
-
 CUSTODY = Path(
     "docs/report/maintenance/artifact-retention/landclim-amsoldingersee-custody.json"
 )
@@ -104,15 +103,17 @@ def build(repository: Path, source_root: Path, output: Path) -> dict[str, Any]:
             raise ValueError("Amsoldingersee source capture was not stable")
         rows = receipt["responses"]
         for row in rows if isinstance(rows, list) else rows.values():
-            relative = f"{parent}/{Path(row['raw_path']).name}"
+            response_relative = f"{parent}/{Path(row['raw_path']).name}"
             if (
                 row["http_status"] != 200
                 or row["truncated"] is not False
                 or row["failure"] is not None
-                or row["raw_sha256"] != captured[relative]
+                or row["raw_sha256"] != captured[response_relative]
             ):
-                raise ValueError(f"Amsoldingersee source capture invalid: {relative}")
-            response_paths.add(relative)
+                raise ValueError(
+                    f"Amsoldingersee source capture invalid: {response_relative}"
+                )
+            response_paths.add(response_relative)
     if len(response_paths) != 11:
         raise ValueError("Amsoldingersee source response set changed")
 

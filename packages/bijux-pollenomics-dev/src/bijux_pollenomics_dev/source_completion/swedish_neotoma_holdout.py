@@ -177,7 +177,7 @@ def prepare(repository: Path, author_source_root: Path, output: Path) -> None:
         != set(protocol["training"]["country_codes"])
         or any(row["site_id"] == target["site_id"] for row in training.values())
         or tuple(BASELINE_METHODS) != tuple(protocol["fixed_methods"])
-        or AGE_WIDTH != protocol["response"]["age_bin_width_bp"]
+        or protocol["response"]["age_bin_width_bp"] != AGE_WIDTH
     ):
         raise ValueError("Locked Nordic prediction design changed")
     mapping, lookup_rows = _lookup(author_source_root.resolve() / LOOKUP)
