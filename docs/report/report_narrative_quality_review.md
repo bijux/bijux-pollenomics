@@ -94,7 +94,7 @@ link farms or coded operator notes.
 | `docs/report/method-certification/disqover-source-identity/README.md` | `thin_structure` | 3 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/method-certification/fixed-site-covariance/README.md` | `thin_structure` | 4 | 0 | 0 | 5 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/method-certification/joint-site-draws/README.md` | `thin_structure` | 5 | 0 | 0 | 7 | 1 | Page explains itself but still needs stronger internal wayfinding. |
-| `docs/report/method-certification/linux-r-oracle/README.md` | `reader_ready` | 7 | 0 | 0 | 0 | 3 | Page explains its purpose before or alongside artifact links. |
+| `docs/report/method-certification/linux-r-oracle/README.md` | `reader_ready` | 8 | 0 | 0 | 0 | 3 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/method-certification/love-paper-correspondence/README.md` | `thin_structure` | 2 | 0 | 0 | 9 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/method-certification/lra-batch-execution/README.md` | `thin_structure` | 5 | 0 | 0 | 6 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/method-certification/optimizer-solution-quality/README.md` | `thin_structure` | 5 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |

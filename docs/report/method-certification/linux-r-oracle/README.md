@@ -38,11 +38,20 @@ receipt and container logs are under
 `artifacts/jobs/linux-r-oracle/source-closed-run/`. That replay took 17.37
 seconds and is the sole admitted local Linux result here.
 
-## Reproduction from the retained local custody
+## Reproduction from private custody
 
-With the original verified R runtime, private library, source archive cache,
-and pinned container image still available at the recorded artifact paths, run
-the [producer](../../../../packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/linux_reference.py)
+The private data store retains the exact source-built runtime and package
+library, the 37 locked R/CRAN source archives, the image ID and the Dockerfile
+under `lra-reference/`. Its `linux-arm64-oracle/custody.json` has SHA-256
+`16143126055af76f3933f24c778d4de1d6d1eee087e543a381830e336eb8aa43`.
+The custody was checked against the source lock, the original build and
+provision receipts, all **1,227 runtime files** and **2,784 library files**.
+The DISQOVER source archive remains governed separately by the repository's
+[LRA NOTICE](../../../../packages/bijux-pollenomics-lra/NOTICE).
+
+Set `BIJUX_LRA_CUSTODY_ROOT` to the restored private `lra-reference/` directory.
+With the recorded container image available locally, run the
+[producer](../../../../packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/linux_reference.py)
 from the repository root with new absent output destinations:
 
 ```sh
@@ -51,16 +60,19 @@ PYTHONDONTWRITEBYTECODE=1 OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREA
   --repository . \
   --output artifacts/jobs/linux-r-oracle/reproduction \
   --retained artifacts/jobs/linux-r-oracle/reproduction-retained \
-  --runtime-tree artifacts/v2/linux-r-runtime/build001 \
-  --provision-tree artifacts/v2/linux-r-runtime/provision001 \
-  --source-cache artifacts/v2/validation/live-r-integration/acquire-001/sources \
-  --image-id-path artifacts/jobs/linux-r-oracle/image.id \
-  --dockerfile artifacts/jobs/linux-r-oracle/image-context/Dockerfile
+  --runtime-tree "$BIJUX_LRA_CUSTODY_ROOT/linux-arm64-oracle/runtime" \
+  --provision-tree "$BIJUX_LRA_CUSTODY_ROOT/linux-arm64-oracle/provision" \
+  --source-cache "$BIJUX_LRA_CUSTODY_ROOT/source-cache" \
+  --image-id-path "$BIJUX_LRA_CUSTODY_ROOT/linux-arm64-oracle/image.id" \
+  --dockerfile "$BIJUX_LRA_CUSTODY_ROOT/linux-arm64-oracle/Dockerfile"
 ```
 
-The runtime, library, image, and private source cache are local artifacts rather
-than repository source files; another machine must restore those exact bytes or
-rebuild them from the pinned source lock before this command can replay.
+The producer verifies every archive, receipt and installed file before execution.
+The image ID names a locally built image, not an exported image archive; another
+machine must restore that exact image or build and qualify a replacement. A
+freshly rebuilt R runtime or library also needs a new qualification if its bytes
+differ from the retained receipts. The original raw oracle outputs remain in
+this repository regardless of local container availability.
 
 ## Release boundary
 
