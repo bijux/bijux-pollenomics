@@ -26,7 +26,10 @@ def test_parameter_name_mass_closes_real_pollen_bins_without_lra_admission(
         and row["lra_admitted"] == "False"
         for row in rows
     )
-    sites = {row["site"]: row for row in report["sites"]}
+    site_rows = report["sites"]
+    assert isinstance(site_rows, list)
+    assert all(isinstance(row, dict) for row in site_rows)
+    sites = {row["site"]: row for row in site_rows}
     assert sites["Abborrtjärnen"]["literal_parameter_name_nisp"] == 81970
     assert sites["Bussjösjön"]["literal_parameter_name_nisp"] == 10752
     assert sites["Bökesjön"]["literal_parameter_name_nisp"] == 14512

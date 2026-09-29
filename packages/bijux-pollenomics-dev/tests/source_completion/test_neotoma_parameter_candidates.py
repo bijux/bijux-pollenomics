@@ -6,6 +6,7 @@ from copy import deepcopy
 import csv
 import json
 from pathlib import Path
+from typing import Any
 
 import pytest
 
@@ -18,7 +19,7 @@ from bijux_pollenomics_dev.source_completion.neotoma_parameter_candidates import
 REPOSITORY = Path(__file__).resolve().parents[4]
 
 
-def _inputs() -> tuple[list[dict[str, str]], dict[str, object]]:
+def _inputs() -> tuple[list[dict[str, str]], dict[str, Any]]:
     with (REPOSITORY / PARAMETERS).open(encoding="utf-8-sig", newline="") as handle:
         parameters = list(csv.DictReader(handle))
     priority = json.loads((REPOSITORY / PRIORITY).read_text(encoding="utf-8"))
@@ -32,7 +33,10 @@ def test_exact_parameter_names_keep_source_units_and_review_gate() -> None:
     assert report["exact_name_concept_count"] == 23
     assert report["lra_accepted_samples"] == 0
     assert report["scientific_admission_allowed"] is False
-    rows = {row["parameter_source_name"]: row for row in report["rows"]}
+    report_rows = report["rows"]
+    assert isinstance(report_rows, list)
+    assert all(isinstance(row, dict) for row in report_rows)
+    rows = {row["parameter_source_name"]: row for row in report_rows}
     for name in ("Betula", "Tilia", "Ulmus"):
         assert {source["source_unit"] for source in rows[name]["source_concepts"]} == {
             "NISP",

@@ -5,6 +5,7 @@ from __future__ import annotations
 from copy import deepcopy
 import json
 from pathlib import Path
+from typing import Any
 
 import pytest
 
@@ -20,7 +21,7 @@ REPORT = Path(
 )
 
 
-def _inputs() -> tuple[dict[str, object], dict[str, object], dict[str, str]]:
+def _inputs() -> tuple[dict[str, Any], dict[str, Any], dict[str, str]]:
     priority = json.loads((REPOSITORY / PRIORITY).read_text(encoding="utf-8"))
     concepts = json.loads((REPOSITORY / CONCEPTS).read_text(encoding="utf-8"))
     retained = json.loads((REPOSITORY / REPORT).read_text(encoding="utf-8"))
@@ -47,7 +48,10 @@ def test_literal_leads_close_priority_counts_without_admission() -> None:
     }
     assert report["lra_accepted_samples"] == 0
     assert report["scientific_admission_allowed"] is False
-    betula = [row for row in report["rows"] if row["source_reported_name"] == "Betula"]
+    report_rows = report["rows"]
+    assert isinstance(report_rows, list)
+    assert all(isinstance(row, dict) for row in report_rows)
+    betula = [row for row in report_rows if row["source_reported_name"] == "Betula"]
     assert {row["source_unit"] for row in betula} == {"NISP", "NISP digitized"}
     assert all(row["scientific_admission_allowed"] is False for row in betula)
 
