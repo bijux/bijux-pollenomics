@@ -8,6 +8,7 @@
     {
       "site_id": "neotoma:site:3432",
       "site_name": "Lake Solsø",
+      "source_site_description": "Strongly drained lake, now mostly fen. Physiography: almost flat landscape, 30-90 asl heights. Surrounding vegetation: dry-moist pasture, fertilized.",
       "samples_with_pollen_count": 92,
       "comparable_age_candidates": 91,
       "refused_samples": 1,
@@ -60,6 +61,7 @@
     {
       "site_id": "neotoma:site:3491",
       "site_name": "Vejlby",
+      "source_site_description": "Infilled gravel pit.",
       "samples_with_pollen_count": 44,
       "comparable_age_candidates": 0,
       "refused_samples": 44,
@@ -100,6 +102,7 @@
     {
       "site_id": "neotoma:site:14265",
       "site_name": "Trelde Klint",
+      "source_site_description": "Lacustrine deposits of interglacial paleolake. Physiography: Basin.",
       "samples_with_pollen_count": 39,
       "comparable_age_candidates": 0,
       "refused_samples": 39,
@@ -130,6 +133,7 @@
     {
       "site_id": "neotoma:site:23293",
       "site_name": "Hollerup",
+      "source_site_description": "Paleolake of Eemian age. Situated on the northern edge of the Gudenå valley 14 km southeast of Randers, between Langå and Ulstrup, in the eastern part of central Jylland.",
       "samples_with_pollen_count": 66,
       "comparable_age_candidates": 0,
       "refused_samples": 66,
@@ -160,6 +164,7 @@
     {
       "site_id": "neotoma:site:27349",
       "site_name": "Harreskov",
+      "source_site_description": "Cromer interglacial locality (Harreskov type) from middle Pleistocene. Sediments are made of calcareous gyttja overlain by diatomaceous gyttja.",
       "samples_with_pollen_count": 38,
       "comparable_age_candidates": 0,
       "refused_samples": 38,

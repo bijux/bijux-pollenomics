@@ -107,6 +107,9 @@ def run(repository: Path) -> dict[str, Any]:
             {
                 "site_id": site_id,
                 "site_name": sites[site_id]["source_payload"]["sitename"],
+                "source_site_description": sites[site_id]["source_payload"][
+                    "sitedescription"
+                ],
                 "samples_with_pollen_count": len(rows),
                 "comparable_age_candidates": statuses["necessary_candidate"],
                 "refused_samples": statuses["refused"],
