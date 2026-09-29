@@ -27,6 +27,30 @@ per-sample denominator or a LandClim-eligible taxon mask. `E(T500)` in a
 different palynological richness analysis is a rarefaction target, not this
 sample's raw count. No fixed count of 500 or Bacon chronology is admitted.
 
+The 2005 paper says that at least **1,000 pollen grains and spores** were
+counted in nearly all samples. This is a counting target, not an exact count
+for sample `173174`. A bounded calculation from the retained Neotoma raw
+dataset `19913` (sample depth `650` in the source's unstated unit, matching
+PANGAEA `6.50 m`) applies the paper's stated exclusions:
+
+| Source count group | NISP | Treatment in calculated candidate |
+| --- | ---: | --- |
+| All pollen observations | 1,206 | Start |
+| Aquatic pollen: *Nuphar* 1, *Nymphaea alba* 4 | 5 | Exclude |
+| Nonsphagnum spores: *Equisetum* 1, *Lycopodium annotinum* 1, monolete Polypodiophyta 16 | 18 | Add |
+| *Sphagnum* spores 20, *Pediastrum* colonies 13, *Pinus* stomata 6 | 39 | Outside this pollen-and-spore sum |
+
+The resulting **candidate is 1,219** (`1,206 − 5 + 18`) if four
+`Indeterminable` pollen grains were included, or **1,215** if they were
+excluded. The paper does not resolve that four-grain treatment for this
+export. These are source-label calculations, not an author-confirmed
+percentage denominator, a fixed 500-grain count, or a REVEALS taxon subtotal.
+The input is
+[`part-004.json`](../../../../../data/neotoma/raw/neotoma_pollen_dataset_downloads/part-004.json),
+SHA-256 `d96046c88b497ba07082120e446fecacad0d9b5533d8960bdbc03811976ea435`;
+the [core comparison manifest](../abbo-core-identity/manifest.json) pins
+the same bytes.
+
 The [core identity lead](../abbo-core-identity/README.md) supplies Neotoma
 dataset `19913`, site `13338`, collection unit `ABBO`, sample `173174`, and
 LandClim II site metadata row 968 for sequence `ABB`. The [native count
