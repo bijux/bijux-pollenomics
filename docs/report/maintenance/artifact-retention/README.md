@@ -315,6 +315,15 @@ checks the same 17 author raw/prepared pairs directly from private source
 bytes. The 501,713 raw, 299,660 prepared and 202,053 difference counts do not
 identify the examples as the historical publication's 1,128 inputs.
 
+The [preparation process custody](landclim-author-preparation-process-custody.json)
+accounts for three further selected producer directories: **207 paths,
+2,597,893 path bytes and 108 distinct content hashes**. Eighty paths match
+the private author source at the same relative name and exact hash; the other
+files include generated intermediates, reports, scripts and diagnostics. All
+207 original bytes are retained under private `landclim/author-preparation-process/`.
+The current source recount above consumes the author capsule and terminal
+independent audit; older v2 job receipts are outside this selected retirement.
+
 ## WHH05 author preparation process custody
 
 The [one-site R process custody](whh05-author-preparation-custody.json) accounts

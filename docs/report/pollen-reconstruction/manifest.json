@@ -61,8 +61,8 @@
     },
     {
       "path": "docs/report/maintenance/artifact-retention/README.md",
-      "bytes": 24314,
-      "sha256": "ecd5de3476a1a9756afb852a71f5a0d0a4f8ab22a07717b4a77ace090f75585b"
+      "bytes": 24939,
+      "sha256": "edf7aa3fcf5c55e26bae13c63d217a193ace246504918f177c226089e57c5d87"
     },
     {
       "path": "docs/report/maintenance/artifact-retention/landclim-amsoldingersee-custody.json",
@@ -73,6 +73,11 @@
       "path": "docs/report/maintenance/artifact-retention/landclim-author-preparation-audit-custody.json",
       "bytes": 8968,
       "sha256": "3ef177f6734471330cd2b8331d1b9786847b38eb054c5cd56f6ff4354dd40976"
+    },
+    {
+      "path": "docs/report/maintenance/artifact-retention/landclim-author-preparation-process-custody.json",
+      "bytes": 82450,
+      "sha256": "f1cc44f27f1676e1b9b41439b67b13d0ec6f963639626976212897afc46166c1"
     },
     {
       "path": "docs/report/maintenance/artifact-retention/landclim-pft-audit-custody.json",
