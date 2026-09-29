@@ -5,6 +5,12 @@ five public source matches, the 54-site candidate denominator and a replay
 against the externally retained page capture. It admits zero historical basins
 or LRA samples.
 
+The [Swedish LandClim site comparison](landclim-site-identity/README.md)
+replays all 77 current Swedish prerequisite sites against 84 published
+LandClim sequences. It retains 34 same-name point leads, including 16 within
+10 m, while refusing source identity and radius transfer for every row. The
+older 37-site comparison is contained row for row in this wider cohort.
+
 The [retained result](summary.json) verifies the unchanged relational snapshot
 through the production materialization reader. It includes 200 sites, 206
 collection units, 209 datasets, 384 chronologies, 2,798 chronology controls,

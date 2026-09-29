@@ -1,0 +1,47 @@
+{
+  "schema_version": "swedish-landclim-site-identity-custody.v1",
+  "inputs": {
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/swedish_site_identity.py": {
+      "bytes": 12036,
+      "sha256": "9a579852dac334939260ccd72add520acca5655f44dfc4e94ba6d272ebef94c2"
+    },
+    "data/landclim/raw/landclim_ii_site_metadata.xlsx": {
+      "bytes": 264067,
+      "sha256": "2d4a0cf1401e36c2606f7761cecc85c4bbc15272460c2a4926cb1702d4565ebb"
+    },
+    "data/landclim/raw/landclim_sources.json": {
+      "bytes": 4880,
+      "sha256": "eb4350724c176d0dbcb7e441f2d21489bdae1cfff7ebe3088eab27093f315677"
+    },
+    "docs/report/source-relations/neotoma/lra-prerequisites/projection.json": {
+      "bytes": 22907955,
+      "sha256": "26135d91bbe5d729dcca3a1f6f0ea69f5cec4dc00a54a6dd740d5004d4e4b809"
+    },
+    "data/neotoma/relational/surfaces/sites/part-00001.json": {
+      "bytes": 307210,
+      "sha256": "b6ca4e49d0aec59aee576fc540c77b6c2e21601ce28338227e98717ee0bb93e9"
+    }
+  },
+  "outputs": {
+    "REPORT.md": {
+      "bytes": 949,
+      "sha256": "5a6822cfad53a1c69f5704a1c1be2f2872bec1a24de725e3f1ffe5f55e35b533"
+    },
+    "report.json": {
+      "bytes": 1525,
+      "sha256": "9a0b6aee4ead3f8a658b63a279e74c11210bb680c78d538ed83a4b0b4c90f4cf"
+    },
+    "site-comparison.csv": {
+      "bytes": 9050,
+      "sha256": "104049578ccd4f6fb0e0df869ffa33ed5033bb8a68d5208e019428de7ee43e8c"
+    }
+  },
+  "historical_comparison": {
+    "scope": "37 Swedish candidate sites from earlier prerequisite projection",
+    "report_sha256": "46e942b6e30791ecd7d4307aa4c94791e6c56d0d0209432c15634e408026c1bf",
+    "site_comparison_sha256": "3b3875b7e4f16395d0cb4084c555cfec067590329a6e8b566486e0c43e9f6de4",
+    "row_relation": "all 37 historical site rows equal the corresponding current-projection rows after CSV parsing",
+    "old_producer_sha256": "3d7252fc774e2acc5a95c4937be1ba6c47cf70e68d180c688cd432a03f7a3b57"
+  },
+  "admission": "no cross-source core identity, basin-radius transfer or LRA sample is admitted"
+}
