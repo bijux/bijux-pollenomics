@@ -11,11 +11,10 @@ from typing import Any
 from .nordic_author_target_pollen import (
     _compressed_read,
     _compressed_write,
-    _sha,
     predict,
     score,
 )
-from .nordic_direct_pollen import _json_write, _swedish_training
+from .nordic_direct_pollen import _json_write, _sha, _swedish_training
 
 NORDIC = Path("docs/report/regions/nordic/author-target-pollen")
 RAW = Path("data/neotoma/raw/neotoma_pollen_dataset_downloads")

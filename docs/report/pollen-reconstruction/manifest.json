@@ -456,7 +456,7 @@
     },
     {
       "path": "docs/report/regions/nordic/direct-pollen/manifest.json",
-      "sha256": "3e7814bf9697783397cdce11639ebc861620a6a3c9d9295d1357ab69bc7b5edf",
+      "sha256": "e1cf9fddc91dcce3e862079c5fa3515a985e3571339e19ef356b296d4117d61d",
       "bytes": 8277
     },
     {
@@ -776,8 +776,8 @@
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/nordic_direct_pollen.py",
-      "sha256": "0085092d6762c7af7099b5769b68378895b5f53a7aeca23795b9d39bee7305d0",
-      "bytes": 57310
+      "sha256": "904f5a27853d9da32729c02e29d41a2b7fd840f3db8922ffe369bfd6a01e7f78",
+      "bytes": 57618
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/nordic_pollen_development.py",
@@ -791,8 +791,8 @@
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/swedish_author_target_pollen.py",
-      "sha256": "931973f180e20b1028c90504b6c6422d889d8c34dcf303108b00a60551697462",
-      "bytes": 7466
+      "sha256": "078422bb7d8ac6ba2b2231b92662eb9fbbaaa0541fedfd272a38c9ede18194b4",
+      "bytes": 7462
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/swedish_direct_pollen.py",
@@ -801,8 +801,8 @@
     },
     {
       "path": "packages/bijux-pollenomics-dev/tests/essd_reproduction/test_pft_uncertainty_bounds.py",
-      "sha256": "5194ad9009baec6745c78d6a49aed12f6936defa863138b9146115f2e78381ab",
-      "bytes": 1555
+      "sha256": "d4f10379b6293fb7fb6330d376a0de62fc312f5165a340f8f25c63973d6ab2e5",
+      "bytes": 1643
     },
     {
       "path": "packages/bijux-pollenomics-dev/tests/source_completion/test_nordic_direct_pollen.py",
@@ -811,8 +811,8 @@
     },
     {
       "path": "packages/bijux-pollenomics-dev/tests/source_completion/test_swedish_direct_pollen.py",
-      "sha256": "3be722d00f00a93fd69c61805cb520af8e36194caaef8185a31f288b153cc0d5",
-      "bytes": 339
+      "sha256": "a11c5d0f51ceb738cff01dc97a0bc0b5a5774f83bc3d93a41c4fe8e04eca16b6",
+      "bytes": 371
     },
     {
       "path": "packages/bijux-pollenomics-dev/tests/test_runtime_isolation.py",

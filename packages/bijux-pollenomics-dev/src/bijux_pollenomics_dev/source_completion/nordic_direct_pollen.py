@@ -10,7 +10,7 @@ import json
 import math
 from pathlib import Path
 from statistics import median
-from typing import Any, Literal
+from typing import Any, Literal, cast
 
 from bijux_pollenomics.analysis.lra_validation.baselines import (
     predict_spatial_baseline,
@@ -81,11 +81,16 @@ def _sha(path: Path) -> str:
 
 def _read_rows(path: Path) -> list[dict[str, Any]]:
     payload = json.loads(path.read_text(encoding="utf-8"))
+    if not isinstance(payload, dict):
+        raise ValueError(f"invalid Neotoma source table: {path}")
     if payload.get("source_snapshot_id") != SOURCE_SNAPSHOT:
         raise ValueError(f"unexpected Neotoma source snapshot: {path}")
     if payload.get("build_id") != RELATIONAL_BUILD:
         raise ValueError(f"unexpected Neotoma materialization: {path}")
-    return payload["rows"]
+    rows = payload.get("rows")
+    if not isinstance(rows, list) or any(not isinstance(row, dict) for row in rows):
+        raise ValueError(f"invalid Neotoma source rows: {path}")
+    return cast(list[dict[str, Any]], rows)
 
 
 def _json_write(path: Path, value: Any) -> None:

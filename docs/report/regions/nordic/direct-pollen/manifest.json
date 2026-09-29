@@ -26,7 +26,7 @@
       "surfaces/samples/part-00001.json": "c959e77f7c645b814bffe92a92ff2d8fabcc077b4fc4c894e6315e448d14100c",
       "surfaces/sites/part-00001.json": "b6ca4e49d0aec59aee576fc540c77b6c2e21601ce28338227e98717ee0bb93e9"
     },
-    "runner_sha256": "65fd5dd1fd55390360ce118ff137f6fba6e43803074e21d23159fe340292f97b",
+    "runner_sha256": "904f5a27853d9da32729c02e29d41a2b7fd840f3db8922ffe369bfd6a01e7f78",
     "schema_version": "nordic-direct-pollen-inputs.v1",
     "source_screen_country_denominators": {
       "DK": {
