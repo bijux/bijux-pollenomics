@@ -1,0 +1,57 @@
+{
+  "schema_version": "landclim-window-alignment-custody.v1",
+  "repository_inputs": {
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/published_window_alignment.py": {
+      "bytes": 8730,
+      "sha256": "2c97f542da3635f6464e1ce4efc1cadf8414b0dcf78c588ee564db3a8fb03ccf"
+    },
+    "docs/report/publication-replay/landclim-method-profile/reference/report.json": {
+      "bytes": 24499,
+      "sha256": "56f3dc776aa0a3405338fba62ae51a8b383b0c64787bd6fa4364677ac7ae24c5"
+    },
+    "docs/report/publication-replay/landclim-published-window-correspondence/report.json": {
+      "bytes": 3042,
+      "sha256": "0a22e51a8e109dbadbd713f27b84826421a0e156bdd9d97856a053a4eb0cee32"
+    }
+  },
+  "private_author_inputs": {
+    "landclim/author-reference/author/bins.csv": {
+      "bytes": 130,
+      "sha256": "62cac73bafacb8be8d8b7007e9871494024e661ab1a2f28774dcf7cb7046a71f"
+    },
+    "landclim/author-reference/author/TWlookup.csv": {
+      "bytes": 200,
+      "sha256": "888a2d5d035c8a49bd957917ca0658bb08824240ac15c1da4b717c633ddae3dd"
+    }
+  },
+  "outputs": {
+    "REPORT.md": {
+      "bytes": 2322,
+      "sha256": "55bef5ee8ee73e525eaef368bbf978e6dbb87ffe9bb3117ac03369966be85a5d"
+    },
+    "report.json": {
+      "bytes": 915,
+      "sha256": "5b2892b1972934e484d2530078e9b7c844b6ebc0bcd1aeb08d167d8b7f7bd8f6"
+    },
+    "window-correspondence.csv": {
+      "bytes": 1539,
+      "sha256": "3dbfc4914257a0862410a7c3b451a578f2c30b57991c9b0a59bef1b973f9a598"
+    }
+  },
+  "historical_comparison": {
+    "report_json": {
+      "bytes": 915,
+      "sha256": "5b2892b1972934e484d2530078e9b7c844b6ebc0bcd1aeb08d167d8b7f7bd8f6"
+    },
+    "report_markdown": {
+      "bytes": 2322,
+      "sha256": "55bef5ee8ee73e525eaef368bbf978e6dbb87ffe9bb3117ac03369966be85a5d"
+    },
+    "row_csv": {
+      "bytes": 1565,
+      "sha256": "548d80974a3d96d71ce61e6a5925a60583b853e605cf31a0b3aab9b0873fc160"
+    },
+    "relation": "Report JSON and Markdown exact; all 25 parsed CSV rows equal after newline normalization."
+  },
+  "admission": "TW2 only has exact BP-bound support for numeric comparison; no historical raw-input equivalence or vegetation accuracy"
+}
