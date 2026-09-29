@@ -1,0 +1,54 @@
+{
+  "schema_version": "smaland-historical-map-support.v1",
+  "article_doi": "10.1002/ece3.1198",
+  "source_sha256": {
+    "article.xml": "300b147cb3318924ac734ae47666ce4a4799e44f8d6ee680b218265dae4b8948",
+    "appendix-s1.pdf": "e315ffdbc0fb1db10bb81c6468ea9331e56c342ada7137947189d7deab20a8b9",
+    "pmc-metadata.json": "4d85d8206321c58ec37dd551ccf87dddeeceab4a39a248f12375c8c14d863109"
+  },
+  "map_radius_km": 3,
+  "site_order_from_article_table_1": [
+    "STAV",
+    "NOTT",
+    "STOR"
+  ],
+  "time_window_1_and_2_share_one_pollen_sample_per_site": true,
+  "coverage": [
+    {
+      "site": "STAVÅKRA",
+      "modern_tw1_tw2_percent": 100,
+      "reform_tw3_percent": 75,
+      "tw4_storskifte_percent": 24,
+      "tw4_older_percent": 10,
+      "shared_tw1_tw2_pollen_age_ce": 1930,
+      "shared_tw1_tw2_pollen_count": 617,
+      "map_class_area_values_available_in_article_tables": false,
+      "measured_vegetation_pair_admission": "refused_numeric_reference_unavailable"
+    },
+    {
+      "site": "NOTTERYD",
+      "modern_tw1_tw2_percent": 100,
+      "reform_tw3_percent": 12,
+      "tw4_storskifte_percent": 63,
+      "tw4_older_percent": 11,
+      "shared_tw1_tw2_pollen_age_ce": 1993,
+      "shared_tw1_tw2_pollen_count": 841,
+      "map_class_area_values_available_in_article_tables": false,
+      "measured_vegetation_pair_admission": "refused_numeric_reference_unavailable"
+    },
+    {
+      "site": "STORASJÖ",
+      "modern_tw1_tw2_percent": 100,
+      "reform_tw3_percent": 77,
+      "tw4_storskifte_percent": 59,
+      "tw4_older_percent": 0,
+      "shared_tw1_tw2_pollen_age_ce": 1935,
+      "shared_tw1_tw2_pollen_count": 574,
+      "map_class_area_values_available_in_article_tables": false,
+      "measured_vegetation_pair_admission": "refused_numeric_reference_unavailable"
+    }
+  ],
+  "regional_reveals_tw1_tw2_age_ce": "1950/1950",
+  "regional_reveals_tw1_tw2_pollen_count": 2536,
+  "admission": "source_support_only_no_numeric_vegetation_benchmark"
+}

@@ -141,8 +141,8 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/README.md",
-      "sha256": "cd9194e218d10c281cb540a93dfad75f92364deb9a04631bc042d2551d715a58",
-      "bytes": 40577
+      "sha256": "0dd04486df899a71e81911bfe8054b669d9c68eca0e3047b8a1d0e888c793394",
+      "bytes": 41163
     },
     {
       "path": "docs/report/pollen-reconstruction/author-buffered-pollen/README.md",
@@ -1468,6 +1468,21 @@
       "path": "docs/report/vegetation-reference/farskesjon/report.json",
       "sha256": "c2a21045859c27672a310fc1faf6b6651ee8320320c56764ccecc5639540b855",
       "bytes": 1635
+    },
+    {
+      "path": "docs/report/vegetation-reference/smaland-historical-maps/README.md",
+      "sha256": "7fb812be336c566c9352219fc12109aa0d9705cce2fa735615e59d500ebccf35",
+      "bytes": 3018
+    },
+    {
+      "path": "docs/report/vegetation-reference/smaland-historical-maps/coverage.json",
+      "sha256": "f13f1e5ece6e4060b98036d7bdca42b4ff2c47ca8dc118931d2b43c074519012",
+      "bytes": 1982
+    },
+    {
+      "path": "docs/report/vegetation-reference/smaland-historical-maps/coverage.py",
+      "sha256": "03dd52b4a911f3cfdee09ff29f03794c56f9c5494a88a764ba17c62aa4f3adba",
+      "bytes": 5182
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/author_example_correspondence.py",
