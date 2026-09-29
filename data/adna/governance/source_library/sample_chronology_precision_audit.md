@@ -2,11 +2,11 @@
 
 - Rows audited: `1475`
 - Precise point rows: `468`
-- Precise interval rows: `328`
+- Precise interval rows: `329`
 - Approximate or modeled rows: `200`
 - Contextual rows: `32`
 - Broad period rows: `40`
-- Unresolved rows: `407`
+- Unresolved rows: `406`
 
 | Project accession | Sample id | Evidence class | Precision posture | Normalization | Chronology |
 | --- | --- | --- | --- | --- | --- |
@@ -688,4 +688,3 @@
 | SRP073444 | srp073444:samn04631965 | archaeological_context_date | contextual_interval | normalized_interval | 1456-1870 CE |
 | SRP073444 | srp073444:samn04631966 | archaeological_context_date | contextual_interval | normalized_interval | 1260-1456 CE |
 | SRP073444 | srp073444:samn04631967 | archaeological_context_date | contextual_interval | normalized_interval | 1650-2050 BP |
-| PRJEB60484 | prjeb60484:samea112757337 | unresolved | unresolved | unresolved |  |

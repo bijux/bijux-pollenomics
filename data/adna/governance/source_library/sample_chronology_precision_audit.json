@@ -3,11 +3,11 @@
   "row_count": 1475,
   "precision_counts": {
     "sample_precise_point": 468,
-    "sample_precise_interval": 328,
+    "sample_precise_interval": 329,
     "sample_approximate_or_modeled": 200,
     "contextual_interval": 32,
     "broad_period_only": 40,
-    "unresolved": 407
+    "unresolved": 406
   },
   "rows": [
     {
@@ -24988,16 +24988,16 @@
       "species_latin_name": "Rangifer tarandus",
       "repo_stable_sample_id": "prjeb60484:samea112757337",
       "preferred_sample_label": "R20",
-      "chronology_text": "",
-      "chronology_strength": "unresolved",
-      "chronology_evidence_class": "unresolved",
-      "chronology_precision_posture": "unresolved",
-      "chronology_normalization_status": "unresolved",
-      "time_start_bp": null,
-      "time_end_bp": null,
+      "chronology_text": "0-450 BP",
+      "chronology_strength": "sample_owned_interval",
+      "chronology_evidence_class": "direct_radiocarbon_date",
+      "chronology_precision_posture": "sample_precise_interval",
+      "chronology_normalization_status": "normalized_interval",
+      "time_start_bp": 0,
+      "time_end_bp": 450,
       "dating_basis": "radiocarbon",
-      "precision_bucket": "unresolved",
-      "precision_review_note": "No chronology claim has been recovered yet for this sample row.",
+      "precision_bucket": "sample_precise_interval",
+      "precision_review_note": "Chronology comes from the recovered sample-owned source row.",
       "chronology_conflict_note": ""
     },
     {

@@ -1,10 +1,10 @@
 {
   "schema_version": "animal-manual-curation-worklist.v1",
-  "row_count": 30,
+  "row_count": 27,
   "counts": {
-    "chronology_recovery": 13,
-    "locality_string_resolution": 8,
-    "site_resolution": 8,
+    "chronology_recovery": 12,
+    "locality_string_resolution": 7,
+    "site_resolution": 7,
     "sample_identity_resolution": 1
   },
   "rows": [
@@ -300,43 +300,6 @@
         "data/adna/governance/source_library/projects/PRJEB59481/sample_chronology.json",
         "data/adna/governance/source_library/projects/PRJEB59481/intake_dossier.json"
       ]
-    },
-    {
-      "project_accession": "PRJEB60484",
-      "species_latin_name": "Rangifer tarandus",
-      "work_unit_type": "chronology_recovery",
-      "work_unit_state": "pending_source_recovery",
-      "open_item_count": 2,
-      "rationale": "missing_sample_level_date_evidence",
-      "downstream_impact": "blocks chronology honesty and publication precision",
-      "recommended_source_surfaces": [
-        "data/adna/governance/source_library/projects/PRJEB60484/sample_chronology.json",
-        "data/adna/governance/source_library/projects/PRJEB60484/intake_dossier.json"
-      ]
-    },
-    {
-      "project_accession": "PRJEB60484",
-      "species_latin_name": "Rangifer tarandus",
-      "work_unit_type": "locality_string_resolution",
-      "work_unit_state": "pending_manual_curation",
-      "open_item_count": 1,
-      "rationale": "unresolved",
-      "downstream_impact": "blocks coordinate derivation and exact locality publication",
-      "recommended_source_surfaces": [
-        "archive_metadata",
-        "coordinate_resolution",
-        "tracked_source_artifact"
-      ]
-    },
-    {
-      "project_accession": "PRJEB60484",
-      "species_latin_name": "Rangifer tarandus",
-      "work_unit_type": "site_resolution",
-      "work_unit_state": "pending_manual_curation",
-      "open_item_count": 1,
-      "rationale": "recovered_sample_rows_still_lack_any_location_claim",
-      "downstream_impact": "blocks exact site, coordinate, and publication recovery",
-      "recommended_source_surfaces": []
     },
     {
       "project_accession": "PRJEB30282",

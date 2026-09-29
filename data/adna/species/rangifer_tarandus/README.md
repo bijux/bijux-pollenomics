@@ -24,11 +24,11 @@ flowchart LR
 - Curation class: `comparator_only`
 - Curated sample rows: `20`
 - Curated projects: `0`
-- Curated site rows: `8`
+- Curated site rows: `9`
 - Direct-coordinate rows: `0`
 - Geocoded rows: `0`
-- Unresolved sample rows: `1`
-- Mapped Nordic rows: `8`
+- Unresolved sample rows: `0`
+- Mapped Nordic rows: `9`
 - Tracked intake projects: `4`
 - Projects with sample recovery gaps: `0`
 - Projects with site-recovery gaps: `0`

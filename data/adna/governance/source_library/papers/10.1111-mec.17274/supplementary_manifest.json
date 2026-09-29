@@ -49,6 +49,21 @@
     {
       "row_kind": "archived_asset",
       "paper_doi": "10.1111/mec.17274",
+      "artifact_id": "10.1111-mec.17274:author-preprint-table-s3.xlsx",
+      "artifact_kind": "author_preprint_supplementary_xlsx",
+      "label": "author bioRxiv Table S3",
+      "source_url": "https://www.biorxiv.org/content/biorxiv/early/2023/09/22/2023.09.21.558762/DC2/embed/media-2.xlsx?download=true",
+      "local_path": "adna/governance/source_library/papers/10.1111-mec.17274/supplementary/author-preprint-table-s3.xlsx",
+      "fetch_status": "archived",
+      "content_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+      "byte_size": 60061,
+      "member_name": "",
+      "member_local_path": "",
+      "inferred_purpose": "Author preprint Table S3 has 18 ancient specimen rows and a distinct version role from the published Wiley appendix."
+    },
+    {
+      "row_kind": "archived_asset",
+      "paper_doi": "10.1111/mec.17274",
       "artifact_id": "PRJEB60484:archive_metadata.html",
       "artifact_kind": "archive_metadata_html",
       "label": "archive metadata page",

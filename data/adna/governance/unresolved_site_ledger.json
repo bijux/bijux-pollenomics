@@ -372,16 +372,6 @@
       "inclusion_note": "This sample row is curated into the species master table, but site and chronology extraction are still blocked until a project-owned site evidence row is curated from paper or supplementary support."
     },
     {
-      "species_latin_name": "Rangifer tarandus",
-      "species_common_name": "reindeer",
-      "project_accession": "PRJEB60484",
-      "stable_sample_id": "rangifer_tarandus:sample:prjeb60484:samea112757327",
-      "site_label": "site detail not yet extracted from tracked source support",
-      "paper_doi": "10.1111/mec.17274",
-      "supplementary_source": "",
-      "inclusion_note": "This sample row keeps chronology recovered from the sample-owned source row, but site extraction is still blocked until a project-owned site evidence row is curated from paper or supplementary support."
-    },
-    {
       "species_latin_name": "Sus scrofa domesticus",
       "species_common_name": "pig",
       "project_accession": "PRJEB30282",

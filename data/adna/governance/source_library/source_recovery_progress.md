@@ -2,18 +2,18 @@
 
 - Tracked projects: `40`
 - Sample identity rows present: `22`
-- Defensible site rows present: `14`
-- Sample-owned chronology present: `10`
+- Defensible site rows present: `15`
+- Sample-owned chronology present: `11`
 - Mappable coordinate projects: `11`
-- Ready for publication review: `10`
+- Ready for publication review: `11`
 
 ## Sample Evidence Depth
 
 The four mutually exclusive buckets partition `1470` species-normalized sample rows. The project source master has `1470` final rows; alignment is `aligned`. A site-only row has no normalized chronology; a site-and-chronology row has no coordinate text. The final bucket has coordinate text, not necessarily an approved mapped point.
 
 - sample identity only: `0`
-- sample with site: `540`
-- sample with site and chronology: `373`
+- sample with site: `539`
+- sample with site and chronology: `374`
 - sample with site chronology and coordinates: `557`
 
 | Project | Species | Completed stages | Required stages | Recovery depth score |
@@ -51,7 +51,7 @@ The four mutually exclusive buckets partition `1470` species-normalized sample r
 | `PRJEB69690` | `Ovis aries` | `1` | `7` | `0.1429` |
 | `PRJEB81145` | `Ovis aries` | `1` | `7` | `0.1429` |
 | `PRJEB57293` | `Rangifer tarandus` | `1` | `1` | `1.0` |
-| `PRJEB60484` | `Rangifer tarandus` | `3` | `7` | `0.4286` |
+| `PRJEB60484` | `Rangifer tarandus` | `6` | `7` | `0.8571` |
 | `PRJEB61721` | `Rangifer tarandus` | `1` | `1` | `1.0` |
 | `PRJNA634908` | `Rangifer tarandus` | `1` | `1` | `1.0` |
 | `PRJEB30282` | `Sus scrofa domesticus` | `4` | `8` | `0.5` |

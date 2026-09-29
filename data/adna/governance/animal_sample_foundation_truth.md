@@ -4,10 +4,10 @@
 - Tracked projects: `22`
 - Sample rows: `1470`
 - Fully grounded rows: `557`
-- Partially grounded rows: `371`
+- Partially grounded rows: `373`
 - Blocked by missing metadata: `11`
-- Blocked by missing location detail: `368`
-- Blocked by weak chronology: `163`
+- Blocked by missing location detail: `367`
+- Blocked by weak chronology: `162`
 
 ## Species rows
 
@@ -21,5 +21,5 @@
 | Canis lupus familiaris | 4 | 0 | 0 | 1 | 0 |
 | Felis catus | 106 | 35 | 0 | 0 | 44 |
 | Camelus dromedarius | 33 | 0 | 0 | 0 | 4 |
-| Rangifer tarandus | 20 | 0 | 0 | 1 | 1 |
+| Rangifer tarandus | 20 | 0 | 0 | 0 | 0 |
 | Equus asinus | 0 | 0 | 0 | 0 | 0 |

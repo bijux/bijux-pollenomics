@@ -309,6 +309,8 @@ def _artifact_kind_from_path(path: str) -> str:
         return "supplementary_spreadsheet_row"
     if path.endswith(".xlsx"):
         return "supplementary_spreadsheet_row"
+    if path.endswith(("/article.pdf", "/author_preprint.pdf")):
+        return "article_or_archive_text"
     if path.endswith(".pdf"):
         return "supplementary_pdf_text"
     if path.endswith(".html"):

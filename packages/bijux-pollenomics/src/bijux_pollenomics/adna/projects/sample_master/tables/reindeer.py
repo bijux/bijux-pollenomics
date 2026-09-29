@@ -32,6 +32,9 @@ _PREPRINT_S3_URL = (
     "https://www.biorxiv.org/content/biorxiv/early/2023/09/22/"
     "2023.09.21.558762/DC2/embed/media-2.xlsx?download=true"
 )
+_ARTICLE = f"{ADNA_SOURCE_LIBRARY_DIR}/papers/10.1111-mec.17274/article.pdf"
+_ARTICLE_SHA256 = "1446b3d42f066605e162cd043ae4eb2da1ef14748534af7b1205cada19d0fb3f"
+_ARTICLE_URL = "https://api.nva.unit.no/publication/0198cc66e16f-a743d6e1-054b-400e-a2c4-dd186a645095/filelink/dfe8ba06-53e4-4e80-856e-7a12dd0dbd3f"
 # Author preprint Table 1, printed pp. 41–43. The source gives UTM E/N but no zone;
 # these values are custody evidence only and do not become WGS84 map coordinates.
 _PREPRINT_ROWS = {
@@ -81,6 +84,12 @@ def reindeer_chronology_evidence(
     """Return the table row alone as provenance for an admitted date."""
     if row.project_accession != _PROJECT or not row.chronology_text:
         return None
+    if row.preferred_sample_label == "R20":
+        return (
+            _ARTICLE,
+            "Table 1 published p. 4, ID R20",
+            row.sample_lineage_excerpt,
+        )
     source = _WORKBOOK if row.supplementary_table_sample_label else _PREPRINT
     return (
         source,
@@ -133,6 +142,18 @@ def build_reindeer_sample_rows(
         or preprint_s3_receipt.get("preprint_version") != "1"
     ):
         raise ValueError("Reindeer author Table S3 receipt changed")
+    article_path = Path(output_root) / _ARTICLE.removeprefix("data/")
+    if sha256(read_source_artifact_bytes(article_path)).hexdigest() != _ARTICLE_SHA256:
+        raise ValueError("Reindeer published article changed")
+    article_receipt = json.loads(
+        article_path.with_suffix(".pdf.metadata.json").read_text(encoding="utf-8")
+    )
+    if (
+        article_receipt.get("source_url") != _ARTICLE_URL
+        or article_receipt.get("content_sha256") != _ARTICLE_SHA256
+        or article_receipt.get("published_article_doi") != "10.1111/mec.17274"
+    ):
+        raise ValueError("Reindeer published article receipt changed")
     preprint_s3_sheet = _read_xlsx_rows(preprint_s3_path, sheet_name="Tabellenblatt1")
     preprint_s3_ancient = preprint_s3_sheet[2:20]
     if (
@@ -284,7 +305,9 @@ def build_reindeer_sample_rows(
             raise ValueError(
                 f"Reindeer preprint and later table ages disagree: {alias}"
             )
-        if alias == "R20" and (preprint is None or preprint[4] == age):
+        if alias == "R20" and (
+            preprint is None or preprint[4] != "0-450" or age != "41-252"
+        ):
             raise ValueError("Reindeer R20 cross-publication date conflict changed")
         match_age = _AGE_RE.fullmatch(age)
         if match_age is None or int(match_age[1]) > int(match_age[2]):
@@ -293,13 +316,21 @@ def build_reindeer_sample_rows(
         if not int(match_age[1]) <= median <= int(match_age[2]):
             raise ValueError(f"Reindeer age median outside interval: {alias}")
         locator = f"SI Table S1 row {number}, Sample ID {cells[0]}"
-        # The primary paper's R20 interval differs from this later reanalysis.
-        # Keep its locality and identity; hold the age for source reconciliation.
-        dated = alias != "R20"
+        # The project-specific primary article is the authority for R20. Its
+        # broad interval contains the later reanalysis interval; retain both.
+        selected_age = preprint[4] if alias == "R20" and preprint else age
+        selected_median = None if alias == "R20" else median
         excerpt = (
             f"ENA BioSample {accession} aliases {alias}; supplementary table row "
             f"{number} reports {cells[3]}, {locality}, {age} BP (2 sigma), "
             f"median {median} BP; ENA BioProject field: {cells[13]}."
+            + (
+                " Published Molecular Ecology Table 1 p. 4 and author preprint "
+                "Table S3 row 20 give R20 0–450 calibrated BP (2 sigma); the "
+                "primary project interval is selected without a median."
+                if alias == "R20"
+                else ""
+            )
         )
         result.append(
             replace(
@@ -308,21 +339,31 @@ def build_reindeer_sample_rows(
                 paper_native_sample_label=alias if cells[13] == _PROJECT else "",
                 supplementary_table_sample_label=cells[0],
                 sample_evidence_status="direct_table_extracted",
-                sample_lineage_path=f"{relative} || {_WORKBOOK}",
-                sample_lineage_locator=f"SAMPLE[@accession='{accession}']/@alias || {locator}",
+                sample_lineage_path=(
+                    f"{relative} || {_ARTICLE} || {_PREPRINT_S3} || {_WORKBOOK}"
+                    if alias == "R20"
+                    else f"{relative} || {_WORKBOOK}"
+                ),
+                sample_lineage_locator=(
+                    f"SAMPLE[@accession='{accession}']/@alias || "
+                    "Table 1 published p. 4, ID R20 || Table S3 row 20, ID R20 || "
+                    f"{locator}"
+                    if alias == "R20"
+                    else f"SAMPLE[@accession='{accession}']/@alias || {locator}"
+                ),
                 sample_lineage_excerpt=excerpt,
                 sample_ambiguity_note=(
-                    "Secondary table reports 41–252 BP; the published primary article and author preprint both report 0–450 BP. The chronology selection remains unresolved."
-                    if not dated
+                    "Published primary-project interval 0–450 BP selected; later secondary reanalysis reports nested 41–252 BP. The narrower date is retained as an alternative, not silently merged or substituted."
+                    if alias == "R20"
                     else ""
                 ),
                 locality_text=locality,
                 political_entity="Russia" if alias in _FJL_ALIASES else "Norway",
-                chronology_text=f"{age} BP" if dated else "",
-                chronology_dating_basis="radiocarbon" if dated else "",
-                chronology_evidence_class="direct_radiocarbon_date" if dated else "",
-                chronology_precision_posture="sample_precise_interval" if dated else "",
-                chronology_time_mean_bp=median if dated else None,
+                chronology_text=f"{selected_age} BP",
+                chronology_dating_basis="radiocarbon",
+                chronology_evidence_class="direct_radiocarbon_date",
+                chronology_precision_posture="sample_precise_interval",
+                chronology_time_mean_bp=selected_median,
             )
         )
     if joined != set(table) - {"B20a"}:

@@ -10170,21 +10170,6 @@
       "chronology_provenance_path": "data/adna/governance/source_library/projects/SRP073444/archive_metadata.html || data/adna/governance/source_library/projects/SRP073444/ena_run_samples.tsv || data/adna/governance/source_library/projects/SRP073444/paper_table_s1_sample_bridge.csv",
       "chronology_provenance_locator": "experiment_accession:SRX1711558;run_accession:SRR3400290;sample_accession:SAMN04631967;Table S1:row 12;paper_sample_label:Palm143",
       "review_note": "Chronology comes from the recovered sample-owned source row."
-    },
-    {
-      "project_accession": "PRJEB60484",
-      "species_latin_name": "Rangifer tarandus",
-      "repo_stable_sample_id": "prjeb60484:samea112757337",
-      "preferred_sample_label": "R20",
-      "chronology_strength": "unresolved",
-      "chronology_evidence_class": "unresolved",
-      "chronology_precision_posture": "unresolved",
-      "chronology_normalization_status": "unresolved",
-      "chronology_text": "",
-      "chronology_conflict_note": "",
-      "chronology_provenance_path": "",
-      "chronology_provenance_locator": "",
-      "review_note": "No chronology claim has been recovered yet for this sample row."
     }
   ]
 }

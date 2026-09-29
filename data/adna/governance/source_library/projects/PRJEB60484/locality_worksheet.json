@@ -239,10 +239,10 @@
       "country_name": "Norway",
       "broader_geography": "",
       "geocoding_safe_token": "wijdefjorden",
-      "source_artifact_path": "data/adna/governance/source_library/projects/PRJEB60484/ena_samples/SAMEA112757337.xml || data/adna/governance/source_library/papers/10.1038-s41598-024-54296-2/supplementary/41598_2024_54296_MOESM2_ESM.xlsx",
+      "source_artifact_path": "data/adna/governance/source_library/projects/PRJEB60484/ena_samples/SAMEA112757337.xml || data/adna/governance/source_library/papers/10.1111-mec.17274/article.pdf || data/adna/governance/source_library/papers/10.1111-mec.17274/supplementary/author-preprint-table-s3.xlsx || data/adna/governance/source_library/papers/10.1038-s41598-024-54296-2/supplementary/41598_2024_54296_MOESM2_ESM.xlsx",
       "source_artifact_kind": "supplementary_spreadsheet_row",
-      "source_locator": "SAMPLE[@accession='SAMEA112757337']/@alias || SI Table S1 row 33, Sample ID R20*",
-      "source_excerpt": "ENA BioSample SAMEA112757337 aliases R20; supplementary table row 33 reports Spitsbergen, Wijdefjorden, 41-252 BP (2 sigma), median 123 BP; ENA BioProject field: PRJEB60484."
+      "source_locator": "SAMPLE[@accession='SAMEA112757337']/@alias || Table 1 published p. 4, ID R20 || Table S3 row 20, ID R20 || SI Table S1 row 33, Sample ID R20*",
+      "source_excerpt": "ENA BioSample SAMEA112757337 aliases R20; supplementary table row 33 reports Spitsbergen, Wijdefjorden, 41-252 BP (2 sigma), median 123 BP; ENA BioProject field: PRJEB60484. Published Molecular Ecology Table 1 p. 4 and author preprint Table S3 row 20 give R20 0–450 calibrated BP (2 sigma); the primary project interval is selected without a median."
     }
   ]
 }
