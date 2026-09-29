@@ -5,6 +5,9 @@ identity, producer, score table and limitations. The detailed governed outputs
 currently live under `docs/report/`; this root library is the reader entry point
 while their producer paths are migrated by domain.
 
+The [claim-to-evidence index](evidence-index.md) goes directly from each
+headline result to its numeric table, input identity, producer and scope.
+
 | Question | Read first | Evidence boundary |
 | --- | --- | --- |
 | What can the Nordic pollen data predict? | [Pollen prediction synthesis](science/pollen-prediction.md), [four-country author-axis study](../docs/report/regions/nordic/author-target-pollen/README.md) | Observed pollen, prior-exposed development; no independent vegetation score. |
