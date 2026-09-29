@@ -111,8 +111,8 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/swedish-direct-pollen/REPORT.md",
-      "sha256": "4b22d655cd8e7054830a1bcb6f481681643c7a8060577bbe8aab7375f6ac3979",
-      "bytes": 3958
+      "sha256": "2a1743a4870d03188fe70c41a2010f0ffe5a3ffa13c0b81dd7007ac935ad360f",
+      "bytes": 5124
     },
     {
       "path": "docs/report/pollen-reconstruction/swedish-direct-pollen/cohort.csv",
@@ -251,7 +251,7 @@
     },
     {
       "path": "docs/report/regions/nordic/README.md",
-      "sha256": "7a91886446c4ed5ef6f3b0f5c892e27aff675e3993873261a426ae9af75320b3",
+      "sha256": "884762fee0ec86933e093e7c38ed064af3a5ece5470247ebe7e0fb9420868740",
       "bytes": 40547
     },
     {

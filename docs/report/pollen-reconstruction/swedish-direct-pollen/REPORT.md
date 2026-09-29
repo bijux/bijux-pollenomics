@@ -21,6 +21,21 @@ The [EPD policy](https://epdweblog.org/epd_data_home/epd_policy/) states that EP
 
 Native ages are sample-owned calibrated radiocarbon years BP under one Neotoma chronology ID per dataset; sample older/younger uncertainty bounds are null. Fixed 500-year bins are an exploratory aggregation choice. The existing question bundle remains relevant to Rootsi workbook age labels, rights and workbook-to-Neotoma relationships; it does not block this Neotoma-only prediction.
 
+### Exact-name LandClim II parameter intersection
+
+The [published LandClim II parameter table](../../../../data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv) has six literal names among this study's 16 closed labels. Its source fall speeds and pollen productivity estimates are:
+
+| Native label | Fall speed (m/s) | PPE (SD) |
+| --- | ---: | ---: |
+| Betula | 0.024 | 5.106 (0.303) |
+| Ulmus | 0.032 | 1.27 (0.05) |
+| Salix | 0.022 | 1.182 (0.077) |
+| Cyperaceae | 0.035 | 0.962 (0.05) |
+| Filipendula | 0.006 | 3 (0.285) |
+| Plantago lanceolata | 0.029 | 2.33 (0.201) |
+
+Summing only these six labels in the [prepared site bins](prepared/) yields 50,208/129,750 native NISP at Abborrtjärnen (38.7%), 12,456/68,668 at Bussjösjön (18.1%) and 11,102/42,548 at Bökesjön (26.1%). These figures are a bounded exact-name support diagnostic. They do not authorize an LRA fit, identify a historical basin edge or define a complete vegetation denominator. The separate [author parameter binding](../../source-relations/neotoma/author-parameter-binding/README.md) concerns a different 31-target lookup and is not interchangeable with this six-name intersection.
+
 ## Reproduction
 
 The source and configuration hashes are recorded in `input-manifest.json`. From the repository root, reproduce into a new local output directory with `.venv/bin/python -m bijux_pollenomics_dev.source_completion.swedish_direct_pollen prepare --data-root data/neotoma/raw/neotoma_pollen_dataset_downloads --workdir artifacts/swedish-direct-pollen --config docs/report/pollen-reconstruction/swedish-direct-pollen/config.json`; run `predict --target-dataset-id 19913`, `53995`, and `54001` with the same workdir and config; then run `score --workdir artifacts/swedish-direct-pollen`. The source files are EPD datasets accessed through Neotoma and identified by DOI and contributors in `cohort.csv`. The tracked cohort, prepared site profiles, frozen predictions, score tables and exclusion rows in this directory preserve the published result independently of that local output directory.
