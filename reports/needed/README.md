@@ -12,6 +12,7 @@ sources remain in their governed source store.
 | Independent vegetation observations | Critical for ecological accuracy | Measurement source owner and ecological pairing review. |
 | HYDE source semantics | High for a land-use ablation | Exact release provider and reuse/metadata review. |
 | Historical publication inputs and taxonomy | High for full-paper reproduction | Archive producer or author and qualified taxon review. |
+| Swedish lake and archaeology context joins | High for field and multi-evidence interpretation | Lake/core, SEAD/archaeology and aDNA source owners with spatial and temporal review. |
 | Independent confirmation | High for generalization claims | A new source-qualified cohort owner before outcomes are opened. |
 
 These are evidence requests, not approvals. No outreach has been sent from this
@@ -30,9 +31,14 @@ does not identify LandClim's selected age model or time-window denominator.
 **Needed:** a citable physical-core/analytical-use crosswalk; LandClim-selected
 age model and workbook-age explanation; age-specific historical basin geometry;
 reviewed nonidentical taxon labels, PPE and model-eligible count denominator;
-source-specific reuse terms. The 3 ha event area and 98 m site radius are not a
-historical basin series. The original paper's IntCal98/BCal polynomial is not
-proven to be the selected LandClim model, and `E(T500)` is not a 500-grain raw
+source-specific reuse terms. The user's account that LandClim coauthor Anneli
+Poska shared Rootsi material is a provenance lead for a versioned author/source
+packet; authorship and access do not establish analytical or redistribution
+rights. A circle-derived radius is a testable approximation only after its
+area, date and source are bound to this core. The 3 ha event area and 98 m
+site radius are not a historical basin series. The original paper's
+IntCal98/BCal polynomial is not proven to be the selected LandClim model, and
+`E(T500)` is not a 500-grain raw
 denominator. Source custodians or a qualified LandClim reviewer can resolve
 these fields. Next action: bind an exact sample/window source packet and run
 the real reconstruction consumer, retaining refusals until each field is
@@ -124,7 +130,10 @@ and [PFT crosswalk](../../docs/report/publication-replay/landclim-pft-crosswalk/
 **Needed:** versioned original sequence selection, historical pollen input
 revisions, authenticated output transformation, source-qualified `ISTS`
 classification and uncertainty aggregation; qualified treatment of excluded
-or nonidentical pollen/PPE labels. The paper authors, archive custodian or
+or nonidentical pollen/PPE labels. In particular, the proposed
+`Hordeum/Secale` concept 3924 to `Secale` and `Triticum` concept 969 to
+`Cerealia` mappings require exact source-ID and taxonomic review before a
+count is relabeled or aggregated. The paper authors, archive custodian or
 reviewed method/source packet can resolve these questions. Next action:
 replay affected grid/window/taxon cells against exact source bytes before
 claiming full-paper correspondence.
@@ -135,6 +144,35 @@ values, exact TW2 archive differences, 79 Rootsi workbook candidates and
 revisions or covariance transformation. **Reopen when:** the producer or
 archive custodian supplies a versioned raw-row and PFT/SE transformation
 packet; replay the named cells and revise the correspondence result.
+
+## Swedish lake and archaeology context joins
+
+**Affected result:** current lake, archaeology, SEAD, aDNA and pollen products
+cannot yet support a joint source-qualified movement or land-use explanation
+for the user's proposed Finjasjön, Östra Ringsjön, Havgårdssjön,
+Bjäresjösjön and Uppåkra/Lund contexts. The [SEAD chronology review]
+(../../docs/report/source-relations/sead/chronology-claim-review/README.md)
+and [Swedish fieldwork preparation]
+(../../docs/report/countries/sweden/sweden_lake_fieldwork_preparation_v66.md)
+are leads, not a joined field decision for those named cores.
+
+**Needed:** an exact lake/core identity and dated basin packet for each
+candidate, source IDs and permissions for linked archaeology/SEAD and animal
+or human aDNA observations, calibrated intervals and spatial uncertainty,
+plus a declared estimand for any archaeology weighting. Qualified source,
+chronology and field reviewers must settle the joins. Next action: match one
+named candidate to retained lake and archaeology records, publish overlap or
+refusal with dependency and rights evidence, then test the effect of admitted
+context on its field dossier. PalaeOpen can guide metadata alignment; formal
+participation or outreach is not evidenced by local documentation.
+
+**Already checked:** the repository retains SEAD interval and chronology
+screens and historical Swedish lake preparation reports. The user's named
+locations are unverified candidate coordinates, not admitted physical cores
+or a migration path. **Reopen when:** a source packet binds a candidate lake,
+its core and at least one independent context observation on compatible place
+and time support, with permitted analytical use; run the joining consumer
+before closing the question.
 
 ## Independent confirmation
 
