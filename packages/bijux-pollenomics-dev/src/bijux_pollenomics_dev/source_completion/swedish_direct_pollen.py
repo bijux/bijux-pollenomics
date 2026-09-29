@@ -75,6 +75,7 @@ def _records(data_root: Path) -> dict[str, dict[str, Any]]:
 
 
 def prepare(data_root: Path, workdir: Path, config_path: Path) -> None:
+    """Prepare grouped Swedish source observations and fold identities."""
     config = json.loads(config_path.read_text(encoding="utf-8"))
     taxa = tuple(config["closed_taxa"])
     if len(taxa) != 16 or len(set(taxa)) != len(taxa):
@@ -337,6 +338,7 @@ def _load_profiles(workdir: Path) -> dict[str, dict[str, Any]]:
 
 
 def predict(target_dataset_id: str, workdir: Path, config_path: Path) -> None:
+    """Publish fixed-method predictions for one withheld Swedish dataset."""
     config = json.loads(config_path.read_text(encoding="utf-8"))
     site_metadata = config["sites"]
     if target_dataset_id not in site_metadata:
@@ -490,6 +492,7 @@ def predict(target_dataset_id: str, workdir: Path, config_path: Path) -> None:
 
 
 def score(workdir: Path) -> None:
+    """Score frozen Swedish predictions on eligible observed pollen."""
     profiles = _load_profiles(workdir)
     score_rows: list[dict[str, Any]] = []
     prediction_rows: list[dict[str, Any]] = []
@@ -640,6 +643,7 @@ def score(workdir: Path) -> None:
 
 
 def main() -> None:
+    """Run the CLI to prepare and run a grouped direct-pollen prediction on three EPD datasets."""
     parser = argparse.ArgumentParser()
     commands = parser.add_subparsers(dest="command", required=True)
     prepare_parser = commands.add_parser("prepare")

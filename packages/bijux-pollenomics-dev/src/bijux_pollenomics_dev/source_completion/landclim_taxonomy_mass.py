@@ -231,6 +231,7 @@ def publish(repository: Path, author_source_root: Path, output: Path) -> dict[st
 
 
 def main() -> None:
+    """Run the CLI to measure Swedish native pollen counts against the authors' taxonomy lookup."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repository", type=Path, required=True)
     parser.add_argument("--author-source-root", type=Path, required=True)

@@ -307,6 +307,7 @@ def compare_core(
 
 
 def main() -> int:
+    """Run the CLI to compare one Swedish Neotoma core lead with published LandClim metadata."""
     parser = argparse.ArgumentParser(description=__doc__)
     for name in (
         "raw_part",

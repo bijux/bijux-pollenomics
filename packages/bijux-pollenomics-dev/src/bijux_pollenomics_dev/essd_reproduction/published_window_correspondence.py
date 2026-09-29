@@ -330,6 +330,7 @@ def build_correspondence(
 
 
 def main() -> int:
+    """Run the CLI to compare an exact author time window with pinned ESSD published estimates."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--raw", type=Path, required=True)
     parser.add_argument("--author", type=Path, required=True)

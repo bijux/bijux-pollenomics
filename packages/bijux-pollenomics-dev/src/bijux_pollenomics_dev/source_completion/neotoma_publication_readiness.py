@@ -237,6 +237,7 @@ def build(repository: Path, capture_root: Path) -> dict[str, Any]:
 
 
 def main() -> None:
+    """Run the CLI to attribute the Neotoma datasets used in Nordic direct-pollen development."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repository", type=Path, required=True)
     parser.add_argument("--capture-root", type=Path, required=True)

@@ -17,10 +17,12 @@ XML = {"x": "http://schemas.openxmlformats.org/spreadsheetml/2006/main"}
 
 
 def digest(path: Path) -> str:
+    """Hash one source file for a pinned site-identity comparison."""
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
 def normalized_name(name: str) -> str:
+    """Normalize a site name for conservative text comparison."""
     return unicodedata.normalize("NFC", name).strip().casefold()
 
 
@@ -38,6 +40,7 @@ def distance_km(a: tuple[float, float], b: tuple[float, float]) -> float:
 
 
 def point_geometry(payload: dict[str, object]) -> tuple[float, float] | None:
+    """Read point coordinates only when source geometry is complete."""
     raw = payload.get("geography")
     if not isinstance(raw, str):
         return None
@@ -56,6 +59,7 @@ def point_geometry(payload: dict[str, object]) -> tuple[float, float] | None:
 
 
 def sheet_rows(archive: ZipFile, member: str) -> list[tuple[int, dict[str, str]]]:
+    """Read worksheet rows with the workbook shared-string table."""
     shared = ET.fromstring(archive.read("xl/sharedStrings.xml"))
     strings = [
         "".join(node.text or "" for node in item.findall(".//x:t", XML))
@@ -79,6 +83,7 @@ def sheet_rows(archive: ZipFile, member: str) -> list[tuple[int, dict[str, str]]
 
 
 def published_sites(workbook: Path, receipt_path: Path) -> list[dict[str, Any]]:
+    """Read published site rows from a pinned workbook and receipt."""
     receipt = json.loads(receipt_path.read_text())
     asset = next(
         row
@@ -132,6 +137,7 @@ def published_sites(workbook: Path, receipt_path: Path) -> list[dict[str, Any]]:
 def compare(
     workbook: Path, receipt_path: Path, projection_path: Path, sites_path: Path
 ) -> tuple[list[dict[str, Any]], dict[str, Any]]:
+    """Compare published and source site identities without basin transfer."""
     landclim = published_sites(workbook, receipt_path)
     projection = json.loads(projection_path.read_text())
     selected = {
@@ -236,6 +242,7 @@ def compare(
 
 
 def main() -> int:
+    """Run the CLI to compare pinned Swedish site identities without transferring basin geometry."""
     parser = argparse.ArgumentParser(description=__doc__)
     for name in ("workbook", "receipt", "projection", "sites"):
         parser.add_argument(f"--{name}", required=True, type=Path)

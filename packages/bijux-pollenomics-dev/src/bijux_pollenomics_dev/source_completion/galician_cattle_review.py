@@ -178,6 +178,7 @@ def build(
     capture: Path,
     output: Path,
 ) -> dict[str, Any]:
+    """Review the pinned Galician cattle paper before project species promotion."""
     paths = {
         "article": capture / "article.html",
         "correction": capture / "correction.html",
@@ -231,6 +232,7 @@ def build(
 
 
 def main() -> None:
+    """Run the CLI to review the pinned Galician cattle paper before project species promotion."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repository", type=Path, required=True)
     parser.add_argument("--capture", type=Path, required=True)

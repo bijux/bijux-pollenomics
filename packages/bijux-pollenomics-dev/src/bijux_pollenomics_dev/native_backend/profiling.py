@@ -370,6 +370,7 @@ def run(repository: Path, repetitions: int = 7) -> dict[str, Any]:
 
 
 def main() -> None:
+    """Run the CLI to freeze public LRA workloads and retain repeated Python baseline measurements."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repository", required=True, type=Path)
     parser.add_argument("--output", required=True, type=Path)

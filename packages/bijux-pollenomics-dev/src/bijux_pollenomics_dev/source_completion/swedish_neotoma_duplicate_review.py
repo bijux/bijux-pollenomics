@@ -13,6 +13,7 @@ from .swedish_neotoma_holdout import PROTOCOL, RELATIONAL, _rows
 
 
 def review(repository: Path, output: Path) -> dict[str, Any]:
+    """Compare parallel EPD datasets from the same Storasjö collection unit."""
     repository, output = repository.resolve(), output.resolve()
     if output.exists() or not output.is_relative_to(repository / "artifacts"):
         raise ValueError("Absent repository artifact destination required")
@@ -94,6 +95,7 @@ def review(repository: Path, output: Path) -> dict[str, Any]:
 
 
 def main() -> None:
+    """Run the CLI to compare parallel EPD datasets from the same Storasjö collection unit."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repository", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)

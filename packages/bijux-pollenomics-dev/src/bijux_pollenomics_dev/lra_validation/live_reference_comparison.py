@@ -257,6 +257,7 @@ def summarize(
 
 
 def main() -> int:
+    """Run the CLI to preserve and compare current native R output with the original R certificate."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repository", type=Path, required=True)
     parser.add_argument("--run", type=Path, required=True)

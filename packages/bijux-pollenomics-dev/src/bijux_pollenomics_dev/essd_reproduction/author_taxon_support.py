@@ -211,6 +211,7 @@ def publish(source_root: Path, output: Path) -> dict[str, object]:
 
 
 def main() -> None:
+    """Run the CLI to trace author-example prepared taxon rows back to raw source headers."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--source-root", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)

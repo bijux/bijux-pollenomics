@@ -39,6 +39,7 @@ def _peak_bytes() -> int:
 def child(
     method: str, shape: tuple[int, int, int], library_path: Path, destination: Path
 ) -> dict[str, Any]:
+    """Measure one isolated forward-model worker and retain its memory receipt."""
     if method not in METHODS or shape not in SHAPES:
         raise ValueError("Undeclared memory case")
     arrays = inputs(*shape)
@@ -77,6 +78,7 @@ def child(
 
 
 def run(repository: Path, output: Path, compiler: Path) -> dict[str, Any]:
+    """Compare bounded NumPy and C++ worker memory on identical shapes."""
     repository, output = repository.resolve(), output.resolve()
     if output.exists() or not output.is_relative_to(repository / "artifacts"):
         raise ValueError("Absent output root under repository artifacts required")
@@ -221,6 +223,7 @@ def run(repository: Path, output: Path, compiler: Path) -> dict[str, Any]:
 
 
 def main() -> int:
+    """Run the CLI to measure isolated worker memory for the scoped NumPy/C++ forward boundary."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repository", type=Path)
     parser.add_argument("--output", type=Path)

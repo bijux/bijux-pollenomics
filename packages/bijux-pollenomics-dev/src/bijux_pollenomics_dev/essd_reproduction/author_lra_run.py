@@ -13,6 +13,7 @@ from bijux_pollenomics.analysis.lra_validation.experiments import (
 
 
 def main() -> None:
+    """Run bounded whole-site LRA folds for author-prepared development inputs."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--inputs", type=Path, required=True)
     parser.add_argument("--cache-root", type=Path, required=True)

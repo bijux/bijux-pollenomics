@@ -114,6 +114,7 @@ def _crop_totals(
 
 
 def publish(source_root: Path, output: Path) -> dict[str, object]:
+    """Reconcile a native HYDE cropland grid with source country totals."""
     root = source_root.resolve()
     inputs: list[dict[str, str]] = []
     general = (root / GENERAL).read_bytes()
@@ -180,6 +181,7 @@ def publish(source_root: Path, output: Path) -> dict[str, object]:
 
 
 def main() -> None:
+    """Run the CLI to reconcile a native HYDE cropland grid with source country totals."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--source-root", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)

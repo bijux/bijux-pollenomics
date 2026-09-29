@@ -174,6 +174,7 @@ def publish(
 
 
 def main() -> None:
+    """Run the CLI to join Neotoma review concepts to literal LandClim author taxonomy names."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repository", type=Path, required=True)
     parser.add_argument("--author-source-root", type=Path, required=True)

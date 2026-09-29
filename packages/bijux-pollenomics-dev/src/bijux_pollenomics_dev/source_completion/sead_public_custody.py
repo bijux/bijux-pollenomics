@@ -161,6 +161,7 @@ def reconcile(
 
 
 def run(repository: Path, output: Path) -> dict[str, Any]:
+    """Reconcile governed SEAD joins and source UUIDs through the Nordic map input."""
     repository, output = repository.resolve(), output.resolve()
     if output.exists() or not output.is_relative_to(repository / "artifacts"):
         raise ValueError("Absent repository artifact destination required")
@@ -230,6 +231,7 @@ def run(repository: Path, output: Path) -> dict[str, Any]:
 
 
 def main() -> int:
+    """Run the CLI to reconcile governed SEAD joins and source UUIDs through the Nordic map input."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repository", required=True, type=Path)
     parser.add_argument("--output", required=True, type=Path)

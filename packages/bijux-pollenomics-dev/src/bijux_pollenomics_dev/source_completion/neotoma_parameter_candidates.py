@@ -116,6 +116,7 @@ def publish(repository: Path, output: Path) -> dict[str, object]:
 
 
 def main() -> None:
+    """Run the CLI to retain literal Neotoma pollen-name leads for published LandClim parameters."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repository", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)

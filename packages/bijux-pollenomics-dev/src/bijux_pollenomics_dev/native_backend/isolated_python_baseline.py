@@ -192,6 +192,7 @@ def run(repository: Path, output: Path) -> dict[str, Any]:
 
 
 def main() -> None:
+    """Run the CLI to measure each declared Python LRA workload in a fresh worker process."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repository", type=Path)
     parser.add_argument("--output", type=Path)

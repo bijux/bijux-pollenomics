@@ -255,6 +255,7 @@ def build(data_root: Path, destination: Path) -> dict[str, Any]:
 
 
 def main() -> None:
+    """Run the CLI to publish source-owned sample trajectories for the admitted Swedish EPD cohort."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--data-root", type=Path, required=True)
     parser.add_argument("--destination", type=Path, required=True)

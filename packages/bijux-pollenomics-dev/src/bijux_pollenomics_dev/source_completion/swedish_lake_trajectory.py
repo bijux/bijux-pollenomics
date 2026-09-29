@@ -278,6 +278,7 @@ def publish(repository: Path, output: Path) -> dict[str, Any]:
 
 
 def main() -> None:
+    """Run the CLI to compare two observed-pollen series with independent dated site context."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repository", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)

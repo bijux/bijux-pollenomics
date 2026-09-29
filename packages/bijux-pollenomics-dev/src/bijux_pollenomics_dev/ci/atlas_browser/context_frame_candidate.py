@@ -34,6 +34,7 @@ PROFILE: Literal["calendar-bp1950-signed.v1"] = "calendar-bp1950-signed.v1"
 
 
 def record_digest(value: Any) -> str:
+    """Hash a canonical modeled or native frame record."""
     return hashlib.sha256(
         json.dumps(value, sort_keys=True, separators=(",", ":")).encode()
     ).hexdigest()
@@ -64,6 +65,7 @@ def generate_context_frame_candidates(
     product_manifest_sha256: str,
     geometry_sha256: str,
 ) -> dict[str, Any]:
+    """Render retained modeled and signed native frames without numerical execution."""
     repository, destination = repository.resolve(), destination.resolve()
     if not destination.is_relative_to(repository / "artifacts"):
         raise ValueError("candidate must be generated under repository artifacts")
@@ -288,6 +290,7 @@ def generate_context_frame_candidates(
 
 
 def main() -> None:
+    """Run the CLI to render retained modeled and signed native frames without numerical execution."""
     parser = argparse.ArgumentParser(description=__doc__)
     for name in ("repository", "destination", "native-product", "native-geometry"):
         parser.add_argument(f"--{name}", type=Path, required=True)

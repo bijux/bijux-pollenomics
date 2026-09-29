@@ -275,6 +275,7 @@ def prepare(repository: Path, author_source_root: Path, output: Path) -> None:
 
 
 def main() -> None:
+    """Run the CLI to prepare a metadata-selected Swedish lake cohort for fixed pollen transfer."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("stage", choices=("prepare", "predict", "score"))
     parser.add_argument("--repository", type=Path)

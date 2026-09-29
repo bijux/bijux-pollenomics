@@ -375,6 +375,7 @@ def compare_historical(
 
 
 def main() -> None:
+    """Run the CLI to replay one governed Swedish land-use product and classify its semantic diff."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repository", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)

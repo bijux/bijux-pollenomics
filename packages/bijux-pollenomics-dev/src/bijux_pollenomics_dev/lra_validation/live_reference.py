@@ -256,6 +256,7 @@ def execute(
 
 
 def main() -> int:
+    """Run the CLI to install only missing locked R dependencies and execute the original oracle."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repository", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)

@@ -51,15 +51,19 @@ class SiteGeometry:
 
     @property
     def record_id(self) -> str:
+        """Return the stable author record identifier for this site."""
         return f"author:{self.site_id}"
 
     @property
     def group_id(self) -> str:
+        """Return the physical-site group identifier for this author site."""
         return site_group_id((self.record_id,))
 
 
 @dataclass(frozen=True)
 class AuthorStudy:
+    """Bind author source files, bins, taxa and physical site geometry."""
+
     author: Path
     source_hashes: dict[str, str]
     source_manifest_sha256: str

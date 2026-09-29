@@ -252,6 +252,7 @@ def compare_casefold_counts(
 
 
 def main() -> int:
+    """Run the CLI to compare uniquely casefolded Bussjösjön workbook and Neotoma counts."""
     parser_ = argparse.ArgumentParser(description=__doc__)
     parser_.add_argument("--workbook", type=Path, required=True)
     parser_.add_argument("--raw-part", type=Path, required=True)

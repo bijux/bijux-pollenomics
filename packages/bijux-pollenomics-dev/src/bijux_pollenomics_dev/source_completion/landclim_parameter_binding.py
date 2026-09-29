@@ -129,6 +129,7 @@ def publish(repository: Path, author_source_root: Path, output: Path) -> dict[st
 
 
 def main() -> None:
+    """Run the CLI to bind author-harmonized Swedish pollen targets to the author REVEALS inputs."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repository", type=Path, required=True)
     parser.add_argument("--author-source-root", type=Path, required=True)

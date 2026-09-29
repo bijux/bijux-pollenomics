@@ -248,6 +248,7 @@ def summarize_author_lra(
 
 
 def main() -> None:
+    """Run the CLI to retain bounded negative and scored author LRA development outcomes."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--inputs", type=Path, required=True)
     parser.add_argument("--predictions", type=Path, required=True)

@@ -366,6 +366,7 @@ def build_change_time_challenge(
 
 
 def main() -> int:
+    """Run the CLI to score first observed events against independently declared step-change truth."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()

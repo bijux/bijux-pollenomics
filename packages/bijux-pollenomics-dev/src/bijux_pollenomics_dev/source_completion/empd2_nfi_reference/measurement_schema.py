@@ -177,6 +177,7 @@ def build(private_source_store: Path) -> dict[str, object]:
 
 
 def main() -> None:
+    """Run the CLI to read the pinned Swedish NFI field dictionary without opening plot outcomes."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--private-source-store", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)

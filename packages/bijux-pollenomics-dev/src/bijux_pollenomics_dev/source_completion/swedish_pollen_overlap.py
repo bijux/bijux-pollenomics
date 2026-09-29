@@ -96,6 +96,7 @@ def build(sites_path: Path, landclim_path: Path, output: Path) -> dict[str, Any]
 
 
 def main() -> None:
+    """Run the CLI to detect Swedish source-site overlap before any independence claim."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--sites", type=Path, required=True)
     parser.add_argument("--landclim", type=Path, required=True)

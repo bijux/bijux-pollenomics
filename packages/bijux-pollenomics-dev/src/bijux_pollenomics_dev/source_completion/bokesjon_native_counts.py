@@ -226,6 +226,7 @@ def compare_cells(
 
 
 def main() -> int:
+    """Run the CLI to pair retained Bökesjön workbook cells with explicit Neotoma NISP rows."""
     parser_ = argparse.ArgumentParser(description=__doc__)
     parser_.add_argument("--workbook", type=Path, required=True)
     parser_.add_argument("--raw-part", type=Path, required=True)

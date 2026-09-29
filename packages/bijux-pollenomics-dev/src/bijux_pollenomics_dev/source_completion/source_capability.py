@@ -207,6 +207,7 @@ def derive(stage: dict[str, Any], coverage: dict[str, Any]) -> dict[str, Any]:
 
 
 def run(repository: Path, output: Path) -> dict[str, Any]:
+    """Read the governed source-stage and country ledgers without merging meanings."""
     repository, output = repository.resolve(), output.resolve()
     if output.exists() or not output.is_relative_to(repository / "artifacts"):
         raise ValueError("Absent repository artifact destination required")
@@ -239,6 +240,7 @@ def run(repository: Path, output: Path) -> dict[str, Any]:
 
 
 def main() -> int:
+    """Run the CLI to read the governed source-stage and country ledgers without merging meanings."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repository", required=True, type=Path)
     parser.add_argument("--output", required=True, type=Path)

@@ -187,6 +187,7 @@ def publish(repository: Path, output: Path) -> dict[str, object]:
 
 
 def main() -> None:
+    """Run the CLI to measure literal LandClim parameter-name mass in Swedish source pollen bins."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repository", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)

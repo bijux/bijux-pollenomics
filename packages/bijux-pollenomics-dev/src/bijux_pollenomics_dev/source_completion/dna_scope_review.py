@@ -227,6 +227,7 @@ def derive(root: Path, values: dict[str, dict[str, Any]]) -> dict[str, Any]:
 
 
 def build(root: Path, output: Path) -> dict[str, Any]:
+    """Reconcile human and animal ancient-DNA source posture without merging units."""
     values: dict[str, dict[str, Any]] = {}
     inputs = []
     for name in INPUTS:
@@ -240,6 +241,7 @@ def build(root: Path, output: Path) -> dict[str, Any]:
 
 
 def main() -> None:
+    """Run the CLI to reconcile human and animal ancient-DNA source posture without merging units."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repository", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)

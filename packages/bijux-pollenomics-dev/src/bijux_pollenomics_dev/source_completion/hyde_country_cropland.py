@@ -98,6 +98,7 @@ def _table(data: bytes, codes: dict[str, str]) -> dict[tuple[str, int], Decimal]
 
 
 def publish(source_root: Path, output: Path) -> dict[str, object]:
+    """Extract source-reported HYDE cropland totals for four Nordic countries."""
     root = source_root.resolve()
     inputs: list[dict[str, str]] = []
     general = (root / GENERAL).read_bytes()
@@ -160,6 +161,7 @@ def publish(source_root: Path, output: Path) -> dict[str, object]:
 
 
 def main() -> None:
+    """Run the CLI to extract source-reported HYDE cropland totals for four Nordic countries."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--source-root", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)

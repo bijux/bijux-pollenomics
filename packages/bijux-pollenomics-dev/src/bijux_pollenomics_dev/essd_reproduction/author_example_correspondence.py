@@ -318,6 +318,7 @@ def build_correspondence(
 
 
 def main() -> int:
+    """Run the CLI to export cellwise ESSD author-example correspondence from a retained parity run."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--run", type=Path, required=True)
     parser.add_argument("--reference", type=Path, required=True)

@@ -27,6 +27,7 @@ SWEDISH_MASS = Path(
 
 
 def prepare(repository: Path, output: Path) -> None:
+    """Prepare source-bound Swedish pollen on the Nordic author target axis."""
     repository = repository.resolve()
     retained = repository / NORDIC
     original_path = retained / "input-manifest.json"
@@ -162,6 +163,7 @@ def prepare(repository: Path, output: Path) -> None:
 
 
 def main() -> None:
+    """Run the CLI to hold out Swedish lakes on the retained Nordic 31-target pollen response."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("stage", choices=("prepare", "predict", "score"))
     parser.add_argument("--repository", type=Path)

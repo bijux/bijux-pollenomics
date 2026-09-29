@@ -229,6 +229,7 @@ def _nordic_profiles(
 
 
 def prepare(repository: Path, author_source_root: Path, output: Path) -> None:
+    """Prepare authenticated Nordic pollen inputs on the author target axis."""
     repository = repository.resolve()
     mapping, lookup_rows = _lookup(author_source_root.resolve() / LOOKUP)
     axis = tuple(sorted(set(mapping.values()) - EXCLUDED_TARGETS))
@@ -310,6 +311,7 @@ def prepare(repository: Path, author_source_root: Path, output: Path) -> None:
 def predict(
     prepared: Path, output: Path, countries: tuple[str, ...] = COUNTRIES
 ) -> None:
+    """Publish country-held-out predictions before target pollen is opened."""
     manifest = json.loads((prepared / "input-manifest.json").read_text())
     axis = manifest["axis"]
     output.mkdir(parents=True, exist_ok=False)
@@ -415,6 +417,7 @@ def score(
     output: Path,
     countries: tuple[str, ...] = COUNTRIES,
 ) -> None:
+    """Score frozen country predictions against exact target pollen counts."""
     manifest_path = prepared / "input-manifest.json"
     manifest = json.loads(manifest_path.read_text())
     axis = manifest["axis"]
@@ -636,6 +639,7 @@ def score(
 
 
 def main() -> None:
+    """Run the CLI to predict held-out Nordic pollen on the authors' 31-target count axis."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("stage", choices=("prepare", "predict", "score"))
     parser.add_argument("--repository", type=Path)

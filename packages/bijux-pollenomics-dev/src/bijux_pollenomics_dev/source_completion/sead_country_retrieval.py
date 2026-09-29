@@ -353,6 +353,7 @@ def build(repository: Path, output: Path) -> dict[str, Any]:
 
 
 def main() -> None:
+    """Run the CLI to reconcile SEAD country discovery, retained retrieval and public site rows."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repository", required=True, type=Path)
     parser.add_argument("--output", required=True, type=Path)

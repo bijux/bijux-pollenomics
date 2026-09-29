@@ -234,6 +234,7 @@ def build_screen(data_root: Path) -> tuple[dict[str, Any], str]:
 
 
 def main() -> None:
+    """Run the CLI to screen source-native SEAD observations in pollen-named datasets."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--data-root", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)

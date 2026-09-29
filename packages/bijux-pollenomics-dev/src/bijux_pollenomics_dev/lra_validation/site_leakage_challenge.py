@@ -343,6 +343,7 @@ def build_site_leakage_challenge(
 
 
 def main() -> int:
+    """Run the CLI to exercise grouped site exclusions and no-target-pollen prediction on synthetic truth."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()

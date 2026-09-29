@@ -180,6 +180,7 @@ def publish(repository: Path, source: Path, output: Path) -> dict[str, Any]:
 
 
 def main() -> None:
+    """Run the CLI to reconcile published ABBO radiocarbon dates with Neotoma chronology controls."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repository", type=Path, required=True)
     parser.add_argument("--source", type=Path, required=True)

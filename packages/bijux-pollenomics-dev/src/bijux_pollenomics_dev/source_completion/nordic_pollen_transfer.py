@@ -510,6 +510,7 @@ def score(
 
 
 def main() -> None:
+    """Run the CLI to freeze selected Nordic pollen predictions before paired outer-country scoring."""
     parser = argparse.ArgumentParser(description=__doc__)
     commands = parser.add_subparsers(dest="command", required=True)
     for name in ("predict", "score"):

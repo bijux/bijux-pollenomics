@@ -23,6 +23,7 @@ RECTANGLES = {
 
 
 def digest(payload: bytes) -> str:
+    """Hash exact boundary candidate bytes for identity checks."""
     return hashlib.sha256(payload).hexdigest()
 
 
@@ -63,6 +64,7 @@ def boundary_layers() -> list[dict[str, Any]]:
 
 
 def generate_candidate(repository: Path, destination: Path) -> dict[str, Any]:
+    """Render controlled boundary geometry through the production atlas document."""
     repository, destination = repository.resolve(), destination.resolve()
     if not destination.is_relative_to(repository / "artifacts"):
         raise ValueError("candidate must be generated under repository artifacts")
@@ -138,6 +140,7 @@ def generate_candidate(repository: Path, destination: Path) -> dict[str, Any]:
 
 
 def main() -> None:
+    """Run the CLI to render controlled boundary geometry through the production atlas document."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repository", required=True, type=Path)
     parser.add_argument("--destination", required=True, type=Path)

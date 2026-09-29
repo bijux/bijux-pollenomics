@@ -345,6 +345,7 @@ def build(
 
 
 def main() -> None:
+    """Run the CLI to bind EMPD2–NFI spatial leads to source rows and explicit pair refusals."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repository", type=Path, required=True)
     parser.add_argument("--private-source-store", type=Path, required=True)

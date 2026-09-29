@@ -18,6 +18,8 @@ METRICS = ("mae_fraction", "total_variation")
 
 
 class SiteSummary(TypedDict):
+    """Hold site-level scores on common fitted and fixed-method support."""
+
     site_id: str
     block_grid_id: str
     common_scored_bins: int
@@ -243,6 +245,7 @@ def compare_fitted_scores(
 
 
 def main() -> int:
+    """Run the CLI to pair fitted and fixed pollen predictions on the same observed site bins."""
     parser = argparse.ArgumentParser(description=__doc__)
     for method in METHODS:
         parser.add_argument(f"--{method.replace('_', '-')}", type=Path, required=True)
