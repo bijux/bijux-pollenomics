@@ -4,6 +4,7 @@ import unittest
 
 from bijux_pollenomics.adna.projects.evidence.sites import (
     build_species_site_evidence_rows,
+    resolve_project_context_site_evidence,
     resolve_project_site_evidence,
 )
 
@@ -111,7 +112,7 @@ class AdnaSiteEvidenceUnitTests(unittest.TestCase):
         self,
     ) -> None:
         for accession in ("SRS1407451", "SRP073444"):
-            row = resolve_project_site_evidence(accession)[0]
+            row = resolve_project_context_site_evidence(accession)[0]
             self.assertEqual(row.coordinate_basis, "unresolved_location_state")
             self.assertEqual(row.latitude_text, "")
             self.assertEqual(row.longitude_text, "")
@@ -130,10 +131,12 @@ class AdnaSiteEvidenceUnitTests(unittest.TestCase):
             )
         )
 
-        camel = resolve_project_site_evidence("SRP073444")[0]
+        camel = resolve_project_context_site_evidence("SRP073444")[0]
         self.assertEqual(
-            camel.site_label, "Site 1040 near Wadi Halfa dromedary context"
+            camel.site_label, "Site 1040 near Wadi Halfa C. thomasi context"
         )
+        self.assertEqual(camel.species_latin_name, "Camelus dromedarius")
+        self.assertIn("C. thomasi", camel.interpretation_note)
         self.assertEqual(camel.chronology_text, "Late Pleistocene")
 
     def test_comparator_site_evidence_rows_stay_marked_as_comparators(self) -> None:

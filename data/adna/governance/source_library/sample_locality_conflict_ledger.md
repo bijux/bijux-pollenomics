@@ -1947,62 +1947,62 @@
 | PRJNA1328209 | prjna1328209:dc48-1 | Lake Qinghai basin | article_text | Lake Qinghai Basin ancient goat context | project_context_cannot_substitute_for_sample_owned_or_unresolved_sample_locality |
 | PRJNA1328209 | prjna1328209:dc48-1 | Lake Qinghai basin | coordinate_resolution | Lake Qinghai Basin ancient goat context | coordinate_resolution_names_a_different_place_than_the_sample_row |
 | SRP073444 | srp073444:samn04631877 | Palmyra | article_text | Site 1040 near Wadi Halfa | project_context_disagrees_with_sample_owned_site |
-| SRP073444 | srp073444:samn04631877 | Palmyra | article_text | Site 1040 near Wadi Halfa dromedary context | project_context_disagrees_with_sample_owned_site |
-| SRP073444 | srp073444:samn04631877 | Palmyra | coordinate_resolution | Site 1040 near Wadi Halfa dromedary context | project_context_disagrees_with_sample_owned_site |
+| SRP073444 | srp073444:samn04631877 | Palmyra | article_text | Site 1040 near Wadi Halfa C. thomasi context | project_context_disagrees_with_sample_owned_site |
+| SRP073444 | srp073444:samn04631877 | Palmyra | coordinate_resolution | Site 1040 near Wadi Halfa C. thomasi context | project_context_disagrees_with_sample_owned_site |
 | SRP073444 | srp073444:samn04631949 | Al Sufouh 2 | article_text | Site 1040 near Wadi Halfa | project_context_disagrees_with_sample_owned_site |
-| SRP073444 | srp073444:samn04631949 | Al Sufouh 2 | article_text | Site 1040 near Wadi Halfa dromedary context | project_context_disagrees_with_sample_owned_site |
-| SRP073444 | srp073444:samn04631949 | Al Sufouh 2 | coordinate_resolution | Site 1040 near Wadi Halfa dromedary context | project_context_disagrees_with_sample_owned_site |
+| SRP073444 | srp073444:samn04631949 | Al Sufouh 2 | article_text | Site 1040 near Wadi Halfa C. thomasi context | project_context_disagrees_with_sample_owned_site |
+| SRP073444 | srp073444:samn04631949 | Al Sufouh 2 | coordinate_resolution | Site 1040 near Wadi Halfa C. thomasi context | project_context_disagrees_with_sample_owned_site |
 | SRP073444 | srp073444:samn04631950 | Al Sufouh 2 | article_text | Site 1040 near Wadi Halfa | project_context_disagrees_with_sample_owned_site |
-| SRP073444 | srp073444:samn04631950 | Al Sufouh 2 | article_text | Site 1040 near Wadi Halfa dromedary context | project_context_disagrees_with_sample_owned_site |
-| SRP073444 | srp073444:samn04631950 | Al Sufouh 2 | coordinate_resolution | Site 1040 near Wadi Halfa dromedary context | project_context_disagrees_with_sample_owned_site |
+| SRP073444 | srp073444:samn04631950 | Al Sufouh 2 | article_text | Site 1040 near Wadi Halfa C. thomasi context | project_context_disagrees_with_sample_owned_site |
+| SRP073444 | srp073444:samn04631950 | Al Sufouh 2 | coordinate_resolution | Site 1040 near Wadi Halfa C. thomasi context | project_context_disagrees_with_sample_owned_site |
 | SRP073444 | srp073444:samn04631951 | Muweilah (Sharjah) | article_text | Site 1040 near Wadi Halfa | project_context_disagrees_with_sample_owned_site |
-| SRP073444 | srp073444:samn04631951 | Muweilah (Sharjah) | article_text | Site 1040 near Wadi Halfa dromedary context | project_context_disagrees_with_sample_owned_site |
-| SRP073444 | srp073444:samn04631951 | Muweilah (Sharjah) | coordinate_resolution | Site 1040 near Wadi Halfa dromedary context | project_context_disagrees_with_sample_owned_site |
+| SRP073444 | srp073444:samn04631951 | Muweilah (Sharjah) | article_text | Site 1040 near Wadi Halfa C. thomasi context | project_context_disagrees_with_sample_owned_site |
+| SRP073444 | srp073444:samn04631951 | Muweilah (Sharjah) | coordinate_resolution | Site 1040 near Wadi Halfa C. thomasi context | project_context_disagrees_with_sample_owned_site |
 | SRP073444 | srp073444:samn04631952 | Muweilah (Sharjah) | article_text | Site 1040 near Wadi Halfa | project_context_disagrees_with_sample_owned_site |
-| SRP073444 | srp073444:samn04631952 | Muweilah (Sharjah) | article_text | Site 1040 near Wadi Halfa dromedary context | project_context_disagrees_with_sample_owned_site |
-| SRP073444 | srp073444:samn04631952 | Muweilah (Sharjah) | coordinate_resolution | Site 1040 near Wadi Halfa dromedary context | project_context_disagrees_with_sample_owned_site |
+| SRP073444 | srp073444:samn04631952 | Muweilah (Sharjah) | article_text | Site 1040 near Wadi Halfa C. thomasi context | project_context_disagrees_with_sample_owned_site |
+| SRP073444 | srp073444:samn04631952 | Muweilah (Sharjah) | coordinate_resolution | Site 1040 near Wadi Halfa C. thomasi context | project_context_disagrees_with_sample_owned_site |
 | SRP073444 | srp073444:samn04631953 | Tell Abraq | article_text | Site 1040 near Wadi Halfa | project_context_disagrees_with_sample_owned_site |
-| SRP073444 | srp073444:samn04631953 | Tell Abraq | article_text | Site 1040 near Wadi Halfa dromedary context | project_context_disagrees_with_sample_owned_site |
-| SRP073444 | srp073444:samn04631953 | Tell Abraq | coordinate_resolution | Site 1040 near Wadi Halfa dromedary context | project_context_disagrees_with_sample_owned_site |
+| SRP073444 | srp073444:samn04631953 | Tell Abraq | article_text | Site 1040 near Wadi Halfa C. thomasi context | project_context_disagrees_with_sample_owned_site |
+| SRP073444 | srp073444:samn04631953 | Tell Abraq | coordinate_resolution | Site 1040 near Wadi Halfa C. thomasi context | project_context_disagrees_with_sample_owned_site |
 | SRP073444 | srp073444:samn04631954 | Muweilah (Sharjah) | article_text | Site 1040 near Wadi Halfa | project_context_disagrees_with_sample_owned_site |
-| SRP073444 | srp073444:samn04631954 | Muweilah (Sharjah) | article_text | Site 1040 near Wadi Halfa dromedary context | project_context_disagrees_with_sample_owned_site |
-| SRP073444 | srp073444:samn04631954 | Muweilah (Sharjah) | coordinate_resolution | Site 1040 near Wadi Halfa dromedary context | project_context_disagrees_with_sample_owned_site |
+| SRP073444 | srp073444:samn04631954 | Muweilah (Sharjah) | article_text | Site 1040 near Wadi Halfa C. thomasi context | project_context_disagrees_with_sample_owned_site |
+| SRP073444 | srp073444:samn04631954 | Muweilah (Sharjah) | coordinate_resolution | Site 1040 near Wadi Halfa C. thomasi context | project_context_disagrees_with_sample_owned_site |
 | SRP073444 | srp073444:samn04631955 | Al Buhais 18 | article_text | Site 1040 near Wadi Halfa | project_context_disagrees_with_sample_owned_site |
-| SRP073444 | srp073444:samn04631955 | Al Buhais 18 | article_text | Site 1040 near Wadi Halfa dromedary context | project_context_disagrees_with_sample_owned_site |
-| SRP073444 | srp073444:samn04631955 | Al Buhais 18 | coordinate_resolution | Site 1040 near Wadi Halfa dromedary context | project_context_disagrees_with_sample_owned_site |
+| SRP073444 | srp073444:samn04631955 | Al Buhais 18 | article_text | Site 1040 near Wadi Halfa C. thomasi context | project_context_disagrees_with_sample_owned_site |
+| SRP073444 | srp073444:samn04631955 | Al Buhais 18 | coordinate_resolution | Site 1040 near Wadi Halfa C. thomasi context | project_context_disagrees_with_sample_owned_site |
 | SRP073444 | srp073444:samn04631956 | Al Buhais 18 | article_text | Site 1040 near Wadi Halfa | project_context_disagrees_with_sample_owned_site |
-| SRP073444 | srp073444:samn04631956 | Al Buhais 18 | article_text | Site 1040 near Wadi Halfa dromedary context | project_context_disagrees_with_sample_owned_site |
-| SRP073444 | srp073444:samn04631956 | Al Buhais 18 | coordinate_resolution | Site 1040 near Wadi Halfa dromedary context | project_context_disagrees_with_sample_owned_site |
+| SRP073444 | srp073444:samn04631956 | Al Buhais 18 | article_text | Site 1040 near Wadi Halfa C. thomasi context | project_context_disagrees_with_sample_owned_site |
+| SRP073444 | srp073444:samn04631956 | Al Buhais 18 | coordinate_resolution | Site 1040 near Wadi Halfa C. thomasi context | project_context_disagrees_with_sample_owned_site |
 | SRP073444 | srp073444:samn04631957 | Tell Abraq | article_text | Site 1040 near Wadi Halfa | project_context_disagrees_with_sample_owned_site |
-| SRP073444 | srp073444:samn04631957 | Tell Abraq | article_text | Site 1040 near Wadi Halfa dromedary context | project_context_disagrees_with_sample_owned_site |
-| SRP073444 | srp073444:samn04631957 | Tell Abraq | coordinate_resolution | Site 1040 near Wadi Halfa dromedary context | project_context_disagrees_with_sample_owned_site |
+| SRP073444 | srp073444:samn04631957 | Tell Abraq | article_text | Site 1040 near Wadi Halfa C. thomasi context | project_context_disagrees_with_sample_owned_site |
+| SRP073444 | srp073444:samn04631957 | Tell Abraq | coordinate_resolution | Site 1040 near Wadi Halfa C. thomasi context | project_context_disagrees_with_sample_owned_site |
 | SRP073444 | srp073444:samn04631958 | Tell Abraq | article_text | Site 1040 near Wadi Halfa | project_context_disagrees_with_sample_owned_site |
-| SRP073444 | srp073444:samn04631958 | Tell Abraq | article_text | Site 1040 near Wadi Halfa dromedary context | project_context_disagrees_with_sample_owned_site |
-| SRP073444 | srp073444:samn04631958 | Tell Abraq | coordinate_resolution | Site 1040 near Wadi Halfa dromedary context | project_context_disagrees_with_sample_owned_site |
+| SRP073444 | srp073444:samn04631958 | Tell Abraq | article_text | Site 1040 near Wadi Halfa C. thomasi context | project_context_disagrees_with_sample_owned_site |
+| SRP073444 | srp073444:samn04631958 | Tell Abraq | coordinate_resolution | Site 1040 near Wadi Halfa C. thomasi context | project_context_disagrees_with_sample_owned_site |
 | SRP073444 | srp073444:samn04631959 | Umm an-Nar | article_text | Site 1040 near Wadi Halfa | project_context_disagrees_with_sample_owned_site |
-| SRP073444 | srp073444:samn04631959 | Umm an-Nar | article_text | Site 1040 near Wadi Halfa dromedary context | project_context_disagrees_with_sample_owned_site |
-| SRP073444 | srp073444:samn04631959 | Umm an-Nar | coordinate_resolution | Site 1040 near Wadi Halfa dromedary context | project_context_disagrees_with_sample_owned_site |
+| SRP073444 | srp073444:samn04631959 | Umm an-Nar | article_text | Site 1040 near Wadi Halfa C. thomasi context | project_context_disagrees_with_sample_owned_site |
+| SRP073444 | srp073444:samn04631959 | Umm an-Nar | coordinate_resolution | Site 1040 near Wadi Halfa C. thomasi context | project_context_disagrees_with_sample_owned_site |
 | SRP073444 | srp073444:samn04631960 | Apamea | article_text | Site 1040 near Wadi Halfa | project_context_disagrees_with_sample_owned_site |
-| SRP073444 | srp073444:samn04631960 | Apamea | article_text | Site 1040 near Wadi Halfa dromedary context | project_context_disagrees_with_sample_owned_site |
-| SRP073444 | srp073444:samn04631960 | Apamea | coordinate_resolution | Site 1040 near Wadi Halfa dromedary context | project_context_disagrees_with_sample_owned_site |
+| SRP073444 | srp073444:samn04631960 | Apamea | article_text | Site 1040 near Wadi Halfa C. thomasi context | project_context_disagrees_with_sample_owned_site |
+| SRP073444 | srp073444:samn04631960 | Apamea | coordinate_resolution | Site 1040 near Wadi Halfa C. thomasi context | project_context_disagrees_with_sample_owned_site |
 | SRP073444 | srp073444:samn04631961 | Aqaba | article_text | Site 1040 near Wadi Halfa | project_context_disagrees_with_sample_owned_site |
-| SRP073444 | srp073444:samn04631961 | Aqaba | article_text | Site 1040 near Wadi Halfa dromedary context | project_context_disagrees_with_sample_owned_site |
-| SRP073444 | srp073444:samn04631961 | Aqaba | coordinate_resolution | Site 1040 near Wadi Halfa dromedary context | project_context_disagrees_with_sample_owned_site |
+| SRP073444 | srp073444:samn04631961 | Aqaba | article_text | Site 1040 near Wadi Halfa C. thomasi context | project_context_disagrees_with_sample_owned_site |
+| SRP073444 | srp073444:samn04631961 | Aqaba | coordinate_resolution | Site 1040 near Wadi Halfa C. thomasi context | project_context_disagrees_with_sample_owned_site |
 | SRP073444 | srp073444:samn04631962 | Aqaba | article_text | Site 1040 near Wadi Halfa | project_context_disagrees_with_sample_owned_site |
-| SRP073444 | srp073444:samn04631962 | Aqaba | article_text | Site 1040 near Wadi Halfa dromedary context | project_context_disagrees_with_sample_owned_site |
-| SRP073444 | srp073444:samn04631962 | Aqaba | coordinate_resolution | Site 1040 near Wadi Halfa dromedary context | project_context_disagrees_with_sample_owned_site |
+| SRP073444 | srp073444:samn04631962 | Aqaba | article_text | Site 1040 near Wadi Halfa C. thomasi context | project_context_disagrees_with_sample_owned_site |
+| SRP073444 | srp073444:samn04631962 | Aqaba | coordinate_resolution | Site 1040 near Wadi Halfa C. thomasi context | project_context_disagrees_with_sample_owned_site |
 | SRP073444 | srp073444:samn04631963 | Aqaba | article_text | Site 1040 near Wadi Halfa | project_context_disagrees_with_sample_owned_site |
-| SRP073444 | srp073444:samn04631963 | Aqaba | article_text | Site 1040 near Wadi Halfa dromedary context | project_context_disagrees_with_sample_owned_site |
-| SRP073444 | srp073444:samn04631963 | Aqaba | coordinate_resolution | Site 1040 near Wadi Halfa dromedary context | project_context_disagrees_with_sample_owned_site |
+| SRP073444 | srp073444:samn04631963 | Aqaba | article_text | Site 1040 near Wadi Halfa C. thomasi context | project_context_disagrees_with_sample_owned_site |
+| SRP073444 | srp073444:samn04631963 | Aqaba | coordinate_resolution | Site 1040 near Wadi Halfa C. thomasi context | project_context_disagrees_with_sample_owned_site |
 | SRP073444 | srp073444:samn04631964 | Aqaba | article_text | Site 1040 near Wadi Halfa | project_context_disagrees_with_sample_owned_site |
-| SRP073444 | srp073444:samn04631964 | Aqaba | article_text | Site 1040 near Wadi Halfa dromedary context | project_context_disagrees_with_sample_owned_site |
-| SRP073444 | srp073444:samn04631964 | Aqaba | coordinate_resolution | Site 1040 near Wadi Halfa dromedary context | project_context_disagrees_with_sample_owned_site |
+| SRP073444 | srp073444:samn04631964 | Aqaba | article_text | Site 1040 near Wadi Halfa C. thomasi context | project_context_disagrees_with_sample_owned_site |
+| SRP073444 | srp073444:samn04631964 | Aqaba | coordinate_resolution | Site 1040 near Wadi Halfa C. thomasi context | project_context_disagrees_with_sample_owned_site |
 | SRP073444 | srp073444:samn04631965 | Aqaba | article_text | Site 1040 near Wadi Halfa | project_context_disagrees_with_sample_owned_site |
-| SRP073444 | srp073444:samn04631965 | Aqaba | article_text | Site 1040 near Wadi Halfa dromedary context | project_context_disagrees_with_sample_owned_site |
-| SRP073444 | srp073444:samn04631965 | Aqaba | coordinate_resolution | Site 1040 near Wadi Halfa dromedary context | project_context_disagrees_with_sample_owned_site |
+| SRP073444 | srp073444:samn04631965 | Aqaba | article_text | Site 1040 near Wadi Halfa C. thomasi context | project_context_disagrees_with_sample_owned_site |
+| SRP073444 | srp073444:samn04631965 | Aqaba | coordinate_resolution | Site 1040 near Wadi Halfa C. thomasi context | project_context_disagrees_with_sample_owned_site |
 | SRP073444 | srp073444:samn04631966 | Aqaba | article_text | Site 1040 near Wadi Halfa | project_context_disagrees_with_sample_owned_site |
-| SRP073444 | srp073444:samn04631966 | Aqaba | article_text | Site 1040 near Wadi Halfa dromedary context | project_context_disagrees_with_sample_owned_site |
-| SRP073444 | srp073444:samn04631966 | Aqaba | coordinate_resolution | Site 1040 near Wadi Halfa dromedary context | project_context_disagrees_with_sample_owned_site |
+| SRP073444 | srp073444:samn04631966 | Aqaba | article_text | Site 1040 near Wadi Halfa C. thomasi context | project_context_disagrees_with_sample_owned_site |
+| SRP073444 | srp073444:samn04631966 | Aqaba | coordinate_resolution | Site 1040 near Wadi Halfa C. thomasi context | project_context_disagrees_with_sample_owned_site |
 | SRP073444 | srp073444:samn04631967 | Palmyra | article_text | Site 1040 near Wadi Halfa | project_context_disagrees_with_sample_owned_site |
-| SRP073444 | srp073444:samn04631967 | Palmyra | article_text | Site 1040 near Wadi Halfa dromedary context | project_context_disagrees_with_sample_owned_site |
-| SRP073444 | srp073444:samn04631967 | Palmyra | coordinate_resolution | Site 1040 near Wadi Halfa dromedary context | project_context_disagrees_with_sample_owned_site |
+| SRP073444 | srp073444:samn04631967 | Palmyra | article_text | Site 1040 near Wadi Halfa C. thomasi context | project_context_disagrees_with_sample_owned_site |
+| SRP073444 | srp073444:samn04631967 | Palmyra | coordinate_resolution | Site 1040 near Wadi Halfa C. thomasi context | project_context_disagrees_with_sample_owned_site |

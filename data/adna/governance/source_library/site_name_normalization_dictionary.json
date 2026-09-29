@@ -8962,10 +8962,10 @@
     {
       "project_accession": "SRP073444",
       "species_latin_name": "Camelus dromedarius",
-      "normalized_display_spelling": "Site 1040 near Wadi Halfa dromedary context",
-      "geocoding_safe_token": "site1040nearwadihalfadromedarycontext",
+      "normalized_display_spelling": "Site 1040 near Wadi Halfa C. thomasi context",
+      "geocoding_safe_token": "site1040nearwadihalfacthomasicontext",
       "original_source_spellings": [
-        "Site 1040 near Wadi Halfa dromedary context",
+        "Site 1040 near Wadi Halfa C. thomasi context",
         "Wadi Halfa"
       ],
       "alternative_spellings": [

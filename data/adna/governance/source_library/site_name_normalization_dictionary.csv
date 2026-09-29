@@ -557,7 +557,7 @@ SRP073444,Camelus dromedarius,Aqaba,aqaba,Aqaba,,archive_metadata,excavation_sit
 SRP073444,Camelus dromedarius,Muweilah (Sharjah),muweilahsharjah,Muweilah (Sharjah),,archive_metadata,excavation_site
 SRP073444,Camelus dromedarius,Palmyra,palmyra,Palmyra,,archive_metadata,excavation_site
 SRP073444,Camelus dromedarius,Site 1040 near Wadi Halfa,site1040nearwadihalfa,Site 1040 near Wadi Halfa,,article_text,country
-SRP073444,Camelus dromedarius,Site 1040 near Wadi Halfa dromedary context,site1040nearwadihalfadromedarycontext,Site 1040 near Wadi Halfa dromedary context;Wadi Halfa,Wadi Halfa,article_text;coordinate_resolution,broader_locality;country
+SRP073444,Camelus dromedarius,Site 1040 near Wadi Halfa C. thomasi context,site1040nearwadihalfacthomasicontext,Site 1040 near Wadi Halfa C. thomasi context;Wadi Halfa,Wadi Halfa,article_text;coordinate_resolution,broader_locality;country
 SRP073444,Camelus dromedarius,Tell Abraq,tellabraq,Tell Abraq,,archive_metadata,excavation_site
 SRP073444,Camelus dromedarius,Umm an-Nar,ummannar,Umm an-Nar,,archive_metadata,excavation_site
 SRS1407451,Canis lupus familiaris,Ancient European dog CTC sample context,ancienteuropeandogctcsamplecontext,Ancient European dog CTC sample context;Central Europe multi-site dog context,Central Europe multi-site dog context,article_text;coordinate_resolution,broader_locality

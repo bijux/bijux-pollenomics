@@ -2950,7 +2950,7 @@
       "project_accession": "SRP073444",
       "species_latin_name": "Camelus dromedarius",
       "species_common_name": "camel",
-      "site_label": "Site 1040 near Wadi Halfa dromedary context",
+      "site_label": "Site 1040 near Wadi Halfa C. thomasi context",
       "original_place_text": "Site 1040 near Wadi Halfa",
       "resolved_place_text": "Wadi Halfa",
       "political_entity": "Sudan",
@@ -2973,7 +2973,7 @@
       "dating_basis": "relative_period",
       "comparator_context": false,
       "domestication_context": "non_nordic_domestication_context",
-      "interpretation_note": "Camel now keeps one named-place resolution trail instead of only a broad Arabian/Levant centroid.",
+      "interpretation_note": "The Wadi Halfa city anchor is approximate context for the paper's C. thomasi Site 1040 specimen, not a coordinate or sample relation for the linked dromedary BioSamples.",
       "support_gap_note": ""
     }
   ],
