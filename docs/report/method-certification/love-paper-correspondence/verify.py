@@ -14,9 +14,17 @@ PAPER = Path(
 EXAMPLE = Path(
     "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/data/LOVEexampleParams.json"
 )
+POLLEN = Path(
+    "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/data/LOVEexamplePollen.json"
+)
+RINGS = Path(
+    "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/data/LOVEexampleRings.json"
+)
 PINNED = {
     PAPER: "9c0ce8de012ee978d158a402856fd4fcf3fbda3fcaf71d6257964b893b9a392e",
     EXAMPLE: "34e861280b7a6ee4bc2d938f2f7c891ea057c44cdc3bfd60e5c27eadca915430",
+    POLLEN: "40e94bd1b261097ba6417054975f60a6d525b239cf3604079030e0929f0e0fcc",
+    RINGS: "bd574247e704e446dd2d3d70895aeefeae6d6d9f067436e289692cf3a5048445",
 }
 
 
@@ -44,6 +52,8 @@ def build_report(repository: Path) -> dict[str, Any]:
     """Require all published values to match the pinned example by row position."""
     paper, paper_input = _read_pinned(repository, PAPER)
     example, example_input = _read_pinned(repository, EXAMPLE)
+    pollen, pollen_input = _read_pinned(repository, POLLEN)
+    rings, rings_input = _read_pinned(repository, RINGS)
     if paper.get("schema_version") != "love-paper-parameter-tables.v1":
         raise ValueError("Published parameter table schema changed")
     published = paper.get("table_2")
@@ -89,17 +99,35 @@ def build_report(repository: Path) -> dict[str, Any]:
         ("Grasses", "Gras")
     ]:
         raise ValueError("Published and package taxon labels differ unexpectedly")
+    pollen_table = pollen.get("LOVEexamplePollen")
+    ring_table = rings.get("LOVEexampleRings")
+    if not isinstance(pollen_table, dict) or not isinstance(ring_table, dict):
+        raise ValueError("Package LOVE example pollen or ring table missing")
+    pollen_rows = pollen_table.get("data")
+    ring_rows = ring_table.get("data")
+    if not isinstance(pollen_rows, list) or not isinstance(ring_rows, list):
+        raise ValueError("Package LOVE example rows missing")
+    if pollen_table.get("index") != ["local", "regional"] or len(pollen_rows) != 2:
+        raise ValueError("Package LOVE example pollen scope changed")
+    if len(ring_rows) != 36 or ring_rows[-1][5] != 100000.0:
+        raise ValueError("Package LOVE example ring scope changed")
     return {
         "schema_version": "love-paper-source-parameter-correspondence.v1",
         "status": "bounded_numeric_match",
-        "inputs": [paper_input, example_input],
+        "inputs": [paper_input, example_input, pollen_input, rings_input],
         "compared_taxa": len(comparisons),
         "compared_numeric_cells": len(comparisons) * 3,
         "numeric_cells_equal": len(comparisons) * 3,
         "exact_label_rows": len(comparisons) - len(differing),
         "different_label_rows": differing,
         "rows": comparisons,
-        "scope": "Published Table 2 versus pinned later DISQOVER example parameters; this does not establish the software version or spatial inputs used for Figure 2.",
+        "package_example_scope": {
+            "pollen_row_labels": pollen_table["index"],
+            "pollen_row_count": len(pollen_rows),
+            "ring_row_count": len(ring_rows),
+            "last_ring_outer_as_published": ring_rows[-1][5],
+        },
+        "scope": "Published Table 2 versus pinned later DISQOVER example parameters. The packaged two-row pollen/one-ring-layout example is not the article's eight-pond Figure 2 simulation; the software version and spatial/draw inputs remain unestablished.",
     }
 
 

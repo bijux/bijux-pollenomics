@@ -11,6 +11,16 @@
       "path": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/data/LOVEexampleParams.json",
       "bytes": 1103,
       "sha256": "34e861280b7a6ee4bc2d938f2f7c891ea057c44cdc3bfd60e5c27eadca915430"
+    },
+    {
+      "path": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/data/LOVEexamplePollen.json",
+      "bytes": 284,
+      "sha256": "40e94bd1b261097ba6417054975f60a6d525b239cf3604079030e0929f0e0fcc"
+    },
+    {
+      "path": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/data/LOVEexampleRings.json",
+      "bytes": 2407,
+      "sha256": "bd574247e704e446dd2d3d70895aeefeae6d6d9f067436e289692cf3a5048445"
     }
   ],
   "compared_taxa": 10,
@@ -142,5 +152,14 @@
       ]
     }
   ],
-  "scope": "Published Table 2 versus pinned later DISQOVER example parameters; this does not establish the software version or spatial inputs used for Figure 2."
+  "package_example_scope": {
+    "pollen_row_labels": [
+      "local",
+      "regional"
+    ],
+    "pollen_row_count": 2,
+    "ring_row_count": 36,
+    "last_ring_outer_as_published": 100000.0
+  },
+  "scope": "Published Table 2 versus pinned later DISQOVER example parameters. The packaged two-row pollen/one-ring-layout example is not the article's eight-pond Figure 2 simulation; the software version and spatial/draw inputs remain unestablished."
 }
