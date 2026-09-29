@@ -19,6 +19,10 @@ The [open research needs](needed/README.md) list exact evidence questions that
 would change current conclusions. An answered question moves into its owning
 report and is removed from that open list.
 
+The [report ownership map](architecture/ownership.md) records the existing
+`docs/report/` size and path dependencies, and the proposed boundary for each
+kind of material while report producers are migrated by domain.
+
 ## How to read a claim
 
 Check its source and physical-site identity, count/taxon denominator, age and
