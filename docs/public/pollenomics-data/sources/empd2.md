@@ -63,8 +63,9 @@ review. In the source SQLite, all 20 carry age-uncertainty code `A`. Its own
 range label “0BP to Present”. Their source-native `agebp` values are `-46`
 (16 samples), `-55` (two), `-48` (one) and `-30` (one). The exact 20 source rows
 and the three lookup definitions are retained in
-`artifacts/v3/reference/empd2-age-lookup-20260921/probe.json` (SHA-256
-`c39ebc03ddd038a8f013767fa7745b57ad6c6e602533fd014963bb540241068f`).
+`reference-sources/empd2-nfi/empd2/age-lookup.json` relative to the private
+source store; see the [custody manifest](../../../report/validation/empd2-nfi-pairing/private-source-custody.json).
+Its SHA-256 is `c39ebc03ddd038a8f013767fa7745b57ad6c6e602533fd014963bb540241068f`.
 
 The [EMPD2 source paper](https://essd.copernicus.org/articles/12/2423/2020/)
 describes Age BP as a numeric sample-age field and age uncertainty as a

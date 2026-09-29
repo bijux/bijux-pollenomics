@@ -148,8 +148,8 @@ def _validated_rows(document: Mapping[str, object]) -> list[dict[str, object]]:
 
 def _validate_paths(value: object) -> None:
     expected = [
-        ("artifacts/v3/reference/empd2-intake001/EMPD2.sqlite3", _SOURCE_SHA),
-        ("artifacts/v3/reference/empd2-product-screen001/report003.json", _SCREEN_SHA),
+        ("reference-sources/empd2-nfi/empd2/source.sqlite3", _SOURCE_SHA),
+        ("reference-sources/empd2-nfi/empd2/product-screen.json", _SCREEN_SHA),
     ]
     if not isinstance(value, list) or any(not isinstance(row, dict) for row in value):
         raise CountryCoverageError("EMPD2 evidence paths must be an object array")

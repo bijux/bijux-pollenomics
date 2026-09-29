@@ -5,6 +5,7 @@ from __future__ import annotations
 import csv
 from hashlib import sha256
 import json
+import os
 from pathlib import Path
 
 import pytest
@@ -32,9 +33,16 @@ def test_tracked_guide_and_refusal_fields() -> None:
 
 
 def test_local_review_inputs_remain_source_bound_when_present() -> None:
-    if any(not (REPOSITORY / path).is_file() for path, _ in SOURCE_INPUTS.values()):
-        pytest.skip("original review reports are optional local source inputs")
-    projection, dossier, spatial = review_inputs(REPOSITORY)
+    private_root = os.environ.get("BIJUX_POLLENOMICS_SOURCE_ROOT")
+    if private_root is None or any(
+        not (
+            (REPOSITORY if name == "slu-calibration-guide.pdf" else Path(private_root))
+            / path
+        ).is_file()
+        for name, (path, _) in SOURCE_INPUTS.items()
+    ):
+        pytest.skip("private review reports are optional local source inputs")
+    projection, dossier, spatial = review_inputs(REPOSITORY, Path(private_root))
     assert projection["candidate_count"] == 16
     assert projection["admitted_pair_count"] == 0
     assert dossier["selected_lead_count"] == 16
@@ -65,9 +73,7 @@ def test_existing_destination_refused_before_private_source_access(
     output = tmp_path / "existing"
     output.mkdir()
     with pytest.raises(ValueError, match="Absent output destination required"):
-        build(
-            REPOSITORY, tmp_path / "private.sqlite3", tmp_path / "private.xlsx", output
-        )
+        build(REPOSITORY, tmp_path, output)
 
 
 def test_public_projection_excludes_source_plot_location_and_key() -> None:

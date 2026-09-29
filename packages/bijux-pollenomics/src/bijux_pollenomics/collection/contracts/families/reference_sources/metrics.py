@@ -56,29 +56,29 @@ _EXPECTED_SOURCE_SHA256 = {
 _EXPECTED_EVIDENCE_PATHS = {
     "empd2": (
         (
-            "artifacts/v3/reference/empd2-intake001/EMPD2.sqlite3",
+            "reference-sources/empd2-nfi/empd2/source.sqlite3",
             "5634e85d922ee0741c41a77d081010c9cc1c113966b283bc52e2051a9d3722e2",
         ),
         (
-            "artifacts/v3/reference/empd2-product-screen001/report003.json",
+            "reference-sources/empd2-nfi/empd2/product-screen.json",
             "6ca256d6e74d6129ee058bea36e8d28c1199bb276d68c0548e0b998853773aaa",
         ),
     ),
     "nfi": (
         (
-            "artifacts/v3/reference/nordic-nfi-access-20260922/receipt.json",
+            "reference-sources/empd2-nfi/nfi/nordic-access.json",
             "b0ab87f8016b561d84cdff16e74500df1b2f1e4013f4600a3d7e0ec0942d6825",
         ),
         (
-            "artifacts/v3/reference/swedish-nfi-eligibility002/report.json",
+            "reference-sources/empd2-nfi/nfi/swedish-eligibility.json",
             "a38cba2995ec1c71f7276a4798f2ea79778f4cbbbb587bc507f902b71abc33fd",
         ),
         (
-            "artifacts/v3/reference/empd2-nfi-feasibility001/report004.json",
+            "reference-sources/empd2-nfi/pairing/spatial-feasibility.json",
             "5d35aed59cb5e3b49582976264837fab1c8d4ffa3dc1937e73bf2f04f32e2c66",
         ),
         (
-            "artifacts/v3/reference/swedish-nfi-plot001/swe_nfi_plotdata2.xlsx",
+            "reference-sources/empd2-nfi/nfi/swedish-plot-data.xlsx",
             "862d13f26b868e3b32504f0f714f369018e700e54b245fcd2e16c80640316294",
         ),
     ),

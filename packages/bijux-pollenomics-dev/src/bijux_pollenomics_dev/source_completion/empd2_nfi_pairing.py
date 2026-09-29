@@ -18,11 +18,11 @@ from bijux_pollenomics_dev.source_completion.empd2_nfi_reference import (
 
 SOURCE_INPUTS = {
     "source-dossier.json": (
-        Path("artifacts/v3/reference/empd2-nfi-provenance001/report004.json"),
+        Path("reference-sources/empd2-nfi/pairing/source-provenance.json"),
         "bcab3834980f6934143f3a2bf4e2a0155bf3c7024850989de4f0f28f89584c31",
     ),
     "spatial-screen.json": (
-        Path("artifacts/v3/reference/empd2-nfi-feasibility001/report004.json"),
+        Path("reference-sources/empd2-nfi/pairing/spatial-feasibility.json"),
         "5d35aed59cb5e3b49582976264837fab1c8d4ffa3dc1937e73bf2f04f32e2c66",
     ),
     "slu-calibration-guide.pdf": (
@@ -105,11 +105,18 @@ def _file_sha(path: Path) -> str:
 
 
 def review_inputs(
-    repository: Path,
+    repository: Path, private_source_store: Path
 ) -> tuple[dict[str, Any], dict[str, Any], dict[str, Any]]:
-    """Authenticate the tracked outcome-free review inputs in any checkout."""
+    """Authenticate private review inputs and the tracked public guide."""
     source_bytes = {
-        name: (repository / path).read_bytes()
+        name: (
+            (
+                repository
+                if name == "slu-calibration-guide.pdf"
+                else private_source_store
+            )
+            / path
+        ).read_bytes()
         for name, (path, _) in SOURCE_INPUTS.items()
     }
     for name, (_, expected) in SOURCE_INPUTS.items():
@@ -246,17 +253,20 @@ def public_rows(rows: list[dict[str, object]]) -> list[dict[str, object]]:
 
 
 def build(
-    repository: Path, empd2_source: Path, nfi_workbook: Path, output: Path
+    repository: Path, private_source_store: Path, output: Path
 ) -> dict[str, object]:
     """Write a deterministic, source-checked refusal ledger at an absent path."""
     if output.exists():
         raise ValueError("Absent output destination required")
-    repository, empd2_source, nfi_workbook, output = (
-        path.resolve() for path in (repository, empd2_source, nfi_workbook, output)
+    repository, private_source_store, output = (
+        path.resolve() for path in (repository, private_source_store, output)
     )
+    source_root = private_source_store / "reference-sources/empd2-nfi"
+    empd2_source = source_root / "empd2/source.sqlite3"
+    nfi_workbook = source_root / "nfi/swedish-plot-data.xlsx"
     if _file_sha(empd2_source) != EMPD2_SHA256 or _file_sha(nfi_workbook) != NFI_SHA256:
         raise ValueError("EMPD2 or NFI original source identity changed")
-    projection, dossier, spatial = review_inputs(repository)
+    projection, dossier, spatial = review_inputs(repository, private_source_store)
     rows = decision_rows(projection, dossier, _nfi_rows(nfi_workbook))
     if _file_sha(empd2_source) != EMPD2_SHA256 or _file_sha(nfi_workbook) != NFI_SHA256:
         raise ValueError("EMPD2 or NFI source changed during pairing")
@@ -337,11 +347,10 @@ def build(
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repository", type=Path, required=True)
-    parser.add_argument("--empd2-source", type=Path, required=True)
-    parser.add_argument("--nfi-workbook", type=Path, required=True)
+    parser.add_argument("--private-source-store", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
-    result = build(args.repository, args.empd2_source, args.nfi_workbook, args.output)
+    result = build(args.repository, args.private_source_store, args.output)
     print(json.dumps(result["denominators"]))
 
 
