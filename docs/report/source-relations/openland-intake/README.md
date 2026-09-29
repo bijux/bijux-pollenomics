@@ -1,6 +1,6 @@
 # OpenLand member intake decision
 
-The existing private `LandCover_OpenLand.zip` has SHA-256 `7ed602f3b480a995cd2e1ff6dc445e994442100b1f626a953185849305e2434b`. The [member ledger](members.csv) records its 51 ZIP directory entries and one role, rights posture, source route, and decision for each. The [report](report.json) binds the archive identity, this consumer's source, the existing OpenLand authority, the local LandClim receipt, and the [pinned upstream tree metadata](upstream-tree.json). No archive member was copied into this report.
+The private `source-intakes/openland/original/LandCover_OpenLand.zip` has SHA-256 `7ed602f3b480a995cd2e1ff6dc445e994442100b1f626a953185849305e2434b`. The [intake custody review](../source-intake-custody/README.md) binds its original bytes and historical receipts to the private source store. The [member ledger](members.csv) records its 51 ZIP directory entries and one role, rights posture, source route, and decision for each. The [report](report.json) binds the archive identity, this consumer's source, the existing OpenLand authority, the local LandClim receipt, and the [pinned upstream tree metadata](upstream-tree.json). No archive member was copied into this report.
 
 The primary upstream source is [Behnaz Pirzamanbein's pinned repository](https://github.com/BehnazP/SpatioCompo_entireHolocene_EU/tree/894d44d58f66bb5c273491d98c3ec23a35e6a796), associated with [Githumbi et al. (2022)](https://doi.org/10.3389/fevo.2022.795794). The [source README](https://github.com/BehnazP/SpatioCompo_entireHolocene_EU/blob/894d44d58f66bb5c273491d98c3ec23a35e6a796/README.md) identifies the 25 CSV slices, their coniferous, broadleaved, and unforested/open modeled columns, attribution requirement, and CC BY-SA 4.0 data terms. The upstream [LICENSE](https://github.com/BehnazP/SpatioCompo_entireHolocene_EU/blob/894d44d58f66bb5c273491d98c3ec23a35e6a796/LICENSE) states GPL 3.0 for upstream code. The source archive's own local R script is not an upstream Git member; its rights are unresolved.
 
@@ -13,7 +13,7 @@ Reproduce the decision with the development package environment and an explicitl
 ```sh
 python -m bijux_pollenomics_dev.source_completion.openland_intake \
   --repository . \
-  --archive <private-source-store>/LandCover_OpenLand.zip \
+  --archive ../bijux-pollenomics-data/source-intakes/openland/original/LandCover_OpenLand.zip \
   --upstream-tree docs/report/source-relations/openland-intake/upstream-tree.json \
   --output artifacts/jobs/openland-intake/replay-check
 ```

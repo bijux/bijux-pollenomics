@@ -1,0 +1,247 @@
+{
+  "country_claim_rows": 12,
+  "current_source_report_inputs": [
+    {
+      "intake_id": "EXT-2026-09-04-OPENLAND-002",
+      "path": "docs/report/source-relations/openland-intake/report.json",
+      "sha256": "6b46b3bbdd3ee6f1d01901a205b95a1cecea6de6c3a12d11e70041b8ebb2ef54"
+    },
+    {
+      "intake_id": "EXT-2026-09-04-ROOTSI-001",
+      "path": "docs/report/source-relations/rootsi-landclim-overlap/report.json",
+      "sha256": "c948f235313ddf7b99a3a941cf8167caabe18cbb22580671ae696a7d0aaee264"
+    }
+  ],
+  "historical_receipts": [
+    {
+      "current_source_report": null,
+      "historical_country_coverage": [
+        {
+          "content_state": "not_captured",
+          "country_code": "DK",
+          "dated_samples": 0,
+          "metadata_records": 0,
+          "observation_files": 0,
+          "observations": 0,
+          "reason_codes": [
+            "asset_not_delivered",
+            "country_scope_unknown"
+          ],
+          "samples": 0,
+          "sites": 0
+        },
+        {
+          "content_state": "not_captured",
+          "country_code": "FI",
+          "dated_samples": 0,
+          "metadata_records": 0,
+          "observation_files": 0,
+          "observations": 0,
+          "reason_codes": [
+            "asset_not_delivered",
+            "country_scope_unknown"
+          ],
+          "samples": 0,
+          "sites": 0
+        },
+        {
+          "content_state": "not_captured",
+          "country_code": "NO",
+          "dated_samples": 0,
+          "metadata_records": 0,
+          "observation_files": 0,
+          "observations": 0,
+          "reason_codes": [
+            "asset_not_delivered",
+            "country_scope_unknown"
+          ],
+          "samples": 0,
+          "sites": 0
+        },
+        {
+          "content_state": "not_captured",
+          "country_code": "SE",
+          "dated_samples": 0,
+          "metadata_records": 0,
+          "observation_files": 0,
+          "observations": 0,
+          "reason_codes": [
+            "asset_not_delivered",
+            "country_scope_unknown"
+          ],
+          "samples": 0,
+          "sites": 0
+        }
+      ],
+      "historical_delivery_state": "unavailable",
+      "historical_disposition": "pending",
+      "historical_lifecycle_state": "pending_delivery",
+      "historical_public_release_allowed": false,
+      "historical_rights_status": "unknown",
+      "intake_id": "EXT-2026-09-04-OPENLAND-001",
+      "receipt_sha256": "da69bd9ecf4a07fa05cee7466adb8fb4ee9e7e338d30fa83c225bd1225dfd5c0",
+      "scientific_admission_from_custody": false,
+      "verified_original_archive": null
+    },
+    {
+      "current_source_report": "docs/report/source-relations/openland-intake/report.json",
+      "historical_country_coverage": [
+        {
+          "content_state": "blocked",
+          "country_code": "DK",
+          "dated_samples": 0,
+          "metadata_records": 0,
+          "observation_files": 0,
+          "observations": 0,
+          "reason_codes": [
+            "regional_modeled_grid_not_country_joined",
+            "zero_is_not_asserted"
+          ],
+          "samples": 0,
+          "sites": 0
+        },
+        {
+          "content_state": "blocked",
+          "country_code": "FI",
+          "dated_samples": 0,
+          "metadata_records": 0,
+          "observation_files": 0,
+          "observations": 0,
+          "reason_codes": [
+            "regional_modeled_grid_not_country_joined",
+            "zero_is_not_asserted"
+          ],
+          "samples": 0,
+          "sites": 0
+        },
+        {
+          "content_state": "blocked",
+          "country_code": "NO",
+          "dated_samples": 0,
+          "metadata_records": 0,
+          "observation_files": 0,
+          "observations": 0,
+          "reason_codes": [
+            "regional_modeled_grid_not_country_joined",
+            "zero_is_not_asserted"
+          ],
+          "samples": 0,
+          "sites": 0
+        },
+        {
+          "content_state": "blocked",
+          "country_code": "SE",
+          "dated_samples": 0,
+          "metadata_records": 0,
+          "observation_files": 0,
+          "observations": 0,
+          "reason_codes": [
+            "regional_modeled_grid_not_country_joined",
+            "zero_is_not_asserted"
+          ],
+          "samples": 0,
+          "sites": 0
+        }
+      ],
+      "historical_delivery_state": "received",
+      "historical_disposition": "adapt",
+      "historical_lifecycle_state": "quarantined",
+      "historical_public_release_allowed": false,
+      "historical_rights_status": "mixed",
+      "intake_id": "EXT-2026-09-04-OPENLAND-002",
+      "receipt_sha256": "e5d3aa9016ba548e31abd69d3f5bf18d26a365bdd0ecc6e5d5070239e7dbda0a",
+      "scientific_admission_from_custody": false,
+      "verified_original_archive": {
+        "bytes": 204058381,
+        "relative_private_path": "openland/original/LandCover_OpenLand.zip",
+        "sha256": "7ed602f3b480a995cd2e1ff6dc445e994442100b1f626a953185849305e2434b",
+        "verification": "byte_and_sha256_match"
+      }
+    },
+    {
+      "current_source_report": "docs/report/source-relations/rootsi-landclim-overlap/report.json",
+      "historical_country_coverage": [
+        {
+          "content_state": "reference_only",
+          "country_code": "DK",
+          "dated_samples": 0,
+          "metadata_records": 61,
+          "observation_files": 0,
+          "observations": 0,
+          "reason_codes": [
+            "reference_rows_are_not_observation_evidence",
+            "observation_data_not_captured"
+          ],
+          "samples": 0,
+          "sites": 0
+        },
+        {
+          "content_state": "reference_only",
+          "country_code": "FI",
+          "dated_samples": 0,
+          "metadata_records": 32,
+          "observation_files": 0,
+          "observations": 0,
+          "reason_codes": [
+            "reference_rows_are_not_observation_evidence",
+            "observation_data_not_captured"
+          ],
+          "samples": 0,
+          "sites": 0
+        },
+        {
+          "content_state": "reference_only",
+          "country_code": "NO",
+          "dated_samples": 0,
+          "metadata_records": 42,
+          "observation_files": 0,
+          "observations": 0,
+          "reason_codes": [
+            "reference_rows_are_not_observation_evidence",
+            "observation_data_not_captured"
+          ],
+          "samples": 0,
+          "sites": 0
+        },
+        {
+          "content_state": "partial",
+          "country_code": "SE",
+          "dated_samples": 4866,
+          "metadata_records": 81,
+          "observation_files": 79,
+          "observations": 163673,
+          "reason_codes": [
+            "rights_unresolved",
+            "spatial_semantics_conflicting",
+            "temporal_semantics_conflicting",
+            "taxonomy_measure_review_required",
+            "two_sites_metadata_only",
+            "three_workbooks_without_sample_ages"
+          ],
+          "samples": 5153,
+          "sites": 81
+        }
+      ],
+      "historical_delivery_state": "received",
+      "historical_disposition": "review",
+      "historical_lifecycle_state": "quarantined",
+      "historical_public_release_allowed": false,
+      "historical_rights_status": "unknown",
+      "intake_id": "EXT-2026-09-04-ROOTSI-001",
+      "receipt_sha256": "0e7bfb185c34b1c370a65a915de889a26c538cc5022d1ee910634555692cc8e3",
+      "scientific_admission_from_custody": false,
+      "verified_original_archive": {
+        "bytes": 509919,
+        "relative_private_path": "landclim/rootsi-workbooks/original/rootsi.7z",
+        "sha256": "f64d4dd411bc92362c9db2701c919063c2432e53fa523052e602da5f1a86183c",
+        "verification": "byte_and_sha256_match"
+      }
+    }
+  ],
+  "private_custody_manifest_sha256": "5224fafb5854450d1f02163d8ad0b9c32479ad80576d3565a230873c24643220",
+  "receipt_count": 3,
+  "schema_version": "source-intake-custody-review.v1",
+  "scientific_admission": "not_established_by_custody",
+  "scope": "Historical receipt and original archive verification; current source reports retain scientific authority.",
+  "verified_original_archives": 2
+}

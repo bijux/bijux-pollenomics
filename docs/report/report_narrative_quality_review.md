@@ -4,7 +4,7 @@ This review checks whether the report-facing Markdown surfaces explain
 themselves in prose or structured reference form instead of behaving like bare
 link farms or coded operator notes.
 
-- Reviewed markdown pages: `208`
+- Reviewed markdown pages: `209`
 
 ## Quality Postures
 
@@ -12,7 +12,7 @@ link farms or coded operator notes.
 | --- | ---: |
 | `reader_ready` | 101 |
 | `structured_reference` | 20 |
-| `thin_structure` | 87 |
+| `thin_structure` | 88 |
 
 ## Reviewed Pages
 
@@ -196,7 +196,7 @@ link farms or coded operator notes.
 | `docs/report/source-relations/neotoma/taxon-priority/README.md` | `thin_structure` | 6 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/source-relations/openland-intake/README.md` | `thin_structure` | 6 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/source-relations/openland-intake/doi-lineage.md` | `thin_structure` | 2 | 0 | 0 | 4 | 1 | Page explains itself but still needs stronger internal wayfinding. |
-| `docs/report/source-relations/rootsi-landclim-overlap/README.md` | `reader_ready` | 7 | 0 | 0 | 0 | 2 | Page explains its purpose before or alongside artifact links. |
+| `docs/report/source-relations/rootsi-landclim-overlap/README.md` | `reader_ready` | 8 | 0 | 0 | 0 | 2 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/source-relations/sead-country-retrieval/README.md` | `thin_structure` | 4 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/source-relations/sead/README.md` | `reader_ready` | 8 | 0 | 0 | 0 | 3 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/source-relations/sead/chronology-claim-review/README.md` | `thin_structure` | 5 | 0 | 0 | 9 | 1 | Page explains itself but still needs stronger internal wayfinding. |
@@ -204,6 +204,7 @@ link farms or coded operator notes.
 | `docs/report/source-relations/sead/pollen-named-dataset-screen/README.md` | `reader_ready` | 5 | 0 | 0 | 0 | 2 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/source-relations/sead/public-custody/README.md` | `reader_ready` | 3 | 0 | 0 | 0 | 2 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/source-relations/source-capability-evidence/README.md` | `reader_ready` | 4 | 0 | 0 | 0 | 2 | Page explains its purpose before or alongside artifact links. |
+| `docs/report/source-relations/source-intake-custody/README.md` | `thin_structure` | 4 | 0 | 0 | 5 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/source-relations/svar/normalized-export/README.md` | `thin_structure` | 4 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/synthetic-validation/change-time/README.md` | `reader_ready` | 10 | 0 | 0 | 17 | 4 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/synthetic-validation/propagation/README.md` | `reader_ready` | 9 | 0 | 0 | 8 | 4 | Page explains its purpose before or alongside artifact links. |

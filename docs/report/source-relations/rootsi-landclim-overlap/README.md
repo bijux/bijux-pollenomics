@@ -14,6 +14,12 @@ source-store custody supersedes dependence on disposable local run artifacts
 for these workbook bytes. It does not authenticate the workbooks as the
 historical inputs or clear their analytical reuse rights.
 
+The original `rootsi.7z` archive is separately retained at
+`landclim/rootsi-workbooks/original/rootsi.7z` in the same private store. The
+[intake custody review](../source-intake-custody/README.md) verifies its
+509,919 original bytes against the historical receipt; this does not promote
+the receipt's sample claims to admitted counts.
+
 The join is a **metadata candidate overlap**. Each row carries its Rootsi typed-workbook member and hash claim, source and publication locators, sequence labels, sample counts, access marker, chronology label, and the consumer's site feature ID. It does not authenticate the historical workbook as the LandClim input or identify historical pollen cells. Across the 79 candidates, 78 Rootsi sample-count claims agree with the LandClim publication metadata. EKE differs: Rootsi claims 25 and LandClim reports 42. This review does not settle the historical input denominator or equivalence.
 
 The LandClim site time bounds are **sequence coverage**, not sample ages or change events. Thirty-five site features have numeric coverage intervals. Thirty-six have negative BP source bounds and eight have partial source bounds; their normalized numeric intervals are refused. The ledger keeps the source Top/Bottom BP labels alongside the refusal reason. The chronology basis text is a source label, not an authenticated sample chronology.
