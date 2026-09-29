@@ -205,6 +205,16 @@ choose the last occurrence. Finder metadata is outside this dataset-file count.
 
 Release declarations conflict. The supplied Yoda metadata and `License.txt`
 state CC BY-NC 4.0, while the README and NetCDF attributes state CC BY 3.0.
+The exact local metadata and license text have SHA-256 identities
+`44dacada9b1b9ade1886bf0f2a26277a2b964afbff46f9ee64c17069f7b57b3a`
+and `3711f963c05d0be80d53e5923308a6dee31b203da23435c9cfb7c7b6e4dd5e19`.
+[Utrecht University's Yoda license workflow](https://utrechtuniversity.github.io/yoda/administration/installing-licenses.html)
+explains that a standard license named in package metadata is included as
+`License.txt` when copied to its vault. This supports treating the two CC
+BY-NC declarations as one package-level instruction, while leaving the
+conflicting embedded declarations and provider intent unresolved. The public
+[HYDE 3.5 dataset link](https://landuse.sites.uu.nl/datasets/) identifies the
+2025 release but does not settle this file-level conflict.
 All 48 NetCDF files retain `HYDE3.4` and `HYDE3.4 test netCDF` attributes inside
 the supplied 3.5 release. Coverage prose also differs between 2023, 2024 and
 2025. Preserve these source claims until their interpretation is established.
