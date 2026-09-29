@@ -43,8 +43,9 @@ Sixteen datasets carry more than one literal DOI string. The [DOI
 Handbook](https://www.doi.org/doi-handbook/html/) §3.3.4 treats ASCII case
 variants as equivalent identifiers: three of those 16 have only case variants.
 The other **13 have distinct DOI names**, including two Swedish, nine Norwegian
-and two Finnish datasets. Their exact strings remain in the ledger for a
-source-owner citation decision; no DOI was silently selected or discarded.
+and two Finnish datasets. Their exact strings remain in the ledger; no DOI was
+silently selected or discarded. The official registry comparison below resolves
+three identity relations and leaves ten source-owner citation decisions.
 The union of primary-link and distinct-DOI review cases is **18 datasets**.
 
 ## Finnish original-work review
@@ -115,6 +116,28 @@ The Norwegian source review supports named citations for the actual lake studies
 but does not turn the three provider multiple-primary states into three unique
 primary flags. The 2012 guide, 2017 Finnsjøen comparison, sample-count
 differences and distinct Finnsjøen DOI registrations remain explicit.
+
+## Distinct DOI registry review
+
+The [source-bound DataCite comparison](doi-review.json) consumes exact registry
+responses for both DOI names of all **13** used datasets in the distinct-DOI
+class. The 26 responses and their byte hashes are retained privately under
+`neotoma/doi-metadata/used-nordic`; the capture manifest SHA-256 is
+`207b791bed9d3d004fc55f407fb7a840efd81bd9180fed17f24b187ac0e69edb`.
+The comparison checks the literal DOI pair, registration metadata, landing
+dataset identity and any relation to the counterpart DOI. [DataCite's
+guidance](https://support.datacite.org/docs/when-should-i-use-isidenticalto)
+defines `IsIdenticalTo` for two DOIs of the same research output.
+
+| Registry finding | Used datasets | Citation treatment |
+| --- | --- | --- |
+| One DOI record explicitly declares `IsIdenticalTo` its counterpart | FI `20`; NO `317`, `977` | The three pairs have registry-supported identity. Preserve both literal names; a preferred citation format still needs a source-owner choice. |
+| Both DOI records land on the same numbered Neotoma dataset, with no DOI-to-DOI identity or version relation | SE `53995`, `54001`; NO `53002`, `53081`, `53098`, `53119`, `53121`, `53127`, `53131`; FI `58530` | Ten pairs remain distinct registrations. A common target URL, similar title or shared version number does not establish registered equivalence. Preserve both until the owner identifies the intended citation. |
+
+For example, the two Store Finnsjøen records were created in 2022 and 2025,
+both lead to dataset `53098`, and neither declares an `IsIdenticalTo` relation
+to the other. This review does not change the separate three ASCII case-only
+pairs, the provider publication flags, or the direct-pollen response set.
 
 None of these citation records supplies LRA basin geometry, PPE, or
 independent vegetation truth.

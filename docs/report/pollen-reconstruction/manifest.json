@@ -1091,8 +1091,13 @@
     },
     {
       "path": "docs/report/regions/nordic/source-capability/neotoma-attribution/README.md",
-      "sha256": "4cd79dec4ab1e31083bd610e47be3385c563ff855dfa1e3cc93408df34b3c5ee",
-      "bytes": 12254
+      "sha256": "2092fbfed719904e751c95c55fa9c1f5fd08de575e8af2fdc865ffe53b1d0c9a",
+      "bytes": 14079
+    },
+    {
+      "path": "docs/report/regions/nordic/source-capability/neotoma-attribution/doi-review.json",
+      "sha256": "e9f87385212b52e96e8cf9a0d03ae805715ab337bc2c0646dd1da72c6e64a0f8",
+      "bytes": 30891
     },
     {
       "path": "docs/report/regions/nordic/source-capability/neotoma-attribution/report.json",
@@ -1538,6 +1543,11 @@
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/landclim_amsoldingersee_recovery.py",
       "bytes": 8239,
       "sha256": "d377c12b8fc7424650ffc5647fb97041dd68800c0622c01626a448762feddfcd"
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/neotoma_doi_review.py",
+      "sha256": "17723fcb5afecee0c334945c7d7d545f89be7a48ea0cee44c7c24a6417a58404",
+      "bytes": 7224
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/neotoma_entity_decisions.py",
