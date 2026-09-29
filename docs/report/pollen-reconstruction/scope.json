@@ -44,7 +44,7 @@
       "part-004.json": "d96046c88b497ba07082120e446fecacad0d9b5533d8960bdbc03811976ea435",
       "part-008.json": "9cdcb2d394bc8ef23bf2b4b5e3f1f3ae5916aae16db71542c58f4b80a2dd1134"
     },
-    "paper_correspondence": "docs/report/pollen-reconstruction/paper-correspondence.md",
+    "paper_correspondence": "reports/science/publication-correspondence.md",
     "swedish_source_questions": "docs/report/pollen-reconstruction/swedish-source-questions.csv",
     "nordic_direct_pollen_producer": "bijux_pollenomics_dev.source_completion.nordic_direct_pollen",
     "nordic_direct_pollen_report": "docs/report/regions/nordic/direct-pollen/RESULTS.md",

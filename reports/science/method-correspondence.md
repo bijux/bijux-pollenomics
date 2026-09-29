@@ -16,7 +16,7 @@ Nordic publication revisions.
 
 ## A real publication difference
 
-The [paper correspondence account](../../docs/report/pollen-reconstruction/paper-correspondence.md)
+The [paper correspondence account](publication-correspondence.md)
 compares the exact shared TW2 interval, 100–350 BP. The archived PANGAEA
 937075 means differ from author-R by up to 9.19787 percentage points in grid
 512 and 10.5527 in grid 562; SE gaps reach 3.21615 and 4.25814 points.

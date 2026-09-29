@@ -48,11 +48,9 @@ also depend on exact scientific report paths.
 | Presentation slide and final PDF | `presentation/`, with a checked source lock. |
 | Local run logs and scratch computation | Root `artifacts/`. |
 
-The first migration candidate is the publication correspondence narrative
-currently at `docs/report/pollen-reconstruction/paper-correspondence.md`.
-Before moving it, enumerate its inbound links and report-manifest identity;
-choose a stable root path, adjust its relative links, update the producer or
-explicitly preserve a citation redirect, then run the report verifier and
-strict website build. Its CSV and source-specific tables can retain their
-governed producer until an owned output move is justified. Do not duplicate
-the narrative indefinitely under two editable paths.
+The first migrated narrative is [publication correspondence](../science/publication-correspondence.md).
+Its previous website path is a short citation page. The scope record and
+result ledger name the root narrative; the numeric CSV and source-specific
+tables retain their governed producer paths. Both citation page and root
+narrative are pinned by the scientific manifest. Future domains need the same
+producer, manifest, link and website review, without two editable narratives.

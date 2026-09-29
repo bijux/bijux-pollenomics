@@ -56,7 +56,7 @@ development comparison only after those fields and leakage rules are fixed.
 **Affected result:** exact author examples and selected paper/archive windows
 have numerical correspondence, while the complete historical LandClim paper
 inputs and some PFT classifications remain unresolved. See the
-[publication account](../../docs/report/pollen-reconstruction/paper-correspondence.md)
+[publication account](../science/publication-correspondence.md)
 and [PFT crosswalk](../../docs/report/publication-replay/landclim-pft-crosswalk/README.md).
 
 **Needed:** versioned original sequence selection, historical pollen input
