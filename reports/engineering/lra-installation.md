@@ -20,6 +20,19 @@ At clean product commit `46fcf43f5`, both wheel builds and two fresh CPython
 3.11 environments used offline cached dependencies. Generated files were
 kept under `artifacts/jobs/lra-single-install/`.
 
+```sh
+uv build --offline --wheel packages/bijux-pollenomics \
+  --out-dir artifacts/jobs/lra-single-install/core-dist
+uv build --offline --wheel packages/bijux-pollenomics-lra \
+  --out-dir artifacts/jobs/lra-single-install/engine-dist
+uv venv artifacts/jobs/lra-single-install/env --python 3.11
+uv pip install --offline \
+  --python artifacts/jobs/lra-single-install/env/bin/python \
+  --find-links artifacts/jobs/lra-single-install/core-dist \
+  --find-links artifacts/jobs/lra-single-install/engine-dist \
+  'bijux-pollenomics[lra]'
+```
+
 | Wheel | Bytes | SHA-256 |
 | --- | ---: | --- |
 | `bijux_pollenomics-0.1.9.dev655-py3-none-any.whl` | 2,487,011 | `eb428cc0d8edbbc2c7060f847dd70c89d758402d1bf30b1f831eb1d0174d8eed` |
@@ -32,11 +45,17 @@ directory outside the source tree, with `PYTHONPATH` and `R_HOME` removed
 and a `PATH` without R, the installed host loaded the installed engine and
 verified its `lra` entry point and selected analytical LOVE capability.
 Both imports resolved inside the environment's `site-packages`.
+The installed engine then ran one deterministic REVEALS plus analytical LOVE
+example from its bundled inputs. Its result manifest named the
+`python-numpy-scipy` backend, the installed package version, the original
+DISQOVER reference version `0.9.14` and archive SHA-256
+`ea496ae82807b52c9dd3d4b39b4dfa294bfac4068e20184ce56187bff70caf5c`.
 
 A second fresh environment installed the base `bijux-pollenomics` wheel only.
 It had neither NumPy nor the engine package, and `load_engine()` produced the
 declared `LRARefusal` directing the user to install the extra. This checks
-the intended light base boundary on this local platform. It does not check
+the intended light base boundary on this local platform. The base installed
+CLI also exposed `run-lra` in its help. It does not check
 other operating systems, final release versions, public-index availability
 or a hosted release pipeline.
 
