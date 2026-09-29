@@ -1,0 +1,17 @@
+source_country,target_country,input_events,evaluated_pairs,directed_candidates,status
+DK,DK,0,0,0,unobserved_no_admitted_events
+DK,FI,0,0,0,unobserved_no_admitted_events
+DK,NO,0,0,0,unobserved_no_admitted_events
+DK,SE,0,0,0,unobserved_no_admitted_events
+FI,DK,0,0,0,unobserved_no_admitted_events
+FI,FI,0,0,0,unobserved_no_admitted_events
+FI,NO,0,0,0,unobserved_no_admitted_events
+FI,SE,0,0,0,unobserved_no_admitted_events
+NO,DK,0,0,0,unobserved_no_admitted_events
+NO,FI,0,0,0,unobserved_no_admitted_events
+NO,NO,0,0,0,unobserved_no_admitted_events
+NO,SE,0,0,0,unobserved_no_admitted_events
+SE,DK,0,0,0,unobserved_no_admitted_events
+SE,FI,0,0,0,unobserved_no_admitted_events
+SE,NO,0,0,0,unobserved_no_admitted_events
+SE,SE,0,0,0,unobserved_no_admitted_events

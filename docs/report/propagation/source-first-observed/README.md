@@ -54,3 +54,8 @@ and all refused claims. A feature with complete reported observations,
 comparable ordered ages, and that approved taxon ownership can then enter the
 public first-observed estimator. This report grants no ecological accuracy,
 propagation-route, or empirical threshold claim.
+
+The [governed Nordic edge ledger](../governed-edge-ledger/README.md) retains the
+16 ordered country reporting bins and original zero-event release evidence. It
+keeps the two-site source denominator separate from four-country reporting
+topology.

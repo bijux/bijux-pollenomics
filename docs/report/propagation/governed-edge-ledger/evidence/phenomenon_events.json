@@ -1,0 +1,10 @@
+{
+  "build_id": "sha256:92dd52619837f3641d004a1a5dbe38f9ab6023a79f61989314bb90e612eb58e1",
+  "evaluation_metadata": [],
+  "evaluation_metadata_record_count": 0,
+  "event_manifest_digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+  "record_count": 0,
+  "record_schema_id": "https://bijux.io/schemas/pollenomics/phenomenon-event.v1.json",
+  "records": [],
+  "schema_version": "propagation-events-artifact.v1"
+}
