@@ -315,7 +315,10 @@ def run(repository: Path, repetitions: int = 7) -> dict[str, Any]:
     paths = sorted(
         path
         for path in engine.rglob("*")
-        if path.is_file() and path.suffix in {".py", ".json", ".npz"}
+        if path.is_file()
+        and path.suffix in {".py", ".json", ".npz"}
+        # This ignored SCM version module changes on rebuild without changing the method.
+        and path.name != "_build_version.py"
     )
     paths.append(Path(__file__).resolve())
     identities = {

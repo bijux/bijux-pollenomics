@@ -4,13 +4,13 @@ The [measurement](report.json) runs each of the seven declared [Python baseline]
 
 | Workload | Median process peak MiB | Median peak increment MiB | Median call ms | Median full worker s |
 | --- | ---: | ---: | ---: | ---: |
-| reveals-interactive | 161.3 | 2.6 | 68.39 | 1.47 |
-| reveals-reference-series | 161.4 | 2.7 | 86.20 | 1.48 |
-| love-analytical | 161.1 | 2.5 | 54.74 | 1.46 |
-| love-optimized-replay | 161.3 | 2.6 | 73.00 | 1.48 |
-| lra-replicated-series | 162.0 | 2.5 | 136.03 | 1.54 |
-| forward-validated | 158.7 | 0.0 | 0.10 | 1.38 |
-| forward-dot-compute | 159.0 | 0.0 | 0.02 | 1.37 |
+| reveals-interactive | 162.5 | 2.4 | 69.75 | 1.94 |
+| reveals-reference-series | 162.7 | 2.6 | 87.43 | 1.95 |
+| love-analytical | 162.3 | 2.4 | 56.12 | 1.92 |
+| love-optimized-replay | 162.5 | 2.4 | 73.37 | 1.94 |
+| lra-replicated-series | 162.6 | 2.4 | 136.38 | 2.00 |
+| forward-validated | 160.3 | 0.0 | 0.09 | 1.86 |
+| forward-dot-compute | 159.9 | 0.0 | 0.02 | 1.86 |
 
 These peaks include Python startup, imports, and construction of only the named
 fixture. The before/after difference is a process high water increment, not

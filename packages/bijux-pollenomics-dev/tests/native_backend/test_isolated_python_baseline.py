@@ -87,6 +87,9 @@ def test_governed_workers_match_retained_scientific_outputs() -> None:
         for path, digest in report["source_sha256"].items()
     )
     assert report["source_paths_changed_since_retained_baseline"] == []
+    assert not any(
+        path.endswith("/_build_version.py") for path in report["source_sha256"]
+    )
     assert "only the named workload fixture" in report["rss_semantics"]
     assert len(report["cases"]) == len(baseline["workloads"]) == 7
     for actual, retained in zip(report["cases"], baseline["workloads"], strict=True):
