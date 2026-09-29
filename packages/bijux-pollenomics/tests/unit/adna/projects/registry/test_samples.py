@@ -204,8 +204,8 @@ class AdnaSampleRegistryUnitTests(unittest.TestCase):
 
         self.assertEqual(donkey.sample_basis, "project_accession_anchor")
         self.assertEqual(donkey.inclusion_status, "comparator_site_curated")
-        self.assertEqual(reindeer.inclusion_status, "sample_context_blocked")
-        self.assertIn("site and chronology extraction", reindeer.inclusion_note)
+        self.assertEqual(reindeer.inclusion_status, "comparator_site_curated")
+        self.assertTrue(reindeer.inclusion_note.startswith("Comparator context only."))
 
 
 if __name__ == "__main__":
