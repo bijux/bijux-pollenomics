@@ -463,3 +463,17 @@ The original folder contains no distinct process evidence or live consumer; its
 reproduction command names a future disposable output. It was retired after
 the exact byte and open-handle checks. The prior-exposed direct-pollen result
 remains separate from LRA and vegetation accuracy.
+
+## Nordic direct-pollen process custody
+
+The [Nordic process receipt](nordic-direct-pollen-process-custody.json) maps
+26 files across five inactive Swedish/Nordic working directories. Twenty-two
+match the governed Storasjö, Swedish 31-target or three-country author-target
+studies byte for byte. Four distinct process files are retained privately:
+two Swedish documentation-gate logs and an earlier Swedish 31-target input
+manifest with its matching score report. The current governed manifest adds
+two Swedish common-bin source digests; the earlier score report differs only
+in that manifest hash, with the numerical score files unchanged. The exact
+five prefixes were retired after private-copy, governed-file and open-handle
+checks. These are prior-exposed observed-pollen results, not LRA or independent
+vegetation accuracy.

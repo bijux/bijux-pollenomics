@@ -61,8 +61,8 @@
     },
     {
       "path": "docs/report/maintenance/artifact-retention/README.md",
-      "sha256": "31b941f0dd43e4b402d32fd4df1b1c9ae66b419c77031d7363eee16f9735939c",
-      "bytes": 29652
+      "sha256": "789f0cee6e01dff6a10d70fce6a4dded9966e5e900c2f85d8cfa45b48e3c2783",
+      "bytes": 30483
     },
     {
       "path": "docs/report/maintenance/artifact-retention/landclim-amsoldingersee-custody.json",
@@ -118,6 +118,11 @@
       "path": "docs/report/maintenance/artifact-retention/landclim-whh05-process-custody.json",
       "sha256": "bfc8db76ea9844ee0315d96c68873404caef62ef9f170378a6153d5a0b6b8014",
       "bytes": 87367
+    },
+    {
+      "path": "docs/report/maintenance/artifact-retention/nordic-direct-pollen-process-custody.json",
+      "sha256": "0cbdcc5e67b4695d322c31eb22a19343a5c12ea42b44c1cace410edc626f428e",
+      "bytes": 8960
     },
     {
       "path": "docs/report/maintenance/artifact-retention/scientific-report-provenance/README.md",
