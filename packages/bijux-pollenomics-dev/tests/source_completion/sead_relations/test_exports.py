@@ -4,6 +4,7 @@ from __future__ import annotations
 
 from copy import deepcopy
 from pathlib import Path
+from typing import Any
 
 import pytest
 
@@ -13,8 +14,8 @@ from bijux_pollenomics_dev.source_completion.sead_relations.workflow import (
 )
 
 
-def _inputs():
-    ledger = {
+def _inputs() -> tuple[dict[str, Any], dict[str, Any]]:
+    ledger: dict[str, Any] = {
         "source_run_id": "capture",
         "build_id": "build",
         "scope_id": "scope",
@@ -51,7 +52,7 @@ def _inputs():
     return ledger, admission
 
 
-def test_capture_export_retains_empty_tables_and_refused_science():
+def test_capture_export_retains_empty_tables_and_refused_science() -> None:
     ledger, admission = _inputs()
     before = deepcopy(ledger)
     summary, rows = source_relation_export(ledger, admission)
@@ -74,14 +75,14 @@ def test_capture_export_retains_empty_tables_and_refused_science():
         ("acquisition_bundle_sha256", "other"),
     ],
 )
-def test_inconsistent_source_export_is_refused(field, value):
+def test_inconsistent_source_export_is_refused(field: str, value: int | str) -> None:
     ledger, admission = _inputs()
     ledger[field] = value
     with pytest.raises(ValueError, match="(reconcile|diverge)"):
         source_relation_export(ledger, admission)
 
 
-def test_existing_destination_is_not_overwritten(tmp_path: Path):
+def test_existing_destination_is_not_overwritten(tmp_path: Path) -> None:
     retained = tmp_path / "retained"
     retained.mkdir()
     (retained / "summary.json").write_text("original source result")
@@ -90,7 +91,9 @@ def test_existing_destination_is_not_overwritten(tmp_path: Path):
     assert (retained / "summary.json").read_text() == "original source result"
 
 
-def test_writer_uses_lf_and_retains_export_digest(tmp_path, monkeypatch):
+def test_writer_uses_lf_and_retains_export_digest(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
     import hashlib
     import json
 
