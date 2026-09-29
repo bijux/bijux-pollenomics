@@ -1,0 +1,113 @@
+{
+  "artifacts": [
+    {
+      "byte_count": 3664403,
+      "logical_rows": 1128,
+      "path": "records.jsonl",
+      "sha256": "9ce0d30784d62b8d9f718994b471eb4c9cc839616a1647015ff91f5902a3828a"
+    },
+    {
+      "byte_count": 239514,
+      "logical_rows": 1128,
+      "path": "primary-source-crosswalk.csv",
+      "sha256": "7252e1424a072775cbbdd1172d35ab28d9b76f089040164df4bfe940fce61893"
+    },
+    {
+      "byte_count": 1160987,
+      "logical_rows": 4512,
+      "path": "refusals.csv",
+      "sha256": "055f960736e349a2cd1be12dbfd201fa31040d007342f619a5e98612f2c4655f"
+    },
+    {
+      "byte_count": 4184,
+      "logical_rows": 1,
+      "path": "report.json",
+      "sha256": "6c6f28f22b3c46d4a9adcd7b8814f07b1db304306ac0cf6c02e85cbd170c2e02"
+    }
+  ],
+  "claims": {
+    "historical_chronology_inputs_recovered": false,
+    "historical_current_revision_crosswalk_completed": false,
+    "historical_primary_pollen_inputs_recovered": false,
+    "independent_measured_vegetation_truth": false,
+    "native_r_parity_certified": false,
+    "original_profile_r_rerun_executed": false,
+    "per_sequence_rights_cleared": false,
+    "pft_discrepancy_resolved": false,
+    "publication_allowed": false,
+    "scientific_acceptance": "not_evaluated",
+    "scientifically_accepted": false,
+    "whole_paper_reproduction_certified": false
+  },
+  "output_contract": {
+    "crosswalk_ledger_records": 1128,
+    "csv_null_encoding": "empty_field_only_with_an_explicit_status_or_source_raw_field",
+    "output_file_count": 5,
+    "publication_metadata_records": 1128,
+    "refusal_ledger_records": 4512
+  },
+  "producer": "bijux_pollenomics_dev.essd_reproduction.study_inputs",
+  "profile": "landclim-ii-publication-metadata-only-v1",
+  "schema_version": "essd-study-input-metadata-manifest.v1",
+  "source": {
+    "dataset_doi": "https://doi.org/10.1594/PANGAEA.937075",
+    "header": [
+      "SiteName",
+      "csvfilename",
+      "siteType",
+      "siteradius",
+      "londd",
+      "latdd",
+      "Elevation",
+      "LCGRID_ID",
+      "Country",
+      "Database/Authorname and/or data collector",
+      "DataRestricted/NotRestriced",
+      "nPollenSamples",
+      "nTWs",
+      "TopBP",
+      "BotBP",
+      "No. of 14C dates for model",
+      "chronologySource",
+      "ChronologyNotes",
+      "0-100",
+      "100-350",
+      "350-700",
+      "700-1200",
+      "1200-1700",
+      "1700-2200",
+      "2200-2700",
+      "2700-3200",
+      "3200-3700",
+      "3700-4200",
+      "4200-4700",
+      "4700-5200",
+      "5200-5700",
+      "5700-6200",
+      "6200-6700",
+      "6700-7200",
+      "7200-7700",
+      "7700-8200",
+      "8200-8700",
+      "8700-9200",
+      "9200-9700",
+      "9700-10200",
+      "10200-10700",
+      "10700-11200",
+      "11200-11700",
+      "LandClimProject"
+    ],
+    "inventory_canonical_byte_count": 3513583,
+    "inventory_schema_version": "landclim-study-metadata-inventory.v1",
+    "inventory_sha256": "8b9ed4fa38d895cd4a83e8ee50d9b0eedd1be5d3a21009928fa9c1d88618b83a",
+    "receipt": {
+      "path": "data/landclim/raw/landclim_sources.json",
+      "sha256": "eb4350724c176d0dbcb7e441f2d21489bdae1cfff7ebe3088eab27093f315677"
+    },
+    "sheet_name": "LANDCLIMII metadata file",
+    "workbook": {
+      "path": "data/landclim/raw/landclim_ii_site_metadata.xlsx",
+      "sha256": "2d4a0cf1401e36c2606f7761cecc85c4bbc15272460c2a4926cb1702d4565ebb"
+    }
+  }
+}
