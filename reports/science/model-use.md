@@ -59,7 +59,7 @@ comparisons to development evidence.
 
 ## The real English LRA profile
 
-The [constrained LOVE study](../../docs/report/pollen-reconstruction/author-lra-constrained/README.md)
+The [constrained LOVE study](english-lra-pollen-prediction.md)
 uses the 1250–1750 BP author window, published PPE and fall speeds, declared
 homogeneous author-example basin/ring assumptions and a 30-target closed
 pollen composition. It excludes 159 of 20,732 source NISP assigned to

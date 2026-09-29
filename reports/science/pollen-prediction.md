@@ -18,7 +18,7 @@ already exposed, so it does not establish confirmatory country transfer skill.
 
 ## Matched English direct pollen and LRA forward pollen
 
-The [constrained LOVE source study](../../docs/report/pollen-reconstruction/author-lra-constrained/README.md)
+The [constrained LOVE source study](english-lra-pollen-prediction.md)
 uses 15 English author examples in one 1250–1750 BP window. The declared
 30-taxon composition excludes `Filipendula` because its published fall speed
 is outside the selected optimized transport contract. Whole-site training

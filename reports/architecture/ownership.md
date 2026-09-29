@@ -77,3 +77,8 @@ and [matched transfer](../science/nordic-observed-pollen-transfer.md) accounts
 are separately root-owned. The search's trial ledger and the transfer's
 frozen predictions and paired scores remain with their respective producers;
 the old website pages preserve citations to both methods.
+
+The [English constrained LOVE study](../science/english-lra-pollen-prediction.md)
+is now root-owned. Its 15-site source and method account links the governed
+fold, frozen-prediction, score and paired-comparison outputs; the old website
+path stays as a citation page, while numeric and producer files remain put.

@@ -38,7 +38,7 @@ input and transformation packet is still needed for full-paper reproduction.
 Use the selected author profile to test numerical fidelity to the retained R
 example. Use the separate archive comparison to investigate historical source
 identity. Do not treat either result as measured vegetation validation. The
-[English LRA development study](../../docs/report/pollen-reconstruction/author-lra-constrained/README.md)
+[English LRA development study](english-lra-pollen-prediction.md)
 provides a distinct real reconstruction and withheld forward-pollen test;
 its matched direct-pollen scores and model conditions are summarized in the
 [prediction report](pollen-prediction.md).
