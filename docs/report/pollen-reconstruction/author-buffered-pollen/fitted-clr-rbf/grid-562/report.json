@@ -1,0 +1,374 @@
+{
+  "schema_version": "author-observed-pollen-spatial-block-predictions.v1",
+  "target_grid_id": "562",
+  "split": "leave_one_adjacent_one_degree_grid_out",
+  "method": "clr_wgs84_rbf_ridge_half_count_31_taxon_observed_pollen_fraction_by_bin",
+  "buffer_rule": "minimum_center_distance_minus_both_reported_basin_radii_at_least_20_km_to_every_target_in_block",
+  "buffer_km": 20.0,
+  "site_identity": "author_site_ids; no reviewed cross_database_alias_closure",
+  "source_manifest_sha256": "48d853468f979a04636642c6c757e9d05edf708d799b29cbae4d2286a9ac0acb",
+  "metadata_sha256": "72949e9e3faf417be0b7425fc111a9638b37c4a38aab8f8d82e0c3d8739da2de",
+  "crosswalk_sha256": "3a0f598ba5e550ca39da52b2047b7020b013dad013d15f79bef8e1c3c1a979c3",
+  "target_site_ids": [
+    "BECKHAM",
+    "COMERSLA",
+    "EXEBRID",
+    "GOURTEMIRES",
+    "LARKBARR",
+    "LONGBREACH",
+    "MOLECHAM",
+    "NTWITCHEN"
+  ],
+  "eligible_training_site_ids": [
+    "BROADOWN",
+    "CUTHILL2",
+    "HANGINGS",
+    "WHH05",
+    "WHH11",
+    "WINNEYS"
+  ],
+  "excluded_by_buffer_site_ids": [
+    "HARESDOWN",
+    "LOBBSBOG",
+    "WINDMILL"
+  ],
+  "training_count_sha256": {
+    "BROADOWN": "1eb04f58c13321fc9f284186df85003d4f73803f2485b842984f49a64c21a0c8",
+    "CUTHILL2": "a17ad8a86c4fb7fdffda4799dbc8de6909a037f7b106e07263fdd727c4c7f283",
+    "HANGINGS": "8249ce97a114048400a1497924cac0bc1c07fc7ae110dd5f868accd9425eda2f",
+    "WHH05": "298b66d7033703ce42d27f933b4d3ccec3a16f68b35a6fbf7a61806c01c88273",
+    "WHH11": "d38734ceb0c134eeffbb40091a81d3a8a8d32143dd14504296cc7baa38bf735e",
+    "WINNEYS": "b268187404a6ec1b0d0935990acd70bce678c55c95a2fadf38b7e50f27e29dd6"
+  },
+  "zero_policy": "add_one_half_to_each_named_training_taxon",
+  "pseudocount_per_training_taxon": 0.5,
+  "length_scale_rule": "median_positive_pairwise_training_center_distance_per_bin",
+  "ridge_penalty": 0.01,
+  "fits": [
+    {
+      "bin_id_bp": "50",
+      "training_site_ids": [
+        "BROADOWN",
+        "HANGINGS"
+      ],
+      "training_count_sha256": {
+        "BROADOWN": "1eb04f58c13321fc9f284186df85003d4f73803f2485b842984f49a64c21a0c8",
+        "HANGINGS": "8249ce97a114048400a1497924cac0bc1c07fc7ae110dd5f868accd9425eda2f"
+      },
+      "length_scale_km": 4.7116485840827425,
+      "ridge_penalty": 0.01,
+      "model_sha256": "cca18bd99027a747111519c04e79db940ae1d417212e26843535810826385687"
+    },
+    {
+      "bin_id_bp": "225",
+      "training_site_ids": [
+        "BROADOWN",
+        "HANGINGS",
+        "WINNEYS"
+      ],
+      "training_count_sha256": {
+        "BROADOWN": "1eb04f58c13321fc9f284186df85003d4f73803f2485b842984f49a64c21a0c8",
+        "HANGINGS": "8249ce97a114048400a1497924cac0bc1c07fc7ae110dd5f868accd9425eda2f",
+        "WINNEYS": "b268187404a6ec1b0d0935990acd70bce678c55c95a2fadf38b7e50f27e29dd6"
+      },
+      "length_scale_km": 3.693403691456168,
+      "ridge_penalty": 0.01,
+      "model_sha256": "c6a4a5ef956fc3dc3814f98822e765e6d7ed33ffca226aeb645698d1332b4277"
+    },
+    {
+      "bin_id_bp": "550",
+      "training_site_ids": [
+        "BROADOWN",
+        "HANGINGS",
+        "WINNEYS"
+      ],
+      "training_count_sha256": {
+        "BROADOWN": "1eb04f58c13321fc9f284186df85003d4f73803f2485b842984f49a64c21a0c8",
+        "HANGINGS": "8249ce97a114048400a1497924cac0bc1c07fc7ae110dd5f868accd9425eda2f",
+        "WINNEYS": "b268187404a6ec1b0d0935990acd70bce678c55c95a2fadf38b7e50f27e29dd6"
+      },
+      "length_scale_km": 3.693403691456168,
+      "ridge_penalty": 0.01,
+      "model_sha256": "afba058286e87979edcd84f1b8e54fa6804929c88ff57e913566312438206a42"
+    },
+    {
+      "bin_id_bp": "1000",
+      "training_site_ids": [
+        "BROADOWN",
+        "CUTHILL2",
+        "HANGINGS",
+        "WINNEYS"
+      ],
+      "training_count_sha256": {
+        "BROADOWN": "1eb04f58c13321fc9f284186df85003d4f73803f2485b842984f49a64c21a0c8",
+        "CUTHILL2": "a17ad8a86c4fb7fdffda4799dbc8de6909a037f7b106e07263fdd727c4c7f283",
+        "HANGINGS": "8249ce97a114048400a1497924cac0bc1c07fc7ae110dd5f868accd9425eda2f",
+        "WINNEYS": "b268187404a6ec1b0d0935990acd70bce678c55c95a2fadf38b7e50f27e29dd6"
+      },
+      "length_scale_km": 3.1661498574897218,
+      "ridge_penalty": 0.01,
+      "model_sha256": "c61e039cf68e1e5f190df61582910ef6dc9f1b587def2b55d03c7507c6fb997b"
+    },
+    {
+      "bin_id_bp": "1500",
+      "training_site_ids": [
+        "BROADOWN",
+        "CUTHILL2",
+        "HANGINGS",
+        "WHH05",
+        "WINNEYS"
+      ],
+      "training_count_sha256": {
+        "BROADOWN": "1eb04f58c13321fc9f284186df85003d4f73803f2485b842984f49a64c21a0c8",
+        "CUTHILL2": "a17ad8a86c4fb7fdffda4799dbc8de6909a037f7b106e07263fdd727c4c7f283",
+        "HANGINGS": "8249ce97a114048400a1497924cac0bc1c07fc7ae110dd5f868accd9425eda2f",
+        "WHH05": "298b66d7033703ce42d27f933b4d3ccec3a16f68b35a6fbf7a61806c01c88273",
+        "WINNEYS": "b268187404a6ec1b0d0935990acd70bce678c55c95a2fadf38b7e50f27e29dd6"
+      },
+      "length_scale_km": 3.3668998708404403,
+      "ridge_penalty": 0.01,
+      "model_sha256": "8025be78f16ee041a79bff3cfe2711231c8d97bc0711a6f633b41dc711875569"
+    },
+    {
+      "bin_id_bp": "2000",
+      "training_site_ids": [
+        "BROADOWN",
+        "CUTHILL2",
+        "HANGINGS",
+        "WINNEYS"
+      ],
+      "training_count_sha256": {
+        "BROADOWN": "1eb04f58c13321fc9f284186df85003d4f73803f2485b842984f49a64c21a0c8",
+        "CUTHILL2": "a17ad8a86c4fb7fdffda4799dbc8de6909a037f7b106e07263fdd727c4c7f283",
+        "HANGINGS": "8249ce97a114048400a1497924cac0bc1c07fc7ae110dd5f868accd9425eda2f",
+        "WINNEYS": "b268187404a6ec1b0d0935990acd70bce678c55c95a2fadf38b7e50f27e29dd6"
+      },
+      "length_scale_km": 3.1661498574897218,
+      "ridge_penalty": 0.01,
+      "model_sha256": "1171b98e14bf1cfc78e98790a2db956ad6a111448cf6c9e8cb7f4d9c2670dcd6"
+    },
+    {
+      "bin_id_bp": "2500",
+      "training_site_ids": [
+        "BROADOWN",
+        "CUTHILL2",
+        "HANGINGS",
+        "WINNEYS"
+      ],
+      "training_count_sha256": {
+        "BROADOWN": "1eb04f58c13321fc9f284186df85003d4f73803f2485b842984f49a64c21a0c8",
+        "CUTHILL2": "a17ad8a86c4fb7fdffda4799dbc8de6909a037f7b106e07263fdd727c4c7f283",
+        "HANGINGS": "8249ce97a114048400a1497924cac0bc1c07fc7ae110dd5f868accd9425eda2f",
+        "WINNEYS": "b268187404a6ec1b0d0935990acd70bce678c55c95a2fadf38b7e50f27e29dd6"
+      },
+      "length_scale_km": 3.1661498574897218,
+      "ridge_penalty": 0.01,
+      "model_sha256": "807c7ab71620997909587b17a0846e6aec5b3c1231bde0eeaf6d9fd6779b5fba"
+    },
+    {
+      "bin_id_bp": "3000",
+      "training_site_ids": [
+        "BROADOWN",
+        "CUTHILL2",
+        "HANGINGS",
+        "WHH05",
+        "WHH11",
+        "WINNEYS"
+      ],
+      "training_count_sha256": {
+        "BROADOWN": "1eb04f58c13321fc9f284186df85003d4f73803f2485b842984f49a64c21a0c8",
+        "CUTHILL2": "a17ad8a86c4fb7fdffda4799dbc8de6909a037f7b106e07263fdd727c4c7f283",
+        "HANGINGS": "8249ce97a114048400a1497924cac0bc1c07fc7ae110dd5f868accd9425eda2f",
+        "WHH05": "298b66d7033703ce42d27f933b4d3ccec3a16f68b35a6fbf7a61806c01c88273",
+        "WHH11": "d38734ceb0c134eeffbb40091a81d3a8a8d32143dd14504296cc7baa38bf735e",
+        "WINNEYS": "b268187404a6ec1b0d0935990acd70bce678c55c95a2fadf38b7e50f27e29dd6"
+      },
+      "length_scale_km": 3.3668998708404403,
+      "ridge_penalty": 0.01,
+      "model_sha256": "c53a158c90239620f895faf526148b02bf1fef555dbea2c192a40196c69e490e"
+    },
+    {
+      "bin_id_bp": "3500",
+      "training_site_ids": [
+        "BROADOWN",
+        "CUTHILL2",
+        "HANGINGS",
+        "WHH11",
+        "WINNEYS"
+      ],
+      "training_count_sha256": {
+        "BROADOWN": "1eb04f58c13321fc9f284186df85003d4f73803f2485b842984f49a64c21a0c8",
+        "CUTHILL2": "a17ad8a86c4fb7fdffda4799dbc8de6909a037f7b106e07263fdd727c4c7f283",
+        "HANGINGS": "8249ce97a114048400a1497924cac0bc1c07fc7ae110dd5f868accd9425eda2f",
+        "WHH11": "d38734ceb0c134eeffbb40091a81d3a8a8d32143dd14504296cc7baa38bf735e",
+        "WINNEYS": "b268187404a6ec1b0d0935990acd70bce678c55c95a2fadf38b7e50f27e29dd6"
+      },
+      "length_scale_km": 3.3668998708404403,
+      "ridge_penalty": 0.01,
+      "model_sha256": "6adfc2ddc609e3856072fa1e24eff0c7bcad5e6968b3224be74e7c2feed67ca6"
+    },
+    {
+      "bin_id_bp": "4000",
+      "training_site_ids": [
+        "BROADOWN",
+        "CUTHILL2",
+        "HANGINGS",
+        "WHH05",
+        "WHH11",
+        "WINNEYS"
+      ],
+      "training_count_sha256": {
+        "BROADOWN": "1eb04f58c13321fc9f284186df85003d4f73803f2485b842984f49a64c21a0c8",
+        "CUTHILL2": "a17ad8a86c4fb7fdffda4799dbc8de6909a037f7b106e07263fdd727c4c7f283",
+        "HANGINGS": "8249ce97a114048400a1497924cac0bc1c07fc7ae110dd5f868accd9425eda2f",
+        "WHH05": "298b66d7033703ce42d27f933b4d3ccec3a16f68b35a6fbf7a61806c01c88273",
+        "WHH11": "d38734ceb0c134eeffbb40091a81d3a8a8d32143dd14504296cc7baa38bf735e",
+        "WINNEYS": "b268187404a6ec1b0d0935990acd70bce678c55c95a2fadf38b7e50f27e29dd6"
+      },
+      "length_scale_km": 3.3668998708404403,
+      "ridge_penalty": 0.01,
+      "model_sha256": "f5eb21a35ba4a877dfc93cb71fc82848db36f351210add0e40a827b6f054bfd0"
+    },
+    {
+      "bin_id_bp": "4500",
+      "training_site_ids": [
+        "BROADOWN",
+        "CUTHILL2",
+        "HANGINGS",
+        "WHH05",
+        "WHH11",
+        "WINNEYS"
+      ],
+      "training_count_sha256": {
+        "BROADOWN": "1eb04f58c13321fc9f284186df85003d4f73803f2485b842984f49a64c21a0c8",
+        "CUTHILL2": "a17ad8a86c4fb7fdffda4799dbc8de6909a037f7b106e07263fdd727c4c7f283",
+        "HANGINGS": "8249ce97a114048400a1497924cac0bc1c07fc7ae110dd5f868accd9425eda2f",
+        "WHH05": "298b66d7033703ce42d27f933b4d3ccec3a16f68b35a6fbf7a61806c01c88273",
+        "WHH11": "d38734ceb0c134eeffbb40091a81d3a8a8d32143dd14504296cc7baa38bf735e",
+        "WINNEYS": "b268187404a6ec1b0d0935990acd70bce678c55c95a2fadf38b7e50f27e29dd6"
+      },
+      "length_scale_km": 3.3668998708404403,
+      "ridge_penalty": 0.01,
+      "model_sha256": "499efb83740ab477f8630a19e885ecbe7079b6b345a3ffa41dbeb63ce62d054d"
+    },
+    {
+      "bin_id_bp": "5000",
+      "training_site_ids": [
+        "BROADOWN",
+        "CUTHILL2",
+        "HANGINGS",
+        "WHH05",
+        "WINNEYS"
+      ],
+      "training_count_sha256": {
+        "BROADOWN": "1eb04f58c13321fc9f284186df85003d4f73803f2485b842984f49a64c21a0c8",
+        "CUTHILL2": "a17ad8a86c4fb7fdffda4799dbc8de6909a037f7b106e07263fdd727c4c7f283",
+        "HANGINGS": "8249ce97a114048400a1497924cac0bc1c07fc7ae110dd5f868accd9425eda2f",
+        "WHH05": "298b66d7033703ce42d27f933b4d3ccec3a16f68b35a6fbf7a61806c01c88273",
+        "WINNEYS": "b268187404a6ec1b0d0935990acd70bce678c55c95a2fadf38b7e50f27e29dd6"
+      },
+      "length_scale_km": 3.3668998708404403,
+      "ridge_penalty": 0.01,
+      "model_sha256": "571743c986f29f12d9de7d29e8cfdc0407c859d8ae21057e6a60eddc2289edf9"
+    },
+    {
+      "bin_id_bp": "5500",
+      "training_site_ids": [
+        "BROADOWN",
+        "CUTHILL2",
+        "HANGINGS",
+        "WHH05",
+        "WINNEYS"
+      ],
+      "training_count_sha256": {
+        "BROADOWN": "1eb04f58c13321fc9f284186df85003d4f73803f2485b842984f49a64c21a0c8",
+        "CUTHILL2": "a17ad8a86c4fb7fdffda4799dbc8de6909a037f7b106e07263fdd727c4c7f283",
+        "HANGINGS": "8249ce97a114048400a1497924cac0bc1c07fc7ae110dd5f868accd9425eda2f",
+        "WHH05": "298b66d7033703ce42d27f933b4d3ccec3a16f68b35a6fbf7a61806c01c88273",
+        "WINNEYS": "b268187404a6ec1b0d0935990acd70bce678c55c95a2fadf38b7e50f27e29dd6"
+      },
+      "length_scale_km": 3.3668998708404403,
+      "ridge_penalty": 0.01,
+      "model_sha256": "cdd4bf3cc92604fc72e1900b2ef93a6b54e8d58963e1166db19f122e86d08440"
+    },
+    {
+      "bin_id_bp": "6000",
+      "training_site_ids": [
+        "BROADOWN",
+        "CUTHILL2",
+        "HANGINGS",
+        "WHH05",
+        "WINNEYS"
+      ],
+      "training_count_sha256": {
+        "BROADOWN": "1eb04f58c13321fc9f284186df85003d4f73803f2485b842984f49a64c21a0c8",
+        "CUTHILL2": "a17ad8a86c4fb7fdffda4799dbc8de6909a037f7b106e07263fdd727c4c7f283",
+        "HANGINGS": "8249ce97a114048400a1497924cac0bc1c07fc7ae110dd5f868accd9425eda2f",
+        "WHH05": "298b66d7033703ce42d27f933b4d3ccec3a16f68b35a6fbf7a61806c01c88273",
+        "WINNEYS": "b268187404a6ec1b0d0935990acd70bce678c55c95a2fadf38b7e50f27e29dd6"
+      },
+      "length_scale_km": 3.3668998708404403,
+      "ridge_penalty": 0.01,
+      "model_sha256": "d0ba3af0844027b2afa4c3bc293472700d2f241634e714277af4bb7e7d7aae63"
+    },
+    {
+      "bin_id_bp": "6500",
+      "training_site_ids": [
+        "BROADOWN",
+        "CUTHILL2",
+        "HANGINGS",
+        "WHH05",
+        "WINNEYS"
+      ],
+      "training_count_sha256": {
+        "BROADOWN": "1eb04f58c13321fc9f284186df85003d4f73803f2485b842984f49a64c21a0c8",
+        "CUTHILL2": "a17ad8a86c4fb7fdffda4799dbc8de6909a037f7b106e07263fdd727c4c7f283",
+        "HANGINGS": "8249ce97a114048400a1497924cac0bc1c07fc7ae110dd5f868accd9425eda2f",
+        "WHH05": "298b66d7033703ce42d27f933b4d3ccec3a16f68b35a6fbf7a61806c01c88273",
+        "WINNEYS": "b268187404a6ec1b0d0935990acd70bce678c55c95a2fadf38b7e50f27e29dd6"
+      },
+      "length_scale_km": 3.3668998708404403,
+      "ridge_penalty": 0.01,
+      "model_sha256": "c2c13c3ac0665f4eb24fac08d1e5495b44751b816e72cd7a201e482441c38a71"
+    },
+    {
+      "bin_id_bp": "7000",
+      "training_site_ids": [
+        "BROADOWN",
+        "CUTHILL2",
+        "HANGINGS",
+        "WINNEYS"
+      ],
+      "training_count_sha256": {
+        "BROADOWN": "1eb04f58c13321fc9f284186df85003d4f73803f2485b842984f49a64c21a0c8",
+        "CUTHILL2": "a17ad8a86c4fb7fdffda4799dbc8de6909a037f7b106e07263fdd727c4c7f283",
+        "HANGINGS": "8249ce97a114048400a1497924cac0bc1c07fc7ae110dd5f868accd9425eda2f",
+        "WINNEYS": "b268187404a6ec1b0d0935990acd70bce678c55c95a2fadf38b7e50f27e29dd6"
+      },
+      "length_scale_km": 3.1661498574897218,
+      "ridge_penalty": 0.01,
+      "model_sha256": "ca9f537b93e450c5f5b6ff1723a02eddaeec3d81c1543cec2cee8a53a04e66f5"
+    },
+    {
+      "bin_id_bp": "7500",
+      "training_site_ids": [
+        "BROADOWN",
+        "HANGINGS",
+        "WINNEYS"
+      ],
+      "training_count_sha256": {
+        "BROADOWN": "1eb04f58c13321fc9f284186df85003d4f73803f2485b842984f49a64c21a0c8",
+        "HANGINGS": "8249ce97a114048400a1497924cac0bc1c07fc7ae110dd5f868accd9425eda2f",
+        "WINNEYS": "b268187404a6ec1b0d0935990acd70bce678c55c95a2fadf38b7e50f27e29dd6"
+      },
+      "length_scale_km": 3.693403691456168,
+      "ridge_penalty": 0.01,
+      "model_sha256": "5df67cc6c89c8cc2d08c5fd94ffb6ea2bd9b8dff1ddae73466d33150e01dd0a2"
+    }
+  ],
+  "target_count_files_opened": 0,
+  "attempted_target_bins_without_outcomes": 200,
+  "predicted_target_bins_without_outcomes": 136,
+  "predictions_sha256": "f6f5d50e2b2ecfd972ea5dc01171bd7ac4f23c2abb2e5f19e01c62ad45f78cdf",
+  "statuses_sha256": "7f4ff7bd19a261e1a0fa80aca5a09ef508d2cc5087b781f26e4cd68b8e146a90"
+}
