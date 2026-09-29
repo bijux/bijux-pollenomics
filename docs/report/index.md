@@ -20,6 +20,7 @@ internal functions that emitted each file.
 - [map surfaces](./maps/index.md) if you want the interactive world, Europe-plus, or Nordic view
 - [scope-filtered outputs](./scopes/index.md) if your question is world, region, or country specific
 - [evidence reviews](./reviews/index.md) if you want chronology, intake, sample-database, or point-support reviews
+- [source-bound taxa review](./taxa-review/README.md) for the private reviewer package scope and reproduction receipt
 - [scientific caveats](./caveats/index.md) if you want honesty, exclusion, or release-boundary checks
 - [maintainer truth surfaces](./maintenance/index.md) if you need repository integrity, docs integrity, or governance surfaces
 
