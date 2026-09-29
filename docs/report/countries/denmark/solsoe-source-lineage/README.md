@@ -16,7 +16,10 @@ describe possible pollen input lineage, not independent vegetation observations.
 
 The Neotoma source has **66** samples in core `SOLSOE81` and **26** in
 `SOLSOE83`; **65** and **26**, respectively, are in the held-out cohort. The
-excluded 1981 sample at source depth 98 has calibrated age 7 BP with a
+separate [Danish chronology coverage report](../pollen-chronology-coverage/README.md)
+accounts for all five captured Danish sites: 279 pollen-count samples, 91
+comparable-age candidates at Solsø and 188 prerequisite refusals.
+The excluded 1981 sample at source depth 98 has calibrated age 7 BP with a
 **−41 BP younger bound**. Its calibrated claim is refused as `negative_bp`;
 its separate uncalibrated radiocarbon claim is context only. The 1981 core
 notes a hiatus near source depths 472–480 and says the 1983 core covers that

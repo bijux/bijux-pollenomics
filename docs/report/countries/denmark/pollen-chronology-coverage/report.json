@@ -1,0 +1,201 @@
+{
+  "schema_version": "denmark-pollen-chronology-coverage.v1",
+  "source_snapshot_id": "sha256:b2bcb99157e10b0c9f13c228acc12eabcb39d96a1f39c86ec25e34aacd78c791",
+  "normalized_build_id": "sha256:92dd52619837f3641d004a1a5dbe38f9ab6023a79f61989314bb90e612eb58e1",
+  "normalized_manifest_sha256": "6f6777a40b67bd0704eb1a982f19e6d451cad0d6e4a41dfebf5e3f28be33105b",
+  "pollen_screen_sha256": "ffecf23d5f1eb9e7287b418b70a140daa1d30d8c9648672f32b37a47dbbf7b31",
+  "sites": [
+    {
+      "site_id": "neotoma:site:3432",
+      "site_name": "Lake Solsø",
+      "samples_with_pollen_count": 92,
+      "comparable_age_candidates": 91,
+      "refused_samples": 1,
+      "sample_age_claims": 184,
+      "age_claim_classes": [
+        {
+          "source_age_type": "Calibrated radiocarbon years BP",
+          "admission_reason": "negative_bp",
+          "comparability_status": "refused",
+          "claims": 1
+        },
+        {
+          "source_age_type": "Calibrated radiocarbon years BP",
+          "admission_reason": null,
+          "comparability_status": "comparable",
+          "claims": 91
+        },
+        {
+          "source_age_type": "Radiocarbon years BP",
+          "admission_reason": "uncalibrated_radiocarbon",
+          "comparability_status": "context_only",
+          "claims": 92
+        }
+      ],
+      "collection_units": [
+        {
+          "id": "neotoma:collection-unit:4303",
+          "source_handle": "SOLSOE81"
+        },
+        {
+          "id": "neotoma:collection-unit:4304",
+          "source_handle": "SOLSOE83"
+        }
+      ],
+      "datasets": [
+        {
+          "id": "neotoma:dataset:4445",
+          "source_doi": [
+            "10.21233/4r4q-0m97"
+          ]
+        },
+        {
+          "id": "neotoma:dataset:4446",
+          "source_doi": [
+            "10.21233/mtmk-d772"
+          ]
+        }
+      ]
+    },
+    {
+      "site_id": "neotoma:site:3491",
+      "site_name": "Vejlby",
+      "samples_with_pollen_count": 44,
+      "comparable_age_candidates": 0,
+      "refused_samples": 44,
+      "sample_age_claims": 44,
+      "age_claim_classes": [
+        {
+          "source_age_type": null,
+          "admission_reason": "missing_age_type",
+          "comparability_status": "unresolved",
+          "claims": 44
+        }
+      ],
+      "collection_units": [
+        {
+          "id": "neotoma:collection-unit:4370",
+          "source_handle": "VEJLBYE4"
+        },
+        {
+          "id": "neotoma:collection-unit:4371",
+          "source_handle": "VEJLBYG5"
+        }
+      ],
+      "datasets": [
+        {
+          "id": "neotoma:dataset:4514",
+          "source_doi": [
+            "10.21233/yd1f-dm46"
+          ]
+        },
+        {
+          "id": "neotoma:dataset:4515",
+          "source_doi": [
+            "10.21233/wpjn-ta55"
+          ]
+        }
+      ]
+    },
+    {
+      "site_id": "neotoma:site:14265",
+      "site_name": "Trelde Klint",
+      "samples_with_pollen_count": 39,
+      "comparable_age_candidates": 0,
+      "refused_samples": 39,
+      "sample_age_claims": 39,
+      "age_claim_classes": [
+        {
+          "source_age_type": null,
+          "admission_reason": "missing_age_type",
+          "comparability_status": "unresolved",
+          "claims": 39
+        }
+      ],
+      "collection_units": [
+        {
+          "id": "neotoma:collection-unit:16191",
+          "source_handle": "TRELDKLA"
+        }
+      ],
+      "datasets": [
+        {
+          "id": "neotoma:dataset:22319",
+          "source_doi": [
+            "10.21233/51je-ft12"
+          ]
+        }
+      ]
+    },
+    {
+      "site_id": "neotoma:site:23293",
+      "site_name": "Hollerup",
+      "samples_with_pollen_count": 66,
+      "comparable_age_candidates": 0,
+      "refused_samples": 66,
+      "sample_age_claims": 66,
+      "age_claim_classes": [
+        {
+          "source_age_type": null,
+          "admission_reason": "missing_age_type",
+          "comparability_status": "unresolved",
+          "claims": 66
+        }
+      ],
+      "collection_units": [
+        {
+          "id": "neotoma:collection-unit:27894",
+          "source_handle": "HOLLERUP"
+        }
+      ],
+      "datasets": [
+        {
+          "id": "neotoma:dataset:40112",
+          "source_doi": [
+            "10.21233/z3x6-1z53"
+          ]
+        }
+      ]
+    },
+    {
+      "site_id": "neotoma:site:27349",
+      "site_name": "Harreskov",
+      "samples_with_pollen_count": 38,
+      "comparable_age_candidates": 0,
+      "refused_samples": 38,
+      "sample_age_claims": 38,
+      "age_claim_classes": [
+        {
+          "source_age_type": null,
+          "admission_reason": "missing_age_type",
+          "comparability_status": "unresolved",
+          "claims": 38
+        }
+      ],
+      "collection_units": [
+        {
+          "id": "neotoma:collection-unit:35286",
+          "source_handle": "HARRESK"
+        }
+      ],
+      "datasets": [
+        {
+          "id": "neotoma:dataset:49047",
+          "source_doi": [
+            "10.21233/G7DX-7B23",
+            "10.21233/g7dx-7b23"
+          ]
+        }
+      ]
+    }
+  ],
+  "totals": {
+    "sites": 5,
+    "samples_with_pollen_count": 279,
+    "comparable_age_candidates": 91,
+    "refused_samples": 188,
+    "age_type_missing_claims": 187,
+    "negative_bp_claims": 1,
+    "lra_admitted_samples": 0
+  }
+}
