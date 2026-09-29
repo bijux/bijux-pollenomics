@@ -1,0 +1,60 @@
+{
+  "schema_version": "landclim-published-window-provenance-custody.v1",
+  "repository_inputs": {
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/published_window_provenance.py": {
+      "bytes": 15526,
+      "sha256": "74ba361ca20a1d6b5d4e73dfb04b6d26b80d6c762980d85b4189b4b8853ed8aa"
+    },
+    "docs/report/publication-replay/landclim-author-example-correspondence/paper-correspondence.csv": {
+      "bytes": 1820946,
+      "sha256": "9c574919c250b9fe386154b72266869b290365ee9afe5d8a270250ed01c211d8"
+    },
+    "docs/report/publication-replay/landclim-author-example-correspondence/report.json": {
+      "bytes": 19162,
+      "sha256": "a9bbb131a8094a2c0b1efaa83b6afba09f3f59f6e20257934d73a470de36fc9f"
+    },
+    "docs/report/publication-replay/landclim-published-window-correspondence/paper-correspondence.csv": {
+      "bytes": 9210,
+      "sha256": "591b32c97d66ceb0884388e41e714f51fd51ff79a01ffc9dbd4ae697a75b91ee"
+    },
+    "docs/report/publication-replay/landclim-published-window-correspondence/report.json": {
+      "bytes": 3042,
+      "sha256": "0a22e51a8e109dbadbd713f27b84826421a0e156bdd9d97856a053a4eb0cee32"
+    }
+  },
+  "private_crosswalk": {
+    "relative_path": "landclim/author-reference/reference/taxon-name-crosswalk.csv",
+    "bytes": 930,
+    "sha256": "3a0f598ba5e550ca39da52b2047b7020b013dad013d15f79bef8e1c3c1a979c3"
+  },
+  "outputs": {
+    "REPORT.md": {
+      "bytes": 2002,
+      "sha256": "2a19ff9e6c146b29654a90c4713160f0d9113225db92dd57766317ef5bb70040"
+    },
+    "report.json": {
+      "bytes": 3956,
+      "sha256": "f188d1d0277fbfed1c4c2f8b28ade15c1fcef5c4d6e881af85ea1c8c7d748f6c"
+    },
+    "paper-correspondence.csv": {
+      "bytes": 18251,
+      "sha256": "dfecc6d9a36f4f458e2d09a05f4764cb138e42df39f39e646c528025bdc07eb0"
+    }
+  },
+  "historical_comparison": {
+    "report_json": {
+      "bytes": 3956,
+      "sha256": "5f45f5e0bd748047d232c062b9c635074c4cf9a40ac7566ecd1589fa9175f00d"
+    },
+    "report_markdown": {
+      "bytes": 2002,
+      "sha256": "2a19ff9e6c146b29654a90c4713160f0d9113225db92dd57766317ef5bb70040"
+    },
+    "row_csv": {
+      "bytes": 18376,
+      "sha256": "5e347d8236287342b423b14d67e24c9128efc05d4569b775f65fae3ac66305d5"
+    },
+    "relation": "All 124 parsed numerical rows and Markdown equal; every JSON field except input_sha256 equals historical final run. Governed CSV is newline-normalized."
+  },
+  "admission": "exact two-grid author bin only; historical raw-input identity and vegetation accuracy unestablished"
+}

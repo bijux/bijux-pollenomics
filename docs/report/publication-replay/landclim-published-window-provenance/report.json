@@ -1,0 +1,92 @@
+{
+  "schema_version": "landclimii-published-window-provenance.v2",
+  "source_revision": "57ead2e2fcc493d099be4e5a3092fc396e1c3d3a",
+  "published_archive_sha256": "c585f0691ad95342b8aba083b90fe91dc398f985b6b7fbc19561299389c4fb86",
+  "author_bin_bounds_bp": [
+    100,
+    350
+  ],
+  "unit": "percentage_cover",
+  "paired_taxon_keys": 62,
+  "paired_mean_se_values": 124,
+  "same_run_tolerance_percentage_points": "1E-9",
+  "input_sha256": {
+    "author_csv": "9c574919c250b9fe386154b72266869b290365ee9afe5d8a270250ed01c211d8",
+    "author_report": "a9bbb131a8094a2c0b1efaa83b6afba09f3f59f6e20257934d73a470de36fc9f",
+    "published_csv": "591b32c97d66ceb0884388e41e714f51fd51ff79a01ffc9dbd4ae697a75b91ee",
+    "published_report": "0a22e51a8e109dbadbd713f27b84826421a0e156bdd9d97856a053a4eb0cee32",
+    "crosswalk_csv": "3a0f598ba5e550ca39da52b2047b7020b013dad013d15f79bef8e1c3c1a979c3"
+  },
+  "summaries": [
+    {
+      "grid_id": "512",
+      "metric": "mean",
+      "taxa": 31,
+      "max_absolute_author_r_minus_archive_pp": "9.19787115264600",
+      "median_absolute_author_r_minus_archive_pp": "0.02143915468182714700",
+      "max_absolute_installed_minus_author_r_pp": "1.23800E-11",
+      "largest_archive_discrepancy_taxon": "Cyperaceae"
+    },
+    {
+      "grid_id": "512",
+      "metric": "standard_error",
+      "taxa": 31,
+      "max_absolute_author_r_minus_archive_pp": "3.216154520301000",
+      "median_absolute_author_r_minus_archive_pp": "0.011447738699233200",
+      "max_absolute_installed_minus_author_r_pp": "3.28900E-12",
+      "largest_archive_discrepancy_taxon": "Cyperaceae"
+    },
+    {
+      "grid_id": "562",
+      "metric": "mean",
+      "taxa": 31,
+      "max_absolute_author_r_minus_archive_pp": "10.552699441319100",
+      "median_absolute_author_r_minus_archive_pp": "0.03222044449289230",
+      "max_absolute_installed_minus_author_r_pp": "3.8700E-12",
+      "largest_archive_discrepancy_taxon": "Calluna.vulgaris"
+    },
+    {
+      "grid_id": "562",
+      "metric": "standard_error",
+      "taxa": 31,
+      "max_absolute_author_r_minus_archive_pp": "4.2581359773948900",
+      "median_absolute_author_r_minus_archive_pp": "0.01453122718952360",
+      "max_absolute_installed_minus_author_r_pp": "3.42100E-12",
+      "largest_archive_discrepancy_taxon": "Calluna.vulgaris"
+    }
+  ],
+  "mean_vector_diagnostics": [
+    {
+      "grid_id": "512",
+      "taxa": "31",
+      "archive_mean_sum_percentage_points": "99.9999999999998021",
+      "author_r_mean_sum_percentage_points": "100.00000000000075369300",
+      "author_r_minus_archive_sum_percentage_points": "9.5159300E-13",
+      "mean_l1_gap_percentage_points": "18.48123665594353820700",
+      "mean_total_variation_fraction": "0.092406183279717691035",
+      "mean_hellinger_distance": "0.07805532799042722603662223874",
+      "largest_gap_taxon": "Cyperaceae",
+      "largest_gap_percentage_points": "9.19787115264600",
+      "second_largest_gap_taxon": "Calluna.vulgaris",
+      "second_largest_gap_percentage_points": "4.2797992454647300",
+      "two_largest_gap_share": "0.7292623675037639462191564854"
+    },
+    {
+      "grid_id": "562",
+      "taxa": "31",
+      "archive_mean_sum_percentage_points": "99.99999999999997796",
+      "author_r_mean_sum_percentage_points": "99.999999999998997700",
+      "author_r_minus_archive_sum_percentage_points": "-9.80260E-13",
+      "mean_l1_gap_percentage_points": "22.140770365673232740",
+      "mean_total_variation_fraction": "0.1107038518283661637",
+      "mean_hellinger_distance": "0.1012880589254633228893970391",
+      "largest_gap_taxon": "Calluna.vulgaris",
+      "largest_gap_percentage_points": "10.552699441319100",
+      "second_largest_gap_taxon": "Poaceae",
+      "second_largest_gap_percentage_points": "10.255006111575600",
+      "two_largest_gap_share": "0.9397913988193789598316172563"
+    }
+  ],
+  "historical_raw_input_closure": "not_established",
+  "measured_vegetation_accuracy": "not_evaluated"
+}
