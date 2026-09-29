@@ -20,6 +20,12 @@ collection-unit date. Neither fact changes the LRA refusal below.
 The [Bökesjön basin review](../source-relations/neotoma/boke-basin/README.md)
 adds a 1984 mapped lake and two modern area measurements but does not bind
 their geometry to the fossil-pollen core or its sample ages.
+The [Gilltjärnen source question](../source-relations/rootsi-landclim-overlap/README.md#gilltj%C3%A4rnen-source-question)
+finds that LandClim II row 994 defines a 169 m site radius and 101 samples,
+while its longitude is 15.083333° E versus 15.83333° E for the 101-sample
+Neotoma `GILL` core. The approximately 42 km discrepancy prevents transfer of
+the LandClim basin value to the observed-pollen transfer core; equal sample
+counts do not establish historical input identity or age-specific geometry.
 For Denmark, the [EPD/PANGAEA Solsø core record](https://doi.pangaea.de/10.1594/PANGAEA.740759)
 identifies `SOLSOE81` and reports a 2.5 ha event area, 0.98 m water depth and
 a strongly drained lake. The captured Neotoma dataset 4445 binds the same

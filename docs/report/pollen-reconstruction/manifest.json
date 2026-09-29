@@ -71,8 +71,8 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/README.md",
-      "sha256": "bfb3e323e5c0c924feedfb1fc89db82734992e5e8a2cbc59aafc7ae71ec9acc0",
-      "bytes": 35458
+      "sha256": "45da50cf52cc310c31acf3ab354debbee938da8a08b911566541bfa6f950db4f",
+      "bytes": 35963
     },
     {
       "path": "docs/report/pollen-reconstruction/author-development-design.json",
@@ -863,6 +863,21 @@
       "path": "docs/report/source-relations/neotoma/pollen-screen/summary.json",
       "sha256": "6c6a6c05ee04d5c7d1105fcb78869f70a5302795ef4918932849e6e1ff2ed9fe",
       "bytes": 5803
+    },
+    {
+      "path": "docs/report/source-relations/rootsi-landclim-overlap/README.md",
+      "sha256": "4f490b2f700bff503c1205a0bb9b680b1ab8e34684bc68ef43839bdaec6a6c2e",
+      "bytes": 6293
+    },
+    {
+      "path": "docs/report/source-relations/rootsi-landclim-overlap/overlap.csv",
+      "sha256": "34bb9b19d1a3ba3a479ce77174ea85e87c52f1bae51e42a44b57eaf5739165c6",
+      "bytes": 35349
+    },
+    {
+      "path": "docs/report/source-relations/rootsi-landclim-overlap/report.json",
+      "sha256": "c948f235313ddf7b99a3a941cf8167caabe18cbb22580671ae696a7d0aaee264",
+      "bytes": 4264
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/author_example_correspondence.py",
