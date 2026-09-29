@@ -61,8 +61,23 @@
     },
     {
       "path": "docs/report/maintenance/artifact-retention/README.md",
-      "bytes": 19956,
-      "sha256": "a8e8e45a57c83a1a4b94ee99e3fde7f4ff9cd0cf5ecbf19bc9285dc42710aae7"
+      "bytes": 22672,
+      "sha256": "1c9a2b9ccf35eee10e576b01e14c1cee1e4e4da333452dfb5d281055da778aca"
+    },
+    {
+      "path": "docs/report/maintenance/artifact-retention/landclim-pft-audit-custody.json",
+      "bytes": 1369,
+      "sha256": "a5f990eeea6690e707bb439f989e2e423a2cb1498b86f212221a89a0529aa185"
+    },
+    {
+      "path": "docs/report/maintenance/artifact-retention/landclim-pft-primary-capture-custody.json",
+      "bytes": 2203,
+      "sha256": "8bb1ae87a56825ea8891082732287c6f9936ec9d852243ec80b40620bc91186e"
+    },
+    {
+      "path": "docs/report/maintenance/artifact-retention/landclim-provider-description-custody.json",
+      "bytes": 1287,
+      "sha256": "82464c8192e95cb675da6098fe65e4797fea57a1f59aa4af05a5bb8f581ae1e1"
     },
     {
       "path": "docs/report/maintenance/artifact-retention/scientific-report-provenance/README.md",
@@ -576,8 +591,8 @@
     },
     {
       "path": "docs/report/publication-replay/landclim-pft-crosswalk/README.md",
-      "sha256": "22283c9c9ecf8105dbff76dc3abd691f207ab9b918f51a5c4463a2272eaca358",
-      "bytes": 7967
+      "sha256": "bbc2388613bac0716e2e6242bc4bd1a1b70ca5fdb2a932e7574e8de375337440",
+      "bytes": 8659
     },
     {
       "path": "docs/report/publication-replay/landclim-pft-crosswalk/author-name-review/report.json",
