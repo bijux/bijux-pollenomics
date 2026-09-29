@@ -156,7 +156,10 @@ packet; replay the named cells and revise the correspondence result.
 **Affected result:** current lake, archaeology, SEAD, aDNA and pollen products
 cannot yet support a joint source-qualified movement or land-use explanation
 for the user's proposed Finjasjön, Östra Ringsjön, Havgårdssjön,
-Bjäresjösjön and Uppåkra/Lund contexts. The [SEAD chronology review]
+Bjäresjösjön and Uppåkra/Lund contexts. Our [Bjäresjö screen]
+(../science/bjaresjo-context.md) binds the official modern lake and nearby
+SEAD display intervals while refusing their ecological and core join. The
+[SEAD chronology review]
 (../../docs/report/source-relations/sead/chronology-claim-review/README.md)
 and [Swedish fieldwork preparation]
 (../../docs/report/countries/sweden/sweden_lake_fieldwork_preparation_v66.md)
@@ -167,16 +170,21 @@ candidate, source IDs and permissions for linked archaeology/SEAD and animal
 or human aDNA observations, calibrated intervals and spatial uncertainty,
 plus a declared estimand for any archaeology weighting. Qualified source,
 chronology and field reviewers must settle the joins. Next action: match one
-named candidate to retained lake and archaeology records, publish overlap or
-refusal with dependency and rights evidence, then test the effect of admitted
-context on its field dossier. PalaeOpen can guide metadata alignment; formal
+named candidate's physical pollen core and dated source packet to the modern
+registry identity; qualify one relevant SEAD event and its permitted use
+before testing any archaeology weight or field ranking. PalaeOpen can guide
+metadata alignment; formal
 participation or outreach is not evidenced by local documentation.
 
 **Already checked:** the repository retains SEAD interval and chronology
-screens and historical Swedish lake preparation reports. The user's named
-locations are unverified candidate coordinates, not admitted physical cores
-or a migration path. **Reopen when:** a source packet binds a candidate lake,
-its core and at least one independent context observation on compatible place
+screens and historical Swedish lake preparation reports. The Bjäresjö
+consumer finds 371 display intervals from 13 sites within 20 km and closes
+all 25 published window counts, but Neotoma site 28871 versus LandClim
+`BJARE` remains a refused physical-core identity. Modern registry matches for
+named lakes do not establish historical cores or a migration path.
+
+**Reopen when:** a source packet binds a candidate lake, its core and at least
+one independent context observation on compatible place
 and time support, with permitted analytical use; run the joining consumer
 before closing the question.
 

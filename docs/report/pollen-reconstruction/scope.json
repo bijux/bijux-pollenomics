@@ -330,5 +330,14 @@
     "refused_site_policy_bins": 13,
     "prediction_freeze_sha256": "db5bd39b7e9630b48def3ea5082ad1d93358e1e2de75c297b75933584c8a08ed",
     "status": "prior_exposed_whole_site_observed_pollen_sensitivity; nominal bin shifts and center distances, no age posterior, LRA or measured vegetation claim"
+  },
+  "bjaresjo_context_screen": {
+    "report": "docs/report/countries/sweden/bjaresjo-context-screen/report.json",
+    "official_lake_registry_id": "614958-137018",
+    "candidate_neotoma_site_id": "28871",
+    "nearby_sead_display_interval_features": 371,
+    "nearby_sead_sites": 13,
+    "published_window_count": 25,
+    "status": "modern_lake_and_display_context_bound; physical_core_and_ecological_event_join_refused"
   }
 }

@@ -100,3 +100,8 @@ interpretation and limits; the governed `swedish-support-sensitivity/` result
 path owns the frozen predictions, coverage, scores and machine report. The
 website keeps a short citation page, and the result ledger names the root
 report.
+
+We placed the [Bjäresjö context decision](../science/bjaresjo-context.md)
+in the root research library. Its governed country result retains the
+source-bound nearby SEAD rows, 25-window overlap check and machine receipt;
+the root report explains the physical-core and ecological join refusals.

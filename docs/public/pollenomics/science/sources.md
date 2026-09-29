@@ -4,7 +4,7 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-09-29
+last_reviewed: 2026-09-30
 ---
 
 # Scientific sources and scope
@@ -46,3 +46,14 @@ The [HYDE source result](../../../report/regions/nordic/hyde-country-cropland/RE
 checks modeled cropland quantity accounting at selected labels. It is not an
 observed vegetation series. The [vegetation reference review](../../../report/validation/empd2-nfi-pairing/README.md)
 currently admits zero matched measurement pairs for accuracy scoring.
+
+## A named lake and nearby archaeology
+
+We resolved the proposed Bjäresjösjön name to the modern official Bjäresjö
+lake registry record. The [source screen](../../../report/countries/sweden/bjaresjo-context-screen/README.md)
+finds 371 SEAD display intervals from 13 sites within 20 km and reproduces
+all 25 existing modeled-window context counts. The nearby Neotoma pollen
+site and LandClim `BJARE` sequence remain different, unconfirmed core
+identities. SEAD chronology remains display context without qualified event
+propagation. We have therefore withheld a lake-specific ecological join,
+archaeology weighting and LRA basin transfer.
