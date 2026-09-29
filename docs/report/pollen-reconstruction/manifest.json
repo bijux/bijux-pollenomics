@@ -616,8 +616,8 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/results.csv",
-      "sha256": "b7015014dae025952cfbbd569f710d1711c7185a5a20f176a91f794a06234889",
-      "bytes": 14729
+      "sha256": "4ef1f17e756bd0659db1e7077f40c0726ce27b725964e053362aad68902f437c",
+      "bytes": 14713
     },
     {
       "path": "docs/report/pollen-reconstruction/scope.json",
@@ -946,8 +946,8 @@
     },
     {
       "path": "docs/report/regions/nordic/author-target-pollen/README.md",
-      "sha256": "44545fbdceef07eaa04200f894657ef55d8f7bdf8355e30435663f252d0b9b13",
-      "bytes": 465
+      "sha256": "fd891802a4a8df1e10a9626157c14692ba1b173c6a852328f3965194205ea25e",
+      "bytes": 475
     },
     {
       "path": "docs/report/regions/nordic/author-target-pollen/coverage.csv",
@@ -1206,8 +1206,8 @@
     },
     {
       "path": "docs/report/regions/nordic/swedish-author-target-pollen/README.md",
-      "sha256": "13f6b620a150e70fe332291c8443e8d9d768aa68ef03e462f09320a91a57ce1d",
-      "bytes": 4018
+      "sha256": "6988d03e8236c0688c13f125d2608e54cb3ee29de4c58dca0b9553f4efd6e9c0",
+      "bytes": 456
     },
     {
       "path": "docs/report/regions/nordic/swedish-author-target-pollen/coverage.csv",
@@ -1815,19 +1815,24 @@
       "bytes": 14038
     },
     {
-      "path": "reports/science/four-country-author-pollen.md",
+      "path": "reports/science/denmark-finland-norway-author-pollen.md",
       "sha256": "c204f2077285c7424dd08c548553765f377aec1b26d47704a1014ff6dc9e0490",
       "bytes": 5126
     },
     {
       "path": "reports/science/nordic-pollen-study.md",
-      "sha256": "d9be143a28a84a7b378a553af6466534426964f664e65511b5f327484b12536a",
-      "bytes": 43790
+      "sha256": "2b2ad876dcc1c48a78bb5829ae5bab27a268177abd46fa483800a9cea66d2ba5",
+      "bytes": 43714
     },
     {
       "path": "reports/science/publication-correspondence.md",
       "sha256": "9d68468e9320180099ab517709374cb82d38068c3ef458c5c696c535037f41a4",
       "bytes": 10398
+    },
+    {
+      "path": "reports/science/sweden-author-pollen.md",
+      "sha256": "138e78bc39e9fca2545a573c4cd07afc3d57aa73843b8ee3a43afbcea672343a",
+      "bytes": 4612
     }
   ]
 }

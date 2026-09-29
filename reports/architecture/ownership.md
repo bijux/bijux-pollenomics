@@ -61,8 +61,13 @@ website path is a citation page; the result table, scientific scope, manifest,
 scripts and numeric products still have their governed owner. Both narrative
 locations and the three presentation citations were checked together.
 
-The [four-country author-target pollen report](../science/four-country-author-pollen.md)
+The [Denmark/Finland/Norway author-target pollen report](../science/denmark-finland-norway-author-pollen.md)
 is root-owned on the same terms. Its score, coverage, input manifest, sealed
 outcomes and predictions remain with the scientific producer. The prior
 website path is a citation page, and the master result ledger names the root
 narrative.
+
+The [Swedish author-target country holdout](../science/sweden-author-pollen.md)
+completes the four-country reader set. Its website citation page and master
+ledger point to the root narrative, while the 51 scored and three refused
+bins remain in the producer-owned numeric outputs.

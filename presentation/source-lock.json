@@ -13,17 +13,17 @@
     "docs/report/pollen-reconstruction/verify_report.py": "5b85c184b5e72d4d890dabb77342f8c81e3fc8d9a2bbe3744e91b74c7f13a44d",
     "packages/bijux-pollenomics/pyproject.toml": "5210c72e9ee4827f64c81f7ca1906e2fe4465cb6cf227311378fc77038ed8aaf",
     "presentation/README.md": "c4c8e910feee73159bfda2dc0f1c70480963c9be7cf6911db9f7a66d2755f075",
-    "presentation/big-picture.tex": "b273601c7849c72bb128acb981409288b626f78acf4a88661ae4406d8e809a4f",
+    "presentation/big-picture.tex": "eb0a5b78b1c6314059fc0a608cc9312e604c0561ae384d601a544626eb5e042d",
     "presentation/build.py": "a1ee7ca37524c7b3d096a9cb3eeb20563bd52240aa5887e9fad767c6df05daf0",
-    "presentation/developer.tex": "38f92e00de13e47edb7579f2e3b861b365b6163c4e0a648e2ba0cbe74d6db605",
-    "presentation/scientific-evidence.tex": "9f6716e4637587a023c522af703c46bc6b38acdf1701e3dea2102092b93a1b6d",
+    "presentation/developer.tex": "79b892a0c31635be1923e5c8dc09c1bbabf2bc18563e33ba54e401f6655229b0",
+    "presentation/scientific-evidence.tex": "c098241b8e356240c7f711789f5c87cad219f3d2d66a00430726ea5c1302e8a9",
     "presentation/shared.tex": "2aa40954975f75241ded20a78d0c698c0f864274222e30c148bda4cf4b0bf17a",
-    "reports/README.md": "d58485145f6cf7e0a7841b9b08209ddcfb84cd8c001021fbd993c1104694fd6a",
+    "reports/README.md": "85e366253576e0a06c523a5a04a1efd343bd7c9fb27bc618263e614db01172ca",
     "reports/needed/README.md": "0f13bcf5f9bcecdb4421d19225c66ccea69adfbe14d73a3921f4a55942319c95",
-    "reports/science/four-country-author-pollen.md": "c204f2077285c7424dd08c548553765f377aec1b26d47704a1014ff6dc9e0490",
-    "reports/science/model-use.md": "05df8d2178dd858c693436f9d75bc74bc9622405bfba1a1923cda14b1fa0327e",
-    "reports/science/nordic-pollen-study.md": "d9be143a28a84a7b378a553af6466534426964f664e65511b5f327484b12536a",
+    "reports/science/denmark-finland-norway-author-pollen.md": "c204f2077285c7424dd08c548553765f377aec1b26d47704a1014ff6dc9e0490",
+    "reports/science/model-use.md": "1544f5f7bbbbf2306cc7d44dd485b2a98028c13e66d26ef31c576fef21238fb4",
     "reports/science/pollen-prediction.md": "67a360e32ccfbada66ee404d286a1cd5fcb3225d8f671a9bec8092d705362117",
-    "reports/science/publication-correspondence.md": "9d68468e9320180099ab517709374cb82d38068c3ef458c5c696c535037f41a4"
+    "reports/science/publication-correspondence.md": "9d68468e9320180099ab517709374cb82d38068c3ef458c5c696c535037f41a4",
+    "reports/science/sweden-author-pollen.md": "138e78bc39e9fca2545a573c4cd07afc3d57aa73843b8ee3a43afbcea672343a"
   }
 }
