@@ -142,3 +142,11 @@ five exact unsent source-owner questions. The inspected LOVE paper PDF has
 separate private source custody. No repository consumer or live open file
 depended on the retired directory at removal. This decision does not certify
 historical publication input equivalence or affect any other artifact path.
+
+## Earlier scientific report provenance
+
+The [earlier scientific report provenance](scientific-report-provenance/README.md)
+retains exact results, scope, and evidence-manifest bytes from the previous
+11-result study. The current report has 16 result rows and a passing 152-file
+verifier. The historical manifest records the earlier input closure and is not
+a live source of report claims or a valid check against the current worktree.
