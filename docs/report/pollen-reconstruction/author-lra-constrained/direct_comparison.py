@@ -20,7 +20,10 @@ from bijux_pollenomics.analysis.lra_validation.experiments.inputs import (
     read_geometry,
     read_training_observation,
 )
-from bijux_pollenomics.analysis.lra_validation.metrics import score_pollen
+from bijux_pollenomics.analysis.lra_validation.metrics import (
+    hellinger_distance,
+    score_pollen,
+)
 from bijux_pollenomics.analysis.lra_validation.splits import grouped_leave_one_out
 from bijux_pollenomics.core.geospatial.distance import wgs84_inverse_geodesic
 
@@ -313,6 +316,154 @@ def site_sensitivity(
     return report
 
 
+def paired_hellinger(
+    inputs: Path,
+    direct_predictions: Path,
+    lra_predictions: Path,
+    lra_scores: Path,
+    lra_report: Path,
+    comparison: Path,
+    output: Path,
+) -> dict[str, object]:
+    """Score frozen direct and LRA pollen predictions on the same raw source rows."""
+    if output.exists() or output.is_symlink():
+        raise ValueError("Absent Hellinger output required")
+    spec, source_sha = _source(inputs)
+    lra_reference = json.loads(lra_report.read_text())
+    direct_reference = json.loads(comparison.read_text())
+    direct_manifest = direct_predictions / "manifest.json"
+    direct_rows_path = direct_predictions / "predictions.json"
+    if (
+        lra_reference["source_experiment_sha256"] != source_sha
+        or lra_reference["requested_folds"] != 15
+        or lra_reference["predicted_folds"] != 14
+        or lra_reference["scored_method_rows"] != 42
+        or lra_reference["refused_site"] != "author:BECKHAM"
+        or direct_reference["source_experiment_sha256"] != source_sha
+        or direct_reference["matched_method_rows"] != 42
+        or direct_reference["excluded_site"] != "author:BECKHAM"
+        or direct_reference["direct_prediction_manifest_sha256"]
+        != hashlib.sha256(direct_manifest.read_bytes()).hexdigest()
+        or direct_reference["lra_score_csv_sha256"]
+        != hashlib.sha256(lra_scores.read_bytes()).hexdigest()
+        or json.loads(direct_manifest.read_text())["prediction_rows_sha256"]
+        != hashlib.sha256(direct_rows_path.read_bytes()).hexdigest()
+    ):
+        raise ValueError("Published source or prediction identity changed")
+    with lra_scores.open(newline="") as stream:
+        score_rows = list(csv.DictReader(stream))
+    scored_rows = [row for row in score_rows if row["status"] == "scored"]
+    scored = {(row["target_record_id"], row["method"]): row for row in scored_rows}
+    with lra_predictions.open(newline="") as stream:
+        lra_rows = list(csv.DictReader(stream))
+    lra: dict[tuple[str, str], dict[str, float]] = {}
+    for row in lra_rows:
+        key = (row["target_record_id"], row["method"])
+        if (
+            key not in scored
+            or row["prediction_identity"] != scored[key]["prediction_identity"]
+        ):
+            raise ValueError("LRA prediction and scored identity differ")
+        composition = lra.setdefault(key, {})
+        if row["taxon"] in composition:
+            raise ValueError("Duplicate LRA prediction taxon")
+        composition[row["taxon"]] = float(row["forward_pollen_fraction"])
+    direct_rows = json.loads(direct_rows_path.read_text())
+    direct = {(row["target_record_id"], row["method"]): row for row in direct_rows}
+    sites = {site.record.record_id: site for site in spec.sites}
+    if (
+        len(scored) != 42
+        or len(scored_rows) != 42
+        or len(score_rows) != 45
+        or len(lra) != 42
+        or len(lra_rows) != 42 * 30
+        or set(lra) != set(scored)
+        or len(direct) != 45
+        or len(direct_rows) != 45
+        or not set(scored).issubset(direct)
+        or {key[0] for key in scored} != set(sites) - {"author:BECKHAM"}
+    ):
+        raise ValueError("Matched Hellinger support changed")
+    rows = []
+    for target, method in sorted(scored):
+        site = sites[target]
+        raw_path = inputs / site.raw.path
+        if hashlib.sha256(raw_path.read_bytes()).hexdigest() != site.raw.sha256:
+            raise ValueError("Target pollen source changed")
+        raw = json.loads(raw_path.read_text())
+        counts = dict(zip(raw["taxa"], raw["sample"]["counts"], strict=True))
+        total = sum(counts.values())
+        if total <= 0 or len(counts) != 30:
+            raise ValueError("Observed pollen denominator changed")
+        observed = {taxon: count / total for taxon, count in counts.items()}
+        direct_distance = hellinger_distance(
+            direct[(target, method)]["pollen_fraction"], observed
+        )
+        lra_distance = hellinger_distance(lra[(target, method)], observed)
+        rows.append(
+            {
+                "target_record_id": target,
+                "method": method,
+                "direct_pollen_hellinger": direct_distance,
+                "lra_forward_pollen_hellinger": lra_distance,
+                "direct_minus_lra_hellinger": direct_distance - lra_distance,
+                "observed_total_count": total,
+                "target_raw_sha256": site.raw.sha256,
+                "direct_training_identity": direct[(target, method)][
+                    "training_manifest_sha256"
+                ],
+                "lra_prediction_identity": scored[(target, method)][
+                    "prediction_identity"
+                ],
+            }
+        )
+    summaries = []
+    for method in METHODS:
+        selected = [row for row in rows if row["method"] == method]
+        if len(selected) != 14:
+            raise ValueError("Missing matched site for Hellinger summary")
+        summaries.append(
+            {
+                "method": method,
+                "matched_sites": len(selected),
+                "direct_pollen_site_macro_hellinger": sum(
+                    cast(float, row["direct_pollen_hellinger"]) for row in selected
+                )
+                / len(selected),
+                "lra_forward_pollen_site_macro_hellinger": sum(
+                    cast(float, row["lra_forward_pollen_hellinger"]) for row in selected
+                )
+                / len(selected),
+                "direct_lower_site_count": sum(
+                    cast(float, row["direct_minus_lra_hellinger"]) < 0
+                    for row in selected
+                ),
+            }
+        )
+    report = {
+        "schema_version": "author-lra-direct-pollen-hellinger.v1",
+        "source_experiment_sha256": source_sha,
+        "direct_prediction_manifest_sha256": hashlib.sha256(
+            direct_manifest.read_bytes()
+        ).hexdigest(),
+        "lra_prediction_manifest_sha256": lra_reference["prediction_manifest_sha256"],
+        "lra_prediction_csv_sha256": hashlib.sha256(
+            lra_predictions.read_bytes()
+        ).hexdigest(),
+        "lra_score_csv_sha256": direct_reference["lra_score_csv_sha256"],
+        "matched_method_rows": len(rows),
+        "matched_sites": 14,
+        "excluded_site": "author:BECKHAM",
+        "taxon_count": 30,
+        "method_summaries": summaries,
+        "site_method_rows": rows,
+        "interpretation": "prior-exposed English development, common 30-taxon observed-pollen support; no independent vegetation accuracy or sampling interval",
+    }
+    output.parent.mkdir(parents=True, exist_ok=True)
+    output.write_text(json.dumps(report, indent=2) + "\n")
+    return report
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     sub = parser.add_subparsers(dest="action", required=True)
@@ -329,6 +480,14 @@ def main() -> None:
     third.add_argument("--matched-scores", type=Path, required=True)
     third.add_argument("--comparison", type=Path, required=True)
     third.add_argument("--output", type=Path, required=True)
+    fourth = sub.add_parser("hellinger")
+    fourth.add_argument("--inputs", type=Path, required=True)
+    fourth.add_argument("--direct-predictions", type=Path, required=True)
+    fourth.add_argument("--lra-predictions", type=Path, required=True)
+    fourth.add_argument("--lra-scores", type=Path, required=True)
+    fourth.add_argument("--lra-report", type=Path, required=True)
+    fourth.add_argument("--comparison", type=Path, required=True)
+    fourth.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
     if args.action == "predict":
         print(predict(args.inputs, args.destination))
@@ -345,10 +504,25 @@ def main() -> None:
                 sort_keys=True,
             )
         )
-    else:
+    elif args.action == "site-sensitivity":
         print(
             json.dumps(
                 site_sensitivity(args.matched_scores, args.comparison, args.output),
+                sort_keys=True,
+            )
+        )
+    else:
+        print(
+            json.dumps(
+                paired_hellinger(
+                    args.inputs,
+                    args.direct_predictions,
+                    args.lra_predictions,
+                    args.lra_scores,
+                    args.lra_report,
+                    args.comparison,
+                    args.output,
+                ),
                 sort_keys=True,
             )
         )

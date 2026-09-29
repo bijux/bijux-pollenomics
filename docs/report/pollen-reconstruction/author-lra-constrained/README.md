@@ -74,6 +74,21 @@ but these correlated English sites and overlapping training folds do not
 support a sampling confidence interval or spatial-transfer claim. BECKHAM
 remains excluded from every matched comparison because its LRA fold refused.
 
+The [matched Hellinger result](direct-pollen/paired-hellinger.json) reopens the
+same 14 raw target rows after both prediction sets were frozen. It binds the
+source experiment, direct prediction manifest, LRA prediction identities and
+LRA score table. The distance uses the original observed 30-taxon composition,
+without smoothing target counts. Site-macro distances are:
+
+| Fixed method | Direct pollen | LRA forward pollen | Sites favoring direct |
+| --- | ---: | ---: | ---: |
+| Training mean | 0.282082 | 0.360671 | 14/14 |
+| Nearest site | 0.255767 | 0.286001 | 7/14 |
+| Inverse-distance-squared | 0.243673 | 0.285415 | 11/14 |
+
+These are descriptive distances on the same prior-exposed English support. The
+14 sites do not provide a sampling interval or independent vegetation truth.
+
 From the repository root, with a private author source capsule and an absent
 output destination:
 
@@ -115,6 +130,15 @@ PYTHONDONTWRITEBYTECODE=1 .venv/bin/python \
   --matched-scores "$job/direct-comparison/matched-scores.csv" \
   --comparison "$job/direct-comparison/comparison.json" \
   --output "$job/site-sensitivity.json"
+PYTHONDONTWRITEBYTECODE=1 .venv/bin/python \
+  docs/report/pollen-reconstruction/author-lra-constrained/direct_comparison.py hellinger \
+  --inputs "$job/constrained-inputs" \
+  --direct-predictions "$job/direct-predictions" \
+  --lra-predictions "$job/report/predictions.csv" \
+  --lra-scores "$job/report/scores.csv" \
+  --lra-report "$job/report/report.json" \
+  --comparison "$job/direct-comparison/comparison.json" \
+  --output "$job/paired-hellinger.json"
 ```
 
 Set `published_prediction_sha256` to the digest printed by the prediction
