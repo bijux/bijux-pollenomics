@@ -4,7 +4,13 @@
 describe analytical LOVEr and optimized LOVEoptim using a simulated landscape.
 The full article text was inspected through a public PDF copy with SHA-256
 `3336b5b6450b89d97b6e52f18b42090333091bf355a3f4715676215e2b18cc3e`;
-the publisher endpoint returned HTTP 429/403 during this review. The paper's
+the exact 1,097,851-byte inspected copy is now retained in the private source
+store at `lra-reference/papers/love-method-2024/paper.pdf`. Its
+`custody.json` receipt has SHA-256
+`37f2729e9796792098abb26d67ee3c2310d92ee9f59c99101a0cba6fec89b928`.
+The earlier public PDF download URL was not recorded, so this custody binds
+the inspected bytes and article identity without claiming publisher-byte parity.
+The publisher endpoint returned HTTP 429/403 during this review. The paper's
 data availability statement points to DISQOVER functions, without identifying
 a deposited simulation input bundle. No supplementary simulation bundle was
 identified in the accessible article. The [local source identity
