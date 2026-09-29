@@ -8,7 +8,7 @@ import json
 import os
 from pathlib import Path
 from types import SimpleNamespace
-from typing import Any, cast
+from typing import Any, Literal, cast
 
 import pytest
 
@@ -26,7 +26,8 @@ from bijux_pollenomics_dev.source_completion.hyde_nordic_window import (
     read_hyde_nordic_window_bundle,
 )
 
-SCENARIOS = ("base", "lower", "upper")
+Scenario = Literal["base", "lower", "upper"]
+SCENARIOS: tuple[Scenario, ...] = ("base", "lower", "upper")
 ARCHIVES = {
     "base": (
         "original/gbc2025_7apr_base/zip/2000AD_lu.zip",
@@ -315,6 +316,7 @@ def configured_inputs(
                 if path.name == resolved.name
             )
             window = replace(original, directory=resolved)
+        assert window is not None
         assert expected_manifest_sha256 == window.manifest_sha256
         return window
 
@@ -333,7 +335,7 @@ def configured_inputs(
             hyde_nordic_window.DATASET_INVENTORY_SHA256,
             (
                 source := hyde_nordic_window.SCENARIO_SOURCES[
-                    cast(str, json.loads(content)["scenario"])
+                    cast(Scenario, json.loads(content)["scenario"])
                 ]
             ).archive_sha256,
             source.archive_bytes,
@@ -579,7 +581,20 @@ def test_coordinated_source_profile_relabeling_is_refused(
             labels[mutation] = cast(str, value)
             changed_selection = replace(selection, native_labels=tuple(labels.items()))
         else:
-            changed_selection = replace(selection, **{mutation: value})
+            if mutation == "expected_member_name":
+                assert isinstance(value, str)
+                changed_selection = replace(selection, expected_member_name=value)
+            else:
+                assert isinstance(value, int)
+                if mutation == "row_start":
+                    changed_selection = replace(selection, row_start=value)
+                elif mutation == "row_stop":
+                    changed_selection = replace(selection, row_stop=value)
+                elif mutation == "column_start":
+                    changed_selection = replace(selection, column_start=value)
+                else:
+                    assert mutation == "column_stop"
+                    changed_selection = replace(selection, column_stop=value)
         retained[base_path] = replace(base, selection=changed_selection)
         publish_hyde_nordic_window_bundle(
             windows=windows,
