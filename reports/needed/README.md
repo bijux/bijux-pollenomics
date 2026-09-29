@@ -8,6 +8,7 @@ sources remain in their governed source store.
 | Need | Priority | Resolution depends on |
 | --- | --- | --- |
 | Abborrtjärnen LRA input identity | Critical for Swedish LRA | LandClim/core source owner and qualified method review. |
+| Other Nordic LRA core admission | Critical for four-country LRA | Country core/source owners and qualified basin/taxon review. |
 | Independent vegetation observations | Critical for ecological accuracy | Measurement source owner and ecological pairing review. |
 | HYDE source semantics | High for a land-use ablation | Exact release provider and reuse/metadata review. |
 | Historical publication inputs and taxonomy | High for full-paper reproduction | Archive producer or author and qualified taxon review. |
@@ -43,6 +44,36 @@ explicitly leaves selected age model, historical basin series, full count/PPE
 mapping and workbook analytical-use rights open. **Reopen when:** a citable
 record binds those fields to the same physical core and time window; then
 rerun the admission and reconstruction consumer before closing this question.
+
+## Other Nordic LRA core admission
+
+**Affected result:** Denmark, Finland and Norway have country-held-out
+observed-pollen scores, but those cohorts contain zero admitted LRA inputs.
+The [four-country source account](../science/source-cohorts.md) keeps that
+response separate from vegetation reconstruction. For Danish Solsø, the
+[source-lineage review](../../docs/report/countries/denmark/solsoe-source-lineage/README.md)
+finds 79 LandClim II samples versus 92 Neotoma source samples; applying the
+published age span alone retains 90, so the historical selection is still
+unidentified. Its reported site area or site radius does not supply an
+age-specific shoreline.
+
+**Needed:** nominate a specific physical core and time window in each target
+country, then bind source sample selection, chronology and uncertainty,
+historical basin geometry, reviewed taxon/count denominator, PPE/fall speeds
+and analytical-use rights to that same window. Country pollen counts or a
+modern site centroid cannot stand in for these fields. Country source owners
+and qualified palaeoecological reviewers must settle the joins. Next action:
+run the existing admission and real LRA consumer for the first fully bound
+site, with every other candidate retained as an explicit refusal.
+
+**Already checked:** the Nordic 31-target observed-pollen study accounts for
+one Danish, 28 Finnish and 52 Norwegian sites and their count mass; the Solsø
+source and age-control reviews narrow one Danish lead without recovering the
+author's 79 input rows or historical basin. The [scientific account](../../docs/report/pollen-reconstruction/README.md)
+retains the wider country-specific prerequisites. **Reopen when:** a
+source-qualified core/window packet supplies all required fields and permitted
+use; publish a source-bound reconstruction and held-out prediction before
+scoring target pollen.
 
 ## Independent vegetation observations
 
