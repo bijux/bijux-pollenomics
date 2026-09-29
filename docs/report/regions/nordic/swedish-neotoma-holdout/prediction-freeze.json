@@ -1,0 +1,18 @@
+{
+  "schema_version": "swedish-neotoma-pollen-prediction-freeze.v1",
+  "stage": "predictions_frozen_before_target_scoring",
+  "protocol_sha256": "d33a453d047e19afd6206c69191ea5f5d4193f5b13d6fcb341d5a071b84e3053",
+  "producer_sha256": "25cdbebb05f9883fe7d980d21519af7b3ebf38f137f167f556607e6579ad67b7",
+  "prepared_input_manifest_sha256": "752d43a47cbbc6cdde39b2625595c4bf939047649c09cae239449baf59b1994f",
+  "training_sha256": "de2683e4a01ab4d3aa3e8add4891ddbb487f4cc0ee650aada57ed839abecce80",
+  "prediction_file": "predictions/predictions-SE.json.gz",
+  "prediction_sha256": "1d21d1d351bfa7ee41a6dd1f2764e5ee9085f06931db40ca0c1263c5447b2a45",
+  "author_target_taxa": 31,
+  "candidate_site_bins": 22,
+  "predicted_site_bins": 22,
+  "refused_site_bins": 0,
+  "fixed_method_prediction_rows": 66,
+  "target_pollen_counts_read_by_predictor": false,
+  "target_site_in_training": false,
+  "scientific_scope": "prior-exposed development transfer on direct observed pollen; no LRA or vegetation inference"
+}
