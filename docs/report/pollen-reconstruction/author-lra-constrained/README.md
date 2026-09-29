@@ -63,6 +63,17 @@ the direct method uses all 14 training pollen sites, while the LRA route uses
 one as its regional anchor and 13 as local reconstruction predictors. It does
 not measure vegetation accuracy or establish an independent final test.
 
+The [paired site sensitivity](direct-pollen/site-sensitivity.json) binds the
+published comparison and 42 score rows by SHA-256. Direct pollen has lower MAE
+at 13/14 sites for training mean, 7/14 for nearest site, and 10/14 for
+inverse-distance-squared interpolation. The nearest-site median paired
+direct-minus-LRA difference is **+0.000244**, despite its negative mean of
+**−0.001580**; the mean advantage is concentrated in sites with larger direct
+gains. Omitting any one scored site leaves all three mean differences negative,
+but these correlated English sites and overlapping training folds do not
+support a sampling confidence interval or spatial-transfer claim. BECKHAM
+remains excluded from every matched comparison because its LRA fold refused.
+
 From the repository root, with a private author source capsule and an absent
 output destination:
 
@@ -99,6 +110,11 @@ PYTHONDONTWRITEBYTECODE=1 .venv/bin/python \
   --inputs "$job/constrained-inputs" --direct-predictions "$job/direct-predictions" \
   --lra-scores "$job/report/scores.csv" --destination "$job/direct-comparison" \
   --prediction-manifest-sha256 "$published_direct_sha256"
+PYTHONDONTWRITEBYTECODE=1 .venv/bin/python \
+  docs/report/pollen-reconstruction/author-lra-constrained/direct_comparison.py site-sensitivity \
+  --matched-scores "$job/direct-comparison/matched-scores.csv" \
+  --comparison "$job/direct-comparison/comparison.json" \
+  --output "$job/site-sensitivity.json"
 ```
 
 Set `published_prediction_sha256` to the digest printed by the prediction

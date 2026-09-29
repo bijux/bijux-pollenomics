@@ -6,7 +6,9 @@ import argparse
 import csv
 import hashlib
 import json
+import math
 from pathlib import Path
+from statistics import median
 from typing import Literal, cast
 
 from bijux_pollenomics.analysis.lra_validation.baselines import predict_spatial_baseline
@@ -237,6 +239,80 @@ def compare(
     return report
 
 
+def site_sensitivity(
+    matched_scores: Path, comparison: Path, output: Path
+) -> dict[str, object]:
+    """Describe paired site dependence without treating exposed sites as independent tests."""
+    if output.exists() or output.is_symlink():
+        raise ValueError("Absent sensitivity output required")
+    with matched_scores.open(newline="") as stream:
+        rows = list(csv.DictReader(stream))
+    reference = json.loads(comparison.read_text())
+    sites = {row["target_record_id"] for row in rows}
+    keys = {(row["target_record_id"], row["method"]) for row in rows}
+    if (
+        len(rows) != 42
+        or len(sites) != 14
+        or len(keys) != 42
+        or reference["excluded_site"] in sites
+        or reference["matched_sites"] != 14
+        or reference["matched_method_rows"] != 42
+        or any({(site, method) for method in METHODS} - keys for site in sites)
+    ):
+        raise ValueError("Matched site-method support changed")
+    summaries = []
+    for method in METHODS:
+        method_rows = [row for row in rows if row["method"] == method]
+        deltas = [float(row["direct_minus_lra_mae_fraction"]) for row in method_rows]
+        direct = [float(row["direct_pollen_mae_fraction"]) for row in method_rows]
+        lra = [float(row["lra_forward_pollen_mae_fraction"]) for row in method_rows]
+        if any(not math.isfinite(value) for value in (*deltas, *direct, *lra)):
+            raise ValueError("Nonfinite matched score")
+        expected = next(
+            item for item in reference["method_summaries"] if item["method"] == method
+        )
+        if any(
+            abs(left - right - delta) > 1e-12
+            for left, right, delta in zip(direct, lra, deltas, strict=True)
+        ):
+            raise ValueError("Matched score difference changed")
+        if (
+            abs(sum(direct) / 14 - expected["direct_pollen_mae_fraction"]) > 1e-12
+            or abs(sum(lra) / 14 - expected["lra_forward_pollen_mae_fraction"]) > 1e-12
+        ):
+            raise ValueError("Published comparison mean changed")
+        total = sum(deltas)
+        omitted_site_means = [(total - delta) / 13 for delta in deltas]
+        summaries.append(
+            {
+                "method": method,
+                "matched_sites": 14,
+                "direct_lower_site_count": sum(delta < 0 for delta in deltas),
+                "lra_lower_site_count": sum(delta > 0 for delta in deltas),
+                "equal_site_count": sum(delta == 0 for delta in deltas),
+                "mean_direct_minus_lra_mae_fraction": total / 14,
+                "median_direct_minus_lra_mae_fraction": median(deltas),
+                "leave_one_site_out_mean_range": [
+                    min(omitted_site_means),
+                    max(omitted_site_means),
+                ],
+            }
+        )
+    report = {
+        "schema_version": "author-lra-paired-site-sensitivity.v1",
+        "comparison_sha256": hashlib.sha256(comparison.read_bytes()).hexdigest(),
+        "matched_scores_sha256": hashlib.sha256(
+            matched_scores.read_bytes()
+        ).hexdigest(),
+        "excluded_site": reference["excluded_site"],
+        "method_summaries": summaries,
+        "interpretation": "descriptive leave-one-site-out sensitivity on prior-exposed English development sites; no sampling confidence interval, independent vegetation accuracy, or spatial transfer claim",
+    }
+    output.parent.mkdir(parents=True, exist_ok=True)
+    output.write_text(json.dumps(report, indent=2) + "\n")
+    return report
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     sub = parser.add_subparsers(dest="action", required=True)
@@ -249,10 +325,14 @@ def main() -> None:
     second.add_argument("--lra-scores", type=Path, required=True)
     second.add_argument("--destination", type=Path, required=True)
     second.add_argument("--prediction-manifest-sha256", required=True)
+    third = sub.add_parser("site-sensitivity")
+    third.add_argument("--matched-scores", type=Path, required=True)
+    third.add_argument("--comparison", type=Path, required=True)
+    third.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
     if args.action == "predict":
         print(predict(args.inputs, args.destination))
-    else:
+    elif args.action == "compare":
         print(
             json.dumps(
                 compare(
@@ -262,6 +342,13 @@ def main() -> None:
                     args.destination,
                     args.prediction_manifest_sha256,
                 ),
+                sort_keys=True,
+            )
+        )
+    else:
+        print(
+            json.dumps(
+                site_sensitivity(args.matched_scores, args.comparison, args.output),
                 sort_keys=True,
             )
         )
