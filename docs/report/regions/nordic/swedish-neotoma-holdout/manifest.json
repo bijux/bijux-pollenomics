@@ -1,0 +1,94 @@
+{
+  "schema_version": "swedish-neotoma-pollen-report-manifest.v1",
+  "as_of": "2026-09-29",
+  "status": "scoped_development_result",
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 4227,
+      "sha256": "ec426fb53531311cbb59a8caeee70ef2c0de76a6e5f292f8edbc282a2b0fdf8c"
+    },
+    {
+      "path": "coverage.csv",
+      "bytes": 137,
+      "sha256": "27f5e87fff312b2473c778374d8013ecb110003ca76ca06946c1a70fd7e432ff"
+    },
+    {
+      "path": "input-manifest.json",
+      "bytes": 3135,
+      "sha256": "752d43a47cbbc6cdde39b2625595c4bf939047649c09cae239449baf59b1994f"
+    },
+    {
+      "path": "inputs/metadata-SE.json.gz",
+      "bytes": 454,
+      "sha256": "061003889b07f4cad3db40484c217a2ef26a418ab92b80570f28e852d67b6913"
+    },
+    {
+      "path": "inputs/training-SE.json.gz",
+      "bytes": 99397,
+      "sha256": "de2683e4a01ab4d3aa3e8add4891ddbb487f4cc0ee650aada57ed839abecce80"
+    },
+    {
+      "path": "parallel-dataset-review.json",
+      "bytes": 1994,
+      "sha256": "bbd65518a681e07aa3693885e9c922719a5f679adcc88c4d71ec8cf0f10d9639"
+    },
+    {
+      "path": "prediction-freeze.json",
+      "bytes": 1001,
+      "sha256": "008c83b3b65065e808cd89a98c1b9903cc7b9e8815e698d67c5f2e176476add0"
+    },
+    {
+      "path": "predictions/predictions-SE.json.gz",
+      "bytes": 19185,
+      "sha256": "1d21d1d351bfa7ee41a6dd1f2764e5ee9085f06931db40ca0c1263c5447b2a45"
+    },
+    {
+      "path": "protocol.json",
+      "bytes": 2624,
+      "sha256": "d33a453d047e19afd6206c69191ea5f5d4193f5b13d6fcb341d5a071b84e3053"
+    },
+    {
+      "path": "report.json",
+      "bytes": 2231,
+      "sha256": "4e208e1016cbc14544ebb45be11f5feffa2c5497b8c50c326d37643419638aab"
+    },
+    {
+      "path": "scores.csv",
+      "bytes": 11064,
+      "sha256": "80c37ec37a0ce650cd1989f4b35b5f3ac174e78a3c733d2e97e092c5f6a322fc"
+    },
+    {
+      "path": "sealed-outcomes/outcomes-SE.json.gz",
+      "bytes": 1878,
+      "sha256": "6fe46a235568eeba5a8d94849d2b82d3013e4d3d11cee27d02a4ceb731e1a1ab"
+    },
+    {
+      "path": "site-scores.csv",
+      "bytes": 323,
+      "sha256": "f8ec59aa2341a605fed7e00bd523c9f2a9d3d576ffe5e39b6c3ed951346472d7"
+    },
+    {
+      "path": "taxon-diagnostics.csv",
+      "bytes": 4976,
+      "sha256": "3ae354c5582cea80c21456610a734b733e73f0c94ce7f8aaa9efb2a3f1cccc3f"
+    },
+    {
+      "path": "verify.py",
+      "bytes": 5206,
+      "sha256": "d8127f61b2461c91bdbf02a30a36a7069e84f308d409da3ac528c87006b302b2"
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/swedish_neotoma_holdout.py",
+      "bytes": 13208,
+      "sha256": "25cdbebb05f9883fe7d980d21519af7b3ebf38f137f167f556607e6579ad67b7",
+      "path_root": "repository"
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/swedish_neotoma_duplicate_review.py",
+      "bytes": 4553,
+      "sha256": "3415a3cd6474aaf1fbdc7c260fcf03664b96ee3c1edc4b428dea0b9577d6adc7",
+      "path_root": "repository"
+    }
+  ]
+}
