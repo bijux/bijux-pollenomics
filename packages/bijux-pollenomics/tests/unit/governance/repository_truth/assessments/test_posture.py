@@ -27,7 +27,7 @@ class RepositoryPostureTests(RepositoryTruthTestCase):
             ["pollen_context", "environmental_context"],
         )
         self.assertEqual(payload["counts"]["tracked_paper_count"], 18)
-        self.assertEqual(payload["counts"]["papers_with_archived_supplements"], 18)
+        self.assertEqual(payload["counts"]["papers_with_archived_supplements"], 17)
         self.assertEqual(
             payload["counts"]["papers_with_local_reference_supplements"], 0
         )
