@@ -131,3 +131,14 @@ The 5,170 row candidates and 7,459 header positions remain private because
 source rights and scientific semantics are unresolved. The two replay
 directories were removed only after byte checks, liveness review, and private
 copy verification. This decision covers no other Rootsi or v2–v5 artifacts.
+
+## Publication correspondence custody
+
+The [publication correspondence retirement receipt](publication-correspondence-retirement.json)
+binds four derived files from one v5 artifact directory. The repository's
+current correspondence CSV contains all nine retired result IDs plus a newer
+classification row; its interpretation records the numerical limits and the
+five exact unsent source-owner questions. The inspected LOVE paper PDF has
+separate private source custody. No repository consumer or live open file
+depended on the retired directory at removal. This decision does not certify
+historical publication input equivalence or affect any other artifact path.
