@@ -141,8 +141,8 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/README.md",
-      "sha256": "db840369dc542a7240335a7552604f53edcef1d0df961b262438c76dc2bfa68d",
-      "bytes": 42468
+      "sha256": "fe24ac0e8c51e83ed00bde0c9e28758c0ba6694394cda78cfaa8ca778b4ba5b7",
+      "bytes": 582
     },
     {
       "path": "docs/report/pollen-reconstruction/author-buffered-pollen/README.md",
@@ -1813,6 +1813,11 @@
       "path": "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/spatial/model.py",
       "sha256": "6e4feab4fd60206455c70033194f7ed9e98c4c11a1bcf11e6b133874cd6f2fdd",
       "bytes": 14038
+    },
+    {
+      "path": "reports/science/nordic-pollen-study.md",
+      "sha256": "e79280db513a97f26f843af8d8e8bdc157da32b3140f2d8d48025f1a540203b1",
+      "bytes": 43858
     },
     {
       "path": "reports/science/publication-correspondence.md",

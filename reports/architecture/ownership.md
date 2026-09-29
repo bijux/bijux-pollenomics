@@ -54,3 +54,9 @@ result ledger name the root narrative; the numeric CSV and source-specific
 tables retain their governed producer paths. Both citation page and root
 narrative are pinned by the scientific manifest. Future domains need the same
 producer, manifest, link and website review, without two editable narratives.
+
+The [Swedish and Nordic pollen study](../science/nordic-pollen-study.md) is the
+second migrated narrative. Its former `docs/report/pollen-reconstruction/README.md`
+website path is a citation page; the result table, scientific scope, manifest,
+scripts and numeric products still have their governed owner. Both narrative
+locations and the three presentation citations were checked together.

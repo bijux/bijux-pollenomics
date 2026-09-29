@@ -6,7 +6,7 @@ reconstruction.
 
 ## Four Nordic countries on the author taxon axis
 
-The [four-country study](../../docs/report/pollen-reconstruction/README.md)
+The [four-country study](nordic-pollen-study.md)
 withholds Denmark, Finland, Norway or Sweden from its corresponding training
 set. It retains source counts, exclusions, predictions before outcome access,
 scores and country-specific support. The response is a closed 31-author-target
@@ -59,7 +59,7 @@ spatial confirmation.
 
 ## Model use and open inputs
 
-The [bounded development search](../../docs/report/pollen-reconstruction/README.md)
+The [bounded development search](nordic-pollen-study.md)
 selected a CLR/WGS84 RBF-ridge candidate on one prior-exposed author comparison
 and found lower common-support MAE than inverse-distance-squared with lower
 prediction coverage. That candidate is best only within its declared search,

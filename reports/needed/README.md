@@ -69,7 +69,7 @@ site, with every other candidate retained as an explicit refusal.
 **Already checked:** the Nordic 31-target observed-pollen study accounts for
 one Danish, 28 Finnish and 52 Norwegian sites and their count mass; the Solsø
 source and age-control reviews narrow one Danish lead without recovering the
-author's 79 input rows or historical basin. The [scientific account](../../docs/report/pollen-reconstruction/README.md)
+author's 79 input rows or historical basin. The [scientific account](../science/nordic-pollen-study.md)
 retains the wider country-specific prerequisites. **Reopen when:** a
 source-qualified core/window packet supplies all required fields and permitted
 use; publish a source-bound reconstruction and held-out prediction before

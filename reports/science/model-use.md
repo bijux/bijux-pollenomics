@@ -23,7 +23,7 @@ scientific input.
 
 ## Bounded observed-pollen model choices
 
-The [17-site author development search](../../docs/report/pollen-reconstruction/README.md)
+The [17-site author development search](nordic-pollen-study.md)
 selected a centered-log-ratio RBF with WGS84 distances, scale at the 0.25
 positive training-distance quantile, ridge 0.1 and training-only half-count
 smoothing. On 174 common scored bins its equal-site MAE is 0.017774 versus
