@@ -151,6 +151,9 @@ def run_development_trial(plan: dict[str, object]) -> int:
             with suppress(ProcessLookupError):
                 os.killpg(process.pid, signal.SIGTERM)
 
+    def current_interrupt() -> int | None:
+        return interrupted_signal
+
     previous_handlers = {
         signum: signal.signal(signum, interrupt)
         for signum in (signal.SIGINT, signal.SIGTERM)
@@ -193,12 +196,13 @@ def run_development_trial(plan: dict[str, object]) -> int:
                 result = _failed("trial_timeout", time.monotonic() - started)
                 code = 124
             else:
-                if interrupted_signal is not None:
+                interruption_after_wait = current_interrupt()
+                if interruption_after_wait is not None:
                     _terminate_process_group(process)
                     result = _failed(
                         "trial_runner_interrupted", time.monotonic() - started
                     )
-                    code = 128 + interrupted_signal
+                    code = 128 + interruption_after_wait
                 else:
                     _terminate_process_group(process)
             elapsed = time.monotonic() - started
