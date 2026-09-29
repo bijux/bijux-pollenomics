@@ -156,6 +156,19 @@ and repository consumers. Historical report snapshots retain their original
 path strings as provenance, not live read dependencies. Other correspondence
 plans, caches and runs remain pending separate custody review.
 
+The [remaining correspondence retirement receipt](landclim-correspondence-retirement.json)
+records the 46 file and symlink entries left in the two bounded working
+directories, including their process plans, earlier numerical reports and
+pytest products. Both earlier row-level CSVs equal the governed ledgers after
+newline normalization. Shared JSON values also agree: the final author report
+adds explicit zero missing and extra key counts, while the final
+published-window report names the author site count and signed extreme taxa.
+The original final outputs remain bound by the
+two ledger manifests. Four pytest symlinks point within the retired directories;
+no regular file has another hardlink, no file was open, and no current repository
+consumer reads either directory. The historical snapshot's old artifact paths
+remain provenance strings. This retirement changes no scientific admission.
+
 The [earlier Swedish direct-pollen run](historical-swedish-direct-pollen-run/README.md)
 retains its unique producer, input manifest and report bytes. Its custody ledger
 maps the other 12 files to byte-identical or newline-normalized current study
