@@ -34,7 +34,7 @@ The six primary-link cases have exact source questions:
 | --- | --- | --- | --- |
 | `4168` | FI | No publication link | Match the original report or article to the deposited profile before assigning a primary publication. |
 | `4472` | FI | No publication link | Cite the independently matched 1995 original study; retain the missing provider link. |
-| `4510` | FI | Two links, neither primary | Determine which linked work, if either, is primary for this dataset. |
+| `4510` | FI | Two links, neither primary | Cite the original Vasikkasuo I report lead; do not treat the linked Vasikkasuo II follow-up as this core's primary work. |
 | `45347` | NO | Two links flagged primary | Confirm whether both works apply and cite each applicable primary work. |
 | `52255` | NO | Two links flagged primary | Confirm both primary works; the two DOI strings differ only in ASCII case. |
 | `53098` | NO | Three links flagged primary | Confirm applicable primary works and resolve its two distinct dataset DOI names. |
@@ -67,8 +67,38 @@ The 1994 unpublished designations are historical observations, not claims that
 the datasets lack later archival publication. The independent 1995 article
 match resolves one original-study citation for reporting while leaving the
 provider's six missing or ambiguous primary-link cases unchanged. The other
-five cases still require review. None of these records supplies LRA basin
-geometry, PPE, or independent vegetation truth.
+five cases still require review.
+
+### Vasikkasuo core identity
+
+The provider links two unflagged works to Finnish dataset `4510`. The linked
+[Geological Survey report P34.4.100](https://tupa.gtk.fi/raportti/arkisto/p34_4_100.pdf)
+has a scanned title page dated **1991**, although its Neotoma publication
+string says 1990. Its introduction explicitly identifies its newly studied
+core as **Vasikkasuo II** and the earlier, cultivated-field core as
+**Vasikkasuo I**, sampled about 120 m away. It attributes the first core's
+original investigation to Vuorela's 1990 report, *Siitepölyanalyyttinen
+tutkimus Puolangan kunnan kasvillisuuden kehityksestä*, also [catalogued by
+the Finnish National Library](https://kansalliskirjasto.finna.fi/Record/helka.997635533506253).
+The [linked 1991 Suo article](https://www.suo.fi/pdf/9685) reviews regional
+peat evidence and does not by itself establish the original record publication
+for the first core.
+
+The governed Neotoma collection-unit crosswalk resolves the potential mix-up:
+`4510` is `VASIKKAS`, **core 1**, collected 1990-05-01, with 59 samples from
+0–290 cm and included in the selected direct-pollen study. The nearby
+`PUOLANKA`, **core 2**, belongs to dataset `4363`, excluded from that study.
+The 1991 report is direct evidence for core II and a first-party pointer to
+the 1990 original report for core I. The 1990 report's full contents have not
+been compared with the 59 deposited samples, so the original-work match for
+`4510` is still a documented lead rather than a verified numerical identity.
+The scanned report is retained privately at
+`neotoma/publication-evidence/vasikkasuo`; its one-file manifest has SHA-256
+`e9168e64d725867ba1e5e0be4365bb27ba8c667e5f8af233835d217b77d772ce`.
+Neotoma's two false primary flags remain unchanged.
+
+None of these citation records supplies LRA basin geometry, PPE, or
+independent vegetation truth.
 
 The existing direct-pollen predictions and scores remain development results;
 this attribution review does not change their response denominator.
