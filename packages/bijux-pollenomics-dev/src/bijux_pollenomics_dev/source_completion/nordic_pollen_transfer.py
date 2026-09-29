@@ -3,9 +3,9 @@
 from __future__ import annotations
 
 import argparse
-from collections import defaultdict
 import csv
 import json
+from collections import defaultdict
 from pathlib import Path
 from statistics import mean
 from typing import Any
@@ -55,6 +55,12 @@ SCORE_FIELDS = (
     "selected_minus_fixed_rbf_mae",
     "prediction_sha256",
 )
+
+
+def _site_macro(rows_by_site: dict[str, list[dict[str, Any]]], field: str) -> float:
+    return mean(
+        mean(float(row[field]) for row in rows) for rows in rows_by_site.values()
+    )
 
 
 def _coordinate(profile: dict[str, Any]) -> SiteCoordinate:
@@ -452,11 +458,6 @@ def score(
         if not by_site:
             raise ValueError("Selected country has no scored sites")
 
-        def site_macro(field: str) -> float:
-            return mean(
-                mean(float(row[field]) for row in rows) for rows in by_site.values()
-            )
-
         summaries.append(
             {
                 "country": country,
@@ -467,18 +468,26 @@ def score(
                 "scored_site_bins": len(country_rows),
                 "scored_sites": len(by_site),
                 "refused_site_bins": len(candidates) - len(country_rows),
-                "site_macro_selected_mae": site_macro("selected_mae_fraction"),
-                "site_macro_idw_mae": site_macro("idw_mae_fraction"),
-                "site_macro_fixed_rbf_mae": site_macro("fixed_rbf_mae_fraction"),
-                "site_macro_selected_minus_idw_mae": site_macro(
-                    "selected_minus_idw_mae"
+                "site_macro_selected_mae": _site_macro(
+                    by_site, "selected_mae_fraction"
                 ),
-                "site_macro_selected_minus_fixed_rbf_mae": site_macro(
-                    "selected_minus_fixed_rbf_mae"
+                "site_macro_idw_mae": _site_macro(by_site, "idw_mae_fraction"),
+                "site_macro_fixed_rbf_mae": _site_macro(
+                    by_site, "fixed_rbf_mae_fraction"
                 ),
-                "site_macro_selected_hellinger": site_macro("selected_hellinger"),
-                "site_macro_idw_hellinger": site_macro("idw_hellinger"),
-                "site_macro_fixed_rbf_hellinger": site_macro("fixed_rbf_hellinger"),
+                "site_macro_selected_minus_idw_mae": _site_macro(
+                    by_site, "selected_minus_idw_mae"
+                ),
+                "site_macro_selected_minus_fixed_rbf_mae": _site_macro(
+                    by_site, "selected_minus_fixed_rbf_mae"
+                ),
+                "site_macro_selected_hellinger": _site_macro(
+                    by_site, "selected_hellinger"
+                ),
+                "site_macro_idw_hellinger": _site_macro(by_site, "idw_hellinger"),
+                "site_macro_fixed_rbf_hellinger": _site_macro(
+                    by_site, "fixed_rbf_hellinger"
+                ),
             }
         )
     scores_path = output / "paired-scores.csv"

@@ -180,8 +180,12 @@ def run_development_search(study: AuthorStudy, output: Path) -> dict[str, object
                 fractions: dict[str, float] | None,
                 manifest: str | None,
                 reason: str | None,
+                *,
+                current_bin_id: str = bin_id,
+                current_fold_id: str = fold_id,
+                training_site_count: int = len(available),
             ) -> None:
-                observed = counts[target.site_id].by_bin[bin_id]
+                observed = counts[target.site_id].by_bin[current_bin_id]
                 total = sum(observed.values())
                 scored = (
                     score_pollen(fractions, observed) if fractions is not None else None
@@ -197,9 +201,9 @@ def run_development_search(study: AuthorStudy, output: Path) -> dict[str, object
                 score_rows.append(
                     {
                         "candidate_id": candidate_id,
-                        "fold_id": fold_id,
+                        "fold_id": current_fold_id,
                         "target_site_id": target.site_id,
-                        "bin_id_bp": bin_id,
+                        "bin_id_bp": current_bin_id,
                         "status": "scored"
                         if scored and scored.status == "scored"
                         else "refused",
@@ -207,7 +211,7 @@ def run_development_search(study: AuthorStudy, output: Path) -> dict[str, object
                         "observed_total_count": total,
                         "mae_fraction": scored.mae_fraction if scored else None,
                         "hellinger_distance": hellinger,
-                        "training_sites": len(available),
+                        "training_sites": training_site_count,
                         "training_manifest_sha256": manifest,
                     }
                 )
@@ -217,9 +221,9 @@ def run_development_search(study: AuthorStudy, output: Path) -> dict[str, object
                         prediction_rows.append(
                             {
                                 "candidate_id": candidate_id,
-                                "fold_id": fold_id,
+                                "fold_id": current_fold_id,
                                 "target_site_id": target.site_id,
-                                "bin_id_bp": bin_id,
+                                "bin_id_bp": current_bin_id,
                                 "taxon": taxon,
                                 "observed_count": observed[taxon],
                                 "predicted_fraction": fractions[taxon],

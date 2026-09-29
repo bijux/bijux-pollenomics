@@ -2,7 +2,7 @@
   "schema_version": "nordic-selected-pollen-transfer.v1",
   "prior_exposure": "Country outcomes were inspected before this protocol; paired country results are development evidence, not independent confirmation.",
   "response": "exact 16-label observed-pollen subcomposition",
-  "freeze_sha256": "35e7245be19dfa7346fdb6408e5b5056e203e4f2342f957a88137cff12dda916",
+  "freeze_sha256": "48d9222f761efcf5ce4e3c5705b234301f8062362fe5bcd8af04affa3a47c23d",
   "prediction_sha256": {
     "DK": "7eb5bf7b8090c78ebd3cd3342e7d9c2d5bb6d16511c1e81d123ae85da9bfb3d3",
     "FI": "b77217a752661dbdfaa1cd405de1e0277dbb640c40d0562ab1c685ca8f664acd",

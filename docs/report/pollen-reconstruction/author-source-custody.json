@@ -14,7 +14,7 @@
   "preserved_original_manifest": true,
   "producer": {
     "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/author_pollen_spatial/development_search.py",
-    "sha256": "a0bdd0efc2294d959b5de31958ade5f6f844d9694add448e4cf46e000a585770"
+    "sha256": "fe06b4a7d004173505f62078b0f2de6d198a2175565b34bc67de9aae9e97a72b"
   },
   "source_reader": {
     "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/author_pollen_spatial/source.py",

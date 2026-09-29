@@ -9,8 +9,7 @@ import json
 import math
 from pathlib import Path
 from statistics import median
-from typing import cast
-
+from typing import Any, cast
 
 MEAN_ATOL = 1e-11
 MEAN_RTOL = 1e-10
@@ -26,6 +25,19 @@ def _checked(path: Path, digest: str) -> Path:
     if _digest(path) != digest:
         raise ValueError(f"Input digest differs from retained parity receipt: {path}")
     return path
+
+
+def _candidate_file(base: Path, hashes: dict[str, Any], name: str) -> Path:
+    return _checked(base / name, hashes[name]["sha256"])
+
+
+def _reference_file(
+    reference: Path, grid: str, grid_report: dict[str, Any], name: str
+) -> Path:
+    return _checked(
+        reference / grid / name,
+        grid_report["reference_files"][f"{grid}/{name}"],
+    )
 
 
 def _rows(path: Path) -> list[list[str]]:
@@ -173,26 +185,19 @@ def build_correspondence(
         ):
             raise ValueError("Retained grid method or units differ")
 
-        def candidate_path(name: str) -> Path:
-            return _checked(base / name, hashes[name]["sha256"])
-
-        def reference_path(name: str) -> Path:
-            return _checked(
-                reference / grid / name,
-                grid_report["reference_files"][f"{grid}/{name}"],
-            )
-
-        counts = _rows(candidate_path("site-count.csv"))
+        counts = _rows(_candidate_file(base, hashes, "site-count.csv"))
         if counts[0] != ["bin_id", "site_count"]:
             raise ValueError("Unexpected site-count axes")
         bins = [row[0] for row in counts[1:]]
         if len(set(bins)) != len(bins) or len(bins) != grid_report["bins"]:
             raise ValueError("Unexpected bin axes")
         site_counts = {row[0]: int(row[1]) for row in counts[1:]}
-        author_counts = _rows(reference_path("site-count.csv"))
+        author_counts = _rows(
+            _reference_file(reference, grid, grid_report, "site-count.csv")
+        )
         if author_counts != [["", *bins], ["1", *[str(site_counts[b]) for b in bins]]]:
             raise ValueError("Author site counts differ")
-        availability = _rows(candidate_path("availability.csv"))
+        availability = _rows(_candidate_file(base, hashes, "availability.csv"))
         sites = json.loads((base / "site-index.json").read_text())
         names = [site["site_id"] for site in sites]
         if (
@@ -240,9 +245,11 @@ def build_correspondence(
                     "./"
                 )
                 author_name = f"{prefix if scope == 'regional' else f'site-{position}-'}{reference_name}"
-                actual = _candidate(candidate_path(actual_name), bins, taxa)
+                actual = _candidate(
+                    _candidate_file(base, hashes, actual_name), bins, taxa
+                )
                 expected = _reference(
-                    reference_path(author_name),
+                    _reference_file(reference, grid, grid_report, author_name),
                     bins,
                     taxa,
                     prepared if scope == "site" else taxa,

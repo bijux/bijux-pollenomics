@@ -2,8 +2,8 @@
   "schema_version": "landclim-correspondence-custody.v1",
   "producer": {
     "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/author_example_correspondence.py",
-    "bytes": 15161,
-    "sha256": "c56f4f960bd7bf22dbe9c2840c329f817ae9001f77e13e8b4dacf1f08e822c02"
+    "bytes": 15379,
+    "sha256": "4523c7ecacb6bb4c3c25a116a7345e539b17d99e70f0b683c7b595961e9e6752"
   },
   "source_revision": "57ead2e2fcc493d099be4e5a3092fc396e1c3d3a",
   "original_run": "v4/paper-correspondence/author-example-final",

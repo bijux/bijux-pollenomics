@@ -165,7 +165,7 @@
   },
   "nordic_selected_pollen_transfer": {
     "source_report": "docs/report/regions/nordic/selected-pollen-transfer/report.json",
-    "freeze_sha256": "35e7245be19dfa7346fdb6408e5b5056e203e4f2342f957a88137cff12dda916",
+    "freeze_sha256": "48d9222f761efcf5ce4e3c5705b234301f8062362fe5bcd8af04affa3a47c23d",
     "paired_scores_sha256": "6946b25a779d47954958b7fa965d5d98b56362c54c68f02a8c067cea0366f31d",
     "paired_scored_site_bins": 1543,
     "site_macro_selected_minus_idw_mae": {
