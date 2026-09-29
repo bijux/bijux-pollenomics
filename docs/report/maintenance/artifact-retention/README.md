@@ -185,4 +185,19 @@ The older run README lacks the report's later parameter-coverage finding and
 reproduction instructions. The two inactive copies were retired after exact
 file, link, consumer and open-handle checks. The original v5 working directory,
 which contains a distinct historical producer and earlier tables, remains
-outside this decision.
+outside this decision. Its `run_study.py` is 27,190 bytes with SHA-256
+`b219e8bbe362f89010ac10642c298eb4a45127b75d9148252b76a33046e66fa9`,
+matching its own input manifest but differing from the governed producer. Its
+unique process bytes remain protected pending durable source custody.
+
+## Nordic pollen plan
+
+The [Nordic plan custody record](nordic-pollen-plan-custody.json) retains the
+exact 969-byte text and SHA-256 of an unexecuted v5 configuration. It listed
+Denmark as unavailable and proposed only Finnish and Norwegian holdouts. The
+governed [country pollen study](../../regions/nordic/direct-pollen/RESULTS.md)
+now scores Denmark, Finland and Norway with explicit denominators. The old
+one-file directory had no open handle, and a bounded source, documentation,
+configuration and data search found no consumer. It was retired after its exact
+text was verified in the custody record. Its historical assumptions do not
+supersede the governed study.

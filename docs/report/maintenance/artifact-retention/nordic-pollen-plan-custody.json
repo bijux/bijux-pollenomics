@@ -1,0 +1,10 @@
+{
+  "schema_version": "nordic-pollen-plan-custody.v1",
+  "source_path": "artifacts/v5/nordic-direct-pollen/config.json",
+  "source_bytes": 969,
+  "source_sha256": "16fd64c71ca933a14fffe408e64a2c6614d6dcc8293521c7015ed2def9fbb160",
+  "source_text": "{\n  \"schema_version\": \"nordic-direct-pollen-config.v1\",\n  \"source_screen\": \"artifacts/v3/source/neotoma-pollen-screen-20260921/report002.json\",\n  \"source_database\": \"European Pollen Database\",\n  \"countries\": [\"Sweden\", \"Norway\", \"Finland\", \"Denmark\"],\n  \"age_type\": \"Calendar years BP\",\n  \"age_bin_width\": 500,\n  \"closed_taxa_exact\": [\n    \"Alnus\", \"Amaranthaceae\", \"Artemisia\", \"Calluna\", \"Cirsium\",\n    \"Cyperaceae\", \"Filipendula\", \"Juniperus\", \"Picea abies\",\n    \"Polygonum aviculare-type\", \"Potamogeton\", \"Quercus\",\n    \"Ranunculus acris-type\", \"Salix\", \"Urtica\"\n  ],\n  \"holdout_countries\": [\"Norway\", \"Finland\"],\n  \"unavailable_countries\": [\"Denmark\"],\n  \"methods\": [\"training_mean\", \"nearest_site\", \"inverse_distance_squared\", \"clr_rbf_ridge\"],\n  \"ridge_penalty\": 0.01,\n  \"smoothing\": \"training-only half count for CLR model; no target smoothing\",\n  \"study_scope\": \"exploratory country-held-out direct observed-pollen prediction; never LRA or vegetation truth\"\n}\n",
+  "disposition": "superseded_unexecuted_plan",
+  "reason": "The plan marks Denmark unavailable and requests only Finland/Norway holdouts; the governed completed study scores Denmark, Finland and Norway with a declared site and bin denominator. The retained text is historical planning input, not evidence for the completed results.",
+  "governed_result": "docs/report/regions/nordic/direct-pollen/RESULTS.md"
+}
