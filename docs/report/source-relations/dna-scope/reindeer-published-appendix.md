@@ -4,7 +4,8 @@ The [Molecular Ecology article](https://doi.org/10.1111/mec.17274) lists
 `mec17274-sup-0001-Appendix S1.zip` as its supporting information and names
 Table S3 as the sample metadata source for ENA project `PRJEB60484`.
 A user-supplied archive with that filename was retained in the governed
-[source library](../../../../data/adna/governance/source_library/papers/10.1111-mec.17274/supplementary/mec17274-sup-0001-Appendix%20S1.zip).
+source library at
+`data/adna/governance/source_library/papers/10.1111-mec.17274/supplementary/mec17274-sup-0001-Appendix S1.zip`.
 Its SHA-256 is
 `179ce63b79122e62017c8df8433379929f8c160f399ff44969ef05917ad734c9`.
 All four loose files supplied with the archive match the ZIP members byte for

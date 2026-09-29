@@ -45,8 +45,7 @@ The resulting **candidate is 1,219** (`1,206 − 5 + 18`) if four
 excluded. The paper does not resolve that four-grain treatment for this
 export. These are source-label calculations, not an author-confirmed
 percentage denominator, a fixed 500-grain count, or a REVEALS taxon subtotal.
-The input is
-[`part-004.json`](../../../../../data/neotoma/raw/neotoma_pollen_dataset_downloads/part-004.json),
+The input is `data/neotoma/raw/neotoma_pollen_dataset_downloads/part-004.json`,
 SHA-256 `d96046c88b497ba07082120e446fecacad0d9b5533d8960bdbc03811976ea435`;
 the [core comparison manifest](../abbo-core-identity/manifest.json) pins
 the same bytes.
