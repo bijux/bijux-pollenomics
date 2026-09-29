@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from .support import run_node_json, template_block
+from ..support import run_node_json, template_block
 
 
 def test_manual_bp_step_preserves_keyboard_focus_at_each_boundary() -> None:

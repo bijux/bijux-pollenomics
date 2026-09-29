@@ -1,0 +1,1 @@
+"""Browser control interaction tests."""

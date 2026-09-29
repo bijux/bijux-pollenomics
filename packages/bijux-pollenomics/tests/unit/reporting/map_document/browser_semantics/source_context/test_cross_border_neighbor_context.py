@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from .support import run_node_json, template_block
+from ..support import run_node_json, template_block
 
 
 def test_selected_country_retains_only_governed_cross_border_neighbors() -> None:
