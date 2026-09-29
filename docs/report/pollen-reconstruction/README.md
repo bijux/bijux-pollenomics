@@ -187,6 +187,16 @@ The output directory is disposable; the documented results and private source ca
 
 ## Software delivery verification
 
+| Acceptance dimension | Current state |
+| --- | --- |
+| Software path | Implemented for the declared direct observed-pollen and named numerical profiles; real Nordic LRA intake remains source-gated. |
+| Numerical parity | The [current R oracle](../method-certification/current-r-oracle/README.md) passes 43 named core and 23 source-domain cases; the separate author-example comparison covers 14,074 mean/SE values. Neither result authenticates missing historical publication inputs. |
+| Empirical observed pollen | Evaluated within the stated exposed Swedish, author and country-held-out cohorts, with refusals retained in the denominator. |
+| Independent measured vegetation | Not evaluated: zero admitted matched pollen/reference pairs. |
+| Practical superiority | Not established. The selected author model improves one prior-exposed common-support development score, while selected Nordic transfer loses to inverse-distance squared in Finland and Norway. |
+| Scientific acceptance | Pending for the full Nordic LRA and independent vegetation objective; this is a scoped developmental report. |
+| Public release | Not authorized by this scientific report or its software checks. |
+
 The full non-slow/non-live/non-API development-package selection ran against commit `20ecd351`: 1,097 tests passed before the final guard, 3 explicitly opt-in tests were skipped, and 3 pytest-asyncio deprecation warnings were reported. The command exited nonzero at the final workspace-layout guard because `.ruff_cache` from an earlier lint command was present at the repository root. I removed that generated cache; the managed focused rerun of runtime isolation, both direct-pollen suites, and the workspace-layout guard passed all 10 tests with an unchanged read set. Ruff check and format passed with cache reads disabled, and mypy passed on both direct-pollen producers.
 
 The no-isolation package build stopped because `hatch-vcs` was absent from the active environment. The package's normal isolated build passed on the committed producer and generated a source archive and wheel. The local version includes `+dirty` because the shared checkout retains a separate staged documentation edit outside the package. Nothing was published. The tox build target was not run because its `sync-license-assets-package` pretarget would rewrite the tracked development-package `LICENSE`, which differs from the root license.

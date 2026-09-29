@@ -85,9 +85,14 @@
       "sha256": "7fc4eec5d45fe5490b28e03bde3e269c91e0a751df81a91233ae19b0a099fc4f"
     },
     {
+      "path": "docs/report/method-certification/current-r-oracle/README.md",
+      "sha256": "f333cecb08fc94a12ea0fbf3f5436c4a08bfdf3d5e7f07d399834536e839cd22",
+      "bytes": 6323
+    },
+    {
       "path": "docs/report/pollen-reconstruction/README.md",
-      "sha256": "ef64fa99f36c9c7f19f2a39d790511a930be26c1c188267314cbe9e8b91f3ba5",
-      "bytes": 38216
+      "sha256": "a96f7a295a9d106f49ab31329a6e96398e8b65cdde32e6cb239b9b29ca723059",
+      "bytes": 39402
     },
     {
       "path": "docs/report/pollen-reconstruction/author-buffered-pollen/README.md",
