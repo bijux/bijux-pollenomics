@@ -4,14 +4,14 @@ This registry classifies the current `docs/report/` tree by family, audience,
 scope, and explanation role so the publication system can be navigated as one
 coherent report surface instead of a loose artifact dump.
 
-- Surface count: `1531`
+- Surface count: `1593`
 
 ## Family Counts
 
 | Family | Count |
 | --- | ---: |
 | Scientific caveats | 10 |
-| Maintainer truth surfaces | 792 |
+| Maintainer truth surfaces | 854 |
 | Map surfaces | 85 |
 | Portal guidance | 2 |
 | Evidence reviews | 34 |
@@ -21,7 +21,7 @@ coherent report surface instead of a loose artifact dump.
 
 | Audience | Count |
 | --- | ---: |
-| Maintainer diagnostic | 794 |
+| Maintainer diagnostic | 856 |
 | Public reading surface | 617 |
 | Scientific review surface | 120 |
 
@@ -70,8 +70,16 @@ coherent report surface instead of a loose artifact dump.
 | `docs/report/atlas/boundary-orientation/README.md` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `md` | Reader-facing entry page for one scope bundle. |
 | `docs/report/atlas/boundary-orientation/verification.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
 | `docs/report/atlas/cross-border-neighbor/README.md` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `md` | Reader-facing entry page for one scope bundle. |
+| `docs/report/atlas/cross-border-neighbor/evidence/baseline/receipt.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
+| `docs/report/atlas/cross-border-neighbor/evidence/manifest.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
+| `docs/report/atlas/cross-border-neighbor/evidence/selected/1440-tile-free-sweden.png` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `png` | Maintainer-facing truth or governance surface. |
+| `docs/report/atlas/cross-border-neighbor/evidence/selected/320-tile-free-sweden.png` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `png` | Maintainer-facing truth or governance surface. |
+| `docs/report/atlas/cross-border-neighbor/evidence/selected/receipt.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
 | `docs/report/atlas/cross-border-neighbor/verification.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
 | `docs/report/atlas/desktop-zoom-controls/README.md` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `md` | Reader-facing entry page for one scope bundle. |
+| `docs/report/atlas/desktop-zoom-controls/evidence/baseline/receipt.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
+| `docs/report/atlas/desktop-zoom-controls/evidence/manifest.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
+| `docs/report/atlas/desktop-zoom-controls/evidence/selected/receipt.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
 | `docs/report/atlas/desktop-zoom-controls/verification.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
 | `docs/report/atlas/detail-focus/README.md` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `md` | Reader-facing entry page for one scope bundle. |
 | `docs/report/atlas/detail-focus/verification.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
@@ -102,8 +110,16 @@ coherent report surface instead of a loose artifact dump.
 | `docs/report/atlas/frame-url-replay/reference/native-product/scientific_manifest.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
 | `docs/report/atlas/frame-url-replay/verification.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
 | `docs/report/atlas/map-keyboard-navigation/README.md` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `md` | Reader-facing entry page for one scope bundle. |
+| `docs/report/atlas/map-keyboard-navigation/evidence/baseline/receipt.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
+| `docs/report/atlas/map-keyboard-navigation/evidence/manifest.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
+| `docs/report/atlas/map-keyboard-navigation/evidence/selected/320-tile-free-attribution-focus.png` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `png` | Maintainer-facing truth or governance surface. |
+| `docs/report/atlas/map-keyboard-navigation/evidence/selected/320-tile-free-help-dialog.png` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `png` | Maintainer-facing truth or governance surface. |
+| `docs/report/atlas/map-keyboard-navigation/evidence/selected/receipt.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
 | `docs/report/atlas/map-keyboard-navigation/verification.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
 | `docs/report/atlas/mobile-attribution/README.md` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `md` | Reader-facing entry page for one scope bundle. |
+| `docs/report/atlas/mobile-attribution/evidence/baseline/receipt.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
+| `docs/report/atlas/mobile-attribution/evidence/manifest.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
+| `docs/report/atlas/mobile-attribution/evidence/selected/receipt.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
 | `docs/report/atlas/mobile-attribution/verification.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
 | `docs/report/atlas/modeled-panel-browser/README.md` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `md` | Reader-facing entry page for one scope bundle. |
 | `docs/report/atlas/modeled-panel-browser/browser-receipt.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
@@ -130,10 +146,17 @@ coherent report surface instead of a loose artifact dump.
 | `docs/report/atlas/modeled-panel-browser/observations/downloads/320-no_basemap-ST/pangaea-937075-st-11200-11700-bp.geojson` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `geojson` | Maintainer-facing truth or governance surface. |
 | `docs/report/atlas/modeled-panel-browser/verification.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
 | `docs/report/atlas/narrow-viewport-controls/README.md` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `md` | Reader-facing entry page for one scope bundle. |
+| `docs/report/atlas/narrow-viewport-controls/evidence/baseline/320-diagnostic.png` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `png` | Maintainer-facing truth or governance surface. |
+| `docs/report/atlas/narrow-viewport-controls/evidence/baseline/receipt.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
+| `docs/report/atlas/narrow-viewport-controls/evidence/manifest.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
+| `docs/report/atlas/narrow-viewport-controls/evidence/selected/receipt.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
 | `docs/report/atlas/narrow-viewport-controls/verification.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
 | `docs/report/atlas/nordic-source/README.md` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `md` | Reader-facing entry page for one scope bundle. |
 | `docs/report/atlas/nordic-source/verification.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
 | `docs/report/atlas/playback-keyboard/README.md` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `md` | Reader-facing entry page for one scope bundle. |
+| `docs/report/atlas/playback-keyboard/evidence/manifest.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
+| `docs/report/atlas/playback-keyboard/evidence/selected/320-tile-free-playing.png` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `png` | Maintainer-facing truth or governance surface. |
+| `docs/report/atlas/playback-keyboard/evidence/selected/receipt.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
 | `docs/report/atlas/playback-keyboard/verification.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
 | `docs/report/atlas/provider-accessibility/README.md` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `md` | Reader-facing entry page for one scope bundle. |
 | `docs/report/atlas/provider-accessibility/browser-receipt.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
@@ -260,11 +283,28 @@ coherent report surface instead of a loose artifact dump.
 | `docs/report/host-lra-distribution/README.md` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `md` | Reader-facing entry page for one scope bundle. |
 | `docs/report/lra-distribution/README.md` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `md` | Reader-facing entry page for one scope bundle. |
 | `docs/report/maintenance/artifact-retention/README.md` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `md` | Reader-facing entry page for one scope bundle. |
+| `docs/report/maintenance/artifact-retention/author-pollen-development-custody.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
+| `docs/report/maintenance/artifact-retention/historical-swedish-direct-pollen-run/README.md` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `md` | Reader-facing entry page for one scope bundle. |
+| `docs/report/maintenance/artifact-retention/historical-swedish-direct-pollen-run/REPORT.md` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `md` | Maintainer-facing truth or governance surface. |
+| `docs/report/maintenance/artifact-retention/historical-swedish-direct-pollen-run/custody.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
+| `docs/report/maintenance/artifact-retention/historical-swedish-direct-pollen-run/input-manifest.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
+| `docs/report/maintenance/artifact-retention/historical-swedish-direct-pollen-run/run_study.py` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `py` | Maintainer-facing truth or governance surface. |
 | `docs/report/maintenance/artifact-retention/linux-r-oracle-retirement.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
+| `docs/report/maintenance/artifact-retention/nordic-pollen-plan-custody.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
 | `docs/report/maintenance/artifact-retention/nordic-tox-lane-receipts.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
 | `docs/report/maintenance/artifact-retention/nordic-tox-snapshots.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
+| `docs/report/maintenance/artifact-retention/publication-correspondence-retirement.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
 | `docs/report/maintenance/artifact-retention/report.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
+| `docs/report/maintenance/artifact-retention/rootsi-replay-process-custody.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
 | `docs/report/maintenance/artifact-retention/rootsi-workbook-review-retirement.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
+| `docs/report/maintenance/artifact-retention/scientific-report-provenance/README.md` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `md` | Reader-facing entry page for one scope bundle. |
+| `docs/report/maintenance/artifact-retention/scientific-report-provenance/manifest.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
+| `docs/report/maintenance/artifact-retention/scientific-report-provenance/results.csv` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `csv` | Maintainer-facing truth or governance surface. |
+| `docs/report/maintenance/artifact-retention/scientific-report-provenance/scope.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
+| `docs/report/maintenance/artifact-retention/scientific-report-provenance/source-questions-custody.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
+| `docs/report/maintenance/artifact-retention/scientific-report-provenance/source-questions.csv` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `csv` | Maintainer-facing truth or governance surface. |
+| `docs/report/maintenance/artifact-retention/scientific-source-refusal-custody.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
+| `docs/report/maintenance/artifact-retention/swedish-direct-pollen-run-custody.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
 | `docs/report/method-certification/analytical-love-ring-sensitivity/README.md` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `md` | Reader-facing entry page for one scope bundle. |
 | `docs/report/method-certification/analytical-love-ring-sensitivity/replay.py` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `py` | Maintainer-facing truth or governance surface. |
 | `docs/report/method-certification/analytical-love-ring-sensitivity/report.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
@@ -568,6 +608,9 @@ coherent report surface instead of a loose artifact dump.
 | `docs/report/method-certification/linux-r-oracle/source-domains/run_source_domains.py` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `py` | Maintainer-facing truth or governance surface. |
 | `docs/report/method-certification/linux-r-oracle/source-domains/source_domains.R` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `R` | Maintainer-facing truth or governance surface. |
 | `docs/report/method-certification/love-paper-correspondence/README.md` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `md` | Reader-facing entry page for one scope bundle. |
+| `docs/report/method-certification/love-paper-correspondence/paper-parameter-tables.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
+| `docs/report/method-certification/love-paper-correspondence/source-parameter-correspondence.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
+| `docs/report/method-certification/love-paper-correspondence/verify.py` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `py` | Maintainer-facing truth or governance surface. |
 | `docs/report/method-certification/lra-batch-execution/README.md` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `md` | Reader-facing entry page for one scope bundle. |
 | `docs/report/method-certification/lra-batch-execution/report.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
 | `docs/report/method-certification/optimizer-solution-quality/README.md` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `md` | Reader-facing entry page for one scope bundle. |
@@ -744,6 +787,12 @@ coherent report surface instead of a loose artifact dump.
 | `docs/report/pollen-reconstruction/author-development-design.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
 | `docs/report/pollen-reconstruction/author-development-interpretation.md` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `md` | Maintainer-facing truth or governance surface. |
 | `docs/report/pollen-reconstruction/author-development-predictions.csv.gz` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `gz` | Maintainer-facing truth or governance surface. |
+| `docs/report/pollen-reconstruction/author-example-site-mean-holdout/README.md` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `md` | Reader-facing entry page for one scope bundle. |
+| `docs/report/pollen-reconstruction/author-example-site-mean-holdout/REPORT.md` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `md` | Maintainer-facing truth or governance surface. |
+| `docs/report/pollen-reconstruction/author-example-site-mean-holdout/manifest.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
+| `docs/report/pollen-reconstruction/author-example-site-mean-holdout/predictions.csv` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `csv` | Maintainer-facing truth or governance surface. |
+| `docs/report/pollen-reconstruction/author-example-site-mean-holdout/report.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
+| `docs/report/pollen-reconstruction/author-example-site-mean-holdout/scores.csv` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `csv` | Maintainer-facing truth or governance surface. |
 | `docs/report/pollen-reconstruction/author-lra-development/README.md` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `md` | Reader-facing entry page for one scope bundle. |
 | `docs/report/pollen-reconstruction/author-lra-development/cover-diagnostics.csv` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `csv` | Maintainer-facing truth or governance surface. |
 | `docs/report/pollen-reconstruction/author-lra-development/folds.csv` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `csv` | Maintainer-facing truth or governance surface. |
@@ -771,7 +820,6 @@ coherent report surface instead of a loose artifact dump.
 | `docs/report/pollen-reconstruction/swedish-direct-pollen/prepared/dataset-54001.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
 | `docs/report/pollen-reconstruction/swedish-direct-pollen/scores.csv` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `csv` | Maintainer-facing truth or governance surface. |
 | `docs/report/pollen-reconstruction/swedish-direct-pollen/summary.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
-| `docs/report/pollen-reconstruction/swedish-native-sequences/README.md` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `md` | Reader-facing entry page for one scope bundle. |
 | `docs/report/pollen-reconstruction/swedish-native-sequences/chronology-controls.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
 | `docs/report/pollen-reconstruction/swedish-native-sequences/index.html` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `html` | Maintainer-facing truth or governance surface. |
 | `docs/report/pollen-reconstruction/swedish-native-sequences/manifest.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
@@ -779,11 +827,17 @@ coherent report surface instead of a loose artifact dump.
 | `docs/report/pollen-reconstruction/swedish-native-sequences/observations.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
 | `docs/report/pollen-reconstruction/swedish-native-sequences/samples.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
 | `docs/report/pollen-reconstruction/swedish-native-sequences/sites.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
+| `docs/report/pollen-reconstruction/swedish-native-sequences/source-notes.md` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `md` | Maintainer-facing truth or governance surface. |
 | `docs/report/pollen-reconstruction/swedish-native-sequences/source-overlap.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
 | `docs/report/pollen-reconstruction/swedish-source-questions.csv` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `csv` | Maintainer-facing truth or governance surface. |
 | `docs/report/pollen-reconstruction/verify_report.py` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `py` | Maintainer-facing truth or governance surface. |
 | `docs/report/propagation/source-first-observed/README.md` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `md` | Reader-facing entry page for one scope bundle. |
 | `docs/report/propagation/source-first-observed/report.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
+| `docs/report/publication-replay/landclim-author-example-correspondence/README.md` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `md` | Reader-facing entry page for one scope bundle. |
+| `docs/report/publication-replay/landclim-author-example-correspondence/REPORT.md` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `md` | Maintainer-facing truth or governance surface. |
+| `docs/report/publication-replay/landclim-author-example-correspondence/manifest.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
+| `docs/report/publication-replay/landclim-author-example-correspondence/paper-correspondence.csv` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `csv` | Maintainer-facing truth or governance surface. |
+| `docs/report/publication-replay/landclim-author-example-correspondence/report.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
 | `docs/report/publication-replay/landclim-example-reexecution/README.md` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `md` | Reader-facing entry page for one scope bundle. |
 | `docs/report/publication-replay/landclim-example-reexecution/report.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
 | `docs/report/publication-replay/landclim-method-profile/README.md` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `md` | Reader-facing entry page for one scope bundle. |
@@ -804,6 +858,11 @@ coherent report surface instead of a loose artifact dump.
 | `docs/report/publication-replay/landclim-pft-crosswalk/uncertainty-bounds/report.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
 | `docs/report/publication-replay/landclim-pft-crosswalk/uncertainty-bounds/windows.csv` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `csv` | Maintainer-facing truth or governance surface. |
 | `docs/report/publication-replay/landclim-pft-crosswalk/windows.csv` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `csv` | Maintainer-facing truth or governance surface. |
+| `docs/report/publication-replay/landclim-published-window-correspondence/README.md` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `md` | Reader-facing entry page for one scope bundle. |
+| `docs/report/publication-replay/landclim-published-window-correspondence/REPORT.md` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `md` | Maintainer-facing truth or governance surface. |
+| `docs/report/publication-replay/landclim-published-window-correspondence/manifest.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
+| `docs/report/publication-replay/landclim-published-window-correspondence/paper-correspondence.csv` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `csv` | Maintainer-facing truth or governance surface. |
+| `docs/report/publication-replay/landclim-published-window-correspondence/report.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
 | `docs/report/publication_country_onboarding_contract.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
 | `docs/report/publication_country_onboarding_contract.md` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `md` | Maintainer-facing truth or governance surface. |
 | `docs/report/publication_geography_registry.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
@@ -1280,7 +1339,10 @@ coherent report surface instead of a loose artifact dump.
 | `docs/report/source-relations/dna-scope/galician-cattle-samples/report.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
 | `docs/report/source-relations/dna-scope/galician-cattle-samples/samples.csv` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `csv` | Maintainer-facing truth or governance surface. |
 | `docs/report/source-relations/dna-scope/obishir-v-chronology.md` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `md` | Maintainer-facing truth or governance surface. |
+| `docs/report/source-relations/dna-scope/reindeer-preprint-supplement.md` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `md` | Maintainer-facing truth or governance surface. |
 | `docs/report/source-relations/dna-scope/report.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
+| `docs/report/source-relations/hyde/provider-record/README.md` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `md` | Reader-facing entry page for one scope bundle. |
+| `docs/report/source-relations/hyde/provider-record/datacite-response.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
 | `docs/report/source-relations/landclim/author-example-taxon-support/README.md` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `md` | Reader-facing entry page for one scope bundle. |
 | `docs/report/source-relations/landclim/author-example-taxon-support/author_prepared_replay.R` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `R` | Maintainer-facing truth or governance surface. |
 | `docs/report/source-relations/landclim/author-example-taxon-support/report.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |

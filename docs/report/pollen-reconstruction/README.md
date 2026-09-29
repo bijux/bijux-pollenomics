@@ -9,7 +9,7 @@ last_reviewed: 2026-09-28
 
 # Swedish pollen and Nordic prediction study
 
-The [Swedish native pollen sequences](swedish-native-sequences/README.md) expose
+The [Swedish native pollen sequences](swedish-native-sequences/source-notes.md) expose
 the three Neotoma/EPD lakes' sample-level observed counts, selected ages, source
 chronology controls and browsable taxon trajectories separately from prediction.
 An [independent PANGAEA EPD profile comparison](../source-relations/neotoma/abbo-profile/README.md)

@@ -1,10 +1,10 @@
 {
   "schema_version": "report-narrative-quality-review.v1",
-  "page_count": 210,
+  "page_count": 221,
   "quality_posture_counts": {
-    "reader_ready": 101,
+    "reader_ready": 102,
     "structured_reference": 20,
-    "thin_structure": 89
+    "thin_structure": 99
   },
   "rows": [
     {
@@ -209,7 +209,7 @@
     },
     {
       "repository_path": "docs/report/atlas/cross-border-neighbor/README.md",
-      "prose_paragraph_count": 6,
+      "prose_paragraph_count": 7,
       "link_bullet_count": 0,
       "bullet_sentence_count": 0,
       "heading_count": 4,
@@ -219,7 +219,7 @@
     },
     {
       "repository_path": "docs/report/atlas/desktop-zoom-controls/README.md",
-      "prose_paragraph_count": 6,
+      "prose_paragraph_count": 7,
       "link_bullet_count": 0,
       "bullet_sentence_count": 0,
       "heading_count": 4,
@@ -249,7 +249,7 @@
     },
     {
       "repository_path": "docs/report/atlas/map-keyboard-navigation/README.md",
-      "prose_paragraph_count": 6,
+      "prose_paragraph_count": 7,
       "link_bullet_count": 0,
       "bullet_sentence_count": 0,
       "heading_count": 4,
@@ -259,7 +259,7 @@
     },
     {
       "repository_path": "docs/report/atlas/mobile-attribution/README.md",
-      "prose_paragraph_count": 6,
+      "prose_paragraph_count": 7,
       "link_bullet_count": 0,
       "bullet_sentence_count": 0,
       "heading_count": 4,
@@ -279,7 +279,7 @@
     },
     {
       "repository_path": "docs/report/atlas/narrow-viewport-controls/README.md",
-      "prose_paragraph_count": 6,
+      "prose_paragraph_count": 7,
       "link_bullet_count": 0,
       "bullet_sentence_count": 0,
       "heading_count": 4,
@@ -299,7 +299,7 @@
     },
     {
       "repository_path": "docs/report/atlas/playback-keyboard/README.md",
-      "prose_paragraph_count": 6,
+      "prose_paragraph_count": 7,
       "link_bullet_count": 0,
       "bullet_sentence_count": 0,
       "heading_count": 4,
@@ -689,13 +689,43 @@
     },
     {
       "repository_path": "docs/report/maintenance/artifact-retention/README.md",
-      "prose_paragraph_count": 14,
+      "prose_paragraph_count": 23,
       "link_bullet_count": 0,
       "bullet_sentence_count": 0,
-      "heading_count": 7,
+      "heading_count": 14,
       "table_line_count": 0,
       "quality_posture": "reader_ready",
       "note": "Page explains its purpose before or alongside artifact links."
+    },
+    {
+      "repository_path": "docs/report/maintenance/artifact-retention/historical-swedish-direct-pollen-run/README.md",
+      "prose_paragraph_count": 2,
+      "link_bullet_count": 0,
+      "bullet_sentence_count": 0,
+      "heading_count": 1,
+      "table_line_count": 0,
+      "quality_posture": "thin_structure",
+      "note": "Page explains itself but still needs stronger internal wayfinding."
+    },
+    {
+      "repository_path": "docs/report/maintenance/artifact-retention/historical-swedish-direct-pollen-run/REPORT.md",
+      "prose_paragraph_count": 7,
+      "link_bullet_count": 0,
+      "bullet_sentence_count": 0,
+      "heading_count": 3,
+      "table_line_count": 6,
+      "quality_posture": "reader_ready",
+      "note": "Page explains its purpose before or alongside artifact links."
+    },
+    {
+      "repository_path": "docs/report/maintenance/artifact-retention/scientific-report-provenance/README.md",
+      "prose_paragraph_count": 4,
+      "link_bullet_count": 0,
+      "bullet_sentence_count": 0,
+      "heading_count": 1,
+      "table_line_count": 5,
+      "quality_posture": "thin_structure",
+      "note": "Page explains itself but still needs stronger internal wayfinding."
     },
     {
       "repository_path": "docs/report/method-certification/analytical-love-ring-sensitivity/README.md",
@@ -779,7 +809,7 @@
     },
     {
       "repository_path": "docs/report/method-certification/love-paper-correspondence/README.md",
-      "prose_paragraph_count": 2,
+      "prose_paragraph_count": 4,
       "link_bullet_count": 0,
       "bullet_sentence_count": 0,
       "heading_count": 1,
@@ -839,7 +869,7 @@
     },
     {
       "repository_path": "docs/report/method-certification/reference-release-gate/README.md",
-      "prose_paragraph_count": 3,
+      "prose_paragraph_count": 4,
       "link_bullet_count": 0,
       "bullet_sentence_count": 0,
       "heading_count": 1,
@@ -923,13 +953,33 @@
       "link_bullet_count": 0,
       "bullet_sentence_count": 11,
       "heading_count": 8,
-      "table_line_count": 27,
+      "table_line_count": 28,
       "quality_posture": "reader_ready",
       "note": "Page explains its purpose before or alongside artifact links."
     },
     {
       "repository_path": "docs/report/pollen-reconstruction/author-development-interpretation.md",
       "prose_paragraph_count": 2,
+      "link_bullet_count": 0,
+      "bullet_sentence_count": 0,
+      "heading_count": 1,
+      "table_line_count": 0,
+      "quality_posture": "thin_structure",
+      "note": "Page explains itself but still needs stronger internal wayfinding."
+    },
+    {
+      "repository_path": "docs/report/pollen-reconstruction/author-example-site-mean-holdout/README.md",
+      "prose_paragraph_count": 4,
+      "link_bullet_count": 0,
+      "bullet_sentence_count": 0,
+      "heading_count": 1,
+      "table_line_count": 0,
+      "quality_posture": "thin_structure",
+      "note": "Page explains itself but still needs stronger internal wayfinding."
+    },
+    {
+      "repository_path": "docs/report/pollen-reconstruction/author-example-site-mean-holdout/REPORT.md",
+      "prose_paragraph_count": 3,
       "link_bullet_count": 0,
       "bullet_sentence_count": 0,
       "heading_count": 1,
@@ -949,26 +999,26 @@
     },
     {
       "repository_path": "docs/report/pollen-reconstruction/paper-correspondence.md",
-      "prose_paragraph_count": 13,
+      "prose_paragraph_count": 16,
       "link_bullet_count": 0,
       "bullet_sentence_count": 6,
-      "heading_count": 5,
+      "heading_count": 6,
       "table_line_count": 0,
       "quality_posture": "reader_ready",
       "note": "Page explains its purpose before or alongside artifact links."
     },
     {
       "repository_path": "docs/report/pollen-reconstruction/swedish-direct-pollen/REPORT.md",
-      "prose_paragraph_count": 7,
+      "prose_paragraph_count": 9,
       "link_bullet_count": 0,
       "bullet_sentence_count": 0,
-      "heading_count": 3,
-      "table_line_count": 6,
+      "heading_count": 4,
+      "table_line_count": 14,
       "quality_posture": "reader_ready",
       "note": "Page explains its purpose before or alongside artifact links."
     },
     {
-      "repository_path": "docs/report/pollen-reconstruction/swedish-native-sequences/README.md",
+      "repository_path": "docs/report/pollen-reconstruction/swedish-native-sequences/source-notes.md",
       "prose_paragraph_count": 7,
       "link_bullet_count": 0,
       "bullet_sentence_count": 0,
@@ -986,6 +1036,26 @@
       "table_line_count": 4,
       "quality_posture": "reader_ready",
       "note": "Page explains its purpose before or alongside artifact links."
+    },
+    {
+      "repository_path": "docs/report/publication-replay/landclim-author-example-correspondence/README.md",
+      "prose_paragraph_count": 4,
+      "link_bullet_count": 0,
+      "bullet_sentence_count": 0,
+      "heading_count": 1,
+      "table_line_count": 0,
+      "quality_posture": "thin_structure",
+      "note": "Page explains itself but still needs stronger internal wayfinding."
+    },
+    {
+      "repository_path": "docs/report/publication-replay/landclim-author-example-correspondence/REPORT.md",
+      "prose_paragraph_count": 3,
+      "link_bullet_count": 0,
+      "bullet_sentence_count": 0,
+      "heading_count": 1,
+      "table_line_count": 0,
+      "quality_posture": "thin_structure",
+      "note": "Page explains itself but still needs stronger internal wayfinding."
     },
     {
       "repository_path": "docs/report/publication-replay/landclim-example-reexecution/README.md",
@@ -1032,6 +1102,26 @@
       "prose_paragraph_count": 3,
       "link_bullet_count": 0,
       "bullet_sentence_count": 0,
+      "heading_count": 1,
+      "table_line_count": 0,
+      "quality_posture": "thin_structure",
+      "note": "Page explains itself but still needs stronger internal wayfinding."
+    },
+    {
+      "repository_path": "docs/report/publication-replay/landclim-published-window-correspondence/README.md",
+      "prose_paragraph_count": 4,
+      "link_bullet_count": 0,
+      "bullet_sentence_count": 0,
+      "heading_count": 1,
+      "table_line_count": 0,
+      "quality_posture": "thin_structure",
+      "note": "Page explains itself but still needs stronger internal wayfinding."
+    },
+    {
+      "repository_path": "docs/report/publication-replay/landclim-published-window-correspondence/REPORT.md",
+      "prose_paragraph_count": 3,
+      "link_bullet_count": 0,
+      "bullet_sentence_count": 2,
       "heading_count": 1,
       "table_line_count": 0,
       "quality_posture": "thin_structure",
@@ -1574,6 +1664,26 @@
       "bullet_sentence_count": 0,
       "heading_count": 1,
       "table_line_count": 7,
+      "quality_posture": "thin_structure",
+      "note": "Page explains itself but still needs stronger internal wayfinding."
+    },
+    {
+      "repository_path": "docs/report/source-relations/dna-scope/reindeer-preprint-supplement.md",
+      "prose_paragraph_count": 3,
+      "link_bullet_count": 0,
+      "bullet_sentence_count": 0,
+      "heading_count": 1,
+      "table_line_count": 5,
+      "quality_posture": "thin_structure",
+      "note": "Page explains itself but still needs stronger internal wayfinding."
+    },
+    {
+      "repository_path": "docs/report/source-relations/hyde/provider-record/README.md",
+      "prose_paragraph_count": 3,
+      "link_bullet_count": 0,
+      "bullet_sentence_count": 0,
+      "heading_count": 1,
+      "table_line_count": 0,
       "quality_posture": "thin_structure",
       "note": "Page explains itself but still needs stronger internal wayfinding."
     },

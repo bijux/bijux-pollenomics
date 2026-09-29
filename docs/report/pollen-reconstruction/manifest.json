@@ -26,7 +26,7 @@
     },
     {
       "path": "docs/report/index.md",
-      "sha256": "42df3cbbb688e9ae9db0028451315a56b8cecb2999830531156120da42b4ea1e",
+      "sha256": "7b637f953d664ba3c750032fda383b50a19aa264eb8b1221dd4afc8c948c2343",
       "bytes": 2668
     },
     {
@@ -41,8 +41,8 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/README.md",
-      "bytes": 30986,
-      "sha256": "2529f483c4e6473c408658361205cf58c2f2292ae341bc086037de3b5e079750"
+      "bytes": 30992,
+      "sha256": "08d7ca1b5e9b6ada46d44999c1654288b23845d47224cf9549fadadb4a2e77c6"
     },
     {
       "path": "docs/report/pollen-reconstruction/author-development-design.json",
@@ -220,11 +220,6 @@
       "bytes": 2860
     },
     {
-      "path": "docs/report/pollen-reconstruction/swedish-native-sequences/README.md",
-      "sha256": "e03ab3bdb28121c4814386b6f00fbfa3cd0b5d48db291a1589b8358bb3736dcf",
-      "bytes": 3865
-    },
-    {
       "path": "docs/report/pollen-reconstruction/swedish-native-sequences/index.html",
       "sha256": "a07d47e01f5f2b63349b3f381d97bc13bd64845b1ef8785907f77558311432ec",
       "bytes": 9402
@@ -233,6 +228,11 @@
       "path": "docs/report/pollen-reconstruction/swedish-native-sequences/manifest.json",
       "sha256": "9f9a29740c56ec64dc089e50d57514071146fc3945a90d3e3b270dedfb5e722b",
       "bytes": 1158
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/swedish-native-sequences/source-notes.md",
+      "sha256": "e03ab3bdb28121c4814386b6f00fbfa3cd0b5d48db291a1589b8358bb3736dcf",
+      "bytes": 3865
     },
     {
       "path": "docs/report/pollen-reconstruction/swedish-native-sequences/source-overlap.json",
