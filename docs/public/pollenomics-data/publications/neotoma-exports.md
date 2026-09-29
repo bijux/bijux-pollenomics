@@ -4,7 +4,7 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-07-22
+last_reviewed: 2026-09-29
 ---
 
 # Neotoma Exports
@@ -59,8 +59,12 @@ flowchart LR
 
 The relational snapshot accounts for 200 sites, 209 datasets, 206 collection
 units, 12,388 samples, 23,281 age claims, 384 chronologies, 2,798 chronology
-controls, 1,262 variables, and 370,936 observations. It preserves 150 conflicts
-and 52 orphans as explicit review surfaces. Country attribution assigns 193
+controls, 1,262 variables, and 370,936 observations. The current
+[relationship validation](../../../report/source-relations/neotoma/README.md)
+preserves 33 conflicts and 52 orphans as explicit review
+surfaces. The 33 conflicts include 32 chronology-control payload conflicts and
+one same-age-type default chronology conflict; distinct radiocarbon and
+calibrated defaults are permitted. Country attribution assigns 193
 sites and leaves 7 review-blocked under `UNASSIGNED`; no unresolved site is
 silently assigned for propagation.
 
