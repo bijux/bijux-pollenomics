@@ -110,8 +110,8 @@ The animal surfaces expose three counts that must not be collapsed:
 
 | Count | Governed population | Appropriate use |
 | ---: | --- | --- |
-| 1,450 | final sample-foundation rows across 10 species and 21 contributing projects | grounding and blocker accounting |
-| 1,455 raw / 1,450 final | project sample-master rows within the 40-project registry | project recovery and stable sample identity |
+| 1,470 | final sample-foundation rows across 10 species and 22 contributing projects | grounding and blocker accounting |
+| 1,475 raw / 1,470 final | project sample-master rows within the 40-project registry | project recovery and stable sample identity |
 | 170 features / 331 samples | published animal locality features and the distinct admitted samples they represent | map membership under the point contract |
 
 The 170 features comprise 117 domesticated-core and 53 wild/progenitor-context

@@ -117,8 +117,8 @@ stage blocks the stronger rebuildability claim without deleting the retained
 product or pretending it never existed.
 
 Animal aDNA also demonstrates why metrics are typed. Its lifecycle contains
-1,450 final sample-foundation rows across 21 contributing projects. The wider
-40-project registry contains 1,455 recovered raw sample-master rows and 1,450
+1,470 final sample-foundation rows across 22 contributing projects. The wider
+40-project registry contains 1,475 recovered raw sample-master rows and 1,470
 final rows, while point publication contains 170 locality features representing
 331 distinct admitted samples. These are recovery, foundation, sample, and
 product populations—not estimates of one interchangeable total.

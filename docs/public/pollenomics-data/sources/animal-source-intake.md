@@ -26,8 +26,8 @@ The current recovery review records:
 | Measure | Current value | Interpretation |
 | --- | ---: | --- |
 | tracked archive projects | 40 | declared project inventory, not sample count |
-| recovered raw sample-master rows | 1,455 | extracted project rows before final identity admission |
-| final sample-foundation rows | 1,450 | governed final sample population across 10 species and 21 contributing projects |
+| recovered raw sample-master rows | 1,475 | extracted project rows before final identity admission |
+| final sample-foundation rows | 1,470 | governed final sample population across 10 species and 22 contributing projects |
 | projects with exact expected counts | 4 | projects for which exact recovery completeness can be measured |
 | projects with implausibly low recovery | 0 | no current project is assigned this specific recovery status |
 | projects ready for publication review | 10 | projects that reached this lifecycle checkpoint |
@@ -72,20 +72,20 @@ foundation row has enough attributed evidence to support downstream curation:
 | Foundation posture | Rows | Intake meaning |
 | --- | ---: | --- |
 | fully grounded | 557 | identity and required evidence dimensions are attributable at the declared scope |
-| partially grounded | 335 | useful evidence exists, but one or more dimensions remain materially limited |
+| partially grounded | 371 | useful evidence exists, but one or more dimensions remain materially limited |
 | blocked: missing metadata | 11 | source metadata required to establish the governed row is absent |
-| blocked: missing location detail | 391 | locality evidence cannot support the requested spatial claim |
-| blocked: weak chronology | 156 | temporal evidence remains too weak for the stronger chronology claim |
+| blocked: missing location detail | 368 | locality evidence cannot support the requested spatial claim |
+| blocked: weak chronology | 163 | temporal evidence remains too weak for the stronger chronology claim |
 
-The 1,450 final foundation rows are not interchangeable with the 1,455
+The 1,470 final foundation rows are not interchangeable with the 1,475
 recovered raw project sample-master rows. The foundation classifies admitted
 sample evidence; the sample master also preserves rows that do not enter the
 final identity population.
 
 ```mermaid
 flowchart LR
-    SourceRows["captured source rows"] --> Raw["1,455 recovered raw rows"]
-    Raw --> Foundation["1,450-row final preparation ledger"]
+    SourceRows["captured source rows"] --> Raw["1,475 recovered raw rows"]
+    Raw --> Foundation["1,470-row final preparation ledger"]
     Foundation --> Grounded["fully or partly grounded"]
     Foundation --> Blocked["metadata, location, or chronology blocker"]
     Grounded --> Identity["project-owned sample identity where supported"]
@@ -113,9 +113,8 @@ Wadi Halfa is not part of this point surface. Its stable project and place
 evidence remain in readiness accounting, but the current publication decision
 is `no_admitted_sample_backed_locality_candidate`.
 
-This distinction prevents two inverse errors: dropping useful paper-backed
-context because sample recovery is incomplete, and reporting that context as
-if a sample-bearing table had been recovered. A query that requires samples
+This distinction preserves useful paper-backed context without assigning it
+to one of the recovered project samples. A query that requires samples
 uses the published sample population. The current map does not accept
 project-only context; it preserves that evidence as a not-materialized row.
 
@@ -146,15 +145,17 @@ For project `PRJEB90141`, supplementary workbook Table S2 supplies four final
 goat sample rows—Direkli1-2, Blagotin3, Semnan3, and Acem2—with distinct archive
 identifiers, localities, coordinates, and chronology. The project accession is
 shared; the sample claims are not. For `SRP073444`, the paper supplies a named
-Wadi Halfa context while a recoverable sample-backed locality candidate remains
-absent. The latter remains excluded from point publication.
+`C.thomasi` Wadi Halfa Site 1040 context. Twenty archive BioSample identities
+are linked to 19 paper specimen labels, but no source relation assigns that
+context to one of those samples. It remains excluded from point publication.
 
 ```mermaid
 flowchart LR
     Goat["PRJEB90141 + Table S2"] --> GoatRows["4 final extracted sample rows"]
     GoatRows --> GoatPoints["sample-backed points"]
-    Camel["SRP073444 + paper place statement"] --> CamelGap["sample row not yet recoverable"]
-    CamelGap --> CamelExcluded["not materialized"]
+    Camel["SRP073444 + 20 archive BioSamples"] --> CamelRows["19 paper specimen labels"]
+    CamelRows --> CamelGap["Wadi Halfa Site 1040 has no linked sample"]
+    CamelGap --> CamelExcluded["Wadi context not materialized"]
 ```
 
 ## Governed Intake Surfaces

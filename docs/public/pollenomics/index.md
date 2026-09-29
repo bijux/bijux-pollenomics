@@ -199,7 +199,7 @@ Their retained receipts and derived review material remain provenance, not
 admitted scientific evidence.
 
 Animal aDNA demonstrates the deeper evidence model. The 40-project registry
-contains 1,455 recovered raw sample rows and 1,450 final sample rows from 21
+contains 1,475 recovered raw sample rows and 1,470 final sample rows from 22
 contributing projects. The public animal point review admits 170 locality
 features representing 331 distinct samples: 117 domesticated-core and 53
 wild/progenitor-context features. Only four projects have a trustworthy
@@ -208,8 +208,8 @@ misrepresented as collection completeness.
 
 ```mermaid
 flowchart LR
-    Project["40 tracked animal projects"] --> Raw["1,455 recovered raw rows"]
-    Raw --> Sample["1,450 final sample rows"]
+    Project["40 tracked animal projects"] --> Raw["1,475 recovered raw rows"]
+    Raw --> Sample["1,470 final sample rows"]
     Sample --> Place["locality and coordinate review"]
     Sample --> Time["chronology review"]
     Place --> Admission{"point-product admission"}
