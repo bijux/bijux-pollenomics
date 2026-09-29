@@ -1,0 +1,28 @@
+{
+  "schema_version": "southern-sweden-published-figure-comparison.v1",
+  "source_url": "https://cp.copernicus.org/articles/6/483/2010/",
+  "source_pdf_sha256": "46bd92497d03169735b9a4665d71214c5dd8ff52ceddf39c577f0a4495fe73bd",
+  "source_figure": 6,
+  "source_page": 490,
+  "data_status": "manually_transcribed_rounded_published_figure_labels",
+  "selection": "taxon_named_in_all_three_panels_within_region",
+  "matched_named_taxa": 9,
+  "regional_subsets": [
+    {
+      "region": "Skåne",
+      "matched_named_taxa": 5,
+      "pollen_mean_absolute_error_pp": 14.8,
+      "reveals_mean_absolute_error_pp": 4.2
+    },
+    {
+      "region": "Småland",
+      "matched_named_taxa": 4,
+      "pollen_mean_absolute_error_pp": 20.5,
+      "reveals_mean_absolute_error_pp": 6.25
+    }
+  ],
+  "pooled_named_subset_pollen_mae_pp": 17.333333333333332,
+  "pooled_named_subset_reveals_mae_pp": 5.111111111111111,
+  "repository_prediction_validated": false,
+  "full_26_taxon_accuracy_estimated": false
+}

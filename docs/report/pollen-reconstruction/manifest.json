@@ -141,8 +141,8 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/README.md",
-      "sha256": "0dd04486df899a71e81911bfe8054b669d9c68eca0e3047b8a1d0e888c793394",
-      "bytes": 41163
+      "sha256": "1a125c0633bd728d49cee26ecbecb5fed2aa023efac8969d5eb6bb2c3a1ac9f9",
+      "bytes": 41560
     },
     {
       "path": "docs/report/pollen-reconstruction/author-buffered-pollen/README.md",
@@ -1483,6 +1483,26 @@
       "path": "docs/report/vegetation-reference/smaland-historical-maps/coverage.py",
       "sha256": "03dd52b4a911f3cfdee09ff29f03794c56f9c5494a88a764ba17c62aa4f3adba",
       "bytes": 5182
+    },
+    {
+      "path": "docs/report/vegetation-reference/southern-sweden-figure/README.md",
+      "sha256": "40e22c8d990a855ba5bc4a012baedcea32cb12d41466e0efcfb3b0f1803dc8c4",
+      "bytes": 2255
+    },
+    {
+      "path": "docs/report/vegetation-reference/southern-sweden-figure/compare.py",
+      "sha256": "5ac673246f7f7685dc485e2d4b6624b14c1ae58361608f0f3606ea83a36e21b1",
+      "bytes": 3845
+    },
+    {
+      "path": "docs/report/vegetation-reference/southern-sweden-figure/printed-labels.csv",
+      "sha256": "e7e6f04e4711690421ca4c84af9e1237cbdb3b95554d63a6d81e2a61ff2a3f54",
+      "bytes": 375
+    },
+    {
+      "path": "docs/report/vegetation-reference/southern-sweden-figure/report.json",
+      "sha256": "7205071dc7bd4b7bdf99c77788583bfbb1ab8699546c9f5acd3e6566da4e7e57",
+      "bytes": 994
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/author_example_correspondence.py",
