@@ -391,7 +391,7 @@
       "sample_basis": "archive_project_sample_accession_anchor",
       "sample_evidence_status": "direct_table_extracted",
       "sample_identity_resolution": "final",
-      "sample_ambiguity_note": "Published primary-project interval 0–450 BP selected; later secondary reanalysis reports nested 41–252 BP. The narrower date is retained as an alternative, not silently merged or substituted.",
+      "sample_ambiguity_note": "",
       "locality_text": "Wijdefjorden",
       "locality_resolution_status": "direct_sample_site",
       "location_evidence_artifact_path": "data/adna/governance/source_library/projects/PRJEB60484/ena_samples/SAMEA112757337.xml || data/adna/governance/source_library/papers/10.1111-mec.17274/article.pdf || data/adna/governance/source_library/papers/10.1111-mec.17274/supplementary/author-preprint-table-s3.xlsx || data/adna/governance/source_library/papers/10.1038-s41598-024-54296-2/supplementary/41598_2024_54296_MOESM2_ESM.xlsx || data/adna/governance/source_library/papers/10.1111-mec.17274/supplementary/mec17274-sup-0003-Table S3.xlsx",

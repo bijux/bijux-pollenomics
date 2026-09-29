@@ -505,7 +505,7 @@
       "coverage_metrics": {
         "animal_species_count": 10,
         "animal_project_count": 40,
-        "animal_sample_count": 1470
+        "animal_sample_count": 1468
       },
       "blocking_reasons": [
         "source_authority_review_required",

@@ -2,9 +2,9 @@
 
 - Tracked species: `10`
 - Tracked projects: `22`
-- Sample rows: `1470`
+- Sample rows: `1468`
 - Fully grounded rows: `557`
-- Partially grounded rows: `373`
+- Partially grounded rows: `371`
 - Blocked by missing metadata: `11`
 - Blocked by missing location detail: `367`
 - Blocked by weak chronology: `162`
@@ -20,6 +20,6 @@
 | Capra hircus | 82 | 9 | 0 | 0 | 73 |
 | Canis lupus familiaris | 4 | 0 | 0 | 1 | 0 |
 | Felis catus | 106 | 35 | 0 | 0 | 44 |
-| Camelus dromedarius | 33 | 0 | 0 | 0 | 4 |
+| Camelus dromedarius | 31 | 0 | 0 | 0 | 4 |
 | Rangifer tarandus | 20 | 0 | 0 | 0 | 0 |
 | Equus asinus | 0 | 0 | 0 | 0 | 0 |

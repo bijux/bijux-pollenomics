@@ -205,7 +205,13 @@ class TaxonomyTests(SampleMasterRecoveryTestCase):
         self.assertEqual(len(rows), 20)
         self.assertEqual(len({row.archive_native_sample_id for row in rows}), 20)
         self.assertEqual(len({row.paper_native_sample_label for row in rows}), 19)
-        self.assertTrue(all(row.sample_identity_resolution == "final" for row in rows))
+        self.assertEqual(
+            {row.sample_identity_resolution for row in rows},
+            {"final", "ambiguous"},
+        )
+        self.assertEqual(
+            sum(row.sample_identity_resolution == "ambiguous" for row in rows), 2
+        )
         palm = next(
             row for row in rows if row.archive_native_experiment_id == "SRX1711558"
         )
@@ -227,7 +233,8 @@ class TaxonomyTests(SampleMasterRecoveryTestCase):
             palm.source_native_identity_kind, "biological_sample_accession"
         )
         self.assertEqual(palm.sample_evidence_status, "archive_native")
-        self.assertEqual(palm.sample_identity_resolution, "final")
+        self.assertEqual(palm.sample_identity_resolution, "ambiguous")
+        self.assertEqual(other_palm.sample_identity_resolution, "ambiguous")
         self.assertIn("physical specimen independence", palm.sample_ambiguity_note)
         self.assertEqual(palm.taxon_alignment_status, "project_species_match")
         self.assertEqual(palm.source_native_tax_id, "9838")

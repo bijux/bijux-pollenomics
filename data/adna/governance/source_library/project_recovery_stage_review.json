@@ -408,7 +408,7 @@
       "expected_sample_count_artifact_path": "",
       "minimum_expected_sample_count": 1,
       "recovered_sample_count": 20,
-      "final_sample_count": 20,
+      "final_sample_count": 18,
       "unresolved_sample_count": null,
       "minimum_gap_count": 0,
       "sample_identifier_status": "paper_or_supplement_targets_curated",

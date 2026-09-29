@@ -9,11 +9,11 @@
 
 ## Sample Evidence Depth
 
-The four mutually exclusive buckets partition `1470` species-normalized sample rows. The project source master has `1470` final rows; alignment is `aligned`. A site-only row has no normalized chronology; a site-and-chronology row has no coordinate text. The final bucket has coordinate text, not necessarily an approved mapped point.
+The four mutually exclusive buckets partition `1468` species-normalized sample rows. The project source master has `1468` final rows; alignment is `aligned`. A site-only row has no normalized chronology; a site-and-chronology row has no coordinate text. The final bucket has coordinate text, not necessarily an approved mapped point.
 
 - sample identity only: `0`
 - sample with site: `539`
-- sample with site and chronology: `374`
+- sample with site and chronology: `372`
 - sample with site chronology and coordinates: `557`
 
 | Project | Species | Completed stages | Required stages | Recovery depth score |

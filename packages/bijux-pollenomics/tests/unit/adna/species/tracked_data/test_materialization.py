@@ -32,8 +32,8 @@ def test_tracked_species_materialization_reaches_a_fixed_point_in_one_run(
         first[Path("adna/governance/source_library/source_recovery_progress.json")]
     )
     accounting = progress["sample_evidence_depth_accounting"]
-    assert accounting["counted_sample_rows"] == 1470
-    assert accounting["project_source_master_final_sample_rows"] == 1470
+    assert accounting["counted_sample_rows"] == 1468
+    assert accounting["project_source_master_final_sample_rows"] == 1468
     assert accounting["source_master_species_alignment"] == "aligned"
 
     materialize_tracked_species_adna(data_root)

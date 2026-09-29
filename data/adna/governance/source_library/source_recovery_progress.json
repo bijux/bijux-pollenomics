@@ -4,14 +4,14 @@
   "sample_evidence_depth_counts": {
     "sample_identity_only": 0,
     "sample_with_site": 539,
-    "sample_with_site_and_chronology": 374,
+    "sample_with_site_and_chronology": 372,
     "sample_with_site_chronology_and_coordinates": 557
   },
   "sample_evidence_depth_accounting": {
     "partition": "mutually_exclusive",
-    "counted_sample_rows": 1470,
+    "counted_sample_rows": 1468,
     "count_basis": "species_normalized_sample_rows",
-    "project_source_master_final_sample_rows": 1470,
+    "project_source_master_final_sample_rows": 1468,
     "source_master_species_alignment": "aligned",
     "coordinate_rule": "nonempty latitude and longitude text; not mapped-point approval"
   },
@@ -69,7 +69,7 @@
       "completed_stage_count": 6,
       "required_stage_count": 8,
       "recovery_depth_score": 0.75,
-      "final_sample_count": 20,
+      "final_sample_count": 18,
       "minimum_gap_count": 0,
       "publication_readiness_status": "blocked"
     },

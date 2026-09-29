@@ -461,7 +461,7 @@
       "sample_basis": "archive_project_sample_accession_anchor",
       "sample_evidence_status": "direct_table_extracted",
       "sample_identity_resolution": "final",
-      "sample_ambiguity_note": "Published primary-project interval 0–450 BP selected; later secondary reanalysis reports nested 41–252 BP. The narrower date is retained as an alternative, not silently merged or substituted.",
+      "sample_ambiguity_note": "",
       "assigned_locality_text": "Wijdefjorden",
       "locality_resolution_status": "direct_sample_site",
       "assigned_locality_class": "excavation_site",

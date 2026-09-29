@@ -8,22 +8,21 @@
 ## Counts
 
 - Tracked paper count: `18`
-- Papers with archived supplements: `17`
+- Papers with archived supplements: `18`
 - Published animal atlas points: `170`
-- Unresolved animal samples: `378 of 1470`
+- Unresolved animal samples: `378 of 1468`
 - Refused animal coordinate-provenance rows: `4 of 308`
 - Source-family explainer count: `22`
 
 ## Claim Freeze Reasons
 
-- supplement recovery is still far below paper coverage
 - tracked animal samples still include unresolved locality assignments
 - animal coordinate provenance still includes refused or unpublished rows
 - RAÄ density remains refused until source inventory and qualified review reconcile
 
 ## Recovery Priorities
 
-- archive missing supplementary material before extracting sample-owned locality and chronology evidence
+- extract sample-owned locality and chronology evidence from archived supplementary material
 - rebuild animal locality extraction so sample rows do not collapse into project-level or region-level geography
 - rebuild chronology extraction so atlas and country outputs stop depending on broad or unresolved sample dates
 - keep pollen, environmental, archaeology, and boundary explanation first-class while animal aDNA recovery continues

@@ -7,7 +7,7 @@
     "projects_with_minimum_expected_floor": 22,
     "projects_with_implausibly_low_recovery": 0,
     "exact_expected_sample_total": 37,
-    "recovered_final_sample_total": 1470,
+    "recovered_final_sample_total": 1468,
     "minimum_gap_total": 0
   },
   "rows": [
@@ -361,7 +361,7 @@
       "expected_sample_count_artifact_path": "",
       "minimum_expected_sample_count": 1,
       "recovered_sample_count": 20,
-      "final_sample_count": 20,
+      "final_sample_count": 18,
       "unresolved_sample_count": null,
       "minimum_gap_count": 0,
       "sample_identifier_status": "paper_or_supplement_targets_curated",

@@ -386,11 +386,7 @@ def build_reindeer_sample_rows(
                 )
                 + (f" || {published_locator}" if published_row else ""),
                 sample_lineage_excerpt=excerpt,
-                sample_ambiguity_note=(
-                    "Published primary-project interval 0–450 BP selected; later secondary reanalysis reports nested 41–252 BP. The narrower date is retained as an alternative, not silently merged or substituted."
-                    if alias == "R20"
-                    else ""
-                ),
+                sample_ambiguity_note="",
                 locality_text=locality,
                 political_entity="Russia" if alias in _FJL_ALIASES else "Norway",
                 chronology_text=f"{selected_age} BP",
