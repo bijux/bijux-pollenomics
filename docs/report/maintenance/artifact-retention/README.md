@@ -324,6 +324,17 @@ files include generated intermediates, reports, scripts and diagnostics. All
 The current source recount above consumes the author capsule and terminal
 independent audit; older v2 job receipts are outside this selected retirement.
 
+The [two-grid process custody](landclim-two-grid-process-custody.json) preserves
+the 267-file frozen author-example run and one historical full-scope note in the
+private source store. All 194 snapshot files match the current private author
+reference byte for byte; the run report also matches the governed method-profile
+reference report. The other run outputs and process files remain privately
+available. The governed [method profile](../../publication-replay/landclim-method-profile/README.md)
+and [author correspondence](../../publication-replay/landclim-author-example-correspondence/README.md)
+carry the current two-grid numerical conclusions. The full-scope note predates
+the 17-site raw/prepared recount and is retained only as historical process
+evidence. Neither record authenticates the 1,128 study inputs.
+
 ## WHH05 author preparation process custody
 
 The [one-site R process custody](whh05-author-preparation-custody.json) accounts
