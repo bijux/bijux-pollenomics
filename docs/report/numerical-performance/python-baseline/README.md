@@ -8,13 +8,13 @@ scientific output is identical across timing repetitions.
 
 | Workload | First call, ms | Warm median, ms | Warm range, ms |
 |---|---:|---:|---:|
-| reveals-interactive | 74.057 | 2.703 | 2.623–4.277 |
-| reveals-reference-series | 19.843 | 19.758 | 19.542–20.050 |
-| love-analytical | 13.526 | 6.761 | 6.693–6.892 |
-| love-optimized-replay | 25.429 | 22.592 | 21.254–26.555 |
-| lra-replicated-series | 95.310 | 92.625 | 82.722–102.554 |
-| forward-validated | 0.088 | 0.041 | 0.041–0.046 |
-| forward-dot-compute | 0.027 | 0.005 | 0.005–0.006 |
+| reveals-interactive | 75.801 | 2.614 | 2.566–4.258 |
+| reveals-reference-series | 19.682 | 19.321 | 19.230–19.583 |
+| love-analytical | 11.854 | 6.531 | 6.467–6.615 |
+| love-optimized-replay | 23.642 | 20.926 | 20.735–21.708 |
+| lra-replicated-series | 82.113 | 82.039 | 81.228–82.681 |
+| forward-validated | 0.090 | 0.044 | 0.041–0.050 |
+| forward-dot-compute | 0.023 | 0.005 | 0.005–0.006 |
 
 The REVEALS workloads use one and all 45 retained Tiefer See rows with 21 taxa.
 LOVE uses the retained 10-taxon, 36-ring example: eight analytical repeats or
@@ -39,7 +39,7 @@ the production ratio is retained. Timing measures the declared source workflow,
 not a new scientific eligibility or accuracy claim. The initial report writer
 refused non-JSON NaNs; the corrected writer preserves them explicitly.
 
-The process high-water RSS was 166.38 MiB on the recorded macOS machine, including
+The process high-water RSS was 161.66 MiB on the recorded macOS machine, including
 imports and all workloads. It is not per-workload incremental memory. First calls
 share the process and may reuse kernels warmed by an earlier workload; they are
 not isolated cold-cache measurements. The profile records individual Python,
@@ -47,9 +47,9 @@ library, conversion and copy functions with their call counts and exclusive and
 cumulative costs.
 
 All seven scientific outputs, nonfinite meanings and workload contracts match
-the preceding retained measurement. The timings and process RSS were measured
-again on the current source; variation between runs does not establish a speed
-change.
+the preceding retained measurement. Four solver source files changed for the
+opt-in constrained LOVE backend; this report measures their current bytes.
+Timing and process RSS variation between runs does not establish a speed change.
 The source inventory excludes the ignored generated `_build_version.py`, whose
 SCM label changes during builds without changing the numerical method.
 

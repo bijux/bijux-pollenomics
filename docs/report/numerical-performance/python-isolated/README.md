@@ -4,13 +4,13 @@ The [measurement](report.json) runs each of the seven declared [Python baseline]
 
 | Workload | Median process peak MiB | Median peak increment MiB | Median call ms | Median full worker s |
 | --- | ---: | ---: | ---: | ---: |
-| reveals-interactive | 162.5 | 2.4 | 69.75 | 1.94 |
-| reveals-reference-series | 162.7 | 2.6 | 87.43 | 1.95 |
-| love-analytical | 162.3 | 2.4 | 56.12 | 1.92 |
-| love-optimized-replay | 162.5 | 2.4 | 73.37 | 1.94 |
-| lra-replicated-series | 162.6 | 2.4 | 136.38 | 2.00 |
-| forward-validated | 160.3 | 0.0 | 0.09 | 1.86 |
-| forward-dot-compute | 159.9 | 0.0 | 0.02 | 1.86 |
+| reveals-interactive | 161.6 | 2.6 | 70.69 | 1.47 |
+| reveals-reference-series | 161.4 | 2.7 | 87.75 | 1.49 |
+| love-analytical | 161.7 | 2.5 | 55.88 | 1.45 |
+| love-optimized-replay | 161.0 | 2.5 | 73.22 | 1.47 |
+| lra-replicated-series | 161.2 | 2.5 | 135.49 | 1.54 |
+| forward-validated | 158.7 | 0.0 | 0.10 | 1.39 |
+| forward-dot-compute | 158.4 | 0.0 | 0.02 | 1.39 |
 
 These peaks include Python startup, imports, and construction of only the named
 fixture. The before/after difference is a process high water increment, not
@@ -19,7 +19,7 @@ reached during setup. The full worker duration includes startup, named fixture
 construction, one call, and receipt serialization. It is not a cold-cache
 kernel latency or a comparable full study pipeline time.
 
-The current source closure matches the refreshed shared-process baseline. All
+The current solver source closure matches the refreshed shared-process baseline. All
 35 workers matched its workload contracts, scientific outputs and nonfinite
 meanings. The earlier isolated report constructed all seven fixtures in each
 worker and used an older source closure; its timings are not a controlled
