@@ -9,7 +9,7 @@ bytes. The first OpenLand receipt records an unavailable attachment; the
 second records the received ZIP. They are two receipt states for one named
 delivery, not two independent datasets.
 The replay validates all three receipts against the repository-owned
-[`external-data-intake.v1` contract](../../../../data/source_intake_contract.schema.json)
+`external-data-intake.v1` contract at `data/source_intake_contract.schema.json`
 after verifying their custody hashes. The report pins the contract SHA-256.
 Schema validity records the historical intake format; it does not grant source
 rights or scientific admission.

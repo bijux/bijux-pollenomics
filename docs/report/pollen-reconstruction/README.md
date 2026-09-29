@@ -20,7 +20,7 @@ collection-unit date. Neither fact changes the LRA refusal below.
 The [Bökesjön basin review](../source-relations/neotoma/boke-basin/README.md)
 adds a 1984 mapped lake and two modern area measurements but does not bind
 their geometry to the fossil-pollen core or its sample ages.
-The [Gilltjärnen source question](../source-relations/rootsi-landclim-overlap/README.md#gilltj%C3%A4rnen-source-question)
+The [Gilltjärnen source question](../source-relations/rootsi-landclim-overlap/README.md)
 finds that LandClim II row 994 defines a 169 m site radius and 101 samples,
 while its longitude is 15.083333° E versus 15.83333° E for the 101-sample
 Neotoma `GILL` core. The approximately 42 km discrepancy prevents transfer of
