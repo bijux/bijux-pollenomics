@@ -24,6 +24,11 @@ The join is a **metadata candidate overlap**. Each row carries its Rootsi typed-
 
 The LandClim site time bounds are **sequence coverage**, not sample ages or change events. Thirty-five site features have numeric coverage intervals. Thirty-six have negative BP source bounds and eight have partial source bounds; their normalized numeric intervals are refused. The ledger keeps the source Top/Bottom BP labels alongside the refusal reason. The chronology basis text is a source label, not an authenticated sample chronology.
 
+A [source-byte-bound age-column audit](../landclim/workbook-chronology/README.md)
+checks FLINK, HOLK, RANV and STAV directly. It preserves one source-age reversal
+in each of FLINK and HOLK and confirms that RANV and STAV have no workbook
+sample-age column. None of these cells establishes a qualified age model.
+
 The LandClim II DOI, sequence ID, country, access marker, sample count, site window count, and source workbook provenance must match before a row is emitted. `LCGRID_ID` is retained as site metadata. It does not prove that a specific Rootsi workbook or site contributed to a particular modeled grid cell, time window, value, or standard error. That contributor lineage remains unresolved.
 
 These candidate dependencies block treating LandClim REVEALS outputs as independent vegetation ground truth for the matched Rootsi inputs. Per-sequence rights, historical input identity, source-age basis, taxonomy, count denominator, and exact grid/window contribution remain unresolved. This review does not certify complete V2-DATA-007 grid/window/value/SE lineage or admit raw Rootsi observations for scientific use.
