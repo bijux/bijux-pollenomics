@@ -353,6 +353,28 @@ def main() -> None:
     scope = json.loads((REPORT_DIR / "scope.json").read_text(encoding="utf-8"))
     if scope.get("confirmatory_result") is not False:
         raise ValueError("scoped report must not declare a confirmatory result")
+    with (REPORT_DIR / "swedish-source-questions.csv").open(
+        newline="", encoding="utf-8"
+    ) as stream:
+        source_questions = list(csv.reader(stream))
+    if (
+        len(source_questions) != 11
+        or source_questions[0]
+        != [
+            "site",
+            "neotoma_dataset_id",
+            "neotoma_site_id",
+            "rootsi_archive_member",
+            "observed_gap",
+            "question",
+            "dependent_use",
+        ]
+        or any(
+            len(row) != 7 or any(not cell.strip() for cell in row)
+            for row in source_questions[1:]
+        )
+    ):
+        raise ValueError("Swedish source questions have missing or shifted columns")
     custody = json.loads((REPORT_DIR / "author-source-custody.json").read_text())
     for field in ("producer", "source_reader"):
         identity = custody[field]

@@ -201,13 +201,13 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/swedish-source-questions.csv",
-      "sha256": "feca03eae03dcc6e4dc8170c32ac9fd1f5b885e41f1d6ac7a5e7ca5168aa27eb",
-      "bytes": 5575
+      "sha256": "4b2b6b7c915959dee1546d0278d1e7eafe6cdba44ec7f72c903f8fad7b5b3a9f",
+      "bytes": 5577
     },
     {
       "path": "docs/report/pollen-reconstruction/verify_report.py",
-      "sha256": "49732042b30106ebeb282bf9220d45cb9ee9bd2a5ba5d18ce2e0194928b213b5",
-      "bytes": 21686
+      "sha256": "3cc88cfdf51dff9ec50bcf8cdc5bc0a0022f4e8fdef7be593a0856da7255bd3b",
+      "bytes": 22384
     },
     {
       "path": "docs/report/publication-replay/landclim-pft-crosswalk/README.md",
