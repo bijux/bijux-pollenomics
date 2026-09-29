@@ -33,7 +33,7 @@ from .contracts import (
     AnimalSampleChronologyRefusal,
 )
 from .node_materialization import build_input_identity, build_node
-from .source_json import _Row, _read_object, _rows
+from .source_json import _read_object, _Row, _rows
 
 _REGISTRY_SCHEMA = "adna-source-library.v1"
 _SURFACE_SCHEMAS = {

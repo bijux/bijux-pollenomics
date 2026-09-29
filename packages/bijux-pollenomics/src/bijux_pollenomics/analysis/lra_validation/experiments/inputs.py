@@ -19,11 +19,6 @@ from ..contracts import (
     manifest_sha256,
 )
 from ..splits import grouped_leave_one_out
-from .references.io import (
-    _reference_bytes as _reference_bytes,
-    _unique_pairs as _unique_pairs,
-    read_reference as read_reference,
-)
 from .configuration import (
     ExperimentScope,
     ExperimentSite,
@@ -33,6 +28,15 @@ from .configuration import (
     identity,
     object_list,
     object_mapping,
+)
+from .references.io import (
+    _reference_bytes as _reference_bytes,
+)
+from .references.io import (
+    _unique_pairs as _unique_pairs,
+)
+from .references.io import (
+    read_reference as read_reference,
 )
 
 SAMPLE_FIELDS = {

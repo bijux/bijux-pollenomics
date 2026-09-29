@@ -16,9 +16,10 @@ from ..contracts import (
 from ..contracts import (
     required_identity as _required_identity,
 )
-
 from .references.model import (
     InputReference as InputReference,
+)
+from .references.model import (
     object_mapping as object_mapping,
 )
 

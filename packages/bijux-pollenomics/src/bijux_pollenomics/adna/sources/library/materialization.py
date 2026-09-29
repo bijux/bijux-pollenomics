@@ -22,6 +22,7 @@ from .audits import (
 )
 from .cache_control import _clear_source_library_caches
 from .models import SOURCE_LIBRARY_SCHEMA_VERSION
+from .reference_stash import _resolve_reference_stash_root
 from .registries import (
     _paper_manifest_rows,
     build_paper_registry,
@@ -38,7 +39,6 @@ from .rendering import (
     _render_source_storage_audit,
     _render_tracked_project_and_paper_inventory,
 )
-from .reference_stash import _resolve_reference_stash_root
 from .specifications import _doi_slug, _paper_source_spec
 from .storage import (
     build_source_artifact_index,

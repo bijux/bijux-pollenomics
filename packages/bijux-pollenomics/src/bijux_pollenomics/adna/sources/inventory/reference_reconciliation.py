@@ -6,12 +6,12 @@ from collections.abc import Sized
 from pathlib import Path
 from typing import cast
 
-from ..library.registries import build_paper_registry
-from ..library.specifications import _doi_slug
 from ..library.reference_stash import (
     _reference_stash_records,
     _resolve_reference_stash_root,
 )
+from ..library.registries import build_paper_registry
+from ..library.specifications import _doi_slug
 from .model import SOURCE_INVENTORY_SCHEMA_VERSION, _count_by
 
 
