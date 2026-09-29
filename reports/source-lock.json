@@ -37,7 +37,7 @@
     "docs/report/pollen-reconstruction/author-lra-constrained/radius-sensitivity/scored/scores.csv": "60bf6b4cc25bf94a9afbb241370d55e7be17239c20e25881b4cc862e452eb494",
     "docs/report/pollen-reconstruction/author-lra-constrained/radius_sensitivity.py": "081e556c044dc652e0f59edaf39d32410e0b24d0388a1dea77f8503f8edb0187",
     "docs/report/pollen-reconstruction/author-lra-constrained/report.json": "99bc052531b052ee218f91d36645cdeaaf2b1641ca8bd20140afa1b4e87f8150",
-    "docs/report/pollen-reconstruction/manifest.json": "b2fb0135d04c38d86f6db3ed08c9f9ef9fb38cfd3e1f67749df549795e76a218",
+    "docs/report/pollen-reconstruction/manifest.json": "5efeb2864aedfbc55dca81ceb0e39850aad320ab422a308608aed20adc7a7766",
     "docs/report/publication-replay/landclim-author-example-correspondence/report.json": "a9bbb131a8094a2c0b1efaa83b6afba09f3f59f6e20257934d73a470de36fc9f",
     "docs/report/regions/nordic/author-target-pollen/report.json": "e202d4264b34a5b2508dac1d38f404884e9225f5a3c6b85c8f0a519223ad9361",
     "docs/report/regions/nordic/hyde-country-cropland/report.json": "55d2e679fcacaabb0e64c641aae6f0ed9d5c90920adaeec91840b6117e725cbb",
@@ -61,7 +61,7 @@
     "reports/architecture/ownership.md": "08d18c6d2eb8afcd5c9513e5c6743027da21fcfaafd38c99d46fbb14bf5809bb",
     "reports/evidence-index.md": "5f78443bf3ee6553c054ca7412e47ba9f8f32f31efa0d03f0f871108f7b7d057",
     "reports/needed/README.md": "3bf42886024f6601e665d0268466f801eee759f26762ce7a9389d07a6b1fca03",
-    "reports/science/denmark-finland-norway-author-pollen.md": "c204f2077285c7424dd08c548553765f377aec1b26d47704a1014ff6dc9e0490",
+    "reports/science/denmark-finland-norway-author-pollen.md": "610b2c47e86cebe980afcee5310f560df94ba33d5a8f2c5f5e3cf10edc791321",
     "reports/science/english-lra-pollen-prediction.md": "721cccbfb0f0b465a9c6a386b02da23ce09bf35839304543fa08a15bc9793485",
     "reports/science/hyde-cropland-source-account.md": "badfe1f381a9351cd2fa113f97f64c2b19fe65a0f147d5c414d46ee71292d98e",
     "reports/science/method-correspondence.md": "37904bd182f8e55ca6a5892af06237d1fedab0a4b5a4063ca3aef8f3aeb95799",
@@ -72,7 +72,7 @@
     "reports/science/pollen-prediction.md": "640e0983a0c4220b7fc13dcd2627dabc36951f757bccaac822355594d6fd8b57",
     "reports/science/publication-correspondence.md": "f8079cccda67cf593e3f4817ba3694d6b1a0f548c31f361243da27cbc4112f42",
     "reports/science/source-cohorts.md": "687ce171efb4997789d220dcef34e87965a2e502054ad8c1a890b4832510ce21",
-    "reports/science/sweden-author-pollen.md": "17912b9ff205302cfa95f37c6279ece5521c29ce2f21bda7859755078b1ae683",
+    "reports/science/sweden-author-pollen.md": "bee5fd81cb4384bfc60154359aded0e010892444d38eda54a4ec5d38c0738c3a",
     "reports/verify.py": "889b1efdad83fc44921d5cea62613394fde010b5d20e1db09bd85a6c14607bed"
   }
 }

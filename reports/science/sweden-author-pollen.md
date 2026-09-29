@@ -1,20 +1,25 @@
-# Sweden held out on the author pollen taxonomy
+# How we held Sweden out on the author pollen taxonomy
 
-This [observed-pollen study](../../docs/report/regions/nordic/swedish-author-target-pollen/report.json) holds out all three Swedish EPD/Neotoma
-lakes while 81 Danish, Finnish and Norwegian sites supply training. It uses the
-same 31 non-excluded author lookup targets and 500-cal-BP bins as the
-[country-held-out study](../../docs/report/regions/nordic/author-target-pollen/README.md). Three fixed methods
-predict each eligible Swedish site-bin: training mean, nearest site and inverse
-distance squared. Site centers supply spatial distances. No Swedish pollen count
-or pollen-derived feature appears in the [prediction inputs](../../docs/report/regions/nordic/swedish-author-target-pollen/inputs).
+We held out all three Swedish EPD/Neotoma lakes in this
+[observed-pollen study](../../docs/report/regions/nordic/swedish-author-target-pollen/report.json)
+and trained on 81 Danish, Finnish and Norwegian sites. We used the same 31
+non-excluded author lookup targets and 500-cal-BP bins as the
+[country-held-out study](../../docs/report/regions/nordic/author-target-pollen/README.md).
+We predicted each eligible Swedish site-bin with training mean, nearest site
+and inverse distance squared. We calculated spatial distances between site
+centers. We kept Swedish pollen counts and pollen-derived features out of
+the [prediction inputs](../../docs/report/regions/nordic/swedish-author-target-pollen/inputs).
 
-The [input manifest](../../docs/report/regions/nordic/swedish-author-target-pollen/input-manifest.json) binds the retained Nordic source
-profiles, three original Swedish source transports, the Swedish source mass
-screen and the prepared training/target files by SHA-256. The
-[target outcomes](../../docs/report/regions/nordic/swedish-author-target-pollen/sealed-outcomes) are stored separately. The
-[predictions](../../docs/report/regions/nordic/swedish-author-target-pollen/predictions) were saved and SHA-256 identified before the
-[scores](../../docs/report/regions/nordic/swedish-author-target-pollen/scores.csv) opened those outcomes. The retained gzip files contain
-derived compositions and counts, not the private raw author source.
+Our [input manifest](../../docs/report/regions/nordic/swedish-author-target-pollen/input-manifest.json)
+binds the retained Nordic source profiles, three original Swedish source
+transports, the Swedish source mass screen and prepared training/target files
+by SHA-256. We stored [target outcomes](../../docs/report/regions/nordic/swedish-author-target-pollen/sealed-outcomes)
+separately. We saved and SHA-256-identified
+[predictions](../../docs/report/regions/nordic/swedish-author-target-pollen/predictions)
+before opening outcomes for the
+[scores](../../docs/report/regions/nordic/swedish-author-target-pollen/scores.csv).
+We retained derived compositions and counts in gzip
+files without copying the private raw author source.
 
 | Target | Source samples | Scored bins | IDW MAE / Hellinger | Nearest MAE / Hellinger | Mean MAE / Hellinger |
 | --- | ---: | ---: | ---: | ---: | ---: |
@@ -22,38 +27,41 @@ derived compositions and counts, not the private raw author source.
 | Bussjösjön | 69 | 19 | 0.036493 / 0.483677 | 0.031255 / 0.463496 | 0.040178 / 0.534459 |
 | Bökesjön | 52 | 12 | 0.033710 / 0.489568 | 0.029481 / 0.460939 | 0.038889 / 0.560758 |
 
-The [coverage ledger](../../docs/report/regions/nordic/swedish-author-target-pollen/coverage.csv) records **54 attempted site-bins**, **51
-scored site-bins** and **three refused bins** at bin −1 because fewer than two
-foreign training sites have positive target counts. All three methods score
-the same 51 bins, yielding **153 method rows**. The equal-site mean MAE is
+We recorded **54 attempted site-bins**, **51 scored site-bins** and **three
+refused bins** in the [coverage ledger](../../docs/report/regions/nordic/swedish-author-target-pollen/coverage.csv).
+We refused bin −1 where fewer than two foreign training sites had positive
+target counts. We scored the same 51 bins for all three methods, yielding
+**153 method rows**. The equal-site mean MAE is
 0.028740 for inverse distance squared, 0.029249 for nearest site and 0.031615
 for training mean. Equal-site Hellinger values are 0.413111, 0.447736 and
-0.451108, respectively. [Site scores](../../docs/report/regions/nordic/swedish-author-target-pollen/site-scores.csv) and
-[taxon diagnostics](../../docs/report/regions/nordic/swedish-author-target-pollen/taxon-diagnostics.csv) retain the contributing units.
+0.451108, respectively. We retained the contributing units in
+[site scores](../../docs/report/regions/nordic/swedish-author-target-pollen/site-scores.csv)
+and [taxon diagnostics](../../docs/report/regions/nordic/swedish-author-target-pollen/taxon-diagnostics.csv).
 
-Across all **228** Swedish source samples, the author targets receive
+Across all **228** Swedish source samples, we assigned
 **221,800 of 240,966** native pollen NISP counts (92.05%); 12,779 are
-author-excluded and 6,387 are unmapped. The previously reported Swedish
-author-parameter screen covers only **39 bins common to all three sites**:
-its 169,013 assigned of 187,002 native NISP exactly match this study when
-restricted to those 39 bins. These different denominators describe different
-bin support, not a source discrepancy. The 31-target response also differs
-from the earlier Swedish 16-label response, so their MAE values are not a
-paired method comparison.
+author-excluded and 6,387 are unmapped. Our earlier Swedish author-parameter
+screen covers only **39 bins common to all three sites**. Its 169,013 assigned
+of 187,002 native NISP exactly match this study when we restrict both to
+those 39 bins. We keep the denominators separate because they cover different
+bin support. We also keep this 31-target response separate from the earlier
+Swedish 16-label response; their MAEs do not form a paired method comparison.
 
-This is exploratory, prior-exposed direct-pollen interpolation across country
-boundaries. It has only three Swedish target sites, no untouched confirmatory
-cohort, no independent vegetation truth and **zero LRA admissions**. The
-historical lake geometry and source decisions in the [Swedish source review](../../docs/report/pollen-reconstruction/swedish-source-questions.csv)
+We treat this as exploratory, prior-exposed direct-pollen interpolation across
+country boundaries. We have only three Swedish target sites, no untouched
+confirmatory cohort, no independent vegetation truth and **zero LRA
+admissions**. The historical lake geometry and decisions in the
+[Swedish source review](../../docs/report/pollen-reconstruction/swedish-source-questions.csv)
 still govern LRA use.
 
-The separate [matched training-scope study](sweden-training-scope.md) rotates
-each Swedish lake as a whole-site target and compares the other two Swedish
-sites alone with those same sites plus DK/FI/NO training. Its 39 shared bins
-answer a different question from this study's 51 scored bins with **all**
-Swedish sites excluded from training.
+In our separate [matched training-scope study](sweden-training-scope.md), we
+rotate each Swedish lake as a whole-site target and compare the other two
+Swedish sites alone with those same sites plus DK/FI/NO training. Its 39
+shared bins answer a different question from this study's 51 scored bins
+with **all** Swedish sites excluded from training.
 
-Reproduce from the repository root into absent directories under `artifacts/`:
+To reproduce our result, run from the repository root into absent
+directories under `artifacts/`:
 
 ```sh
 PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -m \
