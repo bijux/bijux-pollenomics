@@ -3,8 +3,8 @@
   "public_posture": "sample_recovery_still_partial_and_project_gaps_explicit",
   "stage_review": {
     "tracked_project_count": 40,
-    "ready_for_publication_review": 10,
-    "blocked_projects": 24,
+    "ready_for_publication_review": 11,
+    "blocked_projects": 23,
     "in_progress_projects": 0
   },
   "yield_review": {
@@ -76,9 +76,9 @@
     "Rangifer tarandus": {
       "project_count": 4,
       "projects_with_sample_gap": 0,
-      "projects_with_site_gap": 1,
-      "projects_with_chronology_gap": 1,
-      "projects_blocked_before_publication": 4
+      "projects_with_site_gap": 0,
+      "projects_with_chronology_gap": 0,
+      "projects_blocked_before_publication": 3
     },
     "Sus scrofa domesticus": {
       "project_count": 4,
@@ -89,9 +89,9 @@
     }
   },
   "manual_curation_counts": {
-    "chronology_recovery": 13,
-    "locality_string_resolution": 8,
-    "site_resolution": 8,
+    "chronology_recovery": 12,
+    "locality_string_resolution": 7,
+    "site_resolution": 7,
     "sample_identity_resolution": 1
   },
   "missing_source_queue_counts": {
@@ -104,8 +104,8 @@
   },
   "sample_evidence_depth_counts": {
     "sample_identity_only": 0,
-    "sample_with_site": 540,
-    "sample_with_site_and_chronology": 373,
+    "sample_with_site": 539,
+    "sample_with_site_and_chronology": 374,
     "sample_with_site_chronology_and_coordinates": 557
   },
   "sample_evidence_depth_accounting": {

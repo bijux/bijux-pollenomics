@@ -1,6 +1,6 @@
 # Animal atlas exclusion report
 
-- Excluded tracked sample rows: `1119`
+- Excluded tracked sample rows: `1139`
 
 | Species | Project | Sample record | Locality | Inclusion status | Mapping posture | Exclusion reason |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -118,6 +118,26 @@
 | Camelus dromedarius | KU605068-KU605080 | camelus_dromedarius:sample:ku605068-ku605080:ku605078 | Kenya | site_curated |  | no coordinate provenance row currently supports point publication |
 | Camelus dromedarius | KU605068-KU605080 | camelus_dromedarius:sample:ku605068-ku605080:ku605079 | Sudan | site_curated |  | no coordinate provenance row currently supports point publication |
 | Camelus dromedarius | KU605068-KU605080 | camelus_dromedarius:sample:ku605068-ku605080:ku605080 | Pakistan | site_curated |  | no coordinate provenance row currently supports point publication |
+| Camelus dromedarius | SRP073444 | camelus_dromedarius:sample:srp073444:samn04631877 | Palmyra | site_curated |  | no coordinate provenance row currently supports point publication |
+| Camelus dromedarius | SRP073444 | camelus_dromedarius:sample:srp073444:samn04631949 | Al Sufouh 2 | site_curated |  | no coordinate provenance row currently supports point publication |
+| Camelus dromedarius | SRP073444 | camelus_dromedarius:sample:srp073444:samn04631950 | Al Sufouh 2 | site_curated |  | no coordinate provenance row currently supports point publication |
+| Camelus dromedarius | SRP073444 | camelus_dromedarius:sample:srp073444:samn04631951 | Muweilah (Sharjah) | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
+| Camelus dromedarius | SRP073444 | camelus_dromedarius:sample:srp073444:samn04631952 | Muweilah (Sharjah) | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
+| Camelus dromedarius | SRP073444 | camelus_dromedarius:sample:srp073444:samn04631953 | Tell Abraq | site_curated |  | no coordinate provenance row currently supports point publication |
+| Camelus dromedarius | SRP073444 | camelus_dromedarius:sample:srp073444:samn04631954 | Muweilah (Sharjah) | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
+| Camelus dromedarius | SRP073444 | camelus_dromedarius:sample:srp073444:samn04631955 | Al Buhais 18 | site_curated |  | no coordinate provenance row currently supports point publication |
+| Camelus dromedarius | SRP073444 | camelus_dromedarius:sample:srp073444:samn04631956 | Al Buhais 18 | site_curated |  | no coordinate provenance row currently supports point publication |
+| Camelus dromedarius | SRP073444 | camelus_dromedarius:sample:srp073444:samn04631957 | Tell Abraq | site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
+| Camelus dromedarius | SRP073444 | camelus_dromedarius:sample:srp073444:samn04631958 | Tell Abraq | site_curated |  | no coordinate provenance row currently supports point publication |
+| Camelus dromedarius | SRP073444 | camelus_dromedarius:sample:srp073444:samn04631959 | Umm an-Nar | site_curated |  | no coordinate provenance row currently supports point publication |
+| Camelus dromedarius | SRP073444 | camelus_dromedarius:sample:srp073444:samn04631960 | Apamea | site_curated |  | no coordinate provenance row currently supports point publication |
+| Camelus dromedarius | SRP073444 | camelus_dromedarius:sample:srp073444:samn04631961 | Aqaba | site_curated |  | no coordinate provenance row currently supports point publication |
+| Camelus dromedarius | SRP073444 | camelus_dromedarius:sample:srp073444:samn04631962 | Aqaba | site_curated |  | no coordinate provenance row currently supports point publication |
+| Camelus dromedarius | SRP073444 | camelus_dromedarius:sample:srp073444:samn04631963 | Aqaba | site_curated |  | no coordinate provenance row currently supports point publication |
+| Camelus dromedarius | SRP073444 | camelus_dromedarius:sample:srp073444:samn04631964 | Aqaba | site_curated |  | no coordinate provenance row currently supports point publication |
+| Camelus dromedarius | SRP073444 | camelus_dromedarius:sample:srp073444:samn04631965 | Aqaba | site_curated |  | no coordinate provenance row currently supports point publication |
+| Camelus dromedarius | SRP073444 | camelus_dromedarius:sample:srp073444:samn04631966 | Aqaba | site_curated |  | no coordinate provenance row currently supports point publication |
+| Camelus dromedarius | SRP073444 | camelus_dromedarius:sample:srp073444:samn04631967 | Palmyra | site_curated |  | no coordinate provenance row currently supports point publication |
 | Canis lupus familiaris | KX379528-KX379529 | canis_lupus_familiaris:sample:kx379528-kx379529:kx379528 | Cherry Tree Cave | site_curated |  | no coordinate provenance row currently supports point publication |
 | Canis lupus familiaris | KX379528-KX379529 | canis_lupus_familiaris:sample:kx379528-kx379529:kx379529 | Herxheim | site_curated |  | no coordinate provenance row currently supports point publication |
 | Canis lupus familiaris | SRS1407451 | canis_lupus_familiaris:sample:srs1407451:srs1407451 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
@@ -766,7 +786,7 @@
 | Rangifer tarandus | PRJEB60484 | rangifer_tarandus:sample:prjeb60484:samea112757324 | Sassendalen | comparator_site_curated |  | no coordinate provenance row currently supports point publication |
 | Rangifer tarandus | PRJEB60484 | rangifer_tarandus:sample:prjeb60484:samea112757325 | Diskobukta | comparator_site_curated |  | no coordinate provenance row currently supports point publication |
 | Rangifer tarandus | PRJEB60484 | rangifer_tarandus:sample:prjeb60484:samea112757326 | Barentsøya | comparator_site_curated |  | no coordinate provenance row currently supports point publication |
-| Rangifer tarandus | PRJEB60484 | rangifer_tarandus:sample:prjeb60484:samea112757327 | site detail not yet extracted from tracked source support | sample_context_blocked |  | sample locality remains unresolved and cannot be mapped honestly |
+| Rangifer tarandus | PRJEB60484 | rangifer_tarandus:sample:prjeb60484:samea112757327 | Edgeøya | comparator_site_curated |  | no coordinate provenance row currently supports point publication |
 | Rangifer tarandus | PRJEB60484 | rangifer_tarandus:sample:prjeb60484:samea112757328 | Diskobukta | comparator_site_curated |  | no coordinate provenance row currently supports point publication |
 | Rangifer tarandus | PRJEB60484 | rangifer_tarandus:sample:prjeb60484:samea112757329 | Barentsøya | comparator_site_curated |  | no coordinate provenance row currently supports point publication |
 | Rangifer tarandus | PRJEB60484 | rangifer_tarandus:sample:prjeb60484:samea112757330 | Rijpjorden | comparator_site_curated |  | no coordinate provenance row currently supports point publication |
@@ -776,7 +796,7 @@
 | Rangifer tarandus | PRJEB60484 | rangifer_tarandus:sample:prjeb60484:samea112757334 | Barentsøya | comparator_site_curated |  | no coordinate provenance row currently supports point publication |
 | Rangifer tarandus | PRJEB60484 | rangifer_tarandus:sample:prjeb60484:samea112757335 | Barentsøya | comparator_site_curated |  | no coordinate provenance row currently supports point publication |
 | Rangifer tarandus | PRJEB60484 | rangifer_tarandus:sample:prjeb60484:samea112757336 | Barentsøya | comparator_site_curated |  | no coordinate provenance row currently supports point publication |
-| Rangifer tarandus | PRJEB60484 | rangifer_tarandus:sample:prjeb60484:samea112757337 | Wijdefjorden | comparator_site_curated |  | chronology remains unresolved enough that the sample stays out of the public map |
+| Rangifer tarandus | PRJEB60484 | rangifer_tarandus:sample:prjeb60484:samea112757337 | Wijdefjorden | comparator_site_curated |  | no coordinate provenance row currently supports point publication |
 | Rangifer tarandus | PRJEB60484 | rangifer_tarandus:sample:prjeb60484:samea112757338 | Wijdefjorden | comparator_site_curated |  | no coordinate provenance row currently supports point publication |
 | Rangifer tarandus | PRJEB60484 | rangifer_tarandus:sample:prjeb60484:samea112757339 | Wijdefjorden | comparator_site_curated |  | no coordinate provenance row currently supports point publication |
 | Rangifer tarandus | PRJEB60484 | rangifer_tarandus:sample:prjeb60484:samea112757340 | Wijdefjorden | comparator_site_curated |  | no coordinate provenance row currently supports point publication |

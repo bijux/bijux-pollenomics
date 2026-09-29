@@ -12,5 +12,5 @@
 | Canis lupus familiaris | blocked | 0 | 0 | 4 | 1 | 0 | 1 | 1 | 0.0000 | N/A | 4 blocked sample rows and 1 refused coordinate-provenance rows still prevent atlas publication. |
 | Felis catus | publishable | 39 | 54 | 52 | 0 | 40 | 0 | 40 | 1.0000 | 0.9750 | 39 candidate point rows now survive the current atlas contract. |
 | Camelus dromedarius | blocked | 0 | 0 | 33 | 0 | 1 | 0 | 1 | 1.0000 | 0.0000 | 33 blocked sample rows and 0 refused coordinate-provenance rows still prevent atlas publication. |
-| Rangifer tarandus | blocked | 0 | 0 | 20 | 1 | 0 | 1 | 1 | 0.0000 | N/A | 20 blocked sample rows and 1 refused coordinate-provenance rows still prevent atlas publication. |
+| Rangifer tarandus | blocked | 0 | 0 | 20 | 0 | 0 | 1 | 1 | 0.0000 | N/A | 20 blocked sample rows and 1 refused coordinate-provenance rows still prevent atlas publication. |
 | Equus asinus | blocked | 0 | 0 | 0 | 0 | 0 | 1 | 1 | 0.0000 | N/A | 0 blocked sample rows and 1 refused coordinate-provenance rows still prevent atlas publication. |

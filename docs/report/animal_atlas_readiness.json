@@ -20,7 +20,7 @@
       "denominator": 1470,
       "mapped": 331,
       "blocked": 1139,
-      "unresolved_subset_of_blocked": 379
+      "unresolved_subset_of_blocked": 378
     }
   },
   "rows": [
@@ -100,8 +100,8 @@
       "readiness_status": "thin",
       "status_reason": "2 candidate point rows remain too thin for broad atlas claims.",
       "country_mapped_locality_counts": {
-        "Finland": 1,
-        "Sweden": 1
+        "Sweden": 1,
+        "Finland": 1
       }
     },
     {
@@ -128,8 +128,8 @@
       "readiness_status": "publishable",
       "status_reason": "22 candidate point rows now survive the current atlas contract.",
       "country_mapped_locality_counts": {
-        "Denmark": 2,
-        "Sweden": 2
+        "Sweden": 2,
+        "Denmark": 2
       }
     },
     {
@@ -237,7 +237,7 @@
       "species_common_name": "reindeer",
       "direct_coordinate_backed": 0,
       "indirectly_geocoded": 0,
-      "unresolved_sample_count": 1,
+      "unresolved_sample_count": 0,
       "refused_coordinate_provenance_count": 1,
       "region_only_coordinate_refusal_count": 1,
       "unresolved_location_coordinate_refusal_count": 0,

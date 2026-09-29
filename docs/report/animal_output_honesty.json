@@ -4,7 +4,7 @@
     "tracked_sample_count": 1470,
     "mapped_sample_count": 331,
     "blocked_sample_count": 1139,
-    "unresolved_sample_count": 379,
+    "unresolved_sample_count": 378,
     "country_published_sample_count": 12
   },
   "rows": [
@@ -89,7 +89,7 @@
       "tracked_sample_count": 20,
       "mapped_sample_count": 0,
       "blocked_sample_count": 20,
-      "unresolved_sample_count": 1,
+      "unresolved_sample_count": 0,
       "country_published_sample_count": 0
     },
     {

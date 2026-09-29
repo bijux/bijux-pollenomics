@@ -2,8 +2,8 @@
 
 - Public posture: `sample_recovery_still_partial_and_project_gaps_explicit`
 - Tracked projects: `40`
-- Ready for publication review: `10`
-- Blocked projects: `24`
+- Ready for publication review: `11`
+- Blocked projects: `23`
 - Implausibly low recovery projects: `0`
 
 ## Sample Evidence Depth
@@ -11,8 +11,8 @@
 The four mutually exclusive buckets partition `1470` species-normalized sample rows. The project source master has `1470` final rows; alignment is `aligned`. A site-only row has no normalized chronology; a site-and-chronology row has no coordinate text. The final bucket has coordinate text, not necessarily an approved mapped point.
 
 - sample identity only: `0`
-- sample with site: `540`
-- sample with site and chronology: `373`
+- sample with site: `539`
+- sample with site and chronology: `374`
 - sample with site chronology and coordinates: `557`
 
 ## Top Gap Projects

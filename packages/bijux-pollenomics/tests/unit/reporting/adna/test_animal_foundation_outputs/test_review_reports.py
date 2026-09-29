@@ -60,8 +60,15 @@ class AnimalFoundationReviewReportTests(AnimalFoundationOutputsTestCase):
         )
 
         self.assertEqual(payload["schema_version"], "animal-cross-surface-drift.v1")
-        self.assertEqual(len(payload["rows"]), 9)
+        self.assertEqual(len(payload["rows"]), 10)
         self.assertFalse(payload["drift_detected"])
+        reindeer = next(
+            row
+            for row in payload["rows"]
+            if row["species_latin_name"] == "Rangifer tarandus"
+        )
+        self.assertEqual(reindeer["normalized_site_evidence_count"], 9)
+        self.assertEqual(reindeer["mappable_coordinate_row_count"], 0)
 
     def test_scientific_caveat_ledger_groups_current_weak_points(self) -> None:
         payload = build_animal_scientific_caveat_ledger(self.data_root)

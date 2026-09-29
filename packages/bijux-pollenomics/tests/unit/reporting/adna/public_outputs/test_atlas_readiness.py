@@ -43,7 +43,7 @@ def test_atlas_readiness_never_combines_sample_and_site_denominators() -> None:
             "denominator": 1470,
             "mapped": 331,
             "blocked": 1139,
-            "unresolved_subset_of_blocked": 379,
+            "unresolved_subset_of_blocked": 378,
         },
     }
     for row in rows:

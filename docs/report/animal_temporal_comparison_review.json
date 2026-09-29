@@ -7,8 +7,8 @@
       "display_name": "Animal aDNA chronology",
       "row_count": 1475,
       "comparability_counts": {
-        "numeric_interval": 796,
-        "unresolved": 407,
+        "numeric_interval": 797,
+        "unresolved": 406,
         "numeric_interval_with_caveat": 136,
         "contextual_label_only": 136
       },

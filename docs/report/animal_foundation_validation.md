@@ -2,7 +2,7 @@
 
 - Overall ok: `false`
 - Sample rows: `1470`
-- Site evidence rows: `552`
+- Site evidence rows: `553`
 - Coordinate rows: `308`
 - Atlas rows: `170`
 

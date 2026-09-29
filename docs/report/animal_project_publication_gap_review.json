@@ -940,13 +940,12 @@
       "ingestion_status": "paper_source_archived",
       "paper_download_status": "archived",
       "supplement_download_status": "missing",
-      "unresolved_sample_count": 1,
+      "unresolved_sample_count": 0,
       "region_only_site_count": 1,
       "blockers": [
-        "region_only_geography",
-        "sample_context_blocked"
+        "region_only_geography"
       ],
-      "absence_stage": "site_extraction"
+      "absence_stage": "coordinate_resolution"
     },
     {
       "project_accession": "PRJEB61721",

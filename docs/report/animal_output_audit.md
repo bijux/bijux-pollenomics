@@ -8,7 +8,7 @@
 - Tracked sample rows: `1470`
 - Mapped sample rows: `331`
 - Blocked sample rows: `1139`
-- Unresolved sample rows: `379`
+- Unresolved sample rows: `378`
 - Country-published sample rows: `12`
 
 ## Species output counts
