@@ -32,6 +32,15 @@ that the omitted cell should be changed or that the 1950 arithmetic is an
 approved calibrated-age conversion. The report retains the diagnostic omission
 separately from the unchanged source values.
 
+**Source-holder decision needed:** Does the LandClim II FLINK input use this
+exact 109-row workbook, and what is the authoritative `cal AD/BC` value at
+sheet row 56? For HOLK, which age-depth model and ordering govern the last two
+samples, and how are their uncertainty bounds represented? For both sequences,
+which conversion convention produced the published BP extrema? The request is
+for source records and model identifiers, not permission to replace the cells
+with a visually plausible value. RANV and STAV separately need the sample-age
+source linked to their 141 and 77 workbook rows.
+
 Reproduce from the repository root:
 
 ```sh
