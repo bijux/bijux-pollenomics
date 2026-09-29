@@ -276,6 +276,13 @@ the public 11/12 PFT wording, while the separately pinned archive actually
 contains 13 PFT columns. They do not authenticate the missing archive-producing
 PFT/LCT transformation or resolve the `ISTS` classification.
 
+The earlier [primary-page capture custody](landclim-pft-primary-capture-custody.json)
+accounts for six more files from the same public-page review: its two HTML
+responses match the retained page bytes exactly, and four distinct capture,
+plan, receipt and review files remain in private process custody. The receipt
+records HTTP 200 responses on 21 September 2026 and the exact retrieved URLs.
+Neither page gives an archive-producing rule for `ISTS`.
+
 The [earlier PFT audit note custody](landclim-pft-audit-custody.json) binds its
 single historical file by SHA-256. Its distinct count of 11 parameter-table
 description strings and the populated `ISTS` mean/standard-error counts are now
