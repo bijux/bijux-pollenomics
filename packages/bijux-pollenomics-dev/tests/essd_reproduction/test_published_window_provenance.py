@@ -5,6 +5,7 @@ from __future__ import annotations
 import csv
 from decimal import Decimal
 from math import sqrt
+from pathlib import Path
 
 import pytest
 
@@ -15,7 +16,7 @@ from bijux_pollenomics_dev.essd_reproduction.published_window_provenance import 
 
 
 def test_author_r_selection_keeps_only_exact_regional_bin_and_scales_units(
-    tmp_path,
+    tmp_path: Path,
 ) -> None:
     path = tmp_path / "author.csv"
     fields = (
@@ -47,7 +48,7 @@ def test_author_r_selection_keeps_only_exact_regional_bin_and_scales_units(
         "within_declared_tolerance": "True",
     }
 
-    def write(rows):
+    def write(rows: list[dict[str, str]]) -> None:
         with path.open("w", newline="") as stream:
             writer = csv.DictWriter(stream, fieldnames=fields)
             writer.writeheader()

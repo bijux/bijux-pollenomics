@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import csv
 import json
+from pathlib import Path
 
 import pytest
 
@@ -16,7 +17,7 @@ from bijux_pollenomics_dev.essd_reproduction.published_window_uncertainty import
 )
 
 
-def _inputs(tmp_path):
+def _inputs(tmp_path: Path) -> tuple[Path, Path, list[dict[str, str]]]:
     report = tmp_path / "provenance.json"
     report.write_text(
         json.dumps(
@@ -55,7 +56,9 @@ def _inputs(tmp_path):
     return path, report, rows
 
 
-def test_envelopes_keep_exact_taxon_support_and_report_separation(tmp_path) -> None:
+def test_envelopes_keep_exact_taxon_support_and_report_separation(
+    tmp_path: Path,
+) -> None:
     path, report, _ = _inputs(tmp_path)
     rows, result = compare_envelopes(path, report)
     assert len(rows) == 62
@@ -75,7 +78,7 @@ def test_envelopes_keep_exact_taxon_support_and_report_separation(tmp_path) -> N
     ]
 
 
-def test_envelopes_refuse_wrong_axis_and_negative_se(tmp_path) -> None:
+def test_envelopes_refuse_wrong_axis_and_negative_se(tmp_path: Path) -> None:
     path, report, rows = _inputs(tmp_path)
     rows[1]["author_r"] = "-1"
     with path.open("w", newline="") as stream:
@@ -91,7 +94,7 @@ def test_envelopes_refuse_wrong_axis_and_negative_se(tmp_path) -> None:
         compare_envelopes(path, report)
 
 
-def test_overlapping_envelopes_have_no_separation_taxon(tmp_path) -> None:
+def test_overlapping_envelopes_have_no_separation_taxon(tmp_path: Path) -> None:
     path, report, rows = _inputs(tmp_path)
     for row in rows:
         if row["metric"] == "mean":
@@ -101,7 +104,10 @@ def test_overlapping_envelopes_have_no_separation_taxon(tmp_path) -> None:
         writer.writeheader()
         writer.writerows(rows)
     _, result = compare_envelopes(path, report)
-    for summary in result["summaries"]:
+    summaries = result["summaries"]
+    assert isinstance(summaries, list)
+    for summary in summaries:
+        assert isinstance(summary, dict)
         assert summary["disjoint_one_se_envelopes"] == 0
         assert summary["largest_separation_taxon"] == "none"
         assert summary["largest_separation_percentage_points"] == "0"

@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import csv
 from decimal import Decimal
+from pathlib import Path
 from zipfile import ZipFile
 
 import pytest
@@ -17,7 +18,7 @@ from bijux_pollenomics_dev.essd_reproduction.published_window_correspondence imp
 )
 
 
-def test_exact_window_accepts_only_source_100_to_350_bp(tmp_path) -> None:
+def test_exact_window_accepts_only_source_100_to_350_bp(tmp_path: Path) -> None:
     bins = tmp_path / "bins.csv"
     lookup = tmp_path / "TWlookup.csv"
     edges = [-65, 100, 350, *range(750, 11751, 500)]
@@ -43,7 +44,7 @@ def test_exact_window_accepts_only_source_100_to_350_bp(tmp_path) -> None:
 
 
 def test_fraction_candidate_is_explicitly_converted_to_percentage_points(
-    tmp_path,
+    tmp_path: Path,
 ) -> None:
     path = tmp_path / "regional-cover.csv"
     with path.open("w", newline="") as stream:
@@ -53,7 +54,7 @@ def test_fraction_candidate_is_explicitly_converted_to_percentage_points(
     }
 
 
-def test_archive_reader_rejects_mean_se_taxon_axis_mismatch(tmp_path) -> None:
+def test_archive_reader_rejects_mean_se_taxon_axis_mismatch(tmp_path: Path) -> None:
     path = tmp_path / "archive.zip"
     prepared = [f"Taxon{i}" for i in range(31)]
 
@@ -71,7 +72,9 @@ def test_archive_reader_rejects_mean_se_taxon_axis_mismatch(tmp_path) -> None:
     with ZipFile(path) as archive:
         means, errors, locators = _published_rows(archive, prepared)
     assert means["512"]["Taxon0"] == errors["512"]["Taxon0"] == "1"
-    assert locators["562"]["latitude"] == "51.5"
+    locator = locators["562"]
+    assert isinstance(locator, dict)
+    assert locator["latitude"] == "51.5"
 
     with ZipFile(path, "w") as archive:
         archive.writestr(MEAN_MEMBER, table(prepared))
