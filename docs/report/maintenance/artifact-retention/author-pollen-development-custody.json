@@ -1,0 +1,67 @@
+{
+  "schema_version": "author-pollen-development-artifact-custody.v1",
+  "artifact_directory": "artifacts/v5/author-pollen-development-search-score-validation",
+  "status": "retired_after_exact_custody_and_liveness_review",
+  "scientific_scope": "previously_exposed_17_site_author_development_only",
+  "files": [
+    {
+      "artifact_path": "artifacts/v5/author-pollen-development-search-score-validation/coverage.csv",
+      "artifact_bytes": 2087,
+      "artifact_sha256": "4ed5bb027a24f1a7af7021d861cfe9ac4d7b0ee04fbdcf642698ed1c5165a26d",
+      "retained_path": "docs/report/pollen-reconstruction/coverage.csv",
+      "retained_bytes": 2050,
+      "retained_sha256": "8d68236eb87e9a0219a9c40a1f8506331a2f2857c69503748028972b4b791cbe",
+      "custody_relation": "same_ordered_csv_records_newline_normalized",
+      "data_rows": 36
+    },
+    {
+      "artifact_path": "artifacts/v5/author-pollen-development-search-score-validation/scores.csv",
+      "artifact_bytes": 364947,
+      "artifact_sha256": "15a253480e6906f92e51b090df0c39a808f719de345cb68f935d5bd727472b7a",
+      "retained_path": "docs/report/pollen-reconstruction/scores.csv",
+      "retained_bytes": 362738,
+      "retained_sha256": "ebea4f22cf1c8feddf8e6311afae095211f9c7bb5f396f40bcc97438d3f09666",
+      "custody_relation": "same_ordered_csv_records_newline_normalized",
+      "data_rows": 2208
+    },
+    {
+      "artifact_path": "artifacts/v5/author-pollen-development-search-score-validation/leaderboard.csv",
+      "artifact_bytes": 2318,
+      "artifact_sha256": "de905d6f5b8e732a8b711bb9e9c3944270676ab5ffd1aa8de922d73ebf40229b",
+      "retained_path": "docs/report/pollen-reconstruction/leaderboard.csv",
+      "retained_bytes": 2305,
+      "retained_sha256": "28f64a8cf2878bfbcf0ee678458b094a1a114c382f9bbbca2dcd34feb6a08e89",
+      "custody_relation": "same_ordered_csv_records_newline_normalized",
+      "data_rows": 12
+    },
+    {
+      "artifact_path": "artifacts/v5/author-pollen-development-search-score-validation/design.json",
+      "artifact_bytes": 3755,
+      "artifact_sha256": "fba18f97abc529b4d35c95b187ca025f69970e6d63ff87c3141d885d941dc8ee",
+      "retained_path": "docs/report/pollen-reconstruction/author-development-design.json",
+      "retained_bytes": 3755,
+      "retained_sha256": "fba18f97abc529b4d35c95b187ca025f69970e6d63ff87c3141d885d941dc8ee",
+      "custody_relation": "byte_identical"
+    },
+    {
+      "artifact_path": "artifacts/v5/author-pollen-development-search-score-validation/INTERPRETATION.md",
+      "artifact_bytes": 788,
+      "artifact_sha256": "ad7926e4de3c55cb6d39a6849d2d15f39467af70de44befa60542ffc354d91f5",
+      "retained_path": "docs/report/pollen-reconstruction/author-development-interpretation.md",
+      "retained_bytes": 788,
+      "retained_sha256": "ad7926e4de3c55cb6d39a6849d2d15f39467af70de44befa60542ffc354d91f5",
+      "custody_relation": "byte_identical"
+    },
+    {
+      "artifact_path": "artifacts/v5/author-pollen-development-search-score-validation/predictions.csv",
+      "artifact_bytes": 9641220,
+      "artifact_sha256": "55825780ccc836debd26903e9478812925ac9974ce7e4b36326e838646e17921",
+      "retained_path": "docs/report/pollen-reconstruction/author-development-predictions.csv.gz",
+      "retained_bytes": 762912,
+      "retained_sha256": "c18bd6d405ca5c31ab22f61fc0f8771098602f3eefebad305275553df5efbf92",
+      "custody_relation": "byte_identical_after_gzip_decompression"
+    }
+  ],
+  "consumer_review": "No product source, data or documentation consumer names this exact artifact directory; no open file was reported by lsof before retirement.",
+  "current_verification": "docs/report/pollen-reconstruction/verify_report.py verified the current retained outputs at commit 843a90ed; the report distinguishes this development result from held-out confirmation."
+}
