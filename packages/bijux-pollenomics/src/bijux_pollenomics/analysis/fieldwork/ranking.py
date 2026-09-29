@@ -16,6 +16,7 @@ from bijux_pollenomics.analysis.propagation.candidates import (
 from ...collection.contracts.models import ContextPointRecord
 from ...core import haversine_km
 from ...core.temporal_semantics import (
+    BpInterval,
     InvalidBpIntervalError,
     canonical_bp_interval,
     closed_bp_intervals_overlap,
@@ -84,20 +85,36 @@ def temporal_overlap(
     """Return whether one context point overlaps the locality time window."""
     if locality.time_start_bp is None or locality.time_end_bp is None:
         return False
-    if context_point.time_start_bp is None or context_point.time_end_bp is None:
+    context_interval = _admitted_context_interval(context_point)
+    if context_interval is None:
         return False
     try:
         locality_interval = canonical_bp_interval(
             locality.time_start_bp, locality.time_end_bp
         )
-        context_interval = canonical_bp_interval(
-            context_point.time_start_bp, context_point.time_end_bp
-        )
     except InvalidBpIntervalError:
         return False
-    if locality_interval is None or context_interval is None:
+    if locality_interval is None:
         return False
     return closed_bp_intervals_overlap(locality_interval, context_interval)
+
+
+def _admitted_context_interval(point: ContextPointRecord) -> BpInterval | None:
+    """Use only comparable BP intervals for ranking chronology support."""
+    semantics = point.temporal_semantics
+    if semantics:
+        posture = str(semantics.get("comparability_posture", "")).strip()
+        refusal = str(semantics.get("refusal_reason_code", "")).strip()
+        if refusal or posture not in {
+            "numeric_interval",
+            "numeric_interval_with_caveat",
+            "mixed_interval_and_context",
+        }:
+            return None
+    try:
+        return canonical_bp_interval(point.time_start_bp, point.time_end_bp)
+    except InvalidBpIntervalError:
+        return None
 
 
 def build_candidate_context(
@@ -149,7 +166,7 @@ def build_candidate_context(
         if distance_km <= radius_km:
             nearby_context_points += 1
             nearby_context_layers.add(point.layer_key)
-            if point.time_start_bp is not None and point.time_end_bp is not None:
+            if _admitted_context_interval(point) is not None:
                 time_aware_context_points += 1
             if any(temporal_overlap(evidence, point) for evidence in direct_evidence):
                 temporal_overlap_points += 1

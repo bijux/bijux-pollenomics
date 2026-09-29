@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from collections.abc import Iterable
+from dataclasses import replace
 
 import pytest
 
@@ -287,6 +288,41 @@ def test_temporal_overlap_refuses_invalid_intervals_without_aborting_report() ->
         locality,
         _point("reversed-context", 59.01, 18.02, time_start_bp=200, time_end_bp=100),
     )
+
+
+def test_context_chronology_requires_comparable_interval_for_ranking() -> None:
+    locality = _locality("Lake One", 59.0, 18.0)
+    contextual = replace(
+        _point("context-only", 59.01, 18.02, time_start_bp=2500, time_end_bp=3500),
+        temporal_semantics={"comparability_posture": "context_only"},
+    )
+    refused = replace(
+        _point("refused", 59.01, 18.02, time_start_bp=2500, time_end_bp=3500),
+        temporal_semantics={
+            "comparability_posture": "numeric_interval",
+            "refusal_reason_code": "source_age_system_not_comparable",
+        },
+    )
+    valid = replace(
+        _point("comparable", 59.01, 18.02, time_start_bp=2500, time_end_bp=3500),
+        temporal_semantics={"comparability_posture": "numeric_interval"},
+    )
+    points = (
+        contextual,
+        refused,
+        _point("negative", 59.01, 18.02, time_start_bp=-1, time_end_bp=50),
+        _point("reversed", 59.01, 18.02, time_start_bp=3500, time_end_bp=2500),
+        valid,
+    )
+
+    context = build_candidate_context(locality, points, radius_km=10.0)
+
+    assert context.nearby_context_points == 5
+    assert context.time_aware_context_points == 1
+    assert context.temporal_overlap_points == 1
+    assert not temporal_overlap(locality, contextual)
+    assert not temporal_overlap(locality, refused)
+    assert temporal_overlap(locality, valid)
 
 
 def test_rank_localities_groups_co_located_species_evidence() -> None:
