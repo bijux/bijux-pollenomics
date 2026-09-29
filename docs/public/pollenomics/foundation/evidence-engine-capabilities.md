@@ -161,7 +161,7 @@ one output, qualified for another, and outside scope for a stronger analysis.
 | --- | --- | --- | --- |
 | Which AADR v66 rows belong to a country bundle? | operational | release-resolved members, manifest, table, and GeoJSON | geographic publication of metadata, not genotype analysis |
 | Which recovered animal samples meet the point contract? | operational for 331 samples represented by 170 locality features | final sample identity, locality, coordinate, chronology posture, and traceability | admitted subset, not complete project recovery |
-| May the Wadi Halfa dromedary context appear spatially? | not published | readiness evidence retained with `no_admitted_sample_backed_locality_candidate` | context remains outside the point product |
+| May the Wadi Halfa `C. thomasi` context appear spatially? | not published | readiness evidence retained with `no_admitted_sample_backed_locality_candidate` | context remains outside the point product |
 | Are current SEAD sites contemporaneous with nearby aDNA? | qualified per record | 25,109 chronology claims include 13,170 comparable claims, while context-only, refused, and unresolved claims remain ineligible | interval overlap is contextual evidence, not proof of association |
 | Which Swedish lakes rank under declared scenarios? | qualified decision support | ranking, sensitivity, and fieldwork-preparation packets | prioritization, not sampling readiness |
 | What population-genetic process produced a pattern? | outside scope | no governed capability | requires a new analysis and evidence contract |

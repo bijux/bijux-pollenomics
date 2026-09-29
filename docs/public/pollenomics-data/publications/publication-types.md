@@ -136,7 +136,7 @@ The world surface demonstrates why publication type belongs to each member:
 | --- | --- | --- | --- |
 | AADR `RISE175.SG` | direct evidence | one release-resolved human sample belongs to its scoped bundle | two panel memberships do not mean two people |
 | goat `Direkli1-2` | direct sample evidence | one final sample has supplement-backed identity, place, coordinate, and chronology | project accession does not collapse the other three project samples into this row |
-| Wadi Halfa dromedary | not-materialized context | paper-backed named-place evidence remains traceable outside the point product under `no_admitted_sample_backed_locality_candidate` | do not render it as a point; admission requires a sample-backed locality candidate |
+| Wadi Halfa `C. thomasi` | not-materialized context | paper-backed named-place evidence remains traceable outside the point product under `no_admitted_sample_backed_locality_candidate` | do not render it as a point; admission requires a sample-backed locality candidate |
 | RAÄ density (withheld) | refused authority | retained files document an earlier derived surface, not a current governed member | do not display, analyze, or turn retained cells into synthetic sites |
 | Sweden boundary | framing | the polygon participates in geographic scope selection | do not treat it as scientific evidence or historical affiliation |
 

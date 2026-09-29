@@ -144,7 +144,7 @@ flowchart LR
 
 ### Query An Accounted Publication Exclusion
 
-Wadi Halfa dromedary context is retained outside the animal candidate
+Wadi Halfa `C. thomasi` context is retained outside the animal candidate
 population because no admitted sample-backed locality candidate exists. Query
 the readiness exclusion directly; an empty candidate-failure query would not
 show records refused before admission:

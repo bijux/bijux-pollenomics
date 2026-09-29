@@ -101,7 +101,7 @@ class.
 
 The distinction is visible in the evidence required to build each feature:
 
-| Packet member | Direkli goat sample | Wadi Halfa dromedary context |
+| Packet member | Direkli goat sample | Wadi Halfa `C. thomasi` context |
 | --- | --- | --- |
 | governed identity | final sample `SAMEA4453841` in project `PRJEB90141` | no admitted sample-backed locality candidate in `SRP073444` |
 | source locator | supplementary workbook, Table S2, row 2 | paper-backed named-place statement |
