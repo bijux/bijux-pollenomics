@@ -34,6 +34,16 @@ assumption or every upstream kernel against original R. The separate retained
 [original R reference](../../method-certification/original-r-reference/README.md)
 tests the analytical implementation on its bounded cases.
 
+The authenticated 31-taxon parameter profile gives `Filipendula` a fall speed
+of **0.006 m/s**. The host's
+[`lra-request.v1` validation](../../../../packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/inputs/validation.py)
+requires the named LandClim II GPM-neutral analytical profile when any fall
+speed is below 0.01 m/s. Its optimized LOVE route cannot consume this exact
+profile without a different parameter or taxon decision. Such a change would
+define a new exploratory input and would not resolve the negative analytical
+result above. The source-bound next step is a qualified geometry and count
+denominator for a Swedish cohort, not an optimizer substitution.
+
 [report.json](report.json) binds the source, experiment and prediction identities
 and records the denominators. [folds.csv](folds.csv) retains each refusal;
 [cover-diagnostics.csv](cover-diagnostics.csv) retains each authenticated
