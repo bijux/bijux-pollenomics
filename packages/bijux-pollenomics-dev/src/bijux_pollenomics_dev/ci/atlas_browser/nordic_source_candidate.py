@@ -10,6 +10,7 @@ import re
 import shutil
 from typing import Any
 
+from bijux_pollenomics.core.geospatial.geojson import JsonObject
 from bijux_pollenomics.reporting.geography import build_published_geography_plan
 from bijux_pollenomics.reporting.map_document import render_multi_country_map_html
 from bijux_pollenomics.reporting.map_document.static_assets import (
@@ -104,17 +105,22 @@ def generate_nordic_source_candidate(
     indexes = decode_index_bundle(
         chunk(next(row for row in inventory if row["domain"] == "indexes"))
     )
-    layers, details, summaries = [], [], []
+    layers: list[JsonObject] = []
+    details: list[dict[str, Any]] = []
+    summaries: list[dict[str, Any]] = []
+    asset_keys = indexes["detail_record_asset_keys"]
+    if not isinstance(asset_keys, dict):
+        raise ValueError("retained detail asset index is invalid")
     for layer_key in ("neotoma-pollen", "sead-sites"):
         source_layer = next(
             entry["layer"]
             for entry in provenance["layers"]
             if entry["layer"]["key"] == layer_key
         )
-        features = []
+        features: list[dict[str, Any]] = []
         for country, selections in SOURCE_SELECTION.items():
             record_id = selections[layer_key]
-            matches = []
+            matches: list[dict[str, Any]] = []
             for row in inventory:
                 if (
                     row["domain"] == "nodes"
@@ -129,7 +135,7 @@ def generate_nordic_source_candidate(
             if len(matches) != 1:
                 raise ValueError("source site identity is missing or duplicated")
             feature = matches[0]
-            key = indexes["detail_record_asset_keys"][record_id]
+            key = asset_keys[record_id]
             detail_matches = [
                 record
                 for record in chunk(
@@ -204,20 +210,41 @@ def generate_nordic_source_candidate(
             read(path)
     shutil.copytree(map_assets, destination / "_map_assets")
     # Authenticate the writer output against the selected source records as well.
-    emitted_details, emitted_features = {}, {}
+    emitted_details: dict[str, str] = {}
+    emitted_features: dict[str, str] = {}
     for row in normalize_asset_inventory(assets.manifest["assets"]):
         if row["domain"] not in {"details", "nodes"}:
             continue
+        asset_path = row["path"]
+        asset_key = row["asset_key"]
+        payload_sha256 = row["payload_sha256"]
+        payload_encoding = row["payload_encoding"]
+        decoded_byte_count = row.get("decoded_byte_count")
+        if (
+            not isinstance(asset_path, str)
+            or not isinstance(asset_key, str)
+            or not isinstance(payload_sha256, str)
+            or not isinstance(payload_encoding, str)
+            or (
+                decoded_byte_count is not None
+                and not isinstance(decoded_byte_count, int)
+            )
+        ):
+            raise ValueError("candidate asset inventory is invalid")
         payload = decode_chunk_script(
-            (destination / row["path"]).read_bytes(),
-            expected_asset_key=row["asset_key"],
-            expected_payload_sha256=row["payload_sha256"],
-            expected_payload_encoding=row["payload_encoding"],
-            expected_decoded_byte_count=row.get("decoded_byte_count"),
+            (destination / asset_path).read_bytes(),
+            expected_asset_key=asset_key,
+            expected_payload_sha256=payload_sha256,
+            expected_payload_encoding=payload_encoding,
+            expected_decoded_byte_count=decoded_byte_count,
         )
-        for record in payload.get("records", []):
+        records = payload.get("records", [])
+        asset_features = payload.get("features", [])
+        if not isinstance(records, list) or not isinstance(asset_features, list):
+            raise ValueError("candidate asset payload is invalid")
+        for record in records:
             emitted_details[record["record_id"]] = digest(record)
-        for feature in payload.get("features", []):
+        for feature in asset_features:
             emitted_features[feature["record_id"]] = digest(feature)
     for record in summaries:
         if (
@@ -225,8 +252,11 @@ def generate_nordic_source_candidate(
             or emitted_features.get(record["record_id"]) != record["feature_sha256"]
         ):
             raise ValueError("candidate changed a retained source record")
-    for path, checksum in inputs.items():
-        if hashlib.sha256((repository / path).read_bytes()).hexdigest() != checksum:
+    for input_path, checksum in inputs.items():
+        if (
+            hashlib.sha256((repository / input_path).read_bytes()).hexdigest()
+            != checksum
+        ):
             raise ValueError("frozen source input mutated during generation")
     receipt = {
         "schema_version": "atlas-nordic-retained-source-candidate.v1",

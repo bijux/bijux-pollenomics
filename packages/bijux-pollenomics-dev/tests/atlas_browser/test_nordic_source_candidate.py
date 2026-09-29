@@ -5,6 +5,7 @@ from __future__ import annotations
 import copy
 import json
 from pathlib import Path
+from typing import Any
 
 import pytest
 
@@ -26,7 +27,7 @@ def nordic_repository(root: Path) -> Path:
     )
     source_assets.mkdir(parents=True)
     (source_assets / "asset.js").write_text("literal asset")
-    seed_details = [
+    seed_details: list[dict[str, Any]] = [
         {
             "tabs": {
                 "overview": {},

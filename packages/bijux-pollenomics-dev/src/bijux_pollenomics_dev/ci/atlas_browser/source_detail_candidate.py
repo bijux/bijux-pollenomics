@@ -100,7 +100,7 @@ def generate_source_detail_candidate(
         for entry in provenance["layers"]
         if entry["layer"]["key"] == "neotoma-pollen"
     )
-    features = []
+    features: list[dict[str, Any]] = []
     for row in inventory:
         if (
             row["domain"] == "nodes"
@@ -116,8 +116,11 @@ def generate_source_detail_candidate(
     if set(by_id) != set(SITE_IDS) or len(features) != len(SITE_IDS):
         raise ValueError("source site identity is missing or duplicated")
     details = []
+    asset_keys = indexes["detail_record_asset_keys"]
+    if not isinstance(asset_keys, dict):
+        raise ValueError("retained detail asset index is invalid")
     for site_id in SITE_IDS:
-        key = indexes["detail_record_asset_keys"][site_id]
+        key = asset_keys[site_id]
         payload = chunk(next(row for row in inventory if row["asset_key"] == key))
         matches = [
             record for record in payload["records"] if record["record_id"] == site_id
@@ -209,8 +212,8 @@ def generate_source_detail_candidate(
         "candidate_document_sha256": hashlib.sha256(document.encode()).hexdigest(),
         "scientific_posture": "source_owned_site_context; preserve chronology refusals; no reviewed classification or propagation claim",
     }
-    for path, digest in inputs.items():
-        if hashlib.sha256((repository / path).read_bytes()).hexdigest() != digest:
+    for input_path, digest in inputs.items():
+        if hashlib.sha256((repository / input_path).read_bytes()).hexdigest() != digest:
             raise ValueError("frozen source input mutated during generation")
     expectations = {
         "fixture_kind": "retained_source_owned_neotoma_site_context",

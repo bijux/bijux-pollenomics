@@ -37,7 +37,7 @@ def retained_repository(root: Path) -> tuple[Path, list[dict[str, object]]]:
             ],
         }
     ]
-    details = [
+    details: list[dict[str, object]] = [
         {
             "record_id": site,
             "tabs": {
