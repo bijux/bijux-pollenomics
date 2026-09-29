@@ -17,7 +17,7 @@
 | `10.1093-gbe-evae114` | `true` | `archived` | `missing` | `repo_ahead_of_local_reference` |
 | `10.1093-gbe-evaf181` | `true` | `archived` | `missing` | `repo_ahead_of_local_reference` |
 | `10.1111-1755-0998.12551` | `true` | `archived` | `missing` | `repo_ahead_of_local_reference` |
-| `10.1111-mec.17274` | `true` | `missing` | `missing` | `aligned` |
+| `10.1111-mec.17274` | `true` | `archived` | `missing` | `repo_ahead_of_local_reference` |
 | `10.1126-science.aam5298` | `true` | `archived` | `missing` | `repo_ahead_of_local_reference` |
 | `10.1126-science.aao3297` | `true` | `archived` | `missing` | `repo_ahead_of_local_reference` |
 | `10.1126-science.aav1002` | `true` | `archived` | `missing` | `repo_ahead_of_local_reference` |

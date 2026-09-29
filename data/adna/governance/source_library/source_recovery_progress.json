@@ -356,9 +356,9 @@
     {
       "project_accession": "PRJEB60484",
       "species_latin_name": "Rangifer tarandus",
-      "completed_stage_count": 6,
-      "required_stage_count": 7,
-      "recovery_depth_score": 0.8571,
+      "completed_stage_count": 7,
+      "required_stage_count": 8,
+      "recovery_depth_score": 0.875,
       "final_sample_count": 20,
       "minimum_gap_count": 0,
       "publication_readiness_status": "complete"

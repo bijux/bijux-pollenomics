@@ -2,8 +2,7 @@
   "schema_version": "adna-source-inventory.v1",
   "row_count": 18,
   "counts": {
-    "repo_archived": 17,
-    "still_missing_or_unverified": 1
+    "repo_archived": 18
   },
   "rows": [
     {
@@ -239,12 +238,14 @@
       "crossref_url": "https://api.crossref.org/works/10.1111/mec.17274",
       "article_html_source_url": "",
       "pmc_or_pubmed_url": "",
-      "supplementary_verification_status": "supplement_not_verified_yet",
-      "repository_supplement_capture_status": "missing",
-      "supplement_parse_status": "missing",
-      "expected_supplementary_file_families": [],
+      "supplementary_verification_status": "supplement_archived_in_repo",
+      "repository_supplement_capture_status": "archived",
+      "supplement_parse_status": "zip_member_inventory_published",
+      "expected_supplementary_file_families": [
+        "zip_bundle"
+      ],
       "local_reference_supplement_status": "missing",
-      "acquisition_check_status": "still_missing_or_unverified"
+      "acquisition_check_status": "repo_archived"
     },
     {
       "paper_doi": "10.1126/science.aam5298",

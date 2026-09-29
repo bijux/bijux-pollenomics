@@ -667,26 +667,30 @@
       "article_download_status": "archived",
       "article_readability_status": "readable_pdf",
       "article_local_path": "data/adna/governance/source_library/papers/10.1111-mec.17274/article.pdf",
-      "supplementary_download_status": "missing",
-      "supplement_parse_status": "missing",
-      "supplementary_verification_status": "supplement_not_verified_yet",
+      "supplementary_download_status": "archived",
+      "supplement_parse_status": "zip_member_inventory_published",
+      "supplementary_verification_status": "supplement_archived_in_repo",
       "local_reference_article_status": "missing",
       "local_reference_supplement_status": "missing",
-      "supplementary_count": 0,
+      "supplementary_count": 2,
       "parsing_status": "ready_for_project_sample_extraction",
-      "sample_extractability": "manual_curation_required",
+      "sample_extractability": "supplement_extractable",
       "sample_table_extraction_status": "project_sample_master_published",
       "evidence_acquisition_state": "sample_tables_published",
-      "expected_supplementary_file_families": [],
-      "expected_supplementary_artifacts": [],
+      "expected_supplementary_file_families": [
+        "zip_bundle"
+      ],
+      "expected_supplementary_artifacts": [
+        "data/adna/governance/source_library/papers/10.1111-mec.17274/supplementary/mec17274-sup-0001-Appendix S1.zip"
+      ],
       "sample_identifier_targets": [
-        "data/adna/governance/source_library/papers/10.1111-mec.17274/article.pdf"
+        "data/adna/governance/source_library/papers/10.1111-mec.17274/supplementary/mec17274-sup-0001-Appendix S1.zip"
       ],
       "sample_site_targets": [
-        "data/adna/governance/source_library/papers/10.1111-mec.17274/article.pdf"
+        "data/adna/governance/source_library/papers/10.1111-mec.17274/supplementary/mec17274-sup-0001-Appendix S1.zip"
       ],
       "chronology_targets": [
-        "data/adna/governance/source_library/papers/10.1111-mec.17274/article.pdf"
+        "data/adna/governance/source_library/papers/10.1111-mec.17274/supplementary/mec17274-sup-0001-Appendix S1.zip"
       ],
       "supplementary_manifest_path": "data/adna/governance/source_library/papers/10.1111-mec.17274/supplementary_manifest.json",
       "supplementary_acquisition_checklist_path": "data/adna/governance/source_library/supplement_acquisition_checklist.json"

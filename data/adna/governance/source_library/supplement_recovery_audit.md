@@ -1,10 +1,10 @@
 # Supplement recovery audit
 
 - Paper rows: `18`
-- Archived and parseable: `17`
+- Archived and parseable: `18`
 - Confirmed absent: `0`
 - Local reference staged: `0`
-- Not found yet: `1`
+- Not found yet: `0`
 
 | Paper DOI | Recovery status | Repo capture | Parse status | Local reference | Supplement count |
 | --- | --- | --- | --- | --- | ---: |
@@ -20,7 +20,7 @@
 | `10.1093/gbe/evae114` | `archived_and_parseable` | `archived` | `repository_supplement_archived` | `missing` | `2` |
 | `10.1093/gbe/evaf181` | `archived_and_parseable` | `archived` | `repository_supplement_archived` | `missing` | `2` |
 | `10.1111/1755-0998.12551` | `archived_and_parseable` | `archived` | `repository_supplement_archived` | `missing` | `1` |
-| `10.1111/mec.17274` | `not_found_yet` | `missing` | `missing` | `missing` | `0` |
+| `10.1111/mec.17274` | `archived_and_parseable` | `archived` | `zip_member_inventory_published` | `missing` | `2` |
 | `10.1126/science.aam5298` | `archived_and_parseable` | `archived` | `repository_supplement_archived` | `missing` | `6` |
 | `10.1126/science.aao3297` | `archived_and_parseable` | `archived` | `repository_supplement_archived` | `missing` | `12` |
 | `10.1126/science.aav1002` | `archived_and_parseable` | `archived` | `repository_supplement_archived` | `missing` | `1` |

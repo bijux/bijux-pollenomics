@@ -2,7 +2,7 @@
   "schema_version": "adna-source-library.v1",
   "archive_sufficient_count": 6,
   "paper_dependent_count": 34,
-  "supplement_dependent_count": 2,
+  "supplement_dependent_count": 3,
   "blocked_count": 20,
   "rows": [
     {
@@ -242,9 +242,9 @@
       "archive_status": "comparator_only",
       "archive_metadata_sufficient": false,
       "paper_required": true,
-      "supplement_required": false,
+      "supplement_required": true,
       "paper_download_status": "archived",
-      "supplement_download_status": "missing",
+      "supplement_download_status": "archived",
       "blockers": []
     },
     {

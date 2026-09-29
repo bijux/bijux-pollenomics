@@ -14,6 +14,7 @@ from bijux_pollenomics.core.xml_security import parse_hardened_xml
 
 from ...models import AdnaProjectSampleMasterRow
 from ..workbook import _read_xlsx_rows
+from .published import PUBLISHED_TABLE_PATH, read_published_reindeer_table
 
 _WORKBOOK = (
     f"{ADNA_SOURCE_LIBRARY_DIR}/papers/10.1038-s41598-024-54296-2/"
@@ -184,6 +185,7 @@ def build_reindeer_sample_rows(
         raise ValueError("Reindeer project table population changed")
     if {alias for alias in _FJL_ALIASES if alias in table} != _FJL_ALIASES:
         raise ValueError("Franz Josef Land specimen rows changed")
+    published = read_published_reindeer_table(output_root)
 
     if (
         len(archive_rows) != 20
@@ -225,6 +227,20 @@ def build_reindeer_sample_rows(
         preprint = _PREPRINT_ROWS.get(alias)
         if preprint is not None:
             preprint_joined.add(alias)
+        published_row = published.get(alias)
+        if published and published_row is None:
+            raise ValueError(f"Reindeer published Table S3 lacks ENA alias {alias}")
+        published_locator = (
+            f"Published Appendix S1 Table S3 row {published_row[0]}, ID {alias}"
+            if published_row is not None
+            else ""
+        )
+        if (
+            published_row is not None
+            and preprint is not None
+            and published_row[1][6] != preprint[4]
+        ):
+            raise ValueError(f"Reindeer published and preprint ages disagree: {alias}")
 
         match = table.get(alias)
         if match is None:
@@ -249,11 +265,13 @@ def build_reindeer_sample_rows(
                             f"{relative} || {_PREPRINT} || {_PREPRINT_S3}"
                             if b20
                             else f"{relative} || {_PREPRINT}"
-                        ),
+                        )
+                        + (f" || {PUBLISHED_TABLE_PATH}" if published_row else ""),
                         sample_lineage_locator=(
                             f"SAMPLE[@accession='{accession}']/@alias || "
                             + locator
                             + (f" || {s3_locator}" if b20 else "")
+                            + (f" || {published_locator}" if published_row else "")
                         ),
                         sample_lineage_excerpt=(
                             f"ENA BioSample {accession} aliases {alias}; author bioRxiv "
@@ -263,6 +281,12 @@ def build_reindeer_sample_rows(
                             + (
                                 " Author preprint Table S3 row 5 names Edgeøya."
                                 if b20
+                                else ""
+                            )
+                            + (
+                                f" {published_locator} confirms "
+                                f"{published_row[1][6]} BP and ENA project PRJEB60484."
+                                if published_row
                                 else ""
                             )
                         ),
@@ -320,6 +344,8 @@ def build_reindeer_sample_rows(
         # broad interval contains the later reanalysis interval; retain both.
         selected_age = preprint[4] if alias == "R20" and preprint else age
         selected_median = None if alias == "R20" else median
+        if published_row is not None and published_row[1][6] != selected_age:
+            raise ValueError(f"Reindeer published Table S3 age disagrees: {alias}")
         excerpt = (
             f"ENA BioSample {accession} aliases {alias}; supplementary table row "
             f"{number} reports {cells[3]}, {locality}, {age} BP (2 sigma), "
@@ -329,6 +355,12 @@ def build_reindeer_sample_rows(
                 "Table S3 row 20 give R20 0–450 calibrated BP (2 sigma); the "
                 "primary project interval is selected without a median."
                 if alias == "R20"
+                else ""
+            )
+            + (
+                f" {published_locator} confirms the "
+                f"primary {selected_age} BP interval and ENA project PRJEB60484."
+                if published_row
                 else ""
             )
         )
@@ -343,14 +375,16 @@ def build_reindeer_sample_rows(
                     f"{relative} || {_ARTICLE} || {_PREPRINT_S3} || {_WORKBOOK}"
                     if alias == "R20"
                     else f"{relative} || {_WORKBOOK}"
-                ),
+                )
+                + (f" || {PUBLISHED_TABLE_PATH}" if published_row else ""),
                 sample_lineage_locator=(
                     f"SAMPLE[@accession='{accession}']/@alias || "
                     "Table 1 published p. 4, ID R20 || Table S3 row 20, ID R20 || "
                     f"{locator}"
                     if alias == "R20"
                     else f"SAMPLE[@accession='{accession}']/@alias || {locator}"
-                ),
+                )
+                + (f" || {published_locator}" if published_row else ""),
                 sample_lineage_excerpt=excerpt,
                 sample_ambiguity_note=(
                     "Published primary-project interval 0–450 BP selected; later secondary reanalysis reports nested 41–252 BP. The narrower date is retained as an alternative, not silently merged or substituted."
@@ -370,4 +404,6 @@ def build_reindeer_sample_rows(
         raise ValueError("Reindeer specimen table join changed")
     if preprint_joined != set(_PREPRINT_ROWS):
         raise ValueError("Reindeer preprint specimen population changed")
+    if published and {row.preferred_sample_label for row in result} != set(published):
+        raise ValueError("Reindeer published specimen population changed")
     return tuple(result)

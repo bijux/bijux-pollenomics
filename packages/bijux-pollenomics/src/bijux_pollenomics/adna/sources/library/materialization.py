@@ -44,6 +44,7 @@ from .storage import (
     build_source_artifact_index,
     build_source_storage_audit,
 )
+from .supplements.members import materialize_reindeer_published_table
 
 
 def materialize_source_library(output_root: Path) -> None:
@@ -53,6 +54,7 @@ def materialize_source_library(output_root: Path) -> None:
     source_root = adna_source_library_root(output_root)
     source_root.mkdir(parents=True, exist_ok=True)
     _materialize_curated_local_supplements(output_root)
+    materialize_reindeer_published_table(output_root)
     from ...projects.sample_master.tables.baltic_sheep import (
         materialize_baltic_sheep_material_conflicts,
     )

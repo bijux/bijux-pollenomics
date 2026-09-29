@@ -1,13 +1,13 @@
 {
   "schema_version": "adna-source-library.v1",
-  "sample_extractable_paper_count": 17,
-  "supplementary_manifested_paper_count": 17,
-  "supplement_zip_member_count": 11,
+  "sample_extractable_paper_count": 18,
+  "supplementary_manifested_paper_count": 18,
+  "supplement_zip_member_count": 15,
   "blocker_counts": {
     "missing_paper_capture_count": 14,
     "missing_supplementary_capture_count": 0,
     "missing_readable_tables_count": 14,
-    "missing_sample_identifier_count": 30
+    "missing_sample_identifier_count": 29
   },
   "sample_extractable_violations": [],
   "rows": [
@@ -388,12 +388,10 @@
       "project_accession": "PRJEB60484",
       "species_latin_name": "Rangifer tarandus",
       "inventory_disposition": "tracked_intake_candidate",
-      "expected_sample_count": null,
-      "expected_sample_count_status": "not_yet_curated",
-      "sample_identifier_status": "manual_curation_required",
-      "blocker_categories": [
-        "missing_sample_identifiers"
-      ]
+      "expected_sample_count": 20,
+      "expected_sample_count_status": "known_from_source_table",
+      "sample_identifier_status": "paper_or_supplement_targets_curated",
+      "blocker_categories": []
     },
     {
       "project_accession": "PRJEB61721",

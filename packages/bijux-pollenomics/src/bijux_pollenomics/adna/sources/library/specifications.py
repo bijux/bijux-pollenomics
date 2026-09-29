@@ -153,6 +153,25 @@ def _paper_source_specs() -> dict[str, _PaperSourceSpec]:
             article_local_path=f"{ADNA_SOURCE_LIBRARY_DIR}/papers/10.1111-mec.17274/article.pdf",
             article_kind="article_pdf",
             article_note="Published Molecular Ecology article deposited as an open file in Norway's National Research Archive; Table 1 identifies 18 Svalbard specimens.",
+            supplementary_assets=(
+                _RemoteArtifactSpec(
+                    artifact_kind="supplementary_zip",
+                    label="published Appendix S1 bundle",
+                    source_url=(
+                        "https://onlinelibrary.wiley.com/action/downloadSupplement?"
+                        "doi=10.1111%2Fmec.17274&file=mec17274-sup-0001-Appendix+S1.zip"
+                    ),
+                    relative_path=(
+                        "papers/10.1111-mec.17274/supplementary/"
+                        "mec17274-sup-0001-Appendix S1.zip"
+                    ),
+                    remote_note=(
+                        "User-supplied Appendix S1 ZIP contains Table S3. "
+                        "The Wiley article lists this ZIP filename; direct publisher "
+                        "byte parity was unavailable (HTTP 403)."
+                    ),
+                ),
+            ),
             additional_assets=(
                 _RemoteArtifactSpec(
                     artifact_kind="author_preprint_pdf",
