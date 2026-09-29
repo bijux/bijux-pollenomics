@@ -20,6 +20,17 @@ collection-unit date. Neither fact changes the LRA refusal below.
 The [Bökesjön basin review](../source-relations/neotoma/boke-basin/README.md)
 adds a 1984 mapped lake and two modern area measurements but does not bind
 their geometry to the fossil-pollen core or its sample ages.
+For Denmark, the [EPD/PANGAEA Solsø core record](https://doi.pangaea.de/10.1594/PANGAEA.740759)
+identifies `SOLSOE81` and reports a 2.5 ha event area, 0.98 m water depth and
+a strongly drained lake. The captured Neotoma dataset 4445 binds the same
+core handle to collection unit 4303 and reports a 25,563 m² site area, but
+its site polygon centroid (8.61341° E, 56.12846° N) is 1.352 km from the
+PANGAEA event point (8.63333° E, 56.13333° N) by WGS84 inverse geodesic.
+This corroborates a core-specific area while leaving the location conflict
+and age-specific basin extent unresolved. Dataset 4446 is a separate
+`SOLSOE83` core; the 1981 record does not bind its geometry. The PANGAEA
+record carries a CC BY-NC 3.0 license; no source data from it are reproduced
+here. Neither core is admitted to an LRA run on this evidence alone.
 
 ## Scope and conclusion
 
