@@ -34,18 +34,25 @@ def test_semantic_categories_keep_independent_changes_distinct() -> None:
     differences = semantic_diff(published, changed, renderings_equal=False)
     assert all(differences.values())
     assert any(
-        "forest_cover" in row["path"] for row in differences["scientific_result"]
+        isinstance(row["path"], str) and "forest_cover" in row["path"]
+        for row in differences["scientific_result"]
     )
     assert any(
-        "quality_class" in row["path"] for row in differences["admission_or_exclusion"]
+        isinstance(row["path"], str) and "quality_class" in row["path"]
+        for row in differences["admission_or_exclusion"]
     )
     assert any(
-        "context_radius_km" in row["path"] for row in differences["policy_or_weighting"]
+        isinstance(row["path"], str) and "context_radius_km" in row["path"]
+        for row in differences["policy_or_weighting"]
     )
     assert any(
-        "latitude" in row["path"] for row in differences["normalized_identity_or_value"]
+        isinstance(row["path"], str) and "latitude" in row["path"]
+        for row in differences["normalized_identity_or_value"]
     )
-    assert any("time_label" in row["path"] for row in differences["presentation"])
+    assert any(
+        isinstance(row["path"], str) and "time_label" in row["path"]
+        for row in differences["presentation"]
+    )
 
     rendering_only = semantic_diff(published, published, renderings_equal=False)
     assert rendering_only["presentation"] == [
@@ -83,7 +90,8 @@ def test_real_named_lake_revision_explains_membership_change(tmp_path: Path) -> 
         "scientific_result": 0,
         "presentation": 0,
     }
+    policy_paths = comparison["land_use_policy_paths_changed"]
+    assert isinstance(policy_paths, list)
     assert any(
-        path.endswith("/targets.py")
-        for path in comparison["land_use_policy_paths_changed"]
+        path.endswith("/targets.py") for path in policy_paths if isinstance(path, str)
     )
