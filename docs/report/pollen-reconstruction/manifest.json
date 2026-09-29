@@ -1490,6 +1490,16 @@
       "bytes": 5336
     },
     {
+      "path": "docs/report/source-relations/neotoma/author-taxonomy-candidates/README.md",
+      "sha256": "cc6127568f5281f46ba0a4ec41fa588e1654ff1ce178f562f21c7a7a3522e773",
+      "bytes": 3566
+    },
+    {
+      "path": "docs/report/source-relations/neotoma/author-taxonomy-candidates/report.json",
+      "sha256": "5727ed9f735436aa6c806368be0bf1f39402c4f84575cb94562e8c879b6bb057",
+      "bytes": 839013
+    },
+    {
       "path": "docs/report/source-relations/neotoma/boke-basin/README.md",
       "sha256": "5f98f626009b775982e548996a63135c3c6553f6f2afd9b8c2eb82f9fa7a891f",
       "bytes": 1964

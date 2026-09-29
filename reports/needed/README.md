@@ -134,9 +134,12 @@ revisions, authenticated output transformation, source-qualified `ISTS`
 classification and uncertainty aggregation; qualified treatment of excluded
 or nonidentical pollen/PPE labels. In particular, the proposed
 `Hordeum/Secale` concept 3924 to `Secale` and `Triticum` concept 969 to
-`Cerealia` mappings require exact source-ID and taxonomic review before a
-count is relabeled or aggregated. The paper authors, archive custodian or
-reviewed method/source packet can resolve these questions. Next action:
+`Cerealia` mappings require exact source-ID and taxonomic review. The
+[retained concept ledger](../../docs/report/source-relations/neotoma/author-taxonomy-candidates/README.md)
+shows both currently lead to broad `Cerealia-t`, while 3924 is a combined
+type that cannot be narrowed to `Secale` from its label alone. The paper
+authors, archive custodian or reviewed method/source packet can resolve these
+questions. Next action:
 replay affected grid/window/taxon cells against exact source bytes before
 claiming full-paper correspondence.
 
