@@ -1,0 +1,47 @@
+{
+  "schema_version": "landclim-correspondence-custody.v1",
+  "producer": {
+    "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/author_example_correspondence.py",
+    "bytes": 15161,
+    "sha256": "c56f4f960bd7bf22dbe9c2840c329f817ae9001f77e13e8b4dacf1f08e822c02"
+  },
+  "source_revision": "57ead2e2fcc493d099be4e5a3092fc396e1c3d3a",
+  "original_run": "v4/paper-correspondence/author-example-final",
+  "original_outputs": {
+    "REPORT.md": {
+      "bytes": 1172,
+      "sha256": "07565129d2d5aac5de919cc822997e2c79419c2585b66c600f158f9411fb57ef",
+      "retained_relation": "exact_bytes"
+    },
+    "paper-correspondence.csv": {
+      "bytes": 1835021,
+      "sha256": "89a38f0686e6c5087c9d650b0826a67519af2b4a7bdfb27e368b29ba1f884942",
+      "retained_relation": "newline_normalized_equal"
+    },
+    "report.json": {
+      "bytes": 19162,
+      "sha256": "a9bbb131a8094a2c0b1efaa83b6afba09f3f59f6e20257934d73a470de36fc9f",
+      "retained_relation": "exact_bytes"
+    }
+  },
+  "retained_files": {
+    "README.md": {
+      "bytes": 1653,
+      "sha256": "5cc14183c22734858856aee54b24f184d73511d433cbb74b60e6ca5124ff2904"
+    },
+    "REPORT.md": {
+      "bytes": 1172,
+      "sha256": "07565129d2d5aac5de919cc822997e2c79419c2585b66c600f158f9411fb57ef"
+    },
+    "paper-correspondence.csv": {
+      "bytes": 1820946,
+      "sha256": "9c574919c250b9fe386154b72266869b290365ee9afe5d8a270250ed01c211d8"
+    },
+    "report.json": {
+      "bytes": 19162,
+      "sha256": "a9bbb131a8094a2c0b1efaa83b6afba09f3f59f6e20257934d73a470de36fc9f"
+    }
+  },
+  "fresh_execution": "docs/report/publication-replay/landclim-example-reexecution/report.json",
+  "fresh_replay_relation": "row-level CSV and generated Markdown byte-identical; JSON differs only in execution receipt digest"
+}

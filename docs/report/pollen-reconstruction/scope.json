@@ -218,5 +218,20 @@
     "site_macro_mae_fraction": 0.01894855574145571,
     "site_macro_total_variation": 0.29370261399256353,
     "status": "prior_exposed_development_baseline_not_confirmatory"
+  },
+  "publication_correspondence": {
+    "author_example": {
+      "directory": "docs/report/publication-replay/landclim-author-example-correspondence",
+      "compared_values": 14074,
+      "unit": "fraction",
+      "status": "bounded_exact_author_R_parity"
+    },
+    "published_window": {
+      "directory": "docs/report/publication-replay/landclim-published-window-correspondence",
+      "shared_grid_taxon_keys": 62,
+      "window": "100-350 BP",
+      "unit": "percentage_cover",
+      "status": "descriptive_cross_revision_difference_without_pass_tolerance"
+    }
   }
 }

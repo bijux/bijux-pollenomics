@@ -1,0 +1,76 @@
+{
+  "schema_version": "landclimii-published-window-correspondence.v1",
+  "comparison": "retained_author_example_python_recomputation_minus_pangaea_937075_archive",
+  "source_revision": "57ead2e2fcc493d099be4e5a3092fc396e1c3d3a",
+  "published_archive_sha256": "c585f0691ad95342b8aba083b90fe91dc398f985b6b7fbc19561299389c4fb86",
+  "published_receipt_sha256": "eb4350724c176d0dbcb7e441f2d21489bdae1cfff7ebe3088eab27093f315677",
+  "candidate_parity_report_sha256": "56f3dc776aa0a3405338fba62ae51a8b383b0c64787bd6fa4364677ac7ae24c5",
+  "author_bin_bounds_bp": [
+    100,
+    350
+  ],
+  "published_window": "100-350 BP",
+  "unit": "percentage_cover",
+  "taxon_keys": {
+    "reference_keys": 62,
+    "candidate_keys": 62,
+    "union_keys": 62,
+    "shared_keys": 62,
+    "reference_only_keys": 0,
+    "candidate_only_keys": 0,
+    "mean": {
+      "numeric_pairs": 62,
+      "both_null": 0,
+      "null_disagreements": 0
+    },
+    "standard_error": {
+      "numeric_pairs": 62,
+      "both_null": 0,
+      "null_disagreements": 0
+    }
+  },
+  "grids": [
+    {
+      "grid_id": "512",
+      "author_sites_in_bin": 6,
+      "published_source": {
+        "longitude": "-3.5",
+        "latitude": "50.5",
+        "mean_source_row": 127,
+        "standard_error_source_row": 127
+      },
+      "taxa": 31,
+      "max_absolute_mean_residual_percentage_points": "9.1978711526412600",
+      "median_absolute_mean_residual_percentage_points": "0.0214391546818271568700",
+      "max_absolute_standard_error_residual_percentage_points": "3.21615452029944700",
+      "median_absolute_standard_error_residual_percentage_points": "0.0114477386991878200",
+      "largest_mean_residual_taxon": "Cyperaceae",
+      "largest_mean_signed_residual_percentage_points": "9.1978711526412600",
+      "largest_standard_error_residual_taxon": "Cyperaceae",
+      "largest_standard_error_signed_residual_percentage_points": "3.21615452029944700"
+    },
+    {
+      "grid_id": "562",
+      "author_sites_in_bin": 5,
+      "published_source": {
+        "longitude": "-3.5",
+        "latitude": "51.5",
+        "mean_source_row": 144,
+        "standard_error_source_row": 144
+      },
+      "taxa": 31,
+      "max_absolute_mean_residual_percentage_points": "10.55269944131557300",
+      "median_absolute_mean_residual_percentage_points": "0.0322204444928823700",
+      "max_absolute_standard_error_residual_percentage_points": "4.25813597739715700",
+      "median_absolute_standard_error_residual_percentage_points": "0.0145312271895351900",
+      "largest_mean_residual_taxon": "Calluna.vulgaris",
+      "largest_mean_signed_residual_percentage_points": "-10.55269944131557300",
+      "largest_standard_error_residual_taxon": "Calluna.vulgaris",
+      "largest_standard_error_signed_residual_percentage_points": "-4.25813597739715700"
+    }
+  ],
+  "tolerance": "none_descriptive_cross_revision_comparison",
+  "historical_raw_input_closure": "not_established",
+  "measured_vegetation_accuracy": "not_evaluated",
+  "pft_correspondence": "excluded_unresolved_12_11_ISTS_mapping"
+}

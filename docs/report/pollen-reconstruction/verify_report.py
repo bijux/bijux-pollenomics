@@ -25,6 +25,67 @@ def sha256(path: Path) -> str:
     return digest.hexdigest()
 
 
+def verify_publication_correspondence(scope: dict[str, Any]) -> None:
+    """Keep the two numerical ledgers bound to their distinct scientific claims."""
+    correspondence = scope["publication_correspondence"]
+    author_dir = REPOSITORY_ROOT / correspondence["author_example"]["directory"]
+    author = json.loads((author_dir / "report.json").read_text(encoding="utf-8"))
+    with (author_dir / "paper-correspondence.csv").open(
+        newline="", encoding="utf-8"
+    ) as stream:
+        author_rows = list(csv.DictReader(stream))
+    if (
+        author["comparison"] != "installed_LRA_vs_independent_exact_author_R_replay"
+        or author["unit"] != "fraction"
+        or author["passed"] is not True
+        or author["compared_values"] != 14074
+        or len(author_rows) != author["compared_values"]
+        or {row["unit"] for row in author_rows} != {"fraction"}
+        or {row["within_declared_tolerance"] for row in author_rows} != {"True"}
+        or max(
+            abs(float(row["signed_residual"]))
+            for row in author_rows
+            if row["metric"] == "mean"
+        )
+        != author["max_absolute_mean_residual"]
+        or max(
+            abs(float(row["signed_residual"]))
+            for row in author_rows
+            if row["metric"] == "standard_error"
+        )
+        != author["max_absolute_standard_error_residual"]
+    ):
+        raise ValueError("author-example correspondence differs from retained claims")
+
+    window_dir = REPOSITORY_ROOT / correspondence["published_window"]["directory"]
+    window = json.loads((window_dir / "report.json").read_text(encoding="utf-8"))
+    with (window_dir / "paper-correspondence.csv").open(
+        newline="", encoding="utf-8"
+    ) as stream:
+        window_rows = list(csv.DictReader(stream))
+    if (
+        window["comparison"]
+        != "retained_author_example_python_recomputation_minus_pangaea_937075_archive"
+        or window["unit"] != "percentage_cover"
+        or window["author_bin_bounds_bp"] != [100, 350]
+        or window["tolerance"] != "none_descriptive_cross_revision_comparison"
+        or len(window_rows) != 62
+        or {row["unit"] for row in window_rows} != {"percentage_cover"}
+        or {row["window"] for row in window_rows} != {"100-350 BP"}
+        or {row["grid_id"] for row in window_rows} != {"512", "562"}
+        or any(
+            max(
+                abs(float(row["mean_residual"]))
+                for row in window_rows
+                if row["grid_id"] == grid["grid_id"]
+            )
+            != float(grid["max_absolute_mean_residual_percentage_points"])
+            for grid in window["grids"]
+        )
+    ):
+        raise ValueError("published-window correspondence differs from retained claims")
+
+
 def verify_author_source(source_root: Path) -> None:
     """Authenticate private inputs with the same reader used by the study."""
     from bijux_pollenomics_dev.essd_reproduction.author_pollen_spatial.source import (
@@ -353,6 +414,7 @@ def main() -> None:
     scope = json.loads((REPORT_DIR / "scope.json").read_text(encoding="utf-8"))
     if scope.get("confirmatory_result") is not False:
         raise ValueError("scoped report must not declare a confirmatory result")
+    verify_publication_correspondence(scope)
     with (REPORT_DIR / "swedish-source-questions.csv").open(
         newline="", encoding="utf-8"
     ) as stream:
