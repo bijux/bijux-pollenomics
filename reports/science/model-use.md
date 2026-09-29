@@ -17,9 +17,9 @@ universally ideal LRA parameter set.
 | How accurate is reconstructed vegetation? | Match independent measured vegetation with site/time/taxon/spatial support. | No admitted repository score yet; the [open reference need](../needed/README.md) remains. |
 
 The [source/cohort account](source-cohorts.md) lists current Nordic count mass
-and LRA source gates. The [installed engine route](../engineering/lra-installation.md)
-describes the optional package boundary; installation alone does not admit a
-scientific input.
+and LRA source gates. We kept the engine separate for the reasons in our
+[distribution decision](../architecture/lra-distribution.md); installing it
+alone does not admit a scientific input.
 
 ## Bounded observed-pollen model choices
 

@@ -22,7 +22,7 @@ updating that lock.
 | Does the implementation reproduce the paper and archive? | [Publication correspondence](science/publication-correspondence.md), [published-window provenance](../docs/report/publication-replay/landclim-published-window-provenance/README.md) | Matched and divergent source revisions remain explicit. |
 | Which source inputs are admissible? | [Swedish source and pollen account](science/nordic-pollen-study.md), [Abborrtjärnen method](../docs/report/source-relations/neotoma/abbo-published-method/README.md), [Solsø lineage](../docs/report/countries/denmark/solsoe-source-lineage/README.md) | Pollen-only, LRA and measured-vegetation prerequisites differ. |
 | What is established for HYDE and aDNA? | [HYDE source account](science/hyde-cropland-source-account.md), [reindeer published appendix](../docs/report/source-relations/dna-scope/reindeer-published-appendix.md) | Source accounting and chronology do not by themselves validate vegetation or model skill. |
-| How is the LRA engine installed? | [LRA distribution decision](engineering/lra-installation.md) | The optional extra installs both built packages locally; public release and licensing review remain separate. |
+| Why did we keep the LRA engine separate? | [Our distribution decision](architecture/lra-distribution.md) | We checked a single optional-extra install and kept the engine boundary; public release and rights review remain separate. |
 
 The [open research needs](needed/README.md) list exact evidence questions that
 would change current conclusions. An answered question moves into its owning
