@@ -1,0 +1,7 @@
+scope,site_id,candidate_bins,predicted_bins,refused_bins
+sweden_only,13338,21,13,8
+four_country,13338,21,21,0
+sweden_only,28869,20,13,7
+four_country,28869,20,20,0
+sweden_only,28872,13,13,0
+four_country,28872,13,13,0

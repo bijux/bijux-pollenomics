@@ -1,7 +1,7 @@
 {
   "schema_version": "pollenomics-v5-scoped-study-report.v1",
   "status": "scoped_development_report_with_external_source_blockers",
-  "as_of": "2026-09-29",
+  "as_of": "2026-09-30",
   "confirmatory_result": false,
   "outcome_access_for_report": "previously exposed outcomes scored after frozen country predictions; no untouched confirmatory outcome",
   "primary_prediction_cohort": {
@@ -295,5 +295,18 @@
       "exact_tw_indices": ["2"],
       "status": "only_TW2_has_exact_shared_bounds"
     }
+  },
+  "swedish_training_scope": {
+    "report": "docs/report/regions/nordic/swedish-training-scope/report.json",
+    "source_response": "31-author-target closed observed-pollen composition",
+    "target_sites": 3,
+    "candidate_site_bins": 54,
+    "common_scored_site_bins": 39,
+    "prediction_freeze_sha256": "8ff7979c370465762b0903ed1551f1b78161dade7fda60e2ed5f2ceea3182f8b",
+    "sweden_only_training_sites_per_fold": 2,
+    "four_country_training_sites_per_fold": 83,
+    "sweden_only_support_refusals": 15,
+    "paired_method_scores": 117,
+    "status": "prior_exposed_matched_whole_site_observed_pollen_development; no temporal displacement, LRA or measured vegetation claim"
   }
 }

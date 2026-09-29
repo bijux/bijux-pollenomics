@@ -1,0 +1,42 @@
+{
+  "folds": [
+    {
+      "input_manifest_sha256": "8a04fc48516b06422ca946a073646b5fddd5ba3165e289bdfb58327d70a0c7cc",
+      "prediction_sha256": "2fcbb241b8a083dfcdb57a9741129e8c08d8a9d44e798bfcbbf7af97025ca989",
+      "scope": "sweden_only",
+      "site_id": "13338"
+    },
+    {
+      "input_manifest_sha256": "78a94d08c94a3ad69fb020cdfbbab2d7780cd69eecd2838bccbade7ab4976745",
+      "prediction_sha256": "83d75d6325e1fbcefdfb9fd259331c2b316f59b9cb05fdb6608a9243b786ad3d",
+      "scope": "four_country",
+      "site_id": "13338"
+    },
+    {
+      "input_manifest_sha256": "b9670b0c8e45978440f959df63d04ad249568e32e55cee7381edb447bffede4d",
+      "prediction_sha256": "69ececf1d3d86a29859317f409b9275f8bc215e1bace08bfe09cca29d081ed1d",
+      "scope": "sweden_only",
+      "site_id": "28869"
+    },
+    {
+      "input_manifest_sha256": "966c5013e2fcf817b050fdd7f47c6a2d6fe16f6b5fed5ba52d9234c35c46fff9",
+      "prediction_sha256": "8014812b6ffb26af5c358df34722f6b1a2d2e0cd47e2009b2c75a5f3fba72b2f",
+      "scope": "four_country",
+      "site_id": "28869"
+    },
+    {
+      "input_manifest_sha256": "8af4d9e3eb4974e6ff3838f11ed20917c18e12e379a2a45b07b165d4eacc2d35",
+      "prediction_sha256": "26c83ce89d659182fcff8030f73d0827395503abed8cb9cf0654a4592ef47c85",
+      "scope": "sweden_only",
+      "site_id": "28872"
+    },
+    {
+      "input_manifest_sha256": "ca1e3cfc63fec0c879bed0fcd957e4dc0c62fb63a157710be9363709fada0cfb",
+      "prediction_sha256": "42e01e0d409cd894a7634b784bcd8aa3cfee1d62ef039207829edf7440525790",
+      "scope": "four_country",
+      "site_id": "28872"
+    }
+  ],
+  "prepare_sha256": "36a86fe1293d223a8aa3820351ae82f0ee8aec80666a83d37cb43afb862e7020",
+  "schema_version": "swedish-training-scope-freeze.v1"
+}

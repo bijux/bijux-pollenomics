@@ -2,7 +2,7 @@
   "schema_version": "pollen-reconstruction-report-manifest.v1",
   "status": "scoped_results_with_external_source_blockers",
   "repository": "bijux-pollenomics",
-  "as_of": "2026-09-29",
+  "as_of": "2026-09-30",
   "files": [
     {
       "path": "docs/public/pollenomics-data/sources/empd2-nfi-review.md",
@@ -616,13 +616,13 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/results.csv",
-      "sha256": "809c2dff35c79e05784da61d4aa2e7de1079b33d6672ecee565cc4df25c42092",
-      "bytes": 14687
+      "sha256": "c7a614846d5508bcf65b5aa74574255d46cb4fa97fe662b315ffcbbb64d3f04d",
+      "bytes": 15473
     },
     {
       "path": "docs/report/pollen-reconstruction/scope.json",
-      "sha256": "d9521bbcd96e61f4224b84ae52dfa4307b574d6fffdf5e4610394899b1c1dbcc",
-      "bytes": 14264
+      "sha256": "bed212a8dab579a617536e514bf23fc25f6759a4678386ef9a73917dbcde4802",
+      "bytes": 14949
     },
     {
       "path": "docs/report/pollen-reconstruction/scores.csv",
@@ -1415,6 +1415,161 @@
       "sha256": "d8127f61b2461c91bdbf02a30a36a7069e84f308d409da3ac528c87006b302b2"
     },
     {
+      "path": "docs/report/regions/nordic/swedish-training-scope/README.md",
+      "sha256": "22a4a495ec21a69710626e0bad2e739134f8fcfb1c3167c18fb57cb6551fc3ad",
+      "bytes": 4139
+    },
+    {
+      "path": "docs/report/regions/nordic/swedish-training-scope/coverage.csv",
+      "sha256": "58b910beaf0e2ad7a0d3f84e16fbbfffcf417b5b255fff1d94ee4f25335fc32b",
+      "bytes": 216
+    },
+    {
+      "path": "docs/report/regions/nordic/swedish-training-scope/frozen/four_country/13338/predictions-SE.json.gz",
+      "sha256": "83d75d6325e1fbcefdfb9fd259331c2b316f59b9cb05fdb6608a9243b786ad3d",
+      "bytes": 17452
+    },
+    {
+      "path": "docs/report/regions/nordic/swedish-training-scope/frozen/four_country/28869/predictions-SE.json.gz",
+      "sha256": "8014812b6ffb26af5c358df34722f6b1a2d2e0cd47e2009b2c75a5f3fba72b2f",
+      "bytes": 17964
+    },
+    {
+      "path": "docs/report/regions/nordic/swedish-training-scope/frozen/four_country/28872/predictions-SE.json.gz",
+      "sha256": "42e01e0d409cd894a7634b784bcd8aa3cfee1d62ef039207829edf7440525790",
+      "bytes": 12524
+    },
+    {
+      "path": "docs/report/regions/nordic/swedish-training-scope/frozen/freeze.json",
+      "sha256": "8ff7979c370465762b0903ed1551f1b78161dade7fda60e2ed5f2ceea3182f8b",
+      "bytes": 1739
+    },
+    {
+      "path": "docs/report/regions/nordic/swedish-training-scope/frozen/sweden_only/13338/predictions-SE.json.gz",
+      "sha256": "2fcbb241b8a083dfcdb57a9741129e8c08d8a9d44e798bfcbbf7af97025ca989",
+      "bytes": 10106
+    },
+    {
+      "path": "docs/report/regions/nordic/swedish-training-scope/frozen/sweden_only/28869/predictions-SE.json.gz",
+      "sha256": "69ececf1d3d86a29859317f409b9275f8bc215e1bace08bfe09cca29d081ed1d",
+      "bytes": 10301
+    },
+    {
+      "path": "docs/report/regions/nordic/swedish-training-scope/frozen/sweden_only/28872/predictions-SE.json.gz",
+      "sha256": "26c83ce89d659182fcff8030f73d0827395503abed8cb9cf0654a4592ef47c85",
+      "bytes": 10600
+    },
+    {
+      "path": "docs/report/regions/nordic/swedish-training-scope/paired-scores.csv",
+      "sha256": "d1d5456cf8ab2a10a859a19b2d8eae52ef962cfeb84b08e8b268ff2e67b092c4",
+      "bytes": 15039
+    },
+    {
+      "path": "docs/report/regions/nordic/swedish-training-scope/prepared/four_country/13338/input-manifest.json",
+      "sha256": "78a94d08c94a3ad69fb020cdfbbab2d7780cd69eecd2838bccbade7ab4976745",
+      "bytes": 1098
+    },
+    {
+      "path": "docs/report/regions/nordic/swedish-training-scope/prepared/four_country/13338/inputs/metadata-SE.json.gz",
+      "sha256": "fa0a9a7601e7f00ce37e7922e1278aabf717a20099fbdad4a975727ea4d80338",
+      "bytes": 493
+    },
+    {
+      "path": "docs/report/regions/nordic/swedish-training-scope/prepared/four_country/13338/inputs/training-SE.json.gz",
+      "sha256": "e1ecb0c9585dc0816d1c90d7903d1f9be4a2b7ec4ca676faeca21162cfd10489",
+      "bytes": 102096
+    },
+    {
+      "path": "docs/report/regions/nordic/swedish-training-scope/prepared/four_country/28869/input-manifest.json",
+      "sha256": "966c5013e2fcf817b050fdd7f47c6a2d6fe16f6b5fed5ba52d9234c35c46fff9",
+      "bytes": 1098
+    },
+    {
+      "path": "docs/report/regions/nordic/swedish-training-scope/prepared/four_country/28869/inputs/metadata-SE.json.gz",
+      "sha256": "1f0f2aa33a106c6e77cc8825a23396b6bd8cb767d934d97eb6963979d50934de",
+      "bytes": 408
+    },
+    {
+      "path": "docs/report/regions/nordic/swedish-training-scope/prepared/four_country/28869/inputs/training-SE.json.gz",
+      "sha256": "7ec4b7c0bfba7f4814d4319938400693a545137cddccda93d1bed7fd30bca94e",
+      "bytes": 101955
+    },
+    {
+      "path": "docs/report/regions/nordic/swedish-training-scope/prepared/four_country/28872/input-manifest.json",
+      "sha256": "ca1e3cfc63fec0c879bed0fcd957e4dc0c62fb63a157710be9363709fada0cfb",
+      "bytes": 1098
+    },
+    {
+      "path": "docs/report/regions/nordic/swedish-training-scope/prepared/four_country/28872/inputs/metadata-SE.json.gz",
+      "sha256": "1d7dcdcfc2b4062ff26f3dc25a2f26552a53170bf0195b65b4b5b7a768740f03",
+      "bytes": 359
+    },
+    {
+      "path": "docs/report/regions/nordic/swedish-training-scope/prepared/four_country/28872/inputs/training-SE.json.gz",
+      "sha256": "a908d0228c2fb68adfa1e47ccb1f97579335d2285849ed66c70f3b2bf594fe3d",
+      "bytes": 102424
+    },
+    {
+      "path": "docs/report/regions/nordic/swedish-training-scope/prepared/prepare.json",
+      "sha256": "36a86fe1293d223a8aa3820351ae82f0ee8aec80666a83d37cb43afb862e7020",
+      "bytes": 1791
+    },
+    {
+      "path": "docs/report/regions/nordic/swedish-training-scope/prepared/sweden_only/13338/input-manifest.json",
+      "sha256": "8a04fc48516b06422ca946a073646b5fddd5ba3165e289bdfb58327d70a0c7cc",
+      "bytes": 1096
+    },
+    {
+      "path": "docs/report/regions/nordic/swedish-training-scope/prepared/sweden_only/13338/inputs/metadata-SE.json.gz",
+      "sha256": "fa0a9a7601e7f00ce37e7922e1278aabf717a20099fbdad4a975727ea4d80338",
+      "bytes": 493
+    },
+    {
+      "path": "docs/report/regions/nordic/swedish-training-scope/prepared/sweden_only/13338/inputs/training-SE.json.gz",
+      "sha256": "8a9d28ccfcac35171e3d41d4b6d3ac9c6c1a1793e1ab9a3fee3996b72678ccc0",
+      "bytes": 3477
+    },
+    {
+      "path": "docs/report/regions/nordic/swedish-training-scope/prepared/sweden_only/28869/input-manifest.json",
+      "sha256": "b9670b0c8e45978440f959df63d04ad249568e32e55cee7381edb447bffede4d",
+      "bytes": 1096
+    },
+    {
+      "path": "docs/report/regions/nordic/swedish-training-scope/prepared/sweden_only/28869/inputs/metadata-SE.json.gz",
+      "sha256": "1f0f2aa33a106c6e77cc8825a23396b6bd8cb767d934d97eb6963979d50934de",
+      "bytes": 408
+    },
+    {
+      "path": "docs/report/regions/nordic/swedish-training-scope/prepared/sweden_only/28869/inputs/training-SE.json.gz",
+      "sha256": "6be4ec2c83593c280c96a6d3ab980d7f9aa729fcd347063ded48f46e42a31ad5",
+      "bytes": 3362
+    },
+    {
+      "path": "docs/report/regions/nordic/swedish-training-scope/prepared/sweden_only/28872/input-manifest.json",
+      "sha256": "8af4d9e3eb4974e6ff3838f11ed20917c18e12e379a2a45b07b165d4eacc2d35",
+      "bytes": 1096
+    },
+    {
+      "path": "docs/report/regions/nordic/swedish-training-scope/prepared/sweden_only/28872/inputs/metadata-SE.json.gz",
+      "sha256": "1d7dcdcfc2b4062ff26f3dc25a2f26552a53170bf0195b65b4b5b7a768740f03",
+      "bytes": 359
+    },
+    {
+      "path": "docs/report/regions/nordic/swedish-training-scope/prepared/sweden_only/28872/inputs/training-SE.json.gz",
+      "sha256": "68cc88f79ca850aee39ac12f4acca6e8de1dddac1b57e0d5f65f9d86058e4d57",
+      "bytes": 3850
+    },
+    {
+      "path": "docs/report/regions/nordic/swedish-training-scope/report.json",
+      "sha256": "d932e3dd65c6e2def9cb832e83ab28bcd7f620f992f8849b21eb16d33488ce58",
+      "bytes": 2049
+    },
+    {
+      "path": "docs/report/regions/nordic/swedish-training-scope/scores.csv",
+      "sha256": "6f7d7d745d3ffbb027879718d03e3efbcad669a20b0ef23f8a70f4bc045e9920",
+      "bytes": 42799
+    },
+    {
       "path": "docs/report/source-relations/hyde/source-custody/README.md",
       "sha256": "c16289c0086210358afd1423d245ad57c1319e6f96884caf62dbfb8fe2502bc1",
       "bytes": 2264
@@ -1760,6 +1915,11 @@
       "sha256": "ac02728823c80c46ce838499b3087360c4fe1bc9ffc2cbc83fd1b34515b17a38"
     },
     {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/swedish_training_scope.py",
+      "sha256": "0e1fd122903f3e76c6846a8367b6874457ed9677e3c1954df3963842d072f1b2",
+      "bytes": 18035
+    },
+    {
       "path": "packages/bijux-pollenomics-dev/tests/essd_reproduction/test_author_preparation_audit.py",
       "bytes": 2928,
       "sha256": "5714d8e7c2b59a23554d5219f92d542f0debd3dd9165e8ea4bac69f677e75cc6"
@@ -1788,6 +1948,11 @@
       "path": "packages/bijux-pollenomics-dev/tests/source_completion/test_swedish_neotoma_holdout.py",
       "bytes": 1204,
       "sha256": "b852fbfa07380d32f3dbe27b0b4ca2581305d7c962a410ade60c2756158e68b9"
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/tests/source_completion/test_swedish_training_scope.py",
+      "sha256": "317f67a225b0a4359ec49524df3fcbb9386e40bd6dbcdcb6b026137729ecc9a9",
+      "bytes": 3535
     },
     {
       "path": "packages/bijux-pollenomics-dev/tests/test_runtime_isolation.py",
