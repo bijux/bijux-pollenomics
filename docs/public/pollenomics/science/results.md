@@ -52,6 +52,11 @@ pollen sites; the LRA route uses one regional anchor and 13 local
 reconstruction predictors. The sites and outcomes were previously explored.
 This result does not compare vegetation accuracy or establish the best method
 for new Nordic cores.
+The [site-influence result](../../../report/pollen-reconstruction/author-lra-constrained/direct-pollen/paired-hellinger-sensitivity.json)
+finds the lower direct mean Hellinger distance persists after any one scored
+site is omitted. Individual sites still disagree, especially for nearest
+site, where only seven of 14 favor direct. This is a descriptive sensitivity
+check on previously explored examples, not a confidence interval.
 
 ## Parameters and next experiments
 

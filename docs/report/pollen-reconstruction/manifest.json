@@ -461,8 +461,8 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/author-lra-constrained/README.md",
-      "sha256": "459dab4f2ad6cd66a83a89af9a31ac95deddc724b8e880aafea8047f98f7eab0",
-      "bytes": 9147
+      "sha256": "df73b4c7f8fcf9d9b9f96d35a78111197f303a4aa6ef3b489d131ff47bfb1d89",
+      "bytes": 9948
     },
     {
       "path": "docs/report/pollen-reconstruction/author-lra-constrained/direct-pollen/comparison.json",
@@ -478,6 +478,11 @@
       "path": "docs/report/pollen-reconstruction/author-lra-constrained/direct-pollen/matched-scores.csv",
       "sha256": "623b0eb20e46e86fccbd48e840fa20e1882b89bf17ef3ef81c89e63c3a2c6f50",
       "bytes": 12440
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/author-lra-constrained/direct-pollen/paired-hellinger-sensitivity.json",
+      "sha256": "180381b5a81e4838be7a11c2d9e02ef504ef5d296aaad213d9fafbdf148af4c9",
+      "bytes": 1972
     },
     {
       "path": "docs/report/pollen-reconstruction/author-lra-constrained/direct-pollen/paired-hellinger.json",
@@ -496,8 +501,8 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/author-lra-constrained/direct_comparison.py",
-      "sha256": "603ed584aeebe6d602f10f7115a2737e8216abdc4ec312d89626c1d9461c687b",
-      "bytes": 23222
+      "sha256": "04079d6c6471811bbfd0cc838e4ac59e5c0d5d4eca18dc8299da3706954a6e8e",
+      "bytes": 27490
     },
     {
       "path": "docs/report/pollen-reconstruction/author-lra-constrained/folds.csv",

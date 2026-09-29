@@ -88,6 +88,14 @@ without smoothing target counts. Site-macro distances are:
 
 These are descriptive distances on the same prior-exposed English support. The
 14 sites do not provide a sampling interval or independent vegetation truth.
+The [site influence result](direct-pollen/paired-hellinger-sensitivity.json)
+pins that Hellinger report and omits each site in turn. Every omitted-site
+mean direct-minus-LRA difference remains negative: training mean
+`[-0.082443, -0.070006]`, nearest site `[-0.035318, -0.018215]`, and
+inverse-distance-squared `[-0.046139, -0.034002]`. Nearest site still favors
+direct at only 7/14 individual sites, so the negative average alone does not
+say every site agrees. This is influence accounting, not an independent
+confidence interval or a vegetation score.
 
 From the repository root, with a private author source capsule and an absent
 output destination:
@@ -139,6 +147,10 @@ PYTHONDONTWRITEBYTECODE=1 .venv/bin/python \
   --lra-report "$job/report/report.json" \
   --comparison "$job/direct-comparison/comparison.json" \
   --output "$job/paired-hellinger.json"
+PYTHONDONTWRITEBYTECODE=1 .venv/bin/python \
+  docs/report/pollen-reconstruction/author-lra-constrained/direct_comparison.py hellinger-sensitivity \
+  --hellinger "$job/paired-hellinger.json" \
+  --output "$job/paired-hellinger-sensitivity.json"
 ```
 
 Set `published_prediction_sha256` to the digest printed by the prediction

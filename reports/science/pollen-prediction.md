@@ -49,6 +49,14 @@ development support. This does not say that LRA is ecologically inferior,
 that its vegetation reconstruction is inaccurate, or which method would win on
 new Nordic sites. No independent vegetation observation was scored here.
 
+The [Hellinger site-influence calculation](../../docs/report/pollen-reconstruction/author-lra-constrained/direct-pollen/paired-hellinger-sensitivity.json)
+omits each scored site in turn. The mean direct-minus-LRA Hellinger difference
+stays below zero for every omission and all three methods. The nearest-site
+method favors direct at only seven of 14 individual sites, however, so the
+mean direction must not be read as unanimous site behavior. These correlated,
+previously explored sites do not yield a sampling interval or independent
+spatial confirmation.
+
 ## Model use and open inputs
 
 The [bounded development search](../../docs/report/pollen-reconstruction/README.md)

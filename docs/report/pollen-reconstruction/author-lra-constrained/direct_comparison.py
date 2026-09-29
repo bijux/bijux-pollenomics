@@ -464,6 +464,93 @@ def paired_hellinger(
     return report
 
 
+def hellinger_sensitivity(hellinger: Path, output: Path) -> dict[str, object]:
+    """Measure site influence on a frozen matched Hellinger comparison."""
+    if output.exists() or output.is_symlink():
+        raise ValueError("Absent sensitivity output required")
+    source = json.loads(hellinger.read_text())
+    rows = source.get("site_method_rows")
+    if (
+        source.get("schema_version") != "author-lra-direct-pollen-hellinger.v1"
+        or source.get("matched_sites") != 14
+        or source.get("matched_method_rows") != 42
+        or source.get("taxon_count") != 30
+        or not isinstance(rows, list)
+        or len(rows) != 42
+    ):
+        raise ValueError("Matched Hellinger source contract changed")
+    keys = {(row["target_record_id"], row["method"]) for row in rows}
+    sites = {row["target_record_id"] for row in rows}
+    if (
+        len(keys) != 42
+        or len(sites) != 14
+        or source["excluded_site"] in sites
+        or keys != {(site, method) for site in sites for method in METHODS}
+    ):
+        raise ValueError("Matched Hellinger site-method support changed")
+    published = {row["method"]: row for row in source["method_summaries"]}
+    if set(published) != set(METHODS):
+        raise ValueError("Published Hellinger methods changed")
+    summaries = []
+    for method in METHODS:
+        selected = sorted(
+            (row for row in rows if row["method"] == method),
+            key=lambda row: row["target_record_id"],
+        )
+        direct = [float(row["direct_pollen_hellinger"]) for row in selected]
+        lra = [float(row["lra_forward_pollen_hellinger"]) for row in selected]
+        deltas = [float(row["direct_minus_lra_hellinger"]) for row in selected]
+        if (
+            any(not math.isfinite(value) for value in (*direct, *lra, *deltas))
+            or any(
+                abs(a - b - delta) > 1e-12
+                for a, b, delta in zip(direct, lra, deltas, strict=True)
+            )
+            or abs(
+                sum(direct) / 14
+                - published[method]["direct_pollen_site_macro_hellinger"]
+            )
+            > 1e-12
+            or abs(
+                sum(lra) / 14
+                - published[method]["lra_forward_pollen_site_macro_hellinger"]
+            )
+            > 1e-12
+        ):
+            raise ValueError("Published Hellinger result changed")
+        total = sum(deltas)
+        omitted = [
+            (row["target_record_id"], (total - delta) / 13)
+            for row, delta in zip(selected, deltas, strict=True)
+        ]
+        low = min(omitted, key=lambda pair: pair[1])
+        high = max(omitted, key=lambda pair: pair[1])
+        summaries.append(
+            {
+                "method": method,
+                "matched_sites": 14,
+                "direct_lower_site_count": sum(delta < 0 for delta in deltas),
+                "lra_lower_site_count": sum(delta > 0 for delta in deltas),
+                "equal_site_count": sum(delta == 0 for delta in deltas),
+                "mean_direct_minus_lra_hellinger": total / 14,
+                "median_direct_minus_lra_hellinger": median(deltas),
+                "leave_one_site_out_mean_range": [low[1], high[1]],
+                "omitted_site_at_range_bounds": [low[0], high[0]],
+            }
+        )
+    report = {
+        "schema_version": "author-lra-paired-hellinger-sensitivity.v1",
+        "paired_hellinger_sha256": hashlib.sha256(hellinger.read_bytes()).hexdigest(),
+        "excluded_site": source["excluded_site"],
+        "matched_sites": 14,
+        "method_summaries": summaries,
+        "interpretation": "descriptive leave-one-site-out influence on prior-exposed English development; no sampling confidence interval, vegetation accuracy, or transfer claim",
+    }
+    output.parent.mkdir(parents=True, exist_ok=True)
+    output.write_text(json.dumps(report, indent=2) + "\n")
+    return report
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     sub = parser.add_subparsers(dest="action", required=True)
@@ -488,6 +575,9 @@ def main() -> None:
     fourth.add_argument("--lra-report", type=Path, required=True)
     fourth.add_argument("--comparison", type=Path, required=True)
     fourth.add_argument("--output", type=Path, required=True)
+    fifth = sub.add_parser("hellinger-sensitivity")
+    fifth.add_argument("--hellinger", type=Path, required=True)
+    fifth.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
     if args.action == "predict":
         print(predict(args.inputs, args.destination))
@@ -509,6 +599,12 @@ def main() -> None:
             json.dumps(
                 site_sensitivity(args.matched_scores, args.comparison, args.output),
                 sort_keys=True,
+            )
+        )
+    elif args.action == "hellinger-sensitivity":
+        print(
+            json.dumps(
+                hellinger_sensitivity(args.hellinger, args.output), sort_keys=True
             )
         )
     else:
