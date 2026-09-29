@@ -99,7 +99,7 @@ support and terms; independently review the match, then score it.
 
 **Affected result:** selected four-country cropland grid sums agree with 84
 source country totals, but a pollen-model ablation is not admitted. See the
-[HYDE source report](../../docs/report/regions/nordic/hyde-country-cropland/README.md).
+[HYDE source report](../science/hyde-cropland-source-account.md).
 
 **Needed:** release-specific rights, provider/version identity, formal CRS,
 calendar conversion, grid/category units and scenario meaning for the exact

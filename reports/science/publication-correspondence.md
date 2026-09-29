@@ -92,7 +92,7 @@ calculation failure.
 
 ## HYDE modeled context
 
-The [HYDE country result](../../docs/report/regions/nordic/hyde-country-cropland/README.md)
+The [HYDE country result](hyde-cropland-source-account.md)
 now retains 84 source-reported cropland quantities for Denmark, Finland,
 Norway and Sweden across seven native CE labels and three scenarios. Its
 [native grid check](../../docs/report/regions/nordic/hyde-country-cropland/grid-conservation/README.md)

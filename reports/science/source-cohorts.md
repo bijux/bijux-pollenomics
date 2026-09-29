@@ -39,7 +39,7 @@ not replaced by generic study-wide assumptions.
 
 ## Context and validation sources
 
-The [HYDE country cropland report](../../docs/report/regions/nordic/hyde-country-cropland/README.md)
+The [HYDE country cropland report](hyde-cropland-source-account.md)
 checks modeled-source quantities and native grid reconciliation at seven CE
 labels. It supplies context, not a vegetation observation or a measured pollen
 model benefit. The [independent vegetation screen](../../docs/report/validation/empd2-nfi-pairing/README.md)

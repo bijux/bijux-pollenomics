@@ -82,3 +82,8 @@ The [English constrained LOVE study](../science/english-lra-pollen-prediction.md
 is now root-owned. Its 15-site source and method account links the governed
 fold, frozen-prediction, score and paired-comparison outputs; the old website
 path stays as a citation page, while numeric and producer files remain put.
+
+The [four-country HYDE cropland account](../science/hyde-cropland-source-account.md)
+is root-owned. Its 84 source totals and native-grid reconciliations stay in
+the producer tree; the old website path remains a citation page. The
+scientific result and paper correspondence ledgers now name the root account.
