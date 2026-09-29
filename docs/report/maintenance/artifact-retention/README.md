@@ -307,6 +307,14 @@ one current core has 23 sample IDs, but no captured core has the exact source
 code or an authenticated author chronology. The original page check is stale
 against the current LandClim page and remains private process evidence only.
 
+The [17-site author-preparation audit custody](landclim-author-preparation-audit-custody.json)
+preserves all 28 files from the older independent count challenge, including
+its terminal 17-site report and its earlier failed diagnostics. The governed
+[source recount](../../source-relations/landclim/author-preparation-audit/README.md)
+checks the same 17 author raw/prepared pairs directly from private source
+bytes. The 501,713 raw, 299,660 prepared and 202,053 difference counts do not
+identify the examples as the historical publication's 1,128 inputs.
+
 ## WHH05 author preparation process custody
 
 The [one-site R process custody](whh05-author-preparation-custody.json) accounts

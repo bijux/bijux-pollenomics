@@ -61,13 +61,18 @@
     },
     {
       "path": "docs/report/maintenance/artifact-retention/README.md",
-      "bytes": 23759,
-      "sha256": "ad4af84aeafac0e5c8dffa9c9a520e4b4a63c34b41de26c27c6408af98ce4860"
+      "bytes": 24314,
+      "sha256": "ecd5de3476a1a9756afb852a71f5a0d0a4f8ab22a07717b4a77ace090f75585b"
     },
     {
       "path": "docs/report/maintenance/artifact-retention/landclim-amsoldingersee-custody.json",
       "bytes": 15084,
       "sha256": "eab4595d161d0f8000ee02ec2dcf6eb2644d117a83015641b8fa8821e6f0280f"
+    },
+    {
+      "path": "docs/report/maintenance/artifact-retention/landclim-author-preparation-audit-custody.json",
+      "bytes": 8968,
+      "sha256": "3ef177f6734471330cd2b8331d1b9786847b38eb054c5cd56f6ff4354dd40976"
     },
     {
       "path": "docs/report/maintenance/artifact-retention/landclim-pft-audit-custody.json",
@@ -1245,6 +1250,21 @@
       "bytes": 4053
     },
     {
+      "path": "docs/report/source-relations/landclim/author-example-taxon-support/README.md",
+      "bytes": 6473,
+      "sha256": "0b3aa8aa5802bfc61d6865b5f33a3e94942166dad52ffb28096b99fc684fb8c2"
+    },
+    {
+      "path": "docs/report/source-relations/landclim/author-preparation-audit/README.md",
+      "bytes": 2376,
+      "sha256": "9600e23ceaf57a8cfc1b6c255040ac5cf06b2af725c190fe27311fc94bd0cca7"
+    },
+    {
+      "path": "docs/report/source-relations/landclim/author-preparation-audit/report.json",
+      "bytes": 8709,
+      "sha256": "8c64410caad71b541c6783cd4e07eda86d3a6ce4cef2edb600571f6dd4a29275"
+    },
+    {
       "path": "docs/report/source-relations/landclim/neotoma-chronology-witness/README.md",
       "sha256": "d5730290987eea335b8b044994726162de9da62c272687d171e3694f4a6546b4",
       "bytes": 3610
@@ -1375,6 +1395,11 @@
       "bytes": 7078
     },
     {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/author_preparation_audit.py",
+      "bytes": 10586,
+      "sha256": "503a19de59d04c8fd5e2db9e1af842b5881e8a7734cd11cc46c0a6fed06ca926"
+    },
+    {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/observed_pollen_baseline.py",
       "sha256": "ab52539c7a835e75a7f53202038d4ae860af40d5a3de860e7a0f95ad930285c5",
       "bytes": 17997
@@ -1478,6 +1503,11 @@
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/swedish_neotoma_holdout.py",
       "bytes": 13208,
       "sha256": "25cdbebb05f9883fe7d980d21519af7b3ebf38f137f167f556607e6579ad67b7"
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/tests/essd_reproduction/test_author_preparation_audit.py",
+      "bytes": 1876,
+      "sha256": "21056da4493799f72245b6f34d6c1f2ce1f3356a7c20cac52c620976dda74ae1"
     },
     {
       "path": "packages/bijux-pollenomics-dev/tests/essd_reproduction/test_pft_uncertainty_bounds.py",
