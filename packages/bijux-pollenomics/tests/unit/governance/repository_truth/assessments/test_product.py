@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from pathlib import Path
+
 from bijux_pollenomics.governance import (
     build_repository_brutal_honesty_review,
     build_repository_credibility_dashboard,
@@ -16,6 +18,23 @@ from bijux_pollenomics.governance import (
 )
 
 from .support import RepositoryTruthTestCase
+from tests.support.repository import REPOSITORY_ROOT
+
+
+def test_extension_review_uses_release_criteria_before_report_file_exists(
+    tmp_path: Path,
+) -> None:
+    payload = build_repository_extension_review(
+        data_root=REPOSITORY_ROOT / "data",
+        docs_root=REPOSITORY_ROOT / "docs",
+        report_root=tmp_path,
+    )
+    scientific_row = next(
+        row
+        for row in payload["rows"]
+        if row["dimension_key"] == "scientific_misread_resistance"
+    )
+    assert scientific_row["score"] == 4
 
 
 class RepositoryProductPostureTests(RepositoryTruthTestCase):

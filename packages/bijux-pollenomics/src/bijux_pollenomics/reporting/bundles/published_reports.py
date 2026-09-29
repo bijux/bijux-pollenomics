@@ -165,11 +165,19 @@ def publish_published_reports_tree(
     )
     write_summary_json_fn(
         staging_output_root / "animal_output_audit.json",
-        animal_output_audit,
+        dict(animal_output_audit),
     )
     (staging_output_root / "animal_output_audit.md").write_text(
         render_public_animal_output_audit_markdown(animal_output_audit),
         encoding="utf-8",
+    )
+    _write_geography_packets(
+        staging_output_root,
+        plan=plan,
+        scope_reports=scope_reports,
+        country_reports=country_reports_by_scope_key,
+        build_atlas_bundle_paths_fn=build_atlas_bundle_paths_fn,
+        write_summary_json_fn=write_summary_json_fn,
     )
     repository_truth_artifacts = publish_repository_truth_outputs(
         staging_output_root,
@@ -184,14 +192,6 @@ def publish_published_reports_tree(
     )
     if enforce_release_gates and not bool(release_gate_payload.get("overall_ok")):
         raise ValueError("Animal publication release gate failed")
-    _write_geography_packets(
-        staging_output_root,
-        plan=plan,
-        scope_reports=scope_reports,
-        country_reports=country_reports_by_scope_key,
-        build_atlas_bundle_paths_fn=build_atlas_bundle_paths_fn,
-        write_summary_json_fn=write_summary_json_fn,
-    )
     generated_report = PublishedReportsReport(
         version=map_report.version,
         generated_on=map_report.generated_on,
@@ -256,7 +256,7 @@ def _write_geography_packets(
     build_atlas_bundle_paths_fn: Callable[..., AtlasBundlePaths],
     write_summary_json_fn: Callable[[Path, dict[str, object]], None],
 ) -> None:
-    registry_payload = {
+    registry_payload: dict[str, object] = {
         "schema_version": "publication-geography-registry.v1",
         "scopes": [
             {
@@ -295,7 +295,7 @@ def _write_geography_packets(
                 build_atlas_bundle_paths_fn=build_atlas_bundle_paths_fn,
             )
         )
-    subset_payload = {
+    subset_payload: dict[str, object] = {
         "schema_version": "publication-geography-subset-validation.v1",
         "rows": subset_rows,
     }
