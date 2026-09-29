@@ -233,6 +233,14 @@ Their manifests bind original final outputs and current source inputs. The
 early runs are superseded by those checked results; no live consumer or open
 file depends on this working directory.
 
+The [publication study-input retirement receipt](landclim-study-input-retirement.json)
+binds the five-file metadata/refusal working product byte for byte to its
+[governed 1,128-row inventory](../../publication-replay/landclim-study-inputs/README.md).
+The current producer rebuilt all five files from the pinned raw workbook and
+acquisition receipt; no open file or current consumer uses the earlier artifact
+directory. The 4,512 requirement refusals still leave zero historical
+primary-input closures and zero reproduction-ready full-study records.
+
 The [earlier scientific report provenance](scientific-report-provenance/README.md)
 retains exact results, scope, and evidence-manifest bytes from the previous
 11-result study. The current report has 17 result rows and a passing 170-file
