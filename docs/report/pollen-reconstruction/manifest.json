@@ -6,8 +6,8 @@
   "files": [
     {
       "path": "docs/public/pollenomics-data/sources/empd2-nfi-review.md",
-      "sha256": "72db73197a11604a1da418d927fd7b519837b822bec5f38dcf3f7d2cb826988f",
-      "bytes": 4356
+      "sha256": "3bc09525c19ea91f7d817fea495d41d47e3dc079276e239005653b8975069e64",
+      "bytes": 4853
     },
     {
       "path": "docs/public/pollenomics-data/sources/hyde.md",
@@ -1453,6 +1453,21 @@
       "path": "docs/report/source-relations/rootsi-landclim-overlap/report.json",
       "sha256": "c948f235313ddf7b99a3a941cf8167caabe18cbb22580671ae696a7d0aaee264",
       "bytes": 4264
+    },
+    {
+      "path": "docs/report/vegetation-reference/farskesjon/README.md",
+      "sha256": "fe7e5becb761b75a9b63523b064d84657a3785983ff5e41160b6c9c169b01e49",
+      "bytes": 2705
+    },
+    {
+      "path": "docs/report/vegetation-reference/farskesjon/plot_support.py",
+      "sha256": "b31a34f782c7664626c54be2170cc38ed2478d7a7645a9ff1f8729ab6df4b8e3",
+      "bytes": 9690
+    },
+    {
+      "path": "docs/report/vegetation-reference/farskesjon/report.json",
+      "sha256": "c2a21045859c27672a310fc1faf6b6651ee8320320c56764ccecc5639540b855",
+      "bytes": 1635
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/author_example_correspondence.py",
