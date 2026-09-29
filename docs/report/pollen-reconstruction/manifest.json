@@ -116,8 +116,8 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/README.md",
-      "sha256": "d3b0a0df42029300338e58c06f1f9f8319f8d59f140635b4849ad037ead2061e",
-      "bytes": 40212
+      "sha256": "01b545036707c2953076ef1529185b91d50d790f4703bd48c9e8eddefed9e1b7",
+      "bytes": 40287
     },
     {
       "path": "docs/report/pollen-reconstruction/author-buffered-pollen/README.md",
@@ -1281,13 +1281,13 @@
     },
     {
       "path": "docs/report/source-relations/landclim/author-preparation-audit/README.md",
-      "bytes": 2376,
-      "sha256": "9600e23ceaf57a8cfc1b6c255040ac5cf06b2af725c190fe27311fc94bd0cca7"
+      "bytes": 2657,
+      "sha256": "3b7c5682a012105502d447c62b2f7a46c6ac4f1306c21bc1f2bb7d8d19487f3b"
     },
     {
       "path": "docs/report/source-relations/landclim/author-preparation-audit/report.json",
-      "bytes": 8709,
-      "sha256": "8c64410caad71b541c6783cd4e07eda86d3a6ce4cef2edb600571f6dd4a29275"
+      "bytes": 12271,
+      "sha256": "d9c90e8047d6b087ed41be458d5be0315b66e4aa283976e7b040f8f1e5c8f67a"
     },
     {
       "path": "docs/report/source-relations/landclim/neotoma-chronology-witness/README.md",
@@ -1421,8 +1421,8 @@
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/author_preparation_audit.py",
-      "bytes": 10586,
-      "sha256": "503a19de59d04c8fd5e2db9e1af842b5881e8a7734cd11cc46c0a6fed06ca926"
+      "bytes": 11714,
+      "sha256": "e387cf8f77a9d8853aba1068b432dcdff83e225d017167cb7ddd587b009955be"
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/observed_pollen_baseline.py",
@@ -1536,8 +1536,8 @@
     },
     {
       "path": "packages/bijux-pollenomics-dev/tests/essd_reproduction/test_author_preparation_audit.py",
-      "bytes": 1876,
-      "sha256": "21056da4493799f72245b6f34d6c1f2ce1f3356a7c20cac52c620976dda74ae1"
+      "bytes": 2408,
+      "sha256": "683922568bcb335114f10b2b91e6c6c8c967ff1d72c3712d74b0e4ecde472ed0"
     },
     {
       "path": "packages/bijux-pollenomics-dev/tests/essd_reproduction/test_pft_uncertainty_bounds.py",

@@ -42,6 +42,19 @@ def test_private_author_sources_recount_seventeen_sites(tmp_path: Path) -> None:
         "prepared_count": 299660,
         "raw_minus_prepared": 202053,
     }
+    assert report["category_totals"] == {
+        "raw": 501713,
+        "retained": 299660,
+        "excluded_zz": 200247,
+        "excluded_not_ppe": 0,
+        "unmapped": 418,
+        "outside_window": 1388,
+    }
+    sites = {row["site"]: row for row in report["sites"]}
+    assert len(sites) == 17
+    assert sites["LOBBSBOG"]["source_categories"]["excluded_zz"] == 6511
+    assert sites["LOBBSBOG"]["source_categories"]["retained"] == 21913
+    assert sites["WHH05"]["source_categories"] == report["whh05_source_categories"]
     assert (output / "report.json").read_bytes() == GOVERNED.read_bytes()
 
 

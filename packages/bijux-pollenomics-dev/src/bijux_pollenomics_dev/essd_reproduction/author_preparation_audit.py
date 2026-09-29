@@ -67,17 +67,18 @@ def _prepared_total(path: Path) -> int:
     )
 
 
-def _whh05_categories(author: Path) -> dict[str, int]:
+def _site_categories(author: Path, site: str) -> dict[str, int]:
+    """Follow the author's first exact lookup match and right-trimmed R headers."""
     with (author / "LANDCLIM.ALLEUROPE.taxa.LUT.080219.csv").open(
         newline="", encoding="latin-1"
     ) as stream:
         lookup = list(csv.DictReader(stream))
     first_match: dict[str, str] = {}
     for row in lookup:
-        first_match.setdefault(row["oldvar"].strip(), row["RPP.LANDCLIMII"])
+        first_match.setdefault(row["oldvar"], row["RPP.LANDCLIMII"])
     ppe = {row[0] for row in _rows(author / "run.all.taxa.100219.csv")}
     bins = [Decimal(row[0]) for row in _rows(author / "bins.csv")]
-    raw = _rows(author / "input/WHH05.csv")
+    raw = _rows(author / "input" / f"{site}.csv")
     header = raw[0]
     age_index = next(
         index for index, name in enumerate(header) if name.lower() == "age.cal.bp"
@@ -94,15 +95,19 @@ def _whh05_categories(author: Path) -> dict[str, int]:
         Decimal(0),
     )
     for record in raw[1:]:
+        if not any(cell.strip() for cell in record):
+            continue
+        if len(record) != len(header) or not record[age_index].strip():
+            raise ValueError(f"Incomplete author raw record: {site}")
         window = bisect_right(bins, Decimal(record[age_index])) - 1
         for index, native in enumerate(header):
             if index == age_index or native.strip().lower() in {"depth", "sum"}:
                 continue
-            if not record[index].strip():
+            if not record[index].strip() or record[index].strip().upper() == "NA":
                 continue
             amount = Decimal(record[index])
             counts["raw"] += amount
-            target = first_match.get(native.strip())
+            target = first_match.get(native.rstrip())
             if not 0 <= window < 25:
                 counts["outside_window"] += amount
             elif target == "zz.do not use":
@@ -175,12 +180,14 @@ def build(
         raise ValueError("Historical audit site set changed")
 
     sites = []
+    category_totals: dict[str, int] = {}
     for row in metadata:
         name = row["filename"]
         raw_path = source_path(f"author/input/{name}.csv")
         prepared_path = source_path(f"author/run.REVEALS.files/LRAready_{name}.csv")
         raw, nonblank = _raw_total(raw_path)
         prepared = _prepared_total(prepared_path)
+        categories = _site_categories(author, name)
         historical_site = historical_by_site[name]
         if (
             Decimal(historical_site["raw_total"]) != raw
@@ -189,8 +196,18 @@ def build(
             or historical_site["prepared_sha256"] != _sha(prepared_path)
             or historical_site["grid"] != row["LCGRID_ID"]
             or historical_site["raw_nonblank_rows"] != nonblank
+            or categories["raw"] != raw
+            or categories["retained"] != prepared
+            or sum(
+                value
+                for key, value in categories.items()
+                if key not in {"raw", "retained"}
+            )
+            != raw - prepared
         ):
             raise ValueError(f"Author preparation audit disagrees with source: {name}")
+        for key, value in categories.items():
+            category_totals[key] = category_totals.get(key, 0) + value
         sites.append(
             {
                 "site": name,
@@ -201,10 +218,11 @@ def build(
                 "raw_nonblank_rows": nonblank,
                 "source_raw_sha256": _sha(raw_path),
                 "source_prepared_sha256": _sha(prepared_path),
+                "source_categories": categories,
                 "historical_partition_status": historical_site["partition_status"],
             }
         )
-    whh05 = _whh05_categories(author)
+    whh05 = next(site["source_categories"] for site in sites if site["site"] == "WHH05")
     if {key: str(value) for key, value in whh05.items()} != historical[
         "whh05_categories"
     ]:
@@ -228,18 +246,21 @@ def build(
         or Decimal(historical["prepared_total"]) != totals["prepared_count"]
         or Decimal(historical["audited_excluded_total_17_sites"])
         != totals["raw_minus_prepared"]
+        or category_totals["raw"] != totals["raw_count"]
+        or category_totals["retained"] != totals["prepared_count"]
     ):
         raise ValueError("Author source count mass changed")
     report = {
-        "schema_version": "landclim-author-preparation-audit.v1",
+        "schema_version": "landclim-author-preparation-audit.v2",
         "scope": "17 authenticated author examples, not 1128 historical study inputs",
         "totals": totals,
         "sites": sites,
+        "category_totals": category_totals,
         "whh05_source_categories": whh05,
         "historical_exclusion_evidence": (
-            "16 site-category partitions checked against original producer receipts; "
-            "fresh replay independently sums source raw and prepared counts and "
-            "recomputes WHH05 lookup categories"
+            "Fresh source replay classifies all 17 site count partitions by exact "
+            "author lookup, PPE membership and time-window support; historical "
+            "producer receipts independently support raw/prepared totals"
         ),
         "input_sha256": {
             "author_snapshot_manifest": _sha(
