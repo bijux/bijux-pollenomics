@@ -61,8 +61,8 @@
     },
     {
       "path": "docs/report/maintenance/artifact-retention/README.md",
-      "sha256": "9a6dce7e94e3856a8bcaf61eda03b58f3435515e0764f01f826c3c9bebbef798",
-      "bytes": 27430
+      "sha256": "6ed302e8a61ad42fc14e0a6925a76b677090e0d1c0c15fb8da42cac8ffcd3c48",
+      "bytes": 28162
     },
     {
       "path": "docs/report/maintenance/artifact-retention/landclim-amsoldingersee-custody.json",
@@ -466,8 +466,13 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/author-lra-optimized-feasibility/README.md",
-      "sha256": "8b44ae8c2119e5e1e27ef608fc23460e83f6afb749061b007dad466a55246b7d",
-      "bytes": 3004
+      "sha256": "92c53d10e4fc95a84d6dc2cd2b686598c5b3b2d0e1e5f7b9a999396a3aab1537",
+      "bytes": 3228
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/author-lra-optimized-feasibility/custody.json",
+      "sha256": "08ae43aac0cc18675aa6773da0a84abc41b373d34d8f387bf6130d7ae3f97e5e",
+      "bytes": 2442
     },
     {
       "path": "docs/report/pollen-reconstruction/author-lra-optimized-feasibility/prepare.py",

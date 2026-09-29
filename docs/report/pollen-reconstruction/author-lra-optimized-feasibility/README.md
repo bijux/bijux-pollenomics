@@ -33,7 +33,10 @@ depending on an `artifacts/` cache. Its output request SHA-256 values must match
 the report. The source-backed preparation was replayed successfully. Numerical
 execution was performed at product commit `83e3b4119` with one thread and the
 wall limits in the report; the host surfaced `optimizer_nonconvergence` in both
-attempts. The preparation command is:
+attempts. The [process custody receipt](custody.json) binds the two original
+design declarations and refusal logs to exact bytes in the private source store;
+all 20 selected request/evidence files matched a fresh source-based replay.
+The preparation command is:
 
 ```sh
 job=artifacts/jobs/author-lra-optimized-source-replay

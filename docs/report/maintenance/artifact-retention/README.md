@@ -427,3 +427,15 @@ manifest does not authenticate a new scientific transformation. The source
 workbooks, unqualified rights and refused LRA use are unaffected. Both
 interrupted directories were retired after file, handle and bounded consumer
 checks.
+
+## Optimized author LOVE process custody
+
+The [author optimized LOVE receipt](../../pollen-reconstruction/author-lra-optimized-feasibility/custody.json)
+records both bounded request designs, the original preparation script and the
+two numerical refusal logs in private source custody. The governed
+[negative result](../../pollen-reconstruction/author-lra-optimized-feasibility/README.md)
+rebuilds the exact 30-taxon requests from the retained author capsule; all
+20 request/evidence files across the two budgets matched that replay byte for
+byte. The 25-file pilot and 57-file replay process prefixes contained no
+published LRA product or live consumer. They were retired after the exact
+file, private-copy and open-handle checks.
