@@ -1,14 +1,14 @@
-# Source cohorts and admissible comparisons
+# How we selected source cohorts and comparisons
 
-The [Denmark/Finland/Norway](denmark-finland-norway-author-pollen.md) and
-[Swedish](sweden-author-pollen.md) 31-target observed-pollen studies use
-selected Neotoma/EPD counts and the authors' exact taxonomy lookup.
-Country exclusion is applied to the training input before prediction. This
-supports a bounded test of pollen composition transfer, with one Danish site,
-28 Finnish sites, 52 Norwegian sites and three Swedish sites. The study retains
-all native count mass, assignments, excluded names, refused site-bins and
-frozen prediction identities. Its 31-target closed denominator differs from
-the earlier 16-label result. Neither result admits these samples to LRA.
+We selected Neotoma/EPD counts and the authors' exact taxonomy lookup for the
+[Denmark/Finland/Norway](denmark-finland-norway-author-pollen.md) and
+[Swedish](sweden-author-pollen.md) 31-target observed-pollen studies. We
+excluded each target country from training before prediction. This tests
+pollen composition transfer on one Danish, 28 Finnish, 52 Norwegian and
+three Swedish physical sites. We retained native count mass, assignments,
+excluded names, refused site-bins and frozen prediction identities. We keep
+the 31-target closed denominator separate from the earlier 16-label result.
+Neither study admits its samples to LRA.
 
 | Country | Physical sites | Selected samples | Assigned/native pollen NISP | Scored/attempted 500 BP bins | Source account |
 | --- | ---: | ---: | ---: | ---: | --- |
@@ -17,31 +17,34 @@ the earlier 16-label result. Neither result admits these samples to LRA.
 | Norway | 52 | 3,544 | 2,018,295/2,286,020 | 1,084/1,178 | [Country study](denmark-finland-norway-author-pollen.md) |
 | Sweden | 3 | 228 | 221,800/240,966 | 51/54 | [Swedish study](sweden-author-pollen.md), [ABB method](../../docs/report/source-relations/neotoma/abbo-published-method/README.md) |
 
-The country study's [input manifest](../../docs/report/regions/nordic/author-target-pollen/input-manifest.json),
+We retained the country study's [input manifest](../../docs/report/regions/nordic/author-target-pollen/input-manifest.json),
 [coverage ledger](../../docs/report/regions/nordic/author-target-pollen/coverage.csv)
 and [score table](../../docs/report/regions/nordic/author-target-pollen/scores.csv)
-give the exact prediction and denominator trail. Ninety-four Norwegian bins
-and three Swedish bins lack eligible training support; they are refusals, not
-zero-valued predictions. Denmark's single site cannot estimate within-country
-between-site variation. Prior exposure to Nordic outcomes makes all four
-country results development evidence.
+as the exact prediction and denominator trail. We refused 94 Norwegian bins
+and three Swedish bins that lacked eligible training support; we did not
+record them as zero-valued predictions. Denmark's single site cannot estimate
+within-country between-site variation. We treat all four country results as
+development evidence because the Nordic outcomes were previously exposed.
 
 ## LRA source gate
 
-Real LRA needs a physical core and selected chronology, time-matched basin
-geometry, eligible count/taxon denominator, fall speeds and PPE use that the
-source permits. The [ABB source correspondence](../../docs/report/source-relations/neotoma/abbo-native-correspondence/README.md)
-matches many depth/count cells, while the [published-method review](../../docs/report/source-relations/neotoma/abbo-published-method/README.md)
+We require one identified physical core with selected chronology,
+time-matched basin geometry, an eligible count and taxon denominator, fall
+speeds and permitted PPE use before LRA admission. Our
+[ABB source correspondence](../../docs/report/source-relations/neotoma/abbo-native-correspondence/README.md)
+matches many depth and count cells, but the
+[published-method review](../../docs/report/source-relations/neotoma/abbo-published-method/README.md)
 still cannot bind the LandClim-selected age model and historical basin series.
-Solsø likewise has a source-lineage question despite a reported site area and
-matched age controls. These gaps are recorded in [research needs](../needed/README.md),
-not replaced by generic study-wide assumptions.
+For Solsø, we also lack complete source lineage despite a reported area and
+matched age controls. We recorded these exact gaps in
+[research needs](../needed/README.md); we have not substituted study-wide
+assumptions for a named core's missing evidence.
 
 ## Context and validation sources
 
-The [HYDE country cropland report](hyde-cropland-source-account.md)
-checks modeled-source quantities and native grid reconciliation at seven CE
-labels. It supplies context, not a vegetation observation or a measured pollen
-model benefit. The [independent vegetation screen](../../docs/report/validation/empd2-nfi-pairing/README.md)
-retains zero admitted source-measurement pairs. Any vegetation accuracy claim
-must wait for matched measured targets and their sampling design.
+We checked modeled HYDE quantities and native grid reconciliation at seven
+CE labels in the [country cropland report](hyde-cropland-source-account.md).
+We use that result as modeled context, not as observed vegetation or measured
+pollen-model benefit. Our [independent vegetation screen](../../docs/report/validation/empd2-nfi-pairing/README.md)
+admits zero source-measurement pairs. We will score vegetation accuracy only
+after matching measured targets and their sampling design.

@@ -1,64 +1,119 @@
-# Paper correspondence interpretation
+# Our paper and archive correspondence decision
+
+We asked whether the installed publication calculation, the released author
+example and the archived paper product represent the same numerical result.
+We compared the exact common window before interpreting any difference. We
+found strong Python/R calculation correspondence on the retained example and
+a real difference from the archived product. We keep source revision, PFT
+meaning and historical input membership open below.
 
 ## Numerical result
 
-The installed Python publication profile agrees with the independent author-R replay on 14,074 supported mean and standard-error values across the retained author examples. Maximum residuals are about 1.84e-13 for means and 7.16e-14 for standard errors in fractional units, inside the predeclared comparison tolerances. The implementation itself therefore does not explain the larger archive differences on the directly matched TW2 window.
+We compared the installed Python publication profile with the independent
+author-R replay on 14,074 supported mean and standard-error values across the
+retained examples. Maximum residuals are about 1.84e-13 for means and
+7.16e-14 for standard errors in fractional units, inside our predeclared
+tolerances. The installed calculation therefore does not explain the larger
+archive differences on the directly matched TW2 window.
 
-For exact 100–350 BP support, the archived PANGAEA 937075 means differ from the author-R replay by maximum 9.19787 percentage points in grid 512 and 10.5527 in grid 562. Standard-error gaps are 3.21615 and 4.25814 points. The largest mean discrepancies are Cyperaceae and Calluna vulgaris. Each vector sums to 100 percent, and Python-to-R residuals are near 1e-11 points or smaller. These are product differences, not vegetation accuracy estimates. The archive and 2016 author example have not been shown to use identical historical source records.
+On exact 100–350 BP support, we found maximum archived PANGAEA 937075
+mean differences from author-R of 9.19787 percentage points in grid 512
+and 10.5527 in grid 562. Standard-error gaps are 3.21615 and 4.25814
+points. The largest mean discrepancies are Cyperaceae and Calluna vulgaris.
+Each vector sums to 100 percent; Python-to-R residuals are near 1e-11
+points or smaller. We report product differences, not vegetation accuracy.
+We have not established that the archive and 2016 author example used the
+same historical source records.
 
-The time-window axis has only one exact interval match out of 25: TW2, 100–350 BP. Most later author windows begin and end 50 years later than the corresponding PANGAEA windows; TW1 starts at -65 BP in the author axis and 0 BP in the published label. The direct numerical archive comparison therefore stays on TW2. No retrospective shift was applied to make the other rows appear comparable.
+We found one exact interval match among 25 time windows: TW2, 100–350 BP.
+Most later author windows begin and end 50 years later than the corresponding
+PANGAEA windows; TW1 starts at -65 BP in the author axis and 0 BP in the
+published label. We restricted direct numerical archive comparison to TW2
+and did not shift the other rows retrospectively to make them appear matched.
 
-All 31 taxon mean ± one-SE envelopes overlap in each grid. That is a descriptive comparison of two reported uncertainty scales; dependence between versions and raw-input identity are unknown, so the overlap is not a significance test.
+We found overlap between all 31 taxon mean ± one-SE envelopes in each grid.
+We use that only to describe two reported uncertainty scales. Dependence
+between versions and raw-input identity are unknown, so we do not call the
+overlap a significance test.
 
 ## Historical reproduction boundary
 
-The [released author raw-to-prepared replay](../../docs/report/source-relations/landclim/author-example-taxon-support/README.md)
-reproduces all 17 example `LRAready` files byte-for-byte from their pinned
-raw site files and formatter lookups: 871 raw sample rows and 15,028 matching
-prepared cells. This closes the formatting lineage of the retained two-grid
-example, including the five `WHH05` headers trimmed by R `read.csv`. It does
-not authenticate the historical Nordic archive input revisions or turn
-formatter-filled zeros into observed taxon absences.
+We reproduced all 17 example `LRAready` files byte for byte from pinned
+raw site files and formatter lookups in the
+[released author raw-to-prepared replay](../../docs/report/source-relations/landclim/author-example-taxon-support/README.md):
+871 raw sample rows and 15,028 matching prepared cells. We thereby closed
+the formatting lineage of the retained two-grid example, including five
+`WHH05` headers trimmed by R `read.csv`. We did not authenticate historical
+Nordic archive input revisions or turn formatter-filled zeros into observed
+taxon absences.
 
-The retained Rootsi candidate closure has 79 unique publication-metadata candidates among 1,128 publication records, but zero authenticated historical primary-input records and zero reproduction-ready rows. I replayed the exact retained bytes for all 79 typed workbook candidates. The replay records 7,459 header positions, 5,170 mechanical data rows and the original sample-count claims; 78 claims agree with row counts, while EKE claims 25 and has 42 mechanical data rows. This verifies the structure of the retained candidate files. It does not verify their membership in a native LandClim archive or authenticate them as the published study inputs. No workbook output is cleared for public release, and scientific acceptance was not evaluated.
+We retained 79 unique Rootsi publication-metadata candidates among 1,128
+publication records, but authenticated zero historical primary-input records
+and zero reproduction-ready rows. We replayed the exact retained bytes for
+all 79 typed workbook candidates. The replay records 7,459 header positions,
+5,170 mechanical data rows and the original sample-count claims; 78 claims
+agree with row counts, while EKE claims 25 and has 42 mechanical data rows.
+We verified the retained candidate file structures, not their membership in
+a native LandClim archive or their role as published study inputs. We have
+not cleared workbook output for public release or evaluated scientific
+acceptance.
 
-The paper's 12-PFT statement, PANGAEA's 11-PFT description and 13 archived PFT positions remain unreconciled. The two public prose pages are retained by exact 2026-09-21 [capture custody](../../docs/report/maintenance/artifact-retention/landclim-provider-description-custody.json). The [publisher's machine-readable Table 1](../../docs/report/publication-replay/landclim-pft-crosswalk/publisher-table-review.md) independently lists nine paper TBS taxa and no `ISTS` code. A separate [source-bound taxon arithmetic replay](../../docs/report/publication-replay/landclim-pft-crosswalk/README.md) shows that archived `ISTS` means equal the sum of three published taxon means (`Corylus.avellana`, `Fraxinus` and `Quercus.deciduous`) in all 10,500 grid/window rows. Archived `TBS` means equal the other six taxa listed under TBS in the parameter table. The maximum absolute split residual is about `1.02e-13` percentage points. The [private author-name review](../../docs/report/publication-replay/landclim-pft-crosswalk/author-name-review/report.json) supports seven of nine parameter-to-output names by exact author-crosswalk source names and an eighth, `Castanea sativa`, through the custody-bound author LUT's `Castanea` mapping. `Quercus deciduous t.` has no exact source-name row in either author file. This establishes version-specific mean arithmetic and bounded name evidence, not the biological definition of `ISTS`, an authenticated archived-release taxon transformation, an SE aggregation rule, or the historical paper's PFT count. Historical chronology choices, per-sequence rights, source revisions, basin/profile semantics and full-paper raw-input closure also remain open.
+We have not reconciled the paper's 12-PFT statement, PANGAEA's 11-PFT
+description and 13 archived PFT positions. We retained the two public prose
+pages under exact 2026-09-21 [capture custody](../../docs/report/maintenance/artifact-retention/landclim-provider-description-custody.json).
+The [publisher's machine-readable Table 1](../../docs/report/publication-replay/landclim-pft-crosswalk/publisher-table-review.md)
+lists nine paper TBS taxa and no `ISTS` code. In a separate
+[source-bound taxon arithmetic replay](../../docs/report/publication-replay/landclim-pft-crosswalk/README.md),
+we found that archived `ISTS` means equal the sum of three published taxon
+means (`Corylus.avellana`, `Fraxinus` and `Quercus.deciduous`) in all 10,500
+grid/window rows. Archived `TBS` means equal the other six taxa listed under
+TBS in the parameter table. The maximum absolute split residual is about
+`1.02e-13` percentage points. Our [private author-name review](../../docs/report/publication-replay/landclim-pft-crosswalk/author-name-review/report.json)
+supports seven of nine parameter-to-output names by exact author-crosswalk
+source names and an eighth, `Castanea sativa`, through the custody-bound
+author LUT's `Castanea` mapping. `Quercus deciduous t.` has no exact
+source-name row in either author file. We therefore claim version-specific
+mean arithmetic and bounded name evidence. We do not claim a biological
+definition of `ISTS`, an authenticated archived-release taxon
+transformation, an SE aggregation rule or the historical paper's PFT count.
+Historical chronology, per-sequence rights, source revisions, basin/profile
+semantics and full-paper raw-input closure remain open.
 
-The [archived uncertainty-bound replay](../../docs/report/publication-replay/landclim-pft-crosswalk/uncertainty-bounds/report.json)
-checks all 10,500 grid/window rows for each observed ET, ST, OL, ISTS and
-TBS mean-addend group. Every aggregate SE lies between the lower and upper
-standard-deviation bounds implied by its component SEs. There are 7,588 ET,
+We checked all 10,500 grid/window rows for each observed ET, ST, OL, ISTS
+and TBS mean-addend group in our
+[archived uncertainty-bound replay](../../docs/report/publication-replay/landclim-pft-crosswalk/uncertainty-bounds/report.json).
+Every aggregate SE lies between the lower and upper standard-deviation
+bounds implied by its component SEs. There are 7,588 ET,
 7,892 ST, 5,921 OL, 7,013 ISTS and 5,859 TBS rows with a nondegenerate
 bound and a value strictly inside it. These necessary inequalities are
-compatible with some covariance; they do not identify the archived covariance
+compatible with some covariance; we did not identify the archived covariance
 or replay the paper's delta-method uncertainty.
 
-The [paper's Sect. 3.2](https://essd.copernicus.org/articles/14/1581/2022/)
-assigns deciduous Quercus type to TBS, whereas the archive's
-`Quercus.deciduous` mean is an `ISTS` addend. This is a documented
-paper-versus-archive classification difference, not a reason to silently
-relabel the output. The same paper describes delta-method SE aggregation;
-the observed mean sum cannot be applied to archived SE columns.
+We recorded that [the paper's Sect. 3.2](https://essd.copernicus.org/articles/14/1581/2022/)
+assigns deciduous Quercus type to TBS while the archive's
+`Quercus.deciduous` mean contributes to `ISTS`. We keep this
+paper-versus-archive classification difference visible and do not relabel
+the output. The paper describes delta-method SE aggregation; we do not
+apply the observed mean sum to archived SE columns.
 
-The [public author script lineage](../../docs/report/publication-replay/landclim-pft-crosswalk/author-release-lineage.md)
-narrows this source gap. Its 31 taxon header names match the corresponding
-archived mean header positions exactly, but the released scripts do not
-produce the archive's 13 PFT and three LCT columns. An authenticated
-archive-producing PFT/LCT transformation is still needed to interpret `ISTS`,
-the Quercus assignment and aggregated uncertainty.
+We narrowed this source gap with the
+[public author script lineage](../../docs/report/publication-replay/landclim-pft-crosswalk/author-release-lineage.md).
+Its 31 taxon header names match the corresponding archived mean header
+positions exactly, but the released scripts do not produce the archive's
+13 PFT and three LCT columns. We still need an authenticated
+archive-producing PFT/LCT transformation to interpret `ISTS`, the Quercus
+assignment and aggregated uncertainty.
 
-The next causal resolution needs the source owner to identify the historical
-raw sequence revisions and selected chronologies for a fully specified
-published row, then confirm taxon/count and PFT/ISTS transformations. The
-separate `swedish-source-questions.csv` records questions about matched
-Swedish cores and basins.
+We need the source owner to identify historical raw sequence revisions and
+selected chronologies for one fully specified published row, then confirm
+taxon/count and PFT/ISTS transformations. We recorded questions about
+matched Swedish cores and basins separately in `swedish-source-questions.csv`.
 
 ## Unsent publication source questions
 
-These questions concern PANGAEA 937075's June 2021 results and the author
-examples at `rmfyfe/landclimII` revision
-`57ead2e2fcc493d099be4e5a3092fc396e1c3d3a`. They are a local draft;
-no message was sent.
+We prepared the following local questions about PANGAEA 937075's June 2021
+results and the author examples at `rmfyfe/landclimII` revision
+`57ead2e2fcc493d099be4e5a3092fc396e1c3d3a`. We have not sent them.
 
 1. Which source sequence revisions, selected sample ages and chronology
    decisions produced grid 512's published TW2 (100–350 BP) vector? The
@@ -85,24 +140,23 @@ no message was sent.
    answer must bind chronology, taxon/count denominator, basin geometry and
    parameter-profile records for that row.
 
-The Python profile matches the independent author-R replay within the
-declared numerical tolerances. These questions target source identity,
-chronology and publication transformation rather than an observed Python/R
-calculation failure.
+We matched the Python profile to the independent author-R replay within
+the declared numerical tolerances. Our questions target source identity,
+chronology and publication transformation, because we did not observe a
+Python/R calculation failure on these source cases.
 
 ## HYDE modeled context
 
-The [HYDE country result](hyde-cropland-source-account.md)
-now retains 84 source-reported cropland quantities for Denmark, Finland,
-Norway and Sweden across seven native CE labels and three scenarios. Its
+We retained 84 source-reported cropland quantities for Denmark, Finland,
+Norway and Sweden across seven native CE labels and three scenarios in our
+[HYDE country result](hyde-cropland-source-account.md). Our
 [native grid check](../../docs/report/regions/nordic/hyde-country-cropland/grid-conservation/README.md)
 reproduces all 84 country/year/scenario totals at seven selected CE labels
-from the release's ISO and cropland ASCII grids with a maximum absolute
-difference of about `8.50e-11` km², below the declared `1e-6` km² tolerance.
-This establishes a bounded internal modeled-source correspondence. No
-HYDE-assisted pollen model or independent vegetation validation has been
-scored; release rights, formal
-CRS and historical time support still require resolution.
+from the release's ISO and cropland ASCII grids. The maximum absolute
+difference is about `8.50e-11` km², below our declared `1e-6` km² tolerance.
+We claim bounded internal modeled-source correspondence. We have not scored
+a HYDE-assisted pollen model or independent vegetation validation. Release
+rights, formal CRS and historical time support still need resolution.
 
 ## Repository evidence
 
