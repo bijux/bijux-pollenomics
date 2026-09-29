@@ -13,9 +13,9 @@ from bijux_pollenomics.analysis.lra_validation import (
     grouped_leave_one_out,
 )
 from bijux_pollenomics.analysis.lra_validation.experiments.configuration import (
+    SOURCE_PROFILE,
     ExperimentSpec,
     InputReference,
-    SOURCE_PROFILE,
     SourceExperimentSpec,
     object_list,
     object_mapping,

@@ -11,7 +11,6 @@ import pytest
 from bijux_pollenomics.reporting.geography import build_published_geography_plan
 from bijux_pollenomics.reporting.map_document import render_multi_country_map_html
 from bijux_pollenomics.reporting.map_document.payload import serialize_json_for_script
-from bijux_pollenomics.reporting.map_document.template import MAP_DOCUMENT_TEMPLATE
 from bijux_pollenomics.reporting.map_document.static_assets import (
     ATLAS_DOCUMENT_MAX_BYTES,
     write_static_atlas_assets,
@@ -19,6 +18,7 @@ from bijux_pollenomics.reporting.map_document.static_assets import (
 from bijux_pollenomics.reporting.map_document.static_assets.asset_inventory import (
     normalize_asset_inventory,
 )
+from bijux_pollenomics.reporting.map_document.template import MAP_DOCUMENT_TEMPLATE
 from bijux_pollenomics.reporting.map_publication import resolve_map_scope_policy
 
 from .fixtures.layers import build_point_layers, build_polygon_layers

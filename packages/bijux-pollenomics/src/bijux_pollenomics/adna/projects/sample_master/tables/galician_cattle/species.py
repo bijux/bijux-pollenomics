@@ -105,11 +105,11 @@ def build_galician_sample_species_review(
     repository: Path,
 ) -> tuple[dict[str, Any], list[dict[str, object]]]:
     """Bind public sample-master ownership to pinned ENA and paper alias evidence."""
-    from bijux_pollenomics.adna.projects.sample_master import (
-        build_project_sample_master,
-    )
     from bijux_pollenomics.adna.projects.registry.samples import (
         build_species_curated_sample_rows,
+    )
+    from bijux_pollenomics.adna.projects.sample_master import (
+        build_project_sample_master,
     )
     from bijux_pollenomics.adna.species.tracked_data.csv_exports import (
         _render_sample_records_csv,

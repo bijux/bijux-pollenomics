@@ -7,7 +7,6 @@ from math import fsum
 
 from ..contracts import ValidationRefusal
 
-
 HALF_COUNT = 0.5
 HALF_COUNT_POLICY = "add_one_half_to_each_named_training_taxon"
 

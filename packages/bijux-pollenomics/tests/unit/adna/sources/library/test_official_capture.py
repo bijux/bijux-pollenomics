@@ -11,6 +11,9 @@ import tempfile
 import unittest
 from unittest.mock import patch
 
+from bijux_pollenomics.adna.projects.sample_master.tables.workbook import (
+    _read_xlsx_rows,
+)
 from bijux_pollenomics.adna.sources import library as source_library_module
 from bijux_pollenomics.adna.sources.archive import build_archive_project_catalog
 from bijux_pollenomics.adna.sources.library import (
@@ -25,9 +28,6 @@ from bijux_pollenomics.adna.sources.library.registries.bundles import (
 )
 from bijux_pollenomics.adna.sources.library.registries.papers import (
     build_paper_registry,
-)
-from bijux_pollenomics.adna.projects.sample_master.tables.workbook import (
-    _read_xlsx_rows,
 )
 from bijux_pollenomics.adna.workflow.source_artifacts import (
     migrate_html_source_artifact,

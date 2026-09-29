@@ -1,7 +1,7 @@
 from __future__ import annotations
 
-import json
 import hashlib
+import json
 import os
 from pathlib import Path
 
@@ -14,12 +14,12 @@ from bijux_pollenomics.collection.sources.sead.collection.repository_surfaces im
     publish_repository_surface_candidate,
     validate_repository_surface_candidate,
 )
+from bijux_pollenomics.collection.sources.sead.collection.repository_surfaces import (
+    validation as surface_validation,
+)
 from bijux_pollenomics.collection.sources.sead.collection.repository_surfaces.contract import (
     SEAD_NORMALIZED_LINEAGE_INPUTS,
     SEAD_NORMALIZED_LINEAGE_PATH,
-)
-from bijux_pollenomics.collection.sources.sead.collection.repository_surfaces import (
-    validation as surface_validation,
 )
 
 

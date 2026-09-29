@@ -16,9 +16,9 @@ from bijux_pollenomics.governance import (
     render_repository_output_sustainability_review_markdown,
     render_repository_product_model_markdown,
 )
+from tests.support.repository import REPOSITORY_ROOT
 
 from .support import RepositoryTruthTestCase
-from tests.support.repository import REPOSITORY_ROOT
 
 
 def test_extension_review_uses_release_criteria_before_report_file_exists(

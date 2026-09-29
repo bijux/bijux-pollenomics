@@ -45,12 +45,12 @@ from .tables.baltic_sheep import (
     baltic_sheep_official_evidence_available,
     load_baltic_sheep_official_evidence,
 )
+from .tables.camel_samples import build_camel_sample_rows
 from .tables.european_cats import (
     EUROPEAN_CAT_WORKBOOK_MEMBER,
     _build_european_cat_rows,
 )
 from .tables.fertile_crescent_cattle import _build_fertile_crescent_cattle_rows
-from .tables.camel_samples import build_camel_sample_rows
 from .tables.obishir_sheep import build_obishir_sample_rows
 from .tables.pig_panel import _build_pig_panel_rows, load_pig_site_coordinate_evidence
 from .tables.reindeer import build_reindeer_sample_rows

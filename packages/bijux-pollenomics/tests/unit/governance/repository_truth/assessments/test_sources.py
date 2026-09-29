@@ -70,16 +70,18 @@ class RepositorySourceEvidenceTests(RepositoryTruthTestCase):
             count = _count_geojson_features(path)
             return count + 1 if path == published else count
 
-        with patch(
-            "bijux_pollenomics.governance.repository_truth.metrics.counts._count_geojson_features",
-            side_effect=changed_count,
+        with (
+            patch(
+                "bijux_pollenomics.governance.repository_truth.metrics.counts._count_geojson_features",
+                side_effect=changed_count,
+            ),
+            self.assertRaisesRegex(ValueError, "Published SEAD site count"),
         ):
-            with self.assertRaisesRegex(ValueError, "Published SEAD site count"):
-                build_repository_source_family_matrix(
-                    data_root=self.data_root,
-                    docs_root=self.docs_root,
-                    report_root=self.report_root,
-                )
+            build_repository_source_family_matrix(
+                data_root=self.data_root,
+                docs_root=self.docs_root,
+                report_root=self.report_root,
+            )
 
     def test_source_family_matrix_and_acquisition_queue_keep_cross_domain_pressure_visible(
         self,
@@ -148,7 +150,8 @@ class RepositorySourceEvidenceTests(RepositoryTruthTestCase):
             row for row in matrix["rows"] if row["source_key"] == "animal_adna"
         )
         self.assertEqual(
-            animal_row["acquisition_posture"], "repository_supplement_capture_incomplete"
+            animal_row["acquisition_posture"],
+            "repository_supplement_capture_incomplete",
         )
         self.assertIn("17 of 18", animal_row["main_gap"])
         self.assertIn("supplement_capture_recovery", posture["incomplete_programs"])
@@ -282,7 +285,8 @@ class RepositorySourceEvidenceTests(RepositoryTruthTestCase):
         self.assertIn("checked-in JSON file count", payload["anti_measures"])
         self.assertTrue(
             any(
-                "only 17 of 18 tracked papers currently ship archived supplementary material" in row
+                "only 17 of 18 tracked papers currently ship archived supplementary material"
+                in row
                 for row in payload["findings"]
             )
         )

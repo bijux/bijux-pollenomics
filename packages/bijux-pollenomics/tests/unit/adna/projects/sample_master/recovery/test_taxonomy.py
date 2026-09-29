@@ -9,17 +9,17 @@ import tempfile
 
 import pytest
 
+from bijux_pollenomics.adna.projects.registry.samples import (
+    build_species_curated_sample_rows,
+)
+from bijux_pollenomics.adna.projects.registry.sites import (
+    build_project_sample_site_rows,
+)
 from bijux_pollenomics.adna.projects.sample_master import (
     build_project_sample_master_rows,
 )
 from bijux_pollenomics.adna.projects.sample_master.identity import (
     _merge_sample_row_group,
-)
-from bijux_pollenomics.adna.projects.registry.sites import (
-    build_project_sample_site_rows,
-)
-from bijux_pollenomics.adna.projects.registry.samples import (
-    build_species_curated_sample_rows,
 )
 
 from .support import SampleMasterRecoveryTestCase
@@ -95,18 +95,18 @@ class TaxonomyTests(SampleMasterRecoveryTestCase):
             )
 
     def test_obishir_alias_change_is_refused(self) -> None:
+        from bijux_pollenomics.adna.projects.sample_master.archive import (
+            _project_by_accession,
+            _project_scope_archive_sample_rows,
+        )
         from bijux_pollenomics.adna.projects.sample_master.tables.obishir_sheep import (
             build_obishir_sample_rows,
         )
-        from bijux_pollenomics.adna.projects.sample_master.archive import (
-            _project_scope_archive_sample_rows,
-            _project_by_accession,
+        from bijux_pollenomics.adna.sources.library.acquisition import (
+            _xml_capture_refusal_reason,
         )
         from bijux_pollenomics.adna.species.definitions import (
             resolve_species_definition,
-        )
-        from bijux_pollenomics.adna.sources.library.acquisition import (
-            _xml_capture_refusal_reason,
         )
 
         tmp_path = Path(

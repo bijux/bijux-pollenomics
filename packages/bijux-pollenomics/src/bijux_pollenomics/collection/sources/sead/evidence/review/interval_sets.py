@@ -207,7 +207,10 @@ def build_sead_interval_set_review(
     display_bounds_differ = 0
     for site_uuid, site in sorted(sites_by_uuid.items()):
         phases = coalesce_intervals(intervals_by_site[site_uuid])
-        gaps = [(left[1] + 1, right[0] - 1) for left, right in zip(phases, phases[1:])]
+        gaps = [
+            (left[1] + 1, right[0] - 1)
+            for left, right in zip(phases, phases[1:], strict=False)
+        ]
         display = (site["time_start_bp"], site["time_end_bp"])
         if all(isinstance(value, int) for value in display):
             sites_with_display_envelope += 1

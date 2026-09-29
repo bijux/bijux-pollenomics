@@ -8,11 +8,11 @@ from hashlib import sha256
 from io import StringIO
 from pathlib import Path
 
-from bijux_pollenomics.adna.projects.sample_master.models import (
-    AdnaProjectSampleMasterRow,
-)
 from bijux_pollenomics.adna.projects.sample_master.identity import (
     _taxon_alignment_status,
+)
+from bijux_pollenomics.adna.projects.sample_master.models import (
+    AdnaProjectSampleMasterRow,
 )
 
 _SOURCE = "data/adna/governance/source_library/projects/SRP073444/ena_run_samples.tsv"

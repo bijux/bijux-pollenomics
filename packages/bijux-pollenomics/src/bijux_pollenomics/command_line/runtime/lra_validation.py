@@ -63,7 +63,7 @@ def run_lra_experiment_command(args: argparse.Namespace) -> int:
             request = read_object(args.request)
             profile = request.get("profile")
             prepare: _PredictionOperation
-            if profile == PROFILE or profile == SOURCE_PROFILE:
+            if profile in (PROFILE, SOURCE_PROFILE):
                 prepare = prepare_experiment_predictions
             elif profile == LOCAL_PROFILE:
                 prepare = prepare_local_pollen_predictions
