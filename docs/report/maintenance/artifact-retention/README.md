@@ -175,6 +175,14 @@ maps the other 12 files to byte-identical or newline-normalized current study
 outputs, so the inactive 15-file working directory can be retired without
 losing its scientific or process record.
 
+The [author-example holdout retirement receipt](author-pollen-holdout-retirement.json)
+binds the 33 remaining file and symlink entries in its working directory. The
+governed holdout contains the verified numerical report and newline-normalized
+prediction and score ledgers. The unique [unsent Swedish LRA source request](swedish-lra-source-request/README.md)
+is retained byte for byte with its historical status explained; current Swedish
+source questions supersede its admission claims. No file was open or had another
+hardlink, and the sole repository path mention is historical replay provenance.
+
 The [earlier scientific report provenance](scientific-report-provenance/README.md)
 retains exact results, scope, and evidence-manifest bytes from the previous
 11-result study. The current report has 17 result rows and a passing 170-file

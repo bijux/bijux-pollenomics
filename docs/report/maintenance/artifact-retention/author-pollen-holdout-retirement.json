@@ -1,0 +1,221 @@
+{
+  "schema_version": "author-pollen-holdout-artifact-retirement.v1",
+  "retired_directory": "artifacts/v4/author-pollen-holdout",
+  "files": [
+    {
+      "path": "SWEDISH-SOURCE-REQUEST.md",
+      "bytes": 3961,
+      "type": "regular",
+      "sha256": "029dc0c96b5250491ed10a96b33473b47ee0b89382c0e57e0432f6b5ce1f4f15"
+    },
+    {
+      "path": "checks-a.plan.json",
+      "bytes": 2002,
+      "type": "regular",
+      "sha256": "c1ba12e975bd5c627152207c2dca9c8462e4e9a7a8d153caf31a9302374b9949"
+    },
+    {
+      "path": "checks-b.plan.json",
+      "bytes": 2002,
+      "type": "regular",
+      "sha256": "01087e4ba48a9166ec59b90ea3be8dd834a25d6b5adb2763dcf3ab4326f41c3a"
+    },
+    {
+      "path": "checks-verified.plan.json",
+      "bytes": 2002,
+      "type": "regular",
+      "sha256": "30b90cf1db13f9930e877e8206df473b6cde02341fc1808f37fb2048d215d8fb"
+    },
+    {
+      "path": "pytest-cache-b/.gitignore",
+      "bytes": 37,
+      "type": "regular",
+      "sha256": "3ed731b65d06150c138e2dadb0be0697550888a6b47eb8c45ecc9adba8b8e9bd"
+    },
+    {
+      "path": "pytest-cache-b/CACHEDIR.TAG",
+      "bytes": 191,
+      "type": "regular",
+      "sha256": "37dc88ef9a0abeddbe81053a6dd8fdfb13afb613045ea1eb4a5c815a74a3bde4"
+    },
+    {
+      "path": "pytest-cache-b/README.md",
+      "bytes": 302,
+      "type": "regular",
+      "sha256": "73fd6fccdd802c419a6b2d983d6c3173b7da97558ac4b589edec2dfe443db9ad"
+    },
+    {
+      "path": "pytest-cache-b/v/cache/lastfailed",
+      "bytes": 78,
+      "type": "regular",
+      "sha256": "b99aca756c96144db5b2b586a4e4d2d3baea7d05848a550854584f42c6c3f2cd"
+    },
+    {
+      "path": "pytest-cache-b/v/cache/nodeids",
+      "bytes": 1290,
+      "type": "regular",
+      "sha256": "22cc02669c28c334b090baaa1296ba39df9dbeaf5738ae79d76737dc0cc61568"
+    },
+    {
+      "path": "pytest-cache-c/.gitignore",
+      "bytes": 37,
+      "type": "regular",
+      "sha256": "3ed731b65d06150c138e2dadb0be0697550888a6b47eb8c45ecc9adba8b8e9bd"
+    },
+    {
+      "path": "pytest-cache-c/CACHEDIR.TAG",
+      "bytes": 191,
+      "type": "regular",
+      "sha256": "37dc88ef9a0abeddbe81053a6dd8fdfb13afb613045ea1eb4a5c815a74a3bde4"
+    },
+    {
+      "path": "pytest-cache-c/README.md",
+      "bytes": 302,
+      "type": "regular",
+      "sha256": "73fd6fccdd802c419a6b2d983d6c3173b7da97558ac4b589edec2dfe443db9ad"
+    },
+    {
+      "path": "pytest-cache-c/v/cache/nodeids",
+      "bytes": 1290,
+      "type": "regular",
+      "sha256": "22cc02669c28c334b090baaa1296ba39df9dbeaf5738ae79d76737dc0cc61568"
+    },
+    {
+      "path": "pytest-tmp-b/test_source_reader_refuses_non0/LRAready_A.csv",
+      "bytes": 37,
+      "type": "regular",
+      "sha256": "db435371be62a0d623ee758778b2e1026f24a0c92805d428c2de0d94a08abf93"
+    },
+    {
+      "path": "pytest-tmp-b/test_source_reader_refuses_noncurrent",
+      "bytes": 116,
+      "type": "symlink",
+      "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/v4/author-pollen-holdout/pytest-tmp-b/test_source_reader_refuses_non0"
+    },
+    {
+      "path": "pytest-tmp-c/test_source_reader_does_not_tu0/LRAready_A.csv",
+      "bytes": 46,
+      "type": "regular",
+      "sha256": "b030c7668e10eb6a92a53efd30d539996a9ac6d53f19715a1618a3a147296f8e"
+    },
+    {
+      "path": "pytest-tmp-c/test_source_reader_does_not_tucurrent",
+      "bytes": 116,
+      "type": "symlink",
+      "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/v4/author-pollen-holdout/pytest-tmp-c/test_source_reader_does_not_tu0"
+    },
+    {
+      "path": "pytest-tmp-c/test_source_reader_refuses_non0/LRAready_A.csv",
+      "bytes": 34,
+      "type": "regular",
+      "sha256": "7a185ffa80555cf78af6f13731f5b14377eba2c294041dd3aeebf67908f06c2a"
+    },
+    {
+      "path": "pytest-tmp-c/test_source_reader_refuses_noncurrent",
+      "bytes": 116,
+      "type": "symlink",
+      "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/v4/author-pollen-holdout/pytest-tmp-c/test_source_reader_refuses_non0"
+    },
+    {
+      "path": "run-a/predictions.csv",
+      "bytes": 635987,
+      "type": "regular",
+      "sha256": "7df865bdbab5cebe8953fd12330b62b56eabd603c3980daf9045e5d83021f9bb"
+    },
+    {
+      "path": "run-a/report.json",
+      "bytes": 7655,
+      "type": "regular",
+      "sha256": "33a4a82262a223799d36d5a33aaa3f8e10f41698db40e2b629451103998c8f0f"
+    },
+    {
+      "path": "run-a/scores.csv",
+      "bytes": 35458,
+      "type": "regular",
+      "sha256": "644ca0bd0049f0fe682b75fa24bca1ab9b9a456de3cb4704c2976f33d1c974c9"
+    },
+    {
+      "path": "run-b/REPORT.md",
+      "bytes": 1284,
+      "type": "regular",
+      "sha256": "630c06ad51f914e1e393b87eec824cf2efdfefe07baea29eb53a9b80fe461e62"
+    },
+    {
+      "path": "run-b/predictions.csv",
+      "bytes": 635987,
+      "type": "regular",
+      "sha256": "7df865bdbab5cebe8953fd12330b62b56eabd603c3980daf9045e5d83021f9bb"
+    },
+    {
+      "path": "run-b/report.json",
+      "bytes": 7853,
+      "type": "regular",
+      "sha256": "a18e74cf74a3891c54b8496918290cb8028968261c55c9a782fe2b9848e3b2ca"
+    },
+    {
+      "path": "run-b/scores.csv",
+      "bytes": 35458,
+      "type": "regular",
+      "sha256": "644ca0bd0049f0fe682b75fa24bca1ab9b9a456de3cb4704c2976f33d1c974c9"
+    },
+    {
+      "path": "run-verified/REPORT.md",
+      "bytes": 1293,
+      "type": "regular",
+      "sha256": "8d136b9b09284df76803ef002754709cf6b52508be5addab63893eb5621debc7"
+    },
+    {
+      "path": "run-verified/predictions.csv",
+      "bytes": 635987,
+      "type": "regular",
+      "sha256": "7df865bdbab5cebe8953fd12330b62b56eabd603c3980daf9045e5d83021f9bb"
+    },
+    {
+      "path": "run-verified/report.json",
+      "bytes": 7853,
+      "type": "regular",
+      "sha256": "a18e74cf74a3891c54b8496918290cb8028968261c55c9a782fe2b9848e3b2ca"
+    },
+    {
+      "path": "run-verified/scores.csv",
+      "bytes": 35458,
+      "type": "regular",
+      "sha256": "644ca0bd0049f0fe682b75fa24bca1ab9b9a456de3cb4704c2976f33d1c974c9"
+    },
+    {
+      "path": "science-a.plan.json",
+      "bytes": 4033,
+      "type": "regular",
+      "sha256": "762b7e3a08c065fcfa5f602c388d4efd4bca04142f9595b9b903420b3c0bff7e"
+    },
+    {
+      "path": "science-b.plan.json",
+      "bytes": 4033,
+      "type": "regular",
+      "sha256": "b086af4d881276a870e0b28b1046077510ea642da0e4bcd5607eabc39e8fb0a8"
+    },
+    {
+      "path": "science-verified.plan.json",
+      "bytes": 4047,
+      "type": "regular",
+      "sha256": "e4aa21b739bbf73ca4412b829b6ae133936edad00b119318309558dc361a9b22"
+    }
+  ],
+  "unique_process_evidence": {
+    "original": "SWEDISH-SOURCE-REQUEST.md",
+    "retained": "docs/report/maintenance/artifact-retention/swedish-lra-source-request/source-request.md",
+    "relation": "exact_bytes",
+    "status": "historical unsent source request; current Swedish source questions supersede status"
+  },
+  "numerical_result": {
+    "retained": "docs/report/pollen-reconstruction/author-example-site-mean-holdout/",
+    "source_manifest": "docs/report/pollen-reconstruction/author-example-site-mean-holdout/manifest.json",
+    "predictions_and_scores": "all three run CSV sets match governed outputs after CRLF-to-LF normalization",
+    "verified_run": "REPORT.md and report.json exact bytes; source manifest binds original run bytes",
+    "earlier_runs": "run-a report JSON shared values match, final adds five aggregate score fields; run-b Markdown differs only by correcting native integer counts to author-prepared integer counts"
+  },
+  "process_files": "Six job plans, pytest caches and temporary source-reader fixtures are regenerable process products; three pytest symlinks point within the retired directory.",
+  "consumer_check": "Only governed holdout manifest mentions the old run-verified path as historical replay provenance; no current repository consumer reads this directory.",
+  "liveness_check": "lsof +D returned no open file; all 30 regular files have one hardlink and three symlinks remain inside the retired directory.",
+  "scientific_admission": "unchanged; prior-exposed author-prepared pollen holdout is not Swedish LRA, vegetation validation or country transfer."
+}
