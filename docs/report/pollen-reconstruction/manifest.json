@@ -61,8 +61,8 @@
     },
     {
       "path": "docs/report/maintenance/artifact-retention/README.md",
-      "sha256": "0f7cad09116da6acf56d66d0fe072308e6828149531f817716052f47c8d1ddc7",
-      "bytes": 25758
+      "sha256": "66cad3e64f9f01bea7188182715ae677125edbb6dcf6324bc92c101877e8b07b",
+      "bytes": 26686
     },
     {
       "path": "docs/report/maintenance/artifact-retention/landclim-amsoldingersee-custody.json",
@@ -103,6 +103,11 @@
       "path": "docs/report/maintenance/artifact-retention/landclim-two-grid-process-custody.json",
       "sha256": "4fdf61a179f50e1a7034feb1e2847ae2521b8b554ac822f08d1560270ee0fca1",
       "bytes": 117879
+    },
+    {
+      "path": "docs/report/maintenance/artifact-retention/landclim-whh05-process-custody.json",
+      "sha256": "bfc8db76ea9844ee0315d96c68873404caef62ef9f170378a6153d5a0b6b8014",
+      "bytes": 87367
     },
     {
       "path": "docs/report/maintenance/artifact-retention/scientific-report-provenance/README.md",

@@ -335,6 +335,20 @@ carry the current two-grid numerical conclusions. The full-scope note predates
 the 17-site raw/prepared recount and is retained only as historical process
 evidence. Neither record authenticates the 1,128 study inputs.
 
+The [WHH05 one-site process custody](landclim-whh05-process-custody.json)
+preserves a further 169 files from a frozen author-example replay, including
+two snapshots, an independent reference challenge, raw comparison values and
+the terminal run. Its 132 snapshot paths match the current private author
+reference at identical relative names and hashes. The historical run used
+297 prepared counts after four source exclusions and matched all 31 cover and
+31 standard-error fractions to its R reference with maximum residuals
+4.78e-15 and 8.90e-16. The later [17-site preparation
+audit](../../source-relations/landclim/author-preparation-audit/README.md)
+and [two-grid correspondence](../../publication-replay/landclim-author-example-correspondence/README.md)
+supersede that run's then-open preprocessing limitation. This is method
+parity on author examples, not the historical 1,128-input study or measured
+vegetation accuracy.
+
 ## WHH05 author preparation process custody
 
 The [one-site R process custody](whh05-author-preparation-custody.json) accounts
