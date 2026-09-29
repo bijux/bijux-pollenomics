@@ -1,0 +1,87 @@
+{
+  "schema_version": "hyde-source-declaration-custody.v1",
+  "source_release_root": "HYDE-3.5",
+  "private_custody_root": "hyde",
+  "retired_artifact_prefixes": [
+    "artifacts/v2/hyde-intake/hash002",
+    "artifacts/v3/hyde/nordic-intent-window-9180abe1/windows"
+  ],
+  "historical_source_file_count": 1574,
+  "historical_source_byte_count": 66393709629,
+  "historical_archive_member_count": 7730,
+  "scope": "Exact compact historical source declarations and three 2000 CE source-index windows. No native HYDE 3.5 source bytes were rehashed in this custody move; historical source digest claims remain tied to their original receipts. Rights, formal CRS, calendar and country assignment are unresolved.",
+  "files": [
+    {
+      "source_artifact": "artifacts/v2/hyde-intake/hash002/files.jsonl",
+      "private_path": "hyde/source-declarations/files.jsonl",
+      "bytes": 385974,
+      "sha256": "727893bef686146611dcb702e7fab5c497f70c8630b8d2a3fc158b3b5b7d53ef"
+    },
+    {
+      "source_artifact": "artifacts/v2/hyde-intake/hash002/report.json",
+      "private_path": "hyde/source-declarations/file-inventory-report.json",
+      "bytes": 306,
+      "sha256": "3b951d91b064fa6885ec5e3ffaac82217bb7d9058f11e21d9b58216f4d3d1ac9"
+    },
+    {
+      "source_artifact": "artifacts/v2/hyde-intake/hash002/archive-members.json",
+      "private_path": "hyde/source-declarations/archive-members.json",
+      "bytes": 3996855,
+      "sha256": "31c91c575f7037d45f85351ac2472a8a589c43fc5c4a101df90842840946f6dd"
+    },
+    {
+      "source_artifact": "artifacts/v2/hyde-intake/hash002/progress.json",
+      "private_path": "hyde/source-declarations/hash-progress.json",
+      "bytes": 96,
+      "sha256": "473ff4b43b19c7662483f510ebeff16bfabb65b63455277ec7473e53af2199d6"
+    },
+    {
+      "source_artifact": "artifacts/v2/hyde-intake/netcdf001/metadata.json",
+      "private_path": "hyde/source-declarations/netcdf-metadata.json",
+      "bytes": 9548882,
+      "sha256": "b1809b9a5f935332c336aa695b9c2614a5c8db4a15ee1b86106fa6a13a622d1f"
+    },
+    {
+      "source_artifact": "artifacts/v2/hyde-native-metadata/report.json",
+      "private_path": "hyde/source-declarations/conflict-report.json",
+      "bytes": 3730,
+      "sha256": "1de8918edcb9e27507effc6ab360a7c23a4e06c9bbb369552ea3e4d88589fcbb"
+    },
+    {
+      "source_artifact": "artifacts/v3/hyde/nordic-intent-window-9180abe1/windows/base/manifest.json",
+      "private_path": "hyde/nordic-source-window/base/manifest.json",
+      "bytes": 6133,
+      "sha256": "915adbbb8f2d47e887c79c0a4cdcb2a6af24e5d352e2ef464c6cdda375496e3f"
+    },
+    {
+      "source_artifact": "artifacts/v3/hyde/nordic-intent-window-9180abe1/windows/base/window.json",
+      "private_path": "hyde/nordic-source-window/base/window.json",
+      "bytes": 1319219,
+      "sha256": "b0bc945a148c92b3ca4a7b710e2b49201f636a7724853027d41b4c8fc187e404"
+    },
+    {
+      "source_artifact": "artifacts/v3/hyde/nordic-intent-window-9180abe1/windows/lower/manifest.json",
+      "private_path": "hyde/nordic-source-window/lower/manifest.json",
+      "bytes": 6137,
+      "sha256": "425c3e85d7ca54d6c5ca6834852ea94f2f474c6fbd28ffc9e48261e00116ef80"
+    },
+    {
+      "source_artifact": "artifacts/v3/hyde/nordic-intent-window-9180abe1/windows/lower/window.json",
+      "private_path": "hyde/nordic-source-window/lower/window.json",
+      "bytes": 1321723,
+      "sha256": "08eef80399bc67ad156cdc3d2ed795a51df0a017ab48380082dce8a136a3109d"
+    },
+    {
+      "source_artifact": "artifacts/v3/hyde/nordic-intent-window-9180abe1/windows/upper/manifest.json",
+      "private_path": "hyde/nordic-source-window/upper/manifest.json",
+      "bytes": 6137,
+      "sha256": "70ef0a31e8f2e4e0441236f204d0e14244c414d8406bd5d399d67d0f2c3179da"
+    },
+    {
+      "source_artifact": "artifacts/v3/hyde/nordic-intent-window-9180abe1/windows/upper/window.json",
+      "private_path": "hyde/nordic-source-window/upper/window.json",
+      "bytes": 1318669,
+      "sha256": "4e74d78b87e237c52cb607507d2e6156bad3e09975deff00a2b802ef9aa28a1c"
+    }
+  ]
+}

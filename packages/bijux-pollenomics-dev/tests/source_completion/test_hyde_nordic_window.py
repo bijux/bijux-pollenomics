@@ -898,8 +898,13 @@ def test_producer_change_before_publication_is_refused(
 def test_real_retained_windows_match_the_pinned_three_scenario_profile(
     tmp_path: Path,
 ) -> None:
-    repository = Path(__file__).resolve().parents[4]
-    root = repository / "artifacts/v3/hyde/nordic-intent-window-9180abe1/windows"
+    custody = os.environ.get("BIJUX_HYDE_SOURCE_CUSTODY_ROOT")
+    if not custody:
+        pytest.fail(
+            "BIJUX_HYDE_SOURCE_CUSTODY_ROOT is required for real HYDE integration"
+        )
+    root = Path(custody) / "nordic-source-window"
+    declarations_root = Path(custody) / "source-declarations"
     windows = tuple(
         HydeNativeWindowInput(scenario, root / scenario, manifest_sha256)
         for scenario, manifest_sha256 in zip(
@@ -913,23 +918,19 @@ def test_real_retained_windows_match_the_pinned_three_scenario_profile(
         )
     )
     declarations = HydeDeclarationParentInput(
-        file_inventory_path=repository / "artifacts/v2/hyde-intake/hash002/files.jsonl",
+        file_inventory_path=declarations_root / "files.jsonl",
         expected_file_inventory_sha256=(
             "727893bef686146611dcb702e7fab5c497f70c8630b8d2a3fc158b3b5b7d53ef"
         ),
-        inventory_report_path=(
-            repository / "artifacts/v2/hyde-intake/hash002/report.json"
-        ),
+        inventory_report_path=declarations_root / "file-inventory-report.json",
         expected_inventory_report_sha256=(
             "3b951d91b064fa6885ec5e3ffaac82217bb7d9058f11e21d9b58216f4d3d1ac9"
         ),
-        header_inventory_path=repository
-        / "artifacts/v2/hyde-intake/netcdf001/metadata.json",
+        header_inventory_path=declarations_root / "netcdf-metadata.json",
         expected_header_inventory_sha256=(
             "b1809b9a5f935332c336aa695b9c2614a5c8db4a15ee1b86106fa6a13a622d1f"
         ),
-        conflict_report_path=repository
-        / "artifacts/v2/hyde-native-metadata/report.json",
+        conflict_report_path=declarations_root / "conflict-report.json",
         expected_conflict_report_sha256=(
             "1de8918edcb9e27507effc6ab360a7c23a4e06c9bbb369552ea3e4d88589fcbb"
         ),

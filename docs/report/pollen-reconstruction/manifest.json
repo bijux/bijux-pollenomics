@@ -11,8 +11,8 @@
     },
     {
       "path": "docs/public/pollenomics-data/sources/hyde.md",
-      "sha256": "4713fb02bb0bdb0c588fe3215faf3f1322be3626fe383c82cadb6ad5d3ce41d7",
-      "bytes": 14190
+      "sha256": "9cda95427788899587928f6d02272ef577d94f425ceefab57ca67b7ea3acbf0c",
+      "bytes": 14682
     },
     {
       "path": "docs/public/pollenomics-data/sources/neotoma.md",
@@ -1213,6 +1213,16 @@
       "path": "docs/report/regions/nordic/swedish-neotoma-holdout/verify.py",
       "bytes": 5206,
       "sha256": "d8127f61b2461c91bdbf02a30a36a7069e84f308d409da3ac528c87006b302b2"
+    },
+    {
+      "path": "docs/report/source-relations/hyde/source-custody/README.md",
+      "sha256": "c16289c0086210358afd1423d245ad57c1319e6f96884caf62dbfb8fe2502bc1",
+      "bytes": 2264
+    },
+    {
+      "path": "docs/report/source-relations/hyde/source-custody/receipt.json",
+      "sha256": "480244737bc886dc83e1ab451979e83cdd7788b32503978b5ffb82946c1cfd81",
+      "bytes": 4053
     },
     {
       "path": "docs/report/source-relations/landclim/neotoma-chronology-witness/README.md",

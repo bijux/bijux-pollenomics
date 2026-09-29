@@ -17,6 +17,13 @@ and land outside agriculture is not automatically forest.
 
 ## Local storage and preparation
 
+The retained [HYDE source-declaration custody](../../../report/source-relations/hyde/source-custody/README.md)
+now binds the historical full-file hash inventory, archive-member inventory,
+declaration/conflict records and three Nordic source-index windows to exact
+private copies. It records the original 1,574-file/66.4 GB hash pass without
+requiring another whole-release read for this custody move. Scientific admission
+and release-declaration conflicts remain separate from byte custody.
+
 Keep the native dataset in a separate local data directory. Native ZIP archives,
 NetCDF files and large prepared grids are not tracked in the product Git
 repository. The preparation contract requires an explicit local source root and compact
