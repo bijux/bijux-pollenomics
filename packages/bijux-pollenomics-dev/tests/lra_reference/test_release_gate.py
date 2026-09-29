@@ -17,6 +17,7 @@ import pytest
 
 from bijux_pollenomics_dev.ci.lra_reference import release_gate as gate
 from bijux_pollenomics_dev.ci.lra_reference.contracts import ReferenceRefusal
+from bijux_pollenomics_dev.ci.lra_reference.evidence import file_inventory
 from bijux_pollenomics_dev.ci.lra_reference.source_identity import SourceIdentity
 from bijux_pollenomics_dev.ci.lra_reference.sources import (
     SOURCE_STATUS_ARGUMENTS,
@@ -32,6 +33,20 @@ class FakeReader:
         self.collections = 0
         source = root / "source"
         bundle_fixture(source)
+        manifest_path = source / "oracle/case_manifest.json"
+        manifest = json.loads(manifest_path.read_text())
+        for index, row in enumerate(manifest):
+            row["input_sha256"] = hashlib.sha256(f"input-{index}".encode()).hexdigest()
+            row["python_expected_sha256"] = hashlib.sha256(
+                f"expected-{index}".encode()
+            ).hexdigest()
+        manifest_bytes = json.dumps(manifest).encode()
+        manifest_path.write_bytes(manifest_bytes)
+        certificate_path = source / "certificate.json"
+        certificate = json.loads(certificate_path.read_text())
+        certificate["files"] = file_inventory(source)
+        certificate["files"].pop("certificate.json", None)
+        certificate_path.write_text(json.dumps(certificate))
         buffer = io.BytesIO()
         with zipfile.ZipFile(buffer, "w") as archive:
             for path in source.rglob("*"):
@@ -40,6 +55,29 @@ class FakeReader:
                         path.relative_to(source).as_posix(), path.read_bytes()
                     )
         self.data = buffer.getvalue()
+        parity: dict[str, Any] = {
+            "schema_version": "lra-native-live-r-parity-gate.v1",
+            "status": "passed",
+            "target_sha": SHA,
+            "case_count": 43,
+            "case_ids": [row["id"] for row in manifest],
+            "case_manifest_sha256": hashlib.sha256(manifest_bytes).hexdigest(),
+            "case_input_sha256": {row["id"]: row["input_sha256"] for row in manifest},
+            "python_expected_sha256": {
+                row["id"]: row["python_expected_sha256"] for row in manifest
+            },
+            "source_lock_sha256": hashlib.sha256(LOCK.read_bytes()).hexdigest(),
+            "live_r_certificate_sha256": hashlib.sha256(
+                certificate_path.read_bytes()
+            ).hexdigest(),
+            "live_R_executed": True,
+        }
+        if mutation == "parity_mismatch":
+            parity["case_input_sha256"]["C0000"] = "0" * 64
+        parity_buffer = io.BytesIO()
+        with zipfile.ZipFile(parity_buffer, "w") as archive:
+            archive.writestr("report.json", json.dumps(parity))
+        self.parity_data = parity_buffer.getvalue()
         self.run: dict[str, Any] = {
             "id": 7,
             "run_attempt": 1,
@@ -58,12 +96,23 @@ class FakeReader:
             "status": "completed",
             "conclusion": "success",
         }
+        self.parity_job = {
+            **self.job,
+            "id": 13,
+            "name": "lra-reference / lra-native-live-r-parity",
+        }
         self.artifact = {
             "id": 9,
             "name": f"lra-live-r-{SHA}-attempt-1",
             "expired": False,
             "digest": "sha256:" + hashlib.sha256(self.data).hexdigest(),
             "workflow_run": {"id": 7, "head_sha": SHA},
+        }
+        self.parity_artifact = {
+            **self.artifact,
+            "id": 10,
+            "name": f"lra-native-live-r-{SHA}-attempt-1",
+            "digest": "sha256:" + hashlib.sha256(self.parity_data).hexdigest(),
         }
 
     def read(self, path: str) -> bytes:
@@ -92,7 +141,10 @@ class FakeReader:
                 job["name"] = "unrelated"
             elif self.mutation == "wrong_job_sha":
                 job["head_sha"] = "a" * 40
-            return json.dumps({"total_count": 1, "jobs": [job]}).encode()
+            parity_job = copy.deepcopy(self.parity_job)
+            if self.mutation == "parity_job_skipped":
+                parity_job["conclusion"] = "skipped"
+            return json.dumps({"total_count": 2, "jobs": [job, parity_job]}).encode()
         if "/runs/7/artifacts?" in path:
             artifact = copy.deepcopy(self.artifact)
             if self.mutation == "expired":
@@ -110,12 +162,21 @@ class FakeReader:
                 if self.mutation == "duplicate_artifact"
                 else [artifact]
             )
+            if self.mutation != "missing_parity_artifact":
+                rows.append(copy.deepcopy(self.parity_artifact))
             return json.dumps({"total_count": len(rows), "artifacts": rows}).encode()
         if path.endswith("/artifacts/9/zip"):
             return self.data
+        if path.endswith("/artifacts/10/zip"):
+            return self.parity_data
         if path.endswith("/artifacts/9"):
             artifact = copy.deepcopy(self.artifact)
             if self.mutation == "artifact_drift":
+                artifact["expired"] = True
+            return json.dumps(artifact).encode()
+        if path.endswith("/artifacts/10"):
+            artifact = copy.deepcopy(self.parity_artifact)
+            if self.mutation == "parity_artifact_drift":
                 artifact["expired"] = True
             return json.dumps(artifact).encode()
         if path.endswith("/runs/7"):
@@ -155,6 +216,10 @@ def fake_git(_repository: Path, *arguments: str) -> bytes:
         "artifact_drift",
         "attempt_drift",
         "newer_run",
+        "parity_job_skipped",
+        "missing_parity_artifact",
+        "parity_mismatch",
+        "parity_artifact_drift",
     ],
 )
 def test_release_gate_fail_closed(
@@ -187,6 +252,8 @@ def test_release_gate_fail_closed(
         )
         assert receipt["published"] is False
         assert receipt["run_id"] == 7
+        assert receipt["parity_job_id"] == 13
+        assert receipt["parity_artifact_id"] == 10
     else:
         with pytest.raises(ReferenceRefusal):
             gate.verify_release(

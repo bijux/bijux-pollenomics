@@ -15,7 +15,7 @@ from typing import Any
 import zipfile
 
 from .contracts import ReferenceRefusal, read_json
-from .evidence import validate_bundle
+from .evidence import EXTENDED_CASE_IDS, validate_bundle
 from .remote import EvidenceReader, GitHubReader, collection
 from .source_identity import inspect_source_identity
 from .sources import SOURCE_STATUS_ARGUMENTS, SOURCE_TREE_ARGUMENTS, source_inventory
@@ -26,6 +26,9 @@ WORKFLOWS = frozenset(
 )
 JOB_NAMES = frozenset(
     {"lra-live-r-certification", "lra-reference / lra-live-r-certification"}
+)
+PARITY_JOB_NAMES = frozenset(
+    {"lra-native-live-r-parity", "lra-reference / lra-native-live-r-parity"}
 )
 
 
@@ -129,6 +132,82 @@ def _extract_archive(data: bytes, destination: Path) -> None:
                 output_path.write_bytes(archive.read(member))
 
 
+def _matching_job(
+    jobs: list[dict[str, Any]], names: frozenset[str], target_sha: str, run_id: int
+) -> int:
+    matching = [job for job in jobs if job.get("name") in names]
+    if (
+        len(matching) != 1
+        or matching[0].get("head_sha") != target_sha
+        or matching[0].get("status") != "completed"
+        or matching[0].get("conclusion") != "success"
+        or matching[0].get("run_id") != run_id
+    ):
+        raise ReferenceRefusal("Completed certification or parity job is missing")
+    return _positive_id(matching[0].get("id"))
+
+
+def _matching_artifact(
+    artifacts: list[dict[str, Any]], name: str, run_id: int, target_sha: str
+) -> dict[str, Any]:
+    matching = [row for row in artifacts if row.get("name") == name]
+    if len(matching) != 1:
+        raise ReferenceRefusal(
+            "Same-attempt certification or parity artifact is missing"
+        )
+    artifact = matching[0]
+    _positive_id(artifact.get("id"))
+    if (
+        artifact.get("expired") is not False
+        or artifact.get("workflow_run", {}).get("id") != run_id
+        or artifact.get("workflow_run", {}).get("head_sha") != target_sha
+        or not isinstance(artifact.get("digest"), str)
+        or re.fullmatch(r"sha256:[0-9a-f]{64}", artifact["digest"]) is None
+    ):
+        raise ReferenceRefusal("Certification or parity artifact identity is invalid")
+    return artifact
+
+
+def _retrieve_artifact(
+    reader: EvidenceReader, prefix: str, artifact: dict[str, Any], destination: Path
+) -> None:
+    data = reader.read(prefix + f"/artifacts/{artifact['id']}/zip")
+    if "sha256:" + hashlib.sha256(data).hexdigest() != artifact["digest"]:
+        raise ReferenceRefusal("Downloaded archive bytes differ from provider digest")
+    _extract_archive(data, destination)
+
+
+def _verify_parity_receipt(output: Path, target_sha: str, lock_hash: str) -> str:
+    receipt = read_json((output / "parity/report.json").read_bytes())
+    manifest_bytes = (output / "bundle/oracle/case_manifest.json").read_bytes()
+    manifest = read_json(manifest_bytes)
+    if not isinstance(receipt, dict) or not isinstance(manifest, list):
+        raise ReferenceRefusal("Parity receipt or case inventory is invalid")
+    case_ids = [row.get("id") for row in manifest if isinstance(row, dict)]
+    if len(manifest) != 43 or len(case_ids) != 43 or set(case_ids) != EXTENDED_CASE_IDS:
+        raise ReferenceRefusal("Live-R case inventory is incomplete")
+    expected = {
+        "schema_version": "lra-native-live-r-parity-gate.v1",
+        "status": "passed",
+        "target_sha": target_sha,
+        "case_count": 43,
+        "case_ids": case_ids,
+        "case_manifest_sha256": hashlib.sha256(manifest_bytes).hexdigest(),
+        "case_input_sha256": {row["id"]: row["input_sha256"] for row in manifest},
+        "python_expected_sha256": {
+            row["id"]: row["python_expected_sha256"] for row in manifest
+        },
+        "source_lock_sha256": lock_hash,
+        "live_r_certificate_sha256": hashlib.sha256(
+            (output / "bundle/certificate.json").read_bytes()
+        ).hexdigest(),
+        "live_R_executed": True,
+    }
+    if receipt != expected:
+        raise ReferenceRefusal("Parity receipt differs from certified live-R cases")
+    return hashlib.sha256((output / "parity/report.json").read_bytes()).hexdigest()
+
+
 def verify_release(
     *,
     repository_root: Path,
@@ -178,45 +257,23 @@ def verify_release(
     jobs = collection(
         reader, prefix + f"/runs/{run_id}/attempts/{attempt}/jobs", "jobs"
     )
-    matching = [job for job in jobs if job.get("name") in JOB_NAMES]
-    if (
-        len(matching) != 1
-        or matching[0].get("head_sha") != target_sha
-        or matching[0].get("status") != "completed"
-        or matching[0].get("conclusion") != "success"
-        or matching[0].get("run_id") != run_id
-    ):
-        raise ReferenceRefusal(
-            "Completed actual named certification job is missing or ambiguous"
-        )
-    job_id = _positive_id(matching[0].get("id"))
-    name = f"lra-live-r-{target_sha}-attempt-{attempt}"
+    job_id = _matching_job(jobs, JOB_NAMES, target_sha, run_id)
+    parity_job_id = _matching_job(jobs, PARITY_JOB_NAMES, target_sha, run_id)
     artifacts = collection(reader, prefix + f"/runs/{run_id}/artifacts", "artifacts")
-    matches = [row for row in artifacts if row.get("name") == name]
-    if len(matches) != 1:
-        raise ReferenceRefusal(
-            "Same-attempt certification artifact is missing or ambiguous"
-        )
-    artifact = matches[0]
-    artifact_id = _positive_id(artifact.get("id"))
-    if (
-        artifact.get("expired") is not False
-        or artifact.get("workflow_run", {}).get("id") != run_id
-        or artifact.get("workflow_run", {}).get("head_sha") != target_sha
-    ):
-        raise ReferenceRefusal(
-            "Certification artifact expired or belongs to another run/revision"
-        )
-    digest = artifact.get("digest")
-    if (
-        not isinstance(digest, str)
-        or re.fullmatch(r"sha256:[0-9a-f]{64}", digest) is None
-    ):
-        raise ReferenceRefusal("Provider artifact content digest is missing")
-    data = reader.read(prefix + f"/artifacts/{artifact_id}/zip")
-    if "sha256:" + hashlib.sha256(data).hexdigest() != digest:
-        raise ReferenceRefusal("Downloaded archive bytes differ from provider digest")
-    _extract_archive(data, output / "bundle")
+    artifact = _matching_artifact(
+        artifacts, f"lra-live-r-{target_sha}-attempt-{attempt}", run_id, target_sha
+    )
+    parity_artifact = _matching_artifact(
+        artifacts,
+        f"lra-native-live-r-{target_sha}-attempt-{attempt}",
+        run_id,
+        target_sha,
+    )
+    artifact_id = artifact["id"]
+    parity_artifact_id = parity_artifact["id"]
+    digest = artifact["digest"]
+    _retrieve_artifact(reader, prefix, artifact, output / "bundle")
+    _retrieve_artifact(reader, prefix, parity_artifact, output / "parity")
     certificate = validate_bundle(
         output / "bundle",
         target_sha=target_sha,
@@ -230,6 +287,7 @@ def verify_release(
         raise ReferenceRefusal(
             "Certificate executable sources differ from the release checkout"
         )
+    parity_receipt_hash = _verify_parity_receipt(output, target_sha, lock_hash)
     latest = select_run(
         collection(reader, prefix + "/runs?head_sha=" + target_sha, "workflow_runs"),
         repository,
@@ -241,6 +299,9 @@ def verify_release(
         )
     after = read_json(reader.read(prefix + f"/runs/{run_id}"))
     after_artifact = read_json(reader.read(prefix + f"/artifacts/{artifact_id}"))
+    after_parity_artifact = read_json(
+        reader.read(prefix + f"/artifacts/{parity_artifact_id}")
+    )
     for field in ("id", "run_attempt", "head_sha", "status", "conclusion"):
         if after.get(field) != run.get(field):
             raise ReferenceRefusal(
@@ -251,6 +312,8 @@ def verify_release(
             raise ReferenceRefusal(
                 "Certification artifact changed during evidence retrieval"
             )
+        if after_parity_artifact.get(field) != parity_artifact.get(field):
+            raise ReferenceRefusal("Parity artifact changed during evidence retrieval")
     if (
         git_bytes(repository_root, "rev-parse", "--verify", "HEAD").decode().strip()
         != target_sha
@@ -279,8 +342,12 @@ def verify_release(
         "run_id": run_id,
         "run_attempt": attempt,
         "job_id": job_id,
+        "parity_job_id": parity_job_id,
         "artifact_id": artifact_id,
         "artifact_digest": digest,
+        "parity_artifact_id": parity_artifact_id,
+        "parity_artifact_digest": parity_artifact["digest"],
+        "parity_receipt_sha256": parity_receipt_hash,
         "lock_sha256": lock_hash,
         "certificate_sha256": hashlib.sha256(
             (output / "bundle/certificate.json").read_bytes()
