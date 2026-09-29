@@ -20,6 +20,12 @@ also checks the three historical Rootsi and OpenLand intake receipts and their
 12 four-country claims. Those claims remain separate from this 11-family cube;
 their original archives do not create new admitted country observations.
 
+The [Neotoma dataset ledger](neotoma-entities/README.md) adds source-bound
+entity decisions for one family: 85 datasets occur in the selected direct
+observed-pollen study and 124 do not. Its separate sample prerequisites do not
+admit any dataset to LRA or measured-vegetation validation. Entity decisions
+for the other source families still require their own source evidence.
+
 | Family | Governed raw stage | Governed published stage | Four-country publication availability | Qualification |
 | --- | --- | --- | --- | --- |
 | AADR | present | present | collected in SE/DK/NO/FI | authority and source review required |

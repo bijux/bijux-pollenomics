@@ -1040,6 +1040,21 @@
       "bytes": 3032
     },
     {
+      "path": "docs/report/regions/nordic/source-capability/README.md",
+      "sha256": "c9b9ba3258cd9096dc5e503c1c95deb1575d385f75a2da87ac826553c0a0ec73",
+      "bytes": 4137
+    },
+    {
+      "path": "docs/report/regions/nordic/source-capability/neotoma-entities/README.md",
+      "sha256": "39b8421af6a934faea8a6756851fb849dd5bb293111d79c0d642c1c9b3a0cbfc",
+      "bytes": 1793
+    },
+    {
+      "path": "docs/report/regions/nordic/source-capability/neotoma-entities/report.json",
+      "sha256": "d67c1486c86206c8e4f962450987dada5490dd7b6b8db9f72ea4c47927436474",
+      "bytes": 143022
+    },
+    {
       "path": "docs/report/regions/nordic/swedish-author-target-pollen/README.md",
       "sha256": "13f6b620a150e70fe332291c8443e8d9d768aa68ef03e462f09320a91a57ce1d",
       "bytes": 4018
@@ -1468,6 +1483,11 @@
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/landclim_amsoldingersee_recovery.py",
       "bytes": 8239,
       "sha256": "d377c12b8fc7424650ffc5647fb97041dd68800c0622c01626a448762feddfcd"
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/neotoma_entity_decisions.py",
+      "sha256": "8c9c784397319ba4a289df3f3727d23fa0bfa52b389fc93545bfd1e0179d6bd7",
+      "bytes": 8261
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/nordic_author_target_pollen.py",
