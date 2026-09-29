@@ -86,3 +86,8 @@ products, test output and repeated input copies. This identity check makes
 each snapshot a candidate for **selective** removal after its process liveness
 and exact retained evidence are checked. It does not change the no-removal
 decision for other artifact paths in the original inventory.
+
+The `7bb6a614` snapshot was removed after its five recorded lane processes
+were confirmed absent. Its five lane outcomes, including the failed map-legend
+test, remain in the custody record. The exact snapshot path is absent. The
+other six snapshots remain in place pending their own removal decisions.

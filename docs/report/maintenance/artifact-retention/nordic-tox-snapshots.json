@@ -75,7 +75,8 @@
           "snapshot_provenance_integrity": null,
           "selected_failures": []
         }
-      ]
+      ],
+      "local_artifact_status": "retained_pending_review"
     },
     {
       "artifact_path": "artifacts/v3/tox-nordic-coverage-4af586d3",
@@ -136,7 +137,8 @@
           "snapshot_provenance_integrity": true,
           "selected_failures": []
         }
-      ]
+      ],
+      "local_artifact_status": "retained_pending_review"
     },
     {
       "artifact_path": "artifacts/v3/tox-nordic-coverage-7bb6a614",
@@ -210,7 +212,8 @@
           "snapshot_provenance_integrity": true,
           "selected_failures": []
         }
-      ]
+      ],
+      "local_artifact_status": "removed_after_custody_review"
     },
     {
       "artifact_path": "artifacts/v3/tox-nordic-coverage-7dedc5bf",
@@ -230,7 +233,8 @@
         "run.REVEALS.files/avar-RPP.all.landclimII.csv",
         "run.REVEALS.files/LRA-REVEALS-release.R"
       ],
-      "lanes": []
+      "lanes": [],
+      "local_artifact_status": "retained_pending_review"
     },
     {
       "artifact_path": "artifacts/v3/tox-nordic-coverage-9e9b3156",
@@ -250,7 +254,8 @@
         "run.REVEALS.files/avar-RPP.all.landclimII.csv",
         "run.REVEALS.files/LRA-REVEALS-release.R"
       ],
-      "lanes": []
+      "lanes": [],
+      "local_artifact_status": "retained_pending_review"
     },
     {
       "artifact_path": "artifacts/v3/tox-nordic-coverage-c5cb6442",
@@ -321,7 +326,8 @@
           "snapshot_provenance_integrity": true,
           "selected_failures": []
         }
-      ]
+      ],
+      "local_artifact_status": "retained_pending_review"
     },
     {
       "artifact_path": "artifacts/v3/tox-nordic-coverage-cf51d2d5",
@@ -395,7 +401,8 @@
           "snapshot_provenance_integrity": true,
           "selected_failures": []
         }
-      ]
+      ],
+      "local_artifact_status": "retained_pending_review"
     }
   ]
 }
