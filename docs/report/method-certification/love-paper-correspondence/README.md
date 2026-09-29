@@ -27,6 +27,17 @@ fall-speed unit, so the transcription does not assign one. These constants
 resolve a bounded paper input; they do not identify the spatial extent of
 each map unit, the pond placements or the random realizations behind Figure 2.
 
+The [source-parameter comparison](source-parameter-correspondence.json) checks
+the ten published Table 2 rows against the pinned packaged DISQOVER
+`LOVEexampleParams.json`. All 30 fall-speed, PPE and PPE SD values agree
+exactly by row position. Nine labels agree exactly; the paper prints
+`Grasses` where the package prints `Gras`. This is a numeric source
+correspondence with an explicit label difference, not evidence that the 2024
+simulation ran the later pinned package version. Reproduce the result from
+the repository root with
+`python3 docs/report/method-certification/love-paper-correspondence/verify.py --repository . --output artifacts/method-certification/love-paper-source-parameter-replay.json`
+and compare the output byte for byte with the governed JSON.
+
 | Paper method or assumption | Current executable evidence | Scope of correspondence |
 | --- | --- | --- |
 | Small-site pollen deposition combines local and regional contributions. | [Optimized forward objective](../../../../packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/optimized.py) and [analytical subtraction](../../../../packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/analytical.py). | Source equations have bounded R/Python parity; no ecological truth is inferred. |

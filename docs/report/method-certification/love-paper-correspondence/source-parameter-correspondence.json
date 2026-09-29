@@ -1,0 +1,146 @@
+{
+  "schema_version": "love-paper-source-parameter-correspondence.v1",
+  "status": "bounded_numeric_match",
+  "inputs": [
+    {
+      "path": "docs/report/method-certification/love-paper-correspondence/paper-parameter-tables.json",
+      "bytes": 6239,
+      "sha256": "9c0ce8de012ee978d158a402856fd4fcf3fbda3fcaf71d6257964b893b9a392e"
+    },
+    {
+      "path": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/data/LOVEexampleParams.json",
+      "bytes": 1103,
+      "sha256": "34e861280b7a6ee4bc2d938f2f7c891ea057c44cdc3bfd60e5c27eadca915430"
+    }
+  ],
+  "compared_taxa": 10,
+  "compared_numeric_cells": 30,
+  "numeric_cells_equal": 30,
+  "exact_label_rows": 9,
+  "different_label_rows": [
+    {
+      "position": 9,
+      "paper_taxon": "Grasses",
+      "package_taxon": "Gras",
+      "exact_label": false,
+      "numeric_residuals": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    }
+  ],
+  "rows": [
+    {
+      "position": 1,
+      "paper_taxon": "Alnus",
+      "package_taxon": "Alnus",
+      "exact_label": true,
+      "numeric_residuals": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "position": 2,
+      "paper_taxon": "Betula",
+      "package_taxon": "Betula",
+      "exact_label": true,
+      "numeric_residuals": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "position": 3,
+      "paper_taxon": "Corylus",
+      "package_taxon": "Corylus",
+      "exact_label": true,
+      "numeric_residuals": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "position": 4,
+      "paper_taxon": "Fagus",
+      "package_taxon": "Fagus",
+      "exact_label": true,
+      "numeric_residuals": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "position": 5,
+      "paper_taxon": "Fraxinus",
+      "package_taxon": "Fraxinus",
+      "exact_label": true,
+      "numeric_residuals": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "position": 6,
+      "paper_taxon": "Pinus",
+      "package_taxon": "Pinus",
+      "exact_label": true,
+      "numeric_residuals": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "position": 7,
+      "paper_taxon": "Tilia",
+      "package_taxon": "Tilia",
+      "exact_label": true,
+      "numeric_residuals": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "position": 8,
+      "paper_taxon": "Ulmus",
+      "package_taxon": "Ulmus",
+      "exact_label": true,
+      "numeric_residuals": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "position": 9,
+      "paper_taxon": "Grasses",
+      "package_taxon": "Gras",
+      "exact_label": false,
+      "numeric_residuals": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "position": 10,
+      "paper_taxon": "Secale",
+      "package_taxon": "Secale",
+      "exact_label": true,
+      "numeric_residuals": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    }
+  ],
+  "scope": "Published Table 2 versus pinned later DISQOVER example parameters; this does not establish the software version or spatial inputs used for Figure 2."
+}
