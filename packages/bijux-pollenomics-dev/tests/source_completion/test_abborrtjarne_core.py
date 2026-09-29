@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from pathlib import Path
 from zipfile import ZipFile
 
 import pytest
@@ -48,7 +49,7 @@ def test_counts_preserve_indeterminable_pollen_and_nonpollen_mass() -> None:
         _count_labels([{**rows[0], "elementtype": "spore"}])
 
 
-def test_published_radius_needs_documented_metre_unit(tmp_path) -> None:
+def test_published_radius_needs_documented_metre_unit(tmp_path: Path) -> None:
     path = tmp_path / "metadata.xlsx"
     namespace = 'xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main"'
     shared = f"<sst {namespace}><si><t>siteradius</t></si></sst>"

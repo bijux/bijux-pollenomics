@@ -139,7 +139,7 @@ def _design(binding: dict[str, object]) -> dict[str, str]:
 def _spec(run_id: str = "trial-1") -> dict[str, Any]:
     admission, admission_sha256, scope_sha256 = _admission()
     split_sha256 = "c" * 64
-    binding = {
+    binding: dict[str, object] = {
         "canonical_cohort_admission_json": admission,
         "cohort_admission_sha256": admission_sha256,
         "scope_sha256": scope_sha256,

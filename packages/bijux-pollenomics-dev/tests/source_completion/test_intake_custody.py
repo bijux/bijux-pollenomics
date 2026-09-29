@@ -41,7 +41,7 @@ def _sources(tmp_path: Path) -> tuple[Path, Path]:
                 **_write(private / relative, archive_bytes),
             }
             archives.append(archive)
-        payload = {
+        payload: dict[str, object] = {
             "intake_id": ident,
             "lifecycle_state": "pending_delivery" if archive is None else "quarantined",
             "delivery": {

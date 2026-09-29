@@ -29,8 +29,11 @@ def test_impossible_sum_standard_errors_cross_a_necessary_bound() -> None:
 def test_all_published_uncertainty_rows_replay_within_bounds(tmp_path: Path) -> None:
     output = tmp_path / "bounds"
     report = build(REPOSITORY, output)
-    assert set(report["summary"]) == {"ET", "ST", "OL", "ISTS", "TBS"}
-    for group in report["summary"].values():
+    summary = report["summary"]
+    assert isinstance(summary, dict)
+    assert set(summary) == {"ET", "ST", "OL", "ISTS", "TBS"}
+    for group in summary.values():
+        assert isinstance(group, dict)
         assert group["grid_window_rows"] == 10_500
         assert group["below_lower_bound_rows"] == 0
         assert group["above_upper_bound_rows"] == 0

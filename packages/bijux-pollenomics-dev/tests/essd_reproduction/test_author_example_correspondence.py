@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import csv
+from pathlib import Path
 
 import pytest
 
@@ -12,7 +13,7 @@ from bijux_pollenomics_dev.essd_reproduction.author_example_correspondence impor
 )
 
 
-def test_blank_unavailable_cell_is_undefined(tmp_path) -> None:
+def test_blank_unavailable_cell_is_undefined(tmp_path: Path) -> None:
     path = tmp_path / "cover.csv"
     with path.open("w", newline="") as stream:
         writer = csv.writer(stream)

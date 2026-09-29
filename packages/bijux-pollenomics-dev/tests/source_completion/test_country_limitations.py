@@ -44,7 +44,10 @@ def test_public_document_matches_current_source_ledgers() -> None:
 def test_changed_resolution_refuses_public_claim() -> None:
     stage, coverage, identity = _inputs()
     changed = deepcopy(coverage)
-    changed["cells"][0]["resolution"] = "site"
+    cells = changed["cells"]
+    assert isinstance(cells, list)
+    assert isinstance(cells[0], dict)
+    cells[0]["resolution"] = "site"
     with pytest.raises(ValueError, match="resolution changed"):
         render(stage, changed, identity)
 
