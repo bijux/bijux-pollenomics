@@ -54,6 +54,12 @@ samples use the latter model's comparable ages. This narrows core identity but
 does not select the LandClim II author chronology or establish a historical
 basin outline.
 
+The [published EPD final-age join](pangaea-epd-age-join/README.md) independently
+locates all 92 Solsø core depths in the 2013 Giesecke table. Published ages and
+bounds match the Neotoma calibrated claims within 0.5 BP after unit conversion,
+including the one refused negative younger bound. This authenticates the
+calibrated-age lineage without supplying a separate age model or LRA admission.
+
 The [primary 1981 pollen-count join](pangaea-pollen-profile/README.md) now
 also matches all 66 core depths and all 2,881 positive counts to the Neotoma
 1981 core, with 129 exact parameter names and 18 unique numerical rename
