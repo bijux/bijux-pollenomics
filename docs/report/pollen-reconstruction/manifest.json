@@ -2,7 +2,7 @@
   "schema_version": "pollen-reconstruction-report-manifest.v1",
   "status": "scoped_results_with_external_source_blockers",
   "repository": "bijux-pollenomics",
-  "as_of": "2026-09-28",
+  "as_of": "2026-09-29",
   "files": [
     {
       "path": "docs/public/pollenomics-data/sources/empd2-nfi-review.md",
@@ -11,23 +11,23 @@
     },
     {
       "path": "docs/public/pollenomics-data/sources/hyde.md",
-      "sha256": "76b9a89a8efd32678578123bc1273f2aa87021eb002e57618efb9da7352ede19",
-      "bytes": 13098
+      "sha256": "4713fb02bb0bdb0c588fe3215faf3f1322be3626fe383c82cadb6ad5d3ce41d7",
+      "bytes": 14190
     },
     {
       "path": "docs/public/pollenomics-data/sources/neotoma.md",
-      "sha256": "0e68058125bfd8f129efda22f79865c92a2f3790e52e347549692971425387d5",
-      "bytes": 33845
+      "sha256": "ce5d0a81584e5f0a93015b1045dc8ce4a2c828065368e9a0760dcfa92dbef720",
+      "bytes": 27186
     },
     {
       "path": "docs/public/pollenomics-data/sources/nordic-nfi-reference-access.md",
-      "sha256": "b4f471251d2f66079045aedf3d41f3963287bc0e3fddbe8ba09dcbdf34865e01",
-      "bytes": 5033
+      "sha256": "667fedcd011df24f0cd707ea0ccdf904c0d5b1c251d2608bdd1b7af454fe0fb1",
+      "bytes": 5175
     },
     {
       "path": "docs/report/index.md",
-      "sha256": "8a5777f8d539291be48e8b2c1aafd8baf780d60f0760ad99a0c4e1c0cee59b6f",
-      "bytes": 2550
+      "sha256": "42df3cbbb688e9ae9db0028451315a56b8cecb2999830531156120da42b4ea1e",
+      "bytes": 2668
     },
     {
       "path": "docs/report/pollen-reconstruction/README.md",
@@ -51,8 +51,8 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/author-lra-development/README.md",
-      "sha256": "05bf600fc82e7367cb0b80a79ffb8eafa4e2159c4e377b25dc2444d3c7ec2e71",
-      "bytes": 3784
+      "sha256": "80b6d972101ffeb61879c9096b60728f4867261755d98f03df0282989968270d",
+      "bytes": 4464
     },
     {
       "path": "docs/report/pollen-reconstruction/author-lra-development/cover-diagnostics.csv",
@@ -91,8 +91,8 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/paper-correspondence.md",
-      "sha256": "8fd2c5727fd6d13a15a63db4372fa08631cee9f076d7217227f36e4a59b661ed",
-      "bytes": 7370
+      "sha256": "58590884296a794b1fd1b356d25dd7e2b23778979f7a987142716743e8c1593a",
+      "bytes": 10106
     },
     {
       "path": "docs/report/pollen-reconstruction/results.csv",
@@ -661,8 +661,8 @@
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/reconcile.py",
-      "sha256": "7c62e8ef22bd6e70c72edfceaa5737f584ea2e29654b94b7a5d200a5fc822286",
-      "bytes": 38140
+      "sha256": "863ea2b32eebc037808efdfafeb12f8db5840b6cefbe42fafadc31a806f360b6",
+      "bytes": 39986
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/abbo_profile_lineage.py",
