@@ -2,9 +2,9 @@
   "schema_version": "report-narrative-quality-review.v1",
   "page_count": 208,
   "quality_posture_counts": {
-    "reader_ready": 100,
+    "reader_ready": 101,
     "structured_reference": 20,
-    "thin_structure": 88
+    "thin_structure": 87
   },
   "rows": [
     {
@@ -689,10 +689,10 @@
     },
     {
       "repository_path": "docs/report/maintenance/artifact-retention/README.md",
-      "prose_paragraph_count": 13,
+      "prose_paragraph_count": 14,
       "link_bullet_count": 0,
       "bullet_sentence_count": 0,
-      "heading_count": 6,
+      "heading_count": 7,
       "table_line_count": 0,
       "quality_posture": "reader_ready",
       "note": "Page explains its purpose before or alongside artifact links."
@@ -1789,13 +1789,13 @@
     },
     {
       "repository_path": "docs/report/source-relations/rootsi-landclim-overlap/README.md",
-      "prose_paragraph_count": 6,
+      "prose_paragraph_count": 7,
       "link_bullet_count": 0,
       "bullet_sentence_count": 0,
-      "heading_count": 1,
+      "heading_count": 2,
       "table_line_count": 0,
-      "quality_posture": "thin_structure",
-      "note": "Page explains itself but still needs stronger internal wayfinding."
+      "quality_posture": "reader_ready",
+      "note": "Page explains its purpose before or alongside artifact links."
     },
     {
       "repository_path": "docs/report/source-relations/sead-country-retrieval/README.md",

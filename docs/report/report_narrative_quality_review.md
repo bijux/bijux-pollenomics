@@ -10,9 +10,9 @@ link farms or coded operator notes.
 
 | Posture | Count |
 | --- | ---: |
-| `reader_ready` | 100 |
+| `reader_ready` | 101 |
 | `structured_reference` | 20 |
-| `thin_structure` | 88 |
+| `thin_structure` | 87 |
 
 ## Reviewed Pages
 
@@ -86,7 +86,7 @@ link farms or coded operator notes.
 | `docs/report/countries/sweden/sweden_land_use_synthesis_v66.md` | `reader_ready` | 5 | 0 | 5 | 16 | 4 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/host-lra-distribution/README.md` | `reader_ready` | 8 | 0 | 0 | 11 | 2 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/lra-distribution/README.md` | `thin_structure` | 3 | 0 | 0 | 4 | 1 | Page explains itself but still needs stronger internal wayfinding. |
-| `docs/report/maintenance/artifact-retention/README.md` | `reader_ready` | 13 | 0 | 0 | 0 | 6 | Page explains its purpose before or alongside artifact links. |
+| `docs/report/maintenance/artifact-retention/README.md` | `reader_ready` | 14 | 0 | 0 | 0 | 7 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/method-certification/analytical-love-ring-sensitivity/README.md` | `thin_structure` | 4 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/method-certification/author-site-profile-comparison/README.md` | `thin_structure` | 4 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/method-certification/author-site-uncertainty/README.md` | `thin_structure` | 4 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
@@ -196,7 +196,7 @@ link farms or coded operator notes.
 | `docs/report/source-relations/neotoma/taxon-priority/README.md` | `thin_structure` | 6 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/source-relations/openland-intake/README.md` | `thin_structure` | 6 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/source-relations/openland-intake/doi-lineage.md` | `thin_structure` | 2 | 0 | 0 | 4 | 1 | Page explains itself but still needs stronger internal wayfinding. |
-| `docs/report/source-relations/rootsi-landclim-overlap/README.md` | `thin_structure` | 6 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
+| `docs/report/source-relations/rootsi-landclim-overlap/README.md` | `reader_ready` | 7 | 0 | 0 | 0 | 2 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/source-relations/sead-country-retrieval/README.md` | `thin_structure` | 4 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/source-relations/sead/README.md` | `reader_ready` | 8 | 0 | 0 | 0 | 3 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/source-relations/sead/chronology-claim-review/README.md` | `thin_structure` | 5 | 0 | 0 | 9 | 1 | Page explains itself but still needs stronger internal wayfinding. |

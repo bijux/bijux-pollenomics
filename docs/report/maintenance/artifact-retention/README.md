@@ -117,3 +117,17 @@ receipts and step logs remain in private custody. The governed
 [Linux R oracle report](../../method-certification/linux-r-oracle/README.md)
 now uses that custody for reproduction. Other v2–v5 artifact paths were not
 covered by this retirement decision.
+
+## Rootsi workbook structural review custody
+
+The [Rootsi review retirement receipt](rootsi-workbook-review-retirement.json)
+records two exact local replay directories whose five scientific outputs were
+byte-identical. The private `landclim/rootsi-workbooks/structural-review/`
+store retains one checked copy of each output and both original manifests;
+the manifests differ in their producer file identity. Its custody manifest
+has SHA-256
+`f718e3d954e655968af804b94d5ab52bde9bddf922cda4ba9e506c7f4e97adb3`.
+The 5,170 row candidates and 7,459 header positions remain private because
+source rights and scientific semantics are unresolved. The two replay
+directories were removed only after byte checks, liveness review, and private
+copy verification. This decision covers no other Rootsi or v2–v5 artifacts.

@@ -1,0 +1,66 @@
+{
+  "historical_primary_input_identity_verified": false,
+  "original_replay_processes_absent": true,
+  "output_denominators": {
+    "candidate_pair_identity_sha256": "ca94f04342f5c54212dc3ef9acfa0cbeea6e92419878f951ec23b2a0acf5cfd6",
+    "csv_null_encoding": "empty_field_with_explicit_status_columns",
+    "data_row_candidates": 5170,
+    "header_field_positions": 7459,
+    "output_file_count": 6,
+    "sample_denominator_agreements": 78,
+    "sample_denominator_records": 79,
+    "workbook_profiles": 79
+  },
+  "output_files": [
+    {
+      "bytes": 162233289,
+      "path": "data-row-candidates.jsonl",
+      "sha256": "09cc7875cdbe238799a19db4eee7dc9fcaf9f1e182403176da4f078f485af316"
+    },
+    {
+      "bytes": 4663058,
+      "path": "header-fields.jsonl",
+      "sha256": "dde2f5a80ff702ec62dd4be542649210c4a3f667a97f4b721d22bfaca99ee2d3"
+    },
+    {
+      "bytes": 3905,
+      "path": "report.json",
+      "sha256": "3dd96443ce497aa08f1739922943bc1b89f0533558ddc06e7398c0fe13a2d37c"
+    },
+    {
+      "bytes": 18887,
+      "path": "sample-denominator-review.csv",
+      "sha256": "a443c0fa0b8e49582c25d42e6e1f44d8629a08a8d4880a4f4d46517528b82d33"
+    },
+    {
+      "bytes": 100315,
+      "path": "workbook-profiles.jsonl",
+      "sha256": "203fa74068474a4002e3332097c0cb4190470eea4753efcffcd5ee43078293fc"
+    }
+  ],
+  "private_custody_manifest_sha256": "f718e3d954e655968af804b94d5ab52bde9bddf922cda4ba9e506c7f4e97adb3",
+  "private_custody_relative_path": "landclim/rootsi-workbooks/structural-review",
+  "removed_directories": [
+    "artifacts/v5/rootsi-workbook-replay-validated",
+    "artifacts/v5/rootsi-workbook-replay-trailing-rows"
+  ],
+  "repository_consumers_of_removed_directories": 0,
+  "rights_cleared": false,
+  "schema_version": "rootsi-workbook-review-artifact-retirement.v1",
+  "scientific_admission": "refused",
+  "scope": "two exact duplicate local replay directories; typed-cell source review and other artifact paths untouched",
+  "shared_outputs_byte_identical": true,
+  "source_manifests": {
+    "trailing-rows-manifest.json": {
+      "bytes": 15036,
+      "producer_files_sha256": "4595d8023d8a5499af9ac6f5ea00a0b5d7f0f440107c815f703a8db4ac9ca101",
+      "sha256": "fd991f2379fe1b701d117dd262a5537dc4a123bc80e6729e85d8d01b2227641e"
+    },
+    "validated-manifest.json": {
+      "bytes": 15036,
+      "producer_files_sha256": "cb935fc1d2351303f109a9df84d2852a93cc2748b37258d192c33cd51bf50f08",
+      "sha256": "6a1197c56ef58a7e4ee67261b2a21bbfa2204245d42f77f3316c5a485e4eef77"
+    }
+  },
+  "source_workbooks_retained_privately": 79
+}

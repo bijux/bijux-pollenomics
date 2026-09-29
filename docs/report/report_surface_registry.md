@@ -4,14 +4,14 @@ This registry classifies the current `docs/report/` tree by family, audience,
 scope, and explanation role so the publication system can be navigated as one
 coherent report surface instead of a loose artifact dump.
 
-- Surface count: `1526`
+- Surface count: `1527`
 
 ## Family Counts
 
 | Family | Count |
 | --- | ---: |
 | Scientific caveats | 10 |
-| Maintainer truth surfaces | 787 |
+| Maintainer truth surfaces | 788 |
 | Map surfaces | 85 |
 | Portal guidance | 2 |
 | Evidence reviews | 34 |
@@ -21,7 +21,7 @@ coherent report surface instead of a loose artifact dump.
 
 | Audience | Count |
 | --- | ---: |
-| Maintainer diagnostic | 789 |
+| Maintainer diagnostic | 790 |
 | Public reading surface | 617 |
 | Scientific review surface | 120 |
 
@@ -264,6 +264,7 @@ coherent report surface instead of a loose artifact dump.
 | `docs/report/maintenance/artifact-retention/nordic-tox-lane-receipts.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
 | `docs/report/maintenance/artifact-retention/nordic-tox-snapshots.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
 | `docs/report/maintenance/artifact-retention/report.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
+| `docs/report/maintenance/artifact-retention/rootsi-workbook-review-retirement.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
 | `docs/report/method-certification/analytical-love-ring-sensitivity/README.md` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `md` | Reader-facing entry page for one scope bundle. |
 | `docs/report/method-certification/analytical-love-ring-sensitivity/replay.py` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `py` | Maintainer-facing truth or governance surface. |
 | `docs/report/method-certification/analytical-love-ring-sensitivity/report.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |

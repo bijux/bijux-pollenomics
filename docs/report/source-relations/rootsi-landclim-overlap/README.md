@@ -21,3 +21,18 @@ The LandClim site time bounds are **sequence coverage**, not sample ages or chan
 The LandClim II DOI, sequence ID, country, access marker, sample count, site window count, and source workbook provenance must match before a row is emitted. `LCGRID_ID` is retained as site metadata. It does not prove that a specific Rootsi workbook or site contributed to a particular modeled grid cell, time window, value, or standard error. That contributor lineage remains unresolved.
 
 These candidate dependencies block treating LandClim REVEALS outputs as independent vegetation ground truth for the matched Rootsi inputs. Per-sequence rights, historical input identity, source-age basis, taxonomy, count denominator, and exact grid/window contribution remain unresolved. This review does not certify complete V2-DATA-007 grid/window/value/SE lineage or admit raw Rootsi observations for scientific use.
+
+## Private structural row review
+
+The private source store also retains `landclim/rootsi-workbooks/structural-review/`.
+Its `custody.json` has SHA-256
+`f718e3d954e655968af804b94d5ab52bde9bddf922cda4ba9e506c7f4e97adb3`.
+The review preserves 79 workbook profiles, 7,459 header positions, 5,170
+mechanical data-row candidates, a 79-row sample-denominator review, and the
+original report. The five outputs are byte-identical across the two retired
+local replay directories. Both original manifests are retained because they
+record different producer file identities despite identical outputs. The
+[retirement receipt](../../maintenance/artifact-retention/rootsi-workbook-review-retirement.json)
+records exact hashes and directory scope. These private candidates preserve
+the refused source review; they do not establish chronology, taxonomy, count
+meaning, historical input identity, reuse rights, or scientific admission.
