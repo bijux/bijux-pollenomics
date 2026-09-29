@@ -5,6 +5,18 @@ missing. When evidence is obtained, its source and resulting calculation or
 decision move into the owning report, and the row is removed. Private raw
 sources remain in their governed source store.
 
+| Need | Priority | Resolution depends on |
+| --- | --- | --- |
+| Abborrtjärnen LRA input identity | Critical for Swedish LRA | LandClim/core source owner and qualified method review. |
+| Independent vegetation observations | Critical for ecological accuracy | Measurement source owner and ecological pairing review. |
+| HYDE source semantics | High for a land-use ablation | Exact release provider and reuse/metadata review. |
+| Historical publication inputs and taxonomy | High for full-paper reproduction | Archive producer or author and qualified taxon review. |
+| Independent confirmation | High for generalization claims | A new source-qualified cohort owner before outcomes are opened. |
+
+These are evidence requests, not approvals. No outreach has been sent from this
+register. Repository-local work can continue on the already admitted pollen
+and English author examples while external fields remain open.
+
 ## Abborrtjärnen LRA input identity
 
 **Affected result:** the Neotoma sample 173174 / PANGAEA `ABBO` sequence cannot
@@ -25,6 +37,13 @@ these fields. Next action: bind an exact sample/window source packet and run
 the real reconstruction consumer, retaining refusals until each field is
 supported.
 
+**Already checked:** Neotoma/PANGAEA controls, 107 source depths, 2,183
+same-label workbook counts and the user's provisional packet. The packet
+explicitly leaves selected age model, historical basin series, full count/PPE
+mapping and workbook analytical-use rights open. **Reopen when:** a citable
+record binds those fields to the same physical core and time window; then
+rerun the admission and reconstruction consumer before closing this question.
+
 ## Independent vegetation observations
 
 **Affected result:** no repository predictor has a matched measured vegetation
@@ -39,6 +58,12 @@ vegetation compilation and unrounded 26-taxon output. A source owner and a
 qualified ecological reviewer must validate the pairing. Next action: score
 only the matched pairs, preserving the zero-pair status until then.
 
+**Already checked:** the southern-Sweden figure screen and EMPD2–NFI pairing
+found no admitted repository measurement pair; the original ten-lake inputs
+and unrounded outputs are not retained. **Reopen when:** a source owner
+supplies a measured series or full original cohort with usable site/time/taxon
+support and terms; independently review the match, then score it.
+
 ## HYDE source semantics
 
 **Affected result:** selected four-country cropland grid sums agree with 84
@@ -50,6 +75,12 @@ calendar conversion, grid/category units and scenario meaning for the exact
 retained members. The provider or authoritative release metadata must resolve
 the conflicting claims. Next action: perform a matched no-HYDE/HYDE
 development comparison only after those fields and leakage rules are fixed.
+
+**Already checked:** 84 country/year/scenario totals and selected native grids
+conserve modeled cropland quantities, while retained release claims conflict
+on rights and spatial/time semantics. **Reopen when:** provider metadata binds
+the exact retained members to rights, CRS, calendar and category meaning;
+then declare and run a matched training-only ablation.
 
 ## Historical publication inputs and taxonomy
 
@@ -67,6 +98,13 @@ reviewed method/source packet can resolve these questions. Next action:
 replay affected grid/window/taxon cells against exact source bytes before
 claiming full-paper correspondence.
 
+**Already checked:** 17 author raw-to-prepared examples, 14,074 R/Python
+values, exact TW2 archive differences, 79 Rootsi workbook candidates and
+10,500 ISTS/TBS mean rows. None authenticates the archive-producing source
+revisions or covariance transformation. **Reopen when:** the producer or
+archive custodian supplies a versioned raw-row and PFT/SE transformation
+packet; replay the named cells and revise the correspondence result.
+
 ## Independent confirmation
 
 **Affected result:** existing English author and Nordic transfer outcomes were
@@ -79,3 +117,9 @@ holdout with frozen grouping, preprocessing, parameters, candidate selection,
 metrics and failure rules before any target outcome is opened. A qualified
 source owner must establish cohort identity and permitted use. Next action:
 run and publish predictions first, then score all eligible/refused targets.
+
+**Already checked:** English author and Nordic target outcomes had been viewed
+before the present development protocols; no untouched eligible cohort is
+recorded. **Reopen when:** a cohort owner can freeze eligible source records,
+grouping, preprocessing, metrics and refusal rules before any target outcome
+is inspected. Publish the prediction identity first and only then score it.
