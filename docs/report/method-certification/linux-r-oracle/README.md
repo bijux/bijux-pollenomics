@@ -43,9 +43,12 @@ seconds and is the sole admitted local Linux result here.
 The private data store retains the exact source-built runtime and package
 library, the 37 locked R/CRAN source archives, the image ID and the Dockerfile
 under `lra-reference/`. Its `linux-arm64-oracle/custody.json` has SHA-256
-`16143126055af76f3933f24c778d4de1d6d1eee087e543a381830e336eb8aa43`.
+`0398b643a2124ce44d9854a6979b1939c6c93337ddea30d1e030439de44d3575`.
 The custody was checked against the source lock, the original build and
 provision receipts, all **1,227 runtime files** and **2,784 library files**.
+It also retains 130 acquisition, build and provision process files with
+individual hashes; unpacked R source and build intermediates are reproducible
+from the locked archive and are not part of that private copy.
 The DISQOVER source archive remains governed separately by the repository's
 [LRA NOTICE](../../../../packages/bijux-pollenomics-lra/NOTICE).
 
