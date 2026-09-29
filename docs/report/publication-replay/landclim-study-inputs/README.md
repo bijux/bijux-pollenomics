@@ -20,6 +20,12 @@ historical and current identity fields empty with explicit unresolved status.
 Do not subtract the 17 author-example sites from the 1,128 rows without an
 authenticated historical identity match.
 
+The bounded [Amsoldingersee source review](../landclim-amsoldingersee-source-review/README.md)
+inspects one workbook row against three current Neotoma pollen cores using
+hash-bound API captures. One core matches the published sample count, but none
+has an exact publication-code bridge or the author's historical chronology.
+That one-row negative result does not close the full-study input lineage.
+
 The producer is
 `bijux_pollenomics_dev.essd_reproduction.study_inputs`. Rebuild from the
 pinned raw workbook and receipt into a new artifact directory:

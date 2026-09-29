@@ -61,8 +61,13 @@
     },
     {
       "path": "docs/report/maintenance/artifact-retention/README.md",
-      "bytes": 23145,
-      "sha256": "490b63fb0bc42406336fd6ddab72f74f7c54e9575567f2f264603af821bfef3c"
+      "bytes": 23759,
+      "sha256": "ad4af84aeafac0e5c8dffa9c9a520e4b4a63c34b41de26c27c6408af98ce4860"
+    },
+    {
+      "path": "docs/report/maintenance/artifact-retention/landclim-amsoldingersee-custody.json",
+      "bytes": 15084,
+      "sha256": "eab4595d161d0f8000ee02ec2dcf6eb2644d117a83015641b8fa8821e6f0280f"
     },
     {
       "path": "docs/report/maintenance/artifact-retention/landclim-pft-audit-custody.json",
@@ -575,6 +580,16 @@
       "bytes": 37127
     },
     {
+      "path": "docs/report/publication-replay/landclim-amsoldingersee-source-review/README.md",
+      "bytes": 2435,
+      "sha256": "2cd65c753d344e4209c4e15534721642b27755dd415767a343fa6c0866b65baa"
+    },
+    {
+      "path": "docs/report/publication-replay/landclim-amsoldingersee-source-review/report.json",
+      "bytes": 4016,
+      "sha256": "f463fe19ce7eb59d7b7de19b584a57d934f311b769473a86dba2c641f52d6898"
+    },
+    {
       "path": "docs/report/publication-replay/landclim-author-example-correspondence/README.md",
       "bytes": 1653,
       "sha256": "5cc14183c22734858856aee54b24f184d73511d433cbb74b60e6ca5124ff2904"
@@ -721,8 +736,8 @@
     },
     {
       "path": "docs/report/publication-replay/landclim-study-inputs/README.md",
-      "sha256": "5c254ccda06edb4b360a18c1f66ea68ff7d5703dd67693e7626c14875c3b747f",
-      "bytes": 2192
+      "sha256": "f89e06cfecaf0b9c2235244b96ceb3cbd873a47ac20783be8242c2e9d6a97c71",
+      "bytes": 2592
     },
     {
       "path": "docs/report/publication-replay/landclim-study-inputs/manifest.json",
@@ -1415,6 +1430,11 @@
       "bytes": 7898
     },
     {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/landclim_amsoldingersee_recovery.py",
+      "bytes": 8239,
+      "sha256": "d377c12b8fc7424650ffc5647fb97041dd68800c0622c01626a448762feddfcd"
+    },
+    {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/nordic_author_target_pollen.py",
       "sha256": "db379d437edf400a30b85ce2fa465c1c5be97182eb9b19cba62fb8ef078a970b",
       "bytes": 28474
@@ -1463,6 +1483,11 @@
       "path": "packages/bijux-pollenomics-dev/tests/essd_reproduction/test_pft_uncertainty_bounds.py",
       "sha256": "d4f10379b6293fb7fb6330d376a0de62fc312f5165a340f8f25c63973d6ab2e5",
       "bytes": 1643
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/tests/source_completion/test_landclim_amsoldingersee_recovery.py",
+      "bytes": 1800,
+      "sha256": "91487a04227c1d501ceda3aa1a2523ad0234a989f2af6f3bd7c8fbec44f09f26"
     },
     {
       "path": "packages/bijux-pollenomics-dev/tests/source_completion/test_nordic_direct_pollen.py",

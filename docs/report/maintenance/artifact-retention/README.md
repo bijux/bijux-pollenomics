@@ -298,6 +298,15 @@ so these process files do not validate today's prose. Their 17-site count
 arithmetic is represented in the governed publication replay; the original
 artifact directory was retired only after exact private-byte and liveness checks.
 
+The [Amsoldingersee source custody](landclim-amsoldingersee-custody.json)
+preserves all 47 files from a selected Neotoma API candidate search and its
+dependent historical public-page check. The governed
+[one-row source review](../../publication-replay/landclim-amsoldingersee-source-review/README.md)
+replays the raw response hashes and refuses a historical `E#69` input identity:
+one current core has 23 sample IDs, but no captured core has the exact source
+code or an authenticated author chronology. The original page check is stale
+against the current LandClim page and remains private process evidence only.
+
 ## WHH05 author preparation process custody
 
 The [one-site R process custody](whh05-author-preparation-custody.json) accounts
