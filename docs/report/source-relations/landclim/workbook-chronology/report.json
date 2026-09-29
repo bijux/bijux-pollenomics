@@ -31,6 +31,24 @@
         }
       ],
       "exact_duplicate_source_ages": 0,
+      "source_metadata_bounds_bp": [
+        -50,
+        12011
+      ],
+      "numeric_1950_minus_age_extrema_bp": [
+        -1961,
+        12011
+      ],
+      "all_age_extrema_match_metadata": false,
+      "single_reversal_row_omission_diagnostic": {
+        "omitted_sheet_row": 56,
+        "numeric_1950_minus_age_endpoints_bp": [
+          -50,
+          12011
+        ],
+        "matches_metadata_bounds": true,
+        "status": "diagnostic_only_not_an_age_correction"
+      },
       "dated_event_admitted": false
     },
     {
@@ -53,6 +71,24 @@
         }
       ],
       "exact_duplicate_source_ages": 0,
+      "source_metadata_bounds_bp": [
+        -50,
+        3441
+      ],
+      "numeric_1950_minus_age_extrema_bp": [
+        -50,
+        3441
+      ],
+      "all_age_extrema_match_metadata": true,
+      "single_reversal_row_omission_diagnostic": {
+        "omitted_sheet_row": 41,
+        "numeric_1950_minus_age_endpoints_bp": [
+          -50,
+          3441
+        ],
+        "matches_metadata_bounds": true,
+        "status": "diagnostic_only_not_an_age_correction"
+      },
       "dated_event_admitted": false
     },
     {
@@ -68,6 +104,13 @@
       "source_age_max": null,
       "strict_age_reversals_in_sheet_order": null,
       "exact_duplicate_source_ages": null,
+      "source_metadata_bounds_bp": [
+        372,
+        11752
+      ],
+      "numeric_1950_minus_age_extrema_bp": null,
+      "all_age_extrema_match_metadata": null,
+      "single_reversal_row_omission_diagnostic": null,
       "dated_event_admitted": false
     },
     {
@@ -83,8 +126,15 @@
       "source_age_max": null,
       "strict_age_reversals_in_sheet_order": null,
       "exact_duplicate_source_ages": null,
+      "source_metadata_bounds_bp": [
+        70,
+        10585
+      ],
+      "numeric_1950_minus_age_extrema_bp": null,
+      "all_age_extrema_match_metadata": null,
+      "single_reversal_row_omission_diagnostic": null,
       "dated_event_admitted": false
     }
   ],
-  "interpretation": "Source-native age cells are point labels, not verified age-model intervals. Reversals are preserved; no AD/BC-to-BP conversion, correction, interpolation, uncertainty, event date, or historical-input identity is inferred."
+  "interpretation": "The 1950-minus-age integer endpoint comparison is an arithmetic diagnostic of metadata labels, not an authorized AD/BC-to-BP conversion or correction. Source-native cells are point labels, not verified age-model intervals. Reversals are preserved; no interpolation, uncertainty, event date, or historical-input identity is inferred."
 }

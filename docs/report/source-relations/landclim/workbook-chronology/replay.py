@@ -6,6 +6,7 @@ import argparse
 import csv
 import hashlib
 import json
+import math
 from pathlib import Path
 
 import xlrd
@@ -22,6 +23,15 @@ def _sha256(path: Path) -> str:
         for chunk in iter(lambda: stream.read(1024 * 1024), b""):
             digest.update(chunk)
     return digest.hexdigest()
+
+
+def _numeric_bp_endpoints(ages: list[tuple[int, float]]) -> list[int]:
+    """Compare source endpoints under a simple 1950-minus-age diagnostic."""
+    values = [age for _, age in ages]
+    return [
+        math.floor(1950 - max(values) + 0.5),
+        math.floor(1950 - min(values) + 0.5),
+    ]
 
 
 def build(source_root: Path) -> dict[str, object]:
@@ -73,6 +83,21 @@ def build(source_root: Path) -> dict[str, object]:
             if current[1] > previous[1]
         ]
         duplicates = len(ages) - len({age for _, age in ages})
+        metadata_bp = [
+            int(candidate["source_top_bp"]),
+            int(candidate["source_bottom_bp"]),
+        ]
+        diagnostic = None
+        if expected and len(reversals) == 1:
+            omitted_row = reversals[0]["following_sheet_row"]
+            remaining = [(row, age) for row, age in ages if row != omitted_row]
+            diagnostic = {
+                "omitted_sheet_row": omitted_row,
+                "numeric_1950_minus_age_endpoints_bp": _numeric_bp_endpoints(remaining),
+                "matches_metadata_bounds": _numeric_bp_endpoints(remaining)
+                == metadata_bp,
+                "status": "diagnostic_only_not_an_age_correction",
+            }
         findings.append(
             {
                 "sequence": sequence,
@@ -87,6 +112,14 @@ def build(source_root: Path) -> dict[str, object]:
                 "source_age_max": max((age for _, age in ages), default=None),
                 "strict_age_reversals_in_sheet_order": reversals if expected else None,
                 "exact_duplicate_source_ages": duplicates if expected else None,
+                "source_metadata_bounds_bp": metadata_bp,
+                "numeric_1950_minus_age_extrema_bp": (
+                    _numeric_bp_endpoints(ages) if expected else None
+                ),
+                "all_age_extrema_match_metadata": (
+                    _numeric_bp_endpoints(ages) == metadata_bp if expected else None
+                ),
+                "single_reversal_row_omission_diagnostic": diagnostic,
                 "dated_event_admitted": False,
             }
         )
@@ -97,7 +130,7 @@ def build(source_root: Path) -> dict[str, object]:
         "source_age_column_sequences": ["FLINK", "HOLK"],
         "no_source_age_column_sequences": ["RANV", "STAV"],
         "findings": findings,
-        "interpretation": "Source-native age cells are point labels, not verified age-model intervals. Reversals are preserved; no AD/BC-to-BP conversion, correction, interpolation, uncertainty, event date, or historical-input identity is inferred.",
+        "interpretation": "The 1950-minus-age integer endpoint comparison is an arithmetic diagnostic of metadata labels, not an authorized AD/BC-to-BP conversion or correction. Source-native cells are point labels, not verified age-model intervals. Reversals are preserved; no interpolation, uncertainty, event date, or historical-input identity is inferred.",
     }
 
 

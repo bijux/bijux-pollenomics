@@ -21,6 +21,17 @@ which are not sample dates. No source age uncertainty, model identity, historica
 publication-input identity, or per-sequence analytical rights is established.
 All four remain refused for dated-event and LRA use on this evidence.
 
+An arithmetic check rounds the extrema of `1950 − source age` to integer BP and
+compares them with the sequence metadata bounds. HOLK's full 40-cell extrema
+produce **−50 to 3441 BP**, matching its metadata; its last sheet row instead
+produces 3440 BP, consistent with the bottom reversal. FLINK's full 109-cell
+extrema produce **−1961 to 12011 BP**, while its metadata say **−50 to 12011
+BP**. Omitting the single cell immediately after the interior reversal yields
+the metadata bounds. This is a diagnostic of the discrepancy, not evidence
+that the omitted cell should be changed or that the 1950 arithmetic is an
+approved calibrated-age conversion. The report retains the diagnostic omission
+separately from the unchanged source values.
+
 Reproduce from the repository root:
 
 ```sh
