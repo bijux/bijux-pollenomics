@@ -25,7 +25,10 @@ from bijux_pollenomics_lra.models.validation import (
     normalise_parameters,
     sample_counts,
 )
-from bijux_pollenomics_lra.optimization.solver import ReplayOptimizer
+from bijux_pollenomics_lra.optimization.solver import (
+    ReplayOptimizer,
+    SimplexSLSQPOptimizer,
+)
 from bijux_pollenomics_lra.provenance.manifest import build_manifest
 from bijux_pollenomics_lra.reconstruction.analytical import LOVEr
 from bijux_pollenomics_lra.reconstruction.optimized import LOVEoptim
@@ -281,9 +284,18 @@ def run_love(
         raise ValidationError(
             "Optimized LOVE does not consume local_ppe_draws in this profile"
         )
+    if (
+        replay_candidates is not None
+        and config.optimizer_backend != "scipy.differential_evolution"
+    ):
+        raise ValidationError(
+            "Candidate replay cannot select another optimizer backend"
+        )
     optimizer = (
         ReplayOptimizer(np.asarray(replay_candidates, dtype=float))
         if replay_candidates is not None
+        else SimplexSLSQPOptimizer()
+        if config.optimizer_backend == "scipy.slsqp-simplex-uniform"
         else None
     )
     raw = LOVEoptim(
@@ -353,7 +365,7 @@ def run_love(
                     "optimizer_backend": (
                         "candidate-replay"
                         if replay_candidates is not None
-                        else "scipy.differential_evolution"
+                        else config.optimizer_backend
                     ),
                     "candidate_count": (
                         len(np.asarray(replay_candidates))

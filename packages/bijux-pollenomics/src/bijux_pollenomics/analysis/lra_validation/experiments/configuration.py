@@ -229,10 +229,22 @@ def validate_template(
                 "unsupported_experiment_profile",
                 "Initial profile uses deterministic source computations",
             )
-    if object_mapping(configuration["love"], "love").get("method") != "analytical":
+    love = object_mapping(configuration["love"], "love")
+    analytical = (
+        love.get("method") == "analytical"
+        and template["method_profile"] == "disqover-0.9.14-source-compatible"
+    )
+    constrained = (
+        data_kind == "source_observations"
+        and love.get("method") == "optimized"
+        and love.get("optimized_profile") == "ring-taxon-preserving"
+        and love.get("optimizer_backend") == "scipy.slsqp-simplex-uniform"
+        and template["method_profile"] == "ring-taxon-preserving"
+    )
+    if not (analytical or constrained):
         raise ValidationRefusal(
             "unsupported_experiment_profile",
-            "Initial extraction supports analytical LOVE",
+            "Source extraction requires an admitted analytical or constrained LOVE profile",
         )
     for evidence in object_list(template.get("evidence"), "evidence"):
         if object_mapping(evidence, "evidence").get("role") not in {

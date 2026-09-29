@@ -14,6 +14,7 @@ from bijux_pollenomics_lra.models.errors import ValidationError
 from bijux_pollenomics_lra.optimization.solver import (
     OptimizationResult,
     ReplayOptimizer,
+    SimplexSLSQPOptimizer,
     optimize_box,
 )
 from bijux_pollenomics_lra.reconstruction.optimized import (
@@ -108,6 +109,40 @@ def test_scale_equivalent_weights_and_distinct_ambiguous_compositions() -> None:
     assert replay.algorithm == "candidate-replay"
     assert "convergence was not tested" in replay.message
     np.testing.assert_array_equal(replay.x, first)
+
+
+def test_simplex_slsqp_solves_source_objective_with_certified_composition() -> None:
+    result = optimize_box(
+        lambda candidate: _objective("interior", candidate),
+        np.zeros(2),
+        np.ones(2),
+        optimizer=SimplexSLSQPOptimizer(),
+        maxiter=120,
+        tolerance=1e-8,
+        max_evaluations=8000,
+    )
+    expected = math.sqrt(2) * abs(math.log(0.5 / 0.501))
+    assert result.success
+    assert result.algorithm == "scipy.slsqp-simplex-uniform"
+    assert result.x.sum() == pytest.approx(1)
+    assert result.x[0] == pytest.approx(0.5, abs=1e-6)
+    assert result.fun == pytest.approx(expected, abs=1e-8)
+    assert result.certification_nfev == 1
+
+
+def test_simplex_slsqp_budget_refuses_unfinished_search() -> None:
+    result = optimize_box(
+        lambda candidate: _objective("interior", candidate),
+        np.zeros(2),
+        np.ones(2),
+        optimizer=SimplexSLSQPOptimizer(),
+        maxiter=120,
+        tolerance=1e-8,
+        max_evaluations=1,
+    )
+    assert not result.success
+    assert result.nfev == 1
+    assert "budget" in result.message.lower()
 
 
 @pytest.mark.parametrize(("budget", "generations"), [(1, 0), (20, 0), (60, 2), (80, 3)])

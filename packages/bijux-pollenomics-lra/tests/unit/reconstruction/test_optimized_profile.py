@@ -120,6 +120,31 @@ def test_ring_taxon_profile_preserves_one_local_ring() -> None:
     )
 
 
+def test_simplex_love_exports_a_closed_full_precision_cover() -> None:
+    config = LoveConfig(
+        method="optimized",
+        regional_basin_type="lake",
+        regional_basin_diameter_m=300,
+        local_basin_diameter_m=12,
+        max_ring=1,
+        repeats=1,
+        stochastic=False,
+        optimized_profile="ring-taxon-preserving",
+        optimizer_backend="scipy.slsqp-simplex-uniform",
+        optimizer_iterations=300,
+        optimizer_max_evaluations=16000,
+        optimizer_tolerance=1e-8,
+    )
+    result = run_love(
+        *_inputs([1.0, 0.7, 0.9, 0.6]),
+        config,
+        regional_cover_draws=np.array([[0.89448, 0.04771, 0.05781]]),
+    )
+    assert result.diagnostics[0].success
+    assert result.cover["mean"].iloc[0].sum() == pytest.approx(1, abs=1e-12)
+    assert result.manifest.parameters["optimizer_backend"] == config.optimizer_backend
+
+
 @pytest.mark.parametrize(
     "profile,maximum,expected,fractions",
     [
