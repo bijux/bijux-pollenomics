@@ -17,6 +17,7 @@ from typing import Any
 
 from bijux_pollenomics_dev.native_backend.profiling import (
     THREAD_VARIABLES,
+    WORKLOAD_NAMES,
     normalize_output,
     workloads,
 )
@@ -47,18 +48,16 @@ def worker(name: str) -> dict[str, Any]:
     """Keep fixture construction and one public call inside one new process."""
     if any(os.environ.get(variable) != "1" for variable in THREAD_VARIABLES):
         raise ValueError("All numerical thread variables must be one")
-    selection = {item.name: item for item in workloads()}
-    if name not in selection:
-        raise ValueError(f"Undeclared Python baseline workload: {name}")
+    selection = workloads(name)[0]
     before = _peak_bytes()
     started = time.perf_counter()
-    output = selection[name].consume()
+    output = selection.consume()
     call_seconds = time.perf_counter() - started
     after = _peak_bytes()
     normalized, nonfinite = normalize_output(output)
     return {
         "name": name,
-        "contract_sha256": _scientific_sha(selection[name].contract),
+        "contract_sha256": _scientific_sha(selection.contract),
         "pre_call_process_peak_rss_bytes": before,
         "post_call_process_peak_rss_bytes": after,
         "observed_peak_increment_bytes": max(0, after - before),
@@ -111,7 +110,7 @@ def run(repository: Path, output: Path) -> dict[str, Any]:
         baseline["schema_version"] != "lra-python-performance-baseline.v1"
         or len(names) != 7
         or len(set(names)) != 7
-        or names != [item.name for item in workloads()]
+        or names != list(WORKLOAD_NAMES)
         or baseline["prospective_native_gate"]["minimum_end_to_end_speedup"] != 2.0
     ):
         raise ValueError("Retained baseline contract changed")
@@ -181,8 +180,8 @@ def run(repository: Path, output: Path) -> dict[str, Any]:
         "thread_settings": {name: os.environ[name] for name in THREAD_VARIABLES},
         "repetitions_per_workload": REPETITIONS,
         "cases": cases,
-        "rss_semantics": "Fresh process per call. Peak includes imports and construction of all seven retained workload fixtures; pre/post difference is only a high-water increment and may be zero despite allocation.",
-        "worker_time_semantics": "Whole worker includes Python startup, imports, all fixture construction, one public call and JSON receipt; call_seconds excludes setup.",
+        "rss_semantics": "Fresh process per call. Peak includes imports and construction of only the named workload fixture; pre/post difference is only a high-water increment and may be zero despite allocation.",
+        "worker_time_semantics": "Whole worker includes Python startup, imports, named fixture construction, one public call and JSON receipt; call_seconds excludes setup.",
         "adoption_decision": "none; Python-only isolated resource measurement",
     }
     output.mkdir(parents=True)

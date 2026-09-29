@@ -59,160 +59,163 @@ class Workload:
     consume: Callable[[], object]
 
 
-def workloads() -> list[Workload]:
-    """Use retained reference inputs; label every replicated/stress input explicitly."""
-    local, regional, parameters, rings = load_love_example()
-    params = parameters["ppes"]
-    tiefer = load_dataset("Tiefer_See")
-    reveals = RevealsConfig("lake", 300, iterations=8, stochastic=False)
-    analytical = LoveConfig(
-        "analytical",
-        "lake",
-        300,
-        12.9,
-        10,
-        repeats=8,
-        stochastic=False,
-        seed=7,
-    )
-    optimized = LoveConfig(
-        "optimized",
-        "lake",
-        300,
-        12.9,
-        10,
-        repeats=2,
-        stochastic=False,
-        seed=7,
-        optimizer_max_evaluations=32,
-    )
-    candidates = np.linspace(0.1, 0.9, 320).reshape(32, 10)
-    series_local = pd.concat([local] * 8, ignore_index=True)
-    series_regional = pd.concat([regional] * 8, ignore_index=True)
-    series_local.iloc[:, 0] = np.arange(8)
-    series_regional.iloc[:, 0] = np.arange(8)
+WORKLOAD_NAMES = (
+    "reveals-interactive",
+    "reveals-reference-series",
+    "love-analytical",
+    "love-optimized-replay",
+    "lra-replicated-series",
+    "forward-validated",
+    "forward-dot-compute",
+)
+
+
+def workloads(name: str | None = None) -> list[Workload]:
+    """Construct only the named fixture in an isolated worker."""
+    if name is not None and name not in WORKLOAD_NAMES:
+        raise ValueError(f"Undeclared Python baseline workload: {name}")
+    return [_workload(item) for item in (WORKLOAD_NAMES if name is None else (name,))]
+
+
+def _workload(name: str) -> Workload:
+    if name.startswith("reveals-"):
+        tiefer = load_dataset("Tiefer_See")
+        reveals_config = RevealsConfig("lake", 300, iterations=8, stochastic=False)
+        rows = 1 if name == "reveals-interactive" else 45
+        pollen = tiefer["pollenTS"].iloc[[0]] if rows == 1 else tiefer["pollenTS"]
+        return Workload(
+            name,
+            {
+                "source": "Tiefer_See",
+                "rows": rows,
+                "taxa": 21,
+                "config": reveals_config.as_dict(),
+            },
+            lambda: (
+                run_reveals(pollen, tiefer["paramsTS"], reveals_config)
+                .table.to_numpy()
+                .tolist()
+            ),
+        )
+
+    if name.startswith("love-") or name == "lra-replicated-series":
+        local, regional, parameters, rings = load_love_example()
+        params = parameters["ppes"]
+        analytical = LoveConfig(
+            "analytical", "lake", 300, 12.9, 10, repeats=8, stochastic=False, seed=7
+        )
+        if name == "love-analytical":
+            return Workload(
+                name,
+                {
+                    "source": "LOVEexample",
+                    "rows": 1,
+                    "taxa": 10,
+                    "rings": 36,
+                    "config": analytical.as_dict(),
+                },
+                lambda: (
+                    run_love(local, regional, params, rings, analytical)
+                    .cover["mean"]
+                    .to_numpy()
+                    .tolist()
+                ),
+            )
+        if name == "love-optimized-replay":
+            optimized_config = LoveConfig(
+                "optimized",
+                "lake",
+                300,
+                12.9,
+                10,
+                repeats=2,
+                stochastic=False,
+                seed=7,
+                optimizer_max_evaluations=32,
+            )
+            candidates = np.linspace(0.1, 0.9, 320).reshape(32, 10)
+            return Workload(
+                name,
+                {
+                    "source": "LOVEexample",
+                    "rows": 1,
+                    "taxa": 10,
+                    "rings": 36,
+                    "config": optimized_config.as_dict(),
+                    "candidates": candidates.tolist(),
+                    "search": "bounded fixed candidate replay; no convergence benchmark",
+                },
+                lambda: (
+                    run_love(
+                        local,
+                        regional,
+                        params,
+                        rings,
+                        optimized_config,
+                        replay_candidates=candidates,
+                    )
+                    .cover["mean"]
+                    .to_numpy()
+                    .tolist()
+                ),
+            )
+        reveals = RevealsConfig("lake", 300, iterations=8, stochastic=False)
+        series_local = pd.concat([local] * 8, ignore_index=True)
+        series_regional = pd.concat([regional] * 8, ignore_index=True)
+        series_local.iloc[:, 0] = np.arange(8)
+        series_regional.iloc[:, 0] = np.arange(8)
+        series_config = LRAConfig(reveals, analytical, seed=7)
+
+        def series() -> list[object]:
+            result = run_lra_series(
+                series_local, series_regional, params, rings, series_config
+            )
+            return [
+                run.local.cover["mean"].to_numpy().tolist()
+                for run in result.runs.values()
+            ]
+
+        return Workload(
+            name,
+            {
+                "source": "eight synthetic coordinate replicas of LOVEexample; no independent sites",
+                "rows": 8,
+                "taxa": 10,
+                "rings": 36,
+                "config": series_config.as_dict(),
+            },
+            series,
+        )
+
     cover = np.arange(1, 33, dtype=float)
     cover /= cover.sum()
     kernels = np.linspace(0.001, 1.0, 128 * 32).reshape(128, 32)
     fractions = np.linspace(0.1, 1.0, 128)
     productivity = np.linspace(0.5, 5.0, 32)
     regional_term = np.linspace(0.01, 0.1, 32)
-
-    def series() -> list[object]:
-        result = run_lra_series(
-            series_local,
-            series_regional,
-            params,
-            rings,
-            LRAConfig(reveals, analytical, seed=7),
+    if name == "forward-validated":
+        return Workload(
+            name,
+            {"source": "synthetic numerical stress arrays", "rings": 128, "taxa": 32},
+            lambda: forward_deposition(
+                cover, regional_term, kernels, fractions, productivity
+            ).pollen_fraction.tolist(),
         )
-        return [
-            run.local.cover["mean"].to_numpy().tolist() for run in result.runs.values()
-        ]
 
     def dot_kernel() -> list[float]:
         total = (fractions @ kernels) * (cover * productivity) + regional_term
         return [float(value) for value in total / total.sum()]
 
-    return [
-        Workload(
-            "reveals-interactive",
-            {
-                "source": "Tiefer_See",
-                "rows": 1,
-                "taxa": 21,
-                "config": reveals.as_dict(),
-            },
-            lambda: (
-                run_reveals(tiefer["pollenTS"].iloc[[0]], tiefer["paramsTS"], reveals)
-                .table.to_numpy()
-                .tolist()
-            ),
-        ),
-        Workload(
-            "reveals-reference-series",
-            {
-                "source": "Tiefer_See",
-                "rows": 45,
-                "taxa": 21,
-                "config": reveals.as_dict(),
-            },
-            lambda: (
-                run_reveals(tiefer["pollenTS"], tiefer["paramsTS"], reveals)
-                .table.to_numpy()
-                .tolist()
-            ),
-        ),
-        Workload(
-            "love-analytical",
-            {
-                "source": "LOVEexample",
-                "rows": 1,
-                "taxa": 10,
-                "rings": 36,
-                "config": analytical.as_dict(),
-            },
-            lambda: (
-                run_love(local, regional, params, rings, analytical)
-                .cover["mean"]
-                .to_numpy()
-                .tolist()
-            ),
-        ),
-        Workload(
-            "love-optimized-replay",
-            {
-                "source": "LOVEexample",
-                "rows": 1,
-                "taxa": 10,
-                "rings": 36,
-                "config": optimized.as_dict(),
-                "candidates": candidates.tolist(),
-                "search": "bounded fixed candidate replay; no convergence benchmark",
-            },
-            lambda: (
-                run_love(
-                    local,
-                    regional,
-                    params,
-                    rings,
-                    optimized,
-                    replay_candidates=candidates,
-                )
-                .cover["mean"]
-                .to_numpy()
-                .tolist()
-            ),
-        ),
-        Workload(
-            "lra-replicated-series",
-            {
-                "source": "eight synthetic coordinate replicas of LOVEexample; no independent sites",
-                "rows": 8,
-                "taxa": 10,
-                "rings": 36,
-                "config": LRAConfig(reveals, analytical, seed=7).as_dict(),
-            },
-            series,
-        ),
-        Workload(
-            "forward-validated",
-            {"source": "synthetic numerical stress arrays", "rings": 128, "taxa": 32},
-            lambda: forward_deposition(
-                cover, regional_term, kernels, fractions, productivity
-            ).pollen_fraction.tolist(),
-        ),
-        Workload(
-            "forward-dot-compute",
-            {
-                "source": "same synthetic arrays",
-                "rings": 128,
-                "taxa": 32,
-                "validation": "compute only; inputs already frozen and validated; not equivalent facade latency",
-            },
-            dot_kernel,
-        ),
-    ]
+    return Workload(
+        name,
+        {
+            "source": "same synthetic arrays",
+            "rings": 128,
+            "taxa": 32,
+            "validation": "compute only; inputs already frozen and validated; not equivalent facade latency",
+        },
+        dot_kernel,
+    )
 
 
 def normalize_output(

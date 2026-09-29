@@ -7,6 +7,7 @@ from typing import cast
 import numpy as np
 import pytest
 
+from bijux_pollenomics_dev.native_backend import profiling
 from bijux_pollenomics_dev.native_backend.profiling import Workload, measure, workloads
 from bijux_pollenomics_lra.api import LRAError
 
@@ -48,6 +49,22 @@ def test_compute_only_dot_preserves_public_forward_scientific_output() -> None:
     assert (
         "no independent sites" in selection["lra-replicated-series"].contract["source"]
     )
+
+
+def test_selected_forward_workload_avoids_other_source_fixtures(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    def unrelated_source(*_args: object) -> None:
+        raise AssertionError("Unrelated source fixture was loaded")
+
+    monkeypatch.setattr(profiling, "load_love_example", unrelated_source)
+    monkeypatch.setattr(profiling, "load_dataset", unrelated_source)
+    selected = workloads("forward-validated")
+    assert len(selected) == 1
+    assert selected[0].name == "forward-validated"
+    assert len(cast(list[float], selected[0].consume())) == 32
+    with pytest.raises(ValueError, match="Undeclared"):
+        workloads("missing-workload")
 
 
 def test_single_favorable_timing_is_refused() -> None:

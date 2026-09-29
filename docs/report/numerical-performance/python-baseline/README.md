@@ -8,13 +8,13 @@ scientific output is identical across timing repetitions.
 
 | Workload | First call, ms | Warm median, ms | Warm range, ms |
 |---|---:|---:|---:|
-| reveals-interactive | 83.441 | 8.178 | 7.687–9.801 |
-| reveals-reference-series | 28.025 | 28.318 | 26.619–29.501 |
-| love-analytical | 18.171 | 12.791 | 12.295–12.926 |
-| love-optimized-replay | 34.726 | 28.610 | 28.516–29.157 |
-| lra-replicated-series | 217.831 | 218.972 | 216.554–239.346 |
-| forward-validated | 0.149 | 0.042 | 0.041–0.077 |
-| forward-dot-compute | 0.023 | 0.005 | 0.005–0.006 |
+| reveals-interactive | 68.505 | 2.681 | 2.564–4.098 |
+| reveals-reference-series | 19.546 | 19.226 | 19.181–19.332 |
+| love-analytical | 11.873 | 6.489 | 6.444–6.621 |
+| love-optimized-replay | 23.649 | 21.241 | 21.187–21.461 |
+| lra-replicated-series | 83.968 | 82.052 | 81.585–82.148 |
+| forward-validated | 0.082 | 0.041 | 0.040–0.046 |
+| forward-dot-compute | 0.021 | 0.005 | 0.005–0.006 |
 
 The REVEALS workloads use one and all 45 retained Tiefer See rows with 21 taxa.
 LOVE uses the retained 10-taxon, 36-ring example: eight analytical repeats or
@@ -39,12 +39,18 @@ the production ratio is retained. Timing measures the declared source workflow,
 not a new scientific eligibility or accuracy claim. The initial report writer
 refused non-JSON NaNs; the corrected writer preserves them explicitly.
 
-The process high-water RSS was 163.80 MiB on the recorded macOS machine, including
+The process high-water RSS was 163.45 MiB on the recorded macOS machine, including
 imports and all workloads. It is not per-workload incremental memory. First calls
 share the process and may reuse kernels warmed by an earlier workload; they are
 not isolated cold-cache measurements. The profile records individual Python,
 library, conversion and copy functions with their call counts and exclusive and
 cumulative costs.
+
+This measurement refreshes an older retained baseline on the current numerical
+source. All seven scientific outputs and nonfinite meanings match the older
+measurement exactly. Three REVEALS-inclusive workload contracts now include the
+declared fall-speed profile, and eight source identities differ. The timing
+differences between the two reports therefore do not establish a speed change.
 
 ## Reproduce
 
