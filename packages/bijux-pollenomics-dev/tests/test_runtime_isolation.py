@@ -395,6 +395,364 @@ APPROVED_HOST_IMPORTS: dict[str, dict[str, frozenset[str]]] = {
             {"validate_sead_scientific_classification_review"}
         ),
     },
+    "bijux_pollenomics_dev/ci/atlas_browser/boundary_orientation_candidate.py": {
+        "bijux_pollenomics.core.geospatial.geojson": frozenset({"JsonObject"}),
+        "bijux_pollenomics.reporting.map_document": frozenset(
+            {"render_multi_country_map_html"}
+        ),
+        "bijux_pollenomics.reporting.scope_policy": frozenset({"MAP_SCOPE_POLICIES"}),
+    },
+    "bijux_pollenomics_dev/ci/atlas_browser/context_frame_candidate.py": {
+        "bijux_pollenomics.reporting.geography": frozenset(
+            {"build_published_geography_plan"}
+        ),
+        "bijux_pollenomics.reporting.lra_products.api": frozenset(
+            {"render_lra_report"}
+        ),
+        "bijux_pollenomics.reporting.map_document": frozenset(
+            {"render_multi_country_map_html"}
+        ),
+        "bijux_pollenomics.reporting.map_document.static_assets": frozenset(
+            {"write_static_atlas_assets"}
+        ),
+        "bijux_pollenomics.reporting.map_document.static_assets.asset_inventory": frozenset(
+            {"normalize_asset_inventory"}
+        ),
+        "bijux_pollenomics.reporting.map_document.static_assets.serialization": frozenset(
+            {"decode_chunk_script"}
+        ),
+        "bijux_pollenomics.reporting.map_publication": frozenset(
+            {"resolve_map_scope_policy"}
+        ),
+        "bijux_pollenomics.reporting.modeled_context": frozenset(
+            {"build_modeled_context_manifest"}
+        ),
+        "bijux_pollenomics.reporting.modeled_context.publication_projection": frozenset(
+            {"project_modeled_context_layers"}
+        ),
+    },
+    "bijux_pollenomics_dev/ci/atlas_browser/cross_border_neighbor_candidate.py": {
+        "bijux_pollenomics.core.geospatial.distance": frozenset(
+            {"wgs84_inverse_geodesic"}
+        ),
+        "bijux_pollenomics.core.geospatial.geojson": frozenset({"JsonObject"}),
+        "bijux_pollenomics.reporting.map_document": frozenset(
+            {"render_multi_country_map_html"}
+        ),
+        "bijux_pollenomics.reporting.map_document.static_assets": frozenset(
+            {"write_static_atlas_assets"}
+        ),
+        "bijux_pollenomics.reporting.scope_policy": frozenset({"MAP_SCOPE_POLICIES"}),
+    },
+    "bijux_pollenomics_dev/ci/atlas_browser/modeled_panel_candidate.py": {
+        "bijux_pollenomics.reporting.geography": frozenset(
+            {"build_published_geography_plan"}
+        ),
+        "bijux_pollenomics.reporting.map_document": frozenset(
+            {"render_multi_country_map_html"}
+        ),
+        "bijux_pollenomics.reporting.map_document.static_assets": frozenset(
+            {"write_static_atlas_assets"}
+        ),
+        "bijux_pollenomics.reporting.map_document.static_assets.asset_inventory": frozenset(
+            {"normalize_asset_inventory"}
+        ),
+        "bijux_pollenomics.reporting.map_document.static_assets.serialization": frozenset(
+            {"decode_chunk_script"}
+        ),
+        "bijux_pollenomics.reporting.map_publication": frozenset(
+            {"resolve_map_scope_policy"}
+        ),
+        "bijux_pollenomics.reporting.modeled_context": frozenset(
+            {"build_modeled_context_manifest"}
+        ),
+        "bijux_pollenomics.reporting.modeled_context.publication_projection": frozenset(
+            {"project_modeled_context_layers"}
+        ),
+    },
+    "bijux_pollenomics_dev/ci/atlas_browser/nordic_source_candidate.py": {
+        "bijux_pollenomics.core.geospatial.geojson": frozenset({"JsonObject"}),
+        "bijux_pollenomics.reporting.geography": frozenset(
+            {"build_published_geography_plan"}
+        ),
+        "bijux_pollenomics.reporting.map_document": frozenset(
+            {"render_multi_country_map_html"}
+        ),
+        "bijux_pollenomics.reporting.map_document.static_assets": frozenset(
+            {"write_static_atlas_assets"}
+        ),
+        "bijux_pollenomics.reporting.map_document.static_assets.asset_inventory": frozenset(
+            {"normalize_asset_inventory"}
+        ),
+        "bijux_pollenomics.reporting.map_document.static_assets.index_bundles": frozenset(
+            {"decode_index_bundle"}
+        ),
+        "bijux_pollenomics.reporting.map_document.static_assets.serialization": frozenset(
+            {"decode_chunk_script"}
+        ),
+        "bijux_pollenomics.reporting.map_publication": frozenset(
+            {"resolve_map_scope_policy"}
+        ),
+    },
+    "bijux_pollenomics_dev/ci/atlas_browser/playback_keyboard_candidate.py": {
+        "bijux_pollenomics.core.geospatial.geojson": frozenset({"JsonObject"}),
+        "bijux_pollenomics.reporting.map_document": frozenset(
+            {"render_multi_country_map_html"}
+        ),
+        "bijux_pollenomics.reporting.scope_policy": frozenset({"MAP_SCOPE_POLICIES"}),
+    },
+    "bijux_pollenomics_dev/ci/atlas_browser/source_detail_candidate.py": {
+        "bijux_pollenomics.reporting.geography": frozenset(
+            {"build_published_geography_plan"}
+        ),
+        "bijux_pollenomics.reporting.map_document": frozenset(
+            {"render_multi_country_map_html"}
+        ),
+        "bijux_pollenomics.reporting.map_document.static_assets": frozenset(
+            {"write_static_atlas_assets"}
+        ),
+        "bijux_pollenomics.reporting.map_document.static_assets.asset_inventory": frozenset(
+            {"normalize_asset_inventory"}
+        ),
+        "bijux_pollenomics.reporting.map_document.static_assets.index_bundles": frozenset(
+            {"decode_index_bundle"}
+        ),
+        "bijux_pollenomics.reporting.map_document.static_assets.serialization": frozenset(
+            {"decode_chunk_script"}
+        ),
+        "bijux_pollenomics.reporting.map_publication": frozenset(
+            {"resolve_map_scope_policy"}
+        ),
+    },
+    "bijux_pollenomics_dev/essd_reproduction/author_lra_report.py": {
+        "bijux_pollenomics.analysis.lra.outputs.reading": frozenset(
+            {"read_lra_product"}
+        ),
+        "bijux_pollenomics.analysis.lra_validation.experiments": frozenset(
+            {"read_withheld_predictions"}
+        ),
+    },
+    "bijux_pollenomics_dev/essd_reproduction/author_lra_run.py": {
+        "bijux_pollenomics.analysis.lra_validation.experiments": frozenset(
+            {"prepare_experiment_predictions"}
+        ),
+    },
+    "bijux_pollenomics_dev/lra_validation/change_time_challenge.py": {
+        "bijux_pollenomics.analysis.propagation.event_estimation": frozenset(
+            {"GovernedSample", "estimate_first_observed"}
+        ),
+        "bijux_pollenomics.analysis.propagation.network": frozenset(
+            {"PhenomenonEvent"}
+        ),
+    },
+    "bijux_pollenomics_dev/lra_validation/neotoma_first_observed.py": {
+        "bijux_pollenomics.analysis.propagation.event_estimation": frozenset(
+            {"GovernedSample"}
+        ),
+    },
+    "bijux_pollenomics_dev/lra_validation/propagation_challenge.py": {
+        "bijux_pollenomics.analysis.propagation.event_estimation": frozenset(
+            {"GovernedSample", "estimate_first_observed"}
+        ),
+        "bijux_pollenomics.analysis.propagation.network": frozenset(
+            {
+                "PhenomenonEvent",
+                "PropagationCandidate",
+                "evaluate_propagation_pair",
+                "run_propagation_sensitivity",
+            }
+        ),
+    },
+    "bijux_pollenomics_dev/lra_validation/site_leakage_challenge.py": {
+        "bijux_pollenomics.analysis.lra_validation": frozenset(
+            {
+                "ForwardInputs",
+                "SiteRecord",
+                "ValidationRefusal",
+                "grouped_leave_one_out",
+                "predict_withheld_site",
+                "score_vegetation",
+            }
+        ),
+        "bijux_pollenomics.analysis.lra_validation.contracts": frozenset(
+            {"manifest_sha256"}
+        ),
+        "bijux_pollenomics.analysis.lra_validation.metrics": frozenset(
+            {"hellinger_distance"}
+        ),
+        "bijux_pollenomics.core.geospatial.distance": frozenset(
+            {"wgs84_inverse_geodesic"}
+        ),
+    },
+    "bijux_pollenomics_dev/lra_validation/spatial_eligibility_challenge.py": {
+        "bijux_pollenomics.analysis.propagation.network": frozenset(
+            {
+                "EventValidationError",
+                "PhenomenonEvent",
+                "PropagationCandidate",
+                "evaluate_propagation_pair",
+                "generate_propagation_network",
+                "generate_propagation_network_exhaustive",
+            }
+        ),
+        "bijux_pollenomics.core.geospatial.distance": frozenset(
+            {"wgs84_inverse_geodesic"}
+        ),
+    },
+    "bijux_pollenomics_dev/source_completion/landclim_modeled_panels.py": {
+        "bijux_pollenomics.reporting.context.polygons": frozenset(
+            {"build_external_polygon_layer"}
+        ),
+        "bijux_pollenomics.reporting.modeled_context": frozenset(
+            {"build_modeled_context_manifest"}
+        ),
+        "bijux_pollenomics.reporting.modeled_context.contracts": frozenset(
+            {"PANGAEA_COUNTRY_CELL_COUNTS", "PANGAEA_DATASET_DOI"}
+        ),
+    },
+    "bijux_pollenomics_dev/source_completion/neotoma_publication_readiness.py": {
+        "bijux_pollenomics.analysis.lra.materialization.neotoma.publication_intake": frozenset(
+            {"parse_dataset_publications"}
+        ),
+    },
+    "bijux_pollenomics_dev/source_completion/nordic_author_target_pollen.py": {
+        "bijux_pollenomics.analysis.lra_validation.baselines": frozenset(
+            {"predict_spatial_baseline"}
+        ),
+        "bijux_pollenomics.analysis.lra_validation.contracts": frozenset({"Fold"}),
+        "bijux_pollenomics.analysis.lra_validation.metrics": frozenset(
+            {"hellinger_distance", "score_pollen"}
+        ),
+        "bijux_pollenomics.analysis.lra_validation.spatial.configuration": frozenset(
+            {"distance_km"}
+        ),
+    },
+    "bijux_pollenomics_dev/source_completion/nordic_pollen_development.py": {
+        "bijux_pollenomics.analysis.lra_validation.baselines": frozenset(
+            {"predict_spatial_baseline"}
+        ),
+        "bijux_pollenomics.analysis.lra_validation.contracts": frozenset(
+            {"Fold", "ValidationRefusal"}
+        ),
+        "bijux_pollenomics.analysis.lra_validation.metrics": frozenset(
+            {"hellinger_distance", "score_pollen"}
+        ),
+        "bijux_pollenomics.analysis.lra_validation.spatial": frozenset(
+            {
+                "SiteCoordinate",
+                "SpatialConfig",
+                "fit_spatial_model",
+                "half_count_composition",
+            }
+        ),
+        "bijux_pollenomics.analysis.lra_validation.spatial.configuration": frozenset(
+            {"distance_km"}
+        ),
+    },
+    "bijux_pollenomics_dev/source_completion/nordic_pollen_transfer.py": {
+        "bijux_pollenomics.analysis.lra_validation.baselines": frozenset(
+            {"predict_spatial_baseline"}
+        ),
+        "bijux_pollenomics.analysis.lra_validation.contracts": frozenset({"Fold"}),
+        "bijux_pollenomics.analysis.lra_validation.metrics": frozenset(
+            {"hellinger_distance", "score_pollen"}
+        ),
+        "bijux_pollenomics.analysis.lra_validation.spatial": frozenset(
+            {
+                "SiteCoordinate",
+                "SpatialConfig",
+                "fit_spatial_model",
+                "half_count_composition",
+            }
+        ),
+        "bijux_pollenomics.analysis.lra_validation.spatial.configuration": frozenset(
+            {"distance_km"}
+        ),
+    },
+    "bijux_pollenomics_dev/source_completion/openland_intake.py": {
+        "bijux_pollenomics.collection.sources.open_land.authority": frozenset(
+            {
+                "ADMITTED_CSV_MEMBERS",
+                "ARCHIVE_EXPANDED_BYTES",
+                "ARCHIVE_MEMBER_COUNT",
+                "ARCHIVE_SHA256",
+                "SOURCE_CITATION_DOI",
+                "SOURCE_COMMIT",
+                "SOURCE_DATA_LICENSE",
+                "SOURCE_REPOSITORY",
+            }
+        ),
+    },
+    "bijux_pollenomics_dev/source_completion/sead_pollen_screen.py": {
+        "bijux_pollenomics.evidence.sources.sead": frozenset(
+            {
+                "SEAD_GOVERNED_BUILD_ID",
+                "SEAD_GOVERNED_EVIDENCE_MANIFEST_SHA256",
+                "SEAD_GOVERNED_EVIDENCE_RUN_ID",
+                "SEAD_GOVERNED_PARENT_ADMISSION_SHA256",
+                "governed_sead_evidence_root",
+            }
+        ),
+    },
+    "bijux_pollenomics_dev/source_completion/sead_public_custody.py": {
+        "bijux_pollenomics.collection.sources.sead.acquisition.governed": frozenset(
+            {"validate_governed_sead_admission"}
+        ),
+        "bijux_pollenomics.evidence.sources.sead": frozenset(
+            {"SEAD_GOVERNED_ADMISSION_SHA256", "SEAD_GOVERNED_EVIDENCE_RUN_ID"}
+        ),
+    },
+    "bijux_pollenomics_dev/source_completion/sead_relations/workflow.py": {
+        "bijux_pollenomics.collection.sources.sead.acquisition.governed": frozenset(
+            {"governed_sead_expected_identity"}
+        ),
+        "bijux_pollenomics.collection.sources.sead.evidence.source_keys.validation": frozenset(
+            {"validate_sead_source_key_ledger_against_acquisition"}
+        ),
+        "bijux_pollenomics.evidence.sources.sead": frozenset(
+            {
+                "SEAD_GOVERNED_ADMISSION_SHA256",
+                "SEAD_GOVERNED_EVIDENCE_MANIFEST_SHA256",
+                "SEAD_GOVERNED_EVIDENCE_RUN_ID",
+                "governed_sead_evidence_root",
+                "read_validated_sead_evidence_document",
+            }
+        ),
+    },
+    "bijux_pollenomics_dev/source_completion/solsoe_source_lineage.py": {
+        "bijux_pollenomics.analysis.lra_validation.spatial": frozenset(
+            {"SiteCoordinate"}
+        ),
+        "bijux_pollenomics.analysis.lra_validation.spatial.configuration": frozenset(
+            {"distance_km"}
+        ),
+        "bijux_pollenomics.collection.intake.workbooks": frozenset(
+            {"read_xlsx_sheet_rows"}
+        ),
+        "bijux_pollenomics.collection.sources.landclim.study_inventory": frozenset(
+            {"read_landclim_study_inventory"}
+        ),
+    },
+    "bijux_pollenomics_dev/source_completion/sweden_land_use_replay.py": {
+        "bijux_pollenomics.reporting.service": frozenset({"generate_country_report"}),
+    },
+    "bijux_pollenomics_dev/taxa_review/neotoma_priority.py": {
+        "bijux_pollenomics.analysis.lra.materialization.neotoma.pollen_screen": frozenset(
+            {"assess_neotoma_pollen_screen"}
+        ),
+        "bijux_pollenomics.analysis.lra.materialization.neotoma.publication_intake": frozenset(
+            {"build_candidate_publication_report"}
+        ),
+        "bijux_pollenomics.analysis.lra.materialization.neotoma.taxon_priority": frozenset(
+            {"prioritize_neotoma_candidate_taxa"}
+        ),
+        "bijux_pollenomics.analysis.lra.materialization.neotoma.taxon_provenance": frozenset(
+            {"attribute_neotoma_priority_datasets"}
+        ),
+        "bijux_pollenomics.analysis.lra.materialization.reading": frozenset(
+            {"read_neotoma_evidence"}
+        ),
+    },
 }
 
 
