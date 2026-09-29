@@ -1,11 +1,10 @@
-# Choosing and using a pollen or LRA model
+# How we choose and use a pollen or LRA model
 
-**Scope:** the best supported choice depends on the target, cohort, taxon
-denominator, score and source admission. The current repository has a bounded
-English LRA development run and four-country observed-pollen transfer studies.
-It has no independent measured-vegetation accuracy result and no admitted
-Swedish/Nordic fossil core for LRA. There is consequently no evidence for one
-universally ideal LRA parameter set.
+We choose a method only after naming its target, cohort, taxon denominator,
+score and source admission. We have a bounded English LRA development run and
+four-country observed-pollen transfer studies. We have no independent
+measured-vegetation accuracy result or admitted Swedish/Nordic fossil core
+for LRA. We therefore do not claim a universally ideal LRA parameter set.
 
 ## Start with the scientific target
 
@@ -16,32 +15,32 @@ universally ideal LRA parameter set.
 | Can LRA-derived vegetation predict target pollen? | Freeze an LRA-based withheld-site vegetation prediction and forward pollen before opening target counts. | Forward-pollen error on matched support, distinct from vegetation accuracy. |
 | How accurate is reconstructed vegetation? | Match independent measured vegetation with site/time/taxon/spatial support. | No admitted repository score yet; the [open reference need](../needed/README.md) remains. |
 
-The [source/cohort account](source-cohorts.md) lists current Nordic count mass
-and LRA source gates. We kept the engine separate for the reasons in our
+We list current Nordic count mass and LRA source gates in our
+[source/cohort account](source-cohorts.md). We kept the engine separate for the reasons in our
 [distribution decision](../architecture/lra-distribution.md); installing it
 alone does not admit a scientific input.
 
 ## Bounded observed-pollen model choices
 
-The [17-site author development search](nordic-pollen-study.md)
+In the [17-site author development search](nordic-pollen-study.md), we
 selected a centered-log-ratio RBF with WGS84 distances, scale at the 0.25
 positive training-distance quantile, ridge 0.1 and training-only half-count
 smoothing. On 174 common scored bins its equal-site MAE is 0.017774 versus
 0.018948 for inverse-distance-squared and 0.019621 for the training mean.
 Its own coverage is 174/184 attempted bins versus 178/184 for inverse
-distance. These are previously exposed English outcomes, not a parameter
-recommendation for new Nordic sites.
+distance. We treat these previously exposed English outcomes as development
+evidence, not a parameter recommendation for new Nordic sites.
 
-The [Nordic inner-fold search](nordic-observed-pollen-selection.md)
+In our [Nordic inner-fold search](nordic-observed-pollen-selection.md), we
 tested three fixed baselines and nine CLR-RBF combinations for each excluded
-country. The candidates used training-site distance quantiles 0.25, 0.50 or
-0.75 and ridge 0.001, 0.01 or 0.1. They were selected by complete eligible
-coverage, equal-site MAE, then Hellinger and candidate ID. It retained 40,932
+country. We used training-site distance quantiles 0.25, 0.50 or 0.75 and
+ridge 0.001, 0.01 or 0.1. We selected by complete eligible coverage,
+equal-site MAE, then Hellinger and candidate ID. We retained 40,932
 candidate-bin trials and 2,439 RBF fits. Training selected IDW for Denmark,
 RBF q75/ridge 0.1 for Finland and RBF q50/ridge 0.1 for Norway.
 
-The [frozen matched country transfer](nordic-observed-pollen-transfer.md)
-shows why inner-fold selection is not a general improvement claim:
+Our [frozen matched country transfer](nordic-observed-pollen-transfer.md)
+shows why we do not call inner-fold selection a general improvement:
 
 | Excluded country | Selected method | Scored sites/bins | Selected MAE | IDW MAE |
 | --- | --- | ---: | ---: | ---: |
@@ -49,78 +48,86 @@ shows why inner-fold selection is not a general improvement claim:
 | Finland | RBF q75/ridge 0.1 | 28/435 | 0.034871 | 0.034375 |
 | Norway | RBF q50/ridge 0.1 | 52/1,084 | 0.033942 | 0.027012 |
 
-The Finnish and Norwegian selected RBF models did not beat the fixed IDW
-baseline on matched target support. The 16-label country response in this
-search differs from the separate 31-author-target [DK/FI/NO](denmark-finland-norway-author-pollen.md)
-and [Swedish](sweden-author-pollen.md) fixed studies;
-their MAEs should not be compared as if the denominators were equal. Denmark
-has one physical target site. Prior outcome exposure limits all these
-comparisons to development evidence.
+Our selected Finnish and Norwegian RBF models did not beat fixed IDW on
+matched target support. We keep this 16-label country response separate from
+the 31-author-target [DK/FI/NO](denmark-finland-norway-author-pollen.md)
+and [Swedish](sweden-author-pollen.md) fixed studies because their denominators
+differ. Denmark has one physical target site. We treat all these comparisons
+as development evidence because target outcomes were previously exposed.
 
-The [Swedish training-scope study](sweden-training-scope.md) holds out each of
-three Swedish sites while comparing the other two Swedish sites against those
+In our [Swedish training-scope study](sweden-training-scope.md), we held out
+each of three Swedish sites and compared the other two Swedish sites with those
 same two plus 81 DK/FI/NO sites. On 39 bins shared by both scopes, IDW
 equal-site observed-pollen MAE is 0.032846 versus 0.023226, respectively.
-Sweden-only training refuses 15 of 54 candidate bins; four-country training
-predicts all 54. The gain is concentrated at one site and the outcomes were
-previously exposed. This comparison cannot select LRA parameters or establish
-independent spatial skill.
+Sweden-only training refused 15 of 54 candidate bins; four-country training
+predicted all 54. Most of the gain comes from one site and the outcomes were
+previously exposed. We do not use this comparison to select LRA parameters
+or claim independent spatial skill.
 
-Our [Swedish support sensitivity](sweden-spatiotemporal-sensitivity.md)
-finds that removing source centers within 100 km raises IDW equal-site pollen
+In our [Swedish support sensitivity](sweden-spatiotemporal-sensitivity.md),
+removing source centers within 100 km raised IDW equal-site pollen
 MAE from 0.023151 to 0.029171 on 52 matched site-bins. One-bin nominal age
-shifts and a nearest-five cap have smaller, site-dependent effects. These
-choices are development probes on three exposed sites, not LRA transport or
+shifts and a nearest-five cap had smaller, site-dependent effects. We treat
+these as development probes on three exposed sites, not LRA transport or
 age-model parameter estimates.
 
 ## The real English LRA profile
 
-The [constrained LOVE study](english-lra-pollen-prediction.md)
-uses the 1250–1750 BP author window, published PPE and fall speeds, declared
+In our [constrained LOVE study](english-lra-pollen-prediction.md), we used the
+1250–1750 BP author window, published PPE and fall speeds, declared
 homogeneous author-example basin/ring assumptions and a 30-target closed
-pollen composition. It excludes 159 of 20,732 source NISP assigned to
+pollen composition. We excluded 159 of 20,732 source NISP assigned to
 `Filipendula` because its published fall speed lies outside the selected
 optimized transport contract. Those counts are retained as excluded mass.
 
-One uniform-start SLSQP local LOVE search enforces nonnegative cover summing
-to one. The declared limits are 300 iterations, 16,000 objective evaluations
-and objective tolerance `1e-8`, with no convergence waiver. After an initial
-120-iteration development failure, this declared profile completed 192/195
-training items. Three still refused at 300 iterations and again under a
-bounded 600-iteration check. Fourteen of 15 outer folds published 42
-forward-pollen predictions; the BECKHAM fold refused. The original author-R
-optimizer is different, and the [separate differential-evolution source
-diagnostic](../../docs/report/pollen-reconstruction/author-lra-optimized-feasibility/README.md)
-also refused its selected pair. Neither optimizer failure may be converted
-into a successful product by taking an unconverged finite candidate.
+We used one uniform-start SLSQP local LOVE search with nonnegative cover
+fractions summing to one. We set limits of 300 iterations, 16,000 objective
+evaluations and objective tolerance `1e-8`, with no convergence waiver. After
+an initial 120-iteration development failure, this profile completed 192/195
+training items. Three still refused at 300 iterations and in a bounded
+600-iteration check. We published 42 forward-pollen predictions from 14 of
+15 outer folds; BECKHAM refused. The original author-R optimizer differs,
+and our [differential-evolution source diagnostic](../../docs/report/pollen-reconstruction/author-lra-optimized-feasibility/README.md)
+also refused its selected pair. We do not turn an unconverged finite
+candidate into a successful product.
 
-On the 14 paired English sites and 30 taxa, all three fixed **direct pollen**
-methods have lower site-macro MAE and Hellinger distance than their LRA
-forward-pollen counterparts. The [matched result and omitted-site
-sensitivity](pollen-prediction.md) record the numbers. The direct route uses
-all 14 training pollen sites; the LRA route uses one regional anchor and 13
-local reconstruction predictors. This does not establish that direct pollen
-is better at reconstructing vegetation. It tells us to retain simple direct
-baselines whenever forward-pollen skill is evaluated.
+On the 14 paired English sites and 30 taxa, we found lower site-macro MAE
+and Hellinger distance for all three fixed **direct pollen** methods than
+their LRA forward-pollen counterparts. Our [matched result and omitted-site
+sensitivity](pollen-prediction.md) retain the numbers. Direct prediction used
+all 14 training pollen sites; LRA used one regional anchor and 13 local
+reconstruction predictors. We retain simple direct baselines whenever we
+evaluate forward-pollen skill. This result does not rank the methods by
+vegetation reconstruction accuracy.
+
+We also varied each English author lake's assumed radius by 20% in the
+actual forward consumer while keeping LRA vegetation and regional cover
+fixed. On the 14 scored sites, inverse-distance-squared pollen MAE was
+0.021032, 0.021088 and 0.021457 at 80%, 100% and 120% of the assumed
+radius. We use this [source-bound sensitivity](english-lra-pollen-prediction.md#basin-radius-in-the-forward-consumer)
+to expose geometry dependence. It does not calibrate a physical radius,
+refit LOVE or provide a Swedish basin input.
 
 ## Uncertainty and refusal rules
 
-The [fixed-site covariance example](../../docs/report/method-certification/fixed-site-covariance/README.md)
-propagates conditional counting and full shared-PPE covariance in a synthetic
-two-basin profile. The [2,048 joint draws](../../docs/report/method-certification/joint-site-draws/README.md)
-add explicit site resampling in that synthetic example. They do not certify a
-Nordic population interval; chronology, basin geometry and transport remain
-fixed, and the example has only two sites. Historical source-R parity and
-corrected conditional uncertainty must retain separate method names.
+In our [fixed-site covariance example](../../docs/report/method-certification/fixed-site-covariance/README.md),
+we propagated conditional counting and full shared-PPE covariance in a
+synthetic two-basin profile. We added site resampling in
+[2,048 joint draws](../../docs/report/method-certification/joint-site-draws/README.md).
+We do not call this a Nordic population interval: the example has only two
+sites and fixes chronology, basin geometry and transport. We retain separate
+method names for historical source-R parity and corrected conditional
+uncertainty.
 
-For a new real request, use the host's
+For a new real request, we use the host's
 [`validate-lra-input` and `run-lra` contract](../../docs/public/pollenomics/interfaces/cli-surface.md)
 only after recording the source release and actual physical core, selected
 age model, bin/window, geometry and measurement units, taxon mask, count
-denominator, PPE/fall-speed version, rights and target-exclusion rule. Use the
-optional engine installation described above. Keep no-support bins, missing
-measurement masks and nonconvergent optimizations as explicit refusals.
-Freeze predictions before outcome access, score every eligible or refused
-fold, and report site/country/taxon support alongside the metric. For the
-Swedish ABB candidate, the [research-needs register](../needed/README.md)
-shows which source fields still prevent this sequence from entering LRA.
+denominator, PPE/fall-speed version, rights and target-exclusion rule. We
+install the separate engine through the optional package extra described in
+our [distribution decision](../architecture/lra-distribution.md). We keep
+no-support bins, missing measurement masks and nonconvergent optimizations
+as explicit refusals. We freeze predictions before outcome access, score
+every eligible or refused fold, and report site/country/taxon support beside
+the metric. For the Swedish ABB candidate, our [research-needs
+register](../needed/README.md) names the fields still preventing LRA use.

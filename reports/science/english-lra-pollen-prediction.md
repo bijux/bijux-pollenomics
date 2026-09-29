@@ -1,84 +1,90 @@
-# Constrained LOVE on author source pollen
+# Our constrained LOVE study on author source pollen
 
-This exploratory English author example uses 15 eligible sites in the source
-window 1250–1750 BP. The 31-target author pollen counts total 20,732 NISP.
-The prepared input excludes `Filipendula` (159 NISP, 0.767%) because its
-published fall speed of 0.006 m/s is outside the selected optimized LOVE
-transport contract. The resulting **30-target closed composition** is not a
-whole-pollen or whole-vegetation estimate. The producer keeps the original
-count denominator and excluded mass alongside every exact source hash.
+We asked whether a real REVEALS/LOVE reconstruction could produce held-out
+pollen predictions from an admitted author source profile. We selected 15
+English sites in the 1250–1750 BP source window. Their 31-target author pollen
+counts total 20,732 NISP. We excluded `Filipendula` (159 NISP, 0.767%)
+because its published 0.006 m/s fall speed falls outside the selected
+optimized LOVE transport contract. We kept that excluded mass and the
+original count denominator with the exact source hashes. Our resulting
+**30-target closed composition** is neither whole pollen nor whole vegetation.
 
-The model uses the published remaining PPE and fall-speed values, the existing
-homogeneous author-example basin/ring assumptions, deterministic REVEALS and
-ring-taxon-preserving LOVE. A single uniform-start SLSQP search constrains
-each local cover to nonnegative fractions summing to one. Its declared limits
-are 300 iterations, 16,000 objective evaluations and a `1e-8` objective
-tolerance, with no convergence waiver. The initial 120-iteration full-fold
-run produced 149 of 195 training products but zero fold predictions because
-46 training fits refused. The revised limit was selected from those training
-failures before any target pollen was opened. This is a development comparison with
-the prior analytical and differential-evolution attempts. The original R
-source does not use this optimizer.
+We used the published remaining PPE and fall speeds, the declared homogeneous
+author-example basin and ring assumptions, deterministic REVEALS and
+ring-taxon-preserving LOVE. We chose one uniform-start SLSQP search that keeps
+local cover nonnegative and closed. Its limits were 300 iterations, 16,000
+objective evaluations and a `1e-8` objective tolerance, with no convergence
+waiver. Our initial 120-iteration full-fold run produced 149 of 195 training
+products but no fold predictions because 46 training fits refused. We raised
+the limit in response to those training failures before opening any target
+pollen. This is a development comparison with our analytical and
+differential-evolution attempts. The original R source uses a different
+optimizer.
 
-The held-out workflow selects one physical site per outer fold. It recomputes
-regional REVEALS and training-site LOVE from training pollen; the target
-site's pollen is opened only after its prediction product is published and
-authenticated. Predicted vegetation is LRA-derived; no independent measured
-vegetation is available for an accuracy score. These sites are English author
-examples, so this experiment does not admit Swedish or four-country LRA input.
+We held out one physical site per outer fold and recomputed regional REVEALS
+and training-site LOVE from the remaining pollen. We opened target pollen only
+after publishing and authenticating each prediction product. The predicted
+vegetation comes from LRA; we have no independent measured vegetation for an
+accuracy score. This English experiment does not admit Swedish or four-country
+LRA inputs.
 
 ## Source-bound result
 
-The [retained report](../../docs/report/pollen-reconstruction/author-lra-constrained/report.json) binds source, prediction and score manifests.
-All 15 sites rotated as targets. Fourteen folds published three predictions
-each; the BECKHAM fold refused because training LOVE fits for CUTHILL2,
-HANGINGS and LONGBREACH did not converge. Of 195 training items, 192
-completed and three refused. Those three source requests still refused in a
-separate bounded 600-iteration check. The new solver preserves full-precision
-closed cover fractions; applying the legacy four-decimal source rounding had
-caused a `1.0002` fraction sum and was correctly rejected by the consumer.
+Our [retained report](../../docs/report/pollen-reconstruction/author-lra-constrained/report.json)
+binds the source, prediction and score manifests. We rotated all 15 sites as
+targets. Fourteen folds produced three predictions each. We refused the
+BECKHAM fold because training LOVE fits for CUTHILL2, HANGINGS and
+LONGBREACH did not converge: 192 of 195 training items completed and three
+refused. The same three requests refused in a bounded 600-iteration check.
+We preserved full-precision closed cover fractions because four-decimal
+rounding had yielded a `1.0002` sum that the consumer correctly rejected.
 
-The 42 published predictions were frozen before the 14 target pollen rows
-were opened. The report verifies that no target record occurs in its prediction
-input closure. The [fold table](../../docs/report/pollen-reconstruction/author-lra-constrained/folds.csv), [30-taxon vegetation and forward-pollen
-predictions](../../docs/report/pollen-reconstruction/author-lra-constrained/predictions.csv) and [held-out scores](../../docs/report/pollen-reconstruction/author-lra-constrained/scores.csv) retain all method
-rows and the BECKHAM refusal. Site-mean pollen MAE on the 14 scored sites is
-0.026273 for the LRA training mean, 0.021132 for nearest training site and
-0.021088 for inverse-distance-squared interpolation (fractions of the closed
-30-target pollen composition). These are development scores on previously
-exposed author examples, with overlapping outer training sets. No vegetation
-accuracy, uncertainty interval or broader spatial generalization is claimed.
+We froze all 42 predictions before opening the 14 target pollen rows and
+verified that no target record enters its prediction input closure. The
+[fold table](../../docs/report/pollen-reconstruction/author-lra-constrained/folds.csv),
+[30-taxon vegetation and forward-pollen predictions](../../docs/report/pollen-reconstruction/author-lra-constrained/predictions.csv),
+and [held-out scores](../../docs/report/pollen-reconstruction/author-lra-constrained/scores.csv)
+retain every method row and the BECKHAM refusal. Site-mean pollen MAE across
+the 14 scored sites is 0.026273 for the LRA training mean, 0.021132 for
+nearest training site and 0.021088 for inverse-distance-squared interpolation
+(fractions of the closed 30-target pollen composition). We treat these as
+development scores on previously exposed examples with overlapping training
+folds. We cannot infer vegetation accuracy, an uncertainty interval or broad
+spatial generalization from them.
 
-The [matched direct-pollen comparison](../../docs/report/pollen-reconstruction/author-lra-constrained/direct-pollen/comparison.json) applies
-the same three fixed spatial methods to observed training pollen on these
-exact 14 sites and 30 taxa. Its prediction manifest and all 45 unscored
-site-method [prediction rows](../../docs/report/pollen-reconstruction/author-lra-constrained/direct-pollen/predictions.json) were retained
-before the direct target outcomes were opened; the [paired scores](../../docs/report/pollen-reconstruction/author-lra-constrained/direct-pollen/matched-scores.csv)
-exclude BECKHAM to match the LRA support. Direct-pollen MAE is 0.020496
+We [compared direct observed-pollen prediction](../../docs/report/pollen-reconstruction/author-lra-constrained/direct-pollen/comparison.json)
+with the same three fixed spatial methods on these exact 14 sites and 30
+taxa. We retained its prediction manifest and all 45 unscored site-method
+[prediction rows](../../docs/report/pollen-reconstruction/author-lra-constrained/direct-pollen/predictions.json)
+before opening direct target outcomes. We excluded BECKHAM from the
+[paired scores](../../docs/report/pollen-reconstruction/author-lra-constrained/direct-pollen/matched-scores.csv)
+to match LRA support. Direct-pollen MAE is 0.020496
 versus LRA 0.026273 for training mean, 0.019552 versus 0.021132 for nearest
 site, and 0.018579 versus 0.021088 for inverse-distance-squared. All three
-fixed direct-pollen baselines are lower on this matched development support.
-This compares pollen prediction under the declared center-distance geometry;
-the direct method uses all 14 training pollen sites, while the LRA route uses
-one as its regional anchor and 13 as local reconstruction predictors. It does
-not measure vegetation accuracy or establish an independent final test.
+fixed direct-pollen baselines score lower on this matched development support.
+We compared pollen prediction under the declared center-distance geometry:
+direct prediction used all 14 training pollen sites, while LRA used one
+regional anchor and 13 local reconstruction predictors. This does not measure
+vegetation accuracy or constitute an independent final test.
 
-The [paired site sensitivity](../../docs/report/pollen-reconstruction/author-lra-constrained/direct-pollen/site-sensitivity.json) binds the
-published comparison and 42 score rows by SHA-256. Direct pollen has lower MAE
+We [checked site influence](../../docs/report/pollen-reconstruction/author-lra-constrained/direct-pollen/site-sensitivity.json)
+against the published comparison and 42 SHA-256-bound score rows. Direct pollen has lower MAE
 at 13/14 sites for training mean, 7/14 for nearest site, and 10/14 for
 inverse-distance-squared interpolation. The nearest-site median paired
 direct-minus-LRA difference is **+0.000244**, despite its negative mean of
 **−0.001580**; the mean advantage is concentrated in sites with larger direct
-gains. Omitting any one scored site leaves all three mean differences negative,
-but these correlated English sites and overlapping training folds do not
-support a sampling confidence interval or spatial-transfer claim. BECKHAM
-remains excluded from every matched comparison because its LRA fold refused.
+gains. Omitting any one scored site leaves all three mean differences negative.
+We retain the individual directions because these correlated English sites
+and overlapping training folds cannot support a sampling confidence interval
+or spatial-transfer claim. We exclude BECKHAM throughout because its LRA fold
+refused.
 
-The [matched Hellinger result](../../docs/report/pollen-reconstruction/author-lra-constrained/direct-pollen/paired-hellinger.json) reopens the
-same 14 raw target rows after both prediction sets were frozen. It binds the
-source experiment, direct prediction manifest, LRA prediction identities and
-LRA score table. The distance uses the original observed 30-taxon composition,
-without smoothing target counts. Site-macro distances are:
+For our [matched Hellinger result](../../docs/report/pollen-reconstruction/author-lra-constrained/direct-pollen/paired-hellinger.json),
+we reopened the same 14 raw target rows after both prediction sets were
+frozen. We bound the source experiment, direct prediction manifest, LRA
+prediction identities and LRA score table. We used the original observed
+30-taxon composition without smoothing target counts. Site-macro distances
+are:
 
 | Fixed method | Direct pollen | LRA forward pollen | Sites favoring direct |
 | --- | ---: | ---: | ---: |
@@ -86,16 +92,16 @@ without smoothing target counts. Site-macro distances are:
 | Nearest site | 0.255767 | 0.286001 | 7/14 |
 | Inverse-distance-squared | 0.243673 | 0.285415 | 11/14 |
 
-These are descriptive distances on the same prior-exposed English support. The
-14 sites do not provide a sampling interval or independent vegetation truth.
+We treat these as descriptive distances on prior-exposed English support. The
+14 sites provide neither a sampling interval nor independent vegetation truth.
 
-The [site influence result](../../docs/report/pollen-reconstruction/author-lra-constrained/direct-pollen/paired-hellinger-sensitivity.json)
-pins that Hellinger report and omits each site in turn. Every omitted-site
+We [rechecked site influence](../../docs/report/pollen-reconstruction/author-lra-constrained/direct-pollen/paired-hellinger-sensitivity.json)
+against the Hellinger report and omitted each site in turn. Every omitted-site
 mean direct-minus-LRA difference remains negative: training mean
 `[-0.082443, -0.070006]`, nearest site `[-0.035318, -0.018215]`, and
 inverse-distance-squared `[-0.046139, -0.034002]`. Nearest site still favors
 direct at only 7/14 individual sites, so the negative average alone does not
-say every site agrees. This is influence accounting, not an independent
+say every site agrees. We report influence accounting here, not an independent
 confidence interval or a vegetation score.
 
 ## Basin radius in the forward consumer
@@ -111,7 +117,7 @@ opened the observed target counts and retained the
 [126 paired scores](../../docs/report/pollen-reconstruction/author-lra-constrained/radius-sensitivity/scored/scores.csv)
 and [method summaries](../../docs/report/pollen-reconstruction/author-lra-constrained/radius-sensitivity/scored/report.json).
 
-For inverse-distance-squared vegetation, site-macro MAE is 0.021032 at 80%,
+For inverse-distance-squared vegetation, we observed site-macro MAE of 0.021032 at 80%,
 0.021088 at the declared radius and 0.021457 at 120%; Hellinger is 0.283976,
 0.285415 and 0.289825. The nearest-site method follows the same aggregate
 direction, while training-mean MAE changes in the opposite direction and its
@@ -122,7 +128,10 @@ model assumptions; the diagnostic cannot transfer a radius to a Swedish core
 or establish age-specific basin geometry. The
 [governed method account](../../docs/report/pollen-reconstruction/author-lra-constrained/radius-sensitivity/README.md)
 gives all method values and reproduction commands.
-From the repository root, with a private author source capsule and an absent
+
+## Reproduce our result
+
+From the repository root, use the private author source capsule and an absent
 output destination:
 
 ```sh
