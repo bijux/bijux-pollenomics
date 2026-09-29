@@ -20,6 +20,15 @@ the author's first exact lookup match and time binning for all 17 sites.
 unmapped counts occur at NTWITCHEN (144) and WHH11 (274); the 1,388
 outside-window counts occur at EXEBRID.
 
+The report keeps the eight unmapped source headers verbatim with zero-based
+column positions and counts. NTWITCHEN has `Euphorbia t.` (7),
+`Leguminoseae undiff.` (1), `Plantago major/minor` (9) and `Ranunculus t.`
+(127); all four raw headers have a trailing space. WHH11 has `Prunus spp`
+(20), `Hedera Helix` (38), `Filipendunla` (11) and
+`` Ranunculus acris-type` `` (205, with a trailing grave accent in the source
+header). These are unresolved author-lookup names, not approved synonym or
+PPE assignments.
+
 The lookup distinguishes `Plantago` from the separate leading-space label
 `  Plantago`. Six LOBBSBOG counts under the former are excluded by the author
 rule; trimming leading spaces would incorrectly retain them. A focused R

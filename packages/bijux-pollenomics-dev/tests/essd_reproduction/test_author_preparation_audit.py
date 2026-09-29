@@ -55,6 +55,26 @@ def test_private_author_sources_recount_seventeen_sites(tmp_path: Path) -> None:
     assert sites["LOBBSBOG"]["source_categories"]["excluded_zz"] == 6511
     assert sites["LOBBSBOG"]["source_categories"]["retained"] == 21913
     assert sites["WHH05"]["source_categories"] == report["whh05_source_categories"]
+    assert [row["count"] for row in sites["NTWITCHEN"]["unmapped_source_labels"]] == [
+        7,
+        1,
+        9,
+        127,
+    ]
+    assert [row["count"] for row in sites["WHH11"]["unmapped_source_labels"]] == [
+        20,
+        38,
+        11,
+        205,
+    ]
+    assert (
+        sites["NTWITCHEN"]["unmapped_source_labels"][0]["native_header"]
+        == "Euphorbia t. "
+    )
+    assert (
+        sites["WHH11"]["unmapped_source_labels"][-1]["native_header"]
+        == "Ranunculus acris-type`"
+    )
     assert (output / "report.json").read_bytes() == GOVERNED.read_bytes()
 
 

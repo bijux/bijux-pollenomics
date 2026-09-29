@@ -67,7 +67,9 @@ def _prepared_total(path: Path) -> int:
     )
 
 
-def _site_categories(author: Path, site: str) -> dict[str, int]:
+def _site_categories(
+    author: Path, site: str
+) -> tuple[dict[str, int], list[dict[str, str | int]]]:
     """Follow the author's first exact lookup match and right-trimmed R headers."""
     with (author / "LANDCLIM.ALLEUROPE.taxa.LUT.080219.csv").open(
         newline="", encoding="latin-1"
@@ -94,6 +96,7 @@ def _site_categories(author: Path, site: str) -> dict[str, int]:
         ),
         Decimal(0),
     )
+    unmapped_by_column: dict[int, Decimal] = {}
     for record in raw[1:]:
         if not any(cell.strip() for cell in record):
             continue
@@ -114,11 +117,26 @@ def _site_categories(author: Path, site: str) -> dict[str, int]:
                 counts["excluded_zz"] += amount
             elif target is None:
                 counts["unmapped"] += amount
+                unmapped_by_column[index] = (
+                    unmapped_by_column.get(index, Decimal(0)) + amount
+                )
             elif target not in ppe:
                 counts["excluded_not_ppe"] += amount
             else:
                 counts["retained"] += amount
-    return {key: _integer(value) for key, value in counts.items()}
+    unmapped = [
+        {
+            "source_column_index_zero_based": index,
+            "native_header": header[index],
+            "count": _integer(value),
+        }
+        for index, value in sorted(unmapped_by_column.items())
+        if value
+    ]
+    categories = {key: _integer(value) for key, value in counts.items()}
+    if sum(int(row["count"]) for row in unmapped) != categories["unmapped"]:
+        raise ValueError(f"Unmapped source count closure changed: {site}")
+    return categories, unmapped
 
 
 def build(
@@ -187,7 +205,7 @@ def build(
         prepared_path = source_path(f"author/run.REVEALS.files/LRAready_{name}.csv")
         raw, nonblank = _raw_total(raw_path)
         prepared = _prepared_total(prepared_path)
-        categories = _site_categories(author, name)
+        categories, unmapped_labels = _site_categories(author, name)
         historical_site = historical_by_site[name]
         if (
             Decimal(historical_site["raw_total"]) != raw
@@ -219,6 +237,7 @@ def build(
                 "source_raw_sha256": _sha(raw_path),
                 "source_prepared_sha256": _sha(prepared_path),
                 "source_categories": categories,
+                "unmapped_source_labels": unmapped_labels,
                 "historical_partition_status": historical_site["partition_status"],
             }
         )

@@ -27,6 +27,7 @@
         "unmapped": 0,
         "outside_window": 0
       },
+      "unmapped_source_labels": [],
       "historical_partition_status": "all_raw_numeric_counts_partitioned"
     },
     {
@@ -46,6 +47,7 @@
         "unmapped": 0,
         "outside_window": 0
       },
+      "unmapped_source_labels": [],
       "historical_partition_status": "all_raw_numeric_counts_partitioned"
     },
     {
@@ -65,6 +67,7 @@
         "unmapped": 0,
         "outside_window": 0
       },
+      "unmapped_source_labels": [],
       "historical_partition_status": "all_raw_numeric_counts_partitioned"
     },
     {
@@ -84,6 +87,7 @@
         "unmapped": 0,
         "outside_window": 0
       },
+      "unmapped_source_labels": [],
       "historical_partition_status": "all_raw_numeric_counts_partitioned"
     },
     {
@@ -103,6 +107,7 @@
         "unmapped": 0,
         "outside_window": 1388
       },
+      "unmapped_source_labels": [],
       "historical_partition_status": "all_raw_numeric_counts_partitioned"
     },
     {
@@ -122,6 +127,7 @@
         "unmapped": 0,
         "outside_window": 0
       },
+      "unmapped_source_labels": [],
       "historical_partition_status": "all_raw_numeric_counts_partitioned"
     },
     {
@@ -141,6 +147,7 @@
         "unmapped": 0,
         "outside_window": 0
       },
+      "unmapped_source_labels": [],
       "historical_partition_status": "all_raw_numeric_counts_partitioned"
     },
     {
@@ -160,6 +167,7 @@
         "unmapped": 0,
         "outside_window": 0
       },
+      "unmapped_source_labels": [],
       "historical_partition_status": "all_raw_numeric_counts_partitioned"
     },
     {
@@ -179,6 +187,7 @@
         "unmapped": 0,
         "outside_window": 0
       },
+      "unmapped_source_labels": [],
       "historical_partition_status": "all_raw_numeric_counts_partitioned"
     },
     {
@@ -198,6 +207,7 @@
         "unmapped": 0,
         "outside_window": 0
       },
+      "unmapped_source_labels": [],
       "historical_partition_status": "all_raw_numeric_counts_partitioned"
     },
     {
@@ -217,6 +227,7 @@
         "unmapped": 0,
         "outside_window": 0
       },
+      "unmapped_source_labels": [],
       "historical_partition_status": "all_raw_numeric_counts_partitioned"
     },
     {
@@ -236,6 +247,7 @@
         "unmapped": 0,
         "outside_window": 0
       },
+      "unmapped_source_labels": [],
       "historical_partition_status": "all_raw_numeric_counts_partitioned"
     },
     {
@@ -255,6 +267,28 @@
         "unmapped": 144,
         "outside_window": 0
       },
+      "unmapped_source_labels": [
+        {
+          "source_column_index_zero_based": 42,
+          "native_header": "Euphorbia t. ",
+          "count": 7
+        },
+        {
+          "source_column_index_zero_based": 54,
+          "native_header": "Leguminoseae undiff. ",
+          "count": 1
+        },
+        {
+          "source_column_index_zero_based": 64,
+          "native_header": "Plantago major/minor ",
+          "count": 9
+        },
+        {
+          "source_column_index_zero_based": 68,
+          "native_header": "Ranunculus t. ",
+          "count": 127
+        }
+      ],
       "historical_partition_status": "all_raw_numeric_counts_partitioned"
     },
     {
@@ -274,6 +308,7 @@
         "unmapped": 0,
         "outside_window": 0
       },
+      "unmapped_source_labels": [],
       "historical_partition_status": "independent_exact_first_match_all_8_samples"
     },
     {
@@ -293,6 +328,28 @@
         "unmapped": 274,
         "outside_window": 0
       },
+      "unmapped_source_labels": [
+        {
+          "source_column_index_zero_based": 9,
+          "native_header": "Prunus spp",
+          "count": 20
+        },
+        {
+          "source_column_index_zero_based": 15,
+          "native_header": "Hedera Helix",
+          "count": 38
+        },
+        {
+          "source_column_index_zero_based": 27,
+          "native_header": "Filipendunla",
+          "count": 11
+        },
+        {
+          "source_column_index_zero_based": 33,
+          "native_header": "Ranunculus acris-type`",
+          "count": 205
+        }
+      ],
       "historical_partition_status": "all_raw_numeric_counts_partitioned"
     },
     {
@@ -312,6 +369,7 @@
         "unmapped": 0,
         "outside_window": 0
       },
+      "unmapped_source_labels": [],
       "historical_partition_status": "all_raw_numeric_counts_partitioned"
     },
     {
@@ -331,6 +389,7 @@
         "unmapped": 0,
         "outside_window": 0
       },
+      "unmapped_source_labels": [],
       "historical_partition_status": "all_raw_numeric_counts_partitioned"
     }
   ],
