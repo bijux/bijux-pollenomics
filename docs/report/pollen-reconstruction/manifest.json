@@ -25,6 +25,21 @@
       "bytes": 5175
     },
     {
+      "path": "docs/report/countries/denmark/pollen-chronology-coverage/README.md",
+      "sha256": "d7e871f448a191b02fece15c52d4ec6328082e627716b161c66d2766dc0a876e",
+      "bytes": 3122
+    },
+    {
+      "path": "docs/report/countries/denmark/pollen-chronology-coverage/replay.py",
+      "sha256": "045b62d998fa7dc78cb66bbd5a0b79f177dd78da8a689921be8ca56c1dde23cd",
+      "bytes": 7746
+    },
+    {
+      "path": "docs/report/countries/denmark/pollen-chronology-coverage/report.json",
+      "sha256": "b12f43e17fd32d3d32b736e7d6c4d56445c2f0c95a6700ac90e302e6a98be496",
+      "bytes": 5326
+    },
+    {
       "path": "docs/report/index.md",
       "sha256": "7b637f953d664ba3c750032fda383b50a19aa264eb8b1221dd4afc8c948c2343",
       "bytes": 2668
@@ -41,8 +56,8 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/README.md",
-      "bytes": 33896,
-      "sha256": "7d40de08b16e3061d6050422565602c9e56f9f44c64c65c8840167ec2826ee59"
+      "sha256": "bfd0b3a1bb035054fe3a577da816f106f480ae792a4797f425476bd3aeb51490",
+      "bytes": 34136
     },
     {
       "path": "docs/report/pollen-reconstruction/author-development-design.json",
