@@ -26,6 +26,16 @@ PANGAEA event metadata; it does not establish a historical lake outline or
 time-specific basin geometry for the 107 pollen samples. This comparison
 does not admit LRA inputs or independent vegetation truth.
 
+The separate [LandClim II site metadata](https://doi.pangaea.de/10.1594/PANGAEA.937075)
+reports `ABB` at the same coordinates with 107 samples and `siteradius` **98 m**
+in workbook row 968 (tracked workbook SHA-256
+`2d4a0cf1401e36c2606f7761cecc85c4bbc15272460c2a4926cb1702d4565ebb`).
+The area-equivalent circular radius of the EPD event's 3 ha is
+`sqrt(30000 m² / π) = 97.7205 m`; a 98 m circle has area 3.0172 ha. This
+numeric agreement supports the modern site-area lineage, but LandClim may
+derive the radius from that same EPD metadata. It is not independent lake
+measurement or evidence that the radius applied throughout the Holocene.
+
 The separate [ABBO age-control comparison](../abbo-age-controls/README.md)
 matches all six published radiocarbon dates to the Neotoma chronology's dated
 controls. Its calibrated control limits do not supply uncertainty bounds for
