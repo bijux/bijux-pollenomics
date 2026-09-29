@@ -145,6 +145,7 @@ def build(repository: Path, capture_root: Path) -> dict[str, Any]:
                 "dataset_doi_status": doi_status,
                 "dataset_investigators": investigators,
                 "constituent_database": payload["database"],
+                "source_dataset_notes": payload["datasetnotes"],
                 "provider_publication_status": status,
                 "provider_publications": links,
                 "provider_response_sha256": _sha(response),
