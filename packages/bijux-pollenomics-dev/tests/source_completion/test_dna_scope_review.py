@@ -26,7 +26,7 @@ def test_source_populations_and_refusals_stay_separate(
     assert report["human"]["source_rows"] == 51_005
     assert report["human"]["genetic_ids"] == 27_755
     assert report["human"]["scientifically_admitted"] is False
-    assert report["animal"]["foundation_sample_rows"] == 1_450
+    assert report["animal"]["foundation_sample_rows"] == 1_470
     assert report["animal"]["point_features"] == 170
     assert report["animal"]["distinct_point_sample_ids"] == 331
     assert report["animal"]["nordic_point_features"] == 8

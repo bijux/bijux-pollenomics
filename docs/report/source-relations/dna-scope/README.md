@@ -10,7 +10,7 @@ accountability review.
 | Population | Unit and current count | Authority limit |
 | --- | --- | --- |
 | AADR v66 | 51,005 annotation rows across 1240K and HO; 27,755 Genetic IDs | Source accountability only; no scientific or genotype-analysis admission |
-| Animal foundation | 1,450 final sample rows | Preparation population; validation is not wholly passing |
+| Animal foundation | 1,470 final sample rows | Preparation population; validation is not wholly passing |
 | Animal point surface | 170 features backed by 331 distinct sample IDs | 117 domesticated-core and 53 wild/progenitor-context features; neither is pollen |
 | Nordic animal subset | 8 locality features backed by 12 sample IDs | Geographic subset of the animal point surface, not a separate sample census |
 
@@ -34,7 +34,7 @@ present but the named project archive HTML is absent. Their exact feature IDs
 and source-path status are in the machine-readable report. A missing alternate
 path is recorded as a lineage gap; no substitute path or paper was invented.
 The point-accountability ledger passes for its 170 features, but that does
-not clear the broader 1,450-row foundation or qualified source review.
+not clear the broader 1,470-row foundation or qualified source review.
 
 No cross-source association, pollen evidence, or scientific completion is
 admitted by this review. Human and animal denominators, source versions,
