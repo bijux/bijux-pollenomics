@@ -65,9 +65,9 @@ node packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/atlas_browser/s
 ```
 
 The product logic is
-[`source-record-export.js`](../../../../packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/assets/source-record-export.js),
+[`source-record-export.js`](https://github.com/bijux/bijux-pollenomics/blob/828081f963fa574cd217c8f9c4c2cfcdb9397d52/packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/assets/source-record-export.js),
 and the browser consumer is
-[`source-export.mjs`](../../../../packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/atlas_browser/source-export.mjs).
+[`source-export.mjs`](https://github.com/bijux/bijux-pollenomics/blob/828081f963fa574cd217c8f9c4c2cfcdb9397d52/packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/atlas_browser/source-export.mjs).
 This result covers two retained Swedish source contexts. It does not certify SEAD
 navigation, four-country coverage, time-series diagrams, approved pollen sums or
 taxa mappings, propagation, full accessibility/provider/performance gates, or

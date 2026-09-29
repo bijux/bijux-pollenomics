@@ -1,0 +1,25 @@
+{
+  "schema_version": "atlas-browser-evidence-retention.v1",
+  "status": "controlled_browser_evidence_not_scientific_admission",
+  "source_commit_context": "verification.json",
+  "files": [
+    {
+      "original_artifact": "artifacts/atlas-desktop-zoom-controls/browser-obscured/receipt.json",
+      "original_bytes": 6453,
+      "original_sha256": "1dbf50e621d5f04a074ade73297c7cacfc456219e8d95840faff43966c6311dc",
+      "retained": "evidence/baseline/receipt.json",
+      "retained_bytes": 6420,
+      "retained_sha256": "bb62f316bfa757ad91c16ff86283e7ad4c14443efd1c161808712c5af4c21163",
+      "relation": "local_file_url_rebased"
+    },
+    {
+      "original_artifact": "artifacts/atlas-desktop-zoom-controls/browser-clearance/receipt.json",
+      "original_bytes": 21810,
+      "original_sha256": "eabc9f12282c0bad10294480d1b0a68cb7e00b45816cbdc1245c92e73347954a",
+      "retained": "evidence/selected/receipt.json",
+      "retained_bytes": 21810,
+      "retained_sha256": "eabc9f12282c0bad10294480d1b0a68cb7e00b45816cbdc1245c92e73347954a",
+      "relation": "exact_bytes"
+    }
+  ]
+}

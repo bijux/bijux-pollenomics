@@ -1,0 +1,590 @@
+{
+  "schema_version": "atlas-cross-border-neighbor-browser.v1",
+  "status": "PASS",
+  "candidate": {
+    "generation_sha256": "790a43fa95a71bae0f77b093fd7b665b78530656b8bf29ada5112abcdf77966d",
+    "fixture_sha256": "37e5f60e56f35cc770a691dcb8df9707fbf99614d81c4097cb42581947a40a38",
+    "inputs_sha256": {
+      "packages/bijux-pollenomics/src/bijux_pollenomics/core/geospatial/distance.py": "2eea7f3882ed49e3e6be1995fe78b21b2bbedef3f3ee614b368657a3c74692eb",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/assets/map/leaflet/images/layers-2x.png": "066daca850d8ffbef007af00b06eac0015728dee279c51f3cb6c716df7c42edf",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/assets/map/leaflet/images/layers.png": "1dbbe9d028e292f36fcba8f8b3a28d5e8932754fc2215b9ac69e4cdecf5107c6",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/assets/map/leaflet/images/marker-icon-2x.png": "00179c4c1ee830d3a108412ae0d294f55776cfeb085c60129a39aa6fc4ae2528",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/assets/map/leaflet/images/marker-icon.png": "574c3a5cca85f4114085b6841596d62f00d7c892c7b03f28cbfa301deb1dc437",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/assets/map/leaflet/images/marker-shadow.png": "264f5c640339f042dd729062cfc04c17f8ea0f29882b538e3848ed8f10edb4da",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/assets/map/leaflet/leaflet.css": "a7837102824184820dfa198d1ebcd109ff6d0ff9a2672a074b9a1b4d147d04c6",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/assets/map/leaflet/leaflet.js": "db49d009c841f5ca34a888c96511ae936fd9f5533e90d8b2c4d57596f4e5641a",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/assets/map/markercluster/MarkerCluster.Default.css": "61258232d98d64dc2a7b1e02130d67421bc5b9bda5994eef70228ff97570c170",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/assets/map/markercluster/MarkerCluster.css": "614dea0a98ff3f4ead74f04918f6b1d1b9ba435c25b5fc23b21a394d1e3e4d87",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/assets/map/markercluster/leaflet.markercluster.js": "1e4e1d22972a3926f48598e0caf14e3fe7049835d428a344fed4f9e3665b3508",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/__init__.py": "7475911f82e1b4db0d9a6876e72dd1adaf853458daf0966a23793bdfab7db297",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/assets/document.html": "7e1767bea8df9c9b768cb4d3425e86e5307e6f0d2987894e6922bb93c62c7669",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/assets/native-lra.js": "33bd7c0644279d96c37d07960279be04f986c4d91ae42cbaa460536aa659818e",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/assets/source-record-export.js": "733d6c172381f2d9555cb7bf4290f48e97d8bc8dceb57b3697676d97e78ce43b",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/assets/url-state.js": "7f112ee6e727d3e51058724f2c80af9b610890ce793110f6404562800d2be682",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/coordinates.py": "066e553e1c58295c848e917577ef3e688f2fdf4faa40ef2fd8b5c394c90341fd",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/evidence.py": "b9b694dd0d0546a806e5f22fcf9cd503a0638267e0cf6e18424d571a24e4cd89",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/evidence_projection/__init__.py": "770d80bb6ac812fea5dd09f8c120fffc97f1c0e3f9bf43f407c38b40062d3cb7",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/evidence_projection/constants.py": "8c228dce3e1b6ac932e3e2d3aebeee8e28891b5e57874e7ea403014367f1f986",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/evidence_projection/io.py": "dde30ca2cf224f178a3d85f73fd633b4cd8f0e9f33c1f06cf394018fb776a7dc",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/evidence_projection/models.py": "2d3d43830973a98c8f79f172c6bb4de9e15808efe172f2d742a72003f95a82fe",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/evidence_projection/neotoma.py": "d9c37bbcc962063ad4abfc57b34b51cf6f37248dffd32eccc5ed00cec4ebaf73",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/evidence_projection/records.py": "38c68f150a22450a244aff47eddf9d8087aa7a4f635d29ff6a67a11e814e28c7",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/evidence_projection/sead/__init__.py": "09d8c0ceeb013541c6b8ae200f52448e40511bd7f5d899fd9412cf7340be7577",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/evidence_projection/sead/accounting.py": "f5db877900e8b6e06ba7e742c5d4c293f7597f200fd68985c3c23f7227bbfd80",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/evidence_projection/sead/admission.py": "fc9faf672ee0cf9315f2280dd7b898ebd7718aed4a09bea297aff23cc5fbd134",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/evidence_projection/sead/chronology.py": "a7384b4718c8043389f237a885e04255580057be5b61bc67743d8e05261e3e9f",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/evidence_projection/sead/detail_records.py": "0c6a7b5e391c677d7f78fe3ed0d3ecb0fa5c2e3a6051755e62863ceed9e06870",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/evidence_projection/sead/models.py": "e66b4a216bab40e505cb3abf1d83daad2a8a791da38823a18dbe9fe50c98b09f",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/evidence_projection/sead/observations.py": "5db7926fb8f89d5de974f743074bccee62b34a24a626d6a7ea83fd654723a0b4",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/evidence_projection/sead/projection.py": "f326308c502dabe14c02e0eeb5348cba9898fbc3e0892f8b2ee4a96206545ffe",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/evidence_projection/sead/provenance.py": "d483c8b346c94c4502569e069ee15e583610f3c74354b927dce01255be3cf620",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/evidence_projection/sead/relations.py": "abe3ce1dad847a51cc7d1c36be86e7a885c5f64f4b1c190ae29e4e9716c543dd",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/evidence_projection/sead/sites.py": "1eef187b51b2568407653bbea1a2550fd2bcef59bb3e0c45812a1b76c89e6786",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/evidence_projection/sead_claims.py": "747480541006ebc87df5b3d461a42f6bd7470eaa86d855c2863682c6b5579c56",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/evidence_projection/sead_records.py": "6bcf8f3575f8308568f2cd44656a92d6fd5cbdeb98b7b6403ca052c824ba5af3",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/evidence_projection/service.py": "cd11e76268f0abcb2a541136da6112a6e5a5ab9e23c8e3ad1365c7cc5b1b94b0",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/native_lra.py": "b443d56a9b0b807d2922857b0cfa7641fa8147ad21cb243aab98414f60260fad",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/payload.py": "e131724adacd5471cdc1b236079b5d091b33ed618ed5e1e1c8afab49363a0e57",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/render.py": "5214ac7f8ba86805b5a7e0bfd5529e5ecb3d3042854abcfc1340505400e99dc0",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/state.py": "50bd3e0a59d82f70c1c7ccd2934f05c2306161dc31f09e45d12bf61daaec1044",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/static_assets/__init__.py": "ae5191883dd9d1c2bcf2f793e5215d313abc09660dfcb9ef3a20a5566e484314",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/static_assets/asset_inventory.py": "dccd61cc2a03bbd20d89a4ef95e397bafc1ed3bd2736bb430761f0f691391bab",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/static_assets/budgets.py": "afa643cdd77e43b9bc1dc57adeea7572c2efcbd983a021d93b729b462877734b",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/static_assets/index_bundles.py": "b67d42828cd96dcff45b757c1924c3bb01e568c23228e817196bff8228b61ec0",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/static_assets/indexes.py": "596ca95bba4979e654fbb477b654741671e2a361cf12e77b41c3dfc09fd0fbd0",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/static_assets/models.py": "f5aa9f01bbcf8d6ec861d64e629f4359a39925084f57cb1c654e71f62ea268c0",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/static_assets/nodes.py": "70db748025f7fc8c3484ca0daddadaa867248ea57216c86c41f968ab670f9f09",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/static_assets/serialization.py": "4f517d2bbef9e7b19ccdeb2f9ef587c0214bf4b7884b7b6ab742abf6f0e2654f",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/static_assets/validation.py": "0603633df5605270d4ec1ba6e76b6d219d61bbaecdcd96a0eeac1fc3479cc246",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/static_assets/writer.py": "b8cde394647be01a8380b36935ef85af7474969f4eebcd65788d26a2e410fb7f",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/template.py": "29a3d6a20fcdd24a726369e61ae4bfabb83466020424ed3221bdd8eaaefc69bb",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/temporal_admission.py": "755f485ddddc41afa580e4361fd13aa620229ae807a86ec8c0835b8a1e91bc2d",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/modeled_context/__init__.py": "cfbccb6a8cb25f7715f6bb1711069c7ff3adc5459e8e7337e5957420b75c89bc",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/modeled_context/contracts.py": "15facb66f40c1458381d79e1ff2811bae8f9d909428ec371ebb6c59677d13d4c",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/modeled_context/manifest.py": "d628b1942fe97be65c9c55c6c7c7503aec1162f1ff5da4fa2f1bf8bcd063071f",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/modeled_context/metric_families.py": "621d2fe9df9b8328e03ef6524eae28bf246cdb0f871da0df81db6b3510d51e67",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/modeled_context/publication_projection.py": "f2905c720d8d30f85185f0a418a0be98bfeadc67601d6f902645584855af4a11",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/modeled_context/validation.py": "69e36496b9527416184c8dbf3ece5bfbebbdb9163c2af48154c84d4d93869efa",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/scope_policy.py": "390dedffd808188fa91c940c8ff4cc7efbac28993e44fc2c257a4bf2591aa644",
+      "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/atlas_browser/cross_border_neighbor_candidate.py": "b0814a33763421bb142914c644912ee8e412aa8cea5ca450f0ec826e2d053fc0"
+    },
+    "outputs_sha256": {
+      "_map_assets/leaflet/images/layers-2x.png": "066daca850d8ffbef007af00b06eac0015728dee279c51f3cb6c716df7c42edf",
+      "_map_assets/leaflet/images/layers.png": "1dbbe9d028e292f36fcba8f8b3a28d5e8932754fc2215b9ac69e4cdecf5107c6",
+      "_map_assets/leaflet/images/marker-icon-2x.png": "00179c4c1ee830d3a108412ae0d294f55776cfeb085c60129a39aa6fc4ae2528",
+      "_map_assets/leaflet/images/marker-icon.png": "574c3a5cca85f4114085b6841596d62f00d7c892c7b03f28cbfa301deb1dc437",
+      "_map_assets/leaflet/images/marker-shadow.png": "264f5c640339f042dd729062cfc04c17f8ea0f29882b538e3848ed8f10edb4da",
+      "_map_assets/leaflet/leaflet.css": "a7837102824184820dfa198d1ebcd109ff6d0ff9a2672a074b9a1b4d147d04c6",
+      "_map_assets/leaflet/leaflet.js": "db49d009c841f5ca34a888c96511ae936fd9f5533e90d8b2c4d57596f4e5641a",
+      "_map_assets/markercluster/MarkerCluster.Default.css": "61258232d98d64dc2a7b1e02130d67421bc5b9bda5994eef70228ff97570c170",
+      "_map_assets/markercluster/MarkerCluster.css": "614dea0a98ff3f4ead74f04918f6b1d1b9ba435c25b5fc23b21a394d1e3e4d87",
+      "_map_assets/markercluster/leaflet.markercluster.js": "1e4e1d22972a3926f48598e0caf14e3fe7049835d428a344fed4f9e3665b3508",
+      "cross-border-neighbor.atlas-edges.0007.ce66e3952147910d.js": "ce66e3952147910dbd15c63f294111262c8f85e866d0e5e4ee69c4dc822eafdb",
+      "cross-border-neighbor.atlas-indexes.0009.3a9ec8e5e6624f8a.js": "3a9ec8e5e6624f8a49f08795465dc86134f623d58d1a830dafc754c698a9d08c",
+      "cross-border-neighbor.atlas-nodes.0001.2d3ebc792aebcc84.js": "2d3ebc792aebcc84a530a99bdc6a25b639a48d29ef448cbd070a1890fea95681",
+      "cross-border-neighbor.atlas-nodes.0002.cddb10d8c04ec316.js": "cddb10d8c04ec316c2099934d7cffbab4b1f0d89f3ff171d45bb5f9c1a6da426",
+      "cross-border-neighbor.atlas-nodes.0003.0a7639b99403ba74.js": "0a7639b99403ba74b1b88a4c8fe3d862c79cab8998edd735b0b093091d08e2c3",
+      "cross-border-neighbor.atlas-nodes.0004.4af5a7211a5a8262.js": "4af5a7211a5a82629096f346d860bb96afaad72eb4b13cc15313a659100051b0",
+      "cross-border-neighbor.atlas-nodes.0005.3cd5a51a7a88464b.js": "3cd5a51a7a88464b4981e1a56c9f76e3b3af97fc59513d644a5e31496b72de53",
+      "cross-border-neighbor.atlas-nodes.0006.1e61f01279cdc7b4.js": "1e61f01279cdc7b4009e91e4f99eace34850dd34a83db90dcefd1f4b9ab1ecf7",
+      "cross-border-neighbor.atlas-provenance.0000.eb9d8aeb9d84a625.js": "eb9d8aeb9d84a6251cbb80ffa0d7ed345e90c54abbb364a721e7d35e3352de15",
+      "cross-border-neighbor.atlas-sequences.0008.46e4979891409697.js": "46e4979891409697edbacacbd72515d41f5a6ab6478c94e50a060175262a96f6",
+      "cross-border-neighbor_map_assets.json": "cb828a47d6cbfb8241f003e64fb7c57fc2a10db28131d95e76c86fccd6f8774c",
+      "index.html": "b8e194e8fa2a95c12b82c3d73b39d766a76ca7f6c907cdd09e5cce8fe25edd09"
+    },
+    "edge_relation": {
+      "source_record_id": "controlled:no:older",
+      "source_country": "Norway",
+      "target_record_id": "controlled:se:younger",
+      "target_country": "Sweden",
+      "cross_border": true,
+      "lag_years": 100,
+      "wgs84_distance_km": 50.6723134140697
+    },
+    "scientific_admission": "not_evaluated"
+  },
+  "scenarios": [
+    {
+      "width": 320,
+      "mode": "provider-failure",
+      "tile_requests": 96,
+      "views": {
+        "all": {
+          "state": {
+            "countries": [
+              "Denmark",
+              "Finland",
+              "Norway",
+              "Sweden"
+            ],
+            "focal_count": 2,
+            "neighbor_count": 0,
+            "edge_count": 1,
+            "neighbor_labels": [],
+            "neighbor_label_visible": true,
+            "country_chips": {
+              "Denmark": 0,
+              "Finland": 0,
+              "Norway": 1,
+              "Sweden": 1
+            },
+            "selection": "2 points · 0 animal · 1 overlays",
+            "relation": "1 of 1 governed candidates visible · sequences unavailable: governed_sequence_detail_model_not_available",
+            "basemap": "none"
+          },
+          "screenshot": {
+            "path": "320-provider-failure-all.png",
+            "sha256": "5d8ca775941ef2c1f1ce9a0c8fb5841aafd7a13f89fc8e2525278b84de26c24e"
+          }
+        },
+        "Sweden": {
+          "state": {
+            "countries": [
+              "Sweden"
+            ],
+            "focal_count": 1,
+            "neighbor_count": 1,
+            "edge_count": 1,
+            "neighbor_labels": [
+              "Neighbor context · Norway"
+            ],
+            "neighbor_label_visible": true,
+            "country_chips": {
+              "Denmark": 0,
+              "Finland": 0,
+              "Norway": 0,
+              "Sweden": 1
+            },
+            "selection": "1 focal point · 1 labeled neighbor context · 0 animal · 1 overlays",
+            "relation": "1 of 1 governed candidates visible · sequences unavailable: governed_sequence_detail_model_not_available",
+            "basemap": "none"
+          },
+          "screenshot": {
+            "path": "320-provider-failure-sweden.png",
+            "sha256": "d6f52711327d89c59cc17b6f281cd384f8b6d77d953f2caf0e47dee312f6db85"
+          }
+        },
+        "Norway": {
+          "state": {
+            "countries": [
+              "Norway"
+            ],
+            "focal_count": 1,
+            "neighbor_count": 1,
+            "edge_count": 1,
+            "neighbor_labels": [
+              "Neighbor context · Sweden"
+            ],
+            "neighbor_label_visible": true,
+            "country_chips": {
+              "Denmark": 0,
+              "Finland": 0,
+              "Norway": 1,
+              "Sweden": 0
+            },
+            "selection": "1 focal point · 1 labeled neighbor context · 0 animal · 1 overlays",
+            "relation": "1 of 1 governed candidates visible · sequences unavailable: governed_sequence_detail_model_not_available",
+            "basemap": "none"
+          },
+          "screenshot": {
+            "path": "320-provider-failure-norway.png",
+            "sha256": "46e1da7ef8fbc943f5065e4fb3b5ee3077d4306553e6b567ad23abddb0b0a090"
+          }
+        },
+        "Denmark": {
+          "state": {
+            "countries": [
+              "Denmark"
+            ],
+            "focal_count": 0,
+            "neighbor_count": 0,
+            "edge_count": 0,
+            "neighbor_labels": [],
+            "neighbor_label_visible": true,
+            "country_chips": {
+              "Denmark": 0,
+              "Finland": 0,
+              "Norway": 0,
+              "Sweden": 0
+            },
+            "selection": "0 points · 0 animal · 1 overlays",
+            "relation": "0 of 1 governed candidates visible · sequences unavailable: governed_sequence_detail_model_not_available",
+            "basemap": "none"
+          },
+          "screenshot": {
+            "path": "320-provider-failure-denmark.png",
+            "sha256": "4cc7fd2f2d6e897a87596d3209464aafe58cf7044bbf408b71b9892bc4087fc1"
+          }
+        }
+      }
+    },
+    {
+      "width": 320,
+      "mode": "tile-free",
+      "tile_requests": 0,
+      "views": {
+        "all": {
+          "state": {
+            "countries": [
+              "Denmark",
+              "Finland",
+              "Norway",
+              "Sweden"
+            ],
+            "focal_count": 2,
+            "neighbor_count": 0,
+            "edge_count": 1,
+            "neighbor_labels": [],
+            "neighbor_label_visible": true,
+            "country_chips": {
+              "Denmark": 0,
+              "Finland": 0,
+              "Norway": 1,
+              "Sweden": 1
+            },
+            "selection": "2 points · 0 animal · 1 overlays",
+            "relation": "1 of 1 governed candidates visible · sequences unavailable: governed_sequence_detail_model_not_available",
+            "basemap": "none"
+          },
+          "screenshot": {
+            "path": "320-tile-free-all.png",
+            "sha256": "f896e17937751c83a2ff594c04cb780db2a5cfdc9ce5a85bde110c1040d3f94d"
+          }
+        },
+        "Sweden": {
+          "state": {
+            "countries": [
+              "Sweden"
+            ],
+            "focal_count": 1,
+            "neighbor_count": 1,
+            "edge_count": 1,
+            "neighbor_labels": [
+              "Neighbor context · Norway"
+            ],
+            "neighbor_label_visible": true,
+            "country_chips": {
+              "Denmark": 0,
+              "Finland": 0,
+              "Norway": 0,
+              "Sweden": 1
+            },
+            "selection": "1 focal point · 1 labeled neighbor context · 0 animal · 1 overlays",
+            "relation": "1 of 1 governed candidates visible · sequences unavailable: governed_sequence_detail_model_not_available",
+            "basemap": "none"
+          },
+          "screenshot": {
+            "path": "320-tile-free-sweden.png",
+            "sha256": "69b535947c53b9ab3bc54443e0c2e6e4b6db08374dd8406b70645eb226e75f33"
+          }
+        },
+        "Norway": {
+          "state": {
+            "countries": [
+              "Norway"
+            ],
+            "focal_count": 1,
+            "neighbor_count": 1,
+            "edge_count": 1,
+            "neighbor_labels": [
+              "Neighbor context · Sweden"
+            ],
+            "neighbor_label_visible": true,
+            "country_chips": {
+              "Denmark": 0,
+              "Finland": 0,
+              "Norway": 1,
+              "Sweden": 0
+            },
+            "selection": "1 focal point · 1 labeled neighbor context · 0 animal · 1 overlays",
+            "relation": "1 of 1 governed candidates visible · sequences unavailable: governed_sequence_detail_model_not_available",
+            "basemap": "none"
+          },
+          "screenshot": {
+            "path": "320-tile-free-norway.png",
+            "sha256": "b9f4b8de0d4587e48cb59729c913851d5012811f8ee66d8eea8919463cb02086"
+          }
+        },
+        "Denmark": {
+          "state": {
+            "countries": [
+              "Denmark"
+            ],
+            "focal_count": 0,
+            "neighbor_count": 0,
+            "edge_count": 0,
+            "neighbor_labels": [],
+            "neighbor_label_visible": true,
+            "country_chips": {
+              "Denmark": 0,
+              "Finland": 0,
+              "Norway": 0,
+              "Sweden": 0
+            },
+            "selection": "0 points · 0 animal · 1 overlays",
+            "relation": "0 of 1 governed candidates visible · sequences unavailable: governed_sequence_detail_model_not_available",
+            "basemap": "none"
+          },
+          "screenshot": {
+            "path": "320-tile-free-denmark.png",
+            "sha256": "aa3079150cbd7a1f4680f22cd09c9b7a8c46853e154af3f9cfe8e7fd8da54b2b"
+          }
+        }
+      }
+    },
+    {
+      "width": 1440,
+      "mode": "provider-failure",
+      "tile_requests": 192,
+      "views": {
+        "all": {
+          "state": {
+            "countries": [
+              "Denmark",
+              "Finland",
+              "Norway",
+              "Sweden"
+            ],
+            "focal_count": 2,
+            "neighbor_count": 0,
+            "edge_count": 1,
+            "neighbor_labels": [],
+            "neighbor_label_visible": true,
+            "country_chips": {
+              "Denmark": 0,
+              "Finland": 0,
+              "Norway": 1,
+              "Sweden": 1
+            },
+            "selection": "2 points · 0 animal · 1 overlays",
+            "relation": "1 of 1 governed candidates visible · sequences unavailable: governed_sequence_detail_model_not_available",
+            "basemap": "none"
+          },
+          "screenshot": {
+            "path": "1440-provider-failure-all.png",
+            "sha256": "c056e2864993555106797ba6e4be4a375dcb7d0f4513d2caabb1bb8a0f5a3ace"
+          }
+        },
+        "Sweden": {
+          "state": {
+            "countries": [
+              "Sweden"
+            ],
+            "focal_count": 1,
+            "neighbor_count": 1,
+            "edge_count": 1,
+            "neighbor_labels": [
+              "Neighbor context · Norway"
+            ],
+            "neighbor_label_visible": true,
+            "country_chips": {
+              "Denmark": 0,
+              "Finland": 0,
+              "Norway": 0,
+              "Sweden": 1
+            },
+            "selection": "1 focal point · 1 labeled neighbor context · 0 animal · 1 overlays",
+            "relation": "1 of 1 governed candidates visible · sequences unavailable: governed_sequence_detail_model_not_available",
+            "basemap": "none"
+          },
+          "screenshot": {
+            "path": "1440-provider-failure-sweden.png",
+            "sha256": "931bf0c838b7260c72e2199337ede971f495a06f48504ba87f8576a4d5c674b5"
+          }
+        },
+        "Norway": {
+          "state": {
+            "countries": [
+              "Norway"
+            ],
+            "focal_count": 1,
+            "neighbor_count": 1,
+            "edge_count": 1,
+            "neighbor_labels": [
+              "Neighbor context · Sweden"
+            ],
+            "neighbor_label_visible": true,
+            "country_chips": {
+              "Denmark": 0,
+              "Finland": 0,
+              "Norway": 1,
+              "Sweden": 0
+            },
+            "selection": "1 focal point · 1 labeled neighbor context · 0 animal · 1 overlays",
+            "relation": "1 of 1 governed candidates visible · sequences unavailable: governed_sequence_detail_model_not_available",
+            "basemap": "none"
+          },
+          "screenshot": {
+            "path": "1440-provider-failure-norway.png",
+            "sha256": "4fb0141e960bfd1c50b2d195f6377d4cd9d05173155e4af268e7e4610c611cbb"
+          }
+        },
+        "Denmark": {
+          "state": {
+            "countries": [
+              "Denmark"
+            ],
+            "focal_count": 0,
+            "neighbor_count": 0,
+            "edge_count": 0,
+            "neighbor_labels": [],
+            "neighbor_label_visible": true,
+            "country_chips": {
+              "Denmark": 0,
+              "Finland": 0,
+              "Norway": 0,
+              "Sweden": 0
+            },
+            "selection": "0 points · 0 animal · 1 overlays",
+            "relation": "0 of 1 governed candidates visible · sequences unavailable: governed_sequence_detail_model_not_available",
+            "basemap": "none"
+          },
+          "screenshot": {
+            "path": "1440-provider-failure-denmark.png",
+            "sha256": "e7d451d24ccccc031822167f3205ae2c7f9688286d7217e60b84825ad47fceea"
+          }
+        }
+      }
+    },
+    {
+      "width": 1440,
+      "mode": "tile-free",
+      "tile_requests": 0,
+      "views": {
+        "all": {
+          "state": {
+            "countries": [
+              "Denmark",
+              "Finland",
+              "Norway",
+              "Sweden"
+            ],
+            "focal_count": 2,
+            "neighbor_count": 0,
+            "edge_count": 1,
+            "neighbor_labels": [],
+            "neighbor_label_visible": true,
+            "country_chips": {
+              "Denmark": 0,
+              "Finland": 0,
+              "Norway": 1,
+              "Sweden": 1
+            },
+            "selection": "2 points · 0 animal · 1 overlays",
+            "relation": "1 of 1 governed candidates visible · sequences unavailable: governed_sequence_detail_model_not_available",
+            "basemap": "none"
+          },
+          "screenshot": {
+            "path": "1440-tile-free-all.png",
+            "sha256": "356bcecbf63b93c83b67a12b56d5addeb9fd19d892090ea798cc2935809f8c6a"
+          }
+        },
+        "Sweden": {
+          "state": {
+            "countries": [
+              "Sweden"
+            ],
+            "focal_count": 1,
+            "neighbor_count": 1,
+            "edge_count": 1,
+            "neighbor_labels": [
+              "Neighbor context · Norway"
+            ],
+            "neighbor_label_visible": true,
+            "country_chips": {
+              "Denmark": 0,
+              "Finland": 0,
+              "Norway": 0,
+              "Sweden": 1
+            },
+            "selection": "1 focal point · 1 labeled neighbor context · 0 animal · 1 overlays",
+            "relation": "1 of 1 governed candidates visible · sequences unavailable: governed_sequence_detail_model_not_available",
+            "basemap": "none"
+          },
+          "screenshot": {
+            "path": "1440-tile-free-sweden.png",
+            "sha256": "5dfe9f87d974c46479fbfc414420ea20007dda39117313d9d67ff2fcf522912c"
+          }
+        },
+        "Norway": {
+          "state": {
+            "countries": [
+              "Norway"
+            ],
+            "focal_count": 1,
+            "neighbor_count": 1,
+            "edge_count": 1,
+            "neighbor_labels": [
+              "Neighbor context · Sweden"
+            ],
+            "neighbor_label_visible": true,
+            "country_chips": {
+              "Denmark": 0,
+              "Finland": 0,
+              "Norway": 1,
+              "Sweden": 0
+            },
+            "selection": "1 focal point · 1 labeled neighbor context · 0 animal · 1 overlays",
+            "relation": "1 of 1 governed candidates visible · sequences unavailable: governed_sequence_detail_model_not_available",
+            "basemap": "none"
+          },
+          "screenshot": {
+            "path": "1440-tile-free-norway.png",
+            "sha256": "db8167aa523686d0d2c780a6cddf9d798516406b8755ce530eab9b67a0d5434c"
+          }
+        },
+        "Denmark": {
+          "state": {
+            "countries": [
+              "Denmark"
+            ],
+            "focal_count": 0,
+            "neighbor_count": 0,
+            "edge_count": 0,
+            "neighbor_labels": [],
+            "neighbor_label_visible": true,
+            "country_chips": {
+              "Denmark": 0,
+              "Finland": 0,
+              "Norway": 0,
+              "Sweden": 0
+            },
+            "selection": "0 points · 0 animal · 1 overlays",
+            "relation": "0 of 1 governed candidates visible · sequences unavailable: governed_sequence_detail_model_not_available",
+            "basemap": "none"
+          },
+          "screenshot": {
+            "path": "1440-tile-free-denmark.png",
+            "sha256": "36edc3d50b27ecab65ff017bb9d34c3d22970f9354e5637c6b4897c398efa189"
+          }
+        }
+      }
+    }
+  ],
+  "runtime_errors": [],
+  "browser": {
+    "protocolVersion": "1.3",
+    "product": "Chrome/153.0.8010.53",
+    "revision": "@b395074596c663e344272cde7f7d7bd3d496e7e",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+    "jsVersion": "15.3.76.13"
+  },
+  "served_files_sha256": {
+    "_map_assets/leaflet/leaflet.css": "a7837102824184820dfa198d1ebcd109ff6d0ff9a2672a074b9a1b4d147d04c6",
+    "_map_assets/leaflet/leaflet.js": "db49d009c841f5ca34a888c96511ae936fd9f5533e90d8b2c4d57596f4e5641a",
+    "_map_assets/markercluster/MarkerCluster.Default.css": "61258232d98d64dc2a7b1e02130d67421bc5b9bda5994eef70228ff97570c170",
+    "_map_assets/markercluster/MarkerCluster.css": "614dea0a98ff3f4ead74f04918f6b1d1b9ba435c25b5fc23b21a394d1e3e4d87",
+    "_map_assets/markercluster/leaflet.markercluster.js": "1e4e1d22972a3926f48598e0caf14e3fe7049835d428a344fed4f9e3665b3508",
+    "cross-border-neighbor.atlas-edges.0007.ce66e3952147910d.js": "ce66e3952147910dbd15c63f294111262c8f85e866d0e5e4ee69c4dc822eafdb",
+    "cross-border-neighbor.atlas-nodes.0001.2d3ebc792aebcc84.js": "2d3ebc792aebcc84a530a99bdc6a25b639a48d29ef448cbd070a1890fea95681",
+    "cross-border-neighbor.atlas-nodes.0002.cddb10d8c04ec316.js": "cddb10d8c04ec316c2099934d7cffbab4b1f0d89f3ff171d45bb5f9c1a6da426",
+    "cross-border-neighbor.atlas-nodes.0003.0a7639b99403ba74.js": "0a7639b99403ba74b1b88a4c8fe3d862c79cab8998edd735b0b093091d08e2c3",
+    "cross-border-neighbor.atlas-nodes.0004.4af5a7211a5a8262.js": "4af5a7211a5a82629096f346d860bb96afaad72eb4b13cc15313a659100051b0",
+    "cross-border-neighbor.atlas-nodes.0005.3cd5a51a7a88464b.js": "3cd5a51a7a88464b4981e1a56c9f76e3b3af97fc59513d644a5e31496b72de53",
+    "cross-border-neighbor.atlas-nodes.0006.1e61f01279cdc7b4.js": "1e61f01279cdc7b4009e91e4f99eace34850dd34a83db90dcefd1f4b9ab1ecf7",
+    "cross-border-neighbor.atlas-provenance.0000.eb9d8aeb9d84a625.js": "eb9d8aeb9d84a6251cbb80ffa0d7ed345e90c54abbb364a721e7d35e3352de15",
+    "cross-border-neighbor.atlas-sequences.0008.46e4979891409697.js": "46e4979891409697edbacacbd72515d41f5a6ab6478c94e50a060175262a96f6",
+    "index.html": "b8e194e8fa2a95c12b82c3d73b39d766a76ca7f6c907cdd09e5cce8fe25edd09"
+  },
+  "verifier_sha256": "1d813d1eb83188bc7af17b34e417552a490f5fa33b532fa908a9d1ce6d92064c"
+}

@@ -1,0 +1,34 @@
+{
+  "schema_version": "atlas-browser-evidence-retention.v1",
+  "status": "controlled_browser_evidence_not_scientific_admission",
+  "source_commit_context": "verification.json",
+  "files": [
+    {
+      "original_artifact": "artifacts/atlas-narrow-viewport-controls/browser-obstructed/320-diagnostic.png",
+      "original_bytes": 59751,
+      "original_sha256": "a4ce45220b98dc1878550154eb48b5ed26095c020ee0105fb2725a00c83f4442",
+      "retained": "evidence/baseline/320-diagnostic.png",
+      "retained_bytes": 59751,
+      "retained_sha256": "a4ce45220b98dc1878550154eb48b5ed26095c020ee0105fb2725a00c83f4442",
+      "relation": "exact_bytes"
+    },
+    {
+      "original_artifact": "artifacts/atlas-narrow-viewport-controls/browser-obstructed/receipt.json",
+      "original_bytes": 9270,
+      "original_sha256": "bcaf35682c9d54367cb6833e0e6163323f774df0382641930b20d9ea8c6beaf2",
+      "retained": "evidence/baseline/receipt.json",
+      "retained_bytes": 9237,
+      "retained_sha256": "b144ce6985f66282d25c5465faaa1df168b2503a7434a9543b8cb25c2197c6a0",
+      "relation": "local_file_url_rebased"
+    },
+    {
+      "original_artifact": "artifacts/atlas-narrow-viewport-controls/browser-breakpoint/receipt.json",
+      "original_bytes": 73461,
+      "original_sha256": "1f29ba6c62bab07ef06ae99f9084693615ab2232d7c5600aa990abfd4bf67644",
+      "retained": "evidence/selected/receipt.json",
+      "retained_bytes": 73461,
+      "retained_sha256": "1f29ba6c62bab07ef06ae99f9084693615ab2232d7c5600aa990abfd4bf67644",
+      "relation": "exact_bytes"
+    }
+  ]
+}

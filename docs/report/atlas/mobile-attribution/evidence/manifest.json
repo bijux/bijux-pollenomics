@@ -1,0 +1,25 @@
+{
+  "schema_version": "atlas-browser-evidence-retention.v1",
+  "status": "controlled_browser_evidence_not_scientific_admission",
+  "source_commit_context": "verification.json",
+  "files": [
+    {
+      "original_artifact": "artifacts/atlas-mobile-attribution/browser-baseline/receipt.json",
+      "original_bytes": 14561,
+      "original_sha256": "270bfd4ded533465ef2f77d8e755b311f330f7fb72d4b94d8b187816a8d4adda",
+      "retained": "evidence/baseline/receipt.json",
+      "retained_bytes": 14528,
+      "retained_sha256": "85bf308b820b2e29f115792fe864635b906378e74ddf235e452ccec065c2ffba",
+      "relation": "local_file_url_rebased"
+    },
+    {
+      "original_artifact": "artifacts/atlas-mobile-attribution/browser-zoom-verified/receipt.json",
+      "original_bytes": 21435,
+      "original_sha256": "5bcc2b5904efe9b73c650aac0f92151c7ed5daff6e018eb246bc82cfafde1bec",
+      "retained": "evidence/selected/receipt.json",
+      "retained_bytes": 21435,
+      "retained_sha256": "5bcc2b5904efe9b73c650aac0f92151c7ed5daff6e018eb246bc82cfafde1bec",
+      "relation": "exact_bytes"
+    }
+  ]
+}

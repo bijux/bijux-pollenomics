@@ -1,0 +1,2904 @@
+{
+  "schema_version": "atlas-narrow-viewport-controls-browser.v1",
+  "status": "PASS",
+  "candidate": {
+    "schema_version": "atlas-controlled-boundary-candidate.v1",
+    "status": "controlled_synthetic_geometry_only",
+    "scientific_admission": "not_evaluated",
+    "geometry_sha256": "6189886c6d22a320a4cddd022d1bb94a7436a9f30b608149683a74155b012857",
+    "generation_sha256": "2217cb64d0c2c6dcb4a55d3452681587931f0d56e50f46d8d548ed0cb9bb343c",
+    "renderer_sha256": "47e2d3916a3116a565cfdd6ec6071014e4d16fd2ae4f13a661a2964f855084e1",
+    "outputs_sha256": {
+      "_map_assets/leaflet/images/layers-2x.png": "066daca850d8ffbef007af00b06eac0015728dee279c51f3cb6c716df7c42edf",
+      "_map_assets/leaflet/images/layers.png": "1dbbe9d028e292f36fcba8f8b3a28d5e8932754fc2215b9ac69e4cdecf5107c6",
+      "_map_assets/leaflet/images/marker-icon-2x.png": "00179c4c1ee830d3a108412ae0d294f55776cfeb085c60129a39aa6fc4ae2528",
+      "_map_assets/leaflet/images/marker-icon.png": "574c3a5cca85f4114085b6841596d62f00d7c892c7b03f28cbfa301deb1dc437",
+      "_map_assets/leaflet/images/marker-shadow.png": "264f5c640339f042dd729062cfc04c17f8ea0f29882b538e3848ed8f10edb4da",
+      "_map_assets/leaflet/leaflet.css": "a7837102824184820dfa198d1ebcd109ff6d0ff9a2672a074b9a1b4d147d04c6",
+      "_map_assets/leaflet/leaflet.js": "db49d009c841f5ca34a888c96511ae936fd9f5533e90d8b2c4d57596f4e5641a",
+      "_map_assets/markercluster/MarkerCluster.Default.css": "61258232d98d64dc2a7b1e02130d67421bc5b9bda5994eef70228ff97570c170",
+      "_map_assets/markercluster/MarkerCluster.css": "614dea0a98ff3f4ead74f04918f6b1d1b9ba435c25b5fc23b21a394d1e3e4d87",
+      "_map_assets/markercluster/leaflet.markercluster.js": "1e4e1d22972a3926f48598e0caf14e3fe7049835d428a344fed4f9e3665b3508",
+      "index.html": "6cdb54fc09151dd432dd53c8751f46aaa293cf340b94d32e08f0bd6a76b60c2e"
+    }
+  },
+  "scenarios": [
+    {
+      "width": 320,
+      "mode": "provider-failure",
+      "tile_requests": 24,
+      "street_tile_failures": 12,
+      "terrain_tile_failures": 12,
+      "legend_countries": [
+        "Denmark",
+        "Finland",
+        "Norway",
+        "Sweden"
+      ],
+      "basemap": "none",
+      "paths": [
+        {
+          "country": "Denmark",
+          "left": 100,
+          "top": 537,
+          "right": 112,
+          "bottom": 558,
+          "width": 12,
+          "height": 21,
+          "stroke": "rgb(159, 18, 57)",
+          "stroke_width": "1.4px",
+          "opacity": 1,
+          "fill_opacity": 0.04
+        },
+        {
+          "country": "Finland",
+          "left": 186,
+          "top": 469,
+          "right": 197,
+          "bottom": 493,
+          "width": 11,
+          "height": 24,
+          "stroke": "rgb(146, 64, 14)",
+          "stroke_width": "1.4px",
+          "opacity": 1,
+          "fill_opacity": 0.04
+        },
+        {
+          "country": "Norway",
+          "left": 95,
+          "top": 469,
+          "right": 106,
+          "bottom": 493,
+          "width": 11,
+          "height": 24,
+          "stroke": "rgb(17, 94, 89)",
+          "stroke_width": "1.4px",
+          "opacity": 1,
+          "fill_opacity": 0.04
+        },
+        {
+          "country": "Sweden",
+          "left": 146,
+          "top": 505,
+          "right": 157,
+          "bottom": 527,
+          "width": 11,
+          "height": 22,
+          "stroke": "rgb(29, 78, 216)",
+          "stroke_width": "1.4px",
+          "opacity": 1,
+          "fill_opacity": 0.04
+        }
+      ],
+      "scale": "500 km",
+      "scale_visible": true,
+      "scale_rect": {
+        "left": 5,
+        "top": 705.8125,
+        "right": 65,
+        "bottom": 724,
+        "width": 60,
+        "height": 18.1875
+      },
+      "coordinates": "64.437, 19.500",
+      "center_control": {
+        "rect": {
+          "left": 21,
+          "top": 782,
+          "right": 155,
+          "bottom": 806,
+          "width": 134,
+          "height": 24
+        },
+        "visible": true,
+        "center_hit": true
+      },
+      "legend_control": {
+        "rect": {
+          "left": 238.3125,
+          "top": 671,
+          "right": 301,
+          "bottom": 715,
+          "width": 62.6875,
+          "height": 44
+        },
+        "visible": true,
+        "center_hit": true
+      },
+      "basemap_control": {
+        "rect": {
+          "left": 21,
+          "top": 833,
+          "right": 299,
+          "bottom": 881,
+          "width": 278,
+          "height": 48
+        },
+        "visible": true,
+        "center_hit": true
+      },
+      "readout": "Basemap degraded: terrain unavailable; no-basemap mode active. Evidence data unaffected.",
+      "north_indicator": {
+        "role": "img",
+        "label": "North is up",
+        "text": "↑N",
+        "rect": {
+          "left": 258.4375,
+          "top": 230,
+          "right": 312,
+          "bottom": 274,
+          "width": 53.5625,
+          "height": 44
+        },
+        "visible": true,
+        "overlaps_topbar": false
+      },
+      "attribution": {
+        "text": "Leaflet",
+        "links": [
+          {
+            "text": "Leaflet",
+            "href": "https://leafletjs.com/"
+          }
+        ],
+        "rect": {
+          "left": 250.65625,
+          "top": 356,
+          "right": 312,
+          "bottom": 372.796875,
+          "width": 61.34375,
+          "height": 16.796875
+        },
+        "visible": true,
+        "center_hit": true,
+        "link_center_hit": true,
+        "hit_class": "",
+        "overlaps_status": false,
+        "overlaps_scale": false,
+        "overlaps_legend": false,
+        "overlaps_north": false,
+        "overlaps_topbar": false
+      },
+      "zoom_control": {
+        "rect": {
+          "left": 268,
+          "top": 282,
+          "right": 302,
+          "bottom": 346,
+          "width": 34,
+          "height": 64
+        },
+        "plus_center_hit": true,
+        "minus_center_hit": true,
+        "overlaps_attribution": false,
+        "overlaps_north": false,
+        "overlaps_status": false,
+        "overlaps_scale": false,
+        "overlaps_legend": false,
+        "overlaps_topbar": false
+      },
+      "status_rect": {
+        "left": 8,
+        "top": 746,
+        "right": 312,
+        "bottom": 892,
+        "width": 304,
+        "height": 146
+      },
+      "topbar_buttons": {
+        "fit-active": {
+          "rect": {
+            "left": 17,
+            "top": 17,
+            "right": 95.515625,
+            "bottom": 61,
+            "width": 78.515625,
+            "height": 44
+          },
+          "visible": true,
+          "center_hit": true,
+          "inside_viewport": true
+        },
+        "search-toggle": {
+          "rect": {
+            "left": 238.046875,
+            "top": 17,
+            "right": 303,
+            "bottom": 61,
+            "width": 64.953125,
+            "height": 44
+          },
+          "visible": true,
+          "center_hit": true,
+          "inside_viewport": true
+        },
+        "panel-toggle": {
+          "rect": {
+            "left": 17,
+            "top": 71,
+            "right": 140.375,
+            "bottom": 115,
+            "width": 123.375,
+            "height": 44
+          },
+          "visible": true,
+          "center_hit": true,
+          "inside_viewport": true
+        },
+        "time-step-older": {
+          "rect": {
+            "left": 17,
+            "top": 121,
+            "right": 91.59375,
+            "bottom": 165,
+            "width": 74.59375,
+            "height": 44
+          },
+          "visible": true,
+          "center_hit": true,
+          "inside_viewport": true
+        },
+        "time-stepper-status": {
+          "rect": {
+            "left": 97.59375,
+            "top": 126.03125,
+            "right": 217,
+            "bottom": 159.96875,
+            "width": 119.40625,
+            "height": 33.9375
+          },
+          "visible": true,
+          "center_hit": true,
+          "inside_viewport": true
+        },
+        "time-step-newer": {
+          "rect": {
+            "left": 223,
+            "top": 121,
+            "right": 303,
+            "bottom": 165,
+            "width": 80,
+            "height": 44
+          },
+          "visible": true,
+          "center_hit": true,
+          "inside_viewport": true
+        },
+        "time-playback-toggle": {
+          "rect": {
+            "left": 17,
+            "top": 171,
+            "right": 303,
+            "bottom": 209,
+            "width": 286,
+            "height": 38
+          },
+          "visible": true,
+          "center_hit": true,
+          "inside_viewport": true
+        }
+      },
+      "document_width": 320,
+      "snapshot_view": {
+        "latitude": 64.43722114159246,
+        "longitude": 19.50000000000001,
+        "zoom": 3
+      },
+      "screenshot": {
+        "path": "320-provider-failure.png",
+        "sha256": "ef9c4fc3a878720c1ccc6a64831b55972c23662a0eaa2e4b15b85c9a263e587b"
+      }
+    },
+    {
+      "width": 320,
+      "mode": "tile-free",
+      "tile_requests": 0,
+      "street_tile_failures": 0,
+      "terrain_tile_failures": 0,
+      "legend_countries": [
+        "Denmark",
+        "Finland",
+        "Norway",
+        "Sweden"
+      ],
+      "basemap": "none",
+      "paths": [
+        {
+          "country": "Denmark",
+          "left": 100,
+          "top": 537,
+          "right": 112,
+          "bottom": 558,
+          "width": 12,
+          "height": 21,
+          "stroke": "rgb(159, 18, 57)",
+          "stroke_width": "1.4px",
+          "opacity": 1,
+          "fill_opacity": 0.04
+        },
+        {
+          "country": "Finland",
+          "left": 186,
+          "top": 469,
+          "right": 197,
+          "bottom": 493,
+          "width": 11,
+          "height": 24,
+          "stroke": "rgb(146, 64, 14)",
+          "stroke_width": "1.4px",
+          "opacity": 1,
+          "fill_opacity": 0.04
+        },
+        {
+          "country": "Norway",
+          "left": 95,
+          "top": 469,
+          "right": 106,
+          "bottom": 493,
+          "width": 11,
+          "height": 24,
+          "stroke": "rgb(17, 94, 89)",
+          "stroke_width": "1.4px",
+          "opacity": 1,
+          "fill_opacity": 0.04
+        },
+        {
+          "country": "Sweden",
+          "left": 146,
+          "top": 505,
+          "right": 157,
+          "bottom": 527,
+          "width": 11,
+          "height": 22,
+          "stroke": "rgb(29, 78, 216)",
+          "stroke_width": "1.4px",
+          "opacity": 1,
+          "fill_opacity": 0.04
+        }
+      ],
+      "scale": "500 km",
+      "scale_visible": true,
+      "scale_rect": {
+        "left": 5,
+        "top": 705.8125,
+        "right": 65,
+        "bottom": 724,
+        "width": 60,
+        "height": 18.1875
+      },
+      "coordinates": "64.437, 19.500",
+      "center_control": {
+        "rect": {
+          "left": 21,
+          "top": 786,
+          "right": 155,
+          "bottom": 810,
+          "width": 134,
+          "height": 24
+        },
+        "visible": true,
+        "center_hit": true
+      },
+      "legend_control": {
+        "rect": {
+          "left": 238.3125,
+          "top": 671,
+          "right": 301,
+          "bottom": 715,
+          "width": 62.6875,
+          "height": 44
+        },
+        "visible": true,
+        "center_hit": true
+      },
+      "basemap_control": {
+        "rect": {
+          "left": 21,
+          "top": 837,
+          "right": 299,
+          "bottom": 881,
+          "width": 278,
+          "height": 44
+        },
+        "visible": true,
+        "center_hit": true
+      },
+      "readout": "Basemap degraded: no basemap. Evidence data unaffected.",
+      "north_indicator": {
+        "role": "img",
+        "label": "North is up",
+        "text": "↑N",
+        "rect": {
+          "left": 258.4375,
+          "top": 230,
+          "right": 312,
+          "bottom": 274,
+          "width": 53.5625,
+          "height": 44
+        },
+        "visible": true,
+        "overlaps_topbar": false
+      },
+      "attribution": {
+        "text": "Leaflet",
+        "links": [
+          {
+            "text": "Leaflet",
+            "href": "https://leafletjs.com/"
+          }
+        ],
+        "rect": {
+          "left": 250.65625,
+          "top": 356,
+          "right": 312,
+          "bottom": 372.796875,
+          "width": 61.34375,
+          "height": 16.796875
+        },
+        "visible": true,
+        "center_hit": true,
+        "link_center_hit": true,
+        "hit_class": "",
+        "overlaps_status": false,
+        "overlaps_scale": false,
+        "overlaps_legend": false,
+        "overlaps_north": false,
+        "overlaps_topbar": false
+      },
+      "zoom_control": {
+        "rect": {
+          "left": 268,
+          "top": 282,
+          "right": 302,
+          "bottom": 346,
+          "width": 34,
+          "height": 64
+        },
+        "plus_center_hit": true,
+        "minus_center_hit": true,
+        "overlaps_attribution": false,
+        "overlaps_north": false,
+        "overlaps_status": false,
+        "overlaps_scale": false,
+        "overlaps_legend": false,
+        "overlaps_topbar": false
+      },
+      "status_rect": {
+        "left": 8,
+        "top": 750,
+        "right": 312,
+        "bottom": 892,
+        "width": 304,
+        "height": 142
+      },
+      "topbar_buttons": {
+        "fit-active": {
+          "rect": {
+            "left": 17,
+            "top": 17,
+            "right": 95.515625,
+            "bottom": 61,
+            "width": 78.515625,
+            "height": 44
+          },
+          "visible": true,
+          "center_hit": true,
+          "inside_viewport": true
+        },
+        "search-toggle": {
+          "rect": {
+            "left": 238.046875,
+            "top": 17,
+            "right": 303,
+            "bottom": 61,
+            "width": 64.953125,
+            "height": 44
+          },
+          "visible": true,
+          "center_hit": true,
+          "inside_viewport": true
+        },
+        "panel-toggle": {
+          "rect": {
+            "left": 17,
+            "top": 71,
+            "right": 140.375,
+            "bottom": 115,
+            "width": 123.375,
+            "height": 44
+          },
+          "visible": true,
+          "center_hit": true,
+          "inside_viewport": true
+        },
+        "time-step-older": {
+          "rect": {
+            "left": 17,
+            "top": 121,
+            "right": 91.59375,
+            "bottom": 165,
+            "width": 74.59375,
+            "height": 44
+          },
+          "visible": true,
+          "center_hit": true,
+          "inside_viewport": true
+        },
+        "time-stepper-status": {
+          "rect": {
+            "left": 97.59375,
+            "top": 126.03125,
+            "right": 217,
+            "bottom": 159.96875,
+            "width": 119.40625,
+            "height": 33.9375
+          },
+          "visible": true,
+          "center_hit": true,
+          "inside_viewport": true
+        },
+        "time-step-newer": {
+          "rect": {
+            "left": 223,
+            "top": 121,
+            "right": 303,
+            "bottom": 165,
+            "width": 80,
+            "height": 44
+          },
+          "visible": true,
+          "center_hit": true,
+          "inside_viewport": true
+        },
+        "time-playback-toggle": {
+          "rect": {
+            "left": 17,
+            "top": 171,
+            "right": 303,
+            "bottom": 209,
+            "width": 286,
+            "height": 38
+          },
+          "visible": true,
+          "center_hit": true,
+          "inside_viewport": true
+        }
+      },
+      "document_width": 320,
+      "snapshot_view": {
+        "latitude": 64.43722114159246,
+        "longitude": 19.50000000000001,
+        "zoom": 3
+      },
+      "screenshot": {
+        "path": "320-tile-free.png",
+        "sha256": "b7ad59ff753454fbd9d166255b1bb1b6bd84e36fc92a3259997f41c864b09092"
+      }
+    },
+    {
+      "width": 360,
+      "mode": "provider-failure",
+      "tile_requests": 24,
+      "street_tile_failures": 12,
+      "terrain_tile_failures": 12,
+      "legend_countries": [
+        "Denmark",
+        "Finland",
+        "Norway",
+        "Sweden"
+      ],
+      "basemap": "none",
+      "paths": [
+        {
+          "country": "Denmark",
+          "left": 120,
+          "top": 537,
+          "right": 132,
+          "bottom": 558,
+          "width": 12,
+          "height": 21,
+          "stroke": "rgb(159, 18, 57)",
+          "stroke_width": "1.4px",
+          "opacity": 1,
+          "fill_opacity": 0.04
+        },
+        {
+          "country": "Finland",
+          "left": 206,
+          "top": 469,
+          "right": 217,
+          "bottom": 493,
+          "width": 11,
+          "height": 24,
+          "stroke": "rgb(146, 64, 14)",
+          "stroke_width": "1.4px",
+          "opacity": 1,
+          "fill_opacity": 0.04
+        },
+        {
+          "country": "Norway",
+          "left": 115,
+          "top": 469,
+          "right": 126,
+          "bottom": 493,
+          "width": 11,
+          "height": 24,
+          "stroke": "rgb(17, 94, 89)",
+          "stroke_width": "1.4px",
+          "opacity": 1,
+          "fill_opacity": 0.04
+        },
+        {
+          "country": "Sweden",
+          "left": 166,
+          "top": 505,
+          "right": 177,
+          "bottom": 527,
+          "width": 11,
+          "height": 22,
+          "stroke": "rgb(29, 78, 216)",
+          "stroke_width": "1.4px",
+          "opacity": 1,
+          "fill_opacity": 0.04
+        }
+      ],
+      "scale": "500 km",
+      "scale_visible": true,
+      "scale_rect": {
+        "left": 5,
+        "top": 705.8125,
+        "right": 65,
+        "bottom": 724,
+        "width": 60,
+        "height": 18.1875
+      },
+      "coordinates": "64.437, 19.500",
+      "center_control": {
+        "rect": {
+          "left": 21,
+          "top": 786,
+          "right": 175,
+          "bottom": 810,
+          "width": 154,
+          "height": 24
+        },
+        "visible": true,
+        "center_hit": true
+      },
+      "legend_control": {
+        "rect": {
+          "left": 278.3125,
+          "top": 671,
+          "right": 341,
+          "bottom": 715,
+          "width": 62.6875,
+          "height": 44
+        },
+        "visible": true,
+        "center_hit": true
+      },
+      "basemap_control": {
+        "rect": {
+          "left": 21,
+          "top": 837,
+          "right": 339,
+          "bottom": 881,
+          "width": 318,
+          "height": 44
+        },
+        "visible": true,
+        "center_hit": true
+      },
+      "readout": "Basemap degraded: terrain unavailable; no-basemap mode active. Evidence data unaffected.",
+      "north_indicator": {
+        "role": "img",
+        "label": "North is up",
+        "text": "↑N",
+        "rect": {
+          "left": 298.4375,
+          "top": 230,
+          "right": 352,
+          "bottom": 274,
+          "width": 53.5625,
+          "height": 44
+        },
+        "visible": true,
+        "overlaps_topbar": false
+      },
+      "attribution": {
+        "text": "Leaflet",
+        "links": [
+          {
+            "text": "Leaflet",
+            "href": "https://leafletjs.com/"
+          }
+        ],
+        "rect": {
+          "left": 290.65625,
+          "top": 356,
+          "right": 352,
+          "bottom": 372.796875,
+          "width": 61.34375,
+          "height": 16.796875
+        },
+        "visible": true,
+        "center_hit": true,
+        "link_center_hit": true,
+        "hit_class": "",
+        "overlaps_status": false,
+        "overlaps_scale": false,
+        "overlaps_legend": false,
+        "overlaps_north": false,
+        "overlaps_topbar": false
+      },
+      "zoom_control": {
+        "rect": {
+          "left": 308,
+          "top": 282,
+          "right": 342,
+          "bottom": 346,
+          "width": 34,
+          "height": 64
+        },
+        "plus_center_hit": true,
+        "minus_center_hit": true,
+        "overlaps_attribution": false,
+        "overlaps_north": false,
+        "overlaps_status": false,
+        "overlaps_scale": false,
+        "overlaps_legend": false,
+        "overlaps_topbar": false
+      },
+      "status_rect": {
+        "left": 8,
+        "top": 750,
+        "right": 352,
+        "bottom": 892,
+        "width": 344,
+        "height": 142
+      },
+      "topbar_buttons": {
+        "fit-active": {
+          "rect": {
+            "left": 17,
+            "top": 17,
+            "right": 95.515625,
+            "bottom": 61,
+            "width": 78.515625,
+            "height": 44
+          },
+          "visible": true,
+          "center_hit": true,
+          "inside_viewport": true
+        },
+        "search-toggle": {
+          "rect": {
+            "left": 105.515625,
+            "top": 17,
+            "right": 170.46875,
+            "bottom": 61,
+            "width": 64.953125,
+            "height": 44
+          },
+          "visible": true,
+          "center_hit": true,
+          "inside_viewport": true
+        },
+        "panel-toggle": {
+          "rect": {
+            "left": 180.46875,
+            "top": 17,
+            "right": 303.84375,
+            "bottom": 61,
+            "width": 123.375,
+            "height": 44
+          },
+          "visible": true,
+          "center_hit": true,
+          "inside_viewport": true
+        },
+        "time-step-older": {
+          "rect": {
+            "left": 17,
+            "top": 67,
+            "right": 91.59375,
+            "bottom": 111,
+            "width": 74.59375,
+            "height": 44
+          },
+          "visible": true,
+          "center_hit": true,
+          "inside_viewport": true
+        },
+        "time-stepper-status": {
+          "rect": {
+            "left": 97.59375,
+            "top": 72.03125,
+            "right": 257,
+            "bottom": 105.96875,
+            "width": 159.40625,
+            "height": 33.9375
+          },
+          "visible": true,
+          "center_hit": true,
+          "inside_viewport": true
+        },
+        "time-step-newer": {
+          "rect": {
+            "left": 263,
+            "top": 67,
+            "right": 343,
+            "bottom": 111,
+            "width": 80,
+            "height": 44
+          },
+          "visible": true,
+          "center_hit": true,
+          "inside_viewport": true
+        },
+        "time-playback-toggle": {
+          "rect": {
+            "left": 17,
+            "top": 117,
+            "right": 343,
+            "bottom": 155,
+            "width": 326,
+            "height": 38
+          },
+          "visible": true,
+          "center_hit": true,
+          "inside_viewport": true
+        }
+      },
+      "document_width": 360,
+      "snapshot_view": {
+        "latitude": 64.43722114159246,
+        "longitude": 19.50000000000001,
+        "zoom": 3
+      },
+      "screenshot": {
+        "path": "360-provider-failure.png",
+        "sha256": "214be34da7cf87e5441487998e925a618216c1e22c7838262b6e6a694ac73ba7"
+      }
+    },
+    {
+      "width": 360,
+      "mode": "tile-free",
+      "tile_requests": 0,
+      "street_tile_failures": 0,
+      "terrain_tile_failures": 0,
+      "legend_countries": [
+        "Denmark",
+        "Finland",
+        "Norway",
+        "Sweden"
+      ],
+      "basemap": "none",
+      "paths": [
+        {
+          "country": "Denmark",
+          "left": 120,
+          "top": 537,
+          "right": 132,
+          "bottom": 558,
+          "width": 12,
+          "height": 21,
+          "stroke": "rgb(159, 18, 57)",
+          "stroke_width": "1.4px",
+          "opacity": 1,
+          "fill_opacity": 0.04
+        },
+        {
+          "country": "Finland",
+          "left": 206,
+          "top": 469,
+          "right": 217,
+          "bottom": 493,
+          "width": 11,
+          "height": 24,
+          "stroke": "rgb(146, 64, 14)",
+          "stroke_width": "1.4px",
+          "opacity": 1,
+          "fill_opacity": 0.04
+        },
+        {
+          "country": "Norway",
+          "left": 115,
+          "top": 469,
+          "right": 126,
+          "bottom": 493,
+          "width": 11,
+          "height": 24,
+          "stroke": "rgb(17, 94, 89)",
+          "stroke_width": "1.4px",
+          "opacity": 1,
+          "fill_opacity": 0.04
+        },
+        {
+          "country": "Sweden",
+          "left": 166,
+          "top": 505,
+          "right": 177,
+          "bottom": 527,
+          "width": 11,
+          "height": 22,
+          "stroke": "rgb(29, 78, 216)",
+          "stroke_width": "1.4px",
+          "opacity": 1,
+          "fill_opacity": 0.04
+        }
+      ],
+      "scale": "500 km",
+      "scale_visible": true,
+      "scale_rect": {
+        "left": 5,
+        "top": 705.8125,
+        "right": 65,
+        "bottom": 724,
+        "width": 60,
+        "height": 18.1875
+      },
+      "coordinates": "64.437, 19.500",
+      "center_control": {
+        "rect": {
+          "left": 21,
+          "top": 786,
+          "right": 175,
+          "bottom": 810,
+          "width": 154,
+          "height": 24
+        },
+        "visible": true,
+        "center_hit": true
+      },
+      "legend_control": {
+        "rect": {
+          "left": 278.3125,
+          "top": 671,
+          "right": 341,
+          "bottom": 715,
+          "width": 62.6875,
+          "height": 44
+        },
+        "visible": true,
+        "center_hit": true
+      },
+      "basemap_control": {
+        "rect": {
+          "left": 21,
+          "top": 837,
+          "right": 339,
+          "bottom": 881,
+          "width": 318,
+          "height": 44
+        },
+        "visible": true,
+        "center_hit": true
+      },
+      "readout": "Basemap degraded: no basemap. Evidence data unaffected.",
+      "north_indicator": {
+        "role": "img",
+        "label": "North is up",
+        "text": "↑N",
+        "rect": {
+          "left": 298.4375,
+          "top": 230,
+          "right": 352,
+          "bottom": 274,
+          "width": 53.5625,
+          "height": 44
+        },
+        "visible": true,
+        "overlaps_topbar": false
+      },
+      "attribution": {
+        "text": "Leaflet",
+        "links": [
+          {
+            "text": "Leaflet",
+            "href": "https://leafletjs.com/"
+          }
+        ],
+        "rect": {
+          "left": 290.65625,
+          "top": 356,
+          "right": 352,
+          "bottom": 372.796875,
+          "width": 61.34375,
+          "height": 16.796875
+        },
+        "visible": true,
+        "center_hit": true,
+        "link_center_hit": true,
+        "hit_class": "",
+        "overlaps_status": false,
+        "overlaps_scale": false,
+        "overlaps_legend": false,
+        "overlaps_north": false,
+        "overlaps_topbar": false
+      },
+      "zoom_control": {
+        "rect": {
+          "left": 308,
+          "top": 282,
+          "right": 342,
+          "bottom": 346,
+          "width": 34,
+          "height": 64
+        },
+        "plus_center_hit": true,
+        "minus_center_hit": true,
+        "overlaps_attribution": false,
+        "overlaps_north": false,
+        "overlaps_status": false,
+        "overlaps_scale": false,
+        "overlaps_legend": false,
+        "overlaps_topbar": false
+      },
+      "status_rect": {
+        "left": 8,
+        "top": 750,
+        "right": 352,
+        "bottom": 892,
+        "width": 344,
+        "height": 142
+      },
+      "topbar_buttons": {
+        "fit-active": {
+          "rect": {
+            "left": 17,
+            "top": 17,
+            "right": 95.515625,
+            "bottom": 61,
+            "width": 78.515625,
+            "height": 44
+          },
+          "visible": true,
+          "center_hit": true,
+          "inside_viewport": true
+        },
+        "search-toggle": {
+          "rect": {
+            "left": 105.515625,
+            "top": 17,
+            "right": 170.46875,
+            "bottom": 61,
+            "width": 64.953125,
+            "height": 44
+          },
+          "visible": true,
+          "center_hit": true,
+          "inside_viewport": true
+        },
+        "panel-toggle": {
+          "rect": {
+            "left": 180.46875,
+            "top": 17,
+            "right": 303.84375,
+            "bottom": 61,
+            "width": 123.375,
+            "height": 44
+          },
+          "visible": true,
+          "center_hit": true,
+          "inside_viewport": true
+        },
+        "time-step-older": {
+          "rect": {
+            "left": 17,
+            "top": 67,
+            "right": 91.59375,
+            "bottom": 111,
+            "width": 74.59375,
+            "height": 44
+          },
+          "visible": true,
+          "center_hit": true,
+          "inside_viewport": true
+        },
+        "time-stepper-status": {
+          "rect": {
+            "left": 97.59375,
+            "top": 72.03125,
+            "right": 257,
+            "bottom": 105.96875,
+            "width": 159.40625,
+            "height": 33.9375
+          },
+          "visible": true,
+          "center_hit": true,
+          "inside_viewport": true
+        },
+        "time-step-newer": {
+          "rect": {
+            "left": 263,
+            "top": 67,
+            "right": 343,
+            "bottom": 111,
+            "width": 80,
+            "height": 44
+          },
+          "visible": true,
+          "center_hit": true,
+          "inside_viewport": true
+        },
+        "time-playback-toggle": {
+          "rect": {
+            "left": 17,
+            "top": 117,
+            "right": 343,
+            "bottom": 155,
+            "width": 326,
+            "height": 38
+          },
+          "visible": true,
+          "center_hit": true,
+          "inside_viewport": true
+        }
+      },
+      "document_width": 360,
+      "snapshot_view": {
+        "latitude": 64.43722114159246,
+        "longitude": 19.50000000000001,
+        "zoom": 3
+      },
+      "screenshot": {
+        "path": "360-tile-free.png",
+        "sha256": "1243e3e42638df9c8c8beb86eace29c8e8ed67e9999f0731a78f28d2aee25b45"
+      }
+    },
+    {
+      "width": 361,
+      "mode": "provider-failure",
+      "tile_requests": 24,
+      "street_tile_failures": 12,
+      "terrain_tile_failures": 12,
+      "legend_countries": [
+        "Denmark",
+        "Finland",
+        "Norway",
+        "Sweden"
+      ],
+      "basemap": "none",
+      "paths": [
+        {
+          "country": "Denmark",
+          "left": 121,
+          "top": 537,
+          "right": 133,
+          "bottom": 558,
+          "width": 12,
+          "height": 21,
+          "stroke": "rgb(159, 18, 57)",
+          "stroke_width": "1.4px",
+          "opacity": 1,
+          "fill_opacity": 0.04
+        },
+        {
+          "country": "Finland",
+          "left": 207,
+          "top": 469,
+          "right": 218,
+          "bottom": 493,
+          "width": 11,
+          "height": 24,
+          "stroke": "rgb(146, 64, 14)",
+          "stroke_width": "1.4px",
+          "opacity": 1,
+          "fill_opacity": 0.04
+        },
+        {
+          "country": "Norway",
+          "left": 116,
+          "top": 469,
+          "right": 127,
+          "bottom": 493,
+          "width": 11,
+          "height": 24,
+          "stroke": "rgb(17, 94, 89)",
+          "stroke_width": "1.4px",
+          "opacity": 1,
+          "fill_opacity": 0.04
+        },
+        {
+          "country": "Sweden",
+          "left": 167,
+          "top": 505,
+          "right": 178,
+          "bottom": 527,
+          "width": 11,
+          "height": 22,
+          "stroke": "rgb(29, 78, 216)",
+          "stroke_width": "1.4px",
+          "opacity": 1,
+          "fill_opacity": 0.04
+        }
+      ],
+      "scale": "500 km",
+      "scale_visible": true,
+      "scale_rect": {
+        "left": 5,
+        "top": 705.8125,
+        "right": 65,
+        "bottom": 724,
+        "width": 60,
+        "height": 18.1875
+      },
+      "coordinates": "64.437, 19.500",
+      "center_control": {
+        "rect": {
+          "left": 21,
+          "top": 786,
+          "right": 175.5,
+          "bottom": 810,
+          "width": 154.5,
+          "height": 24
+        },
+        "visible": true,
+        "center_hit": true
+      },
+      "legend_control": {
+        "rect": {
+          "left": 279.3125,
+          "top": 671,
+          "right": 342,
+          "bottom": 715,
+          "width": 62.6875,
+          "height": 44
+        },
+        "visible": true,
+        "center_hit": true
+      },
+      "basemap_control": {
+        "rect": {
+          "left": 21,
+          "top": 837,
+          "right": 340,
+          "bottom": 881,
+          "width": 319,
+          "height": 44
+        },
+        "visible": true,
+        "center_hit": true
+      },
+      "readout": "Basemap degraded: terrain unavailable; no-basemap mode active. Evidence data unaffected.",
+      "north_indicator": {
+        "role": "img",
+        "label": "North is up",
+        "text": "↑N",
+        "rect": {
+          "left": 299.4375,
+          "top": 176,
+          "right": 353,
+          "bottom": 220,
+          "width": 53.5625,
+          "height": 44
+        },
+        "visible": true,
+        "overlaps_topbar": false
+      },
+      "attribution": {
+        "text": "Leaflet",
+        "links": [
+          {
+            "text": "Leaflet",
+            "href": "https://leafletjs.com/"
+          }
+        ],
+        "rect": {
+          "left": 291.65625,
+          "top": 302,
+          "right": 353,
+          "bottom": 318.796875,
+          "width": 61.34375,
+          "height": 16.796875
+        },
+        "visible": true,
+        "center_hit": true,
+        "link_center_hit": true,
+        "hit_class": "",
+        "overlaps_status": false,
+        "overlaps_scale": false,
+        "overlaps_legend": false,
+        "overlaps_north": false,
+        "overlaps_topbar": false
+      },
+      "zoom_control": {
+        "rect": {
+          "left": 309,
+          "top": 228,
+          "right": 343,
+          "bottom": 292,
+          "width": 34,
+          "height": 64
+        },
+        "plus_center_hit": true,
+        "minus_center_hit": true,
+        "overlaps_attribution": false,
+        "overlaps_north": false,
+        "overlaps_status": false,
+        "overlaps_scale": false,
+        "overlaps_legend": false,
+        "overlaps_topbar": false
+      },
+      "status_rect": {
+        "left": 8,
+        "top": 750,
+        "right": 353,
+        "bottom": 892,
+        "width": 345,
+        "height": 142
+      },
+      "topbar_buttons": {
+        "fit-active": {
+          "rect": {
+            "left": 17,
+            "top": 17,
+            "right": 95.515625,
+            "bottom": 61,
+            "width": 78.515625,
+            "height": 44
+          },
+          "visible": true,
+          "center_hit": true,
+          "inside_viewport": true
+        },
+        "search-toggle": {
+          "rect": {
+            "left": 105.515625,
+            "top": 17,
+            "right": 170.46875,
+            "bottom": 61,
+            "width": 64.953125,
+            "height": 44
+          },
+          "visible": true,
+          "center_hit": true,
+          "inside_viewport": true
+        },
+        "panel-toggle": {
+          "rect": {
+            "left": 180.46875,
+            "top": 17,
+            "right": 303.84375,
+            "bottom": 61,
+            "width": 123.375,
+            "height": 44
+          },
+          "visible": true,
+          "center_hit": true,
+          "inside_viewport": true
+        },
+        "time-step-older": {
+          "rect": {
+            "left": 17,
+            "top": 67,
+            "right": 91.59375,
+            "bottom": 111,
+            "width": 74.59375,
+            "height": 44
+          },
+          "visible": true,
+          "center_hit": true,
+          "inside_viewport": true
+        },
+        "time-stepper-status": {
+          "rect": {
+            "left": 97.59375,
+            "top": 72.03125,
+            "right": 258,
+            "bottom": 105.96875,
+            "width": 160.40625,
+            "height": 33.9375
+          },
+          "visible": true,
+          "center_hit": true,
+          "inside_viewport": true
+        },
+        "time-step-newer": {
+          "rect": {
+            "left": 264,
+            "top": 67,
+            "right": 344,
+            "bottom": 111,
+            "width": 80,
+            "height": 44
+          },
+          "visible": true,
+          "center_hit": true,
+          "inside_viewport": true
+        },
+        "time-playback-toggle": {
+          "rect": {
+            "left": 17,
+            "top": 117,
+            "right": 344,
+            "bottom": 155,
+            "width": 327,
+            "height": 38
+          },
+          "visible": true,
+          "center_hit": true,
+          "inside_viewport": true
+        }
+      },
+      "document_width": 361,
+      "snapshot_view": {
+        "latitude": 64.43722114159246,
+        "longitude": 19.50000000000001,
+        "zoom": 3
+      },
+      "screenshot": {
+        "path": "361-provider-failure.png",
+        "sha256": "f09341a48447d3c68d9738c6e4f3376546bfa327e200065ad65610086703b374"
+      }
+    },
+    {
+      "width": 361,
+      "mode": "tile-free",
+      "tile_requests": 0,
+      "street_tile_failures": 0,
+      "terrain_tile_failures": 0,
+      "legend_countries": [
+        "Denmark",
+        "Finland",
+        "Norway",
+        "Sweden"
+      ],
+      "basemap": "none",
+      "paths": [
+        {
+          "country": "Denmark",
+          "left": 121,
+          "top": 537,
+          "right": 133,
+          "bottom": 558,
+          "width": 12,
+          "height": 21,
+          "stroke": "rgb(159, 18, 57)",
+          "stroke_width": "1.4px",
+          "opacity": 1,
+          "fill_opacity": 0.04
+        },
+        {
+          "country": "Finland",
+          "left": 207,
+          "top": 469,
+          "right": 218,
+          "bottom": 493,
+          "width": 11,
+          "height": 24,
+          "stroke": "rgb(146, 64, 14)",
+          "stroke_width": "1.4px",
+          "opacity": 1,
+          "fill_opacity": 0.04
+        },
+        {
+          "country": "Norway",
+          "left": 116,
+          "top": 469,
+          "right": 127,
+          "bottom": 493,
+          "width": 11,
+          "height": 24,
+          "stroke": "rgb(17, 94, 89)",
+          "stroke_width": "1.4px",
+          "opacity": 1,
+          "fill_opacity": 0.04
+        },
+        {
+          "country": "Sweden",
+          "left": 167,
+          "top": 505,
+          "right": 178,
+          "bottom": 527,
+          "width": 11,
+          "height": 22,
+          "stroke": "rgb(29, 78, 216)",
+          "stroke_width": "1.4px",
+          "opacity": 1,
+          "fill_opacity": 0.04
+        }
+      ],
+      "scale": "500 km",
+      "scale_visible": true,
+      "scale_rect": {
+        "left": 5,
+        "top": 705.8125,
+        "right": 65,
+        "bottom": 724,
+        "width": 60,
+        "height": 18.1875
+      },
+      "coordinates": "64.437, 19.500",
+      "center_control": {
+        "rect": {
+          "left": 21,
+          "top": 786,
+          "right": 175.5,
+          "bottom": 810,
+          "width": 154.5,
+          "height": 24
+        },
+        "visible": true,
+        "center_hit": true
+      },
+      "legend_control": {
+        "rect": {
+          "left": 279.3125,
+          "top": 671,
+          "right": 342,
+          "bottom": 715,
+          "width": 62.6875,
+          "height": 44
+        },
+        "visible": true,
+        "center_hit": true
+      },
+      "basemap_control": {
+        "rect": {
+          "left": 21,
+          "top": 837,
+          "right": 340,
+          "bottom": 881,
+          "width": 319,
+          "height": 44
+        },
+        "visible": true,
+        "center_hit": true
+      },
+      "readout": "Basemap degraded: no basemap. Evidence data unaffected.",
+      "north_indicator": {
+        "role": "img",
+        "label": "North is up",
+        "text": "↑N",
+        "rect": {
+          "left": 299.4375,
+          "top": 176,
+          "right": 353,
+          "bottom": 220,
+          "width": 53.5625,
+          "height": 44
+        },
+        "visible": true,
+        "overlaps_topbar": false
+      },
+      "attribution": {
+        "text": "Leaflet",
+        "links": [
+          {
+            "text": "Leaflet",
+            "href": "https://leafletjs.com/"
+          }
+        ],
+        "rect": {
+          "left": 291.65625,
+          "top": 302,
+          "right": 353,
+          "bottom": 318.796875,
+          "width": 61.34375,
+          "height": 16.796875
+        },
+        "visible": true,
+        "center_hit": true,
+        "link_center_hit": true,
+        "hit_class": "",
+        "overlaps_status": false,
+        "overlaps_scale": false,
+        "overlaps_legend": false,
+        "overlaps_north": false,
+        "overlaps_topbar": false
+      },
+      "zoom_control": {
+        "rect": {
+          "left": 309,
+          "top": 228,
+          "right": 343,
+          "bottom": 292,
+          "width": 34,
+          "height": 64
+        },
+        "plus_center_hit": true,
+        "minus_center_hit": true,
+        "overlaps_attribution": false,
+        "overlaps_north": false,
+        "overlaps_status": false,
+        "overlaps_scale": false,
+        "overlaps_legend": false,
+        "overlaps_topbar": false
+      },
+      "status_rect": {
+        "left": 8,
+        "top": 750,
+        "right": 353,
+        "bottom": 892,
+        "width": 345,
+        "height": 142
+      },
+      "topbar_buttons": {
+        "fit-active": {
+          "rect": {
+            "left": 17,
+            "top": 17,
+            "right": 95.515625,
+            "bottom": 61,
+            "width": 78.515625,
+            "height": 44
+          },
+          "visible": true,
+          "center_hit": true,
+          "inside_viewport": true
+        },
+        "search-toggle": {
+          "rect": {
+            "left": 105.515625,
+            "top": 17,
+            "right": 170.46875,
+            "bottom": 61,
+            "width": 64.953125,
+            "height": 44
+          },
+          "visible": true,
+          "center_hit": true,
+          "inside_viewport": true
+        },
+        "panel-toggle": {
+          "rect": {
+            "left": 180.46875,
+            "top": 17,
+            "right": 303.84375,
+            "bottom": 61,
+            "width": 123.375,
+            "height": 44
+          },
+          "visible": true,
+          "center_hit": true,
+          "inside_viewport": true
+        },
+        "time-step-older": {
+          "rect": {
+            "left": 17,
+            "top": 67,
+            "right": 91.59375,
+            "bottom": 111,
+            "width": 74.59375,
+            "height": 44
+          },
+          "visible": true,
+          "center_hit": true,
+          "inside_viewport": true
+        },
+        "time-stepper-status": {
+          "rect": {
+            "left": 97.59375,
+            "top": 72.03125,
+            "right": 258,
+            "bottom": 105.96875,
+            "width": 160.40625,
+            "height": 33.9375
+          },
+          "visible": true,
+          "center_hit": true,
+          "inside_viewport": true
+        },
+        "time-step-newer": {
+          "rect": {
+            "left": 264,
+            "top": 67,
+            "right": 344,
+            "bottom": 111,
+            "width": 80,
+            "height": 44
+          },
+          "visible": true,
+          "center_hit": true,
+          "inside_viewport": true
+        },
+        "time-playback-toggle": {
+          "rect": {
+            "left": 17,
+            "top": 117,
+            "right": 344,
+            "bottom": 155,
+            "width": 327,
+            "height": 38
+          },
+          "visible": true,
+          "center_hit": true,
+          "inside_viewport": true
+        }
+      },
+      "document_width": 361,
+      "snapshot_view": {
+        "latitude": 64.43722114159246,
+        "longitude": 19.50000000000001,
+        "zoom": 3
+      },
+      "screenshot": {
+        "path": "361-tile-free.png",
+        "sha256": "8eefb2d1997738c0427e5b1afd75e5924828d7b2b54412df5259d8c74dc633a2"
+      }
+    },
+    {
+      "width": 390,
+      "mode": "provider-failure",
+      "tile_requests": 24,
+      "street_tile_failures": 12,
+      "terrain_tile_failures": 12,
+      "legend_countries": [
+        "Denmark",
+        "Finland",
+        "Norway",
+        "Sweden"
+      ],
+      "basemap": "none",
+      "paths": [
+        {
+          "country": "Denmark",
+          "left": 135,
+          "top": 537,
+          "right": 147,
+          "bottom": 558,
+          "width": 12,
+          "height": 21,
+          "stroke": "rgb(159, 18, 57)",
+          "stroke_width": "1.4px",
+          "opacity": 1,
+          "fill_opacity": 0.04
+        },
+        {
+          "country": "Finland",
+          "left": 221,
+          "top": 469,
+          "right": 232,
+          "bottom": 493,
+          "width": 11,
+          "height": 24,
+          "stroke": "rgb(146, 64, 14)",
+          "stroke_width": "1.4px",
+          "opacity": 1,
+          "fill_opacity": 0.04
+        },
+        {
+          "country": "Norway",
+          "left": 130,
+          "top": 469,
+          "right": 141,
+          "bottom": 493,
+          "width": 11,
+          "height": 24,
+          "stroke": "rgb(17, 94, 89)",
+          "stroke_width": "1.4px",
+          "opacity": 1,
+          "fill_opacity": 0.04
+        },
+        {
+          "country": "Sweden",
+          "left": 181,
+          "top": 505,
+          "right": 192,
+          "bottom": 527,
+          "width": 11,
+          "height": 22,
+          "stroke": "rgb(29, 78, 216)",
+          "stroke_width": "1.4px",
+          "opacity": 1,
+          "fill_opacity": 0.04
+        }
+      ],
+      "scale": "500 km",
+      "scale_visible": true,
+      "scale_rect": {
+        "left": 5,
+        "top": 705.8125,
+        "right": 65,
+        "bottom": 724,
+        "width": 60,
+        "height": 18.1875
+      },
+      "coordinates": "64.437, 19.500",
+      "center_control": {
+        "rect": {
+          "left": 21,
+          "top": 786,
+          "right": 190,
+          "bottom": 810,
+          "width": 169,
+          "height": 24
+        },
+        "visible": true,
+        "center_hit": true
+      },
+      "legend_control": {
+        "rect": {
+          "left": 308.3125,
+          "top": 671,
+          "right": 371,
+          "bottom": 715,
+          "width": 62.6875,
+          "height": 44
+        },
+        "visible": true,
+        "center_hit": true
+      },
+      "basemap_control": {
+        "rect": {
+          "left": 21,
+          "top": 837,
+          "right": 369,
+          "bottom": 881,
+          "width": 348,
+          "height": 44
+        },
+        "visible": true,
+        "center_hit": true
+      },
+      "readout": "Basemap degraded: terrain unavailable; no-basemap mode active. Evidence data unaffected.",
+      "north_indicator": {
+        "role": "img",
+        "label": "North is up",
+        "text": "↑N",
+        "rect": {
+          "left": 328.4375,
+          "top": 176,
+          "right": 382,
+          "bottom": 220,
+          "width": 53.5625,
+          "height": 44
+        },
+        "visible": true,
+        "overlaps_topbar": false
+      },
+      "attribution": {
+        "text": "Leaflet",
+        "links": [
+          {
+            "text": "Leaflet",
+            "href": "https://leafletjs.com/"
+          }
+        ],
+        "rect": {
+          "left": 320.65625,
+          "top": 302,
+          "right": 382,
+          "bottom": 318.796875,
+          "width": 61.34375,
+          "height": 16.796875
+        },
+        "visible": true,
+        "center_hit": true,
+        "link_center_hit": true,
+        "hit_class": "",
+        "overlaps_status": false,
+        "overlaps_scale": false,
+        "overlaps_legend": false,
+        "overlaps_north": false,
+        "overlaps_topbar": false
+      },
+      "zoom_control": {
+        "rect": {
+          "left": 338,
+          "top": 228,
+          "right": 372,
+          "bottom": 292,
+          "width": 34,
+          "height": 64
+        },
+        "plus_center_hit": true,
+        "minus_center_hit": true,
+        "overlaps_attribution": false,
+        "overlaps_north": false,
+        "overlaps_status": false,
+        "overlaps_scale": false,
+        "overlaps_legend": false,
+        "overlaps_topbar": false
+      },
+      "status_rect": {
+        "left": 8,
+        "top": 750,
+        "right": 382,
+        "bottom": 892,
+        "width": 374,
+        "height": 142
+      },
+      "topbar_buttons": {
+        "fit-active": {
+          "rect": {
+            "left": 17,
+            "top": 17,
+            "right": 95.515625,
+            "bottom": 61,
+            "width": 78.515625,
+            "height": 44
+          },
+          "visible": true,
+          "center_hit": true,
+          "inside_viewport": true
+        },
+        "search-toggle": {
+          "rect": {
+            "left": 105.515625,
+            "top": 17,
+            "right": 170.46875,
+            "bottom": 61,
+            "width": 64.953125,
+            "height": 44
+          },
+          "visible": true,
+          "center_hit": true,
+          "inside_viewport": true
+        },
+        "panel-toggle": {
+          "rect": {
+            "left": 180.46875,
+            "top": 17,
+            "right": 303.84375,
+            "bottom": 61,
+            "width": 123.375,
+            "height": 44
+          },
+          "visible": true,
+          "center_hit": true,
+          "inside_viewport": true
+        },
+        "time-step-older": {
+          "rect": {
+            "left": 17,
+            "top": 67,
+            "right": 91.59375,
+            "bottom": 111,
+            "width": 74.59375,
+            "height": 44
+          },
+          "visible": true,
+          "center_hit": true,
+          "inside_viewport": true
+        },
+        "time-stepper-status": {
+          "rect": {
+            "left": 97.59375,
+            "top": 72.03125,
+            "right": 287,
+            "bottom": 105.96875,
+            "width": 189.40625,
+            "height": 33.9375
+          },
+          "visible": true,
+          "center_hit": true,
+          "inside_viewport": true
+        },
+        "time-step-newer": {
+          "rect": {
+            "left": 293,
+            "top": 67,
+            "right": 373,
+            "bottom": 111,
+            "width": 80,
+            "height": 44
+          },
+          "visible": true,
+          "center_hit": true,
+          "inside_viewport": true
+        },
+        "time-playback-toggle": {
+          "rect": {
+            "left": 17,
+            "top": 117,
+            "right": 373,
+            "bottom": 155,
+            "width": 356,
+            "height": 38
+          },
+          "visible": true,
+          "center_hit": true,
+          "inside_viewport": true
+        }
+      },
+      "document_width": 390,
+      "snapshot_view": {
+        "latitude": 64.43722114159246,
+        "longitude": 19.50000000000001,
+        "zoom": 3
+      },
+      "screenshot": {
+        "path": "390-provider-failure.png",
+        "sha256": "bb6a5e5cef88529e396e8fa689ef7d6aadf137d589061c35fbef357f46a0570c"
+      }
+    },
+    {
+      "width": 390,
+      "mode": "tile-free",
+      "tile_requests": 0,
+      "street_tile_failures": 0,
+      "terrain_tile_failures": 0,
+      "legend_countries": [
+        "Denmark",
+        "Finland",
+        "Norway",
+        "Sweden"
+      ],
+      "basemap": "none",
+      "paths": [
+        {
+          "country": "Denmark",
+          "left": 135,
+          "top": 537,
+          "right": 147,
+          "bottom": 558,
+          "width": 12,
+          "height": 21,
+          "stroke": "rgb(159, 18, 57)",
+          "stroke_width": "1.4px",
+          "opacity": 1,
+          "fill_opacity": 0.04
+        },
+        {
+          "country": "Finland",
+          "left": 221,
+          "top": 469,
+          "right": 232,
+          "bottom": 493,
+          "width": 11,
+          "height": 24,
+          "stroke": "rgb(146, 64, 14)",
+          "stroke_width": "1.4px",
+          "opacity": 1,
+          "fill_opacity": 0.04
+        },
+        {
+          "country": "Norway",
+          "left": 130,
+          "top": 469,
+          "right": 141,
+          "bottom": 493,
+          "width": 11,
+          "height": 24,
+          "stroke": "rgb(17, 94, 89)",
+          "stroke_width": "1.4px",
+          "opacity": 1,
+          "fill_opacity": 0.04
+        },
+        {
+          "country": "Sweden",
+          "left": 181,
+          "top": 505,
+          "right": 192,
+          "bottom": 527,
+          "width": 11,
+          "height": 22,
+          "stroke": "rgb(29, 78, 216)",
+          "stroke_width": "1.4px",
+          "opacity": 1,
+          "fill_opacity": 0.04
+        }
+      ],
+      "scale": "500 km",
+      "scale_visible": true,
+      "scale_rect": {
+        "left": 5,
+        "top": 705.8125,
+        "right": 65,
+        "bottom": 724,
+        "width": 60,
+        "height": 18.1875
+      },
+      "coordinates": "64.437, 19.500",
+      "center_control": {
+        "rect": {
+          "left": 21,
+          "top": 786,
+          "right": 190,
+          "bottom": 810,
+          "width": 169,
+          "height": 24
+        },
+        "visible": true,
+        "center_hit": true
+      },
+      "legend_control": {
+        "rect": {
+          "left": 308.3125,
+          "top": 671,
+          "right": 371,
+          "bottom": 715,
+          "width": 62.6875,
+          "height": 44
+        },
+        "visible": true,
+        "center_hit": true
+      },
+      "basemap_control": {
+        "rect": {
+          "left": 21,
+          "top": 837,
+          "right": 369,
+          "bottom": 881,
+          "width": 348,
+          "height": 44
+        },
+        "visible": true,
+        "center_hit": true
+      },
+      "readout": "Basemap degraded: no basemap. Evidence data unaffected.",
+      "north_indicator": {
+        "role": "img",
+        "label": "North is up",
+        "text": "↑N",
+        "rect": {
+          "left": 328.4375,
+          "top": 176,
+          "right": 382,
+          "bottom": 220,
+          "width": 53.5625,
+          "height": 44
+        },
+        "visible": true,
+        "overlaps_topbar": false
+      },
+      "attribution": {
+        "text": "Leaflet",
+        "links": [
+          {
+            "text": "Leaflet",
+            "href": "https://leafletjs.com/"
+          }
+        ],
+        "rect": {
+          "left": 320.65625,
+          "top": 302,
+          "right": 382,
+          "bottom": 318.796875,
+          "width": 61.34375,
+          "height": 16.796875
+        },
+        "visible": true,
+        "center_hit": true,
+        "link_center_hit": true,
+        "hit_class": "",
+        "overlaps_status": false,
+        "overlaps_scale": false,
+        "overlaps_legend": false,
+        "overlaps_north": false,
+        "overlaps_topbar": false
+      },
+      "zoom_control": {
+        "rect": {
+          "left": 338,
+          "top": 228,
+          "right": 372,
+          "bottom": 292,
+          "width": 34,
+          "height": 64
+        },
+        "plus_center_hit": true,
+        "minus_center_hit": true,
+        "overlaps_attribution": false,
+        "overlaps_north": false,
+        "overlaps_status": false,
+        "overlaps_scale": false,
+        "overlaps_legend": false,
+        "overlaps_topbar": false
+      },
+      "status_rect": {
+        "left": 8,
+        "top": 750,
+        "right": 382,
+        "bottom": 892,
+        "width": 374,
+        "height": 142
+      },
+      "topbar_buttons": {
+        "fit-active": {
+          "rect": {
+            "left": 17,
+            "top": 17,
+            "right": 95.515625,
+            "bottom": 61,
+            "width": 78.515625,
+            "height": 44
+          },
+          "visible": true,
+          "center_hit": true,
+          "inside_viewport": true
+        },
+        "search-toggle": {
+          "rect": {
+            "left": 105.515625,
+            "top": 17,
+            "right": 170.46875,
+            "bottom": 61,
+            "width": 64.953125,
+            "height": 44
+          },
+          "visible": true,
+          "center_hit": true,
+          "inside_viewport": true
+        },
+        "panel-toggle": {
+          "rect": {
+            "left": 180.46875,
+            "top": 17,
+            "right": 303.84375,
+            "bottom": 61,
+            "width": 123.375,
+            "height": 44
+          },
+          "visible": true,
+          "center_hit": true,
+          "inside_viewport": true
+        },
+        "time-step-older": {
+          "rect": {
+            "left": 17,
+            "top": 67,
+            "right": 91.59375,
+            "bottom": 111,
+            "width": 74.59375,
+            "height": 44
+          },
+          "visible": true,
+          "center_hit": true,
+          "inside_viewport": true
+        },
+        "time-stepper-status": {
+          "rect": {
+            "left": 97.59375,
+            "top": 72.03125,
+            "right": 287,
+            "bottom": 105.96875,
+            "width": 189.40625,
+            "height": 33.9375
+          },
+          "visible": true,
+          "center_hit": true,
+          "inside_viewport": true
+        },
+        "time-step-newer": {
+          "rect": {
+            "left": 293,
+            "top": 67,
+            "right": 373,
+            "bottom": 111,
+            "width": 80,
+            "height": 44
+          },
+          "visible": true,
+          "center_hit": true,
+          "inside_viewport": true
+        },
+        "time-playback-toggle": {
+          "rect": {
+            "left": 17,
+            "top": 117,
+            "right": 373,
+            "bottom": 155,
+            "width": 356,
+            "height": 38
+          },
+          "visible": true,
+          "center_hit": true,
+          "inside_viewport": true
+        }
+      },
+      "document_width": 390,
+      "snapshot_view": {
+        "latitude": 64.43722114159246,
+        "longitude": 19.50000000000001,
+        "zoom": 3
+      },
+      "screenshot": {
+        "path": "390-tile-free.png",
+        "sha256": "6e33162d23175f57f9575345878002f320a2e37142aed9c965735ab23c4e4749"
+      }
+    },
+    {
+      "width": 1440,
+      "mode": "provider-failure",
+      "tile_requests": 48,
+      "street_tile_failures": 24,
+      "terrain_tile_failures": 24,
+      "legend_countries": [
+        "Denmark",
+        "Finland",
+        "Norway",
+        "Sweden"
+      ],
+      "basemap": "none",
+      "paths": [
+        {
+          "country": "Denmark",
+          "left": 600,
+          "top": 624,
+          "right": 623,
+          "bottom": 665,
+          "width": 23,
+          "height": 41,
+          "stroke": "rgb(159, 18, 57)",
+          "stroke_width": "1.4px",
+          "opacity": 1,
+          "fill_opacity": 0.04
+        },
+        {
+          "country": "Finland",
+          "left": 771,
+          "top": 487,
+          "right": 794,
+          "bottom": 535,
+          "width": 23,
+          "height": 48,
+          "stroke": "rgb(146, 64, 14)",
+          "stroke_width": "1.4px",
+          "opacity": 1,
+          "fill_opacity": 0.04
+        },
+        {
+          "country": "Norway",
+          "left": 589,
+          "top": 487,
+          "right": 612,
+          "bottom": 535,
+          "width": 23,
+          "height": 48,
+          "stroke": "rgb(17, 94, 89)",
+          "stroke_width": "1.4px",
+          "opacity": 1,
+          "fill_opacity": 0.04
+        },
+        {
+          "country": "Sweden",
+          "left": 691,
+          "top": 558,
+          "right": 714,
+          "bottom": 603,
+          "width": 23,
+          "height": 45,
+          "stroke": "rgb(29, 78, 216)",
+          "stroke_width": "1.4px",
+          "opacity": 1,
+          "fill_opacity": 0.04
+        }
+      ],
+      "scale": "300 km",
+      "scale_visible": true,
+      "scale_rect": {
+        "left": 5,
+        "top": 876.8125,
+        "right": 76,
+        "bottom": 895,
+        "width": 71,
+        "height": 18.1875
+      },
+      "coordinates": "64.437, 19.500",
+      "center_control": {
+        "rect": {
+          "left": 457.625,
+          "top": 847,
+          "right": 549.625,
+          "bottom": 863,
+          "width": 92,
+          "height": 16
+        },
+        "visible": true,
+        "center_hit": true
+      },
+      "legend_control": {
+        "rect": {
+          "left": 1350.3125,
+          "top": 774,
+          "right": 1413,
+          "bottom": 803,
+          "width": 62.6875,
+          "height": 29
+        },
+        "visible": true,
+        "center_hit": true
+      },
+      "basemap_control": {
+        "rect": {
+          "left": 865.953125,
+          "top": 847,
+          "right": 1407,
+          "bottom": 863,
+          "width": 541.046875,
+          "height": 16
+        },
+        "visible": true,
+        "center_hit": true
+      },
+      "readout": "Basemap degraded: terrain unavailable; no-basemap mode active. Evidence data unaffected.",
+      "north_indicator": {
+        "role": "img",
+        "label": "North is up",
+        "text": "↑N",
+        "rect": {
+          "left": 1370.4375,
+          "top": 16,
+          "right": 1424,
+          "bottom": 60,
+          "width": 53.5625,
+          "height": 44
+        },
+        "visible": true,
+        "overlaps_topbar": false
+      },
+      "attribution": {
+        "text": "Leaflet",
+        "links": [
+          {
+            "text": "Leaflet",
+            "href": "https://leafletjs.com/"
+          }
+        ],
+        "rect": {
+          "left": 1362.65625,
+          "top": 146,
+          "right": 1424,
+          "bottom": 162.796875,
+          "width": 61.34375,
+          "height": 16.796875
+        },
+        "visible": true,
+        "center_hit": true,
+        "link_center_hit": true,
+        "hit_class": "",
+        "overlaps_status": false,
+        "overlaps_scale": false,
+        "overlaps_legend": false,
+        "overlaps_north": false,
+        "overlaps_topbar": false
+      },
+      "zoom_control": {
+        "rect": {
+          "left": 1380,
+          "top": 72,
+          "right": 1414,
+          "bottom": 136,
+          "width": 34,
+          "height": 64
+        },
+        "plus_center_hit": true,
+        "minus_center_hit": true,
+        "overlaps_attribution": false,
+        "overlaps_north": false,
+        "overlaps_status": false,
+        "overlaps_scale": false,
+        "overlaps_legend": false,
+        "overlaps_topbar": false
+      },
+      "status_rect": {
+        "left": 332.625,
+        "top": 817,
+        "right": 1424,
+        "bottom": 876,
+        "width": 1091.375,
+        "height": 59
+      },
+      "topbar_buttons": {
+        "fit-active": {
+          "rect": {
+            "left": 29,
+            "top": 70,
+            "right": 107.515625,
+            "bottom": 104,
+            "width": 78.515625,
+            "height": 34
+          },
+          "visible": true,
+          "center_hit": true,
+          "inside_viewport": true
+        },
+        "search-toggle": {
+          "rect": {
+            "left": 117.515625,
+            "top": 70,
+            "right": 182.46875,
+            "bottom": 104,
+            "width": 64.953125,
+            "height": 34
+          },
+          "visible": true,
+          "center_hit": true,
+          "inside_viewport": true
+        },
+        "panel-toggle": {
+          "rect": {
+            "left": 192.46875,
+            "top": 70,
+            "right": 315.84375,
+            "bottom": 104,
+            "width": 123.375,
+            "height": 34
+          },
+          "visible": true,
+          "center_hit": true,
+          "inside_viewport": true
+        },
+        "time-step-older": {
+          "rect": {
+            "left": 29,
+            "top": 116,
+            "right": 103.59375,
+            "bottom": 150,
+            "width": 74.59375,
+            "height": 34
+          },
+          "visible": true,
+          "center_hit": true,
+          "inside_viewport": true
+        },
+        "time-stepper-status": {
+          "rect": {
+            "left": 111.59375,
+            "top": 116.03125,
+            "right": 474.5625,
+            "bottom": 149.96875,
+            "width": 362.96875,
+            "height": 33.9375
+          },
+          "visible": true,
+          "center_hit": true,
+          "inside_viewport": true
+        },
+        "time-step-newer": {
+          "rect": {
+            "left": 482.5625,
+            "top": 116,
+            "right": 562.5625,
+            "bottom": 150,
+            "width": 80,
+            "height": 34
+          },
+          "visible": true,
+          "center_hit": true,
+          "inside_viewport": true
+        },
+        "time-playback-toggle": {
+          "rect": {
+            "left": 570.5625,
+            "top": 114,
+            "right": 723,
+            "bottom": 152,
+            "width": 152.4375,
+            "height": 38
+          },
+          "visible": true,
+          "center_hit": true,
+          "inside_viewport": true
+        }
+      },
+      "document_width": 1440,
+      "snapshot_view": {
+        "latitude": 64.43722114159246,
+        "longitude": 19.50000000000001,
+        "zoom": 4
+      },
+      "screenshot": {
+        "path": "1440-provider-failure.png",
+        "sha256": "2dc77e54dd616012288ab1c1a84861e98824da661af67982ee1ecd8d2972b273"
+      }
+    },
+    {
+      "width": 1440,
+      "mode": "tile-free",
+      "tile_requests": 0,
+      "street_tile_failures": 0,
+      "terrain_tile_failures": 0,
+      "legend_countries": [
+        "Denmark",
+        "Finland",
+        "Norway",
+        "Sweden"
+      ],
+      "basemap": "none",
+      "paths": [
+        {
+          "country": "Denmark",
+          "left": 600,
+          "top": 624,
+          "right": 623,
+          "bottom": 665,
+          "width": 23,
+          "height": 41,
+          "stroke": "rgb(159, 18, 57)",
+          "stroke_width": "1.4px",
+          "opacity": 1,
+          "fill_opacity": 0.04
+        },
+        {
+          "country": "Finland",
+          "left": 771,
+          "top": 487,
+          "right": 794,
+          "bottom": 535,
+          "width": 23,
+          "height": 48,
+          "stroke": "rgb(146, 64, 14)",
+          "stroke_width": "1.4px",
+          "opacity": 1,
+          "fill_opacity": 0.04
+        },
+        {
+          "country": "Norway",
+          "left": 589,
+          "top": 487,
+          "right": 612,
+          "bottom": 535,
+          "width": 23,
+          "height": 48,
+          "stroke": "rgb(17, 94, 89)",
+          "stroke_width": "1.4px",
+          "opacity": 1,
+          "fill_opacity": 0.04
+        },
+        {
+          "country": "Sweden",
+          "left": 691,
+          "top": 558,
+          "right": 714,
+          "bottom": 603,
+          "width": 23,
+          "height": 45,
+          "stroke": "rgb(29, 78, 216)",
+          "stroke_width": "1.4px",
+          "opacity": 1,
+          "fill_opacity": 0.04
+        }
+      ],
+      "scale": "300 km",
+      "scale_visible": true,
+      "scale_rect": {
+        "left": 5,
+        "top": 876.8125,
+        "right": 76,
+        "bottom": 895,
+        "width": 71,
+        "height": 18.1875
+      },
+      "coordinates": "64.437, 19.500",
+      "center_control": {
+        "rect": {
+          "left": 649.5625,
+          "top": 847,
+          "right": 741.5625,
+          "bottom": 863,
+          "width": 92,
+          "height": 16
+        },
+        "visible": true,
+        "center_hit": true
+      },
+      "legend_control": {
+        "rect": {
+          "left": 1350.3125,
+          "top": 774,
+          "right": 1413,
+          "bottom": 803,
+          "width": 62.6875,
+          "height": 29
+        },
+        "visible": true,
+        "center_hit": true
+      },
+      "basemap_control": {
+        "rect": {
+          "left": 1057.890625,
+          "top": 847,
+          "right": 1407,
+          "bottom": 863,
+          "width": 349.109375,
+          "height": 16
+        },
+        "visible": true,
+        "center_hit": true
+      },
+      "readout": "Basemap degraded: no basemap. Evidence data unaffected.",
+      "north_indicator": {
+        "role": "img",
+        "label": "North is up",
+        "text": "↑N",
+        "rect": {
+          "left": 1370.4375,
+          "top": 16,
+          "right": 1424,
+          "bottom": 60,
+          "width": 53.5625,
+          "height": 44
+        },
+        "visible": true,
+        "overlaps_topbar": false
+      },
+      "attribution": {
+        "text": "Leaflet",
+        "links": [
+          {
+            "text": "Leaflet",
+            "href": "https://leafletjs.com/"
+          }
+        ],
+        "rect": {
+          "left": 1362.65625,
+          "top": 146,
+          "right": 1424,
+          "bottom": 162.796875,
+          "width": 61.34375,
+          "height": 16.796875
+        },
+        "visible": true,
+        "center_hit": true,
+        "link_center_hit": true,
+        "hit_class": "",
+        "overlaps_status": false,
+        "overlaps_scale": false,
+        "overlaps_legend": false,
+        "overlaps_north": false,
+        "overlaps_topbar": false
+      },
+      "zoom_control": {
+        "rect": {
+          "left": 1380,
+          "top": 72,
+          "right": 1414,
+          "bottom": 136,
+          "width": 34,
+          "height": 64
+        },
+        "plus_center_hit": true,
+        "minus_center_hit": true,
+        "overlaps_attribution": false,
+        "overlaps_north": false,
+        "overlaps_status": false,
+        "overlaps_scale": false,
+        "overlaps_legend": false,
+        "overlaps_topbar": false
+      },
+      "status_rect": {
+        "left": 524.5625,
+        "top": 817,
+        "right": 1424,
+        "bottom": 876,
+        "width": 899.4375,
+        "height": 59
+      },
+      "topbar_buttons": {
+        "fit-active": {
+          "rect": {
+            "left": 29,
+            "top": 70,
+            "right": 107.515625,
+            "bottom": 104,
+            "width": 78.515625,
+            "height": 34
+          },
+          "visible": true,
+          "center_hit": true,
+          "inside_viewport": true
+        },
+        "search-toggle": {
+          "rect": {
+            "left": 117.515625,
+            "top": 70,
+            "right": 182.46875,
+            "bottom": 104,
+            "width": 64.953125,
+            "height": 34
+          },
+          "visible": true,
+          "center_hit": true,
+          "inside_viewport": true
+        },
+        "panel-toggle": {
+          "rect": {
+            "left": 192.46875,
+            "top": 70,
+            "right": 315.84375,
+            "bottom": 104,
+            "width": 123.375,
+            "height": 34
+          },
+          "visible": true,
+          "center_hit": true,
+          "inside_viewport": true
+        },
+        "time-step-older": {
+          "rect": {
+            "left": 29,
+            "top": 116,
+            "right": 103.59375,
+            "bottom": 150,
+            "width": 74.59375,
+            "height": 34
+          },
+          "visible": true,
+          "center_hit": true,
+          "inside_viewport": true
+        },
+        "time-stepper-status": {
+          "rect": {
+            "left": 111.59375,
+            "top": 116.03125,
+            "right": 474.5625,
+            "bottom": 149.96875,
+            "width": 362.96875,
+            "height": 33.9375
+          },
+          "visible": true,
+          "center_hit": true,
+          "inside_viewport": true
+        },
+        "time-step-newer": {
+          "rect": {
+            "left": 482.5625,
+            "top": 116,
+            "right": 562.5625,
+            "bottom": 150,
+            "width": 80,
+            "height": 34
+          },
+          "visible": true,
+          "center_hit": true,
+          "inside_viewport": true
+        },
+        "time-playback-toggle": {
+          "rect": {
+            "left": 570.5625,
+            "top": 114,
+            "right": 723,
+            "bottom": 152,
+            "width": 152.4375,
+            "height": 38
+          },
+          "visible": true,
+          "center_hit": true,
+          "inside_viewport": true
+        }
+      },
+      "document_width": 1440,
+      "snapshot_view": {
+        "latitude": 64.43722114159246,
+        "longitude": 19.50000000000001,
+        "zoom": 4
+      },
+      "screenshot": {
+        "path": "1440-tile-free.png",
+        "sha256": "001eea0ff03fb9651cbee84c22010a8e48c509189d7d17463f2df8101bb2309f"
+      }
+    }
+  ],
+  "runtime_errors": [],
+  "browser": {
+    "protocolVersion": "1.3",
+    "product": "Chrome/153.0.8010.53",
+    "revision": "@b395074596c663e344272cde7f7d7bd3d496e7e",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+    "jsVersion": "15.3.76.13"
+  },
+  "served_files_sha256": {
+    "_map_assets/leaflet/leaflet.css": "a7837102824184820dfa198d1ebcd109ff6d0ff9a2672a074b9a1b4d147d04c6",
+    "_map_assets/leaflet/leaflet.js": "db49d009c841f5ca34a888c96511ae936fd9f5533e90d8b2c4d57596f4e5641a",
+    "_map_assets/markercluster/MarkerCluster.Default.css": "61258232d98d64dc2a7b1e02130d67421bc5b9bda5994eef70228ff97570c170",
+    "_map_assets/markercluster/MarkerCluster.css": "614dea0a98ff3f4ead74f04918f6b1d1b9ba435c25b5fc23b21a394d1e3e4d87",
+    "_map_assets/markercluster/leaflet.markercluster.js": "1e4e1d22972a3926f48598e0caf14e3fe7049835d428a344fed4f9e3665b3508",
+    "index.html": "6cdb54fc09151dd432dd53c8751f46aaa293cf340b94d32e08f0bd6a76b60c2e"
+  },
+  "verifier_sha256": "ffc0c83829d5b8cefc1620f8735c6b854e11043e26c9c83abc43b7162b71c1c7"
+}

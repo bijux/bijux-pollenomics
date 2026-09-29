@@ -1,0 +1,43 @@
+{
+  "schema_version": "atlas-browser-evidence-retention.v1",
+  "status": "controlled_browser_evidence_not_scientific_admission",
+  "source_commit_context": "verification.json",
+  "files": [
+    {
+      "original_artifact": "artifacts/atlas-map-keyboard-navigation/browser-diagnostic/receipt.json",
+      "original_bytes": 102462,
+      "original_sha256": "934d04d960c37d8daee1d2bfea21a9a67700c7ca749d29500ae01610e95b4bcb",
+      "retained": "evidence/baseline/receipt.json",
+      "retained_bytes": 102462,
+      "retained_sha256": "934d04d960c37d8daee1d2bfea21a9a67700c7ca749d29500ae01610e95b4bcb",
+      "relation": "exact_bytes"
+    },
+    {
+      "original_artifact": "artifacts/atlas-map-keyboard-navigation/browser-accessible/320-tile-free-attribution-focus.png",
+      "original_bytes": 58888,
+      "original_sha256": "6aa7961855c53558162bde49ec31659614a4ec71a920fcafe07c917220f4dd85",
+      "retained": "evidence/selected/320-tile-free-attribution-focus.png",
+      "retained_bytes": 58888,
+      "retained_sha256": "6aa7961855c53558162bde49ec31659614a4ec71a920fcafe07c917220f4dd85",
+      "relation": "exact_bytes"
+    },
+    {
+      "original_artifact": "artifacts/atlas-map-keyboard-navigation/browser-accessible/320-tile-free-help-dialog.png",
+      "original_bytes": 96077,
+      "original_sha256": "599772c5617ade836034565148f32f89166fca89616c4aeb647ffefb24393233",
+      "retained": "evidence/selected/320-tile-free-help-dialog.png",
+      "retained_bytes": 96077,
+      "retained_sha256": "599772c5617ade836034565148f32f89166fca89616c4aeb647ffefb24393233",
+      "relation": "exact_bytes"
+    },
+    {
+      "original_artifact": "artifacts/atlas-map-keyboard-navigation/browser-accessible/receipt.json",
+      "original_bytes": 96825,
+      "original_sha256": "cf7fd10b7692bb2ff38a0493b4010560853670ef4e0a280152f0ecbef7f48b36",
+      "retained": "evidence/selected/receipt.json",
+      "retained_bytes": 96825,
+      "retained_sha256": "cf7fd10b7692bb2ff38a0493b4010560853670ef4e0a280152f0ecbef7f48b36",
+      "relation": "exact_bytes"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "schema_version": "atlas-browser-evidence-retention.v1",
+  "status": "controlled_browser_evidence_not_scientific_admission",
+  "source_commit_context": "verification.json",
+  "files": [
+    {
+      "original_artifact": "artifacts/atlas-playback-keyboard/browser-final-reverse/320-tile-free-playing.png",
+      "original_bytes": 59342,
+      "original_sha256": "824d3098edc1269c374a79342c319d9cd25dc0332532e080e4ea1599787682b8",
+      "retained": "evidence/selected/320-tile-free-playing.png",
+      "retained_bytes": 59342,
+      "retained_sha256": "824d3098edc1269c374a79342c319d9cd25dc0332532e080e4ea1599787682b8",
+      "relation": "exact_bytes"
+    },
+    {
+      "original_artifact": "artifacts/atlas-playback-keyboard/browser-final-reverse/receipt.json",
+      "original_bytes": 61770,
+      "original_sha256": "68c8c83499a44ee089e0043b6b07f6134f547a6c6cbd0dba391532914f489ee4",
+      "retained": "evidence/selected/receipt.json",
+      "retained_bytes": 61770,
+      "retained_sha256": "68c8c83499a44ee089e0043b6b07f6134f547a6c6cbd0dba391532914f489ee4",
+      "relation": "exact_bytes"
+    }
+  ]
+}
