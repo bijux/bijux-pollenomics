@@ -41,7 +41,7 @@ class AdnaSiteEvidenceUnitTests(unittest.TestCase):
 
         self.assertEqual(
             [row.project_accession for row in rows],
-            ["PRJEB59481", "PRJEB59481", *["PRJEB60484"] * 8],
+            ["PRJEB59481", "PRJEB59481", *["PRJEB60484"] * 9],
         )
 
     def test_baltic_sheep_sites_are_sample_bound_without_invented_time(self) -> None:
