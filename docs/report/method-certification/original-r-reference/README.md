@@ -28,6 +28,6 @@ PYTHONDONTWRITEBYTECODE=1 OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREA
   --output artifacts/jobs/retained-r-reference/reproduction
 ```
 
-The [producer](../../../../packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/reference_replay.py) validates the original bundle before computation, records its current dependency hashes and installed numerical versions, and rechecks the hashes afterward. Failed numerical comparisons remain in the denominator. A changed source expression or altered reference certificate refuses reuse.
+The [producer](https://github.com/bijux/bijux-pollenomics/blob/828081f963fa574cd217c8f9c4c2cfcdb9397d52/packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/reference_replay.py) validates the original bundle before computation, records its current dependency hashes and installed numerical versions, and rechecks the hashes afterward. Failed numerical comparisons remain in the denominator. A changed source expression or altered reference certificate refuses reuse.
 
 The bundled original DISQOVER source archive and its license remain governed by the [LRA NOTICE](../../../../packages/bijux-pollenomics-lra/NOTICE). Preserving this bounded certificate transfers numerical evidence out of disposable run directories; it does not copy the installed R runtime or library into the repository.

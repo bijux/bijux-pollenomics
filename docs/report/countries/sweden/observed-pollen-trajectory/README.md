@@ -30,7 +30,7 @@ to window width. Different pollen catchments and absent sample-age uncertainty
 bounds prevent these directional descriptions from establishing one regional
 vegetation history.
 
-The independent [SEAD discovery chronology](../../../../../data/sead/derived/sweden_archaeology_site_discovery.geojson)
+The independent [SEAD discovery chronology](https://github.com/bijux/bijux-pollenomics/blob/828081f963fa574cd217c8f9c4c2cfcdb9397d52/data/sead/derived/sweden_archaeology_site_discovery.geojson)
 adds only counts of dated map features and distinct nearby sites whose source
 intervals overlap a pollen bin. The report computes 10 and 20 km circles at
 the Neotoma coordinates. For BUS it also computes both circles at the

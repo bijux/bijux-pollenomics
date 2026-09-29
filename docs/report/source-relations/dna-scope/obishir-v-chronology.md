@@ -1,6 +1,6 @@
 # Obishir V specimen chronology
 
-The governed [radiocarbon supplement](../../../../data/adna/governance/source_library/papers/10.1038-s41562-021-01083-y/supplementary/41562_2021_1083_MOESM1_ESM.pdf), SHA-256 `d6fcdfae2d835883c68585aa6ff87ad197cc8561c434f654099322fefeb156a9`, identifies three directly dated teeth by specimen number in Supplementary Table 2, page 11. Official ENA BioSample aliases supply the accession-to-specimen join. The calibrated intervals are two-sigma ranges; the separate measurements are uncalibrated 14C BP.
+The governed [radiocarbon supplement](https://github.com/bijux/bijux-pollenomics/blob/828081f963fa574cd217c8f9c4c2cfcdb9397d52/data/adna/governance/source_library/papers/10.1038-s41562-021-01083-y/supplementary/41562_2021_1083_MOESM1_ESM.pdf), SHA-256 `d6fcdfae2d835883c68585aa6ff87ad197cc8561c434f654099322fefeb156a9`, identifies three directly dated teeth by specimen number in Supplementary Table 2, page 11. Official ENA BioSample aliases supply the accession-to-specimen join. The calibrated intervals are two-sigma ranges; the separate measurements are uncalibrated 14C BP.
 
 | ENA accession | Specimen | Lab | 14C BP | Calibrated interval | Decision |
 | --- | --- | --- | --- | --- | --- |

@@ -3,7 +3,7 @@
 The [Swedish Neotoma direct-pollen cohort](../../../pollen-reconstruction/swedish-direct-pollen/cohort.csv)
 contains three observed-pollen sites. The published [LandClim II site
 metadata](https://doi.org/10.1594/PANGAEA.937075), retained in the
-[Nordic sequence registry](../../../../../data/landclim/normalized/nordic_pollen_site_sequences.geojson),
+[Nordic sequence registry](https://github.com/bijux/bijux-pollenomics/blob/828081f963fa574cd217c8f9c4c2cfcdb9397d52/data/landclim/normalized/nordic_pollen_site_sequences.geojson),
 list ABB, BUS and BOKE at the same coordinates (within 0.5 m after source
 rounding) and with the same respective sample counts: 107, 69 and 52. The
 LandClim metadata label these as reconstruction input sites, while the Neotoma

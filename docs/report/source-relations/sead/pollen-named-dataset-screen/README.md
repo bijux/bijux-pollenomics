@@ -32,7 +32,7 @@ PYTHONDONTWRITEBYTECODE=1 OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 \
   --data-root data --output artifacts/sead-pollen-screen/replay
 ```
 
-The [producer](../../../../../packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sead_pollen_screen.py)
+The [producer](https://github.com/bijux/bijux-pollenomics/blob/828081f963fa574cd217c8f9c4c2cfcdb9397d52/packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sead_pollen_screen.py)
 refuses an existing output directory or changed consumed source bytes. A new
 source capture or qualified proxy and chronology decisions require a fresh
 screen before any eligibility claim changes.

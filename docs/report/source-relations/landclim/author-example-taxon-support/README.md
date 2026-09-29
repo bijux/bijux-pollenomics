@@ -57,7 +57,7 @@ cmp docs/report/source-relations/landclim/author-example-taxon-support/whh05-hea
   artifacts/author-example-taxon-support/replay/whh05-header-parity.csv
 ```
 
-The [producer](../../../../../packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/author_taxon_support.py)
+The [producer](https://github.com/bijux/bijux-pollenomics/blob/828081f963fa574cd217c8f9c4c2cfcdb9397d52/packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/author_taxon_support.py)
 checks the 17 site identities, exact 31 target and prepared axes, source-file
 membership, raw header identities and positive prepared rows without exact
 raw-name leads before retaining the result. The separate

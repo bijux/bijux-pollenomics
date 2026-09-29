@@ -2,7 +2,7 @@
 
 The [current priority table](priority.json) is generated from the corrected
 [12,388-sample source screen](../pollen-screen/README.md) and the complete
-[1,351-row Neotoma source-concept review](../../../../../data/neotoma/review/source_taxon_concepts.json).
+[1,351-row Neotoma source-concept review](https://github.com/bijux/bijux-pollenomics/blob/828081f963fa574cd217c8f9c4c2cfcdb9397d52/data/neotoma/review/source_taxon_concepts.json).
 The concept ledger is a scoped, exact-row extraction from a larger private
 source-union review bundle. Its SHA-256 is
 `981a3ed090e9bd276221924ee2a59bd5c2d55c6c8bc9a2fa37451a8ca97219c5`;

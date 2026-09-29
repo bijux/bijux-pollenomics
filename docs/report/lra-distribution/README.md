@@ -1,6 +1,6 @@
 # LRA source and wheel distribution check
 
-The [LRA package build configuration](../../../packages/bijux-pollenomics-lra/pyproject.toml)
+The [LRA package build configuration](https://github.com/bijux/bijux-pollenomics/blob/828081f963fa574cd217c8f9c4c2cfcdb9397d52/packages/bijux-pollenomics-lra/pyproject.toml)
 selects only source, tests, documentation, the source archive and package
 notices for its sdist. The wheel selects the import package. A fresh build on
 CPython 3.11 with `uv 0.11.17` checked the configuration at product commit

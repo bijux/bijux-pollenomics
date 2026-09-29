@@ -5,7 +5,7 @@ arm64 with CPython 3.11.13. The host and numerical extension were installed
 from the separately checked wheels identified in the receipt. Its SHA-256 is
 `9ca39ea4568c844ef9fb3454bde2d3438f168b89bf6a8009bb1095df2c8d5ac5`.
 Three requests
-use the repository's [synthetic fixture producer](../../../../packages/bijux-pollenomics/tests/unit/analysis/lra/support.py):
+use the repository's [synthetic fixture producer](https://github.com/bijux/bijux-pollenomics/blob/828081f963fa574cd217c8f9c4c2cfcdb9397d52/packages/bijux-pollenomics/tests/unit/analysis/lra/support.py):
 REVEALS, analytical LOVE and paired LRA, each with two taxa and one declared
 regional/local sample as applicable. A single shared seven-file evidence
 directory backs all requests. The batch limit is three items and two spawned

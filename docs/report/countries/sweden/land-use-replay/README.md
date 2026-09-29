@@ -28,7 +28,7 @@ the product revision to target selection and presentation policy; it is not a
 claim that land cover changed in the past. The historical comparison SHA-256 is
 `e1332c72d19be249be19099cfadade66817c1f59425677391f8b0564f42e6d41`.
 
-The [producer](../../../../../packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sweden_land_use_replay.py)
+The [producer](https://github.com/bijux/bijux-pollenomics/blob/828081f963fa574cd217c8f9c4c2cfcdb9397d52/packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sweden_land_use_replay.py)
 classifies target or source-window membership, normalized identity/value,
 policy or weighting, admission/exclusion, scientific-result and presentation
 differences separately. It refuses a new unclassified product field or a

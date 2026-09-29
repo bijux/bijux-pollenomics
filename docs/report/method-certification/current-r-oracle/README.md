@@ -2,9 +2,9 @@
 
 The [retained result](report.json) is a fresh R 4.6.0 execution of the source-locked DISQOVER 0.9.14 package against the current Python implementation. All **43 core cases** and **23 source-domain cases** passed with zero failed cases. The 43 include 18 prospective optimized LOVE cases for three declared fixtures, including intermediates, taxon/ring axes, wrapper replay, and nonfinite/refusal behavior. The original 25 core cases and all 23 source-domain cases also agree with the [original authenticated R bundle](../original-r-reference/reference-bundle/certificate.json): **48/48** paired R vector comparisons pass under their original tolerances. The largest absolute difference between the original Linux R and current native macOS R vectors is `3.552713678800501e-14`.
 
-The [core raw results](oracle/report.json), [domain raw results](source-domains/report.json), executed R scripts, case manifests, supplied inputs, session details, and every R output vector are retained here. [The current R producer](../../../../packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/live_reference.py) checks the exact source lock, R version, native base and installed dependency versions, five missing source archive hashes, and the bundled DISQOVER source hash. It installs the missing packages into an isolated artifact library, executes the actual R runners, and verifies the current Python/R input file hashes before and after. Its command receipt lists only the explicit numerical environment settings needed to reproduce the run.
+The [core raw results](oracle/report.json), [domain raw results](source-domains/report.json), executed R scripts, case manifests, supplied inputs, session details, and every R output vector are retained here. [The current R producer](https://github.com/bijux/bijux-pollenomics/blob/828081f963fa574cd217c8f9c4c2cfcdb9397d52/packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/live_reference.py) checks the exact source lock, R version, native base and installed dependency versions, five missing source archive hashes, and the bundled DISQOVER source hash. It installs the missing packages into an isolated artifact library, executes the actual R runners, and verifies the current Python/R input file hashes before and after. Its command receipt lists only the explicit numerical environment settings needed to reproduce the run.
 
-The five exact dependency archives are preserved in the private Pollenomics source store with SHA-256 and byte counts in [the report](report.json). Provider URLs and pinned archive versions are in the repository's [source lock](../../../../configs/ci/lra-r-source-lock.v1.json). The reference DISQOVER archive and license notices remain in the [LRA package](../../../../packages/bijux-pollenomics-lra/NOTICE). The runner can also retrieve those same locked archives from the provider, validating bytes before installation.
+The five exact dependency archives are preserved in the private Pollenomics source store with SHA-256 and byte counts in [the report](report.json). Provider URLs and pinned archive versions are in the repository's [source lock](https://github.com/bijux/bijux-pollenomics/blob/828081f963fa574cd217c8f9c4c2cfcdb9397d52/configs/ci/lra-r-source-lock.v1.json). The reference DISQOVER archive and license notices remain in the [LRA package](../../../../packages/bijux-pollenomics-lra/NOTICE). The runner can also retrieve those same locked archives from the provider, validating bytes before installation.
 
 ## Reproduction
 
@@ -24,15 +24,15 @@ PYTHONDONTWRITEBYTECODE=1 .venv/bin/python \
   --private-sources "$BIJUX_LRA_SOURCE_CACHE"
 ```
 
-The [comparison producer](../../../../packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/live_reference_comparison.py) validates original certificate closure, every current source hash and command result, exact private archive custody, full case denominators, and cross-platform R vectors before retaining the raw results. Strict mypy and Ruff checks passed for the two producers; the actual R and comparison commands returned zero.
+The [comparison producer](https://github.com/bijux/bijux-pollenomics/blob/828081f963fa574cd217c8f9c4c2cfcdb9397d52/packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/live_reference_comparison.py) validates original certificate closure, every current source hash and command result, exact private archive custody, full case denominators, and cross-platform R vectors before retaining the raw results. Strict mypy and Ruff checks passed for the two producers; the actual R and comparison commands returned zero.
 
 ## Optimized LOVE objective and bounded search
 
-The current [solver](../../../../packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/optimization/solver.py)
-and [optimized reconstruction](../../../../packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/optimized.py)
+The current [solver](https://github.com/bijux/bijux-pollenomics/blob/828081f963fa574cd217c8f9c4c2cfcdb9397d52/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/optimization/solver.py)
+and [optimized reconstruction](https://github.com/bijux/bijux-pollenomics/blob/828081f963fa574cd217c8f9c4c2cfcdb9397d52/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/optimized.py)
 match the source SHA-256 values bound in this report's `current_inputs_sha256`.
-The focused [solver checks](../../../../packages/bijux-pollenomics-lra/tests/unit/optimization/test_solver.py)
-and [optimized-profile checks](../../../../packages/bijux-pollenomics-lra/tests/unit/reconstruction/test_optimized_profile.py)
+The focused [solver checks](https://github.com/bijux/bijux-pollenomics/blob/828081f963fa574cd217c8f9c4c2cfcdb9397d52/packages/bijux-pollenomics-lra/tests/unit/optimization/test_solver.py)
+and [optimized-profile checks](https://github.com/bijux/bijux-pollenomics/blob/828081f963fa574cd217c8f9c4c2cfcdb9397d52/packages/bijux-pollenomics-lra/tests/unit/reconstruction/test_optimized_profile.py)
 passed **70/70** on this source state. They cover fixed-candidate objective replay,
 independently derived interior and boundary optima under eight seeds each,
 distinct cover vectors with the same optimum, exact evaluation budgets and

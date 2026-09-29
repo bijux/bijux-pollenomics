@@ -1,6 +1,6 @@
 # Installed host LRA integration
 
-The [host build configuration](../../../packages/bijux-pollenomics/pyproject.toml)
+The [host build configuration](https://github.com/bijux/bijux-pollenomics/blob/828081f963fa574cd217c8f9c4c2cfcdb9397d52/packages/bijux-pollenomics/pyproject.toml)
 selects its source tree and notices explicitly for the source distribution. An
 initial local build attempted to include thousands of files under `artifacts/`;
 the corrected `only-include` configuration (SHA-256

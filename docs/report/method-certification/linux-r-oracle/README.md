@@ -54,7 +54,7 @@ The DISQOVER source archive remains governed separately by the repository's
 
 Set `BIJUX_LRA_CUSTODY_ROOT` to the restored private `lra-reference/` directory.
 With the recorded container image available locally, run the
-[producer](../../../../packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/linux_reference.py)
+[producer](https://github.com/bijux/bijux-pollenomics/blob/828081f963fa574cd217c8f9c4c2cfcdb9397d52/packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/linux_reference.py)
 from the repository root with new absent output destinations:
 
 ```sh

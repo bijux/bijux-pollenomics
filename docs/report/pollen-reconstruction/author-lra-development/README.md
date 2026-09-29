@@ -36,7 +36,7 @@ tests the analytical implementation on its bounded cases.
 
 The authenticated 31-taxon parameter profile gives `Filipendula` a fall speed
 of **0.006 m/s**. The host's
-[`lra-request.v1` validation](../../../../packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/inputs/validation.py)
+[`lra-request.v1` validation](https://github.com/bijux/bijux-pollenomics/blob/828081f963fa574cd217c8f9c4c2cfcdb9397d52/packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/inputs/validation.py)
 requires the named LandClim II GPM-neutral analytical profile when any fall
 speed is below 0.01 m/s. Its optimized LOVE route cannot consume this exact
 profile without a different parameter or taxon decision. Such a change would

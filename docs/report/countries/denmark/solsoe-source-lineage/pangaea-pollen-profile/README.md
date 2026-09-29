@@ -31,7 +31,7 @@ parameters and is not silently treated as a terrestrial pollen denominator
 or a 31-target LandClim PPE denominator.
 
 The source text and retained Neotoma manifest, sample part and eight
-observation parts are SHA-checked by the [producer](../../../../../packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/solsoe_pollen_lineage.py).
+observation parts are SHA-checked by the [producer](https://github.com/bijux/bijux-pollenomics/blob/828081f963fa574cd217c8f9c4c2cfcdb9397d52/packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/solsoe_pollen_lineage.py).
 The same primary core's [34 radiocarbon controls](../pangaea-core-controls/README.md)
 were compared separately. These joins establish the 1981 core's count and
 control lineage; they still do not select the **79** samples in the LandClim II

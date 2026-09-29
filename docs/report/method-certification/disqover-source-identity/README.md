@@ -1,7 +1,7 @@
 # Supplied DISQOVER source identity
 
 The supplied `disqover_0.9.14.tar.gz`, the prototype's vendored copy and the
-[retained product vendor archive](../../../../packages/bijux-pollenomics-lra/vendor/disqover_0.9.14.tar.gz)
+[retained product vendor archive](https://github.com/bijux/bijux-pollenomics/blob/828081f963fa574cd217c8f9c4c2cfcdb9397d52/packages/bijux-pollenomics-lra/vendor/disqover_0.9.14.tar.gz)
 are byte identical: each has SHA-256
 `ea496ae82807b52c9dd3d4b39b4dfa294bfac4068e20184ce56187bff70caf5c`.
 Every one of the archive's 80 regular-file members matches the supplied

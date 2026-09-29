@@ -23,7 +23,7 @@ Native ages are sample-owned calibrated radiocarbon years BP under one Neotoma c
 
 ### Exact-name LandClim II parameter intersection
 
-The [published LandClim II parameter table](../../../../data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv) has six literal names among this study's 16 closed labels. Its source fall speeds and pollen productivity estimates are:
+The [published LandClim II parameter table](https://github.com/bijux/bijux-pollenomics/blob/828081f963fa574cd217c8f9c4c2cfcdb9397d52/data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv) has six literal names among this study's 16 closed labels. Its source fall speeds and pollen productivity estimates are:
 
 | Native label | Fall speed (m/s) | PPE (SD) |
 | --- | ---: | ---: |

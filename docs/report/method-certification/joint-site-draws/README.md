@@ -44,7 +44,7 @@ The [restricted author-site calculation](../author-site-uncertainty/README.md)
 therefore selects only ten taxa with positive counts at all six sites in one
 window and reports its separate closed-subcomposition uncertainty.
 
-The [calculation](../../../../packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/joint_site_draws.py)
+The [calculation](https://github.com/bijux/bijux-pollenomics/blob/828081f963fa574cd217c8f9c4c2cfcdb9397d52/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/joint_site_draws.py)
 requires explicit arrays and refuses changed site totals, invalid identities,
 nonpositive PPE or malformed axes. The three focused tests check duplicate-site
 handling, paired count/PPE changes, and refused invalid draws.

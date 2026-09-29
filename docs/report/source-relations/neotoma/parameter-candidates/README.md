@@ -32,7 +32,7 @@ PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -m \
   --repository . --output artifacts/neotoma-parameter-candidates/replay
 ```
 
-The [producer](../../../../../packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/neotoma_parameter_candidates.py)
+The [producer](https://github.com/bijux/bijux-pollenomics/blob/828081f963fa574cd217c8f9c4c2cfcdb9397d52/packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/neotoma_parameter_candidates.py)
 refuses changed parameter/concept row counts, duplicate source concept IDs,
 duplicate parameter names or a changed review/admission state. The focused
 regression checks the native/digitized split and refuses review-state promotion.
