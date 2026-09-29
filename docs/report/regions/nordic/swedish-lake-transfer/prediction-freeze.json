@@ -1,0 +1,24 @@
+{
+  "schema_version": "swedish-lake-pollen-prediction-freeze.v1",
+  "stage": "predictions_frozen_before_target_scoring",
+  "protocol_sha256": "046be3fa589fde3cba0d67f3d4a46f21f73a81a2dd2e089c454775affebabade",
+  "producer_sha256": "3c4321f729c5ea4cc53172b3ebf0a22b782f0e873ae88ad67225b43a0ad01b62",
+  "prepared_input_manifest_sha256": "8c266e2c44fabe0e7c3a31c38fc0058b27b3db08cff670b65ca239ea5eeb7905",
+  "training_sha256": "de2683e4a01ab4d3aa3e8add4891ddbb487f4cc0ee650aada57ed839abecce80",
+  "metadata_sha256": "83895824a229cad9d974ace2887275e37d174beda2057433fb5bb0c7f692d5b4",
+  "prediction_file": "predictions/predictions-SE.json.gz",
+  "prediction_sha256": "eb10b5e7225cef3c51b544c1a25cebc264d9b5ab10477d9c4216b83a38bad909",
+  "target_site_ids": [
+    "neotoma:site:28866",
+    "neotoma:site:28887",
+    "neotoma:site:28889"
+  ],
+  "author_target_taxa": 31,
+  "candidate_site_bins": 63,
+  "predicted_site_bins": 63,
+  "refused_site_bins": 0,
+  "fixed_method_prediction_rows": 189,
+  "target_pollen_counts_read_by_predictor": false,
+  "target_site_in_training": false,
+  "scientific_scope": "prior-exposed development transfer on direct observed pollen; no LRA or vegetation inference"
+}
