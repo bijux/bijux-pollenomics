@@ -65,6 +65,6 @@ PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -m \
 For a changed source or producer, replace the literal freeze digest with the
 new digest only after reviewing and retaining the prediction file. Compare
 replayed result bytes to this directory. This study fixes an age-bin match;
-explicit time displacement, uneven spatial sampling sensitivity beyond the
-three-site macro score, real Nordic LRA and independent vegetation pairing
-remain separate work.
+our separate [age and distance sensitivity](sweden-spatiotemporal-sensitivity.md)
+probes adjacent nominal bins and near-site removal on the same exposed cohort.
+Real Nordic LRA and independent vegetation pairing remain separate work.

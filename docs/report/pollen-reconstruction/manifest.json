@@ -616,13 +616,13 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/results.csv",
-      "sha256": "09c8bac6ca6a6721f0638c459392d5e64eb5c1700aecd12427a5b4f03152fe84",
-      "bytes": 15454
+      "sha256": "2cd49f911bc0e4a064500f0ca93a71943d4ba681e185ccc124360a50f1193600",
+      "bytes": 16325
     },
     {
       "path": "docs/report/pollen-reconstruction/scope.json",
-      "sha256": "bed212a8dab579a617536e514bf23fc25f6759a4678386ef9a73917dbcde4802",
-      "bytes": 14949
+      "sha256": "4fd05ffb4e4a29e9274dc6002928be65f0f6ef5e7cd43ba6e4888ae438bdd36b",
+      "bytes": 15770
     },
     {
       "path": "docs/report/pollen-reconstruction/scores.csv",
@@ -1415,6 +1415,56 @@
       "sha256": "d8127f61b2461c91bdbf02a30a36a7069e84f308d409da3ac528c87006b302b2"
     },
     {
+      "path": "docs/report/regions/nordic/swedish-support-sensitivity/README.md",
+      "sha256": "9e3cef93b77d101e68ac7c5585f047af01a966bb5ca0b20e3136964e5d80baeb",
+      "bytes": 422
+    },
+    {
+      "path": "docs/report/regions/nordic/swedish-support-sensitivity/coverage.csv",
+      "sha256": "6d2a3bd90f869a251ce5e414ce6e71dc40bdf134586e779b117bfe715a2b0c60",
+      "bytes": 797
+    },
+    {
+      "path": "docs/report/regions/nordic/swedish-support-sensitivity/frozen/freeze.json",
+      "sha256": "db5bd39b7e9630b48def3ea5082ad1d93358e1e2de75c297b75933584c8a08ed",
+      "bytes": 571
+    },
+    {
+      "path": "docs/report/regions/nordic/swedish-support-sensitivity/frozen/predictions-13338.json.gz",
+      "sha256": "35ce1e8006058f32d7bcd3986a2d456ff9708cdba25f16a9731def051e7018e7",
+      "bytes": 84338
+    },
+    {
+      "path": "docs/report/regions/nordic/swedish-support-sensitivity/frozen/predictions-28869.json.gz",
+      "sha256": "0b239384d4587b7ae30c374309f3b2358ca42d71f711bfe9581e6550c1d35be9",
+      "bytes": 118364
+    },
+    {
+      "path": "docs/report/regions/nordic/swedish-support-sensitivity/frozen/predictions-28872.json.gz",
+      "sha256": "b97ac151b655d3483f33b8e8aac1fc65d23ef3a00ccc5966616e5ef0a94f96d6",
+      "bytes": 87670
+    },
+    {
+      "path": "docs/report/regions/nordic/swedish-support-sensitivity/paired-scores.csv",
+      "sha256": "b28d555c33b561225323e2e3327684d65178788c2b01278092d5d438229eb40a",
+      "bytes": 183343
+    },
+    {
+      "path": "docs/report/regions/nordic/swedish-support-sensitivity/prepared/prepare.json",
+      "sha256": "c8269b2e9df29c60c34d632b460b258eeaae0c22045b6f7ea325206c55eb4863",
+      "bytes": 1129
+    },
+    {
+      "path": "docs/report/regions/nordic/swedish-support-sensitivity/report.json",
+      "sha256": "2b3ff6423b5135e06644a8321071073f6a142f6fd2255886cd4f9e224d53d944",
+      "bytes": 31445
+    },
+    {
+      "path": "docs/report/regions/nordic/swedish-support-sensitivity/scores.csv",
+      "sha256": "7bc1e5a99c6cac177ae58ebe6d9f652a4464ab21f78c1cb3c1137e4a120092b7",
+      "bytes": 253597
+    },
+    {
       "path": "docs/report/regions/nordic/swedish-training-scope/README.md",
       "sha256": "4b462d34faefdb591524e55595333ecda0ab3ecb5529e48c54300190eb0de522",
       "bytes": 415
@@ -1915,6 +1965,11 @@
       "sha256": "ac02728823c80c46ce838499b3087360c4fe1bc9ffc2cbc83fd1b34515b17a38"
     },
     {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/swedish_support_sensitivity.py",
+      "sha256": "8e7db6760f3d24478e7ba180afb6fc7ba0033341fc8bd93440233c8bd7470692",
+      "bytes": 26110
+    },
+    {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/swedish_training_scope.py",
       "sha256": "0e1fd122903f3e76c6846a8367b6874457ed9677e3c1954df3963842d072f1b2",
       "bytes": 18035
@@ -1948,6 +2003,11 @@
       "path": "packages/bijux-pollenomics-dev/tests/source_completion/test_swedish_neotoma_holdout.py",
       "bytes": 1204,
       "sha256": "b852fbfa07380d32f3dbe27b0b4ca2581305d7c962a410ade60c2756158e68b9"
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/tests/source_completion/test_swedish_support_sensitivity.py",
+      "sha256": "5c46cddd5489a83c9b213cd2e01ed207fc953be63717aa8bb1d4630655b0c3ba",
+      "bytes": 4488
     },
     {
       "path": "packages/bijux-pollenomics-dev/tests/source_completion/test_swedish_training_scope.py",
@@ -2035,9 +2095,14 @@
       "bytes": 4956
     },
     {
+      "path": "reports/science/sweden-spatiotemporal-sensitivity.md",
+      "sha256": "8f6dccebd81af82bfedea3e9ae3ddaea75a3999a59bfd1119046d947c43980de",
+      "bytes": 6653
+    },
+    {
       "path": "reports/science/sweden-training-scope.md",
-      "sha256": "674e411dcd443c122f02e619dc76d8023a6648903bb49b8195dd5c37019e277e",
-      "bytes": 4531
+      "sha256": "c97a1f9a1962db353e522ba035f051d9a6ee1552fa4a890fe70a0a16f8ce7c66",
+      "bytes": 4593
     }
   ]
 }

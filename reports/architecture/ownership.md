@@ -93,3 +93,10 @@ uses the same boundary: interpretation and limits live in the root report;
 the six fold inputs, frozen predictions, coverage, scores and machine report
 stay in the governed producer tree. Its former website path is a citation
 page, and the master result ledger cites the root narrative.
+
+We placed the [Swedish age and distance sensitivity](../science/sweden-spatiotemporal-sensitivity.md)
+in the same research library. Its root report owns the question, matched
+interpretation and limits; the governed `swedish-support-sensitivity/` result
+path owns the frozen predictions, coverage, scores and machine report. The
+website keeps a short citation page, and the result ledger names the root
+report.

@@ -30,6 +30,16 @@ This compares observed pollen, not LRA-derived vegetation or independent
 ecological truth. It does not yet test time displacement or population-level
 spatial generalization.
 
+We then used the same four-country source-excluded folds for an
+[age and distance sensitivity](sweden-spatiotemporal-sensitivity.md). Shifting
+the training source by one nominal 500-year bin, capping its nearest sites at
+five, and excluding source centers within 100 km yields 486 attempted
+site-bin/policy queries, 473 predictions and 13 refusals. On 52 bins paired
+to the unshifted all-site reference, the 100-km exclusion raises IDW equal-site
+MAE from 0.023151 to 0.029171; the shift and nearest-five effects are smaller
+and differ between sites. This is a three-site development sensitivity, not an
+age-model uncertainty estimate or independent spatial validation.
+
 ## Matched English direct pollen and LRA forward pollen
 
 The [constrained LOVE source study](english-lra-pollen-prediction.md)

@@ -1,0 +1,844 @@
+{
+  "age_bin_width_bp": 500,
+  "attempted_site_policy_bins": 486,
+  "coverage_rows": 27,
+  "coverage_sha256": "6d2a3bd90f869a251ce5e414ce6e71dc40bdf134586e779b117bfe715a2b0c60",
+  "interpretation": "Prior-exposed Swedish observed-pollen sensitivity to nominal 500-BP source-bin displacement, five-neighbor cap and 100-km near-site exclusion. All distance rules use site centers, not basin edges. No chronology posterior, LRA reconstruction or independent vegetation validation is supplied.",
+  "nearest_distance_strata": {
+    "-1:all:inverse_distance_squared:100_to_300_km": {
+      "equal_site_mae_fraction": 0.01579092928999561,
+      "scored_bins": 19,
+      "scored_sites": 1
+    },
+    "-1:all:inverse_distance_squared:at_least_300_km": {
+      "equal_site_mae_fraction": 0.035395140235553686,
+      "scored_bins": 7,
+      "scored_sites": 2
+    },
+    "-1:all:inverse_distance_squared:under_100_km": {
+      "equal_site_mae_fraction": 0.025945167343972165,
+      "scored_bins": 25,
+      "scored_sites": 2
+    },
+    "-1:all:nearest_site:100_to_300_km": {
+      "equal_site_mae_fraction": 0.027514688193622596,
+      "scored_bins": 19,
+      "scored_sites": 1
+    },
+    "-1:all:nearest_site:at_least_300_km": {
+      "equal_site_mae_fraction": 0.03696813352640971,
+      "scored_bins": 7,
+      "scored_sites": 2
+    },
+    "-1:all:nearest_site:under_100_km": {
+      "equal_site_mae_fraction": 0.0263723446772293,
+      "scored_bins": 25,
+      "scored_sites": 2
+    },
+    "-1:all:training_mean:100_to_300_km": {
+      "equal_site_mae_fraction": 0.016057414226385375,
+      "scored_bins": 19,
+      "scored_sites": 1
+    },
+    "-1:all:training_mean:at_least_300_km": {
+      "equal_site_mae_fraction": 0.03612427061092189,
+      "scored_bins": 7,
+      "scored_sites": 2
+    },
+    "-1:all:training_mean:under_100_km": {
+      "equal_site_mae_fraction": 0.04133548619063905,
+      "scored_bins": 25,
+      "scored_sites": 2
+    },
+    "-1:beyond_100_km:inverse_distance_squared:100_to_300_km": {
+      "equal_site_mae_fraction": 0.01579092928999561,
+      "scored_bins": 19,
+      "scored_sites": 1
+    },
+    "-1:beyond_100_km:inverse_distance_squared:at_least_300_km": {
+      "equal_site_mae_fraction": 0.0367385982836752,
+      "scored_bins": 30,
+      "scored_sites": 3
+    },
+    "-1:beyond_100_km:inverse_distance_squared:under_100_km": {
+      "equal_site_mae_fraction": null,
+      "scored_bins": 0,
+      "scored_sites": 0
+    },
+    "-1:beyond_100_km:nearest_site:100_to_300_km": {
+      "equal_site_mae_fraction": 0.027514688193622596,
+      "scored_bins": 19,
+      "scored_sites": 1
+    },
+    "-1:beyond_100_km:nearest_site:at_least_300_km": {
+      "equal_site_mae_fraction": 0.03566052623536866,
+      "scored_bins": 30,
+      "scored_sites": 3
+    },
+    "-1:beyond_100_km:nearest_site:under_100_km": {
+      "equal_site_mae_fraction": null,
+      "scored_bins": 0,
+      "scored_sites": 0
+    },
+    "-1:beyond_100_km:training_mean:100_to_300_km": {
+      "equal_site_mae_fraction": 0.016057414226385375,
+      "scored_bins": 19,
+      "scored_sites": 1
+    },
+    "-1:beyond_100_km:training_mean:at_least_300_km": {
+      "equal_site_mae_fraction": 0.03959476638041408,
+      "scored_bins": 30,
+      "scored_sites": 3
+    },
+    "-1:beyond_100_km:training_mean:under_100_km": {
+      "equal_site_mae_fraction": null,
+      "scored_bins": 0,
+      "scored_sites": 0
+    },
+    "-1:nearest_five:inverse_distance_squared:100_to_300_km": {
+      "equal_site_mae_fraction": 0.01746364847166067,
+      "scored_bins": 19,
+      "scored_sites": 1
+    },
+    "-1:nearest_five:inverse_distance_squared:at_least_300_km": {
+      "equal_site_mae_fraction": 0.03321076989216585,
+      "scored_bins": 7,
+      "scored_sites": 2
+    },
+    "-1:nearest_five:inverse_distance_squared:under_100_km": {
+      "equal_site_mae_fraction": 0.026214429585966915,
+      "scored_bins": 25,
+      "scored_sites": 2
+    },
+    "-1:nearest_five:nearest_site:100_to_300_km": {
+      "equal_site_mae_fraction": 0.027514688193622596,
+      "scored_bins": 19,
+      "scored_sites": 1
+    },
+    "-1:nearest_five:nearest_site:at_least_300_km": {
+      "equal_site_mae_fraction": 0.03696813352640971,
+      "scored_bins": 7,
+      "scored_sites": 2
+    },
+    "-1:nearest_five:nearest_site:under_100_km": {
+      "equal_site_mae_fraction": 0.0263723446772293,
+      "scored_bins": 25,
+      "scored_sites": 2
+    },
+    "-1:nearest_five:training_mean:100_to_300_km": {
+      "equal_site_mae_fraction": 0.018099367489193777,
+      "scored_bins": 19,
+      "scored_sites": 1
+    },
+    "-1:nearest_five:training_mean:at_least_300_km": {
+      "equal_site_mae_fraction": 0.03301418042824359,
+      "scored_bins": 7,
+      "scored_sites": 2
+    },
+    "-1:nearest_five:training_mean:under_100_km": {
+      "equal_site_mae_fraction": 0.026172973563785902,
+      "scored_bins": 25,
+      "scored_sites": 2
+    },
+    "0:all:inverse_distance_squared:100_to_300_km": {
+      "equal_site_mae_fraction": 0.016140358784083625,
+      "scored_bins": 20,
+      "scored_sites": 1
+    },
+    "0:all:inverse_distance_squared:at_least_300_km": {
+      "equal_site_mae_fraction": 0.03549498457696759,
+      "scored_bins": 8,
+      "scored_sites": 2
+    },
+    "0:all:inverse_distance_squared:under_100_km": {
+      "equal_site_mae_fraction": 0.025413886150460405,
+      "scored_bins": 26,
+      "scored_sites": 2
+    },
+    "0:all:nearest_site:100_to_300_km": {
+      "equal_site_mae_fraction": 0.02701119458307652,
+      "scored_bins": 20,
+      "scored_sites": 1
+    },
+    "0:all:nearest_site:at_least_300_km": {
+      "equal_site_mae_fraction": 0.03553406905653844,
+      "scored_bins": 8,
+      "scored_sites": 2
+    },
+    "0:all:nearest_site:under_100_km": {
+      "equal_site_mae_fraction": 0.025914610620637657,
+      "scored_bins": 26,
+      "scored_sites": 2
+    },
+    "0:all:training_mean:100_to_300_km": {
+      "equal_site_mae_fraction": 0.016371113385429452,
+      "scored_bins": 20,
+      "scored_sites": 1
+    },
+    "0:all:training_mean:at_least_300_km": {
+      "equal_site_mae_fraction": 0.036277900208343476,
+      "scored_bins": 8,
+      "scored_sites": 2
+    },
+    "0:all:training_mean:under_100_km": {
+      "equal_site_mae_fraction": 0.03988603600788443,
+      "scored_bins": 26,
+      "scored_sites": 2
+    },
+    "0:beyond_100_km:inverse_distance_squared:100_to_300_km": {
+      "equal_site_mae_fraction": 0.016140358784083625,
+      "scored_bins": 20,
+      "scored_sites": 1
+    },
+    "0:beyond_100_km:inverse_distance_squared:at_least_300_km": {
+      "equal_site_mae_fraction": 0.03571771127207885,
+      "scored_bins": 32,
+      "scored_sites": 3
+    },
+    "0:beyond_100_km:inverse_distance_squared:under_100_km": {
+      "equal_site_mae_fraction": null,
+      "scored_bins": 0,
+      "scored_sites": 0
+    },
+    "0:beyond_100_km:nearest_site:100_to_300_km": {
+      "equal_site_mae_fraction": 0.02701119458307652,
+      "scored_bins": 20,
+      "scored_sites": 1
+    },
+    "0:beyond_100_km:nearest_site:at_least_300_km": {
+      "equal_site_mae_fraction": 0.0340678351680987,
+      "scored_bins": 32,
+      "scored_sites": 3
+    },
+    "0:beyond_100_km:nearest_site:under_100_km": {
+      "equal_site_mae_fraction": null,
+      "scored_bins": 0,
+      "scored_sites": 0
+    },
+    "0:beyond_100_km:training_mean:100_to_300_km": {
+      "equal_site_mae_fraction": 0.016371113385429452,
+      "scored_bins": 20,
+      "scored_sites": 1
+    },
+    "0:beyond_100_km:training_mean:at_least_300_km": {
+      "equal_site_mae_fraction": 0.038641098161980726,
+      "scored_bins": 32,
+      "scored_sites": 3
+    },
+    "0:beyond_100_km:training_mean:under_100_km": {
+      "equal_site_mae_fraction": null,
+      "scored_bins": 0,
+      "scored_sites": 0
+    },
+    "0:nearest_five:inverse_distance_squared:100_to_300_km": {
+      "equal_site_mae_fraction": 0.01779845101404712,
+      "scored_bins": 20,
+      "scored_sites": 1
+    },
+    "0:nearest_five:inverse_distance_squared:at_least_300_km": {
+      "equal_site_mae_fraction": 0.03264282154064359,
+      "scored_bins": 8,
+      "scored_sites": 2
+    },
+    "0:nearest_five:inverse_distance_squared:under_100_km": {
+      "equal_site_mae_fraction": 0.02571700639269539,
+      "scored_bins": 26,
+      "scored_sites": 2
+    },
+    "0:nearest_five:nearest_site:100_to_300_km": {
+      "equal_site_mae_fraction": 0.02701119458307652,
+      "scored_bins": 20,
+      "scored_sites": 1
+    },
+    "0:nearest_five:nearest_site:at_least_300_km": {
+      "equal_site_mae_fraction": 0.03553406905653844,
+      "scored_bins": 8,
+      "scored_sites": 2
+    },
+    "0:nearest_five:nearest_site:under_100_km": {
+      "equal_site_mae_fraction": 0.025914610620637657,
+      "scored_bins": 26,
+      "scored_sites": 2
+    },
+    "0:nearest_five:training_mean:100_to_300_km": {
+      "equal_site_mae_fraction": 0.018675403459128298,
+      "scored_bins": 20,
+      "scored_sites": 1
+    },
+    "0:nearest_five:training_mean:at_least_300_km": {
+      "equal_site_mae_fraction": 0.032499966820135714,
+      "scored_bins": 8,
+      "scored_sites": 2
+    },
+    "0:nearest_five:training_mean:under_100_km": {
+      "equal_site_mae_fraction": 0.024998323751499497,
+      "scored_bins": 26,
+      "scored_sites": 2
+    },
+    "1:all:inverse_distance_squared:100_to_300_km": {
+      "equal_site_mae_fraction": 0.01707266171963571,
+      "scored_bins": 21,
+      "scored_sites": 1
+    },
+    "1:all:inverse_distance_squared:at_least_300_km": {
+      "equal_site_mae_fraction": 0.03503222623093187,
+      "scored_bins": 8,
+      "scored_sites": 1
+    },
+    "1:all:inverse_distance_squared:under_100_km": {
+      "equal_site_mae_fraction": 0.025532854661508605,
+      "scored_bins": 25,
+      "scored_sites": 2
+    },
+    "1:all:nearest_site:100_to_300_km": {
+      "equal_site_mae_fraction": 0.026939010592006072,
+      "scored_bins": 21,
+      "scored_sites": 1
+    },
+    "1:all:nearest_site:at_least_300_km": {
+      "equal_site_mae_fraction": 0.028135701949475983,
+      "scored_bins": 8,
+      "scored_sites": 1
+    },
+    "1:all:nearest_site:under_100_km": {
+      "equal_site_mae_fraction": 0.0263723446772293,
+      "scored_bins": 25,
+      "scored_sites": 2
+    },
+    "1:all:training_mean:100_to_300_km": {
+      "equal_site_mae_fraction": 0.01685574227298644,
+      "scored_bins": 21,
+      "scored_sites": 1
+    },
+    "1:all:training_mean:at_least_300_km": {
+      "equal_site_mae_fraction": 0.03685895991440636,
+      "scored_bins": 8,
+      "scored_sites": 1
+    },
+    "1:all:training_mean:under_100_km": {
+      "equal_site_mae_fraction": 0.03899520095365497,
+      "scored_bins": 25,
+      "scored_sites": 2
+    },
+    "1:beyond_100_km:inverse_distance_squared:100_to_300_km": {
+      "equal_site_mae_fraction": 0.01707266171963571,
+      "scored_bins": 21,
+      "scored_sites": 1
+    },
+    "1:beyond_100_km:inverse_distance_squared:at_least_300_km": {
+      "equal_site_mae_fraction": 0.03424321934800224,
+      "scored_bins": 33,
+      "scored_sites": 2
+    },
+    "1:beyond_100_km:inverse_distance_squared:under_100_km": {
+      "equal_site_mae_fraction": null,
+      "scored_bins": 0,
+      "scored_sites": 0
+    },
+    "1:beyond_100_km:nearest_site:100_to_300_km": {
+      "equal_site_mae_fraction": 0.026939010592006072,
+      "scored_bins": 21,
+      "scored_sites": 1
+    },
+    "1:beyond_100_km:nearest_site:at_least_300_km": {
+      "equal_site_mae_fraction": 0.029237471624583428,
+      "scored_bins": 33,
+      "scored_sites": 2
+    },
+    "1:beyond_100_km:nearest_site:under_100_km": {
+      "equal_site_mae_fraction": null,
+      "scored_bins": 0,
+      "scored_sites": 0
+    },
+    "1:beyond_100_km:training_mean:100_to_300_km": {
+      "equal_site_mae_fraction": 0.01685574227298644,
+      "scored_bins": 21,
+      "scored_sites": 1
+    },
+    "1:beyond_100_km:training_mean:at_least_300_km": {
+      "equal_site_mae_fraction": 0.03865125516356461,
+      "scored_bins": 33,
+      "scored_sites": 2
+    },
+    "1:beyond_100_km:training_mean:under_100_km": {
+      "equal_site_mae_fraction": null,
+      "scored_bins": 0,
+      "scored_sites": 0
+    },
+    "1:nearest_five:inverse_distance_squared:100_to_300_km": {
+      "equal_site_mae_fraction": 0.0190977704057972,
+      "scored_bins": 21,
+      "scored_sites": 1
+    },
+    "1:nearest_five:inverse_distance_squared:at_least_300_km": {
+      "equal_site_mae_fraction": 0.028405829522962774,
+      "scored_bins": 8,
+      "scored_sites": 1
+    },
+    "1:nearest_five:inverse_distance_squared:under_100_km": {
+      "equal_site_mae_fraction": 0.026135775643419516,
+      "scored_bins": 25,
+      "scored_sites": 2
+    },
+    "1:nearest_five:nearest_site:100_to_300_km": {
+      "equal_site_mae_fraction": 0.026939010592006072,
+      "scored_bins": 21,
+      "scored_sites": 1
+    },
+    "1:nearest_five:nearest_site:at_least_300_km": {
+      "equal_site_mae_fraction": 0.028135701949475983,
+      "scored_bins": 8,
+      "scored_sites": 1
+    },
+    "1:nearest_five:nearest_site:under_100_km": {
+      "equal_site_mae_fraction": 0.0263723446772293,
+      "scored_bins": 25,
+      "scored_sites": 2
+    },
+    "1:nearest_five:training_mean:100_to_300_km": {
+      "equal_site_mae_fraction": 0.019914985670910303,
+      "scored_bins": 21,
+      "scored_sites": 1
+    },
+    "1:nearest_five:training_mean:at_least_300_km": {
+      "equal_site_mae_fraction": 0.02840452655981248,
+      "scored_bins": 8,
+      "scored_sites": 1
+    },
+    "1:nearest_five:training_mean:under_100_km": {
+      "equal_site_mae_fraction": 0.023757758641346487,
+      "scored_bins": 25,
+      "scored_sites": 2
+    }
+  },
+  "paired_score_rows": 1257,
+  "paired_scores_sha256": "b28d555c33b561225323e2e3327684d65178788c2b01278092d5d438229eb40a",
+  "paired_site_macro": {
+    "-1:all:inverse_distance_squared": {
+      "paired_bins": 51,
+      "paired_sites": 3,
+      "reference_equal_site_mae_fraction": 0.022824096454178888,
+      "reference_sample_weighted_mae_fraction": 0.021598137274840706,
+      "sensitivity_equal_site_mae_fraction": 0.0238121978558678,
+      "sensitivity_sample_weighted_mae_fraction": 0.022740909083247846
+    },
+    "-1:all:nearest_site": {
+      "paired_bins": 51,
+      "paired_sites": 3,
+      "reference_equal_site_mae_fraction": 0.026209268166076268,
+      "reference_sample_weighted_mae_fraction": 0.026631548764291336,
+      "sensitivity_equal_site_mae_fraction": 0.02769550610128222,
+      "sensitivity_sample_weighted_mae_fraction": 0.027867499730802645
+    },
+    "-1:all:training_mean": {
+      "paired_bins": 51,
+      "paired_sites": 3,
+      "reference_equal_site_mae_fraction": 0.03156775077713751,
+      "reference_sample_weighted_mae_fraction": 0.02789880279504124,
+      "sensitivity_equal_site_mae_fraction": 0.03236839673675792,
+      "sensitivity_sample_weighted_mae_fraction": 0.028848996487106995
+    },
+    "-1:beyond_100_km:inverse_distance_squared": {
+      "paired_bins": 49,
+      "paired_sites": 3,
+      "reference_equal_site_mae_fraction": 0.022483587291074553,
+      "reference_sample_weighted_mae_fraction": 0.02075356622866698,
+      "sensitivity_equal_site_mae_fraction": 0.029858070074994143,
+      "sensitivity_sample_weighted_mae_fraction": 0.026378478123945396
+    },
+    "-1:beyond_100_km:nearest_site": {
+      "paired_bins": 49,
+      "paired_sites": 3,
+      "reference_equal_site_mae_fraction": 0.025823334367645365,
+      "reference_sample_weighted_mae_fraction": 0.02609756398565338,
+      "sensitivity_equal_site_mae_fraction": 0.03090782779354005,
+      "sensitivity_sample_weighted_mae_fraction": 0.030201339224711413
+    },
+    "-1:beyond_100_km:training_mean": {
+      "paired_bins": 49,
+      "paired_sites": 3,
+      "reference_equal_site_mae_fraction": 0.031881530021765005,
+      "reference_sample_weighted_mae_fraction": 0.027524787505690422,
+      "sensitivity_equal_site_mae_fraction": 0.03281762023353335,
+      "sensitivity_sample_weighted_mae_fraction": 0.028462374501508323
+    },
+    "-1:nearest_five:inverse_distance_squared": {
+      "paired_bins": 51,
+      "paired_sites": 3,
+      "reference_equal_site_mae_fraction": 0.022824096454178888,
+      "reference_sample_weighted_mae_fraction": 0.021598137274840706,
+      "sensitivity_equal_site_mae_fraction": 0.024064520235922194,
+      "sensitivity_sample_weighted_mae_fraction": 0.023189978549581557
+    },
+    "-1:nearest_five:nearest_site": {
+      "paired_bins": 51,
+      "paired_sites": 3,
+      "reference_equal_site_mae_fraction": 0.026209268166076268,
+      "reference_sample_weighted_mae_fraction": 0.026631548764291336,
+      "sensitivity_equal_site_mae_fraction": 0.02769550610128222,
+      "sensitivity_sample_weighted_mae_fraction": 0.027867499730802645
+    },
+    "-1:nearest_five:training_mean": {
+      "paired_bins": 51,
+      "paired_sites": 3,
+      "reference_equal_site_mae_fraction": 0.03156775077713751,
+      "reference_sample_weighted_mae_fraction": 0.02789880279504124,
+      "sensitivity_equal_site_mae_fraction": 0.02378689487858829,
+      "sensitivity_sample_weighted_mae_fraction": 0.023542835060985264
+    },
+    "0:all:inverse_distance_squared": {
+      "paired_bins": 0,
+      "paired_sites": 0,
+      "reference_equal_site_mae_fraction": null,
+      "reference_sample_weighted_mae_fraction": null,
+      "sensitivity_equal_site_mae_fraction": null,
+      "sensitivity_sample_weighted_mae_fraction": null
+    },
+    "0:all:nearest_site": {
+      "paired_bins": 0,
+      "paired_sites": 0,
+      "reference_equal_site_mae_fraction": null,
+      "reference_sample_weighted_mae_fraction": null,
+      "sensitivity_equal_site_mae_fraction": null,
+      "sensitivity_sample_weighted_mae_fraction": null
+    },
+    "0:all:training_mean": {
+      "paired_bins": 0,
+      "paired_sites": 0,
+      "reference_equal_site_mae_fraction": null,
+      "reference_sample_weighted_mae_fraction": null,
+      "sensitivity_equal_site_mae_fraction": null,
+      "sensitivity_sample_weighted_mae_fraction": null
+    },
+    "0:beyond_100_km:inverse_distance_squared": {
+      "paired_bins": 52,
+      "paired_sites": 3,
+      "reference_equal_site_mae_fraction": 0.023151407352931343,
+      "reference_sample_weighted_mae_fraction": 0.02166613193013509,
+      "sensitivity_equal_site_mae_fraction": 0.029171493297029727,
+      "sensitivity_sample_weighted_mae_fraction": 0.02597668765405117
+    },
+    "0:beyond_100_km:nearest_site": {
+      "paired_bins": 52,
+      "paired_sites": 3,
+      "reference_equal_site_mae_fraction": 0.026438736282830857,
+      "reference_sample_weighted_mae_fraction": 0.026698078527404898,
+      "sensitivity_equal_site_mae_fraction": 0.029478472833006943,
+      "sensitivity_sample_weighted_mae_fraction": 0.02920325709916611
+    },
+    "0:beyond_100_km:training_mean": {
+      "paired_bins": 52,
+      "paired_sites": 3,
+      "reference_equal_site_mae_fraction": 0.03189052749344082,
+      "reference_sample_weighted_mae_fraction": 0.027938297161487418,
+      "sensitivity_equal_site_mae_fraction": 0.03218556383591473,
+      "sensitivity_sample_weighted_mae_fraction": 0.028155758009057768
+    },
+    "0:nearest_five:inverse_distance_squared": {
+      "paired_bins": 54,
+      "paired_sites": 3,
+      "reference_equal_site_mae_fraction": 0.023647323193382915,
+      "reference_sample_weighted_mae_fraction": 0.022012213748371565,
+      "sensitivity_equal_site_mae_fraction": 0.023695162544720743,
+      "sensitivity_sample_weighted_mae_fraction": 0.022534752934972656
+    },
+    "0:nearest_five:nearest_site": {
+      "paired_bins": 54,
+      "paired_sites": 3,
+      "reference_equal_site_mae_fraction": 0.02693962157281796,
+      "reference_sample_weighted_mae_fraction": 0.02693421220579161,
+      "sensitivity_equal_site_mae_fraction": 0.02693962157281796,
+      "sensitivity_sample_weighted_mae_fraction": 0.02693421220579161
+    },
+    "0:nearest_five:training_mean": {
+      "paired_bins": 54,
+      "paired_sites": 3,
+      "reference_equal_site_mae_fraction": 0.03171827248998266,
+      "reference_sample_weighted_mae_fraction": 0.028061266211634482,
+      "sensitivity_equal_site_mae_fraction": 0.023255830471381352,
+      "sensitivity_sample_weighted_mae_fraction": 0.022471528868847502
+    },
+    "1:all:inverse_distance_squared": {
+      "paired_bins": 54,
+      "paired_sites": 3,
+      "reference_equal_site_mae_fraction": 0.023647323193382915,
+      "reference_sample_weighted_mae_fraction": 0.022012213748371565,
+      "sensitivity_equal_site_mae_fraction": 0.023742989329189862,
+      "sensitivity_sample_weighted_mae_fraction": 0.022380170113520836
+    },
+    "1:all:nearest_site": {
+      "paired_bins": 54,
+      "paired_sites": 3,
+      "reference_equal_site_mae_fraction": 0.02693962157281796,
+      "reference_sample_weighted_mae_fraction": 0.02693421220579161,
+      "sensitivity_equal_site_mae_fraction": 0.02659160756703795,
+      "sensitivity_sample_weighted_mae_fraction": 0.027102071747597222
+    },
+    "1:all:training_mean": {
+      "paired_bins": 54,
+      "paired_sites": 3,
+      "reference_equal_site_mae_fraction": 0.03171827248998266,
+      "reference_sample_weighted_mae_fraction": 0.028061266211634482,
+      "sensitivity_equal_site_mae_fraction": 0.031097968266941993,
+      "sensitivity_sample_weighted_mae_fraction": 0.027821397204009817
+    },
+    "1:beyond_100_km:inverse_distance_squared": {
+      "paired_bins": 54,
+      "paired_sites": 3,
+      "reference_equal_site_mae_fraction": 0.023647323193382915,
+      "reference_sample_weighted_mae_fraction": 0.022012213748371565,
+      "sensitivity_equal_site_mae_fraction": 0.028519700138546735,
+      "sensitivity_sample_weighted_mae_fraction": 0.025908565837005567
+    },
+    "1:beyond_100_km:nearest_site": {
+      "paired_bins": 54,
+      "paired_sites": 3,
+      "reference_equal_site_mae_fraction": 0.02693962157281796,
+      "reference_sample_weighted_mae_fraction": 0.02693421220579161,
+      "sensitivity_equal_site_mae_fraction": 0.028471317947057644,
+      "sensitivity_sample_weighted_mae_fraction": 0.02871211631236853
+    },
+    "1:beyond_100_km:training_mean": {
+      "paired_bins": 54,
+      "paired_sites": 3,
+      "reference_equal_site_mae_fraction": 0.03171827248998266,
+      "reference_sample_weighted_mae_fraction": 0.028061266211634482,
+      "sensitivity_equal_site_mae_fraction": 0.03138608420003855,
+      "sensitivity_sample_weighted_mae_fraction": 0.02803653743338124
+    },
+    "1:nearest_five:inverse_distance_squared": {
+      "paired_bins": 54,
+      "paired_sites": 3,
+      "reference_equal_site_mae_fraction": 0.023647323193382915,
+      "reference_sample_weighted_mae_fraction": 0.022012213748371565,
+      "sensitivity_equal_site_mae_fraction": 0.023876351070770525,
+      "sensitivity_sample_weighted_mae_fraction": 0.02300356081774154
+    },
+    "1:nearest_five:nearest_site": {
+      "paired_bins": 54,
+      "paired_sites": 3,
+      "reference_equal_site_mae_fraction": 0.02693962157281796,
+      "reference_sample_weighted_mae_fraction": 0.02693421220579161,
+      "sensitivity_equal_site_mae_fraction": 0.02659160756703795,
+      "sensitivity_sample_weighted_mae_fraction": 0.027102071747597222
+    },
+    "1:nearest_five:training_mean": {
+      "paired_bins": 54,
+      "paired_sites": 3,
+      "reference_equal_site_mae_fraction": 0.03171827248998266,
+      "reference_sample_weighted_mae_fraction": 0.028061266211634482,
+      "sensitivity_equal_site_mae_fraction": 0.02263426116545711,
+      "sensitivity_sample_weighted_mae_fraction": 0.022312586542794347
+    }
+  },
+  "predicted_site_policy_bins": 473,
+  "prediction_freeze_sha256": "db5bd39b7e9630b48def3ea5082ad1d93358e1e2de75c297b75933584c8a08ed",
+  "prepare_sha256": "c8269b2e9df29c60c34d632b460b258eeaae0c22045b6f7ea325206c55eb4863",
+  "refused_site_policy_bins": 13,
+  "schema_version": "swedish-support-sensitivity-study.v1",
+  "score_rows": 1419,
+  "scores_sha256": "7bc1e5a99c6cac177ae58ebe6d9f652a4464ab21f78c1cb3c1137e4a120092b7",
+  "sealed_outcome_sha256": "7ab08c7c1c59158f8c6b249aca12a34c72f752f18a551b439540af7804b215c5",
+  "shifts_bins": [
+    -1,
+    0,
+    1
+  ],
+  "site_macro": {
+    "-1:all:inverse_distance_squared": {
+      "equal_site_hellinger_distance": 0.34750320176820554,
+      "equal_site_mae_fraction": 0.0238121978558678,
+      "sample_weighted_mae_fraction": 0.022740909083247846,
+      "scored_bins": 51,
+      "scored_sites": 3
+    },
+    "-1:all:nearest_site": {
+      "equal_site_hellinger_distance": 0.40369667612129123,
+      "equal_site_mae_fraction": 0.02769550610128222,
+      "sample_weighted_mae_fraction": 0.027867499730802645,
+      "scored_bins": 51,
+      "scored_sites": 3
+    },
+    "-1:all:training_mean": {
+      "equal_site_hellinger_distance": 0.4605740923996289,
+      "equal_site_mae_fraction": 0.03236839673675792,
+      "sample_weighted_mae_fraction": 0.028848996487106995,
+      "scored_bins": 51,
+      "scored_sites": 3
+    },
+    "-1:beyond_100_km:inverse_distance_squared": {
+      "equal_site_hellinger_distance": 0.42762448229189987,
+      "equal_site_mae_fraction": 0.029858070074994143,
+      "sample_weighted_mae_fraction": 0.026378478123945396,
+      "scored_bins": 49,
+      "scored_sites": 3
+    },
+    "-1:beyond_100_km:nearest_site": {
+      "equal_site_hellinger_distance": 0.46805605438475806,
+      "equal_site_mae_fraction": 0.03090782779354005,
+      "sample_weighted_mae_fraction": 0.030201339224711413,
+      "scored_bins": 49,
+      "scored_sites": 3
+    },
+    "-1:beyond_100_km:training_mean": {
+      "equal_site_hellinger_distance": 0.4669457418409196,
+      "equal_site_mae_fraction": 0.03281762023353335,
+      "sample_weighted_mae_fraction": 0.028462374501508323,
+      "scored_bins": 49,
+      "scored_sites": 3
+    },
+    "-1:nearest_five:inverse_distance_squared": {
+      "equal_site_hellinger_distance": 0.3597619372572135,
+      "equal_site_mae_fraction": 0.024064520235922194,
+      "sample_weighted_mae_fraction": 0.023189978549581557,
+      "scored_bins": 51,
+      "scored_sites": 3
+    },
+    "-1:nearest_five:nearest_site": {
+      "equal_site_hellinger_distance": 0.40369667612129123,
+      "equal_site_mae_fraction": 0.02769550610128222,
+      "sample_weighted_mae_fraction": 0.027867499730802645,
+      "scored_bins": 51,
+      "scored_sites": 3
+    },
+    "-1:nearest_five:training_mean": {
+      "equal_site_hellinger_distance": 0.3699015532693273,
+      "equal_site_mae_fraction": 0.02378689487858829,
+      "sample_weighted_mae_fraction": 0.023542835060985264,
+      "scored_bins": 51,
+      "scored_sites": 3
+    },
+    "0:all:inverse_distance_squared": {
+      "equal_site_hellinger_distance": 0.3416185728996632,
+      "equal_site_mae_fraction": 0.023647323193382915,
+      "sample_weighted_mae_fraction": 0.022012213748371565,
+      "scored_bins": 54,
+      "scored_sites": 3
+    },
+    "0:all:nearest_site": {
+      "equal_site_hellinger_distance": 0.3939787295968372,
+      "equal_site_mae_fraction": 0.02693962157281796,
+      "sample_weighted_mae_fraction": 0.02693421220579161,
+      "scored_bins": 54,
+      "scored_sites": 3
+    },
+    "0:all:training_mean": {
+      "equal_site_hellinger_distance": 0.4510581761396758,
+      "equal_site_mae_fraction": 0.03171827248998266,
+      "sample_weighted_mae_fraction": 0.028061266211634482,
+      "scored_bins": 54,
+      "scored_sites": 3
+    },
+    "0:beyond_100_km:inverse_distance_squared": {
+      "equal_site_hellinger_distance": 0.4189078966842369,
+      "equal_site_mae_fraction": 0.029171493297029727,
+      "sample_weighted_mae_fraction": 0.02597668765405117,
+      "scored_bins": 52,
+      "scored_sites": 3
+    },
+    "0:beyond_100_km:nearest_site": {
+      "equal_site_hellinger_distance": 0.4509280827844063,
+      "equal_site_mae_fraction": 0.029478472833006943,
+      "sample_weighted_mae_fraction": 0.02920325709916611,
+      "scored_bins": 52,
+      "scored_sites": 3
+    },
+    "0:beyond_100_km:training_mean": {
+      "equal_site_hellinger_distance": 0.45862104884797505,
+      "equal_site_mae_fraction": 0.03218556383591473,
+      "sample_weighted_mae_fraction": 0.028155758009057768,
+      "scored_bins": 52,
+      "scored_sites": 3
+    },
+    "0:nearest_five:inverse_distance_squared": {
+      "equal_site_hellinger_distance": 0.35277164808674055,
+      "equal_site_mae_fraction": 0.023695162544720743,
+      "sample_weighted_mae_fraction": 0.022534752934972656,
+      "scored_bins": 54,
+      "scored_sites": 3
+    },
+    "0:nearest_five:nearest_site": {
+      "equal_site_hellinger_distance": 0.3939787295968372,
+      "equal_site_mae_fraction": 0.02693962157281796,
+      "sample_weighted_mae_fraction": 0.02693421220579161,
+      "scored_bins": 54,
+      "scored_sites": 3
+    },
+    "0:nearest_five:training_mean": {
+      "equal_site_hellinger_distance": 0.3595134549594802,
+      "equal_site_mae_fraction": 0.023255830471381352,
+      "sample_weighted_mae_fraction": 0.022471528868847502,
+      "scored_bins": 54,
+      "scored_sites": 3
+    },
+    "1:all:inverse_distance_squared": {
+      "equal_site_hellinger_distance": 0.33949359287980324,
+      "equal_site_mae_fraction": 0.023742989329189862,
+      "sample_weighted_mae_fraction": 0.022380170113520836,
+      "scored_bins": 54,
+      "scored_sites": 3
+    },
+    "1:all:nearest_site": {
+      "equal_site_hellinger_distance": 0.3888628902770388,
+      "equal_site_mae_fraction": 0.02659160756703795,
+      "sample_weighted_mae_fraction": 0.027102071747597222,
+      "scored_bins": 54,
+      "scored_sites": 3
+    },
+    "1:all:training_mean": {
+      "equal_site_hellinger_distance": 0.4440581009000912,
+      "equal_site_mae_fraction": 0.031097968266941993,
+      "sample_weighted_mae_fraction": 0.027821397204009817,
+      "scored_bins": 54,
+      "scored_sites": 3
+    },
+    "1:beyond_100_km:inverse_distance_squared": {
+      "equal_site_hellinger_distance": 0.41075735668828384,
+      "equal_site_mae_fraction": 0.028519700138546735,
+      "sample_weighted_mae_fraction": 0.025908565837005567,
+      "scored_bins": 54,
+      "scored_sites": 3
+    },
+    "1:beyond_100_km:nearest_site": {
+      "equal_site_hellinger_distance": 0.43810662460294963,
+      "equal_site_mae_fraction": 0.028471317947057644,
+      "sample_weighted_mae_fraction": 0.02871211631236853,
+      "scored_bins": 54,
+      "scored_sites": 3
+    },
+    "1:beyond_100_km:training_mean": {
+      "equal_site_hellinger_distance": 0.448781153426056,
+      "equal_site_mae_fraction": 0.03138608420003855,
+      "sample_weighted_mae_fraction": 0.02803653743338124,
+      "scored_bins": 54,
+      "scored_sites": 3
+    },
+    "1:nearest_five:inverse_distance_squared": {
+      "equal_site_hellinger_distance": 0.3523860211893573,
+      "equal_site_mae_fraction": 0.023876351070770525,
+      "sample_weighted_mae_fraction": 0.02300356081774154,
+      "scored_bins": 54,
+      "scored_sites": 3
+    },
+    "1:nearest_five:nearest_site": {
+      "equal_site_hellinger_distance": 0.3888628902770388,
+      "equal_site_mae_fraction": 0.02659160756703795,
+      "sample_weighted_mae_fraction": 0.027102071747597222,
+      "scored_bins": 54,
+      "scored_sites": 3
+    },
+    "1:nearest_five:training_mean": {
+      "equal_site_hellinger_distance": 0.3532825786897679,
+      "equal_site_mae_fraction": 0.02263426116545711,
+      "sample_weighted_mae_fraction": 0.022312586542794347,
+      "scored_bins": 54,
+      "scored_sites": 3
+    }
+  },
+  "source_site_count": 3,
+  "support_policies": [
+    "all",
+    "nearest_five",
+    "beyond_100_km"
+  ]
+}

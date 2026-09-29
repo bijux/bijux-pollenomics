@@ -13,6 +13,7 @@ sources remain in their governed source store.
 | HYDE source semantics | High for a land-use ablation | Exact release provider and reuse/metadata review. |
 | Historical publication inputs and taxonomy | High for full-paper reproduction | Archive producer or author and qualified taxon review. |
 | Swedish lake and archaeology context joins | High for field and multi-evidence interpretation | Lake/core, SEAD/archaeology and aDNA source owners with spatial and temporal review. |
+| Chronology-aware temporal prediction | High for time-transfer claims | Core age-model source owners and an independently dated, source-qualified evaluation cohort. |
 | Independent confirmation | High for generalization claims | A new source-qualified cohort owner before outcomes are opened. |
 
 These are evidence requests, not approvals. No outreach has been sent from this
@@ -178,6 +179,27 @@ or a migration path. **Reopen when:** a source packet binds a candidate lake,
 its core and at least one independent context observation on compatible place
 and time support, with permitted analytical use; run the joining consumer
 before closing the question.
+
+## Chronology-aware temporal prediction
+
+**Affected result:** our [Swedish support sensitivity](../science/sweden-spatiotemporal-sensitivity.md)
+compares adjacent nominal 500-year source bins on three exposed physical
+sites. We observed small, mixed site effects, but the bin labels do not carry
+the cores' age-model uncertainty or establish independent future/past skill.
+
+**Needed:** source-qualified selected age models and posterior or defensible
+uncertainty intervals for each physical core, compatible target and predictor
+age support, and a new grouped evaluation cohort whose temporal target
+outcomes have not shaped the design. The source owner must confirm analytical
+rights and independent chronology. Next action: freeze interval-overlap and
+forward-time rules, then publish predictions and refusals before scoring.
+
+**Already checked:** the existing Swedish three-site result has 486
+site-bin/policy queries, 473 predictions and 13 refusals across same and
+adjacent nominal bins. **Reopen when:** calibrated age-model uncertainty and
+eligible new cores are bound to those physical sites and windows; rerun an
+age-aware, group-excluded consumer rather than treating nominal bin shifts
+as chronology uncertainty.
 
 ## Independent confirmation
 

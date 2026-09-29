@@ -66,6 +66,13 @@ predicts all 54. The gain is concentrated at one site and the outcomes were
 previously exposed. This comparison cannot select LRA parameters or establish
 independent spatial skill.
 
+Our [Swedish support sensitivity](sweden-spatiotemporal-sensitivity.md)
+finds that removing source centers within 100 km raises IDW equal-site pollen
+MAE from 0.023151 to 0.029171 on 52 matched site-bins. One-bin nominal age
+shifts and a nearest-five cap have smaller, site-dependent effects. These
+choices are development probes on three exposed sites, not LRA transport or
+age-model parameter estimates.
+
 ## The real English LRA profile
 
 The [constrained LOVE study](english-lra-pollen-prediction.md)

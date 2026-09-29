@@ -308,5 +308,27 @@
     "sweden_only_support_refusals": 15,
     "paired_method_scores": 117,
     "status": "prior_exposed_matched_whole_site_observed_pollen_development; no temporal displacement, LRA or measured vegetation claim"
+  },
+  "swedish_support_sensitivity": {
+    "report": "docs/report/regions/nordic/swedish-support-sensitivity/report.json",
+    "source_response": "31-author-target closed observed-pollen composition",
+    "target_sites": 3,
+    "candidate_site_bins": 54,
+    "age_bin_width_bp": 500,
+    "nominal_shift_bins": [
+      -1,
+      0,
+      1
+    ],
+    "spatial_support_policies": [
+      "all",
+      "nearest_five",
+      "beyond_100_km"
+    ],
+    "attempted_site_policy_bins": 486,
+    "predicted_site_policy_bins": 473,
+    "refused_site_policy_bins": 13,
+    "prediction_freeze_sha256": "db5bd39b7e9630b48def3ea5082ad1d93358e1e2de75c297b75933584c8a08ed",
+    "status": "prior_exposed_whole_site_observed_pollen_sensitivity; nominal bin shifts and center distances, no age posterior, LRA or measured vegetation claim"
   }
 }

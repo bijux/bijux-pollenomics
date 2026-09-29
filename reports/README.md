@@ -14,7 +14,7 @@ updating that lock.
 
 | Question | Read first | Evidence boundary |
 | --- | --- | --- |
-| What can the Nordic pollen data predict? | [Pollen prediction synthesis](science/pollen-prediction.md), [DK/FI/NO author-axis study](science/denmark-finland-norway-author-pollen.md), [Swedish author-axis study](science/sweden-author-pollen.md), [Sweden-only versus four-country training](science/sweden-training-scope.md) | Observed pollen, prior-exposed development; no independent vegetation score. |
+| What can the Nordic pollen data predict? | [Pollen prediction synthesis](science/pollen-prediction.md), [DK/FI/NO author-axis study](science/denmark-finland-norway-author-pollen.md), [Swedish author-axis study](science/sweden-author-pollen.md), [Sweden-only versus four-country training](science/sweden-training-scope.md), [age and distance sensitivity](science/sweden-spatiotemporal-sensitivity.md) | Observed pollen, prior-exposed development; no independent vegetation score. |
 | Which cohorts and source fields are fit for each analysis? | [Source cohort account](science/source-cohorts.md) | Four-country count mass and LRA source gates remain separate. |
 | Has real LRA been run and compared? | [Constrained English LOVE study](science/english-lra-pollen-prediction.md) | 14 of 15 source folds predicted; one optimizer refusal; English author examples only. |
 | Which model and parameters should I use? | [Model-use guide](science/model-use.md), [Nordic training search](science/nordic-observed-pollen-selection.md), [matched country transfer](science/nordic-observed-pollen-transfer.md) | Choices are conditional on target, source admission, cohort, support and metric. |

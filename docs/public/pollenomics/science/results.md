@@ -73,6 +73,22 @@ were previously explored, and most of the mean improvement comes from one
 site. The comparison does not establish independent prediction skill or LRA
 vegetation accuracy.
 
+## Swedish age and distance sensitivity
+
+We used the same three whole-site Swedish targets to ask how observed-pollen
+predictions change when training pollen comes from an adjacent nominal
+500-year bin, only the nearest five source sites, or source sites at least
+100 km from the target center. The
+[source-bound sensitivity](../../../report/regions/nordic/swedish-support-sensitivity/README.md)
+retains 486 attempted site-bin/policy queries, 473 supported predictions and
+13 refusals. On 52 bins shared with the unshifted all-site reference, excluding
+sites within 100 km raises inverse-distance-squared equal-site pollen MAE
+from 0.023151 to 0.029171. The
+[paired score rows](../../../report/regions/nordic/swedish-support-sensitivity/paired-scores.csv)
+show the site and bin effects. Three previously explored sites and nominal
+source-bin shifts cannot establish independent spatial skill, chronology
+uncertainty, LRA accuracy or vegetation accuracy.
+
 ## Parameters and next experiments
 
 For the English LRA run, published PPE and fall speeds were fixed after a
