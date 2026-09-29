@@ -303,7 +303,7 @@ def compare_lakes(
                 "native_minus_published_age_end_labels_bp": [
                     native - published_age
                     for native, published_age in zip(
-                        native_endpoints, published_endpoints
+                        native_endpoints, published_endpoints, strict=True
                     )
                 ],
                 "retained_first_sample_nisp_partition": partition,

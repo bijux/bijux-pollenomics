@@ -12,18 +12,17 @@ from bijux_pollenomics.analysis.lra_validation.splits import grouped_block_holdo
 
 from ..observed_pollen_baseline import SiteCounts, _checked, _site_counts
 from .source import (
-    AuthorStudy,
-    GRIDS,
     BUFFER_KM,
+    GRIDS,
     PREDICTION_FIELDS,
     STATUS_FIELDS,
+    AuthorStudy,
     _buffered_training,
     _distance_km,
     _edge_distance_km,
     _hash,
     _write_rows,
 )
-
 
 BaselineMethod = Literal["training_mean", "nearest_site", "inverse_distance_squared"]
 METHOD_LABELS: dict[BaselineMethod, str] = {

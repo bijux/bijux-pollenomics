@@ -58,22 +58,22 @@ def execute(
         "sources": [],
         "current_inputs_sha256": input_hashes,
     }
-    environment = dict(
-        R_LIBS_USER=str(library),
-        R_LIBS_SITE="",
-        R_ENVIRON_USER="/dev/null",
-        R_PROFILE_USER="/dev/null",
-        PYTHONDONTWRITEBYTECODE="1",
-        OMP_NUM_THREADS="1",
-        OPENBLAS_NUM_THREADS="1",
-        MKL_NUM_THREADS="1",
-        NUMEXPR_NUM_THREADS="1",
-        VECLIB_MAXIMUM_THREADS="1",
-        TZ="UTC",
-        LANG="C",
-        LC_ALL="C",
-        PATH=str(rscript.parent) + os.pathsep + os.environ.get("PATH", os.defpath),
-    )
+    environment = {
+        "R_LIBS_USER": str(library),
+        "R_LIBS_SITE": "",
+        "R_ENVIRON_USER": "/dev/null",
+        "R_PROFILE_USER": "/dev/null",
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "OMP_NUM_THREADS": "1",
+        "OPENBLAS_NUM_THREADS": "1",
+        "MKL_NUM_THREADS": "1",
+        "NUMEXPR_NUM_THREADS": "1",
+        "VECLIB_MAXIMUM_THREADS": "1",
+        "TZ": "UTC",
+        "LANG": "C",
+        "LC_ALL": "C",
+        "PATH": str(rscript.parent) + os.pathsep + os.environ.get("PATH", os.defpath),
+    }
 
     def save() -> None:
         (output / "receipt.json").write_text(

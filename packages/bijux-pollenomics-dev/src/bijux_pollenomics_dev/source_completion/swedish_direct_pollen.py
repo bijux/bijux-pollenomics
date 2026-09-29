@@ -3,10 +3,10 @@
 from __future__ import annotations
 
 import argparse
+from collections import defaultdict
 import csv
 import hashlib
 import json
-from collections import defaultdict
 from pathlib import Path
 from statistics import median
 from typing import Any, Literal
@@ -24,7 +24,6 @@ from bijux_pollenomics.analysis.lra_validation.spatial import (
     half_count_composition,
 )
 from bijux_pollenomics.analysis.lra_validation.spatial.configuration import distance_km
-
 
 DATASETS = {
     "19913": {"label": "Abborrtjärnen", "site_id": "13338", "part": "part-004.json"},
@@ -384,7 +383,7 @@ def predict(target_dataset_id: str, workdir: Path, config_path: Path) -> None:
             tuple(profile["group_id"] for profile in train.values()),
             (target_group,),
         )
-        graph = {record_id: () for record_id in fold.train_record_ids}
+        graph = dict.fromkeys(fold.train_record_ids, ())
         fold_predictions: dict[str, dict[str, float]] = {}
         for baseline_method in BASELINE_METHODS:
             output = predict_spatial_baseline(

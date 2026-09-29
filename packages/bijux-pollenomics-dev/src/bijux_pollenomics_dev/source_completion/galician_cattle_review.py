@@ -185,7 +185,8 @@ def build(
         "mapping_table": capture / "mapping-table.xlsx",
         "archive": repository / ARCHIVE,
     }
-    archive_text = gzip.open(paths["archive"], "rt").read()
+    with gzip.open(paths["archive"], "rt") as archive_stream:
+        archive_text = archive_stream.read()
     source_accessions: set[str] = set()
     for row in csv.DictReader(StringIO(archive_text), delimiter="\t"):
         accession = row.get("sample_accession")

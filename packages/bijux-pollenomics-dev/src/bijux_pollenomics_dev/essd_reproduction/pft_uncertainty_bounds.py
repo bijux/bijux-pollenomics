@@ -21,7 +21,6 @@ from .pft_crosswalk import (
     _verified_sources,
 )
 
-
 GROUPS = {
     **OBSERVED_MEAN_GROUPS,
     "ISTS": ISTS_OUTPUT_TAXA,

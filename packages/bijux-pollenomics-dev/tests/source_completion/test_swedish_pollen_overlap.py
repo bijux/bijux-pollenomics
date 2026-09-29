@@ -9,7 +9,6 @@ import pytest
 
 from bijux_pollenomics_dev.source_completion.swedish_pollen_overlap import build
 
-
 REPOSITORY = Path(__file__).resolve().parents[4]
 SEQUENCES = REPOSITORY / "docs/report/pollen-reconstruction/swedish-native-sequences"
 

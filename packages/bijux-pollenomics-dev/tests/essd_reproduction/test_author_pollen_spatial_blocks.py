@@ -16,11 +16,11 @@ from bijux_pollenomics_dev.essd_reproduction.author_pollen_spatial import (
 from bijux_pollenomics_dev.essd_reproduction.author_pollen_spatial.comparison import (
     _group_comparisons,
 )
-from bijux_pollenomics_dev.essd_reproduction.author_pollen_spatial.fitted_prediction import (
-    predict_fitted_block,
-)
 from bijux_pollenomics_dev.essd_reproduction.author_pollen_spatial.fitted_comparison import (
     _paired_metrics,
+)
+from bijux_pollenomics_dev.essd_reproduction.author_pollen_spatial.fitted_prediction import (
+    predict_fitted_block,
 )
 from bijux_pollenomics_dev.essd_reproduction.author_pollen_spatial.hellinger_comparison import (
     _site_block_summaries,
@@ -28,12 +28,12 @@ from bijux_pollenomics_dev.essd_reproduction.author_pollen_spatial.hellinger_com
 from bijux_pollenomics_dev.essd_reproduction.author_pollen_spatial.scoring import (
     _paired_comparison,
 )
-from bijux_pollenomics_dev.essd_reproduction.author_pollen_spatial.taxon_errors import (
-    compare_taxon_errors,
-)
 from bijux_pollenomics_dev.essd_reproduction.author_pollen_spatial.source import (
     _buffered_training,
     _edge_distance_km,
+)
+from bijux_pollenomics_dev.essd_reproduction.author_pollen_spatial.taxon_errors import (
+    compare_taxon_errors,
 )
 
 

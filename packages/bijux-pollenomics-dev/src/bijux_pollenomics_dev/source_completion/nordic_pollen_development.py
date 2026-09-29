@@ -180,7 +180,7 @@ def _train_country(
                 train_groups,
                 tuple(target["group_id"] for target in observed),
             )
-            graph = {record_id: () for record_id in fold.train_record_ids}
+            graph = dict.fromkeys(fold.train_record_ids, ())
             coordinates = {
                 profile["group_id"]: _coordinate(profile) for profile in available
             }

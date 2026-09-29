@@ -6,20 +6,20 @@ access, or a scientific accuracy claim.
 
 from __future__ import annotations
 
+from collections.abc import Iterator
+from contextlib import contextmanager, suppress
 import fcntl
 import hashlib
 import json
 import math
 import os
+from pathlib import Path
 import re
 import stat
 import tempfile
 import time
-import uuid
-from collections.abc import Iterator
-from contextlib import contextmanager
-from pathlib import Path
 from typing import Any
+import uuid
 
 from bijux_pollenomics.analysis.lra_validation.evaluation.api import (
     reopen_cohort_admission,
@@ -501,10 +501,8 @@ def start_development_attempt(
         finally:
             if not published:
                 (staging / "start.json").unlink(missing_ok=True)
-                try:
+                with suppress(OSError):
                     staging.rmdir()
-                except OSError:
-                    pass
     return run_id
 
 

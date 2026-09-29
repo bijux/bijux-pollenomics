@@ -14,7 +14,6 @@ from bijux_pollenomics_dev.source_completion.landclim_taxonomy_mass import (
     publish,
 )
 
-
 REPOSITORY = Path(__file__).resolve().parents[4]
 SOURCE = Path(
     os.environ.get(

@@ -129,7 +129,7 @@ def derive(stage: dict[str, Any], coverage: dict[str, Any]) -> dict[str, Any]:
     ]
     if len(actual) != len(expected) or set(actual) != expected:
         raise ValueError("Country coverage Cartesian inventory changed")
-    by_key = {key: cell for key, cell in zip(actual, cells, strict=True)}
+    by_key = dict(zip(actual, cells, strict=True))
     by_stage = {row["source_key"]: row for row in rows}
     for family, role in SOURCE_ROLE_BOUNDARIES.items():
         if by_stage[family]["evidence_role"] != role:

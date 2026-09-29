@@ -19,7 +19,6 @@ from .published_window_correspondence import (
     SOURCE_REVISION,
 )
 
-
 _WINDOW = re.compile(r"(?P<start>-?\d+)-(?P<end>-?\d+) BP")
 
 

@@ -438,7 +438,7 @@ def reconcile(
     """Compare every source column and every published mean/SE grid row."""
     codes, definitions, source_groups = _source_mapping(mapping_content)
     windows: list[dict[str, object]] = []
-    max_residual = {code: 0.0 for code in SOURCE_GROUPS}
+    max_residual = dict.fromkeys(SOURCE_GROUPS, 0.0)
     se_disagreements: Counter[str] = Counter()
     with zipfile.ZipFile(archive_path) as archive:
         members = _members(archive)
@@ -450,7 +450,7 @@ def reconcile(
             error_ids = {row["LCGRID_ID"] for row in errors}
             if mean_ids != error_ids:
                 raise ValueError("PANGAEA mean/SE grid identity mismatch")
-            local_max = {code: 0.0 for code in SOURCE_GROUPS}
+            local_max = dict.fromkeys(SOURCE_GROUPS, 0.0)
             local_disagreement: Counter[str] = Counter()
             for row in means:
                 for lct, addends in OBSERVED_MEAN_GROUPS.items():

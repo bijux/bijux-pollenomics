@@ -2,8 +2,9 @@
 
 from __future__ import annotations
 
-import pytest
 from zipfile import ZipFile
+
+import pytest
 
 from bijux_pollenomics_dev.source_completion.abborrtjarne_core import (
     _count_labels,

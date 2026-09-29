@@ -7,14 +7,14 @@ thresholds, or authorize outcome access.
 
 from __future__ import annotations
 
+from dataclasses import dataclass
 import hashlib
 import json
 import math
 import os
+from pathlib import Path
 import re
 import stat
-from dataclasses import dataclass
-from pathlib import Path
 from typing import Any
 
 _SHA256 = re.compile(r"[0-9a-f]{64}\Z")

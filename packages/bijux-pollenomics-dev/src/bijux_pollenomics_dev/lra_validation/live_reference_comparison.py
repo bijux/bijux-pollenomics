@@ -19,7 +19,6 @@ from bijux_pollenomics_dev.lra_validation.reference_replay import (
     compare_vectors,
 )
 
-
 _SAFE_ENVIRONMENT = frozenset(
     {
         "R_LIBS_USER",

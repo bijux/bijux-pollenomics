@@ -17,7 +17,6 @@ from .nordic_author_target_pollen import (
 )
 from .nordic_direct_pollen import _json_write, _swedish_training
 
-
 NORDIC = Path("docs/report/regions/nordic/author-target-pollen")
 RAW = Path("data/neotoma/raw/neotoma_pollen_dataset_downloads")
 SWEDISH_CONFIG = Path(

@@ -9,7 +9,6 @@ from tempfile import TemporaryDirectory
 
 from bijux_pollenomics_dev.source_completion.swedish_pollen_sequences import build
 
-
 REPOSITORY = Path(__file__).resolve().parents[4]
 PUBLISHED = REPOSITORY / "docs/report/pollen-reconstruction/swedish-native-sequences"
 DATA = REPOSITORY / "data/neotoma/raw/neotoma_pollen_dataset_downloads"

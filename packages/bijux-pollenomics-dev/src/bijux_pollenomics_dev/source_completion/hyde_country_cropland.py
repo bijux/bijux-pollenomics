@@ -12,7 +12,6 @@ from pathlib import Path
 from xml.etree import ElementTree
 from zipfile import ZipFile
 
-
 SCENARIOS = ("base", "lower", "upper")
 COUNTRIES = {
     "DK": ("Denmark", "208"),

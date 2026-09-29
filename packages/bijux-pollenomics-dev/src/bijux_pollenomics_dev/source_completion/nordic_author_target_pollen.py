@@ -38,7 +38,6 @@ from .nordic_direct_pollen import (
     _swedish_training,
 )
 
-
 RELATIONAL = Path("data/neotoma/relational")
 RAW = Path("data/neotoma/raw/neotoma_pollen_dataset_downloads")
 SWEDISH = Path("docs/report/pollen-reconstruction/swedish-direct-pollen")
@@ -378,7 +377,7 @@ def predict(
                         compositions,
                         method=method,
                         input_ids=record_ids,
-                        dependency_graph={record_id: () for record_id in record_ids},
+                        dependency_graph=dict.fromkeys(record_ids, ()),
                         distances_km=distances if method != "training_mean" else None,
                         predictor_group_ids=group_ids,
                     )

@@ -11,7 +11,6 @@ import json
 from pathlib import Path
 from typing import Any
 
-
 SOURCE = Path("landclim/pangaea/solsoe/solsoe81-age-740759.txt")
 SOURCE_SHA256 = "9934dd802fa7b7094c2a6cc08fff90ef29c1c630a092787c4f4a3aac96be6be0"
 DOI = "10.1594/PANGAEA.740759"

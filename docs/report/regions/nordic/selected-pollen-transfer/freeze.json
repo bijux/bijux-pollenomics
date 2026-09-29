@@ -1,6 +1,6 @@
 {
   "schema_version": "nordic-selected-pollen-freeze.v1",
-  "producer_sha256": "871bbb6c0a28072342b48f1d3b04af9ac226264ac2c6e6bc6d12a92acaba1b79",
+  "producer_sha256": "6c39a1e50f385c540e27ba3eebcae064041a01c77d21f3d75faa0c8b02f55cb6",
   "selection_report_sha256": "3189271a721554e9384b70b9ff9ca9f183de4a593e37cb84f2b519cb2a112dde",
   "published_fixed_manifest_sha256": "3e7814bf9697783397cdce11639ebc861620a6a3c9d9295d1357ab69bc7b5edf",
   "prepared_manifest_sha256": "d1e20733eeabde12ab8ab2ee3ff687cd854c2fee4269fb20fe175365267d99d5",

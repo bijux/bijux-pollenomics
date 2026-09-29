@@ -3,11 +3,11 @@
 from __future__ import annotations
 
 import argparse
+from collections import Counter, defaultdict
 import csv
 import hashlib
 import json
 import math
-from collections import Counter, defaultdict
 from pathlib import Path
 from statistics import median
 from typing import Any, Literal
@@ -27,7 +27,6 @@ from bijux_pollenomics.analysis.lra_validation.spatial import (
     half_count_composition,
 )
 from bijux_pollenomics.analysis.lra_validation.spatial.configuration import distance_km
-
 
 BASELINE_METHODS: tuple[
     Literal["training_mean"],
@@ -166,7 +165,7 @@ def _site_coordinate(geography: str) -> SiteCoordinate:
                 area_twice = 0.0
                 centroid_x = 0.0
                 centroid_y = 0.0
-                for current, following in zip(ring, ring[1:] + ring[:1]):
+                for current, following in zip(ring, ring[1:] + ring[:1], strict=True):
                     cross = current[0] * following[1] - following[0] * current[1]
                     area_twice += cross
                     centroid_x += (current[0] + following[0]) * cross
@@ -675,7 +674,7 @@ def predict_country(workdir: Path, country: str) -> None:
                 group_ids,
                 (target_group,),
             )
-            graph = {record_id: () for record_id in record_ids}
+            graph = dict.fromkeys(record_ids, ())
             compositions = {
                 profile["group_id"]: {
                     taxon: count / profile["bins"][bin_id]["closed_nisp"]

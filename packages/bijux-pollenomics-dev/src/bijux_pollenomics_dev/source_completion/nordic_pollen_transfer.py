@@ -3,9 +3,9 @@
 from __future__ import annotations
 
 import argparse
+from collections import defaultdict
 import csv
 import json
-from collections import defaultdict
 from pathlib import Path
 from statistics import mean
 from typing import Any
@@ -182,7 +182,7 @@ def predict(repository: Path, inputs: Path, output: Path) -> dict[str, Any]:
                 train_groups,
                 tuple(target["group_id"] for target in targets),
             )
-            graph = {record_id: () for record_id in fold.train_record_ids}
+            graph = dict.fromkeys(fold.train_record_ids, ())
             coordinates = {
                 profile["group_id"]: _coordinate(profile) for profile in available
             }

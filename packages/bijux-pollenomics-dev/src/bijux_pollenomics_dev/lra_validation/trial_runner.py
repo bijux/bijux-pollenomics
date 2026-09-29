@@ -6,15 +6,16 @@ admit a reference population, open final-test labels or select a model.
 
 from __future__ import annotations
 
+from contextlib import suppress
 import hashlib
 import json
 import math
 import os
+from pathlib import Path
 import signal
 import subprocess
 import sys
 import time
-from pathlib import Path
 from typing import Any, cast
 
 from .experiment_ledger import (
@@ -81,16 +82,12 @@ def _terminate_process_group(process: subprocess.Popen[bytes]) -> None:
     try:
         process.wait(timeout=1)
     except subprocess.TimeoutExpired:
-        try:
+        with suppress(ProcessLookupError):
             os.killpg(process.pid, signal.SIGKILL)
-        except ProcessLookupError:
-            pass
         process.wait()
     else:
-        try:
+        with suppress(ProcessLookupError):
             os.killpg(process.pid, signal.SIGKILL)
-        except ProcessLookupError:
-            pass
 
 
 def run_development_trial(plan: dict[str, object]) -> int:
@@ -151,10 +148,8 @@ def run_development_trial(plan: dict[str, object]) -> int:
         nonlocal interrupted_signal
         interrupted_signal = signum
         if process is not None:
-            try:
+            with suppress(ProcessLookupError):
                 os.killpg(process.pid, signal.SIGTERM)
-            except ProcessLookupError:
-                pass
 
     previous_handlers = {
         signum: signal.signal(signum, interrupt)

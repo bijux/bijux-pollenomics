@@ -179,7 +179,7 @@ def publish(repository: Path, output: Path) -> dict[str, Any]:
             "inference_scope": "descriptive_two_site_pollen_only_no_age_bounds",
         }
         for minimum in (0.005, 0.01)
-        for younger, older in zip(windows, windows[1:])
+        for younger, older in zip(windows, windows[1:], strict=False)
         for taxon in TAXA
     ]
     broad_windows: list[dict[str, Any]] = []
@@ -222,7 +222,7 @@ def publish(repository: Path, output: Path) -> dict[str, Any]:
             ),
         }
         for minimum in (0.005, 0.01)
-        for younger, older in zip(broad_windows, broad_windows[1:])
+        for younger, older in zip(broad_windows, broad_windows[1:], strict=False)
         for taxon in TAXA
     ]
     report: dict[str, Any] = {

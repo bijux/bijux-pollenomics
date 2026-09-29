@@ -50,7 +50,7 @@ def publish(source_root: Path, output: Path) -> dict[str, object]:
         or len(targets) != 31
         or len(set(targets)) != 31
         or [row[0] for row in crosswalk_rows[1:]] != targets
-        or len(set(row[1] for row in crosswalk_rows[1:])) != 31
+        or len({row[1] for row in crosswalk_rows[1:]}) != 31
     ):
         raise ValueError("Author target or prepared taxon axes changed")
     prepared_names = dict(crosswalk_rows[1:])

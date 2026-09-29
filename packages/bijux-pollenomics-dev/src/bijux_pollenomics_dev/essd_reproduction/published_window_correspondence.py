@@ -74,7 +74,7 @@ def _published_rows(
     source_rows: list[dict[str, int]] = []
     for name in (MEAN_MEMBER, SE_MEMBER):
         with archive.open(name) as stream:
-            reader = csv.DictReader((line.decode("utf-8") for line in stream))
+            reader = csv.DictReader(line.decode("utf-8") for line in stream)
             header = reader.fieldnames
             if (
                 header is None

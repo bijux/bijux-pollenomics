@@ -81,9 +81,11 @@ def test_incomplete_archive_and_nonfinite_output_are_refused() -> None:
     with zipfile.ZipFile(buffer, "w") as writer:
         writer.writestr("LANDCLIMII.RV.means.JUN2021/TW1.RV.estimates.jun21.csv", "")
     buffer.seek(0)
-    with zipfile.ZipFile(buffer) as archive:
-        with pytest.raises(ValueError, match="archive incomplete"):
-            _members(archive)
+    with (
+        zipfile.ZipFile(buffer) as archive,
+        pytest.raises(ValueError, match="archive incomplete"),
+    ):
+        _members(archive)
     with pytest.raises(ValueError, match="nonfinite ISTS"):
         _finite({"ISTS": "nan"}, "ISTS")
 

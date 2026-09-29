@@ -17,11 +17,11 @@ from ..observed_pollen_baseline import _checked, _site_counts
 from .fitted_prediction import METHOD_LABEL as FITTED_METHOD_LABEL
 from .prediction import METHOD_LABELS
 from .source import (
-    AuthorStudy,
-    GRIDS,
     BUFFER_KM,
+    GRIDS,
     SOURCE_REVISION,
     STATUS_FIELDS,
+    AuthorStudy,
     _hash,
     _rows,
     _write_rows,

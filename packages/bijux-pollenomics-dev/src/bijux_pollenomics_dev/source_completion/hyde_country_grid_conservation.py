@@ -23,7 +23,6 @@ from .hyde_country_cropland import (
     _table,
 )
 
-
 ZIP_PATH = "original/gbc2025_7apr_{scenario}/zip/{year}AD_lu.zip"
 ISO_MEMBER = "general_files/iso_cr.asc"
 CROP_MEMBER = "cropland{year}AD.asc"
@@ -58,7 +57,7 @@ def _iso_positions(
     archive: bytes, codes: dict[str, str]
 ) -> tuple[list[dict[str, list[int]]], dict[str, int]]:
     positions: list[dict[str, list[int]]] = []
-    counts = {country: 0 for country in COUNTRIES}
+    counts = dict.fromkeys(COUNTRIES, 0)
     by_code = {code: country for country, code in codes.items()}
     _require_unique_member(archive, ISO_MEMBER)
     with ZipFile(BytesIO(archive)) as zipped, zipped.open(ISO_MEMBER) as stream:
@@ -85,8 +84,8 @@ def _crop_totals(
     archive: bytes, positions: list[dict[str, list[int]]], member: str
 ) -> tuple[dict[str, Decimal], dict[str, int], dict[str, int]]:
     totals = {country: Decimal(0) for country in COUNTRIES}
-    valid = {country: 0 for country in COUNTRIES}
-    zeros = {country: 0 for country in COUNTRIES}
+    valid = dict.fromkeys(COUNTRIES, 0)
+    zeros = dict.fromkeys(COUNTRIES, 0)
     _require_unique_member(archive, member)
     with ZipFile(BytesIO(archive)) as zipped, zipped.open(member) as stream:
         _header(stream)
