@@ -201,6 +201,19 @@
     "training_support_refusals": 3,
     "status": "prior_exposed_observed_pollen_subcomposition; no LRA or measured vegetation claim"
   },
+  "swedish_neotoma_holdout": {
+    "report": "docs/report/regions/nordic/swedish-neotoma-holdout/report.json",
+    "protocol": "docs/report/regions/nordic/swedish-neotoma-holdout/protocol.json",
+    "prediction_freeze": "docs/report/regions/nordic/swedish-neotoma-holdout/prediction-freeze.json",
+    "physical_core_sites": 1,
+    "selected_samples": 77,
+    "excluded_parallel_dataset_samples": 77,
+    "candidate_and_scored_site_bins": 22,
+    "fixed_method_score_rows": 66,
+    "native_pollen_nisp": 35767,
+    "author_assigned_nisp": 35505,
+    "status": "additional_prior_exposed_development_transfer; no LRA, vegetation or country-wide claim"
+  },
   "pft_uncertainty_bounds": {
     "report": "docs/report/publication-replay/landclim-pft-crosswalk/uncertainty-bounds/report.json",
     "groups": 5,
