@@ -1,0 +1,393 @@
+{
+  "schema_version": "swedish-lake-core-artifact-retirement.v1",
+  "retired_directory": "artifacts/v4/swedish-lake-leads",
+  "entries": [
+    {
+      "path": "bokesjon-native-counts-repeated-labels/REPORT.md",
+      "bytes": 952,
+      "type": "regular",
+      "sha256": "b944d722e920cf4a0ffa4cd4b1c636c96943ac0012858f6918229f2907b64d99"
+    },
+    {
+      "path": "bokesjon-native-counts-repeated-labels/cell-correspondence.csv",
+      "bytes": 156945,
+      "type": "regular",
+      "sha256": "da749fdf0406f7231edf1a088d51b7b3330a28285cb32ed2f8f8b197f96255fb"
+    },
+    {
+      "path": "bokesjon-native-counts-repeated-labels/report.json",
+      "bytes": 6457,
+      "type": "regular",
+      "sha256": "338601a327b044ce0bc5bb2f26eea0a6911ca06e2a55253892717ae689ea9cc1"
+    },
+    {
+      "path": "bussjosjon-native-counts/REPORT.md",
+      "bytes": 696,
+      "type": "regular",
+      "sha256": "f1cd1c0c7d647f48df4a4fc70a7d104cd03b8d43e36f14f3cafe3a0ac7992f8a"
+    },
+    {
+      "path": "bussjosjon-native-counts/cell-correspondence.csv",
+      "bytes": 269041,
+      "type": "regular",
+      "sha256": "f87f370a7887c8d01e13b37dfc7304877f1f9bd678cba743df1c31621d0ffe78"
+    },
+    {
+      "path": "bussjosjon-native-counts/report.json",
+      "bytes": 970,
+      "type": "regular",
+      "sha256": "d4085d250bfa91164bf3974877740b9dc5262a8a49e71eeee1ea882b7472283c"
+    },
+    {
+      "path": "checks-mass.plan.json",
+      "bytes": 2318,
+      "type": "regular",
+      "sha256": "6c4480fcde08e0dbd0a36f267897120cfdc53f19c4c03b9ac7793616ca72d235"
+    },
+    {
+      "path": "checks-rendered.plan.json",
+      "bytes": 2338,
+      "type": "regular",
+      "sha256": "80d9bde20f11a98a24c5d0bcc4134b4bf0ea27caa1b53a8d6e1f3179d5b16fa7"
+    },
+    {
+      "path": "checks-typed.plan.json",
+      "bytes": 2323,
+      "type": "regular",
+      "sha256": "9f9c7d9e4f7182bc8b0dd5ab811af7a6275196eb9f0390df9c31c47be883e821"
+    },
+    {
+      "path": "checks.plan.json",
+      "bytes": 2293,
+      "type": "regular",
+      "sha256": "c82adfeca1d93eab7833d0d62eebab21186b22031eb4f230e7aaa598e4731776"
+    },
+    {
+      "path": "mass-probe.plan.json",
+      "bytes": 1697,
+      "type": "regular",
+      "sha256": "08a280151929d9c5823b3a5ea14655cd67a02521290f1991694b727309a54a66"
+    },
+    {
+      "path": "native-age-correspondence/REPORT.md",
+      "bytes": 1507,
+      "type": "regular",
+      "sha256": "29f506526a7d19f94289a6ae7bd4ec352a9f1cad36cdee71836c4662370d588c"
+    },
+    {
+      "path": "native-age-correspondence/report.json",
+      "bytes": 7918,
+      "type": "regular",
+      "sha256": "9416552ffdd6538d17ae4d67b76e7e222032fe13777ac701f7289d90c5adae7f"
+    },
+    {
+      "path": "native-age-correspondence.plan.json",
+      "bytes": 2546,
+      "type": "regular",
+      "sha256": "9643e18e98354c6e36416872255375ccbbaf4cf31a9889e1ab284432a8e2a7c9"
+    },
+    {
+      "path": "native-age-style.plan.json",
+      "bytes": 1212,
+      "type": "regular",
+      "sha256": "f75a03616105970a232585eff30e9791a49973ffc9515ddfb03396d376a6b616"
+    },
+    {
+      "path": "native-age-tests.plan.json",
+      "bytes": 1255,
+      "type": "regular",
+      "sha256": "15b57116d676616157d1a76305ea4ef2ab77adc3649a0a68128ce5208bf8b18f"
+    },
+    {
+      "path": "native-age-types.plan.json",
+      "bytes": 949,
+      "type": "regular",
+      "sha256": "e5d37fd592684c2323944b796f7201f8c4e44c01f8d7983eac68e004c7c18711"
+    },
+    {
+      "path": "native-series-checks.plan.json",
+      "bytes": 1286,
+      "type": "regular",
+      "sha256": "42c0ae1b412432b6623036f6a3659414267b092ba218d86f077c63c9a4a400a0"
+    },
+    {
+      "path": "native-series-coverage/REPORT.md",
+      "bytes": 1419,
+      "type": "regular",
+      "sha256": "9de9d180864475eefbb6255764829537eec17381a623460657c10af64e6d040d"
+    },
+    {
+      "path": "native-series-coverage/report.json",
+      "bytes": 7700,
+      "type": "regular",
+      "sha256": "5f3f2e265f5b7fd0429c7e172d1f0378b9ad0c768df8bee31a4d97c34238b547"
+    },
+    {
+      "path": "native-series-coverage.plan.json",
+      "bytes": 2541,
+      "type": "regular",
+      "sha256": "0ab99c1b65d9db17c8bdd1b85b7f90df77879b38d3e38a178e7411721a5c5978"
+    },
+    {
+      "path": "projection-probe.plan.json",
+      "bytes": 1256,
+      "type": "regular",
+      "sha256": "7817e03ac62d6cd5ffc3f25ffd4ed0377d8145931373c7d38b7de1ab7f4705f9"
+    },
+    {
+      "path": "pytest-cache-mass/.gitignore",
+      "bytes": 37,
+      "type": "regular",
+      "sha256": "3ed731b65d06150c138e2dadb0be0697550888a6b47eb8c45ecc9adba8b8e9bd"
+    },
+    {
+      "path": "pytest-cache-mass/CACHEDIR.TAG",
+      "bytes": 191,
+      "type": "regular",
+      "sha256": "37dc88ef9a0abeddbe81053a6dd8fdfb13afb613045ea1eb4a5c815a74a3bde4"
+    },
+    {
+      "path": "pytest-cache-mass/README.md",
+      "bytes": 302,
+      "type": "regular",
+      "sha256": "73fd6fccdd802c419a6b2d983d6c3173b7da97558ac4b589edec2dfe443db9ad"
+    },
+    {
+      "path": "pytest-cache-mass/v/cache/nodeids",
+      "bytes": 200,
+      "type": "regular",
+      "sha256": "5ecbab751532ee04030a0523642a106a20476ad7c0b46d7aeef4343ac0e435dd"
+    },
+    {
+      "path": "pytest-cache-typed/.gitignore",
+      "bytes": 37,
+      "type": "regular",
+      "sha256": "3ed731b65d06150c138e2dadb0be0697550888a6b47eb8c45ecc9adba8b8e9bd"
+    },
+    {
+      "path": "pytest-cache-typed/CACHEDIR.TAG",
+      "bytes": 191,
+      "type": "regular",
+      "sha256": "37dc88ef9a0abeddbe81053a6dd8fdfb13afb613045ea1eb4a5c815a74a3bde4"
+    },
+    {
+      "path": "pytest-cache-typed/README.md",
+      "bytes": 302,
+      "type": "regular",
+      "sha256": "73fd6fccdd802c419a6b2d983d6c3173b7da97558ac4b589edec2dfe443db9ad"
+    },
+    {
+      "path": "pytest-cache-typed/v/cache/nodeids",
+      "bytes": 200,
+      "type": "regular",
+      "sha256": "5ecbab751532ee04030a0523642a106a20476ad7c0b46d7aeef4343ac0e435dd"
+    },
+    {
+      "path": "pytest-tmp-mass/test_published_radius_needs_do0/metadata.xlsx",
+      "bytes": 908,
+      "type": "regular",
+      "sha256": "5ec2b147524a515b7a4a7d3099eabe44ff4cc193228e30de2aaebed7e2ac0bc6"
+    },
+    {
+      "path": "pytest-tmp-mass/test_published_radius_needs_docurrent",
+      "bytes": 116,
+      "type": "symlink",
+      "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/v4/swedish-lake-leads/pytest-tmp-mass/test_published_radius_needs_do0"
+    },
+    {
+      "path": "pytest-tmp-typed/test_published_radius_needs_do0/metadata.xlsx",
+      "bytes": 908,
+      "type": "regular",
+      "sha256": "ab76448a64a16c09ce50b221823db7aab3c82fcad0e0d6adbc4441082e61fb69"
+    },
+    {
+      "path": "pytest-tmp-typed/test_published_radius_needs_docurrent",
+      "bytes": 117,
+      "type": "symlink",
+      "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/v4/swedish-lake-leads/pytest-tmp-typed/test_published_radius_needs_do0"
+    },
+    {
+      "path": "raw-probe.plan.json",
+      "bytes": 1637,
+      "type": "regular",
+      "sha256": "cf883ef3bc6396e5f39539467e18e9b0948165df8496110bd4ed545be093280d"
+    },
+    {
+      "path": "science-mass.plan.json",
+      "bytes": 2527,
+      "type": "regular",
+      "sha256": "98eba0b92b8854f0fc85f21cf9aa0aa2e77099662a5ada3bf9a3e520812503a5"
+    },
+    {
+      "path": "science-rendered.plan.json",
+      "bytes": 2539,
+      "type": "regular",
+      "sha256": "34a70d90b210d8553019f18a4f0269b2a594cba4f9025b4c12ab2eb7c071fe26"
+    },
+    {
+      "path": "science-typed.plan.json",
+      "bytes": 2530,
+      "type": "regular",
+      "sha256": "a87befdc1956389f36824fe3dd5c0cda8f2e2dff1d9244cfedb1494caf4b9bad"
+    },
+    {
+      "path": "science.plan.json",
+      "bytes": 2512,
+      "type": "regular",
+      "sha256": "14c25be4f6800e1c8b84ae64fc09bc586f7b79ddd529c8b682b25e689c3fa7ae"
+    },
+    {
+      "path": "source-comparison/report.json",
+      "bytes": 4339,
+      "type": "regular",
+      "sha256": "296a5d0016988167f7a881b85c6ca677d71ba59ce99c473080931665ff82c780"
+    },
+    {
+      "path": "source-comparison-mass/REPORT.md",
+      "bytes": 1020,
+      "type": "regular",
+      "sha256": "6443187903e30d017a39745a4bb0e3df3053f00fb4fdce2fb6fa95f3ceb16112"
+    },
+    {
+      "path": "source-comparison-mass/report.json",
+      "bytes": 6307,
+      "type": "regular",
+      "sha256": "be9239acb42bcc921c3f6052a35921e97cb39feec82efe30dde9e7c72f34e0c4"
+    },
+    {
+      "path": "source-comparison-rendered/REPORT.md",
+      "bytes": 1020,
+      "type": "regular",
+      "sha256": "6443187903e30d017a39745a4bb0e3df3053f00fb4fdce2fb6fa95f3ceb16112"
+    },
+    {
+      "path": "source-comparison-rendered/report.json",
+      "bytes": 4339,
+      "type": "regular",
+      "sha256": "296a5d0016988167f7a881b85c6ca677d71ba59ce99c473080931665ff82c780"
+    },
+    {
+      "path": "source-comparison-typed/REPORT.md",
+      "bytes": 1020,
+      "type": "regular",
+      "sha256": "6443187903e30d017a39745a4bb0e3df3053f00fb4fdce2fb6fa95f3ceb16112"
+    },
+    {
+      "path": "source-comparison-typed/report.json",
+      "bytes": 4339,
+      "type": "regular",
+      "sha256": "296a5d0016988167f7a881b85c6ca677d71ba59ce99c473080931665ff82c780"
+    },
+    {
+      "path": "source-probe.plan.json",
+      "bytes": 1604,
+      "type": "regular",
+      "sha256": "3385fff2ca33ddca8cdb3e1758358becff5ecc68b3131b5ae674f8d7ad78f1e5"
+    },
+    {
+      "path": "v4-bokesjon-native-axis-probe-20260925.plan.json",
+      "bytes": 2637,
+      "type": "regular",
+      "sha256": "cae4d65be372c4b8b65771d175775a8c058c7cb7d71c499efdf322c5a9ab30e1"
+    },
+    {
+      "path": "v4-bokesjon-native-count-probe-20260925.plan.json",
+      "bytes": 1905,
+      "type": "regular",
+      "sha256": "fc3ac30fdce0a52340a934e6dcc2c14282900c2bc531f8d6fd6fe92a40476aa5"
+    },
+    {
+      "path": "v4-bokesjon-native-count-probe-corrected-20260925.plan.json",
+      "bytes": 1897,
+      "type": "regular",
+      "sha256": "68107043d0174aa4b4db030e1f75c30c4f520370892c259aa32071215eefb362"
+    },
+    {
+      "path": "v4-bokesjon-native-science-20260925.plan.json",
+      "bytes": 1629,
+      "type": "regular",
+      "sha256": "7f264d8f7baf315c85315d4d063f502818368d8dfae66cf572c7e7897db8f929"
+    },
+    {
+      "path": "v4-bokesjon-native-science-repeated-labels-20260925.plan.json",
+      "bytes": 1677,
+      "type": "regular",
+      "sha256": "b0b1abe13531ac2ded745922b5487a538050013400a731198f7cd4af6cbf1a87"
+    },
+    {
+      "path": "v4-bokesjon-native-style-20260925.plan.json",
+      "bytes": 1341,
+      "type": "regular",
+      "sha256": "5b6e5fab3a23f9e09a3cc2a93138030c5da504ba68417bd1c4b8ac42e56776eb"
+    },
+    {
+      "path": "v4-bokesjon-native-style-repeated-labels-20260925.plan.json",
+      "bytes": 1357,
+      "type": "regular",
+      "sha256": "b348c02ef7d3116f625ad42e0286019fcadba6f2743328085a7ee17dbc435135"
+    },
+    {
+      "path": "v4-bokesjon-native-tests-20260925.plan.json",
+      "bytes": 1291,
+      "type": "regular",
+      "sha256": "a09cc26d84eab5ae83925836cd43c45e98600d5845131ee790a816570dfe1a97"
+    },
+    {
+      "path": "v4-bokesjon-native-tests-repeated-labels-20260925.plan.json",
+      "bytes": 1334,
+      "type": "regular",
+      "sha256": "0f6668cae1bd4c31aeceeb2cb07e06d25f2295559a0acb614bc3565ac4e4bf35"
+    },
+    {
+      "path": "v4-bokesjon-repeated-taxon-probe-20260925.plan.json",
+      "bytes": 1585,
+      "type": "regular",
+      "sha256": "dd5b0dcb3194c3669547259cb8d6886fe1405542846c6bd410f27f5894a0b022"
+    },
+    {
+      "path": "v4-bussjosjon-casefold-count-probe-20260925.plan.json",
+      "bytes": 2668,
+      "type": "regular",
+      "sha256": "2a87adee9ab8bbbce1f168e7a6b7a42ab9a35806e07382b4cb0ed1e03b17c46b"
+    },
+    {
+      "path": "v4-bussjosjon-native-axis-probe-20260925.plan.json",
+      "bytes": 1881,
+      "type": "regular",
+      "sha256": "e089debaa81782cfb62adebe05c3031d49edb7be1a15248da9cfdddebab640ef"
+    },
+    {
+      "path": "v4-bussjosjon-native-science-20260925.plan.json",
+      "bytes": 1632,
+      "type": "regular",
+      "sha256": "353a7c700276d54d6abdea45ddb698a6f407497a140696884c6ed31397783886"
+    },
+    {
+      "path": "v4-bussjosjon-native-style-20260925.plan.json",
+      "bytes": 1351,
+      "type": "regular",
+      "sha256": "c6408e84b999757913f05b5c3e357e7c8da078a3726a89b146ca85aa4fa82af9"
+    },
+    {
+      "path": "v4-bussjosjon-native-tests-20260925.plan.json",
+      "bytes": 1306,
+      "type": "regular",
+      "sha256": "cb200ad908ca8df750ae305ab6f31f5ef650dfcddb433abb4f457c83997daa71"
+    },
+    {
+      "path": "v4-swedish-two-lake-native-probe-20260925.plan.json",
+      "bytes": 1596,
+      "type": "regular",
+      "sha256": "494481a71834183a5b0153e318d7b842dc0a8fcdc4dc05883e8dcf5fee0560c4"
+    }
+  ],
+  "governed_core_report": "docs/report/source-relations/neotoma/swedish-lake-core-identity/README.md",
+  "governed_native_reports": [
+    "docs/report/source-relations/neotoma/bus-native-correspondence/README.md",
+    "docs/report/source-relations/neotoma/boke-native-correspondence/README.md"
+  ],
+  "result_relation": "The final historical two-lake age report has every scientific JSON field and generated Markdown reproduced by the governed current report; only input hashes differ. Earlier comparison variants have the same scientific values or observation-only label counts that the later report retains with both observation and mass totals. BUS and BOKE artifact native reports have all shared values identical to the governed reports; the governed BUS report adds a zero-only duplicate-column diagnostic, and BOKE adds an age-label tolerance result. Their cell CSVs are reproducible from retained private workbooks and raw Neotoma inputs, with rights still unresolved.",
+  "consumer_check": "The sole repository mention is in a retained historical unsent Swedish source request; no live consumer reads this directory.",
+  "liveness_check": "lsof +D returned no open files; 61 regular files have one hardlink each and two pytest symlinks point within this directory.",
+  "scientific_admission": "No cross-source core identity, basin-radius transfer, complete pollen denominator, source right or LRA sample admitted."
+}

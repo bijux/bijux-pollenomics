@@ -202,6 +202,16 @@ from retained source inputs. All four old native-count reports match that
 summary exactly. No file was open or multiply linked, and the only repository
 path mention is historical.
 
+The [two-lake core retirement receipt](swedish-lake-core-retirement.json)
+binds 61 files and two pytest symlinks from the earlier Bussjösjön and
+Bökesjön working directory. The governed [core and age comparison](../../source-relations/neotoma/swedish-lake-core-identity/README.md)
+reproduces its final scientific fields using current prerequisite inputs and
+two selected independent count-mass rows. The governed BUS and BOKE native
+reports retain their source summaries and add later diagnostics; private
+cell-level CSVs remain reproducible from the retained source inputs. No file
+was open or multiply linked, and the sole repository path mention is
+historical.
+
 The [earlier scientific report provenance](scientific-report-provenance/README.md)
 retains exact results, scope, and evidence-manifest bytes from the previous
 11-result study. The current report has 17 result rows and a passing 170-file
