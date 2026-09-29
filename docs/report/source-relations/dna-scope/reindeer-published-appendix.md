@@ -29,3 +29,15 @@ the citation year, all 108 column O values add the project accession, and
 two column M sequencing labels differ. The published table does not add an
 independent vegetation or pollen observation; it strengthens specimen-level
 source attribution for the aDNA comparator.
+
+The same user transfer included an alternate article PDF (SHA-256
+`cf4a27fb5c32fef13b024b43145e9fe7e2975c02acf2ffae3b754c2f77d8cd84`)
+and a mitogenome FASTA (SHA-256
+`fae6416e162e3fc66f552b3cb49803f2b4050006bd8c55785fe9544ccdd424da`).
+The PDF embeds the article DOI. The FASTA has 112 records, each 16,362 bases;
+the [Dryad record](https://doi.org/10.5061/dryad.tht76hf5n) lists its exact
+filename as the study's final mitogenome alignment. Both user-supplied files
+and a custody manifest are retained under
+`bijux-pollenomics-data/adna/prjeb60484/published-article-and-alignment/`.
+Direct publisher and Dryad byte parity remain unverified. These two files are
+not consumed by the sample-master join or treated as new specimens.
