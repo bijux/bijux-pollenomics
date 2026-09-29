@@ -183,6 +183,17 @@ is retained byte for byte with its historical status explained; current Swedish
 source questions supersede its admission claims. No file was open or had another
 hardlink, and the sole repository path mention is historical replay provenance.
 
+The [buffered author-pollen retirement receipt](author-buffered-pollen-retirement.json)
+binds 577 regular files and 56 internal symlinks from the earlier two-grid
+spatial-block working directory. The [governed English study](../../pollen-reconstruction/author-buffered-pollen/README.md)
+retains the four final prediction and score chains, paired baseline/taxon and
+Hellinger diagnostics, fixed fitted comparison, and strict CLR support result.
+Current consumers reproduced all four governing comparison reports from the
+retained inputs. Earlier baseline and site reports add no non-schema values
+to the retained taxon report; the remaining plans and fixtures are process
+products. No file was open or multiply linked, and no live report or package
+consumer reads the retired directory. Scientific admission is unchanged.
+
 The [Swedish site comparison retirement receipt](swedish-site-identity-retirement.json)
 binds 25 process and result files from the earlier 37-site cross-source review.
 The governed [current comparison](../../source-relations/neotoma/landclim-site-identity/README.md)

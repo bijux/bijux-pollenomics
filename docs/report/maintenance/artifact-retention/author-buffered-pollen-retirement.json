@@ -1,0 +1,3754 @@
+{
+  "schema_version": "author-buffered-pollen-artifact-retirement.v1",
+  "retired_directory": "artifacts/v4/author-pollen-spatial-block",
+  "entries": [
+    {
+      "path": "baseline-comparison-verified/REPORT.md",
+      "type": "regular",
+      "bytes": 918,
+      "sha256": "5dfb4d7a3fa14d371a5124f9c65b41cfca4000ee16943cf59502217080795057"
+    },
+    {
+      "path": "baseline-comparison-verified/report.json",
+      "type": "regular",
+      "bytes": 1987,
+      "sha256": "19f9d1de88e9f7283d3ef1c60ad17d3c8b6b15ba12a0573aa39ddfbb2c9910f9"
+    },
+    {
+      "path": "baseline-comparison/REPORT.md",
+      "type": "regular",
+      "bytes": 918,
+      "sha256": "5dfb4d7a3fa14d371a5124f9c65b41cfca4000ee16943cf59502217080795057"
+    },
+    {
+      "path": "baseline-comparison/report.json",
+      "type": "regular",
+      "bytes": 1987,
+      "sha256": "19f9d1de88e9f7283d3ef1c60ad17d3c8b6b15ba12a0573aa39ddfbb2c9910f9"
+    },
+    {
+      "path": "checks-a.plan.json",
+      "type": "regular",
+      "bytes": 2536,
+      "sha256": "afd95491a949056ff824fe5c8d4910fca38e2598adc2a4c32c800421a73e769d"
+    },
+    {
+      "path": "checks-b.plan.json",
+      "type": "regular",
+      "bytes": 2536,
+      "sha256": "76c27689ce4e4bf70802180bd7abe8ed08c5552dbc57a90e9356e9254b1d8fb8"
+    },
+    {
+      "path": "checks-c.plan.json",
+      "type": "regular",
+      "bytes": 2536,
+      "sha256": "e34516aa5f938b17d16bf821545d305013dc85670f5b54a0c096f6917b9d6a4b"
+    },
+    {
+      "path": "checks-final.plan.json",
+      "type": "regular",
+      "bytes": 3883,
+      "sha256": "56b23b0032e157406fba9d699be123e11a4f02e4f747697fd59f41ba2ce4803f"
+    },
+    {
+      "path": "comparison-verified.plan.json",
+      "type": "regular",
+      "bytes": 3376,
+      "sha256": "69be26187afb08d71ec05b50b1f17da73033a03aa0b1110faf8db4edd48c360a"
+    },
+    {
+      "path": "comparison.plan.json",
+      "type": "regular",
+      "bytes": 3349,
+      "sha256": "d009b6aad439d7c13f62ece4ceabf773b5499f829d1a46c77b207321348fd739"
+    },
+    {
+      "path": "fitted-pollen/checks.plan.json",
+      "type": "regular",
+      "bytes": 3362,
+      "sha256": "541ef831b9ef63253481a4e2db3c9daf1b4dcd91647c128752e4a78121008ed6"
+    },
+    {
+      "path": "fitted-pollen/common-support-comparison-final/REPORT.md",
+      "type": "regular",
+      "bytes": 1141,
+      "sha256": "6c8eab1a9ff11367dd701c6ecf52d1d20a761827f06c9e12342671ee35c86534"
+    },
+    {
+      "path": "fitted-pollen/common-support-comparison-final/report.json",
+      "type": "regular",
+      "bytes": 14936,
+      "sha256": "8c9d218fd294cfbe485a153d1e635f953146e408bd5aa31321e2cf1b4036754a"
+    },
+    {
+      "path": "fitted-pollen/common-support-comparison-typed/REPORT.md",
+      "type": "regular",
+      "bytes": 1141,
+      "sha256": "6c8eab1a9ff11367dd701c6ecf52d1d20a761827f06c9e12342671ee35c86534"
+    },
+    {
+      "path": "fitted-pollen/common-support-comparison-typed/report.json",
+      "type": "regular",
+      "bytes": 14936,
+      "sha256": "8c9d218fd294cfbe485a153d1e635f953146e408bd5aa31321e2cf1b4036754a"
+    },
+    {
+      "path": "fitted-pollen/common-support-comparison/REPORT.md",
+      "type": "regular",
+      "bytes": 1141,
+      "sha256": "6c8eab1a9ff11367dd701c6ecf52d1d20a761827f06c9e12342671ee35c86534"
+    },
+    {
+      "path": "fitted-pollen/common-support-comparison/report.json",
+      "type": "regular",
+      "bytes": 14936,
+      "sha256": "8c9d218fd294cfbe485a153d1e635f953146e408bd5aa31321e2cf1b4036754a"
+    },
+    {
+      "path": "fitted-pollen/grid-512-predictions/predictions.csv",
+      "type": "regular",
+      "bytes": 327925,
+      "sha256": "ad5e8644c61f3f25d75eb87965372f92f190553d1383f05f98d51ca5f641846a"
+    },
+    {
+      "path": "fitted-pollen/grid-512-predictions/report.json",
+      "type": "regular",
+      "bytes": 8704,
+      "sha256": "cf73be27204501674670e05fe5068c4629371c6a8ff4ed75e58f0fa9b675eb48"
+    },
+    {
+      "path": "fitted-pollen/grid-512-predictions/statuses.csv",
+      "type": "regular",
+      "bytes": 18810,
+      "sha256": "c6d6c130bf6537b4861c7a3392efd524cad81ff278b9c3027772a66bfcf64255"
+    },
+    {
+      "path": "fitted-pollen/grid-562-predictions/predictions.csv",
+      "type": "regular",
+      "bytes": 500734,
+      "sha256": "f6f5d50e2b2ecfd972ea5dc01171bd7ac4f23c2abb2e5f19e01c62ad45f78cdf"
+    },
+    {
+      "path": "fitted-pollen/grid-562-predictions/report.json",
+      "type": "regular",
+      "bytes": 14948,
+      "sha256": "06a746aec2c8d92ccb6cd91c162aa0bdee75b718e1d1d0d782c1833b2fdcb80b"
+    },
+    {
+      "path": "fitted-pollen/grid-562-predictions/statuses.csv",
+      "type": "regular",
+      "bytes": 21619,
+      "sha256": "7f4ff7bd19a261e1a0fa80aca5a09ef508d2cc5087b781f26e4cd68b8e146a90"
+    },
+    {
+      "path": "fitted-pollen/observed-pollen-scores/REPORT.md",
+      "type": "regular",
+      "bytes": 1771,
+      "sha256": "3b822cfad5c39cac9d12ed70859e17e6d967f1d5323d7ec33526757254e9df9c"
+    },
+    {
+      "path": "fitted-pollen/observed-pollen-scores/report.json",
+      "type": "regular",
+      "bytes": 32398,
+      "sha256": "a2b883dfac3732d30d7c02d53e5c19309093fc26f24a244828d0955d5f82790f"
+    },
+    {
+      "path": "fitted-pollen/observed-pollen-scores/scored-predictions.csv",
+      "type": "regular",
+      "bytes": 242476,
+      "sha256": "dc5fe5fe3e46eb972bf8921ab5a21d977162c3c370b263899ef655bcad8a47de"
+    },
+    {
+      "path": "fitted-pollen/observed-pollen-scores/scores.csv",
+      "type": "regular",
+      "bytes": 46648,
+      "sha256": "1d8e737b7e41d0e390beee8d3916e8f087713ebbcf9096f8493a92e1fd2db828"
+    },
+    {
+      "path": "fitted-pollen/paired-checks-final.plan.json",
+      "type": "regular",
+      "bytes": 2041,
+      "sha256": "abee49a0b1a59633655466b086f3edc2ed3f4fe4f06e78727dc5657b464c0b58"
+    },
+    {
+      "path": "fitted-pollen/paired-checks-typed.plan.json",
+      "type": "regular",
+      "bytes": 2041,
+      "sha256": "0b2d5f590ada2f4d83c5eb05a8109e1f2f5cb7f346ccc8d7b5dfc630073b3da4"
+    },
+    {
+      "path": "fitted-pollen/paired-checks.plan.json",
+      "type": "regular",
+      "bytes": 2017,
+      "sha256": "3bca9a952c8ef6b377829824ee1d7dd41b7f5eaee64efd3f38e8ad874cd39d88"
+    },
+    {
+      "path": "fitted-pollen/paired-comparison-final.plan.json",
+      "type": "regular",
+      "bytes": 3008,
+      "sha256": "f1dbef7b0c44e51b6bbcf52c5d13eca8a3ca6c5563286a8cd68c36d02b67e783"
+    },
+    {
+      "path": "fitted-pollen/paired-comparison-typed.plan.json",
+      "type": "regular",
+      "bytes": 3008,
+      "sha256": "4093a3a05094743880ec64c3586e07af27253dfba32baf31215a91c2a3ac4866"
+    },
+    {
+      "path": "fitted-pollen/paired-comparison.plan.json",
+      "type": "regular",
+      "bytes": 2990,
+      "sha256": "77d08cfa4022efa017bf1901acd2c6d812e88ef491db792f8372b87774ad14f1"
+    },
+    {
+      "path": "fitted-pollen/paired-final-pytest-tmp/test_comparison_uses_only_comm0/within-grid.csv",
+      "type": "regular",
+      "bytes": 13167,
+      "sha256": "fecd3dc7ea1f5f7bddec9a9bd3ef564d9fbf3f43224e6ec5db7e26174ba8d2f4"
+    },
+    {
+      "path": "fitted-pollen/paired-final-pytest-tmp/test_comparison_uses_only_commcurrent",
+      "type": "symlink",
+      "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/v4/author-pollen-spatial-block/fitted-pollen/paired-final-pytest-tmp/test_comparison_uses_only_comm0"
+    },
+    {
+      "path": "fitted-pollen/paired-final-pytest-tmp/test_fitted_block_replaces_tra0/author/run.REVEALS.files/LRAready_far.csv",
+      "type": "regular",
+      "bytes": 44,
+      "sha256": "ee8daeb4337bbc8c7f19998aa6244fa72642554ec77af9553b83a9cbc8226623"
+    },
+    {
+      "path": "fitted-pollen/paired-final-pytest-tmp/test_fitted_block_replaces_tra0/author/run.REVEALS.files/LRAready_near.csv",
+      "type": "regular",
+      "bytes": 43,
+      "sha256": "d84f5b2cf4cb95258e339d109dd6a8f083e91dc6fc59caff39ac04464ab7c56d"
+    },
+    {
+      "path": "fitted-pollen/paired-final-pytest-tmp/test_fitted_block_replaces_tra0/author/run.REVEALS.files/LRAready_target.csv",
+      "type": "regular",
+      "bytes": 19,
+      "sha256": "f121b27397a08f6043e94bef1e350a529a97821617250ec8102718a5bf6e4647"
+    },
+    {
+      "path": "fitted-pollen/paired-final-pytest-tmp/test_fitted_block_replaces_tra0/fitted-first/predictions.csv",
+      "type": "regular",
+      "bytes": 297,
+      "sha256": "81b2b030c1872a810b5902c736fc607c5122a2a4557b70a84e54933769aa333d"
+    },
+    {
+      "path": "fitted-pollen/paired-final-pytest-tmp/test_fitted_block_replaces_tra0/fitted-first/report.json",
+      "type": "regular",
+      "bytes": 2082,
+      "sha256": "2870b6ece7af58f47bafa9449163b7e4b346fe7179c10a95dad860ad5764ef67"
+    },
+    {
+      "path": "fitted-pollen/paired-final-pytest-tmp/test_fitted_block_replaces_tra0/fitted-first/statuses.csv",
+      "type": "regular",
+      "bytes": 274,
+      "sha256": "dfcfd9d51c916d9d193482c2312841608ee3ba120e253db651e8990cdb800081"
+    },
+    {
+      "path": "fitted-pollen/paired-final-pytest-tmp/test_fitted_block_replaces_tra0/fitted-second/predictions.csv",
+      "type": "regular",
+      "bytes": 297,
+      "sha256": "81b2b030c1872a810b5902c736fc607c5122a2a4557b70a84e54933769aa333d"
+    },
+    {
+      "path": "fitted-pollen/paired-final-pytest-tmp/test_fitted_block_replaces_tra0/fitted-second/report.json",
+      "type": "regular",
+      "bytes": 2082,
+      "sha256": "2870b6ece7af58f47bafa9449163b7e4b346fe7179c10a95dad860ad5764ef67"
+    },
+    {
+      "path": "fitted-pollen/paired-final-pytest-tmp/test_fitted_block_replaces_tra0/fitted-second/statuses.csv",
+      "type": "regular",
+      "bytes": 274,
+      "sha256": "dfcfd9d51c916d9d193482c2312841608ee3ba120e253db651e8990cdb800081"
+    },
+    {
+      "path": "fitted-pollen/paired-final-pytest-tmp/test_fitted_block_replaces_tra0/fitted-third/predictions.csv",
+      "type": "regular",
+      "bytes": 297,
+      "sha256": "81b2b030c1872a810b5902c736fc607c5122a2a4557b70a84e54933769aa333d"
+    },
+    {
+      "path": "fitted-pollen/paired-final-pytest-tmp/test_fitted_block_replaces_tra0/fitted-third/report.json",
+      "type": "regular",
+      "bytes": 2082,
+      "sha256": "2870b6ece7af58f47bafa9449163b7e4b346fe7179c10a95dad860ad5764ef67"
+    },
+    {
+      "path": "fitted-pollen/paired-final-pytest-tmp/test_fitted_block_replaces_tra0/fitted-third/statuses.csv",
+      "type": "regular",
+      "bytes": 274,
+      "sha256": "dfcfd9d51c916d9d193482c2312841608ee3ba120e253db651e8990cdb800081"
+    },
+    {
+      "path": "fitted-pollen/paired-final-pytest-tmp/test_fitted_block_replaces_tracurrent",
+      "type": "symlink",
+      "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/v4/author-pollen-spatial-block/fitted-pollen/paired-final-pytest-tmp/test_fitted_block_replaces_tra0"
+    },
+    {
+      "path": "fitted-pollen/paired-final-pytest-tmp/test_prediction_is_unchanged_w0/author/run.REVEALS.files/LRAready_target_a.csv",
+      "type": "regular",
+      "bytes": 19,
+      "sha256": "f121b27397a08f6043e94bef1e350a529a97821617250ec8102718a5bf6e4647"
+    },
+    {
+      "path": "fitted-pollen/paired-final-pytest-tmp/test_prediction_is_unchanged_w0/author/run.REVEALS.files/LRAready_training.csv",
+      "type": "regular",
+      "bytes": 43,
+      "sha256": "d84f5b2cf4cb95258e339d109dd6a8f083e91dc6fc59caff39ac04464ab7c56d"
+    },
+    {
+      "path": "fitted-pollen/paired-final-pytest-tmp/test_prediction_is_unchanged_w0/first/predictions.csv",
+      "type": "regular",
+      "bytes": 452,
+      "sha256": "894d380a487ef52273c5176b86db1da867529d79dcc3cc6f091a80b6a98b12fa"
+    },
+    {
+      "path": "fitted-pollen/paired-final-pytest-tmp/test_prediction_is_unchanged_w0/first/report.json",
+      "type": "regular",
+      "bytes": 1301,
+      "sha256": "44f29e8d74bb4ce3b8031f23a8c1b6b089407bfb7d5a9bc91704d7b8870a01a5"
+    },
+    {
+      "path": "fitted-pollen/paired-final-pytest-tmp/test_prediction_is_unchanged_w0/first/statuses.csv",
+      "type": "regular",
+      "bytes": 406,
+      "sha256": "328680a827528bbf76ac1cde7e54c80edf48948016d323f09acc43ba5e725f68"
+    },
+    {
+      "path": "fitted-pollen/paired-final-pytest-tmp/test_prediction_is_unchanged_w0/second/predictions.csv",
+      "type": "regular",
+      "bytes": 452,
+      "sha256": "894d380a487ef52273c5176b86db1da867529d79dcc3cc6f091a80b6a98b12fa"
+    },
+    {
+      "path": "fitted-pollen/paired-final-pytest-tmp/test_prediction_is_unchanged_w0/second/report.json",
+      "type": "regular",
+      "bytes": 1301,
+      "sha256": "44f29e8d74bb4ce3b8031f23a8c1b6b089407bfb7d5a9bc91704d7b8870a01a5"
+    },
+    {
+      "path": "fitted-pollen/paired-final-pytest-tmp/test_prediction_is_unchanged_w0/second/statuses.csv",
+      "type": "regular",
+      "bytes": 406,
+      "sha256": "328680a827528bbf76ac1cde7e54c80edf48948016d323f09acc43ba5e725f68"
+    },
+    {
+      "path": "fitted-pollen/paired-final-pytest-tmp/test_prediction_is_unchanged_w0/third/predictions.csv",
+      "type": "regular",
+      "bytes": 452,
+      "sha256": "894d380a487ef52273c5176b86db1da867529d79dcc3cc6f091a80b6a98b12fa"
+    },
+    {
+      "path": "fitted-pollen/paired-final-pytest-tmp/test_prediction_is_unchanged_w0/third/report.json",
+      "type": "regular",
+      "bytes": 1301,
+      "sha256": "44f29e8d74bb4ce3b8031f23a8c1b6b089407bfb7d5a9bc91704d7b8870a01a5"
+    },
+    {
+      "path": "fitted-pollen/paired-final-pytest-tmp/test_prediction_is_unchanged_w0/third/statuses.csv",
+      "type": "regular",
+      "bytes": 406,
+      "sha256": "328680a827528bbf76ac1cde7e54c80edf48948016d323f09acc43ba5e725f68"
+    },
+    {
+      "path": "fitted-pollen/paired-final-pytest-tmp/test_prediction_is_unchanged_wcurrent",
+      "type": "symlink",
+      "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/v4/author-pollen-spatial-block/fitted-pollen/paired-final-pytest-tmp/test_prediction_is_unchanged_w0"
+    },
+    {
+      "path": "fitted-pollen/paired-final-pytest-tmp/test_spatial_methods_use_only_0/author/run.REVEALS.files/LRAready_far.csv",
+      "type": "regular",
+      "bytes": 43,
+      "sha256": "f85e565616c5d4047802e7c65227fae9866b6e0812e142ed3b7e86213e7294b9"
+    },
+    {
+      "path": "fitted-pollen/paired-final-pytest-tmp/test_spatial_methods_use_only_0/author/run.REVEALS.files/LRAready_near.csv",
+      "type": "regular",
+      "bytes": 43,
+      "sha256": "d84f5b2cf4cb95258e339d109dd6a8f083e91dc6fc59caff39ac04464ab7c56d"
+    },
+    {
+      "path": "fitted-pollen/paired-final-pytest-tmp/test_spatial_methods_use_only_0/inverse_distance_squared/predictions.csv",
+      "type": "regular",
+      "bytes": 269,
+      "sha256": "2c7875a1cee31394ed1049c7458847d0a050b7e0c31afe2d8ade861d339332ac"
+    },
+    {
+      "path": "fitted-pollen/paired-final-pytest-tmp/test_spatial_methods_use_only_0/inverse_distance_squared/report.json",
+      "type": "regular",
+      "bytes": 1371,
+      "sha256": "c3832d72ee5f3019bd61c254e13f651fd5464010d1cfe84f2d8a194352a698cb"
+    },
+    {
+      "path": "fitted-pollen/paired-final-pytest-tmp/test_spatial_methods_use_only_0/inverse_distance_squared/statuses.csv",
+      "type": "regular",
+      "bytes": 273,
+      "sha256": "39d75a1c8d21fc07586a0bcf36d4e13d37da6b7e1fe62b2f6b5293feaee263a2"
+    },
+    {
+      "path": "fitted-pollen/paired-final-pytest-tmp/test_spatial_methods_use_only_0/nearest_site/predictions.csv",
+      "type": "regular",
+      "bytes": 267,
+      "sha256": "7c9442787ec9a867942ad4cdd87d4d79433e3b98b1ae3c3d07981ad22e15072f"
+    },
+    {
+      "path": "fitted-pollen/paired-final-pytest-tmp/test_spatial_methods_use_only_0/nearest_site/report.json",
+      "type": "regular",
+      "bytes": 1359,
+      "sha256": "44a6fc2d60effbf1c45ee2a60acdc65b4ca231ec6f6987b0965bd0434d3a77ba"
+    },
+    {
+      "path": "fitted-pollen/paired-final-pytest-tmp/test_spatial_methods_use_only_0/nearest_site/statuses.csv",
+      "type": "regular",
+      "bytes": 273,
+      "sha256": "b86f9b81cedccf80e14fa397050c44e18150b34f3f41bbe6dd56f74f69555bdb"
+    },
+    {
+      "path": "fitted-pollen/paired-final-pytest-tmp/test_spatial_methods_use_only_0/training_mean/predictions.csv",
+      "type": "regular",
+      "bytes": 267,
+      "sha256": "22696eb65fbc99b0a6ca70531acfe901cb13ab41cf1e165416ba7b48ce006581"
+    },
+    {
+      "path": "fitted-pollen/paired-final-pytest-tmp/test_spatial_methods_use_only_0/training_mean/report.json",
+      "type": "regular",
+      "bytes": 1365,
+      "sha256": "72420cadc2b8381089ddae1d3542705c0b2e41820fd536ff17745f06a0c5733f"
+    },
+    {
+      "path": "fitted-pollen/paired-final-pytest-tmp/test_spatial_methods_use_only_0/training_mean/statuses.csv",
+      "type": "regular",
+      "bytes": 273,
+      "sha256": "8ab8bf3082d9f318e6eab1b5ab1d711df88b09a4fb06d232d4bae11c21811c35"
+    },
+    {
+      "path": "fitted-pollen/paired-final-pytest-tmp/test_spatial_methods_use_only_current",
+      "type": "symlink",
+      "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/v4/author-pollen-spatial-block/fitted-pollen/paired-final-pytest-tmp/test_spatial_methods_use_only_0"
+    },
+    {
+      "path": "fitted-pollen/paired-final-pytest-tmp/test_taxon_error_comparison_us0/inverse_distance_squared/scored-predictions.csv",
+      "type": "regular",
+      "bytes": 3770,
+      "sha256": "db02e89f86b2ee81316143c5bc20748a94a8f3b753fcffdfa88ba963cebacb6a"
+    },
+    {
+      "path": "fitted-pollen/paired-final-pytest-tmp/test_taxon_error_comparison_us0/nearest_site/scored-predictions.csv",
+      "type": "regular",
+      "bytes": 2930,
+      "sha256": "ba2d42c445d6d965daac95bfaa15364b7941f8ccd31c4a4b700d7fce115be8f4"
+    },
+    {
+      "path": "fitted-pollen/paired-final-pytest-tmp/test_taxon_error_comparison_us0/training_mean/scored-predictions.csv",
+      "type": "regular",
+      "bytes": 3770,
+      "sha256": "db02e89f86b2ee81316143c5bc20748a94a8f3b753fcffdfa88ba963cebacb6a"
+    },
+    {
+      "path": "fitted-pollen/paired-final-pytest-tmp/test_taxon_error_comparison_uscurrent",
+      "type": "symlink",
+      "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/v4/author-pollen-spatial-block/fitted-pollen/paired-final-pytest-tmp/test_taxon_error_comparison_us0"
+    },
+    {
+      "path": "fitted-pollen/paired-pytest-tmp/test_comparison_uses_only_comm0/within-grid.csv",
+      "type": "regular",
+      "bytes": 13167,
+      "sha256": "fecd3dc7ea1f5f7bddec9a9bd3ef564d9fbf3f43224e6ec5db7e26174ba8d2f4"
+    },
+    {
+      "path": "fitted-pollen/paired-pytest-tmp/test_comparison_uses_only_commcurrent",
+      "type": "symlink",
+      "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/v4/author-pollen-spatial-block/fitted-pollen/paired-pytest-tmp/test_comparison_uses_only_comm0"
+    },
+    {
+      "path": "fitted-pollen/paired-pytest-tmp/test_fitted_block_replaces_tra0/author/run.REVEALS.files/LRAready_far.csv",
+      "type": "regular",
+      "bytes": 44,
+      "sha256": "ee8daeb4337bbc8c7f19998aa6244fa72642554ec77af9553b83a9cbc8226623"
+    },
+    {
+      "path": "fitted-pollen/paired-pytest-tmp/test_fitted_block_replaces_tra0/author/run.REVEALS.files/LRAready_near.csv",
+      "type": "regular",
+      "bytes": 43,
+      "sha256": "d84f5b2cf4cb95258e339d109dd6a8f083e91dc6fc59caff39ac04464ab7c56d"
+    },
+    {
+      "path": "fitted-pollen/paired-pytest-tmp/test_fitted_block_replaces_tra0/author/run.REVEALS.files/LRAready_target.csv",
+      "type": "regular",
+      "bytes": 19,
+      "sha256": "f121b27397a08f6043e94bef1e350a529a97821617250ec8102718a5bf6e4647"
+    },
+    {
+      "path": "fitted-pollen/paired-pytest-tmp/test_fitted_block_replaces_tra0/fitted-first/predictions.csv",
+      "type": "regular",
+      "bytes": 297,
+      "sha256": "81b2b030c1872a810b5902c736fc607c5122a2a4557b70a84e54933769aa333d"
+    },
+    {
+      "path": "fitted-pollen/paired-pytest-tmp/test_fitted_block_replaces_tra0/fitted-first/report.json",
+      "type": "regular",
+      "bytes": 2082,
+      "sha256": "2870b6ece7af58f47bafa9449163b7e4b346fe7179c10a95dad860ad5764ef67"
+    },
+    {
+      "path": "fitted-pollen/paired-pytest-tmp/test_fitted_block_replaces_tra0/fitted-first/statuses.csv",
+      "type": "regular",
+      "bytes": 274,
+      "sha256": "dfcfd9d51c916d9d193482c2312841608ee3ba120e253db651e8990cdb800081"
+    },
+    {
+      "path": "fitted-pollen/paired-pytest-tmp/test_fitted_block_replaces_tra0/fitted-second/predictions.csv",
+      "type": "regular",
+      "bytes": 297,
+      "sha256": "81b2b030c1872a810b5902c736fc607c5122a2a4557b70a84e54933769aa333d"
+    },
+    {
+      "path": "fitted-pollen/paired-pytest-tmp/test_fitted_block_replaces_tra0/fitted-second/report.json",
+      "type": "regular",
+      "bytes": 2082,
+      "sha256": "2870b6ece7af58f47bafa9449163b7e4b346fe7179c10a95dad860ad5764ef67"
+    },
+    {
+      "path": "fitted-pollen/paired-pytest-tmp/test_fitted_block_replaces_tra0/fitted-second/statuses.csv",
+      "type": "regular",
+      "bytes": 274,
+      "sha256": "dfcfd9d51c916d9d193482c2312841608ee3ba120e253db651e8990cdb800081"
+    },
+    {
+      "path": "fitted-pollen/paired-pytest-tmp/test_fitted_block_replaces_tra0/fitted-third/predictions.csv",
+      "type": "regular",
+      "bytes": 297,
+      "sha256": "81b2b030c1872a810b5902c736fc607c5122a2a4557b70a84e54933769aa333d"
+    },
+    {
+      "path": "fitted-pollen/paired-pytest-tmp/test_fitted_block_replaces_tra0/fitted-third/report.json",
+      "type": "regular",
+      "bytes": 2082,
+      "sha256": "2870b6ece7af58f47bafa9449163b7e4b346fe7179c10a95dad860ad5764ef67"
+    },
+    {
+      "path": "fitted-pollen/paired-pytest-tmp/test_fitted_block_replaces_tra0/fitted-third/statuses.csv",
+      "type": "regular",
+      "bytes": 274,
+      "sha256": "dfcfd9d51c916d9d193482c2312841608ee3ba120e253db651e8990cdb800081"
+    },
+    {
+      "path": "fitted-pollen/paired-pytest-tmp/test_fitted_block_replaces_tracurrent",
+      "type": "symlink",
+      "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/v4/author-pollen-spatial-block/fitted-pollen/paired-pytest-tmp/test_fitted_block_replaces_tra0"
+    },
+    {
+      "path": "fitted-pollen/paired-pytest-tmp/test_prediction_is_unchanged_w0/author/run.REVEALS.files/LRAready_target_a.csv",
+      "type": "regular",
+      "bytes": 19,
+      "sha256": "f121b27397a08f6043e94bef1e350a529a97821617250ec8102718a5bf6e4647"
+    },
+    {
+      "path": "fitted-pollen/paired-pytest-tmp/test_prediction_is_unchanged_w0/author/run.REVEALS.files/LRAready_training.csv",
+      "type": "regular",
+      "bytes": 43,
+      "sha256": "d84f5b2cf4cb95258e339d109dd6a8f083e91dc6fc59caff39ac04464ab7c56d"
+    },
+    {
+      "path": "fitted-pollen/paired-pytest-tmp/test_prediction_is_unchanged_w0/first/predictions.csv",
+      "type": "regular",
+      "bytes": 452,
+      "sha256": "894d380a487ef52273c5176b86db1da867529d79dcc3cc6f091a80b6a98b12fa"
+    },
+    {
+      "path": "fitted-pollen/paired-pytest-tmp/test_prediction_is_unchanged_w0/first/report.json",
+      "type": "regular",
+      "bytes": 1301,
+      "sha256": "44f29e8d74bb4ce3b8031f23a8c1b6b089407bfb7d5a9bc91704d7b8870a01a5"
+    },
+    {
+      "path": "fitted-pollen/paired-pytest-tmp/test_prediction_is_unchanged_w0/first/statuses.csv",
+      "type": "regular",
+      "bytes": 406,
+      "sha256": "328680a827528bbf76ac1cde7e54c80edf48948016d323f09acc43ba5e725f68"
+    },
+    {
+      "path": "fitted-pollen/paired-pytest-tmp/test_prediction_is_unchanged_w0/second/predictions.csv",
+      "type": "regular",
+      "bytes": 452,
+      "sha256": "894d380a487ef52273c5176b86db1da867529d79dcc3cc6f091a80b6a98b12fa"
+    },
+    {
+      "path": "fitted-pollen/paired-pytest-tmp/test_prediction_is_unchanged_w0/second/report.json",
+      "type": "regular",
+      "bytes": 1301,
+      "sha256": "44f29e8d74bb4ce3b8031f23a8c1b6b089407bfb7d5a9bc91704d7b8870a01a5"
+    },
+    {
+      "path": "fitted-pollen/paired-pytest-tmp/test_prediction_is_unchanged_w0/second/statuses.csv",
+      "type": "regular",
+      "bytes": 406,
+      "sha256": "328680a827528bbf76ac1cde7e54c80edf48948016d323f09acc43ba5e725f68"
+    },
+    {
+      "path": "fitted-pollen/paired-pytest-tmp/test_prediction_is_unchanged_w0/third/predictions.csv",
+      "type": "regular",
+      "bytes": 452,
+      "sha256": "894d380a487ef52273c5176b86db1da867529d79dcc3cc6f091a80b6a98b12fa"
+    },
+    {
+      "path": "fitted-pollen/paired-pytest-tmp/test_prediction_is_unchanged_w0/third/report.json",
+      "type": "regular",
+      "bytes": 1301,
+      "sha256": "44f29e8d74bb4ce3b8031f23a8c1b6b089407bfb7d5a9bc91704d7b8870a01a5"
+    },
+    {
+      "path": "fitted-pollen/paired-pytest-tmp/test_prediction_is_unchanged_w0/third/statuses.csv",
+      "type": "regular",
+      "bytes": 406,
+      "sha256": "328680a827528bbf76ac1cde7e54c80edf48948016d323f09acc43ba5e725f68"
+    },
+    {
+      "path": "fitted-pollen/paired-pytest-tmp/test_prediction_is_unchanged_wcurrent",
+      "type": "symlink",
+      "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/v4/author-pollen-spatial-block/fitted-pollen/paired-pytest-tmp/test_prediction_is_unchanged_w0"
+    },
+    {
+      "path": "fitted-pollen/paired-pytest-tmp/test_spatial_methods_use_only_0/author/run.REVEALS.files/LRAready_far.csv",
+      "type": "regular",
+      "bytes": 43,
+      "sha256": "f85e565616c5d4047802e7c65227fae9866b6e0812e142ed3b7e86213e7294b9"
+    },
+    {
+      "path": "fitted-pollen/paired-pytest-tmp/test_spatial_methods_use_only_0/author/run.REVEALS.files/LRAready_near.csv",
+      "type": "regular",
+      "bytes": 43,
+      "sha256": "d84f5b2cf4cb95258e339d109dd6a8f083e91dc6fc59caff39ac04464ab7c56d"
+    },
+    {
+      "path": "fitted-pollen/paired-pytest-tmp/test_spatial_methods_use_only_0/inverse_distance_squared/predictions.csv",
+      "type": "regular",
+      "bytes": 269,
+      "sha256": "2c7875a1cee31394ed1049c7458847d0a050b7e0c31afe2d8ade861d339332ac"
+    },
+    {
+      "path": "fitted-pollen/paired-pytest-tmp/test_spatial_methods_use_only_0/inverse_distance_squared/report.json",
+      "type": "regular",
+      "bytes": 1371,
+      "sha256": "c3832d72ee5f3019bd61c254e13f651fd5464010d1cfe84f2d8a194352a698cb"
+    },
+    {
+      "path": "fitted-pollen/paired-pytest-tmp/test_spatial_methods_use_only_0/inverse_distance_squared/statuses.csv",
+      "type": "regular",
+      "bytes": 273,
+      "sha256": "39d75a1c8d21fc07586a0bcf36d4e13d37da6b7e1fe62b2f6b5293feaee263a2"
+    },
+    {
+      "path": "fitted-pollen/paired-pytest-tmp/test_spatial_methods_use_only_0/nearest_site/predictions.csv",
+      "type": "regular",
+      "bytes": 267,
+      "sha256": "7c9442787ec9a867942ad4cdd87d4d79433e3b98b1ae3c3d07981ad22e15072f"
+    },
+    {
+      "path": "fitted-pollen/paired-pytest-tmp/test_spatial_methods_use_only_0/nearest_site/report.json",
+      "type": "regular",
+      "bytes": 1359,
+      "sha256": "44a6fc2d60effbf1c45ee2a60acdc65b4ca231ec6f6987b0965bd0434d3a77ba"
+    },
+    {
+      "path": "fitted-pollen/paired-pytest-tmp/test_spatial_methods_use_only_0/nearest_site/statuses.csv",
+      "type": "regular",
+      "bytes": 273,
+      "sha256": "b86f9b81cedccf80e14fa397050c44e18150b34f3f41bbe6dd56f74f69555bdb"
+    },
+    {
+      "path": "fitted-pollen/paired-pytest-tmp/test_spatial_methods_use_only_0/training_mean/predictions.csv",
+      "type": "regular",
+      "bytes": 267,
+      "sha256": "22696eb65fbc99b0a6ca70531acfe901cb13ab41cf1e165416ba7b48ce006581"
+    },
+    {
+      "path": "fitted-pollen/paired-pytest-tmp/test_spatial_methods_use_only_0/training_mean/report.json",
+      "type": "regular",
+      "bytes": 1365,
+      "sha256": "72420cadc2b8381089ddae1d3542705c0b2e41820fd536ff17745f06a0c5733f"
+    },
+    {
+      "path": "fitted-pollen/paired-pytest-tmp/test_spatial_methods_use_only_0/training_mean/statuses.csv",
+      "type": "regular",
+      "bytes": 273,
+      "sha256": "8ab8bf3082d9f318e6eab1b5ab1d711df88b09a4fb06d232d4bae11c21811c35"
+    },
+    {
+      "path": "fitted-pollen/paired-pytest-tmp/test_spatial_methods_use_only_current",
+      "type": "symlink",
+      "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/v4/author-pollen-spatial-block/fitted-pollen/paired-pytest-tmp/test_spatial_methods_use_only_0"
+    },
+    {
+      "path": "fitted-pollen/paired-pytest-tmp/test_taxon_error_comparison_us0/inverse_distance_squared/scored-predictions.csv",
+      "type": "regular",
+      "bytes": 3770,
+      "sha256": "db02e89f86b2ee81316143c5bc20748a94a8f3b753fcffdfa88ba963cebacb6a"
+    },
+    {
+      "path": "fitted-pollen/paired-pytest-tmp/test_taxon_error_comparison_us0/nearest_site/scored-predictions.csv",
+      "type": "regular",
+      "bytes": 2930,
+      "sha256": "ba2d42c445d6d965daac95bfaa15364b7941f8ccd31c4a4b700d7fce115be8f4"
+    },
+    {
+      "path": "fitted-pollen/paired-pytest-tmp/test_taxon_error_comparison_us0/training_mean/scored-predictions.csv",
+      "type": "regular",
+      "bytes": 3770,
+      "sha256": "db02e89f86b2ee81316143c5bc20748a94a8f3b753fcffdfa88ba963cebacb6a"
+    },
+    {
+      "path": "fitted-pollen/paired-pytest-tmp/test_taxon_error_comparison_uscurrent",
+      "type": "symlink",
+      "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/v4/author-pollen-spatial-block/fitted-pollen/paired-pytest-tmp/test_taxon_error_comparison_us0"
+    },
+    {
+      "path": "fitted-pollen/paired-typed-pytest-tmp/test_comparison_uses_only_comm0/within-grid.csv",
+      "type": "regular",
+      "bytes": 13167,
+      "sha256": "fecd3dc7ea1f5f7bddec9a9bd3ef564d9fbf3f43224e6ec5db7e26174ba8d2f4"
+    },
+    {
+      "path": "fitted-pollen/paired-typed-pytest-tmp/test_comparison_uses_only_commcurrent",
+      "type": "symlink",
+      "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/v4/author-pollen-spatial-block/fitted-pollen/paired-typed-pytest-tmp/test_comparison_uses_only_comm0"
+    },
+    {
+      "path": "fitted-pollen/paired-typed-pytest-tmp/test_fitted_block_replaces_tra0/author/run.REVEALS.files/LRAready_far.csv",
+      "type": "regular",
+      "bytes": 44,
+      "sha256": "ee8daeb4337bbc8c7f19998aa6244fa72642554ec77af9553b83a9cbc8226623"
+    },
+    {
+      "path": "fitted-pollen/paired-typed-pytest-tmp/test_fitted_block_replaces_tra0/author/run.REVEALS.files/LRAready_near.csv",
+      "type": "regular",
+      "bytes": 43,
+      "sha256": "d84f5b2cf4cb95258e339d109dd6a8f083e91dc6fc59caff39ac04464ab7c56d"
+    },
+    {
+      "path": "fitted-pollen/paired-typed-pytest-tmp/test_fitted_block_replaces_tra0/author/run.REVEALS.files/LRAready_target.csv",
+      "type": "regular",
+      "bytes": 19,
+      "sha256": "f121b27397a08f6043e94bef1e350a529a97821617250ec8102718a5bf6e4647"
+    },
+    {
+      "path": "fitted-pollen/paired-typed-pytest-tmp/test_fitted_block_replaces_tra0/fitted-first/predictions.csv",
+      "type": "regular",
+      "bytes": 297,
+      "sha256": "81b2b030c1872a810b5902c736fc607c5122a2a4557b70a84e54933769aa333d"
+    },
+    {
+      "path": "fitted-pollen/paired-typed-pytest-tmp/test_fitted_block_replaces_tra0/fitted-first/report.json",
+      "type": "regular",
+      "bytes": 2082,
+      "sha256": "2870b6ece7af58f47bafa9449163b7e4b346fe7179c10a95dad860ad5764ef67"
+    },
+    {
+      "path": "fitted-pollen/paired-typed-pytest-tmp/test_fitted_block_replaces_tra0/fitted-first/statuses.csv",
+      "type": "regular",
+      "bytes": 274,
+      "sha256": "dfcfd9d51c916d9d193482c2312841608ee3ba120e253db651e8990cdb800081"
+    },
+    {
+      "path": "fitted-pollen/paired-typed-pytest-tmp/test_fitted_block_replaces_tra0/fitted-second/predictions.csv",
+      "type": "regular",
+      "bytes": 297,
+      "sha256": "81b2b030c1872a810b5902c736fc607c5122a2a4557b70a84e54933769aa333d"
+    },
+    {
+      "path": "fitted-pollen/paired-typed-pytest-tmp/test_fitted_block_replaces_tra0/fitted-second/report.json",
+      "type": "regular",
+      "bytes": 2082,
+      "sha256": "2870b6ece7af58f47bafa9449163b7e4b346fe7179c10a95dad860ad5764ef67"
+    },
+    {
+      "path": "fitted-pollen/paired-typed-pytest-tmp/test_fitted_block_replaces_tra0/fitted-second/statuses.csv",
+      "type": "regular",
+      "bytes": 274,
+      "sha256": "dfcfd9d51c916d9d193482c2312841608ee3ba120e253db651e8990cdb800081"
+    },
+    {
+      "path": "fitted-pollen/paired-typed-pytest-tmp/test_fitted_block_replaces_tra0/fitted-third/predictions.csv",
+      "type": "regular",
+      "bytes": 297,
+      "sha256": "81b2b030c1872a810b5902c736fc607c5122a2a4557b70a84e54933769aa333d"
+    },
+    {
+      "path": "fitted-pollen/paired-typed-pytest-tmp/test_fitted_block_replaces_tra0/fitted-third/report.json",
+      "type": "regular",
+      "bytes": 2082,
+      "sha256": "2870b6ece7af58f47bafa9449163b7e4b346fe7179c10a95dad860ad5764ef67"
+    },
+    {
+      "path": "fitted-pollen/paired-typed-pytest-tmp/test_fitted_block_replaces_tra0/fitted-third/statuses.csv",
+      "type": "regular",
+      "bytes": 274,
+      "sha256": "dfcfd9d51c916d9d193482c2312841608ee3ba120e253db651e8990cdb800081"
+    },
+    {
+      "path": "fitted-pollen/paired-typed-pytest-tmp/test_fitted_block_replaces_tracurrent",
+      "type": "symlink",
+      "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/v4/author-pollen-spatial-block/fitted-pollen/paired-typed-pytest-tmp/test_fitted_block_replaces_tra0"
+    },
+    {
+      "path": "fitted-pollen/paired-typed-pytest-tmp/test_prediction_is_unchanged_w0/author/run.REVEALS.files/LRAready_target_a.csv",
+      "type": "regular",
+      "bytes": 19,
+      "sha256": "f121b27397a08f6043e94bef1e350a529a97821617250ec8102718a5bf6e4647"
+    },
+    {
+      "path": "fitted-pollen/paired-typed-pytest-tmp/test_prediction_is_unchanged_w0/author/run.REVEALS.files/LRAready_training.csv",
+      "type": "regular",
+      "bytes": 43,
+      "sha256": "d84f5b2cf4cb95258e339d109dd6a8f083e91dc6fc59caff39ac04464ab7c56d"
+    },
+    {
+      "path": "fitted-pollen/paired-typed-pytest-tmp/test_prediction_is_unchanged_w0/first/predictions.csv",
+      "type": "regular",
+      "bytes": 452,
+      "sha256": "894d380a487ef52273c5176b86db1da867529d79dcc3cc6f091a80b6a98b12fa"
+    },
+    {
+      "path": "fitted-pollen/paired-typed-pytest-tmp/test_prediction_is_unchanged_w0/first/report.json",
+      "type": "regular",
+      "bytes": 1301,
+      "sha256": "44f29e8d74bb4ce3b8031f23a8c1b6b089407bfb7d5a9bc91704d7b8870a01a5"
+    },
+    {
+      "path": "fitted-pollen/paired-typed-pytest-tmp/test_prediction_is_unchanged_w0/first/statuses.csv",
+      "type": "regular",
+      "bytes": 406,
+      "sha256": "328680a827528bbf76ac1cde7e54c80edf48948016d323f09acc43ba5e725f68"
+    },
+    {
+      "path": "fitted-pollen/paired-typed-pytest-tmp/test_prediction_is_unchanged_w0/second/predictions.csv",
+      "type": "regular",
+      "bytes": 452,
+      "sha256": "894d380a487ef52273c5176b86db1da867529d79dcc3cc6f091a80b6a98b12fa"
+    },
+    {
+      "path": "fitted-pollen/paired-typed-pytest-tmp/test_prediction_is_unchanged_w0/second/report.json",
+      "type": "regular",
+      "bytes": 1301,
+      "sha256": "44f29e8d74bb4ce3b8031f23a8c1b6b089407bfb7d5a9bc91704d7b8870a01a5"
+    },
+    {
+      "path": "fitted-pollen/paired-typed-pytest-tmp/test_prediction_is_unchanged_w0/second/statuses.csv",
+      "type": "regular",
+      "bytes": 406,
+      "sha256": "328680a827528bbf76ac1cde7e54c80edf48948016d323f09acc43ba5e725f68"
+    },
+    {
+      "path": "fitted-pollen/paired-typed-pytest-tmp/test_prediction_is_unchanged_w0/third/predictions.csv",
+      "type": "regular",
+      "bytes": 452,
+      "sha256": "894d380a487ef52273c5176b86db1da867529d79dcc3cc6f091a80b6a98b12fa"
+    },
+    {
+      "path": "fitted-pollen/paired-typed-pytest-tmp/test_prediction_is_unchanged_w0/third/report.json",
+      "type": "regular",
+      "bytes": 1301,
+      "sha256": "44f29e8d74bb4ce3b8031f23a8c1b6b089407bfb7d5a9bc91704d7b8870a01a5"
+    },
+    {
+      "path": "fitted-pollen/paired-typed-pytest-tmp/test_prediction_is_unchanged_w0/third/statuses.csv",
+      "type": "regular",
+      "bytes": 406,
+      "sha256": "328680a827528bbf76ac1cde7e54c80edf48948016d323f09acc43ba5e725f68"
+    },
+    {
+      "path": "fitted-pollen/paired-typed-pytest-tmp/test_prediction_is_unchanged_wcurrent",
+      "type": "symlink",
+      "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/v4/author-pollen-spatial-block/fitted-pollen/paired-typed-pytest-tmp/test_prediction_is_unchanged_w0"
+    },
+    {
+      "path": "fitted-pollen/paired-typed-pytest-tmp/test_spatial_methods_use_only_0/author/run.REVEALS.files/LRAready_far.csv",
+      "type": "regular",
+      "bytes": 43,
+      "sha256": "f85e565616c5d4047802e7c65227fae9866b6e0812e142ed3b7e86213e7294b9"
+    },
+    {
+      "path": "fitted-pollen/paired-typed-pytest-tmp/test_spatial_methods_use_only_0/author/run.REVEALS.files/LRAready_near.csv",
+      "type": "regular",
+      "bytes": 43,
+      "sha256": "d84f5b2cf4cb95258e339d109dd6a8f083e91dc6fc59caff39ac04464ab7c56d"
+    },
+    {
+      "path": "fitted-pollen/paired-typed-pytest-tmp/test_spatial_methods_use_only_0/inverse_distance_squared/predictions.csv",
+      "type": "regular",
+      "bytes": 269,
+      "sha256": "2c7875a1cee31394ed1049c7458847d0a050b7e0c31afe2d8ade861d339332ac"
+    },
+    {
+      "path": "fitted-pollen/paired-typed-pytest-tmp/test_spatial_methods_use_only_0/inverse_distance_squared/report.json",
+      "type": "regular",
+      "bytes": 1371,
+      "sha256": "c3832d72ee5f3019bd61c254e13f651fd5464010d1cfe84f2d8a194352a698cb"
+    },
+    {
+      "path": "fitted-pollen/paired-typed-pytest-tmp/test_spatial_methods_use_only_0/inverse_distance_squared/statuses.csv",
+      "type": "regular",
+      "bytes": 273,
+      "sha256": "39d75a1c8d21fc07586a0bcf36d4e13d37da6b7e1fe62b2f6b5293feaee263a2"
+    },
+    {
+      "path": "fitted-pollen/paired-typed-pytest-tmp/test_spatial_methods_use_only_0/nearest_site/predictions.csv",
+      "type": "regular",
+      "bytes": 267,
+      "sha256": "7c9442787ec9a867942ad4cdd87d4d79433e3b98b1ae3c3d07981ad22e15072f"
+    },
+    {
+      "path": "fitted-pollen/paired-typed-pytest-tmp/test_spatial_methods_use_only_0/nearest_site/report.json",
+      "type": "regular",
+      "bytes": 1359,
+      "sha256": "44a6fc2d60effbf1c45ee2a60acdc65b4ca231ec6f6987b0965bd0434d3a77ba"
+    },
+    {
+      "path": "fitted-pollen/paired-typed-pytest-tmp/test_spatial_methods_use_only_0/nearest_site/statuses.csv",
+      "type": "regular",
+      "bytes": 273,
+      "sha256": "b86f9b81cedccf80e14fa397050c44e18150b34f3f41bbe6dd56f74f69555bdb"
+    },
+    {
+      "path": "fitted-pollen/paired-typed-pytest-tmp/test_spatial_methods_use_only_0/training_mean/predictions.csv",
+      "type": "regular",
+      "bytes": 267,
+      "sha256": "22696eb65fbc99b0a6ca70531acfe901cb13ab41cf1e165416ba7b48ce006581"
+    },
+    {
+      "path": "fitted-pollen/paired-typed-pytest-tmp/test_spatial_methods_use_only_0/training_mean/report.json",
+      "type": "regular",
+      "bytes": 1365,
+      "sha256": "72420cadc2b8381089ddae1d3542705c0b2e41820fd536ff17745f06a0c5733f"
+    },
+    {
+      "path": "fitted-pollen/paired-typed-pytest-tmp/test_spatial_methods_use_only_0/training_mean/statuses.csv",
+      "type": "regular",
+      "bytes": 273,
+      "sha256": "8ab8bf3082d9f318e6eab1b5ab1d711df88b09a4fb06d232d4bae11c21811c35"
+    },
+    {
+      "path": "fitted-pollen/paired-typed-pytest-tmp/test_spatial_methods_use_only_current",
+      "type": "symlink",
+      "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/v4/author-pollen-spatial-block/fitted-pollen/paired-typed-pytest-tmp/test_spatial_methods_use_only_0"
+    },
+    {
+      "path": "fitted-pollen/paired-typed-pytest-tmp/test_taxon_error_comparison_us0/inverse_distance_squared/scored-predictions.csv",
+      "type": "regular",
+      "bytes": 3770,
+      "sha256": "db02e89f86b2ee81316143c5bc20748a94a8f3b753fcffdfa88ba963cebacb6a"
+    },
+    {
+      "path": "fitted-pollen/paired-typed-pytest-tmp/test_taxon_error_comparison_us0/nearest_site/scored-predictions.csv",
+      "type": "regular",
+      "bytes": 2930,
+      "sha256": "ba2d42c445d6d965daac95bfaa15364b7941f8ccd31c4a4b700d7fce115be8f4"
+    },
+    {
+      "path": "fitted-pollen/paired-typed-pytest-tmp/test_taxon_error_comparison_us0/training_mean/scored-predictions.csv",
+      "type": "regular",
+      "bytes": 3770,
+      "sha256": "db02e89f86b2ee81316143c5bc20748a94a8f3b753fcffdfa88ba963cebacb6a"
+    },
+    {
+      "path": "fitted-pollen/paired-typed-pytest-tmp/test_taxon_error_comparison_uscurrent",
+      "type": "symlink",
+      "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/v4/author-pollen-spatial-block/fitted-pollen/paired-typed-pytest-tmp/test_taxon_error_comparison_us0"
+    },
+    {
+      "path": "fitted-pollen/predict-grid-512.plan.json",
+      "type": "regular",
+      "bytes": 4035,
+      "sha256": "05cba41fa064d85043060d96db3bc664e9512d0c89afafc235573989a3a229c2"
+    },
+    {
+      "path": "fitted-pollen/predict-grid-562.plan.json",
+      "type": "regular",
+      "bytes": 4238,
+      "sha256": "e23a08c5bb1d93c59595d826b59cf6770dfc66933414f740cfc96732dbb8f6c3"
+    },
+    {
+      "path": "fitted-pollen/pytest-tmp/test_comparison_uses_only_comm0/within-grid.csv",
+      "type": "regular",
+      "bytes": 13167,
+      "sha256": "fecd3dc7ea1f5f7bddec9a9bd3ef564d9fbf3f43224e6ec5db7e26174ba8d2f4"
+    },
+    {
+      "path": "fitted-pollen/pytest-tmp/test_comparison_uses_only_commcurrent",
+      "type": "symlink",
+      "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/v4/author-pollen-spatial-block/fitted-pollen/pytest-tmp/test_comparison_uses_only_comm0"
+    },
+    {
+      "path": "fitted-pollen/pytest-tmp/test_fitted_block_replaces_tra0/author/run.REVEALS.files/LRAready_far.csv",
+      "type": "regular",
+      "bytes": 44,
+      "sha256": "ee8daeb4337bbc8c7f19998aa6244fa72642554ec77af9553b83a9cbc8226623"
+    },
+    {
+      "path": "fitted-pollen/pytest-tmp/test_fitted_block_replaces_tra0/author/run.REVEALS.files/LRAready_near.csv",
+      "type": "regular",
+      "bytes": 43,
+      "sha256": "d84f5b2cf4cb95258e339d109dd6a8f083e91dc6fc59caff39ac04464ab7c56d"
+    },
+    {
+      "path": "fitted-pollen/pytest-tmp/test_fitted_block_replaces_tra0/author/run.REVEALS.files/LRAready_target.csv",
+      "type": "regular",
+      "bytes": 19,
+      "sha256": "f121b27397a08f6043e94bef1e350a529a97821617250ec8102718a5bf6e4647"
+    },
+    {
+      "path": "fitted-pollen/pytest-tmp/test_fitted_block_replaces_tra0/fitted-first/predictions.csv",
+      "type": "regular",
+      "bytes": 297,
+      "sha256": "81b2b030c1872a810b5902c736fc607c5122a2a4557b70a84e54933769aa333d"
+    },
+    {
+      "path": "fitted-pollen/pytest-tmp/test_fitted_block_replaces_tra0/fitted-first/report.json",
+      "type": "regular",
+      "bytes": 2082,
+      "sha256": "2870b6ece7af58f47bafa9449163b7e4b346fe7179c10a95dad860ad5764ef67"
+    },
+    {
+      "path": "fitted-pollen/pytest-tmp/test_fitted_block_replaces_tra0/fitted-first/statuses.csv",
+      "type": "regular",
+      "bytes": 274,
+      "sha256": "dfcfd9d51c916d9d193482c2312841608ee3ba120e253db651e8990cdb800081"
+    },
+    {
+      "path": "fitted-pollen/pytest-tmp/test_fitted_block_replaces_tra0/fitted-second/predictions.csv",
+      "type": "regular",
+      "bytes": 297,
+      "sha256": "81b2b030c1872a810b5902c736fc607c5122a2a4557b70a84e54933769aa333d"
+    },
+    {
+      "path": "fitted-pollen/pytest-tmp/test_fitted_block_replaces_tra0/fitted-second/report.json",
+      "type": "regular",
+      "bytes": 2082,
+      "sha256": "2870b6ece7af58f47bafa9449163b7e4b346fe7179c10a95dad860ad5764ef67"
+    },
+    {
+      "path": "fitted-pollen/pytest-tmp/test_fitted_block_replaces_tra0/fitted-second/statuses.csv",
+      "type": "regular",
+      "bytes": 274,
+      "sha256": "dfcfd9d51c916d9d193482c2312841608ee3ba120e253db651e8990cdb800081"
+    },
+    {
+      "path": "fitted-pollen/pytest-tmp/test_fitted_block_replaces_tra0/fitted-third/predictions.csv",
+      "type": "regular",
+      "bytes": 297,
+      "sha256": "81b2b030c1872a810b5902c736fc607c5122a2a4557b70a84e54933769aa333d"
+    },
+    {
+      "path": "fitted-pollen/pytest-tmp/test_fitted_block_replaces_tra0/fitted-third/report.json",
+      "type": "regular",
+      "bytes": 2082,
+      "sha256": "2870b6ece7af58f47bafa9449163b7e4b346fe7179c10a95dad860ad5764ef67"
+    },
+    {
+      "path": "fitted-pollen/pytest-tmp/test_fitted_block_replaces_tra0/fitted-third/statuses.csv",
+      "type": "regular",
+      "bytes": 274,
+      "sha256": "dfcfd9d51c916d9d193482c2312841608ee3ba120e253db651e8990cdb800081"
+    },
+    {
+      "path": "fitted-pollen/pytest-tmp/test_fitted_block_replaces_tracurrent",
+      "type": "symlink",
+      "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/v4/author-pollen-spatial-block/fitted-pollen/pytest-tmp/test_fitted_block_replaces_tra0"
+    },
+    {
+      "path": "fitted-pollen/pytest-tmp/test_prediction_is_unchanged_w0/author/run.REVEALS.files/LRAready_target_a.csv",
+      "type": "regular",
+      "bytes": 19,
+      "sha256": "f121b27397a08f6043e94bef1e350a529a97821617250ec8102718a5bf6e4647"
+    },
+    {
+      "path": "fitted-pollen/pytest-tmp/test_prediction_is_unchanged_w0/author/run.REVEALS.files/LRAready_training.csv",
+      "type": "regular",
+      "bytes": 43,
+      "sha256": "d84f5b2cf4cb95258e339d109dd6a8f083e91dc6fc59caff39ac04464ab7c56d"
+    },
+    {
+      "path": "fitted-pollen/pytest-tmp/test_prediction_is_unchanged_w0/first/predictions.csv",
+      "type": "regular",
+      "bytes": 452,
+      "sha256": "894d380a487ef52273c5176b86db1da867529d79dcc3cc6f091a80b6a98b12fa"
+    },
+    {
+      "path": "fitted-pollen/pytest-tmp/test_prediction_is_unchanged_w0/first/report.json",
+      "type": "regular",
+      "bytes": 1301,
+      "sha256": "44f29e8d74bb4ce3b8031f23a8c1b6b089407bfb7d5a9bc91704d7b8870a01a5"
+    },
+    {
+      "path": "fitted-pollen/pytest-tmp/test_prediction_is_unchanged_w0/first/statuses.csv",
+      "type": "regular",
+      "bytes": 406,
+      "sha256": "328680a827528bbf76ac1cde7e54c80edf48948016d323f09acc43ba5e725f68"
+    },
+    {
+      "path": "fitted-pollen/pytest-tmp/test_prediction_is_unchanged_w0/second/predictions.csv",
+      "type": "regular",
+      "bytes": 452,
+      "sha256": "894d380a487ef52273c5176b86db1da867529d79dcc3cc6f091a80b6a98b12fa"
+    },
+    {
+      "path": "fitted-pollen/pytest-tmp/test_prediction_is_unchanged_w0/second/report.json",
+      "type": "regular",
+      "bytes": 1301,
+      "sha256": "44f29e8d74bb4ce3b8031f23a8c1b6b089407bfb7d5a9bc91704d7b8870a01a5"
+    },
+    {
+      "path": "fitted-pollen/pytest-tmp/test_prediction_is_unchanged_w0/second/statuses.csv",
+      "type": "regular",
+      "bytes": 406,
+      "sha256": "328680a827528bbf76ac1cde7e54c80edf48948016d323f09acc43ba5e725f68"
+    },
+    {
+      "path": "fitted-pollen/pytest-tmp/test_prediction_is_unchanged_w0/third/predictions.csv",
+      "type": "regular",
+      "bytes": 452,
+      "sha256": "894d380a487ef52273c5176b86db1da867529d79dcc3cc6f091a80b6a98b12fa"
+    },
+    {
+      "path": "fitted-pollen/pytest-tmp/test_prediction_is_unchanged_w0/third/report.json",
+      "type": "regular",
+      "bytes": 1301,
+      "sha256": "44f29e8d74bb4ce3b8031f23a8c1b6b089407bfb7d5a9bc91704d7b8870a01a5"
+    },
+    {
+      "path": "fitted-pollen/pytest-tmp/test_prediction_is_unchanged_w0/third/statuses.csv",
+      "type": "regular",
+      "bytes": 406,
+      "sha256": "328680a827528bbf76ac1cde7e54c80edf48948016d323f09acc43ba5e725f68"
+    },
+    {
+      "path": "fitted-pollen/pytest-tmp/test_prediction_is_unchanged_wcurrent",
+      "type": "symlink",
+      "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/v4/author-pollen-spatial-block/fitted-pollen/pytest-tmp/test_prediction_is_unchanged_w0"
+    },
+    {
+      "path": "fitted-pollen/pytest-tmp/test_spatial_methods_use_only_0/author/run.REVEALS.files/LRAready_far.csv",
+      "type": "regular",
+      "bytes": 43,
+      "sha256": "f85e565616c5d4047802e7c65227fae9866b6e0812e142ed3b7e86213e7294b9"
+    },
+    {
+      "path": "fitted-pollen/pytest-tmp/test_spatial_methods_use_only_0/author/run.REVEALS.files/LRAready_near.csv",
+      "type": "regular",
+      "bytes": 43,
+      "sha256": "d84f5b2cf4cb95258e339d109dd6a8f083e91dc6fc59caff39ac04464ab7c56d"
+    },
+    {
+      "path": "fitted-pollen/pytest-tmp/test_spatial_methods_use_only_0/inverse_distance_squared/predictions.csv",
+      "type": "regular",
+      "bytes": 269,
+      "sha256": "2c7875a1cee31394ed1049c7458847d0a050b7e0c31afe2d8ade861d339332ac"
+    },
+    {
+      "path": "fitted-pollen/pytest-tmp/test_spatial_methods_use_only_0/inverse_distance_squared/report.json",
+      "type": "regular",
+      "bytes": 1371,
+      "sha256": "c3832d72ee5f3019bd61c254e13f651fd5464010d1cfe84f2d8a194352a698cb"
+    },
+    {
+      "path": "fitted-pollen/pytest-tmp/test_spatial_methods_use_only_0/inverse_distance_squared/statuses.csv",
+      "type": "regular",
+      "bytes": 273,
+      "sha256": "39d75a1c8d21fc07586a0bcf36d4e13d37da6b7e1fe62b2f6b5293feaee263a2"
+    },
+    {
+      "path": "fitted-pollen/pytest-tmp/test_spatial_methods_use_only_0/nearest_site/predictions.csv",
+      "type": "regular",
+      "bytes": 267,
+      "sha256": "7c9442787ec9a867942ad4cdd87d4d79433e3b98b1ae3c3d07981ad22e15072f"
+    },
+    {
+      "path": "fitted-pollen/pytest-tmp/test_spatial_methods_use_only_0/nearest_site/report.json",
+      "type": "regular",
+      "bytes": 1359,
+      "sha256": "44a6fc2d60effbf1c45ee2a60acdc65b4ca231ec6f6987b0965bd0434d3a77ba"
+    },
+    {
+      "path": "fitted-pollen/pytest-tmp/test_spatial_methods_use_only_0/nearest_site/statuses.csv",
+      "type": "regular",
+      "bytes": 273,
+      "sha256": "b86f9b81cedccf80e14fa397050c44e18150b34f3f41bbe6dd56f74f69555bdb"
+    },
+    {
+      "path": "fitted-pollen/pytest-tmp/test_spatial_methods_use_only_0/training_mean/predictions.csv",
+      "type": "regular",
+      "bytes": 267,
+      "sha256": "22696eb65fbc99b0a6ca70531acfe901cb13ab41cf1e165416ba7b48ce006581"
+    },
+    {
+      "path": "fitted-pollen/pytest-tmp/test_spatial_methods_use_only_0/training_mean/report.json",
+      "type": "regular",
+      "bytes": 1365,
+      "sha256": "72420cadc2b8381089ddae1d3542705c0b2e41820fd536ff17745f06a0c5733f"
+    },
+    {
+      "path": "fitted-pollen/pytest-tmp/test_spatial_methods_use_only_0/training_mean/statuses.csv",
+      "type": "regular",
+      "bytes": 273,
+      "sha256": "8ab8bf3082d9f318e6eab1b5ab1d711df88b09a4fb06d232d4bae11c21811c35"
+    },
+    {
+      "path": "fitted-pollen/pytest-tmp/test_spatial_methods_use_only_current",
+      "type": "symlink",
+      "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/v4/author-pollen-spatial-block/fitted-pollen/pytest-tmp/test_spatial_methods_use_only_0"
+    },
+    {
+      "path": "fitted-pollen/pytest-tmp/test_taxon_error_comparison_us0/inverse_distance_squared/scored-predictions.csv",
+      "type": "regular",
+      "bytes": 3770,
+      "sha256": "db02e89f86b2ee81316143c5bc20748a94a8f3b753fcffdfa88ba963cebacb6a"
+    },
+    {
+      "path": "fitted-pollen/pytest-tmp/test_taxon_error_comparison_us0/nearest_site/scored-predictions.csv",
+      "type": "regular",
+      "bytes": 2930,
+      "sha256": "ba2d42c445d6d965daac95bfaa15364b7941f8ccd31c4a4b700d7fce115be8f4"
+    },
+    {
+      "path": "fitted-pollen/pytest-tmp/test_taxon_error_comparison_us0/training_mean/scored-predictions.csv",
+      "type": "regular",
+      "bytes": 3770,
+      "sha256": "db02e89f86b2ee81316143c5bc20748a94a8f3b753fcffdfa88ba963cebacb6a"
+    },
+    {
+      "path": "fitted-pollen/pytest-tmp/test_taxon_error_comparison_uscurrent",
+      "type": "symlink",
+      "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/v4/author-pollen-spatial-block/fitted-pollen/pytest-tmp/test_taxon_error_comparison_us0"
+    },
+    {
+      "path": "fitted-pollen/runtime-isolation-commit-candidate.py",
+      "type": "regular",
+      "bytes": 16332,
+      "sha256": "157db7f8358890be5098b2d8bfecd4c2f0f338e9ef8776988535635c9878e285"
+    },
+    {
+      "path": "fitted-pollen/runtime-isolation-reviewed.plan.json",
+      "type": "regular",
+      "bytes": 1586,
+      "sha256": "93f60b71c1bc1cc254dcc5f5298e152cc162d95d74acabf0779e6b6b5b30f4a7"
+    },
+    {
+      "path": "fitted-pollen/runtime-isolation.plan.json",
+      "type": "regular",
+      "bytes": 1495,
+      "sha256": "b52618b2d842235af27bf931c350c433478334d70b614716f3869e62b72724e3"
+    },
+    {
+      "path": "fitted-pollen/score.plan.json",
+      "type": "regular",
+      "bytes": 6121,
+      "sha256": "c89b1bba22760672dc15eea0cfc22ddda77f1d09c8850d64ed816f3e86784124"
+    },
+    {
+      "path": "fitted-pollen/study-commit.index",
+      "type": "regular",
+      "bytes": 892952,
+      "sha256": "4941b9293ec4d91a4b4861a501d4c810effda6a7e7872e54e093405ca406b4df"
+    },
+    {
+      "path": "grid-512-predictions/predictions.csv",
+      "type": "regular",
+      "bytes": 340017,
+      "sha256": "80699e171c8bc9249e782c2156a70f4946413493c4e731434571b9a5027e8ecd"
+    },
+    {
+      "path": "grid-512-predictions/report.json",
+      "type": "regular",
+      "bytes": 1780,
+      "sha256": "ff5a4d6210132c814ceae2200032930a53e4cf9741ed90069e65a0a4311e0ec9"
+    },
+    {
+      "path": "grid-512-predictions/statuses.csv",
+      "type": "regular",
+      "bytes": 19444,
+      "sha256": "80529c37079be2f9844ed8ccd80b78bb8f13d6728e4c625358a7ab97f8087b41"
+    },
+    {
+      "path": "grid-512.plan.json",
+      "type": "regular",
+      "bytes": 3200,
+      "sha256": "8655294d9cc13f0bebf9d52c14f67d2656538ab04cd706c956028ba92a36b3be"
+    },
+    {
+      "path": "grid-562-predictions/predictions.csv",
+      "type": "regular",
+      "bytes": 496282,
+      "sha256": "5dd7ae50c43343d2286a0f279f7f8a738f3af11b0e871c01750cd34b6131da5a"
+    },
+    {
+      "path": "grid-562-predictions/report.json",
+      "type": "regular",
+      "bytes": 1942,
+      "sha256": "406288282bbca400a5d8f3fc12798e1adef6873910bdc8b88ec44df15c747bb3"
+    },
+    {
+      "path": "grid-562-predictions/statuses.csv",
+      "type": "regular",
+      "bytes": 22247,
+      "sha256": "93eba74a875e60ae20cd2b330f4c17748efddf9358f093989d76c2deec57959c"
+    },
+    {
+      "path": "grid-562.plan.json",
+      "type": "regular",
+      "bytes": 3403,
+      "sha256": "947c54806d4cdacdd146c9d29325db7406bdbd2b6be9f43ae7713b3075b7e8e1"
+    },
+    {
+      "path": "hellinger-comparison/REPORT.md",
+      "type": "regular",
+      "bytes": 1263,
+      "sha256": "c487058983afc90da1e77c2974222aefa6c8edfb02d9d858e5d64d7b53458fe5"
+    },
+    {
+      "path": "hellinger-comparison/report.json",
+      "type": "regular",
+      "bytes": 6414,
+      "sha256": "4c9628c0bacecf20866c044cb203522059159996495f21758385e307adaba525"
+    },
+    {
+      "path": "hellinger-comparison/scores.csv",
+      "type": "regular",
+      "bytes": 24761,
+      "sha256": "65dd74dc9ab35d1405dd519c6ce9810f3e7384be073612ffec52de72846d0eb0"
+    },
+    {
+      "path": "hellinger-corrected-test-cache/.gitignore",
+      "type": "regular",
+      "bytes": 37,
+      "sha256": "3ed731b65d06150c138e2dadb0be0697550888a6b47eb8c45ecc9adba8b8e9bd"
+    },
+    {
+      "path": "hellinger-corrected-test-cache/CACHEDIR.TAG",
+      "type": "regular",
+      "bytes": 191,
+      "sha256": "37dc88ef9a0abeddbe81053a6dd8fdfb13afb613045ea1eb4a5c815a74a3bde4"
+    },
+    {
+      "path": "hellinger-corrected-test-cache/README.md",
+      "type": "regular",
+      "bytes": 302,
+      "sha256": "73fd6fccdd802c419a6b2d983d6c3173b7da97558ac4b589edec2dfe443db9ad"
+    },
+    {
+      "path": "hellinger-corrected-test-cache/v/cache/nodeids",
+      "type": "regular",
+      "bytes": 1607,
+      "sha256": "7c82ff473130159c735fcd3a33c87f4b796c711dfb8c86533bc5bc932466d12d"
+    },
+    {
+      "path": "hellinger-corrected-test-tmp/test_comparison_uses_only_comm0/within-grid.csv",
+      "type": "regular",
+      "bytes": 13167,
+      "sha256": "fecd3dc7ea1f5f7bddec9a9bd3ef564d9fbf3f43224e6ec5db7e26174ba8d2f4"
+    },
+    {
+      "path": "hellinger-corrected-test-tmp/test_comparison_uses_only_commcurrent",
+      "type": "symlink",
+      "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/v4/author-pollen-spatial-block/hellinger-corrected-test-tmp/test_comparison_uses_only_comm0"
+    },
+    {
+      "path": "hellinger-corrected-test-tmp/test_prediction_is_unchanged_w0/author/run.REVEALS.files/LRAready_target_a.csv",
+      "type": "regular",
+      "bytes": 19,
+      "sha256": "f121b27397a08f6043e94bef1e350a529a97821617250ec8102718a5bf6e4647"
+    },
+    {
+      "path": "hellinger-corrected-test-tmp/test_prediction_is_unchanged_w0/author/run.REVEALS.files/LRAready_training.csv",
+      "type": "regular",
+      "bytes": 43,
+      "sha256": "d84f5b2cf4cb95258e339d109dd6a8f083e91dc6fc59caff39ac04464ab7c56d"
+    },
+    {
+      "path": "hellinger-corrected-test-tmp/test_prediction_is_unchanged_w0/first/predictions.csv",
+      "type": "regular",
+      "bytes": 452,
+      "sha256": "894d380a487ef52273c5176b86db1da867529d79dcc3cc6f091a80b6a98b12fa"
+    },
+    {
+      "path": "hellinger-corrected-test-tmp/test_prediction_is_unchanged_w0/first/report.json",
+      "type": "regular",
+      "bytes": 1301,
+      "sha256": "44f29e8d74bb4ce3b8031f23a8c1b6b089407bfb7d5a9bc91704d7b8870a01a5"
+    },
+    {
+      "path": "hellinger-corrected-test-tmp/test_prediction_is_unchanged_w0/first/statuses.csv",
+      "type": "regular",
+      "bytes": 406,
+      "sha256": "328680a827528bbf76ac1cde7e54c80edf48948016d323f09acc43ba5e725f68"
+    },
+    {
+      "path": "hellinger-corrected-test-tmp/test_prediction_is_unchanged_w0/second/predictions.csv",
+      "type": "regular",
+      "bytes": 452,
+      "sha256": "894d380a487ef52273c5176b86db1da867529d79dcc3cc6f091a80b6a98b12fa"
+    },
+    {
+      "path": "hellinger-corrected-test-tmp/test_prediction_is_unchanged_w0/second/report.json",
+      "type": "regular",
+      "bytes": 1301,
+      "sha256": "44f29e8d74bb4ce3b8031f23a8c1b6b089407bfb7d5a9bc91704d7b8870a01a5"
+    },
+    {
+      "path": "hellinger-corrected-test-tmp/test_prediction_is_unchanged_w0/second/statuses.csv",
+      "type": "regular",
+      "bytes": 406,
+      "sha256": "328680a827528bbf76ac1cde7e54c80edf48948016d323f09acc43ba5e725f68"
+    },
+    {
+      "path": "hellinger-corrected-test-tmp/test_prediction_is_unchanged_w0/third/predictions.csv",
+      "type": "regular",
+      "bytes": 452,
+      "sha256": "894d380a487ef52273c5176b86db1da867529d79dcc3cc6f091a80b6a98b12fa"
+    },
+    {
+      "path": "hellinger-corrected-test-tmp/test_prediction_is_unchanged_w0/third/report.json",
+      "type": "regular",
+      "bytes": 1301,
+      "sha256": "44f29e8d74bb4ce3b8031f23a8c1b6b089407bfb7d5a9bc91704d7b8870a01a5"
+    },
+    {
+      "path": "hellinger-corrected-test-tmp/test_prediction_is_unchanged_w0/third/statuses.csv",
+      "type": "regular",
+      "bytes": 406,
+      "sha256": "328680a827528bbf76ac1cde7e54c80edf48948016d323f09acc43ba5e725f68"
+    },
+    {
+      "path": "hellinger-corrected-test-tmp/test_prediction_is_unchanged_wcurrent",
+      "type": "symlink",
+      "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/v4/author-pollen-spatial-block/hellinger-corrected-test-tmp/test_prediction_is_unchanged_w0"
+    },
+    {
+      "path": "hellinger-corrected-test-tmp/test_spatial_methods_use_only_0/author/run.REVEALS.files/LRAready_far.csv",
+      "type": "regular",
+      "bytes": 43,
+      "sha256": "f85e565616c5d4047802e7c65227fae9866b6e0812e142ed3b7e86213e7294b9"
+    },
+    {
+      "path": "hellinger-corrected-test-tmp/test_spatial_methods_use_only_0/author/run.REVEALS.files/LRAready_near.csv",
+      "type": "regular",
+      "bytes": 43,
+      "sha256": "d84f5b2cf4cb95258e339d109dd6a8f083e91dc6fc59caff39ac04464ab7c56d"
+    },
+    {
+      "path": "hellinger-corrected-test-tmp/test_spatial_methods_use_only_0/inverse_distance_squared/predictions.csv",
+      "type": "regular",
+      "bytes": 269,
+      "sha256": "2c7875a1cee31394ed1049c7458847d0a050b7e0c31afe2d8ade861d339332ac"
+    },
+    {
+      "path": "hellinger-corrected-test-tmp/test_spatial_methods_use_only_0/inverse_distance_squared/report.json",
+      "type": "regular",
+      "bytes": 1371,
+      "sha256": "c3832d72ee5f3019bd61c254e13f651fd5464010d1cfe84f2d8a194352a698cb"
+    },
+    {
+      "path": "hellinger-corrected-test-tmp/test_spatial_methods_use_only_0/inverse_distance_squared/statuses.csv",
+      "type": "regular",
+      "bytes": 273,
+      "sha256": "39d75a1c8d21fc07586a0bcf36d4e13d37da6b7e1fe62b2f6b5293feaee263a2"
+    },
+    {
+      "path": "hellinger-corrected-test-tmp/test_spatial_methods_use_only_0/nearest_site/predictions.csv",
+      "type": "regular",
+      "bytes": 267,
+      "sha256": "7c9442787ec9a867942ad4cdd87d4d79433e3b98b1ae3c3d07981ad22e15072f"
+    },
+    {
+      "path": "hellinger-corrected-test-tmp/test_spatial_methods_use_only_0/nearest_site/report.json",
+      "type": "regular",
+      "bytes": 1359,
+      "sha256": "44a6fc2d60effbf1c45ee2a60acdc65b4ca231ec6f6987b0965bd0434d3a77ba"
+    },
+    {
+      "path": "hellinger-corrected-test-tmp/test_spatial_methods_use_only_0/nearest_site/statuses.csv",
+      "type": "regular",
+      "bytes": 273,
+      "sha256": "b86f9b81cedccf80e14fa397050c44e18150b34f3f41bbe6dd56f74f69555bdb"
+    },
+    {
+      "path": "hellinger-corrected-test-tmp/test_spatial_methods_use_only_0/training_mean/predictions.csv",
+      "type": "regular",
+      "bytes": 267,
+      "sha256": "22696eb65fbc99b0a6ca70531acfe901cb13ab41cf1e165416ba7b48ce006581"
+    },
+    {
+      "path": "hellinger-corrected-test-tmp/test_spatial_methods_use_only_0/training_mean/report.json",
+      "type": "regular",
+      "bytes": 1365,
+      "sha256": "72420cadc2b8381089ddae1d3542705c0b2e41820fd536ff17745f06a0c5733f"
+    },
+    {
+      "path": "hellinger-corrected-test-tmp/test_spatial_methods_use_only_0/training_mean/statuses.csv",
+      "type": "regular",
+      "bytes": 273,
+      "sha256": "8ab8bf3082d9f318e6eab1b5ab1d711df88b09a4fb06d232d4bae11c21811c35"
+    },
+    {
+      "path": "hellinger-corrected-test-tmp/test_spatial_methods_use_only_current",
+      "type": "symlink",
+      "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/v4/author-pollen-spatial-block/hellinger-corrected-test-tmp/test_spatial_methods_use_only_0"
+    },
+    {
+      "path": "hellinger-corrected-test-tmp/test_taxon_error_comparison_us0/inverse_distance_squared/scored-predictions.csv",
+      "type": "regular",
+      "bytes": 3770,
+      "sha256": "db02e89f86b2ee81316143c5bc20748a94a8f3b753fcffdfa88ba963cebacb6a"
+    },
+    {
+      "path": "hellinger-corrected-test-tmp/test_taxon_error_comparison_us0/nearest_site/scored-predictions.csv",
+      "type": "regular",
+      "bytes": 2930,
+      "sha256": "ba2d42c445d6d965daac95bfaa15364b7941f8ccd31c4a4b700d7fce115be8f4"
+    },
+    {
+      "path": "hellinger-corrected-test-tmp/test_taxon_error_comparison_us0/training_mean/scored-predictions.csv",
+      "type": "regular",
+      "bytes": 3770,
+      "sha256": "db02e89f86b2ee81316143c5bc20748a94a8f3b753fcffdfa88ba963cebacb6a"
+    },
+    {
+      "path": "hellinger-corrected-test-tmp/test_taxon_error_comparison_uscurrent",
+      "type": "symlink",
+      "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/v4/author-pollen-spatial-block/hellinger-corrected-test-tmp/test_taxon_error_comparison_us0"
+    },
+    {
+      "path": "hellinger-plans.py",
+      "type": "regular",
+      "bytes": 3239,
+      "sha256": "78f285d48fd98219344c2d9e4f116f5046633d84d6c7bfeca23e41346a6ca262"
+    },
+    {
+      "path": "hellinger-retry-plans.py",
+      "type": "regular",
+      "bytes": 685,
+      "sha256": "0954e9e4aca7bf3db923b7dab18cdf10a0fb41f70a2537369d9407152e4ffea9"
+    },
+    {
+      "path": "hellinger-test-cache/.gitignore",
+      "type": "regular",
+      "bytes": 37,
+      "sha256": "3ed731b65d06150c138e2dadb0be0697550888a6b47eb8c45ecc9adba8b8e9bd"
+    },
+    {
+      "path": "hellinger-test-cache/CACHEDIR.TAG",
+      "type": "regular",
+      "bytes": 191,
+      "sha256": "37dc88ef9a0abeddbe81053a6dd8fdfb13afb613045ea1eb4a5c815a74a3bde4"
+    },
+    {
+      "path": "hellinger-test-cache/README.md",
+      "type": "regular",
+      "bytes": 302,
+      "sha256": "73fd6fccdd802c419a6b2d983d6c3173b7da97558ac4b589edec2dfe443db9ad"
+    },
+    {
+      "path": "hellinger-test-cache/v/cache/nodeids",
+      "type": "regular",
+      "bytes": 1607,
+      "sha256": "7c82ff473130159c735fcd3a33c87f4b796c711dfb8c86533bc5bc932466d12d"
+    },
+    {
+      "path": "hellinger-test-tmp/test_comparison_uses_only_comm0/within-grid.csv",
+      "type": "regular",
+      "bytes": 13167,
+      "sha256": "fecd3dc7ea1f5f7bddec9a9bd3ef564d9fbf3f43224e6ec5db7e26174ba8d2f4"
+    },
+    {
+      "path": "hellinger-test-tmp/test_comparison_uses_only_commcurrent",
+      "type": "symlink",
+      "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/v4/author-pollen-spatial-block/hellinger-test-tmp/test_comparison_uses_only_comm0"
+    },
+    {
+      "path": "hellinger-test-tmp/test_prediction_is_unchanged_w0/author/run.REVEALS.files/LRAready_target_a.csv",
+      "type": "regular",
+      "bytes": 19,
+      "sha256": "f121b27397a08f6043e94bef1e350a529a97821617250ec8102718a5bf6e4647"
+    },
+    {
+      "path": "hellinger-test-tmp/test_prediction_is_unchanged_w0/author/run.REVEALS.files/LRAready_training.csv",
+      "type": "regular",
+      "bytes": 43,
+      "sha256": "d84f5b2cf4cb95258e339d109dd6a8f083e91dc6fc59caff39ac04464ab7c56d"
+    },
+    {
+      "path": "hellinger-test-tmp/test_prediction_is_unchanged_w0/first/predictions.csv",
+      "type": "regular",
+      "bytes": 452,
+      "sha256": "894d380a487ef52273c5176b86db1da867529d79dcc3cc6f091a80b6a98b12fa"
+    },
+    {
+      "path": "hellinger-test-tmp/test_prediction_is_unchanged_w0/first/report.json",
+      "type": "regular",
+      "bytes": 1301,
+      "sha256": "44f29e8d74bb4ce3b8031f23a8c1b6b089407bfb7d5a9bc91704d7b8870a01a5"
+    },
+    {
+      "path": "hellinger-test-tmp/test_prediction_is_unchanged_w0/first/statuses.csv",
+      "type": "regular",
+      "bytes": 406,
+      "sha256": "328680a827528bbf76ac1cde7e54c80edf48948016d323f09acc43ba5e725f68"
+    },
+    {
+      "path": "hellinger-test-tmp/test_prediction_is_unchanged_w0/second/predictions.csv",
+      "type": "regular",
+      "bytes": 452,
+      "sha256": "894d380a487ef52273c5176b86db1da867529d79dcc3cc6f091a80b6a98b12fa"
+    },
+    {
+      "path": "hellinger-test-tmp/test_prediction_is_unchanged_w0/second/report.json",
+      "type": "regular",
+      "bytes": 1301,
+      "sha256": "44f29e8d74bb4ce3b8031f23a8c1b6b089407bfb7d5a9bc91704d7b8870a01a5"
+    },
+    {
+      "path": "hellinger-test-tmp/test_prediction_is_unchanged_w0/second/statuses.csv",
+      "type": "regular",
+      "bytes": 406,
+      "sha256": "328680a827528bbf76ac1cde7e54c80edf48948016d323f09acc43ba5e725f68"
+    },
+    {
+      "path": "hellinger-test-tmp/test_prediction_is_unchanged_w0/third/predictions.csv",
+      "type": "regular",
+      "bytes": 452,
+      "sha256": "894d380a487ef52273c5176b86db1da867529d79dcc3cc6f091a80b6a98b12fa"
+    },
+    {
+      "path": "hellinger-test-tmp/test_prediction_is_unchanged_w0/third/report.json",
+      "type": "regular",
+      "bytes": 1301,
+      "sha256": "44f29e8d74bb4ce3b8031f23a8c1b6b089407bfb7d5a9bc91704d7b8870a01a5"
+    },
+    {
+      "path": "hellinger-test-tmp/test_prediction_is_unchanged_w0/third/statuses.csv",
+      "type": "regular",
+      "bytes": 406,
+      "sha256": "328680a827528bbf76ac1cde7e54c80edf48948016d323f09acc43ba5e725f68"
+    },
+    {
+      "path": "hellinger-test-tmp/test_prediction_is_unchanged_wcurrent",
+      "type": "symlink",
+      "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/v4/author-pollen-spatial-block/hellinger-test-tmp/test_prediction_is_unchanged_w0"
+    },
+    {
+      "path": "hellinger-test-tmp/test_spatial_methods_use_only_0/author/run.REVEALS.files/LRAready_far.csv",
+      "type": "regular",
+      "bytes": 43,
+      "sha256": "f85e565616c5d4047802e7c65227fae9866b6e0812e142ed3b7e86213e7294b9"
+    },
+    {
+      "path": "hellinger-test-tmp/test_spatial_methods_use_only_0/author/run.REVEALS.files/LRAready_near.csv",
+      "type": "regular",
+      "bytes": 43,
+      "sha256": "d84f5b2cf4cb95258e339d109dd6a8f083e91dc6fc59caff39ac04464ab7c56d"
+    },
+    {
+      "path": "hellinger-test-tmp/test_spatial_methods_use_only_0/inverse_distance_squared/predictions.csv",
+      "type": "regular",
+      "bytes": 269,
+      "sha256": "2c7875a1cee31394ed1049c7458847d0a050b7e0c31afe2d8ade861d339332ac"
+    },
+    {
+      "path": "hellinger-test-tmp/test_spatial_methods_use_only_0/inverse_distance_squared/report.json",
+      "type": "regular",
+      "bytes": 1371,
+      "sha256": "c3832d72ee5f3019bd61c254e13f651fd5464010d1cfe84f2d8a194352a698cb"
+    },
+    {
+      "path": "hellinger-test-tmp/test_spatial_methods_use_only_0/inverse_distance_squared/statuses.csv",
+      "type": "regular",
+      "bytes": 273,
+      "sha256": "39d75a1c8d21fc07586a0bcf36d4e13d37da6b7e1fe62b2f6b5293feaee263a2"
+    },
+    {
+      "path": "hellinger-test-tmp/test_spatial_methods_use_only_0/nearest_site/predictions.csv",
+      "type": "regular",
+      "bytes": 267,
+      "sha256": "7c9442787ec9a867942ad4cdd87d4d79433e3b98b1ae3c3d07981ad22e15072f"
+    },
+    {
+      "path": "hellinger-test-tmp/test_spatial_methods_use_only_0/nearest_site/report.json",
+      "type": "regular",
+      "bytes": 1359,
+      "sha256": "44a6fc2d60effbf1c45ee2a60acdc65b4ca231ec6f6987b0965bd0434d3a77ba"
+    },
+    {
+      "path": "hellinger-test-tmp/test_spatial_methods_use_only_0/nearest_site/statuses.csv",
+      "type": "regular",
+      "bytes": 273,
+      "sha256": "b86f9b81cedccf80e14fa397050c44e18150b34f3f41bbe6dd56f74f69555bdb"
+    },
+    {
+      "path": "hellinger-test-tmp/test_spatial_methods_use_only_0/training_mean/predictions.csv",
+      "type": "regular",
+      "bytes": 267,
+      "sha256": "22696eb65fbc99b0a6ca70531acfe901cb13ab41cf1e165416ba7b48ce006581"
+    },
+    {
+      "path": "hellinger-test-tmp/test_spatial_methods_use_only_0/training_mean/report.json",
+      "type": "regular",
+      "bytes": 1365,
+      "sha256": "72420cadc2b8381089ddae1d3542705c0b2e41820fd536ff17745f06a0c5733f"
+    },
+    {
+      "path": "hellinger-test-tmp/test_spatial_methods_use_only_0/training_mean/statuses.csv",
+      "type": "regular",
+      "bytes": 273,
+      "sha256": "8ab8bf3082d9f318e6eab1b5ab1d711df88b09a4fb06d232d4bae11c21811c35"
+    },
+    {
+      "path": "hellinger-test-tmp/test_spatial_methods_use_only_current",
+      "type": "symlink",
+      "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/v4/author-pollen-spatial-block/hellinger-test-tmp/test_spatial_methods_use_only_0"
+    },
+    {
+      "path": "hellinger-test-tmp/test_taxon_error_comparison_us0/inverse_distance_squared/scored-predictions.csv",
+      "type": "regular",
+      "bytes": 3770,
+      "sha256": "db02e89f86b2ee81316143c5bc20748a94a8f3b753fcffdfa88ba963cebacb6a"
+    },
+    {
+      "path": "hellinger-test-tmp/test_taxon_error_comparison_us0/nearest_site/scored-predictions.csv",
+      "type": "regular",
+      "bytes": 2930,
+      "sha256": "ba2d42c445d6d965daac95bfaa15364b7941f8ccd31c4a4b700d7fce115be8f4"
+    },
+    {
+      "path": "hellinger-test-tmp/test_taxon_error_comparison_us0/training_mean/scored-predictions.csv",
+      "type": "regular",
+      "bytes": 3770,
+      "sha256": "db02e89f86b2ee81316143c5bc20748a94a8f3b753fcffdfa88ba963cebacb6a"
+    },
+    {
+      "path": "hellinger-test-tmp/test_taxon_error_comparison_uscurrent",
+      "type": "symlink",
+      "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/v4/author-pollen-spatial-block/hellinger-test-tmp/test_taxon_error_comparison_us0"
+    },
+    {
+      "path": "inverse_distance_squared-grid-512-predictions/predictions.csv",
+      "type": "regular",
+      "bytes": 339889,
+      "sha256": "f89c5c467e48bf0045038f4cc5ec23b400527317118ba26315df596208076a58"
+    },
+    {
+      "path": "inverse_distance_squared-grid-512-predictions/report.json",
+      "type": "regular",
+      "bytes": 1786,
+      "sha256": "9685d80e30def4f6836f4a41bb2add29b0157af506836599cb1d394078dabfe7"
+    },
+    {
+      "path": "inverse_distance_squared-grid-512-predictions/statuses.csv",
+      "type": "regular",
+      "bytes": 19444,
+      "sha256": "913657b9b0a0baf61a0fb34fab99171ac1ae1f1be98781f13b1f33229e0779f1"
+    },
+    {
+      "path": "inverse_distance_squared-grid-512.plan.json",
+      "type": "regular",
+      "bytes": 3368,
+      "sha256": "14fd1f0a200b242cf718327acf51b5e6ee225fb65932855e7fa6c4e5066b3e4e"
+    },
+    {
+      "path": "inverse_distance_squared-grid-562-predictions/predictions.csv",
+      "type": "regular",
+      "bytes": 496221,
+      "sha256": "39dcacd1d784219e8a08faa6cf4f16b616f9c32c1e58ed61ae8c3c5c24340186"
+    },
+    {
+      "path": "inverse_distance_squared-grid-562-predictions/report.json",
+      "type": "regular",
+      "bytes": 1948,
+      "sha256": "5c6ea9fc1f48d51aba57ec388ea1d9bdd58b0b33b37ca9140a1b49a6ee748648"
+    },
+    {
+      "path": "inverse_distance_squared-grid-562-predictions/statuses.csv",
+      "type": "regular",
+      "bytes": 22247,
+      "sha256": "7916259258379bc606293b2207b81ab26aeb15a627fff90ba7c5fce21cb14530"
+    },
+    {
+      "path": "inverse_distance_squared-grid-562.plan.json",
+      "type": "regular",
+      "bytes": 3571,
+      "sha256": "07f259e7b79daf949adb5c431726ffe56f2540a7f3cea25081205d54a3b04594"
+    },
+    {
+      "path": "inverse_distance_squared-observed-pollen-scores/REPORT.md",
+      "type": "regular",
+      "bytes": 1394,
+      "sha256": "7c6fe4e82cea7e443411b9410706fe28f288cd1665e9961478ab82baed630084"
+    },
+    {
+      "path": "inverse_distance_squared-observed-pollen-scores/report.json",
+      "type": "regular",
+      "bytes": 10138,
+      "sha256": "7f8a43087e50e394438890d0e8839b7d6ee671d011a50f1940bdaf8370340afd"
+    },
+    {
+      "path": "inverse_distance_squared-observed-pollen-scores/scored-predictions.csv",
+      "type": "regular",
+      "bytes": 224436,
+      "sha256": "3de42a8201102f1d32f37de9816f48c71e8edd8d1851cb10be5661cc5aba1159"
+    },
+    {
+      "path": "inverse_distance_squared-observed-pollen-scores/scores.csv",
+      "type": "regular",
+      "bytes": 48548,
+      "sha256": "7cd59b4495d51ada1288c83abb682e57a78e03427f5d9f8e1d3c7a77ea889376"
+    },
+    {
+      "path": "inverse_distance_squared-scores.plan.json",
+      "type": "regular",
+      "bytes": 6029,
+      "sha256": "4bbfa19de932b3e5ebbb7e6a7983018b790910f6ca25e1d75fdb139f7554d389"
+    },
+    {
+      "path": "method-check-a.plan.json",
+      "type": "regular",
+      "bytes": 3900,
+      "sha256": "148c681fb99f167b4af699993b4dd752ce78791e3308b04554ceb20720f98544"
+    },
+    {
+      "path": "method-check-b.plan.json",
+      "type": "regular",
+      "bytes": 3900,
+      "sha256": "08680696779889f0ea2bf97bcd9c480e21a5ade74dd4f66bec32c949d167074c"
+    },
+    {
+      "path": "method-check-c.plan.json",
+      "type": "regular",
+      "bytes": 3900,
+      "sha256": "3504ac8d968f1d4eb1b0fa77ae02dfc8e62f88c2363132da6f9258db26ac884b"
+    },
+    {
+      "path": "method-check-d.plan.json",
+      "type": "regular",
+      "bytes": 3900,
+      "sha256": "58484fefbba2a646fa51727974b0cee87e1f57b020e042d1e93c0cdde91fc7dd"
+    },
+    {
+      "path": "method-check-e.plan.json",
+      "type": "regular",
+      "bytes": 3900,
+      "sha256": "8a42252d748e9404d17b2e35b9c20a4eb3897f67c7ad943c0eb409b2cca73d4d"
+    },
+    {
+      "path": "method-check-pytest-cache-d/.gitignore",
+      "type": "regular",
+      "bytes": 37,
+      "sha256": "3ed731b65d06150c138e2dadb0be0697550888a6b47eb8c45ecc9adba8b8e9bd"
+    },
+    {
+      "path": "method-check-pytest-cache-d/CACHEDIR.TAG",
+      "type": "regular",
+      "bytes": 191,
+      "sha256": "37dc88ef9a0abeddbe81053a6dd8fdfb13afb613045ea1eb4a5c815a74a3bde4"
+    },
+    {
+      "path": "method-check-pytest-cache-d/README.md",
+      "type": "regular",
+      "bytes": 302,
+      "sha256": "73fd6fccdd802c419a6b2d983d6c3173b7da97558ac4b589edec2dfe443db9ad"
+    },
+    {
+      "path": "method-check-pytest-cache-d/v/cache/nodeids",
+      "type": "regular",
+      "bytes": 253,
+      "sha256": "5c049ac3b93919d7c53fac8f7b70827aaf6b334b17147012940c9eda1a665fb7"
+    },
+    {
+      "path": "method-check-pytest-cache-e/.gitignore",
+      "type": "regular",
+      "bytes": 37,
+      "sha256": "3ed731b65d06150c138e2dadb0be0697550888a6b47eb8c45ecc9adba8b8e9bd"
+    },
+    {
+      "path": "method-check-pytest-cache-e/CACHEDIR.TAG",
+      "type": "regular",
+      "bytes": 191,
+      "sha256": "37dc88ef9a0abeddbe81053a6dd8fdfb13afb613045ea1eb4a5c815a74a3bde4"
+    },
+    {
+      "path": "method-check-pytest-cache-e/README.md",
+      "type": "regular",
+      "bytes": 302,
+      "sha256": "73fd6fccdd802c419a6b2d983d6c3173b7da97558ac4b589edec2dfe443db9ad"
+    },
+    {
+      "path": "method-check-pytest-cache-e/v/cache/nodeids",
+      "type": "regular",
+      "bytes": 253,
+      "sha256": "5c049ac3b93919d7c53fac8f7b70827aaf6b334b17147012940c9eda1a665fb7"
+    },
+    {
+      "path": "method-check-pytest-tmp-d/test_comparison_uses_only_comm0/within-grid.csv",
+      "type": "regular",
+      "bytes": 13167,
+      "sha256": "fecd3dc7ea1f5f7bddec9a9bd3ef564d9fbf3f43224e6ec5db7e26174ba8d2f4"
+    },
+    {
+      "path": "method-check-pytest-tmp-d/test_comparison_uses_only_commcurrent",
+      "type": "symlink",
+      "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/v4/author-pollen-spatial-block/method-check-pytest-tmp-d/test_comparison_uses_only_comm0"
+    },
+    {
+      "path": "method-check-pytest-tmp-d/test_prediction_is_unchanged_w0/author/run.REVEALS.files/LRAready_target_a.csv",
+      "type": "regular",
+      "bytes": 19,
+      "sha256": "f121b27397a08f6043e94bef1e350a529a97821617250ec8102718a5bf6e4647"
+    },
+    {
+      "path": "method-check-pytest-tmp-d/test_prediction_is_unchanged_w0/author/run.REVEALS.files/LRAready_training.csv",
+      "type": "regular",
+      "bytes": 43,
+      "sha256": "d84f5b2cf4cb95258e339d109dd6a8f083e91dc6fc59caff39ac04464ab7c56d"
+    },
+    {
+      "path": "method-check-pytest-tmp-d/test_prediction_is_unchanged_w0/first/predictions.csv",
+      "type": "regular",
+      "bytes": 452,
+      "sha256": "894d380a487ef52273c5176b86db1da867529d79dcc3cc6f091a80b6a98b12fa"
+    },
+    {
+      "path": "method-check-pytest-tmp-d/test_prediction_is_unchanged_w0/first/report.json",
+      "type": "regular",
+      "bytes": 1301,
+      "sha256": "44f29e8d74bb4ce3b8031f23a8c1b6b089407bfb7d5a9bc91704d7b8870a01a5"
+    },
+    {
+      "path": "method-check-pytest-tmp-d/test_prediction_is_unchanged_w0/first/statuses.csv",
+      "type": "regular",
+      "bytes": 406,
+      "sha256": "328680a827528bbf76ac1cde7e54c80edf48948016d323f09acc43ba5e725f68"
+    },
+    {
+      "path": "method-check-pytest-tmp-d/test_prediction_is_unchanged_w0/second/predictions.csv",
+      "type": "regular",
+      "bytes": 452,
+      "sha256": "894d380a487ef52273c5176b86db1da867529d79dcc3cc6f091a80b6a98b12fa"
+    },
+    {
+      "path": "method-check-pytest-tmp-d/test_prediction_is_unchanged_w0/second/report.json",
+      "type": "regular",
+      "bytes": 1301,
+      "sha256": "44f29e8d74bb4ce3b8031f23a8c1b6b089407bfb7d5a9bc91704d7b8870a01a5"
+    },
+    {
+      "path": "method-check-pytest-tmp-d/test_prediction_is_unchanged_w0/second/statuses.csv",
+      "type": "regular",
+      "bytes": 406,
+      "sha256": "328680a827528bbf76ac1cde7e54c80edf48948016d323f09acc43ba5e725f68"
+    },
+    {
+      "path": "method-check-pytest-tmp-d/test_prediction_is_unchanged_w0/third/predictions.csv",
+      "type": "regular",
+      "bytes": 452,
+      "sha256": "894d380a487ef52273c5176b86db1da867529d79dcc3cc6f091a80b6a98b12fa"
+    },
+    {
+      "path": "method-check-pytest-tmp-d/test_prediction_is_unchanged_w0/third/report.json",
+      "type": "regular",
+      "bytes": 1301,
+      "sha256": "44f29e8d74bb4ce3b8031f23a8c1b6b089407bfb7d5a9bc91704d7b8870a01a5"
+    },
+    {
+      "path": "method-check-pytest-tmp-d/test_prediction_is_unchanged_w0/third/statuses.csv",
+      "type": "regular",
+      "bytes": 406,
+      "sha256": "328680a827528bbf76ac1cde7e54c80edf48948016d323f09acc43ba5e725f68"
+    },
+    {
+      "path": "method-check-pytest-tmp-d/test_prediction_is_unchanged_wcurrent",
+      "type": "symlink",
+      "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/v4/author-pollen-spatial-block/method-check-pytest-tmp-d/test_prediction_is_unchanged_w0"
+    },
+    {
+      "path": "method-check-pytest-tmp-d/test_spatial_methods_use_only_0/author/run.REVEALS.files/LRAready_far.csv",
+      "type": "regular",
+      "bytes": 43,
+      "sha256": "f85e565616c5d4047802e7c65227fae9866b6e0812e142ed3b7e86213e7294b9"
+    },
+    {
+      "path": "method-check-pytest-tmp-d/test_spatial_methods_use_only_0/author/run.REVEALS.files/LRAready_near.csv",
+      "type": "regular",
+      "bytes": 43,
+      "sha256": "d84f5b2cf4cb95258e339d109dd6a8f083e91dc6fc59caff39ac04464ab7c56d"
+    },
+    {
+      "path": "method-check-pytest-tmp-d/test_spatial_methods_use_only_0/inverse_distance_squared/predictions.csv",
+      "type": "regular",
+      "bytes": 269,
+      "sha256": "2c7875a1cee31394ed1049c7458847d0a050b7e0c31afe2d8ade861d339332ac"
+    },
+    {
+      "path": "method-check-pytest-tmp-d/test_spatial_methods_use_only_0/inverse_distance_squared/report.json",
+      "type": "regular",
+      "bytes": 1371,
+      "sha256": "c3832d72ee5f3019bd61c254e13f651fd5464010d1cfe84f2d8a194352a698cb"
+    },
+    {
+      "path": "method-check-pytest-tmp-d/test_spatial_methods_use_only_0/inverse_distance_squared/statuses.csv",
+      "type": "regular",
+      "bytes": 273,
+      "sha256": "39d75a1c8d21fc07586a0bcf36d4e13d37da6b7e1fe62b2f6b5293feaee263a2"
+    },
+    {
+      "path": "method-check-pytest-tmp-d/test_spatial_methods_use_only_0/nearest_site/predictions.csv",
+      "type": "regular",
+      "bytes": 267,
+      "sha256": "7c9442787ec9a867942ad4cdd87d4d79433e3b98b1ae3c3d07981ad22e15072f"
+    },
+    {
+      "path": "method-check-pytest-tmp-d/test_spatial_methods_use_only_0/nearest_site/report.json",
+      "type": "regular",
+      "bytes": 1359,
+      "sha256": "44a6fc2d60effbf1c45ee2a60acdc65b4ca231ec6f6987b0965bd0434d3a77ba"
+    },
+    {
+      "path": "method-check-pytest-tmp-d/test_spatial_methods_use_only_0/nearest_site/statuses.csv",
+      "type": "regular",
+      "bytes": 273,
+      "sha256": "b86f9b81cedccf80e14fa397050c44e18150b34f3f41bbe6dd56f74f69555bdb"
+    },
+    {
+      "path": "method-check-pytest-tmp-d/test_spatial_methods_use_only_0/training_mean/predictions.csv",
+      "type": "regular",
+      "bytes": 267,
+      "sha256": "22696eb65fbc99b0a6ca70531acfe901cb13ab41cf1e165416ba7b48ce006581"
+    },
+    {
+      "path": "method-check-pytest-tmp-d/test_spatial_methods_use_only_0/training_mean/report.json",
+      "type": "regular",
+      "bytes": 1365,
+      "sha256": "72420cadc2b8381089ddae1d3542705c0b2e41820fd536ff17745f06a0c5733f"
+    },
+    {
+      "path": "method-check-pytest-tmp-d/test_spatial_methods_use_only_0/training_mean/statuses.csv",
+      "type": "regular",
+      "bytes": 273,
+      "sha256": "8ab8bf3082d9f318e6eab1b5ab1d711df88b09a4fb06d232d4bae11c21811c35"
+    },
+    {
+      "path": "method-check-pytest-tmp-d/test_spatial_methods_use_only_current",
+      "type": "symlink",
+      "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/v4/author-pollen-spatial-block/method-check-pytest-tmp-d/test_spatial_methods_use_only_0"
+    },
+    {
+      "path": "method-check-pytest-tmp-e/test_comparison_uses_only_comm0/within-grid.csv",
+      "type": "regular",
+      "bytes": 13167,
+      "sha256": "fecd3dc7ea1f5f7bddec9a9bd3ef564d9fbf3f43224e6ec5db7e26174ba8d2f4"
+    },
+    {
+      "path": "method-check-pytest-tmp-e/test_comparison_uses_only_commcurrent",
+      "type": "symlink",
+      "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/v4/author-pollen-spatial-block/method-check-pytest-tmp-e/test_comparison_uses_only_comm0"
+    },
+    {
+      "path": "method-check-pytest-tmp-e/test_prediction_is_unchanged_w0/author/run.REVEALS.files/LRAready_target_a.csv",
+      "type": "regular",
+      "bytes": 19,
+      "sha256": "f121b27397a08f6043e94bef1e350a529a97821617250ec8102718a5bf6e4647"
+    },
+    {
+      "path": "method-check-pytest-tmp-e/test_prediction_is_unchanged_w0/author/run.REVEALS.files/LRAready_training.csv",
+      "type": "regular",
+      "bytes": 43,
+      "sha256": "d84f5b2cf4cb95258e339d109dd6a8f083e91dc6fc59caff39ac04464ab7c56d"
+    },
+    {
+      "path": "method-check-pytest-tmp-e/test_prediction_is_unchanged_w0/first/predictions.csv",
+      "type": "regular",
+      "bytes": 452,
+      "sha256": "894d380a487ef52273c5176b86db1da867529d79dcc3cc6f091a80b6a98b12fa"
+    },
+    {
+      "path": "method-check-pytest-tmp-e/test_prediction_is_unchanged_w0/first/report.json",
+      "type": "regular",
+      "bytes": 1301,
+      "sha256": "44f29e8d74bb4ce3b8031f23a8c1b6b089407bfb7d5a9bc91704d7b8870a01a5"
+    },
+    {
+      "path": "method-check-pytest-tmp-e/test_prediction_is_unchanged_w0/first/statuses.csv",
+      "type": "regular",
+      "bytes": 406,
+      "sha256": "328680a827528bbf76ac1cde7e54c80edf48948016d323f09acc43ba5e725f68"
+    },
+    {
+      "path": "method-check-pytest-tmp-e/test_prediction_is_unchanged_w0/second/predictions.csv",
+      "type": "regular",
+      "bytes": 452,
+      "sha256": "894d380a487ef52273c5176b86db1da867529d79dcc3cc6f091a80b6a98b12fa"
+    },
+    {
+      "path": "method-check-pytest-tmp-e/test_prediction_is_unchanged_w0/second/report.json",
+      "type": "regular",
+      "bytes": 1301,
+      "sha256": "44f29e8d74bb4ce3b8031f23a8c1b6b089407bfb7d5a9bc91704d7b8870a01a5"
+    },
+    {
+      "path": "method-check-pytest-tmp-e/test_prediction_is_unchanged_w0/second/statuses.csv",
+      "type": "regular",
+      "bytes": 406,
+      "sha256": "328680a827528bbf76ac1cde7e54c80edf48948016d323f09acc43ba5e725f68"
+    },
+    {
+      "path": "method-check-pytest-tmp-e/test_prediction_is_unchanged_w0/third/predictions.csv",
+      "type": "regular",
+      "bytes": 452,
+      "sha256": "894d380a487ef52273c5176b86db1da867529d79dcc3cc6f091a80b6a98b12fa"
+    },
+    {
+      "path": "method-check-pytest-tmp-e/test_prediction_is_unchanged_w0/third/report.json",
+      "type": "regular",
+      "bytes": 1301,
+      "sha256": "44f29e8d74bb4ce3b8031f23a8c1b6b089407bfb7d5a9bc91704d7b8870a01a5"
+    },
+    {
+      "path": "method-check-pytest-tmp-e/test_prediction_is_unchanged_w0/third/statuses.csv",
+      "type": "regular",
+      "bytes": 406,
+      "sha256": "328680a827528bbf76ac1cde7e54c80edf48948016d323f09acc43ba5e725f68"
+    },
+    {
+      "path": "method-check-pytest-tmp-e/test_prediction_is_unchanged_wcurrent",
+      "type": "symlink",
+      "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/v4/author-pollen-spatial-block/method-check-pytest-tmp-e/test_prediction_is_unchanged_w0"
+    },
+    {
+      "path": "method-check-pytest-tmp-e/test_spatial_methods_use_only_0/author/run.REVEALS.files/LRAready_far.csv",
+      "type": "regular",
+      "bytes": 43,
+      "sha256": "f85e565616c5d4047802e7c65227fae9866b6e0812e142ed3b7e86213e7294b9"
+    },
+    {
+      "path": "method-check-pytest-tmp-e/test_spatial_methods_use_only_0/author/run.REVEALS.files/LRAready_near.csv",
+      "type": "regular",
+      "bytes": 43,
+      "sha256": "d84f5b2cf4cb95258e339d109dd6a8f083e91dc6fc59caff39ac04464ab7c56d"
+    },
+    {
+      "path": "method-check-pytest-tmp-e/test_spatial_methods_use_only_0/inverse_distance_squared/predictions.csv",
+      "type": "regular",
+      "bytes": 269,
+      "sha256": "2c7875a1cee31394ed1049c7458847d0a050b7e0c31afe2d8ade861d339332ac"
+    },
+    {
+      "path": "method-check-pytest-tmp-e/test_spatial_methods_use_only_0/inverse_distance_squared/report.json",
+      "type": "regular",
+      "bytes": 1371,
+      "sha256": "c3832d72ee5f3019bd61c254e13f651fd5464010d1cfe84f2d8a194352a698cb"
+    },
+    {
+      "path": "method-check-pytest-tmp-e/test_spatial_methods_use_only_0/inverse_distance_squared/statuses.csv",
+      "type": "regular",
+      "bytes": 273,
+      "sha256": "39d75a1c8d21fc07586a0bcf36d4e13d37da6b7e1fe62b2f6b5293feaee263a2"
+    },
+    {
+      "path": "method-check-pytest-tmp-e/test_spatial_methods_use_only_0/nearest_site/predictions.csv",
+      "type": "regular",
+      "bytes": 267,
+      "sha256": "7c9442787ec9a867942ad4cdd87d4d79433e3b98b1ae3c3d07981ad22e15072f"
+    },
+    {
+      "path": "method-check-pytest-tmp-e/test_spatial_methods_use_only_0/nearest_site/report.json",
+      "type": "regular",
+      "bytes": 1359,
+      "sha256": "44a6fc2d60effbf1c45ee2a60acdc65b4ca231ec6f6987b0965bd0434d3a77ba"
+    },
+    {
+      "path": "method-check-pytest-tmp-e/test_spatial_methods_use_only_0/nearest_site/statuses.csv",
+      "type": "regular",
+      "bytes": 273,
+      "sha256": "b86f9b81cedccf80e14fa397050c44e18150b34f3f41bbe6dd56f74f69555bdb"
+    },
+    {
+      "path": "method-check-pytest-tmp-e/test_spatial_methods_use_only_0/training_mean/predictions.csv",
+      "type": "regular",
+      "bytes": 267,
+      "sha256": "22696eb65fbc99b0a6ca70531acfe901cb13ab41cf1e165416ba7b48ce006581"
+    },
+    {
+      "path": "method-check-pytest-tmp-e/test_spatial_methods_use_only_0/training_mean/report.json",
+      "type": "regular",
+      "bytes": 1365,
+      "sha256": "72420cadc2b8381089ddae1d3542705c0b2e41820fd536ff17745f06a0c5733f"
+    },
+    {
+      "path": "method-check-pytest-tmp-e/test_spatial_methods_use_only_0/training_mean/statuses.csv",
+      "type": "regular",
+      "bytes": 273,
+      "sha256": "8ab8bf3082d9f318e6eab1b5ab1d711df88b09a4fb06d232d4bae11c21811c35"
+    },
+    {
+      "path": "method-check-pytest-tmp-e/test_spatial_methods_use_only_current",
+      "type": "symlink",
+      "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/v4/author-pollen-spatial-block/method-check-pytest-tmp-e/test_spatial_methods_use_only_0"
+    },
+    {
+      "path": "nearest_site-grid-512-predictions/predictions.csv",
+      "type": "regular",
+      "bytes": 336939,
+      "sha256": "559588228fbb2a2a863d8bf6da48bd25214e819dd8070c86b75168c27ddeed16"
+    },
+    {
+      "path": "nearest_site-grid-512-predictions/report.json",
+      "type": "regular",
+      "bytes": 1774,
+      "sha256": "384c1d8efcdd5e2738b10abe92f4fce3d5dba7f2ec5c9d409f200d723429b5f9"
+    },
+    {
+      "path": "nearest_site-grid-512-predictions/statuses.csv",
+      "type": "regular",
+      "bytes": 19444,
+      "sha256": "9b38036102656a43e6e25e3798902482d20188d412342bf84760bd25c4e9a908"
+    },
+    {
+      "path": "nearest_site-grid-512.plan.json",
+      "type": "regular",
+      "bytes": 3308,
+      "sha256": "1249a09c82f185bd1a3cde19b458a0fc59fb482c207417e08bff86c66c422273"
+    },
+    {
+      "path": "nearest_site-grid-562-predictions/predictions.csv",
+      "type": "regular",
+      "bytes": 482602,
+      "sha256": "d0c06921d65c31728e579eff40dd5a44bdae448ff64994947eb42c34b5359701"
+    },
+    {
+      "path": "nearest_site-grid-562-predictions/report.json",
+      "type": "regular",
+      "bytes": 1936,
+      "sha256": "737594dcd61c22f68093caef39fe25d7046b314f16adbf6a78edae6516335c54"
+    },
+    {
+      "path": "nearest_site-grid-562-predictions/statuses.csv",
+      "type": "regular",
+      "bytes": 22247,
+      "sha256": "1fcd1dc17ee51135d266055197acff24390257b65e8f7ef0689101a9c6705199"
+    },
+    {
+      "path": "nearest_site-grid-562.plan.json",
+      "type": "regular",
+      "bytes": 3511,
+      "sha256": "f0e1174aa9a9a280ad3ac82b57f2b81d337580d9be8e655d273c0707cddc5ca2"
+    },
+    {
+      "path": "nearest_site-observed-pollen-scores/REPORT.md",
+      "type": "regular",
+      "bytes": 1382,
+      "sha256": "0836124a2052bced4694d71715d57b9c7dde7fd363142ecf45b0470f0f7e9202"
+    },
+    {
+      "path": "nearest_site-observed-pollen-scores/report.json",
+      "type": "regular",
+      "bytes": 10104,
+      "sha256": "394473048d6a49756a005115c362a5c24ac2beccfd0847207735e63b80fe8249"
+    },
+    {
+      "path": "nearest_site-observed-pollen-scores/scored-predictions.csv",
+      "type": "regular",
+      "bytes": 214916,
+      "sha256": "e240bc22d523edd240f94ad564235debf87255b9ff0a4d7adda239fcce113c38"
+    },
+    {
+      "path": "nearest_site-observed-pollen-scores/scores.csv",
+      "type": "regular",
+      "bytes": 48549,
+      "sha256": "e8c43e62a5cae82465da2801f2d9877955ad3c8cfc1cc4c916a13a3c18c45b6d"
+    },
+    {
+      "path": "nearest_site-scores.plan.json",
+      "type": "regular",
+      "bytes": 5885,
+      "sha256": "19f398d5b49faa7382f15caff9bf7a48a6840b6a3ea45be926765b0fc0e6dcfa"
+    },
+    {
+      "path": "observed-pollen-scores/REPORT.md",
+      "type": "regular",
+      "bytes": 1359,
+      "sha256": "99e7b4e2dc8aaf6c6197956aa7465026e3871c92fec020e00665aaf87570cf72"
+    },
+    {
+      "path": "observed-pollen-scores/report.json",
+      "type": "regular",
+      "bytes": 10124,
+      "sha256": "05a1f85d82c0e18a509760ecc33b0e4bda5d540fc73749966cecdfb21cabae23"
+    },
+    {
+      "path": "observed-pollen-scores/scored-predictions.csv",
+      "type": "regular",
+      "bytes": 224549,
+      "sha256": "de91d032886a48834ed5764e8b7f36a79b7ee714d4cb1f2dbbd6875b467f5bb3"
+    },
+    {
+      "path": "observed-pollen-scores/scores.csv",
+      "type": "regular",
+      "bytes": 48524,
+      "sha256": "2acee3f7f75ab3dfc2539e6a88264b25b818cb80b807f8c9e66dc7b31e5d3ae7"
+    },
+    {
+      "path": "predict-512-a.plan.json",
+      "type": "regular",
+      "bytes": 3548,
+      "sha256": "46997099d2354d08b1e0a8cb6ab1de012c7c6e9e075e2411219be31b0078f0a7"
+    },
+    {
+      "path": "predict-512-a/predictions.csv",
+      "type": "regular",
+      "bytes": 340017,
+      "sha256": "80699e171c8bc9249e782c2156a70f4946413493c4e731434571b9a5027e8ecd"
+    },
+    {
+      "path": "predict-512-a/report.json",
+      "type": "regular",
+      "bytes": 1782,
+      "sha256": "14d5910281b0c1737be2dc1fc7270c7580beddbff6614d5edd6c744354c73025"
+    },
+    {
+      "path": "predict-512-a/statuses.csv",
+      "type": "regular",
+      "bytes": 19444,
+      "sha256": "80529c37079be2f9844ed8ccd80b78bb8f13d6728e4c625358a7ab97f8087b41"
+    },
+    {
+      "path": "predict-512-b.plan.json",
+      "type": "regular",
+      "bytes": 3548,
+      "sha256": "d2e0971b80a1ba252a159ca4a43cef402f37cafbf12425f40eb4aa3864b346b1"
+    },
+    {
+      "path": "predict-512-b/predictions.csv",
+      "type": "regular",
+      "bytes": 340017,
+      "sha256": "80699e171c8bc9249e782c2156a70f4946413493c4e731434571b9a5027e8ecd"
+    },
+    {
+      "path": "predict-512-b/report.json",
+      "type": "regular",
+      "bytes": 1782,
+      "sha256": "14d5910281b0c1737be2dc1fc7270c7580beddbff6614d5edd6c744354c73025"
+    },
+    {
+      "path": "predict-512-b/statuses.csv",
+      "type": "regular",
+      "bytes": 19444,
+      "sha256": "80529c37079be2f9844ed8ccd80b78bb8f13d6728e4c625358a7ab97f8087b41"
+    },
+    {
+      "path": "predict-512-c.plan.json",
+      "type": "regular",
+      "bytes": 3149,
+      "sha256": "1656a41e93ddda1c7ccae28300a84ee5521110882750ccaf978a8ec18acc7a76"
+    },
+    {
+      "path": "predict-512-c/predictions.csv",
+      "type": "regular",
+      "bytes": 340017,
+      "sha256": "80699e171c8bc9249e782c2156a70f4946413493c4e731434571b9a5027e8ecd"
+    },
+    {
+      "path": "predict-512-c/report.json",
+      "type": "regular",
+      "bytes": 1780,
+      "sha256": "ff5a4d6210132c814ceae2200032930a53e4cf9741ed90069e65a0a4311e0ec9"
+    },
+    {
+      "path": "predict-512-c/statuses.csv",
+      "type": "regular",
+      "bytes": 19444,
+      "sha256": "80529c37079be2f9844ed8ccd80b78bb8f13d6728e4c625358a7ab97f8087b41"
+    },
+    {
+      "path": "predict-512-d.plan.json",
+      "type": "regular",
+      "bytes": 2725,
+      "sha256": "888f5672f8efa89fa7d8e5defdd41da683f59e65228cdaeba06015782accb502"
+    },
+    {
+      "path": "predict-512-d/predictions.csv",
+      "type": "regular",
+      "bytes": 340017,
+      "sha256": "80699e171c8bc9249e782c2156a70f4946413493c4e731434571b9a5027e8ecd"
+    },
+    {
+      "path": "predict-512-d/report.json",
+      "type": "regular",
+      "bytes": 1780,
+      "sha256": "ff5a4d6210132c814ceae2200032930a53e4cf9741ed90069e65a0a4311e0ec9"
+    },
+    {
+      "path": "predict-512-d/statuses.csv",
+      "type": "regular",
+      "bytes": 19444,
+      "sha256": "80529c37079be2f9844ed8ccd80b78bb8f13d6728e4c625358a7ab97f8087b41"
+    },
+    {
+      "path": "predict-562-a.plan.json",
+      "type": "regular",
+      "bytes": 3643,
+      "sha256": "3c8009205efb372fa7ebd34cd69bcee72a3955070b39b51793df19946f5e66a2"
+    },
+    {
+      "path": "predict-562-a/predictions.csv",
+      "type": "regular",
+      "bytes": 496282,
+      "sha256": "5dd7ae50c43343d2286a0f279f7f8a738f3af11b0e871c01750cd34b6131da5a"
+    },
+    {
+      "path": "predict-562-a/report.json",
+      "type": "regular",
+      "bytes": 1944,
+      "sha256": "7f455a68d0639d586f4f18e48d7ff2c8cc284c0e25a6d92ce96748301e432767"
+    },
+    {
+      "path": "predict-562-a/statuses.csv",
+      "type": "regular",
+      "bytes": 22247,
+      "sha256": "93eba74a875e60ae20cd2b330f4c17748efddf9358f093989d76c2deec57959c"
+    },
+    {
+      "path": "predict-562-b.plan.json",
+      "type": "regular",
+      "bytes": 3643,
+      "sha256": "d405eb0efb5262d0b1d2b567e673f3f1fa3ecc7957d017e1914393f6090d6e75"
+    },
+    {
+      "path": "predict-562-b/predictions.csv",
+      "type": "regular",
+      "bytes": 496282,
+      "sha256": "5dd7ae50c43343d2286a0f279f7f8a738f3af11b0e871c01750cd34b6131da5a"
+    },
+    {
+      "path": "predict-562-b/report.json",
+      "type": "regular",
+      "bytes": 1944,
+      "sha256": "7f455a68d0639d586f4f18e48d7ff2c8cc284c0e25a6d92ce96748301e432767"
+    },
+    {
+      "path": "predict-562-b/statuses.csv",
+      "type": "regular",
+      "bytes": 22247,
+      "sha256": "93eba74a875e60ae20cd2b330f4c17748efddf9358f093989d76c2deec57959c"
+    },
+    {
+      "path": "predict-562-c.plan.json",
+      "type": "regular",
+      "bytes": 3244,
+      "sha256": "2c8f589064f1ab742f6dcda2dea8d861cd66aed3d89135316947540c3611bb95"
+    },
+    {
+      "path": "predict-562-c/predictions.csv",
+      "type": "regular",
+      "bytes": 496282,
+      "sha256": "5dd7ae50c43343d2286a0f279f7f8a738f3af11b0e871c01750cd34b6131da5a"
+    },
+    {
+      "path": "predict-562-c/report.json",
+      "type": "regular",
+      "bytes": 1942,
+      "sha256": "406288282bbca400a5d8f3fc12798e1adef6873910bdc8b88ec44df15c747bb3"
+    },
+    {
+      "path": "predict-562-c/statuses.csv",
+      "type": "regular",
+      "bytes": 22247,
+      "sha256": "93eba74a875e60ae20cd2b330f4c17748efddf9358f093989d76c2deec57959c"
+    },
+    {
+      "path": "predict-562-d.plan.json",
+      "type": "regular",
+      "bytes": 2928,
+      "sha256": "4a92414faf14106d70b035e2c1eaf3b95bc3366b7b2a8ff30933c207617bc773"
+    },
+    {
+      "path": "predict-562-d/predictions.csv",
+      "type": "regular",
+      "bytes": 496282,
+      "sha256": "5dd7ae50c43343d2286a0f279f7f8a738f3af11b0e871c01750cd34b6131da5a"
+    },
+    {
+      "path": "predict-562-d/report.json",
+      "type": "regular",
+      "bytes": 1942,
+      "sha256": "406288282bbca400a5d8f3fc12798e1adef6873910bdc8b88ec44df15c747bb3"
+    },
+    {
+      "path": "predict-562-d/statuses.csv",
+      "type": "regular",
+      "bytes": 22247,
+      "sha256": "93eba74a875e60ae20cd2b330f4c17748efddf9358f093989d76c2deec57959c"
+    },
+    {
+      "path": "pytest-cache-b/.gitignore",
+      "type": "regular",
+      "bytes": 37,
+      "sha256": "3ed731b65d06150c138e2dadb0be0697550888a6b47eb8c45ecc9adba8b8e9bd"
+    },
+    {
+      "path": "pytest-cache-b/CACHEDIR.TAG",
+      "type": "regular",
+      "bytes": 191,
+      "sha256": "37dc88ef9a0abeddbe81053a6dd8fdfb13afb613045ea1eb4a5c815a74a3bde4"
+    },
+    {
+      "path": "pytest-cache-b/README.md",
+      "type": "regular",
+      "bytes": 302,
+      "sha256": "73fd6fccdd802c419a6b2d983d6c3173b7da97558ac4b589edec2dfe443db9ad"
+    },
+    {
+      "path": "pytest-cache-b/v/cache/nodeids",
+      "type": "regular",
+      "bytes": 325,
+      "sha256": "055572668294ac6213d99c5470f30c1cb76e50694e7e09e9974f75333f3f5e42"
+    },
+    {
+      "path": "pytest-cache-c/.gitignore",
+      "type": "regular",
+      "bytes": 37,
+      "sha256": "3ed731b65d06150c138e2dadb0be0697550888a6b47eb8c45ecc9adba8b8e9bd"
+    },
+    {
+      "path": "pytest-cache-c/CACHEDIR.TAG",
+      "type": "regular",
+      "bytes": 191,
+      "sha256": "37dc88ef9a0abeddbe81053a6dd8fdfb13afb613045ea1eb4a5c815a74a3bde4"
+    },
+    {
+      "path": "pytest-cache-c/README.md",
+      "type": "regular",
+      "bytes": 302,
+      "sha256": "73fd6fccdd802c419a6b2d983d6c3173b7da97558ac4b589edec2dfe443db9ad"
+    },
+    {
+      "path": "pytest-cache-c/v/cache/nodeids",
+      "type": "regular",
+      "bytes": 382,
+      "sha256": "95b69438ac67f5c6c4dd9af692e354d6b16be10ba55a95637ac33926191f3e5a"
+    },
+    {
+      "path": "pytest-cache-final/.gitignore",
+      "type": "regular",
+      "bytes": 37,
+      "sha256": "3ed731b65d06150c138e2dadb0be0697550888a6b47eb8c45ecc9adba8b8e9bd"
+    },
+    {
+      "path": "pytest-cache-final/CACHEDIR.TAG",
+      "type": "regular",
+      "bytes": 191,
+      "sha256": "37dc88ef9a0abeddbe81053a6dd8fdfb13afb613045ea1eb4a5c815a74a3bde4"
+    },
+    {
+      "path": "pytest-cache-final/README.md",
+      "type": "regular",
+      "bytes": 302,
+      "sha256": "73fd6fccdd802c419a6b2d983d6c3173b7da97558ac4b589edec2dfe443db9ad"
+    },
+    {
+      "path": "pytest-cache-final/v/cache/nodeids",
+      "type": "regular",
+      "bytes": 382,
+      "sha256": "95b69438ac67f5c6c4dd9af692e354d6b16be10ba55a95637ac33926191f3e5a"
+    },
+    {
+      "path": "pytest-tmp-b/test_prediction_is_unchanged_w0/author/run.REVEALS.files/LRAready_target_a.csv",
+      "type": "regular",
+      "bytes": 19,
+      "sha256": "f121b27397a08f6043e94bef1e350a529a97821617250ec8102718a5bf6e4647"
+    },
+    {
+      "path": "pytest-tmp-b/test_prediction_is_unchanged_w0/author/run.REVEALS.files/LRAready_training.csv",
+      "type": "regular",
+      "bytes": 43,
+      "sha256": "d84f5b2cf4cb95258e339d109dd6a8f083e91dc6fc59caff39ac04464ab7c56d"
+    },
+    {
+      "path": "pytest-tmp-b/test_prediction_is_unchanged_w0/first/predictions.csv",
+      "type": "regular",
+      "bytes": 452,
+      "sha256": "894d380a487ef52273c5176b86db1da867529d79dcc3cc6f091a80b6a98b12fa"
+    },
+    {
+      "path": "pytest-tmp-b/test_prediction_is_unchanged_w0/first/report.json",
+      "type": "regular",
+      "bytes": 1303,
+      "sha256": "9a7f364b3d07de211881e33608117c03df23098696a24c73f338aa5f11c4b38b"
+    },
+    {
+      "path": "pytest-tmp-b/test_prediction_is_unchanged_w0/first/statuses.csv",
+      "type": "regular",
+      "bytes": 406,
+      "sha256": "328680a827528bbf76ac1cde7e54c80edf48948016d323f09acc43ba5e725f68"
+    },
+    {
+      "path": "pytest-tmp-b/test_prediction_is_unchanged_w0/second/predictions.csv",
+      "type": "regular",
+      "bytes": 452,
+      "sha256": "894d380a487ef52273c5176b86db1da867529d79dcc3cc6f091a80b6a98b12fa"
+    },
+    {
+      "path": "pytest-tmp-b/test_prediction_is_unchanged_w0/second/report.json",
+      "type": "regular",
+      "bytes": 1303,
+      "sha256": "9a7f364b3d07de211881e33608117c03df23098696a24c73f338aa5f11c4b38b"
+    },
+    {
+      "path": "pytest-tmp-b/test_prediction_is_unchanged_w0/second/statuses.csv",
+      "type": "regular",
+      "bytes": 406,
+      "sha256": "328680a827528bbf76ac1cde7e54c80edf48948016d323f09acc43ba5e725f68"
+    },
+    {
+      "path": "pytest-tmp-b/test_prediction_is_unchanged_w0/third/predictions.csv",
+      "type": "regular",
+      "bytes": 452,
+      "sha256": "894d380a487ef52273c5176b86db1da867529d79dcc3cc6f091a80b6a98b12fa"
+    },
+    {
+      "path": "pytest-tmp-b/test_prediction_is_unchanged_w0/third/report.json",
+      "type": "regular",
+      "bytes": 1303,
+      "sha256": "9a7f364b3d07de211881e33608117c03df23098696a24c73f338aa5f11c4b38b"
+    },
+    {
+      "path": "pytest-tmp-b/test_prediction_is_unchanged_w0/third/statuses.csv",
+      "type": "regular",
+      "bytes": 406,
+      "sha256": "328680a827528bbf76ac1cde7e54c80edf48948016d323f09acc43ba5e725f68"
+    },
+    {
+      "path": "pytest-tmp-b/test_prediction_is_unchanged_wcurrent",
+      "type": "symlink",
+      "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/v4/author-pollen-spatial-block/pytest-tmp-b/test_prediction_is_unchanged_w0"
+    },
+    {
+      "path": "pytest-tmp-b/test_source_reader_does_not_tu0/LRAready_A.csv",
+      "type": "regular",
+      "bytes": 46,
+      "sha256": "b030c7668e10eb6a92a53efd30d539996a9ac6d53f19715a1618a3a147296f8e"
+    },
+    {
+      "path": "pytest-tmp-b/test_source_reader_does_not_tucurrent",
+      "type": "symlink",
+      "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/v4/author-pollen-spatial-block/pytest-tmp-b/test_source_reader_does_not_tu0"
+    },
+    {
+      "path": "pytest-tmp-b/test_source_reader_refuses_non0/LRAready_A.csv",
+      "type": "regular",
+      "bytes": 34,
+      "sha256": "7a185ffa80555cf78af6f13731f5b14377eba2c294041dd3aeebf67908f06c2a"
+    },
+    {
+      "path": "pytest-tmp-b/test_source_reader_refuses_noncurrent",
+      "type": "symlink",
+      "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/v4/author-pollen-spatial-block/pytest-tmp-b/test_source_reader_refuses_non0"
+    },
+    {
+      "path": "pytest-tmp-c/test_comparison_uses_only_comm0/within-grid.csv",
+      "type": "regular",
+      "bytes": 13167,
+      "sha256": "fecd3dc7ea1f5f7bddec9a9bd3ef564d9fbf3f43224e6ec5db7e26174ba8d2f4"
+    },
+    {
+      "path": "pytest-tmp-c/test_comparison_uses_only_commcurrent",
+      "type": "symlink",
+      "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/v4/author-pollen-spatial-block/pytest-tmp-c/test_comparison_uses_only_comm0"
+    },
+    {
+      "path": "pytest-tmp-c/test_prediction_is_unchanged_w0/author/run.REVEALS.files/LRAready_target_a.csv",
+      "type": "regular",
+      "bytes": 19,
+      "sha256": "f121b27397a08f6043e94bef1e350a529a97821617250ec8102718a5bf6e4647"
+    },
+    {
+      "path": "pytest-tmp-c/test_prediction_is_unchanged_w0/author/run.REVEALS.files/LRAready_training.csv",
+      "type": "regular",
+      "bytes": 43,
+      "sha256": "d84f5b2cf4cb95258e339d109dd6a8f083e91dc6fc59caff39ac04464ab7c56d"
+    },
+    {
+      "path": "pytest-tmp-c/test_prediction_is_unchanged_w0/first/predictions.csv",
+      "type": "regular",
+      "bytes": 452,
+      "sha256": "894d380a487ef52273c5176b86db1da867529d79dcc3cc6f091a80b6a98b12fa"
+    },
+    {
+      "path": "pytest-tmp-c/test_prediction_is_unchanged_w0/first/report.json",
+      "type": "regular",
+      "bytes": 1301,
+      "sha256": "44f29e8d74bb4ce3b8031f23a8c1b6b089407bfb7d5a9bc91704d7b8870a01a5"
+    },
+    {
+      "path": "pytest-tmp-c/test_prediction_is_unchanged_w0/first/statuses.csv",
+      "type": "regular",
+      "bytes": 406,
+      "sha256": "328680a827528bbf76ac1cde7e54c80edf48948016d323f09acc43ba5e725f68"
+    },
+    {
+      "path": "pytest-tmp-c/test_prediction_is_unchanged_w0/second/predictions.csv",
+      "type": "regular",
+      "bytes": 452,
+      "sha256": "894d380a487ef52273c5176b86db1da867529d79dcc3cc6f091a80b6a98b12fa"
+    },
+    {
+      "path": "pytest-tmp-c/test_prediction_is_unchanged_w0/second/report.json",
+      "type": "regular",
+      "bytes": 1301,
+      "sha256": "44f29e8d74bb4ce3b8031f23a8c1b6b089407bfb7d5a9bc91704d7b8870a01a5"
+    },
+    {
+      "path": "pytest-tmp-c/test_prediction_is_unchanged_w0/second/statuses.csv",
+      "type": "regular",
+      "bytes": 406,
+      "sha256": "328680a827528bbf76ac1cde7e54c80edf48948016d323f09acc43ba5e725f68"
+    },
+    {
+      "path": "pytest-tmp-c/test_prediction_is_unchanged_w0/third/predictions.csv",
+      "type": "regular",
+      "bytes": 452,
+      "sha256": "894d380a487ef52273c5176b86db1da867529d79dcc3cc6f091a80b6a98b12fa"
+    },
+    {
+      "path": "pytest-tmp-c/test_prediction_is_unchanged_w0/third/report.json",
+      "type": "regular",
+      "bytes": 1301,
+      "sha256": "44f29e8d74bb4ce3b8031f23a8c1b6b089407bfb7d5a9bc91704d7b8870a01a5"
+    },
+    {
+      "path": "pytest-tmp-c/test_prediction_is_unchanged_w0/third/statuses.csv",
+      "type": "regular",
+      "bytes": 406,
+      "sha256": "328680a827528bbf76ac1cde7e54c80edf48948016d323f09acc43ba5e725f68"
+    },
+    {
+      "path": "pytest-tmp-c/test_prediction_is_unchanged_wcurrent",
+      "type": "symlink",
+      "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/v4/author-pollen-spatial-block/pytest-tmp-c/test_prediction_is_unchanged_w0"
+    },
+    {
+      "path": "pytest-tmp-c/test_source_reader_does_not_tu0/LRAready_A.csv",
+      "type": "regular",
+      "bytes": 46,
+      "sha256": "b030c7668e10eb6a92a53efd30d539996a9ac6d53f19715a1618a3a147296f8e"
+    },
+    {
+      "path": "pytest-tmp-c/test_source_reader_does_not_tucurrent",
+      "type": "symlink",
+      "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/v4/author-pollen-spatial-block/pytest-tmp-c/test_source_reader_does_not_tu0"
+    },
+    {
+      "path": "pytest-tmp-c/test_source_reader_refuses_non0/LRAready_A.csv",
+      "type": "regular",
+      "bytes": 34,
+      "sha256": "7a185ffa80555cf78af6f13731f5b14377eba2c294041dd3aeebf67908f06c2a"
+    },
+    {
+      "path": "pytest-tmp-c/test_source_reader_refuses_noncurrent",
+      "type": "symlink",
+      "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/v4/author-pollen-spatial-block/pytest-tmp-c/test_source_reader_refuses_non0"
+    },
+    {
+      "path": "pytest-tmp-final/test_comparison_uses_only_comm0/within-grid.csv",
+      "type": "regular",
+      "bytes": 13167,
+      "sha256": "fecd3dc7ea1f5f7bddec9a9bd3ef564d9fbf3f43224e6ec5db7e26174ba8d2f4"
+    },
+    {
+      "path": "pytest-tmp-final/test_comparison_uses_only_commcurrent",
+      "type": "symlink",
+      "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/v4/author-pollen-spatial-block/pytest-tmp-final/test_comparison_uses_only_comm0"
+    },
+    {
+      "path": "pytest-tmp-final/test_prediction_is_unchanged_w0/author/run.REVEALS.files/LRAready_target_a.csv",
+      "type": "regular",
+      "bytes": 19,
+      "sha256": "f121b27397a08f6043e94bef1e350a529a97821617250ec8102718a5bf6e4647"
+    },
+    {
+      "path": "pytest-tmp-final/test_prediction_is_unchanged_w0/author/run.REVEALS.files/LRAready_training.csv",
+      "type": "regular",
+      "bytes": 43,
+      "sha256": "d84f5b2cf4cb95258e339d109dd6a8f083e91dc6fc59caff39ac04464ab7c56d"
+    },
+    {
+      "path": "pytest-tmp-final/test_prediction_is_unchanged_w0/first/predictions.csv",
+      "type": "regular",
+      "bytes": 452,
+      "sha256": "894d380a487ef52273c5176b86db1da867529d79dcc3cc6f091a80b6a98b12fa"
+    },
+    {
+      "path": "pytest-tmp-final/test_prediction_is_unchanged_w0/first/report.json",
+      "type": "regular",
+      "bytes": 1301,
+      "sha256": "44f29e8d74bb4ce3b8031f23a8c1b6b089407bfb7d5a9bc91704d7b8870a01a5"
+    },
+    {
+      "path": "pytest-tmp-final/test_prediction_is_unchanged_w0/first/statuses.csv",
+      "type": "regular",
+      "bytes": 406,
+      "sha256": "328680a827528bbf76ac1cde7e54c80edf48948016d323f09acc43ba5e725f68"
+    },
+    {
+      "path": "pytest-tmp-final/test_prediction_is_unchanged_w0/second/predictions.csv",
+      "type": "regular",
+      "bytes": 452,
+      "sha256": "894d380a487ef52273c5176b86db1da867529d79dcc3cc6f091a80b6a98b12fa"
+    },
+    {
+      "path": "pytest-tmp-final/test_prediction_is_unchanged_w0/second/report.json",
+      "type": "regular",
+      "bytes": 1301,
+      "sha256": "44f29e8d74bb4ce3b8031f23a8c1b6b089407bfb7d5a9bc91704d7b8870a01a5"
+    },
+    {
+      "path": "pytest-tmp-final/test_prediction_is_unchanged_w0/second/statuses.csv",
+      "type": "regular",
+      "bytes": 406,
+      "sha256": "328680a827528bbf76ac1cde7e54c80edf48948016d323f09acc43ba5e725f68"
+    },
+    {
+      "path": "pytest-tmp-final/test_prediction_is_unchanged_w0/third/predictions.csv",
+      "type": "regular",
+      "bytes": 452,
+      "sha256": "894d380a487ef52273c5176b86db1da867529d79dcc3cc6f091a80b6a98b12fa"
+    },
+    {
+      "path": "pytest-tmp-final/test_prediction_is_unchanged_w0/third/report.json",
+      "type": "regular",
+      "bytes": 1301,
+      "sha256": "44f29e8d74bb4ce3b8031f23a8c1b6b089407bfb7d5a9bc91704d7b8870a01a5"
+    },
+    {
+      "path": "pytest-tmp-final/test_prediction_is_unchanged_w0/third/statuses.csv",
+      "type": "regular",
+      "bytes": 406,
+      "sha256": "328680a827528bbf76ac1cde7e54c80edf48948016d323f09acc43ba5e725f68"
+    },
+    {
+      "path": "pytest-tmp-final/test_prediction_is_unchanged_wcurrent",
+      "type": "symlink",
+      "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/v4/author-pollen-spatial-block/pytest-tmp-final/test_prediction_is_unchanged_w0"
+    },
+    {
+      "path": "pytest-tmp-final/test_source_reader_does_not_tu0/LRAready_A.csv",
+      "type": "regular",
+      "bytes": 46,
+      "sha256": "b030c7668e10eb6a92a53efd30d539996a9ac6d53f19715a1618a3a147296f8e"
+    },
+    {
+      "path": "pytest-tmp-final/test_source_reader_does_not_tucurrent",
+      "type": "symlink",
+      "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/v4/author-pollen-spatial-block/pytest-tmp-final/test_source_reader_does_not_tu0"
+    },
+    {
+      "path": "pytest-tmp-final/test_source_reader_refuses_non0/LRAready_A.csv",
+      "type": "regular",
+      "bytes": 34,
+      "sha256": "7a185ffa80555cf78af6f13731f5b14377eba2c294041dd3aeebf67908f06c2a"
+    },
+    {
+      "path": "pytest-tmp-final/test_source_reader_refuses_noncurrent",
+      "type": "symlink",
+      "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/v4/author-pollen-spatial-block/pytest-tmp-final/test_source_reader_refuses_non0"
+    },
+    {
+      "path": "score-a.plan.json",
+      "type": "regular",
+      "bytes": 5371,
+      "sha256": "d43458c2175e7cbb3f3c55fb526f522eb92d06d511ffbcaff6d6ad0284b9bc3a"
+    },
+    {
+      "path": "score-a/REPORT.md",
+      "type": "regular",
+      "bytes": 1106,
+      "sha256": "77c82e053a69c1bde0def6c7358bef37b8266dfc2e83efacefc50c36f10eec77"
+    },
+    {
+      "path": "score-a/report.json",
+      "type": "regular",
+      "bytes": 8807,
+      "sha256": "346e16d686783ecfffa04fd966ef163d473dc8c3ba50e709ca2767a4a342ac89"
+    },
+    {
+      "path": "score-a/scored-predictions.csv",
+      "type": "regular",
+      "bytes": 224549,
+      "sha256": "de91d032886a48834ed5764e8b7f36a79b7ee714d4cb1f2dbbd6875b467f5bb3"
+    },
+    {
+      "path": "score-a/scores.csv",
+      "type": "regular",
+      "bytes": 48524,
+      "sha256": "2acee3f7f75ab3dfc2539e6a88264b25b818cb80b807f8c9e66dc7b31e5d3ae7"
+    },
+    {
+      "path": "score-b.plan.json",
+      "type": "regular",
+      "bytes": 5163,
+      "sha256": "8f3d03431cb1505245c775d706f0629815c0d6fb64c68b0b8993274d1837efde"
+    },
+    {
+      "path": "score-b/REPORT.md",
+      "type": "regular",
+      "bytes": 1359,
+      "sha256": "99e7b4e2dc8aaf6c6197956aa7465026e3871c92fec020e00665aaf87570cf72"
+    },
+    {
+      "path": "score-b/report.json",
+      "type": "regular",
+      "bytes": 10124,
+      "sha256": "05a1f85d82c0e18a509760ecc33b0e4bda5d540fc73749966cecdfb21cabae23"
+    },
+    {
+      "path": "score-b/scored-predictions.csv",
+      "type": "regular",
+      "bytes": 224549,
+      "sha256": "de91d032886a48834ed5764e8b7f36a79b7ee714d4cb1f2dbbd6875b467f5bb3"
+    },
+    {
+      "path": "score-b/scores.csv",
+      "type": "regular",
+      "bytes": 48524,
+      "sha256": "2acee3f7f75ab3dfc2539e6a88264b25b818cb80b807f8c9e66dc7b31e5d3ae7"
+    },
+    {
+      "path": "score-c.plan.json",
+      "type": "regular",
+      "bytes": 5163,
+      "sha256": "48a50ce21deeb637341e601a9ea2113eb6efcc2f0a0c45288901c4c67362766a"
+    },
+    {
+      "path": "score-c/REPORT.md",
+      "type": "regular",
+      "bytes": 1359,
+      "sha256": "99e7b4e2dc8aaf6c6197956aa7465026e3871c92fec020e00665aaf87570cf72"
+    },
+    {
+      "path": "score-c/report.json",
+      "type": "regular",
+      "bytes": 10124,
+      "sha256": "05a1f85d82c0e18a509760ecc33b0e4bda5d540fc73749966cecdfb21cabae23"
+    },
+    {
+      "path": "score-c/scored-predictions.csv",
+      "type": "regular",
+      "bytes": 224549,
+      "sha256": "de91d032886a48834ed5764e8b7f36a79b7ee714d4cb1f2dbbd6875b467f5bb3"
+    },
+    {
+      "path": "score-c/scores.csv",
+      "type": "regular",
+      "bytes": 48524,
+      "sha256": "2acee3f7f75ab3dfc2539e6a88264b25b818cb80b807f8c9e66dc7b31e5d3ae7"
+    },
+    {
+      "path": "scores.plan.json",
+      "type": "regular",
+      "bytes": 5676,
+      "sha256": "8d4329bbbcf4aae6e54162537e8931b1c141659b5510da5d82cd13c122128938"
+    },
+    {
+      "path": "site-block-check-formatted.plan.json",
+      "type": "regular",
+      "bytes": 3478,
+      "sha256": "42d58bc3da0a81836bd5054109b5ec20652187905e3e7948dbd6e0811e9d0cdf"
+    },
+    {
+      "path": "site-block-check-pytest-cache-typed/.gitignore",
+      "type": "regular",
+      "bytes": 37,
+      "sha256": "3ed731b65d06150c138e2dadb0be0697550888a6b47eb8c45ecc9adba8b8e9bd"
+    },
+    {
+      "path": "site-block-check-pytest-cache-typed/CACHEDIR.TAG",
+      "type": "regular",
+      "bytes": 191,
+      "sha256": "37dc88ef9a0abeddbe81053a6dd8fdfb13afb613045ea1eb4a5c815a74a3bde4"
+    },
+    {
+      "path": "site-block-check-pytest-cache-typed/README.md",
+      "type": "regular",
+      "bytes": 302,
+      "sha256": "73fd6fccdd802c419a6b2d983d6c3173b7da97558ac4b589edec2dfe443db9ad"
+    },
+    {
+      "path": "site-block-check-pytest-cache-typed/v/cache/nodeids",
+      "type": "regular",
+      "bytes": 321,
+      "sha256": "74e7ae563397749a77c25f001844aed9e6170f01594d2c4ef9116dcf0c85695e"
+    },
+    {
+      "path": "site-block-check-pytest-tmp-typed/test_comparison_uses_only_comm0/within-grid.csv",
+      "type": "regular",
+      "bytes": 13167,
+      "sha256": "fecd3dc7ea1f5f7bddec9a9bd3ef564d9fbf3f43224e6ec5db7e26174ba8d2f4"
+    },
+    {
+      "path": "site-block-check-pytest-tmp-typed/test_comparison_uses_only_commcurrent",
+      "type": "symlink",
+      "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/v4/author-pollen-spatial-block/site-block-check-pytest-tmp-typed/test_comparison_uses_only_comm0"
+    },
+    {
+      "path": "site-block-check-pytest-tmp-typed/test_prediction_is_unchanged_w0/author/run.REVEALS.files/LRAready_target_a.csv",
+      "type": "regular",
+      "bytes": 19,
+      "sha256": "f121b27397a08f6043e94bef1e350a529a97821617250ec8102718a5bf6e4647"
+    },
+    {
+      "path": "site-block-check-pytest-tmp-typed/test_prediction_is_unchanged_w0/author/run.REVEALS.files/LRAready_training.csv",
+      "type": "regular",
+      "bytes": 43,
+      "sha256": "d84f5b2cf4cb95258e339d109dd6a8f083e91dc6fc59caff39ac04464ab7c56d"
+    },
+    {
+      "path": "site-block-check-pytest-tmp-typed/test_prediction_is_unchanged_w0/first/predictions.csv",
+      "type": "regular",
+      "bytes": 452,
+      "sha256": "894d380a487ef52273c5176b86db1da867529d79dcc3cc6f091a80b6a98b12fa"
+    },
+    {
+      "path": "site-block-check-pytest-tmp-typed/test_prediction_is_unchanged_w0/first/report.json",
+      "type": "regular",
+      "bytes": 1301,
+      "sha256": "44f29e8d74bb4ce3b8031f23a8c1b6b089407bfb7d5a9bc91704d7b8870a01a5"
+    },
+    {
+      "path": "site-block-check-pytest-tmp-typed/test_prediction_is_unchanged_w0/first/statuses.csv",
+      "type": "regular",
+      "bytes": 406,
+      "sha256": "328680a827528bbf76ac1cde7e54c80edf48948016d323f09acc43ba5e725f68"
+    },
+    {
+      "path": "site-block-check-pytest-tmp-typed/test_prediction_is_unchanged_w0/second/predictions.csv",
+      "type": "regular",
+      "bytes": 452,
+      "sha256": "894d380a487ef52273c5176b86db1da867529d79dcc3cc6f091a80b6a98b12fa"
+    },
+    {
+      "path": "site-block-check-pytest-tmp-typed/test_prediction_is_unchanged_w0/second/report.json",
+      "type": "regular",
+      "bytes": 1301,
+      "sha256": "44f29e8d74bb4ce3b8031f23a8c1b6b089407bfb7d5a9bc91704d7b8870a01a5"
+    },
+    {
+      "path": "site-block-check-pytest-tmp-typed/test_prediction_is_unchanged_w0/second/statuses.csv",
+      "type": "regular",
+      "bytes": 406,
+      "sha256": "328680a827528bbf76ac1cde7e54c80edf48948016d323f09acc43ba5e725f68"
+    },
+    {
+      "path": "site-block-check-pytest-tmp-typed/test_prediction_is_unchanged_w0/third/predictions.csv",
+      "type": "regular",
+      "bytes": 452,
+      "sha256": "894d380a487ef52273c5176b86db1da867529d79dcc3cc6f091a80b6a98b12fa"
+    },
+    {
+      "path": "site-block-check-pytest-tmp-typed/test_prediction_is_unchanged_w0/third/report.json",
+      "type": "regular",
+      "bytes": 1301,
+      "sha256": "44f29e8d74bb4ce3b8031f23a8c1b6b089407bfb7d5a9bc91704d7b8870a01a5"
+    },
+    {
+      "path": "site-block-check-pytest-tmp-typed/test_prediction_is_unchanged_w0/third/statuses.csv",
+      "type": "regular",
+      "bytes": 406,
+      "sha256": "328680a827528bbf76ac1cde7e54c80edf48948016d323f09acc43ba5e725f68"
+    },
+    {
+      "path": "site-block-check-pytest-tmp-typed/test_prediction_is_unchanged_wcurrent",
+      "type": "symlink",
+      "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/v4/author-pollen-spatial-block/site-block-check-pytest-tmp-typed/test_prediction_is_unchanged_w0"
+    },
+    {
+      "path": "site-block-check-pytest-tmp-typed/test_spatial_methods_use_only_0/author/run.REVEALS.files/LRAready_far.csv",
+      "type": "regular",
+      "bytes": 43,
+      "sha256": "f85e565616c5d4047802e7c65227fae9866b6e0812e142ed3b7e86213e7294b9"
+    },
+    {
+      "path": "site-block-check-pytest-tmp-typed/test_spatial_methods_use_only_0/author/run.REVEALS.files/LRAready_near.csv",
+      "type": "regular",
+      "bytes": 43,
+      "sha256": "d84f5b2cf4cb95258e339d109dd6a8f083e91dc6fc59caff39ac04464ab7c56d"
+    },
+    {
+      "path": "site-block-check-pytest-tmp-typed/test_spatial_methods_use_only_0/inverse_distance_squared/predictions.csv",
+      "type": "regular",
+      "bytes": 269,
+      "sha256": "2c7875a1cee31394ed1049c7458847d0a050b7e0c31afe2d8ade861d339332ac"
+    },
+    {
+      "path": "site-block-check-pytest-tmp-typed/test_spatial_methods_use_only_0/inverse_distance_squared/report.json",
+      "type": "regular",
+      "bytes": 1371,
+      "sha256": "c3832d72ee5f3019bd61c254e13f651fd5464010d1cfe84f2d8a194352a698cb"
+    },
+    {
+      "path": "site-block-check-pytest-tmp-typed/test_spatial_methods_use_only_0/inverse_distance_squared/statuses.csv",
+      "type": "regular",
+      "bytes": 273,
+      "sha256": "39d75a1c8d21fc07586a0bcf36d4e13d37da6b7e1fe62b2f6b5293feaee263a2"
+    },
+    {
+      "path": "site-block-check-pytest-tmp-typed/test_spatial_methods_use_only_0/nearest_site/predictions.csv",
+      "type": "regular",
+      "bytes": 267,
+      "sha256": "7c9442787ec9a867942ad4cdd87d4d79433e3b98b1ae3c3d07981ad22e15072f"
+    },
+    {
+      "path": "site-block-check-pytest-tmp-typed/test_spatial_methods_use_only_0/nearest_site/report.json",
+      "type": "regular",
+      "bytes": 1359,
+      "sha256": "44a6fc2d60effbf1c45ee2a60acdc65b4ca231ec6f6987b0965bd0434d3a77ba"
+    },
+    {
+      "path": "site-block-check-pytest-tmp-typed/test_spatial_methods_use_only_0/nearest_site/statuses.csv",
+      "type": "regular",
+      "bytes": 273,
+      "sha256": "b86f9b81cedccf80e14fa397050c44e18150b34f3f41bbe6dd56f74f69555bdb"
+    },
+    {
+      "path": "site-block-check-pytest-tmp-typed/test_spatial_methods_use_only_0/training_mean/predictions.csv",
+      "type": "regular",
+      "bytes": 267,
+      "sha256": "22696eb65fbc99b0a6ca70531acfe901cb13ab41cf1e165416ba7b48ce006581"
+    },
+    {
+      "path": "site-block-check-pytest-tmp-typed/test_spatial_methods_use_only_0/training_mean/report.json",
+      "type": "regular",
+      "bytes": 1365,
+      "sha256": "72420cadc2b8381089ddae1d3542705c0b2e41820fd536ff17745f06a0c5733f"
+    },
+    {
+      "path": "site-block-check-pytest-tmp-typed/test_spatial_methods_use_only_0/training_mean/statuses.csv",
+      "type": "regular",
+      "bytes": 273,
+      "sha256": "8ab8bf3082d9f318e6eab1b5ab1d711df88b09a4fb06d232d4bae11c21811c35"
+    },
+    {
+      "path": "site-block-check-pytest-tmp-typed/test_spatial_methods_use_only_current",
+      "type": "symlink",
+      "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/v4/author-pollen-spatial-block/site-block-check-pytest-tmp-typed/test_spatial_methods_use_only_0"
+    },
+    {
+      "path": "site-block-check-typed.plan.json",
+      "type": "regular",
+      "bytes": 3458,
+      "sha256": "b3d7e4eea90659c581db3aaa5030ad989eadea7908b38701c426d872825290aa"
+    },
+    {
+      "path": "site-block-check.plan.json",
+      "type": "regular",
+      "bytes": 3428,
+      "sha256": "826a5a25e9aa8713e6cd094e41ad3c7f527149841eac737e0e844030655d7660"
+    },
+    {
+      "path": "site-block-comparison-formatted.plan.json",
+      "type": "regular",
+      "bytes": 3377,
+      "sha256": "3ad7554405b9de09320d857ec5f6bd2df8b5a23bdcfc4c62c45bf97352359e20"
+    },
+    {
+      "path": "site-block-comparison-formatted/REPORT.md",
+      "type": "regular",
+      "bytes": 2822,
+      "sha256": "a2956377bb242f6279305bd1a8efea7f6734995d8bc474a49d644fd9d11a5828"
+    },
+    {
+      "path": "site-block-comparison-formatted/report.json",
+      "type": "regular",
+      "bytes": 22823,
+      "sha256": "e3043e2555b74c1b6ea4d535968a02996ba9a9d9879cd26e453ff9f7673035e4"
+    },
+    {
+      "path": "site-block-comparison-typed.plan.json",
+      "type": "regular",
+      "bytes": 3365,
+      "sha256": "18ab3abe0766a78bdfd27dcb1645a28f5366c46a813575bd92c86e28f22de141"
+    },
+    {
+      "path": "site-block-comparison-typed/REPORT.md",
+      "type": "regular",
+      "bytes": 2822,
+      "sha256": "a2956377bb242f6279305bd1a8efea7f6734995d8bc474a49d644fd9d11a5828"
+    },
+    {
+      "path": "site-block-comparison-typed/report.json",
+      "type": "regular",
+      "bytes": 22823,
+      "sha256": "e3043e2555b74c1b6ea4d535968a02996ba9a9d9879cd26e453ff9f7673035e4"
+    },
+    {
+      "path": "site-block-comparison.plan.json",
+      "type": "regular",
+      "bytes": 3347,
+      "sha256": "ebf1ce31f57ad4ecc8d36020c387cfe5c13bf7baceb8c9d233ea827b1c26e03f"
+    },
+    {
+      "path": "site-block-comparison/REPORT.md",
+      "type": "regular",
+      "bytes": 2822,
+      "sha256": "a2956377bb242f6279305bd1a8efea7f6734995d8bc474a49d644fd9d11a5828"
+    },
+    {
+      "path": "site-block-comparison/report.json",
+      "type": "regular",
+      "bytes": 22823,
+      "sha256": "e3043e2555b74c1b6ea4d535968a02996ba9a9d9879cd26e453ff9f7673035e4"
+    },
+    {
+      "path": "strict-clr-training-diagnostic.py",
+      "type": "regular",
+      "bytes": 5020,
+      "sha256": "1c184c9746ed433b1afc4de818991f8d1bfa8228b9165773ca80092ff7d0c56b"
+    },
+    {
+      "path": "strict-clr-training-support/REPORT.md",
+      "type": "regular",
+      "bytes": 864,
+      "sha256": "ae4dabe9fdfa3017e81d47b152bbb3e46f882d0fca7dea218c861ef0a5d23f96"
+    },
+    {
+      "path": "strict-clr-training-support/report.json",
+      "type": "regular",
+      "bytes": 19260,
+      "sha256": "82696876e0890c5f3b0973156b9d1dc0f74d2b28faad8980574333ab6a75981a"
+    },
+    {
+      "path": "taxon-comparison/REPORT.md",
+      "type": "regular",
+      "bytes": 3738,
+      "sha256": "eb8b72cf9f7d3d550ec722b29bdfbd88ae5b239507b6172638b204dead8d6589"
+    },
+    {
+      "path": "taxon-comparison/report.json",
+      "type": "regular",
+      "bytes": 48064,
+      "sha256": "e3fe6ba62e1983dddb4b1f1a324e96979a8b60c3d4416110e864a70c2d0ced1a"
+    },
+    {
+      "path": "taxon-final-plans.py",
+      "type": "regular",
+      "bytes": 2210,
+      "sha256": "0ff21677abddf3ec9254acb96577d00084698e722f4254256d1a54ab435c6196"
+    },
+    {
+      "path": "taxon-final-test-cache/.gitignore",
+      "type": "regular",
+      "bytes": 37,
+      "sha256": "3ed731b65d06150c138e2dadb0be0697550888a6b47eb8c45ecc9adba8b8e9bd"
+    },
+    {
+      "path": "taxon-final-test-cache/CACHEDIR.TAG",
+      "type": "regular",
+      "bytes": 191,
+      "sha256": "37dc88ef9a0abeddbe81053a6dd8fdfb13afb613045ea1eb4a5c815a74a3bde4"
+    },
+    {
+      "path": "taxon-final-test-cache/README.md",
+      "type": "regular",
+      "bytes": 302,
+      "sha256": "73fd6fccdd802c419a6b2d983d6c3173b7da97558ac4b589edec2dfe443db9ad"
+    },
+    {
+      "path": "taxon-final-test-cache/v/cache/nodeids",
+      "type": "regular",
+      "bytes": 396,
+      "sha256": "10745bb8d08758cfc4541ec3df6db1c4dc35d0cc340fc0d7ef22413dfb18b89b"
+    },
+    {
+      "path": "taxon-final-test-tmp/test_comparison_uses_only_comm0/within-grid.csv",
+      "type": "regular",
+      "bytes": 13167,
+      "sha256": "fecd3dc7ea1f5f7bddec9a9bd3ef564d9fbf3f43224e6ec5db7e26174ba8d2f4"
+    },
+    {
+      "path": "taxon-final-test-tmp/test_comparison_uses_only_commcurrent",
+      "type": "symlink",
+      "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/v4/author-pollen-spatial-block/taxon-final-test-tmp/test_comparison_uses_only_comm0"
+    },
+    {
+      "path": "taxon-final-test-tmp/test_prediction_is_unchanged_w0/author/run.REVEALS.files/LRAready_target_a.csv",
+      "type": "regular",
+      "bytes": 19,
+      "sha256": "f121b27397a08f6043e94bef1e350a529a97821617250ec8102718a5bf6e4647"
+    },
+    {
+      "path": "taxon-final-test-tmp/test_prediction_is_unchanged_w0/author/run.REVEALS.files/LRAready_training.csv",
+      "type": "regular",
+      "bytes": 43,
+      "sha256": "d84f5b2cf4cb95258e339d109dd6a8f083e91dc6fc59caff39ac04464ab7c56d"
+    },
+    {
+      "path": "taxon-final-test-tmp/test_prediction_is_unchanged_w0/first/predictions.csv",
+      "type": "regular",
+      "bytes": 452,
+      "sha256": "894d380a487ef52273c5176b86db1da867529d79dcc3cc6f091a80b6a98b12fa"
+    },
+    {
+      "path": "taxon-final-test-tmp/test_prediction_is_unchanged_w0/first/report.json",
+      "type": "regular",
+      "bytes": 1301,
+      "sha256": "44f29e8d74bb4ce3b8031f23a8c1b6b089407bfb7d5a9bc91704d7b8870a01a5"
+    },
+    {
+      "path": "taxon-final-test-tmp/test_prediction_is_unchanged_w0/first/statuses.csv",
+      "type": "regular",
+      "bytes": 406,
+      "sha256": "328680a827528bbf76ac1cde7e54c80edf48948016d323f09acc43ba5e725f68"
+    },
+    {
+      "path": "taxon-final-test-tmp/test_prediction_is_unchanged_w0/second/predictions.csv",
+      "type": "regular",
+      "bytes": 452,
+      "sha256": "894d380a487ef52273c5176b86db1da867529d79dcc3cc6f091a80b6a98b12fa"
+    },
+    {
+      "path": "taxon-final-test-tmp/test_prediction_is_unchanged_w0/second/report.json",
+      "type": "regular",
+      "bytes": 1301,
+      "sha256": "44f29e8d74bb4ce3b8031f23a8c1b6b089407bfb7d5a9bc91704d7b8870a01a5"
+    },
+    {
+      "path": "taxon-final-test-tmp/test_prediction_is_unchanged_w0/second/statuses.csv",
+      "type": "regular",
+      "bytes": 406,
+      "sha256": "328680a827528bbf76ac1cde7e54c80edf48948016d323f09acc43ba5e725f68"
+    },
+    {
+      "path": "taxon-final-test-tmp/test_prediction_is_unchanged_w0/third/predictions.csv",
+      "type": "regular",
+      "bytes": 452,
+      "sha256": "894d380a487ef52273c5176b86db1da867529d79dcc3cc6f091a80b6a98b12fa"
+    },
+    {
+      "path": "taxon-final-test-tmp/test_prediction_is_unchanged_w0/third/report.json",
+      "type": "regular",
+      "bytes": 1301,
+      "sha256": "44f29e8d74bb4ce3b8031f23a8c1b6b089407bfb7d5a9bc91704d7b8870a01a5"
+    },
+    {
+      "path": "taxon-final-test-tmp/test_prediction_is_unchanged_w0/third/statuses.csv",
+      "type": "regular",
+      "bytes": 406,
+      "sha256": "328680a827528bbf76ac1cde7e54c80edf48948016d323f09acc43ba5e725f68"
+    },
+    {
+      "path": "taxon-final-test-tmp/test_prediction_is_unchanged_wcurrent",
+      "type": "symlink",
+      "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/v4/author-pollen-spatial-block/taxon-final-test-tmp/test_prediction_is_unchanged_w0"
+    },
+    {
+      "path": "taxon-final-test-tmp/test_spatial_methods_use_only_0/author/run.REVEALS.files/LRAready_far.csv",
+      "type": "regular",
+      "bytes": 43,
+      "sha256": "f85e565616c5d4047802e7c65227fae9866b6e0812e142ed3b7e86213e7294b9"
+    },
+    {
+      "path": "taxon-final-test-tmp/test_spatial_methods_use_only_0/author/run.REVEALS.files/LRAready_near.csv",
+      "type": "regular",
+      "bytes": 43,
+      "sha256": "d84f5b2cf4cb95258e339d109dd6a8f083e91dc6fc59caff39ac04464ab7c56d"
+    },
+    {
+      "path": "taxon-final-test-tmp/test_spatial_methods_use_only_0/inverse_distance_squared/predictions.csv",
+      "type": "regular",
+      "bytes": 269,
+      "sha256": "2c7875a1cee31394ed1049c7458847d0a050b7e0c31afe2d8ade861d339332ac"
+    },
+    {
+      "path": "taxon-final-test-tmp/test_spatial_methods_use_only_0/inverse_distance_squared/report.json",
+      "type": "regular",
+      "bytes": 1371,
+      "sha256": "c3832d72ee5f3019bd61c254e13f651fd5464010d1cfe84f2d8a194352a698cb"
+    },
+    {
+      "path": "taxon-final-test-tmp/test_spatial_methods_use_only_0/inverse_distance_squared/statuses.csv",
+      "type": "regular",
+      "bytes": 273,
+      "sha256": "39d75a1c8d21fc07586a0bcf36d4e13d37da6b7e1fe62b2f6b5293feaee263a2"
+    },
+    {
+      "path": "taxon-final-test-tmp/test_spatial_methods_use_only_0/nearest_site/predictions.csv",
+      "type": "regular",
+      "bytes": 267,
+      "sha256": "7c9442787ec9a867942ad4cdd87d4d79433e3b98b1ae3c3d07981ad22e15072f"
+    },
+    {
+      "path": "taxon-final-test-tmp/test_spatial_methods_use_only_0/nearest_site/report.json",
+      "type": "regular",
+      "bytes": 1359,
+      "sha256": "44a6fc2d60effbf1c45ee2a60acdc65b4ca231ec6f6987b0965bd0434d3a77ba"
+    },
+    {
+      "path": "taxon-final-test-tmp/test_spatial_methods_use_only_0/nearest_site/statuses.csv",
+      "type": "regular",
+      "bytes": 273,
+      "sha256": "b86f9b81cedccf80e14fa397050c44e18150b34f3f41bbe6dd56f74f69555bdb"
+    },
+    {
+      "path": "taxon-final-test-tmp/test_spatial_methods_use_only_0/training_mean/predictions.csv",
+      "type": "regular",
+      "bytes": 267,
+      "sha256": "22696eb65fbc99b0a6ca70531acfe901cb13ab41cf1e165416ba7b48ce006581"
+    },
+    {
+      "path": "taxon-final-test-tmp/test_spatial_methods_use_only_0/training_mean/report.json",
+      "type": "regular",
+      "bytes": 1365,
+      "sha256": "72420cadc2b8381089ddae1d3542705c0b2e41820fd536ff17745f06a0c5733f"
+    },
+    {
+      "path": "taxon-final-test-tmp/test_spatial_methods_use_only_0/training_mean/statuses.csv",
+      "type": "regular",
+      "bytes": 273,
+      "sha256": "8ab8bf3082d9f318e6eab1b5ab1d711df88b09a4fb06d232d4bae11c21811c35"
+    },
+    {
+      "path": "taxon-final-test-tmp/test_spatial_methods_use_only_current",
+      "type": "symlink",
+      "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/v4/author-pollen-spatial-block/taxon-final-test-tmp/test_spatial_methods_use_only_0"
+    },
+    {
+      "path": "taxon-final-test-tmp/test_taxon_error_comparison_us0/inverse_distance_squared/scored-predictions.csv",
+      "type": "regular",
+      "bytes": 3770,
+      "sha256": "db02e89f86b2ee81316143c5bc20748a94a8f3b753fcffdfa88ba963cebacb6a"
+    },
+    {
+      "path": "taxon-final-test-tmp/test_taxon_error_comparison_us0/nearest_site/scored-predictions.csv",
+      "type": "regular",
+      "bytes": 2930,
+      "sha256": "ba2d42c445d6d965daac95bfaa15364b7941f8ccd31c4a4b700d7fce115be8f4"
+    },
+    {
+      "path": "taxon-final-test-tmp/test_taxon_error_comparison_us0/training_mean/scored-predictions.csv",
+      "type": "regular",
+      "bytes": 3770,
+      "sha256": "db02e89f86b2ee81316143c5bc20748a94a8f3b753fcffdfa88ba963cebacb6a"
+    },
+    {
+      "path": "taxon-final-test-tmp/test_taxon_error_comparison_uscurrent",
+      "type": "symlink",
+      "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/v4/author-pollen-spatial-block/taxon-final-test-tmp/test_taxon_error_comparison_us0"
+    },
+    {
+      "path": "taxon-job-plans.py",
+      "type": "regular",
+      "bytes": 1734,
+      "sha256": "978def5c373a78e23bc8a5e1806c4abb9a1cb8c3254119a394228747329e0929"
+    },
+    {
+      "path": "taxon-test-cache/.gitignore",
+      "type": "regular",
+      "bytes": 37,
+      "sha256": "3ed731b65d06150c138e2dadb0be0697550888a6b47eb8c45ecc9adba8b8e9bd"
+    },
+    {
+      "path": "taxon-test-cache/CACHEDIR.TAG",
+      "type": "regular",
+      "bytes": 191,
+      "sha256": "37dc88ef9a0abeddbe81053a6dd8fdfb13afb613045ea1eb4a5c815a74a3bde4"
+    },
+    {
+      "path": "taxon-test-cache/README.md",
+      "type": "regular",
+      "bytes": 302,
+      "sha256": "73fd6fccdd802c419a6b2d983d6c3173b7da97558ac4b589edec2dfe443db9ad"
+    },
+    {
+      "path": "taxon-test-cache/v/cache/nodeids",
+      "type": "regular",
+      "bytes": 396,
+      "sha256": "10745bb8d08758cfc4541ec3df6db1c4dc35d0cc340fc0d7ef22413dfb18b89b"
+    },
+    {
+      "path": "taxon-test-tmp/test_comparison_uses_only_comm0/within-grid.csv",
+      "type": "regular",
+      "bytes": 13167,
+      "sha256": "fecd3dc7ea1f5f7bddec9a9bd3ef564d9fbf3f43224e6ec5db7e26174ba8d2f4"
+    },
+    {
+      "path": "taxon-test-tmp/test_comparison_uses_only_commcurrent",
+      "type": "symlink",
+      "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/v4/author-pollen-spatial-block/taxon-test-tmp/test_comparison_uses_only_comm0"
+    },
+    {
+      "path": "taxon-test-tmp/test_prediction_is_unchanged_w0/author/run.REVEALS.files/LRAready_target_a.csv",
+      "type": "regular",
+      "bytes": 19,
+      "sha256": "f121b27397a08f6043e94bef1e350a529a97821617250ec8102718a5bf6e4647"
+    },
+    {
+      "path": "taxon-test-tmp/test_prediction_is_unchanged_w0/author/run.REVEALS.files/LRAready_training.csv",
+      "type": "regular",
+      "bytes": 43,
+      "sha256": "d84f5b2cf4cb95258e339d109dd6a8f083e91dc6fc59caff39ac04464ab7c56d"
+    },
+    {
+      "path": "taxon-test-tmp/test_prediction_is_unchanged_w0/first/predictions.csv",
+      "type": "regular",
+      "bytes": 452,
+      "sha256": "894d380a487ef52273c5176b86db1da867529d79dcc3cc6f091a80b6a98b12fa"
+    },
+    {
+      "path": "taxon-test-tmp/test_prediction_is_unchanged_w0/first/report.json",
+      "type": "regular",
+      "bytes": 1301,
+      "sha256": "44f29e8d74bb4ce3b8031f23a8c1b6b089407bfb7d5a9bc91704d7b8870a01a5"
+    },
+    {
+      "path": "taxon-test-tmp/test_prediction_is_unchanged_w0/first/statuses.csv",
+      "type": "regular",
+      "bytes": 406,
+      "sha256": "328680a827528bbf76ac1cde7e54c80edf48948016d323f09acc43ba5e725f68"
+    },
+    {
+      "path": "taxon-test-tmp/test_prediction_is_unchanged_w0/second/predictions.csv",
+      "type": "regular",
+      "bytes": 452,
+      "sha256": "894d380a487ef52273c5176b86db1da867529d79dcc3cc6f091a80b6a98b12fa"
+    },
+    {
+      "path": "taxon-test-tmp/test_prediction_is_unchanged_w0/second/report.json",
+      "type": "regular",
+      "bytes": 1301,
+      "sha256": "44f29e8d74bb4ce3b8031f23a8c1b6b089407bfb7d5a9bc91704d7b8870a01a5"
+    },
+    {
+      "path": "taxon-test-tmp/test_prediction_is_unchanged_w0/second/statuses.csv",
+      "type": "regular",
+      "bytes": 406,
+      "sha256": "328680a827528bbf76ac1cde7e54c80edf48948016d323f09acc43ba5e725f68"
+    },
+    {
+      "path": "taxon-test-tmp/test_prediction_is_unchanged_w0/third/predictions.csv",
+      "type": "regular",
+      "bytes": 452,
+      "sha256": "894d380a487ef52273c5176b86db1da867529d79dcc3cc6f091a80b6a98b12fa"
+    },
+    {
+      "path": "taxon-test-tmp/test_prediction_is_unchanged_w0/third/report.json",
+      "type": "regular",
+      "bytes": 1301,
+      "sha256": "44f29e8d74bb4ce3b8031f23a8c1b6b089407bfb7d5a9bc91704d7b8870a01a5"
+    },
+    {
+      "path": "taxon-test-tmp/test_prediction_is_unchanged_w0/third/statuses.csv",
+      "type": "regular",
+      "bytes": 406,
+      "sha256": "328680a827528bbf76ac1cde7e54c80edf48948016d323f09acc43ba5e725f68"
+    },
+    {
+      "path": "taxon-test-tmp/test_prediction_is_unchanged_wcurrent",
+      "type": "symlink",
+      "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/v4/author-pollen-spatial-block/taxon-test-tmp/test_prediction_is_unchanged_w0"
+    },
+    {
+      "path": "taxon-test-tmp/test_spatial_methods_use_only_0/author/run.REVEALS.files/LRAready_far.csv",
+      "type": "regular",
+      "bytes": 43,
+      "sha256": "f85e565616c5d4047802e7c65227fae9866b6e0812e142ed3b7e86213e7294b9"
+    },
+    {
+      "path": "taxon-test-tmp/test_spatial_methods_use_only_0/author/run.REVEALS.files/LRAready_near.csv",
+      "type": "regular",
+      "bytes": 43,
+      "sha256": "d84f5b2cf4cb95258e339d109dd6a8f083e91dc6fc59caff39ac04464ab7c56d"
+    },
+    {
+      "path": "taxon-test-tmp/test_spatial_methods_use_only_0/inverse_distance_squared/predictions.csv",
+      "type": "regular",
+      "bytes": 269,
+      "sha256": "2c7875a1cee31394ed1049c7458847d0a050b7e0c31afe2d8ade861d339332ac"
+    },
+    {
+      "path": "taxon-test-tmp/test_spatial_methods_use_only_0/inverse_distance_squared/report.json",
+      "type": "regular",
+      "bytes": 1371,
+      "sha256": "c3832d72ee5f3019bd61c254e13f651fd5464010d1cfe84f2d8a194352a698cb"
+    },
+    {
+      "path": "taxon-test-tmp/test_spatial_methods_use_only_0/inverse_distance_squared/statuses.csv",
+      "type": "regular",
+      "bytes": 273,
+      "sha256": "39d75a1c8d21fc07586a0bcf36d4e13d37da6b7e1fe62b2f6b5293feaee263a2"
+    },
+    {
+      "path": "taxon-test-tmp/test_spatial_methods_use_only_0/nearest_site/predictions.csv",
+      "type": "regular",
+      "bytes": 267,
+      "sha256": "7c9442787ec9a867942ad4cdd87d4d79433e3b98b1ae3c3d07981ad22e15072f"
+    },
+    {
+      "path": "taxon-test-tmp/test_spatial_methods_use_only_0/nearest_site/report.json",
+      "type": "regular",
+      "bytes": 1359,
+      "sha256": "44a6fc2d60effbf1c45ee2a60acdc65b4ca231ec6f6987b0965bd0434d3a77ba"
+    },
+    {
+      "path": "taxon-test-tmp/test_spatial_methods_use_only_0/nearest_site/statuses.csv",
+      "type": "regular",
+      "bytes": 273,
+      "sha256": "b86f9b81cedccf80e14fa397050c44e18150b34f3f41bbe6dd56f74f69555bdb"
+    },
+    {
+      "path": "taxon-test-tmp/test_spatial_methods_use_only_0/training_mean/predictions.csv",
+      "type": "regular",
+      "bytes": 267,
+      "sha256": "22696eb65fbc99b0a6ca70531acfe901cb13ab41cf1e165416ba7b48ce006581"
+    },
+    {
+      "path": "taxon-test-tmp/test_spatial_methods_use_only_0/training_mean/report.json",
+      "type": "regular",
+      "bytes": 1365,
+      "sha256": "72420cadc2b8381089ddae1d3542705c0b2e41820fd536ff17745f06a0c5733f"
+    },
+    {
+      "path": "taxon-test-tmp/test_spatial_methods_use_only_0/training_mean/statuses.csv",
+      "type": "regular",
+      "bytes": 273,
+      "sha256": "8ab8bf3082d9f318e6eab1b5ab1d711df88b09a4fb06d232d4bae11c21811c35"
+    },
+    {
+      "path": "taxon-test-tmp/test_spatial_methods_use_only_current",
+      "type": "symlink",
+      "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/v4/author-pollen-spatial-block/taxon-test-tmp/test_spatial_methods_use_only_0"
+    },
+    {
+      "path": "taxon-test-tmp/test_taxon_error_comparison_us0/inverse_distance_squared/scored-predictions.csv",
+      "type": "regular",
+      "bytes": 3770,
+      "sha256": "db02e89f86b2ee81316143c5bc20748a94a8f3b753fcffdfa88ba963cebacb6a"
+    },
+    {
+      "path": "taxon-test-tmp/test_taxon_error_comparison_us0/nearest_site/scored-predictions.csv",
+      "type": "regular",
+      "bytes": 2930,
+      "sha256": "ba2d42c445d6d965daac95bfaa15364b7941f8ccd31c4a4b700d7fce115be8f4"
+    },
+    {
+      "path": "taxon-test-tmp/test_taxon_error_comparison_us0/training_mean/scored-predictions.csv",
+      "type": "regular",
+      "bytes": 3770,
+      "sha256": "db02e89f86b2ee81316143c5bc20748a94a8f3b753fcffdfa88ba963cebacb6a"
+    },
+    {
+      "path": "taxon-test-tmp/test_taxon_error_comparison_uscurrent",
+      "type": "symlink",
+      "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/v4/author-pollen-spatial-block/taxon-test-tmp/test_taxon_error_comparison_us0"
+    },
+    {
+      "path": "v4-author-pollen-hellinger-check-20260925.json",
+      "type": "regular",
+      "bytes": 1754,
+      "sha256": "b75c922b3319b430ec4f6112782cae5c81606439ea0d79266e6e39c515f9a7a2"
+    },
+    {
+      "path": "v4-author-pollen-hellinger-check-corrected-20260925.json",
+      "type": "regular",
+      "bytes": 1764,
+      "sha256": "20e7875ef76a61e882e186c45e718fbade0dfcb64724aceb1c98a61ab8da6255"
+    },
+    {
+      "path": "v4-author-pollen-hellinger-format-20260925.json",
+      "type": "regular",
+      "bytes": 1411,
+      "sha256": "af95f739f11d14094e4500eb26cd30b152e7fed82a88580db52563fda34b9baf"
+    },
+    {
+      "path": "v4-author-pollen-hellinger-science-20260925.json",
+      "type": "regular",
+      "bytes": 3178,
+      "sha256": "931a696b068965eff059d7636aecf581b38227eef2ecdadea771b081cdc5ba0e"
+    },
+    {
+      "path": "v4-author-pollen-hellinger-science-corrected-20260925.json",
+      "type": "regular",
+      "bytes": 3188,
+      "sha256": "ef5eb01936431fa9d208d311f475b833be5f1ff50e4308b466aafed502e5d25c"
+    },
+    {
+      "path": "v4-author-pollen-hellinger-tests-20260925.json",
+      "type": "regular",
+      "bytes": 1632,
+      "sha256": "fdae20da0e83ef921b9188f52fc26039d2c319fda192e858d6b51d852007af96"
+    },
+    {
+      "path": "v4-author-pollen-hellinger-tests-corrected-20260925.json",
+      "type": "regular",
+      "bytes": 1672,
+      "sha256": "a365722a098fbed9768b3e5a2e4b1db80c0ec906f02e244a231d74c29933dfd6"
+    },
+    {
+      "path": "v4-author-pollen-strict-clr-support-20260925.json",
+      "type": "regular",
+      "bytes": 3686,
+      "sha256": "df549ec2cbc3ca929ccf66e91b9641a5852be429d9c02c93ddc9aa473252e7d3"
+    },
+    {
+      "path": "v4-author-pollen-taxon-comparison-20260925.json",
+      "type": "regular",
+      "bytes": 3059,
+      "sha256": "a62116a454452ca6664a09c9bed23762c9304ec566df22a9647e0196a73374c5"
+    },
+    {
+      "path": "v4-author-pollen-taxon-format-20260925.json",
+      "type": "regular",
+      "bytes": 1027,
+      "sha256": "d770d058a101579b0193f8ed8fc741622a5c16594710f6abeff5927d1ac1a5d5"
+    },
+    {
+      "path": "v4-author-pollen-taxon-mypy-20260925.json",
+      "type": "regular",
+      "bytes": 897,
+      "sha256": "bbe1ce567bdd971591c503589b25a387ee8c9c96c4d8a1ee99bd3c0d381d50f4"
+    },
+    {
+      "path": "v4-author-pollen-taxon-style-20260925.json",
+      "type": "regular",
+      "bytes": 1314,
+      "sha256": "a191eae358e80c3979d259a36feab8276eef862658e48c6d55bc9271dfcd06e8"
+    },
+    {
+      "path": "v4-author-pollen-taxon-style-corrected-20260925.json",
+      "type": "regular",
+      "bytes": 1324,
+      "sha256": "5376e345d69a6b27f5a60a0c970bdbd772b62c108b018f3f432161939dcedec7"
+    },
+    {
+      "path": "v4-author-pollen-taxon-style-final-20260925.json",
+      "type": "regular",
+      "bytes": 1320,
+      "sha256": "c8ed2b694e8e809e98ebcb7672310c1bea9be222475a55e7ac32e28a91d232d8"
+    },
+    {
+      "path": "v4-author-pollen-taxon-tests-20260925.json",
+      "type": "regular",
+      "bytes": 1714,
+      "sha256": "e6e4bcbf7856ef637f1fcc0679a6444663778d2d952ce9e9ef4fa4603ee2f3c7"
+    },
+    {
+      "path": "v4-author-pollen-taxon-tests-final-20260925.json",
+      "type": "regular",
+      "bytes": 1738,
+      "sha256": "84f633ab40d5a76875264ea1ef5d7bc65ccbf09ffd67ec18619c1df4e3d09a86"
+    }
+  ],
+  "governed_result": "docs/report/pollen-reconstruction/author-buffered-pollen/manifest.json",
+  "result_relation": "The four final method prediction/score chains, baseline summary, taxon/site comparison, Hellinger distances, fixed fitted common-support comparison and strict-positive CLR support report are retained. The three current comparison consumers and strict CLR diagnostic reproduced the governed JSON values from retained inputs. Earlier site-block v2 and baseline v1 reports share every non-schema field with the governed taxon v3 report; fitted typed and final reports are equal. Intermediate prediction/score runs are repeated or superseded products.",
+  "process_files": "Historical job plans, retry scripts, check receipts, caches and pytest fixtures are process evidence; the runnable strict CLR diagnostic is retained as governed replay.py. The source-bound numerical inputs are pinned by the author private-source custody record.",
+  "consumer_check": "No current package or report source reads the retired directory; existing plan-file references are historical process paths.",
+  "liveness_check": "lsof +D returned no open files; all 577 regular files have one hardlink each and all 56 symlinks resolve within the retired directory.",
+  "scientific_admission": "Previously exposed English direct observed-pollen development comparison only; no Swedish LRA, vegetation truth or independent confirmation."
+}
