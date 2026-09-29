@@ -1,0 +1,401 @@
+{
+  "schema_version": "nordic-tox-snapshot-custody.1",
+  "purpose": "Historical candidate and lane outcomes retained before selective cache removal; current certification requires current candidate checks.",
+  "external_author_source": "landclim/author-reference/author under the private data store",
+  "snapshots": [
+    {
+      "artifact_path": "artifacts/v3/tox-nordic-coverage-03610b87",
+      "candidate_commit": "03610b87ccc8d13c84e1540e4490791b8a0300ea",
+      "candidate_tree": "2dd608ca921b8ac15a2e6d3ffd8fc7549efc246d",
+      "candidate_manifest_sha256": "5353033e8c71f0d79cdee346b82d23d28ad27f3033e7d99511607b4a031b1f5f",
+      "tracked_entry_count": 5816,
+      "fixture_archive_sha256": "cd6cc688e6c44dd61d0ed038f53d118f4aade0696c37dc6174d613a38097bb38",
+      "external_author_fixture_matches": [
+        "site.metadata.csv",
+        "input/WHH05.csv",
+        "run.REVEALS.files/LRAready_WHH05.csv",
+        "bins.csv",
+        "TWlookup.csv",
+        "LANDCLIM.ALLEUROPE.taxa.LUT.080219.csv",
+        "run.REVEALS.files/av-RPP.all.landclimII.csv",
+        "run.REVEALS.files/avar-RPP.all.landclimII.csv",
+        "run.REVEALS.files/LRA-REVEALS-release.R"
+      ],
+      "lanes": [
+        {
+          "name": "alias",
+          "result_sha256": "731163e33f56057376006e900d0fa399f6bbfac8cb3097843fbf870767cc0620",
+          "tox_exit_code": 1,
+          "environment_count": 6,
+          "fixture_integrity": true,
+          "tracked_integrity": true,
+          "snapshot_provenance_integrity": null,
+          "selected_failures": []
+        },
+        {
+          "name": "core",
+          "result_sha256": "657b8817511652c2f3ff531882307a72816d5c6b2f7410a8661ef5f209afdfbb",
+          "tox_exit_code": 1,
+          "environment_count": 7,
+          "fixture_integrity": true,
+          "tracked_integrity": true,
+          "snapshot_provenance_integrity": null,
+          "selected_failures": [
+            "FAILED packages/bijux-pollenomics/tests/unit/analysis/lra_validation/evaluation/observation_product/test_scoring.py::test_release_scorer_preserves_value_free_prediction_failures[failed_model_ids0]",
+            "1 failed, 929 passed, 267 deselected, 2 subtests passed in 237.99s (0:03:57)"
+          ]
+        },
+        {
+          "name": "dev",
+          "result_sha256": "76e48ea57212850c10b4dd9762de7357b0c008e3981d357e3dca94f9712d5a81",
+          "tox_exit_code": 1,
+          "environment_count": 6,
+          "fixture_integrity": true,
+          "tracked_integrity": true,
+          "snapshot_provenance_integrity": null,
+          "selected_failures": []
+        },
+        {
+          "name": "lra",
+          "result_sha256": "746a60358f5641890e120285301f1db3d50cdd519a9d65125ca0836c9fbf4fc1",
+          "tox_exit_code": 1,
+          "environment_count": 6,
+          "fixture_integrity": true,
+          "tracked_integrity": true,
+          "snapshot_provenance_integrity": null,
+          "selected_failures": []
+        },
+        {
+          "name": "root",
+          "result_sha256": "efedc2ee498d8400ba0c6525e28a96513fd29af165a14abf4217fe39c4cad318",
+          "tox_exit_code": 1,
+          "environment_count": 2,
+          "fixture_integrity": true,
+          "tracked_integrity": true,
+          "snapshot_provenance_integrity": null,
+          "selected_failures": []
+        }
+      ]
+    },
+    {
+      "artifact_path": "artifacts/v3/tox-nordic-coverage-4af586d3",
+      "candidate_commit": "4af586d3d044702432a46c8e477ea0ce6d75b56e",
+      "candidate_tree": "072b4ba16f3bc5b9360ff5cdedc6537f02b00f1c",
+      "candidate_manifest_sha256": "0644d26c0c19ea0179d922cc5f88ddcf0980b1b04e2096c97f815c2057eebb25",
+      "tracked_entry_count": 5816,
+      "fixture_archive_sha256": "cd6cc688e6c44dd61d0ed038f53d118f4aade0696c37dc6174d613a38097bb38",
+      "external_author_fixture_matches": [
+        "site.metadata.csv",
+        "input/WHH05.csv",
+        "run.REVEALS.files/LRAready_WHH05.csv",
+        "bins.csv",
+        "TWlookup.csv",
+        "LANDCLIM.ALLEUROPE.taxa.LUT.080219.csv",
+        "run.REVEALS.files/av-RPP.all.landclimII.csv",
+        "run.REVEALS.files/avar-RPP.all.landclimII.csv",
+        "run.REVEALS.files/LRA-REVEALS-release.R"
+      ],
+      "lanes": [
+        {
+          "name": "alias",
+          "result_sha256": "f7a1043e3b7d7028f70111a4f5b88ee8d2b179a9eb45fb1aaa7bcdca2915050f",
+          "tox_exit_code": 0,
+          "environment_count": 6,
+          "fixture_integrity": true,
+          "tracked_integrity": true,
+          "snapshot_provenance_integrity": true,
+          "selected_failures": []
+        },
+        {
+          "name": "dev",
+          "result_sha256": "d3174b3dcf5890c6fee030e16506f1027c30cf7a65bad8af41ba5604a568316e",
+          "tox_exit_code": 0,
+          "environment_count": 6,
+          "fixture_integrity": true,
+          "tracked_integrity": true,
+          "snapshot_provenance_integrity": true,
+          "selected_failures": []
+        },
+        {
+          "name": "lra",
+          "result_sha256": "f6db9b2a917f30b253c48b9a7952e36f73ab60293492b25195470b37dd7b5de0",
+          "tox_exit_code": 0,
+          "environment_count": 6,
+          "fixture_integrity": true,
+          "tracked_integrity": true,
+          "snapshot_provenance_integrity": true,
+          "selected_failures": []
+        },
+        {
+          "name": "root",
+          "result_sha256": "6853e10626d32deedd3a718d003f768960ed18e13a175b89b040aa59a5a15eca",
+          "tox_exit_code": 0,
+          "environment_count": 2,
+          "fixture_integrity": true,
+          "tracked_integrity": true,
+          "snapshot_provenance_integrity": true,
+          "selected_failures": []
+        }
+      ]
+    },
+    {
+      "artifact_path": "artifacts/v3/tox-nordic-coverage-7bb6a614",
+      "candidate_commit": "7bb6a6148731f252d2954c34090b6e1c9bec3d76",
+      "candidate_tree": "cacf69499360cb4b26059193de95e435e0c883f9",
+      "candidate_manifest_sha256": "4ff6dcf634be59442cb907e831dfbbf11d0189099e9d467bb8cc75f032401524",
+      "tracked_entry_count": 5819,
+      "fixture_archive_sha256": "cd6cc688e6c44dd61d0ed038f53d118f4aade0696c37dc6174d613a38097bb38",
+      "external_author_fixture_matches": [
+        "site.metadata.csv",
+        "input/WHH05.csv",
+        "run.REVEALS.files/LRAready_WHH05.csv",
+        "bins.csv",
+        "TWlookup.csv",
+        "LANDCLIM.ALLEUROPE.taxa.LUT.080219.csv",
+        "run.REVEALS.files/av-RPP.all.landclimII.csv",
+        "run.REVEALS.files/avar-RPP.all.landclimII.csv",
+        "run.REVEALS.files/LRA-REVEALS-release.R"
+      ],
+      "lanes": [
+        {
+          "name": "alias",
+          "result_sha256": "72d63f89c69182c772dead244221fb9d90060851dab5b620503f1560f7f848b3",
+          "tox_exit_code": 0,
+          "environment_count": 6,
+          "fixture_integrity": true,
+          "tracked_integrity": true,
+          "snapshot_provenance_integrity": true,
+          "selected_failures": []
+        },
+        {
+          "name": "core",
+          "result_sha256": "748508c2603d14fc95345a386f1d33589a8a4f941a38e6245c15cb0b7058ef8f",
+          "tox_exit_code": 1,
+          "environment_count": 7,
+          "fixture_integrity": true,
+          "tracked_integrity": true,
+          "snapshot_provenance_integrity": true,
+          "selected_failures": [
+            "FAILED packages/bijux-pollenomics/tests/unit/reporting/map_document/browser_semantics/test_visual_clarity.py::test_legend_uses_rendered_layer_and_country_colors",
+            "1 failed, 4238 passed, 267 deselected, 130 subtests passed in 1126.28s (0:18:46)"
+          ]
+        },
+        {
+          "name": "dev",
+          "result_sha256": "d0fa949d99efcc86123e25e4816c9b60adb31382ee8e1bf9981b19d41248f740",
+          "tox_exit_code": 0,
+          "environment_count": 6,
+          "fixture_integrity": true,
+          "tracked_integrity": true,
+          "snapshot_provenance_integrity": true,
+          "selected_failures": []
+        },
+        {
+          "name": "lra",
+          "result_sha256": "109399d2f61c1c2c77b02f69726dd16c0024ddc99f6dc55c2bae9bb3c3e6f485",
+          "tox_exit_code": 0,
+          "environment_count": 6,
+          "fixture_integrity": true,
+          "tracked_integrity": true,
+          "snapshot_provenance_integrity": true,
+          "selected_failures": []
+        },
+        {
+          "name": "root",
+          "result_sha256": "902c4a75e507a651520fbac83826475400f8ce5579736ab24ab51f44305b9c28",
+          "tox_exit_code": 0,
+          "environment_count": 2,
+          "fixture_integrity": true,
+          "tracked_integrity": true,
+          "snapshot_provenance_integrity": true,
+          "selected_failures": []
+        }
+      ]
+    },
+    {
+      "artifact_path": "artifacts/v3/tox-nordic-coverage-7dedc5bf",
+      "candidate_commit": "7dedc5bf35df3d7354ee1d2f2526363a66e90bd8",
+      "candidate_tree": "46eb25fa8847b6629198b2e77e826a66dd254d62",
+      "candidate_manifest_sha256": "424ee34b5908fd6295061cc8f5a8124825cbdea069c6fb5b57d4be2d88bfa1a3",
+      "tracked_entry_count": 5816,
+      "fixture_archive_sha256": "cd6cc688e6c44dd61d0ed038f53d118f4aade0696c37dc6174d613a38097bb38",
+      "external_author_fixture_matches": [
+        "site.metadata.csv",
+        "input/WHH05.csv",
+        "run.REVEALS.files/LRAready_WHH05.csv",
+        "bins.csv",
+        "TWlookup.csv",
+        "LANDCLIM.ALLEUROPE.taxa.LUT.080219.csv",
+        "run.REVEALS.files/av-RPP.all.landclimII.csv",
+        "run.REVEALS.files/avar-RPP.all.landclimII.csv",
+        "run.REVEALS.files/LRA-REVEALS-release.R"
+      ],
+      "lanes": []
+    },
+    {
+      "artifact_path": "artifacts/v3/tox-nordic-coverage-9e9b3156",
+      "candidate_commit": "9e9b315609003056c8841bd6f8db4c153930075f",
+      "candidate_tree": "06129bbb2f47c646958e61ca6e39c6e450743190",
+      "candidate_manifest_sha256": "0cfd4ab910dde4e7d368ca57de1da192d180990e96710b7af693a2b20470b396",
+      "tracked_entry_count": 5816,
+      "fixture_archive_sha256": "cd6cc688e6c44dd61d0ed038f53d118f4aade0696c37dc6174d613a38097bb38",
+      "external_author_fixture_matches": [
+        "site.metadata.csv",
+        "input/WHH05.csv",
+        "run.REVEALS.files/LRAready_WHH05.csv",
+        "bins.csv",
+        "TWlookup.csv",
+        "LANDCLIM.ALLEUROPE.taxa.LUT.080219.csv",
+        "run.REVEALS.files/av-RPP.all.landclimII.csv",
+        "run.REVEALS.files/avar-RPP.all.landclimII.csv",
+        "run.REVEALS.files/LRA-REVEALS-release.R"
+      ],
+      "lanes": []
+    },
+    {
+      "artifact_path": "artifacts/v3/tox-nordic-coverage-c5cb6442",
+      "candidate_commit": "c5cb644285fb0883bb0c032e25a4614f6877633c",
+      "candidate_tree": "29c0b9470f620acea6eec77c7a46d0562d543715",
+      "candidate_manifest_sha256": "6a059030dd0e371adfdf733ef55932f3888d12f0322ca2e059d3977d8e2b2afc",
+      "tracked_entry_count": 5819,
+      "fixture_archive_sha256": "cd6cc688e6c44dd61d0ed038f53d118f4aade0696c37dc6174d613a38097bb38",
+      "external_author_fixture_matches": [
+        "site.metadata.csv",
+        "input/WHH05.csv",
+        "run.REVEALS.files/LRAready_WHH05.csv",
+        "bins.csv",
+        "TWlookup.csv",
+        "LANDCLIM.ALLEUROPE.taxa.LUT.080219.csv",
+        "run.REVEALS.files/av-RPP.all.landclimII.csv",
+        "run.REVEALS.files/avar-RPP.all.landclimII.csv",
+        "run.REVEALS.files/LRA-REVEALS-release.R"
+      ],
+      "lanes": [
+        {
+          "name": "alias",
+          "result_sha256": "9d553873594f71b4e7e9702d1e8dcda10ea44b396567035002ca15401c1e4ffa",
+          "tox_exit_code": 0,
+          "environment_count": 6,
+          "fixture_integrity": true,
+          "tracked_integrity": true,
+          "snapshot_provenance_integrity": true,
+          "selected_failures": []
+        },
+        {
+          "name": "core",
+          "result_sha256": "23a779a0ef61c9414ad2fc3aade242d416e9204c9acf3192153d1c5ac63973ae",
+          "tox_exit_code": 0,
+          "environment_count": 7,
+          "fixture_integrity": true,
+          "tracked_integrity": true,
+          "snapshot_provenance_integrity": true,
+          "selected_failures": []
+        },
+        {
+          "name": "dev",
+          "result_sha256": "c9888e5b84ad786ceac2fdef7b68f4c0c17b00b51b21dd28c05cad942463c33b",
+          "tox_exit_code": 0,
+          "environment_count": 6,
+          "fixture_integrity": true,
+          "tracked_integrity": true,
+          "snapshot_provenance_integrity": true,
+          "selected_failures": []
+        },
+        {
+          "name": "lra",
+          "result_sha256": "541ab6dee5d7da9fd5d65bd6efacc6dc5bd9291e5ab1aff2ba926f78866ae283",
+          "tox_exit_code": 0,
+          "environment_count": 6,
+          "fixture_integrity": true,
+          "tracked_integrity": true,
+          "snapshot_provenance_integrity": true,
+          "selected_failures": []
+        },
+        {
+          "name": "root",
+          "result_sha256": "4e8b1aae6767e8afdacf56f97c0d48cf5fba4b34f6591729f41c5de72c21f55d",
+          "tox_exit_code": 0,
+          "environment_count": 2,
+          "fixture_integrity": true,
+          "tracked_integrity": true,
+          "snapshot_provenance_integrity": true,
+          "selected_failures": []
+        }
+      ]
+    },
+    {
+      "artifact_path": "artifacts/v3/tox-nordic-coverage-cf51d2d5",
+      "candidate_commit": "cf51d2d59aaa9b7191f5d3a94a1eb06ed5975ddf",
+      "candidate_tree": "fd90c40b39a99e315b30e93671b3a79801c53cb9",
+      "candidate_manifest_sha256": "ce78913806cbd4caded5ed57656b13dd94a2b336e8b91e7a148e29c4d39fed07",
+      "tracked_entry_count": 5816,
+      "fixture_archive_sha256": "cd6cc688e6c44dd61d0ed038f53d118f4aade0696c37dc6174d613a38097bb38",
+      "external_author_fixture_matches": [
+        "site.metadata.csv",
+        "input/WHH05.csv",
+        "run.REVEALS.files/LRAready_WHH05.csv",
+        "bins.csv",
+        "TWlookup.csv",
+        "LANDCLIM.ALLEUROPE.taxa.LUT.080219.csv",
+        "run.REVEALS.files/av-RPP.all.landclimII.csv",
+        "run.REVEALS.files/avar-RPP.all.landclimII.csv",
+        "run.REVEALS.files/LRA-REVEALS-release.R"
+      ],
+      "lanes": [
+        {
+          "name": "alias",
+          "result_sha256": "e703459d55e54e46e66a63e62f29fcbd625f8c280d4b6a4be1c3c48fefd61f2c",
+          "tox_exit_code": 0,
+          "environment_count": 6,
+          "fixture_integrity": true,
+          "tracked_integrity": true,
+          "snapshot_provenance_integrity": true,
+          "selected_failures": []
+        },
+        {
+          "name": "core",
+          "result_sha256": "aeb21667fb443e211a1d2f3385ecedb2eb11f6186d82293288a1460f3487b079",
+          "tox_exit_code": 1,
+          "environment_count": 7,
+          "fixture_integrity": true,
+          "tracked_integrity": true,
+          "snapshot_provenance_integrity": true,
+          "selected_failures": [
+            "FAILED packages/bijux-pollenomics/tests/unit/architecture/test_topology.py::test_repository_source_and_unit_test_trees_satisfy_topology_policy",
+            "1 failed, 1877 passed, 267 deselected, 2 subtests passed in 282.08s (0:04:42)"
+          ]
+        },
+        {
+          "name": "dev",
+          "result_sha256": "c9e201ba7dca4908f20da7e51e21240f5702a45903793d8f8dea5975c715d5c1",
+          "tox_exit_code": 0,
+          "environment_count": 6,
+          "fixture_integrity": true,
+          "tracked_integrity": true,
+          "snapshot_provenance_integrity": true,
+          "selected_failures": []
+        },
+        {
+          "name": "lra",
+          "result_sha256": "5cfe0f7f726da67d19768e34a6d3afc882875a032ac9f1fc1d9b3ea52c9aed40",
+          "tox_exit_code": 0,
+          "environment_count": 6,
+          "fixture_integrity": true,
+          "tracked_integrity": true,
+          "snapshot_provenance_integrity": true,
+          "selected_failures": []
+        },
+        {
+          "name": "root",
+          "result_sha256": "d04f1c1f6ed8c9509a260519d3c6b1b6fc912c0258ec84d959464ab15b11ed6f",
+          "tox_exit_code": 1,
+          "environment_count": 2,
+          "fixture_integrity": true,
+          "tracked_integrity": true,
+          "snapshot_provenance_integrity": true,
+          "selected_failures": []
+        }
+      ]
+    }
+  ]
+}

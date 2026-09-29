@@ -68,3 +68,21 @@ bytes), `artifacts/jobs/linux-r-oracle/test-run` (6,635 bytes), and
 review candidates only. Their combined 35,724,715 bytes cannot materially
 change the cap result. Inactivity and unique-proof absence have not been
 independently established, so this inventory authorizes **no removal**.
+
+## Historical Nordic tox snapshots
+
+The [Nordic tox snapshot custody record](nordic-tox-snapshots.json) preserves
+the candidate commit and tree, candidate-manifest digest, and every available
+lane-result digest and exit code for seven historical snapshots. All seven
+candidate trees still resolve from Git. Each snapshot's nine scientific fixture
+files matches the private author-reference source store byte for byte. The
+record also keeps the selected failure lines from completed lanes. Two
+snapshots have no lane result, and several completed lanes failed; none is a
+current candidate certification.
+
+The snapshot inputs are copies of Git-tracked files and those nine author
+fixtures. Lane run directories contain installed environments, caches, build
+products, test output and repeated input copies. This identity check makes
+each snapshot a candidate for **selective** removal after its process liveness
+and exact retained evidence are checked. It does not change the no-removal
+decision for other artifact paths in the original inventory.
