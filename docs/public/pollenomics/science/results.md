@@ -67,6 +67,9 @@ uniform-start SLSQP search, 300 iterations, 16,000 objective evaluations and
 check still refused those cases. The original author-R optimizer differs.
 These settings are a reproducible development profile, not universal ideal
 parameters.
+The repository's [model-use guide](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/model-use.md)
+sets out the target-specific choices, source gates, numerical settings,
+uncertainty scope and refusal conditions in one place.
 
 One bounded author direct-pollen CLR-RBF search has lower common-support MAE
 than inverse distance squared but less coverage; the
