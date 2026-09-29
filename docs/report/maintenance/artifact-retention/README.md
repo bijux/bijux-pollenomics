@@ -276,6 +276,14 @@ the public 11/12 PFT wording, while the separately pinned archive actually
 contains 13 PFT columns. They do not authenticate the missing archive-producing
 PFT/LCT transformation or resolve the `ISTS` classification.
 
+The [earlier PFT audit note custody](landclim-pft-audit-custody.json) binds its
+single historical file by SHA-256. Its distinct count of 11 parameter-table
+description strings and the populated `ISTS` mean/standard-error counts are now
+in the governed [PFT crosswalk](../../publication-replay/landclim-pft-crosswalk/README.md),
+alongside the already retained 11/12/13 source disagreement. The old note was
+retired after its source-backed observations were checked against the pinned CSV
+and archive; no PFT assignment was inferred from the description count.
+
 ## WHH05 author preparation process custody
 
 The [one-site R process custody](whh05-author-preparation-custody.json) accounts
