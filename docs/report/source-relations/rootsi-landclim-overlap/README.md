@@ -27,7 +27,10 @@ The LandClim site time bounds are **sequence coverage**, not sample ages or chan
 A [source-byte-bound age-column audit](../landclim/workbook-chronology/README.md)
 checks FLINK, HOLK, RANV and STAV directly. It preserves one source-age reversal
 in each of FLINK and HOLK and confirms that RANV and STAV have no workbook
-sample-age column. None of these cells establishes a qualified age model.
+sample-age column. The [Neotoma chronology witness](../landclim/neotoma-chronology-witness/README.md)
+then depth-matches FLINK and STAV to shared EPD records, resolving the location
+of FLINK's sign discrepancy and identifying an STAV candidate age vector.
+Neither comparison establishes a qualified historical LandClim age model.
 
 The LandClim II DOI, sequence ID, country, access marker, sample count, site window count, and source workbook provenance must match before a row is emitted. `LCGRID_ID` is retained as site metadata. It does not prove that a specific Rootsi workbook or site contributed to a particular modeled grid cell, time window, value, or standard error. That contributor lineage remains unresolved.
 

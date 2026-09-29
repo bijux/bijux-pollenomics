@@ -21,6 +21,12 @@ which are not sample dates. No source age uncertainty, model identity, historica
 publication-input identity, or per-sequence analytical rights is established.
 All four remain refused for dated-event and LRA use on this evidence.
 
+A separate [Neotoma source witness](../neotoma-chronology-witness/README.md)
+depth-matches all FLINK and STAV workbook rows. It identifies the FLINK
+row-56 sign disagreement and supplies a candidate STAV calibrated-BP point-age
+vector from the shared EPD lineage. It does not correct the workbook or
+authenticate either sequence as the historical LandClim input.
+
 An arithmetic check rounds the extrema of `1950 − source age` to integer BP and
 compares them with the sequence metadata bounds. HOLK's full 40-cell extrema
 produce **−50 to 3441 BP**, matching its metadata; its last sheet row instead
@@ -38,8 +44,9 @@ sheet row 56? For HOLK, which age-depth model and ordering govern the last two
 samples, and how are their uncertainty bounds represented? For both sequences,
 which conversion convention produced the published BP extrema? The request is
 for source records and model identifiers, not permission to replace the cells
-with a visually plausible value. RANV and STAV separately need the sample-age
-source linked to their 141 and 77 workbook rows.
+with a visually plausible value. RANV needs a sample-age source linked to its
+141 workbook rows; STAV needs historical author-input and model-version
+confirmation for the Neotoma candidate age vector.
 
 Reproduce from the repository root:
 
