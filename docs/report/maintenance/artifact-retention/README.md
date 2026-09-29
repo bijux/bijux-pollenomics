@@ -191,6 +191,17 @@ identical values. Its manifest retains the old selection IDs and summary, so
 the earlier denominator remains interpretable after the working directory is
 removed. No open file, multiple hardlink or live consumer depended on it.
 
+The [Abborrtjärnen core retirement receipt](abborrtjarne-core-retirement.json)
+binds 67 files and two local pytest symlinks from the old core comparison
+working directory. The governed [core lead](../../source-relations/neotoma/abbo-core-identity/README.md)
+replays the scientific fields using the current prerequisite projection and a
+selected independent count-mass receipt. The governed
+[workbook comparison](../../source-relations/neotoma/abbo-native-correspondence/README.md)
+retains the native-count summary; its private per-sample CSV is reproducible
+from retained source inputs. All four old native-count reports match that
+summary exactly. No file was open or multiply linked, and the only repository
+path mention is historical.
+
 The [earlier scientific report provenance](scientific-report-provenance/README.md)
 retains exact results, scope, and evidence-manifest bytes from the previous
 11-result study. The current report has 17 result rows and a passing 170-file

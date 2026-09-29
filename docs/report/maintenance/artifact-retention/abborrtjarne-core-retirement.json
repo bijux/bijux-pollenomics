@@ -1,0 +1,426 @@
+{
+  "schema_version": "abborrtjarne-core-artifact-retirement.v1",
+  "retired_directory": "artifacts/v4/swedish-core-correspondence",
+  "entries": [
+    {
+      "path": "abborrtjarne/REPORT.md",
+      "bytes": 1353,
+      "type": "regular",
+      "sha256": "b5d9ff1f62aafb0aa12e933a49114c01bfdf3400aa259257fbe9d954f35bbffe"
+    },
+    {
+      "path": "abborrtjarne/report.json",
+      "bytes": 2253,
+      "type": "regular",
+      "sha256": "8d8ed70c940882098b31d4a76ecdedd58884d614f6ffe3f68e76648c3ae88d3e"
+    },
+    {
+      "path": "abborrtjarne-checks-b.plan.json",
+      "bytes": 1980,
+      "type": "regular",
+      "sha256": "61b59c0bfe23648e70e606aaf9be1b97699d7cdd17426ca8bac32ee32e05df4d"
+    },
+    {
+      "path": "abborrtjarne-checks-c.plan.json",
+      "bytes": 1980,
+      "type": "regular",
+      "sha256": "79c97ceca3bd90200bf168ee38dbe11b38550ab8201972936f389991f840a6d5"
+    },
+    {
+      "path": "abborrtjarne-checks.plan.json",
+      "bytes": 1971,
+      "type": "regular",
+      "sha256": "91dbfc79a2da1c6cbc4c4e414bb43b4856df35795fd16a1ebcab312767da301c"
+    },
+    {
+      "path": "abborrtjarne-native-counts/REPORT.md",
+      "bytes": 843,
+      "type": "regular",
+      "sha256": "5bc32652eba6540ab750b413d9286046aeab8eadd7e225e4a4ae8fba72350f14"
+    },
+    {
+      "path": "abborrtjarne-native-counts/report.json",
+      "bytes": 2582,
+      "type": "regular",
+      "sha256": "ba96d3cccd80a2a31116bcdb0c0e1da6e196584f0b1b95c0a24e08446714b80a"
+    },
+    {
+      "path": "abborrtjarne-native-counts/sample-correspondence.csv",
+      "bytes": 5181,
+      "type": "regular",
+      "sha256": "abc0af0b4b3d1ae6d97f7900b1f246c16dd28df5cbc524ebd5624bb30eebaef8"
+    },
+    {
+      "path": "abborrtjarne-native-counts-final/REPORT.md",
+      "bytes": 843,
+      "type": "regular",
+      "sha256": "5bc32652eba6540ab750b413d9286046aeab8eadd7e225e4a4ae8fba72350f14"
+    },
+    {
+      "path": "abborrtjarne-native-counts-final/report.json",
+      "bytes": 2582,
+      "type": "regular",
+      "sha256": "ba96d3cccd80a2a31116bcdb0c0e1da6e196584f0b1b95c0a24e08446714b80a"
+    },
+    {
+      "path": "abborrtjarne-native-counts-final/sample-correspondence.csv",
+      "bytes": 5181,
+      "type": "regular",
+      "sha256": "abc0af0b4b3d1ae6d97f7900b1f246c16dd28df5cbc524ebd5624bb30eebaef8"
+    },
+    {
+      "path": "abborrtjarne-native-counts-source-bound/REPORT.md",
+      "bytes": 852,
+      "type": "regular",
+      "sha256": "bfa12f067264832d9e9517e38eff304a2f59a8becbb1d51dc0ec39ff0cac9302"
+    },
+    {
+      "path": "abborrtjarne-native-counts-source-bound/report.json",
+      "bytes": 2582,
+      "type": "regular",
+      "sha256": "ba96d3cccd80a2a31116bcdb0c0e1da6e196584f0b1b95c0a24e08446714b80a"
+    },
+    {
+      "path": "abborrtjarne-native-counts-source-bound/sample-correspondence.csv",
+      "bytes": 5181,
+      "type": "regular",
+      "sha256": "abc0af0b4b3d1ae6d97f7900b1f246c16dd28df5cbc524ebd5624bb30eebaef8"
+    },
+    {
+      "path": "abborrtjarne-native-counts-verified/REPORT.md",
+      "bytes": 843,
+      "type": "regular",
+      "sha256": "5bc32652eba6540ab750b413d9286046aeab8eadd7e225e4a4ae8fba72350f14"
+    },
+    {
+      "path": "abborrtjarne-native-counts-verified/report.json",
+      "bytes": 2582,
+      "type": "regular",
+      "sha256": "ba96d3cccd80a2a31116bcdb0c0e1da6e196584f0b1b95c0a24e08446714b80a"
+    },
+    {
+      "path": "abborrtjarne-native-counts-verified/sample-correspondence.csv",
+      "bytes": 5181,
+      "type": "regular",
+      "sha256": "abc0af0b4b3d1ae6d97f7900b1f246c16dd28df5cbc524ebd5624bb30eebaef8"
+    },
+    {
+      "path": "abborrtjarne-pytest-cache/.gitignore",
+      "bytes": 37,
+      "type": "regular",
+      "sha256": "3ed731b65d06150c138e2dadb0be0697550888a6b47eb8c45ecc9adba8b8e9bd"
+    },
+    {
+      "path": "abborrtjarne-pytest-cache/CACHEDIR.TAG",
+      "bytes": 191,
+      "type": "regular",
+      "sha256": "37dc88ef9a0abeddbe81053a6dd8fdfb13afb613045ea1eb4a5c815a74a3bde4"
+    },
+    {
+      "path": "abborrtjarne-pytest-cache/README.md",
+      "bytes": 302,
+      "type": "regular",
+      "sha256": "73fd6fccdd802c419a6b2d983d6c3173b7da97558ac4b589edec2dfe443db9ad"
+    },
+    {
+      "path": "abborrtjarne-pytest-cache/v/cache/nodeids",
+      "bytes": 71,
+      "type": "regular",
+      "sha256": "0c804f95d66e5fbdd58f5d08db73f658fb744e60a7ee899324efcbac8449cf06"
+    },
+    {
+      "path": "abborrtjarne-pytest-cache-b/.gitignore",
+      "bytes": 37,
+      "type": "regular",
+      "sha256": "3ed731b65d06150c138e2dadb0be0697550888a6b47eb8c45ecc9adba8b8e9bd"
+    },
+    {
+      "path": "abborrtjarne-pytest-cache-b/CACHEDIR.TAG",
+      "bytes": 191,
+      "type": "regular",
+      "sha256": "37dc88ef9a0abeddbe81053a6dd8fdfb13afb613045ea1eb4a5c815a74a3bde4"
+    },
+    {
+      "path": "abborrtjarne-pytest-cache-b/README.md",
+      "bytes": 302,
+      "type": "regular",
+      "sha256": "73fd6fccdd802c419a6b2d983d6c3173b7da97558ac4b589edec2dfe443db9ad"
+    },
+    {
+      "path": "abborrtjarne-pytest-cache-b/v/cache/nodeids",
+      "bytes": 71,
+      "type": "regular",
+      "sha256": "0c804f95d66e5fbdd58f5d08db73f658fb744e60a7ee899324efcbac8449cf06"
+    },
+    {
+      "path": "abborrtjarne-pytest-cache-c/.gitignore",
+      "bytes": 37,
+      "type": "regular",
+      "sha256": "3ed731b65d06150c138e2dadb0be0697550888a6b47eb8c45ecc9adba8b8e9bd"
+    },
+    {
+      "path": "abborrtjarne-pytest-cache-c/CACHEDIR.TAG",
+      "bytes": 191,
+      "type": "regular",
+      "sha256": "37dc88ef9a0abeddbe81053a6dd8fdfb13afb613045ea1eb4a5c815a74a3bde4"
+    },
+    {
+      "path": "abborrtjarne-pytest-cache-c/README.md",
+      "bytes": 302,
+      "type": "regular",
+      "sha256": "73fd6fccdd802c419a6b2d983d6c3173b7da97558ac4b589edec2dfe443db9ad"
+    },
+    {
+      "path": "abborrtjarne-pytest-cache-c/v/cache/lastfailed",
+      "bytes": 65,
+      "type": "regular",
+      "sha256": "d08aa6138be32bb9a3da42201886b80721501860595aed3f8c21a766e6ae67c4"
+    },
+    {
+      "path": "abborrtjarne-pytest-cache-c/v/cache/nodeids",
+      "bytes": 128,
+      "type": "regular",
+      "sha256": "e0df7f579d9a320d4299ae44e705feda01e8b905bb579a30ba3dc31d5e76a4e3"
+    },
+    {
+      "path": "abborrtjarne-pytest-tmp-c/test_published_radius_needs_do0/metadata.xlsx",
+      "bytes": 909,
+      "type": "regular",
+      "sha256": "20858ac3c1a1d7dab459a07c905165033477691cdf193bb7eedc331d519d1ea6"
+    },
+    {
+      "path": "abborrtjarne-pytest-tmp-c/test_published_radius_needs_docurrent",
+      "bytes": 135,
+      "type": "symlink",
+      "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/v4/swedish-core-correspondence/abborrtjarne-pytest-tmp-c/test_published_radius_needs_do0"
+    },
+    {
+      "path": "abborrtjarne-science-source.plan.json",
+      "bytes": 2420,
+      "type": "regular",
+      "sha256": "9b52369d38992726f26e680a4b8522de0811e0fb9a13d767574a261d00fc8df3"
+    },
+    {
+      "path": "abborrtjarne-science-unit.plan.json",
+      "bytes": 2414,
+      "type": "regular",
+      "sha256": "b4b262e1e167e4b7671d6e8a84e637174258d90ba23fc31c9470320606aa0062"
+    },
+    {
+      "path": "abborrtjarne-science.plan.json",
+      "bytes": 2399,
+      "type": "regular",
+      "sha256": "38c4a3703ef8bf05ab66f583e544bc4ebc0d34eb6cad93e611cbe33dded6740a"
+    },
+    {
+      "path": "abborrtjarne-unit-closure/REPORT.md",
+      "bytes": 1353,
+      "type": "regular",
+      "sha256": "b5d9ff1f62aafb0aa12e933a49114c01bfdf3400aa259257fbe9d954f35bbffe"
+    },
+    {
+      "path": "abborrtjarne-unit-closure/report.json",
+      "bytes": 2253,
+      "type": "regular",
+      "sha256": "8d8ed70c940882098b31d4a76ecdedd58884d614f6ffe3f68e76648c3ae88d3e"
+    },
+    {
+      "path": "abborrtjarne-verified/REPORT.md",
+      "bytes": 1353,
+      "type": "regular",
+      "sha256": "b5d9ff1f62aafb0aa12e933a49114c01bfdf3400aa259257fbe9d954f35bbffe"
+    },
+    {
+      "path": "abborrtjarne-verified/report.json",
+      "bytes": 2253,
+      "type": "regular",
+      "sha256": "8d8ed70c940882098b31d4a76ecdedd58884d614f6ffe3f68e76648c3ae88d3e"
+    },
+    {
+      "path": "checks-b.plan.json",
+      "bytes": 1883,
+      "type": "regular",
+      "sha256": "15eb271a9ed3162b46b3346c002fe39e286a614fdef5a8191f4fc44c8512dac4"
+    },
+    {
+      "path": "checks-c.plan.json",
+      "bytes": 1883,
+      "type": "regular",
+      "sha256": "8f784ee188dfe4931457d8cca4ddfcaeacc13d2b5115431c3514ad5d453b8396"
+    },
+    {
+      "path": "checks.plan.json",
+      "bytes": 1874,
+      "type": "regular",
+      "sha256": "d2a2a2509ba316b1bdebfdb48a06e2f03df8a0ab65104b6771ad6e3085f88eb2"
+    },
+    {
+      "path": "pytest-cache-c/.gitignore",
+      "bytes": 37,
+      "type": "regular",
+      "sha256": "3ed731b65d06150c138e2dadb0be0697550888a6b47eb8c45ecc9adba8b8e9bd"
+    },
+    {
+      "path": "pytest-cache-c/CACHEDIR.TAG",
+      "bytes": 191,
+      "type": "regular",
+      "sha256": "37dc88ef9a0abeddbe81053a6dd8fdfb13afb613045ea1eb4a5c815a74a3bde4"
+    },
+    {
+      "path": "pytest-cache-c/README.md",
+      "bytes": 302,
+      "type": "regular",
+      "sha256": "73fd6fccdd802c419a6b2d983d6c3173b7da97558ac4b589edec2dfe443db9ad"
+    },
+    {
+      "path": "pytest-cache-c/v/cache/nodeids",
+      "bytes": 71,
+      "type": "regular",
+      "sha256": "0c804f95d66e5fbdd58f5d08db73f658fb744e60a7ee899324efcbac8449cf06"
+    },
+    {
+      "path": "science.plan.json",
+      "bytes": 2370,
+      "type": "regular",
+      "sha256": "d47c4c5c79c520bc449b53ff135b7927c327adbcd78cae77f66fdbf4fbed8f2f"
+    },
+    {
+      "path": "unit-closure-checks.plan.json",
+      "bytes": 1984,
+      "type": "regular",
+      "sha256": "4c73a196a009a3316f95ec2485fadc82e4b62a4dec008a7cdb6934d52c958b69"
+    },
+    {
+      "path": "unit-closure-pytest-cache/.gitignore",
+      "bytes": 37,
+      "type": "regular",
+      "sha256": "3ed731b65d06150c138e2dadb0be0697550888a6b47eb8c45ecc9adba8b8e9bd"
+    },
+    {
+      "path": "unit-closure-pytest-cache/CACHEDIR.TAG",
+      "bytes": 191,
+      "type": "regular",
+      "sha256": "37dc88ef9a0abeddbe81053a6dd8fdfb13afb613045ea1eb4a5c815a74a3bde4"
+    },
+    {
+      "path": "unit-closure-pytest-cache/README.md",
+      "bytes": 302,
+      "type": "regular",
+      "sha256": "73fd6fccdd802c419a6b2d983d6c3173b7da97558ac4b589edec2dfe443db9ad"
+    },
+    {
+      "path": "unit-closure-pytest-cache/v/cache/nodeids",
+      "bytes": 128,
+      "type": "regular",
+      "sha256": "e0df7f579d9a320d4299ae44e705feda01e8b905bb579a30ba3dc31d5e76a4e3"
+    },
+    {
+      "path": "unit-closure-pytest-tmp/test_published_radius_needs_do0/metadata.xlsx",
+      "bytes": 908,
+      "type": "regular",
+      "sha256": "ab9707fc558c75337f096c68140c4aa3fe7d0f87ae167d2252f724efffdfbda9"
+    },
+    {
+      "path": "unit-closure-pytest-tmp/test_published_radius_needs_docurrent",
+      "bytes": 133,
+      "type": "symlink",
+      "target": "/Users/bijan/bijux/bijux-pollenomics/artifacts/v4/swedish-core-correspondence/unit-closure-pytest-tmp/test_published_radius_needs_do0"
+    },
+    {
+      "path": "unit-closure-science.plan.json",
+      "bytes": 2411,
+      "type": "regular",
+      "sha256": "a33761d72b1b3665d139b17e33732921d3cf12987894b4b08403656be117ac5b"
+    },
+    {
+      "path": "v4-abborrtjarne-exact-taxon-probe-20260925.plan.json",
+      "bytes": 2672,
+      "type": "regular",
+      "sha256": "6c089a16b0b6e1711d44b1f28ab38ea1d8f7edac46b8c198ea556644535bab6c"
+    },
+    {
+      "path": "v4-abborrtjarne-explicit-count-probe-20260925.plan.json",
+      "bytes": 2837,
+      "type": "regular",
+      "sha256": "3e28e395d54b26dee4a0839e1172ec5746d9c9e0dbba2560aa8ecca537e34b0c"
+    },
+    {
+      "path": "v4-abborrtjarne-native-row-probe-20260925.plan.json",
+      "bytes": 1829,
+      "type": "regular",
+      "sha256": "2730f1dad48e7dff8d71bc8f5b35683b5f562dc4aefcbf0daa32daa75f8ec04b"
+    },
+    {
+      "path": "v4-abborrtjarne-native-science-20260925.plan.json",
+      "bytes": 1667,
+      "type": "regular",
+      "sha256": "4510160e070fccb748f3fe4f774b1a1323a8f1e9c0cb3ed8bbcbc17d6fed6575"
+    },
+    {
+      "path": "v4-abborrtjarne-native-science-final-20260925.plan.json",
+      "bytes": 1685,
+      "type": "regular",
+      "sha256": "6434d6ff575b31e29e1e218449715b4af7beea64cb9b2b678fc058ce713befa7"
+    },
+    {
+      "path": "v4-abborrtjarne-native-science-source-bound-20260925.plan.json",
+      "bytes": 1706,
+      "type": "regular",
+      "sha256": "d5383e42dcc11ff10f6526a8051023ac8c40abc00b87b70779b3968fb0eea814"
+    },
+    {
+      "path": "v4-abborrtjarne-native-science-verified-20260925.plan.json",
+      "bytes": 1694,
+      "type": "regular",
+      "sha256": "bcfa93f70970f00f2b5084505d8981ca34e00983736bdf92ef0045d351fed02f"
+    },
+    {
+      "path": "v4-abborrtjarne-native-style-20260925.plan.json",
+      "bytes": 1361,
+      "type": "regular",
+      "sha256": "ed8f669e544092176118006d4079a11422bb6fadec8dbcebd588c8a13a5d6655"
+    },
+    {
+      "path": "v4-abborrtjarne-native-style-final-20260925.plan.json",
+      "bytes": 1367,
+      "type": "regular",
+      "sha256": "41dc03897b049889e375b80a5c3060d6071350175dac907dbb307f018a670e9c"
+    },
+    {
+      "path": "v4-abborrtjarne-native-style-source-bound-20260925.plan.json",
+      "bytes": 1374,
+      "type": "regular",
+      "sha256": "f6205421b916faf2dd06607cd8b2cd554ebfc355b1c321847fccd60be5f24a4f"
+    },
+    {
+      "path": "v4-abborrtjarne-native-style-verified-20260925.plan.json",
+      "bytes": 1370,
+      "type": "regular",
+      "sha256": "4468010864bec095836e373b0489c31ce3cfd8057bbf2fec11c515df2abb56e4"
+    },
+    {
+      "path": "v4-abborrtjarne-native-tests-20260925.plan.json",
+      "bytes": 1329,
+      "type": "regular",
+      "sha256": "6aa74a4379bd9cfe65ac3631d33fdbd88e373b68d7e333063e4ef441604dbc57"
+    },
+    {
+      "path": "v4-abborrtjarne-native-tests-final-20260925.plan.json",
+      "bytes": 1353,
+      "type": "regular",
+      "sha256": "98bb7c1e7f44810368e73bfdca2f24c1a0a757ada02fcff75b7654c2e91c138b"
+    },
+    {
+      "path": "v4-abborrtjarne-native-tests-verified-20260925.plan.json",
+      "bytes": 1365,
+      "type": "regular",
+      "sha256": "8bd278d58b627a60aefd86510d9779264e69b838e8bc2b551ee811054a184c69"
+    }
+  ],
+  "governed_core_report": "docs/report/source-relations/neotoma/abbo-core-identity/README.md",
+  "governed_private_workbook_report": "docs/report/source-relations/neotoma/abbo-native-correspondence/README.md",
+  "result_relation": "The three historical core reports are byte-identical. The governed current core report preserves every scientific JSON field and the generated Markdown exactly; only input hashes changed after replacing disposable process inputs. All four historical native-count report JSONs equal the governed summary exactly; their four per-sample CSVs have the same bytes and remain regenerable from retained private workbook and raw Neotoma inputs. The private workbook and source rights remain outside the product repository.",
+  "consumer_check": "The only repository mention is in an explicitly historical unsent Swedish source request; no live source consumer reads this directory.",
+  "liveness_check": "lsof +D returned no open files; 67 regular files have one hardlink each; two pytest symlinks target locations within this directory.",
+  "scientific_admission": "No common core identity, basin radius, complete denominator, rights or LRA sample admitted."
+}
