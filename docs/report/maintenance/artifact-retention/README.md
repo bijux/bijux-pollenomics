@@ -145,6 +145,17 @@ historical publication input equivalence or affect any other artifact path.
 
 ## Earlier scientific report provenance
 
+The original six generated files in the LandClim author-example and published-window
+correspondence runs are retained in the governed [author ledger](../../publication-replay/landclim-author-example-correspondence/README.md)
+and [published-window ledger](../../publication-replay/landclim-published-window-correspondence/README.md).
+Each ledger manifest records the original byte size and SHA-256; the two CSVs
+match after CRLF-to-LF normalization, and the Markdown and JSON match exactly.
+The two original output directories were retired after checking those six
+files, single-link regular-file status, absence of symlinks and open handles,
+and repository consumers. Historical report snapshots retain their original
+path strings as provenance, not live read dependencies. Other correspondence
+plans, caches and runs remain pending separate custody review.
+
 The [earlier Swedish direct-pollen run](historical-swedish-direct-pollen-run/README.md)
 retains its unique producer, input manifest and report bytes. Its custody ledger
 maps the other 12 files to byte-identical or newline-normalized current study
