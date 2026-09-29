@@ -14,6 +14,8 @@
   },
   "original_evidence_manifest_sha256": "5bf220c6e0df35cbf646a33d432d50326cfc1b87c6a0b6453ebfa43624ec2fed",
   "classification_review_digest": "0da8ba04e8a68058723d1eebe1ea49a3047968c47dfbbade581e355ef28ffe97",
+  "accepted_mapping_queue_sha256": "ee30663168715dced10136213b679cadfc827003100639695935aabf15bad747",
+  "classification_source_observations": 370936,
   "scenario_count": 16,
   "ordered_country_pair_bins_per_scenario": 16,
   "admitted_event_count": 0,
