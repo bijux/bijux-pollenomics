@@ -306,6 +306,19 @@ def main() -> None:
     lock = json.loads(LOCK.read_text(encoding="utf-8"))
     if lock.get("schema_version") != "research-report-source-lock.v1":
         raise ValueError("Unexpected research report source lock")
+    numerical_root = ROOT / "docs/report/numerical-performance"
+    numerical_files = {
+        path.relative_to(ROOT).as_posix()
+        for path in numerical_root.rglob("*")
+        if path.is_file()
+    }
+    numerical_locked = {
+        path
+        for path in lock["sources"]
+        if path.startswith("docs/report/numerical-performance/")
+    }
+    if numerical_files != numerical_locked:
+        raise ValueError("Numerical performance report ownership changed")
     reports = sorted(
         path.relative_to(ROOT).as_posix() for path in REPORTS.rglob("*.md")
     )
