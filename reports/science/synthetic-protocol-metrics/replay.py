@@ -53,6 +53,13 @@ def produce(source_root: Path, source_manifest_path: Path) -> tuple[list[dict], 
         / "artifacts/v2/validation/scored-evaluator-adapter-design/fixture-bindings.json"
     )
     bindings = json.loads(bindings_path.read_text(encoding="utf-8"))
+    consumed_members = {
+        historical_path.relative_to(source_root).as_posix(),
+        bindings_path.relative_to(source_root).as_posix(),
+        *(bound["score_directory"] + "/scores.json" for bound in bindings),
+    }
+    if set(source_manifest["members"]) != consumed_members:
+        raise ValueError("Score-source manifest must bind only consumed members")
     rows = []
     protocols = []
     totals: Counter[tuple[str, str]] = Counter()

@@ -28,17 +28,17 @@ No interval coverage was computed for these six protocols.
 ## Source and verification boundary
 
 The private source archive contains the original 16-row score report, its
-binding file and all 140 declared input files. The maintained
+binding file and the six scored tables. The maintained
 [source manifest](../../../data/synthetic/score_protocol_source.json) binds
-all **148** member hashes and archive SHA-256
+the **eight consumed** member hashes and archive SHA-256
 `8dd272c3bd93f8354045596b2b712a2a3670cd35ebd0b7332d0b001ee95c3cc6`.
 The [machine result](report.json) links each row to the historical score
-manifest and evidence digest. All archive members were compared byte for
-byte with their sources after writing the archive.
+manifest and evidence digest. The archive hash binds the private source
+capture; the member hashes cover exactly the inputs read by this study.
 
 Our [producer](replay.py) independently sums the retained scored-unit MAEs
-and counts refusals in the six `scores.json` tables, checks the 148 source
-hashes and compares every row with the historical reader output. The current
+and counts refusals in the six `scores.json` tables, checks the eight consumed
+source hashes and compares every row with the historical reader output. The current
 installed authoritative reader rejects the historical spatial-block product
 profile with `Profile, roles or numerical table differs`; this is a versioned
 reader compatibility limit, not a claim that the historical score row is a
@@ -55,9 +55,9 @@ their own prospective designs and are not replaced by this older archive.
 
 To reproduce the row arithmetic, supply the qualified private source store
 and run from the repository root. Check the archive SHA-256 before extraction.
-The extracted
-`artifacts/v2/` names are members inside this private source archive, not
-dependencies on an earlier local run:
+The archive preserves its original internal member paths. Extract it into a
+fresh output directory; the producer reads only the eight locked source
+members and does not depend on an earlier local run:
 
 ```sh
 set -e
