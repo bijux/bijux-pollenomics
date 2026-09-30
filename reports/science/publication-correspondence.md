@@ -106,11 +106,16 @@ the old candidate with nine adversarial edits. All five result hashes still
 match the current retained product. Its passing verdict supports exact
 metadata and refusal integrity only; it does not fill the missing historical
 counts, chronologies, rights or publication-specific R execution.
-We also [resolved two historical reconciliation intake defects](publication-correspondence/reconciliation-review/README.md)
-in the current producer: bounded regular-file archive admission and exact
-passing 9/8-site comparison predicates. The old review remains available as
-a distinct source challenge, while its `0 / 1,128` original-input statement
-remains a declared absence rather than a completed sample audit.
+We require the current [reconciliation producer](../../packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/reconcile.py)
+to reject oversized, encrypted, nonregular, duplicate and unsupported archive
+members before decompression. Its bounded acceptance gate requires exactly
+grids 512 and 562, 9 and 8 named sites, 25 bins, 31 taxa, matching site
+counts and passing grid, regional and site comparisons. The
+[focused regressions](../../packages/bijux-pollenomics-dev/tests/essd_reproduction/test_reconcile.py)
+also refuse an unknown grouped output header rather than silently counting
+it as a PFT. The `0 / 1,128` original-input statement remains an absence
+within our declared evidence closure, not an exhaustive repository-wide
+sample audit.
 
 We [recounted the released estimate archive](publication-correspondence/published-inventory/README.md)
 through the current pinned source reader and two independent historical
