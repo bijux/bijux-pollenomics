@@ -4,14 +4,14 @@ This registry classifies the current `docs/report/` tree by family, audience,
 scope, and explanation role so the publication system can be navigated as one
 coherent report surface instead of a loose artifact dump.
 
-- Surface count: `1796`
+- Surface count: `1794`
 
 ## Family Counts
 
 | Family | Count |
 | --- | ---: |
 | Scientific caveats | 10 |
-| Maintainer truth surfaces | 972 |
+| Maintainer truth surfaces | 970 |
 | Map surfaces | 85 |
 | Portal guidance | 2 |
 | Evidence reviews | 34 |
@@ -21,7 +21,7 @@ coherent report surface instead of a loose artifact dump.
 
 | Audience | Count |
 | --- | ---: |
-| Maintainer diagnostic | 974 |
+| Maintainer diagnostic | 972 |
 | Public reading surface | 702 |
 | Scientific review surface | 120 |
 
@@ -1516,8 +1516,6 @@ coherent report surface instead of a loose artifact dump.
 | `docs/report/source-relations/dna-scope/report.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
 | `docs/report/source-relations/hyde/provider-record/README.md` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `md` | Reader-facing entry page for one scope bundle. |
 | `docs/report/source-relations/hyde/provider-record/datacite-response.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
-| `docs/report/source-relations/hyde/source-custody/README.md` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `md` | Reader-facing entry page for one scope bundle. |
-| `docs/report/source-relations/hyde/source-custody/receipt.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
 | `docs/report/source-relations/landclim/author-example-taxon-support/README.md` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `md` | Reader-facing entry page for one scope bundle. |
 | `docs/report/source-relations/landclim/author-example-taxon-support/author_prepared_replay.R` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `R` | Maintainer-facing truth or governance surface. |
 | `docs/report/source-relations/landclim/author-example-taxon-support/report.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |

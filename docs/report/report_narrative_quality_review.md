@@ -4,7 +4,7 @@ This review checks whether the report-facing Markdown surfaces explain
 themselves in prose or structured reference form instead of behaving like bare
 link farms or coded operator notes.
 
-- Reviewed markdown pages: `262`
+- Reviewed markdown pages: `261`
 
 ## Quality Postures
 
@@ -12,7 +12,7 @@ link farms or coded operator notes.
 | --- | ---: |
 | `reader_ready` | 102 |
 | `structured_reference` | 19 |
-| `thin_structure` | 141 |
+| `thin_structure` | 140 |
 
 ## Reviewed Pages
 
@@ -213,7 +213,6 @@ link farms or coded operator notes.
 | `docs/report/source-relations/dna-scope/reindeer-preprint-supplement.md` | `thin_structure` | 3 | 0 | 0 | 5 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/source-relations/dna-scope/reindeer-published-appendix.md` | `thin_structure` | 1 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/source-relations/hyde/provider-record/README.md` | `thin_structure` | 3 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
-| `docs/report/source-relations/hyde/source-custody/README.md` | `thin_structure` | 5 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/source-relations/landclim/author-example-taxon-support/README.md` | `reader_ready` | 8 | 0 | 0 | 0 | 2 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/source-relations/landclim/author-preparation-audit/README.md` | `thin_structure` | 5 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/source-relations/landclim/neotoma-chronology-witness/README.md` | `thin_structure` | 4 | 0 | 0 | 4 | 1 | Page explains itself but still needs stronger internal wayfinding. |
