@@ -1,0 +1,68 @@
+{
+  "admission": {
+    "historical_primary_inputs_authenticated": false,
+    "measured_vegetation": false,
+    "published_products_only": true,
+    "whole_paper_reproduction": false
+  },
+  "coordinate_refused_ids": [
+    "47953",
+    "48310",
+    "48670",
+    "49030",
+    "49388",
+    "49391"
+  ],
+  "counts": {
+    "coordinate_available_records": 10350,
+    "coordinate_refused_records": 150,
+    "mean_literal_zero_tokens": 251123,
+    "mean_members": 25,
+    "mean_negative_records": 2,
+    "mean_negative_values": 3,
+    "mean_numeric_zero_values": 251123,
+    "mean_values_above_one": 138862,
+    "paired_records": 10500,
+    "paired_values": 493500,
+    "standard_error_members": 25,
+    "standard_error_negative_values": 0,
+    "variables": 47
+  },
+  "dataset_doi": "https://doi.org/10.1594/PANGAEA.937075",
+  "evidence_role": "published_reconstruction_comparison_target",
+  "independent_inventory_sha256": "fbb6b8c4a8113512603a96358da5c20b832fa5b6bfa0dfd9bdbc44013a4a64e5",
+  "independent_structure_sha256": "9fe825f596057eb1b596e1a0f59bf8f1b6ace6701fe03e9b5b2fd511d180fed7",
+  "inventory_sha256": "0333fec471bcf4c0fcd173de006a2efebe3f9fda545c4f0893bf10e288417c23",
+  "negative_mean_values": [
+    {
+      "cell_id": "725",
+      "mean_token": "-0.000677087305195939",
+      "time_window": "700-1200 BP",
+      "variable": "Castanea"
+    },
+    {
+      "cell_id": "725",
+      "mean_token": "-0.0117533696932253",
+      "time_window": "4700-5200 BP",
+      "variable": "Picea"
+    },
+    {
+      "cell_id": "725",
+      "mean_token": "-0.0117533696932253",
+      "time_window": "4700-5200 BP",
+      "variable": "TBE1"
+    }
+  ],
+  "schema_version": "published-estimate-source-account.v1",
+  "source": {
+    "archive": {
+      "path": "data/landclim/raw/landclim_ii_reveals_results.zip",
+      "sha256": "c585f0691ad95342b8aba083b90fe91dc398f985b6b7fbc19561299389c4fb86"
+    },
+    "receipt": {
+      "path": "data/landclim/raw/landclim_sources.json",
+      "sha256": "eb4350724c176d0dbcb7e441f2d21489bdae1cfff7ebe3088eab27093f315677"
+    }
+  },
+  "unit": "percentage_cover"
+}

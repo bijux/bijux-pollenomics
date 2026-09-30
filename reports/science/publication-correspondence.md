@@ -94,6 +94,13 @@ passing 9/8-site comparison predicates. The old review remains available as
 a distinct source challenge, while its `0 / 1,128` original-input statement
 remains a declared absence rather than a completed sample audit.
 
+We [recounted the released estimate archive](publication-correspondence/published-inventory/README.md)
+through the current pinned source reader and two independent historical
+checks. It contains 10,500 mean/SE grid-window rows and 493,500 paired values;
+150 rows have refused coordinates, and three small negative means remain
+source values. This establishes modeled-product structure and sign handling,
+not original pollen input closure or independent vegetation accuracy.
+
 We have not reconciled the paper's 12-PFT statement, PANGAEA's 11-PFT
 description and 13 archived PFT positions. We retained the two public prose
 pages under exact 2026-09-21 [capture custody](../../docs/report/maintenance/artifact-retention/landclim-provider-description-custody.json).

@@ -2,6 +2,19 @@
 
 ## Independent LandClim metadata challenge
 
+We retained both published-estimate challenge prefixes under `artifacts/v2/essd/`
+as one private, exact-byte archive, SHA-256
+`24bae9e006fdd7ee225535399af7ea62da91a4ac51188481eaf2f625742e94df`.
+The [receipt](artifact-custody/landclim-published-inventory-challenges.json)
+binds 25 files and 51,979,017 source bytes, including the two successful
+independent results and earlier failed or adversarial cases. We moved the
+successful result bytes into the
+[published-source account](../science/publication-correspondence/published-inventory/README.md)
+and matched them to a fresh current-reader recount. All archive members were
+reopened and compared with their originals before we retired only those two
+selected prefixes. The archived checks address modeled output structure,
+not historical pollen inputs or ecological truth.
+
 We retained the executed 58-file independent challenge under
 `artifacts/v2/essd-study-bundle-independent/` in a private archive, SHA-256
 `806d3991b112572a4f7aa0129d0c33781fefc6ad202ac07527c13126cd651df9`.
