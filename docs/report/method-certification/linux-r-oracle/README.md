@@ -32,11 +32,10 @@ run. The result therefore belongs to its recorded byte set and must not be
 presented as certification of either commit or a later source revision.
 
 An earlier local run also completed 43 + 23 cases, but its source tree changed
-during execution. It was **refused**, with its raw output and refusal receipt
-retained under `artifacts/jobs/linux-r-oracle/run/`. The source-closed replay
-receipt and container logs are under
-`artifacts/jobs/linux-r-oracle/source-closed-run/`. That replay took 17.37
-seconds and is the sole admitted local Linux result here.
+during execution, so we refused that run. The source-closed replay took 17.37
+seconds and is the sole admitted local Linux result here. Its governed raw
+vectors, completion statuses and environment record are linked above; an old
+local log directory is not required to read or verify the result.
 
 ## Reproduction from private custody
 
