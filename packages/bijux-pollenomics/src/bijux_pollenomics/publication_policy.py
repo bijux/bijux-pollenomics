@@ -16,8 +16,8 @@ def build_country_report_policy(report: CountryReport) -> dict[str, str]:
         "title": f"{report.country} Homo sapiens aDNA {report.version} Report",
         "summary_label": "Unique Homo sapiens aDNA samples",
         "intro": (
-            f"This bundle was generated from Homo sapiens ancient-DNA release metadata "
-            f"published in AADR `{report.version}` on `{report.generated_on}`."
+            "This bundle summarizes Homo sapiens ancient-DNA release metadata "
+            f"from AADR `{report.version}`."
         ),
         "scope": (
             f"It inventories only Homo sapiens aDNA sample rows that match the "
