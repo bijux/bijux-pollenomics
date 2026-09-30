@@ -217,12 +217,8 @@
     "reports/science/synthetic-host-challenge/producer-source/prepare_snapshot.py.txt": "eaf1100d5fb1584ee85d95ec83a2f709c188ca0103d73fef86772677091ffcd1",
     "reports/science/synthetic-host-challenge/producer-source/run_challenge.py.txt": "791d07e51af86801e8f8dbad152dd6b0d852492caf02a6032fdbdb862e5f7f31",
     "reports/science/synthetic-host-challenge/report.json": "dc004ea877e29e1ea4d8778edd3c2809aeddd2efdd54159fd39e30fd9b3a0bdc",
-    "reports/science/synthetic-model-selection/README.md": "a0bffe995d898dfd89a7a0f37f010e252cb339af15041e328abd392623956939",
-    "reports/science/synthetic-model-selection/independent-ledger-audit.json": "acba3e536f154f803fb8ded633373a8d2826f998ccfa417df4ec6b531bd589d6",
+    "reports/science/synthetic-model-selection/README.md": "af6ff96f339d3ba2528e3d68a970415fc8cf9eb2770f5255a43a808f8199d010",
     "reports/science/synthetic-model-selection/policy.json": "cb954fdd8b03b66bd1efebf36db41608a1a051b02dc2ab8b4b6eceba3648a395",
-    "reports/science/synthetic-model-selection/producer-source/experiment_ledger.py.txt": "d9bda0a522263d21850dcb2a6cc65fdf5f23974a07e998e679bbb1c977780cbb",
-    "reports/science/synthetic-model-selection/producer-source/run_sweep.py.txt": "33678e978e2d8d9bac88bb29e4c5dee8d09733da4e1ecf4963f6abf22d6ec93d",
-    "reports/science/synthetic-model-selection/producer-source/verify_challenge.py.txt": "398a37fbdf231a1e1f09fd9f49c9bb73b3d3bebdf9080b322a85e8f13e3293c4",
     "reports/science/synthetic-model-selection/report.json": "a80f54035934530b291a646f0d9a167a0c0f816833cb049996d0f2d9895c9fc8",
     "reports/science/synthetic-protocol-metrics/README.md": "d11c2ffc2e5c55158a391c2d37f12f8d1d868c13763c76c72f2a5dbd2f8a394d",
     "reports/science/synthetic-protocol-metrics/replay.py": "6eb99054b712f2995e9bc3d7815c3428554479655c6125bc64af26b535561ec7",
@@ -239,6 +235,8 @@
     "reports/science/reveals-love-interface/README.md": "c36f4b9c91b5a4dd4c65afa31e84836b07719f942d48efb8650a96e4c2feea77",
     "reports/science/reveals-love-interface/replay.py": "947750a9894123a54b149b166720fa8bd4eb2da6d462b0a95e332b0d55a70904",
     "reports/science/reveals-love-interface/report.json": "da72f5c714ba97f517f4cfb6a2c5e6e6a5672c20c9a8ea439c5b86ea76d39dfc",
-    "reports/science/reveals-love-interface/taxon-summary.csv": "7b9e02e2813e95b84733d88e10bded9d3763b898cfb5e05cdbcfdb33e0821838"
+    "reports/science/reveals-love-interface/taxon-summary.csv": "7b9e02e2813e95b84733d88e10bded9d3763b898cfb5e05cdbcfdb33e0821838",
+    "reports/science/synthetic-model-selection/replay.py": "ebe70563757e56b74412c83a11a0e248f7c7a7e060518b025f4596982fa241ec",
+    "reports/science/synthetic-model-selection/selection-audit.json": "0588fbf67de3849a96f70fadee398a29416da52ec42ec489b4e086f98fba1c73"
   }
 }

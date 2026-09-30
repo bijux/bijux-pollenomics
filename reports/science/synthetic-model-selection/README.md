@@ -36,15 +36,12 @@ All 12 trials completed without a refusal or failure. The exact
 
 `lsm-ppe080` was best **within this declared two-case synthetic candidate
 set**. Its mean error was 0.039861593480655426 in vegetation-fraction units.
-An [independent ledger audit](independent-ledger-audit.json) checked all 12
-start/result envelopes against this policy and report, recomputed each
-three-taxon MAE and the full ranking, and confirmed that replacing the
-selected candidate's trial errors with `1.0` changes the selection. The exact
-[audit source](producer-source/verify_challenge.py.txt) and audit result have
-SHA-256 `398a37fbdf231a1e1f09fd9f49c9bb73b3d3bebdf9080b322a85e8f13e3293c4`
-and `acba3e536f154f803fb8ded633373a8d2826f998ccfa417df4ec6b531bd589d6`.
-This checks ledger integrity and selection mechanics, not independent
-ecological accuracy or a new final test.
+Our maintained [selection audit](selection-audit.json) independently
+recomputes all 12 three-taxon errors from the retained trial values, checks
+all 12 candidate/case pairs, the ranking and winner, and confirms that
+assigning error `1.0` to the selected candidate's two trials changes the
+selection. It verifies the tracked trial table, not the historical item
+envelopes or a fresh LRA numerical run.
 
 The report identifies source commit
 `d915d1709d3c8fca4680f70958452860d578d5d1`, installed backend
@@ -52,26 +49,28 @@ The report identifies source commit
 `cb954fdd8b03b66bd1efebf36db41608a1a051b02dc2ab8b4b6eceba3648a395`
 and independent oracle SHA-256
 `c53291b9be045fef04334533a8a7f40f8811d7f49c809745522409db8b94aff8`.
-We copied the policy and result byte for byte from the historical run into
-this owned report. The result JSON has SHA-256
-`a80f54035934530b291a646f0d9a167a0c0f816833cb049996d0f2d9895c9fc8`.
+We retained the policy and trial result byte for byte from the original run.
+The audit checks their exact hashes before interpreting the scores.
 
 ## What the result cannot establish
 
 This is a prior synthetic development comparison with two related cases,
 three taxa, no measured vegetation and no held-out pollen prediction. Its
-exact [sweep producer](producer-source/run_sweep.py.txt) and its
-[trial ledger source](producer-source/experiment_ledger.py.txt) are now owned with
-this report. Their SHA-256 values are
-`33678e978e2d8d9bac88bb29e4c5dee8d09733da4e1ecf4963f6abf22d6ec93d`
-and `d9bda0a522263d21850dcb2a6cc65fdf5f23974a07e998e679bbb1c977780cbb`.
-The ledger copy is from the development snapshot actually used by the sweep.
-We retain their original Python bytes as text evidence. The sweep imports
-the historical host challenge adapter and still expects a
-frozen package snapshot and artifact layout. This is exact source custody,
-not yet a self-contained product replay. The historical inputs, ledger and
-trial outputs require the private source archive for exact rerun. We do not
-use this ranking to tune PPE, transport or basin geometry for a real core.
+original trial envelopes and engine inputs remain in the qualified private
+source archive; the tracked result does not reproduce the original numerical
+engine execution without them. We do not use this ranking to tune PPE,
+transport or basin geometry for a real core.
+
+From the repository root, reproduce the governed selection audit into an
+absent disposable output and compare it with the retained result:
+
+```sh
+PYTHONDONTWRITEBYTECODE=1 .venv/bin/python \
+  reports/science/synthetic-model-selection/replay.py \
+  --output artifacts/jobs/synthetic-selection-reproduction/audit.json
+cmp artifacts/jobs/synthetic-selection-reproduction/audit.json \
+  reports/science/synthetic-model-selection/selection-audit.json
+```
 
 Our current [governed synthetic reconstruction challenge](../../../docs/report/synthetic-validation/reconstruction/README.md)
 separately tests transport-matched calculation controls and deliberate
