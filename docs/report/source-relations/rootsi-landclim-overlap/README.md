@@ -16,7 +16,7 @@ historical inputs or clear their analytical reuse rights.
 
 The original `rootsi.7z` archive is separately retained at
 `landclim/rootsi-workbooks/original/rootsi.7z` in the same private store. The
-[intake custody review](../source-intake-custody/README.md) verifies its
+[source-reconciliation audit](../source-reconciliation/README.md) verifies its
 509,919 original bytes against the historical receipt; this does not promote
 the receipt's sample claims to admitted counts.
 
