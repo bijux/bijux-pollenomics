@@ -41,6 +41,13 @@ points or smaller. We report product differences, not vegetation accuracy.
 We have not established that the archive and 2016 author example used the
 same historical source records.
 
+Our [exact-window provenance result](publication-correspondence/published-window-provenance.md)
+quantifies the whole 31-taxon modeled-product difference: L1 gaps are
+18.481237 and 22.140770 percentage points in grids 512 and 562, equivalent
+to total-variation fractions 0.092406 and 0.110704. The two leading taxa
+account for 72.9% and 94.0% of those respective L1 gaps. This narrows
+the source-revision question without identifying its cause.
+
 We found one exact interval match among 25 time windows: TW2, 100–350 BP.
 Most later author windows begin and end 50 years later than the corresponding
 PANGAEA windows; TW1 starts at -65 BP in the author axis and 0 BP in the

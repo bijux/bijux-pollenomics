@@ -861,8 +861,8 @@
     },
     {
       "path": "docs/report/publication-replay/landclim-published-window-provenance/README.md",
-      "sha256": "1e51a02e02376548f64e57740e202fe9c968fec9203968bb51ff64a6f9a0d582",
-      "bytes": 2343
+      "sha256": "52323ac983273c43c288e76fae61dafedbc0ac95d7f0305f80b3ed8c303653eb",
+      "bytes": 520
     },
     {
       "path": "docs/report/publication-replay/landclim-published-window-provenance/REPORT.md",
@@ -2101,18 +2101,18 @@
     },
     {
       "path": "reports/README.md",
-      "sha256": "ec0c1a72fa818e8b1cccf8876f05c23d80dd1a8e27a41a860a8c0c5994f5e6db",
-      "bytes": 6213
+      "sha256": "0516663ce4ceeb67ea603aa618c0bf471fe83c4c6d8c3cafd79b60078e884f62",
+      "bytes": 6182
     },
     {
       "path": "reports/architecture/ownership.md",
-      "sha256": "8662a46dd5cc316a623890589a733fb410d104958aa44dc5ebba20146a77434b",
-      "bytes": 13825
+      "sha256": "dfe36a6c4f3626bec001863320e35d0498cf0db60dc0b89fb60cb2d01c943d34",
+      "bytes": 14254
     },
     {
       "path": "reports/evidence-index.md",
-      "sha256": "944331e31686c55583e827d716a621d077c3bf49f459b85b87e38fd297a34c5d",
-      "bytes": 13141
+      "sha256": "cd149c34efb65e43f8d7dcf7ec72430dedd852ced0dec23783df72626ed22277",
+      "bytes": 13286
     },
     {
       "path": "reports/science/abborrtjarnen-source-method.md",
@@ -2196,8 +2196,8 @@
     },
     {
       "path": "reports/science/publication-correspondence.md",
-      "sha256": "dfffc07f4abc453cb964aaf9c9733571cf8f326db6684d9b8c2675e6e804d72b",
-      "bytes": 11706
+      "sha256": "d023a216734a8ccad336476ac54722def73e56038f76e7e69d06a91f96ff98b4",
+      "bytes": 12151
     },
     {
       "path": "reports/science/publication-correspondence/author-example-reexecution.md",
@@ -2268,6 +2268,11 @@
       "path": "reports/science/publication-correspondence/pft-crosswalk/windows.csv",
       "sha256": "db0de8c5b67657afade80e3332d6741574b2d66de2b78c50ee8dbdf20eebacf1",
       "bytes": 2487
+    },
+    {
+      "path": "reports/science/publication-correspondence/published-window-provenance.md",
+      "sha256": "310ae9d6f98db7ea4760e433b16a48dd3493fd49d495d29f3d8a3c28bb135e4e",
+      "bytes": 4160
     },
     {
       "path": "reports/science/reindeer-appendix-correspondence.md",

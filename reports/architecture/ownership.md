@@ -191,3 +191,10 @@ crosswalk, input ledger, machine report and hashed comparison receipts remain
 at their governed producer path. Its source-backed replay also exposed an
 older author-custody hash in the machine report; we refreshed that identity
 without changing the crosswalk or example input rows.
+
+We also rooted the [exact published-window interpretation](../science/publication-correspondence/published-window-provenance.md)
+and left the 124-row ledger, generated calculation detail, machine summary
+and producer manifest at their governed path. The old page now directs a
+reader to the research decision. This keeps the archive discrepancy
+discoverable without claiming the two source versions share historical
+input rows.
