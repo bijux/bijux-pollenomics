@@ -2070,6 +2070,21 @@
       "bytes": 14038
     },
     {
+      "path": "reports/README.md",
+      "sha256": "56c1efd5ea5d2b8d24e02bb87b732c8e63b146de406623b8f7e94dd85b1a9fcf",
+      "bytes": 6099
+    },
+    {
+      "path": "reports/architecture/ownership.md",
+      "sha256": "06c9c8841bb607b32f01a3ba2bf9c35e86ef197fef117ac9ae14abbf67dea76e",
+      "bytes": 13332
+    },
+    {
+      "path": "reports/evidence-index.md",
+      "sha256": "12d92743e2c6a25e5b8e695ee1962b4af3fa459396f888de3872f75b17e95b55",
+      "bytes": 12499
+    },
+    {
       "path": "reports/science/abborrtjarnen-source-method.md",
       "sha256": "53c4aaa4f5e5aaef18d5641ca2dd3f1cf9acee457b44461e1de58545263f4232",
       "bytes": 5893
@@ -2146,8 +2161,13 @@
     },
     {
       "path": "reports/science/publication-correspondence.md",
-      "sha256": "90ee3dcc353b80c638b06dc79df8fb7294c1be893c635ae56db64ca24db05e94",
-      "bytes": 11242
+      "sha256": "be0ac118c9b00ea72d2fc109bbbdb82c447b44a57f2280fc7fb5b55ea14995cb",
+      "bytes": 11415
+    },
+    {
+      "path": "reports/science/publication-correspondence/author-example-reexecution.md",
+      "sha256": "3689a28400129add3a28e573593c1d6e3bf12689aa74e98e9281638fb30189a1",
+      "bytes": 5228
     },
     {
       "path": "reports/science/publication-correspondence/author-example-site-replay.md",

@@ -177,3 +177,10 @@ reproduction, while the independent complete-tree rebuild remains open.
 Our [artifact custody decision](artifact-custody.md) records a separate
 bounded checkout retirement and its recoverable source identity. It does not
 alter the report producer ownership or the failed independent rebuild gate.
+
+We made the two-grid author R/native execution a readable
+[root scientific decision](../science/publication-correspondence/author-example-reexecution.md).
+The existing machine receipt retains its governed path and exact execution
+identity; its earlier website page now directs readers to the single research
+account. We did not rerun the numerical calculation solely for this report
+move or treat the two released grids as the historical 1,128-record study.

@@ -9,7 +9,9 @@ meaning and historical input membership open below.
 
 ## Numerical result
 
-We compared the installed Python publication profile with the independent
+We [reexecuted both released author grids](publication-correspondence/author-example-reexecution.md)
+with the original R function and current native REVEALS implementation. We
+compared the installed Python publication profile with the independent
 author-R replay on 14,074 supported mean and standard-error values across the
 retained examples. Maximum residuals are about 1.84e-13 for means and
 7.16e-14 for standard errors in fractional units, inside our predeclared
