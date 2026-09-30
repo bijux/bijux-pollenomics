@@ -599,6 +599,11 @@ APPROVED_HOST_IMPORTS: dict[str, dict[str, frozenset[str]]] = {
             {"wgs84_inverse_geodesic"}
         ),
     },
+    "bijux_pollenomics_dev/source_completion/bjaresjo_context.py": {
+        "bijux_pollenomics.analysis.lra_validation.spatial.configuration": frozenset(
+            {"distance_km"}
+        ),
+    },
     "bijux_pollenomics_dev/source_completion/landclim_modeled_panels.py": {
         "bijux_pollenomics.reporting.context.polygons": frozenset(
             {"build_external_polygon_layer"}
@@ -735,6 +740,23 @@ APPROVED_HOST_IMPORTS: dict[str, dict[str, frozenset[str]]] = {
     },
     "bijux_pollenomics_dev/source_completion/sweden_land_use_replay.py": {
         "bijux_pollenomics.reporting.service": frozenset({"generate_country_report"}),
+    },
+    "bijux_pollenomics_dev/source_completion/swedish_support_sensitivity.py": {
+        "bijux_pollenomics.analysis.lra_validation.baselines": frozenset(
+            {"predict_spatial_baseline"}
+        ),
+        "bijux_pollenomics.analysis.lra_validation.contracts": frozenset({"Fold"}),
+        "bijux_pollenomics.analysis.lra_validation.metrics": frozenset(
+            {"hellinger_distance", "score_pollen"}
+        ),
+        "bijux_pollenomics.analysis.lra_validation.spatial.configuration": frozenset(
+            {"distance_km"}
+        ),
+    },
+    "bijux_pollenomics_dev/source_completion/swedish_training_scope.py": {
+        "bijux_pollenomics.analysis.lra_validation.metrics": frozenset(
+            {"hellinger_distance", "score_pollen"}
+        ),
     },
     "bijux_pollenomics_dev/taxa_review/neotoma_priority.py": {
         "bijux_pollenomics.analysis.lra.materialization.neotoma.pollen_screen": frozenset(
