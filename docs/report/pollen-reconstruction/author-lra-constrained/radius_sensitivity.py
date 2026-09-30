@@ -26,8 +26,8 @@ from bijux_pollenomics.analysis.lra_validation.metrics import (
 
 FACTORS = (0.8, 1.0, 1.2)
 EXPERIMENT_SHA = "aba70474156edfd1e03ac777ddb1083b8f396f3e3a21a03d104a3b3713a544b4"
-PREDICTION_MANIFEST_SHA = (
-    "56bc555a2373fb16c291e6fb9dc50cc43b5f99f7b03dc6e516c00c14d953329f"
+PUBLISHED_PREDICTIONS_SHA = (
+    "2c6bc4fa02d9ec37747f5b53f9c2c17a5910130c83ec454bb6cc0cfc16ca2d4b"
 )
 
 
@@ -48,8 +48,44 @@ def _sources(
 ) -> tuple[SourceExperimentSpec, dict[str, str]]:
     experiment = inputs / "experiment.json"
     manifest = predictions / "manifest.json"
-    if _sha(experiment) != EXPERIMENT_SHA or _sha(manifest) != PREDICTION_MANIFEST_SHA:
-        raise ValueError("published source experiment or prediction manifest changed")
+    if _sha(experiment) != EXPERIMENT_SHA:
+        raise ValueError("published source experiment changed")
+    manifest_data = _read(manifest)
+    for name in ("predictions.json", "preparations.json", "experiment.json"):
+        if manifest_data["files"].get(name) != _sha(predictions / name):
+            raise ValueError(f"prediction bundle member differs: {name}")
+    published = Path(__file__).parent / "predictions.csv"
+    if _sha(published) != PUBLISHED_PREDICTIONS_SHA:
+        raise ValueError("published numerical prediction table changed")
+    rows = _read(predictions / "predictions.json")
+    candidate = {
+        (row["fold_id"], row["record_id"], row["baseline"], taxon): (
+            value,
+            row["pollen_fraction"][taxon],
+        )
+        for row in rows
+        for taxon, value in row["vegetation_fraction"].items()
+    }
+    with published.open(newline="", encoding="utf-8") as stream:
+        retained = list(csv.DictReader(stream))
+    if len(rows) != 42 or len(candidate) != 1260 or len(retained) != 1260:
+        raise ValueError("published prediction coverage changed")
+    for row in retained:
+        key = (
+            row["fold_id"],
+            row["target_record_id"],
+            row["method"],
+            row["taxon"],
+        )
+        if candidate.pop(key, None) != (
+            float(row["vegetation_fraction"]),
+            float(row["forward_pollen_fraction"]),
+        ):
+            raise ValueError(
+                "candidate prediction differs from published numerical result"
+            )
+    if candidate:
+        raise ValueError("candidate contains extra prediction cells")
     spec = SourceExperimentSpec(_read(experiment))
     source = _read(inputs / "source-report.json")
     if source["experiment_sha256"] != EXPERIMENT_SHA:

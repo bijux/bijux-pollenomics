@@ -65,12 +65,11 @@ optimizer rather than treating the fold as missing source pollen:
 | HANGINGS | Positive directional derivative for linesearch | 129 | 4,210 | 1.116182 |
 | LONGBREACH | Positive directional derivative for linesearch | 156 | 5,123 | 0.587412 |
 
-The three item receipts have SHA-256 values
-`a265301a4fce6cf39fb07e2004e5fc35477223b058657efdd03508acd24ba946`,
-`644a038e5b620792357d7c72cb7d39f7f6aeda13ee0034c1aa979c85e45cc561`
-and `f110eab284b6713a12721a92ba1f392e4315222551e7943f11ada1ca2b3abef1`
-in the table's row order. Their original run products remain under
-`artifacts/jobs/author-lra-slsqp-development/withheld-predictions-300/`.
+We reproduced the same three stop messages, iteration counts, evaluation
+counts and objectives in a fresh source-bound 15-site run. The
+[radius sensitivity account](../../docs/report/pollen-reconstruction/author-lra-constrained/radius-sensitivity/README.md)
+shows how to regenerate the candidate prediction bundle from the qualified
+author snapshot and verify its numerical cells against the governed result.
 
 All three stopped below both declared caps. This points to a local search
 failure rather than exhaustion of the 300-iteration or 16,000-evaluation
