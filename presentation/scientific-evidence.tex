@@ -75,6 +75,21 @@ Sweden & 3 & 228 & 221,800/240,966 & 51/54 \\
 \evidence{reports/science/english-lra-pollen-prediction.md}
 \end{frame}
 
+\begin{frame}{English LOVE routes have different support}
+\small
+\begin{tabular}{p{0.26\textwidth}p{0.24\textwidth}p{0.40\textwidth}}
+\toprule
+Route & Source axis and attempts & Retained result \\
+\midrule
+Analytical & 31 taxa; 15 folds & 15/15 invalid compositions; all 54 local ring rows include negative cover. \\
+Differential evolution & 30 taxa; one pair, two requests & Both requests refused convergence; no held-out score. \\
+Constrained SLSQP & 30 taxa; 15 folds & 14/15 folds predicted; BECKHAM had three training-fit refusals. \\
+\bottomrule
+\end{tabular}
+\scope{Excluding 159 Filipendula counts changed the taxon response. These development runs are not a paired solver ranking or a vegetation-accuracy comparison.}
+\evidence{reports/science/english-lra-pollen-prediction.md}
+\end{frame}
+
 \begin{frame}{Matched pollen comparison: result and limitation}
 \small
 \begin{tabular}{lrrrr}
