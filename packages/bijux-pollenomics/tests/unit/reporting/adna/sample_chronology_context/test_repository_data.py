@@ -33,12 +33,21 @@ def test_real_governed_source_denominators_and_exclusive_waterfall() -> None:
     }
     assert dict(corpus.refusal_counts) == {
         "sequencing_experiment_identity": 0,
-        "sample_identity_not_final": 5,
+        "sample_identity_not_final": 7,
         "source_chronology_not_comparable": 539,
-        "source_coordinate_not_mappable": 374,
+        "source_coordinate_not_mappable": 372,
         "sample_provenance_unavailable": 0,
         "chronology_provenance_unavailable": 0,
         "site_provenance_unavailable": 0,
+    }
+    assert {
+        (refusal.project_accession, refusal.repo_stable_sample_id)
+        for refusal in corpus.refusals
+        if refusal.reason_code == "sample_identity_not_final"
+        and refusal.project_accession == "SRP073444"
+    } == {
+        ("SRP073444", "srp073444:samn04631877"),
+        ("SRP073444", "srp073444:samn04631967"),
     }
     assert Counter(node.project_species_latin_name for node in corpus.nodes) == {
         "Bos taurus": 31,
