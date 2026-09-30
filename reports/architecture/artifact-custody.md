@@ -82,13 +82,10 @@ initializers), and `23a60a3a775a00b7b689d65702a45ec1395a046e`
 (`test_known_landscape.py`). All four paths are under
 `packages/bijux-pollenomics-dev/`.
 
-We kept the rest of `artifacts/v3/known-landscape/`. Its host challenge and
-development sweep contain distinct report values and run scripts; they need
-an owned product destination and reproducible source account before removal.
-
-We then copied the two unique result JSON files, the development policy, both
-historical run scripts, the shared snapshot preparer and the sweep's trial
-ledger source into the [host challenge](../science/synthetic-host-challenge/README.md)
+The host challenge and development sweep contain distinct report values and
+run scripts. We copied the two unique result JSON files, development policy,
+both historical run scripts, shared snapshot preparer and sweep trial ledger
+source into the [host challenge](../science/synthetic-host-challenge/README.md)
 and [model selection](../science/synthetic-model-selection/README.md) reports.
 The copies are exact and source-locked. A one-pass comparison of the two frozen
 snapshots to their declared Git commits found no missing base paths:
@@ -104,9 +101,21 @@ instead contains the later ledger from the development snapshot and its
 declared Git commit. Both snapshots include the same generated engine `_build_version.py`
 (`0.1.9.dev121`), and the host snapshot has a changed fieldwork
 `lake_archaeology_sensitivity.py` source. The latter is outside the synthetic
-producer's declared read set, but we have not retired either frozen snapshot:
-their exact package and historical-environment closure, original request
-inputs and trial outputs still need a bounded retirement decision. The
-one-pass audit is retained locally at
+producer's declared read set. The exact frozen packages, original requests
+and trial outputs are retained in the private archive described below. The
+one-pass audit was retained locally at
 `artifacts/jobs/report-owner-proof/known-landscape-snapshot-audit.json`,
 SHA-256 `3c8bc0a885c746bfdfc5b65a8ff39a5af0d9a6c358bc348746abbe4db106962d`.
+
+We placed both exact historical subtrees in one private source-custody archive
+and checked every member against its original file before deletion. The
+[durable receipt](artifact-custody/known-landscape-runs.json) records 3,325
+regular files, 31,943,300 uncompressed file bytes, a complete sorted
+path/content index digest and archive SHA-256
+`6476ff26bbe038f57beccbba7b0c703a25941ea111c0a7f24b18e132b97256a6`.
+The selected directories had no symlinks, hardlinks, open handles or producer
+processes. We retired only `host-challenge/` and `development001/` under
+`artifacts/v3/known-landscape/`. `agent001/` and
+`development-challenge001/` remain for separate review. The archive is a
+private historical replay closure; the owned reports above carry the numeric
+results and their scientific limits without depending on artifact paths.
