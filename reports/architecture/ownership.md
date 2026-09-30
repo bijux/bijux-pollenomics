@@ -48,7 +48,7 @@ most linked governed products retain the numeric and producer ownership. The Bj�
 | [Published reindeer appendix correspondence](../science/reindeer-appendix-correspondence.md) | [DNA scope result](../../docs/report/source-relations/dna-scope/report.json) and a retained website citation page; original source bytes stay in their governed source library. |
 | [Swedish training scope](../science/sweden-training-scope.md) and [age/distance sensitivity](../science/sweden-spatiotemporal-sensitivity.md) | [Frozen scope products](../../docs/report/regions/nordic/swedish-training-scope/report.json) and [support sensitivity](../../docs/report/regions/nordic/swedish-support-sensitivity/report.json). |
 | [Further Swedish lake transfer](../science/sweden-lake-transfer.md) | [Frozen predictions and 189 scores](../../docs/report/regions/nordic/swedish-lake-transfer/README.md) remain with their governed producer. |
-| [Vegetation-reference decision](../science/vegetation-reference.md) | [Zero-pair screen](../../docs/report/validation/empd2-nfi-pairing/report.json), [Färskesjön plot](../../docs/report/vegetation-reference/farskesjon/report.json), [historical-map support](../../docs/report/vegetation-reference/smaland-historical-maps/coverage.json) and [published figure](../../docs/report/vegetation-reference/southern-sweden-figure/report.json) keep their source-bound producers. |
+| [Vegetation-reference decision](../science/vegetation-reference.md) | [Zero-pair screen](../../docs/report/validation/empd2-nfi-pairing/report.json), [Färskesjön plot](../science/vegetation-reference/farskesjon/report.json), [historical-map support](../science/vegetation-reference/smaland-historical-maps/coverage.json) and [published figure](../science/vegetation-reference/southern-sweden-figure/report.json) keep their source-bound producers. |
 | [Bjäresjö archaeology context](../science/bjaresjo-context.md) | [Country source screen](../science/bjaresjo-context/report.json). |
 
 We left earlier `docs/report/` narrative URLs as short citation pages where
@@ -213,10 +213,10 @@ not close the other separately governed outputs or the full-tree no-diff gate.
 
 The independent report-build diagnostic also lists the Småland historical-map
 coverage result among files that `publish-reports` never emits. We ran its
-[source-bound producer](../../docs/report/vegetation-reference/smaland-historical-maps/coverage.py)
+[source-bound producer](../science/vegetation-reference/smaland-historical-maps/coverage.py)
 against the three exact private article and appendix bytes into an absent
 `artifacts/jobs/report-owner-proof/` destination. The produced JSON matched
-the [tracked coverage result](../../docs/report/vegetation-reference/smaland-historical-maps/coverage.json)
+the [tracked coverage result](../science/vegetation-reference/smaland-historical-maps/coverage.json)
 byte for byte, SHA-256
 `f13f1e5ece6e4060b98036d7bdca42b4ff2c47ca8dc118931d2b43c074519012`.
 This establishes a current owner for that one numerical source-support file.
@@ -224,16 +224,26 @@ It does not make the article's unpublished vegetation fractions available or
 turn the 1,151-file clean-build gap into a pass.
 
 We checked the other two vegetation-reference owners from their pinned private
-sources as well. The [Färskesjön plot producer](../../docs/report/vegetation-reference/farskesjon/plot_support.py)
-reproduced its [refusal and measured-plot report](../../docs/report/vegetation-reference/farskesjon/report.json)
+sources as well. The [Färskesjön plot producer](../science/vegetation-reference/farskesjon/plot_support.py)
+reproduced its [refusal and measured-plot report](../science/vegetation-reference/farskesjon/report.json)
 byte for byte, SHA-256
 `c2a21045859c27672a310fc1faf6b6651ee8320320c56764ccecc5639540b855`.
-The [published-figure producer](../../docs/report/vegetation-reference/southern-sweden-figure/compare.py)
-reproduced both the [nine-label CSV](../../docs/report/vegetation-reference/southern-sweden-figure/printed-labels.csv)
-and [machine comparison](../../docs/report/vegetation-reference/southern-sweden-figure/report.json)
+The [published-figure producer](../science/vegetation-reference/southern-sweden-figure/compare.py)
+reproduced both the [nine-label CSV](../science/vegetation-reference/southern-sweden-figure/printed-labels.csv)
+and [machine comparison](../science/vegetation-reference/southern-sweden-figure/report.json)
 byte for byte, SHA-256
 `e7e6f04e4711690421ca4c84af9e1237cbdb3b95554d63a6d81e2a61ff2a3f54`
 and `7205071dc7bd4b7bdf99c77788583bfbb1ab8699546c9f5acd3e6566da4e7e57`.
 These four files now have checked current producers. Their distinct evidence
 limits and the zero-pair decision remain as stated in our
 [vegetation-reference account](../science/vegetation-reference.md).
+
+We moved the three producers and their four byte-identical numeric outputs
+under that root science account. The original `docs/report/vegetation-reference/`
+pages now cite the root owner for website readers; they do not keep another
+editable numerical result. We reran all three producers from their new paths
+against the pinned private inputs and compared all four results byte for
+byte. The portal inventory and scientific manifest now name the remaining
+website citations and the new root numeric paths. This completes ownership
+for this vegetation-reference domain without closing the broader clean
+report-build gap.

@@ -4,25 +4,25 @@ This registry classifies the current `docs/report/` tree by family, audience,
 scope, and explanation role so the publication system can be navigated as one
 coherent report surface instead of a loose artifact dump.
 
-- Surface count: `1850`
+- Surface count: `1844`
 
 ## Family Counts
 
 | Family | Count |
 | --- | ---: |
 | Scientific caveats | 10 |
-| Maintainer truth surfaces | 1027 |
+| Maintainer truth surfaces | 1020 |
 | Map surfaces | 85 |
 | Portal guidance | 2 |
 | Evidence reviews | 34 |
-| Scope-filtered outputs | 692 |
+| Scope-filtered outputs | 693 |
 
 ## Audience Counts
 
 | Audience | Count |
 | --- | ---: |
-| Maintainer diagnostic | 1029 |
-| Public reading surface | 701 |
+| Maintainer diagnostic | 1022 |
+| Public reading surface | 702 |
 | Scientific review surface | 120 |
 
 ## Classified Surfaces
@@ -1445,6 +1445,7 @@ coherent report surface instead of a loose artifact dump.
 | `docs/report/regions/nordic/swedish-lake-transfer/prediction-freeze.json` | Scope-filtered outputs | Public reading surface | `nordic` | `json` | Governed report artifact. |
 | `docs/report/regions/nordic/swedish-lake-transfer/predictions/predictions-SE.json.gz` | Scope-filtered outputs | Public reading surface | `nordic` | `gz` | Governed report artifact. |
 | `docs/report/regions/nordic/swedish-lake-transfer/protocol.json` | Scope-filtered outputs | Public reading surface | `nordic` | `json` | Governed report artifact. |
+| `docs/report/regions/nordic/swedish-lake-transfer/reference/prediction-producer.py.txt` | Scope-filtered outputs | Public reading surface | `nordic` | `txt` | Governed report artifact. |
 | `docs/report/regions/nordic/swedish-lake-transfer/report.json` | Scope-filtered outputs | Public reading surface | `nordic` | `json` | Governed report artifact. |
 | `docs/report/regions/nordic/swedish-lake-transfer/scores.csv` | Scope-filtered outputs | Public reading surface | `nordic` | `csv` | Governed report artifact. |
 | `docs/report/regions/nordic/swedish-lake-transfer/sealed-outcomes/outcomes-SE.json.gz` | Scope-filtered outputs | Public reading surface | `nordic` | `gz` | Governed report artifact. |
@@ -1691,15 +1692,8 @@ coherent report surface instead of a loose artifact dump.
 | `docs/report/validation/empd2-nfi-pairing/private-source-custody.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
 | `docs/report/validation/empd2-nfi-pairing/report.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
 | `docs/report/vegetation-reference/farskesjon/README.md` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `md` | Reader-facing entry page for one scope bundle. |
-| `docs/report/vegetation-reference/farskesjon/plot_support.py` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `py` | Maintainer-facing truth or governance surface. |
-| `docs/report/vegetation-reference/farskesjon/report.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
 | `docs/report/vegetation-reference/smaland-historical-maps/README.md` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `md` | Reader-facing entry page for one scope bundle. |
-| `docs/report/vegetation-reference/smaland-historical-maps/coverage.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
-| `docs/report/vegetation-reference/smaland-historical-maps/coverage.py` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `py` | Maintainer-facing truth or governance surface. |
 | `docs/report/vegetation-reference/southern-sweden-figure/README.md` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `md` | Reader-facing entry page for one scope bundle. |
-| `docs/report/vegetation-reference/southern-sweden-figure/compare.py` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `py` | Maintainer-facing truth or governance surface. |
-| `docs/report/vegetation-reference/southern-sweden-figure/printed-labels.csv` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `csv` | Maintainer-facing truth or governance surface. |
-| `docs/report/vegetation-reference/southern-sweden-figure/report.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
 | `docs/report/world/README.md` | Scope-filtered outputs | Public reading surface | `world` | `md` | Reader-facing entry page for one scope bundle. |
 | `docs/report/world/_map_assets/leaflet/images/layers-2x.png` | Scope-filtered outputs | Public reading surface | `world` | `png` | Governed report artifact. |
 | `docs/report/world/_map_assets/leaflet/images/layers.png` | Scope-filtered outputs | Public reading surface | `world` | `png` | Governed report artifact. |

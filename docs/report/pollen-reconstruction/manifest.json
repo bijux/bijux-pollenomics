@@ -61,7 +61,7 @@
     },
     {
       "path": "docs/report/index.md",
-      "sha256": "08d1e4b58559d659e8687e5fa107c3b754ca91ea11a41fd305c6dfc9bda90972",
+      "sha256": "7864374683ca73b8b7d4d471dd8b2cccf2663d5f1a5dc92f8cd19707c87cd799",
       "bytes": 2670
     },
     {
@@ -1791,53 +1791,18 @@
     },
     {
       "path": "docs/report/vegetation-reference/farskesjon/README.md",
-      "sha256": "fe7e5becb761b75a9b63523b064d84657a3785983ff5e41160b6c9c169b01e49",
-      "bytes": 2705
-    },
-    {
-      "path": "docs/report/vegetation-reference/farskesjon/plot_support.py",
-      "sha256": "b31a34f782c7664626c54be2170cc38ed2478d7a7645a9ff1f8729ab6df4b8e3",
-      "bytes": 9690
-    },
-    {
-      "path": "docs/report/vegetation-reference/farskesjon/report.json",
-      "sha256": "c2a21045859c27672a310fc1faf6b6651ee8320320c56764ccecc5639540b855",
-      "bytes": 1635
+      "sha256": "da917ace0414e8bd247efea2e67034906ca95f0caae40031309577d41e2bdc4f",
+      "bytes": 680
     },
     {
       "path": "docs/report/vegetation-reference/smaland-historical-maps/README.md",
-      "sha256": "7fb812be336c566c9352219fc12109aa0d9705cce2fa735615e59d500ebccf35",
-      "bytes": 3018
-    },
-    {
-      "path": "docs/report/vegetation-reference/smaland-historical-maps/coverage.json",
-      "sha256": "f13f1e5ece6e4060b98036d7bdca42b4ff2c47ca8dc118931d2b43c074519012",
-      "bytes": 1982
-    },
-    {
-      "path": "docs/report/vegetation-reference/smaland-historical-maps/coverage.py",
-      "sha256": "03dd52b4a911f3cfdee09ff29f03794c56f9c5494a88a764ba17c62aa4f3adba",
-      "bytes": 5182
+      "sha256": "d74adc73de794b07f549c1661aea52b0986779f626a9bb13d715596c638f278e",
+      "bytes": 737
     },
     {
       "path": "docs/report/vegetation-reference/southern-sweden-figure/README.md",
-      "sha256": "40e22c8d990a855ba5bc4a012baedcea32cb12d41466e0efcfb3b0f1803dc8c4",
-      "bytes": 2255
-    },
-    {
-      "path": "docs/report/vegetation-reference/southern-sweden-figure/compare.py",
-      "sha256": "5ac673246f7f7685dc485e2d4b6624b14c1ae58361608f0f3606ea83a36e21b1",
-      "bytes": 3845
-    },
-    {
-      "path": "docs/report/vegetation-reference/southern-sweden-figure/printed-labels.csv",
-      "sha256": "e7e6f04e4711690421ca4c84af9e1237cbdb3b95554d63a6d81e2a61ff2a3f54",
-      "bytes": 375
-    },
-    {
-      "path": "docs/report/vegetation-reference/southern-sweden-figure/report.json",
-      "sha256": "7205071dc7bd4b7bdf99c77788583bfbb1ab8699546c9f5acd3e6566da4e7e57",
-      "bytes": 994
+      "sha256": "a9f9339686a743793862223c0bd0657bcf783aee276bcdf5b1500528ef046d7c",
+      "bytes": 725
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/author_example_correspondence.py",
@@ -2111,13 +2076,13 @@
     },
     {
       "path": "reports/architecture/ownership.md",
-      "sha256": "b4fd7d6e2b6a7955d2a577ab9c7deba49caccadf3ce8eb6183ec51360e4706c8",
-      "bytes": 17562
+      "sha256": "f9858099e457b89d63983e7912f80b6bf582d814889e1ffea5d3642f3fe47a05",
+      "bytes": 18114
     },
     {
       "path": "reports/evidence-index.md",
-      "sha256": "7c835c116c4bb7d1b3554702a4dd4b7ceaa36d1cda61d7c68500d3e7a3dcb763",
-      "bytes": 14486
+      "sha256": "eedc0e1b1f15659fd4d89e6c2857f0d07944559ccab40c5a4f3b36402449918a",
+      "bytes": 14465
     },
     {
       "path": "reports/science/abborrtjarnen-source-method.md",
@@ -2306,8 +2271,43 @@
     },
     {
       "path": "reports/science/vegetation-reference.md",
-      "sha256": "1cb56261dcc47ea8895182141f8efd1d469851e6782bb4c26a4cee08310c0e86",
-      "bytes": 4054
+      "sha256": "19a52a3bcbd735faf845d9a6d5253d7dcfd0bf102f363674dd2645a61c4dd9f7",
+      "bytes": 5229
+    },
+    {
+      "path": "reports/science/vegetation-reference/farskesjon/plot_support.py",
+      "sha256": "b31a34f782c7664626c54be2170cc38ed2478d7a7645a9ff1f8729ab6df4b8e3",
+      "bytes": 9690
+    },
+    {
+      "path": "reports/science/vegetation-reference/farskesjon/report.json",
+      "sha256": "c2a21045859c27672a310fc1faf6b6651ee8320320c56764ccecc5639540b855",
+      "bytes": 1635
+    },
+    {
+      "path": "reports/science/vegetation-reference/smaland-historical-maps/coverage.json",
+      "sha256": "f13f1e5ece6e4060b98036d7bdca42b4ff2c47ca8dc118931d2b43c074519012",
+      "bytes": 1982
+    },
+    {
+      "path": "reports/science/vegetation-reference/smaland-historical-maps/coverage.py",
+      "sha256": "03dd52b4a911f3cfdee09ff29f03794c56f9c5494a88a764ba17c62aa4f3adba",
+      "bytes": 5182
+    },
+    {
+      "path": "reports/science/vegetation-reference/southern-sweden-figure/compare.py",
+      "sha256": "5ac673246f7f7685dc485e2d4b6624b14c1ae58361608f0f3606ea83a36e21b1",
+      "bytes": 3845
+    },
+    {
+      "path": "reports/science/vegetation-reference/southern-sweden-figure/printed-labels.csv",
+      "sha256": "e7e6f04e4711690421ca4c84af9e1237cbdb3b95554d63a6d81e2a61ff2a3f54",
+      "bytes": 375
+    },
+    {
+      "path": "reports/science/vegetation-reference/southern-sweden-figure/report.json",
+      "sha256": "7205071dc7bd4b7bdf99c77788583bfbb1ab8699546c9f5acd3e6566da4e7e57",
+      "bytes": 994
     }
   ]
 }

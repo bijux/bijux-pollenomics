@@ -26,7 +26,7 @@
     "presentation/shared.tex": "2aa40954975f75241ded20a78d0c698c0f864274222e30c148bda4cf4b0bf17a",
     "reports/README.md": "6511d0ee720df261c8cd0d2a23ecab1d520a3f085210dea10d4859ecaa3172d0",
     "reports/architecture/lra-distribution.md": "b50b09734608a27bffdc42df9d060187dc588e8e48b8e8728cd136e1f0382c67",
-    "reports/architecture/ownership.md": "b4fd7d6e2b6a7955d2a577ab9c7deba49caccadf3ce8eb6183ec51360e4706c8",
+    "reports/architecture/ownership.md": "f9858099e457b89d63983e7912f80b6bf582d814889e1ffea5d3642f3fe47a05",
     "reports/needed/README.md": "59b8f13c8746873452238f4f028068e04407f8f3c4d4f58198b3e41478e90499",
     "reports/science/bjaresjo-context.md": "a49c6d6530dd543ae4dc3c4ca0e4bcabe37af8e363b28bd6d18b1245723118d1",
     "reports/science/denmark-finland-norway-author-pollen.md": "610b2c47e86cebe980afcee5310f560df94ba33d5a8f2c5f5e3cf10edc791321",
@@ -45,6 +45,6 @@
     "reports/science/sweden-spatiotemporal-sensitivity.md": "8f6dccebd81af82bfedea3e9ae3ddaea75a3999a59bfd1119046d947c43980de",
     "reports/science/sweden-training-scope.md": "f314ad31c3ce166f7c8ea2aa2b03ed82c097c8026bb969008711c33e11f39246",
     "reports/science/synthetic-model-selection/README.md": "2fc82ddfe59fc8e7a2febe0a9441f74cf3b5b1bdaa33290413c65aa59a5f18b6",
-    "reports/science/vegetation-reference.md": "1cb56261dcc47ea8895182141f8efd1d469851e6782bb4c26a4cee08310c0e86"
+    "reports/science/vegetation-reference.md": "19a52a3bcbd735faf845d9a6d5253d7dcfd0bf102f363674dd2645a61c4dd9f7"
   }
 }

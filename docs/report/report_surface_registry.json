@@ -1,26 +1,26 @@
 {
   "schema_version": "report-surface-registry.v1",
-  "surface_count": 1850,
+  "surface_count": 1844,
   "family_counts": {
     "caveats": 10,
-    "maintenance": 1027,
+    "maintenance": 1020,
     "maps": 85,
     "portal": 2,
     "reviews": 34,
-    "scopes": 692
+    "scopes": 693
   },
   "audience_counts": {
-    "maintainer_diagnostic": 1029,
-    "public_reading_surface": 701,
+    "maintainer_diagnostic": 1022,
+    "public_reading_surface": 702,
     "scientific_review_surface": 120
   },
   "geography_counts": {
     "denmark": 30,
     "europe_plus": 63,
     "finland": 14,
-    "nordic": 432,
+    "nordic": 433,
     "norway": 14,
-    "report_root": 1076,
+    "report_root": 1069,
     "sweden": 49,
     "world": 172
   },
@@ -17018,6 +17018,18 @@
       "reader_route": "scope_bundle"
     },
     {
+      "repository_path": "docs/report/regions/nordic/swedish-lake-transfer/reference/prediction-producer.py.txt",
+      "family": "scopes",
+      "family_label": "Scope-filtered outputs",
+      "audience": "public_reading_surface",
+      "audience_label": "Public reading surface",
+      "format": "txt",
+      "geography": "nordic",
+      "caution_level": "medium",
+      "explanation": "Governed report artifact.",
+      "reader_route": "scope_bundle"
+    },
+    {
       "repository_path": "docs/report/regions/nordic/swedish-lake-transfer/report.json",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
@@ -19970,30 +19982,6 @@
       "reader_route": "start_here"
     },
     {
-      "repository_path": "docs/report/vegetation-reference/farskesjon/plot_support.py",
-      "family": "maintenance",
-      "family_label": "Maintainer truth surfaces",
-      "audience": "maintainer_diagnostic",
-      "audience_label": "Maintainer diagnostic",
-      "format": "py",
-      "geography": "report_root",
-      "caution_level": "high",
-      "explanation": "Maintainer-facing truth or governance surface.",
-      "reader_route": "maintainer_truth"
-    },
-    {
-      "repository_path": "docs/report/vegetation-reference/farskesjon/report.json",
-      "family": "maintenance",
-      "family_label": "Maintainer truth surfaces",
-      "audience": "maintainer_diagnostic",
-      "audience_label": "Maintainer diagnostic",
-      "format": "json",
-      "geography": "report_root",
-      "caution_level": "high",
-      "explanation": "Maintainer-facing truth or governance surface.",
-      "reader_route": "maintainer_truth"
-    },
-    {
       "repository_path": "docs/report/vegetation-reference/smaland-historical-maps/README.md",
       "family": "maintenance",
       "family_label": "Maintainer truth surfaces",
@@ -20006,30 +19994,6 @@
       "reader_route": "start_here"
     },
     {
-      "repository_path": "docs/report/vegetation-reference/smaland-historical-maps/coverage.json",
-      "family": "maintenance",
-      "family_label": "Maintainer truth surfaces",
-      "audience": "maintainer_diagnostic",
-      "audience_label": "Maintainer diagnostic",
-      "format": "json",
-      "geography": "report_root",
-      "caution_level": "high",
-      "explanation": "Maintainer-facing truth or governance surface.",
-      "reader_route": "maintainer_truth"
-    },
-    {
-      "repository_path": "docs/report/vegetation-reference/smaland-historical-maps/coverage.py",
-      "family": "maintenance",
-      "family_label": "Maintainer truth surfaces",
-      "audience": "maintainer_diagnostic",
-      "audience_label": "Maintainer diagnostic",
-      "format": "py",
-      "geography": "report_root",
-      "caution_level": "high",
-      "explanation": "Maintainer-facing truth or governance surface.",
-      "reader_route": "maintainer_truth"
-    },
-    {
       "repository_path": "docs/report/vegetation-reference/southern-sweden-figure/README.md",
       "family": "maintenance",
       "family_label": "Maintainer truth surfaces",
@@ -20040,42 +20004,6 @@
       "caution_level": "high",
       "explanation": "Reader-facing entry page for one scope bundle.",
       "reader_route": "start_here"
-    },
-    {
-      "repository_path": "docs/report/vegetation-reference/southern-sweden-figure/compare.py",
-      "family": "maintenance",
-      "family_label": "Maintainer truth surfaces",
-      "audience": "maintainer_diagnostic",
-      "audience_label": "Maintainer diagnostic",
-      "format": "py",
-      "geography": "report_root",
-      "caution_level": "high",
-      "explanation": "Maintainer-facing truth or governance surface.",
-      "reader_route": "maintainer_truth"
-    },
-    {
-      "repository_path": "docs/report/vegetation-reference/southern-sweden-figure/printed-labels.csv",
-      "family": "maintenance",
-      "family_label": "Maintainer truth surfaces",
-      "audience": "maintainer_diagnostic",
-      "audience_label": "Maintainer diagnostic",
-      "format": "csv",
-      "geography": "report_root",
-      "caution_level": "high",
-      "explanation": "Maintainer-facing truth or governance surface.",
-      "reader_route": "maintainer_truth"
-    },
-    {
-      "repository_path": "docs/report/vegetation-reference/southern-sweden-figure/report.json",
-      "family": "maintenance",
-      "family_label": "Maintainer truth surfaces",
-      "audience": "maintainer_diagnostic",
-      "audience_label": "Maintainer diagnostic",
-      "format": "json",
-      "geography": "report_root",
-      "caution_level": "high",
-      "explanation": "Maintainer-facing truth or governance surface.",
-      "reader_route": "maintainer_truth"
     },
     {
       "repository_path": "docs/report/world/README.md",

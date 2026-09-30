@@ -19,15 +19,40 @@ therefore not calculated a repository vegetation accuracy score.
 | [Cui et al. historical maps](../../docs/report/vegetation-reference/smaland-historical-maps/README.md) | Three bogs have published map-coverage percentages within 3 km and one dated pollen sample per bog shared by the two modern windows. | The article and appendix do not give the full numerical class areas or distance-weighted fractions needed for an exact vegetation target. Complete modern map coverage is not a second independent pollen sample. We retain source support, not a scored pair. |
 | [Published southern Swedish Figure 6](../../docs/report/vegetation-reference/southern-sweden-figure/README.md) | On nine region/taxon labels printed in all three panels, the published REVEALS estimates have mean absolute error 5.11 percentage points from the figure's observed vegetation, versus 17.33 for published raw pollen. | This is a rounded, label-selected reading of another study's two regional figures. It does not score our model, recover its 26-taxon result or provide nine independent landscapes. |
 
-The [Färskesjön machine decision](../../docs/report/vegetation-reference/farskesjon/report.json)
+The [Färskesjön machine decision](vegetation-reference/farskesjon/report.json)
 retains the measured plot volume, date, distance and private-source hashes;
 plot identifiers and coordinates remain private. The
-[historical-map coverage rows](../../docs/report/vegetation-reference/smaland-historical-maps/coverage.json)
+[historical-map coverage rows](vegetation-reference/smaland-historical-maps/coverage.json)
 keep the distinct TW3 and TW4 map periods and the three shared pollen counts.
-The [published-figure calculation](../../docs/report/vegetation-reference/southern-sweden-figure/report.json)
-and [printed-label transcription](../../docs/report/vegetation-reference/southern-sweden-figure/printed-labels.csv)
+The [published-figure calculation](vegetation-reference/southern-sweden-figure/report.json)
+and [printed-label transcription](vegetation-reference/southern-sweden-figure/printed-labels.csv)
 keep the nine-label denominator visible. Their source-bound producers and
-reproduction commands remain with those governed results.
+reproduction commands are grouped here with those governed results.
+
+## Reproduction
+
+From the repository root, run the three current producers with the pinned
+private source packets into absent destinations under `artifacts/`:
+
+```sh
+PYTHONDONTWRITEBYTECODE=1 .venv/bin/python \
+  reports/science/vegetation-reference/farskesjon/plot_support.py \
+  --source-root /path/to/private/reference-sources/empd2-nfi \
+  --output artifacts/jobs/vegetation-reference/farskesjon.json
+PYTHONDONTWRITEBYTECODE=1 .venv/bin/python \
+  reports/science/vegetation-reference/smaland-historical-maps/coverage.py \
+  --source-root /path/to/private/reference-sources/smaland-historical-maps \
+  --output artifacts/jobs/vegetation-reference/smaland.json
+PYTHONDONTWRITEBYTECODE=1 .venv/bin/python \
+  reports/science/vegetation-reference/southern-sweden-figure/compare.py \
+  --source-pdf /path/to/private/reference-sources/southern-sweden-vegetation-validation/gaillard-2010.pdf \
+  --output artifacts/jobs/vegetation-reference/southern-figure
+```
+
+The four reproduced numeric files match their governed counterparts byte for
+byte; the [report ownership decision](../architecture/ownership.md) records
+their SHA-256 identities. The replay reads original source bytes but
+publishes no private plot identifiers or coordinates.
 
 ## What follows
 
