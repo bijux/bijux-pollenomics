@@ -61,13 +61,13 @@
     },
     {
       "path": "docs/report/index.md",
-      "sha256": "d9629891f41df85dcce25ae0d086bd135fa71ee2de46126e3ffa0a37eea68327",
+      "sha256": "08d1e4b58559d659e8687e5fa107c3b754ca91ea11a41fd305c6dfc9bda90972",
       "bytes": 2670
     },
     {
       "path": "docs/report/maintenance/artifact-retention/README.md",
-      "sha256": "789f0cee6e01dff6a10d70fce6a4dded9966e5e900c2f85d8cfa45b48e3c2783",
-      "bytes": 30483
+      "sha256": "f2c0dbc417de092046a17401b3124a830d9eb94a9622554eeffbeb591620f5a2",
+      "bytes": 30525
     },
     {
       "path": "docs/report/maintenance/artifact-retention/landclim-amsoldingersee-custody.json",
@@ -586,23 +586,8 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/author-lra-development/README.md",
-      "sha256": "658e67e08677b2317c7128d84c2e8a7b6434992509ab8c96815a31176e8205be",
-      "bytes": 5059
-    },
-    {
-      "path": "docs/report/pollen-reconstruction/author-lra-development/cover-diagnostics.csv",
-      "sha256": "df35d30d48af8df508ee89a3e2bf633f40efea5c6ba663311900a5ba66edd1f8",
-      "bytes": 9269
-    },
-    {
-      "path": "docs/report/pollen-reconstruction/author-lra-development/folds.csv",
-      "sha256": "d3bc46bca53fb428b6de4717e3d27450d4b821c3434ef25605855e38af5f104b",
-      "bytes": 1846
-    },
-    {
-      "path": "docs/report/pollen-reconstruction/author-lra-development/report.json",
-      "sha256": "cf36b604ed37ddc22b1c0bba4e9efb39df9a9099bb19c318a2fe92012e0e8013",
-      "bytes": 1672
+      "sha256": "3df0b9182c0f152a4152e8e5807fa2404ee5ee96054db518322403686283c985",
+      "bytes": 283
     },
     {
       "path": "docs/report/pollen-reconstruction/author-lra-optimized-feasibility/README.md",
@@ -661,13 +646,13 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/results.csv",
-      "sha256": "aa71147960aa9a9ea9d34d02f9396831cd363c65524377eae3a351c9d7f5e2f2",
-      "bytes": 17265
+      "sha256": "2df68893dc413e1a472e12e9133c24f416b3b20e156d16e463d4c3ee2d9ba5e7",
+      "bytes": 17282
     },
     {
       "path": "docs/report/pollen-reconstruction/scope.json",
-      "sha256": "b97c8bdecbec8c22c647c73c7442d3b1be5eff0d67ac4c2e0607263fb53d88d3",
-      "bytes": 16919
+      "sha256": "f6a896fb6738b5070ff5b8ffbaade02e31883f9df324a8aca05600e2563a0e39",
+      "bytes": 16902
     },
     {
       "path": "docs/report/pollen-reconstruction/scores.csv",
@@ -2110,9 +2095,29 @@
       "bytes": 5099
     },
     {
+      "path": "reports/science/english-analytical-love/README.md",
+      "sha256": "dbe61cff50ec2c506cf1977223b5c27017204b8d8149e36bbc9afe2142c0cfbf",
+      "bytes": 4408
+    },
+    {
+      "path": "reports/science/english-analytical-love/cover-diagnostics.csv",
+      "sha256": "df35d30d48af8df508ee89a3e2bf633f40efea5c6ba663311900a5ba66edd1f8",
+      "bytes": 9269
+    },
+    {
+      "path": "reports/science/english-analytical-love/folds.csv",
+      "sha256": "d3bc46bca53fb428b6de4717e3d27450d4b821c3434ef25605855e38af5f104b",
+      "bytes": 1846
+    },
+    {
+      "path": "reports/science/english-analytical-love/report.json",
+      "sha256": "cf36b604ed37ddc22b1c0bba4e9efb39df9a9099bb19c318a2fe92012e0e8013",
+      "bytes": 1672
+    },
+    {
       "path": "reports/science/english-lra-pollen-prediction.md",
-      "sha256": "3d69d66ec56cb135733c0e37be4a3c7169cb79d4de6c0223a0673f7541320d7f",
-      "bytes": 12920
+      "sha256": "b4c3b43b8a0e7f8fe464ed065785936560be0a3e19921f66f87a01654343c7c8",
+      "bytes": 15846
     },
     {
       "path": "reports/science/hyde-cropland-source-account.md",
@@ -2131,8 +2136,8 @@
     },
     {
       "path": "reports/science/nordic-pollen-study.md",
-      "sha256": "4fc5170b272f25c4a36ae85ff08a84754240daa0225cf36331ce396c33e988cf",
-      "bytes": 43389
+      "sha256": "445ab70c6e572297197835b05c6f5240bf40960b577fe65af906cdc282a4241c",
+      "bytes": 43350
     },
     {
       "path": "reports/science/publication-correspondence.md",

@@ -36,7 +36,7 @@ paired ranking of algorithms on one admitted response:
 
 | Route and source axis | Attempted support | Retained outcome |
 | --- | --- | --- |
-| [Analytical LOVE](../../docs/report/pollen-reconstruction/author-lra-development/README.md), all 31 author taxa | 15 whole-site folds; 195 training items | All 15 folds refused `invalid_composition`; every one of 54 local ring rows had a negative fraction. No held-out prediction or score. |
+| [Analytical LOVE](english-analytical-love/README.md), all 31 author taxa | 15 whole-site folds; 195 training items | All 15 folds refused `invalid_composition`; every one of 54 local ring rows had a negative fraction. No held-out prediction or score. |
 | [Differential-evolution optimized LOVE](../../docs/report/pollen-reconstruction/author-lra-optimized-feasibility/README.md), 30 taxa after excluding 159 `Filipendula` counts | One selected regional/local training pair; two bounded requests | Neither request converged; no valid LRA product or held-out score. |
 | Our constrained SLSQP LOVE, the same declared 30-taxon subcomposition | 15 whole-site outer folds; 195 training items | Fourteen folds yielded 42 frozen forward-pollen predictions; BECKHAM refused because three training fits did not converge. |
 

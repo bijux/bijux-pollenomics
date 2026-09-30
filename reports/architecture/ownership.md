@@ -43,7 +43,7 @@ most linked governed products retain the numeric and producer ownership. The Bj√
 | [Publication and archive correspondence](../science/publication-correspondence.md) | [Paper correspondence ledger](../../docs/report/pollen-reconstruction/paper-correspondence.csv) and [PFT crosswalk](../science/publication-correspondence/pft-crosswalk/README.md). |
 | [Nordic pollen synthesis](../science/nordic-pollen-study.md), [country results](../science/denmark-finland-norway-author-pollen.md) and [Swedish holdout](../science/sweden-author-pollen.md) | [Country score products](../../docs/report/regions/nordic/author-target-pollen/report.json) and [Swedish score products](../../docs/report/regions/nordic/swedish-author-target-pollen/report.json). |
 | [Nordic training selection](../science/nordic-observed-pollen-selection.md) and [matched transfer](../science/nordic-observed-pollen-transfer.md) | [Search trial ledger](../../docs/report/regions/nordic/pollen-development/report.json) and [transfer freeze](../../docs/report/regions/nordic/selected-pollen-transfer/freeze.json). |
-| [English LOVE and forward pollen](../science/english-lra-pollen-prediction.md) | [Fold/score products](../../docs/report/pollen-reconstruction/author-lra-constrained/report.json) and [basin-radius sensitivity](../../docs/report/pollen-reconstruction/author-lra-constrained/radius-sensitivity/README.md). |
+| [English analytical LOVE refusal](../science/english-analytical-love/README.md) and [constrained forward pollen](../science/english-lra-pollen-prediction.md) | Root [analytical fold/cover ledgers](../science/english-analytical-love/README.md), [constrained fold/score products](../../docs/report/pollen-reconstruction/author-lra-constrained/report.json) and [basin-radius sensitivity](../../docs/report/pollen-reconstruction/author-lra-constrained/radius-sensitivity/README.md). |
 | [HYDE modeled context](../science/hyde-cropland-source-account.md) | [Country totals](../../docs/report/regions/nordic/hyde-country-cropland/report.json) and [native grid check](../../docs/report/regions/nordic/hyde-country-cropland/grid-conservation/README.md). |
 | [Published reindeer appendix correspondence](../science/reindeer-appendix-correspondence.md) | [DNA scope result](../../docs/report/source-relations/dna-scope/report.json) and a retained website citation page; original source bytes stay in their governed source library. |
 | [Swedish training scope](../science/sweden-training-scope.md) and [age/distance sensitivity](../science/sweden-spatiotemporal-sensitivity.md) | [Frozen scope products](../../docs/report/regions/nordic/swedish-training-scope/report.json) and [support sensitivity](../../docs/report/regions/nordic/swedish-support-sensitivity/report.json). |
@@ -165,6 +165,14 @@ We moved that producer and its two byte-identical results into the
 The earlier `docs/report/` page is now a citation to this single owner. This
 reduces the mixed-tree ownership surface, but the local replay does not
 rebuild the other separately governed files or close the full-tree gate.
+
+We also moved the English author-prepared analytical LOVE refusal as one
+scientific result: its report, 15-fold refusal ledger and 54-ring cover
+diagnostic are now owned beside our [source decision](../science/english-analytical-love/README.md).
+The original `docs/report/` page remains a citation. We updated the scientific
+scope, result table and byte manifest to name the root files; their numerical
+bytes did not change. The existing source producer and reader still govern
+reproduction, while the independent complete-tree rebuild remains open.
 
 Our [artifact custody decision](artifact-custody.md) records a separate
 bounded checkout retirement and its recoverable source identity. It does not

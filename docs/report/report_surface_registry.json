@@ -1,16 +1,16 @@
 {
   "schema_version": "report-surface-registry.v1",
-  "surface_count": 1853,
+  "surface_count": 1850,
   "family_counts": {
     "caveats": 10,
-    "maintenance": 1030,
+    "maintenance": 1027,
     "maps": 85,
     "portal": 2,
     "reviews": 34,
     "scopes": 692
   },
   "audience_counts": {
-    "maintainer_diagnostic": 1032,
+    "maintainer_diagnostic": 1029,
     "public_reading_surface": 701,
     "scientific_review_surface": 120
   },
@@ -20,7 +20,7 @@
     "finland": 14,
     "nordic": 432,
     "norway": 14,
-    "report_root": 1079,
+    "report_root": 1076,
     "sweden": 49,
     "world": 172
   },
@@ -10536,42 +10536,6 @@
       "caution_level": "high",
       "explanation": "Reader-facing entry page for one scope bundle.",
       "reader_route": "start_here"
-    },
-    {
-      "repository_path": "docs/report/pollen-reconstruction/author-lra-development/cover-diagnostics.csv",
-      "family": "maintenance",
-      "family_label": "Maintainer truth surfaces",
-      "audience": "maintainer_diagnostic",
-      "audience_label": "Maintainer diagnostic",
-      "format": "csv",
-      "geography": "report_root",
-      "caution_level": "high",
-      "explanation": "Maintainer-facing truth or governance surface.",
-      "reader_route": "maintainer_truth"
-    },
-    {
-      "repository_path": "docs/report/pollen-reconstruction/author-lra-development/folds.csv",
-      "family": "maintenance",
-      "family_label": "Maintainer truth surfaces",
-      "audience": "maintainer_diagnostic",
-      "audience_label": "Maintainer diagnostic",
-      "format": "csv",
-      "geography": "report_root",
-      "caution_level": "high",
-      "explanation": "Maintainer-facing truth or governance surface.",
-      "reader_route": "maintainer_truth"
-    },
-    {
-      "repository_path": "docs/report/pollen-reconstruction/author-lra-development/report.json",
-      "family": "maintenance",
-      "family_label": "Maintainer truth surfaces",
-      "audience": "maintainer_diagnostic",
-      "audience_label": "Maintainer diagnostic",
-      "format": "json",
-      "geography": "report_root",
-      "caution_level": "high",
-      "explanation": "Maintainer-facing truth or governance surface.",
-      "reader_route": "maintainer_truth"
     },
     {
       "repository_path": "docs/report/pollen-reconstruction/author-lra-optimized-feasibility/README.md",

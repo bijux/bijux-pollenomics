@@ -446,7 +446,7 @@ The [analytical author LRA receipt](landclim-author-lra-development-custody.json
 accounts for the original 938-file English development run. The 37 source input
 files in each of its two working copies match a fresh materialization from the
 private author capsule. Its final three equation-summary files match the
-[governed negative result](../../pollen-reconstruction/author-lra-development/README.md)
+[governed negative result](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/english-analytical-love/README.md)
 byte for byte. An exact private archive retains the other 861 files, including
 27 cached numerical products, 195 training-item batch records, the original
 runner and two earlier differing summaries. The archive was reopened and every
