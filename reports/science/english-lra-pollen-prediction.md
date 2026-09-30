@@ -28,6 +28,26 @@ vegetation comes from LRA; we have no independent measured vegetation for an
 accuracy score. This English experiment does not admit Swedish or four-country
 LRA inputs.
 
+## What the three LOVE routes established
+
+We keep the method and taxon changes visible when comparing our development
+runs. They are different requests on previously exposed author source, not a
+paired ranking of algorithms on one admitted response:
+
+| Route and source axis | Attempted support | Retained outcome |
+| --- | --- | --- |
+| [Analytical LOVE](../../docs/report/pollen-reconstruction/author-lra-development/README.md), all 31 author taxa | 15 whole-site folds; 195 training items | All 15 folds refused `invalid_composition`; every one of 54 local ring rows had a negative fraction. No held-out prediction or score. |
+| [Differential-evolution optimized LOVE](../../docs/report/pollen-reconstruction/author-lra-optimized-feasibility/README.md), 30 taxa after excluding 159 `Filipendula` counts | One selected regional/local training pair; two bounded requests | Neither request converged; no valid LRA product or held-out score. |
+| Our constrained SLSQP LOVE, the same declared 30-taxon subcomposition | 15 whole-site outer folds; 195 training items | Fourteen folds yielded 42 frozen forward-pollen predictions; BECKHAM refused because three training fits did not converge. |
+
+The analytical equation replay agrees with its saved ring outputs to
+`2.67e-15`; it confirms the negative values are produced by that equation,
+not that they describe a physical landscape. The differential-evolution
+pilot refused within its stated limits on one pair, while the SLSQP run supplied
+usable closed-cover predictions on most folds. We cannot infer that SLSQP is
+generally the best LOVE solver, that excluding `Filipendula` improves ecology,
+or that a different budget would settle the refused sites.
+
 ## Source-bound result
 
 Our [retained report](../../docs/report/pollen-reconstruction/author-lra-constrained/report.json)
