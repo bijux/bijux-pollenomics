@@ -90,3 +90,39 @@ producer, config, tests, manifests, website links and citation paths in the
 same checked unit. We retain a compatibility citation only where an existing
 reader needs it. The remaining `docs/report/` tree is an active governed
 product surface, not a completed migration or a second canonical library.
+
+## What we learned from the clean report build
+
+We ran the governed [`verify-rebuild` target](../../makes/pollenomics-verification.mk)
+against clean commit `4e429452b` on 30 September 2026. Its two isolated
+`publish-reports` runs completed and produced identical files. The comparison
+with the tracked `docs/report/` tree failed, so we did not certify a clean
+build/no-diff result.
+
+| Comparison | Observed result |
+| --- | ---: |
+| Files emitted by each isolated `publish-reports` run | 709 |
+| Files in tracked `docs/report/` | 1,860 |
+| Tracked files absent from that producer's output | 1,151 |
+| Shared paths with different content | 19 |
+| Differences between the two isolated runs | 0 |
+
+The absent files cluster in method certification (461), regional research
+(142), pollen reconstruction (132), source relations (121) and atlas evidence
+(116), with smaller groups elsewhere. We keep these governed outputs and
+their distinct producers; copying them into an isolated build would not prove
+that `publish-reports` generated them. The 19 shared-path differences include
+portal inventories computed over different trees and animal review pages
+with different source or enrichment states. We have not replaced tracked
+animal evidence with the narrower isolated output.
+
+We decided to define producer ownership before changing the
+[`rebuild policy`](../../configs/ci/reproducible-report-build.json) or
+regenerating tracked pages. The next clean-build proof must bind each
+producer-owned output to its actual inputs, regenerate the dependent portal
+over the complete governed tree, and compare the resulting tracked files.
+Until then, the two-run repeatability result is valid, but the tracked-tree
+no-diff gate remains failed. The full local diagnostic is retained under
+`artifacts/execution-control/reproducible-report-build.nVLYdW/evidence/`;
+the decision and counts above remain in this report if local artifacts are
+purged.
