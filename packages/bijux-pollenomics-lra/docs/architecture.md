@@ -24,7 +24,8 @@ metadata exposes `bijux_pollenomics.extensions:lra` with target
 `bijux_pollenomics_lra.api:extension_descriptor`; there is no engine console script.
 
 Every source function's original path/hash and disposition is retained in
-`adoption-manifest.json`; `architecture-migration.json` maps its domain owner.
+`adoption-manifest.json`; [`definition-owners.json`](definition-owners.json)
+maps its current domain owner.
 Original installer, setuptools releases, generated metadata, broad aliases,
 standalone CLI and host-specific envelope logic are excluded. Historical source
 contract notes under `reference/` describe the received prototype and do not
