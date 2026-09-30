@@ -19,11 +19,10 @@ measurements do not establish a complete REVEALS or LOVE pipeline speed ratio.
 
 The [seven-workload Python baseline](../python-baseline/README.md) and
 [isolated Python resource measurement](../python-isolated/README.md) cover
-REVEALS, analytical and optimized LOVE, series and forward execution. The
-isolated workers construct all seven fixtures and one provenance source path
-changed after the earlier baseline. Their timing sets are therefore not an
-identical-source comparison, even though their scientific outputs match.
-They supply resource context, not evidence that the C++ forward result
+REVEALS, analytical and optimized LOVE, series and forward execution. Each
+isolated worker constructs only its named fixture; all 35 workers matched the
+retained scientific and nonfinite output digests. These measurements supply
+Python resource context. They do not show that the C++ forward result
 generalizes to the other six workloads.
 
 **Decision:** defer production C++ adoption. This closes the conditional
