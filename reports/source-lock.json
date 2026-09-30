@@ -147,6 +147,16 @@
     "docs/report/source-relations/neotoma/abbo-published-method/README.md": "b26e84482c485f05addb193e3b8d7b956a14eec5182a5ae3980e097317377a42",
     "docs/report/source-relations/neotoma/author-taxonomy-candidates/README.md": "cc6127568f5281f46ba0a4ec41fa588e1654ff1ce178f562f21c7a7a3522e773",
     "docs/report/source-relations/neotoma/author-taxonomy-candidates/report.json": "5727ed9f735436aa6c806368be0bf1f39402c4f84575cb94562e8c879b6bb057",
+    "docs/report/synthetic-validation/change-time/README.md": "39c702832b335465111e74121e3e80cda34cf8a1e158eb238ce71555589dcd6c",
+    "docs/report/synthetic-validation/change-time/report.json": "04a0150e0b4157a79cfdb36b7b4bc3681a3651fe3cad8023f96fd3420c17a4e1",
+    "docs/report/synthetic-validation/propagation/README.md": "8e0606b60ed4194e4393ee55d99ed33bd9cfb386947659cd929e82fa44852e74",
+    "docs/report/synthetic-validation/propagation/report.json": "4242f08105aca1742e8f05a70ba17c490d571f879ff40503574391abd8b3ed8b",
+    "docs/report/synthetic-validation/reconstruction/README.md": "1b2232417893d1ce3c1ff339048c2ad7cb9d81b62662a4bbaf5d2aad4e3b8b39",
+    "docs/report/synthetic-validation/reconstruction/report.json": "41049a584db6936ef43b8e9e24057a579ca91232180d28abd06c1bbf3b495425",
+    "docs/report/synthetic-validation/site-leakage/README.md": "c208ae68e953d7e2f0563bb3de22d55518d01e6071fd534f65f60ce08ff8bf0e",
+    "docs/report/synthetic-validation/site-leakage/report.json": "793d32fc6273040a4a3ce61a26da9ab89918890a900e6d8cc3c7e8ecd2342476",
+    "docs/report/synthetic-validation/spatial-eligibility/README.md": "d9826a85e134d51a56ba287ea173fee095d630a8ccf995c7e721dac938c57d61",
+    "docs/report/synthetic-validation/spatial-eligibility/report.json": "b2145da4bba0434ccb7ddeadfc54bcdf0152521e3e0e6feb16ee5def0ea1ea2c",
     "docs/report/validation/empd2-nfi-pairing/report.json": "c5a5fb4738e48a924e178346dc2dd625b1b683e73cca276bccf1ae2f079adb8f",
     "docs/report/world/world_animal_sample_chronology_context.json": "93255af01cd074c04d4d01b0f16030fd1ded3d297ea1250b74e1af533841b962",
     "docs/report/world/world_bundle.json": "1111e3b4084c219e2a6922edc54ccf5448fa46075ebd5007ea45de59c9444a9b",
@@ -254,6 +264,6 @@
     "reports/science/vegetation-reference/southern-sweden-figure/compare.py": "5ac673246f7f7685dc485e2d4b6624b14c1ae58361608f0f3606ea83a36e21b1",
     "reports/science/vegetation-reference/southern-sweden-figure/printed-labels.csv": "e7e6f04e4711690421ca4c84af9e1237cbdb3b95554d63a6d81e2a61ff2a3f54",
     "reports/science/vegetation-reference/southern-sweden-figure/report.json": "7205071dc7bd4b7bdf99c77788583bfbb1ab8699546c9f5acd3e6566da4e7e57",
-    "reports/verify.py": "9dd39c0447213418a8789c91d2fe3e4b14266b4871e3580b2ebf44cf5a7fa437"
+    "reports/verify.py": "ee141c2da28c939889ef3782f7f9539cf1f9981c0527d08173a46fde95f56e3f"
   }
 }

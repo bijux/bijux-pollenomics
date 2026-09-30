@@ -173,6 +173,11 @@ def test_retained_result_matches_scientific_values_on_current_inputs(
         assert case["control"] == rebuilt["control"]
         assert case["transport_matched"] == rebuilt["transport_matched"]
         assert case["contract_status"] == rebuilt["contract_status"]
+        assert case["config"] == rebuilt["config"]
+        assert (
+            cast(dict[str, object], case["production_manifest"])["parameters"]
+            == cast(dict[str, object], rebuilt["production_manifest"])["parameters"]
+        )
         assert case["reconstructed_vegetation_fraction"] == pytest.approx(
             rebuilt["reconstructed_vegetation_fraction"], abs=1e-12
         )

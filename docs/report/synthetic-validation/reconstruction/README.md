@@ -47,13 +47,17 @@ correctness. The finite-cell challenges use a different transport model. Neither
 result establishes measured vegetation accuracy, spatial interpolation skill,
 held-out ecological performance, PPE estimation or calibrated uncertainty.
 
-Reproduce from the repository root with the configured environment:
+The recorded configuration and production manifest both name the
+`disqover-0.9.14-wrapper-v1` fall-speed profile. Reproduce from the
+repository root with the configured environment:
 
 ```bash
 PYTHONDONTWRITEBYTECODE=1 OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 \
 MKL_NUM_THREADS=1 NUMEXPR_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 \
 .venv/bin/python -m bijux_pollenomics_dev.lra_validation.reconstruction_challenge \
-  --output docs/report/synthetic-validation/reconstruction/report.json
+  --output artifacts/jobs/synthetic-validation/reconstruction/report.json
+cmp docs/report/synthetic-validation/reconstruction/report.json \
+  artifacts/jobs/synthetic-validation/reconstruction/report.json
 ```
 
 The report retains each source case, source identities, true and assumed
