@@ -21,6 +21,16 @@ Distribution & Responsibility \\
 \evidence{reports/architecture/lra-distribution.md; packages/bijux-pollenomics/pyproject.toml}
 \end{frame}
 
+\begin{frame}{Why the numerical backend remains Python}
+\begin{itemize}
+\item A private C++17 forward batch matched the tested arithmetic but missed the prospective 2$\times$ validated-call latency gate at all three declared shapes.
+\item One larger synthetic worker used about 31 MB less peak memory with C++, but its median call was slower.
+\item We kept NumPy in production. A future extension would stay inside the LRA wheel and require source-R parity, buffer and draw contracts, a wheel matrix and a measured complete-workflow benefit.
+\end{itemize}
+\scope{The measured forward spike does not decide the performance of every LRA kernel.}
+\evidence{reports/architecture/native-backend.md; docs/report/numerical-performance/native-forward/report.json}
+\end{frame}
+
 \begin{frame}{Follow a claim through the system}
 \begin{center}
 Source member $\rightarrow$ custody receipt $\rightarrow$ normalized record $\rightarrow$ admission decision\\[1em]
