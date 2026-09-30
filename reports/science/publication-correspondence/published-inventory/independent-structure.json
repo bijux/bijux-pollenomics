@@ -110,7 +110,6 @@
   "findings": [],
   "mean_members": 25,
   "schema_version": "pollenomics-landclim-published-independent.v1",
-  "snapshot": "artifacts/v2/validation/landclim-published-snapshot/repository005",
   "standard_error_members": 25,
   "verdict": "pass_published_row_structure"
 }

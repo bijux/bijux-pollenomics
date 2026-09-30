@@ -535,6 +535,5 @@
     "standalone CLI",
     "host product envelopes",
     "reference oracle runtime API"
-  ],
-  "preserved_original": "artifacts/v2/engine/architecture-reference"
+  ]
 }

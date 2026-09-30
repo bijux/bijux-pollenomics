@@ -30,8 +30,8 @@
   },
   "dataset_doi": "https://doi.org/10.1594/PANGAEA.937075",
   "evidence_role": "published_reconstruction_comparison_target",
-  "independent_inventory_sha256": "fbb6b8c4a8113512603a96358da5c20b832fa5b6bfa0dfd9bdbc44013a4a64e5",
-  "independent_structure_sha256": "9fe825f596057eb1b596e1a0f59bf8f1b6ace6701fe03e9b5b2fd511d180fed7",
+  "independent_inventory_sha256": "45df44ea0b272c75d39b0fb81deffe5b951796b85f82f5f90dbf477e3c96981f",
+  "independent_structure_sha256": "33e85f79931d86296f978f4bc3b08bbd258481891afb30b5eb7e649b8ae31b35",
   "inventory_sha256": "0333fec471bcf4c0fcd173de006a2efebe3f9fda545c4f0893bf10e288417c23",
   "negative_mean_values": [
     {

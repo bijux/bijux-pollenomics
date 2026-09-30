@@ -144,6 +144,5 @@
   },
   "passed_group_count": 4,
   "schema_version": "pollenomics-landclim-published-inventory-independent.v1",
-  "snapshot": "artifacts/v2/validation/landclim-published-inventory-snapshot/repository002",
   "verdict": "pass_scoped_published_inventory_closure"
 }
