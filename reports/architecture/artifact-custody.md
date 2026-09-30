@@ -1,5 +1,18 @@
 # Our artifact custody decisions
 
+## Independent LandClim metadata challenge
+
+We retained the executed 58-file independent challenge under
+`artifacts/v2/essd-study-bundle-independent/` in a private archive, SHA-256
+`806d3991b112572a4f7aa0129d0c33781fefc6ad202ac07527c13126cd651df9`.
+The [custody receipt](artifact-custody/landclim-metadata-challenge.json) binds
+50,788,119 original bytes. We promoted its exact result to the
+[research report](../science/publication-correspondence/landclim-metadata-challenge/README.md),
+where its five output digests are checked against today's governed files.
+The historical procedure and adversarial scratch outputs remain in the
+archive. This preserves the independent metadata verdict without treating
+it as a historical ESSD reproduction.
+
 ## LOVE paper acquisition record
 
 We recovered the original acquisition receipt for the 2024 LOVE paper from

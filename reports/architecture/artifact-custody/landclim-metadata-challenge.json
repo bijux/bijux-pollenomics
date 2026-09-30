@@ -1,0 +1,243 @@
+{
+  "archive": "/Users/bijan/bijux/bijux-pollenomics-data/reference-sources/landclim-metadata-challenge/retained-run.tar",
+  "archive_sha256": "806d3991b112572a4f7aa0129d0c33781fefc6ad202ac07527c13126cd651df9",
+  "files": {
+    "artifacts/v2/essd-study-bundle-independent/REVIEW.md": {
+      "bytes": 1652,
+      "sha256": "af28ba557ec85d1d334ba7590b69bcc4e6267088ab5383438d02b22447be89e4"
+    },
+    "artifacts/v2/essd-study-bundle-independent/challenge-design-repository002-diagnostic.json": {
+      "bytes": 4807,
+      "sha256": "b3cd513c0666cf7a3ccd7f3a0c16d9eacf8e1aae2cafb9ba85c37a19c338061c"
+    },
+    "artifacts/v2/essd-study-bundle-independent/challenge-design.json": {
+      "bytes": 5701,
+      "sha256": "69a2a274c190962b9b4fc93fde1b49836d3a68ce24339c95281a0877e7f7c650"
+    },
+    "artifacts/v2/essd-study-bundle-independent/challenge-repository002-diagnostic.py": {
+      "bytes": 40932,
+      "sha256": "e5c15d4bf20f3b3593ed624368b7c1c3535fa7ae465c26b525ba7b06a4ba22ee"
+    },
+    "artifacts/v2/essd-study-bundle-independent/challenge.py": {
+      "bytes": 1675,
+      "sha256": "425ac68f46fa48761cfaa6699186617f3fc34c89e409a2a2bd8fdbd8168ef680"
+    },
+    "artifacts/v2/essd-study-bundle-independent/run001/result.json": {
+      "bytes": 8894,
+      "sha256": "ef7b6f6dd031d40ac666d00d968a99d0521f3cb51b33f959cf29595e6a50fa1e"
+    },
+    "artifacts/v2/essd-study-bundle-independent/run001/review.md": {
+      "bytes": 1082,
+      "sha256": "feae91474bc12b216369a6ba3e8986acba26fc716a37084c5ece6470dd23e7e4"
+    },
+    "artifacts/v2/essd-study-bundle-independent/run001/scratch/coherent-claim-promotion/manifest.json": {
+      "bytes": 3378,
+      "sha256": "c9e03c7bf53af5d74a1b0a470284c91e6d3d57e3869574c7c56c4a69c15d903f"
+    },
+    "artifacts/v2/essd-study-bundle-independent/run001/scratch/coherent-claim-promotion/primary-source-crosswalk.csv": {
+      "bytes": 239498,
+      "sha256": "7938a23779c553d554297662bbff26ed2f34e4f3cf0d545af1e4525d0eee8924"
+    },
+    "artifacts/v2/essd-study-bundle-independent/run001/scratch/coherent-claim-promotion/records.jsonl": {
+      "bytes": 3664439,
+      "sha256": "f695b36fb2e84c051fec81b3fe87cbc7aa37d32a6fcdd6ac2990513d450b446c"
+    },
+    "artifacts/v2/essd-study-bundle-independent/run001/scratch/coherent-claim-promotion/refusals.csv": {
+      "bytes": 1159974,
+      "sha256": "0ccb7019726061e1d19f175c58ba52e3030b641f1420553643120a9da97bcf48"
+    },
+    "artifacts/v2/essd-study-bundle-independent/run001/scratch/coherent-claim-promotion/report.json": {
+      "bytes": 4172,
+      "sha256": "7576fafcc68459dcd323cc566175687fef0c2ce0e60f375ada4195d166d3fdec"
+    },
+    "artifacts/v2/essd-study-bundle-independent/run001/scratch/coherent-whitespace-normalization/manifest.json": {
+      "bytes": 3390,
+      "sha256": "f7ad022b52db1f6426a5cc3eeea62f3f166444714b0905c1787d5822b89ea161"
+    },
+    "artifacts/v2/essd-study-bundle-independent/run001/scratch/coherent-whitespace-normalization/primary-source-crosswalk.csv": {
+      "bytes": 239474,
+      "sha256": "349a733761aa68f6d85e7af412c189079fe5d3a1131990878b4d78e333a8b52f"
+    },
+    "artifacts/v2/essd-study-bundle-independent/run001/scratch/coherent-whitespace-normalization/records.jsonl": {
+      "bytes": 3664363,
+      "sha256": "b6d0c2a6f5516f9712f4dcc1fda4cc4db3094355063dca0254a0088707213009"
+    },
+    "artifacts/v2/essd-study-bundle-independent/run001/scratch/coherent-whitespace-normalization/refusals.csv": {
+      "bytes": 1160987,
+      "sha256": "055f960736e349a2cd1be12dbfd201fa31040d007342f619a5e98612f2c4655f"
+    },
+    "artifacts/v2/essd-study-bundle-independent/run001/scratch/coherent-whitespace-normalization/report.json": {
+      "bytes": 4118,
+      "sha256": "1df8d3a4700f4ec21576f9fe8e05e61ff754e3af59bcdff73f753697bb0ceb34"
+    },
+    "artifacts/v2/essd-study-bundle-independent/run001/scratch/existing-output/sentinel": {
+      "bytes": 6,
+      "sha256": "6b428ace0262db5de1acac5d5e225a117674ede63c6631800103512289d791e6"
+    },
+    "artifacts/v2/essd-study-bundle-independent/run001/scratch/fabricated-provider-identity/manifest.json": {
+      "bytes": 3390,
+      "sha256": "f18b4356b235dff4e2e64257da1e77556d43720663af553e0ae68ea8f059d548"
+    },
+    "artifacts/v2/essd-study-bundle-independent/run001/scratch/fabricated-provider-identity/primary-source-crosswalk.csv": {
+      "bytes": 239529,
+      "sha256": "6df81bead263f7a83dab04c63ca2c5df32c2459a9ecf2df78fd9c80c262186c8"
+    },
+    "artifacts/v2/essd-study-bundle-independent/run001/scratch/fabricated-provider-identity/records.jsonl": {
+      "bytes": 3664403,
+      "sha256": "9ce0d30784d62b8d9f718994b471eb4c9cc839616a1647015ff91f5902a3828a"
+    },
+    "artifacts/v2/essd-study-bundle-independent/run001/scratch/fabricated-provider-identity/refusals.csv": {
+      "bytes": 1160987,
+      "sha256": "055f960736e349a2cd1be12dbfd201fa31040d007342f619a5e98612f2c4655f"
+    },
+    "artifacts/v2/essd-study-bundle-independent/run001/scratch/fabricated-provider-identity/report.json": {
+      "bytes": 4184,
+      "sha256": "6c6f28f22b3c46d4a9adcd7b8814f07b1db304306ac0cf6c02e85cbd170c2e02"
+    },
+    "artifacts/v2/essd-study-bundle-independent/run001/scratch/fresh-publication/manifest.json": {
+      "bytes": 3390,
+      "sha256": "aaab3414a4168c910210b3e275b759f19fe478501de3ec5656f2e1ddcec58e93"
+    },
+    "artifacts/v2/essd-study-bundle-independent/run001/scratch/fresh-publication/primary-source-crosswalk.csv": {
+      "bytes": 239514,
+      "sha256": "7252e1424a072775cbbdd1172d35ab28d9b76f089040164df4bfe940fce61893"
+    },
+    "artifacts/v2/essd-study-bundle-independent/run001/scratch/fresh-publication/records.jsonl": {
+      "bytes": 3664403,
+      "sha256": "9ce0d30784d62b8d9f718994b471eb4c9cc839616a1647015ff91f5902a3828a"
+    },
+    "artifacts/v2/essd-study-bundle-independent/run001/scratch/fresh-publication/refusals.csv": {
+      "bytes": 1160987,
+      "sha256": "055f960736e349a2cd1be12dbfd201fa31040d007342f619a5e98612f2c4655f"
+    },
+    "artifacts/v2/essd-study-bundle-independent/run001/scratch/fresh-publication/report.json": {
+      "bytes": 4184,
+      "sha256": "6c6f28f22b3c46d4a9adcd7b8814f07b1db304306ac0cf6c02e85cbd170c2e02"
+    },
+    "artifacts/v2/essd-study-bundle-independent/run001/scratch/manifest-count-promotion/manifest.json": {
+      "bytes": 3390,
+      "sha256": "5d7ad1a4da15fa759a5d95c1f01e2ad0524827a5b27e733ae89079f0eb02c761"
+    },
+    "artifacts/v2/essd-study-bundle-independent/run001/scratch/manifest-count-promotion/primary-source-crosswalk.csv": {
+      "bytes": 239514,
+      "sha256": "7252e1424a072775cbbdd1172d35ab28d9b76f089040164df4bfe940fce61893"
+    },
+    "artifacts/v2/essd-study-bundle-independent/run001/scratch/manifest-count-promotion/records.jsonl": {
+      "bytes": 3664403,
+      "sha256": "9ce0d30784d62b8d9f718994b471eb4c9cc839616a1647015ff91f5902a3828a"
+    },
+    "artifacts/v2/essd-study-bundle-independent/run001/scratch/manifest-count-promotion/refusals.csv": {
+      "bytes": 1160987,
+      "sha256": "055f960736e349a2cd1be12dbfd201fa31040d007342f619a5e98612f2c4655f"
+    },
+    "artifacts/v2/essd-study-bundle-independent/run001/scratch/manifest-count-promotion/report.json": {
+      "bytes": 4184,
+      "sha256": "6c6f28f22b3c46d4a9adcd7b8814f07b1db304306ac0cf6c02e85cbd170c2e02"
+    },
+    "artifacts/v2/essd-study-bundle-independent/run001/scratch/records-drop/manifest.json": {
+      "bytes": 3390,
+      "sha256": "c84d1c5c8ffb5e747e515c920d9087837169aea8f9f8a9463f12f33340245b52"
+    },
+    "artifacts/v2/essd-study-bundle-independent/run001/scratch/records-drop/primary-source-crosswalk.csv": {
+      "bytes": 239514,
+      "sha256": "7252e1424a072775cbbdd1172d35ab28d9b76f089040164df4bfe940fce61893"
+    },
+    "artifacts/v2/essd-study-bundle-independent/run001/scratch/records-drop/records.jsonl": {
+      "bytes": 3661148,
+      "sha256": "791f7ec7fa73f0f86f4f2abd81e2eb10465c519044ce78628dd8e1ea9ad2702b"
+    },
+    "artifacts/v2/essd-study-bundle-independent/run001/scratch/records-drop/refusals.csv": {
+      "bytes": 1160987,
+      "sha256": "055f960736e349a2cd1be12dbfd201fa31040d007342f619a5e98612f2c4655f"
+    },
+    "artifacts/v2/essd-study-bundle-independent/run001/scratch/records-drop/report.json": {
+      "bytes": 4184,
+      "sha256": "6c6f28f22b3c46d4a9adcd7b8814f07b1db304306ac0cf6c02e85cbd170c2e02"
+    },
+    "artifacts/v2/essd-study-bundle-independent/run001/scratch/records-duplicate/manifest.json": {
+      "bytes": 3390,
+      "sha256": "30984a65c84a2af823324f6bf02fb8d6122a0842f6d8bdac0b107c081c871f31"
+    },
+    "artifacts/v2/essd-study-bundle-independent/run001/scratch/records-duplicate/primary-source-crosswalk.csv": {
+      "bytes": 239514,
+      "sha256": "7252e1424a072775cbbdd1172d35ab28d9b76f089040164df4bfe940fce61893"
+    },
+    "artifacts/v2/essd-study-bundle-independent/run001/scratch/records-duplicate/records.jsonl": {
+      "bytes": 3667629,
+      "sha256": "dd09d16da8219b61aec3cc6276d03f39fdfca53d0d9420f65478aeb3cc2edee4"
+    },
+    "artifacts/v2/essd-study-bundle-independent/run001/scratch/records-duplicate/refusals.csv": {
+      "bytes": 1160987,
+      "sha256": "055f960736e349a2cd1be12dbfd201fa31040d007342f619a5e98612f2c4655f"
+    },
+    "artifacts/v2/essd-study-bundle-independent/run001/scratch/records-duplicate/report.json": {
+      "bytes": 4184,
+      "sha256": "6c6f28f22b3c46d4a9adcd7b8814f07b1db304306ac0cf6c02e85cbd170c2e02"
+    },
+    "artifacts/v2/essd-study-bundle-independent/run001/scratch/records-null_to_zero/manifest.json": {
+      "bytes": 3390,
+      "sha256": "20bce2be6b376d65158df481bc83e958094e2d4a30e509435229667a4e7ae1b7"
+    },
+    "artifacts/v2/essd-study-bundle-independent/run001/scratch/records-null_to_zero/primary-source-crosswalk.csv": {
+      "bytes": 239514,
+      "sha256": "7252e1424a072775cbbdd1172d35ab28d9b76f089040164df4bfe940fce61893"
+    },
+    "artifacts/v2/essd-study-bundle-independent/run001/scratch/records-null_to_zero/records.jsonl": {
+      "bytes": 3664403,
+      "sha256": "3a3031b096565f87910fbee96723556f3fe6dc597df6bb27f23421ea5cc2ade5"
+    },
+    "artifacts/v2/essd-study-bundle-independent/run001/scratch/records-null_to_zero/refusals.csv": {
+      "bytes": 1160987,
+      "sha256": "055f960736e349a2cd1be12dbfd201fa31040d007342f619a5e98612f2c4655f"
+    },
+    "artifacts/v2/essd-study-bundle-independent/run001/scratch/records-null_to_zero/report.json": {
+      "bytes": 4184,
+      "sha256": "6c6f28f22b3c46d4a9adcd7b8814f07b1db304306ac0cf6c02e85cbd170c2e02"
+    },
+    "artifacts/v2/essd-study-bundle-independent/run001/scratch/records-order/manifest.json": {
+      "bytes": 3390,
+      "sha256": "2568252c7583cbe1410567a0de739e45ca232b24ff8b996fe9bcd2fd63cd1cf0"
+    },
+    "artifacts/v2/essd-study-bundle-independent/run001/scratch/records-order/primary-source-crosswalk.csv": {
+      "bytes": 239514,
+      "sha256": "7252e1424a072775cbbdd1172d35ab28d9b76f089040164df4bfe940fce61893"
+    },
+    "artifacts/v2/essd-study-bundle-independent/run001/scratch/records-order/records.jsonl": {
+      "bytes": 3664403,
+      "sha256": "66e58acbba907b2e2c15a346be48358e0e53c00a9b859285e9c478f25559eb49"
+    },
+    "artifacts/v2/essd-study-bundle-independent/run001/scratch/records-order/refusals.csv": {
+      "bytes": 1160987,
+      "sha256": "055f960736e349a2cd1be12dbfd201fa31040d007342f619a5e98612f2c4655f"
+    },
+    "artifacts/v2/essd-study-bundle-independent/run001/scratch/records-order/report.json": {
+      "bytes": 4184,
+      "sha256": "6c6f28f22b3c46d4a9adcd7b8814f07b1db304306ac0cf6c02e85cbd170c2e02"
+    },
+    "artifacts/v2/essd-study-bundle-independent/run001/scratch/refusal-removed/manifest.json": {
+      "bytes": 3390,
+      "sha256": "36f722267b2640d4e0fd60104697a2e0fdf4126500ee661d4f3868af35647e71"
+    },
+    "artifacts/v2/essd-study-bundle-independent/run001/scratch/refusal-removed/primary-source-crosswalk.csv": {
+      "bytes": 239514,
+      "sha256": "7252e1424a072775cbbdd1172d35ab28d9b76f089040164df4bfe940fce61893"
+    },
+    "artifacts/v2/essd-study-bundle-independent/run001/scratch/refusal-removed/records.jsonl": {
+      "bytes": 3664403,
+      "sha256": "9ce0d30784d62b8d9f718994b471eb4c9cc839616a1647015ff91f5902a3828a"
+    },
+    "artifacts/v2/essd-study-bundle-independent/run001/scratch/refusal-removed/refusals.csv": {
+      "bytes": 1160754,
+      "sha256": "07ad6977b50829e717188d5c639e47460071538a29a1af71ce44a6912b9fb4e9"
+    },
+    "artifacts/v2/essd-study-bundle-independent/run001/scratch/refusal-removed/report.json": {
+      "bytes": 4184,
+      "sha256": "6c6f28f22b3c46d4a9adcd7b8814f07b1db304306ac0cf6c02e85cbd170c2e02"
+    }
+  },
+  "result": "pass_scoped_metadata_bundle; no full ESSD reproduction claim",
+  "source_bytes": 50788119,
+  "source_file_count": 58,
+  "source_prefix": "artifacts/v2/essd-study-bundle-independent/",
+  "verification": "all archive members reopened and matched original bytes and SHA-256"
+}
