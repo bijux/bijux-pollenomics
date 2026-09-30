@@ -1,60 +1,85 @@
 ---
-title: Swedish Pollen and Nordic Transfer Study
+title: Nordic Pollen Study and Source Decisions
 audience: scientific_review
 type: report
 status: scoped
 owner: bijux-pollenomics-scientific
-last_reviewed: 2026-09-29
+last_reviewed: 2026-09-30
 ---
 
-# Swedish pollen and Nordic prediction study
+# What we established about Nordic pollen and source admission
 
-Repository-relative paths cited without a full prefix below refer to
-`docs/report/pollen-reconstruction/`, where the governed numeric products and
-their producers remain.
+We keep governed numeric products and producers under
+`docs/report/pollen-reconstruction/`; unprefixed paths below refer to that
+directory. We use this report to connect source admission to prediction,
+method correspondence and the remaining scientific questions. The
+[evidence index](../evidence-index.md) leads to each exact result row.
 
-The [Swedish native pollen sequences](../../docs/report/pollen-reconstruction/swedish-native-sequences/source-notes.md) expose
-the three Neotoma/EPD lakes' sample-level observed counts, selected ages, source
-chronology controls and browsable taxon trajectories separately from prediction.
-An [independent PANGAEA EPD profile comparison](../../docs/report/source-relations/neotoma/abbo-profile/README.md)
-matches all 107 Abborrtjärnen depths after an exact 100-to-1 conversion and
-535 selected taxon-count cells. It reports a 3 ha event area but does not
-establish historical basin geometry; its core date differs from the Neotoma
-collection-unit date. Neither fact changes the LRA refusal below.
-The [Bökesjön basin review](../../docs/report/source-relations/neotoma/boke-basin/README.md)
-adds a 1984 mapped lake and two modern area measurements but does not bind
-their geometry to the fossil-pollen core or its sample ages.
-The [Gilltjärnen source question](../../docs/report/source-relations/rootsi-landclim-overlap/README.md)
-finds that LandClim II row 994 defines a 169 m site radius and 101 samples,
-while its longitude is 15.083333° E versus 15.83333° E for the 101-sample
-Neotoma `GILL` core. The approximately 42 km discrepancy prevents transfer of
-the LandClim basin value to the observed-pollen transfer core; equal sample
-counts do not establish historical input identity or age-specific geometry.
-For Denmark, the [EPD/PANGAEA Solsø core record](https://doi.pangaea.de/10.1594/PANGAEA.740759)
-identifies `SOLSOE81` and reports a 2.5 ha event area, 0.98 m water depth and
-a strongly drained lake. The captured Neotoma dataset 4445 binds the same
+## What we admitted from source records
+
+We retained sample-level counts, selected ages, chronology controls and taxon
+trajectories for three Neotoma/EPD lakes in our
+[Swedish native pollen sequences](../../docs/report/pollen-reconstruction/swedish-native-sequences/source-notes.md).
+In an [independent PANGAEA EPD comparison](../../docs/report/source-relations/neotoma/abbo-profile/README.md),
+we matched all 107 Abborrtjärnen depths after an exact 100-to-1 conversion
+and 535 selected taxon-count cells. We did not infer historical basin geometry
+from its 3 ha event area; its core date also differs from the Neotoma
+collection-unit date. Our [Bökesjön basin review](../../docs/report/source-relations/neotoma/boke-basin/README.md)
+found a 1984 mapped lake and two modern area measurements, neither bound to
+the fossil core and sample ages.
+
+We refused a Gilltjärnen basin transfer because
+[LandClim II row 994](../../docs/report/source-relations/rootsi-landclim-overlap/README.md)
+gives a 169 m radius and 101 samples at 15.083333° E, while the 101-sample
+Neotoma `GILL` core is at 15.83333° E. Their approximately 42 km discrepancy
+and equal sample counts do not establish core identity or age-specific basin
+geometry.
+
+For Danish Solsø, we kept the
+[EPD/PANGAEA `SOLSOE81` core record](https://doi.pangaea.de/10.1594/PANGAEA.740759)
+separate from later site-area reports. It gives a 2.5 ha event area, 0.98 m
+water depth and a strongly drained lake. Neotoma dataset 4445 binds the same
 core handle to collection unit 4303 and reports a 25,563 m² site area, but
-its site polygon centroid (8.61341° E, 56.12846° N) is 1.352 km from the
-PANGAEA event point (8.63333° E, 56.13333° N) by WGS84 inverse geodesic.
-An [author's later Danish lake comparison](https://doi.org/10.1046/j.1365-2745.2000.00490.x)
-lists Solsø as `SOL` with 4 ha area and 2 m maximum depth (Table 1), citing
-Odgaard (1994), but does not identify either EPD core handle or an age-specific
-shoreline. Its area differs from the 2.5 ha `SOLSOE81` event record, and its
-maximum lake depth is not the 0.98 m water depth at that core. Neither area can
-be selected for LRA rings across the fossil sequence without resolving the
-record and time support. The core-specific record therefore leaves the location
-conflict and age-specific basin extent unresolved. Dataset 4446 is a separate
-`SOLSOE83` core; the 1981 record does not bind its geometry. The PANGAEA
-record carries a CC BY-NC 3.0 license; no source data from it are reproduced
-here. Neither core is admitted to an LRA run on this evidence alone.
+its centroid (8.61341° E, 56.12846° N) is 1.352 km from the PANGAEA event
+point (8.63333° E, 56.13333° N) by WGS84 inverse geodesic. An
+[author's later comparison](https://doi.org/10.1046/j.1365-2745.2000.00490.x)
+lists `SOL` at 4 ha and 2 m maximum depth (Table 1), citing Odgaard (1994),
+without binding either EPD core or an age-specific shoreline. We cannot use
+that area or the 2.5 ha event area for fossil-sequence LRA rings while the
+record and time support differ. Neotoma dataset 4446 is a separate
+`SOLSOE83` core. We reproduce no source data from the PANGAEA record, which
+carries CC BY-NC 3.0 terms, and admit neither core to LRA on this evidence.
 
 ## Scope and conclusion
 
-This report records the strongest supported results available on 29 September 2026. It contains exploratory observed-pollen analyses on the previously exposed 17-site author cohort, a source-backed three-lake Swedish Neotoma/EPD whole-site holdout on 16 exact labels, Denmark/Finland/Norway 16-label country holdouts, four 31-author-target country holdouts, and additional Swedish bog-core and three-lake transfers on that 31-target axis. An additional author-prepared LRA development run ends in a documented numerical refusal. It also contains evidence-bound comparisons to retained author examples and the published archive. It does **not** establish Swedish LRA predictions, independent vegetation accuracy, a source-complete reproduction of the paper, or a valid HYDE-based country extension. No untouched confirmatory pollen evaluation was performed.
+We produced exploratory observed-pollen predictions on the previously exposed
+17-site author cohort, a three-lake Swedish 16-label holdout, Denmark/Finland/
+Norway 16-label country holdouts, four 31-author-target country holdouts, and
+additional Swedish bog and lake transfers on that author axis. We also ran a
+real [English constrained LOVE study](english-lra-pollen-prediction.md): 14 of
+15 outer folds yielded held-out forward-pollen predictions, while BECKHAM
+refused. Its earlier analytical and optimizer feasibility attempts remain
+separate numerical refusals. We retained bounded correspondence to author-R
+and the published archive, and modeled HYDE country context. We have not
+established Swedish or other Nordic LRA predictions, independent vegetation
+accuracy, a source-complete paper reproduction, or a measured benefit from
+HYDE. We performed no untouched confirmatory pollen evaluation.
 
-The prediction cohort is the previously opened English author-prepared pollen dataset: 17 author site IDs and 31 taxa. Results use whole-site holdouts in three grid-stratified folds. Site aliases across databases have not been reviewed. All target outcomes were previously exposed and informed this development search, so the selected candidate is exploratory and is not an unbiased final skill estimate.
+For the 17-site English author development search, we used 31 taxa and
+whole-site holdouts in three grid-stratified folds. We have not reviewed site
+aliases across databases. We had already exposed all target outcomes and
+used them in designing the search; the selected candidate is exploratory,
+not an unbiased final skill estimate.
 
-The selected development candidate is a WGS84 radial-basis-function model fitted to centered log-ratio transformed compositions with a 0.25 distance-quantile scale and ridge penalty 0.1. Training-only half-counts are used for the CLR fit; scores use the original observed counts. It has the lowest common-support site-macro MAE in this finite search, but covers 174/184 attempted site bins (94.6%) compared with 178/184 (96.7%) for the inverse-distance baseline. On the common 174 bins its MAE is 0.017774, versus 0.018948 for inverse-distance squared and 0.019621 for the training mean. The roughly 6.2% reduction from inverse-distance MAE is development evidence only; the lower coverage and prior outcome exposure remain part of that result.
+We selected a WGS84 radial-basis-function candidate on centered log-ratio
+compositions with a 0.25 distance-quantile scale and ridge 0.1. We applied
+half-count smoothing only to CLR training inputs and scored original observed
+counts. Its common-support site-macro MAE is lowest in this finite search,
+but it covers 174/184 attempted site bins (94.6%) versus 178/184 (96.7%)
+for inverse-distance squared. On 174 shared bins, MAE is 0.017774 versus
+0.018948 for inverse-distance squared and 0.019621 for training mean. We
+retain the roughly 6.2% difference as development evidence alongside lower
+coverage and prior outcome exposure.
 
 ## Results by scientific question
 
@@ -70,9 +95,21 @@ The selected development candidate is a WGS84 radial-basis-function model fitted
 | Can the three Swedish lakes be held out against the other Nordic countries on that same author axis? | All 228 Swedish source samples are excluded from 81 DK/FI/NO training sites. Three fixed methods score 51 of 54 attempted Swedish site-bins (153 method rows); three early bins are refused. Inverse-distance-squared has the lowest equal-site MAE, 0.028740, and Hellinger, 0.413111. Assigned native NISP is 221,800/240,966 (92.05%) across all bins. | Exploratory prior-exposed observed-pollen result at only three target sites. The earlier Swedish author-parameter screen covers 39 common bins, not all 54. No Swedish LRA or independent vegetation claim. |
 | Can an additional Swedish core be held out against those Nordic training sites? | A metadata-selected Storasjö bog core contributes 77 physical samples and 22 scored bins on the same 31-target axis. All three fixed methods score the same 22 bins (66 rows); nearest-site MAE is 0.015389 and Hellinger is 0.243786. Author-assigned NISP is 35,505/35,767; a parallel EPD dataset duplicates all 77 depths, ages and pollen count vectors and is excluded. | Additional prior-exposed development transfer at one bog core. The predictions were committed before target scoring. It does not establish country-wide skill, LRA or independent vegetation accuracy. |
 | Can the same fixed methods transfer to three more Swedish lake cores? | A metadata-selected, source-default age cohort contributes 268 samples and 63 site-bins at Gilltjärnen, Lake Avegöl and Flinkasjön. All three methods score every bin (189 rows), assigning 231,115/238,797 native NISP to 31 targets. Inverse-distance-squared equal-site MAE is 0.017334 and Hellinger 0.286757; nearest-site MAE is 0.017932. | Prior-exposed development transfer across three physical lake sites, with predictions committed before scoring. The best method differs by lake; no LRA, independent vegetation, country-wide or confirmatory claim. |
-| Can fold-specific LRA information predict withheld-site pollen or vegetation? | In the separate English author-prepared development cohort, 15 whole-site folds trained 195 items but all refused prediction because reconstructed LOVE local cover was negative in 54/54 inspected ring rows. No Swedish Neotoma LRA fold was run. Exact-name LandClim II PPE/FSP coverage intersects six Swedish direct-cohort labels, retaining 18.1–38.7% of each site's NISP. The authors' taxonomy lookup assigns 98.5080%, 72.4801% and 97.3183% of all native NISP at Abborrtjärnen, Bussjösjön and Bökesjön respectively, but excludes or leaves the remainder unmapped. All 31 author targets bind exactly to the author code's RPP, fall-speed and covariance files. A 1986 field study maps a roughly 0.3 ha Bussjösjön and an ancient gyttja edge, while a later 3 ha inventory point lies 2.5264 km from the Neotoma site point; no calibrated basin outline is bound to the pollen samples. | The English calculation is a numerical negative result under declared geometry assumptions. The exact author parameter profile is source-bound, but Swedish Neotoma use still needs time-matched basin geometry and a complete count-denominator decision. Neither result is a model score. |
+| Can fold-specific LRA information predict withheld-site pollen or vegetation? | Our first author-prepared attempt refused all 15 folds after negative LOVE cover in 54/54 inspected ring rows. We then constrained local cover on the 30-target English author profile: 192/195 training fits completed and 14/15 outer folds published 42 forward-pollen predictions. Inverse-distance-squared vegetation gave site-macro pollen MAE 0.021088. The [separate English account](english-lra-pollen-prediction.md) retains the optimizer refusal, matched direct-pollen comparison and basin-radius forward sensitivity. | This is an English, prior-exposed LRA-derived pollen score. We have no independent vegetation truth. We admitted zero Swedish or four-country Nordic fossil cores to LRA because same-core chronology, historical basin, count denominator, PPE use and rights remain unresolved. |
 | Are predictions accurate against independent measured vegetation? | The EMPD2–NFI review selected 16 spatial leads within 1 km and admitted 0 independent vegetation pairs. The dated Färskesjön lead is one 7 m forest plot 427 m from the lake point. A historical-map screen retains three bogs' map coverage and pollen anchors, but no exact numerical map-class values. A separate published Swedish validation figure prints nine matched pollen/REVEALS/observed-vegetation labels; its selected subset has REVEALS MAE 5.11 versus pollen MAE 17.33 percentage points. | This repository's predictors were not evaluated against measured vegetation. The published figure is a different study and its selected printed labels do not provide the original ten-lake input cohort or full 26-taxon accuracy. |
 | Do HYDE or extra countries add useful information? | Native ISO-grid sums agree with 84 four-country cropland totals at seven CE labels and three scenarios. The separate count-only private-window adapter still refuses country assignments. No paired pollen ablation was run. | Source-grid correspondence established for selected cropland labels; matched pollen use remains blocked by rights, formal CRS, calendar, covariate support and scenario interpretation. |
+
+For Swedish LRA screening, we found that exact-name LandClim II PPE/FSP
+coverage intersects only six direct-cohort labels, retaining 18.1–38.7% of
+each site's native NISP. The authors' taxonomy lookup assigns 98.5080%,
+72.4801% and 97.3183% at Abborrtjärnen, Bussjösjön and Bökesjön, with the
+remainder excluded or unmapped; all 31 author targets bind to the author
+code's RPP, fall-speed and covariance files. A 1986 field study maps an
+approximately 0.3 ha Bussjösjön and an older gyttja edge, while a later
+3 ha inventory point lies 2.5264 km from the Neotoma site point. We cannot
+bind a calibrated historical basin outline to those pollen samples. Our
+[source cohort account](source-cohorts.md) and [open needs](../needed/README.md)
+retain the same-core decisions needed before Swedish LRA.
 
 The separate [30-taxon optimized LOVE feasibility pilot](../../docs/report/pollen-reconstruction/author-lra-optimized-feasibility/README.md)
 retained the excluded `Filipendula` count mass and source request identities. Its
@@ -167,7 +204,10 @@ protocol; the comparison is development evidence, not independent validation.
 | Vegetation boundary | The EMPD2/NFI source review admits zero matched pairs; the dated Färskesjön plot is too small and distant for the landscape estimand. The historical-map study supplies map coverage and pollen anchors at three bogs, without original numerical vegetation fractions. A separate published figure yields a bounded nine-label comparison of the original Swedish REVEALS study, not validation of this repository's predictions. | [Färskesjön plot support](../../docs/report/vegetation-reference/farskesjon/README.md), [historical-map support](../../docs/report/vegetation-reference/smaland-historical-maps/README.md), [published Swedish figure comparison](../../docs/report/vegetation-reference/southern-sweden-figure/README.md), [EMPD2/NFI source review](../../docs/public/pollenomics-data/sources/empd2-nfi-review.md) and [NFI access review](../../docs/public/pollenomics-data/sources/nordic-nfi-reference-access.md) |
 | HYDE modeled context | Source-reported Nordic cropland totals and matched native ISO-grid conservation at seven CE labels, with the source declaration review and separate private scenario windows. | [Country result](hyde-cropland-source-account.md) and [HYDE source review](../../docs/public/pollenomics-data/sources/hyde.md) |
 
-Development predictions, per-candidate coverage, score definitions, source hashes and refusal rows are retained in the linked repository outputs. No new final outcome access or outcome-informed confirmatory redesign occurred for this report.
+We retained development predictions, per-candidate coverage, score
+definitions, source hashes and refusal rows in the linked repository outputs.
+We did not open a new final outcome set or call this an outcome-independent
+confirmatory redesign.
 
 To verify the tracked result, configuration and producer digests locally, run:
 
@@ -175,13 +215,32 @@ To verify the tracked result, configuration and producer digests locally, run:
 .venv/bin/python docs/report/pollen-reconstruction/verify_report.py
 ```
 
-The Swedish producer is `bijux_pollenomics_dev.source_completion.swedish_direct_pollen`; its exact configuration, source hashes, cohort, prepared profiles, frozen predictions, scores and exclusions are retained under `swedish-direct-pollen/`. The author development design, leaderboard, coverage, candidate scores and compressed predictions are retained in this directory. The Nordic country-held-out outputs are retained under `docs/report/regions/nordic/direct-pollen/`. Raw source snapshots remain governed by their source repositories and the public source reviews.
+We retained the Swedish producer
+`bijux_pollenomics_dev.source_completion.swedish_direct_pollen` with its
+configuration, source hashes, cohort, prepared profiles, frozen predictions,
+scores and exclusions under `swedish-direct-pollen/`. We retained the author
+development design, leaderboard, coverage, candidate scores and compressed
+predictions in the same governed directory. The Nordic country-held-out
+products remain under `docs/report/regions/nordic/direct-pollen/`. We keep
+raw snapshots in their source repositories under the public source reviews.
 
 ### Author source custody and reproduction
 
-The author development study consumes private source files in addition to its tracked producer. The exact original input manifest and its 193 source/reference files (2,282,688 bytes excluding the manifest) are retained under `landclim/author-reference` in the external source-data store. This includes the prepared counts, site geometry, time-window axis, taxon crosswalk and independent R reference files. The grouped-development consumer requires 22 of those files plus the original manifest. Source inputs and reference files remain private because redistribution rights are unresolved; neither source custody nor the existing author geometry admits the separate Swedish Neotoma cohort to LRA.
+We use private source files alongside the tracked author-development producer.
+We retained the exact original input manifest and 193 source/reference files
+(2,282,688 bytes excluding the manifest) under `landclim/author-reference`
+in the external source-data store. They include prepared counts, site
+geometry, time windows, a taxon crosswalk and independent R reference files.
+The grouped-development consumer needs 22 of those files plus the manifest.
+We keep the files private because redistribution rights remain unresolved.
+Their custody and author geometry do not admit the separate Swedish Neotoma
+cohort to LRA.
 
-The [custody record](../../docs/report/pollen-reconstruction/author-source-custody.json) binds the exact manifest, consumed input hashes, source revision, producer and source reader. It preserves source identity independently of disposable run directories. Supply the private capsule path to authenticate it with the study's existing source reader, then reproduce the previously exposed development comparison:
+Our [custody record](../../docs/report/pollen-reconstruction/author-source-custody.json)
+binds the exact manifest, consumed input hashes, source revision, producer
+and source reader independently of disposable run directories. Supply the
+private capsule path to authenticate it with the existing source reader,
+then reproduce the previously exposed development comparison:
 
 ```sh
 author_source_root=/path/to/private/source/store/landclim/author-reference
@@ -195,9 +254,16 @@ OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 \
   --output artifacts/author-pollen-development-reproduction
 ```
 
-The output directory is disposable; the documented results and private source capsule survive its removal. A recipient without access to the private source files can inspect the retained predictions and scores but cannot rerun the source-backed study from the report alone.
+We treat the output directory as disposable; the documented results and
+private source capsule survive its removal. Readers without the private
+source files can inspect retained predictions and scores, but cannot rerun
+the source-backed study from this report alone.
 
-## Software delivery verification
+## Earlier software delivery receipt
+
+We retain the following earlier software check as historical implementation
+evidence. We do not treat it as a current integrated acceptance run or a
+scientific completion decision.
 
 | Acceptance dimension | Current state |
 | --- | --- |
@@ -209,11 +275,29 @@ The output directory is disposable; the documented results and private source ca
 | Scientific acceptance | Pending for the full Nordic LRA and independent vegetation objective; this is a scoped developmental report. |
 | Public release | Not authorized by this scientific report or its software checks. |
 
-The full non-slow/non-live/non-API development-package selection ran against commit `20ecd351`: 1,097 tests passed before the final guard, 3 explicitly opt-in tests were skipped, and 3 pytest-asyncio deprecation warnings were reported. The command exited nonzero at the final workspace-layout guard because `.ruff_cache` from an earlier lint command was present at the repository root. I removed that generated cache; the managed focused rerun of runtime isolation, both direct-pollen suites, and the workspace-layout guard passed all 10 tests with an unchanged read set. Ruff check and format passed with cache reads disabled, and mypy passed on both direct-pollen producers.
+We ran the full non-slow/non-live/non-API development-package selection
+against commit `20ecd351`. It had 1,097 passing tests before the final
+guard, 3 explicitly opt-in skips and 3 pytest-asyncio deprecation warnings.
+The command exited nonzero at the workspace-layout guard because an earlier
+lint command had left `.ruff_cache` at the repository root. We removed that
+generated cache and reran runtime isolation, both direct-pollen suites and
+the guard: all 10 focused tests passed on an unchanged read set. Ruff check
+and format passed with cache reads disabled; mypy passed on both direct-pollen
+producers.
 
-The no-isolation package build stopped because `hatch-vcs` was absent from the active environment. The package's normal isolated build passed on the committed producer and generated a source archive and wheel. The local version includes `+dirty` because the shared checkout retains a separate staged documentation edit outside the package. Nothing was published. The tox build target was not run because its `sync-license-assets-package` pretarget would rewrite the tracked development-package `LICENSE`, which differs from the root license.
+Our no-isolation package build stopped because `hatch-vcs` was absent from
+that environment. The normal isolated build passed on the committed producer
+and generated a source archive and wheel. That local version included
+`+dirty` because the checkout had a separate staged documentation edit.
+We published nothing. We did not run the tox build target then because its
+`sync-license-assets-package` pretarget would rewrite the tracked
+development-package `LICENSE`, which differs from the root license.
 
-These software delivery checks do not change the scientific acceptance state. Swedish and Nordic direct-pollen results are exploratory; LRA and independent measured-vegetation accuracy remain blocked or not evaluated. HYDE now has bounded source country and seven-year native grid results, while matched pollen use remains blocked.
+We keep software delivery separate from scientific acceptance. Swedish and
+Nordic direct-pollen results remain exploratory; Nordic LRA and independent
+measured-vegetation accuracy are still blocked or not evaluated. We have
+bounded HYDE country and seven-year native grid results, but have not run a
+matched pollen comparison using HYDE.
 
 ## Reopening conditions and remaining work
 
@@ -221,4 +305,8 @@ The Swedish and Nordic Neotoma direct-pollen results are reproducible from the r
 
 Nordic country-held-out direct-pollen prediction is available for Denmark, Finland and Norway on both declared taxon axes. The [Danish chronology coverage replay](../../docs/report/countries/denmark/pollen-chronology-coverage/README.md) accounts for all five captured Danish sites: 279 pollen-count samples, 91 comparable-age candidates at Solsø and 188 prerequisite refusals. Source descriptions identify 104 of the refused samples as Eemian or middle Pleistocene, outside this Holocene prediction scope; the other 83 have no source-bound Holocene eligibility. The DK/NO/FI LRA extension can reopen after country-specific Neotoma taxa/PPE, chronology, count-denominator, basin and rights review identifies admitted inputs; independent vegetation work additionally needs accessible measured source records and matched pollen/reference support. The 91 Danish, 1,797 Finnish and 3,544 Norwegian source-screen candidates are not the scored-bin denominators; coverage and refusals are retained separately in the [16-label](../../docs/report/regions/nordic/direct-pollen/coverage.csv) and [31-target](../../docs/report/regions/nordic/author-target-pollen/coverage.csv) studies.
 
-Until those conditions are met, the supported claims include exploratory prediction on the exposed 17-site author cohort, exploratory three-lake Swedish observed-pollen interpolation, and bounded paper numerical correspondence. This report does not certify completion of the full Nordic LRA and prediction objective.
+Until those conditions are met, we claim exploratory prediction on the
+exposed 17-site author cohort, exploratory Swedish and other Nordic
+observed-pollen transfer, source-bound English LRA forward-pollen prediction
+and bounded paper numerical correspondence. We do not certify completion
+of the full Nordic LRA and vegetation-validation objective.
