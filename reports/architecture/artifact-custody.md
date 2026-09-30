@@ -62,3 +62,26 @@ fixture or code file lived in that prefix, and no product reader or live
 process referenced it. The receipts did not retain an exact command or input
 closure, so they are historical outcomes only and cannot certify the current
 map legend or replace a selected check on current code.
+
+## Known-landscape source checkout
+
+We retired only the 13 MiB `artifacts/v3/known-landscape/agent001/snapshot/`
+copy. Its plan named commit `cefea94daaad459494ab97742fcbf4cd2b042fe8`
+and a focused source/test closure. We compared its files to that Git tree:
+1,521 files had the exact commit blob, four were later synthetic generator or
+test files whose exact blobs are reachable from repository history, and four
+were Ruff cache files. No independent numerical result lived in this
+snapshot. The current [governed synthetic reconstruction](../../docs/report/synthetic-validation/reconstruction/README.md)
+retains the scientific result and its synthetic-only limits.
+
+The four later blobs were `4417a74d5d3a66e39839f7e39a9182387f045b40`
+(`lra_validation/known_landscape.py`),
+`821d24907f9ffbfd3db1b69296b0eb25868d4b93` and
+`1d3a665089d71d18bc915ddc4e62f5cf90921965` (the source and test package
+initializers), and `23a60a3a775a00b7b689d65702a45ec1395a046e`
+(`test_known_landscape.py`). All four paths are under
+`packages/bijux-pollenomics-dev/`.
+
+We kept the rest of `artifacts/v3/known-landscape/`. Its host challenge and
+development sweep contain distinct report values and run scripts; they need
+an owned product destination and reproducible source account before removal.
