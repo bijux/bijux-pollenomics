@@ -5,6 +5,11 @@
   "as_of": "2026-09-30",
   "files": [
     {
+      "path": "data/archaeology/raw/hojea_2003_source.json",
+      "sha256": "0b9a9a01aad4a8a0abc710b0b96c987d88830f84885ec3282994a60a26f803a9",
+      "bytes": 1227
+    },
+    {
       "path": "data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv",
       "sha256": "32eac151566b41c186745dd077fabcddde06f64f9a3a2056699e88dbabd76d4d",
       "bytes": 1773
@@ -2046,8 +2051,8 @@
     },
     {
       "path": "reports/needed/README.md",
-      "sha256": "464d55991d399584c6371c5bf25af7869769524576d73326a530007da805f153",
-      "bytes": 16359
+      "sha256": "9dd3cbc67ed7c1b278e9e148df3fd985c121933a625c23f2c0b3244a46ea9ef1",
+      "bytes": 16622
     },
     {
       "path": "reports/science/abborrtjarnen-source-method.md",

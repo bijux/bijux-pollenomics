@@ -216,6 +216,10 @@ retain a complete [national RAA GeoPackage source candidate]
 (../../data/raa/raw/national_geopackage_source.json) in the private source
 store. Its 2,291,224,576 bytes and SHA-256 are verified; its analytical rights,
 feature semantics and relation to the current point layer are not yet reviewed.
+The Höje å report cited for Gullåkra and Vesums mossar also has an exact
+[private source identity](../../data/archaeology/raw/hojea_2003_source.json).
+Its project-area coordinates do not locate a pollen core or an independently
+qualified archaeological event.
 
 **Reopen when:** a source packet binds a candidate lake, its core and at least
 one independent context observation on compatible place
