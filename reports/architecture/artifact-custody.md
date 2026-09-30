@@ -1,5 +1,20 @@
 # Our artifact custody decisions
 
+## LOVE paper acquisition record
+
+We recovered the original acquisition receipt for the 2024 LOVE paper from
+`artifacts/v2/method-paper/`. Its exact PDF bytes already lived in the private
+reference store (SHA-256
+`3336b5b6450b89d97b6e52f18b42090333091bf355a3f4715676215e2b18cc3e`).
+We placed the exact retrieval receipt beside that PDF and corrected the
+[method report](../../docs/report/method-certification/love-paper-correspondence/README.md):
+our inspected copy came from the recorded Semantic Scholar PDF mirror, while
+publisher-byte identity remains unproven. The [custody receipt](artifact-custody/love-paper-process.json)
+binds the two remaining process files in a private archive, SHA-256
+`c9a99cb6dae1d23b0e56433afa847497d908500f77160a4ab96640655a94ffd3`.
+We checked the PDF and acquisition receipt against their private copies and
+reopened both archived process files before retiring this selected workspace.
+
 ## Retained joint-report preparation
 
 We separately retained the earlier candidate implementation and CLI draft from
