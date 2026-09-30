@@ -8,11 +8,11 @@ from hashlib import sha256
 import json
 from pathlib import Path
 
-from bijux_pollenomics.reporting.adna.sample_chronology_context.repository import (
-    load_animal_sample_chronology_corpus,
-)
 from bijux_pollenomics.reporting.adna.sample_chronology_context.projection import (
     project_animal_sample_chronology_context,
+)
+from bijux_pollenomics.reporting.adna.sample_chronology_context.repository import (
+    load_animal_sample_chronology_corpus,
 )
 from bijux_pollenomics.reporting.bundles.atlas_bundle.animal_chronology_publication import (
     build_animal_chronology_publication,
