@@ -211,7 +211,11 @@ screens and historical Swedish lake preparation reports. The Bjäresjö
 consumer finds 371 display intervals from 13 sites within 20 km and closes
 all 25 published window counts, but Neotoma site 28871 versus LandClim
 `BJARE` remains a refused physical-core identity. Modern registry matches for
-named lakes do not establish historical cores or a migration path.
+named lakes do not establish historical cores or a migration path. We also
+retain a complete [national RAA GeoPackage source candidate]
+(../../data/raa/raw/national_geopackage_source.json) in the private source
+store. Its 2,291,224,576 bytes and SHA-256 are verified; its analytical rights,
+feature semantics and relation to the current point layer are not yet reviewed.
 
 **Reopen when:** a source packet binds a candidate lake, its core and at least
 one independent context observation on compatible place

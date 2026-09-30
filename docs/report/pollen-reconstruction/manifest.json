@@ -20,6 +20,11 @@
       "bytes": 589
     },
     {
+      "path": "data/raa/raw/national_geopackage_source.json",
+      "sha256": "6adbdd803f0eca628586a4c64372f6bf5b398a145a50ae6356fec49717983550",
+      "bytes": 1142
+    },
+    {
       "path": "data/synthetic/score_protocol_source.json",
       "sha256": "c95983fdd52ab5f8e98fa46dccb1d8201ff9e62699108878f88776422feaad87",
       "bytes": 1684
@@ -2041,8 +2046,8 @@
     },
     {
       "path": "reports/needed/README.md",
-      "sha256": "9ab557d20117e4e2a278a01b28aa36b31ad9b3c4e0f74b63dc4024f1eed6fba6",
-      "bytes": 16055
+      "sha256": "464d55991d399584c6371c5bf25af7869769524576d73326a530007da805f153",
+      "bytes": 16359
     },
     {
       "path": "reports/science/abborrtjarnen-source-method.md",
