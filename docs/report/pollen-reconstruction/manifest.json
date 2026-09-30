@@ -1286,8 +1286,8 @@
     },
     {
       "path": "docs/report/regions/nordic/swedish-lake-transfer/README.md",
-      "sha256": "e658351ef06d26a997e0c49da6c8bccea137eb18fb4d05b09f70143efa795036",
-      "bytes": 4058
+      "sha256": "c5bd1b213f31169f0b788bd9069ec96a4ef00fa35bd505512ca57885180151b4",
+      "bytes": 4967
     },
     {
       "path": "docs/report/regions/nordic/swedish-lake-transfer/coverage.csv",
@@ -1311,8 +1311,8 @@
     },
     {
       "path": "docs/report/regions/nordic/swedish-lake-transfer/manifest.json",
-      "sha256": "78e819cd5f917d5d9b78debdd5bace349bf91900966f535e481ac8f82f3f0009",
-      "bytes": 2587
+      "sha256": "96ba8f67438f6cb0e7dfd4c2a4dde5ecd3d4706c12fc609bbdee211a5bc96526",
+      "bytes": 2491
     },
     {
       "path": "docs/report/regions/nordic/swedish-lake-transfer/prediction-freeze.json",
@@ -1328,6 +1328,11 @@
       "path": "docs/report/regions/nordic/swedish-lake-transfer/protocol.json",
       "sha256": "046be3fa589fde3cba0d67f3d4a46f21f73a81a2dd2e089c454775affebabade",
       "bytes": 3662
+    },
+    {
+      "path": "docs/report/regions/nordic/swedish-lake-transfer/reference/prediction-producer.py.txt",
+      "sha256": "3c4321f729c5ea4cc53172b3ebf0a22b782f0e873ae88ad67225b43a0ad01b62",
+      "bytes": 13425
     },
     {
       "path": "docs/report/regions/nordic/swedish-lake-transfer/report.json",
@@ -1356,8 +1361,8 @@
     },
     {
       "path": "docs/report/regions/nordic/swedish-lake-transfer/verify.py",
-      "sha256": "1dc50aaa2ce11891c33785ac3a46731f9b92925f221e39e6f3a014d33f779aa7",
-      "bytes": 9656
+      "sha256": "4f2af544c8d3b8f1320e01da5b2a8de3621b45982dabf40b7b1524b1d2966781",
+      "bytes": 9486
     },
     {
       "path": "docs/report/regions/nordic/swedish-neotoma-holdout/README.md",
@@ -2101,18 +2106,18 @@
     },
     {
       "path": "reports/README.md",
-      "sha256": "0516663ce4ceeb67ea603aa618c0bf471fe83c4c6d8c3cafd79b60078e884f62",
-      "bytes": 6182
+      "sha256": "5e56f9945c1c2f0856d35fee9250168108691c95ff634078a5cd5f566cc21476",
+      "bytes": 6414
     },
     {
       "path": "reports/architecture/ownership.md",
-      "sha256": "10565e87fa3fac401685e77a75e1ad09e5c7cb59da1b872b77643960e9f3f68a",
-      "bytes": 14977
+      "sha256": "fe7e380f7456448dfe4b1f02877c32710891d50b6ff89c7c3e290b53ba605ce7",
+      "bytes": 15190
     },
     {
       "path": "reports/evidence-index.md",
-      "sha256": "cd149c34efb65e43f8d7dcf7ec72430dedd852ced0dec23783df72626ed22277",
-      "bytes": 13286
+      "sha256": "fef8886e3d90c708d6326136cd1b8e6681e3fa262ef0234089385f8685af71f3",
+      "bytes": 14089
     },
     {
       "path": "reports/science/abborrtjarnen-source-method.md",
@@ -2191,8 +2196,8 @@
     },
     {
       "path": "reports/science/nordic-pollen-study.md",
-      "sha256": "445ab70c6e572297197835b05c6f5240bf40960b577fe65af906cdc282a4241c",
-      "bytes": 43350
+      "sha256": "46f53a5c575b806c0b281e48ed81abb0953bbc440205daa942949360ba0e75f2",
+      "bytes": 43312
     },
     {
       "path": "reports/science/publication-correspondence.md",
@@ -2283,6 +2288,11 @@
       "path": "reports/science/sweden-author-pollen.md",
       "sha256": "bee5fd81cb4384bfc60154359aded0e010892444d38eda54a4ec5d38c0738c3a",
       "bytes": 4987
+    },
+    {
+      "path": "reports/science/sweden-lake-transfer.md",
+      "sha256": "2df22f1964738d4b5d6c75e1a132c108aa230ab894888d44a29c37416f7b8034",
+      "bytes": 4494
     },
     {
       "path": "reports/science/sweden-spatiotemporal-sensitivity.md",

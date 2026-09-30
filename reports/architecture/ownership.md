@@ -47,6 +47,7 @@ most linked governed products retain the numeric and producer ownership. The Bj�
 | [HYDE modeled context](../science/hyde-cropland-source-account.md) | [Country totals](../../docs/report/regions/nordic/hyde-country-cropland/report.json) and [native grid check](../../docs/report/regions/nordic/hyde-country-cropland/grid-conservation/README.md). |
 | [Published reindeer appendix correspondence](../science/reindeer-appendix-correspondence.md) | [DNA scope result](../../docs/report/source-relations/dna-scope/report.json) and a retained website citation page; original source bytes stay in their governed source library. |
 | [Swedish training scope](../science/sweden-training-scope.md) and [age/distance sensitivity](../science/sweden-spatiotemporal-sensitivity.md) | [Frozen scope products](../../docs/report/regions/nordic/swedish-training-scope/report.json) and [support sensitivity](../../docs/report/regions/nordic/swedish-support-sensitivity/report.json). |
+| [Further Swedish lake transfer](../science/sweden-lake-transfer.md) | [Frozen predictions and 189 scores](../../docs/report/regions/nordic/swedish-lake-transfer/README.md) remain with their governed producer. |
 | [Bjäresjö archaeology context](../science/bjaresjo-context.md) | [Country source screen](../science/bjaresjo-context/report.json). |
 
 We left earlier `docs/report/` narrative URLs as short citation pages where

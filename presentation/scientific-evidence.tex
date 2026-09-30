@@ -34,6 +34,17 @@ Sweden & 3 & 228 & 221,800/240,966 & 51/54 \\
 \evidence{reports/science/denmark-finland-norway-author-pollen.md; reports/science/sweden-author-pollen.md}
 \end{frame}
 
+\begin{frame}{Three further Swedish lake cores}
+\begin{itemize}
+\item Metadata-only selection added Gilltjarnen, Lake Avegol and Flinkasjon outside the original Swedish targets.
+\item We assigned 231,115 of 238,797 native pollen grains to the 31 author targets; excluded and unmapped counts remain visible.
+\item All 63 site-bins received three fixed predictions, yielding 189 matched scores with no training-support refusal.
+\item Equal-site pollen MAE: IDW 0.017334, nearest site 0.017932, training mean 0.020682. Nearest site wins at Lake Avegol.
+\end{itemize}
+\scope{Three prior-exposed lake groups; direct observed pollen only, with no Nordic LRA or independent vegetation score.}
+\evidence{reports/science/sweden-lake-transfer.md; docs/report/regions/nordic/swedish-lake-transfer/site-scores.csv}
+\end{frame}
+
 \begin{frame}{Swedish training scope on shared pollen targets}
 \begin{itemize}
 \item Hold out each Swedish site; train on the other two Swedish sites or those same two plus 81 DK/FI/NO sites.

@@ -14,11 +14,7 @@ from typing import Any
 
 
 REPORT = Path(__file__).resolve().parent
-REPOSITORY = REPORT.parents[4]
-PRODUCER = (
-    REPOSITORY
-    / "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/swedish_lake_transfer.py"
-)
+FROZEN_PRODUCER = REPORT / "reference/prediction-producer.py.txt"
 
 
 def digest(path: Path) -> str:
@@ -39,9 +35,8 @@ def main() -> None:
     if manifest["schema_version"] != "swedish-lake-pollen-report-manifest.v1":
         raise ValueError("Swedish lake report manifest changed")
     for row in manifest["files"]:
-        root = REPOSITORY if row.get("path_root") == "repository" else REPORT
-        path = (root / row["path"]).resolve()
-        if not path.is_relative_to(root) or not path.is_file():
+        path = (REPORT / row["path"]).resolve()
+        if not path.is_relative_to(REPORT) or not path.is_file():
             raise ValueError(f"Swedish lake evidence unavailable: {row['path']}")
         if path.stat().st_size != row["bytes"] or digest(path) != row["sha256"]:
             raise ValueError(f"Swedish lake evidence bytes changed: {row['path']}")
@@ -59,7 +54,7 @@ def main() -> None:
     if (
         freeze["stage"] != "predictions_frozen_before_target_scoring"
         or freeze["protocol_sha256"] != digest(REPORT / "protocol.json")
-        or freeze["producer_sha256"] != digest(PRODUCER)
+        or freeze["producer_sha256"] != digest(FROZEN_PRODUCER)
         or freeze["prepared_input_manifest_sha256"]
         != digest(REPORT / "input-manifest.json")
         or freeze["training_sha256"] != digest(REPORT / "inputs/training-SE.json.gz")

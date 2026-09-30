@@ -80,6 +80,19 @@ finds lower aggregate direct-pollen MAE and Hellinger at all three radius
 factors for each fixed method. Individual sites disagree, and direct and LRA
 used different training information.
 
+## Additional Swedish lake transfer
+
+Three further Swedish EPD lakes were selected from site and age metadata
+before their pollen counts were read. The [three-lake transfer](../../../report/regions/nordic/swedish-lake-transfer/README.md)
+withheld Gilltjärnen, Lake Avegöl and Flinkasjön from the 81-site
+Denmark/Finland/Norway training set. All 63 site by 500 BP bins received
+three fixed 31-target pollen predictions, giving 189 matched score rows.
+Inverse distance squared had the lowest three-site mean absolute fraction
+error (0.017334), compared with nearest site (0.017932) and training mean
+(0.020682); nearest site performed better at Lake Avegöl. These are
+previously exposed development outcomes for observed pollen. They do not
+admit these lakes to LRA or measure vegetation accuracy.
+
 ## Swedish training scope on matched pollen targets
 
 The [whole-site comparison](../../../report/regions/nordic/swedish-training-scope/README.md)
