@@ -1,0 +1,85 @@
+{
+  "download_count": 209,
+  "materialization_sha256": "7d9bf04538f6fc9db0582a85656defc3b262b86b782d99bf310d2fec4ae96406",
+  "raw_part_count": 9,
+  "reconciliation": {
+    "match": true,
+    "surfaces": {
+      "age_claims": {
+        "accepted_rows": 23281,
+        "conflict_variant_rows": 0,
+        "match": true,
+        "missing_rows": 0,
+        "raw_distinct_parent_payloads": 23281,
+        "raw_rows": 23281,
+        "unexpected_rows": 0
+      },
+      "chronologies": {
+        "accepted_rows": 384,
+        "conflict_variant_rows": 0,
+        "match": true,
+        "missing_rows": 0,
+        "raw_distinct_parent_payloads": 384,
+        "raw_rows": 387,
+        "unexpected_rows": 0
+      },
+      "chronology_controls": {
+        "accepted_rows": 2798,
+        "conflict_variant_rows": 70,
+        "match": true,
+        "missing_rows": 0,
+        "raw_distinct_parent_payloads": 2836,
+        "raw_rows": 2867,
+        "unexpected_rows": 0
+      },
+      "collection_units": {
+        "accepted_rows": 206,
+        "conflict_variant_rows": 0,
+        "match": true,
+        "missing_rows": 0,
+        "raw_distinct_parent_payloads": 206,
+        "raw_rows": 209,
+        "unexpected_rows": 0
+      },
+      "datasets": {
+        "accepted_rows": 209,
+        "conflict_variant_rows": 0,
+        "match": true,
+        "missing_rows": 0,
+        "raw_distinct_parent_payloads": 209,
+        "raw_rows": 209,
+        "unexpected_rows": 0
+      },
+      "observations": {
+        "accepted_rows": 370936,
+        "conflict_variant_rows": 0,
+        "match": true,
+        "missing_rows": 0,
+        "raw_distinct_parent_payloads": 370936,
+        "raw_rows": 370936,
+        "unexpected_rows": 0
+      },
+      "samples": {
+        "accepted_rows": 12388,
+        "conflict_variant_rows": 0,
+        "match": true,
+        "missing_rows": 0,
+        "raw_distinct_parent_payloads": 12388,
+        "raw_rows": 12388,
+        "unexpected_rows": 0
+      },
+      "sites": {
+        "accepted_rows": 200,
+        "conflict_variant_rows": 0,
+        "match": true,
+        "missing_rows": 0,
+        "raw_distinct_parent_payloads": 200,
+        "raw_rows": 209,
+        "unexpected_rows": 0
+      }
+    }
+  },
+  "schema_version": "neotoma-native-roundtrip.v1",
+  "source_snapshot_id": "sha256:b2bcb99157e10b0c9f13c228acc12eabcb39d96a1f39c86ec25e34aacd78c791",
+  "status": "complete"
+}
