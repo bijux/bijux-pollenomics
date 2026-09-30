@@ -34,7 +34,15 @@ The [published LandClim II parameter table](https://github.com/bijux/bijux-polle
 | Filipendula | 0.006 | 3 (0.285) |
 | Plantago lanceolata | 0.029 | 2.33 (0.201) |
 
-Summing only these six labels in the [prepared site bins](prepared/) yields 50,208/129,750 native NISP at Abborrtjärnen (38.7%), 12,456/68,668 at Bussjösjön (18.1%) and 11,102/42,548 at Bökesjön (26.1%). These figures are a bounded exact-name support diagnostic. They do not authorize an LRA fit, identify a historical basin edge or define a complete vegetation denominator. The separate [author parameter binding](../../source-relations/neotoma/author-parameter-binding/README.md) concerns a different 31-target lookup and is not interchangeable with this six-name intersection.
+Summing only these six labels in the prepared site bins yields
+50,208/129,750 native NISP at [Abborrtjärnen](prepared/dataset-19913.json)
+(38.7%), 12,456/68,668 at [Bussjösjön](prepared/dataset-53995.json)
+(18.1%) and 11,102/42,548 at [Bökesjön](prepared/dataset-54001.json)
+(26.1%). These figures are a bounded exact-name support diagnostic. They do
+not authorize an LRA fit, identify a historical basin edge or define a complete
+vegetation denominator. The separate [author parameter binding](../../source-relations/neotoma/author-parameter-binding/README.md)
+concerns a different 31-target lookup and is not interchangeable with this
+six-name intersection.
 
 ## Reproduction
 
