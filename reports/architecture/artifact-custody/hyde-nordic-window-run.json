@@ -1,0 +1,25 @@
+{
+  "schema_version": "hyde-nordic-window-run-custody.v1",
+  "retired_prefix": "artifacts/v3/hyde/nordic-intent-window-9180abe1",
+  "private_archive": "hyde/source-windows/nordic-intent-history.tar.gz",
+  "archive_bytes": 5948097,
+  "archive_sha256": "913619c2fce3c282895e758bfbc9bab676d0260535c118c6e408b55e2c9f22da",
+  "preserved_file_count": 67,
+  "preserved_file_bytes": 27960178,
+  "sorted_path_content_index_sha256": "792590b6f34292c2c91a0b629b6f9652c512ddba60698f67368189286749a2b2",
+  "excluded_regenerable_cache_files": 53,
+  "excluded_regenerable_cache_bytes": 25930520,
+  "bundle_manifest_variants": {
+    "final001_final002": "4bd3ed1559358de9d1774da135efe2dfdd39f4c585d728bec4bf46e103f147c3",
+    "final003_final004": "3737ec8b8eafc010e4c8b1b424f316518276791485cabd1a49243345e6248640",
+    "final005": "360cbfd1f979ee001b19f94391ad791d600f40bf2aced5a8e282f485e8ca3a5b",
+    "real001_real002": "3205a56a66675c0bf5cff5cbb050b8a19cc8d66fd0d128115a6fa969963b14cc"
+  },
+  "source_window_custody": "docs/report/source-relations/hyde/source-custody/receipt.json",
+  "historical_scientific_manifest": "docs/report/maintenance/artifact-retention/scientific-report-provenance/manifest.json",
+  "historical_scientific_manifest_references_exact_final005_sha256": true,
+  "all_archive_members_checked_against_original_bytes": true,
+  "no_symlink_or_hardlink": true,
+  "no_open_handle_or_live_product_reader_at_retirement": true,
+  "scientific_scope": "Three scenario source-index windows and refused four-country intent; no governed country projection, rights, CRS, calendar or vegetation admission."
+}

@@ -231,3 +231,22 @@ symlinks, hardlinks, open handles or product readers when retired. Our
 [HYDE source account](../science/hyde-cropland-source-account.md) owns the
 bounded calculation and its scientific limits; the challenge does not admit
 provider CRS, country projection, dates, rights or vegetation truth.
+
+## HYDE three-scenario source window run
+
+We preserved the remaining source-window run's 67 noncache files as one
+byte-checked private archive. The [custody receipt](artifact-custody/hyde-nordic-window-run.json)
+binds its 5,948,097 compressed bytes, 27,960,178 original file bytes, complete
+path/content index and four distinct bundle-manifest hashes. Seven bundle
+directories repeated the same six base/lower/upper window files; their four
+manifest variants remain recoverable. The six source-window files already
+have separate [private source custody](../../docs/report/source-relations/hyde/source-custody/README.md).
+
+The earlier scoped scientific report froze the exact `final005` manifest hash
+in its historical evidence list. We kept that frozen report unchanged and
+linked its [historical account](../../docs/report/maintenance/artifact-retention/scientific-report-provenance/README.md)
+to this archive receipt. We excluded 53 generated mypy/Ruff cache files,
+25,930,520 bytes, after verifying that all 67 preserved members matched
+their original bytes. No symlink, hardlink, open handle or live product reader
+used the selected run at retirement. Its four-country rows still refuse
+country partitioning; no source or ecological admission follows from custody.
