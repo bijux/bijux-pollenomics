@@ -9,7 +9,7 @@ from pathlib import Path
 from bijux_pollenomics_dev.source_completion.bjaresjo_context import produce
 
 ROOT = Path(__file__).resolve().parents[4]
-RESULT = ROOT / "docs/report/countries/sweden/bjaresjo-context-screen"
+RESULT = ROOT / "reports/science/bjaresjo-context"
 
 
 def test_official_lake_screen_retains_refused_core_and_sead_roles(

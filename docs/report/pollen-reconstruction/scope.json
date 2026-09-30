@@ -345,7 +345,7 @@
     "status": "prior_exposed_whole_site_observed_pollen_sensitivity; nominal bin shifts and center distances, no age posterior, LRA or measured vegetation claim"
   },
   "bjaresjo_context_screen": {
-    "report": "docs/report/countries/sweden/bjaresjo-context-screen/report.json",
+    "report": "reports/science/bjaresjo-context/report.json",
     "official_lake_registry_id": "614958-137018",
     "candidate_neotoma_site_id": "28871",
     "nearby_sead_display_interval_features": 371,

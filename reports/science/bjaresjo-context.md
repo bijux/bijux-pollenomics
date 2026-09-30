@@ -9,7 +9,7 @@ event at that lake.
 
 ## The lake and core decision
 
-The [source-bound screen](../../docs/report/countries/sweden/bjaresjo-context-screen/report.json)
+The [source-bound screen](bjaresjo-context/report.json)
 finds one SMHI SVAR lake, official water-surface name **Bjäresjö**, registry
 ID `614958-137018`, representative point `55.459405° N, 13.751743° E`, and
 current mapped area `0.022251 km²`. This is modern hydrographic identity. It
@@ -26,7 +26,7 @@ pollen–archaeology or LRA parameter join.
 ## The nearby SEAD context we could verify
 
 Using the official lake representative point and unrounded WGS84 distances,
-we found [371 distinct SEAD interval features](../../docs/report/countries/sweden/bjaresjo-context-screen/nearby-sead.csv)
+we found [371 distinct SEAD interval features](bjaresjo-context/nearby-sead.csv)
 at 13 site identities within 20 km. Each row retains its source record ID,
 site UUID, distance, numeric display endpoints and exact chronology claim ID.
 The nearest source site, `4215`, is about **0.341 km** away. The pinned
@@ -39,7 +39,7 @@ These are linked display intervals, not 371 independent archaeological
 events, measured vegetation observations or a cleared source release.
 
 We recomputed overlap with all 25 [modeled LandClim windows](../../docs/report/countries/sweden/sweden_land_use_synthesis_v66.json)
-for this named target. The [window ledger](../../docs/report/countries/sweden/bjaresjo-context-screen/window-overlap.csv)
+for this named target. The [window ledger](bjaresjo-context/window-overlap.csv)
 matches the existing Swedish synthesis count on every window. The 350–700 BP
 window overlaps **266 interval features from 11 SEAD sites** within 20 km;
 the 0–100 BP window overlaps **zero**. A record interval can overlap several
@@ -76,6 +76,6 @@ PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -m \
 ```
 
 Compare its three output files byte for byte with the governed result directory.
-The [machine report](../../docs/report/countries/sweden/bjaresjo-context-screen/report.json)
+The [machine report](bjaresjo-context/report.json)
 pins every source SHA-256, the official lake and refused core decision, the
 SEAD release posture and the exact output hashes.

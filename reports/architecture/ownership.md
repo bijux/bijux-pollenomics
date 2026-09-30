@@ -36,7 +36,7 @@ We created [the research index](../README.md) and a
 [claim-to-evidence index](../evidence-index.md) so a reader can go from a
 scientific question to an exact numeric row and its source. Our root
 science reports now own the human interpretation for the following work;
-the linked governed products retain the numeric and producer ownership.
+most linked governed products retain the numeric and producer ownership. The Bjäresjösjön context screen is the first numerical slice now owned beside its root report.
 
 | Research question now owned in `reports/` | Governed result or source boundary |
 | --- | --- |
@@ -46,7 +46,7 @@ the linked governed products retain the numeric and producer ownership.
 | [English LOVE and forward pollen](../science/english-lra-pollen-prediction.md) | [Fold/score products](../../docs/report/pollen-reconstruction/author-lra-constrained/report.json) and [basin-radius sensitivity](../../docs/report/pollen-reconstruction/author-lra-constrained/radius-sensitivity/README.md). |
 | [HYDE modeled context](../science/hyde-cropland-source-account.md) | [Country totals](../../docs/report/regions/nordic/hyde-country-cropland/report.json) and [native grid check](../../docs/report/regions/nordic/hyde-country-cropland/grid-conservation/README.md). |
 | [Swedish training scope](../science/sweden-training-scope.md) and [age/distance sensitivity](../science/sweden-spatiotemporal-sensitivity.md) | [Frozen scope products](../../docs/report/regions/nordic/swedish-training-scope/report.json) and [support sensitivity](../../docs/report/regions/nordic/swedish-support-sensitivity/report.json). |
-| [Bjäresjö archaeology context](../science/bjaresjo-context.md) | [Country source screen](../../docs/report/countries/sweden/bjaresjo-context-screen/report.json). |
+| [Bjäresjö archaeology context](../science/bjaresjo-context.md) | [Country source screen](../science/bjaresjo-context/report.json). |
 
 We left earlier `docs/report/` narrative URLs as short citation pages where
 readers or the website still use them. We did not create a second editable
@@ -54,6 +54,16 @@ scientific interpretation at those paths. We locked the new root reports and
 their cited source identities with the
 [research verifier](../verify.py), the [scientific verifier](../../docs/report/pollen-reconstruction/verify_report.py)
 and the [presentation source lock](../../presentation/source-lock.json).
+
+For the Bjäresjösjön context screen, we moved the three byte-identical numeric
+products beside [our lake decision](../science/bjaresjo-context.md). Its producer
+accepts an explicit output directory; we changed the replay test, scientific
+scope and manifest, claim index and source locks to use the root result path.
+The old `docs/report/` page remains a citation to that one owner. We regenerated
+the report portal inventory so it lists that citation without pointing to the
+removed numeric files. This refresh also records report surfaces added since
+the portal's earlier snapshot; those inventory changes are not new scientific
+results.
 
 ## Why migration remains selective
 

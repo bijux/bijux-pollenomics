@@ -1,9 +1,10 @@
 # Research reports
 
 Start with the scientific question, then follow the linked result to its input
-identity, producer, score table and limitations. The detailed governed outputs
-currently live under `docs/report/`; this root library is the reader entry point
-while their producer paths are migrated by domain.
+identity, producer, score table and limitations. Most detailed governed outputs
+currently live under `docs/report/`. The Bjäresjösjön context screen lives
+beside its root study. This library is the reader entry point while other
+producer paths are migrated by domain.
 
 The [claim-to-evidence index](evidence-index.md) goes directly from each
 headline result to its numeric table, input identity, producer and scope.
