@@ -32,6 +32,22 @@ checks completed generations and exact evaluations at four budgets. Generation
 accounting alone says nothing about the quality of a vegetation optimum or
 agreement with the original R optimizer.
 
+## Optimized LOVE on shared objectives
+
+We compared the installed RcppDE and Python searches on three declared LOVE
+objectives with identical pollen, deposition, background, PPE, bounds and
+iteration cap. In the [governed solution-quality study](../../docs/report/method-certification/optimizer-solution-quality/README.md),
+both achieved objective values within `1e-4` of the independently derived
+optima. Evaluating each selected candidate in the other implementation gave
+absolute objective gaps below `1e-10`. The [three result rows](../../docs/report/method-certification/optimizer-solution-quality/summary.csv)
+include a composition-ambiguous case where different cover vectors are equally
+good; we judged objective quality and common-candidate arithmetic, not vector
+identity. Python reported success after 29–40 iterations and 600–1,230
+evaluations. R used its full 400-iteration cap in all three cases. These
+small, declared objectives support bounded numerical solution quality; they
+do not establish identical random search paths, global convergence on other
+landscapes or ecological accuracy.
+
 We also [replayed analytical LOVE across ten example rings](analytical-love-ring-sensitivity/README.md).
 Only three satisfy the source's local-basin boundary; 16 of their 30
 taxon/ring estimates are negative and six exceed one. We retained those
