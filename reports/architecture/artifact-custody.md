@@ -13,6 +13,17 @@ The historical procedure and adversarial scratch outputs remain in the
 archive. This preserves the independent metadata verdict without treating
 it as a historical ESSD reproduction.
 
+We also retained the earlier six-file
+`artifacts/v2/landclim-study-independent/` inventory challenge in a private
+archive, SHA-256
+`36ac31f424c702d2bd20bff8ac0d4e1028d2f2c689d69549bb320e6f4f5d0ea4`.
+Its [receipt](artifact-custody/landclim-inventory-challenge.json) binds 41,718
+source bytes, including an executed 1,128-row metadata verdict and its
+adversarial checks. The broader bundle result above now owns the current
+governed-output correspondence. The earlier result remains historical scoped
+inventory evidence, not an additional historical-input admission. All six
+archive members matched their originals before we retired only that prefix.
+
 ## LOVE paper acquisition record
 
 We recovered the original acquisition receipt for the 2024 LOVE paper from

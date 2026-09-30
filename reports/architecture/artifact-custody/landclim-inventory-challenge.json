@@ -1,0 +1,35 @@
+{
+  "archive": "/Users/bijan/bijux/bijux-pollenomics-data/reference-sources/landclim-inventory-challenge/retained-run.tar",
+  "archive_sha256": "36ac31f424c702d2bd20bff8ac0d4e1028d2f2c689d69549bb320e6f4f5d0ea4",
+  "files": {
+    "artifacts/v2/landclim-study-independent/REVIEW.md": {
+      "bytes": 1465,
+      "sha256": "dabec93ed955467173e389eaf30a210dc4d7a89eca240e5725c8a0101811069c"
+    },
+    "artifacts/v2/landclim-study-independent/challenge-design.json": {
+      "bytes": 1380,
+      "sha256": "5df3922d2d132e3ce26de3375afe15dccf1fa3a5367b9b00dcacb1b16d9a220a"
+    },
+    "artifacts/v2/landclim-study-independent/challenge.py": {
+      "bytes": 26922,
+      "sha256": "1d8769da46abd78cae4a913cfe70f97e73ca98f874362da1cdcbe45eccdf2d22"
+    },
+    "artifacts/v2/landclim-study-independent/challenge002.py": {
+      "bytes": 2076,
+      "sha256": "f08062a3da25dc778b0c539209b9a8acc74377f0aa6cd8108e570b090f2a5128"
+    },
+    "artifacts/v2/landclim-study-independent/run003/result.json": {
+      "bytes": 8943,
+      "sha256": "5f551562a072ea0c518ec3f16a851ca91f08136c22d89e34a011d41ac0aff183"
+    },
+    "artifacts/v2/landclim-study-independent/run003/review.md": {
+      "bytes": 932,
+      "sha256": "b97f0174c649ca8c8323388248365903da644a1fcd679383d51f3485b503ae64"
+    }
+  },
+  "source_bytes": 41718,
+  "source_file_count": 6,
+  "source_prefix": "artifacts/v2/landclim-study-independent/",
+  "status": "earlier scoped inventory challenge; broader metadata bundle result is separately retained",
+  "verification": "all six archive members reopened and matched original bytes and SHA-256"
+}
