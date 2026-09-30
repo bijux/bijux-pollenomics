@@ -1,0 +1,105 @@
+"""Independently challenge the synthetic development ledger and selection."""
+
+from __future__ import annotations
+
+from collections import defaultdict
+from hashlib import sha256
+import json
+from pathlib import Path
+
+
+ROOT = Path("/Users/bijan/bijux/bijux-pollenomics/artifacts/v3/known-landscape/development001")
+RUN = ROOT / "run001"
+OUT = Path("/Users/bijan/bijux/bijux-pollenomics/artifacts/v3/known-landscape/development-challenge001")
+
+
+def canonical(value: object) -> bytes:
+    return json.dumps(value, sort_keys=True, separators=(",", ":"), ensure_ascii=False, allow_nan=False).encode()
+
+
+def envelope(path: Path) -> dict[str, object]:
+    value = json.loads(path.read_text())
+    assert set(value) == {"payload", "sha256"}
+    payload = value["payload"]
+    assert isinstance(payload, dict)
+    assert value["sha256"] == sha256(canonical(payload)).hexdigest()
+    return payload
+
+
+def ranking(rows: list[dict[str, object]]) -> list[tuple[float, float, str]]:
+    grouped: dict[str, list[float]] = defaultdict(list)
+    for row in rows:
+        metrics = row["metrics"]
+        assert isinstance(metrics, dict)
+        value = metrics["vegetation_mae_fraction"]
+        assert isinstance(value, (int, float)) and not isinstance(value, bool)
+        grouped[str(row["candidate_id"])].append(float(value))
+    assert all(len(values) == 2 for values in grouped.values())
+    return sorted((sum(values) / len(values), max(values), key) for key, values in grouped.items())
+
+
+def main() -> None:
+    policy_bytes = (ROOT / "sweep.json").read_bytes()
+    policy = json.loads(policy_bytes)
+    policy_sha = sha256(policy_bytes).hexdigest()
+    report_path = RUN / "report.json"
+    report = json.loads(report_path.read_text())
+    assert report["policy_sha256"] == policy_sha
+    assert policy["objective"]["final_test_access"] is False
+    assert report["claims"]["final_test_access"] is False
+    assert report["attempted_trials"] == report["completed_trials"] == 12
+    assert report["failed_trials"] == report["refused_trials"] == 0
+    report_rows = report["trials"]
+    assert isinstance(report_rows, list) and len(report_rows) == 12
+    seen: set[str] = set()
+    for row in report_rows:
+        assert isinstance(row, dict)
+        run_id = row["run_id"]
+        assert isinstance(run_id, str) and run_id not in seen
+        seen.add(run_id)
+        start = envelope(RUN / "ledger" / run_id / "start.json")
+        result = envelope(RUN / "ledger" / run_id / "result.json")
+        assert start["run_id"] == run_id
+        assert start["policy_sha256"] == policy_sha
+        assert start["target"] == "local_pollen_available"
+        assert start["input_hashes"]["policy"] == policy_sha
+        assert result["status"] == row["status"] == "completed"
+        assert result["metrics"] == row["metrics"]
+        metrics = row["metrics"]
+        predicted = metrics["estimated_cover_fraction"]
+        observed = metrics["true_support_vegetation_fraction"]
+        assert set(predicted) == set(observed) == {"broadleaf", "conifer", "open_land"}
+        mae = sum(abs(predicted[t] - observed[t]) for t in predicted) / 3
+        assert abs(mae - metrics["vegetation_mae_fraction"]) < 1e-12
+    assert seen == {p.name for p in (RUN / "ledger").iterdir() if p.is_dir()}
+    ordered = ranking(report_rows)
+    selected = report["selected"]
+    assert ordered[0][2] == selected["candidate_id"]
+    assert abs(ordered[0][0] - selected["mean_mae_fraction"]) < 1e-12
+    assert abs(ordered[0][1] - selected["max_case_mae_fraction"]) < 1e-12
+    altered = json.loads(json.dumps(report_rows))
+    for row in altered:
+        if row["candidate_id"] == selected["candidate_id"]:
+            row["metrics"]["vegetation_mae_fraction"] = 1.0
+    perturbation_changes_selection = ranking(altered)[0][2] != selected["candidate_id"]
+    assert perturbation_changes_selection
+    output = {
+        "schema_version": "known-landscape-development-challenge.v1",
+        "status": "passed",
+        "policy_sha256": policy_sha,
+        "report_sha256": sha256(report_path.read_bytes()).hexdigest(),
+        "trial_count": len(seen),
+        "ranking": [
+            {"candidate_id": candidate, "mean_mae_fraction": mean, "max_case_mae_fraction": maximum}
+            for mean, maximum, candidate in ordered
+        ],
+        "perturbed_selected_rows_change_selection": perturbation_changes_selection,
+        "claim_limit": "Independent ledger and selection audit on two synthetic training cases only.",
+    }
+    path = OUT / "result.json"
+    path.write_text(json.dumps(output, indent=2, sort_keys=True) + "\n")
+    print(json.dumps({"status": "passed", "trial_count": len(seen), "selected": ordered[0][2]}))
+
+
+if __name__ == "__main__":
+    main()

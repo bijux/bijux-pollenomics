@@ -1,0 +1,13 @@
+{
+  "archive_relative_to_private_store": "lra/known-landscape-custody/remaining-records.tar.gz",
+  "archive_sha256": "13145fcef165e4d759adc0cafce080c53a709058768998c0c48b0ccc158de09d",
+  "content_index_sha256": "f83838dd88e7a4b4d73d0c21389ee0916f9f30dc0949fc333ca2f1a365ddf2f7",
+  "file_bytes": 16265,
+  "file_count": 8,
+  "schema_version": "known-landscape-remaining-records-custody.v1",
+  "selected_prefixes": [
+    "artifacts/v3/known-landscape/agent001",
+    "artifacts/v3/known-landscape/development-challenge001"
+  ],
+  "verified_all_member_bytes": true
+}

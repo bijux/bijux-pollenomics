@@ -36,6 +36,16 @@ All 12 trials completed without a refusal or failure. The exact
 
 `lsm-ppe080` was best **within this declared two-case synthetic candidate
 set**. Its mean error was 0.039861593480655426 in vegetation-fraction units.
+An [independent ledger audit](independent-ledger-audit.json) checked all 12
+start/result envelopes against this policy and report, recomputed each
+three-taxon MAE and the full ranking, and confirmed that replacing the
+selected candidate's trial errors with `1.0` changes the selection. The exact
+[audit source](producer-source/verify_challenge.py.txt) and audit result have
+SHA-256 `398a37fbdf231a1e1f09fd9f49c9bb73b3d3bebdf9080b322a85e8f13e3293c4`
+and `acba3e536f154f803fb8ded633373a8d2826f998ccfa417df4ec6b531bd589d6`.
+This checks ledger integrity and selection mechanics, not independent
+ecological accuracy or a new final test.
+
 The report identifies source commit
 `d915d1709d3c8fca4680f70958452860d578d5d1`, installed backend
 `python-host-lra-0.1.9.dev74`, policy SHA-256

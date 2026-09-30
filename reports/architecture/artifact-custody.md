@@ -114,8 +114,24 @@ regular files, 31,943,300 uncompressed file bytes, a complete sorted
 path/content index digest and archive SHA-256
 `6476ff26bbe038f57beccbba7b0c703a25941ea111c0a7f24b18e132b97256a6`.
 The selected directories had no symlinks, hardlinks, open handles or producer
-processes. We retired only `host-challenge/` and `development001/` under
-`artifacts/v3/known-landscape/`. `agent001/` and
-`development-challenge001/` remain for separate review. The archive is a
-private historical replay closure; the owned reports above carry the numeric
-results and their scientific limits without depending on artifact paths.
+processes. We retired `host-challenge/` and `development001/` under
+`artifacts/v3/known-landscape/`. The archive is a private historical replay
+closure; the owned reports above carry the numeric results and their
+scientific limits without depending on artifact paths.
+
+The two remaining known-landscape prefixes contained eight regular files and
+16,265 bytes. `agent001/` held a snapshot preparer and four plans, with no
+local numerical output after its source checkout was retired. The
+`development-challenge001/` result independently audited all 12 synthetic
+trial envelopes and the candidate ranking; we retained its exact
+[result](../science/synthetic-model-selection/independent-ledger-audit.json)
+and [source text](../science/synthetic-model-selection/producer-source/verify_challenge.py.txt)
+with the model-selection report. We also recalculated all 12 MAEs and six
+candidate ranks from the retained trial report, matching the audit result.
+The eight original files were checked byte for byte inside a second private
+archive. Its [receipt](artifact-custody/known-landscape-remaining-records.json)
+binds archive SHA-256
+`13145fcef165e4d759adc0cafce080c53a709058768998c0c48b0ccc158de09d`.
+No live process or open handle used either prefix. We retired those exact
+directories and removed the now-empty `known-landscape/` parent; this does
+not apply to any other `artifacts/v3/` material.

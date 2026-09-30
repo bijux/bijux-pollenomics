@@ -1,0 +1,41 @@
+{
+  "claim_limit": "Independent ledger and selection audit on two synthetic training cases only.",
+  "perturbed_selected_rows_change_selection": true,
+  "policy_sha256": "cb954fdd8b03b66bd1efebf36db41608a1a051b02dc2ab8b4b6eceba3648a395",
+  "ranking": [
+    {
+      "candidate_id": "lsm-ppe080",
+      "max_case_mae_fraction": 0.04324985362797753,
+      "mean_mae_fraction": 0.039861593480655426
+    },
+    {
+      "candidate_id": "lsm-ppe100",
+      "max_case_mae_fraction": 0.047156697503217083,
+      "mean_mae_fraction": 0.043548348751608554
+    },
+    {
+      "candidate_id": "gpm-ppe080",
+      "max_case_mae_fraction": 0.054786520294644196,
+      "mean_mae_fraction": 0.04960326014732208
+    },
+    {
+      "candidate_id": "lsm-ppe120",
+      "max_case_mae_fraction": 0.0697366975032171,
+      "mean_mae_fraction": 0.06651501541827523
+    },
+    {
+      "candidate_id": "gpm-ppe100",
+      "max_case_mae_fraction": 0.0734400308365504,
+      "mean_mae_fraction": 0.06756334875160852
+    },
+    {
+      "candidate_id": "gpm-ppe120",
+      "max_case_mae_fraction": 0.0967900308365504,
+      "mean_mae_fraction": 0.09148168208494188
+    }
+  ],
+  "report_sha256": "a80f54035934530b291a646f0d9a167a0c0f816833cb049996d0f2d9895c9fc8",
+  "schema_version": "known-landscape-development-challenge.v1",
+  "status": "passed",
+  "trial_count": 12
+}
