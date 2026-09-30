@@ -1,10 +1,12 @@
 # Python numerical performance baseline
 
-The [retained measurement](report.json) freezes seven workloads, every numerical
-source/resource hash, configurations, fixed candidate inputs, thread settings,
-software versions and hardware platform. Each workload has one first call and
-seven warm timing repetitions; a separate call records cProfile costs. Every
-scientific output is identical across timing repetitions.
+The [retained measurement](report.json) records seven workloads, numerical
+source/resource hashes, workload contracts, thread settings, software versions
+and hardware platform. Each workload has one first call and seven warm timing
+repetitions; a separate call records total cProfile cost. Scientific-output
+and nonfinite-semantics digests preserve the comparison contract without
+publishing raw result arrays or machine-specific profiler stacks. Every
+scientific output was identical across timing repetitions.
 
 | Workload | First call, ms | Warm median, ms | Warm range, ms |
 |---|---:|---:|---:|
@@ -32,26 +34,20 @@ owned diagnostic outputs; its ratio cannot establish a facade or pipeline gain.
 The microsecond kernel timings have only seven repetitions and should not support
 an adoption decision without batched, isolated measurements.
 
-LOVE outputs preserve undefined cells as null with their original NaN values
-identified by path. They are never replaced by zero. The source example's warning
-about terrestrial area exceeding geometric ring area remains in the run log;
-the production ratio is retained. Timing measures the declared source workflow,
-not a new scientific eligibility or accuracy claim. The initial report writer
-refused non-JSON NaNs; the corrected writer preserves them explicitly.
+LOVE outputs preserve undefined cells as null with their original NaN meanings
+identified by path before hashing; they are never replaced by zero. Timing
+measures the declared source workflow, not a new scientific eligibility or
+accuracy claim.
 
 The process high-water RSS was 164.78 MiB on the recorded macOS machine, including
 imports and all workloads. It is not per-workload incremental memory. First calls
 share the process and may reuse kernels warmed by an earlier workload; they are
-not isolated cold-cache measurements. The profile records individual Python,
-library, conversion and copy functions with their call counts and exclusive and
-cumulative costs.
+not isolated cold-cache measurements. The retained report gives total
+profiler cost, not per-function stacks.
 
-All seven scientific outputs, nonfinite meanings and workload contracts match
-the preceding retained measurement. Four solver source files changed for the
-opt-in constrained LOVE backend; this report measures their current bytes.
-Timing and process RSS variation between runs does not establish a speed change.
-This measurement also binds unchanged calculations to the documented profiling
-source after public CLI docstrings were added.
+The seven scientific outputs, nonfinite meanings and workload contracts match
+the separate isolated worker result. Timing and process RSS variation between
+runs does not establish a speed change.
 The source inventory excludes the ignored generated `_build_version.py`, whose
 SCM label changes during builds without changing the numerical method.
 
@@ -62,11 +58,15 @@ PYTHONDONTWRITEBYTECODE=1 OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 \
 MKL_NUM_THREADS=1 NUMEXPR_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 \
 .venv/bin/python -m bijux_pollenomics_dev.native_backend.profiling \
   --repository "$PWD" \
-  --output artifacts/numerical-performance/python-baseline.json
+  --output artifacts/numerical-performance/python-baseline-raw.json
+.venv/bin/python -m bijux_pollenomics_dev.native_backend.baseline_summary \
+  --raw-report artifacts/numerical-performance/python-baseline-raw.json \
+  --output artifacts/numerical-performance/python-baseline-summary.json
 ```
 
-The producer rechecks its consumed numerical source/input identities after the
-measurement. Source changes require a new result. Performance varies with the
+The measurement producer rechecks consumed numerical source/input identities;
+the summary producer refuses incomplete timing or changed output meanings.
+New source bytes require a new measurement. Performance varies with the
 recorded machine, software, caches and system load.
 
 The prospective native comparison requires at least 2× end-to-end benefit, no

@@ -107,7 +107,7 @@ def run(repository: Path, output: Path) -> dict[str, Any]:
     baseline = json.loads(baseline_bytes)
     names = [row["name"] for row in baseline["workloads"]]
     if (
-        baseline["schema_version"] != "lra-python-performance-baseline.v1"
+        baseline["schema_version"] != "lra-python-performance-measurement.v1"
         or len(names) != 7
         or len(set(names)) != 7
         or names != list(WORKLOAD_NAMES)
@@ -131,8 +131,10 @@ def run(repository: Path, output: Path) -> dict[str, Any]:
     environment["PYTHONDONTWRITEBYTECODE"] = "1"
     for row in baseline["workloads"]:
         name = row["name"]
-        expected = _scientific_sha(row["scientific_output"])
-        expected_nonfinite_sha = _scientific_sha(row["nonfinite_output_semantics"][0])
+        expected = row["scientific_output_sha256"]
+        expected_nonfinite_sha = row["nonfinite_single_call_sha256"]
+        if row["contract_sha256"] != _scientific_sha(row["contract"]):
+            raise ValueError(f"Retained workload contract changed: {name}")
         observations = []
         for _ in range(REPETITIONS):
             started = time.perf_counter()
@@ -147,9 +149,10 @@ def run(repository: Path, output: Path) -> dict[str, Any]:
             )
             elapsed = time.perf_counter() - started
             observation = json.loads(process.stdout)
-            if observation["name"] != name or observation[
-                "contract_sha256"
-            ] != _scientific_sha(row["contract"]):
+            if (
+                observation["name"] != name
+                or observation["contract_sha256"] != row["contract_sha256"]
+            ):
                 raise ValueError(f"Worker identity or contract changed: {name}")
             observation["whole_worker_seconds"] = elapsed
             observations.append(observation)
