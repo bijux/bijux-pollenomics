@@ -721,8 +721,8 @@
     },
     {
       "path": "docs/report/publication-replay/landclim-amsoldingersee-source-review/README.md",
-      "bytes": 2438,
-      "sha256": "dfecdb14163b9662ed4b9ff74288afa7d41c03ec9c121cf724ada14c8e8eab4f"
+      "bytes": 2479,
+      "sha256": "ad0098d692f5a2d30a8447adc5e73a50984c9ca8e3b45be9f18ecdd0d085e2f0"
     },
     {
       "path": "docs/report/publication-replay/landclim-amsoldingersee-source-review/report.json",
@@ -2041,8 +2041,8 @@
     },
     {
       "path": "reports/README.md",
-      "sha256": "7e2a666116051520fb68c4266e2b52ece4b5c1568da16ec54dd007a28a82df3f",
-      "bytes": 7704
+      "sha256": "479f86bf4dc4ef731751d30b2f77976dd9324e86922872783d19ab482144b64c",
+      "bytes": 7797
     },
     {
       "path": "reports/architecture/ownership.md",
@@ -2051,8 +2051,8 @@
     },
     {
       "path": "reports/evidence-index.md",
-      "sha256": "0ef964dba26b498fce1781dcd8b71dd5d3aa1f0cc0514b4117028eed835d6149",
-      "bytes": 18564
+      "sha256": "29f9184a6d26a1dde76c3e7add6383e736dfe3d1b537fafc864fcf3550413b4e",
+      "bytes": 19147
     },
     {
       "path": "reports/needed/README.md",
@@ -2258,6 +2258,26 @@
       "path": "reports/science/reindeer-appendix-correspondence.md",
       "sha256": "84713ac84656be54bb8ad937ea0e331fb99a07f7aabfd714dc3b560daab73fdd",
       "bytes": 3734
+    },
+    {
+      "path": "reports/science/reveals-love-interface/README.md",
+      "sha256": "c36f4b9c91b5a4dd4c65afa31e84836b07719f942d48efb8650a96e4c2feea77",
+      "bytes": 2442
+    },
+    {
+      "path": "reports/science/reveals-love-interface/replay.py",
+      "sha256": "947750a9894123a54b149b166720fa8bd4eb2da6d462b0a95e332b0d55a70904",
+      "bytes": 9797
+    },
+    {
+      "path": "reports/science/reveals-love-interface/report.json",
+      "sha256": "da72f5c714ba97f517f4cfb6a2c5e6e6a5672c20c9a8ea439c5b86ea76d39dfc",
+      "bytes": 3235
+    },
+    {
+      "path": "reports/science/reveals-love-interface/taxon-summary.csv",
+      "sha256": "7b9e02e2813e95b84733d88e10bded9d3763b898cfb5e05cdbcfdb33e0821838",
+      "bytes": 1568
     },
     {
       "path": "reports/science/solsoe-lra-input.md",

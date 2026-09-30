@@ -23,7 +23,7 @@ The [full 1,128-row inventory](../landclim-study-inputs/README.md) retains the
 broader denominator; this review resolves the refusal evidence for one row
 without changing its admission status.
 
-The [source-input manifest](../../../../data/landclim/review/amsoldingersee-source-inputs.json)
+The [source-input manifest](https://github.com/bijux/bijux-pollenomics/blob/main/data/landclim/review/amsoldingersee-source-inputs.json)
 binds the 11 consumed raw API responses, their two acquisition receipts and
 the selected publication row. Historical run plans, logs and a superseded
 public-note check are not inputs to this source decision.
