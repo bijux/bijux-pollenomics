@@ -1,4 +1,4 @@
-# Why we retired the chronology and basin checkout
+# Our artifact custody decisions
 
 ## Our decision
 
@@ -170,3 +170,10 @@ every original path and SHA-256, the per-probe outcome, and archive SHA-256
 `1a6f7cb42872d68bcf6c897bfbf72f26e3b847e14969b916b5384482b49de63a`.
 No symlink, hardlink or open handle was found. The wider v3 tox, source and
 release trees were outside this decision.
+
+## Released LandClim author acquisition
+
+We [retired the duplicate author checkout](artifact-custody/landclim-author-acquisition.md)
+after matching all 51 author files to the private source capsule and retaining
+the original archive, commit response and acquisition receipt there. The
+source-specific account records its exact hashes, test consumer and limits.

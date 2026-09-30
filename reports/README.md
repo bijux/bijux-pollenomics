@@ -26,6 +26,7 @@ updating that lock.
 | What is established for HYDE and aDNA? | [HYDE source account](science/hyde-cropland-source-account.md), [reindeer published appendix](science/reindeer-appendix-correspondence.md), [animal sample chronology decision](science/animal-sample-chronology.md) | Source accounting and chronology do not by themselves validate vegetation or model skill. |
 | Can nearby archaeology contextualize a named lake? | [Our Bjäresjö source decision](science/bjaresjo-context.md) | We matched the modern lake and SEAD display intervals; physical-core and ecological joins remain refused. |
 | Why did we keep the LRA engine separate? | [Our distribution decision](architecture/lra-distribution.md) | We checked a single optional-extra install and kept the engine boundary; public release and rights review remain separate. |
+| Where did historical run material go? | [Our artifact custody decisions](architecture/artifact-custody.md), [LandClim author acquisition](architecture/artifact-custody/landclim-author-acquisition.md) | Exact private source and result custody precedes each bounded retirement. |
 
 The [open research needs](needed/README.md) list exact evidence questions that
 would change current conclusions. An answered question moves into its owning
