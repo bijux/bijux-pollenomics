@@ -1,5 +1,25 @@
 # Our artifact custody decisions
 
+## Retained joint-report preparation
+
+We retained the four files in the historical
+`artifacts/v2/joint-report-independent/` workspace as a private, exact-byte
+[archive](artifact-custody/joint-report-preparation.json). They contain an
+input-product inventory, source ownership declaration and proposed acceptance
+strategy. The preparation record says no report candidate tests ran. We therefore
+do not count its proposed checks as verification of the current joint report.
+The archive contains 58,298 source bytes and has SHA-256
+`b65ad61b980798263dd517eba0b10bdb959ba40d0905cdfa773388ece4127155`;
+we reopened all four members and matched each to the original bytes before
+retiring this selected workspace.
+
+The current joint-report producer and its tests now own the implemented reader,
+retained downloads, ordered covariance, incomplete-state accounting and inert
+CSV labels. An actual product with multiple bins remains the specific acceptance
+input needed to verify the all-bin report claim. We will generate or acquire one
+through the governed product writer and check the emitted report; the historical
+plan alone cannot establish that result.
+
 ## Retained synthetic protocol metrics
 
 We moved the distinct 16-row synthetic protocol result out of the historical

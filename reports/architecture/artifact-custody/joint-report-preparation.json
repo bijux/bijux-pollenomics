@@ -1,0 +1,27 @@
+{
+  "archive": "/Users/bijan/bijux/bijux-pollenomics-data/reference-sources/joint-report-preparation/retained-preparation.tar",
+  "archive_sha256": "b65ad61b980798263dd517eba0b10bdb959ba40d0905cdfa773388ece4127155",
+  "files": {
+    "artifacts/v2/joint-report-independent/PREPARATION.json": {
+      "bytes": 631,
+      "sha256": "d652ca71d7d3ef525d133d51392a88cd1ea1928f8fa824302d6ac29926835675"
+    },
+    "artifacts/v2/joint-report-independent/STRATEGY.md": {
+      "bytes": 6002,
+      "sha256": "090a3298944a1ab394c38bbd2b066c98a5e721d2e5f5e3760d38baa23e765519"
+    },
+    "artifacts/v2/joint-report-independent/input-products.json": {
+      "bytes": 50859,
+      "sha256": "038abe378427ebf7cbe933f4683bdf0f2ca9de7b43c0adbec2f252763dcfc8f0"
+    },
+    "artifacts/v2/joint-report-independent/ownership.json": {
+      "bytes": 806,
+      "sha256": "eb1f665806e8e9a4a218cadf99ba4a0837cc35d50a3de3ee7077477041fe87c7"
+    }
+  },
+  "source_bytes": 58298,
+  "source_file_count": 4,
+  "source_prefix": "artifacts/v2/joint-report-independent/",
+  "status": "historical preparation; no candidate tests run",
+  "verification": "all archived members reopened and matched source bytes and SHA-256"
+}
