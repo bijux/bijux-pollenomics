@@ -7,6 +7,8 @@ import json
 from pathlib import Path
 import zipfile
 
+import pytest
+
 from bijux_pollenomics.analysis.lra.uncertainty.contracts import JointLRAPlan
 from bijux_pollenomics.reporting.lra_products.joint.downloads import (
     capture_joint_product,
@@ -74,3 +76,36 @@ def test_incomplete_downloads_keep_empty_moments_and_partitioned_mass(
     assert row["requested_count"] == "4" and row["refused_count"] == "1"
     assert row["refused_mass_numerator"] == "1"
     assert row["refused_mass_denominator"] == "4"
+
+
+@pytest.mark.parametrize(
+    "label",
+    (
+        '=HYPERLINK("https://example.org","Å&B")',
+        "\ufeff@SUM(1,2)",
+        "'quoted source",
+    ),
+)
+def test_csv_downloads_keep_source_labels_inert_and_reversible(
+    tmp_path: Path, label: str
+) -> None:
+    product, checksum = joint_fixture(tmp_path / "fixture", bin_id=label)
+    manifest, files = capture_joint_product(product, checksum)
+    projection = project_joint_product(
+        manifest,
+        JointLRAPlan(files["plan.json"].decode("utf-8")).payload(),
+        product_manifest_sha256=checksum,
+    )
+    stage = tmp_path / "downloads"
+    stage.mkdir()
+    write_joint_downloads(stage, files, projection)
+    with (stage / "draw-bin-ledger.csv").open(encoding="utf-8", newline="") as stream:
+        csv_label = next(csv.DictReader(stream))["bin_id"]
+    assert csv_label == "'" + label
+    assert csv_label[1:] == label
+    assert (
+        json.loads((stage / "joint-summary.json").read_text())["draw_bin_ledger"][0][
+            "bin_id"
+        ]
+        == label
+    )
