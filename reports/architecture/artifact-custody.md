@@ -194,3 +194,21 @@ private review remains available to trace the earlier source-authority
 comparison; it is not a current provider license or admission decision. We
 retired only that one HYDE artifact directory and left the other source and
 run prefixes untouched.
+
+## HYDE native source-index preview
+
+We also retired the inactive base-2000 CE cropland preview after copying its
+six exact files, 1,337,341 bytes, into private source custody. The
+[receipt](artifact-custody/hyde-source-preview.json) records every SHA-256 and
+the former artifact path. The window's 1,319,219-byte token file is identical
+to the base window already held in the three-scenario private source bundle;
+we preserved this preview's distinct manifest, review, producer, plan and
+summary as one historical closure. No symlink, hardlink, open handle or
+product reader used the selected prefix at retirement.
+
+The preview counted 72,576 source-index cells: 29,217 missing, 43,359
+nonmissing and 15,307 numeric zeros. Our [HYDE source review](../../docs/public/pollenomics-data/sources/hyde.md)
+owns these descriptive counts and their limits. The private preview is not a
+country overlay, release-rights decision, modeled-area estimate or measured
+vegetation result. We left the other HYDE artifact prefixes for separate
+custody decisions.

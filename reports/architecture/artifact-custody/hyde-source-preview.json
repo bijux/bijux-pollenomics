@@ -1,0 +1,19 @@
+{
+  "schema_version": "hyde-source-preview-custody.v1",
+  "retired_prefix": "artifacts/v3/hyde/private-preview001",
+  "private_copy": "hyde/source-previews/base-2000ad",
+  "regular_file_count": 6,
+  "regular_file_bytes": 1337341,
+  "files": {
+    "REVIEW.md": "f6961a97dcbe47d989e57e5e1272170803daa66762e1e096e714a9de995beefe",
+    "plan.json": "ff1e9a1e1eeb550670fbc4f552a929d5c578c9b25a8b2191b728bbf0a9287593",
+    "prepare_preview.py": "3b25584e33e67fe0eb18168c1f14d0263a8968250ee661813fdaa042989fa157",
+    "preview.json": "2c9a51524a62fbdf80dee0941c8cbb031d304b4cd6ad5eb71764e8eb02e947f5",
+    "window/manifest.json": "7b9199fb8d18f6ecd893b67316be9ca239a97d4e3252436ebdaf7cb635a27b42",
+    "window/window.json": "b0bc945a148c92b3ca4a7b710e2b49201f636a7724853027d41b4c8fc187e404"
+  },
+  "all_private_files_byte_exact": true,
+  "no_symlink_or_hardlink": true,
+  "no_open_handle_or_product_reader_at_retirement": true,
+  "scientific_scope": "2000 CE base cropland source-index preview: 72576 selected cells, 29217 missing, 43359 nonmissing and 15307 numeric zeros; no country overlay, area, historical calendar or release admission."
+}
