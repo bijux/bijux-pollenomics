@@ -152,3 +152,7 @@ no-diff gate remains failed. The full local diagnostic is retained under
 `artifacts/execution-control/reproducible-report-build.nVLYdW/evidence/`;
 the decision and counts above remain in this report if local artifacts are
 purged.
+
+Our [artifact custody decision](artifact-custody.md) records a separate
+bounded checkout retirement and its recoverable source identity. It does not
+alter the report producer ownership or the failed independent rebuild gate.

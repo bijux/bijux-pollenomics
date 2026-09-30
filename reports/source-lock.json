@@ -2,6 +2,7 @@
   "schema_version": "research-report-source-lock.v1",
   "reports": [
     "reports/README.md",
+    "reports/architecture/artifact-custody.md",
     "reports/architecture/lra-distribution.md",
     "reports/architecture/ownership.md",
     "reports/evidence-index.md",
@@ -79,8 +80,9 @@
     "docs/report/world/world_summary.json": "0437d8232c56bc2c46c66b0ee8fc72e98012e8f9b6e38b2731f27c208dcc5df5",
     "packages/bijux-pollenomics/tests/unit/reporting/adna/sample_chronology_context/test_repository_data.py": "5d522cc028ceed420b8e4e7ad9d75e740c898258610c95e42eb708f0d4e595b6",
     "reports/README.md": "e16003dfffd79de4d3817cf8707d24a5616754afd386e49608738b9f2ba023d6",
+    "reports/architecture/artifact-custody.md": "00ab5981506916e73f471cbb2ce9c612b085a5aaea471ad4e7024263fe963c66",
     "reports/architecture/lra-distribution.md": "b50b09734608a27bffdc42df9d060187dc588e8e48b8e8728cd136e1f0382c67",
-    "reports/architecture/ownership.md": "e9404126730873272dfc35b215a334fb29e4e2817475d541f230bd0579472b87",
+    "reports/architecture/ownership.md": "c0182301487a96f27b983dee1548b86255430287774ec7b172df2d47a7b2667b",
     "reports/evidence-index.md": "7a1c57e43b6b98b43a08906ca3c544879772c544fde7aa6ad244c8622bb5181e",
     "reports/needed/README.md": "b258045084c5d70b72e488a2a9774afc46617dfde66bd7220ae5731fd26abdee",
     "reports/science/abborrtjarnen-source-method.md": "53c4aaa4f5e5aaef18d5641ca2dd3f1cf9acee457b44461e1de58545263f4232",
