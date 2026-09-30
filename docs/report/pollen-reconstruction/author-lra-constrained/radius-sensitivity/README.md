@@ -35,6 +35,27 @@ and target outcomes were already exposed in development. These shifts do not
 select a physical radius, quantify chronology or PPE uncertainty, establish
 vegetation accuracy, or admit a Swedish core to LRA.
 
+## Paired direct-pollen comparison
+
+We joined the radius scores to the published direct-pollen MAE and Hellinger
+rows by target site, method and exact observed raw-row SHA-256. We checked
+that the unvaried LRA score and prediction identity reproduce the original
+comparison. The [paired rows](paired/paired-scores.csv) and
+[summary](paired/report.json) cover 126 matched method/radius/site rows.
+
+| Method | Radius factor | Direct minus LRA MAE | Direct minus LRA Hellinger | Sites favoring direct by MAE |
+| --- | ---: | ---: | ---: | ---: |
+| Training mean | 0.8 / 1.0 / 1.2 | −0.005900 / −0.005778 / −0.005750 | −0.078892 / −0.078588 / −0.079845 | 13 / 13 / 13 of 14 |
+| Nearest site | 0.8 / 1.0 / 1.2 | −0.001408 / −0.001580 / −0.001939 | −0.027647 / −0.030234 / −0.035443 | 6 / 7 / 7 of 14 |
+| Inverse distance squared | 0.8 / 1.0 / 1.2 | −0.002454 / −0.002509 / −0.002878 | −0.040303 / −0.041743 / −0.046152 | 10 / 10 / 9 of 14 |
+
+Negative aggregate differences favor direct pollen. We found that varying
+the assumed radius by 20% does not reverse the aggregate direct-pollen
+advantage on this matched English development support. Individual sites
+disagree, and the direct route used all 14 training pollen sites while LRA
+used a regional anchor plus 13 local reconstruction predictors. This is not
+an independent model ranking or vegetation-accuracy comparison.
+
 Reproduce with the exact constrained author input and closed-cover prediction
 directories named in the [parent study](../README.md). Freeze and retain the
 first output before running the score command:
@@ -58,3 +79,12 @@ manifest, each target geometry, and each raw count row against the source
 declarations. Its [code](../radius_sensitivity.py) invokes the installed LRA
 forward consumer for every projection. Private author inputs stay outside the
 repository; these governed outputs preserve prediction and score identities.
+
+To reproduce the downstream comparison from the retained source-locked
+scores without private raw files:
+
+```sh
+PYTHONDONTWRITEBYTECODE=1 .venv/bin/python \
+  docs/report/pollen-reconstruction/author-lra-constrained/radius-sensitivity/paired_comparison.py \
+  --output artifacts/jobs/author-lra-radius-paired-replay
+```

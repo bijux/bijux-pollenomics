@@ -171,6 +171,9 @@
     "eligible_sites": 15,
     "scored_sites": 14,
     "prediction_rows": 126,
+    "paired_report": "docs/report/pollen-reconstruction/author-lra-constrained/radius-sensitivity/paired/report.json",
+    "paired_rows": 126,
+    "aggregate_direct_lower_all_nine": true,
     "claim": "fixed_LRA_vegetation_target_basin_forward_pollen_sensitivity_only"
   },
   "nordic_selected_pollen_transfer": {

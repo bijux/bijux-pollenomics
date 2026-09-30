@@ -66,6 +66,10 @@ vegetation, site-macro pollen MAE is 0.021032, 0.021088 and 0.021457 at
 80%, 100% and 120% of the assumed radius. This diagnoses forward transport
 sensitivity on prior-exposed English examples; it neither calibrates a lake
 radius nor admits Swedish basins to LRA.
+On the same matched sites, our [paired direct-pollen comparison](../../../report/pollen-reconstruction/author-lra-constrained/radius-sensitivity/paired/report.json)
+finds lower aggregate direct-pollen MAE and Hellinger at all three radius
+factors for each fixed method. Individual sites disagree, and direct and LRA
+used different training information.
 
 ## Swedish training scope on matched pollen targets
 

@@ -94,6 +94,78 @@ def verify_author_radius_sensitivity() -> None:
         ):
             raise ValueError("author radius site-macro summary differs")
 
+    paired_dir = study / "paired"
+    paired_report = json.loads((paired_dir / "report.json").read_text())
+    expected_sources = {
+        "radius_report": study / "scored/report.json",
+        "radius_scores": study / "scored/scores.csv",
+        "direct_mae": root / "direct-pollen/matched-scores.csv",
+        "direct_hellinger": root / "direct-pollen/paired-hellinger.json",
+    }
+    if (
+        paired_report["source_sha256"]
+        != {name: sha256(path) for name, path in expected_sources.items()}
+        or paired_report["producer_sha256"] != sha256(study / "paired_comparison.py")
+        or paired_report["matched_sites"] != 14
+        or paired_report["paired_rows"] != 126
+        or len(paired_report["summary"]) != 9
+    ):
+        raise ValueError("author radius paired source identity changed")
+    with (paired_dir / "paired-scores.csv").open(newline="") as stream:
+        paired = list(csv.DictReader(stream))
+    radius_by_key = {key(row): row for row in scores}
+    if len(paired) != 126 or {key(row) for row in paired} != set(radius_by_key):
+        raise ValueError("author radius paired support changed")
+    for row in paired:
+        source = radius_by_key[key(row)]
+        if (
+            row["observation_sha256"] != source["observation_sha256"]
+            or not math.isclose(
+                float(row["lra_mae_fraction"]),
+                float(source["mae_fraction"]),
+                abs_tol=1e-15,
+                rel_tol=0,
+            )
+            or not math.isclose(
+                float(row["direct_mae_fraction"]) - float(row["lra_mae_fraction"]),
+                float(row["direct_minus_lra_mae_fraction"]),
+                abs_tol=1e-15,
+                rel_tol=0,
+            )
+        ):
+            raise ValueError("author radius paired row differs")
+    for summary in paired_report["summary"]:
+        subset = [
+            row
+            for row in paired
+            if row["method"] == summary["method"]
+            and float(row["radius_factor"]) == summary["radius_factor"]
+        ]
+        if (
+            len(subset) != 14
+            or summary["direct_minus_lra_mae_fraction"] >= 0
+            or summary["direct_minus_lra_hellinger_distance"] >= 0
+            or sum(float(row["direct_minus_lra_mae_fraction"]) < 0 for row in subset)
+            != summary["direct_lower_mae_sites"]
+            or any(
+                not math.isclose(
+                    sum(float(row[field]) for row in subset) / 14,
+                    summary[field],
+                    abs_tol=1e-15,
+                    rel_tol=0,
+                )
+                for field in (
+                    "direct_mae_fraction",
+                    "lra_mae_fraction",
+                    "direct_minus_lra_mae_fraction",
+                    "direct_hellinger_distance",
+                    "lra_hellinger_distance",
+                    "direct_minus_lra_hellinger_distance",
+                )
+            )
+        ):
+            raise ValueError("author radius paired summary differs")
+
 
 def verify_publication_correspondence(scope: dict[str, Any]) -> None:
     """Keep publication ledgers bound to their distinct scientific claims."""
@@ -671,6 +743,10 @@ def main() -> None:
         or radius_scope["prediction_rows"] != 126
         or radius_scope["eligible_sites"] != 15
         or radius_scope["scored_sites"] != 14
+        or radius_scope["paired_report"]
+        != "docs/report/pollen-reconstruction/author-lra-constrained/radius-sensitivity/paired/report.json"
+        or radius_scope["paired_rows"] != 126
+        or radius_scope["aggregate_direct_lower_all_nine"] is not True
     ):
         raise ValueError("author radius scope differs from retained study")
     with (REPORT_DIR / "swedish-source-questions.csv").open(

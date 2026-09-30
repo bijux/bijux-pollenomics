@@ -129,6 +129,16 @@ or establish age-specific basin geometry. The
 [governed method account](../../docs/report/pollen-reconstruction/author-lra-constrained/radius-sensitivity/README.md)
 gives all method values and reproduction commands.
 
+We then paired those radius scores with the already published direct-pollen
+scores using the exact target observation identity. Across all three fixed
+methods and all three radius factors, site-macro direct-pollen MAE and
+Hellinger remain lower than fixed-vegetation LRA forward pollen. The
+[126 paired rows](../../docs/report/pollen-reconstruction/author-lra-constrained/radius-sensitivity/paired/paired-scores.csv)
+show site exceptions: nearest-site direct MAE is lower at 6, 7 and 7 of 14
+sites for 80%, 100% and 120% radius, respectively. We keep the difference in
+training information and prior outcome exposure visible; this does not
+select a model for Nordic cores.
+
 ## Reproduce our result
 
 From the repository root, use the private author source capsule and an absent
