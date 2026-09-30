@@ -34,18 +34,18 @@ def sha256(path: Path) -> str:
     return h.hexdigest()
 
 
-def produce(source_root: Path, receipt_path: Path) -> tuple[list[dict], dict]:
-    receipt = json.loads(receipt_path.read_text(encoding="utf-8"))
-    if receipt["schema_version"] != "synthetic-retained-score-custody.v1":
-        raise ValueError("Unexpected private-source receipt schema")
-    for relative, expected in receipt["members"].items():
+def produce(source_root: Path, source_manifest_path: Path) -> tuple[list[dict], dict]:
+    source_manifest = json.loads(source_manifest_path.read_text(encoding="utf-8"))
+    if source_manifest["schema_version"] != "synthetic-score-source.v1":
+        raise ValueError("Unexpected score-source manifest schema")
+    for relative, expected in source_manifest["members"].items():
         path = source_root / relative
         if not path.is_file() or sha256(path) != expected:
             raise ValueError(f"Retained score source changed: {relative}")
     historical_path = (
         source_root / "artifacts/v2/resumed-frontier/metrics-002/report.json"
     )
-    if sha256(historical_path) != receipt["source_report_sha256"]:
+    if sha256(historical_path) != source_manifest["source_report_sha256"]:
         raise ValueError("Historical score report identity changed")
     historical = json.loads(historical_path.read_text(encoding="utf-8"))
     bindings_path = (
@@ -155,7 +155,7 @@ def produce(source_root: Path, receipt_path: Path) -> tuple[list[dict], dict]:
     }
     if (
         accounting != historical["accounting"]
-        or accounting != receipt["source_report_accounting"]
+        or accounting != source_manifest["source_report_accounting"]
     ):
         raise ValueError("Historical retained-score accounting changed")
     historical_rows = [
@@ -165,8 +165,8 @@ def produce(source_root: Path, receipt_path: Path) -> tuple[list[dict], dict]:
         raise ValueError("Retained score row order differs from historical result")
     report = {
         "schema_version": "synthetic-protocol-metrics.v1",
-        "private_archive_sha256": receipt["archive_sha256"],
-        "historical_report_sha256": receipt["source_report_sha256"],
+        "private_archive_sha256": source_manifest["archive_sha256"],
+        "historical_report_sha256": source_manifest["source_report_sha256"],
         "protocols": protocols,
         "accounting": accounting,
         "pooled_accuracy_computed": False,
@@ -180,12 +180,12 @@ def produce(source_root: Path, receipt_path: Path) -> tuple[list[dict], dict]:
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--source-root", type=Path, required=True)
-    parser.add_argument("--receipt", type=Path, required=True)
+    parser.add_argument("--source-manifest", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
     if args.output.exists():
         raise ValueError("Absent output destination required")
-    rows, report = produce(args.source_root, args.receipt)
+    rows, report = produce(args.source_root, args.source_manifest)
     args.output.mkdir(parents=True)
     with (args.output / "scores.csv").open("w", newline="", encoding="utf-8") as stream:
         writer = csv.DictWriter(stream, fieldnames=FIELDS, lineterminator="\n")

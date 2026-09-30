@@ -33,15 +33,14 @@ updating that lock.
 | Why did we keep the LRA engine separate? | [Our distribution decision](architecture/lra-distribution.md) | We checked a single optional-extra install and kept the engine boundary; public release and rights review remain separate. |
 | Why is the LRA backend still Python? | [Our native-backend decision](architecture/native-backend.md) | The measured C++ forward batch failed its latency gate; a future kernel has explicit source-parity, build and release conditions. |
 | Which LRA source and prototype functions did we adopt? | [Our source-adoption decision](architecture/lra-source-adoption/README.md) | Original R, candidate Python and adopted engine have separate identities, notices and function dispositions. |
-| Where did historical run material go? | [Our artifact custody decisions](architecture/artifact-custody.md), [LandClim author acquisition](architecture/artifact-custody/landclim-author-acquisition.md) | Exact private source and result custody precedes each bounded retirement. |
 
 The [open research needs](needed/README.md) list exact evidence questions that
 would change current conclusions. An answered question moves into its owning
 report and is removed from that open list.
 
-The [report ownership map](architecture/ownership.md) records the existing
-`docs/report/` size and path dependencies, and the proposed boundary for each
-kind of material while report producers are migrated by domain.
+The [report ownership decision](architecture/ownership.md) explains how this
+reader library, governed numeric outputs, the website and source-locked
+presentations share results without making disposable runs part of the product.
 
 ## How to read a claim
 

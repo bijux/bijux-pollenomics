@@ -32,9 +32,8 @@ reader correspondence. They do not recover the original 1,128 pollen inputs,
 selected chronologies, historical basin geometry, archive-producing PFT
 transformation or source-specific rights. The archive is not independently
 measured vegetation, and reading it does not reproduce the publication's R
-calculation. The [private run custody](../../../architecture/artifact-custody/landclim-published-inventory-challenges.json)
-retains all 25 historical challenge files, including failed first attempts and
-adversarial outputs, without making their intermediate statuses current claims.
+calculation. The governed result and replay above own the current source
+account; historical challenge attempts do not change its scientific scope.
 
 Reproduce the governed account from the repository root and compare bytes:
 

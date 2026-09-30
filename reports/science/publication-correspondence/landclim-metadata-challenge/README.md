@@ -17,10 +17,8 @@ explicitly reports zero authenticated historical pollen counts, zero historical
 chronologies, zero historical/current revision matches, zero cleared per-sequence
 rights and no publication-specific R execution. We do not use this metadata
 check as full ESSD reproduction, empirical LRA admission or ecological accuracy.
-The [custody receipt](../../../architecture/artifact-custody/landclim-metadata-challenge.json)
-binds all 58 original run files and the historical challenge source to a
-private archive. The archive can be used to inspect the old procedure and
-adversarial products; it does not provide missing historical study inputs.
+The exact result and current-product hash check above preserve the bounded
+verdict. Historical challenge files do not provide missing study inputs.
 
 From the repository root, check that the retained verdict and five exact
 product identities still agree:

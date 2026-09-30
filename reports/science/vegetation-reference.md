@@ -50,8 +50,8 @@ PYTHONDONTWRITEBYTECODE=1 .venv/bin/python \
 ```
 
 The four reproduced numeric files match their governed counterparts byte for
-byte; the [report ownership decision](../architecture/ownership.md) records
-their SHA-256 identities. The replay reads original source bytes but
+byte. Their source-bound producers and result files retain the exact
+identities. The replay reads original source bytes but
 publishes no private plot identifiers or coordinates.
 
 ## What follows

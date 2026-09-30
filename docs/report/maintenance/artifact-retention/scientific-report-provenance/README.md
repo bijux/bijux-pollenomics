@@ -21,11 +21,11 @@ country assignment; the current report separately verifies country totals and
 grid conservation while leaving a pollen covariate ablation blocked. Neither
 snapshot establishes LRA skill or measured-vegetation validation.
 
-The frozen evidence manifest names the historical HYDE `final005` window
-bundle. Its exact bytes remain in private custody under the root receipt
-`reports/architecture/artifact-custody/hyde-nordic-window-run.json`; the six
-scenario source-window files have [separate custody](../../../source-relations/hyde/source-custody/README.md).
-The snapshot's original artifact path and hash remain unchanged.
+The frozen evidence manifest names an earlier HYDE window bundle. Its source
+windows have [qualified source custody](../../../source-relations/hyde/source-custody/README.md).
+The current [HYDE country result](../../../regions/nordic/hyde-country-cropland/README.md)
+owns the supported modeled-source accounting. The older manifest is retained
+only as a historical snapshot, with no live input path or ecological claim.
 
 The [historical Swedish source questions](source-questions.csv) preserve the
 earlier artifact's exact ten rows. The [custody receipt](source-questions-custody.json)

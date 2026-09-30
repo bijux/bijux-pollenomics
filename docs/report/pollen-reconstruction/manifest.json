@@ -5,6 +5,11 @@
   "as_of": "2026-09-30",
   "files": [
     {
+      "path": "data/synthetic/score_protocol_source.json",
+      "sha256": "59abc1408a5a2153b736989a8f5e1e36016b96600b0ecb14af9a83a53aea3f5d",
+      "bytes": 24851
+    },
+    {
       "path": "docs/public/pollenomics-data/sources/empd2-nfi-review.md",
       "sha256": "3bc09525c19ea91f7d817fea495d41d47e3dc079276e239005653b8975069e64",
       "bytes": 4853
@@ -136,8 +141,8 @@
     },
     {
       "path": "docs/report/maintenance/artifact-retention/scientific-report-provenance/README.md",
-      "bytes": 3129,
-      "sha256": "23a449dc0cd290b7ab1be3b69dc7e3f80211bc2c6a6cf27565021796eea92570"
+      "bytes": 3149,
+      "sha256": "6a58cd31e406865f741d8612163ad00076fc31ed226c4b2e274114ce152a8c83"
     },
     {
       "path": "docs/report/maintenance/artifact-retention/swedish-lake-transfer-run-custody.json",
@@ -2096,28 +2101,18 @@
     },
     {
       "path": "reports/README.md",
-      "sha256": "71a65e085a3e23022496f4d6b8715ecac2f8775094c51e9a76235f8003be6859",
-      "bytes": 7735
-    },
-    {
-      "path": "reports/architecture/artifact-custody.md",
-      "sha256": "9116a7729d239bf234324c7f8920e0f60c7f15549b3c446eadf647f1615a936a",
-      "bytes": 24203
-    },
-    {
-      "path": "reports/architecture/artifact-custody/synthetic-protocol-metrics.json",
-      "sha256": "c0f6b4edbcc825249941a7a3c943017a80763ce019c538cc87df413c97da6de5",
-      "bytes": 25045
+      "sha256": "7e2a666116051520fb68c4266e2b52ece4b5c1568da16ec54dd007a28a82df3f",
+      "bytes": 7704
     },
     {
       "path": "reports/architecture/ownership.md",
-      "sha256": "6811cd4731049b70c07ccc1026ae8a02ff111db624cc19f76c698bf9c6891eec",
-      "bytes": 18359
+      "sha256": "270d006270f751e39cea0e4a653a7133f514ccf5a9b4d6b987731458f7727c3c",
+      "bytes": 2987
     },
     {
       "path": "reports/evidence-index.md",
-      "sha256": "332a834a324670353494ce66282fb227b3e969fc1eef324776f3e75e7f4ba065",
-      "bytes": 18786
+      "sha256": "0ef964dba26b498fce1781dcd8b71dd5d3aa1f0cc0514b4117028eed835d6149",
+      "bytes": 18564
     },
     {
       "path": "reports/needed/README.md",
@@ -2201,8 +2196,8 @@
     },
     {
       "path": "reports/science/hyde-cropland-source-account.md",
-      "sha256": "e31b7120a74a4a18eb8934f933e9f60745f1aca35ebf01dcc44db0a89d8bb366",
-      "bytes": 6154
+      "sha256": "fa64c2f6c3405f4553c4299f5b9c46ab3cbfb972b0139ee627df5982a0882e63",
+      "bytes": 6008
     },
     {
       "path": "reports/science/laihalampi-lra-input/README.md",
@@ -2221,8 +2216,8 @@
     },
     {
       "path": "reports/science/method-correspondence.md",
-      "sha256": "fe2290615fd308e6f247dbd478c6fc96cf245fc17511b69f851a4c2b99119f5b",
-      "bytes": 5383
+      "sha256": "31223d13a2a4e40778a3a1b86180c4442496dd43d35887f173b089b4a0250f83",
+      "bytes": 5249
     },
     {
       "path": "reports/science/nordic-observed-pollen-selection.md",
@@ -2356,13 +2351,13 @@
     },
     {
       "path": "reports/science/synthetic-protocol-metrics/README.md",
-      "sha256": "51fcd15ee1775c4dca5f843b9bbb72df4f1dad3c921a20a9f315bb16fdfc7d96",
-      "bytes": 3877
+      "sha256": "d11c2ffc2e5c55158a391c2d37f12f8d1d868c13763c76c72f2a5dbd2f8a394d",
+      "bytes": 3803
     },
     {
       "path": "reports/science/synthetic-protocol-metrics/replay.py",
-      "sha256": "62fd483a8d2162b9d4a9649d288835b6b20e1d57b0da78f7b1b33a24f6e70f62",
-      "bytes": 8256
+      "sha256": "6eb99054b712f2995e9bc3d7815c3428554479655c6125bc64af26b535561ec7",
+      "bytes": 8333
     },
     {
       "path": "reports/science/synthetic-protocol-metrics/report.json",
@@ -2376,8 +2371,8 @@
     },
     {
       "path": "reports/science/vegetation-reference.md",
-      "sha256": "19a52a3bcbd735faf845d9a6d5253d7dcfd0bf102f363674dd2645a61c4dd9f7",
-      "bytes": 5229
+      "sha256": "be7791432d738eab0f430c2a2d7139e195a1fabae3d6ec32f6e0ffbae4e00892",
+      "bytes": 5208
     },
     {
       "path": "reports/science/vegetation-reference/farskesjon/plot_support.py",

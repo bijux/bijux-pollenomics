@@ -24,8 +24,7 @@ its corrected successor on 135 combinations of dimension, fixed bounds,
 population size and evaluation budget. In both executed runs, 54 cases changed
 the reported completed-generation count; 81 did not. Every case retained the
 same objective-evaluation trace, random-generator state and other result fields.
-The [exact historical packet and source hashes](../architecture/artifact-custody/optimizer-budget-reporting.json)
-are retained privately. The corrected snapshots in that packet precede today's
+The corrected snapshots in that comparison precede today's
 solver, so this is evidence for the historical accounting change, not a fresh
 135-case certification of current code. Our [current focused regression](../../packages/bijux-pollenomics-lra/tests/unit/optimization/test_solver.py)
 checks completed generations and exact evaluations at four budgets. Generation

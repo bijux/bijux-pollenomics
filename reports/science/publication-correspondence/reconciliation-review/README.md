@@ -17,8 +17,9 @@ requires exactly two grid objects with the expected IDs, 9/8 named sites,
 25 bins, 31 taxa, matching site counts and passing grid, regional and site
 checks before emitting the bounded parity status. A separate test rejects an
 unknown grouped output header instead of classifying it as a PFT. The three
-selected tests passed on the current code. The [custody receipt](../../../architecture/artifact-custody/essd-reconciliation-review.json)
-preserves both historical review files privately.
+selected tests passed on the current code. The exact review result above
+records the historical defects; the current producer and tests own their
+resolution.
 
 The historical `0 / 1,128` statement remains a declared evidence-closure
 absence, not a computed exhaustive sample audit. It cannot authenticate the

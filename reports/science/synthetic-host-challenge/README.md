@@ -49,13 +49,11 @@ and `eaf1100d5fb1584ee85d95ec83a2f709c188ca0103d73fef86772677091ffcd1`.
 We store their original Python bytes as text evidence so repository code
 checks do not treat an archival, layout-dependent script as a live entry point.
 They are source evidence, not a current-source replay command: the producer
-expects the historical artifact layout and a frozen package snapshot. We
-retained the original inputs and outputs in the verified private archive named
-by the [custody receipt](../../architecture/artifact-custody/known-landscape-runs.json)
-and retired that exact artifact directory. The product report, source and
-policy are accessible here; exact historical rerun still requires restoring
-the frozen environment and archived input layout. This is not a claim that
-current code reproduces the old numeric bytes.
+expects the historical artifact layout and a frozen package snapshot. The
+original inputs and outputs require a separate private source archive. The
+product report, source and policy are accessible here; exact historical rerun
+still requires the frozen environment and source layout. This is not a claim
+that current code reproduces the old numeric bytes.
 
 Our current [governed reconstruction challenge](../../../docs/report/synthetic-validation/reconstruction/README.md)
 tests eight cases with an owned producer and declares the same transport-mismatch

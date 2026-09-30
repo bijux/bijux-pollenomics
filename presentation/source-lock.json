@@ -28,10 +28,10 @@
     "presentation/developer.tex": "f4261f525247727c2b585e4126ee4fe4073d450c28c243c6be464baa247d1581",
     "presentation/scientific-evidence.tex": "5559ae19f410383828586cae2f5cceb68651d2225ca25deb0eb0e171ee5264a7",
     "presentation/shared.tex": "2aa40954975f75241ded20a78d0c698c0f864274222e30c148bda4cf4b0bf17a",
-    "reports/README.md": "4d80e3d081d8d3868a869dcb943ebb5607be8815c37e7811e72e99aa7aef8d98",
+    "reports/README.md": "7e2a666116051520fb68c4266e2b52ece4b5c1568da16ec54dd007a28a82df3f",
     "reports/architecture/lra-distribution.md": "b50b09734608a27bffdc42df9d060187dc588e8e48b8e8728cd136e1f0382c67",
     "reports/architecture/native-backend.md": "c83d3c6ba60a536af801ee05f8e0e3de8ec2a90e7ea554ea00f144b9aae2988d",
-    "reports/architecture/ownership.md": "6811cd4731049b70c07ccc1026ae8a02ff111db624cc19f76c698bf9c6891eec",
+    "reports/architecture/ownership.md": "270d006270f751e39cea0e4a653a7133f514ccf5a9b4d6b987731458f7727c3c",
     "reports/needed/README.md": "9ab557d20117e4e2a278a01b28aa36b31ad9b3c4e0f74b63dc4024f1eed6fba6",
     "reports/science/bjaresjo-context.md": "a49c6d6530dd543ae4dc3c4ca0e4bcabe37af8e363b28bd6d18b1245723118d1",
     "reports/science/dalmutladdo-lra-input/README.md": "441fd94c12b85afbced8d9ac12bb96fa25faf4ac341f4497f36753c8fc930a52",
@@ -39,10 +39,10 @@
     "reports/science/denmark-finland-norway-author-pollen.md": "610b2c47e86cebe980afcee5310f560df94ba33d5a8f2c5f5e3cf10edc791321",
     "reports/science/english-analytical-love/report.json": "cf36b604ed37ddc22b1c0bba4e9efb39df9a9099bb19c318a2fe92012e0e8013",
     "reports/science/english-lra-pollen-prediction.md": "b4c3b43b8a0e7f8fe464ed065785936560be0a3e19921f66f87a01654343c7c8",
-    "reports/science/hyde-cropland-source-account.md": "e31b7120a74a4a18eb8934f933e9f60745f1aca35ebf01dcc44db0a89d8bb366",
+    "reports/science/hyde-cropland-source-account.md": "fa64c2f6c3405f4553c4299f5b9c46ab3cbfb972b0139ee627df5982a0882e63",
     "reports/science/laihalampi-lra-input/README.md": "9f8fd6e8371de780a1fd98780c252941119f447f819faa217797c2ab4fc69263",
     "reports/science/laihalampi-lra-input/report.json": "72a06d21a12228cd9cf833a46e6d5d7c48d49ee3fbff7423f1258c9faef8371d",
-    "reports/science/method-correspondence.md": "fe2290615fd308e6f247dbd478c6fc96cf245fc17511b69f851a4c2b99119f5b",
+    "reports/science/method-correspondence.md": "31223d13a2a4e40778a3a1b86180c4442496dd43d35887f173b089b4a0250f83",
     "reports/science/model-use.md": "07b83556594196f49cfaeec04859ef1927dd0accb20289cd6814399a9c9cfa46",
     "reports/science/pollen-prediction.md": "52dd99c6f9a30cee69289ebac8413e79e8ede551583e084dbdd64621d71cd978",
     "reports/science/publication-correspondence.md": "5d010a3f9a988e353d47f26f8d3a1087e2e124378713df571d0aeb226e2c7303",
@@ -55,7 +55,7 @@
     "reports/science/sweden-lake-transfer.md": "2df22f1964738d4b5d6c75e1a132c108aa230ab894888d44a29c37416f7b8034",
     "reports/science/sweden-spatiotemporal-sensitivity.md": "8f6dccebd81af82bfedea3e9ae3ddaea75a3999a59bfd1119046d947c43980de",
     "reports/science/sweden-training-scope.md": "f314ad31c3ce166f7c8ea2aa2b03ed82c097c8026bb969008711c33e11f39246",
-    "reports/science/synthetic-model-selection/README.md": "2fc82ddfe59fc8e7a2febe0a9441f74cf3b5b1bdaa33290413c65aa59a5f18b6",
-    "reports/science/vegetation-reference.md": "19a52a3bcbd735faf845d9a6d5253d7dcfd0bf102f363674dd2645a61c4dd9f7"
+    "reports/science/synthetic-model-selection/README.md": "a0bffe995d898dfd89a7a0f37f010e252cb339af15041e328abd392623956939",
+    "reports/science/vegetation-reference.md": "be7791432d738eab0f430c2a2d7139e195a1fabae3d6ec32f6e0ffbae4e00892"
   }
 }

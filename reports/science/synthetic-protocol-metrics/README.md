@@ -27,10 +27,10 @@ No interval coverage was computed for these six protocols.
 
 ## Source and verification boundary
 
-We retained the original 16-row historical report, its script, binding file
-and all 140 files in its declared read set in a private archive. The
-[custody receipt](../../architecture/artifact-custody/synthetic-protocol-metrics.json)
-lists all **148** member hashes, 2,600,001 source bytes and the archive SHA-256
+The private source archive contains the original 16-row score report, its
+binding file and all 140 declared input files. The maintained
+[source manifest](../../../data/synthetic/score_protocol_source.json) binds
+all **148** member hashes and archive SHA-256
 `8dd272c3bd93f8354045596b2b712a2a3670cd35ebd0b7332d0b001ee95c3cc6`.
 The [machine result](report.json) links each row to the historical score
 manifest and evidence digest. All archive members were compared byte for
@@ -60,7 +60,7 @@ directory, then run from the repository root:
 PYTHONDONTWRITEBYTECODE=1 .venv/bin/python \
   reports/science/synthetic-protocol-metrics/replay.py \
   --source-root artifacts/jobs/synthetic-protocol-metrics/extracted \
-  --receipt reports/architecture/artifact-custody/synthetic-protocol-metrics.json \
+  --source-manifest data/synthetic/score_protocol_source.json \
   --output artifacts/jobs/synthetic-protocol-metrics/replayed
 ```
 

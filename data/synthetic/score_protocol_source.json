@@ -1,12 +1,7 @@
 {
-  "schema_version": "synthetic-retained-score-custody.v1",
-  "archive": "reference-sources/synthetic-protocol-metrics/retained-scores.tar",
+  "schema_version": "synthetic-score-source.v1",
   "archive_sha256": "8dd272c3bd93f8354045596b2b712a2a3670cd35ebd0b7332d0b001ee95c3cc6",
   "source_report_sha256": "a41760438c0c492f6eac30c7fa858da548562fe4c3b08b92cf1ac28833b5856a",
-  "file_count": 148,
-  "file_bytes": 2600001,
-  "readset_file_count": 140,
-  "source_report_rows": 16,
   "source_report_accounting": {
     "pollen_composition": {
       "prediction_failed": 8,

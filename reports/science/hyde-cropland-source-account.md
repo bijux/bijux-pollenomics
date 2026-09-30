@@ -63,8 +63,8 @@ retains the detailed axis and scenario observations.
 We independently checked that one pinned 2000 CE base-cropland ZIP member
 reproduces the selected 72,576 source tokens, missing mask, numeric-zero
 count and literal-axis edges. The check read all 9,331,200 source cells and
-matched the retained geometry result; its exact code and machine receipt are
-in [private custody](../architecture/artifact-custody/hyde-native-axis.json).
+matched the retained geometry result. The [source review](../../docs/public/pollenomics-data/sources/hyde.md)
+records this bounded geometry finding.
 This confirms a narrow source-index calculation. It supplies no formal CRS,
 country membership, cell area or historical date conversion.
 
@@ -73,9 +73,7 @@ grid conservation below as **modeled-source accounting only**. We do not yet
 admit a release-wide native-grid product, public cell redistribution or a
 matched pollen-model HYDE comparison. The [open evidence request](../needed/README.md)
 asks for provider binding of file identity, rights, CRS, dates, units and
-scenario meaning. The older source-authority working review is preserved in
-[private custody](../architecture/artifact-custody/hyde-provider-authority.json);
-this report owns our current decision.
+scenario meaning. This report owns our current decision.
 
 We use these modeled totals as external land-use context. They do not measure
 pollen or vegetation at our study sites. We kept the source years as CE labels

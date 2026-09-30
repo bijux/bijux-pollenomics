@@ -69,11 +69,9 @@ The ledger copy is from the development snapshot actually used by the sweep.
 We retain their original Python bytes as text evidence. The sweep imports
 the historical host challenge adapter and still expects a
 frozen package snapshot and artifact layout. This is exact source custody,
-not yet a self-contained product replay. We retained the historical inputs,
-ledger and trial outputs in the verified private archive named by the
-[custody receipt](../../architecture/artifact-custody/known-landscape-runs.json)
-and retired the exact original artifact directories. We do not use this
-ranking to tune PPE, transport or basin geometry for a real core.
+not yet a self-contained product replay. The historical inputs, ledger and
+trial outputs require the private source archive for exact rerun. We do not
+use this ranking to tune PPE, transport or basin geometry for a real core.
 
 Our current [governed synthetic reconstruction challenge](../../../docs/report/synthetic-validation/reconstruction/README.md)
 separately tests transport-matched calculation controls and deliberate
