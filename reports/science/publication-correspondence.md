@@ -121,7 +121,8 @@ not original pollen input closure or independent vegetation accuracy.
 
 We have not reconciled the paper's 12-PFT statement, PANGAEA's 11-PFT
 description and 13 archived PFT positions. We retained the two public prose
-pages under exact 2026-09-21 [capture custody](../../docs/report/maintenance/artifact-retention/landclim-provider-description-custody.json).
+pages in a [source manifest](../../data/landclim/review/provider-description-sources.json)
+with their capture date and exact byte identities.
 The [publisher's machine-readable Table 1](publication-correspondence/pft-crosswalk/publisher-table-review.md)
 lists nine paper TBS taxa and no `ISTS` code. In a separate
 [source-bound taxon arithmetic replay](publication-correspondence/pft-crosswalk/README.md),

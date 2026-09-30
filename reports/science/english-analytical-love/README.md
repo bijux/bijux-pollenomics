@@ -44,9 +44,8 @@ The [report](report.json) binds the source, experiment and prediction
 identities and records every denominator. The [fold ledger](folds.csv)
 retains each refusal; the [cover diagnostic](cover-diagnostics.csv) retains
 the 27 unique products' two local ring summaries and equation residuals.
-Our [process custody receipt](../../../docs/report/maintenance/artifact-retention/landclim-author-lra-development-custody.json)
-binds the original 27 products and 195 batch-item records to a private
-exact-byte archive.
+The governed report, fold ledger and cover diagnostic own the result; the
+older run products are not needed to interpret its refusal.
 
 We can reproduce this outcome from the private source capsule into a fresh
 `artifacts/` directory with the existing source preparation, runner and

@@ -10,6 +10,11 @@
       "bytes": 2190
     },
     {
+      "path": "data/landclim/review/provider-description-sources.json",
+      "sha256": "5505bffe177f5d59463c04a14d8018f329760cd66c99c7d988308fc9877a189a",
+      "bytes": 589
+    },
+    {
       "path": "data/synthetic/score_protocol_source.json",
       "sha256": "59abc1408a5a2153b736989a8f5e1e36016b96600b0ecb14af9a83a53aea3f5d",
       "bytes": 24851
@@ -76,73 +81,8 @@
     },
     {
       "path": "docs/report/index.md",
-      "sha256": "740517ba38420de30c129ceed7aabbb039baf5fb997d52855eb4d76525e629ec",
-      "bytes": 2670
-    },
-    {
-      "path": "docs/report/maintenance/artifact-retention/README.md",
-      "sha256": "a8dc14d5f30f1970183ab12c75354256fd5f3303f65f144bfacf7f04b0688d75",
-      "bytes": 30263
-    },
-    {
-      "path": "docs/report/maintenance/artifact-retention/landclim-author-lra-development-custody.json",
-      "sha256": "a2e079e3c0aeec7c912d5409951b936156e6c80ad7f0c2b1b746df2cc845d722",
-      "bytes": 1255
-    },
-    {
-      "path": "docs/report/maintenance/artifact-retention/landclim-author-preparation-process-custody.json",
-      "bytes": 82450,
-      "sha256": "f1cc44f27f1676e1b9b41439b67b13d0ec6f963639626976212897afc46166c1"
-    },
-    {
-      "path": "docs/report/maintenance/artifact-retention/landclim-historical-example-review-custody.json",
-      "sha256": "88e3e27d0c5f9115b049f52096c0d8ec143b3d47310d37fe2b6ab7a03f983b4e",
-      "bytes": 4424
-    },
-    {
-      "path": "docs/report/maintenance/artifact-retention/landclim-pft-audit-custody.json",
-      "bytes": 1369,
-      "sha256": "a5f990eeea6690e707bb439f989e2e423a2cb1498b86f212221a89a0529aa185"
-    },
-    {
-      "path": "docs/report/maintenance/artifact-retention/landclim-pft-primary-capture-custody.json",
-      "bytes": 2203,
-      "sha256": "8bb1ae87a56825ea8891082732287c6f9936ec9d852243ec80b40620bc91186e"
-    },
-    {
-      "path": "docs/report/maintenance/artifact-retention/landclim-provider-description-custody.json",
-      "bytes": 1287,
-      "sha256": "82464c8192e95cb675da6098fe65e4797fea57a1f59aa4af05a5bb8f581ae1e1"
-    },
-    {
-      "path": "docs/report/maintenance/artifact-retention/landclim-public-note-custody.json",
-      "bytes": 2565,
-      "sha256": "d46f54e140b232748c42cb18357192b20f6a82b42e3fb14d43c9ddb80a68c155"
-    },
-    {
-      "path": "docs/report/maintenance/artifact-retention/landclim-two-grid-process-custody.json",
-      "sha256": "4fdf61a179f50e1a7034feb1e2847ae2521b8b554ac822f08d1560270ee0fca1",
-      "bytes": 117879
-    },
-    {
-      "path": "docs/report/maintenance/artifact-retention/landclim-whh05-process-custody.json",
-      "sha256": "bfc8db76ea9844ee0315d96c68873404caef62ef9f170378a6153d5a0b6b8014",
-      "bytes": 87367
-    },
-    {
-      "path": "docs/report/maintenance/artifact-retention/nordic-direct-pollen-process-custody.json",
-      "sha256": "0cbdcc5e67b4695d322c31eb22a19343a5c12ea42b44c1cace410edc626f428e",
-      "bytes": 8960
-    },
-    {
-      "path": "docs/report/maintenance/artifact-retention/scientific-report-provenance/README.md",
-      "bytes": 3149,
-      "sha256": "6a58cd31e406865f741d8612163ad00076fc31ed226c4b2e274114ce152a8c83"
-    },
-    {
-      "path": "docs/report/maintenance/artifact-retention/swedish-lake-transfer-run-custody.json",
-      "sha256": "873f2427d78d00902fafd8789492e643c32eb166fb883fcb6a69b57aef4b59c4",
-      "bytes": 3479
+      "sha256": "e60c17f927af0f4326fd376cf7012eb9af4c29941c32be92090777fb3f7fbc61",
+      "bytes": 2668
     },
     {
       "path": "docs/report/method-certification/current-r-oracle/README.md",
@@ -1806,8 +1746,8 @@
     },
     {
       "path": "docs/report/source-relations/rootsi-landclim-overlap/README.md",
-      "sha256": "ca7c7d5321c154bac76af04bf82ba5ab426b4284111964f1101c1cedbb362d2a",
-      "bytes": 6862
+      "sha256": "484ac0448b1c4c6cfb8c09687867670fa3729f37824be2cd20254a5f7ab5ffd5",
+      "bytes": 6292
     },
     {
       "path": "docs/report/source-relations/rootsi-landclim-overlap/overlap.csv",
@@ -2171,8 +2111,8 @@
     },
     {
       "path": "reports/science/english-analytical-love/README.md",
-      "sha256": "dbe61cff50ec2c506cf1977223b5c27017204b8d8149e36bbc9afe2142c0cfbf",
-      "bytes": 4408
+      "sha256": "31fa30a7660c24ec32842b34a9facce527f8987b7d3c53fa0424b492bf1e712d",
+      "bytes": 4323
     },
     {
       "path": "reports/science/english-analytical-love/cover-diagnostics.csv",
@@ -2236,8 +2176,8 @@
     },
     {
       "path": "reports/science/publication-correspondence.md",
-      "sha256": "5d010a3f9a988e353d47f26f8d3a1087e2e124378713df571d0aeb226e2c7303",
-      "bytes": 14767
+      "sha256": "3813391e78e861c76361c8c4cc9b0a80b9dccd5d5aaa3b7198cdb06aa513a3fc",
+      "bytes": 14768
     },
     {
       "path": "reports/science/publication-correspondence/author-example-reexecution.md",
@@ -2256,8 +2196,8 @@
     },
     {
       "path": "reports/science/publication-correspondence/pft-crosswalk/README.md",
-      "sha256": "f4c15e2114b3b4304bc27219c440f44c4f05fc99c58f47043ed7ce36c4343bd1",
-      "bytes": 9109
+      "sha256": "602b391d4a811c4a58c6418a81d22da6e7cd11a4d384a5105be9def5f8b0c592",
+      "bytes": 9081
     },
     {
       "path": "reports/science/publication-correspondence/pft-crosswalk/author-name-review/report.json",

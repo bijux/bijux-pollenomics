@@ -4,15 +4,15 @@ This review checks whether the report-facing Markdown surfaces explain
 themselves in prose or structured reference form instead of behaving like bare
 link farms or coded operator notes.
 
-- Reviewed markdown pages: `268`
+- Reviewed markdown pages: `262`
 
 ## Quality Postures
 
 | Posture | Count |
 | --- | ---: |
-| `reader_ready` | 104 |
+| `reader_ready` | 102 |
 | `structured_reference` | 19 |
-| `thin_structure` | 145 |
+| `thin_structure` | 141 |
 
 ## Reviewed Pages
 
@@ -90,12 +90,6 @@ link farms or coded operator notes.
 | `docs/report/countries/sweden/sweden_land_use_synthesis_v66.md` | `reader_ready` | 5 | 0 | 5 | 16 | 4 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/host-lra-distribution/README.md` | `reader_ready` | 8 | 0 | 0 | 11 | 2 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/lra-distribution/README.md` | `thin_structure` | 3 | 0 | 0 | 4 | 1 | Page explains itself but still needs stronger internal wayfinding. |
-| `docs/report/maintenance/artifact-retention/README.md` | `reader_ready` | 46 | 0 | 0 | 0 | 20 | Page explains its purpose before or alongside artifact links. |
-| `docs/report/maintenance/artifact-retention/historical-swedish-direct-pollen-run/README.md` | `thin_structure` | 2 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
-| `docs/report/maintenance/artifact-retention/historical-swedish-direct-pollen-run/REPORT.md` | `reader_ready` | 7 | 0 | 0 | 6 | 3 | Page explains its purpose before or alongside artifact links. |
-| `docs/report/maintenance/artifact-retention/scientific-report-provenance/README.md` | `thin_structure` | 5 | 0 | 0 | 5 | 1 | Page explains itself but still needs stronger internal wayfinding. |
-| `docs/report/maintenance/artifact-retention/swedish-lra-source-request/README.md` | `thin_structure` | 2 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
-| `docs/report/maintenance/artifact-retention/swedish-lra-source-request/source-request.md` | `thin_structure` | 7 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/method-certification/analytical-love-ring-sensitivity/README.md` | `thin_structure` | 1 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/method-certification/author-site-profile-comparison/README.md` | `thin_structure` | 4 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/method-certification/author-site-uncertainty/README.md` | `thin_structure` | 4 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |

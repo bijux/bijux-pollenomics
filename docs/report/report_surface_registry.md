@@ -4,14 +4,14 @@ This registry classifies the current `docs/report/` tree by family, audience,
 scope, and explanation role so the publication system can be navigated as one
 coherent report surface instead of a loose artifact dump.
 
-- Surface count: `1843`
+- Surface count: `1797`
 
 ## Family Counts
 
 | Family | Count |
 | --- | ---: |
 | Scientific caveats | 10 |
-| Maintainer truth surfaces | 1019 |
+| Maintainer truth surfaces | 973 |
 | Map surfaces | 85 |
 | Portal guidance | 2 |
 | Evidence reviews | 34 |
@@ -21,7 +21,7 @@ coherent report surface instead of a loose artifact dump.
 
 | Audience | Count |
 | --- | ---: |
-| Maintainer diagnostic | 1021 |
+| Maintainer diagnostic | 975 |
 | Public reading surface | 702 |
 | Scientific review surface | 120 |
 
@@ -292,52 +292,6 @@ coherent report surface instead of a loose artifact dump.
 | `docs/report/countries/sweden/sweden_land_use_synthesis_v66.md` | Scope-filtered outputs | Public reading surface | `sweden` | `md` | Governed report artifact. |
 | `docs/report/host-lra-distribution/README.md` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `md` | Reader-facing entry page for one scope bundle. |
 | `docs/report/lra-distribution/README.md` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `md` | Reader-facing entry page for one scope bundle. |
-| `docs/report/maintenance/artifact-retention/README.md` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `md` | Reader-facing entry page for one scope bundle. |
-| `docs/report/maintenance/artifact-retention/abborrtjarne-core-retirement.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
-| `docs/report/maintenance/artifact-retention/author-buffered-pollen-retirement.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
-| `docs/report/maintenance/artifact-retention/author-pollen-development-custody.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
-| `docs/report/maintenance/artifact-retention/author-pollen-holdout-retirement.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
-| `docs/report/maintenance/artifact-retention/governed-edge-ledger-retirement.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
-| `docs/report/maintenance/artifact-retention/historical-swedish-direct-pollen-run/README.md` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `md` | Reader-facing entry page for one scope bundle. |
-| `docs/report/maintenance/artifact-retention/historical-swedish-direct-pollen-run/REPORT.md` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `md` | Maintainer-facing truth or governance surface. |
-| `docs/report/maintenance/artifact-retention/historical-swedish-direct-pollen-run/custody.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
-| `docs/report/maintenance/artifact-retention/historical-swedish-direct-pollen-run/input-manifest.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
-| `docs/report/maintenance/artifact-retention/historical-swedish-direct-pollen-run/run_study.py` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `py` | Maintainer-facing truth or governance surface. |
-| `docs/report/maintenance/artifact-retention/landclim-author-lra-development-custody.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
-| `docs/report/maintenance/artifact-retention/landclim-author-preparation-process-custody.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
-| `docs/report/maintenance/artifact-retention/landclim-correspondence-retirement.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
-| `docs/report/maintenance/artifact-retention/landclim-historical-example-review-custody.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
-| `docs/report/maintenance/artifact-retention/landclim-pft-audit-custody.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
-| `docs/report/maintenance/artifact-retention/landclim-pft-primary-capture-custody.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
-| `docs/report/maintenance/artifact-retention/landclim-provider-description-custody.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
-| `docs/report/maintenance/artifact-retention/landclim-public-note-custody.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
-| `docs/report/maintenance/artifact-retention/landclim-published-window-retirement.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
-| `docs/report/maintenance/artifact-retention/landclim-study-input-retirement.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
-| `docs/report/maintenance/artifact-retention/landclim-two-grid-process-custody.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
-| `docs/report/maintenance/artifact-retention/landclim-whh05-process-custody.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
-| `docs/report/maintenance/artifact-retention/linux-r-oracle-retirement.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
-| `docs/report/maintenance/artifact-retention/nordic-direct-pollen-process-custody.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
-| `docs/report/maintenance/artifact-retention/nordic-pollen-plan-custody.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
-| `docs/report/maintenance/artifact-retention/nordic-tox-lane-receipts.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
-| `docs/report/maintenance/artifact-retention/nordic-tox-snapshots.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
-| `docs/report/maintenance/artifact-retention/publication-correspondence-retirement.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
-| `docs/report/maintenance/artifact-retention/report.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
-| `docs/report/maintenance/artifact-retention/rootsi-replay-process-custody.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
-| `docs/report/maintenance/artifact-retention/rootsi-workbook-review-retirement.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
-| `docs/report/maintenance/artifact-retention/scientific-report-provenance/README.md` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `md` | Reader-facing entry page for one scope bundle. |
-| `docs/report/maintenance/artifact-retention/scientific-report-provenance/manifest.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
-| `docs/report/maintenance/artifact-retention/scientific-report-provenance/results.csv` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `csv` | Maintainer-facing truth or governance surface. |
-| `docs/report/maintenance/artifact-retention/scientific-report-provenance/scope.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
-| `docs/report/maintenance/artifact-retention/scientific-report-provenance/source-questions-custody.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
-| `docs/report/maintenance/artifact-retention/scientific-report-provenance/source-questions.csv` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `csv` | Maintainer-facing truth or governance surface. |
-| `docs/report/maintenance/artifact-retention/scientific-source-refusal-custody.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
-| `docs/report/maintenance/artifact-retention/swedish-direct-pollen-run-custody.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
-| `docs/report/maintenance/artifact-retention/swedish-lake-core-retirement.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
-| `docs/report/maintenance/artifact-retention/swedish-lake-transfer-run-custody.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
-| `docs/report/maintenance/artifact-retention/swedish-lra-source-request/README.md` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `md` | Reader-facing entry page for one scope bundle. |
-| `docs/report/maintenance/artifact-retention/swedish-lra-source-request/source-request.md` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `md` | Maintainer-facing truth or governance surface. |
-| `docs/report/maintenance/artifact-retention/swedish-site-identity-retirement.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
-| `docs/report/maintenance/artifact-retention/whh05-author-preparation-custody.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
 | `docs/report/method-certification/analytical-love-ring-sensitivity/README.md` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `md` | Reader-facing entry page for one scope bundle. |
 | `docs/report/method-certification/author-site-profile-comparison/README.md` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `md` | Reader-facing entry page for one scope bundle. |
 | `docs/report/method-certification/author-site-profile-comparison/replay.py` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `py` | Maintainer-facing truth or governance surface. |
