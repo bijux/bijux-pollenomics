@@ -1,16 +1,16 @@
 {
   "schema_version": "report-surface-registry.v1",
-  "surface_count": 1856,
+  "surface_count": 1853,
   "family_counts": {
     "caveats": 10,
-    "maintenance": 1033,
+    "maintenance": 1030,
     "maps": 85,
     "portal": 2,
     "reviews": 34,
     "scopes": 692
   },
   "audience_counts": {
-    "maintainer_diagnostic": 1035,
+    "maintainer_diagnostic": 1032,
     "public_reading_surface": 701,
     "scientific_review_surface": 120
   },
@@ -20,7 +20,7 @@
     "finland": 14,
     "nordic": 432,
     "norway": 14,
-    "report_root": 1082,
+    "report_root": 1079,
     "sweden": 49,
     "world": 172
   },
@@ -3768,42 +3768,6 @@
       "caution_level": "high",
       "explanation": "Reader-facing entry page for one scope bundle.",
       "reader_route": "start_here"
-    },
-    {
-      "repository_path": "docs/report/method-certification/analytical-love-ring-sensitivity/replay.py",
-      "family": "maintenance",
-      "family_label": "Maintainer truth surfaces",
-      "audience": "maintainer_diagnostic",
-      "audience_label": "Maintainer diagnostic",
-      "format": "py",
-      "geography": "report_root",
-      "caution_level": "high",
-      "explanation": "Maintainer-facing truth or governance surface.",
-      "reader_route": "maintainer_truth"
-    },
-    {
-      "repository_path": "docs/report/method-certification/analytical-love-ring-sensitivity/report.json",
-      "family": "maintenance",
-      "family_label": "Maintainer truth surfaces",
-      "audience": "maintainer_diagnostic",
-      "audience_label": "Maintainer diagnostic",
-      "format": "json",
-      "geography": "report_root",
-      "caution_level": "high",
-      "explanation": "Maintainer-facing truth or governance surface.",
-      "reader_route": "maintainer_truth"
-    },
-    {
-      "repository_path": "docs/report/method-certification/analytical-love-ring-sensitivity/ring-cover.csv",
-      "family": "maintenance",
-      "family_label": "Maintainer truth surfaces",
-      "audience": "maintainer_diagnostic",
-      "audience_label": "Maintainer diagnostic",
-      "format": "csv",
-      "geography": "report_root",
-      "caution_level": "high",
-      "explanation": "Maintainer-facing truth or governance surface.",
-      "reader_route": "maintainer_truth"
     },
     {
       "repository_path": "docs/report/method-certification/author-site-profile-comparison/README.md",

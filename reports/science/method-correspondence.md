@@ -15,6 +15,12 @@ sample rows and 15,028 matching prepared cells in the
 [raw-to-prepared replay](../../docs/report/source-relations/landclim/author-example-taxon-support/README.md).
 We have not authenticated the historical Nordic publication revisions.
 
+We also [replayed analytical LOVE across ten example rings](analytical-love-ring-sensitivity/README.md).
+Only three satisfy the source's local-basin boundary; 16 of their 30
+taxon/ring estimates are negative and six exceed one. We retained those
+unconstrained results to show ring sensitivity rather than presenting an
+invented closed vegetation composition or a recommended Nordic radius.
+
 ## A real publication difference
 
 We compared the exact shared TW2 interval, 100–350 BP, in our

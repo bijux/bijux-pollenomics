@@ -154,16 +154,17 @@ the decision and counts above remain in this report if local artifacts are
 purged.
 
 We checked one separately governed numerical owner as a bounded rebuild
-probe. The [analytical LOVE ring sensitivity producer](../../docs/report/method-certification/analytical-love-ring-sensitivity/replay.py)
+probe. The [analytical LOVE ring sensitivity producer](../science/analytical-love-ring-sensitivity/replay.py)
 ran from current source into an absent `artifacts/jobs/report-owner-proof/`
 destination. Its `report.json` and `ring-cover.csv` matched the two tracked
 files byte for byte, with SHA-256
 `bd43a66757c4124a4df714a480675368de62d16505c9d43982a609039aba5848`
 and `714fdd94f40ca8c4b90f23b290190754bc5f2d82ede22395b871f2384910442e`.
-This proves that one four-file report directory has an independently runnable
-numeric producer for those two outputs. Its human page and producer script are
-source files, and this local probe does not rebuild the other separately
-governed files or close the full-tree gate.
+We moved that producer and its two byte-identical results into the
+[root science report](../science/analytical-love-ring-sensitivity/README.md).
+The earlier `docs/report/` page is now a citation to this single owner. This
+reduces the mixed-tree ownership surface, but the local replay does not
+rebuild the other separately governed files or close the full-tree gate.
 
 Our [artifact custody decision](artifact-custody.md) records a separate
 bounded checkout retirement and its recoverable source identity. It does not
