@@ -51,31 +51,23 @@ needed.
 
 def _render_report_narrative_quality_review_markdown(payload: dict[str, object]) -> str:
     posture_counts = cast(dict[str, object], payload.get("quality_posture_counts", {}))
-    rows = cast(list[dict[str, object]], payload.get("rows", []))
     posture_rows = "\n".join(
         f"| `{key}` | {value} |" for key, value in posture_counts.items()
     )
-    review_rows = "\n".join(
-        f"| `{row['repository_path']}` | `{row['quality_posture']}` | {row['prose_paragraph_count']} | {row['link_bullet_count']} | {row['bullet_sentence_count']} | {row['table_line_count']} | {row['heading_count']} | {escape_pipes(str(row['note']))} |"
-        for row in rows
-    )
     return f"""# Report narrative quality review
 
-This review checks whether the report-facing Markdown surfaces explain
-themselves in prose or structured reference form instead of behaving like bare
-link farms or coded operator notes.
+We count prose paragraphs, headings, tables and links in report Markdown to
+identify pages that merit editorial reading. These automated layout signals
+do not establish scientific validity or decide whether a reference table needs
+more prose. Start with the [report portal](index.md) for the results and their
+limits; use the [machine-readable review](report_narrative_quality_review.json)
+for an exact page lookup.
 
 - Reviewed markdown pages: `{payload["page_count"]}`
 
-## Quality Postures
+## Layout signals
 
 | Posture | Count |
 | --- | ---: |
 {posture_rows}
-
-## Reviewed Pages
-
-| Path | Posture | Prose paragraphs | Link bullets | Sentence bullets | Table lines | Headings | Note |
-| --- | --- | ---: | ---: | ---: | ---: | ---: | --- |
-{review_rows}
 """

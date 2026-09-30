@@ -90,6 +90,14 @@ class ReportPortalUnitTests(unittest.TestCase):
             )
             self.assertIn("[Map surfaces](maps/index.md)", registry_page)
             self.assertNotIn("docs/report/world/world_map.html", registry_page)
+            quality_page = (
+                report_root / "report_narrative_quality_review.md"
+            ).read_text(encoding="utf-8")
+            self.assertIn(
+                "[machine-readable review](report_narrative_quality_review.json)",
+                quality_page,
+            )
+            self.assertNotIn("docs/report/world/README.md", quality_page)
             self.assertEqual(
                 rows_by_path["docs/report/world/README.md"]["family"], "scopes"
             )
