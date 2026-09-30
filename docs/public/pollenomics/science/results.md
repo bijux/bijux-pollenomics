@@ -27,6 +27,16 @@ include a case with equally good but different vegetation vectors. This
 checks bounded objective quality and arithmetic; it does not show identical
 random searches, global convergence on other inputs or ecological accuracy.
 
+For the nominated [2024 LOVEr/LOVEoptim paper](../../../report/method-certification/love-paper-correspondence/README.md),
+all 30 printed fall-speed, pollen-productivity and productivity-error values
+match the later packaged DISQOVER example by row position. Nine of ten taxon
+labels match exactly; the paper uses `Grasses` and the package uses `Gras`.
+The example does not contain the eight-site landscape, pollen and random
+draws needed to rerun the paper's Figure 2 RMSE. Its reported preferred ring
+range is therefore a result of that simulation, not a selected setting for
+Nordic lakes. The [paper-result matrix](../../../report/pollen-reconstruction/paper-correspondence.csv)
+records the input match and the unavailable output separately.
+
 The [paper/archive comparison](../../../report/pollen-reconstruction/paper-correspondence.md)
 finds a genuine difference on the one exact shared 100–350 BP window:
 archived means differ from the author replay by up to 9.20 percentage points
@@ -45,6 +55,20 @@ errors satisfy necessary component-error bounds, but the archive does not
 expose the covariance needed to reproduce its aggregation. We keep the
 paper/archive classification difference and the unresolved `ISTS` meaning
 visible; numerical agreement does not authorize a taxon relabeling.
+
+## HYDE as modeled context
+
+The retained [HYDE country table](../../../report/regions/nordic/hyde-country-cropland/country-years.csv)
+has 84 source-reported cropland areas for Denmark, Finland, Norway and
+Sweden at seven native CE labels and three source scenarios. Selected native
+ASCII grids reproduce those country totals within the declared area
+tolerance. This checks internal modeled-source accounting. HYDE cropland is
+neither measured vegetation nor cereal pollen, and the scenarios are not
+confidence bounds. Release-specific rights, formal CRS, calendar support
+and comparable class/footprint rules are still unresolved, so we have not
+run or scored a no-HYDE/HYDE pollen-model comparison. The
+[source review](../../pollenomics-data/sources/hyde.md) records those exact
+limits.
 
 ## Direct pollen and LRA forward pollen
 
