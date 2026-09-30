@@ -16,16 +16,17 @@
     "docs/report/regions/nordic/swedish-lake-transfer/site-scores.csv": "6bcc1063abb058f4f958aecbaa34ba1e5d28c49e7bdecc82a8e09bdce208d75c",
     "docs/report/regions/nordic/swedish-support-sensitivity/paired-scores.csv": "b28d555c33b561225323e2e3327684d65178788c2b01278092d5d438229eb40a",
     "docs/report/regions/nordic/swedish-training-scope/paired-scores.csv": "d1d5456cf8ab2a10a859a19b2d8eae52ef962cfeb84b08e8b268ff2e67b092c4",
+    "docs/report/validation/empd2-nfi-pairing/report.json": "c5a5fb4738e48a924e178346dc2dd625b1b683e73cca276bccf1ae2f079adb8f",
     "packages/bijux-pollenomics/pyproject.toml": "5210c72e9ee4827f64c81f7ca1906e2fe4465cb6cf227311378fc77038ed8aaf",
     "presentation/README.md": "c4c8e910feee73159bfda2dc0f1c70480963c9be7cf6911db9f7a66d2755f075",
     "presentation/big-picture.tex": "018b941776c3ae9a9791a87513d3000853686291ab20889c6799bcf454379fa7",
     "presentation/build.py": "a1ee7ca37524c7b3d096a9cb3eeb20563bd52240aa5887e9fad767c6df05daf0",
     "presentation/developer.tex": "7ee955ad4840e10c872b211f49d8c2b018625d6265723e6cdf88089ef365908a",
-    "presentation/scientific-evidence.tex": "8a17d9cd62c5d0ff3ae93046e1f5d9936fa9d49976efba7c237b4abb9e72074f",
+    "presentation/scientific-evidence.tex": "3d18144101d02b562234bb09a413f6b068f437ec10d467ed1c2524aacc676cf9",
     "presentation/shared.tex": "2aa40954975f75241ded20a78d0c698c0f864274222e30c148bda4cf4b0bf17a",
-    "reports/README.md": "5e56f9945c1c2f0856d35fee9250168108691c95ff634078a5cd5f566cc21476",
+    "reports/README.md": "6511d0ee720df261c8cd0d2a23ecab1d520a3f085210dea10d4859ecaa3172d0",
     "reports/architecture/lra-distribution.md": "b50b09734608a27bffdc42df9d060187dc588e8e48b8e8728cd136e1f0382c67",
-    "reports/architecture/ownership.md": "fe7e380f7456448dfe4b1f02877c32710891d50b6ff89c7c3e290b53ba605ce7",
+    "reports/architecture/ownership.md": "8fe78da0f0f7221c9c1b81d648c469db326236d4da7fe5fbe20de2d3d2f85ea4",
     "reports/needed/README.md": "59b8f13c8746873452238f4f028068e04407f8f3c4d4f58198b3e41478e90499",
     "reports/science/bjaresjo-context.md": "a49c6d6530dd543ae4dc3c4ca0e4bcabe37af8e363b28bd6d18b1245723118d1",
     "reports/science/denmark-finland-norway-author-pollen.md": "610b2c47e86cebe980afcee5310f560df94ba33d5a8f2c5f5e3cf10edc791321",
@@ -43,6 +44,7 @@
     "reports/science/sweden-lake-transfer.md": "2df22f1964738d4b5d6c75e1a132c108aa230ab894888d44a29c37416f7b8034",
     "reports/science/sweden-spatiotemporal-sensitivity.md": "8f6dccebd81af82bfedea3e9ae3ddaea75a3999a59bfd1119046d947c43980de",
     "reports/science/sweden-training-scope.md": "f314ad31c3ce166f7c8ea2aa2b03ed82c097c8026bb969008711c33e11f39246",
-    "reports/science/synthetic-model-selection/README.md": "2fc82ddfe59fc8e7a2febe0a9441f74cf3b5b1bdaa33290413c65aa59a5f18b6"
+    "reports/science/synthetic-model-selection/README.md": "2fc82ddfe59fc8e7a2febe0a9441f74cf3b5b1bdaa33290413c65aa59a5f18b6",
+    "reports/science/vegetation-reference.md": "1cb56261dcc47ea8895182141f8efd1d469851e6782bb4c26a4cee08310c0e86"
   }
 }

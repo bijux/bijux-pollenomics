@@ -126,6 +126,21 @@ uncertainty, LRA accuracy or vegetation accuracy.
 
 ## Parameters and next experiments
 
+### Measured vegetation evidence
+
+Our [EMPD2–NFI source screen](../../../report/validation/empd2-nfi-pairing/README.md)
+admits zero matched vegetation pairs for repository prediction accuracy. A
+[Färskesjön plot](../../../report/vegetation-reference/farskesjon/README.md)
+provides measured tree volume but is a 7 m radius plot whose source point is
+427 m from the lake pollen point. [Historical Småland maps](../../../report/vegetation-reference/smaland-historical-maps/README.md)
+give map coverage and shared pollen samples for three bogs, without the full
+numerical vegetation fractions. A [published southern Swedish figure](../../../report/vegetation-reference/southern-sweden-figure/README.md)
+supports a bounded nine-label comparison of its authors' estimates, not a
+score of this repository's predictions. These source results answer different
+questions; none supplies our missing independent vegetation outcome.
+
+### Model settings
+
 For the English LRA run, published PPE and fall speeds were fixed after a
 declared one-taxon transport exclusion. A simplex-constrained LOVE fit used a
 uniform-start SLSQP search, 300 iterations, 16,000 objective evaluations and
