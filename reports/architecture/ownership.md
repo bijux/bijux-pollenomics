@@ -113,8 +113,15 @@ The absent files cluster in method certification (461), regional research
 their distinct producers; copying them into an isolated build would not prove
 that `publish-reports` generated them. The 19 shared-path differences include
 portal inventories computed over different trees and animal review pages
-with different source or enrichment states. We have not replaced tracked
-animal evidence with the narrower isolated output.
+with different source or enrichment states. We reviewed the animal differences
+against the current source rows: the tracked exclusion report still listed two
+camel samples after their mapping posture changed to ambiguous. We regenerated
+that report from the source-backed producer, bringing its excluded count from
+1,139 to 1,137, equal to the output-honesty blocked count. We also refreshed
+the readiness country-locality counts and made the publisher use the canonical
+honesty renderer, which retains source-native taxon mismatches. These
+corrections resolve specific stale tracked pages; they do not establish
+whole-tree reproducibility or authorize replacing separately governed files.
 
 We inspected the publication path as well: `make reports` calls
 `publish-reports` on tracked `docs/report/`, and its staging helper swaps the

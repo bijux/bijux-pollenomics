@@ -18,7 +18,7 @@ link farms or coded operator notes.
 
 | Path | Posture | Prose paragraphs | Link bullets | Sentence bullets | Table lines | Headings | Note |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | --- |
-| `docs/report/animal_atlas_exclusion_report.md` | `structured_reference` | 0 | 0 | 1 | 1141 | 1 | Page is table-heavy, but it behaves like a reference surface rather than a loose link dump. |
+| `docs/report/animal_atlas_exclusion_report.md` | `structured_reference` | 0 | 0 | 1 | 1139 | 1 | Page is table-heavy, but it behaves like a reference surface rather than a loose link dump. |
 | `docs/report/animal_atlas_readiness.md` | `structured_reference` | 0 | 0 | 1 | 12 | 1 | Page is table-heavy, but it behaves like a reference surface rather than a loose link dump. |
 | `docs/report/animal_country_species_coverage.md` | `structured_reference` | 0 | 0 | 0 | 7 | 1 | Page is table-heavy, but it behaves like a reference surface rather than a loose link dump. |
 | `docs/report/animal_cross_surface_drift.md` | `structured_reference` | 0 | 0 | 0 | 12 | 1 | Page is table-heavy, but it behaves like a reference surface rather than a loose link dump. |

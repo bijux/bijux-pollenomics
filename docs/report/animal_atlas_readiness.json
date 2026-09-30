@@ -72,7 +72,9 @@
       "publication_share_of_mappable_coordinates": 1.0,
       "readiness_status": "thin",
       "status_reason": "2 candidate point rows remain too thin for broad atlas claims.",
-      "country_mapped_locality_counts": {}
+      "country_mapped_locality_counts": {
+        "Denmark": 2
+      }
     },
     {
       "species_latin_name": "Ovis aries",
@@ -97,7 +99,10 @@
       "publication_share_of_mappable_coordinates": 1.0,
       "readiness_status": "thin",
       "status_reason": "2 candidate point rows remain too thin for broad atlas claims.",
-      "country_mapped_locality_counts": {}
+      "country_mapped_locality_counts": {
+        "Sweden": 1,
+        "Finland": 1
+      }
     },
     {
       "species_latin_name": "Bos taurus",
@@ -122,7 +127,10 @@
       "publication_share_of_mappable_coordinates": 0.9167,
       "readiness_status": "publishable",
       "status_reason": "22 candidate point rows now survive the current atlas contract.",
-      "country_mapped_locality_counts": {}
+      "country_mapped_locality_counts": {
+        "Sweden": 2,
+        "Denmark": 2
+      }
     },
     {
       "species_latin_name": "Capra hircus",

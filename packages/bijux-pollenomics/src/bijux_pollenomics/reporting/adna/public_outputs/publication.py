@@ -3,7 +3,10 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
-from ....adna.governance.audit_catalogs import build_public_animal_output_honesty
+from ....adna.governance.audit_catalogs import (
+    build_public_animal_output_honesty,
+    render_public_animal_output_honesty_markdown,
+)
 from ...models import CountryReport
 from ..comparison_contracts import govern_animal_comparison_payload
 from .atlas_readiness import (
@@ -26,7 +29,6 @@ from .rendering import (
     _render_country_species_coverage_markdown,
     _render_first_appearance_markdown,
     _render_human_overlap_markdown,
-    _render_output_honesty_markdown,
     _render_pollen_overlap_markdown,
     _render_scenario_markdown,
 )
@@ -86,7 +88,7 @@ def publish_public_animal_reporting_outputs(
         encoding="utf-8",
     )
     (output_root / "animal_output_honesty.md").write_text(
-        _render_output_honesty_markdown(honesty_payload),
+        render_public_animal_output_honesty_markdown(honesty_payload),
         encoding="utf-8",
     )
     (output_root / "animal_human_chronology_overlap.md").write_text(
