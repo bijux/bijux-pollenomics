@@ -53,10 +53,19 @@ an ecologically best model. The [current host challenge](../synthetic-host-chall
 and [development selection](../synthetic-model-selection/README.md) have
 their own prospective designs and are not replaced by this older archive.
 
-To reproduce the row arithmetic, extract the private archive into a fresh
-directory, then run from the repository root:
+To reproduce the row arithmetic, supply the qualified private source store
+and run from the repository root. Check the archive SHA-256 before extraction.
+The extracted
+`artifacts/v2/` names are members inside this private source archive, not
+dependencies on an earlier local run:
 
 ```sh
+set -e
+archive=/path/to/private/source/store/reference-sources/synthetic-protocol-metrics/retained-scores.tar
+expected=8dd272c3bd93f8354045596b2b712a2a3670cd35ebd0b7332d0b001ee95c3cc6
+printf '%s  %s\n' "$expected" "$archive" | shasum -a 256 -c -
+mkdir -p artifacts/jobs/synthetic-protocol-metrics/extracted
+tar -xf "$archive" -C artifacts/jobs/synthetic-protocol-metrics/extracted
 PYTHONDONTWRITEBYTECODE=1 .venv/bin/python \
   reports/science/synthetic-protocol-metrics/replay.py \
   --source-root artifacts/jobs/synthetic-protocol-metrics/extracted \

@@ -2296,8 +2296,8 @@
     },
     {
       "path": "reports/science/synthetic-protocol-metrics/README.md",
-      "sha256": "d11c2ffc2e5c55158a391c2d37f12f8d1d868c13763c76c72f2a5dbd2f8a394d",
-      "bytes": 3803
+      "sha256": "f74697da88e68be34bfda0e8f8964f39a0104957beaa5fba01c605debe375ffb",
+      "bytes": 4344
     },
     {
       "path": "reports/science/synthetic-protocol-metrics/replay.py",
