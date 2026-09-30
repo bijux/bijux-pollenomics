@@ -795,12 +795,15 @@
   "source_run_id": "sead-full-evidence-39bfff6a-ce80714e",
   "acquisition_bundle_sha256": "sha256:fdcda26e7de9a09383b0d9aae7ab7f9e8846c7cbf05513da17fdb8e329331ba9",
   "inputs_sha256": {
+    "data/sead/normalized/nordic_environmental_sites.csv": "dbf4df63e8da625637f3ddb19ed7f5e7ddc7d884da9a45a85cebd286f0dbf158",
     "data/sead/normalized/nordic_environmental_sites.geojson": "d05e7f20d9a3b8a870a94570461899e4d403bae4c05dd65ca94f1120d8809bd0",
+    "data/sead/normalized/source_lineage.json": "86d539d9a1a26ff39b61859f0d100e0afdbf8775c73207982f368b89e766f010",
     "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/admission.json": "69f93b6bd34e457bedc4047077024de1beefc900142f45051fab60dce03751ea",
     "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/country-decisions.json": "e08c2fa2f70d9a3491b95a87b81c992ec3902051aa6e30c35dbcb0f86e214528",
     "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/manifest.json": "6fc2428046d148f9ce6c158f982afbbbbaea39de2132850a4fb8f41acf8a4c14",
     "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_sites.json": "b5cb28e935fdd2293999ffce7fe72c064571d4f7fc9e98b5e8bc4681a2b93479",
     "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/reconciliation/joins.json": "e728ecf4462b13561fc2ab9d1a7202a1dc149cacfe5f00ab25364b110c7c155a",
+    "docs/report/regions/nordic/nordic_environmental_sites.geojson": "d05e7f20d9a3b8a870a94570461899e4d403bae4c05dd65ca94f1120d8809bd0",
     "docs/report/regions/nordic/nordic_point_traceability.json": "7e5c74823904431e7a7acff56b7e3a3b0126b4b7b28098a17750f63b28216c4e"
   }
 }
