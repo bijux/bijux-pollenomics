@@ -118,6 +118,17 @@ also retained an evidence-tamper refusal and source-reader checks, alongside
 the transport-mismatched vegetation residual. No final test or independent
 vegetation measurements were used.
 
+We checked the [Hellman et al. southern Sweden parameter study](https://portal.research.lu.se/en/publications/effects-of-the-sampling-design-and-selection-of-parameter-values-/)
+before naming any real-core PPE preference. Its published comparison found
+that Danish PPEs brought REVEALS estimates closer to its compiled vegetation
+than Swedish PPEs for Cereals, *Rumex acetosa/acetosella*, *Plantago
+lanceolata* and *Calluna*. It also found larger error estimates with
+outliers and very large estimates when only four pollen samples were used.
+We will compare source-qualified PPE sets on a matched vegetation cohort when
+those inputs are available. These published findings do not select a PPE for
+our English author example or an unadmitted Nordic core, and they do not
+turn our synthetic winner into an empirical parameter estimate.
+
 ## Uncertainty and refusal rules
 
 In our [fixed-site covariance example](../../docs/report/method-certification/fixed-site-covariance/README.md),

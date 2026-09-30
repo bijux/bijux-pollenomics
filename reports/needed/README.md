@@ -104,6 +104,14 @@ and unrounded outputs are not retained. **Reopen when:** a source owner
 supplies a measured series or full original cohort with usable site/time/taxon
 support and terms; independently review the match, then score it.
 
+We checked the [original ten-lake publication](https://onlinelibrary.wiley.com/doi/abs/10.1002/jqs.1126)
+and the [companion parameter study](https://portal.research.lu.se/en/publications/effects-of-the-sampling-design-and-selection-of-parameter-values-/).
+Their accessible publisher records describe the vegetation compilation and
+the PPE/sample-design comparison, but provide no bound, reusable table of
+the ten lake counts, measured vegetation and unrounded 26-taxon outputs.
+The nine rounded labels already transcribed from a later figure remain a
+publication correspondence check, not a new matched validation cohort.
+
 ## HYDE source semantics
 
 **Affected result:** selected four-country cropland grid sums agree with 84
