@@ -1665,6 +1665,11 @@
       "bytes": 42799
     },
     {
+      "path": "docs/report/source-relations/dna-scope/reindeer-published-appendix.md",
+      "sha256": "338f50c410c5c984bbdcca6c6ec2335476eabd996ed4d19ba3c46a99fb2172b7",
+      "bytes": 385
+    },
+    {
       "path": "docs/report/source-relations/hyde/source-custody/README.md",
       "sha256": "c16289c0086210358afd1423d245ad57c1319e6f96884caf62dbfb8fe2502bc1",
       "bytes": 2264
@@ -2163,6 +2168,11 @@
       "path": "reports/science/publication-correspondence.md",
       "sha256": "f8079cccda67cf593e3f4817ba3694d6b1a0f548c31f361243da27cbc4112f42",
       "bytes": 10726
+    },
+    {
+      "path": "reports/science/reindeer-appendix-correspondence.md",
+      "sha256": "84713ac84656be54bb8ad937ea0e331fb99a07f7aabfd714dc3b560daab73fdd",
+      "bytes": 3734
     },
     {
       "path": "reports/science/sweden-author-pollen.md",
