@@ -12,7 +12,7 @@ the original DISQOVER execution path.
 The [isolated worker comparison](../native-memory/README.md) confirms matching
 forward outputs across five workers per method and shape. At the additional
 8192 × 256 × 512 stress shape, native peak RSS was about 31 MB lower while
-its median call remained slower (14.488 versus 12.397 ms). The large shape was
+its median call remained slower (12.507 versus 9.388 ms). The large shape was
 exploratory and does not change the latency gate. Python startup, imports,
 input construction and export dominate the full worker times, so these
 measurements do not establish a complete REVEALS or LOVE pipeline speed ratio.

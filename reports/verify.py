@@ -25,6 +25,7 @@ RUNTIME_MEASUREMENT = ROOT / "docs/report/numerical-performance/runtime-metadata
 PYTHON_BASELINE = ROOT / "docs/report/numerical-performance/python-baseline"
 PYTHON_ISOLATED = ROOT / "docs/report/numerical-performance/python-isolated"
 NATIVE_FORWARD = ROOT / "docs/report/numerical-performance/native-forward"
+NATIVE_MEMORY = ROOT / "docs/report/numerical-performance/native-memory"
 
 
 def verify_reader_paths() -> None:
@@ -208,11 +209,100 @@ def verify_native_forward() -> None:
             raise ValueError(f"Native forward decision changed: {shape}")
 
 
+def verify_native_memory() -> None:
+    """Check the measured worker distributions behind the bounded RSS claim."""
+    payload = (NATIVE_MEMORY / "report.json").read_bytes()
+    measured = json.loads(payload)
+    shapes = ((1, 8, 3), (32, 128, 32), (512, 256, 64), (8192, 256, 512))
+    if (
+        measured.get("schema_version") != "native-forward-isolated-worker-memory.1"
+        or measured.get("status") != "passed"
+        or b"/Users/" in payload
+        or b"/home/" in payload
+        or measured.get("repetitions_per_method_shape") != 5
+        or set(measured["thread_settings"].values()) != {"1"}
+        or measured["build"]["flags"][:3] != ["-std=c++17", "-O3", "-fPIC"]
+        or measured["build"]["flags"][3] not in ("-dynamiclib", "-shared")
+        or [tuple(row["shape"]) for row in measured["cases"]] != list(shapes)
+        or any(
+            hashlib.sha256((ROOT / path).read_bytes()).hexdigest() != digest
+            for path, digest in measured["source_sha256"].items()
+        )
+    ):
+        raise ValueError("Native worker source or measurement scope changed")
+    for row in measured["cases"]:
+        observations = row["observations"]
+        metrics = row["metrics"]
+        if (
+            set(observations) != {"numpy", "native"}
+            or row["numerical_parity"] is not True
+        ):
+            raise ValueError(f"Native worker methods or parity changed: {row['shape']}")
+        if (
+            len(
+                {
+                    item["input_sha256"]
+                    for group in observations.values()
+                    for item in group
+                }
+            )
+            != 1
+        ):
+            raise ValueError(f"Native worker inputs differ: {row['shape']}")
+        for method in ("numpy", "native"):
+            items = observations[method]
+            if (
+                len(items) != 5
+                or len({item["output_sha256"] for item in items}) != 1
+                or any(
+                    item["method"] != method
+                    or item["shape"] != row["shape"]
+                    or item["output_shape"] != [row["shape"][0], row["shape"][2]]
+                    or item["post_call_process_peak_rss_bytes"]
+                    < item["pre_call_process_peak_rss_bytes"]
+                    or item["observed_peak_increment_bytes"]
+                    != item["post_call_process_peak_rss_bytes"]
+                    - item["pre_call_process_peak_rss_bytes"]
+                    for item in items
+                )
+                or metrics[method]["median_process_peak_rss_bytes"]
+                != median(item["post_call_process_peak_rss_bytes"] for item in items)
+                or metrics[method]["median_single_call_seconds"]
+                != median(item["single_call_seconds"] for item in items)
+                or metrics[method][
+                    "median_whole_worker_seconds_including_import_and_export"
+                ]
+                != median(
+                    item["whole_worker_seconds_including_import_and_export"]
+                    for item in items
+                )
+            ):
+                raise ValueError(
+                    f"Native worker observations changed: {row['shape']}/{method}"
+                )
+        numpy, native = metrics["numpy"], metrics["native"]
+        if not math.isclose(
+            row["native_to_numpy_peak_rss_ratio"],
+            native["median_process_peak_rss_bytes"]
+            / numpy["median_process_peak_rss_bytes"],
+            rel_tol=0,
+            abs_tol=1e-15,
+        ) or not math.isclose(
+            row["numpy_to_native_whole_worker_latency_ratio"],
+            numpy["median_whole_worker_seconds_including_import_and_export"]
+            / native["median_whole_worker_seconds_including_import_and_export"],
+            rel_tol=0,
+            abs_tol=1e-15,
+        ):
+            raise ValueError(f"Native worker comparison changed: {row['shape']}")
+
+
 def main() -> None:
     verify_reader_paths()
     verify_runtime_measurement()
     verify_python_baseline()
     verify_native_forward()
+    verify_native_memory()
     lock = json.loads(LOCK.read_text(encoding="utf-8"))
     if lock.get("schema_version") != "research-report-source-lock.v1":
         raise ValueError("Unexpected research report source lock")
