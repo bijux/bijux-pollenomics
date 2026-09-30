@@ -26,8 +26,8 @@
     },
     {
       "path": "docs/public/pollenomics/science/sources.md",
-      "sha256": "9844d9353fc39b8bb22f53acb43a0003ae6945fc9c395ee29975e4077fe99dee",
-      "bytes": 3837
+      "sha256": "9291cd78d52b77fb7690cfc0a2a8a7647708af73dcd6479e3c123001c89472af",
+      "bytes": 4365
     },
     {
       "path": "docs/report/countries/denmark/pollen-chronology-coverage/README.md",
@@ -2076,8 +2076,8 @@
     },
     {
       "path": "reports/README.md",
-      "sha256": "136587c36ac93e6d0bd6d8ad57462211d71dce4422579243aea77299583cb790",
-      "bytes": 6933
+      "sha256": "8a6549e56d9ade17b25c803c12d5a7eec96169e599bed658ad026f951237540b",
+      "bytes": 7193
     },
     {
       "path": "reports/architecture/ownership.md",
@@ -2086,13 +2086,13 @@
     },
     {
       "path": "reports/evidence-index.md",
-      "sha256": "f3e519ea442af633900043dbeb8dc6830ca269be9e04823bcf0b6c26085562c7",
-      "bytes": 15761
+      "sha256": "9ca5c0f6fd05519b5324be2cff8800ea0f20c336412fcaff1c3599795066f1c2",
+      "bytes": 16196
     },
     {
       "path": "reports/needed/README.md",
-      "sha256": "759ffaca784303205bdb4f9ee2c19f753352c1557e37399791d5cf65386bc253",
-      "bytes": 15294
+      "sha256": "ae3cf3907f4e254b4a71c6404e6fdd4289a60ce51a2d1e124ee0459125c75f5e",
+      "bytes": 15951
     },
     {
       "path": "reports/science/abborrtjarnen-source-method.md",
@@ -2173,6 +2173,21 @@
       "path": "reports/science/hyde-cropland-source-account.md",
       "sha256": "e31b7120a74a4a18eb8934f933e9f60745f1aca35ebf01dcc44db0a89d8bb366",
       "bytes": 6154
+    },
+    {
+      "path": "reports/science/laihalampi-lra-input/README.md",
+      "sha256": "462a5a75497eef7b018fafb98bb97f3e7b76eff53333a84b5a2b5bf92e1b1d40",
+      "bytes": 3889
+    },
+    {
+      "path": "reports/science/laihalampi-lra-input/replay.py",
+      "sha256": "4366f0ee1948cbab7f24158c999e7082976d8063b8b0c461cc0fb5a5619bf4e9",
+      "bytes": 8455
+    },
+    {
+      "path": "reports/science/laihalampi-lra-input/report.json",
+      "sha256": "72a06d21a12228cd9cf833a46e6d5d7c48d49ee3fbff7423f1258c9faef8371d",
+      "bytes": 2276
     },
     {
       "path": "reports/science/method-correspondence.md",
@@ -2286,8 +2301,8 @@
     },
     {
       "path": "reports/science/source-cohorts.md",
-      "sha256": "62bd7720402c70461b3ad3fac7686a3ce7a9c85ea09a5f3765f3b4de5003d0c6",
-      "bytes": 3776
+      "sha256": "b703b7758947f7e9d9c6e6c87dc04b050cbd37da6f93addad43952391b7b6009",
+      "bytes": 4046
     },
     {
       "path": "reports/science/sweden-author-pollen.md",

@@ -1,0 +1,43 @@
+{
+  "schema_version": "laihalampi-source-reconciliation.v1",
+  "site_id": "neotoma:site:28072",
+  "dataset_id": "neotoma:dataset:52082",
+  "collection_unit_id": "neotoma:collection-unit:37925",
+  "paper_doi": "10.1016/S0277-3791(02)00189-0",
+  "source_sha256": {
+    "landclim_i": "851774cece8fb87928028a0da0e9ab7314ac083fdcca2d1565c00a7aa24d7081",
+    "landclim_ii": "2d4a0cf1401e36c2606f7761cecc85c4bbc15272460c2a4926cb1702d4565ebb",
+    "cohort": "03fc3f0522c2e65082ea245785db84a76431eb6a099b81ce0358fbe9e249dc32",
+    "manifest.json": "6f6777a40b67bd0704eb1a982f19e6d451cad0d6e4a41dfebf5e3f28be33105b",
+    "surfaces/sites/part-00001.json": "b6ca4e49d0aec59aee576fc540c77b6c2e21601ce28338227e98717ee0bb93e9",
+    "surfaces/datasets/part-00001.json": "be7fccfa6e0284ac7984e64c844618a6d8682c03282296cef5cabaab594e27e9",
+    "surfaces/collection_units/part-00001.json": "dea88b9cadd08256b94f537a5d6a48c8b6b6c5820e5f340ae4786c3e28066780",
+    "surfaces/chronologies/part-00001.json": "0703828826bde8a4860d5ea03100cf85145702a042bb3d29dafcb8a3bef4f569",
+    "surfaces/samples/part-00001.json": "c959e77f7c645b814bffe92a92ff2d8fabcc077b4fc4c894e6315e448d14100c",
+    "surfaces/age_claims/part-00001.json": "6b8983b43138ec68895d96070508218d0b7c4f9908bf87860f96b79d2725c558",
+    "surfaces/chronology_controls/part-00001.json": "bb84e43a97c3ac548505ad34e489c551ce44ab6c072d28aaa88bc287dbeeac84"
+  },
+  "landclim_ii_samples": 150,
+  "neotoma_source_samples": 150,
+  "neotoma_source_depth_cm": [
+    1,
+    150
+  ],
+  "neotoma_comparable_calibrated_sample_ages": 150,
+  "neotoma_context_only_radiocarbon_sample_ages": 150,
+  "neotoma_calibrated_controls": 6,
+  "neotoma_radiocarbon_control_labs": [
+    "Hela-4417",
+    "Hela-4418",
+    "Hela-4419",
+    "Hela-4420",
+    "Hela-4459"
+  ],
+  "neotoma_has_assumed_core_top_control": true,
+  "landclim_ii_neotoma_point_separation_m": 0.37055112446540533,
+  "landclim_i_reported_area_ha": 25.5,
+  "landclim_ii_radius_unit_unstated": 285.0,
+  "conditional_area_if_radius_metres_ha": 25.517586328783096,
+  "lra_admitted_samples": 0,
+  "reason": "The named physical core and 150-sample lineage agree, but the exact LandClim selected ages, historical basin geometry, LRA denominator/taxon/PPE use and analytical rights remain unqualified."
+}

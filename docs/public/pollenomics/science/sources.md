@@ -53,6 +53,15 @@ calibrated age intervals exclude their own centres. Historical basin geometry
 and the exact count/taxon/PPE use remain unqualified, so this lead also has
 zero admitted LRA samples.
 
+For Finnish Laihalampi, the `LAIH` core and 150 Neotoma source depths match
+the LandClim II sample count. LandClim I reports 25.50 ha, close to the
+conditional 25.52 ha area of a 285 m circular radius. The original
+[lake study](https://doi.org/10.1016/S0277-3791(02)00189-0) describes a
+five-date fitted chronology. The exact selected ages and historical basin
+series are still unqualified; our source account is at
+`reports/science/laihalampi-lra-input/README.md`. No Finnish LRA sample was
+admitted from this correspondence.
+
 The [HYDE source result](../../../report/regions/nordic/hyde-country-cropland/README.md)
 checks modeled cropland quantity accounting at selected labels. It is not an
 observed vegetation series. The [vegetation reference review](../../../report/validation/empd2-nfi-pairing/README.md)
