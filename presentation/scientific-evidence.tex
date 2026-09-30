@@ -76,6 +76,17 @@ Sweden & 3 & 228 & 221,800/240,966 & 51/54 \\
 \evidence{reports/science/publication-correspondence.md; reports/science/publication-correspondence/published-window-provenance.md; reports/science/publication-correspondence/author-example-reexecution.md}
 \end{frame}
 
+\begin{frame}{LOVE optimizers: shared objectives, different searches}
+\begin{itemize}
+\item We gave installed RcppDE and Python the same three declared pollen, deposition, background, PPE and bound profiles.
+\item Both attained objective gaps below $10^{-4}$ from independent optima; cross-evaluating selected candidates differed by less than $10^{-10}$.
+\item Python reported success after 29--40 iterations and 600--1,230 evaluations. R used its full 400-iteration cap in all three cases.
+\item One objective has different, equally good vegetation vectors; vector equality would misstate solution quality.
+\end{itemize}
+\scope{Bounded objective and arithmetic checks; no identical random path, general global guarantee or ecological accuracy.}
+\evidence{reports/science/method-correspondence.md; docs/report/method-certification/optimizer-solution-quality/summary.csv}
+\end{frame}
+
 \begin{frame}{English LOVE: declared model profile}
 \begin{itemize}
 \item 15 source sites, 1250--1750 BP, 30 targets; published PPE and fall speeds held fixed for retained taxa.
