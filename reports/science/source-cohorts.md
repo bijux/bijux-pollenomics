@@ -47,6 +47,13 @@ still needs the selected age vector and dated basin. We recorded these exact gap
 [research needs](../needed/README.md); we have not substituted study-wide
 assumptions for a named core's missing evidence.
 
+The existing [site-level author-taxonomy mass ledger](../../docs/report/regions/nordic/author-taxonomy-mass/sites.csv)
+accounts for 84,078 assigned, 916 excluded and 309 unmapped native counts at
+Laihalampi, and 46,477 assigned, 600 excluded and eight unmapped at
+Dalmutladdo. Both sums close on their respective 150 and 72 selected
+Neotoma samples. This reuses the prior observed-pollen study; neither
+31-target subcomposition is an admitted LRA denominator.
+
 ## Context and validation sources
 
 We checked modeled HYDE quantities and native grid reconciliation at seven

@@ -26,8 +26,8 @@
     },
     {
       "path": "docs/public/pollenomics/science/sources.md",
-      "sha256": "9291cd78d52b77fb7690cfc0a2a8a7647708af73dcd6479e3c123001c89472af",
-      "bytes": 4365
+      "sha256": "2b3e23816cd1f71fb63186bc72b4904f7f4135ce6a2f4b51e530461201d666b0",
+      "bytes": 4824
     },
     {
       "path": "docs/report/countries/denmark/pollen-chronology-coverage/README.md",
@@ -1068,6 +1068,11 @@
       "path": "docs/report/regions/nordic/author-target-pollen/taxon-diagnostics.csv",
       "sha256": "0dfae6d4e40e372ab45e26625151a248e4db09ab6ed811903aae7595eb596b5a",
       "bytes": 14948
+    },
+    {
+      "path": "docs/report/regions/nordic/author-taxonomy-mass/sites.csv",
+      "sha256": "49270325c1581de633a9f9f3cb423280c0f186dea5624594a38063ac8627c74c",
+      "bytes": 6154
     },
     {
       "path": "docs/report/regions/nordic/direct-pollen/RESULTS.md",
@@ -2121,8 +2126,8 @@
     },
     {
       "path": "reports/science/dalmutladdo-lra-input/README.md",
-      "sha256": "07575bbd876c05f0f8d196dc5c413c4a3afeaa13de5e0382c3ea85c1dd763e20",
-      "bytes": 4820
+      "sha256": "441fd94c12b85afbced8d9ac12bb96fa25faf4ac341f4497f36753c8fc930a52",
+      "bytes": 5375
     },
     {
       "path": "reports/science/dalmutladdo-lra-input/controls.csv",
@@ -2176,8 +2181,8 @@
     },
     {
       "path": "reports/science/laihalampi-lra-input/README.md",
-      "sha256": "462a5a75497eef7b018fafb98bb97f3e7b76eff53333a84b5a2b5bf92e1b1d40",
-      "bytes": 3889
+      "sha256": "b20cd321a59165d0c62c592cbe83854cb03bc7dd0e8f5e98ff3a2f2b0ad10713",
+      "bytes": 4394
     },
     {
       "path": "reports/science/laihalampi-lra-input/replay.py",
@@ -2301,8 +2306,8 @@
     },
     {
       "path": "reports/science/source-cohorts.md",
-      "sha256": "b703b7758947f7e9d9c6e6c87dc04b050cbd37da6f93addad43952391b7b6009",
-      "bytes": 4046
+      "sha256": "f9c7e7bbc6e061b98036b10c5bb07e048443cd007d0a654f0772b13b6a6877b3",
+      "bytes": 4507
     },
     {
       "path": "reports/science/sweden-author-pollen.md",

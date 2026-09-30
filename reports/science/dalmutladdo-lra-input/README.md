@@ -57,6 +57,14 @@ parts. It also records the measured site-point separation, area arithmetic
 and match denominators. The paper PDF remains in the private source store;
 we publish only its citation, source hash and the derived comparison ledger.
 
+Our already governed [31-target source-mass ledger](../../../docs/report/regions/nordic/author-taxonomy-mass/sites.csv)
+accounts for all 72 selected Neotoma pollen samples at this site: **46,477
+of 47,085** native pollen counts map to 19 author targets, **600** map to
+author-excluded labels and **8** remain unmapped. The arithmetic closes
+(46,477 + 600 + 8 = 47,085). These are observed-pollen count assignments;
+they do not authenticate the LRA terrestrial denominator, resolve taxon
+concepts for excluded counts or authorize a PPE/fall-speed choice.
+
 ## What would change this decision
 
 We need a qualified sample/window packet for `DALMUT` that identifies the

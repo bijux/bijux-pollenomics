@@ -53,6 +53,11 @@ calibrated age intervals exclude their own centres. Historical basin geometry
 and the exact count/taxon/PPE use remain unqualified, so this lead also has
 zero admitted LRA samples.
 
+The existing [31-target source ledger](../../../report/regions/nordic/author-taxonomy-mass/sites.csv)
+assigns 46,477 of 47,085 native
+Dalmutladdo pollen counts; 600 are excluded and eight remain unmapped.
+That closed pollen accounting does not establish an LRA denominator.
+
 For Finnish Laihalampi, the `LAIH` core and 150 Neotoma source depths match
 the LandClim II sample count. LandClim I reports 25.50 ha, close to the
 conditional 25.52 ha area of a 285 m circular radius. The original
@@ -61,6 +66,10 @@ five-date fitted chronology. The exact selected ages and historical basin
 series are still unqualified; our source account is at
 `reports/science/laihalampi-lra-input/README.md`. No Finnish LRA sample was
 admitted from this correspondence.
+
+The same source ledger assigns 84,078 of 85,303 native Laihalampi pollen
+counts; 916 are excluded and 309 remain unmapped. This pollen-only mapping
+does not qualify the core for LRA.
 
 The [HYDE source result](../../../report/regions/nordic/hyde-country-cropland/README.md)
 checks modeled cropland quantity accounting at selected labels. It is not an

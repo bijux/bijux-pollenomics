@@ -42,6 +42,14 @@ numerically specify a radius for each LandClim time window. The `R` marker
 also requires an explicit analytical-use and redistribution review; we do not
 infer permission from data availability or authorship.
 
+Our already governed [31-target source-mass ledger](../../../docs/report/regions/nordic/author-taxonomy-mass/sites.csv)
+accounts for all 150 selected Neotoma pollen samples at this site: **84,078
+of 85,303** native pollen counts map to 24 author targets, **916** map to
+author-excluded labels and **309** remain unmapped. The arithmetic closes
+(84,078 + 916 + 309 = 85,303). This is an observed-pollen subcomposition,
+not a verified LRA terrestrial denominator or source-approved PPE/fall-speed
+mapping.
+
 ## What would change this decision
 
 We need the LandClim-selected `LAIH` age vector/model and uncertainty, the
