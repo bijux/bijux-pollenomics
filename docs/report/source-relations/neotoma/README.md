@@ -1,5 +1,9 @@
 # Neotoma source relationship validation
 
+The [observation attribute trace](observation-attributes/README.md) follows one
+pinned raw datum through its normalized convenience fields and native parent
+IDs. It records source nulls and the absent denominator explicitly.
+
 The [Nordic lake-parameter review](lakeparameters/README.md) retains the exact
 five public source matches, the 54-site candidate denominator and a replay
 against the externally retained page capture. It admits zero historical basins
