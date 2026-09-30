@@ -79,13 +79,14 @@ consumer and withheld pollen prediction; observed-pollen scores do not settle
 this source gate.
 
 Reproduce this bounded metadata/control result from the repository root with
-the retained primary PDF at the stated private source path:
+the retained primary PDF in the qualified private source store:
 
 ```sh
+source_store="/path/to/qualified/bijux-pollenomics-data"
 PYTHONDONTWRITEBYTECODE=1 .venv/bin/python \
   reports/science/dalmutladdo-lra-input/replay.py \
   --repository . \
-  --paper /Users/bijan/bijux/bijux-pollenomics-data/reference-sources/dalmutladdo/bjune-2004.pdf \
+  --paper "$source_store/reference-sources/dalmutladdo/bjune-2004.pdf" \
   --output artifacts/jobs/dalmutladdo-source/replayed
 ```
 

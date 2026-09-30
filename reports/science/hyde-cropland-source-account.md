@@ -89,9 +89,10 @@ To reproduce our result, run from the repository root into a new artifacts
 directory:
 
 ```sh
+source_store="/path/to/qualified/bijux-pollenomics-data"
 PYTHONPATH=packages/bijux-pollenomics/src:packages/bijux-pollenomics-dev/src \
   .venv/bin/python -m bijux_pollenomics_dev.source_completion.hyde_country_cropland \
-  --source-root /Users/bijan/bijux/bijux-pollenomics-data/HYDE-3.5 \
+  --source-root "$source_store/HYDE-3.5" \
   --output artifacts/jobs/hyde-nordic-country-cropland-replay
 ```
 
