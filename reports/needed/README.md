@@ -80,10 +80,12 @@ For Finnish Laihalampi, our [source screen](../science/laihalampi-lra-input/READ
 matches the `LAIH` core and all 150 source depths to the LandClim II sample
 count. LandClim I's 25.50 ha and a conditional 285 m circle agree as modern
 site-area claims. The Neotoma calibrated chronology retains five dated
-controls and an assumed core top, while the paper names a sixth deeper date
-and an assumed 11,000 BP base. The exact resolver is the author's selected
-age vector/uncertainty, dated basin geometry, eligible denominator,
-taxon/PPE use and rights for those 150 samples. We retain zero Finnish LRA
+controls and an assumed core top. The original authors explicitly excluded
+the sixth, deeper Hela-4421 date from their fitted chronology and assumed an
+11,000 BP base; the control-selection question is settled. The exact resolver
+is the LandClim-selected age vector/uncertainty, dated basin geometry,
+eligible denominator, taxon/PPE use and rights for those 150 samples. We
+retain zero Finnish LRA
 admissions until that same-core packet is reviewed.
 
 **Needed:** nominate a specific physical core and time window in each target

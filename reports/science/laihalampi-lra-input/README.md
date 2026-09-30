@@ -29,10 +29,15 @@ reports a 25.5 ha lake, two parallel 150 cm cores with one used for analyses,
 and 150 pollen samples. The author's [available full-text copy](https://www.researchgate.net/publication/248479486_A_11000_yr_palaeotemperature_reconstruction_from_the_southern_boreal_zone_in_Finland)
 states that the fitted model used five calibrated radiocarbon dates plus an
 assumed contemporary top and 11,000 cal BP base. Its Table 2 lists a sixth,
-deeper date, Hela-4421, which is absent from the Neotoma calibrated control
-set. That pattern is consistent with the paper's five-date model description;
-we have **not** authenticated the exact LandClim II sample ages against the
-paper or recovered a full chronology uncertainty series. The paper's
+deeper date, Hela-4421. The authors explicitly excluded that date from the
+age-depth fit because its calibrated age was too old relative to their
+deglaciation-based basal-age estimate. Hela-4421 is also absent from the
+Neotoma calibrated control set, which agrees with the paper's
+control-selection decision. We have **not** authenticated the exact LandClim
+II sample ages against the paper or recovered its age-depth uncertainty
+series. Direct access to the author-hosted PDF returned HTTP 403; the linked
+author-hosted full text supports this interpretation but does not provide
+PDF byte parity. The paper's
 500-terrestrial-grain counting statement describes a laboratory protocol, not
 the exact denominator of each admitted LRA sample.
 
@@ -55,9 +60,11 @@ mapping.
 We need the LandClim-selected `LAIH` age vector/model and uncertainty, the
 source pollen rows and eligible terrestrial denominator for each selected
 window, a time-matched basin-radius or polygon series, reviewed taxon/PPE and
-fall-speed mapping, and source-specific analytical rights. A qualified source
-owner should explain the role of Hela-4421 and the assumed 11,000 BP base in
-the selected chronology. The [Nordic LRA need](../../needed/README.md)
+fall-speed mapping, and source-specific analytical rights. The paper explains
+Hela-4421's exclusion; a qualified source packet must still identify the
+exact age vector and uncertainty applied by LandClim II, including how the
+assumed 11,000 BP base entered its selected model. The
+[Nordic LRA need](../../needed/README.md)
 keeps those fields open. Once bound, run actual reconstruction and withheld
 forward-pollen prediction before comparing methods.
 
