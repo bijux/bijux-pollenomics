@@ -30,33 +30,30 @@ one synthetic case. The reader returned the expected product manifest for both
 runs. When the source evidence was altered after request construction, input
 validation refused it with `evidence_digest_mismatch`.
 
-The source commit was `70ddf5085ea8fef060f359ef0a4ddc719fb5cb68` and the
-independent oracle report SHA-256 was
+The result binds source commit `70ddf5085ea8fef060f359ef0a4ddc719fb5cb68`
+and independent oracle report SHA-256
 `c53291b9be045fef04334533a8a7f40f8811d7f49c809745522409db8b94aff8`.
-We copied the result byte for byte from the historical run; this owned copy
-has SHA-256
-`dc004ea877e29e1ea4d8778edd3c2809aeddd2efdd54159fd39e30fdc9b3a0bdc`.
+Our maintained [result check](replay.py) recomputes the pollen-count
+quantization, geometry declarations, two three-taxon vegetation errors,
+cover closure, reader-manifest equality and the recorded tamper refusal from
+the tracked report:
+
+```sh
+PYTHONDONTWRITEBYTECODE=1 .venv/bin/python \
+  reports/science/synthetic-host-challenge/replay.py
+```
 
 ## Boundary and custody
 
 The result is one three-taxon synthetic comparison with a deliberately
 different forward law, no observed pollen, measured vegetation, calibration
-threshold or LOVE support test. We retained the exact historical
-[challenge producer](producer-source/run_challenge.py.txt) and
-[snapshot preparation source](producer-source/prepare_snapshot.py.txt) beside this
-result. Their SHA-256 values are `791d07e51af86801e8f8dbad152dd6b0d852492caf02a6032fdbdb862e5f7f31`
-and `eaf1100d5fb1584ee85d95ec83a2f709c188ca0103d73fef86772677091ffcd1`.
-We store their original Python bytes as text evidence so repository code
-checks do not treat an archival, layout-dependent script as a live entry point.
-They are source evidence, not a current-source replay command: the producer
-expects the historical artifact layout and a frozen package snapshot. The
-original inputs and outputs require a separate private source archive. The
-product report, source and policy are accessible here; exact historical rerun
-still requires the frozen environment and source layout. This is not a claim
-that current code reproduces the old numeric bytes.
+threshold or LOVE support test. The result check verifies retained arithmetic
+and declarations; it does not rerun the original numerical engine or
+independently reproduce its tamper experiment. Those historical inputs and
+outputs require the qualified private source archive. The current
+[governed reconstruction challenge](../../../docs/report/synthetic-validation/reconstruction/README.md)
+has an owned producer for calculation controls under declared source limits.
 
-Our current [governed reconstruction challenge](../../../docs/report/synthetic-validation/reconstruction/README.md)
-tests eight cases with an owned producer and declares the same transport-mismatch
-limit. The separate [development sweep](../synthetic-model-selection/README.md)
+The separate [development sweep](../synthetic-model-selection/README.md)
 used this oracle to compare twelve synthetic PPE/transport candidates. Neither
 study chooses parameters for a real core.
