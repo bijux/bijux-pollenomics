@@ -89,7 +89,7 @@ coverage and prior outcome exposure.
 
 | Question | Result | Status and scope |
 | --- | --- | --- |
-| Are computations correct for their declared assumptions? | Focused author-pollen search tests: 3 passed. Rootsi structural replay tests: 30 passed, 1 real-source test skipped because the test is explicitly opt-in. The exact retained workbook replay exited 0 with an unchanged read set. The installed Python publication profile matched the independent author-R replay on 14,074 supported mean and SE values; maximum residuals were 1.83881e-13 and 7.15331e-14 in fractional units. The development-package test selection reached 1,097 passing tests with 3 opt-in skips, then the command failed at its final workspace-layout guard. | Verified for these bounded implementations and inputs; not a general correctness or source-identity claim. |
+| Are the paper-profile calculations consistent with the independent author-R replay? | The installed Python profile matched 14,074 supported mean and SE values; maximum residuals were 1.83881e-13 and 7.15331e-14 in fractional units. The [method correspondence](method-correspondence.md) owns the numerical interpretation. | Verified for these bounded equations and inputs; not a general correctness or historical source-identity claim. |
 | Do results correspond to the selected publications? | For exact TW2 support (100–350 BP), the 2016 author-R and June 2021 PANGAEA means differ by maximum 9.19787 percentage points in grid 512 and 10.5527 in grid 562. Standard-error maximum gaps are 3.21615 and 4.25814 points. Both Python-to-R residuals are at most 1.238e-11 points. The 31-taxon mean-vector total-variation gaps are 0.092406 and 0.110704. All 31 mean ± one reported SE envelopes overlap in each grid; this is descriptive and does not test significance. Only 1/25 published-window interval labels matches exactly; the other 24 were excluded from direct comparison. The publication metadata inventory has 1,128 rows but zero authenticated historical primary-input closures. | Numerically reconciled on TW2. Historical raw-input cohorts, the paper's 12 versus PANGAEA's 11 versus archived 13 PFT positions, and the ISTS definition remain unresolved. |
 | Are archived PFT/LCT standard errors feasible sums of their component uncertainty? | For each of five observed mean-addend groups (ET, ST, OL, ISTS, TBS), all 10,500 archived grid/window SE rows satisfy the necessary covariance bounds. Respectively 7,588, 7,892, 5,921, 7,013 and 5,859 rows have a nondegenerate bound with the SE strictly inside it. | This bounds a possible joint covariance only. The archive-producing transformation and covariance/delta-method replay remain unresolved. |
 | Can other sites predict held-out pollen? | On the 17-site author cohort, the selected CLR-RBF scores 174 common site bins at site-macro MAE 0.017774 and Hellinger 0.256559. On those same bins inverse-distance scores MAE 0.018948 and Hellinger 0.269752, and training mean scores 0.019621 and 0.283346. Separately, Swedish Neotoma whole-site holdouts score 39 target site-bin rows per method across 13 500-cal-BP bins: nearest-site is best among the four fixed candidates (site-macro MAE 0.055371; Hellinger 0.395725), narrowly ahead of training mean (0.057177; 0.406399). | Both are exploratory and prior-exposed. The Neotoma outcomes concern declared 16-taxon subcompositions; three Swedish lakes do not support broad transfer claims. |
@@ -262,46 +262,6 @@ We treat the output directory as disposable; the documented results and
 private source capsule survive its removal. Readers without the private
 source files can inspect retained predictions and scores, but cannot rerun
 the source-backed study from this report alone.
-
-## Earlier software delivery receipt
-
-We retain the following earlier software check as historical implementation
-evidence. We do not treat it as a current integrated acceptance run or a
-scientific completion decision.
-
-| Acceptance dimension | Current state |
-| --- | --- |
-| Software path | Implemented for the declared direct observed-pollen and named numerical profiles; real Nordic LRA intake remains source-gated. |
-| Numerical parity | The [current R oracle](../../docs/report/method-certification/current-r-oracle/README.md) passes 43 named core and 23 source-domain cases; the separate author-example comparison covers 14,074 mean/SE values. Neither result authenticates missing historical publication inputs. |
-| Empirical observed pollen | Evaluated within the stated exposed Swedish, author and country-held-out cohorts, with refusals retained in the denominator. |
-| Independent measured vegetation | Not evaluated: zero admitted matched pollen/reference pairs. |
-| Practical superiority | Not established. The selected author model improves one prior-exposed common-support development score, while selected Nordic transfer loses to inverse-distance squared in Finland and Norway. |
-| Scientific acceptance | Pending for the full Nordic LRA and independent vegetation objective; this is a scoped developmental report. |
-| Public release | Not authorized by this scientific report or its software checks. |
-
-We ran the full non-slow/non-live/non-API development-package selection
-against commit `20ecd351`. It had 1,097 passing tests before the final
-guard, 3 explicitly opt-in skips and 3 pytest-asyncio deprecation warnings.
-The command exited nonzero at the workspace-layout guard because an earlier
-lint command had left `.ruff_cache` at the repository root. We removed that
-generated cache and reran runtime isolation, both direct-pollen suites and
-the guard: all 10 focused tests passed on an unchanged read set. Ruff check
-and format passed with cache reads disabled; mypy passed on both direct-pollen
-producers.
-
-Our no-isolation package build stopped because `hatch-vcs` was absent from
-that environment. The normal isolated build passed on the committed producer
-and generated a source archive and wheel. That local version included
-`+dirty` because the checkout had a separate staged documentation edit.
-We published nothing. We did not run the tox build target then because its
-`sync-license-assets-package` pretarget would rewrite the tracked
-development-package `LICENSE`, which differs from the root license.
-
-We keep software delivery separate from scientific acceptance. Swedish and
-Nordic direct-pollen results remain exploratory; Nordic LRA and independent
-measured-vegetation accuracy are still blocked or not evaluated. We have
-bounded HYDE country and seven-year native grid results, but have not run a
-matched pollen comparison using HYDE.
 
 ## Reopening conditions and remaining work
 
