@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import csv
 import hashlib
 import json
 import math
@@ -26,6 +27,7 @@ PYTHON_BASELINE = ROOT / "docs/report/numerical-performance/python-baseline"
 PYTHON_ISOLATED = ROOT / "docs/report/numerical-performance/python-isolated"
 NATIVE_FORWARD = ROOT / "docs/report/numerical-performance/native-forward"
 NATIVE_MEMORY = ROOT / "docs/report/numerical-performance/native-memory"
+EMPD2_NFI = ROOT / "docs/report/validation/empd2-nfi-pairing"
 
 
 def verify_reader_paths() -> None:
@@ -297,16 +299,53 @@ def verify_native_memory() -> None:
             raise ValueError(f"Native worker comparison changed: {row['shape']}")
 
 
+def verify_empd2_nfi_pairing() -> None:
+    """Keep the public measured-vegetation refusal tied to its producer and ledger."""
+    report = json.loads((EMPD2_NFI / "report.json").read_bytes())
+    schema = json.loads((EMPD2_NFI / "nfi-measurement-schema.json").read_bytes())
+    ledger = (EMPD2_NFI / "pairs.csv").read_bytes()
+    producer = (
+        ROOT
+        / "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/empd2_nfi_pairing.py"
+    )
+    with (EMPD2_NFI / "pairs.csv").open(newline="", encoding="utf-8") as stream:
+        rows = list(csv.DictReader(stream))
+    if (
+        report.get("schema_version") != "empd2-nfi-pair-decision.v1"
+        or report.get("status") != "zero_measured_pairs_refused_for_current_benchmark"
+        or report["input_sha256"]["producer"]
+        != hashlib.sha256(producer.read_bytes()).hexdigest()
+        or report["pairs_csv"]
+        != {"bytes": len(ledger), "sha256": hashlib.sha256(ledger).hexdigest()}
+        or report["denominators"]["current_benchmark_refusals"] != len(rows)
+        or len(rows) != 16
+        or report["denominators"]["measured_pairs_admitted"] != 0
+        or report["decision"]["evaluation_performed"] is not False
+        or schema["measurement_outcome_cells_decoded"] != 0
+        or any(
+            row["current_benchmark_decision"] != "refused_missing_pair_evidence"
+            or row["scientific_admission"] != "false"
+            for row in rows
+        )
+    ):
+        raise ValueError("EMPD2–NFI pairing refusal or source identity changed")
+
+
 def main() -> None:
     verify_reader_paths()
     verify_runtime_measurement()
     verify_python_baseline()
     verify_native_forward()
     verify_native_memory()
+    verify_empd2_nfi_pairing()
     lock = json.loads(LOCK.read_text(encoding="utf-8"))
     if lock.get("schema_version") != "research-report-source-lock.v1":
         raise ValueError("Unexpected research report source lock")
-    for family in ("numerical-performance", "synthetic-validation"):
+    for family in (
+        "numerical-performance",
+        "synthetic-validation",
+        "validation/empd2-nfi-pairing",
+    ):
         family_root = ROOT / "docs/report" / family
         family_files = {
             path.relative_to(ROOT).as_posix()
