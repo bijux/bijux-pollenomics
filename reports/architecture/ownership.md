@@ -210,3 +210,15 @@ the retained [uncertainty result](../../docs/report/publication-replay/landclim-
 The historical manifest still describes the earlier producer source; this
 current replay proves the present output bytes for this one owner. It does
 not close the other separately governed outputs or the full-tree no-diff gate.
+
+The independent report-build diagnostic also lists the Småland historical-map
+coverage result among files that `publish-reports` never emits. We ran its
+[source-bound producer](../../docs/report/vegetation-reference/smaland-historical-maps/coverage.py)
+against the three exact private article and appendix bytes into an absent
+`artifacts/jobs/report-owner-proof/` destination. The produced JSON matched
+the [tracked coverage result](../../docs/report/vegetation-reference/smaland-historical-maps/coverage.json)
+byte for byte, SHA-256
+`f13f1e5ece6e4060b98036d7bdca42b4ff2c47ca8dc118931d2b43c074519012`.
+This establishes a current owner for that one numerical source-support file.
+It does not make the article's unpublished vegetation fractions available or
+turn the 1,151-file clean-build gap into a pass.
