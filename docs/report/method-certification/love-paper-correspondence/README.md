@@ -47,6 +47,15 @@ the repository root with
 `python3 docs/report/method-certification/love-paper-correspondence/verify.py --repository . --output artifacts/method-certification/love-paper-source-parameter-replay.json`
 and compare the output byte for byte with the governed JSON.
 
+The same pinned DISQOVER 0.9.14 archive's
+`disqover/man/LOVEexampleRings.Rd` (member SHA-256
+`43c8f7166a88d35b609d8772bab2c5830dc1e76f97ff5d4e9d6fa2a5fd0fc5ad`)
+describes its example as simulated from **BÜK300**. The retained 2024 paper
+describes its eight-site Figure 2 simulation as using **BÜK200**. We retain
+those source descriptions as a difference in stated map basis; the example
+parameter match does not establish that either archive example contains the
+paper's Figure 2 landscape or random runs.
+
 | Paper method or assumption | Current executable evidence | Scope of correspondence |
 | --- | --- | --- |
 | Small-site pollen deposition combines local and regional contributions. | [Optimized forward objective](https://github.com/bijux/bijux-pollenomics/blob/828081f963fa574cd217c8f9c4c2cfcdb9397d52/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/optimized.py) and [analytical subtraction](https://github.com/bijux/bijux-pollenomics/blob/828081f963fa574cd217c8f9c4c2cfcdb9397d52/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/analytical.py). | Source equations have bounded R/Python parity; no ecological truth is inferred. |

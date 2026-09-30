@@ -150,6 +150,21 @@
       "bytes": 6323
     },
     {
+      "path": "docs/report/method-certification/love-paper-correspondence/README.md",
+      "sha256": "a6d836b045ba3f1eb63fc74c182e77fdf5f54cb3b44ede427ed32093468de66f",
+      "bytes": 8237
+    },
+    {
+      "path": "docs/report/method-certification/love-paper-correspondence/paper-parameter-tables.json",
+      "sha256": "9c0ce8de012ee978d158a402856fd4fcf3fbda3fcaf71d6257964b893b9a392e",
+      "bytes": 6239
+    },
+    {
+      "path": "docs/report/method-certification/love-paper-correspondence/source-parameter-correspondence.json",
+      "sha256": "2e80c14354d0e571a7fd0d30433a3b205b85ea6902893a4ca242c47af2d33c75",
+      "bytes": 3838
+    },
+    {
       "path": "docs/report/pollen-reconstruction/README.md",
       "sha256": "fe24ac0e8c51e83ed00bde0c9e28758c0ba6694394cda78cfaa8ca778b4ba5b7",
       "bytes": 582
@@ -641,8 +656,8 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/paper-correspondence.csv",
-      "sha256": "fd542b1895848dfa0f91d1fad43c9a82c08b4624412c146f661e6d75f6e75c91",
-      "bytes": 8172
+      "sha256": "21b5354a2155345e44964ed513471d32648bdb062eda1ebed3e0b79ccb8ff9cc",
+      "bytes": 10061
     },
     {
       "path": "docs/report/pollen-reconstruction/paper-correspondence.md",
@@ -2081,13 +2096,13 @@
     },
     {
       "path": "reports/README.md",
-      "sha256": "539188cb5de0a2af8360024f909bff945b0888fe9335e609400c050d96f4790f",
-      "bytes": 7488
+      "sha256": "71a65e085a3e23022496f4d6b8715ecac2f8775094c51e9a76235f8003be6859",
+      "bytes": 7735
     },
     {
       "path": "reports/architecture/artifact-custody.md",
-      "sha256": "f11db523c5e0dfdc1d25a60fc2719e45c4266b5359d600b960a29fb738ed561d",
-      "bytes": 15836
+      "sha256": "9116a7729d239bf234324c7f8920e0f60c7f15549b3c446eadf647f1615a936a",
+      "bytes": 24203
     },
     {
       "path": "reports/architecture/artifact-custody/synthetic-protocol-metrics.json",
@@ -2101,8 +2116,8 @@
     },
     {
       "path": "reports/evidence-index.md",
-      "sha256": "102e781614ad21dc9d645025d59f863835ff0d1d5d3b9184bd4b278afde1b8be",
-      "bytes": 16742
+      "sha256": "332a834a324670353494ce66282fb227b3e969fc1eef324776f3e75e7f4ba065",
+      "bytes": 18786
     },
     {
       "path": "reports/needed/README.md",
@@ -2206,8 +2221,8 @@
     },
     {
       "path": "reports/science/method-correspondence.md",
-      "sha256": "304cc3512a9774d3b804fc09c3ceaa755f42e0dac991c137160c10940fa51e50",
-      "bytes": 3239
+      "sha256": "fe2290615fd308e6f247dbd478c6fc96cf245fc17511b69f851a4c2b99119f5b",
+      "bytes": 5383
     },
     {
       "path": "reports/science/nordic-observed-pollen-selection.md",
@@ -2226,8 +2241,8 @@
     },
     {
       "path": "reports/science/publication-correspondence.md",
-      "sha256": "acd5edd86a422c499e43301ab31d0142222c321532457fbb5eff3f11b91093bc",
-      "bytes": 12273
+      "sha256": "5d010a3f9a988e353d47f26f8d3a1087e2e124378713df571d0aeb226e2c7303",
+      "bytes": 14767
     },
     {
       "path": "reports/science/publication-correspondence/author-example-reexecution.md",

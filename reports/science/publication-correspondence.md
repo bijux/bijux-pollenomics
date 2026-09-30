@@ -62,6 +62,24 @@ overlap a significance test.
 
 ## Historical reproduction boundary
 
+### LOVE/LOVEoptim 2024
+
+We also [checked the nominated LOVE method paper](../../docs/report/method-certification/love-paper-correspondence/README.md)
+against the pinned DISQOVER example. All **30** published Table 2 fall-speed,
+PPE and PPE-SD values match the packaged example by row position; nine of ten
+taxon labels match exactly (`Grasses` versus `Gras` is the exception). The
+paper supplies 11 map-unit composition rows, but not the exact eight-site
+landscape extraction, pond/ring geometry, simulated pollen or 100 random
+realizations needed to recompute Figure 2 RMSE. The later package example has
+only one local/regional pollen pair. Its source documentation says BÜK300 for
+that example, while the paper says BÜK200 for its simulation. We record the
+input-parameter correspondence and leave Figure 2 output reproduction blocked;
+we do not transfer its reported 100–500 m behavior to Nordic lakes.
+
+The [paper-result matrix](../../docs/report/pollen-reconstruction/paper-correspondence.csv)
+keeps this input match and unavailable output separately from the LandClim
+example calculation and archive-product comparison.
+
 We reproduced all 17 example `LRAready` files byte for byte from pinned
 raw site files and formatter lookups in the
 [released author raw-to-prepared replay](../../docs/report/source-relations/landclim/author-example-taxon-support/README.md):
