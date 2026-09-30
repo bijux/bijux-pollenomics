@@ -66,7 +66,11 @@
     "docs/report/method-certification/optimizer-solution-quality/report.json": "256a43b95c0e3accd45a0076fc404a297009a9714a80e5b69c5153cdc342c8ac",
     "docs/report/method-certification/optimizer-solution-quality/summary.csv": "79edce68dbe2624d22590e4ac1c0ebfd2401d76b7ec9006956d47ceb79ec35bd",
     "docs/report/numerical-performance/native-adoption/README.md": "cef9f603d8f6b8960634763b41f5cd9c6f4ba6c9011b44446e389f037f128395",
-    "docs/report/numerical-performance/native-forward/report.json": "44ce46b2a5174e5af2fcfbf34ac914623b4fb3285acd5dc29357f6f890acefd6",
+    "docs/report/numerical-performance/native-forward/README.md": "326fbbaed6622274b12fa131aa0b8db7e2d10f18b2916c46da3cf6550151cecb",
+    "docs/report/numerical-performance/native-forward/reference/rows-1-rings-8-taxa-3/R-output.csv": "1424f0178d2dcee2dc86acccb939479a59e6038b9109763c10aa771431ab381d",
+    "docs/report/numerical-performance/native-forward/reference/rows-32-rings-128-taxa-32/R-output.csv": "d96f48b2180c799c34467e01e82e02e4a549f7a82c87fc6a4f4807a35696cf66",
+    "docs/report/numerical-performance/native-forward/reference/rows-512-rings-256-taxa-64/R-output.csv": "50ee3140d7e83f516e678479278c6b366d577badb1709014e131c88a2cac6654",
+    "docs/report/numerical-performance/native-forward/report.json": "40db4ccbca0dc9c9029a2ae5904c1d03056e2f9225589e4889384932add5fe4a",
     "docs/report/numerical-performance/native-memory/report.json": "24aafe883b2e36a57a88763bbf5230974b470c90b2d94483ebea2d9a988eefef",
     "docs/report/numerical-performance/python-baseline/README.md": "bbd4636c099c63678c1dfafd4e3ee6415ab3f77010a25e4519c56e76de355da0",
     "docs/report/numerical-performance/python-baseline/report.json": "a019574c3b0c0ac4a19dda721f844a5405b5321ca3243da150accbd894e608e7",
@@ -151,6 +155,7 @@
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/native_backend/baseline_summary.py": "bcef0a5328ebd04fdcf80474df7fe4ed81a9256175f0e44911d36d570277bd65",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/native_backend/forward_compare.py": "b1f728fc54634800038b8bc71536d8dc7c289482b6ac72dfdf288fed7c315e7e",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/native_backend/forward_kernel.cpp": "44b5c3893c713042fbe7537983fef2a424c2df0b837d4c4b92761b8c644f377d",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/native_backend/forward_summary.py": "a2714cd6baebd33e9eb740e1bebf19e8da894c4a3d606ace45bf918c0dbdcb9d",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/native_backend/isolated_python_baseline.py": "4fd736693bf88359b3d062581c9ec0aa60641e0e60432030d11da9d6552b083d",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/native_backend/profile_summary.py": "346f0454ecfba81e4383cdde65fad134e0ea310e35bbf074d0249f922440d0b4",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/swedish_lake_transfer.py": "ec4ed8027d3cb0ac52579d2992d89706bf301f4c993b7d9c5ad38b3494bf9e26",
@@ -247,6 +252,6 @@
     "reports/science/vegetation-reference/southern-sweden-figure/compare.py": "5ac673246f7f7685dc485e2d4b6624b14c1ae58361608f0f3606ea83a36e21b1",
     "reports/science/vegetation-reference/southern-sweden-figure/printed-labels.csv": "e7e6f04e4711690421ca4c84af9e1237cbdb3b95554d63a6d81e2a61ff2a3f54",
     "reports/science/vegetation-reference/southern-sweden-figure/report.json": "7205071dc7bd4b7bdf99c77788583bfbb1ab8699546c9f5acd3e6566da4e7e57",
-    "reports/verify.py": "2dbda893589f2f5b28cd5532b261fdd270fa7f0cae5115ba669cf75c993ed336"
+    "reports/verify.py": "12fdaae80abab1d25fa1e7178897055cfcc5c34aeb5d40134aaa28b0364b132b"
   }
 }

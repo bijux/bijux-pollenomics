@@ -24,6 +24,7 @@ HUMAN_SURFACES = (
 RUNTIME_MEASUREMENT = ROOT / "docs/report/numerical-performance/runtime-metadata"
 PYTHON_BASELINE = ROOT / "docs/report/numerical-performance/python-baseline"
 PYTHON_ISOLATED = ROOT / "docs/report/numerical-performance/python-isolated"
+NATIVE_FORWARD = ROOT / "docs/report/numerical-performance/native-forward"
 
 
 def verify_reader_paths() -> None:
@@ -151,10 +152,67 @@ def verify_python_baseline() -> None:
             )
 
 
+def verify_native_forward() -> None:
+    """Bind the compact negative adoption result to retained R outputs."""
+    payload = (NATIVE_FORWARD / "report.json").read_bytes()
+    measured = json.loads(payload)
+    producer = (
+        ROOT
+        / "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/native_backend/forward_summary.py"
+    )
+    gate = measured["prospective_gate"]
+    shapes = ((1, 8, 3), (32, 128, 32), (512, 256, 64))
+    if (
+        measured.get("schema_version") != "lra-forward-native-measurement.v1"
+        or measured.get("summary_producer_sha256")
+        != hashlib.sha256(producer.read_bytes()).hexdigest()
+        or b"/Users/" in payload
+        or b"/home/" in payload
+        or set(measured["thread_settings"].values()) != {"1"}
+        or gate["minimum_validated_facade_speedup"] != 2.0
+        or [(row["rows"], row["rings"], row["taxa"]) for row in measured["cases"]]
+        != list(shapes)
+    ):
+        raise ValueError("Native forward measurement source or scope changed")
+    for row in measured["cases"]:
+        shape = (row["rows"], row["rings"], row["taxa"])
+        reference = (
+            f"reference/rows-{shape[0]}-rings-{shape[1]}-taxa-{shape[2]}/R-output.csv"
+        )
+        timings = row["measurements"]
+        numerator = timings["numpy_validated_facade"]["median_seconds_per_call"]
+        denominator = timings["native_validated_facade"]["median_seconds_per_call"]
+        if (
+            row["reference_R_output"] != reference
+            or hashlib.sha256((NATIVE_FORWARD / reference).read_bytes()).hexdigest()
+            != row["reference_R_output_sha256"]
+            or any(
+                value["passed"] is not True
+                or value["maximum_absolute_error"] > gate["atol"]
+                for value in row["comparisons"].values()
+            )
+            or row["inputs_unchanged"] is not True
+            or any(
+                len(value["seconds_per_call"]) != 9
+                or value["median_seconds_per_call"] != median(value["seconds_per_call"])
+                for value in timings.values()
+            )
+            or not math.isclose(
+                row["validated_facade_speedup"],
+                numerator / denominator,
+                rel_tol=0,
+                abs_tol=1e-15,
+            )
+            or row["validated_facade_speedup"] >= 2.0
+        ):
+            raise ValueError(f"Native forward decision changed: {shape}")
+
+
 def main() -> None:
     verify_reader_paths()
     verify_runtime_measurement()
     verify_python_baseline()
+    verify_native_forward()
     lock = json.loads(LOCK.read_text(encoding="utf-8"))
     if lock.get("schema_version") != "research-report-source-lock.v1":
         raise ValueError("Unexpected research report source lock")
