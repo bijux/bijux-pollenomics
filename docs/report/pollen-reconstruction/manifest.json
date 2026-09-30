@@ -86,7 +86,7 @@
     },
     {
       "path": "docs/report/index.md",
-      "sha256": "c5e46abfc4a64b1faa0cb7c44e8abfe777e3932c764149cad18e8a9dffb00956",
+      "sha256": "f5b3eb27d2b93516ef1419875602c3f160cfdbdbd3827d6fe8f29a39f1e3a67e",
       "bytes": 2668
     },
     {
@@ -401,18 +401,13 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/author-example-site-mean-holdout/README.md",
-      "sha256": "4b26b419550f6801567d4bca1b88f7792e8bcfb887260cf18480d0db892bf099",
-      "bytes": 2104
+      "sha256": "3a02c893337eb5c9e6cb96e3d77779af00ca7529ca1912e05be70a7007f46ef3",
+      "bytes": 2100
     },
     {
       "path": "docs/report/pollen-reconstruction/author-example-site-mean-holdout/REPORT.md",
       "sha256": "8d136b9b09284df76803ef002754709cf6b52508be5addab63893eb5621debc7",
       "bytes": 1293
-    },
-    {
-      "path": "docs/report/pollen-reconstruction/author-example-site-mean-holdout/manifest.json",
-      "sha256": "f96bbc170cfbdde9eb6bbf43c2be06f079af9802017b4ac4f23f77102baf2d66",
-      "bytes": 2278
     },
     {
       "path": "docs/report/pollen-reconstruction/author-example-site-mean-holdout/predictions.csv",

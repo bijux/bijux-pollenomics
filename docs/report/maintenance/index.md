@@ -35,4 +35,4 @@ structurally weak.
 
 ## Current Count
 
-- maintainer artifacts: `954`
+- maintainer artifacts: `953`

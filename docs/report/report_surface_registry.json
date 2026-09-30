@@ -1,16 +1,16 @@
 {
   "schema_version": "report-surface-registry.v1",
-  "surface_count": 1779,
+  "surface_count": 1778,
   "family_counts": {
     "caveats": 10,
-    "maintenance": 955,
+    "maintenance": 954,
     "maps": 85,
     "portal": 2,
     "reviews": 34,
     "scopes": 693
   },
   "audience_counts": {
-    "maintainer_diagnostic": 957,
+    "maintainer_diagnostic": 956,
     "public_reading_surface": 702,
     "scientific_review_surface": 120
   },
@@ -20,7 +20,7 @@
     "finland": 14,
     "nordic": 433,
     "norway": 14,
-    "report_root": 1004,
+    "report_root": 1003,
     "sweden": 49,
     "world": 172
   },
@@ -9452,18 +9452,6 @@
       "audience": "maintainer_diagnostic",
       "audience_label": "Maintainer diagnostic",
       "format": "md",
-      "geography": "report_root",
-      "caution_level": "high",
-      "explanation": "Maintainer-facing truth or governance surface.",
-      "reader_route": "maintainer_truth"
-    },
-    {
-      "repository_path": "docs/report/pollen-reconstruction/author-example-site-mean-holdout/manifest.json",
-      "family": "maintenance",
-      "family_label": "Maintainer truth surfaces",
-      "audience": "maintainer_diagnostic",
-      "audience_label": "Maintainer diagnostic",
-      "format": "json",
       "geography": "report_root",
       "caution_level": "high",
       "explanation": "Maintainer-facing truth or governance surface.",
