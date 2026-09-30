@@ -1,16 +1,16 @@
 {
   "schema_version": "report-surface-registry.v1",
-  "surface_count": 1792,
+  "surface_count": 1790,
   "family_counts": {
     "caveats": 10,
-    "maintenance": 968,
+    "maintenance": 966,
     "maps": 85,
     "portal": 2,
     "reviews": 34,
     "scopes": 693
   },
   "audience_counts": {
-    "maintainer_diagnostic": 970,
+    "maintainer_diagnostic": 968,
     "public_reading_surface": 702,
     "scientific_review_surface": 120
   },
@@ -20,7 +20,7 @@
     "finland": 14,
     "nordic": 433,
     "norway": 14,
-    "report_root": 1017,
+    "report_root": 1015,
     "sweden": 49,
     "world": 172
   },
@@ -3156,30 +3156,6 @@
       "caution_level": "medium",
       "explanation": "Governed report artifact.",
       "reader_route": "scope_bundle"
-    },
-    {
-      "repository_path": "docs/report/host-lra-distribution/README.md",
-      "family": "maintenance",
-      "family_label": "Maintainer truth surfaces",
-      "audience": "maintainer_diagnostic",
-      "audience_label": "Maintainer diagnostic",
-      "format": "md",
-      "geography": "report_root",
-      "caution_level": "high",
-      "explanation": "Reader-facing entry page for one scope bundle.",
-      "reader_route": "start_here"
-    },
-    {
-      "repository_path": "docs/report/lra-distribution/README.md",
-      "family": "maintenance",
-      "family_label": "Maintainer truth surfaces",
-      "audience": "maintainer_diagnostic",
-      "audience_label": "Maintainer diagnostic",
-      "format": "md",
-      "geography": "report_root",
-      "caution_level": "high",
-      "explanation": "Reader-facing entry page for one scope bundle.",
-      "reader_route": "start_here"
     },
     {
       "repository_path": "docs/report/method-certification/analytical-love-ring-sensitivity/README.md",
