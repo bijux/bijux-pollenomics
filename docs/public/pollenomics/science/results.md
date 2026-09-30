@@ -28,6 +28,15 @@ definition or standard-error aggregation. The source revision and archive
 transformation remain open; the differences are not ecological accuracy
 estimates.
 
+Across all 10,500 archived grid/window mean rows, `ISTS` equals the sum of
+`Corylus.avellana`, `Fraxinus` and `Quercus.deciduous` within numerical
+tolerance. The paper assigns deciduous Quercus type to TBS, while this
+archived output places its mean in `ISTS`. All checked aggregate standard
+errors satisfy necessary component-error bounds, but the archive does not
+expose the covariance needed to reproduce its aggregation. We keep the
+paper/archive classification difference and the unresolved `ISTS` meaning
+visible; numerical agreement does not authorize a taxon relabeling.
+
 ## Direct pollen and LRA forward pollen
 
 The [English constrained LOVE study](../../../report/pollen-reconstruction/author-lra-constrained/README.md)
@@ -111,6 +120,11 @@ uniform-start SLSQP search, 300 iterations, 16,000 objective evaluations and
 check still refused those cases. The original author-R optimizer differs.
 These settings are a reproducible development profile, not universal ideal
 parameters.
+The [two-case synthetic PPE and transport sweep](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/synthetic-model-selection/README.md)
+completed 12 development trials and ranked one candidate first within that
+set. Its independent pollen generator and installed REVEALS use different
+transport laws, so the winning candidate may compensate for model mismatch.
+We do not recommend its PPE or transport settings for a real core.
 The repository's [model-use guide](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/model-use.md)
 sets out the target-specific choices, source gates, numerical settings,
 uncertainty scope and refusal conditions in one place.
