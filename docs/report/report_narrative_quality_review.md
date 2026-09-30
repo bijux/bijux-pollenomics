@@ -127,7 +127,7 @@ link farms or coded operator notes.
 | `docs/report/pollen-reconstruction/author-example-site-mean-holdout/README.md` | `thin_structure` | 4 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/pollen-reconstruction/author-example-site-mean-holdout/REPORT.md` | `thin_structure` | 3 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/pollen-reconstruction/author-lra-constrained/README.md` | `thin_structure` | 2 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
-| `docs/report/pollen-reconstruction/author-lra-constrained/radius-sensitivity/README.md` | `reader_ready` | 8 | 0 | 0 | 16 | 2 | Page explains its purpose before or alongside artifact links. |
+| `docs/report/pollen-reconstruction/author-lra-constrained/radius-sensitivity/README.md` | `reader_ready` | 9 | 0 | 0 | 16 | 2 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/pollen-reconstruction/author-lra-development/README.md` | `thin_structure` | 1 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/pollen-reconstruction/author-lra-optimized-feasibility/README.md` | `thin_structure` | 8 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/pollen-reconstruction/paper-correspondence.md` | `thin_structure` | 1 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |

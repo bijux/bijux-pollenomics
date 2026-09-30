@@ -4,14 +4,14 @@ This registry classifies the current `docs/report/` tree by family, audience,
 scope, and explanation role so the publication system can be navigated as one
 coherent report surface instead of a loose artifact dump.
 
-- Surface count: `1797`
+- Surface count: `1796`
 
 ## Family Counts
 
 | Family | Count |
 | --- | ---: |
 | Scientific caveats | 10 |
-| Maintainer truth surfaces | 973 |
+| Maintainer truth surfaces | 972 |
 | Map surfaces | 85 |
 | Portal guidance | 2 |
 | Evidence reviews | 34 |
@@ -21,7 +21,7 @@ coherent report surface instead of a loose artifact dump.
 
 | Audience | Count |
 | --- | ---: |
-| Maintainer diagnostic | 975 |
+| Maintainer diagnostic | 974 |
 | Public reading surface | 702 |
 | Scientific review surface | 120 |
 
@@ -858,7 +858,6 @@ coherent report surface instead of a loose artifact dump.
 | `docs/report/pollen-reconstruction/author-lra-constrained/scores.csv` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `csv` | Maintainer-facing truth or governance surface. |
 | `docs/report/pollen-reconstruction/author-lra-development/README.md` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `md` | Reader-facing entry page for one scope bundle. |
 | `docs/report/pollen-reconstruction/author-lra-optimized-feasibility/README.md` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `md` | Reader-facing entry page for one scope bundle. |
-| `docs/report/pollen-reconstruction/author-lra-optimized-feasibility/custody.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
 | `docs/report/pollen-reconstruction/author-lra-optimized-feasibility/finite-candidate.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
 | `docs/report/pollen-reconstruction/author-lra-optimized-feasibility/finite_candidate.py` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `py` | Maintainer-facing truth or governance surface. |
 | `docs/report/pollen-reconstruction/author-lra-optimized-feasibility/prepare.py` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `py` | Maintainer-facing truth or governance surface. |

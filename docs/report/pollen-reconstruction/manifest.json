@@ -81,7 +81,7 @@
     },
     {
       "path": "docs/report/index.md",
-      "sha256": "e60c17f927af0f4326fd376cf7012eb9af4c29941c32be92090777fb3f7fbc61",
+      "sha256": "91ab6134081279d53ce98acfc6fe711ff3915def2df00543db40131365896867",
       "bytes": 2668
     },
     {
@@ -551,13 +551,8 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/author-lra-optimized-feasibility/README.md",
-      "sha256": "18a2cb5b0b88725920950c49a3fbadb5dd9cb587ef6c4e7efb8f8c04e76e4308",
-      "bytes": 5087
-    },
-    {
-      "path": "docs/report/pollen-reconstruction/author-lra-optimized-feasibility/custody.json",
-      "sha256": "08ae43aac0cc18675aa6773da0a84abc41b373d34d8f387bf6130d7ae3f97e5e",
-      "bytes": 2442
+      "sha256": "1569859a0abbfbcc991c1ead728b4e9030a1aee4f92e00d41537c150623bae72",
+      "bytes": 5091
     },
     {
       "path": "docs/report/pollen-reconstruction/author-lra-optimized-feasibility/finite-candidate.json",
