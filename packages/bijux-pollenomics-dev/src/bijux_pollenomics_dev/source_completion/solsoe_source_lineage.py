@@ -15,6 +15,7 @@ from bijux_pollenomics.analysis.lra_validation.spatial.configuration import dist
 from bijux_pollenomics.collection.intake.workbooks import read_xlsx_sheet_rows
 from bijux_pollenomics.collection.sources.landclim.study_inventory import (
     read_landclim_study_inventory,
+    require_landclim_site_radius_metres,
 )
 
 from .nordic_direct_pollen import (
@@ -63,6 +64,7 @@ def publish(repository: Path, output: Path) -> dict[str, Any]:
     repository = repository.resolve()
     i_path = repository / LANDCLIM_I
     inventory = read_landclim_study_inventory(repository / LANDCLIM_I.parent)
+    require_landclim_site_radius_metres(repository / LANDCLIM_I.parent)
     ii_records = [
         record
         for record in inventory.records
@@ -285,8 +287,8 @@ def publish(repository: Path, output: Path) -> dict[str, Any]:
         },
         "landclim_ii": {
             "source_locator": ii_record.source_locator,
-            "reported_site_radius_unit_unstated": radius_number,
-            "conditional_circular_area_if_radius_metres_ha": round(
+            "reported_site_radius_m": radius_number,
+            "circle_area_from_site_radius_ha": round(
                 math.pi * radius_number**2 / 10000, 6
             ),
             "reported_pollen_samples": int(_required(ii, "nPollenSamples")),
@@ -346,7 +348,7 @@ def publish(repository: Path, output: Path) -> dict[str, Any]:
             },
         },
         "lra_admitted_samples": 0,
-        "interpretation": "Published Solsø site metadata and Neotoma cores share a close site lineage. Applying the published 10–11659 BP age bounds to all 92 Neotoma calibrated sample ages retains 90, still 11 more than the published 79; this conditional screen cannot explain the denominator and does not identify the author chronology or input subset. The reported LandClim I area and conditional LandClim II radius arithmetic are not sample-age basin boundaries.",
+        "interpretation": "Published Solsø site metadata and Neotoma cores share a close site lineage. Applying the published 10–11659 BP age bounds to all 92 Neotoma calibrated sample ages retains 90, still 11 more than the published 79; this conditional screen cannot explain the denominator and does not identify the author chronology or input subset. The reported LandClim I area and circle-equivalent LandClim II site-radius area are not sample-age basin boundaries.",
         "inputs": [
             {"path": str(LANDCLIM_I), "sha256": _sha(i_path)},
             {"path": str(LANDCLIM_II), "sha256": inventory.workbook_sha256},

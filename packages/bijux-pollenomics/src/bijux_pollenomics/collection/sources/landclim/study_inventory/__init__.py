@@ -6,7 +6,11 @@ from .contracts import (
     StudyMetadataRecord,
     StudyMetadataValue,
 )
-from .reading import read_landclim_study_inventory, reopen_landclim_study_inventory
+from .reading import (
+    read_landclim_study_inventory,
+    reopen_landclim_study_inventory,
+    require_landclim_site_radius_metres,
+)
 
 __all__ = [
     "LandClimStudyInventoryRefusal",
@@ -15,4 +19,5 @@ __all__ = [
     "StudyMetadataValue",
     "read_landclim_study_inventory",
     "reopen_landclim_study_inventory",
+    "require_landclim_site_radius_metres",
 ]

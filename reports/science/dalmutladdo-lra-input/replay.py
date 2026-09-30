@@ -10,10 +10,12 @@ import math
 from pathlib import Path
 import re
 import subprocess
+from typing import Any, cast
 
 from bijux_pollenomics.collection.intake.workbooks import read_xlsx_sheet_rows
 from bijux_pollenomics.collection.sources.landclim.study_inventory import (
     read_landclim_study_inventory,
+    require_landclim_site_radius_metres,
 )
 from pyproj import Geod
 
@@ -56,7 +58,7 @@ def verified(path: Path, expected: str) -> Path:
     return path
 
 
-def unique(rows: list[dict], **fields: str) -> dict:
+def unique(rows: list[dict[str, Any]], **fields: str) -> dict[str, Any]:
     selected = [
         row
         for row in rows
@@ -67,7 +69,9 @@ def unique(rows: list[dict], **fields: str) -> dict:
     return selected[0]
 
 
-def produce(repository: Path, paper: Path) -> tuple[list[dict], dict]:
+def produce(
+    repository: Path, paper: Path
+) -> tuple[list[dict[str, Any]], dict[str, Any]]:
     paper = verified(paper, PAPER_SHA256)
     landclim = repository / "data/landclim/raw"
     verified(landclim / "landclim_i_land_cover_types.xlsx", LANDCLIM_I_SHA256)
@@ -119,6 +123,7 @@ def produce(repository: Path, paper: Path) -> tuple[list[dict], dict]:
         raise ValueError("Published Table 2 control rows changed")
 
     inventory = read_landclim_study_inventory(landclim)
+    require_landclim_site_radius_metres(landclim)
     ii = unique(
         [{v.column: v.raw for v in record.values} for record in inventory.records],
         SiteName="Dalmutladdo",
@@ -140,8 +145,8 @@ def produce(repository: Path, paper: Path) -> tuple[list[dict], dict]:
     i_row = [r for r in i_rows if len(r) > 6 and r[:2] == ["NOR", "Dalmutladdo"]]
     if len(i_row) != 1 or i_row[0][6] != "8.00*":
         raise ValueError("LandClim I Dalmutladdo area changed")
-    with cohort_path.open(newline="", encoding="utf-8") as source:
-        cohort = unique(list(csv.DictReader(source)), site_id=SITE_ID, country="NO")
+    with cohort_path.open(newline="", encoding="utf-8") as stream:
+        cohort = unique(list(csv.DictReader(stream)), site_id=SITE_ID, country="NO")
     if cohort["candidate_samples"] != "72" or cohort["dataset_ids"] != DATASET_ID:
         raise ValueError("Nordic selected source cohort changed")
 
@@ -233,9 +238,11 @@ def produce(repository: Path, paper: Path) -> tuple[list[dict], dict]:
                     source["published_older_bp"],
                 )
                 == (retained["agelimityounger"], retained["agelimitolder"]),
-                "published_bounds_contain_centre": source["published_younger_bp"]
-                <= source["published_calibrated_bp"]
-                <= source["published_older_bp"],
+                "published_bounds_contain_centre": cast(
+                    int, source["published_younger_bp"]
+                )
+                <= cast(int, source["published_calibrated_bp"])
+                <= cast(int, source["published_older_bp"]),
             }
         )
     compared.sort(key=lambda row: row["depth_cm"])
@@ -259,8 +266,8 @@ def produce(repository: Path, paper: Path) -> tuple[list[dict], dict]:
         "neotoma_author_calibrated_age_claims": 72,
         "neotoma_epd_uncalibrated_context_claims": 72,
         "landclim_ii_neotoma_point_separation_m": separation_m,
-        "landclim_ii_radius_unit_unstated": radius_m,
-        "conditional_area_if_radius_metres_ha": math.pi * radius_m**2 / 10000,
+        "landclim_ii_site_radius_m": radius_m,
+        "circle_area_from_site_radius_ha": math.pi * radius_m**2 / 10000,
         "landclim_i_reported_area_ha": 8.0,
         "paper_reported_area_ha": 7.2,
         "published_controls": len(compared),

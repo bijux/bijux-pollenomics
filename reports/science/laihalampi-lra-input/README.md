@@ -4,16 +4,17 @@
 
 We matched a named Finnish lake, its `LAIH` sediment core and **150 source
 samples** across LandClim II and Neotoma/EPD. LandClim I's reported **25.50 ha**
-and the area of a 285 m circle (**25.5176 ha**) nearly agree, provided that
-LandClim II's unstated `siteradius` unit is metres. This is a strong physical
-site and sample-series lead. We admit **zero Laihalampi samples to LRA** because
+and the area of a 285 m circle (**25.5176 ha**) nearly agree. LandClim II's
+`readme` sheet defines `siteradius` as the site radius in metres. This is a
+strong physical site and sample-series lead. We admit **zero Laihalampi
+samples to LRA** because
 the exact author-selected ages, historical basin geometry and analytical
 count/taxon/PPE/rights packet are not yet qualified for the same windows.
 
 ## What we established
 
 LandClim II records `LAIH`, a lake, 150 pollen samples in 24 time windows,
-`Authors chronology`, `siteradius = 285` with no unit, and an `R` access
+`Authors chronology`, `siteradius = 285 m`, and an `R` access
 marker. The LandClim II and Neotoma points differ by about **0.37 m** under
 WGS84 geodesic distance. Neotoma site 28072 binds one `LAIH` collection unit
 (37925) and EPD dataset 52082 to 150 distinct depths at 1–150 cm. The
