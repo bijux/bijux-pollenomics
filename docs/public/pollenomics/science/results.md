@@ -18,6 +18,15 @@ and 7.16e-14 for standard errors in fraction units. The [raw-to-prepared
 replay](../../../report/source-relations/landclim/author-example-taxon-support/README.md)
 also reproduces the 17 released example files byte for byte.
 
+We separately compared RcppDE and Python LOVE optimization on
+[three declared shared objectives](../../../report/method-certification/optimizer-solution-quality/README.md).
+Both attained objective gaps below `1e-4` from independent optima, and each
+selected candidate evaluated in the other implementation within `1e-10`.
+The [result rows](../../../report/method-certification/optimizer-solution-quality/summary.csv)
+include a case with equally good but different vegetation vectors. This
+checks bounded objective quality and arithmetic; it does not show identical
+random searches, global convergence on other inputs or ecological accuracy.
+
 The [paper/archive comparison](../../../report/pollen-reconstruction/paper-correspondence.md)
 finds a genuine difference on the one exact shared 100–350 BP window:
 archived means differ from the author replay by up to 9.20 percentage points
