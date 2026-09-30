@@ -342,6 +342,7 @@ def main() -> None:
     if lock.get("schema_version") != "research-report-source-lock.v1":
         raise ValueError("Unexpected research report source lock")
     for family in (
+        "method-certification/love-paper-correspondence",
         "numerical-performance",
         "synthetic-validation",
         "validation/empd2-nfi-pairing",

@@ -61,9 +61,10 @@
     "docs/report/countries/denmark/solsoe-source-lineage/pangaea-pollen-profile/report.json": "fb444e5a079f6e18bfa4d4a225fd5f9dd2d3dab471f6949ab39d73cb6dd24204",
     "docs/report/countries/denmark/solsoe-source-lineage/report.json": "b50e6719aeb80ad8c27655ed66e0926a4939ca740b2cb924b8db6a6db126747e",
     "docs/report/countries/sweden/bjaresjo-context-screen/README.md": "e76bf94819246d0e137756aa183177a9466eee9b2e53669ed8e9e7500c6dee36",
-    "docs/report/method-certification/love-paper-correspondence/README.md": "a6d836b045ba3f1eb63fc74c182e77fdf5f54cb3b44ede427ed32093468de66f",
+    "docs/report/method-certification/love-paper-correspondence/README.md": "1d5d5b425fc81c9d6964e6ecb838976191299843b22b96be923d4350536bbb71",
     "docs/report/method-certification/love-paper-correspondence/paper-parameter-tables.json": "9c0ce8de012ee978d158a402856fd4fcf3fbda3fcaf71d6257964b893b9a392e",
     "docs/report/method-certification/love-paper-correspondence/source-parameter-correspondence.json": "2e80c14354d0e571a7fd0d30433a3b205b85ea6902893a4ca242c47af2d33c75",
+    "docs/report/method-certification/love-paper-correspondence/verify.py": "434dd27ce053bd80c22881151b36c685060364e76d8430e9b4709b93514595fc",
     "docs/report/method-certification/optimizer-solution-quality/README.md": "b2335c0dee0cf57044b7c2e6be45dbd8ef6a70457f9ac229f961608b0fb90feb",
     "docs/report/method-certification/optimizer-solution-quality/report.json": "256a43b95c0e3accd45a0076fc404a297009a9714a80e5b69c5153cdc342c8ac",
     "docs/report/method-certification/optimizer-solution-quality/summary.csv": "79edce68dbe2624d22590e4ac1c0ebfd2401d76b7ec9006956d47ceb79ec35bd",
@@ -271,6 +272,6 @@
     "reports/science/vegetation-reference/southern-sweden-figure/compare.py": "5ac673246f7f7685dc485e2d4b6624b14c1ae58361608f0f3606ea83a36e21b1",
     "reports/science/vegetation-reference/southern-sweden-figure/printed-labels.csv": "e7e6f04e4711690421ca4c84af9e1237cbdb3b95554d63a6d81e2a61ff2a3f54",
     "reports/science/vegetation-reference/southern-sweden-figure/report.json": "7205071dc7bd4b7bdf99c77788583bfbb1ab8699546c9f5acd3e6566da4e7e57",
-    "reports/verify.py": "8da071afdf33343c70dc5609982104cdd0cc34da4af3e680b06f1365b6502d00"
+    "reports/verify.py": "d7fec6ebaf2edeb424e62aa7971e4d5ff8fadc08dd606f542c94f8d4d9e2399d"
   }
 }
