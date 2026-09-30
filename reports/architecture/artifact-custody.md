@@ -15,10 +15,14 @@ retiring this selected workspace.
 
 The current joint-report producer and its tests now own the implemented reader,
 retained downloads, ordered covariance, incomplete-state accounting and inert
-CSV labels. An actual product with multiple bins remains the specific acceptance
-input needed to verify the all-bin report claim. We will generate or acquire one
-through the governed product writer and check the emitted report; the historical
-plan alone cannot establish that result.
+CSV labels. We also ran the native joint-law writer on a two-bin synthetic
+declaration and rendered its actual retained product. The report kept all eight
+draw/bin rows: the early bin had two successes and two refusals, retained
+successful mass `1/2` and null moments; the target bin had four successes,
+successful mass `1/1`, four means and all 16 ordered covariance cells. This
+[integration test](../../packages/bijux-pollenomics/tests/unit/reporting/lra_products/joint/test_workflow.py)
+passed on the current code. It verifies the report's all-bin behavior for this
+synthetic case; it does not supply an admitted empirical LRA result.
 
 ## Retained synthetic protocol metrics
 

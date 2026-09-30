@@ -130,7 +130,7 @@
     "packages/bijux-pollenomics-dev/tests/essd_reproduction/test_one_site.py": "c05b41d783b637a8541a1451dc72e7271f4b0bec81abdb65590ed4fdf845e669",
     "packages/bijux-pollenomics/tests/unit/reporting/adna/sample_chronology_context/test_repository_data.py": "5d522cc028ceed420b8e4e7ad9d75e740c898258610c95e42eb708f0d4e595b6",
     "reports/README.md": "539188cb5de0a2af8360024f909bff945b0888fe9335e609400c050d96f4790f",
-    "reports/architecture/artifact-custody.md": "5b99614b9364cb563f3742e803f7ce8a7e180e6f3ea2931611138bfd6ccd02d0",
+    "reports/architecture/artifact-custody.md": "529ad63ded3e4803e46cd816b2af172c5a6792a5a3508e2a4fb92b193f7a01bc",
     "reports/architecture/artifact-custody/empd2-nfi-plans.json": "cbd61cedae2b016eefcad3933b6be12fe3adbfa6a6421f218a1e6b0cd3f097f2",
     "reports/architecture/artifact-custody/hyde-native-axis.json": "18571bb96d46d531df374b9f5cfcc13f96b6410dda7c632660581617addf4a24",
     "reports/architecture/artifact-custody/hyde-nordic-window-run.json": "88fd11a1e7cd277bce2ee1d012f49f734b65eb92533ec6616bcf4498b6240861",
