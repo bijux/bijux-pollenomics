@@ -26,6 +26,50 @@ def sha256(path: Path) -> str:
     return digest.hexdigest()
 
 
+def verify_swedish_landclim_support(
+    swedish: Path, input_manifest: dict[str, Any]
+) -> None:
+    """Bind the reported six-name NISP support to source names and site counts."""
+    parameters = (
+        REPOSITORY_ROOT / "data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv"
+    )
+    with parameters.open(newline="", encoding="utf-8-sig") as stream:
+        source_names = {
+            row["Plant taxa/Pollen-morphological types"]
+            for row in csv.DictReader(stream)
+        }
+    common = source_names & set(input_manifest["taxon_denominator"])
+    if common != {
+        "Betula",
+        "Ulmus",
+        "Salix",
+        "Cyperaceae",
+        "Filipendula",
+        "Plantago lanceolata",
+    }:
+        raise ValueError("Swedish exact-name LandClim support changed")
+    expected = {
+        "19913": ("Abborrtjärnen", 50_208, 129_750, 38.7),
+        "53995": ("Bussjösjön", 12_456, 68_668, 18.1),
+        "54001": ("Bökesjön", 11_102, 42_548, 26.1),
+    }
+    for dataset_id, (site, count, denominator, percentage) in expected.items():
+        profile = json.loads(
+            (swedish / "prepared" / f"dataset-{dataset_id}.json").read_text()
+        )
+        bins = profile["bins"].values()
+        source_count = sum(sum(row["counts"][name] for name in common) for row in bins)
+        native_count = sum(row["all_nisp_count"] for row in profile["bins"].values())
+        if (
+            profile["site"] != site
+            or source_count != count
+            or native_count != denominator
+            or profile["all_nisp_count"] != native_count
+            or round(100 * source_count / native_count, 1) != percentage
+        ):
+            raise ValueError(f"Swedish LandClim support differs: {dataset_id}")
+
+
 def verify_author_radius_sensitivity() -> None:
     """Keep frozen forward projections and paired scores bound to the old study."""
     root = REPORT_DIR / "author-lra-constrained"
@@ -835,6 +879,7 @@ def main() -> None:
     )
     if input_manifest["runner_sha256"] != sha256(producer):
         raise ValueError("Swedish direct-pollen producer digest mismatch")
+    verify_swedish_landclim_support(swedish, input_manifest)
 
     native = REPORT_DIR / "swedish-native-sequences"
     native_manifest = json.loads((native / "manifest.json").read_text())
