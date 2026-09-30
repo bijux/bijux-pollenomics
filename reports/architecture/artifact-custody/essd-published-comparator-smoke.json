@@ -1,0 +1,54 @@
+{
+  "archive": "/Users/bijan/bijux/bijux-pollenomics-data/reference-sources/essd-published-comparator-smoke/retained-run.tar",
+  "archive_sha256": "ae36e58788796799a3be1499fb05c2d60981a2377d08a72a3812f9067a928828",
+  "files": {
+    "artifacts/v2/essd/published-comparison-independent/DESIGN.md": {
+      "bytes": 5263,
+      "sha256": "6f4fa6874dd206c28e587d6c2e0c15d0e165cdbfcd54025ec74737d2191aa5a6"
+    },
+    "artifacts/v2/essd/published-comparison-independent/REVIEW.md": {
+      "bytes": 1786,
+      "sha256": "dfe7f9f40b9dd8a5575074a1715ba0cf4c349a509320368c6191d4de2d10a9ad"
+    },
+    "artifacts/v2/essd/published-comparison-independent/challenge.py": {
+      "bytes": 29245,
+      "sha256": "f0400cee0719a669a0706114025344ce49936176168661c13eeaf6104e5e9228"
+    },
+    "artifacts/v2/essd/published-comparison-independent/check001/result.json": {
+      "bytes": 6927,
+      "sha256": "ef1f43f38a9660dd7db5413371614151b36fc851fa3b36e4948cb7cf857079e6"
+    },
+    "artifacts/v2/essd/published-comparison-independent/check002/result.json": {
+      "bytes": 6949,
+      "sha256": "c35edaa0f6393a36367dce9d570dff96c65e6fa86878748fe8fe1d4145435d5c"
+    },
+    "artifacts/v2/jobs/essd-published-comparison-actual002/job.json": {
+      "bytes": 5536,
+      "sha256": "f1220c0846cb74904eb8c8a7c600e40a0a1f7f71d5d7a74c59defeb9f301cbba"
+    },
+    "artifacts/v2/jobs/essd-published-comparison-actual002/result.json": {
+      "bytes": 6172,
+      "sha256": "f5ec15ca6d36f1bf5b02efe6b8a915fc1e203bf10194856a70b692b469e070a3"
+    },
+    "artifacts/v2/jobs/essd-published-comparison-actual002/stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "artifacts/v2/jobs/essd-published-comparison-actual002/stdout.log": {
+      "bytes": 620,
+      "sha256": "c5242a19d4d2107136b1d13315710e3dcf836bf26b5654613550309a8455b05f"
+    },
+    "artifacts/v2/jobs/essd-published-comparison-actual002/worker.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    }
+  },
+  "scope": "full published-inventory self-identity comparator transport smoke; no model parity",
+  "source_bytes": 62498,
+  "source_file_count": 10,
+  "source_prefixes": [
+    "artifacts/v2/essd/published-comparison-independent",
+    "artifacts/v2/jobs/essd-published-comparison-actual002"
+  ],
+  "verification": "all archive members reopened and matched original bytes and SHA-256"
+}

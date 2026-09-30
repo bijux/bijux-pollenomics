@@ -39,6 +39,17 @@ archive members matched their originals before we retired only that prefix.
 
 ## ESSD reconciliation review
 
+We retained the full-inventory published-comparator challenge and its actual
+job receipt together. The ten-file private archive has SHA-256
+`ae36e58788796799a3be1499fb05c2d60981a2377d08a72a3812f9067a928828`;
+the [receipt](artifact-custody/essd-published-comparator-smoke.json) binds
+62,498 source bytes. The first challenge had a verifier diagnostic failure;
+the second passed five scoped groups. The actual job compared 493,500
+published values with themselves and found zero residuals. We use that as a
+join/serialization transport check only: it supplies no independent model
+candidate, R parity or ecological score. All ten archived members matched
+their original bytes before we retired the two selected inactive prefixes.
+
 We retained the two-file historical review from
 `artifacts/v2/essd/reconciliation-independent/` as a private archive,
 SHA-256 `8c69faa176e0c29d5fc5bc74fff4a32c8942ce87c143b6c083066093f801130e`.
