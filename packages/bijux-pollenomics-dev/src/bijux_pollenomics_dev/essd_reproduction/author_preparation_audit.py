@@ -11,8 +11,11 @@ import json
 from pathlib import Path
 from typing import Any
 
-CUSTODY = Path(
-    "docs/report/maintenance/artifact-retention/landclim-author-preparation-audit-custody.json"
+INDEPENDENT_COUNTS = Path(
+    "docs/report/source-relations/landclim/author-preparation-audit/independent-counts.json"
+)
+INDEPENDENT_SOURCE_SHA256 = (
+    "4046de43b9674d67ea57537d3556d62359e941def478af60314c48bc08e3e049"
 )
 
 
@@ -138,36 +141,19 @@ def _site_categories(
     return categories, unmapped
 
 
-def build(
-    repository: Path, author_source_root: Path, audit_root: Path, output: Path
-) -> dict[str, Any]:
-    """Recount source rows and check the older independent audit's exact custody."""
+def build(repository: Path, author_source_root: Path, output: Path) -> dict[str, Any]:
+    """Recount source rows against the independent 17-site count reference."""
     repository = repository.resolve()
     author_source_root = author_source_root.resolve()
-    audit_root = audit_root.resolve()
-    custody = json.loads((repository / CUSTODY).read_text())
-    if custody["schema_version"] != "landclim-author-preparation-audit-custody.v1":
-        raise ValueError("Author preparation audit custody schema changed")
-    prefix = Path(custody["private_source_root"])
-    if len(custody["files"]) != 28:
-        raise ValueError("Author preparation audit file set changed")
-    for item in custody["files"]:
-        relative = Path(item["private_path"]).relative_to(prefix)
-        path = audit_root / relative
-        if path.stat().st_size != item["bytes"] or _sha(path) != item["sha256"]:
-            raise ValueError(f"Author preparation audit custody changed: {relative}")
-    terminal = json.loads((audit_root / "job006/result.json").read_text())
-    historical = json.loads((audit_root / "job006/report.json").read_text())
+    independent = json.loads((repository / INDEPENDENT_COUNTS).read_text())
     if (
-        terminal["exit_code"] != 0
-        or terminal["read_set_unchanged"] is not True
-        or terminal["checked_sites"] != 17
-        or custody["historical_terminal_report_sha256"]
-        not in terminal["output_hashes"].values()
-        or historical["checked_sites"] != 17
-        or historical["full_partition_sites"] != 17
+        independent["schema_version"] != "landclim-author-example-independent-counts.v1"
+        or independent["source_report_sha256"] != INDEPENDENT_SOURCE_SHA256
+        or independent["checked_sites"] != 17
+        or independent["full_partition_sites"] != 17
+        or len(independent["sites"]) != 17
     ):
-        raise ValueError("Terminal author preparation audit did not pass")
+        raise ValueError("Independent author count reference changed")
 
     manifest = json.loads((author_source_root / "snapshot-manifest.json").read_text())
     if manifest["file_count"] != 193:
@@ -192,9 +178,9 @@ def build(
         "bins.csv",
     ):
         source_path(f"author/{name}")
-    historical_by_site = {row["site"]: row for row in historical["sites"]}
-    if set(historical_by_site) != set(names):
-        raise ValueError("Historical audit site set changed")
+    independent_by_site = {row["site"]: row for row in independent["sites"]}
+    if set(independent_by_site) != set(names):
+        raise ValueError("Independent count site set changed")
 
     sites = []
     category_totals: dict[str, int] = {}
@@ -205,14 +191,14 @@ def build(
         raw, nonblank = _raw_total(raw_path)
         prepared = _prepared_total(prepared_path)
         categories, unmapped_labels = _site_categories(author, name)
-        historical_site = historical_by_site[name]
+        independent_site = independent_by_site[name]
         if (
-            Decimal(historical_site["raw_total"]) != raw
-            or Decimal(historical_site["prepared_total"]) != prepared
-            or Decimal(historical_site["audited_excluded_total"]) != raw - prepared
-            or historical_site["prepared_sha256"] != _sha(prepared_path)
-            or historical_site["grid"] != row["LCGRID_ID"]
-            or historical_site["raw_nonblank_rows"] != nonblank
+            Decimal(independent_site["raw_total"]) != raw
+            or Decimal(independent_site["prepared_total"]) != prepared
+            or Decimal(independent_site["audited_excluded_total"]) != raw - prepared
+            or independent_site["prepared_sha256"] != _sha(prepared_path)
+            or independent_site["grid"] != row["LCGRID_ID"]
+            or independent_site["raw_nonblank_rows"] != nonblank
             or categories["raw"] != raw
             or categories["retained"] != prepared
             or sum(
@@ -222,7 +208,7 @@ def build(
             )
             != raw - prepared
         ):
-            raise ValueError(f"Author preparation audit disagrees with source: {name}")
+            raise ValueError(f"Independent author counts disagree with source: {name}")
         for key, value in categories.items():
             category_totals[key] = category_totals.get(key, 0) + value
         sites.append(
@@ -237,11 +223,11 @@ def build(
                 "source_prepared_sha256": _sha(prepared_path),
                 "source_categories": categories,
                 "unmapped_source_labels": unmapped_labels,
-                "historical_partition_status": historical_site["partition_status"],
+                "independent_partition_status": independent_site["partition_status"],
             }
         )
     whh05 = next(site["source_categories"] for site in sites if site["site"] == "WHH05")
-    if {key: str(value) for key, value in whh05.items()} != historical[
+    if {key: str(value) for key, value in whh05.items()} != independent[
         "whh05_categories"
     ]:
         raise ValueError("WHH05 source count partition changed")
@@ -260,32 +246,31 @@ def build(
         or totals["raw_count"] != 501713
         or totals["prepared_count"] != 299660
         or totals["raw_minus_prepared"] != 202053
-        or Decimal(historical["raw_total"]) != totals["raw_count"]
-        or Decimal(historical["prepared_total"]) != totals["prepared_count"]
-        or Decimal(historical["audited_excluded_total_17_sites"])
+        or Decimal(independent["raw_total"]) != totals["raw_count"]
+        or Decimal(independent["prepared_total"]) != totals["prepared_count"]
+        or Decimal(independent["audited_excluded_total_17_sites"])
         != totals["raw_minus_prepared"]
         or category_totals["raw"] != totals["raw_count"]
         or category_totals["retained"] != totals["prepared_count"]
     ):
         raise ValueError("Author source count mass changed")
     report = {
-        "schema_version": "landclim-author-preparation-audit.v2",
+        "schema_version": "landclim-author-preparation-audit.v3",
         "scope": "17 authenticated author examples, not 1128 historical study inputs",
         "totals": totals,
         "sites": sites,
         "category_totals": category_totals,
         "whh05_source_categories": whh05,
-        "historical_exclusion_evidence": (
+        "independent_count_correspondence": (
             "Fresh source replay classifies all 17 site count partitions by exact "
-            "author lookup, PPE membership and time-window support; historical "
-            "producer receipts independently support raw/prepared totals"
+            "author lookup, PPE membership and time-window support; the "
+            "independent count reference agrees on raw/prepared totals"
         ),
         "input_sha256": {
             "author_snapshot_manifest": _sha(
                 author_source_root / "snapshot-manifest.json"
             ),
-            "historical_audit_custody": _sha(repository / CUSTODY),
-            "historical_terminal_report": _sha(audit_root / "job006/report.json"),
+            "independent_counts": _sha(repository / INDEPENDENT_COUNTS),
         },
     }
     if output.exists():
@@ -302,10 +287,9 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repository", type=Path, required=True)
     parser.add_argument("--author-source-root", type=Path, required=True)
-    parser.add_argument("--audit-root", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
-    build(args.repository, args.author_source_root, args.audit_root, args.output)
+    build(args.repository, args.author_source_root, args.output)
 
 
 if __name__ == "__main__":

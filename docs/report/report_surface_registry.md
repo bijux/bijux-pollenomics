@@ -4,14 +4,14 @@ This registry classifies the current `docs/report/` tree by family, audience,
 scope, and explanation role so the publication system can be navigated as one
 coherent report surface instead of a loose artifact dump.
 
-- Surface count: `1844`
+- Surface count: `1843`
 
 ## Family Counts
 
 | Family | Count |
 | --- | ---: |
 | Scientific caveats | 10 |
-| Maintainer truth surfaces | 1020 |
+| Maintainer truth surfaces | 1019 |
 | Map surfaces | 85 |
 | Portal guidance | 2 |
 | Evidence reviews | 34 |
@@ -21,7 +21,7 @@ coherent report surface instead of a loose artifact dump.
 
 | Audience | Count |
 | --- | ---: |
-| Maintainer diagnostic | 1022 |
+| Maintainer diagnostic | 1021 |
 | Public reading surface | 702 |
 | Scientific review surface | 120 |
 
@@ -303,9 +303,7 @@ coherent report surface instead of a loose artifact dump.
 | `docs/report/maintenance/artifact-retention/historical-swedish-direct-pollen-run/custody.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
 | `docs/report/maintenance/artifact-retention/historical-swedish-direct-pollen-run/input-manifest.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
 | `docs/report/maintenance/artifact-retention/historical-swedish-direct-pollen-run/run_study.py` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `py` | Maintainer-facing truth or governance surface. |
-| `docs/report/maintenance/artifact-retention/landclim-amsoldingersee-custody.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
 | `docs/report/maintenance/artifact-retention/landclim-author-lra-development-custody.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
-| `docs/report/maintenance/artifact-retention/landclim-author-preparation-audit-custody.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
 | `docs/report/maintenance/artifact-retention/landclim-author-preparation-process-custody.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
 | `docs/report/maintenance/artifact-retention/landclim-correspondence-retirement.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
 | `docs/report/maintenance/artifact-retention/landclim-historical-example-review-custody.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
@@ -1574,6 +1572,7 @@ coherent report surface instead of a loose artifact dump.
 | `docs/report/source-relations/landclim/author-example-taxon-support/whh05-header-parity.csv` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `csv` | Maintainer-facing truth or governance surface. |
 | `docs/report/source-relations/landclim/author-example-taxon-support/whh05_header_parity.R` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `R` | Maintainer-facing truth or governance surface. |
 | `docs/report/source-relations/landclim/author-preparation-audit/README.md` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `md` | Reader-facing entry page for one scope bundle. |
+| `docs/report/source-relations/landclim/author-preparation-audit/independent-counts.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
 | `docs/report/source-relations/landclim/author-preparation-audit/report.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
 | `docs/report/source-relations/landclim/neotoma-chronology-witness/README.md` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `md` | Reader-facing entry page for one scope bundle. |
 | `docs/report/source-relations/landclim/neotoma-chronology-witness/replay.py` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `py` | Maintainer-facing truth or governance surface. |

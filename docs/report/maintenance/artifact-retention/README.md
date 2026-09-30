@@ -298,22 +298,18 @@ so these process files do not validate today's prose. Their 17-site count
 arithmetic is represented in the governed publication replay; the original
 artifact directory was retired only after exact private-byte and liveness checks.
 
-The [Amsoldingersee source custody](landclim-amsoldingersee-custody.json)
-preserves all 47 files from a selected Neotoma API candidate search and its
-dependent historical public-page check. The governed
+The [Amsoldingersee source inputs](../../../../data/landclim/review/amsoldingersee-source-inputs.json)
+bind the 14 files consumed by the current scientific decision. The governed
 [one-row source review](../../publication-replay/landclim-amsoldingersee-source-review/README.md)
 replays the raw response hashes and refuses a historical `E#69` input identity:
 one current core has 23 sample IDs, but no captured core has the exact source
 code or an authenticated author chronology. The original page check is stale
 against the current LandClim page and remains private process evidence only.
 
-The [17-site author-preparation audit custody](landclim-author-preparation-audit-custody.json)
-preserves all 28 files from the older independent count challenge, including
-its terminal 17-site report and its earlier failed diagnostics. The governed
-[source recount](../../source-relations/landclim/author-preparation-audit/README.md)
-checks the same 17 author raw/prepared pairs directly from private source
-bytes. The 501,713 raw, 299,660 prepared and 202,053 difference counts do not
-identify the examples as the historical publication's 1,128 inputs.
+The governed [source recount](../../source-relations/landclim/author-preparation-audit/README.md)
+checks all 17 author raw/prepared pairs against the retained independent
+count reference. The 501,713 raw, 299,660 prepared and 202,053 difference
+counts do not identify the examples as the publication's 1,128 inputs.
 
 The [preparation process custody](landclim-author-preparation-process-custody.json)
 accounts for three further selected producer directories: **207 paths,

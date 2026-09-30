@@ -5,6 +5,11 @@
   "as_of": "2026-09-30",
   "files": [
     {
+      "path": "data/landclim/review/amsoldingersee-source-inputs.json",
+      "sha256": "09811a8a6042d586770fa99b9f2e9d1a79209c4452a4dd839a3411cd644ff397",
+      "bytes": 2190
+    },
+    {
       "path": "data/synthetic/score_protocol_source.json",
       "sha256": "59abc1408a5a2153b736989a8f5e1e36016b96600b0ecb14af9a83a53aea3f5d",
       "bytes": 24851
@@ -71,28 +76,18 @@
     },
     {
       "path": "docs/report/index.md",
-      "sha256": "7864374683ca73b8b7d4d471dd8b2cccf2663d5f1a5dc92f8cd19707c87cd799",
+      "sha256": "740517ba38420de30c129ceed7aabbb039baf5fb997d52855eb4d76525e629ec",
       "bytes": 2670
     },
     {
       "path": "docs/report/maintenance/artifact-retention/README.md",
-      "sha256": "f2c0dbc417de092046a17401b3124a830d9eb94a9622554eeffbeb591620f5a2",
-      "bytes": 30525
-    },
-    {
-      "path": "docs/report/maintenance/artifact-retention/landclim-amsoldingersee-custody.json",
-      "bytes": 15084,
-      "sha256": "eab4595d161d0f8000ee02ec2dcf6eb2644d117a83015641b8fa8821e6f0280f"
+      "sha256": "a8dc14d5f30f1970183ab12c75354256fd5f3303f65f144bfacf7f04b0688d75",
+      "bytes": 30263
     },
     {
       "path": "docs/report/maintenance/artifact-retention/landclim-author-lra-development-custody.json",
       "sha256": "a2e079e3c0aeec7c912d5409951b936156e6c80ad7f0c2b1b746df2cc845d722",
       "bytes": 1255
-    },
-    {
-      "path": "docs/report/maintenance/artifact-retention/landclim-author-preparation-audit-custody.json",
-      "bytes": 8968,
-      "sha256": "3ef177f6734471330cd2b8331d1b9786847b38eb054c5cd56f6ff4354dd40976"
     },
     {
       "path": "docs/report/maintenance/artifact-retention/landclim-author-preparation-process-custody.json",
@@ -786,13 +781,13 @@
     },
     {
       "path": "docs/report/publication-replay/landclim-amsoldingersee-source-review/README.md",
-      "bytes": 2435,
-      "sha256": "2cd65c753d344e4209c4e15534721642b27755dd415767a343fa6c0866b65baa"
+      "bytes": 2438,
+      "sha256": "dfecdb14163b9662ed4b9ff74288afa7d41c03ec9c121cf724ada14c8e8eab4f"
     },
     {
       "path": "docs/report/publication-replay/landclim-amsoldingersee-source-review/report.json",
-      "bytes": 4016,
-      "sha256": "f463fe19ce7eb59d7b7de19b584a57d934f311b769473a86dba2c641f52d6898"
+      "bytes": 4006,
+      "sha256": "eb1d20e578c9bdbdb12ffbeab3eba87522cc98006de7c8919bac2bc29683d1a7"
     },
     {
       "path": "docs/report/publication-replay/landclim-author-example-correspondence/README.md",
@@ -1701,13 +1696,18 @@
     },
     {
       "path": "docs/report/source-relations/landclim/author-preparation-audit/README.md",
-      "bytes": 3167,
-      "sha256": "9db3da599ffe0b35400aeaed4cd27e97a902eac10f8a925002b378a2c4881e77"
+      "bytes": 2978,
+      "sha256": "6a7372a520e395ec1c7bd20aaf9807c656176f54cc932f7233b1d3a787d30444"
+    },
+    {
+      "path": "docs/report/source-relations/landclim/author-preparation-audit/independent-counts.json",
+      "sha256": "753458772b750d1dd392ca964f74a5bebd584f1d4191b81991dc0b1861ab98d7",
+      "bytes": 7154
     },
     {
       "path": "docs/report/source-relations/landclim/author-preparation-audit/report.json",
-      "bytes": 13994,
-      "sha256": "fa290c5a6675e7f54b79d2decf915969c97f66589d4a99200535a810736000a3"
+      "bytes": 13897,
+      "sha256": "595c8e21c4bda3f8fee259c435aa0ff2a339ed7aea39e2d50b09f36523bd725c"
     },
     {
       "path": "docs/report/source-relations/landclim/neotoma-chronology-witness/README.md",
@@ -1871,8 +1871,8 @@
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/author_preparation_audit.py",
-      "bytes": 12591,
-      "sha256": "ae26b4a44035dd3fc96433f0054ec5d95416ae66a00395e4e0ce4b13c33d9fba"
+      "bytes": 11696,
+      "sha256": "913a4187a78e98b02ee23f8ae003ef86e291f3973be63ec8956c186d56a28e48"
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/observed_pollen_baseline.py",
@@ -1936,8 +1936,8 @@
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/landclim_amsoldingersee_recovery.py",
-      "bytes": 8405,
-      "sha256": "a50e97982718c33142d5581dde3a47acb1d46fad9583b061c7318ce141f03755"
+      "bytes": 8383,
+      "sha256": "629607a1fad4ff2a9357edb731d4ef95dd69897595fd87a5b19c5a9e96c98bb0"
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/neotoma_doi_review.py",
@@ -2011,8 +2011,8 @@
     },
     {
       "path": "packages/bijux-pollenomics-dev/tests/essd_reproduction/test_author_preparation_audit.py",
-      "bytes": 2928,
-      "sha256": "5714d8e7c2b59a23554d5219f92d542f0debd3dd9165e8ea4bac69f677e75cc6"
+      "bytes": 2750,
+      "sha256": "b02581611b6cf61f9013075674bb0f575b1fd9ca1d6f1fe2652724d79bb4782d"
     },
     {
       "path": "packages/bijux-pollenomics-dev/tests/essd_reproduction/test_one_site.py",
@@ -2031,8 +2031,8 @@
     },
     {
       "path": "packages/bijux-pollenomics-dev/tests/source_completion/test_landclim_amsoldingersee_recovery.py",
-      "bytes": 1799,
-      "sha256": "dd7b6c5175ace903a247265be644e822dfddba6fdf9adca152be58da77606a70"
+      "bytes": 1797,
+      "sha256": "a12f76997d0c5c5e11ac61c7c9eb490219d2674886363b811d1d732095824853"
     },
     {
       "path": "packages/bijux-pollenomics-dev/tests/source_completion/test_nordic_direct_pollen.py",

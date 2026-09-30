@@ -10,9 +10,7 @@ import json
 from pathlib import Path
 from typing import Any
 
-CUSTODY = Path(
-    "docs/report/maintenance/artifact-retention/landclim-amsoldingersee-custody.json"
-)
+SOURCE_INPUTS = Path("data/landclim/review/amsoldingersee-source-inputs.json")
 AUTHOR_SITES_SHA256 = "72949e9e3faf417be0b7425fc111a9638b37c4a38aab8f8d82e0c3d8739da2de"
 
 
@@ -78,20 +76,20 @@ def _candidate(source_root: Path, dataset_id: int) -> dict[str, Any]:
 
 
 def build(repository: Path, source_root: Path, output: Path) -> dict[str, Any]:
-    """Recheck exact private captures before using their observed source fields."""
+    """Recheck consumed private sources before using their observed fields."""
     repository, source_root = repository.resolve(), source_root.resolve()
-    custody = json.loads((repository / CUSTODY).read_text())
-    assert custody["schema_version"] == "landclim-amsoldingersee-source-custody.v1"
-    private_prefix = Path(custody["private_source_root"])
+    source_inputs = json.loads((repository / SOURCE_INPUTS).read_text())
+    if source_inputs["schema_version"] != "landclim-amsoldingersee-source-inputs.v1":
+        raise ValueError("Amsoldingersee source-input schema changed")
     captured: dict[str, str] = {}
-    for item in custody["files"]:
-        relative = Path(item["private_path"]).relative_to(private_prefix)
+    for relative_name, item in source_inputs["files"].items():
+        relative = Path(relative_name)
         path = source_root / relative
         if path.stat().st_size != item["bytes"] or _sha(path) != item["sha256"]:
-            raise ValueError(f"Amsoldingersee source custody changed: {relative}")
+            raise ValueError(f"Amsoldingersee source input changed: {relative}")
         captured[relative.as_posix()] = item["sha256"]
-    if len(captured) != 47:
-        raise ValueError("Amsoldingersee source custody file set changed")
+    if len(captured) != 14:
+        raise ValueError("Amsoldingersee source input set changed")
 
     response_paths: set[str] = set()
     for receipt_name, parent in (
@@ -184,7 +182,7 @@ def build(repository: Path, source_root: Path, output: Path) -> dict[str, Any]:
             "author age-depth output, and authenticated taxon/PFT transformation"
         ),
         "input_sha256": {
-            "private_capture_custody": _sha(repository / CUSTODY),
+            "source_inputs": _sha(repository / SOURCE_INPUTS),
             "author_example_site_metadata": AUTHOR_SITES_SHA256,
         },
     }
