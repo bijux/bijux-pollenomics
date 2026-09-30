@@ -51,3 +51,14 @@ We removed only `artifacts/v3/science-chronology-candidate-af60ed99/` and
 `artifacts/v3/science-chronology-runtime-af60ed99/`, about 2.2 GiB and 12 KiB
 respectively. Other `artifacts/v2/` and `artifacts/v3/` prefixes still need
 their own source, consumer and liveness decisions before removal.
+
+## Map legend check receipts
+
+We also retired the inactive 16 KiB `artifacts/v3/core-legend-successor/`
+prefix. It contained only two terminal check receipts: a focused run exited
+zero with **8 passed in 0.89 seconds**, and a style run exited zero with
+“All checks passed” and one formatted file checked. No source, prediction,
+fixture or code file lived in that prefix, and no product reader or live
+process referenced it. The receipts did not retain an exact command or input
+closure, so they are historical outcomes only and cannot certify the current
+map legend or replace a selected check on current code.
