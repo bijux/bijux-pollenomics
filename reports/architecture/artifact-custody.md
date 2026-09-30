@@ -24,6 +24,19 @@ governed-output correspondence. The earlier result remains historical scoped
 inventory evidence, not an additional historical-input admission. All six
 archive members matched their originals before we retired only that prefix.
 
+## ESSD reconciliation review
+
+We retained the two-file historical review from
+`artifacts/v2/essd/reconciliation-independent/` as a private archive,
+SHA-256 `8c69faa176e0c29d5fc5bc74fff4a32c8942ce87c143b6c083066093f801130e`.
+The [custody receipt](artifact-custody/essd-reconciliation-review.json) binds
+19,376 original bytes, and the exact machine result now accompanies our
+[current-code disposition](../science/publication-correspondence/reconciliation-review/README.md).
+The review identified historical intake defects; the current producer's
+bounded archive and exact two-grid checks passed focused tests. We reopened
+both archived members against the original files before retiring this selected
+review prefix.
+
 ## LOVE paper acquisition record
 
 We recovered the original acquisition receipt for the 2024 LOVE paper from

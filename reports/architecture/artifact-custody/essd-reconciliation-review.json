@@ -1,0 +1,19 @@
+{
+  "archive": "/Users/bijan/bijux/bijux-pollenomics-data/reference-sources/essd-reconciliation-review/retained-review.tar",
+  "archive_sha256": "8c69faa176e0c29d5fc5bc74fff4a32c8942ce87c143b6c083066093f801130e",
+  "files": {
+    "artifacts/v2/essd/reconciliation-independent/REVIEW.md": {
+      "bytes": 6892,
+      "sha256": "d61b93965b6eed77db0e97abd60cf7c6f66362d7fb4085d84677dab37dc2fd42"
+    },
+    "artifacts/v2/essd/reconciliation-independent/result.json": {
+      "bytes": 12484,
+      "sha256": "967613a8c4c981d5882670e8c052f964d520fea0a286d1a63a6810f4a35d6f6b"
+    }
+  },
+  "historical_result_sha256": "967613a8c4c981d5882670e8c052f964d520fea0a286d1a63a6810f4a35d6f6b",
+  "source_bytes": 19376,
+  "source_file_count": 2,
+  "source_prefix": "artifacts/v2/essd/reconciliation-independent/",
+  "verification": "both archive members reopened and matched original bytes and SHA-256"
+}

@@ -88,6 +88,11 @@ the old candidate with nine adversarial edits. All five result hashes still
 match the current retained product. Its passing verdict supports exact
 metadata and refusal integrity only; it does not fill the missing historical
 counts, chronologies, rights or publication-specific R execution.
+We also [resolved two historical reconciliation intake defects](publication-correspondence/reconciliation-review/README.md)
+in the current producer: bounded regular-file archive admission and exact
+passing 9/8-site comparison predicates. The old review remains available as
+a distinct source challenge, while its `0 / 1,128` original-input statement
+remains a declared absence rather than a completed sample audit.
 
 We have not reconciled the paper's 12-PFT statement, PANGAEA's 11-PFT
 description and 13 archived PFT positions. We retained the two public prose
