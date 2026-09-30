@@ -7,6 +7,7 @@ from dataclasses import replace
 import hashlib
 import io
 import json
+import os
 from pathlib import Path
 from types import SimpleNamespace
 from typing import cast
@@ -31,13 +32,11 @@ from bijux_pollenomics_dev.essd_reproduction.rootsi_input_closure import (
 
 REPOSITORY = Path(__file__).resolve().parents[4]
 LANDCLIM_RAW = REPOSITORY / "data/landclim/raw"
-ROOTSI_METADATA = (
-    REPOSITORY
-    / "artifacts/v2/sources/remaining-frontier/rootsi-lineage/intake-001/metadata.xlsx"
+PRIVATE_SOURCE_ROOT = Path(
+    os.environ.get("BIJUX_LANDCLIM_SOURCE_ROOT", str(REPOSITORY))
 )
-TYPED_CELL_REVIEW = (
-    REPOSITORY / "artifacts/v2/sources/rootsi-cell-preparation/actual-002/all-79"
-)
+ROOTSI_METADATA = PRIVATE_SOURCE_ROOT / "rootsi-input-closure/metadata.xlsx"
+TYPED_CELL_REVIEW = PRIVATE_SOURCE_ROOT / "rootsi-input-closure/typed-cell-review"
 REAL_PAIR_IDENTITY_SHA256 = (
     "ca94f04342f5c54212dc3ef9acfa0cbeea6e92419878f951ec23b2a0acf5cfd6"
 )
