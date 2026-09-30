@@ -24,7 +24,7 @@ from bijux_pollenomics_dev.essd_reproduction.pft_crosswalk import (
 )
 
 REPOSITORY = Path(__file__).resolve().parents[4]
-GOVERNED = REPOSITORY / "docs/report/publication-replay/landclim-pft-crosswalk"
+GOVERNED = REPOSITORY / "reports/science/publication-correspondence/pft-crosswalk"
 
 
 def test_parameter_table_retains_twelve_source_codes_and_three_lcts() -> None:

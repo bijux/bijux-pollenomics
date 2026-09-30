@@ -128,7 +128,7 @@ then declare and run a matched training-only ablation.
 have numerical correspondence, while the complete historical LandClim paper
 inputs and some PFT classifications remain unresolved. See the
 [publication account](../science/publication-correspondence.md)
-and [PFT crosswalk](../../docs/report/publication-replay/landclim-pft-crosswalk/README.md).
+and [PFT crosswalk](../science/publication-correspondence/pft-crosswalk/README.md).
 
 **Needed:** versioned original sequence selection, historical pollen input
 revisions, authenticated output transformation, source-qualified `ISTS`

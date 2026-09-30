@@ -61,7 +61,7 @@
     },
     {
       "path": "docs/report/index.md",
-      "sha256": "3c6cbb429d81a4f26a4754d313e4eef1de917ece9f7f9e6252721d75d7e63ee8",
+      "sha256": "d9629891f41df85dcce25ae0d086bd135fa71ee2de46126e3ffa0a37eea68327",
       "bytes": 2670
     },
     {
@@ -661,13 +661,13 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/results.csv",
-      "sha256": "eb47e1490b96bd218da5cc22762ebfd2bafa4f53ef1548e90a563000188285f0",
-      "bytes": 17262
+      "sha256": "aa71147960aa9a9ea9d34d02f9396831cd363c65524377eae3a351c9d7f5e2f2",
+      "bytes": 17265
     },
     {
       "path": "docs/report/pollen-reconstruction/scope.json",
-      "sha256": "31d6495b164bc4ebf11d700421e05662eec2b7e53b70e111971df534964a65ff",
-      "bytes": 16916
+      "sha256": "b97c8bdecbec8c22c647c73c7442d3b1be5eff0d67ac4c2e0607263fb53d88d3",
+      "bytes": 16919
     },
     {
       "path": "docs/report/pollen-reconstruction/scores.csv",
@@ -771,8 +771,8 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/verify_report.py",
-      "sha256": "2bb5343ed23be12024b157e8c9ba4dc44d742430172e0ff022ca86a7f2d52067",
-      "bytes": 44019
+      "sha256": "78301b98a4a1c9fa36ac113a67f3962828ce4498e03d876c61568e002e7a89f2",
+      "bytes": 44022
     },
     {
       "path": "docs/report/publication-replay/landclim-amsoldingersee-source-review/README.md",
@@ -816,43 +816,8 @@
     },
     {
       "path": "docs/report/publication-replay/landclim-pft-crosswalk/README.md",
-      "sha256": "89a4dff0863cbc3f48cb21bca97b3f9ee45caa0ad95a7f9bade5bdd56f2c33b7",
-      "bytes": 8694
-    },
-    {
-      "path": "docs/report/publication-replay/landclim-pft-crosswalk/author-name-review/report.json",
-      "sha256": "f9451525e7bce8b0d678b366366548b380194ed16bde16bbc4f3b30698b0b9d4",
-      "bytes": 4549
-    },
-    {
-      "path": "docs/report/publication-replay/landclim-pft-crosswalk/author-release-lineage.md",
-      "sha256": "908b0345da6188714380a690142c9a0256b30b85380c0da109739ff1c2412afe",
-      "bytes": 2443
-    },
-    {
-      "path": "docs/report/publication-replay/landclim-pft-crosswalk/publisher-table-review.md",
-      "sha256": "8aac0efb953e71d63c58cc9fdb8e78ebf63bb8f93d833b1cfe7ba9af10bb77d8",
-      "bytes": 1719
-    },
-    {
-      "path": "docs/report/publication-replay/landclim-pft-crosswalk/report.json",
-      "sha256": "2e6b2cff68c2a573ebf4310a3df883086861e703724e0ba63f11ff6707bd9da3",
-      "bytes": 2672
-    },
-    {
-      "path": "docs/report/publication-replay/landclim-pft-crosswalk/tbs-taxon-arithmetic/report.json",
-      "sha256": "12194e17dc74f71843a727835b7a781ed8fd7795c7614e4388225185e9a362d4",
-      "bytes": 2546
-    },
-    {
-      "path": "docs/report/publication-replay/landclim-pft-crosswalk/uncertainty-bounds/report.json",
-      "sha256": "44b45483dd1bd8fd2181348f62f8b7e5055ca04a01761c4736a7b5631eb03c9f",
-      "bytes": 3192
-    },
-    {
-      "path": "docs/report/publication-replay/landclim-pft-crosswalk/uncertainty-bounds/windows.csv",
-      "sha256": "e8746f36f13a0ca64c4fbf3a10cdac848fdd86e65ed84815231c57cffca78fdd",
-      "bytes": 3951
+      "sha256": "8a0b89b23f3e1f826fb65a1ec9bb230efa8b4d9ba50ab4ff01a348d23c532725",
+      "bytes": 489
     },
     {
       "path": "docs/report/publication-replay/landclim-published-window-correspondence/README.md",
@@ -2036,8 +2001,8 @@
     },
     {
       "path": "packages/bijux-pollenomics-dev/tests/essd_reproduction/test_pft_uncertainty_bounds.py",
-      "sha256": "d4f10379b6293fb7fb6330d376a0de62fc312f5165a340f8f25c63973d6ab2e5",
-      "bytes": 1643
+      "sha256": "242cf6ab5b11016d511b9075d7a771f495aaa8562df11ad071a84bc884ecc630",
+      "bytes": 1646
     },
     {
       "path": "packages/bijux-pollenomics-dev/tests/source_completion/test_bjaresjo_context.py",
@@ -2161,13 +2126,68 @@
     },
     {
       "path": "reports/science/nordic-pollen-study.md",
-      "sha256": "3e3d5f4e1769b2ca5a9e2e2798c03f059a0fdabd4a2e49d9e8ca6cf64a18001b",
-      "bytes": 43446
+      "sha256": "4fc5170b272f25c4a36ae85ff08a84754240daa0225cf36331ce396c33e988cf",
+      "bytes": 43389
     },
     {
       "path": "reports/science/publication-correspondence.md",
-      "sha256": "f8079cccda67cf593e3f4817ba3694d6b1a0f548c31f361243da27cbc4112f42",
-      "bytes": 10726
+      "sha256": "9306687427124e57a0eb08d5d5126ee1d5d966a5f44b0ff63f8b4d350005b808",
+      "bytes": 10634
+    },
+    {
+      "path": "reports/science/publication-correspondence/pft-crosswalk/README.md",
+      "sha256": "f4c15e2114b3b4304bc27219c440f44c4f05fc99c58f47043ed7ce36c4343bd1",
+      "bytes": 9109
+    },
+    {
+      "path": "reports/science/publication-correspondence/pft-crosswalk/author-name-review/report.json",
+      "sha256": "f9451525e7bce8b0d678b366366548b380194ed16bde16bbc4f3b30698b0b9d4",
+      "bytes": 4549
+    },
+    {
+      "path": "reports/science/publication-correspondence/pft-crosswalk/author-release-lineage.md",
+      "sha256": "910591708d7efdd676cac638145da8e92d893bbcbcac3a5848ab3357a930033e",
+      "bytes": 2687
+    },
+    {
+      "path": "reports/science/publication-correspondence/pft-crosswalk/columns.csv",
+      "sha256": "2e7b86fef9154bf2cde6d91300d8ad7645197aaccd6ef58e2bf1479afabe2572",
+      "bytes": 1575
+    },
+    {
+      "path": "reports/science/publication-correspondence/pft-crosswalk/lct_groups.csv",
+      "sha256": "430cfd63c8bf52b49a5cbf1457d011e9fe349a3de936a5cf6cfb25c8d6b0debc",
+      "bytes": 521
+    },
+    {
+      "path": "reports/science/publication-correspondence/pft-crosswalk/publisher-table-review.md",
+      "sha256": "1a14b53b6c4cfa1d5a5778ff8083c359eebe9e77971b530531384257f02244e8",
+      "bytes": 1927
+    },
+    {
+      "path": "reports/science/publication-correspondence/pft-crosswalk/report.json",
+      "sha256": "2e6b2cff68c2a573ebf4310a3df883086861e703724e0ba63f11ff6707bd9da3",
+      "bytes": 2672
+    },
+    {
+      "path": "reports/science/publication-correspondence/pft-crosswalk/tbs-taxon-arithmetic/report.json",
+      "sha256": "12194e17dc74f71843a727835b7a781ed8fd7795c7614e4388225185e9a362d4",
+      "bytes": 2546
+    },
+    {
+      "path": "reports/science/publication-correspondence/pft-crosswalk/uncertainty-bounds/report.json",
+      "sha256": "44b45483dd1bd8fd2181348f62f8b7e5055ca04a01761c4736a7b5631eb03c9f",
+      "bytes": 3192
+    },
+    {
+      "path": "reports/science/publication-correspondence/pft-crosswalk/uncertainty-bounds/windows.csv",
+      "sha256": "e8746f36f13a0ca64c4fbf3a10cdac848fdd86e65ed84815231c57cffca78fdd",
+      "bytes": 3951
+    },
+    {
+      "path": "reports/science/publication-correspondence/pft-crosswalk/windows.csv",
+      "sha256": "db0de8c5b67657afade80e3332d6741574b2d66de2b78c50ee8dbdf20eebacf1",
+      "bytes": 2487
     },
     {
       "path": "reports/science/reindeer-appendix-correspondence.md",

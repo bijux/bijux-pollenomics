@@ -4,14 +4,14 @@ This registry classifies the current `docs/report/` tree by family, audience,
 scope, and explanation role so the publication system can be navigated as one
 coherent report surface instead of a loose artifact dump.
 
-- Surface count: `1866`
+- Surface count: `1856`
 
 ## Family Counts
 
 | Family | Count |
 | --- | ---: |
 | Scientific caveats | 10 |
-| Maintainer truth surfaces | 1043 |
+| Maintainer truth surfaces | 1033 |
 | Map surfaces | 85 |
 | Portal guidance | 2 |
 | Evidence reviews | 34 |
@@ -21,7 +21,7 @@ coherent report surface instead of a loose artifact dump.
 
 | Audience | Count |
 | --- | ---: |
-| Maintainer diagnostic | 1045 |
+| Maintainer diagnostic | 1035 |
 | Public reading surface | 701 |
 | Scientific review surface | 120 |
 
@@ -986,16 +986,6 @@ coherent report surface instead of a loose artifact dump.
 | `docs/report/publication-replay/landclim-method-profile/reference/report.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
 | `docs/report/publication-replay/landclim-method-profile/report.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
 | `docs/report/publication-replay/landclim-pft-crosswalk/README.md` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `md` | Reader-facing entry page for one scope bundle. |
-| `docs/report/publication-replay/landclim-pft-crosswalk/author-name-review/report.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
-| `docs/report/publication-replay/landclim-pft-crosswalk/author-release-lineage.md` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `md` | Maintainer-facing truth or governance surface. |
-| `docs/report/publication-replay/landclim-pft-crosswalk/columns.csv` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `csv` | Maintainer-facing truth or governance surface. |
-| `docs/report/publication-replay/landclim-pft-crosswalk/lct_groups.csv` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `csv` | Maintainer-facing truth or governance surface. |
-| `docs/report/publication-replay/landclim-pft-crosswalk/publisher-table-review.md` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `md` | Maintainer-facing truth or governance surface. |
-| `docs/report/publication-replay/landclim-pft-crosswalk/report.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
-| `docs/report/publication-replay/landclim-pft-crosswalk/tbs-taxon-arithmetic/report.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
-| `docs/report/publication-replay/landclim-pft-crosswalk/uncertainty-bounds/report.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |
-| `docs/report/publication-replay/landclim-pft-crosswalk/uncertainty-bounds/windows.csv` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `csv` | Maintainer-facing truth or governance surface. |
-| `docs/report/publication-replay/landclim-pft-crosswalk/windows.csv` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `csv` | Maintainer-facing truth or governance surface. |
 | `docs/report/publication-replay/landclim-published-window-correspondence/README.md` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `md` | Reader-facing entry page for one scope bundle. |
 | `docs/report/publication-replay/landclim-published-window-correspondence/REPORT.md` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `md` | Maintainer-facing truth or governance surface. |
 | `docs/report/publication-replay/landclim-published-window-correspondence/manifest.json` | Maintainer truth surfaces | Maintainer diagnostic | `report_root` | `json` | Maintainer-facing truth or governance surface. |

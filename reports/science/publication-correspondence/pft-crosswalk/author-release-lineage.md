@@ -1,5 +1,10 @@
 # Boundary of the released LandClim II calculation script
 
+We compared the released wrapper with the retained author source capsule and
+the archive header to identify what this public script can actually explain.
+We use the match as a lineage lead and keep the later PFT/LCT transformation
+unresolved.
+
 The public [LandClim II source repository at commit
 `57ead2e2fcc493d099be4e5a3092fc396e1c3d3a`](https://github.com/rmfyfe/landclimII/tree/57ead2e2fcc493d099be4e5a3092fc396e1c3d3a)
 contains 51 files, including three R scripts. The separately retained author

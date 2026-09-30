@@ -40,7 +40,7 @@ most linked governed products retain the numeric and producer ownership. The Bj√
 
 | Research question now owned in `reports/` | Governed result or source boundary |
 | --- | --- |
-| [Publication and archive correspondence](../science/publication-correspondence.md) | [Paper correspondence ledger](../../docs/report/pollen-reconstruction/paper-correspondence.csv) and [PFT crosswalk](../../docs/report/publication-replay/landclim-pft-crosswalk/README.md). |
+| [Publication and archive correspondence](../science/publication-correspondence.md) | [Paper correspondence ledger](../../docs/report/pollen-reconstruction/paper-correspondence.csv) and [PFT crosswalk](../science/publication-correspondence/pft-crosswalk/README.md). |
 | [Nordic pollen synthesis](../science/nordic-pollen-study.md), [country results](../science/denmark-finland-norway-author-pollen.md) and [Swedish holdout](../science/sweden-author-pollen.md) | [Country score products](../../docs/report/regions/nordic/author-target-pollen/report.json) and [Swedish score products](../../docs/report/regions/nordic/swedish-author-target-pollen/report.json). |
 | [Nordic training selection](../science/nordic-observed-pollen-selection.md) and [matched transfer](../science/nordic-observed-pollen-transfer.md) | [Search trial ledger](../../docs/report/regions/nordic/pollen-development/report.json) and [transfer freeze](../../docs/report/regions/nordic/selected-pollen-transfer/freeze.json). |
 | [English LOVE and forward pollen](../science/english-lra-pollen-prediction.md) | [Fold/score products](../../docs/report/pollen-reconstruction/author-lra-constrained/report.json) and [basin-radius sensitivity](../../docs/report/pollen-reconstruction/author-lra-constrained/radius-sensitivity/README.md). |
@@ -65,6 +65,14 @@ the report portal inventory so it lists that citation without pointing to the
 removed numeric files. This refresh also records report surfaces added since
 the portal's earlier snapshot; those inventory changes are not new scientific
 results.
+
+We next moved the publication PFT/LCT crosswalk as one owned domain. Its
+source-bound CSV and JSON products and paper/source notes now live beside the
+[publication correspondence report](../science/publication-correspondence.md).
+We kept its earlier website page as a citation, retargeted the exact scientific
+reader and replay tests, and regenerated the portal inventory. The numeric and
+source notes moved byte for byte. The paper/archive `ISTS` classification and
+unreplayed standard-error covariance remain unresolved.
 
 ## Why migration remains selective
 

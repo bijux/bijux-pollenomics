@@ -659,7 +659,7 @@ def verify_pft_uncertainty_bounds() -> dict[str, Any]:
     """Check source identity and complete published uncertainty-bound coverage."""
     directory = (
         REPOSITORY_ROOT
-        / "docs/report/publication-replay/landclim-pft-crosswalk/uncertainty-bounds"
+        / "reports/science/publication-correspondence/pft-crosswalk/uncertainty-bounds"
     )
     report: dict[str, Any] = json.loads(
         (directory / "report.json").read_text(encoding="utf-8")

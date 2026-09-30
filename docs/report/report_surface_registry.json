@@ -1,16 +1,16 @@
 {
   "schema_version": "report-surface-registry.v1",
-  "surface_count": 1866,
+  "surface_count": 1856,
   "family_counts": {
     "caveats": 10,
-    "maintenance": 1043,
+    "maintenance": 1033,
     "maps": 85,
     "portal": 2,
     "reviews": 34,
     "scopes": 692
   },
   "audience_counts": {
-    "maintainer_diagnostic": 1045,
+    "maintainer_diagnostic": 1035,
     "public_reading_surface": 701,
     "scientific_review_surface": 120
   },
@@ -20,7 +20,7 @@
     "finland": 14,
     "nordic": 432,
     "norway": 14,
-    "report_root": 1092,
+    "report_root": 1082,
     "sweden": 49,
     "world": 172
   },
@@ -11508,126 +11508,6 @@
       "caution_level": "high",
       "explanation": "Reader-facing entry page for one scope bundle.",
       "reader_route": "start_here"
-    },
-    {
-      "repository_path": "docs/report/publication-replay/landclim-pft-crosswalk/author-name-review/report.json",
-      "family": "maintenance",
-      "family_label": "Maintainer truth surfaces",
-      "audience": "maintainer_diagnostic",
-      "audience_label": "Maintainer diagnostic",
-      "format": "json",
-      "geography": "report_root",
-      "caution_level": "high",
-      "explanation": "Maintainer-facing truth or governance surface.",
-      "reader_route": "maintainer_truth"
-    },
-    {
-      "repository_path": "docs/report/publication-replay/landclim-pft-crosswalk/author-release-lineage.md",
-      "family": "maintenance",
-      "family_label": "Maintainer truth surfaces",
-      "audience": "maintainer_diagnostic",
-      "audience_label": "Maintainer diagnostic",
-      "format": "md",
-      "geography": "report_root",
-      "caution_level": "high",
-      "explanation": "Maintainer-facing truth or governance surface.",
-      "reader_route": "maintainer_truth"
-    },
-    {
-      "repository_path": "docs/report/publication-replay/landclim-pft-crosswalk/columns.csv",
-      "family": "maintenance",
-      "family_label": "Maintainer truth surfaces",
-      "audience": "maintainer_diagnostic",
-      "audience_label": "Maintainer diagnostic",
-      "format": "csv",
-      "geography": "report_root",
-      "caution_level": "high",
-      "explanation": "Maintainer-facing truth or governance surface.",
-      "reader_route": "maintainer_truth"
-    },
-    {
-      "repository_path": "docs/report/publication-replay/landclim-pft-crosswalk/lct_groups.csv",
-      "family": "maintenance",
-      "family_label": "Maintainer truth surfaces",
-      "audience": "maintainer_diagnostic",
-      "audience_label": "Maintainer diagnostic",
-      "format": "csv",
-      "geography": "report_root",
-      "caution_level": "high",
-      "explanation": "Maintainer-facing truth or governance surface.",
-      "reader_route": "maintainer_truth"
-    },
-    {
-      "repository_path": "docs/report/publication-replay/landclim-pft-crosswalk/publisher-table-review.md",
-      "family": "maintenance",
-      "family_label": "Maintainer truth surfaces",
-      "audience": "maintainer_diagnostic",
-      "audience_label": "Maintainer diagnostic",
-      "format": "md",
-      "geography": "report_root",
-      "caution_level": "high",
-      "explanation": "Maintainer-facing truth or governance surface.",
-      "reader_route": "maintainer_truth"
-    },
-    {
-      "repository_path": "docs/report/publication-replay/landclim-pft-crosswalk/report.json",
-      "family": "maintenance",
-      "family_label": "Maintainer truth surfaces",
-      "audience": "maintainer_diagnostic",
-      "audience_label": "Maintainer diagnostic",
-      "format": "json",
-      "geography": "report_root",
-      "caution_level": "high",
-      "explanation": "Maintainer-facing truth or governance surface.",
-      "reader_route": "maintainer_truth"
-    },
-    {
-      "repository_path": "docs/report/publication-replay/landclim-pft-crosswalk/tbs-taxon-arithmetic/report.json",
-      "family": "maintenance",
-      "family_label": "Maintainer truth surfaces",
-      "audience": "maintainer_diagnostic",
-      "audience_label": "Maintainer diagnostic",
-      "format": "json",
-      "geography": "report_root",
-      "caution_level": "high",
-      "explanation": "Maintainer-facing truth or governance surface.",
-      "reader_route": "maintainer_truth"
-    },
-    {
-      "repository_path": "docs/report/publication-replay/landclim-pft-crosswalk/uncertainty-bounds/report.json",
-      "family": "maintenance",
-      "family_label": "Maintainer truth surfaces",
-      "audience": "maintainer_diagnostic",
-      "audience_label": "Maintainer diagnostic",
-      "format": "json",
-      "geography": "report_root",
-      "caution_level": "high",
-      "explanation": "Maintainer-facing truth or governance surface.",
-      "reader_route": "maintainer_truth"
-    },
-    {
-      "repository_path": "docs/report/publication-replay/landclim-pft-crosswalk/uncertainty-bounds/windows.csv",
-      "family": "maintenance",
-      "family_label": "Maintainer truth surfaces",
-      "audience": "maintainer_diagnostic",
-      "audience_label": "Maintainer diagnostic",
-      "format": "csv",
-      "geography": "report_root",
-      "caution_level": "high",
-      "explanation": "Maintainer-facing truth or governance surface.",
-      "reader_route": "maintainer_truth"
-    },
-    {
-      "repository_path": "docs/report/publication-replay/landclim-pft-crosswalk/windows.csv",
-      "family": "maintenance",
-      "family_label": "Maintainer truth surfaces",
-      "audience": "maintainer_diagnostic",
-      "audience_label": "Maintainer diagnostic",
-      "format": "csv",
-      "geography": "report_root",
-      "caution_level": "high",
-      "explanation": "Maintainer-facing truth or governance surface.",
-      "reader_route": "maintainer_truth"
     },
     {
       "repository_path": "docs/report/publication-replay/landclim-published-window-correspondence/README.md",

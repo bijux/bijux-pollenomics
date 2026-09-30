@@ -4,15 +4,15 @@ This review checks whether the report-facing Markdown surfaces explain
 themselves in prose or structured reference form instead of behaving like bare
 link farms or coded operator notes.
 
-- Reviewed markdown pages: `270`
+- Reviewed markdown pages: `268`
 
 ## Quality Postures
 
 | Posture | Count |
 | --- | ---: |
-| `reader_ready` | 106 |
+| `reader_ready` | 105 |
 | `structured_reference` | 19 |
-| `thin_structure` | 145 |
+| `thin_structure` | 144 |
 
 ## Reviewed Pages
 
@@ -146,9 +146,7 @@ link farms or coded operator notes.
 | `docs/report/publication-replay/landclim-author-example-correspondence/REPORT.md` | `thin_structure` | 3 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/publication-replay/landclim-example-reexecution/README.md` | `thin_structure` | 10 | 0 | 0 | 4 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/publication-replay/landclim-method-profile/README.md` | `reader_ready` | 7 | 0 | 0 | 0 | 3 | Page explains its purpose before or alongside artifact links. |
-| `docs/report/publication-replay/landclim-pft-crosswalk/README.md` | `reader_ready` | 15 | 0 | 0 | 5 | 3 | Page explains its purpose before or alongside artifact links. |
-| `docs/report/publication-replay/landclim-pft-crosswalk/author-release-lineage.md` | `thin_structure` | 3 | 0 | 0 | 4 | 1 | Page explains itself but still needs stronger internal wayfinding. |
-| `docs/report/publication-replay/landclim-pft-crosswalk/publisher-table-review.md` | `thin_structure` | 3 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
+| `docs/report/publication-replay/landclim-pft-crosswalk/README.md` | `thin_structure` | 1 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/publication-replay/landclim-published-window-correspondence/README.md` | `thin_structure` | 4 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/publication-replay/landclim-published-window-correspondence/REPORT.md` | `thin_structure` | 3 | 0 | 2 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/publication-replay/landclim-published-window-provenance/README.md` | `thin_structure` | 4 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |

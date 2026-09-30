@@ -242,7 +242,7 @@
     "status": "additional_prior_exposed_development_transfer; no LRA, vegetation or country-wide claim"
   },
   "pft_uncertainty_bounds": {
-    "report": "docs/report/publication-replay/landclim-pft-crosswalk/uncertainty-bounds/report.json",
+    "report": "reports/science/publication-correspondence/pft-crosswalk/uncertainty-bounds/report.json",
     "groups": 5,
     "grid_window_rows_per_group": 10500,
     "necessary_bound_violations": 0,

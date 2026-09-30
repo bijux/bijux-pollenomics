@@ -61,14 +61,14 @@ acceptance.
 We have not reconciled the paper's 12-PFT statement, PANGAEA's 11-PFT
 description and 13 archived PFT positions. We retained the two public prose
 pages under exact 2026-09-21 [capture custody](../../docs/report/maintenance/artifact-retention/landclim-provider-description-custody.json).
-The [publisher's machine-readable Table 1](../../docs/report/publication-replay/landclim-pft-crosswalk/publisher-table-review.md)
+The [publisher's machine-readable Table 1](publication-correspondence/pft-crosswalk/publisher-table-review.md)
 lists nine paper TBS taxa and no `ISTS` code. In a separate
-[source-bound taxon arithmetic replay](../../docs/report/publication-replay/landclim-pft-crosswalk/README.md),
+[source-bound taxon arithmetic replay](publication-correspondence/pft-crosswalk/README.md),
 we found that archived `ISTS` means equal the sum of three published taxon
 means (`Corylus.avellana`, `Fraxinus` and `Quercus.deciduous`) in all 10,500
 grid/window rows. Archived `TBS` means equal the other six taxa listed under
 TBS in the parameter table. The maximum absolute split residual is about
-`1.02e-13` percentage points. Our [private author-name review](../../docs/report/publication-replay/landclim-pft-crosswalk/author-name-review/report.json)
+`1.02e-13` percentage points. Our [private author-name review](publication-correspondence/pft-crosswalk/author-name-review/report.json)
 supports seven of nine parameter-to-output names by exact author-crosswalk
 source names and an eighth, `Castanea sativa`, through the custody-bound
 author LUT's `Castanea` mapping. `Quercus deciduous t.` has no exact
@@ -81,7 +81,7 @@ semantics and full-paper raw-input closure remain open.
 
 We checked all 10,500 grid/window rows for each observed ET, ST, OL, ISTS
 and TBS mean-addend group in our
-[archived uncertainty-bound replay](../../docs/report/publication-replay/landclim-pft-crosswalk/uncertainty-bounds/report.json).
+[archived uncertainty-bound replay](publication-correspondence/pft-crosswalk/uncertainty-bounds/report.json).
 Every aggregate SE lies between the lower and upper standard-deviation
 bounds implied by its component SEs. There are 7,588 ET,
 7,892 ST, 5,921 OL, 7,013 ISTS and 5,859 TBS rows with a nondegenerate
@@ -97,7 +97,7 @@ the output. The paper describes delta-method SE aggregation; we do not
 apply the observed mean sum to archived SE columns.
 
 We narrowed this source gap with the
-[public author script lineage](../../docs/report/publication-replay/landclim-pft-crosswalk/author-release-lineage.md).
+[public author script lineage](publication-correspondence/pft-crosswalk/author-release-lineage.md).
 Its 31 taxon header names match the corresponding archived mean header
 positions exactly, but the released scripts do not produce the archive's
 13 PFT and three LCT columns. We still need an authenticated
@@ -162,7 +162,7 @@ rights, formal CRS and historical time support still need resolution.
 
 - Author computation, archive-window differences, interval alignment and uncertainty envelopes: `paper-correspondence.csv`.
 - Numerical implementation and comparison code: `packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/`.
-- Archived PFT/LCT and ISTS/TBS mean arithmetic: `docs/report/publication-replay/landclim-pft-crosswalk/`.
+- Archived PFT/LCT and ISTS/TBS mean arithmetic: `reports/science/publication-correspondence/pft-crosswalk/`.
 - Rootsi source boundary and workbook replay summary: `docs/public/pollenomics-data/sources/landclim.md` and `swedish-source-questions.csv`.
 - Independent vegetation review: `docs/public/pollenomics-data/sources/empd2-nfi-review.md` and `nordic-nfi-reference-access.md`.
 - HYDE country totals and native grid reconciliation: `docs/report/regions/nordic/hyde-country-cropland/`; source limitations: `docs/public/pollenomics-data/sources/hyde.md`.

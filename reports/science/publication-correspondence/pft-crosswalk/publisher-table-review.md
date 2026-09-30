@@ -1,5 +1,9 @@
 # Published Table 1 and archived summer-green types
 
+We checked the publisher's table directly against the pinned archive because
+the two assign deciduous Quercus to different functional-type columns. We
+retain both source versions and their differing claims.
+
 The [publisher's machine-readable Table 1](https://essd.copernicus.org/articles/14/1581/2022/essd-14-1581-2022-t01.xlsx)
 for Githumbi et al. (2022), *Earth System Science Data* 14, 1581–1619,
 DOI [10.5194/essd-14-1581-2022](https://doi.org/10.5194/essd-14-1581-2022),

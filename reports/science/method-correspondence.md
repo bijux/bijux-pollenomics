@@ -25,7 +25,7 @@ Only one of 25 window intervals matches exactly. We retain the differences
 without shifting windows or renaming taxon groups because the possible source
 revision or transformation explanation remains unverified. Our
 [row ledger](../../docs/report/pollen-reconstruction/paper-correspondence.csv)
-and [PFT crosswalk](../../docs/report/publication-replay/landclim-pft-crosswalk/README.md)
+and [PFT crosswalk](publication-correspondence/pft-crosswalk/README.md)
 give the exact cells and arithmetic.
 
 We closed archived ISTS/TBS **mean arithmetic** on the source taxon groups

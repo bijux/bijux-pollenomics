@@ -13,7 +13,7 @@ from bijux_pollenomics_dev.essd_reproduction.pft_uncertainty_bounds import (
 REPOSITORY = Path(__file__).resolve().parents[4]
 GOVERNED = (
     REPOSITORY
-    / "docs/report/publication-replay/landclim-pft-crosswalk/uncertainty-bounds"
+    / "reports/science/publication-correspondence/pft-crosswalk/uncertainty-bounds"
 )
 
 
