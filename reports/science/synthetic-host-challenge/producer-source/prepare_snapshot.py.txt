@@ -1,0 +1,33 @@
+"""Copy the exact Python closure used by the private LRA host challenge."""
+
+from __future__ import annotations
+
+from pathlib import Path
+import shutil
+import sys
+
+
+def main() -> None:
+    repository = Path(sys.argv[1]).resolve()
+    target = Path(sys.argv[2]).resolve()
+    if target.exists():
+        raise FileExistsError(target)
+    ignored = shutil.ignore_patterns(
+        "__pycache__", ".pytest_cache", ".ruff_cache", ".mypy_cache"
+    )
+    for relative in (
+        "packages/bijux-pollenomics/src/bijux_pollenomics",
+        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev",
+    ):
+        destination = target / relative
+        destination.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copytree(repository / relative, destination, ignore=ignored)
+    for relative in ("uv.lock", "pyproject.toml"):
+        destination = target / relative
+        destination.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(repository / relative, destination)
+
+
+if __name__ == "__main__":
+    main()

@@ -85,3 +85,28 @@ initializers), and `23a60a3a775a00b7b689d65702a45ec1395a046e`
 We kept the rest of `artifacts/v3/known-landscape/`. Its host challenge and
 development sweep contain distinct report values and run scripts; they need
 an owned product destination and reproducible source account before removal.
+
+We then copied the two unique result JSON files, the development policy, both
+historical run scripts, the shared snapshot preparer and the sweep's trial
+ledger source into the [host challenge](../science/synthetic-host-challenge/README.md)
+and [model selection](../science/synthetic-model-selection/README.md) reports.
+The copies are exact and source-locked. A one-pass comparison of the two frozen
+snapshots to their declared Git commits found no missing base paths:
+
+| Snapshot | Declared Git commit | Exact base paths | Extra paths | Changed base paths |
+| --- | --- | ---: | ---: | ---: |
+| Host challenge | `70ddf5085ea8fef060f359ef0a4ddc719fb5cb68` | 1,519 / 1,520 | 2 | 1 |
+| Development sweep | `d915d1709d3c8fca4680f70958452860d578d5d1` | 1,521 / 1,521 | 1 | 0 |
+
+The extra or changed blobs do not occur in reachable Git history. One host
+extra is an earlier experiment ledger; the model-selection source custody
+instead contains the later ledger from the development snapshot and its
+declared Git commit. Both snapshots include the same generated engine `_build_version.py`
+(`0.1.9.dev121`), and the host snapshot has a changed fieldwork
+`lake_archaeology_sensitivity.py` source. The latter is outside the synthetic
+producer's declared read set, but we have not retired either frozen snapshot:
+their exact package and historical-environment closure, original request
+inputs and trial outputs still need a bounded retirement decision. The
+one-pass audit is retained locally at
+`artifacts/jobs/report-owner-proof/known-landscape-snapshot-audit.json`,
+SHA-256 `3c8bc0a885c746bfdfc5b65a8ff39a5af0d9a6c358bc348746abbe4db106962d`.

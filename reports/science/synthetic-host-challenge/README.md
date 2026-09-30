@@ -41,12 +41,19 @@ has SHA-256
 
 The result is one three-taxon synthetic comparison with a deliberately
 different forward law, no observed pollen, measured vegetation, calibration
-threshold or LOVE support test. Its historical producer and input products
-still reside under `artifacts/v3/known-landscape/host-challenge/`, where the
-producer depends on a frozen repository snapshot. We retain that subtree
-until the producer and exact input closure have an owned replay route or a
-documented supersession. Copying the result does not make the historical run
-self-contained.
+threshold or LOVE support test. We retained the exact historical
+[challenge producer](producer-source/run_challenge.py.txt) and
+[snapshot preparation source](producer-source/prepare_snapshot.py.txt) beside this
+result. Their SHA-256 values are `791d07e51af86801e8f8dbad152dd6b0d852492caf02a6032fdbdb862e5f7f31`
+and `eaf1100d5fb1584ee85d95ec83a2f709c188ca0103d73fef86772677091ffcd1`.
+We store their original Python bytes as text evidence so repository code
+checks do not treat an archival, layout-dependent script as a live entry point.
+They are source evidence, not a current-source replay command: the producer
+expects the historical artifact layout and a frozen package snapshot. We
+retain the original inputs and outputs under
+`artifacts/v3/known-landscape/host-challenge/` until their exact dependency
+closure is settled. Copying the result and script does not make the historical
+run self-contained.
 
 Our current [governed reconstruction challenge](../../../docs/report/synthetic-validation/reconstruction/README.md)
 tests eight cases with an owned producer and declares the same transport-mismatch

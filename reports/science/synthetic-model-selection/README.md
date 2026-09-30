@@ -50,12 +50,19 @@ this owned report. The result JSON has SHA-256
 
 This is a prior synthetic development comparison with two related cases,
 three taxa, no measured vegetation and no held-out pollen prediction. Its
-producer still depends on a historical snapshot and helper under the retained
-`artifacts/v3/known-landscape/` prefix. The receipt preserves the observed
-ranking but is not yet a self-contained product replay; we keep that prefix
-until the producer is made durable or its historical role is explicitly
-retired. We do not use this ranking to tune PPE, transport or basin geometry
-for a real core.
+exact [sweep producer](producer-source/run_sweep.py.txt) and its
+[trial ledger source](producer-source/experiment_ledger.py.txt) are now owned with
+this report. Their SHA-256 values are
+`33678e978e2d8d9bac88bb29e4c5dee8d09733da4e1ecf4963f6abf22d6ec93d`
+and `d9bda0a522263d21850dcb2a6cc65fdf5f23974a07e998e679bbb1c977780cbb`.
+The ledger copy is from the development snapshot actually used by the sweep.
+We retain their original Python bytes as text evidence. The sweep imports
+the historical host challenge adapter and still expects a
+frozen package snapshot and artifact layout. This is exact source custody,
+not yet a self-contained product replay; we keep the original
+`artifacts/v3/known-landscape/` inputs and trial outputs until their
+dependency closure is settled. We do not use this ranking to tune PPE,
+transport or basin geometry for a real core.
 
 Our current [governed synthetic reconstruction challenge](../../../docs/report/synthetic-validation/reconstruction/README.md)
 separately tests transport-matched calculation controls and deliberate

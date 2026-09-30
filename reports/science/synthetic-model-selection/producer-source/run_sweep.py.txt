@@ -1,0 +1,252 @@
+"""Run predeclared synthetic development trials through the installed host."""
+
+from __future__ import annotations
+
+import hashlib
+import importlib.metadata
+import json
+from math import isfinite
+from pathlib import Path
+import sys
+import time
+from typing import Any
+
+from bijux_pollenomics.analysis.lra.api import LRARefusal
+from bijux_pollenomics_dev.lra_validation import build_known_landscape_report
+from bijux_pollenomics_dev.lra_validation.experiment_ledger import (
+    finish_development_attempt,
+    read_development_attempts,
+    start_development_attempt,
+)
+
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "host-challenge"))
+import run_challenge as host  # noqa: E402
+
+
+EXPECTED_ORACLE_SHA256 = "c53291b9be045fef04334533a8a7f40f8811d7f49c809745522409db8b94aff8"
+
+
+def _sha(path: Path) -> str:
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def _json(path: Path, value: object) -> None:
+    path.write_text(json.dumps(value, indent=2, sort_keys=True, allow_nan=False) + "\n")
+
+
+def _case_input(
+    root: Path,
+    *,
+    oracle_bytes: bytes,
+    case: dict[str, Any],
+    counts: list[int],
+    pollen: list[float],
+    ppe: dict[str, float],
+    fall_speed: dict[str, float],
+    candidate: dict[str, Any],
+    lock: Path,
+) -> dict[str, Any]:
+    request = host._input_bundle(
+        root,
+        oracle_bytes=oracle_bytes,
+        pollen=pollen,
+        counts=counts,
+        ppe=ppe,
+        fall_speed=fall_speed,
+        parameter_version=f"synthetic-development-{candidate['id']}-v1",
+        dependency_lock=lock,
+    )
+    support = float(case["declared_support_m"])
+    if support != float(case["landscape_extent_m"]) or float(case["basin_radius_m"]) != 175.0:
+        raise ValueError("Selected oracle case lacks matched declared geometry")
+    raw = json.loads((root / "raw_snapshot.json").read_text())
+    raw["case_id"] = case["case_id"]
+    host._write(root / "raw_snapshot.json", raw)
+    geometry = json.loads((root / "geometry.json").read_text())
+    geometry["region_cutoff_m"] = support
+    host._write(root / "geometry.json", geometry)
+    request["configuration"]["reveals"]["distance_weighting"] = candidate["distance_weighting"]
+    request["configuration"]["reveals"]["region_cutoff_m"] = support
+    for evidence in request["evidence"]:
+        evidence["sha256"] = _sha(root / evidence["path"])
+    host._write(root / "request.json", request)
+    return request
+
+
+def _spec(
+    *,
+    candidate: dict[str, Any],
+    case: dict[str, Any],
+    policy_sha: str,
+    input_hashes: dict[str, str],
+    backend: str,
+    host_seed: int,
+) -> dict[str, object]:
+    support = int(case["declared_support_m"])
+    return {
+        "run_id": f"{candidate['id']}-{case['case_id']}",
+        "policy_sha256": policy_sha,
+        "input_hashes": input_hashes,
+        "target": "local_pollen_available",
+        "fold_id": f"synthetic-train-{case['case_id']}",
+        "model": "installed-host-REVEALS-synthetic-development",
+        "configuration": {
+            "method": "REVEALS-disqover-source-compatible",
+            "transport": candidate["distance_weighting"],
+            "taxon_profile": "independent-synthetic-three-taxa-v1",
+            "ppe_profile": f"oracle-PPE-broadleaf-scale-{candidate['broadleaf_ppe_scale']}",
+            "basin_scenario": "synthetic-lake-radius-175m-diameter-350m",
+            "spatial_support": f"oracle-declared-and-host-matched-{support}m",
+            "temporal_support": "synthetic-calendar-BP-bin-5400-5600",
+            "uncertainty": "none-deterministic-point-estimate",
+        },
+        "hyperparameters": {
+            "distance_weighting": candidate["distance_weighting"],
+            "broadleaf_ppe_scale": candidate["broadleaf_ppe_scale"],
+            "regional_extent_m": support,
+            "iterations": 2,
+            "stochastic": False,
+        },
+        "seed": host_seed,
+        "backend": backend,
+        "budget": {"threads": 1, "counting_effort": host.EFFORT, "case_timeout_seconds": 120},
+    }
+
+
+def main() -> int:
+    repository = Path(sys.argv[1]).resolve()
+    snapshot = Path(sys.argv[2]).resolve()
+    policy_path = Path(sys.argv[3]).resolve()
+    output = Path(sys.argv[4]).resolve()
+    if output.exists():
+        raise RuntimeError(f"Output already exists: {output}")
+    policy = json.loads(policy_path.read_text())
+    if policy["schema_version"] != "known-landscape-synthetic-development-policy.v1":
+        raise ValueError("Unexpected development policy")
+    if policy["purpose"] != "train_only_synthetic_exploration" or policy["objective"]["final_test_access"] is not False:
+        raise ValueError("Development-only policy is required")
+    cases_named = policy["cases"]
+    candidates = policy["candidates"]
+    if cases_named != ["homogeneous-noise-free", "heterogeneous-noise-free"] or len(candidates) != 6:
+        raise ValueError("Predeclared candidate/case universe changed")
+    if len({row["id"] for row in candidates}) != 6:
+        raise ValueError("Duplicate candidate ID")
+    oracle = build_known_landscape_report(seed=policy["oracle_seed"])
+    if oracle.sha256 != EXPECTED_ORACLE_SHA256:
+        raise ValueError("Independent synthetic oracle changed")
+    payload = oracle.payload()
+    cases = {row["case_id"]: row for row in payload["cases"]}
+    if any(cases[name]["status"] != "success" for name in cases_named):
+        raise ValueError("Development case unavailable")
+    true = payload["true_parameters"]
+    fall_speed = {taxon: float(true["fall_speed_m_s"][taxon]) for taxon in host.TAXA}
+    ppe_true = {taxon: float(true["ppe"][taxon]) for taxon in host.TAXA}
+    policy_sha = _sha(policy_path)
+    backend = f"python-host-lra-{importlib.metadata.version('bijux-pollenomics-lra')}"
+    fixed_hashes = {
+        "oracle_report": oracle.sha256,
+        "policy": policy_sha,
+        "known_landscape_code": _sha(snapshot / "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/known_landscape.py"),
+        "experiment_ledger_code": _sha(snapshot / "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/experiment_ledger.py"),
+        "host_lra_api_code": _sha(snapshot / "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/api.py"),
+        "dependency_lock": _sha(snapshot / "uv.lock"),
+        "host_challenge_adapter": _sha(repository / "artifacts/v3/known-landscape/host-challenge/run_challenge.py"),
+        "prior_host_challenge_report": _sha(repository / "artifacts/v3/known-landscape/host-challenge/run001/report.json"),
+    }
+    output.mkdir(parents=True)
+    ledger = output / "ledger"
+    details: list[dict[str, Any]] = []
+    for candidate in candidates:
+        for case_name in cases_named:
+            case = cases[case_name]
+            pollen = [float(case["expected_pollen_fraction"][taxon]) for taxon in host.TAXA]
+            counts = host._counts(pollen)
+            count_hash = hashlib.sha256(host._encoded(counts)).hexdigest()
+            hashes = {**fixed_hashes, "case_counts": count_hash}
+            spec = _spec(
+                candidate=candidate,
+                case=case,
+                policy_sha=policy_sha,
+                input_hashes=hashes,
+                backend=backend,
+                host_seed=policy["host_seed"],
+            )
+            run_id = str(spec["run_id"])
+            start_development_attempt(ledger, spec)
+            started = time.monotonic()
+            detail: dict[str, Any] = {"run_id": run_id, "candidate_id": candidate["id"], "case_id": case_name}
+            try:
+                ppe = dict(ppe_true)
+                ppe["broadleaf"] *= float(candidate["broadleaf_ppe_scale"])
+                trial = output / "trials" / run_id
+                request = _case_input(
+                    trial / "input",
+                    oracle_bytes=oracle.canonical_bytes,
+                    case=case,
+                    counts=counts,
+                    pollen=pollen,
+                    ppe=ppe,
+                    fall_speed=fall_speed,
+                    candidate=candidate,
+                    lock=snapshot / "uv.lock",
+                )
+                truth = {taxon: float(case["true_support_vegetation_fraction"][taxon]) for taxon in host.TAXA}
+                result = host._run_one(request, input_root=trial / "input", destination=trial / "product", truth=truth)
+                if not isfinite(result["mae_fraction"]):
+                    raise ValueError("Nonfinite synthetic MAE")
+                metrics = {
+                    "vegetation_mae_fraction": result["mae_fraction"],
+                    "vegetation_max_abs_error_fraction": max(abs(v) for v in result["residual_fraction"].values()),
+                    "estimated_cover_fraction": result["estimated_cover_fraction"],
+                    "true_support_vegetation_fraction": truth,
+                    "closure_error_fraction": result["closure_error_fraction"],
+                    "input_request_sha256": result["input_request_sha256"],
+                    "product_manifest_sha256": result["manifest_sha256"],
+                }
+                terminal = {"status": "completed", "elapsed_seconds": time.monotonic() - started, "metrics": metrics, "reason_code": None}
+                detail.update({"status": "completed", "metrics": metrics})
+            except LRARefusal as exc:
+                terminal = {"status": "refused", "elapsed_seconds": time.monotonic() - started, "metrics": {}, "reason_code": exc.reason_code}
+                detail.update({"status": "refused", "reason_code": exc.reason_code})
+            except Exception as exc:
+                reason = f"trial_{type(exc).__name__}"
+                terminal = {"status": "failed", "elapsed_seconds": time.monotonic() - started, "metrics": {}, "reason_code": reason}
+                detail.update({"status": "failed", "reason_code": reason, "detail": str(exc)})
+            finish_development_attempt(ledger, run_id, terminal)
+            details.append(detail)
+            print(json.dumps({"run_id": run_id, "status": detail["status"], "mae": detail.get("metrics", {}).get("vegetation_mae_fraction")}, sort_keys=True), flush=True)
+    records = read_development_attempts(ledger)
+    if len(records) != len(candidates) * len(cases_named) or any(row["result"] is None for row in records):
+        raise RuntimeError("Development ledger has incomplete trial universe")
+    eligible = []
+    for candidate in candidates:
+        trial_rows = [row for row in details if row["candidate_id"] == candidate["id"]]
+        if len(trial_rows) == len(cases_named) and all(row["status"] == "completed" for row in trial_rows):
+            errors = [row["metrics"]["vegetation_mae_fraction"] for row in trial_rows]
+            eligible.append({"candidate_id": candidate["id"], "mean_mae_fraction": sum(errors) / len(errors), "max_case_mae_fraction": max(errors), "cases": len(errors)})
+    selected = min(eligible, key=lambda row: (row["mean_mae_fraction"], row["max_case_mae_fraction"], row["candidate_id"])) if eligible else None
+    report = {
+        "schema_version": "known-landscape-synthetic-development-report.v1",
+        "status": "synthetic_development_complete" if selected else "no_complete_candidate",
+        "policy_sha256": policy_sha,
+        "oracle_report_sha256": oracle.sha256,
+        "source_commit": "d915d1709d3c8fca4680f70958452860d578d5d1",
+        "backend": backend,
+        "attempted_trials": len(details),
+        "completed_trials": sum(row["status"] == "completed" for row in details),
+        "refused_trials": sum(row["status"] == "refused" for row in details),
+        "failed_trials": sum(row["status"] == "failed" for row in details),
+        "eligible_candidates": sorted(eligible, key=lambda row: (row["mean_mae_fraction"], row["max_case_mae_fraction"], row["candidate_id"])),
+        "selected": selected,
+        "trials": details,
+        "claims": {"train_only_synthetic_selection": selected is not None, "real_nordic_vegetation_accuracy": False, "held_out_pollen_prediction": False, "final_test_access": False, "independent_empirical_truth": False, "calibrated_uncertainty": False, "scientific_approval": False},
+        "limitation": "The independent oracle uses area/(distance+radius)^2 times PPE and fall speed, unlike the installed REVEALS kernel; tuning may compensate for this mismatch and cannot establish ecological superiority.",
+    }
+    _json(output / "report.json", report)
+    print(json.dumps({"status": report["status"], "selected": selected}, sort_keys=True), flush=True)
+    return 0 if selected else 1
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
