@@ -3,6 +3,9 @@
 The [observation attribute trace](observation-attributes/README.md) follows one
 pinned raw datum through its normalized convenience fields and native parent
 IDs. It records source nulls and the absent denominator explicitly.
+The [compact sample summary derivation](compact-summary/README.md) checks a
+displayed site count against pinned relational samples and retains a reverse
+trace to one observation.
 
 The [Nordic lake-parameter review](lakeparameters/README.md) retains the exact
 five public source matches, the 54-site candidate denominator and a replay
