@@ -17,9 +17,9 @@ and land outside agriculture is not automatically forest.
 
 ## Local storage and preparation
 
-Our [HYDE source account](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/hyde-cropland-source-account.md)
-states which country totals and native cells we checked, the exact input
-identities, and why release rights, CRS and calendar questions still limit use.
+Our [Nordic cropland account](../../../report/regions/nordic/hyde-country-cropland/README.md)
+states which source totals and native cells we checked and why release rights,
+CRS and calendar questions still limit use.
 The three-scenario integration check reads the qualified private source windows
 and declaration files by their pinned hashes. Its source-index result does not
 admit a country grid or validate vegetation.
