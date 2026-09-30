@@ -1985,6 +1985,11 @@
       "sha256": "5714d8e7c2b59a23554d5219f92d542f0debd3dd9165e8ea4bac69f677e75cc6"
     },
     {
+      "path": "packages/bijux-pollenomics-dev/tests/essd_reproduction/test_one_site.py",
+      "sha256": "c05b41d783b637a8541a1451dc72e7271f4b0bec81abdb65590ed4fdf845e669",
+      "bytes": 11591
+    },
+    {
       "path": "packages/bijux-pollenomics-dev/tests/essd_reproduction/test_pft_uncertainty_bounds.py",
       "sha256": "242cf6ab5b11016d511b9075d7a771f495aaa8562df11ad071a84bc884ecc630",
       "bytes": 1646
@@ -2146,8 +2151,8 @@
     },
     {
       "path": "reports/science/publication-correspondence/author-example-site-replay.md",
-      "sha256": "300e0aa7afe90e42cf06ed2d4d7d6da88c5ced56438c0e31fcda714cdc8e0acd",
-      "bytes": 6336
+      "sha256": "6472d5b3b1d10d6d183972a6592c7386a7fb74c97b37a4ccde76436b5eebebe1",
+      "bytes": 7405
     },
     {
       "path": "reports/science/publication-correspondence/pft-crosswalk/README.md",

@@ -94,6 +94,29 @@ the residuals above compare the released author R function with the installed
 native calculation only. They do not compare either one with a published
 site-level estimate.
 
+## Recheck the source-to-estimate link
+
+Our [one-site integration test](../../../packages/bijux-pollenomics-dev/tests/essd_reproduction/test_one_site.py)
+authenticates the private WHH05 source slice, joins its grid/site/window
+identity to the 62 governed mean/SE rows, and checks the independent
+execution receipt. Supply the intact external author-reference capsule:
+
+```sh
+mkdir -p artifacts/jobs/landclim-site-check
+BIJUX_LANDCLIM_AUTHOR_REFERENCE=/path/to/author-reference \
+  PYTHONDONTWRITEBYTECODE=1 \
+  PYTHONPATH=packages/bijux-pollenomics-dev/src \
+  .venv/bin/pytest -q \
+  -o cache_dir=artifacts/jobs/landclim-site-check/cache \
+  --basetemp=artifacts/jobs/landclim-site-check/tmp \
+  packages/bijux-pollenomics-dev/tests/essd_reproduction/test_one_site.py
+```
+
+Without that private source variable, the ten source-dependent checks skip
+explicitly. The test consumes the retained R/native result; the separate
+[execution report](../../../docs/report/publication-replay/landclim-example-reexecution/README.md)
+documents how to run those calculations again.
+
 ## What remains open
 
 The released raw-to-prepared replay matched all 17 author example files and
