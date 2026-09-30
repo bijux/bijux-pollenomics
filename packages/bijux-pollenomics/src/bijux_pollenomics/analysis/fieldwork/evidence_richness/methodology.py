@@ -58,15 +58,26 @@ def _build_methodology(
     raa_authority: dict[str, object] | None = None,
 ) -> dict[str, object]:
     raa_admitted = raa_authority is not None and raa_authority.get("admitted") is True
-    if candidate_source == "svar_registry_authority_unavailable":
+    if candidate_source in {
+        "svar_registry_authority_unavailable",
+        "svar_registry_invalid",
+    }:
+        registry_invalid = candidate_source == "svar_registry_invalid"
         payload: dict[str, object] = {
             "candidate_derivation": (
-                "No SVAR lake candidates were admitted because the derived review "
+                "No SVAR lake candidates were admitted because the governing "
+                "normalized registry is invalid."
+                if registry_invalid
+                else "No SVAR lake candidates were admitted because the derived review "
                 "subset exists without its governing normalized registry."
             ),
             "candidate_source": candidate_source,
             "availability_status": "blocked",
-            "refusal_reason": "governing_svar_registry_missing",
+            "refusal_reason": (
+                "governing_svar_registry_invalid"
+                if registry_invalid
+                else "governing_svar_registry_missing"
+            ),
             "governing_surface": ("data/svar/normalized/sweden_lake_registry.geojson"),
             "derived_subset_admitted": False,
             "distance_bands": list(radii_km),

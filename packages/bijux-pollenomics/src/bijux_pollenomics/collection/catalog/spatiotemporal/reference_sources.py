@@ -12,6 +12,7 @@ from ...sources.boundaries.collection import (
     NATURAL_EARTH_TERMS_URL,
     NATURAL_EARTH_VERSION,
 )
+from ...sources.svar.normalized_registry import normalized_registry_is_readable
 from .model import SourceSpatiotemporalPostureRecord
 from .records import _geojson_features, _load_json
 
@@ -20,9 +21,9 @@ __all__ = []
 
 def _build_svar_row(output_root: Path) -> SourceSpatiotemporalPostureRecord:
     registry_path = output_root / "svar" / "normalized" / "sweden_lake_registry.geojson"
-    payload = _load_json(registry_path)
+    authority_available = normalized_registry_is_readable(registry_path)
+    payload = _load_json(registry_path) if authority_available else {}
     feature_count = len(_geojson_features(payload))
-    authority_available = registry_path.is_file()
     return SourceSpatiotemporalPostureRecord(
         source_key="svar",
         display_name="SMHI SVAR lake registry",
@@ -50,7 +51,13 @@ def _build_svar_row(output_root: Path) -> SourceSpatiotemporalPostureRecord:
         ),
         availability_status="available" if authority_available else "refused",
         refusal_reasons=(
-            () if authority_available else ("missing_governing_normalized_registry",)
+            ()
+            if authority_available
+            else (
+                "invalid_governing_normalized_registry"
+                if registry_path.is_file()
+                else "missing_governing_normalized_registry",
+            )
         ),
         record_count=feature_count if authority_available else None,
         numeric_interval_record_count=0 if authority_available else None,
