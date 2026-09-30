@@ -46,6 +46,11 @@ row counts, stable ordering, country partitions and exact file membership. Its
 compact parent index does not retain the observation population. The atomic
 materializer uses the same reader before publishing its staging directory.
 
+The [current refresh review](../../../../data/neotoma/review/relational_refresh_review.md)
+compares the present pinned candidate with its governed baseline. It is a
+zero-difference fixed point at the same baseline identity; a changed candidate
+requires a new source-specific drift explanation and review before replacement.
+
 Unresolved chronology references remain explicit nulls; missing reference fields
 are refused. Source zeros remain unchanged, while corrected default conflict
 accounting is fully manifested.

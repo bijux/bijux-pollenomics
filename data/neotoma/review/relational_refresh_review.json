@@ -1,20 +1,20 @@
 {
-  "baseline_update_permitted": true,
-  "candidate_baseline_id": "sha256:a6bb53e8d86320e6ed21a25196fe0a78a6daabbdbb865e7b9fe4e286c9a5fac9",
-  "change_count": 0,
-  "changes": [],
-  "fixed_point": true,
-  "prior_baseline_id": "sha256:a6bb53e8d86320e6ed21a25196fe0a78a6daabbdbb865e7b9fe4e286c9a5fac9",
-  "refusal_reasons": [],
-  "review_posture": "no_refresh_drift",
   "schema_version": "neotoma-refresh-review.v1",
   "source_family": "neotoma",
   "status": "fixed_point",
+  "refusal_reasons": [],
+  "prior_baseline_id": "sha256:7952b1bea84002fee6428cb95442d98333f64a15b1e092419867c4669b816210",
+  "candidate_baseline_id": "sha256:7952b1bea84002fee6428cb95442d98333f64a15b1e092419867c4669b816210",
+  "change_count": 0,
   "unexplained_change_count": 0,
+  "fixed_point": true,
   "zero_diff_proof": {
-    "counts_equal": true,
     "identity_equal": true,
-    "input_artifacts_equal": true,
-    "schemas_equal": true
-  }
+    "schemas_equal": true,
+    "counts_equal": true,
+    "input_artifacts_equal": true
+  },
+  "baseline_update_permitted": true,
+  "review_posture": "no_refresh_drift",
+  "changes": []
 }
