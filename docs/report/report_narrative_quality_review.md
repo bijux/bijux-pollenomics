@@ -230,7 +230,7 @@ link farms or coded operator notes.
 | `docs/report/source-relations/neotoma/abbo-core-identity/REPORT.md` | `thin_structure` | 3 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/source-relations/neotoma/abbo-native-correspondence/README.md` | `thin_structure` | 6 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/source-relations/neotoma/abbo-profile/README.md` | `reader_ready` | 7 | 0 | 0 | 0 | 2 | Page explains its purpose before or alongside artifact links. |
-| `docs/report/source-relations/neotoma/abbo-published-method/README.md` | `thin_structure` | 8 | 0 | 0 | 6 | 1 | Page explains itself but still needs stronger internal wayfinding. |
+| `docs/report/source-relations/neotoma/abbo-published-method/README.md` | `thin_structure` | 1 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/source-relations/neotoma/author-parameter-binding/README.md` | `thin_structure` | 3 | 0 | 0 | 7 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/source-relations/neotoma/author-taxonomy-candidates/README.md` | `reader_ready` | 7 | 0 | 0 | 9 | 2 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/source-relations/neotoma/author-taxonomy-mass/README.md` | `thin_structure` | 7 | 0 | 0 | 5 | 1 | Page explains itself but still needs stronger internal wayfinding. |
