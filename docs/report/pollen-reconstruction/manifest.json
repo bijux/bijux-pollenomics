@@ -886,8 +886,8 @@
     },
     {
       "path": "docs/report/publication-replay/landclim-published-window-uncertainty/README.md",
-      "sha256": "6575604b315c4f84c23ca2043ea81d73b78aee704d421e0204ceafb3cffd6530",
-      "bytes": 1462
+      "sha256": "7e87ebf3a035cab1a674098749b7689fd1088a24f6af47cede6c1d1a78e31f55",
+      "bytes": 1581
     },
     {
       "path": "docs/report/publication-replay/landclim-published-window-uncertainty/REPORT.md",
@@ -1906,8 +1906,8 @@
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/published_window_uncertainty.py",
-      "sha256": "4a0746780b06118a274ac57c28b8e0614e27b7ed4989b3e52719bb67965bcfa2",
-      "bytes": 7641
+      "sha256": "d5f13d5b8533e18a9a4b3cad06f1c0df9b312455e2f62736a4485f5a946006d4",
+      "bytes": 7662
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/reconcile.py",
@@ -2106,8 +2106,8 @@
     },
     {
       "path": "reports/architecture/ownership.md",
-      "sha256": "dfe36a6c4f3626bec001863320e35d0498cf0db60dc0b89fb60cb2d01c943d34",
-      "bytes": 14254
+      "sha256": "10565e87fa3fac401685e77a75e1ad09e5c7cb59da1b872b77643960e9f3f68a",
+      "bytes": 14977
     },
     {
       "path": "reports/evidence-index.md",
@@ -2171,8 +2171,8 @@
     },
     {
       "path": "reports/science/hyde-cropland-source-account.md",
-      "sha256": "9934deeb42c4e01818d21665eb50a8fd73437de972c1f84ee052bf9749456d04",
-      "bytes": 3171
+      "sha256": "0328d78b47a86915bab068aceb2f179eec362148da93a829605beb1f41b28c9e",
+      "bytes": 5638
     },
     {
       "path": "reports/science/method-correspondence.md",
@@ -2196,8 +2196,8 @@
     },
     {
       "path": "reports/science/publication-correspondence.md",
-      "sha256": "d023a216734a8ccad336476ac54722def73e56038f76e7e69d06a91f96ff98b4",
-      "bytes": 12151
+      "sha256": "acd5edd86a422c499e43301ab31d0142222c321532457fbb5eff3f11b91093bc",
+      "bytes": 12273
     },
     {
       "path": "reports/science/publication-correspondence/author-example-reexecution.md",

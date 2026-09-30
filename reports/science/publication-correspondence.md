@@ -54,7 +54,8 @@ PANGAEA windows; TW1 starts at -65 BP in the author axis and 0 BP in the
 published label. We restricted direct numerical archive comparison to TW2
 and did not shift the other rows retrospectively to make them appear matched.
 
-We found overlap between all 31 taxon mean ± one-SE envelopes in each grid.
+Our [62-row envelope ledger](../../docs/report/publication-replay/landclim-published-window-uncertainty/taxon-envelopes.csv)
+found overlap between all 31 taxon mean ± one-SE envelopes in each grid.
 We use that only to describe two reported uncertainty scales. Dependence
 between versions and raw-input identity are unknown, so we do not call the
 overlap a significance test.

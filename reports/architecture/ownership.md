@@ -198,3 +198,13 @@ and producer manifest at their governed path. The old page now directs a
 reader to the research decision. This keeps the archive discrepancy
 discoverable without claiming the two source versions share historical
 input rows.
+
+We replayed the adjacent 62-row mean/standard-error envelope producer from
+its exact governed correspondence inputs. Its JSON summary and Markdown
+report matched their retained files byte for byte; the parsed CSV rows also
+matched, but the producer used CRLF where the governed CSV used LF. We made
+the producer write LF and checked all three outputs byte for byte against
+the retained [uncertainty result](../../docs/report/publication-replay/landclim-published-window-uncertainty/README.md).
+The historical manifest still describes the earlier producer source; this
+current replay proves the present output bytes for this one owner. It does
+not close the other separately governed outputs or the full-tree no-diff gate.
