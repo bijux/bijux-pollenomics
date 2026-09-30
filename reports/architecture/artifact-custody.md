@@ -1,5 +1,19 @@
 # Our artifact custody decisions
 
+## Optimizer budget challenge
+
+We retained both executed 135-case budget-accounting challenges, their two
+source snapshots per run and their scripts as one eight-file private archive.
+Its SHA-256 is
+`87efe799f8a4a336d0ffbd212ef0417abca82c3cb112bda53b4a004ac6595672`;
+the [receipt](artifact-custody/optimizer-budget-reporting.json) binds 98,778
+source bytes and each original path. We reopened every archive member and
+matched it to its original before retiring only the inactive challenge prefix.
+The [method account](../science/method-correspondence.md#optimizer-budget-accounting)
+records the 54 changed generation counts and the preserved evaluation/RNG
+traces. Both runs compare historical Python snapshots; neither establishes
+current-source or original-R optimizer parity.
+
 ## Independent LandClim metadata challenge
 
 We retained both published-estimate challenge prefixes under `artifacts/v2/essd/`

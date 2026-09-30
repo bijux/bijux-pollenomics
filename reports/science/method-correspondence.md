@@ -17,6 +17,21 @@ sample rows and 15,028 matching prepared cells in the
 [raw-to-prepared replay](../../docs/report/source-relations/landclim/author-example-taxon-support/README.md).
 We have not authenticated the historical Nordic publication revisions.
 
+## Optimizer budget accounting
+
+We independently challenged an earlier differential-evolution solver against
+its corrected successor on 135 combinations of dimension, fixed bounds,
+population size and evaluation budget. In both executed runs, 54 cases changed
+the reported completed-generation count; 81 did not. Every case retained the
+same objective-evaluation trace, random-generator state and other result fields.
+The [exact historical packet and source hashes](../architecture/artifact-custody/optimizer-budget-reporting.json)
+are retained privately. The corrected snapshots in that packet precede today's
+solver, so this is evidence for the historical accounting change, not a fresh
+135-case certification of current code. Our [current focused regression](../../packages/bijux-pollenomics-lra/tests/unit/optimization/test_solver.py)
+checks completed generations and exact evaluations at four budgets. Generation
+accounting alone says nothing about the quality of a vegetation optimum or
+agreement with the original R optimizer.
+
 We also [replayed analytical LOVE across ten example rings](analytical-love-ring-sensitivity/README.md).
 Only three satisfy the source's local-basin boundary; 16 of their 30
 taxon/ring estimates are negative and six exceed one. We retained those
