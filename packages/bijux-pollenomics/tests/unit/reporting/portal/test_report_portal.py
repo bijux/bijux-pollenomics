@@ -81,6 +81,15 @@ class ReportPortalUnitTests(unittest.TestCase):
             )
 
             rows_by_path = {row["repository_path"]: row for row in registry["rows"]}
+            registry_page = (report_root / "report_surface_registry.md").read_text(
+                encoding="utf-8"
+            )
+            self.assertIn(
+                "[machine-readable registry](report_surface_registry.json)",
+                registry_page,
+            )
+            self.assertIn("[Map surfaces](maps/index.md)", registry_page)
+            self.assertNotIn("docs/report/world/world_map.html", registry_page)
             self.assertEqual(
                 rows_by_path["docs/report/world/README.md"]["family"], "scopes"
             )
