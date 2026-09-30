@@ -222,3 +222,18 @@ byte for byte, SHA-256
 This establishes a current owner for that one numerical source-support file.
 It does not make the article's unpublished vegetation fractions available or
 turn the 1,151-file clean-build gap into a pass.
+
+We checked the other two vegetation-reference owners from their pinned private
+sources as well. The [Färskesjön plot producer](../../docs/report/vegetation-reference/farskesjon/plot_support.py)
+reproduced its [refusal and measured-plot report](../../docs/report/vegetation-reference/farskesjon/report.json)
+byte for byte, SHA-256
+`c2a21045859c27672a310fc1faf6b6651ee8320320c56764ccecc5639540b855`.
+The [published-figure producer](../../docs/report/vegetation-reference/southern-sweden-figure/compare.py)
+reproduced both the [nine-label CSV](../../docs/report/vegetation-reference/southern-sweden-figure/printed-labels.csv)
+and [machine comparison](../../docs/report/vegetation-reference/southern-sweden-figure/report.json)
+byte for byte, SHA-256
+`e7e6f04e4711690421ca4c84af9e1237cbdb3b95554d63a6d81e2a61ff2a3f54`
+and `7205071dc7bd4b7bdf99c77788583bfbb1ab8699546c9f5acd3e6566da4e7e57`.
+These four files now have checked current producers. Their distinct evidence
+limits and the zero-pair decision remain as stated in our
+[vegetation-reference account](../science/vegetation-reference.md).
