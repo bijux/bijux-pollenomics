@@ -135,3 +135,19 @@ binds archive SHA-256
 No live process or open handle used either prefix. We retired those exact
 directories and removed the now-empty `known-landscape/` parent; this does
 not apply to any other `artifacts/v3/` material.
+
+## EMPD2–NFI check plans
+
+We separately retired `artifacts/v3/science-empd2-nfi-5a0ec4ea/` and
+`artifacts/v3/science-empd2-nfi-frozen-5a0ec4ea/`. After the earlier removal
+of their cache directories, these prefixes contained only ten check plans,
+16,966 bytes in total, and no terminal results. They named focused pytest,
+Ruff, formatting, typing, real-source and schema checks. We did not convert
+plans into passing checks or alter the governed
+[zero-pair scientific decision](../../docs/report/validation/empd2-nfi-pairing/README.md).
+The exact plan bytes are in private custody, bound by
+[this receipt](artifact-custody/empd2-nfi-plans.json) and archive SHA-256
+`84c8c80e45d7e53962a355ea9847d15f1659cc7411f4783a894f558c98c8fe34`.
+All ten members matched their original bytes. No symlink, hardlink, live
+consumer or open handle was found for either selected prefix. Other v2 job
+receipts and v3 source artifacts were outside this retirement.
