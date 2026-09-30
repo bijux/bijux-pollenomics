@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import re
 from pathlib import Path
 from typing import Any
 
@@ -31,6 +32,26 @@ def build_source_audit(root: Path) -> dict[str, Any]:
     stages = indexed_rows(authorities["stages"], "source_key")
     postures = indexed_rows(authorities["postures"], "source_key")
     ownership = indexed_rows(authorities["ownership"], "fact_key")
+    for fact_key, fact in ownership.items():
+        paths = (fact["governing_surface_path"], *fact["supporting_surface_paths"])
+        for path in paths:
+            if "<" in path:
+                pattern = re.sub(r"<[^/<>]+>", "*", path)
+                reader.resolve(pattern)
+                if not any(candidate.is_file() for candidate in reader.root.glob(pattern)):
+                    reader.issue(
+                        "source_fact_ownership_pattern_unresolved",
+                        path,
+                        fact_key=fact_key,
+                    )
+                continue
+            resolved = reader.resolve(path)
+            if resolved.is_dir():
+                continue
+            if reader.read_bytes(path) is None:
+                reader.issue(
+                    "source_fact_ownership_path_missing", path, fact_key=fact_key
+                )
     if set(families) != set(stages):
         reader.issue(
             "source_registry_identity_mismatch",

@@ -135,7 +135,7 @@ def build_source_fact_ownership_payload() -> dict[str, object]:
             evidence_scope="sample",
             governing_surface_path="data/adna/governance/source_library/projects/<project_accession>/sample_locality_evidence.json",
             supporting_surface_paths=(
-                "data/adna/governance/source_library/locality_worksheet.json",
+                "data/adna/governance/source_library/projects/<project_accession>/locality_worksheet.json",
                 "data/adna/governance/source_library/sample_locality_conflict_ledger.json",
                 "data/adna/species/<latin_name>/normalized/locality_summaries.json",
             ),
@@ -180,7 +180,7 @@ def build_source_fact_ownership_payload() -> dict[str, object]:
             evidence_scope="region",
             governing_surface_path="data/adna/final/atlas/animal_atlas_point_candidates.json",
             supporting_surface_paths=(
-                "docs/report/animal_output_honesty_review.json",
+                "docs/report/animal_output_honesty.json",
                 "docs/report/world/world_animal_localities.geojson",
             ),
             reason="Atlas candidate rows govern region-level publication inputs before public map bundles reinterpret them.",
