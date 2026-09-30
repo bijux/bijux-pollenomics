@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import json
 from pathlib import Path
 import tempfile
 import unittest
@@ -17,7 +18,7 @@ pytestmark = pytest.mark.generated_artifacts
 
 
 class CountryReportTests(unittest.TestCase):
-    def test_generate_published_reports_refuses_mixed_ownership_tree(self) -> None:
+    def test_generate_published_reports_preserves_mixed_ownership_tree(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp) / "v62.0"
             output = Path(tmp) / "docs" / "report"
@@ -31,21 +32,31 @@ class CountryReportTests(unittest.TestCase):
                 ],
             )
 
-            with self.assertRaisesRegex(
-                ValueError,
-                "cannot replace a report tree containing separately governed outputs",
-            ):
-                generate_published_reports(
-                    version_dir=root,
-                    countries=["Sweden"],
-                    output_root=output,
-                    title="Nordic Evidence Atlas",
-                    slug="nordic-atlas",
-                )
+            generate_published_reports(
+                version_dir=root,
+                countries=["Sweden"],
+                output_root=output,
+                title="Nordic Evidence Atlas",
+                slug="nordic-atlas",
+            )
 
             self.assertEqual(
                 governed.read_text(encoding="utf-8"),
                 '{"owner": "scientific-report"}',
+            )
+            self.assertTrue((output / "published_reports_summary.json").is_file())
+            self.assertIn(
+                "pollen-reconstruction/manifest.json",
+                (output / "report_surface_registry.json").read_text(encoding="utf-8"),
+            )
+            sustainability = json.loads(
+                (output / "repository_output_sustainability_review.json").read_text(
+                    encoding="utf-8"
+                )
+            )
+            self.assertEqual(
+                sustainability["balance_counts"]["report_file_count"],
+                sum(path.is_file() for path in output.rglob("*")),
             )
             self.assertFalse((output.parent / ".report.staging").exists())
 

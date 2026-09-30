@@ -125,16 +125,22 @@ whole-tree reproducibility or authorize replacing separately governed files.
 
 We inspected the publication path as well: `make reports` calls
 `publish-reports` on tracked `docs/report/`, and its staging helper swaps the
-new tree into place. With the current producer scope, that operation would
-remove the 1,151 files it does not generate. We therefore did not run that
-target on the tracked report root. We added a preflight to the full report
-publisher: it refuses to replace a tree containing the scientific manifest,
-method-certification reference or Neotoma source-relation marker. The tracked
-root has those markers, so the command now fails before staging or deleting
-its separately governed outputs. Isolated complete publisher trees still use
-the atomic replacement path. The ownership repair must make publication
-preserve each separately governed report domain before the tracked target can
-successfully refresh.
+new tree into place. Its former complete-tree swap would have removed the
+1,151 files it does not generate. We changed the mixed-tree path to assemble
+the publisher output first, retain files absent from that output, recompute
+the sustainability count and portal over the complete staged tree, then swap
+it atomically. A symlink or file-directory collision refuses the swap. The
+ordinary isolated complete-tree path still drops stale publisher directories.
+
+We ran `make reports` on the tracked root after a small mixed-tree test. It
+finished with **1,860 files**, including the scientific manifest,
+method-certification reference and Neotoma source relation, with no deleted
+paths. Thirty-two tracked changes were generated-date updates only; we kept
+their prior dates rather than commit a date-only refresh. The substantive
+remaining change corrects the sustainability review's report-file count from
+1,803 to 1,860. This proves preservation for the current tree. It does not
+prove that the 1,151 retained files can be regenerated from their separate
+producers; the clean full-tree no-diff gate remains open.
 
 We decided to define producer ownership before changing the
 [`rebuild policy`](../../configs/ci/reproducible-report-build.json) or
