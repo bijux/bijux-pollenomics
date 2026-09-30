@@ -1,6 +1,8 @@
 # What we reproduced from the numerical method
 
-We checked bounded numerical contracts against retained author source cases
+We [bound the released author profile](publication-correspondence/author-method-profile.md)
+to its 17 example sites, 31-taxon PPE/covariance axis and 25 bins. We
+checked bounded numerical contracts against retained author source cases
 in our [original-R certification](../../docs/report/method-certification/original-r-reference/README.md).
 We then compared the installed Python publication profile with an
 independently executed author-R example in the

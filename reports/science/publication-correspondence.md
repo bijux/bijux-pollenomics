@@ -9,6 +9,11 @@ meaning and historical input membership open below.
 
 ## Numerical result
 
+We [bound the author method and example inputs](publication-correspondence/author-method-profile.md)
+to a named source-specific publication profile, including its PPE axis,
+site geometry, bins and missing-support differences. That profile does not
+admit a historical Nordic core by itself.
+
 We [reexecuted both released author grids](publication-correspondence/author-example-reexecution.md)
 with the original R function and current native REVEALS implementation. We
 compared the installed Python publication profile with the independent

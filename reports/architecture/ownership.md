@@ -184,3 +184,10 @@ The existing machine receipt retains its governed path and exact execution
 identity; its earlier website page now directs readers to the single research
 account. We did not rerun the numerical calculation solely for this report
 move or treat the two released grids as the historical 1,128-record study.
+We used the same boundary for the adjacent
+[author method and input profile](../science/publication-correspondence/author-method-profile.md):
+the human decision and source limitations are rooted here, while its
+crosswalk, input ledger, machine report and hashed comparison receipts remain
+at their governed producer path. Its source-backed replay also exposed an
+older author-custody hash in the machine report; we refreshed that identity
+without changing the crosswalk or example input rows.
