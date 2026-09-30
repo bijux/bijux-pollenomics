@@ -1,28 +1,31 @@
-# Our disposition of the ESSD reconciliation review
+# How we bound the LandClim reconciliation
 
-An independent review of historical candidate commit
-`71ca540185188cbc5b744b676d3c6762a1a603d8` accepted only its bounded
-two-grid author-example result. The [exact review result](result.json) also
-found that the candidate archive reader could accept unbounded or nonregular
-members and that its two-grid parity label did not require the full 9/8 site
-identities and passing predicates. These were defects in a historical intake
-candidate, not evidence that the pinned 512/562 numerical values differed.
+We use the released 9-site and 8-site author grids as a numerical example,
+not as the full 1,128-record historical study. The retained two-grid values
+support a bounded calculation correspondence. They cannot establish original
+input identity, rights, independent vegetation accuracy or ecological skill.
 
-We checked the current
+We require the current
 [reconciliation producer](../../../../packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/reconcile.py)
-and its [focused tests](../../../../packages/bijux-pollenomics-dev/tests/essd_reproduction/test_reconcile.py).
-The producer now limits archive and member bytes, count, expansion and ratio
-before reading members, and rejects encrypted or nonregular entries. It
-requires exactly two grid objects with the expected IDs, 9/8 named sites,
-25 bins, 31 taxa, matching site counts and passing grid, regional and site
-checks before emitting the bounded parity status. A separate test rejects an
-unknown grouped output header instead of classifying it as a PFT. The three
-selected tests passed on the current code. The exact review result above
-records the historical defects; the current producer and tests own their
-resolution.
+to reject oversized, encrypted, nonregular, duplicate and unsupported archive
+members before decompression. Its acceptance gate requires exactly grids 512
+and 562, 9 and 8 named sites, 25 bins, 31 taxa, matching site counts and
+passing grid, regional and site comparisons. An unknown grouped output header
+is refused rather than silently counted as a PFT. The
+[focused regressions](../../../../packages/bijux-pollenomics-dev/tests/essd_reproduction/test_reconcile.py)
+exercise those boundaries.
 
-The historical `0 / 1,128` statement remains a declared evidence-closure
-absence, not a computed exhaustive sample audit. It cannot authenticate the
-archive's original pollen, chronology, rights or PFT transformation. The
-[publication account](../landclim-metadata-challenge/README.md) and
-[open research needs](../../../needed/README.md) retain those gaps.
+The paper's 12 PFTs, deposit description's 11 and archived output's 13
+positions still lack one authenticated transformation; `ISTS` remains
+unassigned. We bound the two provider descriptions by exact page hashes in
+the [source manifest](../../../../data/landclim/review/provider-description-sources.json)
+and keep the row-level question in our
+[publication account](../pft-crosswalk/README.md).
+
+The historical `0 / 1,128` statement means zero original records were
+authenticated within the declared evidence closure. It is not an exhaustive
+repository-wide absence proof. The current
+[study-input inventory](../../../../docs/report/publication-replay/landclim-study-inputs/README.md)
+and [open research needs](../../../needed/README.md) state the missing
+historical counts, chronologies, revisions and use rights. We do not promote
+the two-grid result to a whole-paper reproduction.
