@@ -2,6 +2,19 @@
 
 ## Retained joint-report preparation
 
+We separately retained the earlier candidate implementation and CLI draft from
+`artifacts/v2/joint-report/` and `artifacts/v2/joint-report-cli/`. Their 16 files
+include four private report-module candidates, nine CLI/docs/test edits, two
+ownership records and one design note. The bytes differ from today's source;
+we did not discard them on a file-name match. The private archive has 88,301
+source bytes and SHA-256
+`105da05d48bf8416f655659f24d1ab1fc87c1ade044081ba8a85c0476ce4db23`.
+Our [candidate receipt](artifact-custody/joint-report-candidates.json) binds
+each original path and digest. We reopened every member against its original
+before retiring those two selected workspaces. Current joint-report and CLI
+tests, including the native two-bin case below, verify the adopted code; the
+candidate draft supplies historical design evidence, not a current pass.
+
 We retained the four files in the historical
 `artifacts/v2/joint-report-independent/` workspace as a private, exact-byte
 [archive](artifact-custody/joint-report-preparation.json). They contain an

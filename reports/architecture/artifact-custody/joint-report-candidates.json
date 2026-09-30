@@ -1,0 +1,78 @@
+{
+  "archive": "/Users/bijan/bijux/bijux-pollenomics-data/reference-sources/joint-report-candidates/retained-candidates.tar",
+  "archive_sha256": "105da05d48bf8416f655659f24d1ab1fc87c1ade044081ba8a85c0476ce4db23",
+  "files": {
+    "artifacts/v2/joint-report-cli/authored/docs/public/pollenomics/architecture/lra-engine.md": {
+      "bytes": 37149,
+      "sha256": "46a7075e8ff8a3576c9593beb151934be494a5c70218fee62f2c55efb9634b05"
+    },
+    "artifacts/v2/joint-report-cli/authored/packages/bijux-pollenomics/src/bijux_pollenomics/command_line/parsing/subcommands/__init__.py": {
+      "bytes": 5573,
+      "sha256": "fdda40996ec82736acd55b4ed8ed771a6785d02a7dd240ff0e8523960ec8184c"
+    },
+    "artifacts/v2/joint-report-cli/authored/packages/bijux-pollenomics/src/bijux_pollenomics/command_line/parsing/subcommands/lra.py": {
+      "bytes": 5725,
+      "sha256": "6fb47c2b0d742734cf33838671ddaa182dc1f5a9ab7e700d3c7ee2f7ca45db99"
+    },
+    "artifacts/v2/joint-report-cli/authored/packages/bijux-pollenomics/src/bijux_pollenomics/command_line/runtime/lra.py": {
+      "bytes": 7155,
+      "sha256": "2bb32d9f63c8e2364b0bd6f7000055b8a4ea175de766946e856b69bb4259d771"
+    },
+    "artifacts/v2/joint-report-cli/authored/packages/bijux-pollenomics/src/bijux_pollenomics/command_line/runtime/registry.py": {
+      "bytes": 3493,
+      "sha256": "e8cc2f7535c7361afd487d29a3a0d4d8f7d95c521ba5edd54ff6bef9af44ab56"
+    },
+    "artifacts/v2/joint-report-cli/authored/packages/bijux-pollenomics/src/bijux_pollenomics/reporting/lra_products/api.py": {
+      "bytes": 447,
+      "sha256": "866f04a0c66ba265a3e418bcee457bcc6d686a1d8c4ca602a0b8ed6da3fd4308"
+    },
+    "artifacts/v2/joint-report-cli/authored/packages/bijux-pollenomics/tests/unit/command_line/command_line/test_joint_report_commands.py": {
+      "bytes": 1911,
+      "sha256": "dd7aa604ad31e93c2f6e55edc8fd46dc93355f871e9cf8cbfc38a5ed7c82a511"
+    },
+    "artifacts/v2/joint-report-cli/authored/packages/bijux-pollenomics/tests/unit/command_line/parsing/subcommands/test_compatibility.py": {
+      "bytes": 5464,
+      "sha256": "5bae1b480f6b52de044b73dae2cf55b91b8beac4b548d2e25a58f471cb01e5a1"
+    },
+    "artifacts/v2/joint-report-cli/authored/packages/bijux-pollenomics/tests/unit/command_line/parsing/subcommands/test_parser_contract.py": {
+      "bytes": 4574,
+      "sha256": "1eac52ddeacd6e1087a9f4a1ff5a45a8836705a3d4c6392e87171d611ca40aeb"
+    },
+    "artifacts/v2/joint-report-cli/ownership.json": {
+      "bytes": 1862,
+      "sha256": "97ba7e6257e53e17fba9240542c0022f4f7b1a31b655889e67a0e6c36c5e809d"
+    },
+    "artifacts/v2/joint-report/DESIGN.md": {
+      "bytes": 6875,
+      "sha256": "c95eb33a569ede6a992057bddf5c33687e43b41284624de45e2e522332cc4b6b"
+    },
+    "artifacts/v2/joint-report/candidate/packages/bijux-pollenomics/src/bijux_pollenomics/reporting/lra_products/joint/__init__.py": {
+      "bytes": 82,
+      "sha256": "d2540ad2ce74681d7285f6d2d545822f76f49f8a73c4ed0fb7a0ad6a0f8833de"
+    },
+    "artifacts/v2/joint-report/candidate/packages/bijux-pollenomics/src/bijux_pollenomics/reporting/lra_products/joint/api.py": {
+      "bytes": 232,
+      "sha256": "2f662af3038e2e0e48a1e2766fd22a5251be9a479aa591e0cb03fd203d30c005"
+    },
+    "artifacts/v2/joint-report/candidate/packages/bijux-pollenomics/src/bijux_pollenomics/reporting/lra_products/joint/contracts.py": {
+      "bytes": 2293,
+      "sha256": "9ff63451cc01dc919e22cc503d00ea9f06499b5d291a93e48b65d3cd472d6f66"
+    },
+    "artifacts/v2/joint-report/candidate/packages/bijux-pollenomics/src/bijux_pollenomics/reporting/lra_products/joint/projection.py": {
+      "bytes": 4003,
+      "sha256": "c7c9cb27bf3058dde0b6187efb337aa083b493ff4c256ed2eec4526f933259ed"
+    },
+    "artifacts/v2/joint-report/ownership.json": {
+      "bytes": 1463,
+      "sha256": "589a27438b5c923e6729f4a73d447edc2489573b519a295606a8db679b96d98e"
+    }
+  },
+  "source_bytes": 88301,
+  "source_file_count": 16,
+  "source_prefixes": [
+    "artifacts/v2/joint-report",
+    "artifacts/v2/joint-report-cli"
+  ],
+  "status": "historical candidate source and CLI preparation; no current test claim",
+  "verification": "all archive members reopened and matched original bytes and SHA-256"
+}
