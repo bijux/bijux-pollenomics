@@ -177,3 +177,20 @@ We [retired the duplicate author checkout](artifact-custody/landclim-author-acqu
 after matching all 51 author files to the private source capsule and retaining
 the original archive, commit response and acquisition receipt there. The
 source-specific account records its exact hashes, test consumer and limits.
+
+## HYDE source-authority working review
+
+We moved the inactive HYDE provider-authority review into the private source
+store before retiring its single-file `artifacts/v3/` directory. The original
+and private copy each contained 9,510 bytes and matched SHA-256
+`d1bf836fbf416eadae15309674ff55ffb01da07318c0878d5ae5e76575250d08`.
+The [custody receipt](artifact-custody/hyde-provider-authority.json) binds
+both paths. The file had no symlink, hardlink, open handle or live reader at
+retirement, and no product link depended on the artifact path.
+
+Our current [HYDE source decision](../science/hyde-cropland-source-account.md)
+now owns the useful release, rights, grid and calendar findings. The historical
+private review remains available to trace the earlier source-authority
+comparison; it is not a current provider license or admission decision. We
+retired only that one HYDE artifact directory and left the other source and
+run prefixes untouched.

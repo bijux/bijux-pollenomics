@@ -1,0 +1,14 @@
+{
+  "schema_version": "hyde-provider-authority-custody.v1",
+  "retired_prefix": "artifacts/v3/hyde/provider-authority-20260921",
+  "original_file": "artifacts/v3/hyde/provider-authority-20260921/REVIEW.md",
+  "private_copy": "hyde/provider-descriptions/authority-review.md",
+  "file_bytes": 9510,
+  "sha256": "d1bf836fbf416eadae15309674ff55ffb01da07318c0878d5ae5e76575250d08",
+  "regular_file_count": 1,
+  "byte_exact_private_copy_verified": true,
+  "no_symlink_or_hardlink": true,
+  "no_open_handle_or_live_reader_at_retirement": true,
+  "current_scientific_decision": "reports/science/hyde-cropland-source-account.md",
+  "source_use_boundary": "Historical authority review retained privately; current report keeps exact local source claims and does not admit native grids, rights, CRS, chronology or ecological validation."
+}
