@@ -2141,8 +2141,13 @@
     },
     {
       "path": "reports/science/publication-correspondence.md",
-      "sha256": "9306687427124e57a0eb08d5d5126ee1d5d966a5f44b0ff63f8b4d350005b808",
-      "bytes": 10634
+      "sha256": "90ee3dcc353b80c638b06dc79df8fb7294c1be893c635ae56db64ca24db05e94",
+      "bytes": 11242
+    },
+    {
+      "path": "reports/science/publication-correspondence/author-example-site-replay.md",
+      "sha256": "300e0aa7afe90e42cf06ed2d4d7d6da88c5ced56438c0e31fcda714cdc8e0acd",
+      "bytes": 6336
     },
     {
       "path": "reports/science/publication-correspondence/pft-crosswalk/README.md",

@@ -16,6 +16,15 @@ retained examples. Maximum residuals are about 1.84e-13 for means and
 tolerances. The installed calculation therefore does not explain the larger
 archive differences on the directly matched TW2 window.
 
+We [traced WHH05 from its released raw sample to the 1500 BP author-example
+site estimate](publication-correspondence/author-example-site-replay.md): 301
+raw grains become 297 prepared grains after four explicit source exclusions.
+The 31 means and 31 standard errors agree between the independently executed
+author R and native calculation to at most `4.77e-15` and `8.90e-16` in that
+window. Across both example grids, 17 sites provide 184 supported site-windows
+out of 425 possible. This is a bounded calculation witness; the archive's
+historical site inputs and independent vegetation remain unresolved.
+
 On exact 100–350 BP support, we found maximum archived PANGAEA 937075
 mean differences from author-R of 9.19787 percentage points in grid 512
 and 10.5527 in grid 562. Standard-error gaps are 3.21615 and 4.25814
