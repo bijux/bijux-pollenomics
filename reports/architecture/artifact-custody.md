@@ -151,3 +151,22 @@ The exact plan bytes are in private custody, bound by
 All ten members matched their original bytes. No symlink, hardlink, live
 consumer or open handle was found for either selected prefix. Other v2 job
 receipts and v3 source artifacts were outside this retirement.
+
+## Historical SBOM checks
+
+We retired four inactive `artifacts/v3/tox-sbom-*` prefixes after checking
+their exact members and open handles. The diagnosis file explains an old
+all-extras environment audit failure. Two subsequent order probes exited 2
+without completing phases; the third exited 0 with the declared
+`clean/prod/dev/summary` order. These are historical process results, not
+current package security or SBOM validation. Later clean candidate SBOM
+factors have their own terminal receipts; we do not substitute these old
+checks for them.
+
+We placed all 14 regular files, 18,846 bytes, in private custody and compared
+every archive member byte for byte before removing the four exact artifact
+directories. The [custody receipt](artifact-custody/sbom-history.json) records
+every original path and SHA-256, the per-probe outcome, and archive SHA-256
+`1a6f7cb42872d68bcf6c897bfbf72f26e3b847e14969b916b5384482b49de63a`.
+No symlink, hardlink or open handle was found. The wider v3 tox, source and
+release trees were outside this decision.

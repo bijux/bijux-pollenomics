@@ -1,0 +1,36 @@
+{
+  "schema_version": "historical-sbom-check-custody.v1",
+  "archive_relative_to_private_store": "reproducibility/sbom-history/historical-checks.tar.gz",
+  "archive_sha256": "1a6f7cb42872d68bcf6c897bfbf72f26e3b847e14969b916b5384482b49de63a",
+  "file_count": 14,
+  "file_bytes": 18846,
+  "result_status": {
+    "aggregate001": "exit 2, no completed phases",
+    "aggregate002": "exit 2, no completed phases",
+    "aggregate003": "exit 0, clean/prod/dev/summary order passed",
+    "diagnosis001": "read-only historical diagnosis, not a current check"
+  },
+  "retired_prefixes": [
+    "artifacts/v3/tox-sbom-diagnosis001",
+    "artifacts/v3/tox-sbom-aggregate001",
+    "artifacts/v3/tox-sbom-aggregate002",
+    "artifacts/v3/tox-sbom-aggregate003"
+  ],
+  "source_files": {
+    "tox-sbom-aggregate001/check_order.py": "a17727bb2a95e75208e3675b9982920e2e88797035e0b4c6f51d300b399253e2",
+    "tox-sbom-aggregate001/fixture.mk": "2e5b216409cae25f438366842ab87e8ef33df049b56438da95af6c188846725f",
+    "tox-sbom-aggregate001/order.plan.json": "3a3eae759dbfc15ffc36c8cb617287635b783ca970abe51c27bff238f51266e8",
+    "tox-sbom-aggregate001/result.json": "be4b4685adc40f2d736ccbb8cae895cb7ecf60458f965d10ae3ffad836d888d3",
+    "tox-sbom-aggregate002/check_order.py": "19bd22ea677626c875488ba9e613284362f21bbdedc20414860a3d6bc4334c9f",
+    "tox-sbom-aggregate002/fixture.mk": "2e5b216409cae25f438366842ab87e8ef33df049b56438da95af6c188846725f",
+    "tox-sbom-aggregate002/order.plan.json": "4af1293ff64228f85eb7a992e402a9ef9502a3a491a81884a245e6e01e82f793",
+    "tox-sbom-aggregate002/result.json": "9b44c428516179c5f34d92b9be19fc0ff782debcab4d581053c7515708c27b0d",
+    "tox-sbom-aggregate003/check_order.py": "0c004cd474f48b5b2ece3a6b986c8c855f045b162ee1480711401a7a78fa9f4d",
+    "tox-sbom-aggregate003/fixture.mk": "2e5b216409cae25f438366842ab87e8ef33df049b56438da95af6c188846725f",
+    "tox-sbom-aggregate003/order.log": "260a40e1b540739d4333d691968f2a63d16fa4de550296f8e2567182e9d066f2",
+    "tox-sbom-aggregate003/order.plan.json": "a01b00ae595e7a35c74166a050fc4476603e714a5cbdbcbe7f2d205fcd748c0c",
+    "tox-sbom-aggregate003/result.json": "387165f430fd69a3fc02bfe0dd88995933baeeccd96c7fbd274b1d3fceef154f",
+    "tox-sbom-diagnosis001/REPORT.md": "3809c2eaad629ddb80ffb1a3450f1586ecea86476ee3ac41e9ea286ca92ccfc3"
+  },
+  "verified_all_member_bytes": true
+}
