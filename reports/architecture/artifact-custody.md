@@ -15,6 +15,18 @@ binds the two remaining process files in a private archive, SHA-256
 We checked the PDF and acquisition receipt against their private copies and
 reopened both archived process files before retiring this selected workspace.
 
+## WHH05 independent challenge preparation
+
+We retained the two-file `artifacts/v2/essd-whh05-one-site/` verifier proposal
+as a private archive, SHA-256
+`586206ccda541b091654bceb06481e5d0e28730bd52325c76c3d91822f511764`.
+The [receipt](artifact-custody/whh05-independent-challenge.json) binds 30,034
+source bytes. Its own status says prepared and unexecuted, so it supplies no
+new WHH05 result beyond the current
+[source-to-estimate report](../science/publication-correspondence/author-example-site-replay.md).
+We reopened both archive members against their original bytes before retiring
+only that selected preparation workspace.
+
 ## Retained joint-report preparation
 
 We separately retained the earlier candidate implementation and CLI draft from
