@@ -53,7 +53,7 @@ def _build_svar_row(output_root: Path) -> SourceSpatiotemporalPostureRecord:
             () if authority_available else ("missing_governing_normalized_registry",)
         ),
         record_count=feature_count if authority_available else None,
-        numeric_interval_record_count=0,
+        numeric_interval_record_count=0 if authority_available else None,
         detail_metrics={"lake_count": feature_count if authority_available else None},
         caveats=(
             (
@@ -103,7 +103,7 @@ def _build_boundaries_row(output_root: Path) -> SourceSpatiotemporalPostureRecor
             else ("missing_or_invalid_boundary_authority",)
         ),
         record_count=feature_count if authority_available else None,
-        numeric_interval_record_count=0,
+        numeric_interval_record_count=0 if authority_available else None,
         detail_metrics={
             "polygon_count": feature_count if authority_available else None
         },

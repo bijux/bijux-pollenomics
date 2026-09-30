@@ -116,7 +116,7 @@
         "missing_scientific_review"
       ],
       "record_count": null,
-      "numeric_interval_record_count": 0,
+      "numeric_interval_record_count": null,
       "detail_metrics": {
         "all_published_sites": null,
         "fornlamning_count": null
@@ -147,7 +147,7 @@
         "missing_governing_normalized_registry"
       ],
       "record_count": null,
-      "numeric_interval_record_count": 0,
+      "numeric_interval_record_count": null,
       "detail_metrics": {
         "lake_count": null
       },
@@ -208,7 +208,7 @@
         "hyde_35_native_release_admission_unimplemented"
       ],
       "record_count": null,
-      "numeric_interval_record_count": 0,
+      "numeric_interval_record_count": null,
       "detail_metrics": {
         "native_cell_count": null,
         "admitted_country_count": null

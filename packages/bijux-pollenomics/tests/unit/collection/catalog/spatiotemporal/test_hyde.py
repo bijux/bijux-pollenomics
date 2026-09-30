@@ -17,7 +17,7 @@ def test_pending_hyde_posture_preserves_unavailable_geography(tmp_path: Path) ->
     row = next(row for row in rows if row["source_key"] == "hyde")
     assert row["availability_status"] == "refused"
     assert row["record_count"] is None
-    assert row["numeric_interval_record_count"] == 0
+    assert row["numeric_interval_record_count"] is None
     assert row["detail_metrics"] == {
         "native_cell_count": None,
         "admitted_country_count": None,

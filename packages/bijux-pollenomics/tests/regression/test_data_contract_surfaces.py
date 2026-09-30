@@ -106,6 +106,9 @@ class DataContractSurfaceRegressionTests(unittest.TestCase):
             "calendar_comparable_system_context_without_compact_chronology",
         )
         self.assertEqual(rows["neotoma"]["numeric_interval_record_count"], 0)
+        self.assertIsNone(rows["raa"]["numeric_interval_record_count"])
+        self.assertIsNone(rows["svar"]["numeric_interval_record_count"])
+        self.assertIsNone(rows["hyde"]["numeric_interval_record_count"])
         self.assertEqual(
             rows["sead"]["temporal_support_posture"], "linked_chronology_captured"
         )
