@@ -44,10 +44,22 @@ neither NumPy nor the engine package; `load_engine()` returned the declared
 exposed `run-lra` in its help.
 
 These checks establish a local, built-wheel installation path on this
-platform. We have not tested every operating system, public-index availability,
-final release versions or the hosted release pipeline. The generated wheel and
+platform. We have not tested every operating system, final release versions or
+the hosted release pipeline. The generated wheel and
 run products were kept under `artifacts/jobs/lra-single-install/` during the
 check; the hashes above preserve the identity used for this decision.
+
+## Public index check on 30 September 2026
+
+We checked the official PyPI [host project](https://pypi.org/project/bijux-pollenomics/)
+and [engine project URL](https://pypi.org/project/bijux-pollenomics-lra/).
+The host JSON endpoint returned published version `0.1.8` with only a `dev`
+extra. Both the engine JSON endpoint and its simple-index endpoint returned
+HTTP 404. This is a dated availability observation: the local built-wheel
+proof does not yet give ordinary users a public PyPI route for
+`bijux-pollenomics[lra]`. We did not publish either distribution. The release
+candidate, source notices, installed help and rights review remain open gates
+before a public one-command install can be claimed.
 
 ## Why we did not merge the distributions
 
