@@ -10,21 +10,31 @@ excluded names, refused site-bins and frozen prediction identities. We keep
 the 31-target closed denominator separate from the earlier 16-label result.
 Neither study admits its samples to LRA.
 
-| Country | Physical sites | Selected samples | Assigned/native pollen NISP | Scored/attempted 500 BP bins | Source account |
-| --- | ---: | ---: | ---: | ---: | --- |
-| Denmark | 1 | 91 | 122,998/129,768 | 24/24 | [Country study](denmark-finland-norway-author-pollen.md), [our Solsø LRA decision](solsoe-lra-input.md) |
-| Finland | 28 | 1,797 | 1,229,019/1,260,281 | 435/435 | [Country study](denmark-finland-norway-author-pollen.md), [our Laihalampi LRA decision](laihalampi-lra-input/README.md) |
-| Norway | 52 | 3,544 | 2,018,295/2,286,020 | 1,084/1,178 | [Country study](denmark-finland-norway-author-pollen.md), [our Dalmutladdo LRA decision](dalmutladdo-lra-input/README.md) |
-| Sweden | 3 | 228 | 221,800/240,966 | 51/54 | [Swedish study](sweden-author-pollen.md), [ABB method](abborrtjarnen-source-method.md) |
+We use the [governed source-capability report](../../docs/report/regions/nordic/source-capability/README.md)
+to distinguish source-reported, governed-assignment and publication
+availability across 11 families and six country partitions. We do not select
+an analytical cohort from those family-level cells. Our selected
+**observed-pollen** cohorts have these source denominators and scored bins:
 
-We retained the country study's [input manifest](../../docs/report/regions/nordic/author-target-pollen/input-manifest.json),
-[coverage ledger](../../docs/report/regions/nordic/author-target-pollen/coverage.csv)
-and [score table](../../docs/report/regions/nordic/author-target-pollen/scores.csv)
-as the exact prediction and denominator trail. We refused 94 Norwegian bins
-and three Swedish bins that lacked eligible training support; we did not
-record them as zero-valued predictions. Denmark's single site cannot estimate
-within-country between-site variation. We treat all four country results as
-development evidence because the Nordic outcomes were previously exposed.
+| Country | Physical sites | Selected samples | Assigned/native pollen NISP | Scored/attempted 500 BP bins | Governed result |
+| --- | ---: | ---: | ---: | ---: | --- |
+| Denmark | 1 | 91 | 122,998/129,768 | 24/24 | [DK/FI/NO result](../../docs/report/regions/nordic/author-target-pollen/report.json) |
+| Finland | 28 | 1,797 | 1,229,019/1,260,281 | 435/435 | [DK/FI/NO result](../../docs/report/regions/nordic/author-target-pollen/report.json) |
+| Norway | 52 | 3,544 | 2,018,295/2,286,020 | 1,084/1,178 | [DK/FI/NO result](../../docs/report/regions/nordic/author-target-pollen/report.json) |
+| Sweden | 3 | 228 | 221,800/240,966 | 51/54 | [Swedish result](../../docs/report/regions/nordic/swedish-author-target-pollen/report.json) |
+
+The governed results own the site, sample and count-mass values. Their
+[DK/FI/NO coverage](../../docs/report/regions/nordic/author-target-pollen/coverage.csv)
+and [Swedish coverage](../../docs/report/regions/nordic/swedish-author-target-pollen/coverage.csv)
+retain every attempted and scored bin. The [DK/FI/NO input manifest](../../docs/report/regions/nordic/author-target-pollen/input-manifest.json),
+[Swedish input manifest](../../docs/report/regions/nordic/swedish-author-target-pollen/input-manifest.json),
+[DK/FI/NO scores](../../docs/report/regions/nordic/author-target-pollen/scores.csv)
+and [Swedish scores](../../docs/report/regions/nordic/swedish-author-target-pollen/scores.csv)
+retain prediction identities and results. We refused 94 Norwegian bins and
+three Swedish bins without eligible training support instead of recording
+zero-valued predictions. Denmark's single site cannot estimate within-country
+between-site variation. We treat all four country results as development
+evidence because the Nordic outcomes were previously exposed.
 
 ## LRA source gate
 
