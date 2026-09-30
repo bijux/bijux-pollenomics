@@ -1,0 +1,12 @@
+lab,depth_cm,material,radiocarbon_bp,radiocarbon_error,published_calibrated_bp,published_younger_bp,published_older_bp,neotoma_calibrated_bp,neotoma_younger_bp,neotoma_older_bp,source_fields_match,calibrated_centre_matches,calibrated_bounds_match,published_bounds_contain_centre
+Hela-499,6.5,"Betula seeds, leaves, twig",605,70,595,539,654,595,539,654,True,True,True,True
+Hela-508,22.5,Piece of wood,775,65,685,663,735,685,663,735,True,True,True,True
+Hela-500,48.5,Pinus needle,1725,65,1658,1542,1710,1658,1542,1710,True,True,True,True
+Hela-509,75.5,"Scale, wood",2555,105,2736,2469,2481,2736,2470,2763,True,True,False,False
+Hela-513,113.5,Indet.,3495,65,3769,1695,1708,3759,3645,3838,True,False,False,False
+Hela-510,137.5,Pinus needle,4615,75,5316,5294,5330,5316,5294,5330,True,True,True,True
+Hela-502,173.5,"Pinus needle, wood, seeds",5620,85,6405,6305,6490,6405,6305,6490,True,True,True,True
+Hela-511,210.5,"Betula leaves and seeds, wood",7225,115,7993,7792,8326,7993,7792,8326,True,True,True,True
+Hela-503,226.5,"Betula seeds, bark",7730,90,8498,8409,8594,8498,8409,8594,True,True,True,True
+Hela-512,247.5,"Bark, Betula seeds",8110,120,9025,8812,9256,9025,8812,9256,True,True,True,True
+Hela-504,265.5,Betula leaves,8765,110,9836,9554,10145,9836,9554,10145,True,True,True,True

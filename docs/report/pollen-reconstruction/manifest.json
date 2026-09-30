@@ -25,6 +25,11 @@
       "bytes": 5175
     },
     {
+      "path": "docs/public/pollenomics/science/sources.md",
+      "sha256": "9844d9353fc39b8bb22f53acb43a0003ae6945fc9c395ee29975e4077fe99dee",
+      "bytes": 3837
+    },
+    {
       "path": "docs/report/countries/denmark/pollen-chronology-coverage/README.md",
       "sha256": "6c54b62bb3de57e9e63d073459e37508855626212ab88c2e6ee338036a3364fc",
       "bytes": 3911
@@ -2071,8 +2076,8 @@
     },
     {
       "path": "reports/README.md",
-      "sha256": "f0a776d6f67797e6d43fe06a4529fd25f45c1387c10489df310baaa772758b48",
-      "bytes": 6636
+      "sha256": "136587c36ac93e6d0bd6d8ad57462211d71dce4422579243aea77299583cb790",
+      "bytes": 6933
     },
     {
       "path": "reports/architecture/ownership.md",
@@ -2081,8 +2086,13 @@
     },
     {
       "path": "reports/evidence-index.md",
-      "sha256": "ba4bd12fe536c39cae02464e8fb50f7ad800978c3f594b358f33f12a44858be6",
-      "bytes": 15216
+      "sha256": "f3e519ea442af633900043dbeb8dc6830ca269be9e04823bcf0b6c26085562c7",
+      "bytes": 15761
+    },
+    {
+      "path": "reports/needed/README.md",
+      "sha256": "759ffaca784303205bdb4f9ee2c19f753352c1557e37399791d5cf65386bc253",
+      "bytes": 15294
     },
     {
       "path": "reports/science/abborrtjarnen-source-method.md",
@@ -2108,6 +2118,26 @@
       "path": "reports/science/bjaresjo-context/window-overlap.csv",
       "sha256": "53181987cf6b8ecf5537e077fb9e44ad96762f51a6050cbe81b95ec3467935af",
       "bytes": 1285
+    },
+    {
+      "path": "reports/science/dalmutladdo-lra-input/README.md",
+      "sha256": "07575bbd876c05f0f8d196dc5c413c4a3afeaa13de5e0382c3ea85c1dd763e20",
+      "bytes": 4820
+    },
+    {
+      "path": "reports/science/dalmutladdo-lra-input/controls.csv",
+      "sha256": "23b56388d2ea3bf97ff8e9c44ed80061bd48067c4a75916631436347dff7681c",
+      "bytes": 1280
+    },
+    {
+      "path": "reports/science/dalmutladdo-lra-input/replay.py",
+      "sha256": "0da7193ae4a443e25d7a10f986a9da1c77eb4399c74fe46166c9931d143afbc4",
+      "bytes": 12463
+    },
+    {
+      "path": "reports/science/dalmutladdo-lra-input/report.json",
+      "sha256": "9f92a1ab140e32e7dc071c88f53d5436dc5be8c9062cfd4480c7ad929b4b51e3",
+      "bytes": 2421
     },
     {
       "path": "reports/science/denmark-finland-norway-author-pollen.md",
@@ -2253,6 +2283,11 @@
       "path": "reports/science/solsoe-lra-input.md",
       "sha256": "073d13099516257952441c9a6f87e6d71ad2ad7e298cb1042f5dfb728d579621",
       "bytes": 4866
+    },
+    {
+      "path": "reports/science/source-cohorts.md",
+      "sha256": "62bd7720402c70461b3ad3fac7686a3ce7a9c85ea09a5f3765f3b4de5003d0c6",
+      "bytes": 3776
     },
     {
       "path": "reports/science/sweden-author-pollen.md",

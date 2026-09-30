@@ -14,7 +14,7 @@ Neither study admits its samples to LRA.
 | --- | ---: | ---: | ---: | ---: | --- |
 | Denmark | 1 | 91 | 122,998/129,768 | 24/24 | [Country study](denmark-finland-norway-author-pollen.md), [our Solsø LRA decision](solsoe-lra-input.md) |
 | Finland | 28 | 1,797 | 1,229,019/1,260,281 | 435/435 | [Country study](denmark-finland-norway-author-pollen.md) |
-| Norway | 52 | 3,544 | 2,018,295/2,286,020 | 1,084/1,178 | [Country study](denmark-finland-norway-author-pollen.md) |
+| Norway | 52 | 3,544 | 2,018,295/2,286,020 | 1,084/1,178 | [Country study](denmark-finland-norway-author-pollen.md), [our Dalmutladdo LRA decision](dalmutladdo-lra-input/README.md) |
 | Sweden | 3 | 228 | 221,800/240,966 | 51/54 | [Swedish study](sweden-author-pollen.md), [ABB method](abborrtjarnen-source-method.md) |
 
 We retained the country study's [input manifest](../../docs/report/regions/nordic/author-target-pollen/input-manifest.json),
@@ -37,8 +37,11 @@ matches many depth and count cells, but the
 still cannot bind the LandClim-selected age model and historical basin series.
 For Solsø, our [source decision](solsoe-lra-input.md) still lacks the actual
 79 LandClim II input rows, selected authors chronology and historical basin
-series despite a reported area and matched age controls. We recorded these
-exact gaps in
+series despite a reported area and matched age controls. For Norwegian
+Dalmutladdo, our [source control comparison](dalmutladdo-lra-input/README.md)
+matches 72 samples and all 11 radiocarbon source controls, while conflicting
+reported areas and missing time-matched basin and analytical-use fields still
+prevent LRA admission. We recorded these exact gaps in
 [research needs](../needed/README.md); we have not substituted study-wide
 assumptions for a named core's missing evidence.
 

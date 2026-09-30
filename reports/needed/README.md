@@ -66,6 +66,16 @@ published age span alone retains 90, so the historical selection is still
 unidentified. Its reported site area or site radius does not supply an
 age-specific shoreline.
 
+For Norwegian Dalmutladdo, the [source-bound review](../science/dalmutladdo-lra-input/README.md)
+identifies one `DALMUT` core and 72 samples across LandClim II, Neotoma and
+the paper. All 11 published radiocarbon lab/depth/age/error controls match the
+author chronology. The paper reports 7.2 ha, LandClim I reports `8.00*` ha,
+and LandClim II gives an unqualified radius of 160. Two printed calibrated
+intervals exclude their own centres. The exact resolver is a source-owner
+account of area/interval differences and a same-core packet for historical
+basin geometry, sample denominator, taxon/PPE use and rights. We retain zero
+Norwegian LRA admission until these fields are joined and reviewed.
+
 **Needed:** nominate a specific physical core and time window in each target
 country, then bind source sample selection, chronology and uncertainty,
 historical basin geometry, reviewed taxon/count denominator, PPE/fall speeds

@@ -44,6 +44,15 @@ samples, while the Neotoma site has 92 source samples and its published age
 span alone retains 90. The Nordic observed-pollen
 scores do not bypass those gates.
 
+Our Dalmutladdo Norwegian core review (`reports/science/dalmutladdo-lra-input/README.md`)
+matches 72 [published](https://doi.org/10.1111/j.1502-3885.2004.tb01142.x),
+LandClim II and Neotoma samples and all 11 published
+radiocarbon source controls to one physical core. Its source records report
+7.2 ha, `8.00*` ha and a radius value of 160 with unstated unit; two printed
+calibrated age intervals exclude their own centres. Historical basin geometry
+and the exact count/taxon/PPE use remain unqualified, so this lead also has
+zero admitted LRA samples.
+
 The [HYDE source result](../../../report/regions/nordic/hyde-country-cropland/README.md)
 checks modeled cropland quantity accounting at selected labels. It is not an
 observed vegetation series. The [vegetation reference review](../../../report/validation/empd2-nfi-pairing/README.md)
