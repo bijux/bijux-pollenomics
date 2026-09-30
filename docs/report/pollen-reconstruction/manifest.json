@@ -2071,18 +2071,18 @@
     },
     {
       "path": "reports/README.md",
-      "sha256": "6511d0ee720df261c8cd0d2a23ecab1d520a3f085210dea10d4859ecaa3172d0",
-      "bytes": 6664
+      "sha256": "f0a776d6f67797e6d43fe06a4529fd25f45c1387c10489df310baaa772758b48",
+      "bytes": 6636
     },
     {
       "path": "reports/architecture/ownership.md",
-      "sha256": "f9858099e457b89d63983e7912f80b6bf582d814889e1ffea5d3642f3fe47a05",
-      "bytes": 18114
+      "sha256": "6811cd4731049b70c07ccc1026ae8a02ff111db624cc19f76c698bf9c6891eec",
+      "bytes": 18359
     },
     {
       "path": "reports/evidence-index.md",
-      "sha256": "eedc0e1b1f15659fd4d89e6c2857f0d07944559ccab40c5a4f3b36402449918a",
-      "bytes": 14465
+      "sha256": "ba4bd12fe536c39cae02464e8fb50f7ad800978c3f594b358f33f12a44858be6",
+      "bytes": 15216
     },
     {
       "path": "reports/science/abborrtjarnen-source-method.md",
@@ -2161,8 +2161,8 @@
     },
     {
       "path": "reports/science/nordic-pollen-study.md",
-      "sha256": "3eb9000395ffe576091bca26ca9887d9bdc2563e013bbdcc2affb69fe2adabe4",
-      "bytes": 43374
+      "sha256": "8f6380a12cadee816d2a59200630c7155d435dfd1949eef3b4fa9519c41798d4",
+      "bytes": 43644
     },
     {
       "path": "reports/science/publication-correspondence.md",
@@ -2248,6 +2248,11 @@
       "path": "reports/science/reindeer-appendix-correspondence.md",
       "sha256": "84713ac84656be54bb8ad937ea0e331fb99a07f7aabfd714dc3b560daab73fdd",
       "bytes": 3734
+    },
+    {
+      "path": "reports/science/solsoe-lra-input.md",
+      "sha256": "073d13099516257952441c9a6f87e6d71ad2ad7e298cb1042f5dfb728d579621",
+      "bytes": 4866
     },
     {
       "path": "reports/science/sweden-author-pollen.md",

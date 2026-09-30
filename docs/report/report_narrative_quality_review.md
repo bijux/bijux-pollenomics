@@ -60,7 +60,7 @@ link farms or coded operator notes.
 | `docs/report/countries/denmark/denmark_animal_adna_v66_samples.md` | `thin_structure` | 1 | 0 | 0 | 7 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/countries/denmark/denmark_animal_adna_v66_warnings.md` | `thin_structure` | 1 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/countries/denmark/pollen-chronology-coverage/README.md` | `thin_structure` | 5 | 0 | 0 | 8 | 1 | Page explains itself but still needs stronger internal wayfinding. |
-| `docs/report/countries/denmark/solsoe-source-lineage/README.md` | `thin_structure` | 10 | 0 | 0 | 6 | 1 | Page explains itself but still needs stronger internal wayfinding. |
+| `docs/report/countries/denmark/solsoe-source-lineage/README.md` | `thin_structure` | 2 | 4 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/countries/denmark/solsoe-source-lineage/original-core-selection/README.md` | `thin_structure` | 4 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/countries/denmark/solsoe-source-lineage/pangaea-core-controls/README.md` | `thin_structure` | 6 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/countries/denmark/solsoe-source-lineage/pangaea-epd-age-join/README.md` | `thin_structure` | 4 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |

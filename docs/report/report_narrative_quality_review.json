@@ -429,11 +429,11 @@
     },
     {
       "repository_path": "docs/report/countries/denmark/solsoe-source-lineage/README.md",
-      "prose_paragraph_count": 10,
-      "link_bullet_count": 0,
+      "prose_paragraph_count": 2,
+      "link_bullet_count": 4,
       "bullet_sentence_count": 0,
       "heading_count": 1,
-      "table_line_count": 6,
+      "table_line_count": 0,
       "quality_posture": "thin_structure",
       "note": "Page explains itself but still needs stronger internal wayfinding."
     },

@@ -59,8 +59,8 @@ rerun the admission and reconstruction consumer before closing this question.
 **Affected result:** Denmark, Finland and Norway have country-held-out
 observed-pollen scores, but those cohorts contain zero admitted LRA inputs.
 The [four-country source account](../science/source-cohorts.md) keeps that
-response separate from vegetation reconstruction. For Danish Solsø, the
-[source-lineage review](../../docs/report/countries/denmark/solsoe-source-lineage/README.md)
+response separate from vegetation reconstruction. For Danish Solsø, our
+[source-lineage decision](../science/solsoe-lra-input.md)
 finds 79 LandClim II samples versus 92 Neotoma source samples; applying the
 published age span alone retains 90, so the historical selection is still
 unidentified. Its reported site area or site radius does not supply an

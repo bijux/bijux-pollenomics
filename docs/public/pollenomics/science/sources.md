@@ -39,7 +39,9 @@ to the same analytical window. The [Abborrtjärnen source review](../../../repor
 matches substantial depth and count evidence but cannot yet identify the
 LandClim-selected chronology or historical basin series. The
 [Solsø source-lineage review](../../../report/countries/denmark/solsoe-source-lineage/README.md)
-retains a different sample-selection question. The Nordic observed-pollen
+retains a different sample-selection question: LandClim II names 79 pollen
+samples, while the Neotoma site has 92 source samples and its published age
+span alone retains 90. The Nordic observed-pollen
 scores do not bypass those gates.
 
 The [HYDE source result](../../../report/regions/nordic/hyde-country-cropland/README.md)

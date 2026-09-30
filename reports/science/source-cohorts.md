@@ -12,7 +12,7 @@ Neither study admits its samples to LRA.
 
 | Country | Physical sites | Selected samples | Assigned/native pollen NISP | Scored/attempted 500 BP bins | Source account |
 | --- | ---: | ---: | ---: | ---: | --- |
-| Denmark | 1 | 91 | 122,998/129,768 | 24/24 | [Country study](denmark-finland-norway-author-pollen.md), [Solsø lineage](../../docs/report/countries/denmark/solsoe-source-lineage/README.md) |
+| Denmark | 1 | 91 | 122,998/129,768 | 24/24 | [Country study](denmark-finland-norway-author-pollen.md), [our Solsø LRA decision](solsoe-lra-input.md) |
 | Finland | 28 | 1,797 | 1,229,019/1,260,281 | 435/435 | [Country study](denmark-finland-norway-author-pollen.md) |
 | Norway | 52 | 3,544 | 2,018,295/2,286,020 | 1,084/1,178 | [Country study](denmark-finland-norway-author-pollen.md) |
 | Sweden | 3 | 228 | 221,800/240,966 | 51/54 | [Swedish study](sweden-author-pollen.md), [ABB method](abborrtjarnen-source-method.md) |
@@ -35,8 +35,10 @@ speeds and permitted PPE use before LRA admission. Our
 matches many depth and count cells, but the
 [published-method review](abborrtjarnen-source-method.md)
 still cannot bind the LandClim-selected age model and historical basin series.
-For Solsø, we also lack complete source lineage despite a reported area and
-matched age controls. We recorded these exact gaps in
+For Solsø, our [source decision](solsoe-lra-input.md) still lacks the actual
+79 LandClim II input rows, selected authors chronology and historical basin
+series despite a reported area and matched age controls. We recorded these
+exact gaps in
 [research needs](../needed/README.md); we have not substituted study-wide
 assumptions for a named core's missing evidence.
 

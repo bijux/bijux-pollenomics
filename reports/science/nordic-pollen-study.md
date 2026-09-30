@@ -49,6 +49,10 @@ that area or the 2.5 ha event area for fossil-sequence LRA rings while the
 record and time support differ. Neotoma dataset 4446 is a separate
 `SOLSOE83` core. We reproduce no source data from the PANGAEA record, which
 carries CC BY-NC 3.0 terms, and admit neither core to LRA on this evidence.
+Our [Solsø LRA source decision](solsoe-lra-input.md) separately compares
+LandClim I/II, PANGAEA and Neotoma sample selection; its 69 m
+LandClim-II-to-Neotoma point distance does not erase the distinct 1.352 km
+PANGAEA-event-to-Neotoma point discrepancy described here.
 
 ## Scope and conclusion
 
