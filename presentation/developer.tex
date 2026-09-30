@@ -2,7 +2,7 @@
 \title{Bijux Pollenomics: implementation and verification}
 \subtitle{Developer briefing}
 \author{Bijux Pollenomics}
-\date{29 September 2026}
+\date{30 September 2026}
 \begin{document}
 \frame{\titlepage}
 
@@ -17,8 +17,8 @@ Distribution & Responsibility \\
 \texttt{bijux-pollenomics-dev} & Repository checks, source consumers and report verification. \\
 \bottomrule
 \end{tabular}
-\scope{The optional LRA extra offers a one-command installation interface; built-package verification remains pending.}
-\evidence{docs/public/pollenomics/architecture/package-split.md; packages/bijux-pollenomics/pyproject.toml}
+\scope{A local built-wheel extra install and R-free run passed; the engine is not yet published on PyPI.}
+\evidence{reports/architecture/lra-distribution.md; packages/bijux-pollenomics/pyproject.toml}
 \end{frame}
 
 \begin{frame}{Follow a claim through the system}
@@ -61,8 +61,8 @@ $\rightarrow$ sealed prediction or governed calculation $\rightarrow$ score $\ri
 \item \texttt{docs/public/} carries curated, rights-safe explanations for the website.
 \item \texttt{presentation/} builds from locked report identities and refuses stale source changes.
 \end{itemize}
-\scope{A report path migration is complete only when producer, manifest, links, tests and strict docs agree.}
-\evidence{reports/README.md; presentation/README.md}
+\scope{Tracked report publication preserves governed files; independent full-tree rebuilding remains open.}
+\evidence{reports/architecture/ownership.md; presentation/README.md}
 \end{frame}
 
 \begin{frame}{Developer verification route}

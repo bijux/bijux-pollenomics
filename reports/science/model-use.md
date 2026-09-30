@@ -108,6 +108,13 @@ radius. We use this [source-bound sensitivity](english-lra-pollen-prediction.md#
 to expose geometry dependence. It does not calibrate a physical radius,
 refit LOVE or provide a Swedish basin input.
 
+We retained a [two-case synthetic parameter sweep](synthetic-model-selection/README.md)
+in which one altered PPE/transport combination ranked first across 12
+completed development trials. Its independent truth generator and installed
+REVEALS use different transport laws. We therefore treat that ranking as a
+model-mismatch diagnostic, not an ideal PPE or transport choice for real
+cores. No final test or independent vegetation measurements were used.
+
 ## Uncertainty and refusal rules
 
 In our [fixed-site covariance example](../../docs/report/method-certification/fixed-site-covariance/README.md),

@@ -27,7 +27,8 @@
     "reports/science/source-cohorts.md",
     "reports/science/sweden-author-pollen.md",
     "reports/science/sweden-spatiotemporal-sensitivity.md",
-    "reports/science/sweden-training-scope.md"
+    "reports/science/sweden-training-scope.md",
+    "reports/science/synthetic-model-selection/README.md"
   ],
   "sources": {
     "data/adna/governance/source_library/projects/SRP073444/sample_master.json": "91fd9903db37c31659507b0f6ff8f042bee69312ada894d06ab50b16bcf5907c",
@@ -94,7 +95,7 @@
     "reports/science/english-lra-pollen-prediction.md": "3d69d66ec56cb135733c0e37be4a3c7169cb79d4de6c0223a0673f7541320d7f",
     "reports/science/hyde-cropland-source-account.md": "9934deeb42c4e01818d21665eb50a8fd73437de972c1f84ee052bf9749456d04",
     "reports/science/method-correspondence.md": "6015f2fff59be9ee43736a2981f530dec3a8b754535135b966c4c6848f071cd1",
-    "reports/science/model-use.md": "579e852bbfcda98b87b6820e95b702c21043ca177164e702d6b40f1843408694",
+    "reports/science/model-use.md": "6e621a0ee5f39e82f555c037d63e21afe355da8c1a4a3a44381737cf1e4f55ce",
     "reports/science/nordic-observed-pollen-selection.md": "29fdc7ad1de1a223027901ffa90d1a3b8c3274af2bb93e319b49a2edf79be531",
     "reports/science/nordic-observed-pollen-transfer.md": "057308957a4475d4c9847c2cc488038d380ecea0db0ea9d86041001e5975043a",
     "reports/science/nordic-pollen-study.md": "4fc5170b272f25c4a36ae85ff08a84754240daa0225cf36331ce396c33e988cf",
@@ -114,6 +115,9 @@
     "reports/science/reindeer-appendix-correspondence.md": "84713ac84656be54bb8ad937ea0e331fb99a07f7aabfd714dc3b560daab73fdd",
     "reports/science/source-cohorts.md": "142781aed337ae30b6e2a24432f006891c16954b9eed373e66df3ef2c9b83f0b",
     "reports/science/sweden-author-pollen.md": "bee5fd81cb4384bfc60154359aded0e010892444d38eda54a4ec5d38c0738c3a",
+    "reports/science/synthetic-model-selection/README.md": "dec3c278064549614668b97cbd0a815386937c59185fada553b4612fe17657f9",
+    "reports/science/synthetic-model-selection/policy.json": "cb954fdd8b03b66bd1efebf36db41608a1a051b02dc2ab8b4b6eceba3648a395",
+    "reports/science/synthetic-model-selection/report.json": "a80f54035934530b291a646f0d9a167a0c0f816833cb049996d0f2d9895c9fc8",
     "reports/verify.py": "889b1efdad83fc44921d5cea62613394fde010b5d20e1db09bd85a6c14607bed"
   }
 }
