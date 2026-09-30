@@ -52,6 +52,12 @@ record the separate source and attribution boundaries.
 To reproduce our result, run from the repository root into three absent
 artifacts directories:
 
+The checked-in input manifest pins the direct-pollen manifest at product
+revision `6cf0e1134193174f214cd280a96e60b08fadf22f`. Use that revision
+for exact receipt replay. A later runner-only change to the direct-pollen
+manifest leaves the selected samples and numeric results unchanged, but a
+fresh current-tree preparation records a different source hash.
+
 ```sh
 PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -m \
   bijux_pollenomics_dev.source_completion.nordic_author_target_pollen prepare \

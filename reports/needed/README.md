@@ -174,6 +174,17 @@ questions. Next action:
 replay affected grid/window/taxon cells against exact source bytes before
 claiming full-paper correspondence.
 
+We can identify the public [author example code](https://github.com/rmfyfe/landclimII/tree/57ead2e2fcc493d099be4e5a3092fc396e1c3d3a),
+but it was committed in August 2021 and demonstrates two British grids. The
+[paper](https://essd.copernicus.org/articles/14/1581/2022/) dates its
+reconstructions to 2018–2020, while [PANGAEA.937075](https://doi.pangaea.de/10.1594/PANGAEA.937075)
+identifies the published output as version June 2021. We therefore still need
+the dated, immutable pre-June-2021 production snapshot or source manifest:
+harmonized counts, selected ages, transformation code, all 1,128 sequence and
+grid memberships, parameter files and executable revision. Its DOI, commit or
+checksums would let us bind one named grid/window to the released output.
+The public example commit cannot establish that historical input identity.
+
 **Already checked:** 17 author raw-to-prepared examples, 14,074 R/Python
 values, exact TW2 archive differences, 79 Rootsi workbook candidates and
 10,500 ISTS/TBS mean rows. None authenticates the archive-producing source

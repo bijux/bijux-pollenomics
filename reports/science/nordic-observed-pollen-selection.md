@@ -45,6 +45,11 @@ To reproduce our result, use the current relational Neotoma snapshot and
 retained Swedish training records. From the repository root, prepare exact
 inputs under `artifacts/` and run the search:
 
+For the checked-in report's exact source hashes, use product revision
+`6cf0e1134193174f214cd280a96e60b08fadf22f`. The current direct-pollen
+manifest has a later runner identity after source-row validation; its cohort
+and numeric outputs did not change, but a fresh run has a new source lineage.
+
 ```sh
 PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -m \
   bijux_pollenomics_dev.source_completion.nordic_direct_pollen prepare \

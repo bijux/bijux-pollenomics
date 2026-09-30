@@ -46,6 +46,12 @@ To replay our result, first regenerate the exact source profiles in the
 [development search](nordic-observed-pollen-selection.md). Use absent
 destinations under `artifacts/` and run prediction and scoring separately:
 
+The checked-in freeze belongs to product revision
+`6cf0e1134193174f214cd280a96e60b08fadf22f`. Run that revision to verify
+its exact input and producer hashes. A later source-row validation changed only
+the direct-pollen manifest's runner identity; current-tree commands create a
+new lineage and must not overwrite the historical freeze.
+
 ```sh
 PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -m \
   bijux_pollenomics_dev.source_completion.nordic_pollen_transfer predict \
