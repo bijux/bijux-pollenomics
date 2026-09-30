@@ -113,7 +113,10 @@ in which one altered PPE/transport combination ranked first across 12
 completed development trials. Its independent truth generator and installed
 REVEALS use different transport laws. We therefore treat that ranking as a
 model-mismatch diagnostic, not an ideal PPE or transport choice for real
-cores. No final test or independent vegetation measurements were used.
+cores. The preceding [host-interface challenge](synthetic-host-challenge/README.md)
+also retained an evidence-tamper refusal and source-reader checks, alongside
+the transport-mismatched vegetation residual. No final test or independent
+vegetation measurements were used.
 
 ## Uncertainty and refusal rules
 
