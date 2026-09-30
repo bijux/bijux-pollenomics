@@ -17,6 +17,38 @@ pytestmark = pytest.mark.generated_artifacts
 
 
 class CountryReportTests(unittest.TestCase):
+    def test_generate_published_reports_refuses_mixed_ownership_tree(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp) / "v62.0"
+            output = Path(tmp) / "docs" / "report"
+            governed = output / "pollen-reconstruction" / "manifest.json"
+            governed.parent.mkdir(parents=True)
+            governed.write_text('{"owner": "scientific-report"}', encoding="utf-8")
+            write_anno(
+                root / "1240k" / "v62.0_1240k_public.anno",
+                [
+                    "SE1\tSE1\tSweden_Group\tUppsala\tSweden\t59.8586\t17.6389\tPaperA\t2022\t500 BCE\t2450\tAG\tF",
+                ],
+            )
+
+            with self.assertRaisesRegex(
+                ValueError,
+                "cannot replace a report tree containing separately governed outputs",
+            ):
+                generate_published_reports(
+                    version_dir=root,
+                    countries=["Sweden"],
+                    output_root=output,
+                    title="Nordic Evidence Atlas",
+                    slug="nordic-atlas",
+                )
+
+            self.assertEqual(
+                governed.read_text(encoding="utf-8"),
+                '{"owner": "scientific-report"}',
+            )
+            self.assertFalse((output.parent / ".report.staging").exists())
+
     def test_generate_published_reports_removes_stale_bundle_directories(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp) / "v62.0"

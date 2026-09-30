@@ -127,9 +127,14 @@ We inspected the publication path as well: `make reports` calls
 `publish-reports` on tracked `docs/report/`, and its staging helper swaps the
 new tree into place. With the current producer scope, that operation would
 remove the 1,151 files it does not generate. We therefore did not run that
-target on the tracked report root. The ownership repair must make publication
-preserve each separately governed report domain before the target is safe to
-use again.
+target on the tracked report root. We added a preflight to the full report
+publisher: it refuses to replace a tree containing the scientific manifest,
+method-certification reference or Neotoma source-relation marker. The tracked
+root has those markers, so the command now fails before staging or deleting
+its separately governed outputs. Isolated complete publisher trees still use
+the atomic replacement path. The ownership repair must make publication
+preserve each separately governed report domain before the tracked target can
+successfully refresh.
 
 We decided to define producer ownership before changing the
 [`rebuild policy`](../../configs/ci/reproducible-report-build.json) or

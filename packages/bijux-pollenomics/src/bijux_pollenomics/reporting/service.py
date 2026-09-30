@@ -216,6 +216,22 @@ def generate_published_reports(
     if not normalized_countries:
         raise ValueError("At least one country is required to publish reports")
 
+    governed_markers = (
+        Path("pollen-reconstruction/manifest.json"),
+        Path("method-certification/original-r-reference/README.md"),
+        Path("source-relations/neotoma/README.md"),
+    )
+    retained_domains = [
+        marker.as_posix()
+        for marker in governed_markers
+        if (output_root / marker).exists()
+    ]
+    if retained_domains:
+        raise ValueError(
+            "publish-reports cannot replace a report tree containing separately "
+            "governed outputs: " + ", ".join(retained_domains)
+        )
+
     atlas_slug = slugify(slug)
     return publish_into_staging_dir(
         output_root,
