@@ -11,5 +11,5 @@
 
 - Runtime Python files: `1390`
 - Tracked data files: `1911`
-- Report files: `1791`
+- Report files: `1783`
 - Maintainer root review files: `22`
