@@ -35,7 +35,8 @@ def test_frozen_shifted_predictions_exclude_each_target_site() -> None:
         site_id = product["site_id"]
         path = RESULT / "frozen" / f"predictions-{site_id}.json.gz"
         assert _sha(path) == product["prediction_sha256"]
-        payload = json.load(gzip.open(path))
+        with gzip.open(path) as stream:
+            payload = json.load(stream)
         for row in payload["predictions"]:
             assert row["site_id"] == site_id
             assert site_id not in row["training_site_ids"]

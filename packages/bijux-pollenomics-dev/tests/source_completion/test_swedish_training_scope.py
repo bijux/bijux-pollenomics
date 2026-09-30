@@ -2,13 +2,14 @@
 
 from __future__ import annotations
 
+from collections import defaultdict
 import csv
 import gzip
 import hashlib
 import json
-from collections import defaultdict
 from pathlib import Path
 from statistics import mean
+from typing import Any, cast
 
 import pytest
 
@@ -22,8 +23,8 @@ def _sha(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
-def _compressed(path: Path) -> dict:
-    return json.loads(gzip.decompress(path.read_bytes()))
+def _compressed(path: Path) -> dict[str, Any]:
+    return cast(dict[str, Any], json.loads(gzip.decompress(path.read_bytes())))
 
 
 def test_governed_predictors_exclude_the_whole_target_site() -> None:

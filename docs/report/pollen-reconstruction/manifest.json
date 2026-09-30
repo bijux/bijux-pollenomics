@@ -1891,8 +1891,8 @@
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/bjaresjo_context.py",
-      "sha256": "3d877770d5dadc92bfa1136e903be068d53b83516b3233da052341a6ac88fe5c",
-      "bytes": 10442
+      "sha256": "54a877ddd100916f15849563c58da67429335ba5d9ba8a30f4b1d4702dc63c1b",
+      "bytes": 10532
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/hyde_country_cropland.py",
@@ -1971,13 +1971,13 @@
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/swedish_support_sensitivity.py",
-      "sha256": "8e7db6760f3d24478e7ba180afb6fc7ba0033341fc8bd93440233c8bd7470692",
-      "bytes": 26110
+      "sha256": "fd7487f954e6d03c638d58ed1d4c72c861d3bd235bf1726f023be4056e7207fd",
+      "bytes": 26188
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/swedish_training_scope.py",
-      "sha256": "0e1fd122903f3e76c6846a8367b6874457ed9677e3c1954df3963842d072f1b2",
-      "bytes": 18035
+      "sha256": "0689138e87370a75977c216bc4ef891c97d792d08d751a5ff2541b3774168d1b",
+      "bytes": 18108
     },
     {
       "path": "packages/bijux-pollenomics-dev/tests/essd_reproduction/test_author_preparation_audit.py",
@@ -2016,13 +2016,13 @@
     },
     {
       "path": "packages/bijux-pollenomics-dev/tests/source_completion/test_swedish_support_sensitivity.py",
-      "sha256": "5c46cddd5489a83c9b213cd2e01ed207fc953be63717aa8bb1d4630655b0c3ba",
-      "bytes": 4488
+      "sha256": "f106477338d4094dd6c0832fe50a587f8891a9e95a859909cae30ae550656d96",
+      "bytes": 4523
     },
     {
       "path": "packages/bijux-pollenomics-dev/tests/source_completion/test_swedish_training_scope.py",
-      "sha256": "317f67a225b0a4359ec49524df3fcbb9386e40bd6dbcdcb6b026137729ecc9a9",
-      "bytes": 3535
+      "sha256": "9d3b7164dd98ea703dbbb0b6dc8635241843406a8a759c541122539bb45fa8af",
+      "bytes": 3596
     },
     {
       "path": "packages/bijux-pollenomics-dev/tests/test_runtime_isolation.py",

@@ -3,9 +3,9 @@
 from __future__ import annotations
 
 import argparse
+from collections import defaultdict
 import json
 import math
-from collections import defaultdict
 from pathlib import Path
 from statistics import mean
 from typing import Any
@@ -550,6 +550,7 @@ def score(
 
 
 def main() -> None:
+    """Run the declared Swedish support study stage from the command line."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("stage", choices=("prepare", "predict", "score"))
     parser.add_argument("--repository", type=Path, required=True)

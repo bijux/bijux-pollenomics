@@ -229,6 +229,7 @@ def produce(repository: Path, output: Path) -> None:
 
 
 def main() -> None:
+    """Produce the source-bound Bjäresjösjön context screen from repository inputs."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repository", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)

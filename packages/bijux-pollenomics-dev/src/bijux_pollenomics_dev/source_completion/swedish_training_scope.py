@@ -3,9 +3,9 @@
 from __future__ import annotations
 
 import argparse
+from collections import defaultdict
 import csv
 import json
-from collections import defaultdict
 from pathlib import Path
 from statistics import mean
 from typing import Any
@@ -381,6 +381,7 @@ def score(
 
 
 def main() -> None:
+    """Run a Swedish training-scope stage with explicit source paths."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("stage", choices=("prepare", "predict", "score"))
     parser.add_argument("--repository", type=Path)
