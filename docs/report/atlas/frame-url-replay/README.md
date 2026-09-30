@@ -6,7 +6,16 @@
 
 The [producer](https://github.com/bijux/bijux-pollenomics/blob/828081f963fa574cd217c8f9c4c2cfcdb9397d52/packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/atlas_browser/context_frame_candidate.py) authenticates the retained Nordic chunk inventory, reads the exact local normalized grid rows, and verifies that the current null-preserving publication projection equals every retained published feature. It then requires the static writer to preserve all selected published records exactly. The source manifest retains 628 high, 940 low, and 307 no-pollen-data features; every no-pollen estimate and standard-error field is null in the served publication and downloaded frames. No gaps are interpolated between source windows.
 
-The signed synthetic native input is retained in this report under [`reference/native-product`](reference/native-product) with [`reference/display-geometry.json`](reference/display-geometry.json). The producer checks their exact digests before rendering the current atlas and rechecks every consumed input afterward. The native view identity remains `c7276b4b90bd57750af6182cb65ae8674e349f332cc6f606bd23dcb19e13a6e8`; the original product manifest is `de45206119e4f2663fe1d24cb4b52a481f025fa8cf7561c5ac7a188c624c07e9`. Source native units, missing values, and geometry refusals retain their distinct meanings. This paired view has no posterior draw channel or draw selector; the receipt records that absence.
+The signed synthetic native input is retained under the [native product manifest](reference/native-product/manifest.json)
+with [display geometry](reference/display-geometry.json). The producer checks
+their exact digests before rendering the current atlas and rechecks every
+consumed input afterward. The native view identity remains
+`c7276b4b90bd57750af6182cb65ae8674e349f332cc6f606bd23dcb19e13a6e8`;
+the original product manifest is
+`de45206119e4f2663fe1d24cb4b52a481f025fa8cf7561c5ac7a188c624c07e9`.
+Source native units, missing values, and geometry refusals retain their
+distinct meanings. This paired view has no posterior draw channel or draw
+selector; the receipt records that absence.
 
 ## Actual browser result
 

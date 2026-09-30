@@ -1,6 +1,6 @@
 # Atlas provider fallback and mobile controls
 
-The retained Nordic source atlas remains usable when both keyless tile providers fail and when a shared URL selects **No basemap** directly. The [verification receipt](verification.json) binds the [candidate generation](candidate-generation.json), [browser run](browser-receipt.json), verifier, [screenshots and four downloaded source records](observations/) by SHA-256. The candidate contains eight exact Neotoma and SEAD source sites across Denmark, Finland, Norway, and Sweden. Its source graph and detail records match the retained inputs; it adds no accepted classification or propagation edge.
+The retained Nordic source atlas remains usable when both keyless tile providers fail and when a shared URL selects **No basemap** directly. The [verification receipt](verification.json) binds the [candidate generation](candidate-generation.json), [browser run](browser-receipt.json), verifier, [mobile screenshot](observations/390-tile-free.png) and [example downloaded source record](observations/390-tile-free-source/neotoma-site-12.pollen-series.json) by SHA-256. The candidate contains eight exact Neotoma and SEAD source sites across Denmark, Finland, Norway, and Sweden. Its source graph and detail records match the retained inputs; it adds no accepted classification or propagation edge.
 
 ## Observed browser behavior
 
