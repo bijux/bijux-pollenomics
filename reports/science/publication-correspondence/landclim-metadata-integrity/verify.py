@@ -1,4 +1,4 @@
-"""Bind the retained independent metadata challenge to current governed outputs."""
+"""Bind the independent metadata check to current governed outputs."""
 
 from __future__ import annotations
 
@@ -21,15 +21,15 @@ MEMBERS = {
 def main() -> None:
     result = json.loads(REPORT.read_text(encoding="utf-8"))
     if result["verdict"] != "pass_scoped_metadata_bundle":
-        raise ValueError("Historical challenge verdict changed")
+        raise ValueError("Independent metadata verdict changed")
     if len(result["checks"]) != 8 or not all(
         item["passed"] is True for item in result["checks"]
     ):
-        raise ValueError("Historical independent checks are incomplete")
+        raise ValueError("Independent metadata checks are incomplete")
     if len(result["mutation_results"]) != 9 or set(
         result["mutation_results"].values()
     ) != {"StudyInputProductError"}:
-        raise ValueError("Historical adversarial refusals changed")
+        raise ValueError("Adversarial refusal evidence changed")
     if set(result["product_hashes"]) != MEMBERS:
         raise ValueError("Historical product inventory changed")
     for member, expected in result["product_hashes"].items():
