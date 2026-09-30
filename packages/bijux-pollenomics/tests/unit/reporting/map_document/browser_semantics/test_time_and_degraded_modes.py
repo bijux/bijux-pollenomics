@@ -147,6 +147,50 @@ console.log(JSON.stringify({label:featureTimeLabel(feature),descriptor:featureTi
     )
 
 
+def test_golden_zero_bp_and_null_stay_distinct_in_rendered_javascript() -> None:
+    helpers = template_block(
+        "function finiteTimeValue", "function pointFeatureInTimeWindow"
+    )
+    observed = run_node_json(
+        """
+const TIME_HAS_DATA=true;
+let timeStartBp=0,timeIntervalYears=0;
+function timeWindowEndBp(){return 0}
+function timeFilterUsesFullExtent(){return false}
+const layer={applies_time_filter:true,semantic_role:'source_chronology_context'};
+const dated={time_start_bp:0,time_end_bp:0};
+const missing={time_start_bp:null,time_end_bp:null};
+const uncalibrated={time_start_bp:null,time_end_bp:null,time_label:'5600 BP',temporal_semantics:{comparability_posture:'context_only'}};
+"""
+        + helpers
+        + """
+console.log(JSON.stringify({
+  dated:featureTimeAdmission(dated),
+  missing:featureTimeAdmission(missing),
+  datedVisible:featureInTimeWindow(layer,dated),
+  missingVisible:featureInTimeWindow(layer,missing),
+  datedLabel:featureTimeLabel(dated),
+  missingLabel:featureTimeLabel(missing),
+  uncalibrated:featureTimeAdmission(uncalibrated),
+  uncalibratedVisible:featureInTimeWindow(layer,uncalibrated),
+  uncalibratedLabel:featureTimeLabel(uncalibrated),
+}));
+"""
+    )
+
+    assert observed == {
+        "dated": {"status": "valid", "window": {"start": 0, "end": 0}},
+        "missing": {"status": "absent", "window": None},
+        "datedVisible": True,
+        "missingVisible": False,
+        "datedLabel": "0 BP",
+        "missingLabel": "",
+        "uncalibrated": {"status": "contextual", "window": None},
+        "uncalibratedVisible": False,
+        "uncalibratedLabel": "5600 BP",
+    }
+
+
 def test_time_controls_expose_canonical_interval_and_playback_direction() -> None:
     assert 'id="time-playback-toggle"' in MAP_DOCUMENT_TEMPLATE
     assert 'id="time-step-older"' in MAP_DOCUMENT_TEMPLATE
