@@ -1,9 +1,8 @@
 # Färskesjön pollen and forest-plot support
 
-Our research decision is in `reports/science/vegetation-reference.md`. The
-source-bound numeric result and its producer are now owned together at
-`reports/science/vegetation-reference/farskesjon/report.json` and
-`reports/science/vegetation-reference/farskesjon/plot_support.py`.
+Read our [vegetation-reference decision](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/vegetation-reference.md),
+the [source-bound numeric result](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/vegetation-reference/farskesjon/report.json)
+and its [producer](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/vegetation-reference/farskesjon/plot_support.py).
 
 The measured 7 m forest plot was 427.122 m from the lake pollen point and
 sampled 107–136 days before the possible September 2013 pollen collection

@@ -1,9 +1,8 @@
 # Southern Sweden historical-map reference support
 
-Our research decision is in `reports/science/vegetation-reference.md`. The
-source-bound numeric result and its producer are now owned together at
-`reports/science/vegetation-reference/smaland-historical-maps/coverage.json`
-and `reports/science/vegetation-reference/smaland-historical-maps/coverage.py`.
+Read our [vegetation-reference decision](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/vegetation-reference.md),
+the [map-coverage result](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/vegetation-reference/smaland-historical-maps/coverage.json)
+and its [producer](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/vegetation-reference/smaland-historical-maps/coverage.py).
 
 The [Cui et al. (2014) article](https://pmc.ncbi.nlm.nih.gov/articles/PMC4224531/)
 and its appendix supply map coverage and shared pollen anchors for three

@@ -1746,18 +1746,18 @@
     },
     {
       "path": "docs/report/vegetation-reference/farskesjon/README.md",
-      "sha256": "da917ace0414e8bd247efea2e67034906ca95f0caae40031309577d41e2bdc4f",
-      "bytes": 680
+      "sha256": "d1601d84f868973b98de600d2704f946d5fb3ba7aa49bd7597e7d13fbacddea9",
+      "bytes": 823
     },
     {
       "path": "docs/report/vegetation-reference/smaland-historical-maps/README.md",
-      "sha256": "d74adc73de794b07f549c1661aea52b0986779f626a9bb13d715596c638f278e",
-      "bytes": 737
+      "sha256": "85a619b3cdd2ef0ab928d92fc5b77fff14b82a0176cadba2eeed55b8ae958f16",
+      "bytes": 872
     },
     {
       "path": "docs/report/vegetation-reference/southern-sweden-figure/README.md",
-      "sha256": "a9f9339686a743793862223c0bd0657bcf783aee276bcdf5b1500528ef046d7c",
-      "bytes": 725
+      "sha256": "09a70153a8e3132be6577c3dd3f21cf8b687115869e3d037d92b6c636cfc495b",
+      "bytes": 1091
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/author_example_correspondence.py",
