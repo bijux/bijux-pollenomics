@@ -21,8 +21,8 @@
     },
     {
       "path": "data/synthetic/score_protocol_source.json",
-      "sha256": "59abc1408a5a2153b736989a8f5e1e36016b96600b0ecb14af9a83a53aea3f5d",
-      "bytes": 24851
+      "sha256": "c95983fdd52ab5f8e98fa46dccb1d8201ff9e62699108878f88776422feaad87",
+      "bytes": 1684
     },
     {
       "path": "docs/public/pollenomics-data/sources/empd2-nfi-review.md",
@@ -86,7 +86,7 @@
     },
     {
       "path": "docs/report/index.md",
-      "sha256": "6b48a920c66decd3301a76fc89a14808d859a54923b66a2ce6bb9dce541496ba",
+      "sha256": "ee5f70b18448497c436fc4febc70ba99cf460654b6903dea71fd3f96c057a86b",
       "bytes": 2668
     },
     {
@@ -1096,8 +1096,8 @@
     },
     {
       "path": "docs/report/regions/nordic/hyde-country-cropland/grid-conservation/README.md",
-      "sha256": "4f953577e7956366939389999dbb73e93a0824d42a0cfed925c9c640db781035",
-      "bytes": 2296
+      "sha256": "2f30ffdd70b442222f6d1d324ffaba7fb39b39c64ee973e878bb3f4cf83498fc",
+      "bytes": 2327
     },
     {
       "path": "docs/report/regions/nordic/hyde-country-cropland/grid-conservation/grid-conservation.csv",
@@ -1706,8 +1706,8 @@
     },
     {
       "path": "docs/report/source-relations/neotoma/lakeparameters/README.md",
-      "sha256": "3b78c812f4f69e9868c1c462f9ac378cf2769fbd20be9181f8972e7c7e892b28",
-      "bytes": 2309
+      "sha256": "1ef931da50bb51efdafdb1db8509686ecfcbf4274daefad709b4db2b56852ee8",
+      "bytes": 2236
     },
     {
       "path": "docs/report/source-relations/neotoma/lakeparameters/report.json",
@@ -2076,8 +2076,8 @@
     },
     {
       "path": "reports/science/dalmutladdo-lra-input/README.md",
-      "sha256": "441fd94c12b85afbced8d9ac12bb96fa25faf4ac341f4497f36753c8fc930a52",
-      "bytes": 5375
+      "sha256": "e14b94e385d7636d3804be17cce6e4262050a5918b73a25c350646308ae8ac53",
+      "bytes": 5410
     },
     {
       "path": "reports/science/dalmutladdo-lra-input/controls.csv",
@@ -2126,8 +2126,8 @@
     },
     {
       "path": "reports/science/hyde-cropland-source-account.md",
-      "sha256": "fa64c2f6c3405f4553c4299f5b9c46ab3cbfb972b0139ee627df5982a0882e63",
-      "bytes": 6008
+      "sha256": "56158824d80dca73cbee1d4e39c2479a283d2e969a46b49d8755279f24b6986b",
+      "bytes": 6039
     },
     {
       "path": "reports/science/laihalampi-lra-input/README.md",
@@ -2301,13 +2301,13 @@
     },
     {
       "path": "reports/science/synthetic-protocol-metrics/README.md",
-      "sha256": "f74697da88e68be34bfda0e8f8964f39a0104957beaa5fba01c605debe375ffb",
-      "bytes": 4344
+      "sha256": "e3fd2f6c05b4ad258f6f86207523ac74b2863edb8f8c25ff71dbb2040b6fa23a",
+      "bytes": 4454
     },
     {
       "path": "reports/science/synthetic-protocol-metrics/replay.py",
-      "sha256": "6eb99054b712f2995e9bc3d7815c3428554479655c6125bc64af26b535561ec7",
-      "bytes": 8333
+      "sha256": "9e38fadbca0ed6847227413b48c471948e539741395c61c90f3bc49bab621321",
+      "bytes": 8702
     },
     {
       "path": "reports/science/synthetic-protocol-metrics/report.json",

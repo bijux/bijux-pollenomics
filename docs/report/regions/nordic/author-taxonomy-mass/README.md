@@ -36,10 +36,11 @@ samples therefore retain `lra_admitted_samples = 0` in this report.
 Run from the repository root:
 
 ```sh
+source_store="/path/to/qualified/bijux-pollenomics-data"
 PYTHONPATH=packages/bijux-pollenomics/src:packages/bijux-pollenomics-dev/src \
   .venv/bin/python -m bijux_pollenomics_dev.source_completion.nordic_author_taxonomy_mass \
   --repository . \
-  --author-source-root /Users/bijan/bijux/bijux-pollenomics-data/landclim/author-reference \
+  --author-source-root "$source_store/landclim/author-reference" \
   --output artifacts/jobs/nordic-author-taxonomy-mass
 ```
 

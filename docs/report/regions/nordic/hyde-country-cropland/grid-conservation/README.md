@@ -34,8 +34,9 @@ uncertainty intervals.
 From the repository root, regenerate into a new artifacts directory with:
 
 ```sh
+source_store="/path/to/qualified/bijux-pollenomics-data"
 PYTHONPATH=packages/bijux-pollenomics/src:packages/bijux-pollenomics-dev/src \
   .venv/bin/python -m bijux_pollenomics_dev.source_completion.hyde_country_grid_conservation \
-  --source-root /Users/bijan/bijux/bijux-pollenomics-data/HYDE-3.5 \
+  --source-root "$source_store/HYDE-3.5" \
   --output artifacts/jobs/hyde-country-grid-conservation-replay
 ```
