@@ -1,5 +1,18 @@
 # Our artifact custody decisions
 
+## Retained synthetic protocol metrics
+
+We moved the distinct 16-row synthetic protocol result out of the historical
+`artifacts/v2/resumed-frontier/` workspace. The [research report](../science/synthetic-protocol-metrics/README.md)
+owns its score table and interpretation; the [custody receipt](artifact-custody/synthetic-protocol-metrics.json)
+names all 148 files retained in a private archive, including the original
+report, script, bindings and 140 read-set files. The archive has 2,600,001
+source bytes and SHA-256
+`8dd272c3bd93f8354045596b2b712a2a3670cd35ebd0b7332d0b001ee95c3cc6`.
+We verified every archive member against the original before retiring that
+selected workspace. Other artifact prefixes require their own custody
+decision; this receipt does not authorize their removal.
+
 ## Our decision
 
 We removed the inactive chronology and basin candidate checkout from

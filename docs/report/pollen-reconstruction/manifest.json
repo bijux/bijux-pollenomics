@@ -2081,8 +2081,18 @@
     },
     {
       "path": "reports/README.md",
-      "sha256": "8a6549e56d9ade17b25c803c12d5a7eec96169e599bed658ad026f951237540b",
-      "bytes": 7193
+      "sha256": "539188cb5de0a2af8360024f909bff945b0888fe9335e609400c050d96f4790f",
+      "bytes": 7488
+    },
+    {
+      "path": "reports/architecture/artifact-custody.md",
+      "sha256": "f11db523c5e0dfdc1d25a60fc2719e45c4266b5359d600b960a29fb738ed561d",
+      "bytes": 15836
+    },
+    {
+      "path": "reports/architecture/artifact-custody/synthetic-protocol-metrics.json",
+      "sha256": "c0f6b4edbcc825249941a7a3c943017a80763ce019c538cc87df413c97da6de5",
+      "bytes": 25045
     },
     {
       "path": "reports/architecture/ownership.md",
@@ -2091,8 +2101,8 @@
     },
     {
       "path": "reports/evidence-index.md",
-      "sha256": "9ca5c0f6fd05519b5324be2cff8800ea0f20c336412fcaff1c3599795066f1c2",
-      "bytes": 16196
+      "sha256": "102e781614ad21dc9d645025d59f863835ff0d1d5d3b9184bd4b278afde1b8be",
+      "bytes": 16742
     },
     {
       "path": "reports/needed/README.md",
@@ -2328,6 +2338,26 @@
       "path": "reports/science/sweden-training-scope.md",
       "sha256": "f314ad31c3ce166f7c8ea2aa2b03ed82c097c8026bb969008711c33e11f39246",
       "bytes": 4711
+    },
+    {
+      "path": "reports/science/synthetic-protocol-metrics/README.md",
+      "sha256": "51fcd15ee1775c4dca5f843b9bbb72df4f1dad3c921a20a9f315bb16fdfc7d96",
+      "bytes": 3877
+    },
+    {
+      "path": "reports/science/synthetic-protocol-metrics/replay.py",
+      "sha256": "62fd483a8d2162b9d4a9649d288835b6b20e1d57b0da78f7b1b33a24f6e70f62",
+      "bytes": 8256
+    },
+    {
+      "path": "reports/science/synthetic-protocol-metrics/report.json",
+      "sha256": "f13b48253150b6703ddf853b492b8b7bb4a1ab3fde069cb153010379d269f166",
+      "bytes": 12841
+    },
+    {
+      "path": "reports/science/synthetic-protocol-metrics/scores.csv",
+      "sha256": "c5bf6f88d14a625f2a53abeba91bb6785ee17687e9611c16da2df2fed3a98ab1",
+      "bytes": 4562
     },
     {
       "path": "reports/science/vegetation-reference.md",
