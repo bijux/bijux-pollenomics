@@ -212,3 +212,22 @@ owns these descriptive counts and their limits. The private preview is not a
 country overlay, release-rights decision, modeled-area estimate or measured
 vegetation result. We left the other HYDE artifact prefixes for separate
 custody decisions.
+
+## HYDE native-axis calculation and independent check
+
+We preserved the candidate geometry, its manifest, the independent ZIP/member
+check and their compact plans and receipts as 17 byte-exact private files
+totaling 29,868 bytes. The [custody receipt](artifact-custody/hyde-native-axis.json)
+records every file hash and the two selected artifact directories. The
+independent result names the preserved candidate geometry and manifest by
+their exact SHA-256; it matched the 72,576 selected tokens and missing mask
+after reading the full 9,331,200-cell source member. We did not repeat that
+native source read during this custody move.
+
+The geometry run also held 19 mypy cache files totaling 12,742,897 bytes.
+Those were generated type-check cache, not source or scientific output, and
+we excluded them from private custody. Both selected directories had no
+symlinks, hardlinks, open handles or product readers when retired. Our
+[HYDE source account](../science/hyde-cropland-source-account.md) owns the
+bounded calculation and its scientific limits; the challenge does not admit
+provider CRS, country projection, dates, rights or vegetation truth.
