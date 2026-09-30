@@ -68,6 +68,10 @@
     "docs/report/numerical-performance/native-adoption/README.md": "4868bcb2e6c0201ffa2f8b5493f73616a206c7de1e257d0421287de989c0792b",
     "docs/report/numerical-performance/native-forward/report.json": "44ce46b2a5174e5af2fcfbf34ac914623b4fb3285acd5dc29357f6f890acefd6",
     "docs/report/numerical-performance/native-memory/report.json": "24aafe883b2e36a57a88763bbf5230974b470c90b2d94483ebea2d9a988eefef",
+    "docs/report/numerical-performance/runtime-metadata/README.md": "a684303dd823ad0fe91851b99f8920840b7ef36bdbabea7411abb4179f6182e6",
+    "docs/report/numerical-performance/runtime-metadata/comparison.json": "2ff33c5a49ed9cfe185fdcdcbddc25a5d3998c40873619ccb676d03b51939a4f",
+    "docs/report/numerical-performance/runtime-metadata/reference-baseline.json": "dbe8e46ccfa0bdc2df0db4acd5328c498e00eaaea958971aa06a51939912b656",
+    "docs/report/numerical-performance/runtime-metadata/report.json": "177c1d18ff465ffa7a6998813e785b748d1c1dcb3c5501fa5deac4d9c1d974ed",
     "docs/report/pollen-reconstruction/author-lra-constrained/direct-pollen/paired-hellinger-sensitivity.json": "180381b5a81e4838be7a11c2d9e02ef504ef5d296aaad213d9fafbdf148af4c9",
     "docs/report/pollen-reconstruction/author-lra-constrained/radius-sensitivity/README.md": "ec31fc26515f61191b43d5eea47386e2cbc9839bb9a159fae5c0db3dae327729",
     "docs/report/pollen-reconstruction/author-lra-constrained/radius-sensitivity/frozen/predictions.json": "ca244e33f47ac9768dab60b3e62e59ea06e524cdd0e3d7e21477cb61bb592c44",
@@ -142,6 +146,7 @@
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/one_site.py": "ca46ad52edfad8edf8ed37fb877df3b34c27ce712bf2c8db91f589dd9f7b7fd6",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/native_backend/forward_compare.py": "b1f728fc54634800038b8bc71536d8dc7c289482b6ac72dfdf288fed7c315e7e",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/native_backend/forward_kernel.cpp": "44b5c3893c713042fbe7537983fef2a424c2df0b837d4c4b92761b8c644f377d",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/native_backend/profile_summary.py": "346f0454ecfba81e4383cdde65fad134e0ea310e35bbf074d0249f922440d0b4",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/swedish_lake_transfer.py": "ec4ed8027d3cb0ac52579d2992d89706bf301f4c993b7d9c5ad38b3494bf9e26",
     "packages/bijux-pollenomics-dev/tests/essd_reproduction/test_one_site.py": "c05b41d783b637a8541a1451dc72e7271f4b0bec81abdb65590ed4fdf845e669",
     "packages/bijux-pollenomics-lra/NOTICE": "a2d32aab853b24b96855dd75f1b4c4fb78282664b37b8bada73132f533b5e05b",
@@ -152,7 +157,7 @@
     "reports/architecture/lra-distribution.md": "dfbbb9ea392e3cf22fb30b96d746b89ef3bf71c95adecc42cc80c50beb57b2cd",
     "reports/architecture/lra-source-adoption/prototype-files.csv": "95d66a901bab875f7408729815e35f9d4923f9c938a88407bdfd4100bfa79365",
     "reports/architecture/lra-source-adoption/source-functions.csv": "b71d5a902034abe75e677b3378be76e1015a3b304478901eb70b988d96772517",
-    "reports/architecture/native-backend.md": "c83d3c6ba60a536af801ee05f8e0e3de8ec2a90e7ea554ea00f144b9aae2988d",
+    "reports/architecture/native-backend.md": "088c7c34381521b6f9d2f39148bf126694d416f22219f12f7be95388d240b5e5",
     "reports/architecture/ownership.md": "270d006270f751e39cea0e4a653a7133f514ccf5a9b4d6b987731458f7727c3c",
     "reports/evidence-index.md": "29f9184a6d26a1dde76c3e7add6383e736dfe3d1b537fafc864fcf3550413b4e",
     "reports/needed/README.md": "9ab557d20117e4e2a278a01b28aa36b31ad9b3c4e0f74b63dc4024f1eed6fba6",
@@ -236,6 +241,6 @@
     "reports/science/vegetation-reference/southern-sweden-figure/compare.py": "5ac673246f7f7685dc485e2d4b6624b14c1ae58361608f0f3606ea83a36e21b1",
     "reports/science/vegetation-reference/southern-sweden-figure/printed-labels.csv": "e7e6f04e4711690421ca4c84af9e1237cbdb3b95554d63a6d81e2a61ff2a3f54",
     "reports/science/vegetation-reference/southern-sweden-figure/report.json": "7205071dc7bd4b7bdf99c77788583bfbb1ab8699546c9f5acd3e6566da4e7e57",
-    "reports/verify.py": "2bccc0b9df8bd0d913193b4fe58f2780487283fb3530b0a9afeb271d79ea53fa"
+    "reports/verify.py": "03e4982ad6c3f290ad8e2ace3c28764d07cffad1ded773682c50ea5bcc6a5745"
   }
 }

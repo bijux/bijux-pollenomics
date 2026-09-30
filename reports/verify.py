@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import hashlib
 import json
+import math
 from pathlib import Path
 import re
 
@@ -19,6 +20,7 @@ HUMAN_SURFACES = (
     ROOT / "docs/public",
     ROOT / "presentation",
 )
+RUNTIME_MEASUREMENT = ROOT / "docs/report/numerical-performance/runtime-metadata"
 
 
 def verify_reader_paths() -> None:
@@ -36,8 +38,68 @@ def verify_reader_paths() -> None:
                         )
 
 
+def verify_runtime_measurement() -> None:
+    """Check the compact timing comparison without its disposable raw profiler."""
+    reference_path = RUNTIME_MEASUREMENT / "reference-baseline.json"
+    reference = json.loads(reference_path.read_text())
+    measured = json.loads((RUNTIME_MEASUREMENT / "report.json").read_text())
+    comparison = json.loads((RUNTIME_MEASUREMENT / "comparison.json").read_text())
+    producer = (
+        ROOT
+        / "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/native_backend/profile_summary.py"
+    )
+    if (
+        measured.get("schema_version") != "lra-runtime-metadata-measurement.v1"
+        or measured.get("summary_producer_sha256")
+        != hashlib.sha256(producer.read_bytes()).hexdigest()
+        or measured.get("environment") != reference.get("environment")
+        or comparison.get("reference_baseline_sha256")
+        != hashlib.sha256(reference_path.read_bytes()).hexdigest()
+        or comparison.get("reference_baseline_source_sha256")
+        != reference.get("source_report_sha256")
+        or comparison.get("same_dependency_versions") is not True
+    ):
+        raise ValueError("Runtime measurement source or environment changed")
+    rows = measured["workloads"]
+    baseline = reference["workloads"]
+    comparisons = comparison["comparisons"]
+    if len(rows) != 7 or len(baseline) != 7 or len(comparisons) != 7:
+        raise ValueError("Runtime measurement workload denominator changed")
+    for row, original, paired in zip(rows, baseline, comparisons, strict=True):
+        if (
+            row["name"] != original["name"]
+            or row["name"] != paired["workload"]
+            or row["contract_sha256"] != original["contract_sha256"]
+            or row["scientific_output_sha256"] != original["scientific_output_sha256"]
+            or row["nonfinite_semantics_sha256"]
+            != original["nonfinite_semantics_sha256"]
+            or hashlib.sha256(
+                json.dumps(row["contract"], sort_keys=True).encode()
+            ).hexdigest()
+            != row["contract_sha256"]
+            or paired["baseline_median_seconds"] != original["warm_median_seconds"]
+            or paired["optimized_median_seconds"] != row["warm_median_seconds"]
+            or not math.isclose(
+                paired["latency_ratio"],
+                original["warm_median_seconds"] / row["warm_median_seconds"],
+                rel_tol=0,
+                abs_tol=1e-15,
+            )
+            or any(
+                paired[field] is not True
+                for field in (
+                    "same_config",
+                    "same_scientific_outputs",
+                    "same_native_missingness",
+                )
+            )
+        ):
+            raise ValueError(f"Runtime measurement comparison changed: {row['name']}")
+
+
 def main() -> None:
     verify_reader_paths()
+    verify_runtime_measurement()
     lock = json.loads(LOCK.read_text(encoding="utf-8"))
     if lock.get("schema_version") != "research-report-source-lock.v1":
         raise ValueError("Unexpected research report source lock")

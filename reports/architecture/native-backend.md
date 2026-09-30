@@ -19,6 +19,15 @@ profile, an explicit benefit gate and source-R/Python/native comparison. The
 [adoption result](../../docs/report/numerical-performance/native-adoption/README.md)
 records the measured scope and its limits.
 
+We also measured an ordinary Python improvement: caching three installed
+dependency version strings reduced the recorded replicated-series warm median
+from 218.972 to 94.532 ms on one machine. The
+[source-bound comparison](../../docs/report/numerical-performance/runtime-metadata/README.md)
+checks seven workload contracts and scientific-output hashes. The retained
+measurement omits raw profiler stacks and local process paths. This result
+supports the metadata-cache change, not a general speedup or a compiled
+backend.
+
 ## Boundary we would use if a new kernel qualifies
 
 We would place an optional C++17 extension inside the separately licensed
