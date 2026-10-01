@@ -7,13 +7,13 @@ SEAD acquisition. The source supplied no country field. Country counts are
 later governed boundary assignments within the declared bounding box, not
 source-native national discovery totals.
 
-| Country | Assigned and retrieved sites | Source-native observations | Refused observation dispositions | Eligible evidence events |
+| Country | Assigned and retrieved sites | Source-native observations | Refused observation dispositions | Eligible sites/events |
 | --- | ---: | ---: | ---: | ---: |
-| Sweden | 1,925 | 163,107 | 163,107 | 0 |
-| Denmark | 59 | 5,264 | 5,264 | 0 |
-| Norway | 45 | 8,950 | 8,950 | 0 |
-| Finland | 40 | 442 | 442 | 0 |
-| **Total** | **2,069** | **177,763** | **177,763** | **0** |
+| Sweden | 1,925 | 163,107 | 163,107 | 0/0 |
+| Denmark | 59 | 5,264 | 5,264 | 0/0 |
+| Norway | 45 | 8,950 | 8,950 | 0/0 |
+| Finland | 40 | 442 | 442 | 0/0 |
+| **Total** | **2,069** | **177,763** | **177,763** | **0/0** |
 
 All assigned sites occur in the retained `tbl_sites` payload and normalized
 consumer, so terminal site-retrieval loss is zero in each country. The 103
@@ -30,6 +30,7 @@ source-native observations have refused event dispositions; zero evidence
 events are eligible for propagation. The country refusal counts use each
 country's observation denominator because the governed event bundle refuses
 every observation; they are not a second set of independently counted events.
+With no eligible source-owned event, no site has an eligible propagation event.
 The provider did not report a schema
 version. Capture completeness applies only to the pinned source snapshot,
 declared bounding box and 61 relations, not to all sites in SEAD or to equal

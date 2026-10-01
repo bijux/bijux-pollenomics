@@ -38,6 +38,7 @@ FIELDS = (
     "terminal_site_retrieval_losses",
     "source_native_observations",
     "refused_observation_dispositions",
+    "propagation_eligible_sites",
     "eligible_evidence_events",
     "source_country_posture",
 )
@@ -207,6 +208,7 @@ def run(repository: Path, output: Path) -> dict[str, Any]:
                 "terminal_site_retrieval_losses": counts[1] - counts[2],
                 "source_native_observations": observation_count,
                 "refused_observation_dispositions": observation_count,
+                "propagation_eligible_sites": 0,
                 "eligible_evidence_events": events["country_eligible_event_counts"][
                     code
                 ],
@@ -242,6 +244,8 @@ def run(repository: Path, output: Path) -> dict[str, Any]:
         "refused_observation_disposition_denominator": events["refused_event_count"],
         "refused_country_allocation_basis": "all_source_native_observations_have_refused_event_dispositions;country_counts_follow_observation_country",
         "eligible_evidence_event_count": events["eligible_event_count"],
+        "propagation_eligible_site_count": 0,
+        "site_eligibility_basis": "no_eligible_observation_event_has_a_source_site",
         "scientific_posture": "source_native_observations_retained;all_event_dispositions_refused",
         "wp01_section6_posture": "partial_country_coverage_account;not_a_closure_claim",
         "wp01_section6_units_outside_this_replay": [
