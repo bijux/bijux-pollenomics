@@ -126,7 +126,7 @@
     },
     {
       "path": "docs/report/index.md",
-      "sha256": "1826e106057593678a0b9d71a36dbd7c365c604ea70de814990d38eec64c8dad",
+      "sha256": "39ce81e75fba6156ee7ea7fe06612ce1377b9793cf84928fdc7ab6dccc07c300",
       "bytes": 2668
     },
     {
@@ -1165,6 +1165,56 @@
       "bytes": 964369
     },
     {
+      "path": "docs/report/regions/nordic/sambosjon-direct-pollen/README.md",
+      "sha256": "26cbf78f5d88f2fd919ca0221be6ff48822e00f93a4cbaee13ecabe6393bde9d",
+      "bytes": 6530
+    },
+    {
+      "path": "docs/report/regions/nordic/sambosjon-direct-pollen/coverage.csv",
+      "sha256": "5ee2a23aaeee9cc48646ff4e19810ab87b304ba4d1c149c28e6ab7fd3f0a1f53",
+      "bytes": 132
+    },
+    {
+      "path": "docs/report/regions/nordic/sambosjon-direct-pollen/frozen/freeze.json",
+      "sha256": "8337d7b6316295b2506dd2efff73d2c3e08a2ecd35d3690a5b2047280c3337ec",
+      "bytes": 709
+    },
+    {
+      "path": "docs/report/regions/nordic/sambosjon-direct-pollen/frozen/predictions.json",
+      "sha256": "97a2b45ce51e2e42c851e64ba5b91ea721e887fac6c1e92e16f3938b428f4e65",
+      "bytes": 184513
+    },
+    {
+      "path": "docs/report/regions/nordic/sambosjon-direct-pollen/inputs/input-manifest.json",
+      "sha256": "4f161a235fd77953fc8a0411d2649ad2d7268144328e20f6acdc0df2c783f381",
+      "bytes": 2352
+    },
+    {
+      "path": "docs/report/regions/nordic/sambosjon-direct-pollen/inputs/metadata.json",
+      "sha256": "367c4d6fa1eed47c64d7360f6898b457e68718a26ef86eb1aed82b3eea2909ba",
+      "bytes": 12878
+    },
+    {
+      "path": "docs/report/regions/nordic/sambosjon-direct-pollen/inputs/training.json.gz",
+      "sha256": "4ec0de377bba7ad501ca5bf141374b4a3bde97ea266e64b0135a639d309a8647",
+      "bytes": 121413
+    },
+    {
+      "path": "docs/report/regions/nordic/sambosjon-direct-pollen/protocol.json",
+      "sha256": "f5ddf56f67668382c769d1cf530e5a28491268ca70bfb9d51bae48537abe81ae",
+      "bytes": 3450
+    },
+    {
+      "path": "docs/report/regions/nordic/sambosjon-direct-pollen/report.json",
+      "sha256": "410db1760454c74809fb3c60811db159c90e5e35c8bbdd1fb770c8435ff7f4c1",
+      "bytes": 2765
+    },
+    {
+      "path": "docs/report/regions/nordic/sambosjon-direct-pollen/scores.csv",
+      "sha256": "600eeea46b6b21575cdccce54126208fbf4a95e617c478571015685d8d6e246d",
+      "bytes": 12187
+    },
+    {
       "path": "docs/report/regions/nordic/selected-pollen-transfer/README.md",
       "sha256": "52ef31126a66b6a5a801cae69423ac8520a64877405c91936aecec768e3efdf1",
       "bytes": 386
@@ -2000,6 +2050,11 @@
       "bytes": 23936
     },
     {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sambosjon_direct_pollen.py",
+      "sha256": "1728ecee3671eac078bc6178def66593584646692b07fda0cea58433c018cd4d",
+      "bytes": 22571
+    },
+    {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/swedish_author_target_pollen.py",
       "sha256": "06c7e15d6ed0af9575d8537eb1af52422f9fcf98ecc27b64c57928273f19b938",
       "bytes": 7640
@@ -2070,6 +2125,11 @@
       "bytes": 2513
     },
     {
+      "path": "packages/bijux-pollenomics-dev/tests/source_completion/test_sambosjon_direct_pollen.py",
+      "sha256": "9f7963bd42e7f9e7aaf5c4b084d7cf7665e3ef79f31909d2a22211f2a093be55",
+      "bytes": 5870
+    },
+    {
       "path": "packages/bijux-pollenomics-dev/tests/source_completion/test_swedish_chronology_block.py",
       "sha256": "d4e5e6f16ff01fc1e14d7069c7aba550ddb898a0aa5794584b14496e02b871be",
       "bytes": 4467
@@ -2136,8 +2196,8 @@
     },
     {
       "path": "reports/README.md",
-      "sha256": "97bf0857de5764cab311337c019547fe5b55c72833db5d8ce19f3a94e7669507",
-      "bytes": 8200
+      "sha256": "c1cc7ef754140fb52f83257008a9438ca8ab9acf4d5a4dfa5a87738426aef55d",
+      "bytes": 8505
     },
     {
       "path": "reports/architecture/ownership.md",
@@ -2146,8 +2206,8 @@
     },
     {
       "path": "reports/evidence-index.md",
-      "sha256": "27efe76b9324946690238b8e45c25cd25d9b6e8035db05aa359cdecfd2739715",
-      "bytes": 20613
+      "sha256": "4e5a9bd553be732688bff7e5991b27a55b0e8881233195009203ce4783d480b9",
+      "bytes": 21463
     },
     {
       "path": "reports/needed/README.md",
@@ -2270,6 +2330,11 @@
       "bytes": 40465
     },
     {
+      "path": "reports/science/pollen-prediction.md",
+      "sha256": "782889010d412e73dfef2194e6ce73e8cae8b4c3a6a3c5a5306fab1e65aaf09f",
+      "bytes": 7358
+    },
+    {
       "path": "reports/science/publication-correspondence.md",
       "sha256": "36b4a5798c75ee090d263e9605c4a981e98606eacf4e8cb80211b19b7a7b61ff",
       "bytes": 15124
@@ -2373,6 +2438,11 @@
       "path": "reports/science/reveals-love-interface/taxon-summary.csv",
       "sha256": "7b9e02e2813e95b84733d88e10bded9d3763b898cfb5e05cdbcfdb33e0821838",
       "bytes": 1568
+    },
+    {
+      "path": "reports/science/sambosjon-direct-pollen.md",
+      "sha256": "ab6c08f1de299327b339641b44abcae8a27cebb16ef244ecafba57be9712960d",
+      "bytes": 2254
     },
     {
       "path": "reports/science/solsoe-lra-input.md",

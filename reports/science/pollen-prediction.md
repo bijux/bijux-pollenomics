@@ -40,6 +40,19 @@ MAE from 0.023151 to 0.029171; the shift and nearest-five effects are smaller
 and differ between sites. We report a three-site development sensitivity,
 not an age-model uncertainty estimate or independent spatial validation.
 
+## A newly evaluated Swedish physical site on the literal-label axis
+
+We applied three fixed predictors to [Lake Sämbosjön](sambosjon-direct-pollen.md),
+which was absent from the earlier target studies. All 22 candidate bins were
+predicted and scored; inverse-distance-squared equal-bin MAE was 0.022991.
+The 16 exact source labels contain 224,291 of 393,822 native pollen counts.
+This closed response differs from the 31-author-target studies above, so we do
+not compare their error magnitudes. Aggregate target count support was screened
+before prediction, and aggregate scores were inspected before a later protocol
+annotation correction; the frozen prediction bytes and fixed methods did not
+change. This is one-site descriptive development evidence, not independent
+confirmation, an LRA reconstruction or a vegetation score.
+
 ## Matched English direct pollen and LRA forward pollen
 
 In our [constrained LOVE source study](english-lra-pollen-prediction.md), we

@@ -171,6 +171,19 @@ do not establish nonoverlap of the cores' true age distributions. This is a
 prior-exposed observed-pollen development comparison, not a test of LRA or
 measured vegetation.
 
+## A newly scored Swedish lake
+
+We applied three fixed observed-pollen predictors to Lake Sämbosjön, a
+physical site absent from the earlier target studies. All 22 candidate
+500-year bins were predicted and scored. Inverse-distance-squared equal-bin
+MAE was 0.022991 on a closed 16-label pollen response containing 224,291 of
+393,822 native counts (56.95%). The [governed study](../../../report/regions/nordic/sambosjon-direct-pollen/README.md)
+keeps the source identity, frozen predictions, scores and count denominators.
+Aggregate target count support was inspected before prediction, and aggregate
+scores were inspected before a later protocol annotation correction. The
+prediction bytes stayed fixed; this one-site result is descriptive development
+evidence, not independent confirmation or vegetation accuracy.
+
 ## What two lake pollen series can and cannot say
 
 We compared observed `Alnus` and `Plantago lanceolata` pollen fractions at
