@@ -58,8 +58,21 @@ against the installed Python source closure. All 43 core and 23 source-domain
 cases pass, including 18 prospective optimized LOVE cases. The 97 numeric CSV
 files match the earlier retained oracle byte for byte, and 48 original-R
 vector comparisons pass. This is numerical method correspondence on declared
-inputs; it does not establish an identical-input R comparison for the profiled
-`LOVEexample` workload or a Nordic vegetation result.
+inputs. We also ran the [same ten-taxon `LOVEexample` inputs](../../docs/report/numerical-performance/love-source-comparison/README.md)
+through native R and Python with binary-identical values and 32 fixed
+candidates at each of eight active ring/repeat calls. Cover and pollen agree
+exactly; ring factors differ by at most 5.11e-15 and objective values by at
+most 4.67e-15. All eight selected candidate indices agree. This checks
+fixed-candidate calculation, while optimizer searches and Nordic vegetation
+remain outside the comparison.
+
+We checked a separate source behavior in a [controlled optimized LOVE
+regression](../../packages/bijux-pollenomics-lra/tests/unit/reconstruction/test_optimized_profile.py):
+two distinct sampled local PPE vectors produce identical cover, pollen and
+objective values when regional cover, local pollen counts and candidates are
+held fixed. The source-compatible optimized objective uses nominal local PPE
+despite sampling a local PPE vector. We do not count that sampled vector as
+propagated local PPE uncertainty or infer the paper's Figure 2 from this test.
 
 ## A real publication difference
 
