@@ -296,15 +296,19 @@ def main() -> int:
     lines = [
         "# ESSD published-window numerical provenance",
         "",
-        "The exact 100–350 BP author bin in grids 512 and 562 is paired across "
-        "the independent author-R replay, installed LRA computation, and pinned "
-        "PANGAEA 937075 published estimate. The 31 taxon mean and standard-error "
-        "axes close in each grid (124 numerical values). Fractions from the "
-        "author-R replay are multiplied by 100 before comparison with published "
-        "percentage cover.",
+        (
+            "The exact 100–350 BP author bin in grids 512 and 562 is paired across "
+            "the independent author-R replay, installed LRA computation, and pinned "
+            "PANGAEA 937075 published estimate. The 31 taxon mean and standard-error "
+            "axes close in each grid (124 numerical values). Fractions from the "
+            "author-R replay are multiplied by 100 before comparison with published "
+            "percentage cover."
+        ),
         "",
-        "| Grid | Metric | Maximum absolute R–archive gap (percentage points) | "
-        "Median absolute gap | Maximum Python–R gap | Largest-gap taxon |",
+        (
+            "| Grid | Metric | Maximum absolute R–archive gap (percentage points) | "
+            "Median absolute gap | Maximum Python–R gap | Largest-gap taxon |"
+        ),
         "| --- | --- | ---: | ---: | ---: | --- |",
     ]
     for item in summaries:
@@ -318,12 +322,14 @@ def main() -> int:
     lines.extend(
         [
             "",
-            "The shared 31-taxon means are summed without renormalization. "
-            "L1 is the sum of absolute percentage-point gaps across those taxa; "
-            "total variation is L1/200, and Hellinger uses the nonnegative "
-            "percentage means divided by 100. Both vectors must sum to 100% "
-            "within 0.000001 percentage points. These are modeled-product "
-            "correspondence distances, not vegetation accuracy.",
+            (
+                "The shared 31-taxon means are summed without renormalization. "
+                "L1 is the sum of absolute percentage-point gaps across those taxa; "
+                "total variation is L1/200, and Hellinger uses the nonnegative "
+                "percentage means divided by 100. Both vectors must sum to 100% "
+                "within 0.000001 percentage points. These are modeled-product "
+                "correspondence distances, not vegetation accuracy."
+            ),
             "",
             "| Grid | Archive mean sum (pp) | Author R mean sum (pp) | Mean L1 gap (pp) | Total variation | Hellinger | Two largest-gap taxa | Share of L1 |",
             "| --- | ---: | ---: | ---: | ---: | ---: | --- | ---: |",
@@ -343,11 +349,13 @@ def main() -> int:
     lines.extend(
         [
             "",
-            "On this author example, the archive difference also appears in the "
-            "independent R replay; it is not a Python-only numerical discrepancy. "
-            "The 2016 author-example and June 2021 archive historical raw-input "
-            "cohorts are not closed as identical. This does not reproduce the "
-            "1,128-row published study or evaluate measured vegetation accuracy.",
+            (
+                "On this author example, the archive difference also appears in the "
+                "independent R replay; it is not a Python-only numerical discrepancy. "
+                "The 2016 author-example and June 2021 archive historical raw-input "
+                "cohorts are not closed as identical. This does not reproduce the "
+                "1,128-row published study or evaluate measured vegetation accuracy."
+            ),
         ]
     )
     (args.output / "REPORT.md").write_text("\n".join(lines) + "\n")

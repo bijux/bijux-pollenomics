@@ -163,16 +163,20 @@ def main() -> int:
     lines = [
         "# LandClim II author/archive time-window correspondence",
         "",
-        "The 25 BP intervals in the retained 2016 author example are compared by "
-        "TW index with the documented PANGAEA 937075 mean and SE filename labels. "
-        "Both author axis files match the retained numerical replay receipts; "
-        "the published archive identity and exact TW2 numerical receipt are "
-        "bound by the retained published-window report. No archive payload or "
-        "historical raw cohort is recomputed here.",
+        (
+            "The 25 BP intervals in the retained 2016 author example are compared by "
+            "TW index with the documented PANGAEA 937075 mean and SE filename labels. "
+            "Both author axis files match the retained numerical replay receipts; "
+            "the published archive identity and exact TW2 numerical receipt are "
+            "bound by the retained published-window report. No archive payload or "
+            "historical raw cohort is recomputed here."
+        ),
         "",
-        f"{report['exact_windows']} of {report['compared_windows']} windows match both "
-        "BP bounds exactly. A shared TW index alone does not establish the same "
-        "time support for a numerical cover/SE comparison.",
+        (
+            f"{report['exact_windows']} of {report['compared_windows']} windows match both "
+            "BP bounds exactly. A shared TW index alone does not establish the same "
+            "time support for a numerical cover/SE comparison."
+        ),
         "",
         "| TW | Author BP interval | Published BP interval | Published minus author start/end (years) | Exact |",
         "| ---: | --- | --- | ---: | --- |",
@@ -187,9 +191,11 @@ def main() -> int:
     lines.extend(
         [
             "",
-            "Only exact time-window support permits a direct same-window numeric "
-            "comparison. This axis result does not resolve the 2016 author versus "
-            "2021 archive input-cohort difference or measure vegetation accuracy.",
+            (
+                "Only exact time-window support permits a direct same-window numeric "
+                "comparison. This axis result does not resolve the 2016 author versus "
+                "2021 archive input-cohort difference or measure vegetation accuracy."
+            ),
         ]
     )
     (args.output / "REPORT.md").write_text("\n".join(lines) + "\n")
