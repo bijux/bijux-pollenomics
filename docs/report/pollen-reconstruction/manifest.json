@@ -1995,6 +1995,16 @@
       "bytes": 4264
     },
     {
+      "path": "docs/report/source-relations/sead/chronology-claim-review/README.md",
+      "sha256": "dbd34aebcdd2a18090d6b8608b9647a778344af81cbf71face671a2dc96ffa8a",
+      "bytes": 3272
+    },
+    {
+      "path": "docs/report/source-relations/sead/chronology-claim-review/report.json",
+      "sha256": "6e1d9c759862257fafe7b8b2c32c7b9d0b8a8c9860955ed06e4772f447056fa9",
+      "bytes": 12340
+    },
+    {
       "path": "docs/report/source-relations/sead/chronology-country-accounting/README.md",
       "sha256": "649182c832da4178273bc3ec713bbc4073e608fbb37b655bf0c00aeb5ac0fe10",
       "bytes": 2997
@@ -2023,6 +2033,26 @@
       "path": "docs/report/source-relations/sead/country-coverage/rows.csv",
       "sha256": "f4a3ca6b21f4e0d0715b0510ede9446ddc6d66732d3b0b833d4eebfa4166fdc3",
       "bytes": 564
+    },
+    {
+      "path": "docs/report/source-relations/sead/interval-sets/README.md",
+      "sha256": "9a7e07e2c7771913a5dcf1cf4cc96d3ef96dbd1860d601b17389965f2e08cec7",
+      "bytes": 2602
+    },
+    {
+      "path": "docs/report/source-relations/sead/interval-sets/report.json",
+      "sha256": "b2c7fe1f2e4ab7b1d331031abcc4fac9bd484d81345f463df5d3f08085a0735c",
+      "bytes": 64546
+    },
+    {
+      "path": "docs/report/source-relations/sead/public-custody/README.md",
+      "sha256": "b4f02181ab2bfe6927d57095de74da12d2d60b8be6137e9e3c0105fa1e654842",
+      "bytes": 2106
+    },
+    {
+      "path": "docs/report/source-relations/sead/public-custody/report.json",
+      "sha256": "8a772532e3f9792c432095bb7953b8cafc0438b8078f4ab785580cff6a867063",
+      "bytes": 25297
     },
     {
       "path": "docs/report/source-relations/sead/source-unit-accounting/README.md",
@@ -2641,8 +2671,8 @@
     },
     {
       "path": "reports/science/source-cohorts.md",
-      "sha256": "88088105c4458fa7f6b5aa96f68898f045e877f5fe9f8b5c11bc898e9dcc68c3",
-      "bytes": 8362
+      "sha256": "d372d51df59063a9b816ce24ed37625df375c03ccb1b8df5c3d47cc4ebf6765c",
+      "bytes": 9112
     },
     {
       "path": "reports/science/sweden-author-pollen.md",

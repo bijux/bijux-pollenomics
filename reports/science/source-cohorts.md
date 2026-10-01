@@ -94,6 +94,16 @@ not mean those countries lack other environmental observations. The 126
 excluded site decisions have unknown downstream source-unit counts, not zeros.
 No country has an eligible ecological event in the retained capture.
 
+We reconciled the [raw-to-public site identities](../../docs/report/source-relations/sead/public-custody/README.md)
+across the 61 captured tables, 86 parent-child joins, assigned country
+decisions, normalized exports and four-country map: all 2,069 source site
+IDs/UUIDs agree. The separate [interval-set review](../../docs/report/source-relations/sead/interval-sets/README.md)
+traces all 25,109 chronology claims to 13,170 display-eligible AD-year
+claims and 7,244 record-interval features at 370 sites; 299 of those sites
+have separated interval components. The atlas chronology discovery layer is
+Swedish; the four-country site inventory is context, not a four-country
+event layer. A site-wide span cannot fill gaps between its source intervals.
+
 We decided that the present four-country scientific comparison tests
 **observed-pollen prediction**, not national archaeology density or candidate
 rankings. No archaeology count enters its training inputs, outcomes, scores or
