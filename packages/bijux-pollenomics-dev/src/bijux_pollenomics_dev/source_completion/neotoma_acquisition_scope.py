@@ -153,6 +153,7 @@ def build(repository: Path) -> dict[str, Any]:
 
 
 def main() -> None:
+    """Write the retained Neotoma acquisition-scope receipt under artifacts."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repository", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)

@@ -270,6 +270,7 @@ def build(repository: Path) -> dict[str, object]:
 
 
 def main() -> None:
+    """Write the native Neotoma variable reconciliation under artifacts."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repository", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
