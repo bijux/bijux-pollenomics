@@ -13,6 +13,7 @@ The primary checks remain available here:
 - [Published final-age correspondence](pangaea-epd-age-join/README.md)
 - [Alternative LegacyAge depth chronology](legacyage-chronology/README.md)
 - [Observed-pollen support under LegacyAge intervals](legacyage-interval-sensitivity/README.md)
+- [Author-target pollen support under LegacyAge intervals](author-target-age-interval/README.md)
 - [Odgaard 1981/1983 core selection](original-core-selection/README.md)
 
 The published 79 LandClim II pollen samples have not been identified among

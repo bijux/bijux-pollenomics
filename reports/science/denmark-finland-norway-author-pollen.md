@@ -54,6 +54,17 @@ sample-matched nominal score is identical to the strict score because
 neither retained sample changes bin. These small support-dependent numbers
 do not establish temporal transfer skill or admit LRA inputs.
 
+For Solsø, our separate [31-author-target strict-interval study]
+(../../docs/report/countries/denmark/solsoe-source-lineage/author-target-age-interval/README.md)
+keeps 15 of 91 comparable samples in eight of the parent's 24 bins. We
+reused 24 frozen Denmark-excluded predictions without refitting. The
+nearest-site MAE is 0.025673 on the retained author-assigned counts, compared
+with 0.025513 on complete parent counts in the same bins. The source-count
+replay reconciles all 24 original bins, including excluded and unmapped NISP.
+This exposed one-lake sensitivity uses a different axis and denominator from
+the 16-label Solsø study; its scores cannot be pooled with that study or
+interpreted as LRA or independent temporal skill.
+
 We retained derived target counts and predictions without copying the private
 author source or raw Neotoma transports. We recorded the source identities and
 author lookup hash in the input manifest. Our

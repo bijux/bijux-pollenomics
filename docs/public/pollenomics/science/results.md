@@ -216,6 +216,13 @@ retains 15 of 91 comparable samples whose full age intervals fit their
 original bins. Eight of 24 scored bins and 32 frozen four-method predictions
 remain supported. This is a previously exposed direct-pollen result on one
 physical lake, with no new LRA or vegetation validation claim.
+The distinct [31-author-target Solsø sensitivity]
+(../../../report/countries/denmark/solsoe-source-lineage/author-target-age-interval/README.md)
+uses author-assigned pollen counts and 24 frozen three-method predictions on
+the same 15 supported samples and eight bins. Its nearest-site eight-bin MAE
+is 0.025673, compared with 0.025513 on the parent's complete counts in those
+bins. We do not pool that score with the 16-label result or infer independent
+temporal skill from this one previously exposed lake.
 
 ## A newly scored Swedish lake
 

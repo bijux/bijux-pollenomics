@@ -341,6 +341,12 @@ At Danish Solsø, the [strict LegacyAge support check]
 retains 15 of 91 comparable samples in eight of 24 parent bins, reusing 32
 Denmark-excluded fixed pollen predictions. It is one exposed site and does
 not identify LandClim's historical 79-row selection or a joint age posterior.
+The separate [31-author-target Solsø check]
+(../../docs/report/countries/denmark/solsoe-source-lineage/author-target-age-interval/README.md)
+also retains 15 samples in eight bins, reuses 24 Denmark-excluded predictions
+and reconciles all 24 original author-assigned count bins. Its taxon axis and
+denominator differ from the 16-label check; neither resolves the open age-model
+or historical sample-selection need.
 The [Dalmutladdo age-interval sensitivity]
 (../../docs/report/regions/nordic/dalmutladdo-age-interval-sensitivity/README.md)
 retains only two of 72 samples and two of 22 originally scored bins. Both
