@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 
-import re
 from pathlib import Path
+import re
 from typing import Any
 
 from .evidence import EvidenceReader, digest, indexed_rows
@@ -38,7 +38,9 @@ def build_source_audit(root: Path) -> dict[str, Any]:
             if "<" in path:
                 pattern = re.sub(r"<[^/<>]+>", "*", path)
                 reader.resolve(pattern)
-                if not any(candidate.is_file() for candidate in reader.root.glob(pattern)):
+                if not any(
+                    candidate.is_file() for candidate in reader.root.glob(pattern)
+                ):
                     reader.issue(
                         "source_fact_ownership_pattern_unresolved",
                         path,
