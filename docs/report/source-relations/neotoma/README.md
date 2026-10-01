@@ -8,6 +8,9 @@ HTTP pagination and response-byte authority.
 The [observation attribute trace](observation-attributes/README.md) follows one
 pinned raw datum through its normalized convenience fields and native parent
 IDs. It records source nulls and the absent denominator explicitly.
+The [native variable surface reconciliation](variable-surface/README.md)
+checks all 1,262 relational variable identities, names, source taxon groups,
+other source semantics and units against 370,936 native datum rows.
 The [compact sample summary derivation](compact-summary/README.md) checks a
 displayed site count against pinned relational samples and retains a reverse
 trace to one observation.
