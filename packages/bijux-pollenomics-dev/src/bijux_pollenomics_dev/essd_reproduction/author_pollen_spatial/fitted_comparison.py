@@ -209,14 +209,18 @@ def compare_fitted_scores(
     lines = [
         "# Buffered observed-pollen fitted and fixed comparison",
         "",
-        "All four methods use the same author-prepared 31-taxon counts, 17 site IDs, "
-        "two adjacent withheld grids and 20 km basin-edge buffer. Scores are "
-        "paired only where every method produced a prediction; each site has "
-        "equal weight after its bins are averaged. Model-specific coverage and "
-        "refusal reasons remain in report.json.",
+        (
+            "All four methods use the same author-prepared 31-taxon counts, 17 site IDs, "
+            "two adjacent withheld grids and 20 km basin-edge buffer. Scores are "
+            "paired only where every method produced a prediction; each site has "
+            "equal weight after its bins are averaged. Model-specific coverage and "
+            "refusal reasons remain in report.json."
+        ),
         "",
-        f"{result['common_scored_site_bins']} of 184 observed site bins are common "
-        "to all four methods.",
+        (
+            f"{result['common_scored_site_bins']} of 184 observed site bins are common "
+            "to all four methods."
+        ),
         "",
         "| Method | Scored bins (own) | Common-site MAE | Common-site TV | MAE minus training mean |",
         "| --- | ---: | ---: | ---: | ---: |",
@@ -233,11 +237,13 @@ def compare_fitted_scores(
     lines.extend(
         [
             "",
-            "This fixed fitted configuration is a development diagnostic. Its "
-            "zero replacement, length scale rule and ridge penalty were declared "
-            "before scoring; these outer-block results do not select a model. "
-            "The author-prepared English pollen cohort is not a source-complete "
-            "Swedish LRA cohort or measured vegetation reference.",
+            (
+                "This fixed fitted configuration is a development diagnostic. Its "
+                "zero replacement, length scale rule and ridge penalty were declared "
+                "before scoring; these outer-block results do not select a model. "
+                "The author-prepared English pollen cohort is not a source-complete "
+                "Swedish LRA cohort or measured vegetation reference."
+            ),
         ]
     )
     (output / "REPORT.md").write_text("\n".join(lines) + "\n")

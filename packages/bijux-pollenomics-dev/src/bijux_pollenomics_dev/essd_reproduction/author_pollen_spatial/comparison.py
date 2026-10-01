@@ -271,10 +271,12 @@ def compare_scores(score_dirs: dict[str, Path], output: Path) -> dict[str, objec
     lines = [
         "# Buffered adjacent-grid pollen baseline comparison",
         "",
-        "The same 17 English author site IDs form two withheld one-degree grids. "
-        "Training sites must satisfy the frozen 20 km basin-edge buffer. "
-        "All three methods score the same 148 of 184 observed site bins; "
-        "36 lack a buffered training site in the corresponding bin.",
+        (
+            "The same 17 English author site IDs form two withheld one-degree grids. "
+            "Training sites must satisfy the frozen 20 km basin-edge buffer. "
+            "All three methods score the same 148 of 184 observed site bins; "
+            "36 lack a buffered training site in the corresponding bin."
+        ),
         "",
         "| Method | Site-macro MAE (fraction) | Site-macro total variation | MAE minus training mean |",
         "| --- | ---: | ---: | ---: |",
@@ -288,9 +290,11 @@ def compare_scores(score_dirs: dict[str, Path], output: Path) -> dict[str, objec
     lines.extend(
         [
             "",
-            "Block means give each site equal weight within its grid. Differences "
-            "are paired against the training mean on the same scored bins; "
-            "negative values indicate lower error.",
+            (
+                "Block means give each site equal weight within its grid. Differences "
+                "are paired against the training mean on the same scored bins; "
+                "negative values indicate lower error."
+            ),
             "",
             "| Grid | Sites | Scored / observed bins | Nearest-site MAE difference | Inverse-distance MAE difference |",
             "| --- | ---: | ---: | ---: | ---: |",
@@ -330,10 +334,12 @@ def compare_scores(score_dirs: dict[str, Path], output: Path) -> dict[str, objec
     lines.extend(
         [
             "",
-            "Taxon errors below are site-macro absolute fractions on the same 148 "
-            "site bins. Signed differences compare each method with the training "
-            "mean; all 31 taxa and signed prediction bias are in report.json. "
-            "Taxon ranks are descriptive and were inspected after outer scoring.",
+            (
+                "Taxon errors below are site-macro absolute fractions on the same 148 "
+                "site bins. Signed differences compare each method with the training "
+                "mean; all 31 taxa and signed prediction bias are in report.json. "
+                "Taxon ranks are descriptive and were inspected after outer scoring."
+            ),
             "",
             "| Taxon | Training mean error | Nearest-site difference | Inverse-distance difference |",
             "| --- | ---: | ---: | ---: |",
@@ -357,13 +363,15 @@ def compare_scores(score_dirs: dict[str, Path], output: Path) -> dict[str, objec
     lines.extend(
         [
             "",
-            "These are descriptive author-prepared observed-pollen predictions "
-            "from only two adjacent English grids. Per-site bins are correlated, "
-            "so no confidence interval or model selection is inferred from them. "
-            "The fixed distance exponent and "
-            "buffer were not tuned on these outcomes. This result does not "
-            "establish Swedish LRA skill, long-distance transfer, independent "
-            "vegetation accuracy, or publication-ready source rights.",
+            (
+                "These are descriptive author-prepared observed-pollen predictions "
+                "from only two adjacent English grids. Per-site bins are correlated, "
+                "so no confidence interval or model selection is inferred from them. "
+                "The fixed distance exponent and "
+                "buffer were not tuned on these outcomes. This result does not "
+                "establish Swedish LRA skill, long-distance transfer, independent "
+                "vegetation accuracy, or publication-ready source rights."
+            ),
         ]
     )
     (output / "REPORT.md").write_text("\n".join(lines) + "\n")

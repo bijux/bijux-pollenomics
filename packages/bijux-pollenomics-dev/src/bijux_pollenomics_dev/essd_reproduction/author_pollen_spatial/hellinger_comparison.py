@@ -215,11 +215,13 @@ def compare_hellinger(
     lines = [
         "# Hellinger distance for buffered observed-pollen predictions",
         "",
-        "The retained author-prepared pollen predictions from two adjacent English "
-        "grids are rescored on the identical 148/184 observed site-bin support. "
-        "Hellinger distance is between zero and one and uses all 31 named taxa "
-        "and exact retained observed counts. Each site has equal weight; the "
-        "36 bins without buffered same-bin training remain refusals.",
+        (
+            "The retained author-prepared pollen predictions from two adjacent English "
+            "grids are rescored on the identical 148/184 observed site-bin support. "
+            "Hellinger distance is between zero and one and uses all 31 named taxa "
+            "and exact retained observed counts. Each site has equal weight; the "
+            "36 bins without buffered same-bin training remain refusals."
+        ),
         "",
         "| Method | Site-macro Hellinger | Difference from training mean |",
         "| --- | ---: | ---: |",
@@ -246,12 +248,14 @@ def compare_hellinger(
     lines.extend(
         [
             "",
-            "The full per-bin distances and per-site means are in scores.csv and "
-            "report.json. This is a descriptive development comparison on two "
-            "adjacent blocks. It does not select a method or establish Swedish LRA "
-            "skill, long-distance transfer, independent vegetation accuracy or "
-            "publication rights. The source denominator is the author's prepared "
-            "31-taxon count axis, not a certified full raw-core denominator.",
+            (
+                "The full per-bin distances and per-site means are in scores.csv and "
+                "report.json. This is a descriptive development comparison on two "
+                "adjacent blocks. It does not select a method or establish Swedish LRA "
+                "skill, long-distance transfer, independent vegetation accuracy or "
+                "publication rights. The source denominator is the author's prepared "
+                "31-taxon count axis, not a certified full raw-core denominator."
+            ),
         ]
     )
     (output / "REPORT.md").write_text("\n".join(lines) + "\n")
