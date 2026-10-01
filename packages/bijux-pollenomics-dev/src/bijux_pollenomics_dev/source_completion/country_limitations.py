@@ -67,21 +67,25 @@ def render(
         "",
         "# Nordic Source and Country Limitations",
         "",
-        "This table is generated from the repository source-stage matrix "
-        "`data/source_family_evidence_stage_matrix.json` and country-dimension "
-        "ledger `data/country_dimension_coverage.json`. "
-        "It retains source-reported coverage, governed country assignment, and "
-        "publication as separate claims. Each count belongs to its named dimension "
-        "and observation unit; `count unresolved` is not zero. An `available_collected` "
-        "publication is a product record, not universal scientific admission.",
+        (
+            "This table is generated from the repository source-stage matrix "
+            "`data/source_family_evidence_stage_matrix.json` and country-dimension "
+            "ledger `data/country_dimension_coverage.json`. "
+            "It retains source-reported coverage, governed country assignment, and "
+            "publication as separate claims. Each count belongs to its named dimension "
+            "and observation unit; `count unresolved` is not zero. An `available_collected` "
+            "publication is a product record, not universal scientific admission."
+        ),
         "",
-        f"The ledgers cover {report['source_families']} families, {len(COUNTRY_LABELS)} Nordic "
-        f"countries plus `UNASSIGNED` and `OUTSIDE`, and {report['country_cells']} "
-        "family/partition/dimension cells. The source-stage matrix distinguishes "
-        "capability from materialization across "
-        f"{report['source_capability_audit_rows']} audit rows. Country cells use "
-        "the ledger's `source` resolution; this says nothing about site or grid "
-        "precision within a country.",
+        (
+            f"The ledgers cover {report['source_families']} families, {len(COUNTRY_LABELS)} Nordic "
+            f"countries plus `UNASSIGNED` and `OUTSIDE`, and {report['country_cells']} "
+            "family/partition/dimension cells. The source-stage matrix distinguishes "
+            "capability from materialization across "
+            f"{report['source_capability_audit_rows']} audit rows. Country cells use "
+            "the ledger's `source` resolution; this says nothing about site or grid "
+            "precision within a country."
+        ),
         "",
         "| Family | Country | Source-reported | Governed assignment | Publication | Refusal and qualification codes |",
         "| --- | --- | --- | --- | --- | --- |",
@@ -108,18 +112,22 @@ def render(
             "",
             "## How to read the limits",
             "",
-            "A source-reported zero, a governed assignment, and a published member "
-            "can all coexist. SEAD reports zero country cells in its native source "
-            "partition while governed and published site assignments are nonzero. "
-            "EMPD2 source metadata is partial, yet its governed country assignment "
-            "and publication remain blocked. HYDE private archive custody does not "
-            "satisfy the governed repository or country projection contracts. "
-            "NFI country access leads do not become admitted pollen–vegetation pairs.",
+            (
+                "A source-reported zero, a governed assignment, and a published member "
+                "can all coexist. SEAD reports zero country cells in its native source "
+                "partition while governed and published site assignments are nonzero. "
+                "EMPD2 source metadata is partial, yet its governed country assignment "
+                "and publication remain blocked. HYDE private archive custody does not "
+                "satisfy the governed repository or country projection contracts. "
+                "NFI country access leads do not become admitted pollen–vegetation pairs."
+            ),
             "",
-            "For lifecycle stages and source roles, see the [source-family matrix](source-family-matrix.md). "
-            "For count definitions and denied inferences, see [coverage and naming](../overview/coverage-and-naming.md). "
-            "The [retained replay](../../../report/regions/nordic/source-capability/README.md) "
-            "includes all six partitions and parent-artifact identities.",
+            (
+                "For lifecycle stages and source roles, see the [source-family matrix](source-family-matrix.md). "
+                "For count definitions and denied inferences, see [coverage and naming](../overview/coverage-and-naming.md). "
+                "The [retained replay](../../../report/regions/nordic/source-capability/README.md) "
+                "includes all six partitions and parent-artifact identities."
+            ),
             "",
             "## Bound input identity",
             "",
@@ -134,8 +142,10 @@ def render(
             "  --repository . --output artifacts/jobs/country-source-limitations/reproduction",
             "```",
             "",
-            "The command verifies every parent artifact digest. Compare its Markdown "
-            "with this governed page before replacing the page.",
+            (
+                "The command verifies every parent artifact digest. Compare its Markdown "
+                "with this governed page before replacing the page."
+            ),
             "",
         ]
     )

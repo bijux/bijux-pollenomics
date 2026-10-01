@@ -32,16 +32,20 @@ def render(report: dict[str, Any], review_sha256: str) -> str:
         "",
         "# Source Capability and Materialization",
         "",
-        "This generated page separates what each governed source can support from "
-        "which declared evidence files are present. The [evidence review]"
-        "(../../../report/source-relations/source-capability-evidence/README.md) "
-        "checks every declared path against current bytes. A complete file set "
-        "does not admit a scientific claim, and a missing file does not make a "
-        "source dimension inherently unsupported.",
+        (
+            "This generated page separates what each governed source can support from "
+            "which declared evidence files are present. The [evidence review]"
+            "(../../../report/source-relations/source-capability-evidence/README.md) "
+            "checks every declared path against current bytes. A complete file set "
+            "does not admit a scientific claim, and a missing file does not make a "
+            "source dimension inherently unsupported."
+        ),
         "",
-        f"The matrix has {report['source_count']} source families, "
-        f"{report['dimension_count']} dimensions, and {report['audit_row_count']} "
-        "source–dimension cells. Each summary count uses cells as its unit.",
+        (
+            f"The matrix has {report['source_count']} source families, "
+            f"{report['dimension_count']} dimensions, and {report['audit_row_count']} "
+            "source–dimension cells. Each summary count uses cells as its unit."
+        ),
         "",
         "| Source | Supported | Partial support | Unsupported | Complete files | Partial files | Missing files | Not applicable | Human review |",
         "| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |",
@@ -100,14 +104,16 @@ def render(report: dict[str, Any], review_sha256: str) -> str:
     lines.extend(
         [
             "",
-            "The source contract and materialization audit assign these states. "
-            "The [retained machine-readable review]"
-            "(../../../report/source-relations/source-capability-evidence/report.json) "
-            "names the evidence paths, file digests, coverage metrics, and reason "
-            "codes for each cell. Source-specific lifecycle and four-country "
-            "availability remain in the [source-family matrix]"
-            "(source-family-matrix.md) and [country limitations]"
-            "(country-source-limitations.md).",
+            (
+                "The source contract and materialization audit assign these states. "
+                "The [retained machine-readable review]"
+                "(../../../report/source-relations/source-capability-evidence/report.json) "
+                "names the evidence paths, file digests, coverage metrics, and reason "
+                "codes for each cell. Source-specific lifecycle and four-country "
+                "availability remain in the [source-family matrix]"
+                "(source-family-matrix.md) and [country limitations]"
+                "(country-source-limitations.md)."
+            ),
             "",
             f"Review SHA-256: `{review_sha256}`.",
             "",

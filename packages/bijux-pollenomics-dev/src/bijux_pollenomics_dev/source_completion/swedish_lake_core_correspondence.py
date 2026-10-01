@@ -371,10 +371,12 @@ def main() -> int:
     lines = [
         "# Swedish lake core correspondence leads",
         "",
-        "Pinned Neotoma and LandClim II metadata agree on names, core handles, "
-        "downloaded sample counts and points within one metre for these two "
-        "lakes. The smaller prerequisite counts are candidate-filter counts, "
-        "not the native dataset sample denominators.",
+        (
+            "Pinned Neotoma and LandClim II metadata agree on names, core handles, "
+            "downloaded sample counts and points within one metre for these two "
+            "lakes. The smaller prerequisite counts are candidate-filter counts, "
+            "not the native dataset sample denominators."
+        ),
         "",
         "| Lake | Native / published / prerequisite samples | Point gap (m) | Native / published elevation (m) | Published radius (m) | First-sample pure pollen NISP / other NISP |",
         "| --- | ---: | ---: | ---: | ---: | ---: |",
@@ -398,8 +400,10 @@ def main() -> int:
             "",
             "## Native series coverage",
             "",
-            "These are source NISP partitions and unselected age claims, not LRA "
-            "pollen denominators or a selected chronology.",
+            (
+                "These are source NISP partitions and unselected age claims, not LRA "
+                "pollen denominators or a selected chronology."
+            ),
             "",
             "| Lake | Samples | Pure pollen NISP | Other NISP | Single age claims | Native age range (calibrated BP) | Native − published end labels (years) |",
             "| --- | ---: | ---: | ---: | ---: | ---: | ---: |",
@@ -421,12 +425,14 @@ def main() -> int:
     lines.extend(
         [
             "",
-            "Source NISP categories, age claims, series-end labels, elevations "
-            "and exact input hashes are retained in report.json. The different "
-            "elevations and chronology labels still need source resolution. "
-            "The published radii are not transferred to Neotoma; original "
-            "pollen denominator, taxon/PPE mapping and analytical-use rights "
-            "remain unreviewed. Zero Swedish LRA samples are admitted.",
+            (
+                "Source NISP categories, age claims, series-end labels, elevations "
+                "and exact input hashes are retained in report.json. The different "
+                "elevations and chronology labels still need source resolution. "
+                "The published radii are not transferred to Neotoma; original "
+                "pollen denominator, taxon/PPE mapping and analytical-use rights "
+                "remain unreviewed. Zero Swedish LRA samples are admitted."
+            ),
         ]
     )
     (args.output / "REPORT.md").write_text("\n".join(lines) + "\n")
