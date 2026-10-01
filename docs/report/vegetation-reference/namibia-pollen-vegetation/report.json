@@ -1,0 +1,56 @@
+{
+  "schema_version": "namibia-modern-pollen-vegetation-source-join.v1",
+  "status": "source_rows_joined",
+  "source": {
+    "citation": "Tabares et al. (2021), PANGAEA dataset series 10.1594/PANGAEA.931037",
+    "rights": "CC BY 4.0; cite both source datasets and parent series",
+    "pollen": {
+      "doi": "10.1594/PANGAEA.931033",
+      "sha256": "73c62c335a227283c27a224304b52fd21d1c674f95551d58a2e42dffa325a2e1"
+    },
+    "vegetation": {
+      "doi": "10.1594/PANGAEA.931035",
+      "sha256": "b2460910d5f72e234fef50a24c4ade08e57ab714bf482ba4afb3b4ed8e7b4f2a"
+    }
+  },
+  "join": {
+    "event_count": 10,
+    "pollen_row_count": 10,
+    "vegetation_row_count": 150,
+    "site_radius_pair_count": 150,
+    "taxon_pair_count": 750,
+    "taxa": [
+      "Acacia",
+      "Dichrostachys",
+      "Grewia",
+      "Poaceae",
+      "Combretaceae"
+    ],
+    "radius_values_m": [
+      100,
+      200,
+      300,
+      400,
+      500,
+      600,
+      700,
+      800,
+      900,
+      1000,
+      1100,
+      1200,
+      1300,
+      1400,
+      1500
+    ],
+    "radius_100m_site_count": 10,
+    "radius_100m_taxon_pair_count": 50,
+    "five_taxon_pollen_mass_once_per_site": 6894,
+    "coordinates": "exact match at displayed four-decimal source precision",
+    "denominators": "five listed taxa only; neither total terrestrial pollen nor total vegetation cover",
+    "paired_csv_sha256": "0ab77a3a9f74e0d91c9613ba84b37bc029b07d275a1816f37fffa75db8e1011d"
+  },
+  "interpretation": "Source-row pairing for an out-of-domain modern soil-pollen development cohort; no model fit, score, Nordic vegetation validation, or selected pollen-source radius.",
+  "temporal_support": "Exact soil-sampling and satellite-image dates are not stated in these source tables.",
+  "ring_semantics": "Publisher labels radius in 100 m steps; paired rows preserve that label without reinterpreting ring area or selecting an ecological source radius."
+}

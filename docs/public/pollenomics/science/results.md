@@ -318,6 +318,11 @@ numerical vegetation fractions. A [published southern Swedish figure](../../../r
 supports a bounded nine-label comparison of its authors' estimates, not a
 score of this repository's predictions. These source results answer different
 questions; none supplies our missing independent vegetation outcome.
+An [authenticated Namibian source join](../../../report/vegetation-reference/namibia-pollen-vegetation/README.md)
+adds ten modern soil-pollen sites paired with satellite-image-derived
+vegetation areas at 15 reported radii. It is a separate, previously inspected
+development source with no model score; its savanna soil samples do not
+validate Nordic lake reconstructions.
 
 ### Model settings
 

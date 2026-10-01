@@ -11,6 +11,16 @@ The [EMPD2–NFI decision](../../docs/report/validation/empd2-nfi-pairing/report
 retains **zero admitted measured pairs** among 16 nearby candidates. We have
 therefore not calculated a repository vegetation accuracy score.
 
+We separately acquired the original CC BY 4.0 [Namibian modern soil-pollen and
+vegetation tables](../../docs/report/vegetation-reference/namibia-pollen-vegetation/README.md)
+from PANGAEA. Their source-bound join contains ten pollen sites and 150
+site-radius vegetation rows, yielding 750 five-taxon pairs. These are actual
+published observations, but their soil samples, savanna taxa, calculated
+vegetation areas and unspecified sample/image dates do not match any Nordic
+lake prediction. Repeated radius rows are not independent pollen samples.
+We retain the joined rows as an out-of-domain development source without a
+model score or a selected pollen-source radius.
+
 ## What we checked
 
 | Evidence | What we established | Why it does not validate our predictions |

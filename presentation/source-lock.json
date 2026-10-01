@@ -50,7 +50,7 @@
     "reports/architecture/lra-distribution.md": "9a6c1b006d297dc46953499b6d7878503242ab84429320fbf82c345c25bebed4",
     "reports/architecture/native-backend.md": "8aa679097d3f4457a1fb6b133f696fc2099a50b6d434142b3430c2ed6a759e80",
     "reports/architecture/ownership.md": "7b2c6cd467c66e2f582ac613400483a49a9bfa4c3141f4f4247b7bb7946ad32b",
-    "reports/needed/README.md": "8a562c870ac262c277ec5cbc08e4292456dc9b4d04650b6b669a172366e62991",
+    "reports/needed/README.md": "2eb98b9560009cdff35a1699e1aa74621d602e5d07e2275e74f550dcebdf53ce",
     "reports/science/abborrtjarnen-source-method.md": "ec1cea41eac2ad913e4c9227a491325f4471bec28a8fd313226f0776970683b1",
     "reports/science/bjaresjo-context.md": "a49c6d6530dd543ae4dc3c4ca0e4bcabe37af8e363b28bd6d18b1245723118d1",
     "reports/science/dalmutladdo-lra-input/README.md": "4f3b73cf97b7f2f8a9f9d904238b503b915d38f9b43d13496ef31fd9912f56a0",
@@ -81,6 +81,6 @@
     "reports/science/sweden-spatiotemporal-sensitivity.md": "8f6dccebd81af82bfedea3e9ae3ddaea75a3999a59bfd1119046d947c43980de",
     "reports/science/sweden-training-scope.md": "f314ad31c3ce166f7c8ea2aa2b03ed82c097c8026bb969008711c33e11f39246",
     "reports/science/synthetic-model-selection/README.md": "af6ff96f339d3ba2528e3d68a970415fc8cf9eb2770f5255a43a808f8199d010",
-    "reports/science/vegetation-reference.md": "eb30feabb1fc329b73eab684160d43f1311055f7b567b9ab128f8a1ca96b48a7"
+    "reports/science/vegetation-reference.md": "432e36371322d9cfce6e0dccbd7f79ca64958b44c9c9ad8d20b43b035b886cb5"
   }
 }

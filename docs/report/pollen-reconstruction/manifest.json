@@ -106,8 +106,8 @@
     },
     {
       "path": "docs/public/pollenomics/science/results.md",
-      "sha256": "22ac3833028d7c03834d7fafb5f01d18025d33eff7d0f8076174757f964e1236",
-      "bytes": 21963
+      "sha256": "5b3f0df5a4faa7b1ba26749452ac83cbe204656f208f0917e01cdf295efc4084",
+      "bytes": 22335
     },
     {
       "path": "docs/public/pollenomics/science/sources.md",
@@ -2530,6 +2530,26 @@
       "bytes": 823
     },
     {
+      "path": "docs/report/vegetation-reference/namibia-pollen-vegetation/README.md",
+      "sha256": "cd08b92a0efe53e8406284313acb7ed07075a913f16993f51b7b62f020ac4435",
+      "bytes": 2375
+    },
+    {
+      "path": "docs/report/vegetation-reference/namibia-pollen-vegetation/paired.csv",
+      "sha256": "0ab77a3a9f74e0d91c9613ba84b37bc029b07d275a1816f37fffa75db8e1011d",
+      "bytes": 81344
+    },
+    {
+      "path": "docs/report/vegetation-reference/namibia-pollen-vegetation/replay.py",
+      "sha256": "43750c78ca1aafc5426f784c664a5e1163150d7392f56257bf06421ece96e71c",
+      "bytes": 8561
+    },
+    {
+      "path": "docs/report/vegetation-reference/namibia-pollen-vegetation/report.json",
+      "sha256": "7060e68eaa3a7f67f528dcc565a7cca6dc1963c5f5ccfc6e13fdfe356d926b67",
+      "bytes": 1927
+    },
+    {
       "path": "docs/report/vegetation-reference/smaland-historical-maps/README.md",
       "sha256": "85a619b3cdd2ef0ab928d92fc5b77fff14b82a0176cadba2eeed55b8ae958f16",
       "bytes": 872
@@ -2911,8 +2931,8 @@
     },
     {
       "path": "reports/needed/README.md",
-      "sha256": "8a562c870ac262c277ec5cbc08e4292456dc9b4d04650b6b669a172366e62991",
-      "bytes": 30232
+      "sha256": "2eb98b9560009cdff35a1699e1aa74621d602e5d07e2275e74f550dcebdf53ce",
+      "bytes": 30819
     },
     {
       "path": "reports/science/aadr-nordic-entities/README.md",
@@ -3266,8 +3286,8 @@
     },
     {
       "path": "reports/science/vegetation-reference.md",
-      "sha256": "eb30feabb1fc329b73eab684160d43f1311055f7b567b9ab128f8a1ca96b48a7",
-      "bytes": 6755
+      "sha256": "432e36371322d9cfce6e0dccbd7f79ca64958b44c9c9ad8d20b43b035b886cb5",
+      "bytes": 7425
     },
     {
       "path": "reports/science/vegetation-reference/farskesjon/plot_support.py",

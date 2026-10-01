@@ -182,6 +182,15 @@ site-group predictions before scoring. This source cannot fill the Swedish or
 four-country regional vegetation-cover denominator by citation alone; those
 paired measurements remain at zero.
 
+We also acquired the original [Namibian modern soil-pollen and vegetation
+tables](../../docs/report/vegetation-reference/namibia-pollen-vegetation/README.md).
+Ten source events join across 15 reported vegetation radii and five taxa.
+Their satellite-image-derived areas are real source observations, but
+they are savanna soil-pollen data outside the Nordic lake target, with exact
+sample/image dates and source-radius selection unresolved. This creates a
+separate exposed development cohort; it does not close the matched Nordic
+vegetation need or provide an untouched confirmation set.
+
 ## HYDE source semantics
 
 **Affected result:** selected four-country cropland grid sums agree with 84
