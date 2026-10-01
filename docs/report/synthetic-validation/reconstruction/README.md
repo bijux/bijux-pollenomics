@@ -48,8 +48,12 @@ result establishes measured vegetation accuracy, spatial interpolation skill,
 held-out ecological performance, PPE estimation or calibrated uncertainty.
 
 The recorded configuration and production manifest both name the
-`disqover-0.9.14-wrapper-v1` fall-speed profile. Reproduce from the
-repository root with the configured environment:
+`disqover-0.9.14-wrapper-v1` fall-speed profile. The report retains the model,
+inputs, backend and runtime identity from the
+production manifest. It omits the editable distribution's SCM-derived package
+version because its commit distance changes as unrelated repository work is
+committed; that distance does not identify a different numerical method.
+Reproduce from the repository root with the configured environment:
 
 ```bash
 PYTHONDONTWRITEBYTECODE=1 OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 \

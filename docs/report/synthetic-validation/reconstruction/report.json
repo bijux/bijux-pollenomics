@@ -56,7 +56,6 @@
           "pollen": "b90effd878320839f6cecd7cebf746ac2c1df362ce82f5a1aa49307e301e38ec"
         },
         "package": "bijux-pollenomics-lra",
-        "package_version": "0.1.9.dev232+dirty",
         "parameters": {
           "basin_diameter_m": 350,
           "basin_type": "peatland",
@@ -212,7 +211,6 @@
           "pollen": "b90effd878320839f6cecd7cebf746ac2c1df362ce82f5a1aa49307e301e38ec"
         },
         "package": "bijux-pollenomics-lra",
-        "package_version": "0.1.9.dev232+dirty",
         "parameters": {
           "basin_diameter_m": 350,
           "basin_type": "peatland",
@@ -368,7 +366,6 @@
           "pollen": "ad7645fb6c59d40914174237c624d0c2a400cdc25bf3b6e705c024c35f6ca960"
         },
         "package": "bijux-pollenomics-lra",
-        "package_version": "0.1.9.dev232+dirty",
         "parameters": {
           "basin_diameter_m": 350,
           "basin_type": "peatland",
@@ -524,7 +521,6 @@
           "pollen": "14d630f2126ecf03cbca031ffa9307617db208aed176a00acb02bb72058d0b51"
         },
         "package": "bijux-pollenomics-lra",
-        "package_version": "0.1.9.dev232+dirty",
         "parameters": {
           "basin_diameter_m": 200,
           "basin_type": "peatland",
@@ -684,7 +680,6 @@
           "pollen": "14d630f2126ecf03cbca031ffa9307617db208aed176a00acb02bb72058d0b51"
         },
         "package": "bijux-pollenomics-lra",
-        "package_version": "0.1.9.dev232+dirty",
         "parameters": {
           "basin_diameter_m": 200,
           "basin_type": "peatland",
@@ -844,7 +839,6 @@
           "pollen": "39a8b16b492ffb2b659e656f54febfa02f9ec0d1adb256768a52366c55f8cff3"
         },
         "package": "bijux-pollenomics-lra",
-        "package_version": "0.1.9.dev232+dirty",
         "parameters": {
           "basin_diameter_m": 200,
           "basin_type": "peatland",
@@ -1004,7 +998,6 @@
           "pollen": "6c80faa5b474d2bf870bfae710f89acddd18d51280f11bb310c25602f5ead453"
         },
         "package": "bijux-pollenomics-lra",
-        "package_version": "0.1.9.dev232+dirty",
         "parameters": {
           "basin_diameter_m": 350,
           "basin_type": "peatland",
@@ -1248,7 +1241,6 @@
           "pollen": "83c507c4aaf6372ef4e9e0a61358df7d7c57aa05c14e2cc90c25f8204ce58e6c"
         },
         "package": "bijux-pollenomics-lra",
-        "package_version": "0.1.9.dev232+dirty",
         "parameters": {
           "basin_diameter_m": 350,
           "basin_type": "peatland",
