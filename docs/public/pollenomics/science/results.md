@@ -194,9 +194,13 @@ measured vegetation.
 
 The [LegacyAge source join](../../../report/source-relations/neotoma/legacyage-chronology/README.md)
 matches published age estimates to all 107 Abborrtjärnen pollen sample depths
-and 71 of 72 Dalmutladdo depths. These are alternative ages; they are not the
-historical LandClim age vector. In a separate
-[three-site development sensitivity](../../../report/pollen-reconstruction/age-interval-sensitivity/README.md),
+and 71 of 72 Dalmutladdo depths by exact S5 row. The remaining 4.5 cm
+Dalmutladdo sample has a [source-bound derived age-summary allocation](../../../report/source-relations/neotoma/legacyage-chronology/depth-allocation/README.md)
+from the adjacent 4 and 5 cm rows: minimum −94, maximum 541.5, median 257
+and mean 215 calibrated years BP. This is not an exact S5 row or joint age
+posterior. These are alternative ages, not the historical LandClim age vector.
+
+In a separate [three-site development sensitivity](../../../report/pollen-reconstruction/age-interval-sensitivity/README.md),
 we admitted a sample to a 500-year bin only when its entire reported LegacyAge
 95% interval fit inside that bin. Only eight Abborrtjärnen samples qualified
 for four shared bins. Four fixed pollen predictors scored the same 12

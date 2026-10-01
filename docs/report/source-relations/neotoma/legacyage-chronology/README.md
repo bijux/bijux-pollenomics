@@ -34,6 +34,14 @@ original chronology within the LegacyAge 95% interval. That comparison does
 not identify the chronology used by LandClim or transfer LegacyAge ages to
 the historical author workbook.
 
+We separately applied the authors' [interior depth-allocation rule](depth-allocation/README.md)
+to the 4.5 cm DALMUT sample. Original S4 pollen depths match all 72 Neotoma
+depths for this core; published S5 rows at 4 and 5 cm give a derived midpoint
+minimum −94, maximum 541.5, median 257 and mean 215 calibrated years BP.
+This interpolates rounded published summaries. It is not an exact S5 row,
+joint posterior or LandClim-selected age. The exact-row join above remains
+71 of 72 by definition.
+
 This is a source-backed alternative chronology for an age-aware development
 analysis. It does not establish historical basin geometry, count denominator,
 taxon/PPE eligibility or analytical rights for the other source materials.

@@ -74,6 +74,16 @@ author-excluded labels and **8** remain unmapped. The arithmetic closes
 they do not authenticate the LRA terrestrial denominator, resolve taxon
 concepts for excluded counts or authorize a PPE/fall-speed choice.
 
+Separately, we [allocated the LegacyAge 1.0 age summaries](../../../docs/report/source-relations/neotoma/legacyage-chronology/depth-allocation/README.md)
+at the one DALMUT pollen depth absent from its exact S5 row join. The original
+S4 depth metadata match all 72 Neotoma samples, and the authors' interior
+allocation rule applied to published 4 and 5 cm S5 summaries yields a derived
+4.5 cm minimum −94, maximum 541.5, median 257 and mean 215 calibrated years
+BP. This does not identify the LandClim-selected chronology, supply a joint
+posterior, or change the zero-LRA-admission decision above. Its derived
+minimum-to-maximum range crosses 500-year bin boundaries and adds no sample
+to the strict interval-contained pollen sensitivity.
+
 ## What would change this decision
 
 We need a qualified sample/window packet for `DALMUT` that identifies the

@@ -1,0 +1,46 @@
+{
+  "schema_version": "legacyage-depth-summary-allocation.v1",
+  "source_doi": "10.1594/PANGAEA.933132",
+  "source_license": "CC-BY-4.0",
+  "source_sha256": {
+    "table-s4-original-chronology.csv": "943d6151d05cfc47df65b5a3ccedc683393fe6e8e24d14733ba7c58dcd071bb2",
+    "table-s5-legacyage-chronology.csv": "bbe0e8d5854acf091a11737ddedc10d5656f8a25c8eeb9637b85f9e69a37cb41"
+  },
+  "neotoma_samples_sha256": "c959e77f7c645b814bffe92a92ff2d8fabcc077b4fc4c894e6315e448d14100c",
+  "author_r_commit": "9ae54335e61a7a93426530141ef057dc85412e42",
+  "dataset_id": "20034",
+  "site_id": "13388",
+  "core": "DALMUT",
+  "sample_id": "neotoma:sample:175354",
+  "sample_depth_cm": 4.5,
+  "s4_pollen_record_depths_matching_neotoma": 72,
+  "s5_model_grid_cm": {
+    "minimum": 0,
+    "maximum": 288,
+    "step": 1
+  },
+  "s5_bracketing_rows_cal_bp": {
+    "4": {
+      "Age_Minimum": -96,
+      "Age_Maximum": 482,
+      "Age_Median": 229,
+      "Age_Mean": 188
+    },
+    "5": {
+      "Age_Minimum": -92,
+      "Age_Maximum": 601,
+      "Age_Median": 285,
+      "Age_Mean": 242
+    }
+  },
+  "allocation_rule": "author Case II: lower * (1 - fraction) + upper * fraction",
+  "fraction": 0.5,
+  "allocated_published_summary_cal_bp": {
+    "Age_Minimum": -94,
+    "Age_Maximum": 541.5,
+    "Age_Median": 257,
+    "Age_Mean": 215
+  },
+  "allocated_min_max_width_years": 635.5,
+  "interpretation": "derived interpolation of published rounded age summaries; not an exact S5 row, joint posterior, historical LandClim age, or LRA admission"
+}

@@ -106,8 +106,8 @@
     },
     {
       "path": "docs/public/pollenomics/science/results.md",
-      "sha256": "5b3f0df5a4faa7b1ba26749452ac83cbe204656f208f0917e01cdf295efc4084",
-      "bytes": 22335
+      "sha256": "f84542f4d4c4e23146e7df17c91f4b5b0a1f848b273df4c3584c7a738d08658c",
+      "bytes": 22687
     },
     {
       "path": "docs/public/pollenomics/science/sources.md",
@@ -2326,8 +2326,23 @@
     },
     {
       "path": "docs/report/source-relations/neotoma/legacyage-chronology/README.md",
-      "sha256": "c2b8f52a0060a132a523871ef9c92c34b439934f9ed5707772633e14240b86d9",
-      "bytes": 3117
+      "sha256": "0b1dd27510f4b110594bcc9a0e91fe939a608a796fff781582652719eb8de019",
+      "bytes": 3616
+    },
+    {
+      "path": "docs/report/source-relations/neotoma/legacyage-chronology/depth-allocation/README.md",
+      "sha256": "efb04490b5cd3777b916fc6d25e33b35877fb8ed764f206c6cb907242d7bb535",
+      "bytes": 2299
+    },
+    {
+      "path": "docs/report/source-relations/neotoma/legacyage-chronology/depth-allocation/replay.py",
+      "sha256": "c4ca3ea949fb5a5da7c00581d799f93d34e77809c7d2a36d3835bf89a6ee03bf",
+      "bytes": 6838
+    },
+    {
+      "path": "docs/report/source-relations/neotoma/legacyage-chronology/depth-allocation/report.json",
+      "sha256": "469e755a507fd0325b7d78d3c3ac4a5d79402036072cbd4a3d6e2e3a82226e43",
+      "bytes": 1521
     },
     {
       "path": "docs/report/source-relations/neotoma/legacyage-chronology/replay.py",
@@ -2931,8 +2946,8 @@
     },
     {
       "path": "reports/needed/README.md",
-      "sha256": "2eb98b9560009cdff35a1699e1aa74621d602e5d07e2275e74f550dcebdf53ce",
-      "bytes": 30819
+      "sha256": "fdba2f03115b7cb883dfed5740b866e5ddb3e041de59585e0367dd9011a7fc8d",
+      "bytes": 31182
     },
     {
       "path": "reports/science/aadr-nordic-entities/README.md",
@@ -2996,8 +3011,8 @@
     },
     {
       "path": "reports/science/dalmutladdo-lra-input/README.md",
-      "sha256": "4f3b73cf97b7f2f8a9f9d904238b503b915d38f9b43d13496ef31fd9912f56a0",
-      "bytes": 6043
+      "sha256": "1dd9c16a71bb490b3494a0d7356c418b9aeece1cdb48d294baa6344e5c2e1e5e",
+      "bytes": 6784
     },
     {
       "path": "reports/science/dalmutladdo-lra-input/controls.csv",

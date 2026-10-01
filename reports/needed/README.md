@@ -367,8 +367,14 @@ least one crossing in every scored bin. Its bound confidence level is unstated;
 it does not supply a joint age posterior or an adjusted pollen score. The
 [LegacyAge depth join](../../docs/report/source-relations/neotoma/legacyage-chronology/README.md)
 now binds 107 ABBO and 71 of 72 DALMUT samples to an independent 95% age
-range; the 4.5 cm DALMUT sample remains unmatched. Its marginal intervals
-do not define joint age probabilities or make either site a fresh holdout.
+range by exact S5 depth. The 4.5 cm DALMUT sample has no exact S5 row; a
+separate [author-rule summary allocation](../../docs/report/source-relations/neotoma/legacyage-chronology/depth-allocation/README.md)
+uses original S4 depth metadata and the 4 and 5 cm S5 rows to derive a
+4.5 cm minimum −94, maximum 541.5, median 257 and mean 215 calibrated years
+BP. These marginal rounded-summary intervals do not define joint age
+probabilities, identify LandClim's selected ages or make either site a fresh
+holdout.
+
 The [ABBO interval-contained development sensitivity]
 (../../docs/report/pollen-reconstruction/age-interval-sensitivity/README.md)
 now admits eight of 107 ABBO samples to four common bins, freezes all four
