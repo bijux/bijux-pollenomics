@@ -126,7 +126,7 @@
     },
     {
       "path": "docs/report/index.md",
-      "sha256": "566d022942d8e4efa261821c92b3e588f0e6eba1a6a3a48e5a6b4bc4c43b2d82",
+      "sha256": "ff753a83719cb445502421f07aaeecc54e4a114f38a50ac293de8b6efd78844a",
       "bytes": 2668
     },
     {
@@ -1150,6 +1150,36 @@
       "bytes": 1829
     },
     {
+      "path": "docs/report/regions/nordic/lilla-gloppsjon-direct-pollen/README.md",
+      "sha256": "1726ca8b8820a49a5ac87d32d005263716a7f10f3ef5f28346b5dcb0f7a92905",
+      "bytes": 5013
+    },
+    {
+      "path": "docs/report/regions/nordic/lilla-gloppsjon-direct-pollen/frozen/freeze.json",
+      "sha256": "bc89f334d95b727d2a051efaa794a131f1d13eee0613f1c32f6e6ace67a6e997",
+      "bytes": 707
+    },
+    {
+      "path": "docs/report/regions/nordic/lilla-gloppsjon-direct-pollen/frozen/predictions.json",
+      "sha256": "844db7dd47a93eba5d0630719df992d211ced59464e917314e2b5ff131d36a17",
+      "bytes": 192083
+    },
+    {
+      "path": "docs/report/regions/nordic/lilla-gloppsjon-direct-pollen/inputs/input-manifest.json",
+      "sha256": "47d9b2cc54c416373fd6d6ad11722ad63e1c54b2bc8e4af9222a6dd488b62285",
+      "bytes": 1661
+    },
+    {
+      "path": "docs/report/regions/nordic/lilla-gloppsjon-direct-pollen/inputs/metadata.json",
+      "sha256": "9054bfc34bd4444070f616e5810f180d827bca10a54c09c72133c0374e01dcb5",
+      "bytes": 21041
+    },
+    {
+      "path": "docs/report/regions/nordic/lilla-gloppsjon-direct-pollen/protocol.json",
+      "sha256": "9d04c225b571a98362fca38e1ef0976d19a9eb87e20b7e66e09529f4b09f0699",
+      "bytes": 26231
+    },
+    {
       "path": "docs/report/regions/nordic/pollen-development/README.md",
       "sha256": "55b0858c1cc343f94d0b94268b74db5b9218219bf725207f92ca8c05979cd423",
       "bytes": 388
@@ -2040,6 +2070,11 @@
       "sha256": "629607a1fad4ff2a9357edb731d4ef95dd69897595fd87a5b19c5a9e96c98bb0"
     },
     {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/lilla_gloppsjon_direct_pollen.py",
+      "sha256": "1146720bd0749936043f892be758b13e1579ba32ed608636a56dc47e6cd22ab1",
+      "bytes": 16805
+    },
+    {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/neotoma_doi_review.py",
       "sha256": "a74034a8c21f7298183a7d89f625f1308fd3000b18a4d9105f00e547404424ec",
       "bytes": 7320
@@ -2148,6 +2183,11 @@
       "path": "packages/bijux-pollenomics-dev/tests/source_completion/test_landclim_amsoldingersee_recovery.py",
       "bytes": 1797,
       "sha256": "a12f76997d0c5c5e11ac61c7c9eb490219d2674886363b811d1d732095824853"
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/tests/source_completion/test_lilla_gloppsjon_direct_pollen.py",
+      "sha256": "902de9c7c018b6b961b48b20e10f0fa1ec2195f7d3a5b4fd129939e5a1b41536",
+      "bytes": 3542
     },
     {
       "path": "packages/bijux-pollenomics-dev/tests/source_completion/test_nordic_direct_pollen.py",

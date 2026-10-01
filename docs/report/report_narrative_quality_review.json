@@ -1,10 +1,10 @@
 {
   "schema_version": "report-narrative-quality-review.v1",
-  "page_count": 268,
+  "page_count": 269,
   "quality_posture_counts": {
     "reader_ready": 104,
     "structured_reference": 19,
-    "thin_structure": 145
+    "thin_structure": 146
   },
   "rows": [
     {
@@ -1476,6 +1476,16 @@
       "table_line_count": 0,
       "quality_posture": "reader_ready",
       "note": "Page explains its purpose before or alongside artifact links."
+    },
+    {
+      "repository_path": "docs/report/regions/nordic/lilla-gloppsjon-direct-pollen/README.md",
+      "prose_paragraph_count": 7,
+      "link_bullet_count": 0,
+      "bullet_sentence_count": 0,
+      "heading_count": 1,
+      "table_line_count": 0,
+      "quality_posture": "thin_structure",
+      "note": "Page explains itself but still needs stronger internal wayfinding."
     },
     {
       "repository_path": "docs/report/regions/nordic/nordic_candidate_site_sensitivity.md",

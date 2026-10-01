@@ -1,0 +1,730 @@
+{
+  "all_source_sample_ids": [
+    "neotoma:sample:396282",
+    "neotoma:sample:396283",
+    "neotoma:sample:396284",
+    "neotoma:sample:396285",
+    "neotoma:sample:396286",
+    "neotoma:sample:396287",
+    "neotoma:sample:396288",
+    "neotoma:sample:396289",
+    "neotoma:sample:396290",
+    "neotoma:sample:396291",
+    "neotoma:sample:396292",
+    "neotoma:sample:396293",
+    "neotoma:sample:396294",
+    "neotoma:sample:396295",
+    "neotoma:sample:396296",
+    "neotoma:sample:396297",
+    "neotoma:sample:396298",
+    "neotoma:sample:396299",
+    "neotoma:sample:396300",
+    "neotoma:sample:396301",
+    "neotoma:sample:396302",
+    "neotoma:sample:396303",
+    "neotoma:sample:396304",
+    "neotoma:sample:396305",
+    "neotoma:sample:396306",
+    "neotoma:sample:396307",
+    "neotoma:sample:396308",
+    "neotoma:sample:396309",
+    "neotoma:sample:396310",
+    "neotoma:sample:396311",
+    "neotoma:sample:396312",
+    "neotoma:sample:396313",
+    "neotoma:sample:396314",
+    "neotoma:sample:396315",
+    "neotoma:sample:396316",
+    "neotoma:sample:396317",
+    "neotoma:sample:396318",
+    "neotoma:sample:396319",
+    "neotoma:sample:396320",
+    "neotoma:sample:396321",
+    "neotoma:sample:396322",
+    "neotoma:sample:396323",
+    "neotoma:sample:396324",
+    "neotoma:sample:396325",
+    "neotoma:sample:396326",
+    "neotoma:sample:396327",
+    "neotoma:sample:396328",
+    "neotoma:sample:396329",
+    "neotoma:sample:396330",
+    "neotoma:sample:396331",
+    "neotoma:sample:396332",
+    "neotoma:sample:396333",
+    "neotoma:sample:396334",
+    "neotoma:sample:396335",
+    "neotoma:sample:396336",
+    "neotoma:sample:396337",
+    "neotoma:sample:396338",
+    "neotoma:sample:396339",
+    "neotoma:sample:396340",
+    "neotoma:sample:396341",
+    "neotoma:sample:396342",
+    "neotoma:sample:396343",
+    "neotoma:sample:396344",
+    "neotoma:sample:396345",
+    "neotoma:sample:396346",
+    "neotoma:sample:396347",
+    "neotoma:sample:396348",
+    "neotoma:sample:396349",
+    "neotoma:sample:396350",
+    "neotoma:sample:396351",
+    "neotoma:sample:396352",
+    "neotoma:sample:396353",
+    "neotoma:sample:396354",
+    "neotoma:sample:396355",
+    "neotoma:sample:396356",
+    "neotoma:sample:396357",
+    "neotoma:sample:396358",
+    "neotoma:sample:396359",
+    "neotoma:sample:396360",
+    "neotoma:sample:396361",
+    "neotoma:sample:396362",
+    "neotoma:sample:396363",
+    "neotoma:sample:396364",
+    "neotoma:sample:396365",
+    "neotoma:sample:396366",
+    "neotoma:sample:396367"
+  ],
+  "candidate_bin_ids": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22
+  ],
+  "chronology_id": "neotoma:chronology:4071:29939",
+  "coordinate": {
+    "latitude": 59.80167,
+    "longitude": 14.62333
+  },
+  "core_id": "neotoma:collection-unit:4071",
+  "dataset_id": "neotoma:dataset:4200",
+  "refused_age_claims": {
+    "neotoma:sample:396282": {
+      "claim_id": "neotoma:age-claim:02c3514e95f6c9639a1e5c88:1",
+      "older_cal_bp": 70,
+      "point_cal_bp": -11,
+      "reason": "negative_bp",
+      "younger_cal_bp": -63
+    },
+    "neotoma:sample:396283": {
+      "claim_id": "neotoma:age-claim:cbb29a68bd787edd78941baa:1",
+      "older_cal_bp": 124,
+      "point_cal_bp": 42,
+      "reason": "negative_bp",
+      "younger_cal_bp": -17
+    }
+  },
+  "schema_version": "lilla-gloppsjon-direct-pollen-metadata.v1",
+  "selected_age_claims": {
+    "neotoma:sample:396284": {
+      "bin_id": 0,
+      "claim_id": "neotoma:age-claim:1aa07fbfc668bc7d5540667b:1",
+      "older_cal_bp": 180,
+      "point_cal_bp": 94,
+      "younger_cal_bp": 29
+    },
+    "neotoma:sample:396285": {
+      "bin_id": 0,
+      "claim_id": "neotoma:age-claim:b4afd905895897eb04127650:1",
+      "older_cal_bp": 235,
+      "point_cal_bp": 147,
+      "younger_cal_bp": 74
+    },
+    "neotoma:sample:396286": {
+      "bin_id": 0,
+      "claim_id": "neotoma:age-claim:6dbc7baf73f2a168d8332c36:1",
+      "older_cal_bp": 292,
+      "point_cal_bp": 200,
+      "younger_cal_bp": 121
+    },
+    "neotoma:sample:396287": {
+      "bin_id": 1,
+      "claim_id": "neotoma:age-claim:99171bffca1fd1af4a2eac8a:1",
+      "older_cal_bp": 628,
+      "point_cal_bp": 519,
+      "younger_cal_bp": 414
+    },
+    "neotoma:sample:396288": {
+      "bin_id": 1,
+      "claim_id": "neotoma:age-claim:5ca211c62072ad4d65549ab1:1",
+      "older_cal_bp": 740,
+      "point_cal_bp": 626,
+      "younger_cal_bp": 519
+    },
+    "neotoma:sample:396289": {
+      "bin_id": 1,
+      "claim_id": "neotoma:age-claim:e9f13546c2ece62cbb9d7c8f:1",
+      "older_cal_bp": 850,
+      "point_cal_bp": 734,
+      "younger_cal_bp": 626
+    },
+    "neotoma:sample:396290": {
+      "bin_id": 1,
+      "claim_id": "neotoma:age-claim:8d4b2ab2e2efdf3e51198544:1",
+      "older_cal_bp": 959,
+      "point_cal_bp": 841,
+      "younger_cal_bp": 736
+    },
+    "neotoma:sample:396291": {
+      "bin_id": 1,
+      "claim_id": "neotoma:age-claim:ebf04f714fea3e36e89a056b:1",
+      "older_cal_bp": 1063,
+      "point_cal_bp": 949,
+      "younger_cal_bp": 844
+    },
+    "neotoma:sample:396292": {
+      "bin_id": 2,
+      "claim_id": "neotoma:age-claim:fdf2cbb69909a0b27ec75a41:1",
+      "older_cal_bp": 1167,
+      "point_cal_bp": 1055,
+      "younger_cal_bp": 953
+    },
+    "neotoma:sample:396293": {
+      "bin_id": 2,
+      "claim_id": "neotoma:age-claim:b32aa1d16b82586e6664bde5:1",
+      "older_cal_bp": 1271,
+      "point_cal_bp": 1160,
+      "younger_cal_bp": 1061
+    },
+    "neotoma:sample:396294": {
+      "bin_id": 2,
+      "claim_id": "neotoma:age-claim:567be0ed750df11279ab9058:1",
+      "older_cal_bp": 1369,
+      "point_cal_bp": 1264,
+      "younger_cal_bp": 1161
+    },
+    "neotoma:sample:396295": {
+      "bin_id": 2,
+      "claim_id": "neotoma:age-claim:f98210577c6544cfbfea3c07:1",
+      "older_cal_bp": 1474,
+      "point_cal_bp": 1365,
+      "younger_cal_bp": 1261
+    },
+    "neotoma:sample:396296": {
+      "bin_id": 2,
+      "claim_id": "neotoma:age-claim:abb78572fea8885ae181d143:1",
+      "older_cal_bp": 1578,
+      "point_cal_bp": 1465,
+      "younger_cal_bp": 1347
+    },
+    "neotoma:sample:396297": {
+      "bin_id": 3,
+      "claim_id": "neotoma:age-claim:816979ac8169431d99d02824:1",
+      "older_cal_bp": 1683,
+      "point_cal_bp": 1564,
+      "younger_cal_bp": 1429
+    },
+    "neotoma:sample:396298": {
+      "bin_id": 3,
+      "claim_id": "neotoma:age-claim:79c5ecf8a6bbb190a0b1ad1d:1",
+      "older_cal_bp": 1817,
+      "point_cal_bp": 1662,
+      "younger_cal_bp": 1518
+    },
+    "neotoma:sample:396299": {
+      "bin_id": 3,
+      "claim_id": "neotoma:age-claim:37d46f0de54ed438fcbc36d4:1",
+      "older_cal_bp": 1912,
+      "point_cal_bp": 1760,
+      "younger_cal_bp": 1605
+    },
+    "neotoma:sample:396300": {
+      "bin_id": 3,
+      "claim_id": "neotoma:age-claim:2cfec0ac2ec3325618d17c03:1",
+      "older_cal_bp": 2027,
+      "point_cal_bp": 1859,
+      "younger_cal_bp": 1693
+    },
+    "neotoma:sample:396301": {
+      "bin_id": 3,
+      "claim_id": "neotoma:age-claim:c248b762f47f6021a5f73cbe:1",
+      "older_cal_bp": 2142,
+      "point_cal_bp": 1959,
+      "younger_cal_bp": 1786
+    },
+    "neotoma:sample:396302": {
+      "bin_id": 4,
+      "claim_id": "neotoma:age-claim:a0598caa384d533bbdfdc169:1",
+      "older_cal_bp": 2254,
+      "point_cal_bp": 2062,
+      "younger_cal_bp": 1884
+    },
+    "neotoma:sample:396303": {
+      "bin_id": 4,
+      "claim_id": "neotoma:age-claim:44943425f3a0083874bb7181:1",
+      "older_cal_bp": 2361,
+      "point_cal_bp": 2168,
+      "younger_cal_bp": 1990
+    },
+    "neotoma:sample:396304": {
+      "bin_id": 4,
+      "claim_id": "neotoma:age-claim:81a3c4ba6d00ef7e08ddc714:1",
+      "older_cal_bp": 2463,
+      "point_cal_bp": 2276,
+      "younger_cal_bp": 2103
+    },
+    "neotoma:sample:396305": {
+      "bin_id": 4,
+      "claim_id": "neotoma:age-claim:b6bfa38d460ed03b1746792e:1",
+      "older_cal_bp": 2562,
+      "point_cal_bp": 2387,
+      "younger_cal_bp": 2221
+    },
+    "neotoma:sample:396306": {
+      "bin_id": 5,
+      "claim_id": "neotoma:age-claim:b295c2ba2200b026531407eb:1",
+      "older_cal_bp": 2661,
+      "point_cal_bp": 2500,
+      "younger_cal_bp": 2341
+    },
+    "neotoma:sample:396307": {
+      "bin_id": 5,
+      "claim_id": "neotoma:age-claim:32b74576543b5f8024837840:1",
+      "older_cal_bp": 2760,
+      "point_cal_bp": 2614,
+      "younger_cal_bp": 2463
+    },
+    "neotoma:sample:396308": {
+      "bin_id": 5,
+      "claim_id": "neotoma:age-claim:c9e0534e72623cccf2dfbdeb:1",
+      "older_cal_bp": 2864,
+      "point_cal_bp": 2729,
+      "younger_cal_bp": 2591
+    },
+    "neotoma:sample:396309": {
+      "bin_id": 5,
+      "claim_id": "neotoma:age-claim:0ea95e88d03b88601995109e:1",
+      "older_cal_bp": 2970,
+      "point_cal_bp": 2844,
+      "younger_cal_bp": 2720
+    },
+    "neotoma:sample:396310": {
+      "bin_id": 5,
+      "claim_id": "neotoma:age-claim:f955fe5074aaf075270d7644:1",
+      "older_cal_bp": 3075,
+      "point_cal_bp": 2958,
+      "younger_cal_bp": 2846
+    },
+    "neotoma:sample:396311": {
+      "bin_id": 6,
+      "claim_id": "neotoma:age-claim:273d9b58e8d6dd9c14a1f45d:1",
+      "older_cal_bp": 3184,
+      "point_cal_bp": 3072,
+      "younger_cal_bp": 2966
+    },
+    "neotoma:sample:396312": {
+      "bin_id": 6,
+      "claim_id": "neotoma:age-claim:7384b6a6fa62a8145249b3b1:1",
+      "older_cal_bp": 3292,
+      "point_cal_bp": 3185,
+      "younger_cal_bp": 3082
+    },
+    "neotoma:sample:396313": {
+      "bin_id": 6,
+      "claim_id": "neotoma:age-claim:f712e5d2ff1ea58d20f9dc3f:1",
+      "older_cal_bp": 3402,
+      "point_cal_bp": 3296,
+      "younger_cal_bp": 3196
+    },
+    "neotoma:sample:396314": {
+      "bin_id": 6,
+      "claim_id": "neotoma:age-claim:e56c47dd4c206fb861502e8b:1",
+      "older_cal_bp": 3509,
+      "point_cal_bp": 3406,
+      "younger_cal_bp": 3303
+    },
+    "neotoma:sample:396315": {
+      "bin_id": 7,
+      "claim_id": "neotoma:age-claim:b7dcfafd73b3facf91ed0ed3:1",
+      "older_cal_bp": 3613,
+      "point_cal_bp": 3513,
+      "younger_cal_bp": 3405
+    },
+    "neotoma:sample:396316": {
+      "bin_id": 7,
+      "claim_id": "neotoma:age-claim:de3e8e14eb27716a9692c41a:1",
+      "older_cal_bp": 3718,
+      "point_cal_bp": 3619,
+      "younger_cal_bp": 3508
+    },
+    "neotoma:sample:396317": {
+      "bin_id": 7,
+      "claim_id": "neotoma:age-claim:2d9688fe3620b6f505ea5eac:1",
+      "older_cal_bp": 3823,
+      "point_cal_bp": 3722,
+      "younger_cal_bp": 3609
+    },
+    "neotoma:sample:396318": {
+      "bin_id": 7,
+      "claim_id": "neotoma:age-claim:8f55386fac34265efd919787:1",
+      "older_cal_bp": 3925,
+      "point_cal_bp": 3822,
+      "younger_cal_bp": 3705
+    },
+    "neotoma:sample:396319": {
+      "bin_id": 7,
+      "claim_id": "neotoma:age-claim:cfcf055c51491087009508d0:1",
+      "older_cal_bp": 4029,
+      "point_cal_bp": 3921,
+      "younger_cal_bp": 3804
+    },
+    "neotoma:sample:396320": {
+      "bin_id": 8,
+      "claim_id": "neotoma:age-claim:4273eb53bb02008168e53663:1",
+      "older_cal_bp": 4133,
+      "point_cal_bp": 4018,
+      "younger_cal_bp": 3903
+    },
+    "neotoma:sample:396321": {
+      "bin_id": 8,
+      "claim_id": "neotoma:age-claim:d7d8855958baa7afbcf78ada:1",
+      "older_cal_bp": 4236,
+      "point_cal_bp": 4115,
+      "younger_cal_bp": 4002
+    },
+    "neotoma:sample:396322": {
+      "bin_id": 8,
+      "claim_id": "neotoma:age-claim:39a302e2c881866a4bf6b47e:1",
+      "older_cal_bp": 4340,
+      "point_cal_bp": 4213,
+      "younger_cal_bp": 4103
+    },
+    "neotoma:sample:396323": {
+      "bin_id": 8,
+      "claim_id": "neotoma:age-claim:af5f8b3d5c3b08bea6110ab6:1",
+      "older_cal_bp": 4444,
+      "point_cal_bp": 4314,
+      "younger_cal_bp": 4205
+    },
+    "neotoma:sample:396324": {
+      "bin_id": 8,
+      "claim_id": "neotoma:age-claim:43c379a8619921db769f6213:1",
+      "older_cal_bp": 4551,
+      "point_cal_bp": 4418,
+      "younger_cal_bp": 4309
+    },
+    "neotoma:sample:396325": {
+      "bin_id": 9,
+      "claim_id": "neotoma:age-claim:83a74528992f1d229b94d276:1",
+      "older_cal_bp": 4658,
+      "point_cal_bp": 4526,
+      "younger_cal_bp": 4414
+    },
+    "neotoma:sample:396326": {
+      "bin_id": 9,
+      "claim_id": "neotoma:age-claim:d962928d759be1aeb0b99826:1",
+      "older_cal_bp": 4768,
+      "point_cal_bp": 4638,
+      "younger_cal_bp": 4524
+    },
+    "neotoma:sample:396327": {
+      "bin_id": 9,
+      "claim_id": "neotoma:age-claim:75b2d923f603314b32f5660c:1",
+      "older_cal_bp": 4881,
+      "point_cal_bp": 4753,
+      "younger_cal_bp": 4637
+    },
+    "neotoma:sample:396328": {
+      "bin_id": 9,
+      "claim_id": "neotoma:age-claim:df0951f29c8bd21e2f9fb6b1:1",
+      "older_cal_bp": 4997,
+      "point_cal_bp": 4871,
+      "younger_cal_bp": 4754
+    },
+    "neotoma:sample:396329": {
+      "bin_id": 9,
+      "claim_id": "neotoma:age-claim:55a8bb04d00744be4898bd62:1",
+      "older_cal_bp": 5112,
+      "point_cal_bp": 4991,
+      "younger_cal_bp": 4872
+    },
+    "neotoma:sample:396330": {
+      "bin_id": 10,
+      "claim_id": "neotoma:age-claim:462dd91b6a7ce7164c4597ce:1",
+      "older_cal_bp": 5232,
+      "point_cal_bp": 5113,
+      "younger_cal_bp": 4996
+    },
+    "neotoma:sample:396331": {
+      "bin_id": 10,
+      "claim_id": "neotoma:age-claim:9c50369baa854c52959e41a8:1",
+      "older_cal_bp": 5354,
+      "point_cal_bp": 5236,
+      "younger_cal_bp": 5122
+    },
+    "neotoma:sample:396332": {
+      "bin_id": 10,
+      "claim_id": "neotoma:age-claim:c694662dc65a13cd281f8040:1",
+      "older_cal_bp": 5477,
+      "point_cal_bp": 5360,
+      "younger_cal_bp": 5251
+    },
+    "neotoma:sample:396333": {
+      "bin_id": 10,
+      "claim_id": "neotoma:age-claim:5c89e5ceb5b18cbca6c6c6e5:1",
+      "older_cal_bp": 5600,
+      "point_cal_bp": 5485,
+      "younger_cal_bp": 5379
+    },
+    "neotoma:sample:396334": {
+      "bin_id": 11,
+      "claim_id": "neotoma:age-claim:10893574b0653dbea3e408da:1",
+      "older_cal_bp": 5724,
+      "point_cal_bp": 5610,
+      "younger_cal_bp": 5506
+    },
+    "neotoma:sample:396335": {
+      "bin_id": 11,
+      "claim_id": "neotoma:age-claim:de605e9098709550cc676c9e:1",
+      "older_cal_bp": 5848,
+      "point_cal_bp": 5737,
+      "younger_cal_bp": 5634
+    },
+    "neotoma:sample:396336": {
+      "bin_id": 11,
+      "claim_id": "neotoma:age-claim:714741780d1f13713553d810:1",
+      "older_cal_bp": 5973,
+      "point_cal_bp": 5867,
+      "younger_cal_bp": 5766
+    },
+    "neotoma:sample:396337": {
+      "bin_id": 11,
+      "claim_id": "neotoma:age-claim:43bd07ddd202d87cae7145a2:1",
+      "older_cal_bp": 6104,
+      "point_cal_bp": 5999,
+      "younger_cal_bp": 5905
+    },
+    "neotoma:sample:396338": {
+      "bin_id": 12,
+      "claim_id": "neotoma:age-claim:1a7bbdd174df1d91cf31d0d6:1",
+      "older_cal_bp": 6237,
+      "point_cal_bp": 6136,
+      "younger_cal_bp": 6046
+    },
+    "neotoma:sample:396339": {
+      "bin_id": 12,
+      "claim_id": "neotoma:age-claim:3eb5b92848dbe70e33345185:1",
+      "older_cal_bp": 6377,
+      "point_cal_bp": 6277,
+      "younger_cal_bp": 6193
+    },
+    "neotoma:sample:396340": {
+      "bin_id": 12,
+      "claim_id": "neotoma:age-claim:05c2b3f72ad22abd18b45c75:1",
+      "older_cal_bp": 6521,
+      "point_cal_bp": 6423,
+      "younger_cal_bp": 6343
+    },
+    "neotoma:sample:396341": {
+      "bin_id": 13,
+      "claim_id": "neotoma:age-claim:d384fbe86b7fcbaf2e2a2e45:1",
+      "older_cal_bp": 6672,
+      "point_cal_bp": 6576,
+      "younger_cal_bp": 6498
+    },
+    "neotoma:sample:396342": {
+      "bin_id": 13,
+      "claim_id": "neotoma:age-claim:ff5abe3557aa3ddee3eb6590:1",
+      "older_cal_bp": 6828,
+      "point_cal_bp": 6735,
+      "younger_cal_bp": 6656
+    },
+    "neotoma:sample:396343": {
+      "bin_id": 13,
+      "claim_id": "neotoma:age-claim:dc0ed18c332ecec654ffc8de:1",
+      "older_cal_bp": 6991,
+      "point_cal_bp": 6898,
+      "younger_cal_bp": 6822
+    },
+    "neotoma:sample:396344": {
+      "bin_id": 14,
+      "claim_id": "neotoma:age-claim:91ca788867730ec45b58c86f:1",
+      "older_cal_bp": 7157,
+      "point_cal_bp": 7067,
+      "younger_cal_bp": 6989
+    },
+    "neotoma:sample:396345": {
+      "bin_id": 14,
+      "claim_id": "neotoma:age-claim:705d6fc22d63ddbdd97d833e:1",
+      "older_cal_bp": 7330,
+      "point_cal_bp": 7239,
+      "younger_cal_bp": 7159
+    },
+    "neotoma:sample:396346": {
+      "bin_id": 14,
+      "claim_id": "neotoma:age-claim:5bc538fd942d89a98196687b:1",
+      "older_cal_bp": 7511,
+      "point_cal_bp": 7416,
+      "younger_cal_bp": 7334
+    },
+    "neotoma:sample:396347": {
+      "bin_id": 15,
+      "claim_id": "neotoma:age-claim:190bd4a9c47649fcf16894ff:1",
+      "older_cal_bp": 7696,
+      "point_cal_bp": 7595,
+      "younger_cal_bp": 7513
+    },
+    "neotoma:sample:396348": {
+      "bin_id": 15,
+      "claim_id": "neotoma:age-claim:b901da8c962203c141052bf1:1",
+      "older_cal_bp": 7882,
+      "point_cal_bp": 7777,
+      "younger_cal_bp": 7691
+    },
+    "neotoma:sample:396349": {
+      "bin_id": 15,
+      "claim_id": "neotoma:age-claim:4dfba4c14defb94253adfe46:1",
+      "older_cal_bp": 8073,
+      "point_cal_bp": 7962,
+      "younger_cal_bp": 7869
+    },
+    "neotoma:sample:396350": {
+      "bin_id": 16,
+      "claim_id": "neotoma:age-claim:981037fce7dc6e07996f17f2:1",
+      "older_cal_bp": 8266,
+      "point_cal_bp": 8148,
+      "younger_cal_bp": 8046
+    },
+    "neotoma:sample:396351": {
+      "bin_id": 16,
+      "claim_id": "neotoma:age-claim:784838a7892c3f0ec530eda6:1",
+      "older_cal_bp": 8457,
+      "point_cal_bp": 8335,
+      "younger_cal_bp": 8221
+    },
+    "neotoma:sample:396352": {
+      "bin_id": 17,
+      "claim_id": "neotoma:age-claim:64d73965fabff84ec8fba45d:1",
+      "older_cal_bp": 8648,
+      "point_cal_bp": 8522,
+      "younger_cal_bp": 8397
+    },
+    "neotoma:sample:396353": {
+      "bin_id": 17,
+      "claim_id": "neotoma:age-claim:97b6f61b382b2d0639cd7a12:1",
+      "older_cal_bp": 8838,
+      "point_cal_bp": 8708,
+      "younger_cal_bp": 8574
+    },
+    "neotoma:sample:396354": {
+      "bin_id": 17,
+      "claim_id": "neotoma:age-claim:562ef7ec42f5723fa73295ff:1",
+      "older_cal_bp": 9027,
+      "point_cal_bp": 8894,
+      "younger_cal_bp": 8753
+    },
+    "neotoma:sample:396355": {
+      "bin_id": 18,
+      "claim_id": "neotoma:age-claim:7c0dc8a365d82ad44eed7e8e:1",
+      "older_cal_bp": 9215,
+      "point_cal_bp": 9078,
+      "younger_cal_bp": 8933
+    },
+    "neotoma:sample:396356": {
+      "bin_id": 18,
+      "claim_id": "neotoma:age-claim:882059052f0a35f45c2d5f8b:1",
+      "older_cal_bp": 9401,
+      "point_cal_bp": 9259,
+      "younger_cal_bp": 9111
+    },
+    "neotoma:sample:396357": {
+      "bin_id": 18,
+      "claim_id": "neotoma:age-claim:55442646b223afbe809b1cac:1",
+      "older_cal_bp": 9584,
+      "point_cal_bp": 9439,
+      "younger_cal_bp": 9285
+    },
+    "neotoma:sample:396358": {
+      "bin_id": 19,
+      "claim_id": "neotoma:age-claim:a8d2fcaf1c3c6adc5823d73c:1",
+      "older_cal_bp": 9762,
+      "point_cal_bp": 9617,
+      "younger_cal_bp": 9458
+    },
+    "neotoma:sample:396359": {
+      "bin_id": 19,
+      "claim_id": "neotoma:age-claim:54450c60b9fc6a77bf53a748:1",
+      "older_cal_bp": 9949,
+      "point_cal_bp": 9793,
+      "younger_cal_bp": 9636
+    },
+    "neotoma:sample:396360": {
+      "bin_id": 19,
+      "claim_id": "neotoma:age-claim:7433ca44938e4a1cf8c8746d:1",
+      "older_cal_bp": 10139,
+      "point_cal_bp": 9968,
+      "younger_cal_bp": 9804
+    },
+    "neotoma:sample:396361": {
+      "bin_id": 20,
+      "claim_id": "neotoma:age-claim:c78aab9e770238239d69d2b3:1",
+      "older_cal_bp": 10337,
+      "point_cal_bp": 10142,
+      "younger_cal_bp": 9965
+    },
+    "neotoma:sample:396362": {
+      "bin_id": 20,
+      "claim_id": "neotoma:age-claim:5ab1ce79df0cae19ffb37e96:1",
+      "older_cal_bp": 10539,
+      "point_cal_bp": 10314,
+      "younger_cal_bp": 10116
+    },
+    "neotoma:sample:396363": {
+      "bin_id": 20,
+      "claim_id": "neotoma:age-claim:0b103aa657701fe62f3b97ad:1",
+      "older_cal_bp": 10747,
+      "point_cal_bp": 10486,
+      "younger_cal_bp": 10255
+    },
+    "neotoma:sample:396364": {
+      "bin_id": 21,
+      "claim_id": "neotoma:age-claim:1b2d9e559cd75c1d14f12272:1",
+      "older_cal_bp": 10959,
+      "point_cal_bp": 10657,
+      "younger_cal_bp": 10384
+    },
+    "neotoma:sample:396365": {
+      "bin_id": 21,
+      "claim_id": "neotoma:age-claim:1c3b97d903f32644d6443a65:1",
+      "older_cal_bp": 11177,
+      "point_cal_bp": 10827,
+      "younger_cal_bp": 10507
+    },
+    "neotoma:sample:396366": {
+      "bin_id": 21,
+      "claim_id": "neotoma:age-claim:2d0c19e23bf51f47dff1b3a4:1",
+      "older_cal_bp": 11399,
+      "point_cal_bp": 10997,
+      "younger_cal_bp": 10628
+    },
+    "neotoma:sample:396367": {
+      "bin_id": 22,
+      "claim_id": "neotoma:age-claim:10c2ab30ff260aaa55890d97:1",
+      "older_cal_bp": 11510,
+      "point_cal_bp": 11082,
+      "younger_cal_bp": 10689
+    }
+  },
+  "site_id": "neotoma:site:3234"
+}
