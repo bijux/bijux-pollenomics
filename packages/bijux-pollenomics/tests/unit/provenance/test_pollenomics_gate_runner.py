@@ -19,9 +19,9 @@ def _arguments(root: Path, command: list[str]) -> list[str]:
         "--gate-id",
         "science",
         "--artifacts-directory",
-        "artifacts/execution-control/gates",
+        "artifacts/release-verification/gates",
         "--junit-path",
-        "artifacts/execution-control/gates/science.junit.xml",
+        "artifacts/release-verification/gates/science.junit.xml",
         "--input",
         "inputs/source.txt",
         "--environment",
@@ -34,7 +34,7 @@ def _arguments(root: Path, command: list[str]) -> list[str]:
 def test_runner_preserves_exact_command_and_returns_success(
     tmp_path: Path, capfd: pytest.CaptureFixture[str]
 ) -> None:
-    junit = "artifacts/execution-control/gates/science.junit.xml"
+    junit = "artifacts/release-verification/gates/science.junit.xml"
     command = [
         sys.executable,
         "-c",
@@ -49,7 +49,7 @@ def test_runner_preserves_exact_command_and_returns_success(
     result = main(_arguments(tmp_path, command))
     summary = json.loads(capfd.readouterr().out)
     record = json.loads(
-        (tmp_path / "artifacts/execution-control/gates/science.json").read_text(
+        (tmp_path / "artifacts/release-verification/gates/science.json").read_text(
             encoding="utf-8"
         )
     )
@@ -59,20 +59,20 @@ def test_runner_preserves_exact_command_and_returns_success(
     assert record["argv"] == command
     assert record["environment"] == {"PYTHONIOENCODING": "utf-8"}
     assert (
-        tmp_path / "artifacts/execution-control/gates/science.stdout.log"
+        tmp_path / "artifacts/release-verification/gates/science.stdout.log"
     ).read_text(encoding="utf-8") == "literal argument with spaces\n"
 
 
 def test_runner_replaces_only_its_previous_regular_junit(
     tmp_path: Path, capfd: pytest.CaptureFixture[str]
 ) -> None:
-    junit = tmp_path / "artifacts/execution-control/gates/science.junit.xml"
+    junit = tmp_path / "artifacts/release-verification/gates/science.junit.xml"
     junit.parent.mkdir(parents=True)
     junit.write_text("stale\n", encoding="utf-8")
     command = [
         sys.executable,
         "-c",
-        "from pathlib import Path; Path('artifacts/execution-control/gates/science.junit.xml').write_text('<testsuite/>\\n')",
+        "from pathlib import Path; Path('artifacts/release-verification/gates/science.junit.xml').write_text('<testsuite/>\\n')",
     ]
 
     first = main(_arguments(tmp_path, command))
@@ -90,7 +90,7 @@ def test_runner_returns_failure_status_without_hiding_record(
     command = [
         sys.executable,
         "-c",
-        "from pathlib import Path; Path('artifacts/execution-control/gates/science.junit.xml').write_text('<testsuite failures=\"1\"/>\\n'); raise SystemExit(5)",
+        "from pathlib import Path; Path('artifacts/release-verification/gates/science.junit.xml').write_text('<testsuite failures=\"1\"/>\\n'); raise SystemExit(5)",
     ]
 
     result = main(_arguments(tmp_path, command))
@@ -98,7 +98,7 @@ def test_runner_returns_failure_status_without_hiding_record(
 
     assert result == 1
     assert summary["status"] == "FAIL"
-    assert (tmp_path / "artifacts/execution-control/gates/science.json").is_file()
+    assert (tmp_path / "artifacts/release-verification/gates/science.json").is_file()
 
 
 def test_runner_refuses_duplicate_environment_and_unsafe_junit(
@@ -113,7 +113,7 @@ def test_runner_refuses_duplicate_environment_and_unsafe_junit(
     duplicate_error = capfd.readouterr().err
 
     unsafe = _arguments(tmp_path, command)
-    unsafe[unsafe.index("artifacts/execution-control/gates/science.junit.xml")] = (
+    unsafe[unsafe.index("artifacts/release-verification/gates/science.junit.xml")] = (
         "artifacts/outside.xml"
     )
     unsafe_result = main(unsafe)
