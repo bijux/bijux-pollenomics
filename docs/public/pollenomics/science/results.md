@@ -280,7 +280,12 @@ give the denominators and per-bin results.
 Only 55,638 of 127,027 native pollen NISP counts lie on the exact 16-label
 axis (43.80%). Two of 86 source samples are excluded from age-bin scores due
 to negative source age bounds, with their counts retained separately. The
-training source-validation screen had previously parsed this target's source
+separate [contained-age sensitivity](../../../report/regions/nordic/lilla-gloppsjon-direct-pollen/interval-support/README.md)
+keeps 42 of 84 age-selected samples in 20 of 23 bins. On those same 20 bins,
+the frozen primary method's MAE is 0.019316 on contained samples versus
+0.018367 on the original full-bin observations. The remaining three bins
+refuse; this conditional check is not a joint age uncertainty model.
+The training source-validation screen had previously parsed this target's source
 partition, so this is descriptive new-site development evidence, not an
 untouched independent confirmation. It does not evaluate vegetation or LRA.
 

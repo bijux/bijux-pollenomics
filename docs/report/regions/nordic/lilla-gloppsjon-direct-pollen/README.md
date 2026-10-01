@@ -80,6 +80,11 @@ mean has the lowest MAE, and nearest site has the lowest Hellinger. This one
 site is descriptive development evidence and does not justify changing the
 fixed method. Source age bounds are not propagated through point-age bins.
 
+The [contained-age sensitivity](interval-support/README.md) reuses these frozen
+predictions and scores the 20 bins supported by samples whose full reported age
+bounds stay within their point-age bin. It preserves all source counts and the
+three unsupported-bin refusals separately from this 23-bin result.
+
 The retained primary-publication response identifies Almquist-Jacobson, H.
 (1994), *Interaction of the Holocene climate, water balance, vegetation, fire,
 and cultural land-use in the Swedish Borderland*, Lund University doctoral

@@ -40,8 +40,16 @@ response are zero counts on this declared subcomposition, not claims about
 absence of vegetation.
 
 The selected source age claims have younger and older bounds, but their
-confidence level and joint age posterior are not established. The reported
-scores use point-age bins and do not propagate chronology uncertainty. A
+confidence level and joint age posterior are not established. The original
+scores use point-age bins. We separately rescored the unchanged frozen
+predictions after retaining only samples whose full reported age interval fits
+their nominal 500-year bin. The [contained-age result](../../docs/report/regions/nordic/lilla-gloppsjon-direct-pollen/interval-support/README.md)
+keeps 42 of 84 selected samples and scores 20 of 23 bins; three bins refuse
+because no sample remains. On the same 20 bins, the frozen primary method's
+MAE is **0.019316** on contained samples versus **0.018367** on the original
+full-bin observations. Hellinger is **0.249632** versus **0.242217**. This is
+a conditional marginal-bound sensitivity, not a joint age correction or an
+independent performance test. A
 same-name LandClim point is nearby, yet physical identity and historical
 basin geometry remain unproven; neither is borrowed for this analysis.
 
