@@ -102,6 +102,12 @@ pages are separately authored and linked from the family index. This gives
 these numerical and workflow checks producer ownership without treating
 fabricated cases as measured ecological validation.
 
+We also replayed the [Neotoma first-observed readiness report](../../docs/report/propagation/source-first-observed/README.md)
+in two independent owner lanes. Its 3.44 MB JSON output matched the tracked
+file byte for byte from 30 declared native-source and code inputs in each lane.
+The report still refuses all 256 feature and chronology attempts and admits
+zero events; reproducible refusal is not evidence of an ecological route.
+
 The [LandClim II study-input inventory](../../docs/report/publication-replay/landclim-study-inputs/README.md)
 replayed its five generated files byte for byte from the pinned raw workbook
 and receipt. Its 1,128 publication metadata rows and 4,512 explicit input
