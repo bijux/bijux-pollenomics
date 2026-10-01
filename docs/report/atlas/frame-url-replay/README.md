@@ -47,7 +47,7 @@ node packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/atlas_browser/f
   '/Applications/Brave Browser.app/Contents/MacOS/Brave Browser'
 ```
 
-Candidate and browser output directories are disposable reproduction products. The receipt stores each download hash and source-supported selection; the synthetic input bytes are retained in this report.
+Candidate and browser output directories are disposable reproduction products. The receipt stores each download hash and source-supported selection. This report retains the signed synthetic product and request needed to render the browser candidate. The request names seven evidence text files by hash, but their original bytes are not retained here; the exact synthetic LRA computation cannot be rerun from this report alone.
 
 ## Scope
 
