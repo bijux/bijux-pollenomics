@@ -81,6 +81,16 @@ Finland & 40 & 29 & 59 \\
 \evidence{reports/science/sweden-spatiotemporal-sensitivity.md; docs/report/regions/nordic/swedish-support-sensitivity/paired-scores.csv}
 \end{frame}
 
+\begin{frame}{LegacyAge links two Nordic cores to alternative ages}
+\begin{itemize}
+\item Primary LegacyAge S5/S6 tables join all 107 ABBO and 71 of 72 DALMUT Neotoma sample depths exactly.
+\item The unmatched DALMUT sample at 4.5 cm remains unassigned; no depth interpolation was used.
+\item All 178 matched Neotoma point ages fall inside LegacyAge's reported 95\% ranges, but the age models differ.
+\end{itemize}
+\scope{AWI Bacon estimates support a new age-aware development analysis. They do not identify historical LandClim ages or admit LRA inputs.}
+\evidence{docs/report/source-relations/neotoma/legacyage-chronology/report.json; reports/science/abborrtjarnen-source-method.md}
+\end{frame}
+
 \begin{frame}{Swedish chronology-block pollen transfer}
 \begin{itemize}
 \item Hold out each target site; predict 54 target bins using training pollen exactly 1,000 nominal BP older, excluding the target and adjacent source bins.
@@ -143,6 +153,16 @@ Finland & 40 & 29 & 59 \\
 \end{itemize}
 \scope{Bounded objective and arithmetic checks; no identical random path, general global guarantee or ecological accuracy.}
 \evidence{reports/science/method-correspondence.md; docs/report/method-certification/optimizer-solution-quality/summary.csv}
+\end{frame}
+
+\begin{frame}{One fixed LOVE example in both source engines}
+\begin{itemize}
+\item R 4.6.0 / DISQOVER 0.9.14 and current Python read one shared \texttt{LOVEexample} input set. Hexadecimal readback verified every numeric input cell.
+\item Each engine evaluated 32 fixed candidates on eight active ring/repeat calls. All eight selected candidate indices agreed.
+\item Mean cover and pollen matched exactly on 40 finite cells each. Ring-factor and objective differences were at most $5.11\times10^{-15}$ on 360 and eight finite cells, respectively.
+\end{itemize}
+\scope{This checks fixed-candidate source arithmetic, not search convergence, stochastic draws, timing or ecological accuracy.}
+\evidence{docs/report/numerical-performance/love-source-comparison/report.json}
 \end{frame}
 
 \begin{frame}{English LOVE: declared model profile}
