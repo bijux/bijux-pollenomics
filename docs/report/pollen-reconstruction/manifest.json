@@ -96,8 +96,8 @@
     },
     {
       "path": "docs/public/pollenomics/science/results.md",
-      "sha256": "86c71116f175009cdb0ff50c6c676194c688d9b9b67163cde1db591334641553",
-      "bytes": 20367
+      "sha256": "14795ac25cff3aa6389598f24cc07c62fc1fc981d4115f0d5da31084b90e9b43",
+      "bytes": 20392
     },
     {
       "path": "docs/public/pollenomics/science/sources.md",
@@ -2136,7 +2136,7 @@
     },
     {
       "path": "docs/report/report_narrative_quality_review.json",
-      "sha256": "e001dd0208b4e2bb3d68b3e6250672aea0b975db6088afbe0d059d40b9853dab",
+      "sha256": "4dda285ad744f587068ad3859a3b34c900f2fb39a3ac6df6b7db253affb76a2a",
       "bytes": 108981
     },
     {
@@ -2851,8 +2851,8 @@
     },
     {
       "path": "reports/README.md",
-      "sha256": "89f264396f9ea6f63ee2e84394e2ba8da9ed2ed3fcd0304503fca20792bbbe82",
-      "bytes": 8591
+      "sha256": "90f74eb8738fe39fd4af219e01c155f3c92e0df5ea4de5cac039809f392841e2",
+      "bytes": 8556
     },
     {
       "path": "reports/architecture/native-backend.md",
@@ -2866,8 +2866,8 @@
     },
     {
       "path": "reports/evidence-index.md",
-      "sha256": "666b9a8983ac693dbd8b783654df16e39d6a215e00820c2b76355a732c0fb516",
-      "bytes": 22281
+      "sha256": "05bdcb8da2b5694ef0c9bf55c676d90ea3246d86202fc6ff1fa2380eb1d49080",
+      "bytes": 22246
     },
     {
       "path": "reports/needed/README.md",
@@ -3128,6 +3128,11 @@
       "path": "reports/science/sweden-chronology-block.md",
       "sha256": "ecdd0f88e84047fdcf9b4cda61988c9545a2a256acac7176eecfc29792e37815",
       "bytes": 2622
+    },
+    {
+      "path": "reports/science/sweden-lake-trajectory.md",
+      "sha256": "a9009f624ab3788c7da733c9d57502b031f8dec08f42f5cc5f9c2303628dbccb",
+      "bytes": 4370
     },
     {
       "path": "reports/science/sweden-lake-transfer.md",

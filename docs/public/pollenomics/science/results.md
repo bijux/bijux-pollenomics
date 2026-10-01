@@ -265,7 +265,7 @@ untouched independent confirmation. It does not evaluate vegetation or LRA.
 
 We compared observed `Alnus` and `Plantago lanceolata` pollen fractions at
 Bussjösjön and Bökesjön in 13 common 500-cal-BP bins. The
-[lake trajectory report](../../../report/countries/sweden/observed-pollen-trajectory/README.md)
+[lake trajectory report](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/sweden-lake-trajectory.md)
 retains each site's source counts, age support and 48 taxon/threshold/interval
 comparisons. Some site changes agree in direction and others contradict. A
 1000-year binning and alternate nearby-site circles expose time and location
