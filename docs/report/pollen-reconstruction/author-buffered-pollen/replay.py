@@ -25,6 +25,7 @@ METHODS = (
 BASELINE_METHODS = METHODS[:3]
 OMITTED_MANIFEST_PATHS = {
     "README.md",
+    "replay.py",
     "comparisons/strict-clr-support/replay.py",
 }
 LOCAL_SCORES_SHA256 = "644ca0bd0049f0fe682b75fa24bca1ab9b9a456de3cb4704c2976f33d1c974c9"

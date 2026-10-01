@@ -391,8 +391,8 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/author-buffered-pollen/README.md",
-      "sha256": "c6bbdf2d204799a4b721d20bea5467a907c04c3912bbc2f49c7e544f5604ac06",
-      "bytes": 6109
+      "sha256": "e7a691f0ba04b056bef8bf2d2da86bbbb3b38f21cba47021f13d3e939f9cd320",
+      "bytes": 3835
     },
     {
       "path": "docs/report/pollen-reconstruction/author-buffered-pollen/comparisons/baseline/REPORT.md",
@@ -556,8 +556,8 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/author-buffered-pollen/manifest.json",
-      "sha256": "69d635d194f14ea52c9cdc9f87339b9b9601da808ecb1284ab57395b51678ad5",
-      "bytes": 11173
+      "sha256": "48da0c1cdca979d3ab6acb2ecd0f112ccf449a3c2a0b2c350659e8d4c6465679",
+      "bytes": 11459
     },
     {
       "path": "docs/report/pollen-reconstruction/author-buffered-pollen/nearest-site/grid-512/predictions.csv",
@@ -608,6 +608,11 @@
       "path": "docs/report/pollen-reconstruction/author-buffered-pollen/nearest-site/scores/scores.csv",
       "sha256": "e8c43e62a5cae82465da2801f2d9877955ad3c8cfc1cc4c916a13a3c18c45b6d",
       "bytes": 48549
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/author-buffered-pollen/replay.py",
+      "sha256": "12be0501ecbb88ca1eb1a8a0d835ada7c03aae32ebac471e136920b1c44f67d6",
+      "bytes": 8140
     },
     {
       "path": "docs/report/pollen-reconstruction/author-buffered-pollen/training-mean/grid-512/predictions.csv",
@@ -986,7 +991,7 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/verify_report.py",
-      "sha256": "b382d31299c46625eeab0a9bd6cab292ea33f2a6a4e7418e4be732f462a734ce",
+      "sha256": "0081c049905c1f73682a37ecd01a35387622377fa6f254fefd11eb42be1af83e",
       "bytes": 45837
     },
     {
@@ -2871,8 +2876,8 @@
     },
     {
       "path": "reports/architecture/ownership.md",
-      "sha256": "d3caad9369c54ce2281e10688f8f65988f567fcf6244c63eeb90c222726546bc",
-      "bytes": 9583
+      "sha256": "9086f4217986306b978ff9559780273bb9643b6fc9b321d5fe12da9e884817f7",
+      "bytes": 10241
     },
     {
       "path": "reports/evidence-index.md",

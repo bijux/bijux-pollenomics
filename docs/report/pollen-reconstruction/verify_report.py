@@ -378,7 +378,7 @@ def verify_author_buffered_pollen(scope: dict[str, Any]) -> None:
     if (
         manifest["private_source_manifest_sha256"]
         != declared["private_source_manifest_sha256"]
-        or len(manifest["files"]) != 53
+        or len(manifest["files"]) != 54
     ):
         raise ValueError("buffered author source custody differs")
     for item in manifest["files"]:
