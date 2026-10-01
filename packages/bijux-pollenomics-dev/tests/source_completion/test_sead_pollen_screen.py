@@ -48,7 +48,7 @@ def test_partition_reader_rejects_changed_source_bytes(tmp_path: Path) -> None:
 
 
 def test_candidate_value_and_state_must_match_raw_abundance() -> None:
-    raw = {972: {"abundance_id": 972, "abundance": 1}}
+    raw: dict[int, dict[str, int | None]] = {972: {"abundance_id": 972, "abundance": 1}}
     candidate = {
         "source_table": "tbl_abundances",
         "source_record_id": "972",

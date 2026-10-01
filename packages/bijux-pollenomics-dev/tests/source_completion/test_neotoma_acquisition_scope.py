@@ -58,6 +58,10 @@ def test_retained_inventory_cannot_gain_an_unqueried_object() -> None:
         "downloaded_dataset_ids": [1],
     }
     changed = copy.deepcopy(inventory)
-    changed["retained_rows"][0]["site"]["sitename"] = "unqueried object"
+    retained_rows = changed["retained_rows"]
+    assert isinstance(retained_rows, list)
+    retained_site = retained_rows[0]["site"]
+    assert isinstance(retained_site, dict)
+    retained_site["sitename"] = "unqueried object"
     with pytest.raises(ValueError, match="ordered lossless subset"):
         reconcile(changed, manifest, [])

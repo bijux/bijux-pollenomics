@@ -49,7 +49,11 @@ def test_native_variable_attributes_and_source_nulls_are_exact() -> None:
     assert result["source_taxon_group_datum_counts"] == {"Vascular plants": 1}
 
     changed = copy.deepcopy(variable)
-    changed["source_semantics"][0]["source_taxon_group"] = None
+    semantics = changed["source_semantics"]
+    assert isinstance(semantics, list)
+    first_semantics = semantics[0]
+    assert isinstance(first_semantics, dict)
+    first_semantics["source_taxon_group"] = None
     mismatch = reconcile([datum], [changed], [])
     assert not mismatch["match"]
     assert mismatch["attribute_mismatches"] == [
