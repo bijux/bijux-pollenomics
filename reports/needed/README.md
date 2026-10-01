@@ -302,6 +302,12 @@ found 102 current Neotoma dataset records at 99 site IDs, all already retained.
 Two PANGAEA leads share core handles with existing Neotoma cores; the checked
 SAMBOTOT dated-control metadata does not provide a selected calibrated
 pollen-sample age model. These bounded screens found no eligible fresh cohort.
+The wider PANGAEA title screen found six named handles absent from retained
+Swedish Neotoma handles. None appears among the 37 Swedish events in the
+checked EPD final sample-age table. HAKULLA5 has an “EPD chron2” reference
+but no source-linked selected sample-age sequence in the checked table. Obtain
+that chronology and a physical-core, sample-depth and use-rights binding
+before any target pollen counts are opened.
 **Reopen when:** a cohort owner can freeze eligible source records,
 grouping, preprocessing, metrics and refusal rules before any target outcome
 is inspected. Publish the prediction identity first and only then score it.

@@ -49,5 +49,102 @@
     }
   ],
   "result": "no_fresh_physical_site_in_checked_metadata_surfaces",
-  "scope": "Metadata-only current Neotoma Sweden query and two PANGAEA leads; no pollen observation or count table opened. A different EPD-only core and its selected calibrated sample ages may exist outside these checked metadata surfaces."
+  "scope": "Metadata-only current Neotoma Sweden query and two PANGAEA leads; no pollen observation or count table opened. A different EPD-only core and its selected calibrated sample ages may exist outside these checked metadata surfaces.",
+  "epd_metadata_screen": {
+    "private_source_manifest_sha256": "02e0243dc29557ab6e81c727cb0c0e55717e2e1045d20973306b1c133e9dddc6",
+    "source_capture_utc": "2026-10-01T09:20:21.673123+00:00",
+    "pangaea_metadata_search_hits": 66,
+    "retained_neotoma_swedish_core_handles": 101,
+    "search_hits_matching_retained_handles": 59,
+    "unmatched_named_core_handles": 6,
+    "generic_unbound_profile_doi": "10.1594/PANGAEA.761854",
+    "checked_epd_final_age_swedish_events": 37,
+    "checked_epd_final_age_events_matching_retained_handles": 37,
+    "hakulla5_chronology_reference": {
+      "doi": "10.1594/PANGAEA.853943",
+      "reference": "EPD chron2",
+      "comment": "Uses all dates. May be less accurate at top of sequence.",
+      "selected_sample_age_sequence_in_table": false
+    },
+    "named_leads": [
+      {
+        "core_handle": "ADRAN",
+        "pangaea_pollen_doi": "10.1594/PANGAEA.738941",
+        "age_determination_metadata_dois": [
+          "10.1594/PANGAEA.740137"
+        ],
+        "profile_license": null,
+        "profile_conditions_of_access": "access rights needed",
+        "in_retained_neotoma_swedish_handles": false,
+        "in_checked_epd_final_age_events": false,
+        "selected_sample_age_sequence_identified": false,
+        "decision": "metadata_lead_only_core_alias_and_selected_age_model_unresolved"
+      },
+      {
+        "core_handle": "GARASEL",
+        "pangaea_pollen_doi": "10.1594/PANGAEA.739248",
+        "age_determination_metadata_dois": [
+          "10.1594/PANGAEA.740365"
+        ],
+        "profile_license": null,
+        "profile_conditions_of_access": "access rights needed",
+        "in_retained_neotoma_swedish_handles": false,
+        "in_checked_epd_final_age_events": false,
+        "selected_sample_age_sequence_identified": false,
+        "decision": "metadata_lead_only_core_alias_and_selected_age_model_unresolved"
+      },
+      {
+        "core_handle": "HAKULLA5",
+        "pangaea_pollen_doi": "10.1594/PANGAEA.711892",
+        "age_determination_metadata_dois": [
+          "10.1594/PANGAEA.740389"
+        ],
+        "profile_license": "https://creativecommons.org/licenses/by-nc/3.0/",
+        "profile_conditions_of_access": "unrestricted",
+        "in_retained_neotoma_swedish_handles": false,
+        "in_checked_epd_final_age_events": false,
+        "selected_sample_age_sequence_identified": false,
+        "decision": "metadata_lead_only_core_alias_and_selected_age_model_unresolved"
+      },
+      {
+        "core_handle": "LEVEANIE",
+        "pangaea_pollen_doi": "10.1594/PANGAEA.739449",
+        "age_determination_metadata_dois": [
+          "10.1594/PANGAEA.740509"
+        ],
+        "profile_license": null,
+        "profile_conditions_of_access": "access rights needed",
+        "in_retained_neotoma_swedish_handles": false,
+        "in_checked_epd_final_age_events": false,
+        "selected_sample_age_sequence_identified": false,
+        "decision": "metadata_lead_only_core_alias_and_selected_age_model_unresolved"
+      },
+      {
+        "core_handle": "NDRAKET",
+        "pangaea_pollen_doi": "10.1594/PANGAEA.739584",
+        "age_determination_metadata_dois": [],
+        "profile_license": "https://creativecommons.org/licenses/by-nc/3.0/",
+        "profile_conditions_of_access": "unrestricted",
+        "in_retained_neotoma_swedish_handles": false,
+        "in_checked_epd_final_age_events": false,
+        "selected_sample_age_sequence_identified": false,
+        "decision": "metadata_lead_only_core_alias_and_selected_age_model_unresolved"
+      },
+      {
+        "core_handle": "VUOLEPAL",
+        "pangaea_pollen_doi": "10.1594/PANGAEA.889510",
+        "age_determination_metadata_dois": [
+          "10.1594/PANGAEA.888917"
+        ],
+        "profile_license": null,
+        "profile_conditions_of_access": "access rights needed",
+        "in_retained_neotoma_swedish_handles": false,
+        "in_checked_epd_final_age_events": false,
+        "selected_sample_age_sequence_identified": false,
+        "decision": "metadata_lead_only_core_alias_and_selected_age_model_unresolved"
+      }
+    ],
+    "result": "six_unmatched_handles_but_zero_selected_sample_age_sequences_identified",
+    "scope": "PANGAEA title metadata search, seven profile metadata records, six handle-related metadata searches, the Giesecke final-age event inventory and Fyfe chronology-reference table. No pollen observation/count table opened; absent exact handle is not proof of distinct physical site."
+  }
 }

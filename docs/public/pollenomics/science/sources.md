@@ -4,7 +4,7 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-09-30
+last_reviewed: 2026-10-01
 ---
 
 # Scientific sources and scope
@@ -30,6 +30,14 @@ Country outcomes had already been inspected in earlier development, so these
 are exploratory scores. The response is a closed 31-target pollen
 subcomposition, not full pollen, modeled vegetation or measured vegetation.
 Its MAE should not be compared directly with the earlier 16-label response.
+
+The [Swedish metadata-only cohort screen](../../../report/source-relations/neotoma/swedish-cohort-availability/README.md)
+found that all 99 site IDs in a current Neotoma pollen query are already in
+the retained snapshot. Six PANGAEA profile handles absent from retained
+Swedish Neotoma core handles remain only source leads: none occurs in the
+checked 37-event Swedish EPD final sample-age inventory, and their physical
+identity, selected pollen-sample ages or use rights are unresolved. We did
+not open their target pollen counts or claim independent confirmation.
 
 ## Before a core can enter LRA
 

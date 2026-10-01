@@ -3,14 +3,26 @@
 from __future__ import annotations
 
 import argparse
+import csv
 import hashlib
 import json
 from pathlib import Path
+import re
 from typing import Any
+import xml.etree.ElementTree as ET
 
 
 FAMILY = Path("docs/report/source-relations/neotoma/swedish-cohort-availability")
 RELATIONAL = Path("data/neotoma/relational")
+PANGAEA_NAMESPACE = "{http://www.pangaea.de/MetaData}"
+EPD_PROFILE_IDS = {
+    "ADRAN": 738941,
+    "GARASEL": 739248,
+    "HAKULLA5": 711892,
+    "LEVEANIE": 739449,
+    "NDRAKET": 739584,
+    "VUOLEPAL": 889510,
+}
 
 
 def _sha(path: Path) -> str:
@@ -94,6 +106,176 @@ def _pangaea_core(
         raise ValueError(f"PANGAEA core identity changed: {filename}")
     geography = payload["spatialCoverage"]["geo"]
     return payload, (geography["latitude"], geography["longitude"])
+
+
+def _epd_sources(
+    declared: dict[str, Any], private_root: Path
+) -> tuple[dict[str, Any], Path]:
+    root = private_root / declared["epd_private_source_subdir"]
+    path = root / "source-manifest.json"
+    if _sha(path) != declared["epd_source_manifest_sha256"]:
+        raise ValueError("private EPD metadata source manifest changed")
+    manifest = _read_json(path)
+    if manifest["schema_version"] != "swedish-epd-metadata-source.v1":
+        raise ValueError("unexpected private EPD metadata source schema")
+    if len(manifest["sources"]) != 16:
+        raise ValueError("EPD metadata source count changed")
+    for item in manifest["sources"]:
+        source = private_root / item["file"]
+        if source.stat().st_size != item["bytes"] or _sha(source) != item["sha256"]:
+            raise ValueError(f"EPD metadata source bytes changed: {item['file']}")
+    return manifest, root
+
+
+def _swedish_handles(repository: Path, declared: dict[str, Any]) -> set[str]:
+    manifest = _read_json(repository / RELATIONAL / "manifest.json")
+    parts = manifest["surfaces"]["collection_units"]["parts"]
+    if (
+        len(parts) != 1
+        or parts[0]["sha256"] != declared["relational_collection_units_part_sha256"]
+    ):
+        raise ValueError("retained collection-unit declaration changed")
+    path = repository / RELATIONAL / parts[0]["path"]
+    if _sha(path) != parts[0]["sha256"]:
+        raise ValueError("retained collection-unit bytes changed")
+    rows = _read_json(path)["rows"]
+    return {
+        row["source_payload"]["handle"].upper()
+        for row in rows
+        if row["country_code"] == "SE" and row["source_payload"].get("handle")
+    }
+
+
+def _pangaea_title(hit: dict[str, Any]) -> str:
+    title = ET.fromstring(hit["_source"]["xml-thumb"]).find(
+        f".//{PANGAEA_NAMESPACE}title"
+    )
+    if title is None or not title.text:
+        raise ValueError("PANGAEA metadata search title missing")
+    return title.text
+
+
+def _epd_age_events(path: Path) -> set[str]:
+    events: set[str] = set()
+    for line in path.read_text(encoding="utf-8").splitlines():
+        if line == "*/":
+            break
+        if "* LOCATION:" in line and "Sweden" in line:
+            match = re.match(r"\s*([^\s(]+)", line)
+            if match is None:
+                raise ValueError("EPD Swedish age-table event label missing")
+            events.add(match.group(1))
+    return events
+
+
+def _epd_screen(
+    repository: Path, private_root: Path, declared: dict[str, Any]
+) -> dict[str, Any]:
+    manifest, root = _epd_sources(declared, private_root)
+    retained_handles = _swedish_handles(repository, declared)
+    search = _read_json(root / "pangaea-sweden-pollen-profiles.json")
+    if (
+        search["timed_out"]
+        or search["hits"]["total"] != 66
+        or len(search["hits"]["hits"]) != 66
+    ):
+        raise ValueError("bounded PANGAEA pollen-profile search changed")
+    matched = 0
+    unmatched: dict[str, int] = {}
+    unbound: list[int] = []
+    for hit in search["hits"]["hits"]:
+        title = _pangaea_title(hit)
+        match = re.search(
+            r"Pollen profile (?:of sediment core )?([A-Z][A-Z0-9_-]+)[, ]", title
+        )
+        doi_id = int(hit["_id"])
+        if match is None:
+            unbound.append(doi_id)
+        elif match.group(1) in retained_handles:
+            matched += 1
+        else:
+            unmatched[match.group(1)] = doi_id
+    if unmatched != EPD_PROFILE_IDS or unbound != [761854] or matched != 59:
+        raise ValueError("PANGAEA/Neotoma core-handle screen changed")
+
+    final_ages = _epd_age_events(
+        private_root / "epd/pangaea/epd-age-cut-pangaea-804596.tsv"
+    )
+    if len(final_ages) != 37 or not final_ages <= retained_handles:
+        raise ValueError("EPD final-age Swedish event inventory changed")
+    if final_ages & unmatched.keys():
+        raise ValueError(
+            "unmatched PANGAEA handle appears in final-age event inventory"
+        )
+
+    chronology_text = (root / "pangaea-core-chronologies-853943.tsv").read_text(
+        encoding="utf-8"
+    )
+    chronology_rows = list(
+        csv.DictReader(chronology_text.split("*/\n", 1)[1].splitlines(), delimiter="\t")
+    )
+    chronology = [row for row in chronology_rows if row["Event"] == "HAKULLA5"]
+    if len(chronology) != 1 or chronology[0]["Reference"] != "EPD chron2":
+        raise ValueError("HAKULLA5 published chronology-reference row changed")
+
+    leads = []
+    for handle, doi_id in sorted(unmatched.items()):
+        name = handle.lower()
+        profile = _read_json(root / f"pangaea-{name}-pollen-metadata.jsonld")
+        if (
+            profile["identifier"] != f"https://doi.org/10.1594/PANGAEA.{doi_id}"
+            or handle not in profile["name"]
+        ):
+            raise ValueError(f"PANGAEA profile identity changed: {handle}")
+        related = _read_json(root / f"pangaea-{name}-related-metadata.json")
+        if related["timed_out"] or related["hits"]["total"] != len(
+            related["hits"]["hits"]
+        ):
+            raise ValueError(f"PANGAEA handle-related metadata is incomplete: {handle}")
+        dated_controls = sorted(
+            int(hit["_id"])
+            for hit in related["hits"]["hits"]
+            if _pangaea_title(hit).startswith("Age determination of sediment core ")
+            and handle in _pangaea_title(hit)
+        )
+        leads.append(
+            {
+                "core_handle": handle,
+                "pangaea_pollen_doi": f"10.1594/PANGAEA.{doi_id}",
+                "age_determination_metadata_dois": [
+                    f"10.1594/PANGAEA.{item}" for item in dated_controls
+                ],
+                "profile_license": profile.get("license"),
+                "profile_conditions_of_access": profile.get("conditionsOfAccess"),
+                "in_retained_neotoma_swedish_handles": False,
+                "in_checked_epd_final_age_events": False,
+                "selected_sample_age_sequence_identified": False,
+                "decision": "metadata_lead_only_core_alias_and_selected_age_model_unresolved",
+            }
+        )
+    generic = _read_json(root / "pangaea-schonen-pollen-metadata.jsonld")
+    if generic["identifier"] != "https://doi.org/10.1594/PANGAEA.761854":
+        raise ValueError("generic Schonen metadata identity changed")
+    return {
+        "private_source_manifest_sha256": declared["epd_source_manifest_sha256"],
+        "source_capture_utc": manifest["captured_at_utc"],
+        "pangaea_metadata_search_hits": 66,
+        "retained_neotoma_swedish_core_handles": len(retained_handles),
+        "search_hits_matching_retained_handles": matched,
+        "unmatched_named_core_handles": len(leads),
+        "generic_unbound_profile_doi": "10.1594/PANGAEA.761854",
+        "checked_epd_final_age_swedish_events": len(final_ages),
+        "checked_epd_final_age_events_matching_retained_handles": len(final_ages),
+        "hakulla5_chronology_reference": {
+            "doi": "10.1594/PANGAEA.853943",
+            "reference": chronology[0]["Reference"],
+            "comment": chronology[0]["Comm"],
+            "selected_sample_age_sequence_in_table": False,
+        },
+        "named_leads": leads,
+        "result": "six_unmatched_handles_but_zero_selected_sample_age_sequences_identified",
+        "scope": "PANGAEA title metadata search, seven profile metadata records, six handle-related metadata searches, the Giesecke final-age event inventory and Fyfe chronology-reference table. No pollen observation/count table opened; absent exact handle is not proof of distinct physical site.",
+    }
 
 
 def replay(repository: Path, private_root: Path) -> dict[str, Any]:
@@ -204,6 +386,7 @@ def replay(repository: Path, private_root: Path) -> dict[str, Any]:
         ],
         "result": "no_fresh_physical_site_in_checked_metadata_surfaces",
         "scope": "Metadata-only current Neotoma Sweden query and two PANGAEA leads; no pollen observation or count table opened. A different EPD-only core and its selected calibrated sample ages may exist outside these checked metadata surfaces.",
+        "epd_metadata_screen": _epd_screen(repository, private_root, declared),
     }
 
 
