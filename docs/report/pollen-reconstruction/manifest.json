@@ -760,6 +760,26 @@
       "bytes": 1927
     },
     {
+      "path": "docs/report/pollen-reconstruction/author-lra-constrained/optimizer-gradient/README.md",
+      "sha256": "707492b7fb397d87a606206ef9af40c521cea8bf8042726738d32a6146dd6a3b",
+      "bytes": 3679
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/author-lra-constrained/optimizer-gradient/baseline.json",
+      "sha256": "68afb09419754130f482783397f58b12c7c06ee041430b24d264dc7f9c30e009",
+      "bytes": 2090
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/author-lra-constrained/optimizer-gradient/replay.py",
+      "sha256": "6383372379623ced187c8b8b5dd43f813dd5ec384a467f872bb99b579e2d1e38",
+      "bytes": 16188
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/author-lra-constrained/optimizer-gradient/report.json",
+      "sha256": "8ce87d7083b0dde01d9030bb82bbd6ea9d3193dc4c52fc0ad7c9346894d8774d",
+      "bytes": 8370
+    },
+    {
       "path": "docs/report/pollen-reconstruction/author-lra-constrained/predictions.csv",
       "sha256": "2c6bc4fa02d9ec37747f5b53f9c2c17a5910130c83ec454bb6cc0cfc16ca2d4b",
       "bytes": 289167
@@ -3001,8 +3021,8 @@
     },
     {
       "path": "reports/science/english-lra-pollen-prediction.md",
-      "sha256": "221331ca0c1b95a0091b21a01d913caa1b8131725fded62242a8325796858c45",
-      "bytes": 15865
+      "sha256": "aaa72036b9c48501ec4be4d6cd1674d57aced5289468bec641bc4c490c5cc7cc",
+      "bytes": 16754
     },
     {
       "path": "reports/science/hyde-cropland-source-account.md",
