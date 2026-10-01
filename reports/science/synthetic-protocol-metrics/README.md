@@ -27,18 +27,20 @@ No interval coverage was computed for these six protocols.
 
 ## Source and verification boundary
 
-The private source archive contains the original 16-row score report, its
-binding file and the six scored tables. The maintained
-[source manifest](../../../data/synthetic/score_protocol_source.json) binds
-the **eight consumed** member hashes and archive SHA-256
-`8dd272c3bd93f8354045596b2b712a2a3670cd35ebd0b7332d0b001ee95c3cc6`.
-The [machine result](report.json) links each row to the historical score
-manifest and evidence digest. The archive hash binds the private source
-capture; the member hashes cover exactly the inputs read by this study.
+The six original score tables are retained byte-for-byte under
+[tracked synthetic score sources](../../../data/synthetic/score_protocols/).
+The [source manifest](../../../data/synthetic/score_protocol_source.json) binds
+each table to its original SHA-256 and retains the historical 16-row reader
+result, protocol identities and accounting. It also records the private archive
+SHA-256 `8dd272c3bd93f8354045596b2b712a2a3670cd35ebd0b7332d0b001ee95c3cc6`
+and the original report and binding-file SHA-256 digests as provenance receipts.
+The [machine result](report.json) links each row to the original score
+manifest and evidence digest. The private archive is retained separately as a
+source witness; replay reads the governed tracked tables.
 
 Our [producer](replay.py) independently sums the retained scored-unit MAEs
-and counts refusals in the six `scores.json` tables, checks the eight consumed
-source hashes and compares every row with the historical reader output. The current
+and counts refusals in the six original score tables, checks their byte hashes
+and compares every row with the historical reader output. The current
 installed authoritative reader rejects the historical spatial-block product
 profile with `Profile, roles or numerical table differs`; this is a versioned
 reader compatibility limit, not a claim that the historical score row is a
@@ -53,27 +55,16 @@ an ecologically best model. The [current host challenge](../synthetic-host-chall
 and [development selection](../synthetic-model-selection/README.md) have
 their own prospective designs and are not replaced by this older archive.
 
-To reproduce the row arithmetic, supply the qualified private source store
-and run from the repository root. Check the archive SHA-256 before extraction.
-The archive preserves its original internal member paths. Extract it into a
-fresh output directory; the producer reads only the eight locked source
-members and does not depend on an earlier local run:
+To reproduce the row arithmetic, run from the repository root with an absent
+output directory:
 
 ```sh
-set -e
-archive=/path/to/private/source/store/reference-sources/synthetic-protocol-metrics/retained-scores.tar
-expected=8dd272c3bd93f8354045596b2b712a2a3670cd35ebd0b7332d0b001ee95c3cc6
-printf '%s  %s\n' "$expected" "$archive" | shasum -a 256 -c -
-mkdir -p artifacts/jobs/synthetic-protocol-metrics/extracted
-tar -xf "$archive" -C artifacts/jobs/synthetic-protocol-metrics/extracted
 PYTHONDONTWRITEBYTECODE=1 .venv/bin/python \
   reports/science/synthetic-protocol-metrics/replay.py \
-  --source-root artifacts/jobs/synthetic-protocol-metrics/extracted \
   --source-manifest data/synthetic/score_protocol_source.json \
   --output artifacts/jobs/synthetic-protocol-metrics/replayed
 ```
 
-The output directory must be absent. Compare `scores.csv` and `report.json`
-with the governed files beside this page. The private archive is held under
-`bijux-pollenomics-data/reference-sources/synthetic-protocol-metrics/` and
-is not a public download.
+Compare `scores.csv` and `report.json` with the governed files beside this
+page. The original private archive is held outside the repository and is not
+a public download.

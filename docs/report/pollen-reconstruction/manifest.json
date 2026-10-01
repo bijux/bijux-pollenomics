@@ -31,8 +31,38 @@
     },
     {
       "path": "data/synthetic/score_protocol_source.json",
-      "sha256": "c95983fdd52ab5f8e98fa46dccb1d8201ff9e62699108878f88776422feaad87",
-      "bytes": 1684
+      "sha256": "2cd79488507046e3fc1899bcaa985b0a3a75e61010515cc452f323f9590718bd",
+      "bytes": 13593
+    },
+    {
+      "path": "data/synthetic/score_protocols/baseline.json",
+      "sha256": "c6298f7ec9fe994fd0fb77d9bc6ca84eec7ad87a4df0163f008f65d292f31ab8",
+      "bytes": 34711
+    },
+    {
+      "path": "data/synthetic/score_protocols/block.json",
+      "sha256": "348a6f1f658372e9985bb46dec23a5fe8c650425ab1a0203720a62fc44ed2b3b",
+      "bytes": 26083
+    },
+    {
+      "path": "data/synthetic/score_protocols/fitted.json",
+      "sha256": "ab3ad72d80f1e9e2ff5ad8c0339834a4f6fd949b9751e20a65b8be7263a71160",
+      "bytes": 12147
+    },
+    {
+      "path": "data/synthetic/score_protocols/local.json",
+      "sha256": "1c3d8dbb7a5356e3aa4b363bf520d9b2f89fe78ed6eccb22b4cb94266f80c45f",
+      "bytes": 10748
+    },
+    {
+      "path": "data/synthetic/score_protocols/partial-block.json",
+      "sha256": "f0baa51b0a7b5248e98b263a77a5d999df8076d1ef08953ac568929024cb1a9f",
+      "bytes": 9087
+    },
+    {
+      "path": "data/synthetic/score_protocols/temporal.json",
+      "sha256": "ed676c9987d2036fa4923c25575db4afb3fb2d0c17649375975d8dbf04d6979d",
+      "bytes": 2949
     },
     {
       "path": "docs/public/pollenomics-data/sources/empd2-nfi-review.md",
@@ -2306,13 +2336,13 @@
     },
     {
       "path": "reports/science/synthetic-protocol-metrics/README.md",
-      "sha256": "e3fd2f6c05b4ad258f6f86207523ac74b2863edb8f8c25ff71dbb2040b6fa23a",
-      "bytes": 4454
+      "sha256": "1e0d333000f3ac9ece34ebf1a773b5a510ac8f1c45f28e96b9096c38b189e348",
+      "bytes": 3839
     },
     {
       "path": "reports/science/synthetic-protocol-metrics/replay.py",
-      "sha256": "9e38fadbca0ed6847227413b48c471948e539741395c61c90f3bc49bab621321",
-      "bytes": 8702
+      "sha256": "6ff05fcb4ac1c83c46f316963ebdbc1272e17c9d7ab2a27d65a5327b03fd19ee",
+      "bytes": 8391
     },
     {
       "path": "reports/science/synthetic-protocol-metrics/report.json",

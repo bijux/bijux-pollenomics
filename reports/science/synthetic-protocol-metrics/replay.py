@@ -34,42 +34,31 @@ def sha256(path: Path) -> str:
     return h.hexdigest()
 
 
-def produce(source_root: Path, source_manifest_path: Path) -> tuple[list[dict], dict]:
+def produce(source_manifest_path: Path) -> tuple[list[dict], dict]:
     source_manifest = json.loads(source_manifest_path.read_text(encoding="utf-8"))
-    if source_manifest["schema_version"] != "synthetic-score-source.v1":
+    if source_manifest["schema_version"] != "synthetic-score-source.v2":
         raise ValueError("Unexpected score-source manifest schema")
-    for relative, expected in source_manifest["members"].items():
-        path = source_root / relative
-        if not path.is_file() or sha256(path) != expected:
-            raise ValueError(f"Retained score source changed: {relative}")
-    historical_path = (
-        source_root / "artifacts/v2/resumed-frontier/metrics-002/report.json"
-    )
-    if sha256(historical_path) != source_manifest["source_report_sha256"]:
-        raise ValueError("Historical score report identity changed")
-    historical = json.loads(historical_path.read_text(encoding="utf-8"))
-    bindings_path = (
-        source_root
-        / "artifacts/v2/validation/scored-evaluator-adapter-design/fixture-bindings.json"
-    )
-    bindings = json.loads(bindings_path.read_text(encoding="utf-8"))
-    consumed_members = {
-        historical_path.relative_to(source_root).as_posix(),
-        bindings_path.relative_to(source_root).as_posix(),
-        *(bound["score_directory"] + "/scores.json" for bound in bindings),
-    }
-    if set(source_manifest["members"]) != consumed_members:
-        raise ValueError("Score-source manifest must bind only consumed members")
+    source_root = source_manifest_path.resolve().parent
+    bindings = source_manifest["protocols"]
+    if len(bindings) != 6 or len({bound["label"] for bound in bindings}) != 6:
+        raise ValueError("Retained protocol support changed")
     rows = []
     protocols = []
     totals: Counter[tuple[str, str]] = Counter()
     previous = {
-        (r["protocol"], r["method"], r["target"]): r for r in historical["rows"]
+        (r["protocol"], r["method"], r["target"]): r
+        for r in source_manifest["historical_rows"]
     }
-    if len(previous) != len(historical["rows"]):
+    if len(previous) != len(source_manifest["historical_rows"]):
         raise ValueError("Duplicate historical metric row")
     for bound in bindings:
-        score_path = source_root / bound["score_directory"] / "scores.json"
+        if bound["score_table"] != f"score_protocols/{bound['label']}.json":
+            raise ValueError("Retained score source path changed")
+        score_path = (source_root / bound["score_table"]).resolve()
+        if not score_path.is_relative_to(source_root) or not score_path.is_file():
+            raise ValueError("Retained score source path changed")
+        if sha256(score_path) != bound["score_table_sha256"]:
+            raise ValueError(f"Retained score source changed: {bound['label']}")
         scores = json.loads(score_path.read_text(encoding="utf-8"))
         if not isinstance(scores, list):
             raise ValueError("Retained score table changed")
@@ -136,10 +125,16 @@ def produce(source_root: Path, source_manifest_path: Path) -> tuple[list[dict], 
             rows.append(row)
             for field in ("requested", "scored", "prediction_failed"):
                 totals[(target, field)] += row[field]
-        old_protocol = next(
-            p for p in historical["protocols"] if p["label"] == bound["label"]
-        )
         first_method, first_target = next(iter(grouped))
+        if (
+            bound["profile"]
+            != previous[(bound["label"], first_method, first_target)]["profile"]
+            or bound["historical_evidence_sha256"]
+            != previous[(bound["label"], first_method, first_target)][
+                "evidence_sha256"
+            ]
+        ):
+            raise ValueError("Retained protocol identity changed")
         protocols.append(
             {
                 "label": bound["label"],
@@ -148,7 +143,7 @@ def produce(source_root: Path, source_manifest_path: Path) -> tuple[list[dict], 
                 ],
                 "prediction_manifest_sha256": bound["prediction_manifest_sha256"],
                 "score_manifest_sha256": bound["score_manifest_sha256"],
-                "historical_evidence_sha256": old_protocol["admitted_evidence_sha256"],
+                "historical_evidence_sha256": bound["historical_evidence_sha256"],
             }
         )
     if len(rows) != 16 or len(protocols) != 6:
@@ -161,12 +156,12 @@ def produce(source_root: Path, source_manifest_path: Path) -> tuple[list[dict], 
         for target in ("pollen_composition", "vegetation_cover")
     }
     if (
-        accounting != historical["accounting"]
-        or accounting != source_manifest["source_report_accounting"]
+        accounting != source_manifest["source_report_accounting"]
     ):
         raise ValueError("Historical retained-score accounting changed")
     historical_rows = [
-        {field: row[field] for field in FIELDS} for row in historical["rows"]
+        {field: row[field] for field in FIELDS}
+        for row in source_manifest["historical_rows"]
     ]
     if rows != historical_rows:
         raise ValueError("Retained score row order differs from historical result")
@@ -186,13 +181,12 @@ def produce(source_root: Path, source_manifest_path: Path) -> tuple[list[dict], 
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--source-root", type=Path, required=True)
     parser.add_argument("--source-manifest", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
     if args.output.exists():
         raise ValueError("Absent output destination required")
-    rows, report = produce(args.source_root, args.source_manifest)
+    rows, report = produce(args.source_manifest)
     args.output.mkdir(parents=True)
     with (args.output / "scores.csv").open("w", newline="", encoding="utf-8") as stream:
         writer = csv.DictWriter(stream, fieldnames=FIELDS, lineterminator="\n")
