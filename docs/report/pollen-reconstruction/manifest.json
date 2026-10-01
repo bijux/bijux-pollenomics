@@ -136,8 +136,13 @@
     },
     {
       "path": "docs/report/index.md",
-      "sha256": "150b49661ec4b858d437bf16a303f213a0c42244cb06cf96b59e0deaaefd60b6",
+      "sha256": "91ff568670d8f92fd74e725766dd79e36da1324b32b5ebfc547fcff5807e3ff3",
       "bytes": 2668
+    },
+    {
+      "path": "docs/report/maintenance/index.md",
+      "sha256": "19f35804b49f8294ba5be9c1235921be784a44be0993f939299cd36e0aa5d1bc",
+      "bytes": 1392
     },
     {
       "path": "docs/report/method-certification/current-r-oracle/README.md",
@@ -1850,6 +1855,21 @@
       "bytes": 42799
     },
     {
+      "path": "docs/report/report_narrative_quality_review.json",
+      "sha256": "ec60b5ea1e75c84a8890d6c0e447e5761e793bb144594c9da3ec9605ead8b59b",
+      "bytes": 105065
+    },
+    {
+      "path": "docs/report/report_surface_registry.json",
+      "sha256": "af5fb27889489f8fa5cc0f34b5521d12d2bb2c8da15d88ed0b1da1dfd047f54d",
+      "bytes": 878364
+    },
+    {
+      "path": "docs/report/report_surface_registry.md",
+      "sha256": "fa1471c473d7bc395f3061f55e9f29f8c326177629736c21001c56227976d765",
+      "bytes": 862
+    },
+    {
       "path": "docs/report/source-relations/dna-scope/reindeer-published-appendix.md",
       "sha256": "338f50c410c5c984bbdcca6c6ec2335476eabd996ed4d19ba3c46a99fb2172b7",
       "bytes": 385
@@ -2030,6 +2050,11 @@
       "bytes": 4264
     },
     {
+      "path": "docs/report/source-relations/sead/README.md",
+      "sha256": "6ed98609b7292b490722a8da207b810ac409a15cebbdb061abf5ccb8f25989c8",
+      "bytes": 5348
+    },
+    {
       "path": "docs/report/source-relations/sead/chronology-claim-review/README.md",
       "sha256": "dbd34aebcdd2a18090d6b8608b9647a778344af81cbf71face671a2dc96ffa8a",
       "bytes": 3272
@@ -2113,6 +2138,11 @@
       "path": "docs/report/source-relations/sead/source-unit-accounting/rows.csv",
       "sha256": "b2d7c66c6b75571745feba0cfb037c4f813c3989f616bd16bebc050dc004cc00",
       "bytes": 1025
+    },
+    {
+      "path": "docs/report/source-relations/sead/verify_report_owners.py",
+      "sha256": "d01739d6f9cc4ce998380bd3ef027f4eb075d74a0c6f406904018089409a5385",
+      "bytes": 4034
     },
     {
       "path": "docs/report/vegetation-reference/farskesjon/README.md",
@@ -2486,8 +2516,8 @@
     },
     {
       "path": "reports/architecture/ownership.md",
-      "sha256": "270d006270f751e39cea0e4a653a7133f514ccf5a9b4d6b987731458f7727c3c",
-      "bytes": 2987
+      "sha256": "6feded5afbbbacdf10d1f5f30440ad74fd6797f83e88cb3102b3b9c69c4c985b",
+      "bytes": 3414
     },
     {
       "path": "reports/evidence-index.md",

@@ -63,6 +63,26 @@ the same assigned sites through sample groups, physical samples, analysis
 entities, distinct linked datasets and analysis values. Its source-unit counts
 are separate from claim rows and ecological events.
 
+## Report ownership
+
+We replayed the six source-owned report families linked above: the pollen-named
+dataset screen, numerical values, integer values, country chronology, country
+coverage and country source units. Their producers reproduced all **11 governed
+JSON/CSV files byte for byte** from the admitted source and normalized inputs.
+All 15 local links in the six explanatory pages resolved. The
+[owner verifier](verify_report_owners.py) binds each producer to its exact output
+names and refuses an extra, missing or differing generated file. Run it from the
+repository root with a new destination:
+
+```sh
+PYTHONDONTWRITEBYTECODE=1 .venv/bin/python \
+  docs/report/source-relations/sead/verify_report_owners.py \
+  --repository . --output-root artifacts/jobs/sead-report-owner-replay
+```
+
+This covers these six source-owned families. The full mixed-owner `docs/report/`
+tree has other producers and requires its own assembled no-difference check.
+
 ## Reproduce
 
 From an installed development environment at the repository root, use a new,

@@ -31,6 +31,12 @@ checks its governed result set. Neither alone proves a full clean-tree
 rebuild. The [rebuild policy](../../configs/ci/reproducible-report-build.json)
 must be satisfied against every actual producer before that broader claim.
 
+We have bound and replayed the six [SEAD source report owners](../../docs/report/source-relations/sead/README.md#report-ownership).
+They reproduce 11 governed JSON/CSV outputs byte for byte, and the six
+explanatory pages have 15 resolving local links. This is a verified portion of
+the mixed report tree; the remaining nonpublisher outputs still need their own
+owner replay before an assembled whole-tree no-difference claim.
+
 Our source-bound vegetation results illustrate the boundary: the
 [Färskesjön](../science/vegetation-reference/farskesjon/plot_support.py),
 [Småland historical-map](../science/vegetation-reference/smaland-historical-maps/coverage.py)
