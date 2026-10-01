@@ -86,6 +86,17 @@ Sweden & 3 & 228 & 221,800/240,966 & 51/54 \\
 \evidence{reports/science/sambosjon-direct-pollen.md; docs/report/regions/nordic/sambosjon-direct-pollen/report.json; docs/report/regions/nordic/sambosjon-direct-pollen/age-bounds/report.json}
 \end{frame}
 
+\begin{frame}{A second Swedish lake: fixed methods differ by metric}
+\begin{itemize}
+\item Lilla Gloppsj\"on site/core was excluded from 84 training sites; 23 bins received 69 predictions before target scoring.
+\item All 69 scores completed on 16 exact pollen labels: 55,638 of 127,027 native NISP counts lie on the closed response.
+\item Equal-bin MAE: training mean 0.016272, primary inverse-distance-squared 0.017295, nearest site 0.020000.
+\item Hellinger: nearest site 0.228724, inverse-distance-squared 0.237576, training mean 0.256392. No method was selected using this target.
+\end{itemize}
+\scope{One-site descriptive direct-pollen development; the earlier source-validation screen parsed the target partition. Two age-refused samples remain outside scores; no independent LRA or vegetation claim.}
+\evidence{reports/science/lilla-gloppsjon-direct-pollen.md; docs/report/regions/nordic/lilla-gloppsjon-direct-pollen/scored/report.json}
+\end{frame}
+
 \begin{frame}{What reproduces numerically}
 \begin{itemize}
 \item Author raw-to-prepared replay: 17 example files, 871 raw sample rows, 15,028 matching prepared cells.

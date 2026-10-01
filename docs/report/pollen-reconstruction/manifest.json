@@ -126,7 +126,7 @@
     },
     {
       "path": "docs/report/index.md",
-      "sha256": "fe3b623bd0e3921eea454231ebff6b84ed8080a024d55abc5268edbc5104c927",
+      "sha256": "c8b495d6d76c0f38a99d51ecd37179cc22009f0fa155a209dd5d31fc42dd95fa",
       "bytes": 2668
     },
     {
@@ -1151,8 +1151,8 @@
     },
     {
       "path": "docs/report/regions/nordic/lilla-gloppsjon-direct-pollen/README.md",
-      "sha256": "5c0d34da5caed53b285131d2ed81c1634f0a120637686156f742679ab8b05bff",
-      "bytes": 5373
+      "sha256": "a9b74b5663623c4798c019b371e0cd994cc912bd0fad958dc72201aa0fbbce88",
+      "bytes": 7779
     },
     {
       "path": "docs/report/regions/nordic/lilla-gloppsjon-direct-pollen/frozen/freeze.json",
@@ -1178,6 +1178,26 @@
       "path": "docs/report/regions/nordic/lilla-gloppsjon-direct-pollen/protocol.json",
       "sha256": "9d04c225b571a98362fca38e1ef0976d19a9eb87e20b7e66e09529f4b09f0699",
       "bytes": 26231
+    },
+    {
+      "path": "docs/report/regions/nordic/lilla-gloppsjon-direct-pollen/scored/coverage.csv",
+      "sha256": "d9580265eb8d346e806380aeee2304c472dadfb003c1399c4260165dd573fc54",
+      "bytes": 1321
+    },
+    {
+      "path": "docs/report/regions/nordic/lilla-gloppsjon-direct-pollen/scored/report.json",
+      "sha256": "7bea12c4d1e3e7d4b7e8cb34331934d43f8b9071da9d488a6ae7e55a17389cea",
+      "bytes": 2420
+    },
+    {
+      "path": "docs/report/regions/nordic/lilla-gloppsjon-direct-pollen/scored/sample-counts.csv",
+      "sha256": "6a9ca02adc64a6086119efce48c12d1ae4703afae4f4051a5714a57411742c16",
+      "bytes": 8911
+    },
+    {
+      "path": "docs/report/regions/nordic/lilla-gloppsjon-direct-pollen/scored/scores.csv",
+      "sha256": "6e1a98bb59d5f64b38212a79a1eb7f308405338eb33956945643603386f1127e",
+      "bytes": 12717
     },
     {
       "path": "docs/report/regions/nordic/lilla-gloppsjon-direct-pollen/scoring-protocol.json",
@@ -2080,6 +2100,11 @@
       "bytes": 16805
     },
     {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/lilla_gloppsjon_direct_pollen_scoring.py",
+      "sha256": "164f474732a50ad0a6f96188522257e454cb0671b45d9491d1965ebaee2207e4",
+      "bytes": 19838
+    },
+    {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/neotoma_doi_review.py",
       "sha256": "a74034a8c21f7298183a7d89f625f1308fd3000b18a4d9105f00e547404424ec",
       "bytes": 7320
@@ -2191,8 +2216,8 @@
     },
     {
       "path": "packages/bijux-pollenomics-dev/tests/source_completion/test_lilla_gloppsjon_direct_pollen.py",
-      "sha256": "902de9c7c018b6b961b48b20e10f0fa1ec2195f7d3a5b4fd129939e5a1b41536",
-      "bytes": 3542
+      "sha256": "31c250893deee6ed9b92fbaf9e304c825997067acfa497f97712352bf7338f3d",
+      "bytes": 9426
     },
     {
       "path": "packages/bijux-pollenomics-dev/tests/source_completion/test_nordic_direct_pollen.py",
@@ -2276,8 +2301,8 @@
     },
     {
       "path": "reports/README.md",
-      "sha256": "c1cc7ef754140fb52f83257008a9438ca8ab9acf4d5a4dfa5a87738426aef55d",
-      "bytes": 8505
+      "sha256": "89f264396f9ea6f63ee2e84394e2ba8da9ed2ed3fcd0304503fca20792bbbe82",
+      "bytes": 8591
     },
     {
       "path": "reports/architecture/ownership.md",
@@ -2286,13 +2311,13 @@
     },
     {
       "path": "reports/evidence-index.md",
-      "sha256": "4e5a9bd553be732688bff7e5991b27a55b0e8881233195009203ce4783d480b9",
-      "bytes": 21463
+      "sha256": "666b9a8983ac693dbd8b783654df16e39d6a215e00820c2b76355a732c0fb516",
+      "bytes": 22281
     },
     {
       "path": "reports/needed/README.md",
-      "sha256": "d342a8ea56f495d1ccbad9c9af2d88d198f7d453b418a159ae019372da3200b7",
-      "bytes": 20546
+      "sha256": "8c65072dbfaa47501063c83148d0c586b9323559f6766f3d913e446279a53afa",
+      "bytes": 20836
     },
     {
       "path": "reports/science/abborrtjarnen-source-method.md",
@@ -2390,6 +2415,11 @@
       "bytes": 2264
     },
     {
+      "path": "reports/science/lilla-gloppsjon-direct-pollen.md",
+      "sha256": "d1315f67aa7e90867b00bdce62f79bb37bd89a8ee1990394d0fbf3e05db520a9",
+      "bytes": 3430
+    },
+    {
       "path": "reports/science/method-correspondence.md",
       "sha256": "31223d13a2a4e40778a3a1b86180c4442496dd43d35887f173b089b4a0250f83",
       "bytes": 5249
@@ -2411,8 +2441,8 @@
     },
     {
       "path": "reports/science/pollen-prediction.md",
-      "sha256": "ba0d7ca260562180af3d84c838f7a69969573ca2f69279772bca25f7cf738737",
-      "bytes": 7599
+      "sha256": "f75901c16c33c285737d8bf81f1978117a907b9e35c5f07078c4c096c19b3f17",
+      "bytes": 8332
     },
     {
       "path": "reports/science/publication-correspondence.md",

@@ -56,6 +56,17 @@ confirmation, an LRA reconstruction or a vegetation score. A separate
 sample intervals crossing a nominal bin boundary, with at least one crossing
 in every scored bin. It does not reassign pollen or estimate a new score.
 
+We separately froze and scored [Lilla Gloppsjön](lilla-gloppsjon-direct-pollen.md),
+another physical site excluded from the 84-site training set. All 23 bins
+produced three fixed scores. The prespecified inverse-distance-squared
+method's equal-bin MAE is 0.017295, while training mean has lower MAE
+(0.016272) and nearest site has lower Hellinger distance (0.228724 versus
+0.237576). Its 16 literal labels cover 55,638 of 127,027 native pollen
+counts; two source samples are refused from calibrated-age bins. A prior
+source-validation screen parsed the target partition, so the result is
+descriptive development, not untouched independent confirmation. We keep
+the two lakes separate because site histories and age support differ.
+
 ## Matched English direct pollen and LRA forward pollen
 
 In our [constrained LOVE source study](english-lra-pollen-prediction.md), we

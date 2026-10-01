@@ -291,9 +291,13 @@ metrics and failure rules before any target outcome is opened. A qualified
 source owner must establish cohort identity and permitted use. Next action:
 run and publish predictions first, then score all eligible/refused targets.
 
-**Already checked:** English author and Nordic target outcomes had been viewed
-before the present development protocols; no untouched eligible cohort is
-recorded. **Reopen when:** a cohort owner can freeze eligible source records,
+**Already checked:** English author and earlier Nordic target outcomes had
+been viewed before their present development protocols. Lilla Gloppsjön
+[froze predictions and scoring rules](../science/lilla-gloppsjon-direct-pollen.md)
+before this study interpreted its target counts, but an earlier shared
+source-validation screen parsed its observation partition. This provides a
+new-site descriptive result, not an untouched eligible confirmation cohort.
+**Reopen when:** a cohort owner can freeze eligible source records,
 grouping, preprocessing, metrics and refusal rules before any target outcome
 is inspected. Publish the prediction identity first and only then score it.
 

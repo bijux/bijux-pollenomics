@@ -188,6 +188,26 @@ source age-bound screen finds that 58 of 111 sample intervals cross a nominal
 published MAE remains a point-age-bin result, not an age-uncertainty-adjusted
 score.
 
+## A second newly scored Swedish lake
+
+At [Lilla Gloppsjön](../../../report/regions/nordic/lilla-gloppsjon-direct-pollen/README.md),
+three fixed methods predicted every one of 23 nominal 500-year pollen bins
+before the target counts were opened for scoring. All 69 method/bin scores
+completed. On the same 16-label closed pollen response, the prespecified
+inverse-distance-squared method has equal-bin MAE **0.017295** and Hellinger
+distance **0.237576**. Training mean has lower MAE (0.016272), while nearest
+site has lower Hellinger distance (0.228724); the method order depends on the
+metric at this lake. The [research report](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/lilla-gloppsjon-direct-pollen.md)
+and [score table](../../../report/regions/nordic/lilla-gloppsjon-direct-pollen/scored/scores.csv)
+give the denominators and per-bin results.
+
+Only 55,638 of 127,027 native pollen NISP counts lie on the exact 16-label
+axis (43.80%). Two of 86 source samples are excluded from age-bin scores due
+to negative source age bounds, with their counts retained separately. The
+training source-validation screen had previously parsed this target's source
+partition, so this is descriptive new-site development evidence, not an
+untouched independent confirmation. It does not evaluate vegetation or LRA.
+
 ## What two lake pollen series can and cannot say
 
 We compared observed `Alnus` and `Plantago lanceolata` pollen fractions at

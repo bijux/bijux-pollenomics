@@ -949,11 +949,11 @@
     },
     {
       "repository_path": "docs/report/pollen-reconstruction/author-buffered-pollen/comparisons/baseline/REPORT.md",
-      "prose_paragraph_count": 2,
+      "prose_paragraph_count": 6,
       "link_bullet_count": 0,
       "bullet_sentence_count": 0,
       "heading_count": 1,
-      "table_line_count": 5,
+      "table_line_count": 40,
       "quality_posture": "thin_structure",
       "note": "Page explains itself but still needs stronger internal wayfinding."
     },
@@ -1479,11 +1479,11 @@
     },
     {
       "repository_path": "docs/report/regions/nordic/lilla-gloppsjon-direct-pollen/README.md",
-      "prose_paragraph_count": 8,
+      "prose_paragraph_count": 11,
       "link_bullet_count": 0,
       "bullet_sentence_count": 0,
       "heading_count": 1,
-      "table_line_count": 0,
+      "table_line_count": 5,
       "quality_posture": "thin_structure",
       "note": "Page explains itself but still needs stronger internal wayfinding."
     },
