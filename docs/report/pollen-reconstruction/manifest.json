@@ -106,8 +106,8 @@
     },
     {
       "path": "docs/public/pollenomics/science/results.md",
-      "sha256": "f84542f4d4c4e23146e7df17c91f4b5b0a1f848b273df4c3584c7a738d08658c",
-      "bytes": 22687
+      "sha256": "ab94d0273d8cd32664deee5b9f6f473bd519d4541dd93d75ae069299a153d672",
+      "bytes": 23057
     },
     {
       "path": "docs/public/pollenomics/science/sources.md",
@@ -2546,13 +2546,28 @@
     },
     {
       "path": "docs/report/vegetation-reference/namibia-pollen-vegetation/README.md",
-      "sha256": "cd08b92a0efe53e8406284313acb7ed07075a913f16993f51b7b62f020ac4435",
-      "bytes": 2375
+      "sha256": "bc4b28f5617a129d6eb55953871488424d813a6865a5287373e8dcf40ad6ead7",
+      "bytes": 4576
     },
     {
       "path": "docs/report/vegetation-reference/namibia-pollen-vegetation/paired.csv",
       "sha256": "0ab77a3a9f74e0d91c9613ba84b37bc029b07d275a1816f37fffa75db8e1011d",
       "bytes": 81344
+    },
+    {
+      "path": "docs/report/vegetation-reference/namibia-pollen-vegetation/radius-sensitivity.csv",
+      "sha256": "393539f06d6771c8249704d4258ca746605b8e127c26b660cb98ee6430a59b74",
+      "bytes": 4621
+    },
+    {
+      "path": "docs/report/vegetation-reference/namibia-pollen-vegetation/radius-sensitivity.json",
+      "sha256": "e454394f1dddb1712cc08aadcd19b98ef883e364ce559729e0c5d2026f210867",
+      "bytes": 6642
+    },
+    {
+      "path": "docs/report/vegetation-reference/namibia-pollen-vegetation/radius_sensitivity.py",
+      "sha256": "08bdc29b0d5f22dee81b8bc92ec581757a616cebe2300573aee19bfacb2fac8b",
+      "bytes": 6908
     },
     {
       "path": "docs/report/vegetation-reference/namibia-pollen-vegetation/replay.py",
@@ -2946,8 +2961,8 @@
     },
     {
       "path": "reports/needed/README.md",
-      "sha256": "fdba2f03115b7cb883dfed5740b866e5ddb3e041de59585e0367dd9011a7fc8d",
-      "bytes": 31182
+      "sha256": "fb214fd74b1d2db27e0f0075448f92719fec7da39188d9e1db08aa701ceac857",
+      "bytes": 31474
     },
     {
       "path": "reports/science/aadr-nordic-entities/README.md",
@@ -3301,8 +3316,8 @@
     },
     {
       "path": "reports/science/vegetation-reference.md",
-      "sha256": "432e36371322d9cfce6e0dccbd7f79ca64958b44c9c9ad8d20b43b035b886cb5",
-      "bytes": 7425
+      "sha256": "2a5bb047d6faa11951b8186d8caf693d7c4328940cf0e31eb1d246320eada6c1",
+      "bytes": 8135
     },
     {
       "path": "reports/science/vegetation-reference/farskesjon/plot_support.py",

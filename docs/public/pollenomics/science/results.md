@@ -326,7 +326,11 @@ An [authenticated Namibian source join](../../../report/vegetation-reference/nam
 adds ten modern soil-pollen sites paired with satellite-image-derived
 vegetation areas at 15 reported radii. It is a separate, previously inspected
 development source with no model score; its savanna soil samples do not
-validate Nordic lake reconstructions.
+validate Nordic lake reconstructions. A [descriptive radius comparison](../../../report/vegetation-reference/namibia-pollen-vegetation/radius-sensitivity.json)
+finds mean five-taxon pollen-to-area Hellinger distances of 0.3664 at 100 m,
+0.3427 at 400 m and 0.3777 at 1,500 m across the same ten sites. The source
+tables do not settle ring versus cumulative area semantics or a suitable
+pollen-source radius.
 
 ### Model settings
 

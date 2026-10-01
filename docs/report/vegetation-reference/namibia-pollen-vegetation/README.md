@@ -24,6 +24,29 @@ This is a source-row join for an out-of-domain modern development cohort. We
 have not fitted a model, scored predictions, or validated Nordic vegetation
 reconstruction with these rows.
 
+## Descriptive radius sensitivity
+
+The [radius sensitivity report](radius-sensitivity.json) and [site-level
+distances](radius-sensitivity.csv) compare the two five-taxon compositions at
+each publisher `Ring sect radius [m]` label. At each site and label, the
+distance is the Hellinger distance
+`sqrt(sum((sqrt(p_i) - sqrt(v_i))²)/2)`, where `p_i` is the taxon's share of
+the five pollen counts and `v_i` is its share of the five calculated vegetation
+areas. Zero means identical conditional compositions; one is the maximum
+distance. This is a descriptive composition mismatch, not a model prediction
+score.
+
+There are ten independent sites at each of the 15 labels; the same site pollen
+sample repeats across labels. Mean distance across those ten sites is **0.3664**
+at the 100 m label, **0.3427** at 400 m and **0.3777** at 1,500 m. The full
+report gives all 15 mean, median and site-range values, and the CSV preserves
+each of the 150 site-label distances. Those values do not choose an ecological
+pollen-source radius: pollen productivity and dispersal differ by taxon, and
+the source tables alone do not establish whether the area values represent
+cumulative disks or disjoint rings. Exact pollen-sampling and image dates are
+also absent from these tables. This cohort remains outside the Nordic lake
+target and is already exposed in development.
+
 To reproduce from the two original PANGAEA TSV files, place
 `PANGAEA.931033.tab` and `PANGAEA.931035.tab` in one source directory, then run
 from the repository root:
@@ -40,3 +63,18 @@ cmp artifacts/jobs/namibia-pollen-vegetation-replay/report.json \
 
 The [producer](replay.py) refuses any source bytes differing from the pinned
 SHA-256 hashes. Its output is deterministic and contains no local file paths.
+
+The [radius sensitivity producer](radius_sensitivity.py) consumes those same
+pinned original tables through the source-row join. Reproduce its two governed
+outputs from the repository root into an absent directory under `artifacts/`:
+
+```bash
+PYTHONDONTWRITEBYTECODE=1 python3 \
+  docs/report/vegetation-reference/namibia-pollen-vegetation/radius_sensitivity.py \
+  --source-dir ../bijux-pollenomics-data/vegetation/namibia-modern-pollen-vegetation \
+  --output-dir artifacts/jobs/namibia-radius-sensitivity-replay
+cmp artifacts/jobs/namibia-radius-sensitivity-replay/radius-sensitivity.csv \
+  docs/report/vegetation-reference/namibia-pollen-vegetation/radius-sensitivity.csv
+cmp artifacts/jobs/namibia-radius-sensitivity-replay/radius-sensitivity.json \
+  docs/report/vegetation-reference/namibia-pollen-vegetation/radius-sensitivity.json
+```

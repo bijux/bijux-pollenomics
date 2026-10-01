@@ -19,7 +19,15 @@ published observations, but their soil samples, savanna taxa, calculated
 vegetation areas and unspecified sample/image dates do not match any Nordic
 lake prediction. Repeated radius rows are not independent pollen samples.
 We retain the joined rows as an out-of-domain development source without a
-model score or a selected pollen-source radius.
+model score or a selected pollen-source radius. We then compared the conditional
+five-taxon pollen and vegetation compositions at each of the publisher's 15
+radius labels. The [site-level descriptive distances](../../docs/report/vegetation-reference/namibia-pollen-vegetation/radius-sensitivity.csv)
+retain ten sites per label; their mean Hellinger distances are **0.3664** at
+100 m, **0.3427** at 400 m and **0.3777** at 1,500 m. The
+[source-bound calculation](../../docs/report/vegetation-reference/namibia-pollen-vegetation/radius-sensitivity.json)
+does not determine whether the publisher's areas describe rings or cumulative
+disks and does not choose a pollen-source radius. It compares two observed
+subcompositions; it is not a model prediction score.
 
 ## What we checked
 

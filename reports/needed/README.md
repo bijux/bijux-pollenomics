@@ -190,6 +190,9 @@ they are savanna soil-pollen data outside the Nordic lake target, with exact
 sample/image dates and source-radius selection unresolved. This creates a
 separate exposed development cohort; it does not close the matched Nordic
 vegetation need or provide an untouched confirmation set.
+Our [descriptive five-taxon radius comparison](../../docs/report/vegetation-reference/namibia-pollen-vegetation/radius-sensitivity.json)
+uses all ten sites at each publisher label. Its composition distances do not
+resolve area-ring semantics, measurement dates or a Nordic vegetation target.
 
 ## HYDE source semantics
 
