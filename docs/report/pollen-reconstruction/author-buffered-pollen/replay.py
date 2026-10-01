@@ -87,8 +87,8 @@ def main() -> int:
     artifacts = (REPOSITORY / "artifacts").resolve()
     if not output.is_relative_to(artifacts) or output == artifacts:
         parser.error("--output must be a new directory beneath repository artifacts/")
-    if output.exists():
-        parser.error(f"output already exists: {output}")
+    if output.exists() and (not output.is_dir() or any(output.iterdir())):
+        parser.error(f"output must be absent or an empty directory: {output}")
     manifest = json.loads((FAMILY / "manifest.json").read_text())
     for relative, expected in manifest["producer_sha256"].items():
         producer = REPOSITORY / relative
@@ -118,7 +118,7 @@ def main() -> int:
     work = output.parent / f"{output.name}-work"
     if work.exists():
         parser.error(f"work directory already exists: {work}")
-    output.mkdir(parents=True, exist_ok=False)
+    output.mkdir(parents=True, exist_ok=True)
     family_output = output
     local = work / "local-site-mean"
     common = [
