@@ -45,6 +45,8 @@ def _parser() -> argparse.ArgumentParser:
     assemble.add_argument("--lane", choices=("reference", "replay"), required=True)
     assemble.add_argument("--partition-artifacts-root", type=Path, required=True)
     assemble.add_argument("--evidence-root", type=Path, required=True)
+    assemble.add_argument("--owner-id", action="append", default=[])
+    assemble.add_argument("--owner-artifacts-root", type=Path)
 
     owner = commands.add_parser("owner")
     _common(owner)
@@ -108,6 +110,8 @@ def main(argv: list[str] | None = None) -> int:
                 lane=args.lane,
                 partition_artifacts_root=args.partition_artifacts_root,
                 evidence_root=args.evidence_root,
+                owner_artifacts_root=args.owner_artifacts_root,
+                owner_ids=tuple(args.owner_id),
             )
         elif args.command == "owner":
             source_paths = dict(

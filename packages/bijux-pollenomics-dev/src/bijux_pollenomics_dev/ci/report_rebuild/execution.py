@@ -44,6 +44,7 @@ from .runtime_process import run_runtime_command
 
 FRAGMENT_SCHEMA = "partitioned-report-fragment.v1"
 ASSEMBLY_SCHEMA = "partitioned-report-assembly.v1"
+OWNED_ASSEMBLY_SCHEMA = "partitioned-report-assembly.v2"
 _LANES = frozenset({"reference", "replay"})
 OWNER_SCHEMA = "partitioned-report-owner.v1"
 
@@ -298,6 +299,8 @@ def assemble_partition_lane(
     lane: str,
     partition_artifacts_root: Path,
     evidence_root: Path,
+    owner_artifacts_root: Path | None = None,
+    owner_ids: tuple[str, ...] = (),
 ) -> JsonObject:
     """Assemble one complete report tree from exactly one copy of every partition."""
     if lane not in _LANES:
@@ -306,6 +309,12 @@ def assemble_partition_lane(
         raise ReportRebuildError(
             f"assembly evidence root already exists: {evidence_root}"
         )
+    if bool(owner_ids) != (owner_artifacts_root is not None):
+        raise ReportRebuildError(
+            "owner identities and artifact root are required together"
+        )
+    if len(owner_ids) != len(set(owner_ids)):
+        raise ReportRebuildError("owner identities must be unique")
     repo_root = repo_root.resolve()
     plan = parse_plan(plan_path)
     policy, binding, _ = require_current_binding(
@@ -319,7 +328,48 @@ def assemble_partition_lane(
         binding=binding,
         policy=policy,
     )
+    owner_outputs: dict[str, tuple[JsonObject, tuple[InventoryEntry, ...], Path]] = {}
+    if owner_artifacts_root is not None:
+        from .verification import _load_owner_outputs
+
+        owner_outputs = _load_owner_outputs(
+            artifacts_root=owner_artifacts_root,
+            repo_root=repo_root,
+            lane=lane,
+            binding=binding,
+            policy=policy,
+            publisher_ids={
+                *partition_ids,
+                require_string(plan["assembly_id"], "assembly_id"),
+            },
+        )
+        if set(owner_outputs) != set(owner_ids):
+            raise ReportRebuildError("assembly owner coverage is not exact")
+        fragment_input_paths = {
+            entry.path
+            for _, inventory, _, _ in fragments.values()
+            for entry in inventory
+        }
+        owner_paths = [
+            entry.path
+            for _, inventory, _ in owner_outputs.values()
+            for entry in inventory
+        ]
+        if len(owner_paths) != len(
+            set(owner_paths)
+        ) or fragment_input_paths.intersection(owner_paths):
+            raise ReportRebuildError("assembly owner output overlaps another input")
     evidence_root.mkdir(parents=True)
+    owner_input_root: Path | None = None
+    if owner_outputs:
+        owner_input_root = evidence_root / "owner-input"
+        merge_fragment_trees(
+            {
+                identity: (path.parent / "output", inventory)
+                for identity, (_, inventory, path) in owner_outputs.items()
+            },
+            owner_input_root,
+        )
     output_root = evidence_root / "output"
     parameters = require_mapping(plan["parameters"], "plan parameters")
     result = run_runtime_command(
@@ -336,6 +386,9 @@ def assemble_partition_lane(
             "partition_roots": {
                 identity: str(row[0].resolve()) for identity, row in fragments.items()
             },
+            "owner_input_root": (
+                None if owner_input_root is None else str(owner_input_root.resolve())
+            ),
             "published_output_root": cast(str, parameters["published_output_root"]),
             "title": cast(str, parameters["title"]),
             "slug": cast(str, parameters["slug"]),
@@ -351,6 +404,14 @@ def assemble_partition_lane(
         raise ReportRebuildError("runtime assembly result output root does not match")
     complete = inventory_reports(output_root, policy)
     complete_by_path = {entry.path: entry for entry in complete}
+    if owner_outputs:
+        unexpected = set(complete_by_path).intersection(
+            entry.path
+            for _, inventory, _ in owner_outputs.values()
+            for entry in inventory
+        )
+        if unexpected:
+            raise ReportRebuildError("assembly retained owner input paths")
     owners: dict[str, str] = {}
     fragment_paths: dict[str, object] = {}
     fragment_digests: dict[str, object] = {}
@@ -376,7 +437,7 @@ def assemble_partition_lane(
     binding_after, _ = current_binding(repo_root, policy_path, policy)
     require_exact_binding(binding_after, binding, f"{lane} post-assembly")
     manifest: JsonObject = {
-        "schema_version": ASSEMBLY_SCHEMA,
+        "schema_version": OWNED_ASSEMBLY_SCHEMA if owner_outputs else ASSEMBLY_SCHEMA,
         "assembly_id": require_string(plan["assembly_id"], "assembly_id"),
         "assembly_paths": assembly_paths,
         "binding": binding.as_json(),
@@ -386,5 +447,14 @@ def assemble_partition_lane(
         "lane": lane,
         "partition_ids": list(partition_ids),
     }
+    if owner_outputs:
+        manifest["owner_paths"] = {
+            identity: [entry.path for entry in inventory]
+            for identity, (_, inventory, _) in sorted(owner_outputs.items())
+        }
+        manifest["owner_manifest_sha256"] = {
+            identity: sha256_bytes(path.read_bytes())
+            for identity, (_, _, path) in sorted(owner_outputs.items())
+        }
     atomic_write_json(evidence_root / "manifest.json", manifest)
     return manifest

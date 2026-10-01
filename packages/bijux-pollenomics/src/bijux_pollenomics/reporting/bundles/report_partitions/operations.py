@@ -96,6 +96,7 @@ def assemble_report_partitions(
     title: str = DEFAULT_ATLAS_TITLE,
     slug: str = DEFAULT_ATLAS_SLUG,
     context_root: Path | None = None,
+    owner_input_root: Path | None = None,
     country_group_size: int = 2,
 ) -> PublishedReportsReport:
     """Assemble exact report fragments and run cross-scope reducers atomically."""
@@ -128,6 +129,7 @@ def assemble_report_partitions(
             version_dir=Path(version_dir),
             published_output_root=Path(published_output_root),
             context_root=context_root,
+            owner_input_root=owner_input_root,
             build_atlas_bundle_paths_fn=build_atlas_bundle_paths,
             build_published_reports_summary_fn=build_published_reports_summary,
             looks_like_repository_publication_run_fn=(

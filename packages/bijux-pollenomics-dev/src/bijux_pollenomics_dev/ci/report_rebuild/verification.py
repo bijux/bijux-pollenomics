@@ -34,7 +34,7 @@ from .evidence import (
     producer_input_identity,
     require_inventory_matches_tree,
 )
-from .execution import ASSEMBLY_SCHEMA
+from .execution import ASSEMBLY_SCHEMA, OWNED_ASSEMBLY_SCHEMA
 from .planning import parse_plan, require_current_binding
 
 
@@ -51,7 +51,13 @@ def _parse_assembly_manifest(path: Path) -> JsonObject:
         "partition_ids",
         "schema_version",
     }
-    if set(manifest) != expected or manifest.get("schema_version") != ASSEMBLY_SCHEMA:
+    schema = manifest.get("schema_version")
+    if schema == OWNED_ASSEMBLY_SCHEMA:
+        expected |= {"owner_paths", "owner_manifest_sha256"}
+    if set(manifest) != expected or schema not in {
+        ASSEMBLY_SCHEMA,
+        OWNED_ASSEMBLY_SCHEMA,
+    }:
         raise ReportRebuildError("assembly manifest fields or schema are invalid")
     parse_binding(manifest["binding"], "assembly manifest binding")
     require_string(manifest["assembly_id"], "assembly manifest assembly_id")
@@ -85,6 +91,23 @@ def _parse_assembly_manifest(path: Path) -> JsonObject:
         raise ReportRebuildError(
             "assembly path ownership is overlapping or does not cover its inventory"
         )
+    if schema == OWNED_ASSEMBLY_SCHEMA:
+        owner_paths = require_mapping(manifest["owner_paths"], "assembly owner_paths")
+        owner_digests = require_mapping(
+            manifest["owner_manifest_sha256"], "assembly owner_manifest_sha256"
+        )
+        if not owner_paths or set(owner_paths) != set(owner_digests):
+            raise ReportRebuildError("assembly owner manifest coverage is not exact")
+        seen = set(claimed_paths)
+        for owner_id, paths in owner_paths.items():
+            require_string(owner_id, "assembly owner identity")
+            require_string(owner_digests[owner_id], "assembly owner digest")
+            for owner_path in require_string_sequence(
+                paths, f"assembly owner paths {owner_id}"
+            ):
+                if owner_path in seen:
+                    raise ReportRebuildError("assembly owner path ownership overlaps")
+                seen.add(owner_path)
     return manifest
 
 
@@ -280,6 +303,31 @@ def verify_partitioned_rebuild(
     for lane, owners in (("reference", reference_owners), ("replay", replay_owners)):
         if set(owners) != set(owner_ids):
             raise ReportRebuildError(f"{lane} owner coverage is not exact")
+    for lane, assembly, owners in (
+        ("reference", reference_manifest, reference_owners),
+        ("replay", replay_manifest, replay_owners),
+    ):
+        if owners:
+            if assembly["schema_version"] != OWNED_ASSEMBLY_SCHEMA:
+                raise ReportRebuildError(
+                    f"{lane} assembly did not consume owner inputs"
+                )
+            claimed_paths = require_mapping(
+                assembly["owner_paths"], "assembly owner_paths"
+            )
+            claimed_digests = require_mapping(
+                assembly["owner_manifest_sha256"], "assembly owner_manifest_sha256"
+            )
+            if claimed_paths != {
+                identity: [entry.path for entry in inventory]
+                for identity, (_, inventory, _) in sorted(owners.items())
+            } or claimed_digests != {
+                identity: sha256_bytes(path.read_bytes())
+                for identity, (_, _, path) in sorted(owners.items())
+            }:
+                raise ReportRebuildError(f"{lane} assembly owner inputs changed")
+        elif assembly["schema_version"] != ASSEMBLY_SCHEMA:
+            raise ReportRebuildError(f"{lane} assembly claims unexpected owner inputs")
     for identity in reference_owners:
         for field in ("source_paths", "producer_command", "producer_inputs"):
             if (

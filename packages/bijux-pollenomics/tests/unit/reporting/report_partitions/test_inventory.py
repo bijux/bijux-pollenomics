@@ -9,6 +9,7 @@ from bijux_pollenomics.reporting.bundles.report_partitions.artifacts import (
 )
 from bijux_pollenomics.reporting.bundles.report_partitions.inventory import (
     assemble_fragment_files,
+    copy_owner_inputs,
     copy_scope_inputs,
     relative_file_inventory,
 )
@@ -125,3 +126,26 @@ def test_foundation_scope_inputs_reject_symbolic_link(tmp_path: Path) -> None:
             scope_input_root=scope_input_root,
             plan=plan,
         )
+
+
+def test_owner_inputs_reject_fragment_overlap_and_symbolic_links(
+    tmp_path: Path,
+) -> None:
+    plan = build_report_partition_plan(("Sweden",), country_group_size=1)
+    output = tmp_path / "assembled"
+    assemble_fragment_files(
+        output, plan=plan, partition_roots=_fragment_roots(tmp_path)
+    )
+    owner_input = tmp_path / "owner-input"
+    owner_input.mkdir()
+    (owner_input / "world").mkdir()
+    (owner_input / "world" / "world.json").write_text("owner")
+
+    with pytest.raises(ValueError, match="overlaps assembly: world/world.json"):
+        copy_owner_inputs(output, owner_input_root=owner_input)
+    assert (output / "world" / "world.json").read_text() == "world"
+
+    (owner_input / "world" / "world.json").unlink()
+    (owner_input / "linked.json").symlink_to(output / "world" / "world.json")
+    with pytest.raises(ValueError, match="symbolic link: linked.json"):
+        copy_owner_inputs(output, owner_input_root=owner_input)

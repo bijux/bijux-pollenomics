@@ -13,6 +13,7 @@ from bijux_pollenomics_dev.ci.rebuild_reports import (
 from bijux_pollenomics_dev.ci.report_rebuild.contracts import (
     ReportRebuildError,
     parse_binding,
+    sha256_bytes,
 )
 from bijux_pollenomics_dev.ci.report_rebuild.evidence import (
     discover_manifests,
@@ -135,6 +136,21 @@ def _assembly(
         "lane": lane,
         "partition_ids": partition_ids,
     }
+    owner_root = root.parent / "artifacts/owners" / lane
+    owner_manifests = sorted(owner_root.glob("*/manifest.json"))
+    if owner_manifests:
+        manifest["schema_version"] = "partitioned-report-assembly.v2"
+        manifest["owner_paths"] = {
+            path.parent.name: [
+                entry["path"]
+                for entry in json.loads(path.read_text(encoding="utf-8"))["inventory"]
+            ]
+            for path in owner_manifests
+        }
+        manifest["owner_manifest_sha256"] = {
+            path.parent.name: sha256_bytes(path.read_bytes())
+            for path in owner_manifests
+        }
     (assembly / "manifest.json").write_text(json.dumps(manifest), encoding="utf-8")
     return assembly / "manifest.json"
 
@@ -326,6 +342,54 @@ def test_lane_assembly_rejects_governed_input_mutation(
             partition_artifacts_root=fragments,
             evidence_root=root / "artifacts/assembly",
         )
+
+
+def test_lane_assembly_passes_checked_owner_inputs_to_reducer(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    from bijux_pollenomics_dev.ci.report_rebuild import execution
+
+    root, policy_path, plan_path = _fixture(tmp_path)
+    plan = json.loads(plan_path.read_text(encoding="utf-8"))
+    fragments = root / "fragment-artifacts"
+    for partition_id in plan["partition_ids"]:
+        _fragment(
+            fragments,
+            partition_id=partition_id,
+            relative_path=_fragment_path(partition_id),
+            binding=plan["binding"],
+        )
+    owner_manifest = _owner(
+        root,
+        lane="reference",
+        source_paths={"summary.csv": "method/summary.csv"},
+    )
+
+    def assemble(request: dict[str, object]) -> dict[str, object]:
+        owner_input_root = Path(str(request["owner_input_root"]))
+        assert (owner_input_root / "method/summary.csv").read_text() == "summary.csv\n"
+        output_root = Path(str(request["output_root"]))
+        _write_complete_tree(output_root, plan_path=plan_path, report_payload="world\n")
+        return {"output_root": str(output_root)}
+
+    monkeypatch.setattr(execution, "run_runtime_command", assemble)
+    manifest = assemble_partition_lane(
+        repo_root=root,
+        policy_path=policy_path,
+        plan_path=plan_path,
+        lane="reference",
+        partition_artifacts_root=fragments,
+        evidence_root=root / "artifacts/assembly",
+        owner_artifacts_root=owner_manifest.parent.parent,
+        owner_ids=("petrkunes",),
+    )
+
+    assert manifest["schema_version"] == "partitioned-report-assembly.v2"
+    assert manifest["owner_paths"] == {"petrkunes": ["method/summary.csv"]}
+    assert manifest["owner_manifest_sha256"] == {
+        "petrkunes": sha256_bytes(owner_manifest.read_bytes())
+    }
+    assert not (root / "artifacts/assembly/output/method/summary.csv").exists()
 
 
 def test_partitioned_rebuild_requires_two_complete_trees_and_tracked_match(
@@ -585,6 +649,36 @@ def test_mixed_owner_rebuild_covers_four_generated_outputs(tmp_path: Path) -> No
     assert owner["producer_inputs"]["external-source"]["path"] == (
         "external-source.txt"
     )
+
+
+def test_mixed_owner_requires_assembly_input_receipt(tmp_path: Path) -> None:
+    root, _, plan_path = _fixture(tmp_path)
+    _write_complete_tree(root / "docs/report", plan_path=plan_path)
+    for lane in ("reference", "replay"):
+        _owner(root, lane=lane, source_paths={"summary.csv": "method/summary.csv"})
+    for lane in ("reference", "replay"):
+        plan = json.loads(plan_path.read_text(encoding="utf-8"))
+        manifest_path = _assembly(
+            root / "assemblies", lane=lane, binding=plan["binding"]
+        )
+        manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+        manifest["schema_version"] = "partitioned-report-assembly.v1"
+        del manifest["owner_paths"]
+        del manifest["owner_manifest_sha256"]
+        manifest_path.write_text(json.dumps(manifest), encoding="utf-8")
+
+    with pytest.raises(ReportRebuildError, match="did not consume owner inputs"):
+        verify_partitioned_rebuild(
+            repo_root=root,
+            policy_path=root / "policy.json",
+            plan_path=plan_path,
+            reference_manifest_path=root / "assemblies/reference/manifest.json",
+            replay_manifest_path=root / "assemblies/replay/manifest.json",
+            reference_owners_root=root / "artifacts/owners/reference",
+            replay_owners_root=root / "artifacts/owners/replay",
+            owner_ids=("petrkunes",),
+            evidence_root=root / "artifacts/final",
+        )
 
 
 def test_mixed_owner_accepts_a_report_named_manifest(tmp_path: Path) -> None:

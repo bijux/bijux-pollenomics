@@ -66,6 +66,68 @@ def assemble_fragment_files(
             shutil.copyfile(source, destination)
 
 
+def copy_owner_inputs(output_root: Path, *, owner_input_root: Path) -> tuple[str, ...]:
+    """Expose checked, separately owned report files to cross-tree reducers."""
+    output_root = Path(output_root)
+    owner_input_root = Path(owner_input_root)
+    if owner_input_root.is_symlink() or not owner_input_root.is_dir():
+        raise ValueError(f"Report owner input root is missing: {owner_input_root}")
+    if output_root.resolve().is_relative_to(
+        owner_input_root.resolve()
+    ) or owner_input_root.resolve().is_relative_to(output_root.resolve()):
+        raise ValueError("Report owner input root overlaps assembly output")
+
+    _reject_symlinks(owner_input_root, label="Report owner input")
+    files: list[str] = []
+    for source in sorted(owner_input_root.rglob("*")):
+        relative_path = source.relative_to(owner_input_root).as_posix()
+        if source.is_dir():
+            continue
+        if not source.is_file():
+            raise ValueError(
+                f"Report owner input is not a regular file: {relative_path}"
+            )
+        files.append(relative_path)
+
+    # Check every destination before copying so a collision never leaves a
+    # partially injected owner tree in the assembly staging directory.
+    for relative_path in files:
+        destination = output_root / relative_path
+        if destination.exists() or destination.is_symlink():
+            raise ValueError(f"Report owner input overlaps assembly: {relative_path}")
+        for parent in destination.parents:
+            if parent == output_root:
+                break
+            if parent.exists() and not parent.is_dir():
+                raise ValueError(
+                    f"Report owner input overlaps assembly: {relative_path}"
+                )
+
+    for relative_path in files:
+        source = owner_input_root / relative_path
+        destination = output_root / relative_path
+        destination.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copyfile(source, destination)
+    return tuple(files)
+
+
+def remove_owner_inputs(output_root: Path, *, relative_paths: tuple[str, ...]) -> None:
+    """Remove only files injected for reducer reads and their empty directories."""
+    output_root = Path(output_root)
+    for relative_path in relative_paths:
+        (output_root / relative_path).unlink()
+    for relative_path in sorted(
+        relative_paths, key=lambda path: path.count("/"), reverse=True
+    ):
+        parent = (output_root / relative_path).parent
+        while parent != output_root and parent.is_dir():
+            try:
+                parent.rmdir()
+            except OSError:
+                break
+            parent = parent.parent
+
+
 def _validate_partition_paths(
     partition_id: str,
     relative_paths: tuple[str, ...],
