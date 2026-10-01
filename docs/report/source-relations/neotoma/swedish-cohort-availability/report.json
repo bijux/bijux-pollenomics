@@ -1,0 +1,53 @@
+{
+  "schema_version": "swedish-cohort-availability.v1",
+  "source_capture_utc": "2026-10-01T09:04:25.688487+00:00",
+  "private_source_manifest_sha256": "83e2a3ca13a2b8cbcd397b5f96da0be86be3c52fa8647d146dc0de0fe774d58f",
+  "relational_manifest_sha256": "6f6777a40b67bd0704eb1a982f19e6d451cad0d6e4a41dfebf5e3f28be33105b",
+  "neotoma_inventory": {
+    "url": "https://api.neotomadb.org/v2.0/data/datasets?gpid=5392&datasettype=pollen&limit=500",
+    "source_sha256": "f792b798c9c0eeca1954abbb6adc5e49571b6f0b686e3f439f288376294774b8",
+    "records": 102,
+    "unique_site_ids": 99,
+    "site_ids_sha256_newline_utf8": "1c92605d7321209ded92073074641c7a325f24136d3ef8732202d7a57eff8066",
+    "retained_site_ids": 200,
+    "site_ids_outside_retained_snapshot": []
+  },
+  "cross_archive_leads": [
+    {
+      "core_handle": "SAMBOTOT",
+      "pangaea_pollen_doi": "10.1594/PANGAEA.739778",
+      "pangaea_dated_control_doi": "10.1594/PANGAEA.740716",
+      "neotoma_site_id": 3398,
+      "neotoma_core_id": 4262,
+      "neotoma_pollen_dataset_id": 4403,
+      "pangaea_latitude_longitude": [
+        57.13333,
+        12.41666
+      ],
+      "neotoma_latitude_longitude": [
+        57.16313,
+        12.41426
+      ],
+      "selected_calibrated_age_model_in_checked_pangaea_metadata": false,
+      "decision": "refused_as_fresh_cohort_core_handle_collides_with_scored_retained_core"
+    },
+    {
+      "core_handle": "KLOT",
+      "pangaea_pollen_doi": "10.1594/PANGAEA.739382",
+      "neotoma_site_id": 13336,
+      "neotoma_core_id": 14908,
+      "neotoma_pollen_dataset_id": 19909,
+      "pangaea_latitude_longitude": [
+        61.816667,
+        16.533333
+      ],
+      "neotoma_latitude_longitude": [
+        61.82125,
+        16.40472
+      ],
+      "decision": "refused_as_fresh_cohort_core_handle_collides_with_retained_core"
+    }
+  ],
+  "result": "no_fresh_physical_site_in_checked_metadata_surfaces",
+  "scope": "Metadata-only current Neotoma Sweden query and two PANGAEA leads; no pollen observation or count table opened. A different EPD-only core and its selected calibrated sample ages may exist outside these checked metadata surfaces."
+}

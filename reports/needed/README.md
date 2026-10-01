@@ -297,6 +297,11 @@ been viewed before their present development protocols. Lilla Gloppsjön
 before this study interpreted its target counts, but an earlier shared
 source-validation screen parsed its observation partition. This provides a
 new-site descriptive result, not an untouched eligible confirmation cohort.
+The [metadata-only Swedish availability check](../../docs/report/source-relations/neotoma/swedish-cohort-availability/README.md)
+found 102 current Neotoma dataset records at 99 site IDs, all already retained.
+Two PANGAEA leads share core handles with existing Neotoma cores; the checked
+SAMBOTOT dated-control metadata does not provide a selected calibrated
+pollen-sample age model. These bounded screens found no eligible fresh cohort.
 **Reopen when:** a cohort owner can freeze eligible source records,
 grouping, preprocessing, metrics and refusal rules before any target outcome
 is inspected. Publish the prediction identity first and only then score it.

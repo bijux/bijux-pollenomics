@@ -26,6 +26,12 @@ LandClim sequences. It retains 34 same-name point leads, including 16 within
 10 m, while refusing source identity and radius transfer for every row. The
 older 37-site comparison is contained row for row in this wider cohort.
 
+The [Swedish pollen cohort availability result](swedish-cohort-availability/README.md)
+checks a current Neotoma metadata query and two PANGAEA leads before target
+counts are opened. Its 99 queried site IDs are all in the retained snapshot;
+the PANGAEA leads point to existing cores. It does not close the independent
+confirmation need.
+
 The [Abborrtjärnen core comparison](abbo-core-identity/README.md) retains a
 same-name, 107-sample and 0.334 m point lead but refuses to transfer the
 published radius or age labels to the Neotoma core.

@@ -126,7 +126,7 @@
     },
     {
       "path": "docs/report/index.md",
-      "sha256": "c8b495d6d76c0f38a99d51ecd37179cc22009f0fa155a209dd5d31fc42dd95fa",
+      "sha256": "30dce924ac358d9d63e5f30f784bb48fbbb93152248c01bcad9a8638a3430a37",
       "bytes": 2668
     },
     {
@@ -1896,8 +1896,8 @@
     },
     {
       "path": "docs/report/source-relations/neotoma/README.md",
-      "sha256": "3959cc55c882abb1f58d1353a3a2394ff3e1e4da018635b6ecf460398254cd82",
-      "bytes": 4949
+      "sha256": "1a2064588f7985f5192a7432a39c4d416522c06962bfe42a93f6cb9000fd000d",
+      "bytes": 5286
     },
     {
       "path": "docs/report/source-relations/neotoma/abbo-profile/README.md",
@@ -1958,6 +1958,26 @@
       "path": "docs/report/source-relations/neotoma/pollen-screen/summary.json",
       "sha256": "6c6a6c05ee04d5c7d1105fcb78869f70a5302795ef4918932849e6e1ff2ed9fe",
       "bytes": 5803
+    },
+    {
+      "path": "docs/report/source-relations/neotoma/swedish-cohort-availability/README.md",
+      "sha256": "5e82a26728e80658b3cf785cf65ffec7bb3179b642b125daed7544cec6c0ec36",
+      "bytes": 2507
+    },
+    {
+      "path": "docs/report/source-relations/neotoma/swedish-cohort-availability/replay.py",
+      "sha256": "83970da8bb2b6e2f459e929b3f57c8d2059ad57be8d4398b8ae8b79324fd99b4",
+      "bytes": 9445
+    },
+    {
+      "path": "docs/report/source-relations/neotoma/swedish-cohort-availability/report.json",
+      "sha256": "0abf67a6770408629e97022aacc71ce58ca3c115579e973646b7b9d74055beaa",
+      "bytes": 2149
+    },
+    {
+      "path": "docs/report/source-relations/neotoma/swedish-cohort-availability/sources.json",
+      "sha256": "39403966e23f976001c8b95478e2341463e9679ae2c7389ff03f47f93dfcd367",
+      "bytes": 2450
     },
     {
       "path": "docs/report/source-relations/rootsi-landclim-overlap/README.md",
@@ -2316,8 +2336,8 @@
     },
     {
       "path": "reports/needed/README.md",
-      "sha256": "8c65072dbfaa47501063c83148d0c586b9323559f6766f3d913e446279a53afa",
-      "bytes": 20836
+      "sha256": "0115f882ad94192f5f0f885b54bb745f190f5867d448e1346c24dda1a6796b93",
+      "bytes": 21273
     },
     {
       "path": "reports/science/abborrtjarnen-source-method.md",
