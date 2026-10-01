@@ -742,6 +742,52 @@ def test_owner_evidence_cannot_use_tracked_report_tree(tmp_path: Path) -> None:
         )
 
 
+def test_owner_cannot_repackage_its_tracked_result_as_a_generated_output(
+    tmp_path: Path,
+) -> None:
+    root, _, plan_path = _fixture(tmp_path)
+    target = root / "docs/report/method/summary.csv"
+    target.parent.mkdir(parents=True)
+    target.write_text("retained result\n", encoding="utf-8")
+
+    with pytest.raises(ReportRebuildError, match="claimed tracked output"):
+        build_owner_output(
+            repo_root=root,
+            policy_path=root / "policy.json",
+            plan_path=plan_path,
+            lane="reference",
+            owner_id="method",
+            producer_command=(sys.executable, "-c", "pass", "{output_root}"),
+            producer_inputs={"copied-result": target},
+            source_paths={"summary.csv": "method/summary.csv"},
+            evidence_root=root / "artifacts/owners/reference/method",
+        )
+
+
+def test_verifier_rejects_a_self_fed_owner_receipt(tmp_path: Path) -> None:
+    root, _, plan_path = _fixture(tmp_path)
+    _write_complete_tree(root / "docs/report", plan_path=plan_path)
+    target = root / "docs/report/method/summary.csv"
+    target.parent.mkdir(parents=True)
+    target.write_text("summary.csv\n", encoding="utf-8")
+    for lane in ("reference", "replay"):
+        manifest_path = _owner(
+            root, lane=lane, source_paths={"summary.csv": "method/summary.csv"}
+        )
+        manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+        manifest["producer_inputs"] = {
+            "copied-result": {
+                "path": "docs/report/method/summary.csv",
+                "sha256": sha256_bytes(target.read_bytes()),
+                "size": target.stat().st_size,
+            }
+        }
+        manifest_path.write_text(json.dumps(manifest), encoding="utf-8")
+
+    with pytest.raises(ReportRebuildError, match="claimed tracked output"):
+        _verify_with_owner(root)
+
+
 def test_mixed_owner_rebuild_rejects_missing_owner(tmp_path: Path) -> None:
     root, _, plan_path = _fixture(tmp_path)
     _write_complete_tree(root / "docs/report", plan_path=plan_path)

@@ -32,6 +32,7 @@ from .evidence import (
     parse_inventory,
     parse_partition_manifest,
     producer_input_identity,
+    require_independent_owner_inputs,
     require_inventory_matches_tree,
 )
 from .planning import (
@@ -90,6 +91,12 @@ def build_owner_output(
         "{output_root}" in arg for arg in producer_command
     ):
         raise ReportRebuildError("producer command must name {output_root}")
+    require_independent_owner_inputs(
+        producer_inputs,
+        tuple(paths.values()),
+        repo_root,
+        cast(str, policy["tracked_report_root"]),
+    )
     inputs_before = producer_input_identity(producer_inputs, repo_root)
     if not evidence_root.resolve().is_relative_to(repo_root / "artifacts"):
         raise ReportRebuildError("owner evidence must be below repository artifacts")

@@ -99,6 +99,31 @@ def producer_input_identity(inputs: Mapping[str, Path], repo_root: Path) -> Json
     return identity
 
 
+def require_independent_owner_inputs(
+    inputs: Mapping[str, Path],
+    report_paths: Sequence[str],
+    repo_root: Path,
+    tracked_report_root: str,
+) -> None:
+    """A generated-output receipt cannot use its tracked result as an input."""
+    targets = {
+        (
+            repo_root
+            / tracked_report_root
+            / require_relative_path(path, "owner report path")
+        ).resolve()
+        for path in report_paths
+    }
+    for label, supplied_path in inputs.items():
+        source = (
+            supplied_path if supplied_path.is_absolute() else repo_root / supplied_path
+        )
+        if source.resolve() in targets:
+            raise ReportRebuildError(
+                f"owner producer input is its claimed tracked output: {label}"
+            )
+
+
 def discover_manifests(root: Path, schema_version: str) -> tuple[Path, ...]:
     """Require every downloaded manifest to use the expected fragment schema."""
     paths: list[Path] = []

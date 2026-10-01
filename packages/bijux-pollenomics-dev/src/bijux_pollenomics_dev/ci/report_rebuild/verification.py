@@ -32,6 +32,7 @@ from .evidence import (
     parse_inventory,
     parse_owner_manifest,
     producer_input_identity,
+    require_independent_owner_inputs,
     require_inventory_matches_tree,
 )
 from .execution import ASSEMBLY_SCHEMA, OWNED_ASSEMBLY_SCHEMA
@@ -190,13 +191,13 @@ def _load_owner_outputs(
             policy=policy,
             label=owner_id,
         )
-        _require_current_owner_inputs(manifest, repo_root, owner_id)
+        _require_current_owner_inputs(manifest, repo_root, owner_id, policy)
         owners[owner_id] = (manifest, inventory, path)
     return owners
 
 
 def _require_current_owner_inputs(
-    manifest: JsonObject, repo_root: Path, owner_id: str
+    manifest: JsonObject, repo_root: Path, owner_id: str, policy: JsonObject
 ) -> None:
     """Reject a producer receipt whose named source files changed or vanished."""
     inputs = require_mapping(manifest["producer_inputs"], "owner producer_inputs")
@@ -209,6 +210,12 @@ def _require_current_owner_inputs(
         )
         for label, value in inputs.items()
     }
+    require_independent_owner_inputs(
+        paths,
+        tuple(cast(dict[str, str], manifest["source_paths"]).values()),
+        repo_root,
+        cast(str, policy["tracked_report_root"]),
+    )
     if producer_input_identity(paths, repo_root) != inputs:
         raise ReportRebuildError(f"owner producer inputs changed: {owner_id}")
 
@@ -367,7 +374,7 @@ def verify_partitioned_rebuild(
         )
     for owners in (reference_owners, replay_owners):
         for identity, (manifest, _, _) in owners.items():
-            _require_current_owner_inputs(manifest, repo_root, identity)
+            _require_current_owner_inputs(manifest, repo_root, identity, policy)
     report: JsonObject = {
         "schema_version": "reproducible-report-build-evidence.v2",
         "status": "PASS" if not differences else "FAIL",
