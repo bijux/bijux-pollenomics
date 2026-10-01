@@ -135,6 +135,7 @@ def build(
 
 
 def main() -> None:
+    """Write compact native profile measurements and their comparison."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--raw-report", required=True, type=Path)
     parser.add_argument("--reference-baseline", required=True, type=Path)
