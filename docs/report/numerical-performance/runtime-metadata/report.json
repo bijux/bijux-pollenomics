@@ -1,6 +1,6 @@
 {
   "schema_version": "lra-runtime-metadata-measurement.v1",
-  "summary_producer_sha256": "346f0454ecfba81e4383cdde65fad134e0ea310e35bbf074d0249f922440d0b4",
+  "summary_producer_sha256": "f4d33e901768fbfb0c582b07a5b2e9aaa8b8163052c9bb38acfbef1d00d4070b",
   "raw_measurement_sha256": "9a0f044bfec9419e32477d0e652c5d04b5c8571b5222a3c9d44ab1cdf70ec65a",
   "raw_measurement_bytes": 818643,
   "source_sha256": {

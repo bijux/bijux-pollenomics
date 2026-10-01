@@ -1,6 +1,6 @@
 {
   "schema_version": "lra-forward-native-measurement.v1",
-  "summary_producer_sha256": "a2714cd6baebd33e9eb740e1bebf19e8da894c4a3d606ace45bf918c0dbdcb9d",
+  "summary_producer_sha256": "0ef01d07b9ddd0fcb10a2be2fcbcbf551238c4d51a2b6e5f1b0f89f15e35606b",
   "raw_measurement_sha256": "44ce46b2a5174e5af2fcfbf34ac914623b4fb3285acd5dc29357f6f890acefd6",
   "raw_measurement_bytes": 2191192,
   "source_sha256": {
