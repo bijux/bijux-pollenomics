@@ -65,6 +65,16 @@
       "bytes": 2949
     },
     {
+      "path": "docs/public/pollenomics-data/sources/aadr.md",
+      "sha256": "1f0a0a2f45d921e34b448f1c115cbd5f74583e20668da1c15e28c106f3926456",
+      "bytes": 13758
+    },
+    {
+      "path": "docs/public/pollenomics-data/sources/animal-source-intake.md",
+      "sha256": "acc8717107e6fb9026a2b60e1aa49a1731c1a29685ebdf2ff47fa481df2f931c",
+      "bytes": 22137
+    },
+    {
       "path": "docs/public/pollenomics-data/sources/empd2-nfi-review.md",
       "sha256": "3bc09525c19ea91f7d817fea495d41d47e3dc079276e239005653b8975069e64",
       "bytes": 4853
