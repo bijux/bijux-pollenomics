@@ -13,7 +13,7 @@
     "53995": {"label": "Bussjösjön", "site_id": "28869", "record_id": "neotoma-dataset:53995", "group_id": "neotoma-site:28869", "latitude": 55.46667, "longitude": 13.81667},
     "54001": {"label": "Bökesjön", "site_id": "28872", "record_id": "neotoma-dataset:54001", "group_id": "neotoma-site:28872", "latitude": 55.57556, "longitude": 13.4375}
   },
-  "allowed_inputs": ["held-out target WGS84 coordinate", "fixed 500-cal-BP bin label"],
+  "allowed_inputs": ["held-out target WGS84 coordinate", "fixed 500-cal-BP bin label", "cohort-level LegacyAge age bounds for pre-prediction common-bin support selection only"],
   "age_support_rule": "ABBO samples enter a common bin only when their entire LegacyAge S5 reported 95% interval is inside that half-open bin; other sites retain their native Neotoma point chronologies",
   "methods": ["training_mean", "nearest_site", "inverse_distance_squared", "clr_rbf_ridge"],
   "fixed_clr_rbf": {"distance_scale": "median positive pairwise training distance", "ridge_penalty": 0.01, "training_zero_handling": "add 0.5 to each declared training taxon only"},

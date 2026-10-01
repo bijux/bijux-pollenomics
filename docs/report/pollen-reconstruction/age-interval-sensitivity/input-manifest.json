@@ -7,7 +7,7 @@
   },
   "admitted_abbo_samples": 8,
   "age_source": "LegacyAge 1.0 S5 reported 95% bounds, DOI 10.1594/PANGAEA.933132",
-  "config_sha256": "51c35fbf2fe29e0a5b9d159df615c07031ce68c4c3e2d91d36b3525ecb5ba11f",
+  "config_sha256": "7488562b4878de2eb7ac14466c0732ce455711edb01ec80181aff91d74bbef9a",
   "producer_sha256": "b01db6948389e33bad5e88afd4b08fa954ccaf3fd893d01e92a8d504c5e1a4f0",
   "schema_version": "abbo-interval-contained-pollen.v1",
   "source_sha256": {
