@@ -1,24 +1,24 @@
 {
   "schema_version": "report-surface-registry.v1",
-  "surface_count": 1826,
+  "surface_count": 1827,
   "family_counts": {
     "caveats": 10,
     "maintenance": 969,
     "maps": 86,
     "portal": 2,
     "reviews": 34,
-    "scopes": 725
+    "scopes": 726
   },
   "audience_counts": {
     "maintainer_diagnostic": 971,
-    "public_reading_surface": 734,
+    "public_reading_surface": 735,
     "scientific_review_surface": 121
   },
   "geography_counts": {
     "denmark": 30,
     "europe_plus": 63,
     "finland": 14,
-    "nordic": 466,
+    "nordic": 467,
     "norway": 14,
     "report_root": 1018,
     "sweden": 49,
@@ -12531,6 +12531,18 @@
     },
     {
       "repository_path": "docs/report/regions/nordic/lilla-gloppsjon-direct-pollen/protocol.json",
+      "family": "scopes",
+      "family_label": "Scope-filtered outputs",
+      "audience": "public_reading_surface",
+      "audience_label": "Public reading surface",
+      "format": "json",
+      "geography": "nordic",
+      "caution_level": "medium",
+      "explanation": "Governed report artifact.",
+      "reader_route": "scope_bundle"
+    },
+    {
+      "repository_path": "docs/report/regions/nordic/lilla-gloppsjon-direct-pollen/scoring-protocol.json",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",

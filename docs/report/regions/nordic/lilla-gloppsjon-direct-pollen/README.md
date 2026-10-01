@@ -42,6 +42,12 @@ the predictions SHA-256 is
 The frozen primary method is inverse distance squared. No method or support
 rule has been selected using this target's pollen outcomes.
 
+The separate [scoring protocol](scoring-protocol.json) was declared against
+these fixed prediction bytes before target observations were opened for this
+study. It fixes the 16-label count admission, equal-bin MAE and Hellinger
+metrics, paired comparison support, and explicit bin refusals. Scoring remains
+pending here; the protocol does not supply a result.
+
 The retained primary-publication response identifies Almquist-Jacobson, H.
 (1994), *Interaction of the Holocene climate, water balance, vegetation, fire,
 and cultural land-use in the Swedish Borderland*, Lund University doctoral

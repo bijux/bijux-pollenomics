@@ -126,7 +126,7 @@
     },
     {
       "path": "docs/report/index.md",
-      "sha256": "ff753a83719cb445502421f07aaeecc54e4a114f38a50ac293de8b6efd78844a",
+      "sha256": "fe3b623bd0e3921eea454231ebff6b84ed8080a024d55abc5268edbc5104c927",
       "bytes": 2668
     },
     {
@@ -1151,8 +1151,8 @@
     },
     {
       "path": "docs/report/regions/nordic/lilla-gloppsjon-direct-pollen/README.md",
-      "sha256": "1726ca8b8820a49a5ac87d32d005263716a7f10f3ef5f28346b5dcb0f7a92905",
-      "bytes": 5013
+      "sha256": "5c0d34da5caed53b285131d2ed81c1634f0a120637686156f742679ab8b05bff",
+      "bytes": 5373
     },
     {
       "path": "docs/report/regions/nordic/lilla-gloppsjon-direct-pollen/frozen/freeze.json",
@@ -1178,6 +1178,11 @@
       "path": "docs/report/regions/nordic/lilla-gloppsjon-direct-pollen/protocol.json",
       "sha256": "9d04c225b571a98362fca38e1ef0976d19a9eb87e20b7e66e09529f4b09f0699",
       "bytes": 26231
+    },
+    {
+      "path": "docs/report/regions/nordic/lilla-gloppsjon-direct-pollen/scoring-protocol.json",
+      "sha256": "e3ebc64b8804a6583d72d542beb9550f7046d735f92f2a6817a60eb18f545e51",
+      "bytes": 6947
     },
     {
       "path": "docs/report/regions/nordic/pollen-development/README.md",
