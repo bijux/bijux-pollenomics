@@ -22,7 +22,7 @@ def main() -> None:
     print(
         json.dumps(
             {
-                "status": "passed",
+                "schema_version": "neotoma-relational-ownership-consumer.v1",
                 "source_snapshot_id": manifest["source_snapshot_id"],
                 "build_id": manifest["build_id"],
                 "manifest_sha256": hashlib.sha256(
@@ -35,6 +35,13 @@ def main() -> None:
                         dict[str, dict[str, object]], manifest["surfaces"]
                     ).items()
                 },
+                "status": "passed",
+                "validation": (
+                    "Manifested parts, row counts, stable IDs, country partitions "
+                    "and parent/ancestry ownership verified through the production "
+                    "reader; null chronology references remain allowed, no scientific "
+                    "admission upgrade."
+                ),
             },
             indent=2,
         )
