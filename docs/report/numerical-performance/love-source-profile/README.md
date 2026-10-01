@@ -47,10 +47,16 @@ files differ, including the optimizer solver and optimized LOVE wrapper. The
 current workload still matches the retained Python baseline outputs and missing
 values. It does not inherit an exact-source R comparison from that earlier run.
 
+A subsequent [native R source replay](../../method-certification/current-r-oracle/README.md)
+passes 18 optimized LOVE cases on three declared fixtures with the installed
+engine source hashes. Those cases do not use this profiled `LOVEexample`
+workload, so they establish current-source method parity within their own
+contracts but do not supply a same-input R comparator here.
+
 **Decision:** retain the Python engine and do not write a new speculative C++
-kernel for this workload. To reopen the native candidate, first refresh the
-source-R/Python optimized LOVE replay on the present source read set. Then profile
-a declared larger qualified LOVE workload. A new C++ candidate should target a
+kernel for this workload. To reopen the native candidate, profile a declared
+larger qualified LOVE workload and execute source R and Python on identical
+candidate inputs. A new C++ candidate should target a
 deterministic boundary that consumes at least half of unprofiled public-call
 cost, compare identical inputs and values against source R and Python, and
 measure conversion-inclusive full-call latency against the prospective 2× gate.

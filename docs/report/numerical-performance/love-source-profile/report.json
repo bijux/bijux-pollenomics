@@ -201,11 +201,17 @@
     ],
     "meaning": "retained R parity cases exist, but their Python input closure is stale for this exact installed engine"
   },
-  "next_action": "Refresh the source-R/Python optimized LOVE replay against the present read set, then profile a declared larger qualified LOVE workload. Only write a new C++ candidate if an isolated deterministic numerical boundary reaches at least half of unprofiled public-call cost and identical-source R/Python fixtures can compare its values; measure conversion-inclusive full-call speed against the 2x gate.",
+  "next_action": "Profile a larger qualified LOVE workload, execute source R and Python on the identical candidate inputs, and only reopen a C++ candidate if an isolated deterministic boundary consumes at least half of unprofiled public-call cost and passes the conversion-inclusive 2x full-call gate.",
   "limits": [
     "Fixed candidate replay does not measure search convergence.",
     "cProfile instrumentation changes timings; function fractions are diagnostic, not an unprofiled speedup estimate.",
     "Published example is a computational fixture, not a new empirical vegetation-accuracy claim.",
     "No compiled execution or wheel result was produced."
-  ]
+  ],
+  "current_source_r_replay": {
+    "report": "../../method-certification/current-r-oracle/source-replay.json",
+    "report_sha256": "ef5eafd7932e177b97fd28047437c069e16bd28729bb006ce83464e00eb961ea",
+    "optimized_love_cases_passed": 18,
+    "scope": "three source-bound fixtures, not the profiled LOVEexample candidate workload"
+  }
 }

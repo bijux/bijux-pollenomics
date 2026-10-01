@@ -53,6 +53,14 @@ taxon/ring estimates are negative and six exceed one. We retained those
 unconstrained results to show ring sensitivity rather than presenting an
 invented closed vegetation composition or a recommended Nordic radius.
 
+We re-executed the [native R oracle](../../docs/report/method-certification/current-r-oracle/README.md)
+against the installed Python source closure. All 43 core and 23 source-domain
+cases pass, including 18 prospective optimized LOVE cases. The 97 numeric CSV
+files match the earlier retained oracle byte for byte, and 48 original-R
+vector comparisons pass. This is numerical method correspondence on declared
+inputs; it does not establish an identical-input R comparison for the profiled
+`LOVEexample` workload or a Nordic vegetation result.
+
 ## A real publication difference
 
 We compared the exact shared TW2 interval, 100–350 BP, in our
