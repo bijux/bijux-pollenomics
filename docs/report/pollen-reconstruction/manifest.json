@@ -1626,8 +1626,8 @@
     },
     {
       "path": "docs/report/regions/nordic/source-capability/README.md",
-      "sha256": "5138b77bfce614033abd65efc7f25e0615c23a6df1875cd65872384879c34797",
-      "bytes": 6429
+      "sha256": "5e35092646789660323665a56fbdf2083cb6ee4eb2472eaf54c827121770288a",
+      "bytes": 7088
     },
     {
       "path": "docs/report/regions/nordic/source-capability/neotoma-attribution/README.md",
@@ -2851,8 +2851,8 @@
     },
     {
       "path": "reports/README.md",
-      "sha256": "6a150e0d579f9e2c0b1ca97283f6d471457dde079edb1f0539fcd5b8b16e267b",
-      "bytes": 8876
+      "sha256": "f13c4584e78bba21b5e7e3eb6257216c6beec4143f46b93be76db7a36ba4ef2d",
+      "bytes": 9109
     },
     {
       "path": "reports/architecture/native-backend.md",
@@ -2866,8 +2866,8 @@
     },
     {
       "path": "reports/evidence-index.md",
-      "sha256": "415fbb305c466b5e23b97f02520a27db04f6ff925bf132e07538ae131bc1e1d4",
-      "bytes": 22709
+      "sha256": "1bb755689a31ad5974d25d0a7a125318c4511896582baa3d451e94cede99cc56",
+      "bytes": 23267
     },
     {
       "path": "reports/needed/README.md",
@@ -2898,6 +2898,21 @@
       "path": "reports/science/abborrtjarnen-source-method.md",
       "sha256": "ec1cea41eac2ad913e4c9227a491325f4471bec28a8fd313226f0776970683b1",
       "bytes": 7112
+    },
+    {
+      "path": "reports/science/animal-entity-capability/README.md",
+      "sha256": "df13bdc01ec9c55bc8e41eb8570e9109bedec4672f808ff8fb20e7b631dfca23",
+      "bytes": 2024
+    },
+    {
+      "path": "reports/science/animal-entity-capability/replay.py",
+      "sha256": "6efefb6d42401bbca70d3fe4406cb02f811dba39d3d69989f2e6fd28df0c2250",
+      "bytes": 5661
+    },
+    {
+      "path": "reports/science/animal-entity-capability/report.json",
+      "sha256": "c9ad08f758b914f0a881652126a907b41afb8aaa8d485003168637364b17e1c2",
+      "bytes": 3542
     },
     {
       "path": "reports/science/bjaresjo-context.md",
@@ -3136,8 +3151,8 @@
     },
     {
       "path": "reports/science/source-cohorts.md",
-      "sha256": "0e288c7939cc3f5989aede57423f2a52ed7a1abc7401c08c8ae6c35958f15a03",
-      "bytes": 11894
+      "sha256": "40f91c53180dcf28d66b2f0520463da65f98add1708f5bfb71cb7b7a514b68ff",
+      "bytes": 12336
     },
     {
       "path": "reports/science/sweden-author-pollen.md",

@@ -74,6 +74,13 @@ per-ID ledger explains product membership; the AADR accountability receipt
 still refuses country-assignment, map and scientific admission. These human
 metadata rows do not contribute pollen or vegetation observations.
 
+We also checked [animal sample map membership](animal-entity-capability/README.md)
+without duplicating the existing per-ID decisions. Ten normalized species
+tables contain 1,468 sample IDs; 331 appear in 170 point features and all
+other 1,137 have a named map exclusion. Twelve mapped IDs occur in eight
+Nordic-labeled features. Their map placement and source labels are context,
+not a qualified source-country, pollen or ecological cohort.
+
 We also joined every reviewed SEAD chronology claim to its governed country and
 site decision in the [country claim account](../../docs/report/source-relations/sead/chronology-country-accounting/README.md).
 The 25,109 claims belong to 853 distinct sites among 2,069 assigned sites:

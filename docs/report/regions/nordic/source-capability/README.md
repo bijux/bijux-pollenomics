@@ -61,6 +61,15 @@ has eleven unresolved paper-link rows. Neither population supplies pollen
 counts or an independent vegetation reference, and the eight animal locality
 features are not a Nordic pollen cohort.
 
+The [Nordic AADR entity account](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/aadr-nordic-entities/README.md)
+joins all 1,325 exact four-country source Genetic IDs to their country sample
+products: 1,231 appear and 94 lack source coordinates. The
+[animal entity account](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/animal-entity-capability/README.md)
+checks the existing 331 mapped and 1,137 map-excluded sample decisions against
+all 1,468 normalized IDs without copying the original decision rows. These
+are source-to-product membership results, not scientific or source-country
+admission for either family.
+
 | Family | Governed raw stage | Governed published stage | Four-country publication availability | Qualification |
 | --- | --- | --- | --- | --- |
 | AADR | present | present | collected in SE/DK/NO/FI | authority and source review required |
