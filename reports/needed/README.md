@@ -150,6 +150,26 @@ opened in this review. We have not established that no original data exist.
 The nine rounded labels already transcribed from a later figure remain a
 publication correspondence check, not a new matched validation cohort.
 
+### Separate local forest-composition lead
+
+We found a distinct [2019 Ecology data paper](https://onlinelibrary.wiley.com/doi/10.1002/ecy.2784)
+on 33 northeastern US small lakes with modern pollen paired to species-level
+forest composition and basal-area estimates in five distance bands from the
+lake margins. Its [indexed abstract](https://pubmed.ncbi.nlm.nih.gov/31183858/)
+permits research and teaching use with citation; it does not state general
+redistribution permission. The publisher lists a metadata PDF and
+`ecy2784-sup-0002-DataS1.zip` under [Supporting Information](https://onlinelibrary.wiley.com/doi/10.1002/ecy.2784/suppinfo),
+but file access was blocked in our current environment. We have not inspected
+their bytes, columns, raw count denominators or exact pollen–forest pairing.
+
+**Next action:** acquire those two original files through the publisher or
+source custodian, record content identities and permitted use, and inspect
+per-lake pollen counts, species-level basal-area rings, dates and taxon mapping.
+Only then declare a separate local tree basal-area prediction target and freeze
+site-group predictions before scoring. This source cannot fill the Swedish or
+four-country regional vegetation-cover denominator by citation alone; those
+paired measurements remain at zero.
+
 ## HYDE source semantics
 
 **Affected result:** selected four-country cropland grid sums agree with 84
