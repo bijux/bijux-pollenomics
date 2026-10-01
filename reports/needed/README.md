@@ -83,11 +83,13 @@ count. LandClim I's 25.50 ha and a conditional 285 m circle agree as modern
 site-area claims. The Neotoma calibrated chronology retains five dated
 controls and an assumed core top. The original authors explicitly excluded
 the sixth, deeper Hela-4421 date from their fitted chronology and assumed an
-11,000 BP base; the control-selection question is settled. The exact resolver
-is the LandClim-selected age vector/uncertainty, dated basin geometry,
-eligible denominator, taxon/PPE use and rights for those 150 samples. We
-retain zero Finnish LRA
-admissions until that same-core packet is reviewed.
+11,000 BP base; the control-selection question is settled. The published
+LandClim II PPE/fall-speed table is also available under CC BY 4.0, but its
+exact application and covariance profile for `LAIH` are not bound. The exact
+resolver is the LandClim-selected age vector/uncertainty, dated basin geometry,
+eligible denominator, core-specific parameter use and pollen-source rights for
+those 150 samples. We retain zero Finnish LRA admissions until that same-core
+packet is reviewed.
 
 **Needed:** nominate a specific physical core and time window in each target
 country, then bind source sample selection, chronology and uncertainty,

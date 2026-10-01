@@ -56,12 +56,24 @@ author-excluded labels and **309** remain unmapped. The arithmetic closes
 not a verified LRA terrestrial denominator or source-approved PPE/fall-speed
 mapping.
 
+The [June 2021 LandClim II release](https://doi.pangaea.de/10.1594/PANGAEA.937075)
+does publish the 31-taxon PPE and fall-speed table it says was used for its
+gridded REVEALS reconstruction, under CC BY 4.0. Our retained
+[`Taxa_to_PFT` table](../../../data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv)
+has SHA-256 `32eac151566b41c186745dd077fabcddde06f64f9a3a2056699e88dbabd76d4d`.
+That resolves availability of the released parameter table. The retained
+author example binds a parameter and covariance profile to its own 17 sites,
+but does not include `LAIH`. Neither source proves the exact taxon/PPE mapping
+or covariance applied to Laihalampi's historical input, or grants analytical
+use of its `R`-marked pollen source.
+
 ## What would change this decision
 
 We need the LandClim-selected `LAIH` age vector/model and uncertainty, the
 source pollen rows and eligible terrestrial denominator for each selected
-window, a time-matched basin-radius or polygon series, reviewed taxon/PPE and
-fall-speed mapping, and source-specific analytical rights. The paper explains
+window, a time-matched basin-radius or polygon series, a core-bound application
+of the published PPE/fall-speed table and covariance profile, and
+source-specific analytical rights. The paper explains
 Hela-4421's exclusion; a qualified source packet must still identify the
 exact age vector and uncertainty applied by LandClim II, including how the
 assumed 11,000 BP base entered its selected model. The
