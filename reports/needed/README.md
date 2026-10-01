@@ -12,6 +12,7 @@ sources remain in their governed source store.
 | Independent vegetation observations | Critical for ecological accuracy | Measurement source owner and ecological pairing review. |
 | HYDE source semantics | High for a land-use ablation | Exact release provider and reuse/metadata review. |
 | Historical publication inputs and taxonomy | High for full-paper reproduction | Archive producer or author and qualified taxon review. |
+| Neotoma acquisition and boundary authority | High for source reproducibility | Original capture custodian and country-boundary decision owner. |
 | Swedish lake and archaeology context joins | High for field and multi-evidence interpretation | Lake/core, SEAD/archaeology and aDNA source owners with spatial and temporal review. |
 | Chronology-aware temporal prediction | High for time-transfer claims | Core age-model source owners and an independently dated, source-qualified evaluation cohort. |
 | Independent confirmation | High for generalization claims | A new source-qualified cohort owner before outcomes are opened. |
@@ -276,3 +277,27 @@ before the present development protocols; no untouched eligible cohort is
 recorded. **Reopen when:** a cohort owner can freeze eligible source records,
 grouping, preprocessing, metrics and refusal rules before any target outcome
 is inspected. Publish the prediction identity first and only then score it.
+
+## Neotoma acquisition and boundary authority
+
+**Affected result:** the [source-scope reconciliation](../../docs/report/source-relations/neotoma/acquisition-scope/README.md)
+binds 206 retained inventory objects to 387 stored queried JSON objects and
+209 requested/downloaded dataset IDs to the nine-part manifest. Replaying the
+current country selector on the same stored rows yields 200 objects and 203
+dataset IDs. Six retained site/dataset pairs differ: 700/720, 3025/3941,
+3138/4082, 3221/4181, 3311/4298 and 13395/20058.
+
+**Needed:** the original capture's exact per-page request URL and parameters,
+response status and time, page body bytes and digest, pagination termination
+evidence, and each of the 209 download response byte digests; also the
+historical boundary version or decision that explains the six retained-only
+rows. The source custodian and boundary decision owner can resolve those
+facts. A new capture must have a new identity and its own complete receipts;
+it cannot certify the earlier capture retroactively.
+
+**Already checked:** retained objects are an ordered exact subset of the
+stored queried JSON and match the manifest request IDs; the pinned native and
+relational source payloads reconcile. These are serialized source products,
+not original HTTP receipts. **Reopen when:** original receipt and boundary
+authority arrives, or a separately identified capture with complete request
+and response custody is ready for its own source-bound replay.
