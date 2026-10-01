@@ -1,0 +1,108 @@
+{
+  "schema_version": "neotoma-author-target-study-membership.v1",
+  "source_build_id": "sha256:92dd52619837f3641d004a1a5dbe38f9ab6023a79f61989314bb90e612eb58e1",
+  "source_snapshot_id": "sha256:b2bcb99157e10b0c9f13c228acc12eabcb39d96a1f39c86ec25e34aacd78c791",
+  "source_sample_count": 12388,
+  "selected_sample_count": 5660,
+  "study_site_count": 84,
+  "counts": [
+    {
+      "country_code": "DK",
+      "membership": "outside_study_sites",
+      "samples": 187
+    },
+    {
+      "country_code": "DK",
+      "membership": "same_site_not_selected",
+      "samples": 1
+    },
+    {
+      "country_code": "DK",
+      "membership": "selected_for_author_target_study",
+      "samples": 91
+    },
+    {
+      "country_code": "FI",
+      "membership": "outside_study_sites",
+      "samples": 185
+    },
+    {
+      "country_code": "FI",
+      "membership": "same_site_not_selected",
+      "samples": 202
+    },
+    {
+      "country_code": "FI",
+      "membership": "selected_for_author_target_study",
+      "samples": 1797
+    },
+    {
+      "country_code": "NO",
+      "membership": "outside_study_sites",
+      "samples": 310
+    },
+    {
+      "country_code": "NO",
+      "membership": "same_site_not_selected",
+      "samples": 30
+    },
+    {
+      "country_code": "NO",
+      "membership": "selected_for_author_target_study",
+      "samples": 3544
+    },
+    {
+      "country_code": "SE",
+      "membership": "outside_study_sites",
+      "samples": 5536
+    },
+    {
+      "country_code": "SE",
+      "membership": "selected_for_author_target_study",
+      "samples": 228
+    },
+    {
+      "country_code": "UNASSIGNED",
+      "membership": "unresolved_source_country",
+      "samples": 277
+    }
+  ],
+  "inputs": [
+    {
+      "path": "data/neotoma/relational/manifest.json",
+      "bytes": 9223,
+      "sha256": "6f6777a40b67bd0704eb1a982f19e6d451cad0d6e4a41dfebf5e3f28be33105b"
+    },
+    {
+      "path": "data/neotoma/relational/surfaces/samples/part-00001.json",
+      "bytes": 16941983,
+      "sha256": "c959e77f7c645b814bffe92a92ff2d8fabcc077b4fc4c894e6315e448d14100c"
+    },
+    {
+      "path": "docs/report/regions/nordic/author-target-pollen/inputs/metadata-DK.json.gz",
+      "bytes": 2576,
+      "sha256": "2f33131a93644d2c645cbc5cade1f9df75abd70d66386de50cdd8a12d2ed38a9"
+    },
+    {
+      "path": "docs/report/regions/nordic/author-target-pollen/inputs/metadata-FI.json.gz",
+      "bytes": 42124,
+      "sha256": "4f88132d091289e6fbc58215abf8f2a294b579ec1c0bb80d472841866e11e71c"
+    },
+    {
+      "path": "docs/report/regions/nordic/author-target-pollen/inputs/metadata-NO.json.gz",
+      "bytes": 81423,
+      "sha256": "f1a2f8d408cdfbd8c46bde9e1ca9f1bae5e1acb14881247fe62c62d4620b3371"
+    },
+    {
+      "path": "docs/report/regions/nordic/swedish-author-target-pollen/inputs/metadata-SE.json.gz",
+      "bytes": 839,
+      "sha256": "a7d8b5b1c9dc696db0b0f168bad83ff55f4447c762028d7af0947dad0d4cc770"
+    }
+  ],
+  "decisions": {
+    "path": "decisions.csv",
+    "bytes": 1647815,
+    "sha256": "3084b998f8935dea2eb52397fde3a2d1cdb606583265cd28c7f2793c70161183"
+  },
+  "limits": "Membership describes four prior-exposed observed-pollen study input sets. Same-site nonselection has no inferred cause. Unassigned source country is unresolved; no LRA, ecological or source-rights admission follows."
+}

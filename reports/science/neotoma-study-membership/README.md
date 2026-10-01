@@ -1,0 +1,41 @@
+# Which Neotoma samples entered the Nordic pollen study?
+
+We joined the four retained 31-target observed-pollen study metadata files to
+every sample in the governed [Neotoma relational source](../../../data/neotoma/relational/manifest.json).
+The [decision ledger](decisions.csv) gives each of the 12,388 source sample IDs
+one source row locator, country, site, dataset and study membership. The
+[result](report.json) binds the source manifest, exact sample part and four
+study metadata files by byte count and SHA-256.
+
+| Source country | Source samples | Selected in study | Same site, not selected | Outside study sites |
+| --- | ---: | ---: | ---: | ---: |
+| Denmark | 279 | 91 | 1 | 187 |
+| Finland | 2,184 | 1,797 | 202 | 185 |
+| Norway | 3,884 | 3,544 | 30 | 310 |
+| Sweden | 5,764 | 228 | 0 | 5,536 |
+| **Four countries** | **12,111** | **5,660** | **233** | **6,218** |
+
+Another 277 source samples have no assigned country and remain separately
+marked `unresolved_source_country`. All 5,660 selected IDs agree with their
+source site and country across 84 study sites. The 233 same-site nonselections
+are not assigned an inferred cause; the source study metadata does not supply
+one per sample. The 6,218 samples outside the 84 selected sites are not
+exclusions from Neotoma itself or from every possible analysis.
+
+These are membership decisions for prior-exposed **observed-pollen** studies.
+They do not admit a lake to LRA, establish source rights or validate a pollen
+prediction against vegetation. The [Nordic study account](../nordic-pollen-study.md)
+and its country reports retain the scored-bin and taxon denominators; sample
+membership alone does not imply a scored bin.
+
+The [producer](replay.py) verifies the source part against its manifest,
+refuses duplicate or missing selected IDs and checks every selected site's
+source country. It reads metadata only, leaving sealed outcomes untouched.
+Reproduce into a new directory under repository `artifacts/`, then compare
+`decisions.csv` and `report.json` byte for byte with the governed files:
+
+```sh
+PYTHONDONTWRITEBYTECODE=1 .venv/bin/python \
+  reports/science/neotoma-study-membership/replay.py \
+  --repository . --output artifacts/jobs/neotoma-study-membership-replay
+```
