@@ -48,6 +48,19 @@ lanes. This proves that four-output family under its declared inputs; it
 does not cover the other nonpublisher owners. We retain the full-tree
 rebuild as open.
 
+The publisher's cross-tree registry and sustainability reports depend on files
+produced by those independent owners. We now pass verified owner outputs into
+the reducer's staging tree, bind their paths and receipt digests in each
+assembly manifest, and remove those inputs from the publisher-owned output.
+The final comparison combines the separately owned files with the publisher
+inventory and rejects an assembly that did not declare the inputs it consumed.
+In a two-lane rebuild, the three author uncertainty outputs raised the derived
+surface count from 705 to 708 and the report-file count from 709 to 712;
+both publisher lanes remained byte-identical. The tracked-tree comparison
+still finds 1,199 files without an owner in this bounded run and 12 derived
+content differences. We therefore retain whole-tree equivalence as open
+until the remaining owners are independently replayed and handed to the reducer.
+
 We also rebuilt the [six-site author uncertainty study](../../docs/report/method-certification/author-site-uncertainty/README.md)
 twice from the pinned author inputs. Its `report.json`, `draws.json` and
 `cover-draws.csv` agree byte for byte across both runs and with the three
