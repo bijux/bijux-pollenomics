@@ -84,6 +84,7 @@ def account(
     comparability: Counter[str] = Counter()
     eligibility: Counter[str] = Counter()
     basis: Counter[str] = Counter()
+    refusal_reasons: dict[str, Counter[str]] = defaultdict(Counter)
     for claim in claims:
         claim_id = claim["chronology_claim_id"]
         review = by_review[claim_id]
@@ -124,6 +125,10 @@ def account(
         comparability[review["comparability_status"]] += 1
         eligibility[review["chronology_eligibility"]] += 1
         basis[review["reviewed_age_basis"]] += 1
+        reasons = claim["reason_codes"]
+        if (review["chronology_eligibility"] == "eligible") != (not reasons):
+            raise ValueError(f"SEAD chronology reason/eligibility differs: {claim_id}")
+        refusal_reasons[code].update(reasons)
     rows = [
         dict(
             zip(
@@ -154,6 +159,12 @@ def account(
         "comparability_counts": dict(sorted(comparability.items())),
         "chronology_eligibility_counts": dict(sorted(eligibility.items())),
         "reviewed_age_basis_counts": dict(sorted(basis.items())),
+        "chronology_refusal_reasons_by_country": {
+            code: dict(sorted(refusal_reasons[code].items())) for code in COUNTRIES
+        },
+        "propagation_refusal_counts_by_country": {
+            code: country_claims[code] for code in COUNTRIES
+        },
         "assigned_site_count": len(sites),
         "excluded_site_count": custody["excluded_decision_count"],
         "excluded_site_status_counts": custody["excluded_status_counts"],
@@ -211,6 +222,7 @@ def run(repository: Path, output: Path) -> dict[str, Any]:
         or custody["inputs_sha256"].get(LINEAGE.as_posix())
         != hashes[LINEAGE.as_posix()]
         or bundle["propagation_status"] != "refused"
+        or bundle["propagation_reason_code"] != "source_classification_not_accepted"
     ):
         raise ValueError("SEAD source/review/public custody digests or lineage differ")
     claims = bundle["claims"]
@@ -243,6 +255,11 @@ def run(repository: Path, output: Path) -> dict[str, Any]:
         raise ValueError(
             "SEAD country accounting differs from pinned claim/review totals"
         )
+    reason_totals: Counter[str] = Counter()
+    for counts in result["chronology_refusal_reasons_by_country"].values():
+        reason_totals.update(counts)
+    if dict(reason_totals) != bundle["refusal_reason_counts"]:
+        raise ValueError("SEAD country chronology refusal reasons differ")
     output.mkdir(parents=True)
     with (output / "rows.csv").open("w", newline="") as stream:
         writer = csv.DictWriter(stream, fieldnames=FIELDS, lineterminator="\n")

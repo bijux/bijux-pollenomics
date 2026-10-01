@@ -1,0 +1,5 @@
+country_code,governed_discovered_sites,governed_assigned_sites,retrieved_sites,normalized_sites,terminal_site_retrieval_losses,source_native_observations,refused_observation_dispositions,eligible_evidence_events,source_country_posture
+SE,1925,1925,1925,1925,0,163107,163107,0,not_supplied;governed_boundary_assignment
+DK,59,59,59,59,0,5264,5264,0,not_supplied;governed_boundary_assignment
+NO,45,45,45,45,0,8950,8950,0,not_supplied;governed_boundary_assignment
+FI,40,40,40,40,0,442,442,0,not_supplied;governed_boundary_assignment

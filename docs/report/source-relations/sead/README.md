@@ -53,6 +53,16 @@ joins all 25,109 reviewed claims to the 2,069 assigned site decisions. It
 separates source-row counts, distinct sites and chronology-display eligibility
 for each country; every claim remains refused for ecological propagation.
 
+The [country retrieval and evidence account](country-coverage/README.md)
+reconciles those site decisions with source retrieval and 177,763 refused
+observation dispositions. It keeps 103 review and 23 unassigned sites outside
+the country totals, and records zero eligible ecological events.
+
+The [country source-unit account](source-unit-accounting/README.md) follows
+the same assigned sites through sample groups, physical samples, analysis
+entities, distinct linked datasets and analysis values. Its source-unit counts
+are separate from claim rows and ecological events.
+
 ## Reproduce
 
 From an installed development environment at the repository root, use a new,

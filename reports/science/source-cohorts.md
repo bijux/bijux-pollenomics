@@ -75,6 +75,25 @@ population. These are chronology source rows, not pollen samples or admitted
 ecological events. We retained all 25,109 propagation refusals, including the
 13,170 claims eligible only for chronology display.
 
+We checked [country retrieval and evidence denominators](../../docs/report/source-relations/sead/country-coverage/README.md)
+against the same full SEAD capture. All 2,069 assigned sites were retrieved
+and normalized; the 126 review or unassigned sites are scope exclusions, not
+retrieval losses. The 61 table receipts and 19,005 query receipts are complete
+with zero recorded failures or retries. Source-native observations total
+163,107 in Sweden, 5,264 in Denmark, 8,950 in Norway and 442 in Finland.
+All 177,763 have refused ecological-event dispositions and zero events are
+eligible. These source units cannot be substituted for our pollen-site or
+measured-vegetation denominators.
+
+We also traced the captured [SEAD source units by country](../../docs/report/source-relations/sead/source-unit-accounting/README.md):
+1,245 of the 2,069 assigned sites link to 4,432 sample groups, 32,308
+physical samples, 129,918 analysis entities, 43,392 distinct linked datasets
+and 68,705 analysis values. All captured analysis values in this source table
+trace to Swedish sites; the zero Danish, Norwegian and Finnish table rows do
+not mean those countries lack other environmental observations. The 126
+excluded site decisions have unknown downstream source-unit counts, not zeros.
+No country has an eligible ecological event in the retained capture.
+
 We decided that the present four-country scientific comparison tests
 **observed-pollen prediction**, not national archaeology density or candidate
 rankings. No archaeology count enters its training inputs, outcomes, scores or

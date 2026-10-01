@@ -126,7 +126,7 @@
     },
     {
       "path": "docs/report/index.md",
-      "sha256": "c32dc78b05b1da1f45227912f014e3e0c017fe29687c398e6eff3fa51a7762ee",
+      "sha256": "43443dfd4e3bb33fc17774f6215e0dd0bc64bc073119b9c1ff24cc1a8ad5aec9",
       "bytes": 2668
     },
     {
@@ -1996,18 +1996,48 @@
     },
     {
       "path": "docs/report/source-relations/sead/chronology-country-accounting/README.md",
-      "sha256": "8827ccdb5c863fbf36d09d748f8428f3d1feca90fb41ed6f731776094c786348",
-      "bytes": 2588
+      "sha256": "649182c832da4178273bc3ec713bbc4073e608fbb37b655bf0c00aeb5ac0fe10",
+      "bytes": 2997
     },
     {
       "path": "docs/report/source-relations/sead/chronology-country-accounting/report.json",
-      "sha256": "b1a1968f7581890e9fed20d5e6c766a1c78726274fe867de23e12d9f684c2071",
-      "bytes": 3079
+      "sha256": "855339046180a5fefb3459e488dfb5f937bb7a8ec155528167bb22bf77de7778",
+      "bytes": 4141
     },
     {
       "path": "docs/report/source-relations/sead/chronology-country-accounting/rows.csv",
       "sha256": "afdf52ee1b5dea2945fbc0c652dce92ce30eb5cfab2b01d2fa0f2e57f5e1fb8a",
       "bytes": 1591
+    },
+    {
+      "path": "docs/report/source-relations/sead/country-coverage/README.md",
+      "sha256": "a1f3838a3d3adc5a74b861c8b1bfb19193cd08bd53c92d5bbdd01575057da21f",
+      "bytes": 3233
+    },
+    {
+      "path": "docs/report/source-relations/sead/country-coverage/report.json",
+      "sha256": "edc2f2cc19d438ebc9e564bb85fe2dd60f9998ce6692a8d2226ac4e3051683eb",
+      "bytes": 4678
+    },
+    {
+      "path": "docs/report/source-relations/sead/country-coverage/rows.csv",
+      "sha256": "aa8bd1b1e1ebe255a7ad0a2fad26fb3ea880275e68dfd8c27eacaa6287c21044",
+      "bytes": 529
+    },
+    {
+      "path": "docs/report/source-relations/sead/source-unit-accounting/README.md",
+      "sha256": "65eac93688ee3eda605b70c20f08fe6816cf41f261d2bcf3300dc3316c46c3bb",
+      "bytes": 3288
+    },
+    {
+      "path": "docs/report/source-relations/sead/source-unit-accounting/report.json",
+      "sha256": "68bd83e4fa7f7ce9beaa0c354129cf236b3c5542914976fa25a812c94c6c6c02",
+      "bytes": 6698
+    },
+    {
+      "path": "docs/report/source-relations/sead/source-unit-accounting/rows.csv",
+      "sha256": "b2d7c66c6b75571745feba0cfb037c4f813c3989f616bd16bebc050dc004cc00",
+      "bytes": 1025
     },
     {
       "path": "docs/report/vegetation-reference/farskesjon/README.md",
@@ -2186,8 +2216,18 @@
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sead_chronology_country_accounting.py",
-      "sha256": "4e98914e4219b8bca32a53c5fc6fb2deaa58dd8c06783ae266a0e6d54cf0d86b",
-      "bytes": 10855
+      "sha256": "4994fe98fd67299e471080979d77c4b1acdaaa102883048cac4d43686fa753ce",
+      "bytes": 11824
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sead_country_coverage.py",
+      "sha256": "2ccd863ed0fe6cedd39779a0073079ec16ec3b2632f841a48bdb67dceadfcfe9",
+      "bytes": 12615
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sead_country_source_units.py",
+      "sha256": "662cb399ca05ae230450b0e2985a512d3641a7aef97fbef64a40480c5f697286",
+      "bytes": 16857
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/swedish_author_target_pollen.py",
@@ -2601,8 +2641,8 @@
     },
     {
       "path": "reports/science/source-cohorts.md",
-      "sha256": "073f3dcefbed0cdf5b8a40dc8d9e50e88d8bf4e183cd52acbf72daf258193369",
-      "bytes": 7018
+      "sha256": "88088105c4458fa7f6b5aa96f68898f045e877f5fe9f8b5c11bc898e9dcc68c3",
+      "bytes": 8362
     },
     {
       "path": "reports/science/sweden-author-pollen.md",

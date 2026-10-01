@@ -4,6 +4,33 @@
     "eligible": 13170,
     "refused": 11939
   },
+  "chronology_refusal_reasons_by_country": {
+    "DK": {
+      "analysis_entity_age_basis_unspecified": 143,
+      "chronology_not_comparable": 1939,
+      "geochronology_calibration_posture_unknown": 48,
+      "relative_period_requires_governed_mapping": 1748
+    },
+    "FI": {
+      "analysis_entity_age_basis_unspecified": 6,
+      "chronology_not_comparable": 59,
+      "relative_period_requires_governed_mapping": 53
+    },
+    "NO": {
+      "analysis_entity_age_basis_unspecified": 32,
+      "chronology_not_comparable": 468,
+      "geochronology_calibration_posture_unknown": 7,
+      "relative_period_requires_governed_mapping": 429
+    },
+    "SE": {
+      "analysis_entity_age_basis_unspecified": 460,
+      "chronology_not_comparable": 9473,
+      "geochronology_calibration_posture_unknown": 32,
+      "negative_bp": 60,
+      "open_ended_dendro_from_uncertainty": 1094,
+      "relative_period_requires_governed_mapping": 7827
+    }
+  },
   "claim_count": 25109,
   "claim_site_count": 853,
   "claim_type_counts": {
@@ -74,6 +101,12 @@
     "docs/report/source-relations/sead/public-custody/report.json": "8a772532e3f9792c432095bb7953b8cafc0438b8078f4ab785580cff6a867063"
   },
   "posture": "reviewed chronology display/context accounting only; no event, propagation, or pollen admission",
+  "propagation_refusal_counts_by_country": {
+    "DK": 1939,
+    "FI": 59,
+    "NO": 468,
+    "SE": 22643
+  },
   "reviewed_age_basis_counts": {
     "ad_calendar_year_negative_bp_refused": 60,
     "ad_calendar_year_open_ended_from_context": 1094,

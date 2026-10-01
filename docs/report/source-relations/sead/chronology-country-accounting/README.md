@@ -21,6 +21,13 @@ Another **126** site decisions are excluded from the assigned and public set:
 without captured chronology claims remain in the site denominator. Claim counts
 are source-row counts, not event counts or site counts.
 
+The machine report also gives `chronology_refusal_reasons_by_country` and
+`propagation_refusal_counts_by_country`. A refused chronology claim can carry
+both `chronology_not_comparable` and a more specific reason, so reason counts
+overlap and must not be summed. Every claim, including one eligible for
+chronology display, has propagation refused for the separate
+`source_classification_not_accepted` reason.
+
 The producer verifies the normalized claim and public-site CSV digests against
 `source_lineage.json`, the age-review CSV digest against its report, shared
 acquisition lineage against both reviews and public custody, a one-to-one

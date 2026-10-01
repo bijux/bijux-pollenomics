@@ -1,0 +1,105 @@
+{
+  "capture_retrieval": {
+    "query_failures": 0,
+    "query_receipts": 19005,
+    "query_retries": 0,
+    "table_receipts": 61,
+    "terminal_table_failures": 0
+  },
+  "country_assignment": "versioned_boundary_decision;source_country_not_supplied",
+  "country_rows": [
+    {
+      "country_code": "SE",
+      "eligible_evidence_events": 0,
+      "governed_assigned_sites": 1925,
+      "governed_discovered_sites": 1925,
+      "normalized_sites": 1925,
+      "refused_observation_dispositions": 163107,
+      "retrieved_sites": 1925,
+      "source_country_posture": "not_supplied;governed_boundary_assignment",
+      "source_native_observations": 163107,
+      "terminal_site_retrieval_losses": 0
+    },
+    {
+      "country_code": "DK",
+      "eligible_evidence_events": 0,
+      "governed_assigned_sites": 59,
+      "governed_discovered_sites": 59,
+      "normalized_sites": 59,
+      "refused_observation_dispositions": 5264,
+      "retrieved_sites": 59,
+      "source_country_posture": "not_supplied;governed_boundary_assignment",
+      "source_native_observations": 5264,
+      "terminal_site_retrieval_losses": 0
+    },
+    {
+      "country_code": "NO",
+      "eligible_evidence_events": 0,
+      "governed_assigned_sites": 45,
+      "governed_discovered_sites": 45,
+      "normalized_sites": 45,
+      "refused_observation_dispositions": 8950,
+      "retrieved_sites": 45,
+      "source_country_posture": "not_supplied;governed_boundary_assignment",
+      "source_native_observations": 8950,
+      "terminal_site_retrieval_losses": 0
+    },
+    {
+      "country_code": "FI",
+      "eligible_evidence_events": 0,
+      "governed_assigned_sites": 40,
+      "governed_discovered_sites": 40,
+      "normalized_sites": 40,
+      "refused_observation_dispositions": 442,
+      "retrieved_sites": 40,
+      "source_country_posture": "not_supplied;governed_boundary_assignment",
+      "source_native_observations": 442,
+      "terminal_site_retrieval_losses": 0
+    }
+  ],
+  "coverage_caveats": [
+    "source_country_field_not_supplied",
+    "126_boundary_decisions_pending_or_unassigned",
+    "excluded_preflight_coordinates_not_independently_verified",
+    "provider_schema_version_not_reported",
+    "capture_complete_only_for_declared_snapshot_and_scope",
+    "no_scientifically_eligible_propagation_events"
+  ],
+  "eligible_evidence_event_count": 0,
+  "excluded_country_decisions": {
+    "coordinate_validation": "not_independently_verified",
+    "retrieval_posture": "excluded_from_assigned_scope_not_retrieval_failures",
+    "review_pending": 103,
+    "unassigned": 23
+  },
+  "input_sha256": {
+    "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_events.json": "aacba06cd6d037151d64dcacaf14c24fb5748dc7b80f2507055343584812357e",
+    "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_materialization_manifest.json": "383151443d04da5a6e127ea2e4344b4b10bb210137dd1d13b77e50dbfae93508",
+    "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations.json": "f059815108ce02e7cb28c49bf2f3d90455a6fbb4d0996a34fe563e0ca7da7d29",
+    "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/manifest.json": "6fc2428046d148f9ce6c158f982afbbbbaea39de2132850a4fb8f41acf8a4c14",
+    "docs/report/source-relations/sead-country-retrieval/countries.csv": "ee39d12eff900b8aaf3a15c571f182c3e15957d3cfe3d797c2f31f9c70221c9f",
+    "docs/report/source-relations/sead-country-retrieval/report.json": "32321c08a249d2042a6a5d68315492a229b05336dace46a2507ff279c4269be5"
+  },
+  "refused_country_allocation_basis": "all_source_native_observations_have_refused_event_dispositions;country_counts_follow_observation_country",
+  "refused_observation_disposition_denominator": 177763,
+  "rows_csv": {
+    "path": "rows.csv",
+    "row_count": 4,
+    "sha256": "aa8bd1b1e1ebe255a7ad0a2fad26fb3ea880275e68dfd8c27eacaa6287c21044"
+  },
+  "schema_version": "sead-country-coverage.v1",
+  "scientific_posture": "source_native_observations_retained;all_event_dispositions_refused",
+  "source_native_observation_denominator": 177763,
+  "source_run_id": "sead-full-evidence-39bfff6a-ce80714e",
+  "source_scope": "governed_four_country_bbox_and_61_declared_relations",
+  "wp01_section6_posture": "partial_country_coverage_account;not_a_closure_claim",
+  "wp01_section6_units_outside_this_replay": [
+    "sites_linked_to_sample_groups_by_country",
+    "physical_samples_by_country",
+    "analysis_entities_by_country",
+    "datasets_by_country",
+    "analysis_values_by_country",
+    "chronology_claims_by_type_age_system_and_refusal_reason_by_country",
+    "propagation_eligible_sites_by_country"
+  ]
+}
