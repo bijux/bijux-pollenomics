@@ -12,6 +12,7 @@ import io
 import json
 from pathlib import Path
 from typing import Any, cast
+from zipfile import ZipFile
 
 from bijux_pollenomics.reporting.context.polygons import build_external_polygon_layer
 from bijux_pollenomics.reporting.modeled_context import build_modeled_context_manifest
@@ -142,6 +143,50 @@ def _export_contract(page: str) -> None:
         all(part in page for part in required),
         "Published modeled export selector or identity contract changed",
     )
+
+
+def _source_geometry(repository: Path, features: list[dict[str, Any]]) -> int:
+    """Bind derived one-degree polygons to every archived grid center."""
+    selected = {
+        str(feature["properties"]["parent_grid_record_id"]) for feature in features
+    }
+    centers: dict[str, tuple[float, float]] = {}
+    with ZipFile(repository / ARCHIVE) as archive:
+        members = sorted(
+            name
+            for name in archive.namelist()
+            if name.startswith("LANDCLIMII.RV.means.JUN2021/TW")
+            and name.endswith(".RV.estimates.jun21.csv")
+        )
+        _require(len(members) == 25, "Published source window inventory changed")
+        for name in members:
+            with archive.open(name) as raw:
+                for row in csv.DictReader(io.TextIOWrapper(raw, encoding="utf-8-sig")):
+                    grid_id = row["LCGRID_ID"]
+                    if grid_id not in selected:
+                        continue
+                    center = (float(row["lonDD"]), float(row["latDD"]))
+                    _require(
+                        grid_id not in centers or centers[grid_id] == center,
+                        f"Published source grid center changed: {grid_id}",
+                    )
+                    centers[grid_id] = center
+    _require(set(centers) == selected, "Published source grid centers are incomplete")
+    for feature in features:
+        grid_id = str(feature["properties"]["parent_grid_record_id"])
+        longitude, latitude = centers[grid_id]
+        expected = [
+            [longitude - 0.5, latitude - 0.5],
+            [longitude + 0.5, latitude - 0.5],
+            [longitude + 0.5, latitude + 0.5],
+            [longitude - 0.5, latitude + 0.5],
+            [longitude - 0.5, latitude - 0.5],
+        ]
+        _require(
+            feature["geometry"] == {"type": "Polygon", "coordinates": [expected]},
+            f"Derived cell polygon differs from source center: {grid_id}",
+        )
+    return len(centers)
 
 
 def derive(repository: Path) -> tuple[dict[str, object], bytes]:
@@ -325,9 +370,10 @@ def derive(repository: Path) -> tuple[dict[str, object], bytes]:
         and archive_identity["bytes"] == archive_receipts[0]["size_bytes"],
         "LandClim source archive differs from receipt",
     )
+    source_centers = _source_geometry(repository, model)
     report: dict[str, object] = {
         "schema_version": "landclim-map-export-lineage.v1",
-        "status": "source_to_static_transport_verified_browser_download_not_executed",
+        "status": "source_to_static_transport_verified",
         "dataset_id": manifest["dataset_id"],
         "dataset_doi": manifest["dataset_doi"],
         "method_citation": manifest["method_citation"],
@@ -342,6 +388,13 @@ def derive(repository: Path) -> tuple[dict[str, object], bytes]:
         "value_unit": manifest["value_unit"],
         "time_basis": "discrete_published_BP_windows",
         "geometry_crs": "not_explicit_in_normalized_geojson_or_download_contract",
+        "source_coordinate_policy_url": "https://wiki.pangaea.de/wiki/Geocode",
+        "geojson_coordinate_specification_url": "https://www.rfc-editor.org/rfc/rfc7946#section-4",
+        "source_center_coordinate_interpretation": "WGS84_by_PANGAEA_geocode_policy;archive_CSV_has_no_CRS_field",
+        "derived_polygon_semantics": "one_degree_square_about_source_lonDD_latDD_center",
+        "source_grid_center_count": source_centers,
+        "source_mean_member_count": 25,
+        "derived_polygon_match_count": len(model),
         "source_feature_count": len(source_features),
         "published_feature_count": len(actual),
         "modeled_cell_window_count": len(model),

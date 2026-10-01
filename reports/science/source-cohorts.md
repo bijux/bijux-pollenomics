@@ -138,10 +138,14 @@ LandClim II reconstruction. Across 100 country/window slices, 73,696 metric
 pairs carry numeric estimates and standard errors, while 14,429 pairs are
 explicitly null. The map's selector retains the source window and country,
 and its download contract retains the method and modeled evidence role. We
-have not exercised a browser download or established a formal CRS for the
-normalized geometry. Rootsi and Neotoma metadata overlaps do not identify
-the historical cell contributors, and SEAD supplies context rather than an
-independent vegetation result.
+also [downloaded and reconciled a 32-cell Denmark/Sweden frame](../../docs/report/source-relations/landclim/browser-export/README.md)
+at 0–100 BP, including all 47 estimate and standard-error keys. All 1,875
+normalized LandClim II polygons are one-degree squares about the archived
+grid centers. PANGAEA's WGS84 geocode policy and GeoJSON's CRS84 specification
+support our coordinate interpretation; the source CSV and derived GeoJSON do
+not carry a separate file-level CRS declaration. Rootsi and Neotoma metadata
+overlaps do not identify the historical cell contributors, and SEAD supplies
+context rather than an independent vegetation result.
 
 We checked modeled HYDE quantities and native grid reconciliation at seven
 CE labels in the [country cropland report](hyde-cropland-source-account.md).

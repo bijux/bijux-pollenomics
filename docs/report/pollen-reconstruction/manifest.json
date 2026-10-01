@@ -76,8 +76,8 @@
     },
     {
       "path": "docs/public/pollenomics-data/sources/landclim-modeled-panels.md",
-      "sha256": "98c86c4bbbfe686cd85541275c34df34eeb15f881f49bf280f484da6154ff308",
-      "bytes": 2753
+      "sha256": "b3d1278da16909131ef1b518598a97e18d81767f6e490f3d362d527d7527cfd4",
+      "bytes": 2977
     },
     {
       "path": "docs/public/pollenomics-data/sources/neotoma.md",
@@ -136,7 +136,7 @@
     },
     {
       "path": "docs/report/index.md",
-      "sha256": "0c9b5e13a2e201742577ee019636ead5a000638f55ea6a665497e03227edf9b3",
+      "sha256": "150b49661ec4b858d437bf16a303f213a0c42244cb06cf96b59e0deaaefd60b6",
       "bytes": 2668
     },
     {
@@ -1875,14 +1875,24 @@
       "sha256": "595c8e21c4bda3f8fee259c435aa0ff2a339ed7aea39e2d50b09f36523bd725c"
     },
     {
+      "path": "docs/report/source-relations/landclim/browser-export/README.md",
+      "sha256": "8619eabccac2efb1ece02f2ee9f765b90fb7b1416ce83a5ab7c8f71ea873f728",
+      "bytes": 4236
+    },
+    {
+      "path": "docs/report/source-relations/landclim/browser-export/report.json",
+      "sha256": "e7c9788fbac97ecc2564a9e0bc431f965510260a054f9ac15480cbf373c72d9c",
+      "bytes": 2539
+    },
+    {
       "path": "docs/report/source-relations/landclim/map-export-lineage/README.md",
-      "sha256": "4a092db0b00dc0e4ecc138ec90d4444ac342c56c70ba9174309547505bfc82ab",
-      "bytes": 2901
+      "sha256": "b4dec84e1097de8333042ee4bbaf3dc468c3a3e38ff9aceae2df06b2f9abdffb",
+      "bytes": 3624
     },
     {
       "path": "docs/report/source-relations/landclim/map-export-lineage/report.json",
-      "sha256": "424ff12adc03f3108459de0750f5eebcc0f358afc4a989ba1f99249e805d5732",
-      "bytes": 4792
+      "sha256": "d9d2c25e213de87b73a7e9cef3c7a02d08ca6064f302631dc59598fdccb975cb",
+      "bytes": 5230
     },
     {
       "path": "docs/report/source-relations/landclim/map-export-lineage/rows.csv",
@@ -2120,6 +2130,21 @@
       "bytes": 1091
     },
     {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/atlas_browser/landclim_export/__init__.py",
+      "sha256": "bb3c9ffc78b27d7b9bca38ac8ef25ae969f16997ede7323dc65e1257716c6932",
+      "bytes": 70
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/atlas_browser/landclim_export/capture.mjs",
+      "sha256": "aab226f20f878b0ca6a4b7af009e44f08e9883ca4fb3152aa3b147b46103aa78",
+      "bytes": 8660
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/atlas_browser/landclim_export/reconcile.py",
+      "sha256": "dfc64a18a726243aefc8d912b5a54168c32fa915a5dbd1c7a26da3b8243511c2",
+      "bytes": 18270
+    },
+    {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/author_example_correspondence.py",
       "sha256": "cecdcfc19aadc25c9438da2fd7c855d8a8fa02869e99fae0cab7c3b4aace094d",
       "bytes": 15483
@@ -2226,8 +2251,8 @@
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/landclim_map_export_lineage.py",
-      "sha256": "e448422b37f09667208c96d2b81da1420f159f19a3260d7cd6f52da098129da7",
-      "bytes": 16116
+      "sha256": "2bcf0825f1eb6d1728131dc30d91fbbdc517ab72b0b76a65fdf50c0f6e497c9c",
+      "bytes": 18683
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/lilla_gloppsjon_direct_pollen.py",
@@ -2716,8 +2741,8 @@
     },
     {
       "path": "reports/science/source-cohorts.md",
-      "sha256": "6f86940264e44ad89748f98cfb28c0d8c3f64ab0dd54c3d579dcf2e70376ae3f",
-      "bytes": 10625
+      "sha256": "078121810f6214384d75d39902699e8afd80913a3bb4a45645ef32ea0a1a6f84",
+      "bytes": 11019
     },
     {
       "path": "reports/science/sweden-author-pollen.md",

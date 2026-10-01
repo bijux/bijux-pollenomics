@@ -7,7 +7,7 @@ more prose. Start with the [report portal](index.md) for the results and their
 limits; use the [machine-readable review](report_narrative_quality_review.json)
 for an exact page lookup.
 
-- Reviewed markdown pages: `275`
+- Reviewed markdown pages: `276`
 
 ## Layout signals
 
@@ -15,4 +15,4 @@ for an exact page lookup.
 | --- | ---: |
 | `reader_ready` | 108 |
 | `structured_reference` | 19 |
-| `thin_structure` | 148 |
+| `thin_structure` | 149 |
