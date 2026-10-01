@@ -10,6 +10,7 @@ import pytest
 
 from bijux_pollenomics_dev.source_completion.sead_pollen_screen import (
     _parts,
+    _reconcile_abundance,
     _refusal_reasons,
 )
 
@@ -44,3 +45,29 @@ def test_partition_reader_rejects_changed_source_bytes(tmp_path: Path) -> None:
                 tmp_path, {source.name: {"sha256": digest}}, document, "observations"
             )
         )
+
+
+def test_candidate_value_and_state_must_match_raw_abundance() -> None:
+    raw = {972: {"abundance_id": 972, "abundance": 1}}
+    candidate = {
+        "source_table": "tbl_abundances",
+        "source_record_id": "972",
+        "source_row": raw[972].copy(),
+        "source_value_field": "abundance",
+        "source_value": 1,
+        "source_value_state": "reported",
+    }
+    _reconcile_abundance(candidate, raw)
+
+    candidate["source_value"] = 0
+    with pytest.raises(ValueError, match="differs from raw source"):
+        _reconcile_abundance(candidate, raw)
+    candidate["source_value"] = 1
+    candidate["source_value_state"] = "source_null"
+    with pytest.raises(ValueError, match="state differs from raw source"):
+        _reconcile_abundance(candidate, raw)
+
+    raw[972]["abundance"] = None
+    candidate["source_row"] = raw[972].copy()
+    candidate["source_value"] = None
+    _reconcile_abundance(candidate, raw)
