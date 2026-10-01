@@ -60,6 +60,13 @@ and receipt. Its 1,128 publication metadata rows and 4,512 explicit input
 refusals are reproducible; none becomes an authenticated historical pollen
 input or a publication reproduction merely because the inventory matches.
 
+The [LandClim window alignment](../../docs/report/publication-replay/landclim-window-alignment/README.md)
+now replays its three governed outputs byte for byte from the pinned author
+time axis and published-window report. We fixed the CSV writer to use LF and
+removed an obsolete line-ending discrepancy from its manifest. The result
+still supports an exact time-bound comparison only for TW2; it does not
+authenticate the other historical publication inputs.
+
 Our source-bound vegetation results illustrate the boundary: the
 [Färskesjön](../science/vegetation-reference/farskesjon/plot_support.py),
 [Småland historical-map](../science/vegetation-reference/smaland-historical-maps/coverage.py)

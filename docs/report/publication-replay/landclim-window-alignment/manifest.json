@@ -2,8 +2,8 @@
   "schema_version": "landclim-window-alignment-custody.v1",
   "repository_inputs": {
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/published_window_alignment.py": {
-      "bytes": 8730,
-      "sha256": "2c97f542da3635f6464e1ce4efc1cadf8414b0dcf78c588ee564db3a8fb03ccf"
+      "bytes": 8969,
+      "sha256": "a711def996e89634dd35908bdd16bfd4aadb2528bb5a3d995bc397265348a27a"
     },
     "docs/report/publication-replay/landclim-method-profile/reference/report.json": {
       "bytes": 24499,
@@ -38,20 +38,9 @@
       "sha256": "3dbfc4914257a0862410a7c3b451a578f2c30b57991c9b0a59bef1b973f9a598"
     }
   },
-  "historical_comparison": {
-    "report_json": {
-      "bytes": 915,
-      "sha256": "5b2892b1972934e484d2530078e9b7c844b6ebc0bcd1aeb08d167d8b7f7bd8f6"
-    },
-    "report_markdown": {
-      "bytes": 2322,
-      "sha256": "55bef5ee8ee73e525eaef368bbf978e6dbb87ffe9bb3117ac03369966be85a5d"
-    },
-    "row_csv": {
-      "bytes": 1565,
-      "sha256": "548d80974a3d96d71ce61e6a5925a60583b853e605cf31a0b3aab9b0873fc160"
-    },
-    "relation": "Report JSON and Markdown exact; all 25 parsed CSV rows equal after newline normalization."
+  "owner_replay": {
+    "generated_files": 3,
+    "status": "byte_exact"
   },
   "admission": "TW2 only has exact BP-bound support for numeric comparison; no historical raw-input equivalence or vegetation accuracy"
 }
