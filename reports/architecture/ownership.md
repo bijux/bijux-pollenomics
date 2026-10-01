@@ -54,6 +54,12 @@ pages are separately authored and linked from the family index. This gives
 these numerical and workflow checks producer ownership without treating
 fabricated cases as measured ecological validation.
 
+The [LandClim II study-input inventory](../../docs/report/publication-replay/landclim-study-inputs/README.md)
+replayed its five generated files byte for byte from the pinned raw workbook
+and receipt. Its 1,128 publication metadata rows and 4,512 explicit input
+refusals are reproducible; none becomes an authenticated historical pollen
+input or a publication reproduction merely because the inventory matches.
+
 Our source-bound vegetation results illustrate the boundary: the
 [Färskesjön](../science/vegetation-reference/farskesjon/plot_support.py),
 [Småland historical-map](../science/vegetation-reference/smaland-historical-maps/coverage.py)
