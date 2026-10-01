@@ -4,7 +4,7 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-07-22
+last_reviewed: 2026-10-01
 ---
 
 # Cross-Domain Evidence Matrix
@@ -130,14 +130,15 @@ are declared. The checked-in collection contains several instructive cases:
 | 2,195 SEAD inventory rows | captured inventory row | 2,195 distinct normalized map points |
 | 2,069 assigned SEAD site records | published site point | complete or uniformly dated archaeology evidence |
 | RAÄ source denominator unavailable | refused source authority | zero archaeology records or equivalent recording effort across space |
-| retained RAÄ density files excluded | unauthorised derived surface | current public archaeology evidence or archaeological-site coordinates |
+| 106 retained RAÄ density cells shown as degraded context | display-only historical surface with refused source authority | governed archaeology evidence, a comparable national density, or archaeological-site coordinates |
 | two fieldwork pages | documentation surface | two independent visits |
 | one fieldwork feature | dated visit event | representative lake or regional coverage |
 
 The SEAD difference reflects transformation from source inventory to
 normalized spatial records. RAÄ's unavailable denominator reflects refused
-authority, not a scientific zero; its retained density files are audit
-material, not current governed evidence. The fieldwork difference separates
+authority, not a scientific zero. Its exact retained density pair is visible
+as degraded historical context under the [RAÄ display decision](../sources/raa.md),
+but it is not current governed analytical evidence. The fieldwork difference separates
 documentation pages from the single event they describe. These states become
 misleading when reduced to an unlabeled total.
 
