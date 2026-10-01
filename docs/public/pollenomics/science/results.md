@@ -4,7 +4,7 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-09-30
+last_reviewed: 2026-10-01
 ---
 
 # Results and model use
@@ -156,6 +156,25 @@ from 0.023151 to 0.029171. The
 show the site and bin effects. Three previously explored sites and nominal
 source-bin shifts cannot establish independent spatial skill, chronology
 uncertainty, LRA accuracy or vegetation accuracy.
+
+## What two lake pollen series can and cannot say
+
+We compared observed `Alnus` and `Plantago lanceolata` pollen fractions at
+Bussjösjön and Bökesjön in 13 common 500-cal-BP bins. The
+[lake trajectory report](../../../report/countries/sweden/observed-pollen-trajectory/README.md)
+retains each site's source counts, age support and 48 taxon/threshold/interval
+comparisons. Some site changes agree in direction and others contradict. A
+1000-year binning and alternate nearby-site circles expose time and location
+sensitivity. Giving both lakes equal weight versus pooling their pollen counts
+changes 10 of 48 all-native direction classes and 9 of 48 closed-16 classes;
+four comparisons in each denominator reverse between a qualified increase and
+decrease. The matching count denominator is used for each composition.
+
+Independent dated SEAD records describe nearby archaeological context, but
+their feature counts are not vegetation or land-use measurements. The
+LandClim model grid includes these pollen sites and cannot independently
+validate them. The supported answer is a bounded description of two pollen
+series; whether local land use caused their changes remains unresolved.
 
 ## Parameters and next experiments
 
