@@ -123,6 +123,16 @@ vegetation compilation and unrounded 26-taxon output. A source owner and a
 qualified ecological reviewer must validate the pairing. Next action: score
 only the matched pairs, preserving the zero-pair status until then.
 
+For the ten-lake route, request one versioned packet from the study data
+custodian that binds each physical lake and surface sample to its raw integer
+pollen counts and denominator; lake/core identity, basin geometry and sampling
+date; the measured vegetation fractions and their source layers, survey dates,
+taxa, units and spatial footprint; full-precision 26-taxon REVEALS estimates,
+uncertainty and parameter/run selection; the pollen-to-vegetation taxon
+crosswalk; file digests and analytical/redistribution terms. A source reviewer
+must identify which physical samples and landscape footprints are genuinely
+paired before any repository vegetation score is calculated.
+
 **Already checked:** the southern-Sweden figure screen and EMPD2–NFI pairing
 found no admitted repository measurement pair; the original ten-lake inputs
 and unrounded outputs are not retained. **Reopen when:** a source owner
@@ -134,6 +144,9 @@ and the [companion parameter study](https://portal.research.lu.se/en/publication
 Their accessible publisher records describe the vegetation compilation and
 the PPE/sample-design comparison, but provide no bound, reusable table of
 the ten lake counts, measured vegetation and unrounded 26-taxon outputs.
+The [Lund study record](https://portal.research.lu.se/en/publications/the-reveals-model-a-new-tool-to-estimate-past-regional-plant-abun/)
+links to the DOI and Scopus, with no data-file link; the Wiley PDF could not be
+opened in this review. We have not established that no original data exist.
 The nine rounded labels already transcribed from a later figure remain a
 publication correspondence check, not a new matched validation cohort.
 
