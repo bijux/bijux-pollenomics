@@ -175,9 +175,29 @@
       "bytes": 3838
     },
     {
+      "path": "docs/report/numerical-performance/love-source-comparison/README.md",
+      "sha256": "3ed16b624207fb6970996eb0d47c39d6594a1a21e4301446ddd822a4af285cd9",
+      "bytes": 3658
+    },
+    {
+      "path": "docs/report/numerical-performance/love-source-comparison/compare.py",
+      "sha256": "0922323faa833dd417562f7c3582f3e42f9874d0c5c49774cb755d4c0beddc99",
+      "bytes": 10061
+    },
+    {
+      "path": "docs/report/numerical-performance/love-source-comparison/replay.R",
+      "sha256": "169675324784acce3447b41328f82fc2c9f6c49d6fcf97a9c92c6341b4bcc147",
+      "bytes": 2987
+    },
+    {
+      "path": "docs/report/numerical-performance/love-source-comparison/report.json",
+      "sha256": "73655d3f9ba41d3c20b7db5fa43360a60ded61d70d1603a1628cf7a6de8b6413",
+      "bytes": 3802
+    },
+    {
       "path": "docs/report/numerical-performance/love-source-profile/README.md",
-      "sha256": "23cc0aeceaa77b726fea8733d8491f8ba1c3ecf831bae75ceb728b04a806ad3e",
-      "bytes": 4096
+      "sha256": "f050dafea3267bbd9eb62b0169ecece9e8456376f7467a5f06cab39709054e3c",
+      "bytes": 4558
     },
     {
       "path": "docs/report/numerical-performance/love-source-profile/report.json",
