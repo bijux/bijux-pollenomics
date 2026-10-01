@@ -188,6 +188,16 @@ The other two sites retain point ages, and the intervals do not provide a
 joint age posterior. This sparse, previously exposed 16-label pollen study
 does not establish a better chronology, independent accuracy or LRA inputs.
 
+For the Norwegian Dalmutladdo core, a separate
+[age-interval support check](../../../report/regions/nordic/dalmutladdo-age-interval-sensitivity/README.md)
+keeps only two of 72 pollen samples: their full reported LegacyAge 95%
+intervals stay inside their original 500-year bins. Four previously frozen
+Norway-excluded methods provide eight predictions across those two bins;
+20 previously scored bins have no eligible sample. The two samples do not
+change bins, so the paired same-sample scores are identical under the
+nominal and strict rules. Differences from the original full-bin scores
+reflect fewer counted samples, not a new model result or LRA validation.
+
 ## A newly scored Swedish lake
 
 We applied three fixed observed-pollen predictors to Lake Sämbosjön, a

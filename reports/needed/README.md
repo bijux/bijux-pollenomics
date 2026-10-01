@@ -330,6 +330,12 @@ The [ABBO interval-contained development sensitivity]
 now admits eight of 107 ABBO samples to four common bins, freezes all four
 site-excluded methods before scoring and compares 12 paired targets per
 method. Its small score changes do not establish chronology or model skill.
+The [Dalmutladdo age-interval sensitivity]
+(../../docs/report/regions/nordic/dalmutladdo-age-interval-sensitivity/README.md)
+retains only two of 72 samples and two of 22 originally scored bins. Both
+retained samples stay in their nominal bins, so same-sample nominal and
+interval scores coincide; differences from parent full-bin scores are due to
+sample restriction. This leaves 20 bins without interval-contained support.
 **Reopen when:** calibrated joint age-model uncertainty and eligible cores
 are bound to physical sites and windows; predeclare forward-time rules and
 test an untouched cohort separately from this exposed three-site study.

@@ -58,6 +58,14 @@ parts. It also records the measured site-point separation, area arithmetic
 and match denominators. The paper PDF remains in the private source store;
 we publish only its citation, source hash and the derived comparison ledger.
 
+We separately tested the existing Norway-excluded **observed-pollen**
+predictions against [LegacyAge age intervals](../../../docs/report/regions/nordic/dalmutladdo-age-interval-sensitivity/README.md).
+Only two of 72 Dalmutladdo samples have a full reported 95% interval inside
+their original 500-year bin. The four frozen methods retain eight predictions
+across those two bins; the other 20 originally scored bins have no eligible
+sample. This is a prior-exposed pollen-only support check. It neither resolves
+the historical LandClim chronology nor admits a basin or PPE for LRA.
+
 Our already governed [31-target source-mass ledger](../../../docs/report/regions/nordic/author-taxonomy-mass/sites.csv)
 accounts for all 72 selected Neotoma pollen samples at this site: **46,477
 of 47,085** native pollen counts map to 19 author targets, **600** map to
