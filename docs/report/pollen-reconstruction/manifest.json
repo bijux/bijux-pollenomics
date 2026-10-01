@@ -2136,7 +2136,7 @@
     },
     {
       "path": "docs/report/report_narrative_quality_review.json",
-      "sha256": "4dda285ad744f587068ad3859a3b34c900f2fb39a3ac6df6b7db253affb76a2a",
+      "sha256": "235fc4ead0c56295a207f7e71508eaa3bdf3c3d20dec35f370228e8998215995",
       "bytes": 108981
     },
     {
@@ -2851,8 +2851,8 @@
     },
     {
       "path": "reports/README.md",
-      "sha256": "90f74eb8738fe39fd4af219e01c155f3c92e0df5ea4de5cac039809f392841e2",
-      "bytes": 8556
+      "sha256": "428517b5ca9095c4c3bb3c1e69b0aa3e4df68cb784b15e3d0f471a5a0cb847ff",
+      "bytes": 8626
     },
     {
       "path": "reports/architecture/native-backend.md",
@@ -3131,8 +3131,8 @@
     },
     {
       "path": "reports/science/sweden-lake-trajectory.md",
-      "sha256": "a9009f624ab3788c7da733c9d57502b031f8dec08f42f5cc5f9c2303628dbccb",
-      "bytes": 4370
+      "sha256": "57ba48adb56eca6bdc7f2848b307bf13a4a360e50d526da1cf87f4c919a6ec28",
+      "bytes": 4379
     },
     {
       "path": "reports/science/sweden-lake-transfer.md",
@@ -3171,8 +3171,8 @@
     },
     {
       "path": "reports/science/vegetation-reference.md",
-      "sha256": "be7791432d738eab0f430c2a2d7139e195a1fabae3d6ec32f6e0ffbae4e00892",
-      "bytes": 5208
+      "sha256": "eb30feabb1fc329b73eab684160d43f1311055f7b567b9ab128f8a1ca96b48a7",
+      "bytes": 6755
     },
     {
       "path": "reports/science/vegetation-reference/farskesjon/plot_support.py",

@@ -54,7 +54,7 @@ We find descriptive agreement and contradiction in two observed-pollen
 series. We cannot infer one regional vegetation trajectory or land-use change
 from these comparisons. Sample-age uncertainty, pollen catchments, unresolved
 Bussjösjön coordinates and the lack of paired vegetation measurements limit
-that inference. The [source-lineage check](../../docs/report/countries/sweden/pollen-model-lineage/README.md)
+that inference. Our [source-lineage decision](vegetation-reference.md#why-modeled-cover-is-not-a-vegetation-reference)
 also places both lakes among the LandClim inputs for grid 779, so that grid
 cannot serve as independent validation of these pollen series. Denmark,
 Norway and Finland were not evaluated for this two-lake question. This is an

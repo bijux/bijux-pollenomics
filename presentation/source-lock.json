@@ -10,6 +10,7 @@
     "docs/report/countries/denmark/solsoe-source-lineage/author-target-age-interval/report.json": "2c7899e006c8cc82877dccab64670f78df70cdc616dcd5ade7f45031e82183dd",
     "docs/report/countries/denmark/solsoe-source-lineage/legacyage-chronology/report.json": "dc06e30d7a290bb81ad6c8f0da1ec3b8a804f883af388692855698e9ee555be2",
     "docs/report/countries/denmark/solsoe-source-lineage/legacyage-interval-sensitivity/report.json": "74973466ec934c81b0db2c424927cbcdbbe033e8bb96c39428940a6f3c490206",
+    "docs/report/countries/sweden/pollen-model-lineage/report.json": "59060984df4a798cdadeeb74ceeb8da7e807118175d547c52a4e18ee43a1edd0",
     "docs/report/method-certification/love-paper-correspondence/README.md": "1d5d5b425fc81c9d6964e6ecb838976191299843b22b96be923d4350536bbb71",
     "docs/report/method-certification/optimizer-solution-quality/summary.csv": "79edce68dbe2624d22590e4ac1c0ebfd2401d76b7ec9006956d47ceb79ec35bd",
     "docs/report/method-certification/original-r-reference/README.md": "c366c13945eedb6283046a8744cf5c84b2e681939526aea37f6146d739cbf9ef",
@@ -38,9 +39,9 @@
     "presentation/big-picture.tex": "018b941776c3ae9a9791a87513d3000853686291ab20889c6799bcf454379fa7",
     "presentation/build.py": "a1ee7ca37524c7b3d096a9cb3eeb20563bd52240aa5887e9fad767c6df05daf0",
     "presentation/developer.tex": "4d7d14115853ffe42df055bea3ebe0fc382cbdfc18f80cae9709c24814a727bc",
-    "presentation/scientific-evidence.tex": "5104340f067757562d9f51706fbb19fde789ad6c55dae52397b4d675805edc5f",
+    "presentation/scientific-evidence.tex": "74b308d2f26c61b73bccc52dab71f7223f7d4eec259f2291edcbd627bea84b97",
     "presentation/shared.tex": "2aa40954975f75241ded20a78d0c698c0f864274222e30c148bda4cf4b0bf17a",
-    "reports/README.md": "89f264396f9ea6f63ee2e84394e2ba8da9ed2ed3fcd0304503fca20792bbbe82",
+    "reports/README.md": "428517b5ca9095c4c3bb3c1e69b0aa3e4df68cb784b15e3d0f471a5a0cb847ff",
     "reports/architecture/lra-distribution.md": "e95166a2ce9ced04dce659ed44b4ccb246d74a7af069c1b1cd77d8b8a6bb8be9",
     "reports/architecture/native-backend.md": "8aa679097d3f4457a1fb6b133f696fc2099a50b6d434142b3430c2ed6a759e80",
     "reports/architecture/ownership.md": "10ada65bcba6791bec0abcd2ef51f4d70b378eb9f03d2fd1f92ffdc104d3f943",
@@ -73,6 +74,6 @@
     "reports/science/sweden-spatiotemporal-sensitivity.md": "8f6dccebd81af82bfedea3e9ae3ddaea75a3999a59bfd1119046d947c43980de",
     "reports/science/sweden-training-scope.md": "f314ad31c3ce166f7c8ea2aa2b03ed82c097c8026bb969008711c33e11f39246",
     "reports/science/synthetic-model-selection/README.md": "af6ff96f339d3ba2528e3d68a970415fc8cf9eb2770f5255a43a808f8199d010",
-    "reports/science/vegetation-reference.md": "be7791432d738eab0f430c2a2d7139e195a1fabae3d6ec32f6e0ffbae4e00892"
+    "reports/science/vegetation-reference.md": "eb30feabb1fc329b73eab684160d43f1311055f7b567b9ab128f8a1ca96b48a7"
   }
 }

@@ -29,10 +29,32 @@ and [printed-label transcription](vegetation-reference/southern-sweden-figure/pr
 keep the nine-label denominator visible. Their source-bound producers and
 reproduction commands are grouped here with those governed results.
 
+## Why modeled cover is not a vegetation reference
+
+We checked whether the southern Sweden LandClim modeled-cover grid could
+independently validate our observed-pollen lakes. The [source-lineage
+receipt](../../docs/report/countries/sweden/pollen-model-lineage/report.json)
+matches Neotoma sites Abborrtjärnen, Bussjösjön and Bökesjön to LandClim II
+site records ABB, BUS and BOKE. Each pair has the same site sample count
+(107, 69 and 52) and coordinates within 0.5 m after source rounding.
+LandClim lists these as reconstruction inputs. This is strong site-level
+lineage evidence, though exact sample reuse and influence on each grid result
+are not authenticated.
+
+Bussjösjön and Bökesjön both belong to grid **779**, used by five of the six
+[southern Sweden synthesis targets](../../docs/report/countries/sweden/sweden_land_use_synthesis_v66.csv).
+Finjasjön uses grid 829, which alone does not establish independence from
+other pollen inputs. LandClim cover is a modeled result rather than a measured
+vegetation outcome. We therefore do not score the grid against these pollen
+sites as independent vegetation validation. The source observations remain
+useful for descriptive comparison, with their distinct chronology and basin
+limits visible.
+
 ## Reproduction
 
-From the repository root, run the three current producers with the pinned
-private source packets into absent destinations under `artifacts/`:
+From the repository root, run the three vegetation-source producers with
+their pinned private packets and the modeled-lineage consumer into absent
+destinations under `artifacts/`:
 
 ```sh
 PYTHONDONTWRITEBYTECODE=1 .venv/bin/python \
@@ -47,12 +69,16 @@ PYTHONDONTWRITEBYTECODE=1 .venv/bin/python \
   reports/science/vegetation-reference/southern-sweden-figure/compare.py \
   --source-pdf /path/to/private/reference-sources/southern-sweden-vegetation-validation/gaillard-2010.pdf \
   --output artifacts/jobs/vegetation-reference/southern-figure
+PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -m \
+  bijux_pollenomics_dev.source_completion.swedish_model_lineage \
+  --repository . --output artifacts/jobs/vegetation-reference/model-lineage
 ```
 
-The four reproduced numeric files match their governed counterparts byte for
-byte. Their source-bound producers and result files retain the exact
-identities. The replay reads original source bytes but
-publishes no private plot identifiers or coordinates.
+The first three producers reproduce four numeric files byte for byte. The
+model-lineage producer writes its separate governed JSON receipt. These
+source-bound producers and result files retain the exact identities. The
+plot replay reads original source bytes but publishes no private plot
+identifiers or coordinates.
 
 ## What follows
 
