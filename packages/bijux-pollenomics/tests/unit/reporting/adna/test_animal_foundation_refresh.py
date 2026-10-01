@@ -52,7 +52,7 @@ class AnimalFoundationRefreshUnitTests(unittest.TestCase):
                 REPOSITORY_ROOT / "data/adna/governance/source_library"
             )
             archived_sources: dict[str, tuple[Path, str]] = {}
-            for metadata_path in source_library.rglob("*.metadata.json"):
+            for metadata_path in sorted(source_library.rglob("*.metadata.json")):
                 metadata = json.loads(metadata_path.read_text(encoding="utf-8"))
                 source_url = metadata.get("source_url")
                 content_type = metadata.get("content_type")
