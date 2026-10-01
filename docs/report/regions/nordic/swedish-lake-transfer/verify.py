@@ -14,6 +14,7 @@ from typing import Any
 
 
 REPORT = Path(__file__).resolve().parent
+ROOT = REPORT.parents[4]
 FROZEN_PRODUCER = REPORT / "reference/prediction-producer.py.txt"
 
 
@@ -30,6 +31,17 @@ def _csv(path: Path) -> list[dict[str, str]]:
         return list(csv.DictReader(stream))
 
 
+def verify_current_source(source: dict[str, Any], root: Path = ROOT) -> None:
+    """Refuse a frozen comparison when its published source has changed."""
+    relational = root / "data/neotoma/relational"
+    if digest(relational / "manifest.json") != source["source_manifest_sha256"]:
+        raise ValueError("Swedish lake Neotoma source manifest changed")
+    for relative, expected in source["source_surface_sha256"].items():
+        path = (root / relative).resolve()
+        if not path.is_relative_to(relational.resolve()) or digest(path) != expected:
+            raise ValueError(f"Swedish lake Neotoma source surface changed: {relative}")
+
+
 def main() -> None:
     manifest = json.loads((REPORT / "manifest.json").read_text())
     if manifest["schema_version"] != "swedish-lake-pollen-report-manifest.v1":
@@ -43,6 +55,7 @@ def main() -> None:
 
     freeze = json.loads((REPORT / "prediction-freeze.json").read_text())
     source = json.loads((REPORT / "input-manifest.json").read_text())
+    verify_current_source(source)
     protocol = json.loads((REPORT / "protocol.json").read_text())
     training = _compressed(REPORT / "inputs/training-SE.json.gz")
     metadata = _compressed(REPORT / "inputs/metadata-SE.json.gz")
