@@ -48,6 +48,27 @@ the hosted release pipeline. The generated wheel and
 run products were kept under `artifacts/jobs/lra-single-install/` during the
 check; the hashes above preserve the identity used for this decision.
 
+## Current candidate check on 1 October 2026
+
+We repeated the installed check using the host and engine wheels built by the
+complete 27-factor tox pass at `14d999d43`. The later report-only commit
+`e8f92b8d6` did not change either package or its dependency lock. The local
+host wheel `0.1.9.dev847` has SHA-256
+`dff0edf72feda924e6a42b558f719c92908bed7781880ca4c04584d9ab6ece2d`;
+the matching engine wheel has SHA-256
+`a2f2bb72fe34d25322a4003c38a1e0b389e008b7be6831f49d97fcf4a7489264`.
+We installed the host with its `lra` extra from those built wheels into a fresh
+CPython 3.11 environment. The installed host discovered the `0.1.9.dev847`
+engine entry point from `site-packages`, then ran deterministic bundled REVEALS
+and analytical LOVE examples with R absent from `PATH` and `R_HOME` empty. The
+REVEALS sample shape was 2 × 3 × 21; the LOVE mean cover shape was 10 × 10.
+
+In a second fresh environment we installed the base host wheel alone. NumPy,
+SciPy, pandas and the engine were absent; loading LRA returned the declared
+extra-install instruction. Both installed CLIs exposed `run-lra --help`. This
+renews the local one-install evidence on the current package closure. Public
+index availability and release rights remain separate gates.
+
 ## Public index check on 30 September 2026
 
 We checked the official PyPI [host project](https://pypi.org/project/bijux-pollenomics/)

@@ -191,7 +191,7 @@
     "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/landclim/study_inventory/reading.py": "61de5919e76500abf8548fda1899e72977fc6e7e412203296cc4da92bf8c8c37",
     "packages/bijux-pollenomics/tests/unit/reporting/adna/sample_chronology_context/test_repository_data.py": "5d522cc028ceed420b8e4e7ad9d75e740c898258610c95e42eb708f0d4e595b6",
     "reports/README.md": "479f86bf4dc4ef731751d30b2f77976dd9324e86922872783d19ab482144b64c",
-    "reports/architecture/lra-distribution.md": "dfbbb9ea392e3cf22fb30b96d746b89ef3bf71c95adecc42cc80c50beb57b2cd",
+    "reports/architecture/lra-distribution.md": "e95166a2ce9ced04dce659ed44b4ccb246d74a7af069c1b1cd77d8b8a6bb8be9",
     "reports/architecture/lra-source-adoption/prototype-files.csv": "95d66a901bab875f7408729815e35f9d4923f9c938a88407bdfd4100bfa79365",
     "reports/architecture/lra-source-adoption/source-functions.csv": "b71d5a902034abe75e677b3378be76e1015a3b304478901eb70b988d96772517",
     "reports/architecture/native-backend.md": "088c7c34381521b6f9d2f39148bf126694d416f22219f12f7be95388d240b5e5",
