@@ -104,6 +104,15 @@ pollen sites; the LRA route uses one regional anchor and 13 local
 reconstruction predictors. The sites and outcomes were previously explored.
 This result does not compare vegetation accuracy or establish the best method
 for new Nordic cores.
+
+The refused BECKHAM fold remains refused after a [source-bound analytic-gradient
+check](../../../report/pollen-reconstruction/author-lra-constrained/optimizer-gradient/README.md).
+The check reproduced all six original ring-fit failures and recovered both
+HANGINGS fits with an exact derivative of the same LOVE objective. The four
+CUTHILL2 and LONGBREACH ring fits still failed their convergence test, so no
+BECKHAM LRA prediction or held-out score was added. A lower objective at a
+failed fit does not certify a reconstruction.
+
 The [site-influence result](../../../report/pollen-reconstruction/author-lra-constrained/direct-pollen/paired-hellinger-sensitivity.json)
 finds the lower direct mean Hellinger distance persists after any one scored
 site is omitted. Individual sites still disagree, especially for nearest
