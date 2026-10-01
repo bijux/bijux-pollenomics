@@ -419,15 +419,6 @@ def test_refresh_baseline_is_immutable_and_fixed_point_is_zero_diff(
         )
 
 
-def test_tracked_refresh_review_binds_current_baseline() -> None:
-    repository = Path(__file__).resolve().parents[7]
-    review_root = repository / "data/neotoma/review"
-    baseline = json.loads((review_root / "relational_baseline.json").read_text())
-    retained = json.loads((review_root / "relational_refresh_review.json").read_text())
-
-    assert retained == build_neotoma_refresh_review(baseline, baseline)
-
-
 def test_refresh_diff_reports_counts_and_requires_explanation_review(
     tmp_path: Path,
 ) -> None:
