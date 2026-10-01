@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import json
 from pathlib import Path
 import tempfile
 import unittest
@@ -27,16 +28,48 @@ class AnimalFoundationRefreshUnitTests(unittest.TestCase):
             data_root = tmp_root / "data"
             aadr_root = data_root / "aadr"
             report_root = tmp_root / "docs" / "report"
+            obishir_supplements = Path(
+                "adna/governance/source_library/papers/"
+                "10.1038-s41562-021-01083-y/supplementary"
+            )
+            for filename in (
+                "41562_2021_1083_MOESM1_ESM.pdf",
+                "41562_2021_1083_MOESM2_ESM.pdf",
+            ):
+                source = REPOSITORY_ROOT / "data" / obishir_supplements / filename
+                destination = data_root / obishir_supplements / filename
+                destination.parent.mkdir(parents=True, exist_ok=True)
+                destination.write_bytes(read_source_artifact_bytes(source))
+            camel_bridge = Path(
+                "adna/governance/source_library/projects/SRP073444/"
+                "paper_table_s1_sample_bridge.csv"
+            )
+            source = REPOSITORY_ROOT / "data" / camel_bridge
+            destination = data_root / camel_bridge
+            destination.parent.mkdir(parents=True, exist_ok=True)
+            destination.write_bytes(read_source_artifact_bytes(source))
+            source_library = (
+                REPOSITORY_ROOT / "data/adna/governance/source_library"
+            )
+            archived_sources: dict[str, tuple[Path, str]] = {}
+            for metadata_path in source_library.rglob("*.metadata.json"):
+                metadata = json.loads(metadata_path.read_text(encoding="utf-8"))
+                source_url = metadata.get("source_url")
+                content_type = metadata.get("content_type")
+                if source_url and content_type:
+                    source_path = Path(str(metadata_path).removesuffix(".metadata.json"))
+                    archived_sources[source_url] = (
+                        source_path,
+                        content_type,
+                    )
 
             def fake_downloader(url: str) -> tuple[bytes, str]:
-                if "/ena/browser/api/xml/SAMEA11296029" in url:
-                    accession = url.rsplit("/", 1)[-1]
-                    path = (
-                        REPOSITORY_ROOT
-                        / "data/adna/governance/source_library/projects/PRJEB59481/ena_samples"
-                        / f"{accession}.xml"
-                    )
-                    return (read_source_artifact_bytes(path), "application/xml")
+                if "efetch.fcgi" in url:
+                    return (b"<PubmedArticleSet/>", "application/xml")
+                archived = archived_sources.get(url)
+                if archived is not None:
+                    path, content_type = archived
+                    return (read_source_artifact_bytes(path), content_type)
                 if url.endswith("/PMC11162877/fullTextXML"):
                     path = REPOSITORY_ROOT / (
                         "data/adna/governance/source_library/papers/"
@@ -49,8 +82,6 @@ class AnimalFoundationRefreshUnitTests(unittest.TestCase):
                     return (b"PK\x03\x04", "application/zip")
                 if "crossref" in url:
                     return (b'{"message":{"title":["ok"]}}', "application/json")
-                if "efetch.fcgi" in url:
-                    return (b"<PubmedArticleSet/>", "application/xml")
                 return (b"<html><body>ok</body></html>", "text/html")
 
             fake_report = PublishedReportsReport(
