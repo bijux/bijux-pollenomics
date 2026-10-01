@@ -280,8 +280,13 @@ all 25 published window counts, but Neotoma site 28871 versus LandClim
 named lakes do not establish historical cores or a migration path. We also
 retain a complete [national RAA GeoPackage source candidate]
 (../../data/raa/raw/national_geopackage_source.json) in the private source
-store. Its 2,291,224,576 bytes and SHA-256 are verified; its analytical rights,
-feature semantics and relation to the current point layer are not yet reviewed.
+store. Its 2,291,224,576 bytes and SHA-256 are verified. The [RAÄ source
+review](../../docs/public/pollenomics-data/sources/raa.md#national-geopackage-source-candidate)
+binds the provider's national-download documentation and Public Domain terms to
+this release, so dataset-level analytical reuse and redistribution are no longer
+the blocker. The retained WFS center-point schema and national GeoPackage expose
+different identity fields; their record-level correspondence, populations,
+geometry, and scientific interpretation still need review before adoption.
 The Höje å report cited for Gullåkra and Vesums mossar also has an exact
 [private source identity](../../data/archaeology/raw/hojea_2003_source.json).
 Its project-area coordinates do not locate a pollen core or an independently

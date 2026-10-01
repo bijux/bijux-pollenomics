@@ -26,8 +26,8 @@
     },
     {
       "path": "data/raa/raw/national_geopackage_source.json",
-      "sha256": "6adbdd803f0eca628586a4c64372f6bf5b398a145a50ae6356fec49717983550",
-      "bytes": 1142
+      "sha256": "9ba437ea5d8e075a2509ab5fdec1233d529a0ce498cdf21183020737a42be8d0",
+      "bytes": 1400
     },
     {
       "path": "data/synthetic/score_protocol_source.json",
@@ -2591,8 +2591,8 @@
     },
     {
       "path": "reports/architecture/native-backend.md",
-      "sha256": "6572ea0d9bf39ec46630c8c7617fbbb57b4d22e9ced893fe418c5b0734e0bbf1",
-      "bytes": 6388
+      "sha256": "8aa679097d3f4457a1fb6b133f696fc2099a50b6d434142b3430c2ed6a759e80",
+      "bytes": 6797
     },
     {
       "path": "reports/architecture/ownership.md",
@@ -2606,8 +2606,8 @@
     },
     {
       "path": "reports/needed/README.md",
-      "sha256": "09ab1632f88effe6ac18fdfd531f3c8a6db3debe327721ab62e94e5d1c34e4a0",
-      "bytes": 23676
+      "sha256": "f6ae28b479d4288e7b1edccf89e0617dc6d0af8bfb372c3d33d46d33002edfdb",
+      "bytes": 25240
     },
     {
       "path": "reports/science/abborrtjarnen-source-method.md",

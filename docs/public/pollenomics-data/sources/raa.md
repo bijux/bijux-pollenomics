@@ -4,7 +4,7 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-09-21
+last_reviewed: 2026-10-01
 ---
 
 # RAÄ
@@ -159,13 +159,52 @@ Continue to
 family.
 
 
-## Private Source Ownership Audit
+## National GeoPackage Source Candidate
 
-The RAÄ source package provides a private read-only ownership audit for the inspected national GeoPackage profile. Callers pin complete local source bytes, and saved inspection reconstructs every source row before returning lineage. Native records, included remains, direct/nested properties and separate point/line/polygon/positional-uncertainty rows retain their original identities and scalar values. Container-header accounting does not validate geometry or derive representative coordinates. This capability neither adopts a canonical source release nor changes the historical density authority, chronology, country assignments or scientific-review posture. Captured provider terms and HTTP custody remain explicit upstream evidence.
+The private source store holds the exact 2026-09-12 national GeoPackage named in
+`data/raa/raw/national_geopackage_source.json` (2,291,224,576 bytes; recorded
+SHA-256 `96bbe197a84c70b64f047873ded15ce5df568198dc0794870a782decb82fed0b`).
+Its [RAÄ download directory](https://pub.raa.se/nedladdning/datauttag/lamningar_v1/)
+lists `lämningar_sverige.gpkg`. The [RAÄ technical description, version
+1.1](https://catalog.raa.se/store/1/resource/216) identifies that exact
+`lamningar_v1` production endpoint, the national GeoPackage delivery, SWEREF
+99 TM, and the `lämningar_sverige_point`, line, polygon, and positional
+uncertainty layers. The directory is regenerated: its current listing is not
+evidence that today's bytes equal the retained September capture.
 
-Native GeoPackages and large row inventories remain in caller-selected local
-data directories. Git retains the audit implementation and compact contracts;
-a local raw capture does not by itself change public source admission.
+The linked [RAÄ product description, version
+3.0](https://catalog.raa.se/store/1/resource/217) governs *Kulturhistoriska
+lämningar*, including its GeoPackage download. It states that the dataset is
+outside copyright and free to use (Public Domain), with no access restriction.
+RAÄ asks users to name the source and date when redistributing information
+because the register changes continuously. This resolves the dataset-level
+analytical reuse and redistribution question for the captured national download;
+it does not grant rights to separately linked images or documents, establish a
+scientific population, or admit the historical density layer.
+
+The captured GeoPackage's read-only container metadata names `lamning.uuid`,
+`point.lamning_uuid`, and the national point view's `uuid`; the RAÄ technical
+description defines these as the remains identity. The retained legacy WFS
+schema instead exposes `lamning_id`, `lamningsnummer`, and a `centrumpunkt`.
+Both sources expose a remains number, but their field names alone do not prove
+row identity, population equivalence, or that the legacy center point matches a
+native point geometry. A record-level crosswalk, source date and class comparison,
+and geometry review are still required before replacing the point source or
+regenerating density. No event dates or historical associations follow from this
+container-level comparison.
+
+The RAÄ source package provides a private read-only ownership audit for the
+inspected national GeoPackage profile. Callers pin complete local source bytes,
+and saved inspection reconstructs every source row before returning lineage.
+Native records, included remains, direct/nested properties and separate
+point/line/polygon/positional-uncertainty rows retain their original identities
+and scalar values. Container-header accounting does not validate geometry or
+derive representative coordinates. This capability does not adopt a canonical
+source release or change historical density authority, chronology, country
+assignments, or scientific-review posture. Native GeoPackages and large row
+inventories remain in caller-selected local data directories. Git retains the
+audit implementation and compact contracts; a local raw capture does not by
+itself change public source admission.
 
 
 Legacy point/density validation requires explicit reconciled populations and a

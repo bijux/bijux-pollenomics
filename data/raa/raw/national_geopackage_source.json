@@ -9,8 +9,10 @@
   "http_etag": "\"88915000-65b4170a61517\"",
   "http_last_modified": "Sat, 12 Sep 2026 04:14:41 GMT",
   "source_custody": "Exact source bytes and original request, response, capture and provider-metadata records are retained in the private data store under raa/lamningar-v1/.",
-  "rights_status": "provider material retained; analytical and redistribution terms require source-specific review",
+  "rights_status": "RAÄ Kulturhistoriska lämningar product description v3.0 (2026-02-02) declares the dataset Public Domain with no access restriction; cite source and capture date on redistribution. Separately linked media are outside this decision.",
   "scientific_admission": false,
   "canonical_adoption": false,
-  "remaining_decision": "Compare this complete national GeoPackage with the existing archaeological point source and declared spatial/temporal support before using it for lake context or field rankings."
+  "remaining_decision": "Reconcile national GeoPackage UUIDs, population, classes, geometry and source date with the historical WFS point/density layer before archaeological map or field ranking use.",
+  "rights_authority_url": "https://catalog.raa.se/store/1/resource/217",
+  "rights_authority_version": "3.0 (2026-02-02)"
 }
