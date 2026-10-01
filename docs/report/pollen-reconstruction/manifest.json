@@ -136,12 +136,12 @@
     },
     {
       "path": "docs/report/index.md",
-      "sha256": "91ff568670d8f92fd74e725766dd79e36da1324b32b5ebfc547fcff5807e3ff3",
+      "sha256": "f37abb50f8bdc5af5a2288a475ebf8a4014726056bd5759e98343b4e2325c45e",
       "bytes": 2668
     },
     {
       "path": "docs/report/maintenance/index.md",
-      "sha256": "19f35804b49f8294ba5be9c1235921be784a44be0993f939299cd36e0aa5d1bc",
+      "sha256": "7ea9f374811dc793799e66e38bc898e2fdbcecf9d6d540b7415a184c9314389b",
       "bytes": 1392
     },
     {
@@ -1856,17 +1856,22 @@
     },
     {
       "path": "docs/report/report_narrative_quality_review.json",
-      "sha256": "ec60b5ea1e75c84a8890d6c0e447e5761e793bb144594c9da3ec9605ead8b59b",
-      "bytes": 105065
+      "sha256": "71594ee05be18b7e1ff9b1371ea3041337c757b9968968cea03a827b463739ce",
+      "bytes": 105428
+    },
+    {
+      "path": "docs/report/report_narrative_quality_review.md",
+      "sha256": "d682b0efc6b87c504287f78bbe12243bad839821f1c6c318ada70fce25e32658",
+      "bytes": 624
     },
     {
       "path": "docs/report/report_surface_registry.json",
-      "sha256": "af5fb27889489f8fa5cc0f34b5521d12d2bb2c8da15d88ed0b1da1dfd047f54d",
-      "bytes": 878364
+      "sha256": "3dcbef601cc3303bf77082c8b1e768a3f6b3d428b1edcf77be2515d712c498db",
+      "bytes": 878815
     },
     {
       "path": "docs/report/report_surface_registry.md",
-      "sha256": "fa1471c473d7bc395f3061f55e9f29f8c326177629736c21001c56227976d765",
+      "sha256": "4e33c2148ea38c2a0217f39553f0f695a34a380a10293cdc020f06aa57642865",
       "bytes": 862
     },
     {
@@ -2163,6 +2168,11 @@
       "path": "docs/report/source-relations/source-reconciliation/report.json",
       "sha256": "16ff5155e6d653691587353ee2f1c741655f86f6cce12e669ff40c839a8b2eb2",
       "bytes": 15490
+    },
+    {
+      "path": "docs/report/synthetic-validation/README.md",
+      "sha256": "d61afd395ac2cb8c666a401087309c22a28cedd68a6b49498bedf60ad85f2ff5",
+      "bytes": 1050
     },
     {
       "path": "docs/report/vegetation-reference/farskesjon/README.md",
@@ -2536,8 +2546,8 @@
     },
     {
       "path": "reports/architecture/ownership.md",
-      "sha256": "ef747d169d77a1af4d4fddc195886a95d1c2995a30e34df661a3c36406221501",
-      "bytes": 4169
+      "sha256": "23d519f12ba8e834d7d3210f5147f771b5aa5345d9fcb226188a845307dc7c2e",
+      "bytes": 4538
     },
     {
       "path": "reports/evidence-index.md",

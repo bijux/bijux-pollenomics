@@ -1,10 +1,10 @@
 {
   "schema_version": "report-narrative-quality-review.v1",
-  "page_count": 276,
+  "page_count": 277,
   "quality_posture_counts": {
     "reader_ready": 108,
     "structured_reference": 19,
-    "thin_structure": 149
+    "thin_structure": 150
   },
   "rows": [
     {
@@ -2524,6 +2524,16 @@
       "bullet_sentence_count": 0,
       "heading_count": 1,
       "table_line_count": 0,
+      "quality_posture": "thin_structure",
+      "note": "Page explains itself but still needs stronger internal wayfinding."
+    },
+    {
+      "repository_path": "docs/report/synthetic-validation/README.md",
+      "prose_paragraph_count": 2,
+      "link_bullet_count": 0,
+      "bullet_sentence_count": 0,
+      "heading_count": 1,
+      "table_line_count": 7,
       "quality_posture": "thin_structure",
       "note": "Page explains itself but still needs stronger internal wayfinding."
     },

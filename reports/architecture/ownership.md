@@ -48,6 +48,12 @@ accounting checks still pass without changing scientific admission. These
 source-specific replays account for another part of the tree, while full
 mixed-owner assembly remains open.
 
+The five [synthetic method challenges](../../docs/report/synthetic-validation/README.md)
+also replayed their five governed JSON outputs byte for byte. Their explanatory
+pages are separately authored and linked from the family index. This gives
+these numerical and workflow checks producer ownership without treating
+fabricated cases as measured ecological validation.
+
 Our source-bound vegetation results illustrate the boundary: the
 [Färskesjön](../science/vegetation-reference/farskesjon/plot_support.py),
 [Småland historical-map](../science/vegetation-reference/smaland-historical-maps/coverage.py)
