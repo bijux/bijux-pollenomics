@@ -61,6 +61,17 @@ match the hashes in `source-replay.json`. The earlier `report.json` binds an
 older Python source closure; its numerical R vectors are byte identical to
 the fresh execution, but its source hashes must not be used as a claim about
 the installed engine.
+A new source-closed native R 4.6.0 execution against the current engine and
+five locked dependency archives passed all 43 core and 23 source-domain cases.
+Its comparison with the authenticated original R bundle passed all 48 paired
+vector cases. All 97 retained numeric CSVs were byte identical to the fresh
+run. Among the 132 retained raw-result files, 130 were byte identical. The
+fresh core case manifest adds hashes for its current inputs; the fresh core
+run report records a different elapsed time. Six generated scripts and process
+logs from that run remain disposable. These differences do not change the
+numeric result or turn the native run into a Linux release certificate. The
+reproduction commands above rerun this source-closed check.
+
 The focused solver and optimized-profile checks in
 `packages/bijux-pollenomics-lra/tests/unit/optimization/test_solver.py` and
 `packages/bijux-pollenomics-lra/tests/unit/reconstruction/test_optimized_profile.py`
