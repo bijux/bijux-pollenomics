@@ -287,7 +287,7 @@ def main() -> int:
     )
     args.output.mkdir(parents=True, exist_ok=False)
     with (args.output / "paper-correspondence.csv").open("w", newline="") as stream:
-        writer = csv.DictWriter(stream, fieldnames=list(rows[0]))
+        writer = csv.DictWriter(stream, fieldnames=list(rows[0]), lineterminator="\n")
         writer.writeheader()
         writer.writerows(rows)
     (args.output / "report.json").write_text(json.dumps(report, indent=2) + "\n")

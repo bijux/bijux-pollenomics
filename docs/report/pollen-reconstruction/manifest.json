@@ -976,8 +976,8 @@
     },
     {
       "path": "docs/report/publication-replay/landclim-published-window-provenance/README.md",
-      "sha256": "52323ac983273c43c288e76fae61dafedbc0ac95d7f0305f80b3ed8c303653eb",
-      "bytes": 520
+      "sha256": "3dd8b2dc62ef1845d5d0f127db7a77eee6baf74acdfd8ef65080407a3593a240",
+      "bytes": 870
     },
     {
       "path": "docs/report/publication-replay/landclim-published-window-provenance/REPORT.md",
@@ -986,7 +986,7 @@
     },
     {
       "path": "docs/report/publication-replay/landclim-published-window-provenance/manifest.json",
-      "sha256": "3cdddbace10f2f9e59ce6a8e1765061968ddbe84522ae5d8852c1aadd3562af0",
+      "sha256": "93875fa4fbe5ace6b10776a06db8aa41428e2afd527f67958f39b84c3f523818",
       "bytes": 2532
     },
     {
@@ -2406,8 +2406,8 @@
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/published_window_provenance.py",
-      "sha256": "b562fe5d24b442a703d1d3be05fb0b9b081ea34a8fbd3e92ec3b90aacacdc787",
-      "bytes": 15803
+      "sha256": "97a603bd52a27bfb1a1d5b7aa25431eeb964917937342b091435a507fa97ab1e",
+      "bytes": 15824
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/published_window_uncertainty.py",
@@ -2901,8 +2901,8 @@
     },
     {
       "path": "reports/science/publication-correspondence/published-window-provenance.md",
-      "sha256": "310ae9d6f98db7ea4760e433b16a48dd3493fd49d495d29f3d8a3c28bb135e4e",
-      "bytes": 4160
+      "sha256": "4cf28ee1c5f7c2813ea40da6e26c1f4ab51fe9ef3612f93d43a548284b0aa35b",
+      "bytes": 4215
     },
     {
       "path": "reports/science/reindeer-appendix-correspondence.md",
