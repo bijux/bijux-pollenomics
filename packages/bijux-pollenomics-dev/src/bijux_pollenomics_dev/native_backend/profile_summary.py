@@ -10,7 +10,6 @@ from pathlib import Path
 import statistics
 from typing import Any
 
-
 WORKLOADS = (
     "reveals-interactive",
     "reveals-reference-series",

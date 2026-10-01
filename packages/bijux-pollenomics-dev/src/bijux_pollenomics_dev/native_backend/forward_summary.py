@@ -15,7 +15,6 @@ import numpy as np
 
 from bijux_pollenomics_dev.native_backend.forward_compare import inputs
 
-
 SHAPES = ((1, 8, 3), (32, 128, 32), (512, 256, 64))
 METHODS = (
     "numpy_compute",
