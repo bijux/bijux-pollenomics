@@ -107,6 +107,11 @@ in two independent owner lanes. Its 3.44 MB JSON output matched the tracked
 file byte for byte from 30 declared native-source and code inputs in each lane.
 The report still refuses all 256 feature and chronology attempts and admits
 zero events; reproducible refusal is not evidence of an ecological route.
+The [governed four-country edge ledger](../../docs/report/propagation/governed-edge-ledger/README.md)
+now writes fresh CSV and JSON outputs from 15 declared inputs. Both owner
+lanes match the tracked files byte for byte. Its 16 country-pair bins still
+contain zero admitted events or evaluated edges, so these receipts establish
+report ownership without creating an observed propagation result.
 
 The [LandClim II study-input inventory](../../docs/report/publication-replay/landclim-study-inputs/README.md)
 replayed its five generated files byte for byte from the pinned raw workbook
