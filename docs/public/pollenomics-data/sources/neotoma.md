@@ -98,7 +98,9 @@ selected; 6,218 are outside the selected sites and 277 have unresolved source
 country. The account does not infer why an individual same-site sample was
 omitted. The original pollen screen refuses all 233 same-site nonselections
 and also flags six selected Swedish metadata IDs for missing comparable typed
-ages. Selection is not a scored-bin, LRA or vegetation admission.
+ages. Those six have negative native ages and fall in three nominal `-1` bins
+that the frozen Swedish predictor refused before scoring. Selection is not an
+LRA or vegetation admission.
 
 The [current source-bound LRA prerequisite review](../../../report/source-relations/neotoma/lra-prerequisites/README.md)
 retains all 10,637 sample chronology alternatives and 163 site basin review

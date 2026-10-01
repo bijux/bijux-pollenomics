@@ -225,6 +225,56 @@
       ]
     }
   ],
+  "selected_screen_refusal_age_context": [
+    {
+      "sample_id": "neotoma:sample:173173",
+      "site_id": "13338",
+      "calibrated_age_bp": -52,
+      "nominal_bin_id": -1,
+      "frozen_prediction_status": "refused",
+      "frozen_prediction_reason": "fewer_than_two_training_site_groups_with_positive_closed_counts"
+    },
+    {
+      "sample_id": "neotoma:sample:552099",
+      "site_id": "28869",
+      "calibrated_age_bp": -52.5,
+      "nominal_bin_id": -1,
+      "frozen_prediction_status": "refused",
+      "frozen_prediction_reason": "fewer_than_two_training_site_groups_with_positive_closed_counts"
+    },
+    {
+      "sample_id": "neotoma:sample:552100",
+      "site_id": "28869",
+      "calibrated_age_bp": -41.1,
+      "nominal_bin_id": -1,
+      "frozen_prediction_status": "refused",
+      "frozen_prediction_reason": "fewer_than_two_training_site_groups_with_positive_closed_counts"
+    },
+    {
+      "sample_id": "neotoma:sample:552116",
+      "site_id": "28869",
+      "calibrated_age_bp": -16.3,
+      "nominal_bin_id": -1,
+      "frozen_prediction_status": "refused",
+      "frozen_prediction_reason": "fewer_than_two_training_site_groups_with_positive_closed_counts"
+    },
+    {
+      "sample_id": "neotoma:sample:552387",
+      "site_id": "28872",
+      "calibrated_age_bp": -39.6,
+      "nominal_bin_id": -1,
+      "frozen_prediction_status": "refused",
+      "frozen_prediction_reason": "fewer_than_two_training_site_groups_with_positive_closed_counts"
+    },
+    {
+      "sample_id": "neotoma:sample:552388",
+      "site_id": "28872",
+      "calibrated_age_bp": -22.1,
+      "nominal_bin_id": -1,
+      "frozen_prediction_status": "refused",
+      "frozen_prediction_reason": "fewer_than_two_training_site_groups_with_positive_closed_counts"
+    }
+  ],
   "inputs": [
     {
       "path": "data/neotoma/relational/manifest.json",
@@ -260,6 +310,21 @@
       "path": "docs/report/regions/nordic/swedish-author-target-pollen/inputs/metadata-SE.json.gz",
       "bytes": 839,
       "sha256": "a7d8b5b1c9dc696db0b0f168bad83ff55f4447c762028d7af0947dad0d4cc770"
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/swedish-native-sequences/samples.json",
+      "bytes": 124912,
+      "sha256": "abbeca209bed0d5464bbe18b4c812cdd3b8ffcdad40979efd2783ede5199c45d"
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/swedish-direct-pollen/config.json",
+      "bytes": 2238,
+      "sha256": "9e330aec087180acb11638f544e773f53b6ffc1444da4e4d9840e53ad1849fd0"
+    },
+    {
+      "path": "docs/report/regions/nordic/swedish-author-target-pollen/predictions/predictions-SE.json.gz",
+      "bytes": 43638,
+      "sha256": "d80795914f5d812bda259dc6dfe057f3690136224a85f0a741a76aaf5c50b483"
     }
   ],
   "decisions": {

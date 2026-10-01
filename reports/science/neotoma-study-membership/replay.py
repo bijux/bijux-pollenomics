@@ -8,12 +8,22 @@ import csv
 import gzip
 from hashlib import sha256
 import json
+import math
 from pathlib import Path
 
 
 SAMPLE_PART = Path("data/neotoma/relational/surfaces/samples/part-00001.json")
 MANIFEST = Path("data/neotoma/relational/manifest.json")
 POLLEN_SCREEN = Path("docs/report/source-relations/neotoma/pollen-screen/report.json")
+SWEDISH_SAMPLES = Path(
+    "docs/report/pollen-reconstruction/swedish-native-sequences/samples.json"
+)
+SWEDISH_DESIGN = Path(
+    "docs/report/pollen-reconstruction/swedish-direct-pollen/config.json"
+)
+SWEDISH_PREDICTIONS = Path(
+    "docs/report/regions/nordic/swedish-author-target-pollen/predictions/predictions-SE.json.gz"
+)
 METADATA = {
     country: Path(
         "docs/report/regions/nordic/"
@@ -185,6 +195,63 @@ def build(repository: Path, output: Path) -> dict[str, object]:
         )
     if not set(selected).issubset(source_ids):
         raise ValueError("Selected study sample absent from source population")
+    for relative in (SWEDISH_SAMPLES, SWEDISH_DESIGN, SWEDISH_PREDICTIONS):
+        inputs.append(_identity(repository, relative))
+    native_samples = json.loads(
+        (repository / SWEDISH_SAMPLES).read_text(encoding="utf-8")
+    )
+    native_by_id = {
+        _neotoma_id("sample", row["sample_id"]): row for row in native_samples
+    }
+    swedish_selected = {
+        sample_id for sample_id, owner in selected.items() if owner[0] == "SE"
+    }
+    if (
+        len(native_by_id) != len(native_samples)
+        or set(native_by_id) != swedish_selected
+    ):
+        raise ValueError("Swedish source sample membership changed")
+    design = json.loads((repository / SWEDISH_DESIGN).read_text(encoding="utf-8"))
+    width = design["age_bin_width_cal_bp"]
+    if type(width) is not int or width <= 0:
+        raise ValueError("Swedish age bin width changed")
+    with gzip.open(repository / SWEDISH_PREDICTIONS, "rt", encoding="utf-8") as stream:
+        frozen = json.load(stream)
+    if frozen["country"] != "SE":
+        raise ValueError("Swedish prediction country changed")
+    predicted_bins = {(row["site_id"], row["bin_id"]) for row in frozen["predictions"]}
+    refused_by_bin = {
+        (row["site_id"], row["bin_id"]): row["reason"] for row in frozen["refusals"]
+    }
+    refused_bins = set(refused_by_bin)
+    if len(refused_by_bin) != len(frozen["refusals"]):
+        raise ValueError("Swedish prediction refusals are duplicated")
+    if predicted_bins & refused_bins:
+        raise ValueError("Swedish prediction and refusal bins overlap")
+    refusal_age_context: list[dict[str, object]] = []
+    for item in selected_screen_refusals:
+        sample_id = str(item["sample_id"])
+        native = native_by_id[sample_id]
+        age = native["calibrated_age_bp"]
+        site_id = native["site_id"]
+        bin_id = math.floor(age / width)
+        if (
+            age >= 0
+            or site_id != selected[sample_id][1].rsplit(":", 1)[-1]
+            or (site_id, bin_id) not in refused_bins
+            or (site_id, bin_id) in predicted_bins
+        ):
+            raise ValueError(f"Swedish age/refusal support changed: {sample_id}")
+        refusal_age_context.append(
+            {
+                "sample_id": sample_id,
+                "site_id": site_id,
+                "calibrated_age_bp": age,
+                "nominal_bin_id": bin_id,
+                "frozen_prediction_status": "refused",
+                "frozen_prediction_reason": refused_by_bin[(site_id, bin_id)],
+            }
+        )
     decisions.sort(key=lambda row: int(str(row["sample_id"]).rsplit(":", 1)[-1]))
     output.mkdir(parents=True)
     csv_path = output / "decisions.csv"
@@ -217,6 +284,7 @@ def build(repository: Path, output: Path) -> dict[str, object]:
             for (country, reason), number in sorted(same_site_reasons.items())
         ],
         "selected_screen_refusals": selected_screen_refusals,
+        "selected_screen_refusal_age_context": refusal_age_context,
         "inputs": inputs,
         "decisions": _identity(output, Path("decisions.csv")),
         "limits": (

@@ -25,10 +25,13 @@ screen reasons, not a proven explanation of the study's selection rule.
 
 Six Swedish IDs are present in the study metadata while the source pollen
 screen refuses them for lacking a sample-owned comparable typed age. The
-[machine result](report.json) names each ID. We retain both decisions; metadata
-membership does not assert that these six contributed to a scored bin. The
-6,218 samples outside the 84 selected sites are not exclusions from Neotoma
-itself or from every possible analysis.
+[machine result](report.json) names each ID and verifies its native sample age:
+all six are negative BP and map to nominal bin `-1` under the declared 500 BP
+width. The frozen Swedish prediction file refuses bin `-1` at all three sites
+for insufficient positive-count training groups; none of these six enters a
+scored prediction. We retain both the study metadata and source-screen
+decisions. The 6,218 samples outside the 84 selected sites are not exclusions
+from Neotoma itself or from every possible analysis.
 
 These are membership decisions for prior-exposed **observed-pollen** studies.
 They do not admit a lake to LRA, establish source rights or validate a pollen
@@ -39,7 +42,8 @@ membership alone does not imply a scored bin.
 The [producer](replay.py) verifies the source part against its manifest,
 joins all 12,388 original pollen-screen decisions by exact sample and row
 locator, refuses duplicate or missing selected IDs, and checks every selected
-site's source country. It reads metadata only, leaving sealed outcomes untouched.
+site's source country. It also checks the six native ages against the frozen
+prediction refusals. It leaves sealed target outcomes untouched.
 Reproduce into a new directory under repository `artifacts/`, then compare
 `decisions.csv` and `report.json` byte for byte with the governed files:
 
