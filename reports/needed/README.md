@@ -71,6 +71,10 @@ finds 79 LandClim II samples versus 92 Neotoma source samples; applying the
 published age span alone retains 90, so the historical selection is still
 unidentified. Its reported site area or site radius does not supply an
 age-specific shoreline.
+The [LegacyAge exact-depth join]
+(../../docs/report/countries/denmark/solsoe-source-lineage/legacyage-chronology/README.md)
+matches all 92 Neotoma samples across the 1981 and 1983 cores. It is an
+alternative chronology, not a source binding for the LandClim 79-row choice.
 
 For Norwegian Dalmutladdo, the [source-bound review](../science/dalmutladdo-lra-input/README.md)
 identifies one `DALMUT` core and 72 samples across LandClim II, Neotoma and
@@ -90,7 +94,9 @@ controls and an assumed core top. The original authors explicitly excluded
 the sixth, deeper Hela-4421 date from their fitted chronology and assumed an
 11,000 BP base; the control-selection question is settled. The published
 LandClim II PPE/fall-speed table is also available under CC BY 4.0, but its
-exact application and covariance profile for `LAIH` are not bound. The exact
+exact application and covariance profile for `LAIH` are not bound. The
+complete primary LegacyAge S5/S6 tables contain no row for Neotoma dataset
+`52082`; that alternative release cannot supply LAIH sample ages. The
 resolver is the LandClim-selected age vector/uncertainty, dated basin geometry,
 eligible denominator, core-specific parameter use and pollen-source rights for
 those 150 samples. We retain zero Finnish LRA admissions until that same-core

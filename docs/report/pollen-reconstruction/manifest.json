@@ -96,8 +96,8 @@
     },
     {
       "path": "docs/public/pollenomics/science/results.md",
-      "sha256": "a3ee9cfcc1fd1b72a2d65bd00c8c480b46d887b26d7b9186d6166f297fa8f7d2",
-      "bytes": 19029
+      "sha256": "3b7d5a4ada370759fd3c6d471c6cc44a1f9c3d0ab160eb7b99ecbd7d4b578418",
+      "bytes": 19424
     },
     {
       "path": "docs/public/pollenomics/science/sources.md",
@@ -118,6 +118,36 @@
       "path": "docs/report/countries/denmark/pollen-chronology-coverage/report.json",
       "sha256": "07eae7ce6398e98e4d59cb600096a341ae49248195f4f5d670ec324f3966c124",
       "bytes": 6062
+    },
+    {
+      "path": "docs/report/countries/denmark/solsoe-source-lineage/README.md",
+      "sha256": "b637fe742bc92f6ce0a293d696a802b325b591510a89884569ba67831ccab534",
+      "bytes": 1161
+    },
+    {
+      "path": "docs/report/countries/denmark/solsoe-source-lineage/legacyage-chronology/README.md",
+      "sha256": "040252f1f3298a6f4e534e4a30660447f2596a51a2fa072c1230044af4833367",
+      "bytes": 3598
+    },
+    {
+      "path": "docs/report/countries/denmark/solsoe-source-lineage/legacyage-chronology/refused-samples.csv",
+      "sha256": "052d97c8a2f01743cdbf425a41c7c5c37c5ac1e8f8b4a5ba5ea9db7e874d07e8",
+      "bytes": 118
+    },
+    {
+      "path": "docs/report/countries/denmark/solsoe-source-lineage/legacyage-chronology/replay.py",
+      "sha256": "3476ea97c084096d92eea4eda3127ff5c2c10f8dc2eec7951788fe0cf1349820",
+      "bytes": 11848
+    },
+    {
+      "path": "docs/report/countries/denmark/solsoe-source-lineage/legacyage-chronology/report.json",
+      "sha256": "dc06e30d7a290bb81ad6c8f0da1ec3b8a804f883af388692855698e9ee555be2",
+      "bytes": 3005
+    },
+    {
+      "path": "docs/report/countries/denmark/solsoe-source-lineage/legacyage-chronology/sample-depth-join.csv",
+      "sha256": "0a5a6c4fea4b547021e236ffdb4e5ec16178876b161f6d0556e6dd9ebcd80925",
+      "bytes": 8877
     },
     {
       "path": "docs/report/countries/denmark/solsoe-source-lineage/pangaea-epd-age-join/README.md",
@@ -2771,8 +2801,8 @@
     },
     {
       "path": "reports/needed/README.md",
-      "sha256": "bb56e5ea7c7e5809b8b1b2de10a05b4492c1f3bf6a7fae0a66ee757eeb56638c",
-      "bytes": 26926
+      "sha256": "2b0bdd677f2fc9c0f2b5a2006694e574289d3a819d3f390213555390c73fe7d3",
+      "bytes": 27338
     },
     {
       "path": "reports/science/abborrtjarnen-source-method.md",
@@ -2856,8 +2886,8 @@
     },
     {
       "path": "reports/science/laihalampi-lra-input/README.md",
-      "sha256": "8cb599208c14f89fe0902267cf845fba9759d242aeeafbc0f2ef987f18a20373",
-      "bytes": 5584
+      "sha256": "2e0847b353f3f49549a1fc355d2a5663c4d32f1f47c756e4cb4d0c62ab266e20",
+      "bytes": 6069
     },
     {
       "path": "reports/science/laihalampi-lra-input/replay.py",
@@ -3011,8 +3041,8 @@
     },
     {
       "path": "reports/science/solsoe-lra-input.md",
-      "sha256": "8c1231ea909c0268151e95b4200d0136dc349cf9801fd9c5209553cd5156b885",
-      "bytes": 4874
+      "sha256": "1b455086d901eaa3528fb7f387904661044f6f0fd7549e57297e9b9647f7307c",
+      "bytes": 5690
     },
     {
       "path": "reports/science/source-cohorts.md",

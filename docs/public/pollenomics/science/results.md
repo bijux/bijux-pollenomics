@@ -204,6 +204,13 @@ two-bin MAE is 0.006445, compared with 0.006341 for the parent's full
 compositions on the same bins. Those scores have a different taxon axis and
 denominator from the 16-label result; the two studies cannot be pooled.
 
+At Danish Solsø, a [primary LegacyAge depth join]
+(../../../report/countries/denmark/solsoe-source-lineage/legacyage-chronology/README.md)
+matches all 92 Neotoma samples across two cores. The 1981 and 1983 core
+chronologies have different agreement with these alternative age intervals.
+The join does not recover LandClim II's published selection of 79 samples or
+its historical basin inputs.
+
 ## A newly scored Swedish lake
 
 We applied three fixed observed-pollen predictors to Lake Sämbosjön, a
