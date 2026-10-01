@@ -1,5 +1,5 @@
 {
-  "schema_version": "neotoma-author-target-study-membership.v1",
+  "schema_version": "neotoma-author-target-study-membership.v2",
   "source_build_id": "sha256:92dd52619837f3641d004a1a5dbe38f9ab6023a79f61989314bb90e612eb58e1",
   "source_snapshot_id": "sha256:b2bcb99157e10b0c9f13c228acc12eabcb39d96a1f39c86ec25e34aacd78c791",
   "source_sample_count": 12388,
@@ -67,6 +67,164 @@
       "samples": 277
     }
   ],
+  "screen_status_counts": [
+    {
+      "country_code": "DK",
+      "membership": "outside_study_sites",
+      "screen_status": "refused",
+      "samples": 187
+    },
+    {
+      "country_code": "DK",
+      "membership": "same_site_not_selected",
+      "screen_status": "refused",
+      "samples": 1
+    },
+    {
+      "country_code": "DK",
+      "membership": "selected_for_author_target_study",
+      "screen_status": "necessary_candidate",
+      "samples": 91
+    },
+    {
+      "country_code": "FI",
+      "membership": "outside_study_sites",
+      "screen_status": "refused",
+      "samples": 185
+    },
+    {
+      "country_code": "FI",
+      "membership": "same_site_not_selected",
+      "screen_status": "refused",
+      "samples": 202
+    },
+    {
+      "country_code": "FI",
+      "membership": "selected_for_author_target_study",
+      "screen_status": "necessary_candidate",
+      "samples": 1797
+    },
+    {
+      "country_code": "NO",
+      "membership": "outside_study_sites",
+      "screen_status": "refused",
+      "samples": 310
+    },
+    {
+      "country_code": "NO",
+      "membership": "same_site_not_selected",
+      "screen_status": "refused",
+      "samples": 30
+    },
+    {
+      "country_code": "NO",
+      "membership": "selected_for_author_target_study",
+      "screen_status": "necessary_candidate",
+      "samples": 3544
+    },
+    {
+      "country_code": "SE",
+      "membership": "outside_study_sites",
+      "screen_status": "necessary_candidate",
+      "samples": 4789
+    },
+    {
+      "country_code": "SE",
+      "membership": "outside_study_sites",
+      "screen_status": "refused",
+      "samples": 747
+    },
+    {
+      "country_code": "SE",
+      "membership": "selected_for_author_target_study",
+      "screen_status": "necessary_candidate",
+      "samples": 222
+    },
+    {
+      "country_code": "SE",
+      "membership": "selected_for_author_target_study",
+      "screen_status": "refused",
+      "samples": 6
+    },
+    {
+      "country_code": "UNASSIGNED",
+      "membership": "unresolved_source_country",
+      "screen_status": "necessary_candidate",
+      "samples": 194
+    },
+    {
+      "country_code": "UNASSIGNED",
+      "membership": "unresolved_source_country",
+      "screen_status": "refused",
+      "samples": 83
+    }
+  ],
+  "same_site_screen_reason_occurrences": [
+    {
+      "country_code": "DK",
+      "reason_code": "no_sample_owned_comparable_typed_age",
+      "samples": 1
+    },
+    {
+      "country_code": "FI",
+      "reason_code": "no_numeric_count_candidate",
+      "samples": 53
+    },
+    {
+      "country_code": "FI",
+      "reason_code": "no_sample_owned_comparable_typed_age",
+      "samples": 155
+    },
+    {
+      "country_code": "NO",
+      "reason_code": "no_sample_owned_comparable_typed_age",
+      "samples": 30
+    }
+  ],
+  "selected_screen_refusals": [
+    {
+      "sample_id": "neotoma:sample:173173",
+      "country_code": "SE",
+      "screen_reason_codes": [
+        "no_sample_owned_comparable_typed_age"
+      ]
+    },
+    {
+      "sample_id": "neotoma:sample:552099",
+      "country_code": "SE",
+      "screen_reason_codes": [
+        "no_sample_owned_comparable_typed_age"
+      ]
+    },
+    {
+      "sample_id": "neotoma:sample:552100",
+      "country_code": "SE",
+      "screen_reason_codes": [
+        "no_sample_owned_comparable_typed_age"
+      ]
+    },
+    {
+      "sample_id": "neotoma:sample:552116",
+      "country_code": "SE",
+      "screen_reason_codes": [
+        "no_sample_owned_comparable_typed_age"
+      ]
+    },
+    {
+      "sample_id": "neotoma:sample:552387",
+      "country_code": "SE",
+      "screen_reason_codes": [
+        "no_sample_owned_comparable_typed_age"
+      ]
+    },
+    {
+      "sample_id": "neotoma:sample:552388",
+      "country_code": "SE",
+      "screen_reason_codes": [
+        "no_sample_owned_comparable_typed_age"
+      ]
+    }
+  ],
   "inputs": [
     {
       "path": "data/neotoma/relational/manifest.json",
@@ -77,6 +235,11 @@
       "path": "data/neotoma/relational/surfaces/samples/part-00001.json",
       "bytes": 16941983,
       "sha256": "c959e77f7c645b814bffe92a92ff2d8fabcc077b4fc4c894e6315e448d14100c"
+    },
+    {
+      "path": "docs/report/source-relations/neotoma/pollen-screen/report.json",
+      "bytes": 10575213,
+      "sha256": "ffecf23d5f1eb9e7287b418b70a140daa1d30d8c9648672f32b37a47dbbf7b31"
     },
     {
       "path": "docs/report/regions/nordic/author-target-pollen/inputs/metadata-DK.json.gz",
@@ -104,5 +267,5 @@
     "bytes": 1647815,
     "sha256": "3084b998f8935dea2eb52397fde3a2d1cdb606583265cd28c7f2793c70161183"
   },
-  "limits": "Membership describes four prior-exposed observed-pollen study input sets. Same-site nonselection has no inferred cause. Unassigned source country is unresolved; no LRA, ecological or source-rights admission follows."
+  "limits": "Membership describes four prior-exposed observed-pollen study input sets. Pollen-screen reasons describe source prerequisites, not a proven study-selection cause. Unassigned source country is unresolved; no LRA, ecological or source-rights admission follows."
 }

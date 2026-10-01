@@ -13,6 +13,7 @@ from pathlib import Path
 
 SAMPLE_PART = Path("data/neotoma/relational/surfaces/samples/part-00001.json")
 MANIFEST = Path("data/neotoma/relational/manifest.json")
+POLLEN_SCREEN = Path("docs/report/source-relations/neotoma/pollen-screen/report.json")
 METADATA = {
     country: Path(
         "docs/report/regions/nordic/"
@@ -76,6 +77,18 @@ def build(repository: Path, output: Path) -> dict[str, object]:
         or source["source_snapshot_id"] != manifest["source_snapshot_id"]
     ):
         raise ValueError("Source sample counts or snapshot identity changed")
+    inputs.append(_identity(repository, POLLEN_SCREEN))
+    screen = json.loads((repository / POLLEN_SCREEN).read_text(encoding="utf-8"))
+    screen_rows = screen["sample_decisions"]
+    if (
+        len(screen_rows) != len(rows)
+        or screen["normalized_build_id"] != manifest["build_id"]
+        or screen["source_snapshot_id"] != manifest["source_snapshot_id"]
+    ):
+        raise ValueError("Pollen screen source population changed")
+    screen_by_id = {item["sample_id"]: item for item in screen_rows}
+    if len(screen_by_id) != len(rows):
+        raise ValueError("Pollen screen sample identities are duplicated")
 
     selected: dict[str, tuple[str, str, str]] = {}
     study_sites: dict[str, tuple[str, str]] = {}
@@ -103,6 +116,9 @@ def build(repository: Path, output: Path) -> dict[str, object]:
     source_ids: set[str] = set()
     decisions: list[dict[str, object]] = []
     counts: Counter[tuple[str, str]] = Counter()
+    screen_counts: Counter[tuple[str, str, str]] = Counter()
+    same_site_reasons: Counter[tuple[str, str]] = Counter()
+    selected_screen_refusals: list[dict[str, object]] = []
     for index, row in enumerate(rows):
         sample_id = row["sample_id"]
         if sample_id in source_ids:
@@ -128,6 +144,33 @@ def build(repository: Path, output: Path) -> dict[str, object]:
         else:
             membership = "outside_study_sites"
             metadata_path = ""
+        screened = screen_by_id.get(sample_id)
+        if (
+            screened is None
+            or any(
+                screened[key] != row[key]
+                for key in ("country_code", "site_id", "dataset_id")
+            )
+            or screened["source_locator"]["row_index"] != index
+        ):
+            raise ValueError(f"Pollen screen sample lineage differs: {sample_id}")
+        status = screened["screen_status"]
+        if status not in ("necessary_candidate", "refused"):
+            raise ValueError(f"Unexpected pollen screen status: {sample_id}")
+        screen_counts[(country, membership, status)] += 1
+        if membership == "same_site_not_selected":
+            if status != "refused" or not screened["reason_codes"]:
+                raise ValueError(f"Same-site screen decision changed: {sample_id}")
+            for reason in screened["reason_codes"]:
+                same_site_reasons[(country, reason)] += 1
+        if membership == "selected_for_author_target_study" and status == "refused":
+            selected_screen_refusals.append(
+                {
+                    "sample_id": sample_id,
+                    "country_code": country,
+                    "screen_reason_codes": screened["reason_codes"],
+                }
+            )
         counts[(country, membership)] += 1
         decisions.append(
             {
@@ -150,7 +193,7 @@ def build(repository: Path, output: Path) -> dict[str, object]:
         writer.writeheader()
         writer.writerows(decisions)
     result = {
-        "schema_version": "neotoma-author-target-study-membership.v1",
+        "schema_version": "neotoma-author-target-study-membership.v2",
         "source_build_id": manifest["build_id"],
         "source_snapshot_id": manifest["source_snapshot_id"],
         "source_sample_count": len(rows),
@@ -160,12 +203,27 @@ def build(repository: Path, output: Path) -> dict[str, object]:
             {"country_code": country, "membership": membership, "samples": number}
             for (country, membership), number in sorted(counts.items())
         ],
+        "screen_status_counts": [
+            {
+                "country_code": country,
+                "membership": membership,
+                "screen_status": status,
+                "samples": number,
+            }
+            for (country, membership, status), number in sorted(screen_counts.items())
+        ],
+        "same_site_screen_reason_occurrences": [
+            {"country_code": country, "reason_code": reason, "samples": number}
+            for (country, reason), number in sorted(same_site_reasons.items())
+        ],
+        "selected_screen_refusals": selected_screen_refusals,
         "inputs": inputs,
         "decisions": _identity(output, Path("decisions.csv")),
         "limits": (
             "Membership describes four prior-exposed observed-pollen study input "
-            "sets. Same-site nonselection has no inferred cause. Unassigned source "
-            "country is unresolved; no LRA, ecological or source-rights admission follows."
+            "sets. Pollen-screen reasons describe source prerequisites, not a "
+            "proven study-selection cause. Unassigned source country is unresolved; "
+            "no LRA, ecological or source-rights admission follows."
         ),
     }
     (output / "report.json").write_text(

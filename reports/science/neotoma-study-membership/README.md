@@ -4,8 +4,9 @@ We joined the four retained 31-target observed-pollen study metadata files to
 every sample in the governed [Neotoma relational source](../../../data/neotoma/relational/manifest.json).
 The [decision ledger](decisions.csv) gives each of the 12,388 source sample IDs
 one source row locator, country, site, dataset and study membership. The
-[result](report.json) binds the source manifest, exact sample part and four
-study metadata files by byte count and SHA-256.
+[result](report.json) binds the source manifest, exact sample part,
+[per-sample pollen screen](../../../docs/report/source-relations/neotoma/pollen-screen/report.json)
+and four study metadata files by byte count and SHA-256.
 
 | Source country | Source samples | Selected in study | Same site, not selected | Outside study sites |
 | --- | ---: | ---: | ---: | ---: |
@@ -17,10 +18,17 @@ study metadata files by byte count and SHA-256.
 
 Another 277 source samples have no assigned country and remain separately
 marked `unresolved_source_country`. All 5,660 selected IDs agree with their
-source site and country across 84 study sites. The 233 same-site nonselections
-are not assigned an inferred cause; the source study metadata does not supply
-one per sample. The 6,218 samples outside the 84 selected sites are not
-exclusions from Neotoma itself or from every possible analysis.
+source site and country across 84 study sites. The source pollen screen refuses
+all 233 same-site nonselections: 186 lack a sample-owned comparable typed age,
+53 lack a numeric count candidate, and six have both reasons. These are source
+screen reasons, not a proven explanation of the study's selection rule.
+
+Six Swedish IDs are present in the study metadata while the source pollen
+screen refuses them for lacking a sample-owned comparable typed age. The
+[machine result](report.json) names each ID. We retain both decisions; metadata
+membership does not assert that these six contributed to a scored bin. The
+6,218 samples outside the 84 selected sites are not exclusions from Neotoma
+itself or from every possible analysis.
 
 These are membership decisions for prior-exposed **observed-pollen** studies.
 They do not admit a lake to LRA, establish source rights or validate a pollen
@@ -29,8 +37,9 @@ and its country reports retain the scored-bin and taxon denominators; sample
 membership alone does not imply a scored bin.
 
 The [producer](replay.py) verifies the source part against its manifest,
-refuses duplicate or missing selected IDs and checks every selected site's
-source country. It reads metadata only, leaving sealed outcomes untouched.
+joins all 12,388 original pollen-screen decisions by exact sample and row
+locator, refuses duplicate or missing selected IDs, and checks every selected
+site's source country. It reads metadata only, leaving sealed outcomes untouched.
 Reproduce into a new directory under repository `artifacts/`, then compare
 `decisions.csv` and `report.json` byte for byte with the governed files:
 

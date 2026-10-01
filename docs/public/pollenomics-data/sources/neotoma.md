@@ -96,7 +96,9 @@ joins all 12,388 relational sample IDs to the retained study metadata. It finds
 and 228 Sweden. Another 233 source samples occur at those sites but were not
 selected; 6,218 are outside the selected sites and 277 have unresolved source
 country. The account does not infer why an individual same-site sample was
-omitted, and selection is not a scored-bin, LRA or vegetation admission.
+omitted. The original pollen screen refuses all 233 same-site nonselections
+and also flags six selected Swedish metadata IDs for missing comparable typed
+ages. Selection is not a scored-bin, LRA or vegetation admission.
 
 The [current source-bound LRA prerequisite review](../../../report/source-relations/neotoma/lra-prerequisites/README.md)
 retains all 10,637 sample chronology alternatives and 163 site basin review
