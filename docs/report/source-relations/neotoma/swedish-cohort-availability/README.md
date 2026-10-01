@@ -17,6 +17,16 @@ We then screened a bounded [PANGAEA Swedish pollen-profile metadata search](http
 
 The [Giesecke final sample-age table](https://doi.org/10.1594/PANGAEA.804596) lists 37 Swedish event handles; all 37 match retained Neotoma handles, and none is one of these six. The [Fyfe chronology-reference table](https://doi.org/10.1594/PANGAEA.853943) identifies HAKULLA5 as using “EPD chron2” and cautions that its top may be less accurate. The later [LegacyAge site table](https://doi.org/10.1594/PANGAEA.933132) independently identifies HAKULLA5 as Neotoma site 3138/dataset 4082 with its own revised `AWI` age model. Neither site metadata table is a selected pollen-sample age series for a new core. The three unmatched handles are only **leads**, not proven distinct physical sites. GARASEL's [age-determination lead](https://doi.org/10.1594/PANGAEA.740365), the [EPD data access route](https://epd.imbe.fr/getdata/), or a source-owner packet would need to establish core identity, selected sample ages and permitted use before any prediction freeze.
 
+We checked GARASEL's linked records more closely. Its
+[pollen-profile metadata](https://doi.org/10.1594/PANGAEA.739248) identify
+depths from 0.12 to 5.50 m and pollen count parameters, but no sample-age
+column. The [dated-control metadata](https://doi.org/10.1594/PANGAEA.740365)
+identify depths from 3.025 to 7.175 m and raw radiocarbon dates and errors,
+not a selected calibrated age at each pollen-sample depth. Both records
+declare unknown licensing and require login for data access. A common event
+name is a lead for core reconciliation, not proof of an independent physical
+core. GARASEL still contributes zero admitted prediction samples.
+
 We opened metadata only, before any new candidate pollen observation or count table. This result does not validate an independent holdout or admit LRA inputs. The next candidate needs a distinct physical core, a source-linked selected calibrated sample-age sequence, permitted use, and a frozen prediction protocol before target counts are inspected. The [research need](https://github.com/bijux/bijux-pollenomics/blob/main/reports/needed/README.md#independent-confirmation) remains open.
 
 The [source declaration](sources.json) binds seven Neotoma/PANGAEA responses, 17 EPD/PANGAEA metadata and age-table sources, and the relational snapshot by exact digest. Reproduce the machine result from the repository root, with the private source store adjacent to the repository:

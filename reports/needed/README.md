@@ -310,6 +310,13 @@ links HAKULLA5 to retained Neotoma site 3138/dataset 4082. None of the six
 occurs in the 37-event Swedish EPD final sample-age inventory. For GARASEL or
 another unmatched handle, obtain a physical-core, selected pollen-sample-age,
 sample-depth and use-rights binding before target pollen counts are opened.
+GARASEL's [pollen metadata](https://doi.org/10.1594/PANGAEA.739248) list
+depths and count parameters without sample ages; its
+[dated-control metadata](https://doi.org/10.1594/PANGAEA.740365) list raw
+radiocarbon dates without a selected calibrated pollen-sample vector. Both
+require login and declare unknown licensing. Request that exact vector, core
+identity and permitted use from the source owner; do not infer ages from the
+controls or open counts ahead of the frozen study.
 **Reopen when:** a cohort owner can freeze eligible source records,
 grouping, preprocessing, metrics and refusal rules before any target outcome
 is inspected. Publish the prediction identity first and only then score it.
