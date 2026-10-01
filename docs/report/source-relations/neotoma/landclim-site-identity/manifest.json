@@ -2,8 +2,8 @@
   "schema_version": "swedish-landclim-site-identity-custody.v1",
   "inputs": {
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/swedish_site_identity.py": {
-      "bytes": 12036,
-      "sha256": "9a579852dac334939260ccd72add520acca5655f44dfc4e94ba6d272ebef94c2"
+      "bytes": 12579,
+      "sha256": "f2c136e0c66573ebca4de9273a63766e14ee0efecbfd0df6d9e9b9e2454d7c88"
     },
     "data/landclim/raw/landclim_ii_site_metadata.xlsx": {
       "bytes": 264067,
