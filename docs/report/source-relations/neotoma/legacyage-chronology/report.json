@@ -1,0 +1,55 @@
+{
+  "schema_version": "legacyage-neotoma-depth-join.v1",
+  "source_doi": "10.1594/PANGAEA.933132",
+  "source_license": "CC-BY-4.0",
+  "source_sha256": {
+    "table-s5-legacyage-chronology.csv": "bbe0e8d5854acf091a11737ddedc10d5656f8a25c8eeb9637b85f9e69a37cb41",
+    "table-s6-chronology-comparison.csv": "2a058f08472199b0545e4562e6860371dfaba7ce74140b1e0b4dbdce0ce55300"
+  },
+  "neotoma_sha256": {
+    "samples": "c959e77f7c645b814bffe92a92ff2d8fabcc077b4fc4c894e6315e448d14100c",
+    "age_claims": "6b8983b43138ec68895d96070508218d0b7c4f9908bf87860f96b79d2725c558"
+  },
+  "depth_unit": "cm",
+  "age_unit": "calibrated years BP",
+  "datasets": {
+    "19913": {
+      "site_id": "13338",
+      "core": "ABBO",
+      "samples": 107,
+      "s5_model_depths": 249,
+      "exact_sample_depth_joins": 107,
+      "unmatched_sample_depths": [],
+      "legacyage_mean_minus_neotoma_point_years": {
+        "minimum": -362.0,
+        "median": -16.0,
+        "maximum": 25.0
+      },
+      "original_chronology_compared": "EPD 1",
+      "comparison": "Original chronology is within the 95% confidence intervals of the LegacyAge 1.0",
+      "selection_reason": "Both ok and AWI's priority as using Bacon",
+      "legacyage_source": "AWI"
+    },
+    "20034": {
+      "site_id": "13388",
+      "core": "DALMUT",
+      "samples": 72,
+      "s5_model_depths": 289,
+      "exact_sample_depth_joins": 71,
+      "unmatched_sample_depths": [
+        "4.5"
+      ],
+      "legacyage_mean_minus_neotoma_point_years": {
+        "minimum": -294.0,
+        "median": -4.0,
+        "maximum": 108.0
+      },
+      "original_chronology_compared": "author preferred",
+      "comparison": "Original chronology is within the 95% confidence intervals of the LegacyAge 1.0",
+      "selection_reason": "Both ok and AWI's priority as using Bacon",
+      "legacyage_source": "AWI"
+    }
+  },
+  "exact_joins_with_neotoma_point_age_inside_s5_95_percent_range": 178,
+  "lra_admitted_samples": 0
+}

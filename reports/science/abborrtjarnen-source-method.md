@@ -24,13 +24,21 @@ age labels differ from Neotoma's across the sequence and do not declare their
 unit or model. No source establishes that either later export selected the
 published polynomial.
 
+We also joined the [LegacyAge 1.0 depth estimates](../../docs/report/source-relations/neotoma/legacyage-chronology/README.md)
+to all 107 ABBO Neotoma sample depths. Its AWI Bacon chronology is a separate
+published age model. The LegacyAge mean differs from the Neotoma point age by
+−362 to +25 years (median −16); every point age lies within its matched S5
+95% range. These comparisons support a new age-aware sensitivity study, not
+the age vector used in the 2005 paper, the Rootsi workbook or LandClim.
+
 We did **not** treat the paper's percentage definition as a measured denominator
 for Neotoma sample `173174` or a LandClim REVEALS taxon subtotal. Its 23 pollen
 NISP observations total 1,206, including four `Indeterminable` grains; six
 nonpollen observations total 57. The source does not supply a reviewed
 per-sample denominator or a LandClim-eligible taxon mask. `E(T500)` in a
 different palynological richness analysis is a rarefaction target, not this
-sample's raw count. No fixed count of 500 or Bacon chronology is admitted.
+sample's raw count. No fixed count of 500 or Bacon chronology is admitted as
+the historical LandClim input.
 
 We checked the 2005 paper's statement that at least **1,000 pollen grains and
 spores** were counted in nearly all samples. This is a counting target, not an exact count

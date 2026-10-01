@@ -50,7 +50,11 @@ the real reconstruction consumer, retaining refusals until each field is
 supported.
 
 **Already checked:** Neotoma/PANGAEA controls, 107 source depths, 2,183
-same-label workbook counts and the user's provisional packet. The packet
+same-label workbook counts, the [LegacyAge alternative age join]
+(../../docs/report/source-relations/neotoma/legacyage-chronology/README.md)
+and the user's provisional packet. LegacyAge provides an AWI Bacon estimate
+at every ABBO sample depth, but does not identify LandClim's selected ages.
+The packet
 explicitly leaves selected age model, historical basin series, full count/PPE
 mapping and workbook analytical-use rights open. **Reopen when:** a citable
 record binds those fields to the same physical core and time window; then
@@ -316,11 +320,16 @@ site-bin/policy queries, 473 predictions and 13 refusals across same and
 adjacent nominal bins. The [Sämbosjön source age-bound screen](../science/sambosjon-direct-pollen.md)
 finds 58/111 selected sample intervals crossing a 500-year boundary and at
 least one crossing in every scored bin. Its bound confidence level is unstated;
-it does not supply a joint age posterior or an adjusted pollen score.
+it does not supply a joint age posterior or an adjusted pollen score. The
+[LegacyAge depth join](../../docs/report/source-relations/neotoma/legacyage-chronology/README.md)
+now binds 107 ABBO and 71 of 72 DALMUT samples to an independent 95% age
+range; the 4.5 cm DALMUT sample remains unmatched. Its marginal intervals
+do not define joint age probabilities or make either site a fresh holdout.
 **Reopen when:** calibrated age-model uncertainty and
-eligible new cores are bound to those physical sites and windows; rerun an
-age-aware, group-excluded consumer rather than treating nominal bin shifts
-as chronology uncertainty.
+eligible cores are bound to physical sites and windows. First predeclare a
+conservative interval-overlap rule and run an age-aware, site-excluded
+development consumer on the newly joined ABBO source; keep confirmation
+claims separate until an untouched cohort exists.
 
 ## Independent confirmation
 
