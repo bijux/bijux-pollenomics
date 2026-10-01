@@ -15,8 +15,10 @@ R vectors is `3.552713678800501e-14`.
 
 The [core raw results](oracle/report.json), [domain raw results](source-domains/report.json),
 case manifests, supplied inputs and every R output vector are retained here.
-The executed R script and command receipt in that earlier snapshot contain
-its original disposable run path; they do not identify the new run. The
+We removed generated scripts, command paths and process logs that recorded
+an old disposable run directory. The warning counts retained in the numeric
+report record RcppDE import replacements and four core plus 48 source-domain
+`simpleLoess` memory-limit warnings; all declared comparisons still passed. The
 maintained R producer
 `packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/live_reference.py`
 checks the exact source lock, R version, native base and installed dependency
