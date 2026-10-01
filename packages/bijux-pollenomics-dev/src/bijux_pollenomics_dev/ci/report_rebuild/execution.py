@@ -2,9 +2,14 @@
 
 from __future__ import annotations
 
+from collections.abc import Mapping
 from pathlib import Path
 from typing import cast
 
+from bijux_pollenomics_dev.ci.atlas_media.process_execution import (
+    BoundedProcessError,
+    run_bounded_argv,
+)
 from bijux_pollenomics_dev.ci.rebuild_reports import InventoryEntry, inventory_reports
 
 from .contracts import (
@@ -14,6 +19,7 @@ from .contracts import (
     atomic_write_json,
     require_exact_binding,
     require_mapping,
+    require_relative_path,
     require_string,
     require_string_sequence,
     sha256_bytes,
@@ -25,6 +31,7 @@ from .evidence import (
     merge_fragment_trees,
     parse_inventory,
     parse_partition_manifest,
+    producer_input_identity,
     require_inventory_matches_tree,
 )
 from .planning import current_binding, parse_plan, require_current_binding
@@ -33,6 +40,104 @@ from .runtime_process import run_runtime_command
 FRAGMENT_SCHEMA = "partitioned-report-fragment.v1"
 ASSEMBLY_SCHEMA = "partitioned-report-assembly.v1"
 _LANES = frozenset({"reference", "replay"})
+OWNER_SCHEMA = "partitioned-report-owner.v1"
+
+
+def build_owner_output(
+    *,
+    repo_root: Path,
+    policy_path: Path,
+    plan_path: Path,
+    lane: str,
+    owner_id: str,
+    producer_command: tuple[str, ...],
+    producer_inputs: Mapping[str, Path],
+    source_paths: dict[str, str],
+    evidence_root: Path,
+    timeout_seconds: float = 1800,
+) -> JsonObject:
+    """Run one producer into a new artifact tree and bind its exact owned files."""
+    if lane not in _LANES:
+        raise ReportRebuildError(f"unsupported rebuild lane: {lane}")
+    repo_root = repo_root.resolve()
+    plan = parse_plan(plan_path)
+    policy, binding, _ = require_current_binding(
+        repo_root=repo_root, policy_path=policy_path, plan=plan
+    )
+    identity = require_string(owner_id, "owner_id")
+    if identity in {
+        *require_string_sequence(plan["partition_ids"], "partition_ids"),
+        require_string(plan["assembly_id"], "assembly_id"),
+    }:
+        raise ReportRebuildError("owner identity overlaps a publisher partition")
+    if not source_paths:
+        raise ReportRebuildError("owner source_paths must be nonempty")
+    paths = {
+        require_relative_path(source, "owner source path"): require_relative_path(
+            target, "owner report path"
+        )
+        for source, target in source_paths.items()
+    }
+    if len(set(paths.values())) != len(paths):
+        raise ReportRebuildError("owner report paths overlap")
+    if not producer_command or not any(
+        "{output_root}" in arg for arg in producer_command
+    ):
+        raise ReportRebuildError("producer command must name {output_root}")
+    inputs_before = producer_input_identity(producer_inputs, repo_root)
+    if not evidence_root.resolve().is_relative_to(repo_root / "artifacts"):
+        raise ReportRebuildError("owner evidence must be below repository artifacts")
+    if evidence_root.exists() or evidence_root.is_symlink():
+        raise ReportRebuildError(f"owner evidence root already exists: {evidence_root}")
+    evidence_root.mkdir(parents=True)
+    producer_root = evidence_root / "producer-output"
+    producer_root.mkdir()
+    command = tuple(
+        arg.replace("{output_root}", str(producer_root.resolve()))
+        for arg in producer_command
+    )
+    try:
+        completed = run_bounded_argv(
+            command,
+            cwd=repo_root,
+            timeout_seconds=timeout_seconds,
+            max_output_bytes=1024 * 1024,
+        )
+    except BoundedProcessError as error:
+        raise ReportRebuildError("owner producer could not be started") from error
+    if completed.timed_out or completed.returncode != 0:
+        raise ReportRebuildError(
+            f"owner producer failed: {identity}; exit={completed.returncode}; "
+            f"timed_out={completed.timed_out}"
+        )
+    generated = inventory_reports(producer_root, policy)
+    if set(entry.path for entry in generated) != set(paths):
+        raise ReportRebuildError("owner producer output coverage is not exact")
+    output_root = evidence_root / "output"
+    output_root.mkdir()
+    for source, target in sorted(paths.items()):
+        destination = output_root / target
+        destination.parent.mkdir(parents=True, exist_ok=True)
+        (producer_root / source).rename(destination)
+    inventory = inventory_reports(output_root, policy)
+    if producer_input_identity(producer_inputs, repo_root) != inputs_before:
+        raise ReportRebuildError("owner producer input bytes changed during execution")
+    binding_after, _ = current_binding(repo_root, policy_path, policy)
+    require_exact_binding(binding_after, binding, f"{identity} post-producer")
+    manifest: JsonObject = {
+        "schema_version": OWNER_SCHEMA,
+        "binding": binding.as_json(),
+        "lane": lane,
+        "owner_id": identity,
+        "producer_command": list(producer_command),
+        "producer_argv": list(command),
+        "producer_output_root": str(producer_root.resolve()),
+        "producer_inputs": inputs_before,
+        "source_paths": paths,
+        "inventory": inventory_json(inventory),
+    }
+    atomic_write_json(evidence_root / "manifest.json", manifest)
+    return manifest
 
 
 def load_fragments(

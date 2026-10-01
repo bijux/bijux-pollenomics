@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 from pathlib import Path
+import sys
 
 import pytest
 
@@ -21,6 +22,7 @@ from bijux_pollenomics_dev.ci.report_rebuild.evidence import (
 from bijux_pollenomics_dev.ci.report_rebuild.execution import load_fragments
 from bijux_pollenomics_dev.ci.report_rebuild.workflow import (
     assemble_partition_lane,
+    build_owner_output,
     build_partition,
     build_partition_plan,
     verify_partitioned_rebuild,
@@ -494,3 +496,201 @@ def test_fragment_loading_rejects_an_extra_manifest_from_another_lane(
             binding=parse_binding(plan["binding"], "plan binding"),
             policy=load_policy(policy_path),
         )
+
+
+def _owner(
+    root: Path,
+    *,
+    lane: str,
+    source_paths: dict[str, str],
+    produced: tuple[str, ...] | None = None,
+) -> Path:
+    payload = "from pathlib import Path; import sys; root=Path(sys.argv[1]); "
+    payload += "[(root / name).write_text(name + '\\n', encoding='utf-8') "
+    payload += "for name in sys.argv[2:]]"
+    output = root / "artifacts" / "owners" / lane / "petrkunes"
+    source = root / "external-source.txt"
+    if not source.exists():
+        source.write_text("source identity\n", encoding="utf-8")
+    build_owner_output(
+        repo_root=root,
+        policy_path=root / "policy.json",
+        plan_path=root / "plan.json",
+        lane=lane,
+        owner_id="petrkunes",
+        producer_command=(
+            sys.executable,
+            "-c",
+            payload,
+            "{output_root}",
+            *(produced if produced is not None else tuple(source_paths)),
+        ),
+        producer_inputs={"external-source": source},
+        source_paths=source_paths,
+        evidence_root=output,
+    )
+    return output / "manifest.json"
+
+
+def _verify_with_owner(
+    root: Path, *, owner_ids: tuple[str, ...] = ("petrkunes",)
+) -> dict[str, object]:
+    plan = json.loads((root / "plan.json").read_text(encoding="utf-8"))
+    reference = _assembly(
+        root / "assemblies", lane="reference", binding=plan["binding"]
+    )
+    replay = _assembly(root / "assemblies", lane="replay", binding=plan["binding"])
+    return verify_partitioned_rebuild(
+        repo_root=root,
+        policy_path=root / "policy.json",
+        plan_path=root / "plan.json",
+        reference_manifest_path=reference,
+        replay_manifest_path=replay,
+        reference_owners_root=root / "artifacts/owners/reference",
+        replay_owners_root=root / "artifacts/owners/replay",
+        owner_ids=owner_ids,
+        evidence_root=root / "artifacts/final",
+    )
+
+
+def test_mixed_owner_rebuild_covers_four_generated_outputs(tmp_path: Path) -> None:
+    root, _, plan_path = _fixture(tmp_path)
+    _write_complete_tree(root / "docs/report", plan_path=plan_path)
+    directory = "method-certification/petrkunes-r-comparison"
+    paths = {
+        name: f"{directory}/{name}"
+        for name in (
+            "summary.csv",
+            "taxa.csv",
+            "bootstrap-full-grid.csv",
+            "native-report.json",
+        )
+    }
+    for lane in ("reference", "replay"):
+        _owner(root, lane=lane, source_paths=paths)
+    for name, target in paths.items():
+        destination = root / "docs/report" / target
+        destination.parent.mkdir(parents=True, exist_ok=True)
+        destination.write_text(name + "\n", encoding="utf-8")
+
+    report = _verify_with_owner(root)
+
+    assert report["status"] == "PASS"
+    assert set(report["owners"]["reference"]) == {"petrkunes"}
+    owner = report["owners"]["reference"]["petrkunes"]
+    assert owner["producer_argv"][0] == sys.executable
+    assert owner["producer_inputs"]["external-source"]["size"] == len(
+        "source identity\n"
+    )
+    assert owner["producer_inputs"]["external-source"]["path"] == (
+        "external-source.txt"
+    )
+
+
+def test_mixed_owner_accepts_a_report_named_manifest(tmp_path: Path) -> None:
+    root, _, plan_path = _fixture(tmp_path)
+    _write_complete_tree(root / "docs/report", plan_path=plan_path)
+    target = "method/manifest.json"
+    for lane in ("reference", "replay"):
+        _owner(root, lane=lane, source_paths={"manifest.json": target})
+    destination = root / "docs/report" / target
+    destination.parent.mkdir(parents=True)
+    destination.write_text("manifest.json\n", encoding="utf-8")
+
+    assert _verify_with_owner(root)["status"] == "PASS"
+
+
+@pytest.mark.parametrize("produced", [(), ("summary.csv", "extra.csv")])
+def test_owner_producer_requires_exact_generated_file_set(
+    tmp_path: Path, produced: tuple[str, ...]
+) -> None:
+    root, _, _ = _fixture(tmp_path)
+    with pytest.raises(ReportRebuildError, match="coverage is not exact"):
+        _owner(
+            root,
+            lane="reference",
+            source_paths={"summary.csv": "method/summary.csv"},
+            produced=produced,
+        )
+
+
+def test_owner_evidence_cannot_use_tracked_report_tree(tmp_path: Path) -> None:
+    root, _, _ = _fixture(tmp_path)
+    with pytest.raises(ReportRebuildError, match="below repository artifacts"):
+        build_owner_output(
+            repo_root=root,
+            policy_path=root / "policy.json",
+            plan_path=root / "plan.json",
+            lane="reference",
+            owner_id="petrkunes",
+            producer_command=(sys.executable, "-c", "pass", "{output_root}"),
+            producer_inputs={"source": root / "source.txt"},
+            source_paths={"summary.csv": "method/summary.csv"},
+            evidence_root=root / "docs/report",
+        )
+
+
+def test_mixed_owner_rebuild_rejects_missing_owner(tmp_path: Path) -> None:
+    root, _, plan_path = _fixture(tmp_path)
+    _write_complete_tree(root / "docs/report", plan_path=plan_path)
+    for lane in ("reference", "replay"):
+        (root / "artifacts/owners" / lane).mkdir(parents=True)
+
+    with pytest.raises(ReportRebuildError, match="coverage is not exact"):
+        _verify_with_owner(root)
+
+
+def test_mixed_owner_rebuild_rejects_changed_external_input(tmp_path: Path) -> None:
+    root, _, plan_path = _fixture(tmp_path)
+    _write_complete_tree(root / "docs/report", plan_path=plan_path)
+    target = "method/summary.csv"
+    for lane in ("reference", "replay"):
+        _owner(root, lane=lane, source_paths={"summary.csv": target})
+    (root / "external-source.txt").write_text("changed\n", encoding="utf-8")
+
+    with pytest.raises(ReportRebuildError, match="producer inputs changed"):
+        _verify_with_owner(root)
+
+
+@pytest.mark.parametrize("mutation", ["binding", "bytes", "inputs", "argv", "overlap"])
+def test_mixed_owner_rebuild_rejects_changed_evidence(
+    tmp_path: Path, mutation: str
+) -> None:
+    root, _, plan_path = _fixture(tmp_path)
+    _write_complete_tree(root / "docs/report", plan_path=plan_path)
+    target = "method/summary.csv"
+    (root / "docs/report/method").mkdir()
+    (root / "docs/report" / target).write_text("summary.csv\n", encoding="utf-8")
+    for lane in ("reference", "replay"):
+        _owner(root, lane=lane, source_paths={"summary.csv": target})
+    reference_manifest = root / "artifacts/owners/reference/petrkunes/manifest.json"
+    if mutation == "binding":
+        manifest = json.loads(reference_manifest.read_text(encoding="utf-8"))
+        manifest["binding"]["inputs_sha256"] = "stale"
+        reference_manifest.write_text(json.dumps(manifest), encoding="utf-8")
+    elif mutation == "bytes":
+        (reference_manifest.parent / "output" / target).write_text(
+            "changed\n", encoding="utf-8"
+        )
+    elif mutation == "inputs":
+        manifest = json.loads(reference_manifest.read_text(encoding="utf-8"))
+        manifest["producer_inputs"]["external-source"]["sha256"] = "0" * 64
+        reference_manifest.write_text(json.dumps(manifest), encoding="utf-8")
+    elif mutation == "argv":
+        manifest = json.loads(reference_manifest.read_text(encoding="utf-8"))
+        manifest["producer_argv"][-1] = "other.csv"
+        reference_manifest.write_text(json.dumps(manifest), encoding="utf-8")
+    else:
+        for lane in ("reference", "replay"):
+            path = root / f"artifacts/owners/{lane}/petrkunes/manifest.json"
+            manifest = json.loads(path.read_text(encoding="utf-8"))
+            manifest["source_paths"] = {"summary.csv": _fragment_path("world")}
+            manifest["inventory"][0]["path"] = _fragment_path("world")
+            path.write_text(json.dumps(manifest), encoding="utf-8")
+            destination = path.parent / "output" / _fragment_path("world")
+            destination.parent.mkdir(parents=True)
+            (path.parent / "output" / target).rename(destination)
+    with pytest.raises(
+        ReportRebuildError, match="binding|manifest|overlaps|changed|argv"
+    ):
+        _verify_with_owner(root)

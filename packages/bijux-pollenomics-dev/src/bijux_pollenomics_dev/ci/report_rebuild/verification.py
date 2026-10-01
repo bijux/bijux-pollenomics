@@ -30,6 +30,8 @@ from .evidence import (
     binding_from_manifest,
     inventory_json,
     parse_inventory,
+    parse_owner_manifest,
+    producer_input_identity,
     require_inventory_matches_tree,
 )
 from .execution import ASSEMBLY_SCHEMA
@@ -120,6 +122,91 @@ def _load_complete_lane(
     return manifest, inventory
 
 
+def _load_owner_outputs(
+    *,
+    artifacts_root: Path | None,
+    repo_root: Path,
+    lane: str,
+    binding: RebuildBinding,
+    policy: JsonObject,
+    publisher_ids: set[str],
+) -> dict[str, tuple[JsonObject, tuple[InventoryEntry, ...], Path]]:
+    """Load every independent owner artifact for one lane."""
+    if artifacts_root is None:
+        return {}
+    if (
+        not artifacts_root.is_dir()
+        or artifacts_root.is_symlink()
+        or not artifacts_root.resolve().is_relative_to(repo_root / "artifacts")
+    ):
+        raise ReportRebuildError("owner artifacts must be below repository artifacts")
+    owners: dict[str, tuple[JsonObject, tuple[InventoryEntry, ...], Path]] = {}
+    for owner_root in sorted(artifacts_root.iterdir()):
+        if owner_root.is_symlink() or not owner_root.is_dir():
+            raise ReportRebuildError(f"invalid owner artifact directory: {owner_root}")
+        path = owner_root / "manifest.json"
+        if path.is_symlink() or not path.is_file():
+            raise ReportRebuildError(f"owner manifest is missing: {owner_root}")
+        manifest = parse_owner_manifest(path)
+        if manifest["lane"] != lane:
+            raise ReportRebuildError(f"owner manifest names the wrong lane: {path}")
+        owner_id = cast(str, manifest["owner_id"])
+        if owner_root.name != owner_id:
+            raise ReportRebuildError(
+                f"owner directory differs from identity: {owner_id}"
+            )
+        if owner_id in publisher_ids or owner_id in owners:
+            raise ReportRebuildError(f"owner identity overlaps: {owner_id}")
+        require_exact_binding(
+            binding_from_manifest(manifest, "owner manifest"), binding, owner_id
+        )
+        inventory = parse_inventory(manifest["inventory"], "owner inventory")
+        require_inventory_matches_tree(
+            root=path.parent / "output",
+            expected=inventory,
+            policy=policy,
+            label=owner_id,
+        )
+        _require_current_owner_inputs(manifest, repo_root, owner_id)
+        owners[owner_id] = (manifest, inventory, path)
+    return owners
+
+
+def _require_current_owner_inputs(
+    manifest: JsonObject, repo_root: Path, owner_id: str
+) -> None:
+    """Reject a producer receipt whose named source files changed or vanished."""
+    inputs = require_mapping(manifest["producer_inputs"], "owner producer_inputs")
+    paths = {
+        label: Path(
+            require_string(
+                require_mapping(value, f"owner producer input {label}")["path"],
+                f"owner producer input {label} path",
+            )
+        )
+        for label, value in inputs.items()
+    }
+    if producer_input_identity(paths, repo_root) != inputs:
+        raise ReportRebuildError(f"owner producer inputs changed: {owner_id}")
+
+
+def _merge_owned_inventories(
+    publisher: tuple[InventoryEntry, ...],
+    owners: dict[str, tuple[JsonObject, tuple[InventoryEntry, ...], Path]],
+) -> tuple[InventoryEntry, ...]:
+    """Require one owner for every file in a lane's combined inventory."""
+    combined = {entry.path: entry for entry in publisher}
+    for identity, (_, inventory, _) in owners.items():
+        for entry in inventory:
+            if entry.path in combined:
+                raise ReportRebuildError(
+                    f"owner output overlaps publisher or another owner: "
+                    f"{identity}: {entry.path}"
+                )
+            combined[entry.path] = entry
+    return tuple(combined[path] for path in sorted(combined))
+
+
 def verify_partitioned_rebuild(
     *,
     repo_root: Path,
@@ -128,10 +215,23 @@ def verify_partitioned_rebuild(
     reference_manifest_path: Path,
     replay_manifest_path: Path,
     evidence_root: Path,
+    reference_owners_root: Path | None = None,
+    replay_owners_root: Path | None = None,
+    owner_ids: tuple[str, ...] = (),
 ) -> JsonObject:
     """Verify two complete partitioned builds and the tracked report tree."""
     if evidence_root.exists() or evidence_root.is_symlink():
         raise ReportRebuildError(f"final evidence root already exists: {evidence_root}")
+    if (reference_owners_root is None) != (replay_owners_root is None):
+        raise ReportRebuildError("both owner artifact lanes are required together")
+    if bool(owner_ids) != (reference_owners_root is not None):
+        raise ReportRebuildError(
+            "owner identities and both artifact roots are required together"
+        )
+    if len(owner_ids) != len(set(owner_ids)) or any(
+        not identity for identity in owner_ids
+    ):
+        raise ReportRebuildError("owner identities must be nonempty and unique")
     repo_root = repo_root.resolve()
     plan = parse_plan(plan_path)
     policy, binding, inputs_before = require_current_binding(
@@ -160,16 +260,47 @@ def verify_partitioned_rebuild(
             raise ReportRebuildError(
                 f"reference and replay assembly ownership differ: {field}"
             )
+    publisher_ids = {*partition_ids, assembly_id}
+    reference_owners = _load_owner_outputs(
+        artifacts_root=reference_owners_root,
+        repo_root=repo_root,
+        lane="reference",
+        binding=binding,
+        policy=policy,
+        publisher_ids=publisher_ids,
+    )
+    replay_owners = _load_owner_outputs(
+        artifacts_root=replay_owners_root,
+        repo_root=repo_root,
+        lane="replay",
+        binding=binding,
+        policy=policy,
+        publisher_ids=publisher_ids,
+    )
+    for lane, owners in (("reference", reference_owners), ("replay", replay_owners)):
+        if set(owners) != set(owner_ids):
+            raise ReportRebuildError(f"{lane} owner coverage is not exact")
+    for identity in reference_owners:
+        for field in ("source_paths", "producer_command", "producer_inputs"):
+            if (
+                reference_owners[identity][0][field]
+                != replay_owners[identity][0][field]
+            ):
+                raise ReportRebuildError(f"owner {field} changed: {identity}")
+    complete_reference = _merge_owned_inventories(reference, reference_owners)
+    complete_replay = _merge_owned_inventories(replay, replay_owners)
     tracked = inventory_reports(
         repo_root / cast(str, policy["tracked_report_root"]), policy
     )
     differences: list[JsonObject] = [
         {"comparison": "reference_vs_replay", **row}
-        for row in compare_inventories(reference, replay, canonical=False)
+        for row in compare_inventories(
+            complete_reference, complete_replay, canonical=False
+        )
     ]
     differences.extend(
         {"comparison": "tracked_vs_reference", **row}
-        for row in compare_inventories(tracked, reference, canonical=True)
+        for row in compare_inventories(tracked, complete_reference, canonical=True)
     )
     if inputs_before != inventory_inputs(repo_root, policy):
         differences.append(
@@ -186,6 +317,9 @@ def verify_partitioned_rebuild(
                 "kind": "changed_during_build",
             }
         )
+    for owners in (reference_owners, replay_owners):
+        for identity, (manifest, _, _) in owners.items():
+            _require_current_owner_inputs(manifest, repo_root, identity)
     report: JsonObject = {
         "schema_version": "reproducible-report-build-evidence.v2",
         "status": "PASS" if not differences else "FAIL",
@@ -210,10 +344,25 @@ def verify_partitioned_rebuild(
                 "fragment_manifest_sha256": replay_manifest["fragment_manifest_sha256"],
             },
         },
+        "owners": {
+            lane: {
+                identity: {
+                    "manifest_sha256": sha256_bytes(path.read_bytes()),
+                    "paths": [entry.path for entry in inventory],
+                    "producer_argv": manifest["producer_argv"],
+                    "producer_inputs": manifest["producer_inputs"],
+                }
+                for identity, (manifest, inventory, path) in sorted(owners.items())
+            }
+            for lane, owners in (
+                ("reference", reference_owners),
+                ("replay", replay_owners),
+            )
+        },
         "inventories": {
             "tracked": inventory_json(tracked),
-            "reference": inventory_json(reference),
-            "replay": inventory_json(replay),
+            "reference": inventory_json(complete_reference),
+            "replay": inventory_json(complete_replay),
         },
         "differences": differences,
     }
