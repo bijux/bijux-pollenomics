@@ -13,6 +13,7 @@ sources remain in their governed source store.
 | HYDE source semantics | High for a land-use ablation | Exact release provider and reuse/metadata review. |
 | Historical publication inputs and taxonomy | High for full-paper reproduction | Archive producer or author and qualified taxon review. |
 | Neotoma acquisition and boundary authority | High for source reproducibility | Original capture custodian and country-boundary decision owner. |
+| SVAR lake registry identity and reuse | High for Swedish field ranking | SMHI/Lantmäteriet source owner and full lake-ID reconciliation. |
 | Swedish lake and archaeology context joins | High for field and multi-evidence interpretation | Lake/core, SEAD/archaeology and aDNA source owners with spatial and temporal review. |
 | Chronology-aware temporal prediction | High for time-transfer claims | Core age-model source owners and an independently dated, source-qualified evaluation cohort. |
 | Independent confirmation | High for generalization claims | A new source-qualified cohort owner before outcomes are opened. |
@@ -227,6 +228,24 @@ values, exact TW2 archive differences, 79 Rootsi workbook candidates and
 revisions or covariance transformation. **Reopen when:** the producer or
 archive custodian supplies a versioned raw-row and PFT/SE transformation
 packet; replay the named cells and revise the correspondence result.
+
+## SVAR lake registry identity and reuse
+
+**Affected result:** Swedish lake ranking admits zero candidates while its
+governing registry is unavailable. The [SVAR source review]
+(../../docs/report/source-relations/svar/normalized-export/README.md) retains
+a 40,565-lake normalized export. A bounded official WFS check on 1 October
+2026 reported the same count and matched two source lake IDs, but the
+governed 40,523-lake review has no complete retained ID list. We cannot
+attribute the 42-record difference or promote either source to the registry.
+
+**Needed:** SMHI or Lantmäteriet authority for the exact lake geometry layer,
+its reuse terms and supported acquisition route; then the complete source ID
+sets and selection rules for both lake populations. Reconcile identities
+before admitting a named lake or recalculating a field rank. SMHI's current
+hydrografi description restricts lake geometries to a view service, so its
+general open-data terms do not by themselves permit reuse of the old WFS
+geometry layer.
 
 ## Swedish lake and archaeology context joins
 
