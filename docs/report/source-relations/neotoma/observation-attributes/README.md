@@ -34,7 +34,8 @@ for a whole-pollen claim. `unit_family: count`,
 `detection_status: reported_value` are derived classifications, not additional
 raw attributes.
 
-The [pinned regression](../../../../../packages/bijux-pollenomics/tests/unit/collection/sources/neotoma/relational/test_observation_source_trace.py)
+The pinned regression at
+`packages/bijux-pollenomics/tests/unit/collection/sources/neotoma/relational/test_observation_source_trace.py`
 selects the raw datum by native parents and taxon ID, derives its observation
 identifier from the source payload digest, and compares every field above with
 the retained relational row. The [native hierarchy audit](../native-roundtrip/README.md)
