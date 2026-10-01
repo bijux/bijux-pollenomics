@@ -106,8 +106,8 @@
     },
     {
       "path": "docs/public/pollenomics/science/results.md",
-      "sha256": "14795ac25cff3aa6389598f24cc07c62fc1fc981d4115f0d5da31084b90e9b43",
-      "bytes": 20392
+      "sha256": "c6937529360337050d85d52135bd11097a88184c4bcbc31d88d72b5751b2b7db",
+      "bytes": 21054
     },
     {
       "path": "docs/public/pollenomics/science/sources.md",
@@ -2871,8 +2871,8 @@
     },
     {
       "path": "reports/architecture/ownership.md",
-      "sha256": "10ada65bcba6791bec0abcd2ef51f4d70b378eb9f03d2fd1f92ffdc104d3f943",
-      "bytes": 5409
+      "sha256": "826b19279d91b405659ecaf7cce1f8215c57807022d97d9e9eb275ae543648e8",
+      "bytes": 9188
     },
     {
       "path": "reports/evidence-index.md",
