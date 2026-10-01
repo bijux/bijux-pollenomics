@@ -17,7 +17,13 @@ describe that closed subcomposition, not all pollen or vegetation.
 
 Sämbosjön contributes 111 distinct core samples. Each has a source-default
 comparable calibrated age from the Neotoma MADCAP chronology; temporal bins
-did not propagate its age uncertainty. A nearby LandClim `SAM` point is
+did not propagate its age uncertainty. Our separate
+[source age-bound screen](../../docs/report/regions/nordic/sambosjon-direct-pollen/age-bounds/README.md)
+finds that 58 of 111 reported sample intervals cross a nominal 500-year bin
+boundary; every scored bin contains at least one crossing sample. The source
+does not state a confidence level for these bounds or provide a joint age
+posterior, so we cannot infer an uncertainty-adjusted pollen score. A nearby
+LandClim `SAM` point is
 3.316459 km away and remains an explicitly refused identity join. The source
 names Gunnar Digerfeldt and a 1982 primary report; the Neotoma dataset DOI is
 [`10.21233/53ys-nt12`](https://doi.org/10.21233/53ys-nt12). Neotoma's

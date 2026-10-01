@@ -51,7 +51,10 @@ not compare their error magnitudes. Aggregate target count support was screened
 before prediction, and aggregate scores were inspected before a later protocol
 annotation correction; the frozen prediction bytes and fixed methods did not
 change. This is one-site descriptive development evidence, not independent
-confirmation, an LRA reconstruction or a vegetation score.
+confirmation, an LRA reconstruction or a vegetation score. A separate
+[source age-bound screen](sambosjon-direct-pollen.md) finds 58 of 111 selected
+sample intervals crossing a nominal bin boundary, with at least one crossing
+in every scored bin. It does not reassign pollen or estimate a new score.
 
 ## Matched English direct pollen and LRA forward pollen
 

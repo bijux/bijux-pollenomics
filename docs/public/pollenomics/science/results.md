@@ -182,7 +182,11 @@ keeps the source identity, frozen predictions, scores and count denominators.
 Aggregate target count support was inspected before prediction, and aggregate
 scores were inspected before a later protocol annotation correction. The
 prediction bytes stayed fixed; this one-site result is descriptive development
-evidence, not independent confirmation or vegetation accuracy.
+evidence, not independent confirmation or vegetation accuracy. A separate
+source age-bound screen finds that 58 of 111 sample intervals cross a nominal
+500-year bin boundary, with at least one crossing in each scored bin. The
+published MAE remains a point-age-bin result, not an age-uncertainty-adjusted
+score.
 
 ## What two lake pollen series can and cannot say
 

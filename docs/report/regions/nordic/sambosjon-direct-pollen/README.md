@@ -85,6 +85,10 @@ exposure, so it is not an independent confirmation or untouched lockbox. One
 site cannot support between-site uncertainty or a broad Swedish claim. It is
 neither LRA nor measured-vegetation validation.
 
+The separate [source age-bound screen](age-bounds/README.md) finds that 58 of
+111 selected sample intervals span a nominal 500-cal-BP boundary. It leaves
+this point-age score and its prediction freeze unchanged.
+
 To replay into absent directories under `artifacts/`, run the three stages in
 order and pass the actual freeze digest to scoring:
 

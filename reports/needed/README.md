@@ -269,7 +269,11 @@ forward-time rules, then publish predictions and refusals before scoring.
 
 **Already checked:** the existing Swedish three-site result has 486
 site-bin/policy queries, 473 predictions and 13 refusals across same and
-adjacent nominal bins. **Reopen when:** calibrated age-model uncertainty and
+adjacent nominal bins. The [Sämbosjön source age-bound screen](../science/sambosjon-direct-pollen.md)
+finds 58/111 selected sample intervals crossing a 500-year boundary and at
+least one crossing in every scored bin. Its bound confidence level is unstated;
+it does not supply a joint age posterior or an adjusted pollen score.
+**Reopen when:** calibrated age-model uncertainty and
 eligible new cores are bound to those physical sites and windows; rerun an
 age-aware, group-excluded consumer rather than treating nominal bin shifts
 as chronology uncertainty.

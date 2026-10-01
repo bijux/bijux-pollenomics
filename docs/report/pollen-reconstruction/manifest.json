@@ -126,7 +126,7 @@
     },
     {
       "path": "docs/report/index.md",
-      "sha256": "39ce81e75fba6156ee7ea7fe06612ce1377b9793cf84928fdc7ab6dccc07c300",
+      "sha256": "566d022942d8e4efa261821c92b3e588f0e6eba1a6a3a48e5a6b4bc4c43b2d82",
       "bytes": 2668
     },
     {
@@ -1166,8 +1166,33 @@
     },
     {
       "path": "docs/report/regions/nordic/sambosjon-direct-pollen/README.md",
-      "sha256": "26cbf78f5d88f2fd919ca0221be6ff48822e00f93a4cbaee13ecabe6393bde9d",
-      "bytes": 6530
+      "sha256": "978c8a6dd96d6623e8375cd9e8ed968277f2c98af98771d4642c675fc70aa153",
+      "bytes": 6743
+    },
+    {
+      "path": "docs/report/regions/nordic/sambosjon-direct-pollen/age-bounds/README.md",
+      "sha256": "a03d46bead4dcb08d309d250253ab0ad357d15f90137fa79c46fe00c172ff16b",
+      "bytes": 2899
+    },
+    {
+      "path": "docs/report/regions/nordic/sambosjon-direct-pollen/age-bounds/bins.csv",
+      "sha256": "58c235f317def6d6faced177c6e955e74d35c299ee3dc2bdc489b92fe0a097a7",
+      "bytes": 439
+    },
+    {
+      "path": "docs/report/regions/nordic/sambosjon-direct-pollen/age-bounds/boundaries.csv",
+      "sha256": "406fcbf6d1b87da35614fa64f8aca8cbf32f6fbb04ded440278c7d6e10436165",
+      "bytes": 192
+    },
+    {
+      "path": "docs/report/regions/nordic/sambosjon-direct-pollen/age-bounds/report.json",
+      "sha256": "6635c81d545db1114736814e1efcadc8f62c1ce0d6400f1d7f92de685b9a6223",
+      "bytes": 2312
+    },
+    {
+      "path": "docs/report/regions/nordic/sambosjon-direct-pollen/age-bounds/samples.csv",
+      "sha256": "2a6596d6ac83e3e2aa5f1a1efc2874c9d5ddc80f168db576d1da032ddf31f372",
+      "bytes": 12072
     },
     {
       "path": "docs/report/regions/nordic/sambosjon-direct-pollen/coverage.csv",
@@ -2050,6 +2075,11 @@
       "bytes": 23936
     },
     {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sambosjon_age_bounds.py",
+      "sha256": "dcc961d6837c91d4825c25c0b52f740c3260c60e88733734066269666feebd00",
+      "bytes": 11672
+    },
+    {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sambosjon_direct_pollen.py",
       "sha256": "1728ecee3671eac078bc6178def66593584646692b07fda0cea58433c018cd4d",
       "bytes": 22571
@@ -2123,6 +2153,11 @@
       "path": "packages/bijux-pollenomics-dev/tests/source_completion/test_nordic_direct_pollen.py",
       "sha256": "e49f4b4cd23c5c04a2ec817a0499799e48fe9099f594bce298907148d109d64f",
       "bytes": 2513
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/tests/source_completion/test_sambosjon_age_bounds.py",
+      "sha256": "8dd15fbf67d602feeaa8db4c855253ccb27d1072ea8254c936b6954dd86bed73",
+      "bytes": 898
     },
     {
       "path": "packages/bijux-pollenomics-dev/tests/source_completion/test_sambosjon_direct_pollen.py",
@@ -2211,8 +2246,8 @@
     },
     {
       "path": "reports/needed/README.md",
-      "sha256": "474aedf45bfa9ac694f4a2270967667e2cb9d9380da61d2b5d5984f04210a53b",
-      "bytes": 20240
+      "sha256": "d342a8ea56f495d1ccbad9c9af2d88d198f7d453b418a159ae019372da3200b7",
+      "bytes": 20546
     },
     {
       "path": "reports/science/abborrtjarnen-source-method.md",
@@ -2331,8 +2366,8 @@
     },
     {
       "path": "reports/science/pollen-prediction.md",
-      "sha256": "782889010d412e73dfef2194e6ce73e8cae8b4c3a6a3c5a5306fab1e65aaf09f",
-      "bytes": 7358
+      "sha256": "ba0d7ca260562180af3d84c838f7a69969573ca2f69279772bca25f7cf738737",
+      "bytes": 7599
     },
     {
       "path": "reports/science/publication-correspondence.md",
@@ -2441,8 +2476,8 @@
     },
     {
       "path": "reports/science/sambosjon-direct-pollen.md",
-      "sha256": "ab6c08f1de299327b339641b44abcae8a27cebb16ef244ecafba57be9712960d",
-      "bytes": 2254
+      "sha256": "bd3fd8abd877309766af1f50a67ca3ef91ced208e352881deea4d8a60bb316bf",
+      "bytes": 2667
     },
     {
       "path": "reports/science/solsoe-lra-input.md",
