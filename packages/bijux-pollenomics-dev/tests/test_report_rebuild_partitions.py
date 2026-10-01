@@ -600,6 +600,24 @@ def test_mixed_owner_accepts_a_report_named_manifest(tmp_path: Path) -> None:
     assert _verify_with_owner(root)["status"] == "PASS"
 
 
+def test_owner_stage_reuses_the_publisher_input_inventory(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    root, _, _ = _fixture(tmp_path)
+    from bijux_pollenomics_dev.ci.report_rebuild import planning
+
+    def refuse_reinventory(*_args: object, **_kwargs: object) -> None:
+        raise AssertionError("owner stage must reuse the bound publisher inventory")
+
+    monkeypatch.setattr(planning, "inventory_inputs", refuse_reinventory)
+
+    assert _owner(
+        root,
+        lane="reference",
+        source_paths={"summary.csv": "method/summary.csv"},
+    ).is_file()
+
+
 @pytest.mark.parametrize("produced", [(), ("summary.csv", "extra.csv")])
 def test_owner_producer_requires_exact_generated_file_set(
     tmp_path: Path, produced: tuple[str, ...]

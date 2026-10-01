@@ -218,3 +218,28 @@ def require_current_binding(
             "partition rebuild plan does not match the canonical bound plan"
         )
     return policy, current, inputs
+
+
+def require_owner_plan_binding(
+    *, repo_root: Path, policy_path: Path, plan: JsonObject
+) -> tuple[JsonObject, RebuildBinding]:
+    """Check an owner against the plan without rehashing unrelated publisher inputs.
+
+    Final mixed-tree verification checks the complete publisher input inventory.
+    Each owner separately binds its declared producer inputs before and after work.
+    """
+    policy = load_policy(policy_path)
+    _require_canonical_generator(policy)
+    group_size = _partition_group_size(policy)
+    claimed = parse_binding(plan["binding"], "plan binding")
+    current = RebuildBinding(
+        policy_sha256=sha256_bytes(policy_path.read_bytes()),
+        repository=repository_identity(
+            repo_root, required=cast(bool, policy["require_clean_repository"])
+        ),
+        inputs_sha256=claimed.inputs_sha256,
+    )
+    require_exact_binding(current, claimed, "owner plan")
+    if plan != _canonical_plan(claimed, group_size):
+        raise ReportRebuildError("owner plan does not match the canonical bound plan")
+    return policy, claimed

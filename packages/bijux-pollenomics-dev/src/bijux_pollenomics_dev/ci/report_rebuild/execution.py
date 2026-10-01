@@ -34,7 +34,12 @@ from .evidence import (
     producer_input_identity,
     require_inventory_matches_tree,
 )
-from .planning import current_binding, parse_plan, require_current_binding
+from .planning import (
+    current_binding,
+    parse_plan,
+    require_current_binding,
+    require_owner_plan_binding,
+)
 from .runtime_process import run_runtime_command
 
 FRAGMENT_SCHEMA = "partitioned-report-fragment.v1"
@@ -61,7 +66,7 @@ def build_owner_output(
         raise ReportRebuildError(f"unsupported rebuild lane: {lane}")
     repo_root = repo_root.resolve()
     plan = parse_plan(plan_path)
-    policy, binding, _ = require_current_binding(
+    policy, binding = require_owner_plan_binding(
         repo_root=repo_root, policy_path=policy_path, plan=plan
     )
     identity = require_string(owner_id, "owner_id")
@@ -122,7 +127,9 @@ def build_owner_output(
     inventory = inventory_reports(output_root, policy)
     if producer_input_identity(producer_inputs, repo_root) != inputs_before:
         raise ReportRebuildError("owner producer input bytes changed during execution")
-    binding_after, _ = current_binding(repo_root, policy_path, policy)
+    _, binding_after = require_owner_plan_binding(
+        repo_root=repo_root, policy_path=policy_path, plan=plan
+    )
     require_exact_binding(binding_after, binding, f"{identity} post-producer")
     manifest: JsonObject = {
         "schema_version": OWNER_SCHEMA,
