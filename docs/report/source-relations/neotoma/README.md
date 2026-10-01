@@ -1,5 +1,10 @@
 # Neotoma source relationship validation
 
+The [acquisition scope receipt](acquisition-scope/README.md) binds retained
+inventory JSON rows and requested dataset IDs to the nine-part manifest. It
+records six differences in current country selection and the absent original
+HTTP pagination and response-byte authority.
+
 The [observation attribute trace](observation-attributes/README.md) follows one
 pinned raw datum through its normalized convenience fields and native parent
 IDs. It records source nulls and the absent denominator explicitly.
