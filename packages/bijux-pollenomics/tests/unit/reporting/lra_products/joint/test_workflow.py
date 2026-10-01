@@ -2,9 +2,9 @@
 
 from __future__ import annotations
 
+import csv
 import json
 from pathlib import Path
-import csv
 
 import pytest
 
@@ -18,12 +18,14 @@ from bijux_pollenomics.reporting.lra_products.joint.api import (
     LRAPresentationRefusal,
     render_joint_lra_report,
 )
-
-from .support import FixtureState, joint_fixture
 from tests.unit.analysis.lra.uncertainty.test_contracts import (
     fixture as joint_source_fixture,
+)
+from tests.unit.analysis.lra.uncertainty.test_contracts import (
     requires_engine,
 )
+
+from .support import FixtureState, joint_fixture
 
 
 def test_atomic_report_receipt_and_deterministic_membership(tmp_path: Path) -> None:
