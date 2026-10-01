@@ -2,7 +2,7 @@
   "schema_version": "pollen-reconstruction-report-manifest.v1",
   "status": "scoped_results_with_external_source_blockers",
   "repository": "bijux-pollenomics",
-  "as_of": "2026-09-30",
+  "as_of": "2026-10-01",
   "files": [
     {
       "path": "data/archaeology/raw/hojea_2003_source.json",
@@ -96,7 +96,7 @@
     },
     {
       "path": "docs/report/index.md",
-      "sha256": "74b0be7232b71f1a2c9e4eef2c2724714385a68764b00e0e09a0b8e8f8454001",
+      "sha256": "bfbf723eb9ce35865174bb0f937d841fb6a30f3a6c2237d5e6c8b4d0e2ad0f21",
       "bytes": 2668
     },
     {
@@ -291,7 +291,7 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/author-buffered-pollen/manifest.json",
-      "sha256": "a0daa47ea52f85d82b1d6a5c7e2c49edbe74176662400572bafb86c9ee65d4d9",
+      "sha256": "e99bb980bd1a6bbac6322d6dad2793e3dd41b1227e174b08272374d73cb68432",
       "bytes": 11171
     },
     {
@@ -1676,8 +1676,8 @@
     },
     {
       "path": "docs/report/source-relations/neotoma/README.md",
-      "sha256": "c77b131de8de10a187ec15e78e962b3f3587e94eaff9b423b69dc2b5b8aab92b",
-      "bytes": 3736
+      "sha256": "3959cc55c882abb1f58d1353a3a2394ff3e1e4da018635b6ecf460398254cd82",
+      "bytes": 4949
     },
     {
       "path": "docs/report/source-relations/neotoma/abbo-profile/README.md",
@@ -1716,8 +1716,8 @@
     },
     {
       "path": "docs/report/source-relations/neotoma/lakeparameters/report.json",
-      "sha256": "6f67e43c1475cdc30866325517ebef5c02c715f4512ee0a1588607ca45907dce",
-      "bytes": 2720
+      "sha256": "9c5c48936b10f62b2501a9d26ddad102d606929ee55fbe76614431e731a21fa7",
+      "bytes": 2818
     },
     {
       "path": "docs/report/source-relations/neotoma/lakeparameters/verify.py",
@@ -1826,8 +1826,8 @@
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/published_window_alignment.py",
-      "sha256": "3b7a16f7bacd30e10063a3136c7f867365fdde6e65100f9a0c258a25f1c6108d",
-      "bytes": 8832
+      "sha256": "e7b2b211b39e6647dfa1e367d0a133bcb2069bce719fca94e9df7cb40f45b2d1",
+      "bytes": 8948
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/published_window_correspondence.py",
@@ -1836,13 +1836,13 @@
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/published_window_provenance.py",
-      "sha256": "6baae1ffc006b5304461bfa0b7c2349d5ac7c6421be7b022c972e33e736853bd",
-      "bytes": 15631
+      "sha256": "b562fe5d24b442a703d1d3be05fb0b9b081ea34a8fbd3e92ec3b90aacacdc787",
+      "bytes": 15803
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/published_window_uncertainty.py",
-      "sha256": "d5f13d5b8533e18a9a4b3cad06f1c0df9b312455e2f62736a4485f5a946006d4",
-      "bytes": 7662
+      "sha256": "582e1db53c34226871522cee2c43f1e1ac5fe2a2a3762d7527748497162e5210",
+      "bytes": 7746
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/reconcile.py",
@@ -1996,8 +1996,8 @@
     },
     {
       "path": "packages/bijux-pollenomics-dev/tests/test_runtime_isolation.py",
-      "sha256": "76b374cf419b5d7ee3dad8d47ccb7047f4a51c85894a461273079ba644b66fd4",
-      "bytes": 36270
+      "sha256": "a273ffc8b3213d96d4b4945903dbeacd8db17eb32673dc29947470f3b201ff38",
+      "bytes": 38090
     },
     {
       "path": "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/api.py",
@@ -2051,8 +2051,8 @@
     },
     {
       "path": "reports/needed/README.md",
-      "sha256": "cbe3fbd8d9e36f4f514b91275150ee9cbc9ddffb756fddd39c6b54e157c8fb02",
-      "bytes": 17463
+      "sha256": "8113c19e7ec6139352e5eacdfd8435f16c42c25edce7d45c00367e936b8e020d",
+      "bytes": 19085
     },
     {
       "path": "reports/science/abborrtjarnen-source-method.md",
