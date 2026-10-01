@@ -48,6 +48,14 @@ lanes. This proves that four-output family under its declared inputs; it
 does not cover the other nonpublisher owners. We retain the full-tree
 rebuild as open.
 
+We also rebuilt the [six-site author uncertainty study](../../docs/report/method-certification/author-site-uncertainty/README.md)
+twice from the pinned author inputs. Its `report.json`, `draws.json` and
+`cover-draws.csv` agree byte for byte across both runs and with the three
+tracked outputs. Each owner receipt checks the declared source, code and
+dependency files before and after the replay. This establishes those three
+files as another independently reproducible report family; the study remains
+a conditional ten-taxon author example, not a Nordic vegetation validation.
+
 We have bound and replayed the six [SEAD source report owners](../../docs/report/source-relations/sead/README.md#report-ownership).
 They reproduce 11 governed JSON/CSV outputs byte for byte, and the six
 explanatory pages have 15 resolving local links. This is a verified portion of
