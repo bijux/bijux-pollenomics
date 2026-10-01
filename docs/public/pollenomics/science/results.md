@@ -171,6 +171,23 @@ do not establish nonoverlap of the cores' true age distributions. This is a
 prior-exposed observed-pollen development comparison, not a test of LRA or
 measured vegetation.
 
+## Abborrtjärnen with an alternative chronology
+
+The [LegacyAge source join](../../../report/source-relations/neotoma/legacyage-chronology/README.md)
+matches published age estimates to all 107 Abborrtjärnen pollen sample depths
+and 71 of 72 Dalmutladdo depths. These are alternative ages; they are not the
+historical LandClim age vector. In a separate
+[three-site development sensitivity](../../../report/pollen-reconstruction/age-interval-sensitivity/README.md),
+we admitted a sample to a 500-year bin only when its entire reported LegacyAge
+95% interval fit inside that bin. Only eight Abborrtjärnen samples qualified
+for four shared bins. Four fixed pollen predictors scored the same 12
+site-bin targets each; inverse-distance-squared site-macro MAE changed from
+0.060058 to 0.059762 on that matched subset.
+
+The other two sites retain point ages, and the intervals do not provide a
+joint age posterior. This sparse, previously exposed 16-label pollen study
+does not establish a better chronology, independent accuracy or LRA inputs.
+
 ## A newly scored Swedish lake
 
 We applied three fixed observed-pollen predictors to Lake Sämbosjön, a
