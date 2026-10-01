@@ -17,6 +17,18 @@ sample rows and 15,028 matching prepared cells in the
 [raw-to-prepared replay](../../docs/report/source-relations/landclim/author-example-taxon-support/README.md).
 We have not authenticated the historical Nordic publication revisions.
 
+We also compared the original 2016 REVEALS function with a pinned later
+LRA release by Petr Kuneš on one author 225 BP window. The [four-case
+comparison](../../docs/report/method-certification/petrkunes-r-comparison/README.md)
+includes a single lake, unequal lake pair, six active sites and the full
+nine-site grid. All 124 matched cover values and 124 standard errors agree at
+the retained CSV precision, with identical site-bootstrap indices. Feeding
+those indices into our historical native profile matches the tagged R full-grid
+cover and SE values within the declared tolerances. We reproduced the four
+governed output files byte for byte from the pinned source inputs. This checks
+one conditional method lineage; the two R function bodies for REVEALS differ,
+and this result does not certify corrected uncertainty or Nordic ecology.
+
 ## Optimizer budget accounting
 
 We independently challenged an earlier differential-evolution solver against
