@@ -1,16 +1,16 @@
 {
   "schema_version": "report-surface-registry.v1",
-  "surface_count": 1853,
+  "surface_count": 1855,
   "family_counts": {
     "caveats": 10,
-    "maintenance": 991,
+    "maintenance": 993,
     "maps": 86,
     "portal": 2,
     "reviews": 34,
     "scopes": 730
   },
   "audience_counts": {
-    "maintainer_diagnostic": 993,
+    "maintainer_diagnostic": 995,
     "public_reading_surface": 739,
     "scientific_review_surface": 121
   },
@@ -20,7 +20,7 @@
     "finland": 14,
     "nordic": 471,
     "norway": 14,
-    "report_root": 1040,
+    "report_root": 1042,
     "sweden": 49,
     "world": 172
   },
@@ -8544,6 +8544,30 @@
       "caution_level": "medium",
       "explanation": "Scientific review surface for animal evidence, chronology, or recovery posture.",
       "reader_route": "evidence_review"
+    },
+    {
+      "repository_path": "docs/report/numerical-performance/love-source-profile/README.md",
+      "family": "maintenance",
+      "family_label": "Maintainer truth surfaces",
+      "audience": "maintainer_diagnostic",
+      "audience_label": "Maintainer diagnostic",
+      "format": "md",
+      "geography": "report_root",
+      "caution_level": "high",
+      "explanation": "Reader-facing entry page for one scope bundle.",
+      "reader_route": "start_here"
+    },
+    {
+      "repository_path": "docs/report/numerical-performance/love-source-profile/report.json",
+      "family": "maintenance",
+      "family_label": "Maintainer truth surfaces",
+      "audience": "maintainer_diagnostic",
+      "audience_label": "Maintainer diagnostic",
+      "format": "json",
+      "geography": "report_root",
+      "caution_level": "high",
+      "explanation": "Maintainer-facing truth or governance surface.",
+      "reader_route": "maintainer_truth"
     },
     {
       "repository_path": "docs/report/numerical-performance/native-adoption/README.md",
