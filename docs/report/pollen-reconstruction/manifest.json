@@ -156,18 +156,18 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/author-buffered-pollen/README.md",
-      "sha256": "18d85a605e7eabbc3222b8390acbf2244091d18eac27c181e6412102daa24cae",
-      "bytes": 3729
+      "sha256": "c6bbdf2d204799a4b721d20bea5467a907c04c3912bbc2f49c7e544f5604ac06",
+      "bytes": 6109
     },
     {
       "path": "docs/report/pollen-reconstruction/author-buffered-pollen/comparisons/baseline/REPORT.md",
-      "sha256": "5dfb4d7a3fa14d371a5124f9c65b41cfca4000ee16943cf59502217080795057",
-      "bytes": 918
+      "sha256": "eb8b72cf9f7d3d550ec722b29bdfbd88ae5b239507b6172638b204dead8d6589",
+      "bytes": 3738
     },
     {
       "path": "docs/report/pollen-reconstruction/author-buffered-pollen/comparisons/baseline/report.json",
-      "sha256": "19f9d1de88e9f7283d3ef1c60ad17d3c8b6b15ba12a0573aa39ddfbb2c9910f9",
-      "bytes": 1987
+      "sha256": "e3fe6ba62e1983dddb4b1f1a324e96979a8b60c3d4416110e864a70c2d0ced1a",
+      "bytes": 48064
     },
     {
       "path": "docs/report/pollen-reconstruction/author-buffered-pollen/comparisons/fitted-common-support/REPORT.md",
@@ -321,8 +321,8 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/author-buffered-pollen/manifest.json",
-      "sha256": "e99bb980bd1a6bbac6322d6dad2793e3dd41b1227e174b08272374d73cb68432",
-      "bytes": 11171
+      "sha256": "69d635d194f14ea52c9cdc9f87339b9b9601da808ecb1284ab57395b51678ad5",
+      "bytes": 11173
     },
     {
       "path": "docs/report/pollen-reconstruction/author-buffered-pollen/nearest-site/grid-512/predictions.csv",

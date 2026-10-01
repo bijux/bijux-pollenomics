@@ -246,13 +246,19 @@ def score_blocks(
                 "refused_no_training_site_bins": sum(
                     row["status"] == "no_training_site_same_bin" for row in block_rows
                 ),
-                "refused_insufficient_fit_sites_bins": sum(
-                    row["status"] == "fitted_model_requires_two_training_sites"
-                    for row in block_rows
-                ),
-                "refused_no_positive_scale_bins": sum(
-                    row["status"] == "no_positive_training_distance"
-                    for row in block_rows
+                **(
+                    {
+                        "refused_insufficient_fit_sites_bins": sum(
+                            row["status"] == "fitted_model_requires_two_training_sites"
+                            for row in block_rows
+                        ),
+                        "refused_no_positive_scale_bins": sum(
+                            row["status"] == "no_positive_training_distance"
+                            for row in block_rows
+                        ),
+                    }
+                    if method == FITTED_METHOD_LABEL
+                    else {}
                 ),
                 "site_macro_mae_fraction": mean(
                     cast(float, site["mean_mae_fraction"]) for site in block_sites
@@ -279,14 +285,20 @@ def score_blocks(
         "refused_no_training_site_bins": sum(
             row["status"] == "no_training_site_same_bin" for row in rows
         ),
-        "refusal_reasons": {
-            reason: sum(row["status"] == reason for row in rows)
-            for reason in (
-                "no_training_site_same_bin",
-                "fitted_model_requires_two_training_sites",
-                "no_positive_training_distance",
-            )
-        },
+        **(
+            {
+                "refusal_reasons": {
+                    reason: sum(row["status"] == reason for row in rows)
+                    for reason in (
+                        "no_training_site_same_bin",
+                        "fitted_model_requires_two_training_sites",
+                        "no_positive_training_distance",
+                    )
+                }
+            }
+            if method == FITTED_METHOD_LABEL
+            else {}
+        ),
         "site_macro_mae_fraction": mean(
             cast(float, site["mean_mae_fraction"]) for site in scored_sites
         ),
@@ -319,18 +331,27 @@ def score_blocks(
         scored_predictions,
     )
     (output / "report.json").write_text(json.dumps(result, indent=2) + "\n")
+    prediction_description = (
+        "uses equal-site training pollen fractions in each author bin"
+        if method == METHOD_LABELS["training_mean"]
+        else f"predicts each author bin with {method}"
+    )
+    refusal_description = (
+        f"lack the declared fit support ({result['refusal_reasons']})"
+        if method == FITTED_METHOD_LABEL
+        else "have no buffered same-bin training site"
+    )
     (output / "REPORT.md").write_text(
         "# Buffered adjacent-grid pollen prediction\n\n"
         "Two one-degree author grids are withheld in turn. Prediction reads only "
-        "the opposite grid's count tables and predicts each author bin with "
-        f"{method}. A training basin must be at least 20 km "
+        f"the opposite grid's count tables and {prediction_description}. "
+        "A training basin must be at least 20 km "
         "from every target basin after subtracting both reported basin radii. "
         "The independently reopened target counts are scored afterward.\n\n"
         f"Across {result['target_sites']} author site IDs and "
         f"{result['independent_outer_blocks']} adjacent blocks, "
         f"{attempted} site-bin targets have observed counts, {scored} are "
-        f"scored and {attempted - scored} lack the declared fit support "
-        f"({result['refusal_reasons']}). "
+        f"scored and {attempted - scored} {refusal_description}. "
         f"Site-macro MAE is {result['site_macro_mae_fraction']:.6f} fractions; "
         f"site-macro total variation is {result['site_macro_total_variation']:.6f}. "
         f"On {paired['common_scored_site_bins']} site bins scored by both methods, "

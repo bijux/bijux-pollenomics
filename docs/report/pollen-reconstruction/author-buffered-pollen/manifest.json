@@ -8,7 +8,7 @@
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/author_pollen_spatial/source.py": "586b3b2555a146ef2070e937c8b375376f0b953c6abdc68d931420a4fc26844c",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/author_pollen_spatial/prediction.py": "ddbc85ee8c8306a5104e08c0bb5dc98f34c6635466d0c4092f5bb6e3995034df",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/author_pollen_spatial/fitted_prediction.py": "580c0126b25b8e42393f479e9c631aa68ebdc9b3ab7c719179ea69260ad224f2",
-    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/author_pollen_spatial/scoring.py": "9f904e974246a3c342646f23caf9411869579c2fd9197506c830a89f7c8710e9",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/author_pollen_spatial/scoring.py": "bb4ca2c08e9bbc365434d30808cd4f9e2b6c5e1aca41208e6e151fbe97d7bb18",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/author_pollen_spatial/comparison.py": "5d5eb257d1247a783627a5bc7749a55090f7a0492428574f7be4ed3b912e107f",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/author_pollen_spatial/hellinger_comparison.py": "628bb5ad9d288185717be699dedd3191ce1fa5a656871c9dd01ea96de8bae1db",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/author_pollen_spatial/fitted_comparison.py": "a43d0d03be8932c717f7f474a7713412a1087adc3c6a7dd2ba7abdf3ef4e64df",
@@ -17,18 +17,18 @@
   "files": [
     {
       "path": "README.md",
-      "sha256": "18d85a605e7eabbc3222b8390acbf2244091d18eac27c181e6412102daa24cae",
-      "bytes": 3729
+      "sha256": "c6bbdf2d204799a4b721d20bea5467a907c04c3912bbc2f49c7e544f5604ac06",
+      "bytes": 6109
     },
     {
       "path": "comparisons/baseline/REPORT.md",
-      "sha256": "5dfb4d7a3fa14d371a5124f9c65b41cfca4000ee16943cf59502217080795057",
-      "bytes": 918
+      "sha256": "eb8b72cf9f7d3d550ec722b29bdfbd88ae5b239507b6172638b204dead8d6589",
+      "bytes": 3738
     },
     {
       "path": "comparisons/baseline/report.json",
-      "sha256": "19f9d1de88e9f7283d3ef1c60ad17d3c8b6b15ba12a0573aa39ddfbb2c9910f9",
-      "bytes": 1987
+      "sha256": "e3fe6ba62e1983dddb4b1f1a324e96979a8b60c3d4416110e864a70c2d0ced1a",
+      "bytes": 48064
     },
     {
       "path": "comparisons/fitted-common-support/REPORT.md",
