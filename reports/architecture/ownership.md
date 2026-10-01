@@ -38,11 +38,15 @@ final comparison rejects overlap with publisher partitions and compares the
 combined output to tracked `docs/report/`. This keeps the publisher's country
 partitions intact while giving other producers explicit ownership. It does
 not prove that a declared input list is complete, so each producer command
-and its source dependencies still need review. The four numeric files in our
+and its source dependencies still need review. We regenerated the three R
+CSV files and native JSON in our
 [Petr Kuneš comparison](../../docs/report/method-certification/petrkunes-r-comparison/README.md)
-already replay byte for byte under their domain producer, but we have not
-run them through two fresh owner lanes or covered all other report owners.
-We therefore retain the full-tree rebuild as open.
+through two fresh owner lanes. Both lanes match each other and all four
+tracked files byte for byte. The native calculation reads the governed R
+taxa and bootstrap files, whose bytes independently match both fresh R
+lanes. This proves that four-output family under its declared inputs; it
+does not cover the other nonpublisher owners. We retain the full-tree
+rebuild as open.
 
 We have bound and replayed the six [SEAD source report owners](../../docs/report/source-relations/sead/README.md#report-ownership).
 They reproduce 11 governed JSON/CSV outputs byte for byte, and the six
