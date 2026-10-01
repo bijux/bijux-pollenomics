@@ -55,6 +55,11 @@ tracked outputs. Each owner receipt checks the declared source, code and
 dependency files before and after the replay. This establishes those three
 files as another independently reproducible report family; the study remains
 a conditional ten-taxon author example, not a Nordic vegetation validation.
+The [paired historical and reviewed profile comparison](../../docs/report/method-certification/author-site-profile-comparison/README.md)
+then reproduced its `report.json` in two owner lanes against 59 declared
+inputs, including those frozen uncertainty outputs. Both lanes match the
+tracked result. The published full-grid R comparison is a separate check;
+this selected ten-taxon replay did not run a new R calculation.
 
 We have bound and replayed the six [SEAD source report owners](../../docs/report/source-relations/sead/README.md#report-ownership).
 They reproduce 11 governed JSON/CSV outputs byte for byte, and the six
