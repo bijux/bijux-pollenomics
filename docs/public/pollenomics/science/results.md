@@ -18,6 +18,16 @@ and 7.16e-14 for standard errors in fraction units. The [raw-to-prepared
 replay](../../../report/source-relations/landclim/author-example-taxon-support/README.md)
 also reproduces the 17 released example files byte for byte.
 
+We separately ran the 2016 author REVEALS function and a pinned later
+Petr Kuneš LRA source on one author 225 BP window in four site
+configurations. The [source comparison](../../../report/method-certification/petrkunes-r-comparison/README.md)
+retains 124 paired cover values and 124 paired standard errors that agree
+at CSV precision, plus identical 1,000-draw full-grid bootstrap indices.
+Our historical native profile matches the tagged R full-grid result within
+declared tolerances when given those indices. This is conditional numerical
+correspondence within a shared code lineage; it does not certify corrected
+uncertainty or Nordic ecological accuracy.
+
 We separately compared RcppDE and Python LOVE optimization on
 [three declared shared objectives](../../../report/method-certification/optimizer-solution-quality/README.md).
 Both attained objective gaps below `1e-4` from independent optima, and each
