@@ -2086,8 +2086,8 @@
     },
     {
       "path": "docs/report/source-relations/sead/README.md",
-      "sha256": "6ed98609b7292b490722a8da207b810ac409a15cebbdb061abf5ccb8f25989c8",
-      "bytes": 5348
+      "sha256": "7b68a3f5e166cb6a125698325c687b9818ea2a104e2fb94f87c5f16f045c0897",
+      "bytes": 6567
     },
     {
       "path": "docs/report/source-relations/sead/chronology-claim-review/README.md",
@@ -2173,6 +2173,11 @@
       "path": "docs/report/source-relations/sead/source-unit-accounting/rows.csv",
       "sha256": "b2d7c66c6b75571745feba0cfb037c4f813c3989f616bd16bebc050dc004cc00",
       "bytes": 1025
+    },
+    {
+      "path": "docs/report/source-relations/sead/verify_handoff_accounting.py",
+      "sha256": "ec07fe2b87de4815abee25d353a1edbb5a61b32534efabbf7d88c7d742eab462",
+      "bytes": 9536
     },
     {
       "path": "docs/report/source-relations/sead/verify_report_owners.py",
@@ -2826,8 +2831,8 @@
     },
     {
       "path": "reports/science/source-cohorts.md",
-      "sha256": "078121810f6214384d75d39902699e8afd80913a3bb4a45645ef32ea0a1a6f84",
-      "bytes": 11019
+      "sha256": "a6ad8be1b91b0450e945c86f9f04588542d5b178cb7b437817ae8c9db695c64d",
+      "bytes": 11379
     },
     {
       "path": "reports/science/sweden-author-pollen.md",

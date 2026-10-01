@@ -63,6 +63,30 @@ the same assigned sites through sample groups, physical samples, analysis
 entities, distinct linked datasets and analysis values. Its source-unit counts
 are separate from claim rows and ecological events.
 
+## Handoff accounting
+
+The read-only [handoff verifier](verify_handoff_accounting.py) binds the raw
+admission and manifest to the normalized materialization, source-key summary,
+86-edge public custody, age review, four-country chronology and observation
+accounts, and built map audit. It checks the owned input digests and shared
+denominators without copying their row-level evidence into another report. Run:
+
+```sh
+PYTHONDONTWRITEBYTECODE=1 .venv/bin/python \
+  docs/report/source-relations/sead/verify_handoff_accounting.py \
+  --repository .
+```
+
+A passing result means **local accounting verified** for the pinned source run.
+The acquisition release remains refused, all 177,763 observation dispositions
+remain refused, and no ecological event or propagation edge is admitted. This
+check does not supply qualified classification or chronology authority, a new
+source-owner receipt, hosted release evidence, or the handoff's command and
+integration history. The admitted capture still records
+`excluded_country_coordinates_lack_preserved_preflight_payload` for the 126
+excluded country decisions. Its acquisition-time downstream reasons precede
+the later normalized claim and refusal materialization checked here.
+
 ## Report ownership
 
 We replayed the six source-owned report families linked above: the pollen-named

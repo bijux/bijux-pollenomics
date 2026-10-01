@@ -75,6 +75,12 @@ population. These are chronology source rows, not pollen samples or admitted
 ecological events. We retained all 25,109 propagation refusals, including the
 13,170 claims eligible only for chronology display.
 
+Our [SEAD handoff account](../../docs/report/source-relations/sead/README.md#handoff-accounting)
+checks the 61 source tables, 86 joins and four-country review denominators
+through the governed map candidate. It retains zero eligible ecological events
+and a refused release status; its local accounting result does not supply the
+missing scientific authority.
+
 We checked [country retrieval and evidence denominators](../../docs/report/source-relations/sead/country-coverage/README.md)
 against the same full SEAD capture. All 2,069 assigned sites were retrieved
 and normalized; the 126 review or unassigned sites are scope exclusions, not
