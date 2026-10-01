@@ -801,8 +801,8 @@
     },
     {
       "path": "docs/report/publication-replay/landclim-author-example-correspondence/README.md",
-      "bytes": 1653,
-      "sha256": "5cc14183c22734858856aee54b24f184d73511d433cbb74b60e6ca5124ff2904"
+      "bytes": 1937,
+      "sha256": "8a9c336a3b951739a97a01982ea94e5a4159d11514e0c531f0884f48481634cf"
     },
     {
       "path": "docs/report/publication-replay/landclim-author-example-correspondence/REPORT.md",
@@ -2226,8 +2226,8 @@
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/author_example_correspondence.py",
-      "sha256": "cecdcfc19aadc25c9438da2fd7c855d8a8fa02869e99fae0cab7c3b4aace094d",
-      "bytes": 15483
+      "sha256": "338d1bf7a10d656a3b88d5af88d23796718ed6f73e7afe3602c06a5af8f082af",
+      "bytes": 15504
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/author_lra_development.py",
