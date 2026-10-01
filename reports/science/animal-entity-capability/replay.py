@@ -55,11 +55,21 @@ def run(root: Path, output: Path) -> None:
     mapped = {}
     nordic = {}
     for feature in candidates["rows"]:
+        if feature["sample_count"] != len(feature["sample_record_ids"]):
+            raise ValueError(
+                f"Animal feature sample count differs: {feature['feature_id']}"
+            )
         for sample_id in feature["sample_record_ids"]:
             if sample_id in mapped:
                 raise ValueError(
                     f"Animal sample appears in two map features: {sample_id}"
                 )
+            source = samples.get(sample_id)
+            if (
+                source is None
+                or feature["species_latin_name"] != source["species_latin_name"]
+            ):
+                raise ValueError(f"Animal map feature lineage differs: {sample_id}")
             mapped[sample_id] = feature["feature_id"]
             if feature["nordic_inclusion"] is True:
                 nordic[sample_id] = feature["political_entity"]
