@@ -30,20 +30,21 @@ pairs explicit local count/PPE draws. None of these results establishes
 ecological prediction skill or a global guarantee for arbitrary LOVE
 landscapes.
 
-Replay with the exact installed DISQOVER 0.9.14 source library and Rscript,
-using a new absent output directory under `artifacts/`:
+First build the source-locked R library with the [current R reference
+producer](../current-r-oracle/README.md#reproduction). Replay with that
+library and Rscript, using a new absent output directory under `artifacts/`:
 
 ```sh
 PYTHONDONTWRITEBYTECODE=1 OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 \
   NUMEXPR_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 \
   .venv/bin/python docs/report/method-certification/optimizer-solution-quality/replay.py \
   --repository . \
-  --library artifacts/jobs/live-original-r-certified/library \
+  --library artifacts/jobs/native-r-reproduction/library \
   --rscript /usr/local/bin/Rscript \
   --output artifacts/jobs/optimizer-solution-quality/reproduction
 ```
 
-The private library path is a local custody example, not a portable
-dependency. A different machine must provision the locked source archive and
-dependencies before replay. The producer refuses an archive/installed-source
+The generated library path is a local run product, not a portable dependency.
+A different machine must provision the locked source archive and dependencies
+before replay. The producer refuses an archive/installed-source
 marker mismatch and checks numerical gaps before writing its passed report.

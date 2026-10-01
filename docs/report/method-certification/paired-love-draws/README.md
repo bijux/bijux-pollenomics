@@ -28,20 +28,21 @@ unbounded local estimates are valid vegetation compositions. The separate
 [optimizer comparison](../optimizer-solution-quality/README.md) evaluates
 solution quality and achieved objectives without claiming equal search paths.
 
-Replay into a new absent output below `artifacts/` with the exact installed
-source library and Rscript:
+First build the source-locked R library with the [current R reference
+producer](../current-r-oracle/README.md#reproduction). Replay into a new absent
+output below `artifacts/` with that library and Rscript:
 
 ```sh
 PYTHONDONTWRITEBYTECODE=1 OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 \
   NUMEXPR_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 \
   .venv/bin/python docs/report/method-certification/paired-love-draws/replay.py \
   --repository . \
-  --library artifacts/jobs/live-original-r-certified/library \
+  --library artifacts/jobs/native-r-reproduction/library \
   --rscript /usr/local/bin/Rscript \
   --output artifacts/jobs/paired-love-draws/reproduction
 ```
 
-The private library path is local custody, not a portable dependency. The
-producer verifies the exact source archive and installed marker, hashes its
+The generated library path is a local run product, not a portable dependency.
+The producer verifies the exact source archive and installed marker, hashes its
 input closure and outputs, retains failures under the artifact run, and only
 writes a passed report after every numeric and missing-position comparison.
