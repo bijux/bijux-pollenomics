@@ -61,6 +61,11 @@ inputs, including those frozen uncertainty outputs. Both lanes match the
 tracked result. The published full-grid R comparison is a separate check;
 this selected ten-taxon replay did not run a new R calculation.
 
+The separate [joint site, count and PPE draw example](../../docs/report/method-certification/joint-site-draws/README.md)
+also reproduced its three numeric files in two owner lanes against 52
+declared inputs. Those files demonstrate a synthetic uncertainty calculation;
+they do not add a measured vegetation result.
+
 We have bound and replayed the six [SEAD source report owners](../../docs/report/source-relations/sead/README.md#report-ownership).
 They reproduce 11 governed JSON/CSV outputs byte for byte, and the six
 explanatory pages have 15 resolving local links. This is a verified portion of
