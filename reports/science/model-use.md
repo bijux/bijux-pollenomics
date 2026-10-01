@@ -71,6 +71,17 @@ shifts and a nearest-five cap had smaller, site-dependent effects. We treat
 these as development probes on three exposed sites, not LRA transport or
 age-model parameter estimates.
 
+Two separately scored Swedish lakes reuse the same frozen 84-site training
+profile and exact 16-label response. At [Sämbosjön](sambosjon-direct-pollen.md),
+the fixed inverse-distance-squared method has the lowest equal-bin MAE
+(0.022991). At [Lilla Gloppsjön](lilla-gloppsjon-direct-pollen.md), the
+training mean has lower MAE (0.016272) than the prespecified
+inverse-distance-squared method (0.017295), while nearest site has the lowest
+Hellinger distance (0.228724). The closed labels cover different shares of
+each lake's native pollen counts, and earlier source-validation exposure
+limits independence. We retain the fixed methods and report all three;
+these two sites do not justify retuning or a universal preferred method.
+
 ## The real English LRA profile
 
 In our [constrained LOVE study](english-lra-pollen-prediction.md), we used the
