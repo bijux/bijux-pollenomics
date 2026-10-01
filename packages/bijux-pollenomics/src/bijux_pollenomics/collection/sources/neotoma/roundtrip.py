@@ -162,13 +162,7 @@ def _surface_record(surface: str, row: Mapping[str, object]) -> str:
     )
     if surface == "sites":
         parents = (str(row["site_id"]),)
-    elif surface == "chronologies":
-        parents = (
-            str(row["site_id"]),
-            str(row["collection_unit_id"]),
-            str(row["chronology_id"]),
-        )
-    elif surface == "chronology_controls":
+    elif surface in {"chronologies", "chronology_controls"}:
         parents = (
             str(row["site_id"]),
             str(row["collection_unit_id"]),

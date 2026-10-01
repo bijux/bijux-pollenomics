@@ -7,7 +7,6 @@ from pathlib import Path
 
 from bijux_pollenomics.collection.sources.neotoma.relational.identifiers import digest
 
-
 ROOT = Path(__file__).resolve().parents[8]
 SOURCE_SNAPSHOT_ID = (
     "sha256:b2bcb99157e10b0c9f13c228acc12eabcb39d96a1f39c86ec25e34aacd78c791"
