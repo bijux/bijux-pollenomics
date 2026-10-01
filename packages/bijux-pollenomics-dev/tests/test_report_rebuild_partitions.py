@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 from pathlib import Path
+import shutil
 import sys
 
 import pytest
@@ -414,6 +415,52 @@ def test_partitioned_rebuild_requires_two_complete_trees_and_tracked_match(
 
     assert report["status"] == "PASS"
     assert report["differences"] == []
+
+
+def test_partitioned_rebuild_keeps_authenticated_r_source_out_of_generated_owners(
+    tmp_path: Path,
+) -> None:
+    root, policy_path, plan_path = _fixture(tmp_path)
+    _write_complete_tree(root / "docs/report", plan_path=plan_path)
+    prefix = Path("method-certification/original-r-reference/reference-bundle")
+    repository = Path(__file__).resolve().parents[3]
+    shutil.copytree(repository / "docs/report" / prefix, root / "docs/report" / prefix)
+    plan = json.loads(plan_path.read_text(encoding="utf-8"))
+    reference = _assembly(
+        root / "assemblies", lane="reference", binding=plan["binding"]
+    )
+    replay = _assembly(root / "assemblies", lane="replay", binding=plan["binding"])
+
+    report = verify_partitioned_rebuild(
+        repo_root=root,
+        policy_path=policy_path,
+        plan_path=plan_path,
+        reference_manifest_path=reference,
+        replay_manifest_path=replay,
+        evidence_root=root / "artifacts/final",
+        retain_original_r_reference=True,
+    )
+
+    assert report["status"] == "PASS"
+    assert report["schema_version"] == "reproducible-report-build-evidence.v3"
+    assert report["owners"] == {"reference": {}, "replay": {}}
+    retained = report["retained_sources"]["original_r_reference"]
+    assert len(retained["paths"]) == 125
+    assert all(path.startswith(prefix.as_posix() + "/") for path in retained["paths"])
+
+    (root / "docs/report" / prefix / "oracle/C0000.csv").write_text(
+        "changed\n", encoding="utf-8"
+    )
+    with pytest.raises(ReportRebuildError, match="retained source validation failed"):
+        verify_partitioned_rebuild(
+            repo_root=root,
+            policy_path=policy_path,
+            plan_path=plan_path,
+            reference_manifest_path=reference,
+            replay_manifest_path=replay,
+            evidence_root=root / "artifacts/changed-reference",
+            retain_original_r_reference=True,
+        )
 
 
 def test_partitioned_rebuild_detects_cross_lane_content_drift(tmp_path: Path) -> None:

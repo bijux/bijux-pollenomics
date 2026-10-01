@@ -67,6 +67,7 @@ def _parser() -> argparse.ArgumentParser:
     verify.add_argument("--owner-id", action="append", default=[])
     verify.add_argument("--reference-owners-root", type=Path)
     verify.add_argument("--replay-owners-root", type=Path)
+    verify.add_argument("--retain-original-r-reference", action="store_true")
     return parser
 
 
@@ -150,6 +151,7 @@ def main(argv: list[str] | None = None) -> int:
                 reference_owners_root=args.reference_owners_root,
                 replay_owners_root=args.replay_owners_root,
                 owner_ids=tuple(args.owner_id),
+                retain_original_r_reference=args.retain_original_r_reference,
             )
             return 0 if report["status"] == "PASS" else 1
     except ReportRebuildError as error:

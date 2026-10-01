@@ -36,6 +36,10 @@ from .evidence import (
     require_inventory_matches_tree,
 )
 from .execution import ASSEMBLY_SCHEMA, OWNED_ASSEMBLY_SCHEMA
+from .original_r_reference import (
+    CERTIFICATE_SHA256,
+    validated_original_r_reference,
+)
 from .planning import parse_plan, require_current_binding
 
 
@@ -248,6 +252,7 @@ def verify_partitioned_rebuild(
     reference_owners_root: Path | None = None,
     replay_owners_root: Path | None = None,
     owner_ids: tuple[str, ...] = (),
+    retain_original_r_reference: bool = False,
 ) -> JsonObject:
     """Verify two complete partitioned builds and the tracked report tree."""
     if evidence_root.exists() or evidence_root.is_symlink():
@@ -344,6 +349,21 @@ def verify_partitioned_rebuild(
                 raise ReportRebuildError(f"owner {field} changed: {identity}")
     complete_reference = _merge_owned_inventories(reference, reference_owners)
     complete_replay = _merge_owned_inventories(replay, replay_owners)
+    retained_reference = (
+        validated_original_r_reference(repo_root, policy)
+        if retain_original_r_reference
+        else ()
+    )
+    generated_paths = {entry.path for entry in complete_reference}
+    generated_paths.update(entry.path for entry in complete_replay)
+    if generated_paths.intersection(entry.path for entry in retained_reference):
+        raise ReportRebuildError("retained R reference overlaps generated output")
+    complete_reference = tuple(
+        sorted((*complete_reference, *retained_reference), key=lambda entry: entry.path)
+    )
+    complete_replay = tuple(
+        sorted((*complete_replay, *retained_reference), key=lambda entry: entry.path)
+    )
     tracked = inventory_reports(
         repo_root / cast(str, policy["tracked_report_root"]), policy
     )
@@ -376,7 +396,7 @@ def verify_partitioned_rebuild(
         for identity, (manifest, _, _) in owners.items():
             _require_current_owner_inputs(manifest, repo_root, identity, policy)
     report: JsonObject = {
-        "schema_version": "reproducible-report-build-evidence.v2",
+        "schema_version": "reproducible-report-build-evidence.v3",
         "status": "PASS" if not differences else "FAIL",
         "policy_path": policy_path.resolve().relative_to(repo_root).as_posix(),
         "policy_sha256": binding.policy_sha256,
@@ -414,6 +434,16 @@ def verify_partitioned_rebuild(
                 ("replay", replay_owners),
             )
         },
+        "retained_sources": (
+            {
+                "original_r_reference": {
+                    "certificate_sha256": CERTIFICATE_SHA256,
+                    "paths": [entry.path for entry in retained_reference],
+                }
+            }
+            if retain_original_r_reference
+            else {}
+        ),
         "inventories": {
             "tracked": inventory_json(tracked),
             "reference": inventory_json(complete_reference),
