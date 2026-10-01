@@ -31,6 +31,7 @@ PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=packages/bijux-pollenomics-dev/src \
   --output artifacts/swedish-site-identity/replay
 ```
 
-The generated CSV uses CRLF line endings; the governed copy uses LF with the
-same rows. This comparison admits no Swedish LRA sample and does not resolve
-core identity, rights, chronology or pollen-count denominators.
+The producer and governed CSV both use LF line endings, so all three generated
+outputs can be compared byte for byte. This comparison admits no Swedish LRA
+sample and does not resolve core identity, rights, chronology or pollen-count
+denominators.
