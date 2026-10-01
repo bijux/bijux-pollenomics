@@ -325,11 +325,14 @@ it does not supply a joint age posterior or an adjusted pollen score. The
 now binds 107 ABBO and 71 of 72 DALMUT samples to an independent 95% age
 range; the 4.5 cm DALMUT sample remains unmatched. Its marginal intervals
 do not define joint age probabilities or make either site a fresh holdout.
-**Reopen when:** calibrated age-model uncertainty and
-eligible cores are bound to physical sites and windows. First predeclare a
-conservative interval-overlap rule and run an age-aware, site-excluded
-development consumer on the newly joined ABBO source; keep confirmation
-claims separate until an untouched cohort exists.
+The [ABBO interval-contained development sensitivity]
+(../../docs/report/pollen-reconstruction/age-interval-sensitivity/README.md)
+now admits eight of 107 ABBO samples to four common bins, freezes all four
+site-excluded methods before scoring and compares 12 paired targets per
+method. Its small score changes do not establish chronology or model skill.
+**Reopen when:** calibrated joint age-model uncertainty and eligible cores
+are bound to physical sites and windows; predeclare forward-time rules and
+test an untouched cohort separately from this exposed three-site study.
 
 ## Independent confirmation
 

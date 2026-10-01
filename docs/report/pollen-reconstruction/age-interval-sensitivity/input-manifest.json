@@ -1,0 +1,20 @@
+{
+  "abbo_bins": {
+    "3": 1,
+    "4": 3,
+    "5": 3,
+    "9": 1
+  },
+  "admitted_abbo_samples": 8,
+  "age_source": "LegacyAge 1.0 S5 reported 95% bounds, DOI 10.1594/PANGAEA.933132",
+  "config_sha256": "51c35fbf2fe29e0a5b9d159df615c07031ce68c4c3e2d91d36b3525ecb5ba11f",
+  "producer_sha256": "b01db6948389e33bad5e88afd4b08fa954ccaf3fd893d01e92a8d504c5e1a4f0",
+  "schema_version": "abbo-interval-contained-pollen.v1",
+  "source_sha256": {
+    "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-004.json": "d96046c88b497ba07082120e446fecacad0d9b5533d8960bdbc03811976ea435",
+    "docs/report/pollen-reconstruction/swedish-direct-pollen/prepared/dataset-19913.json": "fad881f64fae9fcf632854068274375f4f842398cfe2255ba71b68e9a6335d79",
+    "docs/report/pollen-reconstruction/swedish-direct-pollen/prepared/dataset-53995.json": "7ff0ce9286983ab726e6fb9bcd95df3cf393ef0df7efde81a79b78d2c3fd92e5",
+    "docs/report/pollen-reconstruction/swedish-direct-pollen/prepared/dataset-54001.json": "3231eb8ca83f99b3ecdeca8eb8aacc7f60c4bbf2547dca2c0e2c23a98e98b520",
+    "docs/report/source-relations/neotoma/legacyage-chronology/sample-depth-join.csv": "00fb70fc6201b07873d2ec13ea59ec6018c656ae5f680f881c055d1a0a4b4ac6"
+  }
+}
