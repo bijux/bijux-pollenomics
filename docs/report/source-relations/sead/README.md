@@ -48,6 +48,11 @@ reconciles all 24,701 typed integer components with their parent observations,
 source classes and chronology links while preserving qualified display text
 and event refusal.
 
+The [country chronology account](chronology-country-accounting/README.md)
+joins all 25,109 reviewed claims to the 2,069 assigned site decisions. It
+separates source-row counts, distinct sites and chronology-display eligibility
+for each country; every claim remains refused for ecological propagation.
+
 ## Reproduce
 
 From an installed development environment at the repository root, use a new,

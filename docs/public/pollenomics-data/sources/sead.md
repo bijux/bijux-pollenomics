@@ -57,6 +57,11 @@ also reconciles all 2,195 discovered IDs to source retrieval and normalized
 site rows. The source supplied no country field, so its per-country counts are
 governed boundary assignments; the 126 pending decisions remain excluded.
 
+The [four-country chronology account](../../../report/source-relations/sead/chronology-country-accounting/README.md)
+groups all 25,109 reviewed claims by country, age basis and display eligibility.
+Its 853 sites with claims are distinct from the 2,069 assigned site denominator;
+none of those claims is admitted as an ecological event.
+
 ## From A Relational Database To A Map Point
 
 A SEAD date belongs to a chain of records, not directly to a coordinate. The

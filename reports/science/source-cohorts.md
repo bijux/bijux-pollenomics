@@ -66,6 +66,15 @@ Neotoma samples. This reuses the prior observed-pollen study; neither
 
 ## Context and validation sources
 
+We also joined every reviewed SEAD chronology claim to its governed country and
+site decision in the [country claim account](../../docs/report/source-relations/sead/chronology-country-accounting/README.md).
+The 25,109 claims belong to 853 distinct sites among 2,069 assigned sites:
+Sweden 22,643 claims at 741 sites, Denmark 1,939 at 56, Norway 468 at 27,
+and Finland 59 at 29. Another 126 site decisions remain outside that assigned
+population. These are chronology source rows, not pollen samples or admitted
+ecological events. We retained all 25,109 propagation refusals, including the
+13,170 claims eligible only for chronology display.
+
 We decided that the present four-country scientific comparison tests
 **observed-pollen prediction**, not national archaeology density or candidate
 rankings. No archaeology count enters its training inputs, outcomes, scores or

@@ -126,7 +126,7 @@
     },
     {
       "path": "docs/report/index.md",
-      "sha256": "30dce924ac358d9d63e5f30f784bb48fbbb93152248c01bcad9a8638a3430a37",
+      "sha256": "c32dc78b05b1da1f45227912f014e3e0c017fe29687c398e6eff3fa51a7762ee",
       "bytes": 2668
     },
     {
@@ -1995,6 +1995,21 @@
       "bytes": 4264
     },
     {
+      "path": "docs/report/source-relations/sead/chronology-country-accounting/README.md",
+      "sha256": "8827ccdb5c863fbf36d09d748f8428f3d1feca90fb41ed6f731776094c786348",
+      "bytes": 2588
+    },
+    {
+      "path": "docs/report/source-relations/sead/chronology-country-accounting/report.json",
+      "sha256": "b1a1968f7581890e9fed20d5e6c766a1c78726274fe867de23e12d9f684c2071",
+      "bytes": 3079
+    },
+    {
+      "path": "docs/report/source-relations/sead/chronology-country-accounting/rows.csv",
+      "sha256": "afdf52ee1b5dea2945fbc0c652dce92ce30eb5cfab2b01d2fa0f2e57f5e1fb8a",
+      "bytes": 1591
+    },
+    {
       "path": "docs/report/vegetation-reference/farskesjon/README.md",
       "sha256": "d1601d84f868973b98de600d2704f946d5fb3ba7aa49bd7597e7d13fbacddea9",
       "bytes": 823
@@ -2168,6 +2183,11 @@
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sambosjon_direct_pollen.py",
       "sha256": "1728ecee3671eac078bc6178def66593584646692b07fda0cea58433c018cd4d",
       "bytes": 22571
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sead_chronology_country_accounting.py",
+      "sha256": "4e98914e4219b8bca32a53c5fc6fb2deaa58dd8c06783ae266a0e6d54cf0d86b",
+      "bytes": 10855
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/swedish_author_target_pollen.py",
@@ -2581,8 +2601,8 @@
     },
     {
       "path": "reports/science/source-cohorts.md",
-      "sha256": "a06efd8e91eff810b3693d3e12fc357e970859cbe6f3ef202a54024d30a92492",
-      "bytes": 6376
+      "sha256": "073f3dcefbed0cdf5b8a40dc8d9e50e88d8bf4e183cd52acbf72daf258193369",
+      "bytes": 7018
     },
     {
       "path": "reports/science/sweden-author-pollen.md",
