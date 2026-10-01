@@ -54,6 +54,12 @@ class CompletenessTests(SampleMasterRecoveryTestCase):
             in {"PRJEB19970", "PRJEB22390", "PRJEB31613", "PRJEB44430"}
         )
         self.assertEqual(horse_counts, Counter({15: 1, 42: 1, 245: 1, 248: 1}))
+        camel = next(
+            row for row in completeness_rows if row["project_accession"] == "SRP073444"
+        )
+        self.assertEqual(camel["recovered_sample_count"], 20)
+        self.assertEqual(camel["final_sample_count"], 18)
+        self.assertEqual(camel["ambiguity_row_count"], 2)
         self.assertEqual(
             {
                 (row["project_accession"], row["repo_stable_sample_id"])
@@ -63,6 +69,8 @@ class CompletenessTests(SampleMasterRecoveryTestCase):
                 ("PRJEB81815", "prjeb81815:samea120246597"),
                 ("PRJEB81815", "prjeb81815:samea120246598"),
                 ("PRJEB81815", "prjeb81815:samea120246599"),
+                ("SRP073444", "srp073444:samn04631877"),
+                ("SRP073444", "srp073444:samn04631967"),
             },
         )
         self.assertTrue(

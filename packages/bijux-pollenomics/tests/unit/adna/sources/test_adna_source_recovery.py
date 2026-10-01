@@ -72,7 +72,7 @@ class AdnaSourceRecoveryUnitTests(unittest.TestCase):
             row for row in payload["rows"] if row["project_accession"] == "SRP073444"
         )
         self.assertEqual(srp["recovered_sample_count"], 20)
-        self.assertEqual(srp["final_sample_count"], 20)
+        self.assertEqual(srp["final_sample_count"], 18)
         self.assertEqual(srp["stage_statuses"]["sample_identity_recovery"], "complete")
         self.assertEqual(srp["stage_statuses"]["site_recovery"], "complete")
         self.assertIn("chronology_gap", srp["major_deficit_reasons"])
