@@ -40,6 +40,27 @@ while falling **23.47 to 20.53%** at Bökesjön. Both examples retain their
 directions under the 16-taxon denominator. The report also retains a
 1000-year aggregation to show the effect of wider bins.
 
+The 48 classifications represent **24 distinct taxon transitions**, each
+evaluated at two thresholds. The eight agreement and two contradiction
+classifications are therefore not ten independent events. The sole distinct
+contradiction is the `Alnus` change from 5000–5500 to 4500–5000 cal BP:
+Bussjösjön rises by **13.1536 percentage points** on its native denominator
+and **11.1170 points** on the closed-16 denominator, while Bökesjön falls by
+**2.9374** and **2.1799 points**, respectively. It passes both declared
+thresholds under both denominators; age and spatial uncertainty remain
+unresolved.
+
+The denominator can also reverse a direction within one lake. At
+Bussjösjön, `Alnus` from 4000–4500 to 3500–4000 cal BP falls by **3.1987
+percentage points** among all native pollen `NISP`, but rises by **12.6236
+points** within the exact-name 16-taxon subset. Across the 13 common bins,
+that subset contains only **20.17–64.63%** of native pollen counts at
+Bussjösjön and **47.78–67.00%** at Bökesjön. It includes `Nuphar` but
+excludes native `Corylus`, `Pinus`, Poaceae and cereal labels; these fractions
+are conditional pollen compositions, not total vegetation or agricultural
+cover. The native denominator selects pollen `NISP` observations, so the
+restriction is the meaning of the subset rather than inclusion of spores.
+
 We counted overlapping dated SEAD map features within 10 and 20 km of the
 Neotoma site points. We also repeated the Bussjösjön circles at the
 [published lake-inventory point](../../docs/report/source-relations/neotoma/bussjosjon-basin/README.md),

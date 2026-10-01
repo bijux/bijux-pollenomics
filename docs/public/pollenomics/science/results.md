@@ -287,7 +287,12 @@ Bussjösjön and Bökesjön in 13 common 500-cal-BP bins. The
 [lake trajectory report](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/sweden-lake-trajectory.md)
 retains each site's source counts, age support and 48 taxon/threshold/interval
 comparisons. Some site changes agree in direction and others contradict. A
-1000-year binning and alternate nearby-site circles expose time and location
+review of the source counts found that the 48 classifications are 24 distinct
+taxon transitions evaluated at two thresholds: one `Alnus` contradiction
+persists under both thresholds and denominators. A different Bussjösjön
+`Alnus` transition reverses direction when the 16-taxon subtotal replaces
+all native pollen counts. Neither comparison is a vegetation-cover change.
+The 1000-year binning and alternate nearby-site circles expose time and location
 sensitivity. Giving both lakes equal weight versus pooling their pollen counts
 changes 10 of 48 all-native direction classes and 9 of 48 closed-16 classes;
 four comparisons in each denominator reverse between a qualified increase and

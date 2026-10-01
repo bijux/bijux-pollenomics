@@ -51,6 +51,20 @@ the lake geometry layer is open or that this endpoint is a supported acquisition
 route. The live endpoint is thus a source lead, not a rights-qualified new
 registry. No provider geometry is published here.
 
+Lantmäteriet's separate [Hydrografi Nedladdning licence, version 1.0,
+22 April 2025](https://www.lantmateriet.se/globalassets/geodata/geodataprodukter/licensvillkor-hydrografi-nedladdning.pdf)
+establishes a specific route for qualifying environmental research. Section
+2.2 requires acceptance of the terms and an approved access application;
+section 3.3 defines eligible noncommercial research whose results become
+public and for which this product is needed. Sections 4.2–4.4 permit internal
+processing and set conditions for redistribution and attribution. This route
+does not establish that this project has been approved, that the old SMHI
+`ms:lakes` export was licensed under these terms, or that the two products have
+identical lake identities. The next source decision is an approved access
+route and a versioned layer-to-layer identity comparison. The difference of
+42 between the two reported lake counts is a net count difference; without
+both full ID sets, it is not an omitted-lake list.
+
 To replay the byte and refusal checks, supply the private source-store root and
 write a disposable receipt under `artifacts/`, then compare the resulting JSON
 with the governed receipt:

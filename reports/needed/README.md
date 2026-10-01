@@ -250,13 +250,15 @@ a 40,565-lake normalized export. A bounded official WFS check on 1 October
 governed 40,523-lake review has no complete retained ID list. We cannot
 attribute the 42-record difference or promote either source to the registry.
 
-**Needed:** SMHI or Lantmäteriet authority for the exact lake geometry layer,
-its reuse terms and supported acquisition route; then the complete source ID
-sets and selection rules for both lake populations. Reconcile identities
-before admitting a named lake or recalculating a field rank. SMHI's current
-hydrografi description restricts lake geometries to a view service, so its
-general open-data terms do not by themselves permit reuse of the old WFS
-geometry layer.
+**Needed:** qualify one approved lake-geometry acquisition route and bind its
+exact version and terms to the layer actually used; then obtain the complete
+source ID sets and selection rules for both lake populations. Lantmäteriet's
+[Hydrografi Nedladdning research-access terms](https://www.lantmateriet.se/globalassets/geodata/geodataprodukter/licensvillkor-hydrografi-nedladdning.pdf)
+provide a specific route for noncommercial environmental research, but access
+requires an approved application and acceptance of those terms. They do not
+authorize the old SMHI WFS export or prove equivalent lake identities. The
+count difference of 42 is net: additions and removals may offset. Reconcile
+the full IDs before admitting a named lake or recalculating a field rank.
 
 ## Swedish lake and archaeology context joins
 
