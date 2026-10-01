@@ -37,6 +37,17 @@ explanatory pages have 15 resolving local links. This is a verified portion of
 the mixed report tree; the remaining nonpublisher outputs still need their own
 owner replay before an assembled whole-tree no-difference claim.
 
+We also replayed the source capability, DNA scope, Rootsi–LandClim overlap,
+LandClim author preparation, OpenLand intake and aggregate source
+reconciliation owners. Their eight generated JSON/CSV outputs now match the
+governed files. The [OpenLand decision](../../docs/report/source-relations/openland-intake/README.md)
+uses the current producer identity while retaining the same 51-member ledger.
+The [source reconciliation](../../docs/report/source-relations/source-reconciliation/README.md)
+now records the 13 authority paths added to its verified input closure; its
+accounting checks still pass without changing scientific admission. These
+source-specific replays account for another part of the tree, while full
+mixed-owner assembly remains open.
+
 Our source-bound vegetation results illustrate the boundary: the
 [Färskesjön](../science/vegetation-reference/farskesjon/plot_support.py),
 [Småland historical-map](../science/vegetation-reference/smaland-historical-maps/coverage.py)
