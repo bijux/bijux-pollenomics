@@ -1,0 +1,33 @@
+{
+  "bin_width_cal_bp": 500,
+  "dataset_ids": [
+    "neotoma:dataset:4445",
+    "neotoma:dataset:4446"
+  ],
+  "interval_rule": "retain only comparable Neotoma age samples whose full closed S5 95% interval fits the original half-open 500-cal-BP bin; no rounding or interpolation",
+  "parent_cohort_sha256": "03fc3f0522c2e65082ea245785db84a76431eb6a099b81ce0358fbe9e249dc32",
+  "parent_manifest_sha256": "e1cf9fddc91dcce3e862079c5fa3515a985e3571339e19ef356b296d4117d61d",
+  "parent_prediction_sha256": "ab637ecd8dfaaf672e5f5a496059a9aaa516d28d76cdef1aabac2dacb23aeee8",
+  "parent_training_sources_sha256": "df901240f952fadccd2977553382709134f11c43cb5f3163c84f195ce863321a",
+  "prediction_role": "reuse frozen Denmark-excluded parent predictions; no refit or method selection",
+  "sample_support_sha256": "fa5c7a3f74c2f750d3f4a3f4cea18382aeab9970c87f6321342b569d3365c619",
+  "schema_version": "solsoe-legacyage-interval-sensitivity.v1",
+  "scope": "prior-exposed development; directly observed pollen on 16 literal source labels",
+  "selected_bin_ids": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    12,
+    15,
+    16
+  ],
+  "selected_prediction_sha256": "b9b3e3ca2c1fb439d29b20fc0e0299b7d200a802d3092ca9d15a35accb7c3a1e",
+  "selected_samples": 15,
+  "site_id": "neotoma:site:3432",
+  "source_age_join_sha256": "0a5a6c4fea4b547021e236ffdb4e5ec16178876b161f6d0556e6dd9ebcd80925",
+  "source_age_report_sha256": "dc06e30d7a290bb81ad6c8f0da1ec3b8a804f883af388692855698e9ee555be2",
+  "source_doi": "10.1594/PANGAEA.933132",
+  "target_pollen_observations_read": false
+}

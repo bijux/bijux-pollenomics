@@ -210,6 +210,12 @@ matches all 92 Neotoma samples across two cores. The 1981 and 1983 core
 chronologies have different agreement with these alternative age intervals.
 The join does not recover LandClim II's published selection of 79 samples or
 its historical basin inputs.
+A separate [Denmark-held-out pollen sensitivity]
+(../../../report/countries/denmark/solsoe-source-lineage/legacyage-interval-sensitivity/README.md)
+retains 15 of 91 comparable samples whose full age intervals fit their
+original bins. Eight of 24 scored bins and 32 frozen four-method predictions
+remain supported. This is a previously exposed direct-pollen result on one
+physical lake, with no new LRA or vegetation validation claim.
 
 ## A newly scored Swedish lake
 

@@ -96,8 +96,8 @@
     },
     {
       "path": "docs/public/pollenomics/science/results.md",
-      "sha256": "3b7d5a4ada370759fd3c6d471c6cc44a1f9c3d0ab160eb7b99ecbd7d4b578418",
-      "bytes": 19424
+      "sha256": "dad9b1440e4ec29116440837e77b18d2c92e05656cff06101e44ad97413904c2",
+      "bytes": 19858
     },
     {
       "path": "docs/public/pollenomics/science/sources.md",
@@ -121,8 +121,8 @@
     },
     {
       "path": "docs/report/countries/denmark/solsoe-source-lineage/README.md",
-      "sha256": "b637fe742bc92f6ce0a293d696a802b325b591510a89884569ba67831ccab534",
-      "bytes": 1161
+      "sha256": "3da331e297c7e9a71427fe908e2dccd9ab4289e38f644e911ae0dd28527c478a",
+      "bytes": 1257
     },
     {
       "path": "docs/report/countries/denmark/solsoe-source-lineage/legacyage-chronology/README.md",
@@ -148,6 +148,41 @@
       "path": "docs/report/countries/denmark/solsoe-source-lineage/legacyage-chronology/sample-depth-join.csv",
       "sha256": "0a5a6c4fea4b547021e236ffdb4e5ec16178876b161f6d0556e6dd9ebcd80925",
       "bytes": 8877
+    },
+    {
+      "path": "docs/report/countries/denmark/solsoe-source-lineage/legacyage-interval-sensitivity/README.md",
+      "sha256": "b94b42b2d5ba80eb1a42d66b9f9c9d22686f99525582115451512ff5989e7319",
+      "bytes": 3860
+    },
+    {
+      "path": "docs/report/countries/denmark/solsoe-source-lineage/legacyage-interval-sensitivity/predictions.json",
+      "sha256": "b9b3e3ca2c1fb439d29b20fc0e0299b7d200a802d3092ca9d15a35accb7c3a1e",
+      "bytes": 165920
+    },
+    {
+      "path": "docs/report/countries/denmark/solsoe-source-lineage/legacyage-interval-sensitivity/protocol.json",
+      "sha256": "3598c4d8ae3c2c3249e5c562612f4c396463d37568e6d35c8267d01610f61f85",
+      "bytes": 1556
+    },
+    {
+      "path": "docs/report/countries/denmark/solsoe-source-lineage/legacyage-interval-sensitivity/replay.py",
+      "sha256": "1623702a419ec9812de0050d29810d7a01f418037ae3a416c42b0038218a6c3d",
+      "bytes": 16162
+    },
+    {
+      "path": "docs/report/countries/denmark/solsoe-source-lineage/legacyage-interval-sensitivity/report.json",
+      "sha256": "74973466ec934c81b0db2c424927cbcdbbe033e8bb96c39428940a6f3c490206",
+      "bytes": 2621
+    },
+    {
+      "path": "docs/report/countries/denmark/solsoe-source-lineage/legacyage-interval-sensitivity/sample-support.csv",
+      "sha256": "fa5c7a3f74c2f750d3f4a3f4cea18382aeab9970c87f6321342b569d3365c619",
+      "bytes": 9220
+    },
+    {
+      "path": "docs/report/countries/denmark/solsoe-source-lineage/legacyage-interval-sensitivity/scores.csv",
+      "sha256": "67b6170d7e41d9488b59a1de92ddd4774f9d4bb2a4601a9580c8c8113a2cf851",
+      "bytes": 5121
     },
     {
       "path": "docs/report/countries/denmark/solsoe-source-lineage/pangaea-epd-age-join/README.md",
@@ -2801,8 +2836,8 @@
     },
     {
       "path": "reports/needed/README.md",
-      "sha256": "2b0bdd677f2fc9c0f2b5a2006694e574289d3a819d3f390213555390c73fe7d3",
-      "bytes": 27338
+      "sha256": "70c0e32a82713bf0f17268272a331e513e1fff98c88ca316fd0238d55625daf3",
+      "bytes": 27722
     },
     {
       "path": "reports/science/abborrtjarnen-source-method.md",
@@ -3041,8 +3076,8 @@
     },
     {
       "path": "reports/science/solsoe-lra-input.md",
-      "sha256": "1b455086d901eaa3528fb7f387904661044f6f0fd7549e57297e9b9647f7307c",
-      "bytes": 5690
+      "sha256": "ed0213d8c27ce5d90ac924e85fad0d90e97c10fd0a315be31bee12ed971ee39a",
+      "bytes": 6347
     },
     {
       "path": "reports/science/source-cohorts.md",

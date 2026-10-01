@@ -1,0 +1,53 @@
+{
+  "comparable_boundary_crossing_samples": 76,
+  "fixed_methods": [
+    "training_mean",
+    "nearest_site",
+    "inverse_distance_squared",
+    "clr_rbf_ridge"
+  ],
+  "interpretation": "Prior-exposed Denmark country-held-out prediction sensitivity of directly observed pollen on 16 literal labels. All supported full S5 intervals stay in their original Neotoma bins, so matched-sample nominal and strict-interval scores coincide. Changes from original full-bin scores reflect restricted sample support, not age reassignment. No historical LandClim chronology selection, LRA, measured vegetation truth, age posterior, or independent site uncertainty is inferred.",
+  "mean_scores_on_eight_bin_support": {
+    "clr_rbf_ridge": {
+      "parent_full_bin_hellinger_on_same_bins": 0.4143300379553208,
+      "parent_full_bin_mae_fraction_on_same_bins": 0.04008091532031785,
+      "strict_interval_hellinger": 0.4146634784608943,
+      "strict_interval_mae_fraction": 0.040336998064041944
+    },
+    "inverse_distance_squared": {
+      "parent_full_bin_hellinger_on_same_bins": 0.4323740765769245,
+      "parent_full_bin_mae_fraction_on_same_bins": 0.0375598511758477,
+      "strict_interval_hellinger": 0.43551793224816626,
+      "strict_interval_mae_fraction": 0.0381778834562004
+    },
+    "nearest_site": {
+      "parent_full_bin_hellinger_on_same_bins": 0.3848344507105871,
+      "parent_full_bin_mae_fraction_on_same_bins": 0.032103570468309334,
+      "strict_interval_hellinger": 0.3860713802511479,
+      "strict_interval_mae_fraction": 0.03231015967898073
+    },
+    "training_mean": {
+      "parent_full_bin_hellinger_on_same_bins": 0.4656357718264436,
+      "parent_full_bin_mae_fraction_on_same_bins": 0.042678452180431536,
+      "strict_interval_hellinger": 0.468875257344614,
+      "strict_interval_mae_fraction": 0.04362665758847259
+    }
+  },
+  "neotoma_observation_part_sha256": "571b55edc7ce7b6472cacc0db41c41c0e5ccb7d11f0890f88e7ba5f99ef3c719",
+  "parent_comparable_samples": 91,
+  "parent_scored_bins": 24,
+  "parent_scores_sha256": "b85963e3b2e0386541dfcebf0e14530571d1bcc22f630f0720e43592e44ef2d8",
+  "protocol_sha256": "3598c4d8ae3c2c3249e5c562612f4c396463d37568e6d35c8267d01610f61f85",
+  "retained_by_core": {
+    "SOLSOE81": 14,
+    "SOLSOE83": 1
+  },
+  "retained_full_interval_samples": 15,
+  "retained_scored_bins": 8,
+  "reused_frozen_prediction_rows": 32,
+  "schema_version": "solsoe-legacyage-interval-sensitivity-result.v1",
+  "scores_sha256": "67b6170d7e41d9488b59a1de92ddd4774f9d4bb2a4601a9580c8c8113a2cf851",
+  "source_age_refusals": 1,
+  "source_core_samples": 92,
+  "unsupported_bins": 16
+}

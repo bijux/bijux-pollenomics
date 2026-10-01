@@ -336,6 +336,11 @@ The [ABBO interval-contained development sensitivity]
 now admits eight of 107 ABBO samples to four common bins, freezes all four
 site-excluded methods before scoring and compares 12 paired targets per
 method. Its small score changes do not establish chronology or model skill.
+At Danish Solsø, the [strict LegacyAge support check]
+(../../docs/report/countries/denmark/solsoe-source-lineage/legacyage-interval-sensitivity/README.md)
+retains 15 of 91 comparable samples in eight of 24 parent bins, reusing 32
+Denmark-excluded fixed pollen predictions. It is one exposed site and does
+not identify LandClim's historical 79-row selection or a joint age posterior.
 The [Dalmutladdo age-interval sensitivity]
 (../../docs/report/regions/nordic/dalmutladdo-age-interval-sensitivity/README.md)
 retains only two of 72 samples and two of 22 originally scored bins. Both

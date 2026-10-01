@@ -57,6 +57,16 @@ the 1983 chronology as within. This supports a new age-aware pollen
 sensitivity. The historical LandClim 79-row selection and chosen chronology
 remain unresolved.
 
+On the separate [16-label Denmark-held-out pollen study]
+(../../docs/report/countries/denmark/solsoe-source-lineage/legacyage-interval-sensitivity/README.md),
+15 of 91 comparable Solsø samples have full LegacyAge 95% intervals inside
+their original 500-year bins. They occupy eight of 24 parent bins and retain
+32 previously frozen predictions across four methods. Nearest-site mean
+absolute fraction error is 0.032310 on those eight restricted bins, versus
+0.032104 using each bin's complete parent pollen counts. No retained sample
+changes its nominal bin, so this is a sample-support sensitivity,
+not a new chronology fit or evidence for LRA accuracy.
+
 ## What would change this decision
 
 We need a source-owner packet naming the actual LandClim II 79 pollen rows,
