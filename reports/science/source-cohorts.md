@@ -104,6 +104,16 @@ have separated interval components. The atlas chronology discovery layer is
 Swedish; the four-country site inventory is context, not a four-country
 event layer. A site-wide span cannot fill gaps between its source intervals.
 
+We exercised a [built four-country SEAD map candidate](../../docs/report/source-relations/sead/map-candidate/README.md)
+in a browser and checked its source-bound layers. The 2,069 site points are
+context; 1,219 have no numeric site envelope. Swedish discovery retains
+7,244 numeric interval features and 1,555 unresolved records. A source-backed
+interval gap stays empty under the live time filter, while 0 BP remains a
+valid numeric value. The 25,109 claim review admits zero ecological events,
+the built map has zero accepted propagation edges, and source release is still
+refused. These results verify the current map posture, not an ecological
+propagation network.
+
 We decided that the present four-country scientific comparison tests
 **observed-pollen prediction**, not national archaeology density or candidate
 rankings. No archaeology count enters its training inputs, outcomes, scores or
@@ -120,6 +130,18 @@ heritage context to rank candidates across all four countries, that analysis
 must first identify appropriate national sources and review each source's
 licence, observation unit, classification, coverage, update method and time
 support. Missing capture must remain unknown rather than a zero.
+
+We reconciled the [LandClim modeled cells in the Nordic map](../../docs/report/source-relations/landclim/map-export-lineage/README.md)
+with the governed temporal grid and published map shards. All 2,515 temporal
+features match the static map transport; 1,875 belong to the PANGAEA 937075
+LandClim II reconstruction. Across 100 country/window slices, 73,696 metric
+pairs carry numeric estimates and standard errors, while 14,429 pairs are
+explicitly null. The map's selector retains the source window and country,
+and its download contract retains the method and modeled evidence role. We
+have not exercised a browser download or established a formal CRS for the
+normalized geometry. Rootsi and Neotoma metadata overlaps do not identify
+the historical cell contributors, and SEAD supplies context rather than an
+independent vegetation result.
 
 We checked modeled HYDE quantities and native grid reconciliation at seven
 CE labels in the [country cropland report](hyde-cropland-source-account.md).

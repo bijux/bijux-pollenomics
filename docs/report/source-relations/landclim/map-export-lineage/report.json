@@ -1,0 +1,120 @@
+{
+  "schema_version": "landclim-map-export-lineage.v1",
+  "status": "source_to_static_transport_verified_browser_download_not_executed",
+  "dataset_id": "937075",
+  "dataset_doi": "https://doi.org/10.1594/PANGAEA.937075",
+  "method_citation": "Githumbi et al. (2022), European pollen-based REVEALS land-cover reconstructions for the Holocene",
+  "method_doi": "https://doi.org/10.5194/essd-14-1581-2022",
+  "evidence_role": "modeled_context_not_observed_vegetation",
+  "scenario_identity": "published_PANGAEA_937075_REVEALS_reconstruction;no_alternative_scenario_asserted",
+  "source_metric_families": [
+    {
+      "key": "exact_taxa",
+      "metric_count": 31
+    },
+    {
+      "key": "source_pft_codes",
+      "metric_count": 13
+    },
+    {
+      "key": "source_land_cover_types",
+      "metric_count": 3
+    }
+  ],
+  "source_class_boundary": "ET_ST_OL_source_land_cover_types;AL_source_PFT_component_of_OL",
+  "value_unit": "percentage_cover",
+  "time_basis": "discrete_published_BP_windows",
+  "geometry_crs": "not_explicit_in_normalized_geojson_or_download_contract",
+  "source_feature_count": 2515,
+  "published_feature_count": 2515,
+  "modeled_cell_window_count": 1875,
+  "metric_count": 47,
+  "estimate_standard_error_pair_count": 88125,
+  "country_window_slice_count": 100,
+  "numeric_pair_count": 73696,
+  "null_pair_count": 14429,
+  "rootsi_candidate_pair_count": 79,
+  "rootsi_grid_window_contributor_identity_resolved": false,
+  "neotoma_swedish_same_name_candidates": 38,
+  "neotoma_swedish_physical_identity_admitted": 0,
+  "swedish_neotoma_landclim_site_metadata_candidates": 3,
+  "swedish_synthesis_targets_sharing_bus_boke_grid": 5,
+  "sead_evidence_role": "independent dated site-location context only, not land-use magnitude",
+  "sead_grid_window_contributor_identity_resolved": false,
+  "independent_corroboration_admitted": false,
+  "inputs": [
+    {
+      "path": "data/landclim/normalized/nordic_reveals_temporal_grid_cells.geojson",
+      "bytes": 17075784,
+      "sha256": "2c04cff11aee3ea191540ef00084854402f90ebe8c3b09e0605d22827d29b15e"
+    },
+    {
+      "path": "docs/report/regions/nordic/nordic_map.html",
+      "bytes": 522489,
+      "sha256": "83d0cc9eb8ea5d9bde6787a5c2922adc72d0ed399886118c7519515466e9b8a4"
+    },
+    {
+      "path": "docs/report/source-relations/rootsi-landclim-overlap/report.json",
+      "bytes": 4264,
+      "sha256": "c948f235313ddf7b99a3a941cf8167caabe18cbb22580671ae696a7d0aaee264"
+    },
+    {
+      "path": "docs/report/source-relations/neotoma/landclim-site-identity/report.json",
+      "bytes": 1525,
+      "sha256": "9a0b6aee4ead3f8a658b63a279e74c11210bb680c78d538ed83a4b0b4c90f4cf"
+    },
+    {
+      "path": "docs/report/countries/sweden/pollen-model-lineage/report.json",
+      "bytes": 4477,
+      "sha256": "59060984df4a798cdadeeb74ceeb8da7e807118175d547c52a4e18ee43a1edd0"
+    },
+    {
+      "path": "docs/report/countries/sweden/observed-pollen-trajectory/report.json",
+      "bytes": 105949,
+      "sha256": "7e178e4e45434e5f63720be3b118010d37ae3088f616282fa97ae49c37f45f6b"
+    },
+    {
+      "path": "data/landclim/raw/landclim_sources.json",
+      "bytes": 4880,
+      "sha256": "eb4350724c176d0dbcb7e441f2d21489bdae1cfff7ebe3088eab27093f315677"
+    },
+    {
+      "path": "data/landclim/raw/landclim_ii_reveals_results.zip",
+      "bytes": 4007032,
+      "sha256": "c585f0691ad95342b8aba083b90fe91dc398f985b6b7fbc19561299389c4fb86"
+    }
+  ],
+  "published_landclim_shards": [
+    {
+      "path": "docs/report/regions/nordic/nordic.atlas-nodes.0165.196f460e2100dbfb.js",
+      "bytes": 88653,
+      "sha256": "196f460e2100dbfb3662410fa6d7fa699b9dcc3500b06acace4fa1338c92c963"
+    },
+    {
+      "path": "docs/report/regions/nordic/nordic.atlas-nodes.0166.295409e3ff79b1e8.js",
+      "bytes": 362461,
+      "sha256": "295409e3ff79b1e88fc3cc618390da3254bcb29b5b2062fa60cdf1779672553d"
+    },
+    {
+      "path": "docs/report/regions/nordic/nordic.atlas-nodes.0167.1d977a3331c9f689.js",
+      "bytes": 452041,
+      "sha256": "1d977a3331c9f6898a6a6be45d065d05ba712146467b391593b0f9b8f9d20a17"
+    },
+    {
+      "path": "docs/report/regions/nordic/nordic.atlas-nodes.0168.baabd28e4879c459.js",
+      "bytes": 77541,
+      "sha256": "baabd28e4879c459a8613e67aef952682edc9572099d8546dfdfbd441acd0521"
+    },
+    {
+      "path": "docs/report/regions/nordic/nordic.atlas-nodes.0169.4593641c17b957a0.js",
+      "bytes": 476457,
+      "sha256": "4593641c17b957a03dce3b46e41f40cd0d28c8ef1f078ba1185bf31c90d5bfab"
+    },
+    {
+      "path": "docs/report/regions/nordic/nordic.atlas-nodes.0170.4251fc66dfb88b7a.js",
+      "bytes": 127789,
+      "sha256": "4251fc66dfb88b7afb1c185e9bf0b10383127cd4d1dcc2bbb1a2f476c78006c3"
+    }
+  ],
+  "rows_csv_sha256": "fefa4a3a3462e1d9cdf36109ebb3b53e01fc44843206b2ae3ccc07ea8acfa5e5"
+}

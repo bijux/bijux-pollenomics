@@ -75,6 +75,11 @@
       "bytes": 14560
     },
     {
+      "path": "docs/public/pollenomics-data/sources/landclim-modeled-panels.md",
+      "sha256": "98c86c4bbbfe686cd85541275c34df34eeb15f881f49bf280f484da6154ff308",
+      "bytes": 2753
+    },
+    {
       "path": "docs/public/pollenomics-data/sources/neotoma.md",
       "sha256": "ce5d0a81584e5f0a93015b1045dc8ce4a2c828065368e9a0760dcfa92dbef720",
       "bytes": 27186
@@ -83,6 +88,11 @@
       "path": "docs/public/pollenomics-data/sources/nordic-nfi-reference-access.md",
       "sha256": "7e26487713dbfd021d3352f32610238cf11a75278e5d5b1d4e5aab679dc365a4",
       "bytes": 4667
+    },
+    {
+      "path": "docs/public/pollenomics-data/sources/sead-handbook.md",
+      "sha256": "ff1e3621268133c548827b9ab2597a40b4dcb33600bd0718963f990090dd26c5",
+      "bytes": 10259
     },
     {
       "path": "docs/public/pollenomics/science/sources.md",
@@ -126,7 +136,7 @@
     },
     {
       "path": "docs/report/index.md",
-      "sha256": "43443dfd4e3bb33fc17774f6215e0dd0bc64bc073119b9c1ff24cc1a8ad5aec9",
+      "sha256": "0c9b5e13a2e201742577ee019636ead5a000638f55ea6a665497e03227edf9b3",
       "bytes": 2668
     },
     {
@@ -1865,6 +1875,21 @@
       "sha256": "595c8e21c4bda3f8fee259c435aa0ff2a339ed7aea39e2d50b09f36523bd725c"
     },
     {
+      "path": "docs/report/source-relations/landclim/map-export-lineage/README.md",
+      "sha256": "4a092db0b00dc0e4ecc138ec90d4444ac342c56c70ba9174309547505bfc82ab",
+      "bytes": 2901
+    },
+    {
+      "path": "docs/report/source-relations/landclim/map-export-lineage/report.json",
+      "sha256": "424ff12adc03f3108459de0750f5eebcc0f358afc4a989ba1f99249e805d5732",
+      "bytes": 4792
+    },
+    {
+      "path": "docs/report/source-relations/landclim/map-export-lineage/rows.csv",
+      "sha256": "fefa4a3a3462e1d9cdf36109ebb3b53e01fc44843206b2ae3ccc07ea8acfa5e5",
+      "bytes": 11749
+    },
+    {
       "path": "docs/report/source-relations/landclim/neotoma-chronology-witness/README.md",
       "sha256": "d5730290987eea335b8b044994726162de9da62c272687d171e3694f4a6546b4",
       "bytes": 3610
@@ -2045,6 +2070,16 @@
       "bytes": 64546
     },
     {
+      "path": "docs/report/source-relations/sead/map-candidate/README.md",
+      "sha256": "b4d503b681f1652203d1392200819045ad0a8f0c2e8663a91daab8325db96b6c",
+      "bytes": 2612
+    },
+    {
+      "path": "docs/report/source-relations/sead/map-candidate/report.json",
+      "sha256": "59afdd5aac8b871adfede0c851bc744304e252db784bef60f5fa229b547d361f",
+      "bytes": 3081
+    },
+    {
       "path": "docs/report/source-relations/sead/public-custody/README.md",
       "sha256": "b4f02181ab2bfe6927d57095de74da12d2d60b8be6137e9e3c0105fa1e654842",
       "bytes": 2106
@@ -2190,6 +2225,11 @@
       "sha256": "629607a1fad4ff2a9357edb731d4ef95dd69897595fd87a5b19c5a9e96c98bb0"
     },
     {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/landclim_map_export_lineage.py",
+      "sha256": "e448422b37f09667208c96d2b81da1420f159f19a3260d7cd6f52da098129da7",
+      "bytes": 16116
+    },
+    {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/lilla_gloppsjon_direct_pollen.py",
       "sha256": "1146720bd0749936043f892be758b13e1579ba32ed608636a56dc47e6cd22ab1",
       "bytes": 16805
@@ -2258,6 +2298,11 @@
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sead_country_source_units.py",
       "sha256": "662cb399ca05ae230450b0e2985a512d3641a7aef97fbef64a40480c5f697286",
       "bytes": 16857
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sead_map_candidate.py",
+      "sha256": "88a4aaad5ce768d88520c9fc81963b0604687eb5f86873b8607bb30589ce0364",
+      "bytes": 18722
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/swedish_author_target_pollen.py",
@@ -2671,8 +2716,8 @@
     },
     {
       "path": "reports/science/source-cohorts.md",
-      "sha256": "d372d51df59063a9b816ce24ed37625df375c03ccb1b8df5c3d47cc4ebf6765c",
-      "bytes": 9112
+      "sha256": "6f86940264e44ad89748f98cfb28c0d8c3f64ab0dd54c3d579dcf2e70376ae3f",
+      "bytes": 10625
     },
     {
       "path": "reports/science/sweden-author-pollen.md",

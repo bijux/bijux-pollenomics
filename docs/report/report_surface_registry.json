@@ -1,16 +1,16 @@
 {
   "schema_version": "report-surface-registry.v1",
-  "surface_count": 1844,
+  "surface_count": 1849,
   "family_counts": {
     "caveats": 10,
-    "maintenance": 982,
+    "maintenance": 987,
     "maps": 86,
     "portal": 2,
     "reviews": 34,
     "scopes": 730
   },
   "audience_counts": {
-    "maintainer_diagnostic": 984,
+    "maintainer_diagnostic": 989,
     "public_reading_surface": 739,
     "scientific_review_surface": 121
   },
@@ -20,7 +20,7 @@
     "finland": 14,
     "nordic": 471,
     "norway": 14,
-    "report_root": 1031,
+    "report_root": 1036,
     "sweden": 49,
     "world": 172
   },
@@ -18266,6 +18266,42 @@
       "reader_route": "maintainer_truth"
     },
     {
+      "repository_path": "docs/report/source-relations/landclim/map-export-lineage/README.md",
+      "family": "maintenance",
+      "family_label": "Maintainer truth surfaces",
+      "audience": "maintainer_diagnostic",
+      "audience_label": "Maintainer diagnostic",
+      "format": "md",
+      "geography": "report_root",
+      "caution_level": "high",
+      "explanation": "Reader-facing entry page for one scope bundle.",
+      "reader_route": "start_here"
+    },
+    {
+      "repository_path": "docs/report/source-relations/landclim/map-export-lineage/report.json",
+      "family": "maintenance",
+      "family_label": "Maintainer truth surfaces",
+      "audience": "maintainer_diagnostic",
+      "audience_label": "Maintainer diagnostic",
+      "format": "json",
+      "geography": "report_root",
+      "caution_level": "high",
+      "explanation": "Maintainer-facing truth or governance surface.",
+      "reader_route": "maintainer_truth"
+    },
+    {
+      "repository_path": "docs/report/source-relations/landclim/map-export-lineage/rows.csv",
+      "family": "maintenance",
+      "family_label": "Maintainer truth surfaces",
+      "audience": "maintainer_diagnostic",
+      "audience_label": "Maintainer diagnostic",
+      "format": "csv",
+      "geography": "report_root",
+      "caution_level": "high",
+      "explanation": "Maintainer-facing truth or governance surface.",
+      "reader_route": "maintainer_truth"
+    },
+    {
       "repository_path": "docs/report/source-relations/landclim/neotoma-chronology-witness/README.md",
       "family": "maintenance",
       "family_label": "Maintainer truth surfaces",
@@ -19520,6 +19556,30 @@
       "audience": "maintainer_diagnostic",
       "audience_label": "Maintainer diagnostic",
       "format": "csv",
+      "geography": "report_root",
+      "caution_level": "high",
+      "explanation": "Maintainer-facing truth or governance surface.",
+      "reader_route": "maintainer_truth"
+    },
+    {
+      "repository_path": "docs/report/source-relations/sead/map-candidate/README.md",
+      "family": "maintenance",
+      "family_label": "Maintainer truth surfaces",
+      "audience": "maintainer_diagnostic",
+      "audience_label": "Maintainer diagnostic",
+      "format": "md",
+      "geography": "report_root",
+      "caution_level": "high",
+      "explanation": "Reader-facing entry page for one scope bundle.",
+      "reader_route": "start_here"
+    },
+    {
+      "repository_path": "docs/report/source-relations/sead/map-candidate/report.json",
+      "family": "maintenance",
+      "family_label": "Maintainer truth surfaces",
+      "audience": "maintainer_diagnostic",
+      "audience_label": "Maintainer diagnostic",
+      "format": "json",
       "geography": "report_root",
       "caution_level": "high",
       "explanation": "Maintainer-facing truth or governance surface.",
