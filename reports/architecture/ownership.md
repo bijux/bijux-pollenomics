@@ -135,6 +135,18 @@ direct observed-pollen development result on previously exposed targets; it
 does not establish Nordic LRA or independent vegetation skill. The family
 manifest and explanatory page remain separate maintained inputs to the replay.
 
+The [author site-mean holdout](../../docs/report/pollen-reconstruction/author-example-site-mean-holdout/README.md)
+now has the same exact owner route for four generated files. Its replay checks
+the private source and producer identity and normalizes only CSV line endings;
+two lanes match the tracked files from 202 declared inputs. The separate
+[author-example numerical correspondence](../../docs/report/publication-replay/landclim-author-example-correspondence/README.md)
+reproduces three generated files from 157 declared candidate and author-R
+inputs. The [published-window uncertainty envelopes](../../docs/report/publication-replay/landclim-published-window-uncertainty/README.md)
+reproduce three generated files from six tracked inputs. These receipts
+establish output ownership for bounded English and cross-version comparisons;
+they do not add Nordic LRA admissions, independent vegetation skill or a
+significance result from envelope overlap.
+
 Our source-bound vegetation results illustrate the boundary: the
 [Färskesjön](../science/vegetation-reference/farskesjon/plot_support.py),
 [Småland historical-map](../science/vegetation-reference/smaland-historical-maps/coverage.py)
