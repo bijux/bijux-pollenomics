@@ -66,6 +66,23 @@ Neotoma samples. This reuses the prior observed-pollen study; neither
 
 ## Context and validation sources
 
+We decided that the present four-country scientific comparison tests
+**observed-pollen prediction**, not national archaeology density or candidate
+rankings. No archaeology count enters its training inputs, outcomes, scores or
+country denominators. We therefore do not acquire Danish, Finnish and
+Norwegian heritage registries for this comparison. This is a scope decision,
+not evidence that archaeology is absent or comparable across countries.
+Sweden-only RAÄ cannot stand in for the other national registries; its current
+source authority is refused even for Swedish analytical density. SEAD is
+environmental-archaeology context with its own site and record units, not a
+replacement national inventory. The
+[country capability table](../../docs/public/pollenomics-data/sources/country-source-limitations.md)
+records this asymmetry. If we later compare archaeological density or use
+heritage context to rank candidates across all four countries, that analysis
+must first identify appropriate national sources and review each source's
+licence, observation unit, classification, coverage, update method and time
+support. Missing capture must remain unknown rather than a zero.
+
 We checked modeled HYDE quantities and native grid reconciliation at seven
 CE labels in the [country cropland report](hyde-cropland-source-account.md).
 We use that result as modeled context, not as observed vegetation or measured
