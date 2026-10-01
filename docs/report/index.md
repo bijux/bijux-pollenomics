@@ -32,7 +32,7 @@ internal functions that emitted each file.
 | Scope-filtered outputs | `692` | world, regional, and country bundles that answer geography-first reading questions |
 | Evidence reviews | `33` | animal evidence, chronology, recovery, and cross-family review surfaces |
 | Scientific caveats | `9` | blocked, thin, overclaim-sensitive, and honesty-oriented publication surfaces |
-| Maintainer truth surfaces | `952` | repository truth, docs integrity, source audits, and geography governance surfaces |
+| Maintainer truth surfaces | `966` | repository truth, docs integrity, source audits, and geography governance surfaces |
 
 ## Geographic Scopes
 
@@ -47,6 +47,6 @@ Use the tree in this order: reader portal first, scope bundle second, evidence r
 
 ## Audience Mix
 
-- Maintainer diagnostic: `955`
+- Maintainer diagnostic: `969`
 - Public reading surface: `695`
 - Scientific review surface: `120`
