@@ -43,6 +43,11 @@ traces 60 typed source values through their parent analysis rows and normalized
 components. It preserves source precision differences and keeps all rows
 outside scientific event admission.
 
+The [integer analysis value review](analysis-integer-values/README.md)
+reconciles all 24,701 typed integer components with their parent observations,
+source classes and chronology links while preserving qualified display text
+and event refusal.
+
 ## Reproduce
 
 From an installed development environment at the repository root, use a new,
