@@ -118,7 +118,7 @@ def _epd_sources(
     manifest = _read_json(path)
     if manifest["schema_version"] != "swedish-epd-metadata-source.v1":
         raise ValueError("unexpected private EPD metadata source schema")
-    if len(manifest["sources"]) != 16:
+    if len(manifest["sources"]) != 17:
         raise ValueError("EPD metadata source count changed")
     for item in manifest["sources"]:
         source = private_root / item["file"]
@@ -127,23 +127,50 @@ def _epd_sources(
     return manifest, root
 
 
-def _swedish_handles(repository: Path, declared: dict[str, Any]) -> set[str]:
+def _retained_core_handles(
+    repository: Path, declared: dict[str, Any]
+) -> dict[str, dict[str, Any]]:
     manifest = _read_json(repository / RELATIONAL / "manifest.json")
-    parts = manifest["surfaces"]["collection_units"]["parts"]
-    if (
-        len(parts) != 1
-        or parts[0]["sha256"] != declared["relational_collection_units_part_sha256"]
-    ):
-        raise ValueError("retained collection-unit declaration changed")
-    path = repository / RELATIONAL / parts[0]["path"]
-    if _sha(path) != parts[0]["sha256"]:
-        raise ValueError("retained collection-unit bytes changed")
-    rows = _read_json(path)["rows"]
-    return {
-        row["source_payload"]["handle"].upper()
-        for row in rows
-        if row["country_code"] == "SE" and row["source_payload"].get("handle")
-    }
+    surfaces: dict[str, list[dict[str, Any]]] = {}
+    for name in ("sites", "collection_units", "datasets"):
+        parts = manifest["surfaces"][name]["parts"]
+        if len(parts) != 1:
+            raise ValueError(f"retained {name} part count changed")
+        if (
+            name == "collection_units"
+            and parts[0]["sha256"]
+            != declared["relational_collection_units_part_sha256"]
+        ):
+            raise ValueError("retained collection-unit declaration changed")
+        path = repository / RELATIONAL / parts[0]["path"]
+        if _sha(path) != parts[0]["sha256"]:
+            raise ValueError(f"retained {name} part bytes changed")
+        surfaces[name] = _read_json(path)["rows"]
+    sites = {row["site_id"]: row for row in surfaces["sites"]}
+    datasets: dict[str, list[int]] = {}
+    for row in surfaces["datasets"]:
+        datasets.setdefault(row["collection_unit_id"], []).append(
+            row["source_dataset_id"]
+        )
+    handles: dict[str, dict[str, Any]] = {}
+    for unit in surfaces["collection_units"]:
+        handle = unit["source_payload"].get("handle")
+        if not handle:
+            continue
+        handle = handle.upper()
+        if handle in handles:
+            raise ValueError(f"duplicate retained core handle: {handle}")
+        site = sites[unit["site_id"]]
+        handles[handle] = {
+            "neotoma_site_id": site["source_site_id"],
+            "neotoma_core_id": unit["source_collection_unit_id"],
+            "neotoma_pollen_dataset_ids": sorted(
+                datasets.get(unit["collection_unit_id"], [])
+            ),
+            "retained_country_code": site["country_code"],
+            "source_geopolitical": site["source_payload"]["geopolitical"],
+        }
+    return handles
 
 
 def _pangaea_title(hit: dict[str, Any]) -> str:
@@ -172,7 +199,7 @@ def _epd_screen(
     repository: Path, private_root: Path, declared: dict[str, Any]
 ) -> dict[str, Any]:
     manifest, root = _epd_sources(declared, private_root)
-    retained_handles = _swedish_handles(repository, declared)
+    retained_handles = _retained_core_handles(repository, declared)
     search = _read_json(root / "pangaea-sweden-pollen-profiles.json")
     if (
         search["timed_out"]
@@ -182,6 +209,7 @@ def _epd_screen(
         raise ValueError("bounded PANGAEA pollen-profile search changed")
     matched = 0
     unmatched: dict[str, int] = {}
+    retained_named: dict[str, int] = {}
     unbound: list[int] = []
     for hit in search["hits"]["hits"]:
         title = _pangaea_title(hit)
@@ -193,20 +221,27 @@ def _epd_screen(
             unbound.append(doi_id)
         elif match.group(1) in retained_handles:
             matched += 1
+            if match.group(1) in EPD_PROFILE_IDS:
+                retained_named[match.group(1)] = doi_id
         else:
             unmatched[match.group(1)] = doi_id
-    if unmatched != EPD_PROFILE_IDS or unbound != [761854] or matched != 59:
+    if (
+        unmatched
+        != {key: EPD_PROFILE_IDS[key] for key in ("ADRAN", "GARASEL", "LEVEANIE")}
+        or retained_named
+        != {key: EPD_PROFILE_IDS[key] for key in ("HAKULLA5", "NDRAKET", "VUOLEPAL")}
+        or unbound != [761854]
+        or matched != 62
+    ):
         raise ValueError("PANGAEA/Neotoma core-handle screen changed")
 
     final_ages = _epd_age_events(
         private_root / "epd/pangaea/epd-age-cut-pangaea-804596.tsv"
     )
-    if len(final_ages) != 37 or not final_ages <= retained_handles:
+    if len(final_ages) != 37 or not final_ages <= retained_handles.keys():
         raise ValueError("EPD final-age Swedish event inventory changed")
-    if final_ages & unmatched.keys():
-        raise ValueError(
-            "unmatched PANGAEA handle appears in final-age event inventory"
-        )
+    if final_ages & EPD_PROFILE_IDS.keys():
+        raise ValueError("screened PANGAEA handle appears in final-age event inventory")
 
     chronology_text = (root / "pangaea-core-chronologies-853943.tsv").read_text(
         encoding="utf-8"
@@ -218,8 +253,24 @@ def _epd_screen(
     if len(chronology) != 1 or chronology[0]["Reference"] != "EPD chron2":
         raise ValueError("HAKULLA5 published chronology-reference row changed")
 
+    legacy_text = (
+        private_root
+        / "epd/pangaea/legacyage-site-chronology-metadata-pangaea-933132.tsv"
+    ).read_text(encoding="utf-8")
+    legacy_rows = list(
+        csv.DictReader(legacy_text.split("*/\n", 1)[1].splitlines(), delimiter="\t")
+    )
+    legacy = [row for row in legacy_rows if row["Event"] == "HAKULLA5"]
+    if (
+        len(legacy) != 1
+        or legacy[0]["ID (Site)"] != "3138"
+        or legacy[0]["ID (Dataset)"] != "4082"
+        or legacy[0]["Reference (AgeModel)"] != "AWI"
+    ):
+        raise ValueError("HAKULLA5 LegacyAge cross-archive identity changed")
+
     leads = []
-    for handle, doi_id in sorted(unmatched.items()):
+    for handle, doi_id in sorted(EPD_PROFILE_IDS.items()):
         name = handle.lower()
         profile = _read_json(root / f"pangaea-{name}-pollen-metadata.jsonld")
         if (
@@ -238,6 +289,12 @@ def _epd_screen(
             if _pangaea_title(hit).startswith("Age determination of sediment core ")
             and handle in _pangaea_title(hit)
         )
+        retained = retained_handles.get(handle)
+        if retained is not None and (
+            retained["retained_country_code"] != "UNASSIGNED"
+            or "Sweden" not in retained["source_geopolitical"]
+        ):
+            raise ValueError(f"retained Swedish core country posture changed: {handle}")
         leads.append(
             {
                 "core_handle": handle,
@@ -247,10 +304,14 @@ def _epd_screen(
                 ],
                 "profile_license": profile.get("license"),
                 "profile_conditions_of_access": profile.get("conditionsOfAccess"),
-                "in_retained_neotoma_swedish_handles": False,
+                "retained_neotoma_identity": retained,
                 "in_checked_epd_final_age_events": False,
                 "selected_sample_age_sequence_identified": False,
-                "decision": "metadata_lead_only_core_alias_and_selected_age_model_unresolved",
+                "decision": (
+                    "refused_as_fresh_retained_core_country_unassigned"
+                    if retained is not None
+                    else "metadata_lead_only_core_alias_and_selected_age_model_unresolved"
+                ),
             }
         )
     generic = _read_json(root / "pangaea-schonen-pollen-metadata.jsonld")
@@ -260,9 +321,10 @@ def _epd_screen(
         "private_source_manifest_sha256": declared["epd_source_manifest_sha256"],
         "source_capture_utc": manifest["captured_at_utc"],
         "pangaea_metadata_search_hits": 66,
-        "retained_neotoma_swedish_core_handles": len(retained_handles),
+        "retained_neotoma_all_country_core_handles": len(retained_handles),
         "search_hits_matching_retained_handles": matched,
-        "unmatched_named_core_handles": len(leads),
+        "screened_retained_country_unassigned_handles": len(retained_named),
+        "unmatched_named_core_handles": len(unmatched),
         "generic_unbound_profile_doi": "10.1594/PANGAEA.761854",
         "checked_epd_final_age_swedish_events": len(final_ages),
         "checked_epd_final_age_events_matching_retained_handles": len(final_ages),
@@ -272,9 +334,15 @@ def _epd_screen(
             "comment": chronology[0]["Comm"],
             "selected_sample_age_sequence_in_table": False,
         },
+        "hakulla5_legacyage_cross_archive_identity": {
+            "doi": "10.1594/PANGAEA.933132",
+            "neotoma_site_id": 3138,
+            "neotoma_pollen_dataset_id": 4082,
+            "legacyage_age_model": legacy[0]["Reference (AgeModel)"],
+        },
         "named_leads": leads,
-        "result": "six_unmatched_handles_but_zero_selected_sample_age_sequences_identified",
-        "scope": "PANGAEA title metadata search, seven profile metadata records, six handle-related metadata searches, the Giesecke final-age event inventory and Fyfe chronology-reference table. No pollen observation/count table opened; absent exact handle is not proof of distinct physical site.",
+        "result": "three_unmatched_handles_three_retained_unassigned_cores_no_fresh_cohort_qualified",
+        "scope": "PANGAEA title metadata search, seven profile metadata records, six handle-related metadata searches, Giesecke final-age event inventory, Fyfe chronology reference and LegacyAge site identity table. All retained Neotoma core handles were checked, including UNASSIGNED country rows. No pollen observation/count table opened; absent exact handle is not proof of distinct physical site.",
     }
 
 

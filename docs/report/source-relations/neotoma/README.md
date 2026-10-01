@@ -29,9 +29,9 @@ older 37-site comparison is contained row for row in this wider cohort.
 The [Swedish pollen cohort availability result](swedish-cohort-availability/README.md)
 checks a current Neotoma metadata query and a bounded PANGAEA/EPD profile
 screen before target counts are opened. Its 99 queried Neotoma site IDs are all
-retained. Two PANGAEA leads collide with existing core handles; six other
-named handles remain unqualified without selected sample ages and core/rights
-review. It does not close the independent confirmation need.
+retained. Two PANGAEA leads collide with existing core handles; three more
+apparent leads are retained `UNASSIGNED` cores, while three named handles need
+core, age and rights review. It does not close independent confirmation.
 
 The [Abborrtjärnen core comparison](abbo-core-identity/README.md) retains a
 same-name, 107-sample and 0.334 m point lead but refuses to transfer the

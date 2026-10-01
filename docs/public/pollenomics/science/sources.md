@@ -33,11 +33,11 @@ Its MAE should not be compared directly with the earlier 16-label response.
 
 The [Swedish metadata-only cohort screen](../../../report/source-relations/neotoma/swedish-cohort-availability/README.md)
 found that all 99 site IDs in a current Neotoma pollen query are already in
-the retained snapshot. Six PANGAEA profile handles absent from retained
-Swedish Neotoma core handles remain only source leads: none occurs in the
-checked 37-event Swedish EPD final sample-age inventory, and their physical
-identity, selected pollen-sample ages or use rights are unresolved. We did
-not open their target pollen counts or claim independent confirmation.
+the retained snapshot. Three further PANGAEA profile handles are already
+retained under `UNASSIGNED` country decisions. Three named handles have no
+exact match among all retained cores; their physical identity, selected
+pollen-sample ages and permitted use remain unresolved. We did not open their
+target pollen counts or claim independent confirmation.
 
 ## Before a core can enter LRA
 

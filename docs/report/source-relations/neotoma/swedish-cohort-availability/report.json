@@ -51,12 +51,13 @@
   "result": "no_fresh_physical_site_in_checked_metadata_surfaces",
   "scope": "Metadata-only current Neotoma Sweden query and two PANGAEA leads; no pollen observation or count table opened. A different EPD-only core and its selected calibrated sample ages may exist outside these checked metadata surfaces.",
   "epd_metadata_screen": {
-    "private_source_manifest_sha256": "02e0243dc29557ab6e81c727cb0c0e55717e2e1045d20973306b1c133e9dddc6",
+    "private_source_manifest_sha256": "4ab9abd1ed3edb9af0df7370563035adc02617fe6361a842f73840d36c56bc6c",
     "source_capture_utc": "2026-10-01T09:20:21.673123+00:00",
     "pangaea_metadata_search_hits": 66,
-    "retained_neotoma_swedish_core_handles": 101,
-    "search_hits_matching_retained_handles": 59,
-    "unmatched_named_core_handles": 6,
+    "retained_neotoma_all_country_core_handles": 206,
+    "search_hits_matching_retained_handles": 62,
+    "screened_retained_country_unassigned_handles": 3,
+    "unmatched_named_core_handles": 3,
     "generic_unbound_profile_doi": "10.1594/PANGAEA.761854",
     "checked_epd_final_age_swedish_events": 37,
     "checked_epd_final_age_events_matching_retained_handles": 37,
@@ -65,6 +66,12 @@
       "reference": "EPD chron2",
       "comment": "Uses all dates. May be less accurate at top of sequence.",
       "selected_sample_age_sequence_in_table": false
+    },
+    "hakulla5_legacyage_cross_archive_identity": {
+      "doi": "10.1594/PANGAEA.933132",
+      "neotoma_site_id": 3138,
+      "neotoma_pollen_dataset_id": 4082,
+      "legacyage_age_model": "AWI"
     },
     "named_leads": [
       {
@@ -75,7 +82,7 @@
         ],
         "profile_license": null,
         "profile_conditions_of_access": "access rights needed",
-        "in_retained_neotoma_swedish_handles": false,
+        "retained_neotoma_identity": null,
         "in_checked_epd_final_age_events": false,
         "selected_sample_age_sequence_identified": false,
         "decision": "metadata_lead_only_core_alias_and_selected_age_model_unresolved"
@@ -88,7 +95,7 @@
         ],
         "profile_license": null,
         "profile_conditions_of_access": "access rights needed",
-        "in_retained_neotoma_swedish_handles": false,
+        "retained_neotoma_identity": null,
         "in_checked_epd_final_age_events": false,
         "selected_sample_age_sequence_identified": false,
         "decision": "metadata_lead_only_core_alias_and_selected_age_model_unresolved"
@@ -101,10 +108,21 @@
         ],
         "profile_license": "https://creativecommons.org/licenses/by-nc/3.0/",
         "profile_conditions_of_access": "unrestricted",
-        "in_retained_neotoma_swedish_handles": false,
+        "retained_neotoma_identity": {
+          "neotoma_site_id": 3138,
+          "neotoma_core_id": 3955,
+          "neotoma_pollen_dataset_ids": [
+            4082
+          ],
+          "retained_country_code": "UNASSIGNED",
+          "source_geopolitical": [
+            "Sweden",
+            "Skåne"
+          ]
+        },
         "in_checked_epd_final_age_events": false,
         "selected_sample_age_sequence_identified": false,
-        "decision": "metadata_lead_only_core_alias_and_selected_age_model_unresolved"
+        "decision": "refused_as_fresh_retained_core_country_unassigned"
       },
       {
         "core_handle": "LEVEANIE",
@@ -114,7 +132,7 @@
         ],
         "profile_license": null,
         "profile_conditions_of_access": "access rights needed",
-        "in_retained_neotoma_swedish_handles": false,
+        "retained_neotoma_identity": null,
         "in_checked_epd_final_age_events": false,
         "selected_sample_age_sequence_identified": false,
         "decision": "metadata_lead_only_core_alias_and_selected_age_model_unresolved"
@@ -125,10 +143,20 @@
         "age_determination_metadata_dois": [],
         "profile_license": "https://creativecommons.org/licenses/by-nc/3.0/",
         "profile_conditions_of_access": "unrestricted",
-        "in_retained_neotoma_swedish_handles": false,
+        "retained_neotoma_identity": {
+          "neotoma_site_id": 3311,
+          "neotoma_core_id": 4162,
+          "neotoma_pollen_dataset_ids": [
+            4298
+          ],
+          "retained_country_code": "UNASSIGNED",
+          "source_geopolitical": [
+            "Sweden"
+          ]
+        },
         "in_checked_epd_final_age_events": false,
         "selected_sample_age_sequence_identified": false,
-        "decision": "metadata_lead_only_core_alias_and_selected_age_model_unresolved"
+        "decision": "refused_as_fresh_retained_core_country_unassigned"
       },
       {
         "core_handle": "VUOLEPAL",
@@ -138,13 +166,24 @@
         ],
         "profile_license": null,
         "profile_conditions_of_access": "access rights needed",
-        "in_retained_neotoma_swedish_handles": false,
+        "retained_neotoma_identity": {
+          "neotoma_site_id": 26118,
+          "neotoma_core_id": 32167,
+          "neotoma_pollen_dataset_ids": [
+            45312
+          ],
+          "retained_country_code": "UNASSIGNED",
+          "source_geopolitical": [
+            "Sweden",
+            "Norrbotten"
+          ]
+        },
         "in_checked_epd_final_age_events": false,
         "selected_sample_age_sequence_identified": false,
-        "decision": "metadata_lead_only_core_alias_and_selected_age_model_unresolved"
+        "decision": "refused_as_fresh_retained_core_country_unassigned"
       }
     ],
-    "result": "six_unmatched_handles_but_zero_selected_sample_age_sequences_identified",
-    "scope": "PANGAEA title metadata search, seven profile metadata records, six handle-related metadata searches, the Giesecke final-age event inventory and Fyfe chronology-reference table. No pollen observation/count table opened; absent exact handle is not proof of distinct physical site."
+    "result": "three_unmatched_handles_three_retained_unassigned_cores_no_fresh_cohort_qualified",
+    "scope": "PANGAEA title metadata search, seven profile metadata records, six handle-related metadata searches, Giesecke final-age event inventory, Fyfe chronology reference and LegacyAge site identity table. All retained Neotoma core handles were checked, including UNASSIGNED country rows. No pollen observation/count table opened; absent exact handle is not proof of distinct physical site."
   }
 }
