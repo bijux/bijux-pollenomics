@@ -129,7 +129,7 @@ authenticate the other historical publication inputs.
 The [buffered author-pollen comparison](../../docs/report/pollen-reconstruction/author-buffered-pollen/README.md)
 has one maintained family replay for its four methods, two withheld grids and
 five comparisons. We regenerated all 51 result files in two independent owner
-lanes from 210 declared source, code, lock and reference inputs per lane. Both
+lanes from 211 declared source, code, lock and reference inputs per lane. Both
 lanes match each other and the tracked files byte for byte. This is an English
 direct observed-pollen development result on previously exposed targets; it
 does not establish Nordic LRA or independent vegetation skill. The family
