@@ -70,8 +70,8 @@
     },
     {
       "path": "verify.py",
-      "bytes": 10194,
-      "sha256": "9d20b5027acabdde8c5dfca3e56e97c74c734d798f084577568bc923e094cdde"
+      "bytes": 10316,
+      "sha256": "8086212345e964e3bc2e5f4971138643726d07d8b4f37dfc2d644de6bda78382"
     },
     {
       "path": "reference/prediction-producer.py.txt",

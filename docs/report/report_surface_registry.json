@@ -1,26 +1,26 @@
 {
   "schema_version": "report-surface-registry.v1",
-  "surface_count": 1791,
+  "surface_count": 1795,
   "family_counts": {
     "caveats": 10,
-    "maintenance": 967,
+    "maintenance": 969,
     "maps": 85,
     "portal": 2,
     "reviews": 34,
-    "scopes": 693
+    "scopes": 695
   },
   "audience_counts": {
-    "maintainer_diagnostic": 969,
-    "public_reading_surface": 702,
+    "maintainer_diagnostic": 971,
+    "public_reading_surface": 704,
     "scientific_review_surface": 120
   },
   "geography_counts": {
     "denmark": 30,
     "europe_plus": 63,
     "finland": 14,
-    "nordic": 433,
+    "nordic": 435,
     "norway": 14,
-    "report_root": 1016,
+    "report_root": 1018,
     "sweden": 49,
     "world": 172
   },
@@ -16466,6 +16466,30 @@
       "reader_route": "scope_bundle"
     },
     {
+      "repository_path": "docs/report/regions/nordic/swedish-neotoma-holdout/reference/parallel-dataset-review-producer.py.txt",
+      "family": "scopes",
+      "family_label": "Scope-filtered outputs",
+      "audience": "public_reading_surface",
+      "audience_label": "Public reading surface",
+      "format": "txt",
+      "geography": "nordic",
+      "caution_level": "medium",
+      "explanation": "Governed report artifact.",
+      "reader_route": "scope_bundle"
+    },
+    {
+      "repository_path": "docs/report/regions/nordic/swedish-neotoma-holdout/reference/prediction-producer.py.txt",
+      "family": "scopes",
+      "family_label": "Scope-filtered outputs",
+      "audience": "public_reading_surface",
+      "audience_label": "Public reading surface",
+      "format": "txt",
+      "geography": "nordic",
+      "caution_level": "medium",
+      "explanation": "Governed report artifact.",
+      "reader_route": "scope_bundle"
+    },
+    {
       "repository_path": "docs/report/regions/nordic/swedish-neotoma-holdout/report.json",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
@@ -18816,6 +18840,30 @@
       "caution_level": "high",
       "explanation": "Reader-facing entry page for one scope bundle.",
       "reader_route": "start_here"
+    },
+    {
+      "repository_path": "docs/report/source-relations/sead/analysis-integer-values/README.md",
+      "family": "maintenance",
+      "family_label": "Maintainer truth surfaces",
+      "audience": "maintainer_diagnostic",
+      "audience_label": "Maintainer diagnostic",
+      "format": "md",
+      "geography": "report_root",
+      "caution_level": "high",
+      "explanation": "Reader-facing entry page for one scope bundle.",
+      "reader_route": "start_here"
+    },
+    {
+      "repository_path": "docs/report/source-relations/sead/analysis-integer-values/report.json",
+      "family": "maintenance",
+      "family_label": "Maintainer truth surfaces",
+      "audience": "maintainer_diagnostic",
+      "audience_label": "Maintainer diagnostic",
+      "format": "json",
+      "geography": "report_root",
+      "caution_level": "high",
+      "explanation": "Maintainer-facing truth or governance surface.",
+      "reader_route": "maintainer_truth"
     },
     {
       "repository_path": "docs/report/source-relations/sead/analysis-numerical-values/README.md",

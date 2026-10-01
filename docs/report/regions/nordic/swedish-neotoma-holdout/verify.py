@@ -7,13 +7,31 @@ import gzip
 from hashlib import sha256
 import json
 from pathlib import Path
+from typing import Any
 
 REPORT = Path(__file__).resolve().parent
 REPOSITORY = REPORT.parents[4]
+FROZEN_PRODUCER = REPORT / "reference/prediction-producer.py.txt"
 
 
 def digest(path: Path) -> str:
     return sha256(path.read_bytes()).hexdigest()
+
+
+def verify_current_source(source: dict[str, Any], root: Path = REPOSITORY) -> None:
+    """Refuse retained scores when their published Neotoma inputs drift."""
+    relational = (root / "data/neotoma/relational").resolve()
+    manifest = relational / "manifest.json"
+    if not manifest.is_file() or digest(manifest) != source["source_manifest_sha256"]:
+        raise ValueError("Storasjö Neotoma source manifest changed")
+    for relative, expected in source["source_surface_sha256"].items():
+        path = (root / relative).resolve()
+        if (
+            not path.is_relative_to(relational)
+            or not path.is_file()
+            or digest(path) != expected
+        ):
+            raise ValueError(f"Storasjö Neotoma source surface changed: {relative}")
 
 
 def main() -> None:
@@ -29,6 +47,7 @@ def main() -> None:
             raise ValueError(f"Storasjö evidence bytes changed: {row['path']}")
     freeze = json.loads((REPORT / "prediction-freeze.json").read_text())
     source = json.loads((REPORT / "input-manifest.json").read_text())
+    verify_current_source(source)
     prediction_path = REPORT / freeze["prediction_file"]
     prediction = json.loads(gzip.decompress(prediction_path.read_bytes()))
     training = json.loads(
@@ -46,11 +65,7 @@ def main() -> None:
     if (
         freeze["stage"] != "predictions_frozen_before_target_scoring"
         or freeze["protocol_sha256"] != digest(REPORT / "protocol.json")
-        or freeze["producer_sha256"]
-        != digest(
-            REPOSITORY
-            / "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/swedish_neotoma_holdout.py"
-        )
+        or freeze["producer_sha256"] != digest(FROZEN_PRODUCER)
         or freeze["prepared_input_manifest_sha256"]
         != digest(REPORT / "input-manifest.json")
         or freeze["prediction_sha256"] != digest(prediction_path)

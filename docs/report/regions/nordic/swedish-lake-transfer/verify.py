@@ -33,12 +33,17 @@ def _csv(path: Path) -> list[dict[str, str]]:
 
 def verify_current_source(source: dict[str, Any], root: Path = ROOT) -> None:
     """Refuse a frozen comparison when its published source has changed."""
-    relational = root / "data/neotoma/relational"
-    if digest(relational / "manifest.json") != source["source_manifest_sha256"]:
+    relational = (root / "data/neotoma/relational").resolve()
+    manifest = relational / "manifest.json"
+    if not manifest.is_file() or digest(manifest) != source["source_manifest_sha256"]:
         raise ValueError("Swedish lake Neotoma source manifest changed")
     for relative, expected in source["source_surface_sha256"].items():
         path = (root / relative).resolve()
-        if not path.is_relative_to(relational.resolve()) or digest(path) != expected:
+        if (
+            not path.is_relative_to(relational)
+            or not path.is_file()
+            or digest(path) != expected
+        ):
             raise ValueError(f"Swedish lake Neotoma source surface changed: {relative}")
 
 

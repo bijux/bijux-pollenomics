@@ -1,8 +1,8 @@
 {
   "schema_version": "report-narrative-quality-review.v1",
-  "page_count": 264,
+  "page_count": 265,
   "quality_posture_counts": {
-    "reader_ready": 102,
+    "reader_ready": 103,
     "structured_reference": 19,
     "thin_structure": 143
   },
@@ -609,7 +609,7 @@
     },
     {
       "repository_path": "docs/report/countries/sweden/observed-pollen-trajectory/README.md",
-      "prose_paragraph_count": 6,
+      "prose_paragraph_count": 7,
       "link_bullet_count": 0,
       "bullet_sentence_count": 0,
       "heading_count": 1,
@@ -1879,7 +1879,7 @@
     },
     {
       "repository_path": "docs/report/source-relations/dna-scope/galician-cattle-paper.md",
-      "prose_paragraph_count": 5,
+      "prose_paragraph_count": 4,
       "link_bullet_count": 0,
       "bullet_sentence_count": 0,
       "heading_count": 2,
@@ -2319,10 +2319,20 @@
     },
     {
       "repository_path": "docs/report/source-relations/sead/README.md",
-      "prose_paragraph_count": 9,
+      "prose_paragraph_count": 10,
       "link_bullet_count": 0,
       "bullet_sentence_count": 0,
       "heading_count": 3,
+      "table_line_count": 0,
+      "quality_posture": "reader_ready",
+      "note": "Page explains its purpose before or alongside artifact links."
+    },
+    {
+      "repository_path": "docs/report/source-relations/sead/analysis-integer-values/README.md",
+      "prose_paragraph_count": 6,
+      "link_bullet_count": 0,
+      "bullet_sentence_count": 0,
+      "heading_count": 2,
       "table_line_count": 0,
       "quality_posture": "reader_ready",
       "note": "Page explains its purpose before or alongside artifact links."
