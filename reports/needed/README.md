@@ -15,6 +15,7 @@ sources remain in their governed source store.
 | Neotoma acquisition and boundary authority | High for source reproducibility | Original capture custodian and country-boundary decision owner. |
 | SVAR lake registry identity and reuse | High for Swedish field ranking | SMHI/Lantmäteriet source owner and full lake-ID reconciliation. |
 | Swedish lake and archaeology context joins | High for field and multi-evidence interpretation | Lake/core, SEAD/archaeology and aDNA source owners with spatial and temporal review. |
+| Two-lake trajectory review | High for a multi-evidence interpretation | Independent palaeoecological and source reviewers of the BUS/BOKE pollen, SEAD and LandClim support. |
 | Chronology-aware temporal prediction | High for time-transfer claims | Core age-model source owners and an independently dated, source-qualified evaluation cohort. |
 | Independent confirmation | High for generalization claims | A new source-qualified cohort owner before outcomes are opened. |
 
@@ -306,6 +307,32 @@ qualified archaeological event.
 one independent context observation on compatible place
 and time support, with permitted analytical use; run the joining consumer
 before closing the question.
+
+## Two-lake trajectory review
+
+**Affected result:** our [Bussjösjön and Bökesjön trajectory](../science/sweden-lake-trajectory.md)
+replays 13 common age bins and 48 pollen transition comparisons. It records
+eight descriptive agreement cases, two contradictions and 38 comparisons
+without a qualified joint direction. Nearby dated SEAD features are spatial
+and temporal context, while LandClim grid 779 shares the pollen input sites.
+Neither supplies an independent land-use measurement for this comparison.
+
+**Needed:** an independent palaeoecological review of the pollen taxon and
+denominator interpretation, the proposed two-lake grouping, source age
+support and catchment comparability; and a SEAD source review of whether any
+nearby feature can represent a measured, permitted ecological event. The
+reviewers should state which source pairs are comparable, which remain
+incomparable and whether any apparent contradiction survives age and spatial
+uncertainty. Their decision must cite exact source rows and not infer a causal
+land-use history from feature counts or modeled cover.
+
+**Already checked:** the source-bound producer preserves both native and
+closed-16 denominators, 500- and 1,000-year bin views, equal-site and pooled
+weighting, an alternative BUS point and all 48 transition classifications.
+No independent review or qualifying SEAD event is retained. **Reopen when:**
+the reviewer packet and any new event authority are available; rerun the
+trajectory consumer and record agreement, contradiction, incomparability and
+cannot-conclude decisions against matched support before closing this need.
 
 ## Chronology-aware temporal prediction
 
