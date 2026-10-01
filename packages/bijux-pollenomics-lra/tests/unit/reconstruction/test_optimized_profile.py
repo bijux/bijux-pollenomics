@@ -19,6 +19,7 @@ from bijux_pollenomics_lra.api import (
     run_reveals,
 )
 from bijux_pollenomics_lra.models.configuration import OptimizedLoveProfile
+from bijux_pollenomics_lra.models.results import LoveResult
 from bijux_pollenomics_lra.reconstruction import optimized
 from bijux_pollenomics_lra.version import COMPATIBILITY_MODE
 
@@ -204,6 +205,64 @@ def test_ring_taxon_profile_preserves_one_regional_ring() -> None:
     np.testing.assert_allclose(
         result.objective_values.to_numpy()[-1], [1.160362808782417], atol=1e-13
     )
+
+
+def test_source_optimized_love_samples_but_does_not_use_local_ppe(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    local, regional, params, rings = _inputs([0.0, 0.7, 0.9, 0.6])
+    params["ppe.error"] = [0.07, 0.22, 0.55]
+    nominal = params["ppe"].to_numpy(dtype=float)
+    errors = params["ppe.error"].to_numpy(dtype=float)
+    sampled: list[np.ndarray] = []
+
+    def run_with_sample(draw: np.ndarray) -> LoveResult:
+        def sample_local_ppe(
+            n: int,
+            mean: object,
+            sds: object,
+            *,
+            rng: object,
+        ) -> np.ndarray:
+            assert n == len(nominal)
+            assert rng is not None
+            np.testing.assert_array_equal(mean, nominal)
+            np.testing.assert_array_equal(sds, errors)
+            sampled.append(draw.copy())
+            return draw.copy()
+
+        monkeypatch.setattr(optimized, "rnorm_reveals", sample_local_ppe)
+        config = LoveConfig(
+            method="optimized",
+            regional_basin_type="lake",
+            regional_basin_diameter_m=300,
+            local_basin_diameter_m=12,
+            max_ring=2,
+            repeats=1,
+            stochastic=True,
+            seed=7,
+        )
+        return run_love(
+            local,
+            regional,
+            params,
+            rings,
+            config,
+            regional_cover_draws=np.array([[0.89448, 0.04771, 0.05781]]),
+            local_count_draws=np.array([[30.0, 50.0, 20.0]]),
+            replay_candidates=np.array([[0.2, 0.5, 0.3]]),
+        )
+
+    first = run_with_sample(np.array([0.1, 0.2, 0.3]))
+    second = run_with_sample(np.array([7.0, 8.0, 9.0]))
+    assert len(sampled) == 2
+    assert not np.array_equal(sampled[0], sampled[1])
+    pd.testing.assert_frame_equal(first.cover["mean"], second.cover["mean"])
+    pd.testing.assert_frame_equal(
+        first.pollen_percentages["mean"], second.pollen_percentages["mean"]
+    )
+    pd.testing.assert_frame_equal(first.objective_values, second.objective_values)
+    assert np.isfinite(first.objective_values.to_numpy()).any()
 
 
 @pytest.mark.parametrize("profile", ["unknown", "ring-taxon-preserving-other"])
