@@ -1,0 +1,44 @@
+{
+  "author_lookup_sha256": "3a745f9b7606e5d0b59feaba2683b930c8d3990e4810f8217b69160a29a1b507",
+  "candidate_samples": 72,
+  "exact_depth_joins": 71,
+  "fixed_methods": [
+    "training_mean",
+    "nearest_site",
+    "inverse_distance_squared"
+  ],
+  "interpretation": "Prior-exposed observed-pollen sensitivity on the 31 author taxonomy targets. Both supported LegacyAge intervals stay in their Neotoma nominal bins; the matched-sample nominal score therefore equals the strict-interval score. Differences from complete parent bins reflect sample exclusion, not age reassignment. No LRA, vegetation truth, chronology posterior, or cross-site uncertainty is inferred.",
+  "mean_scores_on_two_bin_support": {
+    "inverse_distance_squared": {
+      "parent_full_bin_hellinger_on_same_bins": 0.10703206342818589,
+      "parent_full_bin_mae_fraction_on_same_bins": 0.006340880093707153,
+      "strict_interval_hellinger": 0.11255609881440695,
+      "strict_interval_mae_fraction": 0.006444751430279965
+    },
+    "nearest_site": {
+      "parent_full_bin_hellinger_on_same_bins": 0.15546015477897335,
+      "parent_full_bin_mae_fraction_on_same_bins": 0.010549673819642242,
+      "strict_interval_hellinger": 0.17477712542100549,
+      "strict_interval_mae_fraction": 0.01278605772111218
+    },
+    "training_mean": {
+      "parent_full_bin_hellinger_on_same_bins": 0.24644783003706972,
+      "parent_full_bin_mae_fraction_on_same_bins": 0.013358595054764647,
+      "strict_interval_hellinger": 0.2542249589328305,
+      "strict_interval_mae_fraction": 0.0132998157899071
+    }
+  },
+  "neotoma_observation_part_sha256": "6afa864a9e06384678e63e9f85b13ca79882a87f5c14751cb27af46df60539be",
+  "parent_nominal_bins": 22,
+  "parent_scores_sha256": "6febc4c908470614571b0df3633cfaca218c098cea684929f75b82c56344c205",
+  "parent_sealed_outcomes_sha256": "87b1e8f13e5d70c7ac33f9c8c9d2ab1b2d0244b62c2aafc747c9f4fa48f495bf",
+  "protocol_sha256": "a162c3165be72c15902c960194f7ee6eca62768559b232a2110d5c0161aa2786",
+  "refused_boundary_crossing_intervals": 69,
+  "refused_no_exact_depth": 1,
+  "retained_full_interval_samples": 2,
+  "retained_scored_bins": 2,
+  "reused_frozen_prediction_rows": 6,
+  "schema_version": "dalmutladdo-author-target-age-interval-result.v1",
+  "scores_sha256": "7a6b9d29a39b346c31187d4a28d0dd2120f05d27ea5185d1719243bef88b7356",
+  "unsupported_bins": 20
+}

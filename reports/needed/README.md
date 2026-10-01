@@ -336,6 +336,11 @@ retains only two of 72 samples and two of 22 originally scored bins. Both
 retained samples stay in their nominal bins, so same-sample nominal and
 interval scores coincide; differences from parent full-bin scores are due to
 sample restriction. This leaves 20 bins without interval-contained support.
+The distinct [31-author-target Dalmutladdo check]
+(../../docs/report/regions/nordic/dalmutladdo-author-target-age-interval/README.md)
+also retains two samples and two bins, reuses six Norway-excluded predictions
+and reconciles all 22 original author-assigned count bins. Its scores use an
+author-target denominator and cannot be pooled with the 16-label scores.
 **Reopen when:** calibrated joint age-model uncertainty and eligible cores
 are bound to physical sites and windows; predeclare forward-time rules and
 test an untouched cohort separately from this exposed three-site study.

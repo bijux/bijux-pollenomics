@@ -197,6 +197,12 @@ Norway-excluded methods provide eight predictions across those two bins;
 change bins, so the paired same-sample scores are identical under the
 nominal and strict rules. Differences from the original full-bin scores
 reflect fewer counted samples, not a new model result or LRA validation.
+The separate [31-author-target analysis]
+(../../../report/regions/nordic/dalmutladdo-author-target-age-interval/README.md)
+reuses six frozen predictions on those two bins. Its inverse-distance-squared
+two-bin MAE is 0.006445, compared with 0.006341 for the parent's full
+compositions on the same bins. Those scores have a different taxon axis and
+denominator from the 16-label result; the two studies cannot be pooled.
 
 ## A newly scored Swedish lake
 
