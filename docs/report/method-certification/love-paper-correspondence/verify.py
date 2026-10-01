@@ -134,13 +134,26 @@ def build_report(repository: Path) -> dict[str, Any]:
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repository", type=Path, required=True)
-    parser.add_argument("--output", type=Path, required=True)
+    destination = parser.add_mutually_exclusive_group(required=True)
+    destination.add_argument("--output", type=Path)
+    destination.add_argument("--check", action="store_true")
     args = parser.parse_args()
+    result = build_report(args.repository)
+    generated = (json.dumps(result, indent=2) + "\n").encode("utf-8")
+    if args.check:
+        governed = args.repository / (
+            "docs/report/method-certification/love-paper-correspondence/"
+            "source-parameter-correspondence.json"
+        )
+        if governed.is_symlink() or not governed.is_file():
+            parser.error("Governed comparison must be a regular file")
+        if generated != governed.read_bytes():
+            parser.error("Governed comparison differs from the producer output")
+        return
     if args.output.exists() or args.output.is_symlink():
         parser.error("Output destination must be absent")
-    result = build_report(args.repository)
     args.output.parent.mkdir(parents=True, exist_ok=True)
-    args.output.write_text(json.dumps(result, indent=2) + "\n", encoding="utf-8")
+    args.output.write_bytes(generated)
 
 
 if __name__ == "__main__":

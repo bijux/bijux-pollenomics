@@ -32,10 +32,11 @@ correspondence with an explicit label difference, not evidence that the 2024
 simulation ran the later pinned package version. The pinned package example
 has only `local` and `regional` pollen rows and one 36-ring layout reaching
 100,000 distance units. Those inputs do not encode the article's eight
-artificial ponds or their realized pollen/draws. Reproduce the result from
-the repository root with
-`python3 docs/report/method-certification/love-paper-correspondence/verify.py --repository . --output artifacts/method-certification/love-paper-source-parameter-replay.json`
-and compare the output byte for byte with the governed JSON.
+artificial ponds or their realized pollen/draws. Check the producer output
+byte for byte against the governed JSON from the repository root with
+`python3 docs/report/method-certification/love-paper-correspondence/verify.py --repository . --check`.
+Use `--output artifacts/method-certification/love-paper-source-parameter-replay.json`
+instead when an isolated replay file is needed.
 
 The same pinned DISQOVER 0.9.14 archive's
 `disqover/man/LOVEexampleRings.Rd` (member SHA-256
