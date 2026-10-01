@@ -38,6 +38,11 @@ The [pollen-named dataset screen](pollen-named-dataset-screen/README.md) exports
 sample-level source observations and records why the captured rows cannot form
 an admitted pollen time series or LRA input.
 
+The [numerical analysis value review](analysis-numerical-values/README.md)
+traces 60 typed source values through their parent analysis rows and normalized
+components. It preserves source precision differences and keeps all rows
+outside scientific event admission.
+
 ## Reproduce
 
 From an installed development environment at the repository root, use a new,

@@ -1,0 +1,115 @@
+{
+  "acquisition_manifest_sha256": "6fc2428046d148f9ce6c158f982afbbbbaea39de2132850a4fb8f41acf8a4c14",
+  "build_id": "sha256:ce80714e4c9e9974b24913e5da50f49854670ed642879c1ca5076499e1d56725",
+  "dataset_count": 10,
+  "eligible_event_count": 0,
+  "event_admission_status": "refused",
+  "evidence_manifest_sha256": "383151443d04da5a6e127ea2e4344b4b10bb210137dd1d13b77e50dbfae93508",
+  "interpretation": "Typed source numerical values and parent display strings are retained separately. Differences in precision are source facts, not conversion errors or approved scientific measurements.",
+  "numerical_value_count": 60,
+  "parent_admission_sha256": "168ad1efe6fa68cdb7789246a6cce16670377cdbacd14d1673beaab8ddd1ebd1",
+  "parent_analysis_value_count": 60,
+  "physical_sample_count": 5,
+  "raw_admission_sha256": "69f93b6bd34e457bedc4047077024de1beefc900142f45051fab60dce03751ea",
+  "raw_numerical_payload_sha256": "334b12e88fac55148afe5c2ae63d4099ee972daa265c5d47960b0962485ad9f7",
+  "raw_parent_payload_sha256": "4cc48ca1836cd128e303b56920ee826bfb362771d578f8a019e7c8f0a3de4bbf",
+  "raw_value_class_payload_sha256": "58d4449d884ccafc65487a6e15ccd4f58c659d39e44a3d246cc9f3ae0eaf80e3",
+  "raw_value_type_payload_sha256": "00842f92cab1c35cd56951ddbca421c67dd4db625572501ea10aa0ae4434b9de",
+  "schema_version": "sead-analysis-numerical-value-lineage.v1",
+  "site_count": 1,
+  "site_ids": [
+    6486
+  ],
+  "source_observation_denominator": 177763,
+  "source_run_id": "sead-full-evidence-39bfff6a-ce80714e",
+  "source_unit_status_counts": {
+    "not_exposed_by_relation": 60
+  },
+  "value_class_count": 9,
+  "value_classes": [
+    {
+      "name": "3’ damage",
+      "row_count": 5,
+      "source_unit_id": null,
+      "value_class_id": 26,
+      "value_type_id": 11,
+      "value_type_name": "Measurement"
+    },
+    {
+      "name": "5’ damage",
+      "row_count": 5,
+      "source_unit_id": null,
+      "value_class_id": 27,
+      "value_type_id": 11,
+      "value_type_name": "Measurement"
+    },
+    {
+      "name": "Short reads (%)",
+      "row_count": 5,
+      "source_unit_id": null,
+      "value_class_id": 28,
+      "value_type_id": 4,
+      "value_type_name": "Percentage"
+    },
+    {
+      "name": "Duplicate reads (%)",
+      "row_count": 5,
+      "source_unit_id": null,
+      "value_class_id": 29,
+      "value_type_id": 4,
+      "value_type_name": "Percentage"
+    },
+    {
+      "name": "Raw endogenous content (%) ",
+      "row_count": 5,
+      "source_unit_id": null,
+      "value_class_id": 30,
+      "value_type_id": 4,
+      "value_type_name": "Percentage"
+    },
+    {
+      "name": "Average depth of coverage - mtDNA (x)",
+      "row_count": 10,
+      "source_unit_id": null,
+      "value_class_id": 48,
+      "value_type_id": 11,
+      "value_type_name": "Measurement"
+    },
+    {
+      "name": "Breadth of coverage - genome (%)",
+      "row_count": 5,
+      "source_unit_id": null,
+      "value_class_id": 49,
+      "value_type_id": 4,
+      "value_type_name": "Percentage"
+    },
+    {
+      "name": "Average depth of coverage - genome (x)",
+      "row_count": 10,
+      "source_unit_id": null,
+      "value_class_id": 50,
+      "value_type_id": 11,
+      "value_type_name": "Measurement"
+    },
+    {
+      "name": "Average read length",
+      "row_count": 10,
+      "source_unit_id": null,
+      "value_class_id": 51,
+      "value_type_id": 11,
+      "value_type_name": "Measurement"
+    }
+  ],
+  "value_comparison_counts": {
+    "numeric_equal": 43,
+    "precision_difference": 17
+  },
+  "value_state_counts": {
+    "parent:reported": 60,
+    "parent_parse:parsed_numeric": 60,
+    "typed:reported": 60
+  },
+  "value_type_count": 2,
+  "values_csv": "values.csv",
+  "values_csv_sha256": "f6250fbcb8769e31ac7511a79701a2550b51b66cb63da00523494de983c71110"
+}
