@@ -157,6 +157,20 @@ show the site and bin effects. Three previously explored sites and nominal
 source-bin shifts cannot establish independent spatial skill, chronology
 uncertainty, LRA accuracy or vegetation accuracy.
 
+## Swedish chronology-block development result
+
+We also withheld each Swedish target site and predicted its 500 BP pollen bin
+using training pollen exactly 1,000 nominal BP older, excluding the target
+and adjacent source bins. All 54 target bins received three frozen predictions
+and matched same-bin scores, with no refusals. Inverse-distance-squared
+equal-site pollen MAE changed from 0.023647 to 0.024023; nearest-site and
+training-mean changes were small and in the opposite direction. The
+[chronology-block report](../../../report/regions/nordic/swedish-chronology-block/README.md)
+keeps the 162 paired rows and count denominators. These source-assigned bins
+do not establish nonoverlap of the cores' true age distributions. This is a
+prior-exposed observed-pollen development comparison, not a test of LRA or
+measured vegetation.
+
 ## What two lake pollen series can and cannot say
 
 We compared observed `Alnus` and `Plantago lanceolata` pollen fractions at

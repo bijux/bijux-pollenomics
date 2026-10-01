@@ -126,7 +126,7 @@
     },
     {
       "path": "docs/report/index.md",
-      "sha256": "00a542f81b02a1240e0277ade7b250c7711071ee07a9894be9c7cf5c0af5d769",
+      "sha256": "1826e106057593678a0b9d71a36dbd7c365c604ea70de814990d38eec64c8dad",
       "bytes": 2668
     },
     {
@@ -1285,6 +1285,56 @@
       "bytes": 4933
     },
     {
+      "path": "docs/report/regions/nordic/swedish-chronology-block/README.md",
+      "sha256": "e634d4d343e4eec94c2014e64b59c060646553742c16c1f62192b2e3dbbd2af3",
+      "bytes": 3365
+    },
+    {
+      "path": "docs/report/regions/nordic/swedish-chronology-block/coverage.csv",
+      "sha256": "d5ff485d20a774740359446f064daedc50c526deaa30e4dbb157ffee229a0e50",
+      "bytes": 114
+    },
+    {
+      "path": "docs/report/regions/nordic/swedish-chronology-block/frozen/freeze.json",
+      "sha256": "8592b580600da80a76903c9fa68435619bc53039d4f958e7f5b826a361360c49",
+      "bytes": 568
+    },
+    {
+      "path": "docs/report/regions/nordic/swedish-chronology-block/frozen/predictions-13338.json.gz",
+      "sha256": "4f749b9c7d9e0d40762804b73755da14cc84bfec63ea32830630f678db7a4e83",
+      "bytes": 19167
+    },
+    {
+      "path": "docs/report/regions/nordic/swedish-chronology-block/frozen/predictions-28869.json.gz",
+      "sha256": "e01c5d21bcbca9206a24c61cd20fb89a2018683d503c1f4918a8930cb35e8d89",
+      "bytes": 19518
+    },
+    {
+      "path": "docs/report/regions/nordic/swedish-chronology-block/frozen/predictions-28872.json.gz",
+      "sha256": "5d665503dd8d46501219ac6e5b50f0682a1f9ce2d22c7adfe588c2c9bed0de52",
+      "bytes": 13506
+    },
+    {
+      "path": "docs/report/regions/nordic/swedish-chronology-block/paired-scores.csv",
+      "sha256": "c24fd487ff7ae400743293ae2c9b69c63fdb543ca4678ebfd8ad3309bd140732",
+      "bytes": 22830
+    },
+    {
+      "path": "docs/report/regions/nordic/swedish-chronology-block/prepared/prepare.json",
+      "sha256": "d60788603e9c63ec3730440d4d5bc498573e0e19af633831a3a3d455557f49b6",
+      "bytes": 1297
+    },
+    {
+      "path": "docs/report/regions/nordic/swedish-chronology-block/report.json",
+      "sha256": "d6ecc8d8805c778efe63b3527ddb6c8406ed43f536dd991fd0f672205e586487",
+      "bytes": 5496
+    },
+    {
+      "path": "docs/report/regions/nordic/swedish-chronology-block/scores.csv",
+      "sha256": "27ac6ae6eb847d5cb79942c3c70c46029d39048c79f4642f6f4d6fbd74db12cc",
+      "bytes": 27159
+    },
+    {
       "path": "docs/report/regions/nordic/swedish-lake-transfer/README.md",
       "sha256": "9f7aad3f21bb204744b3ecf9f29a7604e57f56bc82fe9afd84f7a723bceec6c6",
       "bytes": 5109
@@ -1955,6 +2005,11 @@
       "bytes": 7640
     },
     {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/swedish_chronology_block.py",
+      "sha256": "63965dc3d86063d5333a70e2e8340ed7155948290061a36c6acf645e720e7127",
+      "bytes": 22811
+    },
+    {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/swedish_direct_pollen.py",
       "sha256": "df27914425ca876a1101eca1a7e0efc4188b9838a3a4ed95a9d944e6b0d8f0d2",
       "bytes": 30951
@@ -2013,6 +2068,11 @@
       "path": "packages/bijux-pollenomics-dev/tests/source_completion/test_nordic_direct_pollen.py",
       "sha256": "e49f4b4cd23c5c04a2ec817a0499799e48fe9099f594bce298907148d109d64f",
       "bytes": 2513
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/tests/source_completion/test_swedish_chronology_block.py",
+      "sha256": "d4e5e6f16ff01fc1e14d7069c7aba550ddb898a0aa5794584b14496e02b871be",
+      "bytes": 4467
     },
     {
       "path": "packages/bijux-pollenomics-dev/tests/source_completion/test_swedish_direct_pollen.py",
@@ -2076,8 +2136,8 @@
     },
     {
       "path": "reports/README.md",
-      "sha256": "28aabc65865f19adf8a685c43f3998fcaee42c53042f4899cbbae875bd96050c",
-      "bytes": 8133
+      "sha256": "97bf0857de5764cab311337c019547fe5b55c72833db5d8ce19f3a94e7669507",
+      "bytes": 8200
     },
     {
       "path": "reports/architecture/ownership.md",
@@ -2086,8 +2146,8 @@
     },
     {
       "path": "reports/evidence-index.md",
-      "sha256": "a204e6dcb29e6c9ca53ccec033f0966ac5da9a0187552dd7cae60f99947f5a57",
-      "bytes": 19842
+      "sha256": "27efe76b9324946690238b8e45c25cd25d9b6e8035db05aa359cdecfd2739715",
+      "bytes": 20613
     },
     {
       "path": "reports/needed/README.md",
@@ -2328,6 +2388,11 @@
       "path": "reports/science/sweden-author-pollen.md",
       "sha256": "bee5fd81cb4384bfc60154359aded0e010892444d38eda54a4ec5d38c0738c3a",
       "bytes": 4987
+    },
+    {
+      "path": "reports/science/sweden-chronology-block.md",
+      "sha256": "ecdd0f88e84047fdcf9b4cda61988c9545a2a256acac7176eecfc29792e37815",
+      "bytes": 2622
     },
     {
       "path": "reports/science/sweden-lake-transfer.md",
