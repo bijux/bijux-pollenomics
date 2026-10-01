@@ -12,8 +12,10 @@ publication status.
 
 The [row review](samples.csv) reconciles all 11 ENA accessions with the
 retained PLOS paper sample labels through source-owned ENA BioSample aliases.
-The [machine-readable report](report.json) binds the earlier paper crosswalk
-and its 16 primary capture files by SHA-256. The article's dating table lists
+The [machine-readable report](report.json) binds the paper crosswalk and its
+16 primary capture files by SHA-256: fifteen retained in
+`data/adna/review/galician_cattle/` and the governed ENA project archive. The
+article's dating table lists
 18 specimens; the sequenced sample mapping and ENA capture each contain the
 same 11 distinct BioSamples. The source capture identifies the paper, but its
 project-level paper linkage has not been promoted into the governed source

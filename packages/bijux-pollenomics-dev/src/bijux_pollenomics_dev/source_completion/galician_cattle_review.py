@@ -21,6 +21,7 @@ PROJECT = "PRJNA705960"
 ARCHIVE = Path(
     "data/adna/governance/source_library/projects/PRJNA705960/archive_metadata.html.gz"
 )
+CAPTURE = Path("data/adna/review/galician_cattle")
 
 
 def _sha(path: Path) -> dict[str, Any]:
@@ -235,11 +236,13 @@ def main() -> None:
     """Run the CLI to review the pinned Galician cattle paper before project species promotion."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repository", type=Path, required=True)
-    parser.add_argument("--capture", type=Path, required=True)
+    parser.add_argument("--capture", type=Path)
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
     result = build(
-        args.repository.resolve(), args.capture.resolve(), args.output.resolve()
+        args.repository.resolve(),
+        (args.capture or args.repository / CAPTURE).resolve(),
+        args.output.resolve(),
     )
     print(
         json.dumps(
