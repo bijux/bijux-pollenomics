@@ -1,0 +1,81 @@
+{
+  "schema_version": "aadr-nordic-entity-account.v1",
+  "source_release": "v66",
+  "source_accountability": {
+    "path": "data/adna/species/homo_sapiens/review/aadr_v66_source_accountability.json",
+    "bytes": 58974,
+    "sha256": "45a39c46957309287026b5df6d65b5079d7d41012d5e9dc5df4a84a9fade9049"
+  },
+  "source_inputs": [
+    {
+      "path": "data/aadr/v66/release_manifest.json",
+      "bytes": 754,
+      "sha256": "317d71cbf82354be73e83bdd01bd382cdd8c7b1c1d536a04b0f642544e0ddde3"
+    },
+    {
+      "path": "data/aadr/v66/1240k/v66.1240K.aadr.PUB.anno",
+      "bytes": 13518214,
+      "sha256": "a2b204a4d1bedb9d2e2930c1402f8414c1176afb2a1634ad3d6c7b38aaf288b3"
+    },
+    {
+      "path": "data/aadr/v66/ho/v66.HO.aadr.PUB.anno",
+      "bytes": 15540394,
+      "sha256": "3f571288de0578478d91126d46c30e80bd06193769ffa3e7cf50bd2885e8fdbe"
+    }
+  ],
+  "country_sample_products": [
+    {
+      "path": "docs/report/countries/denmark/denmark_aadr_v66_samples.csv",
+      "bytes": 284233,
+      "sha256": "1628b09c7cc3116b3b95b2e1390107beb5052079e67c00cfabb996f3608269b5"
+    },
+    {
+      "path": "docs/report/countries/finland/finland_aadr_v66_samples.csv",
+      "bytes": 11789,
+      "sha256": "1b1ab06d05f28fcfa42c26fc12dc33e1588a23c3eab0a917f4892d156d578edb"
+    },
+    {
+      "path": "docs/report/countries/norway/norway_aadr_v66_samples.csv",
+      "bytes": 56620,
+      "sha256": "021fbef6979f47d19e6b9df915b0ca73742243401239b8d60ba022b0e3e22396"
+    },
+    {
+      "path": "docs/report/countries/sweden/sweden_aadr_v66_samples.csv",
+      "bytes": 180827,
+      "sha256": "e8f9badb88be58eea8d3e838a71a777b6cc4a87e356e9ddd5ee19327d9de870b"
+    }
+  ],
+  "decision_file": {
+    "path": "decisions.csv",
+    "rows": 1325,
+    "bytes": 165929,
+    "sha256": "d55e36f9739a26dfff91d98f47f5b66baae6593060a9c11a8812723407a4dcdd"
+  },
+  "country_counts": {
+    "DK": {
+      "source_genetic_ids": 654,
+      "published": 653,
+      "excluded_missing_coordinates": 1
+    },
+    "FI": {
+      "source_genetic_ids": 124,
+      "published": 32,
+      "excluded_missing_coordinates": 92
+    },
+    "NO": {
+      "source_genetic_ids": 131,
+      "published": 130,
+      "excluded_missing_coordinates": 1
+    },
+    "SE": {
+      "source_genetic_ids": 416,
+      "published": 416,
+      "excluded_missing_coordinates": 0
+    }
+  },
+  "source_genetic_ids": 1325,
+  "published": 1231,
+  "excluded_missing_coordinates": 94,
+  "map_admitted": false,
+  "scientifically_admitted": false
+}

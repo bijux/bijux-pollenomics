@@ -66,6 +66,14 @@ Neotoma samples. This reuses the prior observed-pollen study; neither
 
 ## Context and validation sources
 
+We reconciled [AADR v66 Nordic human Genetic IDs](aadr-nordic-entities/README.md)
+against the four retained country sample products. Of 1,325 exact
+source-reported country IDs, 1,231 appear in those products and 94 do not:
+one Danish, 92 Finnish and one Norwegian ID lack source coordinates. The
+per-ID ledger explains product membership; the AADR accountability receipt
+still refuses country-assignment, map and scientific admission. These human
+metadata rows do not contribute pollen or vegetation observations.
+
 We also joined every reviewed SEAD chronology claim to its governed country and
 site decision in the [country claim account](../../docs/report/source-relations/sead/chronology-country-accounting/README.md).
 The 25,109 claims belong to 853 distinct sites among 2,069 assigned sites:

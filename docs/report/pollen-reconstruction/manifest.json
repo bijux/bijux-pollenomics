@@ -2851,8 +2851,8 @@
     },
     {
       "path": "reports/README.md",
-      "sha256": "428517b5ca9095c4c3bb3c1e69b0aa3e4df68cb784b15e3d0f471a5a0cb847ff",
-      "bytes": 8626
+      "sha256": "6a150e0d579f9e2c0b1ca97283f6d471457dde079edb1f0539fcd5b8b16e267b",
+      "bytes": 8876
     },
     {
       "path": "reports/architecture/native-backend.md",
@@ -2866,13 +2866,33 @@
     },
     {
       "path": "reports/evidence-index.md",
-      "sha256": "05bdcb8da2b5694ef0c9bf55c676d90ea3246d86202fc6ff1fa2380eb1d49080",
-      "bytes": 22246
+      "sha256": "415fbb305c466b5e23b97f02520a27db04f6ff925bf132e07538ae131bc1e1d4",
+      "bytes": 22709
     },
     {
       "path": "reports/needed/README.md",
       "sha256": "06ce4b66159f9faebb86b2c33950bd29975be096ec1c1c568ee85ed4f7056476",
       "bytes": 28137
+    },
+    {
+      "path": "reports/science/aadr-nordic-entities/README.md",
+      "sha256": "def5bebf8c7865a8a905b06aa2d80054e86b8de733dc802a6fe4dbba3ee6737a",
+      "bytes": 2147
+    },
+    {
+      "path": "reports/science/aadr-nordic-entities/decisions.csv",
+      "sha256": "d55e36f9739a26dfff91d98f47f5b66baae6593060a9c11a8812723407a4dcdd",
+      "bytes": 165929
+    },
+    {
+      "path": "reports/science/aadr-nordic-entities/replay.py",
+      "sha256": "c81ae1210332517c004ec9c725598f04fb53542433a25ad6f680058b6999b712",
+      "bytes": 8067
+    },
+    {
+      "path": "reports/science/aadr-nordic-entities/report.json",
+      "sha256": "73d0ba6d098d7314c9cb3e348f3d76806e3b1e2f2a3d4dacbc0df123728b4196",
+      "bytes": 2483
     },
     {
       "path": "reports/science/abborrtjarnen-source-method.md",
@@ -2976,8 +2996,8 @@
     },
     {
       "path": "reports/science/method-correspondence.md",
-      "sha256": "3d4557ba17f0670961b48dbf3c2e6288b8e5a872e4a46eff2179fcdac77d7cec",
-      "bytes": 5793
+      "sha256": "e49f2d3f5a64d5476901a80b954c0b02aa264402222eb7f28e29aa2edf4bdb4f",
+      "bytes": 6755
     },
     {
       "path": "reports/science/nordic-observed-pollen-selection.md",
@@ -3116,8 +3136,8 @@
     },
     {
       "path": "reports/science/source-cohorts.md",
-      "sha256": "a6ad8be1b91b0450e945c86f9f04588542d5b178cb7b437817ae8c9db695c64d",
-      "bytes": 11379
+      "sha256": "0e288c7939cc3f5989aede57423f2a52ed7a1abc7401c08c8ae6c35958f15a03",
+      "bytes": 11894
     },
     {
       "path": "reports/science/sweden-author-pollen.md",
