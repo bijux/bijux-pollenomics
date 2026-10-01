@@ -6,23 +6,23 @@ The [machine-readable registry](report_surface_registry.json) lists every path
 with its family, audience, geography and format when an exact file lookup is
 needed.
 
-- Surface count: `1852`
+- Surface count: `1907`
 
 ## Report families
 
 | Family | Count |
 | --- | ---: |
 | [Scientific caveats](caveats/index.md) | 10 |
-| [Maintainer truth surfaces](maintenance/index.md) | 990 |
+| [Maintainer truth surfaces](maintenance/index.md) | 1012 |
 | [Map surfaces](maps/index.md) | 86 |
 | [Portal guidance](index.md) | 2 |
 | [Evidence reviews](reviews/index.md) | 34 |
-| [Scope-filtered outputs](scopes/index.md) | 730 |
+| [Scope-filtered outputs](scopes/index.md) | 763 |
 
 ## Audience counts
 
 | Audience | Count |
 | --- | ---: |
-| Maintainer diagnostic | 992 |
-| Public reading surface | 739 |
+| Maintainer diagnostic | 1014 |
+| Public reading surface | 772 |
 | Scientific review surface | 121 |

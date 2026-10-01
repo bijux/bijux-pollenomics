@@ -241,13 +241,13 @@
     },
     {
       "path": "docs/report/index.md",
-      "sha256": "91ff568670d8f92fd74e725766dd79e36da1324b32b5ebfc547fcff5807e3ff3",
-      "bytes": 2668
+      "sha256": "b217879b8e6f792451ffcda569ed15327d7ad9c5897d9562d9418ab38e3e1cad",
+      "bytes": 2670
     },
     {
       "path": "docs/report/maintenance/index.md",
-      "sha256": "19f35804b49f8294ba5be9c1235921be784a44be0993f939299cd36e0aa5d1bc",
-      "bytes": 1392
+      "sha256": "64342ba2c0de7da8558358df3a2f117c514b46f81bdd1e4f42117c8a385bf51b",
+      "bytes": 1393
     },
     {
       "path": "docs/report/method-certification/current-r-oracle/README.md",
@@ -2136,23 +2136,23 @@
     },
     {
       "path": "docs/report/report_narrative_quality_review.json",
-      "sha256": "4ca9881776d6b036d61acdc923f34ed15ed34b1a3fe5bf69890ddca4e1174331",
-      "bytes": 105813
+      "sha256": "e001dd0208b4e2bb3d68b3e6250672aea0b975db6088afbe0d059d40b9853dab",
+      "bytes": 108981
     },
     {
       "path": "docs/report/report_narrative_quality_review.md",
-      "sha256": "1f189866b560efcf982ec5f88b64d58e9e17fe89c4b873ae47a61f6a78af215c",
+      "sha256": "9222f713c9990cebbb333698cf2d12175be334910f801664cfb7c9704f8f5c58",
       "bytes": 624
     },
     {
       "path": "docs/report/report_surface_registry.json",
-      "sha256": "eee922a389e55876bcf5bd258bd8575335eec449fad177d005919ddcdefd04f6",
-      "bytes": 878290
+      "sha256": "933b0754cd014f68ec2f21529039dbd193ebb047643514800366a7fa179235b1",
+      "bytes": 904617
     },
     {
       "path": "docs/report/report_surface_registry.md",
-      "sha256": "fa1471c473d7bc395f3061f55e9f29f8c326177629736c21001c56227976d765",
-      "bytes": 862
+      "sha256": "0e8e58c47a82fce01904cc90d5eeae7f5dcf947b03d18a7bd5ad4baf0b2e7bb9",
+      "bytes": 864
     },
     {
       "path": "docs/report/source-relations/dna-scope/reindeer-published-appendix.md",
