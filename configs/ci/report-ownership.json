@@ -4333,28 +4333,51 @@
       "verification": "Maintain these repository source files through review and focused tests. Source custody is distinct from generated output reproduction; copying them into a replay lane does not certify the results they produce."
     },
     {
-      "owner_id": "regions/nordic/hyde-country-cropland/grid-conservation/report-products",
-      "role": "unresolved",
+      "owner_id": "regions/nordic/hyde-country-cropland/grid-conservation/reader-account",
       "paths": [
-        "docs/report/regions/nordic/hyde-country-cropland/grid-conservation/README.md",
+        "docs/report/regions/nordic/hyde-country-cropland/grid-conservation/README.md"
+      ],
+      "producer_inputs": [],
+      "producer_paths": [],
+      "role": "maintained_editorial",
+      "verification": "Human-maintained reader account; compare its source scopes and numeric statements with the governed 84-row CSV/report and reports/science/hyde-cropland-source-account.md. This editorial role does not authenticate source rights, reproduce results, or confer scientific review."
+    },
+    {
+      "owner_id": "regions/nordic/hyde-country-cropland/grid-conservation/report-products",
+      "paths": [
         "docs/report/regions/nordic/hyde-country-cropland/grid-conservation/grid-conservation.csv",
         "docs/report/regions/nordic/hyde-country-cropland/grid-conservation/report.json"
       ],
-      "producer_paths": [],
       "producer_inputs": [],
-      "verification": "Identify the exact producer or independent source/template custody, lawful input closure and role-specific verification route for these paths. Bind independently reconstructed output or authenticated retained source before full mixed-owner acceptance; tracked output bytes cannot feed their own producer."
+      "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/hyde_country_cropland.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/hyde_country_grid_conservation.py"
+      ],
+      "role": "unresolved",
+      "verification": "The retained native-grid producer is `bijux_pollenomics_dev.source_completion.hyde_country_grid_conservation --source-root <governed-HYDE-3.5-root> --output artifacts/jobs/vegetation-context-reproduction/hyde-grid`. It reads the external ISO ZIP, 21 year/scenario ZIPs and three country tables pinned in report.json. Bind the exact HYDE package and use route, then compare both outputs from an absent artifact destination. This checks modeled source-grid reconciliation, not measured vegetation, rights, formal CRS or historical calendar."
+    },
+    {
+      "owner_id": "regions/nordic/hyde-country-cropland/reader-account",
+      "paths": [
+        "docs/report/regions/nordic/hyde-country-cropland/README.md"
+      ],
+      "producer_inputs": [],
+      "producer_paths": [],
+      "role": "maintained_editorial",
+      "verification": "Human-maintained reader account; compare its source scopes and numeric statements with reports/science/hyde-cropland-source-account.md and the two governed HYDE reports. This editorial role does not authenticate source rights, reproduce results, or confer scientific review."
     },
     {
       "owner_id": "regions/nordic/hyde-country-cropland/report-products",
-      "role": "unresolved",
       "paths": [
-        "docs/report/regions/nordic/hyde-country-cropland/README.md",
         "docs/report/regions/nordic/hyde-country-cropland/country-years.csv",
         "docs/report/regions/nordic/hyde-country-cropland/report.json"
       ],
-      "producer_paths": [],
       "producer_inputs": [],
-      "verification": "Identify the exact producer or independent source/template custody, lawful input closure and role-specific verification route for these paths. Bind independently reconstructed output or authenticated retained source before full mixed-owner acceptance; tracked output bytes cannot feed their own producer."
+      "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/hyde_country_cropland.py"
+      ],
+      "role": "unresolved",
+      "verification": "The retained country-year producer is `bijux_pollenomics_dev.source_completion.hyde_country_cropland --source-root <governed-HYDE-3.5-root> --output artifacts/jobs/vegetation-context-reproduction/hyde-country`. It reads the external general ZIP and three scenario country tables pinned in report.json. Bind exact HYDE release/source custody and permitted use before a fresh-output byte comparison of country-years.csv and report.json; no source grid, redistribution, calendar, CRS, or ecological reference acceptance is implied."
     },
     {
       "owner_id": "regions/nordic/landclim-modeled-panels",
@@ -4930,15 +4953,24 @@
       "verification": "Run python -m bijux_pollenomics_dev.source_completion.dna_scope_review --repository . --output artifacts/jobs/dna-source-scope/reproduction.json and byte-compare report.json. It reads six governed JSON inputs, three human capture members declared by the AADR accountability review, and eleven present animal evidence files. This is source-accountability scope, no cross-source/pollen admission."
     },
     {
-      "owner_id": "source-relations/hyde/provider-record/report-products",
-      "role": "unresolved",
+      "owner_id": "source-relations/hyde/provider-record/reader-account",
       "paths": [
-        "docs/report/source-relations/hyde/provider-record/README.md",
+        "docs/report/source-relations/hyde/provider-record/README.md"
+      ],
+      "producer_inputs": [],
+      "producer_paths": [],
+      "role": "maintained_editorial",
+      "verification": "Human-maintained reader account; compare its source scopes and numeric statements with the retained provider JSON and HYDE source/rights account. This editorial role does not authenticate source rights, reproduce results, or confer scientific review."
+    },
+    {
+      "owner_id": "source-relations/hyde/provider-record/report-products",
+      "paths": [
         "docs/report/source-relations/hyde/provider-record/datacite-response.json"
       ],
-      "producer_paths": [],
       "producer_inputs": [],
-      "verification": "Identify the exact producer or independent source/template custody, lawful input closure and role-specific verification route for these paths. Bind independently reconstructed output or authenticated retained source before full mixed-owner acceptance; tracked output bytes cannot feed their own producer."
+      "producer_paths": [],
+      "role": "unresolved",
+      "verification": "Retain the exact current JSON hash and the cited DataCite DOI API URL as a dated provider-record capture. Obtain a governed original HTTP response/headers and version binding before assigning retained-source custody; a mutable current API response cannot reconstruct this 2026-09-29 snapshot by itself. Do not infer that its CC BY 4.0 statement supersedes the local HYDE package's conflicting terms."
     },
     {
       "owner_id": "source-relations/landclim/author-example-taxon-support/formatter-comparison",
@@ -6852,28 +6884,78 @@
       "verification": "Identify the exact producer or independent source/template custody, lawful input closure and role-specific verification route for these paths. Bind independently reconstructed output or authenticated retained source before full mixed-owner acceptance; tracked output bytes cannot feed their own producer."
     },
     {
-      "owner_id": "validation/empd2-nfi-pairing/report-products",
-      "role": "unresolved",
+      "owner_id": "validation/empd2-nfi-pairing/calibration-guide",
       "paths": [
-        "docs/report/validation/empd2-nfi-pairing/README.md",
-        "docs/report/validation/empd2-nfi-pairing/inputs/slu-calibration-guide.pdf",
-        "docs/report/validation/empd2-nfi-pairing/nfi-measurement-schema.json",
+        "docs/report/validation/empd2-nfi-pairing/inputs/slu-calibration-guide.pdf"
+      ],
+      "producer_inputs": [],
+      "producer_paths": [],
+      "role": "unresolved",
+      "verification": "The tracked SLU calibration guide is pinned as SHA-256 793d90e287b2c686d0007f02497e12e8a72a47e5a45531918d9fc71d78499bc8 in the EMPD2\u2013NFI report. Bind its original provider retrieval/copy receipt and publication/use statement to these exact bytes before retained-source ownership; the pairing producer consumes the guide but does not produce it."
+    },
+    {
+      "owner_id": "validation/empd2-nfi-pairing/measurement-schema",
+      "paths": [
+        "docs/report/validation/empd2-nfi-pairing/nfi-measurement-schema.json"
+      ],
+      "producer_inputs": [],
+      "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/empd2_nfi_reference/measurement_schema.py"
+      ],
+      "role": "unresolved",
+      "verification": "With a governed private store, run `PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -m bijux_pollenomics_dev.source_completion.empd2_nfi_reference.measurement_schema --private-source-store <qualified-private-store> --output artifacts/jobs/vegetation-context-reproduction/empd2-nfi-measurement-schema.json`; compare the retained JSON bytes. This reads only the specified NFI header/date/area/land-use fields and leaves tree outcome cells sealed."
+    },
+    {
+      "owner_id": "validation/empd2-nfi-pairing/reader-account",
+      "paths": [
+        "docs/report/validation/empd2-nfi-pairing/README.md"
+      ],
+      "producer_inputs": [],
+      "producer_paths": [],
+      "role": "maintained_editorial",
+      "verification": "Human-maintained reader account; compare its source scopes and numeric statements with the pair refusal report, NFI schema report and original source dossiers. This editorial role does not authenticate source rights, reproduce results, or confer scientific review."
+    },
+    {
+      "owner_id": "validation/empd2-nfi-pairing/report-products",
+      "paths": [
         "docs/report/validation/empd2-nfi-pairing/pairs.csv",
         "docs/report/validation/empd2-nfi-pairing/report.json"
       ],
-      "producer_paths": [],
-      "producer_inputs": [],
-      "verification": "Identify the exact producer or independent source/template custody, lawful input closure and role-specific verification route for these paths. Bind independently reconstructed output or authenticated retained source before full mixed-owner acceptance; tracked output bytes cannot feed their own producer."
+      "producer_inputs": [
+        "docs/report/validation/empd2-nfi-pairing/inputs/slu-calibration-guide.pdf"
+      ],
+      "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/empd2_nfi.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/empd2_nfi_pairing.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/empd2_nfi_reference/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/empd2_nfi_reference/projection.py"
+      ],
+      "role": "unresolved",
+      "verification": "After authenticating the retained private source store, run `PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -m bijux_pollenomics_dev.source_completion.empd2_nfi_pairing --repository . --private-source-store <qualified-private-store> --output artifacts/jobs/vegetation-context-reproduction/empd2-nfi-pairing` from an absent destination; compare public pairs.csv and report.json byte-for-byte. Its SQLite, NFI workbook, source dossier and spatial screen remain external. The output is an outcome-blind 16-lead refusal ledger with zero admitted measured pairs, not a vegetation score."
     },
     {
-      "owner_id": "vegetation-reference/farskesjon/report-products",
-      "role": "unresolved",
+      "owner_id": "vegetation-reference/farskesjon/reader-account",
       "paths": [
         "docs/report/vegetation-reference/farskesjon/README.md"
       ],
-      "producer_paths": [],
       "producer_inputs": [],
-      "verification": "Identify the exact producer or independent source/template custody, lawful input closure and role-specific verification route for these paths. Bind independently reconstructed output or authenticated retained source before full mixed-owner acceptance; tracked output bytes cannot feed their own producer."
+      "producer_paths": [],
+      "role": "maintained_editorial",
+      "verification": "Human-maintained reader account; compare its source scopes and numeric statements with reports/science/vegetation-reference/farskesjon/report.json. This editorial role does not authenticate source rights, reproduce results, or confer scientific review."
+    },
+    {
+      "owner_id": "vegetation-reference/namibia-pollen-vegetation/radius-sensitivity",
+      "paths": [
+        "docs/report/vegetation-reference/namibia-pollen-vegetation/radius-sensitivity.csv",
+        "docs/report/vegetation-reference/namibia-pollen-vegetation/radius-sensitivity.json"
+      ],
+      "producer_inputs": [],
+      "producer_paths": [
+        "docs/report/vegetation-reference/namibia-pollen-vegetation/radius_sensitivity.py",
+        "docs/report/vegetation-reference/namibia-pollen-vegetation/replay.py"
+      ],
+      "role": "unresolved",
+      "verification": "The current producer `python3 docs/report/vegetation-reference/namibia-pollen-vegetation/radius_sensitivity.py --source-dir <governed-PANGAEA-TSV-directory> --output-dir artifacts/jobs/vegetation-context-reproduction/namibia-radius` calls replay.build on the same two original TSVs and writes CSV/JSON. Compare both outputs only after original-byte custody is bound. It is a five-taxon descriptive Hellinger distance over 10 sites \u00d7 15 radius labels, not fitted reconstruction accuracy or a radius recommendation."
     },
     {
       "owner_id": "vegetation-reference/namibia-pollen-vegetation/reader-account",
@@ -6887,19 +6969,16 @@
     },
     {
       "owner_id": "vegetation-reference/namibia-pollen-vegetation/report-products",
-      "role": "unresolved",
       "paths": [
         "docs/report/vegetation-reference/namibia-pollen-vegetation/paired.csv",
-        "docs/report/vegetation-reference/namibia-pollen-vegetation/radius-sensitivity.csv",
-        "docs/report/vegetation-reference/namibia-pollen-vegetation/radius-sensitivity.json",
         "docs/report/vegetation-reference/namibia-pollen-vegetation/report.json"
       ],
+      "producer_inputs": [],
       "producer_paths": [
-        "docs/report/vegetation-reference/namibia-pollen-vegetation/radius_sensitivity.py",
         "docs/report/vegetation-reference/namibia-pollen-vegetation/replay.py"
       ],
-      "producer_inputs": [],
-      "verification": "Identify the exact producer or independent source/template custody, lawful input closure and role-specific verification route for these paths. Bind independently reconstructed output or authenticated retained source before full mixed-owner acceptance; tracked output bytes cannot feed their own producer."
+      "role": "unresolved",
+      "verification": "The real producer is `python3 docs/report/vegetation-reference/namibia-pollen-vegetation/replay.py --source-dir <governed-PANGAEA-TSV-directory> --output-dir artifacts/jobs/vegetation-context-reproduction/namibia-join`; compare paired.csv and report.json byte-for-byte after binding exact PANGAEA.931033 and .931035 source TSV bytes. The original table headers declare CC BY 4.0. This source-row join is not a model prediction or Nordic vegetation validation."
     },
     {
       "owner_id": "vegetation-reference/namibia-pollen-vegetation/source-code",
@@ -6913,24 +6992,24 @@
       "verification": "Maintain these repository source files through review and focused tests. Source custody is distinct from generated output reproduction; copying them into a replay lane does not certify the results they produce."
     },
     {
-      "owner_id": "vegetation-reference/smaland-historical-maps/report-products",
-      "role": "unresolved",
+      "owner_id": "vegetation-reference/smaland-historical-maps/reader-account",
       "paths": [
         "docs/report/vegetation-reference/smaland-historical-maps/README.md"
       ],
-      "producer_paths": [],
       "producer_inputs": [],
-      "verification": "Identify the exact producer or independent source/template custody, lawful input closure and role-specific verification route for these paths. Bind independently reconstructed output or authenticated retained source before full mixed-owner acceptance; tracked output bytes cannot feed their own producer."
+      "producer_paths": [],
+      "role": "maintained_editorial",
+      "verification": "Human-maintained reader account; compare its source scopes and numeric statements with reports/science/vegetation-reference/smaland-historical-maps/coverage.json. This editorial role does not authenticate source rights, reproduce results, or confer scientific review."
     },
     {
-      "owner_id": "vegetation-reference/southern-sweden-figure/report-products",
-      "role": "unresolved",
+      "owner_id": "vegetation-reference/southern-sweden-figure/reader-account",
       "paths": [
         "docs/report/vegetation-reference/southern-sweden-figure/README.md"
       ],
-      "producer_paths": [],
       "producer_inputs": [],
-      "verification": "Identify the exact producer or independent source/template custody, lawful input closure and role-specific verification route for these paths. Bind independently reconstructed output or authenticated retained source before full mixed-owner acceptance; tracked output bytes cannot feed their own producer."
+      "producer_paths": [],
+      "role": "maintained_editorial",
+      "verification": "Human-maintained reader account; compare its source scopes and numeric statements with reports/science/vegetation-reference/southern-sweden-figure/report.json and printed-labels.csv. This editorial role does not authenticate source rights, reproduce results, or confer scientific review."
     }
   ]
 }

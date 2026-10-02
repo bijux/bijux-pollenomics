@@ -63,8 +63,8 @@ or qualified scientific review.
 The [output ownership inventory](../../configs/ci/report-ownership.json)
 assigns every tracked report path exactly one declaration. Its population is
 1,938 paths: 709 declared publisher paths, 125 original-R retained source
-files, 52 generated domain outputs, 62 maintained source files, 72
-maintained reader accounts and 918 paths with unresolved output custody.
+files, 52 generated domain outputs, 62 maintained source files, 79
+maintained reader accounts and 911 paths with unresolved output custody.
 These role counts describe the current declarations. They do not measure
 how many outputs have been independently reproduced.
 
@@ -144,6 +144,14 @@ and author R-script bundle inputs remain external custody requirements for
 three author-derived families; their four numeric outputs remain unresolved.
 Mechanical comparison with a retained author report does not authenticate
 that upstream source or qualify taxonomic and PPE application.
+
+Seven HYDE and vegetation reference accounts have editorial owners. The
+13 modeled-grid, provider-capture, Namibia source-join and EMPD2–NFI result
+files retain external input or capture custody requirements. The Namibia
+source headers declare CC BY 4.0, but an original-byte source receipt is
+still distinct from numerical reproduction. The EMPD2–NFI pairing ledger
+retains 16 leads and zero admitted measured pairs; it is not an accuracy
+score. HYDE provider metadata does not resolve conflicting package terms.
 
 A fresh canonical publisher build from fixed product
 `d535ca7f3bed0ead63e5f96e45658c435ed6613a` produced exactly the 709 declared
