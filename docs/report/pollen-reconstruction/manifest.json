@@ -4035,6 +4035,21 @@
       "bytes": 9910
     },
     {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/adna/projects/sample_master/tables/galician_cattle/species.py",
+      "sha256": "9e951ba34d1ec8a34318a2ba1361e08e6b9b015bb0bc3a1b50528fb84863b0e6",
+      "bytes": 13777
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/adna/projects/sample_master/tables/pig_panel/source_evidence.py",
+      "sha256": "2be152485d3f21f602309d1787fa14820f336b9751dd014cbeb7a96198bb03a5",
+      "bytes": 9312
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/adna/sources/snapshots.py",
+      "sha256": "e9e851d15a72fd852bce22362414fc5dbe08e9f2f9279c5d23c9ca41e5578ee3",
+      "bytes": 51279
+    },
+    {
       "path": "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/api.py",
       "sha256": "4b47c5e1a1430f4a20a95e0ed34f9dac1f67f4b0e9698f6df3ce433b9e941e9f",
       "bytes": 3682
