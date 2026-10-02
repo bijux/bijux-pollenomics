@@ -348,6 +348,17 @@ def main() -> None:
         f"{portal.markdown_page_count} Markdown identities and "
         f"{portal.excluded_metadata_count} explicit metadata exclusions"
     )
+    ownership_module = runpy.run_path(
+        str(
+            ROOT
+            / "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/ownership.py"
+        )
+    )
+    ownership = ownership_module["check_report_ownership"](ROOT)
+    print(
+        f"verified {ownership.path_count} output ownership declarations; "
+        f"{ownership.unresolved_path_count} paths still require custody resolution"
+    )
     verify_reader_paths()
     verify_runtime_measurement()
     verify_python_baseline()

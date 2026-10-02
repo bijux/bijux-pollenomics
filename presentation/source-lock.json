@@ -58,7 +58,7 @@
     "reports/README.md": "742be1020a1bdce4fe917950f733cafad23bcab8ae98c17974ca19736c4280df",
     "reports/architecture/lra-distribution.md": "9a6c1b006d297dc46953499b6d7878503242ab84429320fbf82c345c25bebed4",
     "reports/architecture/native-backend.md": "8aa679097d3f4457a1fb6b133f696fc2099a50b6d434142b3430c2ed6a759e80",
-    "reports/architecture/ownership.md": "b06f96ed8faa80af72cf0a1adb678dbb8d03f6582efaf518afc2a99f0cc998d4",
+    "reports/architecture/ownership.md": "cb8c289502507a9218463c2759bd983b1a8d8f2ee1cca9e481f05151cdeaf366",
     "reports/exports/papers/README.md": "ff5a96f461e93a18e8bea26079d1c7833bf709756f5bf7faeb66cfdf51ffbb65",
     "reports/exports/papers/manifest.json": "1b1dfb70642c373ecc2f9d132ecdb39608b952dea44e22b7a10ede42dd085bad",
     "reports/exports/papers/visual-review.json": "39f234de871903e0b224eb5d82e95fc704ded878f819e4e2bb5b70058eb5a844",
@@ -100,7 +100,7 @@
     "reports/science/sweden-training-scope.md": "f314ad31c3ce166f7c8ea2aa2b03ed82c097c8026bb969008711c33e11f39246",
     "reports/science/synthetic-model-selection/README.md": "af6ff96f339d3ba2528e3d68a970415fc8cf9eb2770f5255a43a808f8199d010",
     "reports/science/vegetation-reference.md": "9f3c0b639bfadb2e3951b6d85e68f2a7c2a80a197af69ad179ebf8c0707eee2b",
-    "reports/verify.py": "2bf67374b0d6468cba513582b1e9082765497d9a305137910b1728be146371e1",
+    "reports/verify.py": "888d5b1ffb002eb403633d4791061e9c7b9109054601dcfcff5ad14bc3dcd9a8",
     "uv.lock": "356c38e8c35c4da24abcdc49a27562c8d5d33f526cea436bc5dbc0a0f871ab94"
   }
 }

@@ -58,6 +58,38 @@ tree. Automated layout signals do not establish actual reader comprehension
 or qualified scientific review.
 
 
+## Current output declarations
+
+The [output ownership inventory](../../configs/ci/report-ownership.json)
+assigns every tracked report path exactly one declaration. Its population is
+1,938 paths: 709 declared publisher paths, 125 original-R retained source
+files, ten generated study outputs, 62 maintained source files, seven
+maintained reader accounts and 1,025 paths with unresolved output custody.
+These role counts describe the current declarations. They do not measure
+how many outputs have been independently reproduced.
+
+The publisher path set comes from the independent assembly inventoried at
+product `bdc8c0d95`. All 709 paths remain tracked. A current publisher assembly
+must still establish its exact output membership before full-tree acceptance.
+The new declaration keeps the current-R and Linux-R raw outputs unresolved;
+the original-R source category applies only to its separately authenticated
+125-file bundle. A maintained source file or editorial account requires
+source custody and review, rather than an invented generated-output proof.
+
+Check the declaration without executing the scientific studies:
+
+```sh
+python -m bijux_pollenomics_dev.ci.report_rebuild.ownership --repository .
+```
+
+The checker compares the exact tracked namespace, path-set digest and unique
+owner assignments; it rejects missing or extra paths, unsafe source paths
+and generated owners that consume their own declared outputs. Adding
+`--require-resolved` refuses any unresolved declaration. Even when every role
+is resolved, this inventory check does not replace independent owner
+manifests, retained-source certificate validation or the two-lane full-tree
+comparison. Those checks remain with the existing report rebuild verifier.
+
 The [method correspondence](../science/method-correspondence.md),
 [publication correspondence](../science/publication-correspondence.md),
 [observed-pollen synthesis](../science/pollen-prediction.md) and

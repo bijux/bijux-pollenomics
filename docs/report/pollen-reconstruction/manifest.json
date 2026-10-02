@@ -5,6 +5,11 @@
   "as_of": "2026-10-01",
   "files": [
     {
+      "path": "configs/ci/report-ownership.json",
+      "sha256": "326b09e7c0df6b4c9728cbd029863718736ba0e739c4415ea98f3f4778c19d39",
+      "bytes": 285231
+    },
+    {
       "path": "configs/docs/science_downloads.py",
       "sha256": "3162000c64180ca575be718c03ecdfe90bc0f53240eb4101947356c863848906",
       "bytes": 4288
@@ -2690,6 +2695,11 @@
       "bytes": 18270
     },
     {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/ownership.py",
+      "sha256": "66b048c1cd4d5823418a84dfe275776a7da0a43dc9e6c771f13a72c494171863",
+      "bytes": 12199
+    },
+    {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/docs/report_portal_check.py",
       "sha256": "2431af85b2ba2336a7892612dfab98f3a281c8951171e0897eac8a275dcefadd",
       "bytes": 12054
@@ -3025,6 +3035,11 @@
       "bytes": 6957
     },
     {
+      "path": "packages/bijux-pollenomics-dev/tests/test_report_rebuild_ownership.py",
+      "sha256": "214f47a05de006c5203987feba350667bc0a61dce107174caa56ce2e79e54b75",
+      "bytes": 10160
+    },
+    {
       "path": "packages/bijux-pollenomics-dev/tests/test_runtime_isolation.py",
       "sha256": "a273ffc8b3213d96d4b4945903dbeacd8db17eb32673dc29947470f3b201ff38",
       "bytes": 38090
@@ -3076,8 +3091,8 @@
     },
     {
       "path": "reports/architecture/ownership.md",
-      "sha256": "b06f96ed8faa80af72cf0a1adb678dbb8d03f6582efaf518afc2a99f0cc998d4",
-      "bytes": 4558
+      "sha256": "cb8c289502507a9218463c2759bd983b1a8d8f2ee1cca9e481f05151cdeaf366",
+      "bytes": 6288
     },
     {
       "path": "reports/evidence-index.md",
@@ -3151,7 +3166,7 @@
     },
     {
       "path": "reports/exports/site-downloads.json",
-      "sha256": "1ad3156ff5dd0b83c2cb4ceed1fc9b67152c3b2cf3d64a2bdd3e5a111bace3b6",
+      "sha256": "3e8471eeb6208509bf227c983b4f8094585ee33787e95990af8ae09af081d019",
       "bytes": 5774
     },
     {
@@ -3651,8 +3666,8 @@
     },
     {
       "path": "reports/verify.py",
-      "sha256": "2bf67374b0d6468cba513582b1e9082765497d9a305137910b1728be146371e1",
-      "bytes": 17912
+      "sha256": "888d5b1ffb002eb403633d4791061e9c7b9109054601dcfcff5ad14bc3dcd9a8",
+      "bytes": 18342
     }
   ]
 }
