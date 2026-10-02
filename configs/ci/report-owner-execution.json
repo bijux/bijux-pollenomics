@@ -1033,6 +1033,27 @@
         "report.json": "docs/report/propagation/source-first-observed/report.json"
       },
       "timeout_seconds": 600
+    },
+    {
+      "module": "bijux_pollenomics_dev.source_completion.nordic.nordic_direct_study",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "regions/nordic/direct-pollen/study-products",
+      "source_arguments": [],
+      "source_paths": {
+        "source-products/RESULTS.md": "docs/report/regions/nordic/direct-pollen/RESULTS.md",
+        "source-products/cohort.csv": "docs/report/regions/nordic/direct-pollen/cohort.csv",
+        "source-products/coverage.csv": "docs/report/regions/nordic/direct-pollen/coverage.csv",
+        "source-products/manifest.json": "docs/report/regions/nordic/direct-pollen/manifest.json",
+        "source-products/predictions-DK.json": "docs/report/regions/nordic/direct-pollen/predictions-DK.json",
+        "source-products/predictions-FI.json": "docs/report/regions/nordic/direct-pollen/predictions-FI.json",
+        "source-products/predictions-NO.json": "docs/report/regions/nordic/direct-pollen/predictions-NO.json",
+        "source-products/predictions.csv": "docs/report/regions/nordic/direct-pollen/predictions.csv",
+        "source-products/scores.csv": "docs/report/regions/nordic/direct-pollen/scores.csv",
+        "source-products/site-scores.csv": "docs/report/regions/nordic/direct-pollen/site-scores.csv",
+        "source-products/training-sources.csv": "docs/report/regions/nordic/direct-pollen/training-sources.csv"
+      },
+      "timeout_seconds": 600
     }
   ]
 }

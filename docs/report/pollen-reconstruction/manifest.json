@@ -11,13 +11,13 @@
     },
     {
       "path": "configs/ci/report-owner-execution.json",
-      "sha256": "b40971f8737c22739b456b4336a2bc40522d536deb4ffa547e8ed159ce866d65",
-      "bytes": 54258
+      "sha256": "0e35621fb3b88310fb1101ad2551e12b1a9f69cd4180cdeab8058bd3699e11ce",
+      "bytes": 55722
     },
     {
       "path": "configs/ci/report-ownership.json",
-      "sha256": "b4dd539b2b8efed3c0dce2b9e86e1389741095014b8a95289eb4f8217740694c",
-      "bytes": 807256
+      "sha256": "5ba9ea8dc3dd7974d88c36d3b1136d7fcc3a07b0753ef44911f8c7329819e432",
+      "bytes": 808523
     },
     {
       "path": "configs/docs/science_downloads.py",
@@ -3070,6 +3070,11 @@
       "bytes": 612
     },
     {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/nordic/nordic_direct_study.py",
+      "sha256": "a5f72e42352b4364e5755e0702736ea6e1113acd53273de6e9496d1dce013c56",
+      "bytes": 10458
+    },
+    {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/nordic/nordic_heldout_predictions.py",
       "sha256": "83cb6a981a82667d710741929251edc678b81fea4317d085c406136557891a0e",
       "bytes": 913
@@ -3443,6 +3448,11 @@
       "path": "packages/bijux-pollenomics-dev/tests/source_completion/nordic/test_method_input_clis.py",
       "sha256": "fc6d2de5ab6a88d79410fd33053a2f2baa3e3b631c879d5d3bce0c1d5b522e6d",
       "bytes": 6164
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/tests/source_completion/nordic/test_nordic_direct_study.py",
+      "sha256": "243dec5d41aa0f3ea88f72076196bd951237df0d544987edb4b6f3058058c443",
+      "bytes": 8242
     },
     {
       "path": "packages/bijux-pollenomics-dev/tests/source_completion/nordic/test_retained_prediction_clis.py",
