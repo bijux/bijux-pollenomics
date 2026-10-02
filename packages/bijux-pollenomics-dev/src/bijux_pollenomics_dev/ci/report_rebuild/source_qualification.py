@@ -4,6 +4,8 @@ from __future__ import annotations
 
 from pathlib import Path
 
+from .author_snapshot import SCHEMA as AUTHOR_SNAPSHOT_SCHEMA
+from .author_snapshot import validated_author_snapshot
 from .contracts import ReportRebuildError, require_relative_path
 from .publisher_tables import (
     SCHEMA as PUBLISHER_TABLE_SCHEMA,
@@ -27,7 +29,7 @@ from .qualified_sources import (
 def validated_external_report_sources(
     repository: Path, source_root: Path, descriptor_path: Path
 ) -> QualifiedReportSources:
-    """Dispatch only the two declared receipt formats; never infer from files."""
+    """Dispatch only declared custody formats; never infer from files."""
     relative = require_relative_path(descriptor_path.as_posix(), "source descriptor")
     if relative.startswith("external/"):
         raise ReportRebuildError("source descriptor overlaps external input namespace")
@@ -41,4 +43,6 @@ def validated_external_report_sources(
         return validated_publisher_report_tables(
             repository, source_root, descriptor_path
         )
+    if schema == AUTHOR_SNAPSHOT_SCHEMA:
+        return validated_author_snapshot(repository, source_root, descriptor_path)
     raise ReportRebuildError("unknown external report source schema")
