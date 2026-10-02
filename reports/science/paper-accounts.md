@@ -20,6 +20,12 @@ The original published population, later software fixture, source-row extraction
 
 ## Why other source papers are not main accounts here
 
+For offline reading, the [standalone PDF library](../exports/papers/README.md)
+provides these nine accounts with the same canonical text and source citations.
+The library records exact source/PDF hashes, embedded-font checks and a model
+review of every page; it does not supply independent scientific endorsement
+or actual collaborator comprehension.
+
 Original lake chronology and regional vegetation-history papers support their particular core dossiers and retain citations there. Productivity compilations and transport papers support named parameter/source profiles. Their inclusion as a parameter or contextual citation does not automatically create a new headline validation claim. The [source-specific method profile](publication-correspondence/author-method-profile.md), [source cohort account](source-cohorts.md) and [vegetation-reference decision](vegetation-reference.md) keep those roles visible.
 
 HYDE country/gridded source records have their own [source account](hyde-cropland-source-account.md); they are modeled land-use context, rather than independent vegetation truth or a reproduced main-paper experiment. Animal/aDNA appendices and archaeology source publications remain in their [owned evidence accounts](../README.md), since they do not validate REVEALS/LOVE or pollen-to-vegetation accuracy. Conditional archaeological country scope remains conditional.

@@ -10,6 +10,12 @@ The [main-paper inventory](science/paper-accounts.md) identifies the canonical
 method and vegetation-reference accounts, with each original population and
 our separate checked result. Partial article access remains explicit.
 
+The [standalone paper PDFs](exports/papers/README.md) retain all nine canonical
+accounts, diagrams, interpreted tables, limitations and reproduction routes.
+Their source/PDF identities and model layout review are checked independently
+of the website. Actual colleague reading and qualified scientific decisions
+remain open.
+
 The [claim-to-evidence index](evidence-index.md) goes directly from each
 headline result to its numeric table, input identity, producer and scope.
 Run `python3 reports/verify.py` after changing a scientific report or its

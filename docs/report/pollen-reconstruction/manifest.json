@@ -3021,8 +3021,8 @@
     },
     {
       "path": "reports/README.md",
-      "sha256": "64336e28611e4086229049e8d84c1403a764b2e98944e8c88e59bb94ac6dd6ea",
-      "bytes": 10162
+      "sha256": "b197fdf6e75ccec631fa5a68dba7678b310583badd28461ffe30f9652fd198d0",
+      "bytes": 10487
     },
     {
       "path": "reports/architecture/native-backend.md",
@@ -3038,6 +3038,71 @@
       "path": "reports/evidence-index.md",
       "sha256": "374413064a98d3e5cfc5e00ec7bfbb812505fdac69a2745dd31d270cc098120e",
       "bytes": 26471
+    },
+    {
+      "path": "reports/exports/papers/README.md",
+      "sha256": "ff5a96f461e93a18e8bea26079d1c7833bf709756f5bf7faeb66cfdf51ffbb65",
+      "bytes": 3542
+    },
+    {
+      "path": "reports/exports/papers/landclim-regional-reconstruction.pdf",
+      "sha256": "6de0671ce5f67d11110541ea07532bf799dfcc08daede88ce8b70235469ba545",
+      "bytes": 75393
+    },
+    {
+      "path": "reports/exports/papers/local-love-theory.pdf",
+      "sha256": "bc9aabd61b74c35fb12342a817bfc6e888ef8cdafc993048fbee74622a740873",
+      "bytes": 41284
+    },
+    {
+      "path": "reports/exports/papers/love-optimized-local-inference.pdf",
+      "sha256": "3ce11504e93a143275eb5e1c712683592b4988afac6648d471fd76938ea8a62d",
+      "bytes": 78023
+    },
+    {
+      "path": "reports/exports/papers/manifest.json",
+      "sha256": "1b1dfb70642c373ecc2f9d132ecdb39608b952dea44e22b7a10ede42dd085bad",
+      "bytes": 14739
+    },
+    {
+      "path": "reports/exports/papers/namibia-modern-pollen-vegetation-reference.pdf",
+      "sha256": "24562c89eda2e32afaf08d631cfee0dee2733edc74841cc3f63afb4cbc1b21aa",
+      "bytes": 59978
+    },
+    {
+      "path": "reports/exports/papers/regional-reveals-theory.pdf",
+      "sha256": "20b2f33ea78b7528ce31f42351dc6d7dec69de86cc81a0c706c2fa512fcd0f12",
+      "bytes": 41243
+    },
+    {
+      "path": "reports/exports/papers/smaland-historical-map-reference.pdf",
+      "sha256": "05e49d14fdda486e858df0ebba6b3ea5515574dc1878fefd903ab7e45352b8ad",
+      "bytes": 68810
+    },
+    {
+      "path": "reports/exports/papers/southern-sweden-regional-validation.pdf",
+      "sha256": "e6f1b78c406dcd6439f049ad27b17eb8189bba5cd8cb6103cf228a705f309239",
+      "bytes": 41894
+    },
+    {
+      "path": "reports/exports/papers/southern-sweden-sampling-design.pdf",
+      "sha256": "ac2e50d7d79988ac290286f25b6ce5ed49ecc644dc6b97a3c91cbfa0e671f492",
+      "bytes": 42300
+    },
+    {
+      "path": "reports/exports/papers/southern-sweden-validation-synthesis.pdf",
+      "sha256": "58fa253e660046766e8783a0e98efc5c258870869b11c26d78f1150dcdc3a973",
+      "bytes": 39773
+    },
+    {
+      "path": "reports/exports/papers/verify.py",
+      "sha256": "b97a905bd1e6ad71f2d7b058683f526c3b0154452962ec660ce3f6bfbed370d3",
+      "bytes": 4349
+    },
+    {
+      "path": "reports/exports/papers/visual-review.json",
+      "sha256": "39f234de871903e0b224eb5d82e95fc704ded878f819e4e2bb5b70058eb5a844",
+      "bytes": 20677
     },
     {
       "path": "reports/needed/README.md",
@@ -3256,8 +3321,8 @@
     },
     {
       "path": "reports/science/paper-accounts.md",
-      "sha256": "2613574fe17c0a12e9cb8e2e06f7451377fe63f0f9daa68042becbc9e4acb4a2",
-      "bytes": 4739
+      "sha256": "f74276a45fc6e0e49816999310b4726a321f9dde0e38df1904c82bff75136c06",
+      "bytes": 5091
     },
     {
       "path": "reports/science/pollen-prediction.md",
