@@ -55,7 +55,7 @@
     "presentation/scientific-evidence.tex": "b08326b55619a3a672d983b5a40b11db92f9672c15cf26364c83e46675171026",
     "presentation/shared.tex": "2aa40954975f75241ded20a78d0c698c0f864274222e30c148bda4cf4b0bf17a",
     "pyproject.toml": "9cc54d64c3f76f62bf16e7d2552d02c390d99c82387f0617782c880ba92acecd",
-    "reports/README.md": "b197fdf6e75ccec631fa5a68dba7678b310583badd28461ffe30f9652fd198d0",
+    "reports/README.md": "742be1020a1bdce4fe917950f733cafad23bcab8ae98c17974ca19736c4280df",
     "reports/architecture/lra-distribution.md": "9a6c1b006d297dc46953499b6d7878503242ab84429320fbf82c345c25bebed4",
     "reports/architecture/native-backend.md": "8aa679097d3f4457a1fb6b133f696fc2099a50b6d434142b3430c2ed6a759e80",
     "reports/architecture/ownership.md": "7b2c6cd467c66e2f582ac613400483a49a9bfa4c3141f4f4247b7bb7946ad32b",
@@ -100,7 +100,7 @@
     "reports/science/sweden-training-scope.md": "f314ad31c3ce166f7c8ea2aa2b03ed82c097c8026bb969008711c33e11f39246",
     "reports/science/synthetic-model-selection/README.md": "af6ff96f339d3ba2528e3d68a970415fc8cf9eb2770f5255a43a808f8199d010",
     "reports/science/vegetation-reference.md": "9f3c0b639bfadb2e3951b6d85e68f2a7c2a80a197af69ad179ebf8c0707eee2b",
-    "reports/verify.py": "3b4d694b03350bb16195a66f45e98ced754d8d429a54632cbfc42cddfaf19abb",
+    "reports/verify.py": "d6e4f03bda8faa7b4d05b4a51851ee6d0f8480d1612913bfab6f98651510416a",
     "uv.lock": "356c38e8c35c4da24abcdc49a27562c8d5d33f526cea436bc5dbc0a0f871ab94"
   }
 }

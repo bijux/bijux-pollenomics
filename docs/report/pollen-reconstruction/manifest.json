@@ -2930,6 +2930,11 @@
       "bytes": 1646
     },
     {
+      "path": "packages/bijux-pollenomics-dev/tests/reader_reports/test_claims.py",
+      "sha256": "bf80d0658de9a2b6f84dd69c5afee14c9de6702ff31d6a641cf54d9208de1bcd",
+      "bytes": 1499
+    },
+    {
       "path": "packages/bijux-pollenomics-dev/tests/reader_reports/test_site_downloads.py",
       "sha256": "ba06d2758a8132f25c46cec4fe1be97da4f1a2e7534757bb698d9a675610bbdf",
       "bytes": 5349
@@ -3036,8 +3041,8 @@
     },
     {
       "path": "reports/README.md",
-      "sha256": "b197fdf6e75ccec631fa5a68dba7678b310583badd28461ffe30f9652fd198d0",
-      "bytes": 10487
+      "sha256": "742be1020a1bdce4fe917950f733cafad23bcab8ae98c17974ca19736c4280df",
+      "bytes": 10789
     },
     {
       "path": "reports/architecture/native-backend.md",
@@ -3121,13 +3126,23 @@
     },
     {
       "path": "reports/exports/site-downloads.json",
-      "sha256": "d7603558df1e4d5b8b328465ff2dbe9d34630c15e22fd87755dfe5af8ee90fec",
+      "sha256": "5baba5416835e4bee27c4bd73aea184b0882010ba6d8460d001531b1548ad543",
       "bytes": 5774
     },
     {
       "path": "reports/needed/README.md",
       "sha256": "463dc3b3a42d37a81e5b9864c6f9b8beaf029e75ba1d4accd4fafe248c86ad73",
       "bytes": 32034
+    },
+    {
+      "path": "reports/needed/report-claims.csv",
+      "sha256": "fcdeab409c6d7c7ebfe6fdf4677e7a288d57f2f6a3a50ca883155ebacbcdf6c4",
+      "bytes": 84337
+    },
+    {
+      "path": "reports/needed/report-claims.md",
+      "sha256": "a5d2552702a084dad980fb7d89fc24b43fd92833b7a4bfa46a7ff8d97a8901a4",
+      "bytes": 24140
     },
     {
       "path": "reports/needed/source-requests.csv",
@@ -3138,6 +3153,11 @@
       "path": "reports/needed/source-requests.md",
       "sha256": "d190a0e767182dd97ea020f492f7eb9783f24f41e64b0636852db73cc7e6f8ee",
       "bytes": 7540
+    },
+    {
+      "path": "reports/needed/verify-claims.py",
+      "sha256": "c622db544adf46e69c62eb8ec21d45330af00133ad63430cdf432dd995e86bdd",
+      "bytes": 3284
     },
     {
       "path": "reports/science/aadr-nordic-entities/README.md",
@@ -3583,6 +3603,11 @@
       "path": "reports/science/vegetation-reference/southern-sweden-figure/report.json",
       "sha256": "7205071dc7bd4b7bdf99c77788583bfbb1ab8699546c9f5acd3e6566da4e7e57",
       "bytes": 994
+    },
+    {
+      "path": "reports/verify.py",
+      "sha256": "d6e4f03bda8faa7b4d05b4a51851ee6d0f8480d1612913bfab6f98651510416a",
+      "bytes": 17347
     }
   ]
 }
