@@ -2935,6 +2935,11 @@
       "bytes": 1499
     },
     {
+      "path": "packages/bijux-pollenomics-dev/tests/reader_reports/test_scientific_review.py",
+      "sha256": "b88bb63860a097970b4dce7d2e37ae06fe63d7c031ea86fe4309f8062f81682f",
+      "bytes": 1515
+    },
+    {
       "path": "packages/bijux-pollenomics-dev/tests/reader_reports/test_site_downloads.py",
       "sha256": "ba06d2758a8132f25c46cec4fe1be97da4f1a2e7534757bb698d9a675610bbdf",
       "bytes": 5349
@@ -3126,13 +3131,13 @@
     },
     {
       "path": "reports/exports/site-downloads.json",
-      "sha256": "5baba5416835e4bee27c4bd73aea184b0882010ba6d8460d001531b1548ad543",
+      "sha256": "4de601b42ff82de6109eef8ba761bf619f25136736cb8d254daf9f44cf1f3b25",
       "bytes": 5774
     },
     {
       "path": "reports/needed/README.md",
-      "sha256": "463dc3b3a42d37a81e5b9864c6f9b8beaf029e75ba1d4accd4fafe248c86ad73",
-      "bytes": 32034
+      "sha256": "3753c205acc7065264f6e4b91ddd5d37ef3b94e291c9cc0a425824a455ae8817",
+      "bytes": 32385
     },
     {
       "path": "reports/needed/report-claims.csv",
@@ -3143,6 +3148,21 @@
       "path": "reports/needed/report-claims.md",
       "sha256": "a5d2552702a084dad980fb7d89fc24b43fd92833b7a4bfa46a7ff8d97a8901a4",
       "bytes": 24140
+    },
+    {
+      "path": "reports/needed/review-decision.md",
+      "sha256": "97a7a55c533e65bae50a3baf319f495332b22d6030f99fa2317bcd81ef23671a",
+      "bytes": 1657
+    },
+    {
+      "path": "reports/needed/scientific-review.csv",
+      "sha256": "2d9acfbf33b03b06fb9c12ac3753440b234ac8d0fd82c4a1de5d1c5a427d940a",
+      "bytes": 61402
+    },
+    {
+      "path": "reports/needed/scientific-review.md",
+      "sha256": "34e6007552228d708a5cffa5c605a418ab1de4aeebeac3fbc71603bd80edf0fe",
+      "bytes": 12943
     },
     {
       "path": "reports/needed/source-requests.csv",
@@ -3158,6 +3178,11 @@
       "path": "reports/needed/verify-claims.py",
       "sha256": "c622db544adf46e69c62eb8ec21d45330af00133ad63430cdf432dd995e86bdd",
       "bytes": 3284
+    },
+    {
+      "path": "reports/needed/verify-review.py",
+      "sha256": "dd535074732cb73729486d64fefe0b7d0c57e4509606f3ce6ce3b1ba15baab35",
+      "bytes": 4437
     },
     {
       "path": "reports/science/aadr-nordic-entities/README.md",
@@ -3606,8 +3631,8 @@
     },
     {
       "path": "reports/verify.py",
-      "sha256": "d6e4f03bda8faa7b4d05b4a51851ee6d0f8480d1612913bfab6f98651510416a",
-      "bytes": 17347
+      "sha256": "d28c8a3549d2bd67088c12d696bdee0eefcd8c798d092b0e5187a2a5fc608475",
+      "bytes": 17424
     }
   ]
 }

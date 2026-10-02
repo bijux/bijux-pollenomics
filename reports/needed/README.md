@@ -28,6 +28,12 @@ The [prepared source requests](source-requests.md) and their
 existing evidence, resolver role, intended use and reopening condition. They
 remain unsent.
 
+The [independent scientific review questions](scientific-review.md) bind each
+material claim to exact versions, qualifications, decision scope and its
+admission consumer. All 35 questions remain unassigned and no decisions have
+been received. Use the [decision record](review-decision.md) only when a real
+qualified reviewer returns a scoped answer.
+
 ## Abborrtjärnen LRA input identity
 
 **Affected result:** the Neotoma sample 173174 / PANGAEA `ABBO` sequence cannot

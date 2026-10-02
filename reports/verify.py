@@ -335,6 +335,7 @@ def verify_empd2_nfi_pairing() -> None:
 def main() -> None:
     runpy.run_path(REPORTS / "exports/papers/verify.py", run_name="__main__")
     runpy.run_path(REPORTS / "needed/verify-claims.py", run_name="__main__")
+    runpy.run_path(REPORTS / "needed/verify-review.py", run_name="__main__")
     verify_reader_paths()
     verify_runtime_measurement()
     verify_python_baseline()
