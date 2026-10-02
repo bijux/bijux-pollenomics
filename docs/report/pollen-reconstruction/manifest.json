@@ -3885,6 +3885,11 @@
       "bytes": 20291
     },
     {
+      "path": "packages/bijux-pollenomics-lra/docs/reference/circular-receiver-annulus.md",
+      "sha256": "5d6c1343546937b1747c265040fc1dc816e68d341b212838ecba334af0aaa7be",
+      "bytes": 2489
+    },
+    {
       "path": "packages/bijux-pollenomics-lra/docs/reference/homogeneous-likelihood.md",
       "sha256": "f56da70ff539f56d5a76239e95a4cd33d832647ce286b0c4b3269754160fafad",
       "bytes": 4685
@@ -3895,9 +3900,19 @@
       "bytes": 5001
     },
     {
+      "path": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/dispersal/receiver_annulus.py",
+      "sha256": "f3ae57b79a159824d37a17204a9cb957d97d287b8300ae590c39f54de114bb75",
+      "bytes": 6115
+    },
+    {
       "path": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/shared_ppe_likelihood.py",
       "sha256": "fcc61f9381793c1dd809273cf66e678dc5a03a58437ce34429f26b05896409d5",
       "bytes": 8444
+    },
+    {
+      "path": "packages/bijux-pollenomics-lra/tests/unit/dispersal/test_receiver_annulus.py",
+      "sha256": "349c25fb7381df5972fd084a1658a29064105b00462de39d436ca6896c1dd01b",
+      "bytes": 4403
     },
     {
       "path": "packages/bijux-pollenomics-lra/tests/unit/reconstruction/test_shared_ppe_likelihood.py",
