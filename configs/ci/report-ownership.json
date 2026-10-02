@@ -7636,29 +7636,8 @@
     },
     {
       "owner_id": "source-relations/neotoma/native-roundtrip/derived-report",
-      "role": "generated_owner",
       "paths": [
         "docs/report/source-relations/neotoma/native-roundtrip/report.json"
-      ],
-      "producer_paths": [
-        "docs/report/source-relations/neotoma/native-roundtrip/replay.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/neotoma/production/__init__.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/neotoma/production/boundary_authority.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/neotoma/production/command_line.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/neotoma/production/constants.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/neotoma/production/execution_api.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/neotoma/production/identity.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/neotoma/production/models.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/neotoma/production/raw_archive.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/neotoma/production/validation.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/neotoma/production/validation_api.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/neotoma/production/workflow.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/neotoma/relational/identifiers.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/neotoma/roundtrip.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/sources/neotoma/__init__.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/sources/neotoma/contract.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/sources/neotoma/ownership.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/sources/neotoma/validation.py"
       ],
       "producer_inputs": [
         "data/neotoma/raw/neotoma_pollen_dataset_downloads/manifest.json",
@@ -7692,7 +7671,30 @@
         "data/neotoma/relational/surfaces/sites/part-00001.json",
         "data/neotoma/relational/surfaces/variables/part-00001.json"
       ],
-      "verification": "Run native-roundtrip/replay.py from the repository root with the configured Python environment, redirect stdout into artifacts/, and compare report.json bytes. It compares nine retained raw archive parts to all manifest-listed relational surfaces, not original HTTP capture provenance."
+      "producer_paths": [
+        "docs/report/source-relations/neotoma/native-roundtrip/replay.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/neotoma/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/neotoma/native_roundtrip.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/neotoma/production/__init__.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/neotoma/production/boundary_authority.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/neotoma/production/command_line.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/neotoma/production/constants.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/neotoma/production/execution_api.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/neotoma/production/identity.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/neotoma/production/models.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/neotoma/production/raw_archive.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/neotoma/production/validation.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/neotoma/production/validation_api.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/neotoma/production/workflow.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/neotoma/relational/identifiers.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/neotoma/roundtrip.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/sources/neotoma/__init__.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/sources/neotoma/contract.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/sources/neotoma/ownership.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/sources/neotoma/validation.py"
+      ],
+      "role": "generated_owner",
+      "verification": "Run the configured native-roundtrip owner from an absent artifact file and compare report.json bytes after the nine raw parts and all manifest-listed relational files are validated; this is source preservation, not original capture provenance or scientific admission."
     },
     {
       "owner_id": "source-relations/neotoma/native-roundtrip/reader-account",
@@ -9540,6 +9542,14 @@
       "producer_inputs": [
         "packages/bijux-pollenomics-dev/pyproject.toml",
         "packages/bijux-pollenomics/pyproject.toml",
+        "pyproject.toml",
+        "uv.lock"
+      ],
+      "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/change_time_challenge.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/synthetic_validation/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/synthetic_validation/change_time.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/synthetic_validation/writer_execution.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/propagation/candidates/__init__.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/propagation/candidates/context.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/propagation/candidates/profiles.py",
@@ -9557,12 +9567,7 @@
         "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/propagation/network/scenarios.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/propagation/network/service.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/core/geospatial/distance.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/core/temporal_semantics.py",
-        "pyproject.toml",
-        "uv.lock"
-      ],
-      "producer_paths": [
-        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/change_time_challenge.py"
+        "packages/bijux-pollenomics/src/bijux_pollenomics/core/temporal_semantics.py"
       ],
       "role": "generated_owner",
       "verification": "From repository root with the locked project environment and absent output, run `PYTHONDONTWRITEBYTECODE=1 OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 NUMEXPR_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 .venv/bin/python -m bijux_pollenomics_dev.lra_validation.change_time_challenge --output artifacts/jobs/synthetic-owner-reproduction/change-time/report.json`; then `cmp artifacts/jobs/synthetic-owner-reproduction/change-time/report.json docs/report/synthetic-validation/change-time/report.json`. This compares deterministic constructed-case bytes only; the declaration itself does not replay the producer or certify measured ecology, source admission, or qualified review."
@@ -9757,6 +9762,14 @@
       "producer_inputs": [
         "packages/bijux-pollenomics-dev/pyproject.toml",
         "packages/bijux-pollenomics/pyproject.toml",
+        "pyproject.toml",
+        "uv.lock"
+      ],
+      "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/spatial_eligibility_challenge.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/synthetic_validation/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/synthetic_validation/spatial_eligibility.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/synthetic_validation/writer_execution.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/propagation/candidates/__init__.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/propagation/candidates/context.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/propagation/candidates/profiles.py",
@@ -9773,12 +9786,7 @@
         "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/propagation/network/scenarios.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/propagation/network/service.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/core/geospatial/distance.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/core/temporal_semantics.py",
-        "pyproject.toml",
-        "uv.lock"
-      ],
-      "producer_paths": [
-        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/spatial_eligibility_challenge.py"
+        "packages/bijux-pollenomics/src/bijux_pollenomics/core/temporal_semantics.py"
       ],
       "role": "generated_owner",
       "verification": "From repository root with the locked project environment and absent output, run `PYTHONDONTWRITEBYTECODE=1 OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 NUMEXPR_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 .venv/bin/python -m bijux_pollenomics_dev.lra_validation.spatial_eligibility_challenge --output artifacts/jobs/synthetic-owner-reproduction/spatial-eligibility/report.json`; then `cmp artifacts/jobs/synthetic-owner-reproduction/spatial-eligibility/report.json docs/report/synthetic-validation/spatial-eligibility/report.json`. This compares deterministic constructed-case bytes only; the declaration itself does not replay the producer or certify measured ecology, source admission, or qualified review."

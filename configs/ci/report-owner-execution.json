@@ -608,6 +608,36 @@
         "source-products/samples.csv": "docs/report/regions/nordic/sambosjon-direct-pollen/age-bounds/samples.csv"
       },
       "timeout_seconds": 180
+    },
+    {
+      "module": "bijux_pollenomics_dev.source_completion.neotoma.native_roundtrip",
+      "output_mode": "single_file",
+      "owner_id": "source-relations/neotoma/native-roundtrip/derived-report",
+      "source_arguments": [],
+      "source_paths": {
+        "report.json": "docs/report/source-relations/neotoma/native-roundtrip/report.json"
+      },
+      "timeout_seconds": 600
+    },
+    {
+      "module": "bijux_pollenomics_dev.source_completion.synthetic_validation.change_time",
+      "output_mode": "single_file",
+      "owner_id": "synthetic-validation/change-time/report-products",
+      "source_arguments": [],
+      "source_paths": {
+        "report.json": "docs/report/synthetic-validation/change-time/report.json"
+      },
+      "timeout_seconds": 180
+    },
+    {
+      "module": "bijux_pollenomics_dev.source_completion.synthetic_validation.spatial_eligibility",
+      "output_mode": "single_file",
+      "owner_id": "synthetic-validation/spatial-eligibility/report-products",
+      "source_arguments": [],
+      "source_paths": {
+        "report.json": "docs/report/synthetic-validation/spatial-eligibility/report.json"
+      },
+      "timeout_seconds": 180
     }
   ]
 }

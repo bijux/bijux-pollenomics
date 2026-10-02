@@ -11,13 +11,13 @@
     },
     {
       "path": "configs/ci/report-owner-execution.json",
-      "sha256": "a7fa13be5ff46e5fb79621fec7dab6c0cd36042f079abe9fd7109ff1acfa578d",
-      "bytes": 28106
+      "sha256": "660bf2c1f17f4772d4a077974d638924c4479d5d7a321717661256eab8671a99",
+      "bytes": 29294
     },
     {
       "path": "configs/ci/report-ownership.json",
-      "sha256": "8223439828c1f601e01a051651a3617abc732bf9c1526162ef3249f8ab52c914",
-      "bytes": 762447
+      "sha256": "45c53f35c07db34dba6fe090cccd003f8cdf754b1e36a8e445ba6ce871715c3a",
+      "bytes": 763393
     },
     {
       "path": "configs/docs/science_downloads.py",
@@ -2940,6 +2940,11 @@
       "bytes": 46
     },
     {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/neotoma/native_roundtrip.py",
+      "sha256": "b629703b3c8b65d51078efefe103be1daa622c16ed05fef7f1f8dc7deb85240f",
+      "bytes": 2076
+    },
+    {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/neotoma/relational_summary.py",
       "sha256": "dff2f5139cac78ab24d890267a6c16e89c94e3f51403ab303ba2470f9021c806",
       "bytes": 1997
@@ -3150,6 +3155,26 @@
       "bytes": 18108
     },
     {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/synthetic_validation/__init__.py",
+      "sha256": "61cadfeeb0ed3f0db0718debaa1a7ab17786ab5d2e569e6524f5752de2988f84",
+      "bytes": 68
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/synthetic_validation/change_time.py",
+      "sha256": "6fe64dc416ae478b90491ea6da5249b1887e1bbf489c17b3f6941f4b31a72d9e",
+      "bytes": 1124
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/synthetic_validation/spatial_eligibility.py",
+      "sha256": "7d55ce38a67f0edceee1d46f38eb0b36702b9aac310186cb4481483f14a26dfa",
+      "bytes": 1132
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/synthetic_validation/writer_execution.py",
+      "sha256": "70538c150e7b75acba5f0f01df4fd67eb9d241e8e6abb1cdd4799dd594b8938b",
+      "bytes": 1447
+    },
+    {
       "path": "packages/bijux-pollenomics-dev/tests/essd_reproduction/test_author_preparation_audit.py",
       "bytes": 2750,
       "sha256": "b02581611b6cf61f9013075674bb0f575b1fd9ca1d6f1fe2652724d79bb4782d"
@@ -3190,6 +3215,11 @@
       "bytes": 1824
     },
     {
+      "path": "packages/bijux-pollenomics-dev/tests/source_completion/neotoma/test_native_roundtrip_cli.py",
+      "sha256": "efc1d79704e41ec935fd1299bc697e11f767c84996f5956d2ade9c8ee9f702dc",
+      "bytes": 3040
+    },
+    {
       "path": "packages/bijux-pollenomics-dev/tests/source_completion/neotoma/test_relational_summary_cli.py",
       "sha256": "7f570c64e10cf6f5efc1dc2d5f9454b3740be9710b1f21ca10bf6ac933398855",
       "bytes": 4864
@@ -3223,6 +3253,11 @@
       "path": "packages/bijux-pollenomics-dev/tests/source_completion/sead/test_source_writer_cli.py",
       "sha256": "91bc60dbac37c1a3be9af4828bd2ecfe25bce807305e61304a1da03f25680533",
       "bytes": 4588
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/tests/source_completion/synthetic_validation/test_challenge_clis.py",
+      "sha256": "5f8e9431a0ec592126c54efaa5ec6980842add6ff52ff884d5897bce97db732c",
+      "bytes": 4128
     },
     {
       "path": "packages/bijux-pollenomics-dev/tests/source_completion/test_bjaresjo_context.py",
@@ -3391,8 +3426,8 @@
     },
     {
       "path": "reports/architecture/ownership.md",
-      "sha256": "81b2b97c0fb916327d5187aabff38b5e78baf90dd2a23d46da11a53532a15b88",
-      "bytes": 24304
+      "sha256": "0a33edff5e971fdb1fa04508059d150d1e63bb3aec620c75af20a2f3284e0e0a",
+      "bytes": 24602
     },
     {
       "path": "reports/evidence-index.md",
@@ -3466,7 +3501,7 @@
     },
     {
       "path": "reports/exports/site-downloads.json",
-      "sha256": "330b1e20e55a253ac236957b93be038346414b46071765a21b448ca42d920fd5",
+      "sha256": "2d7c8339e7dc6b0f6798f15ff7dee7fc66cb24ebbe0939917110cf8334ca9a23",
       "bytes": 5774
     },
     {
