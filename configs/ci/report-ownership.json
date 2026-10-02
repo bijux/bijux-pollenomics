@@ -5041,16 +5041,28 @@
         "docs/report/regions/nordic/author-target-pollen/sealed-outcomes/outcomes-NO.json.gz"
       ],
       "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/landclim_taxonomy_mass.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/neotoma_parameter_mass.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/nordic/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/nordic/nordic_heldout_scores.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/nordic/score_execution.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/nordic_author_target_pollen.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/nordic_direct_pollen.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/__init__.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/baselines.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/contracts.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/metrics.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/policy.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/prediction.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/spatial/__init__.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/spatial/configuration.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/spatial/counts.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/spatial/model.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/spatial/support.py"
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/spatial/support.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/splits.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/core/geospatial/__init__.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/core/geospatial/distance.py"
       ],
       "role": "generated_owner",
       "verification": "The maintained score stage reads retained sealed observations only after prediction. Compare five output bytes on the 31 author-target closed subcomposition; this is prior-exposed development, not LRA reconstruction or independent vegetation truth."
@@ -6121,16 +6133,29 @@
         "docs/report/regions/nordic/swedish-author-target-pollen/sealed-outcomes/outcomes-SE.json.gz"
       ],
       "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/landclim_taxonomy_mass.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/neotoma_parameter_mass.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/nordic/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/nordic/score_execution.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/nordic/swedish_author_scores.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/nordic_author_target_pollen.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/nordic_direct_pollen.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/swedish_author_target_pollen.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/__init__.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/baselines.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/contracts.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/metrics.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/policy.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/prediction.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/spatial/__init__.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/spatial/configuration.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/spatial/counts.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/spatial/model.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/spatial/support.py"
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/spatial/support.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/splits.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/core/geospatial/__init__.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/core/geospatial/distance.py"
       ],
       "role": "generated_owner",
       "verification": "The score stage consumes the retained frozen prediction and sealed Swedish target counts. Compare five output bytes; three already exposed Swedish sites are development evidence only."
@@ -6294,13 +6319,30 @@
         "docs/report/regions/nordic/swedish-lake-transfer/sealed-outcomes/outcomes-SE.json.gz"
       ],
       "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/landclim_taxonomy_mass.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/neotoma_parameter_mass.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/nordic/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/nordic/score_execution.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/nordic/swedish_lake_scores.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/nordic_author_target_pollen.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/nordic_direct_pollen.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/swedish_lake_transfer.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/swedish_neotoma_holdout.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/__init__.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/baselines.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/contracts.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/metrics.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/spatial/configuration.py"
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/policy.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/prediction.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/spatial/__init__.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/spatial/configuration.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/spatial/counts.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/spatial/model.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/spatial/support.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/splits.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/core/geospatial/__init__.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/core/geospatial/distance.py"
       ],
       "role": "generated_owner",
       "verification": "The live score command was separately observed to reproduce five governed output bytes from the retained sealed outcome and prediction. This is three-lake direct pollen development; no LRA or vegetation validation follows."
@@ -6449,13 +6491,29 @@
         "docs/report/regions/nordic/swedish-neotoma-holdout/sealed-outcomes/outcomes-SE.json.gz"
       ],
       "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/landclim_taxonomy_mass.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/neotoma_parameter_mass.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/nordic/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/nordic/score_execution.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/nordic/swedish_core_scores.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/nordic_author_target_pollen.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/nordic_direct_pollen.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/swedish_neotoma_holdout.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/__init__.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/baselines.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/contracts.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/metrics.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/spatial/configuration.py"
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/policy.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/prediction.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/spatial/__init__.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/spatial/configuration.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/spatial/counts.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/spatial/model.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/spatial/support.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/splits.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/core/geospatial/__init__.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/core/geospatial/distance.py"
       ],
       "role": "generated_owner",
       "verification": "Score from retained freeze and sealed observed-pollen outcomes, then compare output bytes. This is prior-informed development transfer, not source-method LRA parity or independent vegetation accuracy."

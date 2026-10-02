@@ -793,6 +793,66 @@
         "source-products/sample-support.csv": "docs/report/countries/denmark/solsoe-source-lineage/legacyage-interval-sensitivity/sample-support.csv",
         "source-products/scores.csv": "docs/report/countries/denmark/solsoe-source-lineage/legacyage-interval-sensitivity/scores.csv"
       }
+    },
+    {
+      "module": "bijux_pollenomics_dev.source_completion.nordic.nordic_heldout_scores",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "regions/nordic/author-target-pollen/scored-products",
+      "source_arguments": [],
+      "source_paths": {
+        "source-products/coverage.csv": "docs/report/regions/nordic/author-target-pollen/coverage.csv",
+        "source-products/report.json": "docs/report/regions/nordic/author-target-pollen/report.json",
+        "source-products/scores.csv": "docs/report/regions/nordic/author-target-pollen/scores.csv",
+        "source-products/site-scores.csv": "docs/report/regions/nordic/author-target-pollen/site-scores.csv",
+        "source-products/taxon-diagnostics.csv": "docs/report/regions/nordic/author-target-pollen/taxon-diagnostics.csv"
+      },
+      "timeout_seconds": 180
+    },
+    {
+      "module": "bijux_pollenomics_dev.source_completion.nordic.swedish_author_scores",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "regions/nordic/swedish-author-target-pollen/scored-products",
+      "source_arguments": [],
+      "source_paths": {
+        "source-products/coverage.csv": "docs/report/regions/nordic/swedish-author-target-pollen/coverage.csv",
+        "source-products/report.json": "docs/report/regions/nordic/swedish-author-target-pollen/report.json",
+        "source-products/scores.csv": "docs/report/regions/nordic/swedish-author-target-pollen/scores.csv",
+        "source-products/site-scores.csv": "docs/report/regions/nordic/swedish-author-target-pollen/site-scores.csv",
+        "source-products/taxon-diagnostics.csv": "docs/report/regions/nordic/swedish-author-target-pollen/taxon-diagnostics.csv"
+      },
+      "timeout_seconds": 180
+    },
+    {
+      "module": "bijux_pollenomics_dev.source_completion.nordic.swedish_lake_scores",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "regions/nordic/swedish-lake-transfer/scored-products",
+      "source_arguments": [],
+      "source_paths": {
+        "source-products/coverage.csv": "docs/report/regions/nordic/swedish-lake-transfer/coverage.csv",
+        "source-products/report.json": "docs/report/regions/nordic/swedish-lake-transfer/report.json",
+        "source-products/scores.csv": "docs/report/regions/nordic/swedish-lake-transfer/scores.csv",
+        "source-products/site-scores.csv": "docs/report/regions/nordic/swedish-lake-transfer/site-scores.csv",
+        "source-products/taxon-diagnostics.csv": "docs/report/regions/nordic/swedish-lake-transfer/taxon-diagnostics.csv"
+      },
+      "timeout_seconds": 180
+    },
+    {
+      "module": "bijux_pollenomics_dev.source_completion.nordic.swedish_core_scores",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "regions/nordic/swedish-neotoma-holdout/scored-products",
+      "source_arguments": [],
+      "source_paths": {
+        "source-products/coverage.csv": "docs/report/regions/nordic/swedish-neotoma-holdout/coverage.csv",
+        "source-products/report.json": "docs/report/regions/nordic/swedish-neotoma-holdout/report.json",
+        "source-products/scores.csv": "docs/report/regions/nordic/swedish-neotoma-holdout/scores.csv",
+        "source-products/site-scores.csv": "docs/report/regions/nordic/swedish-neotoma-holdout/site-scores.csv",
+        "source-products/taxon-diagnostics.csv": "docs/report/regions/nordic/swedish-neotoma-holdout/taxon-diagnostics.csv"
+      },
+      "timeout_seconds": 180
     }
   ]
 }
