@@ -3839,7 +3839,17 @@
         "docs/report/propagation/source-first-observed/report.json"
       ],
       "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/known_landscape.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/neotoma_first_observed.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/audit.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/evidence.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/landclim.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/manifests.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/propagation/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/propagation/native_readiness.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/propagation/__init__.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/propagation/event_estimation.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/propagation/network/__init__.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/propagation/network/codec.py",

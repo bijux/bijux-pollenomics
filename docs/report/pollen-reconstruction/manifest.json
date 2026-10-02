@@ -11,13 +11,13 @@
     },
     {
       "path": "configs/ci/report-owner-execution.json",
-      "sha256": "ca27df26a72722dc51b780b2409a6d31617450d37e56972ac8b0c09d6f9511b6",
-      "bytes": 53874
+      "sha256": "b40971f8737c22739b456b4336a2bc40522d536deb4ffa547e8ed159ce866d65",
+      "bytes": 54258
     },
     {
       "path": "configs/ci/report-ownership.json",
-      "sha256": "50dad7b33c82c3b8fb1a50ede09058d9c54d1c8265500afff8e5c0ed59952c1d",
-      "bytes": 806250
+      "sha256": "b4dd539b2b8efed3c0dce2b9e86e1389741095014b8a95289eb4f8217740694c",
+      "bytes": 807256
     },
     {
       "path": "configs/docs/science_downloads.py",
@@ -3210,6 +3210,11 @@
       "bytes": 1566
     },
     {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/propagation/native_readiness.py",
+      "sha256": "16eafed026bd756db77bff54b02d2b9ffb2dcb9488da636fc0759474efacd79c",
+      "bytes": 3673
+    },
+    {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sambosjon_age_bounds.py",
       "sha256": "dcc961d6837c91d4825c25c0b52f740c3260c60e88733734066269666feebd00",
       "bytes": 11672
@@ -3483,6 +3488,11 @@
       "path": "packages/bijux-pollenomics-dev/tests/source_completion/propagation/test_governed_edge_cli.py",
       "sha256": "2b39b16fc7c524c4e56a3c62c53a0dcc2e23e96be4ce22b458b2bd261b91a98c",
       "bytes": 4026
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/tests/source_completion/propagation/test_native_readiness.py",
+      "sha256": "249a7a20eb74510d3bcc267735e08d77cc0a0e172f1b8a8904b3ed052408e47b",
+      "bytes": 5131
     },
     {
       "path": "packages/bijux-pollenomics-dev/tests/source_completion/sead/test_chronology_cli.py",

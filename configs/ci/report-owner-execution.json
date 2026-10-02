@@ -1023,6 +1023,16 @@
         "source-products/scores.csv": "docs/report/regions/nordic/lilla-gloppsjon-direct-pollen/scored/scores.csv"
       },
       "timeout_seconds": 600
+    },
+    {
+      "owner_id": "propagation/source-first-observed/readiness-report",
+      "module": "bijux_pollenomics_dev.source_completion.propagation.native_readiness",
+      "output_mode": "single_file",
+      "source_arguments": [],
+      "source_paths": {
+        "report.json": "docs/report/propagation/source-first-observed/report.json"
+      },
+      "timeout_seconds": 600
     }
   ]
 }
