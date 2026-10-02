@@ -4085,6 +4085,11 @@
       "bytes": 14047
     },
     {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/rendering/markdown.py",
+      "sha256": "24585adb336513085b2c17973c9d33534d2cb933e139e04034137685d7f66d07",
+      "bytes": 13102
+    },
+    {
       "path": "packages/bijux-pollenomics/tests/unit/adna/governance/test_contract_payloads.py",
       "sha256": "d2898b3da1644b1fd89410faa57c4cef558ebb8d8403cb560010cd31b3b10de9",
       "bytes": 2098
@@ -4108,6 +4113,11 @@
       "path": "packages/bijux-pollenomics/tests/unit/reporting/atlas/test_publication_geography_payloads.py",
       "sha256": "74919d5b0ef9893d160e1793b643ca012cc937100048c50841c075159e3b86e7",
       "bytes": 2510
+    },
+    {
+      "path": "packages/bijux-pollenomics/tests/unit/reporting/rendering/test_markdown_contracts.py",
+      "sha256": "7a1e398402e3143ea43d7197be4ad5a5f90b3ea8674f12a95ea3261854487398",
+      "bytes": 7109
     },
     {
       "path": "presentation/scientific-evidence.tex",
