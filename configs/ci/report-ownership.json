@@ -2090,27 +2090,41 @@
       "verification": "Maintain the authored Markdown against its linked governed receipts and stated interpretation limits. These pages are not emitted by the numerical report producers."
     },
     {
-      "owner_id": "method-certification/analytical-love-ring-sensitivity/report-products",
-      "role": "unresolved",
+      "owner_id": "method-certification/analytical-love-ring-sensitivity/reader-account",
+      "role": "maintained_editorial",
       "paths": [
         "docs/report/method-certification/analytical-love-ring-sensitivity/README.md"
       ],
       "producer_paths": [],
       "producer_inputs": [],
-      "verification": "Identify the exact producer or independent source/template custody, lawful input closure and role-specific verification route for these paths. Bind independently reconstructed output or authenticated retained source before full mixed-owner acceptance; tracked output bytes cannot feed their own producer."
+      "verification": "Maintain the authored method interpretation or citation stub against its numeric source, explicit uncertainty estimand and actual reproduction route. Editorial ownership does not certify empirical accuracy or the machine output."
+    },
+    {
+      "owner_id": "method-certification/author-site-profile-comparison/reader-account",
+      "role": "maintained_editorial",
+      "paths": [
+        "docs/report/method-certification/author-site-profile-comparison/README.md"
+      ],
+      "producer_paths": [],
+      "producer_inputs": [],
+      "verification": "Maintain the authored method interpretation or citation stub against its numeric source, explicit uncertainty estimand and actual reproduction route. Editorial ownership does not certify empirical accuracy or the machine output."
     },
     {
       "owner_id": "method-certification/author-site-profile-comparison/report-products",
       "role": "unresolved",
       "paths": [
-        "docs/report/method-certification/author-site-profile-comparison/README.md",
         "docs/report/method-certification/author-site-profile-comparison/report.json"
       ],
       "producer_paths": [
-        "docs/report/method-certification/author-site-profile-comparison/replay.py"
+        "docs/report/method-certification/author-site-profile-comparison/replay.py",
+        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/joint_site_draws.py",
+        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/publication.py"
       ],
-      "producer_inputs": [],
-      "verification": "Identify the exact producer or independent source/template custody, lawful input closure and role-specific verification route for these paths. Bind independently reconstructed output or authenticated retained source before full mixed-owner acceptance; tracked output bytes cannot feed their own producer."
+      "producer_inputs": [
+        "docs/report/method-certification/author-site-uncertainty/draws.json",
+        "docs/report/method-certification/author-site-uncertainty/report.json"
+      ],
+      "verification": "Run the documented replay with --repository ., --source-root bound to the authenticated author release and an absent artifacts output; compare report.json. Six private LRAready site-count tables listed in input_identities must close with exact lawful custody first. Retained author-site-uncertainty report/draw inputs do not replace those original table bytes or qualify empirical ecology."
     },
     {
       "owner_id": "method-certification/author-site-profile-comparison/source-code",
@@ -2323,17 +2337,34 @@
       "verification": "Identify the exact producer or independent source/template custody, lawful input closure and role-specific verification route for these paths. Bind independently reconstructed output or authenticated retained source before full mixed-owner acceptance; tracked output bytes cannot feed their own producer."
     },
     {
-      "owner_id": "method-certification/fixed-site-covariance/report-products",
-      "role": "unresolved",
+      "owner_id": "method-certification/fixed-site-covariance/constructed-products",
+      "role": "generated_owner",
       "paths": [
-        "docs/report/method-certification/fixed-site-covariance/README.md",
         "docs/report/method-certification/fixed-site-covariance/report.json"
       ],
       "producer_paths": [
-        "docs/report/method-certification/fixed-site-covariance/replay.py"
+        "docs/report/method-certification/fixed-site-covariance/replay.py",
+        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/api.py",
+        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/dispersal/publication.py",
+        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/models/errors.py",
+        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/fixed_site_covariance.py"
       ],
+      "producer_inputs": [
+        "packages/bijux-pollenomics-lra/pyproject.toml",
+        "pyproject.toml",
+        "uv.lock"
+      ],
+      "verification": "Run PYTHONDONTWRITEBYTECODE=1 OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 .venv/bin/python docs/report/method-certification/fixed-site-covariance/replay.py --repository . --output artifacts/jobs/method-uncertainty-reproduction/fixed-site-covariance with absent output; compare every declared file. Inline two-site count/geometry/PPE fixture and delta covariance; no source-R equivalence or full geometry/chronology uncertainty. Source declarations cover the invoked numerical API and error boundary, not unrelated eager imports or independent installed-environment certification."
+    },
+    {
+      "owner_id": "method-certification/fixed-site-covariance/reader-account",
+      "role": "maintained_editorial",
+      "paths": [
+        "docs/report/method-certification/fixed-site-covariance/README.md"
+      ],
+      "producer_paths": [],
       "producer_inputs": [],
-      "verification": "Identify the exact producer or independent source/template custody, lawful input closure and role-specific verification route for these paths. Bind independently reconstructed output or authenticated retained source before full mixed-owner acceptance; tracked output bytes cannot feed their own producer."
+      "verification": "Maintain the authored method interpretation or citation stub against its numeric source, explicit uncertainty estimand and actual reproduction route. Editorial ownership does not certify empirical accuracy or the machine output."
     },
     {
       "owner_id": "method-certification/fixed-site-covariance/source-code",
@@ -2346,19 +2377,36 @@
       "verification": "Maintain these repository source files through review and focused tests. Source custody is distinct from generated output reproduction; copying them into a replay lane does not certify the results they produce."
     },
     {
-      "owner_id": "method-certification/joint-site-draws/report-products",
-      "role": "unresolved",
+      "owner_id": "method-certification/joint-site-draws/constructed-products",
+      "role": "generated_owner",
       "paths": [
-        "docs/report/method-certification/joint-site-draws/README.md",
         "docs/report/method-certification/joint-site-draws/draws.json",
         "docs/report/method-certification/joint-site-draws/joint-cover-draws.csv",
         "docs/report/method-certification/joint-site-draws/report.json"
       ],
       "producer_paths": [
-        "docs/report/method-certification/joint-site-draws/replay.py"
+        "docs/report/method-certification/joint-site-draws/replay.py",
+        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/api.py",
+        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/models/errors.py",
+        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/joint_site_draws.py"
       ],
+      "producer_inputs": [
+        "docs/report/method-certification/fixed-site-covariance/report.json",
+        "packages/bijux-pollenomics-lra/pyproject.toml",
+        "pyproject.toml",
+        "uv.lock"
+      ],
+      "verification": "Run PYTHONDONTWRITEBYTECODE=1 OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 .venv/bin/python docs/report/method-certification/joint-site-draws/replay.py --repository . --output artifacts/jobs/method-uncertainty-reproduction/joint-site-draws with absent output; compare every declared file. 2,048 seeded constructed draws in five scenarios from retained fixed-site geometry; upstream covariance report and original producer remain separately owned. Source declarations cover the invoked numerical API and error boundary, not unrelated eager imports or independent installed-environment certification."
+    },
+    {
+      "owner_id": "method-certification/joint-site-draws/reader-account",
+      "role": "maintained_editorial",
+      "paths": [
+        "docs/report/method-certification/joint-site-draws/README.md"
+      ],
+      "producer_paths": [],
       "producer_inputs": [],
-      "verification": "Identify the exact producer or independent source/template custody, lawful input closure and role-specific verification route for these paths. Bind independently reconstructed output or authenticated retained source before full mixed-owner acceptance; tracked output bytes cannot feed their own producer."
+      "verification": "Maintain the authored method interpretation or citation stub against its numeric source, explicit uncertainty estimand and actual reproduction route. Editorial ownership does not certify empirical accuracy or the machine output."
     },
     {
       "owner_id": "method-certification/joint-site-draws/source-code",
@@ -2563,15 +2611,26 @@
       "verification": "Maintain these repository source files through review and focused tests. Source custody is distinct from generated output reproduction; copying them into a replay lane does not certify the results they produce."
     },
     {
-      "owner_id": "method-certification/lra-batch-execution/report-products",
-      "role": "unresolved",
+      "owner_id": "method-certification/lra-batch-execution/reader-account",
+      "role": "maintained_editorial",
       "paths": [
-        "docs/report/method-certification/lra-batch-execution/README.md",
-        "docs/report/method-certification/lra-batch-execution/report.json"
+        "docs/report/method-certification/lra-batch-execution/README.md"
       ],
       "producer_paths": [],
       "producer_inputs": [],
-      "verification": "Identify the exact producer or independent source/template custody, lawful input closure and role-specific verification route for these paths. Bind independently reconstructed output or authenticated retained source before full mixed-owner acceptance; tracked output bytes cannot feed their own producer."
+      "verification": "Maintain the authored method interpretation or citation stub against its numeric source, explicit uncertainty estimand and actual reproduction route. Editorial ownership does not certify empirical accuracy or the machine output."
+    },
+    {
+      "owner_id": "method-certification/lra-batch-execution/report-products",
+      "role": "unresolved",
+      "paths": [
+        "docs/report/method-certification/lra-batch-execution/report.json"
+      ],
+      "producer_paths": [
+        "packages/bijux-pollenomics/tests/unit/analysis/lra/support.py"
+      ],
+      "producer_inputs": [],
+      "verification": "This is a historical installed-wheel/cache/performance receipt, not a deterministic report producer. README supplies the three fixture requests and four bounded CLI attempts, but original wheel digests, execution handles, request/result certificates and runtime measurement custody must be bound before a retained-source role. Fresh wall-time/RSS values cannot reproduce a historical timing receipt byte-for-byte. Preserve the original candidate scope and scientific_acceptance not_evaluated."
     },
     {
       "owner_id": "method-certification/optimizer-solution-quality/report-products",
@@ -2759,10 +2818,19 @@
       "verification": "Identify the exact producer or independent source/template custody, lawful input closure and role-specific verification route for these paths. Bind independently reconstructed output or authenticated retained source before full mixed-owner acceptance; tracked output bytes cannot feed their own producer."
     },
     {
+      "owner_id": "method-certification/paired-love-draws/reader-account",
+      "role": "maintained_editorial",
+      "paths": [
+        "docs/report/method-certification/paired-love-draws/README.md"
+      ],
+      "producer_paths": [],
+      "producer_inputs": [],
+      "verification": "Maintain the authored method interpretation or citation stub against its numeric source, explicit uncertainty estimand and actual reproduction route. Editorial ownership does not certify empirical accuracy or the machine output."
+    },
+    {
       "owner_id": "method-certification/paired-love-draws/report-products",
       "role": "unresolved",
       "paths": [
-        "docs/report/method-certification/paired-love-draws/README.md",
         "docs/report/method-certification/paired-love-draws/draws.json",
         "docs/report/method-certification/paired-love-draws/python-values.csv",
         "docs/report/method-certification/paired-love-draws/r-session.txt",
@@ -2771,10 +2839,19 @@
         "docs/report/method-certification/paired-love-draws/setup.json"
       ],
       "producer_paths": [
+        "docs/report/method-certification/paired-love-draws/replay.R",
         "docs/report/method-certification/paired-love-draws/replay.py"
       ],
-      "producer_inputs": [],
-      "verification": "Identify the exact producer or independent source/template custody, lawful input closure and role-specific verification route for these paths. Bind independently reconstructed output or authenticated retained source before full mixed-owner acceptance; tracked output bytes cannot feed their own producer."
+      "producer_inputs": [
+        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/analytical.py",
+        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/regional.py",
+        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/data/LOVEexampleParams.json",
+        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/data/LOVEexamplePollen.json",
+        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/data/LOVEexampleRings.json",
+        "packages/bijux-pollenomics-lra/tests/reference/lra_oracle/r_support.R",
+        "packages/bijux-pollenomics-lra/vendor/disqover_0.9.14.tar.gz"
+      ],
+      "verification": "The real Python/R replay consumes the pinned disqover archive and example fixtures, requires a separately bound installed R library and exact Rscript binary (retained SHA d918ce5022d859e20c38094bb0b6199186cefd8bb96ffeb58618471c9a65a22d), and generates six declared outputs. Reuse the existing scoped R result; do not copy r-session.txt as newly generated. Bind runtime and installation/source custody, then compare all outputs under a governed metadata normalization decision if needed. No unchanged R rerun or broad release qualification follows from this declaration."
     },
     {
       "owner_id": "method-certification/paired-love-draws/source-code",

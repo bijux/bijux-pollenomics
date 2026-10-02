@@ -63,8 +63,8 @@ or qualified scientific review.
 The [output ownership inventory](../../configs/ci/report-ownership.json)
 assigns every tracked report path exactly one declaration. Its population is
 1,938 paths: 709 declared publisher paths, 125 original-R retained source
-files, 52 generated domain outputs, 62 maintained source files, 79
-maintained reader accounts and 911 paths with unresolved output custody.
+files, 56 generated domain outputs, 62 maintained source files, 85
+maintained reader accounts and 901 paths with unresolved output custody.
 These role counts describe the current declarations. They do not measure
 how many outputs have been independently reproduced.
 
@@ -152,6 +152,14 @@ source headers declare CC BY 4.0, but an original-byte source receipt is
 still distinct from numerical reproduction. The EMPD2–NFI pairing ledger
 retains 16 leads and zero admitted measured pairs; it is not an accuracy
 score. HYDE provider metadata does not resolve conflicting package terms.
+
+The two constructed covariance and joint-draw producers declare four
+machine outputs and their inline or upstream fixture inputs. Six method
+reader accounts have editorial owners. Eight author-site comparison, paired
+R and installed-batch receipt files still need exact private-source or runtime
+custody. A fresh execution measurement cannot reconstruct the historical
+wall-time and memory receipt; its installed-wheel scope remains distinct
+from deterministic numerical output reproduction.
 
 A fresh canonical publisher build from fixed product
 `d535ca7f3bed0ead63e5f96e45658c435ed6613a` produced exactly the 709 declared
