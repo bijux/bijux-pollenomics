@@ -44,8 +44,8 @@ identities. The [scientific verifier](../../docs/report/pollen-reconstruction/ve
 checks its governed results. A complete report-tree rebuild is a separate
 acceptance decision.
 
-The current tracked report tree contains 1,945 files. Its navigation registry
-indexes 1,941 surfaces and deliberately excludes its four registry/review
+The current tracked report tree contains 1,948 files. Its navigation registry
+indexes 1,944 surfaces and deliberately excludes its four registry/review
 metadata files. Each indexed Markdown surface and its layout row carries the exact content
 hash used by that consumer. Machine-readable products keep their domain
 manifest identities, avoiding recursive hashes through the scientific
@@ -62,8 +62,8 @@ or qualified scientific review.
 
 The [output ownership inventory](../../configs/ci/report-ownership.json)
 assigns every tracked report path exactly one declaration. Its population is
-1,945 paths: 709 declared publisher paths, 125 original-R retained source
-files, 244 generated domain outputs, 62 maintained source files, 175
+1,948 paths: 709 declared publisher paths, 125 original-R retained source
+files, 246 generated domain outputs, 62 maintained source files, 176
 maintained reader accounts and 630 paths with unresolved output custody.
 These role counts describe the current declarations. They do not measure
 how many outputs have been independently reproduced.
@@ -71,7 +71,8 @@ how many outputs have been independently reproduced.
 The generated category includes 11 SEAD numeric products from six named
 source consumers, one additional [boolean lineage account](../../docs/report/source-relations/sead/analysis-boolean-values/README.md),
 one [categorical lineage account](../../docs/report/source-relations/sead/analysis-categorical-values/README.md),
-two source-bound ABBO conditional-membership products, the two LandClim modeled-panel files and four contained-age
+two source-bound ABBO conditional-membership products, two compact English
+shared-PPE sensitivity products, the two LandClim modeled-panel files and four contained-age
 files for each of two direct-pollen studies. The SEAD declarations name their
 actual raw/normalized and secondary report inputs, including source parts and
 retrieval receipts. Their reader accounts have separate editorial owners.
@@ -88,6 +89,16 @@ The older pollen-coverage replay differs from the current governed report,
 so it cannot serve as a current matching-output receipt. These declarations
 keep source custody separate from a completed replay and from Solsø LRA
 admission.
+
+The compact English shared-PPE owner authenticates the full original author
+snapshot through its explicit descriptor and rebuilds private request evidence
+transiently. Its conservative closure binds 1,162 semantic/bootstrap code paths,
+seven repository metadata/descriptor inputs and 194 external source files.
+The broad code closure reflects eager package imports; source identity checks
+cover that initialization even when particular functions do not use every
+imported domain. This declaration requires a real producer replay and does
+not make the source-use or scientific admission decision.
+
 
 Three propagation outputs declare their exact repository input closure.
 The derived edge ledger consumes retained compact event and classification
@@ -278,7 +289,7 @@ for code owners and Markdown for editorial owners. A role label or a renamed
 numeric product cannot expand those admitted source sets.
 
 The certified original-R bundle uses its own certificate validation and source
-inventory. Assembly injects these 362 source files alongside verified generated
+inventory. Assembly injects these 363 source files alongside verified generated
 owner inputs, records their distinct identities and removes the injected files
 from the publisher output after the reducers read them. Both assembly lanes
 must record the exact source evidence required by final verification. That

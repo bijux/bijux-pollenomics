@@ -1194,6 +1194,19 @@
       "source_arguments": [],
       "output_mode": "single_file",
       "timeout_seconds": 180
+    },
+    {
+      "owner_id": "pollen-reconstruction/author-lra-optimized-feasibility/shared-ppe-sensitivity/report-products",
+      "module": "bijux_pollenomics_dev.source_completion.pollen_reconstruction.english_shared_ppe",
+      "source_arguments": [],
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "timeout_seconds": 600,
+      "external_source_descriptor": "configs/ci/qualified-report-sources/landclim-author-snapshot.json",
+      "source_paths": {
+        "source-products/diagnostics.json": "docs/report/pollen-reconstruction/author-lra-optimized-feasibility/shared-ppe-sensitivity/diagnostics.json",
+        "source-products/report.json": "docs/report/pollen-reconstruction/author-lra-optimized-feasibility/shared-ppe-sensitivity/report.json"
+      }
     }
   ]
 }
