@@ -12,7 +12,6 @@ import math
 from pathlib import Path
 from typing import Any
 
-
 REPORT_DIR = Path(__file__).resolve().parent
 REPOSITORY_ROOT = REPORT_DIR.parents[2]
 MANIFEST_PATH = REPORT_DIR / "manifest.json"
@@ -745,6 +744,77 @@ def verify_pft_uncertainty_bounds() -> dict[str, Any]:
     return report
 
 
+def verify_sambosjon_contained_age_support(
+    scope: dict[str, Any], results: list[list[str]]
+) -> None:
+    """Reconcile pinned source support, count partitions and matched score means."""
+    interval_scope = scope["sambosjon_contained_age_support"]
+    interval_dir = REPOSITORY_ROOT / Path(interval_scope["report"]).parent
+    interval = json.loads((interval_dir / "report.json").read_text())
+    with (interval_dir / "coverage.csv").open(newline="") as stream:
+        interval_coverage = list(csv.DictReader(stream))
+    with (interval_dir / "scores.csv").open(newline="") as stream:
+        interval_scores = list(csv.DictReader(stream))
+    with (interval_dir / "samples.csv").open(newline="") as stream:
+        interval_samples = list(csv.DictReader(stream))
+    if (
+        interval["producer_sha256"]
+        != sha256(REPOSITORY_ROOT / interval_scope["producer"])
+        or interval_scope["status"] != interval["status"]
+        or interval_scope["confirmatory_result"] is not False
+        or interval_scope["independent_vegetation_comparison"] is not False
+        or len(interval_samples) != interval_scope["source_samples"]
+        or len({r["sample_id"] for r in interval_samples}) != 111
+        or interval_scope["contained_samples"]
+        != interval["sample_statuses"]["contained"]
+        or interval_scope["boundary_crossing_samples"]
+        != interval["sample_statuses"]["crosses_boundary"]
+        or len(interval_coverage) != interval_scope["candidate_bins"]
+        or sum(r["status"] == "scored" for r in interval_coverage)
+        != interval_scope["scored_common_bins"]
+        or sum(r["status"] != "scored" for r in interval_coverage)
+        != interval_scope["refused_bins"]
+        or len(interval_scores) != 66
+        or len({(r["bin_id"], r["method"]) for r in interval_scores}) != 66
+        or sum(r["status"] == "scored" for r in interval_scores) != 63
+        or any(
+            r["mae_fraction"] or r["hellinger_distance"]
+            for r in interval_scores
+            if r["status"] != "scored"
+        )
+        or "sambosjon-contained-age-support" not in {row[0] for row in results[1:]}
+    ):
+        raise ValueError("Sämbosjön contained-age scope differs from retained result")
+    for status, expected in interval["sample_mass"].items():
+        selected = [r for r in interval_samples if r["status"] == status]
+        if len(selected) != interval["sample_statuses"][status] or any(
+            sum(int(r[key]) for r in selected) != value
+            for key, value in expected.items()
+        ):
+            raise ValueError("Sämbosjön interval count/sample populations do not close")
+    for method, summary in interval["methods"].items():
+        selected = [
+            r
+            for r in interval_scores
+            if r["method"] == method and r["status"] == "scored"
+        ]
+        if len(selected) != summary["paired_bins"] or any(
+            sum(float(r[key]) for r in selected) / len(selected) != summary[key]
+            for key in (
+                "mae_fraction",
+                "hellinger_distance",
+                "parent_same_bin_mae_fraction",
+                "parent_same_bin_hellinger_distance",
+            )
+        ):
+            raise ValueError(
+                "Sämbosjön interval method summaries differ from score rows"
+            )
+    for relative, expected in interval["input_sha256"].items():
+        if sha256(interval_dir.parent / relative) != expected:
+            raise ValueError("Sämbosjön pinned interval input changed")
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
@@ -978,6 +1048,8 @@ def main() -> None:
         or "swedish-lake-transfer" not in {row[0] for row in results[1:]}
     ):
         raise ValueError("Swedish lake transfer scope differs from retained result")
+
+    verify_sambosjon_contained_age_support(scope, results)
 
     pft_bounds = verify_pft_uncertainty_bounds()
     pft_scope = scope["pft_uncertainty_bounds"]

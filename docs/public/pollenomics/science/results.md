@@ -262,7 +262,12 @@ evidence, not independent confirmation or vegetation accuracy. A separate
 source age-bound screen finds that 58 of 111 sample intervals cross a nominal
 500-year bin boundary, with at least one crossing in each scored bin. The
 published MAE remains a point-age-bin result, not an age-uncertainty-adjusted
-score.
+score. The [contained-age sensitivity](../../../report/regions/nordic/sambosjon-direct-pollen/interval-support/README.md)
+keeps 53 samples in 21 bins with the same frozen predictions. Primary MAE
+is 0.023054 versus 0.022881 for original counts on those same bins; bin 1
+has no contained sample and is refused. Marginal source-bound containment
+is a development sensitivity, with no joint age posterior or confidence
+interval.
 
 ## A second newly scored Swedish lake
 

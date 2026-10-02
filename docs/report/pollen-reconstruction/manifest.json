@@ -106,8 +106,8 @@
     },
     {
       "path": "docs/public/pollenomics/science/results.md",
-      "sha256": "8da7212c2be05af43195b54fdd1e3964f09908d7999a817fe9f4cdad2d05023a",
-      "bytes": 23478
+      "sha256": "7e2e36ce55922e9b14ad5be742837b2dc9a72cd2c75c475e864a334ca8c0d3b5",
+      "bytes": 23897
     },
     {
       "path": "docs/public/pollenomics/science/sources.md",
@@ -906,13 +906,13 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/results.csv",
-      "sha256": "2df68893dc413e1a472e12e9133c24f416b3b20e156d16e463d4c3ee2d9ba5e7",
-      "bytes": 17282
+      "sha256": "0c65a7517d444cb9901905165096b7a73f182ffb308d1c5f069e36c5acb239c9",
+      "bytes": 18091
     },
     {
       "path": "docs/report/pollen-reconstruction/scope.json",
-      "sha256": "f6a896fb6738b5070ff5b8ffbaade02e31883f9df324a8aca05600e2563a0e39",
-      "bytes": 16902
+      "sha256": "7494364bd72ec3eaee80ec1dfad2509612d341c735ddc3bf825dc67e95cad0b3",
+      "bytes": 17544
     },
     {
       "path": "docs/report/pollen-reconstruction/scores.csv",
@@ -1016,8 +1016,8 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/verify_report.py",
-      "sha256": "0081c049905c1f73682a37ecd01a35387622377fa6f254fefd11eb42be1af83e",
-      "bytes": 45837
+      "sha256": "49a77c20910def8698fbd3a5c95f4712c5cfc75826c2a908fece63257cbd2897",
+      "bytes": 49441
     },
     {
       "path": "docs/report/publication-replay/landclim-amsoldingersee-source-review/README.md",
@@ -1586,8 +1586,8 @@
     },
     {
       "path": "docs/report/regions/nordic/sambosjon-direct-pollen/README.md",
-      "sha256": "978c8a6dd96d6623e8375cd9e8ed968277f2c98af98771d4642c675fc70aa153",
-      "bytes": 6743
+      "sha256": "45106775a3a3539f55dbe892fb922565ee25f2e1475b10bead4c6ec85298ab5d",
+      "bytes": 7083
     },
     {
       "path": "docs/report/regions/nordic/sambosjon-direct-pollen/age-bounds/README.md",
@@ -1643,6 +1643,31 @@
       "path": "docs/report/regions/nordic/sambosjon-direct-pollen/inputs/training.json.gz",
       "sha256": "4ec0de377bba7ad501ca5bf141374b4a3bde97ea266e64b0135a639d309a8647",
       "bytes": 121413
+    },
+    {
+      "path": "docs/report/regions/nordic/sambosjon-direct-pollen/interval-support/README.md",
+      "sha256": "42650298ee90990f8125e2236e1682460db2381acd86859eefbf281cf3555d3a",
+      "bytes": 4638
+    },
+    {
+      "path": "docs/report/regions/nordic/sambosjon-direct-pollen/interval-support/coverage.csv",
+      "sha256": "c99477bb332115232f736e03fa4d130f806c4fd049a0b6496060a02a3c61e577",
+      "bytes": 840
+    },
+    {
+      "path": "docs/report/regions/nordic/sambosjon-direct-pollen/interval-support/report.json",
+      "sha256": "f601b4db7753285a93b9c97e1495be3c400c028676e5766ec6dd5dff105c625f",
+      "bytes": 3414
+    },
+    {
+      "path": "docs/report/regions/nordic/sambosjon-direct-pollen/interval-support/samples.csv",
+      "sha256": "c0eec08839d62b6185b0fd3e066d1fb26e1cc6cf30e174e4db0eb290b6f13d14",
+      "bytes": 13043
+    },
+    {
+      "path": "docs/report/regions/nordic/sambosjon-direct-pollen/interval-support/scores.csv",
+      "sha256": "e4a6749aa0312b3e0d8edbbb10a715fcc89dcd13cd1e079845c85953470aeeb5",
+      "bytes": 8382
     },
     {
       "path": "docs/report/regions/nordic/sambosjon-direct-pollen/protocol.json",
@@ -2790,6 +2815,16 @@
       "bytes": 23936
     },
     {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_age_support/__init__.py",
+      "sha256": "9e2f17937ac84d75de5381cfcf579f1ccee2d6e6773888ccee55438c448bbf79",
+      "bytes": 79
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_age_support/sambosjon.py",
+      "sha256": "5f28ef7015a00799384a9db5514ccf46a5702ac7574385abaa376ccba896bb1e",
+      "bytes": 17191
+    },
+    {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sambosjon_age_bounds.py",
       "sha256": "dcc961d6837c91d4825c25c0b52f740c3260c60e88733734066269666feebd00",
       "bytes": 11672
@@ -2873,6 +2908,11 @@
       "path": "packages/bijux-pollenomics-dev/tests/essd_reproduction/test_pft_uncertainty_bounds.py",
       "sha256": "242cf6ab5b11016d511b9075d7a771f495aaa8562df11ad071a84bc884ecc630",
       "bytes": 1646
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/tests/source_completion/pollen_age_support/test_sambosjon.py",
+      "sha256": "2dac5ea8cbb6c32f12edeba735068d18a0c9728ab717b81488dc641396cb1406",
+      "bytes": 3513
     },
     {
       "path": "packages/bijux-pollenomics-dev/tests/source_completion/test_bjaresjo_context.py",
@@ -2986,8 +3026,8 @@
     },
     {
       "path": "reports/evidence-index.md",
-      "sha256": "0583f681323028e17a7bda8b2941f753fa7fd563c83fe147dc4a7b2e73e3c196",
-      "bytes": 25529
+      "sha256": "be5ca6f09dfab5d5150f591507fd8bbe0e0c12347db2c021b3a2db5bdf5c074e",
+      "bytes": 25735
     },
     {
       "path": "reports/needed/README.md",
@@ -3286,8 +3326,8 @@
     },
     {
       "path": "reports/science/sambosjon-direct-pollen.md",
-      "sha256": "bd3fd8abd877309766af1f50a67ca3ef91ced208e352881deea4d8a60bb316bf",
-      "bytes": 2667
+      "sha256": "d606179c2a6d67c91aa7355c814873306175a9fc25c280a32def53325a1ebe4e",
+      "bytes": 3171
     },
     {
       "path": "reports/science/solsoe-lra-input.md",
