@@ -10396,13 +10396,20 @@
         "docs/report/vegetation-reference/namibia-pollen-vegetation/radius-sensitivity.csv",
         "docs/report/vegetation-reference/namibia-pollen-vegetation/radius-sensitivity.json"
       ],
-      "producer_inputs": [],
+      "producer_inputs": [
+        "configs/ci/qualified-report-sources/namibia-modern-pollen-vegetation.json"
+      ],
       "producer_paths": [
         "docs/report/vegetation-reference/namibia-pollen-vegetation/radius_sensitivity.py",
-        "docs/report/vegetation-reference/namibia-pollen-vegetation/replay.py"
+        "docs/report/vegetation-reference/namibia-pollen-vegetation/replay.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/artifact_paths.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/publisher_tables.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/qualified_sources.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/source_qualification.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/vegetation/namibia_radius_sensitivity.py"
       ],
-      "role": "unresolved",
-      "verification": "The current producer `python3 docs/report/vegetation-reference/namibia-pollen-vegetation/radius_sensitivity.py --source-dir <governed-PANGAEA-TSV-directory> --output-dir artifacts/jobs/vegetation-context-reproduction/namibia-radius` calls replay.build on the same two original TSVs and writes CSV/JSON. Compare both outputs only after original-byte custody is bound. It is a five-taxon descriptive Hellinger distance over 10 sites \u00d7 15 radius labels, not fitted reconstruction accuracy or a radius recommendation."
+      "role": "generated_owner",
+      "verification": "Run the retained Namibian radius description from the same explicitly qualified publisher TSV pair used by the source-row join. radius_sensitivity.py calls replay.build on the original TSVs; it does not read tracked paired.csv, so no generated report is declared as an input. Compare radius-sensitivity.csv and radius-sensitivity.json byte-for-byte with tracked outputs. Ten independent sites at 15 publisher radius labels describe five-taxon Hellinger distance; this does not select a pollen-source radius, fit a model, score predictions, or validate Nordic vegetation reconstruction."
     },
     {
       "owner_id": "vegetation-reference/namibia-pollen-vegetation/reader-account",

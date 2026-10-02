@@ -1149,6 +1149,19 @@
         "source-products/report.json": "docs/report/vegetation-reference/namibia-pollen-vegetation/report.json"
       },
       "timeout_seconds": 600
+    },
+    {
+      "external_source_descriptor": "configs/ci/qualified-report-sources/namibia-modern-pollen-vegetation.json",
+      "module": "bijux_pollenomics_dev.source_completion.vegetation.namibia_radius_sensitivity",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "vegetation-reference/namibia-pollen-vegetation/radius-sensitivity",
+      "source_arguments": [],
+      "source_paths": {
+        "source-products/radius-sensitivity.csv": "docs/report/vegetation-reference/namibia-pollen-vegetation/radius-sensitivity.csv",
+        "source-products/radius-sensitivity.json": "docs/report/vegetation-reference/namibia-pollen-vegetation/radius-sensitivity.json"
+      },
+      "timeout_seconds": 600
     }
   ]
 }

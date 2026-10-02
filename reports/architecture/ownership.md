@@ -63,8 +63,8 @@ or qualified scientific review.
 The [output ownership inventory](../../configs/ci/report-ownership.json)
 assigns every tracked report path exactly one declaration. Its population is
 1,938 paths: 709 declared publisher paths, 125 original-R retained source
-files, 238 generated domain outputs, 62 maintained source files, 172
-maintained reader accounts and 632 paths with unresolved output custody.
+files, 240 generated domain outputs, 62 maintained source files, 172
+maintained reader accounts and 630 paths with unresolved output custody.
 These role counts describe the current declarations. They do not measure
 how many outputs have been independently reproduced.
 
@@ -147,7 +147,7 @@ Mechanical comparison with a retained author report does not authenticate
 that upstream source or qualify taxonomic and PPE application.
 
 Seven HYDE and vegetation reference accounts have editorial owners. The
-11 modeled-grid, provider-capture, Namibia radius-sensitivity and EMPD2–NFI
+9 modeled-grid, provider-capture and EMPD2–NFI
 result files retain external input or capture custody requirements. The two
 Namibia publisher-row join outputs use the source contract described below.
 Their receipt and primary headers are distinct from model evaluation. The EMPD2–NFI pairing ledger
@@ -279,7 +279,7 @@ must record the exact source evidence required by final verification. That
 verification combines source inventories with generated outputs; it refuses
 overlaps, changed inputs or missing source receipts. The canonical Make routes
 enable both source categories. This source transport does not reproduce the
-632 unresolved products, authenticate their historical executions or establish
+630 unresolved products, authenticate their historical executions or establish
 scientific review or release readiness.
 
 The ABBO/DALMUT chronology owner uses the
@@ -328,8 +328,12 @@ The two source-join outputs describe 10 Namibian sites, 15 publisher radius
 labels and 750 conditional five-taxon pairs. These previously exposed data
 provide descriptive development context outside the Nordic region. The join
 does not fit or predict a model, select an ecological radius or establish
-Nordic vegetation accuracy. Radius-sensitivity products retain a separate
-unresolved declaration.
+Nordic vegetation accuracy. The separate radius-sensitivity owner pins both
+retained scripts and supplies the exact local replay import. Its real producer
+reads the same two TSVs, without consuming tracked source-join outputs. The
+two radius products preserve 150 descriptive distances over 10 sites and
+15 publisher labels; they do not choose an ecological source radius or
+establish model accuracy.
 
 Check the declaration without executing the scientific studies:
 
@@ -400,7 +404,7 @@ refusals; their wrapper code is part of the declared producer closure.
 absent `REBUILD_EVIDENCE_ROOT`. Assembly accepts `REBUILD_OWNER_IDS` and
 `REBUILD_OWNER_ARTIFACTS_ROOT`; final verification accepts the same identities
 and both `REBUILD_REFERENCE_OWNERS_ROOT` and `REBUILD_REPLAY_OWNERS_ROOT`.
-The execution configuration currently names 86 generated owners covering 238
+The execution configuration currently names 87 generated owners covering 240
 tracked report paths. Reproducing a configured subset establishes only those
 owners' declared files.
 The complete report-tree comparison remains mandatory and refuses any missing owner. The scientific CI
