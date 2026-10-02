@@ -9586,6 +9586,14 @@
       "producer_inputs": [
         "packages/bijux-pollenomics-dev/pyproject.toml",
         "packages/bijux-pollenomics/pyproject.toml",
+        "pyproject.toml",
+        "uv.lock"
+      ],
+      "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/propagation_challenge.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/synthetic_validation/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/synthetic_validation/propagation.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/synthetic_validation/writer_execution.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/propagation/candidates/__init__.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/propagation/candidates/context.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/propagation/candidates/profiles.py",
@@ -9603,12 +9611,7 @@
         "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/propagation/network/scenarios.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/propagation/network/service.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/core/geospatial/distance.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/core/temporal_semantics.py",
-        "pyproject.toml",
-        "uv.lock"
-      ],
-      "producer_paths": [
-        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/propagation_challenge.py"
+        "packages/bijux-pollenomics/src/bijux_pollenomics/core/temporal_semantics.py"
       ],
       "role": "generated_owner",
       "verification": "From repository root with the locked project environment and absent output, run `PYTHONDONTWRITEBYTECODE=1 OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 NUMEXPR_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 .venv/bin/python -m bijux_pollenomics_dev.lra_validation.propagation_challenge --output artifacts/jobs/synthetic-owner-reproduction/propagation/report.json`; then `cmp artifacts/jobs/synthetic-owner-reproduction/propagation/report.json docs/report/synthetic-validation/propagation/report.json`. This compares deterministic constructed-case bytes only; the declaration itself does not replay the producer or certify measured ecology, source admission, or qualified review."
@@ -9637,6 +9640,15 @@
         "packages/bijux-pollenomics-dev/pyproject.toml",
         "packages/bijux-pollenomics-lra/pyproject.toml",
         "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/_build_version.py",
+        "pyproject.toml",
+        "uv.lock"
+      ],
+      "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/known_landscape.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/reconstruction_challenge.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/synthetic_validation/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/synthetic_validation/reconstruction.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/synthetic_validation/writer_execution.py",
         "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/api.py",
         "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/dispersal/__init__.py",
         "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/dispersal/kernels.py",
@@ -9679,13 +9691,7 @@
         "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/workflows/observation.py",
         "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/workflows/paired.py",
         "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/workflows/regional.py",
-        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/workflows/series.py",
-        "pyproject.toml",
-        "uv.lock"
-      ],
-      "producer_paths": [
-        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/known_landscape.py",
-        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/reconstruction_challenge.py"
+        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/workflows/series.py"
       ],
       "role": "generated_owner",
       "verification": "From repository root with the locked project environment and absent output, run `PYTHONDONTWRITEBYTECODE=1 OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 NUMEXPR_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 .venv/bin/python -m bijux_pollenomics_dev.lra_validation.reconstruction_challenge --output artifacts/jobs/synthetic-owner-reproduction/reconstruction/report.json`; then `cmp artifacts/jobs/synthetic-owner-reproduction/reconstruction/report.json docs/report/synthetic-validation/reconstruction/report.json`. This compares deterministic constructed-case bytes only; the declaration itself does not replay the producer or certify measured ecology, source admission, or qualified review."
@@ -9699,6 +9705,15 @@
         "packages/bijux-pollenomics-dev/pyproject.toml",
         "packages/bijux-pollenomics-lra/pyproject.toml",
         "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/_build_version.py",
+        "packages/bijux-pollenomics/pyproject.toml",
+        "pyproject.toml",
+        "uv.lock"
+      ],
+      "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/site_leakage_challenge.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/synthetic_validation/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/synthetic_validation/site_leakage.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/synthetic_validation/writer_execution.py",
         "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/api.py",
         "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/dispersal/__init__.py",
         "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/dispersal/kernels.py",
@@ -9742,7 +9757,6 @@
         "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/workflows/paired.py",
         "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/workflows/regional.py",
         "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/workflows/series.py",
-        "packages/bijux-pollenomics/pyproject.toml",
         "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/__init__.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/baselines.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/contracts.py",
@@ -9750,12 +9764,7 @@
         "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/policy.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/prediction.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/splits.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/core/geospatial/distance.py",
-        "pyproject.toml",
-        "uv.lock"
-      ],
-      "producer_paths": [
-        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/site_leakage_challenge.py"
+        "packages/bijux-pollenomics/src/bijux_pollenomics/core/geospatial/distance.py"
       ],
       "role": "generated_owner",
       "verification": "From repository root with the locked project environment and absent output, run `PYTHONDONTWRITEBYTECODE=1 OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 NUMEXPR_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 .venv/bin/python -m bijux_pollenomics_dev.lra_validation.site_leakage_challenge --output artifacts/jobs/synthetic-owner-reproduction/site-leakage/report.json`; then `cmp artifacts/jobs/synthetic-owner-reproduction/site-leakage/report.json docs/report/synthetic-validation/site-leakage/report.json`. This compares deterministic constructed-case bytes only; the declaration itself does not replay the producer or certify measured ecology, source admission, or qualified review."

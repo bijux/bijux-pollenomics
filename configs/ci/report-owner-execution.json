@@ -662,6 +662,36 @@
         "source-products/report.json": "docs/report/method-certification/joint-site-draws/report.json"
       },
       "timeout_seconds": 600
+    },
+    {
+      "module": "bijux_pollenomics_dev.source_completion.synthetic_validation.propagation",
+      "output_mode": "single_file",
+      "owner_id": "synthetic-validation/propagation/report-products",
+      "source_arguments": [],
+      "source_paths": {
+        "report.json": "docs/report/synthetic-validation/propagation/report.json"
+      },
+      "timeout_seconds": 180
+    },
+    {
+      "module": "bijux_pollenomics_dev.source_completion.synthetic_validation.reconstruction",
+      "output_mode": "single_file",
+      "owner_id": "synthetic-validation/reconstruction/report-products",
+      "source_arguments": [],
+      "source_paths": {
+        "report.json": "docs/report/synthetic-validation/reconstruction/report.json"
+      },
+      "timeout_seconds": 600
+    },
+    {
+      "module": "bijux_pollenomics_dev.source_completion.synthetic_validation.site_leakage",
+      "output_mode": "single_file",
+      "owner_id": "synthetic-validation/site-leakage/report-products",
+      "source_arguments": [],
+      "source_paths": {
+        "report.json": "docs/report/synthetic-validation/site-leakage/report.json"
+      },
+      "timeout_seconds": 180
     }
   ]
 }

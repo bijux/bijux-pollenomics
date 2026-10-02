@@ -15,7 +15,13 @@ from bijux_pollenomics_dev.source_completion.synthetic_validation.writer_executi
     run_writer,
 )
 
-NAMES = ("change_time", "spatial_eligibility")
+NAMES = (
+    "change_time",
+    "spatial_eligibility",
+    "propagation",
+    "reconstruction",
+    "site_leakage",
+)
 
 
 def _module(name: str) -> ModuleType:
