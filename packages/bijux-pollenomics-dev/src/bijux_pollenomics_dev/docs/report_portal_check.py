@@ -201,12 +201,12 @@ def check_report_portal(repository: Path) -> ReportPortalCheckResult:
         not isinstance(excluded, list)
         or len(excluded) != len(EXCLUDED)
         or any(not isinstance(path, str) for path in excluded)
-        or set(excluded) != EXCLUDED
+        or frozenset(excluded) != EXCLUDED
     ):
         raise ReportPortalCheckError(
             "registry must exclude the four exact portal metadata files"
         )
-    if not EXCLUDED <= files.keys():
+    if not files.keys() >= EXCLUDED:
         raise ReportPortalCheckError("an excluded portal metadata file is missing")
 
     registry_rows = _rows(registry, "registry")

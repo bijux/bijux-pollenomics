@@ -2931,8 +2931,8 @@
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/docs/report_portal_check.py",
-      "sha256": "2431af85b2ba2336a7892612dfab98f3a281c8951171e0897eac8a275dcefadd",
-      "bytes": 12054
+      "sha256": "7d80034d68ec475fef67f63721a21a6718a6441bd8749718f13e52587f5193a0",
+      "bytes": 12060
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/author_example_correspondence.py",
@@ -4178,6 +4178,11 @@
       "path": "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/adna/public_outputs/atlas_readiness.py",
       "sha256": "2b7d752b611da776d54c2f2ab889c38ca43c0149bfb130b269f018528ea439fc",
       "bytes": 23316
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/bundles/report_partitions/__main__.py",
+      "sha256": "ae6fa3d07766d2154f36d02af87768143462f8a35612a42d6b580039d5f04f3f",
+      "bytes": 7835
     },
     {
       "path": "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/bundles/sweden_lake_layers.py",
