@@ -62,6 +62,10 @@ The [report ownership decision](architecture/ownership.md) explains how this
 reader library, governed numeric outputs, the website and source-locked
 presentations share results without making disposable runs part of the product.
 
+The [four-country evidence status](science/country-evidence-status.md) keeps
+observed-pollen populations, source admission, historical correspondence,
+measured vegetation and context separate for Denmark, Finland, Norway and Sweden.
+
 ## How to read a claim
 
 Check its source and physical-site identity, count/taxon denominator, age and

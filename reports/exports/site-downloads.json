@@ -5,7 +5,7 @@
     "reports/science/paper-accounts.csv": "1e43668ebebf750ca2d6b4daa560ff2cb11b554804c42653b4ae9d95652d2a1b",
     "reports/exports/papers/manifest.json": "1b1dfb70642c373ecc2f9d132ecdb39608b952dea44e22b7a10ede42dd085bad",
     "reports/exports/papers/visual-review.json": "39f234de871903e0b224eb5d82e95fc704ded878f819e4e2bb5b70058eb5a844",
-    "presentation/source-lock.json": "4c8cd94691e7b811771f816214db52e7948ad7d401a698630fd63dc1b92ffec8"
+    "presentation/source-lock.json": "26afab6f98ff67a2151766965a941d3980adc2382bcc60655cf349e6bebbf181"
   },
   "files": [
     {
@@ -100,9 +100,9 @@
       "path": "presentation/scientific-evidence.pdf",
       "site_uri": "assets/science/presentations/scientific-evidence.pdf",
       "canonical_source": "presentation/scientific-evidence.tex",
-      "source_sha256": "b08326b55619a3a672d983b5a40b11db92f9672c15cf26364c83e46675171026",
-      "sha256": "09f4d5d8bf6579858d425692e94c12d9e9b8cf3bb1e351fc9d17394682a8a438",
-      "bytes": 210037
+      "source_sha256": "a8bee0b8f9f9a3a271357df53394ae587d0949c53bf45094aa9176890b5d9a29",
+      "sha256": "3f5e143b06b50eaf6ce9ce3d8a6c3f70acc5f3fd44646fb251dc063335fc32b9",
+      "bytes": 211180
     }
   ]
 }
