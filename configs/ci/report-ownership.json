@@ -599,49 +599,114 @@
       "verification": "Identify the exact producer or independent source/template custody, lawful input closure and role-specific verification route for these paths. Bind independently reconstructed output or authenticated retained source before full mixed-owner acceptance; tracked output bytes cannot feed their own producer."
     },
     {
-      "owner_id": "countries/sweden/bjaresjo-context-screen/report-products",
-      "role": "unresolved",
+      "owner_id": "countries/sweden/bjaresjo-context-screen/reader-accounts",
+      "role": "maintained_editorial",
       "paths": [
         "docs/report/countries/sweden/bjaresjo-context-screen/README.md"
       ],
       "producer_paths": [],
       "producer_inputs": [],
-      "verification": "Identify the exact producer or independent source/template custody, lawful input closure and role-specific verification route for these paths. Bind independently reconstructed output or authenticated retained source before full mixed-owner acceptance; tracked output bytes cannot feed their own producer."
+      "verification": "Maintain the authored Markdown against its linked governed receipts and stated interpretation limits. These pages are not emitted by the numerical report producers."
     },
     {
-      "owner_id": "countries/sweden/land-use-replay/report-products",
+      "owner_id": "countries/sweden/land-use-replay/historical-comparison",
       "role": "unresolved",
       "paths": [
-        "docs/report/countries/sweden/land-use-replay/README.md",
-        "docs/report/countries/sweden/land-use-replay/historical-comparison.json",
-        "docs/report/countries/sweden/land-use-replay/receipt.json"
+        "docs/report/countries/sweden/land-use-replay/historical-comparison.json"
+      ],
+      "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sweden_land_use_replay.py"
+      ],
+      "producer_inputs": [
+        "docs/report/countries/sweden/sweden_land_use_synthesis_v66.csv",
+        "docs/report/countries/sweden/sweden_land_use_synthesis_v66.json",
+        "docs/report/countries/sweden/sweden_land_use_synthesis_v66.md"
+      ],
+      "verification": "The comparison reads prior Git object 0a3a42ade39112b256faa527b898fb98df2c57cf and current country product, renderings, source/policy diffs. A Git object is not a regular producer_inputs path; bind the exact baseline object and full current comparands in a governed certificate/verification route before promotion. No historical landscape change follows."
+    },
+    {
+      "owner_id": "countries/sweden/land-use-replay/reader-accounts",
+      "role": "maintained_editorial",
+      "paths": [
+        "docs/report/countries/sweden/land-use-replay/README.md"
       ],
       "producer_paths": [],
       "producer_inputs": [],
-      "verification": "Identify the exact producer or independent source/template custody, lawful input closure and role-specific verification route for these paths. Bind independently reconstructed output or authenticated retained source before full mixed-owner acceptance; tracked output bytes cannot feed their own producer."
+      "verification": "Maintain the authored Markdown against its linked governed receipts and stated interpretation limits. These pages are not emitted by the numerical report producers."
     },
     {
-      "owner_id": "countries/sweden/observed-pollen-trajectory/report-products",
+      "owner_id": "countries/sweden/land-use-replay/semantic-receipt",
       "role": "unresolved",
       "paths": [
-        "docs/report/countries/sweden/observed-pollen-trajectory/README.md",
+        "docs/report/countries/sweden/land-use-replay/receipt.json"
+      ],
+      "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sweden_land_use_replay.py"
+      ],
+      "producer_inputs": [
+        "data/aadr/v66/1240k/v66.1240K.aadr.PUB.anno",
+        "data/aadr/v66/ho/v66.HO.aadr.PUB.anno",
+        "data/aadr/v66/release_manifest.json",
+        "data/landclim/normalized/nordic_reveals_temporal_grid_cells.geojson",
+        "data/sead/normalized/nordic_temporal_evidence.geojson",
+        "data/svar/review/lake_candidate_registry_review.json",
+        "data/svar/review/sweden_lake_candidate_registry.geojson"
+      ],
+      "verification": "The replay invokes the full country-report bundle producer, hashes published outputs and upstream products, and uses runtime generated date. Seven direct source files alone are not the complete producer input/template closure. Bind full country-producer source closure, published comparands and time control before generated ownership; this receipt is reproducibility evidence, not vegetation validation."
+    },
+    {
+      "owner_id": "countries/sweden/observed-pollen-trajectory/derived-report",
+      "role": "generated_owner",
+      "paths": [
         "docs/report/countries/sweden/observed-pollen-trajectory/report.json",
         "docs/report/countries/sweden/observed-pollen-trajectory/transitions.csv"
       ],
-      "producer_paths": [],
-      "producer_inputs": [],
-      "verification": "Identify the exact producer or independent source/template custody, lawful input closure and role-specific verification route for these paths. Bind independently reconstructed output or authenticated retained source before full mixed-owner acceptance; tracked output bytes cannot feed their own producer."
+      "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/swedish_lake_trajectory.py"
+      ],
+      "producer_inputs": [
+        "data/sead/derived/sweden_archaeology_site_discovery.geojson",
+        "docs/report/countries/sweden/pollen-model-lineage/report.json",
+        "docs/report/pollen-reconstruction/swedish-direct-pollen/prepared/dataset-53995.json",
+        "docs/report/pollen-reconstruction/swedish-direct-pollen/prepared/dataset-54001.json"
+      ],
+      "verification": "Run python -m bijux_pollenomics_dev.source_completion.swedish_lake_trajectory --repository . --output to a new artifacts/ directory and compare both output bytes. Inputs are two prepared direct-pollen datasets, SEAD derived context GeoJSON and modeled-site lineage report. Descriptive transitions have no sample-age bounds or causal/ecological joining."
     },
     {
-      "owner_id": "countries/sweden/pollen-model-lineage/report-products",
-      "role": "unresolved",
+      "owner_id": "countries/sweden/observed-pollen-trajectory/reader-accounts",
+      "role": "maintained_editorial",
       "paths": [
-        "docs/report/countries/sweden/pollen-model-lineage/README.md",
-        "docs/report/countries/sweden/pollen-model-lineage/report.json"
+        "docs/report/countries/sweden/observed-pollen-trajectory/README.md"
       ],
       "producer_paths": [],
       "producer_inputs": [],
-      "verification": "Identify the exact producer or independent source/template custody, lawful input closure and role-specific verification route for these paths. Bind independently reconstructed output or authenticated retained source before full mixed-owner acceptance; tracked output bytes cannot feed their own producer."
+      "verification": "Maintain the authored Markdown against its linked governed receipts and stated interpretation limits. These pages are not emitted by the numerical report producers."
+    },
+    {
+      "owner_id": "countries/sweden/pollen-model-lineage/derived-report",
+      "role": "generated_owner",
+      "paths": [
+        "docs/report/countries/sweden/pollen-model-lineage/report.json"
+      ],
+      "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/swedish_model_lineage.py"
+      ],
+      "producer_inputs": [
+        "data/landclim/normalized/nordic_pollen_site_sequences.geojson",
+        "docs/report/countries/sweden/sweden_land_use_synthesis_v66.csv",
+        "docs/report/pollen-reconstruction/swedish-direct-pollen/cohort.csv"
+      ],
+      "verification": "Run python -m bijux_pollenomics_dev.source_completion.swedish_model_lineage --repository . --output to a new artifacts/ directory and compare report.json bytes. The three pinned inputs are direct-pollen cohort CSV, LandClim input-site GeoJSON and six-target modeled synthesis CSV. Matching site/grid metadata is not sample-level reuse proof or independent vegetation accuracy."
+    },
+    {
+      "owner_id": "countries/sweden/pollen-model-lineage/reader-accounts",
+      "role": "maintained_editorial",
+      "paths": [
+        "docs/report/countries/sweden/pollen-model-lineage/README.md"
+      ],
+      "producer_paths": [],
+      "producer_inputs": [],
+      "verification": "Maintain the authored Markdown against its linked governed receipts and stated interpretation limits. These pages are not emitted by the numerical report producers."
     },
     {
       "owner_id": "method-certification/analytical-love-ring-sensitivity/report-products",
@@ -3368,32 +3433,120 @@
       "verification": "Identify the exact producer or independent source/template custody, lawful input closure and role-specific verification route for these paths. Bind independently reconstructed output or authenticated retained source before full mixed-owner acceptance; tracked output bytes cannot feed their own producer."
     },
     {
-      "owner_id": "source-relations/dna-scope/galician-cattle-samples/report-products",
+      "owner_id": "source-relations/dna-scope/galician-cattle-samples/reader-accounts",
+      "role": "maintained_editorial",
+      "paths": [
+        "docs/report/source-relations/dna-scope/galician-cattle-samples/README.md"
+      ],
+      "producer_paths": [],
+      "producer_inputs": [],
+      "verification": "Maintain the authored Markdown against its linked governed receipts and stated interpretation limits. These pages are not emitted by the numerical report producers."
+    },
+    {
+      "owner_id": "source-relations/dna-scope/galician-cattle-samples/sample-review",
       "role": "unresolved",
       "paths": [
-        "docs/report/source-relations/dna-scope/galician-cattle-samples/README.md",
         "docs/report/source-relations/dna-scope/galician-cattle-samples/report.json",
         "docs/report/source-relations/dna-scope/galician-cattle-samples/samples.csv"
       ],
-      "producer_paths": [],
-      "producer_inputs": [],
-      "verification": "Identify the exact producer or independent source/template custody, lawful input closure and role-specific verification route for these paths. Bind independently reconstructed output or authenticated retained source before full mixed-owner acceptance; tracked output bytes cannot feed their own producer."
+      "producer_paths": [
+        "packages/bijux-pollenomics/src/bijux_pollenomics/adna/projects/sample_master/tables/galician_cattle/species.py"
+      ],
+      "producer_inputs": [
+        "data/adna/governance/source_library/projects/PRJNA705960/archive_metadata.html.gz",
+        "data/adna/review/galician_cattle/article.html",
+        "data/adna/review/galician_cattle/biosamples/SAMN18106827.xml",
+        "data/adna/review/galician_cattle/biosamples/SAMN18106828.xml",
+        "data/adna/review/galician_cattle/biosamples/SAMN18106829.xml",
+        "data/adna/review/galician_cattle/biosamples/SAMN18106830.xml",
+        "data/adna/review/galician_cattle/biosamples/SAMN18106831.xml",
+        "data/adna/review/galician_cattle/biosamples/SAMN18106832.xml",
+        "data/adna/review/galician_cattle/biosamples/SAMN18106833.xml",
+        "data/adna/review/galician_cattle/biosamples/SAMN18106834.xml",
+        "data/adna/review/galician_cattle/biosamples/SAMN18106835.xml",
+        "data/adna/review/galician_cattle/biosamples/SAMN18106836.xml",
+        "data/adna/review/galician_cattle/biosamples/SAMN18106837.xml",
+        "data/adna/review/galician_cattle/correction.html",
+        "data/adna/review/galician_cattle/dating-table.xlsx",
+        "data/adna/review/galician_cattle/mapping-table.xlsx",
+        "docs/report/source-relations/dna-scope/galician-cattle-paper.json"
+      ],
+      "verification": "The maintained writer build_galician_sample_species_review also traverses project sample-master construction, curated species rows and normalized bundle generation, then compares existing governed sample-master/normalized outputs. Exact raw/source and producer transitive closure is not declared here. Bind those independent inputs and a byte comparison before generated ownership; 11 samples remain locality/chronology blocked."
     },
     {
-      "owner_id": "source-relations/dna-scope/report-products",
-      "role": "unresolved",
+      "owner_id": "source-relations/dna-scope/galician-paper-crosswalk",
+      "role": "generated_owner",
+      "paths": [
+        "docs/report/source-relations/dna-scope/galician-cattle-paper.json"
+      ],
+      "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/galician_cattle_review.py"
+      ],
+      "producer_inputs": [
+        "data/adna/governance/source_library/projects/PRJNA705960/archive_metadata.html.gz",
+        "data/adna/review/galician_cattle/article.html",
+        "data/adna/review/galician_cattle/biosamples/SAMN18106827.xml",
+        "data/adna/review/galician_cattle/biosamples/SAMN18106828.xml",
+        "data/adna/review/galician_cattle/biosamples/SAMN18106829.xml",
+        "data/adna/review/galician_cattle/biosamples/SAMN18106830.xml",
+        "data/adna/review/galician_cattle/biosamples/SAMN18106831.xml",
+        "data/adna/review/galician_cattle/biosamples/SAMN18106832.xml",
+        "data/adna/review/galician_cattle/biosamples/SAMN18106833.xml",
+        "data/adna/review/galician_cattle/biosamples/SAMN18106834.xml",
+        "data/adna/review/galician_cattle/biosamples/SAMN18106835.xml",
+        "data/adna/review/galician_cattle/biosamples/SAMN18106836.xml",
+        "data/adna/review/galician_cattle/biosamples/SAMN18106837.xml",
+        "data/adna/review/galician_cattle/correction.html",
+        "data/adna/review/galician_cattle/dating-table.xlsx",
+        "data/adna/review/galician_cattle/mapping-table.xlsx"
+      ],
+      "verification": "Run the Galician paper review with --repository . --capture data/adna/review/galician_cattle --output in artifacts/ and byte-compare the retained paper JSON. Sixteen capture files include the article, correction, two workbooks, eleven BioSample XML records, and the governed ENA archive. Paper linkage remains unpromoted."
+    },
+    {
+      "owner_id": "source-relations/dna-scope/reader-accounts",
+      "role": "maintained_editorial",
       "paths": [
         "docs/report/source-relations/dna-scope/README.md",
-        "docs/report/source-relations/dna-scope/galician-cattle-paper.json",
         "docs/report/source-relations/dna-scope/galician-cattle-paper.md",
         "docs/report/source-relations/dna-scope/obishir-v-chronology.md",
         "docs/report/source-relations/dna-scope/reindeer-preprint-supplement.md",
-        "docs/report/source-relations/dna-scope/reindeer-published-appendix.md",
-        "docs/report/source-relations/dna-scope/report.json"
+        "docs/report/source-relations/dna-scope/reindeer-published-appendix.md"
       ],
       "producer_paths": [],
       "producer_inputs": [],
-      "verification": "Identify the exact producer or independent source/template custody, lawful input closure and role-specific verification route for these paths. Bind independently reconstructed output or authenticated retained source before full mixed-owner acceptance; tracked output bytes cannot feed their own producer."
+      "verification": "Maintain the authored Markdown against its linked governed receipts and stated interpretation limits. These pages are not emitted by the numerical report producers."
+    },
+    {
+      "owner_id": "source-relations/dna-scope/source-posture",
+      "role": "generated_owner",
+      "paths": [
+        "docs/report/source-relations/dna-scope/report.json"
+      ],
+      "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/dna_scope_review.py"
+      ],
+      "producer_inputs": [
+        "data/aadr/v66/1240k/v66.1240K.aadr.PUB.anno",
+        "data/aadr/v66/ho/v66.HO.aadr.PUB.anno",
+        "data/aadr/v66/release_manifest.json",
+        "data/adna/final/atlas/animal_atlas_candidate_accountability.json",
+        "data/adna/final/atlas/animal_atlas_point_candidates.json",
+        "data/adna/governance/animal_sample_foundation_truth.json",
+        "data/adna/governance/source_library/papers/10.1016-j.cell.2019.03.049/supplementary/1-s2.0-S0092867419303848-mmc1.xlsx",
+        "data/adna/governance/source_library/papers/10.1016-j.isci.2025.113771/supplementary/1-s2.0-S2589004225020322-mmc3.xlsx",
+        "data/adna/governance/source_library/papers/10.1038-s41586-021-04018-9/supplementary/41586_2021_4018_MOESM5_ESM.xlsx",
+        "data/adna/governance/source_library/papers/10.1038-s41586-024-08112-6/supplementary/41586_2024_8112_MOESM3_ESM.xlsx",
+        "data/adna/governance/source_library/papers/10.1073-pnas.1901169116/supplementary/pnas.1901169116.sd01.xlsx",
+        "data/adna/governance/source_library/papers/10.1093-gbe-evaf181/supplementary/GBE_Supplementary_Tables_S1-18_Goat_imputation.xlsx",
+        "data/adna/governance/source_library/papers/10.1126-science.adt2642/supplementary/science.adt2642_tables s1_to_s8.zip",
+        "data/adna/governance/source_library/papers/10.24272-j.issn.2095-8137.2025.080/supplementary/Supplementary_tables.xlsx",
+        "data/adna/governance/source_library/projects/PRJEB59481/ena_samples/SAMEA112960291.xml",
+        "data/adna/governance/source_library/projects/PRJEB59481/ena_samples/SAMEA112960293.xml",
+        "data/adna/species/homo_sapiens/review/aadr_v66_source_accountability.json",
+        "data/adna/species/sus_scrofa_domesticus/raw/site_coordinate_evidence.json",
+        "docs/report/animal_foundation_validation.json"
+      ],
+      "verification": "Run python -m bijux_pollenomics_dev.source_completion.dna_scope_review --repository . --output artifacts/jobs/dna-source-scope/reproduction.json and byte-compare report.json. It reads six governed JSON inputs, three human capture members declared by the AADR accountability review, and eleven present animal evidence files. This is source-accountability scope, no cross-source/pollen admission."
     },
     {
       "owner_id": "source-relations/hyde/provider-record/report-products",

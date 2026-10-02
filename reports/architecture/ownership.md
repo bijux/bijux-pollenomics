@@ -63,8 +63,8 @@ or qualified scientific review.
 The [output ownership inventory](../../configs/ci/report-ownership.json)
 assigns every tracked report path exactly one declaration. Its population is
 1,938 paths: 709 declared publisher paths, 125 original-R retained source
-files, 35 generated domain outputs, 62 maintained source files, 25
-maintained reader accounts and 982 paths with unresolved output custody.
+files, 40 generated domain outputs, 62 maintained source files, 35
+maintained reader accounts and 967 paths with unresolved output custody.
 These role counts describe the current declarations. They do not measure
 how many outputs have been independently reproduced.
 
@@ -102,6 +102,13 @@ Swedish source declaration and source screen still need private metadata and
 capture inputs. The lake-parameter verifier reads its expected capture digest
 from the retained report, so that verification route remains unresolved; it
 cannot independently certify basin input or LRA admission.
+
+Five human/animal source-scope and Swedish lineage/trajectory outputs name
+their local source closures, with ten authored reader accounts kept separate.
+Four sample-review and land-use comparison outputs remain unresolved because
+their transitive source or prior Git-object/time-control inputs are not closed.
+Source linkage, modeled-site overlap and descriptive pollen transitions do
+not establish cross-source comparability or independent vegetation accuracy.
 
 A fresh canonical publisher build from fixed product
 `d535ca7f3bed0ead63e5f96e45658c435ed6613a` produced exactly the 709 declared
