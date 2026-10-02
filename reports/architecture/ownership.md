@@ -307,7 +307,11 @@ correspondence. Four directory producers also retain both JSON and CSV for
 Swedish observed-pollen transitions, Nordic modeled panels, native count
 coverage and candidate site overlaps. The modeled-panel declaration binds
 the polygon, calendar, geometry and metric helpers used in its calculation.
-These ten producers cover only their declared files. The complete report-tree
+Three native core/site consumers add seven Markdown, JSON and CSV outputs,
+with explicit workbook, receipt, raw archive, count-mass and projection inputs.
+Their count and projection parents retain separate custody requirements;
+comparison does not admit a core, basin or LRA request. These thirteen
+producers cover only their declared files. The complete report-tree
 comparison remains mandatory and refuses any missing owner. The scientific CI
 workflow schedules these owners in both lanes after the bound partition plan,
 then merges owner artifacts into each lane before assembly and final

@@ -111,6 +111,113 @@
       "output_mode": "directory",
       "timeout_seconds": 180,
       "output_subdirectory": "source-products"
+    },
+    {
+      "owner_id": "source-relations/neotoma/abbo-core-identity/report-products",
+      "module": "bijux_pollenomics_dev.source_completion.abborrtjarne_core",
+      "source_paths": {
+        "source-products/REPORT.md": "docs/report/source-relations/neotoma/abbo-core-identity/REPORT.md",
+        "source-products/report.json": "docs/report/source-relations/neotoma/abbo-core-identity/report.json"
+      },
+      "source_arguments": [
+        {
+          "flag": "--raw-part",
+          "path": "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-004.json"
+        },
+        {
+          "flag": "--raw-manifest",
+          "path": "data/neotoma/raw/neotoma_pollen_dataset_downloads/manifest.json"
+        },
+        {
+          "flag": "--workbook",
+          "path": "data/landclim/raw/landclim_ii_site_metadata.xlsx"
+        },
+        {
+          "flag": "--workbook-receipt",
+          "path": "data/landclim/raw/landclim_sources.json"
+        },
+        {
+          "flag": "--count-mass",
+          "path": "docs/report/source-relations/neotoma/abbo-core-identity/count-mass-crosscheck.json"
+        },
+        {
+          "flag": "--projection",
+          "path": "docs/report/source-relations/neotoma/lra-prerequisites/projection.json"
+        }
+      ],
+      "output_mode": "directory",
+      "timeout_seconds": 180,
+      "include_repository_argument": false,
+      "output_subdirectory": "source-products"
+    },
+    {
+      "owner_id": "source-relations/neotoma/landclim-site-identity/report-products",
+      "module": "bijux_pollenomics_dev.source_completion.swedish_site_identity",
+      "source_paths": {
+        "source-products/REPORT.md": "docs/report/source-relations/neotoma/landclim-site-identity/REPORT.md",
+        "source-products/report.json": "docs/report/source-relations/neotoma/landclim-site-identity/report.json",
+        "source-products/site-comparison.csv": "docs/report/source-relations/neotoma/landclim-site-identity/site-comparison.csv"
+      },
+      "source_arguments": [
+        {
+          "flag": "--workbook",
+          "path": "data/landclim/raw/landclim_ii_site_metadata.xlsx"
+        },
+        {
+          "flag": "--receipt",
+          "path": "data/landclim/raw/landclim_sources.json"
+        },
+        {
+          "flag": "--projection",
+          "path": "docs/report/source-relations/neotoma/lra-prerequisites/projection.json"
+        },
+        {
+          "flag": "--sites",
+          "path": "data/neotoma/relational/surfaces/sites/part-00001.json"
+        }
+      ],
+      "output_mode": "directory",
+      "timeout_seconds": 180,
+      "include_repository_argument": false,
+      "output_subdirectory": "source-products"
+    },
+    {
+      "owner_id": "source-relations/neotoma/swedish-lake-core-identity/report-products",
+      "module": "bijux_pollenomics_dev.source_completion.swedish_lake_core_correspondence",
+      "source_paths": {
+        "source-products/REPORT.md": "docs/report/source-relations/neotoma/swedish-lake-core-identity/REPORT.md",
+        "source-products/report.json": "docs/report/source-relations/neotoma/swedish-lake-core-identity/report.json"
+      },
+      "source_arguments": [
+        {
+          "flag": "--raw-part",
+          "path": "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-008.json"
+        },
+        {
+          "flag": "--raw-manifest",
+          "path": "data/neotoma/raw/neotoma_pollen_dataset_downloads/manifest.json"
+        },
+        {
+          "flag": "--workbook",
+          "path": "data/landclim/raw/landclim_ii_site_metadata.xlsx"
+        },
+        {
+          "flag": "--workbook-receipt",
+          "path": "data/landclim/raw/landclim_sources.json"
+        },
+        {
+          "flag": "--count-mass",
+          "path": "docs/report/source-relations/neotoma/swedish-lake-core-identity/count-mass-crosscheck.json"
+        },
+        {
+          "flag": "--projection",
+          "path": "docs/report/source-relations/neotoma/lra-prerequisites/projection.json"
+        }
+      ],
+      "output_mode": "directory",
+      "timeout_seconds": 180,
+      "include_repository_argument": false,
+      "output_subdirectory": "source-products"
     }
   ]
 }

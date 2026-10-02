@@ -462,6 +462,12 @@ jobs:
             artifact: neotoma-parameter-mass
           - id: source-relations/rootsi-landclim-overlap/derived-products
             artifact: rootsi-landclim-overlap
+          - id: source-relations/neotoma/abbo-core-identity/report-products
+            artifact: abbo-core-identity
+          - id: source-relations/neotoma/landclim-site-identity/report-products
+            artifact: landclim-site-identity
+          - id: source-relations/neotoma/swedish-lake-core-identity/report-products
+            artifact: swedish-lake-core-identity
     steps:
       - name: Checkout candidate
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -648,6 +654,9 @@ jobs:
             regions/nordic/landclim-modeled-panels
             source-relations/neotoma/parameter-coverage/literal-name-counts
             source-relations/rootsi-landclim-overlap/derived-products
+            source-relations/neotoma/abbo-core-identity/report-products
+            source-relations/neotoma/landclim-site-identity/report-products
+            source-relations/neotoma/swedish-lake-core-identity/report-products
           REBUILD_OWNER_ARTIFACTS_ROOT: artifacts/execution-control/report-rebuild-owner-input/${{ matrix.lane }}
           REBUILD_EVIDENCE_ROOT: artifacts/execution-control/report-rebuild-assembly/${{ matrix.lane }}
         run: make assemble-report-rebuild
@@ -740,6 +749,9 @@ jobs:
             regions/nordic/landclim-modeled-panels
             source-relations/neotoma/parameter-coverage/literal-name-counts
             source-relations/rootsi-landclim-overlap/derived-products
+            source-relations/neotoma/abbo-core-identity/report-products
+            source-relations/neotoma/landclim-site-identity/report-products
+            source-relations/neotoma/swedish-lake-core-identity/report-products
           REBUILD_REFERENCE_OWNERS_ROOT: artifacts/execution-control/report-rebuild-owner-input/reference
           REBUILD_REPLAY_OWNERS_ROOT: artifacts/execution-control/report-rebuild-owner-input/replay
         run: make verify-partitioned-report-rebuild
