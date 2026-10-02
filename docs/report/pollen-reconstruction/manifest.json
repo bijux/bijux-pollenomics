@@ -11,13 +11,13 @@
     },
     {
       "path": "configs/ci/report-owner-execution.json",
-      "sha256": "4133c55ea906ba91348284e491f193e725b45fdccbfe264b2cdfc4c66546c129",
-      "bytes": 35619
+      "sha256": "e3aab411fd66ca8a796871b3a09dc83b6239b75f2de252011cfd6bcaa26b9de8",
+      "bytes": 36719
     },
     {
       "path": "configs/ci/report-ownership.json",
-      "sha256": "3f7b05f6c807cdb8eaef2a70900725ce68fabfe0f21f2d642056a030942c03b4",
-      "bytes": 772361
+      "sha256": "7fdada01817c75bf164e6a05dad89697a55a170b280f91bea5e9ed8139683c41",
+      "bytes": 771524
     },
     {
       "path": "configs/docs/science_downloads.py",
@@ -2880,6 +2880,11 @@
       "bytes": 2160
     },
     {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/denmark/solsoe_interval_sensitivity.py",
+      "sha256": "f8fb363471a40374741a6eafcd6264b08aefee3a8f767c77abe8f40b8828654b",
+      "bytes": 2248
+    },
+    {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/denmark_pollen_chronology_coverage.py",
       "sha256": "3b125c4ec335fc00e48f314b2b10d5e955f9ae4a99c6e7954e0993291063e6d4",
       "bytes": 1619
@@ -3303,6 +3308,11 @@
       "path": "packages/bijux-pollenomics-dev/tests/source_completion/author_lra/test_radius_report_population.py",
       "sha256": "96aae33714483f907e260ace15a5ecdaf8db97d0782087c3576a78bc1c5caf99",
       "bytes": 1824
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/tests/source_completion/denmark/test_solsoe_interval_sensitivity.py",
+      "sha256": "8ebd22b29c055909c9ebea4f84e0a989802a095e11685a68dd576051643641af",
+      "bytes": 4547
     },
     {
       "path": "packages/bijux-pollenomics-dev/tests/source_completion/method_certification/test_covariance_clis.py",

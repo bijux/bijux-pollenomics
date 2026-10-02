@@ -778,6 +778,21 @@
       "output_mode": "directory",
       "output_subdirectory": "source-products",
       "timeout_seconds": 600
+    },
+    {
+      "owner_id": "countries/denmark/solsoe-source-lineage/legacyage-interval-sensitivity/report-products",
+      "module": "bijux_pollenomics_dev.source_completion.denmark.solsoe_interval_sensitivity",
+      "source_arguments": [],
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "timeout_seconds": 600,
+      "source_paths": {
+        "source-products/predictions.json": "docs/report/countries/denmark/solsoe-source-lineage/legacyage-interval-sensitivity/predictions.json",
+        "source-products/protocol.json": "docs/report/countries/denmark/solsoe-source-lineage/legacyage-interval-sensitivity/protocol.json",
+        "source-products/report.json": "docs/report/countries/denmark/solsoe-source-lineage/legacyage-interval-sensitivity/report.json",
+        "source-products/sample-support.csv": "docs/report/countries/denmark/solsoe-source-lineage/legacyage-interval-sensitivity/sample-support.csv",
+        "source-products/scores.csv": "docs/report/countries/denmark/solsoe-source-lineage/legacyage-interval-sensitivity/scores.csv"
+      }
     }
   ]
 }
