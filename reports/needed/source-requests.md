@@ -19,11 +19,36 @@ These requests are prepared but **unsent**. Each row in [source-requests.csv](so
 | Neotoma original HTTP receipts | Authenticate original acquisition scope | Serialized 206-object/209-ID products reconcile, but original requests, pages and download response digests are absent. |
 | Neotoma country decisions | Explain six retained-only site/dataset pairs | Reapplying the current selector gives 200 objects and 203 IDs; the historical boundary authority is unidentified. |
 | Original REVEALS/LOVE theory simulations | Reproduce the original Sugita 2007 scenario studies | Accessible abstracts and later implementation fixtures do not bind original POLLSCAPE populations, simulated truth or local source-area definitions. |
-| Namibia radius and calibration support | Define a measured modern target and examine original calibration | Deposited modern tables are available; sample/image dates, cumulative or annular radius semantics, selection and original calibration inputs remain open. |
+| Namibia radius and calibration support | Define a measured modern target and examine original calibration | Deposited modern tables and the publisher's 100 m ring description are available; sample/image dates, exact sector masks, radius selection and original calibration inputs remain open. |
 | Rhododendron pollen synonym | Decide a native concept-to-Ericaceae candidate | Kew botanical synonym and the author Ledum row are specific leads; pollen determination and occurrence-scoped review remain open. |
 | GARASEL confirmation candidate | Determine eligibility before target counts are opened | Profile and dated-control metadata do not supply selected calibrated sample ages or confirmed use rights. |
 
 The core requests ask for **one physical core and one named time window at a time**. Counts, selected chronology, basin geometry, taxon/PPE/fall-speed choices and permissions must refer to the same source rows. They do not reopen settled checks: the Dalmutladdo 11-control correspondence, Laihalampi's author-stated Hela-4421 exclusion, or the exact-depth LegacyAge alternative joins for Abborrtjärnen and Solsø. In particular, no alternative chronology is silently substituted for the historical LandClim choice. The existing core decisions are in `reports/science/abborrtjarnen-source-method.md`, `reports/science/solsoe-lra-input.md`, `reports/science/dalmutladdo-lra-input/README.md` and `reports/science/laihalampi-lra-input/README.md`.
+
+## Which claim an answer supports
+
+The historical LandClim requests seek the original selections and transformations.
+A new reconstruction can declare a different source-qualified chronology,
+selection, parameter set or static basin model. Missing historical choices must
+not be treated as a universal prohibition on that separate analysis.
+[Trondman et al. (2016)](https://link.springer.com/article/10.1007/s00334-015-0536-9)
+used constant present basin size/type when historical stratigraphy was
+insufficient, and [LandClim II](https://essd.copernicus.org/articles/14/1581/2022/)
+describes alternative chronology sources and radius approximations.
+
+| Claim | Required source and interpretation |
+| --- | --- |
+| Historical reproduction | Actual original sample membership, chronology, geometry, parameters, aggregation and executable identity |
+| New declared reconstruction | Identified source rows and permitted use, justified chronology and geometry model, eligible taxa/counts, parameters, uncertainty/sensitivity and explicit evaluation target |
+
+For example, the Solsø 79-row list remains necessary for historical
+correspondence. A separately defined study can select other lawful source rows
+while handling SOLSOE81/SOLSOE83 as physical cores and declaring its pooling
+rule. A static circular radius is a model assumption, not measured past
+geometry. A new calculation cannot answer a historical identity question merely
+by producing a finite result. The [Neotoma prerequisite account](../../docs/report/source-relations/neotoma/lra-prerequisites/README.md)
+explains the distinction; all listed requests remain unsent and all required
+qualified decisions remain unreceived.
 
 Obtaining the original Hellman ten-lake measured vegetation and obtaining permission to analyze or redistribute its counts and cover tables are separate requirements. A qualified reviewer must first determine whether lake samples, observation dates, taxa and survey footprints pair as measurements of the same regional cover estimand. The nine printed Figure 6 labels in `reports/science/vegetation-reference/southern-sweden-figure/printed-labels.csv` cannot stand in for unrounded 26-taxon vectors or independent validation of this repository's models. Until a qualified pair is available, `reports/science/vegetation-reference.md` retains zero admitted Nordic measured-cover pairs.
 
