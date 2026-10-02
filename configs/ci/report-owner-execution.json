@@ -352,6 +352,37 @@
       "source_arguments": [],
       "output_mode": "single_file",
       "timeout_seconds": 180
+    },
+    {
+      "owner_id": "source-relations/source-capability-evidence/derived-products",
+      "module": "bijux_pollenomics_dev.source_completion.capability_evidence",
+      "source_paths": {
+        "report.json": "docs/report/source-relations/source-capability-evidence/report.json"
+      },
+      "source_arguments": [],
+      "output_mode": "single_file",
+      "timeout_seconds": 180
+    },
+    {
+      "owner_id": "source-relations/sead/public-custody/source-map-bindings",
+      "module": "bijux_pollenomics_dev.source_completion.sead_public_custody",
+      "source_paths": {
+        "source-products/report.json": "docs/report/source-relations/sead/public-custody/report.json"
+      },
+      "source_arguments": [],
+      "output_mode": "directory",
+      "timeout_seconds": 180,
+      "output_subdirectory": "source-products"
+    },
+    {
+      "owner_id": "source-relations/neotoma/variable-surface/native-variable-reconciliation",
+      "module": "bijux_pollenomics_dev.source_completion.neotoma_variable_surface",
+      "source_paths": {
+        "report.json": "docs/report/source-relations/neotoma/variable-surface/report.json"
+      },
+      "source_arguments": [],
+      "output_mode": "single_file",
+      "timeout_seconds": 180
     }
   ]
 }

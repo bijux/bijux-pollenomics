@@ -319,13 +319,16 @@ with every retained manifest member and table receipt in their read sets.
 Two confined SEAD chronology entry points expose the existing age-accounting
 and record-interval writers with unchanged inputs, numerical behavior and
 refusals. Their declarations include the maintained wrapper package. These
-twenty-five producers cover only their declared files. The Danish chronology
+twenty-eight producers cover only their declared files. The Danish chronology
 coverage and compact Neotoma sample accounts use confined adapters for their
 existing replay writers and preserve their source-accounting scope. Native
 Neotoma acquisition-selection and two DNA source accounts add three existing
 CLI producers. The acquisition declaration includes its actual text and
 spatial classification code closure; original HTTP capture, DNA rights and
-ecological admission remain separate requirements. The complete report-tree
+ecological admission remain separate requirements. Source-capability evidence,
+SEAD public custody and native Neotoma variable reconciliation add three
+source-status accounts, including explicit missing-evidence refusals. The
+complete report-tree
 comparison remains mandatory and refuses any missing owner. The scientific CI
 workflow derives the owner matrix and assembly selection from the same
 validated execution configuration, using a digest of each full identity as
