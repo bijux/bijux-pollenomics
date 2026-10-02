@@ -16,8 +16,8 @@
     },
     {
       "path": "configs/ci/report-ownership.json",
-      "sha256": "7fdada01817c75bf164e6a05dad89697a55a170b280f91bea5e9ed8139683c41",
-      "bytes": 771524
+      "sha256": "d2c7b16beaf36a8fdb7f63b341d10b825f19aa29bb2c795ae6039f579f15712f",
+      "bytes": 772292
     },
     {
       "path": "configs/docs/science_downloads.py",

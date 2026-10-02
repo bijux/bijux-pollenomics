@@ -73,7 +73,7 @@
   "sources": {
     ".github/workflows/scientific-verification.yml": "90ae56b293e58687984d23256af5f5d3d6ee01353362cdda862ee36888c28da9",
     "configs/ci/report-owner-execution.json": "e3aab411fd66ca8a796871b3a09dc83b6239b75f2de252011cfd6bcaa26b9de8",
-    "configs/ci/report-ownership.json": "7fdada01817c75bf164e6a05dad89697a55a170b280f91bea5e9ed8139683c41",
+    "configs/ci/report-ownership.json": "d2c7b16beaf36a8fdb7f63b341d10b825f19aa29bb2c795ae6039f579f15712f",
     "configs/docs/science_downloads.py": "3162000c64180ca575be718c03ecdfe90bc0f53240eb4101947356c863848906",
     "data/adna/governance/source_library/projects/SRP073444/sample_master.json": "91fd9903db37c31659507b0f6ff8f042bee69312ada894d06ab50b16bcf5907c",
     "data/archaeology/raw/hojea_2003_source.json": "0b9a9a01aad4a8a0abc710b0b96c987d88830f84885ec3282994a60a26f803a9",
@@ -192,7 +192,7 @@
     "docs/report/pollen-reconstruction/author-lra-constrained/radius_sensitivity.py": "dede38022ace3e350d854e4a35cd1ed590ca8ddfbbe7a6c7b089c9df76a39b9e",
     "docs/report/pollen-reconstruction/author-lra-constrained/report.json": "99bc052531b052ee218f91d36645cdeaaf2b1641ca8bd20140afa1b4e87f8150",
     "docs/report/pollen-reconstruction/author-lra-optimized-feasibility/report.json": "2d2202914ec86f70aad49d63782066c10a198997ef628f65d4e9134f2aefb869",
-    "docs/report/pollen-reconstruction/manifest.json": "090d8e000b427a4579129948adaad07c36e1709c0f1507d8736822d8f70bdef1",
+    "docs/report/pollen-reconstruction/manifest.json": "7bac6ecaaa7eca086eb0eaddccf3b8a12ba4577a8ca90a7d94512584a3524b58",
     "docs/report/pollen-reconstruction/paper-correspondence.csv": "21b5354a2155345e44964ed513471d32648bdb062eda1ebed3e0b79ccb8ff9cc",
     "docs/report/pollen-reconstruction/results.csv": "0c65a7517d444cb9901905165096b7a73f182ffb308d1c5f069e36c5acb239c9",
     "docs/report/pollen-reconstruction/scope.json": "7494364bd72ec3eaee80ec1dfad2509612d341c735ddc3bf825dc67e95cad0b3",
