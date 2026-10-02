@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
+from fnmatch import fnmatchcase
 import json
 from pathlib import Path
 import re
+from zipfile import ZipFile
 
 import pytest
 import yaml
@@ -340,6 +342,7 @@ def test_report_owner_ci_matrix_matches_configured_execution_contract() -> None:
         row["owner_id"] for row in configured["owners"]
     }
     assert set(matrix["lane"]) == {"reference", "replay"}
+    assert len({row["id"] for row in matrix["owner"]}) == len(matrix["owner"])
     assert len({row["artifact"] for row in matrix["owner"]}) == len(matrix["owner"])
     assert set(owner_job["needs"]) == {"impact", "rebuild-plan"}
     assert owner_job["strategy"]["fail-fast"] == "false"
@@ -361,16 +364,12 @@ def test_report_owner_ci_matrix_matches_configured_execution_contract() -> None:
     assert upload["with"]["name"].startswith("report-owner-")
     assert upload["if"] == "always()"
     assert upload["with"]["if-no-files-found"] == "error"
-    uploaded = upload["with"]["path"].splitlines()
-    assert {Path(path).name for path in uploaded} == {
-        "manifest.json",
-        "output",
-        "producer-command.json",
-        "producer-execution.json",
-        "producer.stdout.log",
-        "producer.stderr.log",
-    }
-    assert len({path.rsplit("/", 1)[0] for path in uploaded}) == 1
+    assert upload["with"]["name"] == (
+        "report-owner-${{ matrix.lane }}-${{ matrix.owner.artifact }}"
+    )
+    assert upload["with"]["path"] == (
+        "artifacts/execution-control/report-rebuild-owner/${{ matrix.lane }}"
+    )
 
 
 def test_report_owner_ci_downloads_preserve_exact_nested_identities() -> None:
@@ -389,18 +388,28 @@ def test_report_owner_ci_downloads_preserve_exact_nested_identities() -> None:
             "make verify-partitioned-report-rebuild",
         ),
     ):
-        download_by_name = {
-            step["with"]["name"]: step["with"]["path"]
+        owner_downloads = [
+            step
             for step in job["steps"]
             if step.get("uses", "").startswith("actions/download-artifact")
-            and step["with"].get("name", "").startswith("report-owner-")
-        }
-        expected = {
-            f"report-owner-{lane}-{owner['artifact']}": f"artifacts/execution-control/report-rebuild-owner-input/{lane}/{owner['id']}"
-            for lane in lanes
-            for owner in owners
-        }
-        assert download_by_name == expected
+            and step.get("with", {}).get("pattern", "").startswith("report-owner-")
+        ]
+        assert len(owner_downloads) == len(lanes)
+        for lane, download in zip(lanes, owner_downloads, strict=True):
+            settings = download["with"]
+            assert "name" not in settings
+            assert settings["pattern"] == f"report-owner-{lane}-*"
+            assert settings["path"] == (
+                f"artifacts/execution-control/report-rebuild-owner-input/{lane}"
+            )
+            assert settings["merge-multiple"] == "true"
+            for owner in owners:
+                assert fnmatchcase(
+                    f"report-owner-{lane}-{owner['artifact']}", settings["pattern"]
+                )
+            assert not fnmatchcase(
+                f"report-rebuild-{lane}-foundation", settings["pattern"]
+            )
         run = next(step for step in job["steps"] if step.get("run") == target)
         assert set(run["env"]["REBUILD_OWNER_IDS"].split()) == {
             owner["id"] for owner in owners
@@ -423,3 +432,36 @@ def test_report_owner_ci_downloads_preserve_exact_nested_identities() -> None:
     )
     assert partitions["with"]["pattern"] == "report-rebuild-${{ matrix.lane }}-*"
     assert not partitions["with"]["pattern"].startswith("report-owner")
+
+
+def test_owner_lane_root_archives_keep_duplicate_leaf_names_separate(
+    tmp_path: Path,
+) -> None:
+    workflow = yaml.load(
+        WORKFLOW_PATH.read_text(encoding="utf-8"), Loader=yaml.BaseLoader
+    )
+    owner_job = workflow["jobs"]["rebuild-owners"]
+    assert owner_job["steps"][-1]["with"]["path"].endswith("/${{ matrix.lane }}")
+    owners = owner_job["strategy"]["matrix"]["owner"]
+    same_leaf = [row for row in owners if row["id"].endswith("/report-products")]
+    assert len(same_leaf) >= 2
+    selected = same_leaf[:2]
+    merged = tmp_path / "downloaded-owner-lane"
+    merged.mkdir()
+    expected: dict[str, str] = {}
+    for index, owner in enumerate(selected):
+        identity = owner["id"]
+        archive = tmp_path / f"owner-{index}.zip"
+        with ZipFile(archive, "w") as bundle:
+            bundle.writestr(f"{identity}/manifest.json", identity)
+            bundle.writestr(f"{identity}/producer.stderr.log", f"diagnostic {index}")
+            bundle.writestr(f"{identity}/output/{index}.json", f'{{"owner": {index}}}')
+        with ZipFile(archive) as bundle:
+            bundle.extractall(merged)
+        expected[identity] = f"diagnostic {index}"
+    assert {
+        path.relative_to(merged).as_posix() for path in merged.rglob("manifest.json")
+    } == {f"{identity}/manifest.json" for identity in expected}
+    for identity, diagnostic in expected.items():
+        assert (merged / identity / "manifest.json").read_text() == identity
+        assert (merged / identity / "producer.stderr.log").read_text() == diagnostic

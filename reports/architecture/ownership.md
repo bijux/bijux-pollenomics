@@ -300,9 +300,12 @@ Neotoma entity decisions, literal parameter candidates and parameter
 correspondence. These six producers cover only their declared files. The complete report-tree
 comparison remains mandatory and refuses any missing owner. The scientific CI
 workflow schedules these owners in both lanes after the bound partition plan,
-then downloads each artifact into its full domain identity before assembly
-and final verification. Owner jobs retain command and failure diagnostics
-separately from publisher artifacts.
+then merges owner artifacts into each lane before assembly and final
+verification. Each isolated owner job uploads its lane root, so the archive
+retains the full domain identity beneath it. Pattern downloads merge those
+namespaces without inserting artifact labels or collapsing shared leaf names.
+Owner jobs retain command and failure diagnostics separately from publisher
+artifacts.
 
 
 

@@ -495,13 +495,7 @@ jobs:
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
           name: report-owner-${{ matrix.lane }}-${{ matrix.owner.artifact }}
-          path: |
-            artifacts/execution-control/report-rebuild-owner/${{ matrix.lane }}/${{ matrix.owner.id }}/manifest.json
-            artifacts/execution-control/report-rebuild-owner/${{ matrix.lane }}/${{ matrix.owner.id }}/output
-            artifacts/execution-control/report-rebuild-owner/${{ matrix.lane }}/${{ matrix.owner.id }}/producer-command.json
-            artifacts/execution-control/report-rebuild-owner/${{ matrix.lane }}/${{ matrix.owner.id }}/producer-execution.json
-            artifacts/execution-control/report-rebuild-owner/${{ matrix.lane }}/${{ matrix.owner.id }}/producer.stdout.log
-            artifacts/execution-control/report-rebuild-owner/${{ matrix.lane }}/${{ matrix.owner.id }}/producer.stderr.log
+          path: artifacts/execution-control/report-rebuild-owner/${{ matrix.lane }}
           if-no-files-found: error
 
   rebuild-foundation:
@@ -623,41 +617,12 @@ jobs:
           pattern: report-rebuild-${{ matrix.lane }}-*
           path: artifacts/execution-control/report-rebuild-partition-input
 
-      - name: Download solsoe-lineage owner ${{ matrix.lane }}
+      - name: Download configured owner outputs ${{ matrix.lane }}
         uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
         with:
-          name: report-owner-${{ matrix.lane }}-solsoe-lineage
-          path: artifacts/execution-control/report-rebuild-owner-input/${{ matrix.lane }}/countries/denmark/solsoe-source-lineage/report-products
-
-      - name: Download neotoma-summary owner ${{ matrix.lane }}
-        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
-        with:
-          name: report-owner-${{ matrix.lane }}-neotoma-summary
-          path: artifacts/execution-control/report-rebuild-owner-input/${{ matrix.lane }}/source-relations/neotoma/pollen-screen/compact-summary
-
-      - name: Download swedish-model-lineage owner ${{ matrix.lane }}
-        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
-        with:
-          name: report-owner-${{ matrix.lane }}-swedish-model-lineage
-          path: artifacts/execution-control/report-rebuild-owner-input/${{ matrix.lane }}/countries/sweden/pollen-model-lineage/derived-report
-
-      - name: Download neotoma-entities owner ${{ matrix.lane }}
-        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
-        with:
-          name: report-owner-${{ matrix.lane }}-neotoma-entities
-          path: artifacts/execution-control/report-rebuild-owner-input/${{ matrix.lane }}/regions/nordic/source-capability/neotoma-entities/derived-products
-
-      - name: Download neotoma-parameter-candidates owner ${{ matrix.lane }}
-        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
-        with:
-          name: report-owner-${{ matrix.lane }}-neotoma-parameter-candidates
-          path: artifacts/execution-control/report-rebuild-owner-input/${{ matrix.lane }}/source-relations/neotoma/parameter-candidates/report-products
-
-      - name: Download neotoma-parameter-correspondence owner ${{ matrix.lane }}
-        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
-        with:
-          name: report-owner-${{ matrix.lane }}-neotoma-parameter-correspondence
-          path: artifacts/execution-control/report-rebuild-owner-input/${{ matrix.lane }}/source-relations/neotoma/parameter-correspondence/report-products
+          pattern: report-owner-${{ matrix.lane }}-*
+          path: artifacts/execution-control/report-rebuild-owner-input/${{ matrix.lane }}
+          merge-multiple: true
 
       - name: Assemble complete report tree
         shell: bash
@@ -732,77 +697,19 @@ jobs:
           name: report-rebuild-assembly-replay
           path: artifacts/execution-control/report-rebuild-assembly/replay
 
-      - name: Download solsoe-lineage owner reference
+      - name: Download configured owner outputs reference
         uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
         with:
-          name: report-owner-reference-solsoe-lineage
-          path: artifacts/execution-control/report-rebuild-owner-input/reference/countries/denmark/solsoe-source-lineage/report-products
+          pattern: report-owner-reference-*
+          path: artifacts/execution-control/report-rebuild-owner-input/reference
+          merge-multiple: true
 
-      - name: Download neotoma-summary owner reference
+      - name: Download configured owner outputs replay
         uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
         with:
-          name: report-owner-reference-neotoma-summary
-          path: artifacts/execution-control/report-rebuild-owner-input/reference/source-relations/neotoma/pollen-screen/compact-summary
-
-      - name: Download solsoe-lineage owner replay
-        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
-        with:
-          name: report-owner-replay-solsoe-lineage
-          path: artifacts/execution-control/report-rebuild-owner-input/replay/countries/denmark/solsoe-source-lineage/report-products
-
-      - name: Download neotoma-summary owner replay
-        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
-        with:
-          name: report-owner-replay-neotoma-summary
-          path: artifacts/execution-control/report-rebuild-owner-input/replay/source-relations/neotoma/pollen-screen/compact-summary
-
-      - name: Download swedish-model-lineage owner reference
-        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
-        with:
-          name: report-owner-reference-swedish-model-lineage
-          path: artifacts/execution-control/report-rebuild-owner-input/reference/countries/sweden/pollen-model-lineage/derived-report
-
-      - name: Download neotoma-entities owner reference
-        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
-        with:
-          name: report-owner-reference-neotoma-entities
-          path: artifacts/execution-control/report-rebuild-owner-input/reference/regions/nordic/source-capability/neotoma-entities/derived-products
-
-      - name: Download neotoma-parameter-candidates owner reference
-        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
-        with:
-          name: report-owner-reference-neotoma-parameter-candidates
-          path: artifacts/execution-control/report-rebuild-owner-input/reference/source-relations/neotoma/parameter-candidates/report-products
-
-      - name: Download neotoma-parameter-correspondence owner reference
-        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
-        with:
-          name: report-owner-reference-neotoma-parameter-correspondence
-          path: artifacts/execution-control/report-rebuild-owner-input/reference/source-relations/neotoma/parameter-correspondence/report-products
-
-      - name: Download swedish-model-lineage owner replay
-        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
-        with:
-          name: report-owner-replay-swedish-model-lineage
-          path: artifacts/execution-control/report-rebuild-owner-input/replay/countries/sweden/pollen-model-lineage/derived-report
-
-      - name: Download neotoma-entities owner replay
-        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
-        with:
-          name: report-owner-replay-neotoma-entities
-          path: artifacts/execution-control/report-rebuild-owner-input/replay/regions/nordic/source-capability/neotoma-entities/derived-products
-
-      - name: Download neotoma-parameter-candidates owner replay
-        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
-        with:
-          name: report-owner-replay-neotoma-parameter-candidates
-          path: artifacts/execution-control/report-rebuild-owner-input/replay/source-relations/neotoma/parameter-candidates/report-products
-
-      - name: Download neotoma-parameter-correspondence owner replay
-        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
-        with:
-          name: report-owner-replay-neotoma-parameter-correspondence
-          path: artifacts/execution-control/report-rebuild-owner-input/replay/source-relations/neotoma/parameter-correspondence/report-products
+          pattern: report-owner-replay-*
+          path: artifacts/execution-control/report-rebuild-owner-input/replay
+          merge-multiple: true
 
       - name: Verify two-build and tracked-tree equivalence
         shell: bash
