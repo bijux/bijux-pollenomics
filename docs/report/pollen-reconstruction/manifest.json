@@ -4070,6 +4070,11 @@
       "bytes": 14038
     },
     {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/landclim/catalog.py",
+      "sha256": "25b4359f2251f537c48300ddec65076f9b14b56cac561e02f2260d5844b601c0",
+      "bytes": 14309
+    },
+    {
       "path": "packages/bijux-pollenomics/src/bijux_pollenomics/governance/release_readiness.py",
       "sha256": "6c6ef0b12fab5ed68325cd5079346048c4051e24238959e339a92f3b69ad72ca",
       "bytes": 13183
