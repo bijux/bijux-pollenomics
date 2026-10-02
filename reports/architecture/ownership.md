@@ -63,8 +63,8 @@ or qualified scientific review.
 The [output ownership inventory](../../configs/ci/report-ownership.json)
 assigns every tracked report path exactly one declaration. Its population is
 1,938 paths: 709 declared publisher paths, 125 original-R retained source
-files, 50 generated domain outputs, 62 maintained source files, 67
-maintained reader accounts and 925 paths with unresolved output custody.
+files, 52 generated domain outputs, 62 maintained source files, 72
+maintained reader accounts and 918 paths with unresolved output custody.
 These role counts describe the current declarations. They do not measure
 how many outputs have been independently reproduced.
 
@@ -136,6 +136,14 @@ editorial owner. The byte-comparison routes exercise change-time,
 propagation, reconstruction, site leakage and spatial eligibility contracts;
 synthetic agreement does not establish empirical accuracy or source
 admission. Their declarations do not replace actual producer replay.
+
+The Neotoma parameter-name lead and its comparison with the retained author
+parameter report declare their two local report consumers. Five author and
+parameter explanations have an editorial owner. The lookup, mean/covariance
+and author R-script bundle inputs remain external custody requirements for
+three author-derived families; their four numeric outputs remain unresolved.
+Mechanical comparison with a retained author report does not authenticate
+that upstream source or qualify taxonomic and PPE application.
 
 A fresh canonical publisher build from fixed product
 `d535ca7f3bed0ead63e5f96e45658c435ed6613a` produced exactly the 709 declared

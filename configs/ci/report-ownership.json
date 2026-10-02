@@ -5413,37 +5413,69 @@
     },
     {
       "owner_id": "source-relations/neotoma/author-parameter-binding/report-products",
-      "role": "unresolved",
       "paths": [
-        "docs/report/source-relations/neotoma/author-parameter-binding/README.md",
         "docs/report/source-relations/neotoma/author-parameter-binding/report.json"
       ],
-      "producer_paths": [],
+      "producer_inputs": [
+        "docs/report/source-relations/neotoma/author-taxonomy-mass/report.json"
+      ],
+      "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/landclim_parameter_binding.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/neotoma_parameter_mass.py"
+      ],
+      "role": "unresolved",
+      "verification": "Known repository producer `packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/landclim_parameter_binding.py` consumes repository inputs declared here and external LandClim author-reference bundle member(s): author/run.REVEALS.files/av-RPP.all.landclimII.csv (SHA-256 066ebadbe6ab10aead80c74a184284e05b9db3cd1f5daff04249596170a663e2), author/run.REVEALS.files/avar-RPP.all.landclimII.csv (SHA-256 8821de94682c454e3a751897b487c8bf1612cf60994dc6246fb33284a73e9918), author/Kunes_REVEALS_iterate_across_sitelists.R (SHA-256 bc20b58bc1dc5933eb046233d44739d7da006624031aa4863e9a2731b077e341). The author bundle is outside the repository-confined ownership inventory; external bytes/custody were not rechecked here. Preserve this unresolved role until exact lawful bundle identity and use route are bound in a governed source receipt, then run the README command with `--author-source-root` and compare every produced file byte-for-byte. This declaration does not admit a source taxon, denominator, parameter application, or LRA sample."
+    },
+    {
+      "owner_id": "source-relations/neotoma/author-parameter-reader-guides",
+      "paths": [
+        "docs/report/source-relations/neotoma/author-parameter-binding/README.md",
+        "docs/report/source-relations/neotoma/author-taxonomy-candidates/README.md",
+        "docs/report/source-relations/neotoma/author-taxonomy-mass/README.md",
+        "docs/report/source-relations/neotoma/parameter-candidates/README.md",
+        "docs/report/source-relations/neotoma/parameter-correspondence/README.md"
+      ],
       "producer_inputs": [],
-      "verification": "Identify the exact producer or independent source/template custody, lawful input closure and role-specific verification route for these paths. Bind independently reconstructed output or authenticated retained source before full mixed-owner acceptance; tracked output bytes cannot feed their own producer."
+      "producer_paths": [],
+      "role": "maintained_editorial",
+      "verification": "These five READMEs are authored source-scope and result explanations. Check links, denominators, source identities and replay instructions against their governed outputs and retained source accounts; no producer generates these Markdown files and no scientific admission follows from this role."
     },
     {
       "owner_id": "source-relations/neotoma/author-taxonomy-candidates/report-products",
-      "role": "unresolved",
       "paths": [
-        "docs/report/source-relations/neotoma/author-taxonomy-candidates/README.md",
         "docs/report/source-relations/neotoma/author-taxonomy-candidates/report.json"
       ],
-      "producer_paths": [],
-      "producer_inputs": [],
-      "verification": "Identify the exact producer or independent source/template custody, lawful input closure and role-specific verification route for these paths. Bind independently reconstructed output or authenticated retained source before full mixed-owner acceptance; tracked output bytes cannot feed their own producer."
+      "producer_inputs": [
+        "data/neotoma/review/source_taxon_concepts.json",
+        "docs/report/source-relations/neotoma/taxon-priority/priority.json"
+      ],
+      "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/landclim_taxonomy_mass.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/neotoma_author_taxonomy_candidates.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/neotoma_parameter_mass.py"
+      ],
+      "role": "unresolved",
+      "verification": "Known repository producer `packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/neotoma_author_taxonomy_candidates.py` consumes repository inputs declared here and external LandClim author-reference bundle member(s): author/LANDCLIM.ALLEUROPE.taxa.LUT.080219.csv (SHA-256 3a745f9b7606e5d0b59feaba2683b930c8d3990e4810f8217b69160a29a1b507). The author bundle is outside the repository-confined ownership inventory; external bytes/custody were not rechecked here. Preserve this unresolved role until exact lawful bundle identity and use route are bound in a governed source receipt, then run the README command with `--author-source-root` and compare every produced file byte-for-byte. This declaration does not admit a source taxon, denominator, parameter application, or LRA sample."
     },
     {
       "owner_id": "source-relations/neotoma/author-taxonomy-mass/report-products",
-      "role": "unresolved",
       "paths": [
-        "docs/report/source-relations/neotoma/author-taxonomy-mass/README.md",
         "docs/report/source-relations/neotoma/author-taxonomy-mass/bins.csv",
         "docs/report/source-relations/neotoma/author-taxonomy-mass/report.json"
       ],
-      "producer_paths": [],
-      "producer_inputs": [],
-      "verification": "Identify the exact producer or independent source/template custody, lawful input closure and role-specific verification route for these paths. Bind independently reconstructed output or authenticated retained source before full mixed-owner acceptance; tracked output bytes cannot feed their own producer."
+      "producer_inputs": [
+        "docs/report/pollen-reconstruction/swedish-direct-pollen/config.json",
+        "docs/report/pollen-reconstruction/swedish-direct-pollen/exclusions.csv",
+        "docs/report/pollen-reconstruction/swedish-direct-pollen/prepared/dataset-19913.json",
+        "docs/report/pollen-reconstruction/swedish-direct-pollen/prepared/dataset-53995.json",
+        "docs/report/pollen-reconstruction/swedish-direct-pollen/prepared/dataset-54001.json"
+      ],
+      "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/landclim_taxonomy_mass.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/neotoma_parameter_mass.py"
+      ],
+      "role": "unresolved",
+      "verification": "Known repository producer `packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/landclim_taxonomy_mass.py` consumes repository inputs declared here and external LandClim author-reference bundle member(s): author/LANDCLIM.ALLEUROPE.taxa.LUT.080219.csv (SHA-256 3a745f9b7606e5d0b59feaba2683b930c8d3990e4810f8217b69160a29a1b507). The author bundle is outside the repository-confined ownership inventory; external bytes/custody were not rechecked here. Preserve this unresolved role until exact lawful bundle identity and use route are bound in a governed source receipt, then run the README command with `--author-source-root` and compare every produced file byte-for-byte. This declaration does not admit a source taxon, denominator, parameter application, or LRA sample."
     },
     {
       "owner_id": "source-relations/neotoma/boke-basin/report-products",
@@ -5743,25 +5775,34 @@
     },
     {
       "owner_id": "source-relations/neotoma/parameter-candidates/report-products",
-      "role": "unresolved",
       "paths": [
-        "docs/report/source-relations/neotoma/parameter-candidates/README.md",
         "docs/report/source-relations/neotoma/parameter-candidates/report.json"
       ],
-      "producer_paths": [],
-      "producer_inputs": [],
-      "verification": "Identify the exact producer or independent source/template custody, lawful input closure and role-specific verification route for these paths. Bind independently reconstructed output or authenticated retained source before full mixed-owner acceptance; tracked output bytes cannot feed their own producer."
+      "producer_inputs": [
+        "data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv",
+        "docs/report/source-relations/neotoma/taxon-priority/priority.json"
+      ],
+      "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/neotoma_parameter_candidates.py"
+      ],
+      "role": "generated_owner",
+      "verification": "With absent artifact output, run `PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -m bijux_pollenomics_dev.source_completion.neotoma_parameter_candidates --repository . --output artifacts/jobs/neotoma-author-owner-reproduction/parameter-candidates`; then `cmp artifacts/jobs/neotoma-author-owner-reproduction/parameter-candidates/report.json docs/report/source-relations/neotoma/parameter-candidates/report.json`. This is an exact literal-name lead calculation, not taxon approval or LRA admission."
     },
     {
       "owner_id": "source-relations/neotoma/parameter-correspondence/report-products",
-      "role": "unresolved",
       "paths": [
-        "docs/report/source-relations/neotoma/parameter-correspondence/README.md",
         "docs/report/source-relations/neotoma/parameter-correspondence/report.json"
       ],
-      "producer_paths": [],
-      "producer_inputs": [],
-      "verification": "Identify the exact producer or independent source/template custody, lawful input closure and role-specific verification route for these paths. Bind independently reconstructed output or authenticated retained source before full mixed-owner acceptance; tracked output bytes cannot feed their own producer."
+      "producer_inputs": [
+        "docs/report/source-relations/neotoma/author-parameter-binding/report.json",
+        "docs/report/source-relations/neotoma/parameter-candidates/report.json"
+      ],
+      "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/landclim_parameter_correspondence.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/neotoma_parameter_mass.py"
+      ],
+      "role": "generated_owner",
+      "verification": "With absent artifact output, run `PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -m bijux_pollenomics_dev.source_completion.landclim_parameter_correspondence --repository . --output artifacts/jobs/neotoma-author-owner-reproduction/parameter-correspondence`; then `cmp artifacts/jobs/neotoma-author-owner-reproduction/parameter-correspondence/report.json docs/report/source-relations/neotoma/parameter-correspondence/report.json`. This only reconstructs comparison bytes from the two retained report inputs; the upstream author binding remains unresolved and no paper/source authorization is certified."
     },
     {
       "owner_id": "source-relations/neotoma/parameter-coverage/literal-name-counts",
