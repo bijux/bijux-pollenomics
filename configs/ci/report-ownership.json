@@ -7588,17 +7588,19 @@
     },
     {
       "owner_id": "source-relations/neotoma/pollen-screen/compact-summary",
-      "role": "unresolved",
+      "role": "generated_owner",
       "paths": [
         "docs/report/source-relations/neotoma/pollen-screen/summary.json"
       ],
       "producer_paths": [
-        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/neotoma/pollen_screen.py"
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/neotoma_screen_summary.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/models.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/reading.py"
       ],
       "producer_inputs": [
         "docs/report/source-relations/neotoma/pollen-screen/report.json"
       ],
-      "verification": "The full sample-decision consumer does not independently serialize this compact subset. Preserve the summary as unresolved until its exact projection/serialization producer is defined and compared; agreement with selected report fields alone is not owner reproduction."
+      "verification": "Run neotoma_screen_summary with the exact parent report into an absent artifact output and compare summary.json bytes. The exporter verifies candidate population digest, sample decisions, partitions and refusal scope; it neither repeats source screening nor approves chronology, taxonomy, basin/PPE or LRA admission."
     },
     {
       "owner_id": "source-relations/neotoma/pollen-screen/reader-account",

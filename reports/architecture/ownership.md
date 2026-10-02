@@ -212,8 +212,9 @@ The Neotoma acquisition selector, full sample screen, bounded candidate
 series, concept priority, dataset attribution and relational summary declare
 six mechanical outputs. Their raw/normalized source roots and scoped concept
 review remain explicit inputs. Four explanations are editorial. The compact
-sample-screen summary remains unresolved because the full sample-decision
-serializer does not independently produce its selected-field export. Source
+sample-screen summary has a separate exporter that preserves the parent values,
+checks candidate/sample population identity and refuses scientific admission.
+Source
 transport, necessary count/age leads and dataset DOI attribution do not approve
 chronology, taxa, pollen denominator, basin geometry, PPE or LRA admission.
 
