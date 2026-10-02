@@ -444,6 +444,27 @@
       "source_arguments": [],
       "output_mode": "single_file",
       "timeout_seconds": 180
+    },
+    {
+      "module": "bijux_pollenomics_dev.source_completion.sead.integer_values",
+      "output_mode": "directory",
+      "owner_id": "source-relations/sead/analysis-integer-values/report-products",
+      "source_arguments": [],
+      "source_paths": {
+        "source-products/report.json": "docs/report/source-relations/sead/analysis-integer-values/report.json"
+      },
+      "timeout_seconds": 180,
+      "output_subdirectory": "source-products"
+    },
+    {
+      "module": "bijux_pollenomics_dev.source_completion.neotoma.relational_summary",
+      "output_mode": "single_file",
+      "owner_id": "source-relations/neotoma/relational-summary",
+      "source_arguments": [],
+      "source_paths": {
+        "report.json": "docs/report/source-relations/neotoma/summary.json"
+      },
+      "timeout_seconds": 180
     }
   ]
 }

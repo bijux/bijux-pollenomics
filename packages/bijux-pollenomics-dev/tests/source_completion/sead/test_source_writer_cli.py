@@ -9,7 +9,7 @@ from types import ModuleType, SimpleNamespace
 
 import pytest
 
-NAMES = ("numerical_values", "pollen_dataset_screen")
+NAMES = ("numerical_values", "pollen_dataset_screen", "integer_values")
 
 
 def _module(name: str) -> ModuleType:

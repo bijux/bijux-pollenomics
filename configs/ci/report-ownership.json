@@ -7920,15 +7920,8 @@
     },
     {
       "owner_id": "source-relations/neotoma/relational-summary",
-      "role": "generated_owner",
       "paths": [
         "docs/report/source-relations/neotoma/summary.json"
-      ],
-      "producer_paths": [
-        "docs/report/source-relations/neotoma/verify_ownership.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/sources/neotoma/contract.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/sources/neotoma/ownership.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/sources/neotoma/validation.py"
       ],
       "producer_inputs": [
         "data/neotoma/relational/manifest.json",
@@ -7952,6 +7945,15 @@
         "data/neotoma/relational/surfaces/sites/part-00001.json",
         "data/neotoma/relational/surfaces/variables/part-00001.json"
       ],
+      "producer_paths": [
+        "docs/report/source-relations/neotoma/verify_ownership.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/neotoma/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/neotoma/relational_summary.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/sources/neotoma/contract.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/sources/neotoma/ownership.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/sources/neotoma/validation.py"
+      ],
+      "role": "generated_owner",
       "verification": "Run verify_ownership.py with the exact normalized root and capture its JSON stdout unchanged. It validates manifested transport and ancestry; null chronology references and all scientific admission refusals remain explicit."
     },
     {
@@ -8379,14 +8381,8 @@
     },
     {
       "owner_id": "source-relations/sead/analysis-integer-values/report-products",
-      "role": "generated_owner",
       "paths": [
         "docs/report/source-relations/sead/analysis-integer-values/report.json"
-      ],
-      "producer_paths": [
-        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sead_analysis_integer_values.py",
-        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sead_analysis_numerical_values.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/sources/sead.py"
       ],
       "producer_inputs": [
         "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_materialization_manifest.json",
@@ -8430,6 +8426,14 @@
         "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_value_classes.json",
         "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_value_types.json"
       ],
+      "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sead/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sead/integer_values.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sead_analysis_integer_values.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sead_analysis_numerical_values.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/sources/sead.py"
+      ],
+      "role": "generated_owner",
       "verification": "From repository root with an absent destination, run `PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -m bijux_pollenomics_dev.source_completion.sead_analysis_integer_values --data-root data --output artifacts/jobs/sead-source-owner-reproduction/analysis-integer-values`. After all six family destinations exist, run `PYTHONDONTWRITEBYTECODE=1 .venv/bin/python docs/report/source-relations/sead/verify_report_owners.py --repository . --output-root artifacts/jobs/sead-source-owner-reproduction --compare-existing` to compare all 11 generated files byte for byte with governed outputs. This owner declaration and past replays do not authenticate a current full source plan or scientific admission."
     },
     {
