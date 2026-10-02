@@ -892,6 +892,19 @@
         "source-products/predictions.json": "docs/report/regions/nordic/sambosjon-direct-pollen/frozen/predictions.json"
       },
       "timeout_seconds": 600
+    },
+    {
+      "owner_id": "regions/nordic/sambosjon-direct-pollen/scored-products",
+      "module": "bijux_pollenomics_dev.source_completion.nordic.sambosjon_scores",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "source_arguments": [],
+      "source_paths": {
+        "source-products/coverage.csv": "docs/report/regions/nordic/sambosjon-direct-pollen/coverage.csv",
+        "source-products/report.json": "docs/report/regions/nordic/sambosjon-direct-pollen/report.json",
+        "source-products/scores.csv": "docs/report/regions/nordic/sambosjon-direct-pollen/scores.csv"
+      },
+      "timeout_seconds": 600
     }
   ]
 }
