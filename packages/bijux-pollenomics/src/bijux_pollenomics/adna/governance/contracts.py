@@ -1,7 +1,8 @@
 from __future__ import annotations
 
-from dataclasses import asdict, dataclass
+from dataclasses import dataclass
 from pathlib import Path
+from typing import TypedDict
 
 from bijux_pollenomics.adna.workflow.paths import (
     adna_governance_root,
@@ -34,7 +35,33 @@ class ProjectSurfaceRequirement:
     purpose: str
 
 
-def build_adna_governance_role_registry() -> dict[str, object]:
+class GovernanceRoleRow(TypedDict):
+    role_key: str
+    display_name: str
+    path_pattern: str
+    owned_responsibility: str
+    example_artifacts: tuple[str, ...]
+
+
+class GovernanceRoleRegistry(TypedDict):
+    schema_version: str
+    row_count: int
+    rows: list[GovernanceRoleRow]
+
+
+class ProjectSurfaceRow(TypedDict):
+    artifact_key: str
+    required_files: tuple[str, ...]
+    purpose: str
+
+
+class ProjectSurfaceContract(TypedDict):
+    schema_version: str
+    project_path_pattern: str
+    artifact_groups: list[ProjectSurfaceRow]
+
+
+def build_adna_governance_role_registry() -> GovernanceRoleRegistry:
     """Build the durable role split for the animal ancient-DNA governance tree."""
     rows = (
         GovernanceRoleRecord(
@@ -81,11 +108,20 @@ def build_adna_governance_role_registry() -> dict[str, object]:
     return {
         "schema_version": "adna-governance-role-registry.v1",
         "row_count": len(rows),
-        "rows": [asdict(row) for row in rows],
+        "rows": [
+            {
+                "role_key": row.role_key,
+                "display_name": row.display_name,
+                "path_pattern": row.path_pattern,
+                "owned_responsibility": row.owned_responsibility,
+                "example_artifacts": row.example_artifacts,
+            }
+            for row in rows
+        ],
     }
 
 
-def build_source_library_project_surface_contract() -> dict[str, object]:
+def build_source_library_project_surface_contract() -> ProjectSurfaceContract:
     """Build the file contract that every tracked project directory must satisfy."""
     requirements = (
         ProjectSurfaceRequirement(
@@ -150,7 +186,14 @@ def build_source_library_project_surface_contract() -> dict[str, object]:
         "project_path_pattern": (
             "data/adna/governance/source_library/projects/<project_accession>/"
         ),
-        "artifact_groups": [asdict(requirement) for requirement in requirements],
+        "artifact_groups": [
+            {
+                "artifact_key": requirement.artifact_key,
+                "required_files": requirement.required_files,
+                "purpose": requirement.purpose,
+            }
+            for requirement in requirements
+        ],
     }
 
 

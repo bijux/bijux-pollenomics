@@ -3965,6 +3965,11 @@
       "bytes": 7587
     },
     {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/adna/governance/contracts.py",
+      "sha256": "85f7eb10d617324b96167e3fb351fce8a1d8a8fa07c794b5712ba3b9ea2adb36",
+      "bytes": 9910
+    },
+    {
       "path": "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/api.py",
       "sha256": "4b47c5e1a1430f4a20a95e0ed34f9dac1f67f4b0e9698f6df3ce433b9e941e9f",
       "bytes": 3682
@@ -4003,6 +4008,11 @@
       "path": "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/adna/public_outputs/atlas_readiness.py",
       "sha256": "2b7d752b611da776d54c2f2ab889c38ca43c0149bfb130b269f018528ea439fc",
       "bytes": 23316
+    },
+    {
+      "path": "packages/bijux-pollenomics/tests/unit/adna/governance/test_contract_payloads.py",
+      "sha256": "d2898b3da1644b1fd89410faa57c4cef558ebb8d8403cb560010cd31b3b10de9",
+      "bytes": 2098
     },
     {
       "path": "packages/bijux-pollenomics/tests/unit/reporting/adna/public_outputs/test_atlas_readiness_rows.py",
