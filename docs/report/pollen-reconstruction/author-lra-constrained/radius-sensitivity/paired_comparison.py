@@ -10,7 +10,6 @@ from pathlib import Path
 from statistics import mean
 from typing import Any
 
-
 EXPECTED = {
     "radius_report": "d2c10a128acb00425c5c785ce195ad245bcf1b428f0f4a4d75d0f7aa95f11129",
     "radius_scores": "60bf6b4cc25bf94a9afbb241370d55e7be17239c20e25881b4cc862e452eb494",
@@ -72,9 +71,8 @@ def produce(study: Path, output: Path) -> None:
         original = direct_mae[key]
         distance = direct_hellinger[key]
         if (
-            source["observation_sha256"]
-            != original["target_raw_sha256"]
-            != distance["target_raw_sha256"]
+            source["observation_sha256"] != original["target_raw_sha256"]
+            or source["observation_sha256"] != distance["target_raw_sha256"]
             or int(source["observed_count"]) != distance["observed_total_count"]
             or original["lra_prediction_identity"]
             != distance["lra_prediction_identity"]

@@ -871,13 +871,13 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/author-lra-constrained/radius-sensitivity/paired/report.json",
-      "sha256": "63a90bd5566fd944e86c0b8be96a0fee5a5713be29d52873b473d9752c0b3601",
+      "sha256": "c1bf2d0ef2b4eecde08cc4ff372e0d99a18dbad30d05d20a2ccbdc73504eba67",
       "bytes": 5514
     },
     {
       "path": "docs/report/pollen-reconstruction/author-lra-constrained/radius-sensitivity/paired_comparison.py",
-      "sha256": "abfdbd5c1f07c401cdf533e7e47585545b071b399cab623c7c0aa153833b186f",
-      "bytes": 7575
+      "sha256": "3675bd6025bf45b7e80379afe96c1e6e1609247d285494601a173afee3023419",
+      "bytes": 7594
     },
     {
       "path": "docs/report/pollen-reconstruction/author-lra-constrained/radius-sensitivity/scored/report.json",
@@ -1081,8 +1081,8 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/verify_report.py",
-      "sha256": "49a77c20910def8698fbd3a5c95f4712c5cfc75826c2a908fece63257cbd2897",
-      "bytes": 49441
+      "sha256": "25ae3323fe09765559d57408e89d727dbdd3d0d15b1cc58fe9a05612bd0761b5",
+      "bytes": 49456
     },
     {
       "path": "docs/report/publication-replay/landclim-amsoldingersee-source-review/README.md",
@@ -3160,6 +3160,16 @@
       "bytes": 5349
     },
     {
+      "path": "packages/bijux-pollenomics-dev/tests/source_completion/author_lra/test_radius_observation_identity.py",
+      "sha256": "18a4bc94d69240cba76a413724bdedb2fe30231d0a8e6a563b04e2bcace26916",
+      "bytes": 6275
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/tests/source_completion/author_lra/test_radius_report_population.py",
+      "sha256": "96aae33714483f907e260ace15a5ecdaf8db97d0782087c3576a78bc1c5caf99",
+      "bytes": 1824
+    },
+    {
       "path": "packages/bijux-pollenomics-dev/tests/source_completion/neotoma/test_relational_summary_cli.py",
       "sha256": "7f570c64e10cf6f5efc1dc2d5f9454b3740be9710b1f21ca10bf6ac933398855",
       "bytes": 4864
@@ -3431,7 +3441,7 @@
     },
     {
       "path": "reports/exports/site-downloads.json",
-      "sha256": "6780644f8152a72d8aa0715bd75000db84f6450dedf1b1fb10fc110b6cdd71fe",
+      "sha256": "bc7978c175d5c53e73c3ebb9309fe27246d3e7939f9a020603b724b3f523aeb6",
       "bytes": 5774
     },
     {

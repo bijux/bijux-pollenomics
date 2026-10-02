@@ -2,7 +2,7 @@
   "interpretation": "Prior-exposed English 30-target development comparison. Direct pollen and fixed-vegetation LRA forward pollen share target observations, but not training information. Radius variants are modeled geometry assumptions, not calibrated basins or refitted LOVE.",
   "matched_sites": 14,
   "paired_rows": 126,
-  "producer_sha256": "abfdbd5c1f07c401cdf533e7e47585545b071b399cab623c7c0aa153833b186f",
+  "producer_sha256": "3675bd6025bf45b7e80379afe96c1e6e1609247d285494601a173afee3023419",
   "schema_version": "author-lra-radius-direct-paired.v1",
   "source_sha256": {
     "direct_hellinger": "91255eda5f958f7072ea489dfc36201360b7aaa5f019e5f0c91f3e2a59830950",
