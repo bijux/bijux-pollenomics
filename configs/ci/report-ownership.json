@@ -8446,6 +8446,8 @@
         "docs/report/source-relations/sead/analysis-numerical-values/values.csv"
       ],
       "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sead/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sead/numerical_values.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sead_analysis_numerical_values.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/sources/sead.py"
       ],
@@ -8743,6 +8745,8 @@
         "docs/report/source-relations/sead/pollen-named-dataset-screen/sample-observations.csv"
       ],
       "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sead/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sead/pollen_dataset_screen.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sead_pollen_screen.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/sources/sead.py"
       ],

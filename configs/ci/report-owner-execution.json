@@ -383,6 +383,42 @@
       "source_arguments": [],
       "output_mode": "single_file",
       "timeout_seconds": 180
+    },
+    {
+      "owner_id": "source-relations/landclim/map-export-lineage/derived-transport-ledger",
+      "module": "bijux_pollenomics_dev.source_completion.landclim_map_export_lineage",
+      "source_paths": {
+        "source-products/report.json": "docs/report/source-relations/landclim/map-export-lineage/report.json",
+        "source-products/rows.csv": "docs/report/source-relations/landclim/map-export-lineage/rows.csv"
+      },
+      "source_arguments": [],
+      "output_mode": "directory",
+      "timeout_seconds": 180,
+      "output_subdirectory": "source-products"
+    },
+    {
+      "owner_id": "source-relations/sead/analysis-numerical-values/report-products",
+      "module": "bijux_pollenomics_dev.source_completion.sead.numerical_values",
+      "source_paths": {
+        "source-products/report.json": "docs/report/source-relations/sead/analysis-numerical-values/report.json",
+        "source-products/values.csv": "docs/report/source-relations/sead/analysis-numerical-values/values.csv"
+      },
+      "source_arguments": [],
+      "output_mode": "directory",
+      "timeout_seconds": 180,
+      "output_subdirectory": "source-products"
+    },
+    {
+      "owner_id": "source-relations/sead/pollen-named-dataset-screen/report-products",
+      "module": "bijux_pollenomics_dev.source_completion.sead.pollen_dataset_screen",
+      "source_paths": {
+        "source-products/report.json": "docs/report/source-relations/sead/pollen-named-dataset-screen/report.json",
+        "source-products/sample-observations.csv": "docs/report/source-relations/sead/pollen-named-dataset-screen/sample-observations.csv"
+      },
+      "source_arguments": [],
+      "output_mode": "directory",
+      "timeout_seconds": 180,
+      "output_subdirectory": "source-products"
     }
   ]
 }

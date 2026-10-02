@@ -283,53 +283,43 @@ A report itself may be named `manifest.json` without becoming an owner receipt.
 Each receipt must match its full directory identity and lane; unsafe paths,
 symlink namespaces, malformed receipts and changed inputs remain refusals.
 
-The configured owner runner exposes bounded commands for the Solsø root
-lineage report and Neotoma compact screen summary. Its configuration selects
-the module, output map and timeout; the current ownership inventory supplies
-the exact code and data read set. Directory producers must map their complete
-declared output set without duplicate destinations. Producers that require an
-absent destination use a canonical output subdirectory beneath the execution
-root; each produced path must remain inside that subdirectory. Their overwrite
-guards stay active. Single-file producers
-require one output. Every fresh output and tracked oracle must match the
-identity captured before execution. Native source CLIs may explicitly omit
-the producer `--repository` argument while the runtime still binds and checks
-the candidate repository. Only named source-path flags are accepted, and
-each path must be a declared producer input. The child interpreter loads
-candidate source paths and refuses a different module origin. `make build-report-rebuild-owner`
-uses `REBUILD_LANE`, `REBUILD_OWNER_ID` and an absent `REBUILD_EVIDENCE_ROOT`.
-The assembly target accepts `REBUILD_OWNER_IDS` and
+The configured owner runner executes bounded native producers listed in the
+[execution configuration](../../configs/ci/report-owner-execution.json).
+The [ownership inventory](../../configs/ci/report-ownership.json) supplies
+each producer's exact code and data read set. The configuration is the authority
+for scheduled modules, complete output maps, source arguments and time bounds.
+
+| Producer family | Covered source accounts | Meaning of reproduced bytes |
+| --- | --- | --- |
+| Source lineage and parameter binding | Solsø lineage, Swedish model lineage, Nordic Neotoma entity decisions, literal parameter candidates, correspondence and count coverage | Retained identities and literal source compatibility; parameter admission stays separate. |
+| Observed and modeled source views | Swedish observed-pollen transitions, Nordic LandClim panels, map transport lineage and candidate site overlaps | Direct pollen and modeled context remain distinct. Polygon, calendar, geometry and metric code belongs in the producer closure. |
+| Core and site identity | Abborrtjärnen, Swedish lake cores and LandClim site correspondence | Workbook, source receipt, native archive, count-mass and projection inputs are explicit. Their upstream custody remains separate; comparison does not admit a core, basin or LRA request. |
+| Country and capability accounting | Nordic country capability, SEAD retrieval, coverage and source units, native-variable reconciliation and capability evidence | Source, assigned and publication countries remain separate. Every retained manifest member is an input; missing evidence remains missing. |
+| Source chronology | Danish pollen chronology coverage, SEAD age accounting, record intervals and chronology-country accounting | Source age interpretation and interval accounting preserve refusals; they do not establish event or LRA admission. |
+| Source custody and source posture | Compact Neotoma sample display, retained acquisition selection, SEAD public custody, typed numerical values, pollen-named dataset screens and DNA accounts | Retained source bindings and read sets are checked. Original HTTP capture, DNA rights and ecological admission still require their own evidence. |
+
+Directory producers must map their complete declared output set without duplicate
+destinations. Producers that require an absent destination use a canonical output
+subdirectory beneath the execution root; every produced path must stay inside it.
+Their overwrite guards remain active. Single-file producers require one output.
+Every fresh output and tracked oracle must match the identity captured before
+execution. A missing expected source path becoming present reopens its read set
+and report identity.
+
+Native source CLIs may explicitly omit the producer `--repository` argument while
+the runtime still binds and checks the candidate repository. Only named source
+path flags are accepted, and every path must be a declared producer input. The
+child interpreter loads candidate source paths and refuses a different module
+origin. Maintained SEAD chronology entry points and Danish/Neotoma replay adapters
+preserve their underlying writers' numerical behavior, serialization and source
+refusals; their wrapper code is part of the declared producer closure.
+
+`make build-report-rebuild-owner` uses `REBUILD_LANE`, `REBUILD_OWNER_ID` and an
+absent `REBUILD_EVIDENCE_ROOT`. Assembly accepts `REBUILD_OWNER_IDS` and
 `REBUILD_OWNER_ARTIFACTS_ROOT`; final verification accepts the same identities
 and both `REBUILD_REFERENCE_OWNERS_ROOT` and `REBUILD_REPLAY_OWNERS_ROOT`.
-The same configured route also covers Swedish model-lineage metadata, Nordic
-Neotoma entity decisions, literal parameter candidates and parameter
-correspondence. Four directory producers also retain both JSON and CSV for
-Swedish observed-pollen transitions, Nordic modeled panels, native count
-coverage and candidate site overlaps. The modeled-panel declaration binds
-the polygon, calendar, geometry and metric helpers used in its calculation.
-Three native core/site consumers add seven Markdown, JSON and CSV outputs,
-with explicit workbook, receipt, raw archive, count-mass and projection inputs.
-Their count and projection parents retain separate custody requirements;
-comparison does not admit a core, basin or LRA request. Three source-ledger
-consumers add six country-capability, SEAD retrieval and chronology-accounting
-outputs from their retained source and governed country ledgers. Their source,
-assigned and publication country meanings remain separate, including chronology
-refusals. SEAD country-coverage and source-unit consumers add four outputs,
-with every retained manifest member and table receipt in their read sets.
-Two confined SEAD chronology entry points expose the existing age-accounting
-and record-interval writers with unchanged inputs, numerical behavior and
-refusals. Their declarations include the maintained wrapper package. These
-twenty-eight producers cover only their declared files. The Danish chronology
-coverage and compact Neotoma sample accounts use confined adapters for their
-existing replay writers and preserve their source-accounting scope. Native
-Neotoma acquisition-selection and two DNA source accounts add three existing
-CLI producers. The acquisition declaration includes its actual text and
-spatial classification code closure; original HTTP capture, DNA rights and
-ecological admission remain separate requirements. Source-capability evidence,
-SEAD public custody and native Neotoma variable reconciliation add three
-source-status accounts, including explicit missing-evidence refusals. The
-complete report-tree
-comparison remains mandatory and refuses any missing owner. The scientific CI
+Reproducing a configured subset establishes only those owners' declared files.
+The complete report-tree comparison remains mandatory and refuses any missing owner. The scientific CI
 workflow derives the owner matrix and assembly selection from the same
 validated execution configuration, using a digest of each full identity as
 its artifact label. Preflight rejects unsafe or hidden identities, ancestor
@@ -341,9 +331,6 @@ retains the full domain identity beneath it. Pattern downloads merge those
 namespaces without inserting artifact labels or collapsing shared leaf names.
 Owner jobs retain command and failure diagnostics separately from publisher
 artifacts.
-
-
-
 
 The [method correspondence](../science/method-correspondence.md),
 [publication correspondence](../science/publication-correspondence.md),
