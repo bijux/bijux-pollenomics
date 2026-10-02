@@ -217,6 +217,13 @@ serializer does not independently produce its selected-field export. Source
 transport, necessary count/age leads and dataset DOI attribution do not approve
 chronology, taxa, pollen denominator, basin geometry, PPE or LRA admission.
 
+The LandClim publication declarations distinguish five metadata inventory
+products and three descriptive one-SE envelope products from ten authored
+accounts. Twenty-five historical/private files remain unresolved, including
+original R captures, author crosswalks, window inputs and verification-only
+manifests. The 1,128-row metadata population and 124 matched TW2 values do not
+establish the original full study input chain or independent vegetation accuracy.
+
 A fresh canonical publisher build from fixed product
 `d535ca7f3bed0ead63e5f96e45658c435ed6613a` produced exactly the 709 declared
 publisher paths, with no missing or extra output. Its path-set digest is

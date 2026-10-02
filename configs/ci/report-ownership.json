@@ -3652,137 +3652,301 @@
       "verification": "Use the maintained source-first-observed CLI with --repository . --output to an artifacts path, compare JSON bytes with the retained report; focused test test_retained_readiness_matches_replay_without_event_promotion checks same producer. Verify all 14 native part hashes and two site exports. No event promotion or ecological route follows."
     },
     {
-      "owner_id": "publication-replay/landclim-amsoldingersee-source-review/report-products",
-      "role": "unresolved",
+      "owner_id": "publication-replay/landclim-amsoldingersee-source-review/reader-account",
       "paths": [
-        "docs/report/publication-replay/landclim-amsoldingersee-source-review/README.md",
+        "docs/report/publication-replay/landclim-amsoldingersee-source-review/README.md"
+      ],
+      "producer_inputs": [],
+      "producer_paths": [],
+      "role": "maintained_editorial",
+      "verification": "Authored scope and source-accounting account. Linked results remain bounded by their exact original/private inputs, revision, denominators and refusal statements; this prose does not certify historical LandClim reproduction or independent vegetation accuracy."
+    },
+    {
+      "owner_id": "publication-replay/landclim-amsoldingersee-source-review/report-products",
+      "paths": [
         "docs/report/publication-replay/landclim-amsoldingersee-source-review/report.json"
       ],
-      "producer_paths": [],
+      "producer_inputs": [
+        "data/landclim/review/amsoldingersee-source-inputs.json"
+      ],
+      "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/landclim_amsoldingersee_recovery.py"
+      ],
+      "role": "unresolved",
+      "verification": "The review producer requires fourteen pinned private Neotoma/API capture files and an exact Amsoldingersee source-root. The repository manifest alone does not supply those bytes. Retain the recorded source-identification refusals; this is not a 1,128-sequence replay."
+    },
+    {
+      "owner_id": "publication-replay/landclim-author-example-correspondence/reader-account",
+      "paths": [
+        "docs/report/publication-replay/landclim-author-example-correspondence/README.md"
+      ],
       "producer_inputs": [],
-      "verification": "Identify the exact producer or independent source/template custody, lawful input closure and role-specific verification route for these paths. Bind independently reconstructed output or authenticated retained source before full mixed-owner acceptance; tracked output bytes cannot feed their own producer."
+      "producer_paths": [],
+      "role": "maintained_editorial",
+      "verification": "Authored scope and source-accounting account. Linked results remain bounded by their exact original/private inputs, revision, denominators and refusal statements; this prose does not certify historical LandClim reproduction or independent vegetation accuracy."
     },
     {
       "owner_id": "publication-replay/landclim-author-example-correspondence/report-products",
-      "role": "unresolved",
       "paths": [
-        "docs/report/publication-replay/landclim-author-example-correspondence/README.md",
         "docs/report/publication-replay/landclim-author-example-correspondence/REPORT.md",
         "docs/report/publication-replay/landclim-author-example-correspondence/manifest.json",
         "docs/report/publication-replay/landclim-author-example-correspondence/paper-correspondence.csv",
         "docs/report/publication-replay/landclim-author-example-correspondence/report.json"
       ],
-      "producer_paths": [],
+      "producer_inputs": [
+        "docs/report/publication-replay/landclim-method-profile/reference/512/run-manifest.json",
+        "docs/report/publication-replay/landclim-method-profile/reference/562/run-manifest.json",
+        "docs/report/publication-replay/landclim-method-profile/reference/report.json"
+      ],
+      "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/author_example_correspondence.py"
+      ],
+      "role": "unresolved",
+      "verification": "The producer reads a private exact author-R reference/crosswalk and original two-grid run receipt. Generated CSV/Markdown/JSON can be compared only with that source custody; manifest.json describes a historical original run and is not written by the producer. Parity covers supported author-example values, not the full paper population."
+    },
+    {
+      "owner_id": "publication-replay/landclim-example-reexecution/reader-account",
+      "paths": [
+        "docs/report/publication-replay/landclim-example-reexecution/README.md"
+      ],
       "producer_inputs": [],
-      "verification": "Identify the exact producer or independent source/template custody, lawful input closure and role-specific verification route for these paths. Bind independently reconstructed output or authenticated retained source before full mixed-owner acceptance; tracked output bytes cannot feed their own producer."
+      "producer_paths": [],
+      "role": "maintained_editorial",
+      "verification": "Authored scope and source-accounting account. Linked results remain bounded by their exact original/private inputs, revision, denominators and refusal statements; this prose does not certify historical LandClim reproduction or independent vegetation accuracy."
     },
     {
       "owner_id": "publication-replay/landclim-example-reexecution/report-products",
-      "role": "unresolved",
       "paths": [
-        "docs/report/publication-replay/landclim-example-reexecution/README.md",
         "docs/report/publication-replay/landclim-example-reexecution/report.json"
       ],
-      "producer_paths": [],
+      "producer_inputs": [
+        "docs/report/publication-replay/landclim-method-profile/report.json"
+      ],
+      "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/author_lra_run.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/example_reexecution.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/reconcile.py"
+      ],
+      "role": "unresolved",
+      "verification": "The report records a private 193-member author snapshot, isolated R library, actual R/native process outputs and environment. It cannot be independently regenerated from repository inputs alone; a fresh execution is a new receipt and needs its own source/runtime qualification."
+    },
+    {
+      "owner_id": "publication-replay/landclim-method-profile/reader-account",
+      "paths": [
+        "docs/report/publication-replay/landclim-method-profile/README.md"
+      ],
       "producer_inputs": [],
-      "verification": "Identify the exact producer or independent source/template custody, lawful input closure and role-specific verification route for these paths. Bind independently reconstructed output or authenticated retained source before full mixed-owner acceptance; tracked output bytes cannot feed their own producer."
+      "producer_paths": [],
+      "role": "maintained_editorial",
+      "verification": "Authored scope and source-accounting account. Linked results remain bounded by their exact original/private inputs, revision, denominators and refusal statements; this prose does not certify historical LandClim reproduction or independent vegetation accuracy."
+    },
+    {
+      "owner_id": "publication-replay/landclim-method-profile/reference-captures",
+      "paths": [
+        "docs/report/publication-replay/landclim-method-profile/reference/512/run-manifest.json",
+        "docs/report/publication-replay/landclim-method-profile/reference/562/run-manifest.json",
+        "docs/report/publication-replay/landclim-method-profile/reference/report.json"
+      ],
+      "producer_inputs": [],
+      "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/author_lra_run.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/reconcile.py"
+      ],
+      "role": "unresolved",
+      "verification": "These three JSON files retain historical independent author-R run receipts. A private author snapshot, exact R library and original execution custody are required; the method-profile report cannot authenticate its own inputs."
     },
     {
       "owner_id": "publication-replay/landclim-method-profile/report-products",
-      "role": "unresolved",
       "paths": [
-        "docs/report/publication-replay/landclim-method-profile/README.md",
         "docs/report/publication-replay/landclim-method-profile/example_inputs.csv",
         "docs/report/publication-replay/landclim-method-profile/method_crosswalk.csv",
-        "docs/report/publication-replay/landclim-method-profile/reference/512/run-manifest.json",
-        "docs/report/publication-replay/landclim-method-profile/reference/562/run-manifest.json",
-        "docs/report/publication-replay/landclim-method-profile/reference/report.json",
         "docs/report/publication-replay/landclim-method-profile/report.json"
       ],
-      "producer_paths": [],
-      "producer_inputs": [],
-      "verification": "Identify the exact producer or independent source/template custody, lawful input closure and role-specific verification route for these paths. Bind independently reconstructed output or authenticated retained source before full mixed-owner acceptance; tracked output bytes cannot feed their own producer."
+      "producer_inputs": [
+        "docs/report/publication-replay/landclim-method-profile/reference/512/run-manifest.json",
+        "docs/report/publication-replay/landclim-method-profile/reference/562/run-manifest.json",
+        "docs/report/publication-replay/landclim-method-profile/reference/report.json"
+      ],
+      "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/method_profile.py"
+      ],
+      "role": "unresolved",
+      "verification": "Method crosswalk, example-input ledger and method report require the private author snapshot. The three reference JSONs are retained original R run records; they cannot be established by self-feeding the method-profile verifier. Keep all six numeric/capture paths unresolved until the exact private snapshot and R execution custody are bound."
     },
     {
-      "owner_id": "publication-replay/landclim-pft-crosswalk/report-products",
-      "role": "unresolved",
+      "owner_id": "publication-replay/landclim-pft-crosswalk/reader-account",
       "paths": [
         "docs/report/publication-replay/landclim-pft-crosswalk/README.md"
       ],
-      "producer_paths": [],
       "producer_inputs": [],
-      "verification": "Identify the exact producer or independent source/template custody, lawful input closure and role-specific verification route for these paths. Bind independently reconstructed output or authenticated retained source before full mixed-owner acceptance; tracked output bytes cannot feed their own producer."
+      "producer_paths": [],
+      "role": "maintained_editorial",
+      "verification": "Authored scope and source-accounting account. Linked results remain bounded by their exact original/private inputs, revision, denominators and refusal statements; this prose does not certify historical LandClim reproduction or independent vegetation accuracy."
+    },
+    {
+      "owner_id": "publication-replay/landclim-published-window-correspondence/reader-account",
+      "paths": [
+        "docs/report/publication-replay/landclim-published-window-correspondence/README.md"
+      ],
+      "producer_inputs": [],
+      "producer_paths": [],
+      "role": "maintained_editorial",
+      "verification": "Authored scope and source-accounting account. Linked results remain bounded by their exact original/private inputs, revision, denominators and refusal statements; this prose does not certify historical LandClim reproduction or independent vegetation accuracy."
     },
     {
       "owner_id": "publication-replay/landclim-published-window-correspondence/report-products",
-      "role": "unresolved",
       "paths": [
-        "docs/report/publication-replay/landclim-published-window-correspondence/README.md",
         "docs/report/publication-replay/landclim-published-window-correspondence/REPORT.md",
         "docs/report/publication-replay/landclim-published-window-correspondence/manifest.json",
         "docs/report/publication-replay/landclim-published-window-correspondence/paper-correspondence.csv",
         "docs/report/publication-replay/landclim-published-window-correspondence/report.json"
       ],
-      "producer_paths": [],
+      "producer_inputs": [
+        "data/landclim/raw/landclim_ii_reveals_results.zip",
+        "data/landclim/raw/landclim_sources.json",
+        "docs/report/publication-replay/landclim-author-example-correspondence/report.json"
+      ],
+      "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/published_window_correspondence.py"
+      ],
+      "role": "unresolved",
+      "verification": "The exact-TW2 producer needs the private author crosswalk and two-grid run/reference receipts in addition to the pinned June 2021 archive. Its historical manifest is verification-only. The documented archive gaps are cross-revision differences without a causal diagnosis or pass tolerance."
+    },
+    {
+      "owner_id": "publication-replay/landclim-published-window-provenance/reader-account",
+      "paths": [
+        "docs/report/publication-replay/landclim-published-window-provenance/README.md"
+      ],
       "producer_inputs": [],
-      "verification": "Identify the exact producer or independent source/template custody, lawful input closure and role-specific verification route for these paths. Bind independently reconstructed output or authenticated retained source before full mixed-owner acceptance; tracked output bytes cannot feed their own producer."
+      "producer_paths": [],
+      "role": "maintained_editorial",
+      "verification": "Authored scope and source-accounting account. Linked results remain bounded by their exact original/private inputs, revision, denominators and refusal statements; this prose does not certify historical LandClim reproduction or independent vegetation accuracy."
     },
     {
       "owner_id": "publication-replay/landclim-published-window-provenance/report-products",
-      "role": "unresolved",
       "paths": [
-        "docs/report/publication-replay/landclim-published-window-provenance/README.md",
         "docs/report/publication-replay/landclim-published-window-provenance/REPORT.md",
         "docs/report/publication-replay/landclim-published-window-provenance/manifest.json",
         "docs/report/publication-replay/landclim-published-window-provenance/paper-correspondence.csv",
         "docs/report/publication-replay/landclim-published-window-provenance/report.json"
       ],
-      "producer_paths": [],
-      "producer_inputs": [],
-      "verification": "Identify the exact producer or independent source/template custody, lawful input closure and role-specific verification route for these paths. Bind independently reconstructed output or authenticated retained source before full mixed-owner acceptance; tracked output bytes cannot feed their own producer."
+      "producer_inputs": [
+        "docs/report/publication-replay/landclim-author-example-correspondence/paper-correspondence.csv",
+        "docs/report/publication-replay/landclim-author-example-correspondence/report.json",
+        "docs/report/publication-replay/landclim-published-window-correspondence/paper-correspondence.csv",
+        "docs/report/publication-replay/landclim-published-window-correspondence/report.json"
+      ],
+      "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/published_window_correspondence.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/published_window_provenance.py"
+      ],
+      "role": "unresolved",
+      "verification": "The 124-value producer also requires private taxon-name-crosswalk.csv (retained SHA in manifest). Four repository correspondence files cannot replace it. Manifest is a historical input/output identity record, not an independently written output. Keep historical raw-input closure and vegetation accuracy unestablished."
     },
     {
-      "owner_id": "publication-replay/landclim-published-window-uncertainty/report-products",
-      "role": "unresolved",
+      "owner_id": "publication-replay/landclim-published-window-uncertainty/envelope-products",
       "paths": [
-        "docs/report/publication-replay/landclim-published-window-uncertainty/README.md",
         "docs/report/publication-replay/landclim-published-window-uncertainty/REPORT.md",
-        "docs/report/publication-replay/landclim-published-window-uncertainty/manifest.json",
+        "docs/report/publication-replay/landclim-published-window-uncertainty/report.json",
+        "docs/report/publication-replay/landclim-published-window-uncertainty/taxon-envelopes.csv"
+      ],
+      "producer_inputs": [
+        "docs/report/publication-replay/landclim-published-window-provenance/paper-correspondence.csv",
+        "docs/report/publication-replay/landclim-published-window-provenance/report.json"
+      ],
+      "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/published_window_correspondence.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/published_window_uncertainty.py"
+      ],
+      "role": "generated_owner",
+      "verification": "The maintained producer deterministically writes 62 taxon envelope rows and two summaries from retained provenance inputs. Compare the three bytes; reported one-SE envelopes are descriptive and are not confidence intervals or independent tests. Historical raw-input identity remains unresolved upstream."
+    },
+    {
+      "owner_id": "publication-replay/landclim-published-window-uncertainty/reader-account",
+      "paths": [
+        "docs/report/publication-replay/landclim-published-window-uncertainty/README.md"
+      ],
+      "producer_inputs": [],
+      "producer_paths": [],
+      "role": "maintained_editorial",
+      "verification": "Authored scope and source-accounting account. Linked results remain bounded by their exact original/private inputs, revision, denominators and refusal statements; this prose does not certify historical LandClim reproduction or independent vegetation accuracy."
+    },
+    {
+      "owner_id": "publication-replay/landclim-published-window-uncertainty/source-manifest",
+      "paths": [
+        "docs/report/publication-replay/landclim-published-window-uncertainty/manifest.json"
+      ],
+      "producer_inputs": [
+        "docs/report/publication-replay/landclim-published-window-uncertainty/REPORT.md",
         "docs/report/publication-replay/landclim-published-window-uncertainty/report.json",
         "docs/report/publication-replay/landclim-published-window-uncertainty/taxon-envelopes.csv"
       ],
       "producer_paths": [],
-      "producer_inputs": [],
-      "verification": "Identify the exact producer or independent source/template custody, lawful input closure and role-specific verification route for these paths. Bind independently reconstructed output or authenticated retained source before full mixed-owner acceptance; tracked output bytes cannot feed their own producer."
+      "role": "unresolved",
+      "verification": "The retained manifest checks producer/input/output hashes but the envelope producer does not write this manifest. No independent non-self-fed manifest producer is declared; verify its rows against retained outputs before assigning custody."
     },
     {
-      "owner_id": "publication-replay/landclim-study-inputs/report-products",
-      "role": "unresolved",
+      "owner_id": "publication-replay/landclim-study-inputs/metadata-products",
       "paths": [
-        "docs/report/publication-replay/landclim-study-inputs/README.md",
         "docs/report/publication-replay/landclim-study-inputs/manifest.json",
         "docs/report/publication-replay/landclim-study-inputs/primary-source-crosswalk.csv",
         "docs/report/publication-replay/landclim-study-inputs/records.jsonl",
         "docs/report/publication-replay/landclim-study-inputs/refusals.csv",
         "docs/report/publication-replay/landclim-study-inputs/report.json"
       ],
-      "producer_paths": [],
+      "producer_inputs": [
+        "data/landclim/raw/landclim_ii_site_metadata.xlsx",
+        "data/landclim/raw/landclim_sources.json"
+      ],
+      "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/study_inputs.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/intake/workbooks.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/landclim/catalog.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/landclim/collection/receipt/validation.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/landclim/study_inventory/__init__.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/landclim/study_inventory/contracts.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/landclim/study_inventory/reading.py"
+      ],
+      "role": "generated_owner",
+      "verification": "The maintained metadata-inventory producer rebuilds five files from the pinned PANGAEA 937075 workbook and acquisition receipt. Compare exact output bytes with validate_study_input_products. This inventories 1,128 metadata rows and explicitly refuses historical primary counts, chronology, sequence rights and full original study replay."
+    },
+    {
+      "owner_id": "publication-replay/landclim-study-inputs/reader-account",
+      "paths": [
+        "docs/report/publication-replay/landclim-study-inputs/README.md"
+      ],
       "producer_inputs": [],
-      "verification": "Identify the exact producer or independent source/template custody, lawful input closure and role-specific verification route for these paths. Bind independently reconstructed output or authenticated retained source before full mixed-owner acceptance; tracked output bytes cannot feed their own producer."
+      "producer_paths": [],
+      "role": "maintained_editorial",
+      "verification": "Authored scope and source-accounting account. Linked results remain bounded by their exact original/private inputs, revision, denominators and refusal statements; this prose does not certify historical LandClim reproduction or independent vegetation accuracy."
+    },
+    {
+      "owner_id": "publication-replay/landclim-window-alignment/reader-account",
+      "paths": [
+        "docs/report/publication-replay/landclim-window-alignment/README.md"
+      ],
+      "producer_inputs": [],
+      "producer_paths": [],
+      "role": "maintained_editorial",
+      "verification": "Authored scope and source-accounting account. Linked results remain bounded by their exact original/private inputs, revision, denominators and refusal statements; this prose does not certify historical LandClim reproduction or independent vegetation accuracy."
     },
     {
       "owner_id": "publication-replay/landclim-window-alignment/report-products",
-      "role": "unresolved",
       "paths": [
-        "docs/report/publication-replay/landclim-window-alignment/README.md",
         "docs/report/publication-replay/landclim-window-alignment/REPORT.md",
         "docs/report/publication-replay/landclim-window-alignment/manifest.json",
         "docs/report/publication-replay/landclim-window-alignment/report.json",
         "docs/report/publication-replay/landclim-window-alignment/window-correspondence.csv"
       ],
-      "producer_paths": [],
-      "producer_inputs": [],
-      "verification": "Identify the exact producer or independent source/template custody, lawful input closure and role-specific verification route for these paths. Bind independently reconstructed output or authenticated retained source before full mixed-owner acceptance; tracked output bytes cannot feed their own producer."
+      "producer_inputs": [
+        "docs/report/publication-replay/landclim-method-profile/reference/report.json",
+        "docs/report/publication-replay/landclim-published-window-correspondence/report.json"
+      ],
+      "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/published_window_alignment.py"
+      ],
+      "role": "unresolved",
+      "verification": "The 25-row window producer additionally reads private bins.csv and TWlookup.csv at their manifest-pinned hashes. Its manifest is a historical verification record. Exact TW2 axis alignment does not reproduce the original 1,128-sequence chronology or claim vegetation accuracy."
     },
     {
       "owner_id": "publisher",
