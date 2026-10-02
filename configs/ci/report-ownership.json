@@ -5159,7 +5159,10 @@
         "docs/report/regions/nordic/dalmutladdo-age-interval-sensitivity/sample-support.csv"
       ],
       "producer_paths": [
-        "docs/report/regions/nordic/dalmutladdo-author-target-age-interval/replay.py"
+        "docs/report/regions/nordic/dalmutladdo-author-target-age-interval/replay.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/nordic/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/nordic/dalmutladdo_prediction_freeze.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/nordic_direct_pollen.py"
       ],
       "role": "generated_owner",
       "verification": "The freeze command reuses six country-excluded prediction rows and opens no target observations. Compare retained output bytes; the 31-target score stage separately requires the pinned private author taxonomy lookup."
@@ -6032,6 +6035,8 @@
         "docs/report/source-relations/neotoma/author-taxonomy-mass/report.json"
       ],
       "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/nordic/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/nordic/swedish_author_inputs.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/nordic_author_target_pollen.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/nordic_direct_pollen.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/swedish_author_target_pollen.py",

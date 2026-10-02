@@ -529,6 +529,33 @@
         "source-products/taxon-envelopes.csv": "docs/report/publication-replay/landclim-published-window-uncertainty/taxon-envelopes.csv"
       },
       "timeout_seconds": 180
+    },
+    {
+      "module": "bijux_pollenomics_dev.source_completion.nordic.swedish_author_inputs",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "regions/nordic/swedish-author-target-pollen/prepared-inputs",
+      "source_arguments": [],
+      "source_paths": {
+        "source-products/input-manifest.json": "docs/report/regions/nordic/swedish-author-target-pollen/input-manifest.json",
+        "source-products/inputs/metadata-SE.json.gz": "docs/report/regions/nordic/swedish-author-target-pollen/inputs/metadata-SE.json.gz",
+        "source-products/inputs/training-SE.json.gz": "docs/report/regions/nordic/swedish-author-target-pollen/inputs/training-SE.json.gz",
+        "source-products/sealed-outcomes/outcomes-SE.json.gz": "docs/report/regions/nordic/swedish-author-target-pollen/sealed-outcomes/outcomes-SE.json.gz"
+      },
+      "timeout_seconds": 180
+    },
+    {
+      "module": "bijux_pollenomics_dev.source_completion.nordic.dalmutladdo_prediction_freeze",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "regions/nordic/dalmutladdo-author-target-age-interval/count-blind-freeze",
+      "source_arguments": [],
+      "source_paths": {
+        "source-products/predictions.json": "docs/report/regions/nordic/dalmutladdo-author-target-age-interval/predictions.json",
+        "source-products/protocol.json": "docs/report/regions/nordic/dalmutladdo-author-target-age-interval/protocol.json",
+        "source-products/sample-support.csv": "docs/report/regions/nordic/dalmutladdo-author-target-age-interval/sample-support.csv"
+      },
+      "timeout_seconds": 180
     }
   ]
 }

@@ -11,13 +11,13 @@
     },
     {
       "path": "configs/ci/report-owner-execution.json",
-      "sha256": "2786b94d135efaa9c652c4ecb3ad5d5e4c60de05a4d140e30bcd390c6a3f98a6",
-      "bytes": 23357
+      "sha256": "41810b9ff8a3313bb8ea62cea077ddcb4094cfb79f4cda89839db52f8f214f4c",
+      "bytes": 25040
     },
     {
       "path": "configs/ci/report-ownership.json",
-      "sha256": "6464050ccea492d04aa8296e652b6153e9f26443b00ad32caae316ca130ff9bb",
-      "bytes": 762159
+      "sha256": "85e4c0b42bc99c561e211202366c9ffeee0d7425a9393bb7e6a76f4cc97bd4b5",
+      "bytes": 762723
     },
     {
       "path": "configs/docs/science_downloads.py",
@@ -2955,6 +2955,21 @@
       "bytes": 5721
     },
     {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/nordic/__init__.py",
+      "sha256": "6a06ec73721cf8c6c4507bbdeea86164a6f195f7b0fe8935653d59c9e1b55288",
+      "bytes": 63
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/nordic/dalmutladdo_prediction_freeze.py",
+      "sha256": "b88883a73674d7925368ec9a2ad95ac1472ee425dd4f8287af6428ba12ac3eb7",
+      "bytes": 1748
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/nordic/swedish_author_inputs.py",
+      "sha256": "203a73fc9c0b104bca417c370b6a204e40c17355c2d9520f8a66458835de90c3",
+      "bytes": 1939
+    },
+    {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/nordic_author_target_pollen.py",
       "sha256": "599b09a5cbc8ad8df2aeb6487dc01786fb79086586b5e2ec49a628d68813a74e",
       "bytes": 28806
@@ -3143,6 +3158,11 @@
       "path": "packages/bijux-pollenomics-dev/tests/source_completion/neotoma/test_relational_summary_cli.py",
       "sha256": "7f570c64e10cf6f5efc1dc2d5f9454b3740be9710b1f21ca10bf6ac933398855",
       "bytes": 4864
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/tests/source_completion/nordic/test_method_input_clis.py",
+      "sha256": "fc6d2de5ab6a88d79410fd33053a2f2baa3e3b631c879d5d3bce0c1d5b522e6d",
+      "bytes": 6164
     },
     {
       "path": "packages/bijux-pollenomics-dev/tests/source_completion/pollen_age_support/test_sambosjon.py",
