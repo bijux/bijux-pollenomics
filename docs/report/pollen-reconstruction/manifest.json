@@ -105,6 +105,16 @@
       "bytes": 10259
     },
     {
+      "path": "docs/public/pollenomics/science/index.md",
+      "sha256": "fe408aa7c7f90d64444b6fbfda4034f232df14644610e9762bb945a9e02fb95e",
+      "bytes": 1571
+    },
+    {
+      "path": "docs/public/pollenomics/science/papers.md",
+      "sha256": "9fe1d21afb80e20fff743f464eaa6c27cbbea68aff2851d6d9e0bbb91167581d",
+      "bytes": 5808
+    },
+    {
       "path": "docs/public/pollenomics/science/results.md",
       "sha256": "7e2e36ce55922e9b14ad5be742837b2dc9a72cd2c75c475e864a334ca8c0d3b5",
       "bytes": 23897

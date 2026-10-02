@@ -4,7 +4,7 @@ audience: reader
 type: index
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-09-29
+last_reviewed: 2026-10-02
 ---
 
 # Scientific evidence
@@ -18,6 +18,7 @@ on its tested sites; neither measures vegetation accuracy.
 
 | Start here | Question answered |
 | --- | --- |
+| [Papers and evidence roles](papers.md) | Which original finding, calculation and validation claim does each paper support? |
 | [Sources and scientific scope](sources.md) | Which four-country cohorts are counted, and why are some LRA inputs still refused? |
 | [Results and model use](results.md) | Which numerical results agree or differ, how did direct and LRA pollen predictions score, and which parameters are supported? |
 
