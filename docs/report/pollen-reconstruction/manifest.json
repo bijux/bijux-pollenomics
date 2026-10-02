@@ -2851,8 +2851,8 @@
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/publisher_tables.py",
-      "sha256": "54ea55ede58be0cb4136369741bff80c3fa5c3a1e646fc6e41086503ce6c4e64",
-      "bytes": 7587
+      "sha256": "23642b49fc7dc7eceeb01fd8e0d48caf8dd25f4fb298c3ea03eab035845ff88f",
+      "bytes": 7838
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/qualified_sources.py",

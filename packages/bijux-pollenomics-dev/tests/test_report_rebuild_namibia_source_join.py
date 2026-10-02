@@ -175,7 +175,17 @@ def test_nonreal_source_ancestor_refuses(tmp_path: Path) -> None:
         validated_external_report_sources(repository, root, DESCRIPTOR)
 
 
-@pytest.mark.parametrize("change", ["dataset-doi", "parent-doi", "license", "columns"])
+@pytest.mark.parametrize(
+    "change",
+    [
+        "dataset-doi",
+        "parent-doi",
+        "dataset-doi-prefix-neighbor",
+        "parent-doi-prefix-neighbor",
+        "license",
+        "columns",
+    ],
+)
 def test_primary_header_still_refuses_when_receipt_and_digest_are_rewritten(
     tmp_path: Path, change: str
 ) -> None:
@@ -190,6 +200,13 @@ def test_primary_header_still_refuses_when_receipt_and_digest_are_rewritten(
         )
     elif change == "parent-doi":
         payload = payload.replace(PARENT_DOI.encode(), b"10.1594/PANGAEA.999999")
+    elif change == "dataset-doi-prefix-neighbor":
+        payload = payload.replace(
+            b"https://doi.org/10.1594/PANGAEA.931033",
+            b"https://doi.org/10.1594/PANGAEA.9310339",
+        )
+    elif change == "parent-doi-prefix-neighbor":
+        payload = payload.replace(PARENT_DOI.encode(), b"10.1594/PANGAEA.9310379")
     elif change == "license":
         payload = payload.replace(LICENSE.encode(), b"License:\tunknown")
     else:

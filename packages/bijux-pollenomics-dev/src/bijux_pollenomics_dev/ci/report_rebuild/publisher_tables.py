@@ -33,6 +33,7 @@ TABLE_FIELDS = frozenset({"path", "sha256", "size", "doi", "url", "columns"})
 RECEIPT_FIELDS = frozenset({"source", "rights", "retrieved_utc", "files"})
 RECEIPT_FILE_FIELDS = frozenset({"sha256", "bytes", "url"})
 DOI = re.compile(r"10\.1594/PANGAEA\.\d+\Z")
+HEADER_DOI_URL = re.compile(r"https://doi\.org/10\.1594/PANGAEA\.[0-9]+(?=$|[\s,;)\]])")
 RETRIEVED = re.compile(r"\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2} UTC\Z")
 LICENSE_LINE = (
     "License:\tCreative Commons Attribution 4.0 International (CC-BY-4.0) "
@@ -56,9 +57,19 @@ def _table_header(
     except UnicodeError as error:
         raise ReportRebuildError("publisher table header is not UTF-8") from error
     citations = [line for line in lines if line.startswith("Citation:\t")]
-    if len(citations) != 1 or f"https://doi.org/{doi}" not in citations[0]:
+    if (
+        len(citations) != 1
+        or HEADER_DOI_URL.findall(citations[0]).count(f"https://doi.org/{doi}") != 1
+    ):
         raise ReportRebuildError("publisher table citation DOI differs")
-    if sum(f"https://doi.org/{parent_doi}" in line for line in lines) != 1:
+    if (
+        sum(
+            url == f"https://doi.org/{parent_doi}"
+            for line in lines
+            for url in HEADER_DOI_URL.findall(line)
+        )
+        != 1
+    ):
         raise ReportRebuildError("publisher table parent DOI differs")
     if lines.count(LICENSE_LINE) != 1:
         raise ReportRebuildError("publisher table primary license differs")

@@ -205,7 +205,7 @@
     "docs/report/pollen-reconstruction/author-lra-constrained/radius_sensitivity.py": "dede38022ace3e350d854e4a35cd1ed590ca8ddfbbe7a6c7b089c9df76a39b9e",
     "docs/report/pollen-reconstruction/author-lra-constrained/report.json": "99bc052531b052ee218f91d36645cdeaaf2b1641ca8bd20140afa1b4e87f8150",
     "docs/report/pollen-reconstruction/author-lra-optimized-feasibility/report.json": "2d2202914ec86f70aad49d63782066c10a198997ef628f65d4e9134f2aefb869",
-    "docs/report/pollen-reconstruction/manifest.json": "d21675caac80b35f66744251201ea5aa6acacaa2f956b362d670f1e6e2910203",
+    "docs/report/pollen-reconstruction/manifest.json": "d18840dcde737d33894ed03b52d02a87a95586b9748bcc6791a8f2e3038b886c",
     "docs/report/pollen-reconstruction/paper-correspondence.csv": "21b5354a2155345e44964ed513471d32648bdb062eda1ebed3e0b79ccb8ff9cc",
     "docs/report/pollen-reconstruction/results.csv": "0c65a7517d444cb9901905165096b7a73f182ffb308d1c5f069e36c5acb239c9",
     "docs/report/pollen-reconstruction/scope.json": "7494364bd72ec3eaee80ec1dfad2509612d341c735ddc3bf825dc67e95cad0b3",
@@ -710,7 +710,7 @@
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/neotoma/legacyage_depth_allocation.py": "1119e52f3cfe8b832f5e83dff07dadc4d05e5e3e344b3624a93383231c5e8741",
     "packages/bijux-pollenomics-dev/tests/test_report_rebuild_legacyage_depth_allocation_owner.py": "e157f4dba17d97607f3409703715a372eb5039970480e67f090f905679349b02",
     "configs/ci/qualified-report-sources/namibia-modern-pollen-vegetation.json": "2ff98f09588265a5f58711bd109bcc6c3b8c6066b81425214d2b3d6a0314aab8",
-    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/publisher_tables.py": "54ea55ede58be0cb4136369741bff80c3fa5c3a1e646fc6e41086503ce6c4e64",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/publisher_tables.py": "23642b49fc7dc7eceeb01fd8e0d48caf8dd25f4fb298c3ea03eab035845ff88f",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/source_qualification.py": "c1d0f7acb43c85506886dd5752c3c20656103b1bae93065760f4a4597dc8d3dc",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/vegetation/namibia_source_join.py": "02f983ff116e73510a5033f0f8a31a96cc773793fcd76d48a948202a918690e9",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/vegetation/namibia_radius_sensitivity.py": "496054e24d80077142adc91a83c2bfec270e5d5412dce7550ff204c93833e64b"
