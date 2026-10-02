@@ -4,7 +4,7 @@ audience: maintainer
 type: explanation
 status: canonical
 owner: bijux-pollenomics-dev-docs
-last_reviewed: 2026-09-07
+last_reviewed: 2026-10-02
 ---
 
 # Release Support
@@ -47,20 +47,32 @@ flowchart LR
 | package build and smoke routes | wheel and source distribution build and install under their declared checks | scientific evidence sufficiency |
 | documentation strict build | configured site renders from the revision | deployed Pages identity or claim truth |
 
-The public release set contains `bijux-pollenomics` and `pollenomics`.
-`bijux-pollenomics-dev` is verified as a repository component but is not a
-selected public distribution in the release matrices.
+The configured GitHub artifact build and PyPI publication sets contain
+`bijux-pollenomics`, `pollenomics` and `bijux-pollenomics-lra`. The GHCR package
+set contains the host and alias only. The authoritative selection is
+[the generated release configuration](../../../.github/release.env), consumed
+by the managed release workflows. `bijux-pollenomics-dev` is verified as a
+repository component and remains outside all three public publication sets.
+Configuration is not evidence that a distribution has been published.
+
+The host extra `bijux-pollenomics[lra]` requires a separately installed engine.
+The [distribution account](../../../reports/architecture/lra-distribution.md)
+records the local wheel installation proof and its platform/version scope.
+The [PyPI release gate](../../../packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/lra_reference/release_gate.py)
+requires actual-R certification and native-parity artifacts for the exact
+release revision. A retained local R result or a green unit test cannot
+replace those same-revision CI artifacts.
 
 ## Release-Facing Review Order
 
 Review broad posture, then the narrow gate that owns the proposed statement:
 
-1. [repository product model](../../../report/repository_product_model.md);
-2. [repository credibility dashboard](../../../report/repository_credibility_dashboard.md);
-3. [repository truth posture](../../../report/repository_truth_posture.md);
-4. [repository claim audit](../../../report/repository_claim_audit.md);
+1. [repository product model](../../report/repository_product_model.md);
+2. [repository credibility dashboard](../../report/repository_credibility_dashboard.md);
+3. [repository truth posture](../../report/repository_truth_posture.md);
+4. [repository claim audit](../../report/repository_claim_audit.md);
 5. relevant source, animal, atlas, or publication review;
-6. [repository final release refusal](../../../report/repository_final_release_refusal.md).
+6. [repository final release refusal](../../report/repository_final_release_refusal.md).
 
 If a refusal still blocks final language, neither README polish nor a passing
 package build closes it. Strengthen the governing evidence or retain the
@@ -82,12 +94,35 @@ Do not rebuild an untracked local approximation after approval and call it the
 same release. Publication lanes consume the staged artifacts associated with
 the accepted revision and version.
 
+## Scientific Candidate Evidence
+
+The target scientific release is `v0.2.0`. Its identifier does not close source,
+method, user or publication gates. Keep one accepted revision and one artifact
+set across the following evidence, recording a failure or unknown explicitly.
+
+| Surface | Required evidence and current limit |
+| --- | --- |
+| Source and rights | Exact capture/source identities, permitted use, counts, chronology, basin and parameter admission; [source requests](../../../reports/needed/source-requests.md) retain unresolved inputs. |
+| Four-country science | Country-specific eligible inputs, LRA outputs, development comparisons and independent measured vegetation; [country status](../../../reports/science/country-evidence-status.md) retains the current refusals and unadmitted comparisons. |
+| Method correspondence | Source-bound publication profiles and numerical/uncertainty scope; [method correspondence](../../../reports/science/method-correspondence.md) distinguishes numerical parity from scientific validation. |
+| Package installation | Matching host, alias and engine artifacts, legal assets, optional-engine discovery and installed API/CLI tests on supported platforms; source-checkout execution is a separate check. |
+| Report reproduction | Exact publisher namespace plus independent owner inputs/certificates and two-lane whole-tree equality; [report ownership](../../../reports/architecture/ownership.md) retains unresolved custody. |
+| Reader and application delivery | Current exported documents, built local routes and browser/provider/export behavior, followed by actual collaborator use and deployed revision evidence where claimed. |
+| Qualified review | Claim-specific scope, version identities, reviewer qualifications and returned decisions; [review questions](../../../reports/needed/scientific-review.md) are prepared questions, not received approval. |
+
+Run the complete repository and release-specific matrix on the final stable
+candidate after affected focused checks. Preserve earlier receipts with their
+actual source and platform identities; do not relabel them as final-candidate
+verification. Any scientific refusal keeps the corresponding full-release
+claim open even when software artifact checks pass. External publication also
+requires the release operator's separate authorization.
+
 ## Direct Release Stops
 
-- [repository generated output policy](../../../report/repository_generated_output_policy.md)
-- [repository governance artifact review](../../../report/repository_governance_artifact_review.md)
-- [repository final release refusal](../../../report/repository_final_release_refusal.md)
-- [animal publication release gate](../../../report/animal_publication_release_gate.md)
+- [repository generated output policy](../../report/repository_generated_output_policy.md)
+- [repository governance artifact review](../../report/repository_governance_artifact_review.md)
+- [repository final release refusal](../../report/repository_final_release_refusal.md)
+- [animal publication release gate](../../report/animal_publication_release_gate.md)
 
 Each stop names its own scope. Report it as passed, failed, blocked, or not run;
 do not collapse several stops into an unqualified “release ready” label.
@@ -107,7 +142,11 @@ explicit classification or propagation refusal reasons in its decision. Missing
 or malformed release posture fails validation; an unrelated reduced-scope
 blocker cannot waive an explicit refusal.
 
-## v0.1.8 Publication Preparation
+## Retained v0.1.8 Publication Preparation
+
+This section preserves the earlier `v0.1.8` preparation record. It is not the
+current scientific candidate acceptance or evidence of external publication.
+Use the configured per-destination package sets above for a current release.
 
 The planned release identifier is `v0.1.8`, with changelog date `2026-09-08`.
 The dated entries in the root and three package changelogs are prepared release
@@ -136,9 +175,9 @@ Before executing the post-merge publication sequence:
 
 After those conditions are met, the release operator can dispatch the existing
 workflows. Dispatch release workflows **from `v0.1.8`**, not from a later moving
-`main`, and supply `release_tag=v0.1.8` and `enabled=true`. The current release
-matrices select `bijux-pollenomics` and `pollenomics`; keep
-`bijux-pollenomics-dev` out of the public package set. The individual dispatches
+`main`, and supply `release_tag=v0.1.8` and `enabled=true`. The earlier preparation selected the host and alias. Current configuration
+also selects the optional engine for GitHub artifacts and PyPI; GHCR retains
+the host and alias. Keep `bijux-pollenomics-dev` out of the public package set. The individual dispatches
 are `release-pypi.yml` (with `mode=artifact`), `release-ghcr.yml`, and
 `release-github.yml`. Record each
 run and its built wheel, source distribution, SBOM, and destination identities.
