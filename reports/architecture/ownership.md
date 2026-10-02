@@ -293,7 +293,12 @@ The assembly target accepts `REBUILD_OWNER_IDS` and
 `REBUILD_OWNER_ARTIFACTS_ROOT`; final verification accepts the same identities
 and both `REBUILD_REFERENCE_OWNERS_ROOT` and `REBUILD_REPLAY_OWNERS_ROOT`.
 These two producers cover only their declared files. The complete report-tree
-comparison remains mandatory and refuses any missing owner.
+comparison remains mandatory and refuses any missing owner. The scientific CI
+workflow schedules these owners in both lanes after the bound partition plan,
+then downloads each artifact into its full domain identity before assembly
+and final verification. Owner jobs retain command and failure diagnostics
+separately from publisher artifacts.
+
 
 
 

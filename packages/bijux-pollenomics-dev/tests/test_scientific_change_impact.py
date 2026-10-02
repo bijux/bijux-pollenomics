@@ -325,3 +325,101 @@ def test_atlas_workflow_separates_premerge_browser_from_postdeployment_smoke() -
     ]
     assert action_references
     assert all(PINNED_ACTION.fullmatch(reference) for reference in action_references)
+
+
+def test_report_owner_ci_matrix_matches_configured_execution_contract() -> None:
+    workflow = yaml.load(
+        WORKFLOW_PATH.read_text(encoding="utf-8"), Loader=yaml.BaseLoader
+    )
+    configured = json.loads(
+        (REPO_ROOT / "configs/ci/report-owner-execution.json").read_text()
+    )
+    owner_job = workflow["jobs"]["rebuild-owners"]
+    matrix = owner_job["strategy"]["matrix"]
+    assert {row["id"] for row in matrix["owner"]} == {
+        row["owner_id"] for row in configured["owners"]
+    }
+    assert set(matrix["lane"]) == {"reference", "replay"}
+    assert len({row["artifact"] for row in matrix["owner"]}) == len(matrix["owner"])
+    assert set(owner_job["needs"]) == {"impact", "rebuild-plan"}
+    assert owner_job["strategy"]["fail-fast"] == "false"
+    assert int(owner_job["timeout-minutes"]) == 10
+    build = next(
+        step
+        for step in owner_job["steps"]
+        if step.get("run") == "make build-report-rebuild-owner"
+    )
+    assert build["env"]["REBUILD_OWNER_ID"] == "${{ matrix.owner.id }}"
+    assert build["env"]["REBUILD_EVIDENCE_ROOT"].endswith(
+        "/${{ matrix.lane }}/${{ matrix.owner.id }}"
+    )
+    upload = next(
+        step
+        for step in owner_job["steps"]
+        if step.get("name") == "Upload owner output and diagnostics"
+    )
+    assert upload["with"]["name"].startswith("report-owner-")
+    assert upload["if"] == "always()"
+    assert upload["with"]["if-no-files-found"] == "error"
+    uploaded = upload["with"]["path"].splitlines()
+    assert {Path(path).name for path in uploaded} == {
+        "manifest.json",
+        "output",
+        "producer-command.json",
+        "producer-execution.json",
+        "producer.stdout.log",
+        "producer.stderr.log",
+    }
+    assert len({path.rsplit("/", 1)[0] for path in uploaded}) == 1
+
+
+def test_report_owner_ci_downloads_preserve_exact_nested_identities() -> None:
+    workflow = yaml.load(
+        WORKFLOW_PATH.read_text(encoding="utf-8"), Loader=yaml.BaseLoader
+    )
+    jobs = workflow["jobs"]
+    owners = jobs["rebuild-owners"]["strategy"]["matrix"]["owner"]
+    assembly = jobs["rebuild-assemble"]
+    assert "rebuild-owners" in assembly["needs"]
+    for job, lanes, target in (
+        (assembly, ("${{ matrix.lane }}",), "make assemble-report-rebuild"),
+        (
+            jobs["rebuild-verify"],
+            ("reference", "replay"),
+            "make verify-partitioned-report-rebuild",
+        ),
+    ):
+        download_by_name = {
+            step["with"]["name"]: step["with"]["path"]
+            for step in job["steps"]
+            if step.get("uses", "").startswith("actions/download-artifact")
+            and step["with"].get("name", "").startswith("report-owner-")
+        }
+        expected = {
+            f"report-owner-{lane}-{owner['artifact']}": f"artifacts/execution-control/report-rebuild-owner-input/{lane}/{owner['id']}"
+            for lane in lanes
+            for owner in owners
+        }
+        assert download_by_name == expected
+        run = next(step for step in job["steps"] if step.get("run") == target)
+        assert set(run["env"]["REBUILD_OWNER_IDS"].split()) == {
+            owner["id"] for owner in owners
+        }
+        if len(lanes) == 1:
+            assert (
+                run["env"]["REBUILD_OWNER_ARTIFACTS_ROOT"]
+                == f"artifacts/execution-control/report-rebuild-owner-input/{lanes[0]}"
+            )
+        else:
+            for lane in lanes:
+                assert (
+                    run["env"][f"REBUILD_{lane.upper()}_OWNERS_ROOT"]
+                    == f"artifacts/execution-control/report-rebuild-owner-input/{lane}"
+                )
+    partitions = next(
+        step
+        for step in assembly["steps"]
+        if step.get("name") == "Download complete partition set"
+    )
+    assert partitions["with"]["pattern"] == "report-rebuild-${{ matrix.lane }}-*"
+    assert not partitions["with"]["pattern"].startswith("report-owner")
