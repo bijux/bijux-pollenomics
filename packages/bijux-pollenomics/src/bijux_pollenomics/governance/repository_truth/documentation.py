@@ -2,7 +2,9 @@
 
 from __future__ import annotations
 
+from collections.abc import Mapping
 from pathlib import Path
+from typing import cast
 
 from .metrics import _docs_breadth_expectations, _docs_restoration_expectations
 
@@ -12,6 +14,40 @@ __all__ = [
     "render_repository_docs_restoration_ledger_markdown",
     "render_repository_docs_scope_validation_markdown",
 ]
+
+
+def _required_text(row: Mapping[str, object], field: str) -> str:
+    value = row[field]
+    if not isinstance(value, str):
+        raise ValueError(f"Documentation {field} must be text")
+    return value
+
+
+def _required_texts(row: Mapping[str, object], field: str) -> list[str]:
+    value = row[field]
+    if not isinstance(value, list) or not all(isinstance(item, str) for item in value):
+        raise ValueError(f"Documentation {field} must be a list of text")
+    return cast(list[str], value)
+
+
+def _required_rows(payload: Mapping[str, object]) -> list[dict[str, object]]:
+    value = payload["rows"]
+    if not isinstance(value, list) or not all(
+        isinstance(row, dict) and all(isinstance(key, str) for key in row)
+        for row in value
+    ):
+        raise ValueError("Documentation rows must be records")
+    return cast(list[dict[str, object]], value)
+
+
+def _required_status_counts(payload: Mapping[str, object]) -> dict[str, int]:
+    value = payload["status_counts"]
+    if not isinstance(value, dict) or not all(
+        isinstance(key, str) and isinstance(count, int) and not isinstance(count, bool)
+        for key, count in value.items()
+    ):
+        raise ValueError("Documentation status counts must be integers")
+    return cast(dict[str, int], value)
 
 
 def build_repository_docs_restoration_ledger(
@@ -26,19 +62,21 @@ def build_repository_docs_restoration_ledger(
     rows = []
     repo_root = docs_root.parent
     for row in _docs_restoration_expectations():
-        current_path = repo_root / row["current_path"]
+        current_path = repo_root / _required_text(row, "current_path")
         missing_snippets: list[str] = []
         if current_path.exists():
             text = current_path.read_text(encoding="utf-8")
             missing_snippets = [
-                snippet for snippet in row["required_snippets"] if snippet not in text
+                snippet
+                for snippet in _required_texts(row, "required_snippets")
+                if snippet not in text
             ]
         status = (
             "verified_replacement"
             if current_path.exists() and not missing_snippets
             else "replacement_incomplete"
         )
-        notes = row["rationale"]
+        notes = _required_text(row, "rationale")
         if missing_snippets:
             notes += "; missing anchors: " + ", ".join(
                 f"`{snippet}`" for snippet in missing_snippets
@@ -82,18 +120,19 @@ def build_repository_docs_restoration_ledger(
 def render_repository_docs_restoration_ledger_markdown(
     payload: dict[str, object],
 ) -> str:
+    counts = _required_status_counts(payload)
     lines = [
         "# Repository docs restoration ledger",
         "",
         f"- Rule: {payload['rule']}",
         f"- Ledger rows: `{payload['row_count']}`",
-        f"- Verified replacements: `{payload['status_counts']['verified_replacement']}`",
-        f"- Replacement gaps: `{payload['status_counts']['replacement_incomplete']}`",
+        f"- Verified replacements: `{counts['verified_replacement']}`",
+        f"- Replacement gaps: `{counts['replacement_incomplete']}`",
         "",
         "| Legacy page | Decision | Current replacement | Status |",
         "| --- | --- | --- | --- |",
     ]
-    for row in payload["rows"]:
+    for row in _required_rows(payload):
         lines.append(
             f"| `{row['legacy_path']}` | `{row['decision']}` | `{row['current_path']}` | `{row['status']}` |"
         )
@@ -112,21 +151,23 @@ def build_repository_docs_scope_validation(
     repo_root = docs_root.parent
     rows = []
     for row in _docs_breadth_expectations():
-        landing_path = repo_root / row["landing_path"]
+        landing_path = repo_root / _required_text(row, "landing_path")
         landing_text = (
             landing_path.read_text(encoding="utf-8") if landing_path.exists() else ""
         )
         missing_pages = [
-            path for path in row["required_pages"] if not (repo_root / path).exists()
+            path
+            for path in _required_texts(row, "required_pages")
+            if not (repo_root / path).exists()
         ]
         missing_links = [
             snippet
-            for snippet in row["required_link_snippets"]
+            for snippet in _required_texts(row, "required_link_snippets")
             if snippet not in landing_text
         ]
         missing_snippets = [
             snippet
-            for snippet in row["required_topic_snippets"]
+            for snippet in _required_texts(row, "required_topic_snippets")
             if snippet not in landing_text
         ]
         overall_ok = not missing_pages and not missing_links and not missing_snippets
@@ -135,7 +176,7 @@ def build_repository_docs_scope_validation(
                 "section_key": row["section_key"],
                 "display_name": row["display_name"],
                 "landing_path": row["landing_path"],
-                "required_page_count": len(row["required_pages"]),
+                "required_page_count": len(_required_texts(row, "required_pages")),
                 "missing_pages": missing_pages,
                 "missing_links": missing_links,
                 "missing_topic_snippets": missing_snippets,
@@ -162,10 +203,10 @@ def render_repository_docs_scope_validation_markdown(payload: dict[str, object])
         "| Section | Landing | Required pages | Missing pages | Missing links |",
         "| --- | --- | ---: | --- | --- |",
     ]
-    for row in payload["rows"]:
+    for row in _required_rows(payload):
         lines.append(
             f"| {row['display_name']} | `{row['landing_path']}` | {row['required_page_count']} | "
-            f"{', '.join(f'`{path}`' for path in row['missing_pages']) or '`none`'} | "
-            f"{', '.join(f'`{path}`' for path in row['missing_links']) or '`none`'} |"
+            f"{', '.join(f'`{path}`' for path in _required_texts(row, 'missing_pages')) or '`none`'} | "
+            f"{', '.join(f'`{path}`' for path in _required_texts(row, 'missing_links')) or '`none`'} |"
         )
     return "\n".join(lines) + "\n"
