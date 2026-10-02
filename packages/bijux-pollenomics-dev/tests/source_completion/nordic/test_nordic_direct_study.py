@@ -224,3 +224,13 @@ def test_country_or_output_drift_refused(
             ]
         )
     assert sys.argv is original
+
+
+def test_retained_publication_names_current_original_producer() -> None:
+    """Documentation edits must not leave published source custody stale."""
+    repository = Path(__file__).resolve().parents[5]
+    root = repository / "docs/report/regions/nordic/direct-pollen"
+    report = json.loads((root / "manifest.json").read_bytes())
+    assert report["input_identity"]["runner_sha256"] == sha(repository / study.SOURCE)
+    for country, expected in report["prediction_sha256"].items():
+        assert sha(root / f"predictions-{country}.json") == expected

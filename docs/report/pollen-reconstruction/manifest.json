@@ -1481,7 +1481,7 @@
     },
     {
       "path": "docs/report/regions/nordic/direct-pollen/manifest.json",
-      "sha256": "e1cf9fddc91dcce3e862079c5fa3515a985e3571339e19ef356b296d4117d61d",
+      "sha256": "43ec4aa62c1c93c0b3af0da2733706eb68a9685bd3f37b18a3041d22e7382573",
       "bytes": 8277
     },
     {
@@ -3456,8 +3456,8 @@
     },
     {
       "path": "packages/bijux-pollenomics-dev/tests/source_completion/nordic/test_nordic_direct_study.py",
-      "sha256": "243dec5d41aa0f3ea88f72076196bd951237df0d544987edb4b6f3058058c443",
-      "bytes": 8242
+      "sha256": "b1c379853ec95ab2412bda2ce7d8a18f2ae9ad6b73639b9e09d0b3028edaeae9",
+      "bytes": 8799
     },
     {
       "path": "packages/bijux-pollenomics-dev/tests/source_completion/nordic/test_retained_prediction_clis.py",
