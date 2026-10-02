@@ -298,6 +298,13 @@ for scheduled modules, complete output maps, source arguments and time bounds.
 | Source chronology | Danish pollen chronology coverage, SEAD age accounting, record intervals and chronology-country accounting | Source age interpretation and interval accounting preserve refusals; they do not establish event or LRA admission. |
 | Source custody and source posture | Compact Neotoma sample display, relational summaries and SEAD relation exports, retained acquisition selection, SEAD public custody, typed numerical and integer values, governed propagation ledgers, pollen-named dataset screens and DNA accounts | Retained source bindings and read sets are checked. Original HTTP capture, DNA rights and ecological admission still require their own evidence. |
 
+The Abborrtjärnen age-input preparer also carries two unchanged upstream profiles
+needed by later prediction stages. Its adapter retains all five preparation
+products under repository artifacts, verifies the two carried profiles against
+declared inputs, and logs the complete stage path and hashes. It exports its three
+owned report files for the same exact output checks. Missing, extra, changed or
+linked products cause refusal; preparation does not run prediction or scoring.
+
 Directory producers must map their complete declared output set without duplicate
 destinations. Producers that require an absent destination use a canonical output
 subdirectory beneath the execution root; every produced path must stay inside it.

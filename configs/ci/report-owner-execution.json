@@ -556,6 +556,19 @@
         "source-products/sample-support.csv": "docs/report/regions/nordic/dalmutladdo-author-target-age-interval/sample-support.csv"
       },
       "timeout_seconds": 180
+    },
+    {
+      "module": "bijux_pollenomics_dev.source_completion.pollen_age_support.abborrtjarne",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "pollen-reconstruction/age-interval-sensitivity/local-preparation",
+      "source_arguments": [],
+      "source_paths": {
+        "source-products/age-bin-support.csv": "docs/report/pollen-reconstruction/age-interval-sensitivity/age-bin-support.csv",
+        "source-products/input-manifest.json": "docs/report/pollen-reconstruction/age-interval-sensitivity/input-manifest.json",
+        "source-products/prepared/dataset-19913.json": "docs/report/pollen-reconstruction/age-interval-sensitivity/prepared/dataset-19913.json"
+      },
+      "timeout_seconds": 180
     }
   ]
 }

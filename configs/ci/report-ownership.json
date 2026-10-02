@@ -3281,15 +3281,10 @@
     },
     {
       "owner_id": "pollen-reconstruction/age-interval-sensitivity/local-preparation",
-      "role": "generated_owner",
       "paths": [
         "docs/report/pollen-reconstruction/age-interval-sensitivity/age-bin-support.csv",
         "docs/report/pollen-reconstruction/age-interval-sensitivity/input-manifest.json",
         "docs/report/pollen-reconstruction/age-interval-sensitivity/prepared/dataset-19913.json"
-      ],
-      "producer_paths": [
-        "docs/report/pollen-reconstruction/age-interval-sensitivity/replay.py",
-        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/swedish_direct_pollen.py"
       ],
       "producer_inputs": [
         "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-004.json",
@@ -3300,7 +3295,14 @@
         "docs/report/pollen-reconstruction/swedish-direct-pollen/prepared/dataset-54001.json",
         "docs/report/source-relations/neotoma/legacyage-chronology/sample-depth-join.csv"
       ],
-      "verification": "From the repository root, run `PYTHONDONTWRITEBYTECODE=1 .venv/bin/python docs/report/pollen-reconstruction/age-interval-sensitivity/replay.py prepare --repository . --output artifacts/jobs/abbo-interval-owner-check` with an absent output. Compare only the three declared files byte for byte with their tracked counterparts. This verifies a local preparation stage from retained Neotoma/LegacyAge inputs; it does not rerun held-out prediction, scoring, chronology approval, or external source authentication."
+      "producer_paths": [
+        "docs/report/pollen-reconstruction/age-interval-sensitivity/replay.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_age_support/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_age_support/abborrtjarne.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/swedish_direct_pollen.py"
+      ],
+      "role": "generated_owner",
+      "verification": "Run the maintained ABBO age-preparation adapter into an absent artifacts directory using the configured owner. It executes only prepare; requires all five stage files, verifies the two carried profiles byte-for-byte against declared upstream inputs, retains all stage bytes in artifact staging and logs their relative path and hashes, and exposes exactly the three owned files for tracked byte comparison. It does not predict, score, authenticate original source capture, or admit an age model."
     },
     {
       "owner_id": "pollen-reconstruction/age-interval-sensitivity/reader-account",
