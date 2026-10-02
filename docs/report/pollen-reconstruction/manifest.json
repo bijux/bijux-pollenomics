@@ -4000,6 +4000,16 @@
       "bytes": 14038
     },
     {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/adna/public_outputs/atlas_readiness.py",
+      "sha256": "2b7d752b611da776d54c2f2ab889c38ca43c0149bfb130b269f018528ea439fc",
+      "bytes": 23316
+    },
+    {
+      "path": "packages/bijux-pollenomics/tests/unit/reporting/adna/public_outputs/test_atlas_readiness_rows.py",
+      "sha256": "cb48011d62f962c5065336136b6dee5f8cce83e3245f087cc735731e19b7ea2b",
+      "bytes": 743
+    },
+    {
       "path": "presentation/scientific-evidence.tex",
       "sha256": "a8bee0b8f9f9a3a271357df53394ae587d0949c53bf45094aa9176890b5d9a29",
       "bytes": 24651
