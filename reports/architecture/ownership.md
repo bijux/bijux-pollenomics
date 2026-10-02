@@ -261,6 +261,25 @@ the original-R source category applies only to its separately authenticated
 125-file bundle. A maintained source file or editorial account requires
 source custody and review, rather than an invented generated-output proof.
 
+The partitioned assembly transports maintained source files and reader accounts
+to the reducers before they build the portal and cross-tree reviews. The
+[source validator](../../packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/maintained_sources.py)
+checks the separately reviewed path sets, ownership inventory, clean Git
+candidate and every committed file byte. It accepts Python and R source files
+for code owners and Markdown for editorial owners. A role label or a renamed
+numeric product cannot expand those admitted source sets.
+
+The certified original-R bundle uses its own certificate validation and source
+inventory. Assembly injects these 359 source files alongside verified generated
+owner inputs, records their distinct identities and removes the injected files
+from the publisher output after the reducers read them. Both assembly lanes
+must record the exact source evidence required by final verification. That
+verification combines source inventories with generated outputs; it refuses
+overlaps, changed inputs or missing source receipts. The canonical Make routes
+enable both source categories. This source transport does not reproduce the
+641 unresolved products, authenticate their historical executions or establish
+scientific review or release readiness.
+
 Check the declaration without executing the scientific studies:
 
 ```sh

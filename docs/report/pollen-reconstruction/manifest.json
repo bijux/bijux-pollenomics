@@ -2771,8 +2771,8 @@
     },
     {
       "path": "makes/pollenomics-verification.mk",
-      "sha256": "8bfeeb76482ebaf86de92d84c8602afb16cd3567c4fee20b1a0d73f1f7c9def4",
-      "bytes": 23115
+      "sha256": "946466ed87dceb8086ebfb7996a5acf8a8bcf45b5a5744f90bd6dbdfbf202f24",
+      "bytes": 23227
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/atlas_browser/landclim_export/__init__.py",
@@ -2790,6 +2790,11 @@
       "bytes": 18270
     },
     {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/__main__.py",
+      "sha256": "15c63d3d1cc1c8dfd7032a5bd02d23f1b55208600e3e825d36b0ec90361d6a16",
+      "bytes": 7243
+    },
+    {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/configured_owner.py",
       "sha256": "6fd3f973e9075e7741ab55a8786bbcca0aa7ad57de59ddc6205ff26db77bed0d",
       "bytes": 15759
@@ -2801,8 +2806,18 @@
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/execution.py",
-      "sha256": "b69b86d58a7867e849dbad32800022ddde7f767d7e1f3ec95c51bc0be3543e10",
-      "bytes": 18455
+      "sha256": "46cce791767f2944b997fe61e195246fb4ad47fb2cb1970b2604ada58c676241",
+      "bytes": 22343
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/maintained_sources.py",
+      "sha256": "1c537e7a4fd35a670e4c7cf5e03653d16e20623eedf02914b11e9c1d456c32b7",
+      "bytes": 6605
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/original_r_reference.py",
+      "sha256": "53400b86f8c5c706924f3a8241985fa02874e1093759297a510dc5d9895e36cf",
+      "bytes": 2546
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/owner_process.py",
@@ -2821,8 +2836,8 @@
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/verification.py",
-      "sha256": "834cd5afd6ff5eec9ac1b4366bc447122a40fd03a3f387f87e87321e5b5297ef",
-      "bytes": 19301
+      "sha256": "55e203c2e5e76c4def7d8c9cd58ca97d009224d37c5c910bf5714ee5c3a26f7c",
+      "bytes": 22724
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/docs/report_portal_check.py",
@@ -3705,14 +3720,19 @@
       "bytes": 35781
     },
     {
+      "path": "packages/bijux-pollenomics-dev/tests/test_report_rebuild_maintained_sources.py",
+      "sha256": "ef7fc7393ee8cb5c2643aebfa867d7ce09851f638f52124bf495ae37507adec2",
+      "bytes": 10909
+    },
+    {
       "path": "packages/bijux-pollenomics-dev/tests/test_report_rebuild_ownership.py",
       "sha256": "0b22be430b5bc513f40cfe7abefca99abcf9b958fbabbc1ecdcb68978a33afb3",
       "bytes": 11585
     },
     {
       "path": "packages/bijux-pollenomics-dev/tests/test_report_rebuild_partitions.py",
-      "sha256": "43fbc86156ff0aedb948a958c863d183ba4baece20961ce2aa5ce00fa618fe28",
-      "bytes": 41042
+      "sha256": "4ee2d082c1ec9a9bf2771c113e5de4d0470259fd605d8f6a8878fe63a6f29e2b",
+      "bytes": 60543
     },
     {
       "path": "packages/bijux-pollenomics-dev/tests/test_runtime_isolation.py",
@@ -3765,6 +3785,11 @@
       "bytes": 24651
     },
     {
+      "path": "presentation/source-lock.json",
+      "sha256": "0c5319565ee1deed056cd802230a73e3206296929cda32a597ad0ea2a69ee0fd",
+      "bytes": 12768
+    },
+    {
       "path": "reports/README.md",
       "sha256": "f25789861279ac09c4d02b4cfe411ab726be75649584c788dd150426c4abf005",
       "bytes": 11023
@@ -3776,8 +3801,8 @@
     },
     {
       "path": "reports/architecture/ownership.md",
-      "sha256": "c707f4951d113186919698d39a0e96d0879d13da12473d80c2b1118bb2ca9dd0",
-      "bytes": 25062
+      "sha256": "afa7f48f19c4c43f16336df409727182af512fe86561d7a21e35795572072fb6",
+      "bytes": 26365
     },
     {
       "path": "reports/evidence-index.md",
@@ -3851,7 +3876,7 @@
     },
     {
       "path": "reports/exports/site-downloads.json",
-      "sha256": "58843818dc5e9733235ac9f2808d7f784be0a489deb8dcfa3c5159ed082332ed",
+      "sha256": "5bd98faace2e548625b67b8ed0926086701d7c8ee9a519dd62934f297513b30d",
       "bytes": 5774
     },
     {

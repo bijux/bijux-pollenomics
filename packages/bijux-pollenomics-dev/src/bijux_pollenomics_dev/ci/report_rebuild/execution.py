@@ -7,6 +7,7 @@ from pathlib import Path
 from typing import cast
 
 from bijux_pollenomics_dev.ci.rebuild_reports import InventoryEntry, inventory_reports
+from bijux_pollenomics_dev.lra_validation.reference_replay import CERTIFICATE_SHA256
 
 from .contracts import (
     JsonObject,
@@ -31,6 +32,8 @@ from .evidence import (
     require_independent_owner_inputs,
     require_inventory_matches_tree,
 )
+from .maintained_sources import validated_maintained_report_sources
+from .original_r_reference import validated_original_r_reference
 from .owner_process import run_owner_command
 from .planning import (
     current_binding,
@@ -43,8 +46,21 @@ from .runtime_process import run_runtime_command
 FRAGMENT_SCHEMA = "partitioned-report-fragment.v1"
 ASSEMBLY_SCHEMA = "partitioned-report-assembly.v1"
 OWNED_ASSEMBLY_SCHEMA = "partitioned-report-assembly.v2"
+SOURCE_ASSEMBLY_SCHEMA = "partitioned-report-assembly.v3"
 _LANES = frozenset({"reference", "replay"})
 OWNER_SCHEMA = "partitioned-report-owner.v1"
+
+
+def _require_merged_source_inputs(
+    root: Path,
+    expected: tuple[InventoryEntry, ...],
+    policy: JsonObject,
+    label: str,
+) -> None:
+    """Compare merged source trees by path independent of directory walk order."""
+    observed = inventory_reports(root, policy)
+    if tuple(sorted(observed, key=lambda entry: entry.path)) != expected:
+        raise ReportRebuildError(f"{label} tree differs from its source inventories")
 
 
 def build_owner_output(
@@ -301,6 +317,8 @@ def assemble_partition_lane(
     evidence_root: Path,
     owner_artifacts_root: Path | None = None,
     owner_ids: tuple[str, ...] = (),
+    retain_maintained_report_sources: bool = False,
+    retain_original_r_reference: bool = False,
 ) -> JsonObject:
     """Assemble one complete report tree from exactly one copy of every partition."""
     if lane not in _LANES:
@@ -359,16 +377,74 @@ def assemble_partition_lane(
             set(owner_paths)
         ) or fragment_input_paths.intersection(owner_paths):
             raise ReportRebuildError("assembly owner output overlaps another input")
+    maintained, maintained_evidence = (
+        validated_maintained_report_sources(
+            repo_root,
+            inventory_reports(
+                repo_root / cast(str, policy["tracked_report_root"]), policy
+            ),
+            expected_repository=binding.repository,
+        )
+        if retain_maintained_report_sources
+        else ((), {})
+    )
+    retained_r = (
+        validated_original_r_reference(repo_root, policy)
+        if retain_original_r_reference
+        else ()
+    )
+    source_inputs: JsonObject = {
+        **(
+            {"maintained_report_sources": maintained_evidence}
+            if retain_maintained_report_sources
+            else {}
+        ),
+        **(
+            {
+                "original_r_reference": {
+                    "certificate_sha256": CERTIFICATE_SHA256,
+                    "inventory": inventory_json(retained_r),
+                }
+            }
+            if retain_original_r_reference
+            else {}
+        ),
+    }
+    source_paths = [entry.path for entry in (*maintained, *retained_r)]
+    if len(source_paths) != len(set(source_paths)):
+        raise ReportRebuildError("checked-in source categories overlap")
+    fragment_input_paths = {
+        entry.path for _, inventory, _, _ in fragments.values() for entry in inventory
+    }
+    if fragment_input_paths.intersection(source_paths):
+        raise ReportRebuildError("checked-in source overlaps publisher fragment")
     evidence_root.mkdir(parents=True)
     owner_input_root: Path | None = None
-    if owner_outputs:
+    inputs = {
+        identity: (path.parent / "output", inventory)
+        for identity, (_, inventory, path) in owner_outputs.items()
+    }
+    if maintained:
+        inputs["@maintained-report-sources"] = (
+            repo_root / cast(str, policy["tracked_report_root"]),
+            maintained,
+        )
+    if retained_r:
+        inputs["@original-r-reference"] = (
+            repo_root / cast(str, policy["tracked_report_root"]),
+            retained_r,
+        )
+    if inputs:
         owner_input_root = evidence_root / "owner-input"
-        merge_fragment_trees(
-            {
-                identity: (path.parent / "output", inventory)
-                for identity, (_, inventory, path) in owner_outputs.items()
-            },
-            owner_input_root,
+        merge_fragment_trees(inputs, owner_input_root)
+        expected_inputs = tuple(
+            sorted(
+                (entry for _, inventory in inputs.values() for entry in inventory),
+                key=lambda entry: entry.path,
+            )
+        )
+        _require_merged_source_inputs(
+            owner_input_root, expected_inputs, policy, "assembly source inputs"
         )
     output_root = evidence_root / "output"
     parameters = require_mapping(plan["parameters"], "plan parameters")
@@ -402,16 +478,32 @@ def assemble_partition_lane(
         output_root.resolve()
     ):
         raise ReportRebuildError("runtime assembly result output root does not match")
+    if owner_input_root is not None:
+        _require_merged_source_inputs(
+            owner_input_root, expected_inputs, policy, "post-reducer source inputs"
+        )
     complete = inventory_reports(output_root, policy)
     complete_by_path = {entry.path: entry for entry in complete}
-    if owner_outputs:
-        unexpected = set(complete_by_path).intersection(
-            entry.path
-            for _, inventory, _ in owner_outputs.values()
-            for entry in inventory
+    injected_paths = {
+        entry.path for _, inventory in inputs.values() for entry in inventory
+    }
+    if set(complete_by_path) & injected_paths:
+        raise ReportRebuildError("assembly retained injected source inputs")
+    if retain_maintained_report_sources:
+        maintained_after, evidence_after = validated_maintained_report_sources(
+            repo_root,
+            inventory_reports(
+                repo_root / cast(str, policy["tracked_report_root"]), policy
+            ),
+            expected_repository=binding.repository,
         )
-        if unexpected:
-            raise ReportRebuildError("assembly retained owner input paths")
+        if maintained_after != maintained or evidence_after != maintained_evidence:
+            raise ReportRebuildError("maintained sources changed during assembly")
+    if (
+        retain_original_r_reference
+        and validated_original_r_reference(repo_root, policy) != retained_r
+    ):
+        raise ReportRebuildError("retained R source changed during assembly")
     owners: dict[str, str] = {}
     fragment_paths: dict[str, object] = {}
     fragment_digests: dict[str, object] = {}
@@ -437,7 +529,13 @@ def assemble_partition_lane(
     binding_after, _ = current_binding(repo_root, policy_path, policy)
     require_exact_binding(binding_after, binding, f"{lane} post-assembly")
     manifest: JsonObject = {
-        "schema_version": OWNED_ASSEMBLY_SCHEMA if owner_outputs else ASSEMBLY_SCHEMA,
+        "schema_version": (
+            SOURCE_ASSEMBLY_SCHEMA
+            if source_inputs
+            else OWNED_ASSEMBLY_SCHEMA
+            if owner_outputs
+            else ASSEMBLY_SCHEMA
+        ),
         "assembly_id": require_string(plan["assembly_id"], "assembly_id"),
         "assembly_paths": assembly_paths,
         "binding": binding.as_json(),
@@ -447,7 +545,7 @@ def assemble_partition_lane(
         "lane": lane,
         "partition_ids": list(partition_ids),
     }
-    if owner_outputs:
+    if owner_outputs or source_inputs:
         manifest["owner_paths"] = {
             identity: [entry.path for entry in inventory]
             for identity, (_, inventory, _) in sorted(owner_outputs.items())
@@ -456,5 +554,7 @@ def assemble_partition_lane(
             identity: sha256_bytes(path.read_bytes())
             for identity, (_, _, path) in sorted(owner_outputs.items())
         }
+    if source_inputs:
+        manifest["source_inputs"] = source_inputs
     atomic_write_json(evidence_root / "manifest.json", manifest)
     return manifest
