@@ -6789,15 +6789,39 @@
       "verification": "Authored source-scope and result account. Check its exact claims against the linked retained source reports and primary records; this editorial role does not establish source custody, rights, core identity, basin transfer, a pollen denominator, or LRA admission."
     },
     {
-      "owner_id": "source-relations/neotoma/acquisition-scope/report-products",
-      "role": "unresolved",
+      "owner_id": "source-relations/neotoma/acquisition-scope/reader-account",
+      "role": "maintained_editorial",
       "paths": [
-        "docs/report/source-relations/neotoma/acquisition-scope/README.md",
-        "docs/report/source-relations/neotoma/acquisition-scope/report.json"
+        "docs/report/source-relations/neotoma/acquisition-scope/README.md"
       ],
       "producer_paths": [],
       "producer_inputs": [],
-      "verification": "Identify the exact producer or independent source/template custody, lawful input closure and role-specific verification route for these paths. Bind independently reconstructed output or authenticated retained source before full mixed-owner acceptance; tracked output bytes cannot feed their own producer."
+      "verification": "Authored account of source scope, refusal and custody; no scientific admission is inferred."
+    },
+    {
+      "owner_id": "source-relations/neotoma/acquisition-scope/retained-selection",
+      "role": "generated_owner",
+      "paths": [
+        "docs/report/source-relations/neotoma/acquisition-scope/report.json"
+      ],
+      "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/neotoma_acquisition_scope.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/boundaries/store.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/neotoma/client.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/neotoma/collection.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/neotoma/country/__init__.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/neotoma/country/decisions.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/neotoma/country/site_geometry.py"
+      ],
+      "producer_inputs": [
+        "data/boundaries/raw/denmark.geojson",
+        "data/boundaries/raw/finland.geojson",
+        "data/boundaries/raw/norway.geojson",
+        "data/boundaries/raw/sweden.geojson",
+        "data/neotoma/raw/neotoma_pollen_dataset_downloads/manifest.json",
+        "data/neotoma/raw/neotoma_pollen_dataset_inventory.json"
+      ],
+      "verification": "Run the bounded acquisition-scope consumer into an absent artifact output and compare JSON bytes. Retained JSON selection differs from original HTTP pagination/capture custody, which remains unavailable; no network reacquisition is implied."
     },
     {
       "owner_id": "source-relations/neotoma/author-parameter-binding/report-products",
@@ -7342,30 +7366,189 @@
       "verification": "Maintain the authored source/count account against retained source identities and producer scope; no numerical producer writes this Markdown."
     },
     {
-      "owner_id": "source-relations/neotoma/pollen-screen/report-products",
+      "owner_id": "source-relations/neotoma/pollen-screen/candidate-series",
+      "role": "generated_owner",
+      "paths": [
+        "docs/report/source-relations/neotoma/pollen-screen/agerods-mosse.sample-series.json"
+      ],
+      "producer_paths": [
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/api.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/models.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/neotoma/accounting.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/neotoma/series/__init__.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/neotoma/series/projection.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/reading.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/neotoma/production/__init__.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/neotoma/production/constants.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/neotoma/production/identity.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/neotoma/production/raw_archive.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/neotoma/production/validation.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/neotoma/production/validation_api.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/sources/neotoma/contract.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/sources/neotoma/ownership.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/sources/neotoma/validation.py"
+      ],
+      "producer_inputs": [
+        "data/neotoma/raw/neotoma_pollen_dataset_downloads/manifest.json",
+        "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-001.json",
+        "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-002.json",
+        "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-003.json",
+        "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-004.json",
+        "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-005.json",
+        "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-006.json",
+        "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-007.json",
+        "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-008.json",
+        "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-009.json",
+        "data/neotoma/relational/manifest.json",
+        "data/neotoma/relational/reconciliation.json",
+        "data/neotoma/relational/surfaces/age_claims/part-00001.json",
+        "data/neotoma/relational/surfaces/chronologies/part-00001.json",
+        "data/neotoma/relational/surfaces/chronology_controls/part-00001.json",
+        "data/neotoma/relational/surfaces/collection_units/part-00001.json",
+        "data/neotoma/relational/surfaces/conflicts/part-00001.json",
+        "data/neotoma/relational/surfaces/datasets/part-00001.json",
+        "data/neotoma/relational/surfaces/observations/part-00001.json",
+        "data/neotoma/relational/surfaces/observations/part-00002.json",
+        "data/neotoma/relational/surfaces/observations/part-00003.json",
+        "data/neotoma/relational/surfaces/observations/part-00004.json",
+        "data/neotoma/relational/surfaces/observations/part-00005.json",
+        "data/neotoma/relational/surfaces/observations/part-00006.json",
+        "data/neotoma/relational/surfaces/observations/part-00007.json",
+        "data/neotoma/relational/surfaces/observations/part-00008.json",
+        "data/neotoma/relational/surfaces/orphans/part-00001.json",
+        "data/neotoma/relational/surfaces/samples/part-00001.json",
+        "data/neotoma/relational/surfaces/sites/part-00001.json",
+        "data/neotoma/relational/surfaces/variables/part-00001.json"
+      ],
+      "verification": "Call inspect_neotoma_lra_candidate_series with explicit sample IDs neotoma:sample:355236 through neotoma:sample:355251; write canonical_json without a newline. Sixteen refusal-only source samples are not LRA inputs; compare the produced bytes."
+    },
+    {
+      "owner_id": "source-relations/neotoma/pollen-screen/compact-summary",
       "role": "unresolved",
       "paths": [
-        "docs/report/source-relations/neotoma/pollen-screen/README.md",
-        "docs/report/source-relations/neotoma/pollen-screen/agerods-mosse.sample-series.json",
-        "docs/report/source-relations/neotoma/pollen-screen/report.json",
         "docs/report/source-relations/neotoma/pollen-screen/summary.json"
+      ],
+      "producer_paths": [
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/neotoma/pollen_screen.py"
+      ],
+      "producer_inputs": [
+        "docs/report/source-relations/neotoma/pollen-screen/report.json"
+      ],
+      "verification": "The full sample-decision consumer does not independently serialize this compact subset. Preserve the summary as unresolved until its exact projection/serialization producer is defined and compared; agreement with selected report fields alone is not owner reproduction."
+    },
+    {
+      "owner_id": "source-relations/neotoma/pollen-screen/reader-account",
+      "role": "maintained_editorial",
+      "paths": [
+        "docs/report/source-relations/neotoma/pollen-screen/README.md"
       ],
       "producer_paths": [],
       "producer_inputs": [],
-      "verification": "Identify the exact producer or independent source/template custody, lawful input closure and role-specific verification route for these paths. Bind independently reconstructed output or authenticated retained source before full mixed-owner acceptance; tracked output bytes cannot feed their own producer."
+      "verification": "Authored account of source scope, refusal and custody; no scientific admission is inferred."
     },
     {
-      "owner_id": "source-relations/neotoma/report-products",
-      "role": "unresolved",
+      "owner_id": "source-relations/neotoma/pollen-screen/sample-decisions",
+      "role": "generated_owner",
       "paths": [
-        "docs/report/source-relations/neotoma/README.md",
+        "docs/report/source-relations/neotoma/pollen-screen/report.json"
+      ],
+      "producer_paths": [
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/api.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/models.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/neotoma/accounting.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/neotoma/pollen_screen.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/neotoma/series/__init__.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/neotoma/series/projection.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/reading.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/neotoma/production/__init__.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/neotoma/production/constants.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/neotoma/production/identity.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/neotoma/production/raw_archive.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/neotoma/production/validation.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/neotoma/production/validation_api.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/sources/neotoma/contract.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/sources/neotoma/ownership.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/sources/neotoma/validation.py"
+      ],
+      "producer_inputs": [
+        "data/neotoma/raw/neotoma_pollen_dataset_downloads/manifest.json",
+        "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-001.json",
+        "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-002.json",
+        "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-003.json",
+        "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-004.json",
+        "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-005.json",
+        "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-006.json",
+        "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-007.json",
+        "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-008.json",
+        "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-009.json",
+        "data/neotoma/relational/manifest.json",
+        "data/neotoma/relational/reconciliation.json",
+        "data/neotoma/relational/surfaces/age_claims/part-00001.json",
+        "data/neotoma/relational/surfaces/chronologies/part-00001.json",
+        "data/neotoma/relational/surfaces/chronology_controls/part-00001.json",
+        "data/neotoma/relational/surfaces/collection_units/part-00001.json",
+        "data/neotoma/relational/surfaces/conflicts/part-00001.json",
+        "data/neotoma/relational/surfaces/datasets/part-00001.json",
+        "data/neotoma/relational/surfaces/observations/part-00001.json",
+        "data/neotoma/relational/surfaces/observations/part-00002.json",
+        "data/neotoma/relational/surfaces/observations/part-00003.json",
+        "data/neotoma/relational/surfaces/observations/part-00004.json",
+        "data/neotoma/relational/surfaces/observations/part-00005.json",
+        "data/neotoma/relational/surfaces/observations/part-00006.json",
+        "data/neotoma/relational/surfaces/observations/part-00007.json",
+        "data/neotoma/relational/surfaces/observations/part-00008.json",
+        "data/neotoma/relational/surfaces/orphans/part-00001.json",
+        "data/neotoma/relational/surfaces/samples/part-00001.json",
+        "data/neotoma/relational/surfaces/sites/part-00001.json",
+        "data/neotoma/relational/surfaces/variables/part-00001.json"
+      ],
+      "verification": "Call inspect_neotoma_lra_pollen_screen on the exact retained raw and normalized roots and write canonical_json unchanged. It is prerequisite-only: 10,637 necessary leads, zero LRA admission; compare bytes independently before accepting owner reproduction."
+    },
+    {
+      "owner_id": "source-relations/neotoma/reader-account",
+      "role": "maintained_editorial",
+      "paths": [
+        "docs/report/source-relations/neotoma/README.md"
+      ],
+      "producer_paths": [],
+      "producer_inputs": [],
+      "verification": "Authored account of source scope, refusal and custody; no scientific admission is inferred."
+    },
+    {
+      "owner_id": "source-relations/neotoma/relational-summary",
+      "role": "generated_owner",
+      "paths": [
         "docs/report/source-relations/neotoma/summary.json"
       ],
       "producer_paths": [
-        "docs/report/source-relations/neotoma/verify_ownership.py"
+        "docs/report/source-relations/neotoma/verify_ownership.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/sources/neotoma/contract.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/sources/neotoma/ownership.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/sources/neotoma/validation.py"
       ],
-      "producer_inputs": [],
-      "verification": "Identify the exact producer or independent source/template custody, lawful input closure and role-specific verification route for these paths. Bind independently reconstructed output or authenticated retained source before full mixed-owner acceptance; tracked output bytes cannot feed their own producer."
+      "producer_inputs": [
+        "data/neotoma/relational/manifest.json",
+        "data/neotoma/relational/reconciliation.json",
+        "data/neotoma/relational/surfaces/age_claims/part-00001.json",
+        "data/neotoma/relational/surfaces/chronologies/part-00001.json",
+        "data/neotoma/relational/surfaces/chronology_controls/part-00001.json",
+        "data/neotoma/relational/surfaces/collection_units/part-00001.json",
+        "data/neotoma/relational/surfaces/conflicts/part-00001.json",
+        "data/neotoma/relational/surfaces/datasets/part-00001.json",
+        "data/neotoma/relational/surfaces/observations/part-00001.json",
+        "data/neotoma/relational/surfaces/observations/part-00002.json",
+        "data/neotoma/relational/surfaces/observations/part-00003.json",
+        "data/neotoma/relational/surfaces/observations/part-00004.json",
+        "data/neotoma/relational/surfaces/observations/part-00005.json",
+        "data/neotoma/relational/surfaces/observations/part-00006.json",
+        "data/neotoma/relational/surfaces/observations/part-00007.json",
+        "data/neotoma/relational/surfaces/observations/part-00008.json",
+        "data/neotoma/relational/surfaces/orphans/part-00001.json",
+        "data/neotoma/relational/surfaces/samples/part-00001.json",
+        "data/neotoma/relational/surfaces/sites/part-00001.json",
+        "data/neotoma/relational/surfaces/variables/part-00001.json"
+      ],
+      "verification": "Run verify_ownership.py with the exact normalized root and capture its JSON stdout unchanged. It validates manifested transport and ancestry; null chronology references and all scientific admission refusals remain explicit."
     },
     {
       "owner_id": "source-relations/neotoma/source-code",
@@ -7477,16 +7660,134 @@
       "verification": "From repository root with absent destination, run `PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=packages/bijux-pollenomics-dev/src .venv/bin/python -m bijux_pollenomics_dev.source_completion.swedish_lake_core_correspondence --raw-part data/neotoma/raw/neotoma_pollen_dataset_downloads/part-008.json --raw-manifest data/neotoma/raw/neotoma_pollen_dataset_downloads/manifest.json --workbook data/landclim/raw/landclim_ii_site_metadata.xlsx --workbook-receipt data/landclim/raw/landclim_sources.json --count-mass docs/report/source-relations/neotoma/swedish-lake-core-identity/count-mass-crosscheck.json --projection docs/report/source-relations/neotoma/lra-prerequisites/projection.json --output artifacts/jobs/neotoma-core-owner-reproduction/swedish-lake-core-identity`; then `cmp artifacts/jobs/neotoma-core-owner-reproduction/swedish-lake-core-identity/REPORT.md docs/report/source-relations/neotoma/swedish-lake-core-identity/REPORT.md`; `cmp artifacts/jobs/neotoma-core-owner-reproduction/swedish-lake-core-identity/report.json docs/report/source-relations/neotoma/swedish-lake-core-identity/report.json`. The retained custody manifest currently matches the producer, inputs and outputs, but its own construction and the upstream count-mass/prerequisite source custody remain separate. No core identity, rights, basin or LRA admission follows."
     },
     {
-      "owner_id": "source-relations/neotoma/taxon-priority/report-products",
-      "role": "unresolved",
+      "owner_id": "source-relations/neotoma/taxon-priority/concept-priority",
+      "role": "generated_owner",
       "paths": [
-        "docs/report/source-relations/neotoma/taxon-priority/README.md",
-        "docs/report/source-relations/neotoma/taxon-priority/dataset-attribution.json",
         "docs/report/source-relations/neotoma/taxon-priority/priority.json"
+      ],
+      "producer_paths": [
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/models.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/neotoma/accounting.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/neotoma/series/__init__.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/neotoma/series/projection.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/neotoma/taxon_priority.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/reading.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/neotoma/production/__init__.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/neotoma/production/constants.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/neotoma/production/identity.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/neotoma/production/raw_archive.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/neotoma/production/validation.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/neotoma/production/validation_api.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/sources/neotoma/contract.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/sources/neotoma/ownership.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/sources/neotoma/validation.py"
+      ],
+      "producer_inputs": [
+        "data/neotoma/raw/neotoma_pollen_dataset_downloads/manifest.json",
+        "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-001.json",
+        "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-002.json",
+        "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-003.json",
+        "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-004.json",
+        "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-005.json",
+        "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-006.json",
+        "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-007.json",
+        "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-008.json",
+        "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-009.json",
+        "data/neotoma/relational/manifest.json",
+        "data/neotoma/relational/reconciliation.json",
+        "data/neotoma/relational/surfaces/age_claims/part-00001.json",
+        "data/neotoma/relational/surfaces/chronologies/part-00001.json",
+        "data/neotoma/relational/surfaces/chronology_controls/part-00001.json",
+        "data/neotoma/relational/surfaces/collection_units/part-00001.json",
+        "data/neotoma/relational/surfaces/conflicts/part-00001.json",
+        "data/neotoma/relational/surfaces/datasets/part-00001.json",
+        "data/neotoma/relational/surfaces/observations/part-00001.json",
+        "data/neotoma/relational/surfaces/observations/part-00002.json",
+        "data/neotoma/relational/surfaces/observations/part-00003.json",
+        "data/neotoma/relational/surfaces/observations/part-00004.json",
+        "data/neotoma/relational/surfaces/observations/part-00005.json",
+        "data/neotoma/relational/surfaces/observations/part-00006.json",
+        "data/neotoma/relational/surfaces/observations/part-00007.json",
+        "data/neotoma/relational/surfaces/observations/part-00008.json",
+        "data/neotoma/relational/surfaces/orphans/part-00001.json",
+        "data/neotoma/relational/surfaces/samples/part-00001.json",
+        "data/neotoma/relational/surfaces/sites/part-00001.json",
+        "data/neotoma/relational/surfaces/variables/part-00001.json",
+        "data/neotoma/review/source_taxon_concepts.json",
+        "docs/report/source-relations/neotoma/pollen-screen/report.json"
+      ],
+      "verification": "Call prioritize_neotoma_candidate_taxa with source evidence, governed sample screen and scoped 1,351-row review; serialize with models.canonical_bytes. Its internal bundle digest differs from file SHA and both must match. All 1,006 selected concepts remain needs_discussion; no taxonomy, rights or PPE approval."
+    },
+    {
+      "owner_id": "source-relations/neotoma/taxon-priority/dataset-attribution",
+      "role": "generated_owner",
+      "paths": [
+        "docs/report/source-relations/neotoma/taxon-priority/dataset-attribution.json"
+      ],
+      "producer_paths": [
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/models.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/neotoma/accounting.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/neotoma/series/__init__.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/neotoma/series/projection.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/neotoma/taxon_priority.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/neotoma/taxon_provenance.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/reading.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/neotoma/production/__init__.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/neotoma/production/constants.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/neotoma/production/identity.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/neotoma/production/raw_archive.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/neotoma/production/validation.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/neotoma/production/validation_api.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/sources/neotoma/contract.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/sources/neotoma/ownership.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/sources/neotoma/validation.py"
+      ],
+      "producer_inputs": [
+        "data/neotoma/raw/neotoma_pollen_dataset_downloads/manifest.json",
+        "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-001.json",
+        "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-002.json",
+        "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-003.json",
+        "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-004.json",
+        "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-005.json",
+        "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-006.json",
+        "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-007.json",
+        "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-008.json",
+        "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-009.json",
+        "data/neotoma/relational/manifest.json",
+        "data/neotoma/relational/reconciliation.json",
+        "data/neotoma/relational/surfaces/age_claims/part-00001.json",
+        "data/neotoma/relational/surfaces/chronologies/part-00001.json",
+        "data/neotoma/relational/surfaces/chronology_controls/part-00001.json",
+        "data/neotoma/relational/surfaces/collection_units/part-00001.json",
+        "data/neotoma/relational/surfaces/conflicts/part-00001.json",
+        "data/neotoma/relational/surfaces/datasets/part-00001.json",
+        "data/neotoma/relational/surfaces/observations/part-00001.json",
+        "data/neotoma/relational/surfaces/observations/part-00002.json",
+        "data/neotoma/relational/surfaces/observations/part-00003.json",
+        "data/neotoma/relational/surfaces/observations/part-00004.json",
+        "data/neotoma/relational/surfaces/observations/part-00005.json",
+        "data/neotoma/relational/surfaces/observations/part-00006.json",
+        "data/neotoma/relational/surfaces/observations/part-00007.json",
+        "data/neotoma/relational/surfaces/observations/part-00008.json",
+        "data/neotoma/relational/surfaces/orphans/part-00001.json",
+        "data/neotoma/relational/surfaces/samples/part-00001.json",
+        "data/neotoma/relational/surfaces/sites/part-00001.json",
+        "data/neotoma/relational/surfaces/variables/part-00001.json",
+        "data/neotoma/review/source_taxon_concepts.json",
+        "docs/report/source-relations/neotoma/pollen-screen/report.json",
+        "docs/report/source-relations/neotoma/taxon-priority/priority.json"
+      ],
+      "verification": "Call attribute_neotoma_priority_datasets with source evidence, screen, scoped review and priority, then canonical_bytes. Preserve 169 distinct source dataset IDs and DOI attribution leads without treating them as source-paper verification or permission."
+    },
+    {
+      "owner_id": "source-relations/neotoma/taxon-priority/reader-account",
+      "role": "maintained_editorial",
+      "paths": [
+        "docs/report/source-relations/neotoma/taxon-priority/README.md"
       ],
       "producer_paths": [],
       "producer_inputs": [],
-      "verification": "Identify the exact producer or independent source/template custody, lawful input closure and role-specific verification route for these paths. Bind independently reconstructed output or authenticated retained source before full mixed-owner acceptance; tracked output bytes cannot feed their own producer."
+      "verification": "Authored account of source scope, refusal and custody; no scientific admission is inferred."
     },
     {
       "owner_id": "source-relations/neotoma/variable-surface/native-variable-reconciliation",

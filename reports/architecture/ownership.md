@@ -208,6 +208,15 @@ files retain unresolved private author lookup or historical development-input
 custody. The 16-label direct-pollen response and 31-target author subcomposition
 remain distinct; mechanical production does not approve either as LRA input.
 
+The Neotoma acquisition selector, full sample screen, bounded candidate
+series, concept priority, dataset attribution and relational summary declare
+six mechanical outputs. Their raw/normalized source roots and scoped concept
+review remain explicit inputs. Four explanations are editorial. The compact
+sample-screen summary remains unresolved because the full sample-decision
+serializer does not independently produce its selected-field export. Source
+transport, necessary count/age leads and dataset DOI attribution do not approve
+chronology, taxa, pollen denominator, basin geometry, PPE or LRA admission.
+
 A fresh canonical publisher build from fixed product
 `d535ca7f3bed0ead63e5f96e45658c435ed6613a` produced exactly the 709 declared
 publisher paths, with no missing or extra output. Its path-set digest is
