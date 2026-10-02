@@ -1924,7 +1924,7 @@
         "data/neotoma/relational/surfaces/chronology_controls/part-00001.json",
         "docs/report/countries/denmark/solsoe-source-lineage/report.json"
       ],
-      "verification": "The maintained age-control producer needs external `landclim/pangaea/solsoe/solsoe81-age-740759.txt` with pinned SHA-256 9934dd802fa7b7094c2a6cc08fff90ef29c1c630a092787c4f4a3aac96be6be0. Its retained output also pins a parent Sols\u00f8 report SHA different from the current repository file. Reconcile external custody and parent identity, then run the README's source-root command into absent artifacts and compare exact report bytes; do not infer the LandClim II author chronology or rights from this declaration."
+      "verification": "The maintained age-control producer requires the exact external solsoe81-age-740759.txt at SHA9934dd802fa7b7094c2a6cc08fff90ef29c1c630a092787c4f4a3aac96be6be0. A bounded current replay changed only the recorded parent report SHA; all numerical/scientific fields matched. Keep external primary capture/rights custody separate, and do not infer the LandClim II author chronology or an admitted historical basin from this join."
     },
     {
       "owner_id": "countries/denmark/solsoe-source-lineage/pangaea-epd-age-join/reader-account",
@@ -1985,7 +1985,7 @@
         "data/neotoma/relational/surfaces/observations/part-00008.json",
         "data/neotoma/relational/surfaces/samples/part-00001.json"
       ],
-      "verification": "The maintained pollen-lineage producer needs external `landclim/pangaea/solsoe/solsoe81-pollen-739834.txt` with pinned SHA-256 da790080493ccfe7e37ab16d154e438cfbeb7b0046bc41d7f24499572a0353d0. Its retained report pins a producer SHA different from current code. Reconcile private source and exact producer identity, then run the README's source-root command into absent artifacts and compare report and 66-row sample ledger byte for byte; source-name count-vector matches do not approve taxonomy."
+      "verification": "The maintained pollen-lineage producer requires exact external solsoe81-pollen-739834.txt at SHAda790080493ccfe7e37ab16d154e438cfbeb7b0046bc41d7f24499572a0353d0. A bounded current replay changed only producer bytes/SHA; all scientific/count fields and the 66-row sample CSV matched. Preserve independent source capture/rights requirements and do not treat source-name count-vector identity as qualified taxonomy or LRA admission."
     },
     {
       "owner_id": "countries/denmark/solsoe-source-lineage/reader-accounts",

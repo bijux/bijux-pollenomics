@@ -6,8 +6,8 @@
   "files": [
     {
       "path": "configs/ci/report-ownership.json",
-      "sha256": "d03942c13c4858b3310020bcd0b53aa59011ec67f9d83bb1531231a3b3c1132e",
-      "bytes": 752735
+      "sha256": "f832b81fd906db0ee6d5ab0125318ec414ff73420ca8fb3b857e8a565a660364",
+      "bytes": 752577
     },
     {
       "path": "configs/docs/science_downloads.py",
@@ -270,6 +270,11 @@
       "bytes": 5121
     },
     {
+      "path": "docs/report/countries/denmark/solsoe-source-lineage/pangaea-core-controls/report.json",
+      "sha256": "fb3f00851e5b4faae84763b9741d454113693add0e6b03e03216dbcb6850a2d1",
+      "bytes": 3500
+    },
+    {
       "path": "docs/report/countries/denmark/solsoe-source-lineage/pangaea-epd-age-join/README.md",
       "sha256": "b17aa2734ac5edcd4d5482667e8e8ed659cb6a835bbea75cf6cd0495880de82b",
       "bytes": 2228
@@ -283,6 +288,16 @@
       "path": "docs/report/countries/denmark/solsoe-source-lineage/pangaea-epd-age-join/report.json",
       "sha256": "5039c9ff04263799f5b1e95c2027cdba710203c561220d9bfbea884bf6d52f49",
       "bytes": 1095
+    },
+    {
+      "path": "docs/report/countries/denmark/solsoe-source-lineage/pangaea-pollen-profile/README.md",
+      "sha256": "83dd13d12cc79fd05b4ecba17cdc27f0db38eb92b77f6c8cc8a12088835fab2b",
+      "bytes": 3195
+    },
+    {
+      "path": "docs/report/countries/denmark/solsoe-source-lineage/pangaea-pollen-profile/report.json",
+      "sha256": "e71e6ef7fb52afd2abf5540d1a003d4008e9520e58a39980296cba88d1003c2b",
+      "bytes": 9302
     },
     {
       "path": "docs/report/countries/sweden/bjaresjo-context-screen/README.md",
@@ -2271,7 +2286,7 @@
     },
     {
       "path": "docs/report/report_narrative_quality_review.json",
-      "sha256": "b777811bc9780a557cc15a354fae5db4722c46ac1de8ca72b35dd9efba10493e",
+      "sha256": "199d93a514c1fd2498affc3567c742535f631462f4a02158ee579bbefe8e15bd",
       "bytes": 137740
     },
     {
@@ -2281,7 +2296,7 @@
     },
     {
       "path": "docs/report/report_surface_registry.json",
-      "sha256": "57473e28c48308f05dec716484722d2affc470d19ee3e97773df99ae41596713",
+      "sha256": "f66f1cebde1d14f4ff3b0abbe9d280502f4adf08051984a9c3de38519812b39c",
       "bytes": 944837
     },
     {

@@ -224,8 +224,8 @@
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/solsoe_pollen_lineage.py",
-      "bytes": 12027,
-      "sha256": "738d3049e1f4d26975823a11971854a21689d0c474cea9b776a72c5724797cfa"
+      "bytes": 12125,
+      "sha256": "787832b1af5d7878f782c138fca151a70e42112190b91a11d9e52bb4103324f6"
     }
   ]
 }

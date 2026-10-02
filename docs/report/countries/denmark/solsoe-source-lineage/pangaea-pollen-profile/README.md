@@ -16,7 +16,7 @@ Neotoma records exactly those **2,881 positive NISP observations**, no more
 and no fewer; every matched count is equal. Their total is **128,653**. The
 [sample ledger](samples.csv) identifies every depth, Neotoma sample ID,
 positive taxon count and row total. Report SHA-256 is
-`fb444e5a079f6e18bfa4d4a225fd5f9dd2d3dab471f6949ab39d73cb6dd24204`;
+`e71e6ef7fb52afd2abf5540d1a003d4008e9520e58a39980296cba88d1003c2b`;
 sample ledger SHA-256 is
 `a4f41777c1b4cbe104aaa7fb78355b9d7ad249bb81b4ace401eb07e9cceef010`.
 
