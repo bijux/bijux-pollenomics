@@ -17,6 +17,10 @@ from bijux_pollenomics_dev.ci.path_selection import (
     load_contract,
     select_changed_paths,
 )
+from bijux_pollenomics_dev.ci.report_rebuild import configured_owner
+from bijux_pollenomics_dev.ci.report_rebuild.qualified_sources import (
+    QualifiedReportSources,
+)
 from bijux_pollenomics_dev.ci.report_rebuild.scheduling import (
     configured_owner_schedule,
 )
@@ -332,7 +336,45 @@ def test_atlas_workflow_separates_premerge_browser_from_postdeployment_smoke() -
     assert all(PINNED_ACTION.fullmatch(reference) for reference in action_references)
 
 
-def test_report_owner_ci_matrix_matches_configured_execution_contract() -> None:
+@pytest.fixture
+def configured_owner_rows(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> list[dict[str, str]]:
+    """Supply synthetic external inputs for CI identity and archive layout only.
+
+    These tests execute no producer and make no source-custody claim. Real
+    external authentication and missing-store refusals have separate tests.
+    """
+    store = tmp_path / "source-store"
+
+    def synthetic_sources(
+        repository: Path, source_root: Path, descriptor_path: Path
+    ) -> QualifiedReportSources:
+        assert repository == REPO_ROOT and source_root == store
+        descriptor_file = repository / descriptor_path
+        descriptor = json.loads(descriptor_file.read_text())
+        identity = descriptor["source_id"]
+        directory = store / identity
+        directory.mkdir(parents=True, exist_ok=True)
+        inputs = {descriptor_path.as_posix(): descriptor_file}
+        for spec in [descriptor["custody"], *descriptor["files"]]:
+            path = directory / spec["path"]
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_text("synthetic archive-layout fixture\n", encoding="utf-8")
+            inputs[f"external/{identity}/{spec['path']}"] = path
+        return QualifiedReportSources(directory, inputs, "a" * 64)
+
+    monkeypatch.setattr(
+        configured_owner, "validated_external_report_sources", synthetic_sources
+    )
+    rows = configured_owner_schedule(REPO_ROOT, source_root=store)["owners"]
+    assert isinstance(rows, list)
+    return rows
+
+
+def test_report_owner_ci_matrix_matches_configured_execution_contract(
+    configured_owner_rows: list[dict[str, str]],
+) -> None:
     workflow = yaml.load(
         WORKFLOW_PATH.read_text(encoding="utf-8"), Loader=yaml.BaseLoader
     )
@@ -342,7 +384,7 @@ def test_report_owner_ci_matrix_matches_configured_execution_contract() -> None:
     owner_job = workflow["jobs"]["rebuild-owners"]
     matrix = owner_job["strategy"]["matrix"]
     assert matrix["owner"] == "${{ fromJSON(needs.rebuild-plan.outputs.owners) }}"
-    rows = configured_owner_schedule(REPO_ROOT)["owners"]
+    rows = configured_owner_rows
     assert isinstance(rows, list)
     assert {row["id"] for row in rows} == {
         row["owner_id"] for row in configured["owners"]
@@ -381,12 +423,14 @@ def test_report_owner_ci_matrix_matches_configured_execution_contract() -> None:
     )
 
 
-def test_report_owner_ci_downloads_preserve_exact_nested_identities() -> None:
+def test_report_owner_ci_downloads_preserve_exact_nested_identities(
+    configured_owner_rows: list[dict[str, str]],
+) -> None:
     workflow = yaml.load(
         WORKFLOW_PATH.read_text(encoding="utf-8"), Loader=yaml.BaseLoader
     )
     jobs = workflow["jobs"]
-    owners = configured_owner_schedule(REPO_ROOT)["owners"]
+    owners = configured_owner_rows
     assert isinstance(owners, list)
     assembly = jobs["rebuild-assemble"]
     assert "rebuild-owners" in assembly["needs"]
@@ -446,13 +490,14 @@ def test_report_owner_ci_downloads_preserve_exact_nested_identities() -> None:
 
 def test_owner_lane_root_archives_keep_duplicate_leaf_names_separate(
     tmp_path: Path,
+    configured_owner_rows: list[dict[str, str]],
 ) -> None:
     workflow = yaml.load(
         WORKFLOW_PATH.read_text(encoding="utf-8"), Loader=yaml.BaseLoader
     )
     owner_job = workflow["jobs"]["rebuild-owners"]
     assert owner_job["steps"][-1]["with"]["path"].endswith("/${{ matrix.lane }}")
-    owners = configured_owner_schedule(REPO_ROOT)["owners"]
+    owners = configured_owner_rows
     assert isinstance(owners, list)
     same_leaf = [row for row in owners if row["id"].endswith("/report-products")]
     assert len(same_leaf) >= 2

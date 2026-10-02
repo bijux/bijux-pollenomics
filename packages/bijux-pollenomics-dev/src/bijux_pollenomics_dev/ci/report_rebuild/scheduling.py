@@ -25,7 +25,9 @@ MAX_OWNERS = 128
 IDENTITY = re.compile(r"[A-Za-z0-9_./-]+")
 
 
-def configured_owner_schedule(repository: Path) -> dict[str, object]:
+def configured_owner_schedule(
+    repository: Path, *, source_root: Path | None = None
+) -> dict[str, object]:
     """Validate every invocation and use full identities for scheduling."""
     repository = repository.resolve(strict=True)
     relative = _repository_relative(
@@ -57,7 +59,10 @@ def configured_owner_schedule(repository: Path) -> dict[str, object]:
         ):
             raise ReportRebuildError("owner ID cannot be scheduled safely")
         _configuration_owner(configuration, identity)
-        resolve_configured_owner(repository, identity)
+        if source_root is None:
+            resolve_configured_owner(repository, identity)
+        else:
+            resolve_configured_owner(repository, identity, source_root=source_root)
         identities.append(identity)
     identities.sort()
     selected = set(identities)
@@ -107,6 +112,7 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--github-output", type=Path)
     parser.add_argument("--check-only", action="store_true")
+    parser.add_argument("--source-root", type=Path)
     args = parser.parse_args(argv)
     try:
         repository = args.repository.resolve(strict=True)
@@ -117,7 +123,7 @@ def main(argv: list[str] | None = None) -> int:
             or args.output.is_symlink()
         ):
             raise ReportRebuildError("absent repository artifact schedule required")
-        report = configured_owner_schedule(repository)
+        report = configured_owner_schedule(repository, source_root=args.source_root)
         if args.check_only:
             return 0
         output.parent.mkdir(parents=True, exist_ok=True)

@@ -8051,14 +8051,17 @@
         "docs/report/source-relations/neotoma/legacyage-chronology/unmatched-samples.csv"
       ],
       "producer_inputs": [
+        "configs/ci/qualified-report-sources/legacyage.json",
         "data/neotoma/relational/surfaces/age_claims/part-00001.json",
         "data/neotoma/relational/surfaces/samples/part-00001.json"
       ],
       "producer_paths": [
-        "docs/report/source-relations/neotoma/legacyage-chronology/replay.py"
+        "docs/report/source-relations/neotoma/legacyage-chronology/replay.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/qualified_sources.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/neotoma/legacyage_depth_join.py"
       ],
-      "role": "unresolved",
-      "verification": "The maintained producer `docs/report/source-relations/neotoma/legacyage-chronology/replay.py` reads repository inputs declared here and the external LegacyAge S5/S6 tables identified in the retained report/README. After external byte custody and use authority are bound, run the documented fresh-artifact command and compare every governed output byte-for-byte. No private source was reopened here; age, count, taxon, basin, rights and LRA refusals remain unchanged."
+      "role": "generated_owner",
+      "verification": "Run the maintained LegacyAge chronology join with a qualified external source root. The descriptor and custody receipt bind only the consumed S5/S6 tables; compare the three generated files byte-for-byte with the tracked report. This generated-output proof does not admit age models, pollen denominators, basin transfer, or LRA claims."
     },
     {
       "owner_id": "source-relations/neotoma/legacyage-chronology/source-code",

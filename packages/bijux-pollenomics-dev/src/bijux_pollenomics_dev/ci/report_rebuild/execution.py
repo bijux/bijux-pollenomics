@@ -317,6 +317,7 @@ def assemble_partition_lane(
     evidence_root: Path,
     owner_artifacts_root: Path | None = None,
     owner_ids: tuple[str, ...] = (),
+    source_root: Path | None = None,
     retain_maintained_report_sources: bool = False,
     retain_original_r_reference: bool = False,
 ) -> JsonObject:
@@ -360,6 +361,7 @@ def assemble_partition_lane(
                 *partition_ids,
                 require_string(plan["assembly_id"], "assembly_id"),
             },
+            source_root=source_root,
         )
         if set(owner_outputs) != set(owner_ids):
             raise ReportRebuildError("assembly owner coverage is not exact")

@@ -225,6 +225,7 @@ plan-report-rebuild: root-check-env ## Bind the report partition plan to reposit
 	@$(DEV_RUN) -m bijux_pollenomics_dev.ci.report_rebuild.scheduling \
 		--repository "$(CURDIR)" \
 		--output "$(dir $(POLLENOMICS_REBUILD_PLAN))owner-schedule.json" \
+		$(if $(REBUILD_SOURCE_ROOT),--source-root "$(REBUILD_SOURCE_ROOT)") \
 		--check-only
 	@$(DEV_RUN) -m bijux_pollenomics_dev.ci.report_rebuild plan \
 		--repo-root "$(CURDIR)" \
@@ -234,6 +235,7 @@ plan-report-rebuild: root-check-env ## Bind the report partition plan to reposit
 	@$(DEV_RUN) -m bijux_pollenomics_dev.ci.report_rebuild.scheduling \
 		--repository "$(CURDIR)" \
 		--output "$(dir $(POLLENOMICS_REBUILD_PLAN))owner-schedule.json" \
+		$(if $(REBUILD_SOURCE_ROOT),--source-root "$(REBUILD_SOURCE_ROOT)") \
 		$(if $(GITHUB_OUTPUT),--github-output "$(GITHUB_OUTPUT)")
 
 build-report-rebuild-partition: root-check-env ## Materialize one evidence-bound report partition
@@ -254,6 +256,7 @@ build-report-rebuild-owner: root-check-env ## Reproduce one configured report ow
 		--plan "$(POLLENOMICS_REBUILD_PLAN)" \
 		--lane "$(REBUILD_LANE)" \
 		--owner-id "$(REBUILD_OWNER_ID)" \
+		$(if $(REBUILD_SOURCE_ROOT),--source-root "$(REBUILD_SOURCE_ROOT)") \
 		--evidence-root "$(REBUILD_EVIDENCE_ROOT)"
 
 assemble-report-rebuild: root-check-env ## Assemble one complete report tree from exact partitions
@@ -267,6 +270,7 @@ assemble-report-rebuild: root-check-env ## Assemble one complete report tree fro
 		--evidence-root "$(REBUILD_EVIDENCE_ROOT)" \
 		--retain-maintained-report-sources \
 		--retain-original-r-reference \
+		$(if $(REBUILD_SOURCE_ROOT),--source-root "$(REBUILD_SOURCE_ROOT)") \
 		$(foreach owner,$(REBUILD_OWNER_IDS),--owner-id "$(owner)") \
 		$(if $(REBUILD_OWNER_ARTIFACTS_ROOT),--owner-artifacts-root "$(REBUILD_OWNER_ARTIFACTS_ROOT)")
 
@@ -281,6 +285,7 @@ verify-partitioned-report-rebuild: root-check-env ## Compare two complete partit
 		--evidence-root "$(REBUILD_EVIDENCE_ROOT)" \
 		--retain-original-r-reference \
 		--retain-maintained-report-sources \
+		$(if $(REBUILD_SOURCE_ROOT),--source-root "$(REBUILD_SOURCE_ROOT)") \
 		$(foreach owner,$(REBUILD_OWNER_IDS),--owner-id "$(owner)") \
 		$(if $(REBUILD_REFERENCE_OWNERS_ROOT),--reference-owners-root "$(REBUILD_REFERENCE_OWNERS_ROOT)") \
 		$(if $(REBUILD_REPLAY_OWNERS_ROOT),--replay-owners-root "$(REBUILD_REPLAY_OWNERS_ROOT)")

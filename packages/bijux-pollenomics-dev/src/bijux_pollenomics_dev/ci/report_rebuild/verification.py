@@ -199,6 +199,7 @@ def _load_owner_outputs(
     binding: RebuildBinding,
     policy: JsonObject,
     publisher_ids: set[str],
+    source_root: Path | None = None,
 ) -> dict[str, tuple[JsonObject, tuple[InventoryEntry, ...], Path]]:
     """Load every independent owner artifact for one lane."""
     if artifacts_root is None:
@@ -236,13 +237,20 @@ def _load_owner_outputs(
             policy=policy,
             label=owner_id,
         )
-        _require_current_owner_inputs(manifest, repo_root, owner_id, policy)
+        _require_current_owner_inputs(
+            manifest, repo_root, owner_id, policy, source_root=source_root
+        )
         owners[owner_id] = (manifest, inventory, path)
     return owners
 
 
 def _require_current_owner_inputs(
-    manifest: JsonObject, repo_root: Path, owner_id: str, policy: JsonObject
+    manifest: JsonObject,
+    repo_root: Path,
+    owner_id: str,
+    policy: JsonObject,
+    *,
+    source_root: Path | None = None,
 ) -> None:
     """Reject a producer receipt whose named source files changed or vanished."""
     inputs = require_mapping(manifest["producer_inputs"], "owner producer_inputs")
@@ -255,6 +263,38 @@ def _require_current_owner_inputs(
         )
         for label, value in inputs.items()
     }
+    # Only qualified external owners need declaration-level input coverage.
+    # Older independent owner receipts retain their established contract.
+    from .configured_owner import (
+        DEFAULT_CONFIGURATION,
+        _configuration_owner,
+        _read_object,
+        resolve_configured_owner,
+    )
+
+    if (repo_root / DEFAULT_CONFIGURATION).is_file():
+        configuration = _read_object(
+            repo_root, DEFAULT_CONFIGURATION.as_posix(), "owner configuration"
+        )
+        rows = configuration.get("owners")
+        if isinstance(rows, list) and any(
+            isinstance(row, dict)
+            and row.get("owner_id") == owner_id
+            and "external_source_descriptor" in row
+            for row in rows
+        ):
+            _configuration_owner(configuration, owner_id)
+            selected = resolve_configured_owner(
+                repo_root, owner_id, source_root=source_root
+            )
+            if (
+                producer_input_identity(selected.inputs, repo_root) != inputs
+                or selected.source_paths != manifest["source_paths"]
+                or list(selected.command) != manifest["producer_command"]
+            ):
+                raise ReportRebuildError(
+                    f"qualified owner invocation or input declaration differs: {owner_id}"
+                )
     require_independent_owner_inputs(
         paths,
         tuple(cast(dict[str, str], manifest["source_paths"]).values()),
@@ -293,6 +333,7 @@ def verify_partitioned_rebuild(
     reference_owners_root: Path | None = None,
     replay_owners_root: Path | None = None,
     owner_ids: tuple[str, ...] = (),
+    source_root: Path | None = None,
     retain_original_r_reference: bool = False,
     retain_maintained_report_sources: bool = False,
 ) -> JsonObject:
@@ -345,6 +386,7 @@ def verify_partitioned_rebuild(
         binding=binding,
         policy=policy,
         publisher_ids=publisher_ids,
+        source_root=source_root,
     )
     replay_owners = _load_owner_outputs(
         artifacts_root=replay_owners_root,
@@ -353,6 +395,7 @@ def verify_partitioned_rebuild(
         binding=binding,
         policy=policy,
         publisher_ids=publisher_ids,
+        source_root=source_root,
     )
     for lane, owners in (("reference", reference_owners), ("replay", replay_owners)):
         if set(owners) != set(owner_ids):
@@ -493,7 +536,9 @@ def verify_partitioned_rebuild(
         )
     for owners in (reference_owners, replay_owners):
         for identity, (manifest, _, _) in owners.items():
-            _require_current_owner_inputs(manifest, repo_root, identity, policy)
+            _require_current_owner_inputs(
+                manifest, repo_root, identity, policy, source_root=source_root
+            )
     if retain_maintained_report_sources:
         maintained_after, evidence_after = validated_maintained_report_sources(
             repo_root, tracked, expected_repository=binding.repository

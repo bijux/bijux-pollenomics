@@ -63,8 +63,8 @@ or qualified scientific review.
 The [output ownership inventory](../../configs/ci/report-ownership.json)
 assigns every tracked report path exactly one declaration. Its population is
 1,938 paths: 709 declared publisher paths, 125 original-R retained source
-files, 229 generated domain outputs, 62 maintained source files, 172
-maintained reader accounts and 641 paths with unresolved output custody.
+files, 232 generated domain outputs, 62 maintained source files, 172
+maintained reader accounts and 638 paths with unresolved output custody.
 These role counts describe the current declarations. They do not measure
 how many outputs have been independently reproduced.
 
@@ -256,7 +256,7 @@ publisher paths, with no missing or extra output. Its path-set digest is
 This single isolated source-checkout check establishes publisher membership;
 it does not establish an installed release, full-tree byte equality or the
 required two independent assembly lanes.
-The new declaration keeps the current-R and Linux-R raw outputs unresolved;
+The retained-source declaration keeps the current-R and Linux-R raw outputs unresolved;
 the original-R source category applies only to its separately authenticated
 125-file bundle. A maintained source file or editorial account requires
 source custody and review, rather than an invented generated-output proof.
@@ -277,8 +277,27 @@ must record the exact source evidence required by final verification. That
 verification combines source inventories with generated outputs; it refuses
 overlaps, changed inputs or missing source receipts. The canonical Make routes
 enable both source categories. This source transport does not reproduce the
-641 unresolved products, authenticate their historical executions or establish
+638 unresolved products, authenticate their historical executions or establish
 scientific review or release readiness.
+
+The ABBO/DALMUT chronology owner uses the
+[external source contract](../../configs/ci/qualified-report-sources/legacyage.json)
+to pin its PANGAEA custody receipt and the consumed S5/S6 tables. The
+[external source validator](../../packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/qualified_sources.py)
+checks real directory ancestors, exact sizes and hashes, and the receipt's
+source, license and retrieval identities. Source bytes stay in the external
+store. The configured command passes the declared descriptor and an explicit
+source root to the replay; its receipt includes those external input identities.
+Assembly and final verification require the same declared inputs and command.
+An unavailable store or a substituted input cannot be replaced by a saved receipt.
+
+Set `REBUILD_SOURCE_ROOT` to the qualified store when selecting these owners
+through the Make scheduler, owner build, assembly or final verifier. This is a
+runtime prerequisite for external-source consumers. The source contract does
+not establish remote access to the store. The three ABBO/DALMUT files preserve
+178 exact sample-depth joins and DALMUT's unmatched 4.5 cm sample. They admit
+zero LRA samples and do not select the historical LandClim chronology or
+supply basin, pollen denominator or taxon eligibility.
 
 Check the declaration without executing the scientific studies:
 
@@ -349,7 +368,7 @@ refusals; their wrapper code is part of the declared producer closure.
 absent `REBUILD_EVIDENCE_ROOT`. Assembly accepts `REBUILD_OWNER_IDS` and
 `REBUILD_OWNER_ARTIFACTS_ROOT`; final verification accepts the same identities
 and both `REBUILD_REFERENCE_OWNERS_ROOT` and `REBUILD_REPLAY_OWNERS_ROOT`.
-The execution configuration currently names 82 generated owners covering 229
+The execution configuration currently names 83 generated owners covering 232
 tracked report paths. Reproducing a configured subset establishes only those
 owners' declared files.
 The complete report-tree comparison remains mandatory and refuses any missing owner. The scientific CI

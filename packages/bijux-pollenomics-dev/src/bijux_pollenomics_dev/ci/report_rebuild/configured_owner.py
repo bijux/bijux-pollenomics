@@ -22,6 +22,9 @@ from bijux_pollenomics_dev.ci.report_rebuild.ownership import (
     ReportOwnershipError,
     check_report_ownership,
 )
+from bijux_pollenomics_dev.ci.report_rebuild.qualified_sources import (
+    validated_external_report_sources,
+)
 
 SCHEMA = "configured-report-owner-execution.v1"
 DEFAULT_CONFIGURATION = Path("configs/ci/report-owner-execution.json")
@@ -73,7 +76,7 @@ OWNER_FIELDS: frozenset[str] = frozenset(
     }
 )
 OPTIONAL_OWNER_FIELDS: frozenset[str] = frozenset(
-    {"include_repository_argument", "output_subdirectory"}
+    {"include_repository_argument", "output_subdirectory", "external_source_descriptor"}
 )
 
 
@@ -87,6 +90,10 @@ class ConfiguredOwner:
     source_paths: dict[str, str]
     expected_outputs: dict[str, str]
     timeout_seconds: int
+    external_source_descriptor: Path | None
+    external_source_root: Path | None
+    external_inputs: dict[str, Path]
+    external_descriptor_sha256: str | None
 
 
 def _unique_pairs(pairs: list[tuple[str, Any]]) -> dict[str, Any]:
@@ -174,6 +181,10 @@ def _configuration_owner(
             raise ReportRebuildError("include_repository_argument must be a boolean")
         if "output_subdirectory" in row:
             require_relative_path(row["output_subdirectory"], "output subdirectory")
+        if "external_source_descriptor" in row:
+            require_relative_path(
+                row["external_source_descriptor"], "external source descriptor"
+            )
         identity = require_relative_path(row["owner_id"], "configured owner ID")
         if identity in seen:
             raise ReportRebuildError(f"duplicate configured owner: {identity}")
@@ -189,6 +200,7 @@ def resolve_configured_owner(
     repository: Path,
     owner_id: str,
     *,
+    source_root: Path | None = None,
     configuration_path: Path = DEFAULT_CONFIGURATION,
     inventory_path: Path = DEFAULT_INVENTORY,
 ) -> ConfiguredOwner:
@@ -246,6 +258,36 @@ def resolve_configured_owner(
         name: _safe_file(repository, name, "declared producer input")
         for name in input_names
     }
+    external_descriptor: Path | None = None
+    external_inputs: dict[str, Path] = {}
+    external_digest: str | None = None
+    declared_external = row.get("external_source_descriptor")
+    if declared_external is not None:
+        descriptor = require_relative_path(
+            declared_external, "external source descriptor"
+        )
+        if descriptor not in declaration["producer_inputs"]:
+            raise ReportRebuildError(
+                "external descriptor is not a declared repository input"
+            )
+        if source_root is None:
+            raise ReportRebuildError("configured external owner requires --source-root")
+        qualified = validated_external_report_sources(
+            repository, source_root, Path(descriptor)
+        )
+        if qualified.inputs.get(descriptor) != inputs[descriptor]:
+            raise ReportRebuildError("external descriptor differs from declared input")
+        external_descriptor = Path(descriptor)
+        external_inputs = qualified.inputs
+        external_digest = qualified.descriptor_sha256
+        for label, external_path in qualified.inputs.items():
+            if label == descriptor:
+                continue
+            if label in inputs:
+                raise ReportRebuildError(
+                    "external input overlaps repository declaration"
+                )
+            inputs[label] = external_path
     module = row["module"]
     if not isinstance(module, str) or MODULE.fullmatch(module) is None:
         raise ReportRebuildError(
@@ -303,6 +345,16 @@ def resolve_configured_owner(
         if row.get("include_repository_argument", True)
         else ()
     )
+    external_arguments = (
+        (
+            "--source-descriptor",
+            str(external_descriptor),
+            "--source-root",
+            str(source_root.absolute()),
+        )
+        if source_root is not None and external_descriptor is not None
+        else ()
+    )
     command = (
         sys.executable,
         "-c",
@@ -311,6 +363,7 @@ def resolve_configured_owner(
         module,
         *repository_arguments,
         *arguments,
+        *external_arguments,
         "--output",
         output_argument,
     )
@@ -324,6 +377,10 @@ def resolve_configured_owner(
             for target in owned
         },
         timeout_seconds=timeout,
+        external_source_descriptor=external_descriptor,
+        external_source_root=source_root,
+        external_inputs=external_inputs,
+        external_descriptor_sha256=external_digest,
     )
 
 
@@ -334,6 +391,7 @@ def build_configured_owner(
     lane: str,
     owner_id: str,
     evidence_root: Path,
+    source_root: Path | None = None,
     policy_path: Path = DEFAULT_POLICY,
     configuration_path: Path = DEFAULT_CONFIGURATION,
     inventory_path: Path = DEFAULT_INVENTORY,
@@ -343,6 +401,7 @@ def build_configured_owner(
     selected = resolve_configured_owner(
         repository,
         owner_id,
+        source_root=source_root,
         configuration_path=configuration_path,
         inventory_path=inventory_path,
     )
@@ -362,6 +421,21 @@ def build_configured_owner(
         evidence_root=evidence_root,
         timeout_seconds=selected.timeout_seconds,
     )
+    if selected.external_source_descriptor is not None:
+        if selected.external_source_root is None:
+            raise ReportRebuildError("external source root disappeared")
+        after = validated_external_report_sources(
+            repository,
+            selected.external_source_root,
+            selected.external_source_descriptor,
+        )
+        if (
+            after.inputs != selected.external_inputs
+            or after.descriptor_sha256 != selected.external_descriptor_sha256
+        ):
+            raise ReportRebuildError(
+                "external source declaration changed during owner build"
+            )
     output_root = (evidence_root / "output").resolve(strict=True)
     for target, expected_sha256 in selected.expected_outputs.items():
         produced = _safe_file(
@@ -385,6 +459,7 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--lane", choices=("reference", "replay"), required=True)
     parser.add_argument("--owner-id", required=True)
     parser.add_argument("--evidence-root", required=True, type=Path)
+    parser.add_argument("--source-root", type=Path)
     parser.add_argument("--policy", type=Path, default=DEFAULT_POLICY)
     parser.add_argument("--configuration", type=Path, default=DEFAULT_CONFIGURATION)
     parser.add_argument("--inventory", type=Path, default=DEFAULT_INVENTORY)
@@ -396,6 +471,7 @@ def main(argv: list[str] | None = None) -> int:
             lane=args.lane,
             owner_id=args.owner_id,
             evidence_root=args.evidence_root,
+            source_root=args.source_root,
             policy_path=args.policy,
             configuration_path=args.configuration,
             inventory_path=args.inventory,

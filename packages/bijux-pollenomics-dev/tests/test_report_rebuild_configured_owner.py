@@ -7,6 +7,7 @@ import hashlib
 import json
 import os
 from pathlib import Path
+import shlex
 import subprocess
 import sys
 from typing import Any
@@ -16,6 +17,13 @@ import pytest
 from bijux_pollenomics_dev.ci.report_rebuild import configured_owner as owner_runner
 from bijux_pollenomics_dev.ci.report_rebuild import scheduling
 from bijux_pollenomics_dev.ci.report_rebuild.contracts import ReportRebuildError
+from bijux_pollenomics_dev.ci.report_rebuild.evidence import producer_input_identity
+from bijux_pollenomics_dev.ci.report_rebuild.qualified_sources import (
+    QualifiedReportSources,
+)
+from bijux_pollenomics_dev.ci.report_rebuild.verification import (
+    _require_current_owner_inputs,
+)
 
 OWNER_ID = "domain/summary"
 MODULE = "bijux_pollenomics_dev.source_completion.example"
@@ -27,6 +35,7 @@ PARENT = "docs/report/domain/report.json"
 SECOND_INPUT = "docs/report/domain/source.json"
 OUTPUT = "docs/report/domain/summary.json"
 SECOND_OUTPUT = "docs/report/domain/details.json"
+EXTERNAL_DESCRIPTOR = "configs/ci/qualified-report-sources/legacyage.json"
 
 
 def _write(repository: Path, name: str, content: str) -> None:
@@ -1018,3 +1027,351 @@ def test_schedule_preflight_does_not_write_outputs(repository: Path) -> None:
     )
     assert not output.parent.exists()
     assert github.read_text() == "retained\n"
+
+
+def _qualified_fixture(
+    repository: Path, monkeypatch: pytest.MonkeyPatch
+) -> tuple[Path, dict[str, Path]]:
+    """Add a configured external owner with a synthetic qualified packet."""
+    _write(repository, EXTERNAL_DESCRIPTOR, '{"packet": 1}\n')
+    _modify(
+        repository,
+        "report-ownership.json",
+        lambda p: p["owners"][0].update(
+            producer_inputs=sorted([PARENT, EXTERNAL_DESCRIPTOR])
+        ),
+    )
+    _modify(
+        repository,
+        "report-owner-execution.json",
+        lambda p: p["owners"][0].update(external_source_descriptor=EXTERNAL_DESCRIPTOR),
+    )
+    root = repository.parent / f"{repository.name}-qualified-sources"
+    root.mkdir()
+    custody = root / "source-manifest.json"
+    source = root / "table-s5.csv"
+    custody.write_text('{"custody": 1}\n', encoding="utf-8")
+    source.write_text("qualified source\n", encoding="utf-8")
+    inputs = {
+        EXTERNAL_DESCRIPTOR: repository / EXTERNAL_DESCRIPTOR,
+        "external/legacyage/source-manifest.json": custody,
+        "external/legacyage/table-s5.csv": source,
+    }
+    monkeypatch.setattr(
+        owner_runner,
+        "validated_external_report_sources",
+        lambda *_args: QualifiedReportSources(root, inputs, "a" * 64),
+    )
+    return root, inputs
+
+
+def test_qualified_owner_requires_root_and_exact_declared_inputs(
+    repository: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    root, external = _qualified_fixture(repository, monkeypatch)
+    with pytest.raises(ReportRebuildError, match="requires --source-root"):
+        owner_runner.resolve_configured_owner(repository, OWNER_ID)
+    selected = owner_runner.resolve_configured_owner(
+        repository, OWNER_ID, source_root=root
+    )
+    assert selected.inputs == {
+        MODULE_PATH: repository / MODULE_PATH,
+        PARENT: repository / PARENT,
+        **external,
+    }
+    assert selected.command[-4:-2] == ("--source-root", str(root))
+    assert selected.command[-6:-4] == ("--source-descriptor", EXTERNAL_DESCRIPTOR)
+    with pytest.raises(ReportRebuildError, match="requires --source-root"):
+        scheduling.configured_owner_schedule(repository)
+    assert (
+        scheduling.configured_owner_schedule(repository, source_root=root)["owner_ids"]
+        == OWNER_ID
+    )
+
+
+def test_qualified_owner_rejects_undeclared_descriptor_and_label_collision(
+    repository: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    root, external = _qualified_fixture(repository, monkeypatch)
+    _modify(
+        repository,
+        "report-ownership.json",
+        lambda p: p["owners"][0].update(producer_inputs=[PARENT]),
+    )
+    with pytest.raises(ReportRebuildError, match="not a declared repository input"):
+        owner_runner.resolve_configured_owner(repository, OWNER_ID, source_root=root)
+    _modify(
+        repository,
+        "report-ownership.json",
+        lambda p: p["owners"][0].update(
+            producer_inputs=sorted([PARENT, EXTERNAL_DESCRIPTOR])
+        ),
+    )
+    external[PARENT] = repository / PARENT
+    with pytest.raises(ReportRebuildError, match="overlaps repository declaration"):
+        owner_runner.resolve_configured_owner(repository, OWNER_ID, source_root=root)
+
+
+def test_qualified_owner_verifier_rejects_extra_input_and_missing_root(
+    repository: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    root, _ = _qualified_fixture(repository, monkeypatch)
+    selected = owner_runner.resolve_configured_owner(
+        repository, OWNER_ID, source_root=root
+    )
+    policy = {"tracked_report_root": "docs/report"}
+    manifest = {
+        "producer_inputs": producer_input_identity(selected.inputs, repository),
+        "source_paths": selected.source_paths,
+        "producer_command": list(selected.command),
+    }
+    monkeypatch.setattr(
+        "bijux_pollenomics_dev.ci.report_rebuild.qualified_sources.validated_external_report_sources",
+        owner_runner.validated_external_report_sources,
+    )
+    _require_current_owner_inputs(
+        manifest, repository, OWNER_ID, policy, source_root=root
+    )
+    with pytest.raises(ReportRebuildError, match="requires --source-root"):
+        _require_current_owner_inputs(manifest, repository, OWNER_ID, policy)
+    extra = repository / "extra.txt"
+    extra.write_text("undeclared\n", encoding="utf-8")
+    manifest["producer_inputs"] = producer_input_identity(
+        {**selected.inputs, "external/legacyage/extra.txt": extra}, repository
+    )
+    with pytest.raises(ReportRebuildError, match="declaration differs"):
+        _require_current_owner_inputs(
+            manifest, repository, OWNER_ID, policy, source_root=root
+        )
+    manifest["producer_inputs"] = producer_input_identity(selected.inputs, repository)
+    manifest["producer_inputs"]["external/legacyage/undeclared.csv"] = {
+        "path": str(repository / "unreadable-undeclared.csv"),
+        "sha256": "0" * 64,
+        "size": 1,
+    }
+    with pytest.raises(ReportRebuildError, match="declaration differs"):
+        _require_current_owner_inputs(
+            manifest, repository, OWNER_ID, policy, source_root=root
+        )
+    manifest["producer_inputs"] = producer_input_identity(selected.inputs, repository)
+    manifest["producer_command"] = ["python", "-c", "print('forged')"]
+    with pytest.raises(ReportRebuildError, match="invocation or input declaration"):
+        _require_current_owner_inputs(
+            manifest, repository, OWNER_ID, policy, source_root=root
+        )
+
+
+def test_qualified_owner_rechecks_source_identity_after_build(
+    repository: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    root, inputs = _qualified_fixture(repository, monkeypatch)
+    calls = 0
+
+    def changed_packet(*_args: object) -> QualifiedReportSources:
+        nonlocal calls
+        calls += 1
+        return QualifiedReportSources(root, inputs, ("a" if calls == 1 else "b") * 64)
+
+    monkeypatch.setattr(
+        owner_runner, "validated_external_report_sources", changed_packet
+    )
+    monkeypatch.setattr(
+        owner_runner,
+        "build_owner_output",
+        lambda **_kwargs: {"owner_id": OWNER_ID, "lane": "reference"},
+    )
+    with pytest.raises(ReportRebuildError, match="changed during owner build"):
+        owner_runner.build_configured_owner(
+            repository=repository,
+            plan_path=repository / "plan.json",
+            lane="reference",
+            owner_id=OWNER_ID,
+            evidence_root=repository / "artifacts" / "qualified-owner",
+            source_root=root,
+        )
+
+
+def test_legacyage_wrapper_requires_absent_real_artifact_output(
+    repository: Path,
+) -> None:
+    from bijux_pollenomics_dev.source_completion.neotoma.legacyage_depth_join import (
+        _absent_artifact_output,
+    )
+
+    artifacts = repository / "artifacts"
+    parent = artifacts / "owner" / "producer-output"
+    parent.mkdir(parents=True)
+    output = parent / "source-products"
+    assert _absent_artifact_output(repository, output) == output
+    with pytest.raises(ReportRebuildError, match="below repository artifacts"):
+        _absent_artifact_output(repository, repository / "docs" / "result")
+    traversal = artifacts / ".." / "docs" / "report" / "new-output"
+    with pytest.raises(ReportRebuildError, match="not canonical"):
+        _absent_artifact_output(repository, traversal)
+    assert not (repository / "docs" / "report" / "new-output").exists()
+    output.mkdir()
+    with pytest.raises(ReportRebuildError, match="must be absent"):
+        _absent_artifact_output(repository, output)
+    output.rmdir()
+    (artifacts / "linked").symlink_to(parent, target_is_directory=True)
+    with pytest.raises(ReportRebuildError, match="non-real ancestor"):
+        _absent_artifact_output(repository, artifacts / "linked" / "result")
+
+
+def test_legacyage_wrapper_refuses_changed_replay_before_execution(
+    repository: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    from bijux_pollenomics_dev.source_completion.neotoma import legacyage_depth_join
+
+    root = repository.parent / f"{repository.name}-qualified-replay"
+    root.mkdir()
+    _write(
+        repository,
+        EXTERNAL_DESCRIPTOR,
+        json.dumps(
+            {
+                "files": [
+                    {"path": "table-s5-legacyage-chronology.csv", "sha256": "a" * 64},
+                    {"path": "table-s6-chronology-comparison.csv", "sha256": "b" * 64},
+                ]
+            }
+        ),
+    )
+    _write(repository, legacyage_depth_join.REPLAY, "raise AssertionError('changed')\n")
+    output = repository / "artifacts" / "source-products"
+    output.parent.mkdir()
+    monkeypatch.setattr(
+        legacyage_depth_join,
+        "validated_external_report_sources",
+        lambda *_args: QualifiedReportSources(root, {}, "a" * 64),
+    )
+    with pytest.raises(ReportRebuildError, match="read set changed"):
+        legacyage_depth_join.main(
+            [
+                "--repository",
+                str(repository),
+                "--source-root",
+                str(root),
+                "--output",
+                str(output),
+            ]
+        )
+    assert not output.exists()
+
+
+def test_legacyage_wrapper_reads_the_forwarded_descriptor(
+    repository: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    from bijux_pollenomics_dev.source_completion.neotoma import legacyage_depth_join
+
+    alternate = Path("configs/ci/qualified-report-sources/alternative.json")
+    _write(
+        repository,
+        alternate.as_posix(),
+        json.dumps({"files": [{"path": "source.csv", "sha256": "a" * 64}]}),
+    )
+    assert not (repository / legacyage_depth_join.DESCRIPTOR).exists()
+    _write(repository, legacyage_depth_join.REPLAY, "# changed replay\n")
+    output = repository / "artifacts" / "source-products"
+    output.parent.mkdir()
+    supplied: list[Path] = []
+
+    def qualify(repo: Path, root: Path, descriptor: Path) -> QualifiedReportSources:
+        assert repo == repository
+        supplied.append(descriptor)
+        return QualifiedReportSources(root, {}, "a" * 64)
+
+    monkeypatch.setattr(
+        legacyage_depth_join, "validated_external_report_sources", qualify
+    )
+    with pytest.raises(ReportRebuildError, match="read set changed"):
+        legacyage_depth_join.main(
+            [
+                "--repository",
+                str(repository),
+                "--source-root",
+                str(repository.parent),
+                "--source-descriptor",
+                alternate.as_posix(),
+                "--output",
+                str(output),
+            ]
+        )
+    assert supplied == [alternate]
+    assert not output.exists()
+
+
+@pytest.mark.parametrize(
+    ("target", "arguments"),
+    [
+        (
+            "build-report-rebuild-owner",
+            [
+                "REBUILD_LANE=reference",
+                "REBUILD_OWNER_ID=source-relations/neotoma/legacyage-chronology/report-products",
+                "REBUILD_EVIDENCE_ROOT=artifacts/owner",
+            ],
+        ),
+        (
+            "assemble-report-rebuild",
+            [
+                "REBUILD_LANE=reference",
+                "REBUILD_PARTITION_ARTIFACTS_ROOT=artifacts/partitions",
+                "REBUILD_EVIDENCE_ROOT=artifacts/assembly",
+            ],
+        ),
+        (
+            "verify-partitioned-report-rebuild",
+            [
+                "REBUILD_REFERENCE_MANIFEST=artifacts/reference/manifest.json",
+                "REBUILD_REPLAY_MANIFEST=artifacts/replay/manifest.json",
+                "REBUILD_EVIDENCE_ROOT=artifacts/final",
+            ],
+        ),
+    ],
+)
+def test_canonical_make_passes_explicit_qualified_source_root(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+    target: str,
+    arguments: list[str],
+) -> None:
+    fragment = Path(__file__).resolve().parents[3] / "makes/pollenomics-verification.mk"
+    recorder = tmp_path / "record_argv.py"
+    recorder.write_text(
+        "import json\n"
+        "import os\n"
+        "from pathlib import Path\n"
+        "import sys\n"
+        "Path(os.environ['REBUILD_ARGV_LOG']).write_text(json.dumps(sys.argv[1:]))\n",
+        encoding="utf-8",
+    )
+    wrapper = tmp_path / "Makefile"
+    wrapper.write_text(
+        f"DEV_RUN := {shlex.quote(sys.executable)} {shlex.quote(str(recorder))}\n"
+        "root-check-env:\n\t@:\n"
+        f"include {fragment}\n",
+        encoding="utf-8",
+    )
+    argv_log = tmp_path / "argv.json"
+    monkeypatch.setenv("REBUILD_ARGV_LOG", str(argv_log))
+    root = tmp_path / "qualified-sources"
+    result = subprocess.run(
+        [
+            "make",
+            "-f",
+            str(wrapper),
+            target,
+            f"REBUILD_SOURCE_ROOT={root}",
+            *arguments,
+        ],
+        cwd=tmp_path,
+        capture_output=True,
+        text=True,
+        check=False,
+        timeout=30,
+    )
+    assert result.returncode == 0, result.stderr
+    argv = json.loads(argv_log.read_text(encoding="utf-8"))
+    assert argv.count("--source-root") == 1
+    assert argv[argv.index("--source-root") + 1] == str(root)
