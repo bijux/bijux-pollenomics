@@ -2371,8 +2371,8 @@
     },
     {
       "path": "docs/report/report_narrative_quality_review.json",
-      "sha256": "fed83331987b4c93fcc4a36511743fc8ae92a71c38885afef162bdcd02819089",
-      "bytes": 137740
+      "sha256": "ebf44919b0d869202382e0d55477613fd5690856d45a0e21aa14c5a4d667dd83",
+      "bytes": 137742
     },
     {
       "path": "docs/report/report_narrative_quality_review.md",
@@ -2381,8 +2381,8 @@
     },
     {
       "path": "docs/report/report_surface_registry.json",
-      "sha256": "0a8615ad7cf5d9f0e77c0c9c9cc8e03851c5a02515af25cf6717fb9633921555",
-      "bytes": 944837
+      "sha256": "c2f1a8e46808b37a09314ccb558a492abb5c45876aba491de917e80a0357f137",
+      "bytes": 944838
     },
     {
       "path": "docs/report/report_surface_registry.md",
@@ -2491,8 +2491,8 @@
     },
     {
       "path": "docs/report/source-relations/neotoma/author-taxonomy-candidates/README.md",
-      "sha256": "cc6127568f5281f46ba0a4ec41fa588e1654ff1ce178f562f21c7a7a3522e773",
-      "bytes": 3566
+      "sha256": "46566d75dfdd28be2b665695186c9c8f09dc5146649ae064f12e35becced5a12",
+      "bytes": 6201
     },
     {
       "path": "docs/report/source-relations/neotoma/author-taxonomy-candidates/report.json",
@@ -3856,7 +3856,7 @@
     },
     {
       "path": "presentation/source-lock.json",
-      "sha256": "fa96743643634f1d50d2023ff9b26758d0bb2a5399bc4fd9eaffaf1da8fcaf80",
+      "sha256": "9a4bcbc50e0e14ac6987bd079d00db4551e3928a8484f3d204f4dd4ef5e42c05",
       "bytes": 12768
     },
     {
@@ -3951,8 +3951,8 @@
     },
     {
       "path": "reports/needed/README.md",
-      "sha256": "3753c205acc7065264f6e4b91ddd5d37ef3b94e291c9cc0a425824a455ae8817",
-      "bytes": 32385
+      "sha256": "f41ba33784042146580b74870260feea5c81cb055496a706e4870cdf04fd9e88",
+      "bytes": 32893
     },
     {
       "path": "reports/needed/report-claims.csv",
@@ -3971,23 +3971,23 @@
     },
     {
       "path": "reports/needed/scientific-review.csv",
-      "sha256": "d6af25c77bfd3d14b9283ecfea83306960fd420a9eff20076035295a9b40df29",
-      "bytes": 61715
+      "sha256": "4a9a66bf0f4748906de35bf748769a6dd4078038f9aba3cc112a0586899f41ca",
+      "bytes": 63728
     },
     {
       "path": "reports/needed/scientific-review.md",
-      "sha256": "2a69e38fe22c81214bb9686d973289f9cacd312a9f35da9174aad718eeedb7c5",
-      "bytes": 12967
+      "sha256": "794e554e8989dc1d230f80517a8fc7ad8a27dff9246b3bb95785099badd4f627",
+      "bytes": 13211
     },
     {
       "path": "reports/needed/source-requests.csv",
-      "sha256": "8908de8c3db6a99994fb37f080318e0c1277dc162d5595d850d1b8c6e3fa65b5",
-      "bytes": 24952
+      "sha256": "bd5c9fedef026902a157f5bc9c3b982f046bc86ac22e8625cdd6c5a1d99edd58",
+      "bytes": 26848
     },
     {
       "path": "reports/needed/source-requests.md",
-      "sha256": "d190a0e767182dd97ea020f492f7eb9783f24f41e64b0636852db73cc7e6f8ee",
-      "bytes": 7540
+      "sha256": "c826f09bd48b14d93f758e0da63af644bfedf58165e3f1814c5a1b281beb166a",
+      "bytes": 7753
     },
     {
       "path": "reports/needed/verify-claims.py",
