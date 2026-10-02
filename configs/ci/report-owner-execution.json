@@ -1207,6 +1207,55 @@
         "source-products/diagnostics.json": "docs/report/pollen-reconstruction/author-lra-optimized-feasibility/shared-ppe-sensitivity/diagnostics.json",
         "source-products/report.json": "docs/report/pollen-reconstruction/author-lra-optimized-feasibility/shared-ppe-sensitivity/report.json"
       }
+    },
+    {
+      "owner_id": "source-relations/neotoma/author-parameter-binding/report-products",
+      "module": "bijux_pollenomics_dev.source_completion.pollen_parameters.author_binding",
+      "source_paths": {
+        "source-products/report.json": "docs/report/source-relations/neotoma/author-parameter-binding/report.json"
+      },
+      "source_arguments": [],
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "external_source_descriptor": "configs/ci/qualified-report-sources/landclim-author-snapshot.json",
+      "timeout_seconds": 180
+    },
+    {
+      "owner_id": "source-relations/neotoma/author-taxonomy-mass/report-products",
+      "module": "bijux_pollenomics_dev.source_completion.pollen_taxonomy.author_mass",
+      "source_paths": {
+        "source-products/bins.csv": "docs/report/source-relations/neotoma/author-taxonomy-mass/bins.csv",
+        "source-products/report.json": "docs/report/source-relations/neotoma/author-taxonomy-mass/report.json"
+      },
+      "source_arguments": [],
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "external_source_descriptor": "configs/ci/qualified-report-sources/landclim-author-snapshot.json",
+      "timeout_seconds": 180
+    },
+    {
+      "owner_id": "source-relations/neotoma/author-taxonomy-candidates/report-products",
+      "module": "bijux_pollenomics_dev.source_completion.pollen_taxonomy.author_candidates",
+      "source_paths": {
+        "source-products/report.json": "docs/report/source-relations/neotoma/author-taxonomy-candidates/report.json"
+      },
+      "source_arguments": [],
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "external_source_descriptor": "configs/ci/qualified-report-sources/landclim-author-snapshot.json",
+      "timeout_seconds": 180
+    },
+    {
+      "external_source_descriptor": "configs/ci/qualified-report-sources/landclim-author-snapshot.json",
+      "module": "bijux_pollenomics_dev.source_completion.author_preparation.count_audit",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "source-relations/landclim/author-preparation-audit/recount",
+      "source_arguments": [],
+      "source_paths": {
+        "source-products/report.json": "docs/report/source-relations/landclim/author-preparation-audit/report.json"
+      },
+      "timeout_seconds": 180
     }
   ]
 }
