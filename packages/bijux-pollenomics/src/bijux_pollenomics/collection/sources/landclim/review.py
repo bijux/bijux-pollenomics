@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from collections.abc import Iterable
 from datetime import date
 from pathlib import Path
 
@@ -194,6 +195,8 @@ def render_landclim_spatiotemporal_review_markdown(
         if isinstance(row, dict)
     )
     caveats = payload.get("interpretation_caveats", [])
+    if not isinstance(caveats, Iterable):
+        raise TypeError("LandClim interpretation caveats must be iterable")
     caveat_lines = "\n".join(
         f"- {caveat}" for caveat in caveats if isinstance(caveat, str)
     )

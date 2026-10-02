@@ -4075,6 +4075,21 @@
       "bytes": 14309
     },
     {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/landclim/review.py",
+      "sha256": "4ea0fc5979f5e7b6f115c62cda0f404b8747dbc533a7f842c934b8a39c73a6a9",
+      "bytes": 9468
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/sead/catalog/site_inventory/service.py",
+      "sha256": "d37803cb90f0a822781bd89a5a649aac8a8abbbb73525b67988ca72f55323f39",
+      "bytes": 5617
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/sead/collection/__init__.py",
+      "sha256": "afd758111056e5726c45ab82bca74061e28f01f9c109adc337b4e9832ebc4664",
+      "bytes": 8485
+    },
+    {
       "path": "packages/bijux-pollenomics/src/bijux_pollenomics/governance/release_readiness.py",
       "sha256": "6c6ef0b12fab5ed68325cd5079346048c4051e24238959e339a92f3b69ad72ca",
       "bytes": 13183
@@ -4128,6 +4143,16 @@
       "path": "packages/bijux-pollenomics/tests/unit/adna/governance/test_contract_payloads.py",
       "sha256": "d2898b3da1644b1fd89410faa57c4cef558ebb8d8403cb560010cd31b3b10de9",
       "bytes": 2098
+    },
+    {
+      "path": "packages/bijux-pollenomics/tests/unit/collection/sources/sead/acquisition/full/test_repository_materialization.py",
+      "sha256": "89db28f17bc2482f8e1ca44f7253c15d87b1f4ba48ace1a96fba6458bcd2f4ec",
+      "bytes": 4070
+    },
+    {
+      "path": "packages/bijux-pollenomics/tests/unit/collection/sources/test_source_lifecycle_contracts.py",
+      "sha256": "7ff39d13e4393f26d44ad180f1ac3010fb570b29d4e288893952108efec91269",
+      "bytes": 2168
     },
     {
       "path": "packages/bijux-pollenomics/tests/unit/governance/repository_truth/assessments/test_payload_contracts.py",

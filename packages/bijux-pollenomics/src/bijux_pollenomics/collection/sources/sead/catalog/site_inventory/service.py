@@ -46,7 +46,7 @@ def build_sead_site_rows_from_acquisition_tables(
     rows_by_table: Mapping[str, Sequence[Mapping[str, object]]],
 ) -> tuple[list[dict[str, object]], dict[str, int | str]]:
     """Rebuild linked site rows solely from one admitted acquisition snapshot."""
-    if set(rows_by_table) != _REQUIRED_ACQUISITION_TABLES:
+    if frozenset(rows_by_table) != _REQUIRED_ACQUISITION_TABLES:
         raise ValueError("SEAD chronology materialization requires the exact table set")
     sites = [dict(row) for row in rows_by_table["tbl_sites"]]
     summary = populate_sead_site_inventory_from_reader(
