@@ -419,6 +419,31 @@
       "output_mode": "directory",
       "timeout_seconds": 180,
       "output_subdirectory": "source-products"
+    },
+    {
+      "owner_id": "publication-replay/landclim-study-inputs/metadata-products",
+      "module": "bijux_pollenomics_dev.source_completion.study_metadata.landclim",
+      "source_paths": {
+        "source-products/manifest.json": "docs/report/publication-replay/landclim-study-inputs/manifest.json",
+        "source-products/primary-source-crosswalk.csv": "docs/report/publication-replay/landclim-study-inputs/primary-source-crosswalk.csv",
+        "source-products/records.jsonl": "docs/report/publication-replay/landclim-study-inputs/records.jsonl",
+        "source-products/refusals.csv": "docs/report/publication-replay/landclim-study-inputs/refusals.csv",
+        "source-products/report.json": "docs/report/publication-replay/landclim-study-inputs/report.json"
+      },
+      "source_arguments": [],
+      "output_mode": "directory",
+      "timeout_seconds": 180,
+      "output_subdirectory": "source-products"
+    },
+    {
+      "owner_id": "method-certification/love-paper-correspondence/parameter-comparison",
+      "module": "bijux_pollenomics_dev.source_completion.love.parameter_correspondence",
+      "source_paths": {
+        "report.json": "docs/report/method-certification/love-paper-correspondence/source-parameter-correspondence.json"
+      },
+      "source_arguments": [],
+      "output_mode": "single_file",
+      "timeout_seconds": 180
     }
   ]
 }

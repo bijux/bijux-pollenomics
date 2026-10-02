@@ -2708,7 +2708,9 @@
         "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/data/LOVEexampleRings.json"
       ],
       "producer_paths": [
-        "docs/report/method-certification/love-paper-correspondence/verify.py"
+        "docs/report/method-certification/love-paper-correspondence/verify.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/love/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/love/parameter_correspondence.py"
       ],
       "role": "generated_owner",
       "verification": "Run `python3 docs/report/method-certification/love-paper-correspondence/verify.py --repository . --check` to compare deterministic output bytes. This binds the 30 local numeric cells to a pinned later source example; the upstream paper-table transcription, 2024 simulation input, source rights and original software version remain unresolved."
@@ -4104,6 +4106,8 @@
       ],
       "producer_paths": [
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/study_inputs.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/study_metadata/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/study_metadata/landclim.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/collection/intake/workbooks.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/landclim/catalog.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/landclim/collection/receipt/validation.py",

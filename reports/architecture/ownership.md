@@ -291,7 +291,7 @@ for scheduled modules, complete output maps, source arguments and time bounds.
 
 | Producer family | Covered source accounts | Meaning of reproduced bytes |
 | --- | --- | --- |
-| Source lineage and parameter binding | Solsø lineage, Swedish model lineage, Nordic Neotoma entity decisions, literal parameter candidates, correspondence and count coverage | Retained identities and literal source compatibility; parameter admission stays separate. |
+| Source lineage and parameter binding | Solsø lineage, LandClim study metadata, LOVE parameter correspondence, Swedish model lineage, Nordic Neotoma entity decisions, literal parameter candidates, correspondence and count coverage | Retained identities and literal source compatibility; parameter admission stays separate. |
 | Observed and modeled source views | Swedish observed-pollen transitions, Nordic LandClim panels, map transport lineage and candidate site overlaps | Direct pollen and modeled context remain distinct. Polygon, calendar, geometry and metric code belongs in the producer closure. |
 | Core and site identity | Abborrtjärnen, Swedish lake cores and LandClim site correspondence | Workbook, source receipt, native archive, count-mass and projection inputs are explicit. Their upstream custody remains separate; comparison does not admit a core, basin or LRA request. |
 | Country and capability accounting | Nordic country capability, SEAD retrieval, coverage and source units, native-variable reconciliation and capability evidence | Source, assigned and publication countries remain separate. Every retained manifest member is an input; missing evidence remains missing. |
