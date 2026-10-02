@@ -3106,8 +3106,18 @@
     },
     {
       "path": "reports/needed/README.md",
-      "sha256": "fb214fd74b1d2db27e0f0075448f92719fec7da39188d9e1db08aa701ceac857",
-      "bytes": 31474
+      "sha256": "463dc3b3a42d37a81e5b9864c6f9b8beaf029e75ba1d4accd4fafe248c86ad73",
+      "bytes": 32034
+    },
+    {
+      "path": "reports/needed/source-requests.csv",
+      "sha256": "8908de8c3db6a99994fb37f080318e0c1277dc162d5595d850d1b8c6e3fa65b5",
+      "bytes": 24952
+    },
+    {
+      "path": "reports/needed/source-requests.md",
+      "sha256": "d190a0e767182dd97ea020f492f7eb9783f24f41e64b0636852db73cc7e6f8ee",
+      "bytes": 7540
     },
     {
       "path": "reports/science/aadr-nordic-entities/README.md",

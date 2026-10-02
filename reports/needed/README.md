@@ -23,6 +23,11 @@ These are evidence requests, not approvals. No outreach has been sent from this
 register. Repository-local work can continue on the already admitted pollen
 and English author examples while external fields remain open.
 
+The [prepared source requests](source-requests.md) and their
+[structured field list](source-requests.csv) bind 17 specific packets to the
+existing evidence, resolver role, intended use and reopening condition. They
+remain unsent.
+
 ## Abborrtjärnen LRA input identity
 
 **Affected result:** the Neotoma sample 173174 / PANGAEA `ABBO` sequence cannot
@@ -367,7 +372,11 @@ site-bin/policy queries, 473 predictions and 13 refusals across same and
 adjacent nominal bins. The [Sämbosjön source age-bound screen](../science/sambosjon-direct-pollen.md)
 finds 58/111 selected sample intervals crossing a 500-year boundary and at
 least one crossing in every scored bin. Its bound confidence level is unstated;
-it does not supply a joint age posterior or an adjusted pollen score. The
+it does not supply a joint age posterior. The completed
+[interval-contained sensitivity](../../docs/report/regions/nordic/sambosjon-direct-pollen/interval-support/README.md)
+retains 53 of 111 samples and scores 21 of 22 nominal bins against the same
+frozen predictions; the first bin refuses for lack of contained samples.
+Its small metric changes remain an exposed one-core development comparison. The
 [LegacyAge depth join](../../docs/report/source-relations/neotoma/legacyage-chronology/README.md)
 now binds 107 ABBO and 71 of 72 DALMUT samples to an independent 95% age
 range by exact S5 depth. The 4.5 cm DALMUT sample has no exact S5 row; a
