@@ -14,6 +14,7 @@ from typing import Any
 import pytest
 
 from bijux_pollenomics_dev.ci.report_rebuild import configured_owner as owner_runner
+from bijux_pollenomics_dev.ci.report_rebuild import scheduling
 from bijux_pollenomics_dev.ci.report_rebuild.contracts import ReportRebuildError
 
 OWNER_ID = "domain/summary"
@@ -756,3 +757,185 @@ def test_child_process_selects_and_checks_candidate_module_origin(
         assert completed.returncode == 0
         assert completed.stdout == b"candidate producer executed\n"
         assert str(repository / MODULE_PATH).encode() in completed.stderr
+
+
+def test_schedule_cli_appends_exact_owner_outputs_without_running_producer(
+    repository: Path,
+) -> None:
+    output = repository / "artifacts/schedule.json"
+    github = repository / "artifacts/github-output"
+    github.parent.mkdir(parents=True)
+    github.write_text("scope_partitions=[]\n")
+    assert (
+        scheduling.main(
+            [
+                "--repository",
+                str(repository),
+                "--output",
+                str(output),
+                "--github-output",
+                str(github),
+            ]
+        )
+        == 0
+    )
+    report = json.loads(output.read_text())
+    lines = dict(line.split("=", 1) for line in github.read_text().splitlines())
+    assert lines["scope_partitions"] == "[]"
+    assert json.loads(lines["owners"]) == report["owners"]
+    assert lines["owner_ids"] == OWNER_ID
+    assert report["owners"] == [
+        {
+            "id": OWNER_ID,
+            "artifact": hashlib.sha256(OWNER_ID.encode()).hexdigest(),
+        }
+    ]
+    assert (
+        report["configuration_sha256"]
+        == hashlib.sha256(
+            (repository / "configs/ci/report-owner-execution.json").read_bytes()
+        ).hexdigest()
+    )
+    assert not (repository / "artifacts/producer-output").exists()
+
+
+@pytest.mark.parametrize(
+    "identity",
+    [
+        "domain/with space",
+        "domain/quote'",
+        "domain/$value",
+        "domain/with\nline",
+        "domain/.hidden/report",
+    ],
+)
+def test_schedule_refuses_owner_identity_that_cannot_cross_make_arguments(
+    repository: Path,
+    identity: str,
+) -> None:
+    _modify(
+        repository,
+        "report-owner-execution.json",
+        lambda p: p["owners"][0].update(owner_id=identity),
+    )
+    with pytest.raises(ReportRebuildError, match="scheduled safely"):
+        scheduling.configured_owner_schedule(repository)
+
+
+def test_schedule_validates_owner_output_set_before_export(repository: Path) -> None:
+    _modify(
+        repository,
+        "report-owner-execution.json",
+        lambda p: p["owners"][0].update(
+            source_paths={"unexpected.json": SECOND_OUTPUT}
+        ),
+    )
+    with pytest.raises(ReportRebuildError):
+        scheduling.configured_owner_schedule(repository)
+
+
+def test_schedule_sorts_full_ids_and_separates_duplicate_leaf_names(
+    repository: Path,
+) -> None:
+    _write(repository, SECOND_OUTPUT, '{"details": 2}\n')
+    for file in ("report-owner-execution.json", "report-ownership.json"):
+        path = repository / "configs/ci" / file
+        payload = json.loads(path.read_text())
+        first = payload["owners"][0]
+        first["owner_id"] = "second/summary"
+        other = json.loads(json.dumps(first))
+        other["owner_id"] = "first/summary"
+        if file == "report-owner-execution.json":
+            other["source_paths"] = {"details.json": SECOND_OUTPUT}
+        else:
+            other["paths"] = [SECOND_OUTPUT]
+        payload["owners"].append(other)
+        path.write_text(json.dumps(payload))
+    report = scheduling.configured_owner_schedule(repository)
+    rows = report["owners"]
+    assert isinstance(rows, list)
+    assert [row["id"] for row in rows] == ["first/summary", "second/summary"]
+    assert len({row["artifact"] for row in rows}) == 2
+    assert report["owner_ids"] == "first/summary second/summary"
+
+
+def test_schedule_cli_preserves_existing_artifact(repository: Path) -> None:
+    output = repository / "artifacts/schedule.json"
+    output.parent.mkdir()
+    output.write_text("retained\n")
+    assert (
+        scheduling.main(["--repository", str(repository), "--output", str(output)]) == 2
+    )
+    assert output.read_text() == "retained\n"
+
+
+@pytest.mark.parametrize("count", [128, 129])
+def test_two_lane_schedule_capacity(
+    repository: Path,
+    monkeypatch: pytest.MonkeyPatch,
+    count: int,
+) -> None:
+    path = repository / "configs/ci/report-owner-execution.json"
+    payload = json.loads(path.read_text())
+    base = payload["owners"][0]
+    payload["owners"] = [
+        dict(base, owner_id=f"domain/owner-{index}") for index in range(count)
+    ]
+    path.write_text(json.dumps(payload))
+    monkeypatch.setattr(scheduling, "resolve_configured_owner", lambda *_args: None)
+    if count == 129:
+        with pytest.raises(ReportRebuildError, match="exceeds 128 owners"):
+            scheduling.configured_owner_schedule(repository)
+    else:
+        report = scheduling.configured_owner_schedule(repository)
+        assert isinstance(report["owners"], list)
+        assert len(report["owners"]) == 128
+
+
+def test_schedule_refuses_ancestor_owner_namespace(repository: Path) -> None:
+    inventory_path = repository / "configs/ci/report-ownership.json"
+    configuration_path = repository / "configs/ci/report-owner-execution.json"
+    inventory = json.loads(inventory_path.read_text())
+    configuration = json.loads(configuration_path.read_text())
+    for index, identity in enumerate(
+        ("domain/summary-between", "domain/summary/detail")
+    ):
+        output = f"docs/report/domain/extra-{index}.json"
+        _write(repository, output, '{"extra": 1}\n')
+        inventory["owners"].append(
+            dict(inventory["owners"][0], owner_id=identity, paths=[output])
+        )
+        configuration["owners"].append(
+            dict(
+                configuration["owners"][0],
+                owner_id=identity,
+                source_paths={f"extra-{index}.json": output},
+            )
+        )
+    inventory_path.write_text(json.dumps(inventory))
+    configuration_path.write_text(json.dumps(configuration))
+    with pytest.raises(ReportRebuildError, match="ancestor namespaces"):
+        scheduling.configured_owner_schedule(repository)
+
+
+def test_schedule_preflight_does_not_write_outputs(repository: Path) -> None:
+    output = repository / "artifacts/plan/owner-schedule.json"
+    github = repository / "artifacts/github-output"
+    github.parent.mkdir()
+    github.write_text("retained\n")
+    assert (
+        scheduling.main(
+            [
+                "--repository",
+                str(repository),
+                "--output",
+                str(output),
+                "--github-output",
+                str(github),
+                "--check-only",
+            ]
+        )
+        == 0
+    )
+    assert not output.parent.exists()
+    assert github.read_text() == "retained\n"

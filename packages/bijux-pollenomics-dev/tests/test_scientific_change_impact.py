@@ -17,6 +17,9 @@ from bijux_pollenomics_dev.ci.path_selection import (
     load_contract,
     select_changed_paths,
 )
+from bijux_pollenomics_dev.ci.report_rebuild.scheduling import (
+    configured_owner_schedule,
+)
 
 REPO_ROOT = Path(__file__).resolve().parents[3]
 CONTRACT_PATH = REPO_ROOT / "configs" / "ci" / "scientific-change-impact.json"
@@ -338,12 +341,18 @@ def test_report_owner_ci_matrix_matches_configured_execution_contract() -> None:
     )
     owner_job = workflow["jobs"]["rebuild-owners"]
     matrix = owner_job["strategy"]["matrix"]
-    assert {row["id"] for row in matrix["owner"]} == {
+    assert matrix["owner"] == "${{ fromJSON(needs.rebuild-plan.outputs.owners) }}"
+    rows = configured_owner_schedule(REPO_ROOT)["owners"]
+    assert isinstance(rows, list)
+    assert {row["id"] for row in rows} == {
         row["owner_id"] for row in configured["owners"]
     }
     assert set(matrix["lane"]) == {"reference", "replay"}
-    assert len({row["id"] for row in matrix["owner"]}) == len(matrix["owner"])
-    assert len({row["artifact"] for row in matrix["owner"]}) == len(matrix["owner"])
+    assert len({row["id"] for row in rows}) == len(rows)
+    assert len({row["artifact"] for row in rows}) == len(rows)
+    plan_outputs = workflow["jobs"]["rebuild-plan"]["outputs"]
+    assert plan_outputs["owners"] == "${{ steps.plan.outputs.owners }}"
+    assert plan_outputs["owner_ids"] == "${{ steps.plan.outputs.owner_ids }}"
     assert set(owner_job["needs"]) == {"impact", "rebuild-plan"}
     assert owner_job["strategy"]["fail-fast"] == "false"
     assert int(owner_job["timeout-minutes"]) == 10
@@ -377,7 +386,8 @@ def test_report_owner_ci_downloads_preserve_exact_nested_identities() -> None:
         WORKFLOW_PATH.read_text(encoding="utf-8"), Loader=yaml.BaseLoader
     )
     jobs = workflow["jobs"]
-    owners = jobs["rebuild-owners"]["strategy"]["matrix"]["owner"]
+    owners = configured_owner_schedule(REPO_ROOT)["owners"]
+    assert isinstance(owners, list)
     assembly = jobs["rebuild-assemble"]
     assert "rebuild-owners" in assembly["needs"]
     for job, lanes, target in (
@@ -411,9 +421,9 @@ def test_report_owner_ci_downloads_preserve_exact_nested_identities() -> None:
                 f"report-rebuild-{lane}-foundation", settings["pattern"]
             )
         run = next(step for step in job["steps"] if step.get("run") == target)
-        assert set(run["env"]["REBUILD_OWNER_IDS"].split()) == {
-            owner["id"] for owner in owners
-        }
+        assert run["env"]["REBUILD_OWNER_IDS"] == (
+            "${{ needs.rebuild-plan.outputs.owner_ids }}"
+        )
         if len(lanes) == 1:
             assert (
                 run["env"]["REBUILD_OWNER_ARTIFACTS_ROOT"]
@@ -442,7 +452,8 @@ def test_owner_lane_root_archives_keep_duplicate_leaf_names_separate(
     )
     owner_job = workflow["jobs"]["rebuild-owners"]
     assert owner_job["steps"][-1]["with"]["path"].endswith("/${{ matrix.lane }}")
-    owners = owner_job["strategy"]["matrix"]["owner"]
+    owners = configured_owner_schedule(REPO_ROOT)["owners"]
+    assert isinstance(owners, list)
     same_leaf = [row for row in owners if row["id"].endswith("/report-products")]
     assert len(same_leaf) >= 2
     selected = same_leaf[:2]
@@ -465,3 +476,17 @@ def test_owner_lane_root_archives_keep_duplicate_leaf_names_separate(
     for identity, diagnostic in expected.items():
         assert (merged / identity / "manifest.json").read_text() == identity
         assert (merged / identity / "producer.stderr.log").read_text() == diagnostic
+
+
+def test_report_plan_preflights_owner_schedule_before_writing_partition_plan() -> None:
+    makefile = (REPO_ROOT / "makes/pollenomics-verification.mk").read_text()
+    recipe = makefile.split("plan-report-rebuild: root-check-env", 1)[1].split(
+        "\nbuild-report-rebuild-partition:", 1
+    )[0]
+    assert recipe.count("-m bijux_pollenomics_dev.ci.report_rebuild.scheduling") == 2
+    assert recipe.index("--check-only") < recipe.index(
+        "-m bijux_pollenomics_dev.ci.report_rebuild plan"
+    )
+    assert recipe.index(
+        "-m bijux_pollenomics_dev.ci.report_rebuild plan"
+    ) < recipe.rindex("-m bijux_pollenomics_dev.ci.report_rebuild.scheduling")

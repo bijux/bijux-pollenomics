@@ -1,0 +1,112 @@
+"""Derive CI owner selection from validated producer configuration."""
+
+from __future__ import annotations
+
+import argparse
+import hashlib
+import json
+from pathlib import Path
+import re
+import sys
+
+from .configured_owner import (
+    DEFAULT_CONFIGURATION,
+    _configuration_owner,
+    _read_object,
+    _repository_relative,
+    _safe_file,
+    resolve_configured_owner,
+)
+from .contracts import ReportRebuildError
+
+SCHEMA = "configured-report-owner-schedule.v1"
+MAX_OWNERS = 128
+IDENTITY = re.compile(r"[A-Za-z0-9_./-]+")
+
+
+def configured_owner_schedule(repository: Path) -> dict[str, object]:
+    """Validate every invocation and use full identities for scheduling."""
+    repository = repository.resolve(strict=True)
+    relative = _repository_relative(
+        repository, DEFAULT_CONFIGURATION, "owner configuration"
+    )
+    configuration_path = _safe_file(repository, relative, "owner configuration")
+    before = configuration_path.read_bytes()
+    configuration = _read_object(repository, relative, "owner configuration")
+    rows = configuration.get("owners")
+    if not isinstance(rows, list) or not rows:
+        raise ReportRebuildError("configured owner list is empty")
+    if len(rows) > MAX_OWNERS:
+        raise ReportRebuildError("two-lane owner schedule exceeds 128 owners")
+    identities = []
+    for row in rows:
+        if not isinstance(row, dict):
+            raise ReportRebuildError("configured owner must be an object")
+        identity = row.get("owner_id")
+        if (
+            not isinstance(identity, str)
+            or not IDENTITY.fullmatch(identity)
+            or any(part.startswith(".") for part in identity.split("/"))
+        ):
+            raise ReportRebuildError("owner ID cannot be scheduled safely")
+        _configuration_owner(configuration, identity)
+        resolve_configured_owner(repository, identity)
+        identities.append(identity)
+    identities.sort()
+    selected = set(identities)
+    for identity in identities:
+        parts = identity.split("/")
+        if any("/".join(parts[:size]) in selected for size in range(1, len(parts))):
+            raise ReportRebuildError("owner IDs overlap ancestor namespaces")
+    matrix = [
+        {"id": identity, "artifact": hashlib.sha256(identity.encode()).hexdigest()}
+        for identity in identities
+    ]
+    if len({row["artifact"] for row in matrix}) != len(matrix):
+        raise ReportRebuildError("owner artifact identities collide")
+    if configuration_path.read_bytes() != before:
+        raise ReportRebuildError("owner configuration changed during scheduling")
+    return {
+        "schema_version": SCHEMA,
+        "configuration_sha256": hashlib.sha256(before).hexdigest(),
+        "owners": matrix,
+        "owner_ids": " ".join(identities),
+    }
+
+
+def main(argv: list[str] | None = None) -> int:
+    """Write the schedule and optional GitHub job outputs without producers."""
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--repository", type=Path, required=True)
+    parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--github-output", type=Path)
+    parser.add_argument("--check-only", action="store_true")
+    args = parser.parse_args(argv)
+    try:
+        repository = args.repository.resolve(strict=True)
+        output = args.output.resolve()
+        if (
+            not output.is_relative_to(repository / "artifacts")
+            or output.exists()
+            or args.output.is_symlink()
+        ):
+            raise ReportRebuildError("absent repository artifact schedule required")
+        report = configured_owner_schedule(repository)
+        if args.check_only:
+            return 0
+        output.parent.mkdir(parents=True, exist_ok=True)
+        output.write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
+        if args.github_output is not None:
+            with args.github_output.open("a", encoding="utf-8") as handle:
+                handle.write(
+                    f"owners={json.dumps(report['owners'], separators=(',', ':'))}\n"
+                )
+                handle.write(f"owner_ids={report['owner_ids']}\n")
+    except ReportRebuildError as error:
+        print(str(error), file=sys.stderr)
+        return 2
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

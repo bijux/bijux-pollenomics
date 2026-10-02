@@ -334,6 +334,8 @@ jobs:
     timeout-minutes: 10
     outputs:
       scope_partitions: ${{ steps.plan.outputs.scope_partitions }}
+      owners: ${{ steps.plan.outputs.owners }}
+      owner_ids: ${{ steps.plan.outputs.owner_ids }}
     steps:
       - name: Checkout candidate
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -441,39 +443,7 @@ jobs:
         lane:
           - reference
           - replay
-        owner:
-          - id: countries/denmark/solsoe-source-lineage/report-products
-            artifact: solsoe-lineage
-          - id: source-relations/neotoma/pollen-screen/compact-summary
-            artifact: neotoma-summary
-          - id: countries/sweden/pollen-model-lineage/derived-report
-            artifact: swedish-model-lineage
-          - id: regions/nordic/source-capability/neotoma-entities/derived-products
-            artifact: neotoma-entities
-          - id: source-relations/neotoma/parameter-candidates/report-products
-            artifact: neotoma-parameter-candidates
-          - id: source-relations/neotoma/parameter-correspondence/report-products
-            artifact: neotoma-parameter-correspondence
-          - id: countries/sweden/observed-pollen-trajectory/derived-report
-            artifact: swedish-observed-trajectory
-          - id: regions/nordic/landclim-modeled-panels
-            artifact: landclim-modeled-panels
-          - id: source-relations/neotoma/parameter-coverage/literal-name-counts
-            artifact: neotoma-parameter-mass
-          - id: source-relations/rootsi-landclim-overlap/derived-products
-            artifact: rootsi-landclim-overlap
-          - id: source-relations/neotoma/abbo-core-identity/report-products
-            artifact: abbo-core-identity
-          - id: source-relations/neotoma/landclim-site-identity/report-products
-            artifact: landclim-site-identity
-          - id: source-relations/neotoma/swedish-lake-core-identity/report-products
-            artifact: swedish-lake-core-identity
-          - id: regions/nordic/source-capability/derived-products
-            artifact: nordic-source-capability
-          - id: source-relations/sead-country-retrieval/derived-products
-            artifact: sead-country-retrieval
-          - id: source-relations/sead/chronology-country-accounting/report-products
-            artifact: sead-chronology-countries
+        owner: "${{ fromJSON(needs.rebuild-plan.outputs.owners) }}"
     steps:
       - name: Checkout candidate
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -649,23 +619,7 @@ jobs:
         env:
           REBUILD_LANE: ${{ matrix.lane }}
           REBUILD_PARTITION_ARTIFACTS_ROOT: artifacts/execution-control/report-rebuild-partition-input
-          REBUILD_OWNER_IDS: >-
-            countries/denmark/solsoe-source-lineage/report-products
-            source-relations/neotoma/pollen-screen/compact-summary
-            countries/sweden/pollen-model-lineage/derived-report
-            regions/nordic/source-capability/neotoma-entities/derived-products
-            source-relations/neotoma/parameter-candidates/report-products
-            source-relations/neotoma/parameter-correspondence/report-products
-            countries/sweden/observed-pollen-trajectory/derived-report
-            regions/nordic/landclim-modeled-panels
-            source-relations/neotoma/parameter-coverage/literal-name-counts
-            source-relations/rootsi-landclim-overlap/derived-products
-            source-relations/neotoma/abbo-core-identity/report-products
-            source-relations/neotoma/landclim-site-identity/report-products
-            source-relations/neotoma/swedish-lake-core-identity/report-products
-            regions/nordic/source-capability/derived-products
-            source-relations/sead-country-retrieval/derived-products
-            source-relations/sead/chronology-country-accounting/report-products
+          REBUILD_OWNER_IDS: ${{ needs.rebuild-plan.outputs.owner_ids }}
           REBUILD_OWNER_ARTIFACTS_ROOT: artifacts/execution-control/report-rebuild-owner-input/${{ matrix.lane }}
           REBUILD_EVIDENCE_ROOT: artifacts/execution-control/report-rebuild-assembly/${{ matrix.lane }}
         run: make assemble-report-rebuild
@@ -747,23 +701,7 @@ jobs:
           REBUILD_REFERENCE_MANIFEST: artifacts/execution-control/report-rebuild-assembly/reference/manifest.json
           REBUILD_REPLAY_MANIFEST: artifacts/execution-control/report-rebuild-assembly/replay/manifest.json
           REBUILD_EVIDENCE_ROOT: artifacts/execution-control/reproducible-report-build/evidence
-          REBUILD_OWNER_IDS: >-
-            countries/denmark/solsoe-source-lineage/report-products
-            source-relations/neotoma/pollen-screen/compact-summary
-            countries/sweden/pollen-model-lineage/derived-report
-            regions/nordic/source-capability/neotoma-entities/derived-products
-            source-relations/neotoma/parameter-candidates/report-products
-            source-relations/neotoma/parameter-correspondence/report-products
-            countries/sweden/observed-pollen-trajectory/derived-report
-            regions/nordic/landclim-modeled-panels
-            source-relations/neotoma/parameter-coverage/literal-name-counts
-            source-relations/rootsi-landclim-overlap/derived-products
-            source-relations/neotoma/abbo-core-identity/report-products
-            source-relations/neotoma/landclim-site-identity/report-products
-            source-relations/neotoma/swedish-lake-core-identity/report-products
-            regions/nordic/source-capability/derived-products
-            source-relations/sead-country-retrieval/derived-products
-            source-relations/sead/chronology-country-accounting/report-products
+          REBUILD_OWNER_IDS: ${{ needs.rebuild-plan.outputs.owner_ids }}
           REBUILD_REFERENCE_OWNERS_ROOT: artifacts/execution-control/report-rebuild-owner-input/reference
           REBUILD_REPLAY_OWNERS_ROOT: artifacts/execution-control/report-rebuild-owner-input/replay
         run: make verify-partitioned-report-rebuild

@@ -222,10 +222,18 @@ verify-rebuild: root-check-env ## Prove tracked reports rebuild deterministicall
 
 plan-report-rebuild: root-check-env ## Bind the report partition plan to repository inputs
 	@test -n "$(POLLENOMICS_REBUILD_PLAN)"
+	@$(DEV_RUN) -m bijux_pollenomics_dev.ci.report_rebuild.scheduling \
+		--repository "$(CURDIR)" \
+		--output "$(dir $(POLLENOMICS_REBUILD_PLAN))owner-schedule.json" \
+		--check-only
 	@$(DEV_RUN) -m bijux_pollenomics_dev.ci.report_rebuild plan \
 		--repo-root "$(CURDIR)" \
 		--policy "$(POLLENOMICS_REBUILD_POLICY)" \
 		--output "$(POLLENOMICS_REBUILD_PLAN)" \
+		$(if $(GITHUB_OUTPUT),--github-output "$(GITHUB_OUTPUT)")
+	@$(DEV_RUN) -m bijux_pollenomics_dev.ci.report_rebuild.scheduling \
+		--repository "$(CURDIR)" \
+		--output "$(dir $(POLLENOMICS_REBUILD_PLAN))owner-schedule.json" \
 		$(if $(GITHUB_OUTPUT),--github-output "$(GITHUB_OUTPUT)")
 
 build-report-rebuild-partition: root-check-env ## Materialize one evidence-bound report partition

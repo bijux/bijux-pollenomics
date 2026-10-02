@@ -316,7 +316,11 @@ outputs from their retained source and governed country ledgers. Their source,
 assigned and publication country meanings remain separate, including chronology
 refusals. These sixteen producers cover only their declared files. The complete report-tree
 comparison remains mandatory and refuses any missing owner. The scientific CI
-workflow schedules these owners in both lanes after the bound partition plan,
+workflow derives the owner matrix and assembly selection from the same
+validated execution configuration, using a digest of each full identity as
+its artifact label. Preflight rejects unsafe or hidden identities, ancestor
+namespace collisions and more than 128 owners for the two-lane matrix before
+writing a partition plan. It schedules both lanes after the bound partition plan,
 then merges owner artifacts into each lane before assembly and final
 verification. Each isolated owner job uploads its lane root, so the archive
 retains the full domain identity beneath it. Pattern downloads merge those
