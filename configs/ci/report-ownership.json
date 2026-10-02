@@ -1795,20 +1795,24 @@
     },
     {
       "owner_id": "countries/denmark/solsoe-source-lineage/legacyage-chronology/report-products",
-      "role": "unresolved",
+      "role": "generated_owner",
       "paths": [
         "docs/report/countries/denmark/solsoe-source-lineage/legacyage-chronology/refused-samples.csv",
         "docs/report/countries/denmark/solsoe-source-lineage/legacyage-chronology/report.json",
         "docs/report/countries/denmark/solsoe-source-lineage/legacyage-chronology/sample-depth-join.csv"
       ],
       "producer_paths": [
-        "docs/report/countries/denmark/solsoe-source-lineage/legacyage-chronology/replay.py"
+        "docs/report/countries/denmark/solsoe-source-lineage/legacyage-chronology/replay.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/artifact_paths.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/qualified_sources.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/denmark/solsoe_legacyage_depth_join.py"
       ],
       "producer_inputs": [
+        "configs/ci/qualified-report-sources/legacyage.json",
         "data/neotoma/relational/surfaces/age_claims/part-00001.json",
         "data/neotoma/relational/surfaces/samples/part-00001.json"
       ],
-      "verification": "Exact replay route after lawful source closure: `PYTHONDONTWRITEBYTECODE=1 .venv/bin/python docs/report/countries/denmark/solsoe-source-lineage/legacyage-chronology/replay.py --repository . --source-dir <lawful-legacyage-source-dir> --output artifacts/jobs/denmark-source-owner-reproduction/legacyage-chronology`. External LegacyAge S5 and S6 tables are absent from this repository. The producer pins their SHA-256 values bbe0e8d5854acf091a11737ddedc10d5656f8a25c8eeb9637b85f9e69a37cb41 and 2a058f08472199b0545e4562e6860371dfaba7ce74140b1e0b4dbdce0ce55300, but repository-only producer_inputs cannot authenticate their bytes. Do not treat the retained outputs or an old receipt as their own input certificate."
+      "verification": "Run the retained Sols\u00f8 depth join with an explicit qualified LegacyAge source root. The descriptor and custody receipt bind only consumed S5/S6 bytes, and the configured owner compares refused-samples.csv, report.json, and sample-depth-join.csv byte-for-byte with tracked outputs. The relation keeps the one refused age claim and admits no LRA input."
     },
     {
       "owner_id": "countries/denmark/solsoe-source-lineage/legacyage-chronology/source-code",
@@ -8057,6 +8061,7 @@
       ],
       "producer_paths": [
         "docs/report/source-relations/neotoma/legacyage-chronology/replay.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/artifact_paths.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/qualified_sources.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/neotoma/legacyage_depth_join.py"
       ],

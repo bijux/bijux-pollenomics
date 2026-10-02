@@ -7,9 +7,11 @@ import hashlib
 import json
 from pathlib import Path
 import runpy
-import stat
 import sys
 
+from bijux_pollenomics_dev.ci.report_rebuild.artifact_paths import (
+    require_absent_artifact_output as _absent_artifact_output,
+)
 from bijux_pollenomics_dev.ci.report_rebuild.configured_owner import _safe_file
 from bijux_pollenomics_dev.ci.report_rebuild.contracts import ReportRebuildError
 from bijux_pollenomics_dev.ci.report_rebuild.qualified_sources import (
@@ -20,28 +22,6 @@ DESCRIPTOR = Path("configs/ci/qualified-report-sources/legacyage.json")
 REPLAY = "docs/report/source-relations/neotoma/legacyage-chronology/replay.py"
 REPLAY_SHA256 = "05c9993b32f6ac944a75de905e59a0d5ca63f8a099fdda27792b40cf0847d4ac"
 SURFACE = "data/neotoma/relational/surfaces"
-
-
-def _absent_artifact_output(repository: Path, output: Path) -> Path:
-    """Require a new output beneath real repository artifact directories."""
-    if ".." in output.parts:
-        raise ReportRebuildError("LegacyAge output path is not canonical")
-    output = output.absolute()
-    artifact_root = repository / "artifacts"
-    if (
-        not output.is_relative_to(artifact_root)
-        or output == artifact_root
-        or not output.resolve().is_relative_to(artifact_root)
-    ):
-        raise ReportRebuildError("LegacyAge output must be below repository artifacts")
-    if output.exists() or output.is_symlink():
-        raise ReportRebuildError("LegacyAge output must be absent")
-    parent = output.parent
-    while parent != repository:
-        if not stat.S_ISDIR(parent.lstat().st_mode):
-            raise ReportRebuildError("LegacyAge output has a non-real ancestor")
-        parent = parent.parent
-    return output
 
 
 def main(argv: list[str] | None = None) -> int:

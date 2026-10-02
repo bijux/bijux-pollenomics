@@ -63,8 +63,8 @@ or qualified scientific review.
 The [output ownership inventory](../../configs/ci/report-ownership.json)
 assigns every tracked report path exactly one declaration. Its population is
 1,938 paths: 709 declared publisher paths, 125 original-R retained source
-files, 232 generated domain outputs, 62 maintained source files, 172
-maintained reader accounts and 638 paths with unresolved output custody.
+files, 235 generated domain outputs, 62 maintained source files, 172
+maintained reader accounts and 635 paths with unresolved output custody.
 These role counts describe the current declarations. They do not measure
 how many outputs have been independently reproduced.
 
@@ -76,9 +76,10 @@ retrieval receipts. Their reader accounts have separate editorial owners.
 Declaring the input closure does not rerun the source studies, authenticate
 new source permissions or qualify ecological events.
 
-Nine declared Danish chronology/freeze products have repository-bound input
-closures. Seven other Danish numeric products remain unresolved because their
-producer routes need exact external author taxonomy, LegacyAge tables,
+Nine declared Danish chronology/freeze products have repository-contained input
+closures. Three further Solsø chronology products use the qualified external
+LegacyAge contract described below. Four other Danish numeric products remain
+unresolved because their producer routes need exact external author taxonomy,
 Odgaard source paper or the published EPD age table. A digest in a retained
 report does not establish possession or permitted use of those source bytes.
 The older pollen-coverage replay differs from the current governed report,
@@ -245,7 +246,8 @@ held-out LOVE predictions, a constrained optimization or vegetation accuracy.
 The Solsø parent lineage report declares its maintained producer and forty
 local workbook, raw/normalized Neotoma and cohort/manifest inputs. Four Solsø
 and taxonomy explanations are editorial. The three primary PANGAEA products
-retain external primary-text custody requirements. A close core/count-control
+retain external primary-text custody requirements; they are separate from the
+three qualified LegacyAge chronology outputs. A close core/count-control
 join still does not identify the LandClim II 79-sample author selection, an
 age-specific basin, qualified taxonomy or an admitted Danish LRA sample.
 
@@ -277,7 +279,7 @@ must record the exact source evidence required by final verification. That
 verification combines source inventories with generated outputs; it refuses
 overlaps, changed inputs or missing source receipts. The canonical Make routes
 enable both source categories. This source transport does not reproduce the
-638 unresolved products, authenticate their historical executions or establish
+635 unresolved products, authenticate their historical executions or establish
 scientific review or release readiness.
 
 The ABBO/DALMUT chronology owner uses the
@@ -298,6 +300,13 @@ not establish remote access to the store. The three ABBO/DALMUT files preserve
 178 exact sample-depth joins and DALMUT's unmatched 4.5 cm sample. They admit
 zero LRA samples and do not select the historical LandClim chronology or
 supply basin, pollen denominator or taxon eligibility.
+
+The Solsø chronology owner uses the same qualified S5/S6 contract and a shared
+artifact-output guard. Its three files preserve 92 exact depth joins and one
+refused age claim. Both source joins pin their maintained replay and the two
+Neotoma surfaces. The shared guard refuses existing outputs, traversal and
+linked ancestors. Reproducing these bytes admits no Danish LRA samples and
+does not establish the historical LandClim age selection.
 
 Check the declaration without executing the scientific studies:
 
@@ -368,7 +377,7 @@ refusals; their wrapper code is part of the declared producer closure.
 absent `REBUILD_EVIDENCE_ROOT`. Assembly accepts `REBUILD_OWNER_IDS` and
 `REBUILD_OWNER_ARTIFACTS_ROOT`; final verification accepts the same identities
 and both `REBUILD_REFERENCE_OWNERS_ROOT` and `REBUILD_REPLAY_OWNERS_ROOT`.
-The execution configuration currently names 83 generated owners covering 232
+The execution configuration currently names 84 generated owners covering 235
 tracked report paths. Reproducing a configured subset establishes only those
 owners' declared files.
 The complete report-tree comparison remains mandatory and refuses any missing owner. The scientific CI

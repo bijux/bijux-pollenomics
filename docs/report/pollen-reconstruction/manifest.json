@@ -16,13 +16,13 @@
     },
     {
       "path": "configs/ci/report-owner-execution.json",
-      "sha256": "140b7dda8cebf145799e8c84e5dae804517a33b81fcd5397187817f930f8d091",
-      "bytes": 58999
+      "sha256": "021ec8ac8a4384fe02469dd382dcf1dd5dee3e15e7e965c82441ebc618b6e87c",
+      "bytes": 59885
     },
     {
       "path": "configs/ci/report-ownership.json",
-      "sha256": "78da687d2f49e17ec55c7034d48772b9f2a15ad043848ea5b1cd67f9446de658",
-      "bytes": 815953
+      "sha256": "97a45078cb14af17fe116d56886159049d521427c8d3a55a7b629042e540be5a",
+      "bytes": 816106
     },
     {
       "path": "configs/docs/science_downloads.py",
@@ -2800,6 +2800,11 @@
       "bytes": 7441
     },
     {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/artifact_paths.py",
+      "sha256": "5a72a8f12c6ce28857edec5522d3914d98ee6889710dd69133546b0990c6d911",
+      "bytes": 1131
+    },
+    {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/configured_owner.py",
       "sha256": "de70de0f9e8316a526ff452fa05cf7ed6558b2829e848d497cf5c0a28cb516b0",
       "bytes": 18971
@@ -2970,6 +2975,11 @@
       "bytes": 2248
     },
     {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/denmark/solsoe_legacyage_depth_join.py",
+      "sha256": "6e10afc1352f8b01565234301694ce1596dc28ccc56f0d9616381db079e32157",
+      "bytes": 3814
+    },
+    {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/denmark_pollen_chronology_coverage.py",
       "sha256": "3b125c4ec335fc00e48f314b2b10d5e955f9ae4a99c6e7954e0993291063e6d4",
       "bytes": 1619
@@ -3051,8 +3061,8 @@
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/neotoma/legacyage_depth_join.py",
-      "bytes": 4397,
-      "sha256": "7dc69eb421b438568425494893be8acaa2ae925841c253cd3db227eed02296bb"
+      "bytes": 3584,
+      "sha256": "d8b7f61a62f6feb4d662a47e9d0b2a1095a18529fec1bf5a18af16024c5a7bed"
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/neotoma/native_roundtrip.py",
@@ -3750,6 +3760,11 @@
       "bytes": 60543
     },
     {
+      "path": "packages/bijux-pollenomics-dev/tests/test_report_rebuild_solsoe_legacyage_owner.py",
+      "sha256": "45452b237680dd34cf8a3d79dc85c58f7fa0c6cf06f8673c799c166df9355ff6",
+      "bytes": 10256
+    },
+    {
       "path": "packages/bijux-pollenomics-dev/tests/test_runtime_isolation.py",
       "sha256": "a273ffc8b3213d96d4b4945903dbeacd8db17eb32673dc29947470f3b201ff38",
       "bytes": 38090
@@ -3801,7 +3816,7 @@
     },
     {
       "path": "presentation/source-lock.json",
-      "sha256": "c156e5ba9d3210422269fd2f98c7a2eac7e83cfeb2aa1718984f43d84be3d306",
+      "sha256": "77abd21b9738c9ced21dc6f2ff9b394eb18a4ff30e5d34e276a4263cbaeaa492",
       "bytes": 12768
     },
     {
@@ -3816,8 +3831,8 @@
     },
     {
       "path": "reports/architecture/ownership.md",
-      "sha256": "8d5e770ece1ff67d30136d3b62a1f87b2a00cab696381af81d1ad85ee4372693",
-      "bytes": 27695
+      "sha256": "d97a5a4c0aaa195fd93b40aed4cec9991ef9abb901e8f8a2925ca16bf6950097",
+      "bytes": 28300
     },
     {
       "path": "reports/evidence-index.md",
@@ -3891,7 +3906,7 @@
     },
     {
       "path": "reports/exports/site-downloads.json",
-      "sha256": "87d5b6279e521fcce3870519ebf5796dbe49569b08325ff6c7c1aa78d1e69259",
+      "sha256": "86df69beeebf577b626785759cd45f44c227159b8a5b9c529b21b570f596f3e4",
       "bytes": 5774
     },
     {
