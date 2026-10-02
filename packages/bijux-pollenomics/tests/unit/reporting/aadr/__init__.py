@@ -1,0 +1,1 @@
+"""AADR reporting compatibility tests."""
