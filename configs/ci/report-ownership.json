@@ -3737,13 +3737,9 @@
     },
     {
       "owner_id": "propagation/governed-edge-ledger/derived-report",
-      "role": "generated_owner",
       "paths": [
         "docs/report/propagation/governed-edge-ledger/edge-ledger.csv",
         "docs/report/propagation/governed-edge-ledger/report.json"
-      ],
-      "producer_paths": [
-        "docs/report/propagation/governed-edge-ledger/replay.py"
       ],
       "producer_inputs": [
         "data/neotoma/review/source_taxon_concepts.json",
@@ -3761,6 +3757,12 @@
         "docs/report/propagation/governed-edge-ledger/evidence/sensitivity_summary.json",
         "docs/report/propagation/source-first-observed/report.json"
       ],
+      "producer_paths": [
+        "docs/report/propagation/governed-edge-ledger/replay.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/propagation/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/propagation/governed_edge_ledger.py"
+      ],
+      "role": "generated_owner",
       "verification": "Run PYTHONDONTWRITEBYTECODE=1 python3 docs/report/propagation/governed-edge-ledger/replay.py (in-place byte comparison) or --output-dir to a new artifacts directory and compare both bytes. This replays only the retained, manifest-pinned compact source evidence; its source certificates remain separate."
     },
     {
@@ -8988,38 +8990,12 @@
     },
     {
       "owner_id": "source-relations/sead/relational-products",
-      "role": "generated_owner",
       "paths": [
         "docs/report/source-relations/sead/summary.json",
         "docs/report/source-relations/sead/tables.csv"
       ],
-      "producer_paths": [
-        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sead_relations/__main__.py",
-        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sead_relations/workflow.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/sead/acquisition/admission/__init__.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/sead/acquisition/admission/codec.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/sead/acquisition/admission/models.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/sead/acquisition/admission/service.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/sead/acquisition/admission/validation/__init__.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/sead/acquisition/admission/validation/authority.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/sead/acquisition/admission/validation/contracts.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/sead/acquisition/admission/validation/countries.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/sead/acquisition/admission/validation/identity.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/sead/acquisition/admission/validation/joins.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/sead/acquisition/admission/validation/manifests.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/sead/acquisition/admission/validation/parents.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/sead/acquisition/admission/validation/receipts.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/sead/acquisition/governed.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/sead/evidence/source_keys/__init__.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/sead/evidence/source_keys/contract.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/sead/evidence/source_keys/derivation.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/sead/evidence/source_keys/identities.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/sead/evidence/source_keys/ranges.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/sead/evidence/source_keys/serialization.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/sead/evidence/source_keys/validation.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/sources/sead.py"
-      ],
       "producer_inputs": [
+        "data/boundaries/normalized/nordic_country_boundaries.geojson",
         "data/boundaries/raw/denmark.geojson",
         "data/boundaries/raw/finland.geojson",
         "data/boundaries/raw/norway.geojson",
@@ -9208,6 +9184,62 @@
         "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/reconciliation/countries.json",
         "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/reconciliation/joins.json"
       ],
+      "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sead/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sead/relations.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sead_relations/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sead_relations/__main__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sead_relations/workflow.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/boundaries/__init__.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/boundaries/collection.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/boundaries/store.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/sead/__init__.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/sead/acquisition/__init__.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/sead/acquisition/admission/__init__.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/sead/acquisition/admission/codec.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/sead/acquisition/admission/models.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/sead/acquisition/admission/service.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/sead/acquisition/admission/validation/__init__.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/sead/acquisition/admission/validation/authority.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/sead/acquisition/admission/validation/contracts.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/sead/acquisition/admission/validation/countries.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/sead/acquisition/admission/validation/identity.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/sead/acquisition/admission/validation/joins.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/sead/acquisition/admission/validation/manifests.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/sead/acquisition/admission/validation/parents.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/sead/acquisition/admission/validation/receipts.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/sead/acquisition/full/__init__.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/sead/acquisition/full/model.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/sead/acquisition/governed.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/sead/acquisition/scoped/__init__.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/sead/acquisition/scoped/models.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/sead/acquisition/scoped/plans/__init__.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/sead/acquisition/scoped/plans/full_tables/__init__.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/sead/acquisition/scoped/plans/full_tables/foundations.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/sead/acquisition/scoped/plans/full_tables/lookup_relations.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/sead/acquisition/scoped/plans/full_tables/observation_values.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/sead/acquisition/scoped/plans/full_tables/required_relations.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/sead/acquisition/scoped/plans/full_tables/semantic_dimensions.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/sead/acquisition/scoped/plans/full_tables/stewardship.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/sead/acquisition/scoped/plans/full_tables/taxonomy.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/sead/acquisition/scoped/plans/joins/__init__.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/sead/acquisition/scoped/plans/joins/datasets.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/sead/acquisition/scoped/plans/joins/measurements.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/sead/acquisition/scoped/plans/joins/taxonomy.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/sead/acquisition/scoped/plans/joins/values.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/sead/acquisition/scoped/plans/scoped.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/sead/acquisition/scoped/plans/site.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/sead/evidence/source_keys/__init__.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/sead/evidence/source_keys/contract.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/sead/evidence/source_keys/derivation.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/sead/evidence/source_keys/identities.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/sead/evidence/source_keys/ranges.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/sead/evidence/source_keys/serialization.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/sead/evidence/source_keys/validation.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/core/text.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/sources/sead.py"
+      ],
+      "role": "generated_owner",
       "verification": "Run sead_relations with the exact data root into an absent artifact directory, compare summary.json and tables.csv. Declare full raw and normalized validation read sets; 61 tables/522,270 source rows and refused acquisition release are source transport accounting, not scientific completion."
     },
     {

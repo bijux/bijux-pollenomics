@@ -11,13 +11,13 @@
     },
     {
       "path": "configs/ci/report-owner-execution.json",
-      "sha256": "08ad2ab521555016e1bc30fc16d87cbe8824baa3d8bbc297fd3aa1d1506b2fa5",
-      "bytes": 19969
+      "sha256": "49c9d2f0708418629423fee8da62500a785cc7195811a55285330b5684d13bf7",
+      "bytes": 21021
     },
     {
       "path": "configs/ci/report-ownership.json",
-      "sha256": "6895da44045c0c684796222d3b44038e4189221d054324a6112487d5702e6eab",
-      "bytes": 757847
+      "sha256": "9cb7f6939bb9290076490d1dc20389f1739756f11fb6d5b9c537c85535970cc0",
+      "bytes": 761607
     },
     {
       "path": "configs/docs/science_downloads.py",
@@ -2970,6 +2970,16 @@
       "bytes": 17191
     },
     {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/propagation/__init__.py",
+      "sha256": "db1ab48855c73b08da2ddcfdc23fe049bc7f9926f53ee2be3f6692532e116912",
+      "bytes": 48
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/propagation/governed_edge_ledger.py",
+      "sha256": "b64d201f253db56e4134f9000a823a71bb4a3369dd332af4c4537d5dd925cfe5",
+      "bytes": 1566
+    },
+    {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sambosjon_age_bounds.py",
       "sha256": "dcc961d6837c91d4825c25c0b52f740c3260c60e88733734066269666feebd00",
       "bytes": 11672
@@ -3008,6 +3018,11 @@
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sead/record_intervals.py",
       "sha256": "92aa6130f87f3a5b890bfc2b73fd64b726ac90d301445aed65057d752f649015",
       "bytes": 1492
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sead/relations.py",
+      "sha256": "ff448405ace0e49ef380739e0dfc9439ea08a8e47ba84c81567cef2f0cd5d71d",
+      "bytes": 1935
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sead_chronology_country_accounting.py",
@@ -3120,14 +3135,19 @@
       "bytes": 3513
     },
     {
+      "path": "packages/bijux-pollenomics-dev/tests/source_completion/propagation/test_governed_edge_cli.py",
+      "sha256": "2b39b16fc7c524c4e56a3c62c53a0dcc2e23e96be4ce22b458b2bd261b91a98c",
+      "bytes": 4026
+    },
+    {
       "path": "packages/bijux-pollenomics-dev/tests/source_completion/sead/test_chronology_cli.py",
       "sha256": "3ee57b943182937d41cbff351f5f9794990c2778dade3926d51057d2cdaa5555",
       "bytes": 3861
     },
     {
       "path": "packages/bijux-pollenomics-dev/tests/source_completion/sead/test_source_writer_cli.py",
-      "sha256": "b4d93314e2b1f45e32795c0ad327bfddbbb7b380170c1294c8d320290659b793",
-      "bytes": 4575
+      "sha256": "91bc60dbac37c1a3be9af4828bd2ecfe25bce807305e61304a1da03f25680533",
+      "bytes": 4588
     },
     {
       "path": "packages/bijux-pollenomics-dev/tests/source_completion/test_bjaresjo_context.py",
@@ -3286,8 +3306,8 @@
     },
     {
       "path": "reports/architecture/ownership.md",
-      "sha256": "a37ea658101b6ced03d77069dcfaeb6239518a40d6d6af5d22aff57759dc2150",
-      "bytes": 23368
+      "sha256": "c2fbdc5fb60a2762abf5578167d182a270ef42d2d281c327a868146fb507a880",
+      "bytes": 23424
     },
     {
       "path": "reports/evidence-index.md",
@@ -3361,7 +3381,7 @@
     },
     {
       "path": "reports/exports/site-downloads.json",
-      "sha256": "63d4e064078280b3c8988947653ca87390130df801e85f899cb78def5168dff8",
+      "sha256": "275a13c03bf4af77c0f407ca1d232a5a4e6beb00de3e683c558e8b972743512a",
       "bytes": 5774
     },
     {

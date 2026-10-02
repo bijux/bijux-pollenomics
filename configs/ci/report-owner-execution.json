@@ -465,6 +465,30 @@
         "report.json": "docs/report/source-relations/neotoma/summary.json"
       },
       "timeout_seconds": 180
+    },
+    {
+      "module": "bijux_pollenomics_dev.source_completion.sead.relations",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "source-relations/sead/relational-products",
+      "source_arguments": [],
+      "source_paths": {
+        "source-products/summary.json": "docs/report/source-relations/sead/summary.json",
+        "source-products/tables.csv": "docs/report/source-relations/sead/tables.csv"
+      },
+      "timeout_seconds": 180
+    },
+    {
+      "module": "bijux_pollenomics_dev.source_completion.propagation.governed_edge_ledger",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "propagation/governed-edge-ledger/derived-report",
+      "source_arguments": [],
+      "source_paths": {
+        "source-products/edge-ledger.csv": "docs/report/propagation/governed-edge-ledger/edge-ledger.csv",
+        "source-products/report.json": "docs/report/propagation/governed-edge-ledger/report.json"
+      },
+      "timeout_seconds": 180
     }
   ]
 }
