@@ -1,0 +1,32 @@
+{
+  "schema_version": "qualified-publisher-report-tables.v1",
+  "source_id": "vegetation/namibia-modern-pollen-vegetation",
+  "source": "Tabares et al. (2021), PANGAEA.931033 and PANGAEA.931035; parent PANGAEA.931037",
+  "parent_doi": "10.1594/PANGAEA.931037",
+  "license": "CC-BY-4.0",
+  "rights": "CC BY 4.0 as stated in both original TSV headers; attribution required",
+  "retrieved_utc": "2026-10-01 18:14:30 UTC",
+  "custody": {
+    "path": "source_manifest.json",
+    "sha256": "cdea5b2f70b21b17a93baaa790ddc867ccc0f0508d9524e0c0f8a5121cdd5502",
+    "size": 682
+  },
+  "files": [
+    {
+      "path": "PANGAEA.931033.tab",
+      "sha256": "73c62c335a227283c27a224304b52fd21d1c674f95551d58a2e42dffa325a2e1",
+      "size": 4403,
+      "doi": "10.1594/PANGAEA.931033",
+      "url": "https://doi.pangaea.de/10.1594/PANGAEA.931033?format=textfile",
+      "columns": ["Event", "Latitude", "Longitude", "Aca [#]", "Dichrostachys [#]", "Grewia [#]", "Poac [#]", "Comeae [#]"]
+    },
+    {
+      "path": "PANGAEA.931035.tab",
+      "sha256": "b2460910d5f72e234fef50a24c4ade08e57ab714bf482ba4afb3b4ed8e7b4f2a",
+      "size": 19528,
+      "doi": "10.1594/PANGAEA.931035",
+      "url": "https://doi.pangaea.de/10.1594/PANGAEA.931035?format=textfile",
+      "columns": ["Event", "Latitude", "Longitude", "Ring sect radius [m]", "Acacia [m**2]", "Dichrostachys [m**2]", "Grewia [m**2]", "Poaceae [m**2]", "Combretaceae [m**2]"]
+    }
+  ]
+}

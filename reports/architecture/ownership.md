@@ -63,8 +63,8 @@ or qualified scientific review.
 The [output ownership inventory](../../configs/ci/report-ownership.json)
 assigns every tracked report path exactly one declaration. Its population is
 1,938 paths: 709 declared publisher paths, 125 original-R retained source
-files, 236 generated domain outputs, 62 maintained source files, 172
-maintained reader accounts and 634 paths with unresolved output custody.
+files, 238 generated domain outputs, 62 maintained source files, 172
+maintained reader accounts and 632 paths with unresolved output custody.
 These role counts describe the current declarations. They do not measure
 how many outputs have been independently reproduced.
 
@@ -147,10 +147,10 @@ Mechanical comparison with a retained author report does not authenticate
 that upstream source or qualify taxonomic and PPE application.
 
 Seven HYDE and vegetation reference accounts have editorial owners. The
-13 modeled-grid, provider-capture, Namibia source-join and EMPD2–NFI result
-files retain external input or capture custody requirements. The Namibia
-source headers declare CC BY 4.0, but an original-byte source receipt is
-still distinct from numerical reproduction. The EMPD2–NFI pairing ledger
+11 modeled-grid, provider-capture, Namibia radius-sensitivity and EMPD2–NFI
+result files retain external input or capture custody requirements. The two
+Namibia publisher-row join outputs use the source contract described below.
+Their receipt and primary headers are distinct from model evaluation. The EMPD2–NFI pairing ledger
 retains 16 leads and zero admitted measured pairs; it is not an accuracy
 score. HYDE provider metadata does not resolve conflicting package terms.
 
@@ -279,7 +279,7 @@ must record the exact source evidence required by final verification. That
 verification combines source inventories with generated outputs; it refuses
 overlaps, changed inputs or missing source receipts. The canonical Make routes
 enable both source categories. This source transport does not reproduce the
-634 unresolved products, authenticate their historical executions or establish
+632 unresolved products, authenticate their historical executions or establish
 scientific review or release readiness.
 
 The ABBO/DALMUT chronology owner uses the
@@ -315,6 +315,21 @@ interpolates published rounded summaries at the 4.5 cm sample with fraction
 0.5. The 635.5-year allocated minimum-to-maximum width describes those
 summaries. It does not supply a joint age posterior, repair the exact-depth
 join, identify the historical LandClim age or admit an LRA sample.
+
+The Namibia source-row owner uses a separate
+[publisher-table descriptor](../../configs/ci/qualified-report-sources/namibia-modern-pollen-vegetation.json).
+It binds the assessed receipt's source, rights, retrieval time and exact two
+TSV identities, then checks each primary header's dataset DOI, parent DOI,
+CC BY 4.0 license and columns. That receipt contains no HTTP response status
+or content length. Its contract preserves that limitation; the LegacyAge
+capture validator retains its stricter requirements. An explicit descriptor
+schema selects the appropriate validator, and unknown schemas are refused.
+The two source-join outputs describe 10 Namibian sites, 15 publisher radius
+labels and 750 conditional five-taxon pairs. These previously exposed data
+provide descriptive development context outside the Nordic region. The join
+does not fit or predict a model, select an ecological radius or establish
+Nordic vegetation accuracy. Radius-sensitivity products retain a separate
+unresolved declaration.
 
 Check the declaration without executing the scientific studies:
 
@@ -385,7 +400,7 @@ refusals; their wrapper code is part of the declared producer closure.
 absent `REBUILD_EVIDENCE_ROOT`. Assembly accepts `REBUILD_OWNER_IDS` and
 `REBUILD_OWNER_ARTIFACTS_ROOT`; final verification accepts the same identities
 and both `REBUILD_REFERENCE_OWNERS_ROOT` and `REBUILD_REPLAY_OWNERS_ROOT`.
-The execution configuration currently names 85 generated owners covering 236
+The execution configuration currently names 86 generated owners covering 238
 tracked report paths. Reproducing a configured subset establishes only those
 owners' declared files.
 The complete report-tree comparison remains mandatory and refuses any missing owner. The scientific CI

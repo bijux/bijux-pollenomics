@@ -20,14 +20,19 @@
       "sha256": "0255533348fe38cf716e4b8bfee59905890c6f8cd303e4a40d73317413b98360"
     },
     {
+      "path": "configs/ci/qualified-report-sources/namibia-modern-pollen-vegetation.json",
+      "sha256": "2ff98f09588265a5f58711bd109bcc6c3b8c6066b81425214d2b3d6a0314aab8",
+      "bytes": 1431
+    },
+    {
       "path": "configs/ci/report-owner-execution.json",
-      "sha256": "4b0fcf3059912c9251f4450f799b96644e5d10f0a98df09aa0c38b97fa0783f7",
-      "bytes": 60501
+      "sha256": "4a61f3aed4b6beda37264a0c3f806acf3fa16d0976a01ba187125991b9fd6a11",
+      "bytes": 61198
     },
     {
       "path": "configs/ci/report-ownership.json",
-      "sha256": "b844d8c3900222ed60c3e0c33fde958ab2eabb48743682044904ed878b3fcefd",
-      "bytes": 816431
+      "sha256": "cdbea8959176c9a94003050cc5aa12da09f884ccd583958b49833d551ade64da",
+      "bytes": 817113
     },
     {
       "path": "configs/docs/science_downloads.py",
@@ -2806,13 +2811,13 @@
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/artifact_paths.py",
-      "sha256": "5a72a8f12c6ce28857edec5522d3914d98ee6889710dd69133546b0990c6d911",
-      "bytes": 1131
+      "sha256": "5b6bef846e31f1d4df30d3cf89bd181d2685de1b723472c467e2e9a8298a8f75",
+      "bytes": 1181
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/configured_owner.py",
-      "sha256": "de70de0f9e8316a526ff452fa05cf7ed6558b2829e848d497cf5c0a28cb516b0",
-      "bytes": 18971
+      "sha256": "e513b221e15665c667603d0ed9676d4167ec2415d949fbcb33a06004ccfa68b2",
+      "bytes": 18974
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/evidence.py",
@@ -2845,6 +2850,11 @@
       "bytes": 13177
     },
     {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/publisher_tables.py",
+      "sha256": "54ea55ede58be0cb4136369741bff80c3fa5c3a1e646fc6e41086503ce6c4e64",
+      "bytes": 7587
+    },
+    {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/qualified_sources.py",
       "bytes": 8767,
       "sha256": "087406d6f3f2f7b5af1d1dac40d490abe332d2c2ad9a555344a9f32c231b8987"
@@ -2853,6 +2863,11 @@
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scheduling.py",
       "sha256": "a3432358d985b5521d6acb2b78aa0c5772d0de80644fb186423061de3dc40edd",
       "bytes": 5819
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/source_qualification.py",
+      "sha256": "c1d0f7acb43c85506886dd5752c3c20656103b1bae93065760f4a4597dc8d3dc",
+      "bytes": 1540
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/verification.py",
@@ -3495,6 +3510,11 @@
       "bytes": 1447
     },
     {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/vegetation/namibia_source_join.py",
+      "sha256": "02f983ff116e73510a5033f0f8a31a96cc773793fcd76d48a948202a918690e9",
+      "bytes": 3789
+    },
+    {
       "path": "packages/bijux-pollenomics-dev/tests/essd_reproduction/test_author_preparation_audit.py",
       "bytes": 2750,
       "sha256": "b02581611b6cf61f9013075674bb0f575b1fd9ca1d6f1fe2652724d79bb4782d"
@@ -3831,7 +3851,7 @@
     },
     {
       "path": "presentation/source-lock.json",
-      "sha256": "8ea5f4d13f2892d52d17f1510be0deb3d31ac9cec958f9d9338930707c6cd563",
+      "sha256": "dbe516a67b3e6e2ae20beff5be9083a34b55df983775d26f7ee1baa14e3d6bf7",
       "bytes": 12768
     },
     {
@@ -3846,8 +3866,8 @@
     },
     {
       "path": "reports/architecture/ownership.md",
-      "sha256": "aea6cd6cdffa9ab7029f4f9c4228aebf98b105a488a8de473c44b2b3e7619b3e",
-      "bytes": 28815
+      "sha256": "a572fa66a85e04dcb659f8d33bcbb05d4a6f12e64aa3e6c4bbb8ecf5c2c70593",
+      "bytes": 29856
     },
     {
       "path": "reports/evidence-index.md",
@@ -3921,7 +3941,7 @@
     },
     {
       "path": "reports/exports/site-downloads.json",
-      "sha256": "7963756ffc5bbd8dc7ea1f40d44b9b5861399b1d85eb48991f3d642d5a472f41",
+      "sha256": "288b909ab616368a5b08888e8a6b894aca5e7f5592b5944be037f44440ce7442",
       "bytes": 5774
     },
     {

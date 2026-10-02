@@ -10420,12 +10420,19 @@
         "docs/report/vegetation-reference/namibia-pollen-vegetation/paired.csv",
         "docs/report/vegetation-reference/namibia-pollen-vegetation/report.json"
       ],
-      "producer_inputs": [],
-      "producer_paths": [
-        "docs/report/vegetation-reference/namibia-pollen-vegetation/replay.py"
+      "producer_inputs": [
+        "configs/ci/qualified-report-sources/namibia-modern-pollen-vegetation.json"
       ],
-      "role": "unresolved",
-      "verification": "The real producer is `python3 docs/report/vegetation-reference/namibia-pollen-vegetation/replay.py --source-dir <governed-PANGAEA-TSV-directory> --output-dir artifacts/jobs/vegetation-context-reproduction/namibia-join`; compare paired.csv and report.json byte-for-byte after binding exact PANGAEA.931033 and .931035 source TSV bytes. The original table headers declare CC BY 4.0. This source-row join is not a model prediction or Nordic vegetation validation."
+      "producer_paths": [
+        "docs/report/vegetation-reference/namibia-pollen-vegetation/replay.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/artifact_paths.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/publisher_tables.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/qualified_sources.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/source_qualification.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/vegetation/namibia_source_join.py"
+      ],
+      "role": "generated_owner",
+      "verification": "Run the retained Namibian publisher-row join with an explicit qualified source root. The assessed receipt has source, rights, retrieval time, and per-table URL, size, and SHA identity; each original header supplies DOI, parent DOI, CC BY 4.0, and primary columns. The configured owner compares paired.csv and report.json byte-for-byte with tracked outputs. Ten sites and 750 five-taxon pairs are an out-of-domain descriptive development cohort, not model prediction or Nordic vegetation validation."
     },
     {
       "owner_id": "vegetation-reference/namibia-pollen-vegetation/source-code",

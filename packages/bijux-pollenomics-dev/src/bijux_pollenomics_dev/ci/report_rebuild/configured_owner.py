@@ -22,7 +22,7 @@ from bijux_pollenomics_dev.ci.report_rebuild.ownership import (
     ReportOwnershipError,
     check_report_ownership,
 )
-from bijux_pollenomics_dev.ci.report_rebuild.qualified_sources import (
+from bijux_pollenomics_dev.ci.report_rebuild.source_qualification import (
     validated_external_report_sources,
 )
 

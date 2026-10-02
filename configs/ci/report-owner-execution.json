@@ -1136,6 +1136,19 @@
         "source-products/report.json": "docs/report/source-relations/neotoma/legacyage-chronology/depth-allocation/report.json"
       },
       "timeout_seconds": 600
+    },
+    {
+      "external_source_descriptor": "configs/ci/qualified-report-sources/namibia-modern-pollen-vegetation.json",
+      "module": "bijux_pollenomics_dev.source_completion.vegetation.namibia_source_join",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "vegetation-reference/namibia-pollen-vegetation/report-products",
+      "source_arguments": [],
+      "source_paths": {
+        "source-products/paired.csv": "docs/report/vegetation-reference/namibia-pollen-vegetation/paired.csv",
+        "source-products/report.json": "docs/report/vegetation-reference/namibia-pollen-vegetation/report.json"
+      },
+      "timeout_seconds": 600
     }
   ]
 }
