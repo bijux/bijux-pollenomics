@@ -63,8 +63,8 @@ or qualified scientific review.
 The [output ownership inventory](../../configs/ci/report-ownership.json)
 assigns every tracked report path exactly one declaration. Its population is
 1,938 paths: 709 declared publisher paths, 125 original-R retained source
-files, 42 generated domain outputs, 62 maintained source files, 58
-maintained reader accounts and 942 paths with unresolved output custody.
+files, 45 generated domain outputs, 62 maintained source files, 61
+maintained reader accounts and 936 paths with unresolved output custody.
 These role counts describe the current declarations. They do not measure
 how many outputs have been independently reproduced.
 
@@ -123,6 +123,12 @@ from current source/producer bytes, and screenshots, downloads and browser
 receipts need executed capture custody. They remain unresolved; declaration
 checks do not recertify historical browser observations on the current
 candidate or turn a retained synthetic reference into a fresh output.
+
+The native-variable reconciliation and literal parameter-name count screen
+declare three machine outputs with their raw/relational or six retained
+count-study inputs. Three source/count accounts are maintained editorially.
+Literal name equality remains a taxonomic lead; closed count arithmetic
+does not qualify a pollen denominator, PPE profile, basin or LRA input.
 
 A fresh canonical publisher build from fixed product
 `d535ca7f3bed0ead63e5f96e45658c435ed6613a` produced exactly the 709 declared
