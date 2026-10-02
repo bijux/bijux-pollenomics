@@ -194,6 +194,14 @@ private HTTP captures; current mutable API responses would not reproduce
 the retained capture identity. Entity inclusion and source citation posture
 remain distinct from LRA and measured-vegetation admission.
 
+The Nordic observed-pollen declarations separate 86 mechanically produced
+stage files from 11 authored accounts and 31 unresolved files. Preparation,
+count-blind prediction, scoring and age-bound screens have distinct input
+closures. Historical timestamps, authored protocols, missing selected-transfer
+prepared inputs and private author taxonomy lookups retain explicit custody
+requirements. These prior-exposed development comparisons remain separate
+from LRA reconstruction and independent measured vegetation validation.
+
 A fresh canonical publisher build from fixed product
 `d535ca7f3bed0ead63e5f96e45658c435ed6613a` produced exactly the 709 declared
 publisher paths, with no missing or extra output. Its path-set digest is
