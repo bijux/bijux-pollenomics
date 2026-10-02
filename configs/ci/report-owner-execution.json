@@ -322,6 +322,36 @@
       "source_arguments": [],
       "output_mode": "single_file",
       "timeout_seconds": 180
+    },
+    {
+      "owner_id": "source-relations/neotoma/acquisition-scope/retained-selection",
+      "module": "bijux_pollenomics_dev.source_completion.neotoma_acquisition_scope",
+      "source_paths": {
+        "report.json": "docs/report/source-relations/neotoma/acquisition-scope/report.json"
+      },
+      "source_arguments": [],
+      "output_mode": "single_file",
+      "timeout_seconds": 180
+    },
+    {
+      "owner_id": "source-relations/dna-scope/galician-paper-crosswalk",
+      "module": "bijux_pollenomics_dev.source_completion.galician_cattle_review",
+      "source_paths": {
+        "report.json": "docs/report/source-relations/dna-scope/galician-cattle-paper.json"
+      },
+      "source_arguments": [],
+      "output_mode": "single_file",
+      "timeout_seconds": 180
+    },
+    {
+      "owner_id": "source-relations/dna-scope/source-posture",
+      "module": "bijux_pollenomics_dev.source_completion.dna_scope_review",
+      "source_paths": {
+        "report.json": "docs/report/source-relations/dna-scope/report.json"
+      },
+      "source_arguments": [],
+      "output_mode": "single_file",
+      "timeout_seconds": 180
     }
   ]
 }
