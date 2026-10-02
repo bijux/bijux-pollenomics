@@ -12,11 +12,12 @@ SOURCE_ROOT = Path(
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion"
 )
 PREPARED_ROOT = Path("docs/report/regions/nordic")
-INPUT_FILES = (
-    Path("input-manifest.json"),
-    Path("inputs/metadata-SE.json.gz"),
-    Path("inputs/training-SE.json.gz"),
-)
+PREDICTION_COUNTRIES = {
+    ("swedish_author_target_pollen", "swedish-author-target-pollen"): ("SE",),
+    ("swedish_lake_transfer", "swedish-lake-transfer"): ("SE",),
+    ("swedish_neotoma_holdout", "swedish-neotoma-holdout"): ("SE",),
+    ("nordic_author_target_pollen", "author-target-pollen"): ("DK", "FI", "NO"),
+}
 
 
 def predict_to_artifacts(
@@ -63,6 +64,14 @@ def predict_to_artifacts(
         or destination.exists()
     ):
         raise ValueError("absent repository artifact directory required")
+    countries = PREDICTION_COUNTRIES.get((source_relative.stem, prepared_relative.name))
+    if countries is None:
+        raise ValueError("retained prediction source and prepared input route differ")
+    input_files = (Path("input-manifest.json"),) + tuple(
+        Path("inputs") / f"{kind}-{country}.json.gz"
+        for country in countries
+        for kind in ("metadata", "training")
+    )
     prepared = repository / prepared_relative
     if (
         prepared_relative.is_absolute()
@@ -75,7 +84,7 @@ def predict_to_artifacts(
             not (prepared / relative).is_file()
             or (prepared / relative).is_symlink()
             or (prepared / relative).resolve() != prepared / relative
-            for relative in INPUT_FILES
+            for relative in input_files
         )
     ):
         raise ValueError("retained prediction prepared inputs are invalid")

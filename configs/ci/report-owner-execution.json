@@ -765,6 +765,19 @@
         "source-products/predictions-SE.json.gz": "docs/report/regions/nordic/swedish-neotoma-holdout/predictions/predictions-SE.json.gz"
       },
       "timeout_seconds": 600
+    },
+    {
+      "owner_id": "regions/nordic/author-target-pollen/frozen-predictions",
+      "module": "bijux_pollenomics_dev.source_completion.nordic.nordic_heldout_predictions",
+      "source_paths": {
+        "source-products/predictions-DK.json.gz": "docs/report/regions/nordic/author-target-pollen/predictions/predictions-DK.json.gz",
+        "source-products/predictions-FI.json.gz": "docs/report/regions/nordic/author-target-pollen/predictions/predictions-FI.json.gz",
+        "source-products/predictions-NO.json.gz": "docs/report/regions/nordic/author-target-pollen/predictions/predictions-NO.json.gz"
+      },
+      "source_arguments": [],
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "timeout_seconds": 600
     }
   ]
 }

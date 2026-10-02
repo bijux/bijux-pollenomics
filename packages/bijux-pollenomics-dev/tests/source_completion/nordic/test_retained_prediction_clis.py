@@ -12,12 +12,14 @@ from types import ModuleType, SimpleNamespace
 import pytest
 
 from bijux_pollenomics_dev.source_completion.nordic import (
+    nordic_heldout_predictions,
     swedish_author_predictions,
     swedish_core_predictions,
     swedish_lake_predictions,
 )
 
 ROUTES = (
+    nordic_heldout_predictions,
     swedish_author_predictions,
     swedish_lake_predictions,
     swedish_core_predictions,
@@ -41,8 +43,14 @@ def repository(tmp_path: Path, route: ModuleType) -> Path:
         ),
         encoding="utf-8",
     )
-    (prepared / "inputs/metadata-SE.json.gz").write_bytes(b"metadata fixture")
-    (prepared / "inputs/training-SE.json.gz").write_bytes(b"training fixture")
+    countries = ("DK", "FI", "NO") if route is nordic_heldout_predictions else ("SE",)
+    for country in countries:
+        (prepared / f"inputs/metadata-{country}.json.gz").write_bytes(
+            b"metadata fixture"
+        )
+        (prepared / f"inputs/training-{country}.json.gz").write_bytes(
+            b"training fixture"
+        )
     return root
 
 
@@ -72,7 +80,13 @@ def bind_fake_cli(
         calls.append((module, tuple(sys.argv)))
         output = Path(sys.argv[-1])
         output.mkdir()
-        (output / "predictions-SE.json.gz").write_bytes(b"prediction fixture")
+        countries = (
+            ("DK", "FI", "NO") if route is nordic_heldout_predictions else ("SE",)
+        )
+        for country in countries:
+            (output / f"predictions-{country}.json.gz").write_bytes(
+                b"prediction fixture"
+            )
 
     monkeypatch.setattr(runpy, "run_module", fake_module)
 
@@ -105,9 +119,14 @@ def test_only_predict_stage_uses_exact_module_and_restores_argv(
         .replace("/", ".")
     )
     assert calls[0][1][1] == "predict"
-    assert (
-        root / "artifacts/source-products/predictions-SE.json.gz"
-    ).read_bytes() == b"prediction fixture"
+    countries = ("DK", "FI", "NO") if route is nordic_heldout_predictions else ("SE",)
+    assert sorted(
+        p.name for p in (root / "artifacts/source-products").iterdir()
+    ) == sorted(f"predictions-{country}.json.gz" for country in countries)
+    for country in countries:
+        assert (
+            root / f"artifacts/source-products/predictions-{country}.json.gz"
+        ).read_bytes() == b"prediction fixture"
 
 
 def test_source_failure_restores_argv_and_does_not_enter_score(
@@ -262,3 +281,31 @@ def test_real_module_loader_preserves_relative_imports(
         ).read_bytes() == b"relative-import prediction"
     finally:
         sys.modules.pop(helper_module, None)
+
+
+@pytest.mark.parametrize("unsafe", ("missing-country-input", "crossed-prepared-route"))
+def test_nordic_route_refuses_incomplete_or_crossed_inputs(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch, unsafe: str
+) -> None:
+    root = repository(tmp_path, nordic_heldout_predictions)
+    monkeypatch.setattr(
+        importlib.util,
+        "find_spec",
+        lambda module: pytest.fail("source import attempted"),
+    )
+    if unsafe == "missing-country-input":
+        (
+            root / nordic_heldout_predictions.PREPARED / "inputs/training-NO.json.gz"
+        ).unlink()
+        with pytest.raises(ValueError, match="prepared inputs"):
+            nordic_heldout_predictions.run(root, root / "artifacts/source-products")
+    else:
+        from bijux_pollenomics_dev.source_completion.nordic import prediction_execution
+
+        with pytest.raises(ValueError, match="route differ"):
+            prediction_execution.predict_to_artifacts(
+                root,
+                root / "artifacts/source-products",
+                nordic_heldout_predictions.SOURCE,
+                swedish_author_predictions.PREPARED,
+            )
