@@ -5453,61 +5453,140 @@
       "verification": "Maintain these repository source files through review and focused tests. Source custody is distinct from generated output reproduction; copying them into a replay lane does not certify the results they produce."
     },
     {
-      "owner_id": "source-relations/neotoma/abbo-age-controls/report-products",
-      "role": "unresolved",
+      "owner_id": "source-relations/neotoma/abbo-age-controls/reader-account",
       "paths": [
-        "docs/report/source-relations/neotoma/abbo-age-controls/README.md",
+        "docs/report/source-relations/neotoma/abbo-age-controls/README.md"
+      ],
+      "producer_inputs": [],
+      "producer_paths": [],
+      "role": "maintained_editorial",
+      "verification": "Authored source-scope and result account. Check its exact claims against the linked retained source reports and primary records; this editorial role does not establish source custody, rights, core identity, basin transfer, a pollen denominator, or LRA admission."
+    },
+    {
+      "owner_id": "source-relations/neotoma/abbo-age-controls/report-products",
+      "paths": [
         "docs/report/source-relations/neotoma/abbo-age-controls/report.json"
       ],
-      "producer_paths": [],
+      "producer_inputs": [
+        "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-004.json",
+        "docs/report/source-relations/neotoma/abbo-profile/report.json"
+      ],
+      "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/abbo_age_controls.py"
+      ],
+      "role": "unresolved",
+      "verification": "The maintained producer `packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/abbo_age_controls.py` reads repository inputs declared here and the PANGAEA ABBO age-determination TSV identified in the retained report/README. After external byte custody and use authority are bound, run the documented fresh-artifact command and compare every governed output byte-for-byte. No private source was reopened here; age, count, taxon, basin, rights and LRA refusals remain unchanged."
+    },
+    {
+      "owner_id": "source-relations/neotoma/abbo-core-identity/count-mass-crosscheck",
+      "paths": [
+        "docs/report/source-relations/neotoma/abbo-core-identity/count-mass-crosscheck.json"
+      ],
       "producer_inputs": [],
-      "verification": "Identify the exact producer or independent source/template custody, lawful input closure and role-specific verification route for these paths. Bind independently reconstructed output or authenticated retained source before full mixed-owner acceptance; tracked output bytes cannot feed their own producer."
+      "producer_paths": [],
+      "role": "unresolved",
+      "verification": "Reconcile the selected sample rows with the original mass audit identity and normalized source locators before source-certificate ownership. This input feeds the core report and cannot be reconstructed from that report."
+    },
+    {
+      "owner_id": "source-relations/neotoma/abbo-core-identity/custody-manifest",
+      "paths": [
+        "docs/report/source-relations/neotoma/abbo-core-identity/manifest.json"
+      ],
+      "producer_inputs": [],
+      "producer_paths": [],
+      "role": "unresolved",
+      "verification": "Retain and inspect exact source/output hashes and historical comparison fields in this custody manifest. Bind its independent construction/approval record before assigning a produced or authenticated retained-source role; the report producer does not write this file."
+    },
+    {
+      "owner_id": "source-relations/neotoma/abbo-core-identity/reader-account",
+      "paths": [
+        "docs/report/source-relations/neotoma/abbo-core-identity/README.md"
+      ],
+      "producer_inputs": [],
+      "producer_paths": [],
+      "role": "maintained_editorial",
+      "verification": "Authored source-scope and result account. Check its exact claims against the linked retained source reports and primary records; this editorial role does not establish source custody, rights, core identity, basin transfer, a pollen denominator, or LRA admission."
     },
     {
       "owner_id": "source-relations/neotoma/abbo-core-identity/report-products",
-      "role": "unresolved",
       "paths": [
-        "docs/report/source-relations/neotoma/abbo-core-identity/README.md",
         "docs/report/source-relations/neotoma/abbo-core-identity/REPORT.md",
-        "docs/report/source-relations/neotoma/abbo-core-identity/count-mass-crosscheck.json",
-        "docs/report/source-relations/neotoma/abbo-core-identity/manifest.json",
         "docs/report/source-relations/neotoma/abbo-core-identity/report.json"
       ],
-      "producer_paths": [],
+      "producer_inputs": [
+        "data/landclim/raw/landclim_ii_site_metadata.xlsx",
+        "data/landclim/raw/landclim_sources.json",
+        "data/neotoma/raw/neotoma_pollen_dataset_downloads/manifest.json",
+        "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-004.json",
+        "docs/report/source-relations/neotoma/abbo-core-identity/count-mass-crosscheck.json",
+        "docs/report/source-relations/neotoma/lra-prerequisites/projection.json"
+      ],
+      "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/abborrtjarne_core.py"
+      ],
+      "role": "generated_owner",
+      "verification": "From repository root with absent destination, run `PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=packages/bijux-pollenomics-dev/src .venv/bin/python -m bijux_pollenomics_dev.source_completion.abborrtjarne_core --raw-part data/neotoma/raw/neotoma_pollen_dataset_downloads/part-004.json --raw-manifest data/neotoma/raw/neotoma_pollen_dataset_downloads/manifest.json --workbook data/landclim/raw/landclim_ii_site_metadata.xlsx --workbook-receipt data/landclim/raw/landclim_sources.json --count-mass docs/report/source-relations/neotoma/abbo-core-identity/count-mass-crosscheck.json --projection docs/report/source-relations/neotoma/lra-prerequisites/projection.json --output artifacts/jobs/neotoma-core-owner-reproduction/abbo-core-identity`; then `cmp artifacts/jobs/neotoma-core-owner-reproduction/abbo-core-identity/REPORT.md docs/report/source-relations/neotoma/abbo-core-identity/REPORT.md`; `cmp artifacts/jobs/neotoma-core-owner-reproduction/abbo-core-identity/report.json docs/report/source-relations/neotoma/abbo-core-identity/report.json`. The retained custody manifest currently matches the producer, inputs and outputs, but its own construction and the upstream count-mass/prerequisite source custody remain separate. No core identity, rights, basin or LRA admission follows."
+    },
+    {
+      "owner_id": "source-relations/neotoma/abbo-native-correspondence/reader-account",
+      "paths": [
+        "docs/report/source-relations/neotoma/abbo-native-correspondence/README.md"
+      ],
       "producer_inputs": [],
-      "verification": "Identify the exact producer or independent source/template custody, lawful input closure and role-specific verification route for these paths. Bind independently reconstructed output or authenticated retained source before full mixed-owner acceptance; tracked output bytes cannot feed their own producer."
+      "producer_paths": [],
+      "role": "maintained_editorial",
+      "verification": "Authored source-scope and result account. Check its exact claims against the linked retained source reports and primary records; this editorial role does not establish source custody, rights, core identity, basin transfer, a pollen denominator, or LRA admission."
     },
     {
       "owner_id": "source-relations/neotoma/abbo-native-correspondence/report-products",
-      "role": "unresolved",
       "paths": [
-        "docs/report/source-relations/neotoma/abbo-native-correspondence/README.md",
         "docs/report/source-relations/neotoma/abbo-native-correspondence/report.json"
       ],
-      "producer_paths": [],
+      "producer_inputs": [
+        "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-004.json"
+      ],
+      "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/abborrtjarne_native_counts.py"
+      ],
+      "role": "unresolved",
+      "verification": "The maintained producer `packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/abborrtjarne_native_counts.py` reads repository inputs declared here and the private Rootsi ABB.xls workbook identified in the retained report/README. After external byte custody and use authority are bound, run the documented fresh-artifact command and compare every governed output byte-for-byte. No private source was reopened here; age, count, taxon, basin, rights and LRA refusals remain unchanged."
+    },
+    {
+      "owner_id": "source-relations/neotoma/abbo-profile/reader-account",
+      "paths": [
+        "docs/report/source-relations/neotoma/abbo-profile/README.md"
+      ],
       "producer_inputs": [],
-      "verification": "Identify the exact producer or independent source/template custody, lawful input closure and role-specific verification route for these paths. Bind independently reconstructed output or authenticated retained source before full mixed-owner acceptance; tracked output bytes cannot feed their own producer."
+      "producer_paths": [],
+      "role": "maintained_editorial",
+      "verification": "Authored source-scope and result account. Check its exact claims against the linked retained source reports and primary records; this editorial role does not establish source custody, rights, core identity, basin transfer, a pollen denominator, or LRA admission."
     },
     {
       "owner_id": "source-relations/neotoma/abbo-profile/report-products",
-      "role": "unresolved",
       "paths": [
-        "docs/report/source-relations/neotoma/abbo-profile/README.md",
         "docs/report/source-relations/neotoma/abbo-profile/report.json"
       ],
-      "producer_paths": [],
-      "producer_inputs": [],
-      "verification": "Identify the exact producer or independent source/template custody, lawful input closure and role-specific verification route for these paths. Bind independently reconstructed output or authenticated retained source before full mixed-owner acceptance; tracked output bytes cannot feed their own producer."
+      "producer_inputs": [
+        "docs/report/pollen-reconstruction/swedish-native-sequences/manifest.json",
+        "docs/report/pollen-reconstruction/swedish-native-sequences/observations.json",
+        "docs/report/pollen-reconstruction/swedish-native-sequences/samples.json",
+        "docs/report/pollen-reconstruction/swedish-native-sequences/sites.json"
+      ],
+      "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/abbo_profile_lineage.py"
+      ],
+      "role": "unresolved",
+      "verification": "The maintained producer `packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/abbo_profile_lineage.py` reads repository inputs declared here and the PANGAEA ABBO source profile identified in the retained report/README. After external byte custody and use authority are bound, run the documented fresh-artifact command and compare every governed output byte-for-byte. No private source was reopened here; age, count, taxon, basin, rights and LRA refusals remain unchanged."
     },
     {
-      "owner_id": "source-relations/neotoma/abbo-published-method/report-products",
-      "role": "unresolved",
+      "owner_id": "source-relations/neotoma/abbo-published-method/reader-account",
       "paths": [
         "docs/report/source-relations/neotoma/abbo-published-method/README.md"
       ],
-      "producer_paths": [],
       "producer_inputs": [],
-      "verification": "Identify the exact producer or independent source/template custody, lawful input closure and role-specific verification route for these paths. Bind independently reconstructed output or authenticated retained source before full mixed-owner acceptance; tracked output bytes cannot feed their own producer."
+      "producer_paths": [],
+      "role": "maintained_editorial",
+      "verification": "Authored source-scope and result account. Check its exact claims against the linked retained source reports and primary records; this editorial role does not establish source custody, rights, core identity, basin transfer, a pollen denominator, or LRA admission."
     },
     {
       "owner_id": "source-relations/neotoma/acquisition-scope/report-products",
@@ -5587,46 +5666,72 @@
       "verification": "Known repository producer `packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/landclim_taxonomy_mass.py` consumes repository inputs declared here and external LandClim author-reference bundle member(s): author/LANDCLIM.ALLEUROPE.taxa.LUT.080219.csv (SHA-256 3a745f9b7606e5d0b59feaba2683b930c8d3990e4810f8217b69160a29a1b507). The author bundle is outside the repository-confined ownership inventory; external bytes/custody were not rechecked here. Preserve this unresolved role until exact lawful bundle identity and use route are bound in a governed source receipt, then run the README command with `--author-source-root` and compare every produced file byte-for-byte. This declaration does not admit a source taxon, denominator, parameter application, or LRA sample."
     },
     {
-      "owner_id": "source-relations/neotoma/boke-basin/report-products",
-      "role": "unresolved",
+      "owner_id": "source-relations/neotoma/boke-basin/reader-account",
       "paths": [
         "docs/report/source-relations/neotoma/boke-basin/README.md"
       ],
-      "producer_paths": [],
       "producer_inputs": [],
-      "verification": "Identify the exact producer or independent source/template custody, lawful input closure and role-specific verification route for these paths. Bind independently reconstructed output or authenticated retained source before full mixed-owner acceptance; tracked output bytes cannot feed their own producer."
+      "producer_paths": [],
+      "role": "maintained_editorial",
+      "verification": "Authored source-scope and result account. Check its exact claims against the linked retained source reports and primary records; this editorial role does not establish source custody, rights, core identity, basin transfer, a pollen denominator, or LRA admission."
+    },
+    {
+      "owner_id": "source-relations/neotoma/boke-native-correspondence/reader-account",
+      "paths": [
+        "docs/report/source-relations/neotoma/boke-native-correspondence/README.md"
+      ],
+      "producer_inputs": [],
+      "producer_paths": [],
+      "role": "maintained_editorial",
+      "verification": "Authored source-scope and result account. Check its exact claims against the linked retained source reports and primary records; this editorial role does not establish source custody, rights, core identity, basin transfer, a pollen denominator, or LRA admission."
     },
     {
       "owner_id": "source-relations/neotoma/boke-native-correspondence/report-products",
-      "role": "unresolved",
       "paths": [
-        "docs/report/source-relations/neotoma/boke-native-correspondence/README.md",
         "docs/report/source-relations/neotoma/boke-native-correspondence/report.json"
       ],
-      "producer_paths": [],
+      "producer_inputs": [
+        "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-008.json"
+      ],
+      "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/bokesjon_native_counts.py"
+      ],
+      "role": "unresolved",
+      "verification": "The maintained producer `packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/bokesjon_native_counts.py` reads repository inputs declared here and the private Rootsi BOKE.xls workbook identified in the retained report/README. After external byte custody and use authority are bound, run the documented fresh-artifact command and compare every governed output byte-for-byte. No private source was reopened here; age, count, taxon, basin, rights and LRA refusals remain unchanged."
+    },
+    {
+      "owner_id": "source-relations/neotoma/bus-native-correspondence/reader-account",
+      "paths": [
+        "docs/report/source-relations/neotoma/bus-native-correspondence/README.md"
+      ],
       "producer_inputs": [],
-      "verification": "Identify the exact producer or independent source/template custody, lawful input closure and role-specific verification route for these paths. Bind independently reconstructed output or authenticated retained source before full mixed-owner acceptance; tracked output bytes cannot feed their own producer."
+      "producer_paths": [],
+      "role": "maintained_editorial",
+      "verification": "Authored source-scope and result account. Check its exact claims against the linked retained source reports and primary records; this editorial role does not establish source custody, rights, core identity, basin transfer, a pollen denominator, or LRA admission."
     },
     {
       "owner_id": "source-relations/neotoma/bus-native-correspondence/report-products",
-      "role": "unresolved",
       "paths": [
-        "docs/report/source-relations/neotoma/bus-native-correspondence/README.md",
         "docs/report/source-relations/neotoma/bus-native-correspondence/report.json"
       ],
-      "producer_paths": [],
-      "producer_inputs": [],
-      "verification": "Identify the exact producer or independent source/template custody, lawful input closure and role-specific verification route for these paths. Bind independently reconstructed output or authenticated retained source before full mixed-owner acceptance; tracked output bytes cannot feed their own producer."
+      "producer_inputs": [
+        "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-008.json"
+      ],
+      "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/bussjosjon_native_counts.py"
+      ],
+      "role": "unresolved",
+      "verification": "The maintained producer `packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/bussjosjon_native_counts.py` reads repository inputs declared here and the private Rootsi BUS.xls workbook identified in the retained report/README. After external byte custody and use authority are bound, run the documented fresh-artifact command and compare every governed output byte-for-byte. No private source was reopened here; age, count, taxon, basin, rights and LRA refusals remain unchanged."
     },
     {
-      "owner_id": "source-relations/neotoma/bussjosjon-basin/report-products",
-      "role": "unresolved",
+      "owner_id": "source-relations/neotoma/bussjosjon-basin/reader-account",
       "paths": [
         "docs/report/source-relations/neotoma/bussjosjon-basin/README.md"
       ],
-      "producer_paths": [],
       "producer_inputs": [],
-      "verification": "Identify the exact producer or independent source/template custody, lawful input closure and role-specific verification route for these paths. Bind independently reconstructed output or authenticated retained source before full mixed-owner acceptance; tracked output bytes cannot feed their own producer."
+      "producer_paths": [],
+      "role": "maintained_editorial",
+      "verification": "Authored source-scope and result account. Check its exact claims against the linked retained source reports and primary records; this editorial role does not establish source custody, rights, core identity, basin transfer, a pollen denominator, or LRA admission."
     },
     {
       "owner_id": "source-relations/neotoma/compact-summary/derived-report",
@@ -5720,31 +5825,67 @@
       "verification": "verify.py reads retained report.json to obtain expected capture digest and compares bytes after assessing private site-evidence.json and capture.json plus all private capture-pages. This self-referential verification and outside-repository source custody do not independently regenerate a report from repository-bound inputs. Bind exact private capture/site source and independent expected digest, then compare bytes; no basin or LRA admission."
     },
     {
-      "owner_id": "source-relations/neotoma/landclim-site-identity/report-products",
-      "role": "unresolved",
+      "owner_id": "source-relations/neotoma/landclim-site-identity/custody-manifest",
       "paths": [
-        "docs/report/source-relations/neotoma/landclim-site-identity/README.md",
+        "docs/report/source-relations/neotoma/landclim-site-identity/manifest.json"
+      ],
+      "producer_inputs": [],
+      "producer_paths": [],
+      "role": "unresolved",
+      "verification": "Retain and inspect exact source/output hashes and historical comparison fields in this custody manifest. Bind its independent construction/approval record before assigning a produced or authenticated retained-source role; the report producer does not write this file."
+    },
+    {
+      "owner_id": "source-relations/neotoma/landclim-site-identity/reader-account",
+      "paths": [
+        "docs/report/source-relations/neotoma/landclim-site-identity/README.md"
+      ],
+      "producer_inputs": [],
+      "producer_paths": [],
+      "role": "maintained_editorial",
+      "verification": "Authored source-scope and result account. Check its exact claims against the linked retained source reports and primary records; this editorial role does not establish source custody, rights, core identity, basin transfer, a pollen denominator, or LRA admission."
+    },
+    {
+      "owner_id": "source-relations/neotoma/landclim-site-identity/report-products",
+      "paths": [
         "docs/report/source-relations/neotoma/landclim-site-identity/REPORT.md",
-        "docs/report/source-relations/neotoma/landclim-site-identity/manifest.json",
         "docs/report/source-relations/neotoma/landclim-site-identity/report.json",
         "docs/report/source-relations/neotoma/landclim-site-identity/site-comparison.csv"
       ],
-      "producer_paths": [],
+      "producer_inputs": [
+        "data/landclim/raw/landclim_ii_site_metadata.xlsx",
+        "data/landclim/raw/landclim_sources.json",
+        "data/neotoma/relational/surfaces/sites/part-00001.json",
+        "docs/report/source-relations/neotoma/lra-prerequisites/projection.json"
+      ],
+      "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/swedish_site_identity.py"
+      ],
+      "role": "generated_owner",
+      "verification": "From repository root with absent destination, run `PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=packages/bijux-pollenomics-dev/src .venv/bin/python -m bijux_pollenomics_dev.source_completion.swedish_site_identity --workbook data/landclim/raw/landclim_ii_site_metadata.xlsx --receipt data/landclim/raw/landclim_sources.json --projection docs/report/source-relations/neotoma/lra-prerequisites/projection.json --sites data/neotoma/relational/surfaces/sites/part-00001.json --output artifacts/jobs/neotoma-core-owner-reproduction/landclim-site-identity`; then `cmp artifacts/jobs/neotoma-core-owner-reproduction/landclim-site-identity/REPORT.md docs/report/source-relations/neotoma/landclim-site-identity/REPORT.md`; `cmp artifacts/jobs/neotoma-core-owner-reproduction/landclim-site-identity/report.json docs/report/source-relations/neotoma/landclim-site-identity/report.json`; `cmp artifacts/jobs/neotoma-core-owner-reproduction/landclim-site-identity/site-comparison.csv docs/report/source-relations/neotoma/landclim-site-identity/site-comparison.csv`. The retained custody manifest currently matches the producer, inputs and outputs, but its own construction and the upstream count-mass/prerequisite source custody remain separate. No core identity, rights, basin or LRA admission follows."
+    },
+    {
+      "owner_id": "source-relations/neotoma/legacyage-chronology/depth-allocation/reader-account",
+      "paths": [
+        "docs/report/source-relations/neotoma/legacyage-chronology/depth-allocation/README.md"
+      ],
       "producer_inputs": [],
-      "verification": "Identify the exact producer or independent source/template custody, lawful input closure and role-specific verification route for these paths. Bind independently reconstructed output or authenticated retained source before full mixed-owner acceptance; tracked output bytes cannot feed their own producer."
+      "producer_paths": [],
+      "role": "maintained_editorial",
+      "verification": "Authored source-scope and result account. Check its exact claims against the linked retained source reports and primary records; this editorial role does not establish source custody, rights, core identity, basin transfer, a pollen denominator, or LRA admission."
     },
     {
       "owner_id": "source-relations/neotoma/legacyage-chronology/depth-allocation/report-products",
-      "role": "unresolved",
       "paths": [
-        "docs/report/source-relations/neotoma/legacyage-chronology/depth-allocation/README.md",
         "docs/report/source-relations/neotoma/legacyage-chronology/depth-allocation/report.json"
+      ],
+      "producer_inputs": [
+        "data/neotoma/relational/surfaces/samples/part-00001.json"
       ],
       "producer_paths": [
         "docs/report/source-relations/neotoma/legacyage-chronology/depth-allocation/replay.py"
       ],
-      "producer_inputs": [],
-      "verification": "Identify the exact producer or independent source/template custody, lawful input closure and role-specific verification route for these paths. Bind independently reconstructed output or authenticated retained source before full mixed-owner acceptance; tracked output bytes cannot feed their own producer."
+      "role": "unresolved",
+      "verification": "The maintained producer `docs/report/source-relations/neotoma/legacyage-chronology/depth-allocation/replay.py` reads repository inputs declared here and the external LegacyAge S4/S5 tables identified in the retained report/README. After external byte custody and use authority are bound, run the documented fresh-artifact command and compare every governed output byte-for-byte. No private source was reopened here; age, count, taxon, basin, rights and LRA refusals remain unchanged."
     },
     {
       "owner_id": "source-relations/neotoma/legacyage-chronology/depth-allocation/source-code",
@@ -5757,19 +5898,31 @@
       "verification": "Maintain these repository source files through review and focused tests. Source custody is distinct from generated output reproduction; copying them into a replay lane does not certify the results they produce."
     },
     {
-      "owner_id": "source-relations/neotoma/legacyage-chronology/report-products",
-      "role": "unresolved",
+      "owner_id": "source-relations/neotoma/legacyage-chronology/reader-account",
       "paths": [
-        "docs/report/source-relations/neotoma/legacyage-chronology/README.md",
+        "docs/report/source-relations/neotoma/legacyage-chronology/README.md"
+      ],
+      "producer_inputs": [],
+      "producer_paths": [],
+      "role": "maintained_editorial",
+      "verification": "Authored source-scope and result account. Check its exact claims against the linked retained source reports and primary records; this editorial role does not establish source custody, rights, core identity, basin transfer, a pollen denominator, or LRA admission."
+    },
+    {
+      "owner_id": "source-relations/neotoma/legacyage-chronology/report-products",
+      "paths": [
         "docs/report/source-relations/neotoma/legacyage-chronology/report.json",
         "docs/report/source-relations/neotoma/legacyage-chronology/sample-depth-join.csv",
         "docs/report/source-relations/neotoma/legacyage-chronology/unmatched-samples.csv"
       ],
+      "producer_inputs": [
+        "data/neotoma/relational/surfaces/age_claims/part-00001.json",
+        "data/neotoma/relational/surfaces/samples/part-00001.json"
+      ],
       "producer_paths": [
         "docs/report/source-relations/neotoma/legacyage-chronology/replay.py"
       ],
-      "producer_inputs": [],
-      "verification": "Identify the exact producer or independent source/template custody, lawful input closure and role-specific verification route for these paths. Bind independently reconstructed output or authenticated retained source before full mixed-owner acceptance; tracked output bytes cannot feed their own producer."
+      "role": "unresolved",
+      "verification": "The maintained producer `docs/report/source-relations/neotoma/legacyage-chronology/replay.py` reads repository inputs declared here and the external LegacyAge S5/S6 tables identified in the retained report/README. After external byte custody and use authority are bound, run the documented fresh-artifact command and compare every governed output byte-for-byte. No private source was reopened here; age, count, taxon, basin, rights and LRA refusals remain unchanged."
     },
     {
       "owner_id": "source-relations/neotoma/legacyage-chronology/source-code",
@@ -5782,15 +5935,60 @@
       "verification": "Maintain these repository source files through review and focused tests. Source custody is distinct from generated output reproduction; copying them into a replay lane does not certify the results they produce."
     },
     {
-      "owner_id": "source-relations/neotoma/lra-prerequisites/report-products",
-      "role": "unresolved",
+      "owner_id": "source-relations/neotoma/lra-prerequisites/reader-account",
       "paths": [
-        "docs/report/source-relations/neotoma/lra-prerequisites/README.md",
+        "docs/report/source-relations/neotoma/lra-prerequisites/README.md"
+      ],
+      "producer_inputs": [],
+      "producer_paths": [],
+      "role": "maintained_editorial",
+      "verification": "Authored source-scope and result account. Check its exact claims against the linked retained source reports and primary records; this editorial role does not establish source custody, rights, core identity, basin transfer, a pollen denominator, or LRA admission."
+    },
+    {
+      "owner_id": "source-relations/neotoma/lra-prerequisites/report-products",
+      "paths": [
         "docs/report/source-relations/neotoma/lra-prerequisites/projection.json"
       ],
-      "producer_paths": [],
-      "producer_inputs": [],
-      "verification": "Identify the exact producer or independent source/template custody, lawful input closure and role-specific verification route for these paths. Bind independently reconstructed output or authenticated retained source before full mixed-owner acceptance; tracked output bytes cannot feed their own producer."
+      "producer_inputs": [
+        "data/neotoma/raw/neotoma_pollen_dataset_downloads/manifest.json",
+        "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-001.json",
+        "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-002.json",
+        "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-003.json",
+        "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-004.json",
+        "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-005.json",
+        "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-006.json",
+        "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-007.json",
+        "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-008.json",
+        "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-009.json",
+        "data/neotoma/relational/manifest.json",
+        "data/neotoma/relational/reconciliation.json",
+        "data/neotoma/relational/surfaces/age_claims/part-00001.json",
+        "data/neotoma/relational/surfaces/chronologies/part-00001.json",
+        "data/neotoma/relational/surfaces/chronology_controls/part-00001.json",
+        "data/neotoma/relational/surfaces/collection_units/part-00001.json",
+        "data/neotoma/relational/surfaces/conflicts/part-00001.json",
+        "data/neotoma/relational/surfaces/datasets/part-00001.json",
+        "data/neotoma/relational/surfaces/observations/part-00001.json",
+        "data/neotoma/relational/surfaces/observations/part-00002.json",
+        "data/neotoma/relational/surfaces/observations/part-00003.json",
+        "data/neotoma/relational/surfaces/observations/part-00004.json",
+        "data/neotoma/relational/surfaces/observations/part-00005.json",
+        "data/neotoma/relational/surfaces/observations/part-00006.json",
+        "data/neotoma/relational/surfaces/observations/part-00007.json",
+        "data/neotoma/relational/surfaces/observations/part-00008.json",
+        "data/neotoma/relational/surfaces/orphans/part-00001.json",
+        "data/neotoma/relational/surfaces/samples/part-00001.json",
+        "data/neotoma/relational/surfaces/sites/part-00001.json",
+        "data/neotoma/relational/surfaces/variables/part-00001.json"
+      ],
+      "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/taxa_review/lra_prerequisites/__main__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/taxa_review/lra_prerequisites/projection.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/neotoma/lakeparameters.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/reading.py"
+      ],
+      "role": "unresolved",
+      "verification": "Known producer: `PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -m bijux_pollenomics_dev.taxa_review.lra_prerequisites --raw-root data/neotoma/raw/neotoma_pollen_dataset_downloads --normalized-root data/neotoma/relational --lakeparameter-capture-root <governed-external-capture> --lakeparameter-capture-sha256 0c800ed252d6bd2bbed72f5ac7798e27d7a72f89330170b8ce33989384c758fd --output artifacts/jobs/neotoma-core-owner-reproduction/lra-prerequisites/projection.json`. The external live paginated capture, original site-evidence and all pages must be bound before comparing output bytes. The projection has zero accepted samples and no executable LRA request. Repository input scope is every regular file under both declared raw and normalized roots; these 30 file identities are bound below but do not substitute for the external capture."
     },
     {
       "owner_id": "source-relations/neotoma/native-roundtrip/derived-report",
@@ -6028,18 +6226,55 @@
       "verification": "Replay requires --private-root: private source-manifest.json plus seven source records, EPD source-manifest.json and 17 metadata/age-table files. Those are not repository-confined; keep unresolved until exact private capture custody, permission and byte comparison are independently bound. Metadata-only refusal is not fresh-cohort acceptance."
     },
     {
-      "owner_id": "source-relations/neotoma/swedish-lake-core-identity/report-products",
-      "role": "unresolved",
+      "owner_id": "source-relations/neotoma/swedish-lake-core-identity/count-mass-crosscheck",
       "paths": [
-        "docs/report/source-relations/neotoma/swedish-lake-core-identity/README.md",
+        "docs/report/source-relations/neotoma/swedish-lake-core-identity/count-mass-crosscheck.json"
+      ],
+      "producer_inputs": [],
+      "producer_paths": [],
+      "role": "unresolved",
+      "verification": "Reconcile the selected sample rows with the original mass audit identity and normalized source locators before source-certificate ownership. This input feeds the core report and cannot be reconstructed from that report."
+    },
+    {
+      "owner_id": "source-relations/neotoma/swedish-lake-core-identity/custody-manifest",
+      "paths": [
+        "docs/report/source-relations/neotoma/swedish-lake-core-identity/manifest.json"
+      ],
+      "producer_inputs": [],
+      "producer_paths": [],
+      "role": "unresolved",
+      "verification": "Retain and inspect exact source/output hashes and historical comparison fields in this custody manifest. Bind its independent construction/approval record before assigning a produced or authenticated retained-source role; the report producer does not write this file."
+    },
+    {
+      "owner_id": "source-relations/neotoma/swedish-lake-core-identity/reader-account",
+      "paths": [
+        "docs/report/source-relations/neotoma/swedish-lake-core-identity/README.md"
+      ],
+      "producer_inputs": [],
+      "producer_paths": [],
+      "role": "maintained_editorial",
+      "verification": "Authored source-scope and result account. Check its exact claims against the linked retained source reports and primary records; this editorial role does not establish source custody, rights, core identity, basin transfer, a pollen denominator, or LRA admission."
+    },
+    {
+      "owner_id": "source-relations/neotoma/swedish-lake-core-identity/report-products",
+      "paths": [
         "docs/report/source-relations/neotoma/swedish-lake-core-identity/REPORT.md",
-        "docs/report/source-relations/neotoma/swedish-lake-core-identity/count-mass-crosscheck.json",
-        "docs/report/source-relations/neotoma/swedish-lake-core-identity/manifest.json",
         "docs/report/source-relations/neotoma/swedish-lake-core-identity/report.json"
       ],
-      "producer_paths": [],
-      "producer_inputs": [],
-      "verification": "Identify the exact producer or independent source/template custody, lawful input closure and role-specific verification route for these paths. Bind independently reconstructed output or authenticated retained source before full mixed-owner acceptance; tracked output bytes cannot feed their own producer."
+      "producer_inputs": [
+        "data/landclim/raw/landclim_ii_site_metadata.xlsx",
+        "data/landclim/raw/landclim_sources.json",
+        "data/neotoma/raw/neotoma_pollen_dataset_downloads/manifest.json",
+        "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-008.json",
+        "docs/report/source-relations/neotoma/lra-prerequisites/projection.json",
+        "docs/report/source-relations/neotoma/swedish-lake-core-identity/count-mass-crosscheck.json"
+      ],
+      "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/abborrtjarne_core.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/swedish_lake_core_correspondence.py"
+      ],
+      "role": "generated_owner",
+      "verification": "From repository root with absent destination, run `PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=packages/bijux-pollenomics-dev/src .venv/bin/python -m bijux_pollenomics_dev.source_completion.swedish_lake_core_correspondence --raw-part data/neotoma/raw/neotoma_pollen_dataset_downloads/part-008.json --raw-manifest data/neotoma/raw/neotoma_pollen_dataset_downloads/manifest.json --workbook data/landclim/raw/landclim_ii_site_metadata.xlsx --workbook-receipt data/landclim/raw/landclim_sources.json --count-mass docs/report/source-relations/neotoma/swedish-lake-core-identity/count-mass-crosscheck.json --projection docs/report/source-relations/neotoma/lra-prerequisites/projection.json --output artifacts/jobs/neotoma-core-owner-reproduction/swedish-lake-core-identity`; then `cmp artifacts/jobs/neotoma-core-owner-reproduction/swedish-lake-core-identity/REPORT.md docs/report/source-relations/neotoma/swedish-lake-core-identity/REPORT.md`; `cmp artifacts/jobs/neotoma-core-owner-reproduction/swedish-lake-core-identity/report.json docs/report/source-relations/neotoma/swedish-lake-core-identity/report.json`. The retained custody manifest currently matches the producer, inputs and outputs, but its own construction and the upstream count-mass/prerequisite source custody remain separate. No core identity, rights, basin or LRA admission follows."
     },
     {
       "owner_id": "source-relations/neotoma/taxon-priority/report-products",
