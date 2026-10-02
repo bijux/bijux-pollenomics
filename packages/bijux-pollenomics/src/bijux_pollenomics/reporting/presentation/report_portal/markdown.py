@@ -30,8 +30,9 @@ def _render_report_surface_registry_markdown(payload: dict[str, object]) -> str:
 We group the current `docs/report/` tree by reader question. Start at the
 [report portal](index.md) for an explanation of the results and their limits.
 The [machine-readable registry](report_surface_registry.json) lists every path
-with its family, audience, geography, format and exact content identity when
-an exact file lookup is needed. It excludes the four registry/review metadata
+with its family, audience, geography and format. Markdown rows also identify
+the exact bytes used for the layout review; machine-readable outputs retain
+their domain manifests. It excludes the four registry/review metadata
 files themselves; its count is a scoped subset of the complete report tree.
 
 - Surface count: `{payload["surface_count"]}`

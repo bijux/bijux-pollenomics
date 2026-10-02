@@ -124,6 +124,7 @@ class ReportPortalUnitTests(unittest.TestCase):
             source.write_text(
                 "# Study\n\nThis source explains a scoped result and its evidence boundary.\n"
             )
+            (root / "machine.json").write_text('{"source": "domain manifest"}')
             publish_report_portal(root)
             registry = json.loads((root / "report_surface_registry.json").read_text())
             excluded = set(registry["excluded_metadata_paths"])
@@ -138,6 +139,9 @@ class ReportPortalUnitTests(unittest.TestCase):
             self.assertEqual(len(excluded), 4)
             for row in registry["rows"]:
                 relative = row["repository_path"].removeprefix("docs/report/")
+                if not relative.endswith(".md"):
+                    self.assertNotIn("content_sha256", row)
+                    continue
                 self.assertEqual(
                     row["content_sha256"],
                     hashlib.sha256((root / relative).read_bytes()).hexdigest(),
