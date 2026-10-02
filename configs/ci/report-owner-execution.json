@@ -983,6 +983,46 @@
         "source-products/scores.csv": "docs/report/regions/nordic/swedish-training-scope/scores.csv"
       },
       "timeout_seconds": 600
+    },
+    {
+      "module": "bijux_pollenomics_dev.source_completion.nordic.lilla_gloppsjon_contained_age",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "regions/nordic/lilla-gloppsjon-contained-age-support",
+      "source_arguments": [],
+      "source_paths": {
+        "source-products/coverage.csv": "docs/report/regions/nordic/lilla-gloppsjon-direct-pollen/interval-support/coverage.csv",
+        "source-products/report.json": "docs/report/regions/nordic/lilla-gloppsjon-direct-pollen/interval-support/report.json",
+        "source-products/samples.csv": "docs/report/regions/nordic/lilla-gloppsjon-direct-pollen/interval-support/samples.csv",
+        "source-products/scores.csv": "docs/report/regions/nordic/lilla-gloppsjon-direct-pollen/interval-support/scores.csv"
+      },
+      "timeout_seconds": 600
+    },
+    {
+      "module": "bijux_pollenomics_dev.source_completion.nordic.lilla_gloppsjon_predictions",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "regions/nordic/lilla-gloppsjon-direct-pollen/frozen-predictions",
+      "source_arguments": [],
+      "source_paths": {
+        "source-products/freeze.json": "docs/report/regions/nordic/lilla-gloppsjon-direct-pollen/frozen/freeze.json",
+        "source-products/predictions.json": "docs/report/regions/nordic/lilla-gloppsjon-direct-pollen/frozen/predictions.json"
+      },
+      "timeout_seconds": 600
+    },
+    {
+      "module": "bijux_pollenomics_dev.source_completion.nordic.lilla_gloppsjon_scores",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "regions/nordic/lilla-gloppsjon-direct-pollen/scored-products",
+      "source_arguments": [],
+      "source_paths": {
+        "source-products/coverage.csv": "docs/report/regions/nordic/lilla-gloppsjon-direct-pollen/scored/coverage.csv",
+        "source-products/report.json": "docs/report/regions/nordic/lilla-gloppsjon-direct-pollen/scored/report.json",
+        "source-products/sample-counts.csv": "docs/report/regions/nordic/lilla-gloppsjon-direct-pollen/scored/sample-counts.csv",
+        "source-products/scores.csv": "docs/report/regions/nordic/lilla-gloppsjon-direct-pollen/scored/scores.csv"
+      },
+      "timeout_seconds": 600
     }
   ]
 }
