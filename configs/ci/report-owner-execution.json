@@ -569,6 +569,45 @@
         "source-products/prepared/dataset-19913.json": "docs/report/pollen-reconstruction/age-interval-sensitivity/prepared/dataset-19913.json"
       },
       "timeout_seconds": 180
+    },
+    {
+      "module": "bijux_pollenomics_dev.source_completion.denmark.solsoe_age_interval_freeze",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "countries/denmark/solsoe-source-lineage/author-target-age-interval/report-products",
+      "source_arguments": [],
+      "source_paths": {
+        "source-products/predictions.json": "docs/report/countries/denmark/solsoe-source-lineage/author-target-age-interval/predictions.json",
+        "source-products/protocol.json": "docs/report/countries/denmark/solsoe-source-lineage/author-target-age-interval/protocol.json",
+        "source-products/sample-support.csv": "docs/report/countries/denmark/solsoe-source-lineage/author-target-age-interval/sample-support.csv"
+      },
+      "timeout_seconds": 180
+    },
+    {
+      "module": "bijux_pollenomics_dev.source_completion.author_lra.radius_paired_comparison",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "pollen-reconstruction/author-lra-constrained/radius-sensitivity/paired-comparison",
+      "source_arguments": [],
+      "source_paths": {
+        "source-products/paired-scores.csv": "docs/report/pollen-reconstruction/author-lra-constrained/radius-sensitivity/paired/paired-scores.csv",
+        "source-products/report.json": "docs/report/pollen-reconstruction/author-lra-constrained/radius-sensitivity/paired/report.json"
+      },
+      "timeout_seconds": 180
+    },
+    {
+      "module": "bijux_pollenomics_dev.source_completion.sambosjon_age_bounds",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "regions/nordic/sambosjon-direct-pollen/age-bounds/interval-products",
+      "source_arguments": [],
+      "source_paths": {
+        "source-products/bins.csv": "docs/report/regions/nordic/sambosjon-direct-pollen/age-bounds/bins.csv",
+        "source-products/boundaries.csv": "docs/report/regions/nordic/sambosjon-direct-pollen/age-bounds/boundaries.csv",
+        "source-products/report.json": "docs/report/regions/nordic/sambosjon-direct-pollen/age-bounds/report.json",
+        "source-products/samples.csv": "docs/report/regions/nordic/sambosjon-direct-pollen/age-bounds/samples.csv"
+      },
+      "timeout_seconds": 180
     }
   ]
 }
