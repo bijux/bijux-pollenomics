@@ -224,6 +224,14 @@ original R captures, author crosswalks, window inputs and verification-only
 manifests. The 1,128-row metadata population and 124 matched TW2 values do not
 establish the original full study input chain or independent vegetation accuracy.
 
+The SEAD native age, record-interval, public custody and relational consumers
+declare seven products and their full validator read sets, including all 128
+raw acquisition members and 54 normalized evidence members where consumed.
+Four explanations are editorial. The two map-audit products still depend on
+historical browser and candidate-generation receipts. Native AD conversion,
+record intervals, 86 complete joins and 61 retained tables remain source/display
+accounting; acquisition release and scientific event/LRA admission stay refused.
+
 A fresh canonical publisher build from fixed product
 `d535ca7f3bed0ead63e5f96e45658c435ed6613a` produced exactly the 709 declared
 publisher paths, with no missing or extra output. Its path-set digest is
