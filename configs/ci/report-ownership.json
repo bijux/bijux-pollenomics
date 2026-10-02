@@ -8476,13 +8476,9 @@
     },
     {
       "owner_id": "source-relations/sead/chronology-claim-review/native-age-products",
-      "role": "generated_owner",
       "paths": [
         "docs/report/source-relations/sead/chronology-claim-review/claims.csv",
         "docs/report/source-relations/sead/chronology-claim-review/report.json"
-      ],
-      "producer_paths": [
-        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/sead/evidence/review/chronology_claims.py"
       ],
       "producer_inputs": [
         "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/chronology_claims.json",
@@ -8501,7 +8497,13 @@
         "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_geochronology.json",
         "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_relative_dates.json"
       ],
-      "verification": "Call write_sead_chronology_age_review(data_root, absent_artifact_output) and compare two exact files. Native AD conversion and 25,109 unselected claims remain chronology-display accounting; every propagation disposition is refused."
+      "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sead/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sead/chronology_age_review.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/sead/evidence/review/chronology_claims.py"
+      ],
+      "role": "generated_owner",
+      "verification": "Run PYTHONDONTWRITEBYTECODE=1 python -m bijux_pollenomics_dev.source_completion.sead.chronology_age_review --repository . --output artifacts/jobs/sead-chronology-owner-reproduction/chronology_age_review with an absent directory, then compare the two exact output files with their declared docs/report paths. This only verifies retained source-bound bytes; chronology/event admission and qualified review remain separate."
     },
     {
       "owner_id": "source-relations/sead/chronology-claim-review/reader-account",
@@ -8646,14 +8648,9 @@
     },
     {
       "owner_id": "source-relations/sead/interval-sets/record-unions",
-      "role": "generated_owner",
       "paths": [
         "docs/report/source-relations/sead/interval-sets/report.json",
         "docs/report/source-relations/sead/interval-sets/sites.csv"
-      ],
-      "producer_paths": [
-        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/sead/evidence/review/chronology_claims.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/sead/evidence/review/interval_sets.py"
       ],
       "producer_inputs": [
         "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/chronology_claims.json",
@@ -8674,7 +8671,14 @@
         "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_geochronology.json",
         "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_relative_dates.json"
       ],
-      "verification": "Call write_sead_interval_set_review into absent artifacts and compare both files. Closed integer record intervals preserve gaps; site display envelopes are not analytic evidence and chronology/event selection remains unapproved."
+      "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sead/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sead/record_intervals.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/sead/evidence/review/chronology_claims.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/sead/evidence/review/interval_sets.py"
+      ],
+      "role": "generated_owner",
+      "verification": "Run PYTHONDONTWRITEBYTECODE=1 python -m bijux_pollenomics_dev.source_completion.sead.record_intervals --repository . --output artifacts/jobs/sead-chronology-owner-reproduction/record_intervals with an absent directory, then compare the two exact output files with their declared docs/report paths. This only verifies retained source-bound bytes; chronology/event admission and qualified review remain separate."
     },
     {
       "owner_id": "source-relations/sead/map-candidate/runtime-capture",

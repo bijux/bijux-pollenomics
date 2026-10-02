@@ -278,6 +278,30 @@
       "output_mode": "directory",
       "timeout_seconds": 180,
       "output_subdirectory": "source-products"
+    },
+    {
+      "owner_id": "source-relations/sead/chronology-claim-review/native-age-products",
+      "module": "bijux_pollenomics_dev.source_completion.sead.chronology_age_review",
+      "source_paths": {
+        "source-products/claims.csv": "docs/report/source-relations/sead/chronology-claim-review/claims.csv",
+        "source-products/report.json": "docs/report/source-relations/sead/chronology-claim-review/report.json"
+      },
+      "source_arguments": [],
+      "output_mode": "directory",
+      "timeout_seconds": 180,
+      "output_subdirectory": "source-products"
+    },
+    {
+      "owner_id": "source-relations/sead/interval-sets/record-unions",
+      "module": "bijux_pollenomics_dev.source_completion.sead.record_intervals",
+      "source_paths": {
+        "source-products/report.json": "docs/report/source-relations/sead/interval-sets/report.json",
+        "source-products/sites.csv": "docs/report/source-relations/sead/interval-sets/sites.csv"
+      },
+      "source_arguments": [],
+      "output_mode": "directory",
+      "timeout_seconds": 180,
+      "output_subdirectory": "source-products"
     }
   ]
 }

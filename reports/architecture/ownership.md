@@ -63,8 +63,8 @@ or qualified scientific review.
 The [output ownership inventory](../../configs/ci/report-ownership.json)
 assigns every tracked report path exactly one declaration. Its population is
 1,938 paths: 709 declared publisher paths, 125 original-R retained source
-files, 72 generated domain outputs, 62 maintained source files, 123
-maintained reader accounts and 847 paths with unresolved output custody.
+files, 221 generated domain outputs, 62 maintained source files, 172
+maintained reader accounts and 649 paths with unresolved output custody.
 These role counts describe the current declarations. They do not measure
 how many outputs have been independently reproduced.
 
@@ -316,7 +316,10 @@ outputs from their retained source and governed country ledgers. Their source,
 assigned and publication country meanings remain separate, including chronology
 refusals. SEAD country-coverage and source-unit consumers add four outputs,
 with every retained manifest member and table receipt in their read sets.
-These eighteen producers cover only their declared files. The complete report-tree
+Two confined SEAD chronology entry points expose the existing age-accounting
+and record-interval writers with unchanged inputs, numerical behavior and
+refusals. Their declarations include the maintained wrapper package. These
+twenty producers cover only their declared files. The complete report-tree
 comparison remains mandatory and refuses any missing owner. The scientific CI
 workflow derives the owner matrix and assembly selection from the same
 validated execution configuration, using a digest of each full identity as
