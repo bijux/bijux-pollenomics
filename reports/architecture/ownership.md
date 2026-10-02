@@ -202,6 +202,12 @@ prepared inputs and private author taxonomy lookups retain explicit custody
 requirements. These prior-exposed development comparisons remain separate
 from LRA reconstruction and independent measured vegetation validation.
 
+The Nordic regional and author-target declarations give 29 mechanical
+products separate staged owners. Four reader pointers are editorial. Fourteen
+files retain unresolved private author lookup or historical development-input
+custody. The 16-label direct-pollen response and 31-target author subcomposition
+remain distinct; mechanical production does not approve either as LRA input.
+
 A fresh canonical publisher build from fixed product
 `d535ca7f3bed0ead63e5f96e45658c435ed6613a` produced exactly the 709 declared
 publisher paths, with no missing or extra output. Its path-set digest is

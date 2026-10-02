@@ -4506,11 +4506,39 @@
       "verification": "Fresh canonical publisher build at fixed d535ca7f3bed0ead63e5f96e45658c435ed6613a matches exactly these 709 output paths (path-set SHA-256 e2670ba1efa03ec4dd8a54b2c013e494d7ef133922b0d6cdc0902f412e4b707b). Membership only: installed-release validation, byte equality and two independent full-tree assembly lanes remain required."
     },
     {
-      "owner_id": "regions/nordic/author-target-pollen/report-products",
-      "role": "unresolved",
+      "owner_id": "regions/nordic/author-target-pollen/frozen-predictions",
       "paths": [
-        "docs/report/regions/nordic/author-target-pollen/README.md",
-        "docs/report/regions/nordic/author-target-pollen/coverage.csv",
+        "docs/report/regions/nordic/author-target-pollen/predictions/predictions-DK.json.gz",
+        "docs/report/regions/nordic/author-target-pollen/predictions/predictions-FI.json.gz",
+        "docs/report/regions/nordic/author-target-pollen/predictions/predictions-NO.json.gz"
+      ],
+      "producer_inputs": [
+        "docs/report/regions/nordic/author-target-pollen/input-manifest.json",
+        "docs/report/regions/nordic/author-target-pollen/inputs/metadata-DK.json.gz",
+        "docs/report/regions/nordic/author-target-pollen/inputs/metadata-FI.json.gz",
+        "docs/report/regions/nordic/author-target-pollen/inputs/metadata-NO.json.gz",
+        "docs/report/regions/nordic/author-target-pollen/inputs/training-DK.json.gz",
+        "docs/report/regions/nordic/author-target-pollen/inputs/training-FI.json.gz",
+        "docs/report/regions/nordic/author-target-pollen/inputs/training-NO.json.gz"
+      ],
+      "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/nordic_author_target_pollen.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/nordic_direct_pollen.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/baselines.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/contracts.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/metrics.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/spatial/__init__.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/spatial/configuration.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/spatial/counts.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/spatial/model.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/spatial/support.py"
+      ],
+      "role": "generated_owner",
+      "verification": "The maintained predictor consumes only retained training and metadata, not the sealed target outcomes. Compare three fixed prediction bytes; this is mechanical 31-target direct-pollen output, not a new target-independent cohort."
+    },
+    {
+      "owner_id": "regions/nordic/author-target-pollen/prepared-source",
+      "paths": [
         "docs/report/regions/nordic/author-target-pollen/input-manifest.json",
         "docs/report/regions/nordic/author-target-pollen/inputs/metadata-DK.json.gz",
         "docs/report/regions/nordic/author-target-pollen/inputs/metadata-FI.json.gz",
@@ -4518,32 +4546,163 @@
         "docs/report/regions/nordic/author-target-pollen/inputs/training-DK.json.gz",
         "docs/report/regions/nordic/author-target-pollen/inputs/training-FI.json.gz",
         "docs/report/regions/nordic/author-target-pollen/inputs/training-NO.json.gz",
-        "docs/report/regions/nordic/author-target-pollen/predictions/predictions-DK.json.gz",
-        "docs/report/regions/nordic/author-target-pollen/predictions/predictions-FI.json.gz",
-        "docs/report/regions/nordic/author-target-pollen/predictions/predictions-NO.json.gz",
-        "docs/report/regions/nordic/author-target-pollen/report.json",
-        "docs/report/regions/nordic/author-target-pollen/scores.csv",
         "docs/report/regions/nordic/author-target-pollen/sealed-outcomes/outcomes-DK.json.gz",
         "docs/report/regions/nordic/author-target-pollen/sealed-outcomes/outcomes-FI.json.gz",
-        "docs/report/regions/nordic/author-target-pollen/sealed-outcomes/outcomes-NO.json.gz",
+        "docs/report/regions/nordic/author-target-pollen/sealed-outcomes/outcomes-NO.json.gz"
+      ],
+      "producer_inputs": [
+        "data/neotoma/raw/neotoma_pollen_dataset_downloads/manifest.json",
+        "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-001.json",
+        "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-002.json",
+        "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-003.json",
+        "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-004.json",
+        "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-005.json",
+        "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-006.json",
+        "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-007.json",
+        "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-008.json",
+        "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-009.json",
+        "data/neotoma/relational/manifest.json",
+        "data/neotoma/relational/reconciliation.json",
+        "data/neotoma/relational/surfaces/age_claims/part-00001.json",
+        "data/neotoma/relational/surfaces/chronologies/part-00001.json",
+        "data/neotoma/relational/surfaces/chronology_controls/part-00001.json",
+        "data/neotoma/relational/surfaces/collection_units/part-00001.json",
+        "data/neotoma/relational/surfaces/conflicts/part-00001.json",
+        "data/neotoma/relational/surfaces/datasets/part-00001.json",
+        "data/neotoma/relational/surfaces/observations/part-00001.json",
+        "data/neotoma/relational/surfaces/observations/part-00002.json",
+        "data/neotoma/relational/surfaces/observations/part-00003.json",
+        "data/neotoma/relational/surfaces/observations/part-00004.json",
+        "data/neotoma/relational/surfaces/observations/part-00005.json",
+        "data/neotoma/relational/surfaces/observations/part-00006.json",
+        "data/neotoma/relational/surfaces/observations/part-00007.json",
+        "data/neotoma/relational/surfaces/observations/part-00008.json",
+        "data/neotoma/relational/surfaces/orphans/part-00001.json",
+        "data/neotoma/relational/surfaces/samples/part-00001.json",
+        "data/neotoma/relational/surfaces/sites/part-00001.json",
+        "data/neotoma/relational/surfaces/variables/part-00001.json",
+        "docs/report/regions/nordic/author-taxonomy-mass/report.json",
+        "docs/report/regions/nordic/direct-pollen/manifest.json"
+      ],
+      "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/landclim_taxonomy_mass.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/nordic_author_target_pollen.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/nordic_direct_pollen.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/baselines.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/contracts.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/metrics.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/spatial/__init__.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/spatial/configuration.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/spatial/counts.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/spatial/model.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/spatial/support.py"
+      ],
+      "role": "unresolved",
+      "verification": "The prepare stage requires the pinned private 10,788-row LandClim author taxonomy lookup; repository source parts, direct-pollen manifest and mass report do not replace it. Restore the exact lawful lookup, run into absent artifacts and compare all ten prepared files. Retained input-manifest has no independent repository-only producer closure."
+    },
+    {
+      "owner_id": "regions/nordic/author-target-pollen/reader-account",
+      "paths": [
+        "docs/report/regions/nordic/author-target-pollen/README.md"
+      ],
+      "producer_inputs": [],
+      "producer_paths": [],
+      "role": "maintained_editorial",
+      "verification": "Authored pointer to the canonical scientific report and retained result. The prose is not an independent scientific review or source admission."
+    },
+    {
+      "owner_id": "regions/nordic/author-target-pollen/scored-products",
+      "paths": [
+        "docs/report/regions/nordic/author-target-pollen/coverage.csv",
+        "docs/report/regions/nordic/author-target-pollen/report.json",
+        "docs/report/regions/nordic/author-target-pollen/scores.csv",
         "docs/report/regions/nordic/author-target-pollen/site-scores.csv",
         "docs/report/regions/nordic/author-target-pollen/taxon-diagnostics.csv"
       ],
-      "producer_paths": [],
+      "producer_inputs": [
+        "docs/report/regions/nordic/author-target-pollen/input-manifest.json",
+        "docs/report/regions/nordic/author-target-pollen/inputs/metadata-DK.json.gz",
+        "docs/report/regions/nordic/author-target-pollen/inputs/metadata-FI.json.gz",
+        "docs/report/regions/nordic/author-target-pollen/inputs/metadata-NO.json.gz",
+        "docs/report/regions/nordic/author-target-pollen/predictions/predictions-DK.json.gz",
+        "docs/report/regions/nordic/author-target-pollen/predictions/predictions-FI.json.gz",
+        "docs/report/regions/nordic/author-target-pollen/predictions/predictions-NO.json.gz",
+        "docs/report/regions/nordic/author-target-pollen/sealed-outcomes/outcomes-DK.json.gz",
+        "docs/report/regions/nordic/author-target-pollen/sealed-outcomes/outcomes-FI.json.gz",
+        "docs/report/regions/nordic/author-target-pollen/sealed-outcomes/outcomes-NO.json.gz"
+      ],
+      "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/nordic_author_target_pollen.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/nordic_direct_pollen.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/baselines.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/contracts.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/metrics.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/spatial/__init__.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/spatial/configuration.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/spatial/counts.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/spatial/model.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/spatial/support.py"
+      ],
+      "role": "generated_owner",
+      "verification": "The maintained score stage reads retained sealed observations only after prediction. Compare five output bytes on the 31 author-target closed subcomposition; this is prior-exposed development, not LRA reconstruction or independent vegetation truth."
+    },
+    {
+      "owner_id": "regions/nordic/author-taxonomy-mass/reader-account",
+      "paths": [
+        "docs/report/regions/nordic/author-taxonomy-mass/README.md"
+      ],
       "producer_inputs": [],
-      "verification": "Identify the exact producer or independent source/template custody, lawful input closure and role-specific verification route for these paths. Bind independently reconstructed output or authenticated retained source before full mixed-owner acceptance; tracked output bytes cannot feed their own producer."
+      "producer_paths": [],
+      "role": "maintained_editorial",
+      "verification": "Authored account of source-name count mass and its limited 31-target feasibility result; no LRA-ready sample count is inferred."
     },
     {
       "owner_id": "regions/nordic/author-taxonomy-mass/report-products",
-      "role": "unresolved",
       "paths": [
-        "docs/report/regions/nordic/author-taxonomy-mass/README.md",
         "docs/report/regions/nordic/author-taxonomy-mass/report.json",
         "docs/report/regions/nordic/author-taxonomy-mass/sites.csv"
       ],
-      "producer_paths": [],
-      "producer_inputs": [],
-      "verification": "Identify the exact producer or independent source/template custody, lawful input closure and role-specific verification route for these paths. Bind independently reconstructed output or authenticated retained source before full mixed-owner acceptance; tracked output bytes cannot feed their own producer."
+      "producer_inputs": [
+        "data/neotoma/raw/neotoma_pollen_dataset_downloads/manifest.json",
+        "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-001.json",
+        "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-002.json",
+        "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-003.json",
+        "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-004.json",
+        "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-005.json",
+        "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-006.json",
+        "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-007.json",
+        "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-008.json",
+        "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-009.json",
+        "data/neotoma/relational/manifest.json",
+        "data/neotoma/relational/reconciliation.json",
+        "data/neotoma/relational/surfaces/age_claims/part-00001.json",
+        "data/neotoma/relational/surfaces/chronologies/part-00001.json",
+        "data/neotoma/relational/surfaces/chronology_controls/part-00001.json",
+        "data/neotoma/relational/surfaces/collection_units/part-00001.json",
+        "data/neotoma/relational/surfaces/conflicts/part-00001.json",
+        "data/neotoma/relational/surfaces/datasets/part-00001.json",
+        "data/neotoma/relational/surfaces/observations/part-00001.json",
+        "data/neotoma/relational/surfaces/observations/part-00002.json",
+        "data/neotoma/relational/surfaces/observations/part-00003.json",
+        "data/neotoma/relational/surfaces/observations/part-00004.json",
+        "data/neotoma/relational/surfaces/observations/part-00005.json",
+        "data/neotoma/relational/surfaces/observations/part-00006.json",
+        "data/neotoma/relational/surfaces/observations/part-00007.json",
+        "data/neotoma/relational/surfaces/observations/part-00008.json",
+        "data/neotoma/relational/surfaces/orphans/part-00001.json",
+        "data/neotoma/relational/surfaces/samples/part-00001.json",
+        "data/neotoma/relational/surfaces/sites/part-00001.json",
+        "data/neotoma/relational/surfaces/variables/part-00001.json",
+        "docs/report/regions/nordic/direct-pollen/cohort.csv",
+        "docs/report/regions/nordic/direct-pollen/manifest.json"
+      ],
+      "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/landclim_taxonomy_mass.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/nordic_author_taxonomy_mass.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/nordic_direct_pollen.py"
+      ],
+      "role": "unresolved",
+      "verification": "The mass producer reads the exact private author taxonomy lookup in addition to retained Neotoma source and cohort. Restore its pinned SHA and lawful custody, then compare report.json and sites.csv; zero unmapped mass in selected cohort does not certify all Nordic names or PPE support."
     },
     {
       "owner_id": "regions/nordic/dalmutladdo-age-interval-sensitivity/interval-products",
@@ -4673,6 +4832,67 @@
       "producer_paths": [],
       "producer_inputs": [],
       "verification": "Maintain these repository source files through review and focused tests. Source custody is distinct from generated output reproduction; copying them into a replay lane does not certify the results they produce."
+    },
+    {
+      "owner_id": "regions/nordic/direct-pollen/study-products",
+      "paths": [
+        "docs/report/regions/nordic/direct-pollen/RESULTS.md",
+        "docs/report/regions/nordic/direct-pollen/cohort.csv",
+        "docs/report/regions/nordic/direct-pollen/coverage.csv",
+        "docs/report/regions/nordic/direct-pollen/manifest.json",
+        "docs/report/regions/nordic/direct-pollen/predictions-DK.json",
+        "docs/report/regions/nordic/direct-pollen/predictions-FI.json",
+        "docs/report/regions/nordic/direct-pollen/predictions-NO.json",
+        "docs/report/regions/nordic/direct-pollen/predictions.csv",
+        "docs/report/regions/nordic/direct-pollen/scores.csv",
+        "docs/report/regions/nordic/direct-pollen/site-scores.csv",
+        "docs/report/regions/nordic/direct-pollen/training-sources.csv"
+      ],
+      "producer_inputs": [
+        "data/neotoma/raw/neotoma_pollen_dataset_downloads/manifest.json",
+        "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-001.json",
+        "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-002.json",
+        "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-003.json",
+        "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-004.json",
+        "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-005.json",
+        "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-006.json",
+        "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-007.json",
+        "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-008.json",
+        "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-009.json",
+        "data/neotoma/relational/manifest.json",
+        "data/neotoma/relational/reconciliation.json",
+        "data/neotoma/relational/surfaces/age_claims/part-00001.json",
+        "data/neotoma/relational/surfaces/chronologies/part-00001.json",
+        "data/neotoma/relational/surfaces/chronology_controls/part-00001.json",
+        "data/neotoma/relational/surfaces/collection_units/part-00001.json",
+        "data/neotoma/relational/surfaces/conflicts/part-00001.json",
+        "data/neotoma/relational/surfaces/datasets/part-00001.json",
+        "data/neotoma/relational/surfaces/observations/part-00001.json",
+        "data/neotoma/relational/surfaces/observations/part-00002.json",
+        "data/neotoma/relational/surfaces/observations/part-00003.json",
+        "data/neotoma/relational/surfaces/observations/part-00004.json",
+        "data/neotoma/relational/surfaces/observations/part-00005.json",
+        "data/neotoma/relational/surfaces/observations/part-00006.json",
+        "data/neotoma/relational/surfaces/observations/part-00007.json",
+        "data/neotoma/relational/surfaces/observations/part-00008.json",
+        "data/neotoma/relational/surfaces/orphans/part-00001.json",
+        "data/neotoma/relational/surfaces/samples/part-00001.json",
+        "data/neotoma/relational/surfaces/sites/part-00001.json",
+        "data/neotoma/relational/surfaces/variables/part-00001.json"
+      ],
+      "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/nordic_direct_pollen.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/baselines.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/contracts.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/metrics.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/spatial/__init__.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/spatial/configuration.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/spatial/counts.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/spatial/model.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/spatial/support.py"
+      ],
+      "role": "generated_owner",
+      "verification": "The maintained prepare/predict/score/publish workflow writes all eleven retained files, including RESULTS.md. Compare a new staged run byte-for-byte with the governed files. This is prior-exposed 16-label observed-pollen development, not LRA or vegetation accuracy."
     },
     {
       "owner_id": "regions/nordic/hyde-country-cropland/grid-conservation/reader-account",
@@ -4928,36 +5148,38 @@
       "verification": "Scoring consumes the existing freeze and governed Neotoma source parts. Match the four output bytes; 23 point-age bins and the separate contained-age screen are distinct development scopes."
     },
     {
-      "owner_id": "regions/nordic/pollen-development/report-products",
-      "role": "unresolved",
+      "owner_id": "regions/nordic/pollen-development/reader-account",
       "paths": [
-        "docs/report/regions/nordic/pollen-development/README.md",
+        "docs/report/regions/nordic/pollen-development/README.md"
+      ],
+      "producer_inputs": [],
+      "producer_paths": [],
+      "role": "maintained_editorial",
+      "verification": "Authored pointer to the governed development result; no independent confirmation is implied."
+    },
+    {
+      "owner_id": "regions/nordic/pollen-development/report-products",
+      "paths": [
         "docs/report/regions/nordic/pollen-development/report.json",
         "docs/report/regions/nordic/pollen-development/trial-scores.csv.gz"
       ],
-      "producer_paths": [],
-      "producer_inputs": [],
-      "verification": "Identify the exact producer or independent source/template custody, lawful input closure and role-specific verification route for these paths. Bind independently reconstructed output or authenticated retained source before full mixed-owner acceptance; tracked output bytes cannot feed their own producer."
-    },
-    {
-      "owner_id": "regions/nordic/report-products",
-      "role": "unresolved",
-      "paths": [
-        "docs/report/regions/nordic/direct-pollen/RESULTS.md",
-        "docs/report/regions/nordic/direct-pollen/cohort.csv",
-        "docs/report/regions/nordic/direct-pollen/coverage.csv",
-        "docs/report/regions/nordic/direct-pollen/manifest.json",
-        "docs/report/regions/nordic/direct-pollen/predictions-DK.json",
-        "docs/report/regions/nordic/direct-pollen/predictions-FI.json",
-        "docs/report/regions/nordic/direct-pollen/predictions-NO.json",
-        "docs/report/regions/nordic/direct-pollen/predictions.csv",
-        "docs/report/regions/nordic/direct-pollen/scores.csv",
-        "docs/report/regions/nordic/direct-pollen/site-scores.csv",
-        "docs/report/regions/nordic/direct-pollen/training-sources.csv"
+      "producer_inputs": [
+        "docs/report/regions/nordic/direct-pollen/manifest.json"
       ],
-      "producer_paths": [],
-      "producer_inputs": [],
-      "verification": "Identify the exact producer or independent source/template custody, lawful input closure and role-specific verification route for these paths. Bind independently reconstructed output or authenticated retained source before full mixed-owner acceptance; tracked output bytes cannot feed their own producer."
+      "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/nordic_direct_pollen.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/nordic_pollen_development.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/baselines.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/contracts.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/metrics.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/spatial/__init__.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/spatial/configuration.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/spatial/counts.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/spatial/model.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/spatial/support.py"
+      ],
+      "role": "unresolved",
+      "verification": "The producer reads a prepared direct-pollen input directory with exact input-manifest and three training JSON files. That historical directory is not retained as an independently bound repository input. Recreate and compare its pinned bytes before running the development selection; prior-exposed outer outcomes are not confirmation."
     },
     {
       "owner_id": "regions/nordic/sambosjon-contained-age-support",
@@ -5376,24 +5598,103 @@
       "verification": "Maintain the authored source/entity/citation account against exact governed outputs; keep source-reported, assigned and published counts, nullable coverage, scientific admission and rights decisions distinct."
     },
     {
-      "owner_id": "regions/nordic/swedish-author-target-pollen/report-products",
-      "role": "unresolved",
+      "owner_id": "regions/nordic/swedish-author-target-pollen/frozen-prediction",
       "paths": [
-        "docs/report/regions/nordic/swedish-author-target-pollen/README.md",
-        "docs/report/regions/nordic/swedish-author-target-pollen/coverage.csv",
+        "docs/report/regions/nordic/swedish-author-target-pollen/predictions/predictions-SE.json.gz"
+      ],
+      "producer_inputs": [
+        "docs/report/regions/nordic/swedish-author-target-pollen/input-manifest.json",
+        "docs/report/regions/nordic/swedish-author-target-pollen/inputs/metadata-SE.json.gz",
+        "docs/report/regions/nordic/swedish-author-target-pollen/inputs/training-SE.json.gz"
+      ],
+      "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/nordic_author_target_pollen.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/swedish_author_target_pollen.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/baselines.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/contracts.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/metrics.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/spatial/__init__.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/spatial/configuration.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/spatial/counts.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/spatial/model.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/spatial/support.py"
+      ],
+      "role": "generated_owner",
+      "verification": "The reused predictor reads only retained target-free training and metadata; compare the single frozen prediction byte before scoring."
+    },
+    {
+      "owner_id": "regions/nordic/swedish-author-target-pollen/prepared-inputs",
+      "paths": [
         "docs/report/regions/nordic/swedish-author-target-pollen/input-manifest.json",
         "docs/report/regions/nordic/swedish-author-target-pollen/inputs/metadata-SE.json.gz",
         "docs/report/regions/nordic/swedish-author-target-pollen/inputs/training-SE.json.gz",
-        "docs/report/regions/nordic/swedish-author-target-pollen/predictions/predictions-SE.json.gz",
+        "docs/report/regions/nordic/swedish-author-target-pollen/sealed-outcomes/outcomes-SE.json.gz"
+      ],
+      "producer_inputs": [
+        "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-004.json",
+        "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-008.json",
+        "docs/report/pollen-reconstruction/swedish-direct-pollen/config.json",
+        "docs/report/regions/nordic/author-target-pollen/input-manifest.json",
+        "docs/report/regions/nordic/author-target-pollen/inputs/training-DK.json.gz",
+        "docs/report/regions/nordic/author-target-pollen/inputs/training-FI.json.gz",
+        "docs/report/regions/nordic/author-target-pollen/inputs/training-NO.json.gz",
+        "docs/report/source-relations/neotoma/author-taxonomy-mass/report.json"
+      ],
+      "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/nordic_author_target_pollen.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/nordic_direct_pollen.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/swedish_author_target_pollen.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/baselines.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/contracts.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/metrics.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/spatial/__init__.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/spatial/configuration.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/spatial/counts.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/spatial/model.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/spatial/support.py"
+      ],
+      "role": "generated_owner",
+      "verification": "The maintained Swedish prepare stage reads three retained Nordic training folds, two exact Swedish raw parts, common-bin config and mass report. Compare four deterministic prepared outputs. Their upstream Nordic author lookup remains a separate unresolved custody dependency."
+    },
+    {
+      "owner_id": "regions/nordic/swedish-author-target-pollen/reader-account",
+      "paths": [
+        "docs/report/regions/nordic/swedish-author-target-pollen/README.md"
+      ],
+      "producer_inputs": [],
+      "producer_paths": [],
+      "role": "maintained_editorial",
+      "verification": "Authored pointer to the canonical Swedish result; no independent vegetation or LRA accuracy claim."
+    },
+    {
+      "owner_id": "regions/nordic/swedish-author-target-pollen/scored-products",
+      "paths": [
+        "docs/report/regions/nordic/swedish-author-target-pollen/coverage.csv",
         "docs/report/regions/nordic/swedish-author-target-pollen/report.json",
         "docs/report/regions/nordic/swedish-author-target-pollen/scores.csv",
-        "docs/report/regions/nordic/swedish-author-target-pollen/sealed-outcomes/outcomes-SE.json.gz",
         "docs/report/regions/nordic/swedish-author-target-pollen/site-scores.csv",
         "docs/report/regions/nordic/swedish-author-target-pollen/taxon-diagnostics.csv"
       ],
-      "producer_paths": [],
-      "producer_inputs": [],
-      "verification": "Identify the exact producer or independent source/template custody, lawful input closure and role-specific verification route for these paths. Bind independently reconstructed output or authenticated retained source before full mixed-owner acceptance; tracked output bytes cannot feed their own producer."
+      "producer_inputs": [
+        "docs/report/regions/nordic/swedish-author-target-pollen/input-manifest.json",
+        "docs/report/regions/nordic/swedish-author-target-pollen/inputs/metadata-SE.json.gz",
+        "docs/report/regions/nordic/swedish-author-target-pollen/predictions/predictions-SE.json.gz",
+        "docs/report/regions/nordic/swedish-author-target-pollen/sealed-outcomes/outcomes-SE.json.gz"
+      ],
+      "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/nordic_author_target_pollen.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/swedish_author_target_pollen.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/baselines.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/contracts.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/metrics.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/spatial/__init__.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/spatial/configuration.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/spatial/counts.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/spatial/model.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/spatial/support.py"
+      ],
+      "role": "generated_owner",
+      "verification": "The score stage consumes the retained frozen prediction and sealed Swedish target counts. Compare five output bytes; three already exposed Swedish sites are development evidence only."
     },
     {
       "owner_id": "regions/nordic/swedish-chronology-block/reader-account",
