@@ -1080,6 +1080,22 @@
         "source-products/trial-scores.csv.gz": "docs/report/regions/nordic/pollen-development/trial-scores.csv.gz"
       },
       "timeout_seconds": 600
+    },
+    {
+      "module": "bijux_pollenomics_dev.source_completion.nordic.nordic_selected_transfer_replay",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "regions/nordic/selected-pollen-transfer/report-products",
+      "source_arguments": [],
+      "source_paths": {
+        "source-products/freeze.json": "docs/report/regions/nordic/selected-pollen-transfer/freeze.json",
+        "source-products/paired-scores.csv": "docs/report/regions/nordic/selected-pollen-transfer/paired-scores.csv",
+        "source-products/predictions-DK.json": "docs/report/regions/nordic/selected-pollen-transfer/predictions-DK.json",
+        "source-products/predictions-FI.json": "docs/report/regions/nordic/selected-pollen-transfer/predictions-FI.json",
+        "source-products/predictions-NO.json": "docs/report/regions/nordic/selected-pollen-transfer/predictions-NO.json",
+        "source-products/report.json": "docs/report/regions/nordic/selected-pollen-transfer/report.json"
+      },
+      "timeout_seconds": 600
     }
   ]
 }

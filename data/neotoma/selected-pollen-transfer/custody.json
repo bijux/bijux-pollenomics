@@ -1,0 +1,17 @@
+{
+  "file_sha256": {
+    "historical-freeze.json": "785148abb60b1b76a9568f3e723af1c449150534e2352d005dd8fe8864adae72",
+    "historical-report.json": "d1067f6a584de13db619a1e2227c6116015c79deaa0194669a2309242326bef1",
+    "metadata-DK.json": "b4a5a7a9b51e9e47f936d4a8acdc0311a3ee377e75217ac22bb427adc14ca6b1",
+    "metadata-FI.json": "c6faf842ea9163737e6b10233dd34195187219f7e8931a67f56ddcbe739b000a",
+    "metadata-NO.json": "5ec869fc2876b1a05862bdeee911de1457922076e63e1f1b40b1ee7976f6b3a4"
+  },
+  "historical_result_git_blobs": {
+    "historical-freeze.json": "1533a9ce9715444633cc660b939dc97e751ec24c",
+    "historical-report.json": "c4e45706897812bb077dd65d3f57b8350cc81d7b"
+  },
+  "historical_source_commit": "f0c18dff1403d358448f872baa1e76dfd4b8939a",
+  "retained_metadata_source_checkout": "4fc6e9cb6073713d5da2e16133f7b2ab4e06b682",
+  "schema_version": "nordic-selected-transfer-retained-input-custody.v1",
+  "scope": "Historical metadata and result receipts; no current prediction or score was calculated"
+}
