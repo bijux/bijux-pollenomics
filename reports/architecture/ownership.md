@@ -63,8 +63,8 @@ or qualified scientific review.
 The [output ownership inventory](../../configs/ci/report-ownership.json)
 assigns every tracked report path exactly one declaration. Its population is
 1,948 paths: 709 declared publisher paths, 125 original-R retained source
-files, 251 generated domain outputs, 62 maintained source files, 176
-maintained reader accounts and 625 paths with unresolved output custody.
+files, 252 generated domain outputs, 62 maintained source files, 176
+maintained reader accounts and 624 paths with unresolved output custody.
 These role counts describe the current declarations. They do not measure
 how many outputs have been independently reproduced.
 
@@ -108,6 +108,12 @@ preserve the existing report bytes, unmapped/excluded counts, discussion-only
 concepts and zero scientific admission. The declarations require both actual
 configured producer lanes; they do not establish source-use rights, historical
 population completeness or ecological validation.
+
+The original 17-site taxon-support ledger additionally binds 250 producer
+and source inputs. It retains literal gaps and whitespace witnesses across
+31 targets, with both original admission flags false. Its qualified wrapper
+authenticates all 40 consumed source identities within the complete snapshot;
+source custody cannot settle those biological or historical decisions.
 
 Three propagation outputs declare their exact repository input closure.
 The derived edge ledger consumes retained compact event and classification

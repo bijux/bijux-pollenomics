@@ -31,13 +31,13 @@
     },
     {
       "path": "configs/ci/report-owner-execution.json",
-      "sha256": "f1736f3bf23544d5dcff6276219363fb5a821c7d768d4296550a15b5a04a53e1",
-      "bytes": 66672
+      "sha256": "aa02f5abfbc717aeca123b753d217002c0b9a23a3acb6c6a238885e6a82e9288",
+      "bytes": 67269
     },
     {
       "path": "configs/ci/report-ownership.json",
-      "sha256": "da5648e92170c7ccf086f47354444564eff948d30640398353136831d72c3361",
-      "bytes": 976327
+      "sha256": "178d8a630496521ba97ae3cdbfbfa8e3cc8e13d42633a3134918402926c18f25",
+      "bytes": 981932
     },
     {
       "path": "configs/docs/science_downloads.py",
@@ -3455,6 +3455,11 @@
       "bytes": 5695
     },
     {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_taxonomy/author_site_support.py",
+      "sha256": "7c4d6a5107aeb207a6e7a825eefd5036aee5b7e505849b22b57b01f735878659",
+      "bytes": 6935
+    },
+    {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/propagation/__init__.py",
       "sha256": "db1ab48855c73b08da2ddcfdc23fe049bc7f9926f53ee2be3f6692532e116912",
       "bytes": 48
@@ -3810,6 +3815,11 @@
       "bytes": 10989
     },
     {
+      "path": "packages/bijux-pollenomics-dev/tests/source_completion/pollen_taxonomy/test_author_site_support.py",
+      "sha256": "37d2c000a1fe1b81598eaa69368204734d293c6b62d8ed4f76b077a357e927c5",
+      "bytes": 13650
+    },
+    {
       "path": "packages/bijux-pollenomics-dev/tests/source_completion/propagation/test_governed_edge_cli.py",
       "sha256": "2b39b16fc7c524c4e56a3c62c53a0dcc2e23e96be4ce22b458b2bd261b91a98c",
       "bytes": 4026
@@ -4106,7 +4116,7 @@
     },
     {
       "path": "presentation/source-lock.json",
-      "sha256": "d532322ab4b4e7bdb68d32cdf249c06ffc5d95dc7646fd815c603364c1ad75b4",
+      "sha256": "bb476203ce0935887dda47e97dd130a1f9b9b8c17ad3f5a1f41afa0a664dfc91",
       "bytes": 12768
     },
     {
@@ -4121,8 +4131,8 @@
     },
     {
       "path": "reports/architecture/ownership.md",
-      "sha256": "5a467a94b88c00eaf6feaa6933e7436d5134d3a75cb6c497fd76bbe0ecc7b8ea",
-      "bytes": 31940
+      "sha256": "45af53332dade81378b981efb4a27ab8e21443099516cf342500c4bcc5492ab4",
+      "bytes": 32315
     },
     {
       "path": "reports/evidence-index.md",

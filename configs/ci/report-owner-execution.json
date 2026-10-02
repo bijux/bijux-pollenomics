@@ -1256,6 +1256,18 @@
         "source-products/report.json": "docs/report/source-relations/landclim/author-preparation-audit/report.json"
       },
       "timeout_seconds": 180
+    },
+    {
+      "owner_id": "source-relations/landclim/author-example-taxon-support/source-ledger",
+      "module": "bijux_pollenomics_dev.source_completion.pollen_taxonomy.author_site_support",
+      "source_paths": {
+        "source-products/report.json": "docs/report/source-relations/landclim/author-example-taxon-support/report.json"
+      },
+      "source_arguments": [],
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "external_source_descriptor": "configs/ci/qualified-report-sources/landclim-author-snapshot.json",
+      "timeout_seconds": 180
     }
   ]
 }
