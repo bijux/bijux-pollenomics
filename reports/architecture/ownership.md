@@ -137,7 +137,11 @@ python -m bijux_pollenomics_dev.ci.report_rebuild.ownership --repository .
 
 The checker compares the exact tracked namespace, path-set digest and unique
 owner assignments; it rejects missing or extra paths, unsafe source paths
-and generated owners that consume their own declared outputs. Adding
+and generated owners that consume their own declared outputs. It also refuses
+cycles between generated owners through their declared inputs or producer
+files: reconstruction cannot obtain an input through its downstream output.
+Shared retained inputs and acyclic secondary consumers remain valid
+declarations, with source certification and replay checked separately. Adding
 `--require-resolved` refuses any unresolved declaration. Even when every role
 is resolved, this inventory check does not replace independent owner
 manifests, retained-source certificate validation or the two-lane full-tree
