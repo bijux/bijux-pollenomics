@@ -239,6 +239,13 @@ execution custody, historical captures or independent configuration/manifest
 ownership. An interval preparation or paired development join does not certify
 held-out LOVE predictions, a constrained optimization or vegetation accuracy.
 
+The Solsø parent lineage report declares its maintained producer and forty
+local workbook, raw/normalized Neotoma and cohort/manifest inputs. Four Solsø
+and taxonomy explanations are editorial. The three primary PANGAEA products
+retain external primary-text custody requirements. A close core/count-control
+join still does not identify the LandClim II 79-sample author selection, an
+age-specific basin, qualified taxonomy or an admitted Danish LRA sample.
+
 A fresh canonical publisher build from fixed product
 `d535ca7f3bed0ead63e5f96e45658c435ed6613a` produced exactly the 709 declared
 publisher paths, with no missing or extra output. Its path-set digest is
