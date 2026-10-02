@@ -4030,6 +4030,21 @@
       "bytes": 8444
     },
     {
+      "path": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/examples.py",
+      "sha256": "fd04e18fde65c23e0c65e1c8301b32d7cde3a1662f1661dfc390b913cbb47f0f",
+      "bytes": 2041
+    },
+    {
+      "path": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/schemas/__init__.py",
+      "sha256": "c248ca31dbf060d45dba161e711faeaa232c1eca972a3c808f8536c219755369",
+      "bytes": 1107
+    },
+    {
+      "path": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/workflows/observation.py",
+      "sha256": "9b6a6131ad99be28abdf4c9ecc7c2cbc0bb5de00da98c4115d9a3a41d9fdf122",
+      "bytes": 10743
+    },
+    {
       "path": "packages/bijux-pollenomics-lra/tests/unit/dispersal/test_receiver_annulus.py",
       "sha256": "349c25fb7381df5972fd084a1658a29064105b00462de39d436ca6896c1dd01b",
       "bytes": 4403
@@ -4083,6 +4098,11 @@
       "path": "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/contracts.py",
       "sha256": "c9241b3c427448491c72f488d4096ed86999f260c22533a51d92c441258cbbf6",
       "bytes": 10583
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/evaluation/observation_sources/reading.py",
+      "sha256": "b218d6e7695b580b83e2b284e1b1153a7972cbb3e475b7c781b895cee84e0dd5",
+      "bytes": 19299
     },
     {
       "path": "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/evaluation/prediction_product/product.py",

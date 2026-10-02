@@ -5,7 +5,7 @@ from __future__ import annotations
 from importlib.resources import files
 import json
 from pathlib import Path
-from typing import Any
+from typing import Any, cast
 
 SCHEMAS = (
     "run-manifest.schema.json",
@@ -25,7 +25,10 @@ def load_schema(name: str) -> dict[str, Any]:
     if name not in SCHEMAS:
         raise KeyError(f"Unknown schema {name!r}; available: {SCHEMAS}")
     resource = files(__package__).joinpath(name)
-    return json.loads(resource.read_text(encoding="utf-8"))
+    schema = json.loads(resource.read_text(encoding="utf-8"))
+    if not isinstance(schema, dict) or any(not isinstance(key, str) for key in schema):
+        raise ValueError("Bundled JSON Schema must be an object with text keys")
+    return cast(dict[str, Any], schema)
 
 
 __all__ = ["SCHEMAS", "load_schema", "schema_path"]

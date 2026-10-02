@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from importlib.resources import files
 import json
-from typing import Any, Final
+from typing import Any, Final, cast
 
 import numpy as np
 import pandas as pd
@@ -40,7 +40,12 @@ def load_dataset(name: str) -> dict[str, Any]:
     resource = files("bijux_pollenomics_lra").joinpath(
         "resources", "data", f"{name}.json"
     )
-    return _decode(json.loads(resource.read_text(encoding="utf-8")))
+    decoded = _decode(json.loads(resource.read_text(encoding="utf-8")))
+    if not isinstance(decoded, dict) or any(
+        not isinstance(key, str) for key in decoded
+    ):
+        raise ValueError("Bundled example dataset must be an object with text keys")
+    return cast(dict[str, Any], decoded)
 
 
 def load_love_example() -> tuple[
