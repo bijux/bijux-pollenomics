@@ -138,18 +138,26 @@ def _assembly(
         "partition_ids": partition_ids,
     }
     owner_root = root.parent / "artifacts/owners" / lane
-    owner_manifests = sorted(owner_root.glob("*/manifest.json"))
+    owner_manifests = sorted(
+        path
+        for path in owner_root.rglob("manifest.json")
+        if not {"output", "producer-output"}.intersection(
+            path.relative_to(owner_root).parts
+        )
+    )
     if owner_manifests:
         manifest["schema_version"] = "partitioned-report-assembly.v2"
         manifest["owner_paths"] = {
-            path.parent.name: [
+            path.parent.relative_to(owner_root).as_posix(): [
                 entry["path"]
                 for entry in json.loads(path.read_text(encoding="utf-8"))["inventory"]
             ]
             for path in owner_manifests
         }
         manifest["owner_manifest_sha256"] = {
-            path.parent.name: sha256_bytes(path.read_bytes())
+            path.parent.relative_to(owner_root).as_posix(): sha256_bytes(
+                path.read_bytes()
+            )
             for path in owner_manifests
         }
     (assembly / "manifest.json").write_text(json.dumps(manifest), encoding="utf-8")
@@ -444,7 +452,9 @@ def test_partitioned_rebuild_keeps_authenticated_r_source_out_of_generated_owner
     assert report["status"] == "PASS"
     assert report["schema_version"] == "reproducible-report-build-evidence.v3"
     assert report["owners"] == {"reference": {}, "replay": {}}
-    retained = report["retained_sources"]["original_r_reference"]
+    sources = report["retained_sources"]
+    assert isinstance(sources, dict)
+    retained = sources["original_r_reference"]
     assert len(retained["paths"]) == 125
     assert all(path.startswith(prefix.as_posix() + "/") for path in retained["paths"])
 
@@ -615,11 +625,12 @@ def _owner(
     lane: str,
     source_paths: dict[str, str],
     produced: tuple[str, ...] | None = None,
+    owner_id: str = "petrkunes",
 ) -> Path:
     payload = "from pathlib import Path; import sys; root=Path(sys.argv[1]); "
     payload += "[(root / name).write_text(name + '\\n', encoding='utf-8') "
     payload += "for name in sys.argv[2:]]"
-    output = root / "artifacts" / "owners" / lane / "petrkunes"
+    output = root / "artifacts" / "owners" / lane / owner_id
     source = root / "external-source.txt"
     if not source.exists():
         source.write_text("source identity\n", encoding="utf-8")
@@ -628,7 +639,7 @@ def _owner(
         policy_path=root / "policy.json",
         plan_path=root / "plan.json",
         lane=lane,
-        owner_id="petrkunes",
+        owner_id=owner_id,
         producer_command=(
             sys.executable,
             "-c",
@@ -641,6 +652,14 @@ def _owner(
         evidence_root=output,
     )
     return output / "manifest.json"
+
+
+def _reference_owners(report: dict[str, object]) -> dict[str, object]:
+    owners = report["owners"]
+    assert isinstance(owners, dict)
+    reference = owners["reference"]
+    assert isinstance(reference, dict)
+    return reference
 
 
 def _verify_with_owner(
@@ -687,8 +706,9 @@ def test_mixed_owner_rebuild_covers_four_generated_outputs(tmp_path: Path) -> No
     report = _verify_with_owner(root)
 
     assert report["status"] == "PASS"
-    assert set(report["owners"]["reference"]) == {"petrkunes"}
-    owner = report["owners"]["reference"]["petrkunes"]
+    assert set(_reference_owners(report)) == {"petrkunes"}
+    owner = _reference_owners(report)["petrkunes"]
+    assert isinstance(owner, dict)
     assert owner["producer_argv"][0] == sys.executable
     assert owner["producer_inputs"]["external-source"]["size"] == len(
         "source identity\n"
@@ -899,3 +919,111 @@ def test_mixed_owner_rebuild_rejects_changed_evidence(
         ReportRebuildError, match="binding|manifest|overlaps|changed|argv"
     ):
         _verify_with_owner(root)
+
+
+@pytest.mark.parametrize(
+    "owner_id",
+    [
+        "neotoma/pollen-screen/compact-summary",
+        "countries/denmark/solsoe-source-lineage/root-lineage",
+    ],
+)
+def test_mixed_owner_rebuild_accepts_nested_domain_identity(
+    tmp_path: Path, owner_id: str
+) -> None:
+    root, _, plan_path = _fixture(tmp_path)
+    _write_complete_tree(root / "docs/report", plan_path=plan_path)
+    target = "method/manifest.json"
+    for lane in ("reference", "replay"):
+        _owner(
+            root, lane=lane, owner_id=owner_id, source_paths={"manifest.json": target}
+        )
+    destination = root / "docs/report" / target
+    destination.parent.mkdir(parents=True)
+    destination.write_text("manifest.json\n", encoding="utf-8")
+    report = _verify_with_owner(root, owner_ids=(owner_id,))
+    assert report["status"] == "PASS"
+    assert set(_reference_owners(report)) == {owner_id}
+
+
+@pytest.mark.parametrize(
+    "owner_id",
+    ["../escape", "/absolute", "domain//leaf", "domain/./leaf", "domain\\leaf"],
+)
+def test_owner_producer_rejects_unsafe_identity_before_execution(
+    tmp_path: Path, owner_id: str
+) -> None:
+    root, _, _ = _fixture(tmp_path)
+    with pytest.raises(ReportRebuildError, match="safe relative path"):
+        _owner(
+            root,
+            lane="reference",
+            owner_id=owner_id,
+            source_paths={"summary.csv": "method/summary.csv"},
+        )
+    assert not (root / "artifacts/owners").exists()
+
+
+@pytest.mark.parametrize(
+    "mutation", ["symlink", "empty", "file", "identity", "manifest-directory"]
+)
+def test_nested_owner_loader_rejects_invalid_namespace(
+    tmp_path: Path, mutation: str
+) -> None:
+    from bijux_pollenomics_dev.ci.report_rebuild.verification import _load_owner_outputs
+
+    root, policy_path, plan_path = _fixture(tmp_path)
+    manifest_path = _owner(
+        root,
+        lane="reference",
+        owner_id="domain/leaf",
+        source_paths={"summary.csv": "method/summary.csv"},
+    )
+    owners_root = root / "artifacts/owners/reference"
+    if mutation == "symlink":
+        namespace = owners_root / "domain"
+        namespace.rename(owners_root / "retained")
+        namespace.symlink_to(owners_root / "retained", target_is_directory=True)
+    elif mutation == "empty":
+        (owners_root / "missing/deep").mkdir(parents=True)
+    elif mutation == "file":
+        (owners_root / "unexpected.txt").write_text("unexpected", encoding="utf-8")
+    elif mutation == "manifest-directory":
+        manifest_path.unlink()
+        manifest_path.mkdir()
+    else:
+        record = json.loads(manifest_path.read_text(encoding="utf-8"))
+        record["owner_id"] = "other/leaf"
+        manifest_path.write_text(json.dumps(record), encoding="utf-8")
+    plan = json.loads(plan_path.read_text(encoding="utf-8"))
+    with pytest.raises(
+        ReportRebuildError, match="artifact directory|manifest|differs from identity"
+    ):
+        _load_owner_outputs(
+            artifacts_root=owners_root,
+            repo_root=root,
+            lane="reference",
+            binding=parse_binding(plan["binding"], "test binding"),
+            policy=load_policy(policy_path),
+            publisher_ids=set(plan["partition_ids"]),
+        )
+
+
+def test_mixed_owner_rebuild_keeps_same_leaf_in_distinct_domains(
+    tmp_path: Path,
+) -> None:
+    root, _, plan_path = _fixture(tmp_path)
+    _write_complete_tree(root / "docs/report", plan_path=plan_path)
+    identities = ("countries/denmark/summary", "source-relations/neotoma/summary")
+    for index, identity in enumerate(identities):
+        target = f"method/{index}/summary.csv"
+        for lane in ("reference", "replay"):
+            _owner(
+                root, lane=lane, owner_id=identity, source_paths={"summary.csv": target}
+            )
+        destination = root / "docs/report" / target
+        destination.parent.mkdir(parents=True)
+        destination.write_text("summary.csv\n", encoding="utf-8")
+    report = _verify_with_owner(root, owner_ids=identities)
+    assert report["status"] == "PASS"
+    assert set(_reference_owners(report)) == set(identities)

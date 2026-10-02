@@ -276,6 +276,14 @@ is resolved, this inventory check does not replace independent owner
 manifests, retained-source certificate validation or the two-lane full-tree
 comparison. Those checks remain with the existing report rebuild verifier.
 
+The rebuild runner preserves domain-qualified owner identities as relative
+artifact paths. Assembly and final verification discover nested namespaces
+until they reach an owner receipt, then stop before its generated payloads.
+A report itself may be named `manifest.json` without becoming an owner receipt.
+Each receipt must match its full directory identity and lane; unsafe paths,
+symlink namespaces, malformed receipts and changed inputs remain refusals.
+
+
 The [method correspondence](../science/method-correspondence.md),
 [publication correspondence](../science/publication-correspondence.md),
 [observed-pollen synthesis](../science/pollen-prediction.md) and

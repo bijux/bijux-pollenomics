@@ -71,7 +71,7 @@ def build_owner_output(
     policy, binding = require_owner_plan_binding(
         repo_root=repo_root, policy_path=policy_path, plan=plan
     )
-    identity = require_string(owner_id, "owner_id")
+    identity = require_relative_path(owner_id, "owner_id")
     if identity in {
         *require_string_sequence(plan["partition_ids"], "partition_ids"),
         require_string(plan["assembly_id"], "assembly_id"),
@@ -124,7 +124,7 @@ def build_owner_output(
             f"timed_out={completed.timed_out}"
         )
     generated = inventory_reports(producer_root, policy)
-    if set(entry.path for entry in generated) != set(paths):
+    if {entry.path for entry in generated} != set(paths):
         raise ReportRebuildError("owner producer output coverage is not exact")
     output_root = evidence_root / "output"
     output_root.mkdir()

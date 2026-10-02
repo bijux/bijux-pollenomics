@@ -13,6 +13,7 @@ from bijux_pollenomics_dev.ci.rebuild_reports import (
     repository_identity,
     write_rebuild_evidence,
 )
+from bijux_pollenomics_dev.lra_validation.reference_replay import CERTIFICATE_SHA256
 
 from .contracts import (
     JsonObject,
@@ -22,6 +23,7 @@ from .contracts import (
     parse_binding,
     require_exact_binding,
     require_mapping,
+    require_relative_path,
     require_string,
     require_string_sequence,
     sha256_bytes,
@@ -37,7 +39,6 @@ from .evidence import (
 )
 from .execution import ASSEMBLY_SCHEMA, OWNED_ASSEMBLY_SCHEMA
 from .original_r_reference import (
-    CERTIFICATE_SHA256,
     validated_original_r_reference,
 )
 from .planning import parse_plan, require_current_binding
@@ -150,6 +151,31 @@ def _load_complete_lane(
     return manifest, inventory
 
 
+def _owner_manifest_paths(artifacts_root: Path) -> tuple[Path, ...]:
+    """Walk owner namespaces, stopping before each producer's payload trees."""
+    pending = list(artifacts_root.iterdir())
+    manifests: list[Path] = []
+    while pending:
+        owner_root = pending.pop()
+        if owner_root.is_symlink() or not owner_root.is_dir():
+            raise ReportRebuildError(f"invalid owner artifact directory: {owner_root}")
+        path = owner_root / "manifest.json"
+        if path.is_symlink():
+            raise ReportRebuildError(f"owner manifest must be a regular file: {path}")
+        if path.exists():
+            if not path.is_file():
+                raise ReportRebuildError(
+                    f"owner manifest must be a regular file: {path}"
+                )
+            manifests.append(path)
+            continue
+        children = list(owner_root.iterdir())
+        if not children:
+            raise ReportRebuildError(f"owner manifest is missing: {owner_root}")
+        pending.extend(children)
+    return tuple(sorted(manifests))
+
+
 def _load_owner_outputs(
     *,
     artifacts_root: Path | None,
@@ -169,17 +195,17 @@ def _load_owner_outputs(
     ):
         raise ReportRebuildError("owner artifacts must be below repository artifacts")
     owners: dict[str, tuple[JsonObject, tuple[InventoryEntry, ...], Path]] = {}
-    for owner_root in sorted(artifacts_root.iterdir()):
-        if owner_root.is_symlink() or not owner_root.is_dir():
-            raise ReportRebuildError(f"invalid owner artifact directory: {owner_root}")
-        path = owner_root / "manifest.json"
-        if path.is_symlink() or not path.is_file():
-            raise ReportRebuildError(f"owner manifest is missing: {owner_root}")
+    for ancestor in (artifacts_root, *artifacts_root.parents):
+        if ancestor == repo_root / "artifacts":
+            break
+        if ancestor.is_symlink():
+            raise ReportRebuildError(f"invalid owner artifact directory: {ancestor}")
+    for path in _owner_manifest_paths(artifacts_root):
         manifest = parse_owner_manifest(path)
         if manifest["lane"] != lane:
             raise ReportRebuildError(f"owner manifest names the wrong lane: {path}")
-        owner_id = cast(str, manifest["owner_id"])
-        if owner_root.name != owner_id:
+        owner_id = require_relative_path(manifest["owner_id"], "owner identity")
+        if path.parent.relative_to(artifacts_root).as_posix() != owner_id:
             raise ReportRebuildError(
                 f"owner directory differs from identity: {owner_id}"
             )
