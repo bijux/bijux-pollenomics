@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import json
 from pathlib import Path
 
 from bijux_pollenomics.analysis.lra.materialization.api import (
@@ -14,7 +15,17 @@ from .writer_execution import arguments, confined_paths, write_new
 def run(repository: Path, output: Path) -> None:
     _, raw, relational, destination = confined_paths(repository, output)
     result = inspect_neotoma_lra_pollen_screen(raw_root=raw, normalized_root=relational)
-    write_new(destination, result.canonical_json)
+    content = (
+        json.dumps(
+            json.loads(result.canonical_json),
+            ensure_ascii=False,
+            indent=2,
+            sort_keys=True,
+            allow_nan=False,
+        ).encode("utf-8")
+        + b"\n"
+    )
+    write_new(destination, content)
 
 
 def main(argv: list[str] | None = None) -> int:

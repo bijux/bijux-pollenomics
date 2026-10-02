@@ -7978,7 +7978,7 @@
         "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/sources/neotoma/validation.py"
       ],
       "role": "generated_owner",
-      "verification": "Call inspect_neotoma_lra_pollen_screen on the exact retained raw and normalized roots and write canonical_json unchanged. It is prerequisite-only: 10,637 necessary leads, zero LRA admission; compare bytes independently before accepting owner reproduction."
+      "verification": "Call inspect_neotoma_lra_pollen_screen on the exact retained raw and normalized roots, then retain the existing sorted indent2 UTF-8 JSON file format with a terminal newline and finite-number refusal. Canonical object fields remain unchanged. It is prerequisite-only: 10,637 necessary leads, zero LRA admission; compare exact tracked bytes independently before accepting reproduction."
     },
     {
       "owner_id": "source-relations/neotoma/reader-account",

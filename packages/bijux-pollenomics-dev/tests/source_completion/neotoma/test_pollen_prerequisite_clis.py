@@ -59,7 +59,7 @@ def test_series_uses_explicit_sixteen_ids_and_exact_bytes(
         candidate_series.run(root, output)
 
 
-def test_screen_preserves_source_function_bytes(
+def test_screen_preserves_retained_unicode_and_indented_file_format(
     tmp_path: Path, monkeypatch: pytest.MonkeyPatch
 ) -> None:
     root = _repository(tmp_path)
@@ -68,11 +68,29 @@ def test_screen_preserves_source_function_bytes(
         sample_decisions,
         "inspect_neotoma_lra_pollen_screen",
         lambda **kwargs: SimpleNamespace(
-            canonical_json=b'{"lra_accepted_samples":0}\n'
+            canonical_json='{"z":0,"label":"é","lra_accepted_samples":0}'.encode()
         ),
     )
     sample_decisions.run(root, output)
-    assert output.read_bytes() == b'{"lra_accepted_samples":0}\n'
+    assert (
+        output.read_bytes()
+        == ('{\n  "label": "é",\n  "lra_accepted_samples": 0,\n  "z": 0\n}\n').encode()
+    )
+
+
+def test_screen_nonfinite_result_refuses_before_output(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    root = _repository(tmp_path)
+    output = root / "artifacts/screen.json"
+    monkeypatch.setattr(
+        sample_decisions,
+        "inspect_neotoma_lra_pollen_screen",
+        lambda **kwargs: SimpleNamespace(canonical_json=b'{"value":NaN}'),
+    )
+    with pytest.raises(ValueError):
+        sample_decisions.run(root, output)
+    assert not output.exists()
 
 
 def test_concept_and_attribution_use_only_governed_inputs(
