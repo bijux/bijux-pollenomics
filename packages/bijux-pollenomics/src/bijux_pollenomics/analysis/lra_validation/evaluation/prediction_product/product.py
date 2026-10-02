@@ -28,7 +28,7 @@ from ..release import (
 from .receipt import (
     _CELLS,
     _PROTOCOLS,
-    PREDICTION_PRODUCT_PROFILE,
+    PREDICTION_PRODUCT_PROFILE as PREDICTION_PRODUCT_PROFILE,
     cell_index,
     cell_payload,
     ordered_cell_rows,

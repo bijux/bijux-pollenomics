@@ -145,7 +145,7 @@ def _validate_receipt_payload(payload: dict[str, object]) -> None:
                     refuse("Release admission cell identity is malformed")
             combinations.add((cell.get("experiment"), cell.get("target")))
             identities.add(cell.get("cell_id"))
-        if combinations != _REQUIRED_CELLS or len(identities) != len(cells):
+        if frozenset(combinations) != _REQUIRED_CELLS or len(identities) != len(cells):
             refuse("Release admission cell identities or combinations differ")
 
 
@@ -218,7 +218,7 @@ def _policy_cells(
     )
     if revalidated != policy:
         refuse("Evaluation policy object differs from its revalidated payload")
-    combinations = {(cell.experiment, cell.target) for cell in policy.cells}
+    combinations = frozenset((cell.experiment, cell.target) for cell in policy.cells)
     if len(policy.cells) != len(_REQUIRED_CELLS) or combinations != _REQUIRED_CELLS:
         refuse(
             "Each release protocol requires exactly local-pollen vegetation and "
