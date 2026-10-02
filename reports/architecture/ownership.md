@@ -63,8 +63,8 @@ or qualified scientific review.
 The [output ownership inventory](../../configs/ci/report-ownership.json)
 assigns every tracked report path exactly one declaration. Its population is
 1,938 paths: 709 declared publisher paths, 125 original-R retained source
-files, 30 generated domain outputs, 62 maintained source files, 19
-maintained reader accounts and 993 paths with unresolved output custody.
+files, 33 generated domain outputs, 62 maintained source files, 21
+maintained reader accounts and 988 paths with unresolved output custody.
 These role counts describe the current declarations. They do not measure
 how many outputs have been independently reproduced.
 
@@ -86,9 +86,21 @@ so it cannot serve as a current matching-output receipt. These declarations
 keep source custody separate from a completed replay and from Solsø LRA
 admission.
 
-The publisher path set comes from the independent assembly inventoried at
-product `bdc8c0d95`. All 709 paths remain tracked. A current publisher assembly
-must still establish its exact output membership before full-tree acceptance.
+Three propagation outputs declare their exact repository input closure.
+The derived edge ledger consumes retained compact event and classification
+evidence; those original source bundles remain unresolved. The classification
+manifest names nine payloads while only three are retained locally. The
+source-first screen and derived ledger preserve zero admitted events and
+zero evaluated pairs. Their empty country bins establish neither ecological
+routes nor event absence. Both reader accounts are maintained separately.
+
+A fresh canonical publisher build from fixed product
+`d535ca7f3bed0ead63e5f96e45658c435ed6613a` produced exactly the 709 declared
+publisher paths, with no missing or extra output. Its path-set digest is
+`e2670ba1efa03ec4dd8a54b2c013e494d7ef133922b0d6cdc0902f412e4b707b`.
+This single isolated source-checkout check establishes publisher membership;
+it does not establish an installed release, full-tree byte equality or the
+required two independent assembly lanes.
 The new declaration keeps the current-R and Linux-R raw outputs unresolved;
 the original-R source category applies only to its separately authenticated
 125-file bundle. A maintained source file or editorial account requires

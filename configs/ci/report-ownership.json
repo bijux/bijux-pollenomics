@@ -1804,15 +1804,34 @@
       "verification": "Maintain these repository source files through review and focused tests. Source custody is distinct from generated output reproduction; copying them into a replay lane does not certify the results they produce."
     },
     {
-      "owner_id": "propagation/governed-edge-ledger/report-products",
+      "owner_id": "propagation/governed-edge-ledger/classification-evidence",
       "role": "unresolved",
       "paths": [
-        "docs/report/propagation/governed-edge-ledger/README.md",
+        "docs/report/propagation/governed-edge-ledger/classification-evidence/accepted_mapping_queue.json",
+        "docs/report/propagation/governed-edge-ledger/classification-evidence/manifest.json",
+        "docs/report/propagation/governed-edge-ledger/classification-evidence/observation_denominators.json",
+        "docs/report/propagation/governed-edge-ledger/classification-evidence/release_metadata.json"
+      ],
+      "producer_paths": [],
+      "producer_inputs": [],
+      "verification": "Retained compact copy contains only 3 of 9 classification manifest payloads. Need exact full nine-payload governed audit and authenticated source/producer inputs before promoting retained-source or generated ownership. Manifest child SHA checks alone do not certify original derivation."
+    },
+    {
+      "owner_id": "propagation/governed-edge-ledger/derived-report",
+      "role": "generated_owner",
+      "paths": [
+        "docs/report/propagation/governed-edge-ledger/edge-ledger.csv",
+        "docs/report/propagation/governed-edge-ledger/report.json"
+      ],
+      "producer_paths": [
+        "docs/report/propagation/governed-edge-ledger/replay.py"
+      ],
+      "producer_inputs": [
+        "data/neotoma/review/source_taxon_concepts.json",
         "docs/report/propagation/governed-edge-ledger/classification-evidence/accepted_mapping_queue.json",
         "docs/report/propagation/governed-edge-ledger/classification-evidence/manifest.json",
         "docs/report/propagation/governed-edge-ledger/classification-evidence/observation_denominators.json",
         "docs/report/propagation/governed-edge-ledger/classification-evidence/release_metadata.json",
-        "docs/report/propagation/governed-edge-ledger/edge-ledger.csv",
         "docs/report/propagation/governed-edge-ledger/evidence/excluded_non_pollen_events.json",
         "docs/report/propagation/governed-edge-ledger/evidence/manifest.json",
         "docs/report/propagation/governed-edge-ledger/evidence/phenomenon_events.json",
@@ -1821,13 +1840,36 @@
         "docs/report/propagation/governed-edge-ledger/evidence/primary_scenario_refusals.json",
         "docs/report/propagation/governed-edge-ledger/evidence/release_metadata.json",
         "docs/report/propagation/governed-edge-ledger/evidence/sensitivity_summary.json",
-        "docs/report/propagation/governed-edge-ledger/report.json"
+        "docs/report/propagation/source-first-observed/report.json"
       ],
-      "producer_paths": [
-        "docs/report/propagation/governed-edge-ledger/replay.py"
+      "verification": "Run PYTHONDONTWRITEBYTECODE=1 python3 docs/report/propagation/governed-edge-ledger/replay.py (in-place byte comparison) or --output-dir to a new artifacts directory and compare both bytes. This replays only the retained, manifest-pinned compact source evidence; its source certificates remain separate."
+    },
+    {
+      "owner_id": "propagation/governed-edge-ledger/event-evidence",
+      "role": "unresolved",
+      "paths": [
+        "docs/report/propagation/governed-edge-ledger/evidence/excluded_non_pollen_events.json",
+        "docs/report/propagation/governed-edge-ledger/evidence/manifest.json",
+        "docs/report/propagation/governed-edge-ledger/evidence/phenomenon_events.json",
+        "docs/report/propagation/governed-edge-ledger/evidence/primary_scenario_candidates.json",
+        "docs/report/propagation/governed-edge-ledger/evidence/primary_scenario_reconciliation.json",
+        "docs/report/propagation/governed-edge-ledger/evidence/primary_scenario_refusals.json",
+        "docs/report/propagation/governed-edge-ledger/evidence/release_metadata.json",
+        "docs/report/propagation/governed-edge-ledger/evidence/sensitivity_summary.json"
       ],
+      "producer_paths": [],
       "producer_inputs": [],
-      "verification": "Identify the exact producer or independent source/template custody, lawful input closure and role-specific verification route for these paths. Bind independently reconstructed output or authenticated retained source before full mixed-owner acceptance; tracked output bytes cannot feed their own producer."
+      "verification": "The seven child SHA digests match this retained manifest, but original propagation materialization inputs, event templates and source certificate are not independently closed here. Keep source event bundle unresolved; zero events are refusal evidence, not route acceptance."
+    },
+    {
+      "owner_id": "propagation/governed-edge-ledger/reader-account",
+      "role": "maintained_editorial",
+      "paths": [
+        "docs/report/propagation/governed-edge-ledger/README.md"
+      ],
+      "producer_paths": [],
+      "producer_inputs": [],
+      "verification": "Review the handwritten account against retained source-first report, compact evidence manifests and governed replay; no producer writes this Markdown."
     },
     {
       "owner_id": "propagation/governed-edge-ledger/source-code",
@@ -1840,15 +1882,61 @@
       "verification": "Maintain these repository source files through review and focused tests. Source custody is distinct from generated output reproduction; copying them into a replay lane does not certify the results they produce."
     },
     {
-      "owner_id": "propagation/source-first-observed/report-products",
-      "role": "unresolved",
+      "owner_id": "propagation/source-first-observed/reader-account",
+      "role": "maintained_editorial",
       "paths": [
-        "docs/report/propagation/source-first-observed/README.md",
-        "docs/report/propagation/source-first-observed/report.json"
+        "docs/report/propagation/source-first-observed/README.md"
       ],
       "producer_paths": [],
       "producer_inputs": [],
-      "verification": "Identify the exact producer or independent source/template custody, lawful input closure and role-specific verification route for these paths. Bind independently reconstructed output or authenticated retained source before full mixed-owner acceptance; tracked output bytes cannot feed their own producer."
+      "verification": "Review this handwritten account against the source-first-observed report and native/export identities; no producer writes this Markdown."
+    },
+    {
+      "owner_id": "propagation/source-first-observed/readiness-report",
+      "role": "generated_owner",
+      "paths": [
+        "docs/report/propagation/source-first-observed/report.json"
+      ],
+      "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/neotoma_first_observed.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/propagation/event_estimation.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/propagation/network/__init__.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/propagation/network/codec.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/propagation/network/errors.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/propagation/network/evaluation.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/propagation/network/identity.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/propagation/network/models.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/propagation/network/pairs.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/propagation/network/reconciliation.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/propagation/network/scenarios.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/propagation/network/service.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/core/__init__.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/core/bp_time.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/core/geospatial/__init__.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/core/geospatial/distance.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/core/geospatial/geojson.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/core/temporal_semantics.py"
+      ],
+      "producer_inputs": [
+        "data/neotoma/relational/manifest.json",
+        "data/neotoma/relational/surfaces/age_claims/part-00001.json",
+        "data/neotoma/relational/surfaces/collection_units/part-00001.json",
+        "data/neotoma/relational/surfaces/datasets/part-00001.json",
+        "data/neotoma/relational/surfaces/observations/part-00001.json",
+        "data/neotoma/relational/surfaces/observations/part-00002.json",
+        "data/neotoma/relational/surfaces/observations/part-00003.json",
+        "data/neotoma/relational/surfaces/observations/part-00004.json",
+        "data/neotoma/relational/surfaces/observations/part-00005.json",
+        "data/neotoma/relational/surfaces/observations/part-00006.json",
+        "data/neotoma/relational/surfaces/observations/part-00007.json",
+        "data/neotoma/relational/surfaces/observations/part-00008.json",
+        "data/neotoma/relational/surfaces/samples/part-00001.json",
+        "data/neotoma/relational/surfaces/sites/part-00001.json",
+        "data/neotoma/relational/surfaces/variables/part-00001.json",
+        "docs/report/atlas/source-export/downloads/neotoma-site-12.pollen-series.json",
+        "docs/report/atlas/source-export/downloads/neotoma-site-3009.pollen-series.json"
+      ],
+      "verification": "Use the maintained source-first-observed CLI with --repository . --output to an artifacts path, compare JSON bytes with the retained report; focused test test_retained_readiness_matches_replay_without_event_promotion checks same producer. Verify all 14 native part hashes and two site exports. No event promotion or ecological route follows."
     },
     {
       "owner_id": "publication-replay/landclim-amsoldingersee-source-review/report-products",
@@ -2702,7 +2790,7 @@
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/execution.py"
       ],
       "producer_inputs": [],
-      "verification": "The declared 709-path set is inherited from the independently inventoried publisher at product bdc8c0d95. Run the canonical publisher plan/build/assemble and compare actual assembly membership before accepting this declaration as current reproduction; this inventory does not certify a fresh build."
+      "verification": "Fresh canonical publisher build at fixed d535ca7f3bed0ead63e5f96e45658c435ed6613a matches exactly these 709 output paths (path-set SHA-256 e2670ba1efa03ec4dd8a54b2c013e494d7ef133922b0d6cdc0902f412e4b707b). Membership only: installed-release validation, byte equality and two independent full-tree assembly lanes remain required."
     },
     {
       "owner_id": "regions/nordic/author-target-pollen/report-products",
