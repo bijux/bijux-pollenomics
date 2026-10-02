@@ -6,10 +6,6 @@ from collections.abc import Mapping
 from pathlib import Path
 from typing import cast
 
-from bijux_pollenomics_dev.ci.atlas_media.process_execution import (
-    BoundedProcessError,
-    run_bounded_argv,
-)
 from bijux_pollenomics_dev.ci.rebuild_reports import InventoryEntry, inventory_reports
 
 from .contracts import (
@@ -35,6 +31,7 @@ from .evidence import (
     require_independent_owner_inputs,
     require_inventory_matches_tree,
 )
+from .owner_process import run_owner_command
 from .planning import (
     current_binding,
     parse_plan,
@@ -109,20 +106,16 @@ def build_owner_output(
         arg.replace("{output_root}", str(producer_root.resolve()))
         for arg in producer_command
     )
-    try:
-        completed = run_bounded_argv(
-            command,
-            cwd=repo_root,
-            timeout_seconds=timeout_seconds,
-            max_output_bytes=1024 * 1024,
-        )
-    except BoundedProcessError as error:
-        raise ReportRebuildError("owner producer could not be started") from error
-    if completed.timed_out or completed.returncode != 0:
-        raise ReportRebuildError(
-            f"owner producer failed: {identity}; exit={completed.returncode}; "
-            f"timed_out={completed.timed_out}"
-        )
+    run_owner_command(
+        command=command,
+        repo_root=repo_root,
+        evidence_root=evidence_root,
+        owner_id=identity,
+        lane=lane,
+        binding=binding.as_json(),
+        producer_inputs=inputs_before,
+        timeout_seconds=timeout_seconds,
+    )
     generated = inventory_reports(producer_root, policy)
     if {entry.path for entry in generated} != set(paths):
         raise ReportRebuildError("owner producer output coverage is not exact")

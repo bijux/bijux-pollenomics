@@ -2721,8 +2721,13 @@
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/execution.py",
-      "sha256": "1c572ac490dd4c326cbf30977cfe1b68f98b11c126539076712d0219dde6925c",
-      "bytes": 18791
+      "sha256": "b69b86d58a7867e849dbad32800022ddde7f767d7e1f3ec95c51bc0be3543e10",
+      "bytes": 18455
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/owner_process.py",
+      "sha256": "1f9953c3b07af47225532e3a0bd65343430c23a08fcc53d2d422cab086529c48",
+      "bytes": 3048
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/ownership.py",
@@ -3073,6 +3078,11 @@
       "path": "packages/bijux-pollenomics-dev/tests/source_completion/test_swedish_training_scope.py",
       "sha256": "9d3b7164dd98ea703dbbb0b6dc8635241843406a8a759c541122539bb45fa8af",
       "bytes": 3596
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/tests/test_report_owner_process.py",
+      "sha256": "35dfc84a7ed6af12380eaab31d6791a221f5d9a2f74d550eab64f29868cd6b18",
+      "bytes": 3867
     },
     {
       "path": "packages/bijux-pollenomics-dev/tests/test_report_portal_check.py",
