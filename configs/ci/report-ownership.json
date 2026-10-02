@@ -2137,19 +2137,30 @@
       "verification": "Maintain these repository source files through review and focused tests. Source custody is distinct from generated output reproduction; copying them into a replay lane does not certify the results they produce."
     },
     {
-      "owner_id": "method-certification/author-site-uncertainty/report-products",
-      "role": "unresolved",
+      "owner_id": "method-certification/author-site-uncertainty/reader-account",
       "paths": [
-        "docs/report/method-certification/author-site-uncertainty/README.md",
+        "docs/report/method-certification/author-site-uncertainty/README.md"
+      ],
+      "producer_inputs": [],
+      "producer_paths": [],
+      "role": "maintained_editorial",
+      "verification": "Authored scope/interpretation account. Read with linked retained receipts; the prose does not authenticate private source custody, historical timing, R runtime captures, scientific validation or a release certificate."
+    },
+    {
+      "owner_id": "method-certification/author-site-uncertainty/report-products",
+      "paths": [
         "docs/report/method-certification/author-site-uncertainty/cover-draws.csv",
         "docs/report/method-certification/author-site-uncertainty/draws.json",
         "docs/report/method-certification/author-site-uncertainty/report.json"
       ],
-      "producer_paths": [
-        "docs/report/method-certification/author-site-uncertainty/replay.py"
-      ],
       "producer_inputs": [],
-      "verification": "Identify the exact producer or independent source/template custody, lawful input closure and role-specific verification route for these paths. Bind independently reconstructed output or authenticated retained source before full mixed-owner acceptance; tracked output bytes cannot feed their own producer."
+      "producer_paths": [
+        "docs/report/method-certification/author-site-uncertainty/replay.py",
+        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/fixed_site_covariance.py",
+        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/joint_site_draws.py"
+      ],
+      "role": "unresolved",
+      "verification": "The replay reads pinned external LandClim author-example prepared files, PPE/covariance, crosswalk, site list and lineage receipt. Their private source-root closure is not a repository-owned input. Reproduce into an absent artifacts directory and compare exact outputs only after that custody is restored; no independent vegetation accuracy follows."
     },
     {
       "owner_id": "method-certification/author-site-uncertainty/source-code",
@@ -2173,7 +2184,6 @@
     },
     {
       "owner_id": "method-certification/current-r-oracle/report-products",
-      "role": "unresolved",
       "paths": [
         "docs/report/method-certification/current-r-oracle/oracle/C0000.csv",
         "docs/report/method-certification/current-r-oracle/oracle/C0001.csv",
@@ -2307,11 +2317,16 @@
         "docs/report/method-certification/current-r-oracle/source-domains/report.json",
         "docs/report/method-certification/current-r-oracle/source-replay.json"
       ],
-      "producer_paths": [
-        "docs/report/method-certification/current-r-oracle/verify_source_replay.py"
+      "producer_inputs": [
+        "configs/ci/lra-r-source-lock.v1.json",
+        "docs/report/method-certification/original-r-reference/reference-bundle/certificate.json"
       ],
-      "producer_inputs": [],
-      "verification": "Identify the exact producer or independent source/template custody, lawful input closure and role-specific verification route for these paths. Bind independently reconstructed output or authenticated retained source before full mixed-owner acceptance; tracked output bytes cannot feed their own producer."
+      "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/live_reference.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/live_reference_comparison.py"
+      ],
+      "role": "unresolved",
+      "verification": "The live R producer requires the exact five private source archives, native R 4.6.0 executable/library, installed DISQOVER and source-locked Python tree. The retained source replay verifies source hashes and 97 numeric CSVs, but verification of retained bytes is not independent production custody. Keep all raw capture and report files unresolved; do not infer Linux release certification."
     },
     {
       "owner_id": "method-certification/current-r-oracle/source-code",
@@ -2327,14 +2342,14 @@
       "verification": "Maintain these repository source files through review and focused tests. Source custody is distinct from generated output reproduction; copying them into a replay lane does not certify the results they produce."
     },
     {
-      "owner_id": "method-certification/disqover-source-identity/report-products",
-      "role": "unresolved",
+      "owner_id": "method-certification/disqover-source-identity/reader-account",
       "paths": [
         "docs/report/method-certification/disqover-source-identity/README.md"
       ],
-      "producer_paths": [],
       "producer_inputs": [],
-      "verification": "Identify the exact producer or independent source/template custody, lawful input closure and role-specific verification route for these paths. Bind independently reconstructed output or authenticated retained source before full mixed-owner acceptance; tracked output bytes cannot feed their own producer."
+      "producer_paths": [],
+      "role": "maintained_editorial",
+      "verification": "Authored scope/interpretation account. Read with linked retained receipts; the prose does not authenticate private source custody, historical timing, R runtime captures, scientific validation or a release certificate."
     },
     {
       "owner_id": "method-certification/fixed-site-covariance/constructed-products",
@@ -2430,7 +2445,6 @@
     },
     {
       "owner_id": "method-certification/linux-r-oracle/report-products",
-      "role": "unresolved",
       "paths": [
         "docs/report/method-certification/linux-r-oracle/context.json",
         "docs/report/method-certification/linux-r-oracle/oracle/C0000.csv",
@@ -2570,9 +2584,14 @@
         "docs/report/method-certification/linux-r-oracle/source-domains/python_expected_not_R_goldens/S010.npy",
         "docs/report/method-certification/linux-r-oracle/source-domains/report.json"
       ],
-      "producer_paths": [],
-      "producer_inputs": [],
-      "verification": "Identify the exact producer or independent source/template custody, lawful input closure and role-specific verification route for these paths. Bind independently reconstructed output or authenticated retained source before full mixed-owner acceptance; tracked output bytes cannot feed their own producer."
+      "producer_inputs": [
+        "configs/ci/lra-r-source-lock.v1.json"
+      ],
+      "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/linux_reference.py"
+      ],
+      "role": "unresolved",
+      "verification": "The Linux producer requires the exact private source-built R runtime and package library, 38 locked archives, pinned image and original build/provision custody. The report binds 1,661 executed source file identities and 43+23 results, but no repository-only reproduction exists. Keep captured raw files and context unresolved; the post-run Git HEAD annotation is not an in-run source certificate."
     },
     {
       "owner_id": "method-certification/linux-r-oracle/source-code",
@@ -2587,18 +2606,41 @@
       "verification": "Maintain these repository source files through review and focused tests. Source custody is distinct from generated output reproduction; copying them into a replay lane does not certify the results they produce."
     },
     {
-      "owner_id": "method-certification/love-paper-correspondence/report-products",
-      "role": "unresolved",
+      "owner_id": "method-certification/love-paper-correspondence/paper-table-transcription",
       "paths": [
-        "docs/report/method-certification/love-paper-correspondence/README.md",
-        "docs/report/method-certification/love-paper-correspondence/paper-parameter-tables.json",
+        "docs/report/method-certification/love-paper-correspondence/paper-parameter-tables.json"
+      ],
+      "producer_inputs": [],
+      "producer_paths": [],
+      "role": "unresolved",
+      "verification": "The published tables are an authored transcription of a private retained article PDF (SHA-256 3336b5b6450b89d97b6e52f18b42090333091bf355a3f4715676215e2b18cc3e), whose publisher-byte identity is unestablished. No independent repository producer for the table transcription; preserve source rights and simulation-input limits."
+    },
+    {
+      "owner_id": "method-certification/love-paper-correspondence/parameter-comparison",
+      "paths": [
         "docs/report/method-certification/love-paper-correspondence/source-parameter-correspondence.json"
+      ],
+      "producer_inputs": [
+        "docs/report/method-certification/love-paper-correspondence/paper-parameter-tables.json",
+        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/data/LOVEexampleParams.json",
+        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/data/LOVEexamplePollen.json",
+        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/data/LOVEexampleRings.json"
       ],
       "producer_paths": [
         "docs/report/method-certification/love-paper-correspondence/verify.py"
       ],
+      "role": "generated_owner",
+      "verification": "Run `python3 docs/report/method-certification/love-paper-correspondence/verify.py --repository . --check` to compare deterministic output bytes. This binds the 30 local numeric cells to a pinned later source example; the upstream paper-table transcription, 2024 simulation input, source rights and original software version remain unresolved."
+    },
+    {
+      "owner_id": "method-certification/love-paper-correspondence/reader-account",
+      "paths": [
+        "docs/report/method-certification/love-paper-correspondence/README.md"
+      ],
       "producer_inputs": [],
-      "verification": "Identify the exact producer or independent source/template custody, lawful input closure and role-specific verification route for these paths. Bind independently reconstructed output or authenticated retained source before full mixed-owner acceptance; tracked output bytes cannot feed their own producer."
+      "producer_paths": [],
+      "role": "maintained_editorial",
+      "verification": "Authored scope/interpretation account. Read with linked retained receipts; the prose does not authenticate private source custody, historical timing, R runtime captures, scientific validation or a release certificate."
     },
     {
       "owner_id": "method-certification/love-paper-correspondence/source-code",
@@ -2633,22 +2675,44 @@
       "verification": "This is a historical installed-wheel/cache/performance receipt, not a deterministic report producer. README supplies the three fixture requests and four bounded CLI attempts, but original wheel digests, execution handles, request/result certificates and runtime measurement custody must be bound before a retained-source role. Fresh wall-time/RSS values cannot reproduce a historical timing receipt byte-for-byte. Preserve the original candidate scope and scientific_acceptance not_evaluated."
     },
     {
-      "owner_id": "method-certification/optimizer-solution-quality/report-products",
-      "role": "unresolved",
+      "owner_id": "method-certification/optimizer-solution-quality/case-declaration",
       "paths": [
-        "docs/report/method-certification/optimizer-solution-quality/README.md",
-        "docs/report/method-certification/optimizer-solution-quality/cases.json",
+        "docs/report/method-certification/optimizer-solution-quality/cases.json"
+      ],
+      "producer_inputs": [],
+      "producer_paths": [],
+      "role": "unresolved",
+      "verification": "Prospectively declared case configuration is a retained authored JSON input. There is no independent source/template producer or authenticated source-custody certificate for this file; it must not certify its own production."
+    },
+    {
+      "owner_id": "method-certification/optimizer-solution-quality/reader-account",
+      "paths": [
+        "docs/report/method-certification/optimizer-solution-quality/README.md"
+      ],
+      "producer_inputs": [],
+      "producer_paths": [],
+      "role": "maintained_editorial",
+      "verification": "Authored scope/interpretation account. Read with linked retained receipts; the prose does not authenticate private source custody, historical timing, R runtime captures, scientific validation or a release certificate."
+    },
+    {
+      "owner_id": "method-certification/optimizer-solution-quality/report-products",
+      "paths": [
         "docs/report/method-certification/optimizer-solution-quality/python-fits.csv",
         "docs/report/method-certification/optimizer-solution-quality/r-fits.csv",
         "docs/report/method-certification/optimizer-solution-quality/r-session.txt",
         "docs/report/method-certification/optimizer-solution-quality/report.json",
         "docs/report/method-certification/optimizer-solution-quality/summary.csv"
       ],
-      "producer_paths": [
-        "docs/report/method-certification/optimizer-solution-quality/replay.py"
+      "producer_inputs": [
+        "docs/report/method-certification/optimizer-solution-quality/cases.json",
+        "packages/bijux-pollenomics-lra/vendor/disqover_0.9.14.tar.gz"
       ],
-      "producer_inputs": [],
-      "verification": "Identify the exact producer or independent source/template custody, lawful input closure and role-specific verification route for these paths. Bind independently reconstructed output or authenticated retained source before full mixed-owner acceptance; tracked output bytes cannot feed their own producer."
+      "producer_paths": [
+        "docs/report/method-certification/optimizer-solution-quality/replay.py",
+        "docs/report/method-certification/optimizer-solution-quality/solver.R"
+      ],
+      "role": "unresolved",
+      "verification": "The solver comparison needs the external Rscript binary, isolated R library with exact DISQOVER marker and live optimizer execution. Retained report/case outputs and R session are execution evidence, not independently reproducible bytes from repository files alone."
     },
     {
       "owner_id": "method-certification/optimizer-solution-quality/source-code",
@@ -2809,13 +2873,18 @@
     },
     {
       "owner_id": "method-certification/original-r-reference/report-products",
-      "role": "unresolved",
       "paths": [
         "docs/report/method-certification/original-r-reference/report.json"
       ],
-      "producer_paths": [],
-      "producer_inputs": [],
-      "verification": "Identify the exact producer or independent source/template custody, lawful input closure and role-specific verification route for these paths. Bind independently reconstructed output or authenticated retained source before full mixed-owner acceptance; tracked output bytes cannot feed their own producer."
+      "producer_inputs": [
+        "docs/report/method-certification/original-r-reference/reference-bundle/certificate.json",
+        "packages/bijux-pollenomics-lra/vendor/disqover_0.9.14.tar.gz"
+      ],
+      "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/reference_replay.py"
+      ],
+      "role": "unresolved",
+      "verification": "The report is a derived certification/account of the separately authenticated 125-file original R bundle. Its certificate and bundled source are inputs, but no independent producer closure for this report is declared. Preserve the existing 125-path retained_source owner unchanged."
     },
     {
       "owner_id": "method-certification/paired-love-draws/reader-account",
@@ -2865,20 +2934,31 @@
       "verification": "Maintain these repository source files through review and focused tests. Source custody is distinct from generated output reproduction; copying them into a replay lane does not certify the results they produce."
     },
     {
-      "owner_id": "method-certification/petrkunes-r-comparison/report-products",
-      "role": "unresolved",
+      "owner_id": "method-certification/petrkunes-r-comparison/reader-account",
       "paths": [
-        "docs/report/method-certification/petrkunes-r-comparison/README.md",
-        "docs/report/method-certification/petrkunes-r-comparison/bootstrap-full-grid.csv",
-        "docs/report/method-certification/petrkunes-r-comparison/native-report.json",
-        "docs/report/method-certification/petrkunes-r-comparison/summary.csv",
-        "docs/report/method-certification/petrkunes-r-comparison/taxa.csv"
-      ],
-      "producer_paths": [
-        "docs/report/method-certification/petrkunes-r-comparison/native_comparison.py"
+        "docs/report/method-certification/petrkunes-r-comparison/README.md"
       ],
       "producer_inputs": [],
-      "verification": "Identify the exact producer or independent source/template custody, lawful input closure and role-specific verification route for these paths. Bind independently reconstructed output or authenticated retained source before full mixed-owner acceptance; tracked output bytes cannot feed their own producer."
+      "producer_paths": [],
+      "role": "maintained_editorial",
+      "verification": "Authored scope/interpretation account. Read with linked retained receipts; the prose does not authenticate private source custody, historical timing, R runtime captures, scientific validation or a release certificate."
+    },
+    {
+      "owner_id": "method-certification/petrkunes-r-comparison/report-products",
+      "paths": [
+        "docs/report/method-certification/petrkunes-r-comparison/native-report.json"
+      ],
+      "producer_inputs": [
+        "docs/report/method-certification/petrkunes-r-comparison/bootstrap-full-grid.csv",
+        "docs/report/method-certification/petrkunes-r-comparison/taxa.csv",
+        "packages/bijux-pollenomics-lra/vendor/disqover_0.9.14.tar.gz"
+      ],
+      "producer_paths": [
+        "docs/report/method-certification/petrkunes-r-comparison/native_comparison.py",
+        "docs/report/method-certification/petrkunes-r-comparison/replay.R"
+      ],
+      "role": "unresolved",
+      "verification": "The original R grid bootstrap and native comparison use the private LandClim author files and reference taxon crosswalk, with exact SHA identities in native-report.json. The published reference CSVs cannot be regenerated from repository bytes alone; do not infer independent model validation."
     },
     {
       "owner_id": "method-certification/petrkunes-r-comparison/source-code",
@@ -2892,27 +2972,58 @@
       "verification": "Maintain these repository source files through review and focused tests. Source custody is distinct from generated output reproduction; copying them into a replay lane does not certify the results they produce."
     },
     {
-      "owner_id": "method-certification/reference-release-gate/report-products",
+      "owner_id": "method-certification/petrkunes-r-comparison/source-r-reference",
+      "paths": [
+        "docs/report/method-certification/petrkunes-r-comparison/bootstrap-full-grid.csv",
+        "docs/report/method-certification/petrkunes-r-comparison/summary.csv",
+        "docs/report/method-certification/petrkunes-r-comparison/taxa.csv"
+      ],
+      "producer_inputs": [
+        "packages/bijux-pollenomics-lra/vendor/disqover_0.9.14.tar.gz"
+      ],
+      "producer_paths": [
+        "docs/report/method-certification/petrkunes-r-comparison/native_comparison.py",
+        "docs/report/method-certification/petrkunes-r-comparison/replay.R"
+      ],
       "role": "unresolved",
+      "verification": "The original R grid bootstrap and native comparison use the private LandClim author files and reference taxon crosswalk, with exact SHA identities in native-report.json. The published reference CSVs cannot be regenerated from repository bytes alone; do not infer independent model validation. Restore exact private author inputs and tagged R source; compare new source-R outputs as a separately qualified run."
+    },
+    {
+      "owner_id": "method-certification/reference-release-gate/reader-account",
       "paths": [
         "docs/report/method-certification/reference-release-gate/README.md"
       ],
-      "producer_paths": [],
       "producer_inputs": [],
-      "verification": "Identify the exact producer or independent source/template custody, lawful input closure and role-specific verification route for these paths. Bind independently reconstructed output or authenticated retained source before full mixed-owner acceptance; tracked output bytes cannot feed their own producer."
+      "producer_paths": [],
+      "role": "maintained_editorial",
+      "verification": "Authored scope/interpretation account. Read with linked retained receipts; the prose does not authenticate private source custody, historical timing, R runtime captures, scientific validation or a release certificate."
+    },
+    {
+      "owner_id": "numerical-performance/love-source-comparison/reader-account",
+      "paths": [
+        "docs/report/numerical-performance/love-source-comparison/README.md"
+      ],
+      "producer_inputs": [],
+      "producer_paths": [],
+      "role": "maintained_editorial",
+      "verification": "Authored scope/interpretation account. Read with linked retained receipts; the prose does not authenticate private source custody, historical timing, R runtime captures, scientific validation or a release certificate."
     },
     {
       "owner_id": "numerical-performance/love-source-comparison/report-products",
-      "role": "unresolved",
       "paths": [
-        "docs/report/numerical-performance/love-source-comparison/README.md",
         "docs/report/numerical-performance/love-source-comparison/report.json"
       ],
-      "producer_paths": [
-        "docs/report/numerical-performance/love-source-comparison/compare.py"
+      "producer_inputs": [
+        "docs/report/numerical-performance/love-source-profile/report.json",
+        "packages/bijux-pollenomics-lra/vendor/disqover_0.9.14.tar.gz"
       ],
-      "producer_inputs": [],
-      "verification": "Identify the exact producer or independent source/template custody, lawful input closure and role-specific verification route for these paths. Bind independently reconstructed output or authenticated retained source before full mixed-owner acceptance; tracked output bytes cannot feed their own producer."
+      "producer_paths": [
+        "docs/report/numerical-performance/love-source-comparison/compare.py",
+        "docs/report/numerical-performance/love-source-comparison/replay.R",
+        "packages/bijux-pollenomics-lra/tests/reference/lra_oracle/r_support.R"
+      ],
+      "role": "unresolved",
+      "verification": "The comparison ran native R 4.6.0 with the privately provisioned DISQOVER library on ten exported shared inputs. Retained JSON binds the source and output contract; the R runtime/library and disposable capture remain outside repository closure. This is fixed-candidate method correspondence, not optimizer-search parity or ecological accuracy."
     },
     {
       "owner_id": "numerical-performance/love-source-comparison/source-code",
@@ -2926,85 +3037,164 @@
       "verification": "Maintain these repository source files through review and focused tests. Source custody is distinct from generated output reproduction; copying them into a replay lane does not certify the results they produce."
     },
     {
-      "owner_id": "numerical-performance/love-source-profile/report-products",
-      "role": "unresolved",
+      "owner_id": "numerical-performance/love-source-profile/reader-account",
       "paths": [
-        "docs/report/numerical-performance/love-source-profile/README.md",
-        "docs/report/numerical-performance/love-source-profile/report.json"
+        "docs/report/numerical-performance/love-source-profile/README.md"
       ],
-      "producer_paths": [],
       "producer_inputs": [],
-      "verification": "Identify the exact producer or independent source/template custody, lawful input closure and role-specific verification route for these paths. Bind independently reconstructed output or authenticated retained source before full mixed-owner acceptance; tracked output bytes cannot feed their own producer."
+      "producer_paths": [],
+      "role": "maintained_editorial",
+      "verification": "Authored scope/interpretation account. Read with linked retained receipts; the prose does not authenticate private source custody, historical timing, R runtime captures, scientific validation or a release certificate."
     },
     {
-      "owner_id": "numerical-performance/native-adoption/report-products",
+      "owner_id": "numerical-performance/love-source-profile/report-products",
+      "paths": [
+        "docs/report/numerical-performance/love-source-profile/report.json"
+      ],
+      "producer_inputs": [
+        "docs/report/numerical-performance/python-baseline/report.json"
+      ],
+      "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/native_backend/profiling.py"
+      ],
       "role": "unresolved",
+      "verification": "The profiled raw measurement and command context were artifact outputs; only their digest and summary survive here. Timing/RSS are environment-specific and cannot be reconstructed byte-for-byte from current repository sources or the summary itself."
+    },
+    {
+      "owner_id": "numerical-performance/native-adoption/reader-account",
       "paths": [
         "docs/report/numerical-performance/native-adoption/README.md"
       ],
-      "producer_paths": [],
       "producer_inputs": [],
-      "verification": "Identify the exact producer or independent source/template custody, lawful input closure and role-specific verification route for these paths. Bind independently reconstructed output or authenticated retained source before full mixed-owner acceptance; tracked output bytes cannot feed their own producer."
+      "producer_paths": [],
+      "role": "maintained_editorial",
+      "verification": "Authored scope/interpretation account. Read with linked retained receipts; the prose does not authenticate private source custody, historical timing, R runtime captures, scientific validation or a release certificate."
+    },
+    {
+      "owner_id": "numerical-performance/native-forward/reader-account",
+      "paths": [
+        "docs/report/numerical-performance/native-forward/README.md"
+      ],
+      "producer_inputs": [],
+      "producer_paths": [],
+      "role": "maintained_editorial",
+      "verification": "Authored scope/interpretation account. Read with linked retained receipts; the prose does not authenticate private source custody, historical timing, R runtime captures, scientific validation or a release certificate."
     },
     {
       "owner_id": "numerical-performance/native-forward/report-products",
-      "role": "unresolved",
       "paths": [
-        "docs/report/numerical-performance/native-forward/README.md",
         "docs/report/numerical-performance/native-forward/reference/rows-1-rings-8-taxa-3/R-output.csv",
         "docs/report/numerical-performance/native-forward/reference/rows-32-rings-128-taxa-32/R-output.csv",
         "docs/report/numerical-performance/native-forward/reference/rows-512-rings-256-taxa-64/R-output.csv",
         "docs/report/numerical-performance/native-forward/report.json"
       ],
-      "producer_paths": [],
       "producer_inputs": [],
-      "verification": "Identify the exact producer or independent source/template custody, lawful input closure and role-specific verification route for these paths. Bind independently reconstructed output or authenticated retained source before full mixed-owner acceptance; tracked output bytes cannot feed their own producer."
+      "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/native_backend/forward_compare.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/native_backend/forward_kernel.cpp",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/native_backend/forward_reference.R",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/native_backend/forward_summary.py"
+      ],
+      "role": "unresolved",
+      "verification": "The C++/NumPy/R run used a local compiler, Rscript, generated binary and raw timing/array capture. The report preserves the raw measurement SHA-256 and three retained R output vectors, but the historical measurement bytes are not repository inputs. A new run is a new measurement, not byte reproduction of timing."
+    },
+    {
+      "owner_id": "numerical-performance/native-memory/reader-account",
+      "paths": [
+        "docs/report/numerical-performance/native-memory/README.md"
+      ],
+      "producer_inputs": [],
+      "producer_paths": [],
+      "role": "maintained_editorial",
+      "verification": "Authored scope/interpretation account. Read with linked retained receipts; the prose does not authenticate private source custody, historical timing, R runtime captures, scientific validation or a release certificate."
     },
     {
       "owner_id": "numerical-performance/native-memory/report-products",
-      "role": "unresolved",
       "paths": [
-        "docs/report/numerical-performance/native-memory/README.md",
         "docs/report/numerical-performance/native-memory/report.json"
       ],
-      "producer_paths": [],
+      "producer_inputs": [
+        "docs/report/numerical-performance/native-forward/report.json"
+      ],
+      "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/native_backend/forward_compare.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/native_backend/forward_kernel.cpp",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/native_backend/memory_compare.py"
+      ],
+      "role": "unresolved",
+      "verification": "Isolated worker memory/timing depends on the local compiler, binary, platform and process high-water state. The current report records the result, not a closed historical raw capture; repeat only as a separately qualified measurement."
+    },
+    {
+      "owner_id": "numerical-performance/python-baseline/reader-account",
+      "paths": [
+        "docs/report/numerical-performance/python-baseline/README.md"
+      ],
       "producer_inputs": [],
-      "verification": "Identify the exact producer or independent source/template custody, lawful input closure and role-specific verification route for these paths. Bind independently reconstructed output or authenticated retained source before full mixed-owner acceptance; tracked output bytes cannot feed their own producer."
+      "producer_paths": [],
+      "role": "maintained_editorial",
+      "verification": "Authored scope/interpretation account. Read with linked retained receipts; the prose does not authenticate private source custody, historical timing, R runtime captures, scientific validation or a release certificate."
     },
     {
       "owner_id": "numerical-performance/python-baseline/report-products",
-      "role": "unresolved",
       "paths": [
-        "docs/report/numerical-performance/python-baseline/README.md",
         "docs/report/numerical-performance/python-baseline/report.json"
       ],
-      "producer_paths": [],
       "producer_inputs": [],
-      "verification": "Identify the exact producer or independent source/template custody, lawful input closure and role-specific verification route for these paths. Bind independently reconstructed output or authenticated retained source before full mixed-owner acceptance; tracked output bytes cannot feed their own producer."
+      "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/native_backend/baseline_summary.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/native_backend/profiling.py"
+      ],
+      "role": "unresolved",
+      "verification": "The raw 818695-byte timing/profile measurement with SHA-256 667dbdd5d32f5df28679475d89ad61e796031e33e05c640dbc8126c7fa854bb2 is outside repository output custody. The summary producer cannot regenerate the historical timing bytes from source; a new run is a new measurement."
+    },
+    {
+      "owner_id": "numerical-performance/python-isolated/reader-account",
+      "paths": [
+        "docs/report/numerical-performance/python-isolated/README.md"
+      ],
+      "producer_inputs": [],
+      "producer_paths": [],
+      "role": "maintained_editorial",
+      "verification": "Authored scope/interpretation account. Read with linked retained receipts; the prose does not authenticate private source custody, historical timing, R runtime captures, scientific validation or a release certificate."
     },
     {
       "owner_id": "numerical-performance/python-isolated/report-products",
-      "role": "unresolved",
       "paths": [
-        "docs/report/numerical-performance/python-isolated/README.md",
         "docs/report/numerical-performance/python-isolated/report.json"
       ],
-      "producer_paths": [],
+      "producer_inputs": [
+        "docs/report/numerical-performance/python-baseline/report.json"
+      ],
+      "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/native_backend/isolated_python_baseline.py"
+      ],
+      "role": "unresolved",
+      "verification": "Five fresh process measurements per workload depend on runtime/process state. The repository baseline is a scientific-output comparator, not independent historical timing source. Retained output remains a scoped measurement, not byte reproducible from source alone."
+    },
+    {
+      "owner_id": "numerical-performance/runtime-metadata/reader-account",
+      "paths": [
+        "docs/report/numerical-performance/runtime-metadata/README.md"
+      ],
       "producer_inputs": [],
-      "verification": "Identify the exact producer or independent source/template custody, lawful input closure and role-specific verification route for these paths. Bind independently reconstructed output or authenticated retained source before full mixed-owner acceptance; tracked output bytes cannot feed their own producer."
+      "producer_paths": [],
+      "role": "maintained_editorial",
+      "verification": "Authored scope/interpretation account. Read with linked retained receipts; the prose does not authenticate private source custody, historical timing, R runtime captures, scientific validation or a release certificate."
     },
     {
       "owner_id": "numerical-performance/runtime-metadata/report-products",
-      "role": "unresolved",
       "paths": [
-        "docs/report/numerical-performance/runtime-metadata/README.md",
         "docs/report/numerical-performance/runtime-metadata/comparison.json",
         "docs/report/numerical-performance/runtime-metadata/reference-baseline.json",
         "docs/report/numerical-performance/runtime-metadata/report.json"
       ],
-      "producer_paths": [],
       "producer_inputs": [],
-      "verification": "Identify the exact producer or independent source/template custody, lawful input closure and role-specific verification route for these paths. Bind independently reconstructed output or authenticated retained source before full mixed-owner acceptance; tracked output bytes cannot feed their own producer."
+      "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/native_backend/profile_summary.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/native_backend/profiling.py"
+      ],
+      "role": "unresolved",
+      "verification": "The raw 818643-byte post-cache measurement (SHA-256 9a0f044bfec9419e32477d0e652c5d04b5c8571b5222a3c9d44ab1cdf70ec65a) and historical baseline raw run are outside repository closure. The summary and comparison read a retained baseline, but cannot reconstruct historical timing from it."
     },
     {
       "owner_id": "pollen-reconstruction/age-interval-sensitivity/report-products",
