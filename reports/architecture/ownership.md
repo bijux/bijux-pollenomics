@@ -319,7 +319,9 @@ with every retained manifest member and table receipt in their read sets.
 Two confined SEAD chronology entry points expose the existing age-accounting
 and record-interval writers with unchanged inputs, numerical behavior and
 refusals. Their declarations include the maintained wrapper package. These
-twenty producers cover only their declared files. The complete report-tree
+twenty-two producers cover only their declared files. The Danish chronology
+coverage and compact Neotoma sample accounts use confined adapters for their
+existing replay writers and preserve their source-accounting scope. The complete report-tree
 comparison remains mandatory and refuses any missing owner. The scientific CI
 workflow derives the owner matrix and assembly selection from the same
 validated execution configuration, using a digest of each full identity as

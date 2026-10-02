@@ -302,6 +302,26 @@
       "output_mode": "directory",
       "timeout_seconds": 180,
       "output_subdirectory": "source-products"
+    },
+    {
+      "owner_id": "countries/denmark/pollen-chronology-coverage/report-products",
+      "module": "bijux_pollenomics_dev.source_completion.denmark_pollen_chronology_coverage",
+      "source_paths": {
+        "report.json": "docs/report/countries/denmark/pollen-chronology-coverage/report.json"
+      },
+      "source_arguments": [],
+      "output_mode": "single_file",
+      "timeout_seconds": 180
+    },
+    {
+      "owner_id": "source-relations/neotoma/compact-summary/derived-report",
+      "module": "bijux_pollenomics_dev.source_completion.neotoma_compact_summary",
+      "source_paths": {
+        "report.json": "docs/report/source-relations/neotoma/compact-summary/report.json"
+      },
+      "source_arguments": [],
+      "output_mode": "single_file",
+      "timeout_seconds": 180
     }
   ]
 }

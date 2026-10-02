@@ -1661,7 +1661,8 @@
         "docs/report/countries/denmark/pollen-chronology-coverage/report.json"
       ],
       "producer_paths": [
-        "docs/report/countries/denmark/pollen-chronology-coverage/replay.py"
+        "docs/report/countries/denmark/pollen-chronology-coverage/replay.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/denmark_pollen_chronology_coverage.py"
       ],
       "producer_inputs": [
         "data/neotoma/relational/manifest.json",
@@ -7344,6 +7345,7 @@
       ],
       "producer_paths": [
         "docs/report/source-relations/neotoma/compact-summary/replay.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/neotoma_compact_summary.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/sources/neotoma/__init__.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/sources/neotoma/contract.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/sources/neotoma/ownership.py",
