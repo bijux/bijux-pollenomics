@@ -44,8 +44,8 @@ identities. The [scientific verifier](../../docs/report/pollen-reconstruction/ve
 checks its governed results. A complete report-tree rebuild is a separate
 acceptance decision.
 
-The current tracked report tree contains 1,940 files. Its navigation registry
-indexes 1,936 surfaces and deliberately excludes its four registry/review
+The current tracked report tree contains 1,945 files. Its navigation registry
+indexes 1,941 surfaces and deliberately excludes its four registry/review
 metadata files. Each indexed Markdown surface and its layout row carries the exact content
 hash used by that consumer. Machine-readable products keep their domain
 manifest identities, avoiding recursive hashes through the scientific
@@ -62,15 +62,16 @@ or qualified scientific review.
 
 The [output ownership inventory](../../configs/ci/report-ownership.json)
 assigns every tracked report path exactly one declaration. Its population is
-1,940 paths: 709 declared publisher paths, 125 original-R retained source
-files, 241 generated domain outputs, 62 maintained source files, 173
+1,945 paths: 709 declared publisher paths, 125 original-R retained source
+files, 244 generated domain outputs, 62 maintained source files, 175
 maintained reader accounts and 630 paths with unresolved output custody.
 These role counts describe the current declarations. They do not measure
 how many outputs have been independently reproduced.
 
 The generated category includes 11 SEAD numeric products from six named
 source consumers, one additional [boolean lineage account](../../docs/report/source-relations/sead/analysis-boolean-values/README.md),
-the two LandClim modeled-panel files and four contained-age
+one [categorical lineage account](../../docs/report/source-relations/sead/analysis-categorical-values/README.md),
+two source-bound ABBO conditional-membership products, the two LandClim modeled-panel files and four contained-age
 files for each of two direct-pollen studies. The SEAD declarations name their
 actual raw/normalized and secondary report inputs, including source parts and
 retrieval receipts. Their reader accounts have separate editorial owners.
@@ -277,7 +278,7 @@ for code owners and Markdown for editorial owners. A role label or a renamed
 numeric product cannot expand those admitted source sets.
 
 The certified original-R bundle uses its own certificate validation and source
-inventory. Assembly injects these 359 source files alongside verified generated
+inventory. Assembly injects these 362 source files alongside verified generated
 owner inputs, records their distinct identities and removes the injected files
 from the publisher output after the reducers read them. Both assembly lanes
 must record the exact source evidence required by final verification. That

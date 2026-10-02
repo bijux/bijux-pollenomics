@@ -26,13 +26,13 @@
     },
     {
       "path": "configs/ci/report-owner-execution.json",
-      "sha256": "bb0e281b106e23b47ed4046304a7c2e3fbc94ac13c5a1e74453f0f162b69f518",
-      "bytes": 63024
+      "sha256": "5b630f47e9d097c34d4fbc6f36d65e3f76c95b03cb9031dba8b044c15169c14b",
+      "bytes": 63434
     },
     {
       "path": "configs/ci/report-ownership.json",
-      "sha256": "b703e0f4fdb87e4f3def51a57b19a77b58cc2bfea1ecc1430f2b01f1dbc1178d",
-      "bytes": 826177
+      "sha256": "e0cac44efe6a26919f4d0d91dd0d32b69246b1a3c87aabcce0826c20c3113e25",
+      "bytes": 832271
     },
     {
       "path": "configs/docs/science_downloads.py",
@@ -391,12 +391,12 @@
     },
     {
       "path": "docs/report/index.md",
-      "sha256": "f40d35ecdd33b39b255671f9e1658b030308bc9df7bef534c2dbf8f6c5cc6f10",
+      "sha256": "7d6539889e992fd63676800632e9cd0a2048d895c23326c1273ec724ed85a699",
       "bytes": 2689
     },
     {
       "path": "docs/report/maintenance/index.md",
-      "sha256": "6e4d7330c69a7d775dc080fb320d30dc5b218ad2c9ed1b9875cc4edff5808e6c",
+      "sha256": "a30d5422c15c8f59c97d85fa4fa597b1b03af0f0ebcb441ef77f343edec2063e",
       "bytes": 1412
     },
     {
@@ -2386,22 +2386,22 @@
     },
     {
       "path": "docs/report/report_narrative_quality_review.json",
-      "sha256": "15f2c6ac6612865f49abde90141b4a989c7a2f0f3d5086949219e575ae144294",
-      "bytes": 138711
+      "sha256": "3b8dde4090666e765cf2732867ee23c9499434d62bccdf3ba1da39e7bb3b717e",
+      "bytes": 139189
     },
     {
       "path": "docs/report/report_narrative_quality_review.md",
-      "sha256": "d79ba7700b202c3bc17ba76afe32e194e37f44726182cdd0a7ffc921f7d92538",
+      "sha256": "9060516cc001ef85bf444083d6a1bf325f77174c71b4712378791f7e64a05707",
       "bytes": 754
     },
     {
       "path": "docs/report/report_surface_registry.json",
-      "sha256": "df09a1696fa1bce83b8c9731cfe6f14b0d8ca9c2780928b173d7c8ab3d07dcf0",
-      "bytes": 947505
+      "sha256": "61766ae46c22e5a3944b353a14fa7212a3da6c3c6d25f63ce6a276944670813d",
+      "bytes": 948567
     },
     {
       "path": "docs/report/report_surface_registry.md",
-      "sha256": "a194ccb0b3895ecabc7ad1900d9dfffbae3e973e90bceb80f14e02d8d9e8fd7c",
+      "sha256": "1c4237eb94281c7b52eaabd645fbf03a5e02d4f9a696ec25af678b59ceac8f86",
       "bytes": 1078
     },
     {
@@ -2636,8 +2636,18 @@
     },
     {
       "path": "docs/report/source-relations/sead/README.md",
-      "sha256": "e60e4110aa12beb0cd7674d458d794991b2a029189763ad97a71dde9a473770b",
-      "bytes": 7000
+      "sha256": "1b672e5144b0089cda19194d8371aa7d5c7f450cd8e456ba4164d41312417256",
+      "bytes": 7315
+    },
+    {
+      "path": "docs/report/source-relations/sead/analysis-categorical-values/README.md",
+      "sha256": "766d68a14a4a6fffdd6fd005f1c5d37c7ca8e64a57ba1b69385eb4cf55bfa82d",
+      "bytes": 3390
+    },
+    {
+      "path": "docs/report/source-relations/sead/analysis-categorical-values/report.json",
+      "sha256": "8ada887dccab478198935df6aa273f96d7422eb73f062be582bb5b121db7131e",
+      "bytes": 12577
     },
     {
       "path": "docs/report/source-relations/sead/chronology-claim-review/README.md",
@@ -2846,7 +2856,7 @@
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/maintained_sources.py",
-      "sha256": "26c025c9a16bc84d90fe5d18eb9845518d542d786b2bc67d24bc38a900f4995c",
+      "sha256": "5f874f15d6eb649041f1e2df4117ecf0ed712640c04ca6c82d1f72fb4f179ea6",
       "bytes": 6605
     },
     {
@@ -3400,6 +3410,11 @@
       "bytes": 64
     },
     {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sead/categorical_values.py",
+      "sha256": "dd9427b3d83ed5edb5a9bb5364a63a1cfd1d662ef92264fde64643b5054980c0",
+      "bytes": 14485
+    },
+    {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sead/chronology_age_review.py",
       "sha256": "caf088393f2f5a4472a24eb40cc75aaf380b7cf6a0c2d4ad2b81ae462ac9d68c",
       "bytes": 1499
@@ -3705,6 +3720,11 @@
       "bytes": 5131
     },
     {
+      "path": "packages/bijux-pollenomics-dev/tests/source_completion/sead/test_categorical_values.py",
+      "sha256": "14541d23c728443ec8571f80084ae9ea6edc48b72d5c2c55aaac887823ee9ec9",
+      "bytes": 7449
+    },
+    {
       "path": "packages/bijux-pollenomics-dev/tests/source_completion/sead/test_chronology_cli.py",
       "sha256": "3ee57b943182937d41cbff351f5f9794990c2778dade3926d51057d2cdaa5555",
       "bytes": 3861
@@ -3906,8 +3926,8 @@
     },
     {
       "path": "reports/architecture/ownership.md",
-      "sha256": "967d6c5d641fccc3c44531fda245ed82642b6a2d043edc4e821dbad3d13e51c3",
-      "bytes": 30529
+      "sha256": "3ee117adae42ce542ddff4603ba8cb8b29b59b3cfe42c567e7d7970fea02539a",
+      "bytes": 30698
     },
     {
       "path": "reports/evidence-index.md",

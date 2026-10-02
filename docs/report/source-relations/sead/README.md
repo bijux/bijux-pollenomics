@@ -55,6 +55,11 @@ states distinct without treating a flag as an admitted ecological or dated
 event. This account has its own single-file producer and source-bound checks;
 the six-family replay below retains its original scope.
 
+The [categorical component lineage account](analysis-categorical-values/README.md)
+reconciles 4,800 linked items, nullable component fields and parent display
+strings. It preserves 2,821 display/item differences and keeps analysis
+components distinct from specimens, libraries, sequencing assays and dated events.
+
 The [country chronology account](chronology-country-accounting/README.md)
 joins all 25,109 reviewed claims to the 2,069 assigned site decisions. It
 separates source-row counts, distinct sites and chronology-display eligibility

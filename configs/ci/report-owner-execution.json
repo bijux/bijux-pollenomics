@@ -1184,6 +1184,16 @@
         "source-products/membership.csv": "docs/report/pollen-reconstruction/age-interval-sensitivity/conditional-membership/membership.csv",
         "source-products/report.json": "docs/report/pollen-reconstruction/age-interval-sensitivity/conditional-membership/report.json"
       }
+    },
+    {
+      "owner_id": "source-relations/sead/analysis-categorical-values/report-products",
+      "module": "bijux_pollenomics_dev.source_completion.sead.categorical_values",
+      "source_paths": {
+        "report.json": "docs/report/source-relations/sead/analysis-categorical-values/report.json"
+      },
+      "source_arguments": [],
+      "output_mode": "single_file",
+      "timeout_seconds": 180
     }
   ]
 }

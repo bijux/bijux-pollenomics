@@ -36,8 +36,8 @@ MAINTAINED_ROLE_PATHS = {
         "fe00aed84742364e74dfa0bc51425268e0e2ec657a891410530eaaebd19b8629",
     ),
     "maintained_editorial": (
-        174,
-        "6d0b97f04a30fffb975d5807f0bec436ac7842db3fa2416cd483e9b825702174",
+        175,
+        "504e9b357f1d041dd5f307a6df55e38dac3564b281b5f9a02a5915c0b8e6a67e",
     ),
 }
 SOURCE_FORMATS = {
