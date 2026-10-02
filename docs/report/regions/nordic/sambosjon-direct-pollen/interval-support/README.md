@@ -24,7 +24,7 @@ These counts and parent outcomes had already been exposed. This is a one-site de
 
 ## Reproduce this sensitivity
 
-The [producer](../../../../../../packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_age_support/sambosjon.py) verifies ten pinned parent/age-screen inputs, the preparation/freeze relations and original source-part hashes before reading target counts. It refuses changed inputs, duplicate predictions, altered physical-site exclusion, unusable contained count support and parent-score disagreement. It writes the four numeric files into a previously absent directory:
+The `bijux_pollenomics_dev.source_completion.pollen_age_support.sambosjon` producer verifies ten pinned parent/age-screen inputs, the preparation/freeze relations and original source-part hashes before reading target counts. It refuses changed inputs, duplicate predictions, altered physical-site exclusion, unusable contained count support and parent-score disagreement. It writes the four numeric files into a previously absent directory:
 
 ```sh
 OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 .venv/bin/python -m \
