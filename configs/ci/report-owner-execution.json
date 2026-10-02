@@ -732,6 +732,39 @@
         "dataset-attribution.json": "docs/report/source-relations/neotoma/taxon-priority/dataset-attribution.json"
       },
       "timeout_seconds": 600
+    },
+    {
+      "module": "bijux_pollenomics_dev.source_completion.nordic.swedish_author_predictions",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "regions/nordic/swedish-author-target-pollen/frozen-prediction",
+      "source_arguments": [],
+      "source_paths": {
+        "source-products/predictions-SE.json.gz": "docs/report/regions/nordic/swedish-author-target-pollen/predictions/predictions-SE.json.gz"
+      },
+      "timeout_seconds": 600
+    },
+    {
+      "module": "bijux_pollenomics_dev.source_completion.nordic.swedish_lake_predictions",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "regions/nordic/swedish-lake-transfer/prediction-products",
+      "source_arguments": [],
+      "source_paths": {
+        "source-products/predictions-SE.json.gz": "docs/report/regions/nordic/swedish-lake-transfer/predictions/predictions-SE.json.gz"
+      },
+      "timeout_seconds": 600
+    },
+    {
+      "module": "bijux_pollenomics_dev.source_completion.nordic.swedish_core_predictions",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "regions/nordic/swedish-neotoma-holdout/prediction-products",
+      "source_arguments": [],
+      "source_paths": {
+        "source-products/predictions-SE.json.gz": "docs/report/regions/nordic/swedish-neotoma-holdout/predictions/predictions-SE.json.gz"
+      },
+      "timeout_seconds": 600
     }
   ]
 }
