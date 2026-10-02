@@ -905,6 +905,44 @@
         "source-products/scores.csv": "docs/report/regions/nordic/sambosjon-direct-pollen/scores.csv"
       },
       "timeout_seconds": 600
+    },
+    {
+      "module": "bijux_pollenomics_dev.source_completion.nordic.swedish_chronology_study",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "regions/nordic/swedish-chronology-block/study-products",
+      "source_arguments": [],
+      "source_paths": {
+        "source-products/coverage.csv": "docs/report/regions/nordic/swedish-chronology-block/coverage.csv",
+        "source-products/frozen/freeze.json": "docs/report/regions/nordic/swedish-chronology-block/frozen/freeze.json",
+        "source-products/frozen/predictions-13338.json.gz": "docs/report/regions/nordic/swedish-chronology-block/frozen/predictions-13338.json.gz",
+        "source-products/frozen/predictions-28869.json.gz": "docs/report/regions/nordic/swedish-chronology-block/frozen/predictions-28869.json.gz",
+        "source-products/frozen/predictions-28872.json.gz": "docs/report/regions/nordic/swedish-chronology-block/frozen/predictions-28872.json.gz",
+        "source-products/paired-scores.csv": "docs/report/regions/nordic/swedish-chronology-block/paired-scores.csv",
+        "source-products/prepared/prepare.json": "docs/report/regions/nordic/swedish-chronology-block/prepared/prepare.json",
+        "source-products/report.json": "docs/report/regions/nordic/swedish-chronology-block/report.json",
+        "source-products/scores.csv": "docs/report/regions/nordic/swedish-chronology-block/scores.csv"
+      },
+      "timeout_seconds": 600
+    },
+    {
+      "module": "bijux_pollenomics_dev.source_completion.nordic.swedish_support_study",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "regions/nordic/swedish-support-sensitivity/study-products",
+      "source_arguments": [],
+      "source_paths": {
+        "source-products/coverage.csv": "docs/report/regions/nordic/swedish-support-sensitivity/coverage.csv",
+        "source-products/frozen/freeze.json": "docs/report/regions/nordic/swedish-support-sensitivity/frozen/freeze.json",
+        "source-products/frozen/predictions-13338.json.gz": "docs/report/regions/nordic/swedish-support-sensitivity/frozen/predictions-13338.json.gz",
+        "source-products/frozen/predictions-28869.json.gz": "docs/report/regions/nordic/swedish-support-sensitivity/frozen/predictions-28869.json.gz",
+        "source-products/frozen/predictions-28872.json.gz": "docs/report/regions/nordic/swedish-support-sensitivity/frozen/predictions-28872.json.gz",
+        "source-products/paired-scores.csv": "docs/report/regions/nordic/swedish-support-sensitivity/paired-scores.csv",
+        "source-products/prepared/prepare.json": "docs/report/regions/nordic/swedish-support-sensitivity/prepared/prepare.json",
+        "source-products/report.json": "docs/report/regions/nordic/swedish-support-sensitivity/report.json",
+        "source-products/scores.csv": "docs/report/regions/nordic/swedish-support-sensitivity/scores.csv"
+      },
+      "timeout_seconds": 600
     }
   ]
 }
