@@ -1,89 +1,160 @@
 \input{presentation/shared.tex}
-\title{Bijux Pollenomics: implementation and verification}
-\subtitle{Developer briefing}
+\title{Contributing to Bijux Pollenomics}
+\subtitle{Owners, a runnable report workflow and the checks that protect evidence}
 \author{Bijux Pollenomics}
-\date{1 October 2026}
+\date{2 October 2026}
 \begin{document}
 \frame{\titlepage}
 
-\begin{frame}{Distribution responsibilities}
-\begin{tabular}{p{.33\linewidth}p{.57\linewidth}}
+\begin{frame}{Begin with one source-to-result responsibility}
+\begin{center}
+Source bytes $\rightarrow$ custody $\rightarrow$ normalized record $\rightarrow$ admission\\[0.8em]
+$\rightarrow$ calculation or frozen prediction $\rightarrow$ score $\rightarrow$ reader report
+\end{center}
+\begin{itemize}
+\item Identify the owner of the boundary you are changing and its actual consumer.
+\item Bind physical site, ages, taxon denominator, geometry and permitted use separately.
+\item Preserve failed and refused rows alongside successful results.
+\end{itemize}
+\scope{A format or build check proves its declared contract. A new scientific claim also needs admissible data and qualified review.}
+\evidence{reports/architecture/ownership.md; reports/science/source-cohorts.md}
+\end{frame}
+
+\begin{frame}{Four distributions have distinct owners}
+\small
+\begin{tabular}{p{.34\linewidth}p{.54\linewidth}}
 \toprule
 Distribution & Responsibility \\
 \midrule
-\texttt{bijux-pollenomics} & Canonical collection, evidence, review and publication runtime. \\
-\texttt{pollenomics} & Short-name compatibility facade. \\
-\texttt{bijux-pollenomics-lra} & Optional REVEALS/LOVE engine and extension entry point. \\
-\texttt{bijux-pollenomics-dev} & Repository checks, source consumers and report verification. \\
+\texttt{bijux-pollenomics} & Host collection, source decisions, evidence and publication runtime. \\
+\texttt{pollenomics} & Short-name compatibility interface to the host. \\
+\texttt{bijux-pollenomics-lra} & Optional Landscape Reconstruction Algorithm engine: regional REVEALS and local LOVE. \\
+\texttt{bijux-pollenomics-dev} & Repository checks, source-bound scientific producers and report exports. \\
 \bottomrule
 \end{tabular}
-\scope{A local built-wheel extra install and R-free run passed; the engine is not yet published on PyPI.}
-\evidence{reports/architecture/lra-distribution.md; packages/bijux-pollenomics/pyproject.toml}
+\scope{The optional engine has its own GPL-2.0-or-later metadata; the host declares Apache-2.0. Installation and source-rights review are separate release gates.}
+\evidence{reports/architecture/lra-distribution.md}
 \end{frame}
 
-\begin{frame}{Why the numerical backend remains Python}
+\begin{frame}[fragile]{Use the locked repository environment for development}
+\small
+From the repository root, use the existing governed environment route:
+\begin{verbatim}
+UV_CACHE_DIR=artifacts/root/cache/uv \
+  uv sync --locked --group dev
+.venv/bin/bijux-pollenomics run-lra --help
+\end{verbatim}
+The development group includes the host, optional engine and maintainer tools.
+The report extra declares its Markdown parser. PDF exports additionally need
+XeLaTeX, latexmk, Graphviz and the named fonts in the renderer instructions.
+\scope{A previous clean built-wheel install ran R-free examples on this platform. The dated public-index check found no engine release; a public extra-install route remains unverified.}
+\evidence{pyproject.toml; uv.lock; reports/architecture/lra-distribution.md}
+\end{frame}
+
+\begin{frame}{Tracked evidence and private source bytes serve different roles}
 \begin{itemize}
-\item A private C++17 forward batch matched the tested arithmetic but missed the prospective 2$\times$ validated-call latency gate at all three declared shapes.
-\item One larger synthetic worker used about 31 MB less peak memory with C++, but its median call was slower.
-\item R and Python agreed on identical binary \texttt{LOVEexample} inputs and fixed candidates: cover and pollen exact, ring factors and objective within $5.11\times10^{-15}$.
-\item We kept NumPy in production. Another kernel needs a larger qualified workload, search and buffer contracts, a wheel matrix and conversion-inclusive full-call gain.
+\item Tracked source identities, derived ledgers and rights-safe report text identify the result being discussed.
+\item Lawful original transports, restricted workbooks and article packets remain in the qualified source store; readers do not acquire reuse rights from a citation.
+\item An immutable manifest binds source revision, bytes and declared selection. Synthetic fixtures retain their synthetic labels.
+\item New inputs go through custody, schema and scientific admission before a historical LRA run.
 \end{itemize}
-\scope{The fixed-candidate R comparison does not test optimizer trajectories or ecological accuracy.}
-\evidence{reports/architecture/native-backend.md; docs/report/numerical-performance/love-source-comparison/report.json}
+\scope{Neither a modern lake centroid nor an alternative chronology proves the historical core/window/basin used in a publication.}
+\evidence{reports/science/source-cohorts.md; reports/needed/README.md}
 \end{frame}
 
-\begin{frame}{Follow a claim through the system}
-\begin{center}
-Source member $\rightarrow$ custody receipt $\rightarrow$ normalized record $\rightarrow$ admission decision\\[1em]
-$\rightarrow$ sealed prediction or governed calculation $\rightarrow$ score $\rightarrow$ report/publication
-\end{center}
+\begin{frame}[fragile]{A bounded workflow: export one canonical paper account}
+\small
+This example requires no restricted raw source. The report and inventory must
+match the committed revision. Choose an output directory that does not exist:
+\begin{verbatim}
+SOURCE_DATE_EPOCH=1790812800 PYTHONDONTWRITEBYTECODE=1 \
+ .venv/bin/python -m bijux_pollenomics_dev.reader_reports \
+ --repository . --inventory reports/science/paper-accounts.csv \
+ --paper-id regional-reveals-theory \
+ --output artifacts/jobs/contributor-paper-example
+\end{verbatim}
+Read the PDF beside its receipt: canonical text, citation links, source/producer
+hashes and compiler logs. Inspect every page before retaining an export.
+\scope{This is a report workflow, not a new reconstruction or independent scientific confirmation.}
+\evidence{reports/exports/papers/README.md; packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/reader_reports/README.md}
+\end{frame}
+
+\begin{frame}{What the example verifies and what it leaves open}
+\small
+\begin{tabular}{p{.40\linewidth}p{.47\linewidth}}
+\toprule
+Checked boundary & Remaining scientific boundary \\
+\midrule
+Canonical Markdown matches committed bytes; unsupported markup refuses. & Partial original-paper access remains explicit; new source facts require review. \\
+PDF contains tables, diagrams, citations and embedded fonts. & Untagged PDFs need separate accessibility and actual colleague reading checks. \\
+Local paths become commit-pinned URLs; receipts retain hashes. & Online repository availability awaits publication; private evidence is not embedded. \\
+\bottomrule
+\end{tabular}
+\scope{If the source changes, rebuild only its affected export; a passing unchanged PDF does not cover new text.}
+\evidence{reports/exports/papers/manifest.json; reports/exports/papers/visual-review.json}
+\end{frame}
+
+\begin{frame}{LRA requests use the host's explicit admission contract}
 \begin{itemize}
-\item Physical site, chronology, taxon concept, denominator and permissions are separate gates.
-\item Result manifests pin files and producer identity; refusal rows remain part of the product.
-\item Public text links a claim to its governed table and scope.
+\item \texttt{validate-lra-input} checks the typed request and its source evidence. \texttt{run-lra} creates an exploratory bundle in a new directory.
+\item A request declares count units, taxa, parameters, physical basin/rings, age support, evidence identities, exclusions and uncertainty omissions.
+\item Missing/incompatible engines, invalid inputs and nonconvergence return structured refusals. Successful computation remains \texttt{generated\_exploratory}.
 \end{itemize}
-\evidence{reports/README.md; reports/science/english-lra-pollen-prediction.md}
+\scope{REVEALS estimates regional vegetation; LOVE estimates local vegetation using regional background. Pollen prediction, modeled cover and measured-vegetation accuracy need distinct targets.}
+\evidence{docs/public/pollenomics/interfaces/cli-surface.md; docs/public/pollenomics/architecture/lra-engine.md}
 \end{frame}
 
-\begin{frame}{Three numerical checks with different reach}
+\begin{frame}{A new source or producer needs a real input closure}
 \begin{enumerate}
-\item Source-R calculation checks compare selected native algorithms and fixtures.
-\item Author-example correspondence compares Python with independent author R over 14,074 supported mean/SE values.
-\item Archive correspondence checks the exact shared 100--350 BP window and records genuine product gaps.
+\item Add custody and permitted-use evidence under the owning source family. Validate source schema, identities, population and explicit refusals.
+\item Keep training inputs separate from target outcomes; freeze predictions before scoring. Physical-site grouping and prior exposure remain visible.
+\item A producer reads authenticated parents, writes only its owned paths and accounts for every attempted/refused unit.
+\item Link its result, manifest, reproduction command and limitation from the canonical report and affected public consumer.
 \end{enumerate}
-\scope{A passing implementation check cannot authenticate historical source revisions or ecological truth.}
-\evidence{docs/report/method-certification/original-r-reference/README.md; reports/science/publication-correspondence.md}
+\scope{Do not generate a matching output by copying the tracked result into its supposed independent input.}
+\evidence{reports/architecture/ownership.md; reports/science/pollen-prediction.md}
 \end{frame}
 
-\begin{frame}{Prediction contract: freeze before scoring}
+\begin{frame}{Mixed report owners must survive publication}
+\small
+\begin{tabular}{p{.26\linewidth}p{.60\linewidth}}
+\toprule
+Surface & Owned role \\
+\midrule
+\texttt{reports/} & Scientific interpretation, exact evidence routes, needs and portable exports. \\
+\texttt{docs/report/} & Multiple governed numeric/source producers; a complete rebuild must assemble their independently verified outputs. \\
+\texttt{docs/public/} & Rights-safe website explanations and supported application routes. \\
+\texttt{presentation/} & Source-locked PDF briefings with editable LaTeX. \\
+\bottomrule
+\end{tabular}
+\scope{The publisher owns one portion of the report tree. Never replace the mixed tree with that portion; full independent no-difference reconstruction remains open.}
+\evidence{reports/architecture/ownership.md}
+\end{frame}
+
+\begin{frame}[fragile]{Select checks from the boundary that changed}
+\small
+For report text and PDF identity, begin with:
+\begin{verbatim}
+PYTHONDONTWRITEBYTECODE=1 .venv/bin/python reports/verify.py
+.venv/bin/python docs/report/pollen-reconstruction/verify_report.py
+.venv/bin/python presentation/build.py
+\end{verbatim}
+Source data needs rights/schema/count/admission checks; numerical code needs
+its affected oracle, failure and uncertainty cases. A changed public route
+needs the strict site build and its actual browser/export consumer. A package
+change needs its installed wheel/metadata boundary.
+\scope{Use existing unchanged receipts only within their input scope. The final stable release candidate still needs its complete integration matrix.}
+\evidence{reports/verify.py; docs/report/pollen-reconstruction/verify_report.py; presentation/build.py}
+\end{frame}
+
+\begin{frame}{Diagnose a refusal at its owning boundary}
 \begin{itemize}
-\item Group by physical site or country before fitting; retain source identities and eligible support.
-\item Prepare predictors separately from target outcomes; publish prediction hash first.
-\item Score all eligible rows, record refused bins and report the same support for paired methods.
-\item Keep observed-pollen, LRA forward-pollen and vegetation targets in different result contracts.
+\item \textbf{Source lock changed:} review the changed claim/source; rebuild the affected export before accepting its new identity.
+\item \textbf{Compiler timeout:} inspect the retained log; correct the source or tool/font environment and rerun into an isolated directory.
+\item \textbf{Unsupported scientific input:} name the missing core/age/basin/count/parameter/rights field and request its authority.
+\item \textbf{Failed numerical fit:} retain diagnostic and coverage rows; do not convert the failure to a zero score.
 \end{itemize}
-\evidence{reports/science/denmark-finland-norway-author-pollen.md; reports/science/english-lra-pollen-prediction.md}
-\end{frame}
-
-\begin{frame}{Reports and build ownership}
-\begin{itemize}
-\item \texttt{reports/} is the human-facing claim index and open-question register.
-\item \texttt{docs/report/} currently owns many governed numeric outputs and their producers; migrate by domain with all consumers.
-\item \texttt{docs/public/} carries curated, rights-safe explanations for the website.
-\item \texttt{presentation/} builds from locked report identities and refuses stale source changes.
-\end{itemize}
-\scope{Tracked report publication preserves governed files; independent full-tree rebuilding remains open.}
-\evidence{reports/architecture/ownership.md; presentation/README.md}
-\end{frame}
-
-\begin{frame}{Developer verification route}
-\begin{enumerate}
-\item Run the selected producer with a declared input root into \texttt{artifacts/}.
-\item Replay the specific report verifier and compare manifest identities.
-\item Run affected tests, type/style checks and strict website build for changed pages.
-\item Build all decks; a stale source lock must stop publication until reviewed.
-\end{enumerate}
-\scope{Source rights and missing ecological inputs are scientific gates, not test failures to suppress.}
-\evidence{docs/report/pollen-reconstruction/verify_report.py; presentation/build.py}
+\scope{Human reading, source decisions and qualified scientific review remain explicit inputs; model review does not supply them.}
+\evidence{reports/needed/README.md; reports/science/model-use.md; presentation/README.md}
 \end{frame}
 \end{document}

@@ -6,7 +6,9 @@
   ],
   "source_date_epoch": 1790812800,
   "sources": {
+    "docs/public/pollenomics/architecture/lra-engine.md": "8179ac98666a4f9bdad3c3672f38fdaca42723eef0e5d46cdd0658f609e13bc3",
     "docs/public/pollenomics/architecture/package-split.md": "57ec9e6c8950e0bba2360e950294b0e1452b38d42efd497ebe487941f2c10a0d",
+    "docs/public/pollenomics/interfaces/cli-surface.md": "a6edf958dd76ceacd24291c95745c9be591beb0ddc1db9f9f546e11b916dc11e",
     "docs/public/pollenomics/science/papers.md": "9fe1d21afb80e20fff743f464eaa6c27cbbea68aff2851d6d9e0bbb91167581d",
     "docs/report/countries/denmark/solsoe-source-lineage/author-target-age-interval/report.json": "2c7899e006c8cc82877dccab64670f78df70cdc616dcd5ade7f45031e82183dd",
     "docs/report/countries/denmark/solsoe-source-lineage/legacyage-chronology/report.json": "dc06e30d7a290bb81ad6c8f0da1ec3b8a804f883af388692855698e9ee555be2",
@@ -44,17 +46,22 @@
     "docs/report/source-relations/neotoma/legacyage-chronology/report.json": "544020c69762d5b86a0c6f9cd4e06b10894c8e4139058f988e28d2970edd0a74",
     "docs/report/source-relations/sead/chronology-country-accounting/report.json": "855339046180a5fefb3459e488dfb5f937bb7a8ec155528167bb22bf77de7778",
     "docs/report/validation/empd2-nfi-pairing/report.json": "cc90bccae9c54808dfea71cb4c07bb1bd12273e10eefbe889981369e34f66642",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/reader_reports/README.md": "9b4085da707a347c60d75b4f0d6b9765eeb16d49db1e22f5c48b019492873e5d",
     "packages/bijux-pollenomics/pyproject.toml": "5210c72e9ee4827f64c81f7ca1906e2fe4465cb6cf227311378fc77038ed8aaf",
     "presentation/README.md": "56e8431b847af632dc882908fe6f0813a0bcd4d08ec035a41960baf6c99d6537",
     "presentation/big-picture.tex": "e73a8cd7a5518ad87cfcb2ef5c3ba5fe3494c69f4ededc952026a2591cac9995",
     "presentation/build.py": "11407033c32752fb1eb4933925fd9935a864dd213b524ac59a984628cbd305ac",
-    "presentation/developer.tex": "4d7d14115853ffe42df055bea3ebe0fc382cbdfc18f80cae9709c24814a727bc",
+    "presentation/developer.tex": "6bf7568a78ae966fae6554054e4ca536eedfc06a61468803e3775d0bc45806cf",
     "presentation/scientific-evidence.tex": "b08326b55619a3a672d983b5a40b11db92f9672c15cf26364c83e46675171026",
     "presentation/shared.tex": "2aa40954975f75241ded20a78d0c698c0f864274222e30c148bda4cf4b0bf17a",
+    "pyproject.toml": "9cc54d64c3f76f62bf16e7d2552d02c390d99c82387f0617782c880ba92acecd",
     "reports/README.md": "b197fdf6e75ccec631fa5a68dba7678b310583badd28461ffe30f9652fd198d0",
     "reports/architecture/lra-distribution.md": "9a6c1b006d297dc46953499b6d7878503242ab84429320fbf82c345c25bebed4",
     "reports/architecture/native-backend.md": "8aa679097d3f4457a1fb6b133f696fc2099a50b6d434142b3430c2ed6a759e80",
     "reports/architecture/ownership.md": "7b2c6cd467c66e2f582ac613400483a49a9bfa4c3141f4f4247b7bb7946ad32b",
+    "reports/exports/papers/README.md": "ff5a96f461e93a18e8bea26079d1c7833bf709756f5bf7faeb66cfdf51ffbb65",
+    "reports/exports/papers/manifest.json": "1b1dfb70642c373ecc2f9d132ecdb39608b952dea44e22b7a10ede42dd085bad",
+    "reports/exports/papers/visual-review.json": "39f234de871903e0b224eb5d82e95fc704ded878f819e4e2bb5b70058eb5a844",
     "reports/needed/README.md": "fb214fd74b1d2db27e0f0075448f92719fec7da39188d9e1db08aa701ceac857",
     "reports/science/abborrtjarnen-source-method.md": "ec1cea41eac2ad913e4c9227a491325f4471bec28a8fd313226f0776970683b1",
     "reports/science/bjaresjo-context.md": "a49c6d6530dd543ae4dc3c4ca0e4bcabe37af8e363b28bd6d18b1245723118d1",
@@ -92,6 +99,8 @@
     "reports/science/sweden-spatiotemporal-sensitivity.md": "8f6dccebd81af82bfedea3e9ae3ddaea75a3999a59bfd1119046d947c43980de",
     "reports/science/sweden-training-scope.md": "f314ad31c3ce166f7c8ea2aa2b03ed82c097c8026bb969008711c33e11f39246",
     "reports/science/synthetic-model-selection/README.md": "af6ff96f339d3ba2528e3d68a970415fc8cf9eb2770f5255a43a808f8199d010",
-    "reports/science/vegetation-reference.md": "9f3c0b639bfadb2e3951b6d85e68f2a7c2a80a197af69ad179ebf8c0707eee2b"
+    "reports/science/vegetation-reference.md": "9f3c0b639bfadb2e3951b6d85e68f2a7c2a80a197af69ad179ebf8c0707eee2b",
+    "reports/verify.py": "3b4d694b03350bb16195a66f45e98ced754d8d429a54632cbfc42cddfaf19abb",
+    "uv.lock": "356c38e8c35c4da24abcdc49a27562c8d5d33f526cea436bc5dbc0a0f871ab94"
   }
 }
