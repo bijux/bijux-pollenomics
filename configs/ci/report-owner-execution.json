@@ -489,6 +489,46 @@
         "source-products/report.json": "docs/report/propagation/governed-edge-ledger/report.json"
       },
       "timeout_seconds": 180
+    },
+    {
+      "module": "bijux_pollenomics_dev.source_completion.neotoma.swedish_native_sequences",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "pollen-reconstruction/swedish-native-sequences/source-tables",
+      "source_arguments": [],
+      "source_paths": {
+        "source-products/chronology-controls.json": "docs/report/pollen-reconstruction/swedish-native-sequences/chronology-controls.json",
+        "source-products/manifest.json": "docs/report/pollen-reconstruction/swedish-native-sequences/manifest.json",
+        "source-products/map-summary.geojson": "docs/report/pollen-reconstruction/swedish-native-sequences/map-summary.geojson",
+        "source-products/observations.json": "docs/report/pollen-reconstruction/swedish-native-sequences/observations.json",
+        "source-products/samples.json": "docs/report/pollen-reconstruction/swedish-native-sequences/samples.json",
+        "source-products/sites.json": "docs/report/pollen-reconstruction/swedish-native-sequences/sites.json"
+      },
+      "timeout_seconds": 180
+    },
+    {
+      "module": "bijux_pollenomics_dev.source_completion.swedish_neotoma_duplicate_review",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "regions/nordic/swedish-neotoma-holdout/parallel-dataset-review",
+      "source_arguments": [],
+      "source_paths": {
+        "source-products/report.json": "docs/report/regions/nordic/swedish-neotoma-holdout/parallel-dataset-review.json"
+      },
+      "timeout_seconds": 180
+    },
+    {
+      "module": "bijux_pollenomics_dev.source_completion.essd.published_window_uncertainty",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "publication-replay/landclim-published-window-uncertainty/envelope-products",
+      "source_arguments": [],
+      "source_paths": {
+        "source-products/REPORT.md": "docs/report/publication-replay/landclim-published-window-uncertainty/REPORT.md",
+        "source-products/report.json": "docs/report/publication-replay/landclim-published-window-uncertainty/report.json",
+        "source-products/taxon-envelopes.csv": "docs/report/publication-replay/landclim-published-window-uncertainty/taxon-envelopes.csv"
+      },
+      "timeout_seconds": 180
     }
   ]
 }
