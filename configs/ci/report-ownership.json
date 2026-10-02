@@ -4898,38 +4898,106 @@
       "verification": "Identify the exact producer or independent source/template custody, lawful input closure and role-specific verification route for these paths. Bind independently reconstructed output or authenticated retained source before full mixed-owner acceptance; tracked output bytes cannot feed their own producer."
     },
     {
+      "owner_id": "regions/nordic/source-capability/derived-products",
+      "role": "generated_owner",
+      "paths": [
+        "docs/report/regions/nordic/source-capability/report.json"
+      ],
+      "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/source_capability.py"
+      ],
+      "producer_inputs": [
+        "data/boundaries/normalized/nordic_country_boundaries.geojson",
+        "data/boundaries/raw/source_manifest.json",
+        "data/collection_summary.json",
+        "data/country_dimension_coverage.json",
+        "data/empd2/review/country_coverage_evidence.json",
+        "data/landclim/normalized/nordic_pollen_site_sequences.geojson",
+        "data/neotoma/relational/reconciliation.json",
+        "data/nfi/review/country_coverage_evidence.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_materialization_manifest.json",
+        "data/sead/normalized/nordic_environmental_sites.geojson",
+        "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/admission.json",
+        "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/country-decisions.json",
+        "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_sites.json",
+        "data/source_family_evidence_stage_matrix.json",
+        "docs/report/animal_country_species_coverage.json",
+        "docs/report/countries/denmark/denmark_aadr_v66_summary.json",
+        "docs/report/countries/finland/finland_aadr_v66_summary.json",
+        "docs/report/countries/norway/norway_aadr_v66_summary.json",
+        "docs/report/countries/sweden/sweden_aadr_v66_summary.json",
+        "docs/report/regions/nordic/nordic_pollen_site_sequences.geojson",
+        "docs/report/regions/nordic/nordic_pollen_sites.geojson"
+      ],
+      "verification": "Run PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -m bijux_pollenomics_dev.source_completion.source_capability --repository . --output artifacts/jobs/nordic-capability-reproduction/country-capability with an absent destination, then compare report.json. Two governing source/country ledgers and all20 parent input artifacts;66 family/partition entries retain198 distinct source/assignment/publication dimensions without flattening nulls or countries. This declaration is mechanical consumer custody; upstream materialization and qualification remain independently governed."
+    },
+    {
+      "owner_id": "regions/nordic/source-capability/neotoma-attribution/reader-account",
+      "role": "maintained_editorial",
+      "paths": [
+        "docs/report/regions/nordic/source-capability/neotoma-attribution/README.md"
+      ],
+      "producer_paths": [],
+      "producer_inputs": [],
+      "verification": "Maintain the authored source/entity/citation account against exact governed outputs; keep source-reported, assigned and published counts, nullable coverage, scientific admission and rights decisions distinct."
+    },
+    {
       "owner_id": "regions/nordic/source-capability/neotoma-attribution/report-products",
       "role": "unresolved",
       "paths": [
-        "docs/report/regions/nordic/source-capability/neotoma-attribution/README.md",
         "docs/report/regions/nordic/source-capability/neotoma-attribution/doi-review.json",
         "docs/report/regions/nordic/source-capability/neotoma-attribution/report.json"
       ],
-      "producer_paths": [],
-      "producer_inputs": [],
-      "verification": "Identify the exact producer or independent source/template custody, lawful input closure and role-specific verification route for these paths. Bind independently reconstructed output or authenticated retained source before full mixed-owner acceptance; tracked output bytes cannot feed their own producer."
-    },
-    {
-      "owner_id": "regions/nordic/source-capability/neotoma-entities/report-products",
-      "role": "unresolved",
-      "paths": [
-        "docs/report/regions/nordic/source-capability/neotoma-entities/README.md",
+      "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/neotoma_doi_review.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/neotoma_publication_readiness.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/neotoma/publication_intake.py"
+      ],
+      "producer_inputs": [
+        "data/neotoma/relational/surfaces/datasets/part-00001.json",
+        "docs/public/pollenomics-data/sources/neotoma.md",
         "docs/report/regions/nordic/source-capability/neotoma-entities/report.json"
       ],
-      "producer_paths": [],
-      "producer_inputs": [],
-      "verification": "Identify the exact producer or independent source/template custody, lawful input closure and role-specific verification route for these paths. Bind independently reconstructed output or authenticated retained source before full mixed-owner acceptance; tracked output bytes cannot feed their own producer."
+      "verification": "Provider publication and distinct-DOI replay modules require original private HTTP captures plus manifests and response headers at the documented capture-root. Known repository inputs here do not close those responses. Bind exact original capture custody and compare both products separately without reacquiring mutable API responses.79primary links and six review gaps describe citation posture, not sample source rights, basin or LRA admission."
     },
     {
-      "owner_id": "regions/nordic/source-capability/report-products",
-      "role": "unresolved",
+      "owner_id": "regions/nordic/source-capability/neotoma-entities/derived-products",
+      "role": "generated_owner",
       "paths": [
-        "docs/report/regions/nordic/source-capability/README.md",
-        "docs/report/regions/nordic/source-capability/report.json"
+        "docs/report/regions/nordic/source-capability/neotoma-entities/report.json"
+      ],
+      "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/neotoma_entity_decisions.py"
+      ],
+      "producer_inputs": [
+        "data/neotoma/raw/neotoma_pollen_dataset_downloads/manifest.json",
+        "data/neotoma/relational/manifest.json",
+        "data/neotoma/relational/surfaces/datasets/part-00001.json",
+        "docs/report/regions/nordic/direct-pollen/cohort.csv",
+        "docs/report/regions/nordic/direct-pollen/training-sources.csv",
+        "docs/report/source-relations/neotoma/pollen-screen/report.json"
+      ],
+      "verification": "Run PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -m bijux_pollenomics_dev.source_completion.neotoma_entity_decisions --repository . --output artifacts/jobs/nordic-capability-reproduction/neotoma-entities with an absent destination, then compare report.json. Six retained source/study inputs;85 included and124 excluded dataset entities, not LRA admissions. This declaration is mechanical consumer custody; upstream materialization and qualification remain independently governed."
+    },
+    {
+      "owner_id": "regions/nordic/source-capability/neotoma-entities/reader-account",
+      "role": "maintained_editorial",
+      "paths": [
+        "docs/report/regions/nordic/source-capability/neotoma-entities/README.md"
       ],
       "producer_paths": [],
       "producer_inputs": [],
-      "verification": "Identify the exact producer or independent source/template custody, lawful input closure and role-specific verification route for these paths. Bind independently reconstructed output or authenticated retained source before full mixed-owner acceptance; tracked output bytes cannot feed their own producer."
+      "verification": "Maintain the authored source/entity/citation account against exact governed outputs; keep source-reported, assigned and published counts, nullable coverage, scientific admission and rights decisions distinct."
+    },
+    {
+      "owner_id": "regions/nordic/source-capability/reader-account",
+      "role": "maintained_editorial",
+      "paths": [
+        "docs/report/regions/nordic/source-capability/README.md"
+      ],
+      "producer_paths": [],
+      "producer_inputs": [],
+      "verification": "Maintain the authored source/entity/citation account against exact governed outputs; keep source-reported, assigned and published counts, nullable coverage, scientific admission and rights decisions distinct."
     },
     {
       "owner_id": "regions/nordic/swedish-author-target-pollen/report-products",

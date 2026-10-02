@@ -63,8 +63,8 @@ or qualified scientific review.
 The [output ownership inventory](../../configs/ci/report-ownership.json)
 assigns every tracked report path exactly one declaration. Its population is
 1,938 paths: 709 declared publisher paths, 125 original-R retained source
-files, 70 generated domain outputs, 62 maintained source files, 120
-maintained reader accounts and 852 paths with unresolved output custody.
+files, 72 generated domain outputs, 62 maintained source files, 123
+maintained reader accounts and 847 paths with unresolved output custody.
 These role counts describe the current declarations. They do not measure
 how many outputs have been independently reproduced.
 
@@ -185,6 +185,14 @@ paths stay absent facts rather than observed zeros. Seven source explanations
 are editorial. Original OpenLand/DOI captures, the full private-intake audit
 and the SVAR export inputs retain separate custody requirements. Source
 accounting and a metadata join do not establish scientific admission.
+
+The Nordic source/country cube and Neotoma study-entity consumer declare
+their governing ledgers, including all 20 country parent artifacts and six
+entity/study inputs. Three source/entity explanations are editorial. The
+Neotoma publication and DOI comparison outputs still require their original
+private HTTP captures; current mutable API responses would not reproduce
+the retained capture identity. Entity inclusion and source citation posture
+remain distinct from LRA and measured-vegetation admission.
 
 A fresh canonical publisher build from fixed product
 `d535ca7f3bed0ead63e5f96e45658c435ed6613a` produced exactly the 709 declared
