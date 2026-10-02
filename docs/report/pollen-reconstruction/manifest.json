@@ -3185,6 +3185,11 @@
       "bytes": 7596
     },
     {
+      "path": "reports/science/namibia-pollen-vegetation-paper.md",
+      "sha256": "a54e9d9459a674a64944252c08ae4c9b56bbfb0c6f5e32fb793e75a5a28a4fb0",
+      "bytes": 8873
+    },
+    {
       "path": "reports/science/neotoma-study-membership/README.md",
       "sha256": "a0a7b86ba0395a6e40e7a24c4b384ced7b39e7afde096d7f13c98296488f88c4",
       "bytes": 3167
@@ -3406,8 +3411,8 @@
     },
     {
       "path": "reports/science/vegetation-reference.md",
-      "sha256": "6eeec925590d42bab6326b73ca95159c5a6cb44ff92e99e831b27a793a978c0a",
-      "bytes": 8461
+      "sha256": "067ce162b65a73517908f212555ad0486fabccf91d413e3754fedd34f3e30a75",
+      "bytes": 8533
     },
     {
       "path": "reports/science/vegetation-reference/farskesjon/plot_support.py",

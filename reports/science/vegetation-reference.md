@@ -1,8 +1,8 @@
 # What our vegetation references can establish
 
 The [historical-map paper account](smaland-historical-maps-paper.md) and
-[southern Swedish validation account](southern-sweden-validation-paper.md)
-explain the published methods and examples before this repository's source-admission decisions. Their published results and our bounded
+[southern Swedish validation account](southern-sweden-validation-paper.md) and
+[Namibian source-paper account](namibia-pollen-vegetation-paper.md) explain the published methods and examples before this repository's source-admission decisions. Their published results and our bounded
 source checks have separate populations.
 
 ## Our decision
