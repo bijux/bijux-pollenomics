@@ -6,6 +6,10 @@ currently live under `docs/report/`. The Bjäresjösjön context screen and
 publication PFT crosswalk live beside their root studies. This library is the
 reader entry point while other producer paths are migrated by domain.
 
+The [main-paper inventory](science/paper-accounts.md) identifies the canonical
+method and vegetation-reference accounts, with each original population and
+our separate checked result. Partial article access remains explicit.
+
 The [claim-to-evidence index](evidence-index.md) goes directly from each
 headline result to its numeric table, input identity, producer and scope.
 Run `python3 reports/verify.py` after changing a scientific report or its
