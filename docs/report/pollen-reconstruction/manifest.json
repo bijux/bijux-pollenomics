@@ -11,8 +11,8 @@
     },
     {
       "path": "configs/ci/report-owner-execution.json",
-      "sha256": "452362a42377e7f1b86d10b47c4149e7ed5c4fa9fc978151fca5cda2338f4ab6",
-      "bytes": 10569
+      "sha256": "fb939ee50eb16a86a85dd7cbb4ead8700f32539a06ea9a99c636c8a28d94a7a8",
+      "bytes": 11685
     },
     {
       "path": "configs/ci/report-ownership.json",
@@ -3191,8 +3191,8 @@
     },
     {
       "path": "reports/architecture/ownership.md",
-      "sha256": "aacd6fce6d89394f86fc6cd3cf5c7fe9ef9df9d81f2880a61ec52b05297e75c0",
-      "bytes": 22007
+      "sha256": "1ada88d653745d78bbd83f626a4535bc6f22c84c839cae3d02680c544480e690",
+      "bytes": 22148
     },
     {
       "path": "reports/evidence-index.md",
@@ -3266,7 +3266,7 @@
     },
     {
       "path": "reports/exports/site-downloads.json",
-      "sha256": "a935901e5075e1d58da02a192d1f1cbd0ac9196353969e5dbae356955952ee35",
+      "sha256": "88a8b36ae93bbec06eb60f7c54da2d972e3a6cbb26d1b64ca8f381dbd413852d",
       "bytes": 5774
     },
     {

@@ -314,7 +314,9 @@ comparison does not admit a core, basin or LRA request. Three source-ledger
 consumers add six country-capability, SEAD retrieval and chronology-accounting
 outputs from their retained source and governed country ledgers. Their source,
 assigned and publication country meanings remain separate, including chronology
-refusals. These sixteen producers cover only their declared files. The complete report-tree
+refusals. SEAD country-coverage and source-unit consumers add four outputs,
+with every retained manifest member and table receipt in their read sets.
+These eighteen producers cover only their declared files. The complete report-tree
 comparison remains mandatory and refuses any missing owner. The scientific CI
 workflow derives the owner matrix and assembly selection from the same
 validated execution configuration, using a digest of each full identity as

@@ -254,6 +254,30 @@
       "output_mode": "directory",
       "timeout_seconds": 180,
       "output_subdirectory": "source-products"
+    },
+    {
+      "owner_id": "source-relations/sead/country-coverage/report-products",
+      "module": "bijux_pollenomics_dev.source_completion.sead_country_coverage",
+      "source_paths": {
+        "source-products/report.json": "docs/report/source-relations/sead/country-coverage/report.json",
+        "source-products/rows.csv": "docs/report/source-relations/sead/country-coverage/rows.csv"
+      },
+      "source_arguments": [],
+      "output_mode": "directory",
+      "timeout_seconds": 180,
+      "output_subdirectory": "source-products"
+    },
+    {
+      "owner_id": "source-relations/sead/source-unit-accounting/report-products",
+      "module": "bijux_pollenomics_dev.source_completion.sead_country_source_units",
+      "source_paths": {
+        "source-products/report.json": "docs/report/source-relations/sead/source-unit-accounting/report.json",
+        "source-products/rows.csv": "docs/report/source-relations/sead/source-unit-accounting/rows.csv"
+      },
+      "source_arguments": [],
+      "output_mode": "directory",
+      "timeout_seconds": 180,
+      "output_subdirectory": "source-products"
     }
   ]
 }
