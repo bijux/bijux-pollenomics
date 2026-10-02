@@ -3010,6 +3010,11 @@
       "bytes": 39986
     },
     {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/release/publication_guard.py",
+      "sha256": "5fedf128c97212071b80fb3fc0501df117642addf4fb016a7704a670ba342abd",
+      "bytes": 7492
+    },
+    {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/abbo_profile_lineage.py",
       "sha256": "054913554ae1a4b4527bcf06a5a713e1cd7ffdb85bd35b1bb8198b036ba83cb3",
       "bytes": 6758
@@ -3858,6 +3863,11 @@
       "path": "packages/bijux-pollenomics-dev/tests/source_completion/test_swedish_training_scope.py",
       "sha256": "9d3b7164dd98ea703dbbb0b6dc8635241843406a8a759c541122539bb45fa8af",
       "bytes": 3596
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/tests/test_release_guards.py",
+      "sha256": "a327fbacd33dc73705b3ecbc80b437330dd7f8a6828a60b6b653b2042c4ff1e3",
+      "bytes": 6292
     },
     {
       "path": "packages/bijux-pollenomics-dev/tests/test_report_owner_process.py",

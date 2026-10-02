@@ -4,6 +4,8 @@ from __future__ import annotations
 
 import argparse
 from pathlib import Path
+import re
+import tomllib
 
 from .version_resolver import resolve_version
 
@@ -55,6 +57,56 @@ def artifact_versions(dist_dir: Path) -> dict[str, str]:
     return versions
 
 
+def _canonical_project(name: str) -> str:
+    """Compare the distribution spelling used by wheels and source archives."""
+    if not re.fullmatch(r"[A-Za-z0-9](?:[A-Za-z0-9_.-]*[A-Za-z0-9])?", name):
+        raise ValueError(f"invalid distribution name: {name!r}")
+    return re.sub(r"[-_.]+", "-", name).lower()
+
+
+def _assert_project_metadata(pyproject: Path, package_name: str) -> None:
+    document = tomllib.loads(pyproject.read_text(encoding="utf-8"))
+    project = document.get("project")
+    declared = project.get("name") if isinstance(project, dict) else None
+    if not isinstance(declared, str) or _canonical_project(
+        declared
+    ) != _canonical_project(package_name):
+        raise ValueError(
+            f"pyproject project name does not match requested project {package_name}"
+        )
+
+
+def _artifact_identity(path: Path) -> tuple[str, str, str]:
+    """Return normalized project, version, and distinct wheel/sdist identity.
+
+    Wheel names use escaped project names, optional numeric-leading build tags,
+    and three nonempty dot-separated compatibility tags. The resolved version
+    is checked separately and comes from the package build metadata.
+    """
+    if path.name.endswith(".whl"):
+        parts = path.name[:-4].split("-")
+        if len(parts) not in (5, 6) or any(not part for part in parts):
+            raise ValueError(f"unrecognized wheel filename: {path.name}")
+        distribution, version = parts[:2]
+        if not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9_.]*", distribution):
+            raise ValueError(f"unrecognized wheel distribution: {path.name}")
+        if len(parts) == 6 and re.fullmatch(r"[0-9][A-Za-z0-9_]*", parts[2]) is None:
+            raise ValueError(f"unrecognized wheel build tag: {path.name}")
+        if any(
+            re.fullmatch(r"[A-Za-z0-9_]+(?:\.[A-Za-z0-9_]+)*", tag) is None
+            for tag in parts[-3:]
+        ):
+            raise ValueError(f"unrecognized wheel compatibility tags: {path.name}")
+        return _canonical_project(distribution), version, "wheel:" + "-".join(parts[2:])
+    if path.name.endswith(".tar.gz"):
+        stem = path.name[: -len(".tar.gz")]
+        if "-" not in stem:
+            raise ValueError(f"unrecognized sdist filename: {path.name}")
+        distribution, version = stem.rsplit("-", 1)
+        return _canonical_project(distribution), version, "sdist"
+    raise ValueError(f"unsupported artifact extension: {path.name}")
+
+
 def assert_publishable_version(
     version: str,
     *,
@@ -76,8 +128,10 @@ def assert_publishable_version(
         )
 
 
-def assert_artifacts_match_version(dist_dir: Path, version: str) -> None:
-    """Ensure all publish artifacts align with the resolved version."""
+def assert_artifacts_match_version(
+    dist_dir: Path, version: str, package_name: str
+) -> None:
+    """Bind the complete wheel/sdist set to one requested project and version."""
     versions = artifact_versions(dist_dir)
     if not versions:
         raise ValueError(f"no artifacts found under {dist_dir}")
@@ -94,12 +148,30 @@ def assert_artifacts_match_version(dist_dir: Path, version: str) -> None:
         raise ValueError(
             f"artifact versions do not match resolved version {version}: {details}"
         )
+    expected_project = _canonical_project(package_name)
+    seen: set[str] = set()
+    kinds: set[str] = set()
+    for name in versions:
+        project, _, archive_identity = _artifact_identity(Path(name))
+        if project != expected_project:
+            raise ValueError(
+                f"artifact project {project} does not match requested project "
+                f"{expected_project}: {name}"
+            )
+        if archive_identity in seen:
+            raise ValueError(f"duplicate normalized distribution artifact: {name}")
+        seen.add(archive_identity)
+        kinds.add("wheel" if archive_identity.startswith("wheel:") else "sdist")
+    if kinds != {"wheel", "sdist"}:
+        raise ValueError("publish artifacts require at least one wheel and one sdist")
 
 
 def main() -> int:
     """Run the command-line entry point."""
     args = parse_args()
-    version = resolve_version(Path(args.pyproject), args.package_name)
+    pyproject = Path(args.pyproject)
+    _assert_project_metadata(pyproject, args.package_name)
+    version = resolve_version(pyproject, args.package_name)
     if version == "0.0.0":
         raise SystemExit("unable to resolve package version")
     assert_publishable_version(
@@ -108,7 +180,7 @@ def main() -> int:
         allow_local_version=args.allow_local_version,
     )
     if args.dist_dir:
-        assert_artifacts_match_version(Path(args.dist_dir), version)
+        assert_artifacts_match_version(Path(args.dist_dir), version, args.package_name)
     print(version)
     return 0
 
