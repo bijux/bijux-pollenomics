@@ -2371,7 +2371,7 @@
     },
     {
       "path": "docs/report/report_narrative_quality_review.json",
-      "sha256": "b5b13de9021a6abbc11738850ee84cbf22c06e397060f734cfcc539069eb23d6",
+      "sha256": "9ee4035b16127d31d9090168e934689f57ec8d8c95a0b7e1499ce65028a46614",
       "bytes": 138214
     },
     {
@@ -2381,7 +2381,7 @@
     },
     {
       "path": "docs/report/report_surface_registry.json",
-      "sha256": "2beccdf4d7ff610bd1cd4c7fbdbd3b5ddddc4b82f7742969fd0f676466a0f4be",
+      "sha256": "3332f7635cf7fec0b7c8e1f5a0cdc6ae07bc4be882a7db083c11586ec430fc39",
       "bytes": 945891
     },
     {
@@ -2741,8 +2741,8 @@
     },
     {
       "path": "docs/report/vegetation-reference/namibia-pollen-vegetation/README.md",
-      "sha256": "bc4b28f5617a129d6eb55953871488424d813a6865a5287373e8dcf40ad6ead7",
-      "bytes": 4576
+      "sha256": "8bb72afa3b534931d869d90bab4a1386a6acc36179a7c6b9b9731da846dd5647",
+      "bytes": 5173
     },
     {
       "path": "docs/report/vegetation-reference/namibia-pollen-vegetation/paired.csv",
@@ -2756,13 +2756,13 @@
     },
     {
       "path": "docs/report/vegetation-reference/namibia-pollen-vegetation/radius-sensitivity.json",
-      "sha256": "e454394f1dddb1712cc08aadcd19b98ef883e364ce559729e0c5d2026f210867",
-      "bytes": 6642
+      "sha256": "5a3caae7c491a020e1a1abc77e526a26ac95f1a2c7bc1084561fd6998ffeec0c",
+      "bytes": 30041
     },
     {
       "path": "docs/report/vegetation-reference/namibia-pollen-vegetation/radius_sensitivity.py",
-      "sha256": "08bdc29b0d5f22dee81b8bc92ec581757a616cebe2300573aee19bfacb2fac8b",
-      "bytes": 6908
+      "sha256": "b93ba1f47a06fb607fa17f3700bbd60179765e4409e73c7c036811f5a5cf32ea",
+      "bytes": 9752
     },
     {
       "path": "docs/report/vegetation-reference/namibia-pollen-vegetation/replay.py",
@@ -3512,7 +3512,7 @@
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/vegetation/namibia_radius_sensitivity.py",
       "bytes": 5199,
-      "sha256": "496054e24d80077142adc91a83c2bfec270e5d5412dce7550ff204c93833e64b"
+      "sha256": "7422e4e0fa1245a5ba4b8d924f3f18507465ed237dbf548ea931b7ac71c81203"
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/vegetation/namibia_source_join.py",

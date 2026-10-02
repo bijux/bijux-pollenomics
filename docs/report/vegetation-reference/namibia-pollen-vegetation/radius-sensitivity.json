@@ -153,8 +153,770 @@
       "maximum_hellinger_distance": 0.519614440956
     }
   ],
+  "ring_geometry": {
+    "source_description_url": "https://doi.pangaea.de/10.1594/PANGAEA.931037",
+    "publisher_description": "Mean cover of the studied taxa was calculated by 100 m rings.",
+    "adjacent_site_taxon_comparisons": 700,
+    "adjacent_area_decreases": 9,
+    "site_taxon_series_with_decrease": 8,
+    "full_annulus_width_m": 100,
+    "full_annulus_area_formula": "pi * (outer_radius_m^2 - (outer_radius_m - 100)^2)",
+    "full_annulus_ratio_interpretation": "The publisher radius label is assumed to be the outer radius of a hypothetical complete circular 100 m annulus. The five listed vegetation areas are divided by that full-annulus area. This is a geometric diagnostic, not measured whole-cover fraction or proof of the publisher's exact ring-sector mask.",
+    "full_annulus_ratios": [
+      {
+        "event": "Namibia_T1",
+        "ring_sector_radius_m": 100,
+        "five_taxon_area_to_full_annulus_ratio": 0.835747969839
+      },
+      {
+        "event": "Namibia_T1",
+        "ring_sector_radius_m": 200,
+        "five_taxon_area_to_full_annulus_ratio": 0.847602325227
+      },
+      {
+        "event": "Namibia_T1",
+        "ring_sector_radius_m": 300,
+        "five_taxon_area_to_full_annulus_ratio": 0.848152941068
+      },
+      {
+        "event": "Namibia_T1",
+        "ring_sector_radius_m": 400,
+        "five_taxon_area_to_full_annulus_ratio": 0.821713967411
+      },
+      {
+        "event": "Namibia_T1",
+        "ring_sector_radius_m": 500,
+        "five_taxon_area_to_full_annulus_ratio": 0.853038861573
+      },
+      {
+        "event": "Namibia_T1",
+        "ring_sector_radius_m": 600,
+        "five_taxon_area_to_full_annulus_ratio": 0.859428120466
+      },
+      {
+        "event": "Namibia_T1",
+        "ring_sector_radius_m": 700,
+        "five_taxon_area_to_full_annulus_ratio": 0.867790222911
+      },
+      {
+        "event": "Namibia_T1",
+        "ring_sector_radius_m": 800,
+        "five_taxon_area_to_full_annulus_ratio": 0.870255268754
+      },
+      {
+        "event": "Namibia_T1",
+        "ring_sector_radius_m": 900,
+        "five_taxon_area_to_full_annulus_ratio": 0.871959837965
+      },
+      {
+        "event": "Namibia_T1",
+        "ring_sector_radius_m": 1000,
+        "five_taxon_area_to_full_annulus_ratio": 0.868104341562
+      },
+      {
+        "event": "Namibia_T1",
+        "ring_sector_radius_m": 1100,
+        "five_taxon_area_to_full_annulus_ratio": 0.856306443037
+      },
+      {
+        "event": "Namibia_T1",
+        "ring_sector_radius_m": 1200,
+        "five_taxon_area_to_full_annulus_ratio": 0.854374901636
+      },
+      {
+        "event": "Namibia_T1",
+        "ring_sector_radius_m": 1300,
+        "five_taxon_area_to_full_annulus_ratio": 0.850302380835
+      },
+      {
+        "event": "Namibia_T1",
+        "ring_sector_radius_m": 1400,
+        "five_taxon_area_to_full_annulus_ratio": 0.849047086164
+      },
+      {
+        "event": "Namibia_T1",
+        "ring_sector_radius_m": 1500,
+        "five_taxon_area_to_full_annulus_ratio": 0.859078607531
+      },
+      {
+        "event": "Namibia_T10",
+        "ring_sector_radius_m": 100,
+        "five_taxon_area_to_full_annulus_ratio": 0.918415822565
+      },
+      {
+        "event": "Namibia_T10",
+        "ring_sector_radius_m": 200,
+        "five_taxon_area_to_full_annulus_ratio": 0.923230063352
+      },
+      {
+        "event": "Namibia_T10",
+        "ring_sector_radius_m": 300,
+        "five_taxon_area_to_full_annulus_ratio": 0.912657074438
+      },
+      {
+        "event": "Namibia_T10",
+        "ring_sector_radius_m": 400,
+        "five_taxon_area_to_full_annulus_ratio": 0.906975469429
+      },
+      {
+        "event": "Namibia_T10",
+        "ring_sector_radius_m": 500,
+        "five_taxon_area_to_full_annulus_ratio": 0.911542836743
+      },
+      {
+        "event": "Namibia_T10",
+        "ring_sector_radius_m": 600,
+        "five_taxon_area_to_full_annulus_ratio": 0.890726025176
+      },
+      {
+        "event": "Namibia_T10",
+        "ring_sector_radius_m": 700,
+        "five_taxon_area_to_full_annulus_ratio": 0.910354884077
+      },
+      {
+        "event": "Namibia_T10",
+        "ring_sector_radius_m": 800,
+        "five_taxon_area_to_full_annulus_ratio": 0.912426379146
+      },
+      {
+        "event": "Namibia_T10",
+        "ring_sector_radius_m": 900,
+        "five_taxon_area_to_full_annulus_ratio": 0.907842410003
+      },
+      {
+        "event": "Namibia_T10",
+        "ring_sector_radius_m": 1000,
+        "five_taxon_area_to_full_annulus_ratio": 0.911236323781
+      },
+      {
+        "event": "Namibia_T10",
+        "ring_sector_radius_m": 1100,
+        "five_taxon_area_to_full_annulus_ratio": 0.919049644555
+      },
+      {
+        "event": "Namibia_T10",
+        "ring_sector_radius_m": 1200,
+        "five_taxon_area_to_full_annulus_ratio": 0.921203996918
+      },
+      {
+        "event": "Namibia_T10",
+        "ring_sector_radius_m": 1300,
+        "five_taxon_area_to_full_annulus_ratio": 0.925008492963
+      },
+      {
+        "event": "Namibia_T10",
+        "ring_sector_radius_m": 1400,
+        "five_taxon_area_to_full_annulus_ratio": 0.931684876573
+      },
+      {
+        "event": "Namibia_T10",
+        "ring_sector_radius_m": 1500,
+        "five_taxon_area_to_full_annulus_ratio": 0.935341097064
+      },
+      {
+        "event": "Namibia_T2",
+        "ring_sector_radius_m": 100,
+        "five_taxon_area_to_full_annulus_ratio": 0.750437079742
+      },
+      {
+        "event": "Namibia_T2",
+        "ring_sector_radius_m": 200,
+        "five_taxon_area_to_full_annulus_ratio": 0.748409017046
+      },
+      {
+        "event": "Namibia_T2",
+        "ring_sector_radius_m": 300,
+        "five_taxon_area_to_full_annulus_ratio": 0.71493755067
+      },
+      {
+        "event": "Namibia_T2",
+        "ring_sector_radius_m": 400,
+        "five_taxon_area_to_full_annulus_ratio": 0.720272700168
+      },
+      {
+        "event": "Namibia_T2",
+        "ring_sector_radius_m": 500,
+        "five_taxon_area_to_full_annulus_ratio": 0.729820454123
+      },
+      {
+        "event": "Namibia_T2",
+        "ring_sector_radius_m": 600,
+        "five_taxon_area_to_full_annulus_ratio": 0.741824050142
+      },
+      {
+        "event": "Namibia_T2",
+        "ring_sector_radius_m": 700,
+        "five_taxon_area_to_full_annulus_ratio": 0.750147460593
+      },
+      {
+        "event": "Namibia_T2",
+        "ring_sector_radius_m": 800,
+        "five_taxon_area_to_full_annulus_ratio": 0.751415776995
+      },
+      {
+        "event": "Namibia_T2",
+        "ring_sector_radius_m": 900,
+        "five_taxon_area_to_full_annulus_ratio": 0.753238999877
+      },
+      {
+        "event": "Namibia_T2",
+        "ring_sector_radius_m": 1000,
+        "five_taxon_area_to_full_annulus_ratio": 0.753059031123
+      },
+      {
+        "event": "Namibia_T2",
+        "ring_sector_radius_m": 1100,
+        "five_taxon_area_to_full_annulus_ratio": 0.747212894188
+      },
+      {
+        "event": "Namibia_T2",
+        "ring_sector_radius_m": 1200,
+        "five_taxon_area_to_full_annulus_ratio": 0.74788290659
+      },
+      {
+        "event": "Namibia_T2",
+        "ring_sector_radius_m": 1300,
+        "five_taxon_area_to_full_annulus_ratio": 0.738913985474
+      },
+      {
+        "event": "Namibia_T2",
+        "ring_sector_radius_m": 1400,
+        "five_taxon_area_to_full_annulus_ratio": 0.741869744175
+      },
+      {
+        "event": "Namibia_T2",
+        "ring_sector_radius_m": 1500,
+        "five_taxon_area_to_full_annulus_ratio": 0.742042411171
+      },
+      {
+        "event": "Namibia_T3",
+        "ring_sector_radius_m": 100,
+        "five_taxon_area_to_full_annulus_ratio": 0.777689088497
+      },
+      {
+        "event": "Namibia_T3",
+        "ring_sector_radius_m": 200,
+        "five_taxon_area_to_full_annulus_ratio": 0.763598787999
+      },
+      {
+        "event": "Namibia_T3",
+        "ring_sector_radius_m": 300,
+        "five_taxon_area_to_full_annulus_ratio": 0.763052422153
+      },
+      {
+        "event": "Namibia_T3",
+        "ring_sector_radius_m": 400,
+        "five_taxon_area_to_full_annulus_ratio": 0.762543359876
+      },
+      {
+        "event": "Namibia_T3",
+        "ring_sector_radius_m": 500,
+        "five_taxon_area_to_full_annulus_ratio": 0.762860439959
+      },
+      {
+        "event": "Namibia_T3",
+        "ring_sector_radius_m": 600,
+        "five_taxon_area_to_full_annulus_ratio": 0.758652548965
+      },
+      {
+        "event": "Namibia_T3",
+        "ring_sector_radius_m": 700,
+        "five_taxon_area_to_full_annulus_ratio": 0.765732463517
+      },
+      {
+        "event": "Namibia_T3",
+        "ring_sector_radius_m": 800,
+        "five_taxon_area_to_full_annulus_ratio": 0.780034157346
+      },
+      {
+        "event": "Namibia_T3",
+        "ring_sector_radius_m": 900,
+        "five_taxon_area_to_full_annulus_ratio": 0.775936059948
+      },
+      {
+        "event": "Namibia_T3",
+        "ring_sector_radius_m": 1000,
+        "five_taxon_area_to_full_annulus_ratio": 0.783215794259
+      },
+      {
+        "event": "Namibia_T3",
+        "ring_sector_radius_m": 1100,
+        "five_taxon_area_to_full_annulus_ratio": 0.791735219401
+      },
+      {
+        "event": "Namibia_T3",
+        "ring_sector_radius_m": 1200,
+        "five_taxon_area_to_full_annulus_ratio": 0.802400089147
+      },
+      {
+        "event": "Namibia_T3",
+        "ring_sector_radius_m": 1300,
+        "five_taxon_area_to_full_annulus_ratio": 0.808231231499
+      },
+      {
+        "event": "Namibia_T3",
+        "ring_sector_radius_m": 1400,
+        "five_taxon_area_to_full_annulus_ratio": 0.809694924083
+      },
+      {
+        "event": "Namibia_T3",
+        "ring_sector_radius_m": 1500,
+        "five_taxon_area_to_full_annulus_ratio": 0.796955699436
+      },
+      {
+        "event": "Namibia_T4",
+        "ring_sector_radius_m": 100,
+        "five_taxon_area_to_full_annulus_ratio": 0.646210705124
+      },
+      {
+        "event": "Namibia_T4",
+        "ring_sector_radius_m": 200,
+        "five_taxon_area_to_full_annulus_ratio": 0.672574249047
+      },
+      {
+        "event": "Namibia_T4",
+        "ring_sector_radius_m": 300,
+        "five_taxon_area_to_full_annulus_ratio": 0.677086942717
+      },
+      {
+        "event": "Namibia_T4",
+        "ring_sector_radius_m": 400,
+        "five_taxon_area_to_full_annulus_ratio": 0.684374895621
+      },
+      {
+        "event": "Namibia_T4",
+        "ring_sector_radius_m": 500,
+        "five_taxon_area_to_full_annulus_ratio": 0.692004613178
+      },
+      {
+        "event": "Namibia_T4",
+        "ring_sector_radius_m": 600,
+        "five_taxon_area_to_full_annulus_ratio": 0.698935798712
+      },
+      {
+        "event": "Namibia_T4",
+        "ring_sector_radius_m": 700,
+        "five_taxon_area_to_full_annulus_ratio": 0.705676100163
+      },
+      {
+        "event": "Namibia_T4",
+        "ring_sector_radius_m": 800,
+        "five_taxon_area_to_full_annulus_ratio": 0.701241463885
+      },
+      {
+        "event": "Namibia_T4",
+        "ring_sector_radius_m": 900,
+        "five_taxon_area_to_full_annulus_ratio": 0.688552361004
+      },
+      {
+        "event": "Namibia_T4",
+        "ring_sector_radius_m": 1000,
+        "five_taxon_area_to_full_annulus_ratio": 0.683915881619
+      },
+      {
+        "event": "Namibia_T4",
+        "ring_sector_radius_m": 1100,
+        "five_taxon_area_to_full_annulus_ratio": 0.69017722375
+      },
+      {
+        "event": "Namibia_T4",
+        "ring_sector_radius_m": 1200,
+        "five_taxon_area_to_full_annulus_ratio": 0.677826969623
+      },
+      {
+        "event": "Namibia_T4",
+        "ring_sector_radius_m": 1300,
+        "five_taxon_area_to_full_annulus_ratio": 0.675551023719
+      },
+      {
+        "event": "Namibia_T4",
+        "ring_sector_radius_m": 1400,
+        "five_taxon_area_to_full_annulus_ratio": 0.676124272361
+      },
+      {
+        "event": "Namibia_T4",
+        "ring_sector_radius_m": 1500,
+        "five_taxon_area_to_full_annulus_ratio": 0.67159115535
+      },
+      {
+        "event": "Namibia_T5",
+        "ring_sector_radius_m": 100,
+        "five_taxon_area_to_full_annulus_ratio": 0.808039005598
+      },
+      {
+        "event": "Namibia_T5",
+        "ring_sector_radius_m": 200,
+        "five_taxon_area_to_full_annulus_ratio": 0.823708132193
+      },
+      {
+        "event": "Namibia_T5",
+        "ring_sector_radius_m": 300,
+        "five_taxon_area_to_full_annulus_ratio": 0.801328263473
+      },
+      {
+        "event": "Namibia_T5",
+        "ring_sector_radius_m": 400,
+        "five_taxon_area_to_full_annulus_ratio": 0.825836705025
+      },
+      {
+        "event": "Namibia_T5",
+        "ring_sector_radius_m": 500,
+        "five_taxon_area_to_full_annulus_ratio": 0.835296880217
+      },
+      {
+        "event": "Namibia_T5",
+        "ring_sector_radius_m": 600,
+        "five_taxon_area_to_full_annulus_ratio": 0.847285779467
+      },
+      {
+        "event": "Namibia_T5",
+        "ring_sector_radius_m": 700,
+        "five_taxon_area_to_full_annulus_ratio": 0.83705505724
+      },
+      {
+        "event": "Namibia_T5",
+        "ring_sector_radius_m": 800,
+        "five_taxon_area_to_full_annulus_ratio": 0.831221899615
+      },
+      {
+        "event": "Namibia_T5",
+        "ring_sector_radius_m": 900,
+        "five_taxon_area_to_full_annulus_ratio": 0.824443736386
+      },
+      {
+        "event": "Namibia_T5",
+        "ring_sector_radius_m": 1000,
+        "five_taxon_area_to_full_annulus_ratio": 0.798475847719
+      },
+      {
+        "event": "Namibia_T5",
+        "ring_sector_radius_m": 1100,
+        "five_taxon_area_to_full_annulus_ratio": 0.777572783988
+      },
+      {
+        "event": "Namibia_T5",
+        "ring_sector_radius_m": 1200,
+        "five_taxon_area_to_full_annulus_ratio": 0.788396268978
+      },
+      {
+        "event": "Namibia_T5",
+        "ring_sector_radius_m": 1300,
+        "five_taxon_area_to_full_annulus_ratio": 0.82995141379
+      },
+      {
+        "event": "Namibia_T5",
+        "ring_sector_radius_m": 1400,
+        "five_taxon_area_to_full_annulus_ratio": 0.829604536797
+      },
+      {
+        "event": "Namibia_T5",
+        "ring_sector_radius_m": 1500,
+        "five_taxon_area_to_full_annulus_ratio": 0.828139585076
+      },
+      {
+        "event": "Namibia_T6",
+        "ring_sector_radius_m": 100,
+        "five_taxon_area_to_full_annulus_ratio": 0.86689343075
+      },
+      {
+        "event": "Namibia_T6",
+        "ring_sector_radius_m": 200,
+        "five_taxon_area_to_full_annulus_ratio": 0.851233216007
+      },
+      {
+        "event": "Namibia_T6",
+        "ring_sector_radius_m": 300,
+        "five_taxon_area_to_full_annulus_ratio": 0.865166420081
+      },
+      {
+        "event": "Namibia_T6",
+        "ring_sector_radius_m": 400,
+        "five_taxon_area_to_full_annulus_ratio": 0.878242090376
+      },
+      {
+        "event": "Namibia_T6",
+        "ring_sector_radius_m": 500,
+        "five_taxon_area_to_full_annulus_ratio": 0.888841837286
+      },
+      {
+        "event": "Namibia_T6",
+        "ring_sector_radius_m": 600,
+        "five_taxon_area_to_full_annulus_ratio": 0.897456689357
+      },
+      {
+        "event": "Namibia_T6",
+        "ring_sector_radius_m": 700,
+        "five_taxon_area_to_full_annulus_ratio": 0.889657342915
+      },
+      {
+        "event": "Namibia_T6",
+        "ring_sector_radius_m": 800,
+        "five_taxon_area_to_full_annulus_ratio": 0.879187437793
+      },
+      {
+        "event": "Namibia_T6",
+        "ring_sector_radius_m": 900,
+        "five_taxon_area_to_full_annulus_ratio": 0.861874820507
+      },
+      {
+        "event": "Namibia_T6",
+        "ring_sector_radius_m": 1000,
+        "five_taxon_area_to_full_annulus_ratio": 0.847484839218
+      },
+      {
+        "event": "Namibia_T6",
+        "ring_sector_radius_m": 1100,
+        "five_taxon_area_to_full_annulus_ratio": 0.842285501752
+      },
+      {
+        "event": "Namibia_T6",
+        "ring_sector_radius_m": 1200,
+        "five_taxon_area_to_full_annulus_ratio": 0.838395019034
+      },
+      {
+        "event": "Namibia_T6",
+        "ring_sector_radius_m": 1300,
+        "five_taxon_area_to_full_annulus_ratio": 0.834795439142
+      },
+      {
+        "event": "Namibia_T6",
+        "ring_sector_radius_m": 1400,
+        "five_taxon_area_to_full_annulus_ratio": 0.843099689777
+      },
+      {
+        "event": "Namibia_T6",
+        "ring_sector_radius_m": 1500,
+        "five_taxon_area_to_full_annulus_ratio": 0.839174892873
+      },
+      {
+        "event": "Namibia_T7",
+        "ring_sector_radius_m": 100,
+        "five_taxon_area_to_full_annulus_ratio": 0.852182415719
+      },
+      {
+        "event": "Namibia_T7",
+        "ring_sector_radius_m": 200,
+        "five_taxon_area_to_full_annulus_ratio": 0.842217891683
+      },
+      {
+        "event": "Namibia_T7",
+        "ring_sector_radius_m": 300,
+        "five_taxon_area_to_full_annulus_ratio": 0.846181604481
+      },
+      {
+        "event": "Namibia_T7",
+        "ring_sector_radius_m": 400,
+        "five_taxon_area_to_full_annulus_ratio": 0.821490385842
+      },
+      {
+        "event": "Namibia_T7",
+        "ring_sector_radius_m": 500,
+        "five_taxon_area_to_full_annulus_ratio": 0.817910845117
+      },
+      {
+        "event": "Namibia_T7",
+        "ring_sector_radius_m": 600,
+        "five_taxon_area_to_full_annulus_ratio": 0.822310025143
+      },
+      {
+        "event": "Namibia_T7",
+        "ring_sector_radius_m": 700,
+        "five_taxon_area_to_full_annulus_ratio": 0.806963854827
+      },
+      {
+        "event": "Namibia_T7",
+        "ring_sector_radius_m": 800,
+        "five_taxon_area_to_full_annulus_ratio": 0.821857287259
+      },
+      {
+        "event": "Namibia_T7",
+        "ring_sector_radius_m": 900,
+        "five_taxon_area_to_full_annulus_ratio": 0.83335952745
+      },
+      {
+        "event": "Namibia_T7",
+        "ring_sector_radius_m": 1000,
+        "five_taxon_area_to_full_annulus_ratio": 0.836767011686
+      },
+      {
+        "event": "Namibia_T7",
+        "ring_sector_radius_m": 1100,
+        "five_taxon_area_to_full_annulus_ratio": 0.836420235355
+      },
+      {
+        "event": "Namibia_T7",
+        "ring_sector_radius_m": 1200,
+        "five_taxon_area_to_full_annulus_ratio": 0.835230900343
+      },
+      {
+        "event": "Namibia_T7",
+        "ring_sector_radius_m": 1300,
+        "five_taxon_area_to_full_annulus_ratio": 0.835514840678
+      },
+      {
+        "event": "Namibia_T7",
+        "ring_sector_radius_m": 1400,
+        "five_taxon_area_to_full_annulus_ratio": 0.833154303489
+      },
+      {
+        "event": "Namibia_T7",
+        "ring_sector_radius_m": 1500,
+        "five_taxon_area_to_full_annulus_ratio": 0.832458824088
+      },
+      {
+        "event": "Namibia_T8",
+        "ring_sector_radius_m": 100,
+        "five_taxon_area_to_full_annulus_ratio": 0.888310591958
+      },
+      {
+        "event": "Namibia_T8",
+        "ring_sector_radius_m": 200,
+        "five_taxon_area_to_full_annulus_ratio": 0.878267318981
+      },
+      {
+        "event": "Namibia_T8",
+        "ring_sector_radius_m": 300,
+        "five_taxon_area_to_full_annulus_ratio": 0.865712680749
+      },
+      {
+        "event": "Namibia_T8",
+        "ring_sector_radius_m": 400,
+        "five_taxon_area_to_full_annulus_ratio": 0.872831617886
+      },
+      {
+        "event": "Namibia_T8",
+        "ring_sector_radius_m": 500,
+        "five_taxon_area_to_full_annulus_ratio": 0.880859059763
+      },
+      {
+        "event": "Namibia_T8",
+        "ring_sector_radius_m": 600,
+        "five_taxon_area_to_full_annulus_ratio": 0.876769283636
+      },
+      {
+        "event": "Namibia_T8",
+        "ring_sector_radius_m": 700,
+        "five_taxon_area_to_full_annulus_ratio": 0.881571285871
+      },
+      {
+        "event": "Namibia_T8",
+        "ring_sector_radius_m": 800,
+        "five_taxon_area_to_full_annulus_ratio": 0.876060656619
+      },
+      {
+        "event": "Namibia_T8",
+        "ring_sector_radius_m": 900,
+        "five_taxon_area_to_full_annulus_ratio": 0.879039465153
+      },
+      {
+        "event": "Namibia_T8",
+        "ring_sector_radius_m": 1000,
+        "five_taxon_area_to_full_annulus_ratio": 0.879651046102
+      },
+      {
+        "event": "Namibia_T8",
+        "ring_sector_radius_m": 1100,
+        "five_taxon_area_to_full_annulus_ratio": 0.873500264271
+      },
+      {
+        "event": "Namibia_T8",
+        "ring_sector_radius_m": 1200,
+        "five_taxon_area_to_full_annulus_ratio": 0.867895703935
+      },
+      {
+        "event": "Namibia_T8",
+        "ring_sector_radius_m": 1300,
+        "five_taxon_area_to_full_annulus_ratio": 0.866726447189
+      },
+      {
+        "event": "Namibia_T8",
+        "ring_sector_radius_m": 1400,
+        "five_taxon_area_to_full_annulus_ratio": 0.871215294262
+      },
+      {
+        "event": "Namibia_T8",
+        "ring_sector_radius_m": 1500,
+        "five_taxon_area_to_full_annulus_ratio": 0.872438820714
+      },
+      {
+        "event": "Namibia_T9",
+        "ring_sector_radius_m": 100,
+        "five_taxon_area_to_full_annulus_ratio": 0.867049779667
+      },
+      {
+        "event": "Namibia_T9",
+        "ring_sector_radius_m": 200,
+        "five_taxon_area_to_full_annulus_ratio": 0.835799947891
+      },
+      {
+        "event": "Namibia_T9",
+        "ring_sector_radius_m": 300,
+        "five_taxon_area_to_full_annulus_ratio": 0.853865207781
+      },
+      {
+        "event": "Namibia_T9",
+        "ring_sector_radius_m": 400,
+        "five_taxon_area_to_full_annulus_ratio": 0.865908413935
+      },
+      {
+        "event": "Namibia_T9",
+        "ring_sector_radius_m": 500,
+        "five_taxon_area_to_full_annulus_ratio": 0.872203113536
+      },
+      {
+        "event": "Namibia_T9",
+        "ring_sector_radius_m": 600,
+        "five_taxon_area_to_full_annulus_ratio": 0.882115975115
+      },
+      {
+        "event": "Namibia_T9",
+        "ring_sector_radius_m": 700,
+        "five_taxon_area_to_full_annulus_ratio": 0.890681264276
+      },
+      {
+        "event": "Namibia_T9",
+        "ring_sector_radius_m": 800,
+        "five_taxon_area_to_full_annulus_ratio": 0.89832342237
+      },
+      {
+        "event": "Namibia_T9",
+        "ring_sector_radius_m": 900,
+        "five_taxon_area_to_full_annulus_ratio": 0.898802666411
+      },
+      {
+        "event": "Namibia_T9",
+        "ring_sector_radius_m": 1000,
+        "five_taxon_area_to_full_annulus_ratio": 0.891382347693
+      },
+      {
+        "event": "Namibia_T9",
+        "ring_sector_radius_m": 1100,
+        "five_taxon_area_to_full_annulus_ratio": 0.889622368556
+      },
+      {
+        "event": "Namibia_T9",
+        "ring_sector_radius_m": 1200,
+        "five_taxon_area_to_full_annulus_ratio": 0.886637505658
+      },
+      {
+        "event": "Namibia_T9",
+        "ring_sector_radius_m": 1300,
+        "five_taxon_area_to_full_annulus_ratio": 0.880481667551
+      },
+      {
+        "event": "Namibia_T9",
+        "ring_sector_radius_m": 1400,
+        "five_taxon_area_to_full_annulus_ratio": 0.854407244425
+      },
+      {
+        "event": "Namibia_T9",
+        "ring_sector_radius_m": 1500,
+        "five_taxon_area_to_full_annulus_ratio": 0.853519323305
+      }
+    ]
+  },
   "independence": "Ten pollen sites are independent units for this description; each site's one pollen sample repeats across 15 radius labels.",
-  "ring_semantics": "Radius is the publisher's 'Ring sect radius [m]' label. These source tables do not establish whether areas describe cumulative disks or disjoint rings; this analysis does not reinterpret them.",
+  "ring_semantics": "The publisher describes mean cover by 100 m rings, and the retained area series include decreases incompatible with cumulative nonnegative-area disks on a fixed map. Full-annulus ratios assume radius labels are outer radii and complete circles; exact ring-sector geometry and masks are not supplied by these tables. No ecological source radius is selected.",
   "limitations": [
     "Five listed taxa only; neither total terrestrial pollen nor total vegetation cover.",
     "Exact soil-sampling and satellite-image dates are not stated in these tables.",

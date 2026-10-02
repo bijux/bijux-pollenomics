@@ -2,11 +2,18 @@
 
 from __future__ import annotations
 
+import csv
+from collections.abc import Callable
 import hashlib
+import importlib.util
+import io
 import json
+import math
 from pathlib import Path
+import runpy
 import sys
 from types import ModuleType
+from typing import Any, cast
 
 import pytest
 
@@ -181,3 +188,105 @@ def test_artifact_path_traversal_refuses_without_execution(
     with pytest.raises(ReportRebuildError, match="not canonical"):
         namibia_radius_sensitivity.main(_argv(repository, root, escaped))
     assert not (repository / "escaped").exists()
+
+
+def _reviewed_radius_function(
+    monkeypatch: pytest.MonkeyPatch,
+) -> tuple[Path, Callable[[bytes], tuple[bytes, list[dict[str, Any]], dict[str, Any]]]]:
+    repository = Path(__file__).resolve().parents[3]
+    source_path = repository / namibia_radius_sensitivity.SOURCE_REPLAY
+    radius_path = repository / namibia_radius_sensitivity.RADIUS_REPLAY
+    spec = importlib.util.spec_from_file_location("replay", source_path)
+    assert spec is not None and spec.loader is not None
+    source = importlib.util.module_from_spec(spec)
+    monkeypatch.setitem(sys.modules, "replay", source)
+    spec.loader.exec_module(source)
+    function = cast(
+        Callable[[bytes], tuple[bytes, list[dict[str, Any]], dict[str, Any]]],
+        runpy.run_path(str(radius_path))["_site_distances"],
+    )
+    return repository, function
+
+
+def test_ring_geometry_preserves_distances_and_uses_full_annuli(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    repository, distances = _reviewed_radius_function(monkeypatch)
+    owned = repository / "docs/report/vegetation-reference/namibia-pollen-vegetation"
+    paired = (owned / "paired.csv").read_bytes()
+    site_bytes, summary, geometry = distances(paired)
+    assert site_bytes == (owned / "radius-sensitivity.csv").read_bytes()
+    assert (
+        summary
+        == json.loads((owned / "radius-sensitivity.json").read_bytes())[
+            "radius_summary"
+        ]
+    )
+    assert geometry["adjacent_site_taxon_comparisons"] == 700
+    assert geometry["adjacent_area_decreases"] == 9
+    assert geometry["site_taxon_series_with_decrease"] == 8
+    ratios = geometry["full_annulus_ratios"]
+    assert len(ratios) == 150
+    t1_100 = next(
+        row
+        for row in ratios
+        if row["event"] == "Namibia_T1" and row["ring_sector_radius_m"] == 100
+    )
+    paired_rows = list(csv.DictReader(io.StringIO(paired.decode("utf-8"))))
+    area = sum(
+        float(row["vegetation_area_m2"])
+        for row in paired_rows
+        if row["event"] == "Namibia_T1" and row["ring_sector_radius_m"] == "100"
+    )
+    assert t1_100["five_taxon_area_to_full_annulus_ratio"] == round(
+        area / (math.pi * 100**2), 12
+    )
+
+
+@pytest.mark.parametrize(
+    ("field", "value", "reason"),
+    [
+        ("vegetation_area_m2", "-1", "finite and nonnegative"),
+        ("vegetation_area_m2", "nan", "finite and nonnegative"),
+        ("vegetation_area_m2", "inf", "finite and nonnegative"),
+        ("five_taxon_pollen_sum", "1", "Pollen denominator differs"),
+    ],
+)
+def test_ring_geometry_refuses_changed_source_rows(
+    monkeypatch: pytest.MonkeyPatch, field: str, value: str, reason: str
+) -> None:
+    repository, distances = _reviewed_radius_function(monkeypatch)
+    paired = (
+        repository
+        / "docs/report/vegetation-reference/namibia-pollen-vegetation/paired.csv"
+    )
+    rows = list(csv.DictReader(io.StringIO(paired.read_text(encoding="utf-8"))))
+    rows[0][field] = value
+    stream = io.StringIO(newline="")
+    writer = csv.DictWriter(stream, fieldnames=list(rows[0]), lineterminator="\n")
+    writer.writeheader()
+    writer.writerows(rows)
+    with pytest.raises(ValueError, match=reason):
+        distances(stream.getvalue().encode("utf-8"))
+
+
+def test_ring_geometry_refuses_finite_areas_with_infinite_total(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    repository, distances = _reviewed_radius_function(monkeypatch)
+    paired = (
+        repository
+        / "docs/report/vegetation-reference/namibia-pollen-vegetation/paired.csv"
+    )
+    rows = list(csv.DictReader(io.StringIO(paired.read_text(encoding="utf-8"))))
+    first_event = rows[0]["event"]
+    first_radius = rows[0]["ring_sector_radius_m"]
+    for row in rows:
+        if row["event"] == first_event and row["ring_sector_radius_m"] == first_radius:
+            row["vegetation_area_m2"] = "1e308"
+    stream = io.StringIO(newline="")
+    writer = csv.DictWriter(stream, fieldnames=list(rows[0]), lineterminator="\n")
+    writer.writeheader()
+    writer.writerows(rows)
+    with pytest.raises(ValueError, match="positive finite mass"):
+        distances(stream.getvalue().encode("utf-8"))
