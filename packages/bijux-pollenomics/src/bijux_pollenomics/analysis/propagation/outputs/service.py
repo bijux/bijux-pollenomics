@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from collections.abc import Sequence
+from collections.abc import Callable, Sequence
 from pathlib import Path
 
 from bijux_pollenomics.analysis.propagation.network import (
@@ -51,6 +51,7 @@ def materialize_propagation_outputs(
     propagation_producer_id: str,
     propagation_producer_version: str,
     propagation_producer_digest: str,
+    before_commit: Callable[[], None] | None = None,
 ) -> PropagationMaterializationResult:
     """Validate and atomically publish one deterministic propagation bundle."""
     output_root = Path(output_root)
@@ -191,6 +192,7 @@ def materialize_propagation_outputs(
         output_root=output_root,
         allowed_output_parent=allowed_output_parent,
         expected_files=expected_files,
+        before_commit=before_commit,
     )
     return PropagationMaterializationResult(
         output_root=output_root,

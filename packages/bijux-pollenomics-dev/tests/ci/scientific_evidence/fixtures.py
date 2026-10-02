@@ -148,6 +148,7 @@ def repository_fixture(
     policy_path = root / "configs/release_evidence_policy.json"
     _write(policy_path, json.dumps(policy).encode())
     (root / "data/neotoma/relational").mkdir(parents=True)
+    _write(root / "data/neotoma/relational/manifest.json", b"{}\n")
     return root, policy
 
 

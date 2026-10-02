@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from collections.abc import Mapping
+from collections.abc import Callable, Mapping
 import os
 from pathlib import Path
 import shutil
@@ -55,6 +55,7 @@ def publish_atomically(
     output_root: Path,
     allowed_output_parent: Path,
     expected_files: Mapping[str, bytes],
+    before_commit: Callable[[], None] | None = None,
 ) -> str:
     lock_path = allowed_output_parent / f".{output_root.name}.materialization.lock"
     try:
@@ -68,6 +69,8 @@ def publish_atomically(
         os.close(descriptor)
         if output_root.exists() or output_root.is_symlink():
             if existing_bundle_is_identical(output_root, expected_files):
+                if before_commit is not None:
+                    before_commit()
                 return "unchanged"
             refuse(
                 "non_identical_overwrite_refused",
@@ -90,6 +93,8 @@ def publish_atomically(
                     "non_identical_overwrite_refused",
                     "audit output appeared while staging",
                 )
+            if before_commit is not None:
+                before_commit()
             staging_root.rename(output_root)
         except Exception:
             if staging_root.exists():

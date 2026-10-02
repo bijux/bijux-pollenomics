@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from collections.abc import Mapping
+from collections.abc import Callable, Mapping
 from pathlib import Path
 
 from .accounting import validate_accounting_reconciliation, validated_accounting_rows
@@ -27,6 +27,7 @@ def materialize_classification_audit(
     classification_producer_id: str,
     classification_producer_version: str,
     classification_producer_digest: str,
+    before_commit: Callable[[], None] | None = None,
 ) -> ClassificationAuditMaterializationResult:
     """Reconcile and atomically publish a deterministic classification audit."""
     validate_output_paths(paths, Path(allowed_output_parent))
@@ -80,6 +81,7 @@ def materialize_classification_audit(
         output_root=paths.output_root,
         allowed_output_parent=Path(allowed_output_parent),
         expected_files=expected_files,
+        before_commit=before_commit,
     )
     accepted_count = sum(
         str(row["mapping_status"]) in ACCEPTED_STATUSES for row in concepts
