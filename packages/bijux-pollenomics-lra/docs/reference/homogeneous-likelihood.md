@@ -43,3 +43,34 @@ model, source-use permission or independent vegetation validation. A good
 pollen fit can coexist with weakly identified vegetation, especially when
 regional background dominates. Host workflows must bind source rows, counts,
 taxon eligibility, physical cores, units and assumptions separately.
+
+## Conditional shared-PPE draws
+
+`bijux_pollenomics_lra.api.fit_shared_ppe_likelihood` applies the point
+estimator repeatedly to fixed regional and local counts. Its caller supplies
+aligned PPE means, standard deviations and a declared diagonal covariance,
+plus regional and local deposition kernels. It refuses nonzero cross-taxon
+covariance; the diagonal assumption must come from source evidence rather than
+being inferred from this API. Row zero uses the nominal PPE means. Each later
+row samples a complete PPE vector with the source-compatible nonnegative
+normal rejection rule, then requires strictly positive entries for inversion.
+The explicit seed, draw count and attempt cap determine the sequence.
+
+The first `local_kernels` row is the homogeneous local domain. Every remaining
+row contributes fixed regional background for that draw, after applying its
+terrestrial fraction. Each PPE vector is shared between regional cover and
+the local/background coefficients. Regional cover follows the source's
+three-decimal percentage rounding; the resulting fractions may not sum
+exactly to one. Every row must converge within the declared likelihood gap
+and reproduce the direct forward pollen composition, or the entire call
+refuses. The result separates nominal and stochastic rows so a host report
+can exclude the nominal anchor from stochastic summaries.
+
+Returned arrays are owned and read-only. Regional percentages use the maintained
+R-compatible rounding function, including floating-point ties. Covariance
+agreement uses a relative tolerance of `1e-12` and no absolute tolerance, so a
+zero standard deviation requires exactly zero variance.
+
+This is conditional sensitivity on caller-supplied geometry, counts, moments
+and taxon alignment. It neither estimates cross-taxon field PPE covariance
+nor makes a historical, ecological, held-out or source-rights admission.
