@@ -48,6 +48,13 @@ reconciles all 24,701 typed integer components with their parent observations,
 source classes and chronology links while preserving qualified display text
 and event refusal.
 
+The [boolean component lineage account](analysis-boolean-values/README.md)
+checks all 11,603 typed flags against their exact parent values and staged
+components. Its 17 display/class groups keep true, false and source-null
+states distinct without treating a flag as an admitted ecological or dated
+event. This account has its own single-file producer and source-bound checks;
+the six-family replay below retains its original scope.
+
 The [country chronology account](chronology-country-accounting/README.md)
 joins all 25,109 reviewed claims to the 2,069 assigned site decisions. It
 separates source-row counts, distinct sites and chronology-display eligibility

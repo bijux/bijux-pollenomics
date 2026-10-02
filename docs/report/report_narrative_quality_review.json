@@ -1,8 +1,8 @@
 {
   "schema_version": "report-narrative-quality-review.v1",
-  "page_count": 291,
+  "page_count": 292,
   "quality_posture_counts": {
-    "reader_ready": 112,
+    "reader_ready": 113,
     "structured_reference": 19,
     "thin_structure": 160
   },
@@ -2770,12 +2770,23 @@
     },
     {
       "repository_path": "docs/report/source-relations/sead/README.md",
-      "content_sha256": "7b68a3f5e166cb6a125698325c687b9818ea2a104e2fb94f87c5f16f045c0897",
-      "prose_paragraph_count": 17,
+      "content_sha256": "e60e4110aa12beb0cd7674d458d794991b2a029189763ad97a71dde9a473770b",
+      "prose_paragraph_count": 18,
       "link_bullet_count": 0,
       "bullet_sentence_count": 0,
       "heading_count": 5,
       "table_line_count": 0,
+      "quality_posture": "reader_ready",
+      "note": "Page explains its purpose before or alongside artifact links."
+    },
+    {
+      "repository_path": "docs/report/source-relations/sead/analysis-boolean-values/README.md",
+      "content_sha256": "10ab451b47fc1e9d1980553b59f7c510111757be5d45233db9119b08aaf5df66",
+      "prose_paragraph_count": 6,
+      "link_bullet_count": 0,
+      "bullet_sentence_count": 0,
+      "heading_count": 4,
+      "table_line_count": 9,
       "quality_posture": "reader_ready",
       "note": "Page explains its purpose before or alongside artifact links."
     },
@@ -3155,7 +3166,7 @@
     },
     {
       "repository_path": "docs/report/index.md",
-      "content_sha256": "146678d275830a7a847e33c7de8000f88e22f808ee56341654fe1e2cb9bf568e",
+      "content_sha256": "fd3db8d8901b5fd8cd4213ca52a4a151872a6c6b591a44ee5250ef2114eb0ee3",
       "prose_paragraph_count": 3,
       "link_bullet_count": 11,
       "bullet_sentence_count": 0,
@@ -3166,7 +3177,7 @@
     },
     {
       "repository_path": "docs/report/maintenance/index.md",
-      "content_sha256": "c2b0a7de051edca222ce5bcae84e6256fc4c20483ef27a73e808d1c47ef6a0b9",
+      "content_sha256": "2f617ba1325c4ef3c4a226ee65b619b48f1dc99d726a10c2b0959168396d2baa",
       "prose_paragraph_count": 3,
       "link_bullet_count": 10,
       "bullet_sentence_count": 4,

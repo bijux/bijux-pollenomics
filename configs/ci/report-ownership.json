@@ -2,8 +2,8 @@
   "schema_version": "report-output-ownership.v1",
   "root": "docs/report",
   "inventory_scope": "tracked report paths; ownership declarations do not certify reproduction",
-  "path_count": 1938,
-  "paths_sha256": "c2a353cda2da1ffecf17569a8d39ee2955bdcd27d289c6bcd0518a2345947d62",
+  "path_count": 1940,
+  "paths_sha256": "2a44f4133af8719a6cc9f7934f2aef9197ab21d9111302ece48463f8c1f766d2",
   "owners": [
     {
       "owner_id": "atlas/boundary-orientation/browser-evidence",
@@ -10471,6 +10471,63 @@
       "producer_paths": [],
       "role": "maintained_editorial",
       "verification": "Human-maintained reader account; compare its source scopes and numeric statements with reports/science/vegetation-reference/southern-sweden-figure/report.json and printed-labels.csv. This editorial role does not authenticate source rights, reproduce results, or confer scientific review."
+    },
+    {
+      "owner_id": "source-relations/sead/analysis-boolean-values/reader-account",
+      "role": "maintained_editorial",
+      "paths": [
+        "docs/report/source-relations/sead/analysis-boolean-values/README.md"
+      ],
+      "producer_paths": [],
+      "producer_inputs": [],
+      "verification": "Maintain exact Boolean component/parent/class/display populations against the governed compact lineage report; source flags do not establish ecological, chronology or event admission."
+    },
+    {
+      "owner_id": "source-relations/sead/analysis-boolean-values/report-products",
+      "role": "generated_owner",
+      "paths": [
+        "docs/report/source-relations/sead/analysis-boolean-values/report.json"
+      ],
+      "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sead/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sead/boolean_values.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sead_analysis_numerical_values.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/sources/sead.py"
+      ],
+      "producer_inputs": [
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_materialization_manifest.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00001.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00002.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00003.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00004.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00005.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00006.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00007.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00008.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00009.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00010.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00011.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00012.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00013.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00014.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00015.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00016.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00017.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00018.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00019.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00020.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00021.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00022.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00023.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00024.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00025.json",
+        "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/admission.json",
+        "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/manifest.json",
+        "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_analysis_boolean_values.json",
+        "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_analysis_values.json"
+      ],
+      "verification": "Run the configured bijux_pollenomics_dev.source_completion.sead.boolean_values producer from the repository root with an absent artifact file, then compare report.json byte for byte with the governed output. Bind all31source files, producer code and refused eligibility; this consumer does not establish new source rights or ecological qualification."
     }
   ]
 }

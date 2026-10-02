@@ -1162,6 +1162,16 @@
         "source-products/radius-sensitivity.json": "docs/report/vegetation-reference/namibia-pollen-vegetation/radius-sensitivity.json"
       },
       "timeout_seconds": 600
+    },
+    {
+      "owner_id": "source-relations/sead/analysis-boolean-values/report-products",
+      "module": "bijux_pollenomics_dev.source_completion.sead.boolean_values",
+      "source_paths": {
+        "report.json": "docs/report/source-relations/sead/analysis-boolean-values/report.json"
+      },
+      "source_arguments": [],
+      "output_mode": "single_file",
+      "timeout_seconds": 180
     }
   ]
 }

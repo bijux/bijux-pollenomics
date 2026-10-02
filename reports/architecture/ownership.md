@@ -44,8 +44,8 @@ identities. The [scientific verifier](../../docs/report/pollen-reconstruction/ve
 checks its governed results. A complete report-tree rebuild is a separate
 acceptance decision.
 
-The current tracked report tree contains 1,938 files. Its navigation registry
-indexes 1,934 surfaces and deliberately excludes its four registry/review
+The current tracked report tree contains 1,940 files. Its navigation registry
+indexes 1,936 surfaces and deliberately excludes its four registry/review
 metadata files. Each indexed Markdown surface and its layout row carries the exact content
 hash used by that consumer. Machine-readable products keep their domain
 manifest identities, avoiding recursive hashes through the scientific
@@ -62,14 +62,15 @@ or qualified scientific review.
 
 The [output ownership inventory](../../configs/ci/report-ownership.json)
 assigns every tracked report path exactly one declaration. Its population is
-1,938 paths: 709 declared publisher paths, 125 original-R retained source
-files, 240 generated domain outputs, 62 maintained source files, 172
+1,940 paths: 709 declared publisher paths, 125 original-R retained source
+files, 241 generated domain outputs, 62 maintained source files, 173
 maintained reader accounts and 630 paths with unresolved output custody.
 These role counts describe the current declarations. They do not measure
 how many outputs have been independently reproduced.
 
 The generated category includes 11 SEAD numeric products from six named
-source consumers, the two LandClim modeled-panel files and four contained-age
+source consumers, one additional [boolean lineage account](../../docs/report/source-relations/sead/analysis-boolean-values/README.md),
+the two LandClim modeled-panel files and four contained-age
 files for each of two direct-pollen studies. The SEAD declarations name their
 actual raw/normalized and secondary report inputs, including source parts and
 retrieval receipts. Their reader accounts have separate editorial owners.
@@ -89,8 +90,12 @@ admission.
 
 Three propagation outputs declare their exact repository input closure.
 The derived edge ledger consumes retained compact event and classification
-evidence; those original source bundles remain unresolved. The classification
-manifest names nine payloads while only three are retained locally. The
+evidence; those original source bundles remain unresolved. The historical
+classification compact manifest names nine payloads while only three remain in
+that original compact bundle. A separate current producer consumer has
+created all nine classification and seven propagation payloads, with their
+two manifests and zero scientific admissions. That consumer checks the
+original relational readset at each publication boundary. The
 source-first screen and derived ledger preserve zero admitted events and
 zero evaluated pairs. Their empty country bins establish neither ecological
 routes nor event absence. Both reader accounts are maintained separately.
