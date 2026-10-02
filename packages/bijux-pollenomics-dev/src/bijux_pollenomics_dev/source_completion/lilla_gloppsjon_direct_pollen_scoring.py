@@ -6,7 +6,7 @@ import argparse
 from collections import Counter
 import json
 from pathlib import Path
-from typing import Any
+from typing import Any, TypedDict
 
 from bijux_pollenomics.analysis.lra_validation.contracts import ValidationRefusal
 from bijux_pollenomics.analysis.lra_validation.metrics import (
@@ -40,6 +40,24 @@ SCORING_PROTOCOL_SHA256 = (
 )
 
 
+class _SampleCounts(TypedDict):
+    """Count mass and source-row accounting for one declared target sample."""
+
+    native_nisp: int
+    counts: dict[str, int]
+    direct_count_rows: int
+    other_observation_rows: int
+
+
+class _BinCounts(TypedDict):
+    """Selected sample membership and observed pollen mass for one fixed bin."""
+
+    sample_ids: list[str]
+    native_nisp: int
+    counts: dict[str, int]
+    missing_sample_ids: list[str]
+
+
 def _verify_scoring_source(
     repository: Path, scoring_protocol: dict[str, Any]
 ) -> dict[str, Any]:
@@ -49,6 +67,8 @@ def _verify_scoring_source(
     if _sha(manifest_path) != scoring_protocol["source_relational_manifest_sha256"]:
         raise ValueError("scoring Neotoma source drift: manifest.json")
     manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    if not isinstance(manifest, dict):
+        raise ValueError("scoring Neotoma source manifest must be an object")
     recorded = {
         **scoring_protocol["source_surface_sha256"],
         **scoring_protocol["source_additional_metadata_sha256"],
@@ -146,9 +166,9 @@ def _verify_scoring_inputs(
 
 def _target_sample_counts(
     relational: Path, manifest: dict[str, Any], sample_ids: list[str]
-) -> dict[str, dict[str, Any]]:
+) -> dict[str, _SampleCounts]:
     """Read target count rows once, after source and prediction verification."""
-    sample_counts = {
+    sample_counts: dict[str, _SampleCounts] = {
         sample_id: {
             "native_nisp": 0,
             "counts": dict.fromkeys(TAXA, 0),
@@ -182,7 +202,7 @@ def _score_records(
     scoring: dict[str, Any],
     metadata: dict[str, Any],
     predictions: dict[str, Any],
-    sample_counts: dict[str, dict[str, Any]],
+    sample_counts: dict[str, _SampleCounts],
 ) -> tuple[
     list[dict[str, Any]], list[dict[str, Any]], list[dict[str, Any]], dict[str, Any]
 ]:
@@ -198,7 +218,7 @@ def _score_records(
         or len(refused) != scoring["refused_age_sample_count"]
     ):
         raise ValueError("target 86-sample age/count denominator changed")
-    bins = {
+    bins: dict[int, _BinCounts] = {
         bin_id: {
             "sample_ids": [],
             "native_nisp": 0,

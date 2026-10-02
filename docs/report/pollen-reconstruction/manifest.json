@@ -3106,13 +3106,13 @@
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/lilla_gloppsjon_direct_pollen.py",
-      "sha256": "1146720bd0749936043f892be758b13e1579ba32ed608636a56dc47e6cd22ab1",
-      "bytes": 16805
+      "sha256": "8eae17621ba675791c28d699465674c3c3092a78b1af4da9eef66bd5e6c24c1c",
+      "bytes": 16917
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/lilla_gloppsjon_direct_pollen_scoring.py",
-      "sha256": "164f474732a50ad0a6f96188522257e454cb0671b45d9491d1965ebaee2207e4",
-      "bytes": 19838
+      "sha256": "a3c161044422c0e1bd3b92666fd0b942c034e11fa679724993525d8a1597c653",
+      "bytes": 20455
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/love/__init__.py",
@@ -3866,8 +3866,13 @@
     },
     {
       "path": "packages/bijux-pollenomics-dev/tests/source_completion/test_lilla_gloppsjon_direct_pollen.py",
-      "sha256": "31c250893deee6ed9b92fbaf9e304c825997067acfa497f97712352bf7338f3d",
-      "bytes": 9426
+      "sha256": "c6608fc9065e9af2aa6429e816422cbbacac6f22eb3483cde93f75ed007b926f",
+      "bytes": 9522
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/tests/source_completion/test_lilla_gloppsjon_source_counts.py",
+      "sha256": "f3f57d3f8a1698874cc7dbec62140ebe3a1ca512d97ade1d486364a0340819e8",
+      "bytes": 3607
     },
     {
       "path": "packages/bijux-pollenomics-dev/tests/source_completion/test_metadata_parameter_clis.py",

@@ -9,6 +9,8 @@ import pytest
 
 from bijux_pollenomics_dev.source_completion import (
     lilla_gloppsjon_direct_pollen as study,
+)
+from bijux_pollenomics_dev.source_completion import (
     lilla_gloppsjon_direct_pollen_scoring as scoring_study,
 )
 from bijux_pollenomics_dev.source_completion.nordic_direct_pollen import _sha
@@ -175,7 +177,7 @@ def test_synthetic_score_retains_refusals_and_all_sample_mass() -> None:
         ],
         "refusals": [],
     }
-    sample_counts = {
+    sample_counts: dict[str, scoring_study._SampleCounts] = {
         "sample:a": {
             "native_nisp": 10,
             "counts": counts,

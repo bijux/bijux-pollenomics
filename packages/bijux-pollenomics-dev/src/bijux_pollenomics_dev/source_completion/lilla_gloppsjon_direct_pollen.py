@@ -112,6 +112,8 @@ def _training(repository: Path, protocol: dict[str, Any]) -> dict[str, Any]:
     ):
         raise ValueError("governed training provenance changed")
     training = _compressed_read(training_path)
+    if not isinstance(training, dict):
+        raise ValueError("governed training profiles must be an object")
     sites = [profile["site_id"] for profile in training.values()]
     aliases = {name.casefold() for name in protocol["target_aliases_withheld"]}
     if (
