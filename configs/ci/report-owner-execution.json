@@ -1124,6 +1124,18 @@
         "source-products/sample-depth-join.csv": "docs/report/countries/denmark/solsoe-source-lineage/legacyage-chronology/sample-depth-join.csv"
       },
       "timeout_seconds": 600
+    },
+    {
+      "external_source_descriptor": "configs/ci/qualified-report-sources/legacyage-depth-allocation.json",
+      "module": "bijux_pollenomics_dev.source_completion.neotoma.legacyage_depth_allocation",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "source-relations/neotoma/legacyage-chronology/depth-allocation/report-products",
+      "source_arguments": [],
+      "source_paths": {
+        "source-products/report.json": "docs/report/source-relations/neotoma/legacyage-chronology/depth-allocation/report.json"
+      },
+      "timeout_seconds": 600
     }
   ]
 }

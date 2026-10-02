@@ -8019,13 +8019,17 @@
         "docs/report/source-relations/neotoma/legacyage-chronology/depth-allocation/report.json"
       ],
       "producer_inputs": [
+        "configs/ci/qualified-report-sources/legacyage-depth-allocation.json",
         "data/neotoma/relational/surfaces/samples/part-00001.json"
       ],
       "producer_paths": [
-        "docs/report/source-relations/neotoma/legacyage-chronology/depth-allocation/replay.py"
+        "docs/report/source-relations/neotoma/legacyage-chronology/depth-allocation/replay.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/artifact_paths.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/qualified_sources.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/neotoma/legacyage_depth_allocation.py"
       ],
-      "role": "unresolved",
-      "verification": "The maintained producer `docs/report/source-relations/neotoma/legacyage-chronology/depth-allocation/replay.py` reads repository inputs declared here and the external LegacyAge S4/S5 tables identified in the retained report/README. After external byte custody and use authority are bound, run the documented fresh-artifact command and compare every governed output byte-for-byte. No private source was reopened here; age, count, taxon, basin, rights and LRA refusals remain unchanged."
+      "role": "generated_owner",
+      "verification": "Run the retained DALMUT depth-summary allocation with an explicit qualified LegacyAge source root. The distinct descriptor and custody receipt bind only consumed S4/S5 bytes, and the configured owner compares report.json byte-for-byte with the tracked output. The 4.5 cm value interpolates published rounded summaries; it is not a posterior draw, historical LandClim age, or LRA admission."
     },
     {
       "owner_id": "source-relations/neotoma/legacyage-chronology/depth-allocation/source-code",

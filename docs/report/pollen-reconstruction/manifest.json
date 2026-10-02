@@ -10,19 +10,24 @@
       "bytes": 30925
     },
     {
+      "path": "configs/ci/qualified-report-sources/legacyage-depth-allocation.json",
+      "sha256": "10de1ad414503d3f02d4f1389c186a0657dd43f40ca8a06c52b5005f1ba5e96b",
+      "bytes": 752
+    },
+    {
       "path": "configs/ci/qualified-report-sources/legacyage.json",
       "bytes": 752,
       "sha256": "0255533348fe38cf716e4b8bfee59905890c6f8cd303e4a40d73317413b98360"
     },
     {
       "path": "configs/ci/report-owner-execution.json",
-      "sha256": "021ec8ac8a4384fe02469dd382dcf1dd5dee3e15e7e965c82441ebc618b6e87c",
-      "bytes": 59885
+      "sha256": "4b0fcf3059912c9251f4450f799b96644e5d10f0a98df09aa0c38b97fa0783f7",
+      "bytes": 60501
     },
     {
       "path": "configs/ci/report-ownership.json",
-      "sha256": "97a45078cb14af17fe116d56886159049d521427c8d3a55a7b629042e540be5a",
-      "bytes": 816106
+      "sha256": "b844d8c3900222ed60c3e0c33fde958ab2eabb48743682044904ed878b3fcefd",
+      "bytes": 816431
     },
     {
       "path": "configs/docs/science_downloads.py",
@@ -3060,6 +3065,11 @@
       "bytes": 46
     },
     {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/neotoma/legacyage_depth_allocation.py",
+      "sha256": "1119e52f3cfe8b832f5e83dff07dadc4d05e5e3e344b3624a93383231c5e8741",
+      "bytes": 3694
+    },
+    {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/neotoma/legacyage_depth_join.py",
       "bytes": 3584,
       "sha256": "d8b7f61a62f6feb4d662a47e9d0b2a1095a18529fec1bf5a18af16024c5a7bed"
@@ -3745,6 +3755,11 @@
       "bytes": 49187
     },
     {
+      "path": "packages/bijux-pollenomics-dev/tests/test_report_rebuild_legacyage_depth_allocation_owner.py",
+      "sha256": "e157f4dba17d97607f3409703715a372eb5039970480e67f090f905679349b02",
+      "bytes": 9817
+    },
+    {
       "path": "packages/bijux-pollenomics-dev/tests/test_report_rebuild_maintained_sources.py",
       "sha256": "ef7fc7393ee8cb5c2643aebfa867d7ce09851f638f52124bf495ae37507adec2",
       "bytes": 10909
@@ -3816,7 +3831,7 @@
     },
     {
       "path": "presentation/source-lock.json",
-      "sha256": "77abd21b9738c9ced21dc6f2ff9b394eb18a4ff30e5d34e276a4263cbaeaa492",
+      "sha256": "8ea5f4d13f2892d52d17f1510be0deb3d31ac9cec958f9d9338930707c6cd563",
       "bytes": 12768
     },
     {
@@ -3831,8 +3846,8 @@
     },
     {
       "path": "reports/architecture/ownership.md",
-      "sha256": "d97a5a4c0aaa195fd93b40aed4cec9991ef9abb901e8f8a2925ca16bf6950097",
-      "bytes": 28300
+      "sha256": "aea6cd6cdffa9ab7029f4f9c4228aebf98b105a488a8de473c44b2b3e7619b3e",
+      "bytes": 28815
     },
     {
       "path": "reports/evidence-index.md",
@@ -3906,7 +3921,7 @@
     },
     {
       "path": "reports/exports/site-downloads.json",
-      "sha256": "86df69beeebf577b626785759cd45f44c227159b8a5b9c529b21b570f596f3e4",
+      "sha256": "7963756ffc5bbd8dc7ea1f40d44b9b5861399b1d85eb48991f3d642d5a472f41",
       "bytes": 5774
     },
     {

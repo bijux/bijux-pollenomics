@@ -63,8 +63,8 @@ or qualified scientific review.
 The [output ownership inventory](../../configs/ci/report-ownership.json)
 assigns every tracked report path exactly one declaration. Its population is
 1,938 paths: 709 declared publisher paths, 125 original-R retained source
-files, 235 generated domain outputs, 62 maintained source files, 172
-maintained reader accounts and 635 paths with unresolved output custody.
+files, 236 generated domain outputs, 62 maintained source files, 172
+maintained reader accounts and 634 paths with unresolved output custody.
 These role counts describe the current declarations. They do not measure
 how many outputs have been independently reproduced.
 
@@ -279,7 +279,7 @@ must record the exact source evidence required by final verification. That
 verification combines source inventories with generated outputs; it refuses
 overlaps, changed inputs or missing source receipts. The canonical Make routes
 enable both source categories. This source transport does not reproduce the
-635 unresolved products, authenticate their historical executions or establish
+634 unresolved products, authenticate their historical executions or establish
 scientific review or release readiness.
 
 The ABBO/DALMUT chronology owner uses the
@@ -307,6 +307,14 @@ refused age claim. Both source joins pin their maintained replay and the two
 Neotoma surfaces. The shared guard refuses existing outputs, traversal and
 linked ancestors. Reproducing these bytes admits no Danish LRA samples and
 does not establish the historical LandClim age selection.
+
+DALMUT’s depth-allocation owner uses a separate
+[S4/S5 source descriptor](../../configs/ci/qualified-report-sources/legacyage-depth-allocation.json).
+Its one report verifies all 72 source pollen depths against Neotoma and
+interpolates published rounded summaries at the 4.5 cm sample with fraction
+0.5. The 635.5-year allocated minimum-to-maximum width describes those
+summaries. It does not supply a joint age posterior, repair the exact-depth
+join, identify the historical LandClim age or admit an LRA sample.
 
 Check the declaration without executing the scientific studies:
 
@@ -377,7 +385,7 @@ refusals; their wrapper code is part of the declared producer closure.
 absent `REBUILD_EVIDENCE_ROOT`. Assembly accepts `REBUILD_OWNER_IDS` and
 `REBUILD_OWNER_ARTIFACTS_ROOT`; final verification accepts the same identities
 and both `REBUILD_REFERENCE_OWNERS_ROOT` and `REBUILD_REPLAY_OWNERS_ROOT`.
-The execution configuration currently names 84 generated owners covering 235
+The execution configuration currently names 85 generated owners covering 236
 tracked report paths. Reproducing a configured subset establishes only those
 owners' declared files.
 The complete report-tree comparison remains mandatory and refuses any missing owner. The scientific CI
