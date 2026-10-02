@@ -3011,8 +3011,8 @@
     },
     {
       "path": "reports/README.md",
-      "sha256": "addc39e63836c6f7aca8c7e377a33a96d1f15111a5e15f41bce0221cbd4c86b2",
-      "bytes": 9778
+      "sha256": "efe8add64fde35400ec4d16a8e655dd5f91d5d14beb56c878041d07bd449d05c",
+      "bytes": 9936
     },
     {
       "path": "reports/architecture/native-backend.md",
@@ -3335,6 +3335,11 @@
       "bytes": 3171
     },
     {
+      "path": "reports/science/smaland-historical-maps-paper.md",
+      "sha256": "6168f1943710e1ec989410d891636f82c76aeb6510676c1be2c4be3f868a05f5",
+      "bytes": 14049
+    },
+    {
       "path": "reports/science/solsoe-lra-input.md",
       "sha256": "ed0213d8c27ce5d90ac924e85fad0d90e97c10fd0a315be31bee12ed971ee39a",
       "bytes": 6347
@@ -3343,6 +3348,11 @@
       "path": "reports/science/source-cohorts.md",
       "sha256": "40f91c53180dcf28d66b2f0520463da65f98add1708f5bfb71cb7b7a514b68ff",
       "bytes": 12336
+    },
+    {
+      "path": "reports/science/southern-sweden-validation-paper.md",
+      "sha256": "d1bf7607c5b978e7ba56d2873901ee79ae5fc7ebaf0af937c75e5c4c8354138d",
+      "bytes": 7868
     },
     {
       "path": "reports/science/sweden-author-pollen.md",
@@ -3396,8 +3406,8 @@
     },
     {
       "path": "reports/science/vegetation-reference.md",
-      "sha256": "2a5bb047d6faa11951b8186d8caf693d7c4328940cf0e31eb1d246320eada6c1",
-      "bytes": 8135
+      "sha256": "6eeec925590d42bab6326b73ca95159c5a6cb44ff92e99e831b27a793a978c0a",
+      "bytes": 8461
     },
     {
       "path": "reports/science/vegetation-reference/farskesjon/plot_support.py",
