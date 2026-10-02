@@ -853,6 +853,21 @@
         "source-products/taxon-diagnostics.csv": "docs/report/regions/nordic/swedish-neotoma-holdout/taxon-diagnostics.csv"
       },
       "timeout_seconds": 180
+    },
+    {
+      "owner_id": "regions/nordic/dalmutladdo-age-interval-sensitivity/interval-products",
+      "module": "bijux_pollenomics_dev.source_completion.nordic.dalmutladdo_interval_sensitivity",
+      "source_paths": {
+        "source-products/predictions.json": "docs/report/regions/nordic/dalmutladdo-age-interval-sensitivity/predictions.json",
+        "source-products/protocol.json": "docs/report/regions/nordic/dalmutladdo-age-interval-sensitivity/protocol.json",
+        "source-products/report.json": "docs/report/regions/nordic/dalmutladdo-age-interval-sensitivity/report.json",
+        "source-products/sample-support.csv": "docs/report/regions/nordic/dalmutladdo-age-interval-sensitivity/sample-support.csv",
+        "source-products/scores.csv": "docs/report/regions/nordic/dalmutladdo-age-interval-sensitivity/scores.csv"
+      },
+      "source_arguments": [],
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "timeout_seconds": 600
     }
   ]
 }
