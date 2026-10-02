@@ -37,6 +37,11 @@ The repository's [main-paper inventory](https://github.com/bijux/bijux-pollenomi
 
 The canonical reports annotate partial primary-text access and precise unsent source/reviewer questions. They preserve numerical differences, invalid compositions and missing outcomes. Actual collaborator comprehension and qualified scientific review remain outstanding.
 
+The [report and presentation downloads](downloads.md) provide all nine canonical
+accounts and three audience briefings as source-bound PDFs. Their main text,
+tables and diagrams can be read offline; linked external evidence still needs
+access to its source.
+
 ## Use a result responsibly
 
 Start with the scientific question, then check the [claim-to-evidence index](https://github.com/bijux/bijux-pollenomics/blob/main/reports/evidence-index.md) for exact rows, source identity and producer. Read the corresponding account's unavailable conclusions before selecting a parameter or using a model output. A source-bound numerical test, development prediction and independent vegetation comparison have different acceptance conditions; the current [model-use results](results.md) explain which choices their evidence supports.

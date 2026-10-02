@@ -5,6 +5,11 @@
   "as_of": "2026-10-01",
   "files": [
     {
+      "path": "configs/docs/science_downloads.py",
+      "sha256": "3162000c64180ca575be718c03ecdfe90bc0f53240eb4101947356c863848906",
+      "bytes": 4288
+    },
+    {
       "path": "data/archaeology/raw/hojea_2003_source.json",
       "sha256": "0b9a9a01aad4a8a0abc710b0b96c987d88830f84885ec3282994a60a26f803a9",
       "bytes": 1227
@@ -105,14 +110,19 @@
       "bytes": 10259
     },
     {
+      "path": "docs/public/pollenomics/science/downloads.md",
+      "sha256": "8c37e0e048390847bc456654ce33f9812701a09234a7a638754c8368bb010f65",
+      "bytes": 4482
+    },
+    {
       "path": "docs/public/pollenomics/science/index.md",
-      "sha256": "fe408aa7c7f90d64444b6fbfda4034f232df14644610e9762bb945a9e02fb95e",
-      "bytes": 1571
+      "sha256": "913fdd6512b20446dc90859b873c493a77e0e99d78095806fc9d980ba27e850c",
+      "bytes": 1708
     },
     {
       "path": "docs/public/pollenomics/science/papers.md",
-      "sha256": "9fe1d21afb80e20fff743f464eaa6c27cbbea68aff2851d6d9e0bbb91167581d",
-      "bytes": 5808
+      "sha256": "8a1a0be08d264d331e474eee6f8f2e02c790403269f57e6c9aadd1f878f6fc0f",
+      "bytes": 6067
     },
     {
       "path": "docs/public/pollenomics/science/results.md",
@@ -2920,6 +2930,11 @@
       "bytes": 1646
     },
     {
+      "path": "packages/bijux-pollenomics-dev/tests/reader_reports/test_site_downloads.py",
+      "sha256": "ba06d2758a8132f25c46cec4fe1be97da4f1a2e7534757bb698d9a675610bbdf",
+      "bytes": 5349
+    },
+    {
       "path": "packages/bijux-pollenomics-dev/tests/source_completion/pollen_age_support/test_sambosjon.py",
       "sha256": "2dac5ea8cbb6c32f12edeba735068d18a0c9728ab717b81488dc641396cb1406",
       "bytes": 3513
@@ -3103,6 +3118,11 @@
       "path": "reports/exports/papers/visual-review.json",
       "sha256": "39f234de871903e0b224eb5d82e95fc704ded878f819e4e2bb5b70058eb5a844",
       "bytes": 20677
+    },
+    {
+      "path": "reports/exports/site-downloads.json",
+      "sha256": "d7603558df1e4d5b8b328465ff2dbe9d34630c15e22fd87755dfe5af8ee90fec",
+      "bytes": 5774
     },
     {
       "path": "reports/needed/README.md",
