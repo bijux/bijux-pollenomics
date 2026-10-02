@@ -63,8 +63,8 @@ or qualified scientific review.
 The [output ownership inventory](../../configs/ci/report-ownership.json)
 assigns every tracked report path exactly one declaration. Its population is
 1,938 paths: 709 declared publisher paths, 125 original-R retained source
-files, 64 generated domain outputs, 62 maintained source files, 113
-maintained reader accounts and 865 paths with unresolved output custody.
+files, 70 generated domain outputs, 62 maintained source files, 120
+maintained reader accounts and 852 paths with unresolved output custody.
 These role counts describe the current declarations. They do not measure
 how many outputs have been independently reproduced.
 
@@ -177,6 +177,14 @@ case declarations and historical timing products retain unresolved source
 and runtime custody. Existing successful numerical receipts remain scoped
 to their recorded sources and platforms; this declaration does not request
 new unchanged R runs or remeasure historical timings.
+
+The Rootsi metadata overlap, SEAD country retrieval and source-capability
+ledger declare six local products. The capability consumer binds its two
+governing matrices and all 74 present evidence files; its 30 expected missing
+paths stay absent facts rather than observed zeros. Seven source explanations
+are editorial. Original OpenLand/DOI captures, the full private-intake audit
+and the SVAR export inputs retain separate custody requirements. Source
+accounting and a metadata join do not establish scientific admission.
 
 A fresh canonical publisher build from fixed product
 `d535ca7f3bed0ead63e5f96e45658c435ed6613a` produced exactly the 709 declared
