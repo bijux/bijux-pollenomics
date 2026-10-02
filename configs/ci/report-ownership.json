@@ -3197,19 +3197,48 @@
       "verification": "The raw 818643-byte post-cache measurement (SHA-256 9a0f044bfec9419e32477d0e652c5d04b5c8571b5222a3c9d44ab1cdf70ec65a) and historical baseline raw run are outside repository closure. The summary and comparison read a retained baseline, but cannot reconstruct historical timing from it."
     },
     {
+      "owner_id": "pollen-reconstruction/age-interval-sensitivity/local-preparation",
+      "role": "generated_owner",
+      "paths": [
+        "docs/report/pollen-reconstruction/age-interval-sensitivity/age-bin-support.csv",
+        "docs/report/pollen-reconstruction/age-interval-sensitivity/input-manifest.json",
+        "docs/report/pollen-reconstruction/age-interval-sensitivity/prepared/dataset-19913.json"
+      ],
+      "producer_paths": [
+        "docs/report/pollen-reconstruction/age-interval-sensitivity/replay.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/swedish_direct_pollen.py"
+      ],
+      "producer_inputs": [
+        "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-004.json",
+        "docs/report/pollen-reconstruction/age-interval-sensitivity/config.json",
+        "docs/report/pollen-reconstruction/swedish-direct-pollen/config.json",
+        "docs/report/pollen-reconstruction/swedish-direct-pollen/prepared/dataset-19913.json",
+        "docs/report/pollen-reconstruction/swedish-direct-pollen/prepared/dataset-53995.json",
+        "docs/report/pollen-reconstruction/swedish-direct-pollen/prepared/dataset-54001.json",
+        "docs/report/source-relations/neotoma/legacyage-chronology/sample-depth-join.csv"
+      ],
+      "verification": "From the repository root, run `PYTHONDONTWRITEBYTECODE=1 .venv/bin/python docs/report/pollen-reconstruction/age-interval-sensitivity/replay.py prepare --repository . --output artifacts/jobs/abbo-interval-owner-check` with an absent output. Compare only the three declared files byte for byte with their tracked counterparts. This verifies a local preparation stage from retained Neotoma/LegacyAge inputs; it does not rerun held-out prediction, scoring, chronology approval, or external source authentication."
+    },
+    {
+      "owner_id": "pollen-reconstruction/age-interval-sensitivity/reader-account",
+      "role": "maintained_editorial",
+      "paths": [
+        "docs/report/pollen-reconstruction/age-interval-sensitivity/README.md"
+      ],
+      "producer_paths": [],
+      "producer_inputs": [],
+      "verification": "Read the current authored Markdown against its linked governed numeric report and source notes. This ownership label does not approve the scientific claims or reproduce linked source results."
+    },
+    {
       "owner_id": "pollen-reconstruction/age-interval-sensitivity/report-products",
       "role": "unresolved",
       "paths": [
-        "docs/report/pollen-reconstruction/age-interval-sensitivity/README.md",
-        "docs/report/pollen-reconstruction/age-interval-sensitivity/age-bin-support.csv",
         "docs/report/pollen-reconstruction/age-interval-sensitivity/comparison.json",
         "docs/report/pollen-reconstruction/age-interval-sensitivity/config.json",
-        "docs/report/pollen-reconstruction/age-interval-sensitivity/input-manifest.json",
         "docs/report/pollen-reconstruction/age-interval-sensitivity/predictions-scored.csv",
         "docs/report/pollen-reconstruction/age-interval-sensitivity/predictions/site-13338.json",
         "docs/report/pollen-reconstruction/age-interval-sensitivity/predictions/site-28869.json",
         "docs/report/pollen-reconstruction/age-interval-sensitivity/predictions/site-28872.json",
-        "docs/report/pollen-reconstruction/age-interval-sensitivity/prepared/dataset-19913.json",
         "docs/report/pollen-reconstruction/age-interval-sensitivity/scores.csv",
         "docs/report/pollen-reconstruction/age-interval-sensitivity/summary.json"
       ],
@@ -3217,7 +3246,7 @@
         "docs/report/pollen-reconstruction/age-interval-sensitivity/replay.py"
       ],
       "producer_inputs": [],
-      "verification": "Identify the exact producer or independent source/template custody, lawful input closure and role-specific verification route for these paths. Bind independently reconstructed output or authenticated retained source before full mixed-owner acceptance; tracked output bytes cannot feed their own producer."
+      "verification": "Configuration is an authored scientific choice; remaining predictions and scores require the separate numerical prediction/freeze/score execution and governed receipt. The local preparation owner covers only three explicitly closed files."
     },
     {
       "owner_id": "pollen-reconstruction/age-interval-sensitivity/source-code",
@@ -3230,10 +3259,19 @@
       "verification": "Maintain these repository source files through review and focused tests. Source custody is distinct from generated output reproduction; copying them into a replay lane does not certify the results they produce."
     },
     {
+      "owner_id": "pollen-reconstruction/author-buffered-pollen/reader-account",
+      "role": "maintained_editorial",
+      "paths": [
+        "docs/report/pollen-reconstruction/author-buffered-pollen/README.md"
+      ],
+      "producer_paths": [],
+      "producer_inputs": [],
+      "verification": "Read the current authored Markdown against its linked governed numeric report and source notes. This ownership label does not approve the scientific claims or reproduce linked source results."
+    },
+    {
       "owner_id": "pollen-reconstruction/author-buffered-pollen/report-products",
       "role": "unresolved",
       "paths": [
-        "docs/report/pollen-reconstruction/author-buffered-pollen/README.md",
         "docs/report/pollen-reconstruction/author-buffered-pollen/comparisons/baseline/REPORT.md",
         "docs/report/pollen-reconstruction/author-buffered-pollen/comparisons/baseline/report.json",
         "docs/report/pollen-reconstruction/author-buffered-pollen/comparisons/fitted-common-support/REPORT.md",
@@ -3291,7 +3329,7 @@
         "docs/report/pollen-reconstruction/author-buffered-pollen/replay.py"
       ],
       "producer_inputs": [],
-      "verification": "Identify the exact producer or independent source/template custody, lawful input closure and role-specific verification route for these paths. Bind independently reconstructed output or authenticated retained source before full mixed-owner acceptance; tracked output bytes cannot feed their own producer."
+      "verification": "The replay requires an authenticated private author/reference capsule plus runtime model execution. The tracked manifest checks generated bytes but is not an independent source or a fresh capture certificate."
     },
     {
       "owner_id": "pollen-reconstruction/author-buffered-pollen/source-code",
@@ -3305,10 +3343,19 @@
       "verification": "Maintain these repository source files through review and focused tests. Source custody is distinct from generated output reproduction; copying them into a replay lane does not certify the results they produce."
     },
     {
+      "owner_id": "pollen-reconstruction/author-example-site-mean-holdout/reader-account",
+      "role": "maintained_editorial",
+      "paths": [
+        "docs/report/pollen-reconstruction/author-example-site-mean-holdout/README.md"
+      ],
+      "producer_paths": [],
+      "producer_inputs": [],
+      "verification": "Read the current authored Markdown against its linked governed numeric report and source notes. This ownership label does not approve the scientific claims or reproduce linked source results."
+    },
+    {
       "owner_id": "pollen-reconstruction/author-example-site-mean-holdout/report-products",
       "role": "unresolved",
       "paths": [
-        "docs/report/pollen-reconstruction/author-example-site-mean-holdout/README.md",
         "docs/report/pollen-reconstruction/author-example-site-mean-holdout/REPORT.md",
         "docs/report/pollen-reconstruction/author-example-site-mean-holdout/predictions.csv",
         "docs/report/pollen-reconstruction/author-example-site-mean-holdout/report.json",
@@ -3318,7 +3365,7 @@
         "docs/report/pollen-reconstruction/author-example-site-mean-holdout/replay.py"
       ],
       "producer_inputs": [],
-      "verification": "Identify the exact producer or independent source/template custody, lawful input closure and role-specific verification route for these paths. Bind independently reconstructed output or authenticated retained source before full mixed-owner acceptance; tracked output bytes cannot feed their own producer."
+      "verification": "The replay requires the private author/reference source capsule and executed baseline. Existing byte comparisons do not make those inputs repository-contained."
     },
     {
       "owner_id": "pollen-reconstruction/author-example-site-mean-holdout/source-code",
@@ -3331,10 +3378,19 @@
       "verification": "Maintain these repository source files through review and focused tests. Source custody is distinct from generated output reproduction; copying them into a replay lane does not certify the results they produce."
     },
     {
+      "owner_id": "pollen-reconstruction/author-lra-constrained/optimizer-gradient/reader-account",
+      "role": "maintained_editorial",
+      "paths": [
+        "docs/report/pollen-reconstruction/author-lra-constrained/optimizer-gradient/README.md"
+      ],
+      "producer_paths": [],
+      "producer_inputs": [],
+      "verification": "Read the current authored Markdown against its linked governed numeric report and source notes. This ownership label does not approve the scientific claims or reproduce linked source results."
+    },
+    {
       "owner_id": "pollen-reconstruction/author-lra-constrained/optimizer-gradient/report-products",
       "role": "unresolved",
       "paths": [
-        "docs/report/pollen-reconstruction/author-lra-constrained/optimizer-gradient/README.md",
         "docs/report/pollen-reconstruction/author-lra-constrained/optimizer-gradient/baseline.json",
         "docs/report/pollen-reconstruction/author-lra-constrained/optimizer-gradient/report.json"
       ],
@@ -3342,7 +3398,7 @@
         "docs/report/pollen-reconstruction/author-lra-constrained/optimizer-gradient/replay.py"
       ],
       "producer_inputs": [],
-      "verification": "Identify the exact producer or independent source/template custody, lawful input closure and role-specific verification route for these paths. Bind independently reconstructed output or authenticated retained source before full mixed-owner acceptance; tracked output bytes cannot feed their own producer."
+      "verification": "Baseline and analytic-gradient diagnostic require private prepared source inputs and bounded optimizer execution; finite outputs are retained runtime evidence, not locally generated from repository inputs alone."
     },
     {
       "owner_id": "pollen-reconstruction/author-lra-constrained/optimizer-gradient/source-code",
@@ -3355,13 +3411,38 @@
       "verification": "Maintain these repository source files through review and focused tests. Source custody is distinct from generated output reproduction; copying them into a replay lane does not certify the results they produce."
     },
     {
+      "owner_id": "pollen-reconstruction/author-lra-constrained/radius-sensitivity/paired-comparison",
+      "role": "generated_owner",
+      "paths": [
+        "docs/report/pollen-reconstruction/author-lra-constrained/radius-sensitivity/paired/paired-scores.csv",
+        "docs/report/pollen-reconstruction/author-lra-constrained/radius-sensitivity/paired/report.json"
+      ],
+      "producer_paths": [
+        "docs/report/pollen-reconstruction/author-lra-constrained/radius-sensitivity/paired_comparison.py"
+      ],
+      "producer_inputs": [
+        "docs/report/pollen-reconstruction/author-lra-constrained/direct-pollen/matched-scores.csv",
+        "docs/report/pollen-reconstruction/author-lra-constrained/direct-pollen/paired-hellinger.json",
+        "docs/report/pollen-reconstruction/author-lra-constrained/radius-sensitivity/scored/report.json",
+        "docs/report/pollen-reconstruction/author-lra-constrained/radius-sensitivity/scored/scores.csv"
+      ],
+      "verification": "From the repository root, run `PYTHONDONTWRITEBYTECODE=1 .venv/bin/python docs/report/pollen-reconstruction/author-lra-constrained/radius-sensitivity/paired_comparison.py --output artifacts/jobs/english-radius-paired-owner-check` with an absent output; compare its two files byte for byte with the tracked paired outputs. This is a local join of retained development ledgers, not a new radius fit, source replay, or vegetation validation."
+    },
+    {
+      "owner_id": "pollen-reconstruction/author-lra-constrained/radius-sensitivity/reader-account",
+      "role": "maintained_editorial",
+      "paths": [
+        "docs/report/pollen-reconstruction/author-lra-constrained/radius-sensitivity/README.md"
+      ],
+      "producer_paths": [],
+      "producer_inputs": [],
+      "verification": "Read the current authored Markdown against its linked governed numeric report and source notes. This ownership label does not approve the scientific claims or reproduce linked source results."
+    },
+    {
       "owner_id": "pollen-reconstruction/author-lra-constrained/radius-sensitivity/report-products",
       "role": "unresolved",
       "paths": [
-        "docs/report/pollen-reconstruction/author-lra-constrained/radius-sensitivity/README.md",
         "docs/report/pollen-reconstruction/author-lra-constrained/radius-sensitivity/frozen/predictions.json",
-        "docs/report/pollen-reconstruction/author-lra-constrained/radius-sensitivity/paired/paired-scores.csv",
-        "docs/report/pollen-reconstruction/author-lra-constrained/radius-sensitivity/paired/report.json",
         "docs/report/pollen-reconstruction/author-lra-constrained/radius-sensitivity/scored/report.json",
         "docs/report/pollen-reconstruction/author-lra-constrained/radius-sensitivity/scored/scores.csv"
       ],
@@ -3369,7 +3450,7 @@
         "docs/report/pollen-reconstruction/author-lra-constrained/radius-sensitivity/paired_comparison.py"
       ],
       "producer_inputs": [],
-      "verification": "Identify the exact producer or independent source/template custody, lawful input closure and role-specific verification route for these paths. Bind independently reconstructed output or authenticated retained source before full mixed-owner acceptance; tracked output bytes cannot feed their own producer."
+      "verification": "Frozen radius predictions and scored outputs require the original source-bound forward run and target-score custody; only the later four-ledger paired join has a repository-contained producer route."
     },
     {
       "owner_id": "pollen-reconstruction/author-lra-constrained/radius-sensitivity/source-code",
@@ -3382,10 +3463,19 @@
       "verification": "Maintain these repository source files through review and focused tests. Source custody is distinct from generated output reproduction; copying them into a replay lane does not certify the results they produce."
     },
     {
+      "owner_id": "pollen-reconstruction/author-lra-constrained/reader-account",
+      "role": "maintained_editorial",
+      "paths": [
+        "docs/report/pollen-reconstruction/author-lra-constrained/README.md"
+      ],
+      "producer_paths": [],
+      "producer_inputs": [],
+      "verification": "Read the current authored Markdown against its linked governed numeric report and source notes. This ownership label does not approve the scientific claims or reproduce linked source results."
+    },
+    {
       "owner_id": "pollen-reconstruction/author-lra-constrained/report-products",
       "role": "unresolved",
       "paths": [
-        "docs/report/pollen-reconstruction/author-lra-constrained/README.md",
         "docs/report/pollen-reconstruction/author-lra-constrained/direct-pollen/comparison.json",
         "docs/report/pollen-reconstruction/author-lra-constrained/direct-pollen/manifest.json",
         "docs/report/pollen-reconstruction/author-lra-constrained/direct-pollen/matched-scores.csv",
@@ -3406,7 +3496,7 @@
         "docs/report/pollen-reconstruction/author-lra-constrained/score.py"
       ],
       "producer_inputs": [],
-      "verification": "Identify the exact producer or independent source/template custody, lawful input closure and role-specific verification route for these paths. Bind independently reconstructed output or authenticated retained source before full mixed-owner acceptance; tracked output bytes cannot feed their own producer."
+      "verification": "Constrained LOVE prediction, score and direct-pollen comparisons depend on private author source preparation, numerical runs and frozen held-out evidence. No ownership declaration waives a refused fold or authenticates private inputs."
     },
     {
       "owner_id": "pollen-reconstruction/author-lra-constrained/source-code",
@@ -3423,20 +3513,29 @@
       "verification": "Maintain these repository source files through review and focused tests. Source custody is distinct from generated output reproduction; copying them into a replay lane does not certify the results they produce."
     },
     {
-      "owner_id": "pollen-reconstruction/author-lra-development/report-products",
-      "role": "unresolved",
+      "owner_id": "pollen-reconstruction/author-lra-development/reader-account",
+      "role": "maintained_editorial",
       "paths": [
         "docs/report/pollen-reconstruction/author-lra-development/README.md"
       ],
       "producer_paths": [],
       "producer_inputs": [],
-      "verification": "Identify the exact producer or independent source/template custody, lawful input closure and role-specific verification route for these paths. Bind independently reconstructed output or authenticated retained source before full mixed-owner acceptance; tracked output bytes cannot feed their own producer."
+      "verification": "Read the current authored Markdown against its linked governed numeric report and source notes. This ownership label does not approve the scientific claims or reproduce linked source results."
+    },
+    {
+      "owner_id": "pollen-reconstruction/author-lra-optimized-feasibility/reader-account",
+      "role": "maintained_editorial",
+      "paths": [
+        "docs/report/pollen-reconstruction/author-lra-optimized-feasibility/README.md"
+      ],
+      "producer_paths": [],
+      "producer_inputs": [],
+      "verification": "Read the current authored Markdown against its linked governed numeric report and source notes. This ownership label does not approve the scientific claims or reproduce linked source results."
     },
     {
       "owner_id": "pollen-reconstruction/author-lra-optimized-feasibility/report-products",
       "role": "unresolved",
       "paths": [
-        "docs/report/pollen-reconstruction/author-lra-optimized-feasibility/README.md",
         "docs/report/pollen-reconstruction/author-lra-optimized-feasibility/finite-candidate.json",
         "docs/report/pollen-reconstruction/author-lra-optimized-feasibility/report.json"
       ],
@@ -3445,7 +3544,7 @@
         "docs/report/pollen-reconstruction/author-lra-optimized-feasibility/prepare.py"
       ],
       "producer_inputs": [],
-      "verification": "Identify the exact producer or independent source/template custody, lawful input closure and role-specific verification route for these paths. Bind independently reconstructed output or authenticated retained source before full mixed-owner acceptance; tracked output bytes cannot feed their own producer."
+      "verification": "Finite optimizer diagnostic and refusal report require private 193-file author source capsule, exact request and bounded numerical execution; neither is a local mechanical report product."
     },
     {
       "owner_id": "pollen-reconstruction/author-lra-optimized-feasibility/source-code",
@@ -3459,19 +3558,29 @@
       "verification": "Maintain these repository source files through review and focused tests. Source custody is distinct from generated output reproduction; copying them into a replay lane does not certify the results they produce."
     },
     {
+      "owner_id": "pollen-reconstruction/reader-account",
+      "role": "maintained_editorial",
+      "paths": [
+        "docs/report/pollen-reconstruction/README.md",
+        "docs/report/pollen-reconstruction/author-development-interpretation.md",
+        "docs/report/pollen-reconstruction/paper-correspondence.md",
+        "docs/report/pollen-reconstruction/swedish-native-sequences/source-notes.md"
+      ],
+      "producer_paths": [],
+      "producer_inputs": [],
+      "verification": "Read the current authored Markdown against its linked governed numeric report and source notes. This ownership label does not approve the scientific claims or reproduce linked source results."
+    },
+    {
       "owner_id": "pollen-reconstruction/report-products",
       "role": "unresolved",
       "paths": [
-        "docs/report/pollen-reconstruction/README.md",
         "docs/report/pollen-reconstruction/author-development-design.json",
-        "docs/report/pollen-reconstruction/author-development-interpretation.md",
         "docs/report/pollen-reconstruction/author-development-predictions.csv.gz",
         "docs/report/pollen-reconstruction/author-source-custody.json",
         "docs/report/pollen-reconstruction/coverage.csv",
         "docs/report/pollen-reconstruction/leaderboard.csv",
         "docs/report/pollen-reconstruction/manifest.json",
         "docs/report/pollen-reconstruction/paper-correspondence.csv",
-        "docs/report/pollen-reconstruction/paper-correspondence.md",
         "docs/report/pollen-reconstruction/results.csv",
         "docs/report/pollen-reconstruction/scope.json",
         "docs/report/pollen-reconstruction/scores.csv",
@@ -3489,14 +3598,7 @@
         "docs/report/pollen-reconstruction/swedish-direct-pollen/prepared/dataset-54001.json",
         "docs/report/pollen-reconstruction/swedish-direct-pollen/scores.csv",
         "docs/report/pollen-reconstruction/swedish-direct-pollen/summary.json",
-        "docs/report/pollen-reconstruction/swedish-native-sequences/chronology-controls.json",
         "docs/report/pollen-reconstruction/swedish-native-sequences/index.html",
-        "docs/report/pollen-reconstruction/swedish-native-sequences/manifest.json",
-        "docs/report/pollen-reconstruction/swedish-native-sequences/map-summary.geojson",
-        "docs/report/pollen-reconstruction/swedish-native-sequences/observations.json",
-        "docs/report/pollen-reconstruction/swedish-native-sequences/samples.json",
-        "docs/report/pollen-reconstruction/swedish-native-sequences/sites.json",
-        "docs/report/pollen-reconstruction/swedish-native-sequences/source-notes.md",
         "docs/report/pollen-reconstruction/swedish-native-sequences/source-overlap.json",
         "docs/report/pollen-reconstruction/swedish-source-questions.csv"
       ],
@@ -3504,7 +3606,7 @@
         "docs/report/pollen-reconstruction/verify_report.py"
       ],
       "producer_inputs": [],
-      "verification": "Identify the exact producer or independent source/template custody, lawful input closure and role-specific verification route for these paths. Bind independently reconstructed output or authenticated retained source before full mixed-owner acceptance; tracked output bytes cannot feed their own producer."
+      "verification": "Root mixed products include historical author captures, scientific configuration/results, Swedish direct-pollen numerical runs, a manually maintained browser page and source-overlap material. Verification-only manifest checks do not regenerate them from a single closed source stage. Six native sequence tables are split to their exact local builder."
     },
     {
       "owner_id": "pollen-reconstruction/source-code",
@@ -3515,6 +3617,27 @@
       "producer_paths": [],
       "producer_inputs": [],
       "verification": "Maintain these repository source files through review and focused tests. Source custody is distinct from generated output reproduction; copying them into a replay lane does not certify the results they produce."
+    },
+    {
+      "owner_id": "pollen-reconstruction/swedish-native-sequences/source-tables",
+      "role": "generated_owner",
+      "paths": [
+        "docs/report/pollen-reconstruction/swedish-native-sequences/chronology-controls.json",
+        "docs/report/pollen-reconstruction/swedish-native-sequences/manifest.json",
+        "docs/report/pollen-reconstruction/swedish-native-sequences/map-summary.geojson",
+        "docs/report/pollen-reconstruction/swedish-native-sequences/observations.json",
+        "docs/report/pollen-reconstruction/swedish-native-sequences/samples.json",
+        "docs/report/pollen-reconstruction/swedish-native-sequences/sites.json"
+      ],
+      "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/swedish_direct_pollen.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/swedish_pollen_sequences.py"
+      ],
+      "producer_inputs": [
+        "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-004.json",
+        "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-008.json"
+      ],
+      "verification": "From the repository root, run `PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -m bijux_pollenomics_dev.source_completion.swedish_pollen_sequences --data-root data/neotoma/raw/neotoma_pollen_dataset_downloads --destination artifacts/jobs/swedish-sequences-owner-check` with an absent destination; compare the six declared files byte for byte with the tracked source tables. This verifies the retained local table builder only, not independent capture, policy rights, or age-model review."
     },
     {
       "owner_id": "propagation/governed-edge-ledger/classification-evidence",

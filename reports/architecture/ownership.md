@@ -214,8 +214,7 @@ six mechanical outputs. Their raw/normalized source roots and scoped concept
 review remain explicit inputs. Four explanations are editorial. The compact
 sample-screen summary has a separate exporter that preserves the parent values,
 checks candidate/sample population identity and refuses scientific admission.
-Source
-transport, necessary count/age leads and dataset DOI attribution do not approve
+Source transport, necessary count/age leads and dataset DOI attribution do not approve
 chronology, taxa, pollen denominator, basin geometry, PPE or LRA admission.
 
 The LandClim publication declarations distinguish five metadata inventory
@@ -232,6 +231,13 @@ Four explanations are editorial. The two map-audit products still depend on
 historical browser and candidate-generation receipts. Native AD conversion,
 record intervals, 86 complete joins and 61 retained tables remain source/display
 accounting; acquisition release and scientific event/LRA admission stay refused.
+
+The pollen reconstruction declarations separate eleven local preparation,
+paired-comparison and native-sequence files from twelve authored accounts.
+The remaining 109 products still require private author sources, numerical
+execution custody, historical captures or independent configuration/manifest
+ownership. An interval preparation or paired development join does not certify
+held-out LOVE predictions, a constrained optimization or vegetation accuracy.
 
 A fresh canonical publisher build from fixed product
 `d535ca7f3bed0ead63e5f96e45658c435ed6613a` produced exactly the 709 declared
