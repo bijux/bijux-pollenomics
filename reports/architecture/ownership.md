@@ -44,6 +44,20 @@ identities. The [scientific verifier](../../docs/report/pollen-reconstruction/ve
 checks its governed results. A complete report-tree rebuild is a separate
 acceptance decision.
 
+The current tracked report tree contains 1,938 files. Its navigation registry
+indexes 1,934 surfaces and deliberately excludes its four registry/review
+metadata files. Each indexed Markdown surface and its layout row carries the exact content
+hash used by that consumer. Machine-readable products keep their domain
+manifest identities, avoiding recursive hashes through the scientific
+manifest that binds the portal outputs. The portal producer regenerates
+11 navigation and inventory files from the other governed report inputs;
+two isolated runs agree on all 11 outputs. This is a secondary consumer
+check of existing result bytes. It does not independently reproduce the
+scientific producers, the publisher's country bundles or the whole report
+tree. Automated layout signals do not establish actual reader comprehension
+or qualified scientific review.
+
+
 The [method correspondence](../science/method-correspondence.md),
 [publication correspondence](../science/publication-correspondence.md),
 [observed-pollen synthesis](../science/pollen-prediction.md) and

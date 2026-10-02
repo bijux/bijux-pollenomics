@@ -4,7 +4,7 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-reporting
-last_reviewed: 2026-05-09
+review_scope: automated navigation inventory
 ---
 
 # Map Surfaces
@@ -30,4 +30,4 @@ show.
 
 - interactive maps: `3`
 - traceability surfaces: `9`
-- total map-family artifacts: `85`
+- total map-family artifacts: `87`

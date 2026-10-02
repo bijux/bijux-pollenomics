@@ -4,7 +4,7 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-reporting
-last_reviewed: 2026-05-09
+review_scope: automated navigation inventory
 ---
 
 # Scope-Filtered Outputs
@@ -28,5 +28,5 @@ governed publication system, not separate products with unrelated truth rules.
 
 ## Current Counts
 
-- total scope artifacts: `762`
+- total scope artifacts: `771`
 - country-family artifacts: `126`

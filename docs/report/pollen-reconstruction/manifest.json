@@ -271,13 +271,13 @@
     },
     {
       "path": "docs/report/index.md",
-      "sha256": "b217879b8e6f792451ffcda569ed15327d7ad9c5897d9562d9418ab38e3e1cad",
-      "bytes": 2670
+      "sha256": "146678d275830a7a847e33c7de8000f88e22f808ee56341654fe1e2cb9bf568e",
+      "bytes": 2689
     },
     {
       "path": "docs/report/maintenance/index.md",
-      "sha256": "64342ba2c0de7da8558358df3a2f117c514b46f81bdd1e4f42117c8a385bf51b",
-      "bytes": 1393
+      "sha256": "c2b0a7de051edca222ce5bcae84e6256fc4c20483ef27a73e808d1c47ef6a0b9",
+      "bytes": 1412
     },
     {
       "path": "docs/report/method-certification/current-r-oracle/README.md",
@@ -2251,23 +2251,23 @@
     },
     {
       "path": "docs/report/report_narrative_quality_review.json",
-      "sha256": "235fc4ead0c56295a207f7e71508eaa3bdf3c3d20dec35f370228e8998215995",
-      "bytes": 108981
+      "sha256": "250c5e02332f783c01a6e7ce6afbbe54409932e2538c44b17d5137ec928dead3",
+      "bytes": 137740
     },
     {
       "path": "docs/report/report_narrative_quality_review.md",
-      "sha256": "9222f713c9990cebbb333698cf2d12175be334910f801664cfb7c9704f8f5c58",
-      "bytes": 624
+      "sha256": "16bc6a4037d432962b3fc1291b9ad35162ee7ede10ef89a917b5a182fc99a0c5",
+      "bytes": 754
     },
     {
       "path": "docs/report/report_surface_registry.json",
-      "sha256": "933b0754cd014f68ec2f21529039dbd193ebb047643514800366a7fa179235b1",
-      "bytes": 904617
+      "sha256": "780236ae1f19b936d71bc50c67bd1283fb1551c95a5adc4bd6a69626f80d4f39",
+      "bytes": 944837
     },
     {
       "path": "docs/report/report_surface_registry.md",
-      "sha256": "0e8e58c47a82fce01904cc90d5eeae7f5dcf947b03d18a7bd5ad4baf0b2e7bb9",
-      "bytes": 864
+      "sha256": "04cbee94a1d61775e9b5e30b5c4dd1fc41d9dfeb495ccc85db8942d11b12e186",
+      "bytes": 1078
     },
     {
       "path": "docs/report/source-relations/dna-scope/reindeer-published-appendix.md",
@@ -3056,8 +3056,8 @@
     },
     {
       "path": "reports/architecture/ownership.md",
-      "sha256": "7b2c6cd467c66e2f582ac613400483a49a9bfa4c3141f4f4247b7bb7946ad32b",
-      "bytes": 3700
+      "sha256": "b06f96ed8faa80af72cf0a1adb678dbb8d03f6582efaf518afc2a99f0cc998d4",
+      "bytes": 4558
     },
     {
       "path": "reports/evidence-index.md",
@@ -3131,7 +3131,7 @@
     },
     {
       "path": "reports/exports/site-downloads.json",
-      "sha256": "4de601b42ff82de6109eef8ba761bf619f25136736cb8d254daf9f44cf1f3b25",
+      "sha256": "aad8efeb327d1aea8d8b3212490837ab83ae28348c467aa8d517f66c82fc3ad0",
       "bytes": 5774
     },
     {
