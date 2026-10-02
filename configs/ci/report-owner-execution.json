@@ -1054,6 +1054,20 @@
         "source-products/training-sources.csv": "docs/report/regions/nordic/direct-pollen/training-sources.csv"
       },
       "timeout_seconds": 600
+    },
+    {
+      "module": "bijux_pollenomics_dev.source_completion.nordic.sambosjon_contained_age",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "regions/nordic/sambosjon-contained-age-support",
+      "source_arguments": [],
+      "source_paths": {
+        "source-products/coverage.csv": "docs/report/regions/nordic/sambosjon-direct-pollen/interval-support/coverage.csv",
+        "source-products/report.json": "docs/report/regions/nordic/sambosjon-direct-pollen/interval-support/report.json",
+        "source-products/samples.csv": "docs/report/regions/nordic/sambosjon-direct-pollen/interval-support/samples.csv",
+        "source-products/scores.csv": "docs/report/regions/nordic/sambosjon-direct-pollen/interval-support/scores.csv"
+      },
+      "timeout_seconds": 600
     }
   ]
 }

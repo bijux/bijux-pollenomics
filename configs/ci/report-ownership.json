@@ -5728,20 +5728,11 @@
     },
     {
       "owner_id": "regions/nordic/sambosjon-contained-age-support",
-      "role": "generated_owner",
       "paths": [
         "docs/report/regions/nordic/sambosjon-direct-pollen/interval-support/coverage.csv",
         "docs/report/regions/nordic/sambosjon-direct-pollen/interval-support/report.json",
         "docs/report/regions/nordic/sambosjon-direct-pollen/interval-support/samples.csv",
         "docs/report/regions/nordic/sambosjon-direct-pollen/interval-support/scores.csv"
-      ],
-      "producer_paths": [
-        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/lilla_gloppsjon_direct_pollen.py",
-        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/lilla_gloppsjon_direct_pollen_scoring.py",
-        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/nordic_direct_pollen.py",
-        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_age_support/sambosjon.py",
-        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sambosjon_age_bounds.py",
-        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sambosjon_direct_pollen.py"
       ],
       "producer_inputs": [
         "data/neotoma/relational/manifest.json",
@@ -5765,10 +5756,45 @@
         "docs/report/regions/nordic/sambosjon-direct-pollen/frozen/predictions.json",
         "docs/report/regions/nordic/sambosjon-direct-pollen/inputs/input-manifest.json",
         "docs/report/regions/nordic/sambosjon-direct-pollen/inputs/metadata.json",
+        "docs/report/regions/nordic/sambosjon-direct-pollen/inputs/training.json.gz",
         "docs/report/regions/nordic/sambosjon-direct-pollen/protocol.json",
         "docs/report/regions/nordic/sambosjon-direct-pollen/report.json",
         "docs/report/regions/nordic/sambosjon-direct-pollen/scores.csv"
       ],
+      "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/audit.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/evidence.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/landclim.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/landclim_taxonomy_mass.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/lilla_gloppsjon_direct_pollen.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/lilla_gloppsjon_direct_pollen_scoring.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/manifests.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/neotoma_parameter_mass.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/nordic/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/nordic/sambosjon_contained_age.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/nordic_author_target_pollen.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/nordic_direct_pollen.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_age_support/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_age_support/sambosjon.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sambosjon_age_bounds.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sambosjon_direct_pollen.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/__init__.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/baselines.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/contracts.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/metrics.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/policy.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/prediction.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/spatial/__init__.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/spatial/configuration.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/spatial/counts.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/spatial/model.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/spatial/support.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/splits.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/core/geospatial/__init__.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/core/geospatial/distance.py"
+      ],
+      "role": "generated_owner",
       "verification": "Run the contained-age-support module into an absent artifacts directory; bind declared parent/source hashes and compare all four outputs in independent lanes. The existing four-file byte-exact receipt is scoped to this frozen prediction sensitivity, not a full-tree rebuild."
     },
     {
