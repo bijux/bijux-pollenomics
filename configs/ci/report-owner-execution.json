@@ -81,12 +81,13 @@
       "owner_id": "regions/nordic/landclim-modeled-panels",
       "module": "bijux_pollenomics_dev.source_completion.landclim_modeled_panels",
       "source_paths": {
-        "panels.csv": "docs/report/regions/nordic/landclim-modeled-panels/panels.csv",
-        "report.json": "docs/report/regions/nordic/landclim-modeled-panels/report.json"
+        "source-products/panels.csv": "docs/report/regions/nordic/landclim-modeled-panels/panels.csv",
+        "source-products/report.json": "docs/report/regions/nordic/landclim-modeled-panels/report.json"
       },
       "source_arguments": [],
       "output_mode": "directory",
-      "timeout_seconds": 180
+      "timeout_seconds": 180,
+      "output_subdirectory": "source-products"
     },
     {
       "owner_id": "source-relations/neotoma/parameter-coverage/literal-name-counts",
@@ -103,12 +104,13 @@
       "owner_id": "source-relations/rootsi-landclim-overlap/derived-products",
       "module": "bijux_pollenomics_dev.source_completion.rootsi_landclim_overlap",
       "source_paths": {
-        "overlap.csv": "docs/report/source-relations/rootsi-landclim-overlap/overlap.csv",
-        "report.json": "docs/report/source-relations/rootsi-landclim-overlap/report.json"
+        "source-products/overlap.csv": "docs/report/source-relations/rootsi-landclim-overlap/overlap.csv",
+        "source-products/report.json": "docs/report/source-relations/rootsi-landclim-overlap/report.json"
       },
       "source_arguments": [],
       "output_mode": "directory",
-      "timeout_seconds": 180
+      "timeout_seconds": 180,
+      "output_subdirectory": "source-products"
     }
   ]
 }

@@ -49,7 +49,19 @@ sys.argv = sys.argv[2:]
 runpy.run_module(module, run_name="__main__")
 """
 
-SOURCE_FLAGS = frozenset({"--screen"})
+SOURCE_FLAGS = frozenset(
+    {
+        "--screen",
+        "--raw-part",
+        "--raw-manifest",
+        "--workbook",
+        "--workbook-receipt",
+        "--count-mass",
+        "--projection",
+        "--receipt",
+        "--sites",
+    }
+)
 OWNER_FIELDS: frozenset[str] = frozenset(
     {
         "owner_id",
@@ -59,6 +71,9 @@ OWNER_FIELDS: frozenset[str] = frozenset(
         "output_mode",
         "timeout_seconds",
     }
+)
+OPTIONAL_OWNER_FIELDS: frozenset[str] = frozenset(
+    {"include_repository_argument", "output_subdirectory"}
 )
 
 
@@ -148,8 +163,17 @@ def _configuration_owner(
     for row in rows:
         if not isinstance(row, dict):
             raise ReportRebuildError("configured owner must be an object")
-        if set(row.keys()) != set(OWNER_FIELDS):
+        if not row.keys() >= OWNER_FIELDS or not row.keys() <= (
+            OWNER_FIELDS | OPTIONAL_OWNER_FIELDS
+        ):
             raise ReportRebuildError("configured owner fields differ")
+        if (
+            "include_repository_argument" in row
+            and type(row["include_repository_argument"]) is not bool
+        ):
+            raise ReportRebuildError("include_repository_argument must be a boolean")
+        if "output_subdirectory" in row:
+            require_relative_path(row["output_subdirectory"], "output subdirectory")
         identity = require_relative_path(row["owner_id"], "configured owner ID")
         if identity in seen:
             raise ReportRebuildError(f"duplicate configured owner: {identity}")
@@ -256,20 +280,36 @@ def resolve_configured_owner(
         raise ReportRebuildError(
             "single-file configured owner needs one output mapping"
         )
+    output_subdirectory = row.get("output_subdirectory")
+    if output_subdirectory is not None:
+        if mode != "directory":
+            raise ReportRebuildError(
+                "output subdirectory requires directory output mode"
+            )
+        if any(not source.startswith(f"{output_subdirectory}/") for source in paths):
+            raise ReportRebuildError(
+                "produced file lies outside configured output subdirectory"
+            )
     timeout = row["timeout_seconds"]
     if type(timeout) is not int or not 1 <= timeout <= 600:
         raise ReportRebuildError("configured timeout must be between 1 and 600 seconds")
     output_argument = "{output_root}"
     if mode == "single_file":
         output_argument = f"{{output_root}}/{next(iter(paths))}"
+    elif output_subdirectory is not None:
+        output_argument = f"{{output_root}}/{output_subdirectory}"
+    repository_arguments = (
+        ("--repository", str(repository))
+        if row.get("include_repository_argument", True)
+        else ()
+    )
     command = (
         sys.executable,
         "-c",
         SOURCE_RUNTIME,
         str(repository),
         module,
-        "--repository",
-        str(repository),
+        *repository_arguments,
         *arguments,
         "--output",
         output_argument,

@@ -23,6 +23,7 @@ MODULE_PATH = (
     "bijux_pollenomics_dev/source_completion/example.py"
 )
 PARENT = "docs/report/domain/report.json"
+SECOND_INPUT = "docs/report/domain/source.json"
 OUTPUT = "docs/report/domain/summary.json"
 SECOND_OUTPUT = "docs/report/domain/details.json"
 
@@ -99,6 +100,21 @@ def _two_outputs(repository: Path) -> None:
     )
 
 
+def _fresh_output_subdirectory(repository: Path, subdirectory: str) -> None:
+    _two_outputs(repository)
+    _modify(
+        repository,
+        "report-owner-execution.json",
+        lambda p: p["owners"][0].update(
+            source_paths={
+                f"{subdirectory}/summary.json": OUTPUT,
+                f"{subdirectory}/details.json": SECOND_OUTPUT,
+            },
+            output_subdirectory=subdirectory,
+        ),
+    )
+
+
 def _copy_output(repository: Path, relative: str) -> None:
     target = (
         repository / "artifacts/owner/output" / relative.removeprefix("docs/report/")
@@ -128,6 +144,152 @@ def test_exact_declared_code_and_data_inputs_resolve(repository: Path) -> None:
         "{output_root}/summary.json",
     )
     assert resolved.timeout_seconds == 120
+
+
+@pytest.mark.parametrize("include_repository_argument", [None, True])
+def test_existing_producer_repository_argument_is_preserved(
+    repository: Path, include_repository_argument: bool | None
+) -> None:
+    if include_repository_argument is not None:
+        _modify(
+            repository,
+            "report-owner-execution.json",
+            lambda p: p["owners"][0].update(include_repository_argument=True),
+        )
+    command = owner_runner.resolve_configured_owner(repository, OWNER_ID).command
+    assert command[3:7] == (
+        str(repository),
+        MODULE,
+        "--repository",
+        str(repository),
+    )
+
+
+def test_explicit_false_omits_only_producer_repository_argument(
+    repository: Path,
+) -> None:
+    _modify(
+        repository,
+        "report-owner-execution.json",
+        lambda p: p["owners"][0].update(include_repository_argument=False),
+    )
+    command = owner_runner.resolve_configured_owner(repository, OWNER_ID).command
+    assert command[3:5] == (str(repository), MODULE)
+    assert "--repository" not in command
+    assert command[5:] == (
+        "--screen",
+        str(repository / PARENT),
+        "--output",
+        "{output_root}/summary.json",
+    )
+
+
+@pytest.mark.parametrize("value", [None, 0, 1, "false", [], {}])
+def test_repository_argument_option_requires_exact_boolean(
+    repository: Path, value: object
+) -> None:
+    _modify(
+        repository,
+        "report-owner-execution.json",
+        lambda p: p["owners"][0].update(include_repository_argument=value),
+    )
+    with pytest.raises(ReportRebuildError, match="must be a boolean"):
+        owner_runner.resolve_configured_owner(repository, OWNER_ID)
+
+
+def test_unknown_configuration_field_is_refused(repository: Path) -> None:
+    _modify(
+        repository,
+        "report-owner-execution.json",
+        lambda p: p["owners"][0].update(arbitrary_argv=["--anything"]),
+    )
+    with pytest.raises(ReportRebuildError, match="fields differ"):
+        owner_runner.resolve_configured_owner(repository, OWNER_ID)
+
+
+@pytest.mark.parametrize(
+    "flag",
+    [
+        "--raw-part",
+        "--raw-manifest",
+        "--workbook",
+        "--workbook-receipt",
+        "--count-mass",
+        "--projection",
+        "--receipt",
+        "--sites",
+    ],
+)
+def test_native_source_flags_accept_only_declared_source_paths(
+    repository: Path, flag: str
+) -> None:
+    _modify(
+        repository,
+        "report-owner-execution.json",
+        lambda p: p["owners"][0].update(
+            include_repository_argument=False,
+            source_arguments=[{"flag": flag, "path": PARENT}],
+        ),
+    )
+    command = owner_runner.resolve_configured_owner(repository, OWNER_ID).command
+    assert command[5:7] == (flag, str(repository / PARENT))
+    assert "--repository" not in command
+
+
+@pytest.mark.parametrize("flag", ["--output", "--repository", "--arbitrary"])
+def test_undeclared_source_flag_is_refused(repository: Path, flag: str) -> None:
+    _modify(
+        repository,
+        "report-owner-execution.json",
+        lambda p: p["owners"][0].update(
+            source_arguments=[{"flag": flag, "path": PARENT}]
+        ),
+    )
+    with pytest.raises(ReportRebuildError, match="source argument differs"):
+        owner_runner.resolve_configured_owner(repository, OWNER_ID)
+
+
+def test_native_flag_cannot_name_undeclared_source(repository: Path) -> None:
+    _write(repository, SECOND_INPUT, '{"source": 2}\n')
+    _modify(
+        repository,
+        "report-owner-execution.json",
+        lambda p: p["owners"][0].update(
+            source_arguments=[{"flag": "--sites", "path": SECOND_INPUT}]
+        ),
+    )
+    with pytest.raises(ReportRebuildError, match="source argument differs"):
+        owner_runner.resolve_configured_owner(repository, OWNER_ID)
+
+
+def test_two_distinct_native_flags_bind_two_declared_inputs(repository: Path) -> None:
+    _write(repository, SECOND_INPUT, '{"source": 2}\n')
+    _modify(
+        repository,
+        "report-ownership.json",
+        lambda p: p["owners"][0].update(producer_inputs=sorted([PARENT, SECOND_INPUT])),
+    )
+    _modify(
+        repository,
+        "report-owner-execution.json",
+        lambda p: p["owners"][0].update(
+            include_repository_argument=False,
+            source_arguments=[
+                {"flag": "--raw-part", "path": PARENT},
+                {"flag": "--raw-manifest", "path": SECOND_INPUT},
+            ],
+        ),
+    )
+    selected = owner_runner.resolve_configured_owner(repository, OWNER_ID)
+    assert set(selected.inputs) == {MODULE_PATH, PARENT, SECOND_INPUT}
+    assert selected.command[5:] == (
+        "--raw-part",
+        str(repository / PARENT),
+        "--raw-manifest",
+        str(repository / SECOND_INPUT),
+        "--output",
+        "{output_root}/summary.json",
+    )
 
 
 def test_unknown_owner_is_refused(repository: Path) -> None:
@@ -299,6 +461,133 @@ def test_directory_owner_binds_and_checks_both_outputs(
     )
     assert result["owner_id"] == OWNER_ID
     assert observed["source_paths"] == selected.source_paths
+
+
+@pytest.mark.parametrize("subdirectory", ["source-products", "nested/source-products"])
+def test_fresh_subdirectory_binds_two_outputs(
+    repository: Path, monkeypatch: pytest.MonkeyPatch, subdirectory: str
+) -> None:
+    _fresh_output_subdirectory(repository, subdirectory)
+    selected = owner_runner.resolve_configured_owner(repository, OWNER_ID)
+    assert selected.command[-1] == f"{{output_root}}/{subdirectory}"
+    assert selected.source_paths == {
+        f"{subdirectory}/summary.json": "domain/summary.json",
+        f"{subdirectory}/details.json": "domain/details.json",
+    }
+    observed: dict[str, object] = {}
+
+    def fake_build(**kwargs: object) -> dict[str, object]:
+        observed.update(kwargs)
+        _copy_output(repository, OUTPUT)
+        _copy_output(repository, SECOND_OUTPUT)
+        return {"owner_id": OWNER_ID, "lane": "reference"}
+
+    monkeypatch.setattr(owner_runner, "build_owner_output", fake_build)
+    result = owner_runner.build_configured_owner(
+        repository=repository,
+        plan_path=repository / "artifacts/plan.json",
+        lane="reference",
+        owner_id=OWNER_ID,
+        evidence_root=repository / "artifacts/owner",
+    )
+    assert result["owner_id"] == OWNER_ID
+    assert observed["source_paths"] == selected.source_paths
+    assert observed["producer_command"] == selected.command
+
+
+def test_fixture_producer_requires_absent_child_directory(repository: Path) -> None:
+    _fresh_output_subdirectory(repository, "source-products")
+    package = Path(MODULE_PATH).parents[1]
+    _write(repository, (package / "__init__.py").as_posix(), "")
+    _write(repository, (package / "source_completion/__init__.py").as_posix(), "")
+    _write(
+        repository,
+        MODULE_PATH,
+        "from pathlib import Path\n"
+        "import argparse\n"
+        "parser = argparse.ArgumentParser()\n"
+        "parser.add_argument('--repository', required=True)\n"
+        "parser.add_argument('--screen', required=True)\n"
+        "parser.add_argument('--output', type=Path, required=True)\n"
+        "args = parser.parse_args()\n"
+        "if args.output.exists():\n"
+        "    raise SystemExit('output directory already exists')\n"
+        "args.output.mkdir(parents=True)\n"
+        "(args.output / 'summary.json').write_text('{\"summary\": 1}\\n')\n"
+        "(args.output / 'details.json').write_text('{\"details\": 2}\\n')\n",
+    )
+    selected = owner_runner.resolve_configured_owner(repository, OWNER_ID)
+    producer_root = repository / "artifacts/producer-output"
+    producer_root.mkdir(parents=True)
+    assert not (producer_root / "source-products").exists()
+    command = tuple(
+        arg.replace("{output_root}", str(producer_root)) for arg in selected.command
+    )
+    completed = subprocess.run(
+        command,
+        cwd=repository,
+        env=dict(os.environ, PYTHONDONTWRITEBYTECODE="1"),
+        capture_output=True,
+        text=True,
+        timeout=5,
+        check=False,
+    )
+    assert completed.returncode == 0, completed.stderr
+    assert str(repository / MODULE_PATH) in completed.stderr
+    for output in (OUTPUT, SECOND_OUTPUT):
+        produced = producer_root / "source-products" / Path(output).name
+        assert produced.read_bytes() == (repository / output).read_bytes()
+
+
+@pytest.mark.parametrize(
+    "subdirectory",
+    [
+        "",
+        None,
+        False,
+        "../outside",
+        "/absolute",
+        ".",
+        "a//b",
+        "a/./b",
+        "a/../b",
+        "a\\b",
+    ],
+)
+def test_output_subdirectory_must_be_canonical(
+    repository: Path, subdirectory: object
+) -> None:
+    _two_outputs(repository)
+    _modify(
+        repository,
+        "report-owner-execution.json",
+        lambda p: p["owners"][0].update(output_subdirectory=subdirectory),
+    )
+    with pytest.raises(ReportRebuildError, match="output subdirectory"):
+        owner_runner.resolve_configured_owner(repository, OWNER_ID)
+
+
+def test_single_file_rejects_output_subdirectory(repository: Path) -> None:
+    _modify(
+        repository,
+        "report-owner-execution.json",
+        lambda p: p["owners"][0].update(output_subdirectory="source-products"),
+    )
+    with pytest.raises(ReportRebuildError, match="requires directory output mode"):
+        owner_runner.resolve_configured_owner(repository, OWNER_ID)
+
+
+def test_produced_map_must_stay_within_output_subdirectory(repository: Path) -> None:
+    _two_outputs(repository)
+    _modify(
+        repository,
+        "report-owner-execution.json",
+        lambda p: p["owners"][0].update(output_subdirectory="source-products"),
+    )
+    with pytest.raises(
+        ReportRebuildError, match="outside configured output subdirectory"
+    ):
+        owner_runner.resolve_configured_owner(repository, OWNER_ID)
 
 
 def test_changed_second_fresh_output_is_refused(

@@ -287,10 +287,16 @@ The configured owner runner exposes bounded commands for the Solsø root
 lineage report and Neotoma compact screen summary. Its configuration selects
 the module, output map and timeout; the current ownership inventory supplies
 the exact code and data read set. Directory producers must map their complete
-declared output set without duplicate destinations. Single-file producers
+declared output set without duplicate destinations. Producers that require an
+absent destination use a canonical output subdirectory beneath the execution
+root; each produced path must remain inside that subdirectory. Their overwrite
+guards stay active. Single-file producers
 require one output. Every fresh output and tracked oracle must match the
-identity captured before execution. The child interpreter loads candidate source
-paths and refuses a different module origin. `make build-report-rebuild-owner`
+identity captured before execution. Native source CLIs may explicitly omit
+the producer `--repository` argument while the runtime still binds and checks
+the candidate repository. Only named source-path flags are accepted, and
+each path must be a declared producer input. The child interpreter loads
+candidate source paths and refuses a different module origin. `make build-report-rebuild-owner`
 uses `REBUILD_LANE`, `REBUILD_OWNER_ID` and an absent `REBUILD_EVIDENCE_ROOT`.
 The assembly target accepts `REBUILD_OWNER_IDS` and
 `REBUILD_OWNER_ARTIFACTS_ROOT`; final verification accepts the same identities
