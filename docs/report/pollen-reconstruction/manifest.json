@@ -4195,6 +4195,11 @@
       "bytes": 13102
     },
     {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/review/repository_truth_outputs.py",
+      "sha256": "edc1851860c0d41dc3efa3b1a75dcb1bc54cca118914e779776dd0efb629056a",
+      "bytes": 25793
+    },
+    {
       "path": "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/review/sead_context_outputs.py",
       "sha256": "ad0957e762cae6d99a6468e468dc918edbb202389e4e9b805f5ed5e438fc5b9f",
       "bytes": 8337
@@ -4253,6 +4258,11 @@
       "path": "packages/bijux-pollenomics/tests/unit/reporting/rendering/test_markdown_contracts.py",
       "sha256": "7a1e398402e3143ea43d7197be4ad5a5f90b3ea8674f12a95ea3261854487398",
       "bytes": 7109
+    },
+    {
+      "path": "packages/bijux-pollenomics/tests/unit/reporting/review/test_repository_output_policy_contract.py",
+      "sha256": "5b311524feb9653abe137c23c75dc584ba4dfed088ab2b4e765f3bb0a72de057",
+      "bytes": 3113
     },
     {
       "path": "packages/bijux-pollenomics/tests/unit/reporting/review/test_sead_context_outputs.py",

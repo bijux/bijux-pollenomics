@@ -5,6 +5,7 @@ from __future__ import annotations
 from collections.abc import Callable
 import json
 from pathlib import Path
+from typing import TypedDict
 
 from ...governance import (
     build_repository_atlas_input_audit,
@@ -55,6 +56,19 @@ from .sead_context_outputs import (
 from .sustainability_outputs import (
     publish_repository_output_sustainability_review,
 )
+
+
+class _RepositoryOutputSpec(TypedDict):
+    stem: str
+    payload: dict[str, object]
+    render_markdown: Callable[[dict[str, object]], str]
+    audience: str
+    information_role: str
+    root_location: str
+    coexistence_rule: str
+    docs_anchor: str
+    test_anchor: str
+
 
 __all__ = [
     "publish_repository_output_sustainability_review",
@@ -113,7 +127,7 @@ def _build_repository_output_specs(
     data_root: Path,
     docs_root: Path,
     report_root: Path,
-) -> list[dict[str, object]]:
+) -> list[_RepositoryOutputSpec]:
     return [
         _repository_output_spec(
             stem="repository_truth_posture",
@@ -417,7 +431,7 @@ def _repository_output_spec(
     coexistence_rule: str,
     docs_anchor: str,
     test_anchor: str,
-) -> dict[str, object]:
+) -> _RepositoryOutputSpec:
     return {
         "stem": stem,
         "payload": payload,
@@ -431,7 +445,7 @@ def _repository_output_spec(
     }
 
 
-def _validate_repository_output_specs(specs: list[dict[str, object]]) -> None:
+def _validate_repository_output_specs(specs: list[_RepositoryOutputSpec]) -> None:
     seen: set[str] = set()
     required_fields = {
         "stem",
@@ -458,7 +472,7 @@ def _validate_repository_output_specs(specs: list[dict[str, object]]) -> None:
 
 
 def _build_repository_generated_output_policy(
-    specs: list[dict[str, object]],
+    specs: list[_RepositoryOutputSpec],
 ) -> dict[str, object]:
     rows = [
         {
@@ -502,7 +516,7 @@ def _render_repository_generated_output_policy_markdown(
 ) -> str:
     rows = "\n".join(
         f"| `{row['stem']}` | `{row['audience']}` | {row['information_role']} | `{row['root_location']}` | {row['coexistence_rule']} | `{row['docs_anchor']}` | `{row['test_anchor']}` |"
-        for row in payload["rows"]
+        for row in _policy_rows(payload.get("rows"))
     )
     return f"""# Repository generated output policy
 
@@ -521,3 +535,31 @@ will fail if the contract drifts.
 | --- | --- | --- | --- | --- | --- | --- |
 {rows}
 """
+
+
+def _policy_rows(value: object) -> list[dict[str, str]]:
+    if not isinstance(value, list):
+        raise ValueError("Repository generated output policy rows must be a list")
+    rows: list[dict[str, str]] = []
+    required = (
+        "stem",
+        "audience",
+        "information_role",
+        "root_location",
+        "coexistence_rule",
+        "docs_anchor",
+        "test_anchor",
+    )
+    for item in value:
+        if not isinstance(item, dict):
+            raise ValueError("Repository generated output policy row must be an object")
+        row: dict[str, str] = {}
+        for field in required:
+            member = item.get(field)
+            if not isinstance(member, str):
+                raise ValueError(
+                    f"Repository generated output policy {field} must be text"
+                )
+            row[field] = member
+        rows.append(row)
+    return rows
