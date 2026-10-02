@@ -25,6 +25,46 @@
       ],
       "output_mode": "single_file",
       "timeout_seconds": 180
+    },
+    {
+      "owner_id": "countries/sweden/pollen-model-lineage/derived-report",
+      "module": "bijux_pollenomics_dev.source_completion.swedish_model_lineage",
+      "source_paths": {
+        "report.json": "docs/report/countries/sweden/pollen-model-lineage/report.json"
+      },
+      "source_arguments": [],
+      "output_mode": "directory",
+      "timeout_seconds": 180
+    },
+    {
+      "owner_id": "regions/nordic/source-capability/neotoma-entities/derived-products",
+      "module": "bijux_pollenomics_dev.source_completion.neotoma_entity_decisions",
+      "source_paths": {
+        "report.json": "docs/report/regions/nordic/source-capability/neotoma-entities/report.json"
+      },
+      "source_arguments": [],
+      "output_mode": "single_file",
+      "timeout_seconds": 180
+    },
+    {
+      "owner_id": "source-relations/neotoma/parameter-candidates/report-products",
+      "module": "bijux_pollenomics_dev.source_completion.neotoma_parameter_candidates",
+      "source_paths": {
+        "report.json": "docs/report/source-relations/neotoma/parameter-candidates/report.json"
+      },
+      "source_arguments": [],
+      "output_mode": "directory",
+      "timeout_seconds": 180
+    },
+    {
+      "owner_id": "source-relations/neotoma/parameter-correspondence/report-products",
+      "module": "bijux_pollenomics_dev.source_completion.landclim_parameter_correspondence",
+      "source_paths": {
+        "report.json": "docs/report/source-relations/neotoma/parameter-correspondence/report.json"
+      },
+      "source_arguments": [],
+      "output_mode": "directory",
+      "timeout_seconds": 180
     }
   ]
 }

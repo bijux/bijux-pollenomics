@@ -292,7 +292,9 @@ uses `REBUILD_LANE`, `REBUILD_OWNER_ID` and an absent `REBUILD_EVIDENCE_ROOT`.
 The assembly target accepts `REBUILD_OWNER_IDS` and
 `REBUILD_OWNER_ARTIFACTS_ROOT`; final verification accepts the same identities
 and both `REBUILD_REFERENCE_OWNERS_ROOT` and `REBUILD_REPLAY_OWNERS_ROOT`.
-These two producers cover only their declared files. The complete report-tree
+The same configured route also covers Swedish model-lineage metadata, Nordic
+Neotoma entity decisions, literal parameter candidates and parameter
+correspondence. These six producers cover only their declared files. The complete report-tree
 comparison remains mandatory and refuses any missing owner. The scientific CI
 workflow schedules these owners in both lanes after the bound partition plan,
 then downloads each artifact into its full domain identity before assembly
