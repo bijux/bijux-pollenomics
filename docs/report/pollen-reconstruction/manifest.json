@@ -4080,6 +4080,16 @@
       "bytes": 13183
     },
     {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/governance/repository_truth/portfolio.py",
+      "sha256": "0e649a36d4c59e1af5dfd9a167fb0bd63bc65fa93f0b1f626fc1f5c789ce9046",
+      "bytes": 18399
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/governance/repository_truth/portfolio_payloads.py",
+      "sha256": "3fd71a9b6977e28e4dfeda8da7d95b0fe5746a6832fe4dcd699eaa0d8a0a6cbe",
+      "bytes": 4288
+    },
+    {
       "path": "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/aadr/schema.py",
       "sha256": "93334c4b581a59c566c1f90d968b90d5c4694077b34d93137715ce22d342172a",
       "bytes": 2278
@@ -4103,6 +4113,11 @@
       "path": "packages/bijux-pollenomics/tests/unit/adna/governance/test_contract_payloads.py",
       "sha256": "d2898b3da1644b1fd89410faa57c4cef558ebb8d8403cb560010cd31b3b10de9",
       "bytes": 2098
+    },
+    {
+      "path": "packages/bijux-pollenomics/tests/unit/governance/repository_truth/assessments/test_portfolio_payloads.py",
+      "sha256": "e83a84829a6e92c3206d1c28c42f82f683c4104b1be4558f42e6927928b7b551",
+      "bytes": 6400
     },
     {
       "path": "packages/bijux-pollenomics/tests/unit/governance/test_release_readiness.py",

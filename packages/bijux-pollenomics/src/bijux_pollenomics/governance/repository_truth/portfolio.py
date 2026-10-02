@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 from pathlib import Path
-from typing import Any, cast
 
 from .documentation import (
     build_repository_docs_restoration_ledger,
@@ -18,6 +17,14 @@ from .metrics import (
     _build_core_counts,
     _claim_check,
     _load_json,
+)
+from .portfolio_payloads import (
+    DocsRecoveryRowText,
+    claim_check_text,
+    docs_recovery_text,
+    nonnegative_count,
+    object_mapping,
+    truth_posture_text,
 )
 from .release import build_repository_final_release_refusal
 
@@ -48,9 +55,9 @@ def build_repository_truth_posture(
         data_root=data_root,
         report_root=report_root,
     )
-    supplements_missing = int(
-        cast(Any, counts["papers_with_archived_supplements"])
-    ) < int(cast(Any, counts["tracked_paper_count"]))
+    supplements_missing = nonnegative_count(
+        counts, "papers_with_archived_supplements"
+    ) < nonnegative_count(counts, "tracked_paper_count")
     return {
         "schema_version": "repository-truth-posture.v2",
         "repository": "bijux-pollenomics",
@@ -107,13 +114,14 @@ def render_repository_truth_posture_markdown(payload: dict[str, object]) -> str:
     counts = payload["counts"]
     if not isinstance(counts, dict):
         raise TypeError("Repository truth counts must be a mapping")
+    text = truth_posture_text(payload)
     lines = [
         "# Repository truth posture",
         "",
         f"- Repository: `{payload['repository']}`",
-        f"- Primary domains: `{', '.join(payload['primary_domains'])}`",
-        f"- Contextual domains: `{', '.join(payload['contextual_domains'])}`",
-        f"- Overall recovery posture: `{payload['recovery_review_overview']['overall_recovery_posture']}`",
+        f"- Primary domains: `{', '.join(text['primary_domains'])}`",
+        f"- Contextual domains: `{', '.join(text['contextual_domains'])}`",
+        f"- Overall recovery posture: `{text['overall_recovery_posture']}`",
         "",
         "## Counts",
         "",
@@ -127,7 +135,7 @@ def render_repository_truth_posture_markdown(payload: dict[str, object]) -> str:
         "## Claim Freeze Reasons",
         "",
     ]
-    for row in payload["claim_freeze_reasons"]:
+    for row in text["claim_freeze_reasons"]:
         lines.append(f"- {row}")
     lines.extend(
         [
@@ -136,7 +144,7 @@ def render_repository_truth_posture_markdown(payload: dict[str, object]) -> str:
             "",
         ]
     )
-    for row in payload["recovery_priorities"]:
+    for row in text["recovery_priorities"]:
         lines.append(f"- {row}")
     lines.extend(
         [
@@ -145,7 +153,7 @@ def render_repository_truth_posture_markdown(payload: dict[str, object]) -> str:
             "",
         ]
     )
-    for row in payload["do_not_repeat"]:
+    for row in text["do_not_repeat"]:
         lines.append(f"- {row}")
     return "\n".join(lines) + "\n"
 
@@ -211,6 +219,7 @@ def build_repository_claim_audit(
     )
 
     landing_text = (root_readme + docs_index + runtime_readme + data_index).casefold()
+    source_explainer_count = nonnegative_count(counts, "source_explainer_count")
     checks = [
         _claim_check(
             "repository_landings_name_pollenomics_first",
@@ -223,10 +232,10 @@ def build_repository_claim_audit(
         ),
         _claim_check(
             "source_family_pages_restore_non_adna_breadth",
-            counts["source_explainer_count"] >= 6,
+            source_explainer_count >= 6,
             "The docs tree keeps non-aDNA source families visible and directly linkable.",
             []
-            if counts["source_explainer_count"] >= 6
+            if source_explainer_count >= 6
             else ["source_explainer_count_below_expected_floor"],
         ),
         _claim_check(
@@ -261,7 +270,7 @@ def build_repository_claim_audit(
             "thin_animal_surface_stays_visible",
             (
                 bool(counts["animal_sample_database_review_available"])
-                and counts["published_atlas_point_count"] >= 10
+                and nonnegative_count(counts, "published_atlas_point_count") >= 10
                 and str(sample_database_review.get("public_posture", "")).strip()
                 == "partial_sample_owned_animal_evidence_surface"
             ),
@@ -269,7 +278,7 @@ def build_repository_claim_audit(
             []
             if (
                 bool(counts["animal_sample_database_review_available"])
-                and counts["published_atlas_point_count"] >= 10
+                and nonnegative_count(counts, "published_atlas_point_count") >= 10
                 and str(sample_database_review.get("public_posture", "")).strip()
                 == "partial_sample_owned_animal_evidence_surface"
             )
@@ -313,6 +322,7 @@ def render_repository_claim_audit_markdown(payload: dict[str, object]) -> str:
     counts = payload["counts"]
     if not isinstance(counts, dict):
         raise TypeError("Repository claim-audit counts must be a mapping")
+    checks = claim_check_text(payload)
     lines = [
         "# Repository claim audit",
         "",
@@ -323,7 +333,7 @@ def render_repository_claim_audit_markdown(payload: dict[str, object]) -> str:
         "| Check | Passed | Finding count |",
         "| --- | --- | ---: |",
     ]
-    for row in payload["checks"]:
+    for row in checks:
         lines.append(
             f"| {row['check_id']} | `{str(row['passed']).lower()}` | {row['finding_count']} |"
         )
@@ -337,10 +347,7 @@ def _available_count(
 ) -> str:
     if not bool(counts.get(availability_field)):
         return "unavailable"
-    value = counts.get(field)
-    if isinstance(value, bool) or not isinstance(value, int) or value < 0:
-        raise ValueError(f"Repository truth {field} must be a nonnegative integer")
-    return str(value)
+    return str(nonnegative_count(counts, field))
 
 
 def _available_ratio(
@@ -384,12 +391,15 @@ def build_repository_docs_recovery_review(
         docs_root=docs_root,
         report_root=report_root,
     )
-    rows = [
+    status_counts = object_mapping(ledger["status_counts"], "restoration status counts")
+    replacement_incomplete = nonnegative_count(status_counts, "replacement_incomplete")
+    verified_replacement = nonnegative_count(status_counts, "verified_replacement")
+    rows: list[DocsRecoveryRowText] = [
         {
             "dimension_key": "restoration_completeness",
-            "score": 4 if ledger["status_counts"]["replacement_incomplete"] == 0 else 2,
+            "score": 4 if replacement_incomplete == 0 else 2,
             "finding": (
-                f"{ledger['status_counts']['verified_replacement']} of {ledger['row_count']} missing handbook pages now have verified replacements"
+                f"{verified_replacement} of {ledger['row_count']} missing handbook pages now have verified replacements"
             ),
         },
         {
@@ -404,7 +414,9 @@ def build_repository_docs_recovery_review(
         },
         {
             "dimension_key": "cross_domain_visibility",
-            "score": 4 if int(counts["source_explainer_count"]) >= 10 else 2,
+            "score": 4
+            if nonnegative_count(counts, "source_explainer_count") >= 10
+            else 2,
             "finding": "non-aDNA source families remain directly explainable beside the thinner animal recovery surface",
         },
     ]
@@ -427,6 +439,7 @@ def build_repository_docs_recovery_review(
 
 
 def render_repository_docs_recovery_review_markdown(payload: dict[str, object]) -> str:
+    text = docs_recovery_text(payload)
     lines = [
         "# Repository docs recovery review",
         "",
@@ -435,7 +448,7 @@ def render_repository_docs_recovery_review_markdown(payload: dict[str, object]) 
         "| Dimension | Score | Finding |",
         "| --- | ---: | --- |",
     ]
-    for row in payload["rows"]:
+    for row in text["rows"]:
         lines.append(
             f"| `{row['dimension_key']}` | {row['score']} | {row['finding']} |"
         )
@@ -446,6 +459,6 @@ def render_repository_docs_recovery_review_markdown(payload: dict[str, object]) 
             "",
         ]
     )
-    for row in payload["evidence_anchors"]:
-        lines.append(f"- `{row}`")
+    for anchor in text["evidence_anchors"]:
+        lines.append(f"- `{anchor}`")
     return "\n".join(lines) + "\n"
