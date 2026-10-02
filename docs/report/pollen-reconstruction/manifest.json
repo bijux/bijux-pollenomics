@@ -4180,6 +4180,11 @@
       "bytes": 23316
     },
     {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/bundles/sweden_lake_layers.py",
+      "sha256": "b7b6f3c17b9ec4a0fb5500accd8a2aee254cb6a488164949fe4bb3cbc986a018",
+      "bytes": 16940
+    },
+    {
       "path": "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/geography.py",
       "sha256": "6766b125e1d7fc36189e33b69558a6b95f8721c5462a2b7afe3fed550d5f568b",
       "bytes": 14047
