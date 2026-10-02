@@ -89,8 +89,8 @@ def _load_and_check_schemas(schema_root: Path) -> dict[str, dict[str, Any]]:
             "schema_root must be an existing absolute directory",
         )
     try:
-        from jsonschema import Draft202012Validator  # type: ignore[import-untyped]
-        from jsonschema.exceptions import SchemaError  # type: ignore[import-untyped]
+        from jsonschema import Draft202012Validator
+        from jsonschema.exceptions import SchemaError
     except ImportError as error:
         raise PropagationOutputRefusalError(
             "schema_validator_unavailable",
