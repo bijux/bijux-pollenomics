@@ -65,6 +65,50 @@
       "source_arguments": [],
       "output_mode": "directory",
       "timeout_seconds": 180
+    },
+    {
+      "owner_id": "countries/sweden/observed-pollen-trajectory/derived-report",
+      "module": "bijux_pollenomics_dev.source_completion.swedish_lake_trajectory",
+      "source_paths": {
+        "report.json": "docs/report/countries/sweden/observed-pollen-trajectory/report.json",
+        "transitions.csv": "docs/report/countries/sweden/observed-pollen-trajectory/transitions.csv"
+      },
+      "source_arguments": [],
+      "output_mode": "directory",
+      "timeout_seconds": 180
+    },
+    {
+      "owner_id": "regions/nordic/landclim-modeled-panels",
+      "module": "bijux_pollenomics_dev.source_completion.landclim_modeled_panels",
+      "source_paths": {
+        "panels.csv": "docs/report/regions/nordic/landclim-modeled-panels/panels.csv",
+        "report.json": "docs/report/regions/nordic/landclim-modeled-panels/report.json"
+      },
+      "source_arguments": [],
+      "output_mode": "directory",
+      "timeout_seconds": 180
+    },
+    {
+      "owner_id": "source-relations/neotoma/parameter-coverage/literal-name-counts",
+      "module": "bijux_pollenomics_dev.source_completion.neotoma_parameter_mass",
+      "source_paths": {
+        "bins.csv": "docs/report/source-relations/neotoma/parameter-coverage/bins.csv",
+        "report.json": "docs/report/source-relations/neotoma/parameter-coverage/report.json"
+      },
+      "source_arguments": [],
+      "output_mode": "directory",
+      "timeout_seconds": 180
+    },
+    {
+      "owner_id": "source-relations/rootsi-landclim-overlap/derived-products",
+      "module": "bijux_pollenomics_dev.source_completion.rootsi_landclim_overlap",
+      "source_paths": {
+        "overlap.csv": "docs/report/source-relations/rootsi-landclim-overlap/overlap.csv",
+        "report.json": "docs/report/source-relations/rootsi-landclim-overlap/report.json"
+      },
+      "source_arguments": [],
+      "output_mode": "directory",
+      "timeout_seconds": 180
     }
   ]
 }

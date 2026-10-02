@@ -297,7 +297,11 @@ The assembly target accepts `REBUILD_OWNER_IDS` and
 and both `REBUILD_REFERENCE_OWNERS_ROOT` and `REBUILD_REPLAY_OWNERS_ROOT`.
 The same configured route also covers Swedish model-lineage metadata, Nordic
 Neotoma entity decisions, literal parameter candidates and parameter
-correspondence. These six producers cover only their declared files. The complete report-tree
+correspondence. Four directory producers also retain both JSON and CSV for
+Swedish observed-pollen transitions, Nordic modeled panels, native count
+coverage and candidate site overlaps. The modeled-panel declaration binds
+the polygon, calendar, geometry and metric helpers used in its calculation.
+These ten producers cover only their declared files. The complete report-tree
 comparison remains mandatory and refuses any missing owner. The scientific CI
 workflow schedules these owners in both lanes after the bound partition plan,
 then merges owner artifacts into each lane before assembly and final

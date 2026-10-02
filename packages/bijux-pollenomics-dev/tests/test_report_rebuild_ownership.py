@@ -45,9 +45,11 @@ def _write_inventory(repository: Path, payload: dict[str, object]) -> None:
 
 
 def _inventory(repository: Path) -> dict[str, object]:
-    return json.loads(
+    value: object = json.loads(
         (repository / "configs/ci/report-ownership.json").read_text(encoding="utf-8")
     )
+    assert isinstance(value, dict)
+    return value
 
 
 def _owner(payload: dict[str, object], owner_id: str) -> dict[str, object]:
