@@ -1,6 +1,6 @@
 {
   "schema_version": "report-surface-registry.v1",
-  "surface_count": 1936,
+  "surface_count": 1939,
   "inventory_scope": "all input files plus generated navigation pages; registry metadata excluded",
   "content_identity_scope": "Markdown pages; machine outputs retain their domain manifests",
   "excluded_metadata_paths": [
@@ -11,14 +11,14 @@
   ],
   "family_counts": {
     "caveats": 10,
-    "maintenance": 1030,
+    "maintenance": 1033,
     "maps": 88,
     "portal": 2,
     "reviews": 34,
     "scopes": 772
   },
   "audience_counts": {
-    "maintainer_diagnostic": 1032,
+    "maintainer_diagnostic": 1035,
     "public_reading_surface": 781,
     "scientific_review_surface": 123
   },
@@ -28,7 +28,7 @@
     "finland": 14,
     "nordic": 496,
     "norway": 14,
-    "report_root": 1079,
+    "report_root": 1082,
     "sweden": 49,
     "world": 172
   },
@@ -9134,6 +9134,43 @@
     },
     {
       "repository_path": "docs/report/pollen-reconstruction/age-interval-sensitivity/comparison.json",
+      "family": "maintenance",
+      "family_label": "Maintainer truth surfaces",
+      "audience": "maintainer_diagnostic",
+      "audience_label": "Maintainer diagnostic",
+      "format": "json",
+      "geography": "report_root",
+      "caution_level": "high",
+      "explanation": "Maintainer-facing truth or governance surface.",
+      "reader_route": "maintainer_truth"
+    },
+    {
+      "repository_path": "docs/report/pollen-reconstruction/age-interval-sensitivity/conditional-membership/README.md",
+      "content_sha256": "c54411e5b9a6830ba8deb5a1302c4d7944cc24d8a63ec8dac88b527cca68a1a4",
+      "family": "maintenance",
+      "family_label": "Maintainer truth surfaces",
+      "audience": "maintainer_diagnostic",
+      "audience_label": "Maintainer diagnostic",
+      "format": "md",
+      "geography": "report_root",
+      "caution_level": "high",
+      "explanation": "Reader-facing entry page for one scope bundle.",
+      "reader_route": "start_here"
+    },
+    {
+      "repository_path": "docs/report/pollen-reconstruction/age-interval-sensitivity/conditional-membership/membership.csv",
+      "family": "maintenance",
+      "family_label": "Maintainer truth surfaces",
+      "audience": "maintainer_diagnostic",
+      "audience_label": "Maintainer diagnostic",
+      "format": "csv",
+      "geography": "report_root",
+      "caution_level": "high",
+      "explanation": "Maintainer-facing truth or governance surface.",
+      "reader_route": "maintainer_truth"
+    },
+    {
+      "repository_path": "docs/report/pollen-reconstruction/age-interval-sensitivity/conditional-membership/report.json",
       "family": "maintenance",
       "family_label": "Maintainer truth surfaces",
       "audience": "maintainer_diagnostic",
@@ -23494,7 +23531,7 @@
     },
     {
       "repository_path": "docs/report/index.md",
-      "content_sha256": "fd3db8d8901b5fd8cd4213ca52a4a151872a6c6b591a44ee5250ef2114eb0ee3",
+      "content_sha256": "f40d35ecdd33b39b255671f9e1658b030308bc9df7bef534c2dbf8f6c5cc6f10",
       "family": "portal",
       "family_label": "Portal guidance",
       "audience": "public_reading_surface",
@@ -23507,7 +23544,7 @@
     },
     {
       "repository_path": "docs/report/maintenance/index.md",
-      "content_sha256": "2f617ba1325c4ef3c4a226ee65b619b48f1dc99d726a10c2b0959168396d2baa",
+      "content_sha256": "6e4d7330c69a7d775dc080fb320d30dc5b218ad2c9ed1b9875cc4edff5808e6c",
       "family": "maintenance",
       "family_label": "Maintainer truth surfaces",
       "audience": "public_reading_surface",

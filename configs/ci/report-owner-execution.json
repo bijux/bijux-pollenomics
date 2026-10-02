@@ -1172,6 +1172,18 @@
       "source_arguments": [],
       "output_mode": "single_file",
       "timeout_seconds": 180
+    },
+    {
+      "owner_id": "pollen-reconstruction/age-interval-sensitivity/conditional-membership/report-products",
+      "module": "bijux_pollenomics_dev.source_completion.pollen_age_support.abborrtjarne_membership",
+      "source_arguments": [],
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "timeout_seconds": 180,
+      "source_paths": {
+        "source-products/membership.csv": "docs/report/pollen-reconstruction/age-interval-sensitivity/conditional-membership/membership.csv",
+        "source-products/report.json": "docs/report/pollen-reconstruction/age-interval-sensitivity/conditional-membership/report.json"
+      }
     }
   ]
 }

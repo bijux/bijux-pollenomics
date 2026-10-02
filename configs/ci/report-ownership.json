@@ -2,8 +2,8 @@
   "schema_version": "report-output-ownership.v1",
   "root": "docs/report",
   "inventory_scope": "tracked report paths; ownership declarations do not certify reproduction",
-  "path_count": 1940,
-  "paths_sha256": "2a44f4133af8719a6cc9f7934f2aef9197ab21d9111302ece48463f8c1f766d2",
+  "path_count": 1943,
+  "paths_sha256": "d6c876a8392eab344cae0a13f3666d0b71418fc2eeb3c197e6bd8f61014f5447",
   "owners": [
     {
       "owner_id": "atlas/boundary-orientation/browser-evidence",
@@ -3296,6 +3296,43 @@
       ],
       "role": "unresolved",
       "verification": "The raw 818643-byte post-cache measurement (SHA-256 9a0f044bfec9419e32477d0e652c5d04b5c8571b5222a3c9d44ab1cdf70ec65a) and historical baseline raw run are outside repository closure. The summary and comparison read a retained baseline, but cannot reconstruct historical timing from it."
+    },
+    {
+      "owner_id": "pollen-reconstruction/age-interval-sensitivity/conditional-membership/reader-account",
+      "role": "maintained_editorial",
+      "paths": [
+        "docs/report/pollen-reconstruction/age-interval-sensitivity/conditional-membership/README.md"
+      ],
+      "producer_paths": [],
+      "producer_inputs": [],
+      "verification": "Review the source-bound reader against the exact count fractions and membership ledger. Marginal age intervals supply conditional per-bin possibility sets, not joint chronology confidence or LRA admission."
+    },
+    {
+      "owner_id": "pollen-reconstruction/age-interval-sensitivity/conditional-membership/report-products",
+      "role": "generated_owner",
+      "paths": [
+        "docs/report/pollen-reconstruction/age-interval-sensitivity/conditional-membership/membership.csv",
+        "docs/report/pollen-reconstruction/age-interval-sensitivity/conditional-membership/report.json"
+      ],
+      "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/artifact_paths.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/contracts.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_age_support/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_age_support/abborrtjarne_membership.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_age_support/interval_fraction.py"
+      ],
+      "producer_inputs": [
+        "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-004.json",
+        "docs/report/pollen-reconstruction/age-interval-sensitivity/age-bin-support.csv",
+        "docs/report/pollen-reconstruction/age-interval-sensitivity/config.json",
+        "docs/report/pollen-reconstruction/age-interval-sensitivity/input-manifest.json",
+        "docs/report/pollen-reconstruction/age-interval-sensitivity/replay.py",
+        "docs/report/pollen-reconstruction/swedish-direct-pollen/prepared/dataset-19913.json",
+        "docs/report/pollen-reconstruction/swedish-direct-pollen/prepared/dataset-53995.json",
+        "docs/report/pollen-reconstruction/swedish-direct-pollen/prepared/dataset-54001.json",
+        "docs/report/source-relations/neotoma/legacyage-chronology/sample-depth-join.csv"
+      ],
+      "verification": "Run the configured ABBO conditional-membership producer into an absent confined artifacts directory and compare both products in two clean lanes. Verify all ten original source/helper byte identities and the reviewed imported helper before publication. Exact per-bin count fraction outer bounds do not revise chronology, prediction or scientific admission."
     },
     {
       "owner_id": "pollen-reconstruction/age-interval-sensitivity/local-preparation",

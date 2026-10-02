@@ -26,13 +26,13 @@
     },
     {
       "path": "configs/ci/report-owner-execution.json",
-      "sha256": "2d314891cf6d65ec0d4bf4426fb2dffcdf7f6e081e67eb12f42bf713e3d9e307",
-      "bytes": 62351
+      "sha256": "bb0e281b106e23b47ed4046304a7c2e3fbc94ac13c5a1e74453f0f162b69f518",
+      "bytes": 63024
     },
     {
       "path": "configs/ci/report-ownership.json",
-      "sha256": "9e138b4f4d652a52c6247e0fd01627fa287340af49cf43d09aa7d71e19e64e36",
-      "bytes": 823393
+      "sha256": "b703e0f4fdb87e4f3def51a57b19a77b58cc2bfea1ecc1430f2b01f1dbc1178d",
+      "bytes": 826177
     },
     {
       "path": "configs/docs/science_downloads.py",
@@ -391,12 +391,12 @@
     },
     {
       "path": "docs/report/index.md",
-      "sha256": "fd3db8d8901b5fd8cd4213ca52a4a151872a6c6b591a44ee5250ef2114eb0ee3",
+      "sha256": "f40d35ecdd33b39b255671f9e1658b030308bc9df7bef534c2dbf8f6c5cc6f10",
       "bytes": 2689
     },
     {
       "path": "docs/report/maintenance/index.md",
-      "sha256": "2f617ba1325c4ef3c4a226ee65b619b48f1dc99d726a10c2b0959168396d2baa",
+      "sha256": "6e4d7330c69a7d775dc080fb320d30dc5b218ad2c9ed1b9875cc4edff5808e6c",
       "bytes": 1412
     },
     {
@@ -478,6 +478,21 @@
       "path": "docs/report/pollen-reconstruction/age-interval-sensitivity/comparison.json",
       "sha256": "29ebcf5719161541c4241436e56feb02e282559780d5225c1e2a2b450f7eeab1",
       "bytes": 2283
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/age-interval-sensitivity/conditional-membership/README.md",
+      "sha256": "c54411e5b9a6830ba8deb5a1302c4d7944cc24d8a63ec8dac88b527cca68a1a4",
+      "bytes": 2719
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/age-interval-sensitivity/conditional-membership/membership.csv",
+      "sha256": "6ca70c45e9c292b485ceea31aee3cda9aa92ffb5fdc404b9f6cc70158a62a2cc",
+      "bytes": 30058
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/age-interval-sensitivity/conditional-membership/report.json",
+      "sha256": "bcd838ffc4bf9221761686c180d086d62482d09bd40880a4dd75b1024ac40340",
+      "bytes": 5202
     },
     {
       "path": "docs/report/pollen-reconstruction/age-interval-sensitivity/config.json",
@@ -2371,22 +2386,22 @@
     },
     {
       "path": "docs/report/report_narrative_quality_review.json",
-      "sha256": "0c0dd43bd6f49f9edda4c64bb86387939f02c59564aa8f711e1bf4705093c2a9",
-      "bytes": 138207
+      "sha256": "15f2c6ac6612865f49abde90141b4a989c7a2f0f3d5086949219e575ae144294",
+      "bytes": 138711
     },
     {
       "path": "docs/report/report_narrative_quality_review.md",
-      "sha256": "7d1d595e12cd9e99021abad01150043b24dfbb74506a5c847edf13a026211fa7",
+      "sha256": "d79ba7700b202c3bc17ba76afe32e194e37f44726182cdd0a7ffc921f7d92538",
       "bytes": 754
     },
     {
       "path": "docs/report/report_surface_registry.json",
-      "sha256": "cac8b45e75e6f01db0f88887cfdf2e41ddc527ae2e431d85fc564acd163d4d6c",
-      "bytes": 945891
+      "sha256": "df09a1696fa1bce83b8c9731cfe6f14b0d8ca9c2780928b173d7c8ab3d07dcf0",
+      "bytes": 947505
     },
     {
       "path": "docs/report/report_surface_registry.md",
-      "sha256": "a0e3a0a1458ecd78e65e63bd86404bfbcad2f8f2b307e6593f779893b17c37aa",
+      "sha256": "a194ccb0b3895ecabc7ad1900d9dfffbae3e973e90bceb80f14e02d8d9e8fd7c",
       "bytes": 1078
     },
     {
@@ -2831,7 +2846,7 @@
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/maintained_sources.py",
-      "sha256": "db696d0dcda47e338f3b0f8ceaf12ee4a8f027b9290da83c8a2d9e42a9968cd7",
+      "sha256": "26c025c9a16bc84d90fe5d18eb9845518d542d786b2bc67d24bc38a900f4995c",
       "bytes": 6605
     },
     {
@@ -3340,6 +3355,16 @@
       "bytes": 5069
     },
     {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_age_support/abborrtjarne_membership.py",
+      "sha256": "359343bb6a93ccd22efa939219e747113f5c58fe964e250186408cb0b0abcaf9",
+      "bytes": 14250
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_age_support/interval_fraction.py",
+      "sha256": "0c61fb0d4b693f4ed65156fcf0ecea10535e31d515f5145407bccff55c15cfb1",
+      "bytes": 3879
+    },
+    {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_age_support/sambosjon.py",
       "sha256": "5f28ef7015a00799384a9db5514ccf46a5702ac7574385abaa376ccba896bb1e",
       "bytes": 17191
@@ -3653,6 +3678,16 @@
       "path": "packages/bijux-pollenomics-dev/tests/source_completion/pollen_age_support/test_abborrtjarne_cli.py",
       "sha256": "82ba55f254f5c2951127929a8a8fcf01d445859a4e0fa6fd85fc8951c48263cf",
       "bytes": 8297
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/tests/source_completion/pollen_age_support/test_abborrtjarne_membership.py",
+      "sha256": "4b25f0c99007ab6f5211892f2d25101e4e8811a149570e7fde83757014114797",
+      "bytes": 5493
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/tests/source_completion/pollen_age_support/test_interval_fraction.py",
+      "sha256": "80a40d9edf000ccb658850ced826aea05aff0595fbcb69fa9ae2914f39441b96",
+      "bytes": 3627
     },
     {
       "path": "packages/bijux-pollenomics-dev/tests/source_completion/pollen_age_support/test_sambosjon.py",
