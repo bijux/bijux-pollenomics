@@ -692,6 +692,46 @@
         "report.json": "docs/report/synthetic-validation/site-leakage/report.json"
       },
       "timeout_seconds": 180
+    },
+    {
+      "module": "bijux_pollenomics_dev.source_completion.neotoma.pollen_prerequisites.candidate_series",
+      "output_mode": "single_file",
+      "owner_id": "source-relations/neotoma/pollen-screen/candidate-series",
+      "source_arguments": [],
+      "source_paths": {
+        "agerods-mosse.sample-series.json": "docs/report/source-relations/neotoma/pollen-screen/agerods-mosse.sample-series.json"
+      },
+      "timeout_seconds": 600
+    },
+    {
+      "module": "bijux_pollenomics_dev.source_completion.neotoma.pollen_prerequisites.sample_decisions",
+      "output_mode": "single_file",
+      "owner_id": "source-relations/neotoma/pollen-screen/sample-decisions",
+      "source_arguments": [],
+      "source_paths": {
+        "report.json": "docs/report/source-relations/neotoma/pollen-screen/report.json"
+      },
+      "timeout_seconds": 600
+    },
+    {
+      "module": "bijux_pollenomics_dev.source_completion.neotoma.pollen_prerequisites.concept_priority",
+      "output_mode": "single_file",
+      "owner_id": "source-relations/neotoma/taxon-priority/concept-priority",
+      "source_arguments": [],
+      "source_paths": {
+        "priority.json": "docs/report/source-relations/neotoma/taxon-priority/priority.json"
+      },
+      "timeout_seconds": 600
+    },
+    {
+      "module": "bijux_pollenomics_dev.source_completion.neotoma.pollen_prerequisites.dataset_attribution",
+      "output_mode": "single_file",
+      "owner_id": "source-relations/neotoma/taxon-priority/dataset-attribution",
+      "source_arguments": [],
+      "source_paths": {
+        "dataset-attribution.json": "docs/report/source-relations/neotoma/taxon-priority/dataset-attribution.json"
+      },
+      "timeout_seconds": 600
     }
   ]
 }

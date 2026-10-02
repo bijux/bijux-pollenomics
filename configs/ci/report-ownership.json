@@ -7795,26 +7795,8 @@
     },
     {
       "owner_id": "source-relations/neotoma/pollen-screen/candidate-series",
-      "role": "generated_owner",
       "paths": [
         "docs/report/source-relations/neotoma/pollen-screen/agerods-mosse.sample-series.json"
-      ],
-      "producer_paths": [
-        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/api.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/models.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/neotoma/accounting.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/neotoma/series/__init__.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/neotoma/series/projection.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/reading.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/neotoma/production/__init__.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/neotoma/production/constants.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/neotoma/production/identity.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/neotoma/production/raw_archive.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/neotoma/production/validation.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/neotoma/production/validation_api.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/sources/neotoma/contract.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/sources/neotoma/ownership.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/sources/neotoma/validation.py"
       ],
       "producer_inputs": [
         "data/neotoma/raw/neotoma_pollen_dataset_downloads/manifest.json",
@@ -7848,6 +7830,28 @@
         "data/neotoma/relational/surfaces/sites/part-00001.json",
         "data/neotoma/relational/surfaces/variables/part-00001.json"
       ],
+      "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/neotoma/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/neotoma/pollen_prerequisites/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/neotoma/pollen_prerequisites/candidate_series.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/neotoma/pollen_prerequisites/writer_execution.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/api.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/models.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/neotoma/accounting.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/neotoma/series/__init__.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/neotoma/series/projection.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/reading.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/neotoma/production/__init__.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/neotoma/production/constants.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/neotoma/production/identity.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/neotoma/production/raw_archive.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/neotoma/production/validation.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/neotoma/production/validation_api.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/sources/neotoma/contract.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/sources/neotoma/ownership.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/sources/neotoma/validation.py"
+      ],
+      "role": "generated_owner",
       "verification": "Call inspect_neotoma_lra_candidate_series with explicit sample IDs neotoma:sample:355236 through neotoma:sample:355251; write canonical_json without a newline. Sixteen refusal-only source samples are not LRA inputs; compare the produced bytes."
     },
     {
@@ -7878,27 +7882,8 @@
     },
     {
       "owner_id": "source-relations/neotoma/pollen-screen/sample-decisions",
-      "role": "generated_owner",
       "paths": [
         "docs/report/source-relations/neotoma/pollen-screen/report.json"
-      ],
-      "producer_paths": [
-        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/api.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/models.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/neotoma/accounting.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/neotoma/pollen_screen.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/neotoma/series/__init__.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/neotoma/series/projection.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/reading.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/neotoma/production/__init__.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/neotoma/production/constants.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/neotoma/production/identity.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/neotoma/production/raw_archive.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/neotoma/production/validation.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/neotoma/production/validation_api.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/sources/neotoma/contract.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/sources/neotoma/ownership.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/sources/neotoma/validation.py"
       ],
       "producer_inputs": [
         "data/neotoma/raw/neotoma_pollen_dataset_downloads/manifest.json",
@@ -7932,6 +7917,29 @@
         "data/neotoma/relational/surfaces/sites/part-00001.json",
         "data/neotoma/relational/surfaces/variables/part-00001.json"
       ],
+      "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/neotoma/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/neotoma/pollen_prerequisites/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/neotoma/pollen_prerequisites/sample_decisions.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/neotoma/pollen_prerequisites/writer_execution.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/api.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/models.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/neotoma/accounting.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/neotoma/pollen_screen.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/neotoma/series/__init__.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/neotoma/series/projection.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/reading.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/neotoma/production/__init__.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/neotoma/production/constants.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/neotoma/production/identity.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/neotoma/production/raw_archive.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/neotoma/production/validation.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/neotoma/production/validation_api.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/sources/neotoma/contract.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/sources/neotoma/ownership.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/sources/neotoma/validation.py"
+      ],
+      "role": "generated_owner",
       "verification": "Call inspect_neotoma_lra_pollen_screen on the exact retained raw and normalized roots and write canonical_json unchanged. It is prerequisite-only: 10,637 necessary leads, zero LRA admission; compare bytes independently before accepting owner reproduction."
     },
     {
@@ -8093,26 +8101,8 @@
     },
     {
       "owner_id": "source-relations/neotoma/taxon-priority/concept-priority",
-      "role": "generated_owner",
       "paths": [
         "docs/report/source-relations/neotoma/taxon-priority/priority.json"
-      ],
-      "producer_paths": [
-        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/models.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/neotoma/accounting.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/neotoma/series/__init__.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/neotoma/series/projection.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/neotoma/taxon_priority.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/reading.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/neotoma/production/__init__.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/neotoma/production/constants.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/neotoma/production/identity.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/neotoma/production/raw_archive.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/neotoma/production/validation.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/neotoma/production/validation_api.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/sources/neotoma/contract.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/sources/neotoma/ownership.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/sources/neotoma/validation.py"
       ],
       "producer_inputs": [
         "data/neotoma/raw/neotoma_pollen_dataset_downloads/manifest.json",
@@ -8148,21 +8138,16 @@
         "data/neotoma/review/source_taxon_concepts.json",
         "docs/report/source-relations/neotoma/pollen-screen/report.json"
       ],
-      "verification": "Call prioritize_neotoma_candidate_taxa with source evidence, governed sample screen and scoped 1,351-row review; serialize with models.canonical_bytes. Its internal bundle digest differs from file SHA and both must match. All 1,006 selected concepts remain needs_discussion; no taxonomy, rights or PPE approval."
-    },
-    {
-      "owner_id": "source-relations/neotoma/taxon-priority/dataset-attribution",
-      "role": "generated_owner",
-      "paths": [
-        "docs/report/source-relations/neotoma/taxon-priority/dataset-attribution.json"
-      ],
       "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/neotoma/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/neotoma/pollen_prerequisites/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/neotoma/pollen_prerequisites/concept_priority.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/neotoma/pollen_prerequisites/writer_execution.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/models.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/neotoma/accounting.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/neotoma/series/__init__.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/neotoma/series/projection.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/neotoma/taxon_priority.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/neotoma/taxon_provenance.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/reading.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/neotoma/production/__init__.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/neotoma/production/constants.py",
@@ -8173,6 +8158,14 @@
         "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/sources/neotoma/contract.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/sources/neotoma/ownership.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/sources/neotoma/validation.py"
+      ],
+      "role": "generated_owner",
+      "verification": "Call prioritize_neotoma_candidate_taxa with source evidence, governed sample screen and scoped 1,351-row review; serialize with models.canonical_bytes. Its internal bundle digest differs from file SHA and both must match. All 1,006 selected concepts remain needs_discussion; no taxonomy, rights or PPE approval."
+    },
+    {
+      "owner_id": "source-relations/neotoma/taxon-priority/dataset-attribution",
+      "paths": [
+        "docs/report/source-relations/neotoma/taxon-priority/dataset-attribution.json"
       ],
       "producer_inputs": [
         "data/neotoma/raw/neotoma_pollen_dataset_downloads/manifest.json",
@@ -8209,6 +8202,29 @@
         "docs/report/source-relations/neotoma/pollen-screen/report.json",
         "docs/report/source-relations/neotoma/taxon-priority/priority.json"
       ],
+      "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/neotoma/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/neotoma/pollen_prerequisites/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/neotoma/pollen_prerequisites/dataset_attribution.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/neotoma/pollen_prerequisites/writer_execution.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/models.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/neotoma/accounting.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/neotoma/series/__init__.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/neotoma/series/projection.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/neotoma/taxon_priority.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/neotoma/taxon_provenance.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/reading.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/neotoma/production/__init__.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/neotoma/production/constants.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/neotoma/production/identity.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/neotoma/production/raw_archive.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/neotoma/production/validation.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/neotoma/production/validation_api.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/sources/neotoma/contract.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/sources/neotoma/ownership.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/sources/neotoma/validation.py"
+      ],
+      "role": "generated_owner",
       "verification": "Call attribute_neotoma_priority_datasets with source evidence, screen, scoped review and priority, then canonical_bytes. Preserve 169 distinct source dataset IDs and DOI attribution leads without treating them as source-paper verification or permission."
     },
     {

@@ -11,13 +11,13 @@
     },
     {
       "path": "configs/ci/report-owner-execution.json",
-      "sha256": "164b222df1f05754a2109f21319e3e657a5c3ad7f596f313df9bc00bddad3d9f",
-      "bytes": 31636
+      "sha256": "6d311b0d7a23ec4e4242b656dc68303e3d2897c03041fdab78cff62ddf34b350",
+      "bytes": 33362
     },
     {
       "path": "configs/ci/report-ownership.json",
-      "sha256": "cbbb2536f5359a9b9b452d732e5b1f3449b0f627e696dfeeb75f876c1b4cdb65",
-      "bytes": 765252
+      "sha256": "b54b9fb821f5d1d8e3ff6231f9f20e23c5ff95f91285d4930dbb796a77d0cb25",
+      "bytes": 767267
     },
     {
       "path": "configs/docs/science_downloads.py",
@@ -2965,6 +2965,36 @@
       "bytes": 2076
     },
     {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/neotoma/pollen_prerequisites/__init__.py",
+      "sha256": "3b07ee69397cf8c7412296fd196e7501a01206d1b37ff7f15d7964004aca835c",
+      "bytes": 55
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/neotoma/pollen_prerequisites/candidate_series.py",
+      "sha256": "810f56445d6ea9ea48c687f6c901bf3855c055e3eaf3712207ff60d8683b8206",
+      "bytes": 866
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/neotoma/pollen_prerequisites/concept_priority.py",
+      "sha256": "d449ef68984e44e9818d2640e481ac6f70e0252829a5e8d91223d45d24157c23",
+      "bytes": 1258
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/neotoma/pollen_prerequisites/dataset_attribution.py",
+      "sha256": "fd65d2d492839162f527dcb38796c974cad9cce9c024875b510110c1087cdeda",
+      "bytes": 1440
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/neotoma/pollen_prerequisites/sample_decisions.py",
+      "sha256": "48f5cda76451cbc19a04f0b5f7dfa16217da38b6e3407fee0a3c7ef7a3aadfd4",
+      "bytes": 729
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/neotoma/pollen_prerequisites/writer_execution.py",
+      "sha256": "08ddabe73f737e494411c7e549d157a6dccc5618796d0cae6bc29006f9c18474",
+      "bytes": 2675
+    },
+    {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/neotoma/relational_summary.py",
       "sha256": "dff2f5139cac78ab24d890267a6c16e89c94e3f51403ab303ba2470f9021c806",
       "bytes": 1997
@@ -3258,6 +3288,11 @@
       "path": "packages/bijux-pollenomics-dev/tests/source_completion/neotoma/test_native_roundtrip_cli.py",
       "sha256": "efc1d79704e41ec935fd1299bc697e11f767c84996f5956d2ade9c8ee9f702dc",
       "bytes": 3040
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/tests/source_completion/neotoma/test_pollen_prerequisite_clis.py",
+      "sha256": "393d6a13144589e0930051b8886e59e976e74d8d0e0e6d122643b1e72c834e2d",
+      "bytes": 7842
     },
     {
       "path": "packages/bijux-pollenomics-dev/tests/source_completion/neotoma/test_relational_summary_cli.py",
