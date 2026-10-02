@@ -5709,22 +5709,42 @@
         "docs/report/regions/nordic/pollen-development/trial-scores.csv.gz"
       ],
       "producer_inputs": [
-        "docs/report/regions/nordic/direct-pollen/manifest.json"
+        "data/neotoma/pollen-development/custody.json",
+        "data/neotoma/pollen-development/prepared/input-manifest.json",
+        "data/neotoma/pollen-development/prepared/inputs/training-DK.json",
+        "data/neotoma/pollen-development/prepared/inputs/training-FI.json",
+        "data/neotoma/pollen-development/prepared/inputs/training-NO.json",
+        "data/neotoma/pollen-development/publication-manifest.json"
       ],
       "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/audit.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/evidence.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/landclim.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/manifests.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/nordic/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/nordic/nordic_development_replay.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/nordic_direct_pollen.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/nordic_pollen_development.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/__init__.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/__init__.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/baselines.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/contracts.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/metrics.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/policy.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/prediction.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/spatial/__init__.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/spatial/configuration.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/spatial/counts.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/spatial/model.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/spatial/support.py"
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/spatial/support.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/splits.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/core/geospatial/__init__.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/core/geospatial/distance.py"
       ],
-      "role": "unresolved",
-      "verification": "The producer reads a prepared direct-pollen input directory with exact input-manifest and three training JSON files. That historical directory is not retained as an independently bound repository input. Recreate and compare its pinned bytes before running the development selection; prior-exposed outer outcomes are not confirmation."
+      "role": "generated_owner",
+      "verification": "Replay the unchanged current Nordic development producer against the separately retained exact historical publication and prepared input bytes; compare both tracked outputs byte for byte in reference and replay lanes. This establishes scoped current-code correspondence to the historical inputs, not historical source-code equivalence or independent scientific confirmation."
     },
     {
       "owner_id": "regions/nordic/sambosjon-contained-age-support",

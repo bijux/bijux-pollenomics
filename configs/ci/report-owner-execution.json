@@ -1068,6 +1068,18 @@
         "source-products/scores.csv": "docs/report/regions/nordic/sambosjon-direct-pollen/interval-support/scores.csv"
       },
       "timeout_seconds": 600
+    },
+    {
+      "module": "bijux_pollenomics_dev.source_completion.nordic.nordic_development_replay",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "regions/nordic/pollen-development/report-products",
+      "source_arguments": [],
+      "source_paths": {
+        "source-products/report.json": "docs/report/regions/nordic/pollen-development/report.json",
+        "source-products/trial-scores.csv.gz": "docs/report/regions/nordic/pollen-development/trial-scores.csv.gz"
+      },
+      "timeout_seconds": 600
     }
   ]
 }
