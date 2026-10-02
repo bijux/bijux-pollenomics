@@ -943,6 +943,46 @@
         "source-products/scores.csv": "docs/report/regions/nordic/swedish-support-sensitivity/scores.csv"
       },
       "timeout_seconds": 600
+    },
+    {
+      "owner_id": "regions/nordic/swedish-training-scope/study-products",
+      "module": "bijux_pollenomics_dev.source_completion.nordic.swedish_training_study",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "source_arguments": [],
+      "source_paths": {
+        "source-products/coverage.csv": "docs/report/regions/nordic/swedish-training-scope/coverage.csv",
+        "source-products/frozen/four_country/13338/predictions-SE.json.gz": "docs/report/regions/nordic/swedish-training-scope/frozen/four_country/13338/predictions-SE.json.gz",
+        "source-products/frozen/four_country/28869/predictions-SE.json.gz": "docs/report/regions/nordic/swedish-training-scope/frozen/four_country/28869/predictions-SE.json.gz",
+        "source-products/frozen/four_country/28872/predictions-SE.json.gz": "docs/report/regions/nordic/swedish-training-scope/frozen/four_country/28872/predictions-SE.json.gz",
+        "source-products/frozen/freeze.json": "docs/report/regions/nordic/swedish-training-scope/frozen/freeze.json",
+        "source-products/frozen/sweden_only/13338/predictions-SE.json.gz": "docs/report/regions/nordic/swedish-training-scope/frozen/sweden_only/13338/predictions-SE.json.gz",
+        "source-products/frozen/sweden_only/28869/predictions-SE.json.gz": "docs/report/regions/nordic/swedish-training-scope/frozen/sweden_only/28869/predictions-SE.json.gz",
+        "source-products/frozen/sweden_only/28872/predictions-SE.json.gz": "docs/report/regions/nordic/swedish-training-scope/frozen/sweden_only/28872/predictions-SE.json.gz",
+        "source-products/paired-scores.csv": "docs/report/regions/nordic/swedish-training-scope/paired-scores.csv",
+        "source-products/prepared/four_country/13338/input-manifest.json": "docs/report/regions/nordic/swedish-training-scope/prepared/four_country/13338/input-manifest.json",
+        "source-products/prepared/four_country/13338/inputs/metadata-SE.json.gz": "docs/report/regions/nordic/swedish-training-scope/prepared/four_country/13338/inputs/metadata-SE.json.gz",
+        "source-products/prepared/four_country/13338/inputs/training-SE.json.gz": "docs/report/regions/nordic/swedish-training-scope/prepared/four_country/13338/inputs/training-SE.json.gz",
+        "source-products/prepared/four_country/28869/input-manifest.json": "docs/report/regions/nordic/swedish-training-scope/prepared/four_country/28869/input-manifest.json",
+        "source-products/prepared/four_country/28869/inputs/metadata-SE.json.gz": "docs/report/regions/nordic/swedish-training-scope/prepared/four_country/28869/inputs/metadata-SE.json.gz",
+        "source-products/prepared/four_country/28869/inputs/training-SE.json.gz": "docs/report/regions/nordic/swedish-training-scope/prepared/four_country/28869/inputs/training-SE.json.gz",
+        "source-products/prepared/four_country/28872/input-manifest.json": "docs/report/regions/nordic/swedish-training-scope/prepared/four_country/28872/input-manifest.json",
+        "source-products/prepared/four_country/28872/inputs/metadata-SE.json.gz": "docs/report/regions/nordic/swedish-training-scope/prepared/four_country/28872/inputs/metadata-SE.json.gz",
+        "source-products/prepared/four_country/28872/inputs/training-SE.json.gz": "docs/report/regions/nordic/swedish-training-scope/prepared/four_country/28872/inputs/training-SE.json.gz",
+        "source-products/prepared/prepare.json": "docs/report/regions/nordic/swedish-training-scope/prepared/prepare.json",
+        "source-products/prepared/sweden_only/13338/input-manifest.json": "docs/report/regions/nordic/swedish-training-scope/prepared/sweden_only/13338/input-manifest.json",
+        "source-products/prepared/sweden_only/13338/inputs/metadata-SE.json.gz": "docs/report/regions/nordic/swedish-training-scope/prepared/sweden_only/13338/inputs/metadata-SE.json.gz",
+        "source-products/prepared/sweden_only/13338/inputs/training-SE.json.gz": "docs/report/regions/nordic/swedish-training-scope/prepared/sweden_only/13338/inputs/training-SE.json.gz",
+        "source-products/prepared/sweden_only/28869/input-manifest.json": "docs/report/regions/nordic/swedish-training-scope/prepared/sweden_only/28869/input-manifest.json",
+        "source-products/prepared/sweden_only/28869/inputs/metadata-SE.json.gz": "docs/report/regions/nordic/swedish-training-scope/prepared/sweden_only/28869/inputs/metadata-SE.json.gz",
+        "source-products/prepared/sweden_only/28869/inputs/training-SE.json.gz": "docs/report/regions/nordic/swedish-training-scope/prepared/sweden_only/28869/inputs/training-SE.json.gz",
+        "source-products/prepared/sweden_only/28872/input-manifest.json": "docs/report/regions/nordic/swedish-training-scope/prepared/sweden_only/28872/input-manifest.json",
+        "source-products/prepared/sweden_only/28872/inputs/metadata-SE.json.gz": "docs/report/regions/nordic/swedish-training-scope/prepared/sweden_only/28872/inputs/metadata-SE.json.gz",
+        "source-products/prepared/sweden_only/28872/inputs/training-SE.json.gz": "docs/report/regions/nordic/swedish-training-scope/prepared/sweden_only/28872/inputs/training-SE.json.gz",
+        "source-products/report.json": "docs/report/regions/nordic/swedish-training-scope/report.json",
+        "source-products/scores.csv": "docs/report/regions/nordic/swedish-training-scope/scores.csv"
+      },
+      "timeout_seconds": 600
     }
   ]
 }
