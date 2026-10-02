@@ -277,6 +277,7 @@ verify-partitioned-report-rebuild: root-check-env ## Compare two complete partit
 		--reference-manifest "$(REBUILD_REFERENCE_MANIFEST)" \
 		--replay-manifest "$(REBUILD_REPLAY_MANIFEST)" \
 		--evidence-root "$(REBUILD_EVIDENCE_ROOT)" \
+		--retain-original-r-reference \
 		$(foreach owner,$(REBUILD_OWNER_IDS),--owner-id "$(owner)") \
 		$(if $(REBUILD_REFERENCE_OWNERS_ROOT),--reference-owners-root "$(REBUILD_REFERENCE_OWNERS_ROOT)") \
 		$(if $(REBUILD_REPLAY_OWNERS_ROOT),--replay-owners-root "$(REBUILD_REPLAY_OWNERS_ROOT)")

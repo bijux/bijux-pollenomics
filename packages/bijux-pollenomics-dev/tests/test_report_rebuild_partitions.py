@@ -2,7 +2,9 @@ from __future__ import annotations
 
 import json
 from pathlib import Path
+import shlex
 import shutil
+import subprocess
 import sys
 
 import pytest
@@ -1027,3 +1029,78 @@ def test_mixed_owner_rebuild_keeps_same_leaf_in_distinct_domains(
     report = _verify_with_owner(root, owner_ids=identities)
     assert report["status"] == "PASS"
     assert set(_reference_owners(report)) == set(identities)
+
+
+def test_make_partition_verifier_dispatches_authenticated_retained_source(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    repository = Path(__file__).resolve().parents[3]
+    fragment = repository / "makes/pollenomics-verification.mk"
+    argv_log = tmp_path / "verify-argv.json"
+    recorder = tmp_path / "record_verify_argv.py"
+    recorder.write_text(
+        "import json\n"
+        "import os\n"
+        "from pathlib import Path\n"
+        "import sys\n"
+        "Path(os.environ['REBUILD_ARGV_LOG']).write_text("
+        "json.dumps(sys.argv[1:]), encoding='utf-8')\n",
+        encoding="utf-8",
+    )
+    wrapper = tmp_path / "Makefile"
+    wrapper.write_text(
+        f"DEV_RUN := {shlex.quote(sys.executable)} "
+        f"{shlex.quote(str(recorder))}\n"
+        "root-check-env:\n\t@:\n"
+        f"include {fragment}\n",
+        encoding="utf-8",
+    )
+    monkeypatch.setenv("REBUILD_ARGV_LOG", str(argv_log))
+    result = subprocess.run(
+        [
+            "make",
+            "-f",
+            str(wrapper),
+            "verify-partitioned-report-rebuild",
+            "REBUILD_REFERENCE_MANIFEST=artifacts/reference/manifest.json",
+            "REBUILD_REPLAY_MANIFEST=artifacts/replay/manifest.json",
+            "REBUILD_EVIDENCE_ROOT=artifacts/final-evidence",
+            "REBUILD_OWNER_IDS=source/pollen source/chronology",
+            "REBUILD_REFERENCE_OWNERS_ROOT=artifacts/owners/reference",
+            "REBUILD_REPLAY_OWNERS_ROOT=artifacts/owners/replay",
+        ],
+        cwd=tmp_path,
+        capture_output=True,
+        text=True,
+        check=False,
+        timeout=30,
+    )
+    assert result.returncode == 0, result.stderr
+    argv = json.loads(argv_log.read_text(encoding="utf-8"))
+    assert argv == [
+        "-m",
+        "bijux_pollenomics_dev.ci.report_rebuild",
+        "verify",
+        "--repo-root",
+        str(tmp_path),
+        "--policy",
+        str(tmp_path / "configs/ci/reproducible-report-build.json"),
+        "--plan",
+        str(tmp_path / "artifacts/execution-control/report-rebuild-plan/plan.json"),
+        "--reference-manifest",
+        "artifacts/reference/manifest.json",
+        "--replay-manifest",
+        "artifacts/replay/manifest.json",
+        "--evidence-root",
+        "artifacts/final-evidence",
+        "--retain-original-r-reference",
+        "--owner-id",
+        "source/pollen",
+        "--owner-id",
+        "source/chronology",
+        "--reference-owners-root",
+        "artifacts/owners/reference",
+        "--replay-owners-root",
+        "artifacts/owners/replay",
+    ]
+    assert argv.count("--retain-original-r-reference") == 1
