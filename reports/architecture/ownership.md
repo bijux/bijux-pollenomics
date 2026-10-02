@@ -63,10 +63,18 @@ or qualified scientific review.
 The [output ownership inventory](../../configs/ci/report-ownership.json)
 assigns every tracked report path exactly one declaration. Its population is
 1,938 paths: 709 declared publisher paths, 125 original-R retained source
-files, ten generated study outputs, 62 maintained source files, seven
-maintained reader accounts and 1,025 paths with unresolved output custody.
+files, 21 generated domain outputs, 62 maintained source files, 13
+maintained reader accounts and 1,008 paths with unresolved output custody.
 These role counts describe the current declarations. They do not measure
 how many outputs have been independently reproduced.
+
+The generated category includes 11 SEAD numeric products from six named
+source consumers, the two LandClim modeled-panel files and four contained-age
+files for each of two direct-pollen studies. The SEAD declarations name their
+actual raw/normalized and secondary report inputs, including source parts and
+retrieval receipts. Their reader accounts have separate editorial owners.
+Declaring the input closure does not rerun the source studies, authenticate
+new source permissions or qualify ecological events.
 
 The publisher path set comes from the independent assembly inventoried at
 product `bdc8c0d95`. All 709 paths remain tracked. A current publisher assembly

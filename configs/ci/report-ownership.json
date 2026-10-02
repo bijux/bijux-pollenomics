@@ -3738,27 +3738,134 @@
       "verification": "Identify the exact producer or independent source/template custody, lawful input closure and role-specific verification route for these paths. Bind independently reconstructed output or authenticated retained source before full mixed-owner acceptance; tracked output bytes cannot feed their own producer."
     },
     {
-      "owner_id": "source-relations/sead/analysis-integer-values/report-products",
-      "role": "unresolved",
+      "owner_id": "source-relations/sead/analysis-integer-values/reader-account",
+      "role": "maintained_editorial",
       "paths": [
-        "docs/report/source-relations/sead/analysis-integer-values/README.md",
-        "docs/report/source-relations/sead/analysis-integer-values/report.json"
+        "docs/report/source-relations/sead/analysis-integer-values/README.md"
       ],
       "producer_paths": [],
       "producer_inputs": [],
-      "verification": "Identify the exact producer or independent source/template custody, lawful input closure and role-specific verification route for these paths. Bind independently reconstructed output or authenticated retained source before full mixed-owner acceptance; tracked output bytes cannot feed their own producer."
+      "verification": "Maintain this source-family reader account against its generated numeric outputs and lawful source identity. The producer emits only its declared JSON/CSV products; editorial custody does not establish independent output reproduction or qualified scientific review."
+    },
+    {
+      "owner_id": "source-relations/sead/analysis-integer-values/report-products",
+      "role": "generated_owner",
+      "paths": [
+        "docs/report/source-relations/sead/analysis-integer-values/report.json"
+      ],
+      "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sead_analysis_integer_values.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sead_analysis_numerical_values.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/sources/sead.py"
+      ],
+      "producer_inputs": [
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_materialization_manifest.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/observation_relation_index.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/observation_relation_index/entity_relations-00001.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/observation_relation_index/entity_relations-00002.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/observation_relation_index/entity_relations-00003.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/observation_relation_index/entity_relations-00004.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/observation_relation_index/entity_relations-00005.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/observation_relation_index/value_semantics-00001.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00001.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00002.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00003.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00004.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00005.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00006.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00007.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00008.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00009.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00010.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00011.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00012.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00013.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00014.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00015.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00016.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00017.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00018.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00019.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00020.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00021.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00022.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00023.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00024.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00025.json",
+        "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/admission.json",
+        "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/manifest.json",
+        "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_analysis_integer_values.json",
+        "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_analysis_values.json",
+        "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_value_classes.json",
+        "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_value_types.json"
+      ],
+      "verification": "From repository root with an absent destination, run `PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -m bijux_pollenomics_dev.source_completion.sead_analysis_integer_values --data-root data --output artifacts/jobs/sead-source-owner-reproduction/analysis-integer-values`. After all six family destinations exist, run `PYTHONDONTWRITEBYTECODE=1 .venv/bin/python docs/report/source-relations/sead/verify_report_owners.py --repository . --output-root artifacts/jobs/sead-source-owner-reproduction --compare-existing` to compare all 11 generated files byte for byte with governed outputs. This owner declaration and past replays do not authenticate a current full source plan or scientific admission."
+    },
+    {
+      "owner_id": "source-relations/sead/analysis-numerical-values/reader-account",
+      "role": "maintained_editorial",
+      "paths": [
+        "docs/report/source-relations/sead/analysis-numerical-values/README.md"
+      ],
+      "producer_paths": [],
+      "producer_inputs": [],
+      "verification": "Maintain this source-family reader account against its generated numeric outputs and lawful source identity. The producer emits only its declared JSON/CSV products; editorial custody does not establish independent output reproduction or qualified scientific review."
     },
     {
       "owner_id": "source-relations/sead/analysis-numerical-values/report-products",
-      "role": "unresolved",
+      "role": "generated_owner",
       "paths": [
-        "docs/report/source-relations/sead/analysis-numerical-values/README.md",
         "docs/report/source-relations/sead/analysis-numerical-values/report.json",
         "docs/report/source-relations/sead/analysis-numerical-values/values.csv"
       ],
-      "producer_paths": [],
-      "producer_inputs": [],
-      "verification": "Identify the exact producer or independent source/template custody, lawful input closure and role-specific verification route for these paths. Bind independently reconstructed output or authenticated retained source before full mixed-owner acceptance; tracked output bytes cannot feed their own producer."
+      "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sead_analysis_numerical_values.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/sources/sead.py"
+      ],
+      "producer_inputs": [
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_materialization_manifest.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/observation_relation_index.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/observation_relation_index/entity_relations-00001.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/observation_relation_index/entity_relations-00002.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/observation_relation_index/entity_relations-00003.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/observation_relation_index/entity_relations-00004.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/observation_relation_index/entity_relations-00005.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/observation_relation_index/value_semantics-00001.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00001.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00002.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00003.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00004.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00005.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00006.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00007.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00008.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00009.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00010.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00011.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00012.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00013.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00014.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00015.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00016.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00017.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00018.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00019.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00020.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00021.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00022.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00023.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00024.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00025.json",
+        "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/admission.json",
+        "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/manifest.json",
+        "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_analysis_numerical_values.json",
+        "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_analysis_values.json",
+        "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_value_classes.json",
+        "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_value_types.json"
+      ],
+      "verification": "From repository root with an absent destination, run `PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -m bijux_pollenomics_dev.source_completion.sead_analysis_numerical_values --data-root data --output artifacts/jobs/sead-source-owner-reproduction/analysis-numerical-values`. After all six family destinations exist, run `PYTHONDONTWRITEBYTECODE=1 .venv/bin/python docs/report/source-relations/sead/verify_report_owners.py --repository . --output-root artifacts/jobs/sead-source-owner-reproduction --compare-existing` to compare all 11 generated files byte for byte with governed outputs. This owner declaration and past replays do not authenticate a current full source plan or scientific admission."
     },
     {
       "owner_id": "source-relations/sead/chronology-claim-review/report-products",
@@ -3773,28 +3880,125 @@
       "verification": "Identify the exact producer or independent source/template custody, lawful input closure and role-specific verification route for these paths. Bind independently reconstructed output or authenticated retained source before full mixed-owner acceptance; tracked output bytes cannot feed their own producer."
     },
     {
-      "owner_id": "source-relations/sead/chronology-country-accounting/report-products",
-      "role": "unresolved",
+      "owner_id": "source-relations/sead/chronology-country-accounting/reader-account",
+      "role": "maintained_editorial",
       "paths": [
-        "docs/report/source-relations/sead/chronology-country-accounting/README.md",
+        "docs/report/source-relations/sead/chronology-country-accounting/README.md"
+      ],
+      "producer_paths": [],
+      "producer_inputs": [],
+      "verification": "Maintain this source-family reader account against its generated numeric outputs and lawful source identity. The producer emits only its declared JSON/CSV products; editorial custody does not establish independent output reproduction or qualified scientific review."
+    },
+    {
+      "owner_id": "source-relations/sead/chronology-country-accounting/report-products",
+      "role": "generated_owner",
+      "paths": [
         "docs/report/source-relations/sead/chronology-country-accounting/report.json",
         "docs/report/source-relations/sead/chronology-country-accounting/rows.csv"
       ],
-      "producer_paths": [],
-      "producer_inputs": [],
-      "verification": "Identify the exact producer or independent source/template custody, lawful input closure and role-specific verification route for these paths. Bind independently reconstructed output or authenticated retained source before full mixed-owner acceptance; tracked output bytes cannot feed their own producer."
+      "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sead_chronology_country_accounting.py"
+      ],
+      "producer_inputs": [
+        "data/sead/normalized/chronology_claims.json",
+        "data/sead/normalized/nordic_environmental_sites.csv",
+        "data/sead/normalized/source_lineage.json",
+        "docs/report/source-relations/sead/chronology-claim-review/claims.csv",
+        "docs/report/source-relations/sead/chronology-claim-review/report.json",
+        "docs/report/source-relations/sead/public-custody/report.json"
+      ],
+      "verification": "From repository root with an absent destination, run `PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -m bijux_pollenomics_dev.source_completion.sead_chronology_country_accounting --repository . --output artifacts/jobs/sead-source-owner-reproduction/chronology-country-accounting`. After all six family destinations exist, run `PYTHONDONTWRITEBYTECODE=1 .venv/bin/python docs/report/source-relations/sead/verify_report_owners.py --repository . --output-root artifacts/jobs/sead-source-owner-reproduction --compare-existing` to compare all 11 generated files byte for byte with governed outputs. This owner declaration and past replays do not authenticate a current full source plan or scientific admission."
     },
     {
-      "owner_id": "source-relations/sead/country-coverage/report-products",
-      "role": "unresolved",
+      "owner_id": "source-relations/sead/country-coverage/reader-account",
+      "role": "maintained_editorial",
       "paths": [
-        "docs/report/source-relations/sead/country-coverage/README.md",
-        "docs/report/source-relations/sead/country-coverage/report.json",
-        "docs/report/source-relations/sead/country-coverage/rows.csv"
+        "docs/report/source-relations/sead/country-coverage/README.md"
       ],
       "producer_paths": [],
       "producer_inputs": [],
-      "verification": "Identify the exact producer or independent source/template custody, lawful input closure and role-specific verification route for these paths. Bind independently reconstructed output or authenticated retained source before full mixed-owner acceptance; tracked output bytes cannot feed their own producer."
+      "verification": "Maintain this source-family reader account against its generated numeric outputs and lawful source identity. The producer emits only its declared JSON/CSV products; editorial custody does not establish independent output reproduction or qualified scientific review."
+    },
+    {
+      "owner_id": "source-relations/sead/country-coverage/report-products",
+      "role": "generated_owner",
+      "paths": [
+        "docs/report/source-relations/sead/country-coverage/report.json",
+        "docs/report/source-relations/sead/country-coverage/rows.csv"
+      ],
+      "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sead_country_coverage.py"
+      ],
+      "producer_inputs": [
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_events.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_materialization_manifest.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations.json",
+        "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/manifest.json",
+        "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_abundance_elements.json",
+        "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_abundance_ident_levels.json",
+        "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_abundance_modifications.json",
+        "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_abundance_properties.json",
+        "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_abundances.json",
+        "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_age_types.json",
+        "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_analysis_boolean_values.json",
+        "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_analysis_categorical_values.json",
+        "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_analysis_dating_ranges.json",
+        "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_analysis_entities.json",
+        "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_analysis_entity_ages.json",
+        "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_analysis_entity_dimensions.json",
+        "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_analysis_integer_values.json",
+        "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_analysis_numerical_values.json",
+        "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_analysis_taxon_counts.json",
+        "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_analysis_value_dimensions.json",
+        "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_analysis_values.json",
+        "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_biblio.json",
+        "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_contact_types.json",
+        "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_contacts.json",
+        "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_data_type_groups.json",
+        "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_data_types.json",
+        "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_dataset_contacts.json",
+        "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_dataset_masters.json",
+        "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_dataset_methods.json",
+        "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_datasets.json",
+        "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_dating_uncertainty.json",
+        "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_dendro_dates.json",
+        "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_dimensions.json",
+        "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_ecocode_definitions.json",
+        "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_ecocode_groups.json",
+        "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_ecocode_systems.json",
+        "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_ecocodes.json",
+        "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_geochronology.json",
+        "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_identification_levels.json",
+        "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_measured_value_dimensions.json",
+        "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_measured_values.json",
+        "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_methods.json",
+        "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_modification_types.json",
+        "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_physical_samples.json",
+        "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_property_types.json",
+        "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_record_types.json",
+        "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_relative_age_refs.json",
+        "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_relative_ages.json",
+        "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_relative_dates.json",
+        "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_sample_dimensions.json",
+        "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_sample_group_dimensions.json",
+        "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_sample_group_references.json",
+        "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_sample_groups.json",
+        "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_site_references.json",
+        "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_sites.json",
+        "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_taxa_tree_authors.json",
+        "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_taxa_tree_families.json",
+        "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_taxa_tree_genera.json",
+        "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_taxa_tree_master.json",
+        "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_taxa_tree_orders.json",
+        "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_units.json",
+        "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_value_classes.json",
+        "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_value_qualifiers.json",
+        "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_value_type_items.json",
+        "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_value_types.json",
+        "docs/report/source-relations/sead-country-retrieval/countries.csv",
+        "docs/report/source-relations/sead-country-retrieval/report.json"
+      ],
+      "verification": "From repository root with an absent destination, run `PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -m bijux_pollenomics_dev.source_completion.sead_country_coverage --repository . --output artifacts/jobs/sead-source-owner-reproduction/country-coverage`. After all six family destinations exist, run `PYTHONDONTWRITEBYTECODE=1 .venv/bin/python docs/report/source-relations/sead/verify_report_owners.py --repository . --output-root artifacts/jobs/sead-source-owner-reproduction --compare-existing` to compare all 11 generated files byte for byte with governed outputs. This owner declaration and past replays do not authenticate a current full source plan or scientific admission."
     },
     {
       "owner_id": "source-relations/sead/interval-sets/report-products",
@@ -3820,16 +4024,68 @@
       "verification": "Identify the exact producer or independent source/template custody, lawful input closure and role-specific verification route for these paths. Bind independently reconstructed output or authenticated retained source before full mixed-owner acceptance; tracked output bytes cannot feed their own producer."
     },
     {
-      "owner_id": "source-relations/sead/pollen-named-dataset-screen/report-products",
-      "role": "unresolved",
+      "owner_id": "source-relations/sead/pollen-named-dataset-screen/reader-account",
+      "role": "maintained_editorial",
       "paths": [
-        "docs/report/source-relations/sead/pollen-named-dataset-screen/README.md",
-        "docs/report/source-relations/sead/pollen-named-dataset-screen/report.json",
-        "docs/report/source-relations/sead/pollen-named-dataset-screen/sample-observations.csv"
+        "docs/report/source-relations/sead/pollen-named-dataset-screen/README.md"
       ],
       "producer_paths": [],
       "producer_inputs": [],
-      "verification": "Identify the exact producer or independent source/template custody, lawful input closure and role-specific verification route for these paths. Bind independently reconstructed output or authenticated retained source before full mixed-owner acceptance; tracked output bytes cannot feed their own producer."
+      "verification": "Maintain this source-family reader account against its generated numeric outputs and lawful source identity. The producer emits only its declared JSON/CSV products; editorial custody does not establish independent output reproduction or qualified scientific review."
+    },
+    {
+      "owner_id": "source-relations/sead/pollen-named-dataset-screen/report-products",
+      "role": "generated_owner",
+      "paths": [
+        "docs/report/source-relations/sead/pollen-named-dataset-screen/report.json",
+        "docs/report/source-relations/sead/pollen-named-dataset-screen/sample-observations.csv"
+      ],
+      "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sead_pollen_screen.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/sources/sead.py"
+      ],
+      "producer_inputs": [
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_materialization_manifest.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/observation_relation_index.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/observation_relation_index/dataset_semantics-00001.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/observation_relation_index/dataset_semantics-00002.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/observation_relation_index/dataset_semantics-00003.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/observation_relation_index/entity_relations-00001.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/observation_relation_index/entity_relations-00002.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/observation_relation_index/entity_relations-00003.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/observation_relation_index/entity_relations-00004.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/observation_relation_index/entity_relations-00005.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00001.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00002.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00003.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00004.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00005.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00006.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00007.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00008.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00009.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00010.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00011.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00012.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00013.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00014.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00015.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00016.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00017.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00018.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00019.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00020.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00021.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00022.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00023.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00024.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00025.json",
+        "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/admission.json",
+        "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/manifest.json",
+        "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_abundances.json"
+      ],
+      "verification": "From repository root with an absent destination, run `PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -m bijux_pollenomics_dev.source_completion.sead_pollen_screen --data-root data --output artifacts/jobs/sead-source-owner-reproduction/pollen-named-dataset-screen`. After all six family destinations exist, run `PYTHONDONTWRITEBYTECODE=1 .venv/bin/python docs/report/source-relations/sead/verify_report_owners.py --repository . --output-root artifacts/jobs/sead-source-owner-reproduction --compare-existing` to compare all 11 generated files byte for byte with governed outputs. This owner declaration and past replays do not authenticate a current full source plan or scientific admission."
     },
     {
       "owner_id": "source-relations/sead/public-custody/report-products",
@@ -3869,16 +4125,98 @@
       "verification": "Maintain these repository source files through review and focused tests. Source custody is distinct from generated output reproduction; copying them into a replay lane does not certify the results they produce."
     },
     {
-      "owner_id": "source-relations/sead/source-unit-accounting/report-products",
-      "role": "unresolved",
+      "owner_id": "source-relations/sead/source-unit-accounting/reader-account",
+      "role": "maintained_editorial",
       "paths": [
-        "docs/report/source-relations/sead/source-unit-accounting/README.md",
-        "docs/report/source-relations/sead/source-unit-accounting/report.json",
-        "docs/report/source-relations/sead/source-unit-accounting/rows.csv"
+        "docs/report/source-relations/sead/source-unit-accounting/README.md"
       ],
       "producer_paths": [],
       "producer_inputs": [],
-      "verification": "Identify the exact producer or independent source/template custody, lawful input closure and role-specific verification route for these paths. Bind independently reconstructed output or authenticated retained source before full mixed-owner acceptance; tracked output bytes cannot feed their own producer."
+      "verification": "Maintain this source-family reader account against its generated numeric outputs and lawful source identity. The producer emits only its declared JSON/CSV products; editorial custody does not establish independent output reproduction or qualified scientific review."
+    },
+    {
+      "owner_id": "source-relations/sead/source-unit-accounting/report-products",
+      "role": "generated_owner",
+      "paths": [
+        "docs/report/source-relations/sead/source-unit-accounting/report.json",
+        "docs/report/source-relations/sead/source-unit-accounting/rows.csv"
+      ],
+      "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sead_country_source_units.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/sources/sead.py"
+      ],
+      "producer_inputs": [
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/chronology_claims.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/chronology_claims/claims-00001.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/chronology_claims/claims-00002.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/chronology_claims/claims-00003.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/chronology_claims/claims-00004.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/chronology_claims/claims-00005.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/chronology_claims/claims-00006.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_events.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_events/refusals-00001.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_events/refusals-00002.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_events/refusals-00003.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_events/refusals-00004.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_events/refusals-00005.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_materialization_manifest.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/observation_relation_index.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/observation_relation_index/dataset_semantics-00001.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/observation_relation_index/dataset_semantics-00002.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/observation_relation_index/dataset_semantics-00003.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/observation_relation_index/dimension_relations-00001.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/observation_relation_index/dimension_semantics-00001.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/observation_relation_index/entity_relations-00001.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/observation_relation_index/entity_relations-00002.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/observation_relation_index/entity_relations-00003.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/observation_relation_index/entity_relations-00004.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/observation_relation_index/entity_relations-00005.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/observation_relation_index/taxon_relations-00001.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/observation_relation_index/value_semantics-00001.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_key_ledger.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00001.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00002.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00003.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00004.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00005.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00006.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00007.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00008.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00009.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00010.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00011.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00012.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00013.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00014.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00015.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00016.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00017.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00018.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00019.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00020.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00021.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00022.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00023.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00024.json",
+        "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/source_native_observations/observations-00025.json",
+        "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/admission.json",
+        "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/country-decisions.json",
+        "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/manifest.json",
+        "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_analysis_entities.json",
+        "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_analysis_values.json",
+        "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_datasets.json",
+        "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_physical_samples.json",
+        "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_sample_groups.json",
+        "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/payloads/tbl_sites.json",
+        "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_analysis_entities.json",
+        "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_analysis_values.json",
+        "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_datasets.json",
+        "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_physical_samples.json",
+        "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_sample_groups.json",
+        "data/sead/raw/acquisitions/sead-full-evidence-39bfff6a-ce80714e/receipts/tbl_sites.json"
+      ],
+      "verification": "From repository root with an absent destination, run `PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -m bijux_pollenomics_dev.source_completion.sead_country_source_units --repository . --output artifacts/jobs/sead-source-owner-reproduction/source-unit-accounting`. After all six family destinations exist, run `PYTHONDONTWRITEBYTECODE=1 .venv/bin/python docs/report/source-relations/sead/verify_report_owners.py --repository . --output-root artifacts/jobs/sead-source-owner-reproduction --compare-existing` to compare all 11 generated files byte for byte with governed outputs. This owner declaration and past replays do not authenticate a current full source plan or scientific admission."
     },
     {
       "owner_id": "source-relations/source-capability-evidence/report-products",
