@@ -468,6 +468,12 @@ jobs:
             artifact: landclim-site-identity
           - id: source-relations/neotoma/swedish-lake-core-identity/report-products
             artifact: swedish-lake-core-identity
+          - id: regions/nordic/source-capability/derived-products
+            artifact: nordic-source-capability
+          - id: source-relations/sead-country-retrieval/derived-products
+            artifact: sead-country-retrieval
+          - id: source-relations/sead/chronology-country-accounting/report-products
+            artifact: sead-chronology-countries
     steps:
       - name: Checkout candidate
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -657,6 +663,9 @@ jobs:
             source-relations/neotoma/abbo-core-identity/report-products
             source-relations/neotoma/landclim-site-identity/report-products
             source-relations/neotoma/swedish-lake-core-identity/report-products
+            regions/nordic/source-capability/derived-products
+            source-relations/sead-country-retrieval/derived-products
+            source-relations/sead/chronology-country-accounting/report-products
           REBUILD_OWNER_ARTIFACTS_ROOT: artifacts/execution-control/report-rebuild-owner-input/${{ matrix.lane }}
           REBUILD_EVIDENCE_ROOT: artifacts/execution-control/report-rebuild-assembly/${{ matrix.lane }}
         run: make assemble-report-rebuild
@@ -752,6 +761,9 @@ jobs:
             source-relations/neotoma/abbo-core-identity/report-products
             source-relations/neotoma/landclim-site-identity/report-products
             source-relations/neotoma/swedish-lake-core-identity/report-products
+            regions/nordic/source-capability/derived-products
+            source-relations/sead-country-retrieval/derived-products
+            source-relations/sead/chronology-country-accounting/report-products
           REBUILD_REFERENCE_OWNERS_ROOT: artifacts/execution-control/report-rebuild-owner-input/reference
           REBUILD_REPLAY_OWNERS_ROOT: artifacts/execution-control/report-rebuild-owner-input/replay
         run: make verify-partitioned-report-rebuild

@@ -310,8 +310,11 @@ the polygon, calendar, geometry and metric helpers used in its calculation.
 Three native core/site consumers add seven Markdown, JSON and CSV outputs,
 with explicit workbook, receipt, raw archive, count-mass and projection inputs.
 Their count and projection parents retain separate custody requirements;
-comparison does not admit a core, basin or LRA request. These thirteen
-producers cover only their declared files. The complete report-tree
+comparison does not admit a core, basin or LRA request. Three source-ledger
+consumers add six country-capability, SEAD retrieval and chronology-accounting
+outputs from their retained source and governed country ledgers. Their source,
+assigned and publication country meanings remain separate, including chronology
+refusals. These sixteen producers cover only their declared files. The complete report-tree
 comparison remains mandatory and refuses any missing owner. The scientific CI
 workflow schedules these owners in both lanes after the bound partition plan,
 then merges owner artifacts into each lane before assembly and final

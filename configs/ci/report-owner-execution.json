@@ -218,6 +218,42 @@
       "timeout_seconds": 180,
       "include_repository_argument": false,
       "output_subdirectory": "source-products"
+    },
+    {
+      "owner_id": "regions/nordic/source-capability/derived-products",
+      "module": "bijux_pollenomics_dev.source_completion.source_capability",
+      "source_paths": {
+        "source-products/report.json": "docs/report/regions/nordic/source-capability/report.json"
+      },
+      "source_arguments": [],
+      "output_mode": "directory",
+      "timeout_seconds": 180,
+      "output_subdirectory": "source-products"
+    },
+    {
+      "owner_id": "source-relations/sead-country-retrieval/derived-products",
+      "module": "bijux_pollenomics_dev.source_completion.sead_country_retrieval",
+      "source_paths": {
+        "source-products/countries.csv": "docs/report/source-relations/sead-country-retrieval/countries.csv",
+        "source-products/report.json": "docs/report/source-relations/sead-country-retrieval/report.json",
+        "source-products/sites.csv": "docs/report/source-relations/sead-country-retrieval/sites.csv"
+      },
+      "source_arguments": [],
+      "output_mode": "directory",
+      "timeout_seconds": 180,
+      "output_subdirectory": "source-products"
+    },
+    {
+      "owner_id": "source-relations/sead/chronology-country-accounting/report-products",
+      "module": "bijux_pollenomics_dev.source_completion.sead_chronology_country_accounting",
+      "source_paths": {
+        "source-products/report.json": "docs/report/source-relations/sead/chronology-country-accounting/report.json",
+        "source-products/rows.csv": "docs/report/source-relations/sead/chronology-country-accounting/rows.csv"
+      },
+      "source_arguments": [],
+      "output_mode": "directory",
+      "timeout_seconds": 180,
+      "output_subdirectory": "source-products"
     }
   ]
 }

@@ -6,13 +6,13 @@
   "files": [
     {
       "path": ".github/workflows/scientific-verification.yml",
-      "sha256": "edc7ecf63a53ff0f16770ba231df15c5862518d9d427da7840b10f8a2743bb5d",
-      "bytes": 34109
+      "sha256": "8debd603dc83fdda1c6e0881afa807ff9cb98dfc3d2193e68bf1ef56dff79feb",
+      "bytes": 34894
     },
     {
       "path": "configs/ci/report-owner-execution.json",
-      "sha256": "ca070a385ad4a0a7f29e7443b5ed0a174b2e3247dc3aaa1ecae255286917f673",
-      "bytes": 8873
+      "sha256": "452362a42377e7f1b86d10b47c4149e7ed5c4fa9fc978151fca5cda2338f4ab6",
+      "bytes": 10569
     },
     {
       "path": "configs/ci/report-ownership.json",
@@ -3186,8 +3186,8 @@
     },
     {
       "path": "reports/architecture/ownership.md",
-      "sha256": "a578c58f15e0e31ed9d38fd59493410b9539efccf630ec50f65d46f4b589e20a",
-      "bytes": 21437
+      "sha256": "9815622da58a25acdf58e819fe0cb290d4e1b555c6dd88813dd43ec91c3ff89d",
+      "bytes": 21704
     },
     {
       "path": "reports/evidence-index.md",
@@ -3261,7 +3261,7 @@
     },
     {
       "path": "reports/exports/site-downloads.json",
-      "sha256": "48e02177855fe9ddab385edb053595f3d9a0029f3b146365a0f1bfbd7eb3f00c",
+      "sha256": "e4a99b172f332d132c1e70dc118e7aed2ca0a29bd7c420e4bb790c97ccfd73ab",
       "bytes": 5774
     },
     {
