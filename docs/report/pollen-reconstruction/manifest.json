@@ -11,13 +11,13 @@
     },
     {
       "path": "configs/ci/report-owner-execution.json",
-      "sha256": "660bf2c1f17f4772d4a077974d638924c4479d5d7a321717661256eab8671a99",
-      "bytes": 29294
+      "sha256": "165a6c40e9f7aee8db804cc95b10e0b36328251caf45acd3516854863417d278",
+      "bytes": 30469
     },
     {
       "path": "configs/ci/report-ownership.json",
-      "sha256": "45c53f35c07db34dba6fe090cccd003f8cdf754b1e36a8e445ba6ce871715c3a",
-      "bytes": 763393
+      "sha256": "fb9b26f8c2a69bc34edfb3d0e633f18546d9017f629cd32835e5460cde1c5592",
+      "bytes": 764144
     },
     {
       "path": "configs/docs/science_downloads.py",
@@ -2935,6 +2935,26 @@
       "bytes": 1789
     },
     {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/method_certification/__init__.py",
+      "sha256": "4628e4de5480a392f22e07fad33c786ca03146e3bb3945af668348aaf6e04950",
+      "bytes": 67
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/method_certification/fixed_site_covariance.py",
+      "sha256": "ed3fed1b73be168d8d226898403d1a2156f7cfefd4459d4a3b2ad1df4b29093f",
+      "bytes": 772
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/method_certification/joint_site_draws.py",
+      "sha256": "e955bfb17427a79085ea59965136f972d20ebffe70e1dff41e6ab41c70b7d0c9",
+      "bytes": 766
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/method_certification/writer_execution.py",
+      "sha256": "d0bc5a59c0db3952548ef1476722b48ade211123f6dae8c54441314719735ea8",
+      "bytes": 1821
+    },
+    {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/neotoma/__init__.py",
       "sha256": "7cb4d3304519e3237375cde836d0ada4d49e7999f8d5293d78874308ffb0abc8",
       "bytes": 46
@@ -3215,6 +3235,11 @@
       "bytes": 1824
     },
     {
+      "path": "packages/bijux-pollenomics-dev/tests/source_completion/method_certification/test_covariance_clis.py",
+      "sha256": "2c87ee8b27897c47cba7525efcdbe8aee5fbecd76d894fa0a9540f5eb16b8165",
+      "bytes": 4003
+    },
+    {
       "path": "packages/bijux-pollenomics-dev/tests/source_completion/neotoma/test_native_roundtrip_cli.py",
       "sha256": "efc1d79704e41ec935fd1299bc697e11f767c84996f5956d2ade9c8ee9f702dc",
       "bytes": 3040
@@ -3426,8 +3451,8 @@
     },
     {
       "path": "reports/architecture/ownership.md",
-      "sha256": "0a33edff5e971fdb1fa04508059d150d1e63bb3aec620c75af20a2f3284e0e0a",
-      "bytes": 24602
+      "sha256": "fc88238c561edb1b7fa3231f8c0010a04c59fc54f9ae8d80c306f9e0407a7c8c",
+      "bytes": 24676
     },
     {
       "path": "reports/evidence-index.md",
@@ -3501,7 +3526,7 @@
     },
     {
       "path": "reports/exports/site-downloads.json",
-      "sha256": "2d7c8339e7dc6b0f6798f15ff7dee7fc66cb24ebbe0939917110cf8334ca9a23",
+      "sha256": "e6022f1ad3982647c7b77c2c75ebf3577557aa9a80f69c04bc729d5482c7f0f4",
       "bytes": 5774
     },
     {

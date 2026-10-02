@@ -638,6 +638,30 @@
         "report.json": "docs/report/synthetic-validation/spatial-eligibility/report.json"
       },
       "timeout_seconds": 180
+    },
+    {
+      "module": "bijux_pollenomics_dev.source_completion.method_certification.fixed_site_covariance",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "method-certification/fixed-site-covariance/constructed-products",
+      "source_arguments": [],
+      "source_paths": {
+        "source-products/report.json": "docs/report/method-certification/fixed-site-covariance/report.json"
+      },
+      "timeout_seconds": 180
+    },
+    {
+      "module": "bijux_pollenomics_dev.source_completion.method_certification.joint_site_draws",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "method-certification/joint-site-draws/constructed-products",
+      "source_arguments": [],
+      "source_paths": {
+        "source-products/draws.json": "docs/report/method-certification/joint-site-draws/draws.json",
+        "source-products/joint-cover-draws.csv": "docs/report/method-certification/joint-site-draws/joint-cover-draws.csv",
+        "source-products/report.json": "docs/report/method-certification/joint-site-draws/report.json"
+      },
+      "timeout_seconds": 600
     }
   ]
 }

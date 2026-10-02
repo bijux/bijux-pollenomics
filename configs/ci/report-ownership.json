@@ -2436,22 +2436,25 @@
     },
     {
       "owner_id": "method-certification/fixed-site-covariance/constructed-products",
-      "role": "generated_owner",
       "paths": [
         "docs/report/method-certification/fixed-site-covariance/report.json"
-      ],
-      "producer_paths": [
-        "docs/report/method-certification/fixed-site-covariance/replay.py",
-        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/api.py",
-        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/dispersal/publication.py",
-        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/models/errors.py",
-        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/fixed_site_covariance.py"
       ],
       "producer_inputs": [
         "packages/bijux-pollenomics-lra/pyproject.toml",
         "pyproject.toml",
         "uv.lock"
       ],
+      "producer_paths": [
+        "docs/report/method-certification/fixed-site-covariance/replay.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/method_certification/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/method_certification/fixed_site_covariance.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/method_certification/writer_execution.py",
+        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/api.py",
+        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/dispersal/publication.py",
+        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/models/errors.py",
+        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/fixed_site_covariance.py"
+      ],
+      "role": "generated_owner",
       "verification": "Run PYTHONDONTWRITEBYTECODE=1 OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 .venv/bin/python docs/report/method-certification/fixed-site-covariance/replay.py --repository . --output artifacts/jobs/method-uncertainty-reproduction/fixed-site-covariance with absent output; compare every declared file. Inline two-site count/geometry/PPE fixture and delta covariance; no source-R equivalence or full geometry/chronology uncertainty. Source declarations cover the invoked numerical API and error boundary, not unrelated eager imports or independent installed-environment certification."
     },
     {
@@ -2476,17 +2479,10 @@
     },
     {
       "owner_id": "method-certification/joint-site-draws/constructed-products",
-      "role": "generated_owner",
       "paths": [
         "docs/report/method-certification/joint-site-draws/draws.json",
         "docs/report/method-certification/joint-site-draws/joint-cover-draws.csv",
         "docs/report/method-certification/joint-site-draws/report.json"
-      ],
-      "producer_paths": [
-        "docs/report/method-certification/joint-site-draws/replay.py",
-        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/api.py",
-        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/models/errors.py",
-        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/joint_site_draws.py"
       ],
       "producer_inputs": [
         "docs/report/method-certification/fixed-site-covariance/report.json",
@@ -2494,6 +2490,16 @@
         "pyproject.toml",
         "uv.lock"
       ],
+      "producer_paths": [
+        "docs/report/method-certification/joint-site-draws/replay.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/method_certification/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/method_certification/joint_site_draws.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/method_certification/writer_execution.py",
+        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/api.py",
+        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/models/errors.py",
+        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/joint_site_draws.py"
+      ],
+      "role": "generated_owner",
       "verification": "Run PYTHONDONTWRITEBYTECODE=1 OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 .venv/bin/python docs/report/method-certification/joint-site-draws/replay.py --repository . --output artifacts/jobs/method-uncertainty-reproduction/joint-site-draws with absent output; compare every declared file. 2,048 seeded constructed draws in five scenarios from retained fixed-site geometry; upstream covariance report and original producer remain separately owned. Source declarations cover the invoked numerical API and error boundary, not unrelated eager imports or independent installed-environment certification."
     },
     {
