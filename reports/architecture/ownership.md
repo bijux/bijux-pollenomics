@@ -63,8 +63,8 @@ or qualified scientific review.
 The [output ownership inventory](../../configs/ci/report-ownership.json)
 assigns every tracked report path exactly one declaration. Its population is
 1,938 paths: 709 declared publisher paths, 125 original-R retained source
-files, 42 generated domain outputs, 62 maintained source files, 41
-maintained reader accounts and 959 paths with unresolved output custody.
+files, 42 generated domain outputs, 62 maintained source files, 58
+maintained reader accounts and 942 paths with unresolved output custody.
 These role counts describe the current declarations. They do not measure
 how many outputs have been independently reproduced.
 
@@ -116,6 +116,13 @@ check static modeled transport. Six reader accounts are editorial; eight
 author-reference, chronology and browser-capture products still require
 private source custody or a governed capture certificate. These declarations
 do not reopen completed studies or certify historical production inputs.
+
+The atlas declarations separate 17 authored accounts from 88 browser,
+candidate and native-reference files. Frozen candidate input maps differ
+from current source/producer bytes, and screenshots, downloads and browser
+receipts need executed capture custody. They remain unresolved; declaration
+checks do not recertify historical browser observations on the current
+candidate or turn a retained synthetic reference into a fresh output.
 
 A fresh canonical publisher build from fixed product
 `d535ca7f3bed0ead63e5f96e45658c435ed6613a` produced exactly the 709 declared
