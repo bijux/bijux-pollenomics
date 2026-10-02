@@ -1,0 +1,376 @@
+"""Render the supported reader-report Markdown grammar without losing tokens."""
+
+from __future__ import annotations
+
+import re
+from dataclasses import dataclass
+from pathlib import Path
+
+from markdown_it import MarkdownIt
+from markdown_it.token import Token
+
+from .diagram import mermaid_to_dot
+from .source import portable_link
+
+
+class RenderError(ValueError):
+    """Markdown contains a construct outside the report PDF grammar."""
+
+
+_ESCAPE = {
+    "\\": r"\textbackslash{}",
+    "{": r"\{",
+    "}": r"\}",
+    "#": r"\#",
+    "$": r"\$",
+    "%": r"\%",
+    "&": r"\&",
+    "_": r"\_",
+    "~": r"\textasciitilde{}",
+    "^": r"\textasciicircum{}",
+    "→": r"\ensuremath{\rightarrow}",
+}
+_URL_ESCAPE = {"%": r"\%", "#": r"\#", "&": r"\&", "_": r"\_", "~": r"\string~"}
+
+
+def escape_latex(value: str) -> str:
+    return "".join(_ESCAPE.get(char, char) for char in value)
+
+
+def _inline_code(value: str) -> str:
+    escaped = escape_latex(value)
+    if "=" in value and len(value) <= 72:
+        return (
+            r"\texttt{"
+            + escaped.replace("/", r"/\allowbreak{}").replace("=", r"=\allowbreak{}")
+            + "}"
+        )
+    if len(value) <= 28:
+        return r"\texttt{" + escaped + "}"
+    return r"\texttt{\seqsplit{" + escaped + "}}"
+
+
+def _url_argument(value: str) -> str:
+    """Keep only encoded URL characters before escaping TeX argument markers."""
+    from urllib.parse import quote
+
+    encoded = quote(value, safe="/:?=@+.,;-%#&_~")
+    return "".join(_URL_ESCAPE.get(char, char) for char in encoded)
+
+
+@dataclass(frozen=True)
+class Asset:
+    name: str
+    content: str
+    kind: str
+
+
+@dataclass(frozen=True)
+class RenderedReport:
+    latex: str
+    assets: tuple[Asset, ...]
+    local_link_count: int
+    external_link_count: int
+    diagram_count: int
+    code_block_count: int
+
+
+class ReportRenderer:
+    def __init__(self, root: Path, source: Path, revision: str) -> None:
+        self.root = root
+        self.source = source
+        self.revision = revision
+        self.assets: list[Asset] = []
+        self.local_links = 0
+        self.external_links = 0
+        self.diagrams = 0
+        self.code_blocks = 0
+        self.parser = MarkdownIt("commonmark").enable("table")
+
+    def _inline(self, children: list[Token] | None) -> str:
+        if children is None:
+            raise RenderError("missing inline content")
+        output: list[str] = []
+        link_depth = 0
+        for token in children:
+            kind = token.type
+            if kind == "text":
+                output.append(escape_latex(token.content))
+            elif kind == "code_inline":
+                output.append(_inline_code(token.content))
+            elif kind == "strong_open":
+                output.append(r"\textbf{")
+            elif kind == "strong_close":
+                output.append("}")
+            elif kind == "em_open":
+                output.append(r"\emph{")
+            elif kind == "em_close":
+                output.append("}")
+            elif kind == "link_open":
+                destination = token.attrGet("href")
+                if not isinstance(destination, str):
+                    raise RenderError("link has no destination")
+                url = portable_link(self.root, self.source, destination, self.revision)
+                if url == destination:
+                    self.external_links += 1
+                else:
+                    self.local_links += 1
+                output.append(r"\href{" + _url_argument(url) + "}{")
+                link_depth += 1
+            elif kind == "link_close":
+                if not link_depth:
+                    raise RenderError("unmatched link_close")
+                output.append("}")
+                link_depth -= 1
+            elif kind == "softbreak":
+                output.append(" ")
+            elif kind == "hardbreak":
+                output.append(r"\\")
+            else:
+                raise RenderError(f"unsupported inline Markdown token: {kind}")
+        if link_depth:
+            raise RenderError("unclosed link")
+        return "".join(output)
+
+    def _table(self, tokens: list[Token], start: int) -> tuple[str, int]:
+        rows: list[list[str]] = []
+        header_rows = 0
+        row: list[str] | None = None
+        in_header = False
+        index = start + 1
+        while index < len(tokens):
+            token = tokens[index]
+            kind = token.type
+            if kind == "table_close":
+                break
+            if kind in {"thead_open", "tbody_open"}:
+                in_header = kind == "thead_open"
+            elif kind in {"thead_close", "tbody_close", "th_close", "td_close"}:
+                pass
+            elif kind == "tr_open":
+                row = []
+            elif kind == "tr_close":
+                if row is None:
+                    raise RenderError("table row has no start")
+                rows.append(row)
+                if in_header:
+                    header_rows += 1
+                row = None
+            elif kind in {"th_open", "td_open"}:
+                if row is None:
+                    raise RenderError("table cell outside row")
+            elif kind == "inline":
+                if row is None:
+                    raise RenderError("table inline outside row")
+                row.append(self._inline(token.children))
+            else:
+                raise RenderError(f"unsupported table Markdown token: {kind}")
+            index += 1
+        if index == len(tokens) or not rows or header_rows != 1:
+            raise RenderError("table needs one header row and a closing token")
+        columns = len(rows[0])
+        if columns < 2 or any(len(row) != columns for row in rows):
+            raise RenderError("table rows have inconsistent widths")
+        width = rf"\dimexpr\linewidth/{columns}-2\tabcolsep-\arrayrulewidth-0.5pt\relax"
+        spec = (
+            "|"
+            + "|".join(
+                ">{\\raggedright\\arraybackslash}p{" + width + "}" for _ in rows[0]
+            )
+            + "|"
+        )
+        size = (
+            r"\scriptsize"
+            if columns >= 5
+            else r"\footnotesize"
+            if columns >= 4
+            else r"\small"
+        )
+        result = [
+            r"\begingroup",
+            size,
+            r"\setlength{\tabcolsep}{3pt}",
+            r"\renewcommand{\arraystretch}{1.22}",
+        ]
+        result.append(r"\begin{longtable}{" + spec + "}")
+        result.append(r"\hline")
+        result.append(
+            " & ".join(r"\textbf{" + cell + "}" for cell in rows[0]) + r" \\ \hline"
+        )
+        result.append(r"\endfirsthead")
+        result.append(r"\hline")
+        result.append(
+            " & ".join(r"\textbf{" + cell + "}" for cell in rows[0]) + r" \\ \hline"
+        )
+        result.append(r"\endhead")
+        for cells in rows[1:]:
+            result.append(" & ".join(cells) + r" \\ \hline")
+        result.extend([r"\end{longtable}", r"\endgroup"])
+        return "\n".join(result) + "\n", index + 1
+
+    def _fence(self, token: Token) -> str:
+        info = token.info.strip().split(None, 1)
+        language = info[0].lower() if info else ""
+        if language == "mermaid":
+            self.diagrams += 1
+            name = f"diagram-{self.diagrams:03d}.dot"
+            try:
+                dot = mermaid_to_dot(token.content)
+            except ValueError as error:
+                raise RenderError(str(error)) from error
+            self.assets.append(Asset(name=name, content=dot, kind="diagram"))
+            pdf_name = name.removesuffix(".dot") + ".pdf"
+            return (
+                r"\begin{center}\includegraphics[width=\linewidth,height=0.55\textheight,keepaspectratio]{"
+                + pdf_name
+                + r"}\end{center}"
+                + "\n"
+            )
+        if language and not re.fullmatch(r"[A-Za-z0-9_+.-]{1,32}", language):
+            raise RenderError(f"unsupported code fence info: {token.info!r}")
+        self.code_blocks += 1
+        name = f"code-{self.code_blocks:03d}.txt"
+        self.assets.append(Asset(name=name, content=token.content, kind="code"))
+        label = (
+            r"\noindent\textsf{" + escape_latex(language) + r"}\par"
+            if language not in {"", "text", "plain"}
+            else ""
+        )
+        return (
+            label
+            + "\n"
+            + r"\VerbatimInput[breaklines=true,breakanywhere=true,fontsize=\footnotesize]{"
+            + name
+            + "}\n"
+        )
+
+    def render(self, markdown: str) -> RenderedReport:
+        pieces: list[str] = []
+        tokens = self.parser.parse(markdown)
+        index = 0
+        pending_heading: str | None = None
+        ordered_depth = 0
+        while index < len(tokens):
+            token = tokens[index]
+            kind = token.type
+            if kind == "table_open":
+                rendered, index = self._table(tokens, index)
+                pieces.append(rendered)
+                continue
+            if kind == "heading_open":
+                pending_heading = token.tag
+            elif kind == "heading_close":
+                if pending_heading is not None:
+                    raise RenderError("heading is missing inline text")
+            elif kind == "inline":
+                body = self._inline(token.children)
+                if pending_heading:
+                    if pending_heading == "h1":
+                        pieces.append(
+                            r"\begin{center}{\LARGE\bfseries "
+                            + body
+                            + r"}\end{center}"
+                            + "\n"
+                        )
+                    elif pending_heading == "h2":
+                        pieces.append(r"\section*{" + body + "}\n")
+                    elif pending_heading == "h3":
+                        pieces.append(r"\subsection*{" + body + "}\n")
+                    else:
+                        raise RenderError(
+                            f"unsupported heading level: {pending_heading}"
+                        )
+                    pending_heading = None
+                else:
+                    pieces.append(body + r"\par" + "\n")
+            elif kind == "fence":
+                pieces.append(self._fence(token))
+            elif kind == "code_block":
+                self.code_blocks += 1
+                name = f"code-{self.code_blocks:03d}.txt"
+                self.assets.append(Asset(name=name, content=token.content, kind="code"))
+                pieces.append(
+                    r"\VerbatimInput[breaklines=true,breakanywhere=true,fontsize=\footnotesize]{"
+                    + name
+                    + "}\n"
+                )
+            elif kind == "bullet_list_open":
+                pieces.append(r"\begin{itemize}" + "\n")
+            elif kind == "bullet_list_close":
+                pieces.append(r"\end{itemize}" + "\n")
+            elif kind == "ordered_list_open":
+                ordered_depth += 1
+                if ordered_depth > 4:
+                    raise RenderError("ordered list nesting exceeds four levels")
+                pieces.append(r"\begin{enumerate}" + "\n")
+                start = token.attrGet("start") or 1
+                pieces.append(
+                    r"\setcounter{enum"
+                    + ("i", "ii", "iii", "iv")[ordered_depth - 1]
+                    + "}{"
+                    + str(int(start) - 1)
+                    + "}\n"
+                )
+            elif kind == "ordered_list_close":
+                pieces.append(r"\end{enumerate}" + "\n")
+                ordered_depth -= 1
+            elif kind == "list_item_open":
+                pieces.append(r"\item ")
+            elif kind == "blockquote_open":
+                pieces.append(r"\begin{quote}" + "\n")
+            elif kind == "blockquote_close":
+                pieces.append(r"\end{quote}" + "\n")
+            elif kind == "hr":
+                pieces.append(r"\par\noindent\rule{\linewidth}{0.4pt}\par" + "\n")
+            elif kind in {"paragraph_open", "paragraph_close", "list_item_close"}:
+                pass
+            else:
+                raise RenderError(f"unsupported block Markdown token: {kind}")
+            index += 1
+        if pending_heading:
+            raise RenderError("unclosed heading")
+        return RenderedReport(
+            latex="".join(pieces),
+            assets=tuple(self.assets),
+            local_link_count=self.local_links,
+            external_link_count=self.external_links,
+            diagram_count=self.diagrams,
+            code_block_count=self.code_blocks,
+        )
+
+
+def document_latex(body: str, title: str, source_path: str, source_sha256: str) -> str:
+    return (
+        r"""\documentclass[11pt,a4paper]{article}
+\usepackage[margin=20mm,headheight=15pt]{geometry}
+\usepackage{fontspec}
+\setmainfont{STIX Two Text}
+\setsansfont{Arial}
+\setmonofont{Menlo}
+\usepackage{xcolor,graphicx,array,longtable,fvextra,seqsplit,xurl}
+\usepackage[colorlinks=true,linkcolor=blue,urlcolor=blue]{hyperref}
+\usepackage{microtype}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\fancyfoot[L]{\footnotesize Source: \texttt{\seqsplit{"""
+        + escape_latex(source_path)
+        + r"""}}}
+\fancyfoot[R]{\footnotesize \thepage}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.45em}
+\setlength{\emergencystretch}{3em}
+\hypersetup{pdftitle={"""
+        + escape_latex(title)
+        + r"""}}
+\begin{document}
+"""
+        + r"""\noindent
+{\footnotesize Source SHA-256: \texttt{\seqsplit{"""
+        + escape_latex(source_sha256)
+        + r"""}}. Repository links identify source paths; newly committed pages may be unavailable online until publication.}
+"""
+        + body
+        + "\n\\end{document}\n"
+    )

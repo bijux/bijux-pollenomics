@@ -22,7 +22,7 @@ dev = [
     "bijux-pollenomics[dev,lra]",
     "bijux-pollenomics-lra[dev]",
     "pollenomics[dev]",
-    "bijux-pollenomics-dev[dev]",
+    "bijux-pollenomics-dev[dev,reports]",
     "mkdocs-redirects>=1.2.1,<2.0",
     "PyYAML>=6.0,<7.0",
     "prance>=23.6.21.0",
