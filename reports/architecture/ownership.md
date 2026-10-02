@@ -63,8 +63,8 @@ or qualified scientific review.
 The [output ownership inventory](../../configs/ci/report-ownership.json)
 assigns every tracked report path exactly one declaration. Its population is
 1,938 paths: 709 declared publisher paths, 125 original-R retained source
-files, 40 generated domain outputs, 62 maintained source files, 35
-maintained reader accounts and 967 paths with unresolved output custody.
+files, 42 generated domain outputs, 62 maintained source files, 41
+maintained reader accounts and 959 paths with unresolved output custody.
 These role counts describe the current declarations. They do not measure
 how many outputs have been independently reproduced.
 
@@ -109,6 +109,13 @@ Four sample-review and land-use comparison outputs remain unresolved because
 their transitive source or prior Git-object/time-control inputs are not closed.
 Source linkage, modeled-site overlap and descriptive pollen transitions do
 not establish cross-source comparability or independent vegetation accuracy.
+
+The LandClim map-export lineage ledger declares all 171 atlas-node shards
+read by its selector and its eight other source/map inputs. Its two outputs
+check static modeled transport. Six reader accounts are editorial; eight
+author-reference, chronology and browser-capture products still require
+private source custody or a governed capture certificate. These declarations
+do not reopen completed studies or certify historical production inputs.
 
 A fresh canonical publisher build from fixed product
 `d535ca7f3bed0ead63e5f96e45658c435ed6613a` produced exactly the 709 declared

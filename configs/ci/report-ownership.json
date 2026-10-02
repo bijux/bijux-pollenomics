@@ -3560,17 +3560,38 @@
       "verification": "Identify the exact producer or independent source/template custody, lawful input closure and role-specific verification route for these paths. Bind independently reconstructed output or authenticated retained source before full mixed-owner acceptance; tracked output bytes cannot feed their own producer."
     },
     {
-      "owner_id": "source-relations/landclim/author-example-taxon-support/report-products",
+      "owner_id": "source-relations/landclim/author-example-taxon-support/formatter-comparison",
       "role": "unresolved",
       "paths": [
-        "docs/report/source-relations/landclim/author-example-taxon-support/README.md",
-        "docs/report/source-relations/landclim/author-example-taxon-support/report.json",
-        "docs/report/source-relations/landclim/author-example-taxon-support/sites.csv",
+        "docs/report/source-relations/landclim/author-example-taxon-support/sites.csv"
+      ],
+      "producer_paths": [
+        "docs/report/source-relations/landclim/author-example-taxon-support/author_prepared_replay.R"
+      ],
+      "producer_inputs": [],
+      "verification": "The R replay consumes private author raw site files, lookup/PPE/bins/time-window metadata and source prepared matrices. It writes sites.csv under artifacts/, but author-source closure is external; source-file custody and byte comparison are required before generated ownership."
+    },
+    {
+      "owner_id": "source-relations/landclim/author-example-taxon-support/header-parity",
+      "role": "unresolved",
+      "paths": [
         "docs/report/source-relations/landclim/author-example-taxon-support/whh05-header-parity.csv"
+      ],
+      "producer_paths": [
+        "docs/report/source-relations/landclim/author-example-taxon-support/whh05_header_parity.R"
+      ],
+      "producer_inputs": [],
+      "verification": "The R parser witness consumes private WHH05 raw and prepared matrices plus author taxonomy lookup. The repository carries script and result, not the source matrices; retain unresolved until exact private inputs and byte comparison are bound."
+    },
+    {
+      "owner_id": "source-relations/landclim/author-example-taxon-support/reader-account",
+      "role": "maintained_editorial",
+      "paths": [
+        "docs/report/source-relations/landclim/author-example-taxon-support/README.md"
       ],
       "producer_paths": [],
       "producer_inputs": [],
-      "verification": "Identify the exact producer or independent source/template custody, lawful input closure and role-specific verification route for these paths. Bind independently reconstructed output or authenticated retained source before full mixed-owner acceptance; tracked output bytes cannot feed their own producer."
+      "verification": "Maintain the authored source-scope account against the linked governed result and retained evidence; no numerical producer writes this Markdown."
     },
     {
       "owner_id": "source-relations/landclim/author-example-taxon-support/source-code",
@@ -3584,52 +3605,318 @@
       "verification": "Maintain these repository source files through review and focused tests. Source custody is distinct from generated output reproduction; copying them into a replay lane does not certify the results they produce."
     },
     {
-      "owner_id": "source-relations/landclim/author-preparation-audit/report-products",
+      "owner_id": "source-relations/landclim/author-example-taxon-support/source-ledger",
       "role": "unresolved",
       "paths": [
-        "docs/report/source-relations/landclim/author-preparation-audit/README.md",
-        "docs/report/source-relations/landclim/author-preparation-audit/independent-counts.json",
+        "docs/report/source-relations/landclim/author-example-taxon-support/report.json"
+      ],
+      "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/author_taxon_support.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/landclim_taxonomy_mass.py"
+      ],
+      "producer_inputs": [],
+      "verification": "The writer reads private author lookup, PPE/crosswalk, formatter, two site lists and 34 raw/prepared matrices from an external author-reference root. Those source files are not repository-confined; retain the digest-bearing ledger unresolved until exact source-store custody and permitted-use route are bound."
+    },
+    {
+      "owner_id": "source-relations/landclim/author-preparation-audit/independent-reference",
+      "role": "unresolved",
+      "paths": [
+        "docs/report/source-relations/landclim/author-preparation-audit/independent-counts.json"
+      ],
+      "producer_paths": [],
+      "producer_inputs": [],
+      "verification": "This retained numeric reference is a compact extraction of an older private independent count challenge, not emitted by the current recount producer. Its originating report and source custody need an authenticated source route before retained-source ownership."
+    },
+    {
+      "owner_id": "source-relations/landclim/author-preparation-audit/reader-account",
+      "role": "maintained_editorial",
+      "paths": [
+        "docs/report/source-relations/landclim/author-preparation-audit/README.md"
+      ],
+      "producer_paths": [],
+      "producer_inputs": [],
+      "verification": "Maintain the authored source-scope account against the linked governed result and retained evidence; no numerical producer writes this Markdown."
+    },
+    {
+      "owner_id": "source-relations/landclim/author-preparation-audit/recount",
+      "role": "unresolved",
+      "paths": [
         "docs/report/source-relations/landclim/author-preparation-audit/report.json"
       ],
-      "producer_paths": [],
-      "producer_inputs": [],
-      "verification": "Identify the exact producer or independent source/template custody, lawful input closure and role-specific verification route for these paths. Bind independently reconstructed output or authenticated retained source before full mixed-owner acceptance; tracked output bytes cannot feed their own producer."
+      "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/author_preparation_audit.py"
+      ],
+      "producer_inputs": [
+        "docs/report/source-relations/landclim/author-preparation-audit/independent-counts.json"
+      ],
+      "verification": "The producer consumes a private 193-file author snapshot including 17 raw/prepared site pairs, lookup/PPE/bins and snapshot manifest. This compact independent-count input is repository-local, but the author source root is external; bind exact private custody and byte comparison before generated ownership."
     },
     {
-      "owner_id": "source-relations/landclim/browser-export/report-products",
+      "owner_id": "source-relations/landclim/browser-export/capture-reconciliation",
       "role": "unresolved",
       "paths": [
-        "docs/report/source-relations/landclim/browser-export/README.md",
         "docs/report/source-relations/landclim/browser-export/report.json"
       ],
-      "producer_paths": [],
-      "producer_inputs": [],
-      "verification": "Identify the exact producer or independent source/template custody, lawful input closure and role-specific verification route for these paths. Bind independently reconstructed output or authenticated retained source before full mixed-owner acceptance; tracked output bytes cannot feed their own producer."
-    },
-    {
-      "owner_id": "source-relations/landclim/map-export-lineage/report-products",
-      "role": "unresolved",
-      "paths": [
-        "docs/report/source-relations/landclim/map-export-lineage/README.md",
+      "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/atlas_browser/landclim_export/capture.mjs",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/atlas_browser/landclim_export/reconcile.py"
+      ],
+      "producer_inputs": [
+        "docs/report/regions/nordic/nordic_map.html",
         "docs/report/source-relations/landclim/map-export-lineage/report.json",
         "docs/report/source-relations/landclim/map-export-lineage/rows.csv"
       ],
-      "producer_paths": [],
-      "producer_inputs": [],
-      "verification": "Identify the exact producer or independent source/template custody, lawful input closure and role-specific verification route for these paths. Bind independently reconstructed output or authenticated retained source before full mixed-owner acceptance; tracked output bytes cannot feed their own producer."
+      "verification": "The report requires completed Brave/CDP download bytes and process/event receipts retained under artifacts/jobs/landclim-browser-export-ready. These capture files are outside tracked report input closure and event IDs can vary; retain unresolved until governed capture certificate and semantic comparison route are bound."
     },
     {
-      "owner_id": "source-relations/landclim/neotoma-chronology-witness/report-products",
+      "owner_id": "source-relations/landclim/browser-export/reader-account",
+      "role": "maintained_editorial",
+      "paths": [
+        "docs/report/source-relations/landclim/browser-export/README.md"
+      ],
+      "producer_paths": [],
+      "producer_inputs": [],
+      "verification": "Maintain the authored source-scope account against the linked governed result and retained evidence; no numerical producer writes this Markdown."
+    },
+    {
+      "owner_id": "source-relations/landclim/map-export-lineage/derived-transport-ledger",
+      "role": "generated_owner",
+      "paths": [
+        "docs/report/source-relations/landclim/map-export-lineage/report.json",
+        "docs/report/source-relations/landclim/map-export-lineage/rows.csv"
+      ],
+      "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/landclim_map_export_lineage.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/core/geospatial/geojson.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/context/polygons/__init__.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/context/polygons/boundaries.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/context/polygons/density.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/context/polygons/external.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/context/polygons/shared.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/modeled_context/__init__.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/modeled_context/contracts.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/modeled_context/manifest.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/modeled_context/metric_families.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/modeled_context/publication_projection.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/modeled_context/validation.py"
+      ],
+      "producer_inputs": [
+        "data/landclim/normalized/nordic_reveals_temporal_grid_cells.geojson",
+        "data/landclim/raw/landclim_ii_reveals_results.zip",
+        "data/landclim/raw/landclim_sources.json",
+        "docs/report/countries/sweden/observed-pollen-trajectory/report.json",
+        "docs/report/countries/sweden/pollen-model-lineage/report.json",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0001.2ff4890176c36b6a.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0002.c96cba02b95f8e1c.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0003.4da26f072f60397b.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0004.5f3a8ecc4ef8898e.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0005.fb12e004e847b918.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0006.781240318fbe0be7.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0007.0edaaa2981bcaca0.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0008.edc7ad19bbdd07a1.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0009.a9b6787b6d88f522.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0010.2ace8c3b92b418aa.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0011.7a95f5a5b0ff818e.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0012.a580b674e0fd71d5.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0013.ec92b89d5e02e1a7.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0014.be91338e7eebc517.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0015.db58bf0f324beaa7.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0016.521e487af783ac92.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0017.036705b19d4cd9fc.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0018.796d22f1e0eed43b.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0019.96ee265d7a7f8af8.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0020.306794204b644e6d.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0021.53fb9b6e817eb4a4.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0022.1d811123361af439.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0023.015f6ac319fc942a.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0024.11bc1f68aa917d5e.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0025.0dda4d1808c89e1d.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0026.fec7b6ce16d22465.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0027.7d4c7654bffe929b.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0028.a81d2d2058c3e496.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0029.b6b8e9d596479c5d.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0030.6168f2c6662728e0.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0031.dee5593aaebe3fe1.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0032.bc44d6c7f56c484c.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0033.f1ebc678ad78c635.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0034.1637ab92b0f03e2c.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0035.8dc68e0c1987e890.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0036.7bf985aa8d23ed16.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0037.8946ece0e3cc6822.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0038.37c199c77e3ae669.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0039.8a56b177c4bf8b00.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0040.c463fc03d5bf71be.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0041.7485b36851c97429.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0042.368dd033d21e6da0.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0043.c51463046a38b94e.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0044.c9f5fbfaf35d15dd.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0045.96d75cf6f1496706.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0046.4a27b16c3a525ddc.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0047.a8700903deeb0ffd.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0048.d2eaff9029b1ecab.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0049.a77acfa5b634c87c.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0050.16562012b79ea810.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0051.9f57efba2dbc5ef4.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0052.977553cc43898f8b.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0053.c07bc6f012340265.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0054.dd1dec2ac3c433a0.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0055.6b3315082aec32e8.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0056.8e11aa3245f09f95.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0057.25abacf21b302d47.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0058.bcb1445625e3763a.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0059.1e462ef6507e5263.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0060.4c850b03d2bcfc09.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0061.632d23da6527380b.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0062.79adf04be06931d6.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0063.ec0f742a8ec9f7eb.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0064.8e80929490f3c0e7.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0065.c872520710d90a34.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0066.90ccc963c094a33d.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0067.16a58c12b5560a1d.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0068.6677d4680f119ee6.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0069.50d1e3cdca406941.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0070.98ff806971fe9571.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0071.c560641f34670822.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0072.770b2da2e1381ec6.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0073.56140d089f9a0571.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0074.2df94ec52bdbafb7.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0075.65f2f3ae22a263d3.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0076.bd92bcae1ca3eda5.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0077.b979e43fedd50c22.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0078.2aed7112ce021066.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0079.2cb0b422876a1e22.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0080.8e5637f858ed5a25.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0081.247a4c8706f61cb7.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0082.c229cd3fc0aeaf50.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0083.f3de6ddaf5f3a5ff.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0084.d7cda9a8078e22c2.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0085.d9e3d083072d8033.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0086.d372a561359a1478.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0087.18ef204edb487401.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0088.c7d425e1111812d6.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0089.cdcd7460dc56f0d9.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0090.95d5e9e66cdeb57f.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0091.5f1a7eee6128f2b7.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0092.d3bfbba001c909cc.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0093.99a362b0c42d0f27.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0094.62a1f414b967f2fd.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0095.201c438c00df8fe5.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0096.d0016491f8c8e58c.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0097.9046ce66506e2161.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0098.44c7c92147ded675.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0099.88e5e1a977a74282.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0100.818ed4b3f21b66f4.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0101.d70d1ccea6e1473f.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0102.88c27d57acc65971.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0103.17f3dfb65eacf3c6.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0104.7000dea1b5d7e9b8.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0105.7ca5140845168f41.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0106.9600209d404e1294.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0107.be974971c6494432.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0108.b14b43561e70e23c.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0109.fd358c1f6e566c72.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0110.471ef90efb062c53.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0111.e333a45bfe3c9e3a.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0112.14b5bfa57813923b.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0113.63faefecb652176f.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0114.1da1647ee50c521e.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0115.817be95ac196ac46.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0116.8aa74d334788cea9.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0117.63506e488a203601.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0118.42de9f1bae4e4e99.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0119.60bcd003ef6ca7ad.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0120.daecad7b01c9da4a.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0121.79be6efbdbd57ec8.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0122.09bb1801d85d47b3.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0123.86e1d4704824f6a4.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0124.a82c2e18738c17a6.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0125.a0672b154d6e594b.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0126.ca09c7bf5a5b91bc.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0127.bfa66b5b37f6c56f.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0128.5d7c5b0289c21cb2.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0129.55ab4b8b0615bc1f.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0130.f4de962c3b1bc392.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0131.5dfd871977511b87.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0132.59f5443acad86485.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0133.e4a146bc04be64aa.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0134.9d9c2edcbbcf0442.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0135.0de3c2b856b4c2ef.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0136.9bd4c9faf0bd9959.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0137.24dcd03307ba3d31.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0138.a1070ef90b5eb692.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0139.a6d077a052cff594.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0140.e89cbc09cd4ba970.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0141.3b8081ed58f99151.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0142.239da5312a40265e.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0143.8d48c5296854ecd0.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0144.11391c9ab3a4ee59.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0145.892995ecc83c6df1.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0146.ed5664166113f518.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0147.9de99b184f98882c.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0148.4aa658022fee3f13.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0149.17a1551259b8bee4.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0150.a43ef330f5129bf1.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0151.7a5d49ec20881d94.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0152.335205fdf2fdc5ac.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0153.a570bbdd1b451502.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0154.7849eee104d30241.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0155.cfa01de876977340.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0156.948d04c5cc42c969.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0157.68f194942daf47d0.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0158.b87aaf3a0363d9c7.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0159.8ab8c9e4f9765de1.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0160.6f365f67f2c22768.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0161.df97dc057d20942d.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0162.e21f978e2d58b268.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0163.1a90a9ded9f2dec7.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0164.62d809a374799448.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0165.196f460e2100dbfb.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0166.295409e3ff79b1e8.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0167.1d977a3331c9f689.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0168.baabd28e4879c459.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0169.4593641c17b957a0.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0170.4251fc66dfb88b7a.js",
+        "docs/report/regions/nordic/nordic.atlas-nodes.0171.b99796e2343c3e7b.js",
+        "docs/report/regions/nordic/nordic_map.html",
+        "docs/report/source-relations/neotoma/landclim-site-identity/report.json",
+        "docs/report/source-relations/rootsi-landclim-overlap/report.json"
+      ],
+      "verification": "Run python -m bijux_pollenomics_dev.source_completion.landclim_map_export_lineage --repository . --output to an absent artifacts/ directory, then compare report.json and rows.csv bytes. The producer reads all 171 atlas node shards to select six LandClim shards, plus eight named report/source/map inputs. This checks static modeled transport, not browser interaction or independent vegetation truth."
+    },
+    {
+      "owner_id": "source-relations/landclim/map-export-lineage/reader-account",
+      "role": "maintained_editorial",
+      "paths": [
+        "docs/report/source-relations/landclim/map-export-lineage/README.md"
+      ],
+      "producer_paths": [],
+      "producer_inputs": [],
+      "verification": "Maintain the authored source-scope account against the linked governed result and retained evidence; no numerical producer writes this Markdown."
+    },
+    {
+      "owner_id": "source-relations/landclim/neotoma-chronology-witness/paired-source-report",
       "role": "unresolved",
       "paths": [
-        "docs/report/source-relations/landclim/neotoma-chronology-witness/README.md",
         "docs/report/source-relations/landclim/neotoma-chronology-witness/report.json"
       ],
       "producer_paths": [
         "docs/report/source-relations/landclim/neotoma-chronology-witness/replay.py"
       ],
+      "producer_inputs": [
+        "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-008.json",
+        "docs/report/source-relations/rootsi-landclim-overlap/overlap.csv"
+      ],
+      "verification": "The script also reads two private Rootsi workbooks (FLINK and STAV) named with SHA-256 in overlap.csv. Repository inputs alone cannot regenerate the depth/count/age witness; bind exact private workbook custody and byte comparison. No historical author chronology admission follows."
+    },
+    {
+      "owner_id": "source-relations/landclim/neotoma-chronology-witness/reader-account",
+      "role": "maintained_editorial",
+      "paths": [
+        "docs/report/source-relations/landclim/neotoma-chronology-witness/README.md"
+      ],
+      "producer_paths": [],
       "producer_inputs": [],
-      "verification": "Identify the exact producer or independent source/template custody, lawful input closure and role-specific verification route for these paths. Bind independently reconstructed output or authenticated retained source before full mixed-owner acceptance; tracked output bytes cannot feed their own producer."
+      "verification": "Maintain the authored source-scope account against the linked governed result and retained evidence; no numerical producer writes this Markdown."
     },
     {
       "owner_id": "source-relations/landclim/neotoma-chronology-witness/source-code",
@@ -3642,17 +3929,28 @@
       "verification": "Maintain these repository source files through review and focused tests. Source custody is distinct from generated output reproduction; copying them into a replay lane does not certify the results they produce."
     },
     {
-      "owner_id": "source-relations/landclim/workbook-chronology/report-products",
+      "owner_id": "source-relations/landclim/workbook-chronology/reader-account",
+      "role": "maintained_editorial",
+      "paths": [
+        "docs/report/source-relations/landclim/workbook-chronology/README.md"
+      ],
+      "producer_paths": [],
+      "producer_inputs": [],
+      "verification": "Maintain the authored source-scope account against the linked governed result and retained evidence; no numerical producer writes this Markdown."
+    },
+    {
+      "owner_id": "source-relations/landclim/workbook-chronology/source-age-audit",
       "role": "unresolved",
       "paths": [
-        "docs/report/source-relations/landclim/workbook-chronology/README.md",
         "docs/report/source-relations/landclim/workbook-chronology/report.json"
       ],
       "producer_paths": [
         "docs/report/source-relations/landclim/workbook-chronology/replay.py"
       ],
-      "producer_inputs": [],
-      "verification": "Identify the exact producer or independent source/template custody, lawful input closure and role-specific verification route for these paths. Bind independently reconstructed output or authenticated retained source before full mixed-owner acceptance; tracked output bytes cannot feed their own producer."
+      "producer_inputs": [
+        "docs/report/source-relations/rootsi-landclim-overlap/overlap.csv"
+      ],
+      "verification": "The script also reads four private Rootsi workbooks (FLINK, HOLK, RANV, STAV) named with SHA-256 in overlap.csv. Source-native age cells are absent from repository inputs; bind private workbook custody and byte comparison. Reversals remain uncorrected, with no event-date admission."
     },
     {
       "owner_id": "source-relations/landclim/workbook-chronology/source-code",
