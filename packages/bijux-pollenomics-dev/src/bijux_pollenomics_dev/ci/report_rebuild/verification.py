@@ -252,7 +252,7 @@ def _require_current_owner_inputs(
     *,
     source_root: Path | None = None,
 ) -> None:
-    """Reject a producer receipt whose named source files changed or vanished."""
+    """Bind configured invocations and reject changed independent source bytes."""
     inputs = require_mapping(manifest["producer_inputs"], "owner producer_inputs")
     paths = {
         label: Path(
@@ -263,8 +263,8 @@ def _require_current_owner_inputs(
         )
         for label, value in inputs.items()
     }
-    # Only qualified external owners need declaration-level input coverage.
-    # Older independent owner receipts retain their established contract.
+    # Every configured owner must retain its complete declared invocation.
+    # Independent owners absent from the configuration retain their receipt contract.
     from .configured_owner import (
         DEFAULT_CONFIGURATION,
         _configuration_owner,
@@ -278,10 +278,7 @@ def _require_current_owner_inputs(
         )
         rows = configuration.get("owners")
         if isinstance(rows, list) and any(
-            isinstance(row, dict)
-            and row.get("owner_id") == owner_id
-            and "external_source_descriptor" in row
-            for row in rows
+            isinstance(row, dict) and row.get("owner_id") == owner_id for row in rows
         ):
             _configuration_owner(configuration, owner_id)
             selected = resolve_configured_owner(
@@ -293,7 +290,7 @@ def _require_current_owner_inputs(
                 or list(selected.command) != manifest["producer_command"]
             ):
                 raise ReportRebuildError(
-                    f"qualified owner invocation or input declaration differs: {owner_id}"
+                    f"configured owner invocation or input declaration differs: {owner_id}"
                 )
     require_independent_owner_inputs(
         paths,
