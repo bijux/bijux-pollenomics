@@ -857,6 +857,77 @@ def test_schedule_sorts_full_ids_and_separates_duplicate_leaf_names(
     assert [row["id"] for row in rows] == ["first/summary", "second/summary"]
     assert len({row["artifact"] for row in rows}) == 2
     assert report["owner_ids"] == "first/summary second/summary"
+    assert set(report) == {
+        "schema_version",
+        "configuration_sha256",
+        "owners",
+        "owner_ids",
+    }
+
+
+def test_schedule_refuses_omitted_generated_owner_before_any_export(
+    repository: Path,
+) -> None:
+    _write(repository, SECOND_OUTPUT, '{"details": 2}\n')
+    _modify(
+        repository,
+        "report-ownership.json",
+        lambda p: p["owners"].append(
+            dict(
+                p["owners"][0],
+                owner_id="domain/other",
+                paths=[SECOND_OUTPUT],
+            )
+        ),
+    )
+    output = repository / "artifacts/owner-schedule.json"
+    github = repository / "artifacts/github-output"
+    github.parent.mkdir()
+    github.write_text("retained\n", encoding="utf-8")
+    assert (
+        scheduling.main(
+            [
+                "--repository",
+                str(repository),
+                "--output",
+                str(output),
+                "--github-output",
+                str(github),
+            ]
+        )
+        == 2
+    )
+    assert not output.exists()
+    assert github.read_text(encoding="utf-8") == "retained\n"
+
+
+def test_schedule_refuses_configured_owner_after_role_change(repository: Path) -> None:
+    _modify(
+        repository,
+        "report-ownership.json",
+        lambda p: p["owners"][0].update(role="maintained_editorial"),
+    )
+    with pytest.raises(ReportRebuildError, match="not declared generated"):
+        scheduling.configured_owner_schedule(repository)
+
+
+def test_schedule_refuses_ownership_mutation_during_resolution(
+    repository: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    original = owner_runner.resolve_configured_owner
+
+    def change_after_resolution(root: Path, identity: str) -> None:
+        original(root, identity)
+        _modify(
+            root,
+            "report-ownership.json",
+            lambda p: p["owners"][0].update(verification="changed"),
+        )
+
+    monkeypatch.setattr(scheduling, "resolve_configured_owner", change_after_resolution)
+    with pytest.raises(ReportRebuildError, match="ownership changed during scheduling"):
+        scheduling.configured_owner_schedule(repository)
 
 
 def test_schedule_cli_preserves_existing_artifact(repository: Path) -> None:
@@ -882,6 +953,14 @@ def test_two_lane_schedule_capacity(
         dict(base, owner_id=f"domain/owner-{index}") for index in range(count)
     ]
     path.write_text(json.dumps(payload))
+    inventory_path = repository / "configs/ci/report-ownership.json"
+    inventory = json.loads(inventory_path.read_text())
+    base_declaration = inventory["owners"][0]
+    inventory["owners"] = [
+        dict(base_declaration, owner_id=f"domain/owner-{index}")
+        for index in range(count)
+    ]
+    inventory_path.write_text(json.dumps(inventory))
     monkeypatch.setattr(scheduling, "resolve_configured_owner", lambda *_args: None)
     if count == 129:
         with pytest.raises(ReportRebuildError, match="exceeds 128 owners"):

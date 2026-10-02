@@ -63,8 +63,8 @@ or qualified scientific review.
 The [output ownership inventory](../../configs/ci/report-ownership.json)
 assigns every tracked report path exactly one declaration. Its population is
 1,938 paths: 709 declared publisher paths, 125 original-R retained source
-files, 221 generated domain outputs, 62 maintained source files, 172
-maintained reader accounts and 649 paths with unresolved output custody.
+files, 229 generated domain outputs, 62 maintained source files, 172
+maintained reader accounts and 641 paths with unresolved output custody.
 These role counts describe the current declarations. They do not measure
 how many outputs have been independently reproduced.
 
@@ -194,19 +194,22 @@ private HTTP captures; current mutable API responses would not reproduce
 the retained capture identity. Entity inclusion and source citation posture
 remain distinct from LRA and measured-vegetation admission.
 
-The Nordic observed-pollen declarations separate 86 mechanically produced
-stage files from 11 authored accounts and 31 unresolved files. Preparation,
-count-blind prediction, scoring and age-bound screens have distinct input
-closures. Historical timestamps, authored protocols, missing selected-transfer
-prepared inputs and private author taxonomy lookups retain explicit custody
-requirements. These prior-exposed development comparisons remain separate
-from LRA reconstruction and independent measured vegetation validation.
-
-The Nordic regional and author-target declarations give 29 mechanical
-products separate staged owners. Four reader pointers are editorial. Fourteen
-files retain unresolved private author lookup or historical development-input
+The Nordic observed-pollen declarations keep preparation, count-blind
+prediction, scoring and age-bound screens with distinct input closures.
+Their reader accounts are maintained separately. Historical timestamps,
+authored protocols and private author taxonomy lookups still require source
 custody. The 16-label direct-pollen response and 31-target author subcomposition
-remain distinct; mechanical production does not approve either as LRA input.
+remain distinct; these prior-exposed development comparisons do not establish
+LRA reconstruction or independent measured vegetation validation.
+
+The Nordic development and selected-transfer routes preserve authenticated
+historical publication, training and target-metadata packets under
+`data/neotoma/`. The transfer route writes a current-source prediction freeze
+before scoring, verifies its three prediction files and paired score ledger
+against the historical bytes, and retains the original freeze and report as
+separate receipts. Only the current producer identity and resulting freeze
+identity differ. Reproducing those products resolves their execution custody;
+it does not make the development-selected predictors independently confirmed.
 
 The Neotoma acquisition selector, full sample screen, bounded candidate
 series, concept priority, dataset attribution and relational summary declare
@@ -327,7 +330,9 @@ refusals; their wrapper code is part of the declared producer closure.
 absent `REBUILD_EVIDENCE_ROOT`. Assembly accepts `REBUILD_OWNER_IDS` and
 `REBUILD_OWNER_ARTIFACTS_ROOT`; final verification accepts the same identities
 and both `REBUILD_REFERENCE_OWNERS_ROOT` and `REBUILD_REPLAY_OWNERS_ROOT`.
-Reproducing a configured subset establishes only those owners' declared files.
+The execution configuration currently names 82 generated owners covering 229
+tracked report paths. Reproducing a configured subset establishes only those
+owners' declared files.
 The complete report-tree comparison remains mandatory and refuses any missing owner. The scientific CI
 workflow derives the owner matrix and assembly selection from the same
 validated execution configuration, using a digest of each full identity as

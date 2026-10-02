@@ -11,6 +11,7 @@ import sys
 
 from .configured_owner import (
     DEFAULT_CONFIGURATION,
+    DEFAULT_INVENTORY,
     _configuration_owner,
     _read_object,
     _repository_relative,
@@ -33,6 +34,12 @@ def configured_owner_schedule(repository: Path) -> dict[str, object]:
     configuration_path = _safe_file(repository, relative, "owner configuration")
     before = configuration_path.read_bytes()
     configuration = _read_object(repository, relative, "owner configuration")
+    inventory_relative = _repository_relative(
+        repository, DEFAULT_INVENTORY, "report ownership"
+    )
+    inventory_path = _safe_file(repository, inventory_relative, "report ownership")
+    inventory_before = inventory_path.read_bytes()
+    inventory = _read_object(repository, inventory_relative, "report ownership")
     rows = configuration.get("owners")
     if not isinstance(rows, list) or not rows:
         raise ReportRebuildError("configured owner list is empty")
@@ -54,6 +61,23 @@ def configured_owner_schedule(repository: Path) -> dict[str, object]:
         identities.append(identity)
     identities.sort()
     selected = set(identities)
+    # Each resolver validates the ownership inventory; scheduling also requires
+    # complete coverage of the declared generated-owner population.
+    declarations = inventory.get("owners")
+    if not isinstance(declarations, list):
+        raise ReportRebuildError("report ownership owner list differs")
+    generated = {
+        row["owner_id"]
+        for row in declarations
+        if isinstance(row, dict) and row.get("role") == "generated_owner"
+    }
+    if selected != generated:
+        missing = sorted(generated - selected)
+        extra = sorted(selected - generated)
+        raise ReportRebuildError(
+            f"configured owner schedule differs from generated ownership: "
+            f"missing={missing}, extra={extra}"
+        )
     for identity in identities:
         parts = identity.split("/")
         if any("/".join(parts[:size]) in selected for size in range(1, len(parts))):
@@ -66,6 +90,8 @@ def configured_owner_schedule(repository: Path) -> dict[str, object]:
         raise ReportRebuildError("owner artifact identities collide")
     if configuration_path.read_bytes() != before:
         raise ReportRebuildError("owner configuration changed during scheduling")
+    if inventory_path.read_bytes() != inventory_before:
+        raise ReportRebuildError("report ownership changed during scheduling")
     return {
         "schema_version": SCHEMA,
         "configuration_sha256": hashlib.sha256(before).hexdigest(),
