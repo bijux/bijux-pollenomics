@@ -3656,17 +3656,53 @@
       "verification": "Identify the exact producer or independent source/template custody, lawful input closure and role-specific verification route for these paths. Bind independently reconstructed output or authenticated retained source before full mixed-owner acceptance; tracked output bytes cannot feed their own producer."
     },
     {
-      "owner_id": "source-relations/neotoma/compact-summary/report-products",
-      "role": "unresolved",
+      "owner_id": "source-relations/neotoma/compact-summary/derived-report",
+      "role": "generated_owner",
       "paths": [
-        "docs/report/source-relations/neotoma/compact-summary/README.md",
         "docs/report/source-relations/neotoma/compact-summary/report.json"
       ],
       "producer_paths": [
-        "docs/report/source-relations/neotoma/compact-summary/replay.py"
+        "docs/report/source-relations/neotoma/compact-summary/replay.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/sources/neotoma/__init__.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/sources/neotoma/contract.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/sources/neotoma/ownership.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/sources/neotoma/validation.py"
       ],
+      "producer_inputs": [
+        "data/neotoma/normalized/nordic_pollen_sites.geojson",
+        "data/neotoma/relational/manifest.json",
+        "data/neotoma/relational/reconciliation.json",
+        "data/neotoma/relational/surfaces/age_claims/part-00001.json",
+        "data/neotoma/relational/surfaces/chronologies/part-00001.json",
+        "data/neotoma/relational/surfaces/chronology_controls/part-00001.json",
+        "data/neotoma/relational/surfaces/collection_units/part-00001.json",
+        "data/neotoma/relational/surfaces/conflicts/part-00001.json",
+        "data/neotoma/relational/surfaces/datasets/part-00001.json",
+        "data/neotoma/relational/surfaces/observations/part-00001.json",
+        "data/neotoma/relational/surfaces/observations/part-00002.json",
+        "data/neotoma/relational/surfaces/observations/part-00003.json",
+        "data/neotoma/relational/surfaces/observations/part-00004.json",
+        "data/neotoma/relational/surfaces/observations/part-00005.json",
+        "data/neotoma/relational/surfaces/observations/part-00006.json",
+        "data/neotoma/relational/surfaces/observations/part-00007.json",
+        "data/neotoma/relational/surfaces/observations/part-00008.json",
+        "data/neotoma/relational/surfaces/orphans/part-00001.json",
+        "data/neotoma/relational/surfaces/samples/part-00001.json",
+        "data/neotoma/relational/surfaces/sites/part-00001.json",
+        "data/neotoma/relational/surfaces/variables/part-00001.json",
+        "data/neotoma/review/compact_relational_lineage.json"
+      ],
+      "verification": "Run compact-summary/replay.py from the repository root with PYTHONPATH=packages/bijux-pollenomics/src, redirect stdout into artifacts/, then byte-compare with the retained report.json. It validates the full relational materialization and derives site 12 Samples=135 against compact display and lineage."
+    },
+    {
+      "owner_id": "source-relations/neotoma/compact-summary/reader-account",
+      "role": "maintained_editorial",
+      "paths": [
+        "docs/report/source-relations/neotoma/compact-summary/README.md"
+      ],
+      "producer_paths": [],
       "producer_inputs": [],
-      "verification": "Identify the exact producer or independent source/template custody, lawful input closure and role-specific verification route for these paths. Bind independently reconstructed output or authenticated retained source before full mixed-owner acceptance; tracked output bytes cannot feed their own producer."
+      "verification": "Review this handwritten family account against its retained machine evidence and stated source limits; no report producer writes the Markdown."
     },
     {
       "owner_id": "source-relations/neotoma/compact-summary/source-code",
@@ -3679,17 +3715,14 @@
       "verification": "Maintain these repository source files through review and focused tests. Source custody is distinct from generated output reproduction; copying them into a replay lane does not certify the results they produce."
     },
     {
-      "owner_id": "source-relations/neotoma/lakeparameters/report-products",
-      "role": "unresolved",
+      "owner_id": "source-relations/neotoma/lakeparameters/reader-account",
+      "role": "maintained_editorial",
       "paths": [
-        "docs/report/source-relations/neotoma/lakeparameters/README.md",
-        "docs/report/source-relations/neotoma/lakeparameters/report.json"
+        "docs/report/source-relations/neotoma/lakeparameters/README.md"
       ],
-      "producer_paths": [
-        "docs/report/source-relations/neotoma/lakeparameters/verify.py"
-      ],
+      "producer_paths": [],
       "producer_inputs": [],
-      "verification": "Identify the exact producer or independent source/template custody, lawful input closure and role-specific verification route for these paths. Bind independently reconstructed output or authenticated retained source before full mixed-owner acceptance; tracked output bytes cannot feed their own producer."
+      "verification": "Review this handwritten family account against its retained machine evidence and stated source limits; no report producer writes the Markdown."
     },
     {
       "owner_id": "source-relations/neotoma/lakeparameters/source-code",
@@ -3700,6 +3733,18 @@
       "producer_paths": [],
       "producer_inputs": [],
       "verification": "Maintain these repository source files through review and focused tests. Source custody is distinct from generated output reproduction; copying them into a replay lane does not certify the results they produce."
+    },
+    {
+      "owner_id": "source-relations/neotoma/lakeparameters/source-review",
+      "role": "unresolved",
+      "paths": [
+        "docs/report/source-relations/neotoma/lakeparameters/report.json"
+      ],
+      "producer_paths": [
+        "docs/report/source-relations/neotoma/lakeparameters/verify.py"
+      ],
+      "producer_inputs": [],
+      "verification": "verify.py reads retained report.json to obtain expected capture digest and compares bytes after assessing private site-evidence.json and capture.json plus all private capture-pages. This self-referential verification and outside-repository source custody do not independently regenerate a report from repository-bound inputs. Bind exact private capture/site source and independent expected digest, then compare bytes; no basin or LRA admission."
     },
     {
       "owner_id": "source-relations/neotoma/landclim-site-identity/report-products",
@@ -3775,17 +3820,74 @@
       "verification": "Identify the exact producer or independent source/template custody, lawful input closure and role-specific verification route for these paths. Bind independently reconstructed output or authenticated retained source before full mixed-owner acceptance; tracked output bytes cannot feed their own producer."
     },
     {
-      "owner_id": "source-relations/neotoma/native-roundtrip/report-products",
-      "role": "unresolved",
+      "owner_id": "source-relations/neotoma/native-roundtrip/derived-report",
+      "role": "generated_owner",
       "paths": [
-        "docs/report/source-relations/neotoma/native-roundtrip/README.md",
         "docs/report/source-relations/neotoma/native-roundtrip/report.json"
       ],
       "producer_paths": [
-        "docs/report/source-relations/neotoma/native-roundtrip/replay.py"
+        "docs/report/source-relations/neotoma/native-roundtrip/replay.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/neotoma/production/__init__.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/neotoma/production/boundary_authority.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/neotoma/production/command_line.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/neotoma/production/constants.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/neotoma/production/execution_api.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/neotoma/production/identity.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/neotoma/production/models.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/neotoma/production/raw_archive.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/neotoma/production/validation.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/neotoma/production/validation_api.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/neotoma/production/workflow.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/neotoma/relational/identifiers.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/neotoma/roundtrip.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/sources/neotoma/__init__.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/sources/neotoma/contract.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/sources/neotoma/ownership.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/sources/neotoma/validation.py"
       ],
+      "producer_inputs": [
+        "data/neotoma/raw/neotoma_pollen_dataset_downloads/manifest.json",
+        "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-001.json",
+        "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-002.json",
+        "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-003.json",
+        "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-004.json",
+        "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-005.json",
+        "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-006.json",
+        "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-007.json",
+        "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-008.json",
+        "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-009.json",
+        "data/neotoma/relational/manifest.json",
+        "data/neotoma/relational/reconciliation.json",
+        "data/neotoma/relational/surfaces/age_claims/part-00001.json",
+        "data/neotoma/relational/surfaces/chronologies/part-00001.json",
+        "data/neotoma/relational/surfaces/chronology_controls/part-00001.json",
+        "data/neotoma/relational/surfaces/collection_units/part-00001.json",
+        "data/neotoma/relational/surfaces/conflicts/part-00001.json",
+        "data/neotoma/relational/surfaces/datasets/part-00001.json",
+        "data/neotoma/relational/surfaces/observations/part-00001.json",
+        "data/neotoma/relational/surfaces/observations/part-00002.json",
+        "data/neotoma/relational/surfaces/observations/part-00003.json",
+        "data/neotoma/relational/surfaces/observations/part-00004.json",
+        "data/neotoma/relational/surfaces/observations/part-00005.json",
+        "data/neotoma/relational/surfaces/observations/part-00006.json",
+        "data/neotoma/relational/surfaces/observations/part-00007.json",
+        "data/neotoma/relational/surfaces/observations/part-00008.json",
+        "data/neotoma/relational/surfaces/orphans/part-00001.json",
+        "data/neotoma/relational/surfaces/samples/part-00001.json",
+        "data/neotoma/relational/surfaces/sites/part-00001.json",
+        "data/neotoma/relational/surfaces/variables/part-00001.json"
+      ],
+      "verification": "Run native-roundtrip/replay.py from the repository root with the configured Python environment, redirect stdout into artifacts/, and compare report.json bytes. It compares nine retained raw archive parts to all manifest-listed relational surfaces, not original HTTP capture provenance."
+    },
+    {
+      "owner_id": "source-relations/neotoma/native-roundtrip/reader-account",
+      "role": "maintained_editorial",
+      "paths": [
+        "docs/report/source-relations/neotoma/native-roundtrip/README.md"
+      ],
+      "producer_paths": [],
       "producer_inputs": [],
-      "verification": "Identify the exact producer or independent source/template custody, lawful input closure and role-specific verification route for these paths. Bind independently reconstructed output or authenticated retained source before full mixed-owner acceptance; tracked output bytes cannot feed their own producer."
+      "verification": "Review this handwritten family account against its retained machine evidence and stated source limits; no report producer writes the Markdown."
     },
     {
       "owner_id": "source-relations/neotoma/native-roundtrip/source-code",
@@ -3878,18 +3980,14 @@
       "verification": "Maintain these repository source files through review and focused tests. Source custody is distinct from generated output reproduction; copying them into a replay lane does not certify the results they produce."
     },
     {
-      "owner_id": "source-relations/neotoma/swedish-cohort-availability/report-products",
-      "role": "unresolved",
+      "owner_id": "source-relations/neotoma/swedish-cohort-availability/reader-account",
+      "role": "maintained_editorial",
       "paths": [
-        "docs/report/source-relations/neotoma/swedish-cohort-availability/README.md",
-        "docs/report/source-relations/neotoma/swedish-cohort-availability/report.json",
-        "docs/report/source-relations/neotoma/swedish-cohort-availability/sources.json"
+        "docs/report/source-relations/neotoma/swedish-cohort-availability/README.md"
       ],
-      "producer_paths": [
-        "docs/report/source-relations/neotoma/swedish-cohort-availability/replay.py"
-      ],
+      "producer_paths": [],
       "producer_inputs": [],
-      "verification": "Identify the exact producer or independent source/template custody, lawful input closure and role-specific verification route for these paths. Bind independently reconstructed output or authenticated retained source before full mixed-owner acceptance; tracked output bytes cannot feed their own producer."
+      "verification": "Review this handwritten family account against its retained machine evidence and stated source limits; no report producer writes the Markdown."
     },
     {
       "owner_id": "source-relations/neotoma/swedish-cohort-availability/source-code",
@@ -3900,6 +3998,34 @@
       "producer_paths": [],
       "producer_inputs": [],
       "verification": "Maintain these repository source files through review and focused tests. Source custody is distinct from generated output reproduction; copying them into a replay lane does not certify the results they produce."
+    },
+    {
+      "owner_id": "source-relations/neotoma/swedish-cohort-availability/source-declaration",
+      "role": "unresolved",
+      "paths": [
+        "docs/report/source-relations/neotoma/swedish-cohort-availability/sources.json"
+      ],
+      "producer_paths": [],
+      "producer_inputs": [],
+      "verification": "Declaration pins seven private Neotoma/PANGAEA responses, 17 EPD metadata/age-table sources and private source-manifest digests. Private files lie outside repository; retained declaration alone cannot authenticate original capture custody. Bind exact private inputs, source receipt and permitted use before promotion."
+    },
+    {
+      "owner_id": "source-relations/neotoma/swedish-cohort-availability/source-screen",
+      "role": "unresolved",
+      "paths": [
+        "docs/report/source-relations/neotoma/swedish-cohort-availability/report.json"
+      ],
+      "producer_paths": [
+        "docs/report/source-relations/neotoma/swedish-cohort-availability/replay.py"
+      ],
+      "producer_inputs": [
+        "data/neotoma/relational/manifest.json",
+        "data/neotoma/relational/surfaces/collection_units/part-00001.json",
+        "data/neotoma/relational/surfaces/datasets/part-00001.json",
+        "data/neotoma/relational/surfaces/sites/part-00001.json",
+        "docs/report/source-relations/neotoma/swedish-cohort-availability/sources.json"
+      ],
+      "verification": "Replay requires --private-root: private source-manifest.json plus seven source records, EPD source-manifest.json and 17 metadata/age-table files. Those are not repository-confined; keep unresolved until exact private capture custody, permission and byte comparison are independently bound. Metadata-only refusal is not fresh-cohort acceptance."
     },
     {
       "owner_id": "source-relations/neotoma/swedish-lake-core-identity/report-products",

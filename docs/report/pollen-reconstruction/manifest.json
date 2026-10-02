@@ -6,8 +6,8 @@
   "files": [
     {
       "path": "configs/ci/report-ownership.json",
-      "sha256": "75023703134ae5ee8c646b63756d80c22fad6061602b6b907a95d95425eae949",
-      "bytes": 343998
+      "sha256": "df6df6ddcce29b00f096ce9b71c9d58fd78bbe13327d4db4ccca3fe6c4bb6b82",
+      "bytes": 352516
     },
     {
       "path": "configs/docs/science_downloads.py",
@@ -3101,8 +3101,8 @@
     },
     {
       "path": "reports/architecture/ownership.md",
-      "sha256": "59a5ff0ba7dfbbd4b51fb65f3de4f8cf2dddb7a2cfc2a055343c0a91d37d80c3",
-      "bytes": 8160
+      "sha256": "333b392eb1cc1e3d368b359359e1adb190efef2a3a2a60ee840aa5d9d48c7c3d",
+      "bytes": 8746
     },
     {
       "path": "reports/evidence-index.md",
@@ -3176,7 +3176,7 @@
     },
     {
       "path": "reports/exports/site-downloads.json",
-      "sha256": "c722f0581cf8efa47d86eefbcc2a103e079a9969ba8276b93861aed2cd35c0bc",
+      "sha256": "42082af4d7fae2e1a956b57e2b564af82f6a8aa675431b12e4edd3e678d4bf18",
       "bytes": 5774
     },
     {

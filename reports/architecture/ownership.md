@@ -63,8 +63,8 @@ or qualified scientific review.
 The [output ownership inventory](../../configs/ci/report-ownership.json)
 assigns every tracked report path exactly one declaration. Its population is
 1,938 paths: 709 declared publisher paths, 125 original-R retained source
-files, 33 generated domain outputs, 62 maintained source files, 21
-maintained reader accounts and 988 paths with unresolved output custody.
+files, 35 generated domain outputs, 62 maintained source files, 25
+maintained reader accounts and 982 paths with unresolved output custody.
 These role counts describe the current declarations. They do not measure
 how many outputs have been independently reproduced.
 
@@ -93,6 +93,15 @@ manifest names nine payloads while only three are retained locally. The
 source-first screen and derived ledger preserve zero admitted events and
 zero evaluated pairs. Their empty country bins establish neither ecological
 routes nor event absence. Both reader accounts are maintained separately.
+
+The Neotoma compact-summary and native-roundtrip declarations name their
+normalized/relational and raw-archive input closures respectively. They
+compare retained representations; neither establishes original HTTP capture
+custody. Four Neotoma reader accounts have separate editorial owners. The
+Swedish source declaration and source screen still need private metadata and
+capture inputs. The lake-parameter verifier reads its expected capture digest
+from the retained report, so that verification route remains unresolved; it
+cannot independently certify basin input or LRA admission.
 
 A fresh canonical publisher build from fixed product
 `d535ca7f3bed0ead63e5f96e45658c435ed6613a` produced exactly the 709 declared
