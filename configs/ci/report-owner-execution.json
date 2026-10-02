@@ -868,6 +868,30 @@
       "output_mode": "directory",
       "output_subdirectory": "source-products",
       "timeout_seconds": 600
+    },
+    {
+      "module": "bijux_pollenomics_dev.source_completion.nordic.sambosjon_preparation",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "regions/nordic/sambosjon-direct-pollen/prepared-inputs",
+      "source_arguments": [],
+      "source_paths": {
+        "source-products/input-manifest.json": "docs/report/regions/nordic/sambosjon-direct-pollen/inputs/input-manifest.json",
+        "source-products/metadata.json": "docs/report/regions/nordic/sambosjon-direct-pollen/inputs/metadata.json",
+        "source-products/training.json.gz": "docs/report/regions/nordic/sambosjon-direct-pollen/inputs/training.json.gz"
+      },
+      "timeout_seconds": 600
+    },
+    {
+      "module": "bijux_pollenomics_dev.source_completion.nordic.sambosjon_predictions",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "regions/nordic/sambosjon-direct-pollen/frozen-predictions",
+      "source_arguments": [],
+      "source_paths": {
+        "source-products/predictions.json": "docs/report/regions/nordic/sambosjon-direct-pollen/frozen/predictions.json"
+      },
+      "timeout_seconds": 600
     }
   ]
 }
