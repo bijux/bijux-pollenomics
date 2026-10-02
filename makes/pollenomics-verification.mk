@@ -206,7 +206,7 @@ define run_pollenomics_pytest_gate
 		$(2)
 endef
 
-.PHONY: materialize-scientific-evidence verify-science verify-data verify-map verify-provenance verify-doc-counts collect-doc-count-universe verify-doc-count-shard attest-doc-count-shards verify-rebuild plan-report-rebuild build-report-rebuild-partition assemble-report-rebuild verify-partitioned-report-rebuild verify-sead-evidence-fixed-point refresh-release-gates release-evidence-request release-evidence verify-release-candidate
+.PHONY: materialize-scientific-evidence verify-science verify-data verify-map verify-provenance verify-doc-counts collect-doc-count-universe verify-doc-count-shard attest-doc-count-shards verify-rebuild plan-report-rebuild build-report-rebuild-partition build-report-rebuild-owner assemble-report-rebuild verify-partitioned-report-rebuild verify-sead-evidence-fixed-point refresh-release-gates release-evidence-request release-evidence verify-release-candidate
 
 materialize-scientific-evidence: root-check-env ## Recreate policy-owned classification and propagation evidence
 	@$(DEV_RUN) -m bijux_pollenomics_dev.ci.scientific_evidence \
@@ -239,6 +239,15 @@ build-report-rebuild-partition: root-check-env ## Materialize one evidence-bound
 		--evidence-root "$(REBUILD_EVIDENCE_ROOT)" \
 		$(if $(REBUILD_SCOPE_ARTIFACTS_ROOT),--scope-artifacts-root "$(REBUILD_SCOPE_ARTIFACTS_ROOT)")
 
+build-report-rebuild-owner: root-check-env ## Reproduce one configured report owner with declared inputs
+	@test -n "$(REBUILD_LANE)" && test -n "$(REBUILD_OWNER_ID)" && test -n "$(REBUILD_EVIDENCE_ROOT)"
+	@$(DEV_RUN) -m bijux_pollenomics_dev.ci.report_rebuild.configured_owner \
+		--repository "$(CURDIR)" \
+		--plan "$(POLLENOMICS_REBUILD_PLAN)" \
+		--lane "$(REBUILD_LANE)" \
+		--owner-id "$(REBUILD_OWNER_ID)" \
+		--evidence-root "$(REBUILD_EVIDENCE_ROOT)"
+
 assemble-report-rebuild: root-check-env ## Assemble one complete report tree from exact partitions
 	@test -n "$(REBUILD_LANE)" && test -n "$(REBUILD_PARTITION_ARTIFACTS_ROOT)" && test -n "$(REBUILD_EVIDENCE_ROOT)"
 	@$(DEV_RUN) -m bijux_pollenomics_dev.ci.report_rebuild assemble \
@@ -247,7 +256,9 @@ assemble-report-rebuild: root-check-env ## Assemble one complete report tree fro
 		--plan "$(POLLENOMICS_REBUILD_PLAN)" \
 		--lane "$(REBUILD_LANE)" \
 		--partition-artifacts-root "$(REBUILD_PARTITION_ARTIFACTS_ROOT)" \
-		--evidence-root "$(REBUILD_EVIDENCE_ROOT)"
+		--evidence-root "$(REBUILD_EVIDENCE_ROOT)" \
+		$(foreach owner,$(REBUILD_OWNER_IDS),--owner-id "$(owner)") \
+		$(if $(REBUILD_OWNER_ARTIFACTS_ROOT),--owner-artifacts-root "$(REBUILD_OWNER_ARTIFACTS_ROOT)")
 
 verify-partitioned-report-rebuild: root-check-env ## Compare two complete partitioned builds with tracked reports
 	@test -n "$(REBUILD_REFERENCE_MANIFEST)" && test -n "$(REBUILD_REPLAY_MANIFEST)" && test -n "$(REBUILD_EVIDENCE_ROOT)"
@@ -257,7 +268,10 @@ verify-partitioned-report-rebuild: root-check-env ## Compare two complete partit
 		--plan "$(POLLENOMICS_REBUILD_PLAN)" \
 		--reference-manifest "$(REBUILD_REFERENCE_MANIFEST)" \
 		--replay-manifest "$(REBUILD_REPLAY_MANIFEST)" \
-		--evidence-root "$(REBUILD_EVIDENCE_ROOT)"
+		--evidence-root "$(REBUILD_EVIDENCE_ROOT)" \
+		$(foreach owner,$(REBUILD_OWNER_IDS),--owner-id "$(owner)") \
+		$(if $(REBUILD_REFERENCE_OWNERS_ROOT),--reference-owners-root "$(REBUILD_REFERENCE_OWNERS_ROOT)") \
+		$(if $(REBUILD_REPLAY_OWNERS_ROOT),--replay-owners-root "$(REBUILD_REPLAY_OWNERS_ROOT)")
 
 verify-sead-evidence-fixed-point: root-check-env ## Prove governed SEAD evidence rebuilds byte-identically without network
 	@mkdir -p "$(CURDIR)/artifacts/execution-control"; \

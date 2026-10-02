@@ -283,6 +283,19 @@ A report itself may be named `manifest.json` without becoming an owner receipt.
 Each receipt must match its full directory identity and lane; unsafe paths,
 symlink namespaces, malformed receipts and changed inputs remain refusals.
 
+The configured owner runner exposes bounded commands for the Solsø root
+lineage report and Neotoma compact screen summary. Its configuration selects
+the module, output map and timeout; the current ownership inventory supplies
+the exact code and data read set. The child interpreter loads candidate source
+paths and refuses a different module origin. `make build-report-rebuild-owner`
+uses `REBUILD_LANE`, `REBUILD_OWNER_ID` and an absent `REBUILD_EVIDENCE_ROOT`.
+The assembly target accepts `REBUILD_OWNER_IDS` and
+`REBUILD_OWNER_ARTIFACTS_ROOT`; final verification accepts the same identities
+and both `REBUILD_REFERENCE_OWNERS_ROOT` and `REBUILD_REPLAY_OWNERS_ROOT`.
+These two producers cover only their declared files. The complete report-tree
+comparison remains mandatory and refuses any missing owner.
+
+
 
 The [method correspondence](../science/method-correspondence.md),
 [publication correspondence](../science/publication-correspondence.md),

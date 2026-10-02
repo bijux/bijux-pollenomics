@@ -5,6 +5,11 @@
   "as_of": "2026-10-01",
   "files": [
     {
+      "path": "configs/ci/report-owner-execution.json",
+      "sha256": "c759254a3aec339a674b80dd3b26d2f4f996aaf9bd3445e864b3aa46afe63570",
+      "bytes": 996
+    },
+    {
       "path": "configs/ci/report-ownership.json",
       "sha256": "f832b81fd906db0ee6d5ab0125318ec414ff73420ca8fb3b857e8a565a660364",
       "bytes": 752577
@@ -2700,6 +2705,11 @@
       "bytes": 1091
     },
     {
+      "path": "makes/pollenomics-verification.mk",
+      "sha256": "d3ab5e4f4420b60e1877d7fd4cc324fbe2d350490b1260bff60f95b1b7e46135",
+      "bytes": 22672
+    },
+    {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/atlas_browser/landclim_export/__init__.py",
       "sha256": "bb3c9ffc78b27d7b9bca38ac8ef25ae969f16997ede7323dc65e1257716c6932",
       "bytes": 70
@@ -2713,6 +2723,11 @@
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/atlas_browser/landclim_export/reconcile.py",
       "sha256": "dfc64a18a726243aefc8d912b5a54168c32fa915a5dbd1c7a26da3b8243511c2",
       "bytes": 18270
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/configured_owner.py",
+      "sha256": "63cda8265bb0c3162027be74d17902aca48c045f3805573123ca2127835857a6",
+      "bytes": 13860
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/evidence.py",
@@ -3090,6 +3105,11 @@
       "bytes": 6957
     },
     {
+      "path": "packages/bijux-pollenomics-dev/tests/test_report_rebuild_configured_owner.py",
+      "sha256": "ef86ebc5d88f9831874ae17ca19f09278e73da8f6ebbb596742ccacb0ebf23c4",
+      "bytes": 11316
+    },
+    {
       "path": "packages/bijux-pollenomics-dev/tests/test_report_rebuild_ownership.py",
       "sha256": "4c23993d6eaf507da754734a4d5e0d78774a2908d21a06e61c23906fa6da3167",
       "bytes": 11524
@@ -3156,8 +3176,8 @@
     },
     {
       "path": "reports/architecture/ownership.md",
-      "sha256": "2c7297e60e4df7a8fad9df717c9ca7ca34a0671909b51bbe6cc9db299b25992f",
-      "bytes": 18748
+      "sha256": "5feeb63b79ebaecb09505d97452120636b9d7a7d057097796158e50542d63b50",
+      "bytes": 19558
     },
     {
       "path": "reports/evidence-index.md",
@@ -3231,7 +3251,7 @@
     },
     {
       "path": "reports/exports/site-downloads.json",
-      "sha256": "b452a0441bcab31d29ecb9df0571179c431d3f545a6f9f210f0ea41716e3d6dc",
+      "sha256": "540347299823443c774102ba206049da87cde1ef85ee4abf68d6ec7afa373bdc",
       "bytes": 5774
     },
     {

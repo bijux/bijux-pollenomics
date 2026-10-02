@@ -1,0 +1,30 @@
+{
+  "schema_version": "configured-report-owner-execution.v1",
+  "owners": [
+    {
+      "owner_id": "countries/denmark/solsoe-source-lineage/report-products",
+      "module": "bijux_pollenomics_dev.source_completion.solsoe_source_lineage",
+      "source_paths": {
+        "report.json": "docs/report/countries/denmark/solsoe-source-lineage/report.json"
+      },
+      "source_arguments": [],
+      "output_mode": "directory",
+      "timeout_seconds": 240
+    },
+    {
+      "owner_id": "source-relations/neotoma/pollen-screen/compact-summary",
+      "module": "bijux_pollenomics_dev.source_completion.neotoma_screen_summary",
+      "source_paths": {
+        "summary.json": "docs/report/source-relations/neotoma/pollen-screen/summary.json"
+      },
+      "source_arguments": [
+        {
+          "flag": "--screen",
+          "path": "docs/report/source-relations/neotoma/pollen-screen/report.json"
+        }
+      ],
+      "output_mode": "single_file",
+      "timeout_seconds": 180
+    }
+  ]
+}
