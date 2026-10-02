@@ -1,6 +1,8 @@
 from __future__ import annotations
 
+from collections.abc import Mapping
 from dataclasses import dataclass
+from typing import cast
 
 from .presentation.text import slugify
 
@@ -268,11 +270,27 @@ def build_geography_onboarding_contract(
     }
 
 
+def _required_object_rows(
+    payload: Mapping[str, object], field: str
+) -> list[dict[str, object]]:
+    value = payload[field]
+    if not isinstance(value, list) or any(not isinstance(row, dict) for row in value):
+        raise ValueError(f"Publication geography {field} must be a list of rows")
+    return cast(list[dict[str, object]], value)
+
+
+def _required_strings(payload: Mapping[str, object], field: str) -> list[str]:
+    value = payload[field]
+    if not isinstance(value, list) or any(not isinstance(item, str) for item in value):
+        raise ValueError(f"Publication geography {field} must be a list of strings")
+    return cast(list[str], value)
+
+
 def render_geography_scope_registry_markdown(payload: dict[str, object]) -> str:
     """Render the governed publication-scope registry."""
     scope_rows = "\n".join(
         f"| {row['label']} | `{row['kind']}` | `{row['parent_key'] or '-'}` | `{row['directory']}` | `{row['country_count']}` |"
-        for row in payload["scopes"]
+        for row in _required_object_rows(payload, "scopes")
     )
     return f"""# Publication Geography Registry
 
@@ -298,7 +316,7 @@ def render_geography_subset_validation_markdown(payload: dict[str, object]) -> s
     """Render the subset-validation report."""
     rows = "\n".join(
         f"| {row['scope']} | {row['parent_scope']} | `{str(row['country_subset_ok']).lower()}` | `{str(row['animal_subset_ok']).lower()}` | `{str(row['human_subset_ok']).lower()}` |"
-        for row in payload["rows"]
+        for row in _required_object_rows(payload, "rows")
     )
     return f"""# Publication Geography Subset Validation
 
@@ -315,13 +333,24 @@ of broader scopes instead of silently drifting into separate artifact families.
 
 def render_geography_onboarding_contract_markdown(payload: dict[str, object]) -> str:
     """Render the country-onboarding contract."""
-    required_rows = "\n".join(f"- `{item}`" for item in payload["required_surfaces"])
-    code_rows = "\n".join(f"- {item}" for item in payload["code_contracts"])
-    data_rows = "\n".join(f"- {item}" for item in payload["data_contracts"])
-    docs_rows = "\n".join(f"- {item}" for item in payload["docs_contracts"])
-    test_rows = "\n".join(f"- {item}" for item in payload["test_contracts"])
+    required_rows = "\n".join(
+        f"- `{item}`" for item in _required_strings(payload, "required_surfaces")
+    )
+    code_rows = "\n".join(
+        f"- {item}" for item in _required_strings(payload, "code_contracts")
+    )
+    data_rows = "\n".join(
+        f"- {item}" for item in _required_strings(payload, "data_contracts")
+    )
+    docs_rows = "\n".join(
+        f"- {item}" for item in _required_strings(payload, "docs_contracts")
+    )
+    test_rows = "\n".join(
+        f"- {item}" for item in _required_strings(payload, "test_contracts")
+    )
     published_country_roster = ", ".join(
-        f"`{country}`" for country in payload["published_country_roster"]
+        f"`{country}`"
+        for country in _required_strings(payload, "published_country_roster")
     )
     return f"""# Country Onboarding Contract
 
