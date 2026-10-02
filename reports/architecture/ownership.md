@@ -63,8 +63,8 @@ or qualified scientific review.
 The [output ownership inventory](../../configs/ci/report-ownership.json)
 assigns every tracked report path exactly one declaration. Its population is
 1,938 paths: 709 declared publisher paths, 125 original-R retained source
-files, 21 generated domain outputs, 62 maintained source files, 13
-maintained reader accounts and 1,008 paths with unresolved output custody.
+files, 30 generated domain outputs, 62 maintained source files, 19
+maintained reader accounts and 993 paths with unresolved output custody.
 These role counts describe the current declarations. They do not measure
 how many outputs have been independently reproduced.
 
@@ -75,6 +75,16 @@ actual raw/normalized and secondary report inputs, including source parts and
 retrieval receipts. Their reader accounts have separate editorial owners.
 Declaring the input closure does not rerun the source studies, authenticate
 new source permissions or qualify ecological events.
+
+Nine declared Danish chronology/freeze products have repository-bound input
+closures. Seven other Danish numeric products remain unresolved because their
+producer routes need exact external author taxonomy, LegacyAge tables,
+Odgaard source paper or the published EPD age table. A digest in a retained
+report does not establish possession or permitted use of those source bytes.
+The older pollen-coverage replay differs from the current governed report,
+so it cannot serve as a current matching-output receipt. These declarations
+keep source custody separate from a completed replay and from Solsø LRA
+admission.
 
 The publisher path set comes from the independent assembly inventoried at
 product `bdc8c0d95`. All 709 paths remain tracked. A current publisher assembly
