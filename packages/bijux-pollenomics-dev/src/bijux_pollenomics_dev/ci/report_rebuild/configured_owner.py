@@ -70,8 +70,7 @@ class ConfiguredOwner:
     command: tuple[str, ...]
     inputs: dict[str, Path]
     source_paths: dict[str, str]
-    expected_sha256: str
-    expected_path: str
+    expected_outputs: dict[str, str]
     timeout_seconds: int
 
 
@@ -195,8 +194,8 @@ def resolve_configured_owner(
     declaration = declarations[0]
     owned = declaration["paths"]
     raw_sources = row["source_paths"]
-    if not isinstance(raw_sources, dict) or len(raw_sources) != 1:
-        raise ReportRebuildError("configured owner needs one output mapping")
+    if not isinstance(raw_sources, dict) or not raw_sources:
+        raise ReportRebuildError("configured owner needs a nonempty output mapping")
     paths: dict[str, str] = {}
     for source, target in raw_sources.items():
         source = require_relative_path(source, "produced file")
@@ -204,9 +203,10 @@ def resolve_configured_owner(
         if not target.startswith("docs/report/"):
             raise ReportRebuildError("configured owner output is outside docs/report")
         paths[source] = target.removeprefix("docs/report/")
+    if len(set(raw_sources.values())) != len(raw_sources):
+        raise ReportRebuildError("configured owner has duplicate output targets")
     if sorted(raw_sources.values()) != owned:
         raise ReportRebuildError("configured output map differs from owner declaration")
-    target = next(iter(raw_sources.values()))
     if set(declaration["producer_paths"]) & set(owned) or set(
         declaration["producer_inputs"]
     ) & set(owned):
@@ -252,13 +252,16 @@ def resolve_configured_owner(
     mode = row["output_mode"]
     if not isinstance(mode, str) or mode not in {"directory", "single_file"}:
         raise ReportRebuildError("configured output mode is invalid")
+    if mode == "single_file" and len(paths) != 1:
+        raise ReportRebuildError(
+            "single-file configured owner needs one output mapping"
+        )
     timeout = row["timeout_seconds"]
     if type(timeout) is not int or not 1 <= timeout <= 600:
         raise ReportRebuildError("configured timeout must be between 1 and 600 seconds")
-    produced = next(iter(paths))
-    output_argument = (
-        "{output_root}" if mode == "directory" else f"{{output_root}}/{produced}"
-    )
+    output_argument = "{output_root}"
+    if mode == "single_file":
+        output_argument = f"{{output_root}}/{next(iter(paths))}"
     command = (
         sys.executable,
         "-c",
@@ -276,8 +279,10 @@ def resolve_configured_owner(
         command=command,
         inputs=inputs,
         source_paths=paths,
-        expected_sha256=_digest(_safe_file(repository, target, "tracked owner output")),
-        expected_path=target,
+        expected_outputs={
+            target: _digest(_safe_file(repository, target, "tracked owner output"))
+            for target in owned
+        },
         timeout_seconds=timeout,
     )
 
@@ -317,15 +322,18 @@ def build_configured_owner(
         evidence_root=evidence_root,
         timeout_seconds=selected.timeout_seconds,
     )
-    produced = (
-        evidence_root / "output" / selected.expected_path.removeprefix("docs/report/")
-    )
-    tracked = _safe_file(repository, selected.expected_path, "tracked owner output")
-    if (
-        _digest(tracked) != selected.expected_sha256
-        or _digest(produced) != selected.expected_sha256
-    ):
-        raise ReportRebuildError("generated owner bytes differ from tracked report")
+    output_root = (evidence_root / "output").resolve(strict=True)
+    for target, expected_sha256 in selected.expected_outputs.items():
+        produced = _safe_file(
+            output_root,
+            target.removeprefix("docs/report/"),
+            "generated owner output",
+        )
+        tracked = _safe_file(repository, target, "tracked owner output")
+        if _digest(tracked) != expected_sha256 or _digest(produced) != expected_sha256:
+            raise ReportRebuildError(
+                f"generated owner bytes differ from tracked report: {target}"
+            )
     return manifest
 
 
