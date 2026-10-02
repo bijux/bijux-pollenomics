@@ -29,3 +29,8 @@ page. The repository's [claim-to-evidence index](https://github.com/bijux/bijux-
 connects headline findings to numeric tables, manifests and producers. Open
 source questions remain visible in the repository's
 [`reports/needed` register](https://github.com/bijux/bijux-pollenomics/tree/main/reports/needed).
+
+Follow the [atlas walkthrough](../interfaces/atlas-walkthrough.md) to inspect
+one published modeled-context cell, trace its source and reproduce its
+bounded country/window summary. The route separates map behavior from
+scientific acceptance.

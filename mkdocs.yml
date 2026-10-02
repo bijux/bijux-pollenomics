@@ -141,6 +141,7 @@ nav:
           - Data Contracts: public/pollenomics/interfaces/data-contracts.md
           - Entrypoints and Examples: public/pollenomics/interfaces/entrypoints-and-examples.md
           - Operator Workflows: public/pollenomics/interfaces/operator-workflows.md
+          - Atlas Walkthrough: public/pollenomics/interfaces/atlas-walkthrough.md
       - Operations:
           - Overview: public/pollenomics/operations/index.md
           - Installation and Setup: public/pollenomics/operations/installation-and-setup.md

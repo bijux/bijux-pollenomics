@@ -64,6 +64,8 @@ Inspection commands are the safest starting point for source support, species
 membership, runtime manifests, and review posture. A narrow validator is
 preferable when the question concerns one contract such as
 `data/collection_summary.json`. Neither operation should rewrite evidence.
+The [atlas walkthrough](atlas-walkthrough.md) uses these checks before tracing
+one modeled-context result to its source-bound panel row.
 
 ```bash
 bijux-pollenomics source-support --json

@@ -110,14 +110,24 @@
       "bytes": 10259
     },
     {
+      "path": "docs/public/pollenomics/interfaces/atlas-walkthrough.md",
+      "sha256": "55091c0f01129a658c208a93b6dfa7501f2ab43c53479c07744d20ee454ffddc",
+      "bytes": 8449
+    },
+    {
+      "path": "docs/public/pollenomics/interfaces/operator-workflows.md",
+      "sha256": "4fa2ec6bc9b547efa05b837534df90f2a2606d8d11fd5ab071694b4dde571b75",
+      "bytes": 6459
+    },
+    {
       "path": "docs/public/pollenomics/science/downloads.md",
       "sha256": "8c37e0e048390847bc456654ce33f9812701a09234a7a638754c8368bb010f65",
       "bytes": 4482
     },
     {
       "path": "docs/public/pollenomics/science/index.md",
-      "sha256": "913fdd6512b20446dc90859b873c493a77e0e99d78095806fc9d980ba27e850c",
-      "bytes": 1708
+      "sha256": "3d37e49f6ca1a1c225452545a63881bd038a2be478c6174bcdf7603ccd2e7d68",
+      "bytes": 1951
     },
     {
       "path": "docs/public/pollenomics/science/papers.md",
