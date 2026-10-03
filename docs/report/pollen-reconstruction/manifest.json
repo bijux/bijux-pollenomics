@@ -46,8 +46,8 @@
     },
     {
       "path": "configs/ci/report-ownership.json",
-      "sha256": "a504b8e5aac8428ed08c3fcfd6b89824fd5fa741253b263944f5da4ad46803fc",
-      "bytes": 3160714
+      "sha256": "1a036c258830cc80df4f1a89f07dbb419d90e4b83a64e17e50cd8ff60da19277",
+      "bytes": 3160807
     },
     {
       "path": "configs/docs/science_downloads.py",
@@ -3191,8 +3191,8 @@
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/published_window_uncertainty.py",
-      "sha256": "582e1db53c34226871522cee2c43f1e1ac5fe2a2a3762d7527748497162e5210",
-      "bytes": 7746
+      "sha256": "10afe79a59842d2ae24ff6850f9d3b8c47308a7d2f8c865196eac9569c15b4f0",
+      "bytes": 9510
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/reconcile.py",
@@ -4048,6 +4048,11 @@
       "path": "packages/bijux-pollenomics-dev/tests/essd_reproduction/test_pft_uncertainty_bounds.py",
       "sha256": "242cf6ab5b11016d511b9075d7a771f495aaa8562df11ad071a84bc884ecc630",
       "bytes": 1646
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/tests/essd_reproduction/test_published_window_uncertainty.py",
+      "sha256": "cbbf7ab11b0490475e94c148c0d1c5ea8d41ed7e4e057bebcb69f06f825bba3f",
+      "bytes": 6519
     },
     {
       "path": "packages/bijux-pollenomics-dev/tests/lra_reference/test_generated_version_templates.py",

@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import csv
+import hashlib
 import json
 from pathlib import Path
 
@@ -17,8 +18,27 @@ from bijux_pollenomics_dev.essd_reproduction.published_window_uncertainty import
 )
 
 
+def _write_manifest(path: Path, report: Path) -> None:
+    outputs = {}
+    for product in (path, report):
+        content = product.read_bytes()
+        outputs[product.name] = {
+            "bytes": len(content),
+            "sha256": hashlib.sha256(content).hexdigest(),
+        }
+    outputs["REPORT.md"] = {"bytes": 0, "sha256": "0" * 64}
+    (report.parent / "manifest.json").write_text(
+        json.dumps(
+            {
+                "schema_version": "landclim-published-window-provenance-custody.v1",
+                "outputs": outputs,
+            }
+        )
+    )
+
+
 def _inputs(tmp_path: Path) -> tuple[Path, Path, list[dict[str, str]]]:
-    report = tmp_path / "provenance.json"
+    report = tmp_path / "report.json"
     report.write_text(
         json.dumps(
             {
@@ -31,7 +51,7 @@ def _inputs(tmp_path: Path) -> tuple[Path, Path, list[dict[str, str]]]:
             }
         )
     )
-    path = tmp_path / "correspondence.csv"
+    path = tmp_path / "paper-correspondence.csv"
     rows = []
     for grid in ("512", "562"):
         for index in range(31):
@@ -53,6 +73,7 @@ def _inputs(tmp_path: Path) -> tuple[Path, Path, list[dict[str, str]]]:
         writer = csv.DictWriter(stream, fieldnames=list(rows[0]))
         writer.writeheader()
         writer.writerows(rows)
+    _write_manifest(path, report)
     return path, report, rows
 
 
@@ -85,11 +106,13 @@ def test_envelopes_refuse_wrong_axis_and_negative_se(tmp_path: Path) -> None:
         writer = csv.DictWriter(stream, fieldnames=list(rows[0]))
         writer.writeheader()
         writer.writerows(rows)
+    _write_manifest(path, report)
     with pytest.raises(ValueError, match="negative reported standard error"):
         compare_envelopes(path, report)
     source = json.loads(report.read_text())
     source["author_bin_bounds_bp"] = [100, 300]
     report.write_text(json.dumps(source))
+    _write_manifest(path, report)
     with pytest.raises(ValueError, match="outside the exact published window"):
         compare_envelopes(path, report)
 
@@ -103,6 +126,7 @@ def test_overlapping_envelopes_have_no_separation_taxon(tmp_path: Path) -> None:
         writer = csv.DictWriter(stream, fieldnames=list(rows[0]))
         writer.writeheader()
         writer.writerows(rows)
+    _write_manifest(path, report)
     _, result = compare_envelopes(path, report)
     summaries = result["summaries"]
     assert isinstance(summaries, list)
@@ -111,3 +135,42 @@ def test_overlapping_envelopes_have_no_separation_taxon(tmp_path: Path) -> None:
         assert summary["disjoint_one_se_envelopes"] == 0
         assert summary["largest_separation_taxon"] == "none"
         assert summary["largest_separation_percentage_points"] == "0"
+
+
+def test_envelopes_refuse_forged_correspondence_and_report(tmp_path: Path) -> None:
+    path, report, rows = _inputs(tmp_path)
+    rows[0]["archive"] = "12"
+    with path.open("w", newline="") as stream:
+        writer = csv.DictWriter(stream, fieldnames=list(rows[0]))
+        writer.writeheader()
+        writer.writerows(rows)
+    with pytest.raises(ValueError, match="paper-correspondence.csv"):
+        compare_envelopes(path, report)
+    _write_manifest(path, report)
+    source = json.loads(report.read_text())
+    source["paired_mean_se_values"] = 123
+    report.write_text(json.dumps(source))
+    with pytest.raises(ValueError, match="report.json"):
+        compare_envelopes(path, report)
+
+
+def test_envelopes_refuse_missing_or_wrong_manifest(tmp_path: Path) -> None:
+    path, report, _ = _inputs(tmp_path)
+    manifest = report.parent / "manifest.json"
+    manifest.unlink()
+    with pytest.raises(ValueError, match="regular files"):
+        compare_envelopes(path, report)
+    _write_manifest(path, report)
+    source = json.loads(manifest.read_text())
+    source["outputs"].pop("paper-correspondence.csv")
+    manifest.write_text(json.dumps(source))
+    with pytest.raises(ValueError, match="population does not close"):
+        compare_envelopes(path, report)
+
+
+@pytest.mark.parametrize("manifest", [None, [], "provenance"])
+def test_envelopes_refuse_nonobject_manifest(tmp_path: Path, manifest: object) -> None:
+    path, report, _ = _inputs(tmp_path)
+    (report.parent / "manifest.json").write_text(json.dumps(manifest))
+    with pytest.raises(ValueError, match="Unsupported provenance custody manifest"):
+        compare_envelopes(path, report)

@@ -13255,6 +13255,7 @@
         "docs/report/publication-replay/landclim-published-window-uncertainty/taxon-envelopes.csv"
       ],
       "producer_inputs": [
+        "docs/report/publication-replay/landclim-published-window-provenance/manifest.json",
         "docs/report/publication-replay/landclim-published-window-provenance/paper-correspondence.csv",
         "docs/report/publication-replay/landclim-published-window-provenance/report.json"
       ],
