@@ -1119,15 +1119,18 @@ def test_qualified_owner_verifier_rejects_extra_input_and_missing_root(
     selected = owner_runner.resolve_configured_owner(
         repository, OWNER_ID, source_root=root
     )
-    policy = {"tracked_report_root": "docs/report"}
-    manifest = {
+    policy: dict[str, object] = {"tracked_report_root": "docs/report"}
+    manifest: dict[str, object] = {
         "producer_inputs": producer_input_identity(selected.inputs, repository),
         "source_paths": selected.source_paths,
         "producer_command": list(selected.command),
     }
+    qualification: Callable[[Path, Path, Path], QualifiedReportSources] = vars(
+        owner_runner
+    )["validated_external_report_sources"]
     monkeypatch.setattr(
         "bijux_pollenomics_dev.ci.report_rebuild.qualified_sources.validated_external_report_sources",
-        owner_runner.validated_external_report_sources,
+        qualification,
     )
     _require_current_owner_inputs(
         manifest, repository, OWNER_ID, policy, source_root=root
@@ -1143,8 +1146,9 @@ def test_qualified_owner_verifier_rejects_extra_input_and_missing_root(
         _require_current_owner_inputs(
             manifest, repository, OWNER_ID, policy, source_root=root
         )
-    manifest["producer_inputs"] = producer_input_identity(selected.inputs, repository)
-    manifest["producer_inputs"]["external/legacyage/undeclared.csv"] = {
+    producer_inputs = producer_input_identity(selected.inputs, repository)
+    manifest["producer_inputs"] = producer_inputs
+    producer_inputs["external/legacyage/undeclared.csv"] = {
         "path": str(repository / "unreadable-undeclared.csv"),
         "sha256": "0" * 64,
         "size": 1,
@@ -1194,8 +1198,8 @@ def test_qualified_owner_rechecks_source_identity_after_build(
 def test_legacyage_wrapper_requires_absent_real_artifact_output(
     repository: Path,
 ) -> None:
-    from bijux_pollenomics_dev.source_completion.neotoma.legacyage_depth_join import (
-        _absent_artifact_output,
+    from bijux_pollenomics_dev.ci.report_rebuild.artifact_paths import (
+        require_absent_artifact_output as _absent_artifact_output,
     )
 
     artifacts = repository / "artifacts"

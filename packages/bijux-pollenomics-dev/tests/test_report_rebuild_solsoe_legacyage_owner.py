@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from collections.abc import Callable
 import hashlib
 import json
 from pathlib import Path
@@ -241,7 +242,9 @@ def test_solsoe_refuses_changed_qualification_after_replay(
 ) -> None:
     repository, root, descriptor, _ = packet
     output = repository / "artifacts" / "source-products"
-    original = solsoe_legacyage_depth_join.validated_external_report_sources
+    original: Callable[[Path, Path, Path], QualifiedReportSources] = vars(
+        solsoe_legacyage_depth_join
+    )["validated_external_report_sources"]
     calls = 0
 
     def changed_after(

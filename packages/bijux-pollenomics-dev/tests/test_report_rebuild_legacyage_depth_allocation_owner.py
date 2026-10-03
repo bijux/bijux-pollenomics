@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from collections.abc import Callable
 import hashlib
 import json
 from pathlib import Path
@@ -157,7 +158,9 @@ def test_depth_allocation_refuses_output_traversal_and_post_replay_tamper(
             _arguments(repository, root, descriptor, traversal)
         )
     assert not (repository / "docs" / "result").exists()
-    original = legacyage_depth_allocation.validated_external_report_sources
+    original: Callable[[Path, Path, Path], QualifiedReportSources] = vars(
+        legacyage_depth_allocation
+    )["validated_external_report_sources"]
     calls = 0
 
     def changed_after(
