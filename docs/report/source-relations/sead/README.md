@@ -66,6 +66,12 @@ component. It preserves native class/type/unit links and explicit unit gaps;
 the population of this source table is governed Swedish sites, distinct from
 the four-country site and chronology populations.
 
+The [analysis-value method and type account](analysis-value-methods/README.md)
+projects the 27,541 parents without typed component rows into 28 source-declared
+class, type, method and unit groups. Its 27,451 Dendrochronology and 90 Ancient
+DNA links are value-class metadata; they do not admit assays, dated events or
+pollen observations.
+
 The [country chronology account](chronology-country-accounting/README.md)
 joins all 25,109 reviewed claims to the 2,069 assigned site decisions. It
 separates source-row counts, distinct sites and chronology-display eligibility

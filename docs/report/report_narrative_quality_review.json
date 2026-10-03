@@ -1,10 +1,10 @@
 {
   "schema_version": "report-narrative-quality-review.v1",
-  "page_count": 296,
+  "page_count": 297,
   "quality_posture_counts": {
     "reader_ready": 116,
     "structured_reference": 19,
-    "thin_structure": 161
+    "thin_structure": 162
   },
   "rows": [
     {
@@ -398,6 +398,17 @@
       "prose_paragraph_count": 6,
       "link_bullet_count": 0,
       "bullet_sentence_count": 0,
+      "heading_count": 4,
+      "table_line_count": 0,
+      "quality_posture": "reader_ready",
+      "note": "Page explains its purpose before or alongside artifact links."
+    },
+    {
+      "repository_path": "docs/report/caveats/index.md",
+      "content_sha256": "3272bc7c9645520581e1f84aac5adebea58f800e6dbbfac11f36871a453fcd37",
+      "prose_paragraph_count": 3,
+      "link_bullet_count": 5,
+      "bullet_sentence_count": 4,
       "heading_count": 4,
       "table_line_count": 0,
       "quality_posture": "reader_ready",
@@ -807,6 +818,50 @@
       "bullet_sentence_count": 5,
       "heading_count": 4,
       "table_line_count": 16,
+      "quality_posture": "reader_ready",
+      "note": "Page explains its purpose before or alongside artifact links."
+    },
+    {
+      "repository_path": "docs/report/how-to-read.md",
+      "content_sha256": "c7dccdf552422d86d50658ae3b15eb1ec7365705ed21b4981eaf749038a9e257",
+      "prose_paragraph_count": 6,
+      "link_bullet_count": 0,
+      "bullet_sentence_count": 0,
+      "heading_count": 5,
+      "table_line_count": 0,
+      "quality_posture": "reader_ready",
+      "note": "Page explains its purpose before or alongside artifact links."
+    },
+    {
+      "repository_path": "docs/report/index.md",
+      "content_sha256": "f4495c78d9fc687c7801bcdc046642e59c468c2adb9addecb4789961585a364a",
+      "prose_paragraph_count": 3,
+      "link_bullet_count": 11,
+      "bullet_sentence_count": 0,
+      "heading_count": 6,
+      "table_line_count": 7,
+      "quality_posture": "reader_ready",
+      "note": "Page explains its purpose before or alongside artifact links."
+    },
+    {
+      "repository_path": "docs/report/maintenance/index.md",
+      "content_sha256": "481758f74d2a21205c6cbca84ab91770348c3ad31a5dcf46378d0a77357f63c0",
+      "prose_paragraph_count": 3,
+      "link_bullet_count": 10,
+      "bullet_sentence_count": 4,
+      "heading_count": 4,
+      "table_line_count": 0,
+      "quality_posture": "reader_ready",
+      "note": "Page explains its purpose before or alongside artifact links."
+    },
+    {
+      "repository_path": "docs/report/maps/index.md",
+      "content_sha256": "bb2aee2a9c5e903aa811b52533d90ea625d9297cf05b07baf9e3de3b37fad4c1",
+      "prose_paragraph_count": 3,
+      "link_bullet_count": 3,
+      "bullet_sentence_count": 4,
+      "heading_count": 4,
+      "table_line_count": 0,
       "quality_posture": "reader_ready",
       "note": "Page explains its purpose before or alongside artifact links."
     },
@@ -2241,6 +2296,28 @@
       "note": "Page explains its purpose before or alongside artifact links."
     },
     {
+      "repository_path": "docs/report/reviews/index.md",
+      "content_sha256": "79efe413979386539d04b210c506ca3683c329879861990bd8cc105775cbf474",
+      "prose_paragraph_count": 3,
+      "link_bullet_count": 6,
+      "bullet_sentence_count": 4,
+      "heading_count": 4,
+      "table_line_count": 0,
+      "quality_posture": "reader_ready",
+      "note": "Page explains its purpose before or alongside artifact links."
+    },
+    {
+      "repository_path": "docs/report/scopes/index.md",
+      "content_sha256": "6cf6d4dc800f1525caf3e210b6b9e5dd6697c0f49f03dd1621d723a3e9a89d7e",
+      "prose_paragraph_count": 3,
+      "link_bullet_count": 4,
+      "bullet_sentence_count": 4,
+      "heading_count": 4,
+      "table_line_count": 0,
+      "quality_posture": "reader_ready",
+      "note": "Page explains its purpose before or alongside artifact links."
+    },
+    {
       "repository_path": "docs/report/source-relations/dna-scope/README.md",
       "content_sha256": "bbe8a1e307d4c94803e7a60377a293760b16c9c9a6526d43e0f8a15646ade0c6",
       "prose_paragraph_count": 5,
@@ -2792,8 +2869,8 @@
     },
     {
       "repository_path": "docs/report/source-relations/sead/README.md",
-      "content_sha256": "176a80f3082b901d3a3acd7f57e091c759351137b21e2498f0e7817b88e0c343",
-      "prose_paragraph_count": 20,
+      "content_sha256": "1045d28e5a6b00ab680d203fa0e432bb5fb942ec99b1855c4dace2d1fed3261d",
+      "prose_paragraph_count": 21,
       "link_bullet_count": 0,
       "bullet_sentence_count": 0,
       "heading_count": 5,
@@ -2844,6 +2921,28 @@
       "table_line_count": 0,
       "quality_posture": "reader_ready",
       "note": "Page explains its purpose before or alongside artifact links."
+    },
+    {
+      "repository_path": "docs/report/source-relations/sead/analysis-value-components/README.md",
+      "content_sha256": "761cea2b21bae311a5011095c72f0eb257cb9472978361c6f51526dbe244bcb3",
+      "prose_paragraph_count": 5,
+      "link_bullet_count": 0,
+      "bullet_sentence_count": 0,
+      "heading_count": 3,
+      "table_line_count": 0,
+      "quality_posture": "reader_ready",
+      "note": "Page explains its purpose before or alongside artifact links."
+    },
+    {
+      "repository_path": "docs/report/source-relations/sead/analysis-value-methods/README.md",
+      "content_sha256": "0b761ff508fc2c021f1ed1e4afe8bb010c302ebaf9a1967f0ec7d79dbcb5c30a",
+      "prose_paragraph_count": 5,
+      "link_bullet_count": 0,
+      "bullet_sentence_count": 0,
+      "heading_count": 1,
+      "table_line_count": 0,
+      "quality_posture": "thin_structure",
+      "note": "Page explains itself but still needs stronger internal wayfinding."
     },
     {
       "repository_path": "docs/report/source-relations/sead/chronology-claim-review/README.md",
@@ -3172,94 +3271,6 @@
       "bullet_sentence_count": 8,
       "heading_count": 10,
       "table_line_count": 301,
-      "quality_posture": "reader_ready",
-      "note": "Page explains its purpose before or alongside artifact links."
-    },
-    {
-      "repository_path": "docs/report/caveats/index.md",
-      "content_sha256": "3272bc7c9645520581e1f84aac5adebea58f800e6dbbfac11f36871a453fcd37",
-      "prose_paragraph_count": 3,
-      "link_bullet_count": 5,
-      "bullet_sentence_count": 4,
-      "heading_count": 4,
-      "table_line_count": 0,
-      "quality_posture": "reader_ready",
-      "note": "Page explains its purpose before or alongside artifact links."
-    },
-    {
-      "repository_path": "docs/report/how-to-read.md",
-      "content_sha256": "c7dccdf552422d86d50658ae3b15eb1ec7365705ed21b4981eaf749038a9e257",
-      "prose_paragraph_count": 6,
-      "link_bullet_count": 0,
-      "bullet_sentence_count": 0,
-      "heading_count": 5,
-      "table_line_count": 0,
-      "quality_posture": "reader_ready",
-      "note": "Page explains its purpose before or alongside artifact links."
-    },
-    {
-      "repository_path": "docs/report/index.md",
-      "content_sha256": "f4495c78d9fc687c7801bcdc046642e59c468c2adb9addecb4789961585a364a",
-      "prose_paragraph_count": 3,
-      "link_bullet_count": 11,
-      "bullet_sentence_count": 0,
-      "heading_count": 6,
-      "table_line_count": 7,
-      "quality_posture": "reader_ready",
-      "note": "Page explains its purpose before or alongside artifact links."
-    },
-    {
-      "repository_path": "docs/report/maintenance/index.md",
-      "content_sha256": "481758f74d2a21205c6cbca84ab91770348c3ad31a5dcf46378d0a77357f63c0",
-      "prose_paragraph_count": 3,
-      "link_bullet_count": 10,
-      "bullet_sentence_count": 4,
-      "heading_count": 4,
-      "table_line_count": 0,
-      "quality_posture": "reader_ready",
-      "note": "Page explains its purpose before or alongside artifact links."
-    },
-    {
-      "repository_path": "docs/report/maps/index.md",
-      "content_sha256": "bb2aee2a9c5e903aa811b52533d90ea625d9297cf05b07baf9e3de3b37fad4c1",
-      "prose_paragraph_count": 3,
-      "link_bullet_count": 3,
-      "bullet_sentence_count": 4,
-      "heading_count": 4,
-      "table_line_count": 0,
-      "quality_posture": "reader_ready",
-      "note": "Page explains its purpose before or alongside artifact links."
-    },
-    {
-      "repository_path": "docs/report/reviews/index.md",
-      "content_sha256": "79efe413979386539d04b210c506ca3683c329879861990bd8cc105775cbf474",
-      "prose_paragraph_count": 3,
-      "link_bullet_count": 6,
-      "bullet_sentence_count": 4,
-      "heading_count": 4,
-      "table_line_count": 0,
-      "quality_posture": "reader_ready",
-      "note": "Page explains its purpose before or alongside artifact links."
-    },
-    {
-      "repository_path": "docs/report/scopes/index.md",
-      "content_sha256": "6cf6d4dc800f1525caf3e210b6b9e5dd6697c0f49f03dd1621d723a3e9a89d7e",
-      "prose_paragraph_count": 3,
-      "link_bullet_count": 4,
-      "bullet_sentence_count": 4,
-      "heading_count": 4,
-      "table_line_count": 0,
-      "quality_posture": "reader_ready",
-      "note": "Page explains its purpose before or alongside artifact links."
-    },
-    {
-      "repository_path": "docs/report/source-relations/sead/analysis-value-components/README.md",
-      "content_sha256": "761cea2b21bae311a5011095c72f0eb257cb9472978361c6f51526dbe244bcb3",
-      "prose_paragraph_count": 5,
-      "link_bullet_count": 0,
-      "bullet_sentence_count": 0,
-      "heading_count": 3,
-      "table_line_count": 0,
       "quality_posture": "reader_ready",
       "note": "Page explains its purpose before or alongside artifact links."
     }
