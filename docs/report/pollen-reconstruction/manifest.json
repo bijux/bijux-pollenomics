@@ -36,13 +36,13 @@
     },
     {
       "path": "configs/ci/report-owner-execution.json",
-      "sha256": "d8b4f7c0d250b85a160a02c9733f5b8def81155cda0471519ffb76f924d02f05",
-      "bytes": 76551
+      "sha256": "5df7fcbeb70ee65b2885c33b4b04167a31f771add04540593b2c0ba5089cb9ff",
+      "bytes": 77076
     },
     {
       "path": "configs/ci/report-ownership.json",
-      "sha256": "5553f4dd1d995744a72816c9eb142929ee19b1b91f1c7dc8b118531093af6abe",
-      "bytes": 2179521
+      "sha256": "b6755289e9624835374a9dc9ced0ec36944da9ae8cdd028de1d76863acd874c2",
+      "bytes": 2288141
     },
     {
       "path": "configs/docs/science_downloads.py",
@@ -538,6 +538,11 @@
       "path": "docs/report/pollen-reconstruction/age-interval-sensitivity/input-manifest.json",
       "sha256": "29c59ac308596444ee7abae1a1e4fe81e530157ee073dce5adc593a3fc99f4f4",
       "bytes": 1215
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/age-interval-sensitivity/joint-membership/report.json",
+      "sha256": "27ef48efc9b835251f9cc5ebf621a01dd855047e523657bf1cdb7dc91ddee940",
+      "bytes": 40866
     },
     {
       "path": "docs/report/pollen-reconstruction/age-interval-sensitivity/predictions-scored.csv",
@@ -2461,12 +2466,12 @@
     },
     {
       "path": "docs/report/report_surface_registry.json",
-      "sha256": "9ee792ce2c5a4631ae1faa9dd3bc5b440e7c2f22b5ee92a176a6ad02733db341",
-      "bytes": 950208
+      "sha256": "24160cf357c4b13274d51cde1cdce5c019e61d5a5986f335602b827e31ea9dc4",
+      "bytes": 950713
     },
     {
       "path": "docs/report/report_surface_registry.md",
-      "sha256": "195087bd9a3b49c9adb7db336c696e73a7b84caee3250971970849ba15938cb5",
+      "sha256": "1631ca49b240114f95a99f29c315f24640f5d861d09c4b76ad7a37e3bcb88732",
       "bytes": 1078
     },
     {

@@ -1420,6 +1420,17 @@
       "output_mode": "single_file",
       "timeout_seconds": 240,
       "external_source_descriptor": "configs/ci/qualified-report-sources/landclim-author-snapshot.json"
+    },
+    {
+      "module": "bijux_pollenomics_dev.source_completion.pollen_age_support.abborrtjarne_joint_membership",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "pollen-reconstruction/age-interval-sensitivity/joint-membership/report-products",
+      "source_arguments": [],
+      "source_paths": {
+        "source-products/report.json": "docs/report/pollen-reconstruction/age-interval-sensitivity/joint-membership/report.json"
+      },
+      "timeout_seconds": 120
     }
   ]
 }
