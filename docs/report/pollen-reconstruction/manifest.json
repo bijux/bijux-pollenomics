@@ -5510,6 +5510,11 @@
       "bytes": 8872
     },
     {
+      "path": "packages/bijux-pollenomics/tests/unit/analysis/propagation/network/test_golden_temporal_contracts.py",
+      "sha256": "d19022c17182bde305224453c66d53dbcffc13242c9c42e61ea1819d520d1e34",
+      "bytes": 5498
+    },
+    {
       "path": "packages/bijux-pollenomics/tests/unit/analysis/propagation/test_propagation_outputs/support/materialization.py",
       "sha256": "13d53cf7ce00d2bfa2c27a9bd15210a0816e7d2d7f283d68a22be28a5170b02e",
       "bytes": 4760
@@ -5891,8 +5896,8 @@
     },
     {
       "path": "packages/bijux-pollenomics/tests/unit/reporting/map_document/browser_semantics/test_time_and_degraded_modes.py",
-      "sha256": "f72975b0afbc4814bb7696249fe3b4e7ce5623c4acaacb10f73fe6667ed7adf9",
-      "bytes": 18899
+      "sha256": "3abb741499fa6b0b900ea90bb7ef3800fdda05faf4d370f215a0c72f2cbddaec",
+      "bytes": 18991
     },
     {
       "path": "packages/bijux-pollenomics/tests/unit/reporting/map_document/browser_semantics/test_visual_clarity.py",
