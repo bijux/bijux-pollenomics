@@ -21618,7 +21618,11 @@
         "data/neotoma/relational/surfaces/datasets/part-00001.json",
         "docs/report/regions/nordic/direct-pollen/cohort.csv",
         "docs/report/regions/nordic/direct-pollen/training-sources.csv",
-        "docs/report/source-relations/neotoma/pollen-screen/report.json"
+        "docs/report/source-relations/neotoma/pollen-screen/report.json",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/assets/document.html",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/assets/native-lra.js",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/assets/source-record-export.js",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/assets/url-state.js"
       ],
       "verification": "Run PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -m bijux_pollenomics_dev.source_completion.neotoma_entity_decisions --repository . --output artifacts/jobs/nordic-capability-reproduction/neotoma-entities with an absent destination, then compare report.json. Six retained source/study inputs;85 included and124 excluded dataset entities, not LRA admissions. This declaration is mechanical consumer custody; upstream materialization and qualification remain independently governed."
     },
@@ -27053,6 +27057,12 @@
         "docs/report/source-relations/neotoma/taxon-priority/priority.json"
       ],
       "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/audit.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/evidence.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/landclim.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/manifests.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/neotoma_parameter_candidates.py"
       ],
       "role": "generated_owner",
@@ -27068,7 +27078,13 @@
         "docs/report/source-relations/neotoma/parameter-candidates/report.json"
       ],
       "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/audit.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/evidence.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/landclim.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/landclim_parameter_correspondence.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/manifests.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/neotoma_parameter_mass.py"
       ],
       "role": "generated_owner",
@@ -27082,6 +27098,12 @@
         "docs/report/source-relations/neotoma/parameter-coverage/report.json"
       ],
       "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/audit.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/evidence.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/landclim.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/manifests.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/neotoma_parameter_mass.py"
       ],
       "producer_inputs": [
