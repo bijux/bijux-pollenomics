@@ -221,4 +221,4 @@ The matrix has 11 source families, 17 dimensions, and 187 source–dimension cel
 
 The source contract and materialization audit assign these states. The [retained machine-readable review](../../../report/source-relations/source-capability-evidence/report.json) names the evidence paths, file digests, coverage metrics, and reason codes for each cell. Source-specific lifecycle and four-country availability remain in the [source-family matrix](source-family-matrix.md) and [country limitations](country-source-limitations.md).
 
-Review SHA-256: `316dcd69b828c256ddb86e1d38b3836bdc50ba65626296d2ab9d427d6b80c103`.
+Review SHA-256: `a79f31d497aa2fc7abcfd94ecf302785c194407ade606dd2f44e2521239d72af`.
