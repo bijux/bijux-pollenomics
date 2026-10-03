@@ -69,10 +69,17 @@ class PointTraceabilityPublicationTests(MapPublicationTestCase):
         self.assertEqual(payload["layer_counts"], {"aadr": 2, "zebra": 1})
         layers = payload["layers"]
         self.assertIsInstance(layers, list)
-        self.assertEqual([layer["layer_key"] for layer in layers], ["aadr", "zebra"])
-        self.assertEqual(layers[0]["row_count"], 2)
+        assert isinstance(layers, list)
+        assert len(layers) == 2
+        first_layer, second_layer = layers
+        assert isinstance(first_layer, dict)
+        assert isinstance(second_layer, dict)
         self.assertEqual(
-            layers[0]["field_counts"],
+            [first_layer["layer_key"], second_layer["layer_key"]], ["aadr", "zebra"]
+        )
+        self.assertEqual(first_layer["row_count"], 2)
+        self.assertEqual(
+            first_layer["field_counts"],
             {
                 "title": 2,
                 "country": 2,
@@ -82,10 +89,17 @@ class PointTraceabilityPublicationTests(MapPublicationTestCase):
                 "coordinate_confidence": 0,
             },
         )
-        self.assertNotIn("source_url", layers[0]["records"][0])
-        self.assertEqual(layers[1]["records"][0]["record_id"], "zebra:1")
-        self.assertNotIn("layer_key", layers[1]["records"][0])
-        self.assertNotIn("scope_key", layers[1]["records"][0])
+        first_records = first_layer["records"]
+        second_records = second_layer["records"]
+        assert isinstance(first_records, list) and len(first_records) == 2
+        assert isinstance(second_records, list) and len(second_records) == 1
+        first_record, second_record = first_records[0], second_records[0]
+        assert isinstance(first_record, dict)
+        assert isinstance(second_record, dict)
+        self.assertNotIn("source_url", first_record)
+        self.assertEqual(second_record["record_id"], "zebra:1")
+        self.assertNotIn("layer_key", second_record)
+        self.assertNotIn("scope_key", second_record)
 
         markdown = render_map_point_traceability_markdown(payload)
         self.assertIn("Visible point rows: `3`", markdown)

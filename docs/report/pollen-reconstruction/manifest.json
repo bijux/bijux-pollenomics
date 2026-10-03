@@ -4345,6 +4345,26 @@
       "bytes": 743
     },
     {
+      "path": "packages/bijux-pollenomics/tests/unit/reporting/atlas/map_publication/test_context_layers.py",
+      "sha256": "422d06d7f8482f1f1de3e760081a8e2457ba84e7a882fad806865586934d02f4",
+      "bytes": 16354
+    },
+    {
+      "path": "packages/bijux-pollenomics/tests/unit/reporting/atlas/map_publication/test_point_traceability_contract.py",
+      "sha256": "36459dc0a0c92dde874b07a7c2e88dcd13e65b201ca6346fcd63d0dbf8b683e9",
+      "bytes": 4597
+    },
+    {
+      "path": "packages/bijux-pollenomics/tests/unit/reporting/atlas/map_publication/test_publication_contract.py",
+      "sha256": "b757dcc954c45d4823169e8d7d439e67a35a2ef435f585c046a395e67a18cad4",
+      "bytes": 18036
+    },
+    {
+      "path": "packages/bijux-pollenomics/tests/unit/reporting/atlas/test_publication_geography.py",
+      "sha256": "ff24b31a4f3fbbff577252b58ac7187f5288377b7c9c668b711f579cf1876d77",
+      "bytes": 19783
+    },
+    {
       "path": "packages/bijux-pollenomics/tests/unit/reporting/atlas/test_publication_geography_payloads.py",
       "sha256": "74919d5b0ef9893d160e1793b643ca012cc937100048c50841c075159e3b86e7",
       "bytes": 2510

@@ -18,6 +18,7 @@ from bijux_pollenomics.reporting.bundles.summary_builders import (
     build_published_reports_summary,
 )
 from bijux_pollenomics.reporting.geography import (
+    GeographicScope,
     build_geography_onboarding_contract,
     build_published_geography_plan,
     infer_publication_scope,
@@ -98,10 +99,15 @@ class PublicationGeographyTests(unittest.TestCase):
             payload["schema_version"], "publication-country-onboarding-contract.v1"
         )
         self.assertEqual(payload["example_country"], "Germany")
-        self.assertEqual(len(payload["code_contracts"]), 3)
-        self.assertEqual(len(payload["data_contracts"]), 3)
-        self.assertEqual(len(payload["docs_contracts"]), 3)
-        self.assertEqual(len(payload["test_contracts"]), 3)
+        for field in (
+            "code_contracts",
+            "data_contracts",
+            "docs_contracts",
+            "test_contracts",
+        ):
+            contracts = payload[field]
+            assert isinstance(contracts, list)
+            self.assertEqual(len(contracts), 3)
         self.assertIn("Country Publication Onboarding", markdown)
 
     def test_build_published_reports_summary_exposes_world_region_and_country_bundles(
@@ -148,7 +154,11 @@ class PublicationGeographyTests(unittest.TestCase):
             },
         )
 
-        self.assertEqual(published["geography_bundles"]["world"]["slug"], "world")
+        geography_bundles = published["geography_bundles"]
+        assert isinstance(geography_bundles, dict)
+        world_bundle = geography_bundles["world"]
+        assert isinstance(world_bundle, dict)
+        self.assertEqual(world_bundle["slug"], "world")
         self.assertEqual(published["shared_map_dir"], "docs/report/world")
         self.assertEqual(
             published["regional_output_dirs"],
@@ -162,14 +172,22 @@ class PublicationGeographyTests(unittest.TestCase):
             published["summary_path"],
             "docs/report/published_reports_summary.json",
         )
-        self.assertIn("europe-plus", published["geography_bundles"]["regions"])
-        self.assertIn("nordic", published["geography_bundles"]["regions"])
+        regions = geography_bundles["regions"]
+        assert isinstance(regions, dict)
+        self.assertIn("europe-plus", regions)
+        self.assertIn("nordic", regions)
+        artifacts = published["artifacts"]
+        assert isinstance(artifacts, dict)
+        country_bundles = artifacts["country_bundles"]
+        assert isinstance(country_bundles, dict)
+        sweden_bundle = country_bundles["sweden"]
+        assert isinstance(sweden_bundle, dict)
         self.assertEqual(
-            published["artifacts"]["country_bundles"]["sweden"]["parent_scope"],
+            sweden_bundle["parent_scope"],
             "nordic",
         )
         self.assertEqual(
-            published["artifacts"]["publication_geography_registry_json"],
+            artifacts["publication_geography_registry_json"],
             "publication_geography_registry.json",
         )
 
@@ -183,6 +201,9 @@ class PublicationGeographyTests(unittest.TestCase):
             observed_published_dirs: list[Path] = []
             observed_docs_roots: list[Path] = []
             observed_sustainability_roots: list[Path] = []
+
+            def write_summary_json(path: Path, payload: dict[str, object]) -> None:
+                path.write_text(json.dumps(payload, indent=2), encoding="utf-8")
 
             def fake_publish_foundation_outputs(
                 output_root: Path, *, docs_root: Path, **_: object
@@ -230,7 +251,7 @@ class PublicationGeographyTests(unittest.TestCase):
                 slug: str,
                 context_root: Path | None,
                 published_output_dir: Path | None,
-                geography_scope,
+                geography_scope: GeographicScope,
             ) -> MultiCountryMapReport:
                 del version_dir, context_root
                 assert published_output_dir is not None
@@ -291,7 +312,7 @@ class PublicationGeographyTests(unittest.TestCase):
                 version_dir: Path,
                 country: str,
                 output_dir: Path,
-                map_reference,
+                map_reference: tuple[str, str],
                 published_output_dir: Path | None,
                 context_root: Path | None,
             ) -> CountryReport:
@@ -384,9 +405,7 @@ class PublicationGeographyTests(unittest.TestCase):
                     generate_country_report_fn=fake_generate_country_report_fn,
                     generate_multi_country_map_fn=fake_generate_multi_country_map_fn,
                     slugify_fn=lambda value: value.lower().replace(" ", "-"),
-                    write_summary_json_fn=lambda path, payload: path.write_text(
-                        json.dumps(payload, indent=2), encoding="utf-8"
-                    ),
+                    write_summary_json_fn=write_summary_json,
                 )
 
             self.assertEqual(report.shared_map_dir, published_output_root / "world")
