@@ -3811,8 +3811,8 @@
     },
     {
       "path": "packages/bijux-pollenomics-dev/tests/source_completion/pollen_reconstruction/test_english_shared_ppe.py",
-      "sha256": "41e61a3787244eeab95123b98ab9b9ddbe1aed3f686ad203ff4ec86ea6148003",
-      "bytes": 11024
+      "sha256": "b0e4907346c1def8496054bb883aa9cc9520d85294f5b1d11b238ea4b0204e3a",
+      "bytes": 11124
     },
     {
       "path": "packages/bijux-pollenomics-dev/tests/source_completion/pollen_taxonomy/test_author_candidates.py",
@@ -3838,6 +3838,11 @@
       "path": "packages/bijux-pollenomics-dev/tests/source_completion/propagation/test_native_readiness.py",
       "sha256": "249a7a20eb74510d3bcc267735e08d77cc0a0e172f1b8a8904b3ed052408e47b",
       "bytes": 5131
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/tests/source_completion/sead/test_boolean_values.py",
+      "sha256": "637cd6b1ba52ae7e29368ce4fd2a2ce9e6b65b0aec89a9299b6b76c5e7c20e47",
+      "bytes": 3235
     },
     {
       "path": "packages/bijux-pollenomics-dev/tests/source_completion/sead/test_categorical_values.py",

@@ -30,7 +30,7 @@ def test_source_false_and_null_have_distinct_states() -> None:
 def test_parent_display_is_preserved_without_boolean_coercion(value: object) -> None:
     parent = {"analysis_value_id": 2, "analysis_value": "source display"}
     component = {"analysis_boolean_value_id": 1, "analysis_value_id": 2, "value": value}
-    observation = {
+    observation: dict[str, object] = {
         "source_table": "tbl_analysis_values",
         "source_record_id": "2",
         "source_payload_sha256": "parent-digest",
@@ -44,9 +44,13 @@ def test_parent_display_is_preserved_without_boolean_coercion(value: object) -> 
     }
     _reconcile_component(observation, parent, [component], "parent-digest")
     changed = copy.deepcopy(observation)
-    changed["source_components"]["tbl_analysis_boolean_values"][0]["value"] = (
-        1 if value else 0
-    )
+    components = changed["source_components"]
+    assert isinstance(components, dict)
+    boolean_rows = components["tbl_analysis_boolean_values"]
+    assert isinstance(boolean_rows, list)
+    boolean_row = boolean_rows[0]
+    assert isinstance(boolean_row, dict)
+    boolean_row["value"] = 1 if value else 0
     with pytest.raises(ValueError, match="boolean components differ"):
         _reconcile_component(changed, parent, [component], "parent-digest")
     changed = {**observation, "source_value": True}

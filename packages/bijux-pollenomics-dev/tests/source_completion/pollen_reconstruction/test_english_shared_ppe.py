@@ -2,11 +2,13 @@
 
 from __future__ import annotations
 
+from collections.abc import Sequence
 import copy
 import csv
 import hashlib
 import json
 from pathlib import Path
+import runpy
 from types import SimpleNamespace
 
 import numpy as np
@@ -25,7 +27,7 @@ def _sha(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
-def _csv(path: Path, rows: list[list[object]]) -> None:
+def _csv(path: Path, rows: Sequence[Sequence[object]]) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     with path.open("w", newline="") as stream:
         csv.writer(stream).writerows(rows)
@@ -78,7 +80,9 @@ def test_source_moments_match_exact_axis_and_diagonal(tmp_path: Path) -> None:
 def test_source_off_diagonal_and_axis_refused(tmp_path: Path) -> None:
     root, payload = _source_case(tmp_path)
     bad_axis = copy.deepcopy(payload)
-    bad_axis["taxa"][0] = "Other"
+    axis = bad_axis["taxa"]
+    assert isinstance(axis, list)
+    axis[0] = "Other"
     with pytest.raises(ValueError, match="taxon mapping"):
         subject._source_moments(root, bad_axis)
     covariance = root / "author/run.REVEALS.files/avar-RPP.all.landclimII.csv"
@@ -260,7 +264,7 @@ def test_postread_source_change_removes_stage_without_output(
         lambda *args: next(calls),
     )
     monkeypatch.setattr(
-        subject.runpy, "run_path", lambda *args, **kwargs: {"prepare": lambda *args: {}}
+        runpy, "run_path", lambda *args, **kwargs: {"prepare": lambda *args: {}}
     )
     monkeypatch.setattr(
         subject,
