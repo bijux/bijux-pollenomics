@@ -3250,6 +3250,11 @@
       "bytes": 7492
     },
     {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/__main__.py",
+      "sha256": "0512e48bb83b9202d5a8e2a9ab2e18dbc3acc93c7216e7f29b5ebaf5818d5a90",
+      "bytes": 2177
+    },
+    {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/abbo_profile_lineage.py",
       "sha256": "054913554ae1a4b4527bcf06a5a713e1cd7ffdb85bd35b1bb8198b036ba83cb3",
       "bytes": 6758
@@ -3838,6 +3843,16 @@
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/propagation/native_readiness.py",
       "sha256": "0c3e0189e55b34543ba80dbb291d81cd22a6ffc959bc1d498d320bac018308ca",
       "bytes": 3759
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/publication/__init__.py",
+      "sha256": "fe54694a5b04eb9c0539221d50d75071eaadbc377c6ed058aa3da2d746bcf056",
+      "bytes": 76
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/publication/json_outputs.py",
+      "sha256": "6f145facde5267cb6f951d6318c67c93e912da192a0578aecb7d7a7df54bfaed",
+      "bytes": 3966
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sambosjon_age_bounds.py",
@@ -4503,6 +4518,11 @@
       "path": "packages/bijux-pollenomics-dev/tests/source_completion/test_abbo_age_controls.py",
       "sha256": "93893d75fa22adb63ddd2801a34af6ccf9bc675d2d356c02621c9915c51d50c0",
       "bytes": 4260
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/tests/source_completion/test_audit_output_publication.py",
+      "sha256": "ae4bb4107b531b3460e4505c9c7f23418f75f9db82a8691c208aff2f79e253b9",
+      "bytes": 10095
     },
     {
       "path": "packages/bijux-pollenomics-dev/tests/source_completion/test_bjaresjo_context.py",
