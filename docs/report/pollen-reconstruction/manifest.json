@@ -5531,7 +5531,7 @@
     },
     {
       "path": "presentation/source-lock.json",
-      "sha256": "e9edb1eec791281f899c0a0cdc35ba449a2346c189ee94c23119d144637a8c5b",
+      "sha256": "66c2740eeeb2d01b30df540819b002d26a2c507d3f8cafcdb856f852c8babbf6",
       "bytes": 12768
     },
     {
@@ -5621,7 +5621,7 @@
     },
     {
       "path": "reports/exports/site-downloads.json",
-      "sha256": "b8ed91252383f1979b3a9c4384a83d7920d2bebe3e3b10fbfa457c1017bc15ec",
+      "sha256": "3499267e251f5cb52b30d11b43730520590fc43d72601e5717754c7aa7ed7fd5",
       "bytes": 5774
     },
     {
@@ -5631,8 +5631,8 @@
     },
     {
       "path": "reports/needed/report-claims.csv",
-      "sha256": "24c060bf5360680dffceb29f6238d4095389ecb90f006463727c1d5e93db7509",
-      "bytes": 87703
+      "sha256": "96130112ee73af282717c27f770b44fad8ade383f751a40752db4911ef3e48ee",
+      "bytes": 88122
     },
     {
       "path": "reports/needed/report-claims.md",
@@ -5646,7 +5646,7 @@
     },
     {
       "path": "reports/needed/scientific-review.csv",
-      "sha256": "45744f019f81ddc23b0b92380d350239f4f0cdf44ed4768a24753b14f7eb3725",
+      "sha256": "124f4403052bd91a587b5ccf4a9ad57df0a5ea3e947b5b1daad0af3ee2629071",
       "bytes": 64566
     },
     {
@@ -5791,8 +5791,8 @@
     },
     {
       "path": "reports/science/english-lra-pollen-prediction.md",
-      "sha256": "e41748ba5bc74c44b1aac67e8c0aa805448007cd5d5eb029902b9c90706258b3",
-      "bytes": 18934
+      "sha256": "45046c61cdf2108203e6c8257232cf4c939f12be268d57d5f01b513580e8062e",
+      "bytes": 20379
     },
     {
       "path": "reports/science/hellman-regional-validation-paper.md",
