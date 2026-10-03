@@ -3625,6 +3625,11 @@
       "bytes": 3879
     },
     {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_age_support/interval_sensitivity.py",
+      "sha256": "85147f1b21986868fc9ff73af739f4393ed9589ea670e0036e839726f147e1bd",
+      "bytes": 11352
+    },
+    {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_age_support/joint_membership.py",
       "sha256": "6d8f9e1c96c1735227fc31790005851302221c760ae9f0e1479172537a38cd6e",
       "bytes": 11250
@@ -4148,6 +4153,11 @@
       "path": "packages/bijux-pollenomics-dev/tests/source_completion/pollen_age_support/test_interval_fraction.py",
       "sha256": "80a40d9edf000ccb658850ced826aea05aff0595fbcb69fa9ae2914f39441b96",
       "bytes": 3627
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/tests/source_completion/pollen_age_support/test_interval_sensitivity.py",
+      "sha256": "ef6b25fc87f296286d0e2d5ecd73a697425703e460c00def0b87f32332e4d215",
+      "bytes": 9860
     },
     {
       "path": "packages/bijux-pollenomics-dev/tests/source_completion/pollen_age_support/test_joint_membership.py",
