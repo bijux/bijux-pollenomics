@@ -245,6 +245,11 @@
       "bytes": 10259
     },
     {
+      "path": "docs/public/pollenomics-data/sources/source-capability-and-materialization.md",
+      "sha256": "5e6bdd62ccd66c5d5fe4807af7bbff38d4703829f97b091e39730b79ca85c0c1",
+      "bytes": 16641
+    },
+    {
       "path": "docs/public/pollenomics/interfaces/atlas-walkthrough.md",
       "sha256": "a3a164c9f054b97e33115dd137b0012047665856f0b32f5fbf8955d578704fa4",
       "bytes": 10818
@@ -2486,7 +2491,7 @@
     },
     {
       "path": "docs/report/report_narrative_quality_review.json",
-      "sha256": "d0d6b4350f508062e0d658ccbb68bdaea889e35d31535c6c2025b0873dfd70fe",
+      "sha256": "743888ce0e7893ae3cc9f6f75235a5682c5c97984ceef2330637ba3abe7d8623",
       "bytes": 141134
     },
     {
@@ -2496,7 +2501,7 @@
     },
     {
       "path": "docs/report/report_surface_registry.json",
-      "sha256": "7285e58f35869280c55f606c4d209ca30c7fefb906715e08df7ec0bdc87003b3",
+      "sha256": "ccdbeff8468c757b877548f1f0f7a6b170c664596b548d347ae5f8f1f3807734",
       "bytes": 954796
     },
     {
@@ -2881,8 +2886,13 @@
     },
     {
       "path": "docs/report/source-relations/source-capability-evidence/README.md",
-      "sha256": "8697bb846919c3969c8d18e45a3b729a630cf83af2890ca9250b5abceacd447b",
-      "bytes": 2394
+      "sha256": "d29b724520011b6ef56e95c13fb86662a68d17b96a14384fbb593c325c304920",
+      "bytes": 2873
+    },
+    {
+      "path": "docs/report/source-relations/source-capability-evidence/report.json",
+      "sha256": "c075105112d69c6276ecdf9825e51a61ac9ff2846c2040bed1b88ef5066479ec",
+      "bytes": 140403
     },
     {
       "path": "docs/report/source-relations/source-reconciliation/README.md",
