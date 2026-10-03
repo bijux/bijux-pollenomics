@@ -290,19 +290,13 @@ def test_batch_preserves_parent_failure_without_invented_state(
 
 
 @pytest.mark.parametrize(
-    ("mutation", "value"),
-    [
-        ("reason", "unrelated_failure"),
-        ("observation", (("Alnus", 1.0),)),
-        ("observation_reference_id", "opened-outcome"),
-        ("prediction_sha256", "d" * 64),
-    ],
+    "mutation",
+    ["reason", "observation", "observation_reference_id", "prediction_sha256"],
 )
 def test_batch_refuses_forged_state_on_parent_failure(
     tmp_path: Path,
     monkeypatch: pytest.MonkeyPatch,
     mutation: str,
-    value: object,
 ) -> None:
     method = FITTED_METHOD
     entry = _entry(method)
@@ -324,9 +318,17 @@ def test_batch_refuses_forged_state_on_parent_failure(
         fit_input_ids=(),
         reason="parent_refused:no_admitted_training",
     )
+    if mutation == "reason":
+        forged = replace(failed, reason="unrelated_failure")
+    elif mutation == "observation":
+        forged = replace(failed, observation=(("Alnus", 1.0),))
+    elif mutation == "observation_reference_id":
+        forged = replace(failed, observation_reference_id="opened-outcome")
+    else:
+        forged = replace(failed, prediction_sha256="d" * 64)
     with pytest.raises(ValidationRefusal, match="differs from its uncertainty"):
         block_intervals.freeze_authenticated_block_pollen_rows(
-            (replace(failed, **{mutation: value}),),
+            (forged,),
             predictions=tmp_path / "predictions",
             expected_prediction_manifest_sha256="a" * 64,
             uncertainty=tmp_path / "uncertainty",

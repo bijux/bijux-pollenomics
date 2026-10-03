@@ -4335,6 +4335,36 @@
       "bytes": 7399
     },
     {
+      "path": "packages/bijux-pollenomics/tests/unit/analysis/lra_validation/evaluation/block_products/test_rows.py",
+      "sha256": "7530dc0932b8b88e0c0b2de806aedde0d03aa2443128dfca7da2c8fc394c6ece",
+      "bytes": 10418
+    },
+    {
+      "path": "packages/bijux-pollenomics/tests/unit/analysis/lra_validation/evaluation/grouped_local_rows/test_rows.py",
+      "sha256": "e04d7d773b5947569072383ec96c1f10ffa09f405e02a8624fd920a884a2ba97",
+      "bytes": 13710
+    },
+    {
+      "path": "packages/bijux-pollenomics/tests/unit/analysis/lra_validation/evaluation/grouped_products/test_rows.py",
+      "sha256": "70cee02b78837a1b0a8a894c99c5ccb398d53449e0eaa5adf8e2a1059878a97c",
+      "bytes": 12621
+    },
+    {
+      "path": "packages/bijux-pollenomics/tests/unit/analysis/lra_validation/evaluation/intervals/test_spatial_blocks.py",
+      "sha256": "1a841d67fb78676a7a9f9583c68851ed99a3f698e6c9f51d929ad04fb608ccb8",
+      "bytes": 11225
+    },
+    {
+      "path": "packages/bijux-pollenomics/tests/unit/analysis/lra_validation/evaluation/intervals/test_standard.py",
+      "sha256": "899a53bacc5594ca71d8bf62fba9461acaa1340de07deb9ddacf4dbc902575c1",
+      "bytes": 16122
+    },
+    {
+      "path": "packages/bijux-pollenomics/tests/unit/analysis/lra_validation/evaluation/test_block_local_rows.py",
+      "sha256": "eac5d64af8e2c26799952b16e21035775e73dc8ad43d92288435094b1be672f2",
+      "bytes": 11696
+    },
+    {
       "path": "packages/bijux-pollenomics/tests/unit/collection/sources/neotoma/country/test_propagation.py",
       "sha256": "67ec27ed736c6d83843dbbfa12042ed98e2e29316c8547f02470657a29a03f07",
       "bytes": 7610

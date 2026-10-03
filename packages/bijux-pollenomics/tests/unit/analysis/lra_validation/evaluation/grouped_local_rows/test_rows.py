@@ -32,6 +32,17 @@ from bijux_pollenomics.analysis.lra_validation.experiments.configuration import 
 )
 
 
+def _mapping(value: object) -> dict[str, object]:
+    assert isinstance(value, dict)
+    assert all(isinstance(key, str) for key in value)
+    return value
+
+
+def _rows(value: object) -> list[dict[str, object]]:
+    assert isinstance(value, list)
+    return [_mapping(row) for row in value]
+
+
 def _scope() -> EvaluationScope:
     fold = Fold("fold:p3", ("p1", "p2"), ("p3",), ("g1", "g2"), ("g3",))
     fit = "experiment-fit:" + "4" * 64
@@ -238,7 +249,8 @@ def test_adapter_freezes_local_love_and_pollen_free_training_mean(
     assert baseline.observed_pollen is None
     assert baseline.fitted_model_sha256 is None
     assert all(
-        row.observation is row.interval is None
+        row.observation is None
+        and row.interval is None
         and validate_frozen_prediction(row) == "pollenomics-evaluation-prediction.v2"
         for row in (model, baseline)
     )
@@ -257,7 +269,7 @@ def test_independent_parent_failure_remains_value_free(
     reason: str,
 ) -> None:
     fold = _scope().folds[0]
-    failure = {
+    failure: dict[str, object] = {
         "fold_id": fold.fold_id,
         "record_ids": ["p3"],
         "status": status,
@@ -281,7 +293,8 @@ def test_independent_parent_failure_remains_value_free(
     other = rows[1 if parent == "local" else 0]
     assert selected.status == "prediction_failed"
     assert selected.reason == f"parent_{status}:{reason}"
-    assert selected.prediction is selected.source_model is None
+    assert selected.prediction is None
+    assert selected.source_model is None
     assert selected.prediction_sha256 is selected.prediction_manifest_json is None
     assert selected.fit_input_ids == ()
     assert other.status == "predicted"
@@ -313,7 +326,7 @@ def test_scope_source_or_support_contradiction_refuses(
     local = deepcopy(_local())
     baseline = deepcopy(_baseline())
     local_folds = None
-    methods = FITTED_METHODS
+    methods: tuple[str, ...] = FITTED_METHODS
     if mutation == "fold":
         fold = scope.folds[0]
         local_folds = {fold.fold_id: {**fold.as_dict(), "train_record_ids": ["p1"]}}
@@ -335,22 +348,27 @@ def test_scope_source_or_support_contradiction_refuses(
             "train_record_ids": ["p1"],
         }
     elif mutation == "pollen_digest":
-        observed = local["channel_admission"]["observed_pollen"]
-        observed["pollen_channels"][0]["source_sha256"] = "8" * 64
+        channel = _mapping(local["channel_admission"])
+        observed = _mapping(channel["observed_pollen"])
+        _rows(observed["pollen_channels"])[0]["source_sha256"] = "8" * 64
     elif mutation == "regional_digest":
-        consumed = local["channel_admission"]["consumed_pollen_sources"]
+        consumed = _rows(
+            _mapping(local["channel_admission"])["consumed_pollen_sources"]
+        )
         consumed[0]["source_sha256"] = "8" * 64
     elif mutation == "pollen_graph":
-        local["channel_admission"]["quantitative_lineage"]["raw:p3"] = ["p3"]
+        channel = _mapping(local["channel_admission"])
+        _mapping(channel["quantitative_lineage"])["raw:p3"] = ["p3"]
     elif mutation == "baseline_graph":
         fit = "experiment-fit:" + "4" * 64
-        baseline["baseline_model_manifest"]["input_lineage"][fit] = ["p1"]
+        model = _mapping(baseline["baseline_model_manifest"])
+        _mapping(model["input_lineage"])[fit] = ["p1"]
     elif mutation == "baseline_external":
-        baseline["baseline_model_manifest"]["training_external_ids"] = [
+        _mapping(baseline["baseline_model_manifest"])["training_external_ids"] = [
             "experiment-fit:" + "7" * 64
         ]
     else:
-        baseline["baseline_model_manifest"]["training_external_ids"] = [
+        _mapping(baseline["baseline_model_manifest"])["training_external_ids"] = [
             "experiment-fit:" + "4" * 64
         ]
     _install(
