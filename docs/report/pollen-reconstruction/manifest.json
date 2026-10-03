@@ -2895,6 +2895,11 @@
       "bytes": 1050
     },
     {
+      "path": "docs/report/synthetic-validation/propagation/report.json",
+      "sha256": "6221c2efb076e2136b48d6d4330ab97aa407141d192b6efcd3478c2cc40e0540",
+      "bytes": 2435140
+    },
+    {
       "path": "docs/report/vegetation-reference/farskesjon/README.md",
       "sha256": "d1601d84f868973b98de600d2704f946d5fb3ba7aa49bd7597e7d13fbacddea9",
       "bytes": 823

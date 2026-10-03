@@ -1774,7 +1774,10 @@
             "target_country_code": "NO",
             "feature_key": "whole:pollen",
             "scenario_id": "rectangular_100km_100yr_v1",
-            "reason_code": "same_governed_site"
+            "reason_code": "same_governed_site",
+            "config_digest": "d04e1866786cb586389b74279779cb5d50e7619ef7120e31a4d0222e3e49a7b3",
+            "propagation_contract_version": "1.0.0",
+            "producer_version": "propagation-network.v1"
           },
           "distance_error_km": null,
           "network_membership": "refused",
@@ -2145,7 +2148,10 @@
             "target_country_code": "SE",
             "feature_key": "whole:pollen",
             "scenario_id": "rectangular_100km_100yr_v1",
-            "reason_code": "duplicate_underlying_observation"
+            "reason_code": "duplicate_underlying_observation",
+            "config_digest": "d04e1866786cb586389b74279779cb5d50e7619ef7120e31a4d0222e3e49a7b3",
+            "propagation_contract_version": "1.0.0",
+            "producer_version": "propagation-network.v1"
           },
           "distance_error_km": null,
           "network_membership": "refused",
@@ -3566,7 +3572,10 @@
             "target_country_code": "NO",
             "feature_key": "whole:pollen",
             "scenario_id": "rectangular_100km_100yr_v1",
-            "reason_code": "same_governed_site"
+            "reason_code": "same_governed_site",
+            "config_digest": "d04e1866786cb586389b74279779cb5d50e7619ef7120e31a4d0222e3e49a7b3",
+            "propagation_contract_version": "1.0.0",
+            "producer_version": "propagation-network.v1"
           },
           "distance_error_km": null,
           "network_membership": "refused",
@@ -3937,7 +3946,10 @@
             "target_country_code": "SE",
             "feature_key": "whole:pollen",
             "scenario_id": "rectangular_100km_100yr_v1",
-            "reason_code": "duplicate_underlying_observation"
+            "reason_code": "duplicate_underlying_observation",
+            "config_digest": "d04e1866786cb586389b74279779cb5d50e7619ef7120e31a4d0222e3e49a7b3",
+            "propagation_contract_version": "1.0.0",
+            "producer_version": "propagation-network.v1"
           },
           "distance_error_km": null,
           "network_membership": "refused",
@@ -5202,7 +5214,10 @@
             "target_country_code": "NO",
             "feature_key": "whole:pollen",
             "scenario_id": "rectangular_100km_200yr_v1",
-            "reason_code": "same_governed_site"
+            "reason_code": "same_governed_site",
+            "config_digest": "b72901594e5aa3d69dda736b8902274090908951d0c247531839c0f3fc71c1b2",
+            "propagation_contract_version": "1.0.0",
+            "producer_version": "propagation-network.v1"
           },
           "distance_error_km": null,
           "network_membership": "refused",
@@ -5573,7 +5588,10 @@
             "target_country_code": "SE",
             "feature_key": "whole:pollen",
             "scenario_id": "rectangular_100km_200yr_v1",
-            "reason_code": "duplicate_underlying_observation"
+            "reason_code": "duplicate_underlying_observation",
+            "config_digest": "b72901594e5aa3d69dda736b8902274090908951d0c247531839c0f3fc71c1b2",
+            "propagation_contract_version": "1.0.0",
+            "producer_version": "propagation-network.v1"
           },
           "distance_error_km": null,
           "network_membership": "refused",
@@ -6994,7 +7012,10 @@
             "target_country_code": "NO",
             "feature_key": "whole:pollen",
             "scenario_id": "rectangular_100km_200yr_v1",
-            "reason_code": "same_governed_site"
+            "reason_code": "same_governed_site",
+            "config_digest": "b72901594e5aa3d69dda736b8902274090908951d0c247531839c0f3fc71c1b2",
+            "propagation_contract_version": "1.0.0",
+            "producer_version": "propagation-network.v1"
           },
           "distance_error_km": null,
           "network_membership": "refused",
@@ -7365,7 +7386,10 @@
             "target_country_code": "SE",
             "feature_key": "whole:pollen",
             "scenario_id": "rectangular_100km_200yr_v1",
-            "reason_code": "duplicate_underlying_observation"
+            "reason_code": "duplicate_underlying_observation",
+            "config_digest": "b72901594e5aa3d69dda736b8902274090908951d0c247531839c0f3fc71c1b2",
+            "propagation_contract_version": "1.0.0",
+            "producer_version": "propagation-network.v1"
           },
           "distance_error_km": null,
           "network_membership": "refused",
@@ -8630,7 +8654,10 @@
             "target_country_code": "NO",
             "feature_key": "whole:pollen",
             "scenario_id": "rectangular_100km_500yr_v1",
-            "reason_code": "same_governed_site"
+            "reason_code": "same_governed_site",
+            "config_digest": "81ae177daafcd2b22d0cae46aa44e59b4ccc681ae3c459b0fdce0a68742a7e2b",
+            "propagation_contract_version": "1.0.0",
+            "producer_version": "propagation-network.v1"
           },
           "distance_error_km": null,
           "network_membership": "refused",
@@ -9001,7 +9028,10 @@
             "target_country_code": "SE",
             "feature_key": "whole:pollen",
             "scenario_id": "rectangular_100km_500yr_v1",
-            "reason_code": "duplicate_underlying_observation"
+            "reason_code": "duplicate_underlying_observation",
+            "config_digest": "81ae177daafcd2b22d0cae46aa44e59b4ccc681ae3c459b0fdce0a68742a7e2b",
+            "propagation_contract_version": "1.0.0",
+            "producer_version": "propagation-network.v1"
           },
           "distance_error_km": null,
           "network_membership": "refused",
@@ -10422,7 +10452,10 @@
             "target_country_code": "NO",
             "feature_key": "whole:pollen",
             "scenario_id": "rectangular_100km_500yr_v1",
-            "reason_code": "same_governed_site"
+            "reason_code": "same_governed_site",
+            "config_digest": "81ae177daafcd2b22d0cae46aa44e59b4ccc681ae3c459b0fdce0a68742a7e2b",
+            "propagation_contract_version": "1.0.0",
+            "producer_version": "propagation-network.v1"
           },
           "distance_error_km": null,
           "network_membership": "refused",
@@ -10793,7 +10826,10 @@
             "target_country_code": "SE",
             "feature_key": "whole:pollen",
             "scenario_id": "rectangular_100km_500yr_v1",
-            "reason_code": "duplicate_underlying_observation"
+            "reason_code": "duplicate_underlying_observation",
+            "config_digest": "81ae177daafcd2b22d0cae46aa44e59b4ccc681ae3c459b0fdce0a68742a7e2b",
+            "propagation_contract_version": "1.0.0",
+            "producer_version": "propagation-network.v1"
           },
           "distance_error_km": null,
           "network_membership": "refused",
@@ -12093,7 +12129,10 @@
             "target_country_code": "NO",
             "feature_key": "whole:pollen",
             "scenario_id": "rectangular_100km_50yr_v1",
-            "reason_code": "same_governed_site"
+            "reason_code": "same_governed_site",
+            "config_digest": "820bb2ec6a2e0665490c3871c782edfe1f7b696e3558d37c5f11fa85fd31115e",
+            "propagation_contract_version": "1.0.0",
+            "producer_version": "propagation-network.v1"
           },
           "distance_error_km": null,
           "network_membership": "refused",
@@ -12464,7 +12503,10 @@
             "target_country_code": "SE",
             "feature_key": "whole:pollen",
             "scenario_id": "rectangular_100km_50yr_v1",
-            "reason_code": "duplicate_underlying_observation"
+            "reason_code": "duplicate_underlying_observation",
+            "config_digest": "820bb2ec6a2e0665490c3871c782edfe1f7b696e3558d37c5f11fa85fd31115e",
+            "propagation_contract_version": "1.0.0",
+            "producer_version": "propagation-network.v1"
           },
           "distance_error_km": null,
           "network_membership": "refused",
@@ -13885,7 +13927,10 @@
             "target_country_code": "NO",
             "feature_key": "whole:pollen",
             "scenario_id": "rectangular_100km_50yr_v1",
-            "reason_code": "same_governed_site"
+            "reason_code": "same_governed_site",
+            "config_digest": "820bb2ec6a2e0665490c3871c782edfe1f7b696e3558d37c5f11fa85fd31115e",
+            "propagation_contract_version": "1.0.0",
+            "producer_version": "propagation-network.v1"
           },
           "distance_error_km": null,
           "network_membership": "refused",
@@ -14256,7 +14301,10 @@
             "target_country_code": "SE",
             "feature_key": "whole:pollen",
             "scenario_id": "rectangular_100km_50yr_v1",
-            "reason_code": "duplicate_underlying_observation"
+            "reason_code": "duplicate_underlying_observation",
+            "config_digest": "820bb2ec6a2e0665490c3871c782edfe1f7b696e3558d37c5f11fa85fd31115e",
+            "propagation_contract_version": "1.0.0",
+            "producer_version": "propagation-network.v1"
           },
           "distance_error_km": null,
           "network_membership": "refused",
@@ -15311,7 +15359,10 @@
             "target_country_code": "NO",
             "feature_key": "whole:pollen",
             "scenario_id": "rectangular_200km_100yr_v1",
-            "reason_code": "same_governed_site"
+            "reason_code": "same_governed_site",
+            "config_digest": "b073720a6d5e7251086834d59644a07d0600b4151d4bd9628fcd368ffe5bd7b4",
+            "propagation_contract_version": "1.0.0",
+            "producer_version": "propagation-network.v1"
           },
           "distance_error_km": null,
           "network_membership": "refused",
@@ -15682,7 +15733,10 @@
             "target_country_code": "SE",
             "feature_key": "whole:pollen",
             "scenario_id": "rectangular_200km_100yr_v1",
-            "reason_code": "duplicate_underlying_observation"
+            "reason_code": "duplicate_underlying_observation",
+            "config_digest": "b073720a6d5e7251086834d59644a07d0600b4151d4bd9628fcd368ffe5bd7b4",
+            "propagation_contract_version": "1.0.0",
+            "producer_version": "propagation-network.v1"
           },
           "distance_error_km": null,
           "network_membership": "refused",
@@ -17103,7 +17157,10 @@
             "target_country_code": "NO",
             "feature_key": "whole:pollen",
             "scenario_id": "rectangular_200km_100yr_v1",
-            "reason_code": "same_governed_site"
+            "reason_code": "same_governed_site",
+            "config_digest": "b073720a6d5e7251086834d59644a07d0600b4151d4bd9628fcd368ffe5bd7b4",
+            "propagation_contract_version": "1.0.0",
+            "producer_version": "propagation-network.v1"
           },
           "distance_error_km": null,
           "network_membership": "refused",
@@ -17474,7 +17531,10 @@
             "target_country_code": "SE",
             "feature_key": "whole:pollen",
             "scenario_id": "rectangular_200km_100yr_v1",
-            "reason_code": "duplicate_underlying_observation"
+            "reason_code": "duplicate_underlying_observation",
+            "config_digest": "b073720a6d5e7251086834d59644a07d0600b4151d4bd9628fcd368ffe5bd7b4",
+            "propagation_contract_version": "1.0.0",
+            "producer_version": "propagation-network.v1"
           },
           "distance_error_km": null,
           "network_membership": "refused",
@@ -18749,7 +18809,10 @@
             "target_country_code": "NO",
             "feature_key": "whole:pollen",
             "scenario_id": "rectangular_200km_200yr_v1",
-            "reason_code": "same_governed_site"
+            "reason_code": "same_governed_site",
+            "config_digest": "bb092368d21774942574932f6ef2225732d2cc90cc84b8d46977c9c01ddb69af",
+            "propagation_contract_version": "1.0.0",
+            "producer_version": "propagation-network.v1"
           },
           "distance_error_km": null,
           "network_membership": "refused",
@@ -19120,7 +19183,10 @@
             "target_country_code": "SE",
             "feature_key": "whole:pollen",
             "scenario_id": "rectangular_200km_200yr_v1",
-            "reason_code": "duplicate_underlying_observation"
+            "reason_code": "duplicate_underlying_observation",
+            "config_digest": "bb092368d21774942574932f6ef2225732d2cc90cc84b8d46977c9c01ddb69af",
+            "propagation_contract_version": "1.0.0",
+            "producer_version": "propagation-network.v1"
           },
           "distance_error_km": null,
           "network_membership": "refused",
@@ -20541,7 +20607,10 @@
             "target_country_code": "NO",
             "feature_key": "whole:pollen",
             "scenario_id": "rectangular_200km_200yr_v1",
-            "reason_code": "same_governed_site"
+            "reason_code": "same_governed_site",
+            "config_digest": "bb092368d21774942574932f6ef2225732d2cc90cc84b8d46977c9c01ddb69af",
+            "propagation_contract_version": "1.0.0",
+            "producer_version": "propagation-network.v1"
           },
           "distance_error_km": null,
           "network_membership": "refused",
@@ -20912,7 +20981,10 @@
             "target_country_code": "SE",
             "feature_key": "whole:pollen",
             "scenario_id": "rectangular_200km_200yr_v1",
-            "reason_code": "duplicate_underlying_observation"
+            "reason_code": "duplicate_underlying_observation",
+            "config_digest": "bb092368d21774942574932f6ef2225732d2cc90cc84b8d46977c9c01ddb69af",
+            "propagation_contract_version": "1.0.0",
+            "producer_version": "propagation-network.v1"
           },
           "distance_error_km": null,
           "network_membership": "refused",
@@ -22187,7 +22259,10 @@
             "target_country_code": "NO",
             "feature_key": "whole:pollen",
             "scenario_id": "rectangular_200km_500yr_v1",
-            "reason_code": "same_governed_site"
+            "reason_code": "same_governed_site",
+            "config_digest": "44544fe88c5c1c9384b7a98c78a44be2d795315c9f81973700ada27d65da7b86",
+            "propagation_contract_version": "1.0.0",
+            "producer_version": "propagation-network.v1"
           },
           "distance_error_km": null,
           "network_membership": "refused",
@@ -22558,7 +22633,10 @@
             "target_country_code": "SE",
             "feature_key": "whole:pollen",
             "scenario_id": "rectangular_200km_500yr_v1",
-            "reason_code": "duplicate_underlying_observation"
+            "reason_code": "duplicate_underlying_observation",
+            "config_digest": "44544fe88c5c1c9384b7a98c78a44be2d795315c9f81973700ada27d65da7b86",
+            "propagation_contract_version": "1.0.0",
+            "producer_version": "propagation-network.v1"
           },
           "distance_error_km": null,
           "network_membership": "refused",
@@ -23979,7 +24057,10 @@
             "target_country_code": "NO",
             "feature_key": "whole:pollen",
             "scenario_id": "rectangular_200km_500yr_v1",
-            "reason_code": "same_governed_site"
+            "reason_code": "same_governed_site",
+            "config_digest": "44544fe88c5c1c9384b7a98c78a44be2d795315c9f81973700ada27d65da7b86",
+            "propagation_contract_version": "1.0.0",
+            "producer_version": "propagation-network.v1"
           },
           "distance_error_km": null,
           "network_membership": "refused",
@@ -24350,7 +24431,10 @@
             "target_country_code": "SE",
             "feature_key": "whole:pollen",
             "scenario_id": "rectangular_200km_500yr_v1",
-            "reason_code": "duplicate_underlying_observation"
+            "reason_code": "duplicate_underlying_observation",
+            "config_digest": "44544fe88c5c1c9384b7a98c78a44be2d795315c9f81973700ada27d65da7b86",
+            "propagation_contract_version": "1.0.0",
+            "producer_version": "propagation-network.v1"
           },
           "distance_error_km": null,
           "network_membership": "refused",
@@ -25730,7 +25814,10 @@
             "target_country_code": "NO",
             "feature_key": "whole:pollen",
             "scenario_id": "rectangular_200km_50yr_v1",
-            "reason_code": "same_governed_site"
+            "reason_code": "same_governed_site",
+            "config_digest": "6beaca45298af89de0d1387b5db33bda5078e9746856faa0e3fb12391ee3db31",
+            "propagation_contract_version": "1.0.0",
+            "producer_version": "propagation-network.v1"
           },
           "distance_error_km": null,
           "network_membership": "refused",
@@ -26101,7 +26188,10 @@
             "target_country_code": "SE",
             "feature_key": "whole:pollen",
             "scenario_id": "rectangular_200km_50yr_v1",
-            "reason_code": "duplicate_underlying_observation"
+            "reason_code": "duplicate_underlying_observation",
+            "config_digest": "6beaca45298af89de0d1387b5db33bda5078e9746856faa0e3fb12391ee3db31",
+            "propagation_contract_version": "1.0.0",
+            "producer_version": "propagation-network.v1"
           },
           "distance_error_km": null,
           "network_membership": "refused",
@@ -27522,7 +27612,10 @@
             "target_country_code": "NO",
             "feature_key": "whole:pollen",
             "scenario_id": "rectangular_200km_50yr_v1",
-            "reason_code": "same_governed_site"
+            "reason_code": "same_governed_site",
+            "config_digest": "6beaca45298af89de0d1387b5db33bda5078e9746856faa0e3fb12391ee3db31",
+            "propagation_contract_version": "1.0.0",
+            "producer_version": "propagation-network.v1"
           },
           "distance_error_km": null,
           "network_membership": "refused",
@@ -27893,7 +27986,10 @@
             "target_country_code": "SE",
             "feature_key": "whole:pollen",
             "scenario_id": "rectangular_200km_50yr_v1",
-            "reason_code": "duplicate_underlying_observation"
+            "reason_code": "duplicate_underlying_observation",
+            "config_digest": "6beaca45298af89de0d1387b5db33bda5078e9746856faa0e3fb12391ee3db31",
+            "propagation_contract_version": "1.0.0",
+            "producer_version": "propagation-network.v1"
           },
           "distance_error_km": null,
           "network_membership": "refused",
@@ -28958,7 +29054,10 @@
             "target_country_code": "NO",
             "feature_key": "whole:pollen",
             "scenario_id": "rectangular_25km_100yr_v1",
-            "reason_code": "same_governed_site"
+            "reason_code": "same_governed_site",
+            "config_digest": "cb336f49fcb902e60aab7d01871edc73135704a808007550a781568962cd585e",
+            "propagation_contract_version": "1.0.0",
+            "producer_version": "propagation-network.v1"
           },
           "distance_error_km": null,
           "network_membership": "refused",
@@ -29329,7 +29428,10 @@
             "target_country_code": "SE",
             "feature_key": "whole:pollen",
             "scenario_id": "rectangular_25km_100yr_v1",
-            "reason_code": "duplicate_underlying_observation"
+            "reason_code": "duplicate_underlying_observation",
+            "config_digest": "cb336f49fcb902e60aab7d01871edc73135704a808007550a781568962cd585e",
+            "propagation_contract_version": "1.0.0",
+            "producer_version": "propagation-network.v1"
           },
           "distance_error_km": null,
           "network_membership": "refused",
@@ -30750,7 +30852,10 @@
             "target_country_code": "NO",
             "feature_key": "whole:pollen",
             "scenario_id": "rectangular_25km_100yr_v1",
-            "reason_code": "same_governed_site"
+            "reason_code": "same_governed_site",
+            "config_digest": "cb336f49fcb902e60aab7d01871edc73135704a808007550a781568962cd585e",
+            "propagation_contract_version": "1.0.0",
+            "producer_version": "propagation-network.v1"
           },
           "distance_error_km": null,
           "network_membership": "refused",
@@ -31121,7 +31226,10 @@
             "target_country_code": "SE",
             "feature_key": "whole:pollen",
             "scenario_id": "rectangular_25km_100yr_v1",
-            "reason_code": "duplicate_underlying_observation"
+            "reason_code": "duplicate_underlying_observation",
+            "config_digest": "cb336f49fcb902e60aab7d01871edc73135704a808007550a781568962cd585e",
+            "propagation_contract_version": "1.0.0",
+            "producer_version": "propagation-network.v1"
           },
           "distance_error_km": null,
           "network_membership": "refused",
@@ -32113,7 +32221,10 @@
             "target_country_code": "NO",
             "feature_key": "whole:pollen",
             "scenario_id": "rectangular_25km_200yr_v1",
-            "reason_code": "same_governed_site"
+            "reason_code": "same_governed_site",
+            "config_digest": "72c3bc888816d4d83e0064c440b976ca1fc4ab15995d4ae9f20a2c7f96a558c5",
+            "propagation_contract_version": "1.0.0",
+            "producer_version": "propagation-network.v1"
           },
           "distance_error_km": null,
           "network_membership": "refused",
@@ -32484,7 +32595,10 @@
             "target_country_code": "SE",
             "feature_key": "whole:pollen",
             "scenario_id": "rectangular_25km_200yr_v1",
-            "reason_code": "duplicate_underlying_observation"
+            "reason_code": "duplicate_underlying_observation",
+            "config_digest": "72c3bc888816d4d83e0064c440b976ca1fc4ab15995d4ae9f20a2c7f96a558c5",
+            "propagation_contract_version": "1.0.0",
+            "producer_version": "propagation-network.v1"
           },
           "distance_error_km": null,
           "network_membership": "refused",
@@ -33905,7 +34019,10 @@
             "target_country_code": "NO",
             "feature_key": "whole:pollen",
             "scenario_id": "rectangular_25km_200yr_v1",
-            "reason_code": "same_governed_site"
+            "reason_code": "same_governed_site",
+            "config_digest": "72c3bc888816d4d83e0064c440b976ca1fc4ab15995d4ae9f20a2c7f96a558c5",
+            "propagation_contract_version": "1.0.0",
+            "producer_version": "propagation-network.v1"
           },
           "distance_error_km": null,
           "network_membership": "refused",
@@ -34276,7 +34393,10 @@
             "target_country_code": "SE",
             "feature_key": "whole:pollen",
             "scenario_id": "rectangular_25km_200yr_v1",
-            "reason_code": "duplicate_underlying_observation"
+            "reason_code": "duplicate_underlying_observation",
+            "config_digest": "72c3bc888816d4d83e0064c440b976ca1fc4ab15995d4ae9f20a2c7f96a558c5",
+            "propagation_contract_version": "1.0.0",
+            "producer_version": "propagation-network.v1"
           },
           "distance_error_km": null,
           "network_membership": "refused",
@@ -35268,7 +35388,10 @@
             "target_country_code": "NO",
             "feature_key": "whole:pollen",
             "scenario_id": "rectangular_25km_500yr_v1",
-            "reason_code": "same_governed_site"
+            "reason_code": "same_governed_site",
+            "config_digest": "397ab2175a4048790cf0f0081db8b7cfb4e24f65acc89eb6c238451772d9ae2a",
+            "propagation_contract_version": "1.0.0",
+            "producer_version": "propagation-network.v1"
           },
           "distance_error_km": null,
           "network_membership": "refused",
@@ -35639,7 +35762,10 @@
             "target_country_code": "SE",
             "feature_key": "whole:pollen",
             "scenario_id": "rectangular_25km_500yr_v1",
-            "reason_code": "duplicate_underlying_observation"
+            "reason_code": "duplicate_underlying_observation",
+            "config_digest": "397ab2175a4048790cf0f0081db8b7cfb4e24f65acc89eb6c238451772d9ae2a",
+            "propagation_contract_version": "1.0.0",
+            "producer_version": "propagation-network.v1"
           },
           "distance_error_km": null,
           "network_membership": "refused",
@@ -37060,7 +37186,10 @@
             "target_country_code": "NO",
             "feature_key": "whole:pollen",
             "scenario_id": "rectangular_25km_500yr_v1",
-            "reason_code": "same_governed_site"
+            "reason_code": "same_governed_site",
+            "config_digest": "397ab2175a4048790cf0f0081db8b7cfb4e24f65acc89eb6c238451772d9ae2a",
+            "propagation_contract_version": "1.0.0",
+            "producer_version": "propagation-network.v1"
           },
           "distance_error_km": null,
           "network_membership": "refused",
@@ -37431,7 +37560,10 @@
             "target_country_code": "SE",
             "feature_key": "whole:pollen",
             "scenario_id": "rectangular_25km_500yr_v1",
-            "reason_code": "duplicate_underlying_observation"
+            "reason_code": "duplicate_underlying_observation",
+            "config_digest": "397ab2175a4048790cf0f0081db8b7cfb4e24f65acc89eb6c238451772d9ae2a",
+            "propagation_contract_version": "1.0.0",
+            "producer_version": "propagation-network.v1"
           },
           "distance_error_km": null,
           "network_membership": "refused",
@@ -38423,7 +38555,10 @@
             "target_country_code": "NO",
             "feature_key": "whole:pollen",
             "scenario_id": "rectangular_25km_50yr_v1",
-            "reason_code": "same_governed_site"
+            "reason_code": "same_governed_site",
+            "config_digest": "6bdbb289030eb6f490fe112be16210e66650341aff5efd252aef42ce46ae5efc",
+            "propagation_contract_version": "1.0.0",
+            "producer_version": "propagation-network.v1"
           },
           "distance_error_km": null,
           "network_membership": "refused",
@@ -38794,7 +38929,10 @@
             "target_country_code": "SE",
             "feature_key": "whole:pollen",
             "scenario_id": "rectangular_25km_50yr_v1",
-            "reason_code": "duplicate_underlying_observation"
+            "reason_code": "duplicate_underlying_observation",
+            "config_digest": "6bdbb289030eb6f490fe112be16210e66650341aff5efd252aef42ce46ae5efc",
+            "propagation_contract_version": "1.0.0",
+            "producer_version": "propagation-network.v1"
           },
           "distance_error_km": null,
           "network_membership": "refused",
@@ -40215,7 +40353,10 @@
             "target_country_code": "NO",
             "feature_key": "whole:pollen",
             "scenario_id": "rectangular_25km_50yr_v1",
-            "reason_code": "same_governed_site"
+            "reason_code": "same_governed_site",
+            "config_digest": "6bdbb289030eb6f490fe112be16210e66650341aff5efd252aef42ce46ae5efc",
+            "propagation_contract_version": "1.0.0",
+            "producer_version": "propagation-network.v1"
           },
           "distance_error_km": null,
           "network_membership": "refused",
@@ -40586,7 +40727,10 @@
             "target_country_code": "SE",
             "feature_key": "whole:pollen",
             "scenario_id": "rectangular_25km_50yr_v1",
-            "reason_code": "duplicate_underlying_observation"
+            "reason_code": "duplicate_underlying_observation",
+            "config_digest": "6bdbb289030eb6f490fe112be16210e66650341aff5efd252aef42ce46ae5efc",
+            "propagation_contract_version": "1.0.0",
+            "producer_version": "propagation-network.v1"
           },
           "distance_error_km": null,
           "network_membership": "refused",
@@ -41438,7 +41582,10 @@
             "target_country_code": "NO",
             "feature_key": "whole:pollen",
             "scenario_id": "rectangular_50km_100yr_v1",
-            "reason_code": "same_governed_site"
+            "reason_code": "same_governed_site",
+            "config_digest": "707fa2b0fbb1fed7b331d495500923077fe0ab4fb47a7d9f1c6fab1e57d01fa1",
+            "propagation_contract_version": "1.0.0",
+            "producer_version": "propagation-network.v1"
           },
           "distance_error_km": null,
           "network_membership": "refused",
@@ -41809,7 +41956,10 @@
             "target_country_code": "SE",
             "feature_key": "whole:pollen",
             "scenario_id": "rectangular_50km_100yr_v1",
-            "reason_code": "duplicate_underlying_observation"
+            "reason_code": "duplicate_underlying_observation",
+            "config_digest": "707fa2b0fbb1fed7b331d495500923077fe0ab4fb47a7d9f1c6fab1e57d01fa1",
+            "propagation_contract_version": "1.0.0",
+            "producer_version": "propagation-network.v1"
           },
           "distance_error_km": null,
           "network_membership": "refused",
@@ -43230,7 +43380,10 @@
             "target_country_code": "NO",
             "feature_key": "whole:pollen",
             "scenario_id": "rectangular_50km_100yr_v1",
-            "reason_code": "same_governed_site"
+            "reason_code": "same_governed_site",
+            "config_digest": "707fa2b0fbb1fed7b331d495500923077fe0ab4fb47a7d9f1c6fab1e57d01fa1",
+            "propagation_contract_version": "1.0.0",
+            "producer_version": "propagation-network.v1"
           },
           "distance_error_km": null,
           "network_membership": "refused",
@@ -43601,7 +43754,10 @@
             "target_country_code": "SE",
             "feature_key": "whole:pollen",
             "scenario_id": "rectangular_50km_100yr_v1",
-            "reason_code": "duplicate_underlying_observation"
+            "reason_code": "duplicate_underlying_observation",
+            "config_digest": "707fa2b0fbb1fed7b331d495500923077fe0ab4fb47a7d9f1c6fab1e57d01fa1",
+            "propagation_contract_version": "1.0.0",
+            "producer_version": "propagation-network.v1"
           },
           "distance_error_km": null,
           "network_membership": "refused",
@@ -44706,7 +44862,10 @@
             "target_country_code": "NO",
             "feature_key": "whole:pollen",
             "scenario_id": "rectangular_50km_200yr_v1",
-            "reason_code": "same_governed_site"
+            "reason_code": "same_governed_site",
+            "config_digest": "885a0d0042b11b16df9d9cc60ef0a7e370372bcbdfd7fcb839d8bc784027040f",
+            "propagation_contract_version": "1.0.0",
+            "producer_version": "propagation-network.v1"
           },
           "distance_error_km": null,
           "network_membership": "refused",
@@ -45077,7 +45236,10 @@
             "target_country_code": "SE",
             "feature_key": "whole:pollen",
             "scenario_id": "rectangular_50km_200yr_v1",
-            "reason_code": "duplicate_underlying_observation"
+            "reason_code": "duplicate_underlying_observation",
+            "config_digest": "885a0d0042b11b16df9d9cc60ef0a7e370372bcbdfd7fcb839d8bc784027040f",
+            "propagation_contract_version": "1.0.0",
+            "producer_version": "propagation-network.v1"
           },
           "distance_error_km": null,
           "network_membership": "refused",
@@ -46498,7 +46660,10 @@
             "target_country_code": "NO",
             "feature_key": "whole:pollen",
             "scenario_id": "rectangular_50km_200yr_v1",
-            "reason_code": "same_governed_site"
+            "reason_code": "same_governed_site",
+            "config_digest": "885a0d0042b11b16df9d9cc60ef0a7e370372bcbdfd7fcb839d8bc784027040f",
+            "propagation_contract_version": "1.0.0",
+            "producer_version": "propagation-network.v1"
           },
           "distance_error_km": null,
           "network_membership": "refused",
@@ -46869,7 +47034,10 @@
             "target_country_code": "SE",
             "feature_key": "whole:pollen",
             "scenario_id": "rectangular_50km_200yr_v1",
-            "reason_code": "duplicate_underlying_observation"
+            "reason_code": "duplicate_underlying_observation",
+            "config_digest": "885a0d0042b11b16df9d9cc60ef0a7e370372bcbdfd7fcb839d8bc784027040f",
+            "propagation_contract_version": "1.0.0",
+            "producer_version": "propagation-network.v1"
           },
           "distance_error_km": null,
           "network_membership": "refused",
@@ -47974,7 +48142,10 @@
             "target_country_code": "NO",
             "feature_key": "whole:pollen",
             "scenario_id": "rectangular_50km_500yr_v1",
-            "reason_code": "same_governed_site"
+            "reason_code": "same_governed_site",
+            "config_digest": "8b5074f7853e9118f36f9dceeb48f898acecd6902b598cad6194cc2696104805",
+            "propagation_contract_version": "1.0.0",
+            "producer_version": "propagation-network.v1"
           },
           "distance_error_km": null,
           "network_membership": "refused",
@@ -48345,7 +48516,10 @@
             "target_country_code": "SE",
             "feature_key": "whole:pollen",
             "scenario_id": "rectangular_50km_500yr_v1",
-            "reason_code": "duplicate_underlying_observation"
+            "reason_code": "duplicate_underlying_observation",
+            "config_digest": "8b5074f7853e9118f36f9dceeb48f898acecd6902b598cad6194cc2696104805",
+            "propagation_contract_version": "1.0.0",
+            "producer_version": "propagation-network.v1"
           },
           "distance_error_km": null,
           "network_membership": "refused",
@@ -49766,7 +49940,10 @@
             "target_country_code": "NO",
             "feature_key": "whole:pollen",
             "scenario_id": "rectangular_50km_500yr_v1",
-            "reason_code": "same_governed_site"
+            "reason_code": "same_governed_site",
+            "config_digest": "8b5074f7853e9118f36f9dceeb48f898acecd6902b598cad6194cc2696104805",
+            "propagation_contract_version": "1.0.0",
+            "producer_version": "propagation-network.v1"
           },
           "distance_error_km": null,
           "network_membership": "refused",
@@ -50137,7 +50314,10 @@
             "target_country_code": "SE",
             "feature_key": "whole:pollen",
             "scenario_id": "rectangular_50km_500yr_v1",
-            "reason_code": "duplicate_underlying_observation"
+            "reason_code": "duplicate_underlying_observation",
+            "config_digest": "8b5074f7853e9118f36f9dceeb48f898acecd6902b598cad6194cc2696104805",
+            "propagation_contract_version": "1.0.0",
+            "producer_version": "propagation-network.v1"
           },
           "distance_error_km": null,
           "network_membership": "refused",
@@ -51242,7 +51422,10 @@
             "target_country_code": "NO",
             "feature_key": "whole:pollen",
             "scenario_id": "rectangular_50km_50yr_v1",
-            "reason_code": "same_governed_site"
+            "reason_code": "same_governed_site",
+            "config_digest": "d00ed51df2e6c23247bf0b7e53d9b981f589edfb33ad4885e590a725628b7e0e",
+            "propagation_contract_version": "1.0.0",
+            "producer_version": "propagation-network.v1"
           },
           "distance_error_km": null,
           "network_membership": "refused",
@@ -51613,7 +51796,10 @@
             "target_country_code": "SE",
             "feature_key": "whole:pollen",
             "scenario_id": "rectangular_50km_50yr_v1",
-            "reason_code": "duplicate_underlying_observation"
+            "reason_code": "duplicate_underlying_observation",
+            "config_digest": "d00ed51df2e6c23247bf0b7e53d9b981f589edfb33ad4885e590a725628b7e0e",
+            "propagation_contract_version": "1.0.0",
+            "producer_version": "propagation-network.v1"
           },
           "distance_error_km": null,
           "network_membership": "refused",
@@ -53034,7 +53220,10 @@
             "target_country_code": "NO",
             "feature_key": "whole:pollen",
             "scenario_id": "rectangular_50km_50yr_v1",
-            "reason_code": "same_governed_site"
+            "reason_code": "same_governed_site",
+            "config_digest": "d00ed51df2e6c23247bf0b7e53d9b981f589edfb33ad4885e590a725628b7e0e",
+            "propagation_contract_version": "1.0.0",
+            "producer_version": "propagation-network.v1"
           },
           "distance_error_km": null,
           "network_membership": "refused",
@@ -53405,7 +53594,10 @@
             "target_country_code": "SE",
             "feature_key": "whole:pollen",
             "scenario_id": "rectangular_50km_50yr_v1",
-            "reason_code": "duplicate_underlying_observation"
+            "reason_code": "duplicate_underlying_observation",
+            "config_digest": "d00ed51df2e6c23247bf0b7e53d9b981f589edfb33ad4885e590a725628b7e0e",
+            "propagation_contract_version": "1.0.0",
+            "producer_version": "propagation-network.v1"
           },
           "distance_error_km": null,
           "network_membership": "refused",
