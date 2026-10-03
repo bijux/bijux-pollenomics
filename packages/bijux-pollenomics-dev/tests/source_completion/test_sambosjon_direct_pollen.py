@@ -12,7 +12,11 @@ from bijux_pollenomics_dev.source_completion.nordic_author_target_pollen import 
     _compressed_read,
     _compressed_write,
 )
-from bijux_pollenomics_dev.source_completion.nordic_direct_pollen import TAXA, _sha
+from bijux_pollenomics_dev.source_completion.nordic_direct_pollen import (
+    BASELINE_METHODS,
+    TAXA,
+    _sha,
+)
 
 
 def _prepared(tmp_path: Path, *, leaked_site: bool = False) -> tuple[Path, Path]:
@@ -72,9 +76,7 @@ def test_prediction_freezes_three_fixed_methods_without_target_profile(
 
     prediction = json.loads((frozen / "predictions.json").read_text())
     freeze = json.loads((frozen / "freeze.json").read_text())
-    assert {row["method"] for row in prediction["predictions"]} == set(
-        study.BASELINE_METHODS
-    )
+    assert {row["method"] for row in prediction["predictions"]} == set(BASELINE_METHODS)
     assert {row["bin_id"] for row in prediction["predictions"]} == {1}
     assert all(row["training_site_count"] == 2 for row in prediction["predictions"])
     assert all(

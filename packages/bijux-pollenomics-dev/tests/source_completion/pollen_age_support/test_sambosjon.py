@@ -5,6 +5,10 @@ from typing import Any
 
 import pytest
 
+from bijux_pollenomics_dev.source_completion.nordic_direct_pollen import (
+    BASELINE_METHODS,
+    TAXA,
+)
 from bijux_pollenomics_dev.source_completion.pollen_age_support import sambosjon
 
 
@@ -20,16 +24,16 @@ def example() -> tuple[dict[str, Any], dict[str, Any], dict[str, Any]]:
         ("crossing", "Betula"),
         ("empty", "Alnus"),
     ):
-        counts = dict.fromkeys(sambosjon.TAXA, 0)
+        counts = dict.fromkeys(TAXA, 0)
         counts[taxon] = 100
         source[sid] = {"native_nisp": 120, "counts": counts, "direct_count_rows": 2}
-    fractions = dict.fromkeys(sambosjon.TAXA, 0.0)
+    fractions = dict.fromkeys(TAXA, 0.0)
     fractions["Alnus"] = 1.0
     predictions = {
         "predictions": [
             {"bin_id": b, "method": m, "fractions": fractions}
             for b in (1, 2)
-            for m in sambosjon.BASELINE_METHODS
+            for m in BASELINE_METHODS
         ]
     }
     return support, source, predictions
@@ -60,7 +64,7 @@ def test_contained_bin_refuses_unusable_counts(case: str) -> None:
     if case == "missing":
         source["retained"]["direct_count_rows"] = 0
     else:
-        source["retained"]["counts"] = dict.fromkeys(sambosjon.TAXA, 0)
+        source["retained"]["counts"] = dict.fromkeys(TAXA, 0)
     _, coverage, scores = sambosjon._aggregate(support, source, predictions)
     expected = (
         "refused_missing_target_counts"

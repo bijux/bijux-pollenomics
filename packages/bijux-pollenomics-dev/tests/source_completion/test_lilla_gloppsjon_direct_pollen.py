@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import json
 from pathlib import Path
+from typing import IO
 
 import pytest
 
@@ -13,7 +14,15 @@ from bijux_pollenomics_dev.source_completion import (
 from bijux_pollenomics_dev.source_completion import (
     lilla_gloppsjon_direct_pollen_scoring as scoring_study,
 )
-from bijux_pollenomics_dev.source_completion.nordic_direct_pollen import _sha
+from bijux_pollenomics_dev.source_completion.nordic_author_target_pollen import (
+    _compressed_read,
+)
+from bijux_pollenomics_dev.source_completion.nordic_direct_pollen import (
+    BASELINE_METHODS,
+    TAXA,
+    _sha,
+)
+from bijux_pollenomics_dev.source_completion.sambosjon_direct_pollen import _surface
 
 REPOSITORY = Path(__file__).resolve().parents[4]
 GOVERNED = REPOSITORY / study.PROTOCOL.parent
@@ -24,10 +33,17 @@ def test_prepared_metadata_and_predictions_replay_without_observation_read(
 ) -> None:
     original_open = Path.open
 
-    def guarded_open(path: Path, *args: object, **kwargs: object):
+    def guarded_open(
+        path: Path,
+        mode: str = "r",
+        buffering: int = -1,
+        encoding: str | None = None,
+        errors: str | None = None,
+        newline: str | None = None,
+    ) -> IO[str] | IO[bytes]:
         if "observations" in path.parts:
             raise AssertionError("target observation partition opened before freeze")
-        return original_open(path, *args, **kwargs)
+        return original_open(path, mode, buffering, encoding, errors, newline)
 
     monkeypatch.setattr(Path, "open", guarded_open)
     prepared = tmp_path / "inputs"
@@ -64,9 +80,9 @@ def test_prepare_refuses_changed_selected_age_claim(
     tmp_path: Path, monkeypatch: pytest.MonkeyPatch
 ) -> None:
     monkeypatch.setattr(study, "_verify_publication", lambda *_: None)
-    original_surface = study._surface
+    original_surface = _surface
 
-    def changed_surface(repository: Path, name: str):
+    def changed_surface(repository: Path, name: str) -> list[dict[str, object]]:
         rows = original_surface(repository, name)
         if name == "age_claims":
             rows = [dict(row) for row in rows]
@@ -75,7 +91,9 @@ def test_prepare_refuses_changed_selected_age_claim(
                     row["site_id"] == study.SITE
                     and row["chronology_id"] == study.CHRONOLOGY
                 ):
-                    row["source_age_value"] = row["source_age_value"] + 1
+                    value = row["source_age_value"]
+                    assert isinstance(value, (int, float))
+                    row["source_age_value"] = value + 1
                     break
         return rows
 
@@ -87,9 +105,9 @@ def test_prepare_refuses_changed_selected_age_claim(
 
 def test_training_refuses_target_site_entry(monkeypatch: pytest.MonkeyPatch) -> None:
     protocol, _ = study._protocol(REPOSITORY)
-    original_read = study._compressed_read
+    original_read = _compressed_read
 
-    def leaked_training(path: Path):
+    def leaked_training(path: Path) -> object:
         training = original_read(path)
         training[next(iter(training))]["site_id"] = study.SITE
         return training
@@ -138,10 +156,10 @@ def test_scoring_source_guard_refuses_observation_drift(tmp_path: Path) -> None:
 
 
 def test_synthetic_score_retains_refusals_and_all_sample_mass() -> None:
-    counts = dict.fromkeys(study.TAXA, 0)
+    counts = dict.fromkeys(TAXA, 0)
     counts["Alnus"] = 6
     counts["Betula"] = 4
-    absent = dict.fromkeys(study.TAXA, 0)
+    absent = dict.fromkeys(TAXA, 0)
     scoring = {
         "selected_age_sample_count": 2,
         "refused_age_sample_count": 1,
@@ -161,7 +179,7 @@ def test_synthetic_score_retains_refusals_and_all_sample_mass() -> None:
         },
         "refused_age_claims": {"sample:c": {"claim_id": "age:c", "point_cal_bp": -10}},
     }
-    fractions = dict.fromkeys(study.TAXA, 0.0)
+    fractions = dict.fromkeys(TAXA, 0.0)
     fractions["Alnus"] = 0.5
     fractions["Betula"] = 0.5
     predictions = {
@@ -173,7 +191,7 @@ def test_synthetic_score_retains_refusals_and_all_sample_mass() -> None:
                 "training_site_count": 2,
             }
             for bin_id in (0, 1)
-            for method in study.BASELINE_METHODS
+            for method in BASELINE_METHODS
         ],
         "refusals": [],
     }
