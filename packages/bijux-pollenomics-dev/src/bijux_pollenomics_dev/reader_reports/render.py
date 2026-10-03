@@ -38,17 +38,30 @@ def escape_latex(value: str) -> str:
     return "".join(_ESCAPE.get(char, char) for char in value)
 
 
+_NUMERIC_CODE_ATOM = re.compile(
+    r"(?<![\w.])[+\-−]?(?:\d+(?:\.\d*)?|\.\d+)(?:[eE][+\-−]?[0-9]+)?(?![\w.])"
+)
+
+
 def _inline_code(value: str) -> str:
-    escaped = escape_latex(value)
-    if "=" in value and len(value) <= 72:
-        return (
-            r"\texttt{"
-            + escaped.replace("/", r"/\allowbreak{}").replace("=", r"=\allowbreak{}")
-            + "}"
-        )
     if len(value) <= 28:
-        return r"\texttt{" + escaped + "}"
-    return r"\texttt{\seqsplit{" + escaped + "}}"
+        return r"\texttt{" + escape_latex(value) + "}"
+    pieces: list[str] = []
+    for part in re.split(r"(\s+|[/=*,;])", value):
+        escaped = escape_latex(part)
+        if part in {"/", "=", "*", ",", ";"}:
+            pieces.append(escaped + r"\allowbreak{}")
+        elif (
+            len(part) > 28
+            and not part.isspace()
+            and not any(
+                len(match[0]) > 28 for match in _NUMERIC_CODE_ATOM.finditer(part)
+            )
+        ):
+            pieces.append(r"\seqsplit{" + escaped + "}")
+        else:
+            pieces.append(escaped)
+    return r"\texttt{" + "".join(pieces) + "}"
 
 
 def _url_argument(value: str) -> str:
@@ -103,7 +116,9 @@ class ReportRenderer:
         for token in children:
             kind = token.type
             if kind == "text":
-                output.append(escape_latex(token.content))
+                output.append(
+                    escape_latex(token.content).replace("/", r"/\allowbreak{}")
+                )
             elif kind == "code_inline":
                 output.append(_inline_code(token.content))
             elif kind == "strong_open":
@@ -354,7 +369,11 @@ def document_latex(body: str, title: str, source_path: str, source_sha256: str) 
         r"""\documentclass[11pt,a4paper]{article}
 \usepackage[margin=20mm,headheight=15pt]{geometry}
 \usepackage{fontspec}
-\setmainfont{STIX Two Text}
+\setmainfont{STIXTwoText-Regular.otf}[
+  BoldFont=STIXTwoText-Bold.otf,
+  ItalicFont=STIXTwoText-Italic.otf,
+  BoldItalicFont=STIXTwoText-BoldItalic.otf
+]
 \setsansfont{Arial}
 \setmonofont{Menlo}
 \usepackage{xcolor,graphicx,array,longtable,fvextra,seqsplit,xurl}
