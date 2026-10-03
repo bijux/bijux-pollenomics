@@ -4555,9 +4555,14 @@
       "bytes": 3175
     },
     {
+      "path": "packages/bijux-pollenomics/tests/unit/adna/workflow/adna_normalization/test_chronology_contract.py",
+      "sha256": "8b9f4deac04b39d274518356277c26ea3485a066bc23fd8f79a3266bbcd7bc04",
+      "bytes": 5871
+    },
+    {
       "path": "packages/bijux-pollenomics/tests/unit/adna/workflow/adna_normalization/test_normalized_evidence.py",
-      "sha256": "7bfe0e58f451d5489b564461a4953fc966f2a8ce7cec81ccd82f7589ad3be24e",
-      "bytes": 17250
+      "sha256": "56a0d63ab1fe49d139ae0dd016f65524663f6a677e3e2f520a3c84325b61c57f",
+      "bytes": 11600
     },
     {
       "path": "packages/bijux-pollenomics/tests/unit/analysis/classification/test_classification_events/test_derivation.py",
