@@ -5085,6 +5085,11 @@
       "bytes": 11823
     },
     {
+      "path": "packages/bijux-pollenomics/tests/unit/evidence/classification/audit_outputs/test_facade_and_topology.py",
+      "sha256": "9f992d94ee3903014ce827cdeb2729c8a16552b874baebdb8b9cd34c0e9ec108",
+      "bytes": 2830
+    },
+    {
       "path": "packages/bijux-pollenomics/tests/unit/governance/repository_truth/assessments/support.py",
       "sha256": "2b0726b4f97738f370d1d53f4f4a6f507983fa827d8d323dfd508eb987f73aef",
       "bytes": 1438
