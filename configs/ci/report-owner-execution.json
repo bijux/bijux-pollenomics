@@ -999,6 +999,19 @@
       "timeout_seconds": 600
     },
     {
+      "owner_id": "regions/nordic/lilla-gloppsjon-direct-pollen/prepared-products",
+      "module": "bijux_pollenomics_dev.source_completion.pollen_reconstruction.lilla_gloppsjon_preparation",
+      "source_paths": {
+        "source-products/input-manifest.json": "docs/report/regions/nordic/lilla-gloppsjon-direct-pollen/inputs/input-manifest.json",
+        "source-products/metadata.json": "docs/report/regions/nordic/lilla-gloppsjon-direct-pollen/inputs/metadata.json"
+      },
+      "source_arguments": [],
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "external_source_descriptor": "configs/ci/qualified-report-sources/lilla-gloppsjon-publication-link.json",
+      "timeout_seconds": 180
+    },
+    {
       "module": "bijux_pollenomics_dev.source_completion.nordic.lilla_gloppsjon_predictions",
       "output_mode": "directory",
       "output_subdirectory": "source-products",

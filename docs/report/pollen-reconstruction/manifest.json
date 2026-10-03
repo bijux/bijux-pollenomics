@@ -41,13 +41,13 @@
     },
     {
       "path": "configs/ci/report-owner-execution.json",
-      "sha256": "d10742c1771e913f78d5d8f77b6ff9b90139e8debdf14ff990dc3d3b53fd9954",
-      "bytes": 91076
+      "sha256": "55ea55b9eb700301a85a24a1bcb388d42e5ef3b048c513fb4eb19ee8110c451d",
+      "bytes": 91824
     },
     {
       "path": "configs/ci/report-ownership.json",
-      "sha256": "49dfeb24407f6db174ced286fd1d6a68b8ed2890e3fb65007202e0ce34ce2e9b",
-      "bytes": 3051343
+      "sha256": "a504b8e5aac8428ed08c3fcfd6b89824fd5fa741253b263944f5da4ad46803fc",
+      "bytes": 3160714
     },
     {
       "path": "configs/docs/science_downloads.py",
@@ -3998,6 +3998,11 @@
       "path": "packages/bijux-pollenomics-dev/tests/ci/__init__.py",
       "sha256": "9cbd2c86113d680f14c2afaa067a2e1c903b77be04210f5267d9ec89a6fb1cfb",
       "bytes": 72
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/tests/ci/report_rebuild/test_lilla_preparation.py",
+      "sha256": "cd32646b3622e6429bf8c5a7369393df926a5b25ba61b0f78b5bc9783d1a8fe5",
+      "bytes": 5494
     },
     {
       "path": "packages/bijux-pollenomics-dev/tests/ci/test_dependency_audit.py",
