@@ -2811,8 +2811,8 @@
     },
     {
       "path": "docs/report/source-relations/sead/verify_handoff_accounting.py",
-      "sha256": "ec07fe2b87de4815abee25d353a1edbb5a61b32534efabbf7d88c7d742eab462",
-      "bytes": 9536
+      "sha256": "943ac63ef03e1fb37ef4370fc564574826a65e264ecd66ee8f720d1f830fc5a4",
+      "bytes": 13221
     },
     {
       "path": "docs/report/source-relations/sead/verify_report_owners.py",
@@ -4183,6 +4183,11 @@
       "path": "packages/bijux-pollenomics-dev/tests/source_completion/sead/test_country_source_unit_bindings.py",
       "sha256": "87af367625f813ab896a67e125777e7ad409b686aae5b742ec6ab07fcfbb4a2c",
       "bytes": 3440
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/tests/source_completion/sead/test_handoff_relational_accounting.py",
+      "sha256": "8997fb7020332e5e50464a2214f11395ff7da9fea6970be94edfd535f08c4cc3",
+      "bytes": 5331
     },
     {
       "path": "packages/bijux-pollenomics-dev/tests/source_completion/sead/test_source_writer_cli.py",
