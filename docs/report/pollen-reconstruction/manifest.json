@@ -4390,6 +4390,16 @@
       "bytes": 12796
     },
     {
+      "path": "packages/bijux-pollenomics/tests/unit/collection/sources/hyde/netcdf/support.py",
+      "sha256": "cab9cf571690fdf029cd7dab06709e6be5347ecf2034f3d68b8bf4335a1c36c8",
+      "bytes": 8337
+    },
+    {
+      "path": "packages/bijux-pollenomics/tests/unit/collection/sources/landclim/time_windows/test_scientific_contracts.py",
+      "sha256": "0ffb1c43d2351d2cba2420d628a513aa8e3341b2f6da2bd8f0f241c54913854b",
+      "bytes": 12037
+    },
+    {
       "path": "packages/bijux-pollenomics/tests/unit/collection/sources/neotoma/country/test_propagation.py",
       "sha256": "67ec27ed736c6d83843dbbfa12042ed98e2e29316c8547f02470657a29a03f07",
       "bytes": 7610
@@ -4410,9 +4420,39 @@
       "bytes": 4008
     },
     {
+      "path": "packages/bijux-pollenomics/tests/unit/collection/sources/open_land/test_normalization.py",
+      "sha256": "5e04c38a90e3b2054ea4e7f7c613d2f656215b3fd84aa37207d56aed91e6d7d0",
+      "bytes": 8470
+    },
+    {
+      "path": "packages/bijux-pollenomics/tests/unit/collection/sources/sead/acquisition/full/test_receipts.py",
+      "sha256": "33cc3e1310b972bbe83bbabce1187e878c4eff27b534ac6e00181d7e4cd9b284",
+      "bytes": 4684
+    },
+    {
       "path": "packages/bijux-pollenomics/tests/unit/collection/sources/sead/acquisition/full/test_repository_materialization.py",
       "sha256": "89db28f17bc2482f8e1ca44f7253c15d87b1f4ba48ace1a96fba6458bcd2f4ec",
       "bytes": 4070
+    },
+    {
+      "path": "packages/bijux-pollenomics/tests/unit/collection/sources/sead/acquisition/scoped/test_refusal_boundaries.py",
+      "sha256": "3eed531d3bd25c87d62a8d8c293f92cb068cdff6d11ff2a6193fb9380e916df3",
+      "bytes": 4186
+    },
+    {
+      "path": "packages/bijux-pollenomics/tests/unit/collection/sources/sead/catalog/site_inventory/test_chronology_projection.py",
+      "sha256": "337e7620f6dd0c2737181e3077226a792e06a9eaa28132082d912254f7491af7",
+      "bytes": 7586
+    },
+    {
+      "path": "packages/bijux-pollenomics/tests/unit/collection/sources/sead/catalog/test_discovery.py",
+      "sha256": "1a7718ed078babb11c0f485a5aef34b6bf4acec6b782f9c8e532d33b79a554f8",
+      "bytes": 5630
+    },
+    {
+      "path": "packages/bijux-pollenomics/tests/unit/collection/sources/spatiocompo_human_land_use/test_normalization.py",
+      "sha256": "8ba5b5454150e603b26e186d9c4b56508625033d423e4924d32f07e35fecb9ac",
+      "bytes": 10042
     },
     {
       "path": "packages/bijux-pollenomics/tests/unit/collection/sources/test_source_lifecycle_contracts.py",
