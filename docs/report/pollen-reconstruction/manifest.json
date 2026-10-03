@@ -45,6 +45,11 @@
       "bytes": 4288
     },
     {
+      "path": "configs/release_evidence_policy.json",
+      "sha256": "97d6e2d2859632f1af8624a7252e37f5ad8c40e612b8361cd7762a676b0a5a8b",
+      "bytes": 35067
+    },
+    {
       "path": "data/archaeology/raw/hojea_2003_source.json",
       "sha256": "0b9a9a01aad4a8a0abc710b0b96c987d88830f84885ec3282994a60a26f803a9",
       "bytes": 1227
@@ -2841,7 +2846,7 @@
     },
     {
       "path": "makes/pollenomics-verification.mk",
-      "sha256": "63a22d78c28d0c75495b2b1c67e7f320358d89d8228cc1e9145e0be665ce0152",
+      "sha256": "5725dfeded3f304fda35556ba86f83cbf44e7c9308ecf39b2b93072ac6d4b33b",
       "bytes": 23587
     },
     {
