@@ -46,8 +46,8 @@
     },
     {
       "path": "configs/ci/report-ownership.json",
-      "sha256": "95ed52e009ce28c337d91a2e4f7fa5c4c012da723e4d0629d8a4ef59c00c8d06",
-      "bytes": 3400111
+      "sha256": "c59b3f3775999700c188e449cdcf25b51244d8663f98e9e97dc4ebd6841956c4",
+      "bytes": 3502103
     },
     {
       "path": "configs/docs/science_downloads.py",
@@ -3896,8 +3896,8 @@
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sead_country_source_units.py",
-      "sha256": "48ac6c4196ad4b70790442371a489f7dbc1e86c4983e77f092384db649b75239",
-      "bytes": 17584
+      "sha256": "a0e3c588c568d8c2558e8d5711ecc8e4bc1a6feb38b5e392950bf384f2aea637",
+      "bytes": 24084
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sead_map_candidate.py",
@@ -4448,6 +4448,11 @@
       "path": "packages/bijux-pollenomics-dev/tests/source_completion/sead/test_country_source_unit_bindings.py",
       "sha256": "87af367625f813ab896a67e125777e7ad409b686aae5b742ec6ab07fcfbb4a2c",
       "bytes": 3440
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/tests/source_completion/sead/test_country_source_unit_publication.py",
+      "sha256": "bdeefd1870d82f07f84c47d7fea7741ca8ee6083634f9fd7b0cb6022787a4660",
+      "bytes": 9027
     },
     {
       "path": "packages/bijux-pollenomics-dev/tests/source_completion/sead/test_handoff_relational_accounting.py",

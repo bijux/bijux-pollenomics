@@ -4,11 +4,16 @@ from __future__ import annotations
 
 import argparse
 from collections import Counter, defaultdict
+from collections.abc import Callable
+from contextlib import suppress
 import csv
 import hashlib
 import io
 import json
+import os
 from pathlib import Path
+import stat
+import tempfile
 from typing import Any, cast
 
 from bijux_pollenomics.evidence.sources.sead import (
@@ -54,16 +59,164 @@ def _sha(content: bytes) -> str:
     return hashlib.sha256(content).hexdigest()
 
 
-def _read_json(path: Path, expected: str) -> dict[str, Any]:
-    if path.is_symlink() or not path.is_file():
+def _read_json(path: Path, expected: str, observed: dict[Path, str]) -> dict[str, Any]:
+    if (
+        any(ancestor.is_symlink() for ancestor in (path, *path.parents))
+        or not path.is_file()
+    ):
         raise ValueError(f"SEAD source input is missing or linked: {path}")
     content = path.read_bytes()
     if _sha(content) != expected:
         raise ValueError(f"SEAD source identity changed: {path}")
+    observed[path] = expected
     document = json.loads(content)
     if not isinstance(document, dict):
         raise ValueError(f"SEAD source input is not an object: {path}")
     return document
+
+
+def _absent_artifact_output(repository: Path, output: Path) -> Path:
+    if ".." in output.parts:
+        raise ValueError("SEAD output path is not canonical")
+    output = output.absolute()
+    root = repository / "artifacts"
+    if output == root or not output.is_relative_to(root):
+        raise ValueError("Absent repository artifact destination required")
+    if root.is_symlink() or not root.is_dir():
+        raise ValueError("SEAD artifact root is not a real directory")
+    parent = root
+    for part in output.relative_to(root).parts[:-1]:
+        parent /= part
+        with suppress(FileExistsError):
+            parent.mkdir()
+        if parent.is_symlink() or not parent.is_dir():
+            raise ValueError("SEAD output traverses a non-real directory")
+    if output.exists() or output.is_symlink():
+        raise ValueError("Absent repository artifact destination required")
+    return output
+
+
+def _check_source_inputs(observed: dict[Path, str], normalized_root: Path) -> None:
+    for path, expected in observed.items():
+        if any(ancestor.is_symlink() for ancestor in (path, *path.parents)):
+            raise ValueError(f"SEAD source input became linked: {path}")
+        if not path.is_file() or _sha(path.read_bytes()) != expected:
+            raise ValueError(f"SEAD source identity changed after read: {path}")
+    read_validated_sead_evidence_documents(
+        normalized_root,
+        ("source_key_ledger.json", "observation_relation_index.json"),
+        expected_run_id=SEAD_GOVERNED_EVIDENCE_RUN_ID,
+        expected_manifest_sha256=SEAD_GOVERNED_EVIDENCE_MANIFEST_SHA256,
+    )
+
+
+def _stage_file(stage: Path, name: str, content: bytes) -> tuple[int, int]:
+    path = stage / name
+    with path.open("xb") as stream:
+        info = os.fstat(stream.fileno())
+        identity = (info.st_dev, info.st_ino)
+        try:
+            stream.write(content)
+            stream.flush()
+            os.fsync(stream.fileno())
+        except BaseException:
+            info = path.stat(follow_symlinks=False)
+            if (
+                stat.S_ISREG(info.st_mode)
+                and (info.st_dev, info.st_ino) == identity
+                and content.startswith(path.read_bytes())
+            ):
+                path.unlink()
+            raise
+    return identity
+
+
+def _remove_owned_file(path: Path, identity: tuple[int, int], content: bytes) -> None:
+    try:
+        info = path.stat(follow_symlinks=False)
+        if (
+            stat.S_ISREG(info.st_mode)
+            and (info.st_dev, info.st_ino) == identity
+            and path.read_bytes() == content
+        ):
+            path.unlink()
+    except FileNotFoundError:
+        pass
+
+
+def _require_owned_directory(path: Path, identity: tuple[int, int]) -> None:
+    info = path.stat(follow_symlinks=False)
+    if not stat.S_ISDIR(info.st_mode) or (info.st_dev, info.st_ino) != identity:
+        raise ValueError(f"SEAD publication directory was replaced: {path}")
+
+
+def _require_owned_file(path: Path, identity: tuple[int, int], content: bytes) -> None:
+    info = path.stat(follow_symlinks=False)
+    if (
+        not stat.S_ISREG(info.st_mode)
+        or (info.st_dev, info.st_ino) != identity
+        or path.read_bytes() != content
+    ):
+        raise ValueError(f"SEAD staged product was replaced: {path}")
+
+
+def _publish_products(
+    output: Path, products: dict[str, bytes], source_check: Callable[[], None]
+) -> None:
+    stage = Path(tempfile.mkdtemp(prefix=f".{output.name}.", dir=output.parent))
+    info = stage.stat(follow_symlinks=False)
+    stage_identity = (info.st_dev, info.st_ino)
+    staged: dict[str, tuple[int, int]] = {}
+    created: dict[str, tuple[int, int]] = {}
+    directory_identity: tuple[int, int] | None = None
+    try:
+        for name, content in products.items():
+            staged[name] = _stage_file(stage, name, content)
+        source_check()
+        _require_owned_directory(stage, stage_identity)
+        if {entry.name for entry in stage.iterdir()} != set(products):
+            raise ValueError("SEAD staging directory gained an undeclared file")
+        for name, content in products.items():
+            _require_owned_file(stage / name, staged[name], content)
+        output.mkdir()
+        info = output.stat(follow_symlinks=False)
+        directory_identity = (info.st_dev, info.st_ino)
+        try:
+            for name in ("rows.csv", "report.json"):
+                _require_owned_directory(stage, stage_identity)
+                _require_owned_file(stage / name, staged[name], products[name])
+                _require_owned_directory(output, directory_identity)
+                os.link(stage / name, output / name, follow_symlinks=False)
+                _require_owned_directory(output, directory_identity)
+                info = (output / name).stat(follow_symlinks=False)
+                created[name] = (info.st_dev, info.st_ino)
+                _require_owned_file(output / name, staged[name], products[name])
+            _require_owned_directory(output, directory_identity)
+            if {entry.name for entry in output.iterdir()} != set(products):
+                raise ValueError("SEAD output gained an undeclared file")
+            for name, content in products.items():
+                _require_owned_file(output / name, staged[name], content)
+        except BaseException:
+            if directory_identity is not None:
+                try:
+                    info = output.stat(follow_symlinks=False)
+                    if (info.st_dev, info.st_ino) == directory_identity:
+                        for name, identity in created.items():
+                            _remove_owned_file(output / name, identity, products[name])
+                        with suppress(OSError):
+                            output.rmdir()
+                except FileNotFoundError:
+                    pass
+            raise
+    finally:
+        try:
+            info = stage.stat(follow_symlinks=False)
+            if (info.st_dev, info.st_ino) == stage_identity:
+                for name, identity in staged.items():
+                    _remove_owned_file(stage / name, identity, products[name])
+                stage.rmdir()
+        except (FileNotFoundError, OSError):
+            pass
 
 
 def _indexed(
@@ -289,19 +442,19 @@ def account(
 
 def build(repository: Path, output: Path) -> dict[str, Any]:
     """Replay pinned raw and normalized identities to an absent destination."""
-    repository, output = repository.resolve(), output.resolve()
-    if (
-        output.exists()
-        or output.is_symlink()
-        or not output.is_relative_to(repository / "artifacts")
-    ):
-        raise ValueError("Absent repository artifact destination required")
+    repository = repository.resolve()
+    output = _absent_artifact_output(repository, output)
     data_root = repository / "data"
     raw = data_root / "sead/raw/acquisitions" / SEAD_GOVERNED_EVIDENCE_RUN_ID
-    admission = _read_json(raw / "admission.json", SEAD_GOVERNED_ADMISSION_SHA256)
-    _read_json(raw / "manifest.json", SEAD_GOVERNED_ACQUISITION_MANIFEST_SHA256)
+    observed: dict[Path, str] = {}
+    admission = _read_json(
+        raw / "admission.json", SEAD_GOVERNED_ADMISSION_SHA256, observed
+    )
+    _read_json(
+        raw / "manifest.json", SEAD_GOVERNED_ACQUISITION_MANIFEST_SHA256, observed
+    )
     decisions = _read_json(
-        raw / "country-decisions.json", SEAD_GOVERNED_COUNTRY_DECISIONS_SHA256
+        raw / "country-decisions.json", SEAD_GOVERNED_COUNTRY_DECISIONS_SHA256, observed
     )
     if (
         admission["run_id"] != SEAD_GOVERNED_EVIDENCE_RUN_ID
@@ -344,8 +497,8 @@ def build(repository: Path, output: Path) -> dict[str, Any]:
         payload_path = f"payloads/{table}.json"
         receipt_path = f"receipts/{table}.json"
         expected = record["payload"]["sha256"]
-        payload = _read_json(raw / payload_path, expected)
-        receipt = _read_json(raw / receipt_path, record["receipt"]["sha256"])
+        payload = _read_json(raw / payload_path, expected, observed)
+        receipt = _read_json(raw / receipt_path, record["receipt"]["sha256"], observed)
         rows = payload["rows"]
         if (
             expected != copied[payload_path]["sha256"]
@@ -400,10 +553,15 @@ def build(repository: Path, output: Path) -> dict[str, Any]:
         "scientific_admission": "none; source-unit accounting only",
         "rows_csv_sha256": _sha(csv_bytes),
     }
-    output.mkdir(parents=True)
-    (output / "rows.csv").write_bytes(csv_bytes)
-    (output / "report.json").write_text(
-        json.dumps(report, indent=2, sort_keys=True) + "\n", encoding="utf-8"
+    _publish_products(
+        output,
+        {
+            "rows.csv": csv_bytes,
+            "report.json": (
+                json.dumps(report, indent=2, sort_keys=True) + "\n"
+            ).encode(),
+        },
+        lambda: _check_source_inputs(observed, governed_sead_evidence_root(data_root)),
     )
     return report
 
