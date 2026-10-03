@@ -1527,6 +1527,23 @@
       "output_mode": "directory",
       "timeout_seconds": 180,
       "output_subdirectory": "source-products"
+    },
+    {
+      "module": "bijux_pollenomics_dev.source_completion.pollen_age_support.interval_sensitivity",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "pollen-reconstruction/age-interval-sensitivity/report-products",
+      "source_arguments": [],
+      "source_paths": {
+        "source-products/comparison.json": "docs/report/pollen-reconstruction/age-interval-sensitivity/comparison.json",
+        "source-products/predictions-scored.csv": "docs/report/pollen-reconstruction/age-interval-sensitivity/predictions-scored.csv",
+        "source-products/predictions/site-13338.json": "docs/report/pollen-reconstruction/age-interval-sensitivity/predictions/site-13338.json",
+        "source-products/predictions/site-28869.json": "docs/report/pollen-reconstruction/age-interval-sensitivity/predictions/site-28869.json",
+        "source-products/predictions/site-28872.json": "docs/report/pollen-reconstruction/age-interval-sensitivity/predictions/site-28872.json",
+        "source-products/scores.csv": "docs/report/pollen-reconstruction/age-interval-sensitivity/scores.csv",
+        "source-products/summary.json": "docs/report/pollen-reconstruction/age-interval-sensitivity/summary.json"
+      },
+      "timeout_seconds": 600
     }
   ]
 }

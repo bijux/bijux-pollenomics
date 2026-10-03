@@ -36,13 +36,13 @@
     },
     {
       "path": "configs/ci/report-owner-execution.json",
-      "sha256": "13a7310b726200d51af5136f3726ee08c9d5f3479b34d35131246c61291b67f6",
-      "bytes": 87453
+      "sha256": "1aba4dc8b3fc9277eb6c595be5eb764b4e686119aa237156abe104fe00e04d46",
+      "bytes": 88739
     },
     {
       "path": "configs/ci/report-ownership.json",
-      "sha256": "ac0eb23cde66fbdf3a2f831ae34e9f92e2699e270f7145962b056c14819e0ceb",
-      "bytes": 2723731
+      "sha256": "cf396b532765065bbe6414a0948be29ac8d7dccabe421c609be628d4702482c1",
+      "bytes": 2832601
     },
     {
       "path": "configs/docs/science_downloads.py",
