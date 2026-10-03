@@ -30,6 +30,11 @@
       "sha256": "0255533348fe38cf716e4b8bfee59905890c6f8cd303e4a40d73317413b98360"
     },
     {
+      "path": "configs/ci/qualified-report-sources/lilla-gloppsjon-publication-link.json",
+      "sha256": "101300e4b4cb57d52b8a1b9c9907231dab67edd15d439e074e3994ce61b3210b",
+      "bytes": 600
+    },
+    {
       "path": "configs/ci/qualified-report-sources/namibia-modern-pollen-vegetation.json",
       "sha256": "2ff98f09588265a5f58711bd109bcc6c3b8c6066b81425214d2b3d6a0314aab8",
       "bytes": 1431
@@ -3055,6 +3060,11 @@
       "bytes": 6605
     },
     {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/neotoma_publication_link.py",
+      "sha256": "92ea3eb2ea4d0e51a7a6dae5c7eb2ea241ac6cfd73265aaef8cf476e74e8f12f",
+      "bytes": 5628
+    },
+    {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/original_r_reference.py",
       "sha256": "53400b86f8c5c706924f3a8241985fa02874e1093759297a510dc5d9895e36cf",
       "bytes": 2546
@@ -3086,8 +3096,8 @@
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/source_qualification.py",
-      "sha256": "c2aa5062a155cc2b3fe0a3c121df23344c2936a0c8e3dc0b1e252abf733c257d",
-      "bytes": 2027
+      "sha256": "e708b45adb419063fa7bba4caac0b516652cb1f6db5bccb5a412e19c2ae56be9",
+      "bytes": 2281
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/verification.py",
@@ -3341,8 +3351,8 @@
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/lilla_gloppsjon_direct_pollen.py",
-      "sha256": "83b5cd6d65db17a9326660f79b0b00b37710d339906994b39fcd9e6aa6019f7a",
-      "bytes": 17008
+      "sha256": "1a04e92501126f51e07c154c8a7c402de5e3008b8037a9ea848469a1b30cf613",
+      "bytes": 17257
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/lilla_gloppsjon_direct_pollen_scoring.py",
@@ -3723,6 +3733,11 @@
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/english_shared_ppe.py",
       "sha256": "0b6b23b9b66d644b0f3ae03b10326bd61c227930d316cd4f971e4321012339f5",
       "bytes": 19733
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/lilla_gloppsjon_preparation.py",
+      "sha256": "7506a84f618a98c39581fcc4780fd9e8d0c05d48e053cba3442cf486549e04ce",
+      "bytes": 5571
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/swedish_direct_pollen.py",
@@ -4528,6 +4543,11 @@
       "path": "packages/bijux-pollenomics-dev/tests/test_report_rebuild_namibia_radius_owner.py",
       "sha256": "f3e0613acc754dd7ef5edac5bc06571ee7e07214e6338be09cdbea3541a2ec74",
       "bytes": 11012
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/tests/test_report_rebuild_neotoma_publication_link.py",
+      "sha256": "24551937fe67ff16140fa69629775cc64495fea9dd0b7fe5f7ba03ca38f7042e",
+      "bytes": 11783
     },
     {
       "path": "packages/bijux-pollenomics-dev/tests/test_report_rebuild_owner_invocation.py",

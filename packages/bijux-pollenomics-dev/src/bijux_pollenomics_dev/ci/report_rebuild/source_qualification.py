@@ -51,4 +51,10 @@ def validated_external_report_sources(
         return validated_landclim_two_grid_packet(
             repository, source_root, descriptor_path
         )
+    if schema == "qualified-neotoma-publication-link.v1":
+        from .neotoma_publication_link import validated_neotoma_publication_link
+
+        return validated_neotoma_publication_link(
+            repository, source_root, descriptor_path
+        )
     raise ReportRebuildError("unknown external report source schema")

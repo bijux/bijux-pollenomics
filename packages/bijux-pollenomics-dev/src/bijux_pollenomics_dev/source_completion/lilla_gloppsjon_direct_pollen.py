@@ -75,8 +75,11 @@ def _verify_metadata_source(repository: Path, protocol: dict[str, Any]) -> None:
             raise ValueError(f"declared Neotoma metadata drift: {relative}")
 
 
-def _verify_publication(repository: Path, protocol: dict[str, Any]) -> None:
-    response_path = repository.parent / protocol["publication_response_locator"]
+def _verify_publication(
+    repository: Path, protocol: dict[str, Any], response_path: Path | None = None
+) -> None:
+    if response_path is None:
+        response_path = repository.parent / protocol["publication_response_locator"]
     if _sha(response_path) != protocol["publication_response_sha256"]:
         raise ValueError("declared Neotoma publication response changed")
     response = json.loads(response_path.read_text(encoding="utf-8"))
@@ -143,12 +146,17 @@ def _age_claim(row: dict[str, Any]) -> dict[str, Any]:
     }
 
 
-def prepare(repository: Path, output: Path) -> None:
+def prepare(
+    repository: Path, output: Path, *, publication_response: Path | None = None
+) -> None:
     """Lock a target metadata slice and the governed, target-free training profile."""
     repository = repository.resolve()
     protocol, protocol_path = _protocol(repository)
     _verify_metadata_source(repository, protocol)
-    _verify_publication(repository, protocol)
+    if publication_response is None:
+        _verify_publication(repository, protocol)
+    else:
+        _verify_publication(repository, protocol, publication_response)
     _training(repository, protocol)
 
     sites = [row for row in _surface(repository, "sites") if row["site_id"] == SITE]
