@@ -195,7 +195,11 @@ def fit_homogeneous_likelihood(
         pollen = y @ mixture
         direction = y[:, toward] - y[:, away]
 
-        def derivative(step: float) -> float:
+        def derivative(
+            step: float,
+            pollen: np.ndarray = pollen,
+            direction: np.ndarray = direction,
+        ) -> float:
             p = pollen + step * direction
             if np.any(p[keep] <= 0):
                 return float("inf")
