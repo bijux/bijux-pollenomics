@@ -4755,6 +4755,11 @@
       "bytes": 4685
     },
     {
+      "path": "packages/bijux-pollenomics-lra/docs/reference/source-compatibility.md",
+      "sha256": "0c4fc9c6034588d2769f55abb43dd31d6a6da098ede2aff7bd7d61214a1cf3f1",
+      "bytes": 5360
+    },
+    {
       "path": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/api.py",
       "sha256": "ff89945c7470db2d594999c5d3145352434a2b92e9bc2a388baba465cc885c02",
       "bytes": 5023
@@ -4778,6 +4783,11 @@
       "path": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/likelihood/shared_ppe_likelihood.py",
       "sha256": "dadab5d2337a197220f3e5b1cf1b48c6d035963259a35ad91c17812d66553de1",
       "bytes": 8455
+    },
+    {
+      "path": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/regional.py",
+      "sha256": "7580a831eb025a0aba9bbc8b55d57c63bd47781130983ff0d1c73673060c98ed",
+      "bytes": 18010
     },
     {
       "path": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/examples.py",
@@ -4863,6 +4873,11 @@
       "path": "packages/bijux-pollenomics-lra/tests/unit/reconstruction/test_reveals.py",
       "sha256": "658f10b67240c6c9f97ebb438bcf7090c1953179df39cb1593c25c2b72031547",
       "bytes": 10242
+    },
+    {
+      "path": "packages/bijux-pollenomics-lra/tests/unit/reconstruction/test_reveals_normalization.py",
+      "sha256": "81a0754643de49482c6a74584c4fa3be48b0fbdcd9fab50e893ce481276143a3",
+      "bytes": 6075
     },
     {
       "path": "packages/bijux-pollenomics-lra/tests/unit/reconstruction/test_shared_ppe_likelihood.py",

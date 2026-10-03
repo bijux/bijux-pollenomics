@@ -21,6 +21,12 @@ and independent parity baseline.
   mean, median, 90th percentile, 10th percentile, sample SD.
 - The Python API permits deterministic and supplied-draw execution for testing;
   these are explicit extensions, not claims about the R default RNG stream.
+- Equation B1 preserves its ordinary finite arithmetic. When products or
+  reciprocal weights exceed floating-point range, it normalizes the same
+  nonnegative weights in log space before draw-level rounding; zero-count taxa
+  retain zero cover. Independent common-scale and exact-ratio tests cover this
+  numerical fallback. They do not certify the R runtime's overflow behavior or
+  add scientific admissibility to an input.
 
 ## Analytical LOVE
 
