@@ -60,6 +60,12 @@ reconciles 4,800 linked items, nullable component fields and parent display
 strings. It preserves 2,821 display/item differences and keeps analysis
 components distinct from specimens, libraries, sequencing assays and dated events.
 
+The [complete analysis-value component census](analysis-value-components/README.md)
+accounts for all 68,705 parent values, including 27,541 without a typed
+component. It preserves native class/type/unit links and explicit unit gaps;
+the population of this source table is governed Swedish sites, distinct from
+the four-country site and chronology populations.
+
 The [country chronology account](chronology-country-accounting/README.md)
 joins all 25,109 reviewed claims to the 2,069 assigned site decisions. It
 separates source-row counts, distinct sites and chronology-display eligibility

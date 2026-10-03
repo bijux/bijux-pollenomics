@@ -1,6 +1,6 @@
 {
   "schema_version": "report-surface-registry.v1",
-  "surface_count": 1945,
+  "surface_count": 1948,
   "inventory_scope": "all input files plus generated navigation pages; registry metadata excluded",
   "content_identity_scope": "Markdown pages; machine outputs retain their domain manifests",
   "excluded_metadata_paths": [
@@ -11,14 +11,14 @@
   ],
   "family_counts": {
     "caveats": 10,
-    "maintenance": 1039,
+    "maintenance": 1042,
     "maps": 88,
     "portal": 2,
     "reviews": 34,
     "scopes": 772
   },
   "audience_counts": {
-    "maintainer_diagnostic": 1041,
+    "maintainer_diagnostic": 1044,
     "public_reading_surface": 781,
     "scientific_review_surface": 123
   },
@@ -28,7 +28,7 @@
     "finland": 14,
     "nordic": 496,
     "norway": 14,
-    "report_root": 1088,
+    "report_root": 1091,
     "sweden": 49,
     "world": 172
   },
@@ -20579,7 +20579,7 @@
     },
     {
       "repository_path": "docs/report/source-relations/sead/README.md",
-      "content_sha256": "1b672e5144b0089cda19194d8371aa7d5c7f450cd8e456ba4164d41312417256",
+      "content_sha256": "176a80f3082b901d3a3acd7f57e091c759351137b21e2498f0e7817b88e0c343",
       "family": "maintenance",
       "family_label": "Maintainer truth surfaces",
       "audience": "maintainer_diagnostic",
@@ -23663,6 +23663,43 @@
       "audience": "maintainer_diagnostic",
       "audience_label": "Maintainer diagnostic",
       "format": "json",
+      "geography": "report_root",
+      "caution_level": "high",
+      "explanation": "Maintainer-facing truth or governance surface.",
+      "reader_route": "maintainer_truth"
+    },
+    {
+      "repository_path": "docs/report/source-relations/sead/analysis-value-components/README.md",
+      "content_sha256": "761cea2b21bae311a5011095c72f0eb257cb9472978361c6f51526dbe244bcb3",
+      "family": "maintenance",
+      "family_label": "Maintainer truth surfaces",
+      "audience": "maintainer_diagnostic",
+      "audience_label": "Maintainer diagnostic",
+      "format": "md",
+      "geography": "report_root",
+      "caution_level": "high",
+      "explanation": "Reader-facing entry page for one scope bundle.",
+      "reader_route": "start_here"
+    },
+    {
+      "repository_path": "docs/report/source-relations/sead/analysis-value-components/report.json",
+      "family": "maintenance",
+      "family_label": "Maintainer truth surfaces",
+      "audience": "maintainer_diagnostic",
+      "audience_label": "Maintainer diagnostic",
+      "format": "json",
+      "geography": "report_root",
+      "caution_level": "high",
+      "explanation": "Maintainer-facing truth or governance surface.",
+      "reader_route": "maintainer_truth"
+    },
+    {
+      "repository_path": "docs/report/source-relations/sead/analysis-value-components/rows.csv",
+      "family": "maintenance",
+      "family_label": "Maintainer truth surfaces",
+      "audience": "maintainer_diagnostic",
+      "audience_label": "Maintainer diagnostic",
+      "format": "csv",
       "geography": "report_root",
       "caution_level": "high",
       "explanation": "Maintainer-facing truth or governance surface.",

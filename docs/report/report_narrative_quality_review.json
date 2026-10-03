@@ -1,8 +1,8 @@
 {
   "schema_version": "report-narrative-quality-review.v1",
-  "page_count": 295,
+  "page_count": 296,
   "quality_posture_counts": {
-    "reader_ready": 115,
+    "reader_ready": 116,
     "structured_reference": 19,
     "thin_structure": 161
   },
@@ -2792,8 +2792,8 @@
     },
     {
       "repository_path": "docs/report/source-relations/sead/README.md",
-      "content_sha256": "1b672e5144b0089cda19194d8371aa7d5c7f450cd8e456ba4164d41312417256",
-      "prose_paragraph_count": 19,
+      "content_sha256": "176a80f3082b901d3a3acd7f57e091c759351137b21e2498f0e7817b88e0c343",
+      "prose_paragraph_count": 20,
       "link_bullet_count": 0,
       "bullet_sentence_count": 0,
       "heading_count": 5,
@@ -3248,6 +3248,17 @@
       "link_bullet_count": 4,
       "bullet_sentence_count": 4,
       "heading_count": 4,
+      "table_line_count": 0,
+      "quality_posture": "reader_ready",
+      "note": "Page explains its purpose before or alongside artifact links."
+    },
+    {
+      "repository_path": "docs/report/source-relations/sead/analysis-value-components/README.md",
+      "content_sha256": "761cea2b21bae311a5011095c72f0eb257cb9472978361c6f51526dbe244bcb3",
+      "prose_paragraph_count": 5,
+      "link_bullet_count": 0,
+      "bullet_sentence_count": 0,
+      "heading_count": 3,
       "table_line_count": 0,
       "quality_posture": "reader_ready",
       "note": "Page explains its purpose before or alongside artifact links."

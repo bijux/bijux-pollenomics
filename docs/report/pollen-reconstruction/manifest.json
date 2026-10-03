@@ -36,13 +36,13 @@
     },
     {
       "path": "configs/ci/report-owner-execution.json",
-      "sha256": "6f2f3ab0cbc36ce7fb965901c1b20e948e433f3bac2415e8669f46ef21b5dd3b",
-      "bytes": 77495
+      "sha256": "1f5ec40ae2a4b033a2318e65dcab6f28d16a79bef0cff11ba32b9671229c7520",
+      "bytes": 77998
     },
     {
       "path": "configs/ci/report-ownership.json",
-      "sha256": "fa1985d4d4ea2adbcac86bd4f6df6d46a970011daed059c4f7974e941cb4ea8a",
-      "bytes": 2391550
+      "sha256": "59f984613363e5ae47d8aaef83d9e48c1b96250e7e355182f4e159ac1b52ef71",
+      "bytes": 2504398
     },
     {
       "path": "configs/docs/science_downloads.py",
@@ -2466,22 +2466,22 @@
     },
     {
       "path": "docs/report/report_narrative_quality_review.json",
-      "sha256": "fe80950278657eeacbbb4f9742c94256f3ad7c3613d742efdd92d432b33ddcfa",
-      "bytes": 139702
+      "sha256": "f7fa2b34d00ae5675f035a28a332371334696a4f412f30c9caa3c97fb6c5db8b",
+      "bytes": 140177
     },
     {
       "path": "docs/report/report_narrative_quality_review.md",
-      "sha256": "1e99f26db738adf33f359bcdcb379c3014d5d784b52b058d71d191748ba2f059",
+      "sha256": "51f0ecf1bbccd07eb63a792c2802d069af18969e99806487ad677e112d5b3bb5",
       "bytes": 754
     },
     {
       "path": "docs/report/report_surface_registry.json",
-      "sha256": "09b7f53489e2fc8f893cd366bcf4102518dddbdb8f73a972df1acabf2452b12e",
-      "bytes": 950713
+      "sha256": "75420118e605433a7a04a0203f4ba0f5dbc014f2b74d2d003c076c52f0a2b398",
+      "bytes": 952255
     },
     {
       "path": "docs/report/report_surface_registry.md",
-      "sha256": "1631ca49b240114f95a99f29c315f24640f5d861d09c4b76ad7a37e3bcb88732",
+      "sha256": "591b65a7ccc21e6a8942554aa68079ec436f26785f0117246e6264f0c56cb887",
       "bytes": 1078
     },
     {
@@ -2716,8 +2716,8 @@
     },
     {
       "path": "docs/report/source-relations/sead/README.md",
-      "sha256": "1b672e5144b0089cda19194d8371aa7d5c7f450cd8e456ba4164d41312417256",
-      "bytes": 7315
+      "sha256": "176a80f3082b901d3a3acd7f57e091c759351137b21e2498f0e7817b88e0c343",
+      "bytes": 7676
     },
     {
       "path": "docs/report/source-relations/sead/analysis-categorical-values/README.md",
@@ -2728,6 +2728,21 @@
       "path": "docs/report/source-relations/sead/analysis-categorical-values/report.json",
       "sha256": "8ada887dccab478198935df6aa273f96d7422eb73f062be582bb5b121db7131e",
       "bytes": 12577
+    },
+    {
+      "path": "docs/report/source-relations/sead/analysis-value-components/README.md",
+      "sha256": "761cea2b21bae311a5011095c72f0eb257cb9472978361c6f51526dbe244bcb3",
+      "bytes": 1939
+    },
+    {
+      "path": "docs/report/source-relations/sead/analysis-value-components/report.json",
+      "sha256": "b7c62ea8f3552f0e50e5d55aa0091a8485eafb5ad0c012641e8f1b53f92b784f",
+      "bytes": 9134
+    },
+    {
+      "path": "docs/report/source-relations/sead/analysis-value-components/rows.csv",
+      "sha256": "c935541d8da42d7cdfd9308ec6343349380ef3b8e682912eed32f67ab2a92cce",
+      "bytes": 5829
     },
     {
       "path": "docs/report/source-relations/sead/chronology-claim-review/README.md",
@@ -2976,7 +2991,7 @@
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/maintained_sources.py",
-      "sha256": "26af165f96fc0157b591ad30a8cb39f131f5b52e9bc3ed96c2a62e1ed18f585c",
+      "sha256": "7d37486e04f9bd8a430aba0c311022c8cec7c357f89900bfcc20a372bfc00200",
       "bytes": 6605
     },
     {

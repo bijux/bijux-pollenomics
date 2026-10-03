@@ -1441,6 +1441,17 @@
       "source_arguments": [],
       "output_mode": "single_file",
       "timeout_seconds": 180
+    },
+    {
+      "owner_id": "source-relations/sead/analysis-value-components/report-products",
+      "module": "bijux_pollenomics_dev.source_completion.sead.analysis_value_components",
+      "source_paths": {
+        "report.json": "docs/report/source-relations/sead/analysis-value-components/report.json",
+        "rows.csv": "docs/report/source-relations/sead/analysis-value-components/rows.csv"
+      },
+      "source_arguments": [],
+      "output_mode": "directory",
+      "timeout_seconds": 180
     }
   ]
 }
