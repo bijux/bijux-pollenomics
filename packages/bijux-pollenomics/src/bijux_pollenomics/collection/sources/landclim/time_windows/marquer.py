@@ -41,6 +41,25 @@ def _merge_marquer_time_windows(
     if not estimate_rows:
         return
     headers = estimate_rows[0]
+    variables = [clean_optional_text(header) for header in headers[1:]]
+    if (
+        not variables
+        or any(not variable for variable in variables)
+        or len(variables) != len(set(variables))
+    ):
+        raise ValueError("Marquer estimate headers are invalid")
+    if not error_rows or error_rows[0] != headers:
+        raise ValueError("Marquer estimate/standard-error headers differ")
+    for sheet_name, source_rows in (
+        ("REVEALS 36GCs", estimate_rows),
+        ("SE_REVEALS 36GCs", error_rows),
+    ):
+        for row_number, row in enumerate(source_rows[1:], start=2):
+            if any(cell.strip() for cell in row[len(headers) :]):
+                raise ValueError(
+                    f"Marquer {sheet_name} row {row_number} has populated cells "
+                    "beyond declared headers"
+                )
     standard_errors = {
         clean_optional_text(row[0]): _numeric_values(headers, row, start_index=1)
         for row in error_rows[1:]
