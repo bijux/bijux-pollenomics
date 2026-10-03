@@ -1410,6 +1410,11 @@
       "bytes": 1539
     },
     {
+      "path": "docs/report/regions/europe-plus/europe-plus_map.html",
+      "sha256": "acf93737d4ef7267f55d6bfcf0c103dabf787d3744258b7267ccb1ca0bdd533e",
+      "bytes": 441161
+    },
+    {
       "path": "docs/report/regions/nordic/README.md",
       "sha256": "884762fee0ec86933e093e7c38ed064af3a5ece5470247ebe7e0fb9420868740",
       "bytes": 40547
@@ -1758,6 +1763,11 @@
       "path": "docs/report/regions/nordic/lilla-gloppsjon-direct-pollen/scoring-protocol.json",
       "sha256": "e3ebc64b8804a6583d72d542beb9550f7046d735f92f2a6817a60eb18f545e51",
       "bytes": 6947
+    },
+    {
+      "path": "docs/report/regions/nordic/nordic_map.html",
+      "sha256": "38bccd105cb138d807749611135ab787b17ce06934534ec513727071afbbaa42",
+      "bytes": 522485
     },
     {
       "path": "docs/report/regions/nordic/pollen-development/README.md",
@@ -2843,6 +2853,11 @@
       "path": "docs/report/vegetation-reference/southern-sweden-figure/README.md",
       "sha256": "09a70153a8e3132be6577c3dd3f21cf8b687115869e3d037d92b6c636cfc495b",
       "bytes": 1091
+    },
+    {
+      "path": "docs/report/world/world_map.html",
+      "sha256": "a48bb14f57b9165945e022b3000ecab8f5a53ac4a113e222042c517f32ec38da",
+      "bytes": 471737
     },
     {
       "path": "makes/packages/bijux-pollenomics-dev.mk",
