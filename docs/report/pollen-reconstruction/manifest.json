@@ -3880,6 +3880,11 @@
       "bytes": 18722
     },
     {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/source_capability.py",
+      "sha256": "8083b5bf201d8e34606645fee5bbbbe6b6a63e4c8c2f82aecf7d7cbfa616f489",
+      "bytes": 12337
+    },
+    {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/study_metadata/__init__.py",
       "sha256": "0d3abc77aa7a589ad9ec061b2cad952078fc7a9ce7270fb841f1e1d214e2d09d",
       "bytes": 55
@@ -4468,6 +4473,11 @@
       "path": "packages/bijux-pollenomics-dev/tests/source_completion/test_source_account_clis.py",
       "sha256": "72c81c990ca7a5351c30a9f82eb3caa5f86ee2a6e309360c0b7b59d36b07732c",
       "bytes": 3874
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/tests/source_completion/test_source_capability.py",
+      "sha256": "e185f533ef6b2a269581bd8217cae2378d84b0a553802b1eef471d1b9199892e",
+      "bytes": 8508
     },
     {
       "path": "packages/bijux-pollenomics-dev/tests/source_completion/test_storasjo_source_binding.py",

@@ -3,11 +3,13 @@
 from __future__ import annotations
 
 from copy import deepcopy
+import hashlib
 import json
 from pathlib import Path
 
 import pytest
 
+import bijux_pollenomics_dev.source_completion.source_capability as capability
 from bijux_pollenomics_dev.source_completion.source_capability import (
     _validate_status_counts,
     derive,
@@ -173,3 +175,71 @@ def test_availability_status_preserves_distinct_valid_states(
     status: str, counts: dict[str, int | None]
 ) -> None:
     _validate_status_counts(status, counts)
+
+
+def test_changed_country_parent_refuses_publication(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    repository = tmp_path / "repository"
+    data = repository / "data"
+    data.mkdir(parents=True)
+    (repository / "artifacts").mkdir()
+    (data / "source_family_evidence_stage_matrix.json").write_text("{}\n")
+    parent = data / "source.json"
+    original = b'{"claim":"present"}\n'
+    parent.write_bytes(original)
+    (data / "country_dimension_coverage.json").write_text(
+        json.dumps(
+            {
+                "input_artifacts": [
+                    {
+                        "path": "data/source.json",
+                        "byte_count": len(original),
+                        "sha256": hashlib.sha256(original).hexdigest(),
+                    }
+                ]
+            }
+        )
+    )
+
+    def change_parent_during_derivation(
+        _stage: dict[str, object], _coverage: dict[str, object]
+    ) -> dict[str, object]:
+        parent.write_text('{"claim":"altered"}\n')
+        return {"source_families": 11}
+
+    monkeypatch.setattr(capability, "derive", change_parent_during_derivation)
+    output = repository / "artifacts" / "source-capability"
+    with pytest.raises(ValueError, match="Country coverage parent changed"):
+        capability.run(repository, output)
+    assert not output.exists()
+
+
+def test_country_parent_cannot_escape_repository(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    repository = tmp_path / "repository"
+    data = repository / "data"
+    data.mkdir(parents=True)
+    (repository / "artifacts").mkdir()
+    (data / "source_family_evidence_stage_matrix.json").write_text("{}\n")
+    external = tmp_path / "external.json"
+    external.write_text("{}\n")
+    (data / "country_dimension_coverage.json").write_text(
+        json.dumps(
+            {
+                "input_artifacts": [
+                    {
+                        "path": "../../external.json",
+                        "byte_count": external.stat().st_size,
+                        "sha256": hashlib.sha256(external.read_bytes()).hexdigest(),
+                    }
+                ]
+            }
+        )
+    )
+    monkeypatch.setattr(capability, "derive", lambda *_: {"source_families": 11})
+    output = repository / "artifacts" / "source-capability"
+    with pytest.raises(ValueError, match="Country coverage parent identity invalid"):
+        capability.run(repository, output)
+    assert not output.exists()

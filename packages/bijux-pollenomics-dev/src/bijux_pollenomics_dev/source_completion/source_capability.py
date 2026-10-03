@@ -7,6 +7,7 @@ from collections import Counter
 import hashlib
 import json
 from pathlib import Path
+import stat
 from typing import Any
 
 COUNTRIES = ("SE", "DK", "NO", "FI", "UNASSIGNED", "OUTSIDE")
@@ -85,6 +86,57 @@ def _read(path: Path) -> tuple[dict[str, Any], str]:
     if not isinstance(value, dict):
         raise ValueError(f"Expected JSON object: {path}")
     return value, hashlib.sha256(data).hexdigest()
+
+
+def _parent_specs(coverage: dict[str, Any]) -> tuple[tuple[str, int, str], ...]:
+    """Freeze exact declared parent identities before derivation can run."""
+    items = coverage.get("input_artifacts")
+    if not isinstance(items, list) or not items:
+        raise ValueError("Country coverage parent inventory missing")
+    specs: list[tuple[str, int, str]] = []
+    for item in items:
+        if not isinstance(item, dict):
+            raise ValueError("Country coverage parent identity invalid")
+        relative = item.get("path")
+        size = item.get("byte_count")
+        digest = item.get("sha256")
+        if (
+            not isinstance(relative, str)
+            or relative.startswith("/")
+            or "\\" in relative
+            or any(part in {"", ".", ".."} for part in relative.split("/"))
+            or type(size) is not int
+            or size < 0
+            or not isinstance(digest, str)
+            or len(digest) != 64
+            or any(character not in "0123456789abcdef" for character in digest)
+        ):
+            raise ValueError("Country coverage parent identity invalid")
+        specs.append((relative, size, digest))
+    if len({path for path, _, _ in specs}) != len(specs):
+        raise ValueError("Country coverage parent paths are not unique")
+    return tuple(specs)
+
+
+def _verify_parents(repository: Path, specs: tuple[tuple[str, int, str], ...]) -> None:
+    """Check each confined parent before derivation and again before publication."""
+    for relative, size, digest in specs:
+        path = repository
+        try:
+            for part in relative.split("/")[:-1]:
+                path /= part
+                if not stat.S_ISDIR(path.lstat().st_mode):
+                    raise ValueError(f"Country coverage parent is linked: {relative}")
+            path /= relative.split("/")[-1]
+            if not stat.S_ISREG(path.lstat().st_mode):
+                raise ValueError(f"Country coverage parent is linked: {relative}")
+            payload = path.read_bytes()
+        except OSError as error:
+            raise ValueError(
+                f"Country coverage parent unavailable: {relative}"
+            ) from error
+        if len(payload) != size or hashlib.sha256(payload).hexdigest() != digest:
+            raise ValueError(f"Country coverage parent changed: {relative}")
 
 
 def derive(stage: dict[str, Any], coverage: dict[str, Any]) -> dict[str, Any]:
@@ -213,14 +265,8 @@ def run(repository: Path, output: Path) -> dict[str, Any]:
         raise ValueError("Absent repository artifact destination required")
     stage, stage_sha = _read(repository / STAGE_PATH)
     coverage, coverage_sha = _read(repository / COVERAGE_PATH)
-    for item in coverage["input_artifacts"]:
-        path = repository / item["path"]
-        payload = path.read_bytes()
-        if (
-            len(payload) != item["byte_count"]
-            or hashlib.sha256(payload).hexdigest() != item["sha256"]
-        ):
-            raise ValueError(f"Country coverage parent changed: {item['path']}")
+    parents = _parent_specs(coverage)
+    _verify_parents(repository, parents)
     report = derive(stage, coverage)
     report["inputs"] = {
         STAGE_PATH.as_posix(): stage_sha,
@@ -232,6 +278,7 @@ def run(repository: Path, output: Path) -> dict[str, Any]:
         != coverage_sha
     ):
         raise ValueError("Source capability input changed during derivation")
+    _verify_parents(repository, parents)
     output.mkdir(parents=True)
     (output / "report.json").write_text(
         json.dumps(report, indent=2, allow_nan=False) + "\n"
