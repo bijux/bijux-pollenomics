@@ -5135,6 +5135,16 @@
       "bytes": 12336
     },
     {
+      "path": "packages/bijux-pollenomics/tests/unit/reporting/map_document/browser_semantics/test_time_and_degraded_modes.py",
+      "sha256": "f72975b0afbc4814bb7696249fe3b4e7ce5623c4acaacb10f73fe6667ed7adf9",
+      "bytes": 18899
+    },
+    {
+      "path": "packages/bijux-pollenomics/tests/unit/reporting/map_document/browser_semantics/test_visual_clarity.py",
+      "sha256": "4008b61a45205ed2644deed9e6110335613afbbbe4bc633dfbf12d1bae27e2d6",
+      "bytes": 8156
+    },
+    {
       "path": "packages/bijux-pollenomics/tests/unit/reporting/rendering/test_markdown_contracts.py",
       "sha256": "7a1e398402e3143ea43d7197be4ad5a5f90b3ea8674f12a95ea3261854487398",
       "bytes": 7109
