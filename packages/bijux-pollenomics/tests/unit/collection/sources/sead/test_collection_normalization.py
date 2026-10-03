@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from copy import deepcopy
 from typing import cast
 
 import pytest
@@ -190,3 +191,146 @@ def test_undated_site_never_borrows_time_from_its_name_or_nearby_site(
     semantics = cast(dict[str, object], undated.temporal_semantics)
     assert semantics["comparability_posture"] == "unresolved"
     assert semantics["evidence_class"] == "unresolved"
+
+
+@pytest.mark.parametrize("missing", [None, "null", "None"])
+@pytest.mark.parametrize("interval", [None, (200, 800)])
+def test_optional_period_and_uncertainty_nulls_are_not_temporal_evidence(
+    missing: object, interval: tuple[int, int] | None
+) -> None:
+    boundary_case = NordicBoundaryTestCase()
+    boundary_case.setUp()
+    row: dict[str, object] = {
+        "site_id": 6468,
+        "site_uuid": "uuid-6468",
+        "site_name": "Core 1800 BP",
+        "latitude_dd": 56.05,
+        "longitude_dd": 14.28,
+        "relative_period_rows": [
+            {
+                "relative_age_label": missing,
+                "normalized_period_label": missing,
+                "uncertainty_label": missing,
+                "uncertainty_description": missing,
+            }
+        ],
+        "dating_range_rows": [
+            {
+                "uncertainty_label": missing,
+                "uncertainty_description": missing,
+                "low_qualifier": missing,
+                "high_qualifier": missing,
+            }
+        ],
+    }
+    if interval is not None:
+        row["time_start_bp"], row["time_end_bp"] = interval
+    original = deepcopy(row)
+    record = normalize_sead_rows(
+        [row], country_boundaries=boundary_case.country_boundaries
+    )[0]
+    semantics = cast(dict[str, object], record.temporal_semantics)
+    assert semantics["original_labels"] == []
+    assert semantics["normalized_labels"] == []
+    assert semantics["uncertainty_notes"] == []
+    assert semantics["comparability_posture"] == (
+        "unresolved" if interval is None else "numeric_interval"
+    )
+    assert semantics["evidence_class"] == (
+        "unresolved" if interval is None else "sead_dating_range"
+    )
+    assert (record.time_start_bp, record.time_end_bp) == (
+        (None, None) if interval is None else interval
+    )
+    labels = dict(record.popup_rows)
+    for name in (
+        "Original period labels",
+        "Normalized period labels",
+        "Temporal uncertainty",
+    ):
+        assert name not in labels
+    assert record.record_id == "6468" and record.site_uuid == "uuid-6468"
+    assert row == original
+
+
+@pytest.mark.parametrize("interval", [None, (200, 800)])
+def test_genuine_period_text_keeps_context_and_source_order(
+    interval: tuple[int, int] | None,
+) -> None:
+    boundary_case = NordicBoundaryTestCase()
+    boundary_case.setUp()
+    row: dict[str, object] = {
+        "site_id": 6468,
+        "site_uuid": "uuid-6468",
+        "latitude_dd": 56.05,
+        "longitude_dd": 14.28,
+        "relative_period_rows": [
+            {
+                "relative_age_label": " Neolithic ",
+                "normalized_period_label": " neolithic ",
+            },
+            {
+                "relative_age_label": "Bronze Age",
+                "normalized_period_label": "bronze_age",
+            },
+            {"relative_age_label": "Neolithic", "normalized_period_label": "neolithic"},
+        ],
+    }
+    if interval is not None:
+        row["time_start_bp"], row["time_end_bp"] = interval
+    original = deepcopy(row)
+    record = normalize_sead_rows(
+        [row], country_boundaries=boundary_case.country_boundaries
+    )[0]
+    semantics = cast(dict[str, object], record.temporal_semantics)
+    assert semantics["original_labels"] == ["Neolithic", "Bronze Age"]
+    assert semantics["normalized_labels"] == ["neolithic", "bronze_age"]
+    assert semantics["comparability_posture"] == (
+        "contextual_label_only" if interval is None else "mixed_interval_and_context"
+    )
+    assert (record.time_start_bp, record.time_end_bp) == (
+        (None, None) if interval is None else interval
+    )
+    assert row == original
+
+
+@pytest.mark.parametrize(
+    "kind", ["dating_range_rows", "geochronology_rows", "dendro_date_rows"]
+)
+def test_genuine_qualifiers_and_partial_uncertainty_text_keep_their_meaning(
+    kind: str,
+) -> None:
+    boundary_case = NordicBoundaryTestCase()
+    boundary_case.setUp()
+    row: dict[str, object] = {
+        "site_id": 6468,
+        "site_uuid": "uuid-6468",
+        "latitude_dd": 56.05,
+        "longitude_dd": 14.28,
+        "time_start_bp": 200,
+        "time_end_bp": 800,
+        kind: [
+            {
+                "uncertainty_label": None,
+                "uncertainty_description": " Source uncertainty ",
+                "low_qualifier": " > ",
+                "high_qualifier": None,
+            },
+            {
+                "uncertainty_label": None,
+                "uncertainty_description": "Source uncertainty",
+                "low_qualifier": ">",
+                "high_qualifier": None,
+            },
+        ],
+    }
+    original = deepcopy(row)
+    record = normalize_sead_rows(
+        [row], country_boundaries=boundary_case.country_boundaries
+    )[0]
+    semantics = cast(dict[str, object], record.temporal_semantics)
+    assert semantics["uncertainty_notes"] == ["Source uncertainty", ">"]
+    assert semantics["comparability_posture"] == "numeric_interval_with_caveat"
+    assert dict(record.popup_rows)["Temporal uncertainty"] == "Source uncertainty | >"
+    assert (record.time_start_bp, record.time_end_bp) == (200, 800)
+    assert row == original
