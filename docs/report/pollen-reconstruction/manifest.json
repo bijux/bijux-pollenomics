@@ -1206,8 +1206,8 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/verify_report.py",
-      "sha256": "25ae3323fe09765559d57408e89d727dbdd3d0d15b1cc58fe9a05612bd0761b5",
-      "bytes": 49456
+      "sha256": "048b9527e7dc99d08d89ed12cb0a5807453312a41ac40436c8c454572994fc2e",
+      "bytes": 49935
     },
     {
       "path": "docs/report/publication-replay/landclim-amsoldingersee-source-review/README.md",
@@ -3988,6 +3988,11 @@
       "path": "packages/bijux-pollenomics-dev/tests/source_completion/nordic/test_sambosjon_execution.py",
       "sha256": "8c68761dfd340f3fb8e1b302906a2b4bc0ceea7b926ae19a7658fb379252cce0",
       "bytes": 10876
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/tests/source_completion/nordic/test_sambosjon_report_mean.py",
+      "sha256": "a76e041f06fbf9a4442cdee8b14010ac0ffc6db3402f3b84c247cfee69631229",
+      "bytes": 3604
     },
     {
       "path": "packages/bijux-pollenomics-dev/tests/source_completion/nordic/test_sambosjon_scores.py",
