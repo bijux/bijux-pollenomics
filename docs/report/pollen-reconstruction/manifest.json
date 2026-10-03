@@ -3045,6 +3045,11 @@
       "bytes": 18974
     },
     {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/contracts.py",
+      "sha256": "fda58e268123ad12e851f358271217f7c7c56ec1eafa3c36505451202e2a5ac6",
+      "bytes": 5603
+    },
+    {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/evidence.py",
       "sha256": "1fdf0b41872539f6823503c8d22f8725bb3571ff515dd4cb4c6339e0824e30fb",
       "bytes": 11577
@@ -4623,6 +4628,11 @@
       "path": "packages/bijux-pollenomics-dev/tests/test_report_rebuild_maintained_sources.py",
       "sha256": "ef7fc7393ee8cb5c2643aebfa867d7ce09851f638f52124bf495ae37507adec2",
       "bytes": 10909
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/tests/test_report_rebuild_manifest_publication.py",
+      "sha256": "fd2fbb23f7dff61e3e39332a4aeac05288b4ca68b2a66fc44f6b80dd5757a041",
+      "bytes": 3232
     },
     {
       "path": "packages/bijux-pollenomics-dev/tests/test_report_rebuild_namibia_radius_owner.py",

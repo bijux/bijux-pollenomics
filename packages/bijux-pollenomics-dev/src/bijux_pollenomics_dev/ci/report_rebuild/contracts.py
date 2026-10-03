@@ -6,6 +6,7 @@ from collections.abc import Mapping, Sequence
 from dataclasses import dataclass
 import hashlib
 import json
+import os
 from pathlib import Path
 import stat
 from typing import cast
@@ -99,12 +100,36 @@ def atomic_write_json(path: Path, value: Mapping[str, object]) -> None:
     """Write stable JSON without exposing a partial manifest."""
     path.parent.mkdir(parents=True, exist_ok=True)
     staging = path.with_name(f".{path.name}.writing")
-    if staging.exists() or staging.is_symlink():
-        raise ReportRebuildError(f"manifest staging path already exists: {staging}")
-    staging.write_text(
-        json.dumps(value, indent=2, sort_keys=True) + "\n", encoding="utf-8"
-    )
-    staging.replace(path)
+    payload = (json.dumps(value, indent=2, sort_keys=True) + "\n").encode("utf-8")
+    try:
+        stream = staging.open("xb")
+    except FileExistsError as error:
+        raise ReportRebuildError(
+            f"manifest staging path already exists: {staging}"
+        ) from error
+    identity = os.fstat(stream.fileno())
+
+    def owns_staging() -> bool:
+        try:
+            current = staging.lstat()
+        except FileNotFoundError:
+            return False
+        return stat.S_ISREG(current.st_mode) and (
+            current.st_dev,
+            current.st_ino,
+        ) == (identity.st_dev, identity.st_ino)
+
+    try:
+        with stream:
+            stream.write(payload)
+            stream.flush()
+            os.fsync(stream.fileno())
+        if not owns_staging() or staging.read_bytes() != payload:
+            raise ReportRebuildError(f"manifest staging identity changed: {staging}")
+        staging.replace(path)
+    finally:
+        if owns_staging() and payload.startswith(staging.read_bytes()):
+            staging.unlink()
 
 
 def parse_binding(value: object, label: str) -> RebuildBinding:
