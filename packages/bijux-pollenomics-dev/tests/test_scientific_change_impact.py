@@ -357,11 +357,40 @@ def configured_owner_rows(
         directory = store / identity
         directory.mkdir(parents=True, exist_ok=True)
         inputs = {descriptor_path.as_posix(): descriptor_file}
-        for spec in [descriptor["custody"], *descriptor["files"]]:
-            path = directory / spec["path"]
-            path.parent.mkdir(parents=True, exist_ok=True)
-            path.write_text("synthetic archive-layout fixture\n", encoding="utf-8")
-            inputs[f"external/{identity}/{spec['path']}"] = path
+        schema = descriptor["schema_version"]
+        if schema in {
+            "qualified-report-source-bundle.v1",
+            "qualified-publisher-report-tables.v1",
+        }:
+            packets = [
+                (identity, Path(), [descriptor["custody"], *descriptor["files"]])
+            ]
+        elif schema == "qualified-author-snapshot.v1":
+            packets = [
+                (identity, Path(), [descriptor["manifest"], *descriptor["files"]])
+            ]
+        elif schema == "qualified-landclim-two-grid-packet.v1":
+            author = json.loads(
+                (repository / descriptor["author_descriptor"]).read_text()
+            )
+            packets = [
+                (
+                    author["source_id"],
+                    Path(),
+                    [author["manifest"], *author["files"]],
+                ),
+                (identity, Path(descriptor["run_path"]), descriptor["files"]),
+            ]
+        else:
+            raise AssertionError(f"Unreviewed synthetic source schema: {schema}")
+        for source_id, prefix, specs in packets:
+            for spec in specs:
+                path = store / source_id / prefix / spec["path"]
+                path.parent.mkdir(parents=True, exist_ok=True)
+                path.write_text("synthetic archive-layout fixture\n", encoding="utf-8")
+                inputs[f"external/{source_id}/{prefix / spec['path']}"] = path
+        if schema == "qualified-landclim-two-grid-packet.v1":
+            assert len(inputs) == 265
         return QualifiedReportSources(directory, inputs, "a" * 64)
 
     monkeypatch.setattr(
