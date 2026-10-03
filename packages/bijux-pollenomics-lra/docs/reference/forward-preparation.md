@@ -81,6 +81,14 @@ distance-weighting/profile identities and finite outer support. Every array
 has independent immutable backing. Relative kernel mass is neither an absolute
 pollen flux nor a predicted count.
 
+`forward_deposition` preserves finite local, regional and total taxon masses in
+the supplied relative units. If summing finite taxon masses overflows, composition
+is computed after dividing all total masses by their maximum; the exposed masses
+keep their original values. Ordinary finite sums retain the source arithmetic.
+Zero aggregate mass and nonfinite individual deposition remain refusals. This
+numerical unit invariance is not an extreme-input R parity or field-validation
+claim.
+
 The interface accepts one explicit regional vector and performs no RNG work.
 For uncertainty, the caller preserves draw identity and ancestry while pairing
 regional and local-cover draws. Regional vectors can already contain upstream
