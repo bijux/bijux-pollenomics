@@ -70,6 +70,11 @@
       "bytes": 1773
     },
     {
+      "path": "data/landclim/retained-country-baselines/sweden-land-use/historical-baseline.json",
+      "sha256": "e5c01be71105005465a1ff37fa20b39431aebaa88b2c0eec2d8129f4c2aecc22",
+      "bytes": 955
+    },
+    {
       "path": "data/landclim/review/amsoldingersee-source-inputs.json",
       "sha256": "09811a8a6042d586770fa99b9f2e9d1a79209c4452a4dd839a3411cd644ff397",
       "bytes": 2190
@@ -3235,6 +3240,16 @@
       "bytes": 8065
     },
     {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/land_use/__init__.py",
+      "sha256": "44570202963f5c2dc3f40d3f9fc92de18018231c04a0fec704b8628076745c7e",
+      "bytes": 72
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/land_use/historical_comparison.py",
+      "sha256": "1a0ec617c947f0d77e72f1b6ebb9cd264b6444e64f41e33f5178ab040cf9d60e",
+      "bytes": 7784
+    },
+    {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/landclim_amsoldingersee_recovery.py",
       "bytes": 8383,
       "sha256": "629607a1fad4ff2a9357edb731d4ef95dd69897595fd87a5b19c5a9e96c98bb0"
@@ -3933,6 +3948,16 @@
       "path": "packages/bijux-pollenomics-dev/tests/source_completion/essd/test_window_alignment.py",
       "sha256": "1fb9c02e3602ffe22b0619aace9daa8d201932cc438abd0e2c74560e62aa766d",
       "bytes": 5327
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/tests/source_completion/land_use/test_historical_comparison_custody.py",
+      "sha256": "eec9f7d3b743d4c23cc49704261a4b121676c02cf2fc7616f8021c5d5f4730a8",
+      "bytes": 8522
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/tests/source_completion/land_use/test_historical_comparison_publication.py",
+      "sha256": "84d0e668122025db5634a96b2e800818c43d6fbd44fa71ad2251a89cf66c5149",
+      "bytes": 6725
     },
     {
       "path": "packages/bijux-pollenomics-dev/tests/source_completion/method_certification/test_covariance_clis.py",
