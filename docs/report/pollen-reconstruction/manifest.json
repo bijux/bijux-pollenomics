@@ -4365,6 +4365,11 @@
       "bytes": 4217
     },
     {
+      "path": "packages/bijux-pollenomics/tests/unit/reporting/map_document/browser_semantics/test_animal_source_chronology.py",
+      "sha256": "b176b9374936b4926901e183018cfff93f8b9c41c7a6dc797caf6fdc394d5dd4",
+      "bytes": 12336
+    },
+    {
       "path": "packages/bijux-pollenomics/tests/unit/reporting/rendering/test_markdown_contracts.py",
       "sha256": "7a1e398402e3143ea43d7197be4ad5a5f90b3ea8674f12a95ea3261854487398",
       "bytes": 7109

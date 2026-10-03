@@ -2,7 +2,9 @@
 
 from __future__ import annotations
 
-from .support import MAP_DOCUMENT_TEMPLATE, run_node_json, template_block
+from bijux_pollenomics.reporting.map_document.template import MAP_DOCUMENT_TEMPLATE
+
+from .support import run_node_json, template_block
 
 
 def test_animal_source_chronology_is_discoverable_but_default_off() -> None:
