@@ -25,6 +25,7 @@ class DependencyAuditReceipt(TypedDict):
     schema: str
     distribution: str
     extras: list[str]
+    additional_workspace_distributions: list[str]
     exported_pin_count_including_target_markers: int
     requirements_sha256: str
     source_sha256: dict[str, str]
@@ -156,6 +157,7 @@ def prepare(
     uv: str,
     *,
     verify_installed: bool = False,
+    additional_distributions: list[str] | None = None,
 ) -> DependencyAuditReceipt:
     """Publish exact uv export and workspace custody for the package security gate."""
     repository = repository.absolute()
@@ -170,6 +172,17 @@ def prepare(
     workspace, before = workspace_sources(repository)
     if distribution not in workspace:
         raise ValueError("audit distribution is not a declared workspace member")
+    additional = (
+        [] if additional_distributions is None else list(additional_distributions)
+    )
+    if (
+        len(additional) != len(set(additional))
+        or distribution in additional
+        or any(name not in workspace for name in additional)
+    ):
+        raise ValueError(
+            "additional audit distributions must be distinct workspace members"
+        )
     project = _mapping(
         _mapping(
             tomllib.loads(
@@ -215,6 +228,8 @@ def prepare(
             "--output-file",
             str(exported),
         ]
+        for additional_distribution in additional:
+            argv.extend(["--package", additional_distribution])
         for extra in extras:
             argv.extend(["--extra", extra])
         environment = {
@@ -249,6 +264,7 @@ def prepare(
             "schema": "pollenomics-workspace-dependency-audit/v1",
             "distribution": distribution,
             "extras": extras,
+            "additional_workspace_distributions": additional,
             "exported_pin_count_including_target_markers": count,
             "requirements_sha256": _sha(exported),
             "source_sha256": before,
@@ -281,6 +297,7 @@ def main() -> int:
     parser.add_argument("--account", type=Path, required=True)
     parser.add_argument("--uv", default="uv")
     parser.add_argument("--verify-installed", action="store_true")
+    parser.add_argument("--additional-distribution", action="append", default=[])
     args = parser.parse_args()
     receipt = prepare(
         args.repository,
@@ -290,6 +307,7 @@ def main() -> int:
         args.account,
         args.uv,
         verify_installed=args.verify_installed,
+        additional_distributions=args.additional_distribution,
     )
     print(
         json.dumps(
@@ -303,4 +321,9 @@ def main() -> int:
 
 
 if __name__ == "__main__":
+    if not __package__:
+        # The repository file remains executable in package security environments
+        # that do not install the developer distribution.
+        __package__ = "bijux_pollenomics_dev.ci"
+        sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
     raise SystemExit(main())

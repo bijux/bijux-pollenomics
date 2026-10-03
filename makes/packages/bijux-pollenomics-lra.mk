@@ -20,8 +20,6 @@ BUILD_PACKAGE_NAME := bijux-pollenomics-lra
 # This GPL-derived package retains its own LICENSE/NOTICE. The host's Apache
 # license-copy build hook must never overwrite those source obligations.
 BUILD_TEMP_CLEAN_PATHS := build dist *.egg-info
-SECURITY_AUDIT_PREPARE_MODE = pyproject
-PIP_AUDIT_INPUTS = -r "$(SECURITY_REQS)"
 
 include $(abspath $(dir $(firstword $(MAKEFILE_LIST))))/../bijux-py/package.mk
 
@@ -44,3 +42,8 @@ reference-provision: ## Install verified local archives into a new private R lib
 
 test-live-r: ## Require actual R execution and exact case/source/runtime receipt closure.
 	@$(LRA_REFERENCE_COMMAND) certify $(LRA_REFERENCE_COMMON) --library "$(LRA_REFERENCE_ROOT)/library" --rscript "$(LRA_REFERENCE_ROOT)/runtime/bin/Rscript" --provision-receipt "$(LRA_REFERENCE_ROOT)/receipts/provision/report.json" --output "$(LRA_REFERENCE_ROOT)/receipts/certification"
+
+
+WORKSPACE_AUDIT_EXTRAS := dev
+WORKSPACE_AUDIT_ADDITIONAL_DISTRIBUTIONS := bijux-pollenomics-dev
+include $(MONOREPO_ROOT)/makes/workspace-dependency-audit.mk

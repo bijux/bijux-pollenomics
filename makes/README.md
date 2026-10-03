@@ -35,6 +35,7 @@ makes/
 │   ├── package-catalog.mk
 │   └── package.mk
 ├── packages/
+├── workspace-dependency-audit.mk
 ├── api-freeze.mk
 ├── env.mk
 ├── packages.mk
@@ -146,3 +147,13 @@ Before adding a rule, ask three questions:
 
 Choose the highest honest layer. The best `makes/` tree is the one where each
 rule has one obvious home and no file exists just to repeat another one.
+
+## Workspace dependency auditing
+
+`workspace-dependency-audit.mk` owns the repository's locked public audit inputs
+and installed-version qualification. Package profiles declare selected extras
+and any additional workspace tooling distribution they actually install.
+The repository file entrypoint remains usable when the developer distribution
+is not installed. Public service pins omit workspace packages while their exact
+source identities remain in a separate account. The inherited Bandit and
+pip-audit targets retain their normal strict gates.

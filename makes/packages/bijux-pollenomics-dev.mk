@@ -9,8 +9,6 @@ TEST_SOURCE_PATHS := src
 INTERROGATE_PATHS := src
 QUALITY_INTERROGATE_FLAGS = --config "$(MONOREPO_ROOT)/pyproject.toml"
 QUALITY_PATHS := src tests
-SECURITY_AUDIT_PREPARE_MODE = none
-PIP_AUDIT_INPUTS = --strict --no-deps --disable-pip -r "$(SECURITY_REQS)"
 ENABLE_PYDOCSTYLE := 1
 SKIP_MYPY := 0
 PACKAGE_ALL_TARGETS := clean install test lint quality security build sbom
@@ -41,9 +39,6 @@ test-all-plus-run-time: test
 
 include $(abspath $(dir $(firstword $(MAKEFILE_LIST))))/../bijux-py/package.mk
 
-# Export the selected package closure from the authenticated workspace lock.
-# Local distributions have a separate source custody account, not PyPI identity.
-security-audit: security-locked-inputs
-security-locked-inputs: install
-	@"$(VENV_PYTHON)" -m bijux_pollenomics_dev.ci.dependency_audit --repository "$(MONOREPO_ROOT)" --distribution bijux-pollenomics-dev --extra dev --extra reports --output "$(SECURITY_REQS)" --account "$(SECURITY_REPORT_DIR)/workspace-account.json" --verify-installed
-.PHONY: security-locked-inputs
+
+WORKSPACE_AUDIT_EXTRAS := dev reports
+include $(MONOREPO_ROOT)/makes/workspace-dependency-audit.mk
