@@ -32,7 +32,7 @@
     "Tilia",
     "Ulmus"
   ],
-  "parent_input_manifest_sha256": "392e6cb60d971e2644f59d7e283a12716a911e3825b168198cd7fd552eedb0ee",
+  "parent_input_manifest_sha256": "86645e8d2f29f60c6c206cb9b594030e7ec01d6b568009eb1e6dec3fc3481500",
   "parent_training_sha256": {
     "inputs/training-DK.json.gz": "53453012dec30e6e3031c0080ab42f4b42f4f936cc459aab285198f49fe17f0a",
     "inputs/training-FI.json.gz": "506919c6c484862ca909789dc0f0db5b2b21899216eb574064861e0ca5517d9f",

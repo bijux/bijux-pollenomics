@@ -1,7 +1,7 @@
 {
   "age_bin_width_bp": 500,
   "author_lookup_sha256": "3a745f9b7606e5d0b59feaba2683b930c8d3990e4810f8217b69160a29a1b507",
-  "author_mass_report_sha256": "f8b4fbd5c13544c960311d75053d96df2396d0273881f8bc646e946b7d3421a1",
+  "author_mass_report_sha256": "360266a47da915874fba74c457b6d12cdd030c5aefa122caf0002433305e5a4e",
   "axis": [
     "Abies alba",
     "Alnus glutinosa",
@@ -35,7 +35,7 @@
     "Tilia",
     "Ulmus"
   ],
-  "direct_manifest_sha256": "3e7814bf9697783397cdce11639ebc861620a6a3c9d9295d1357ab69bc7b5edf",
+  "direct_manifest_sha256": "43ec4aa62c1c93c0b3af0da2733706eb68a9685bd3f37b18a3041d22e7382573",
   "lookup_rows": 10788,
   "neotoma_relational_sha256": {
     "manifest.json": "6f6777a40b67bd0704eb1a982f19e6d451cad0d6e4a41dfebf5e3f28be33105b",
