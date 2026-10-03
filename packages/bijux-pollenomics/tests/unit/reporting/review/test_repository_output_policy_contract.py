@@ -6,11 +6,13 @@ from typing import cast
 
 import pytest
 
-from bijux_pollenomics.reporting.review.repository_truth_outputs import (
+from bijux_pollenomics.reporting.review.repository_output_policy import (
     _build_repository_generated_output_policy,
     _render_repository_generated_output_policy_markdown,
-    _repository_output_spec,
     _RepositoryOutputSpec,
+)
+from bijux_pollenomics.reporting.review.repository_truth_outputs import (
+    _repository_output_spec,
     _validate_repository_output_specs,
 )
 
