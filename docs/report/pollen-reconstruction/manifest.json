@@ -4370,6 +4370,26 @@
       "bytes": 11696
     },
     {
+      "path": "packages/bijux-pollenomics/tests/unit/collection/contracts/families/reference_sources/test_contracts.py",
+      "sha256": "b70fc6a8a6ef37d2546929c58202582721e350b8587b44342d4f6c4119ddddbd",
+      "bytes": 13131
+    },
+    {
+      "path": "packages/bijux-pollenomics/tests/unit/collection/contracts/payload_views.py",
+      "sha256": "ece980c8f515a03ccc1ef64bbc01c25263063e5665242e464b21a66e8ad8d1b7",
+      "bytes": 718
+    },
+    {
+      "path": "packages/bijux-pollenomics/tests/unit/collection/contracts/test_source_contract_publication.py",
+      "sha256": "936066fba2bc7357d76be0d3acb30fab1703e986ac06a8e6c036ab7267b9b6c1",
+      "bytes": 16121
+    },
+    {
+      "path": "packages/bijux-pollenomics/tests/unit/collection/contracts/test_source_family_contracts/test_integrity.py",
+      "sha256": "b483ac2bfe071265f1d8d0749d16ee2d59eb2b5405cd07144a0bbaa08332fbf8",
+      "bytes": 12796
+    },
+    {
       "path": "packages/bijux-pollenomics/tests/unit/collection/sources/neotoma/country/test_propagation.py",
       "sha256": "67ec27ed736c6d83843dbbfa12042ed98e2e29316c8547f02470657a29a03f07",
       "bytes": 7610

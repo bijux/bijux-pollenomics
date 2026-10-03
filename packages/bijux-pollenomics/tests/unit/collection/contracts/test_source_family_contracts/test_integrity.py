@@ -6,6 +6,8 @@ from pathlib import Path
 import shutil
 import tempfile
 
+from pytest import MonkeyPatch
+
 from bijux_pollenomics.collection.contracts.capabilities import (
     SEAD_ADMITTED_ACQUISITION_ADMISSION,
     SEAD_NORMALIZED_EVIDENCE_MANIFEST,
@@ -19,6 +21,7 @@ from bijux_pollenomics.collection.sources.sead.acquisition.archive import (
     SEAD_FULL_EVIDENCE_SOURCE_TABLES,
 )
 
+from ..payload_views import require_rows, require_strings
 from .support import REPO_ROOT, _write_full_sead_admission_fixture
 
 
@@ -74,15 +77,23 @@ def test_aadr_receipt_rejects_same_size_artifact_substitution() -> None:
             source_blockers={},
         )
 
-    before_rows = {(row["source_key"], row["dimension"]): row for row in before["rows"]}
-    after_rows = {(row["source_key"], row["dimension"]): row for row in after["rows"]}
+    before_rows = {
+        (row["source_key"], row["dimension"]): row
+        for row in require_rows(before["rows"])
+    }
+    after_rows = {
+        (row["source_key"], row["dimension"]): row
+        for row in require_rows(after["rows"])
+    }
     assert before_rows[("aadr", "dataset_provenance")]["materialization"] == (
         "complete"
     )
     assert after_rows[("aadr", "dataset_provenance")]["materialization"] == ("missing")
 
 
-def test_sead_admission_rejects_same_size_payload_substitution(monkeypatch) -> None:
+def test_sead_admission_rejects_same_size_payload_substitution(
+    monkeypatch: MonkeyPatch,
+) -> None:
     with tempfile.TemporaryDirectory() as temporary_directory:
         output_root = Path(temporary_directory) / "data"
         payload_bytes = json.dumps(
@@ -110,13 +121,21 @@ def test_sead_admission_rejects_same_size_payload_substitution(monkeypatch) -> N
             source_blockers={},
         )
 
-    before_rows = {(row["source_key"], row["dimension"]): row for row in before["rows"]}
-    after_rows = {(row["source_key"], row["dimension"]): row for row in after["rows"]}
+    before_rows = {
+        (row["source_key"], row["dimension"]): row
+        for row in require_rows(before["rows"])
+    }
+    after_rows = {
+        (row["source_key"], row["dimension"]): row
+        for row in require_rows(after["rows"])
+    }
     assert before_rows[("sead", "site_identity")]["materialization"] == "complete"
     assert after_rows[("sead", "site_identity")]["materialization"] == "partial"
     assert any(
         path.endswith("/payloads/tbl_sites.json")
-        for path in after_rows[("sead", "site_identity")]["missing_evidence_paths"]
+        for path in require_strings(
+            after_rows[("sead", "site_identity")]["missing_evidence_paths"]
+        )
     )
 
 
@@ -143,12 +162,14 @@ def test_sead_admission_rejects_incomplete_declared_file_set() -> None:
 
         row = next(
             row
-            for row in audit["rows"]
+            for row in require_rows(audit["rows"])
             if row["source_key"] == "sead" and row["dimension"] == "site_identity"
         )
         assert not sead_validation._valid_sead_admission(admission_path)
         assert row["materialization"] != "complete"
-        assert SEAD_ADMITTED_ACQUISITION_ADMISSION in row["missing_evidence_paths"]
+        assert SEAD_ADMITTED_ACQUISITION_ADMISSION in require_strings(
+            row["missing_evidence_paths"]
+        )
 
 
 def test_sead_admission_rejects_payload_and_admission_rewrite() -> None:
