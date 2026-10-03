@@ -30,6 +30,12 @@ _ACQUISITION_ROOT = (
 _EVIDENCE_ROOT = governed_sead_evidence_root(_REPOSITORY_ROOT / "data")
 
 
+def _reason_codes(value: object) -> tuple[str, ...] | list[str]:
+    assert isinstance(value, (tuple, list))
+    assert all(isinstance(item, str) for item in value)
+    return value
+
+
 def test_claim_writer_owns_creation_of_the_destination_directory(
     tmp_path: Path, monkeypatch: pytest.MonkeyPatch
 ) -> None:
@@ -125,7 +131,7 @@ def test_every_sead_claim_retains_subject_geography_and_raw_parent_identity() ->
         claim
         for claim in claims
         if claim["comparability_status"] == "refused"
-        and "negative_bp" in claim["reason_codes"]
+        and "negative_bp" in _reason_codes(claim["reason_codes"])
     ]
     assert len(refused_negative) == 60
     assert all(

@@ -18,6 +18,7 @@ from bijux_pollenomics.collection.sources.neotoma.context_points import (
 from bijux_pollenomics.collection.sources.neotoma.review import (
     build_neotoma_temporal_review,
 )
+from tests.support.neotoma.relational_shapes import mapping
 
 ROOT = Path(__file__).resolve().parents[8]
 
@@ -254,7 +255,7 @@ def test_current_snapshot_projects_only_governed_countries_with_null_site_time()
     ]
     assert len(excluded_rows) == 7
     assert {row["country"] for row in excluded_rows} == {"UNASSIGNED"}
-    coverage = review["coverage_summary"]
+    coverage = mapping(review["coverage_summary"])
     assert coverage["site_count_with_source_bp_labelled_context"] == 169
     assert coverage["site_count_with_calendar_comparable_bp_system_context"] == 158
     assert coverage["site_count_with_noncomparable_bp_system_context_only"] == 11

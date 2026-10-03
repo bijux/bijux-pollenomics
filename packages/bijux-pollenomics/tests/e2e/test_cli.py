@@ -267,7 +267,9 @@ class CliTests(unittest.TestCase):
             atlas_root = Path(tmp) / "docs" / "report" / DEFAULT_ATLAS_SLUG
 
             def fake_generate_multi_country_map(**kwargs: object) -> SimpleNamespace:
-                output_dir = Path(kwargs["output_dir"])
+                output_arg = kwargs["output_dir"]
+                assert isinstance(output_arg, (str, Path))
+                output_dir = Path(output_arg)
                 output_dir.mkdir(parents=True, exist_ok=True)
                 (output_dir / f"{DEFAULT_ATLAS_SLUG}_map.html").write_text(
                     "<html></html>",

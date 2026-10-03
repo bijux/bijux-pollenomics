@@ -4,7 +4,7 @@ from copy import deepcopy
 import json
 from typing import Any
 
-from jsonschema import Draft202012Validator  # type: ignore[import-untyped]
+from jsonschema import Draft202012Validator
 import pytest
 
 from .support import (

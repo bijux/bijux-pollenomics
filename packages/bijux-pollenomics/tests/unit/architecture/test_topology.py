@@ -44,16 +44,18 @@ def test_topology_policy_keeps_public_facades_narrow_and_packages_bounded() -> N
     assert policy.maximum_direct_test_modules == 10
     assert policy.maximum_source_module_lines == 540
     assert policy.maximum_unit_test_module_lines == 480
-    assert policy.forbidden_package_names == {
-        "common",
-        "foundation",
-        "helpers",
-        "misc",
-        "pipeline",
-        "shared",
-        "temporary",
-        "utils",
-    }
+    assert policy.forbidden_package_names == frozenset(
+        {
+            "common",
+            "foundation",
+            "helpers",
+            "misc",
+            "pipeline",
+            "shared",
+            "temporary",
+            "utils",
+        }
+    )
     assert {
         facade.package: facade.allowed_files for facade in policy.package_facades
     } == {

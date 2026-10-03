@@ -4335,9 +4335,44 @@
       "bytes": 8337
     },
     {
+      "path": "packages/bijux-pollenomics/tests/e2e/test_cli.py",
+      "sha256": "423323de40e24689bd93b00bb1963ca4c89e0345eeb3ff85c044c96e1ac73906",
+      "bytes": 16529
+    },
+    {
+      "path": "packages/bijux-pollenomics/tests/e2e/test_mixed_species_review.py",
+      "sha256": "217e756f8840ebcec3d443493c0ec19a6b1c953d01f8dd7df532aaf0cffc71a4",
+      "bytes": 3543
+    },
+    {
+      "path": "packages/bijux-pollenomics/tests/regression/reporting/publication/static_assets.py",
+      "sha256": "83e4b14d9f0a03650d3ce597a3e626344d297a5128877f7d7666bf5caccc9eeb",
+      "bytes": 1009
+    },
+    {
+      "path": "packages/bijux-pollenomics/tests/regression/repository_contracts/mkdocs_loading.py",
+      "sha256": "c05209d4cb1470d830d51a269fc6828cfa41a1f45f54345616d93886b4eed5ce",
+      "bytes": 882
+    },
+    {
+      "path": "packages/bijux-pollenomics/tests/regression/repository_contracts/test_chronology_playback_docs.py",
+      "sha256": "8d439a792edd8c1afca8c846fe91147028d53cd9c4d0e15e970202993c9fa14c",
+      "bytes": 15053
+    },
+    {
+      "path": "packages/bijux-pollenomics/tests/regression/repository_contracts/test_mkdocs_configuration.py",
+      "sha256": "27b7585db5dd515f7a63a7a8fdf6ca560af31fc362e344247bcbb4683b3d3a23",
+      "bytes": 8956
+    },
+    {
       "path": "packages/bijux-pollenomics/tests/regression/repository_contracts/test_public_animal_claim_parity.py",
       "sha256": "c6416b4712149539ceb1dae9a2b6f0b4c5df97dd9687eb387569065f798dcb59",
       "bytes": 11401
+    },
+    {
+      "path": "packages/bijux-pollenomics/tests/regression/test_data_contract_surfaces.py",
+      "sha256": "d8126dd0b48be87723dd69230a91c728a83a1294dfd9091909f123465a6ca9c3",
+      "bytes": 7195
     },
     {
       "path": "packages/bijux-pollenomics/tests/support/neotoma/boundaries.py",
@@ -4425,6 +4460,41 @@
       "bytes": 4869
     },
     {
+      "path": "packages/bijux-pollenomics/tests/unit/analysis/classification/test_classification_events/test_derivation.py",
+      "sha256": "f39d209f94d677fce165b72a822289fd8932e304337d2b87dc69ff41e515d35f",
+      "bytes": 8562
+    },
+    {
+      "path": "packages/bijux-pollenomics/tests/unit/analysis/fieldwork/evidence_richness/test_report/test_publication.py",
+      "sha256": "72e915ab98003566287fecac3c5cc622bdf62b65f3a3f94068dcb2499a2a5485",
+      "bytes": 15823
+    },
+    {
+      "path": "packages/bijux-pollenomics/tests/unit/analysis/fieldwork/evidence_richness/test_report/test_ranking.py",
+      "sha256": "10994181d1679336b3f7baedfaf51f1692247cb11d7e03ed6054b75c052ef920",
+      "bytes": 18532
+    },
+    {
+      "path": "packages/bijux-pollenomics/tests/unit/analysis/fieldwork/land_use/test_quality_aware_synthesis.py",
+      "sha256": "e9e69fe47bc90167405680a8628dc2a744f9a72e16594b696898e322faa8e331",
+      "bytes": 5119
+    },
+    {
+      "path": "packages/bijux-pollenomics/tests/unit/analysis/fieldwork/payload_views.py",
+      "sha256": "1979461e6ac62dd7b58c9be34857eaeb53b00c4ecc14b7100073beced94804d7",
+      "bytes": 512
+    },
+    {
+      "path": "packages/bijux-pollenomics/tests/unit/analysis/fieldwork/test_ranking_engine.py",
+      "sha256": "1cd927f4c3092aea415051ed226e0ef2b5033d2cf312e9abffa0847d53f4f714",
+      "bytes": 2124
+    },
+    {
+      "path": "packages/bijux-pollenomics/tests/unit/analysis/fieldwork/test_sweden_land_use_synthesis.py",
+      "sha256": "c87e1be980c59ec250a9091f0a57c0cac8d1c234c382341fe223c1c68abef4f9",
+      "bytes": 6499
+    },
+    {
       "path": "packages/bijux-pollenomics/tests/unit/analysis/lra/engine/test_discovery.py",
       "sha256": "9d12db5e41fae8c6e114c901683066cd3f7a27755f113f66c435480e5fa94177",
       "bytes": 14532
@@ -4465,6 +4535,16 @@
       "bytes": 11696
     },
     {
+      "path": "packages/bijux-pollenomics/tests/unit/analysis/propagation/test_propagation_outputs/support/materialization.py",
+      "sha256": "13d53cf7ce00d2bfa2c27a9bd15210a0816e7d2d7f283d68a22be28a5170b02e",
+      "bytes": 4760
+    },
+    {
+      "path": "packages/bijux-pollenomics/tests/unit/architecture/test_topology.py",
+      "sha256": "5aed1e683c306bf190a9b2d6be404a1b30b6a4d317fe5734e43b71f00e63079b",
+      "bytes": 4540
+    },
+    {
       "path": "packages/bijux-pollenomics/tests/unit/collection/contracts/families/reference_sources/test_contracts.py",
       "sha256": "b70fc6a8a6ef37d2546929c58202582721e350b8587b44342d4f6c4119ddddbd",
       "bytes": 13131
@@ -4495,9 +4575,39 @@
       "bytes": 12037
     },
     {
+      "path": "packages/bijux-pollenomics/tests/unit/collection/sources/neotoma/chronology/test_claim_admission.py",
+      "sha256": "1b9f19bf91362cd3712afe7064ef13c48ce7767eb75600c4952ee073a43edeed",
+      "bytes": 1995
+    },
+    {
+      "path": "packages/bijux-pollenomics/tests/unit/collection/sources/neotoma/chronology/test_default_selection.py",
+      "sha256": "6afb49df33e8359b12e3b9bde79a82dbc2e0833b559d1a0c509b38b63f8cc816",
+      "bytes": 2918
+    },
+    {
       "path": "packages/bijux-pollenomics/tests/unit/collection/sources/neotoma/country/test_propagation.py",
       "sha256": "67ec27ed736c6d83843dbbfa12042ed98e2e29316c8547f02470657a29a03f07",
       "bytes": 7610
+    },
+    {
+      "path": "packages/bijux-pollenomics/tests/unit/collection/sources/neotoma/relational/test_determinism.py",
+      "sha256": "3368a8273b0d609760ec6fe2354353695bf37c52eaae63f55e734939b414c950",
+      "bytes": 1179
+    },
+    {
+      "path": "packages/bijux-pollenomics/tests/unit/collection/sources/neotoma/relational/test_diagnostics.py",
+      "sha256": "f8104ded1dd3f54f1c3ddde333cedb52ab7a5947d120c751f6b09daa554686e4",
+      "bytes": 1311
+    },
+    {
+      "path": "packages/bijux-pollenomics/tests/unit/collection/sources/neotoma/relational/test_multiplicity.py",
+      "sha256": "5fdaa7b2727fbe08903c27de3ee6e65e92206548ffa1ca5e6f96318ab80e23ed",
+      "bytes": 1491
+    },
+    {
+      "path": "packages/bijux-pollenomics/tests/unit/collection/sources/neotoma/relational/test_observation_source_trace.py",
+      "sha256": "aff4defcf29fe44772b9c6e8bc220e32dcdfa731146a836449885f929a182cef",
+      "bytes": 4047
     },
     {
       "path": "packages/bijux-pollenomics/tests/unit/collection/sources/neotoma/relational/test_raw_roundtrip.py",
@@ -4515,9 +4625,29 @@
       "bytes": 4008
     },
     {
+      "path": "packages/bijux-pollenomics/tests/unit/collection/sources/neotoma/test_neotoma_lineage_review.py",
+      "sha256": "fa64109edcdefbaf7c88e61de1429eb2aa426f429653e88f1d8685740933564b",
+      "bytes": 18300
+    },
+    {
+      "path": "packages/bijux-pollenomics/tests/unit/collection/sources/neotoma/workflow/test_repository_surfaces.py",
+      "sha256": "bd581397d62a54a24c9a4e87f6124e35d703edf22c84a9e9d9505a564a8b3920",
+      "bytes": 10575
+    },
+    {
       "path": "packages/bijux-pollenomics/tests/unit/collection/sources/open_land/test_normalization.py",
       "sha256": "5e04c38a90e3b2054ea4e7f7c613d2f656215b3fd84aa37207d56aed91e6d7d0",
       "bytes": 8470
+    },
+    {
+      "path": "packages/bijux-pollenomics/tests/unit/collection/sources/rootsi/test_metadata.py",
+      "sha256": "6dbe1b99e513caf7f71c039e9a6732eb3c9af7ee769a4de36b5efbbe3910138f",
+      "bytes": 9294
+    },
+    {
+      "path": "packages/bijux-pollenomics/tests/unit/collection/sources/rootsi/test_policy.py",
+      "sha256": "d8eae4e43b675069a2a883c5246d355029e9cb6079fa2ec6a682e3a77bb506ce",
+      "bytes": 3164
     },
     {
       "path": "packages/bijux-pollenomics/tests/unit/collection/sources/sead/acquisition/full/test_receipts.py",
@@ -4528,6 +4658,16 @@
       "path": "packages/bijux-pollenomics/tests/unit/collection/sources/sead/acquisition/full/test_repository_materialization.py",
       "sha256": "89db28f17bc2482f8e1ca44f7253c15d87b1f4ba48ace1a96fba6458bcd2f4ec",
       "bytes": 4070
+    },
+    {
+      "path": "packages/bijux-pollenomics/tests/unit/collection/sources/sead/acquisition/scoped/plans/full_tables/test_compatibility.py",
+      "sha256": "441ef03f1c87e7b5e20316c33c52ba37b40aa4d32b823ce12d1729da92078662",
+      "bytes": 1392
+    },
+    {
+      "path": "packages/bijux-pollenomics/tests/unit/collection/sources/sead/acquisition/scoped/plans/joins/test_compatibility.py",
+      "sha256": "5a29b76ab750a7aa55ca5367504c99cb20d5747f5ce229ae85e66a8ac41cc4b1",
+      "bytes": 1196
     },
     {
       "path": "packages/bijux-pollenomics/tests/unit/collection/sources/sead/acquisition/scoped/test_refusal_boundaries.py",
@@ -4545,6 +4685,16 @@
       "bytes": 5630
     },
     {
+      "path": "packages/bijux-pollenomics/tests/unit/collection/sources/sead/evidence/test_claims.py",
+      "sha256": "da48ea782ad783fe21d3a72cf0d04a15879c2af3503aeb4a3eafdf59225cf9be",
+      "bytes": 5232
+    },
+    {
+      "path": "packages/bijux-pollenomics/tests/unit/collection/sources/sead/evidence/test_observations/test_rebuild.py",
+      "sha256": "a1210993bb460680d1bb5b1c713771139bcfd67b55ed675521a14845f6cd19af",
+      "bytes": 5014
+    },
+    {
       "path": "packages/bijux-pollenomics/tests/unit/collection/sources/spatiocompo_human_land_use/test_normalization.py",
       "sha256": "8ba5b5454150e603b26e186d9c4b56508625033d423e4924d32f07e35fecb9ac",
       "bytes": 10042
@@ -4553,6 +4703,16 @@
       "path": "packages/bijux-pollenomics/tests/unit/collection/sources/test_source_lifecycle_contracts.py",
       "sha256": "7ff39d13e4393f26d44ad180f1ac3010fb570b29d4e288893952108efec91269",
       "bytes": 2168
+    },
+    {
+      "path": "packages/bijux-pollenomics/tests/unit/collection/spatial/country_classification/test_strict_boundaries.py",
+      "sha256": "cf65d8067cb979f0c287a8d8429c54d5d47996fa9da8ba6e7d321732f2352b33",
+      "bytes": 6363
+    },
+    {
+      "path": "packages/bijux-pollenomics/tests/unit/core/test_temporal_overlap_consumers.py",
+      "sha256": "f1986e3dd5dd9d76d2488dd451de97a6dd8737c8b90ed63219bacb91aaca207c",
+      "bytes": 11823
     },
     {
       "path": "packages/bijux-pollenomics/tests/unit/governance/repository_truth/assessments/support.py",
@@ -4598,6 +4758,16 @@
       "path": "packages/bijux-pollenomics/tests/unit/governance/test_release_readiness.py",
       "sha256": "1ce30c347857cdc372576c14177764f2d12db1c960e1aecaab052597e9375bde",
       "bytes": 4637
+    },
+    {
+      "path": "packages/bijux-pollenomics/tests/unit/provenance/gates/test_producer_identity.py",
+      "sha256": "a0f2edb6a6319b66da58e155cffa2b50725f468140a92a7d8b317d94d1101632",
+      "bytes": 3076
+    },
+    {
+      "path": "packages/bijux-pollenomics/tests/unit/provenance/request/test_facade.py",
+      "sha256": "73acd298b59d0e813f8c1e663cc983ca38a81cfd455148a8292184e81c1ae636",
+      "bytes": 1875
     },
     {
       "path": "packages/bijux-pollenomics/tests/unit/reporting/aadr/__init__.py",

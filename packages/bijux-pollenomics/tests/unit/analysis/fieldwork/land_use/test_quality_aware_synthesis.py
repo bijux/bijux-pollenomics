@@ -7,6 +7,7 @@ import pytest
 
 from bijux_pollenomics.analysis.fieldwork.land_use.models import _Target
 from bijux_pollenomics.analysis.fieldwork.land_use.synthesis import build_synthesis
+from tests.unit.analysis.fieldwork.payload_views import require_mapping, require_rows
 
 
 def _feature(*, quality_class: str, time_start_bp: int) -> dict[str, object]:
@@ -123,7 +124,9 @@ def test_available_quality_refuses_missing_or_nonfinite_modeled_values(
     missing_value: object,
 ) -> None:
     feature = _feature(quality_class="high", time_start_bp=0)
-    feature["properties"]["reconstruction_values"]["OL"] = missing_value  # type: ignore[index]
+    properties = require_mapping(feature["properties"])
+    reconstruction_values = require_mapping(properties["reconstruction_values"])
+    reconstruction_values["OL"] = missing_value
 
     with pytest.raises(ValueError, match="LandClim OL must be a finite numeric value"):
         _build([feature])
@@ -139,4 +142,4 @@ def test_rows_are_ordered_oldest_to_present_with_explicit_interval_semantics() -
 
     assert payload["temporal_direction"] == "oldest_to_present"
     assert payload["interval_semantics"] == "[younger_bp, older_bp]"
-    assert [row["time_start_bp"] for row in payload["rows"]] == [100, 0]  # type: ignore[index]
+    assert [row["time_start_bp"] for row in require_rows(payload["rows"])] == [100, 0]

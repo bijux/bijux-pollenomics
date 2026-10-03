@@ -26,6 +26,7 @@ from bijux_pollenomics.collection.sources.neotoma.refresh_review import (
     write_neotoma_refresh_review,
 )
 from bijux_pollenomics.collection.sources.neotoma.relational import (
+    CountryAttributionInput,
     build_neotoma_relational_snapshot,
 )
 from bijux_pollenomics.collection.spatial import CountryAttributionDecision
@@ -141,7 +142,7 @@ def _fixture(
     root: Path,
     *,
     compact_site_ids: tuple[int, ...] = tuple(range(1, 10)),
-    country_by_site_id: dict[int, CountryAttributionDecision | str] | None = None,
+    country_by_site_id: dict[object, CountryAttributionInput] | None = None,
 ) -> tuple[Path, Path, Path, Path]:
     raw_root = root / "raw"
     relational_root = root / "relational"
@@ -320,7 +321,7 @@ def test_compact_lineage_refuses_missing_site_without_exact_governed_exclusion(
     tmp_path: Path,
     country_input: str | None,
 ) -> None:
-    countries: dict[int, CountryAttributionDecision | str] = dict.fromkeys(
+    countries: dict[object, CountryAttributionInput] = dict.fromkeys(
         range(1, 9), "Sweden"
     )
     if country_input == "assigned":
