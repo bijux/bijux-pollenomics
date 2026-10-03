@@ -1446,12 +1446,13 @@
       "owner_id": "source-relations/sead/analysis-value-components/report-products",
       "module": "bijux_pollenomics_dev.source_completion.sead.analysis_value_components",
       "source_paths": {
-        "report.json": "docs/report/source-relations/sead/analysis-value-components/report.json",
-        "rows.csv": "docs/report/source-relations/sead/analysis-value-components/rows.csv"
+        "source-products/report.json": "docs/report/source-relations/sead/analysis-value-components/report.json",
+        "source-products/rows.csv": "docs/report/source-relations/sead/analysis-value-components/rows.csv"
       },
       "source_arguments": [],
       "output_mode": "directory",
-      "timeout_seconds": 180
+      "timeout_seconds": 180,
+      "output_subdirectory": "source-products"
     },
     {
       "external_source_descriptor": "configs/ci/qualified-report-sources/landclim-author-snapshot.json",

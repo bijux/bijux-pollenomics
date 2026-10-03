@@ -133,6 +133,19 @@ def _copy_output(repository: Path, relative: str) -> None:
     target.write_bytes((repository / relative).read_bytes())
 
 
+def test_analysis_value_components_use_absent_child_output() -> None:
+    repository = Path(__file__).resolve().parents[3]
+    selected = owner_runner.resolve_configured_owner(
+        repository, "source-relations/sead/analysis-value-components/report-products"
+    )
+    assert selected.command[-1] == "{output_root}/source-products"
+    assert selected.source_paths == {
+        "source-products/report.json": "source-relations/sead/analysis-value-components/report.json",
+        "source-products/rows.csv": "source-relations/sead/analysis-value-components/rows.csv",
+    }
+    assert len(selected.inputs) == 1042
+
+
 def test_exact_declared_code_and_data_inputs_resolve(repository: Path) -> None:
     resolved = owner_runner.resolve_configured_owner(repository, OWNER_ID)
     assert set(resolved.inputs) == {MODULE_PATH, PARENT}
