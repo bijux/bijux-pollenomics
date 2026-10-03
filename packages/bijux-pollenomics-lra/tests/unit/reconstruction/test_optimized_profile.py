@@ -110,6 +110,7 @@ def test_ring_taxon_profile_preserves_one_local_ring() -> None:
     np.testing.assert_array_equal(
         result.pollen_percentages["mean"].to_numpy(), [[42.45, 18.19, 39.36]]
     )
+    assert result.objective_values is not None
     np.testing.assert_allclose(
         result.objective_values.to_numpy(), [[1.2635232041994178]], atol=1e-13
     )
@@ -202,8 +203,11 @@ def test_ring_taxon_profile_preserves_one_regional_ring() -> None:
     np.testing.assert_array_equal(
         result.pollen_percentages["mean"].to_numpy()[-1], [19.19, 29.7, 51.1]
     )
+    assert result.objective_values is not None
     np.testing.assert_allclose(
-        result.objective_values.to_numpy()[-1], [1.160362808782417], atol=1e-13
+        result.objective_values.to_numpy()[-1],
+        np.array([1.160362808782417]),
+        atol=1e-13,
     )
 
 
@@ -261,6 +265,8 @@ def test_source_optimized_love_samples_but_does_not_use_local_ppe(
     pd.testing.assert_frame_equal(
         first.pollen_percentages["mean"], second.pollen_percentages["mean"]
     )
+    assert first.objective_values is not None
+    assert second.objective_values is not None
     pd.testing.assert_frame_equal(first.objective_values, second.objective_values)
     assert np.isfinite(first.objective_values.to_numpy()).any()
 

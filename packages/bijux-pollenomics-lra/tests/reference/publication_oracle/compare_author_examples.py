@@ -10,6 +10,7 @@ import argparse
 import hashlib
 import json
 from pathlib import Path
+from typing import TypedDict
 
 import numpy as np
 import pandas as pd
@@ -22,6 +23,22 @@ from bijux_pollenomics_lra.api import (
 from bijux_pollenomics_lra.models.publication import PUBLICATION_SOURCE_SHA256
 
 
+class Comparison(TypedDict):
+    passed: bool
+    values: int
+    finite_pairs: int
+    max_absolute_error: float | None
+    atol: float
+    rtol: float
+    undefined_masks_equal: bool
+
+
+class SiteComparison(TypedDict):
+    site_id: str
+    cover: Comparison
+    se: Comparison
+
+
 def _hash(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
@@ -32,7 +49,7 @@ def _compare(
     mask: np.ndarray,
     *,
     standard_error: bool = False,
-) -> dict[str, object]:
+) -> Comparison:
     first, second = actual[mask], expected[mask]
     # The source computes variance by subtracting two accumulated sums of
     # squares; SE near zero therefore has sqrt(epsilon) cancellation noise.
@@ -124,21 +141,24 @@ def compare_grid(
         .to_numpy(dtype=int)
         .ravel()
     )
+    regional_cover_check = _compare(
+        result.cover.to_numpy(), expected_mean.to_numpy(), supported
+    )
+    regional_se_check = _compare(
+        result.standard_error.to_numpy(),
+        expected_se.to_numpy(),
+        supported,
+        standard_error=True,
+    )
+    site_counts_equal = bool(
+        np.array_equal(result.site_count.to_numpy(), expected_count)
+    )
     checks: dict[str, object] = {
-        "regional_cover": _compare(
-            result.cover.to_numpy(), expected_mean.to_numpy(), supported
-        ),
-        "regional_se": _compare(
-            result.standard_error.to_numpy(),
-            expected_se.to_numpy(),
-            supported,
-            standard_error=True,
-        ),
-        "site_counts_equal": bool(
-            np.array_equal(result.site_count.to_numpy(), expected_count)
-        ),
+        "regional_cover": regional_cover_check,
+        "regional_se": regional_se_check,
+        "site_counts_equal": site_counts_equal,
     }
-    site_checks = []
+    site_checks: list[SiteComparison] = []
     for position, name in enumerate(inputs.site_ids):
         expected = pd.read_csv(
             reference / grid / f"site-{position + 1}-cover.csv", index_col=0
@@ -172,9 +192,9 @@ def compare_grid(
     ]
     return {
         "passed": bool(
-            checks["regional_cover"]["passed"]
-            and checks["regional_se"]["passed"]
-            and checks["site_counts_equal"]
+            regional_cover_check["passed"]
+            and regional_se_check["passed"]
+            and site_counts_equal
             and all(
                 check["cover"]["passed"] and check["se"]["passed"]
                 for check in site_checks

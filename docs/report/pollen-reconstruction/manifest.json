@@ -4045,14 +4045,79 @@
       "bytes": 10743
     },
     {
+      "path": "packages/bijux-pollenomics-lra/tests/reference/lra_oracle/cases.py",
+      "sha256": "0cd1970f842026a0bdbc20069511eb26f285ff9904fee4888c7ddc8c9bd59831",
+      "bytes": 20623
+    },
+    {
+      "path": "packages/bijux-pollenomics-lra/tests/reference/lra_oracle/run_live_r.py",
+      "sha256": "db0938b2b5652fccac545d308a324fe2cdd70eea3eef687e7142003a9544e849",
+      "bytes": 11553
+    },
+    {
+      "path": "packages/bijux-pollenomics-lra/tests/reference/publication_oracle/compare_author_examples.py",
+      "sha256": "a2f9ea64385c2b8e3c20dea83db9177af3c1eb9c2cfb6261f8fccc2e5d778df8",
+      "bytes": 10286
+    },
+    {
+      "path": "packages/bijux-pollenomics-lra/tests/reference/test_parity.py",
+      "sha256": "e69c46d80410c3b2ef20a438a4cbaf7bf69c7603acfc0de18c97c9362016d11c",
+      "bytes": 4578
+    },
+    {
+      "path": "packages/bijux-pollenomics-lra/tests/regression/workflows/test_adoption_contract.py",
+      "sha256": "c1e925cfb1ccfbec7fa1f1114f916f7901bb543a3ee6e05302e13b2b866a335e",
+      "bytes": 8608
+    },
+    {
+      "path": "packages/bijux-pollenomics-lra/tests/unit/dispersal/test_dispersal.py",
+      "sha256": "ed01c9d65988429593b69f5ad1fcb8c251900f795789acfb5a78a18cdcdab3f2",
+      "bytes": 4216
+    },
+    {
       "path": "packages/bijux-pollenomics-lra/tests/unit/dispersal/test_receiver_annulus.py",
       "sha256": "349c25fb7381df5972fd084a1658a29064105b00462de39d436ca6896c1dd01b",
       "bytes": 4403
     },
     {
+      "path": "packages/bijux-pollenomics-lra/tests/unit/models/test_publication.py",
+      "sha256": "85420703eca7ab6b0aa1b12c7c76aa162a27bb77e5a6393698fd70a7ed793980",
+      "bytes": 1811
+    },
+    {
+      "path": "packages/bijux-pollenomics-lra/tests/unit/reconstruction/test_analytical_preparation.py",
+      "sha256": "6cf2a68cea8d3b3410c10d8730ad8dff71e3c06f18951c149f2eb50716a69e67",
+      "bytes": 7421
+    },
+    {
+      "path": "packages/bijux-pollenomics-lra/tests/unit/reconstruction/test_love.py",
+      "sha256": "e8f18ad4fb72b5dab96177e75dc050cd76cd9925095d931d9394de632f486f64",
+      "bytes": 11591
+    },
+    {
+      "path": "packages/bijux-pollenomics-lra/tests/unit/reconstruction/test_love_draws.py",
+      "sha256": "4636e1f123b1f3af530d55ab9efd7c1d9d29c1e3877b12a2b9fb4efcd3ebd3fb",
+      "bytes": 8989
+    },
+    {
+      "path": "packages/bijux-pollenomics-lra/tests/unit/reconstruction/test_optimized_profile.py",
+      "sha256": "58991b66f96ff6a2720c6f87df30f24cae7537caaccb72ce741c70d06a3db0db",
+      "bytes": 12022
+    },
+    {
+      "path": "packages/bijux-pollenomics-lra/tests/unit/reconstruction/test_reveals.py",
+      "sha256": "658f10b67240c6c9f97ebb438bcf7090c1953179df39cb1593c25c2b72031547",
+      "bytes": 10242
+    },
+    {
       "path": "packages/bijux-pollenomics-lra/tests/unit/reconstruction/test_shared_ppe_likelihood.py",
-      "sha256": "6e965156b019d18c1dcba429d4680e991f99a0c5dbea9ebb6ec923cc11cb4cd0",
-      "bytes": 7587
+      "sha256": "b9bff25d5b8babd7832259e79d9441c5de6200d9d30825483c9842e5b6f13f97",
+      "bytes": 8600
+    },
+    {
+      "path": "packages/bijux-pollenomics-lra/tests/unit/workflows/test_multisite.py",
+      "sha256": "f7499f21a599063548a8ee073336e657edeb48a8bc36e857098b72f3445272b3",
+      "bytes": 16859
     },
     {
       "path": "packages/bijux-pollenomics/src/bijux_pollenomics/adna/governance/contracts.py",

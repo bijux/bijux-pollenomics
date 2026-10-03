@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from pathlib import Path
 import warnings
 
 import numpy as np
@@ -269,7 +270,7 @@ def test_native_optimizer_executes_with_small_budget() -> None:
     assert not any(isinstance(item.message, NativeOptimizerWarning) for item in caught)
 
 
-def test_typed_analytical_and_optimized_results(tmp_path) -> None:
+def test_typed_analytical_and_optimized_results(tmp_path: Path) -> None:
     local, regional, params, rings = _love_inputs()
     analytical = run_love(
         local,

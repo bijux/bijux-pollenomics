@@ -2,6 +2,9 @@
 
 from __future__ import annotations
 
+from collections.abc import Callable, Mapping
+from typing import NotRequired, TypedDict
+
 import numpy as np
 import pytest
 
@@ -9,9 +12,35 @@ from bijux_pollenomics_lra.api import extension_descriptor, fit_shared_ppe_likel
 from bijux_pollenomics_lra.dispersal.rounding import r_round
 from bijux_pollenomics_lra.models.errors import ValidationError
 from bijux_pollenomics_lra.reconstruction.draws import rnorm_reveals
+from bijux_pollenomics_lra.reconstruction.homogeneous_likelihood import (
+    HomogeneousLikelihoodFit,
+    fit_homogeneous_likelihood,
+)
+from bijux_pollenomics_lra.reconstruction.shared_ppe_likelihood import (
+    SharedPpeLikelihoodResult,
+)
 
 
-def _inputs() -> dict[str, object]:
+class SharedPpeInputs(TypedDict):
+    regional_counts: object
+    local_counts: object
+    ppe_mean: object
+    ppe_sd: object
+    ppe_covariance: object
+    regional_kernel: object
+    local_kernels: object
+    terrestrial_fractions: object
+    draws: int
+    seed: int
+    max_attempts: NotRequired[int]
+
+
+def _invalid_fit(parameters: Mapping[str, object]) -> SharedPpeLikelihoodResult:
+    runtime_call: Callable[..., SharedPpeLikelihoodResult] = fit_shared_ppe_likelihood
+    return runtime_call(**parameters)
+
+
+def _inputs() -> SharedPpeInputs:
     return {
         "regional_counts": [9, 6],
         "local_counts": [8, 7],
@@ -79,17 +108,15 @@ def test_shared_ppe_draw_and_regional_local_coupling() -> None:
 
 def test_regional_three_decimal_rounding_does_not_force_closure() -> None:
     parameters = _inputs()
-    parameters.update(
-        regional_counts=[1, 1, 1],
-        local_counts=[1, 1, 1],
-        ppe_mean=[1.0, 1.0, 1.0],
-        ppe_sd=[0.0, 0.0, 0.0],
-        ppe_covariance=np.zeros((3, 3)),
-        regional_kernel=[1.0, 1.0, 1.0],
-        local_kernels=[[1.0, 1.0, 1.0], [0.0, 0.0, 0.0]],
-        terrestrial_fractions=[1.0, 1.0],
-        draws=2,
-    )
+    parameters["regional_counts"] = [1, 1, 1]
+    parameters["local_counts"] = [1, 1, 1]
+    parameters["ppe_mean"] = [1.0, 1.0, 1.0]
+    parameters["ppe_sd"] = [0.0, 0.0, 0.0]
+    parameters["ppe_covariance"] = np.zeros((3, 3))
+    parameters["regional_kernel"] = [1.0, 1.0, 1.0]
+    parameters["local_kernels"] = [[1.0, 1.0, 1.0], [0.0, 0.0, 0.0]]
+    parameters["terrestrial_fractions"] = [1.0, 1.0]
+    parameters["draws"] = 2
     result = fit_shared_ppe_likelihood(**parameters)
     np.testing.assert_allclose(
         result.regional_cover[0], [0.33333] * 3, rtol=0, atol=1e-15
@@ -123,10 +150,10 @@ def test_regional_three_decimal_rounding_does_not_force_closure() -> None:
     ],
 )
 def test_invalid_ppe_or_deposition_refused(field: str, changed: object) -> None:
-    parameters = _inputs()
+    parameters = dict(_inputs())
     parameters[field] = changed
     with pytest.raises(ValidationError):
-        fit_shared_ppe_likelihood(**parameters)
+        _invalid_fit(parameters)
 
 
 @pytest.mark.parametrize(
@@ -141,21 +168,19 @@ def test_invalid_ppe_or_deposition_refused(field: str, changed: object) -> None:
     ],
 )
 def test_sampling_bounds_refused_before_work(field: str, changed: object) -> None:
-    parameters = _inputs()
+    parameters = dict(_inputs())
     parameters[field] = changed
     with pytest.raises(ValidationError, match="explicit integers"):
-        fit_shared_ppe_likelihood(**parameters)
+        _invalid_fit(parameters)
 
 
 def test_whole_vector_positive_draw_exhaustion_refused() -> None:
     parameters = _inputs()
-    parameters.update(
-        ppe_mean=[1.0, 1.0],
-        ppe_sd=[100.0, 100.0],
-        ppe_covariance=[[10_000.0, 0.0], [0.0, 10_000.0]],
-        seed=0,
-        max_attempts=1,
-    )
+    parameters["ppe_mean"] = [1.0, 1.0]
+    parameters["ppe_sd"] = [100.0, 100.0]
+    parameters["ppe_covariance"] = [[10_000.0, 0.0], [0.0, 10_000.0]]
+    parameters["seed"] = 0
+    parameters["max_attempts"] = 1
     with pytest.raises(ValidationError, match="max_attempts"):
         fit_shared_ppe_likelihood(**parameters)
 
@@ -165,9 +190,9 @@ def test_nonconverged_fit_refuses_entire_result(
 ) -> None:
     import bijux_pollenomics_lra.reconstruction.shared_ppe_likelihood as subject
 
-    real_fit = subject.fit_homogeneous_likelihood
+    real_fit: Callable[..., HomogeneousLikelihoodFit] = fit_homogeneous_likelihood
 
-    def fail_second(*args: object, **kwargs: object) -> object:
+    def fail_second(*args: object, **kwargs: object) -> HomogeneousLikelihoodFit:
         fit = real_fit(*args, **kwargs)
         if calls[0] == 1:
             from dataclasses import replace
@@ -184,14 +209,12 @@ def test_nonconverged_fit_refuses_entire_result(
 
 def test_regional_rounding_retains_source_floating_point_tie() -> None:
     parameters = _inputs()
-    parameters.update(
-        regional_counts=[11, 199989],
-        ppe_mean=[1.0, 1.0],
-        ppe_sd=[0.0, 0.0],
-        ppe_covariance=np.zeros((2, 2)),
-        regional_kernel=[1.0, 1.0],
-        draws=2,
-    )
+    parameters["regional_counts"] = [11, 199989]
+    parameters["ppe_mean"] = [1.0, 1.0]
+    parameters["ppe_sd"] = [0.0, 0.0]
+    parameters["ppe_covariance"] = np.zeros((2, 2))
+    parameters["regional_kernel"] = [1.0, 1.0]
+    parameters["draws"] = 2
     result = fit_shared_ppe_likelihood(**parameters)
     assert np.round(100 * 11 / 200000, 3) == 0.006
     assert result.regional_cover[0, 0] == 0.005 / 100

@@ -1,6 +1,8 @@
 from __future__ import annotations
 
+from collections.abc import Callable, Mapping
 from pathlib import Path
+from typing import NotRequired, TypedDict
 
 import numpy as np
 import pandas as pd
@@ -22,6 +24,26 @@ from bijux_pollenomics_lra.workflows.local import (
     run_love,
     run_love_from_regional_draws,
 )
+
+
+class DrawSourceInputs(TypedDict):
+    values: np.ndarray
+    taxon_ids: tuple[str, ...]
+    bin_id: str
+    younger_bp: float
+    older_bp: float
+    draw_ids: tuple[int, ...]
+    regional_site_ids: tuple[str, ...]
+    eligible_site_ids: tuple[str, ...]
+    parent_manifest_sha256: str
+    draw_member_sha256: str
+    selected_tensor_sha256: str
+    diagnostic_prefix: NotRequired[bool]
+
+
+def _invalid_draw_source(values: Mapping[str, object]) -> RegionalCoverDrawSource:
+    constructor: Callable[..., RegionalCoverDrawSource] = RegionalCoverDrawSource
+    return constructor(**values)
 
 
 def _love_inputs() -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame, pd.DataFrame]:
@@ -176,7 +198,7 @@ def test_draw_only_love_preserves_numerics_without_placeholder_pollen() -> None:
 
 def test_regional_draw_source_refuses_invalid_counts_axes_and_digests() -> None:
     draws = np.full((2, 2), 0.5)
-    values = {
+    values: DrawSourceInputs = {
         "values": draws,
         "taxon_ids": ("A", "B"),
         "bin_id": "bin-50",
@@ -204,13 +226,13 @@ def test_regional_draw_source_refuses_invalid_counts_axes_and_digests() -> None:
         {"diagnostic_prefix": False},
     ):
         with pytest.raises(ValidationError):
-            RegionalCoverDrawSource(**(values | change))
+            _invalid_draw_source(values | change)
 
 
 def test_draw_only_publication_profile_uses_all_1000_draws(tmp_path: Path) -> None:
     local, _, params, rings = _love_inputs()
     draws = np.full((1000, 10), 0.1)
-    common = {
+    common: DrawSourceInputs = {
         "values": draws,
         "taxon_ids": tuple(local.columns[1:]),
         "bin_id": "bin-50",
@@ -224,8 +246,8 @@ def test_draw_only_publication_profile_uses_all_1000_draws(tmp_path: Path) -> No
         "selected_tensor_sha256": sha256_object(draws),
     }
     with pytest.raises(ValidationError, match="exactly 1000"):
-        RegionalCoverDrawSource(
-            **(common | {"values": draws[:-1], "draw_ids": tuple(range(999))})
+        _invalid_draw_source(
+            common | {"values": draws[:-1], "draw_ids": tuple(range(999))}
         )
     source = RegionalCoverDrawSource(**common)
     config = RegionalDrawLoveConfig(
