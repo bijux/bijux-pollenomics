@@ -381,6 +381,14 @@ def configured_owner_rows(
                 ),
                 (identity, Path(descriptor["run_path"]), descriptor["files"]),
             ]
+        elif schema == "qualified-neotoma-publication-link.v1":
+            packets = [
+                (
+                    identity,
+                    Path(),
+                    [descriptor["capture_manifest"], descriptor["response"]],
+                )
+            ]
         else:
             raise AssertionError(f"Unreviewed synthetic source schema: {schema}")
         for source_id, prefix, specs in packets:
@@ -391,6 +399,12 @@ def configured_owner_rows(
                 inputs[f"external/{source_id}/{prefix / spec['path']}"] = path
         if schema == "qualified-landclim-two-grid-packet.v1":
             assert len(inputs) == 265
+        if schema == "qualified-neotoma-publication-link.v1":
+            assert set(inputs) == {
+                descriptor_path.as_posix(),
+                f"external/{identity}/capture-manifest.json",
+                f"external/{identity}/responses/dataset-4200-publications.json",
+            }
         return QualifiedReportSources(directory, inputs, "a" * 64)
 
     monkeypatch.setattr(
