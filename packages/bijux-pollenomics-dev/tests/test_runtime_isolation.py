@@ -321,6 +321,12 @@ APPROVED_HOST_IMPORTS: dict[str, dict[str, frozenset[str]]] = {
             {"distance_km"}
         ),
     },
+    "bijux_pollenomics_dev/source_completion/adna/galician_sample_review.py": {
+        "bijux_pollenomics.adna.projects.sample_master.tables.galician_cattle.species": frozenset(
+            {"write_galician_sample_species_review"}
+        ),
+        "bijux_pollenomics.core.repository": frozenset({"repository_data_root"}),
+    },
     "bijux_pollenomics_dev/source_completion/sead/analysis_value_components.py": {
         "bijux_pollenomics.evidence.sources.sead": frozenset(
             {

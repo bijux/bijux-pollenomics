@@ -1589,6 +1589,18 @@
         "source-products/summary.json": "docs/report/pollen-reconstruction/swedish-direct-pollen/summary.json"
       },
       "timeout_seconds": 600
+    },
+    {
+      "owner_id": "source-relations/dna-scope/galician-cattle-samples/sample-review",
+      "module": "bijux_pollenomics_dev.source_completion.adna.galician_sample_review",
+      "source_paths": {
+        "source-products/report.json": "docs/report/source-relations/dna-scope/galician-cattle-samples/report.json",
+        "source-products/samples.csv": "docs/report/source-relations/dna-scope/galician-cattle-samples/samples.csv"
+      },
+      "source_arguments": [],
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "timeout_seconds": 240
     }
   ]
 }
