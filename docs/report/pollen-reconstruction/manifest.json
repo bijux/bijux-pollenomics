@@ -36,13 +36,13 @@
     },
     {
       "path": "configs/ci/report-owner-execution.json",
-      "sha256": "29f6fb87f87af60e829f4ae9dd194ad970795292dc49f3e68aa9c60569246379",
-      "bytes": 75452
+      "sha256": "999a2d65702411e8ac970561cd4ec5085d46e1e52590cc5f7a6b62950d83be37",
+      "bytes": 76005
     },
     {
       "path": "configs/ci/report-ownership.json",
-      "sha256": "22631910ac6d07425f82a203aa9ee7847af255a3d1977081a3463d0b03fe474b",
-      "bytes": 1966253
+      "sha256": "521ebff7e3fda56e532489d4354f1f7c7d83863f5076075fc2a987c4f7cd88cc",
+      "bytes": 2072893
     },
     {
       "path": "configs/docs/science_downloads.py",
@@ -3595,6 +3595,11 @@
       "bytes": 6935
     },
     {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_taxonomy/header_parity.py",
+      "sha256": "b47b6b687323a43848c389eb637e06734fff7125c65aed39a890d4c442cb36da",
+      "bytes": 5081
+    },
+    {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/propagation/__init__.py",
       "sha256": "db1ab48855c73b08da2ddcfdc23fe049bc7f9926f53ee2be3f6692532e116912",
       "bytes": 48
@@ -4038,6 +4043,11 @@
       "path": "packages/bijux-pollenomics-dev/tests/source_completion/pollen_taxonomy/test_author_site_support.py",
       "sha256": "37d2c000a1fe1b81598eaa69368204734d293c6b62d8ed4f76b077a357e927c5",
       "bytes": 13650
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/tests/source_completion/pollen_taxonomy/test_header_parity.py",
+      "sha256": "ff0a38d12ffdbcd309690615016a4c7770343ce49ebdbc8bd383b447598d3d56",
+      "bytes": 5790
     },
     {
       "path": "packages/bijux-pollenomics-dev/tests/source_completion/propagation/test_governed_edge_cli.py",
@@ -5301,7 +5311,7 @@
     },
     {
       "path": "presentation/source-lock.json",
-      "sha256": "d16af65798476cab93a89d560591159581d1aebb264e6a0bfd694ecdd634cde5",
+      "sha256": "250d85952bc0b7aa09c9d2aba1e86dd6d39ef3288dbea7e4ee5acc8526d5cb46",
       "bytes": 12768
     },
     {
@@ -5316,7 +5326,7 @@
     },
     {
       "path": "reports/architecture/ownership.md",
-      "sha256": "863c1f36e4538198b278b49baac65befac632ec21def7357345def8f8e3919f5",
+      "sha256": "ac3ed3acbc5bc547e8ececef99aecfb8031d5af82536762668cbc17e1a3a5bb6",
       "bytes": 33205
     },
     {
@@ -5391,7 +5401,7 @@
     },
     {
       "path": "reports/exports/site-downloads.json",
-      "sha256": "9994135b9d961e23c6333f45e157b514d3b538ab9a2d3691ab5add75a3c63a96",
+      "sha256": "0ddb7bb1bdfb924759f4364001f77ae7334f3dc5db9462871fc1b74f1e28201b",
       "bytes": 5774
     },
     {

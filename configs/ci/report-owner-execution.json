@@ -1398,6 +1398,17 @@
       },
       "timeout_seconds": 180,
       "external_source_descriptor": "configs/ci/qualified-report-sources/landclim-two-grid-example.json"
+    },
+    {
+      "owner_id": "source-relations/landclim/author-example-taxon-support/header-parity",
+      "module": "bijux_pollenomics_dev.source_completion.pollen_taxonomy.header_parity",
+      "output_mode": "single_file",
+      "source_arguments": [],
+      "source_paths": {
+        "whh05-header-parity.csv": "docs/report/source-relations/landclim/author-example-taxon-support/whh05-header-parity.csv"
+      },
+      "timeout_seconds": 120,
+      "external_source_descriptor": "configs/ci/qualified-report-sources/landclim-author-snapshot.json"
     }
   ]
 }
