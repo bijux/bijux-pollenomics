@@ -46,8 +46,8 @@
     },
     {
       "path": "configs/ci/report-ownership.json",
-      "sha256": "17f2953807f0427538436cec8cf496af3703b6171f5ab8a0f4c6f0ec6236abcc",
-      "bytes": 3294161
+      "sha256": "a4655fccd85cc486ec2cca17064427c9d38452dd77f922327c8ed44b3b9d236e",
+      "bytes": 3400005
     },
     {
       "path": "configs/docs/science_downloads.py",
@@ -1991,8 +1991,8 @@
     },
     {
       "path": "docs/report/regions/nordic/source-capability/neotoma-entities/README.md",
-      "sha256": "39b8421af6a934faea8a6756851fb849dd5bb293111d79c0d642c1c9b3a0cbfc",
-      "bytes": 1793
+      "sha256": "949e3bcf1298e90f4d6ca3e0838a5a697684ae4800c73c623abacc86449d38ef",
+      "bytes": 2014
     },
     {
       "path": "docs/report/regions/nordic/source-capability/neotoma-entities/report.json",
@@ -2481,7 +2481,7 @@
     },
     {
       "path": "docs/report/report_narrative_quality_review.json",
-      "sha256": "faf3edca47a8e046553b02c3dbb346420289230f50a6a915bcfdc475a61dfd21",
+      "sha256": "d0d6b4350f508062e0d658ccbb68bdaea889e35d31535c6c2025b0873dfd70fe",
       "bytes": 141134
     },
     {
@@ -2491,7 +2491,7 @@
     },
     {
       "path": "docs/report/report_surface_registry.json",
-      "sha256": "2c98cd8e10b5766b07f801983988ecb9ba309d56709c0098e913639e63c25fb2",
+      "sha256": "7285e58f35869280c55f606c4d209ca30c7fefb906715e08df7ec0bdc87003b3",
       "bytes": 954796
     },
     {
@@ -3486,8 +3486,8 @@
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/neotoma_entity_decisions.py",
-      "sha256": "62c3c9a3a3ff6c4230ca0d8814a7f2b074354a2a8434639b86f33d95dcb92d3f",
-      "bytes": 8353
+      "sha256": "5dbc821331167469b88ed82ad2768126bcad17ac91501f0cdde8cfdcee33bdaf",
+      "bytes": 10075
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/neotoma_publication_readiness.py",
@@ -4498,6 +4498,11 @@
       "path": "packages/bijux-pollenomics-dev/tests/source_completion/test_native_source_parser_clis.py",
       "sha256": "120f126d45fb2674f4d6a5ba5a32858b51a254841a4b6bfb5e0eecbd4398f64c",
       "bytes": 4872
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/tests/source_completion/test_neotoma_entity_decisions.py",
+      "sha256": "b53dc81adf22f43557f3de249446be88021e7cf188c8bfdef42e3d695e083de0",
+      "bytes": 7025
     },
     {
       "path": "packages/bijux-pollenomics-dev/tests/source_completion/test_neotoma_screen_summary.py",

@@ -6,9 +6,16 @@ import argparse
 from collections import defaultdict
 import csv
 from hashlib import sha256
+from io import StringIO
 import json
+import os
 from pathlib import Path
+import stat
 from typing import Any
+
+from bijux_pollenomics_dev.ci.report_rebuild.artifact_paths import (
+    require_absent_artifact_output,
+)
 
 DATASETS = Path("data/neotoma/relational/surfaces/datasets/part-00001.json")
 MANIFEST = Path("data/neotoma/relational/manifest.json")
@@ -19,7 +26,17 @@ TRAINING = Path("docs/report/regions/nordic/direct-pollen/training-sources.csv")
 
 
 def _read(repository: Path, path: Path) -> tuple[bytes, str]:
-    data = (repository / path).read_bytes()
+    source = repository / path
+    if not source.is_relative_to(repository):
+        raise ValueError("Neotoma source path escapes repository")
+    for ancestor in (source, *source.parents):
+        if ancestor == repository:
+            break
+        if ancestor.is_symlink():
+            raise ValueError("Neotoma source path uses symlink")
+    if not stat.S_ISREG(source.lstat().st_mode) or source.resolve() != source:
+        raise ValueError("Neotoma source path is not a real file")
+    data = source.read_bytes()
     return data, sha256(data).hexdigest()
 
 
@@ -29,12 +46,15 @@ def _dataset_id(value: str) -> str:
 
 def build(repository: Path) -> dict[str, Any]:
     """Keep source prerequisites and actual study membership distinct."""
-    inputs = {
-        path.as_posix(): _read(repository, path)[1]
+    snapshots = {
+        path: _read(repository, path)[0]
         for path in (DATASETS, MANIFEST, RAW_MANIFEST, SCREEN, COHORT, TRAINING)
     }
-    manifest = json.loads((repository / MANIFEST).read_bytes())
-    screen = json.loads((repository / SCREEN).read_bytes())
+    inputs = {
+        path.as_posix(): sha256(data).hexdigest() for path, data in snapshots.items()
+    }
+    manifest = json.loads(snapshots[MANIFEST])
+    screen = json.loads(snapshots[SCREEN])
     part = manifest["surfaces"]["datasets"]["parts"]
     if len(part) != 1 or part[0]["path"] != "surfaces/datasets/part-00001.json":
         raise ValueError("Neotoma dataset parts changed")
@@ -44,7 +64,7 @@ def build(repository: Path) -> dict[str, Any]:
         screen["raw_manifest_sha256"] != inputs[RAW_MANIFEST.as_posix()]
     ):
         raise ValueError("Neotoma screen no longer binds the current source manifests")
-    datasets = json.loads((repository / DATASETS).read_bytes())["rows"]
+    datasets = json.loads(snapshots[DATASETS])["rows"]
     if len(datasets) != part[0]["row_count"]:
         raise ValueError("Neotoma dataset denominator changed")
     by_id = {row["dataset_id"]: row for row in datasets}
@@ -72,7 +92,7 @@ def build(repository: Path) -> dict[str, Any]:
         raise ValueError("Screen candidate denominator changed")
 
     targets: dict[str, set[str]] = defaultdict(set)
-    with (repository / COHORT).open(newline="") as stream:
+    with StringIO(snapshots[COHORT].decode("utf-8"), newline="") as stream:
         for row in csv.DictReader(stream):
             for dataset_id in row["dataset_ids"].split(";"):
                 dataset_id = _dataset_id(dataset_id)
@@ -88,7 +108,7 @@ def build(repository: Path) -> dict[str, Any]:
                 targets[dataset_id].add(row["country"])
 
     training: dict[str, set[str]] = defaultdict(set)
-    with (repository / TRAINING).open(newline="") as stream:
+    with StringIO(snapshots[TRAINING].decode("utf-8"), newline="") as stream:
         for row in csv.DictReader(stream):
             dataset_id = _dataset_id(row["dataset_id"])
             source = by_id.get(dataset_id)
@@ -175,14 +195,38 @@ def build(repository: Path) -> dict[str, Any]:
     }
 
 
+def run(repository: Path, output: Path) -> dict[str, Any]:
+    """Publish one absent artifact only while all six consumed sources are stable."""
+    if not repository.is_absolute() or repository.resolve(strict=True) != repository:
+        raise ValueError("real absolute repository root required")
+    destination = require_absent_artifact_output(repository, output)
+    stage = require_absent_artifact_output(
+        repository, destination.with_name(destination.name + ".stage")
+    )
+    result = build(repository)
+    with stage.open("x", encoding="utf-8") as stream:
+        try:
+            stream.write(json.dumps(result, indent=2) + "\n")
+            stream.flush()
+            os.fsync(stream.fileno())
+            for relative, digest in result["inputs"].items():
+                if _read(repository, Path(relative))[1] != digest:
+                    raise ValueError(
+                        f"Neotoma source changed before publication: {relative}"
+                    )
+            os.link(stage, destination)
+        finally:
+            stage.unlink(missing_ok=True)
+    return result
+
+
 def main() -> None:
-    """Run the CLI to bind Neotoma dataset identities to the bounded Nordic pollen study."""
+    """Run the source-bound Neotoma entity account into a new artifact file."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repository", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
-    args.output.parent.mkdir(parents=True, exist_ok=True)
-    args.output.write_text(json.dumps(build(args.repository), indent=2) + "\n")
+    run(args.repository.resolve(strict=True), args.output)
 
 
 if __name__ == "__main__":
