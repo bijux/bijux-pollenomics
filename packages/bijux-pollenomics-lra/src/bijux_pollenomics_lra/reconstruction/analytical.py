@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from collections.abc import Mapping
+from fractions import Fraction
 from typing import NotRequired, TypedDict
 import warnings
 
@@ -129,13 +130,61 @@ def _lov_arrays(
         == observed.shape
     ):
         raise ValidationError("LOVE equation vectors have inconsistent dimensions")
-    if count_values.sum() <= 0:
+    if not np.any(count_values > 0):
         raise ValidationError("Local pollen total must be positive")
+    if not np.isfinite(alpha_values).all() or np.any(alpha_values <= 0):
+        raise ValidationError("LOVE PPE values must be finite and strictly positive")
 
-    with np.errstate(divide="ignore", invalid="ignore"):
+    with np.errstate(over="ignore", under="ignore", divide="ignore", invalid="ignore"):
         weighted = count_values / alpha_values
         relative = weighted / weighted.sum()
-        return np.asarray(relative * (1 + regional_term.sum()) - regional_term)
+        background = regional_term.sum()
+        multiplier = 1 + background
+        result = np.asarray(relative * multiplier - regional_term)
+        unresolved = (
+            not np.isfinite(weighted).all()
+            or not np.isfinite(result).all()
+            or np.any((count_values > 0) & (weighted < np.finfo(float).tiny))
+            or np.any((count_values > 0) & (relative < np.finfo(float).tiny))
+            or (background != 0 and multiplier == background)
+        )
+    if unresolved and np.isfinite(regional_term).all():
+        return _finite_local_correction(count_values, alpha_values, regional_term)
+    return result
+
+
+def _finite_local_correction(
+    counts: np.ndarray, ppe: np.ndarray, regional_term: np.ndarray
+) -> np.ndarray:
+    """Round only final local cover when finite intermediates lose their scale.
+
+    Exact binary-float ratios keep tiny weights through regional amplification
+    and cancellation. This exceptional path does not clip or close analytical
+    LOVE estimates, and leaves ordinary source arithmetic and draws intact.
+    """
+    weights = [
+        Fraction.from_float(float(count)) / Fraction.from_float(float(alpha))
+        for count, alpha in zip(counts, ppe, strict=True)
+    ]
+    total = sum(weights, Fraction())
+    background = [Fraction.from_float(float(value)) for value in regional_term]
+    multiplier = 1 + sum(background, Fraction())
+    try:
+        result = np.asarray(
+            [
+                float(weight / total * multiplier - correction)
+                for weight, correction in zip(weights, background, strict=True)
+            ]
+        )
+    except OverflowError as exc:
+        raise ValidationError(
+            "LOVE equation output is outside finite floating-point range"
+        ) from exc
+    if not np.isfinite(result).all():
+        raise ValidationError(
+            "LOVE equation output is outside finite floating-point range"
+        )
+    return result
 
 
 def _prepared_regional_cover(
