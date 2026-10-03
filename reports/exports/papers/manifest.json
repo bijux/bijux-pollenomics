@@ -1,5 +1,5 @@
 {
-  "build_receipt_sha256": "505e98bf5afde2a16c2c81a38866c944614567c327f5ab1b5163dabc39329c63",
+  "build_receipt_sha256": "87a9bd973ef8e7990ce57dacfbac98ba5adced93897b0782c25922ee7bd7af0b",
   "diagram_layout": "Source flowchart edges and labels retained; layout reflowed top-to-bottom for A4 readability.",
   "inventory": "reports/science/paper-accounts.csv",
   "inventory_report_hashes": {
@@ -269,14 +269,14 @@
       "source_sha256": "a54e9d9459a674a64944252c08ae4c9b56bbfb0c6f5e32fb793e75a5a28a4fb0"
     }
   ],
-  "producer_revision": "9460aa08c5a99743db1ae4cd6ee817754c7d5382",
+  "producer_revision": "cfbeadc21f2f6b55a87d746c0cb0be67e9154c54",
   "producer_sha256": {
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/reader_reports/__init__.py": "0432268c6fe5114aefbf73a43c3ef6e8564650daaf8eb3ca83528067a4d2c1a5",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/reader_reports/__main__.py": "923c317267bb7260aa00815b2262ec0f0f726cc8b996c204e7ebcd5aed83ae7f",
-    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/reader_reports/diagram.py": "136a759213df444b2998e30a5822f947b97659168d7eddcf22da89c5a1f16c54",
-    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/reader_reports/export.py": "7a4b71f167b4dc4f246bc48dba80e1cc577009a0039e1a94d1c94e1ad63ec1c1",
-    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/reader_reports/render.py": "d675b36d527842e0a151780f3a235c1e22f7b98cf913c8db3407ec868c9aad2b",
-    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/reader_reports/source.py": "983fcf4122728fec04bceb70ac89c4e61bf0c2459728852162695349173d66d3"
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/reader_reports/diagram.py": "22b53b3be6e6605cb24929162ac665e7e5a9e57bd0243c83363d011d46186146",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/reader_reports/export.py": "b5ef1da5597cb12ab099c88b515d2b32cf67cfd701b5ecbcebf93e966ebb36e3",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/reader_reports/render.py": "02b57b39c804bf1cb85a9dd3ebad26583ff8a7f6b91dad0777962a346664a46f",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/reader_reports/source.py": "5e0100d2920eea2b8378fc695d521e85d448d671a03275786316702c37567f32"
   },
   "promotion": "Final PDFs retained from committed source/producer export. Intermediate TeX/assets/logs are build provenance hashes, not packaged attachments.",
   "python_dependencies": {
