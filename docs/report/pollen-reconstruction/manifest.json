@@ -40,6 +40,11 @@
       "bytes": 1431
     },
     {
+      "path": "configs/ci/qualified-report-sources/rootsi-bokesjon-workbook.json",
+      "sha256": "d9d4252e7ba2e8122583128d59482bf278f0c9be3ceb7fdcaf4e7031d23a46f6",
+      "bytes": 623
+    },
+    {
       "path": "configs/ci/report-owner-execution.json",
       "sha256": "a2e55a8f502eccd97bd97ab96ab43a8a3a02370bef91df6d7f0504b4ab618caf",
       "bytes": 92417
@@ -3100,14 +3105,19 @@
       "sha256": "087406d6f3f2f7b5af1d1dac40d490abe332d2c2ad9a555344a9f32c231b8987"
     },
     {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/rootsi_workbook.py",
+      "sha256": "eb251615d87b3633c3658270b275ac058da3629d9095a9c5214c5a77f5e9623a",
+      "bytes": 7053
+    },
+    {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scheduling.py",
       "sha256": "a3432358d985b5521d6acb2b78aa0c5772d0de80644fb186423061de3dc40edd",
       "bytes": 5819
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/source_qualification.py",
-      "sha256": "e708b45adb419063fa7bba4caac0b516652cb1f6db5bccb5a412e19c2ae56be9",
-      "bytes": 2281
+      "sha256": "1377bcb1847cd1a66778aa60bb8dcaff9f86537e326d23fb39ef8de6b8472379",
+      "bytes": 2526
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/verification.py",
@@ -4673,6 +4683,11 @@
       "path": "packages/bijux-pollenomics-dev/tests/test_report_rebuild_partitions.py",
       "sha256": "d32248035e102cdf15b5208fc31b0ca89378c0083beef15cc314922b884dd590",
       "bytes": 61679
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/tests/test_report_rebuild_rootsi_workbook.py",
+      "sha256": "0145680a05152436c783a4626cd670cfc54cc615bacb89fb1f0db0d28966f8e7",
+      "bytes": 8495
     },
     {
       "path": "packages/bijux-pollenomics-dev/tests/test_report_rebuild_solsoe_legacyage_owner.py",

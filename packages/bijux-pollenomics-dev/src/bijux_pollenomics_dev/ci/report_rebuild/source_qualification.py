@@ -45,6 +45,12 @@ def validated_external_report_sources(
         )
     if schema == AUTHOR_SNAPSHOT_SCHEMA:
         return validated_author_snapshot(repository, source_root, descriptor_path)
+    if schema == "qualified-rootsi-bokesjon-workbook.v1":
+        from .rootsi_workbook import validated_rootsi_bokesjon_workbook
+
+        return validated_rootsi_bokesjon_workbook(
+            repository, source_root, descriptor_path
+        )
     if schema == "qualified-landclim-two-grid-packet.v1":
         from .landclim_two_grid_packet import validated_landclim_two_grid_packet
 
