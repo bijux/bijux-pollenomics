@@ -3645,6 +3645,11 @@
       "bytes": 5400
     },
     {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/constrained_author_lra.py",
+      "sha256": "39b23ebe1ade220293dc0f9d9675bfb768924250bfa35787862fab8df8171779",
+      "bytes": 10520
+    },
+    {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/english_shared_ppe.py",
       "sha256": "0b6b23b9b66d644b0f3ae03b10326bd61c227930d316cd4f971e4321012339f5",
       "bytes": 19733
@@ -4158,6 +4163,11 @@
       "path": "packages/bijux-pollenomics-dev/tests/source_completion/pollen_reconstruction/test_buffered_author_source_roots.py",
       "sha256": "f65a9b6478277c2f7a563aac6a71da3b31f064758e1b44f6d619e69837c1c694",
       "bytes": 3537
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/tests/source_completion/pollen_reconstruction/test_constrained_author_lra.py",
+      "sha256": "3a6d5f88acfc64d07018cbd78b9d045e9d3859d57e2e94e8a75f632654a43b6b",
+      "bytes": 7813
     },
     {
       "path": "packages/bijux-pollenomics-dev/tests/source_completion/pollen_reconstruction/test_english_shared_ppe.py",
