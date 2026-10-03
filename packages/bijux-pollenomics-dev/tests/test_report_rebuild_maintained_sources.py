@@ -81,6 +81,7 @@ def _fixture(
     files = {
         "docs/report/source/replay.py": "VALUE = 1\n",
         "docs/report/source/README.md": "# Checked-in account\n",
+        "docs/report/source/config.json": '{"bounds": [1, 2], "enabled": true}\n',
         "docs/report/generated/result.md": "generated\n",
         "docs/report/generated/report.json": "{}\n",
         "docs/report/publisher/report.json": "{}\n",
@@ -112,6 +113,9 @@ def _fixture(
 
     owner("source-code", "maintained_code", ["docs/report/source/replay.py"])
     owner("source-account", "maintained_editorial", ["docs/report/source/README.md"])
+    owner(
+        "study-design", "maintained_configuration", ["docs/report/source/config.json"]
+    )
     owner(
         "generated",
         "generated_owner",
@@ -149,6 +153,10 @@ def _fixture(
                 1,
                 canonical_json_sha256(["docs/report/source/README.md"]),
             ),
+            "maintained_configuration": (
+                1,
+                canonical_json_sha256(["docs/report/source/config.json"]),
+            ),
         },
     )
     return root, owners
@@ -169,10 +177,15 @@ def test_only_reviewed_maintained_paths_are_candidate_bound(
 ) -> None:
     root, _ = _fixture(tmp_path, monkeypatch)
     entries, evidence = _validate(root)
-    assert {entry.path for entry in entries} == {"source/replay.py", "source/README.md"}
-    assert len(evidence["inventory"]) == 2
+    assert {entry.path for entry in entries} == {
+        "source/replay.py",
+        "source/README.md",
+        "source/config.json",
+    }
+    assert len(evidence["inventory"]) == 3
     assert evidence["roles"]["maintained_code"]["path_count"] == 1
     assert evidence["roles"]["maintained_editorial"]["path_count"] == 1
+    assert evidence["roles"]["maintained_configuration"]["path_count"] == 1
     assert (
         evidence["repository"]["head_commit"]
         == subprocess.check_output(
@@ -207,6 +220,24 @@ def test_only_reviewed_maintained_paths_are_candidate_bound(
             "docs/report/unresolved/README.md",
             "maintained_editorial",
             "docs/report/source/README.md",
+        ),
+        (
+            "generated_owner",
+            "docs/report/generated/report.json",
+            "maintained_configuration",
+            "docs/report/source/config.json",
+        ),
+        (
+            "publisher_partition",
+            "docs/report/publisher/report.json",
+            "maintained_configuration",
+            "docs/report/source/config.json",
+        ),
+        (
+            "retained_source",
+            "docs/report/retained/certificate.json",
+            "maintained_configuration",
+            "docs/report/source/config.json",
         ),
     ],
 )
@@ -256,6 +287,45 @@ def test_uncommitted_edit_and_symlink_are_refused(
         sources.validated_maintained_report_sources(
             root, tracked, expected_repository=identity
         )
+
+
+def test_authored_configuration_cannot_revert_to_unresolved(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    root, owners = _fixture(tmp_path, monkeypatch)
+    next(row for row in owners if row["owner_id"] == "study-design")["role"] = (
+        "unresolved"
+    )
+    _inventory(root, owners)
+    _commit(root)
+    with pytest.raises(
+        ReportRebuildError, match="reviewed maintained_configuration path set changed"
+    ):
+        _validate(root)
+
+
+@pytest.mark.parametrize(
+    "payload",
+    [
+        "[]\n",
+        "null\n",
+        '{"limit": NaN}\n',
+        '{"limit": 1e400}\n',
+        '{"nested": {"limit": Infinity}}\n',
+        '{"nested": {"limit": 1, "limit": 2}}\n',
+        '{"broken": true\n',
+    ],
+)
+def test_malformed_maintained_configuration_is_refused_after_commit(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch, payload: str
+) -> None:
+    root, _ = _fixture(tmp_path, monkeypatch)
+    (root / "docs/report/source/config.json").write_text(payload, encoding="utf-8")
+    _commit(root)
+    with pytest.raises(
+        ReportRebuildError, match="maintained configuration|format invalid"
+    ):
+        _validate(root)
 
 
 def test_unsupported_shell_script_is_not_a_reviewed_code_kind(

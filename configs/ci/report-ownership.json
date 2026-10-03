@@ -5354,8 +5354,8 @@
       ],
       "producer_inputs": [],
       "producer_paths": [],
-      "role": "unresolved",
-      "verification": "Four common bins and sixteen exact taxa are authored development choices. Retain the config as an explicit unresolved authored scientific choice until its source/reviewer acceptance route is recorded; file bytes alone are not a generated result."
+      "role": "maintained_configuration",
+      "verification": "Four common bins and sixteen exact taxa are authored development choices. Retain the config as an explicit unresolved authored scientific choice until its source/reviewer acceptance route is recorded; file bytes alone are not a generated result. Maintained configuration transport checks the exact reviewed Git bytes and finite JSON object; scientific and source admission remain separate."
     },
     {
       "owner_id": "pollen-reconstruction/age-interval-sensitivity/report-products",
@@ -7790,8 +7790,8 @@
       ],
       "producer_inputs": [],
       "producer_paths": [],
-      "role": "unresolved",
-      "verification": "Declared sixteen exact taxon labels and thirteen 500-cal-BP bins are authored study choices; source bytes and writer reproduction do not constitute scientific approval."
+      "role": "maintained_configuration",
+      "verification": "Declared sixteen exact taxon labels and thirteen 500-cal-BP bins are authored study choices; source bytes and writer reproduction do not constitute scientific approval. Maintained configuration transport checks the exact reviewed Git bytes and finite JSON object; scientific and source admission remain separate."
     },
     {
       "owner_id": "pollen-reconstruction/swedish-direct-pollen/report-account",

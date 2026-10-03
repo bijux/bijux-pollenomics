@@ -27,6 +27,7 @@ nor scientific approval.
 | Generated domain owner | Named source, method or study product with an exact output map | [Configured command](../../configs/ci/report-owner-execution.json), closed code/data inputs, bounded execution and matching output in each required lane |
 | Retained source | Authenticated original-R source bundle | Its separate certificate and exact source inventory; it is not a newly generated R result |
 | Maintained code or editorial account | Checked-in Python/R producer source or Markdown reader account | Reviewed role and source kind, clean Git bytes and source-transport receipt before reducers read it |
+| Maintained study configuration | The two reviewed authored pollen-study design JSON files | Exact independently admitted path set, finite duplicate-free JSON objects and clean Git bytes; scientific approval of the design remains separate |
 | Unresolved | Missing producer, source, capture or execution custody | The named missing evidence; an output hash or role change cannot substitute for it |
 
 The publisher consumes independently verified owner files to build portal and cross-tree
@@ -34,8 +35,12 @@ summaries, then removes those inputs from its own output. Maintained source acco
 certified original-R bundle enter the reducer as **source inputs**, each with distinct
 identity checks. The [maintained-source
 validator](../../packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/maintained_sources.py)
-admits the reviewed Python/R code and Markdown account sets; numeric products cannot become
-editorial source by a role-label change. The [original-R
+admits the reviewed Python/R code, Markdown accounts and two authored study configurations.
+The [age-interval design](../../docs/report/pollen-reconstruction/age-interval-sensitivity/config.json)
+and [Swedish direct-pollen design](../../docs/report/pollen-reconstruction/swedish-direct-pollen/config.json)
+declare fixed exploratory choices. Their transport does not approve those choices or turn
+development scores into confirmatory evidence. Numeric products cannot become maintained
+sources by a role-label change. The [original-R
 validator](../../packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/original_r_reference.py)
 keeps that certificate separate. Final verification combines the independently owned outputs
 and source receipts and compares both complete lanes with tracked `docs/report/`. The
