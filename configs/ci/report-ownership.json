@@ -23053,10 +23053,18 @@
     },
     {
       "owner_id": "pollen-reconstruction/author-lra-optimized-feasibility/shared-ppe-sensitivity/report-products",
-      "role": "generated_owner",
       "paths": [
         "docs/report/pollen-reconstruction/author-lra-optimized-feasibility/shared-ppe-sensitivity/diagnostics.json",
         "docs/report/pollen-reconstruction/author-lra-optimized-feasibility/shared-ppe-sensitivity/report.json"
+      ],
+      "producer_inputs": [
+        "configs/ci/qualified-report-sources/landclim-author-snapshot.json",
+        "packages/bijux-pollenomics-dev/pyproject.toml",
+        "packages/bijux-pollenomics-lra/pyproject.toml",
+        "packages/bijux-pollenomics/pyproject.toml",
+        "packages/pollenomics/pyproject.toml",
+        "pyproject.toml",
+        "uv.lock"
       ],
       "producer_paths": [
         "docs/report/pollen-reconstruction/author-lra-optimized-feasibility/prepare.py",
@@ -24040,6 +24048,7 @@
         "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/adna/atlas_evidence_rows/models.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/adna/atlas_evidence_rows/row_factory.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/adna/atlas_evidence_rows/sample_support.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/adna/atlas_evidence_rows/service.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/adna/atlas_evidence_rows/source_records.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/adna/atlas_evidence_rows/validation.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/adna/comparison_contracts.py",
@@ -24140,6 +24149,10 @@
         "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/context/time.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/geography.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/__init__.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/assets/document.html",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/assets/native-lra.js",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/assets/source-record-export.js",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/assets/url-state.js",
         "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/coordinates.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/evidence.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/evidence_projection/__init__.py",
@@ -24225,15 +24238,7 @@
         "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/source_chronology/time_density.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/source_chronology/validation.py"
       ],
-      "producer_inputs": [
-        "configs/ci/qualified-report-sources/landclim-author-snapshot.json",
-        "packages/bijux-pollenomics-dev/pyproject.toml",
-        "packages/bijux-pollenomics-lra/pyproject.toml",
-        "packages/bijux-pollenomics/pyproject.toml",
-        "packages/pollenomics/pyproject.toml",
-        "pyproject.toml",
-        "uv.lock"
-      ],
+      "role": "generated_owner",
       "verification": "Run the maintained source-bound English shared-PPE adapter through the configured owner in two clean lanes. Bind original snapshot193files, manifest and descriptor before/prepublication; rebuild private9evidence request transiently; compare both compact products to committed bytes and remove staging. Exposed-training conditional sensitivity only, no physical/field/rights/scientific admission. The conservative producer closure includes semantic functions and repository bootstrap imports; package metadata/lock and every qualified external source remain bound. Broad bootstrap ownership can narrow only after verified package-boundary changes."
     },
     {
