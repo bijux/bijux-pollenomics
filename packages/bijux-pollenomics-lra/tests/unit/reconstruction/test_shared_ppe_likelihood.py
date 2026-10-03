@@ -12,11 +12,11 @@ from bijux_pollenomics_lra.api import extension_descriptor, fit_shared_ppe_likel
 from bijux_pollenomics_lra.dispersal.rounding import r_round
 from bijux_pollenomics_lra.models.errors import ValidationError
 from bijux_pollenomics_lra.reconstruction.draws import rnorm_reveals
-from bijux_pollenomics_lra.reconstruction.homogeneous_likelihood import (
+from bijux_pollenomics_lra.reconstruction.likelihood.homogeneous_likelihood import (
     HomogeneousLikelihoodFit,
     fit_homogeneous_likelihood,
 )
-from bijux_pollenomics_lra.reconstruction.shared_ppe_likelihood import (
+from bijux_pollenomics_lra.reconstruction.likelihood.shared_ppe_likelihood import (
     SharedPpeLikelihoodResult,
 )
 
@@ -188,7 +188,7 @@ def test_whole_vector_positive_draw_exhaustion_refused() -> None:
 def test_nonconverged_fit_refuses_entire_result(
     monkeypatch: pytest.MonkeyPatch,
 ) -> None:
-    import bijux_pollenomics_lra.reconstruction.shared_ppe_likelihood as subject
+    import bijux_pollenomics_lra.reconstruction.likelihood.shared_ppe_likelihood as subject
 
     real_fit: Callable[..., HomogeneousLikelihoodFit] = fit_homogeneous_likelihood
 
