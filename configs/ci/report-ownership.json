@@ -3870,6 +3870,7 @@
         "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/adna/atlas_evidence_rows/models.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/adna/atlas_evidence_rows/row_factory.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/adna/atlas_evidence_rows/sample_support.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/adna/atlas_evidence_rows/service.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/adna/atlas_evidence_rows/source_records.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/adna/atlas_evidence_rows/validation.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/adna/comparison_contracts.py",
