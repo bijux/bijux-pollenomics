@@ -1544,6 +1544,16 @@
         "source-products/summary.json": "docs/report/pollen-reconstruction/age-interval-sensitivity/summary.json"
       },
       "timeout_seconds": 600
+    },
+    {
+      "owner_id": "regions/nordic/direct-pollen/source-measures/report-products",
+      "module": "bijux_pollenomics_dev.source_completion.neotoma.direct_pollen_measure_strata",
+      "source_paths": {
+        "report.json": "docs/report/regions/nordic/direct-pollen/source-measures/report.json"
+      },
+      "source_arguments": [],
+      "output_mode": "single_file",
+      "timeout_seconds": 240
     }
   ]
 }

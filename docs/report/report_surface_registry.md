@@ -8,7 +8,7 @@ the exact bytes used for the layout review; machine-readable outputs retain
 their domain manifests. It excludes the four registry/review metadata
 files themselves; its count is a scoped subset of the complete report tree.
 
-- Surface count: `1951`
+- Surface count: `1953`
 
 ## Report families
 
@@ -19,12 +19,12 @@ files themselves; its count is a scoped subset of the complete report tree.
 | [Map surfaces](maps/index.md) | 88 |
 | [Portal guidance](index.md) | 2 |
 | [Evidence reviews](reviews/index.md) | 34 |
-| [Scope-filtered outputs](scopes/index.md) | 772 |
+| [Scope-filtered outputs](scopes/index.md) | 774 |
 
 ## Audience counts
 
 | Audience | Count |
 | --- | ---: |
 | Maintainer diagnostic | 1047 |
-| Public reading surface | 781 |
+| Public reading surface | 783 |
 | Scientific review surface | 123 |
