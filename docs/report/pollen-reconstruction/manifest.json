@@ -2975,6 +2975,11 @@
       "bytes": 24296
     },
     {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/docs/badge_sync.py",
+      "sha256": "350309d1746d6d466f428cec1d5b4f2988878d257f4dbae2a9a33873057886bc",
+      "bytes": 3317
+    },
+    {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/docs/report_portal_check.py",
       "sha256": "7d80034d68ec475fef67f63721a21a6718a6441bd8749718f13e52587f5193a0",
       "bytes": 12060
@@ -4013,6 +4018,11 @@
       "path": "packages/bijux-pollenomics-dev/tests/source_completion/test_swedish_training_scope.py",
       "sha256": "9d3b7164dd98ea703dbbb0b6dc8635241843406a8a759c541122539bb45fa8af",
       "bytes": 3596
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/tests/test_badge_repository_boundary.py",
+      "sha256": "aaac595254b5dbb33724ff8aeb00a8c32eaa4a25b80c51a6cc50bdaec04a1176",
+      "bytes": 2797
     },
     {
       "path": "packages/bijux-pollenomics-dev/tests/test_release_guards.py",
