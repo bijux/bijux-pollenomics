@@ -17,25 +17,14 @@ __all__ = [
 def load_repository_country_boundaries(
     data_root: Path,
 ) -> dict[str, dict[str, object]]:
-    """Load the checked-in Nordic boundaries used by repository materializers."""
-    raw_root = Path(data_root) / "boundaries" / "raw"
-    boundary_specs = {
-        "Denmark": "DNK",
-        "Finland": "FIN",
-        "Norway": "NOR",
-        "Sweden": "SWE",
-    }
-    boundaries: dict[str, dict[str, object]] = {}
-    for country, country_code in boundary_specs.items():
-        path = raw_root / f"{country.casefold()}.geojson"
-        payload = json.loads(path.read_text(encoding="utf-8"))
-        boundaries[country] = validate_boundary_collection(
-            payload,
-            path=path,
-            country=country,
-            country_code=country_code,
-        )
-    return boundaries
+    """Load receipt-bound Nordic geometry for repository materializers."""
+    # The collection facade owns the release pins and imports this store.
+    from .collection import load_country_boundaries as load_pinned_country_boundaries
+
+    boundaries = load_pinned_country_boundaries(Path(data_root) / "boundaries")
+    if boundaries is None:
+        raise ValueError("Repository Nordic boundary source authority is incomplete")
+    return {country: boundaries[country] for country in sorted(boundaries)}
 
 
 def load_country_boundaries(
