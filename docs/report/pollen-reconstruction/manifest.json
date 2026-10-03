@@ -2946,8 +2946,8 @@
     },
     {
       "path": "makes/README.md",
-      "sha256": "4387620a6da17c9395e721baf94b2abcb12ec520dbcda2f5b6caa39aab3ed115",
-      "bytes": 6140
+      "sha256": "32e01285f319f7823c4613b1543928fc1bbed796d375de8d8e91a548a04a768f",
+      "bytes": 6870
     },
     {
       "path": "makes/packages/bijux-pollenomics-dev.mk",
@@ -2976,8 +2976,8 @@
     },
     {
       "path": "makes/workspace-dependency-audit.mk",
-      "sha256": "d55cd371cc6a509111be16fc773f421b0c5532bd4603d40689d7cd13e38ccc4a",
-      "bytes": 1003
+      "sha256": "1892dbad5f29a1d6677efd463ab0bcd17d020bde48675464d5364aec77cbaed5",
+      "bytes": 1792
     },
     {
       "path": "mkdocs.yml",
@@ -4001,8 +4001,13 @@
     },
     {
       "path": "packages/bijux-pollenomics-dev/tests/ci/test_workspace_audit_make.py",
-      "sha256": "b4d86ff9c65338804dc476c0a3da4e9f4fea0762cbfef89394c905bc47310673",
-      "bytes": 4369
+      "sha256": "6506a3aeb03788ca01c3728bd0195d2fa41e5ca176911d4521a7bb1e65600dbe",
+      "bytes": 4831
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/tests/ci/test_workspace_install_constraints.py",
+      "sha256": "ef0eca9259c54cfae203da4349b0cdc4f44a1c27ab26351457ed69d7dcc19f41",
+      "bytes": 7658
     },
     {
       "path": "packages/bijux-pollenomics-dev/tests/essd_reproduction/test_author_preparation_audit.py",

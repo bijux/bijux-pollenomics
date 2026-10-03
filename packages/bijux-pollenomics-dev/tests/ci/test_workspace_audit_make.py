@@ -46,8 +46,10 @@ class WorkspaceMakeCases(unittest.TestCase):
                     + "\nimport pathlib,json,sys\n"
                     + "root=pathlib.Path("
                     + repr(str(root))
-                    + ");assert (root/'installed').is_file()\n"
-                    + "(root/'argv.json').write_text(json.dumps(sys.argv[1:]))\n"
+                    + ");args=sys.argv[1:];verified='--verify-installed' in args\n"
+                    + "assert (root/'installed').is_file() == verified\n"
+                    + "out=pathlib.Path(args[args.index('--output')+1]);out.parent.mkdir(parents=True,exist_ok=True);out.write_text('pip==26.2\\n')\n"
+                    + "(root/('argv.json' if verified else 'preparation-argv.json')).write_text(json.dumps(args))\n"
                 )
                 interpreter.chmod(0o755)
                 module = repository / "makes/workspace-dependency-audit.mk"
@@ -57,6 +59,10 @@ class WorkspaceMakeCases(unittest.TestCase):
                     + str(repository)
                     + "\nPROJECT_SLUG := "
                     + profile.stem
+                    + "\nPYTHON := "
+                    + str(interpreter)
+                    + "\nPROJECT_ARTIFACTS_DIR := "
+                    + str(root / "package-artifacts")
                     + "\nVENV_PYTHON := "
                     + str(interpreter)
                     + "\nUV := uv\n"
