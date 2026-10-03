@@ -21618,11 +21618,7 @@
         "data/neotoma/relational/surfaces/datasets/part-00001.json",
         "docs/report/regions/nordic/direct-pollen/cohort.csv",
         "docs/report/regions/nordic/direct-pollen/training-sources.csv",
-        "docs/report/source-relations/neotoma/pollen-screen/report.json",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/assets/document.html",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/assets/native-lra.js",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/assets/source-record-export.js",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/assets/url-state.js"
+        "docs/report/source-relations/neotoma/pollen-screen/report.json"
       ],
       "verification": "Run PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -m bijux_pollenomics_dev.source_completion.neotoma_entity_decisions --repository . --output artifacts/jobs/nordic-capability-reproduction/neotoma-entities with an absent destination, then compare report.json. Six retained source/study inputs;85 included and124 excluded dataset entities, not LRA admissions. This declaration is mechanical consumer custody; upstream materialization and qualification remain independently governed."
     },
