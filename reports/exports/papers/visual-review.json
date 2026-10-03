@@ -1,22 +1,40 @@
 {
   "byte_identical_export_reproduction": {
     "all_nine_pdf_bytes_and_sources_identical": true,
-    "prior_input_receipt_sha256": "505e98bf5afde2a16c2c81a38866c944614567c327f5ab1b5163dabc39329c63",
+    "prior_input_receipt_sha256": "87a9bd973ef8e7990ce57dacfbac98ba5adced93897b0782c25922ee7bd7af0b",
     "prior_producer_sha256": {
       "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/reader_reports/__init__.py": "0432268c6fe5114aefbf73a43c3ef6e8564650daaf8eb3ca83528067a4d2c1a5",
       "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/reader_reports/__main__.py": "923c317267bb7260aa00815b2262ec0f0f726cc8b996c204e7ebcd5aed83ae7f",
-      "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/reader_reports/diagram.py": "136a759213df444b2998e30a5822f947b97659168d7eddcf22da89c5a1f16c54",
-      "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/reader_reports/export.py": "7a4b71f167b4dc4f246bc48dba80e1cc577009a0039e1a94d1c94e1ad63ec1c1",
-      "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/reader_reports/render.py": "d675b36d527842e0a151780f3a235c1e22f7b98cf913c8db3407ec868c9aad2b",
-      "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/reader_reports/source.py": "983fcf4122728fec04bceb70ac89c4e61bf0c2459728852162695349173d66d3"
+      "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/reader_reports/diagram.py": "22b53b3be6e6605cb24929162ac665e7e5a9e57bd0243c83363d011d46186146",
+      "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/reader_reports/export.py": "b5ef1da5597cb12ab099c88b515d2b32cf67cfd701b5ecbcebf93e966ebb36e3",
+      "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/reader_reports/render.py": "02b57b39c804bf1cb85a9dd3ebad26583ff8a7f6b91dad0777962a346664a46f",
+      "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/reader_reports/source.py": "5e0100d2920eea2b8378fc695d521e85d448d671a03275786316702c37567f32"
     },
-    "producer_revision": "cfbeadc21f2f6b55a87d746c0cb0be67e9154c54",
-    "reproduction_receipt_sha256": "9dd03dce3bef85917d1726411eecb614c81fb8bd1836feeaf3c077830365faf0",
-    "scope": "Retain the existing per-page visual/font/extractability observations because actual original-source export with the current committed renderer reproduces every PDF byte. This records producer equivalence and does not claim a new visual review, human-reader comprehension or scientific acceptance."
+    "prior_reproduction_receipt_sha256": "9dd03dce3bef85917d1726411eecb614c81fb8bd1836feeaf3c077830365faf0",
+    "producer_revision": "1a3f44530170d81b38317760d86d766ec418a03f",
+    "reproduction_receipt_sha256": "436702007481dfc96e0eb045af627bfc0bd31acd69c9fe6e5bb21f195b928f19",
+    "scope": "Retain per-page visual, font and extractability observations because an actual original-source export with the current committed renderer reproduced all nine PDF and report-source bytes. No new visual, human-reader or scientific acceptance is claimed."
   },
   "defects": [],
+  "export_reproduction_history": [
+    {
+      "all_nine_pdf_bytes_and_sources_identical": true,
+      "prior_input_receipt_sha256": "505e98bf5afde2a16c2c81a38866c944614567c327f5ab1b5163dabc39329c63",
+      "prior_producer_sha256": {
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/reader_reports/__init__.py": "0432268c6fe5114aefbf73a43c3ef6e8564650daaf8eb3ca83528067a4d2c1a5",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/reader_reports/__main__.py": "923c317267bb7260aa00815b2262ec0f0f726cc8b996c204e7ebcd5aed83ae7f",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/reader_reports/diagram.py": "136a759213df444b2998e30a5822f947b97659168d7eddcf22da89c5a1f16c54",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/reader_reports/export.py": "7a4b71f167b4dc4f246bc48dba80e1cc577009a0039e1a94d1c94e1ad63ec1c1",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/reader_reports/render.py": "d675b36d527842e0a151780f3a235c1e22f7b98cf913c8db3407ec868c9aad2b",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/reader_reports/source.py": "983fcf4122728fec04bceb70ac89c4e61bf0c2459728852162695349173d66d3"
+      },
+      "producer_revision": "cfbeadc21f2f6b55a87d746c0cb0be67e9154c54",
+      "reproduction_receipt_sha256": "9dd03dce3bef85917d1726411eecb614c81fb8bd1836feeaf3c077830365faf0",
+      "scope": "Retain the existing per-page visual/font/extractability observations because actual original-source export with the current committed renderer reproduces every PDF byte. This records producer equivalence and does not claim a new visual review, human-reader comprehension or scientific acceptance."
+    }
+  ],
   "images_retained": "Raster previews remain disposable build review material; retained PDF hashes bind these per-page observations.",
-  "input_receipt_sha256": "87a9bd973ef8e7990ce57dacfbac98ba5adced93897b0782c25922ee7bd7af0b",
+  "input_receipt_sha256": "3e52153b42dc2433d0bd54289e6095ea22b33debdb247be1b7db7536856b0382",
   "inventory_sha256": "1e43668ebebf750ca2d6b4daa560ff2cb11b554804c42653b4ae9d95652d2a1b",
   "layout_equivalence": {
     "all_26_pages_pixel_identical": true,
@@ -462,11 +480,11 @@
   ],
   "producer_sha256": {
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/reader_reports/__init__.py": "0432268c6fe5114aefbf73a43c3ef6e8564650daaf8eb3ca83528067a4d2c1a5",
-    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/reader_reports/__main__.py": "923c317267bb7260aa00815b2262ec0f0f726cc8b996c204e7ebcd5aed83ae7f",
-    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/reader_reports/diagram.py": "22b53b3be6e6605cb24929162ac665e7e5a9e57bd0243c83363d011d46186146",
-    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/reader_reports/export.py": "b5ef1da5597cb12ab099c88b515d2b32cf67cfd701b5ecbcebf93e966ebb36e3",
-    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/reader_reports/render.py": "02b57b39c804bf1cb85a9dd3ebad26583ff8a7f6b91dad0777962a346664a46f",
-    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/reader_reports/source.py": "5e0100d2920eea2b8378fc695d521e85d448d671a03275786316702c37567f32"
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/reader_reports/__main__.py": "95a4d4c048fa94e0dcbba1d89bfb8a8782dcf81b74c443240f962f0311e76eef",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/reader_reports/diagram.py": "5b089e9318f726bb0689b5677e97bd41919053bdc4125ba24e076865948319d4",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/reader_reports/export.py": "3925f8b56303443175e273f1ec423686d75963ea6251d5704b6a96ac3dc29203",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/reader_reports/render.py": "e5f1e300d21cad36371d21c2a6eb0843c593e13743a6435b3c2b6dd45b8c47e4",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/reader_reports/source.py": "6fe3b0dd6330f715f6abbc21ab785753e0223a070d5ea1d34cf3debcf4a196f1"
   },
   "repository_link_status": "Source paths encoded to pinned GitHub revision; newly committed remote pages were not opened online.",
   "repository_revision": "9460aa08c5a99743db1ae4cd6ee817754c7d5382",
