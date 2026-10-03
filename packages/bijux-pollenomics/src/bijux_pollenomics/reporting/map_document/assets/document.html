@@ -6386,6 +6386,38 @@ __URL_STATE_CONTROLLER__
       function scientificSignalById(signalId) {
         return SCIENTIFIC_SIGNALS.find((signal) => signal.signal_id === signalId) || null;
       }
+      function edgeScientificPresentation(edge) {
+        const status = edge.candidate_status || edge.status || 'candidate';
+        const directionalStatus = ['definite_candidate', 'possible_candidate'].includes(status);
+        const native = Object.prototype.hasOwnProperty.call(edge, 'candidate_status');
+        const directional = directionalStatus && (native ? edge.directional_arrow_allowed === true : edge.directional_arrow_allowed !== false);
+        const indeterminate = status === 'indeterminate_order';
+        const refused = ['unresolved', 'excluded_spatial', 'excluded_temporal_nonpositive', 'excluded_temporal_too_large'].includes(status);
+        return {
+          status,
+          dashArray: indeterminate ? '2 7' : status === 'possible_candidate' ? '10 7' : null,
+          separator: directional ? ' → ' : ' — ',
+          label: indeterminate ? 'Indeterminate order (no direction)' : status,
+          relationLabel: directional ? 'Candidate relation' : 'Endpoint connection',
+          interpretation: indeterminate
+            ? 'Order is indeterminate; this endpoint connection has no direction and is not a migration route.'
+            : refused ? `No candidate succession is admitted for ${status}; this endpoint connection is not proof of migration or causation.`
+            : 'Candidate succession under the governed rule; not proof of migration or causation.',
+        };
+      }
+      function providedEdgeFields(edge, keys) {
+        return Object.fromEntries(keys.filter((key) => Object.prototype.hasOwnProperty.call(edge, key)).map((key) => [key, edge[key]]));
+      }
+      function mergeEdgeDetailTab(tab, fields) {
+        if (!Object.keys(fields).length) return tab;
+        const merged = { ...tab, ...fields };
+        if (tab?.status === 'unavailable') {
+          if (!Object.prototype.hasOwnProperty.call(fields, 'status')) merged.status = 'partial';
+          merged.evidence_availability = 'partial';
+          if (Object.prototype.hasOwnProperty.call(tab, 'reason_code')) merged.availability_reason_code = tab.reason_code;
+        }
+        return merged;
+      }
       function renderEdgeLayers() {
         if (STATIC_ATLAS_INLINE || STATIC_ATLAS_CHUNKS.edges.status !== 'available') return;
         const entriesByRecordId = new Map(
@@ -6399,6 +6431,7 @@ __URL_STATE_CONTROLLER__
           if (!source || !target) return;
           const signal = scientificSignalById(edge.signal_id);
           const color = signal ? signal.color : '#6d28d9';
+          const presentation = edgeScientificPresentation(edge);
           const line = L.polyline(
             [featureCoordinatePair(source.feature), featureCoordinatePair(target.feature)].map((coordinates) => [coordinates.latitude, coordinates.longitude]),
             {
@@ -6406,37 +6439,52 @@ __URL_STATE_CONTROLLER__
               color,
               weight: 2.5,
               opacity: 0.82,
-              dashArray: edge.status === 'possible_candidate' ? '10 7' : null,
+              dashArray: presentation.dashArray,
             }
           );
-          line.bindPopup(`<div class="popup-grid"><div><strong>Candidate relation</strong> ${escapeHtml(edge.edge_id)}</div><div><strong>Signal</strong> ${escapeHtml(signal ? signal.label : edge.signal_id)}</div><div><strong>Countries</strong> ${escapeHtml(edge.source_country)} → ${escapeHtml(edge.target_country)}</div><div><strong>Interpretation</strong> Candidate succession under the governed rule; not proof of migration or causation.</div></div>`);
+          line.bindPopup(`<div class="popup-grid"><div><strong>${escapeHtml(presentation.relationLabel)}</strong> ${escapeHtml(edge.edge_id)}</div><div><strong>Signal</strong> ${escapeHtml(signal ? signal.label : edge.signal_id)}</div><div><strong>Countries</strong> ${escapeHtml(edge.source_country)}${presentation.separator}${escapeHtml(edge.target_country)}</div><div><strong>Status</strong> ${escapeHtml(presentation.label)}</div><div><strong>Interpretation</strong> ${escapeHtml(presentation.interpretation)}</div></div>`);
           line.on('click', async () => {
             const loadedTabs = await detailTabsForRecordId(String(edge.edge_id));
             const tabs = loadedTabs.overview?.reason_code === 'detail_record_not_indexed'
               ? unavailableDetailTabs('edge_detail_evidence_not_available')
               : { ...loadedTabs };
-            tabs.overview = {
+            tabs.overview = mergeEdgeDetailTab(tabs.overview, {
+              ...providedEdgeFields(edge, ['source_event_id', 'target_event_id', 'feature_key', 'resolution']),
               edge_id: edge.edge_id,
               signal: signal ? signal.label : edge.signal_id,
-              interpretation: 'Candidate succession under the governed rule; not proof of migration or causation.',
-            };
-            tabs.relation = {
+              interpretation: presentation.interpretation,
+            });
+            tabs.relation = mergeEdgeDetailTab(tabs.relation, {
+              ...providedEdgeFields(edge, [
+                'source_event_id', 'target_event_id', 'source_site_id', 'target_site_id',
+                'source_country_code', 'target_country_code', 'feature_key', 'resolution',
+                'source_age_bp', 'target_age_bp', 'source_age_interval_bp', 'target_age_interval_bp',
+                'source_younger_bp', 'source_older_bp', 'target_younger_bp', 'target_older_bp',
+                'distance_km_unrounded', 'distance_km_display', 'distance_algorithm',
+                'distance_library', 'distance_library_version', 'minimum_lag_years', 'maximum_lag_years',
+                'candidate_status', 'reason_code', 'scenario_id', 'threshold_profile_id',
+                'temporal_contract_version', 'classification_contract_version', 'propagation_contract_version',
+                'schema_version', 'build_id', 'directional_arrow_allowed', 'route_interpretation_allowed', 'map_geometry_role',
+              ]),
               source_record_id: edge.source_record_id,
               target_record_id: edge.target_record_id,
               source_country: edge.source_country,
               target_country: edge.target_country,
-              status: edge.status || 'candidate',
-              predicates: edge.predicates || [],
-            };
+              status: presentation.status,
+              ...providedEdgeFields(edge, ['predicates']),
+            });
+            tabs.provenance = mergeEdgeDetailTab(tabs.provenance,
+              providedEdgeFields(edge, ['source_provenance', 'target_provenance', 'source_dataset_versions', 'event_manifest_digest', 'config_digest', 'producer_version', 'build_id'])
+            );
             setFocusState({
               kind: 'edge',
               edgeId: edge.edge_id,
               layerKey: source.layer.key,
               title: signal ? signal.label : edge.signal_id,
-              subtitle: `${edge.source_country} → ${edge.target_country} candidate relation`,
+              subtitle: `${edge.source_country}${presentation.separator}${edge.target_country} ${presentation.relationLabel.toLowerCase()}`,
               meta: [
                 { label: 'Relation ID', value: edge.edge_id },
-                { label: 'Status', value: edge.status || 'candidate' },
+                { label: 'Status', value: presentation.label },
                 { label: 'Cue', value: signal ? `${scientificCueGlyph(signal.non_color_cue)} ${signal.non_color_cue}` : 'Unassigned' },
               ],
               sourceUrl: '',
