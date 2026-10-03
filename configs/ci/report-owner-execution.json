@@ -1328,6 +1328,20 @@
       },
       "timeout_seconds": 180,
       "external_source_descriptor": "configs/ci/qualified-report-sources/landclim-author-snapshot.json"
+    },
+    {
+      "owner_id": "publication-replay/landclim-window-alignment/report-products",
+      "module": "bijux_pollenomics_dev.source_completion.essd.window_alignment",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "source_arguments": [],
+      "source_paths": {
+        "source-products/REPORT.md": "docs/report/publication-replay/landclim-window-alignment/REPORT.md",
+        "source-products/report.json": "docs/report/publication-replay/landclim-window-alignment/report.json",
+        "source-products/window-correspondence.csv": "docs/report/publication-replay/landclim-window-alignment/window-correspondence.csv"
+      },
+      "timeout_seconds": 180,
+      "external_source_descriptor": "configs/ci/qualified-report-sources/landclim-author-snapshot.json"
     }
   ]
 }
