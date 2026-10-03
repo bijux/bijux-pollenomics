@@ -245,9 +245,14 @@
       "bytes": 4482
     },
     {
+      "path": "docs/public/pollenomics/science/glossary.md",
+      "sha256": "b2af59a497421f89fc48602a1924176b3484263c7d8ad0f65c6b2ad567864136",
+      "bytes": 5107
+    },
+    {
       "path": "docs/public/pollenomics/science/index.md",
-      "sha256": "fd76020691e24e9d782e31245378deac37f1a63df0521b2c36831e2bccd02c38",
-      "bytes": 2067
+      "sha256": "93fc02ef53294651f6bede1ae6a8e3e598010c0fe0d3876d268d638a199f0383",
+      "bytes": 2524
     },
     {
       "path": "docs/public/pollenomics/science/papers.md",
@@ -2883,6 +2888,11 @@
       "path": "makes/pollenomics-verification.mk",
       "sha256": "5725dfeded3f304fda35556ba86f83cbf44e7c9308ecf39b2b93072ac6d4b33b",
       "bytes": 23587
+    },
+    {
+      "path": "mkdocs.yml",
+      "sha256": "a2b21e43ee0768964415fe91c5c94587560484bb6592c3ad1bd7afb804ebdd3d",
+      "bytes": 15335
     },
     {
       "path": "packages/bijux-pollenomics-dev/pyproject.toml",
