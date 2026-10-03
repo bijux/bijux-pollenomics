@@ -1,18 +1,21 @@
+from __future__ import annotations
+
 import hashlib
 import importlib.util
 import json
 from pathlib import Path
 import signal
 import subprocess
-from types import SimpleNamespace
+from types import ModuleType, SimpleNamespace
 
 import pytest
-
 
 ROOT = Path(__file__).resolve().parents[4]
 
 
-def _builder(tmp_path: Path, monkeypatch: pytest.MonkeyPatch):
+def _builder(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> tuple[ModuleType, Path]:
     spec = importlib.util.spec_from_file_location(
         "briefing_builder", ROOT / "presentation/build.py"
     )
@@ -57,26 +60,26 @@ def test_timeout_kills_compiler_group_and_retains_failure_log(
     tmp_path: Path, monkeypatch: pytest.MonkeyPatch
 ) -> None:
     builder, _ = _builder(tmp_path, monkeypatch)
-    calls = []
+    calls: list[tuple[int, signal.Signals]] = []
 
     class Compiler:
         pid = 12345
         expired = False
 
-        def __enter__(self):
+        def __enter__(self) -> Compiler:
             return self
 
-        def __exit__(self, *args):
+        def __exit__(self, *args: object) -> None:
             pass
 
-        def communicate(self, timeout=None):
+        def communicate(self, timeout: float | None = None) -> tuple[str, None]:
             if not self.expired:
                 self.expired = True
                 assert timeout == 180
                 raise subprocess.TimeoutExpired("latexmk", timeout)
             return "retained compiler output", None
 
-    def launch(*args, **kwargs):
+    def launch(*args: object, **kwargs: object) -> Compiler:
         assert kwargs["start_new_session"] is True
         return Compiler()
 

@@ -29,7 +29,11 @@ def repository(tmp_path: Path) -> Path:
 
 
 def _payload(repository: Path, name: str) -> dict[str, object]:
-    return json.loads((repository / "docs/report" / name).read_text(encoding="utf-8"))
+    value: object = json.loads(
+        (repository / "docs/report" / name).read_text(encoding="utf-8")
+    )
+    assert isinstance(value, dict)
+    return value
 
 
 def _write_payload(repository: Path, name: str, payload: dict[str, object]) -> None:

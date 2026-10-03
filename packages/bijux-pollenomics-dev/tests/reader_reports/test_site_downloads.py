@@ -3,6 +3,7 @@ import importlib.util
 import json
 from pathlib import Path
 from types import SimpleNamespace
+from typing import NotRequired, TypedDict
 
 import pytest
 
@@ -15,7 +16,22 @@ HOOK = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(HOOK)
 
 
-def _fixture(root: Path) -> dict:
+class _DownloadFile(TypedDict):
+    path: str
+    site_uri: str
+    canonical_source: str
+    source_sha256: str
+    sha256: NotRequired[str]
+    bytes: NotRequired[int]
+
+
+class _DownloadManifest(TypedDict):
+    schema_version: str
+    inputs: dict[str, str]
+    files: list[_DownloadFile]
+
+
+def _fixture(root: Path) -> _DownloadManifest:
     def write(relative: str, content: bytes) -> str:
         path = root / relative
         path.parent.mkdir(parents=True, exist_ok=True)
@@ -23,8 +39,8 @@ def _fixture(root: Path) -> dict:
         return hashlib.sha256(content).hexdigest()
 
     inventory = "paper_id,canonical_report\n"
-    rows = []
-    sources = {}
+    rows: list[_DownloadFile] = []
+    sources: dict[str, str] = {}
     for number in range(9):
         identity = f"paper-{number}"
         source = f"reports/science/{identity}.md"
@@ -68,7 +84,7 @@ def _fixture(root: Path) -> dict:
             json.dumps({"decks": list(HOOK.DECKS), "sources": sources}).encode(),
         ),
     }
-    manifest = {
+    manifest: _DownloadManifest = {
         "schema_version": "scientific-reader-downloads.v1",
         "inputs": inputs,
         "files": rows,
