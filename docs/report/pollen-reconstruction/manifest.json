@@ -2876,8 +2876,8 @@
     },
     {
       "path": "packages/bijux-pollenomics-dev/pyproject.toml",
-      "sha256": "5aef7c2185323c2b8cb78259dff769678f4e0f9f31022f5f9f1957598ba59459",
-      "bytes": 2432
+      "sha256": "604af601a09116ace028866470b3ff0ed73f5cb775d38d9d92ecc6d9e6ca4896",
+      "bytes": 2569
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/atlas_browser/landclim_export/__init__.py",
@@ -5861,8 +5861,8 @@
     },
     {
       "path": "uv.lock",
-      "sha256": "ea08618a0d29d903f11104700d10c901568efb45cf2393ce4d4168c75fb7bfe0",
-      "bytes": 557647
+      "sha256": "cf4715e79485ce1d4979b4ca46d467547a0b9ae71d4edb7f6e4f177c127bbbc4",
+      "bytes": 558436
     }
   ]
 }
