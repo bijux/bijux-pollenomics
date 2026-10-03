@@ -2,6 +2,8 @@ from __future__ import annotations
 
 import unittest
 
+import pytest
+
 from bijux_pollenomics.collection.sources.neotoma.relational import (
     build_neotoma_relational_snapshot,
 )
@@ -30,3 +32,30 @@ class NeotomaRelationalDiagnosticTests(unittest.TestCase):
             {orphan["entity_type"] for orphan in rows(payload["orphans"])},
             {"chronology", "chronology_control", "age_claim"},
         )
+
+
+@pytest.mark.parametrize("_fixture_id", ["SOURCE-007"])
+def test_malformed_datum_reconciles_raw_rows_and_explicit_orphans(
+    _fixture_id: str,
+) -> None:
+    row = download_row()
+    sample = rows(nested(row, "site", "collectionunit", "dataset")["samples"])[0]
+    datum = sample["datum"]
+    assert isinstance(datum, list)
+    datum.append(None)
+    payload = build_neotoma_relational_snapshot(
+        [row], source_snapshot_id="sha256:fixture", build_id="fixture-build"
+    )
+    reconciliation = mapping(payload["reconciliation"])
+    raw = mapping(reconciliation["source_row_counts"])["observation_rows"]
+    normalized = mapping(reconciliation["normalized_row_counts"])["observations"]
+    assert isinstance(raw, int) and isinstance(normalized, int)
+    refused = [
+        orphan
+        for orphan in rows(payload["orphans"])
+        if orphan["reason"] == "invalid_observation_row"
+    ]
+    assert (raw, normalized, len(refused)) == (3, 2, 1)
+    assert raw == normalized + len(refused)
+    assert refused[0]["source_value"] is None
+    assert refused[0]["parent_id"] == rows(payload["samples"])[0]["sample_id"]

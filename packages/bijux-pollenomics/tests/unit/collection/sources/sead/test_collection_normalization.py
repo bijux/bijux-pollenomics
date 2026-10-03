@@ -4,6 +4,8 @@ from __future__ import annotations
 
 from typing import cast
 
+import pytest
+
 from bijux_pollenomics.collection.sources.sead.collection import (
     normalize_sead_rows,
     normalize_sead_temporal_evidence,
@@ -151,3 +153,40 @@ class SeadNormalizationTests(NordicBoundaryTestCase):
             normalize_sead_temporal_evidence(
                 [site], country_boundaries=self.country_boundaries
             )
+
+
+@pytest.mark.parametrize("_fixture_id", ["SOURCE-004"])
+def test_undated_site_never_borrows_time_from_its_name_or_nearby_site(
+    _fixture_id: str,
+) -> None:
+    boundary_case = NordicBoundaryTestCase()
+    boundary_case.setUp()
+    rows = [
+        {
+            "site_id": 6468,
+            "site_uuid": "uuid-6468",
+            "site_name": "Core 1800 BP beside dated core",
+            "latitude_dd": 56.05,
+            "longitude_dd": 14.28,
+            "dating_range_rows": [],
+        },
+        {
+            "site_id": 6469,
+            "site_uuid": "uuid-6469",
+            "site_name": "Nearby dated core",
+            "latitude_dd": 56.0501,
+            "longitude_dd": 14.2801,
+            "time_start_bp": 500,
+            "time_end_bp": 800,
+        },
+    ]
+    records = normalize_sead_rows(
+        rows, country_boundaries=boundary_case.country_boundaries
+    )
+    undated = next(record for record in records if record.record_id == "6468")
+    assert undated.time_start_bp is None
+    assert undated.time_end_bp is None
+    assert undated.time_mean_bp is None
+    semantics = cast(dict[str, object], undated.temporal_semantics)
+    assert semantics["comparability_posture"] == "unresolved"
+    assert semantics["evidence_class"] == "unresolved"
