@@ -12,7 +12,8 @@ import pytest
 from bijux_pollenomics_dev.taxa_review.lra_parameters import (
     validate_lra_parameter_decisions,
 )
-from tests.taxa_review.lra_parameters.test_projection import (
+
+from .test_projection import (
     authorities,
     build,
     provenance_sha256,
