@@ -5,6 +5,7 @@ from __future__ import annotations
 import hashlib
 import json
 from pathlib import Path
+from tempfile import TemporaryDirectory
 
 import pytest
 
@@ -116,20 +117,24 @@ def test_configured_preparation_refuses_mapping_or_role_drift(
     else:
         row = next(item for item in inventory["owners"] if item["owner_id"] == OWNER)
         row["role"] = "unresolved"
-    configuration_root = REPOSITORY / "artifacts/owner-registration" / tmp_path.name
-    configuration_root.mkdir(parents=True)
-    config_path = configuration_root / "configuration.json"
-    inventory_path = configuration_root / "inventory.json"
-    config_path.write_text(json.dumps(config), encoding="utf-8")
-    inventory_path.write_text(json.dumps(inventory), encoding="utf-8")
-    with pytest.raises(
-        ReportRebuildError,
-        match="output map differs|not declared generated",
-    ):
-        configured_owner.resolve_configured_owner(
-            REPOSITORY,
-            OWNER,
-            configuration_path=config_path.relative_to(REPOSITORY),
-            inventory_path=inventory_path.relative_to(REPOSITORY),
-            source_root=tmp_path,
-        )
+    configurations = REPOSITORY / "artifacts/owner-registration"
+    configurations.mkdir(parents=True, exist_ok=True)
+    with TemporaryDirectory(
+        prefix="lilla-preparation-", dir=configurations
+    ) as directory:
+        configuration_root = Path(directory)
+        config_path = configuration_root / "configuration.json"
+        inventory_path = configuration_root / "inventory.json"
+        config_path.write_text(json.dumps(config), encoding="utf-8")
+        inventory_path.write_text(json.dumps(inventory), encoding="utf-8")
+        with pytest.raises(
+            ReportRebuildError,
+            match="output map differs|not declared generated",
+        ):
+            configured_owner.resolve_configured_owner(
+                REPOSITORY,
+                OWNER,
+                configuration_path=config_path.relative_to(REPOSITORY),
+                inventory_path=inventory_path.relative_to(REPOSITORY),
+                source_root=tmp_path,
+            )
