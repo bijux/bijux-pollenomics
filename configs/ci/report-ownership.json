@@ -1805,7 +1805,8 @@
         "docs/report/countries/denmark/solsoe-source-lineage/legacyage-chronology/replay.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/artifact_paths.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/qualified_sources.py",
-        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/denmark/solsoe_legacyage_depth_join.py"
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/denmark/solsoe_legacyage_depth_join.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/review/repository_output_policy.py"
       ],
       "producer_inputs": [
         "configs/ci/qualified-report-sources/legacyage.json",
@@ -2026,7 +2027,8 @@
         "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/reading.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/spatial/configuration.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/collection/intake/workbooks.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/landclim/study_inventory/reading.py"
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/landclim/study_inventory/reading.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/review/repository_output_policy.py"
       ],
       "producer_inputs": [
         "data/landclim/raw/landclim_i_land_cover_types.xlsx",
@@ -3319,7 +3321,8 @@
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/contracts.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_age_support/__init__.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_age_support/abborrtjarne_membership.py",
-        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_age_support/interval_fraction.py"
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_age_support/interval_fraction.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/review/repository_output_policy.py"
       ],
       "producer_inputs": [
         "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-004.json",
@@ -4189,7 +4192,8 @@
         "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/landclim/collection/receipt/validation.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/landclim/study_inventory/__init__.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/landclim/study_inventory/contracts.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/landclim/study_inventory/reading.py"
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/landclim/study_inventory/reading.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/review/repository_output_policy.py"
       ],
       "role": "generated_owner",
       "verification": "The maintained metadata-inventory producer rebuilds five files from the pinned PANGAEA 937075 workbook and acquisition receipt. Compare exact output bytes with validate_study_input_products. This inventories 1,128 metadata rows and explicitly refuses historical primary counts, chronology, sequence rights and full original study replay."
@@ -6200,6 +6204,7 @@
         "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/rendering/markdown.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/rendering/record_exports.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/review/__init__.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/review/repository_output_policy.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/review/repository_truth_outputs.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/review/sead_context_outputs.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/review/sustainability_outputs.py",
@@ -6506,7 +6511,8 @@
         "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/modeled_context/contracts.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/modeled_context/manifest.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/modeled_context/metric_families.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/modeled_context/validation.py"
+        "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/modeled_context/validation.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/review/repository_output_policy.py"
       ],
       "role": "generated_owner",
       "verification": "Run landclim_modeled_panels into an absent artifacts directory and compare panels.csv/report.json in independent lanes. Model/context evidence role, native uncertainty and no-pollen cells remain unchanged; this is not observed vegetation or LRA acceptance."
@@ -6924,7 +6930,8 @@
       "producer_paths": [
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/nordic_direct_pollen.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sambosjon_age_bounds.py",
-        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sambosjon_direct_pollen.py"
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sambosjon_direct_pollen.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/review/repository_output_policy.py"
       ],
       "role": "generated_owner",
       "verification": "Read-only age-bound screen writes four deterministic products from the fixed score/freeze and source chronology. This does not recompute pollen scores or assign probabilities to adjacent bins."
@@ -7788,7 +7795,8 @@
       "producer_paths": [
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/nordic_direct_pollen.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/swedish_neotoma_duplicate_review.py",
-        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/swedish_neotoma_holdout.py"
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/swedish_neotoma_holdout.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/review/repository_output_policy.py"
       ],
       "role": "generated_owner",
       "verification": "The maintained duplicate review reads governed Neotoma source parts. Compare the 77/77 depth/count-vector report bytes; this does not treat the parallel dataset as a second core."
@@ -8335,7 +8343,8 @@
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_taxonomy/__init__.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_taxonomy/author_mass.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_taxonomy/author_site_support.py",
-        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/trusted_process.py"
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/trusted_process.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/review/repository_output_policy.py"
       ],
       "role": "generated_owner",
       "verification": "Explicit author snapshot custody qualification binds the original forty ledger source identities before and after the unchanged header-support producer. Require exact tracked report bytes from both configured producer lanes. Preserve 17 sites, 31 prepared targets, 168 literal header gaps and the five separate positive/whitespace witnesses. Both all-targets-measured and reviewed-profile admission remain false; identity qualification supplies no use rights, observed-zero mask or scientific admission."
@@ -8422,7 +8431,8 @@
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/evidence.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/landclim.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/manifests.py",
-        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/trusted_process.py"
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/trusted_process.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/review/repository_output_policy.py"
       ],
       "role": "generated_owner",
       "verification": "Rebuild one 17-site raw/prepared count audit from the exact qualified author snapshot and independent-count reference; compare report bytes with the governed report. The source account does not establish historical 1,128-site correspondence or source rights."
@@ -8474,7 +8484,8 @@
         "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/modeled_context/manifest.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/modeled_context/metric_families.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/modeled_context/publication_projection.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/modeled_context/validation.py"
+        "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/modeled_context/validation.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/review/repository_output_policy.py"
       ],
       "producer_inputs": [
         "data/landclim/normalized/nordic_reveals_temporal_grid_cells.geojson",
@@ -8914,7 +8925,8 @@
         "packages/bijux-pollenomics/src/bijux_pollenomics/collection/spatial/representative_points.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/core/geospatial/__init__.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/core/geospatial/geojson.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/core/text.py"
+        "packages/bijux-pollenomics/src/bijux_pollenomics/core/text.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/review/repository_output_policy.py"
       ],
       "producer_inputs": [
         "data/boundaries/raw/denmark.geojson",
@@ -8986,7 +8998,8 @@
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/neotoma_parameter_mass.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_parameters/__init__.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_parameters/author_binding.py",
-        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/trusted_process.py"
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/trusted_process.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/review/repository_output_policy.py"
       ],
       "role": "generated_owner",
       "verification": "Explicit author snapshot custody qualification binds the original source files before and after the maintained parameter and count account. Require exact tracked report bytes from both configured producer lanes. Input identity supplies no source-use or scientific admission decision; the retained scientific refusal admits zero LRA samples."
@@ -9068,7 +9081,8 @@
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_taxonomy/__init__.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_taxonomy/author_candidates.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_taxonomy/author_mass.py",
-        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/trusted_process.py"
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/trusted_process.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/review/repository_output_policy.py"
       ],
       "role": "generated_owner",
       "verification": "Explicit author snapshot custody qualification binds the original lookup before and after the unchanged literal-name candidate producer. Require exact tracked report bytes from both configured producer lanes. All 1,006 concepts remain needs_discussion, the 228,323-observation denominator closes, and native NISP and digitized NISP stay separate. Identity supplies no source-use rights, taxon mapping, parameter applicability or scientific admission decision; this ledger accepts zero LRA samples."
@@ -9138,7 +9152,8 @@
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/neotoma_parameter_mass.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_taxonomy/__init__.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_taxonomy/author_mass.py",
-        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/trusted_process.py"
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/trusted_process.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/review/repository_output_policy.py"
       ],
       "role": "generated_owner",
       "verification": "Explicit author snapshot custody qualification binds original lookup bytes before and after the unchanged source-name pollen mass account. Require exact tracked report and bins bytes from both configured producer lanes. All 39 native NISP denominators close; author-excluded and unmapped mass, including unapplied size-variant witnesses, remain separate. Input identity supplies no source-use rights or scientific admission decision; this account admits zero LRA samples."
@@ -9365,7 +9380,8 @@
         "docs/report/source-relations/neotoma/legacyage-chronology/depth-allocation/replay.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/artifact_paths.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/qualified_sources.py",
-        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/neotoma/legacyage_depth_allocation.py"
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/neotoma/legacyage_depth_allocation.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/review/repository_output_policy.py"
       ],
       "role": "generated_owner",
       "verification": "Run the retained DALMUT depth-summary allocation with an explicit qualified LegacyAge source root. The distinct descriptor and custody receipt bind only consumed S4/S5 bytes, and the configured owner compares report.json byte-for-byte with the tracked output. The 4.5 cm value interpolates published rounded summaries; it is not a posterior draw, historical LandClim age, or LRA admission."
@@ -9406,7 +9422,8 @@
         "docs/report/source-relations/neotoma/legacyage-chronology/replay.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/artifact_paths.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/qualified_sources.py",
-        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/neotoma/legacyage_depth_join.py"
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/neotoma/legacyage_depth_join.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/review/repository_output_policy.py"
       ],
       "role": "generated_owner",
       "verification": "Run the maintained LegacyAge chronology join with a qualified external source root. The descriptor and custody receipt bind only the consumed S5/S6 tables; compare the three generated files byte-for-byte with the tracked report. This generated-output proof does not admit age models, pollen denominators, basin transfer, or LRA claims."
@@ -9686,7 +9703,8 @@
         "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/neotoma/production/validation_api.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/sources/neotoma/contract.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/sources/neotoma/ownership.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/sources/neotoma/validation.py"
+        "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/sources/neotoma/validation.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/review/repository_output_policy.py"
       ],
       "role": "generated_owner",
       "verification": "Call inspect_neotoma_lra_candidate_series with explicit sample IDs neotoma:sample:355236 through neotoma:sample:355251; write canonical_json without a newline. Sixteen refusal-only source samples are not LRA inputs; compare the produced bytes."
@@ -9700,7 +9718,8 @@
       "producer_paths": [
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/neotoma_screen_summary.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/models.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/reading.py"
+        "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra/materialization/reading.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/review/repository_output_policy.py"
       ],
       "producer_inputs": [
         "docs/report/source-relations/neotoma/pollen-screen/report.json"
@@ -9774,7 +9793,8 @@
         "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/neotoma/production/validation_api.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/sources/neotoma/contract.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/sources/neotoma/ownership.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/sources/neotoma/validation.py"
+        "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/sources/neotoma/validation.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/review/repository_output_policy.py"
       ],
       "role": "generated_owner",
       "verification": "Call inspect_neotoma_lra_pollen_screen on the exact retained raw and normalized roots, then retain the existing sorted indent2 UTF-8 JSON file format with a terminal newline and finite-number refusal. Canonical object fields remain unchanged. It is prerequisite-only: 10,637 necessary leads, zero LRA admission; compare exact tracked bytes independently before accepting reproduction."
@@ -9994,7 +10014,8 @@
         "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/neotoma/production/validation_api.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/sources/neotoma/contract.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/sources/neotoma/ownership.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/sources/neotoma/validation.py"
+        "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/sources/neotoma/validation.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/review/repository_output_policy.py"
       ],
       "role": "generated_owner",
       "verification": "Call prioritize_neotoma_candidate_taxa with source evidence, governed sample screen and scoped 1,351-row review; serialize with models.canonical_bytes. Its internal bundle digest differs from file SHA and both must match. All 1,006 selected concepts remain needs_discussion; no taxonomy, rights or PPE approval."
@@ -10059,7 +10080,8 @@
         "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/neotoma/production/validation_api.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/sources/neotoma/contract.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/sources/neotoma/ownership.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/sources/neotoma/validation.py"
+        "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/sources/neotoma/validation.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/review/repository_output_policy.py"
       ],
       "role": "generated_owner",
       "verification": "Call attribute_neotoma_priority_datasets with source evidence, screen, scoped review and priority, then canonical_bytes. Preserve 169 distinct source dataset IDs and DOI attribution leads without treating them as source-paper verification or permission."
@@ -10108,7 +10130,8 @@
         "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/sources/neotoma/__init__.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/sources/neotoma/contract.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/sources/neotoma/ownership.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/sources/neotoma/validation.py"
+        "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/sources/neotoma/validation.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/review/repository_output_policy.py"
       ],
       "producer_inputs": [
         "data/neotoma/raw/neotoma_pollen_dataset_downloads/manifest.json",
@@ -10408,7 +10431,8 @@
       "producer_paths": [
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sead/__init__.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sead/chronology_age_review.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/sead/evidence/review/chronology_claims.py"
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/sead/evidence/review/chronology_claims.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/review/repository_output_policy.py"
       ],
       "role": "generated_owner",
       "verification": "Run PYTHONDONTWRITEBYTECODE=1 python -m bijux_pollenomics_dev.source_completion.sead.chronology_age_review --repository . --output artifacts/jobs/sead-chronology-owner-reproduction/chronology_age_review with an absent directory, then compare the two exact output files with their declared docs/report paths. This only verifies retained source-bound bytes; chronology/event admission and qualified review remain separate."
@@ -10583,7 +10607,8 @@
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sead/__init__.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sead/record_intervals.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/sead/evidence/review/chronology_claims.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/sead/evidence/review/interval_sets.py"
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/sead/evidence/review/interval_sets.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/review/repository_output_policy.py"
       ],
       "role": "generated_owner",
       "verification": "Run PYTHONDONTWRITEBYTECODE=1 python -m bijux_pollenomics_dev.source_completion.sead.record_intervals --repository . --output artifacts/jobs/sead-chronology-owner-reproduction/record_intervals with an absent directory, then compare the two exact output files with their declared docs/report paths. This only verifies retained source-bound bytes; chronology/event admission and qualified review remain separate."
@@ -10711,7 +10736,8 @@
         "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/sead/acquisition/admission/validation/manifests.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/sead/acquisition/admission/validation/parents.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/sead/acquisition/admission/validation/receipts.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/sead/acquisition/governed.py"
+        "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/sead/acquisition/governed.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/review/repository_output_policy.py"
       ],
       "producer_inputs": [
         "data/boundaries/raw/denmark.geojson",
@@ -11149,7 +11175,8 @@
       ],
       "producer_paths": [
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sead_country_source_units.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/sources/sead.py"
+        "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/sources/sead.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/review/repository_output_policy.py"
       ],
       "producer_inputs": [
         "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/chronology_claims.json",
@@ -11426,7 +11453,8 @@
         "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/propagation/network/scenarios.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/propagation/network/service.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/core/geospatial/distance.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/core/temporal_semantics.py"
+        "packages/bijux-pollenomics/src/bijux_pollenomics/core/temporal_semantics.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/review/repository_output_policy.py"
       ],
       "role": "generated_owner",
       "verification": "From repository root with the locked project environment and absent output, run `PYTHONDONTWRITEBYTECODE=1 OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 NUMEXPR_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 .venv/bin/python -m bijux_pollenomics_dev.lra_validation.change_time_challenge --output artifacts/jobs/synthetic-owner-reproduction/change-time/report.json`; then `cmp artifacts/jobs/synthetic-owner-reproduction/change-time/report.json docs/report/synthetic-validation/change-time/report.json`. This compares deterministic constructed-case bytes only; the declaration itself does not replay the producer or certify measured ecology, source admission, or qualified review."
@@ -11464,7 +11492,8 @@
         "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/propagation/network/scenarios.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/propagation/network/service.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/core/geospatial/distance.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/core/temporal_semantics.py"
+        "packages/bijux-pollenomics/src/bijux_pollenomics/core/temporal_semantics.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/review/repository_output_policy.py"
       ],
       "role": "generated_owner",
       "verification": "From repository root with the locked project environment and absent output, run `PYTHONDONTWRITEBYTECODE=1 OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 NUMEXPR_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 .venv/bin/python -m bijux_pollenomics_dev.lra_validation.propagation_challenge --output artifacts/jobs/synthetic-owner-reproduction/propagation/report.json`; then `cmp artifacts/jobs/synthetic-owner-reproduction/propagation/report.json docs/report/synthetic-validation/propagation/report.json`. This compares deterministic constructed-case bytes only; the declaration itself does not replay the producer or certify measured ecology, source admission, or qualified review."
@@ -11532,6 +11561,9 @@
         "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/forward.py",
         "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/inputs.py",
         "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/joint_site_draws.py",
+        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/likelihood/__init__.py",
+        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/likelihood/homogeneous_likelihood.py",
+        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/likelihood/shared_ppe_likelihood.py",
         "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/optimized.py",
         "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/preparation.py",
         "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/publication.py",
@@ -11597,6 +11629,9 @@
         "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/forward.py",
         "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/inputs.py",
         "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/joint_site_draws.py",
+        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/likelihood/__init__.py",
+        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/likelihood/homogeneous_likelihood.py",
+        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/likelihood/shared_ppe_likelihood.py",
         "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/optimized.py",
         "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/preparation.py",
         "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/publication.py",
@@ -11617,7 +11652,8 @@
         "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/policy.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/prediction.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/splits.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/core/geospatial/distance.py"
+        "packages/bijux-pollenomics/src/bijux_pollenomics/core/geospatial/distance.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/review/repository_output_policy.py"
       ],
       "role": "generated_owner",
       "verification": "From repository root with the locked project environment and absent output, run `PYTHONDONTWRITEBYTECODE=1 OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 NUMEXPR_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 .venv/bin/python -m bijux_pollenomics_dev.lra_validation.site_leakage_challenge --output artifacts/jobs/synthetic-owner-reproduction/site-leakage/report.json`; then `cmp artifacts/jobs/synthetic-owner-reproduction/site-leakage/report.json docs/report/synthetic-validation/site-leakage/report.json`. This compares deterministic constructed-case bytes only; the declaration itself does not replay the producer or certify measured ecology, source admission, or qualified review."
@@ -11654,7 +11690,8 @@
         "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/propagation/network/scenarios.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/propagation/network/service.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/core/geospatial/distance.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/core/temporal_semantics.py"
+        "packages/bijux-pollenomics/src/bijux_pollenomics/core/temporal_semantics.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/review/repository_output_policy.py"
       ],
       "role": "generated_owner",
       "verification": "From repository root with the locked project environment and absent output, run `PYTHONDONTWRITEBYTECODE=1 OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 NUMEXPR_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 .venv/bin/python -m bijux_pollenomics_dev.lra_validation.spatial_eligibility_challenge --output artifacts/jobs/synthetic-owner-reproduction/spatial-eligibility/report.json`; then `cmp artifacts/jobs/synthetic-owner-reproduction/spatial-eligibility/report.json docs/report/synthetic-validation/spatial-eligibility/report.json`. This compares deterministic constructed-case bytes only; the declaration itself does not replay the producer or certify measured ecology, source admission, or qualified review."
@@ -11745,7 +11782,8 @@
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/publisher_tables.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/qualified_sources.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/source_qualification.py",
-        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/vegetation/namibia_radius_sensitivity.py"
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/vegetation/namibia_radius_sensitivity.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/review/repository_output_policy.py"
       ],
       "role": "generated_owner",
       "verification": "Run the retained Namibian radius description from the same explicitly qualified publisher TSV pair used by the source-row join. radius_sensitivity.py calls replay.build on the original TSVs; it does not read tracked paired.csv, so no generated report is declared as an input. Compare radius-sensitivity.csv and radius-sensitivity.json byte-for-byte with tracked outputs. Ten independent sites at 15 publisher radius labels describe five-taxon Hellinger distance; this does not select a pollen-source radius, fit a model, score predictions, or validate Nordic vegetation reconstruction."
@@ -11775,7 +11813,8 @@
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/publisher_tables.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/qualified_sources.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/source_qualification.py",
-        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/vegetation/namibia_source_join.py"
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/vegetation/namibia_source_join.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/review/repository_output_policy.py"
       ],
       "role": "generated_owner",
       "verification": "Run the retained Namibian publisher-row join with an explicit qualified source root. The assessed receipt has source, rights, retrieval time, and per-table URL, size, and SHA identity; each original header supplies DOI, parent DOI, CC BY 4.0, and primary columns. The configured owner compares paired.csv and report.json byte-for-byte with tracked outputs. Ten sites and 750 five-taxon pairs are an out-of-domain descriptive development cohort, not model prediction or Nordic vegetation validation."
@@ -11831,7 +11870,8 @@
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sead/__init__.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sead/boolean_values.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sead_analysis_numerical_values.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/sources/sead.py"
+        "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/sources/sead.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/review/repository_output_policy.py"
       ],
       "producer_inputs": [
         "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_materialization_manifest.json",
@@ -11889,7 +11929,8 @@
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sead/boolean_values.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sead/categorical_values.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sead_analysis_numerical_values.py",
-        "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/sources/sead.py"
+        "packages/bijux-pollenomics/src/bijux_pollenomics/evidence/sources/sead.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/review/repository_output_policy.py"
       ],
       "producer_inputs": [
         "data/sead/normalized/acquisitions/sead-full-evidence-39bfff6a-ce80714e/evidence_materialization_manifest.json",
