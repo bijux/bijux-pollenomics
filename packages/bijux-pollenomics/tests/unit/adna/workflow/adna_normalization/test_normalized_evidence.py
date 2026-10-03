@@ -2,12 +2,17 @@ from __future__ import annotations
 
 from collections import Counter
 from types import SimpleNamespace
+from typing import cast
 import unittest
 
 from bijux_pollenomics.adna import AdnaChronology, build_species_normalization_bundle
 from bijux_pollenomics.adna.projects.evidence.chronology import (
     build_project_sample_chronology_rows,
 )
+from bijux_pollenomics.adna.projects.evidence.chronology.models import (
+    AdnaProjectSampleChronologyRow,
+)
+from bijux_pollenomics.adna.projects.registry.samples import AdnaCuratedSampleRow
 from bijux_pollenomics.adna.workflow.normalization import (
     RECOVERED_SAMPLE_EVIDENCE_STATUSES,
 )
@@ -43,7 +48,7 @@ class AdnaNormalizationUnitTests(unittest.TestCase):
 
         self.assertEqual(
             _locality_dating_basis(
-                rows,
+                cast(list[AdnaCuratedSampleRow], rows),
                 fallback="historical_and_archaeological_context",
             ),
             "mixed_radiocarbon_and_archaeological_context",
@@ -67,7 +72,9 @@ class AdnaNormalizationUnitTests(unittest.TestCase):
         ]
 
         self.assertEqual(
-            _aggregate_locality_precision_posture(rows, chronology),
+            _aggregate_locality_precision_posture(
+                cast(list[AdnaProjectSampleChronologyRow], rows), chronology
+            ),
             "sample_precise_interval",
         )
 
@@ -133,8 +140,10 @@ class AdnaNormalizationUnitTests(unittest.TestCase):
         }
 
         chronology = _aggregate_locality_chronology(
-            sample_rows=sample_rows,
-            chronology_lookup=chronology_lookup,
+            sample_rows=cast(tuple[AdnaCuratedSampleRow, ...], sample_rows),
+            chronology_lookup=cast(
+                dict[str, AdnaProjectSampleChronologyRow], chronology_lookup
+            ),
             fallback_text="",
             fallback_start_bp=None,
             fallback_end_bp=None,
@@ -229,7 +238,7 @@ class AdnaNormalizationUnitTests(unittest.TestCase):
 
         self.assertTrue(
             all(
-                locality.locality.strip()
+                locality.locality is not None and locality.locality.strip()
                 for bundle in bundles
                 for locality in bundle.locality_records
             )
@@ -275,7 +284,12 @@ class AdnaNormalizationUnitTests(unittest.TestCase):
         ]
         self.assertEqual(len(camel_localities), 7)
         self.assertEqual(sum(len(row.sample_ids) for row in camel_localities), 18)
-        self.assertTrue(all("Wadi" not in row.locality for row in camel_localities))
+        self.assertTrue(
+            all(
+                row.locality is not None and "Wadi" not in row.locality
+                for row in camel_localities
+            )
+        )
 
     def test_pig_site_localities_preserve_admitted_archaeological_basis(self) -> None:
         bundle = build_species_normalization_bundle("pig")

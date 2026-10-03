@@ -75,7 +75,9 @@ def test_source_reported_coordinate_precision_is_counted_as_approximate() -> Non
 
     assert rows[0]["exact_coordinate_sample_count"] == 0
     assert rows[0]["approximate_coordinate_sample_count"] == 1
-    assert "coordinates remain approximate or inferred" in rows[0]["caution_note"]
+    caution = rows[0]["caution_note"]
+    assert isinstance(caution, str)
+    assert "coordinates remain approximate or inferred" in caution
 
 
 def _locality(

@@ -87,13 +87,13 @@ def test_map_publication_identity_separates_sibling_sites() -> None:
         "original_place_text": "shared context",
         "resolved_place_text": "shared context",
     }
-    site_a = {
+    site_a: dict[str, object] = {
         **shared,
         "site_label": "Site A",
         "latitude_text": "55.0",
         "longitude_text": "12.0",
     }
-    site_b = {
+    site_b: dict[str, object] = {
         **shared,
         "site_label": "Site B",
         "latitude_text": "56.0",

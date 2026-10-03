@@ -45,13 +45,13 @@ class AdnaProjectSampleLocalityEvidenceUnitTests(unittest.TestCase):
         self.assertEqual(len(rows), 20)
         self.assertEqual(len({row["repo_stable_sample_id"] for row in rows}), 20)
         self.assertEqual(len({row["preferred_sample_label"] for row in rows}), 20)
+        locators: list[str] = []
+        for row in rows:
+            locator = row["location_evidence_locator"]
+            assert isinstance(locator, str)
+            locators.append(locator)
         self.assertEqual(
-            len(
-                {
-                    row["location_evidence_locator"].split("paper_sample_label:", 1)[1]
-                    for row in rows
-                }
-            ),
+            len({locator.split("paper_sample_label:", 1)[1] for locator in locators}),
             19,
         )
         self.assertTrue(
@@ -60,9 +60,12 @@ class AdnaProjectSampleLocalityEvidenceUnitTests(unittest.TestCase):
                 for row in rows
             )
         )
-        self.assertFalse(
-            any("Wadi Halfa" in row["assigned_locality_text"] for row in rows)
-        )
+        localities: list[str] = []
+        for row in rows:
+            locality = row["assigned_locality_text"]
+            assert isinstance(locality, str)
+            localities.append(locality)
+        self.assertFalse(any("Wadi Halfa" in locality for locality in localities))
 
     def test_baltic_sheep_locality_worksheet_exposes_sample_owned_sites(
         self,

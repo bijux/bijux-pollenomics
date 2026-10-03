@@ -110,10 +110,16 @@ def test_refuses_mismatched_or_incomplete_source_closure() -> None:
     with pytest.raises(ValueError, match="invalid or duplicate"):
         parse_dataset_publications(1, _bytes(response))
     changed = _attribution()
-    changed["dataset_rows"][0]["dataset_id"] = "neotoma:dataset:99"
+    dataset_rows = changed["dataset_rows"]
+    assert isinstance(dataset_rows, list)
+    assert isinstance(dataset_rows[0], dict)
+    dataset_rows[0]["dataset_id"] = "neotoma:dataset:99"
     with pytest.raises(ValueError, match="identity differs"):
         build_candidate_publication_report(changed, {1: _response(1), 2: _response(2)})
     changed = _attribution()
-    changed["dataset_rows"][0]["source_country_code"] = "UNKNOWN"
+    dataset_rows = changed["dataset_rows"]
+    assert isinstance(dataset_rows, list)
+    assert isinstance(dataset_rows[0], dict)
+    dataset_rows[0]["source_country_code"] = "UNKNOWN"
     with pytest.raises(ValueError, match="unknown country partition"):
         build_candidate_publication_report(changed, {1: _response(1), 2: _response(2)})

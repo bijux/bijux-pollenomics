@@ -4,14 +4,17 @@ from __future__ import annotations
 
 from copy import deepcopy
 import hashlib
-import json
-from typing import Any
+from typing import Any, cast
 
 import pytest
 
 from bijux_pollenomics.analysis.lra.materialization.models import canonical_bytes
 from bijux_pollenomics.analysis.lra.materialization.neotoma import (
     candidate_mass as mass,
+)
+from bijux_pollenomics.analysis.lra.materialization.reading import (
+    NeotomaEvidence,
+    json_object,
 )
 
 
@@ -37,11 +40,23 @@ class _Evidence:
         pass
 
     def manifest(self) -> dict[str, str]:
-        return json.loads(self.manifest_bytes)
+        manifest = json_object(self.manifest_bytes)
+        validated: dict[str, str] = {}
+        for key, value in manifest.items():
+            assert isinstance(key, str)
+            assert isinstance(value, str)
+            validated[key] = value
+        return validated
 
     def rows(self, surface: str) -> list[_Row]:
         assert surface == "observations"
         return self.source_rows
+
+
+def _assess(evidence: _Evidence, screen: dict[str, Any]) -> dict[str, Any]:
+    return mass.assess_neotoma_candidate_count_mass(
+        cast(NeotomaEvidence, evidence), screen
+    )
 
 
 def _inputs(monkeypatch: pytest.MonkeyPatch) -> tuple[_Evidence, dict[str, Any]]:
@@ -115,7 +130,7 @@ def test_observed_mass_keeps_units_labels_and_zero_separate(
     monkeypatch: pytest.MonkeyPatch,
 ) -> None:
     evidence, screen = _inputs(monkeypatch)
-    result = mass.assess_neotoma_candidate_count_mass(evidence, screen)
+    result = _assess(evidence, screen)
     sample = result["sample_rows"][0]
     units = {part["source_unit"]: part for part in sample["source_unit_partitions"]}
     assert sample["observations"] == 6
@@ -146,11 +161,11 @@ def test_changed_screen_and_country_are_refused(
     wrong = deepcopy(screen)
     wrong["sample_decisions"][0]["pollen_count_observations"] = 4
     with pytest.raises(ValueError, match="differs from source screen"):
-        mass.assess_neotoma_candidate_count_mass(evidence, wrong)
+        _assess(evidence, wrong)
     wrong = deepcopy(screen)
     wrong["sample_decisions"][0]["source_locator"] = {"row": 2}
     with pytest.raises(ValueError, match="locator differs from source"):
-        mass.assess_neotoma_candidate_count_mass(evidence, wrong)
+        _assess(evidence, wrong)
     evidence.source_rows[0].value["country_code"] = "NO"
     with pytest.raises(ValueError, match="country differs from sample"):
-        mass.assess_neotoma_candidate_count_mass(evidence, screen)
+        _assess(evidence, screen)

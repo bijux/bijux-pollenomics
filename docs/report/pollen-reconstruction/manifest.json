@@ -4445,6 +4445,16 @@
       "bytes": 5975
     },
     {
+      "path": "packages/bijux-pollenomics/tests/unit/adna/governance/audit_catalogs/test_map_readiness.py",
+      "sha256": "00e71a98c186eccaedecc4345fd02d12e4f87cd83a62df908d6f47a309c59a59",
+      "bytes": 9196
+    },
+    {
+      "path": "packages/bijux-pollenomics/tests/unit/adna/governance/audit_catalogs/test_rendering.py",
+      "sha256": "36420f7bb5f768d11354c9dd747194e92807302231b2257723be9377d1c97617",
+      "bytes": 1966
+    },
+    {
       "path": "packages/bijux-pollenomics/tests/unit/adna/governance/test_contract_payloads.py",
       "sha256": "d2898b3da1644b1fd89410faa57c4cef558ebb8d8403cb560010cd31b3b10de9",
       "bytes": 2098
@@ -4458,6 +4468,11 @@
       "path": "packages/bijux-pollenomics/tests/unit/adna/projects/evidence/test_coordinates.py",
       "sha256": "e4f994c69a9bc12979b0a35c6923fe93229fe3c6a18a1f41b469b27666dd1a4b",
       "bytes": 7815
+    },
+    {
+      "path": "packages/bijux-pollenomics/tests/unit/adna/projects/evidence/test_localities.py",
+      "sha256": "30a5b31b2d2fb065a6102ea750bc62bae9ef8f16828f2cb16764b4d89e98346b",
+      "bytes": 4498
     },
     {
       "path": "packages/bijux-pollenomics/tests/unit/adna/projects/registry/test_sample_truth.py",
@@ -4510,6 +4525,16 @@
       "bytes": 4869
     },
     {
+      "path": "packages/bijux-pollenomics/tests/unit/adna/species/tracked_data/test_evidence_posture.py",
+      "sha256": "55457a6911a05b51d1f4f55d2a9c79b27846ffd87d4f2a0feac9283dc32997a7",
+      "bytes": 3175
+    },
+    {
+      "path": "packages/bijux-pollenomics/tests/unit/adna/workflow/adna_normalization/test_normalized_evidence.py",
+      "sha256": "7bfe0e58f451d5489b564461a4953fc966f2a8ce7cec81ccd82f7589ad3be24e",
+      "bytes": 17250
+    },
+    {
       "path": "packages/bijux-pollenomics/tests/unit/analysis/classification/test_classification_events/test_derivation.py",
       "sha256": "f39d209f94d677fce165b72a822289fd8932e304337d2b87dc69ff41e515d35f",
       "bytes": 8562
@@ -4550,9 +4575,39 @@
       "bytes": 14532
     },
     {
+      "path": "packages/bijux-pollenomics/tests/unit/analysis/lra/execution/test_regional_draw_love.py",
+      "sha256": "d09555d208ec044ed4e8538e467641a04476859701eeb20135e6b9568d124776",
+      "bytes": 6082
+    },
+    {
       "path": "packages/bijux-pollenomics/tests/unit/analysis/lra/inputs/test_regional_draw_love.py",
       "sha256": "8348ceacf3267e43a87e1f9723058627ddfb12c6fe78b7e9605dda63090c0f93",
       "bytes": 7399
+    },
+    {
+      "path": "packages/bijux-pollenomics/tests/unit/analysis/lra/materialization/neotoma/test_candidate_mass.py",
+      "sha256": "f4497f7b8c13da9411b2209430b9d1a798b4e783e89d3ee352a6d44119f00ca5",
+      "bytes": 6187
+    },
+    {
+      "path": "packages/bijux-pollenomics/tests/unit/analysis/lra/materialization/neotoma/test_pollen_screen.py",
+      "sha256": "c8d970a2a7abb77070483c0e08845fc5dd2c7c5610d40d38f791db8854e8d6c5",
+      "bytes": 3651
+    },
+    {
+      "path": "packages/bijux-pollenomics/tests/unit/analysis/lra/materialization/neotoma/test_publication_intake.py",
+      "sha256": "1e82ca3e7192f9f13d838968bde33cdc6d1c0b66de4f59e5e161a36cc6c22716",
+      "bytes": 5019
+    },
+    {
+      "path": "packages/bijux-pollenomics/tests/unit/analysis/lra/materialization/neotoma/test_taxon_priority.py",
+      "sha256": "9553b7c99b119d28d015da8a1ca55620fc1dbcb9849a326bee4c7e7ac5af8322",
+      "bytes": 9684
+    },
+    {
+      "path": "packages/bijux-pollenomics/tests/unit/analysis/lra/test_publication_draws.py",
+      "sha256": "699b673e6af1513a5893ab44f422e80d4ca6c2b566b19f05e5b08986bc59216b",
+      "bytes": 7610
     },
     {
       "path": "packages/bijux-pollenomics/tests/unit/analysis/lra_validation/evaluation/block_products/test_rows.py",
@@ -4580,9 +4635,44 @@
       "bytes": 16122
     },
     {
+      "path": "packages/bijux-pollenomics/tests/unit/analysis/lra_validation/evaluation/observation_access/test_access.py",
+      "sha256": "1976023ab60061d9dc8aa3cce48ace9fdb4e6da4961df8f7e14541636e8ee314",
+      "bytes": 10596
+    },
+    {
+      "path": "packages/bijux-pollenomics/tests/unit/analysis/lra_validation/evaluation/observation_product/test_scoring.py",
+      "sha256": "34bfea2e469054dff06d63477cfc90172d9b32387450c0fcf098bffac138eac2",
+      "bytes": 7549
+    },
+    {
+      "path": "packages/bijux-pollenomics/tests/unit/analysis/lra_validation/evaluation/observation_sources/test_sources.py",
+      "sha256": "282f769bcb7c015ea61da856c186bd8a9cf569bbc40475adb100f98e88d06a29",
+      "bytes": 15846
+    },
+    {
       "path": "packages/bijux-pollenomics/tests/unit/analysis/lra_validation/evaluation/test_block_local_rows.py",
       "sha256": "eac5d64af8e2c26799952b16e21035775e73dc8ad43d92288435094b1be672f2",
       "bytes": 11696
+    },
+    {
+      "path": "packages/bijux-pollenomics/tests/unit/analysis/lra_validation/experiments/fitted/test_training_mean.py",
+      "sha256": "d4ae55099a9a7884da624db63907be684dc3aa71f25ba956ea6973abda80d5d2",
+      "bytes": 2642
+    },
+    {
+      "path": "packages/bijux-pollenomics/tests/unit/analysis/lra_validation/experiments/local_batch/test_terminals.py",
+      "sha256": "c49a465458e30930dfbfbf24d5c46fa8f148ebb9542fe3fb4f3e59c95489e4bc",
+      "bytes": 7131
+    },
+    {
+      "path": "packages/bijux-pollenomics/tests/unit/analysis/lra_validation/experiments/test_inputs.py",
+      "sha256": "929c9051c6b10a7af739e3180361dc3222e8832aeb8ecbd0bcc5884bb9df9187",
+      "bytes": 15765
+    },
+    {
+      "path": "packages/bijux-pollenomics/tests/unit/analysis/lra_validation/experiments/test_workflow.py",
+      "sha256": "2751c2d9b679c31839b384fd6f9de3b4ce1b96dadce8c2b2706231bdc06fbbc1",
+      "bytes": 8587
     },
     {
       "path": "packages/bijux-pollenomics/tests/unit/analysis/propagation/test_propagation_outputs/support/materialization.py",
@@ -4830,6 +4920,21 @@
       "bytes": 1584
     },
     {
+      "path": "packages/bijux-pollenomics/tests/unit/reporting/adna/animal_atlas_evidence_rows/test_evidence_traceability.py",
+      "sha256": "721fca072ff8a54a5f130cbc18739c3de115d7169c14c1d67368506e27943c21",
+      "bytes": 13995
+    },
+    {
+      "path": "packages/bijux-pollenomics/tests/unit/reporting/adna/country_outputs/projection/test_species_chronology.py",
+      "sha256": "0582817ea74f8b76d7abcc3f93e755456c760e72351ea52de485d1e13056d617",
+      "bytes": 3780
+    },
+    {
+      "path": "packages/bijux-pollenomics/tests/unit/reporting/adna/public_outputs/test_atlas_readiness.py",
+      "sha256": "7ff974a5a84088180c235a99bb163c0f9a03d7d919f1e191c6210ebd2826f438",
+      "bytes": 11528
+    },
+    {
       "path": "packages/bijux-pollenomics/tests/unit/reporting/adna/public_outputs/test_atlas_readiness_rows.py",
       "sha256": "cb48011d62f962c5065336136b6dee5f8cce83e3245f087cc735731e19b7ea2b",
       "bytes": 743
@@ -4903,6 +5008,11 @@
       "path": "packages/bijux-pollenomics/tests/unit/reporting/bundles/atlas_bundle/test_playback_publication.py",
       "sha256": "920a9822df01d49d344a12c6223f82fb3939ef84a1c2df2aba785876a0b25ebd",
       "bytes": 4217
+    },
+    {
+      "path": "packages/bijux-pollenomics/tests/unit/reporting/context/test_external_layers.py",
+      "sha256": "4108ab2d9532e0ab82ef17a12c5edea7d50e35c0ac201ce6268a1f735de2aeec",
+      "bytes": 15157
     },
     {
       "path": "packages/bijux-pollenomics/tests/unit/reporting/map_document/browser_semantics/controls/test_mobile_legend_clearance.py",
