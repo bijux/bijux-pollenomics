@@ -4411,8 +4411,8 @@
     },
     {
       "path": "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/evaluation/prediction_product/product.py",
-      "sha256": "5bea1e0e4b5683d125695a90a91654d8817f5256d47337fc8c5aa2011ad23d3c",
-      "bytes": 12074
+      "sha256": "86953f397fe9ce582eacfa45e1401d761f02329319945a7ee230b97831e79a75",
+      "bytes": 12099
     },
     {
       "path": "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/lra_validation/evaluation/prediction_product/receipt.py",
@@ -4945,6 +4945,11 @@
       "bytes": 18300
     },
     {
+      "path": "packages/bijux-pollenomics/tests/unit/collection/sources/neotoma/test_swedish_lake_source_binding.py",
+      "sha256": "bc80485d78eb87716eb3c2dab40472dc656cd859e4e1a143ef2a467ec4b5ec7d",
+      "bytes": 1383
+    },
+    {
       "path": "packages/bijux-pollenomics/tests/unit/collection/sources/neotoma/workflow/test_repository_surfaces.py",
       "sha256": "bd581397d62a54a24c9a4e87f6124e35d703edf22c84a9e9d9505a564a8b3920",
       "bytes": 10575
@@ -5023,6 +5028,11 @@
       "path": "packages/bijux-pollenomics/tests/unit/collection/spatial/country_classification/test_strict_boundaries.py",
       "sha256": "cf65d8067cb979f0c287a8d8429c54d5d47996fa9da8ba6e7d321732f2352b33",
       "bytes": 6363
+    },
+    {
+      "path": "packages/bijux-pollenomics/tests/unit/collection/workflow/materialization/test_staging.py",
+      "sha256": "608d31152a533495936439910233d22362975e810f7b902aa152f5e14a505251",
+      "bytes": 4711
     },
     {
       "path": "packages/bijux-pollenomics/tests/unit/core/test_temporal_overlap_consumers.py",
