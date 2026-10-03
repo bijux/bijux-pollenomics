@@ -72,20 +72,29 @@ author lookup hash in the input manifest. Our
 [LandClim](../../docs/public/pollenomics-data/sources/landclim.md) reviews
 record the separate source and attribution boundaries.
 
-To reproduce our result, run from the repository root into three absent
-artifacts directories:
+The current ten prepared source products reproduce through the qualified
+preparation entry point below. It authenticates the complete retained author
+snapshot before reading and before publication, and requires an absent output
+beneath repository `artifacts/`. The checked-in source manifest now binds the
+current direct-pollen and author-count inputs. The nine compressed matrices,
+sample membership, taxon axis and count denominators retain their earlier bytes.
+Qualification establishes source custody; source-use rights and LRA admission
+remain separate.
 
-The checked-in input manifest pins the direct-pollen manifest at product
-revision `6cf0e1134193174f214cd280a96e60b08fadf22f`. Use that revision
-for exact receipt replay. A later runner-only change to the direct-pollen
-manifest leaves the selected samples and numeric results unchanged, but a
-fresh current-tree preparation records a different source hash.
+The retained prediction study used product revision
+`6cf0e1134193174f214cd280a96e60b08fadf22f`. Rebinding the preparation and
+score provenance did not rerun predictions or model fitting. The subsequent
+prediction and scoring commands show the original study recipe for a deliberate
+new computation; they are separate from preparation-only reproduction. For a
+score-only replay, use the existing frozen prediction directory and an absent
+score destination.
 
 ```sh
 PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -m \
-  bijux_pollenomics_dev.source_completion.nordic_author_target_pollen prepare \
+  bijux_pollenomics_dev.source_completion.nordic.author_target_preparation \
   --repository . \
-  --author-source-root /path/to/private/landclim/author-reference \
+  --source-root "$SOURCE_STORE" \
+  --source-descriptor configs/ci/qualified-report-sources/landclim-author-snapshot.json \
   --output artifacts/jobs/nordic-author-target-pollen-prepared-replay
 PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -m \
   bijux_pollenomics_dev.source_completion.nordic_author_target_pollen predict \

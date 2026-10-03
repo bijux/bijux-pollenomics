@@ -63,8 +63,8 @@ or qualified scientific review.
 The [output ownership inventory](../../configs/ci/report-ownership.json)
 assigns every tracked report path exactly one declaration. Its population is
 1,948 paths: 709 declared publisher paths, 125 original-R retained source
-files, 254 generated domain outputs, 62 maintained source files, 176
-maintained reader accounts and 622 paths with unresolved output custody.
+files, 264 generated domain outputs, 62 maintained source files, 176
+maintained reader accounts and 612 paths with unresolved output custody.
 These role counts describe the current declarations. They do not measure
 how many outputs have been independently reproduced.
 
@@ -445,7 +445,7 @@ refusals; their wrapper code is part of the declared producer closure.
 absent `REBUILD_EVIDENCE_ROOT`. Assembly accepts `REBUILD_OWNER_IDS` and
 `REBUILD_OWNER_ARTIFACTS_ROOT`; final verification accepts the same identities
 and both `REBUILD_REFERENCE_OWNERS_ROOT` and `REBUILD_REPLAY_OWNERS_ROOT`.
-The execution configuration currently names 97 generated owners covering 254
+The execution configuration currently names 98 generated owners covering 264
 tracked report paths. Reproducing a configured subset establishes only those
 owners' declared files.
 The complete report-tree comparison remains mandatory and refuses any missing owner. The scientific CI

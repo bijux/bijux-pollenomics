@@ -5,3 +5,26 @@ The detailed source and score narrative is maintained in the
 The [input manifest](input-manifest.json), [coverage ledger](coverage.csv),
 [score table](scores.csv) and [governed report](report.json) remain at this
 producer-owned path. This page preserves earlier website citations.
+
+The ten prepared source products can be reproduced with the qualified
+`bijux_pollenomics_dev.source_completion.nordic.author_target_preparation` CLI.
+It consumes the retained 193-file author snapshot in its external source store
+and the governed Neotoma/Swedish source inputs. The repository descriptor is
+`configs/ci/qualified-report-sources/landclim-author-snapshot.json`.
+
+Preparation binds the complete snapshot before reading and immediately before
+publishing an absent destination beneath repository `artifacts/`. It preserves
+the 31 author targets, 81 Nordic sites, 5,432 samples, 1,637 site bins and each
+country's exclusion from its own training profiles. All nine compressed matrices
+and the source input manifest belong to this preparation owner. Prediction and
+scoring remain separate producers; preparation performs no prediction, model
+fit or solver execution. Snapshot qualification authenticates custody and
+identity; it grants neither source-use rights nor scientific admission.
+
+```sh
+python -m bijux_pollenomics_dev.source_completion.nordic.author_target_preparation \
+  --repository "$REPOSITORY" \
+  --source-root "$SOURCE_STORE" \
+  --source-descriptor configs/ci/qualified-report-sources/landclim-author-snapshot.json \
+  --output "$REPOSITORY/artifacts/author-target-preparation"
+```

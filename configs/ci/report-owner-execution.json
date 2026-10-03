@@ -1281,6 +1281,27 @@
       "output_subdirectory": "source-products",
       "external_source_descriptor": "configs/ci/qualified-report-sources/landclim-author-snapshot.json",
       "timeout_seconds": 300
+    },
+    {
+      "external_source_descriptor": "configs/ci/qualified-report-sources/landclim-author-snapshot.json",
+      "module": "bijux_pollenomics_dev.source_completion.nordic.author_target_preparation",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "regions/nordic/author-target-pollen/prepared-source",
+      "source_arguments": [],
+      "source_paths": {
+        "source-products/input-manifest.json": "docs/report/regions/nordic/author-target-pollen/input-manifest.json",
+        "source-products/inputs/metadata-DK.json.gz": "docs/report/regions/nordic/author-target-pollen/inputs/metadata-DK.json.gz",
+        "source-products/inputs/metadata-FI.json.gz": "docs/report/regions/nordic/author-target-pollen/inputs/metadata-FI.json.gz",
+        "source-products/inputs/metadata-NO.json.gz": "docs/report/regions/nordic/author-target-pollen/inputs/metadata-NO.json.gz",
+        "source-products/inputs/training-DK.json.gz": "docs/report/regions/nordic/author-target-pollen/inputs/training-DK.json.gz",
+        "source-products/inputs/training-FI.json.gz": "docs/report/regions/nordic/author-target-pollen/inputs/training-FI.json.gz",
+        "source-products/inputs/training-NO.json.gz": "docs/report/regions/nordic/author-target-pollen/inputs/training-NO.json.gz",
+        "source-products/sealed-outcomes/outcomes-DK.json.gz": "docs/report/regions/nordic/author-target-pollen/sealed-outcomes/outcomes-DK.json.gz",
+        "source-products/sealed-outcomes/outcomes-FI.json.gz": "docs/report/regions/nordic/author-target-pollen/sealed-outcomes/outcomes-FI.json.gz",
+        "source-products/sealed-outcomes/outcomes-NO.json.gz": "docs/report/regions/nordic/author-target-pollen/sealed-outcomes/outcomes-NO.json.gz"
+      },
+      "timeout_seconds": 300
     }
   ]
 }
