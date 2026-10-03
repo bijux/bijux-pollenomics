@@ -3695,6 +3695,11 @@
       "bytes": 64
     },
     {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sead/analysis_value_components.py",
+      "sha256": "b150903b17d9f43923f79c998ff6696f833803810261a22b61a53ff6e8ef20bb",
+      "bytes": 17513
+    },
+    {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sead/boolean_values.py",
       "sha256": "a645a61c72edb7b898c6a22ac4e5ac0b47449150964f84639cb79d2be34474e7",
       "bytes": 11370
@@ -4163,6 +4168,11 @@
       "path": "packages/bijux-pollenomics-dev/tests/source_completion/propagation/test_native_readiness.py",
       "sha256": "249a7a20eb74510d3bcc267735e08d77cc0a0e172f1b8a8904b3ed052408e47b",
       "bytes": 5131
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/tests/source_completion/sead/test_analysis_value_components.py",
+      "sha256": "d5740c181b57ca19e17de7d5805276cfe5d50265e26782b970c31d94ac426fed",
+      "bytes": 7914
     },
     {
       "path": "packages/bijux-pollenomics-dev/tests/source_completion/sead/test_boolean_values.py",
