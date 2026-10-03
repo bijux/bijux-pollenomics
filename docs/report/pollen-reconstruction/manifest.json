@@ -3566,8 +3566,8 @@
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/swedish_chronology_block.py",
-      "sha256": "63965dc3d86063d5333a70e2e8340ed7155948290061a36c6acf645e720e7127",
-      "bytes": 22811
+      "sha256": "d3403ef75d7e39a9432d15fc37df89ba5d2a559e91cdaf4579e6df3c6713b549",
+      "bytes": 23088
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/swedish_direct_pollen.py",
@@ -3916,8 +3916,8 @@
     },
     {
       "path": "packages/bijux-pollenomics-dev/tests/source_completion/test_swedish_chronology_block.py",
-      "sha256": "d4e5e6f16ff01fc1e14d7069c7aba550ddb898a0aa5794584b14496e02b871be",
-      "bytes": 4467
+      "sha256": "c268f66f1431b9533f7d1719074d5dde2a7ae386751a2997c6f34c2f689354ac",
+      "bytes": 5515
     },
     {
       "path": "packages/bijux-pollenomics-dev/tests/source_completion/test_swedish_direct_pollen.py",

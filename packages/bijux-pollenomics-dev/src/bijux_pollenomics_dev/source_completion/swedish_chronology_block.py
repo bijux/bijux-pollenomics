@@ -38,6 +38,8 @@ EXCLUDED_OFFSETS = (-1, 0, 1)
 
 def _checked_preparation(repository: Path, prepared: Path) -> dict[str, Any]:
     receipt = json.loads((prepared / "prepare.json").read_text())
+    if not isinstance(receipt, dict):
+        raise ValueError("chronology-block preparation must be an object")
     if (
         receipt["source_prepare_sha256"] != _sha(repository / SOURCE / "prepare.json")
         or receipt["folds"] != _source_folds(repository)
@@ -47,7 +49,7 @@ def _checked_preparation(repository: Path, prepared: Path) -> dict[str, Any]:
         or receipt["baseline_scores_sha256"] != BASELINE_SHA256
     ):
         raise ValueError("chronology-block preparation or source changed")
-    return receipt
+    return {key: value for key, value in receipt.items()}
 
 
 def prepare(repository: Path, output: Path) -> None:
@@ -306,6 +308,8 @@ def score(
             ):
                 raise ValueError("matched same-bin target denominator changed")
             result = score_pollen(row["fractions"], observed["counts"])
+            if result.mae_fraction is None:
+                raise ValueError("chronology-block target score is unavailable")
             composition = {
                 taxon: count / observed["closed_nisp"]
                 for taxon, count in observed["counts"].items()
