@@ -65,6 +65,11 @@
       "bytes": 35067
     },
     {
+      "path": "configs/scientific-contracts/phenomenon-event.schema.json",
+      "sha256": "1c2cee9d4ecc47a1b5142ef69dab268f4f0da7f83bdcd1d0add7780208039890",
+      "bytes": 5831
+    },
+    {
       "path": "data/archaeology/raw/hojea_2003_source.json",
       "sha256": "0b9a9a01aad4a8a0abc710b0b96c987d88830f84885ec3282994a60a26f803a9",
       "bytes": 1227
@@ -5111,8 +5116,8 @@
     },
     {
       "path": "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/propagation/network/models.py",
-      "sha256": "8642adf60c5608c78841d23756c039dcedd8093ef102610306b643a263d76592",
-      "bytes": 17359
+      "sha256": "59527abf9a796fd6232f94effa8a43d4cd57a192ebbd002bac4c1f4d5c0a4efb",
+      "bytes": 17297
     },
     {
       "path": "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/propagation/network/pairs.py",
@@ -5543,6 +5548,11 @@
       "path": "packages/bijux-pollenomics/tests/unit/analysis/propagation/candidates/test_publication_schema.py",
       "sha256": "5845323ac9894cf3a87b9d310573bbfabed0d6f84dffd7435d21dce289d93677",
       "bytes": 2146
+    },
+    {
+      "path": "packages/bijux-pollenomics/tests/unit/analysis/propagation/network/test_coordinate_admission.py",
+      "sha256": "412985b6cfa05b2970c57752062827dde46478c548f6f1c383c3194435523c8d",
+      "bytes": 6362
     },
     {
       "path": "packages/bijux-pollenomics/tests/unit/analysis/propagation/network/test_feature_partitions.py",
