@@ -4400,6 +4400,21 @@
       "bytes": 2168
     },
     {
+      "path": "packages/bijux-pollenomics/tests/unit/governance/repository_truth/assessments/support.py",
+      "sha256": "2b0726b4f97738f370d1d53f4f4a6f507983fa827d8d323dfd508eb987f73aef",
+      "bytes": 1438
+    },
+    {
+      "path": "packages/bijux-pollenomics/tests/unit/governance/repository_truth/assessments/test_documentation.py",
+      "sha256": "dda45231299391b67fbcabef43a2c6be2abc700cd17c3434ecb88bc0b39b2083",
+      "bytes": 2581
+    },
+    {
+      "path": "packages/bijux-pollenomics/tests/unit/governance/repository_truth/assessments/test_governance.py",
+      "sha256": "4acc78c839e3267e1b0cc86bd288b3710c5375f2fd50b7171472cbfde8ea009b",
+      "bytes": 3149
+    },
+    {
       "path": "packages/bijux-pollenomics/tests/unit/governance/repository_truth/assessments/test_payload_contracts.py",
       "sha256": "af604068bee73481b9079126989fd0e2498bf9f46770f4ac38495a58800d9051",
       "bytes": 2955
@@ -4408,6 +4423,21 @@
       "path": "packages/bijux-pollenomics/tests/unit/governance/repository_truth/assessments/test_portfolio_payloads.py",
       "sha256": "e83a84829a6e92c3206d1c28c42f82f683c4104b1be4558f42e6927928b7b551",
       "bytes": 6400
+    },
+    {
+      "path": "packages/bijux-pollenomics/tests/unit/governance/repository_truth/assessments/test_posture.py",
+      "sha256": "fd804fc53e57c66a07d9338ad584257517421886f34430027fe97fb5ef74e8c6",
+      "bytes": 2848
+    },
+    {
+      "path": "packages/bijux-pollenomics/tests/unit/governance/repository_truth/assessments/test_product.py",
+      "sha256": "087fd63acb976b9a83a6725fcb3c24fd7d6992678312a4aa6d1b3e9921a58cbd",
+      "bytes": 5277
+    },
+    {
+      "path": "packages/bijux-pollenomics/tests/unit/governance/repository_truth/assessments/test_sources.py",
+      "sha256": "d6e3d424c85266a8efad1e8440090edb30f3b3e36d732b42606ccb38628d091a",
+      "bytes": 13503
     },
     {
       "path": "packages/bijux-pollenomics/tests/unit/governance/test_release_readiness.py",

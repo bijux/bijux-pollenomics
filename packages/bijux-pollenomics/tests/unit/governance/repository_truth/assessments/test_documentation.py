@@ -9,7 +9,10 @@ from bijux_pollenomics.governance import (
     render_repository_docs_scope_validation_markdown,
 )
 
-from .support import RepositoryTruthTestCase
+from .support import (
+    RepositoryTruthTestCase,
+    require_mapping,
+)
 
 
 class RepositoryDocumentationTests(RepositoryTruthTestCase):
@@ -45,8 +48,13 @@ class RepositoryDocumentationTests(RepositoryTruthTestCase):
             "repository-docs-recovery-review.v1",
         )
         self.assertEqual(ledger_payload["row_count"], 68)
-        self.assertEqual(ledger_payload["status_counts"]["verified_replacement"], 68)
-        self.assertEqual(ledger_payload["status_counts"]["replacement_incomplete"], 0)
+        self.assertEqual(
+            require_mapping(ledger_payload["status_counts"])["verified_replacement"], 68
+        )
+        self.assertEqual(
+            require_mapping(ledger_payload["status_counts"])["replacement_incomplete"],
+            0,
+        )
         self.assertTrue(scope_payload["overall_ok"])
         self.assertEqual(
             review_payload["overall_posture"],
