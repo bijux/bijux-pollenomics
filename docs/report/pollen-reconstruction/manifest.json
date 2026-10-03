@@ -4835,6 +4835,11 @@
       "bytes": 6115
     },
     {
+      "path": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/fixed_site_covariance.py",
+      "sha256": "27111502bc7d0d7e61d234bd40d7d5ef2edffc98b652ed0571c4d1aed2000c7c",
+      "bytes": 5194
+    },
+    {
       "path": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/forward.py",
       "sha256": "f33c781841c10f1776a7e6e41ef3a93f2e4ac6ca0282d93fe7620ad09cbd9567",
       "bytes": 3300
@@ -4933,6 +4938,11 @@
       "path": "packages/bijux-pollenomics-lra/tests/unit/reconstruction/test_analytical_preparation.py",
       "sha256": "6cf2a68cea8d3b3410c10d8730ad8dff71e3c06f18951c149f2eb50716a69e67",
       "bytes": 7421
+    },
+    {
+      "path": "packages/bijux-pollenomics-lra/tests/unit/reconstruction/test_fixed_site_covariance.py",
+      "sha256": "e14d449a03eeace4588ee20c8aad0b56b32e7ad82e46ff6cc0d464cb5917ab4e",
+      "bytes": 6837
     },
     {
       "path": "packages/bijux-pollenomics-lra/tests/unit/reconstruction/test_homogeneous_likelihood.py",

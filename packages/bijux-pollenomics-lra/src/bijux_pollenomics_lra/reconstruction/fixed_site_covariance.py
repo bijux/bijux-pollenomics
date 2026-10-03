@@ -39,6 +39,10 @@ def fixed_site_cover_covariance(
     covariance of the shared PPE vector. Sites and PPE are assumed independent.
     Site selection, chronology, geometry and transport uncertainty are held
     fixed; no site bootstrap or empirical vegetation accuracy is represented.
+    Declared PPE variances must be nonnegative, with no covariance for a
+    zero-variance taxon. Symmetry and positive-semidefinite checks use a
+    dimensionless tolerance after scaling by the largest covariance entry,
+    so changing common PPE units cannot admit an invalid covariance.
     """
     raw_counts = np.asarray(counts)
     if raw_counts.dtype.kind not in "iuf" or (
@@ -83,10 +87,20 @@ def fixed_site_cover_covariance(
         or not np.isfinite(p).all()
         or np.any(p <= 0)
         or not np.isfinite(cp).all()
-        or not np.allclose(cp, cp.T, rtol=0, atol=1e-12)
-        or np.linalg.eigvalsh(cp).min() < -1e-12
     ):
         raise ValidationError("Invalid fixed-site counts, deposition or PPE covariance")
+
+    variance = np.diag(cp)
+    covariance_scale = float(np.max(np.abs(cp)))
+    scaled_covariance = cp / covariance_scale if covariance_scale > 0 else cp
+    if (
+        np.any(variance < 0)
+        or np.any(cp[variance == 0] != 0)
+        or np.any(cp[:, variance == 0] != 0)
+        or not np.allclose(scaled_covariance, scaled_covariance.T, rtol=0, atol=1e-12)
+        or np.linalg.eigvalsh(scaled_covariance).min() < -1e-12
+    ):
+        raise ValidationError("Invalid fixed-site PPE covariance")
 
     factors = 1 / (k * p[None, :])
     weights = (n * factors).sum(axis=0)

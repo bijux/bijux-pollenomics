@@ -109,3 +109,79 @@ def test_unmeasured_taxon_is_not_a_zero_count() -> None:
             counts, np.ones_like(counts), np.ones(2), np.eye(2), taxon_measured=measured
         )
     assert error.value.reason_code == "taxon_measurement_unresolved"
+
+
+@pytest.mark.parametrize("ppe_unit", [1.0, 1e-6])
+@pytest.mark.parametrize(
+    "declared_covariance",
+    [
+        [[-0.1, 0.0], [0.0, 0.0]],
+        [[0.1, 0.2], [0.2, 0.1]],
+        [[0.1, 0.01], [0.02, 0.1]],
+        [[0.0, 0.02], [0.02, 0.1]],
+        [[0.0, 0.0], [1e-14, 0.1]],
+    ],
+    ids=[
+        "negative-variance",
+        "indefinite",
+        "asymmetric",
+        "zero-variance-coupling",
+        "zero-variance-column-coupling",
+    ],
+)
+def test_invalid_parameter_covariance_refused_in_every_common_ppe_unit(
+    ppe_unit: float, declared_covariance: list[list[float]]
+) -> None:
+    # An uncertainty matrix cannot become valid merely by changing PPE units.
+    with pytest.raises(ValidationError, match="PPE covariance"):
+        fixed_site_cover_covariance(
+            np.array([[1, 1]]),
+            np.ones((1, 2)),
+            np.full(2, ppe_unit),
+            np.array(declared_covariance) * ppe_unit**2,
+            taxon_measured=np.ones((1, 2), dtype=bool),
+        )
+
+
+@pytest.mark.parametrize("ppe_unit", [1e-6, 1.0, 1e6])
+@pytest.mark.parametrize("common_parameter_error", [False, True])
+def test_valid_ppe_covariance_matches_independent_two_taxon_variance(
+    ppe_unit: float, common_parameter_error: bool
+) -> None:
+    # A binomial with N=2 and p=1/2 gives Var(cover)=p(1-p)/N=1/8.
+    # At equal PPE, differentiating the scalar odds formula gives an added
+    # variance (C11+C22-2*C12)/(16*PPE**2), here 1/80. A perfectly shared
+    # multiplicative PPE error leaves those odds unchanged, giving zero.
+    counting_variance = 1 / 8
+    ppe_variance = 0.0 if common_parameter_error else 1 / 80
+    covariance = (
+        np.full((2, 2), 0.25)
+        if common_parameter_error
+        else np.array([[0.2, 0.1], [0.1, 0.2]])
+    )
+    result = fixed_site_cover_covariance(
+        np.array([[1, 1]]),
+        np.ones((1, 2)),
+        np.full(2, ppe_unit),
+        covariance * ppe_unit**2,
+        taxon_measured=np.ones((1, 2), dtype=bool),
+    )
+    closed_axis = np.array([[1.0, -1.0], [-1.0, 1.0]])
+    np.testing.assert_array_equal(result.cover, [0.5, 0.5])
+    np.testing.assert_allclose(
+        result.counting_covariance, closed_axis * counting_variance, rtol=2e-15
+    )
+    np.testing.assert_allclose(
+        result.ppe_covariance,
+        closed_axis * ppe_variance,
+        rtol=2e-15,
+        atol=np.finfo(float).eps ** 2 if common_parameter_error else 0,
+    )
+    np.testing.assert_allclose(
+        result.total_covariance,
+        closed_axis * (counting_variance + ppe_variance),
+        rtol=2e-15,
+    )
+    np.testing.assert_allclose(
+        result.standard_error, np.sqrt(counting_variance + ppe_variance), rtol=2e-15
+    )
