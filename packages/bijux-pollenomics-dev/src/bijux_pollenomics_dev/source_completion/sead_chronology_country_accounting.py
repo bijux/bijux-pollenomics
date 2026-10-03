@@ -205,13 +205,17 @@ def run(repository: Path, output: Path) -> dict[str, Any]:
             "sha256": hashes[(REVIEW / "claims.csv").as_posix()],
             "row_count": bundle["claim_count"],
         }
-        or bundle["source_run_id"]
-        != lineage["source_run_id"]
-        != reviewed["source_run_id"]
+        or not (
+            bundle["source_run_id"]
+            == lineage["source_run_id"]
+            == reviewed["source_run_id"]
+        )
         or bundle["source_run_id"] != custody["source_run_id"]
-        or bundle["source_build_id"]
-        != lineage["build_id"]
-        != reviewed["source_build_id"]
+        or not (
+            bundle["source_build_id"]
+            == lineage["build_id"]
+            == reviewed["source_build_id"]
+        )
         or bundle["acquisition_bundle_sha256"] != lineage["acquisition_bundle_sha256"]
         or bundle["acquisition_bundle_sha256"] != custody["acquisition_bundle_sha256"]
         or bundle["acquisition_manifest_sha256"]
