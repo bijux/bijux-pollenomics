@@ -11835,6 +11835,7 @@
         "packages/bijux-pollenomics/src/bijux_pollenomics/governance/repository_truth/metrics/rows/review.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/governance/repository_truth/metrics/rows/sources.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/governance/repository_truth/portfolio.py",
+        "packages/bijux-pollenomics/src/bijux_pollenomics/governance/repository_truth/portfolio_payloads.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/governance/repository_truth/release/__init__.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/governance/repository_truth/release/credibility.py",
         "packages/bijux-pollenomics/src/bijux_pollenomics/governance/repository_truth/release/extensibility.py",

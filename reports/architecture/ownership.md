@@ -92,7 +92,7 @@ admission.
 
 The compact English shared-PPE owner authenticates the full original author
 snapshot through its explicit descriptor and rebuilds private request evidence
-transiently. Its conservative closure binds 1,162 semantic/bootstrap code paths,
+transiently. Its conservative closure binds 1,163 semantic/bootstrap code paths,
 seven repository metadata/descriptor inputs and 194 external source files.
 The broad code closure reflects eager package imports; source identity checks
 cover that initialization even when particular functions do not use every
