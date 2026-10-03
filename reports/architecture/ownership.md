@@ -63,8 +63,8 @@ or qualified scientific review.
 The [output ownership inventory](../../configs/ci/report-ownership.json)
 assigns every tracked report path exactly one declaration. Its population is
 1,948 paths: 709 declared publisher paths, 125 original-R retained source
-files, 280 generated domain outputs, 62 maintained source files, 176
-maintained reader accounts and 596 paths with unresolved output custody.
+files, 283 generated domain outputs, 62 maintained source files, 176
+maintained reader accounts and 593 paths with unresolved output custody.
 The Solsø and Dalmutladdo age-supported scorers contribute two output files
 each. Their qualified wrappers authenticate the complete author snapshot
 before and after scoring existing frozen predictions; they do not refit
@@ -449,7 +449,7 @@ refusals; their wrapper code is part of the declared producer closure.
 absent `REBUILD_EVIDENCE_ROOT`. Assembly accepts `REBUILD_OWNER_IDS` and
 `REBUILD_OWNER_ARTIFACTS_ROOT`; final verification accepts the same identities
 and both `REBUILD_REFERENCE_OWNERS_ROOT` and `REBUILD_REPLAY_OWNERS_ROOT`.
-The execution configuration currently names 104 generated owners covering 280
+The execution configuration currently names 105 generated owners covering 283
 tracked report paths. Reproducing a configured subset establishes only those
 owners' declared files.
 The complete report-tree comparison remains mandatory and refuses any missing owner. The scientific CI

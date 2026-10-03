@@ -1384,6 +1384,20 @@
       },
       "timeout_seconds": 180,
       "external_source_descriptor": "configs/ci/qualified-report-sources/landclim-two-grid-example.json"
+    },
+    {
+      "owner_id": "publication-replay/landclim-published-window-correspondence/report-products",
+      "module": "bijux_pollenomics_dev.source_completion.essd.published_window_correspondence",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "source_arguments": [],
+      "source_paths": {
+        "source-products/REPORT.md": "docs/report/publication-replay/landclim-published-window-correspondence/REPORT.md",
+        "source-products/paper-correspondence.csv": "docs/report/publication-replay/landclim-published-window-correspondence/paper-correspondence.csv",
+        "source-products/report.json": "docs/report/publication-replay/landclim-published-window-correspondence/report.json"
+      },
+      "timeout_seconds": 180,
+      "external_source_descriptor": "configs/ci/qualified-report-sources/landclim-two-grid-example.json"
     }
   ]
 }
