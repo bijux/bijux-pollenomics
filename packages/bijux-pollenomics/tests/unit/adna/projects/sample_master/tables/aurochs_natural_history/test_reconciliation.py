@@ -30,12 +30,13 @@ def test_reconciliation_preserves_exact_joined_aurochs_claims() -> None:
         "workbook_archive_literal_join": 34,
         "paper_only_no_archive_accession": 1,
     }
-    assert {
-        label: by_label[label].archive.sample_accession
-        if by_label[label].archive is not None
-        else None
-        for label in ("Hjo1", "Ska1", "Ska3", "Zea1", "Zea2", "Fre1")
-    } == {
+    archive_accessions: dict[str, str | None] = {}
+    for label in ("Hjo1", "Ska1", "Ska3", "Zea1", "Zea2", "Fre1"):
+        archive = by_label[label].archive
+        archive_accessions[label] = (
+            archive.sample_accession if archive is not None else None
+        )
+    assert archive_accessions == {
         "Hjo1": "SAMEA115574419",
         "Ska1": "SAMEA115574441",
         "Ska3": "SAMEA115574442",

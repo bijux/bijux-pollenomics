@@ -17,6 +17,7 @@ from bijux_pollenomics.adna.sources.inventory import (
 
 
 def test_facade_preserves_the_source_inventory_contract() -> None:
+    exports = vars(inventory)
     assert inventory.__all__ == [
         "build_cross_project_source_intake_dossier",
         "build_project_source_evidence_matrix",
@@ -29,7 +30,7 @@ def test_facade_preserves_the_source_inventory_contract() -> None:
         "build_tracked_project_scope_audit",
         "materialize_source_inventory",
     ]
-    assert inventory.SOURCE_INVENTORY_SCHEMA_VERSION == "adna-source-inventory.v1"
+    assert exports["SOURCE_INVENTORY_SCHEMA_VERSION"] == "adna-source-inventory.v1"
     assert (
         inventory.materialize_source_inventory
         is materialization.materialize_source_inventory
@@ -38,7 +39,7 @@ def test_facade_preserves_the_source_inventory_contract() -> None:
         inventory.build_source_blocker_review
         is blocker_review.build_source_blocker_review
     )
-    assert inventory._count_by is model._count_by
+    assert exports["_count_by"] is model._count_by
     assert (
         inventory.build_project_source_evidence_matrix
         is project_evidence.build_project_source_evidence_matrix
@@ -48,7 +49,7 @@ def test_facade_preserves_the_source_inventory_contract() -> None:
         is reference_reconciliation.build_reference_stash_reconciliation
     )
     assert (
-        inventory.render_supplement_recovery_audit_markdown
+        exports["render_supplement_recovery_audit_markdown"]
         is rendering.render_supplement_recovery_audit_markdown
     )
     assert (

@@ -4325,6 +4325,11 @@
       "bytes": 8337
     },
     {
+      "path": "packages/bijux-pollenomics/tests/regression/repository_contracts/test_public_animal_claim_parity.py",
+      "sha256": "c6416b4712149539ceb1dae9a2b6f0b4c5df97dd9687eb387569065f798dcb59",
+      "bytes": 11401
+    },
+    {
       "path": "packages/bijux-pollenomics/tests/support/neotoma/boundaries.py",
       "sha256": "849628fcb6bda30dbe0315601bed52c23dc110ac9bef08bd5e82884c79093009",
       "bytes": 1995
@@ -4335,14 +4340,79 @@
       "bytes": 848
     },
     {
+      "path": "packages/bijux-pollenomics/tests/unit/adna/domain/models/test_scientific_semantics.py",
+      "sha256": "5c0819e47af3e1156c2375c4e6184e99233da0f2be1d5c018579a066da5aea34",
+      "bytes": 5427
+    },
+    {
+      "path": "packages/bijux-pollenomics/tests/unit/adna/domain/test_adna_properties.py",
+      "sha256": "17a077bd11fc3132d0b33ba3412d299ab56739d99a24a9d77515d55c0d821d94",
+      "bytes": 5975
+    },
+    {
       "path": "packages/bijux-pollenomics/tests/unit/adna/governance/test_contract_payloads.py",
       "sha256": "d2898b3da1644b1fd89410faa57c4cef558ebb8d8403cb560010cd31b3b10de9",
       "bytes": 2098
     },
     {
       "path": "packages/bijux-pollenomics/tests/unit/adna/projects/evidence/test_chronology.py",
-      "sha256": "3b9696b306ad80cd1fd31b4da27aafa8b452c315ecdac4dfc5c985b362831f1b",
-      "bytes": 17021
+      "sha256": "2233f0c824cca88778675bc755aad9dd3e44eb391b29849de1609bebde229677",
+      "bytes": 19418
+    },
+    {
+      "path": "packages/bijux-pollenomics/tests/unit/adna/projects/evidence/test_coordinates.py",
+      "sha256": "e4f994c69a9bc12979b0a35c6923fe93229fe3c6a18a1f41b469b27666dd1a4b",
+      "bytes": 7815
+    },
+    {
+      "path": "packages/bijux-pollenomics/tests/unit/adna/projects/registry/test_sample_truth.py",
+      "sha256": "f1f53db55120f344aeac99ba9632f5f191f92ff5cbf354f52585ac1fd314a360",
+      "bytes": 17558
+    },
+    {
+      "path": "packages/bijux-pollenomics/tests/unit/adna/projects/registry/test_samples.py",
+      "sha256": "521535ee6c4d477276e8c67532feecabf243110969e594adf91be1d923347d92",
+      "bytes": 7945
+    },
+    {
+      "path": "packages/bijux-pollenomics/tests/unit/adna/projects/registry/test_sites.py",
+      "sha256": "425df20a460e7738484be71bede9f02e7a4fd9d52d6a56248765a5497fbccd74",
+      "bytes": 5812
+    },
+    {
+      "path": "packages/bijux-pollenomics/tests/unit/adna/projects/sample_master/recovery/test_baltic_sheep.py",
+      "sha256": "15107a642857e7e0f9bfe8b1293830e792a95200a9be04c9cc6855745db5768e",
+      "bytes": 6353
+    },
+    {
+      "path": "packages/bijux-pollenomics/tests/unit/adna/projects/sample_master/tables/aurochs_natural_history/test_reconciliation.py",
+      "sha256": "bd524763a569f4da6786370d1c0ed668c5dc5fb50bda532d3e73ca6a4315906a",
+      "bytes": 7579
+    },
+    {
+      "path": "packages/bijux-pollenomics/tests/unit/adna/projects/sample_master/tables/pig_panel/test_reconciliation.py",
+      "sha256": "5b16dbfbdd1ef3af93a9691b752fe57e05a2cbd9f785a8f8f3ba7c783ec172c3",
+      "bytes": 9057
+    },
+    {
+      "path": "packages/bijux-pollenomics/tests/unit/adna/sources/inventory/test_compatibility.py",
+      "sha256": "3af7cc268ae197a0294b1a10f81984620e2da67987aff778d2b137400aace0ab",
+      "bytes": 2492
+    },
+    {
+      "path": "packages/bijux-pollenomics/tests/unit/adna/sources/library/payloads.py",
+      "sha256": "533936abb91dcd08f7a2b3983127c88681c4e0a3783b2b920f2ef48c8aea20f6",
+      "bytes": 1294
+    },
+    {
+      "path": "packages/bijux-pollenomics/tests/unit/adna/sources/library/test_audits.py",
+      "sha256": "460232873bec70be09309c6a27f13fa4fca47fbd313773b9325122f388d17a50",
+      "bytes": 1481
+    },
+    {
+      "path": "packages/bijux-pollenomics/tests/unit/adna/sources/library/test_reference_stash.py",
+      "sha256": "56fd9335cb03ca06d2880fca6a77322875c184aef35dfdc955570743018c76bd",
+      "bytes": 4869
     },
     {
       "path": "packages/bijux-pollenomics/tests/unit/analysis/lra/engine/test_discovery.py",

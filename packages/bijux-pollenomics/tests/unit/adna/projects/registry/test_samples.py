@@ -137,7 +137,12 @@ class AdnaSampleRegistryUnitTests(unittest.TestCase):
         )
         self.assertEqual(len(numeric_rows), 45)
         self.assertTrue(
-            all(row.time_start_bp <= row.time_end_bp for row in numeric_rows)
+            all(
+                row.time_start_bp is not None
+                and row.time_end_bp is not None
+                and row.time_start_bp <= row.time_end_bp
+                for row in numeric_rows
+            )
         )
         self.assertEqual(
             sum(row.time_start_bp is None and row.time_end_bp is None for row in rows),

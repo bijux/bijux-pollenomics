@@ -1,10 +1,11 @@
 from __future__ import annotations
 
-from types import SimpleNamespace
+from typing import TypedDict
 import unittest
 
 import pytest
 
+from bijux_pollenomics.adna.domain.models import AdnaSiteEvidenceRecord
 from bijux_pollenomics.adna.projects.evidence.chronology import (
     build_cross_project_sample_chronology_audit,
     build_date_evidence_gap_queue,
@@ -21,9 +22,19 @@ from bijux_pollenomics.adna.projects.evidence.chronology import (
 from bijux_pollenomics.adna.projects.evidence.chronology.resolution import (
     _resolve_chronology_source,
 )
+from bijux_pollenomics.adna.projects.sample_master import AdnaProjectSampleMasterRow
 from tests.support.repository import REPOSITORY_ROOT
 
-CONFLICTING_CHRONOLOGY_CASES = (
+
+class _ConflictCase(TypedDict):
+    sample_text: str
+    site_text: str
+    site_start_bp: int | None
+    site_end_bp: int | None
+    expected_fragment: str
+
+
+CONFLICTING_CHRONOLOGY_CASES: tuple[_ConflictCase, ...] = (
     {
         "sample_text": "1200-1500 BP",
         "site_text": "900-1100 BP",
@@ -41,6 +52,32 @@ CONFLICTING_CHRONOLOGY_CASES = (
 )
 
 pytestmark = pytest.mark.generated_artifacts
+
+
+def _mapping(value: object) -> dict[str, object]:
+    if not isinstance(value, dict):
+        raise AssertionError("expected a chronology evidence mapping")
+    result: dict[str, object] = {}
+    for key, item in value.items():
+        if not isinstance(key, str):
+            raise AssertionError("chronology evidence keys must be strings")
+        result[key] = item
+    return result
+
+
+def _count_mapping(value: object) -> dict[str, int]:
+    result: dict[str, int] = {}
+    for key, item in _mapping(value).items():
+        if isinstance(item, bool) or not isinstance(item, int):
+            raise AssertionError(f"chronology count {key} must be an integer")
+        result[key] = item
+    return result
+
+
+def _text(value: object) -> str:
+    if not isinstance(value, str):
+        raise AssertionError("expected chronology source text")
+    return value
 
 
 class AdnaProjectSampleChronologyUnitTests(unittest.TestCase):
@@ -259,11 +296,10 @@ class AdnaProjectSampleChronologyUnitTests(unittest.TestCase):
         self.assertEqual(audit["normalized_interval_count"], 405)
         self.assertEqual(audit["normalized_point_count"], 528)
         self.assertEqual(audit["unresolved_count"], 406)
-        self.assertEqual(audit["precision_counts"]["contextual_interval"], 32)
-        self.assertEqual(
-            audit["precision_counts"]["sample_approximate_or_modeled"], 200
-        )
-        self.assertEqual(audit["precision_counts"]["sample_precise_interval"], 329)
+        audit_precision_counts = _count_mapping(audit["precision_counts"])
+        self.assertEqual(audit_precision_counts["contextual_interval"], 32)
+        self.assertEqual(audit_precision_counts["sample_approximate_or_modeled"], 200)
+        self.assertEqual(audit_precision_counts["sample_precise_interval"], 329)
         self.assertFalse(
             any(
                 row["project_accession"]
@@ -277,10 +313,8 @@ class AdnaProjectSampleChronologyUnitTests(unittest.TestCase):
             )
         )
         self.assertEqual(conflict_rows, ())
-        self.assertEqual(
-            precision_audit["precision_counts"]["sample_approximate_or_modeled"],
-            200,
-        )
+        precision_counts = _count_mapping(precision_audit["precision_counts"])
+        self.assertEqual(precision_counts["sample_approximate_or_modeled"], 200)
         sheep_species = next(
             row for row in species_rows if row["species_latin_name"] == "Ovis aries"
         )
@@ -346,29 +380,53 @@ class AdnaProjectSampleChronologyUnitTests(unittest.TestCase):
             row
             for row in provenance_rows
             if row["project_accession"] == "PRJEB31613"
-            and row["temporal_semantics"]["comparability_posture"] == "numeric_interval"
+            and _mapping(row["temporal_semantics"])["comparability_posture"]
+            == "numeric_interval"
         )
-        self.assertIn("BP", horse_provenance["published_wording"])
+        horse_semantics = _mapping(horse_provenance["temporal_semantics"])
+        published_wording = _text(horse_provenance["published_wording"])
+        self.assertIn("BP", published_wording)
         self.assertEqual(
-            horse_provenance["temporal_semantics"]["comparability_posture"],
+            horse_semantics["comparability_posture"],
             "numeric_interval",
         )
         self.assertEqual(
-            horse_provenance["temporal_semantics"]["summary_label"],
-            horse_provenance["published_wording"],
+            horse_semantics["summary_label"],
+            published_wording,
         )
         self.assertTrue(horse_provenance["provenance_surface"])
         self.assertTrue(horse_provenance["provenance_locator"])
 
     def test_conflicting_chronology_corpus_surfaces_disagreement_notes(self) -> None:
         for case in CONFLICTING_CHRONOLOGY_CASES:
-            master_row = SimpleNamespace(
+            master_row = AdnaProjectSampleMasterRow(
+                species_latin_name="Test species",
+                species_common_name="test",
+                project_accession="TEST",
+                repo_stable_sample_id="test:sample:one",
+                archive_native_sample_id="TEST-1",
+                paper_native_sample_label="TEST-1",
+                supplementary_table_sample_label="",
+                preferred_sample_label="TEST-1",
+                sample_basis="source_sample",
+                sample_evidence_status="direct_table_extracted",
                 chronology_text=case["sample_text"],
                 sample_lineage_path="data/adna/governance/source_library/projects/TEST/sample_master.csv",
                 sample_lineage_locator="row:1",
                 sample_lineage_excerpt=case["sample_text"],
+                sample_identity_resolution="final",
+                sample_ambiguity_note="",
+                locality_text="Test site",
+                political_entity="",
+                latitude_text="",
+                longitude_text="",
             )
-            site_row = SimpleNamespace(
+            site_row = AdnaSiteEvidenceRecord(
+                project_accession="TEST",
+                species_latin_name="Test species",
+                species_common_name="test",
+                site_label="Test site",
+                political_entity=None,
                 chronology_text=case["site_text"],
                 time_start_bp=case["site_start_bp"],
                 time_end_bp=case["site_end_bp"],
@@ -376,6 +434,7 @@ class AdnaProjectSampleChronologyUnitTests(unittest.TestCase):
                 source_artifact_kind="article_or_archive_text",
                 source_locator="body",
                 exact_source_text=case["site_text"],
+                source_support_status="source_anchored",
             )
 
             resolved = _resolve_chronology_source(
