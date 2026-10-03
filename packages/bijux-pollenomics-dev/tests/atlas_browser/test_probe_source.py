@@ -1418,9 +1418,16 @@ def test_responsive_contract_proves_desktop_and_bottom_sheet_states() -> None:
         assert selector in probe
     assert "elements.topbar.right <= elements.sidebar.left - 1" in probe
     assert "layout.mobile.expanded.scrim_visible" in probe
+    assert (
+        "scrim.classList.contains('is-visible') && scrim.getAttribute('aria-hidden') === 'true' && visible(scrim)"
+        in probe
+    )
     assert "layout.mobile.expanded.close_visible" in probe
     assert "layout.mobile.expanded.close_uncovered" in probe
     assert "layout.mobile.expanded.scrim_catches_outside_panel" in probe
+    assert "layout.mobile.expanded.close_focused" in probe
+    assert "layout.mobile.expanded.scrim_dismisses_panel" in probe
+    assert "layout.mobile.expanded.escape_dismisses_panel" in probe
     assert "layout.mobile.closed.scrim_hidden" in probe
     assert "layout.clear_map.panel_collapsed" in probe
     assert "layout.clear_map.legend_collapsed" in probe

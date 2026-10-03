@@ -2865,6 +2865,11 @@
       "bytes": 18270
     },
     {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/atlas_browser/probe.mjs",
+      "sha256": "0e5094669df1cf5884788ab9798122277e46aa07a6037d0b3ed8b61d6a887960",
+      "bytes": 131197
+    },
+    {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/__main__.py",
       "sha256": "e57c3d0c73009252750f95f1b7dbe06b9715b03a9b00b78a58c9963fe7c5622e",
       "bytes": 7441
@@ -3660,6 +3665,11 @@
       "bytes": 3789
     },
     {
+      "path": "packages/bijux-pollenomics-dev/tests/atlas_browser/test_probe_source.py",
+      "sha256": "fa8eab9f392bec70a6aade19822c209d891adfc98fa6d0ac1e1386130811d219",
+      "bytes": 78639
+    },
+    {
       "path": "packages/bijux-pollenomics-dev/tests/essd_reproduction/test_author_preparation_audit.py",
       "bytes": 2750,
       "sha256": "b02581611b6cf61f9013075674bb0f575b1fd9ca1d6f1fe2652724d79bb4782d"
@@ -4325,6 +4335,11 @@
       "bytes": 14047
     },
     {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/assets/document.html",
+      "sha256": "4f1e2a9d21ef38ebaf9240846c6b0702c6110dd0dc30c8331157ca6f1531d307",
+      "bytes": 442943
+    },
+    {
       "path": "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/rendering/markdown.py",
       "sha256": "24585adb336513085b2c17973c9d33534d2cb933e139e04034137685d7f66d07",
       "bytes": 13102
@@ -4863,6 +4878,16 @@
       "path": "packages/bijux-pollenomics/tests/unit/reporting/bundles/atlas_bundle/test_playback_publication.py",
       "sha256": "920a9822df01d49d344a12c6223f82fb3939ef84a1c2df2aba785876a0b25ebd",
       "bytes": 4217
+    },
+    {
+      "path": "packages/bijux-pollenomics/tests/unit/reporting/map_document/browser_semantics/controls/test_mobile_legend_clearance.py",
+      "sha256": "92e731a38f142e090c6a08c51929f3b3baa18b9f67a0cf00f7de9bd662507f38",
+      "bytes": 1809
+    },
+    {
+      "path": "packages/bijux-pollenomics/tests/unit/reporting/map_document/browser_semantics/controls/test_tile_free_orientation_controls.py",
+      "sha256": "b4cf1ed31a55f57c1a20b4e94e9382a902346417ee8a8e3aba200ddb85745e00",
+      "bytes": 1854
     },
     {
       "path": "packages/bijux-pollenomics/tests/unit/reporting/map_document/browser_semantics/test_animal_source_chronology.py",
