@@ -1302,6 +1302,32 @@
         "source-products/sealed-outcomes/outcomes-NO.json.gz": "docs/report/regions/nordic/author-target-pollen/sealed-outcomes/outcomes-NO.json.gz"
       },
       "timeout_seconds": 300
+    },
+    {
+      "owner_id": "regions/nordic/dalmutladdo-author-target-age-interval/report-products",
+      "module": "bijux_pollenomics_dev.source_completion.nordic.dalmutladdo_author_age_score",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "source_arguments": [],
+      "source_paths": {
+        "source-products/report.json": "docs/report/regions/nordic/dalmutladdo-author-target-age-interval/report.json",
+        "source-products/scores.csv": "docs/report/regions/nordic/dalmutladdo-author-target-age-interval/scores.csv"
+      },
+      "timeout_seconds": 180,
+      "external_source_descriptor": "configs/ci/qualified-report-sources/landclim-author-snapshot.json"
+    },
+    {
+      "owner_id": "countries/denmark/solsoe-source-lineage/author-target-age-interval/scored-products",
+      "module": "bijux_pollenomics_dev.source_completion.denmark.solsoe_author_age_score",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "source_arguments": [],
+      "source_paths": {
+        "source-products/report.json": "docs/report/countries/denmark/solsoe-source-lineage/author-target-age-interval/report.json",
+        "source-products/scores.csv": "docs/report/countries/denmark/solsoe-source-lineage/author-target-age-interval/scores.csv"
+      },
+      "timeout_seconds": 180,
+      "external_source_descriptor": "configs/ci/qualified-report-sources/landclim-author-snapshot.json"
     }
   ]
 }
