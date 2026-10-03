@@ -3325,6 +3325,11 @@
       "bytes": 1695
     },
     {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/empd2_nfi_reference/measurement_schema.py",
+      "sha256": "33436005ef6cf56c55b569606bf5a086539b2dbbebec1c285093822464a87e71",
+      "bytes": 11218
+    },
+    {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/essd/__init__.py",
       "sha256": "4b0e5681c6bfde9350e02a05168703112fd910e709c251723fdaf62c264830c3",
       "bytes": 51
@@ -4168,6 +4173,11 @@
       "path": "packages/bijux-pollenomics-dev/tests/source_completion/denmark/test_solsoe_interval_sensitivity.py",
       "sha256": "8ebd22b29c055909c9ebea4f84e0a989802a095e11685a68dd576051643641af",
       "bytes": 4547
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/tests/source_completion/empd2_nfi_reference/test_measurement_schema_custody.py",
+      "sha256": "09265a8d403d395cd7032187aacff1e5a46125597017aad34bf97e046b8d0871",
+      "bytes": 9249
     },
     {
       "path": "packages/bijux-pollenomics-dev/tests/source_completion/essd/test_author_example_correspondence.py",

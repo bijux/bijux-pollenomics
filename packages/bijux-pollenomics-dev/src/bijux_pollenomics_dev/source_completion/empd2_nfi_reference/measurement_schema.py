@@ -7,7 +7,10 @@ from collections import Counter
 from hashlib import sha256
 import json
 from math import isfinite
+import os
 from pathlib import Path
+import stat
+import tempfile
 from xml.etree import ElementTree as ET
 from zipfile import ZipFile
 
@@ -37,6 +40,49 @@ def _digest(path: Path) -> str:
         for block in iter(lambda: stream.read(1024 * 1024), b""):
             digest.update(block)
     return digest.hexdigest()
+
+
+def _owned_payload(path: Path, identity: tuple[int, int], digest: str) -> bool:
+    """Recognize only the original regular inode with its complete staged bytes."""
+    try:
+        before = path.lstat()
+        if (
+            not stat.S_ISREG(before.st_mode)
+            or (before.st_dev, before.st_ino) != identity
+            or _digest(path) != digest
+        ):
+            return False
+        after = path.lstat()
+    except (FileNotFoundError, OSError):
+        return False
+    return (
+        stat.S_ISREG(after.st_mode)
+        and (after.st_dev, after.st_ino) == identity
+        and before.st_size == after.st_size
+        and before.st_mtime_ns == after.st_mtime_ns
+        and before.st_ctime_ns == after.st_ctime_ns
+    )
+
+
+def _source_file(private_source_store: Path) -> Path:
+    root = private_source_store.resolve(strict=True)
+    if not root.is_dir():
+        raise ValueError("Swedish NFI source root is not a directory")
+    source = root
+    for component in _SOURCE.parts:
+        source /= component
+        if source.is_symlink():
+            raise ValueError("Swedish NFI source path contains a symlink")
+    if not source.is_file():
+        raise ValueError("Swedish NFI source is not a regular file")
+    return source
+
+
+def _require_source(private_source_store: Path) -> Path:
+    source = _source_file(private_source_store)
+    if _digest(source) != _SOURCE_SHA256:
+        raise ValueError("Swedish NFI original source identity changed")
+    return source
 
 
 def _string(cell: ET.Element, strings: list[str]) -> str:
@@ -124,9 +170,7 @@ def _plot_support(archive: ZipFile, strings: list[str]) -> dict[str, object]:
 
 def build(private_source_store: Path) -> dict[str, object]:
     """Return a source-bound schema receipt without decoding measurement rows."""
-    source = private_source_store.resolve() / _SOURCE
-    if _digest(source) != _SOURCE_SHA256:
-        raise ValueError("Swedish NFI original source identity changed")
+    source = _require_source(private_source_store)
     with ZipFile(source) as archive:
         strings = _shared_strings(archive)
         dictionary = _dictionary(archive, strings)
@@ -155,6 +199,7 @@ def build(private_source_store: Path) -> dict[str, object]:
         raise ValueError("Swedish NFI plot-area description changed")
     if "Forestland according to FAO-definitions" not in dictionary["LandUseClass"]:
         raise ValueError("Swedish NFI land-use support changed")
+    _require_source(private_source_store)
     return {
         "schema_version": "nfi-measurement-schema.1",
         "source_path_in_private_store": _SOURCE.as_posix(),
@@ -182,11 +227,65 @@ def main() -> None:
     parser.add_argument("--private-source-store", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
-    if args.output.exists():
+    if args.output.exists() or args.output.is_symlink():
         raise ValueError("Absent output file required")
     result = build(args.private_source_store)
     args.output.parent.mkdir(parents=True, exist_ok=True)
-    args.output.write_text(json.dumps(result, indent=2, sort_keys=True) + "\n")
+    payload = (
+        json.dumps(result, indent=2, sort_keys=True, allow_nan=False) + "\n"
+    ).encode()
+    payload_sha256 = sha256(payload).hexdigest()
+    stage: Path | None = None
+    identity: tuple[int, int] | None = None
+    published = False
+    try:
+        with tempfile.NamedTemporaryFile(
+            mode="wb",
+            dir=args.output.parent,
+            prefix=f".{args.output.name}.pending-",
+            delete=False,
+        ) as stream:
+            stage = Path(stream.name)
+            opened = os.fstat(stream.fileno())
+            identity = (opened.st_dev, opened.st_ino)
+            stream.write(payload)
+            stream.flush()
+            os.fsync(stream.fileno())
+        if stage is None or identity is None:
+            raise ValueError("NFI publication stage was not created")
+        if not _owned_payload(stage, identity, payload_sha256):
+            raise ValueError("Owned NFI publication stage changed")
+        _require_source(args.private_source_store)
+        if not _owned_payload(stage, identity, payload_sha256):
+            raise ValueError("Owned NFI publication stage changed")
+        os.link(stage, args.output)
+        published = True
+        if not (
+            _owned_payload(stage, identity, payload_sha256)
+            and _owned_payload(args.output, identity, payload_sha256)
+        ):
+            raise ValueError("NFI publication output differs from owned stage")
+        _require_source(args.private_source_store)
+        if not (
+            _owned_payload(stage, identity, payload_sha256)
+            and _owned_payload(args.output, identity, payload_sha256)
+        ):
+            raise ValueError("NFI publication output or stage changed before success")
+    except BaseException:
+        if (
+            published
+            and identity is not None
+            and _owned_payload(args.output, identity, payload_sha256)
+        ):
+            args.output.unlink()
+        raise
+    finally:
+        if (
+            stage is not None
+            and identity is not None
+            and _owned_payload(stage, identity, payload_sha256)
+        ):
+            stage.unlink()
     print(json.dumps({"headers": result["workbook_header_count"], "outcomes": 0}))
 
 
