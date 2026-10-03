@@ -3340,6 +3340,11 @@
       "bytes": 46
     },
     {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/neotoma/direct_pollen_measure_strata.py",
+      "sha256": "363b72886ff87355e8db30d0f96edebd3ec25d3a2d9c5860493220ca3ba88cdf",
+      "bytes": 15635
+    },
+    {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/neotoma/legacyage_depth_allocation.py",
       "sha256": "1119e52f3cfe8b832f5e83dff07dadc4d05e5e3e344b3624a93383231c5e8741",
       "bytes": 3694
@@ -4023,6 +4028,11 @@
       "path": "packages/bijux-pollenomics-dev/tests/source_completion/method_certification/test_covariance_clis.py",
       "sha256": "2c87ee8b27897c47cba7525efcdbe8aee5fbecd76d894fa0a9540f5eb16b8165",
       "bytes": 4003
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/tests/source_completion/neotoma/test_direct_pollen_measure_strata.py",
+      "sha256": "5e50e8d37d611ae8cf360f25b867e8c83a282e254225b1a17349339300d50b73",
+      "bytes": 8006
     },
     {
       "path": "packages/bijux-pollenomics-dev/tests/source_completion/neotoma/test_native_roundtrip_cli.py",
