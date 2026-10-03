@@ -3,10 +3,13 @@
 from __future__ import annotations
 
 from dataclasses import replace
+from importlib.metadata import version
 import json
+import tomllib
 from typing import TypedDict
 
 from pyproj import Geod
+from pyproj import __version__ as pyproj_version
 import pytest
 
 from bijux_pollenomics.analysis.propagation.network import (
@@ -15,6 +18,7 @@ from bijux_pollenomics.analysis.propagation.network import (
     evaluate_propagation_pair,
     generate_propagation_network,
 )
+from tests.support.repository import REPOSITORY_ROOT
 
 from .support import event
 
@@ -232,3 +236,41 @@ def test_refusal_configuration_digest_tracks_both_event_configurations() -> None
     )
     assert original.propagation_contract_version == "1.0.0"
     assert original.producer_version == "propagation-network.v1"
+
+
+def test_millimetre_distance_difference_and_pinned_library_survive_json() -> None:
+    geod = Geod(ellps="WGS84")
+    source = event("source", latitude=60, longitude=15)
+    results = []
+    for index, metres in enumerate((100_000.001, 100_000.002)):
+        longitude, latitude, _ = geod.fwd(15, 60, 90, metres)
+        target = event(
+            f"target-{index}",
+            latitude=latitude,
+            longitude=longitude,
+            younger_bp=5500,
+            older_bp=5500,
+        )
+        result = evaluate_propagation_pair(source, target)
+        assert isinstance(result, PropagationCandidate)
+        assert result.candidate_status == "excluded_spatial"
+        assert result.distance_km_unrounded == pytest.approx(
+            metres / 1000, rel=0, abs=1e-10
+        )
+        assert result.distance_km_display == 100
+        reopened = json.loads(json.dumps(result.as_dict()))
+        assert reopened["distance_km_unrounded"] == result.distance_km_unrounded
+        assert reopened["distance_library"] == "pyproj"
+        assert (
+            reopened["distance_library_version"] == pyproj_version == version("pyproj")
+        )
+        assert reopened["distance_algorithm"] == "WGS84 inverse geodesic"
+        assert reopened["directional_arrow_allowed"] is False
+        results.append(reopened["distance_km_unrounded"])
+    assert results[1] - results[0] == pytest.approx(0.000001, rel=0, abs=1e-10)
+    locked = tomllib.loads((REPOSITORY_ROOT / "uv.lock").read_text())
+    assert {
+        package["version"]
+        for package in locked["package"]
+        if package["name"] == "pyproj"
+    } == {pyproj_version}

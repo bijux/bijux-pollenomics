@@ -5621,8 +5621,8 @@
     },
     {
       "path": "packages/bijux-pollenomics/tests/unit/analysis/propagation/network/test_golden_pair_contracts.py",
-      "sha256": "712e7d5764bdfc6e5eb0c7cd7e91075eb858cd8f7d488eb8f3e27476f47857be",
-      "bytes": 8872
+      "sha256": "bacbe0ea5150eb4c8867f0642965c0865d0d7ea28c05118d0f9fea9c7eb33745",
+      "bytes": 10671
     },
     {
       "path": "packages/bijux-pollenomics/tests/unit/analysis/propagation/network/test_golden_temporal_contracts.py",
