@@ -51,8 +51,8 @@
     },
     {
       "path": "configs/ci/report-ownership.json",
-      "sha256": "5bff0e13df6065d22ffc9f449b4a949b5544c06cb43998dbd871e647b26ac7a9",
-      "bytes": 3504123
+      "sha256": "1b29b90d9cc1e87f64a86d514c3466f683888d916429036ba7ccfdbe697e4d36",
+      "bytes": 3504589
     },
     {
       "path": "configs/docs/science_downloads.py",
@@ -3051,8 +3051,8 @@
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/configured_owner.py",
-      "sha256": "e513b221e15665c667603d0ed9676d4167ec2415d949fbcb33a06004ccfa68b2",
-      "bytes": 18974
+      "sha256": "a363104573054a232812fbca80dd8bd885c12ae2ca15ea7dc4bccd292e47c984",
+      "bytes": 19802
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/contracts.py",
@@ -3116,8 +3116,18 @@
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scheduling.py",
-      "sha256": "a3432358d985b5521d6acb2b78aa0c5772d0de80644fb186423061de3dc40edd",
-      "bytes": 5819
+      "sha256": "e6a7cbc74cd42dafa214ebf4cb74c5d607149b51419efe72b4ca5a277c3230f4",
+      "bytes": 6343
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scheduling_custody/__init__.py",
+      "sha256": "5451e6380367e9f566bde75e3880f643dbe93508512dd8029bf8ea57f867fc9d",
+      "bytes": 68
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scheduling_custody/context.py",
+      "sha256": "3cf0839f3cfcfaa07c21d306e812c8309ceaf0bd6cb4c0f048b2a01689ea24b1",
+      "bytes": 6468
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/source_qualification.py",
@@ -4098,6 +4108,11 @@
       "path": "packages/bijux-pollenomics-dev/tests/ci/report_rebuild/test_lilla_preparation.py",
       "sha256": "37fd118adbbac6caebfc7aeb49ab53c927fa13f4c4c3b85e88571d7a2377cebe",
       "bytes": 5735
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/tests/ci/report_rebuild/test_scheduling_custody.py",
+      "sha256": "bdddb3a7b80f8a078c8bb002863102e958504ddf12e0e335201e34650db6fc02",
+      "bytes": 10079
     },
     {
       "path": "packages/bijux-pollenomics-dev/tests/ci/test_dependency_audit.py",

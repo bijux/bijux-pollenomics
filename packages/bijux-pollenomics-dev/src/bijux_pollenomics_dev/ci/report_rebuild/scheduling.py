@@ -9,6 +9,7 @@ from pathlib import Path
 import re
 import sys
 
+from . import configured_owner as owner_runner
 from .configured_owner import (
     DEFAULT_CONFIGURATION,
     DEFAULT_INVENTORY,
@@ -19,6 +20,7 @@ from .configured_owner import (
     resolve_configured_owner,
 )
 from .contracts import ReportRebuildError
+from .scheduling_custody.context import _owner_schedule_context
 
 SCHEMA = "configured-report-owner-schedule.v1"
 MAX_OWNERS = 128
@@ -47,27 +49,38 @@ def configured_owner_schedule(
         raise ReportRebuildError("configured owner list is empty")
     if len(rows) > MAX_OWNERS:
         raise ReportRebuildError("two-lane owner schedule exceeds 128 owners")
-    identities = []
-    for row in rows:
-        if not isinstance(row, dict):
-            raise ReportRebuildError("configured owner must be an object")
-        identity = row.get("owner_id")
-        if (
-            not isinstance(identity, str)
-            or not IDENTITY.fullmatch(identity)
-            or any(part.startswith(".") for part in identity.split("/"))
-        ):
-            raise ReportRebuildError("owner ID cannot be scheduled safely")
-        _configuration_owner(configuration, identity)
-        if source_root is None:
-            resolve_configured_owner(repository, identity)
-        else:
-            resolve_configured_owner(repository, identity, source_root=source_root)
-        identities.append(identity)
+    with _owner_schedule_context(
+        repository,
+        Path(relative),
+        Path(inventory_relative),
+        configuration,
+        inventory,
+        check_ownership=owner_runner._schedule_ownership,
+        safe_file=owner_runner._safe_file,
+        relative_path=owner_runner._repository_relative,
+        digest=owner_runner._digest,
+    ):
+        identities = []
+        for row in rows:
+            if not isinstance(row, dict):
+                raise ReportRebuildError("configured owner must be an object")
+            identity = row.get("owner_id")
+            if (
+                not isinstance(identity, str)
+                or not IDENTITY.fullmatch(identity)
+                or any(part.startswith(".") for part in identity.split("/"))
+            ):
+                raise ReportRebuildError("owner ID cannot be scheduled safely")
+            _configuration_owner(configuration, identity)
+            if source_root is None:
+                resolve_configured_owner(repository, identity)
+            else:
+                resolve_configured_owner(repository, identity, source_root=source_root)
+            identities.append(identity)
     identities.sort()
     selected = set(identities)
-    # Each resolver validates the ownership inventory; scheduling also requires
-    # complete coverage of the declared generated-owner population.
+    # Scheduling requires complete coverage of generated ownership after
+    # all public owner resolvers share one validated inventory.
     declarations = inventory.get("owners")
     if not isinstance(declarations, list):
         raise ReportRebuildError("report ownership owner list differs")

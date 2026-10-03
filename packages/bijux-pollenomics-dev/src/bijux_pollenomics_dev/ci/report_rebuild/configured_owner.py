@@ -22,6 +22,9 @@ from bijux_pollenomics_dev.ci.report_rebuild.ownership import (
     ReportOwnershipError,
     check_report_ownership,
 )
+from bijux_pollenomics_dev.ci.report_rebuild.scheduling_custody.context import (
+    _SCHEDULE_RESOLUTION,
+)
 from bijux_pollenomics_dev.ci.report_rebuild.source_qualification import (
     validated_external_report_sources,
 )
@@ -196,6 +199,10 @@ def _configuration_owner(
     return found
 
 
+def _schedule_ownership(repository: Path, inventory_path: Path) -> None:
+    check_report_ownership(repository, inventory_path)
+
+
 def resolve_configured_owner(
     repository: Path,
     owner_id: str,
@@ -207,21 +214,29 @@ def resolve_configured_owner(
     """Resolve one allowed invocation without running its producer."""
     repository = repository.resolve(strict=True)
     owner_id = require_relative_path(owner_id, "owner ID")
-    try:
-        check_report_ownership(repository, inventory_path)
-    except ReportOwnershipError as error:
-        raise ReportRebuildError(f"report ownership is invalid: {error}") from error
-    configuration = _read_object(
-        repository,
-        _repository_relative(repository, configuration_path, "owner configuration"),
-        "owner configuration",
-    )
+    context = _SCHEDULE_RESOLUTION.get()
+    if context is None or not context.matches(
+        repository, configuration_path, inventory_path
+    ):
+        try:
+            check_report_ownership(repository, inventory_path)
+        except ReportOwnershipError as error:
+            raise ReportRebuildError(f"report ownership is invalid: {error}") from error
+        configuration = _read_object(
+            repository,
+            _repository_relative(repository, configuration_path, "owner configuration"),
+            "owner configuration",
+        )
+        inventory = _read_object(
+            repository,
+            _repository_relative(repository, inventory_path, "report ownership"),
+            "report ownership",
+        )
+    else:
+        context.require_controls()
+        configuration = context.configuration
+        inventory = context.inventory
     row = _configuration_owner(configuration, owner_id)
-    inventory = _read_object(
-        repository,
-        _repository_relative(repository, inventory_path, "report ownership"),
-        "report ownership",
-    )
     declarations = [
         item for item in inventory.get("owners", []) if item["owner_id"] == owner_id
     ]
@@ -288,6 +303,12 @@ def resolve_configured_owner(
                     "external input overlaps repository declaration"
                 )
             inputs[label] = external_path
+    if context is not None and context.matches(
+        repository, configuration_path, inventory_path
+    ):
+        context.require_controls()
+        for external_input in external_inputs.values():
+            context.observe_external(external_input)
     module = row["module"]
     if not isinstance(module, str) or MODULE.fullmatch(module) is None:
         raise ReportRebuildError(
