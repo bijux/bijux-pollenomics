@@ -14,10 +14,12 @@ PREPARED = Path("docs/report/regions/nordic/swedish-author-target-pollen")
 
 
 def run(repository: Path, output: Path) -> None:
+    """Route the retained swedish-author-target-pollen score stage into owner artifacts."""
     score_to_artifacts(repository, output, SOURCE, PREPARED)
 
 
 def main(argv: list[str] | None = None) -> int:
+    """Route the retained swedish-author-target-pollen score stage into owner artifacts."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repository", required=True, type=Path)
     parser.add_argument("--output", required=True, type=Path)

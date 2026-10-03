@@ -139,6 +139,7 @@ def run(
 
 
 def main() -> None:
+    """Publish the original 17-site author preparation audit from qualified sources."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repository", required=True, type=Path)
     parser.add_argument("--source-root", required=True, type=Path)

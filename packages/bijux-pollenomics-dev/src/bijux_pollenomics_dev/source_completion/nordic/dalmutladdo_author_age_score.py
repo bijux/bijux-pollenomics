@@ -19,6 +19,7 @@ FROZEN = REPLAY.parent
 def run(
     repository: Path, source_root: Path, source_descriptor: Path, output: Path
 ) -> None:
+    """Route frozen Dalmutladdo author-target age support through qualified scoring."""
     score_frozen_author_age(
         repository,
         source_root,
@@ -31,6 +32,7 @@ def run(
 
 
 def main(argv: list[str] | None = None) -> int:
+    """Route frozen Dalmutladdo author-target age support through qualified scoring."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repository", required=True, type=Path)
     parser.add_argument("--source-root", required=True, type=Path)

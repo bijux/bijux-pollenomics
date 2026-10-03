@@ -24,6 +24,7 @@ REVIEW = Path("data/neotoma/review/source_taxon_concepts.json")
 
 
 def run(repository: Path, output: Path) -> None:
+    """Retain scoped Neotoma concept-priority workload without taxon approval."""
     repository, raw, relational, destination = confined_paths(repository, output)
     evidence = read_neotoma_evidence(raw, relational)
     screen = retained_object(repository, SCREEN)
@@ -33,6 +34,7 @@ def run(repository: Path, output: Path) -> None:
 
 
 def main(argv: list[str] | None = None) -> int:
+    """Retain scoped Neotoma concept-priority workload without taxon approval."""
     run(*arguments(argv))
     return 0
 

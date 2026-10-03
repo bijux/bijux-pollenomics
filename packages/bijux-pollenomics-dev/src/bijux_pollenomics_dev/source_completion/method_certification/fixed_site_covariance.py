@@ -11,10 +11,12 @@ SOURCE = Path("docs/report/method-certification/fixed-site-covariance/replay.py"
 
 
 def run(repository: Path, output: Path) -> None:
+    """Route the existing fixed-site covariance example into owner artifacts."""
     replay_to_artifacts(repository, output, SOURCE)
 
 
 def main(argv: list[str] | None = None) -> int:
+    """Route the existing fixed-site covariance example into owner artifacts."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repository", required=True, type=Path)
     parser.add_argument("--output", required=True, type=Path)

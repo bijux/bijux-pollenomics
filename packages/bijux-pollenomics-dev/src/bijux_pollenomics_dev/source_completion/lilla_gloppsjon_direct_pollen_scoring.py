@@ -487,6 +487,7 @@ def score(
 
 
 def main() -> None:
+    """Score Lilla Gloppsjön counts against the committed prediction freeze."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repository", type=Path, required=True)
     parser.add_argument("--prepared", type=Path, required=True)

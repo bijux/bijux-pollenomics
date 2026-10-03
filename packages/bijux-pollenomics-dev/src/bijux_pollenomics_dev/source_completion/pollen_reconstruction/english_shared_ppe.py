@@ -496,6 +496,7 @@ def run(
 
 
 def main(argv: list[str] | None = None) -> int:
+    """Publish a compact conditional English shared-PPE training account."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repository", required=True, type=Path)
     parser.add_argument("--source-root", required=True, type=Path)

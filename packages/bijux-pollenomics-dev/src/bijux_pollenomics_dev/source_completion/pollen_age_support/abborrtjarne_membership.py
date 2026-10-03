@@ -277,6 +277,7 @@ def derive(
 
 
 def build(repository: Path) -> tuple[bytes, dict[str, Any]]:
+    """Derive ABBO bin membership and bounds from checked source inputs."""
     repository = repository.absolute()
     if not repository.is_dir() or repository.resolve(strict=True) != repository:
         raise ValueError("ABBO repository root must be a real directory")
@@ -314,6 +315,7 @@ def run(repository: Path, output: Path) -> dict[str, Any]:
 
 
 def main(argv: list[str] | None = None) -> int:
+    """Bound ABBO closed-taxon pollen mass under marginal age-interval membership."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repository", required=True, type=Path)
     parser.add_argument("--output", required=True, type=Path)

@@ -20,6 +20,8 @@ class SourceError(ValueError):
 
 @dataclass(frozen=True)
 class Paper:
+    """Bind one canonical report to its source identity and inventory account."""
+
     paper_id: str
     relative_path: PurePosixPath
     path: Path
@@ -29,10 +31,12 @@ class Paper:
 
 
 def sha256_bytes(data: bytes) -> str:
+    """Return the SHA-256 digest of the exact supplied bytes."""
     return hashlib.sha256(data).hexdigest()
 
 
 def file_sha256(path: Path) -> str:
+    """Return the SHA-256 digest of a repository file's current bytes."""
     return sha256_bytes(path.read_bytes())
 
 
@@ -53,6 +57,7 @@ def _require_plain_path(root: Path, candidate: Path) -> Path:
 
 
 def repository_root(path: Path) -> Path:
+    """Require a real repository root before resolving report sources."""
     root = path.resolve(strict=True)
     if not root.is_dir() or not (root / ".git").exists():
         raise SourceError(f"not a repository root: {path}")
@@ -60,6 +65,7 @@ def repository_root(path: Path) -> Path:
 
 
 def repository_file(root: Path, value: str | Path) -> Path:
+    """Resolve a repository file while refusing symlinks and path escape."""
     candidate = Path(value)
     if not candidate.is_absolute():
         candidate = root / candidate
@@ -70,6 +76,7 @@ def repository_file(root: Path, value: str | Path) -> Path:
 
 
 def load_inventory(root: Path, value: str | Path) -> tuple[Path, str, list[Paper]]:
+    """Read the canonical paper inventory and pin each report's source bytes."""
     inventory = repository_file(root, value)
     if inventory.suffix != ".csv":
         raise SourceError("inventory must be a CSV file")
@@ -124,6 +131,7 @@ def load_inventory(root: Path, value: str | Path) -> tuple[Path, str, list[Paper
 
 
 def output_directory(root: Path, value: str | Path) -> Path:
+    """Require an absent output directory below repository artifacts."""
     candidate = Path(value)
     if not candidate.is_absolute():
         candidate = root / candidate
@@ -144,6 +152,7 @@ def output_directory(root: Path, value: str | Path) -> Path:
 
 
 def portable_link(root: Path, source: Path, destination: str, revision: str) -> str:
+    """Resolve a report link to its pinned portable repository destination."""
     if any(ord(char) < 32 for char in destination):
         raise SourceError("control character in Markdown link")
     parsed = urlsplit(destination)

@@ -397,6 +397,7 @@ def build(repository: Path, output: Path) -> dict[str, Any]:
 
 
 def main() -> None:
+    """Account for governed SEAD source units by assigned site country."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repository", required=True, type=Path)
     parser.add_argument("--output", required=True, type=Path)

@@ -11,10 +11,12 @@ SOURCE = Path("docs/report/method-certification/joint-site-draws/replay.py")
 
 
 def run(repository: Path, output: Path) -> None:
+    """Route the existing seeded joint-site draw study into owner artifacts."""
     replay_to_artifacts(repository, output, SOURCE)
 
 
 def main(argv: list[str] | None = None) -> int:
+    """Route the existing seeded joint-site draw study into owner artifacts."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repository", required=True, type=Path)
     parser.add_argument("--output", required=True, type=Path)

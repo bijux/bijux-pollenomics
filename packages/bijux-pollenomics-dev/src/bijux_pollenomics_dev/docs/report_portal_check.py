@@ -284,6 +284,7 @@ def check_report_portal(repository: Path) -> ReportPortalCheckResult:
 
 
 def main(argv: list[str] | None = None) -> int:
+    """Check the published report portal's file inventory and Markdown identity."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
         "--repository",

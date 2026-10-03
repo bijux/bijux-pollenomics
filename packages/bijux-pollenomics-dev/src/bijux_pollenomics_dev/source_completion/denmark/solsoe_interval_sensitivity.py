@@ -55,6 +55,7 @@ def run(repository: Path, output: Path) -> None:
 
 
 def main(argv: list[str] | None = None) -> int:
+    """Rebuild the retained Solsø interval-support development comparison."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repository", required=True, type=Path)
     parser.add_argument("--output", required=True, type=Path)

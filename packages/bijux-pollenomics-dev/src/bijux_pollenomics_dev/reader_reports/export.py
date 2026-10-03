@@ -202,6 +202,7 @@ def export_reports(
     paper_id: str | None = None,
     source_date_epoch: str | None = None,
 ) -> Path:
+    """Render and publish the canonical paper inventory with source receipts."""
     root = repository_root(repository)
     inventory, inventory_hash, papers = load_inventory(root, inventory_value)
     output = output_directory(root, output_value)

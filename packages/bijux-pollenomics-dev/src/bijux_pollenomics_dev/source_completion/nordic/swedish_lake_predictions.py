@@ -16,10 +16,12 @@ PREPARED = Path("docs/report/regions/nordic/swedish-lake-transfer")
 
 
 def run(repository: Path, output: Path) -> None:
+    """Route the existing Swedish retained-input prediction stage into owner artifacts."""
     predict_to_artifacts(repository, output, SOURCE, PREPARED)
 
 
 def main(argv: list[str] | None = None) -> int:
+    """Route the existing Swedish retained-input prediction stage into owner artifacts."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repository", required=True, type=Path)
     parser.add_argument("--output", required=True, type=Path)

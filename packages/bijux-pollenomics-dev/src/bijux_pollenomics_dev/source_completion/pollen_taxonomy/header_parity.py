@@ -125,6 +125,7 @@ def run(
 
 
 def main(argv: list[str] | None = None) -> int:
+    """Reproduce the bounded WHH05 R header and count witness."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repository", type=Path, required=True)
     parser.add_argument("--source-root", type=Path, required=True)

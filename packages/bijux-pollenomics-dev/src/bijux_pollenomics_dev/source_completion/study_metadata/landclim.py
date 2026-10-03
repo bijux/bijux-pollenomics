@@ -27,6 +27,7 @@ def run(repository: Path, output: Path) -> None:
 
 
 def main(argv: list[str] | None = None) -> int:
+    """Publish the retained LandClim study-metadata bundle from repository inputs."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repository", required=True, type=Path)
     parser.add_argument("--output", required=True, type=Path)

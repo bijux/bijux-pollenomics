@@ -34,6 +34,7 @@ _URL_ESCAPE = {"%": r"\%", "#": r"\#", "&": r"\&", "_": r"\_", "~": r"\string~"}
 
 
 def escape_latex(value: str) -> str:
+    """Escape text tokens before inserting them into a LaTeX document."""
     return "".join(_ESCAPE.get(char, char) for char in value)
 
 
@@ -60,6 +61,8 @@ def _url_argument(value: str) -> str:
 
 @dataclass(frozen=True)
 class Asset:
+    """Carry one rendered auxiliary asset and its content kind."""
+
     name: str
     content: str
     kind: str
@@ -67,6 +70,8 @@ class Asset:
 
 @dataclass(frozen=True)
 class RenderedReport:
+    """Carry LaTeX, auxiliary assets, and the audited render counts."""
+
     latex: str
     assets: tuple[Asset, ...]
     local_link_count: int
@@ -76,7 +81,10 @@ class RenderedReport:
 
 
 class ReportRenderer:
+    """Render reviewed Markdown tokens against a pinned repository revision."""
+
     def __init__(self, root: Path, source: Path, revision: str) -> None:
+        """Bind the repository, source report, and link revision for rendering."""
         self.root = root
         self.source = source
         self.revision = revision
@@ -245,6 +253,7 @@ class ReportRenderer:
         )
 
     def render(self, markdown: str) -> RenderedReport:
+        """Render supported Markdown and count links, diagrams, and code blocks."""
         pieces: list[str] = []
         tokens = self.parser.parse(markdown)
         index = 0
@@ -340,6 +349,7 @@ class ReportRenderer:
 
 
 def document_latex(body: str, title: str, source_path: str, source_sha256: str) -> str:
+    """Wrap rendered content in the reproducible reader-paper LaTeX template."""
     return (
         r"""\documentclass[11pt,a4paper]{article}
 \usepackage[margin=20mm,headheight=15pt]{geometry}

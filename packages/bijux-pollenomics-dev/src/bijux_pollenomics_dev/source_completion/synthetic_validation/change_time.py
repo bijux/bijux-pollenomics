@@ -26,6 +26,7 @@ def run(repository: Path, output: Path) -> None:
 
 
 def main(argv: list[str] | None = None) -> int:
+    """Route the retained constructed change-time report to an owner artifact."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repository", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)

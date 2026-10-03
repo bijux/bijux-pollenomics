@@ -13,6 +13,7 @@ from .writer_execution import arguments, confined_paths, write_new
 
 
 def run(repository: Path, output: Path) -> None:
+    """Retain source-wide Neotoma pollen prerequisite decisions without admission."""
     _, raw, relational, destination = confined_paths(repository, output)
     result = inspect_neotoma_lra_pollen_screen(raw_root=raw, normalized_root=relational)
     content = (
@@ -29,6 +30,7 @@ def run(repository: Path, output: Path) -> None:
 
 
 def main(argv: list[str] | None = None) -> int:
+    """Retain source-wide Neotoma pollen prerequisite decisions without admission."""
     run(*arguments(argv))
     return 0
 

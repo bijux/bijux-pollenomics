@@ -9,10 +9,12 @@ from .sambosjon_execution import prepare_to_artifacts
 
 
 def run(repository: Path, output: Path) -> None:
+    """Route the original Sämbosjön preparation stage to confined artifacts."""
     prepare_to_artifacts(repository, output)
 
 
 def main(argv: list[str] | None = None) -> int:
+    """Route the original Sämbosjön preparation stage to confined artifacts."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repository", required=True, type=Path)
     parser.add_argument("--output", required=True, type=Path)

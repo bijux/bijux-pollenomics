@@ -406,6 +406,7 @@ def predict(repository: Path, prepared: Path, output: Path) -> None:
 
 
 def main() -> None:
+    """Freeze Lilla Gloppsjön pollen predictions from age metadata and prior training."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("stage", choices=("prepare", "predict"))
     parser.add_argument("--repository", type=Path, required=True)

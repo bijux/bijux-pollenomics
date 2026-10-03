@@ -25,6 +25,7 @@ PRIORITY = Path("docs/report/source-relations/neotoma/taxon-priority/priority.js
 
 
 def run(repository: Path, output: Path) -> None:
+    """Retain source dataset attribution leads without rights or publication approval."""
     repository, raw, relational, destination = confined_paths(repository, output)
     evidence = read_neotoma_evidence(raw, relational)
     screen = retained_object(repository, SCREEN)
@@ -37,6 +38,7 @@ def run(repository: Path, output: Path) -> None:
 
 
 def main(argv: list[str] | None = None) -> int:
+    """Retain source dataset attribution leads without rights or publication approval."""
     run(*arguments(argv))
     return 0
 

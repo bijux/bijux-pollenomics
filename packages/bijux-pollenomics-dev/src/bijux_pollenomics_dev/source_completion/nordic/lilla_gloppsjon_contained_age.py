@@ -9,6 +9,7 @@ from .lilla_gloppsjon_execution import interval_to_artifacts
 
 
 def main(argv: list[str] | None = None) -> int:
+    """Export fixed Lilla Gloppsjön contained-age-support results."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repository", required=True, type=Path)
     parser.add_argument("--output", required=True, type=Path)

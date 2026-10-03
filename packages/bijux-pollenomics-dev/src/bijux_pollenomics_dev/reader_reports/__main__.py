@@ -9,6 +9,7 @@ from .export import export_reports
 
 
 def main() -> None:
+    """Build portable PDF accounts from the canonical paper inventory."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repository", type=Path, required=True)
     parser.add_argument("--inventory", type=Path, required=True)

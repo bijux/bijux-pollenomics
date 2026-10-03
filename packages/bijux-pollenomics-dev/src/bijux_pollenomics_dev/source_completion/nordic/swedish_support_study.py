@@ -14,10 +14,12 @@ REPORT = Path("docs/report/regions/nordic/swedish-support-sensitivity")
 
 
 def run(repository: Path, output: Path) -> None:
+    """Route the retained swedish-support-sensitivity study through its original source stages."""
     run_study(repository, output, SOURCE, REPORT)
 
 
 def main(argv: list[str] | None = None) -> int:
+    """Route the retained swedish-support-sensitivity study through its original source stages."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repository", required=True, type=Path)
     parser.add_argument("--output", required=True, type=Path)

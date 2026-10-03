@@ -14,6 +14,7 @@ SAMPLE_IDS = tuple(f"neotoma:sample:{number}" for number in range(355236, 355252
 
 
 def run(repository: Path, output: Path) -> None:
+    """Retain the fixed sixteen-sample Neotoma source series without LRA admission."""
     _, raw, relational, destination = confined_paths(repository, output)
     result = inspect_neotoma_lra_candidate_series(
         raw_root=raw, normalized_root=relational, selected_sample_ids=SAMPLE_IDS
@@ -22,6 +23,7 @@ def run(repository: Path, output: Path) -> None:
 
 
 def main(argv: list[str] | None = None) -> int:
+    """Retain the fixed sixteen-sample Neotoma source series without LRA admission."""
     run(*arguments(argv))
     return 0
 

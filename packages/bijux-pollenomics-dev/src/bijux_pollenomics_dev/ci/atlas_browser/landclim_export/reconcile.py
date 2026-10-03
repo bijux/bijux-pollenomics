@@ -19,16 +19,19 @@ from bijux_pollenomics.reporting.modeled_context.publication_projection import (
 
 
 def digest(content: bytes) -> str:
+    """Return the SHA-256 digest of an exact map export payload."""
     return hashlib.sha256(content).hexdigest()
 
 
 def canonical(value: object) -> bytes:
+    """Serialize a map comparison value with stable JSON byte ordering."""
     return json.dumps(
         value, sort_keys=True, separators=(",", ":"), ensure_ascii=False
     ).encode()
 
 
 def require(condition: bool, message: str) -> None:
+    """Reject a failed map lineage or browser comparison invariant."""
     if not condition:
         raise ValueError(message)
 
@@ -441,6 +444,7 @@ def reconcile(repository: Path, artifact: Path, browser: Path) -> dict[str, obje
 
 
 def main() -> None:
+    """Reconcile a real Nordic map download with pinned LandClim model cells."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repository", type=Path, required=True)
     parser.add_argument("--artifact", type=Path, required=True)

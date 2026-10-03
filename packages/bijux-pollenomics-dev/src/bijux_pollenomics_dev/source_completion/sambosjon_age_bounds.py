@@ -254,6 +254,7 @@ def analyze(repository: Path, output: Path) -> None:
 
 
 def main() -> None:
+    """Measure source age-bound overlap with Sämbosjön's fixed pollen bins."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repository", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)

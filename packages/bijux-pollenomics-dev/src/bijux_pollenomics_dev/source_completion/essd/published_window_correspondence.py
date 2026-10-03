@@ -149,6 +149,7 @@ def run(
 
 
 def main(argv: list[str] | None = None) -> int:
+    """Publish the exact ESSD window comparison from qualified retained sources."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repository", required=True, type=Path)
     parser.add_argument("--source-root", required=True, type=Path)

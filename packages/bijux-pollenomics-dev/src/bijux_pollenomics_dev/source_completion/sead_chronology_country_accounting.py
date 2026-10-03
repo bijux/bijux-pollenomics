@@ -285,6 +285,7 @@ def run(repository: Path, output: Path) -> dict[str, Any]:
 
 
 def main() -> int:
+    """Account for reviewed SEAD chronology claims by governed Nordic country."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repository", required=True, type=Path)
     parser.add_argument("--output", required=True, type=Path)

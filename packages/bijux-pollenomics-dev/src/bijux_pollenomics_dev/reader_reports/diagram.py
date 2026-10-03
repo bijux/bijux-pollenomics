@@ -17,6 +17,8 @@ class DiagramError(ValueError):
 
 @dataclass(frozen=True)
 class EdgeSpec:
+    """Represent one reviewed Mermaid edge and its optional label."""
+
     source: str
     target: str
     label: str | None
@@ -30,6 +32,7 @@ def _node(value: str) -> tuple[str, str | None]:
 
 
 def mermaid_to_dot(source: str) -> str:
+    """Translate only the supported Mermaid flowchart grammar into escaped DOT."""
     lines = [line.strip() for line in source.splitlines() if line.strip()]
     if not lines or lines[0] not in {"flowchart LR", "flowchart TB"}:
         raise DiagramError("only flowchart LR and flowchart TB are supported")

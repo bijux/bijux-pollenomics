@@ -37,6 +37,8 @@ from bijux_pollenomics_dev.source_completion.pollen_taxonomy.author_mass import 
 
 @dataclass
 class Packet:
+    """Own source identities and callbacks for one author-preparation fixture."""
+
     repository: Path
     root: Path
     output: Path
@@ -56,6 +58,7 @@ def _write_manifest(manifest: JsonObject, output: Path) -> None:
 
 @pytest.fixture
 def packet(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> Packet:
+    """Build a qualified author-preparation fixture with retained products."""
     repository = tmp_path / "repository"
     (repository / "artifacts").mkdir(parents=True)
     descriptor = repository / DESCRIPTOR
