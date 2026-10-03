@@ -48,16 +48,16 @@ class AnimalFoundationRefreshUnitTests(unittest.TestCase):
             destination = data_root / camel_bridge
             destination.parent.mkdir(parents=True, exist_ok=True)
             destination.write_bytes(read_source_artifact_bytes(source))
-            source_library = (
-                REPOSITORY_ROOT / "data/adna/governance/source_library"
-            )
+            source_library = REPOSITORY_ROOT / "data/adna/governance/source_library"
             archived_sources: dict[str, tuple[Path, str]] = {}
             for metadata_path in sorted(source_library.rglob("*.metadata.json")):
                 metadata = json.loads(metadata_path.read_text(encoding="utf-8"))
                 source_url = metadata.get("source_url")
                 content_type = metadata.get("content_type")
                 if source_url and content_type:
-                    source_path = Path(str(metadata_path).removesuffix(".metadata.json"))
+                    source_path = Path(
+                        str(metadata_path).removesuffix(".metadata.json")
+                    )
                     archived_sources[source_url] = (
                         source_path,
                         content_type,

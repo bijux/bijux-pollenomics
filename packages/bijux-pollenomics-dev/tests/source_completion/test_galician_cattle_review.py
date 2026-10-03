@@ -28,9 +28,12 @@ def test_tracked_review_captures_reproduce_published_crosswalk(tmp_path: Path) -
         "Bos primigenius": 3,
         "Bos taurus": 8,
     }
-    assert output.read_bytes() == (
-        ROOT / "docs/report/source-relations/dna-scope/galician-cattle-paper.json"
-    ).read_bytes()
+    assert (
+        output.read_bytes()
+        == (
+            ROOT / "docs/report/source-relations/dna-scope/galician-cattle-paper.json"
+        ).read_bytes()
+    )
 
 
 @pytest.fixture(scope="module")

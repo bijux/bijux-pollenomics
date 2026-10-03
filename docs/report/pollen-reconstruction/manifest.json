@@ -3890,6 +3890,11 @@
       "bytes": 1705
     },
     {
+      "path": "packages/bijux-pollenomics-dev/tests/source_completion/test_galician_cattle_review.py",
+      "sha256": "e18f9dbd06d91e86fa4f0373424a22dc1d8000ed4a46eef30d695e1dfb33289a",
+      "bytes": 4950
+    },
+    {
       "path": "packages/bijux-pollenomics-dev/tests/source_completion/test_landclim_amsoldingersee_recovery.py",
       "bytes": 1797,
       "sha256": "a12f76997d0c5c5e11ac61c7c9eb490219d2674886363b811d1d732095824853"
@@ -4788,6 +4793,11 @@
       "path": "packages/bijux-pollenomics/tests/unit/reporting/adna/public_outputs/test_atlas_readiness_rows.py",
       "sha256": "cb48011d62f962c5065336136b6dee5f8cce83e3245f087cc735731e19b7ea2b",
       "bytes": 743
+    },
+    {
+      "path": "packages/bijux-pollenomics/tests/unit/reporting/adna/test_animal_foundation_refresh.py",
+      "sha256": "042f49af4266d3ebb1718dca381e58bd10f0e7a5b1f889d1ba8aee6b6d6915ef",
+      "bytes": 6834
     },
     {
       "path": "packages/bijux-pollenomics/tests/unit/reporting/atlas/map_publication/test_context_layers.py",
