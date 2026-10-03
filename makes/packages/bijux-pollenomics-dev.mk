@@ -1,6 +1,6 @@
 PACKAGE_KIND := python
 PACKAGE_IMPORT_NAME := bijux_pollenomics_dev
-PACKAGE_INSTALL_SPEC := .[dev]
+PACKAGE_INSTALL_SPEC := .[dev,reports]
 RUFF_CONFIG = $(MONOREPO_ROOT)/configs/ruff.toml
 BUILD_PRE_TARGETS := sync-license-assets-package
 TEST_PATHS := tests

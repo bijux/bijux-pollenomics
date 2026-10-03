@@ -2845,9 +2845,24 @@
       "bytes": 1091
     },
     {
+      "path": "makes/packages/bijux-pollenomics-dev.mk",
+      "sha256": "797ab7ab28c4acbb06cb1b8f8f2679ec53c5d5d059ed25c5d747edfa7e60135d",
+      "bytes": 1456
+    },
+    {
+      "path": "makes/packages/bijux-pollenomics.mk",
+      "sha256": "ddd16f22a0d69b038efc830f27efbb2134c71f20e0074a59a7b88d9c49408b39",
+      "bytes": 5950
+    },
+    {
       "path": "makes/pollenomics-verification.mk",
       "sha256": "5725dfeded3f304fda35556ba86f83cbf44e7c9308ecf39b2b93072ac6d4b33b",
       "bytes": 23587
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/pyproject.toml",
+      "sha256": "5aef7c2185323c2b8cb78259dff769678f4e0f9f31022f5f9f1957598ba59459",
+      "bytes": 2432
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/atlas_browser/landclim_export/__init__.py",
@@ -4040,6 +4055,11 @@
       "bytes": 10370
     },
     {
+      "path": "packages/bijux-pollenomics-dev/tests/test_root_runtime_contract.py",
+      "sha256": "e0ab220d7cfd4656d2279bb8093730fee91b35fe4a6eed16a59e6fcda35e1bbb",
+      "bytes": 3320
+    },
+    {
       "path": "packages/bijux-pollenomics-dev/tests/test_runtime_isolation.py",
       "sha256": "a273ffc8b3213d96d4b4945903dbeacd8db17eb32673dc29947470f3b201ff38",
       "bytes": 38090
@@ -4168,6 +4188,11 @@
       "path": "packages/bijux-pollenomics-lra/tests/unit/workflows/test_multisite.py",
       "sha256": "f7499f21a599063548a8ee073336e657edeb48a8bc36e857098b72f3445272b3",
       "bytes": 16859
+    },
+    {
+      "path": "packages/bijux-pollenomics/pyproject.toml",
+      "sha256": "b5dbcee8e9d908d1ece3597a9bd64d45e6d79f061bb9fe9bd7a2db92ee4b2664",
+      "bytes": 2657
     },
     {
       "path": "packages/bijux-pollenomics/src/bijux_pollenomics/adna/governance/contracts.py",
@@ -4936,7 +4961,7 @@
     },
     {
       "path": "presentation/source-lock.json",
-      "sha256": "556eae0c7a949908ccc067f6a9209826585193f17755bfbb4ceaf6dc2425a4ba",
+      "sha256": "b1363e68d4ef86d80ea22fc92d203c72fbe1619dd56fce8cc56ada21f8528dc6",
       "bytes": 12768
     },
     {
@@ -5538,6 +5563,11 @@
       "path": "reports/verify.py",
       "sha256": "888d5b1ffb002eb403633d4791061e9c7b9109054601dcfcff5ad14bc3dcd9a8",
       "bytes": 18342
+    },
+    {
+      "path": "uv.lock",
+      "sha256": "ea08618a0d29d903f11104700d10c901568efb45cf2393ce4d4168c75fb7bfe0",
+      "bytes": 557647
     }
   ]
 }

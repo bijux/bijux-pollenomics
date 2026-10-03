@@ -47,7 +47,7 @@
     "docs/report/source-relations/sead/chronology-country-accounting/report.json": "855339046180a5fefb3459e488dfb5f937bb7a8ec155528167bb22bf77de7778",
     "docs/report/validation/empd2-nfi-pairing/report.json": "cc90bccae9c54808dfea71cb4c07bb1bd12273e10eefbe889981369e34f66642",
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/reader_reports/README.md": "9b4085da707a347c60d75b4f0d6b9765eeb16d49db1e22f5c48b019492873e5d",
-    "packages/bijux-pollenomics/pyproject.toml": "5210c72e9ee4827f64c81f7ca1906e2fe4465cb6cf227311378fc77038ed8aaf",
+    "packages/bijux-pollenomics/pyproject.toml": "b5dbcee8e9d908d1ece3597a9bd64d45e6d79f061bb9fe9bd7a2db92ee4b2664",
     "presentation/README.md": "56e8431b847af632dc882908fe6f0813a0bcd4d08ec035a41960baf6c99d6537",
     "presentation/big-picture.tex": "e73a8cd7a5518ad87cfcb2ef5c3ba5fe3494c69f4ededc952026a2591cac9995",
     "presentation/build.py": "11407033c32752fb1eb4933925fd9935a864dd213b524ac59a984628cbd305ac",
@@ -103,6 +103,6 @@
     "reports/science/synthetic-model-selection/README.md": "af6ff96f339d3ba2528e3d68a970415fc8cf9eb2770f5255a43a808f8199d010",
     "reports/science/vegetation-reference.md": "9f3c0b639bfadb2e3951b6d85e68f2a7c2a80a197af69ad179ebf8c0707eee2b",
     "reports/verify.py": "888d5b1ffb002eb403633d4791061e9c7b9109054601dcfcff5ad14bc3dcd9a8",
-    "uv.lock": "356c38e8c35c4da24abcdc49a27562c8d5d33f526cea436bc5dbc0a0f871ab94"
+    "uv.lock": "ea08618a0d29d903f11104700d10c901568efb45cf2393ce4d4168c75fb7bfe0"
   }
 }

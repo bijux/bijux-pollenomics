@@ -13,6 +13,10 @@ authors = [
 ]
 dependencies = [
     "bijux-pollenomics>=0.1.5,<1.0",
+    "bijux-pollenomics-lra>=0.1.5,<0.3",
+    "numpy>=1.26,<3",
+    "pandas>=2.1,<3",
+    "scipy>=1.12,<2",
     "pytest>=9.0.3,<10.0",
     "PyYAML>=6.0,<7.0",
 ]
@@ -46,7 +50,7 @@ dev = [
     "codespell>=2.4.1,<3.0",
     "pydocstyle>=6.3.0,<7.0",
     "radon>=6.0.1,<7.0",
-    "twine>=6.2.0,<8.0",
+    "twine>=7.0.0,<8.0",
     "types-PyYAML>=6.0.12,<7.0",
 ]
 
