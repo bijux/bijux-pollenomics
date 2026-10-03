@@ -3685,6 +3685,11 @@
       "bytes": 19733
     },
     {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/swedish_direct_pollen.py",
+      "sha256": "50573025337adf7cff0af154f2210418ed3f8683184da817646f97c502e2b571",
+      "bytes": 12325
+    },
+    {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_taxonomy/__init__.py",
       "sha256": "3b6e46c1446304523afcf3e047fa9c3296c0b4eb94c677300d145f05354f4c9a",
       "bytes": 82
@@ -4218,6 +4223,11 @@
       "path": "packages/bijux-pollenomics-dev/tests/source_completion/pollen_reconstruction/test_english_shared_ppe.py",
       "sha256": "b0e4907346c1def8496054bb883aa9cc9520d85294f5b1d11b238ea4b0204e3a",
       "bytes": 11124
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/tests/source_completion/pollen_reconstruction/test_swedish_direct_pollen.py",
+      "sha256": "1da2c5cc1a4696adb68328a0d0b8377f7b01d59d60ed94f340c133686445b9fa",
+      "bytes": 8712
     },
     {
       "path": "packages/bijux-pollenomics-dev/tests/source_completion/pollen_taxonomy/test_author_candidates.py",
