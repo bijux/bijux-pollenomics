@@ -180,6 +180,11 @@
       "bytes": 2949
     },
     {
+      "path": "docs/internal/pollenomics-dev/age-membership-joint-extrema.md",
+      "sha256": "dc340acb53217db03d5b81315fd9f801a121cbeb80dbe4c4e148c75e03d19191",
+      "bytes": 4757
+    },
+    {
       "path": "docs/public/pollenomics-data/sources/aadr.md",
       "sha256": "1f0a0a2f45d921e34b448f1c115cbd5f74583e20668da1c15e28c106f3926456",
       "bytes": 13758
@@ -3550,6 +3555,11 @@
       "bytes": 5154
     },
     {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_age_support/abborrtjarne_joint_membership.py",
+      "sha256": "f92e3514a344c539a4603dec3e87f3ddbb526bbd9372e4cd623ade5a521f0649",
+      "bytes": 12517
+    },
+    {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_age_support/abborrtjarne_membership.py",
       "sha256": "6eca6e12b9970a20616866238e35b0f2dff4330c0c14d16591f5ca4ed4e9d1dd",
       "bytes": 14412
@@ -3558,6 +3568,11 @@
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_age_support/interval_fraction.py",
       "sha256": "0c61fb0d4b693f4ed65156fcf0ecea10535e31d515f5145407bccff55c15cfb1",
       "bytes": 3879
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_age_support/joint_membership.py",
+      "sha256": "6d8f9e1c96c1735227fc31790005851302221c760ae9f0e1479172537a38cd6e",
+      "bytes": 11250
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_age_support/qualified_author_score.py",
@@ -4035,6 +4050,11 @@
       "bytes": 8297
     },
     {
+      "path": "packages/bijux-pollenomics-dev/tests/source_completion/pollen_age_support/test_abborrtjarne_joint_membership.py",
+      "sha256": "4614d3e443be4992022128ef2efa63a9d41185f2841fe838320ae2f2f5768c2c",
+      "bytes": 6558
+    },
+    {
       "path": "packages/bijux-pollenomics-dev/tests/source_completion/pollen_age_support/test_abborrtjarne_membership.py",
       "sha256": "4b25f0c99007ab6f5211892f2d25101e4e8811a149570e7fde83757014114797",
       "bytes": 5493
@@ -4043,6 +4063,11 @@
       "path": "packages/bijux-pollenomics-dev/tests/source_completion/pollen_age_support/test_interval_fraction.py",
       "sha256": "80a40d9edf000ccb658850ced826aea05aff0595fbcb69fa9ae2914f39441b96",
       "bytes": 3627
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/tests/source_completion/pollen_age_support/test_joint_membership.py",
+      "sha256": "785115e9cf51039c8d01034af86343724eb98d7d90265948c5b3a56f18c5fe64",
+      "bytes": 8608
     },
     {
       "path": "packages/bijux-pollenomics-dev/tests/source_completion/pollen_age_support/test_qualified_author_score.py",
