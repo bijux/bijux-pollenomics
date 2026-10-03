@@ -4360,6 +4360,21 @@
       "bytes": 18036
     },
     {
+      "path": "packages/bijux-pollenomics/tests/unit/reporting/atlas/static_assets/fixtures/scientific_evidence.py",
+      "sha256": "62afe978856da9540a70eb17359447ec3ae6313f7bc14790464754856d9d75e3",
+      "bytes": 3951
+    },
+    {
+      "path": "packages/bijux-pollenomics/tests/unit/reporting/atlas/static_assets/test_asset_materialization.py",
+      "sha256": "00aacd26ba8d40b82188d0ef69f421c5d770bfce826210cb975f1e1d9f03655e",
+      "bytes": 18926
+    },
+    {
+      "path": "packages/bijux-pollenomics/tests/unit/reporting/atlas/static_assets/test_validation.py",
+      "sha256": "ad9955e924c0dab911da4370adb8146cba529f4336a8b02357c3ee5f43447884",
+      "bytes": 6166
+    },
+    {
       "path": "packages/bijux-pollenomics/tests/unit/reporting/atlas/test_publication_geography.py",
       "sha256": "ff24b31a4f3fbbff577252b58ac7187f5288377b7c9c668b711f579cf1876d77",
       "bytes": 19783

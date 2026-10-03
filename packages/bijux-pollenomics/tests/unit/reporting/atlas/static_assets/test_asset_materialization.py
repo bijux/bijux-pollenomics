@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from collections.abc import Mapping, Sequence
 import hashlib
 import json
 from pathlib import Path
@@ -32,6 +33,25 @@ from .fixtures.scientific_evidence import (
     build_scientific_signals,
 )
 from .payloads import read_static_asset_payload
+
+
+def _mapping_rows(value: object) -> list[dict[str, object]]:
+    assert isinstance(value, list)
+    rows: list[dict[str, object]] = []
+    for row in value:
+        assert isinstance(row, dict)
+        assert all(isinstance(key, str) for key in row)
+        rows.append(row)
+    return rows
+
+
+def _string_field(rows: Sequence[Mapping[str, object]], field: str) -> list[str]:
+    values: list[str] = []
+    for row in rows:
+        value = row[field]
+        assert isinstance(value, str)
+        values.append(value)
+    return values
 
 
 def test_static_assets_are_deterministic_hashed_and_domain_accounted(
@@ -96,7 +116,9 @@ def test_static_assets_are_deterministic_hashed_and_domain_accounted(
     assets = normalize_asset_inventory(first.manifest["assets"])
     node_assets = [row for row in assets if row["domain"] == "nodes"]
     assert len(node_assets) > 1
-    assert {tuple(row["country_keys"]) for row in node_assets} >= {
+    country_keys = [row["country_keys"] for row in node_assets]
+    assert all(isinstance(keys, list) for keys in country_keys)
+    assert {tuple(keys) for keys in country_keys if isinstance(keys, list)} >= {
         ("Norway",),
         ("Sweden",),
     }
@@ -111,7 +133,12 @@ def test_static_assets_are_deterministic_hashed_and_domain_accounted(
         "sequences",
     }
     assert len(initial_assets) <= ATLAS_INITIAL_MAX_REQUESTS
-    assert sum(row["byte_count"] for row in initial_assets) <= ATLAS_INITIAL_MAX_BYTES
+    initial_byte_counts = [row["byte_count"] for row in initial_assets]
+    assert all(isinstance(count, int) for count in initial_byte_counts)
+    assert (
+        sum(count for count in initial_byte_counts if isinstance(count, int))
+        <= ATLAS_INITIAL_MAX_BYTES
+    )
     budgets = first.manifest["budgets"]
     assert isinstance(budgets, dict)
     assert budgets["interaction_max_bytes"] == ATLAS_INTERACTION_MAX_BYTES
@@ -213,15 +240,19 @@ def test_accepted_scientific_fixture_populates_truthful_atlas_domains(
     assert provenance["details_status"] == "available"
     assert provenance["classifications_status"] == "available"
     details_payload = payloads["atlas-details-chunk.v1"]
-    detail_tabs = details_payload["records"][0]["tabs"]
+    detail_records = _mapping_rows(details_payload["records"])
+    assert len(detail_records) == 1
+    detail_tabs = detail_records[0]["tabs"]
+    assert isinstance(detail_tabs, dict)
     assert set(detail_tabs) == set(DETAIL_TAB_KEYS)
-    observed_signals = provenance["scientific_signals"]
-    assert [row["signal_id"] for row in observed_signals] == sorted(
-        row["signal_id"] for row in signals
+    observed_signals = _mapping_rows(provenance["scientific_signals"])
+    assert _string_field(observed_signals, "signal_id") == sorted(
+        _string_field(signals, "signal_id")
     )
     assert len({row["color"] for row in observed_signals}) == len(observed_signals)
     assert all(row["non_color_cue"] for row in observed_signals)
-    assert payloads["atlas-edges-chunk.v1"]["records"][0]["cross_border"] is True
+    edge_records = _mapping_rows(payloads["atlas-edges-chunk.v1"]["records"])
+    assert edge_records[0]["cross_border"] is True
 
 
 def test_compressed_details_use_the_decoded_chunk_budget_without_eager_loading(
@@ -384,7 +415,7 @@ def test_animal_chronology_contract_and_admitted_bounds_survive_static_chunking(
             "time_end_bp": 8173,
         },
     ]
-    inadmissible = [
+    inadmissible: list[JsonObject] = [
         {"time_start_bp": None, "time_end_bp": None},
         {"time_start_bp": 100, "time_end_bp": None},
         {"time_start_bp": -1, "time_end_bp": 50},
@@ -448,7 +479,10 @@ def test_animal_chronology_contract_and_admitted_bounds_survive_static_chunking(
         for payload in payloads
         if payload["schema_version"] == "atlas-provenance-chunk.v3"
     )
-    layer_metadata = provenance["layers"][0]["layer"]
+    provenance_layers = _mapping_rows(provenance["layers"])
+    assert len(provenance_layers) == 1
+    layer_metadata = provenance_layers[0]["layer"]
+    assert isinstance(layer_metadata, dict)
     for field, expected in layer_posture.items():
         assert layer_metadata[field] == expected
     assert layer_metadata["project_species_latin_name"] == "Felis catus"
