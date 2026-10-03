@@ -4375,6 +4375,21 @@
       "bytes": 7109
     },
     {
+      "path": "packages/bijux-pollenomics/tests/unit/reporting/report_partitions/test_command_line.py",
+      "sha256": "24ba948f2a56015f96666d28a8b9969bd6a87dd3581011b1aefe6203c6dfb538",
+      "bytes": 6045
+    },
+    {
+      "path": "packages/bijux-pollenomics/tests/unit/reporting/report_partitions/test_equivalence.py",
+      "sha256": "9cee6e2dbcff69d53feebb5d49ec4cbbe319dcec331a74919207b7f1f369a377",
+      "bytes": 7403
+    },
+    {
+      "path": "packages/bijux-pollenomics/tests/unit/reporting/report_partitions/test_operations.py",
+      "sha256": "93819445c11139a71f29364ee00b40070f0baaecd3a986ab94589306ebfee306",
+      "bytes": 1146
+    },
+    {
       "path": "packages/bijux-pollenomics/tests/unit/reporting/review/test_repository_output_policy_contract.py",
       "sha256": "5b311524feb9653abe137c23c75dc584ba4dfed088ab2b4e765f3bb0a72de057",
       "bytes": 3113

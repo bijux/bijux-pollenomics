@@ -2,6 +2,8 @@ from __future__ import annotations
 
 from pathlib import Path
 
+import pytest
+
 from bijux_pollenomics.reporting.bundles.report_partitions import (
     generate_report_partition,
 )
@@ -10,7 +12,7 @@ from .support import generate_map
 
 
 def test_high_level_partition_api_resolves_runtime_publishers(
-    tmp_path: Path, monkeypatch
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
 ) -> None:
     version_dir = tmp_path / "source" / "v66"
     version_dir.mkdir(parents=True)
