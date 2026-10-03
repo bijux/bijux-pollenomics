@@ -1466,8 +1466,8 @@
     },
     {
       "path": "docs/report/regions/europe-plus/europe-plus_map.html",
-      "sha256": "acf93737d4ef7267f55d6bfcf0c103dabf787d3744258b7267ccb1ca0bdd533e",
-      "bytes": 441161
+      "sha256": "3637474f54dd1bb98c8b2aa4481b5a4d67956b3b3f90fb0471528b39056d2129",
+      "bytes": 442456
     },
     {
       "path": "docs/report/regions/nordic/README.md",
@@ -1831,8 +1831,8 @@
     },
     {
       "path": "docs/report/regions/nordic/nordic_map.html",
-      "sha256": "38bccd105cb138d807749611135ab787b17ce06934534ec513727071afbbaa42",
-      "bytes": 522485
+      "sha256": "5448079ebd2288f73d7f24caef113a5d1211305b398ef53f0f9b709bb17b10c3",
+      "bytes": 523780
     },
     {
       "path": "docs/report/regions/nordic/pollen-development/README.md",
@@ -2971,8 +2971,8 @@
     },
     {
       "path": "docs/report/world/world_map.html",
-      "sha256": "a48bb14f57b9165945e022b3000ecab8f5a53ac4a113e222042c517f32ec38da",
-      "bytes": 471737
+      "sha256": "eecb23f105c0a6fc7b1afad0dd9b83f43c6df081804edc20be60394a270cbdeb",
+      "bytes": 473032
     },
     {
       "path": "makes/README.md",
