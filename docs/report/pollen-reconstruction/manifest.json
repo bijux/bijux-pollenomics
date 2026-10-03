@@ -4330,6 +4330,11 @@
       "bytes": 14532
     },
     {
+      "path": "packages/bijux-pollenomics/tests/unit/analysis/lra/inputs/test_regional_draw_love.py",
+      "sha256": "8348ceacf3267e43a87e1f9723058627ddfb12c6fe78b7e9605dda63090c0f93",
+      "bytes": 7399
+    },
+    {
       "path": "packages/bijux-pollenomics/tests/unit/collection/sources/neotoma/country/test_propagation.py",
       "sha256": "67ec27ed736c6d83843dbbfa12042ed98e2e29316c8547f02470657a29a03f07",
       "bytes": 7610

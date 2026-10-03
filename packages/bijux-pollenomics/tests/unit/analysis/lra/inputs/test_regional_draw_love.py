@@ -37,28 +37,45 @@ def _payload(root: Path) -> dict[str, object]:
     )
 
 
+def _mapping(value: object) -> dict[str, object]:
+    assert isinstance(value, dict)
+    assert all(isinstance(key, str) for key in value)
+    return value
+
+
+def _rows(value: object) -> list[dict[str, object]]:
+    assert isinstance(value, list)
+    return [_mapping(row) for row in value]
+
+
 def _rewrite_receipt(
     payload: dict[str, object], root: Path, *, directory: str | None = None
 ) -> None:
-    declaration = payload["regional_draw_source"]
+    declaration = _mapping(payload["regional_draw_source"])
     item = next(
         row
-        for row in payload["evidence"]
+        for row in _rows(payload["evidence"])
         if row["evidence_id"] == declaration["receipt_evidence_id"]
     )
+    bundle_directory = declaration["directory"]
+    checksums_sha256 = declaration["expected_checksums_sha256"]
+    receipt_path = item["path"]
+    assert isinstance(bundle_directory, str)
+    assert isinstance(checksums_sha256, str)
+    assert isinstance(receipt_path, str)
     content = (
         json.dumps(
             {
                 "schema_version": "regional-draw-source-receipt.v1",
-                "bundle_directory": directory or declaration["directory"],
-                "checksums_sha256": declaration["expected_checksums_sha256"],
+                "bundle_directory": directory or bundle_directory,
+                "checksums_sha256": checksums_sha256,
             },
             sort_keys=True,
             separators=(",", ":"),
         )
         + "\n"
     ).encode()
-    (root / item["path"]).write_bytes(content)
+    (root / receipt_path).write_bytes(content)
     item["sha256"] = hashlib.sha256(content).hexdigest()
 
 
@@ -111,32 +128,36 @@ def test_ambiguous_or_false_draw_requests_are_refused(
     if case == "regional":
         payload["regional"] = deepcopy(payload["local"])
     elif case == "absolute":
-        payload["regional_draw_source"]["directory"] = str(tmp_path / "regional")
+        _mapping(payload["regional_draw_source"])["directory"] = str(
+            tmp_path / "regional"
+        )
         _rewrite_receipt(payload, tmp_path)
     elif case == "parent":
-        payload["regional_draw_source"]["directory"] = "regional/../regional"
+        _mapping(payload["regional_draw_source"])["directory"] = "regional/../regional"
         _rewrite_receipt(payload, tmp_path)
     elif case == "parameter_order":
-        payload["parameters"] = list(reversed(payload["parameters"]))
+        payload["parameters"] = list(reversed(_rows(payload["parameters"])))
     elif case == "taxa":
         payload["taxa"] = ["C", "B", "A"]
-        payload["local"]["samples"][0]["counts"] = [30, 30, 40]
-        payload["parameters"] = list(reversed(payload["parameters"]))
+        _rows(_mapping(payload["local"])["samples"])[0]["counts"] = [30, 30, 40]
+        payload["parameters"] = list(reversed(_rows(payload["parameters"])))
     elif case == "bounds":
-        payload["temporal_matching"]["bins"][0]["older_bp"] = 101
+        _rows(_mapping(payload["temporal_matching"])["bins"])[0]["older_bp"] = 101
     elif case == "cohort":
-        payload["local"]["samples"][0]["site_id"] = "small"
+        _rows(_mapping(payload["local"])["samples"])[0]["site_id"] = "small"
     elif case == "receipt":
         payload["evidence"] = [
-            row for row in payload["evidence"] if row["role"] != "draw_source_receipt"
+            row
+            for row in _rows(payload["evidence"])
+            if row["role"] != "draw_source_receipt"
         ]
     elif case == "receipt_binding":
         _rewrite_receipt(payload, tmp_path, directory="different-regional-product")
     elif case == "fallspeed":
-        payload["parameters"][0]["fallspeed_m_s"] = 0.005
+        _rows(payload["parameters"])[0]["fallspeed_m_s"] = 0.005
     else:
-        payload["rings"][0]["inner_m"] = 10
-        payload["rings"][0]["mean_m"] = 50
+        _rows(payload["rings"])[0]["inner_m"] = 10
+        _rows(payload["rings"])[0]["mean_m"] = 50
     with pytest.raises(LRARefusal) as raised:
         validate_regional_draw_love_request(payload, input_root=tmp_path)
     assert raised.value.reason_code == reason
