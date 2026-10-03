@@ -4310,9 +4310,39 @@
       "bytes": 8337
     },
     {
+      "path": "packages/bijux-pollenomics/tests/support/neotoma/boundaries.py",
+      "sha256": "849628fcb6bda30dbe0315601bed52c23dc110ac9bef08bd5e82884c79093009",
+      "bytes": 1995
+    },
+    {
+      "path": "packages/bijux-pollenomics/tests/support/neotoma/relational_shapes.py",
+      "sha256": "606a660e4f58f17a099ed4afb8273f6a13ba948dce566bce7edf0734c532271d",
+      "bytes": 848
+    },
+    {
       "path": "packages/bijux-pollenomics/tests/unit/adna/governance/test_contract_payloads.py",
       "sha256": "d2898b3da1644b1fd89410faa57c4cef558ebb8d8403cb560010cd31b3b10de9",
       "bytes": 2098
+    },
+    {
+      "path": "packages/bijux-pollenomics/tests/unit/collection/sources/neotoma/country/test_propagation.py",
+      "sha256": "67ec27ed736c6d83843dbbfa12042ed98e2e29316c8547f02470657a29a03f07",
+      "bytes": 7610
+    },
+    {
+      "path": "packages/bijux-pollenomics/tests/unit/collection/sources/neotoma/relational/test_raw_roundtrip.py",
+      "sha256": "25a863317dd7d3ff7d58ccbbbf4d73ef338d89ce9d842d5129216576b8e52d07",
+      "bytes": 1479
+    },
+    {
+      "path": "packages/bijux-pollenomics/tests/unit/collection/sources/neotoma/relational/test_references.py",
+      "sha256": "e9edcfdb701d82429a903edcd0ed3e63975eea15d84725a5f47fb0ef139b8efc",
+      "bytes": 3198
+    },
+    {
+      "path": "packages/bijux-pollenomics/tests/unit/collection/sources/neotoma/relational/test_snapshot_surfaces.py",
+      "sha256": "4ba06a4615be1b9e695d596149a47446a0af597535ef5c57849815ae9c7952f5",
+      "bytes": 4008
     },
     {
       "path": "packages/bijux-pollenomics/tests/unit/collection/sources/sead/acquisition/full/test_repository_materialization.py",

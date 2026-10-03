@@ -3,7 +3,9 @@ from __future__ import annotations
 from bijux_pollenomics.collection.sources.neotoma.country import (
     build_neotoma_site_country_decisions,
 )
-from bijux_pollenomics.collection.spatial import CountryAttributionDecision
+from bijux_pollenomics.collection.sources.neotoma.relational.country import (
+    CountryAttributionInput,
+)
 
 
 def country_boundaries() -> dict[str, dict[str, object]]:
@@ -50,10 +52,14 @@ def country_boundaries() -> dict[str, dict[str, object]]:
 def country_decisions(
     rows: list[dict[str, object]],
     boundaries: dict[str, dict[str, object]] | None = None,
-) -> dict[str, CountryAttributionDecision]:
-    return build_neotoma_site_country_decisions(
+) -> dict[object, CountryAttributionInput]:
+    decisions = build_neotoma_site_country_decisions(
         rows,
         boundaries or country_boundaries(),
         boundary_artifact_digest="sha256:boundary-fixture",
         boundary_version="boundary-fixture-v1",
     )
+    governed: dict[object, CountryAttributionInput] = {}
+    for site_id, decision in decisions.items():
+        governed[site_id] = decision
+    return governed

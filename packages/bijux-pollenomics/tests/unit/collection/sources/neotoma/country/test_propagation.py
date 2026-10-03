@@ -11,6 +11,7 @@ from tests.support.neotoma import (
     download_row,
     set_row_identity,
 )
+from tests.support.neotoma.relational_shapes import mapping, nested, rows
 
 
 class NeotomaCountryPropagationTests(unittest.TestCase):
@@ -18,7 +19,7 @@ class NeotomaCountryPropagationTests(unittest.TestCase):
         self,
     ) -> None:
         row = download_row()
-        row["site"]["geopolitical"] = [{"country": "Norway"}]
+        mapping(row["site"])["geopolitical"] = [{"country": "Norway"}]
         decisions = country_decisions([row])
 
         payload = build_neotoma_relational_snapshot(
@@ -28,7 +29,7 @@ class NeotomaCountryPropagationTests(unittest.TestCase):
             country_by_site_id=decisions,
         )
 
-        site = payload["sites"][0]
+        site = rows(payload["sites"])[0]
         self.assertEqual(site["raw_country"], "Norway")
         self.assertEqual(site["derived_country"], "Sweden")
         self.assertEqual(site["country_code"], "UNASSIGNED")
@@ -48,11 +49,11 @@ class NeotomaCountryPropagationTests(unittest.TestCase):
             self.assertTrue(
                 all(
                     child["country_code"] == "UNASSIGNED"
-                    for child in payload[table_name]
+                    for child in rows(payload[table_name])
                 ),
                 table_name,
             )
-        counts = payload["reconciliation"]["country_attribution_counts"]
+        counts = nested(payload, "reconciliation", "country_attribution_counts")
         self.assertEqual(counts["derived_country_codes"], {"SE": 1})
         self.assertEqual(counts["final_country_codes"], {"UNASSIGNED": 1})
         self.assertEqual(counts["source_vs_derived_comparisons"], {"conflicts": 1})
@@ -60,9 +61,11 @@ class NeotomaCountryPropagationTests(unittest.TestCase):
 
     def test_near_border_site_is_reviewed_without_prior_proximity_snap(self) -> None:
         row = download_row()
-        row["site"]["geography"] = '{"type":"Point","coordinates":[13.05,61.5]}'
-        row["site"]["geopolitical"] = [{"country": "Norway"}]
-        boundaries = {
+        mapping(row["site"])["geography"] = (
+            '{"type":"Point","coordinates":[13.05,61.5]}'
+        )
+        mapping(row["site"])["geopolitical"] = [{"country": "Norway"}]
+        boundaries: dict[str, dict[str, object]] = {
             "Norway": {
                 "features": [
                     {
@@ -91,7 +94,7 @@ class NeotomaCountryPropagationTests(unittest.TestCase):
             country_by_site_id=decisions,
         )
 
-        site = payload["sites"][0]
+        site = rows(payload["sites"])[0]
         self.assertIsNone(site["derived_country"])
         self.assertEqual(site["country_code"], "UNASSIGNED")
         self.assertEqual(site["country_decision_status"], "review")
@@ -100,7 +103,7 @@ class NeotomaCountryPropagationTests(unittest.TestCase):
         self.assertEqual(
             site["country_ambiguity_reason"], "near_boundary_without_containment"
         )
-        self.assertEqual(len(payload["observations"]), 2)
+        self.assertEqual(len(rows(payload["observations"])), 2)
 
     def test_missing_and_invalid_geometry_are_refused_without_dropping_rows(
         self,
@@ -108,8 +111,8 @@ class NeotomaCountryPropagationTests(unittest.TestCase):
         missing = download_row()
         invalid = copy.deepcopy(missing)
         set_row_identity(invalid, 21)
-        missing["site"].pop("geography")
-        invalid["site"]["geography"] = "not-json"
+        mapping(missing["site"]).pop("geography")
+        mapping(invalid["site"])["geography"] = "not-json"
         decisions = country_decisions([missing, invalid])
 
         payload = build_neotoma_relational_snapshot(
@@ -119,19 +122,21 @@ class NeotomaCountryPropagationTests(unittest.TestCase):
             country_by_site_id=decisions,
         )
 
-        self.assertEqual(len(payload["sites"]), 2)
-        self.assertEqual(len(payload["datasets"]), 2)
-        self.assertEqual(len(payload["samples"]), 2)
-        self.assertEqual(len(payload["observations"]), 4)
+        self.assertEqual(len(rows(payload["sites"])), 2)
+        self.assertEqual(len(rows(payload["datasets"])), 2)
+        self.assertEqual(len(rows(payload["samples"])), 2)
+        self.assertEqual(len(rows(payload["observations"])), 4)
         self.assertEqual(
-            {site["country_refusal_reason"] for site in payload["sites"]},
+            {site["country_refusal_reason"] for site in rows(payload["sites"])},
             {"missing_site_geometry", "invalid_site_geometry"},
         )
         self.assertTrue(
-            all(site["country_code"] == "UNASSIGNED" for site in payload["sites"])
+            all(site["country_code"] == "UNASSIGNED" for site in rows(payload["sites"]))
         )
         self.assertEqual(
-            payload["reconciliation"]["country_counts"]["UNASSIGNED"]["refused_sites"],
+            nested(payload, "reconciliation", "country_counts", "UNASSIGNED")[
+                "refused_sites"
+            ],
             2,
         )
 
@@ -139,8 +144,10 @@ class NeotomaCountryPropagationTests(unittest.TestCase):
         sweden = download_row()
         norway = copy.deepcopy(sweden)
         set_row_identity(norway, 21)
-        norway["site"]["geography"] = '{"type":"Point","coordinates":[4.0,1.0]}'
-        norway["site"]["geopolitical"] = [{"country": "Norway"}]
+        mapping(norway["site"])["geography"] = (
+            '{"type":"Point","coordinates":[4.0,1.0]}'
+        )
+        mapping(norway["site"])["geopolitical"] = [{"country": "Norway"}]
         decisions = country_decisions([sweden, norway])
 
         forward = build_neotoma_relational_snapshot(
@@ -157,7 +164,7 @@ class NeotomaCountryPropagationTests(unittest.TestCase):
         )
 
         self.assertEqual(forward, reverse)
-        counts = forward["reconciliation"]["country_attribution_counts"]
+        counts = nested(forward, "reconciliation", "country_attribution_counts")
         self.assertEqual(counts["raw_country_codes"], {"NO": 1, "SE": 1})
         self.assertEqual(counts["derived_country_codes"], {"NO": 1, "SE": 1})
         self.assertEqual(counts["final_country_codes"], {"NO": 1, "SE": 1})
@@ -172,7 +179,7 @@ class NeotomaCountryPropagationTests(unittest.TestCase):
             country_by_site_id={20: "Sweden"},
         )
 
-        site = payload["sites"][0]
+        site = rows(payload["sites"])[0]
         self.assertEqual(site["derived_country"], "Sweden")
         self.assertEqual(site["country_code"], "UNASSIGNED")
         self.assertEqual(site["country_decision_status"], "review")

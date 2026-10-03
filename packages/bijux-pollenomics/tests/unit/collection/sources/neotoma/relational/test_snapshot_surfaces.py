@@ -6,6 +6,7 @@ from bijux_pollenomics.collection.sources.neotoma.relational import (
     build_neotoma_relational_snapshot,
 )
 from tests.support.neotoma import country_decisions, download_row
+from tests.support.neotoma.relational_shapes import nested, rows
 
 
 class NeotomaRelationalSnapshotSurfaceTests(unittest.TestCase):
@@ -18,7 +19,7 @@ class NeotomaRelationalSnapshotSurfaceTests(unittest.TestCase):
         )
 
         self.assertEqual(
-            payload["reconciliation"]["normalized_row_counts"],
+            nested(payload, "reconciliation")["normalized_row_counts"],
             {
                 "sites": 1,
                 "collection_units": 1,
@@ -32,7 +33,7 @@ class NeotomaRelationalSnapshotSurfaceTests(unittest.TestCase):
             },
         )
         self.assertEqual(payload["schema_version"], "neotoma-relational-snapshot.v2")
-        site = payload["sites"][0]
+        site = rows(payload["sites"])[0]
         self.assertEqual(site["raw_country"], "Sweden")
         self.assertEqual(site["derived_country"], "Sweden")
         self.assertEqual(site["country_code"], "SE")
@@ -55,11 +56,11 @@ class NeotomaRelationalSnapshotSurfaceTests(unittest.TestCase):
             "observations",
         ):
             self.assertTrue(
-                all(row["country_code"] == "SE" for row in payload[table_name]),
+                all(row["country_code"] == "SE" for row in rows(payload[table_name])),
                 table_name,
             )
         claims_by_type = {
-            claim["source_age_type"]: claim for claim in payload["age_claims"]
+            claim["source_age_type"]: claim for claim in rows(payload["age_claims"])
         }
         alternate = claims_by_type["Radiocarbon years BP"]
         selected = claims_by_type["Calibrated radiocarbon years BP"]
@@ -69,7 +70,7 @@ class NeotomaRelationalSnapshotSurfaceTests(unittest.TestCase):
         self.assertEqual(selected["comparability_status"], "comparable")
         self.assertEqual((selected["younger_bp"], selected["older_bp"]), (1150, 1250))
         self.assertTrue(selected["is_default_chronology"])
-        observations = payload["observations"]
+        observations = rows(payload["observations"])
         self.assertEqual(
             {observation["source_value"] for observation in observations}, {0, 12.5}
         )
@@ -83,11 +84,11 @@ class NeotomaRelationalSnapshotSurfaceTests(unittest.TestCase):
                 for observation in observations
             )
         )
-        self.assertEqual(payload["reconciliation"]["orphan_count"], 0)
+        self.assertEqual(nested(payload, "reconciliation")["orphan_count"], 0)
         self.assertEqual(
-            payload["reconciliation"]["country_counts"]["SE"]["variables"], 2
+            nested(payload, "reconciliation", "country_counts", "SE")["variables"], 2
         )
         self.assertEqual(
-            payload["reconciliation"]["country_counts"]["DK"]["age_claim_rows"],
+            nested(payload, "reconciliation", "country_counts", "DK")["age_claim_rows"],
             0,
         )
