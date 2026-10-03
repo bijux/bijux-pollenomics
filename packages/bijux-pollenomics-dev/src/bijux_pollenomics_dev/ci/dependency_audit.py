@@ -13,7 +13,10 @@ import subprocess
 import sys
 import tempfile
 import tomllib
-from typing import Literal, TypedDict
+from typing import TYPE_CHECKING, Literal, TypedDict
+
+if TYPE_CHECKING:
+    from .dependency_audit_runtime import InstalledAuditRuntime
 
 
 class DependencyAuditReceipt(TypedDict):
@@ -31,6 +34,7 @@ class DependencyAuditReceipt(TypedDict):
     argv: list[str]
     scope: str
     vulnerability_assessment_performed: Literal[False]
+    installed_runtime: InstalledAuditRuntime | None
 
 
 def _mapping(value: object) -> dict[str, object]:
@@ -150,6 +154,8 @@ def prepare(
     output: Path,
     account: Path,
     uv: str,
+    *,
+    verify_installed: bool = False,
 ) -> DependencyAuditReceipt:
     """Publish exact uv export and workspace custody for the package security gate."""
     repository = repository.absolute()
@@ -232,6 +238,11 @@ def prepare(
         if len(text.encode()) > 1024 * 1024:
             raise ValueError("audit export exceeds its finite size bound")
         count = validate_export(text, public, workspace)
+        runtime = None
+        if verify_installed:
+            from .dependency_audit_runtime import installed_runtime
+
+            runtime = installed_runtime(text)
         if workspace_sources(repository) != (workspace, before):
             raise ValueError("workspace inputs mutated during dependency export")
         receipt: DependencyAuditReceipt = {
@@ -247,11 +258,14 @@ def prepare(
             "argv": argv,
             "scope": "Exact locked public third-party dependency pins, with target markers evaluated by pip-audit on its runtime. Workspace sources have separate SHA custody and remain subject to their owned static-analysis gates; no public vulnerability-service assessment of those local distributions is claimed.",
             "vulnerability_assessment_performed": False,
+            "installed_runtime": runtime,
         }
         staged_account = scratch / "workspace-account.json"
         staged_account.write_text(json.dumps(receipt, indent=2, sort_keys=True) + "\n")
         _confined(repository / "artifacts", output)
         _confined(repository / "artifacts", account)
+        if verify_installed and installed_runtime(text) != runtime:
+            raise ValueError("installed runtime mutated before dependency publication")
         os.replace(exported, output)
         os.replace(staged_account, account)
     return receipt
@@ -266,6 +280,7 @@ def main() -> int:
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--account", type=Path, required=True)
     parser.add_argument("--uv", default="uv")
+    parser.add_argument("--verify-installed", action="store_true")
     args = parser.parse_args()
     receipt = prepare(
         args.repository,
@@ -274,6 +289,7 @@ def main() -> int:
         args.output,
         args.account,
         args.uv,
+        verify_installed=args.verify_installed,
     )
     print(
         json.dumps(

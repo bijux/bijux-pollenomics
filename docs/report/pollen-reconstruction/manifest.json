@@ -2941,8 +2941,8 @@
     },
     {
       "path": "makes/packages/bijux-pollenomics-dev.mk",
-      "sha256": "84fe3e8cfba98a77870a53494b81cae099a48768d73532932471bae36ac2feba",
-      "bytes": 1992
+      "sha256": "6009cddf8d85cece00afead9be423ce98ef8cba3e6ddd1d38e96009f52ff255b",
+      "bytes": 2011
     },
     {
       "path": "makes/packages/bijux-pollenomics.mk",
@@ -2961,8 +2961,8 @@
     },
     {
       "path": "packages/bijux-pollenomics-dev/pyproject.toml",
-      "sha256": "604af601a09116ace028866470b3ff0ed73f5cb775d38d9d92ecc6d9e6ca4896",
-      "bytes": 2569
+      "sha256": "db0694df161cccaab0c16e1552909bd0be3543f3a69ca9a42e8af8bd9ed78d0a",
+      "bytes": 2596
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/atlas_browser/landclim_export/__init__.py",
@@ -2986,8 +2986,13 @@
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/dependency_audit.py",
-      "sha256": "7c877bc2b4b94985d62f7c776d6285533517cf0cd62ba5ef3ca6be186923cd88",
-      "bytes": 11009
+      "sha256": "1c0212b88416ff71e3885a516113504b3d5b42f8bb9496cc1e3a3b0f3ee4fb9a",
+      "bytes": 11682
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/dependency_audit_runtime.py",
+      "sha256": "a286bc77ddb7052080e530fadc549fc20388a471bce454adae81288a81895dbf",
+      "bytes": 3556
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/__main__.py",
@@ -3940,9 +3945,19 @@
       "bytes": 78639
     },
     {
+      "path": "packages/bijux-pollenomics-dev/tests/ci/__init__.py",
+      "sha256": "9cbd2c86113d680f14c2afaa067a2e1c903b77be04210f5267d9ec89a6fb1cfb",
+      "bytes": 72
+    },
+    {
       "path": "packages/bijux-pollenomics-dev/tests/ci/test_dependency_audit.py",
       "sha256": "e558e33fcba2db5363fdb1436f5e5d60abbb35856ba0415d925c386fa8d16fdd",
       "bytes": 6763
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/tests/ci/test_dependency_audit_runtime.py",
+      "sha256": "7f0c3221be2d731653afe0a03221932f2e78226253fab629a78a69e52e09ab89",
+      "bytes": 5956
     },
     {
       "path": "packages/bijux-pollenomics-dev/tests/essd_reproduction/test_author_preparation_audit.py",
@@ -6181,8 +6196,8 @@
     },
     {
       "path": "uv.lock",
-      "sha256": "cf4715e79485ce1d4979b4ca46d467547a0b9ae71d4edb7f6e4f177c127bbbc4",
-      "bytes": 558436
+      "sha256": "cf15f104f4d03260cad09c5941fe8f70d04cc16abf68047aad8ab009cf3a6140",
+      "bytes": 558518
     }
   ]
 }

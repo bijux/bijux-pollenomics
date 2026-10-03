@@ -45,5 +45,5 @@ include $(abspath $(dir $(firstword $(MAKEFILE_LIST))))/../bijux-py/package.mk
 # Local distributions have a separate source custody account, not PyPI identity.
 security-audit: security-locked-inputs
 security-locked-inputs: install
-	@"$(VENV_PYTHON)" -m bijux_pollenomics_dev.ci.dependency_audit --repository "$(MONOREPO_ROOT)" --distribution bijux-pollenomics-dev --extra dev --extra reports --output "$(SECURITY_REQS)" --account "$(SECURITY_REPORT_DIR)/workspace-account.json"
+	@"$(VENV_PYTHON)" -m bijux_pollenomics_dev.ci.dependency_audit --repository "$(MONOREPO_ROOT)" --distribution bijux-pollenomics-dev --extra dev --extra reports --output "$(SECURITY_REQS)" --account "$(SECURITY_REPORT_DIR)/workspace-account.json" --verify-installed
 .PHONY: security-locked-inputs
