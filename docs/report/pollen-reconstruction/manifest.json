@@ -31,13 +31,13 @@
     },
     {
       "path": "configs/ci/report-owner-execution.json",
-      "sha256": "b25c75a73547107895022b48572ce91fc03083bb0f4efaa4f7da4dcec5062d04",
-      "bytes": 72019
+      "sha256": "7a4a8718d6fdaffbff4feeff91aa980965904fb6770e050ffcddc35a228c4f0f",
+      "bytes": 72883
     },
     {
       "path": "configs/ci/report-ownership.json",
-      "sha256": "88dad891c00ebeaf42f2f5c2838be4d72d0b15c006fc0a42105da586e25e4531",
-      "bytes": 1532711
+      "sha256": "fd16d3939045035299c915dbd7720ccb8aa8bd83a0a323d7043668ca3f35d508",
+      "bytes": 1641477
     },
     {
       "path": "configs/docs/science_downloads.py",
@@ -3155,6 +3155,11 @@
       "bytes": 51
     },
     {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/essd/published_window_provenance.py",
+      "sha256": "b794b57627f8a8586ef022dc1f0256b960a9c78c460987fb7642c3bf62f550d5",
+      "bytes": 5649
+    },
+    {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/essd/published_window_uncertainty.py",
       "sha256": "5807b404128083ed48009b40f92f2178e938a7c65207b401a63d98e97d36d916",
       "bytes": 2114
@@ -3818,6 +3823,11 @@
       "path": "packages/bijux-pollenomics-dev/tests/source_completion/denmark/test_solsoe_interval_sensitivity.py",
       "sha256": "8ebd22b29c055909c9ebea4f84e0a989802a095e11685a68dd576051643641af",
       "bytes": 4547
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/tests/source_completion/essd/test_published_window_provenance.py",
+      "sha256": "33d6762d67854d6499467d1ce5281b1348f9c77d856b44e690b50aa15ea28f34",
+      "bytes": 5748
     },
     {
       "path": "packages/bijux-pollenomics-dev/tests/source_completion/essd/test_window_alignment.py",
@@ -5236,7 +5246,7 @@
     },
     {
       "path": "presentation/source-lock.json",
-      "sha256": "4e76d22230728e0452370fda9ee68c9681f03bff7b047855a2fd9d4d4f18401a",
+      "sha256": "c9570d04173ee0720056f5c60b64e489a7e9e8a20c89a751c30d29c61dc23aef",
       "bytes": 12768
     },
     {
@@ -5251,7 +5261,7 @@
     },
     {
       "path": "reports/architecture/ownership.md",
-      "sha256": "1b75330dd16568b1f69ec2c3de71c1206d67f0555776366fa121bef30378b3f3",
+      "sha256": "0f5557b1a9d7a8b4f852bf761e06e9678e308f4f9fa626f24111a4c7fc4b8563",
       "bytes": 33205
     },
     {
@@ -5326,7 +5336,7 @@
     },
     {
       "path": "reports/exports/site-downloads.json",
-      "sha256": "eaed43c2ef6de441d7f94d8ba235aa4901fb20767100a8c2c23271da6d2ea7fd",
+      "sha256": "bf0555f6f4dcc7f9485d399dc053a10a8bb8fd8f0233e742285c052ae085e44d",
       "bytes": 5774
     },
     {
