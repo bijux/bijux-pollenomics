@@ -97,9 +97,11 @@ def test_unselected_packet_does_not_enter_source_dispatch_imports() -> None:
             sys.executable,
             "-B",
             "-c",
-            "import sys; import bijux_pollenomics_dev.ci.report_rebuild.source_qualification; "
-            "assert 'bijux_pollenomics_dev.ci.report_rebuild.landclim_two_grid_packet' "
-            "not in sys.modules",
+            (
+                "import sys; import bijux_pollenomics_dev.ci.report_rebuild.source_qualification; "
+                "assert 'bijux_pollenomics_dev.ci.report_rebuild.landclim_two_grid_packet' "
+                "not in sys.modules"
+            ),
         ],
         check=False,
         capture_output=True,

@@ -11,7 +11,6 @@ from types import ModuleType
 
 import pytest
 
-
 REPOSITORY = Path(__file__).resolve().parents[5]
 REPORT = REPOSITORY / "docs/report/pollen-reconstruction"
 INTERVAL = (
