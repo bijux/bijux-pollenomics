@@ -5070,6 +5070,16 @@
       "bytes": 14038
     },
     {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/propagation/network/models.py",
+      "sha256": "8642adf60c5608c78841d23756c039dcedd8093ef102610306b643a263d76592",
+      "bytes": 17359
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/propagation/network/pairs.py",
+      "sha256": "fb342ddf3e6d6a67d6873e0ccb17369768af3115e47161aa7247baea523f80c3",
+      "bytes": 8588
+    },
+    {
       "path": "packages/bijux-pollenomics/src/bijux_pollenomics/analysis/propagation/outputs/inputs.py",
       "sha256": "88625730302357dafb8b7c350d9c1b023c38eaa71e681d293e659fe50da27a2d",
       "bytes": 5314
@@ -5478,6 +5488,11 @@
       "path": "packages/bijux-pollenomics/tests/unit/analysis/lra_validation/experiments/test_workflow.py",
       "sha256": "2751c2d9b679c31839b384fd6f9de3b4ce1b96dadce8c2b2706231bdc06fbbc1",
       "bytes": 8587
+    },
+    {
+      "path": "packages/bijux-pollenomics/tests/unit/analysis/propagation/network/test_golden_pair_contracts.py",
+      "sha256": "712e7d5764bdfc6e5eb0c7cd7e91075eb858cd8f7d488eb8f3e27476f47857be",
+      "bytes": 8872
     },
     {
       "path": "packages/bijux-pollenomics/tests/unit/analysis/propagation/test_propagation_outputs/support/materialization.py",

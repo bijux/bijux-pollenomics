@@ -304,6 +304,9 @@ class PropagationPairRefusal:
     feature_key: str
     scenario_id: str
     reason_code: str
+    config_digest: str
+    propagation_contract_version: str = PROPAGATION_CONTRACT_VERSION
+    producer_version: str = NETWORK_PRODUCER_VERSION
 
     def as_dict(self) -> dict[str, object]:
         return dict(self.__dict__)
