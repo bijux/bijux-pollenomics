@@ -4,7 +4,7 @@ audience: reader
 type: how-to
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-10-02
+last_reviewed: 2026-10-03
 ---
 
 # Walk Through One Atlas Result
@@ -141,6 +141,48 @@ inspect the input SHA-256 values and source labels in the two receipts before
 interpreting it. The producer creates a descriptive summary of an existing
 model output. It does not rerun the historical LandClim reconstruction or
 establish an independent vegetation reference.
+
+## Check a missing-input refusal
+
+The panel summary does not create an LRA request. It describes published
+modeled cover; it supplies no measured pollen counts, basin geometry or
+chronology for a new reconstruction. After the two-file reproduction above,
+check that boundary with the supported, read-only validator:
+
+```bash
+artifacts/root/check-venv/bin/bijux-pollenomics validate-lra-input \
+  artifacts/jobs/landclim-panel-review/lra-request.json --input-root data
+```
+
+The named request is deliberately absent from the panel output. Expect exit
+status **2**, JSON `status=refused`, and
+`reason_code=lra_request_io_or_encoding`. The detail names the missing request.
+This is a request-file refusal, not a numerical result or a finding that every
+scientific prerequisite has been checked. The validator writes no product and
+runs no reconstruction.
+
+For your own reconstruction, replace that path with an actual
+`lra-request.v1` file and keep `--input-root` pointed at the evidence root
+that owns its declared relative files. The request needs original pollen
+counts and taxa, input hashes, supported pollen productivity and transport
+parameters, measured basin/ring geometry, typed age support, time-bin
+assumptions, a fixed seed, exclusions and uncertainty declarations. The
+[source prerequisites](../science/sources.md#before-a-core-can-enter-lra)
+and [LRA command contract](cli-surface.md#landscape-reconstruction) explain
+those requirements. A map cell's modeled percentages and source standard
+errors cannot supply the missing observations.
+
+A present request can still be refused for missing or changed source bytes,
+unsupported chronology or parameters, or an unavailable compatible numerical
+extension. Read the emitted reason and detail before continuing. For
+`lra_extension_missing`, return to the
+[locked workspace setup](../operations/installation-and-setup.md#reproduce-the-repository-environment):
+it includes the separately owned `bijux-pollenomics-lra` extension alongside
+the host, development producer and compatibility distribution. The
+[engine integration boundary](../architecture/lra-engine.md#host-boundary)
+explains the optional extension. Keep the request, input identities and refusal
+when sharing the issue; validation success only means the declared exploratory
+input passed its checks, with scientific acceptance still `not_evaluated`.
 
 ## Decide what the result supports
 

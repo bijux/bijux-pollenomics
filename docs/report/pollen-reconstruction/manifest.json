@@ -236,13 +236,18 @@
     },
     {
       "path": "docs/public/pollenomics/interfaces/atlas-walkthrough.md",
-      "sha256": "55091c0f01129a658c208a93b6dfa7501f2ab43c53479c07744d20ee454ffddc",
-      "bytes": 8449
+      "sha256": "a3a164c9f054b97e33115dd137b0012047665856f0b32f5fbf8955d578704fa4",
+      "bytes": 10818
     },
     {
       "path": "docs/public/pollenomics/interfaces/operator-workflows.md",
       "sha256": "4fa2ec6bc9b547efa05b837534df90f2a2606d8d11fd5ab071694b4dde571b75",
       "bytes": 6459
+    },
+    {
+      "path": "docs/public/pollenomics/operations/installation-and-setup.md",
+      "sha256": "3cdde5ed6912ed43cf6ed072f19198d9beda72bb93d81c40262ea51a35d1ffdc",
+      "bytes": 8916
     },
     {
       "path": "docs/public/pollenomics/science/country-status.md",
@@ -4743,6 +4748,11 @@
       "path": "packages/bijux-pollenomics/tests/regression/repository_contracts/test_chronology_playback_docs.py",
       "sha256": "8d439a792edd8c1afca8c846fe91147028d53cd9c4d0e15e970202993c9fa14c",
       "bytes": 15053
+    },
+    {
+      "path": "packages/bijux-pollenomics/tests/regression/repository_contracts/test_documentation_content.py",
+      "sha256": "3cb7cfa099d2695492509d55d14b62a7c8123bf882160598ad5cdfecbf0656bb",
+      "bytes": 15685
     },
     {
       "path": "packages/bijux-pollenomics/tests/regression/repository_contracts/test_mkdocs_configuration.py",
