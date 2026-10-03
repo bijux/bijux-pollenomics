@@ -58,10 +58,10 @@
     "reports/README.md": "f25789861279ac09c4d02b4cfe411ab726be75649584c788dd150426c4abf005",
     "reports/architecture/lra-distribution.md": "9a6c1b006d297dc46953499b6d7878503242ab84429320fbf82c345c25bebed4",
     "reports/architecture/native-backend.md": "8aa679097d3f4457a1fb6b133f696fc2099a50b6d434142b3430c2ed6a759e80",
-    "reports/architecture/ownership.md": "f71e904afaac95afcce34aa727cb9acb02ded1493cb557d83d985379ebc34b98",
+    "reports/architecture/ownership.md": "a3785760fc3521e2c3f57a9cc4fb986d3c90e588d9d23ccb2d88bc63674017f5",
     "reports/exports/papers/README.md": "ff5a96f461e93a18e8bea26079d1c7833bf709756f5bf7faeb66cfdf51ffbb65",
-    "reports/exports/papers/manifest.json": "1b1dfb70642c373ecc2f9d132ecdb39608b952dea44e22b7a10ede42dd085bad",
-    "reports/exports/papers/visual-review.json": "39f234de871903e0b224eb5d82e95fc704ded878f819e4e2bb5b70058eb5a844",
+    "reports/exports/papers/manifest.json": "55b205dcab95403e185cae3e62d035102446fc02097348708e940ca80895b098",
+    "reports/exports/papers/visual-review.json": "a9c16c5cb8b6799c196276eabea2b72529de6730adec2d5c1be4f110a88ef713",
     "reports/needed/README.md": "f41ba33784042146580b74870260feea5c81cb055496a706e4870cdf04fd9e88",
     "reports/science/abborrtjarnen-source-method.md": "ec1cea41eac2ad913e4c9227a491325f4471bec28a8fd313226f0776970683b1",
     "reports/science/bjaresjo-context.md": "a49c6d6530dd543ae4dc3c4ca0e4bcabe37af8e363b28bd6d18b1245723118d1",
@@ -103,6 +103,6 @@
     "reports/science/synthetic-model-selection/README.md": "af6ff96f339d3ba2528e3d68a970415fc8cf9eb2770f5255a43a808f8199d010",
     "reports/science/vegetation-reference.md": "9f3c0b639bfadb2e3951b6d85e68f2a7c2a80a197af69ad179ebf8c0707eee2b",
     "reports/verify.py": "888d5b1ffb002eb403633d4791061e9c7b9109054601dcfcff5ad14bc3dcd9a8",
-    "uv.lock": "ea08618a0d29d903f11104700d10c901568efb45cf2393ce4d4168c75fb7bfe0"
+    "uv.lock": "cf4715e79485ce1d4979b4ca46d467547a0b9ae71d4edb7f6e4f177c127bbbc4"
   }
 }
