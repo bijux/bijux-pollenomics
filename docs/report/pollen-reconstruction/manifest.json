@@ -2880,6 +2880,11 @@
       "bytes": 4034
     },
     {
+      "path": "docs/report/source-relations/source-capability-evidence/README.md",
+      "sha256": "8697bb846919c3969c8d18e45a3b729a630cf83af2890ca9250b5abceacd447b",
+      "bytes": 2394
+    },
+    {
       "path": "docs/report/source-relations/source-reconciliation/README.md",
       "sha256": "1cde29f9ced7222cc04c936cd9062508519351b3c703fe97988f188f4edbfb5b",
       "bytes": 2868
@@ -3348,6 +3353,11 @@
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/bjaresjo_context.py",
       "sha256": "54a877ddd100916f15849563c58da67429335ba5d9ba8a30f4b1d4702dc63c1b",
       "bytes": 10532
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/capability_evidence.py",
+      "sha256": "9d5023e71fe37c480d8207dd7aac5cde025a12bc11c454ae6faf93e97dd8c032",
+      "bytes": 8865
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/denmark/__init__.py",
@@ -4593,6 +4603,11 @@
       "path": "packages/bijux-pollenomics-dev/tests/source_completion/test_bjaresjo_context.py",
       "sha256": "5ea4ba24c668c028c986429c8685b9a276b29b495cd4d9b10d4de6a50d8f8e4e",
       "bytes": 1705
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/tests/source_completion/test_capability_evidence.py",
+      "sha256": "df84b648a61a621da3a847b65a03bb15d6e5b48abd585e502d34d1b6dbdfcdce",
+      "bytes": 11878
     },
     {
       "path": "packages/bijux-pollenomics-dev/tests/source_completion/test_galician_cattle_review.py",
