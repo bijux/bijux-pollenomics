@@ -7,6 +7,7 @@ from ..map_publication import MapScopePolicy
 from ..presentation.text import escape_html
 from .payload import build_map_document_payload
 from .static_assets import StaticAtlasAssets, validate_static_atlas_document
+from .static_assets.stylesheet import compact_stylesheet
 from .template import MAP_DOCUMENT_TEMPLATE
 
 
@@ -15,7 +16,7 @@ def _compact_inline_stylesheet(document: str) -> str:
     start = document.index("<style>") + len("<style>")
     end = document.index("</style>", start)
     stylesheet = document[start:end]
-    compact = "\n".join(line.lstrip(" \t") for line in stylesheet.split("\n"))
+    compact = compact_stylesheet(stylesheet)
     return document[:start] + compact + document[end:]
 
 
