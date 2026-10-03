@@ -17,6 +17,11 @@ class InstallConstraintCases(unittest.TestCase):
         repository = Path(__file__).resolve().parents[4]
         products = repository / "artifacts/workspace-install-constraint-fixtures"
         products.mkdir(parents=True, exist_ok=True)
+        fixture_env = {
+            name: value
+            for name, value in os.environ.items()
+            if name not in {"MAKEFLAGS", "MFLAGS", "MAKEOVERRIDES"}
+        }
         module = repository / "makes/workspace-dependency-audit.mk"
         for outcome, stamped in itertools.product(
             ("valid", "export-fails", "audit-differs"), (False, True)
@@ -111,6 +116,7 @@ class InstallConstraintCases(unittest.TestCase):
                 result = subprocess.run(
                     ["make", "-j2", "-f", str(makefile), "security-locked-inputs"],
                     cwd=root,
+                    env=fixture_env,
                     capture_output=True,
                     text=True,
                     check=False,
@@ -134,6 +140,7 @@ class InstallConstraintCases(unittest.TestCase):
                     cached = subprocess.run(
                         argv,
                         cwd=root,
+                        env=fixture_env,
                         capture_output=True,
                         text=True,
                         check=False,
@@ -147,6 +154,7 @@ class InstallConstraintCases(unittest.TestCase):
                     changed = subprocess.run(
                         argv,
                         cwd=root,
+                        env=fixture_env,
                         capture_output=True,
                         text=True,
                         check=False,

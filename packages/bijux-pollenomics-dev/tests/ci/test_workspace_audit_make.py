@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import os
 from pathlib import Path
 import re
 import subprocess
@@ -16,6 +17,11 @@ class WorkspaceMakeCases(unittest.TestCase):
         repository = Path(__file__).resolve().parents[4]
         products = repository / "artifacts/workspace-audit-make-fixtures"
         products.mkdir(parents=True, exist_ok=True)
+        fixture_env = {
+            name: value
+            for name, value in os.environ.items()
+            if name not in {"MAKEFLAGS", "MFLAGS", "MAKEOVERRIDES"}
+        }
         for profile in sorted((repository / "makes/packages").glob("*.mk")):
             with (
                 self.subTest(profile=profile.name),
@@ -82,6 +88,7 @@ class WorkspaceMakeCases(unittest.TestCase):
                 result = subprocess.run(
                     ["make", "-f", str(makefile), "security-locked-inputs"],
                     cwd=root,
+                    env=fixture_env,
                     capture_output=True,
                     text=True,
                     check=False,
