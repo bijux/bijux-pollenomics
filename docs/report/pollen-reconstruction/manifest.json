@@ -5165,6 +5165,26 @@
       "bytes": 9468
     },
     {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/neotoma/relational/chronology.py",
+      "sha256": "ad807df952fdfeda88a268db6b339ce17e91c15b487af2b8ecdcf1e53046e0d3",
+      "bytes": 6192
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/neotoma/relational/projection/chronologies.py",
+      "sha256": "fe8a16af52e230fdcec31299ae4e039b859a9640f7a35949c05716b8e1cff112",
+      "bytes": 8023
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/neotoma/relational/projection/observations.py",
+      "sha256": "4affbe19fb6a9141bd633b66f2cdac2eba3bae323b463a114cd45de400cbe022",
+      "bytes": 3956
+    },
+    {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/neotoma/relational/projection/samples.py",
+      "sha256": "3a9a3a8d7e7cd0714be295264e5cf79f48697259ff7ee135a361ff64ac5f8310",
+      "bytes": 5453
+    },
+    {
       "path": "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/sead/catalog/site_inventory/service.py",
       "sha256": "d37803cb90f0a822781bd89a5a649aac8a8abbbb73525b67988ca72f55323f39",
       "bytes": 5617
@@ -5656,8 +5676,8 @@
     },
     {
       "path": "packages/bijux-pollenomics/tests/unit/collection/sources/neotoma/chronology/test_claim_admission.py",
-      "sha256": "1b9f19bf91362cd3712afe7064ef13c48ce7767eb75600c4952ee073a43edeed",
-      "bytes": 1995
+      "sha256": "c79535ecacabf6eccb96216983e4de8441cc083d906cf0cd88a103644feba05c",
+      "bytes": 5027
     },
     {
       "path": "packages/bijux-pollenomics/tests/unit/collection/sources/neotoma/chronology/test_default_selection.py",
@@ -5676,8 +5696,8 @@
     },
     {
       "path": "packages/bijux-pollenomics/tests/unit/collection/sources/neotoma/relational/test_diagnostics.py",
-      "sha256": "fd922a137da41ff70b8692e437cc73e78975ba82187c5b01619d1e02c8507077",
-      "bytes": 2452
+      "sha256": "bb486855dabba67b2f3de217b28581e3e632498cd01a04801ecddf51557dd4be",
+      "bytes": 5724
     },
     {
       "path": "packages/bijux-pollenomics/tests/unit/collection/sources/neotoma/relational/test_multiplicity.py",

@@ -32,7 +32,11 @@ def project_chronologies(
     for wrapper in chronologies:
         if not isinstance(wrapper, Mapping):
             add_orphan(
-                state.orphans, "collection_unit", unit_id, "invalid_chronology_row"
+                state.orphans,
+                "collection_unit",
+                unit_id,
+                "invalid_chronology_row",
+                source_value=wrapper,
             )
             continue
         chronology = wrapper.get("chronology")
@@ -42,6 +46,7 @@ def project_chronologies(
                 "collection_unit",
                 unit_id,
                 "missing_chronology_payload",
+                source_value=wrapper,
             )
             continue
         chronology_source_id = optional_source_id(chronology.get("chronologyid"))
@@ -173,6 +178,7 @@ def project_chronology_controls(
                 "chronology",
                 chronology_id,
                 "invalid_chronology_control_row",
+                source_value=control,
             )
             continue
         control_source_id = optional_source_id(control.get("chroncontrolid"))

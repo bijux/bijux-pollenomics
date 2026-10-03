@@ -32,7 +32,13 @@ def project_samples(
     state.country_counts[country_code]["sample_rows"] += len(samples)
     for sample in samples:
         if not isinstance(sample, Mapping):
-            add_orphan(state.orphans, "dataset", dataset_id, "invalid_sample_row")
+            add_orphan(
+                state.orphans,
+                "dataset",
+                dataset_id,
+                "invalid_sample_row",
+                source_value=sample,
+            )
             continue
         sample_source_id = required_source_id(
             sample.get("sampleid"), "sample", state.orphans, parent_id=dataset_id
@@ -111,7 +117,9 @@ def project_age_claims(
     age_occurrence_counts: Counter[str] = Counter()
     for age in ages:
         if not isinstance(age, Mapping):
-            add_orphan(state.orphans, "sample", sample_id, "invalid_age_row")
+            add_orphan(
+                state.orphans, "sample", sample_id, "invalid_age_row", source_value=age
+            )
             continue
         age_digest = digest(dict(age))
         age_occurrence_counts[age_digest] += 1
