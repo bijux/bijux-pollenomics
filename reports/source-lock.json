@@ -205,7 +205,7 @@
     "docs/report/pollen-reconstruction/author-lra-constrained/radius_sensitivity.py": "dede38022ace3e350d854e4a35cd1ed590ca8ddfbbe7a6c7b089c9df76a39b9e",
     "docs/report/pollen-reconstruction/author-lra-constrained/report.json": "99bc052531b052ee218f91d36645cdeaaf2b1641ca8bd20140afa1b4e87f8150",
     "docs/report/pollen-reconstruction/author-lra-optimized-feasibility/report.json": "2d2202914ec86f70aad49d63782066c10a198997ef628f65d4e9134f2aefb869",
-    "docs/report/pollen-reconstruction/manifest.json": "67248f3dbe347b09895218ea29704a6eb735d3f79675fc17b752a8f7a161ba66",
+    "docs/report/pollen-reconstruction/manifest.json": "e1ed2ab8695c6f0c0c2144d832225315200970e91651e932bd3db342d99aab25",
     "docs/report/pollen-reconstruction/paper-correspondence.csv": "21b5354a2155345e44964ed513471d32648bdb062eda1ebed3e0b79ccb8ff9cc",
     "docs/report/pollen-reconstruction/results.csv": "0c65a7517d444cb9901905165096b7a73f182ffb308d1c5f069e36c5acb239c9",
     "docs/report/pollen-reconstruction/scope.json": "7c3190d229472e8459043298c5518d7856fb32cca50fc569a5f3a1350d6cdf03",
@@ -723,8 +723,8 @@
     "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_age_support/interval_fraction.py": "0c61fb0d4b693f4ed65156fcf0ecea10535e31d515f5145407bccff55c15cfb1",
     "packages/bijux-pollenomics-dev/tests/source_completion/pollen_age_support/test_abborrtjarne_membership.py": "4b25f0c99007ab6f5211892f2d25101e4e8811a149570e7fde83757014114797",
     "packages/bijux-pollenomics-dev/tests/source_completion/pollen_age_support/test_interval_fraction.py": "80a40d9edf000ccb658850ced826aea05aff0595fbcb69fa9ae2914f39441b96",
-    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sead/categorical_values.py": "1ee982deb1d56d4285a3d604f0b3eab288aa69d4817df5d0241bc78a1ec26d28",
-    "packages/bijux-pollenomics-dev/tests/source_completion/sead/test_categorical_values.py": "14541d23c728443ec8571f80084ae9ea6edc48b72d5c2c55aaac887823ee9ec9",
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sead/categorical_values.py": "315681b13dcd657f510f43e3dac081b5688a20010a556696b167a384560108bf",
+    "packages/bijux-pollenomics-dev/tests/source_completion/sead/test_categorical_values.py": "5726eeedcecc6049c95fe64305bca90bd54fbe63f0c02aa66c23204860186118",
     "docs/report/source-relations/sead/analysis-categorical-values/README.md": "766d68a14a4a6fffdd6fd005f1c5d37c7ca8e64a57ba1b69385eb4cf55bfa82d",
     "docs/report/source-relations/sead/analysis-categorical-values/report.json": "8ada887dccab478198935df6aa273f96d7422eb73f062be582bb5b121db7131e"
   }

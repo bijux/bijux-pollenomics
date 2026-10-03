@@ -58,6 +58,13 @@ def _reconcile_parent(
     parent_digest: str,
 ) -> None:
     parent_id = parent["analysis_value_id"]
+    entity_id = parent["analysis_entity_id"]
+    if (
+        type(entity_id) is not int
+        or entity_id <= 0
+        or observation.get("entity_relation_id") != f"sead-analysis-entity:{entity_id}"
+    ):
+        raise ValueError("SEAD categorical parent entity relation differs")
     if (
         observation["source_table"] != "tbl_analysis_values"
         or observation["source_record_id"] != str(parent_id)
@@ -101,6 +108,14 @@ def _reconcile_support(
     ):
         raise ValueError("SEAD categorical unit semantics differ")
     link = observation["chronology_link"]
+    entity_id = parent["analysis_entity_id"]
+    if (
+        type(entity_id) is not int
+        or entity_id <= 0
+        or observation.get("entity_relation_id") != f"sead-analysis-entity:{entity_id}"
+        or link.get("entity_relation_id") != observation["entity_relation_id"]
+    ):
+        raise ValueError("SEAD categorical chronology entity relation differs")
     eligible, claims = link["eligible_claim_count"], link["claim_count"]
     if (
         type(eligible) is not int

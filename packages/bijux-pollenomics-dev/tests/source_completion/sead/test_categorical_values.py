@@ -19,6 +19,7 @@ from bijux_pollenomics_dev.source_completion.sead.categorical_values import (
 def source() -> tuple[dict[str, Any], dict[str, Any], dict[str, Any]]:
     parent = {
         "analysis_value_id": 2,
+        "analysis_entity_id": 13,
         "value_class_id": 8,
         "analysis_value": "source display",
     }
@@ -37,6 +38,7 @@ def source() -> tuple[dict[str, Any], dict[str, Any], dict[str, Any]]:
         "source_value_field": "analysis_value",
         "source_value": "source display",
         "source_value_state": "reported",
+        "entity_relation_id": "sead-analysis-entity:13",
         "source_components": {"tbl_analysis_categorical_values": [component.copy()]},
         "event_eligibility": "refused",
         "event_refusal_reason_codes": ["source_classification_not_accepted"],
@@ -50,6 +52,7 @@ def source() -> tuple[dict[str, Any], dict[str, Any], dict[str, Any]]:
             "claim_count": 1,
             "status": "direct_analysis_entity_context_only",
             "selection_rule": "same_analysis_entity_only",
+            "entity_relation_id": "sead-analysis-entity:13",
         },
     }
     return parent, component, observation
@@ -140,6 +143,30 @@ def test_chronology_context_and_missing_unit_remain_separate() -> None:
     changed["source_semantics"]["source_unit_id"] = 8
     with pytest.raises(ValueError, match="unit semantics differ"):
         _reconcile_support(changed, parent, {"unit_id": None}, {})
+
+
+def test_categorical_chronology_must_share_raw_parent_entity_identity() -> None:
+    parent, component, observation = source()
+    wrong_observation = copy.deepcopy(observation)
+    wrong_observation["entity_relation_id"] = "sead-analysis-entity:14"
+    with pytest.raises(ValueError, match="parent entity relation differs"):
+        _reconcile_parent(wrong_observation, parent, [component], "parent-digest")
+
+
+def test_categorical_chronology_link_must_share_observation_entity() -> None:
+    parent, _, observation = source()
+    wrong_link = copy.deepcopy(observation)
+    wrong_link["chronology_link"]["entity_relation_id"] = "sead-analysis-entity:14"
+    with pytest.raises(ValueError, match="chronology entity relation differs"):
+        _reconcile_support(wrong_link, parent, {"unit_id": None}, {})
+
+
+def test_categorical_parent_entity_key_cannot_be_boolean() -> None:
+    parent, component, observation = source()
+    parent["analysis_entity_id"] = True
+    observation["source_row"] = parent.copy()
+    with pytest.raises(ValueError, match="parent entity relation differs"):
+        _reconcile_parent(observation, parent, [component], "parent-digest")
 
 
 @pytest.mark.parametrize("eligible,claims", [(True, 1), (1, 0), (0, -1), (0, 1.0)])

@@ -3676,8 +3676,8 @@
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sead/categorical_values.py",
-      "sha256": "1ee982deb1d56d4285a3d604f0b3eab288aa69d4817df5d0241bc78a1ec26d28",
-      "bytes": 14575
+      "sha256": "315681b13dcd657f510f43e3dac081b5688a20010a556696b167a384560108bf",
+      "bytes": 15230
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sead/chronology_age_review.py",
@@ -4136,8 +4136,8 @@
     },
     {
       "path": "packages/bijux-pollenomics-dev/tests/source_completion/sead/test_categorical_values.py",
-      "sha256": "14541d23c728443ec8571f80084ae9ea6edc48b72d5c2c55aaac887823ee9ec9",
-      "bytes": 7449
+      "sha256": "5726eeedcecc6049c95fe64305bca90bd54fbe63f0c02aa66c23204860186118",
+      "bytes": 8763
     },
     {
       "path": "packages/bijux-pollenomics-dev/tests/source_completion/sead/test_chronology_cli.py",
