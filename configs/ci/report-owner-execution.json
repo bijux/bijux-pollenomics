@@ -1554,6 +1554,28 @@
       "source_arguments": [],
       "output_mode": "single_file",
       "timeout_seconds": 240
+    },
+    {
+      "module": "bijux_pollenomics_dev.source_completion.pollen_reconstruction.swedish_direct_pollen",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "pollen-reconstruction/swedish-direct-pollen/report-products",
+      "source_arguments": [],
+      "source_paths": {
+        "source-products/cohort.csv": "docs/report/pollen-reconstruction/swedish-direct-pollen/cohort.csv",
+        "source-products/exclusions.csv": "docs/report/pollen-reconstruction/swedish-direct-pollen/exclusions.csv",
+        "source-products/input-manifest.json": "docs/report/pollen-reconstruction/swedish-direct-pollen/input-manifest.json",
+        "source-products/predictions-scored.csv": "docs/report/pollen-reconstruction/swedish-direct-pollen/predictions-scored.csv",
+        "source-products/predictions/site-13338.json": "docs/report/pollen-reconstruction/swedish-direct-pollen/predictions/site-13338.json",
+        "source-products/predictions/site-28869.json": "docs/report/pollen-reconstruction/swedish-direct-pollen/predictions/site-28869.json",
+        "source-products/predictions/site-28872.json": "docs/report/pollen-reconstruction/swedish-direct-pollen/predictions/site-28872.json",
+        "source-products/prepared/dataset-19913.json": "docs/report/pollen-reconstruction/swedish-direct-pollen/prepared/dataset-19913.json",
+        "source-products/prepared/dataset-53995.json": "docs/report/pollen-reconstruction/swedish-direct-pollen/prepared/dataset-53995.json",
+        "source-products/prepared/dataset-54001.json": "docs/report/pollen-reconstruction/swedish-direct-pollen/prepared/dataset-54001.json",
+        "source-products/scores.csv": "docs/report/pollen-reconstruction/swedish-direct-pollen/scores.csv",
+        "source-products/summary.json": "docs/report/pollen-reconstruction/swedish-direct-pollen/summary.json"
+      },
+      "timeout_seconds": 600
     }
   ]
 }
