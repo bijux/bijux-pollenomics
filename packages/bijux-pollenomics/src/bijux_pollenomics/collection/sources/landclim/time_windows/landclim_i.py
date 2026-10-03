@@ -117,11 +117,18 @@ def _landclim_i_values_by_cell(
         return {}
     header_index = _landclim_i_header_index(rows)
     headers = rows[header_index]
-    return {
-        clean_optional_text(row[2]): _numeric_values(headers, row, start_index=4)
-        for row in rows[header_index + 1 :]
-        if len(row) > 2 and clean_optional_text(row[2])
-    }
+    values: dict[str, dict[str, float]] = {}
+    for row in rows[header_index + 1 :]:
+        cell_label = clean_optional_text(row[2]) if len(row) > 2 else ""
+        if not cell_label:
+            continue
+        if cell_label in values:
+            raise ValueError(
+                "LandClim I standard errors repeat source cell "
+                f"{cell_label} in sheet {sheet_name}"
+            )
+        values[cell_label] = _numeric_values(headers, row, start_index=4)
+    return values
 
 
 def _landclim_i_header_index(rows: list[list[str]]) -> int:
