@@ -8,6 +8,7 @@ from importlib import metadata
 import json
 from pathlib import Path
 import shutil
+import subprocess
 from typing import Any
 
 import numpy as np
@@ -18,6 +19,8 @@ from bijux_pollenomics_dev.lra_validation.reference_replay import (
     CERTIFICATE_SHA256,
     compare_vectors,
 )
+
+from .native_reference.source_replay import build_source_replay
 
 _SAFE_ENVIRONMENT = frozenset(
     {
@@ -250,8 +253,15 @@ def summarize(
             "no ecological accuracy or measured vegetation truth",
         ],
     }
+    revision = subprocess.check_output(
+        ("git", "rev-parse", "HEAD"), cwd=repository, text=True, timeout=30
+    ).strip()
+    source_replay = build_source_replay(report, revision)
     (output / "report.json").write_text(
         json.dumps(report, indent=2, allow_nan=False) + "\n"
+    )
+    (output / "source-replay.json").write_text(
+        json.dumps(source_replay, indent=2, allow_nan=False) + "\n"
     )
     return report
 

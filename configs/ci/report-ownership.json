@@ -4393,7 +4393,9 @@
       ],
       "producer_paths": [
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/live_reference.py",
-        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/live_reference_comparison.py"
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/live_reference_comparison.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/native_reference/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/native_reference/source_replay.py"
       ],
       "role": "unresolved",
       "verification": "The live R producer requires the exact five private source archives, native R 4.6.0 executable/library, installed DISQOVER and source-locked Python tree. The retained source replay verifies source hashes and 97 numeric CSVs, but verification of retained bytes is not independent production custody. Keep all raw capture and report files unresolved; do not infer Linux release certification."
