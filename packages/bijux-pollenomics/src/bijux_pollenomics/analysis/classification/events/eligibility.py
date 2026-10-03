@@ -46,6 +46,22 @@ def assess_classification_eligibility(
     All supplied rows bind the input digest, including duplicate/refused rows.
     Callers cannot supply an authority receipt or bypass the authority universe.
     """
+    return _assess_classification_eligibility(
+        observation_memberships=observation_memberships,
+        classification_mappings=classification_mappings,
+        observations=observations,
+        context=context,
+    )
+
+
+def _assess_classification_eligibility(
+    *,
+    observation_memberships: Sequence[Mapping[str, object]],
+    classification_mappings: Sequence[Mapping[str, object]],
+    observations: Sequence[Mapping[str, object]],
+    context: ClassificationReviewContext,
+    retain_context: bool = False,
+) -> ClassificationEligibilityResult:
     # Freeze caller-owned rows and choose a stable representative for refused
     # duplicate identities; no conflicting row becomes an eligible observation.
     observation_memberships = _ordered_rows(observation_memberships)
@@ -64,7 +80,7 @@ def assess_classification_eligibility(
         classification_mappings
     )
     ambiguous = authority._ambiguous_authorized_mapping_ids(
-        classification_mappings, context
+        classification_mappings, context, retain_context=retain_context
     )
     rows: list[dict[str, object]] = []
     for observation_id in sorted(set(members) | set(source)):
@@ -94,6 +110,7 @@ def assess_classification_eligibility(
                 universe_reason,
                 ambiguous,
                 context,
+                retain_context=retain_context,
             )
         if (
             reason is None
@@ -101,7 +118,9 @@ def assess_classification_eligibility(
             and observation is not None
             and membership is not None
         ):
-            reason = _source_identity_refusal_reason(mapping, observation)
+            reason = _source_identity_refusal_reason(
+                mapping, observation, pollen_only=not retain_context
+            )
             if reason is None:
                 reason = _lineage_refusal(membership, observation, context)
         rows.append(

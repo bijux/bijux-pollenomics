@@ -7,6 +7,10 @@ from bijux_pollenomics.core.temporal_semantics import (
     InvalidBpIntervalError,
     canonical_bp_interval,
 )
+from bijux_pollenomics.evidence.classification.review import (
+    context_category_refusal,
+    is_context_category,
+)
 
 from . import authority as classification_authority
 from .identity import (
@@ -50,6 +54,8 @@ def _classification_refusal_reason(
     authority_universe_reason: str | None,
     ambiguous_authorized_mapping_ids: set[str],
     context: ClassificationEventContext | ClassificationReviewContext,
+    *,
+    retain_context: bool = False,
 ) -> str | None:
     if authority_universe_reason == "invalid_classification_authority_receipt":
         return authority_universe_reason
@@ -99,12 +105,26 @@ def _classification_refusal_reason(
         return authority_universe_reason
     if concept_id in ambiguous_authorized_mapping_ids:
         return "ambiguous_authorized_classification_mapping"
+    context_category = retain_context and is_context_category(mapping)
+    if context_category:
+        category_reason = context_category_refusal(mapping)
+        if category_reason is not None:
+            return category_reason
     if (
         _optional_text(mapping.get("source_variable_id")) is None
-        or not _source_taxon_identity(mapping.get("source_taxon_id"))
+        or (
+            not _source_taxon_identity(mapping.get("source_taxon_id"))
+            and not (context_category and mapping.get("source_taxon_id") is None)
+        )
         or _optional_text(mapping.get("source_reported_name")) is None
-        or _optional_text(mapping.get("source_element_type")) != "pollen"
-        or _optional_text(mapping.get("accepted_rank")) is None
+        or (
+            not context_category
+            and _optional_text(mapping.get("source_element_type")) != "pollen"
+        )
+        or (
+            not context_category
+            and _optional_text(mapping.get("accepted_rank")) is None
+        )
     ):
         return "classification_source_identity_incomplete"
     if (
@@ -118,8 +138,14 @@ def _classification_refusal_reason(
         return "classification_review_incomplete"
     review_complete = all(
         (
-            mapping.get("review_complete") is True,
-            mapping.get("release_eligible") is True,
+            mapping.get(
+                "context_review_complete" if context_category else "review_complete"
+            )
+            is True,
+            mapping.get(
+                "context_release_eligible" if context_category else "release_eligible"
+            )
+            is True,
             _optional_text(mapping.get("reviewer_id")) is not None,
             _optional_text(mapping.get("decision_date")) is not None,
             _optional_text(mapping.get("mapping_version")) is not None,
@@ -128,6 +154,8 @@ def _classification_refusal_reason(
     )
     if not review_complete:
         return "classification_review_incomplete"
+    if context_category:
+        return None
     required = (
         "accepted_taxon_concept_id",
         "primary_group_id",
@@ -201,10 +229,14 @@ def _roles_match_hierarchy(
 
 
 def _source_identity_refusal_reason(
-    mapping: Mapping[str, object], observation: Mapping[str, object]
+    mapping: Mapping[str, object],
+    observation: Mapping[str, object],
+    *,
+    pollen_only: bool = True,
 ) -> str | None:
     if any(
-        type(observation.get(field_name)) is not type(mapping.get(field_name))
+        (field_name in observation) != (field_name in mapping)
+        or type(observation.get(field_name)) is not type(mapping.get(field_name))
         or observation.get(field_name) != mapping.get(field_name)
         for field_name in (
             "source_variable_id",
@@ -214,7 +246,10 @@ def _source_identity_refusal_reason(
         )
     ):
         return "classification_source_identity_mismatch"
-    if _optional_text(observation.get("source_element_type")) != "pollen":
+    if (
+        pollen_only
+        and _optional_text(observation.get("source_element_type")) != "pollen"
+    ):
         return "non_pollen_observation"
     return None
 

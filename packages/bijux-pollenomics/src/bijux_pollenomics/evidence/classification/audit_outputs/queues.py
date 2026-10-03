@@ -4,6 +4,7 @@ from __future__ import annotations
 
 from collections.abc import Mapping, Sequence
 
+from ..review import context_category_refusal
 from .constants import ACCEPTED_STATUSES
 from .values import nonempty, sequence_values
 
@@ -42,6 +43,14 @@ def queue_row(concept: Mapping[str, object]) -> dict[str, object]:
         )
         and bool(citations)
     )
+    context_review_complete = (
+        status in ACCEPTED_STATUSES
+        and all(
+            nonempty(value) for value in (mapping_version, reviewer_id, decision_date)
+        )
+        and bool(citations)
+        and context_category_refusal(concept) is None
+    )
     return {
         "classification_concept_id": concept["classification_concept_id"],
         "source_family": concept.get("source_family"),
@@ -62,6 +71,9 @@ def queue_row(concept: Mapping[str, object]) -> dict[str, object]:
         "decision_date": decision_date,
         "citation_reference_ids": citations,
         "review_complete": review_complete,
+        "context_review_complete": context_review_complete,
+        "context_release_eligible": concept.get("release_eligible") is True
+        and context_review_complete,
         "release_eligible": bool(concept.get("release_eligible", False))
         and review_complete,
         "release_blocker_reason_codes": tuple(
