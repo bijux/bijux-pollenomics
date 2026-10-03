@@ -3511,8 +3511,8 @@
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/nordic/lilla_gloppsjon_execution.py",
-      "sha256": "f193dc7bb87de70968f6c11cc33ea3c6da3e785f3038f33805b5f278ac24e144",
-      "bytes": 9250
+      "sha256": "f9b0d86abc795003c500681148a5d44c3599a873065ede18ff8b8227ce0d0bb6",
+      "bytes": 11013
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/nordic/lilla_gloppsjon_predictions.py",
@@ -4181,8 +4181,8 @@
     },
     {
       "path": "packages/bijux-pollenomics-dev/tests/source_completion/nordic/test_lilla_gloppsjon_execution.py",
-      "sha256": "057eb6c6fb65b951d5c188213c2cc64806ff8eccde3cdbd60c2d6fd7dd52ee2d",
-      "bytes": 10859
+      "sha256": "a00c963c461f1c24473e94d4b079101bd0bfb36198b41dc2c17c2ae495223ec5",
+      "bytes": 14020
     },
     {
       "path": "packages/bijux-pollenomics-dev/tests/source_completion/nordic/test_method_input_clis.py",

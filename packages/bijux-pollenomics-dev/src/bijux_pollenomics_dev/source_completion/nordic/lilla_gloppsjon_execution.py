@@ -22,6 +22,7 @@ FROZEN_FILES = {"freeze.json", "predictions.json"}
 SCORED_FILES = {"coverage.csv", "report.json", "sample-counts.csv", "scores.csv"}
 INTERVAL_FILES = {"coverage.csv", "report.json", "samples.csv", "scores.csv"}
 SITE = "neotoma:site:3234"
+METHODS = ("training_mean", "nearest_site", "inverse_distance_squared")
 
 
 def _sha(path: Path) -> str:
@@ -114,6 +115,40 @@ def _json(path: Path, repository: Path) -> dict[str, Any]:
     return value
 
 
+def _prediction_grid(repository: Path, prediction_path: Path) -> None:
+    """Require one target-free prediction for each declared bin and method."""
+    protocol = _json(repository / STUDY / "protocol.json", repository)
+    if (
+        protocol.get("candidate_bin_ids") != list(range(23))
+        or tuple(protocol.get("methods", ())) != METHODS
+    ):
+        raise ValueError("Lilla prediction protocol grid differs")
+    payload = _json(prediction_path, repository)
+    rows = payload.get("predictions")
+    if not isinstance(rows, list) or len(rows) != 69 or payload.get("refusals") != []:
+        raise ValueError("Lilla prediction row population differs")
+    pairs: list[tuple[int, str]] = []
+    for row in rows:
+        if not isinstance(row, dict):
+            raise ValueError("Lilla prediction row must be an object")
+        bin_id = row.get("bin_id")
+        method = row.get("method")
+        training = row.get("training_site_ids")
+        if (
+            type(bin_id) is not int
+            or not isinstance(method, str)
+            or row.get("site_id") != SITE
+            or not isinstance(training, list)
+            or any(not isinstance(site, str) for site in training)
+            or SITE in training
+        ):
+            raise ValueError("Lilla prediction source identity differs")
+        pairs.append((bin_id, method))
+    expected = {(bin_id, method) for bin_id in range(23) for method in METHODS}
+    if len(set(pairs)) != len(pairs) or set(pairs) != expected:
+        raise ValueError("Lilla prediction bin-method grid differs")
+
+
 def _retained_freeze(repository: Path) -> tuple[Path, str]:
     frozen = _real_dir(repository / STUDY / "frozen", repository)
     _files(repository, frozen, FROZEN_FILES)
@@ -131,6 +166,7 @@ def _retained_freeze(repository: Path) -> tuple[Path, str]:
         or predictions.get("refusals") != []
     ):
         raise ValueError("retained Lilla prediction freeze differs")
+    _prediction_grid(repository, frozen / "predictions.json")
     return frozen, _sha(frozen / "freeze.json")
 
 
@@ -173,6 +209,7 @@ def predict_to_artifacts(repository: Path, output: Path) -> None:
         or freeze.get("predictions_sha256") != _sha(output / "predictions.json")
     ):
         raise ValueError("Lilla prediction stage differs")
+    _prediction_grid(repository, output / "predictions.json")
 
 
 def score_to_artifacts(repository: Path, output: Path) -> None:
