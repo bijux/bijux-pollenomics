@@ -205,3 +205,68 @@ def test_no_background_observed_zeros_have_exact_zero_cover_and_owned_results() 
     for value in (fit.cover, fit.predicted, fit.mixture):
         with pytest.raises(ValueError):
             value[0] = 1
+
+
+@pytest.mark.parametrize(
+    "weights,coefficients,expected",
+    [
+        ([0.0, 1.0, 2.0], [np.nextafter(0.0, 1.0), 1.0, 1.0], [0.0, 1 / 3, 2 / 3]),
+        ([0.0, 1.0, 2.0], [4 * np.nextafter(0.0, 1.0), 1.0, 4.0], [0.0, 2 / 3, 1 / 3]),
+        (
+            [0.0, 0.0, 1.0, 2.0],
+            [4 * np.nextafter(0.0, 1.0), 16 * np.nextafter(0.0, 1.0), 1.0, 4.0],
+            [0.0, 0.0, 2 / 3, 1 / 3],
+        ),
+        (
+            [0.0, 1.0, 2.0, 0.0],
+            [4 * np.nextafter(0.0, 1.0), 1.0, 4.0, 1e-200],
+            [0.0, 2 / 3, 1 / 3, 0.0],
+        ),
+    ],
+    ids=[
+        "inactive-smallest",
+        "heterogeneous-active",
+        "two-inactive",
+        "inactive-both-ends",
+    ],
+)
+def test_inactive_tiny_coefficient_cannot_corrupt_identifiable_active_cover(
+    weights: list[float], coefficients: list[float], expected: list[float]
+) -> None:
+    # With no background, multinomial pollen MLE is the observed fraction.
+    # The independently reduced two active-taxon cover odds are n1*a2/(n2*a1).
+    # Thus equal active coefficients give1:2 cover; coefficients1:4 give2:1.
+    observed = np.asarray(weights)
+    a = np.asarray(coefficients)
+    original = observed.copy(), a.copy()
+    background = np.zeros(len(weights))
+    fit = fit_homogeneous_likelihood(observed, a, background)
+    np.testing.assert_allclose(fit.cover, expected, rtol=0, atol=1e-15)
+    np.testing.assert_allclose(fit.predicted, observed / 3, rtol=0, atol=1e-15)
+    assert fit.converged and fit.exact_composition_fit and fit.steps == 0
+    assert fit.vertex_condition_number == 1
+    assert fit.optimality_gap <= fit.gap_tolerance
+    assert fit.mean_negative_log_likelihood == pytest.approx(
+        -(np.log(1 / 3) + 2 * np.log(2 / 3)) / 3, abs=1e-15
+    )
+    np.testing.assert_array_equal(fit.cover[observed == 0], 0)
+    order = np.arange(len(weights))[::-1]
+    reverse = fit_homogeneous_likelihood(observed[order], a[order], background)
+    np.testing.assert_allclose(
+        reverse.cover, np.asarray(expected)[order], rtol=0, atol=1e-15
+    )
+    np.testing.assert_array_equal(observed, original[0])
+    np.testing.assert_array_equal(a, original[1])
+    assert not fit.cover.flags.writeable
+
+
+@pytest.mark.parametrize("scale", [2.0**-8, 1.0, 2.0**8])
+def test_inactive_coefficient_preserves_common_deposition_units(scale: float) -> None:
+    # The inactive coefficient remains positive/representable after every unit
+    # change. The likelihood and exact active cover do not depend on that scale.
+    fit = fit_homogeneous_likelihood(
+        [0, 1, 2], np.array([2.0**-1060, 1.0, 4.0]) * scale, np.zeros(3)
+    )
+    np.testing.assert_allclose(fit.cover, [0.0, 2 / 3, 1 / 3], rtol=0, atol=1e-15)
+    assert fit.converged and fit.exact_composition_fit and fit.steps == 0
+    assert fit.vertex_condition_number == 1

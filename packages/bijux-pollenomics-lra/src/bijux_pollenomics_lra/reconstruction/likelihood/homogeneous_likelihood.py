@@ -94,8 +94,14 @@ def homogeneous_cover_to_mixture(
 
 
 def _cover(mixture: np.ndarray, denominators: np.ndarray) -> np.ndarray:
-    # Normalize reciprocal scales before division to avoid reciprocal overflow.
-    weights = mixture * (float(denominators.min()) / denominators)
+    # Zero-mixture taxa have zero cover and must not set reciprocal scale.
+    # Evaluate only active entries: dividing by an inactive tiny denominator
+    # can overflow before multiplication by its zero mixture weight.
+    active = mixture > 0
+    weights = np.zeros_like(mixture)
+    weights[active] = mixture[active] * (
+        float(denominators[active].min()) / denominators[active]
+    )
     return weights / _mass(weights, "cover")
 
 
