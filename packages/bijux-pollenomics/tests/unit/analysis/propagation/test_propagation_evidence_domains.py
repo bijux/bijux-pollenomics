@@ -90,7 +90,8 @@ def test_non_pollen_domains_cannot_use_pollen_aggregate_resolutions(
     assert error.value.reason_code == "incompatible_evidence_domain_resolution"
 
 
-def test_domain_is_part_of_identity_and_pair_compatibility() -> None:
+@pytest.mark.parametrize("_fixture_id", ["PROP-018"])
+def test_domain_is_part_of_identity_and_pair_compatibility(_fixture_id: str) -> None:
     pollen = _event("shared")
     human = replace(pollen, evidence_domain="human_ancient_dna", event_id="")
     animal = replace(pollen, evidence_domain="animal_ancient_dna", event_id="")
@@ -112,7 +113,10 @@ def test_domain_is_part_of_identity_and_pair_compatibility() -> None:
     )
 
 
-def test_network_partitions_domains_before_pollen_pair_accounting() -> None:
+@pytest.mark.parametrize("_fixture_id", ["PROP-020"])
+def test_network_partitions_domains_before_pollen_pair_accounting(
+    _fixture_id: str,
+) -> None:
     pollen_source = _event("pollen-source", age_bp=5600)
     pollen_target = _event("pollen-target", age_bp=5500, longitude=13.01)
     human = _event("human", evidence_domain="human_ancient_dna", age_bp=5600)
@@ -184,3 +188,37 @@ def test_non_pollen_only_network_has_exact_zero_pollen_denominators() -> None:
         "human_ancient_dna": 1,
         "animal_ancient_dna": 1,
     }
+
+
+@pytest.mark.parametrize(
+    "domain",
+    [
+        pytest.param("human_ancient_dna", id="PROP-019"),
+        pytest.param("animal_ancient_dna", id="PROP-019-animal-domain"),
+    ],
+)
+def test_same_non_pollen_domain_remains_an_event_exclusion_not_a_pair_refusal(
+    domain: str,
+) -> None:
+    source = _event("source", evidence_domain=domain)
+    target = _event("target", evidence_domain=domain, age_bp=5500, longitude=13.01)
+    direct = evaluate_propagation_pair(source, target)
+    assert isinstance(direct, PropagationPairRefusal)
+    assert direct.reason_code == "evidence_domain_not_pollen_propagation_eligible"
+    network = generate_propagation_network((source, target))
+    reverse = generate_propagation_network_exhaustive((target, source))
+    assert network.as_dict() == reverse.as_dict()
+    assert network.events == ()
+    assert {row.event_id for row in network.excluded_non_pollen_events} == {
+        source.event_id,
+        target.event_id,
+    }
+    for scenario in network.scenario_results:
+        assert scenario.evaluated_pairs == ()
+        assert scenario.refusals == ()
+        assert scenario.reconciliation.input_event_count == 2
+        assert scenario.reconciliation.eligible_event_count == 0
+        assert scenario.reconciliation.excluded_non_pollen_event_count == 2
+        assert scenario.reconciliation.evaluated_pair_count == 0
+        assert scenario.reconciliation.refused_pair_count == 0
+        assert dict(scenario.reconciliation.evidence_domain_event_counts)[domain] == 2
