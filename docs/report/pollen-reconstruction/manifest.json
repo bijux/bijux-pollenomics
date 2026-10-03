@@ -4085,6 +4085,11 @@
       "bytes": 4200
     },
     {
+      "path": "packages/bijux-pollenomics-dev/tests/source_completion/test_abbo_age_controls.py",
+      "sha256": "93893d75fa22adb63ddd2801a34af6ccf9bc675d2d356c02621c9915c51d50c0",
+      "bytes": 4260
+    },
+    {
       "path": "packages/bijux-pollenomics-dev/tests/source_completion/test_bjaresjo_context.py",
       "sha256": "5ea4ba24c668c028c986429c8685b9a276b29b495cd4d9b10d4de6a50d8f8e4e",
       "bytes": 1705
