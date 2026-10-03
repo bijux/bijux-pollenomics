@@ -64,8 +64,12 @@ def test_nordic_publication_writes_identity_bound_storyboards(
         "version": "v66",
         "countries": ["Denmark", "Finland", "Norway", "Sweden"],
     }
-    assert manifest["source_chronology"]["story_count"] == 9
-    assert manifest["modeled_context"]["story_count"] == 47
+    source_chronology = manifest["source_chronology"]
+    modeled_context = manifest["modeled_context"]
+    assert isinstance(source_chronology, dict)
+    assert isinstance(modeled_context, dict)
+    assert source_chronology["story_count"] == 9
+    assert modeled_context["story_count"] == 47
     assert artifacts == [
         (
             "Governed oldest-to-present playback storyboards",

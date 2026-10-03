@@ -4350,6 +4350,21 @@
       "bytes": 2510
     },
     {
+      "path": "packages/bijux-pollenomics/tests/unit/reporting/bundles/atlas_bundle/test_animal_chronology_publication.py",
+      "sha256": "8efce76e19f39a21c2cd712cbf42706c0e93c477d453e74067c0cc245e1ab80e",
+      "bytes": 9713
+    },
+    {
+      "path": "packages/bijux-pollenomics/tests/unit/reporting/bundles/atlas_bundle/test_animal_sample_chronology.py",
+      "sha256": "87023d15b59c85869a69b1732c14e7135236c1a1b486be89a1b98738fa6808b6",
+      "bytes": 13481
+    },
+    {
+      "path": "packages/bijux-pollenomics/tests/unit/reporting/bundles/atlas_bundle/test_playback_publication.py",
+      "sha256": "920a9822df01d49d344a12c6223f82fb3939ef84a1c2df2aba785876a0b25ebd",
+      "bytes": 4217
+    },
+    {
       "path": "packages/bijux-pollenomics/tests/unit/reporting/rendering/test_markdown_contracts.py",
       "sha256": "7a1e398402e3143ea43d7197be4ad5a5f90b3ea8674f12a95ea3261854487398",
       "bytes": 7109
