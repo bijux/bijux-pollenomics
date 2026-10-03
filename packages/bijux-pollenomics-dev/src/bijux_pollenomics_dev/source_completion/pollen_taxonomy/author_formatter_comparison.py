@@ -51,7 +51,7 @@ def _stage(repository: Path, destination: Path) -> Path:
     for segment in ("jobs", "report-preparation", "author-formatter"):
         candidate = parent / segment
         if not candidate.exists() and not candidate.is_symlink():
-            candidate.mkdir()
+            candidate.mkdir(exist_ok=True)
         parent = _regular_path(candidate, directory=True)
     stage = parent / name / "complete-stage"
     if stage.parent.exists() or stage.parent.is_symlink():

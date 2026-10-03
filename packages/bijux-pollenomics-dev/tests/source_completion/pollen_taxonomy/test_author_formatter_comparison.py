@@ -3,11 +3,13 @@
 from __future__ import annotations
 
 from collections.abc import Callable
+from concurrent.futures import ThreadPoolExecutor
 from dataclasses import dataclass
 import hashlib
 from pathlib import Path
 import shutil
 import subprocess
+from threading import Barrier
 
 import pytest
 
@@ -214,6 +216,45 @@ def test_reused_complete_stage_refused(case: Case) -> None:
     case.output.unlink()
     with pytest.raises(ValueError, match="stage must be absent"):
         invoke(case)
+
+
+def test_two_owners_allocate_distinct_stages_after_shared_ancestor_race(
+    case: Case, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    shared = case.repository / "artifacts/jobs/report-preparation/author-formatter"
+    shared.parent.mkdir(parents=True)
+    barrier = Barrier(2)
+    original_mkdir = Path.mkdir
+
+    def simultaneous_mkdir(
+        path: Path, mode: int = 0o777, parents: bool = False, exist_ok: bool = False
+    ) -> None:
+        if path == shared:
+            barrier.wait(timeout=5)
+        original_mkdir(path, mode=mode, parents=parents, exist_ok=exist_ok)
+
+    monkeypatch.setattr(Path, "mkdir", simultaneous_mkdir)
+    outputs = (case.output, case.output.with_name("other-sites.csv"))
+    with ThreadPoolExecutor(max_workers=2) as workers:
+        futures = [
+            workers.submit(
+                subject.run,
+                case.repository,
+                case.source_root,
+                subject.DESCRIPTOR,
+                output,
+            )
+            for output in outputs
+        ]
+        for future in futures:
+            future.result(timeout=10)
+    assert all(output.read_bytes().count(b"\n") == 18 for output in outputs)
+    stages = list(shared.glob("*/complete-stage"))
+    assert len(stages) == 2
+    assert all(
+        stage.is_relative_to(shared) and (stage / "sites.csv").is_file()
+        for stage in stages
+    )
 
 
 def test_linked_stage_ancestor_refused(case: Case, tmp_path: Path) -> None:
