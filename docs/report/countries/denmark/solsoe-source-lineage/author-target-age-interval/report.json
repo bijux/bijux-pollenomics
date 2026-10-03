@@ -32,7 +32,7 @@
   "parent_scored_bins": 24,
   "parent_scores_sha256": "6febc4c908470614571b0df3633cfaca218c098cea684929f75b82c56344c205",
   "parent_sealed_outcomes_sha256": "63e816d1c5cfb695781f652dce1dc3667e6fb0efb19bb1f1a59622a13c336b46",
-  "protocol_sha256": "82f3774691e5447fc7b84c089ca8b9d02121a879b5f0f660b7ed52d6791c6eac",
+  "protocol_sha256": "45dd6fc90b8550f1e4758007030d4987044fda49bba5eea2ecdd9862302ed7ed",
   "retained_by_core": {
     "SOLSOE81": 14,
     "SOLSOE83": 1
