@@ -2,12 +2,12 @@
 
 from __future__ import annotations
 
+from importlib.metadata import version
 import json
 import os
+from pathlib import Path
 import re
 import subprocess
-from importlib.metadata import version
-from pathlib import Path
 from typing import Any
 
 from .render import ReportRenderer, document_latex

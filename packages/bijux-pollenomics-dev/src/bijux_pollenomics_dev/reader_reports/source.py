@@ -3,13 +3,12 @@
 from __future__ import annotations
 
 import csv
+from dataclasses import dataclass
 import hashlib
 import os
-import re
-from dataclasses import dataclass
 from pathlib import Path, PurePosixPath
+import re
 from urllib.parse import unquote, urlsplit
-
 
 PAPER_ID = re.compile(r"[a-z0-9]+(?:-[a-z0-9]+)*\Z")
 REPORT_PREFIX = PurePosixPath("reports/science")

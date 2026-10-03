@@ -4,8 +4,8 @@ import pytest
 
 from bijux_pollenomics_dev.reader_reports.diagram import DiagramError, mermaid_to_dot
 from bijux_pollenomics_dev.reader_reports.render import (
-    ReportRenderer,
     RenderError,
+    ReportRenderer,
     _inline_code,
     document_latex,
     escape_latex,

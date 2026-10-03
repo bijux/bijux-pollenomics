@@ -3065,6 +3065,26 @@
       "bytes": 39986
     },
     {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/reader_reports/diagram.py",
+      "sha256": "22b53b3be6e6605cb24929162ac665e7e5a9e57bd0243c83363d011d46186146",
+      "bytes": 3070
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/reader_reports/export.py",
+      "sha256": "b5ef1da5597cb12ab099c88b515d2b32cf67cfd701b5ecbcebf93e966ebb36e3",
+      "bytes": 9696
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/reader_reports/render.py",
+      "sha256": "02b57b39c804bf1cb85a9dd3ebad26583ff8a7f6b91dad0777962a346664a46f",
+      "bytes": 13739
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/reader_reports/source.py",
+      "sha256": "5e0100d2920eea2b8378fc695d521e85d448d671a03275786316702c37567f32",
+      "bytes": 6382
+    },
+    {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/release/publication_guard.py",
       "sha256": "5fedf128c97212071b80fb3fc0501df117642addf4fb016a7704a670ba342abd",
       "bytes": 7492
@@ -3566,8 +3586,8 @@
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sambosjon_direct_pollen.py",
-      "sha256": "1728ecee3671eac078bc6178def66593584646692b07fda0cea58433c018cd4d",
-      "bytes": 22571
+      "sha256": "f7b3746545373ec55426198e26a381f14c67a2d78d0bd666cc95cbe7c46d6384",
+      "bytes": 22557
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sead/__init__.py",
@@ -3621,8 +3641,8 @@
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sead_country_source_units.py",
-      "sha256": "662cb399ca05ae230450b0e2985a512d3641a7aef97fbef64a40480c5f697286",
-      "bytes": 16857
+      "sha256": "a3bb30b593e05344fe9ea50eb3058fb613207a0330ba7df25851262ab32c464c",
+      "bytes": 16927
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sead_map_candidate.py",
@@ -3646,8 +3666,8 @@
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/swedish_chronology_block.py",
-      "sha256": "d3403ef75d7e39a9432d15fc37df89ba5d2a559e91cdaf4579e6df3c6713b549",
-      "bytes": 23088
+      "sha256": "273c7c2271544d2c6bd78effb0d0890c8c0a240cc8626eeb697fd784ada42161",
+      "bytes": 23055
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/swedish_direct_pollen.py",
@@ -3745,14 +3765,29 @@
       "bytes": 1646
     },
     {
+      "path": "packages/bijux-pollenomics-dev/tests/lra_validation/test_reconstruction_challenge.py",
+      "sha256": "1f859747e4d59d9a60ff63e7bacb16a2728157beb53a16246a4c5744daaa407b",
+      "bytes": 7710
+    },
+    {
       "path": "packages/bijux-pollenomics-dev/tests/reader_reports/test_claims.py",
       "sha256": "bf80d0658de9a2b6f84dd69c5afee14c9de6702ff31d6a641cf54d9208de1bcd",
       "bytes": 1499
     },
     {
+      "path": "packages/bijux-pollenomics-dev/tests/reader_reports/test_library.py",
+      "sha256": "8afe9328df87db6538ee66929f204908c4583a18ee17ccdc3975f0ca184fff5c",
+      "bytes": 1429
+    },
+    {
       "path": "packages/bijux-pollenomics-dev/tests/reader_reports/test_presentation_build.py",
       "sha256": "5c7320923db8e533548b9b9ea121203177e5ae43dc03601db289dd45046b84b5",
       "bytes": 3157
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/tests/reader_reports/test_render.py",
+      "sha256": "7d64b44e021cf0cb4fffaca4567b6a05fbb0e086ae9000255e48735ac87cc1d1",
+      "bytes": 4348
     },
     {
       "path": "packages/bijux-pollenomics-dev/tests/reader_reports/test_scientific_review.py",
@@ -4055,9 +4090,14 @@
       "bytes": 3874
     },
     {
+      "path": "packages/bijux-pollenomics-dev/tests/source_completion/test_storasjo_source_binding.py",
+      "sha256": "8b1f474ccb99d42d9fc351d7e7676c4f355fec866565d91aee23a142846e6f26",
+      "bytes": 1404
+    },
+    {
       "path": "packages/bijux-pollenomics-dev/tests/source_completion/test_swedish_chronology_block.py",
-      "sha256": "c268f66f1431b9533f7d1719074d5dde2a7ae386751a2997c6f34c2f689354ac",
-      "bytes": 5515
+      "sha256": "fcb0526557bff9a0fa59918ed3fd89bcf5094ee8169ce8c88cfa37df7f13ee55",
+      "bytes": 5514
     },
     {
       "path": "packages/bijux-pollenomics-dev/tests/source_completion/test_swedish_direct_pollen.py",
@@ -4120,6 +4160,11 @@
       "bytes": 10909
     },
     {
+      "path": "packages/bijux-pollenomics-dev/tests/test_report_rebuild_namibia_radius_owner.py",
+      "sha256": "f3e0613acc754dd7ef5edac5bc06571ee7e07214e6338be09cdbea3541a2ec74",
+      "bytes": 11012
+    },
+    {
       "path": "packages/bijux-pollenomics-dev/tests/test_report_rebuild_owner_invocation.py",
       "sha256": "06281f12b89a3d2d34f00cf68a9ac28006ba39dd7873a50fb95b06439dd60c1d",
       "bytes": 8840
@@ -4153,6 +4198,11 @@
       "path": "packages/bijux-pollenomics-dev/tests/test_scientific_change_impact.py",
       "sha256": "23f49be31827cbc39f9845a794a20a0736cd34630ea816b48e10a6fcf4592735",
       "bytes": 20291
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/tests/test_sead_map_candidate.py",
+      "sha256": "f61ef9cfa9897af17fd10137362251c0fa74e740e1a880742ba782fb55ff4859",
+      "bytes": 1418
     },
     {
       "path": "packages/bijux-pollenomics-lra/docs/reference/circular-receiver-annulus.md",

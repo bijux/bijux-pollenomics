@@ -2,11 +2,10 @@
 
 from __future__ import annotations
 
+from dataclasses import dataclass
 import json
 import re
 import textwrap
-from dataclasses import dataclass
-
 
 NODE = re.compile(r'([A-Za-z][A-Za-z0-9_]*)(?:\["([^"\n]+)"\])?\Z')
 EDGE = re.compile(r'(.+?)\s*(-->|-\.\s*"([^"\n]+)"\s*\.->)\s*(.+)\Z')

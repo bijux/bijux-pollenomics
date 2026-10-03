@@ -16,7 +16,6 @@ import pytest
 from bijux_pollenomics_dev.source_completion import swedish_chronology_block
 from bijux_pollenomics_dev.source_completion.swedish_chronology_block import score
 
-
 ROOT = Path(__file__).resolve().parents[4]
 RESULT = ROOT / "docs/report/regions/nordic/swedish-chronology-block"
 

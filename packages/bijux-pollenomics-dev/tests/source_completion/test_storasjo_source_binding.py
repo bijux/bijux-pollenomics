@@ -8,7 +8,6 @@ import runpy
 
 import pytest
 
-
 ROOT = Path(__file__).resolve().parents[4]
 VERIFY = ROOT / "docs/report/regions/nordic/swedish-neotoma-holdout/verify.py"
 

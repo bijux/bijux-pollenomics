@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import argparse
 from collections import Counter
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 import json
 from pathlib import Path
 from typing import Any
@@ -312,7 +312,7 @@ def predict(repository: Path, prepared: Path, output: Path) -> None:
         output / "freeze.json",
         {
             "schema_version": "sambosjon-direct-pollen-freeze.v1",
-            "created_at_utc": datetime.now(timezone.utc).isoformat(),
+            "created_at_utc": datetime.now(UTC).isoformat(),
             "protocol_sha256": _sha(protocol_path),
             "input_manifest_sha256": _sha(prepared / "input-manifest.json"),
             "training_sha256": manifest["training_sha256"],

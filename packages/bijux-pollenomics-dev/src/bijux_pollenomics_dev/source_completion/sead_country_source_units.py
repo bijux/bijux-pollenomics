@@ -202,47 +202,47 @@ def account(
             if site_country[group_site[group_id]] == code
         }
         rows.append(
-            dict(
-                country_code=code,
-                country=name,
-                decision_status="assigned",
-                discovered_sites=country_sites[code],
-                retrieved_sites=country_sites[code],
-                sites_with_sample_groups=len(linked_sites),
-                sample_groups=sum(
+            {
+                "country_code": code,
+                "country": name,
+                "decision_status": "assigned",
+                "discovered_sites": country_sites[code],
+                "retrieved_sites": country_sites[code],
+                "sites_with_sample_groups": len(linked_sites),
+                "sample_groups": sum(
                     site_country[site_id] == code for site_id in group_site.values()
                 ),
-                physical_samples=sum(
+                "physical_samples": sum(
                     site_country[site_id] == code for site_id in sample_site.values()
                 ),
-                analysis_entities=sum(
+                "analysis_entities": sum(
                     site_country[site_id] == code for site_id in entity_site.values()
                 ),
-                datasets=memberships[code],
-                analysis_values=sum(
+                "datasets": memberships[code],
+                "analysis_values": sum(
                     site_country[site_id] == code for site_id in value_site.values()
                 ),
-                dataset_membership_posture="distinct_source_dataset_ids_linked_by_analysis_entities",
-                source_unit_posture="captured_source_relations_only_no_event_admission",
-            )
+                "dataset_membership_posture": "distinct_source_dataset_ids_linked_by_analysis_entities",
+                "source_unit_posture": "captured_source_relations_only_no_event_admission",
+            }
         )
     for status in ("review", "unassigned"):
         rows.append(
-            dict(
-                country_code=status.upper(),
-                country="",
-                decision_status=status,
-                discovered_sites=statuses[status],
-                retrieved_sites=0,
-                sites_with_sample_groups="",
-                sample_groups="",
-                physical_samples="",
-                analysis_entities="",
-                datasets="",
-                analysis_values="",
-                dataset_membership_posture="source_units_not_retrieved",
-                source_unit_posture="excluded_pending_country_review",
-            )
+            {
+                "country_code": status.upper(),
+                "country": "",
+                "decision_status": status,
+                "discovered_sites": statuses[status],
+                "retrieved_sites": 0,
+                "sites_with_sample_groups": "",
+                "sample_groups": "",
+                "physical_samples": "",
+                "analysis_entities": "",
+                "datasets": "",
+                "analysis_values": "",
+                "dataset_membership_posture": "source_units_not_retrieved",
+                "source_unit_posture": "excluded_pending_country_review",
+            }
         )
     totals = {
         "retrieved_site_count": len(sites),
