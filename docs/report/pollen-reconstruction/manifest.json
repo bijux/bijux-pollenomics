@@ -4430,6 +4430,11 @@
       "bytes": 4288
     },
     {
+      "path": "packages/bijux-pollenomics/src/bijux_pollenomics/provenance/gates/catalog.py",
+      "sha256": "f72dcbe2bd3f6a79c5f7fbe7a9f4238ccda7e26485ae298b161f291cabfbbcc6",
+      "bytes": 6873
+    },
+    {
       "path": "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/aadr/schema.py",
       "sha256": "93334c4b581a59c566c1f90d968b90d5c4694077b34d93137715ce22d342172a",
       "bytes": 2278
