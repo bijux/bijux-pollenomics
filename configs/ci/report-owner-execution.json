@@ -1431,6 +1431,16 @@
         "source-products/report.json": "docs/report/pollen-reconstruction/age-interval-sensitivity/joint-membership/report.json"
       },
       "timeout_seconds": 120
+    },
+    {
+      "owner_id": "countries/sweden/land-use-replay/historical-comparison",
+      "module": "bijux_pollenomics_dev.source_completion.land_use.historical_comparison",
+      "source_paths": {
+        "historical-comparison.json": "docs/report/countries/sweden/land-use-replay/historical-comparison.json"
+      },
+      "source_arguments": [],
+      "output_mode": "single_file",
+      "timeout_seconds": 180
     }
   ]
 }
