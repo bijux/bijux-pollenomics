@@ -11,6 +11,8 @@ from typing import Any, cast
 import pytest
 
 from bijux_pollenomics_dev.ci.rebuild_reports import (
+    InventoryEntry,
+    JsonObject,
     inventory_reports,
     load_policy,
 )
@@ -1371,6 +1373,34 @@ def test_original_r_reference_refuses_symlinked_bundle_ancestor(tmp_path: Path) 
     bundle = root / "docs/report" / prefix
     bundle.parent.mkdir(parents=True)
     bundle.symlink_to(repository / "docs/report" / prefix, target_is_directory=True)
+    with pytest.raises(
+        ReportRebuildError, match="original R retained source validation failed"
+    ):
+        validated_original_r_reference(root, load_policy(policy_path))
+
+
+def test_original_r_reference_refuses_mutation_during_inventory(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    from bijux_pollenomics_dev.ci.report_rebuild import original_r_reference
+
+    root, policy_path, _ = _fixture(tmp_path)
+    repository = Path(__file__).resolve().parents[3]
+    prefix = Path("method-certification/original-r-reference/reference-bundle")
+    shutil.copytree(repository / "docs/report" / prefix, root / "docs/report" / prefix)
+    original_inventory = inventory_reports
+
+    def mutate_after_inventory(
+        bundle: Path, policy: JsonObject
+    ) -> tuple[InventoryEntry, ...]:
+        result = original_inventory(bundle, policy)
+        source = bundle / "oracle/C0000.csv"
+        source.write_bytes(source.read_bytes() + b"\nchanged")
+        return result
+
+    monkeypatch.setattr(
+        original_r_reference, "inventory_reports", mutate_after_inventory
+    )
     with pytest.raises(
         ReportRebuildError, match="original R retained source validation failed"
     ):
