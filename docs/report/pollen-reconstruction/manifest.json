@@ -4236,8 +4236,8 @@
     },
     {
       "path": "packages/bijux-pollenomics-dev/tests/reader_reports/test_library.py",
-      "sha256": "8afe9328df87db6538ee66929f204908c4583a18ee17ccdc3975f0ca184fff5c",
-      "bytes": 1429
+      "sha256": "809a444b37b0352cb17b1c1f92ce6f24dc14a24eb82b02901dd28141aef2dbd7",
+      "bytes": 7269
     },
     {
       "path": "packages/bijux-pollenomics-dev/tests/reader_reports/test_presentation_build.py",
@@ -6161,8 +6161,8 @@
     },
     {
       "path": "reports/exports/papers/landclim-regional-reconstruction.pdf",
-      "sha256": "c9ce2f710ffff35394e400078c77a3b9b3febb6f76cb408175bb830e053e41b3",
-      "bytes": 81690
+      "sha256": "f96c5f10c903f266ff487a7a2a7a25e69c9faf39d3c595db2a3bbbd241c4fd90",
+      "bytes": 88610
     },
     {
       "path": "reports/exports/papers/local-love-theory.pdf",
@@ -6176,8 +6176,8 @@
     },
     {
       "path": "reports/exports/papers/manifest.json",
-      "sha256": "add2765d480358928234e423f9bbf1c472b875312aea0a2aa11ed2159a04e0aa",
-      "bytes": 14758
+      "sha256": "8ac16d969861284d05669224a2eb53ac09f2f21d42de7cc15388439d9d8e7ef6",
+      "bytes": 16740
     },
     {
       "path": "reports/exports/papers/namibia-modern-pollen-vegetation-reference.pdf",
@@ -6211,17 +6211,17 @@
     },
     {
       "path": "reports/exports/papers/verify.py",
-      "sha256": "b97a905bd1e6ad71f2d7b058683f526c3b0154452962ec660ce3f6bfbed370d3",
-      "bytes": 4349
+      "sha256": "87a4e621c498572cbc6060b7be2b3ce0b296523245bddc0878bd6bcb5986e758",
+      "bytes": 5119
     },
     {
       "path": "reports/exports/papers/visual-review.json",
-      "sha256": "10d6f76e2ea836ea90b5bfd83e08f4767c2a5284ce0ba8c1b8af030d82746152",
-      "bytes": 18196
+      "sha256": "fcc6d777f40511b593a650acab45cf90fda8c767621b3709c5592ff3e7b0ed88",
+      "bytes": 19300
     },
     {
       "path": "reports/exports/site-downloads.json",
-      "sha256": "8e10d949da19617586ee7bab988bb6e46ac7d8d235f81121c4cf011284aeca2f",
+      "sha256": "95dd21fde63aaef22f63a3f5062da405cd31321a3be841cf23a41031cc8f60b2",
       "bytes": 5774
     },
     {

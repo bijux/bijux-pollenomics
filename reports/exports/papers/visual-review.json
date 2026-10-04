@@ -3,60 +3,71 @@
   "input_receipt_sha256": "18808f5e8c481f4f924a1878eb40e96fe4e0a6c766a200fec122a01189d0137b",
   "inventory_sha256": "dec510a9ee0b53103124f3b7f2a8098733cb6d08b683f256ff25bfc84f3989c9",
   "overall_status": "layout_pass",
-  "page_count": 26,
+  "page_count": 27,
   "page_evidence_sha256": "da4ff8c5cc723f284f3efedc67cf132ded9931dfbf7235d904ca6a2999d3a957",
   "paper_count": 9,
   "papers": [
     {
       "all_fonts_embedded": true,
       "input_pdf": "landclim-regional-reconstruction.pdf",
-      "input_pdf_sha256": "c9ce2f710ffff35394e400078c77a3b9b3febb6f76cb408175bb830e053e41b3",
-      "page_count": 5,
+      "input_pdf_sha256": "f96c5f10c903f266ff487a7a2a7a25e69c9faf39d3c595db2a3bbbd241c4fd90",
+      "input_receipt_sha256": "f2036e673d861b491e0dc566cffc964aae927431f2dbd152ad7ee7caa05b9d07",
+      "page_count": 6,
+      "page_evidence_sha256": "f133e55a069271c0eff9901253767693e55aaae6cf1f8915436b7e49fd7e9654",
       "pages": [
         {
           "image": "page-1.png",
-          "observation": "Full 2022 citation, source hash, definition of site-window counts and 1128 records fit page; real bold and italic faces are visible.",
+          "observation": "Source SHA, complete 2022 citation and 1128-record/site-window definitions readable. Original numerical comparison scope retained; no clipped heading or footer.",
           "page": 1,
-          "png_sha256": "7e95cfa3ade68d5092d178973e0e9a1d42c9c762e1683da449e6eed893ccc26c",
+          "png_sha256": "b8c94ea5d6b0f56d3030df41af56d7fa0855582a0ddd750a48eb97a1ac3202df",
           "visual_status": "readable"
         },
         {
           "image": "page-2.png",
-          "observation": "All six flowchart boxes and arrows readable; transport assumptions, 17 lakes and 425-window denominator fit above separate footer.",
+          "observation": "All six diagram boxes and their arrows readable. Physical transport assumptions, 17-lake example and start of site/window denominator paragraph remain separated from the footer.",
           "page": 2,
-          "png_sha256": "bf273f0fbb87c4860e408c2100a85a97e622ea0ef91b78b0e37bd3875859746c",
+          "png_sha256": "2cfdafa0ddbafe4b76ef5ffa8258239beaf14ea4fa268b3da7eb80eb28316574",
           "visual_status": "readable"
         },
         {
           "image": "page-3.png",
-          "observation": "WHH05 301 to297-grain trace, 31-taxon means and SE, 14074 comparison count and TW2 residuals readable without clipped digits.",
+          "observation": "Continuation of denominator paragraph, WHH05 301-to-297 grain trace, numerical exponents and TW2 comparison are legible. Text continues onto page four without omitted content.",
           "page": 3,
-          "png_sha256": "bc456661b51d57b1b6a0670ce9b9306fbbbdf817e89fd075f26bbc44af1fe997",
+          "png_sha256": "20d6c456bdf325d9554a967d1c9f64fcc7949e53824b73fdb5d125c20109cb7b",
           "visual_status": "readable"
         },
         {
           "image": "page-4.png",
-          "observation": "Archive 11/12/13-PFT distinction and four complete missing-evidence table rows readable; no rows overlap source footer.",
+          "observation": "Archive PFT distinction and complete six-row acquired-asset table readable. Long filenames wrap within their cell; all 32 visible-tab and 79 separate Rootsi-candidate statements appear without overlapping borders or footer.",
           "page": 4,
-          "png_sha256": "773edb27609ae67e213b77e804094b38a8e79279a6881d23c4e8524310acf5e3",
+          "png_sha256": "75c142e63f33bc54de4bf2169e526e1c6d221b2e37c7df1a0a4e9105465951f4",
           "visual_status": "readable"
         },
         {
           "image": "page-5.png",
-          "observation": "Continuation rule, 0/1128 limitation, reproduction code and precise unsent source/reviewer questions readable; scientific acceptance remains open.",
+          "observation": "All four missing-evidence rows and full 1128-record versus zero historical-identity qualification readable. Prepared 31-taxon count-vector replay requirements fit; the end-to-end explanation continues on page six.",
           "page": 5,
-          "png_sha256": "d63177d64ac7e3f264d1ffa594d29c47a97638ffd7d071207b77b1aa0a0f7d56",
+          "png_sha256": "5aa823d6fbfbaf6579786a9fbe6e8c5eb81ab5e42b129c0ad583700a73ed25bc",
+          "visual_status": "readable"
+        },
+        {
+          "image": "page-6.png",
+          "observation": "Historical-input continuation, EKE 25-positive/17-zero partition, rights/review/vegetation distinctions, reproduction command and unsent source questions readable. Code, numerical statements and footer remain within margins.",
+          "page": 6,
+          "png_sha256": "7f4abd6f7b3978e2f9291ac8a3c4b72987553e5610e8baa2a7240b3fe1bfc84c",
           "visual_status": "readable"
         }
       ],
       "paper_id": "landclim-regional-reconstruction",
       "primary_source_url_annotated": true,
       "repository_revision_in_annotations": true,
+      "review_scope": "Model layout/font/text/annotation inspection of the newly reproduced six-page PDF; no human feedback, scientific endorsement or accessibility certification.",
       "review_status": "layout_pass",
       "source_hash_and_citation_year_on_page_one": true,
       "source_path_in_each_page_footer": true,
-      "source_sha256": "82e2027834078bb1c21e81a54ae8cbab4a9a6c4367b1772c66aa08a5e6d8700d",
-      "text_reading_order": "Actual full-page text read in order; paragraphs, tables, equation operands, code and scope statements correspond to canonical Markdown. Continued paragraphs and repeated table headers remain legible."
+      "source_revision": "eb2c40d0020fff361bb0d32a1ff36f2b3e8c79ec",
+      "source_sha256": "550782e8092ab655952d3003dd3250f91f0651ae1a7985d5a894153dcd871225",
+      "text_reading_order": "All six actual pages were read from rendered images and extracted text. Tables, formula exponents, count/input distinctions, code and source qualifications correspond to the committed Markdown; continued paragraphs preserve their text."
     },
     {
       "all_fonts_embedded": true,
@@ -335,7 +346,7 @@
     }
   ],
   "repository_revision": "16c24efd53d91d5ae7aa02e820622cd581a6926f",
-  "review_scope": "Root viewed every fresh full-page PNG and read actual page text, checking critical operands, denominators, tables, source hashes, citation years, footers and URL annotations against canonical reports. Layout acceptance only; untagged PDFs, no independent human comprehension or ecological qualification. One nonfatal LOVEoptim underfull-box notice has no visible defect.",
+  "review_scope": "Eight unchanged baseline page-review records plus one separately inspected six-page LandClim successor. The baseline global input receipt and page-evidence identity remain unchanged; the new paper row binds its actual successor evidence.",
   "scientific_or_release_admission": false,
   "source_date_epoch": 1790812800
 }
