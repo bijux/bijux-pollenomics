@@ -1463,3 +1463,68 @@ def test_unmaintained_artifact_output_flag_refuses(
     )
     with pytest.raises(ReportRebuildError, match="artifact output flag"):
         owner_runner.resolve_configured_owner(repository, OWNER_ID)
+
+
+_NATIVE_CAPTURE_OWNER = "method-certification/current-r-oracle/report-products"
+_NATIVE_CAPTURE_MODULE = (
+    "bijux_pollenomics_dev.source_completion.method_certification.native_r_comparison"
+)
+
+
+def _native_capture_configuration(profile: object) -> dict[str, Any]:
+    return {
+        "schema_version": owner_runner.SCHEMA,
+        "owners": [
+            {
+                "owner_id": _NATIVE_CAPTURE_OWNER,
+                "module": _NATIVE_CAPTURE_MODULE,
+                "source_paths": {},
+                "source_arguments": [],
+                "output_mode": "directory",
+                "timeout_seconds": 300,
+                "native_capture_profile": profile,
+            }
+        ],
+    }
+
+
+@pytest.mark.parametrize("profile", ["annulus", "count-domain"])
+def test_native_capture_configuration_accepts_finite_profile(profile: str) -> None:
+    row = owner_runner._configuration_owner(
+        _native_capture_configuration(profile), _NATIVE_CAPTURE_OWNER
+    )
+    assert row["native_capture_profile"] == profile
+
+
+@pytest.mark.parametrize("profile", [None, False, [], {}, "arbitrary"])
+def test_native_capture_configuration_refuses_invalid_profile(profile: object) -> None:
+    with pytest.raises(ReportRebuildError, match="native capture profile"):
+        owner_runner._configuration_owner(
+            _native_capture_configuration(profile), _NATIVE_CAPTURE_OWNER
+        )
+
+
+@pytest.mark.parametrize(
+    "change", [{"owner_id": "other/report-products"}, {"module": MODULE}]
+)
+def test_native_capture_configuration_stays_with_named_owner(
+    change: dict[str, str],
+) -> None:
+    configuration = _native_capture_configuration("count-domain")
+    configuration["owners"][0].update(change)
+    with pytest.raises(ReportRebuildError, match="native capture profile"):
+        owner_runner._configuration_owner(
+            configuration, configuration["owners"][0]["owner_id"]
+        )
+
+
+def test_actual_native_capture_owner_emits_explicit_count_profile() -> None:
+    repository = Path(__file__).resolve().parents[3]
+    selected = owner_runner.resolve_configured_owner(repository, _NATIVE_CAPTURE_OWNER)
+    offset = selected.command.index("--capture-profile")
+    assert selected.command[offset + 1] == "count-domain"
+    assert len(selected.inputs) == 378
+    assert selected.source_paths == {
+        "source-products/report.json": "method-certification/current-r-oracle/report.json",
+        "source-products/source-replay.json": "method-certification/current-r-oracle/source-replay.json",
+    }

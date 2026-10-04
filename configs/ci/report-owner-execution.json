@@ -1623,7 +1623,8 @@
       },
       "output_mode": "directory",
       "output_subdirectory": "source-products",
-      "timeout_seconds": 300
+      "timeout_seconds": 300,
+      "native_capture_profile": "count-domain"
     },
     {
       "owner_id": "method-certification/love-paper-correspondence/paper-table-transcription",

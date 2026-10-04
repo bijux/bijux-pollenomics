@@ -84,6 +84,7 @@ OPTIONAL_OWNER_FIELDS: frozenset[str] = frozenset(
         "output_subdirectory",
         "external_source_descriptor",
         "artifact_output_flag",
+        "native_capture_profile",
     }
 )
 
@@ -197,6 +198,16 @@ def _configuration_owner(
         if "external_source_descriptor" in row:
             require_relative_path(
                 row["external_source_descriptor"], "external source descriptor"
+            )
+        if "native_capture_profile" in row and (
+            row["owner_id"] != "method-certification/current-r-oracle/report-products"
+            or row["module"]
+            != "bijux_pollenomics_dev.source_completion.method_certification.native_r_comparison"
+            or not isinstance(row["native_capture_profile"], str)
+            or row["native_capture_profile"] not in {"annulus", "count-domain"}
+        ):
+            raise ReportRebuildError(
+                "native capture profile is outside the maintained owner"
             )
         identity = require_relative_path(row["owner_id"], "configured owner ID")
         if identity in seen:
@@ -391,6 +402,11 @@ def resolve_configured_owner(
         if "artifact_output_flag" in row
         else ()
     )
+    native_capture_arguments = (
+        ("--capture-profile", row["native_capture_profile"])
+        if "native_capture_profile" in row
+        else ()
+    )
     command = (
         sys.executable,
         "-c",
@@ -401,6 +417,7 @@ def resolve_configured_owner(
         *arguments,
         *external_arguments,
         *artifact_arguments,
+        *native_capture_arguments,
         "--output",
         output_argument,
     )

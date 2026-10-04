@@ -11,8 +11,9 @@ import stat
 from typing import Any, TypedDict
 
 from bijux_pollenomics_dev.lra_validation.live_reference_comparison import summarize
-from bijux_pollenomics_dev.lra_validation.native_reference.annulus_capture import (
-    validated_annulus_capture,
+from bijux_pollenomics_dev.lra_validation.native_reference.capture_selection import (
+    CaptureProfile,
+    validated_current_capture,
 )
 
 _OWNER = "method-certification/current-r-oracle/report-products"
@@ -28,6 +29,7 @@ class _DigestInputs(TypedDict):
     data_sha256: dict[str, str]
     owner_row_sha256: str
     capture_manifest_sha256: str
+    capture_profile: CaptureProfile
 
 
 class _ConsumerInputs(_DigestInputs):
@@ -62,7 +64,9 @@ def _physical_digest(repository: Path, name: str) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
-def _consumer_inputs(repository: Path, capture_manifest: str) -> _ConsumerInputs:
+def _consumer_inputs(
+    repository: Path, capture_manifest: str, capture_profile: CaptureProfile
+) -> _ConsumerInputs:
     """Bind the declared code and data bytes without self-referential Git metadata."""
     policy_sha = _physical_digest(repository, _POLICY)
     payload = (repository / _POLICY).read_bytes()
@@ -74,6 +78,9 @@ def _consumer_inputs(repository: Path, capture_manifest: str) -> _ConsumerInputs
         raise ValueError("Exactly one native comparison owner is required")
     row = rows[0]
     code, data = row["producer_paths"], row["producer_inputs"]
+    selected_manifest = (
+        f"data/method-certification/native-r-{capture_profile}/capture/capture.json"
+    )
     if (
         row["role"] != "generated_owner"
         or set(row["paths"]) != _OUTPUTS
@@ -81,11 +88,12 @@ def _consumer_inputs(repository: Path, capture_manifest: str) -> _ConsumerInputs
         or not isinstance(code, list)
         or not isinstance(data, list)
         or any(not isinstance(name, str) for name in code + data)
-        or len(code) != 96
+        or len(code) != 98
         or len(set(code)) != len(code)
         or len(data) != 280
         or len(set(data)) != len(data)
         or _POLICY not in data
+        or selected_manifest not in data
         or set(code) & set(data)
         or _OUTPUTS & set(code + data)
         or any(
@@ -105,6 +113,7 @@ def _consumer_inputs(repository: Path, capture_manifest: str) -> _ConsumerInputs
         },
         "owner_row_sha256": _canonical_digest(row),
         "capture_manifest_sha256": capture_manifest,
+        "capture_profile": capture_profile,
     }
     if inputs["data_sha256"][_POLICY] != policy_sha:
         raise ValueError("Native consumer policy changed during input collection")
@@ -145,12 +154,14 @@ def _evidence_destination(repository: Path, output: Path) -> Path:
     return evidence
 
 
-def build(repository: Path, output: Path) -> dict[str, Any]:
+def build(
+    repository: Path, output: Path, *, capture_profile: CaptureProfile = "annulus"
+) -> dict[str, Any]:
     """Recompute original-R comparisons without implying a new native R execution."""
     repository = repository.resolve(strict=True)
     evidence = _evidence_destination(repository, output)
-    before = validated_annulus_capture(repository)
-    consumer = _consumer_inputs(repository, before.manifest_sha256)
+    before = validated_current_capture(repository, profile=capture_profile)
+    consumer = _consumer_inputs(repository, before.manifest_sha256, capture_profile)
     report = summarize(
         repository,
         before.directory,
@@ -159,10 +170,11 @@ def build(repository: Path, output: Path) -> dict[str, Any]:
         evidence,
         before.source_archives,
     )
-    after = validated_annulus_capture(repository)
+    after = validated_current_capture(repository, profile=capture_profile)
     if (
         before != after
-        or _consumer_inputs(repository, after.manifest_sha256) != consumer
+        or _consumer_inputs(repository, after.manifest_sha256, capture_profile)
+        != consumer
     ):
         raise ValueError("native R source changed during comparison")
     replay = json.loads((evidence / "source-replay.json").read_text())
@@ -172,6 +184,7 @@ def build(repository: Path, output: Path) -> dict[str, Any]:
     report["schema_version"] = "retained-native-r-comparison-report.v1"
     replay["schema_version"] = "retained-native-r-comparison-source-replay.v1"
     capture_scope = {
+        "native_capture_profile": capture_profile,
         "native_capture_source_revision": before.source_revision,
         "native_capture_manifest_sha256": before.manifest_sha256,
         "native_capture_source_context": before.source_context,
@@ -195,8 +208,11 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repository", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument(
+        "--capture-profile", choices=("annulus", "count-domain"), default="annulus"
+    )
     args = parser.parse_args()
-    build(args.repository, args.output)
+    build(args.repository, args.output, capture_profile=args.capture_profile)
 
 
 if __name__ == "__main__":

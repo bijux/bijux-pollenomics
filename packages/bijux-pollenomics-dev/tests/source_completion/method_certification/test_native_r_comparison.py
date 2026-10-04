@@ -39,12 +39,18 @@ def comparison(
         for row in policy["owners"]
         if row["owner_id"] == "method-certification/current-r-oracle/report-products"
     )
-    assert len(declaration["producer_paths"]) == 96
+    assert len(declaration["producer_paths"]) == 98
     assert len(declaration["producer_inputs"]) == 280
     assert {name for name in declaration["producer_paths"] if name.endswith(".R")} == {
         "packages/bijux-pollenomics-lra/tests/reference/lra_oracle/r_support.R",
         "packages/bijux-pollenomics-lra/tests/reference/lra_oracle/source_domains.R",
     }
+    # Exercise the default historical profile independently of the configured
+    # current-owner profile; both contracts declare their actual selected packet.
+    declaration["producer_inputs"] = [
+        name.replace("native-r-count-domain/", "native-r-annulus/")
+        for name in declaration["producer_inputs"]
+    ]
     for name in declaration["producer_paths"] + declaration["producer_inputs"]:
         path = repository / name
         path.parent.mkdir(parents=True, exist_ok=True)
@@ -64,7 +70,9 @@ def comparison(
         {},
         {},
     )
-    monkeypatch.setattr(producer, "validated_annulus_capture", lambda _: source)
+    monkeypatch.setattr(
+        producer, "validated_current_capture", lambda _, *, profile="annulus": source
+    )
     calls: list[tuple[Path, ...]] = []
 
     def summarize(*paths: Path) -> dict[str, Any]:
@@ -113,7 +121,7 @@ def test_comparison_uses_capture_and_never_claims_new_r(
         )
         assert "consumer_source_revision" not in report
         assert "source_revision" not in report
-        assert len(report["consumer_inputs"]["code_sha256"]) == 96
+        assert len(report["consumer_inputs"]["code_sha256"]) == 98
         assert (
             report["consumer_inputs"]["capture_manifest_sha256"]
             == source.manifest_sha256
@@ -168,7 +176,7 @@ def test_mutated_capture_refuses_before_publication(
     repository, output, before, _ = comparison
     calls = 0
 
-    def validate(_: Path) -> AnnulusCapture:
+    def validate(_: Path, *, profile: str = "annulus") -> AnnulusCapture:
         nonlocal calls
         calls += 1
         return (
@@ -186,7 +194,7 @@ def test_mutated_capture_refuses_before_publication(
             )
         )
 
-    monkeypatch.setattr(producer, "validated_annulus_capture", validate)
+    monkeypatch.setattr(producer, "validated_current_capture", validate)
     with pytest.raises(ValueError, match="changed during comparison"):
         producer.build(repository, output)
     assert not (output / "report.json").exists()
@@ -365,3 +373,38 @@ def test_consumer_contract_refuses_before_comparison(
         producer.build(repository, output)
     assert calls == []
     assert not output.exists()
+
+
+@pytest.mark.parametrize("profile", ["annulus", "count-domain"])
+def test_selected_capture_profile_binds_consumer_data_and_output(
+    comparison: tuple[Path, Path, AnnulusCapture, list[tuple[Path, ...]]],
+    monkeypatch: pytest.MonkeyPatch,
+    profile: str,
+) -> None:
+    repository, output, source, _ = comparison
+    policy_path = repository / "configs/ci/report-ownership.json"
+    policy = json.loads(policy_path.read_text())
+    inputs = policy["owners"][0]["producer_inputs"]
+    for index, name in enumerate(inputs):
+        selected = name.replace("native-r-annulus/", f"native-r-{profile}/")
+        if selected != name:
+            path = repository / selected
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_bytes((repository / name).read_bytes())
+            inputs[index] = selected
+    policy_path.write_text(json.dumps(policy))
+    selected_profiles: list[str] = []
+
+    def validate(_: Path, *, profile: str = "annulus") -> AnnulusCapture:
+        selected_profiles.append(profile)
+        return source
+
+    monkeypatch.setattr(producer, "validated_current_capture", validate)
+    result = producer.build(repository, output, capture_profile=profile)  # type: ignore[arg-type]
+    assert selected_profiles == [profile, profile]
+    assert result["native_capture_profile"] == profile
+    assert result["consumer_inputs"]["capture_profile"] == profile
+    assert (
+        f"data/method-certification/native-r-{profile}/capture/capture.json"
+        in result["consumer_inputs"]["data_sha256"]
+    )

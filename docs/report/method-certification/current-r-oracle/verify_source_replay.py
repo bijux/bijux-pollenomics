@@ -5,11 +5,17 @@ from __future__ import annotations
 import hashlib
 import json
 from pathlib import Path
-from typing import Any
+from typing import Any, cast
 
 from bijux_pollenomics_dev.lra_validation.native_reference.annulus_capture import (
     AnnulusCapture,
-    validated_annulus_capture,
+)
+from bijux_pollenomics_dev.lra_validation.native_reference.capture_selection import (
+    CaptureProfile,
+    validated_current_capture,
+)
+from bijux_pollenomics_dev.lra_validation.native_reference.count_domain_capture import (
+    CountDomainCapture,
 )
 from bijux_pollenomics_dev.lra_validation.native_reference.source_replay import (
     build_source_replay,
@@ -28,11 +34,16 @@ def sha256(path: Path) -> str:
 
 def _require_retained_comparison(
     repository: Path, report: dict[str, Any], replay: dict[str, Any]
-) -> AnnulusCapture:
+) -> AnnulusCapture | CountDomainCapture:
     """Authenticate retained capture and present consumer bytes without rerunning R."""
-    capture = validated_annulus_capture(repository)
-    consumer = _consumer_inputs(repository, capture.manifest_sha256)
+    profile = report.get("native_capture_profile")
+    if profile not in ("annulus", "count-domain"):
+        raise ValueError("Retained comparison native capture profile differs")
+    selected_profile = cast(CaptureProfile, profile)
+    capture = validated_current_capture(repository, profile=selected_profile)
+    consumer = _consumer_inputs(repository, capture.manifest_sha256, selected_profile)
     scope = {
+        "native_capture_profile": selected_profile,
         "native_capture_source_revision": capture.source_revision,
         "native_capture_manifest_sha256": capture.manifest_sha256,
         "native_capture_source_context": capture.source_context,
@@ -94,6 +105,7 @@ def main() -> None:
             for record in (retained, replay)
             for field in (
                 "consumer_inputs",
+                "native_capture_profile",
                 "native_capture_source_revision",
                 "native_capture_manifest_sha256",
                 "native_capture_source_context",
