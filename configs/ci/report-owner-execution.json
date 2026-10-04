@@ -1680,7 +1680,8 @@
       "source_paths": {
         "source-products/report.json": "docs/report/source-relations/neotoma/abbo-native-correspondence/report.json"
       },
-      "timeout_seconds": 180
+      "timeout_seconds": 180,
+      "artifact_output_flag": "--retained-artifacts-root"
     },
     {
       "external_source_descriptor": "configs/ci/qualified-report-sources/abbo-pollen-profile.json",
@@ -1692,7 +1693,8 @@
       "source_paths": {
         "source-products/report.json": "docs/report/source-relations/neotoma/abbo-profile/report.json"
       },
-      "timeout_seconds": 180
+      "timeout_seconds": 180,
+      "artifact_output_flag": "--retained-artifacts-root"
     },
     {
       "external_source_descriptor": "configs/ci/qualified-report-sources/rootsi-bokesjon-workbook.json",
@@ -1704,7 +1706,8 @@
       "source_paths": {
         "source-products/report.json": "docs/report/source-relations/neotoma/boke-native-correspondence/report.json"
       },
-      "timeout_seconds": 180
+      "timeout_seconds": 180,
+      "artifact_output_flag": "--retained-artifacts-root"
     },
     {
       "external_source_descriptor": "configs/ci/qualified-report-sources/rootsi-bussjosjon-workbook.json",
@@ -1716,7 +1719,8 @@
       "source_paths": {
         "source-products/report.json": "docs/report/source-relations/neotoma/bus-native-correspondence/report.json"
       },
-      "timeout_seconds": 180
+      "timeout_seconds": 180,
+      "artifact_output_flag": "--retained-artifacts-root"
     }
   ]
 }

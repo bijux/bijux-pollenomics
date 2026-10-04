@@ -1618,3 +1618,51 @@ def test_make_partition_assembly_dispatches_separate_checked_sources(
         "--owner-artifacts-root",
         "artifacts/owners/reference",
     ]
+
+
+@pytest.mark.parametrize("unexpected", [False, True])
+def test_owner_artifact_namespace_preserves_exact_mapped_output_guard(
+    tmp_path: Path,
+    unexpected: bool,
+) -> None:
+    from bijux_pollenomics_dev.ci.report_rebuild.evidence import parse_owner_manifest
+
+    root, policy, plan = _fixture(tmp_path)
+    payload = (
+        "from pathlib import Path; import sys; "
+        "output=Path(sys.argv[1]); artifacts=Path(sys.argv[2]); artifacts.mkdir(); "
+        "(artifacts/'raw.csv').write_text('retained raw'); "
+        "(artifacts/'source-custody.json').write_text('{}'); "
+        "(output/'summary.json').write_text('{}'); "
+    )
+    if unexpected:
+        payload += "(output/'.unexpected.json').write_text('{}'); "
+    evidence = root / "artifacts/owner"
+    kwargs = {
+        "repo_root": root,
+        "policy_path": policy,
+        "plan_path": plan,
+        "lane": "reference",
+        "owner_id": "domain/summary",
+        "producer_command": (
+            sys.executable,
+            "-c",
+            payload,
+            "{output_root}",
+            "{artifact_root}",
+        ),
+        "producer_inputs": {"source": root / "source.txt"},
+        "source_paths": {"summary.json": "domain/summary.json"},
+        "evidence_root": evidence,
+    }
+    if unexpected:
+        with pytest.raises(ReportRebuildError, match="output coverage is not exact"):
+            build_owner_output(**kwargs)
+    else:
+        result = build_owner_output(**kwargs)
+        assert [item["path"] for item in result["inventory"]] == ["domain/summary.json"]
+        assert parse_owner_manifest(evidence / "manifest.json") == result
+    assert (evidence / "producer-artifacts/raw.csv").read_text() == "retained raw"
+    assert (
+        json.loads((evidence / "producer-execution.json").read_text())["exit_code"] == 0
+    )

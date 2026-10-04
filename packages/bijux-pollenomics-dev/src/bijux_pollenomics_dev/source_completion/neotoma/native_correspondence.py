@@ -79,7 +79,11 @@ CASES = {
 
 
 def run(
-    repository: Path, source_root: Path, descriptor: Path, output: Path
+    repository: Path,
+    source_root: Path,
+    descriptor: Path,
+    output: Path,
+    retained_artifacts_root: Path | None = None,
 ) -> dict[str, Any]:
     """Preserve native producer arithmetic, raw sidecars and refusal posture."""
     if descriptor not in CASES:
@@ -153,6 +157,11 @@ def run(
                 "native correspondence source identity or basin refusal differs"
             )
 
+    retained_arguments = (
+        {"retained_artifacts_root": retained_artifacts_root}
+        if retained_artifacts_root is not None
+        else {}
+    )
     return publish(
         repository,
         source_root,
@@ -163,6 +172,7 @@ def run(
         produce,
         frozenset({"report.json", case.csv, "REPORT.md"}),
         verify,
+        **retained_arguments,
     )
 
 
@@ -173,8 +183,15 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--source-root", type=Path, required=True)
     parser.add_argument("--source-descriptor", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--retained-artifacts-root", type=Path)
     args = parser.parse_args(argv)
-    run(args.repository, args.source_root, args.source_descriptor, args.output)
+    run(
+        args.repository,
+        args.source_root,
+        args.source_descriptor,
+        args.output,
+        retained_artifacts_root=args.retained_artifacts_root,
+    )
     return 0
 
 

@@ -30,7 +30,11 @@ INPUTS = tuple(
 
 
 def run(
-    repository: Path, source_root: Path, descriptor: Path, output: Path
+    repository: Path,
+    source_root: Path,
+    descriptor: Path,
+    output: Path,
+    retained_artifacts_root: Path | None = None,
 ) -> dict[str, Any]:
     """Retain the published-profile comparison without admitting basin geometry or LRA."""
     if descriptor != DESCRIPTOR:
@@ -78,6 +82,11 @@ def run(
                 "ABBO profile source identity or metadata support differs"
             )
 
+    retained_arguments = (
+        {"retained_artifacts_root": retained_artifacts_root}
+        if retained_artifacts_root is not None
+        else {}
+    )
     return publish(
         repository,
         source_root,
@@ -88,6 +97,7 @@ def run(
         produce,
         frozenset({"report.json"}),
         verify,
+        **retained_arguments,
     )
 
 
@@ -98,8 +108,15 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--source-root", type=Path, required=True)
     parser.add_argument("--source-descriptor", type=Path, default=DESCRIPTOR)
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--retained-artifacts-root", type=Path)
     args = parser.parse_args(argv)
-    run(args.repository, args.source_root, args.source_descriptor, args.output)
+    run(
+        args.repository,
+        args.source_root,
+        args.source_descriptor,
+        args.output,
+        retained_artifacts_root=args.retained_artifacts_root,
+    )
     return 0
 
 

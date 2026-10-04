@@ -81,6 +81,7 @@ def publish(
     produce: Callable[[QualifiedReportSources, Path], None],
     expected_members: frozenset[str],
     verify_report: Callable[[dict[str, Any]], None],
+    retained_artifacts_root: Path | None = None,
 ) -> dict[str, Any]:
     """Retain every raw producer member and map only its freshly generated report."""
     repository = _regular_path(repository, directory=True)
@@ -100,11 +101,20 @@ def publish(
         return producer_input_identity(inputs, repository)
 
     before = identity()
-    # Raw correspondence tables stay in artifacts, outside the governed JSON mapping.
+    # Producers own raw correspondence separately from the governed report mapping.
+    retained_parent = destination.parent
+    if retained_artifacts_root is not None:
+        retained_parent = retained_artifacts_root.absolute()
+        if retained_parent.is_relative_to(destination) or destination.is_relative_to(
+            retained_parent
+        ):
+            raise ReportRebuildError(
+                "retained artifacts overlap mapped producer output"
+            )
+        retained_parent = require_absent_artifact_output(repository, retained_parent)
+        retained_parent.mkdir(parents=True)
     retained_root = Path(
-        tempfile.mkdtemp(
-            prefix=f".{destination.name}-retained-", dir=destination.parent
-        )
+        tempfile.mkdtemp(prefix=f".{destination.name}-retained-", dir=retained_parent)
     )
     raw = retained_root / "source-products"
     produce(qualified, raw)

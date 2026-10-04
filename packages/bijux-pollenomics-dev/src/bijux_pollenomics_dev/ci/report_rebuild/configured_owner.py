@@ -79,7 +79,12 @@ OWNER_FIELDS: frozenset[str] = frozenset(
     }
 )
 OPTIONAL_OWNER_FIELDS: frozenset[str] = frozenset(
-    {"include_repository_argument", "output_subdirectory", "external_source_descriptor"}
+    {
+        "include_repository_argument",
+        "output_subdirectory",
+        "external_source_descriptor",
+        "artifact_output_flag",
+    }
 )
 
 
@@ -182,6 +187,11 @@ def _configuration_owner(
             and type(row["include_repository_argument"]) is not bool
         ):
             raise ReportRebuildError("include_repository_argument must be a boolean")
+        if (
+            "artifact_output_flag" in row
+            and row["artifact_output_flag"] != "--retained-artifacts-root"
+        ):
+            raise ReportRebuildError("artifact output flag is not maintained")
         if "output_subdirectory" in row:
             require_relative_path(row["output_subdirectory"], "output subdirectory")
         if "external_source_descriptor" in row:
@@ -376,6 +386,11 @@ def resolve_configured_owner(
         if source_root is not None and external_descriptor is not None
         else ()
     )
+    artifact_arguments = (
+        (row["artifact_output_flag"], "{artifact_root}")
+        if "artifact_output_flag" in row
+        else ()
+    )
     command = (
         sys.executable,
         "-c",
@@ -385,6 +400,7 @@ def resolve_configured_owner(
         *repository_arguments,
         *arguments,
         *external_arguments,
+        *artifact_arguments,
         "--output",
         output_argument,
     )

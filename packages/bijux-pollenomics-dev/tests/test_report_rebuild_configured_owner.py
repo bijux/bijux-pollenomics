@@ -1434,3 +1434,32 @@ def test_canonical_make_passes_explicit_qualified_source_root(
     argv = json.loads(argv_log.read_text(encoding="utf-8"))
     assert argv.count("--source-root") == 1
     assert argv[argv.index("--source-root") + 1] == str(root)
+
+
+def test_retained_artifact_argument_binds_distinct_owner_namespace(
+    repository: Path,
+) -> None:
+    _modify(
+        repository,
+        "report-owner-execution.json",
+        lambda p: p["owners"][0].update(
+            artifact_output_flag="--retained-artifacts-root"
+        ),
+    )
+    selected = owner_runner.resolve_configured_owner(repository, OWNER_ID)
+    offset = selected.command.index("--retained-artifacts-root")
+    assert selected.command[offset + 1] == "{artifact_root}"
+    assert selected.command[-1] == "{output_root}/summary.json"
+
+
+@pytest.mark.parametrize("flag", ["--output", "--screen", "", None, True])
+def test_unmaintained_artifact_output_flag_refuses(
+    repository: Path, flag: object
+) -> None:
+    _modify(
+        repository,
+        "report-owner-execution.json",
+        lambda p: p["owners"][0].update(artifact_output_flag=flag),
+    )
+    with pytest.raises(ReportRebuildError, match="artifact output flag"):
+        owner_runner.resolve_configured_owner(repository, OWNER_ID)

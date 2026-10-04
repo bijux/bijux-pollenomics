@@ -56,7 +56,9 @@ def inputs(
 
 
 def publish(
-    inputs: tuple[Path, Path, Path, QualifiedReportSources], mutation: str = ""
+    inputs: tuple[Path, Path, Path, QualifiedReportSources],
+    mutation: str = "",
+    retained_artifacts_root: Path | None = None,
 ) -> dict[str, Any]:
     repository, store, descriptor, qualified = inputs
 
@@ -84,6 +86,7 @@ def publish(
         producer,
         frozenset({"report.json", "cells.csv"}),
         lambda _: None,
+        retained_artifacts_root=retained_artifacts_root,
     )
 
 
@@ -477,3 +480,48 @@ def test_unavailable_atomic_publication_refuses_without_fallback(
         (p / "source-products/report.json").is_file()
         for p in (inputs[0] / "artifacts").glob(".output-retained-*")
     )
+
+
+def test_explicit_retained_artifacts_stay_outside_mapped_report_tree(
+    inputs: tuple[Path, Path, Path, QualifiedReportSources],
+) -> None:
+    repository, _, _, _ = inputs
+    retained = repository / "artifacts/producer-artifacts"
+    assert publish(inputs, retained_artifacts_root=retained) == {"scope": "synthetic"}
+    assert {p.name for p in (repository / "artifacts/output").iterdir()} == {
+        "report.json"
+    }
+    raw = list(retained.glob(".output-retained-*"))
+    assert len(raw) == 1
+    assert (raw[0] / "source-products/cells.csv").read_bytes() == b"synthetic sidecar\n"
+    assert (raw[0] / "source-custody.json").is_file()
+
+
+@pytest.mark.parametrize("mutation", ["input", "alias", "extra"])
+def test_explicit_artifacts_keep_source_and_raw_member_refusals(
+    inputs: tuple[Path, Path, Path, QualifiedReportSources],
+    mutation: str,
+) -> None:
+    root = inputs[0]
+    with pytest.raises(ReportRebuildError):
+        publish(inputs, mutation, root / "artifacts/producer-artifacts")
+    assert not (root / "artifacts/output").exists()
+
+
+@pytest.mark.parametrize(
+    "name", ["artifacts/retained", "outside", "artifacts/output/private"]
+)
+def test_retained_artifact_root_refuses_existing_escaping_or_overlap(
+    inputs: tuple[Path, Path, Path, QualifiedReportSources],
+    name: str,
+) -> None:
+    root = inputs[0]
+    selected = root / name
+    if name == "artifacts/retained":
+        selected.mkdir()
+        (selected / "original").write_bytes(b"preserve")
+    with pytest.raises(ReportRebuildError):
+        publish(inputs, retained_artifacts_root=selected)
+    assert not (root / "artifacts/output").exists()
+    if name == "artifacts/retained":
+        assert (selected / "original").read_bytes() == b"preserve"
