@@ -51,13 +51,13 @@
     },
     {
       "path": "configs/ci/report-owner-execution.json",
-      "sha256": "49494837c483931ad16b4c2386b752d56de52fad99ab136869d5c93e8a455132",
-      "bytes": 101273
+      "sha256": "6eee4866e2fa46bb04f36e1b6da11c0047a5f45d91ef251ff58fee1e439e743e",
+      "bytes": 101868
     },
     {
       "path": "configs/ci/report-ownership.json",
-      "sha256": "a8b7e01b18f6e5e8783322be65cf1338fffc200b099a8a442e4a261d418851c5",
-      "bytes": 4507900
+      "sha256": "186b7267dabb87d4ab2a00c0e9893767c5bf5d857fe0c76236c0442533754ab7",
+      "bytes": 4520861
     },
     {
       "path": "configs/docs/science_downloads.py",
@@ -1236,12 +1236,12 @@
     },
     {
       "path": "docs/report/index.md",
-      "sha256": "fe495f9c2ee07d46d571550a6c6945e26fb2710a6ec01dbb501be29a3156700e",
+      "sha256": "6407ef3ec5f4d762e1cdecdf8581d9b3f587d973e0dc2c6bc63d9bf7a0e34061",
       "bytes": 2689
     },
     {
       "path": "docs/report/maintenance/index.md",
-      "sha256": "765b14bd6d594c0df91bd44110015d6ba06fdaaecb0a0d9931b666ec0a62bcf5",
+      "sha256": "19f9a585d68f930dd1a6a1b1003339a7fc8bf836c02e60afbada28832407175c",
       "bytes": 1412
     },
     {
@@ -2078,6 +2078,56 @@
       "path": "docs/report/pollen-reconstruction/swedish-native-sequences/source-overlap.json",
       "sha256": "6c3e60cb4144fbde19eaf7ee3ce044343d6d181d7f102ac38a49c4f887b09cc5",
       "bytes": 4522
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/swedish-parameter-transfer-scenarios/README.md",
+      "sha256": "cde331159d04d1a78fe783708a347b26deed9dcb06e45117e58948c672a3df60",
+      "bytes": 8609
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/swedish-parameter-transfer-scenarios/assumptions/parameter-transfer.json",
+      "sha256": "60c57338d04ce379708b73841bf733377635324af928bb7c68124b465fbf8566",
+      "bytes": 7251
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/swedish-parameter-transfer-scenarios/execution/independent-physical-response-review.json",
+      "sha256": "123de5038343c22bcf02c25a3b69160755d0c3c563cc4705e10db9630323147e",
+      "bytes": 241926
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/swedish-parameter-transfer-scenarios/execution/independent-scientific-source-review.json",
+      "sha256": "0fe8391ac7b09387b0f376b359beb5a0079e42526dcf6d02071991553d61303e",
+      "bytes": 2883
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/swedish-parameter-transfer-scenarios/execution/independent-source-mask-review.json",
+      "sha256": "19b4cf2bd6bc11de2835680a61d0d35200adc4cdd81e11d21f36f2fc73be9389",
+      "bytes": 8478
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/swedish-parameter-transfer-scenarios/execution/maintained-producer-capture.json",
+      "sha256": "57eabe192b5d7582d88049a61cbdc271a96502f544e7fac42757748f20f65a2a",
+      "bytes": 8250
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/swedish-parameter-transfer-scenarios/execution/observed-imports.json",
+      "sha256": "34ce457892496a942950dbf07b4870399ee3e3a50d577af5ee4d2424ce043da8",
+      "bytes": 339244
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/swedish-parameter-transfer-scenarios/inputs/engine-source-identities.json",
+      "sha256": "a4eda356f001bf5326e652bf6867aa9672957b0def1d5210e819a893d28e9e4f",
+      "bytes": 7420
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/swedish-parameter-transfer-scenarios/inputs/source-identities.json",
+      "sha256": "be488edc406198d63d77b282dc97f0edb2b459a92a77d96d31dba2776cc824b2",
+      "bytes": 4333
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/swedish-parameter-transfer-scenarios/report.json",
+      "sha256": "4d682a9b8ed2fde20ec4cbec4d0604d21596451511726fd8a3692ae7f69e610d",
+      "bytes": 14176603
     },
     {
       "path": "docs/report/pollen-reconstruction/swedish-source-questions.csv",
@@ -3406,22 +3456,22 @@
     },
     {
       "path": "docs/report/report_narrative_quality_review.json",
-      "sha256": "b22de051765a8d5150b3e3f5d5bf9a0db3b4dd35259b4f29e61d61fd83a959fc",
-      "bytes": 142585
+      "sha256": "0545a4c3c752f712233aae6d3f81ee23fa75f29fb9fd51c6d681f472f6a00fc9",
+      "bytes": 143079
     },
     {
       "path": "docs/report/report_narrative_quality_review.md",
-      "sha256": "f102a4918379cc442630e93a9b5c5b071517197aca25e0ca176995e54efff591",
+      "sha256": "7678db93690f264bb566c5c5946d92853f1f9f415232451188366c63de444170",
       "bytes": 754
     },
     {
       "path": "docs/report/report_surface_registry.json",
-      "sha256": "1b68aa5b0a6a61cc4690b988e12a1d0f93755b468455942c1d770c7080d8e064",
-      "bytes": 968706
+      "sha256": "d720bd0dd112044ef616c64dea28215eb6918addf77e8dfc22d2e792a87d7298",
+      "bytes": 974010
     },
     {
       "path": "docs/report/report_surface_registry.md",
-      "sha256": "8c61483d8ffc84bde5e39c00efcb8e9ab2231afdefc6f0647012cd5dbbdfb7e5",
+      "sha256": "710cd2989bab97a409c067841791b41c075b82d00f5b10b17b86ef75bd845807",
       "bytes": 1078
     },
     {
@@ -4026,8 +4076,8 @@
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/maintained_sources.py",
-      "sha256": "2d4a2c1af7bb8cd0e7d6011b320edc1a1ea2a6abcb79fc474626070aeb4460c8",
-      "bytes": 8966
+      "sha256": "76fc9cbe243549d2c82eb421a8111a3ce4f3df62241c2a05394a35555f208732",
+      "bytes": 9438
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/neotoma_publication_link.py",
@@ -4066,7 +4116,7 @@
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scheduling.py",
-      "sha256": "18246218bcdee40baa4e6d0eb3322c676e3d3d07ebc9cb4e0496aee6bcffbebf",
+      "sha256": "e757b99b26c0e0e66bddb8c9e1e51e11f678d6243f78378b5839a05223b40c16",
       "bytes": 6353
     },
     {
@@ -4083,6 +4133,11 @@
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/__init__.py",
       "sha256": "dd17271a9d552111c350a037862357db04f17eb7335baa777bfec4aa531b2277",
       "bytes": 75
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/swedish_parameter_transfer.py",
+      "sha256": "6d3cad8c34006ed1dd955913cabb22497e09e7ac6dd3da63307b6ba8053784f2",
+      "bytes": 5398
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/swedish_static_basin.py",
@@ -4895,6 +4950,51 @@
       "bytes": 12325
     },
     {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/swedish_parameter_transfer/__init__.py",
+      "sha256": "465ab39f6f574da16b9e48a4834418bf75f728bc160109b467a3366a05a683e1",
+      "bytes": 83
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/swedish_parameter_transfer/__main__.py",
+      "sha256": "72787edec1db45aab25da4b6ab51cb9736c9282848cc4caaa786a44943cec4e0",
+      "bytes": 154
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/swedish_parameter_transfer/comparison.py",
+      "sha256": "c957eee575fbbcec70ab8cb5662f8bbfd419426beeab190a432db926e99b6cdd",
+      "bytes": 3035
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/swedish_parameter_transfer/mapping.py",
+      "sha256": "7086521b63183848554c65045bba0679f6f7378cb673db19ee59104fbf029733",
+      "bytes": 4190
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/swedish_parameter_transfer/producer.py",
+      "sha256": "aed5eacb114afe8ec2302a002e683c7137ea42ebf0c20b5ae0f6852e022ea933",
+      "bytes": 4606
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/swedish_parameter_transfer/publication/__init__.py",
+      "sha256": "1205ca2b749878cc70beae0c091c23634b335ca2ee5505e8fc506cd404bb1131",
+      "bytes": 80
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/swedish_parameter_transfer/publication/producer.py",
+      "sha256": "dd940fc5f626970c78061e94783a558bda718d179db4f5c473975806c517f7b8",
+      "bytes": 5477
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/swedish_parameter_transfer/reconstruction.py",
+      "sha256": "1544f02f58e674eec132305029564111e4879da2053b8a5be9b3c82bda04fd50",
+      "bytes": 21505
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/swedish_parameter_transfer/sources.py",
+      "sha256": "6234f3b8b8d31ab9142efa9064b83ee438e8cdc67b5be6dcf33bb7867bb42382",
+      "bytes": 2491
+    },
+    {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/swedish_static_basin/__init__.py",
       "sha256": "d188265c5a71902313b8a1a8b8872215edfc9d19ac2775e5cc3e79392723cb6e",
       "bytes": 77
@@ -5203,6 +5303,11 @@
       "path": "packages/bijux-pollenomics-dev/tests/ci/report_rebuild/test_scheduling_custody.py",
       "sha256": "bdddb3a7b80f8a078c8bb002863102e958504ddf12e0e335201e34650db6fc02",
       "bytes": 10079
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/tests/ci/report_rebuild/test_swedish_parameter_transfer_capture_transport.py",
+      "sha256": "0add6dc1210a0c31d4d499cf59f4852a2b30b372fdd95be5aaee0be36ffef572",
+      "bytes": 4225
     },
     {
       "path": "packages/bijux-pollenomics-dev/tests/ci/report_rebuild/test_swedish_scientific_capture_transport.py",
@@ -5595,6 +5700,16 @@
       "bytes": 8712
     },
     {
+      "path": "packages/bijux-pollenomics-dev/tests/source_completion/pollen_reconstruction/test_swedish_parameter_transfer.py",
+      "sha256": "79c4dbd099c85acd3f00e7f1146295179170a48d41a8e14701074ee83403fed5",
+      "bytes": 6322
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/tests/source_completion/pollen_reconstruction/test_swedish_parameter_transfer_publication.py",
+      "sha256": "48807dd5a20216edad557b9a41791e18944affd138f23314fd7b9b2f65b6d397",
+      "bytes": 6984
+    },
+    {
       "path": "packages/bijux-pollenomics-dev/tests/source_completion/pollen_reconstruction/test_swedish_static_basin.py",
       "sha256": "3794874c9e867491d8705f71529563962b06d93b767c173fd0e7901153a9c3e4",
       "bytes": 6345
@@ -5851,8 +5966,8 @@
     },
     {
       "path": "packages/bijux-pollenomics-dev/tests/test_report_rebuild_configured_owner.py",
-      "sha256": "35c02448b5d8b80593311818f7984088e7e35e7bdf3b4c76b2d10f9407a5ad95",
-      "bytes": 55053
+      "sha256": "ae4c02209e6d82b8d38571ab4ed1f0b7c035dbf94d8e7435fdd25383c402939e",
+      "bytes": 55058
     },
     {
       "path": "packages/bijux-pollenomics-dev/tests/test_report_rebuild_landclim_two_grid_packet.py",
@@ -5958,6 +6073,11 @@
       "path": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/__init__.py",
       "sha256": "57393e2575b2df05fa716938ca9c22b0fc072b0477ff4d72bb9a4677e1abf3fa",
       "bytes": 1837
+    },
+    {
+      "path": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/_build_version.py",
+      "sha256": "10f01dbb3deff9c9ca418c83ea30f7e2e3e413744b3c33a645ac5deb4759b628",
+      "bytes": 539
     },
     {
       "path": "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/api.py",

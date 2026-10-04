@@ -1774,6 +1774,18 @@
       "output_mode": "directory",
       "output_subdirectory": "source-products",
       "timeout_seconds": 30
+    },
+    {
+      "artifact_output_flag": "--retained-artifacts-root",
+      "module": "bijux_pollenomics_dev.source_completion.pollen_reconstruction.swedish_parameter_transfer.publication.producer",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "pollen-reconstruction/swedish-parameter-transfer-scenarios/report-products",
+      "source_arguments": [],
+      "source_paths": {
+        "source-products/report.json": "docs/report/pollen-reconstruction/swedish-parameter-transfer-scenarios/report.json"
+      },
+      "timeout_seconds": 180
     }
   ]
 }
