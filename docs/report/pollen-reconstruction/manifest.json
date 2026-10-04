@@ -51,8 +51,8 @@
     },
     {
       "path": "configs/ci/report-ownership.json",
-      "sha256": "5e2cbaeb454d8c6107605ed7efaf882ab9f759cf3f1731e51c1eb4d8862dc1bb",
-      "bytes": 4355748
+      "sha256": "b5d1615fadb1c53a7648ede795e3ff4249f2e30cc9e80d8e82802dc65952a54a",
+      "bytes": 4355594
     },
     {
       "path": "configs/docs/science_downloads.py",
@@ -471,7 +471,7 @@
     },
     {
       "path": "docs/report/method-certification/current-r-oracle/source-replay.json",
-      "sha256": "31b19967e24b67353bf7077bd4534217e2612cf6466f91069d571d7cefe3afed",
+      "sha256": "0d0e11b148bdf1fba07f2d6b9c782fcf3ad0fba5a07b361b50b74c87df01dd69",
       "bytes": 89636
     },
     {

@@ -29882,7 +29882,6 @@
       ],
       "producer_inputs": [
         "configs/ci/qualified-report-sources/rootsi-abborrtjarne-workbook.json",
-        "configs/ci/qualified-report-sources/rootsi-bokesjon-workbook.json",
         "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-004.json",
         "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/assets/document.html",
         "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/assets/native-lra.js",
@@ -33388,7 +33387,6 @@
         "docs/report/source-relations/neotoma/bus-native-correspondence/report.json"
       ],
       "producer_inputs": [
-        "configs/ci/qualified-report-sources/rootsi-bokesjon-workbook.json",
         "configs/ci/qualified-report-sources/rootsi-bussjosjon-workbook.json",
         "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-008.json",
         "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/assets/document.html",
