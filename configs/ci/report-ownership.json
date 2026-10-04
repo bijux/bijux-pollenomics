@@ -2,8 +2,8 @@
   "schema_version": "report-output-ownership.v1",
   "root": "docs/report",
   "inventory_scope": "tracked report paths; ownership declarations do not certify reproduction",
-  "path_count": 1957,
-  "paths_sha256": "b4445fc3eb34c0cee9502a8f4131c32ad8fded64630edaad9202112497067cf1",
+  "path_count": 1958,
+  "paths_sha256": "ed1b6bbd894fef7ed99ac6ac82ccaf4379ac306ea7aba2332cb117a3509a1c85",
   "owners": [
     {
       "owner_id": "atlas/boundary-orientation/browser-evidence",
@@ -16814,13 +16814,28 @@
         "docs/report/publication-replay/landclim-published-window-uncertainty/manifest.json"
       ],
       "producer_inputs": [
+        "docs/report/publication-replay/landclim-published-window-provenance/REPORT.md",
+        "docs/report/publication-replay/landclim-published-window-provenance/manifest.json",
+        "docs/report/publication-replay/landclim-published-window-provenance/paper-correspondence.csv",
+        "docs/report/publication-replay/landclim-published-window-provenance/report.json",
         "docs/report/publication-replay/landclim-published-window-uncertainty/REPORT.md",
         "docs/report/publication-replay/landclim-published-window-uncertainty/report.json",
+        "docs/report/publication-replay/landclim-published-window-uncertainty/source/retained-custody.json",
         "docs/report/publication-replay/landclim-published-window-uncertainty/taxon-envelopes.csv"
       ],
-      "producer_paths": [],
-      "role": "unresolved",
-      "verification": "The retained manifest checks producer/input/output hashes but the envelope producer does not write this manifest. No independent non-self-fed manifest producer is declared; verify its rows against retained outputs before assigning custody."
+      "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/published_window_uncertainty.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/audit.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/essd/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/essd/uncertainty_custody.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/evidence.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/landclim.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/manifests.py"
+      ],
+      "role": "generated_owner",
+      "verification": "Run the maintained uncertainty_custody CLI to capture one new metadata manifest from the exact retained three envelope outputs, authenticated provenance population and immutable retained historical manifest capsule. Root review of the genuine guarded capture permits governing metadata refresh; then require genuine configured reference/replay against that accepted new manifest. The writer hashes current physical source separately from the historical7746-byte producer identity, never reads its own governed manifest, and does not execute envelope math or infer generation from matching hashes. Historical execution/raw-input closure and scientific admission remain unestablished."
     },
     {
       "owner_id": "publication-replay/landclim-study-inputs/metadata-products",
@@ -39665,6 +39680,16 @@
         "data/method-certification/native-r/source-archives/plyr_1.8.9.tar.gz"
       ],
       "verification": "Admit exactly129 raw retained report members only with --retain-native-r-reference, authenticated to the independent native capture manifest pin and actual macOS R4.6 source revision064d1237fd743d957538fff2cbae74db06e17338. Preserve97 native numeric CSVs and the actual raw oracle elapsed_seconds unchanged. Immutable capture retains138 raw members including9 explicitly ungoverned scripts/logs and its actual native receipt; current comparison owns the separate2 JSONs. This is source custody, not deterministic raw regeneration or Linux/release certification."
+    },
+    {
+      "owner_id": "publication-replay/landclim-published-window-uncertainty/retained-custody-source",
+      "paths": [
+        "docs/report/publication-replay/landclim-published-window-uncertainty/source/retained-custody.json"
+      ],
+      "producer_paths": [],
+      "producer_inputs": [],
+      "role": "retained_source",
+      "verification": "Immutable exact bytes of the previously tracked uncertainty manifest at Git 9f68946d6900824a5b7924c9426f5ab3b7121a12, original manifest SHA 02be1738a20737a9c8ec2b9de065fd88e67162f92223d9ef4417bb4be4f48137. Retains historical comparison and producer SHA 582e and 7746 bytes as a source record for independent metadata replay; no original execution, source acquisition, raw-input or scientific qualification is inferred."
     }
   ]
 }

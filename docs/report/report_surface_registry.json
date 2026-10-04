@@ -1,6 +1,6 @@
 {
   "schema_version": "report-surface-registry.v1",
-  "surface_count": 1953,
+  "surface_count": 1954,
   "inventory_scope": "all input files plus generated navigation pages; registry metadata excluded",
   "content_identity_scope": "Markdown pages; machine outputs retain their domain manifests",
   "excluded_metadata_paths": [
@@ -11,14 +11,14 @@
   ],
   "family_counts": {
     "caveats": 10,
-    "maintenance": 1045,
+    "maintenance": 1046,
     "maps": 88,
     "portal": 2,
     "reviews": 34,
     "scopes": 774
   },
   "audience_counts": {
-    "maintainer_diagnostic": 1047,
+    "maintainer_diagnostic": 1048,
     "public_reading_surface": 783,
     "scientific_review_surface": 123
   },
@@ -28,7 +28,7 @@
     "finland": 14,
     "nordic": 498,
     "norway": 14,
-    "report_root": 1094,
+    "report_root": 1095,
     "sweden": 49,
     "world": 172
   },
@@ -11509,7 +11509,7 @@
     },
     {
       "repository_path": "docs/report/publication-replay/landclim-published-window-uncertainty/README.md",
-      "content_sha256": "1b4172edafb80e059cfbec8d96a62d3c58c7edc7e2088d8ce22818937654432c",
+      "content_sha256": "5b29783966d23af30c4c17d70b7fcf27ba437280cc63cd6cccc8fabf6f0c4c2e",
       "family": "maintenance",
       "family_label": "Maintainer truth surfaces",
       "audience": "maintainer_diagnostic",
@@ -23766,6 +23766,18 @@
       "caution_level": "medium",
       "explanation": "Reader-facing portal page for navigating the report tree.",
       "reader_route": "start_here"
+    },
+    {
+      "repository_path": "docs/report/publication-replay/landclim-published-window-uncertainty/source/retained-custody.json",
+      "family": "maintenance",
+      "family_label": "Maintainer truth surfaces",
+      "audience": "maintainer_diagnostic",
+      "audience_label": "Maintainer diagnostic",
+      "format": "json",
+      "geography": "report_root",
+      "caution_level": "high",
+      "explanation": "Maintainer-facing truth or governance surface.",
+      "reader_route": "maintainer_truth"
     }
   ]
 }

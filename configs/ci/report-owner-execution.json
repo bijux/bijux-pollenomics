@@ -1658,6 +1658,17 @@
         "source-products/report.json": "docs/report/countries/denmark/solsoe-source-lineage/pangaea-epd-age-join/report.json"
       },
       "timeout_seconds": 120
+    },
+    {
+      "owner_id": "publication-replay/landclim-published-window-uncertainty/source-manifest",
+      "module": "bijux_pollenomics_dev.source_completion.essd.uncertainty_custody",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "source_arguments": [],
+      "source_paths": {
+        "source-products/manifest.json": "docs/report/publication-replay/landclim-published-window-uncertainty/manifest.json"
+      },
+      "timeout_seconds": 60
     }
   ]
 }

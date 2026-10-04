@@ -22,6 +22,31 @@ PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=packages/bijux-pollenomics-dev/src \
   --output artifacts/landclim-published-window-uncertainty/replay
 ```
 
-The current producer emits the governed LF CSV line endings. The manifest
-pins that producer, both inputs and all three outputs, which replay byte for
-byte. The historical comparison remains a separate provenance record.
+The retained CSV uses governed LF line endings. The metadata manifest accounts
+for the current physical producer and provenance inputs alongside all three
+retained outputs. The historical comparison remains a separate provenance
+record; this byte accounting does not establish a current numerical replay.
+
+The retained manifest recorded the earlier 7746-byte envelope producer. The
+current 9510-byte producer adds input-custody checks before unchanged numerical
+arithmetic and output serialization. Matching output hashes do not prove a
+fresh execution of that current producer. The exact prior manifest is preserved
+in [the retained custody source](source/retained-custody.json). Its original
+execution and historical raw-input qualifications remain unresolved.
+
+A separate metadata-only route records current physical code/input/output hashes
+and the distinct historical producer identity, without fitting parameters or
+executing envelope comparisons:
+
+```sh
+PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=packages/bijux-pollenomics-dev/src \
+  .venv/bin/python -m bijux_pollenomics_dev.source_completion.essd.uncertainty_custody \
+  --repository . --output artifacts/jobs/landclim-uncertainty-custody/products
+```
+
+The metadata writer authenticates the fixed retained envelope bytes and every
+upstream provenance product, refuses changed inputs or aliases, and publishes
+only an absent artifact manifest. Its historical producer record remains
+separate from current physical code. A genuine current envelope replay and
+root review are required for a current-execution claim; this custody metadata
+is byte accounting and does not supply that claim or scientific admission.
