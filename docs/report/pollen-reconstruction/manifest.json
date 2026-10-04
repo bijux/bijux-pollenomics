@@ -1466,7 +1466,7 @@
     },
     {
       "path": "docs/report/regions/europe-plus/europe-plus_map.html",
-      "sha256": "3637474f54dd1bb98c8b2aa4481b5a4d67956b3b3f90fb0471528b39056d2129",
+      "sha256": "34d265fb326b10e85f2a6c5407f6d9534886eb3df5552fc52fdeb842ca738a56",
       "bytes": 442456
     },
     {
@@ -1831,7 +1831,7 @@
     },
     {
       "path": "docs/report/regions/nordic/nordic_map.html",
-      "sha256": "5448079ebd2288f73d7f24caef113a5d1211305b398ef53f0f9b709bb17b10c3",
+      "sha256": "91a9e092f9e6f6840994a199141ec010c290af6907d0d94f39f1ccde45148ce3",
       "bytes": 523780
     },
     {
@@ -2971,7 +2971,7 @@
     },
     {
       "path": "docs/report/world/world_map.html",
-      "sha256": "eecb23f105c0a6fc7b1afad0dd9b83f43c6df081804edc20be60394a270cbdeb",
+      "sha256": "ad5a41f1dcfe3866655a0219841726871cee0eff7b9e89029bbb7b808631b872",
       "bytes": 473032
     },
     {
