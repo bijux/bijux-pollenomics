@@ -1,99 +1,59 @@
-# Current native R reference execution
+# Native R reference and retained comparisons
 
-The [retained numeric result](report.json) is a native R 4.6.0 execution of
-source-locked DISQOVER 0.9.14. We reran its maintained producer against the
-Python source closure in the [source replay](source-replay.json): **43/43 core**
-and **23/23 source-domain** cases passed. The core set includes 18 prospective
-optimized LOVE cases for three declared fixtures, including intermediates,
-taxon/ring axes, wrapper replay, and nonfinite/refusal behavior. The original
-25 core cases and all 23 source-domain cases also agree with the
-[original authenticated R bundle](../original-r-reference/reference-bundle/certificate.json):
-**48/48** paired R vector comparisons pass under their original tolerances.
-All 97 newly generated numeric CSV files match the retained oracle bytes.
-The largest absolute difference between the original Linux R and native macOS
-R vectors is `3.552713678800501e-14`.
+The authenticated native macOS R 4.6.0 capture passed **43 core cases**, **23 source-domain cases** and **48 comparisons against the original R reference**. The capture identifies the executed Python source revision `064d1237fd743d957538fff2cbae74db06e17338`, the locked DISQOVER 0.9.14 source, the R runtime and the exact dependency versions. All 97 numeric CSV files matched the previously retained values byte for byte. The capture is a bounded numerical comparison, with no ecological accuracy or Linux release certification claim.
 
-The [core raw results](oracle/report.json), [domain raw results](source-domains/report.json),
-case manifests, supplied inputs and every R output vector are retained here.
-We removed generated scripts, command paths and process logs that recorded
-an old disposable run directory. The warning counts retained in the numeric
-report record RcppDE import replacements and four core plus 48 source-domain
-`simpleLoess` memory-limit warnings; all declared comparisons still passed. The
-maintained R producer
-`packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/live_reference.py`
-checks the exact source lock, R version, native base and installed dependency
-versions, five source archive hashes, and the bundled DISQOVER source hash.
-It installs the missing packages into an isolated artifact library, executes
-the actual R runners, and verifies Python/R input file hashes before and after.
-The [source replay verifier](verify_source_replay.py) checks the new source
-closure and the 97 retained numeric CSV identities without needing disposable
-process logs.
+The native source packet at `data/method-certification/native-r/capture/capture.json` independently binds 138 raw members, the actual execution receipt, five locked public dependency archives and their acquisition metadata. Nine additional raw scripts and process logs remain in that packet. The core run report retains its actual elapsed time. These immutable records are preserved as source evidence; rebuilding a comparison does not execute R again or reproduce process timing.
 
-The five exact dependency archives are preserved in the private Pollenomics source store with SHA-256 and byte counts in [the report](report.json). Provider URLs and pinned archive versions are in the repository's [source lock](https://github.com/bijux/bijux-pollenomics/blob/828081f963fa574cd217c8f9c4c2cfcdb9397d52/configs/ci/lra-r-source-lock.v1.json). The reference DISQOVER archive and license notices remain in the [LRA package](../../../../packages/bijux-pollenomics-lra/NOTICE). The runner can also retrieve those same locked archives from the provider, validating bytes before installation.
+The [comparison report](report.json) and [source account](source-replay.json) are derived from the native capture and the [original authenticated R bundle](../original-r-reference/reference-bundle/certificate.json). Their `native_capture_source_revision` identifies the actual native execution. The governed comparison identifies its consumer through deterministic code and data digests; the execution Git revision remains in the preserved run evidence. Both explicitly state that R and the captured 43 Python expectation vectors were not newly executed for this comparison. A changed protected scientific input refuses reuse of the capture and requires a new native execution decision.
+
+The 18 prospective optimized LOVE cases have native R results in this capture. The original reference contains 25 core cases and 23 source-domain cases; it contains no R results for those 18 later cases. The separate [current Python account](../original-r-reference/report.json) compares current Python with the historical reference and must retain those missing historical results explicitly. Neither comparison establishes stochastic optimizer trajectory parity, a global optimum or uncertainty calibration.
+
+## Recompute the retained comparison
+
+From an installed development environment at the repository root, choose an absent destination below `artifacts/` whose parent is named `producer-output`:
+
+```sh
+mkdir -p artifacts/jobs/native-r-comparison/producer-output
+python -m bijux_pollenomics_dev.source_completion.method_certification.native_r_comparison \
+  --repository . \
+  --output artifacts/jobs/native-r-comparison/producer-output/source-products
+```
+
+The mapped output contains only `report.json` and `source-replay.json`. Its sibling `native-comparison/` preserves the ordinary comparison output, including all 138 raw members and its actual execution revision. The command authenticates the native packet before and after, validates the original reference and checks the captured scientific source hashes against the physical repository. It never consumes the tracked comparison JSONs as producer input. The configured report owner runs the same producer in independent reference and replay lanes.
 
 ## Reproduction
 
-Set `BIJUX_LRA_SOURCE_CACHE` to a directory containing the five pinned source archives and run from the repository root with an absent output below `artifacts/`:
+A new native execution uses the maintained `bijux_pollenomics_dev.lra_validation.live_reference` producer, the locked R runtime, Fortran toolchain and dependency archives. The [source lock](../../../../configs/ci/lra-r-source-lock.v1.json) identifies the exact archive bytes. The public acquisition metadata at `data/method-certification/native-r/public-acquisition.json` records fresh public retrieval; the producer's existing cache-path label does not establish historical private archive provenance. Toolchain, source, environment and input custody must be qualified for each new execution before its results replace this capture.
+
+A new run requires the qualified R, Rscript and Fortran executables. Set
+`BIJUX_R`, `BIJUX_RSCRIPT` and `BIJUX_FORTRAN` to their physical executable
+paths, then use an absent destination:
 
 ```sh
-PYTHONDONTWRITEBYTECODE=1 OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 NUMEXPR_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 \
-  .venv/bin/python -m bijux_pollenomics_dev.lra_validation.live_reference \
-  --repository . --output artifacts/jobs/native-r-reproduction \
-  --r /usr/local/bin/R --rscript /usr/local/bin/Rscript \
-  --fortran /opt/homebrew/bin/gfortran --source-cache "$BIJUX_LRA_SOURCE_CACHE"
-PYTHONDONTWRITEBYTECODE=1 .venv/bin/python \
-  -m bijux_pollenomics_dev.lra_validation.live_reference_comparison \
-  --repository . --run artifacts/jobs/native-r-reproduction \
-  --original docs/report/method-certification/original-r-reference/reference-bundle \
-  --output artifacts/jobs/native-r-comparison \
-  --private-sources "$BIJUX_LRA_SOURCE_CACHE"
-.venv/bin/python \
-  docs/report/method-certification/current-r-oracle/verify_source_replay.py
+python -m bijux_pollenomics_dev.lra_validation.live_reference \
+  --repository . \
+  --output artifacts/jobs/native-r-reproduction \
+  --r "$BIJUX_R" --rscript "$BIJUX_RSCRIPT" \
+  --fortran "$BIJUX_FORTRAN" \
+  --source-cache data/method-certification/native-r/source-archives
 ```
-
-The [comparison producer](https://github.com/bijux/bijux-pollenomics/blob/828081f963fa574cd217c8f9c4c2cfcdb9397d52/packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/live_reference_comparison.py) validates original certificate closure, every current source hash and command result, exact private archive custody, full case denominators, and cross-platform R vectors before retaining the raw results. Strict mypy and Ruff checks passed for the two producers; the actual R and comparison commands returned zero.
 
 ## Optimized LOVE objective and bounded search
 
-The installed solver and optimized reconstruction under
-`packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/`
-match the hashes in `source-replay.json`. The earlier `report.json` binds an
-older Python source closure; its numerical R vectors are byte identical to
-the fresh execution, but its source hashes must not be used as a claim about
-the installed engine.
-A new source-closed native R 4.6.0 execution against the current engine and
-five locked dependency archives passed all 43 core and 23 source-domain cases.
-Its comparison with the authenticated original R bundle passed all 48 paired
-vector cases. All 97 retained numeric CSVs were byte identical to the fresh
-run. Among the 132 retained raw-result files, 130 were byte identical. The
-fresh core case manifest adds hashes for its current inputs; the fresh core
-run report records a different elapsed time. Six generated scripts and process
-logs from that run remain disposable. These differences do not change the
-numeric result or turn the native run into a Linux release certificate. The
-reproduction commands above rerun this source-closed check.
-
-The focused solver and optimized-profile checks in
-`packages/bijux-pollenomics-lra/tests/unit/optimization/test_solver.py` and
-`packages/bijux-pollenomics-lra/tests/unit/reconstruction/test_optimized_profile.py`
-passed **70/70** on this source state. They cover fixed-candidate objective replay,
-independently derived interior and boundary optima under eight seeds each,
-distinct cover vectors with the same optimum, exact evaluation budgets and
-nonconvergence, bounded custom result certification, and a LOVE consumer's
-forward-pollen and objective values. The 18 prospective R cases additionally
-check declared optimized intermediates and supplied-candidate wrapper behavior.
-
-Recheck the focused Python consumer selection from the repository root:
+The capture's 18 prospective optimized LOVE cases cover declared intermediates,
+taxon and ring axes, supplied-candidate wrapper replay and refusal behavior.
+They extend the original 25 core cases; they do not supply the missing 18
+historical original-R results or pair stochastic optimizer search trajectories.
+The maintained solver and optimized-profile checks remain available separately:
 
 ```sh
-PYTHONDONTWRITEBYTECODE=1 OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 \
-  MKL_NUM_THREADS=1 NUMEXPR_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 \
-  .venv/bin/python -m pytest -q \
+python -m pytest -q \
   -o cache_dir=artifacts/jobs/love-optimizer-acceptance/cache \
-  --basetemp=artifacts/jobs/love-optimizer-acceptance/tmp \
+  --basetemp=artifacts/jobs/love-optimizer-acceptance/products \
   packages/bijux-pollenomics-lra/tests/unit/optimization/test_solver.py \
   packages/bijux-pollenomics-lra/tests/unit/reconstruction/test_optimized_profile.py
 ```
 
 ## Scientific and release boundary
 
-This is current native macOS R execution with exact package source versions. It is **not** the separate locked Linux release certificate: the interpreter and platform identities differ, and this output does not claim a full Linux runtime/library file closure or release authorization. The prospective replay cases test agreed objective and wrapper behavior under supplied candidates; they do not establish stochastic optimizer trajectory parity, a global optimum, uncertainty calibration, ecological prediction accuracy, or independent vegetation truth. Those remain separate acceptance requirements.
+The [source replay verifier](verify_source_replay.py) checks the retained numeric identities and current declared source closure. This verifier and the retained comparison provide separate evidence from fresh native execution. Neither supplies the locked Linux release certificate, provider rights, independent vegetation observations or full scientific acceptance.

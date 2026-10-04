@@ -3447,7 +3447,7 @@
     },
     {
       "repository_path": "docs/report/method-certification/current-r-oracle/README.md",
-      "content_sha256": "c806f119a186ad501adfb64aa13c7bd1436669b20c8b81f43cfc6cd324e219f2",
+      "content_sha256": "9c87666f15e9bf44bc85ad88096dc5f77e64cc83e3d28206efad3cd041c682d9",
       "family": "maintenance",
       "family_label": "Maintainer truth surfaces",
       "audience": "maintainer_diagnostic",

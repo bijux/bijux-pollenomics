@@ -22,7 +22,11 @@ REVISION = "0123456789abcdef0123456789abcdef01234567"
 def native_report() -> dict[str, Any]:
     # This retained report is an input-shape fixture, not a new R execution.
     path = ROOT / "docs/report/method-certification/current-r-oracle/report.json"
-    return cast(dict[str, Any], json.loads(path.read_text()))
+    record = cast(dict[str, Any], json.loads(path.read_text()))
+    if record["schema_version"] == "retained-native-r-comparison-report.v1":
+        # Exercise the immutable native serializer's input shape, not a new R run.
+        record["schema_version"] = "current-native-r-reference.1"
+    return record
 
 
 def test_manifest_derives_actual_source_case_and_csv_identities(
