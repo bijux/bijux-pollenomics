@@ -1,0 +1,1507 @@
+{
+  "comparison_counts": {
+    "ABSENT_IN_RECOVERED": 2,
+    "DIFFERENT": 23,
+    "EQUAL": 112
+  },
+  "historical_owned_count": 137,
+  "members": [
+    {
+      "comparison": "ABSENT_IN_RECOVERED",
+      "historical_sha256": "d33f777d10baec9d20ecb21143d87a3d037da6ebf21ea3285cd0b56182de5ad6",
+      "relative": "context.json"
+    },
+    {
+      "comparison": "EQUAL",
+      "historical_sha256": "435bf8ffc6d62bcf21c9f242364db72fb8cc5d0057bafa1343a9c930d47e92be",
+      "recovered_sha256": "435bf8ffc6d62bcf21c9f242364db72fb8cc5d0057bafa1343a9c930d47e92be",
+      "relative": "oracle/C0000.csv"
+    },
+    {
+      "comparison": "EQUAL",
+      "historical_sha256": "10d713ff579ba379674fc97d3a4bb11461c47adc3caacca5b1297c8566ff7157",
+      "recovered_sha256": "10d713ff579ba379674fc97d3a4bb11461c47adc3caacca5b1297c8566ff7157",
+      "relative": "oracle/C0001.csv"
+    },
+    {
+      "comparison": "EQUAL",
+      "historical_sha256": "d19f08c5de88257dd02901ca6480dc390df29840376b9454231219746c215013",
+      "recovered_sha256": "d19f08c5de88257dd02901ca6480dc390df29840376b9454231219746c215013",
+      "relative": "oracle/C0002.csv"
+    },
+    {
+      "comparison": "EQUAL",
+      "historical_sha256": "466c1344e9a7a703854af07bd9ca6d080d3ceadb6753e431d4c64873f35c5427",
+      "recovered_sha256": "466c1344e9a7a703854af07bd9ca6d080d3ceadb6753e431d4c64873f35c5427",
+      "relative": "oracle/C0003.csv"
+    },
+    {
+      "comparison": "EQUAL",
+      "historical_sha256": "ffd4d47d9ce668d64a27f9561e0206a6b8deb0669cb74838ca67175a831ca005",
+      "recovered_sha256": "ffd4d47d9ce668d64a27f9561e0206a6b8deb0669cb74838ca67175a831ca005",
+      "relative": "oracle/C0004.csv"
+    },
+    {
+      "comparison": "EQUAL",
+      "historical_sha256": "de010f33fe90c1429c5d82b7afefefa02839f9714fc48cfaa389bf5d0956c84c",
+      "recovered_sha256": "de010f33fe90c1429c5d82b7afefefa02839f9714fc48cfaa389bf5d0956c84c",
+      "relative": "oracle/C0005.csv"
+    },
+    {
+      "comparison": "EQUAL",
+      "historical_sha256": "138e4af1710e0b8dbebb30a02cfdc9bca0aed4881841b7998004d51c90a60cdb",
+      "recovered_sha256": "138e4af1710e0b8dbebb30a02cfdc9bca0aed4881841b7998004d51c90a60cdb",
+      "relative": "oracle/C0006.csv"
+    },
+    {
+      "comparison": "DIFFERENT",
+      "csv_semantics": {
+        "changed_row_count": 1,
+        "first_changed_rows": [
+          {
+            "historical_cells": [
+              "numeric",
+              "0.3005580783151709"
+            ],
+            "recovered_cells": [
+              "numeric",
+              "0.30055807831517084"
+            ],
+            "row": 1,
+            "same_decimal_values_all_cells": false
+          }
+        ],
+        "historical_rows_including_header": 2,
+        "recovered_rows_including_header": 2
+      },
+      "historical_sha256": "e1dd91a22c429191026f989374cabe470790116c29701444c8094eb3154b2b18",
+      "recovered_sha256": "2464fcb72b063293033ce16fdaab4e56897903350976ec121f8e4510ec43fc25",
+      "relative": "oracle/C0007.csv"
+    },
+    {
+      "comparison": "DIFFERENT",
+      "csv_semantics": {
+        "changed_row_count": 3,
+        "first_changed_rows": [
+          {
+            "historical_cells": [
+              "numeric",
+              "0.0249613371091859"
+            ],
+            "recovered_cells": [
+              "numeric",
+              "0.024961337109185879"
+            ],
+            "row": 1,
+            "same_decimal_values_all_cells": false
+          },
+          {
+            "historical_cells": [
+              "numeric",
+              "0.0051512692625414382"
+            ],
+            "recovered_cells": [
+              "numeric",
+              "0.0051512692625414434"
+            ],
+            "row": 2,
+            "same_decimal_values_all_cells": false
+          },
+          {
+            "historical_cells": [
+              "numeric",
+              "0.00085840446850873745"
+            ],
+            "recovered_cells": [
+              "numeric",
+              "0.00085840446850873778"
+            ],
+            "row": 3,
+            "same_decimal_values_all_cells": false
+          }
+        ],
+        "historical_rows_including_header": 4,
+        "recovered_rows_including_header": 4
+      },
+      "historical_sha256": "263262ec2bc34e5a0c25a319068f880919130d93f4ef912c0650617d6c4b0aa5",
+      "recovered_sha256": "5669fb05a1910c38e4686e65ab72609a8c2ce77d173c11c23126a7ee8c5d2955",
+      "relative": "oracle/C0008.csv"
+    },
+    {
+      "comparison": "DIFFERENT",
+      "csv_semantics": {
+        "changed_row_count": 1,
+        "first_changed_rows": [
+          {
+            "historical_cells": [
+              "numeric",
+              "0.01875806271961868"
+            ],
+            "recovered_cells": [
+              "numeric",
+              "0.018758062719618676"
+            ],
+            "row": 1,
+            "same_decimal_values_all_cells": false
+          }
+        ],
+        "historical_rows_including_header": 2,
+        "recovered_rows_including_header": 2
+      },
+      "historical_sha256": "ad110de260e484e2f807507b567105aca2f3afbd266e132772258320ee42a7fd",
+      "recovered_sha256": "1e2766e9eacc2a78041b4984f1edebfd6887416f605cdc97e2754009856fcedf",
+      "relative": "oracle/C0009.csv"
+    },
+    {
+      "comparison": "EQUAL",
+      "historical_sha256": "d4903ff00bdd177c8eff7dfe0d825bf69140ce891f50844be3ec60bc3df402e9",
+      "recovered_sha256": "d4903ff00bdd177c8eff7dfe0d825bf69140ce891f50844be3ec60bc3df402e9",
+      "relative": "oracle/C0010.csv"
+    },
+    {
+      "comparison": "EQUAL",
+      "historical_sha256": "d5b2a18a4a9bdd9b28c4723d8a56e27ccd0cc05baf6a388679da6d4eebec5a5e",
+      "recovered_sha256": "d5b2a18a4a9bdd9b28c4723d8a56e27ccd0cc05baf6a388679da6d4eebec5a5e",
+      "relative": "oracle/C0011.csv"
+    },
+    {
+      "comparison": "EQUAL",
+      "historical_sha256": "fa3f1907f19cd7362bc7f17c004695313471695e4420c02066b48c5f4e1aabdf",
+      "recovered_sha256": "fa3f1907f19cd7362bc7f17c004695313471695e4420c02066b48c5f4e1aabdf",
+      "relative": "oracle/C0012.csv"
+    },
+    {
+      "comparison": "EQUAL",
+      "historical_sha256": "6dc0860585a01f90ca2dad9efd5fbe853e990137b013851c6e2ba9a0a41383bb",
+      "recovered_sha256": "6dc0860585a01f90ca2dad9efd5fbe853e990137b013851c6e2ba9a0a41383bb",
+      "relative": "oracle/C0013.csv"
+    },
+    {
+      "comparison": "EQUAL",
+      "historical_sha256": "473b03f9c392250a2fecd8c5aa2b88d06e511e1475694269252eca661762b14b",
+      "recovered_sha256": "473b03f9c392250a2fecd8c5aa2b88d06e511e1475694269252eca661762b14b",
+      "relative": "oracle/C0014.csv"
+    },
+    {
+      "comparison": "EQUAL",
+      "historical_sha256": "6c62a2ce1acf4ed75e3ad28dfa6e8ff5bf839cb2d940cfecd056af2eeb056bab",
+      "recovered_sha256": "6c62a2ce1acf4ed75e3ad28dfa6e8ff5bf839cb2d940cfecd056af2eeb056bab",
+      "relative": "oracle/C0015.csv"
+    },
+    {
+      "comparison": "EQUAL",
+      "historical_sha256": "a64196e4fe3b6c65e096925b52069470807fa4e836a5e10764481062b2492cb6",
+      "recovered_sha256": "a64196e4fe3b6c65e096925b52069470807fa4e836a5e10764481062b2492cb6",
+      "relative": "oracle/C0016.csv"
+    },
+    {
+      "comparison": "EQUAL",
+      "historical_sha256": "32f2ad2d5921d6e448f7f9ea8ea5ec939376972ed4ce6bbb7e19ea4f577807ab",
+      "recovered_sha256": "32f2ad2d5921d6e448f7f9ea8ea5ec939376972ed4ce6bbb7e19ea4f577807ab",
+      "relative": "oracle/C0017.csv"
+    },
+    {
+      "comparison": "EQUAL",
+      "historical_sha256": "0600aad94ccaad1b6353e00680f24c771c16ed70115d5ac0a7d4e76c46ca21c3",
+      "recovered_sha256": "0600aad94ccaad1b6353e00680f24c771c16ed70115d5ac0a7d4e76c46ca21c3",
+      "relative": "oracle/C0018.csv"
+    },
+    {
+      "comparison": "EQUAL",
+      "historical_sha256": "ceac89bc9b2f911e262aad918d6df3a049b7eda28d994eb03a9cd5ac1c97240e",
+      "recovered_sha256": "ceac89bc9b2f911e262aad918d6df3a049b7eda28d994eb03a9cd5ac1c97240e",
+      "relative": "oracle/C0019.csv"
+    },
+    {
+      "comparison": "DIFFERENT",
+      "csv_semantics": {
+        "changed_row_count": 92,
+        "first_changed_rows": [
+          {
+            "historical_cells": [
+              "numeric",
+              "0.042671683470617894"
+            ],
+            "recovered_cells": [
+              "numeric",
+              "0.042671683470618005"
+            ],
+            "row": 14,
+            "same_decimal_values_all_cells": false
+          },
+          {
+            "historical_cells": [
+              "numeric",
+              "0.039202760696810723"
+            ],
+            "recovered_cells": [
+              "numeric",
+              "0.039202760696810612"
+            ],
+            "row": 15,
+            "same_decimal_values_all_cells": false
+          },
+          {
+            "historical_cells": [
+              "numeric",
+              "0.014749304708300714"
+            ],
+            "recovered_cells": [
+              "numeric",
+              "0.014749304708300826"
+            ],
+            "row": 24,
+            "same_decimal_values_all_cells": false
+          },
+          {
+            "historical_cells": [
+              "numeric",
+              "0.016424447564997835"
+            ],
+            "recovered_cells": [
+              "numeric",
+              "0.016424447564997724"
+            ],
+            "row": 25,
+            "same_decimal_values_all_cells": false
+          }
+        ],
+        "historical_rows_including_header": 361,
+        "recovered_rows_including_header": 361
+      },
+      "historical_sha256": "6cce7592675901ae18570ce5b4f630f1c0b17a20cd5126493a503dad050be8b2",
+      "recovered_sha256": "d9ef49a1f46ffa537619e8fb7e604e87361e4a695331090584ad46f94171e6ea",
+      "relative": "oracle/C0020.csv"
+    },
+    {
+      "comparison": "EQUAL",
+      "historical_sha256": "01ee3926b5e21b29bae35d071cf6c9c2d73433f95739e98b0486fca5bd6b62f1",
+      "recovered_sha256": "01ee3926b5e21b29bae35d071cf6c9c2d73433f95739e98b0486fca5bd6b62f1",
+      "relative": "oracle/C0021.csv"
+    },
+    {
+      "comparison": "EQUAL",
+      "historical_sha256": "56971cc1a8cdfc2c45d1941fcf1bb6b5d80b41d0061643eca7b75970e6dfbf6f",
+      "recovered_sha256": "56971cc1a8cdfc2c45d1941fcf1bb6b5d80b41d0061643eca7b75970e6dfbf6f",
+      "relative": "oracle/C0022.csv"
+    },
+    {
+      "comparison": "DIFFERENT",
+      "csv_semantics": {
+        "changed_row_count": 81,
+        "first_changed_rows": [
+          {
+            "historical_cells": [
+              "numeric",
+              "-0.43761335979489746"
+            ],
+            "recovered_cells": [
+              "numeric",
+              "-0.43761335979489835"
+            ],
+            "row": 8,
+            "same_decimal_values_all_cells": false
+          },
+          {
+            "historical_cells": [
+              "numeric",
+              "-0.18653018227105045"
+            ],
+            "recovered_cells": [
+              "numeric",
+              "-0.18653018227105089"
+            ],
+            "row": 9,
+            "same_decimal_values_all_cells": false
+          },
+          {
+            "historical_cells": [
+              "numeric",
+              "-0.090276706148616104"
+            ],
+            "recovered_cells": [
+              "numeric",
+              "-0.090276706148616159"
+            ],
+            "row": 10,
+            "same_decimal_values_all_cells": false
+          },
+          {
+            "historical_cells": [
+              "numeric",
+              "8.4990068701400237"
+            ],
+            "recovered_cells": [
+              "numeric",
+              "8.4990068701400414"
+            ],
+            "row": 18,
+            "same_decimal_values_all_cells": false
+          }
+        ],
+        "historical_rows_including_header": 421,
+        "recovered_rows_including_header": 421
+      },
+      "historical_sha256": "9b045216cfa418aa875385d59477d605bf353b649b47fe21a79fc3f4802fa28f",
+      "recovered_sha256": "7bc736491f1d14c150581c2127f482c1968d4a1b3de736e877d0890dee141f17",
+      "relative": "oracle/C0023.csv"
+    },
+    {
+      "comparison": "DIFFERENT",
+      "csv_semantics": {
+        "changed_row_count": 6,
+        "first_changed_rows": [
+          {
+            "historical_cells": [
+              "numeric",
+              "1.3603228618298591"
+            ],
+            "recovered_cells": [
+              "numeric",
+              "1.3603228618298595"
+            ],
+            "row": 607,
+            "same_decimal_values_all_cells": false
+          },
+          {
+            "historical_cells": [
+              "numeric",
+              "1.25098260925834"
+            ],
+            "recovered_cells": [
+              "numeric",
+              "1.2509826092583405"
+            ],
+            "row": 608,
+            "same_decimal_values_all_cells": false
+          },
+          {
+            "historical_cells": [
+              "numeric",
+              "1.1254707065807621"
+            ],
+            "recovered_cells": [
+              "numeric",
+              "1.1254707065807628"
+            ],
+            "row": 609,
+            "same_decimal_values_all_cells": false
+          },
+          {
+            "historical_cells": [
+              "numeric",
+              "1.3603228618298591"
+            ],
+            "recovered_cells": [
+              "numeric",
+              "1.3603228618298595"
+            ],
+            "row": 617,
+            "same_decimal_values_all_cells": false
+          }
+        ],
+        "historical_rows_including_header": 621,
+        "recovered_rows_including_header": 621
+      },
+      "historical_sha256": "6ee817d2a96abb38a9ba1a5e67486fa79e45225f5a51aced5a0c71615b79b772",
+      "recovered_sha256": "5088190e1ad924945bb1fbb26aec2699cf835856cba1895652d795c9250b6447",
+      "relative": "oracle/C0024.csv"
+    },
+    {
+      "comparison": "DIFFERENT",
+      "csv_semantics": {
+        "changed_row_count": 107,
+        "first_changed_rows": [
+          {
+            "historical_cells": [
+              "numeric",
+              "0.042671683470617894"
+            ],
+            "recovered_cells": [
+              "numeric",
+              "0.042671683470618005"
+            ],
+            "row": 14,
+            "same_decimal_values_all_cells": false
+          },
+          {
+            "historical_cells": [
+              "numeric",
+              "0.039202760696810723"
+            ],
+            "recovered_cells": [
+              "numeric",
+              "0.039202760696810612"
+            ],
+            "row": 15,
+            "same_decimal_values_all_cells": false
+          },
+          {
+            "historical_cells": [
+              "numeric",
+              "0.014749304708300714"
+            ],
+            "recovered_cells": [
+              "numeric",
+              "0.014749304708300826"
+            ],
+            "row": 24,
+            "same_decimal_values_all_cells": false
+          },
+          {
+            "historical_cells": [
+              "numeric",
+              "0.016424447564997835"
+            ],
+            "recovered_cells": [
+              "numeric",
+              "0.016424447564997724"
+            ],
+            "row": 25,
+            "same_decimal_values_all_cells": false
+          }
+        ],
+        "historical_rows_including_header": 431,
+        "recovered_rows_including_header": 431
+      },
+      "historical_sha256": "8e539c45ae8de517c9285e6f943d97f50eb5e79fbe23d795468dedc696babbf2",
+      "recovered_sha256": "2fd7815ba8b3339797e5681a9449ff6323123bcc4b386d15646681e9fc3e61a6",
+      "relative": "oracle/C0025.csv"
+    },
+    {
+      "comparison": "EQUAL",
+      "historical_sha256": "f5c78225927739026a81d67d3a30cc9d42fccf1dfe124774696fdffc7179e59a",
+      "recovered_sha256": "f5c78225927739026a81d67d3a30cc9d42fccf1dfe124774696fdffc7179e59a",
+      "relative": "oracle/C0026.csv"
+    },
+    {
+      "comparison": "EQUAL",
+      "historical_sha256": "bca8752e105529e5d8510739d12f2442b32ad18342bbea01b67cfac4b85b22e5",
+      "recovered_sha256": "bca8752e105529e5d8510739d12f2442b32ad18342bbea01b67cfac4b85b22e5",
+      "relative": "oracle/C0027.csv"
+    },
+    {
+      "comparison": "DIFFERENT",
+      "csv_semantics": {
+        "changed_row_count": 4,
+        "first_changed_rows": [
+          {
+            "historical_cells": [
+              "numeric",
+              "1.4779488531057621"
+            ],
+            "recovered_cells": [
+              "numeric",
+              "1.4779488531057623"
+            ],
+            "row": 607,
+            "same_decimal_values_all_cells": false
+          },
+          {
+            "historical_cells": [
+              "numeric",
+              "1.4615484376635945"
+            ],
+            "recovered_cells": [
+              "numeric",
+              "1.461548437663595"
+            ],
+            "row": 609,
+            "same_decimal_values_all_cells": false
+          },
+          {
+            "historical_cells": [
+              "numeric",
+              "1.4779488531057621"
+            ],
+            "recovered_cells": [
+              "numeric",
+              "1.4779488531057623"
+            ],
+            "row": 611,
+            "same_decimal_values_all_cells": false
+          },
+          {
+            "historical_cells": [
+              "numeric",
+              "1.4615484376635945"
+            ],
+            "recovered_cells": [
+              "numeric",
+              "1.461548437663595"
+            ],
+            "row": 621,
+            "same_decimal_values_all_cells": false
+          }
+        ],
+        "historical_rows_including_header": 631,
+        "recovered_rows_including_header": 631
+      },
+      "historical_sha256": "edd21faef8eb11557a15afcfb8208657837bcb52b014636b333563c6db37278f",
+      "recovered_sha256": "18b338c776a1e6eba581d36a07e3e54c31cb2df3b3176fdb0914ea374c06caa9",
+      "relative": "oracle/C0028.csv"
+    },
+    {
+      "comparison": "EQUAL",
+      "historical_sha256": "6776b62f7595fca572fa2d8a5cad3c6ea64a6c1f1b15c928dc40593ea2ec0da5",
+      "recovered_sha256": "6776b62f7595fca572fa2d8a5cad3c6ea64a6c1f1b15c928dc40593ea2ec0da5",
+      "relative": "oracle/C0029.csv"
+    },
+    {
+      "comparison": "EQUAL",
+      "historical_sha256": "05421bf8a045151c9240e1c57fcdfc11f45062d731d6330867c5eec27a470b77",
+      "recovered_sha256": "05421bf8a045151c9240e1c57fcdfc11f45062d731d6330867c5eec27a470b77",
+      "relative": "oracle/C0030.csv"
+    },
+    {
+      "comparison": "DIFFERENT",
+      "csv_semantics": {
+        "changed_row_count": 117,
+        "first_changed_rows": [
+          {
+            "historical_cells": [
+              "numeric",
+              "0.042671683470617894"
+            ],
+            "recovered_cells": [
+              "numeric",
+              "0.042671683470618005"
+            ],
+            "row": 14,
+            "same_decimal_values_all_cells": false
+          },
+          {
+            "historical_cells": [
+              "numeric",
+              "0.039202760696810723"
+            ],
+            "recovered_cells": [
+              "numeric",
+              "0.039202760696810612"
+            ],
+            "row": 15,
+            "same_decimal_values_all_cells": false
+          },
+          {
+            "historical_cells": [
+              "numeric",
+              "0.014749304708300714"
+            ],
+            "recovered_cells": [
+              "numeric",
+              "0.014749304708300826"
+            ],
+            "row": 24,
+            "same_decimal_values_all_cells": false
+          },
+          {
+            "historical_cells": [
+              "numeric",
+              "0.016424447564997835"
+            ],
+            "recovered_cells": [
+              "numeric",
+              "0.016424447564997724"
+            ],
+            "row": 25,
+            "same_decimal_values_all_cells": false
+          }
+        ],
+        "historical_rows_including_header": 467,
+        "recovered_rows_including_header": 467
+      },
+      "historical_sha256": "3cc3d4f584750dbb071fea48958707f94c6ae7e9d6ad7ffcaa75fe92cf3885f6",
+      "recovered_sha256": "63ac0043d0219956f2dddd97c32d58901495c02245f5f0ece365c549eddc0990",
+      "relative": "oracle/C0031.csv"
+    },
+    {
+      "comparison": "EQUAL",
+      "historical_sha256": "f5c78225927739026a81d67d3a30cc9d42fccf1dfe124774696fdffc7179e59a",
+      "recovered_sha256": "f5c78225927739026a81d67d3a30cc9d42fccf1dfe124774696fdffc7179e59a",
+      "relative": "oracle/C0032.csv"
+    },
+    {
+      "comparison": "EQUAL",
+      "historical_sha256": "bca8752e105529e5d8510739d12f2442b32ad18342bbea01b67cfac4b85b22e5",
+      "recovered_sha256": "bca8752e105529e5d8510739d12f2442b32ad18342bbea01b67cfac4b85b22e5",
+      "relative": "oracle/C0033.csv"
+    },
+    {
+      "comparison": "DIFFERENT",
+      "csv_semantics": {
+        "changed_row_count": 10,
+        "first_changed_rows": [
+          {
+            "historical_cells": [
+              "numeric",
+              "1.8410855767743648"
+            ],
+            "recovered_cells": [
+              "numeric",
+              "1.841085576774365"
+            ],
+            "row": 727,
+            "same_decimal_values_all_cells": false
+          },
+          {
+            "historical_cells": [
+              "numeric",
+              "1.8079131153072363"
+            ],
+            "recovered_cells": [
+              "numeric",
+              "1.8079131153072365"
+            ],
+            "row": 728,
+            "same_decimal_values_all_cells": false
+          },
+          {
+            "historical_cells": [
+              "numeric",
+              "1.7598654552522397"
+            ],
+            "recovered_cells": [
+              "numeric",
+              "1.7598654552522401"
+            ],
+            "row": 729,
+            "same_decimal_values_all_cells": false
+          },
+          {
+            "historical_cells": [
+              "numeric",
+              "1.6992347100673402"
+            ],
+            "recovered_cells": [
+              "numeric",
+              "1.6992347100673404"
+            ],
+            "row": 730,
+            "same_decimal_values_all_cells": false
+          }
+        ],
+        "historical_rows_including_header": 763,
+        "recovered_rows_including_header": 763
+      },
+      "historical_sha256": "ba98c31fc7a7bfcf75950f11a184e7860a97783adcd33e26a7dea124e48d1b56",
+      "recovered_sha256": "e6ddc5156c6f94807c4d4eeeb294118711c7de9f42cc0bb1287c28fc872364f4",
+      "relative": "oracle/C0034.csv"
+    },
+    {
+      "comparison": "EQUAL",
+      "historical_sha256": "6776b62f7595fca572fa2d8a5cad3c6ea64a6c1f1b15c928dc40593ea2ec0da5",
+      "recovered_sha256": "6776b62f7595fca572fa2d8a5cad3c6ea64a6c1f1b15c928dc40593ea2ec0da5",
+      "relative": "oracle/C0035.csv"
+    },
+    {
+      "comparison": "EQUAL",
+      "historical_sha256": "05421bf8a045151c9240e1c57fcdfc11f45062d731d6330867c5eec27a470b77",
+      "recovered_sha256": "05421bf8a045151c9240e1c57fcdfc11f45062d731d6330867c5eec27a470b77",
+      "relative": "oracle/C0036.csv"
+    },
+    {
+      "comparison": "DIFFERENT",
+      "csv_semantics": {
+        "changed_row_count": 138,
+        "first_changed_rows": [
+          {
+            "historical_cells": [
+              "numeric",
+              "0.042671683470617894"
+            ],
+            "recovered_cells": [
+              "numeric",
+              "0.042671683470618005"
+            ],
+            "row": 14,
+            "same_decimal_values_all_cells": false
+          },
+          {
+            "historical_cells": [
+              "numeric",
+              "0.039202760696810723"
+            ],
+            "recovered_cells": [
+              "numeric",
+              "0.039202760696810612"
+            ],
+            "row": 15,
+            "same_decimal_values_all_cells": false
+          },
+          {
+            "historical_cells": [
+              "numeric",
+              "0.014749304708300714"
+            ],
+            "recovered_cells": [
+              "numeric",
+              "0.014749304708300826"
+            ],
+            "row": 24,
+            "same_decimal_values_all_cells": false
+          },
+          {
+            "historical_cells": [
+              "numeric",
+              "0.016424447564997835"
+            ],
+            "recovered_cells": [
+              "numeric",
+              "0.016424447564997724"
+            ],
+            "row": 25,
+            "same_decimal_values_all_cells": false
+          }
+        ],
+        "historical_rows_including_header": 515,
+        "recovered_rows_including_header": 515
+      },
+      "historical_sha256": "2f1b9b0ec1a9bb3268902f1cafd02b9d0450381f3361962de6067de8c4b7a4a9",
+      "recovered_sha256": "aca0a11c26f6991ee302ad6ddf5982d78081fada14e5f219a3d4600ed3e801b1",
+      "relative": "oracle/C0037.csv"
+    },
+    {
+      "comparison": "EQUAL",
+      "historical_sha256": "f5c78225927739026a81d67d3a30cc9d42fccf1dfe124774696fdffc7179e59a",
+      "recovered_sha256": "f5c78225927739026a81d67d3a30cc9d42fccf1dfe124774696fdffc7179e59a",
+      "relative": "oracle/C0038.csv"
+    },
+    {
+      "comparison": "EQUAL",
+      "historical_sha256": "bca8752e105529e5d8510739d12f2442b32ad18342bbea01b67cfac4b85b22e5",
+      "recovered_sha256": "bca8752e105529e5d8510739d12f2442b32ad18342bbea01b67cfac4b85b22e5",
+      "relative": "oracle/C0039.csv"
+    },
+    {
+      "comparison": "DIFFERENT",
+      "csv_semantics": {
+        "changed_row_count": 12,
+        "first_changed_rows": [
+          {
+            "historical_cells": [
+              "numeric",
+              "0.9541808556692859"
+            ],
+            "recovered_cells": [
+              "numeric",
+              "0.95418085566928579"
+            ],
+            "row": 907,
+            "same_decimal_values_all_cells": false
+          },
+          {
+            "historical_cells": [
+              "numeric",
+              "0.90414343557995558"
+            ],
+            "recovered_cells": [
+              "numeric",
+              "0.90414343557995569"
+            ],
+            "row": 909,
+            "same_decimal_values_all_cells": false
+          },
+          {
+            "historical_cells": [
+              "numeric",
+              "0.90515539521667865"
+            ],
+            "recovered_cells": [
+              "numeric",
+              "0.90515539521667876"
+            ],
+            "row": 911,
+            "same_decimal_values_all_cells": false
+          },
+          {
+            "historical_cells": [
+              "numeric",
+              "0.8949067087689343"
+            ],
+            "recovered_cells": [
+              "numeric",
+              "0.89490670876893452"
+            ],
+            "row": 913,
+            "same_decimal_values_all_cells": false
+          }
+        ],
+        "historical_rows_including_header": 961,
+        "recovered_rows_including_header": 961
+      },
+      "historical_sha256": "88740f1687b0850d309dcf0027f0c147df6f0002a8e677db5b0a58ef02544ab5",
+      "recovered_sha256": "5aafd767a259b53b2ce3f38124301a7b8b0271e16ae4c7619a31ee7e9b94fe78",
+      "relative": "oracle/C0040.csv"
+    },
+    {
+      "comparison": "EQUAL",
+      "historical_sha256": "6776b62f7595fca572fa2d8a5cad3c6ea64a6c1f1b15c928dc40593ea2ec0da5",
+      "recovered_sha256": "6776b62f7595fca572fa2d8a5cad3c6ea64a6c1f1b15c928dc40593ea2ec0da5",
+      "relative": "oracle/C0041.csv"
+    },
+    {
+      "comparison": "EQUAL",
+      "historical_sha256": "05421bf8a045151c9240e1c57fcdfc11f45062d731d6330867c5eec27a470b77",
+      "recovered_sha256": "05421bf8a045151c9240e1c57fcdfc11f45062d731d6330867c5eec27a470b77",
+      "relative": "oracle/C0042.csv"
+    },
+    {
+      "comparison": "EQUAL",
+      "historical_sha256": "167b3ea2d2c5290256e846bc18d8f1ba82c1917d126adc0748fa9234cc4c5946",
+      "recovered_sha256": "167b3ea2d2c5290256e846bc18d8f1ba82c1917d126adc0748fa9234cc4c5946",
+      "relative": "oracle/R_case_status.csv"
+    },
+    {
+      "comparison": "DIFFERENT",
+      "historical_sha256": "b7bc72f3e734a2ba628d5d404a96889b8e567fc243ee16d78a929fafac8db859",
+      "recovered_sha256": "c595e56d43530c30d4e69e9480231b06e8c725453d160f4b92d9c19b6a63d7a6",
+      "relative": "oracle/R_session_info.txt",
+      "semantics": "Different executed script/session metadata text; ARM64 container and source-locked x86_64 guest identities remain separate."
+    },
+    {
+      "comparison": "EQUAL",
+      "historical_sha256": "7b7c9190fe1eb05d85bf38bfe85078465a90d161fc06f95c96639659fcd0a20b",
+      "recovered_sha256": "7b7c9190fe1eb05d85bf38bfe85078465a90d161fc06f95c96639659fcd0a20b",
+      "relative": "oracle/R_stderr.log"
+    },
+    {
+      "comparison": "EQUAL",
+      "historical_sha256": "ffc7ddee5bab18f8c56e2fce8385bf6233291959e5ce7d50eeb98a89493ed2cd",
+      "recovered_sha256": "ffc7ddee5bab18f8c56e2fce8385bf6233291959e5ce7d50eeb98a89493ed2cd",
+      "relative": "oracle/R_stdout.log"
+    },
+    {
+      "comparison": "DIFFERENT",
+      "historical_sha256": "50a554004835f56e6c5b9d9f013fce06389a026ca923cfb1c8b94c82d3d85f9e",
+      "json_semantics": {
+        "changed_top_level_keys": null,
+        "historical_type": "list",
+        "object_equal": false,
+        "recovered_type": "list"
+      },
+      "recovered_sha256": "c5fe95d459478703239d4eb556dd94e821ea4a5bbb0f39ccf6c43b3f2a00e8ca",
+      "relative": "oracle/case_manifest.json"
+    },
+    {
+      "comparison": "DIFFERENT",
+      "historical_sha256": "1f6be3454484f5cf6718a2aa3be3454d75f75871452bc677b81402d004d1e435",
+      "recovered_sha256": "23eb6618bbad0d3aaa2ed971a92bf1fb48e6505292249f697be096121068dd91",
+      "relative": "oracle/oracle.R",
+      "semantics": "Different executed script/session metadata text; ARM64 container and source-locked x86_64 guest identities remain separate."
+    },
+    {
+      "comparison": "DIFFERENT",
+      "historical_sha256": "0d006dfe36b2d362ec7e359cb920e33785aecfff2b061a48545292f5a131da1b",
+      "recovered_sha256": "a593ed66ff08371f082bfef90011e307c4b4dba765ae9c006496f268377b7892",
+      "relative": "oracle/python_expected_not_R_goldens.npz",
+      "semantics": "Different retained Python expectation bytes; these are explicitly not R goldens and are not recomputed or numerically evaluated here."
+    },
+    {
+      "comparison": "DIFFERENT",
+      "historical_sha256": "feabd3b0e0538c8bb84b8369e57c6de9af0982c7db2ee1478fb93f78dae64984",
+      "json_semantics": {
+        "changed_top_level_keys": [
+          "cases",
+          "elapsed_seconds"
+        ],
+        "historical_type": "dict",
+        "object_equal": false,
+        "recovered_type": "dict"
+      },
+      "recovered_sha256": "c4f8ba37ea856eac91cd3ef6429fcd22a2de9c6ebb58763ed7eab77b106ca672",
+      "relative": "oracle/report.json"
+    },
+    {
+      "comparison": "ABSENT_IN_RECOVERED",
+      "historical_sha256": "45730b48dcdc977af69bfed35bdc37d640f7611a7e8729338c48bc46498a9d85",
+      "relative": "report.json"
+    },
+    {
+      "comparison": "EQUAL",
+      "historical_sha256": "dc66eac258b2536bad0d2ec3775753984e86a59c64dd6cb270bb36ef0a46ba7e",
+      "recovered_sha256": "dc66eac258b2536bad0d2ec3775753984e86a59c64dd6cb270bb36ef0a46ba7e",
+      "relative": "source-domains/F001-R.csv"
+    },
+    {
+      "comparison": "EQUAL",
+      "historical_sha256": "e2f741c568a8834d8dc39e5b1cbec9c7f13361c97e5f094221cbd14dd65f7752",
+      "recovered_sha256": "e2f741c568a8834d8dc39e5b1cbec9c7f13361c97e5f094221cbd14dd65f7752",
+      "relative": "source-domains/F001-rings.csv"
+    },
+    {
+      "comparison": "EQUAL",
+      "historical_sha256": "a5b0788270c89f5f86ba41269eab5a92126bda2d7658e06070ffdfb86498f5cb",
+      "recovered_sha256": "a5b0788270c89f5f86ba41269eab5a92126bda2d7658e06070ffdfb86498f5cb",
+      "relative": "source-domains/F002-R.csv"
+    },
+    {
+      "comparison": "EQUAL",
+      "historical_sha256": "387fb825480e217fa1a7814458ca156cd269fc79c1581e7c5254954656554889",
+      "recovered_sha256": "387fb825480e217fa1a7814458ca156cd269fc79c1581e7c5254954656554889",
+      "relative": "source-domains/F002-rings.csv"
+    },
+    {
+      "comparison": "DIFFERENT",
+      "csv_semantics": {
+        "changed_row_count": 3,
+        "first_changed_rows": [
+          {
+            "historical_cells": [
+              "0.0881686748804688"
+            ],
+            "recovered_cells": [
+              "0.0881686748804689"
+            ],
+            "row": 2,
+            "same_decimal_values_all_cells": false
+          },
+          {
+            "historical_cells": [
+              "0.0777180104963639"
+            ],
+            "recovered_cells": [
+              "0.0777180104963638"
+            ],
+            "row": 3,
+            "same_decimal_values_all_cells": false
+          },
+          {
+            "historical_cells": [
+              "0.0997060546665739"
+            ],
+            "recovered_cells": [
+              "0.0997060546665738"
+            ],
+            "row": 6,
+            "same_decimal_values_all_cells": false
+          }
+        ],
+        "historical_rows_including_header": 19,
+        "recovered_rows_including_header": 19
+      },
+      "historical_sha256": "c0c3221e572d69d1069716801d5a347dbe9ce1e495bbe66e716e193b109f8cc2",
+      "recovered_sha256": "ab19148861d7669e778f771dd2c75b0cb7e1a8e77087d4ad980fe45eec43a520",
+      "relative": "source-domains/F003-R.csv"
+    },
+    {
+      "comparison": "EQUAL",
+      "historical_sha256": "e2f741c568a8834d8dc39e5b1cbec9c7f13361c97e5f094221cbd14dd65f7752",
+      "recovered_sha256": "e2f741c568a8834d8dc39e5b1cbec9c7f13361c97e5f094221cbd14dd65f7752",
+      "relative": "source-domains/F003-rings.csv"
+    },
+    {
+      "comparison": "EQUAL",
+      "historical_sha256": "613c1ad2c6271def0e99aef2d1de68eb496356e5a4d9b89af7ec88f059844313",
+      "recovered_sha256": "613c1ad2c6271def0e99aef2d1de68eb496356e5a4d9b89af7ec88f059844313",
+      "relative": "source-domains/F004-R.csv"
+    },
+    {
+      "comparison": "EQUAL",
+      "historical_sha256": "387fb825480e217fa1a7814458ca156cd269fc79c1581e7c5254954656554889",
+      "recovered_sha256": "387fb825480e217fa1a7814458ca156cd269fc79c1581e7c5254954656554889",
+      "relative": "source-domains/F004-rings.csv"
+    },
+    {
+      "comparison": "EQUAL",
+      "historical_sha256": "5ae76a007d4a6e221726bffffe3dba18eadbcea8d6185342dbc18e85b07bcdd5",
+      "recovered_sha256": "5ae76a007d4a6e221726bffffe3dba18eadbcea8d6185342dbc18e85b07bcdd5",
+      "relative": "source-domains/F005-R.csv"
+    },
+    {
+      "comparison": "EQUAL",
+      "historical_sha256": "e2f741c568a8834d8dc39e5b1cbec9c7f13361c97e5f094221cbd14dd65f7752",
+      "recovered_sha256": "e2f741c568a8834d8dc39e5b1cbec9c7f13361c97e5f094221cbd14dd65f7752",
+      "relative": "source-domains/F005-rings.csv"
+    },
+    {
+      "comparison": "EQUAL",
+      "historical_sha256": "c7a092d115fd8f9393983b7bdd418994f4c4d9fd701f87fdae1a4985e1859992",
+      "recovered_sha256": "c7a092d115fd8f9393983b7bdd418994f4c4d9fd701f87fdae1a4985e1859992",
+      "relative": "source-domains/F006-R.csv"
+    },
+    {
+      "comparison": "EQUAL",
+      "historical_sha256": "387fb825480e217fa1a7814458ca156cd269fc79c1581e7c5254954656554889",
+      "recovered_sha256": "387fb825480e217fa1a7814458ca156cd269fc79c1581e7c5254954656554889",
+      "relative": "source-domains/F006-rings.csv"
+    },
+    {
+      "comparison": "EQUAL",
+      "historical_sha256": "fef6d206b1d1c188b7f753bef6bef07d131da2c6a6f86b0ad6b09bdf3fc308bd",
+      "recovered_sha256": "fef6d206b1d1c188b7f753bef6bef07d131da2c6a6f86b0ad6b09bdf3fc308bd",
+      "relative": "source-domains/F007-R.csv"
+    },
+    {
+      "comparison": "EQUAL",
+      "historical_sha256": "e2f741c568a8834d8dc39e5b1cbec9c7f13361c97e5f094221cbd14dd65f7752",
+      "recovered_sha256": "e2f741c568a8834d8dc39e5b1cbec9c7f13361c97e5f094221cbd14dd65f7752",
+      "relative": "source-domains/F007-rings.csv"
+    },
+    {
+      "comparison": "EQUAL",
+      "historical_sha256": "785b9b573e64322b3649e7bceb00fd26e378cdc64b056fb7103f7d2572beb68b",
+      "recovered_sha256": "785b9b573e64322b3649e7bceb00fd26e378cdc64b056fb7103f7d2572beb68b",
+      "relative": "source-domains/F008-R.csv"
+    },
+    {
+      "comparison": "EQUAL",
+      "historical_sha256": "387fb825480e217fa1a7814458ca156cd269fc79c1581e7c5254954656554889",
+      "recovered_sha256": "387fb825480e217fa1a7814458ca156cd269fc79c1581e7c5254954656554889",
+      "relative": "source-domains/F008-rings.csv"
+    },
+    {
+      "comparison": "EQUAL",
+      "historical_sha256": "b61a45c67d34c49c979a85852b2a5419017f8f29cbcbfa793c2731f9cf571ebd",
+      "recovered_sha256": "b61a45c67d34c49c979a85852b2a5419017f8f29cbcbfa793c2731f9cf571ebd",
+      "relative": "source-domains/F009-R.csv"
+    },
+    {
+      "comparison": "EQUAL",
+      "historical_sha256": "e2f741c568a8834d8dc39e5b1cbec9c7f13361c97e5f094221cbd14dd65f7752",
+      "recovered_sha256": "e2f741c568a8834d8dc39e5b1cbec9c7f13361c97e5f094221cbd14dd65f7752",
+      "relative": "source-domains/F009-rings.csv"
+    },
+    {
+      "comparison": "DIFFERENT",
+      "csv_semantics": {
+        "changed_row_count": 3,
+        "first_changed_rows": [
+          {
+            "historical_cells": [
+              "0.0015028900213302"
+            ],
+            "recovered_cells": [
+              "0.00150289002133021"
+            ],
+            "row": 2,
+            "same_decimal_values_all_cells": false
+          },
+          {
+            "historical_cells": [
+              "0.0015028900213302"
+            ],
+            "recovered_cells": [
+              "0.00150289002133021"
+            ],
+            "row": 6,
+            "same_decimal_values_all_cells": false
+          },
+          {
+            "historical_cells": [
+              "0.0015028900213302"
+            ],
+            "recovered_cells": [
+              "0.00150289002133021"
+            ],
+            "row": 10,
+            "same_decimal_values_all_cells": false
+          }
+        ],
+        "historical_rows_including_header": 19,
+        "recovered_rows_including_header": 19
+      },
+      "historical_sha256": "6476604db250743345953e8500e73b91c857d8cac9647da10fc35482e99eaea9",
+      "recovered_sha256": "5b073ac883a47470e94c1fe1b88e4b5f09bc453eeaf096354497fac602ff9698",
+      "relative": "source-domains/F010-R.csv"
+    },
+    {
+      "comparison": "EQUAL",
+      "historical_sha256": "387fb825480e217fa1a7814458ca156cd269fc79c1581e7c5254954656554889",
+      "recovered_sha256": "387fb825480e217fa1a7814458ca156cd269fc79c1581e7c5254954656554889",
+      "relative": "source-domains/F010-rings.csv"
+    },
+    {
+      "comparison": "EQUAL",
+      "historical_sha256": "776b036a75e0f933dc53ddbd689bc8ee671b32df8afd491f123c575fea81c0a1",
+      "recovered_sha256": "776b036a75e0f933dc53ddbd689bc8ee671b32df8afd491f123c575fea81c0a1",
+      "relative": "source-domains/F011-R.csv"
+    },
+    {
+      "comparison": "EQUAL",
+      "historical_sha256": "e2f741c568a8834d8dc39e5b1cbec9c7f13361c97e5f094221cbd14dd65f7752",
+      "recovered_sha256": "e2f741c568a8834d8dc39e5b1cbec9c7f13361c97e5f094221cbd14dd65f7752",
+      "relative": "source-domains/F011-rings.csv"
+    },
+    {
+      "comparison": "EQUAL",
+      "historical_sha256": "871068b35c15ab674fe55bf02d2aa8816b5f434e875c7f343997d3c04f6a4b7f",
+      "recovered_sha256": "871068b35c15ab674fe55bf02d2aa8816b5f434e875c7f343997d3c04f6a4b7f",
+      "relative": "source-domains/F012-R.csv"
+    },
+    {
+      "comparison": "EQUAL",
+      "historical_sha256": "e2f741c568a8834d8dc39e5b1cbec9c7f13361c97e5f094221cbd14dd65f7752",
+      "recovered_sha256": "e2f741c568a8834d8dc39e5b1cbec9c7f13361c97e5f094221cbd14dd65f7752",
+      "relative": "source-domains/F012-rings.csv"
+    },
+    {
+      "comparison": "EQUAL",
+      "historical_sha256": "515fde89f16c16b2b92751444cdb47432c8330d96e1a9a32b9f5abd40a597043",
+      "recovered_sha256": "515fde89f16c16b2b92751444cdb47432c8330d96e1a9a32b9f5abd40a597043",
+      "relative": "source-domains/F013-R.csv"
+    },
+    {
+      "comparison": "EQUAL",
+      "historical_sha256": "e2f741c568a8834d8dc39e5b1cbec9c7f13361c97e5f094221cbd14dd65f7752",
+      "recovered_sha256": "e2f741c568a8834d8dc39e5b1cbec9c7f13361c97e5f094221cbd14dd65f7752",
+      "relative": "source-domains/F013-rings.csv"
+    },
+    {
+      "comparison": "EQUAL",
+      "historical_sha256": "c1597120575fa44e08e1ab169741179b9224df4bff029262c8e4efae73955d3e",
+      "recovered_sha256": "c1597120575fa44e08e1ab169741179b9224df4bff029262c8e4efae73955d3e",
+      "relative": "source-domains/R_case_status.csv"
+    },
+    {
+      "comparison": "DIFFERENT",
+      "historical_sha256": "b7bc72f3e734a2ba628d5d404a96889b8e567fc243ee16d78a929fafac8db859",
+      "recovered_sha256": "c595e56d43530c30d4e69e9480231b06e8c725453d160f4b92d9c19b6a63d7a6",
+      "relative": "source-domains/R_session_info.txt",
+      "semantics": "Different executed script/session metadata text; ARM64 container and source-locked x86_64 guest identities remain separate."
+    },
+    {
+      "comparison": "EQUAL",
+      "historical_sha256": "3b88208c9b392fdd66cf328c200e0d4fac786d909e710bea31c2f91f109b44d3",
+      "recovered_sha256": "3b88208c9b392fdd66cf328c200e0d4fac786d909e710bea31c2f91f109b44d3",
+      "relative": "source-domains/R_stderr.log"
+    },
+    {
+      "comparison": "EQUAL",
+      "historical_sha256": "2368ed89fefd458ba0a7fc41b407efa3ab833d9e25dceb9f667665af8ac093f8",
+      "recovered_sha256": "2368ed89fefd458ba0a7fc41b407efa3ab833d9e25dceb9f667665af8ac093f8",
+      "relative": "source-domains/R_stdout.log"
+    },
+    {
+      "comparison": "EQUAL",
+      "historical_sha256": "9a60b099af300dc4d03cb6dfa88442c7a74423b5324623aae63aa06c9696bac7",
+      "recovered_sha256": "9a60b099af300dc4d03cb6dfa88442c7a74423b5324623aae63aa06c9696bac7",
+      "relative": "source-domains/S001-R.csv"
+    },
+    {
+      "comparison": "EQUAL",
+      "historical_sha256": "e2f741c568a8834d8dc39e5b1cbec9c7f13361c97e5f094221cbd14dd65f7752",
+      "recovered_sha256": "e2f741c568a8834d8dc39e5b1cbec9c7f13361c97e5f094221cbd14dd65f7752",
+      "relative": "source-domains/S001-rings.csv"
+    },
+    {
+      "comparison": "EQUAL",
+      "historical_sha256": "7befddf0f351fb619ea737fe9a813c0b459b6024b776ee2b4624aa55228ba771",
+      "recovered_sha256": "7befddf0f351fb619ea737fe9a813c0b459b6024b776ee2b4624aa55228ba771",
+      "relative": "source-domains/S001-source-error.txt"
+    },
+    {
+      "comparison": "EQUAL",
+      "historical_sha256": "9a60b099af300dc4d03cb6dfa88442c7a74423b5324623aae63aa06c9696bac7",
+      "recovered_sha256": "9a60b099af300dc4d03cb6dfa88442c7a74423b5324623aae63aa06c9696bac7",
+      "relative": "source-domains/S002-R.csv"
+    },
+    {
+      "comparison": "EQUAL",
+      "historical_sha256": "e2f741c568a8834d8dc39e5b1cbec9c7f13361c97e5f094221cbd14dd65f7752",
+      "recovered_sha256": "e2f741c568a8834d8dc39e5b1cbec9c7f13361c97e5f094221cbd14dd65f7752",
+      "relative": "source-domains/S002-rings.csv"
+    },
+    {
+      "comparison": "EQUAL",
+      "historical_sha256": "7befddf0f351fb619ea737fe9a813c0b459b6024b776ee2b4624aa55228ba771",
+      "recovered_sha256": "7befddf0f351fb619ea737fe9a813c0b459b6024b776ee2b4624aa55228ba771",
+      "relative": "source-domains/S002-source-error.txt"
+    },
+    {
+      "comparison": "EQUAL",
+      "historical_sha256": "9a60b099af300dc4d03cb6dfa88442c7a74423b5324623aae63aa06c9696bac7",
+      "recovered_sha256": "9a60b099af300dc4d03cb6dfa88442c7a74423b5324623aae63aa06c9696bac7",
+      "relative": "source-domains/S003-R.csv"
+    },
+    {
+      "comparison": "EQUAL",
+      "historical_sha256": "cd8761b2cfc68b53880fb45cfeb0dcce73f2060f42c2a6732a13095f6fc3c9c2",
+      "recovered_sha256": "cd8761b2cfc68b53880fb45cfeb0dcce73f2060f42c2a6732a13095f6fc3c9c2",
+      "relative": "source-domains/S003-corrected-output.csv"
+    },
+    {
+      "comparison": "EQUAL",
+      "historical_sha256": "f7eec2c6da1a822fbaf5ce4ba033ed46769313b9d8e2c469178c9b9b8a22e51c",
+      "recovered_sha256": "f7eec2c6da1a822fbaf5ce4ba033ed46769313b9d8e2c469178c9b9b8a22e51c",
+      "relative": "source-domains/S003-legacy-output.csv"
+    },
+    {
+      "comparison": "EQUAL",
+      "historical_sha256": "e2f741c568a8834d8dc39e5b1cbec9c7f13361c97e5f094221cbd14dd65f7752",
+      "recovered_sha256": "e2f741c568a8834d8dc39e5b1cbec9c7f13361c97e5f094221cbd14dd65f7752",
+      "relative": "source-domains/S003-rings.csv"
+    },
+    {
+      "comparison": "EQUAL",
+      "historical_sha256": "9a60b099af300dc4d03cb6dfa88442c7a74423b5324623aae63aa06c9696bac7",
+      "recovered_sha256": "9a60b099af300dc4d03cb6dfa88442c7a74423b5324623aae63aa06c9696bac7",
+      "relative": "source-domains/S004-R.csv"
+    },
+    {
+      "comparison": "EQUAL",
+      "historical_sha256": "744c67dd4b21671c0ccf1bef12675d711dac469dd4b490a8a79ac9613df8d80c",
+      "recovered_sha256": "744c67dd4b21671c0ccf1bef12675d711dac469dd4b490a8a79ac9613df8d80c",
+      "relative": "source-domains/S004-corrected-output.csv"
+    },
+    {
+      "comparison": "EQUAL",
+      "historical_sha256": "4dcd25fc58a45be5389e08f7d763c8a41a66517de208d91c362340442e506488",
+      "recovered_sha256": "4dcd25fc58a45be5389e08f7d763c8a41a66517de208d91c362340442e506488",
+      "relative": "source-domains/S004-legacy-output.csv"
+    },
+    {
+      "comparison": "EQUAL",
+      "historical_sha256": "e2f741c568a8834d8dc39e5b1cbec9c7f13361c97e5f094221cbd14dd65f7752",
+      "recovered_sha256": "e2f741c568a8834d8dc39e5b1cbec9c7f13361c97e5f094221cbd14dd65f7752",
+      "relative": "source-domains/S004-rings.csv"
+    },
+    {
+      "comparison": "EQUAL",
+      "historical_sha256": "65ee3d395c62195d5c123e5b953473a9c8319628ea4454b5e0c3e7b5f98cc3d8",
+      "recovered_sha256": "65ee3d395c62195d5c123e5b953473a9c8319628ea4454b5e0c3e7b5f98cc3d8",
+      "relative": "source-domains/S005-R.csv"
+    },
+    {
+      "comparison": "EQUAL",
+      "historical_sha256": "a073788a051cf6f8e14bf211cff3cce5f209b04bd40e9f8b2d41736ce274babe",
+      "recovered_sha256": "a073788a051cf6f8e14bf211cff3cce5f209b04bd40e9f8b2d41736ce274babe",
+      "relative": "source-domains/S005-rings.csv"
+    },
+    {
+      "comparison": "EQUAL",
+      "historical_sha256": "2c20d5bc7294ff1dd7223e475058bb7fc848de38663029de946fe7b7248eb6ec",
+      "recovered_sha256": "2c20d5bc7294ff1dd7223e475058bb7fc848de38663029de946fe7b7248eb6ec",
+      "relative": "source-domains/S006-R.csv"
+    },
+    {
+      "comparison": "EQUAL",
+      "historical_sha256": "231a76f4c410135dfe2e7a552b25fc9beb8960b01a985c8802ec6013508393cb",
+      "recovered_sha256": "231a76f4c410135dfe2e7a552b25fc9beb8960b01a985c8802ec6013508393cb",
+      "relative": "source-domains/S006-rings.csv"
+    },
+    {
+      "comparison": "EQUAL",
+      "historical_sha256": "e1e3ef816852dcefeea95ecd6db154129b149effec1fb023471e8ca3270f6dd7",
+      "recovered_sha256": "e1e3ef816852dcefeea95ecd6db154129b149effec1fb023471e8ca3270f6dd7",
+      "relative": "source-domains/S007-R.csv"
+    },
+    {
+      "comparison": "EQUAL",
+      "historical_sha256": "e2f741c568a8834d8dc39e5b1cbec9c7f13361c97e5f094221cbd14dd65f7752",
+      "recovered_sha256": "e2f741c568a8834d8dc39e5b1cbec9c7f13361c97e5f094221cbd14dd65f7752",
+      "relative": "source-domains/S007-rings.csv"
+    },
+    {
+      "comparison": "EQUAL",
+      "historical_sha256": "5ec784f337251038bf796ffa6a4892076931b5041e072ac0c4337269b919e037",
+      "recovered_sha256": "5ec784f337251038bf796ffa6a4892076931b5041e072ac0c4337269b919e037",
+      "relative": "source-domains/S008-R.csv"
+    },
+    {
+      "comparison": "EQUAL",
+      "historical_sha256": "e2f741c568a8834d8dc39e5b1cbec9c7f13361c97e5f094221cbd14dd65f7752",
+      "recovered_sha256": "e2f741c568a8834d8dc39e5b1cbec9c7f13361c97e5f094221cbd14dd65f7752",
+      "relative": "source-domains/S008-rings.csv"
+    },
+    {
+      "comparison": "EQUAL",
+      "historical_sha256": "54b0407af2ad72ba1b6090747189adc0e6034dcf37259cc51c970ccdb848570e",
+      "recovered_sha256": "54b0407af2ad72ba1b6090747189adc0e6034dcf37259cc51c970ccdb848570e",
+      "relative": "source-domains/S009-R.csv"
+    },
+    {
+      "comparison": "EQUAL",
+      "historical_sha256": "e2f741c568a8834d8dc39e5b1cbec9c7f13361c97e5f094221cbd14dd65f7752",
+      "recovered_sha256": "e2f741c568a8834d8dc39e5b1cbec9c7f13361c97e5f094221cbd14dd65f7752",
+      "relative": "source-domains/S009-rings.csv"
+    },
+    {
+      "comparison": "EQUAL",
+      "historical_sha256": "a1646dc7676af7f1bcffca4b3ad72d318aa72046e801befdab056e451ae53fb4",
+      "recovered_sha256": "a1646dc7676af7f1bcffca4b3ad72d318aa72046e801befdab056e451ae53fb4",
+      "relative": "source-domains/S010-R.csv"
+    },
+    {
+      "comparison": "EQUAL",
+      "historical_sha256": "e2f741c568a8834d8dc39e5b1cbec9c7f13361c97e5f094221cbd14dd65f7752",
+      "recovered_sha256": "e2f741c568a8834d8dc39e5b1cbec9c7f13361c97e5f094221cbd14dd65f7752",
+      "relative": "source-domains/S010-rings.csv"
+    },
+    {
+      "comparison": "EQUAL",
+      "historical_sha256": "deb49360def58cbf3f8e3eec48536682dc5101923f4d1f4982ba2ec4d9e54890",
+      "recovered_sha256": "deb49360def58cbf3f8e3eec48536682dc5101923f4d1f4982ba2ec4d9e54890",
+      "relative": "source-domains/case_manifest.csv"
+    },
+    {
+      "comparison": "EQUAL",
+      "historical_sha256": "5f52413cfc2e3c7246593e3dbc8e0062e5b31c0628936e468f3417a6326d926f",
+      "recovered_sha256": "5f52413cfc2e3c7246593e3dbc8e0062e5b31c0628936e468f3417a6326d926f",
+      "relative": "source-domains/case_manifest.json"
+    },
+    {
+      "comparison": "DIFFERENT",
+      "historical_sha256": "26d503bd9b0a30aedd60902821dd75975f22ab07ff3bb20e196ebb3f56c6e082",
+      "json_semantics": {
+        "changed_top_level_keys": null,
+        "historical_type": "list",
+        "object_equal": false,
+        "recovered_type": "list"
+      },
+      "recovered_sha256": "575d82fb3597a823e94d472fb566cf6ec02e52c47b3334f298e342be5d3390a9",
+      "relative": "source-domains/command.json"
+    },
+    {
+      "comparison": "EQUAL",
+      "historical_sha256": "edb56970ca579a658c306a281cf4fbcf8eb9fb6f900ffa2986ba4841251a8520",
+      "recovered_sha256": "edb56970ca579a658c306a281cf4fbcf8eb9fb6f900ffa2986ba4841251a8520",
+      "relative": "source-domains/parameters.csv"
+    },
+    {
+      "comparison": "EQUAL",
+      "historical_sha256": "7a8fb9b66cb92107937e66e74fc14f0b82c9631892c4b5c893733f873d189b60",
+      "recovered_sha256": "7a8fb9b66cb92107937e66e74fc14f0b82c9631892c4b5c893733f873d189b60",
+      "relative": "source-domains/python_expected_not_R_goldens/F001.npy"
+    },
+    {
+      "comparison": "EQUAL",
+      "historical_sha256": "b34a340f44cd5b4018626411e2526dcae59d73db5d286dc2ab614b75ab589d53",
+      "recovered_sha256": "b34a340f44cd5b4018626411e2526dcae59d73db5d286dc2ab614b75ab589d53",
+      "relative": "source-domains/python_expected_not_R_goldens/F002.npy"
+    },
+    {
+      "comparison": "EQUAL",
+      "historical_sha256": "fe971084401c3af5875d0276379db2621c6ccd9cb0e795b4e579e16021434ff0",
+      "recovered_sha256": "fe971084401c3af5875d0276379db2621c6ccd9cb0e795b4e579e16021434ff0",
+      "relative": "source-domains/python_expected_not_R_goldens/F003.npy"
+    },
+    {
+      "comparison": "EQUAL",
+      "historical_sha256": "a9cf407c81aaa11bd6ffeeaa8988b9f8a07f3206c9e8628c57fbd82c6605d56f",
+      "recovered_sha256": "a9cf407c81aaa11bd6ffeeaa8988b9f8a07f3206c9e8628c57fbd82c6605d56f",
+      "relative": "source-domains/python_expected_not_R_goldens/F004.npy"
+    },
+    {
+      "comparison": "EQUAL",
+      "historical_sha256": "1ca56ba453316d63a4d0d116faa3ac2512186f1ef75238de31cef7a320c6e557",
+      "recovered_sha256": "1ca56ba453316d63a4d0d116faa3ac2512186f1ef75238de31cef7a320c6e557",
+      "relative": "source-domains/python_expected_not_R_goldens/F005.npy"
+    },
+    {
+      "comparison": "EQUAL",
+      "historical_sha256": "833184de496aff3485e2374abcf3765e51a2369815ee73bb867726636990ff89",
+      "recovered_sha256": "833184de496aff3485e2374abcf3765e51a2369815ee73bb867726636990ff89",
+      "relative": "source-domains/python_expected_not_R_goldens/F006.npy"
+    },
+    {
+      "comparison": "EQUAL",
+      "historical_sha256": "00ce61c62f106b2d1e02d34212b5c3668f1e34d0b3acdf22b70067ff05463a8a",
+      "recovered_sha256": "00ce61c62f106b2d1e02d34212b5c3668f1e34d0b3acdf22b70067ff05463a8a",
+      "relative": "source-domains/python_expected_not_R_goldens/F007.npy"
+    },
+    {
+      "comparison": "EQUAL",
+      "historical_sha256": "efc495a727fae3c7e4c4518e85122fc3fddbb696903ee939b90efb12d2aa05bb",
+      "recovered_sha256": "efc495a727fae3c7e4c4518e85122fc3fddbb696903ee939b90efb12d2aa05bb",
+      "relative": "source-domains/python_expected_not_R_goldens/F008.npy"
+    },
+    {
+      "comparison": "DIFFERENT",
+      "historical_sha256": "5f7c888497f0db4dba8a48f4000d8cf8d07864f40821b200df5c2390f4d36a01",
+      "recovered_sha256": "8ddada9de026b25aa706aaca3703e2b3d4bb6bb6f93442ce6eaba35663b8551e",
+      "relative": "source-domains/python_expected_not_R_goldens/F009.npy",
+      "semantics": "Different retained Python expectation bytes; these are explicitly not R goldens and are not recomputed or numerically evaluated here."
+    },
+    {
+      "comparison": "DIFFERENT",
+      "historical_sha256": "db020a5592b662b7803ddb16ffc9c9191dc3323d776b3712f11e549376d33817",
+      "recovered_sha256": "f882303266179f834fe9110f042cae7104e8f97fe2f087895313469c9c30c23d",
+      "relative": "source-domains/python_expected_not_R_goldens/F010.npy",
+      "semantics": "Different retained Python expectation bytes; these are explicitly not R goldens and are not recomputed or numerically evaluated here."
+    },
+    {
+      "comparison": "EQUAL",
+      "historical_sha256": "569a8f4e33b51153512ea8ad4c70f7fb38e90afadb6a9aa123bd805f12cd9ba9",
+      "recovered_sha256": "569a8f4e33b51153512ea8ad4c70f7fb38e90afadb6a9aa123bd805f12cd9ba9",
+      "relative": "source-domains/python_expected_not_R_goldens/F011.npy"
+    },
+    {
+      "comparison": "EQUAL",
+      "historical_sha256": "93a7d302f29b5725bf882ed642e0f3b2be9b96e10931530718dbf698af176d3e",
+      "recovered_sha256": "93a7d302f29b5725bf882ed642e0f3b2be9b96e10931530718dbf698af176d3e",
+      "relative": "source-domains/python_expected_not_R_goldens/F012.npy"
+    },
+    {
+      "comparison": "EQUAL",
+      "historical_sha256": "cbf2f269bb6318f06f9915bd3e9e1bce2c8b6e4fabb9458b613ceebff03ed53e",
+      "recovered_sha256": "cbf2f269bb6318f06f9915bd3e9e1bce2c8b6e4fabb9458b613ceebff03ed53e",
+      "relative": "source-domains/python_expected_not_R_goldens/F013.npy"
+    },
+    {
+      "comparison": "EQUAL",
+      "historical_sha256": "23dd9625d24644656662ca7303243396e67b51e057569add945ffb4505059573",
+      "recovered_sha256": "23dd9625d24644656662ca7303243396e67b51e057569add945ffb4505059573",
+      "relative": "source-domains/python_expected_not_R_goldens/S001.npy"
+    },
+    {
+      "comparison": "EQUAL",
+      "historical_sha256": "23dd9625d24644656662ca7303243396e67b51e057569add945ffb4505059573",
+      "recovered_sha256": "23dd9625d24644656662ca7303243396e67b51e057569add945ffb4505059573",
+      "relative": "source-domains/python_expected_not_R_goldens/S002.npy"
+    },
+    {
+      "comparison": "EQUAL",
+      "historical_sha256": "23dd9625d24644656662ca7303243396e67b51e057569add945ffb4505059573",
+      "recovered_sha256": "23dd9625d24644656662ca7303243396e67b51e057569add945ffb4505059573",
+      "relative": "source-domains/python_expected_not_R_goldens/S003.npy"
+    },
+    {
+      "comparison": "EQUAL",
+      "historical_sha256": "23dd9625d24644656662ca7303243396e67b51e057569add945ffb4505059573",
+      "recovered_sha256": "23dd9625d24644656662ca7303243396e67b51e057569add945ffb4505059573",
+      "relative": "source-domains/python_expected_not_R_goldens/S004.npy"
+    },
+    {
+      "comparison": "EQUAL",
+      "historical_sha256": "098281fb85dc2d7bb49bae41b8722e6699192a5922a41050b504fc420782e25d",
+      "recovered_sha256": "098281fb85dc2d7bb49bae41b8722e6699192a5922a41050b504fc420782e25d",
+      "relative": "source-domains/python_expected_not_R_goldens/S005.npy"
+    },
+    {
+      "comparison": "EQUAL",
+      "historical_sha256": "b36fd1a2c8c70ef61f06f1d0752795b1de59c74ae8f32ce88264dcc0b3fa2db1",
+      "recovered_sha256": "b36fd1a2c8c70ef61f06f1d0752795b1de59c74ae8f32ce88264dcc0b3fa2db1",
+      "relative": "source-domains/python_expected_not_R_goldens/S006.npy"
+    },
+    {
+      "comparison": "EQUAL",
+      "historical_sha256": "f6e370ed2918607a4e9d6f78786b4333f238fb616b8864b8412bb78a7ff0e6ae",
+      "recovered_sha256": "f6e370ed2918607a4e9d6f78786b4333f238fb616b8864b8412bb78a7ff0e6ae",
+      "relative": "source-domains/python_expected_not_R_goldens/S007.npy"
+    },
+    {
+      "comparison": "EQUAL",
+      "historical_sha256": "a5d6728702b6df85ff7574fa8efb377113f9f7ca52cd5424ad6f9c6fb399c5bb",
+      "recovered_sha256": "a5d6728702b6df85ff7574fa8efb377113f9f7ca52cd5424ad6f9c6fb399c5bb",
+      "relative": "source-domains/python_expected_not_R_goldens/S008.npy"
+    },
+    {
+      "comparison": "EQUAL",
+      "historical_sha256": "2e08b2be06a5da15885351bdeca69201d36fcb57d963c559d819d4612dc603bb",
+      "recovered_sha256": "2e08b2be06a5da15885351bdeca69201d36fcb57d963c559d819d4612dc603bb",
+      "relative": "source-domains/python_expected_not_R_goldens/S009.npy"
+    },
+    {
+      "comparison": "EQUAL",
+      "historical_sha256": "699caed71f610c70f44320b242eaad7d5eac1889bd01f0ea090876a1d2c1c83b",
+      "recovered_sha256": "699caed71f610c70f44320b242eaad7d5eac1889bd01f0ea090876a1d2c1c83b",
+      "relative": "source-domains/python_expected_not_R_goldens/S010.npy"
+    },
+    {
+      "comparison": "EQUAL",
+      "historical_sha256": "c50a3b4a0fc2990d85c6af8357d43215b3b0e469686c288bd1ec47ff9640c469",
+      "recovered_sha256": "c50a3b4a0fc2990d85c6af8357d43215b3b0e469686c288bd1ec47ff9640c469",
+      "relative": "source-domains/report.json"
+    }
+  ]
+}

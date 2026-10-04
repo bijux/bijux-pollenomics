@@ -1,0 +1,740 @@
+{
+  "status": "PASS_READONLY_EXACT_REFERENCE_RECOVERY",
+  "guest_bundle": "/var/tmp/bijux-linux-r/f4c741b470b7fd8f/outputs/certification/bundle",
+  "host_bundle": "/Users/bijan/bijux/bijux-pollenomics/artifacts/jobs/retained-reference-readonly-disk-recovery/recovered-reference",
+  "descriptor_sha256": "308251ed20fe9e8f30bf2b5d2f2a9248648dc5bcc05ad3d89d47a20b23dd889d",
+  "disk_before_after": {
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/linux/scientific-browser/basedisk": {
+      "size": 625612288,
+      "mtime_ns": 1791004112178232405,
+      "inode": 1071407984,
+      "sha256": "6a81c37564db9b1ee84e141922625e1d7c5b389b99bb3c572e0243607d5bb4d2"
+    },
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/linux/scientific-browser/diffdisk": {
+      "size": 4560846848,
+      "mtime_ns": 1791036910405838964,
+      "inode": 1071407986,
+      "sha256": "5eb0fb152117df6234f4c41593e407e87669296b4d64591bd1cd7ed5ea1af5b2"
+    }
+  },
+  "files": {
+    "oracle/C0019.csv": {
+      "sha256": "ceac89bc9b2f911e262aad918d6df3a049b7eda28d994eb03a9cd5ac1c97240e",
+      "byte_count": 345,
+      "guest_inode": 596029
+    },
+    "oracle/case_manifest.json": {
+      "sha256": "c5fe95d459478703239d4eb556dd94e821ea4a5bbb0f39ccf6c43b3f2a00e8ca",
+      "byte_count": 17910,
+      "guest_inode": 596030
+    },
+    "oracle/C0038.csv": {
+      "sha256": "f5c78225927739026a81d67d3a30cc9d42fccf1dfe124774696fdffc7179e59a",
+      "byte_count": 221,
+      "guest_inode": 596031
+    },
+    "oracle/C0027.csv": {
+      "sha256": "bca8752e105529e5d8510739d12f2442b32ad18342bbea01b67cfac4b85b22e5",
+      "byte_count": 753,
+      "guest_inode": 596032
+    },
+    "oracle/C0012.csv": {
+      "sha256": "fa3f1907f19cd7362bc7f17c004695313471695e4420c02066b48c5f4e1aabdf",
+      "byte_count": 47,
+      "guest_inode": 596033
+    },
+    "oracle/C0039.csv": {
+      "sha256": "bca8752e105529e5d8510739d12f2442b32ad18342bbea01b67cfac4b85b22e5",
+      "byte_count": 753,
+      "guest_inode": 596034
+    },
+    "oracle/R_case_status.csv": {
+      "sha256": "167b3ea2d2c5290256e846bc18d8f1ba82c1917d126adc0748fa9234cc4c5946",
+      "byte_count": 1013,
+      "guest_inode": 596035
+    },
+    "oracle/C0031.csv": {
+      "sha256": "63ac0043d0219956f2dddd97c32d58901495c02245f5f0ece365c549eddc0990",
+      "byte_count": 15292,
+      "guest_inode": 596036
+    },
+    "oracle/C0042.csv": {
+      "sha256": "05421bf8a045151c9240e1c57fcdfc11f45062d731d6330867c5eec27a470b77",
+      "byte_count": 68,
+      "guest_inode": 596037
+    },
+    "oracle/R_stderr.log": {
+      "sha256": "7b7c9190fe1eb05d85bf38bfe85078465a90d161fc06f95c96639659fcd0a20b",
+      "byte_count": 835,
+      "guest_inode": 596038
+    },
+    "oracle/C0028.csv": {
+      "sha256": "18b338c776a1e6eba581d36a07e3e54c31cb2df3b3176fdb0914ea374c06caa9",
+      "byte_count": 12365,
+      "guest_inode": 596039
+    },
+    "oracle/C0020.csv": {
+      "sha256": "d9ef49a1f46ffa537619e8fb7e604e87361e4a695331090584ad46f94171e6ea",
+      "byte_count": 11925,
+      "guest_inode": 596040
+    },
+    "oracle/C0002.csv": {
+      "sha256": "d19f08c5de88257dd02901ca6480dc390df29840376b9454231219746c215013",
+      "byte_count": 111,
+      "guest_inode": 596041
+    },
+    "oracle/C0021.csv": {
+      "sha256": "01ee3926b5e21b29bae35d071cf6c9c2d73433f95739e98b0486fca5bd6b62f1",
+      "byte_count": 47,
+      "guest_inode": 596042
+    },
+    "oracle/C0014.csv": {
+      "sha256": "473b03f9c392250a2fecd8c5aa2b88d06e511e1475694269252eca661762b14b",
+      "byte_count": 47,
+      "guest_inode": 596043
+    },
+    "oracle/C0036.csv": {
+      "sha256": "05421bf8a045151c9240e1c57fcdfc11f45062d731d6330867c5eec27a470b77",
+      "byte_count": 68,
+      "guest_inode": 596044
+    },
+    "oracle/C0033.csv": {
+      "sha256": "bca8752e105529e5d8510739d12f2442b32ad18342bbea01b67cfac4b85b22e5",
+      "byte_count": 753,
+      "guest_inode": 596045
+    },
+    "oracle/C0029.csv": {
+      "sha256": "6776b62f7595fca572fa2d8a5cad3c6ea64a6c1f1b15c928dc40593ea2ec0da5",
+      "byte_count": 31,
+      "guest_inode": 596046
+    },
+    "oracle/C0016.csv": {
+      "sha256": "a64196e4fe3b6c65e096925b52069470807fa4e836a5e10764481062b2492cb6",
+      "byte_count": 1808,
+      "guest_inode": 596047
+    },
+    "oracle/C0032.csv": {
+      "sha256": "f5c78225927739026a81d67d3a30cc9d42fccf1dfe124774696fdffc7179e59a",
+      "byte_count": 221,
+      "guest_inode": 596048
+    },
+    "oracle/C0018.csv": {
+      "sha256": "0600aad94ccaad1b6353e00680f24c771c16ed70115d5ac0a7d4e76c46ca21c3",
+      "byte_count": 444,
+      "guest_inode": 596049
+    },
+    "oracle/C0040.csv": {
+      "sha256": "5aafd767a259b53b2ce3f38124301a7b8b0271e16ae4c7619a31ee7e9b94fe78",
+      "byte_count": 20022,
+      "guest_inode": 596050
+    },
+    "oracle/oracle.R": {
+      "sha256": "23eb6618bbad0d3aaa2ed971a92bf1fb48e6505292249f697be096121068dd91",
+      "byte_count": 26457,
+      "guest_inode": 596051
+    },
+    "oracle/C0010.csv": {
+      "sha256": "d4903ff00bdd177c8eff7dfe0d825bf69140ce891f50844be3ec60bc3df402e9",
+      "byte_count": 47,
+      "guest_inode": 596052
+    },
+    "oracle/C0001.csv": {
+      "sha256": "10d713ff579ba379674fc97d3a4bb11461c47adc3caacca5b1297c8566ff7157",
+      "byte_count": 47,
+      "guest_inode": 596053
+    },
+    "oracle/C0003.csv": {
+      "sha256": "466c1344e9a7a703854af07bd9ca6d080d3ceadb6753e431d4c64873f35c5427",
+      "byte_count": 47,
+      "guest_inode": 596054
+    },
+    "oracle/R_session_info.txt": {
+      "sha256": "c595e56d43530c30d4e69e9480231b06e8c725453d160f4b92d9c19b6a63d7a6",
+      "byte_count": 1158,
+      "guest_inode": 596055
+    },
+    "oracle/C0037.csv": {
+      "sha256": "aca0a11c26f6991ee302ad6ddf5982d78081fada14e5f219a3d4600ed3e801b1",
+      "byte_count": 16853,
+      "guest_inode": 596056
+    },
+    "oracle/python_expected_not_R_goldens.npz": {
+      "sha256": "a593ed66ff08371f082bfef90011e307c4b4dba765ae9c006496f268377b7892",
+      "byte_count": 19455,
+      "guest_inode": 596057
+    },
+    "oracle/C0008.csv": {
+      "sha256": "5669fb05a1910c38e4686e65ab72609a8c2ce77d173c11c23126a7ee8c5d2955",
+      "byte_count": 117,
+      "guest_inode": 596058
+    },
+    "oracle/C0034.csv": {
+      "sha256": "e6ddc5156c6f94807c4d4eeeb294118711c7de9f42cc0bb1287c28fc872364f4",
+      "byte_count": 13996,
+      "guest_inode": 596059
+    },
+    "oracle/C0015.csv": {
+      "sha256": "6c62a2ce1acf4ed75e3ad28dfa6e8ff5bf839cb2d940cfecd056af2eeb056bab",
+      "byte_count": 1838,
+      "guest_inode": 596060
+    },
+    "oracle/C0041.csv": {
+      "sha256": "6776b62f7595fca572fa2d8a5cad3c6ea64a6c1f1b15c928dc40593ea2ec0da5",
+      "byte_count": 31,
+      "guest_inode": 596061
+    },
+    "oracle/C0035.csv": {
+      "sha256": "6776b62f7595fca572fa2d8a5cad3c6ea64a6c1f1b15c928dc40593ea2ec0da5",
+      "byte_count": 31,
+      "guest_inode": 596062
+    },
+    "oracle/C0017.csv": {
+      "sha256": "32f2ad2d5921d6e448f7f9ea8ea5ec939376972ed4ce6bbb7e19ea4f577807ab",
+      "byte_count": 737,
+      "guest_inode": 596063
+    },
+    "oracle/C0030.csv": {
+      "sha256": "05421bf8a045151c9240e1c57fcdfc11f45062d731d6330867c5eec27a470b77",
+      "byte_count": 68,
+      "guest_inode": 596064
+    },
+    "oracle/C0004.csv": {
+      "sha256": "ffd4d47d9ce668d64a27f9561e0206a6b8deb0669cb74838ca67175a831ca005",
+      "byte_count": 111,
+      "guest_inode": 596065
+    },
+    "oracle/R_stdout.log": {
+      "sha256": "ffc7ddee5bab18f8c56e2fce8385bf6233291959e5ce7d50eeb98a89493ed2cd",
+      "byte_count": 65895,
+      "guest_inode": 596066
+    },
+    "oracle/C0009.csv": {
+      "sha256": "1e2766e9eacc2a78041b4984f1edebfd6887416f605cdc97e2754009856fcedf",
+      "byte_count": 48,
+      "guest_inode": 596067
+    },
+    "oracle/C0023.csv": {
+      "sha256": "7bc736491f1d14c150581c2127f482c1968d4a1b3de736e877d0890dee141f17",
+      "byte_count": 8136,
+      "guest_inode": 596068
+    },
+    "oracle/C0025.csv": {
+      "sha256": "2fd7815ba8b3339797e5681a9449ff6323123bcc4b386d15646681e9fc3e61a6",
+      "byte_count": 14156,
+      "guest_inode": 596069
+    },
+    "oracle/C0006.csv": {
+      "sha256": "138e4af1710e0b8dbebb30a02cfdc9bca0aed4881841b7998004d51c90a60cdb",
+      "byte_count": 110,
+      "guest_inode": 596070
+    },
+    "oracle/C0000.csv": {
+      "sha256": "435bf8ffc6d62bcf21c9f242364db72fb8cc5d0057bafa1343a9c930d47e92be",
+      "byte_count": 111,
+      "guest_inode": 596071
+    },
+    "oracle/C0022.csv": {
+      "sha256": "56971cc1a8cdfc2c45d1941fcf1bb6b5d80b41d0061643eca7b75970e6dfbf6f",
+      "byte_count": 46,
+      "guest_inode": 596072
+    },
+    "oracle/C0024.csv": {
+      "sha256": "5088190e1ad924945bb1fbb26aec2699cf835856cba1895652d795c9250b6447",
+      "byte_count": 12857,
+      "guest_inode": 596073
+    },
+    "oracle/C0005.csv": {
+      "sha256": "de010f33fe90c1429c5d82b7afefefa02839f9714fc48cfaa389bf5d0956c84c",
+      "byte_count": 47,
+      "guest_inode": 596074
+    },
+    "oracle/report.json": {
+      "sha256": "c4f8ba37ea856eac91cd3ef6429fcd22a2de9c6ebb58763ed7eab77b106ca672",
+      "byte_count": 10324,
+      "guest_inode": 596075
+    },
+    "oracle/C0013.csv": {
+      "sha256": "6dc0860585a01f90ca2dad9efd5fbe853e990137b013851c6e2ba9a0a41383bb",
+      "byte_count": 47,
+      "guest_inode": 596076
+    },
+    "oracle/C0026.csv": {
+      "sha256": "f5c78225927739026a81d67d3a30cc9d42fccf1dfe124774696fdffc7179e59a",
+      "byte_count": 221,
+      "guest_inode": 596077
+    },
+    "oracle/C0011.csv": {
+      "sha256": "d5b2a18a4a9bdd9b28c4723d8a56e27ccd0cc05baf6a388679da6d4eebec5a5e",
+      "byte_count": 47,
+      "guest_inode": 596079
+    },
+    "oracle/C0007.csv": {
+      "sha256": "2464fcb72b063293033ce16fdaab4e56897903350976ec121f8e4510ec43fc25",
+      "byte_count": 47,
+      "guest_inode": 596080
+    },
+    "source-domains/F004-R.csv": {
+      "sha256": "613c1ad2c6271def0e99aef2d1de68eb496356e5a4d9b89af7ec88f059844313",
+      "byte_count": 343,
+      "guest_inode": 596082
+    },
+    "source-domains/case_manifest.json": {
+      "sha256": "5f52413cfc2e3c7246593e3dbc8e0062e5b31c0628936e468f3417a6326d926f",
+      "byte_count": 7442,
+      "guest_inode": 596083
+    },
+    "source-domains/F002-rings.csv": {
+      "sha256": "387fb825480e217fa1a7814458ca156cd269fc79c1581e7c5254954656554889",
+      "byte_count": 273,
+      "guest_inode": 596084
+    },
+    "source-domains/S008-rings.csv": {
+      "sha256": "e2f741c568a8834d8dc39e5b1cbec9c7f13361c97e5f094221cbd14dd65f7752",
+      "byte_count": 264,
+      "guest_inode": 596085
+    },
+    "source-domains/F013-R.csv": {
+      "sha256": "515fde89f16c16b2b92751444cdb47432c8330d96e1a9a32b9f5abd40a597043",
+      "byte_count": 333,
+      "guest_inode": 596086
+    },
+    "source-domains/S006-rings.csv": {
+      "sha256": "231a76f4c410135dfe2e7a552b25fc9beb8960b01a985c8802ec6013508393cb",
+      "byte_count": 235,
+      "guest_inode": 596087
+    },
+    "source-domains/F009-R.csv": {
+      "sha256": "b61a45c67d34c49c979a85852b2a5419017f8f29cbcbfa793c2731f9cf571ebd",
+      "byte_count": 365,
+      "guest_inode": 596088
+    },
+    "source-domains/python_expected_not_R_goldens/F010.npy": {
+      "sha256": "f882303266179f834fe9110f042cae7104e8f97fe2f087895313469c9c30c23d",
+      "byte_count": 272,
+      "guest_inode": 596090
+    },
+    "source-domains/python_expected_not_R_goldens/F012.npy": {
+      "sha256": "93a7d302f29b5725bf882ed642e0f3b2be9b96e10931530718dbf698af176d3e",
+      "byte_count": 272,
+      "guest_inode": 596091
+    },
+    "source-domains/python_expected_not_R_goldens/F006.npy": {
+      "sha256": "833184de496aff3485e2374abcf3765e51a2369815ee73bb867726636990ff89",
+      "byte_count": 272,
+      "guest_inode": 596092
+    },
+    "source-domains/python_expected_not_R_goldens/S007.npy": {
+      "sha256": "f6e370ed2918607a4e9d6f78786b4333f238fb616b8864b8412bb78a7ff0e6ae",
+      "byte_count": 144,
+      "guest_inode": 596093
+    },
+    "source-domains/python_expected_not_R_goldens/S001.npy": {
+      "sha256": "23dd9625d24644656662ca7303243396e67b51e057569add945ffb4505059573",
+      "byte_count": 136,
+      "guest_inode": 596094
+    },
+    "source-domains/python_expected_not_R_goldens/F004.npy": {
+      "sha256": "a9cf407c81aaa11bd6ffeeaa8988b9f8a07f3206c9e8628c57fbd82c6605d56f",
+      "byte_count": 272,
+      "guest_inode": 596095
+    },
+    "source-domains/python_expected_not_R_goldens/F008.npy": {
+      "sha256": "efc495a727fae3c7e4c4518e85122fc3fddbb696903ee939b90efb12d2aa05bb",
+      "byte_count": 272,
+      "guest_inode": 596096
+    },
+    "source-domains/python_expected_not_R_goldens/S009.npy": {
+      "sha256": "2e08b2be06a5da15885351bdeca69201d36fcb57d963c559d819d4612dc603bb",
+      "byte_count": 176,
+      "guest_inode": 596097
+    },
+    "source-domains/python_expected_not_R_goldens/F001.npy": {
+      "sha256": "7a8fb9b66cb92107937e66e74fc14f0b82c9631892c4b5c893733f873d189b60",
+      "byte_count": 272,
+      "guest_inode": 596098
+    },
+    "source-domains/python_expected_not_R_goldens/F009.npy": {
+      "sha256": "8ddada9de026b25aa706aaca3703e2b3d4bb6bb6f93442ce6eaba35663b8551e",
+      "byte_count": 272,
+      "guest_inode": 596099
+    },
+    "source-domains/python_expected_not_R_goldens/F003.npy": {
+      "sha256": "fe971084401c3af5875d0276379db2621c6ccd9cb0e795b4e579e16021434ff0",
+      "byte_count": 272,
+      "guest_inode": 596100
+    },
+    "source-domains/python_expected_not_R_goldens/S006.npy": {
+      "sha256": "b36fd1a2c8c70ef61f06f1d0752795b1de59c74ae8f32ce88264dcc0b3fa2db1",
+      "byte_count": 272,
+      "guest_inode": 596101
+    },
+    "source-domains/python_expected_not_R_goldens/F005.npy": {
+      "sha256": "1ca56ba453316d63a4d0d116faa3ac2512186f1ef75238de31cef7a320c6e557",
+      "byte_count": 272,
+      "guest_inode": 596102
+    },
+    "source-domains/python_expected_not_R_goldens/S003.npy": {
+      "sha256": "23dd9625d24644656662ca7303243396e67b51e057569add945ffb4505059573",
+      "byte_count": 136,
+      "guest_inode": 596103
+    },
+    "source-domains/python_expected_not_R_goldens/S005.npy": {
+      "sha256": "098281fb85dc2d7bb49bae41b8722e6699192a5922a41050b504fc420782e25d",
+      "byte_count": 224,
+      "guest_inode": 596104
+    },
+    "source-domains/python_expected_not_R_goldens/S004.npy": {
+      "sha256": "23dd9625d24644656662ca7303243396e67b51e057569add945ffb4505059573",
+      "byte_count": 136,
+      "guest_inode": 596105
+    },
+    "source-domains/python_expected_not_R_goldens/F011.npy": {
+      "sha256": "569a8f4e33b51153512ea8ad4c70f7fb38e90afadb6a9aa123bd805f12cd9ba9",
+      "byte_count": 272,
+      "guest_inode": 596106
+    },
+    "source-domains/python_expected_not_R_goldens/S002.npy": {
+      "sha256": "23dd9625d24644656662ca7303243396e67b51e057569add945ffb4505059573",
+      "byte_count": 136,
+      "guest_inode": 596107
+    },
+    "source-domains/python_expected_not_R_goldens/S008.npy": {
+      "sha256": "a5d6728702b6df85ff7574fa8efb377113f9f7ca52cd5424ad6f9c6fb399c5bb",
+      "byte_count": 144,
+      "guest_inode": 596108
+    },
+    "source-domains/python_expected_not_R_goldens/F007.npy": {
+      "sha256": "00ce61c62f106b2d1e02d34212b5c3668f1e34d0b3acdf22b70067ff05463a8a",
+      "byte_count": 272,
+      "guest_inode": 596109
+    },
+    "source-domains/python_expected_not_R_goldens/F013.npy": {
+      "sha256": "cbf2f269bb6318f06f9915bd3e9e1bce2c8b6e4fabb9458b613ceebff03ed53e",
+      "byte_count": 272,
+      "guest_inode": 596110
+    },
+    "source-domains/python_expected_not_R_goldens/F002.npy": {
+      "sha256": "b34a340f44cd5b4018626411e2526dcae59d73db5d286dc2ab614b75ab589d53",
+      "byte_count": 272,
+      "guest_inode": 596111
+    },
+    "source-domains/python_expected_not_R_goldens/S010.npy": {
+      "sha256": "699caed71f610c70f44320b242eaad7d5eac1889bd01f0ea090876a1d2c1c83b",
+      "byte_count": 192,
+      "guest_inode": 596112
+    },
+    "source-domains/S001-source-error.txt": {
+      "sha256": "7befddf0f351fb619ea737fe9a813c0b459b6024b776ee2b4624aa55228ba771",
+      "byte_count": 35,
+      "guest_inode": 596113
+    },
+    "source-domains/S003-corrected-output.csv": {
+      "sha256": "cd8761b2cfc68b53880fb45cfeb0dcce73f2060f42c2a6732a13095f6fc3c9c2",
+      "byte_count": 25,
+      "guest_inode": 596114
+    },
+    "source-domains/S001-rings.csv": {
+      "sha256": "e2f741c568a8834d8dc39e5b1cbec9c7f13361c97e5f094221cbd14dd65f7752",
+      "byte_count": 264,
+      "guest_inode": 596115
+    },
+    "source-domains/S004-legacy-output.csv": {
+      "sha256": "4dcd25fc58a45be5389e08f7d763c8a41a66517de208d91c362340442e506488",
+      "byte_count": 100,
+      "guest_inode": 596116
+    },
+    "source-domains/run_source_domains.py": {
+      "sha256": "661b0eb311708a9f116de6d7784702aefbe35cbb165d66d884fce0e30e0b85f7",
+      "byte_count": 11567,
+      "guest_inode": 596117
+    },
+    "source-domains/r_support.R": {
+      "sha256": "685d7796ce1ebdac24556ca67be24379af3f32950a6d841e8bbe3be3de8311d9",
+      "byte_count": 5266,
+      "guest_inode": 596118
+    },
+    "source-domains/F011-R.csv": {
+      "sha256": "776b036a75e0f933dc53ddbd689bc8ee671b32df8afd491f123c575fea81c0a1",
+      "byte_count": 333,
+      "guest_inode": 596119
+    },
+    "source-domains/F006-R.csv": {
+      "sha256": "c7a092d115fd8f9393983b7bdd418994f4c4d9fd701f87fdae1a4985e1859992",
+      "byte_count": 348,
+      "guest_inode": 596120
+    },
+    "source-domains/S002-R.csv": {
+      "sha256": "9a60b099af300dc4d03cb6dfa88442c7a74423b5324623aae63aa06c9696bac7",
+      "byte_count": 10,
+      "guest_inode": 596121
+    },
+    "source-domains/F013-rings.csv": {
+      "sha256": "e2f741c568a8834d8dc39e5b1cbec9c7f13361c97e5f094221cbd14dd65f7752",
+      "byte_count": 264,
+      "guest_inode": 596122
+    },
+    "source-domains/R_case_status.csv": {
+      "sha256": "c1597120575fa44e08e1ab169741179b9224df4bff029262c8e4efae73955d3e",
+      "byte_count": 530,
+      "guest_inode": 596123
+    },
+    "source-domains/F008-rings.csv": {
+      "sha256": "387fb825480e217fa1a7814458ca156cd269fc79c1581e7c5254954656554889",
+      "byte_count": 273,
+      "guest_inode": 596124
+    },
+    "source-domains/F003-R.csv": {
+      "sha256": "ab19148861d7669e778f771dd2c75b0cb7e1a8e77087d4ad980fe45eec43a520",
+      "byte_count": 339,
+      "guest_inode": 596125
+    },
+    "source-domains/R_stderr.log": {
+      "sha256": "3b88208c9b392fdd66cf328c200e0d4fac786d909e710bea31c2f91f109b44d3",
+      "byte_count": 6291,
+      "guest_inode": 596126
+    },
+    "source-domains/S009-R.csv": {
+      "sha256": "54b0407af2ad72ba1b6090747189adc0e6034dcf37259cc51c970ccdb848570e",
+      "byte_count": 20,
+      "guest_inode": 596127
+    },
+    "source-domains/parameters.csv": {
+      "sha256": "edb56970ca579a658c306a281cf4fbcf8eb9fb6f900ffa2986ba4841251a8520",
+      "byte_count": 90,
+      "guest_inode": 596128
+    },
+    "source-domains/S004-rings.csv": {
+      "sha256": "e2f741c568a8834d8dc39e5b1cbec9c7f13361c97e5f094221cbd14dd65f7752",
+      "byte_count": 264,
+      "guest_inode": 596129
+    },
+    "source-domains/S009-rings.csv": {
+      "sha256": "e2f741c568a8834d8dc39e5b1cbec9c7f13361c97e5f094221cbd14dd65f7752",
+      "byte_count": 264,
+      "guest_inode": 596130
+    },
+    "source-domains/F005-R.csv": {
+      "sha256": "5ae76a007d4a6e221726bffffe3dba18eadbcea8d6185342dbc18e85b07bcdd5",
+      "byte_count": 344,
+      "guest_inode": 596131
+    },
+    "source-domains/S008-R.csv": {
+      "sha256": "5ec784f337251038bf796ffa6a4892076931b5041e072ac0c4337269b919e037",
+      "byte_count": 12,
+      "guest_inode": 596132
+    },
+    "source-domains/F002-R.csv": {
+      "sha256": "a5b0788270c89f5f86ba41269eab5a92126bda2d7658e06070ffdfb86498f5cb",
+      "byte_count": 331,
+      "guest_inode": 596133
+    },
+    "source-domains/F005-rings.csv": {
+      "sha256": "e2f741c568a8834d8dc39e5b1cbec9c7f13361c97e5f094221cbd14dd65f7752",
+      "byte_count": 264,
+      "guest_inode": 596134
+    },
+    "source-domains/F007-R.csv": {
+      "sha256": "fef6d206b1d1c188b7f753bef6bef07d131da2c6a6f86b0ad6b09bdf3fc308bd",
+      "byte_count": 343,
+      "guest_inode": 596135
+    },
+    "source-domains/S005-rings.csv": {
+      "sha256": "a073788a051cf6f8e14bf211cff3cce5f209b04bd40e9f8b2d41736ce274babe",
+      "byte_count": 249,
+      "guest_inode": 596136
+    },
+    "source-domains/case_manifest.csv": {
+      "sha256": "deb49360def58cbf3f8e3eec48536682dc5101923f4d1f4982ba2ec4d9e54890",
+      "byte_count": 2413,
+      "guest_inode": 596137
+    },
+    "source-domains/S003-legacy-output.csv": {
+      "sha256": "f7eec2c6da1a822fbaf5ce4ba033ed46769313b9d8e2c469178c9b9b8a22e51c",
+      "byte_count": 40,
+      "guest_inode": 596138
+    },
+    "source-domains/source_domains.R": {
+      "sha256": "60f0e8b750623415a7039eb489aaf4e3e8a49c6052f04a9fa87e01e671e10f29",
+      "byte_count": 4243,
+      "guest_inode": 596139
+    },
+    "source-domains/S010-R.csv": {
+      "sha256": "a1646dc7676af7f1bcffca4b3ad72d318aa72046e801befdab056e451ae53fb4",
+      "byte_count": 24,
+      "guest_inode": 596140
+    },
+    "source-domains/R_session_info.txt": {
+      "sha256": "c595e56d43530c30d4e69e9480231b06e8c725453d160f4b92d9c19b6a63d7a6",
+      "byte_count": 1158,
+      "guest_inode": 596141
+    },
+    "source-domains/F003-rings.csv": {
+      "sha256": "e2f741c568a8834d8dc39e5b1cbec9c7f13361c97e5f094221cbd14dd65f7752",
+      "byte_count": 264,
+      "guest_inode": 596142
+    },
+    "source-domains/F012-R.csv": {
+      "sha256": "871068b35c15ab674fe55bf02d2aa8816b5f434e875c7f343997d3c04f6a4b7f",
+      "byte_count": 333,
+      "guest_inode": 596143
+    },
+    "source-domains/F009-rings.csv": {
+      "sha256": "e2f741c568a8834d8dc39e5b1cbec9c7f13361c97e5f094221cbd14dd65f7752",
+      "byte_count": 264,
+      "guest_inode": 596144
+    },
+    "source-domains/S004-R.csv": {
+      "sha256": "9a60b099af300dc4d03cb6dfa88442c7a74423b5324623aae63aa06c9696bac7",
+      "byte_count": 10,
+      "guest_inode": 596145
+    },
+    "source-domains/F001-R.csv": {
+      "sha256": "dc66eac258b2536bad0d2ec3775753984e86a59c64dd6cb270bb36ef0a46ba7e",
+      "byte_count": 333,
+      "guest_inode": 596146
+    },
+    "source-domains/S006-R.csv": {
+      "sha256": "2c20d5bc7294ff1dd7223e475058bb7fc848de38663029de946fe7b7248eb6ec",
+      "byte_count": 90,
+      "guest_inode": 596147
+    },
+    "source-domains/S002-rings.csv": {
+      "sha256": "e2f741c568a8834d8dc39e5b1cbec9c7f13361c97e5f094221cbd14dd65f7752",
+      "byte_count": 264,
+      "guest_inode": 596148
+    },
+    "source-domains/S003-rings.csv": {
+      "sha256": "e2f741c568a8834d8dc39e5b1cbec9c7f13361c97e5f094221cbd14dd65f7752",
+      "byte_count": 264,
+      "guest_inode": 596149
+    },
+    "source-domains/F010-rings.csv": {
+      "sha256": "387fb825480e217fa1a7814458ca156cd269fc79c1581e7c5254954656554889",
+      "byte_count": 273,
+      "guest_inode": 596150
+    },
+    "source-domains/S003-R.csv": {
+      "sha256": "9a60b099af300dc4d03cb6dfa88442c7a74423b5324623aae63aa06c9696bac7",
+      "byte_count": 10,
+      "guest_inode": 596151
+    },
+    "source-domains/S007-rings.csv": {
+      "sha256": "e2f741c568a8834d8dc39e5b1cbec9c7f13361c97e5f094221cbd14dd65f7752",
+      "byte_count": 264,
+      "guest_inode": 596152
+    },
+    "source-domains/F004-rings.csv": {
+      "sha256": "387fb825480e217fa1a7814458ca156cd269fc79c1581e7c5254954656554889",
+      "byte_count": 273,
+      "guest_inode": 596153
+    },
+    "source-domains/R_stdout.log": {
+      "sha256": "2368ed89fefd458ba0a7fc41b407efa3ab833d9e25dceb9f667665af8ac093f8",
+      "byte_count": 2459,
+      "guest_inode": 596154
+    },
+    "source-domains/S010-rings.csv": {
+      "sha256": "e2f741c568a8834d8dc39e5b1cbec9c7f13361c97e5f094221cbd14dd65f7752",
+      "byte_count": 264,
+      "guest_inode": 596155
+    },
+    "source-domains/S004-corrected-output.csv": {
+      "sha256": "744c67dd4b21671c0ccf1bef12675d711dac469dd4b490a8a79ac9613df8d80c",
+      "byte_count": 24,
+      "guest_inode": 596156
+    },
+    "source-domains/S007-R.csv": {
+      "sha256": "e1e3ef816852dcefeea95ecd6db154129b149effec1fb023471e8ca3270f6dd7",
+      "byte_count": 14,
+      "guest_inode": 596157
+    },
+    "source-domains/S002-source-error.txt": {
+      "sha256": "7befddf0f351fb619ea737fe9a813c0b459b6024b776ee2b4624aa55228ba771",
+      "byte_count": 35,
+      "guest_inode": 596158
+    },
+    "source-domains/F012-rings.csv": {
+      "sha256": "e2f741c568a8834d8dc39e5b1cbec9c7f13361c97e5f094221cbd14dd65f7752",
+      "byte_count": 264,
+      "guest_inode": 596159
+    },
+    "source-domains/S001-R.csv": {
+      "sha256": "9a60b099af300dc4d03cb6dfa88442c7a74423b5324623aae63aa06c9696bac7",
+      "byte_count": 10,
+      "guest_inode": 596160
+    },
+    "source-domains/F007-rings.csv": {
+      "sha256": "e2f741c568a8834d8dc39e5b1cbec9c7f13361c97e5f094221cbd14dd65f7752",
+      "byte_count": 264,
+      "guest_inode": 596161
+    },
+    "source-domains/F006-rings.csv": {
+      "sha256": "387fb825480e217fa1a7814458ca156cd269fc79c1581e7c5254954656554889",
+      "byte_count": 273,
+      "guest_inode": 596162
+    },
+    "source-domains/report.json": {
+      "sha256": "c50a3b4a0fc2990d85c6af8357d43215b3b0e469686c288bd1ec47ff9640c469",
+      "byte_count": 3617,
+      "guest_inode": 596163
+    },
+    "source-domains/F008-R.csv": {
+      "sha256": "785b9b573e64322b3649e7bceb00fd26e378cdc64b056fb7103f7d2572beb68b",
+      "byte_count": 343,
+      "guest_inode": 596164
+    },
+    "source-domains/F001-rings.csv": {
+      "sha256": "e2f741c568a8834d8dc39e5b1cbec9c7f13361c97e5f094221cbd14dd65f7752",
+      "byte_count": 264,
+      "guest_inode": 596165
+    },
+    "source-domains/F011-rings.csv": {
+      "sha256": "e2f741c568a8834d8dc39e5b1cbec9c7f13361c97e5f094221cbd14dd65f7752",
+      "byte_count": 264,
+      "guest_inode": 596166
+    },
+    "source-domains/F010-R.csv": {
+      "sha256": "5b073ac883a47470e94c1fe1b88e4b5f09bc453eeaf096354497fac602ff9698",
+      "byte_count": 365,
+      "guest_inode": 596167
+    },
+    "source-domains/command.json": {
+      "sha256": "575d82fb3597a823e94d472fb566cf6ec02e52c47b3334f298e342be5d3390a9",
+      "byte_count": 431,
+      "guest_inode": 596168
+    },
+    "source-domains/S005-R.csv": {
+      "sha256": "65ee3d395c62195d5c123e5b953473a9c8319628ea4454b5e0c3e7b5f98cc3d8",
+      "byte_count": 62,
+      "guest_inode": 596169
+    },
+    "generated-sources/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/_build_version.py": {
+      "sha256": "689a05ef2b8107e247932776a322ca9b0d8474e6e32d30ed8128c52c7f0119d9",
+      "byte_count": 723,
+      "guest_inode": 596175
+    },
+    "source-lock.json": {
+      "sha256": "924871eccfb5035bfc86c18fd863f00f6ec51b2e28042021c5fd663cd224b12f",
+      "byte_count": 38512,
+      "guest_inode": 596176
+    },
+    "provision.json": {
+      "sha256": "5381fbf094b9d99e46d3363763fa920366467834a4323fcfa46e5bdb66ac9323",
+      "byte_count": 588112,
+      "guest_inode": 596177
+    },
+    "commands.json": {
+      "sha256": "51370af38771f006511a007ab47859aabe40a4e50465bdb1e1c53edecad20591",
+      "byte_count": 5290,
+      "guest_inode": 596178
+    },
+    "certificate.json": {
+      "sha256": "9560a9eb36259a4f665f61ba18de108193eb1d4e864f751640a392737501410e",
+      "byte_count": 957998,
+      "guest_inode": 596179
+    }
+  },
+  "file_count": 143,
+  "total_bytes": 1930585,
+  "scope": "New read-only disk recovery, original143regular confined guestbundle files byteidentical to maintained descriptor/certificate9560; read-only explicit QCOWbacking and ext4 inode reads, bothfull diskSHA unchanged. No VM, guestexecution, R rerun or currentnumerical comparison. This restores only exact reference bytes in a separately owned recovery location, not missing original host supervision."
+}

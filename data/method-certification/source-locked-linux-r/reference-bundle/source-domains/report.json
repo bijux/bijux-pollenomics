@@ -1,0 +1,158 @@
+{
+  "schema_version": "1.0.0",
+  "profile": "disqover-source-domains-and-corrected-forward-v1",
+  "retained_source_sha256": {
+    "run_source_domains.py": "661b0eb311708a9f116de6d7784702aefbe35cbb165d66d884fce0e30e0b85f7",
+    "source_domains.R": "60f0e8b750623415a7039eb489aaf4e3e8a49c6052f04a9fa87e01e671e10f29",
+    "r_support.R": "685d7796ce1ebdac24556ca67be24379af3f32950a6d841e8bbe3be3de8311d9"
+  },
+  "source_version": "0.9.14",
+  "source_archive_sha256": "ea496ae82807b52c9dd3d4b39b4dfa294bfac4068e20184ce56187bff70caf5c",
+  "prepared_cases": 23,
+  "live_R_executed": true,
+  "passed_cases": 23,
+  "failed_cases": 0,
+  "status": "passed",
+  "scope": "Separate from the core 25-case oracle; no convergence or ecological acceptance claim",
+  "r_exit_code": 0,
+  "cases": [
+    {
+      "id": "S001",
+      "semantics": "source-wrapper-refusal",
+      "passed": true,
+      "values": 1
+    },
+    {
+      "id": "S002",
+      "semantics": "source-wrapper-refusal",
+      "passed": true,
+      "values": 1
+    },
+    {
+      "id": "S003",
+      "semantics": "legacy-source-refusal",
+      "passed": true,
+      "values": 1
+    },
+    {
+      "id": "S004",
+      "semantics": "legacy-source-refusal",
+      "passed": true,
+      "values": 1
+    },
+    {
+      "id": "S005",
+      "semantics": "source-supported-zero-local",
+      "passed": true,
+      "values": 12
+    },
+    {
+      "id": "S006",
+      "semantics": "source-supported-zero-regional",
+      "passed": true,
+      "values": 18
+    },
+    {
+      "id": "S007",
+      "semantics": "source-supported-supplied-regional",
+      "passed": true,
+      "values": 2
+    },
+    {
+      "id": "S008",
+      "semantics": "source-supported-supplied-regional",
+      "passed": true,
+      "values": 2
+    },
+    {
+      "id": "S009",
+      "semantics": "source-supported-supplied-regional",
+      "passed": true,
+      "values": 6
+    },
+    {
+      "id": "S010",
+      "semantics": "source-supported-supplied-regional",
+      "passed": true,
+      "values": 8
+    },
+    {
+      "id": "F001",
+      "semantics": "corrected-matrix-forward",
+      "passed": true,
+      "values": 18
+    },
+    {
+      "id": "F002",
+      "semantics": "corrected-matrix-forward",
+      "passed": true,
+      "values": 18
+    },
+    {
+      "id": "F003",
+      "semantics": "corrected-matrix-forward",
+      "passed": true,
+      "values": 18
+    },
+    {
+      "id": "F004",
+      "semantics": "corrected-matrix-forward",
+      "passed": true,
+      "values": 18
+    },
+    {
+      "id": "F005",
+      "semantics": "corrected-matrix-forward",
+      "passed": true,
+      "values": 18
+    },
+    {
+      "id": "F006",
+      "semantics": "corrected-matrix-forward",
+      "passed": true,
+      "values": 18
+    },
+    {
+      "id": "F007",
+      "semantics": "corrected-matrix-forward",
+      "passed": true,
+      "values": 18
+    },
+    {
+      "id": "F008",
+      "semantics": "corrected-matrix-forward",
+      "passed": true,
+      "values": 18
+    },
+    {
+      "id": "F009",
+      "semantics": "corrected-matrix-forward",
+      "passed": true,
+      "values": 18
+    },
+    {
+      "id": "F010",
+      "semantics": "corrected-matrix-forward",
+      "passed": true,
+      "values": 18
+    },
+    {
+      "id": "F011",
+      "semantics": "corrected-matrix-single-local",
+      "passed": true,
+      "values": 18
+    },
+    {
+      "id": "F012",
+      "semantics": "corrected-matrix-single-regional",
+      "passed": true,
+      "values": 18
+    },
+    {
+      "id": "F013",
+      "semantics": "corrected-matrix-rounded-cover",
+      "passed": true,
+      "values": 18
+    }
+  ]
+}

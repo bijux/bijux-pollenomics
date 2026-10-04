@@ -1,0 +1,169 @@
+[
+  {
+    "step": "git-head",
+    "argv": [
+      "/usr/bin/git",
+      "rev-parse",
+      "HEAD"
+    ],
+    "cwd": "/var/tmp/bijux-linux-r/f4c741b470b7fd8f/repository",
+    "exit_code": 0,
+    "timed_out": false,
+    "duration_seconds": 0.022192216999997072
+  },
+  {
+    "step": "git-tree",
+    "argv": [
+      "/usr/bin/git",
+      "rev-parse",
+      "HEAD^{tree}"
+    ],
+    "cwd": "/var/tmp/bijux-linux-r/f4c741b470b7fd8f/repository",
+    "exit_code": 0,
+    "timed_out": false,
+    "duration_seconds": 0.019821194000030573
+  },
+  {
+    "step": "git-tree-files",
+    "argv": [
+      "/usr/bin/git",
+      "ls-tree",
+      "-rz",
+      "--full-tree",
+      "HEAD",
+      "--",
+      "packages/bijux-pollenomics/src",
+      "packages/bijux-pollenomics-lra/src",
+      "packages/bijux-pollenomics-lra/tests/reference",
+      "packages/bijux-pollenomics-dev/src",
+      "packages/bijux-pollenomics/pyproject.toml",
+      "uv.lock",
+      "pyproject.toml",
+      "packages/bijux-pollenomics-lra/pyproject.toml",
+      "packages/bijux-pollenomics-dev/pyproject.toml",
+      "packages/bijux-pollenomics-lra/vendor/disqover_0.9.14.tar.gz"
+    ],
+    "cwd": "/var/tmp/bijux-linux-r/f4c741b470b7fd8f/repository",
+    "exit_code": 0,
+    "timed_out": false,
+    "duration_seconds": 0.04275041899995813
+  },
+  {
+    "step": "git-status",
+    "argv": [
+      "/usr/bin/git",
+      "status",
+      "--porcelain",
+      "--untracked-files=all",
+      "--",
+      "packages/bijux-pollenomics/src",
+      "packages/bijux-pollenomics-lra/src",
+      "packages/bijux-pollenomics-lra/tests/reference",
+      "packages/bijux-pollenomics-dev/src",
+      "packages/bijux-pollenomics/pyproject.toml",
+      "uv.lock",
+      "pyproject.toml",
+      "packages/bijux-pollenomics-lra/pyproject.toml",
+      "packages/bijux-pollenomics-dev/pyproject.toml",
+      "packages/bijux-pollenomics-lra/vendor/disqover_0.9.14.tar.gz",
+      "configs/ci/lra-r-source-lock.v1.json"
+    ],
+    "cwd": "/var/tmp/bijux-linux-r/f4c741b470b7fd8f/repository",
+    "exit_code": 0,
+    "timed_out": false,
+    "duration_seconds": 0.22886724500000355
+  },
+  {
+    "step": "oracle",
+    "argv": [
+      "/usr/bin/env",
+      "PATH=/var/tmp/bijux-linux-r/78f2cbcc12fd9043/r-runtime/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+      "R_LIBS_USER=/var/tmp/bijux-linux-r/78f2cbcc12fd9043/r-library",
+      "R_LIBS_SITE=",
+      "R_ENVIRON_USER=/dev/null",
+      "R_PROFILE_USER=/dev/null",
+      "OMP_NUM_THREADS=1",
+      "OPENBLAS_NUM_THREADS=1",
+      "MKL_NUM_THREADS=1",
+      "TZ=UTC",
+      "LANG=C",
+      "LC_ALL=C",
+      "PYTHONDONTWRITEBYTECODE=1",
+      "/var/tmp/bijux-linux-r/78f2cbcc12fd9043/venv/bin/python",
+      "/var/tmp/bijux-linux-r/f4c741b470b7fd8f/repository/packages/bijux-pollenomics-lra/tests/reference/lra_oracle/run_live_r.py",
+      "--library",
+      "/var/tmp/bijux-linux-r/78f2cbcc12fd9043/r-library",
+      "--output",
+      "/var/tmp/bijux-linux-r/f4c741b470b7fd8f/outputs/certification/oracle"
+    ],
+    "cwd": "/var/tmp/bijux-linux-r/f4c741b470b7fd8f/outputs/certification",
+    "exit_code": 0,
+    "timed_out": false,
+    "duration_seconds": 274.08453852
+  },
+  {
+    "step": "source-domains",
+    "argv": [
+      "/usr/bin/env",
+      "PATH=/var/tmp/bijux-linux-r/78f2cbcc12fd9043/r-runtime/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+      "R_LIBS_USER=/var/tmp/bijux-linux-r/78f2cbcc12fd9043/r-library",
+      "R_LIBS_SITE=",
+      "R_ENVIRON_USER=/dev/null",
+      "R_PROFILE_USER=/dev/null",
+      "OMP_NUM_THREADS=1",
+      "OPENBLAS_NUM_THREADS=1",
+      "MKL_NUM_THREADS=1",
+      "TZ=UTC",
+      "LANG=C",
+      "LC_ALL=C",
+      "PYTHONDONTWRITEBYTECODE=1",
+      "/var/tmp/bijux-linux-r/78f2cbcc12fd9043/venv/bin/python",
+      "/var/tmp/bijux-linux-r/f4c741b470b7fd8f/repository/packages/bijux-pollenomics-lra/tests/reference/lra_oracle/run_source_domains.py",
+      "--library",
+      "/var/tmp/bijux-linux-r/78f2cbcc12fd9043/r-library",
+      "--output",
+      "/var/tmp/bijux-linux-r/f4c741b470b7fd8f/outputs/certification/source-domains"
+    ],
+    "cwd": "/var/tmp/bijux-linux-r/f4c741b470b7fd8f/outputs/certification",
+    "exit_code": 0,
+    "timed_out": false,
+    "duration_seconds": 62.39798585400001
+  },
+  {
+    "step": "git-head-after",
+    "argv": [
+      "/usr/bin/git",
+      "rev-parse",
+      "HEAD"
+    ],
+    "cwd": "/var/tmp/bijux-linux-r/f4c741b470b7fd8f/repository",
+    "exit_code": 0,
+    "timed_out": false,
+    "duration_seconds": 0.017728939999983595
+  },
+  {
+    "step": "git-status-after",
+    "argv": [
+      "/usr/bin/git",
+      "status",
+      "--porcelain",
+      "--untracked-files=all",
+      "--",
+      "packages/bijux-pollenomics/src",
+      "packages/bijux-pollenomics-lra/src",
+      "packages/bijux-pollenomics-lra/tests/reference",
+      "packages/bijux-pollenomics-dev/src",
+      "packages/bijux-pollenomics/pyproject.toml",
+      "uv.lock",
+      "pyproject.toml",
+      "packages/bijux-pollenomics-lra/pyproject.toml",
+      "packages/bijux-pollenomics-dev/pyproject.toml",
+      "packages/bijux-pollenomics-lra/vendor/disqover_0.9.14.tar.gz",
+      "configs/ci/lra-r-source-lock.v1.json"
+    ],
+    "cwd": "/var/tmp/bijux-linux-r/f4c741b470b7fd8f/repository",
+    "exit_code": 0,
+    "timed_out": false,
+    "duration_seconds": 0.22516822900001898
+  }
+]
