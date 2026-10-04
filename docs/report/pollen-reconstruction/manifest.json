@@ -6231,7 +6231,7 @@
     },
     {
       "path": "reports/needed/report-claims.csv",
-      "sha256": "e2edab0e72f2a8a974eec4f0e1debbb6980598981beb1af7176e5f86064f7679",
+      "sha256": "856ba78e4c4ed71f5344e44eca3aa289ad8ae9b65e89100dfdac4f7843165202",
       "bytes": 88290
     },
     {
@@ -6246,7 +6246,7 @@
     },
     {
       "path": "reports/needed/scientific-review.csv",
-      "sha256": "b737b17d56d27ad591e5bcc18a88432f9e8e70927fd6673c369cba084b670254",
+      "sha256": "10d3dc4bd93919397a9cf01e79c8e4ed9883aff06b86420d45046114be6fd4a9",
       "bytes": 64650
     },
     {
@@ -6626,8 +6626,8 @@
     },
     {
       "path": "reports/science/solsoe-lra-input.md",
-      "sha256": "ed0213d8c27ce5d90ac924e85fad0d90e97c10fd0a315be31bee12ed971ee39a",
-      "bytes": 6347
+      "sha256": "7e5d9382f294a71020e7e3234cbc42b3896d1e5a34c24f79cc519f6b80e2d16c",
+      "bytes": 8422
     },
     {
       "path": "reports/science/source-cohorts.md",
