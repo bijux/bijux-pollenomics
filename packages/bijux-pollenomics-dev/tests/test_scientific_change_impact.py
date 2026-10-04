@@ -365,6 +365,11 @@ def configured_owner_rows(
             packets = [
                 (identity, Path(), [descriptor["custody"], *descriptor["files"]])
             ]
+        elif schema in {
+            "qualified-pangaea-solsoe-age-table.v1",
+            "qualified-pangaea-epd-age-table.v1",
+        }:
+            packets = [(identity, Path(), [descriptor["table"]])]
         elif schema == "qualified-author-snapshot.v1":
             packets = [
                 (identity, Path(), [descriptor["manifest"], *descriptor["files"]])
@@ -397,6 +402,14 @@ def configured_owner_rows(
                 path.parent.mkdir(parents=True, exist_ok=True)
                 path.write_text("synthetic archive-layout fixture\n", encoding="utf-8")
                 inputs[f"external/{source_id}/{prefix / spec['path']}"] = path
+        if schema in {
+            "qualified-pangaea-solsoe-age-table.v1",
+            "qualified-pangaea-epd-age-table.v1",
+        }:
+            assert set(inputs) == {
+                descriptor_path.as_posix(),
+                f"external/{identity}/{descriptor['table']['path']}",
+            }
         if schema == "qualified-landclim-two-grid-packet.v1":
             assert len(inputs) == 265
         if schema == "qualified-neotoma-publication-link.v1":
