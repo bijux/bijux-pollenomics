@@ -74,7 +74,7 @@
     ".github/workflows/scientific-verification.yml": "90ae56b293e58687984d23256af5f5d3d6ee01353362cdda862ee36888c28da9",
     "configs/ci/qualified-report-sources/legacyage.json": "0255533348fe38cf716e4b8bfee59905890c6f8cd303e4a40d73317413b98360",
     "configs/ci/report-owner-execution.json": "ff18650b3a3284deaa053729403d5152ca4d484bcdc10ce6bf982ced1be5359d",
-    "configs/ci/report-ownership.json": "d5a94c6c8fab3403636e21beface9d5e6f8e3c4d20fa5805f8daecdd171d51fc",
+    "configs/ci/report-ownership.json": "aea47d836eff8dcf67450003fafcfe31a78711ab1b27a803fa3ffb628448d152",
     "configs/docs/science_downloads.py": "3162000c64180ca575be718c03ecdfe90bc0f53240eb4101947356c863848906",
     "data/adna/governance/source_library/projects/SRP073444/sample_master.json": "91fd9903db37c31659507b0f6ff8f042bee69312ada894d06ab50b16bcf5907c",
     "data/archaeology/raw/hojea_2003_source.json": "0b9a9a01aad4a8a0abc710b0b96c987d88830f84885ec3282994a60a26f803a9",
