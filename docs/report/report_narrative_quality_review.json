@@ -1,8 +1,8 @@
 {
   "schema_version": "report-narrative-quality-review.v1",
-  "page_count": 299,
+  "page_count": 300,
   "quality_posture_counts": {
-    "reader_ready": 116,
+    "reader_ready": 117,
     "structured_reference": 19,
     "thin_structure": 164
   },
@@ -1315,6 +1315,17 @@
       "table_line_count": 0,
       "quality_posture": "thin_structure",
       "note": "Page explains itself but still needs stronger internal wayfinding."
+    },
+    {
+      "repository_path": "docs/report/pollen-reconstruction/embsecbio-biome-reconstruction/README.md",
+      "content_sha256": "8b4af726b92f6deeb94e9860162d6959c3a334054363c5a3b7abed10057b298a",
+      "prose_paragraph_count": 24,
+      "link_bullet_count": 0,
+      "bullet_sentence_count": 0,
+      "heading_count": 7,
+      "table_line_count": 5,
+      "quality_posture": "reader_ready",
+      "note": "Page explains its purpose before or alongside artifact links."
     },
     {
       "repository_path": "docs/report/pollen-reconstruction/english-receiver-annulus/README.md",
@@ -3243,7 +3254,7 @@
     },
     {
       "repository_path": "docs/report/index.md",
-      "content_sha256": "2e881ffcfb319ddbe09c3ba4ce4ba883da6f85cb3e30fe6dddb326701e79cce2",
+      "content_sha256": "d718e8f1a8255f4d8eeb22926079274a7044138f994aa15b124a78924799f093",
       "prose_paragraph_count": 3,
       "link_bullet_count": 11,
       "bullet_sentence_count": 0,
@@ -3254,7 +3265,7 @@
     },
     {
       "repository_path": "docs/report/maintenance/index.md",
-      "content_sha256": "c7be949f11f180d415b9f0ff67e240c395ed8e34fd2d6675cf8e65fbc9735af6",
+      "content_sha256": "31477f1e64e1a9048a528eac522d333cb103c2045eee476ef0c88b6961510f31",
       "prose_paragraph_count": 3,
       "link_bullet_count": 10,
       "bullet_sentence_count": 4,

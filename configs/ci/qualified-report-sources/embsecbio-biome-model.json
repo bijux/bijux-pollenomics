@@ -1,0 +1,58 @@
+{
+  "file_count": 9,
+  "files": [
+    {
+      "path": "EC4c_f_ep0.5_EMB_Composit.csv",
+      "sha256": "184dd20e78827d00855e7c879d2f6f88560b6950dfb4619f168e79de6f068bd5",
+      "size": 313
+    },
+    {
+      "path": "EC4c_f_ep0.5_EMB_Dominant.csv",
+      "sha256": "2aabd4782f4a0d23490c58ab9f93a252864d64cbebfaeaf80a2becb7ce3df196",
+      "size": 315
+    },
+    {
+      "path": "EC4c_f_ep0.5_EMB_Subdominant.csv",
+      "sha256": "7fba85620bf76d67e66acced59dad58053169ec93f00b2778b518b0c136ab16e",
+      "size": 314
+    },
+    {
+      "path": "EC4c_f_ep0.5_Metrics.csv",
+      "sha256": "c23c34ae6edf6257db2ecc7777f0c9d9c497d5bfb01379856ef4736f6938de0b",
+      "size": 295
+    },
+    {
+      "path": "Modern_pollen_perc_emb_smpds.csv",
+      "sha256": "5f0b8c804aa7d28d06a797283222279d58cfdec308000467870bfd5504ce6074",
+      "size": 9329457
+    },
+    {
+      "path": "Train_dataset.csv",
+      "sha256": "04d82361c7a911e16f29b1c55f415e8b275625d782b47ea85a574cac41fdb3e1",
+      "size": 44992
+    },
+    {
+      "path": "r-numerical.csv",
+      "sha256": "e42d6966b35069e6a9bad128418930b4c74f0e053d5585723b4285aff747bc8f",
+      "size": 2311825
+    },
+    {
+      "path": "resolution1kmfrom250m_window21km_perside.csv",
+      "sha256": "e96fa820463de1968d1d776306e080b0e66ebd53cde9c2bfa11de5a7331ce891",
+      "size": 172613
+    },
+    {
+      "path": "selected-location-samples.csv",
+      "sha256": "45cc91811f73ed603a177c8ce9b8f9117887d7c72e25bbbf6b9b925f5e905340",
+      "size": 319631
+    }
+  ],
+  "manifest": {
+    "path": "snapshot-manifest.json",
+    "sha256": "11c99aa88d9bb690f6fbe0fed4b31702e70aca29ae991dff49138703f903aa9e",
+    "size": 1042
+  },
+  "schema_version": "qualified-author-snapshot.v1",
+  "snapshot_schema_version": "embsecbio-published-biome-source-snapshot.v1",
+  "source_id": "embsecbio/published-biome-model"
+}

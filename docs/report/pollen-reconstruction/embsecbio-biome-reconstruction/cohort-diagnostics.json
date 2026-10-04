@@ -1,0 +1,71 @@
+{
+  "profiles": {
+    "complete_curated_cohort": {
+      "TUND_CENF_excluded_entities": 885,
+      "all_entity_classes": {
+        "composite_agreement": 0.7468378327355106,
+        "composite_correct": 3956,
+        "denominator": 5297,
+        "dominant_agreement": 0.6503681329054182,
+        "dominant_correct": 3445
+      },
+      "eligible_label_samples": 5521,
+      "excluded_samples": 244,
+      "independent_field_accuracy": false,
+      "modal_tie_rule": "lexicographically first class after counts; source entity names are opaque byte tokens",
+      "source_metrics_TUND_CENF_exclusion": {
+        "composite_agreement": 0.7504533091568449,
+        "composite_correct": 3311,
+        "denominator": 4412,
+        "dominant_agreement": 0.6618313689936537,
+        "dominant_correct": 2920
+      },
+      "source_samples": 5765
+    },
+    "emb_complete_declared_coordinate_window": {
+      "TUND_CENF_excluded_entities": 2,
+      "all_entity_classes": {
+        "composite_agreement": 0.7260663507109004,
+        "composite_correct": 766,
+        "denominator": 1055,
+        "dominant_agreement": 0.6075829383886255,
+        "dominant_correct": 641
+      },
+      "eligible_label_samples": 1277,
+      "excluded_samples": 118,
+      "independent_field_accuracy": false,
+      "modal_tie_rule": "lexicographically first class after counts; source entity names are opaque byte tokens",
+      "source_metrics_TUND_CENF_exclusion": {
+        "composite_agreement": 0.7274453941120608,
+        "composite_correct": 766,
+        "denominator": 1053,
+        "dominant_agreement": 0.6087369420702754,
+        "dominant_correct": 641
+      },
+      "source_samples": 1395
+    },
+    "northern_europe_coordinate_screen": {
+      "TUND_CENF_excluded_entities": 639,
+      "all_entity_classes": {
+        "composite_agreement": 0.7767653758542141,
+        "composite_correct": 682,
+        "denominator": 878,
+        "dominant_agreement": 0.6674259681093394,
+        "dominant_correct": 586
+      },
+      "eligible_label_samples": 878,
+      "excluded_samples": 68,
+      "independent_field_accuracy": false,
+      "modal_tie_rule": "lexicographically first class after counts; source entity names are opaque byte tokens",
+      "source_metrics_TUND_CENF_exclusion": {
+        "composite_agreement": 0.8368200836820083,
+        "composite_correct": 200,
+        "denominator": 239,
+        "dominant_agreement": 0.799163179916318,
+        "dominant_correct": 191
+      },
+      "source_samples": 946
+    }
+  },
+  "schema_version": "embsecbio-complete-cohort-map-diagnostics.v1"
+}

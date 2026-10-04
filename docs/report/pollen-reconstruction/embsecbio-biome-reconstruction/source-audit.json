@@ -1,0 +1,159 @@
+{
+  "all_pollen_samples": 9928,
+  "all_recorded_taxa": 1184,
+  "all_sample_units": {
+    "NULL": 1178,
+    "digitised": 1,
+    "percentage count": 401,
+    "raw count": 8656,
+    "reconstructed from % table": 103
+  },
+  "closed_vector_assumption_required": "For a future named classifier, missing taxon entries can only be interpreted as zero recorded mass within the declared released recorded-taxa universe; counts do not establish total terrestrial pollen sum or PPE compatibility. No count manipulation performed here.",
+  "duplicate_sample_taxon_pairs": 1777,
+  "foreign_key_violation_groups": 2,
+  "integer_count_refusal_counts": {
+    "duplicate_sample_taxon_rows": 77,
+    "missing_or_changed_native_identity_metadata": 384,
+    "no_pollen_rows": 1,
+    "noninteger_values_in_raw_count_candidate": 588,
+    "nonpositive_total_recorded_mass": 1,
+    "source_unit_is_not_raw_count": 602
+  },
+  "invalid_numeric_pollen_rows": [
+    {
+      "sample": "7728",
+      "source_row": {
+        "ID_SAMPLE": "7728",
+        "ID_SAMPLE_TAXA": "486296",
+        "taxon_clean": "Lycopodium",
+        "taxon_count": "NULL"
+      }
+    },
+    {
+      "sample": "8090",
+      "source_row": {
+        "ID_SAMPLE": "8090",
+        "ID_SAMPLE_TAXA": "494842",
+        "taxon_clean": "Apiaceae",
+        "taxon_count": "NULL"
+      }
+    }
+  ],
+  "joined_units": [
+    {
+      "rows": 778,
+      "source_count_type": "raw count"
+    },
+    {
+      "rows": 510,
+      "source_count_type": "NULL"
+    },
+    {
+      "rows": 5,
+      "source_count_type": "percentage count"
+    },
+    {
+      "rows": 1,
+      "source_count_type": null
+    },
+    {
+      "rows": 86,
+      "source_count_type": "reconstructed from % table"
+    }
+  ],
+  "metadata2017_sha256": "6e3eefde4601085b3feaceaa4ae1062a4a9bf215895d56bae59bde5f39469f29",
+  "native_sample_matches": 1379,
+  "publication_scope": "Compact admitted actual native source-audit capture; current fixed-model producer does not claim a fresh raw-table scan",
+  "qualified_integer_count_poc_rows": 430,
+  "release_scope": "2021 amended raw records independently acquired from official DOI309. Native2017ID+metadata correspondence permits a declared2021-count/new-profile consumer; does not authenticate exact2017 original count bytes or algorithm/PFT mappings. All source chronology columns retained without choosing or silently recalibrating.",
+  "released2017_rows": 1380,
+  "rights": "Public2021README CC BY4.0 Reading/Leuven/Cruz-Silva; separate2017 attribution retained.",
+  "schema_version": "embsecbio-retained-native-source-audit.v1",
+  "source_decoders": {
+    "metadata2017": "MacRoman explicit byte-preserving parsing assumption",
+    "relationalCSV2021": "UTF-8 explicitly stated by2021README"
+  },
+  "source_zip_sha256": "12179b08051762640e2d23c7fbfaff3865af624480033082bd4473f4aae1e561",
+  "strict_metadata_identity_matches": 996,
+  "tables": {
+    "age_model": {
+      "member_sha256": "bf0da2e283c7342ce9d5d1e6348c91b29b534f0c8c879925d71795ca855f6180",
+      "rows": 10131,
+      "unequal_csv_width_rows": []
+    },
+    "basin_size": {
+      "member_sha256": "da10b88ed5933ff99d1438757da3980ac54db0217457918c3267c2ca3cf12be5",
+      "rows": 7,
+      "unequal_csv_width_rows": []
+    },
+    "catch_size": {
+      "member_sha256": "9631eaa667d8716e8d910a22c3e92dbd7896119628813fa7ef12160aa4fcbc5a",
+      "rows": 5,
+      "unequal_csv_width_rows": []
+    },
+    "date_info": {
+      "member_sha256": "a06e766f016d90fb4f74d20f859e723c916f2fa3b69a2d1ab6f1e6805f8e91c3",
+      "rows": 916,
+      "unequal_csv_width_rows": []
+    },
+    "date_type": {
+      "member_sha256": "40a47bebdcfa936413b8e42e138a409dc311939e1e43168feb941105ef4ebffb",
+      "rows": 17,
+      "unequal_csv_width_rows": []
+    },
+    "entity": {
+      "member_sha256": "2f4b3ce953dfad5fb558d1cffa53cf8510bac0e1fe5011c0edeb05e81ad61b62",
+      "rows": 1802,
+      "unequal_csv_width_rows": []
+    },
+    "entity_pub": {
+      "member_sha256": "6b501472eab0da4ba27df2b250cb4cc85709dfe835e93717d76194347f800582",
+      "rows": 645,
+      "unequal_csv_width_rows": []
+    },
+    "entity_type": {
+      "member_sha256": "284c52e1dc55cfe373a580bf5005deb50b8ad80baa02f6827abbb70d5e1d0e68",
+      "rows": 25,
+      "unequal_csv_width_rows": []
+    },
+    "mat_dated": {
+      "member_sha256": "c685cfdc90152de7c96c892697cf3aacb561286424a012d4496da0cd7b512b7f",
+      "rows": 26,
+      "unequal_csv_width_rows": []
+    },
+    "pollen_data": {
+      "member_sha256": "da9aed21425cbfda26736b809b30e47ea24ddbe8c5d4800be127e90558ddf340",
+      "rows": 301197,
+      "unequal_csv_width_rows": []
+    },
+    "pub": {
+      "member_sha256": "c9809a252a48b19a960266594f3079628dff11a5bd1d8b3a6a8f659411ffc904",
+      "rows": 186,
+      "unequal_csv_width_rows": [
+        7,
+        107
+      ]
+    },
+    "sample": {
+      "member_sha256": "c9a0cd11e56b52980098c041b97e9b7b621da2b72906cd70e770701fe1bd962e",
+      "rows": 10339,
+      "unequal_csv_width_rows": []
+    },
+    "sample_type": {
+      "member_sha256": "a2b400db25719a6c13d85958981863afedc2112a2be8afd8b1a9d5a39e67463b",
+      "rows": 49,
+      "unequal_csv_width_rows": []
+    },
+    "site": {
+      "member_sha256": "e75f7ec16e5675d7f6325431adc6b40531e9936ff7714544b7bc41a7b989c7a3",
+      "rows": 1463,
+      "unequal_csv_width_rows": []
+    },
+    "site_type": {
+      "member_sha256": "89942a8c562123665535df2846dc0f2e0d7e591521bb76584da44018eeed443b",
+      "rows": 34,
+      "unequal_csv_width_rows": []
+    }
+  },
+  "units": "taxon_count denotes raw count OR percentage, according to sample.count_type; percentage rows and fractional raw-count rows refused for this integer-count PoC. No fabricated total count."
+}

@@ -23,7 +23,7 @@ from .contracts import ReportRebuildError
 from .scheduling_custody.context import _owner_schedule_context
 
 SCHEMA = "configured-report-owner-schedule.v1"
-MAX_OWNERS = 128
+MAX_OWNERS = 129
 IDENTITY = re.compile(r"[A-Za-z0-9_./-]+")
 
 
@@ -48,7 +48,7 @@ def configured_owner_schedule(
     if not isinstance(rows, list) or not rows:
         raise ReportRebuildError("configured owner list is empty")
     if len(rows) > MAX_OWNERS:
-        raise ReportRebuildError("two-lane owner schedule exceeds 128 owners")
+        raise ReportRebuildError(f"two-lane owner schedule exceeds {MAX_OWNERS} owners")
     with _owner_schedule_context(
         repository,
         Path(relative),

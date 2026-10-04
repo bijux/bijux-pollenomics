@@ -1735,6 +1735,21 @@
         "source-products/report.json": "docs/report/pollen-reconstruction/english-receiver-annulus/report.json"
       },
       "timeout_seconds": 180
+    },
+    {
+      "external_source_descriptor": "configs/ci/qualified-report-sources/embsecbio-biome-model.json",
+      "module": "bijux_pollenomics_dev.source_completion.pollen_reconstruction.embsecbio_biome.publication",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "pollen-reconstruction/embsecbio-biome-reconstruction/report-products",
+      "source_arguments": [],
+      "source_paths": {
+        "source-products/cohort-diagnostics.json": "docs/report/pollen-reconstruction/embsecbio-biome-reconstruction/cohort-diagnostics.json",
+        "source-products/historical-comparison.json": "docs/report/pollen-reconstruction/embsecbio-biome-reconstruction/historical-comparison.json",
+        "source-products/report.json": "docs/report/pollen-reconstruction/embsecbio-biome-reconstruction/report.json",
+        "source-products/source-audit.json": "docs/report/pollen-reconstruction/embsecbio-biome-reconstruction/source-audit.json"
+      },
+      "timeout_seconds": 120
     }
   ]
 }
