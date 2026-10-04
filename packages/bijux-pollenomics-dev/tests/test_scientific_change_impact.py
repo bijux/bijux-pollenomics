@@ -353,11 +353,42 @@ def configured_owner_rows(
         assert repository == REPO_ROOT and source_root == store
         descriptor_file = repository / descriptor_path
         descriptor = json.loads(descriptor_file.read_text())
-        identity = descriptor["source_id"]
-        directory = store / identity
-        directory.mkdir(parents=True, exist_ok=True)
         inputs = {descriptor_path.as_posix(): descriptor_file}
         schema = descriptor["schema_version"]
+        reviewed_schemas = {
+            "qualified-report-source-bundle.v1",
+            "qualified-publisher-report-tables.v1",
+            "qualified-pangaea-solsoe-age-table.v1",
+            "qualified-pangaea-epd-age-table.v1",
+            "qualified-pangaea-abbo-profile.v1",
+            "qualified-author-snapshot.v1",
+            "qualified-landclim-two-grid-packet.v1",
+            "qualified-neotoma-publication-link.v1",
+            "qualified-rootsi-bokesjon-workbook.v1",
+            "qualified-rootsi-native-workbook.v1",
+        }
+        assert schema in reviewed_schemas, (
+            f"Unreviewed synthetic source schema: {schema}"
+        )
+        if schema == "qualified-rootsi-native-workbook.v1":
+            base_path = Path(descriptor["base_descriptor"])
+            assert base_path == Path(
+                "configs/ci/qualified-report-sources/rootsi-bokesjon-workbook.json"
+            )
+            base_file = repository / base_path
+            base = json.loads(base_file.read_text())
+            assert base["schema_version"] == "qualified-rootsi-bokesjon-workbook.v1"
+            assert base["source_id"] == "landclim/rootsi-workbooks"
+            assert descriptor["workbook"]["path"] in {
+                "rootsi/ABB.xls",
+                "rootsi/BUS.xls",
+            }
+            inputs[base_path.as_posix()] = base_file
+            identity = base["source_id"]
+        else:
+            identity = descriptor["source_id"]
+        directory = store / identity
+        directory.mkdir(parents=True, exist_ok=True)
         if schema in {
             "qualified-report-source-bundle.v1",
             "qualified-publisher-report-tables.v1",
@@ -368,8 +399,21 @@ def configured_owner_rows(
         elif schema in {
             "qualified-pangaea-solsoe-age-table.v1",
             "qualified-pangaea-epd-age-table.v1",
+            "qualified-pangaea-abbo-profile.v1",
         }:
             packets = [(identity, Path(), [descriptor["table"]])]
+        elif schema == "qualified-rootsi-bokesjon-workbook.v1":
+            packets = [
+                (identity, Path(), [descriptor["manifest"], descriptor["workbook"]])
+            ]
+        elif schema == "qualified-rootsi-native-workbook.v1":
+            packets = [
+                (
+                    identity,
+                    Path(),
+                    [base["manifest"], base["workbook"], descriptor["workbook"]],
+                )
+            ]
         elif schema == "qualified-author-snapshot.v1":
             packets = [
                 (identity, Path(), [descriptor["manifest"], *descriptor["files"]])
@@ -405,6 +449,7 @@ def configured_owner_rows(
         if schema in {
             "qualified-pangaea-solsoe-age-table.v1",
             "qualified-pangaea-epd-age-table.v1",
+            "qualified-pangaea-abbo-profile.v1",
         }:
             assert set(inputs) == {
                 descriptor_path.as_posix(),

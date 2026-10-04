@@ -86,3 +86,116 @@ def test_unknown_external_schema_remains_an_explicit_fixture_refusal(
     monkeypatch.setattr(IMPACT, "configured_owner_schedule", schedule)
     with pytest.raises(AssertionError, match="Unreviewed synthetic source schema"):
         request.getfixturevalue("configured_owner_rows")
+
+
+@pytest.mark.parametrize(
+    ("descriptor_name", "identity", "expected_external"),
+    [
+        (
+            "rootsi-bokesjon-workbook.json",
+            "landclim/rootsi-workbooks",
+            {"manifest.json", "rootsi/BOKE.xls"},
+        ),
+        (
+            "rootsi-abborrtjarne-workbook.json",
+            "landclim/rootsi-workbooks",
+            {"manifest.json", "rootsi/BOKE.xls", "rootsi/ABB.xls"},
+        ),
+        (
+            "rootsi-bussjosjon-workbook.json",
+            "landclim/rootsi-workbooks",
+            {"manifest.json", "rootsi/BOKE.xls", "rootsi/BUS.xls"},
+        ),
+        (
+            "abbo-pollen-profile.json",
+            "epd/pangaea",
+            {"abbo-pollen-profile-pangaea-738429.tsv"},
+        ),
+    ],
+)
+def test_retained_source_fixture_preserves_exact_descriptor_dependency_population(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+    request: pytest.FixtureRequest,
+    descriptor_name: str,
+    identity: str,
+    expected_external: set[str],
+) -> None:
+    repository = tmp_path / "repository"
+    folder = Path("configs/ci/qualified-report-sources")
+    relative = folder / descriptor_name
+    files = [relative]
+    if descriptor_name in {
+        "rootsi-abborrtjarne-workbook.json",
+        "rootsi-bussjosjon-workbook.json",
+    }:
+        files.append(folder / "rootsi-bokesjon-workbook.json")
+    expected_bytes = {}
+    for name in files:
+        payload = (IMPACT.REPO_ROOT / name).read_bytes()
+        path = repository / name
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_bytes(payload)
+        expected_bytes[name] = payload
+    monkeypatch.setattr(IMPACT, "REPO_ROOT", repository)
+    observed: list[QualifiedReportSources] = []
+
+    def schedule(root: Path, *, source_root: Path) -> dict[str, list[dict[str, str]]]:
+        observed.append(_fixture_sources(root, source_root, relative))
+        return {"owners": []}
+
+    monkeypatch.setattr(IMPACT, "configured_owner_schedule", schedule)
+    assert request.getfixturevalue("configured_owner_rows") == []
+    assert len(observed) == 1
+    result = observed[0]
+    external = {f"external/{identity}/{name}" for name in expected_external}
+    assert set(result.inputs) == {name.as_posix() for name in files} | external
+    assert result.directory == tmp_path / "source-store" / identity
+    assert result.descriptor_sha256 == "a" * 64
+    for name in files:
+        assert result.inputs[name.as_posix()] == repository / name
+        assert (repository / name).read_bytes() == expected_bytes[name]
+    for external_name in expected_external:
+        path = tmp_path / "source-store" / identity / external_name
+        assert result.inputs[f"external/{identity}/{external_name}"] == path
+        assert path.read_text() == "synthetic archive-layout fixture\n"
+
+
+@pytest.mark.parametrize(
+    "refusal",
+    ["unknown_without_identity", "base_schema", "base_escape", "foreign_member"],
+)
+def test_retained_source_fixture_refuses_unreviewed_schema_or_native_dependency(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+    request: pytest.FixtureRequest,
+    refusal: str,
+) -> None:
+    repository = tmp_path / "repository"
+    folder = Path("configs/ci/qualified-report-sources")
+    relative = folder / "rootsi-abborrtjarne-workbook.json"
+    base_path = folder / "rootsi-bokesjon-workbook.json"
+    descriptor = json.loads((IMPACT.REPO_ROOT / relative).read_bytes())
+    base = json.loads((IMPACT.REPO_ROOT / base_path).read_bytes())
+    if refusal == "unknown_without_identity":
+        descriptor["schema_version"] = "qualified-rootsi-native-workbook.v2"
+    elif refusal == "base_schema":
+        base["schema_version"] = "unreviewed.v1"
+    elif refusal == "base_escape":
+        descriptor["base_descriptor"] = "../foreign.json"
+    else:
+        descriptor["workbook"]["path"] = "rootsi/FOREIGN.xls"
+    for name, value in [(relative, descriptor), (base_path, base)]:
+        path = repository / name
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(json.dumps(value))
+    monkeypatch.setattr(IMPACT, "REPO_ROOT", repository)
+
+    def schedule(root: Path, *, source_root: Path) -> dict[str, list[dict[str, str]]]:
+        _fixture_sources(root, source_root, relative)
+        return {"owners": []}
+
+    monkeypatch.setattr(IMPACT, "configured_owner_schedule", schedule)
+    with pytest.raises(AssertionError):
+        request.getfixturevalue("configured_owner_rows")
+    assert not (tmp_path / "source-store").exists()
