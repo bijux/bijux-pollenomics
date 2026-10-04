@@ -1691,7 +1691,7 @@
     },
     "data_sha256": {
       "configs/ci/lra-r-source-lock.v1.json": "924871eccfb5035bfc86c18fd863f00f6ec51b2e28042021c5fd663cd224b12f",
-      "configs/ci/report-ownership.json": "4bd7813aa3cb3696d57f0653da3460d05b3df2979de7fd51ef6dc9d3659781c3",
+      "configs/ci/report-ownership.json": "bc3636a0ebe1a19bf55dc726719787b6e108f93601eeae749c106db843710b3d",
       "data/method-certification/native-r/capture/capture.json": "32ebc42108310086fc21ff0107b4e81ececb72a7d38108fdedd7e49148e6b2ec",
       "data/method-certification/native-r/capture/oracle/C0000.csv": "435bf8ffc6d62bcf21c9f242364db72fb8cc5d0057bafa1343a9c930d47e92be",
       "data/method-certification/native-r/capture/oracle/C0001.csv": "10d713ff579ba379674fc97d3a4bb11461c47adc3caacca5b1297c8566ff7157",
@@ -1973,7 +1973,7 @@
     },
     "owner_row_sha256": "9246f6d41bad61a3bd4fc7cab1226398330351cf0c963fb59dcf18c3b3047f63",
     "capture_manifest_sha256": "32ebc42108310086fc21ff0107b4e81ececb72a7d38108fdedd7e49148e6b2ec",
-    "sha256": "4273604beb1eb5c4bb156415bad9942b5c44822546eb1a3886de18d43310275e"
+    "sha256": "bf22d8c3e7caf05f60a84546ae82ce919c3f965fab69921d1996d9522dede330"
   },
   "scope": "retained native R capture against original R vectors; current consumer code and data bytes are independently identified, protected captured science inputs match, and neither R nor Python expectations are newly executed",
   "native_source_acquisition": "fresh_public_locked_archive_acquisition"

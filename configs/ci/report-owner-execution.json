@@ -1646,6 +1646,18 @@
         "source-products/report.json": "docs/report/countries/denmark/solsoe-source-lineage/pangaea-core-controls/report.json"
       },
       "timeout_seconds": 120
+    },
+    {
+      "owner_id": "countries/denmark/solsoe-source-lineage/pangaea-epd-age-join/report-products",
+      "module": "bijux_pollenomics_dev.source_completion.denmark.solsoe_epd_age_join",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "source_arguments": [],
+      "external_source_descriptor": "configs/ci/qualified-report-sources/solsoe-published-epd-ages.json",
+      "source_paths": {
+        "source-products/report.json": "docs/report/countries/denmark/solsoe-source-lineage/pangaea-epd-age-join/report.json"
+      },
+      "timeout_seconds": 120
     }
   ]
 }

@@ -17,3 +17,14 @@ PYTHONDONTWRITEBYTECODE=1 .venv/bin/python \
 cmp artifacts/jobs/solsoe-epd-age-join/report.json \
   docs/report/countries/denmark/solsoe-source-lineage/pangaea-epd-age-join/report.json
 ```
+
+The configured report-owner route authenticates this exact table with
+`configs/ci/qualified-report-sources/solsoe-published-epd-ages.json` and rechecks
+its four relational inputs and retained join source before publishing one
+`source-products/report.json` beneath an absent artifact destination. Its
+source-root argument names the separate retained data store. The descriptor
+records acquisition custody as unestablished and scientific admission as false;
+it does not reconstruct a capture history or authorize new chronology claims.
+The source-bound route preserves the existing report schema, arithmetic,
+negative-bound refusal and zero admitted samples. Genuine reference/replay
+execution and byte comparison remain separate verification requirements.

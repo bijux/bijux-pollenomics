@@ -67,4 +67,8 @@ def validated_external_report_sources(
         from .source_contracts.pangaea_age_controls import validated_solsoe_age_table
 
         return validated_solsoe_age_table(repository, source_root, descriptor_path)
+    if schema == "qualified-pangaea-epd-age-table.v1":
+        from .source_contracts.pangaea_epd_age_table import validated_epd_age_table
+
+        return validated_epd_age_table(repository, source_root, descriptor_path)
     raise ReportRebuildError("unknown external report source schema")
