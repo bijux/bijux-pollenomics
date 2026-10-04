@@ -5980,8 +5980,14 @@
       ],
       "producer_paths": [
         "docs/report/method-certification/love-paper-correspondence/verify.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/audit.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/evidence.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/landclim.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/love/__init__.py",
-        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/love/parameter_correspondence.py"
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/love/parameter_correspondence.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/manifests.py"
       ],
       "role": "generated_owner",
       "verification": "Run the pinned source-parameter verifier to compare 30 printed Table 2 cells against the later DISQOVER example, retaining 9 exact labels and Grasses/Gras distinction. Its table input must be the independently reviewed public-source table producer output. This source correspondence does not establish the 2024 software version, eight-pond Figure 2 inputs or scientific admission."
