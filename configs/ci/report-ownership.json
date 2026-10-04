@@ -2,8 +2,8 @@
   "schema_version": "report-output-ownership.v1",
   "root": "docs/report",
   "inventory_scope": "tracked report paths; ownership declarations do not certify reproduction",
-  "path_count": 1968,
-  "paths_sha256": "0a18a2714336c400fe1dcfb2f56ea40df92e009a1b732713a175feb728bf0932",
+  "path_count": 1984,
+  "paths_sha256": "1cb340e3039014385495510d7b257329025c8ce46b68ba5295bc4cfdc6c69a07",
   "owners": [
     {
       "owner_id": "atlas/boundary-orientation/browser-evidence",
@@ -45210,6 +45210,187 @@
         "uv.lock"
       ],
       "verification": "Reproduce six compact products from the unchanged qualified 17-file source snapshot and three admitted captures. Preserve original fixed-model four-product writers, source-seed matrix compatibility and 4,356-cell training reconstruction with retained Rounding negatives. The exposure-only twin writers and 28 focused cases recompute training-ID, coordinate and opaque-name proxy partitions, original 917/565 matrix populations/cells, 292 nontraining samples and explicit regional class exclusions from retained predictions, without R, distances or fitting. Bind actual 23-source import origins and three capture identities; package metadata and the meaningful exposure test are conservative inputs rather than observed producer imports. The complete six-product mixed tree remains a later scientific gate. PNV agreement does not establish independent measured vegetation, authenticated ecological identity, untouched confirmation, rights or external scientific review; exact original historical training-runtime and training-ID custody remain separate."
+    },
+    {
+      "owner_id": "pollen-reconstruction/swedish-static-basin-scenarios/reader-account",
+      "role": "maintained_editorial",
+      "paths": [
+        "docs/report/pollen-reconstruction/swedish-static-basin-scenarios/README.md"
+      ],
+      "producer_paths": [],
+      "producer_inputs": [],
+      "verification": "Explain the conditional four-core literal-panel reconstruction, point-age exclusions, missing age bounds, mathematical review and native figure scope. Historical reproduction, complete floristic vegetation, rights, external review and reader qualification remain separate."
+    },
+    {
+      "owner_id": "pollen-reconstruction/swedish-static-basin-scenarios/scenario-protocol",
+      "role": "maintained_configuration",
+      "paths": [
+        "docs/report/pollen-reconstruction/swedish-static-basin-scenarios/assumptions/protocol.json",
+        "docs/report/pollen-reconstruction/swedish-static-basin-scenarios/inputs/figure-source-identities.json",
+        "docs/report/pollen-reconstruction/swedish-static-basin-scenarios/inputs/source-identities.json"
+      ],
+      "producer_paths": [],
+      "producer_inputs": [],
+      "verification": "Authored physical/static-basin and literal-panel assumptions plus separate numerical and CSV source identities. These declarations do not authenticate historical selection, native lake geometry or an original CSV producer."
+    },
+    {
+      "owner_id": "pollen-reconstruction/swedish-static-basin-scenarios/figure-renderer",
+      "role": "maintained_code",
+      "paths": [
+        "docs/report/pollen-reconstruction/swedish-static-basin-scenarios/figures/render.R"
+      ],
+      "producer_paths": [],
+      "producer_inputs": [],
+      "verification": "Original maintained R renderer produces the PNG only from a separately owned CSV. Current source transport preserves renderer bytes; actual original native R capture is independently pinned and final supported-R/portable qualification remains separate."
+    },
+    {
+      "owner_id": "pollen-reconstruction/swedish-static-basin-scenarios/scientific-capture",
+      "role": "retained_source",
+      "paths": [
+        "docs/report/pollen-reconstruction/swedish-static-basin-scenarios/assumptions/source-reconciliation.json",
+        "docs/report/pollen-reconstruction/swedish-static-basin-scenarios/execution/actual-runs.json",
+        "docs/report/pollen-reconstruction/swedish-static-basin-scenarios/execution/figure-capture.json",
+        "docs/report/pollen-reconstruction/swedish-static-basin-scenarios/execution/import-observation-capture.json",
+        "docs/report/pollen-reconstruction/swedish-static-basin-scenarios/execution/independent-math-review.json",
+        "docs/report/pollen-reconstruction/swedish-static-basin-scenarios/execution/maintained-producer-capture.json",
+        "docs/report/pollen-reconstruction/swedish-static-basin-scenarios/execution/observed-imports.json",
+        "docs/report/pollen-reconstruction/swedish-static-basin-scenarios/inputs/engine-source-identities.json"
+      ],
+      "producer_paths": [],
+      "producer_inputs": [],
+      "verification": "Eight immutable source/decision/import/numerical/math capture projections retain exact actual source/candidate/producer/native receipt authority. Dedicated strict transport rejects altered or partial bytes; transport repeats no scientific computation, review or rights decision."
+    },
+    {
+      "owner_id": "pollen-reconstruction/swedish-static-basin-scenarios/figure-native-capture",
+      "role": "retained_source",
+      "paths": [
+        "docs/report/pollen-reconstruction/swedish-static-basin-scenarios/figures/panel-comparison.png"
+      ],
+      "producer_paths": [],
+      "producer_inputs": [],
+      "verification": "Copy only the exact admitted native PNG from R4.6 Quartz capture b74fe3/ddfa56 on 19858168; source CSV b0c1 and render.R b093 are bound separately. Original foreground CSV derivation lacked saved producer authority; the new qualified CSV owner does not backdate it. No current R rebuild or reader/portable qualification is inferred."
+    },
+    {
+      "owner_id": "pollen-reconstruction/swedish-static-basin-scenarios/report-products",
+      "role": "generated_owner",
+      "paths": [
+        "docs/report/pollen-reconstruction/swedish-static-basin-scenarios/report.json"
+      ],
+      "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/artifact_paths.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/contracts.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/audit.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/evidence.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/landclim.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/manifests.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/swedish_static_basin/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/swedish_static_basin/producer.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/swedish_static_basin/reconstruction.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/swedish_static_basin/sources.py",
+        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/__init__.py",
+        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/api.py",
+        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/dispersal/__init__.py",
+        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/dispersal/kernels.py",
+        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/dispersal/loess.py",
+        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/dispersal/publication.py",
+        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/dispersal/receiver_annulus.py",
+        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/dispersal/rounding.py",
+        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/models/__init__.py",
+        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/models/configuration.py",
+        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/models/errors.py",
+        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/models/observation.py",
+        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/models/publication.py",
+        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/models/regional_draw_source.py",
+        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/models/results.py",
+        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/models/validation.py",
+        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/optimization/__init__.py",
+        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/optimization/solver.py",
+        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/provenance/__init__.py",
+        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/provenance/identity.py",
+        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/provenance/manifest.py",
+        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/__init__.py",
+        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/analytical.py",
+        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/draws.py",
+        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/fixed_site_covariance.py",
+        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/forward.py",
+        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/inputs.py",
+        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/joint_site_draws.py",
+        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/likelihood/__init__.py",
+        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/likelihood/homogeneous_likelihood.py",
+        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/likelihood/shared_ppe_likelihood.py",
+        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/optimized.py",
+        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/preparation.py",
+        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/publication.py",
+        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/regional.py",
+        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/version.py",
+        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/workflows/__init__.py",
+        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/workflows/forward.py",
+        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/workflows/local.py",
+        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/workflows/multisite.py",
+        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/workflows/observation.py",
+        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/workflows/paired.py",
+        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/workflows/regional.py",
+        "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/workflows/series.py"
+      ],
+      "producer_inputs": [
+        "data/landclim/raw/landclim_ii_site_metadata.xlsx",
+        "data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv",
+        "data/neotoma/raw/neotoma_pollen_dataset_downloads/manifest.json",
+        "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-004.json",
+        "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-008.json",
+        "data/neotoma/review/relational_baseline.json",
+        "docs/report/pollen-reconstruction/swedish-static-basin-scenarios/assumptions/protocol.json",
+        "docs/report/pollen-reconstruction/swedish-static-basin-scenarios/inputs/source-identities.json",
+        "docs/report/publication-replay/landclim-study-inputs/records.jsonl",
+        "packages/bijux-pollenomics-dev/pyproject.toml",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/swedish_static_basin/__main__.py",
+        "packages/bijux-pollenomics-lra/pyproject.toml",
+        "packages/bijux-pollenomics/pyproject.toml",
+        "packages/pollenomics/pyproject.toml",
+        "pyproject.toml",
+        "uv.lock"
+      ],
+      "verification": "Rebuild the actual four-core conditional literal-panel report with the 59 observed first-party import origins and exact ten source/engine identities. Original cold imports retain their 8d source scope; current bytes are reconciled, not a fresh runtime claim. Six package metadata paths and the delegating __main__ are conservative inputs, not observed scientific reads. Missing ages/bounds, source masks, exclusions and differing panels remain explicit; this establishes neither historical reproduction nor ecological accuracy or native R parity."
+    },
+    {
+      "owner_id": "pollen-reconstruction/swedish-static-basin-scenarios/figure-csv",
+      "role": "generated_owner",
+      "paths": [
+        "docs/report/pollen-reconstruction/swedish-static-basin-scenarios/figures/panel-comparison.csv"
+      ],
+      "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/artifact_paths.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/contracts.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/audit.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/evidence.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/landclim.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/manifests.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/swedish_static_basin/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/swedish_static_basin/figures/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/swedish_static_basin/figures/producer.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/swedish_static_basin/sources.py"
+      ],
+      "producer_inputs": [
+        "docs/report/pollen-reconstruction/swedish-static-basin-scenarios/inputs/figure-source-identities.json",
+        "docs/report/pollen-reconstruction/swedish-static-basin-scenarios/report.json",
+        "packages/bijux-pollenomics-dev/pyproject.toml",
+        "packages/bijux-pollenomics-lra/pyproject.toml",
+        "packages/bijux-pollenomics/pyproject.toml",
+        "packages/pollenomics/pyproject.toml",
+        "pyproject.toml",
+        "uv.lock"
+      ],
+      "verification": "Rebuild the exact 167-row b0c1 CSV from admitted numerical report895968 through the 15 actual same-writer observed first-party origins. Native receipt6c5c29, projection676e11 and import85b96a establish this successor's actual authority at827cdccd; source numerical candidate8d remains separate. Six package metadata inputs are conservative, not observed reads. No physical/R/PNG replay or backdated original foreground CSV authority is claimed."
     }
   ]
 }

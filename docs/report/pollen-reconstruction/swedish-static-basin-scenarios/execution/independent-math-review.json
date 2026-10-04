@@ -1,0 +1,579 @@
+{
+  "original_review_sha256": "73df4cb220fcb515849f59a208feacaa34a34ac176ee9db37c219dae4a7f41aa",
+  "scoped_review": {
+    "status": "PASS_SCOPED_INDEPENDENT_MATHEMATICAL_REVIEW",
+    "scope": "Actual per-core literal panels; point chronology and static radius, metre-based empirical transport, independent fixed-total multinomial counts and assumed diagonal PPE SD². Different panels cannot be pooled/interpreted as vegetation contrasts. Missing chronology bounds do not imply exact ages. Sensitivity profiles are conditional comparisons, not calibrated intervals. Independent mathematics here does not authenticate historical LandClim inputs or provide R parity, empirical accuracy, independent observations, reviewed taxon equivalence or release approval.",
+    "actual_formula_checks": 385,
+    "actual_zero_PPE_controls": 77,
+    "independent_circle_overlap_factor_checks": 55,
+    "max_abs_factor_difference": 7.495394582779369e-11,
+    "formulae": {
+      "PPE_jacobian": "dc_i/dPPE_j=c_i*(c_j-delta_ij)/PPE_j",
+      "count_jacobian": "dc_i/dn_j=delta_ij*b_i/S-c_i*b_j/S, b_i=1/(K_i*PPE_i)",
+      "cover": "c_i=(n_i/(K_i*PPE_i))/sum_j(n_j/(K_j*PPE_j))",
+      "physical_response": "K=integral exp(-q)*(circle_overlap(R,L,d(q))-circle_overlap(R,R,d(q)))/(pi*R^2) dq, q=a*d^(gamma/2),a=4*v/(gamma*u*sqrt(pi)*diffusion)"
+    },
+    "selected_four_core_samples": 261,
+    "selected_source_denominator": 273,
+    "selected_windows": 77,
+    "selected_missing_age_bounds": 261,
+    "selected_panels_comparable_across_cores": false,
+    "source_before_after_unchanged": true,
+    "consumer_sha256": "178ab72d744062b501247c18f463efdb35e8283352a2fa761f0d1df5cbd285af",
+    "observations": [
+      {
+        "cores": [
+          {
+            "chronology": 11516,
+            "core": "ABB",
+            "dataset": 19913,
+            "included": 106,
+            "max_abs_cover_sensitivity_from_baseline": 0.045538239919238666,
+            "native_samples": 107,
+            "panel_count_mass": 105525,
+            "panel_share_of_all_reported_pollen": 0.8206123194886191,
+            "physical_factor_controls": [
+              {
+                "abs_difference": 2.2021828804952293e-11,
+                "independent_circle_overlap_factor": 0.28761174082263385,
+                "independent_nonrigorous_quad_error_estimate": 9.338030275044466e-12,
+                "maintained_factor": 0.2876117408446557,
+                "profile": "metadata_radius_wind_3",
+                "taxon": "Betula"
+              },
+              {
+                "abs_difference": 2.8026053700003217e-11,
+                "independent_circle_overlap_factor": 0.23672714702804662,
+                "independent_nonrigorous_quad_error_estimate": 8.101730628512753e-12,
+                "maintained_factor": 0.23672714705607267,
+                "profile": "metadata_radius_wind_3",
+                "taxon": "Pinus sylvestris"
+              },
+              {
+                "abs_difference": 2.583699920677418e-11,
+                "independent_circle_overlap_factor": 0.3192203022858462,
+                "independent_nonrigorous_quad_error_estimate": 9.8853349986125e-12,
+                "maintained_factor": 0.3192203023116832,
+                "profile": "half_metadata_radius_wind_3",
+                "taxon": "Betula"
+              },
+              {
+                "abs_difference": 2.8575142252407204e-11,
+                "independent_circle_overlap_factor": 0.26751300633427094,
+                "independent_nonrigorous_quad_error_estimate": 9.62777401619848e-12,
+                "maintained_factor": 0.2675130063628461,
+                "profile": "half_metadata_radius_wind_3",
+                "taxon": "Pinus sylvestris"
+              },
+              {
+                "abs_difference": 2.3687607431099877e-11,
+                "independent_circle_overlap_factor": 0.25603721634127286,
+                "independent_nonrigorous_quad_error_estimate": 8.929918306213365e-12,
+                "maintained_factor": 0.25603721636496046,
+                "profile": "double_metadata_radius_wind_3",
+                "taxon": "Betula"
+              },
+              {
+                "abs_difference": 3.0172364606784186e-11,
+                "independent_circle_overlap_factor": 0.20673726609689122,
+                "independent_nonrigorous_quad_error_estimate": 7.332724003038518e-12,
+                "maintained_factor": 0.20673726612706358,
+                "profile": "double_metadata_radius_wind_3",
+                "taxon": "Pinus sylvestris"
+              },
+              {
+                "abs_difference": 3.199668308084824e-11,
+                "independent_circle_overlap_factor": 0.20110506828356597,
+                "independent_nonrigorous_quad_error_estimate": 6.864462770881521e-12,
+                "maintained_factor": 0.20110506831556266,
+                "profile": "metadata_radius_wind_2",
+                "taxon": "Betula"
+              },
+              {
+                "abs_difference": 4.0469405604426356e-11,
+                "independent_circle_overlap_factor": 0.13791746224029072,
+                "independent_nonrigorous_quad_error_estimate": 4.67035331286487e-12,
+                "maintained_factor": 0.13791746228076013,
+                "profile": "metadata_radius_wind_2",
+                "taxon": "Pinus sylvestris"
+              },
+              {
+                "abs_difference": 1.6585788298328907e-11,
+                "independent_circle_overlap_factor": 0.32144753175496515,
+                "independent_nonrigorous_quad_error_estimate": 1.0022576032407901e-11,
+                "maintained_factor": 0.32144753177155094,
+                "profile": "metadata_radius_wind_4",
+                "taxon": "Betula"
+              },
+              {
+                "abs_difference": 2.1231905122931494e-11,
+                "independent_circle_overlap_factor": 0.292678806694898,
+                "independent_nonrigorous_quad_error_estimate": 9.495964195127082e-12,
+                "maintained_factor": 0.2926788067161299,
+                "profile": "metadata_radius_wind_4",
+                "taxon": "Pinus sylvestris"
+              }
+            ],
+            "raw_age_bounds_missing": 106,
+            "reported_all_pollen_mass": 128593,
+            "taxa": [
+              "Betula",
+              "Pinus sylvestris"
+            ],
+            "windows": 22
+          },
+          {
+            "chronology": 38422,
+            "core": "BOKE",
+            "dataset": 54001,
+            "included": 50,
+            "max_abs_cover_sensitivity_from_baseline": 0.054365268220199436,
+            "native_samples": 52,
+            "panel_count_mass": 11295,
+            "panel_share_of_all_reported_pollen": 0.2754945242566892,
+            "physical_factor_controls": [
+              {
+                "abs_difference": 1.9699131215134003e-11,
+                "independent_circle_overlap_factor": 0.2968731304003063,
+                "independent_nonrigorous_quad_error_estimate": 1.0064407793986535e-11,
+                "maintained_factor": 0.2968731304200054,
+                "profile": "metadata_radius_wind_3",
+                "taxon": "Betula"
+              },
+              {
+                "abs_difference": 1.815664285587104e-11,
+                "independent_circle_overlap_factor": 0.30996663062471685,
+                "independent_nonrigorous_quad_error_estimate": 9.640668599779518e-12,
+                "maintained_factor": 0.3099666306428735,
+                "profile": "metadata_radius_wind_3",
+                "taxon": "Fraxinus"
+              },
+              {
+                "abs_difference": 2.5785734658612114e-11,
+                "independent_circle_overlap_factor": 0.23827139644390258,
+                "independent_nonrigorous_quad_error_estimate": 8.74110038817713e-12,
+                "maintained_factor": 0.2382713964696883,
+                "profile": "metadata_radius_wind_3",
+                "taxon": "Ulmus"
+              },
+              {
+                "abs_difference": 2.2473023442159956e-11,
+                "independent_circle_overlap_factor": 0.328447834560776,
+                "independent_nonrigorous_quad_error_estimate": 1.7503839987111406e-11,
+                "maintained_factor": 0.328447834583249,
+                "profile": "half_metadata_radius_wind_3",
+                "taxon": "Betula"
+              },
+              {
+                "abs_difference": 1.9167889497850865e-11,
+                "independent_circle_overlap_factor": 0.34128499570893517,
+                "independent_nonrigorous_quad_error_estimate": 2.3169067652689467e-11,
+                "maintained_factor": 0.34128499572810306,
+                "profile": "half_metadata_radius_wind_3",
+                "taxon": "Fraxinus"
+              },
+              {
+                "abs_difference": 2.397992915348368e-11,
+                "independent_circle_overlap_factor": 0.2690078561475394,
+                "independent_nonrigorous_quad_error_estimate": 1.5193923448305814e-11,
+                "maintained_factor": 0.26900785617151934,
+                "profile": "half_metadata_radius_wind_3",
+                "taxon": "Ulmus"
+              },
+              {
+                "abs_difference": 2.1105173164670532e-11,
+                "independent_circle_overlap_factor": 0.26526398914825483,
+                "independent_nonrigorous_quad_error_estimate": 9.014216278646331e-12,
+                "maintained_factor": 0.26526398916936,
+                "profile": "double_metadata_radius_wind_3",
+                "taxon": "Betula"
+              },
+              {
+                "abs_difference": 1.9562518271953877e-11,
+                "independent_circle_overlap_factor": 0.2783925465681641,
+                "independent_nonrigorous_quad_error_estimate": 9.406285656272368e-12,
+                "maintained_factor": 0.2783925465877266,
+                "profile": "double_metadata_radius_wind_3",
+                "taxon": "Fraxinus"
+              },
+              {
+                "abs_difference": 2.7720464812475143e-11,
+                "independent_circle_overlap_factor": 0.20835085461866265,
+                "independent_nonrigorous_quad_error_estimate": 7.247224487893263e-12,
+                "maintained_factor": 0.20835085464638312,
+                "profile": "double_metadata_radius_wind_3",
+                "taxon": "Ulmus"
+              },
+              {
+                "abs_difference": 2.8970353893598144e-11,
+                "independent_circle_overlap_factor": 0.20954818978744325,
+                "independent_nonrigorous_quad_error_estimate": 7.758378914297645e-12,
+                "maintained_factor": 0.2095481898164136,
+                "profile": "metadata_radius_wind_2",
+                "taxon": "Betula"
+              },
+              {
+                "abs_difference": 2.6636332028928678e-11,
+                "independent_circle_overlap_factor": 0.23094133846599435,
+                "independent_nonrigorous_quad_error_estimate": 7.781798132567306e-12,
+                "maintained_factor": 0.23094133849263068,
+                "profile": "metadata_radius_wind_2",
+                "taxon": "Fraxinus"
+              },
+              {
+                "abs_difference": 3.733346964907014e-11,
+                "independent_circle_overlap_factor": 0.13723777824781674,
+                "independent_nonrigorous_quad_error_estimate": 4.660037505378579e-12,
+                "maintained_factor": 0.1372377782851502,
+                "profile": "metadata_radius_wind_2",
+                "taxon": "Ulmus"
+              },
+              {
+                "abs_difference": 1.630168222632733e-11,
+                "independent_circle_overlap_factor": 0.33036842585800463,
+                "independent_nonrigorous_quad_error_estimate": 1.2509005062059976e-11,
+                "maintained_factor": 0.3303684258743063,
+                "profile": "metadata_radius_wind_4",
+                "taxon": "Betula"
+              },
+              {
+                "abs_difference": 1.458100307161203e-11,
+                "independent_circle_overlap_factor": 0.3348807631183518,
+                "independent_nonrigorous_quad_error_estimate": 1.0308732525800508e-11,
+                "maintained_factor": 0.3348807631329328,
+                "profile": "metadata_radius_wind_4",
+                "taxon": "Fraxinus"
+              },
+              {
+                "abs_difference": 1.974143071237222e-11,
+                "independent_circle_overlap_factor": 0.296873130400264,
+                "independent_nonrigorous_quad_error_estimate": 1.0028441314255988e-11,
+                "maintained_factor": 0.2968731304200054,
+                "profile": "metadata_radius_wind_4",
+                "taxon": "Ulmus"
+              }
+            ],
+            "raw_age_bounds_missing": 50,
+            "reported_all_pollen_mass": 40999,
+            "taxa": [
+              "Betula",
+              "Fraxinus",
+              "Ulmus"
+            ],
+            "windows": 13
+          },
+          {
+            "chronology": 38418,
+            "core": "BUS",
+            "dataset": 53995,
+            "included": 0,
+            "max_abs_cover_sensitivity_from_baseline": 0,
+            "native_samples": 69,
+            "panel_count_mass": 0,
+            "panel_share_of_all_reported_pollen": null,
+            "physical_factor_controls": [
+              {
+                "abs_difference": 1.5877466008618057e-11,
+                "independent_circle_overlap_factor": 0.30362198554170494,
+                "independent_nonrigorous_quad_error_estimate": 9.625249976189578e-12,
+                "maintained_factor": 0.3036219855575824,
+                "profile": "metadata_radius_wind_3",
+                "taxon": "Betula"
+              },
+              {
+                "abs_difference": 2.5825980243254776e-11,
+                "independent_circle_overlap_factor": 0.22285965988053005,
+                "independent_nonrigorous_quad_error_estimate": 8.000430040237578e-12,
+                "maintained_factor": 0.22285965990635603,
+                "profile": "metadata_radius_wind_3",
+                "taxon": "Poaceae"
+              },
+              {
+                "abs_difference": 1.547506567334267e-11,
+                "independent_circle_overlap_factor": 0.3351600658178817,
+                "independent_nonrigorous_quad_error_estimate": 1.170359264040738e-11,
+                "maintained_factor": 0.3351600658333568,
+                "profile": "half_metadata_radius_wind_3",
+                "taxon": "Betula"
+              },
+              {
+                "abs_difference": 2.47826759114389e-11,
+                "independent_circle_overlap_factor": 0.2529462827174583,
+                "independent_nonrigorous_quad_error_estimate": 1.1797332811383775e-11,
+                "maintained_factor": 0.25294628274224096,
+                "profile": "half_metadata_radius_wind_3",
+                "taxon": "Poaceae"
+              },
+              {
+                "abs_difference": 1.9799828443467504e-11,
+                "independent_circle_overlap_factor": 0.27200064138634417,
+                "independent_nonrigorous_quad_error_estimate": 8.948743852449496e-12,
+                "maintained_factor": 0.272000641406144,
+                "profile": "double_metadata_radius_wind_3",
+                "taxon": "Betula"
+              },
+              {
+                "abs_difference": 2.8712088262494717e-11,
+                "independent_circle_overlap_factor": 0.19381086762197886,
+                "independent_nonrigorous_quad_error_estimate": 6.4969787624943104e-12,
+                "maintained_factor": 0.19381086765069094,
+                "profile": "double_metadata_radius_wind_3",
+                "taxon": "Poaceae"
+              },
+              {
+                "abs_difference": 2.7156721316146104e-11,
+                "independent_circle_overlap_factor": 0.21576648203837714,
+                "independent_nonrigorous_quad_error_estimate": 6.990506732174013e-12,
+                "maintained_factor": 0.21576648206553387,
+                "profile": "metadata_radius_wind_2",
+                "taxon": "Betula"
+              },
+              {
+                "abs_difference": 3.869492226638016e-11,
+                "independent_circle_overlap_factor": 0.1207888287389119,
+                "independent_nonrigorous_quad_error_estimate": 3.715228875057497e-12,
+                "maintained_factor": 0.12078882877760683,
+                "profile": "metadata_radius_wind_2",
+                "taxon": "Poaceae"
+              },
+              {
+                "abs_difference": 1.3701650924957676e-11,
+                "independent_circle_overlap_factor": 0.3368343328899919,
+                "independent_nonrigorous_quad_error_estimate": 9.992784517369168e-12,
+                "maintained_factor": 0.3368343329036936,
+                "profile": "metadata_radius_wind_4",
+                "taxon": "Betula"
+              },
+              {
+                "abs_difference": 1.981192987443592e-11,
+                "independent_circle_overlap_factor": 0.28765413287004155,
+                "independent_nonrigorous_quad_error_estimate": 9.218148510003075e-12,
+                "maintained_factor": 0.2876541328898535,
+                "profile": "metadata_radius_wind_4",
+                "taxon": "Poaceae"
+              }
+            ],
+            "raw_age_bounds_missing": 0,
+            "reported_all_pollen_mass": 0,
+            "taxa": [
+              "Betula",
+              "Poaceae"
+            ],
+            "windows": 0
+          },
+          {
+            "chronology": 38408,
+            "core": "TIB",
+            "dataset": 53980,
+            "included": 45,
+            "max_abs_cover_sensitivity_from_baseline": 0.024445346529784806,
+            "native_samples": 45,
+            "panel_count_mass": 11286,
+            "panel_share_of_all_reported_pollen": 0.2573715536703838,
+            "physical_factor_controls": [
+              {
+                "abs_difference": 4.7357756605137524e-11,
+                "independent_circle_overlap_factor": 0.23584047492281063,
+                "independent_nonrigorous_quad_error_estimate": 4.509961207014689e-12,
+                "maintained_factor": 0.23584047497016838,
+                "profile": "metadata_radius_wind_3",
+                "taxon": "Pinus sylvestris"
+              },
+              {
+                "abs_difference": 5.2967102925904896e-11,
+                "independent_circle_overlap_factor": 0.2071627541895333,
+                "independent_nonrigorous_quad_error_estimate": 3.3249656045186744e-12,
+                "maintained_factor": 0.2071627542425004,
+                "profile": "metadata_radius_wind_3",
+                "taxon": "Poaceae"
+              },
+              {
+                "abs_difference": 4.4232617568695787e-11,
+                "independent_circle_overlap_factor": 0.2666069594010805,
+                "independent_nonrigorous_quad_error_estimate": 5.235303118468829e-12,
+                "maintained_factor": 0.2666069594453131,
+                "profile": "half_metadata_radius_wind_3",
+                "taxon": "Pinus sylvestris"
+              },
+              {
+                "abs_difference": 5.081460252576164e-11,
+                "independent_circle_overlap_factor": 0.2367272629208425,
+                "independent_nonrigorous_quad_error_estimate": 4.88666744221892e-12,
+                "maintained_factor": 0.2367272629716571,
+                "profile": "half_metadata_radius_wind_3",
+                "taxon": "Poaceae"
+              },
+              {
+                "abs_difference": 5.1355392161056557e-11,
+                "independent_circle_overlap_factor": 0.2058778571167385,
+                "independent_nonrigorous_quad_error_estimate": 3.65145280438213e-12,
+                "maintained_factor": 0.2058778571680939,
+                "profile": "double_metadata_radius_wind_3",
+                "taxon": "Pinus sylvestris"
+              },
+              {
+                "abs_difference": 5.706196626320548e-11,
+                "independent_circle_overlap_factor": 0.17877903019664934,
+                "independent_nonrigorous_quad_error_estimate": 2.3885330869869334e-12,
+                "maintained_factor": 0.1787790302537113,
+                "profile": "double_metadata_radius_wind_3",
+                "taxon": "Poaceae"
+              },
+              {
+                "abs_difference": 6.782274741823358e-11,
+                "independent_circle_overlap_factor": 0.13722223670800335,
+                "independent_nonrigorous_quad_error_estimate": 1.0371606157333803e-12,
+                "maintained_factor": 0.1372222367758261,
+                "profile": "metadata_radius_wind_2",
+                "taxon": "Pinus sylvestris"
+              },
+              {
+                "abs_difference": 7.495394582779369e-11,
+                "independent_circle_overlap_factor": 0.10926703913714632,
+                "independent_nonrigorous_quad_error_estimate": 2.232676071553151e-12,
+                "maintained_factor": 0.10926703921210026,
+                "profile": "metadata_radius_wind_2",
+                "taxon": "Poaceae"
+              },
+              {
+                "abs_difference": 3.757322231123794e-11,
+                "independent_circle_overlap_factor": 0.2917569690613139,
+                "independent_nonrigorous_quad_error_estimate": 7.0789062205533105e-12,
+                "maintained_factor": 0.2917569690988871,
+                "profile": "metadata_radius_wind_4",
+                "taxon": "Pinus sylvestris"
+              },
+              {
+                "abs_difference": 4.056388558382196e-11,
+                "independent_circle_overlap_factor": 0.2707774834190036,
+                "independent_nonrigorous_quad_error_estimate": 6.014452597477975e-12,
+                "maintained_factor": 0.2707774834595675,
+                "profile": "metadata_radius_wind_4",
+                "taxon": "Poaceae"
+              }
+            ],
+            "raw_age_bounds_missing": 45,
+            "reported_all_pollen_mass": 43851,
+            "taxa": [
+              "Pinus sylvestris",
+              "Poaceae"
+            ],
+            "windows": 23
+          }
+        ],
+        "guard_denominator": 58,
+        "negative_result_preserved": true,
+        "report": "supported-lake-reconstruction",
+        "sha256": "7dc958d9707ae79962ffe5a7c04e3e5cdac5d97e4dd52d3c98979be8eebc68aa"
+      },
+      {
+        "cores": [
+          {
+            "chronology": 38418,
+            "core": "BUS",
+            "dataset": 53995,
+            "included": 60,
+            "max_abs_cover_sensitivity_from_baseline": 0.04990106112655157,
+            "native_samples": 69,
+            "panel_count_mass": 6848,
+            "panel_share_of_all_reported_pollen": 0.1075410659882534,
+            "physical_factor_controls": [
+              {
+                "abs_difference": 1.5877466008618057e-11,
+                "independent_circle_overlap_factor": 0.30362198554170494,
+                "independent_nonrigorous_quad_error_estimate": 9.625249976189578e-12,
+                "maintained_factor": 0.3036219855575824,
+                "profile": "metadata_radius_wind_3",
+                "taxon": "Betula"
+              },
+              {
+                "abs_difference": 2.441730151403476e-11,
+                "independent_circle_overlap_factor": 0.24477138464960962,
+                "independent_nonrigorous_quad_error_estimate": 8.010993906299309e-12,
+                "maintained_factor": 0.24477138467402693,
+                "profile": "metadata_radius_wind_3",
+                "taxon": "Ulmus"
+              },
+              {
+                "abs_difference": 1.547506567334267e-11,
+                "independent_circle_overlap_factor": 0.3351600658178817,
+                "independent_nonrigorous_quad_error_estimate": 1.170359264040738e-11,
+                "maintained_factor": 0.3351600658333568,
+                "profile": "half_metadata_radius_wind_3",
+                "taxon": "Betula"
+              },
+              {
+                "abs_difference": 2.34935404463954e-11,
+                "independent_circle_overlap_factor": 0.27564697154720863,
+                "independent_nonrigorous_quad_error_estimate": 1.590712638846174e-11,
+                "maintained_factor": 0.27564697157070217,
+                "profile": "half_metadata_radius_wind_3",
+                "taxon": "Ulmus"
+              },
+              {
+                "abs_difference": 1.9799828443467504e-11,
+                "independent_circle_overlap_factor": 0.27200064138634417,
+                "independent_nonrigorous_quad_error_estimate": 8.948743852449496e-12,
+                "maintained_factor": 0.272000641406144,
+                "profile": "double_metadata_radius_wind_3",
+                "taxon": "Betula"
+              },
+              {
+                "abs_difference": 2.6322555246593993e-11,
+                "independent_circle_overlap_factor": 0.21465398017126344,
+                "independent_nonrigorous_quad_error_estimate": 7.173858971204084e-12,
+                "maintained_factor": 0.214653980197586,
+                "profile": "double_metadata_radius_wind_3",
+                "taxon": "Ulmus"
+              },
+              {
+                "abs_difference": 2.7156721316146104e-11,
+                "independent_circle_overlap_factor": 0.21576648203837714,
+                "independent_nonrigorous_quad_error_estimate": 6.990506732174013e-12,
+                "maintained_factor": 0.21576648206553387,
+                "profile": "metadata_radius_wind_2",
+                "taxon": "Betula"
+              },
+              {
+                "abs_difference": 3.568237372242322e-11,
+                "independent_circle_overlap_factor": 0.14234764056508867,
+                "independent_nonrigorous_quad_error_estimate": 4.491941169174995e-12,
+                "maintained_factor": 0.14234764060077104,
+                "profile": "metadata_radius_wind_2",
+                "taxon": "Ulmus"
+              },
+              {
+                "abs_difference": 1.3701650924957676e-11,
+                "independent_circle_overlap_factor": 0.3368343328899919,
+                "independent_nonrigorous_quad_error_estimate": 9.992784517369168e-12,
+                "maintained_factor": 0.3368343329036936,
+                "profile": "metadata_radius_wind_4",
+                "taxon": "Betula"
+              },
+              {
+                "abs_difference": 1.8888446362552713e-11,
+                "independent_circle_overlap_factor": 0.30362198553869396,
+                "independent_nonrigorous_quad_error_estimate": 9.396540626702525e-12,
+                "maintained_factor": 0.3036219855575824,
+                "profile": "metadata_radius_wind_4",
+                "taxon": "Ulmus"
+              }
+            ],
+            "raw_age_bounds_missing": 60,
+            "reported_all_pollen_mass": 63678,
+            "taxa": [
+              "Betula",
+              "Ulmus"
+            ],
+            "windows": 19
+          }
+        ],
+        "guard_denominator": 19,
+        "negative_result_preserved": false,
+        "report": "bussjosjon-explicit-ulmus-reconstruction",
+        "sha256": "317ce71c084d99f7d7fb5269ef21a9236752fa44c92567ea84fcb1323878f2e2"
+      }
+    ]
+  },
+  "scope_of_this_portable_copy": "Selected numerical/scientific findings copied exactly from original independent review; original review SHA retained. Individual source sample tables and local absolute filesystem selectors remain in local custody."
+}

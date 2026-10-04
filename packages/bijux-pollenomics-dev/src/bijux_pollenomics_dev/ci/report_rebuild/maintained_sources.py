@@ -23,6 +23,9 @@ from .contracts import (
     sha256_bytes,
 )
 from .evidence import inventory_json
+from .scientific_captures.swedish_static_basin import (
+    validated_swedish_static_basin_captures,
+)
 from .ownership import (
     DEFAULT_INVENTORY,
     ReportOwnershipError,
@@ -35,16 +38,16 @@ from .ownership import (
 # Updating a maintained report path requires an explicit transport-contract change.
 MAINTAINED_ROLE_PATHS = {
     "maintained_code": (
-        62,
-        "fe00aed84742364e74dfa0bc51425268e0e2ec657a891410530eaaebd19b8629",
+        63,
+        "0180b0dc0e74063546778f1d63acdfcccf13f476ac9c5f0048ccaeb19df6c56d",
     ),
     "maintained_editorial": (
-        182,
-        "244f21aae56156deeccb943fdd9d8f7941b6d104debc589e9f675167bdde9999",
+        183,
+        "c5b66f795ab8428ecac5536c5e3f575650f715423e125da59a04a1d1c245dbbc",
     ),
     "maintained_configuration": (
-        6,
-        "ed5d06ad562e00831c3033288296d08f089705f66203af7810b55a09fe4e3b5f",
+        9,
+        "338aad68b34883b0a016588b72ee2b86ee0797b449d97bcc92d4ac830f8850f8",
     ),
 }
 SOURCE_FORMATS = {
@@ -190,12 +193,23 @@ def validated_maintained_report_sources(
             ):
                 raise ReportRebuildError(f"maintained source inventory differs: {path}")
             selected.append(entry)
+    capture_entries, capture_evidence = validated_swedish_static_basin_captures(
+        repository, tracked_by_path, inventory["owners"]
+    )
+    for entry in capture_entries:
+        name = "docs/report/" + entry.path
+        capture = _regular_confined_file(repository, name, "scientific capture")
+        if capture.read_bytes() != _head_blob(repository, name):
+            raise ReportRebuildError("scientific capture differs from Git candidate")
+    selected.extend(capture_entries)
     try:
         if repository_identity(repository, required=True) != expected_repository:
             raise ReportRebuildError("maintained source Git candidate changed")
     except ReproducibleReportError as error:
         raise ReportRebuildError("maintained source Git candidate changed") from error
-    if len(selected) != sum(count for count, _ in MAINTAINED_ROLE_PATHS.values()):
+    if len(selected) != sum(count for count, _ in MAINTAINED_ROLE_PATHS.values()) + len(
+        capture_entries
+    ):
         raise ReportRebuildError("maintained source coverage is incomplete")
     evidence: JsonObject = {
         "schema_version": "maintained-report-source-evidence.v1",
@@ -211,4 +225,6 @@ def validated_maintained_report_sources(
         },
         "inventory": inventory_json(sorted(selected, key=lambda entry: entry.path)),
     }
+    if capture_entries:
+        evidence["retained_scientific_captures"] = capture_evidence
     return tuple(sorted(selected, key=lambda entry: entry.path)), evidence

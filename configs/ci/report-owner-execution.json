@@ -1752,6 +1752,28 @@
         "source-products/training-reconstruction.json": "docs/report/pollen-reconstruction/embsecbio-biome-reconstruction/training-reconstruction.json"
       },
       "timeout_seconds": 120
+    },
+    {
+      "owner_id": "pollen-reconstruction/swedish-static-basin-scenarios/report-products",
+      "module": "bijux_pollenomics_dev.source_completion.pollen_reconstruction.swedish_static_basin.producer",
+      "source_paths": {
+        "source-products/report.json": "docs/report/pollen-reconstruction/swedish-static-basin-scenarios/report.json"
+      },
+      "source_arguments": [],
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "timeout_seconds": 120
+    },
+    {
+      "owner_id": "pollen-reconstruction/swedish-static-basin-scenarios/figure-csv",
+      "module": "bijux_pollenomics_dev.source_completion.pollen_reconstruction.swedish_static_basin.figures.producer",
+      "source_paths": {
+        "source-products/panel-comparison.csv": "docs/report/pollen-reconstruction/swedish-static-basin-scenarios/figures/panel-comparison.csv"
+      },
+      "source_arguments": [],
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "timeout_seconds": 30
     }
   ]
 }

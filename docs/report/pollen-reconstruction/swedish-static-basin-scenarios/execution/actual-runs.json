@@ -1,0 +1,52 @@
+{
+  "capture_kind": "Actual supervised source-linked local numerical execution; original absolute-path argv held in original receipt, its serialized identity retained here",
+  "scientific_base_candidate": "5fe91a5c64cdae35eeddc77e529e6c0e44eb529c",
+  "declared_source_override_sha256": "4dde1a078ae7d57f3c93e93fa8cc4e73756f551e774d78aadb606fa47c483448",
+  "runs": [
+    {
+      "role": "initial_explicit_panels",
+      "scope": "New source-linked Swedish static-basin reconstruction on per-core explicitly reported pollen panels and calibrated native chronology points; no historical/31taxon/ecologicalaccuracy claim",
+      "native_exit_code": 0,
+      "wall_seconds": 6.944173416006379,
+      "peak_rss_bytes": 173883392,
+      "peak_processes": 1,
+      "resource_failure": null,
+      "owned_survivors": {},
+      "custody_after_checked": true,
+      "custody_after_unchanged": true,
+      "actual_command_sha256": "6626f9029c1d9421d7a452edd0b913c939da613ffdec9081eed370209b2e1a0c",
+      "original_terminal_receipt_sha256": "42c941dc5a958701183e04cb0796ab6e2771b5f2eff9ab063c07e046ed0d9100",
+      "native_report_sha256": "7dc958d9707ae79962ffe5a7c04e3e5cdac5d97e4dd52d3c98979be8eebc68aa",
+      "resource_bounds": {
+        "max_log_bytes": 1048576,
+        "max_output_bytes": 16777216,
+        "max_processes": 8,
+        "max_rss_bytes": 1073741824,
+        "wall_seconds": 600
+      }
+    },
+    {
+      "role": "bussjosjon_literal_ulmus_successor",
+      "scope": "Only Bussjösjön new explicit Betula/Ulmus panel, correcting zero literalPoaceae support while preserving prior negative and the three successful othercore outputs",
+      "native_exit_code": 0,
+      "wall_seconds": 24.569951666984707,
+      "peak_rss_bytes": 171442176,
+      "peak_processes": 1,
+      "resource_failure": null,
+      "owned_survivors": {},
+      "custody_after_checked": true,
+      "custody_after_unchanged": true,
+      "actual_command_sha256": "f3e3c1174b4ec1c7a7d483b20bc37f814360fbde6b474d3bb2d5f1c45cbe46c2",
+      "original_terminal_receipt_sha256": "61e82bc0e52029e2ead18230c38992a36010ac993b937aa62e69676074df308d",
+      "native_report_sha256": "317ce71c084d99f7d7fb5269ef21a9236752fa44c92567ea84fcb1323878f2e2",
+      "resource_bounds": {
+        "max_log_bytes": 1048576,
+        "max_output_bytes": 16777216,
+        "max_processes": 8,
+        "max_rss_bytes": 1073741824,
+        "wall_seconds": 180
+      }
+    }
+  ],
+  "claim": "Neither success exit nor retained identity establishes vegetation truth, historical equivalence or source reuse rights."
+}

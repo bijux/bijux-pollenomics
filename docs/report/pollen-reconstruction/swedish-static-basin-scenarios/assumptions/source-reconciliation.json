@@ -1,0 +1,42 @@
+{
+  "historical_identity": "Metadata/core/count/age correspondence is retained as evidence. No exact historical prepared input version or31-taxon membership established.",
+  "TIB_disagreements": {
+    "metadata_elevation_m": 161,
+    "native_altitude_m": 568,
+    "coordinate_distance_m": 397.8171957125274,
+    "native_core_handle": "TIB",
+    "native_dataset_note": "Data contributed by Barnekow, L. to the EPD in2017(Landclim Project).",
+    "decision": "A declared new source-linked scenario, not authenticated historical preparation or independently validated place identity."
+  },
+  "rights": {
+    "scope": "Public Neotoma scientific calculation and attribution; historical LandClim R flag preserved; external restricted author snapshot rights never implied",
+    "captured_policy_text_scope": "2. Data Use All data available through the Neotoma",
+    "sections": [
+      {
+        "topic": "license",
+        "source_url": "https://www.neotomadb.org/data/data-use-and-embargo-policy",
+        "source_sha256": "f5ae5e79f7dd1a4d6dd846fa9a63a14129dc8b0ea9c21ed484289304be01b85e",
+        "source_section": "2 Data Use",
+        "decision": "Current official available-data policy grants CC BY4.0 use with attribution. Not an invented universal prohibition on scientific calculation. Existing metadata R/NR describes historical author spreadsheet access separately and does not itself prove current embargo or relicense it."
+      },
+      {
+        "topic": "attribution",
+        "source_section": "3 Data Citation and Attribution, Appendices1–2",
+        "decision": "Retain Neotoma database citation, European Pollen Database citation, primary investigator/publications, each dataset DOI and retrieval date. Original primary publication attribution still must be fetched or identified before a durable scientific publication."
+      },
+      {
+        "topic": "sensitivity",
+        "source_section": "4 Sensitive Data Protections and embargoes",
+        "decision": "Inspect actual snapshot/native metadata for access/location restrictions. Public retrieval status cannot override a real restriction; none inferred from absent fields. No external message is sent."
+      },
+      {
+        "topic": "coauthorship",
+        "source_section": "5.1 Co-Authorship",
+        "decision": "Consider contributor/steward coauthorship when substantive; CC BY does not require invitation permission, and no authorship attribution without consent."
+      }
+    ]
+  },
+  "parameter_application": "Literal source-name PPE/FSP assignment is an explicit new-scenario assumption. It does not change the existing needs_discussion source-concept decisions or admit all31taxa.",
+  "sparse_absence": "Each target datum is explicitly reported in each included sample; missing values never become measured zero.",
+  "raw_source_redistribution_claimed": false
+}

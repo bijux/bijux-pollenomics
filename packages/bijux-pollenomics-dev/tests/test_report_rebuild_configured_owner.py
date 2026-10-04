@@ -1004,7 +1004,7 @@ def test_schedule_cli_preserves_existing_artifact(repository: Path) -> None:
     assert output.read_text() == "retained\n"
 
 
-@pytest.mark.parametrize("count", [128, 129, 130])
+@pytest.mark.parametrize("count", [128, 129, 130, 131, 132])
 def test_two_lane_schedule_capacity(
     repository: Path,
     monkeypatch: pytest.MonkeyPatch,
@@ -1026,8 +1026,8 @@ def test_two_lane_schedule_capacity(
     ]
     inventory_path.write_text(json.dumps(inventory))
     monkeypatch.setattr(scheduling, "resolve_configured_owner", lambda *_args: None)
-    if count == 130:
-        with pytest.raises(ReportRebuildError, match="exceeds 129 owners"):
+    if count == 132:
+        with pytest.raises(ReportRebuildError, match="exceeds 131 owners"):
             scheduling.configured_owner_schedule(repository)
     else:
         report = scheduling.configured_owner_schedule(repository)
