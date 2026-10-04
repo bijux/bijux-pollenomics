@@ -4928,10 +4928,25 @@
       "paths": [
         "docs/report/method-certification/love-paper-correspondence/paper-parameter-tables.json"
       ],
-      "producer_inputs": [],
-      "producer_paths": [],
-      "role": "unresolved",
-      "verification": "The published tables are an authored transcription of a private retained article PDF (SHA-256 3336b5b6450b89d97b6e52f18b42090333091bf355a3f4715676215e2b18cc3e), whose publisher-byte identity is unestablished. No independent repository producer for the table transcription; preserve source rights and simulation-input limits."
+      "producer_inputs": [
+        "data/love/paper/publisher-paper.pdf",
+        "data/love/paper/publisher-paper.txt",
+        "data/love/paper/source.json"
+      ],
+      "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/audit.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/evidence.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/landclim.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/love/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/love/paper_tables.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/manifests.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/publication/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/publication/json_outputs.py"
+      ],
+      "role": "generated_owner",
+      "verification": "Derive exactly 151 printed Tables 1 and 2 numeric cells from the publisher-byte-authenticated CC BY 4.0 article and separately native-qualified PDF text. Authenticate all source bytes pre/post; refuse aliases, malformed coordinates/headers and absent/existing output conflicts. Root review of genuine fresh output and two ordinary configured lanes are required before generated ownership admission. The printed tables supply no Figure 2 landscape, pond geometry, pollen realizations or random draws."
     },
     {
       "owner_id": "method-certification/love-paper-correspondence/parameter-comparison",
@@ -4950,7 +4965,7 @@
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/love/parameter_correspondence.py"
       ],
       "role": "generated_owner",
-      "verification": "Run `python3 docs/report/method-certification/love-paper-correspondence/verify.py --repository . --check` to compare deterministic output bytes. This binds the 30 local numeric cells to a pinned later source example; the upstream paper-table transcription, 2024 simulation input, source rights and original software version remain unresolved."
+      "verification": "Run the pinned source-parameter verifier to compare 30 printed Table 2 cells against the later DISQOVER example, retaining 9 exact labels and Grasses/Gras distinction. Its table input must be the independently reviewed public-source table producer output. This source correspondence does not establish the 2024 software version, eight-pond Figure 2 inputs or scientific admission."
     },
     {
       "owner_id": "method-certification/love-paper-correspondence/reader-account",

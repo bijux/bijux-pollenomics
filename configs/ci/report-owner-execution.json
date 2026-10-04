@@ -1624,6 +1624,16 @@
       "output_mode": "directory",
       "output_subdirectory": "source-products",
       "timeout_seconds": 300
+    },
+    {
+      "owner_id": "method-certification/love-paper-correspondence/paper-table-transcription",
+      "module": "bijux_pollenomics_dev.source_completion.love.paper_tables",
+      "source_paths": {
+        "report.json": "docs/report/method-certification/love-paper-correspondence/paper-parameter-tables.json"
+      },
+      "source_arguments": [],
+      "output_mode": "single_file",
+      "timeout_seconds": 180
     }
   ]
 }

@@ -1,0 +1,55 @@
+{
+  "schema_version": "love-public-article-source.v1",
+  "title": "LOVE Is in the R—Two R Tools for Local Vegetation Reconstruction",
+  "authors": [
+    "Martin Theuerkauf",
+    "John Couwenberg"
+  ],
+  "journal": "Quaternary",
+  "publication_date": "2024-03-25",
+  "volume": 7,
+  "issue": 2,
+  "article": 18,
+  "doi": "https://doi.org/10.3390/quat7020018",
+  "publisher_url": "https://www.mdpi.com/2571-550X/7/2/18",
+  "publisher_pdf_url": "https://mdpi-res.com/d_attachment/quaternary/quaternary-07-00018/article_deploy/quaternary-07-00018.pdf",
+  "copyright": "© 2024 by the authors",
+  "license": "CC-BY-4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "license_statement_pdf_page": 1,
+  "pdf": {
+    "path": "data/love/paper/publisher-paper.pdf",
+    "sha256": "3336b5b6450b89d97b6e52f18b42090333091bf355a3f4715676215e2b18cc3e",
+    "bytes": 1097851
+  },
+  "text": {
+    "path": "data/love/paper/publisher-paper.txt",
+    "sha256": "9a353bda61c869af78c2aa1837ed75f27f1a7d32059fcd34cefe0efb1d2244d8",
+    "bytes": 58952,
+    "derivation": "pdftotext -layout PDF TEXT",
+    "encoding": "UTF-8",
+    "qualified_extraction": {
+      "tool": "pdftotext",
+      "tool_version": "26.09.0",
+      "tool_sha256": "35b026441d599e8a002b557e3c0eb4aa0da56f96a217bb6a2d8ea1f8b138f7a3",
+      "command_template": [
+        "pdftotext",
+        "-layout",
+        "publisher-paper.pdf",
+        "publisher-paper.txt"
+      ],
+      "exit_code": 0,
+      "pdf_and_tool_prepost_unchanged": true,
+      "qualified_extraction_receipt_sha256": "de9a8842b82f82c0ceb29a888610f1a615ef6922aa83d49f7aa03d1c0f6b2b60",
+      "scope": "Pinned native executable and PDF pre/post, identical text bytes; complete native dependency-library closure was not established."
+    }
+  },
+  "scope": "Printed Table1 map-unit fractions and Table2 taxon parameters only. No eight-pond geometry, BÜK200 spatial extraction, pollen realizations, random draws or Figure2 result is supplied or reconstructed.",
+  "acquisition": {
+    "requested_url": "https://mdpi-res.com/d_attachment/quaternary/quaternary-07-00018/article_deploy/quaternary-07-00018.pdf",
+    "started_utc": "2026-10-04T01:16:56.999178+00:00",
+    "final_url": "https://mdpi-res.com/d_attachment/quaternary/quaternary-07-00018/article_deploy/quaternary-07-00018.pdf",
+    "status": 200,
+    "content_type": "application/pdf"
+  }
+}

@@ -2,11 +2,17 @@
 
 [Theuerkauf and Couwenberg (2024)](https://doi.org/10.3390/quat7020018)
 describe analytical LOVEr and optimized LOVEoptim using a simulated landscape.
-We inspected an exact 1,097,851-byte article PDF retained in the private
-source store as `lra-reference/papers/love-method-2024/paper.pdf` (SHA-256
-`3336b5b6450b89d97b6e52f18b42090333091bf355a3f4715676215e2b18cc3e`).
-This copy came from a public article mirror; its byte identity with the
-publisher's PDF is unestablished. The paper's
+The exact 1,097,851-byte article PDF (SHA-256
+`3336b5b6450b89d97b6e52f18b42090333091bf355a3f4715676215e2b18cc3e`)
+was acquired from the [publisher PDF](https://mdpi-res.com/d_attachment/quaternary/quaternary-07-00018/article_deploy/quaternary-07-00018.pdf).
+It is byte-identical to the formerly retained mirror copy. The article prints
+copyright 2024 by Martin Theuerkauf and John Couwenberg and the
+[CC BY 4.0 license](https://creativecommons.org/licenses/by/4.0/) on page 1.
+The public source packet under `data/love/paper/` binds the PDF and its
+separately native-qualified text derivative. The table producer derives 151
+numeric cells from printed page 6, including the wrapped Tilia header;
+genuine producer review and two configured lanes remain required for output custody.
+This establishes public article identity and printed constants only. The paper's
 data availability statement points to DISQOVER functions, without identifying
 a deposited simulation input bundle. No supplementary simulation bundle was
 identified in the accessible article. The [local source identity
@@ -15,7 +21,7 @@ DISQOVER 0.9.14 archive used by our R oracle; the article accessed DISQOVER in
 February 2024, whereas that archive was packaged in January 2026. Archive
 parity therefore does not establish the exact software version behind Figure 2.
 
-The [published parameter tables](paper-parameter-tables.json) transcribe all
+The retained [published parameter tables](paper-parameter-tables.json) transcribe all
 11 map-unit fractions from Table 1 and the ten taxon fall-speed, PPE and PPE SD
 values from Table 2 of the retained PDF (page 6). Each map-unit row sums to
 one, and every printed PPE SD is 10% of its PPE. Table 2 does not state a
