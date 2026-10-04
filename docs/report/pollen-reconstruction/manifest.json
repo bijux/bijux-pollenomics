@@ -11,8 +11,8 @@
     },
     {
       "path": "configs/ci/qualified-report-sources/embsecbio-biome-model.json",
-      "sha256": "6b3ce5b336d8ee81810c859ee3a9130bff84a1b176e719f56579332f7d00e30b",
-      "bytes": 1840
+      "sha256": "6aaa474a1277b102e5207454b73088bc80e7a82c3e35fab097d71dc8d49652a8",
+      "bytes": 3162
     },
     {
       "path": "configs/ci/qualified-report-sources/landclim-author-snapshot.json",
@@ -51,13 +51,13 @@
     },
     {
       "path": "configs/ci/report-owner-execution.json",
-      "sha256": "9ee2d16a15a4333f5e7758abb55b9433d7d678fdd9728df3881400507aec61cd",
-      "bytes": 99939
+      "sha256": "90fc2c74682f9cf625d89c31c0f83a9e34193753cb317ad6a3430fb4cb57cf74",
+      "bytes": 100092
     },
     {
       "path": "configs/ci/report-ownership.json",
-      "sha256": "d14fccca328f3226fa00ec74eff4f75e776ba409fb8fd681a26fb8258eaffd49",
-      "bytes": 4491570
+      "sha256": "f063fddd3d985d06a66db909022b4445a14be04c1700606a26c3770cbad8e9fb",
+      "bytes": 4492213
     },
     {
       "path": "configs/docs/science_downloads.py",
@@ -108,6 +108,11 @@
       "path": "data/method-certification/embsecbio-biome/fixed-model-capture.json",
       "sha256": "4c9f109424e0cdffd01a61904602f4080758542d01f8a0fc52516ee5e5a6bc1b",
       "bytes": 11074
+    },
+    {
+      "path": "data/method-certification/embsecbio-biome/training-reconstruction-capture.json",
+      "bytes": 5988,
+      "sha256": "41da00e15108202e0a2adee8eae318acefeaebd3ceac7cb464058449c4861342"
     },
     {
       "path": "data/method-certification/english-receiver-annulus/kernel-capture.json",
@@ -1201,12 +1206,12 @@
     },
     {
       "path": "docs/report/index.md",
-      "sha256": "d718e8f1a8255f4d8eeb22926079274a7044138f994aa15b124a78924799f093",
+      "sha256": "8e5f6cb07254f49dc8696ad3abb2088619ba5f95559cda3b077b9c369f147eae",
       "bytes": 2689
     },
     {
       "path": "docs/report/maintenance/index.md",
-      "sha256": "31477f1e64e1a9048a528eac522d333cb103c2045eee476ef0c88b6961510f31",
+      "sha256": "5ed057edc357e0373d6b8bd769ec7ccb012b7ac83b020923456820fdd52fb9da",
       "bytes": 1412
     },
     {
@@ -1876,8 +1881,8 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/embsecbio-biome-reconstruction/README.md",
-      "sha256": "8b4af726b92f6deeb94e9860162d6959c3a334054363c5a3b7abed10057b298a",
-      "bytes": 13870
+      "sha256": "2c5a7075c738a3676f1172ec919a851fd0086929780f024fbdf87899a80ad6ff",
+      "bytes": 16912
     },
     {
       "path": "docs/report/pollen-reconstruction/embsecbio-biome-reconstruction/cohort-diagnostics.json",
@@ -1898,6 +1903,11 @@
       "path": "docs/report/pollen-reconstruction/embsecbio-biome-reconstruction/source-audit.json",
       "sha256": "2c7c6653dc6460188b299b0a81b8d7ef27816b0c4c82a5c57d7ffbf46504877c",
       "bytes": 5682
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/embsecbio-biome-reconstruction/training-reconstruction.json",
+      "bytes": 8557,
+      "sha256": "fe10e9b2e6197c3d9d9f787ed3a775e038613a30b74db779f6675d360ea4ec6a"
     },
     {
       "path": "docs/report/pollen-reconstruction/english-receiver-annulus/README.md",
@@ -3281,7 +3291,7 @@
     },
     {
       "path": "docs/report/report_narrative_quality_review.json",
-      "sha256": "ca52bfdc5b8ab5b93f7c0d0f32d85e8e80e42a13319e92c31edeb64e11279a61",
+      "sha256": "f052653af918ecc9a4abc696095175aa28dc6bf7f1870aba564a934f4782080b",
       "bytes": 142097
     },
     {
@@ -3291,12 +3301,12 @@
     },
     {
       "path": "docs/report/report_surface_registry.json",
-      "sha256": "f191705cf78a21be346ba7ddf239e7ba28163af6425b96b21326cfb90d1e14b9",
-      "bytes": 959438
+      "sha256": "23044e484450f4114e18099dc09e26003eb2c6099bd2c78c3593433b2ed8b13f",
+      "bytes": 959948
     },
     {
       "path": "docs/report/report_surface_registry.md",
-      "sha256": "0ecf3aa6db7bc1b823397616c25acce0e08db07dbb033d33dbbb923c12f50627",
+      "sha256": "5f908765744464f76f4373b5c5b10f7d4dcb5daec95d9f42fd77f2ad2da5a099",
       "bytes": 1078
     },
     {
@@ -4681,13 +4691,18 @@
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/embsecbio_biome/publication.py",
-      "sha256": "bac5859c8f3ec0dac22f8c2ded01d367a85097d778768a2a54d1049490ad4da6",
-      "bytes": 7949
+      "sha256": "372b2b83807abf9e57cdf267de15e2567be15ecd270e55da8e4737f61bd93f6a",
+      "bytes": 10107
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/embsecbio_biome/source.py",
       "sha256": "6eb74cdcdfaccbb1df4b755f80c3c3c3a0abc7457be8b6083e9ca963391d9a4d",
       "bytes": 3041
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/embsecbio_biome/training.py",
+      "bytes": 8265,
+      "sha256": "0b33c937f55f037fa0b592480da433e1e1ca2ca5dad9b5379d092621812d5b63"
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/english_receiver_annulus.py",
@@ -5343,6 +5358,11 @@
       "path": "packages/bijux-pollenomics-dev/tests/source_completion/pollen_reconstruction/test_embsecbio_biome.py",
       "sha256": "5ecfb8bf89bf79fe143f03f32e3c93037a39fdf7bd5773e0fa7c71a34f88ca73",
       "bytes": 4380
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/tests/source_completion/pollen_reconstruction/test_embsecbio_training.py",
+      "bytes": 1617,
+      "sha256": "aae60642144eca4d20551c484183e0a2fba4e3547236b7932afd4e59c7536156"
     },
     {
       "path": "packages/bijux-pollenomics-dev/tests/source_completion/pollen_reconstruction/test_english_receiver_annulus.py",

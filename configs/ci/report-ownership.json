@@ -2,8 +2,8 @@
   "schema_version": "report-output-ownership.v1",
   "root": "docs/report",
   "inventory_scope": "tracked report paths; ownership declarations do not certify reproduction",
-  "path_count": 1966,
-  "paths_sha256": "22a27305387fb888a9ced2ea0d248fd9c56a8c95405db487777389ae547cbfac",
+  "path_count": 1967,
+  "paths_sha256": "113267e853e02e6e8281ed01f75bc4ea16ff59dc8c9dfab53c7967169997c37a",
   "owners": [
     {
       "owner_id": "atlas/boundary-orientation/browser-evidence",
@@ -45158,7 +45158,7 @@
       ],
       "producer_paths": [],
       "producer_inputs": [],
-      "verification": "Explain the exact 5,765-sample saved-equation agreement, retained source-seed matrix compatibility, source units/refusals and conditional model/map limits. Keep source redistribution, original installed runtime/training, measured vegetation, uncertainty coverage, untouched confirmation and qualified external review separate."
+      "verification": "Explain the actual 5,765-sample saved-equation parity, source-seed matrix compatibility, 4,356-cell parameter regeneration under two declared Rejection and archived-method compatibility profiles, retained Rounding negatives, source units/refusals and exposure/model-map limits. Keep original complete training-runtime and historical training-ID custody, source rights, independent measured vegetation, uncertainty coverage, untouched confirmation and qualified external review separate."
     },
     {
       "owner_id": "pollen-reconstruction/embsecbio-biome-reconstruction/report-products",
@@ -45167,7 +45167,8 @@
         "docs/report/pollen-reconstruction/embsecbio-biome-reconstruction/cohort-diagnostics.json",
         "docs/report/pollen-reconstruction/embsecbio-biome-reconstruction/historical-comparison.json",
         "docs/report/pollen-reconstruction/embsecbio-biome-reconstruction/report.json",
-        "docs/report/pollen-reconstruction/embsecbio-biome-reconstruction/source-audit.json"
+        "docs/report/pollen-reconstruction/embsecbio-biome-reconstruction/source-audit.json",
+        "docs/report/pollen-reconstruction/embsecbio-biome-reconstruction/training-reconstruction.json"
       ],
       "producer_paths": [
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/__init__.py",
@@ -45190,11 +45191,13 @@
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/embsecbio_biome/cohorts.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/embsecbio_biome/numerical.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/embsecbio_biome/publication.py",
-        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/embsecbio_biome/source.py"
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/embsecbio_biome/source.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/embsecbio_biome/training.py"
       ],
       "producer_inputs": [
         "configs/ci/qualified-report-sources/embsecbio-biome-model.json",
         "data/method-certification/embsecbio-biome/fixed-model-capture.json",
+        "data/method-certification/embsecbio-biome/training-reconstruction-capture.json",
         "packages/bijux-pollenomics-dev/pyproject.toml",
         "packages/bijux-pollenomics-lra/pyproject.toml",
         "packages/bijux-pollenomics/pyproject.toml",
@@ -45202,7 +45205,7 @@
         "pyproject.toml",
         "uv.lock"
       ],
-      "verification": "Reproduce four compact outputs from the actual 21-file first-party cold-import closure, qualified nine-file external source snapshot and independently admitted native numerical/source-audit/selection capture. The six package/lock metadata files are conservative registry inputs, not observed scientific-writer reads. Actual two maintained writers and thirteen focused contracts passed; this route rebuilds the saved equation and source-seed comparison without rerunning R or regenerating training. Retained source-audit output consumes admitted capture rather than claiming a new raw-table scan. Custody does not grant source redistribution or establish original installed-runtime custody, vegetation accuracy, calibrated uncertainty, untouched confirmation or external review."
+      "verification": "Reproduce five compact products from the qualified 17-file source snapshot and two independently admitted captures. The original four-product twin writers and fixed-model R/Python parity retain their original source scope. The separate training-only twin writers and 21 focused cases reproduce 4,356 mean/sample-SD comparisons from retained native training IDs, preserving two Rejection positives and two Rounding profiles with 2,060 mismatches. Bind the actual 22-file first-party import closure and both captures; six package metadata paths are conservative inputs, not observed reads. Original complete installed-runtime and historical training-ID custody, independent measured-vegetation accuracy, uncertainty coverage, untouched confirmation, source rights and external review remain separate. A complete five-product integrated successor is required at the later scientific gate; these receipts imply no new R sampling run."
     }
   ]
 }

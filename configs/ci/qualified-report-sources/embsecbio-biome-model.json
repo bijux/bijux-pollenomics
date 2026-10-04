@@ -1,5 +1,5 @@
 {
-  "file_count": 9,
+  "file_count": 17,
   "files": [
     {
       "path": "EC4c_f_ep0.5_EMB_Composit.csv",
@@ -37,22 +37,62 @@
       "size": 2311825
     },
     {
+      "path": "rejection-downsampled-samples.csv",
+      "sha256": "af02dff3979668ffa4a11f8989d50d432da2a93b89bf6faa4d0abf440c668ae2",
+      "size": 12322
+    },
+    {
+      "path": "rejection-parameters.csv",
+      "sha256": "ebe9ef930a5c6c6d83e1a3406bf20b9bf334181e120c822effe415d01fabbf33",
+      "size": 91363
+    },
+    {
+      "path": "rejection-training-samples.csv",
+      "sha256": "bf498e46fd11ed5019ffbf4ce6779d1367788ab687a7976207ed70d0a6349f7a",
+      "size": 8614
+    },
+    {
       "path": "resolution1kmfrom250m_window21km_perside.csv",
       "sha256": "e96fa820463de1968d1d776306e080b0e66ebd53cde9c2bfa11de5a7331ce891",
       "size": 172613
     },
     {
+      "path": "rounding-downsampled-samples.csv",
+      "sha256": "8b277fc023fe979ae0ad02a0f99d86c0c40626eac008cfdb975fa94c1f6b8117",
+      "size": 12321
+    },
+    {
+      "path": "rounding-location-samples.csv",
+      "sha256": "be3189e450e5e4985f6bf98a2d86daa030bd9651c476c9c1c4a9740e34f96049",
+      "size": 319660
+    },
+    {
+      "path": "rounding-parameters.csv",
+      "sha256": "8137efc9efc45aa845c5c2c0d15e26d31acd2d1ae9c7d383abdf8876f7e3be14",
+      "size": 91091
+    },
+    {
+      "path": "rounding-training-samples.csv",
+      "sha256": "be04136d5a77813dacb97147f571441e7c196229c37fa126cd507b873aec03e9",
+      "size": 8608
+    },
+    {
       "path": "selected-location-samples.csv",
       "sha256": "45cc91811f73ed603a177c8ce9b8f9117887d7c72e25bbbf6b9b925f5e905340",
       "size": 319631
+    },
+    {
+      "path": "training-cohort-counts.csv",
+      "sha256": "cba350865d17aac1d194b8f7cec5ce93da80a24eac88afb36f3b408128751c88",
+      "size": 213
     }
   ],
   "manifest": {
     "path": "snapshot-manifest.json",
-    "sha256": "11c99aa88d9bb690f6fbe0fed4b31702e70aca29ae991dff49138703f903aa9e",
-    "size": 1042
+    "sha256": "32fd55b35e8ec91e2800b5306feffc18f5c4c22c256aaaab9968c72771f5b36d",
+    "size": 1886
   },
   "schema_version": "qualified-author-snapshot.v1",
-  "snapshot_schema_version": "embsecbio-published-biome-source-snapshot.v1",
-  "source_id": "embsecbio/published-biome-model"
+  "snapshot_schema_version": "embsecbio-published-biome-training-source-snapshot.v1",
+  "source_id": "embsecbio/published-biome-model-training"
 }
