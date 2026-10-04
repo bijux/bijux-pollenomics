@@ -23510,8 +23510,8 @@
       ],
       "producer_inputs": [],
       "producer_paths": [],
-      "role": "unresolved",
-      "verification": "Retained authored protocol and scoring-protocol declarations have no independent source/template producer; they remain unresolved. The separately owned prepared inputs do not authenticate historical S\u00e4mbosj\u00f6n training creation or admit scientific prediction and scoring."
+      "role": "maintained_configuration",
+      "verification": "Maintain the authored prediction and scoring protocols as exact reviewed finite JSON configuration consumed by the maintained Lilla Gloppsj\u00f6n preparation, prediction and scoring contracts. Configuration custody authenticates declarations only: source-rights, chronology choices, external publication response, historical S\u00e4mbosj\u00f6n training creation, numerical predictions/scores and scientific approval remain separately governed. Do not regenerate historical capture/freezes or infer untouched confirmation from transporting these bytes."
     },
     {
       "owner_id": "regions/nordic/lilla-gloppsjon-direct-pollen/scored-products",
@@ -23925,8 +23925,7 @@
     {
       "owner_id": "regions/nordic/sambosjon-direct-pollen/report-products",
       "paths": [
-        "docs/report/regions/nordic/sambosjon-direct-pollen/frozen/freeze.json",
-        "docs/report/regions/nordic/sambosjon-direct-pollen/protocol.json"
+        "docs/report/regions/nordic/sambosjon-direct-pollen/frozen/freeze.json"
       ],
       "producer_inputs": [
         "data/neotoma/raw/neotoma_pollen_dataset_downloads/manifest.json",
@@ -23964,7 +23963,7 @@
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/sambosjon_direct_pollen.py"
       ],
       "role": "unresolved",
-      "verification": "Protocol is an authored JSON contract. The historical freeze.json embeds created_at_utc and a pre-score correction identity; current execution cannot independently reproduce that historical byte string from repository inputs alone."
+      "verification": "Historical freeze.json embeds created_at_utc and a pre-score correction identity; current execution cannot independently reproduce that historical byte string from repository inputs alone. The separately maintained authored protocol authenticates declarations only and does not establish original capture authority, untouched confirmation, scientific approval or a new source-rights grant."
     },
     {
       "owner_id": "regions/nordic/sambosjon-direct-pollen/scored-products",
@@ -43912,6 +43911,16 @@
       "producer_inputs": [],
       "role": "retained_source",
       "verification": "Immutable exact bytes of the previously tracked uncertainty manifest at Git 9f68946d6900824a5b7924c9426f5ab3b7121a12, original manifest SHA 02be1738a20737a9c8ec2b9de065fd88e67162f92223d9ef4417bb4be4f48137. Retains historical comparison and producer SHA 582e and 7746 bytes as a source record for independent metadata replay; no original execution, source acquisition, raw-input or scientific qualification is inferred."
+    },
+    {
+      "owner_id": "regions/nordic/sambosjon-direct-pollen/authored-configuration",
+      "paths": [
+        "docs/report/regions/nordic/sambosjon-direct-pollen/protocol.json"
+      ],
+      "producer_inputs": [],
+      "producer_paths": [],
+      "role": "maintained_configuration",
+      "verification": "Maintain the authored target/core/dataset selection, withheld aliases, 22 nominal bins, baseline methods, primary metric and pre-score prediction digest as exact reviewed finite JSON configuration consumed by the maintained S\u00e4mbosj\u00f6n preparation, prediction and scoring contracts. Source screening exposure, the correction recorded by the historical freeze, 21 contained-age scored bins, original capture custody, numerical quality, rights and scientific approval remain separately governed. No historical freeze is regenerated or admitted by configuration transport."
     }
   ]
 }

@@ -43,8 +43,8 @@ MAINTAINED_ROLE_PATHS = {
         "1b5595b05026bb8020b23c626d7d0f3130cb965eada21223e7c378213629aaeb",
     ),
     "maintained_configuration": (
-        2,
-        "3b0f3edb6f831c629755e8b57e02ebc7ad9dd9970e59b92030de7af9ac13582e",
+        6,
+        "ed5d06ad562e00831c3033288296d08f089705f66203af7810b55a09fe4e3b5f",
     ),
 }
 SOURCE_FORMATS = {
