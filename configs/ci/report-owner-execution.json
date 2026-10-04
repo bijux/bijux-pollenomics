@@ -1721,6 +1721,19 @@
       },
       "timeout_seconds": 180,
       "artifact_output_flag": "--retained-artifacts-root"
+    },
+    {
+      "external_source_descriptor": "configs/ci/qualified-report-sources/landclim-author-snapshot.json",
+      "module": "bijux_pollenomics_dev.source_completion.pollen_reconstruction.english_receiver_annulus",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "pollen-reconstruction/english-receiver-annulus/report-products",
+      "source_arguments": [],
+      "source_paths": {
+        "source-products/diagnostics.json": "docs/report/pollen-reconstruction/english-receiver-annulus/diagnostics.json",
+        "source-products/report.json": "docs/report/pollen-reconstruction/english-receiver-annulus/report.json"
+      },
+      "timeout_seconds": 180
     }
   ]
 }

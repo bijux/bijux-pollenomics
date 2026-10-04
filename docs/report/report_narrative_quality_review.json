@@ -1,10 +1,10 @@
 {
   "schema_version": "report-narrative-quality-review.v1",
-  "page_count": 298,
+  "page_count": 299,
   "quality_posture_counts": {
     "reader_ready": 116,
     "structured_reference": 19,
-    "thin_structure": 163
+    "thin_structure": 164
   },
   "rows": [
     {
@@ -1313,6 +1313,17 @@
       "bullet_sentence_count": 0,
       "heading_count": 1,
       "table_line_count": 0,
+      "quality_posture": "thin_structure",
+      "note": "Page explains itself but still needs stronger internal wayfinding."
+    },
+    {
+      "repository_path": "docs/report/pollen-reconstruction/english-receiver-annulus/README.md",
+      "content_sha256": "7e3f44a92c305b356f2b5a8fa7de07fb61f551edef1c6faa9d5d5d4d83f7c4a8",
+      "prose_paragraph_count": 9,
+      "link_bullet_count": 0,
+      "bullet_sentence_count": 0,
+      "heading_count": 1,
+      "table_line_count": 9,
       "quality_posture": "thin_structure",
       "note": "Page explains itself but still needs stronger internal wayfinding."
     },
@@ -3232,7 +3243,7 @@
     },
     {
       "repository_path": "docs/report/index.md",
-      "content_sha256": "30eaa75e77222f53eaa8a9a5b29c2de26518fcb89cf570cd6bb6b42a2dad03f4",
+      "content_sha256": "2e881ffcfb319ddbe09c3ba4ce4ba883da6f85cb3e30fe6dddb326701e79cce2",
       "prose_paragraph_count": 3,
       "link_bullet_count": 11,
       "bullet_sentence_count": 0,
@@ -3243,7 +3254,7 @@
     },
     {
       "repository_path": "docs/report/maintenance/index.md",
-      "content_sha256": "eb31cd88be7bd1ef42a6cc6f0258c2fbd76601c4883295cabaadafd95fda8eeb",
+      "content_sha256": "c7be949f11f180d415b9f0ff67e240c395ed8e34fd2d6675cf8e65fbc9735af6",
       "prose_paragraph_count": 3,
       "link_bullet_count": 10,
       "bullet_sentence_count": 4,

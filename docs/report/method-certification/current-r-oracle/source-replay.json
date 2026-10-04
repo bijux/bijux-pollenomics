@@ -330,7 +330,7 @@
     },
     "data_sha256": {
       "configs/ci/lra-r-source-lock.v1.json": "924871eccfb5035bfc86c18fd863f00f6ec51b2e28042021c5fd663cd224b12f",
-      "configs/ci/report-ownership.json": "c266bc7fef0043baa77aa7d759fd5269015728c4910e8e62f73ac6f8e165ba0e",
+      "configs/ci/report-ownership.json": "d13c7377a2bf6517007eb5dc71d42dac505e8ecab1d1baaf8517ac5e62d125ca",
       "data/method-certification/native-r-annulus/capture/capture.json": "2c80e50e8fc2a68e784139052ccd31a49a4e4d05413a7eb2b997cfa89f2b9f61",
       "data/method-certification/native-r-annulus/capture/oracle/C0000.csv": "435bf8ffc6d62bcf21c9f242364db72fb8cc5d0057bafa1343a9c930d47e92be",
       "data/method-certification/native-r-annulus/capture/oracle/C0001.csv": "10d713ff579ba379674fc97d3a4bb11461c47adc3caacca5b1297c8566ff7157",
@@ -612,7 +612,7 @@
     },
     "owner_row_sha256": "ed1e8b6c17f6633822f517eff579cf1105f42fa64b008b28f190d5235d8ff505",
     "capture_manifest_sha256": "2c80e50e8fc2a68e784139052ccd31a49a4e4d05413a7eb2b997cfa89f2b9f61",
-    "sha256": "fc035752cd3c3ddc582bb6cfd7a7167c086ec4f3aa15e041b5972cbbdf079383"
+    "sha256": "741bbe2df7098f5f9a634efd2473f1bf4700be9608680b557f35121bcf26b2a5"
   },
   "native_source_acquisition": "retained_public_locked_archive_acquisition"
 }

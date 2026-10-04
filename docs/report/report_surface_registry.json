@@ -1,6 +1,6 @@
 {
   "schema_version": "report-surface-registry.v1",
-  "surface_count": 1954,
+  "surface_count": 1957,
   "inventory_scope": "all input files plus generated navigation pages; registry metadata excluded",
   "content_identity_scope": "Markdown pages; machine outputs retain their domain manifests",
   "excluded_metadata_paths": [
@@ -11,14 +11,14 @@
   ],
   "family_counts": {
     "caveats": 10,
-    "maintenance": 1046,
+    "maintenance": 1049,
     "maps": 88,
     "portal": 2,
     "reviews": 34,
     "scopes": 774
   },
   "audience_counts": {
-    "maintainer_diagnostic": 1048,
+    "maintainer_diagnostic": 1051,
     "public_reading_surface": 783,
     "scientific_review_surface": 123
   },
@@ -28,7 +28,7 @@
     "finland": 14,
     "nordic": 498,
     "norway": 14,
-    "report_root": 1095,
+    "report_root": 1098,
     "sweden": 49,
     "world": 172
   },
@@ -10569,6 +10569,43 @@
       "reader_route": "maintainer_truth"
     },
     {
+      "repository_path": "docs/report/pollen-reconstruction/english-receiver-annulus/README.md",
+      "content_sha256": "7e3f44a92c305b356f2b5a8fa7de07fb61f551edef1c6faa9d5d5d4d83f7c4a8",
+      "family": "maintenance",
+      "family_label": "Maintainer truth surfaces",
+      "audience": "maintainer_diagnostic",
+      "audience_label": "Maintainer diagnostic",
+      "format": "md",
+      "geography": "report_root",
+      "caution_level": "high",
+      "explanation": "Reader-facing entry page for one scope bundle.",
+      "reader_route": "start_here"
+    },
+    {
+      "repository_path": "docs/report/pollen-reconstruction/english-receiver-annulus/diagnostics.json",
+      "family": "maintenance",
+      "family_label": "Maintainer truth surfaces",
+      "audience": "maintainer_diagnostic",
+      "audience_label": "Maintainer diagnostic",
+      "format": "json",
+      "geography": "report_root",
+      "caution_level": "high",
+      "explanation": "Maintainer-facing truth or governance surface.",
+      "reader_route": "maintainer_truth"
+    },
+    {
+      "repository_path": "docs/report/pollen-reconstruction/english-receiver-annulus/report.json",
+      "family": "maintenance",
+      "family_label": "Maintainer truth surfaces",
+      "audience": "maintainer_diagnostic",
+      "audience_label": "Maintainer diagnostic",
+      "format": "json",
+      "geography": "report_root",
+      "caution_level": "high",
+      "explanation": "Maintainer-facing truth or governance surface.",
+      "reader_route": "maintainer_truth"
+    },
+    {
       "repository_path": "docs/report/pollen-reconstruction/leaderboard.csv",
       "family": "maintenance",
       "family_label": "Maintainer truth surfaces",
@@ -11547,6 +11584,18 @@
     },
     {
       "repository_path": "docs/report/publication-replay/landclim-published-window-uncertainty/report.json",
+      "family": "maintenance",
+      "family_label": "Maintainer truth surfaces",
+      "audience": "maintainer_diagnostic",
+      "audience_label": "Maintainer diagnostic",
+      "format": "json",
+      "geography": "report_root",
+      "caution_level": "high",
+      "explanation": "Maintainer-facing truth or governance surface.",
+      "reader_route": "maintainer_truth"
+    },
+    {
+      "repository_path": "docs/report/publication-replay/landclim-published-window-uncertainty/source/retained-custody.json",
       "family": "maintenance",
       "family_label": "Maintainer truth surfaces",
       "audience": "maintainer_diagnostic",
@@ -23704,7 +23753,7 @@
     },
     {
       "repository_path": "docs/report/index.md",
-      "content_sha256": "30eaa75e77222f53eaa8a9a5b29c2de26518fcb89cf570cd6bb6b42a2dad03f4",
+      "content_sha256": "2e881ffcfb319ddbe09c3ba4ce4ba883da6f85cb3e30fe6dddb326701e79cce2",
       "family": "portal",
       "family_label": "Portal guidance",
       "audience": "public_reading_surface",
@@ -23717,7 +23766,7 @@
     },
     {
       "repository_path": "docs/report/maintenance/index.md",
-      "content_sha256": "eb31cd88be7bd1ef42a6cc6f0258c2fbd76601c4883295cabaadafd95fda8eeb",
+      "content_sha256": "c7be949f11f180d415b9f0ff67e240c395ed8e34fd2d6675cf8e65fbc9735af6",
       "family": "maintenance",
       "family_label": "Maintainer truth surfaces",
       "audience": "public_reading_surface",
@@ -23766,18 +23815,6 @@
       "caution_level": "medium",
       "explanation": "Reader-facing portal page for navigating the report tree.",
       "reader_route": "start_here"
-    },
-    {
-      "repository_path": "docs/report/publication-replay/landclim-published-window-uncertainty/source/retained-custody.json",
-      "family": "maintenance",
-      "family_label": "Maintainer truth surfaces",
-      "audience": "maintainer_diagnostic",
-      "audience_label": "Maintainer diagnostic",
-      "format": "json",
-      "geography": "report_root",
-      "caution_level": "high",
-      "explanation": "Maintainer-facing truth or governance surface.",
-      "reader_route": "maintainer_truth"
     }
   ]
 }
