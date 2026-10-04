@@ -1669,6 +1669,54 @@
         "source-products/manifest.json": "docs/report/publication-replay/landclim-published-window-uncertainty/manifest.json"
       },
       "timeout_seconds": 60
+    },
+    {
+      "external_source_descriptor": "configs/ci/qualified-report-sources/rootsi-abborrtjarne-workbook.json",
+      "module": "bijux_pollenomics_dev.source_completion.neotoma.native_correspondence",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "source-relations/neotoma/abbo-native-correspondence/report-products",
+      "source_arguments": [],
+      "source_paths": {
+        "source-products/report.json": "docs/report/source-relations/neotoma/abbo-native-correspondence/report.json"
+      },
+      "timeout_seconds": 180
+    },
+    {
+      "external_source_descriptor": "configs/ci/qualified-report-sources/abbo-pollen-profile.json",
+      "module": "bijux_pollenomics_dev.source_completion.neotoma.abbo_profile",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "source-relations/neotoma/abbo-profile/report-products",
+      "source_arguments": [],
+      "source_paths": {
+        "source-products/report.json": "docs/report/source-relations/neotoma/abbo-profile/report.json"
+      },
+      "timeout_seconds": 180
+    },
+    {
+      "external_source_descriptor": "configs/ci/qualified-report-sources/rootsi-bokesjon-workbook.json",
+      "module": "bijux_pollenomics_dev.source_completion.neotoma.native_correspondence",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "source-relations/neotoma/boke-native-correspondence/report-products",
+      "source_arguments": [],
+      "source_paths": {
+        "source-products/report.json": "docs/report/source-relations/neotoma/boke-native-correspondence/report.json"
+      },
+      "timeout_seconds": 180
+    },
+    {
+      "external_source_descriptor": "configs/ci/qualified-report-sources/rootsi-bussjosjon-workbook.json",
+      "module": "bijux_pollenomics_dev.source_completion.neotoma.native_correspondence",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "source-relations/neotoma/bus-native-correspondence/report-products",
+      "source_arguments": [],
+      "source_paths": {
+        "source-products/report.json": "docs/report/source-relations/neotoma/bus-native-correspondence/report.json"
+      },
+      "timeout_seconds": 180
     }
   ]
 }
