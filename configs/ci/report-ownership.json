@@ -14769,6 +14769,7 @@
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/workflow.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/__init__.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/comparison.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/published_window_contract.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/published_window_correspondence.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/reconcile.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/lra_validation/__init__.py",
@@ -15807,6 +15808,7 @@
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/workflow.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/__init__.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/comparison.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/published_window_contract.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/published_window_correspondence.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/published_window_provenance.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/reconcile.py",
@@ -16790,14 +16792,21 @@
         "docs/report/publication-replay/landclim-published-window-provenance/report.json"
       ],
       "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/__init__.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/__init__.py",
-        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/published_window_correspondence.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/published_window_contract.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/published_window_uncertainty.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/reconcile.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/audit.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/essd/__init__.py",
-        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/essd/published_window_uncertainty.py"
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/essd/published_window_uncertainty.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/evidence.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/landclim.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/manifests.py"
       ],
       "role": "generated_owner",
-      "verification": "The maintained producer deterministically writes 62 taxon envelope rows and two summaries from retained provenance inputs. Compare the three bytes; reported one-SE envelopes are descriptive and are not confidence intervals or independent tests. Historical raw-input identity remains unresolved upstream."
+      "verification": "The maintained producer pairs 62 exact grid/taxon mean and reported standard-error values from three retained provenance files, including their byte-custody manifest, and writes descriptive taxon envelopes and two summaries. Its twelve declared cold source modules use a shared published-window identity contract without host catalog or LRA imports. Require genuine current configured reference/replay and root review of the three governed output bytes before claiming current numerical reproduction. Reported one-SE envelopes are descriptive, not confidence intervals or independent tests. Historical raw-input identity and measured vegetation accuracy remain unestablished."
     },
     {
       "owner_id": "publication-replay/landclim-published-window-uncertainty/reader-account",

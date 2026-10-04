@@ -179,3 +179,12 @@ def test_outside_artifact_destination_refused(case: Case) -> None:
     with pytest.raises(ReportRebuildError, match="artifact"):
         invoke(case, output=case.repository / "docs/report/result")
     assert not case.output.exists()
+
+
+def test_declared_window_writer_matches_packaged_source() -> None:
+    spec = importlib.util.find_spec(subject.CORE)
+    assert spec is not None and spec.origin is not None
+    assert (
+        hashlib.sha256(Path(spec.origin).read_bytes()).hexdigest()
+        == subject.CORE_SHA256
+    )

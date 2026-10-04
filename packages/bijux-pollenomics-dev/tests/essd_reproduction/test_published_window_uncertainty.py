@@ -5,7 +5,10 @@ from __future__ import annotations
 import csv
 import hashlib
 import json
+import os
 from pathlib import Path
+import subprocess
+import sys
 
 import pytest
 
@@ -174,3 +177,64 @@ def test_envelopes_refuse_nonobject_manifest(tmp_path: Path, manifest: object) -
     (report.parent / "manifest.json").write_text(json.dumps(manifest))
     with pytest.raises(ValueError, match="Unsupported provenance custody manifest"):
         compare_envelopes(path, report)
+
+
+def test_published_window_identity_has_one_unchanged_public_contract() -> None:
+    from bijux_pollenomics_dev.essd_reproduction import (
+        published_window_contract as contract,
+    )
+    from bijux_pollenomics_dev.essd_reproduction import (
+        published_window_correspondence as correspondence,
+    )
+    from bijux_pollenomics_dev.essd_reproduction import (
+        published_window_uncertainty as uncertainty,
+    )
+
+    expected = {
+        "ARCHIVE_SHA256": "c585f0691ad95342b8aba083b90fe91dc398f985b6b7fbc19561299389c4fb86",
+        "RECEIPT_SHA256": "eb4350724c176d0dbcb7e441f2d21489bdae1cfff7ebe3088eab27093f315677",
+        "SOURCE_REVISION": "57ead2e2fcc493d099be4e5a3092fc396e1c3d3a",
+        "WINDOW": "100-350 BP",
+        "BIN_ID": "225",
+        "GRIDS": ("512", "562"),
+        "MEAN_MEMBER": "LANDCLIMII.RV.means.JUN2021/TW2.RV.estimates.jun21.csv",
+        "SE_MEMBER": "LANDCLIMII.RV.standarderrors.JUN2021/TW2.RV.standarderrors.jun21.csv",
+    }
+    for name, value in expected.items():
+        assert getattr(contract, name) == value
+        assert getattr(correspondence, name) == value
+    for name in ("ARCHIVE_SHA256", "SOURCE_REVISION", "GRIDS"):
+        assert getattr(uncertainty, name) == expected[name]
+
+
+def test_envelope_cold_import_does_not_load_host_catalog(tmp_path: Path) -> None:
+    from bijux_pollenomics_dev.essd_reproduction import (
+        published_window_uncertainty as uncertainty,
+    )
+
+    developer_source = Path(uncertainty.__file__).resolve().parents[2]
+    command = [
+        sys.executable,
+        "-I",
+        "-B",
+        "-c",
+        "import importlib,sys;sys.path.insert(0,sys.argv[1]);"
+        "importlib.import_module('bijux_pollenomics_dev.source_completion.essd.published_window_uncertainty');"
+        "importlib.import_module('bijux_pollenomics_dev.essd_reproduction.published_window_uncertainty');"
+        "assert 'bijux_pollenomics_dev.essd_reproduction.published_window_contract' in sys.modules;"
+        "assert 'bijux_pollenomics_dev.essd_reproduction.published_window_correspondence' not in sys.modules;"
+        "assert not any(n == 'bijux_pollenomics' or n.startswith('bijux_pollenomics.') or "
+        "n == 'bijux_pollenomics_lra' or n.startswith('bijux_pollenomics_lra.') for n in sys.modules)",
+        str(developer_source),
+    ]
+    environment = dict(os.environ, PYTHONDONTWRITEBYTECODE="1")
+    result = subprocess.run(
+        command,
+        cwd=tmp_path,
+        env=environment,
+        capture_output=True,
+        text=True,
+        timeout=30,
+        check=False,
+    )
+    assert result.returncode == 0, result.stderr

@@ -51,8 +51,8 @@
     },
     {
       "path": "configs/ci/report-ownership.json",
-      "sha256": "da6fef0630f04efa4dafad7221feceae67f77f63edc74828c27fa18c4c0b771f",
-      "bytes": 3906935
+      "sha256": "f519e86ff6ca98673567d4132e960883df8a4584d76090b8e32b4059c0eacc95",
+      "bytes": 3908198
     },
     {
       "path": "configs/docs/science_downloads.py",
@@ -471,7 +471,7 @@
     },
     {
       "path": "docs/report/method-certification/current-r-oracle/source-replay.json",
-      "sha256": "acf46b96153ff8565f4560796172ce0de714b89a7c46f9eacf34347b5c85a1a9",
+      "sha256": "778fd1cc0bc2da1944ac0b6928963a1c88d62d97d2a34fbbdde2cd0e9dd2c36e",
       "bytes": 89636
     },
     {
@@ -1386,8 +1386,8 @@
     },
     {
       "path": "docs/report/publication-replay/landclim-published-window-uncertainty/README.md",
-      "sha256": "5b29783966d23af30c4c17d70b7fcf27ba437280cc63cd6cccc8fabf6f0c4c2e",
-      "bytes": 3029
+      "sha256": "181217791c5ca233d0ff13613f96835889849e9f40717e837170741ce064ee20",
+      "bytes": 3226
     },
     {
       "path": "docs/report/publication-replay/landclim-published-window-uncertainty/REPORT.md",
@@ -1396,7 +1396,7 @@
     },
     {
       "path": "docs/report/publication-replay/landclim-published-window-uncertainty/manifest.json",
-      "sha256": "c3cb7db415759ac950709d1990fedb546be9cd38d5f8317f9fc7846ce957ac69",
+      "sha256": "7f4b741cc272111059186afaf3a44a02e60a2ea60e0fdd35d5e7c615ebee97c5",
       "bytes": 3739
     },
     {
@@ -2496,7 +2496,7 @@
     },
     {
       "path": "docs/report/report_narrative_quality_review.json",
-      "sha256": "82444d5c3949bcb1391e6907aa7df1099f2aeb73e68027f0d90bbec5781f9a62",
+      "sha256": "c5548329947ad396026233ba1d0b3022b473f69dc672494f66a6f9b39ab9a7f6",
       "bytes": 141136
     },
     {
@@ -2506,7 +2506,7 @@
     },
     {
       "path": "docs/report/report_surface_registry.json",
-      "sha256": "8e2d5b96fff5f43fa5ec85d9aa463a0591ab0cbb0f1d63bfec433f95180554df",
+      "sha256": "e07512f9801fdfcc81c94e0f74099047b29149c3cd331ea532fb387323c8414a",
       "bytes": 955311
     },
     {
@@ -3235,9 +3235,14 @@
       "bytes": 8969
     },
     {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/published_window_contract.py",
+      "sha256": "b25547a29de533cd80a3943d9a34bbb0bf950f59e1265f7c1a921bdd1ec651fd",
+      "bytes": 526
+    },
+    {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/published_window_correspondence.py",
-      "sha256": "9f05dab6975656ae0488717bad26834eb5c101875da41f095fe75e8fc6703131",
-      "bytes": 16945
+      "sha256": "92751b2208b8be921559cd82d1a399955851bf37341253439dbe941d8113321b",
+      "bytes": 17085
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/published_window_provenance.py",
@@ -3246,8 +3251,8 @@
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/published_window_uncertainty.py",
-      "sha256": "10afe79a59842d2ae24ff6850f9d3b8c47308a7d2f8c865196eac9569c15b4f0",
-      "bytes": 9510
+      "sha256": "997acb1854d2166735fc4979507a31a3db4b1879727167271484ab9040948204",
+      "bytes": 9504
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/reconcile.py",
@@ -3431,7 +3436,7 @@
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/essd/published_window_correspondence.py",
-      "sha256": "7b0a8d3d115b55ff2aaca9b981bb8f3080b897fe2ea3f8735e6a301fbaaa9286",
+      "sha256": "d91a9ed0d1ec6e0f952ecfbd40f02360aad3b5edf180b87b7878f2e9fbb9dd00",
       "bytes": 6252
     },
     {
@@ -4191,8 +4196,8 @@
     },
     {
       "path": "packages/bijux-pollenomics-dev/tests/essd_reproduction/test_published_window_uncertainty.py",
-      "sha256": "cbbf7ab11b0490475e94c148c0d1c5ea8d41ed7e4e057bebcb69f06f825bba3f",
-      "bytes": 6519
+      "sha256": "d4d4e06740809f794d71e76c7cc0dc805c85a629da279cca0d00e2b320635783",
+      "bytes": 9188
     },
     {
       "path": "packages/bijux-pollenomics-dev/tests/lra_reference/test_generated_version_templates.py",
@@ -4301,8 +4306,8 @@
     },
     {
       "path": "packages/bijux-pollenomics-dev/tests/source_completion/essd/test_published_window_correspondence.py",
-      "sha256": "8819908786a8c9fc4e8de4d8cc8254a5dce7c41c412f0bdfd1bf009bae3e9314",
-      "bytes": 6005
+      "sha256": "e92078f6524324f52a498766ea34dbff786e8a2c6ff418f8ec71cbed482b8c23",
+      "bytes": 6297
     },
     {
       "path": "packages/bijux-pollenomics-dev/tests/source_completion/essd/test_published_window_provenance.py",

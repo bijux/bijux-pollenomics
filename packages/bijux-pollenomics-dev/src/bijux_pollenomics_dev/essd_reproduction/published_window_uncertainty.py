@@ -9,7 +9,7 @@ import hashlib
 import json
 from pathlib import Path
 
-from .published_window_correspondence import ARCHIVE_SHA256, GRIDS, SOURCE_REVISION
+from .published_window_contract import ARCHIVE_SHA256, GRIDS, SOURCE_REVISION
 
 
 def _digest(path: Path) -> str:
