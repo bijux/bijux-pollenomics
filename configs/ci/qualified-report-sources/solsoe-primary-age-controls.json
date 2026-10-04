@@ -1,0 +1,13 @@
+{
+  "schema_version": "qualified-pangaea-solsoe-age-table.v1",
+  "source_id": "landclim/pangaea/solsoe",
+  "table": {
+    "path": "solsoe81-age-740759.txt",
+    "sha256": "9934dd802fa7b7094c2a6cc08fff90ef29c1c630a092787c4f4a3aac96be6be0",
+    "size": 3574
+  },
+  "doi": "10.1594/PANGAEA.740759",
+  "license": "CC-BY-NC-3.0",
+  "capture_custody": "not_established",
+  "scientific_admission": false
+}

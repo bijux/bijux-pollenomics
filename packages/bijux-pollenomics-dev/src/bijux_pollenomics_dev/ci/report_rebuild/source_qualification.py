@@ -63,4 +63,8 @@ def validated_external_report_sources(
         return validated_neotoma_publication_link(
             repository, source_root, descriptor_path
         )
+    if schema == "qualified-pangaea-solsoe-age-table.v1":
+        from .source_contracts.pangaea_age_controls import validated_solsoe_age_table
+
+        return validated_solsoe_age_table(repository, source_root, descriptor_path)
     raise ReportRebuildError("unknown external report source schema")

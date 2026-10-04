@@ -2278,7 +2278,7 @@
     },
     {
       "repository_path": "docs/report/countries/denmark/solsoe-source-lineage/pangaea-core-controls/README.md",
-      "content_sha256": "a40adfc2699f2a687536bca088e015f6d7503aa3cf3cf2d0da71723787622038",
+      "content_sha256": "b751f006818f26518ec49e6e0db2e222c4c345d53733183fffa40031a4741512",
       "family": "scopes",
       "family_label": "Scope-filtered outputs",
       "audience": "public_reading_surface",

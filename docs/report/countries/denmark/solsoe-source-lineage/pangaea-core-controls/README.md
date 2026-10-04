@@ -52,8 +52,16 @@ Reproduce from the repository root into an absent artifacts directory:
 ```sh
 source_store="/path/to/qualified/bijux-pollenomics-data"
 PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -m \
-  bijux_pollenomics_dev.source_completion.solsoe_core_age_lineage \
+  bijux_pollenomics_dev.source_completion.denmark.solsoe_core_controls \
   --repository . \
   --source-root "$source_store" \
+  --source-descriptor configs/ci/qualified-report-sources/solsoe-primary-age-controls.json \
   --output artifacts/jobs/solsoe-primary-core-age-replay
 ```
+
+The source-bound owner checks the exact retained table, all five repository
+lineage inputs, and their identities again before publishing the unchanged
+control-join report. Its declaration maps only `source-products/report.json`
+in configured reference and replay lanes. Input byte identity does not establish
+the table's acquisition history, broaden its noncommercial use conditions,
+or admit the historical author chronology or any LRA sample.

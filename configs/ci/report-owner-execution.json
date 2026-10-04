@@ -1634,6 +1634,18 @@
       "source_arguments": [],
       "output_mode": "single_file",
       "timeout_seconds": 180
+    },
+    {
+      "owner_id": "countries/denmark/solsoe-source-lineage/pangaea-core-controls/report-products",
+      "module": "bijux_pollenomics_dev.source_completion.denmark.solsoe_core_controls",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "source_arguments": [],
+      "external_source_descriptor": "configs/ci/qualified-report-sources/solsoe-primary-age-controls.json",
+      "source_paths": {
+        "source-products/report.json": "docs/report/countries/denmark/solsoe-source-lineage/pangaea-core-controls/report.json"
+      },
+      "timeout_seconds": 120
     }
   ]
 }
