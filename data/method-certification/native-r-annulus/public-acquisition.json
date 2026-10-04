@@ -1,0 +1,42 @@
+{
+  "status": "PASS_FIVE_LOCKED_ARCHIVE_STRUCTURE_AND_METADATA",
+  "archives": [
+    {
+      "package": "GenSA",
+      "archive_sha256": "68970dc3b463986b5b7130acbd42a5ae5a85835d004fb54f81b3ef5c2fccf925",
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/jobs/native-r-locked-archive-acquisition/archives/GenSA_1.1.15.tar.gz",
+      "metadata_and_link_guard": "PASS",
+      "locked_dependency_edges": "PASS"
+    },
+    {
+      "package": "RcppArmadillo",
+      "archive_sha256": "141c8da25f1e8ff1771b0a1b68d65fbdd821b6061cdd9504ff446ee65f70b801",
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/jobs/native-r-locked-archive-acquisition/archives/RcppArmadillo_15.4.2-1.tar.gz",
+      "metadata_and_link_guard": "PASS",
+      "locked_dependency_edges": "PASS"
+    },
+    {
+      "package": "RcppDE",
+      "archive_sha256": "f48aeea87e379beb1a408aef11d65c3f2b8ce09e97c2add6f42f9446ea92fe3b",
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/jobs/native-r-locked-archive-acquisition/archives/RcppDE_0.1.9.tar.gz",
+      "metadata_and_link_guard": "PASS",
+      "locked_dependency_edges": "PASS"
+    },
+    {
+      "package": "Rmalschains",
+      "archive_sha256": "cc240727129edd1aa9a1d666dc3ddcc220d5f0e66498e982f72cfef8910ce3f3",
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/jobs/native-r-locked-archive-acquisition/archives/Rmalschains_0.2-11.tar.gz",
+      "metadata_and_link_guard": "PASS",
+      "locked_dependency_edges": "PASS"
+    },
+    {
+      "package": "plyr",
+      "archive_sha256": "15b5e7f711d53bf41b8687923983b8ef424563aa2f74c5195feb5b1df1aee103",
+      "path": "/Users/bijan/bijux/bijux-pollenomics/artifacts/jobs/native-r-locked-archive-acquisition/archives/plyr_1.8.9.tar.gz",
+      "metadata_and_link_guard": "PASS",
+      "locked_dependency_edges": "PASS"
+    }
+  ],
+  "lock_sha256": "924871eccfb5035bfc86c18fd863f00f6ec51b2e28042021c5fd663cd224b12f",
+  "scope": "New public archive bytes only, no recovered private provenance, no full36 runtime dependency or R/science admission."
+}

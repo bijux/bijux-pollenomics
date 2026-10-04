@@ -11,8 +11,8 @@ import stat
 from typing import Any, TypedDict
 
 from bijux_pollenomics_dev.lra_validation.live_reference_comparison import summarize
-from bijux_pollenomics_dev.lra_validation.native_reference.capture import (
-    validated_native_capture,
+from bijux_pollenomics_dev.lra_validation.native_reference.annulus_capture import (
+    validated_annulus_capture,
 )
 
 _OWNER = "method-certification/current-r-oracle/report-products"
@@ -81,7 +81,7 @@ def _consumer_inputs(repository: Path, capture_manifest: str) -> _ConsumerInputs
         or not isinstance(code, list)
         or not isinstance(data, list)
         or any(not isinstance(name, str) for name in code + data)
-        or len(code) != 95
+        or len(code) != 96
         or len(set(code)) != len(code)
         or len(data) != 280
         or len(set(data)) != len(data)
@@ -149,7 +149,7 @@ def build(repository: Path, output: Path) -> dict[str, Any]:
     """Recompute original-R comparisons without implying a new native R execution."""
     repository = repository.resolve(strict=True)
     evidence = _evidence_destination(repository, output)
-    before = validated_native_capture(repository)
+    before = validated_annulus_capture(repository)
     consumer = _consumer_inputs(repository, before.manifest_sha256)
     report = summarize(
         repository,
@@ -159,7 +159,7 @@ def build(repository: Path, output: Path) -> dict[str, Any]:
         evidence,
         before.source_archives,
     )
-    after = validated_native_capture(repository)
+    after = validated_annulus_capture(repository)
     if (
         before != after
         or _consumer_inputs(repository, after.manifest_sha256) != consumer
@@ -174,11 +174,12 @@ def build(repository: Path, output: Path) -> dict[str, Any]:
     capture_scope = {
         "native_capture_source_revision": before.source_revision,
         "native_capture_manifest_sha256": before.manifest_sha256,
+        "native_capture_source_context": before.source_context,
         "fresh_R_executed_for_this_comparison": False,
         "current_python_expectations_regenerated_for_this_comparison": False,
         "consumer_inputs": consumer,
         "scope": "retained native R capture against original R vectors; current consumer code and data bytes are independently identified, protected captured science inputs match, and neither R nor Python expectations are newly executed",
-        "native_source_acquisition": "fresh_public_locked_archive_acquisition",
+        "native_source_acquisition": "retained_public_locked_archive_acquisition",
     }
     report.update(capture_scope)
     replay.update(capture_scope)

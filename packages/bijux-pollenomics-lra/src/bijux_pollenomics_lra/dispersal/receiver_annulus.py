@@ -96,9 +96,31 @@ def circular_receiver_annulus(
         return value
 
     if receiver == 0.0:
-        factor = float(gpm_values(inner, fall, diffusion, turbulence, wind)) - float(
+        inner_survival = float(gpm_values(inner, fall, diffusion, turbulence, wind))
+        factor = inner_survival - float(
             gpm_values(outer, fall, diffusion, turbulence, wind)
         )
+        if factor == 0.0 and inner_survival > 0.0:
+            # Recover equal rounded survivals from the point GPM parameter law,
+            # rather than the finite-disk coefficient inferred from exp rounding.
+            # Nonzero ordinary subtraction and the disk quadrature stay unchanged.
+            point_coefficient = (4 * fall) / (
+                turbulence * wind * math.sqrt(math.pi) * diffusion
+            )
+            inner_hazard = point_coefficient * inner**exponent
+            if inner == 0.0 or inner_hazard == 0.0:
+                hazard_difference = point_coefficient * outer**exponent
+            else:
+                relative_increment = (outer - inner) / inner
+                # Wide finite radii may overflow their ratio even though both
+                # logarithms and the exponent-scaled hazard increment are finite.
+                log_ratio = (
+                    math.log1p(relative_increment)
+                    if math.isfinite(relative_increment)
+                    else math.log(outer) - math.log(inner)
+                )
+                hazard_difference = inner_hazard * math.expm1(exponent * log_ratio)
+            factor = math.exp(-inner_hazard) * -math.expm1(-hazard_difference)
         return AnnulusResponse(max(0.0, factor), 0.0)
 
     largest_inner_error = 0.0

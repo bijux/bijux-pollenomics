@@ -7,9 +7,9 @@ import json
 from pathlib import Path
 from typing import Any
 
-from bijux_pollenomics_dev.lra_validation.native_reference.capture import (
-    NativeCapture,
-    validated_native_capture,
+from bijux_pollenomics_dev.lra_validation.native_reference.annulus_capture import (
+    AnnulusCapture,
+    validated_annulus_capture,
 )
 from bijux_pollenomics_dev.lra_validation.native_reference.source_replay import (
     build_source_replay,
@@ -28,22 +28,28 @@ def sha256(path: Path) -> str:
 
 def _require_retained_comparison(
     repository: Path, report: dict[str, Any], replay: dict[str, Any]
-) -> NativeCapture:
+) -> AnnulusCapture:
     """Authenticate retained capture and present consumer bytes without rerunning R."""
-    capture = validated_native_capture(repository)
+    capture = validated_annulus_capture(repository)
     consumer = _consumer_inputs(repository, capture.manifest_sha256)
     scope = {
         "native_capture_source_revision": capture.source_revision,
         "native_capture_manifest_sha256": capture.manifest_sha256,
+        "native_capture_source_context": capture.source_context,
         "fresh_R_executed_for_this_comparison": False,
         "current_python_expectations_regenerated_for_this_comparison": False,
         "consumer_inputs": consumer,
-        "native_source_acquisition": "fresh_public_locked_archive_acquisition",
+        "native_source_acquisition": "retained_public_locked_archive_acquisition",
         "scope": "retained native R capture against original R vectors; current consumer code and data bytes are independently identified, protected captured science inputs match, and neither R nor Python expectations are newly executed",
     }
     if report.get("schema_version") != "retained-native-r-comparison-report.v1":
         raise ValueError("Retained comparison report schema differs")
     for record in (report, replay):
+        # JSON scalar identity distinguishes false source-scope flags from zero.
+        if json.dumps(
+            record.get("native_capture_source_context"), sort_keys=True, allow_nan=False
+        ) != json.dumps(capture.source_context, sort_keys=True, allow_nan=False):
+            raise ValueError("Retained comparison dirty source context differs")
         if any(record.get(name) != value for name, value in scope.items()) or any(
             name in record
             for name in (
@@ -90,6 +96,7 @@ def main() -> None:
                 "consumer_inputs",
                 "native_capture_source_revision",
                 "native_capture_manifest_sha256",
+                "native_capture_source_context",
                 "fresh_R_executed_for_this_comparison",
                 "current_python_expectations_regenerated_for_this_comparison",
             )
@@ -128,7 +135,9 @@ def main() -> None:
         ).hexdigest()
         != summary["mapping_sha256"]
         or any(
-            sha256(HERE / relative) != digest for relative, digest in vectors.items()
+            sha256((capture.directory if capture is not None else HERE) / relative)
+            != digest
+            for relative, digest in vectors.items()
         )
     ):
         raise ValueError("Retained R numeric vectors changed")
