@@ -21,7 +21,7 @@ RINGS = Path(
     "packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/data/LOVEexampleRings.json"
 )
 PINNED = {
-    PAPER: "9c0ce8de012ee978d158a402856fd4fcf3fbda3fcaf71d6257964b893b9a392e",
+    PAPER: "7f2f12b62645cf46f077304ca2cec06b3dd4bd361271e4e45237bd7fb74c3409",
     EXAMPLE: "34e861280b7a6ee4bc2d938f2f7c891ea057c44cdc3bfd60e5c27eadca915430",
     POLLEN: "40e94bd1b261097ba6417054975f60a6d525b239cf3604079030e0929f0e0fcc",
     RINGS: "bd574247e704e446dd2d3d70895aeefeae6d6d9f067436e289692cf3a5048445",
