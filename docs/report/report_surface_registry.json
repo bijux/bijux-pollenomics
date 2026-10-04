@@ -1,6 +1,6 @@
 {
   "schema_version": "report-surface-registry.v1",
-  "surface_count": 1963,
+  "surface_count": 1964,
   "inventory_scope": "all input files plus generated navigation pages; registry metadata excluded",
   "content_identity_scope": "Markdown pages; machine outputs retain their domain manifests",
   "excluded_metadata_paths": [
@@ -11,14 +11,14 @@
   ],
   "family_counts": {
     "caveats": 10,
-    "maintenance": 1055,
+    "maintenance": 1056,
     "maps": 88,
     "portal": 2,
     "reviews": 34,
     "scopes": 774
   },
   "audience_counts": {
-    "maintainer_diagnostic": 1057,
+    "maintainer_diagnostic": 1058,
     "public_reading_surface": 783,
     "scientific_review_surface": 123
   },
@@ -28,7 +28,7 @@
     "finland": 14,
     "nordic": 498,
     "norway": 14,
-    "report_root": 1104,
+    "report_root": 1105,
     "sweden": 49,
     "world": 172
   },
@@ -10570,7 +10570,7 @@
     },
     {
       "repository_path": "docs/report/pollen-reconstruction/embsecbio-biome-reconstruction/README.md",
-      "content_sha256": "2c5a7075c738a3676f1172ec919a851fd0086929780f024fbdf87899a80ad6ff",
+      "content_sha256": "127fddd1cab1948d872115cf7f432abb85559fb8d618fa9b7ffa4890cb93821f",
       "family": "maintenance",
       "family_label": "Maintainer truth surfaces",
       "audience": "maintainer_diagnostic",
@@ -10619,6 +10619,18 @@
     },
     {
       "repository_path": "docs/report/pollen-reconstruction/embsecbio-biome-reconstruction/source-audit.json",
+      "family": "maintenance",
+      "family_label": "Maintainer truth surfaces",
+      "audience": "maintainer_diagnostic",
+      "audience_label": "Maintainer diagnostic",
+      "format": "json",
+      "geography": "report_root",
+      "caution_level": "high",
+      "explanation": "Maintainer-facing truth or governance surface.",
+      "reader_route": "maintainer_truth"
+    },
+    {
+      "repository_path": "docs/report/pollen-reconstruction/embsecbio-biome-reconstruction/training-exposure.json",
       "family": "maintenance",
       "family_label": "Maintainer truth surfaces",
       "audience": "maintainer_diagnostic",
@@ -23826,7 +23838,7 @@
     },
     {
       "repository_path": "docs/report/index.md",
-      "content_sha256": "8e5f6cb07254f49dc8696ad3abb2088619ba5f95559cda3b077b9c369f147eae",
+      "content_sha256": "6d54a180d32696dc7fb86da5c3d5a104de03565bb5b158106f394e30de3d5222",
       "family": "portal",
       "family_label": "Portal guidance",
       "audience": "public_reading_surface",
@@ -23839,7 +23851,7 @@
     },
     {
       "repository_path": "docs/report/maintenance/index.md",
-      "content_sha256": "5ed057edc357e0373d6b8bd769ec7ccb012b7ac83b020923456820fdd52fb9da",
+      "content_sha256": "62f346bf34aaa78c33ab3d83bbf0be684e01eea7b61ce260d41f47e05e668f47",
       "family": "maintenance",
       "family_label": "Maintainer truth surfaces",
       "audience": "public_reading_surface",

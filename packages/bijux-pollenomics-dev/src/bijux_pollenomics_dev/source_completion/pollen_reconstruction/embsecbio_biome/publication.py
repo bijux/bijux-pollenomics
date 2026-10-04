@@ -18,6 +18,7 @@ from bijux_pollenomics_dev.ci.report_rebuild.source_qualification import (
 )
 
 from .cohorts import entities, original_matrices, profiles
+from .exposure import exposure_product
 from .numerical import ORDER, evaluate
 from .source import keyed, model, pollen
 from .training import training_product
@@ -32,13 +33,23 @@ TRAINING_CAPTURE_SHA256 = (
     "41da00e15108202e0a2adee8eae318acefeaebd3ceac7cb464058449c4861342"
 )
 
+EXPOSURE_CAPTURE = Path(
+    "data/method-certification/embsecbio-biome/training-exposure-capture.json"
+)
+EXPOSURE_CAPTURE_SHA256 = (
+    "8f9f0999c6d46bab8b6ad9164ccdae88f835856990529cfcd03649e3e0e66ba1"
+)
+
 
 def digest(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
 def products(
-    directory: Path, capture: dict, training_capture: dict | None = None
+    directory: Path,
+    capture: dict,
+    training_capture: dict | None = None,
+    exposure_capture: dict | None = None,
 ) -> dict[str, dict]:
     """Recompute actual saved-model cells; separately consume retained source audit."""
     for name, expected in capture["source_sha256"].items():
@@ -145,6 +156,10 @@ def products(
         generated["training-reconstruction.json"] = training_product(
             directory, training_capture, samples, labels, taxa, means, sd
         )
+    if exposure_capture is not None:
+        generated["training-exposure.json"] = exposure_product(
+            directory, exposure_capture, samples, labels, predictions
+        )
     return generated
 
 
@@ -155,7 +170,10 @@ def run(
     output: Path,
     *,
     training_only: bool = False,
+    exposure_only: bool = False,
 ) -> None:
+    if training_only and exposure_only:
+        raise ValueError("training-only and exposure-only modes are mutually exclusive")
     repository = repository.resolve(strict=True)
     output = require_absent_artifact_output(repository, output)
     qualified = validated_external_report_sources(repository, source_root, descriptor)
@@ -175,10 +193,16 @@ def run(
     if digest(training_capture_path) != TRAINING_CAPTURE_SHA256:
         raise ValueError("EMBSeCBIO training capture authority changed")
     training_capture = json.loads(training_capture_path.read_bytes())
+    exposure_capture_path = safe_source_file(
+        repository, EXPOSURE_CAPTURE.as_posix(), "EMBSeCBIO exposure capture"
+    )
+    if digest(exposure_capture_path) != EXPOSURE_CAPTURE_SHA256:
+        raise ValueError("EMBSeCBIO exposure capture authority changed")
+    exposure_capture = json.loads(exposure_capture_path.read_bytes())
     stage = Path(tempfile.mkdtemp(prefix=".embsecbio-biome-", dir=output.parent))
     published = False
     try:
-        if training_only:
+        if training_only or exposure_only:
             for name, expected in capture["source_sha256"].items():
                 if digest(qualified.directory / name) != expected:
                     raise ValueError("EMBSeCBIO captured source dependency changed")
@@ -189,19 +213,38 @@ def run(
             )
             if set(labels) != set(samples):
                 raise ValueError("training source/PNV sample population differs")
-            generated = {
-                "training-reconstruction.json": training_product(
-                    qualified.directory,
-                    training_capture,
-                    samples,
-                    labels,
-                    taxa,
-                    means,
-                    sd,
-                )
-            }
+            if exposure_only:
+                predictions = {
+                    sid: row["prediction"]
+                    for sid, row in keyed(
+                        qualified.directory, "r-numerical.csv"
+                    ).items()
+                }
+                generated = {
+                    "training-exposure.json": exposure_product(
+                        qualified.directory,
+                        exposure_capture,
+                        samples,
+                        labels,
+                        predictions,
+                    )
+                }
+            else:
+                generated = {
+                    "training-reconstruction.json": training_product(
+                        qualified.directory,
+                        training_capture,
+                        samples,
+                        labels,
+                        taxa,
+                        means,
+                        sd,
+                    )
+                }
         else:
-            generated = products(qualified.directory, capture, training_capture)
+            generated = products(
+                qualified.directory, capture, training_capture, exposure_capture
+            )
         for name, value in generated.items():
             (stage / name).write_text(
                 json.dumps(value, indent=2, sort_keys=True, allow_nan=False) + "\n"
@@ -223,10 +266,16 @@ def main() -> None:
         default=Path("configs/ci/qualified-report-sources/embsecbio-biome-model.json"),
     )
     parser.add_argument("--output", type=Path, required=True)
-    parser.add_argument(
+    modes = parser.add_mutually_exclusive_group()
+    modes.add_argument(
         "--training-only",
         action="store_true",
         help="Replay only source training statistics from the admitted native IDs",
+    )
+    modes.add_argument(
+        "--exposure-only",
+        action="store_true",
+        help="Replay only training exposure and PNV agreement from admitted predictions",
     )
     args = parser.parse_args()
     run(
@@ -235,6 +284,7 @@ def main() -> None:
         args.source_descriptor,
         args.output,
         training_only=args.training_only,
+        exposure_only=args.exposure_only,
     )
 
 

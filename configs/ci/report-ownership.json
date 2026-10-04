@@ -2,8 +2,8 @@
   "schema_version": "report-output-ownership.v1",
   "root": "docs/report",
   "inventory_scope": "tracked report paths; ownership declarations do not certify reproduction",
-  "path_count": 1967,
-  "paths_sha256": "113267e853e02e6e8281ed01f75bc4ea16ff59dc8c9dfab53c7967169997c37a",
+  "path_count": 1968,
+  "paths_sha256": "0a18a2714336c400fe1dcfb2f56ea40df92e009a1b732713a175feb728bf0932",
   "owners": [
     {
       "owner_id": "atlas/boundary-orientation/browser-evidence",
@@ -45158,7 +45158,7 @@
       ],
       "producer_paths": [],
       "producer_inputs": [],
-      "verification": "Explain the actual 5,765-sample saved-equation parity, source-seed matrix compatibility, 4,356-cell parameter regeneration under two declared Rejection and archived-method compatibility profiles, retained Rounding negatives, source units/refusals and exposure/model-map limits. Keep original complete training-runtime and historical training-ID custody, source rights, independent measured vegetation, uncertainty coverage, untouched confirmation and qualified external review separate."
+      "verification": "Explain the actual 5,765-sample saved-equation parity, source-seed matrix compatibility, 4,356-cell parameter regeneration under two declared Rejection and archived-method compatibility profiles, retained Rounding negatives, source units/refusals and exposure/model-map limits. Keep original complete training-runtime and historical training-ID custody, source rights, independent measured vegetation, uncertainty coverage, untouched confirmation and qualified external review separate. Explain the actual 237/917 training-ID exposure, 192/292 nontraining dominant PNV agreement and regional denominator/exclusion consequences. Distinguish operative downsample target113, total970 and per-class678 from the source comment and global679; retain active2501/2468 and inactive commented124. The native917 escaped-name comparison is retained capture authority, not a fresh read of an absent entity CSV."
     },
     {
       "owner_id": "pollen-reconstruction/embsecbio-biome-reconstruction/report-products",
@@ -45168,6 +45168,7 @@
         "docs/report/pollen-reconstruction/embsecbio-biome-reconstruction/historical-comparison.json",
         "docs/report/pollen-reconstruction/embsecbio-biome-reconstruction/report.json",
         "docs/report/pollen-reconstruction/embsecbio-biome-reconstruction/source-audit.json",
+        "docs/report/pollen-reconstruction/embsecbio-biome-reconstruction/training-exposure.json",
         "docs/report/pollen-reconstruction/embsecbio-biome-reconstruction/training-reconstruction.json"
       ],
       "producer_paths": [
@@ -45189,6 +45190,7 @@
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/__init__.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/embsecbio_biome/__init__.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/embsecbio_biome/cohorts.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/embsecbio_biome/exposure.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/embsecbio_biome/numerical.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/embsecbio_biome/publication.py",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/embsecbio_biome/source.py",
@@ -45197,15 +45199,17 @@
       "producer_inputs": [
         "configs/ci/qualified-report-sources/embsecbio-biome-model.json",
         "data/method-certification/embsecbio-biome/fixed-model-capture.json",
+        "data/method-certification/embsecbio-biome/training-exposure-capture.json",
         "data/method-certification/embsecbio-biome/training-reconstruction-capture.json",
         "packages/bijux-pollenomics-dev/pyproject.toml",
+        "packages/bijux-pollenomics-dev/tests/source_completion/pollen_reconstruction/test_embsecbio_exposure.py",
         "packages/bijux-pollenomics-lra/pyproject.toml",
         "packages/bijux-pollenomics/pyproject.toml",
         "packages/pollenomics/pyproject.toml",
         "pyproject.toml",
         "uv.lock"
       ],
-      "verification": "Reproduce five compact products from the qualified 17-file source snapshot and two independently admitted captures. The original four-product twin writers and fixed-model R/Python parity retain their original source scope. The separate training-only twin writers and 21 focused cases reproduce 4,356 mean/sample-SD comparisons from retained native training IDs, preserving two Rejection positives and two Rounding profiles with 2,060 mismatches. Bind the actual 22-file first-party import closure and both captures; six package metadata paths are conservative inputs, not observed reads. Original complete installed-runtime and historical training-ID custody, independent measured-vegetation accuracy, uncertainty coverage, untouched confirmation, source rights and external review remain separate. A complete five-product integrated successor is required at the later scientific gate; these receipts imply no new R sampling run."
+      "verification": "Reproduce six compact products from the unchanged qualified 17-file source snapshot and three admitted captures. Preserve original fixed-model four-product writers, source-seed matrix compatibility and 4,356-cell training reconstruction with retained Rounding negatives. The exposure-only twin writers and 28 focused cases recompute training-ID, coordinate and opaque-name proxy partitions, original 917/565 matrix populations/cells, 292 nontraining samples and explicit regional class exclusions from retained predictions, without R, distances or fitting. Bind actual 23-source import origins and three capture identities; package metadata and the meaningful exposure test are conservative inputs rather than observed producer imports. The complete six-product mixed tree remains a later scientific gate. PNV agreement does not establish independent measured vegetation, authenticated ecological identity, untouched confirmation, rights or external scientific review; exact original historical training-runtime and training-ID custody remain separate."
     }
   ]
 }

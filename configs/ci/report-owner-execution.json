@@ -1748,6 +1748,7 @@
         "source-products/historical-comparison.json": "docs/report/pollen-reconstruction/embsecbio-biome-reconstruction/historical-comparison.json",
         "source-products/report.json": "docs/report/pollen-reconstruction/embsecbio-biome-reconstruction/report.json",
         "source-products/source-audit.json": "docs/report/pollen-reconstruction/embsecbio-biome-reconstruction/source-audit.json",
+        "source-products/training-exposure.json": "docs/report/pollen-reconstruction/embsecbio-biome-reconstruction/training-exposure.json",
         "source-products/training-reconstruction.json": "docs/report/pollen-reconstruction/embsecbio-biome-reconstruction/training-reconstruction.json"
       },
       "timeout_seconds": 120

@@ -1318,11 +1318,11 @@
     },
     {
       "repository_path": "docs/report/pollen-reconstruction/embsecbio-biome-reconstruction/README.md",
-      "content_sha256": "2c5a7075c738a3676f1172ec919a851fd0086929780f024fbdf87899a80ad6ff",
-      "prose_paragraph_count": 29,
+      "content_sha256": "127fddd1cab1948d872115cf7f432abb85559fb8d618fa9b7ffa4890cb93821f",
+      "prose_paragraph_count": 35,
       "link_bullet_count": 0,
       "bullet_sentence_count": 0,
-      "heading_count": 8,
+      "heading_count": 9,
       "table_line_count": 5,
       "quality_posture": "reader_ready",
       "note": "Page explains its purpose before or alongside artifact links."
@@ -3254,7 +3254,7 @@
     },
     {
       "repository_path": "docs/report/index.md",
-      "content_sha256": "8e5f6cb07254f49dc8696ad3abb2088619ba5f95559cda3b077b9c369f147eae",
+      "content_sha256": "6d54a180d32696dc7fb86da5c3d5a104de03565bb5b158106f394e30de3d5222",
       "prose_paragraph_count": 3,
       "link_bullet_count": 11,
       "bullet_sentence_count": 0,
@@ -3265,7 +3265,7 @@
     },
     {
       "repository_path": "docs/report/maintenance/index.md",
-      "content_sha256": "5ed057edc357e0373d6b8bd769ec7ccb012b7ac83b020923456820fdd52fb9da",
+      "content_sha256": "62f346bf34aaa78c33ab3d83bbf0be684e01eea7b61ce260d41f47e05e668f47",
       "prose_paragraph_count": 3,
       "link_bullet_count": 10,
       "bullet_sentence_count": 4,

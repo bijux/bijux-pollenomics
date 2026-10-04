@@ -51,13 +51,13 @@
     },
     {
       "path": "configs/ci/report-owner-execution.json",
-      "sha256": "90fc2c74682f9cf625d89c31c0f83a9e34193753cb317ad6a3430fb4cb57cf74",
-      "bytes": 100092
+      "sha256": "68c8e2bd0bb89bf2179ca15c60950d6512195cf526e87aa230a174f98d7c5758",
+      "bytes": 100233
     },
     {
       "path": "configs/ci/report-ownership.json",
-      "sha256": "f063fddd3d985d06a66db909022b4445a14be04c1700606a26c3770cbad8e9fb",
-      "bytes": 4492213
+      "sha256": "7ffd6db6877e8fd16f483803ede6ae214346cc46165fe9dcafe13650b326379c",
+      "bytes": 4493181
     },
     {
       "path": "configs/docs/science_downloads.py",
@@ -108,6 +108,11 @@
       "path": "data/method-certification/embsecbio-biome/fixed-model-capture.json",
       "sha256": "4c9f109424e0cdffd01a61904602f4080758542d01f8a0fc52516ee5e5a6bc1b",
       "bytes": 11074
+    },
+    {
+      "path": "data/method-certification/embsecbio-biome/training-exposure-capture.json",
+      "bytes": 148539,
+      "sha256": "8f9f0999c6d46bab8b6ad9164ccdae88f835856990529cfcd03649e3e0e66ba1"
     },
     {
       "path": "data/method-certification/embsecbio-biome/training-reconstruction-capture.json",
@@ -1881,8 +1886,8 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/embsecbio-biome-reconstruction/README.md",
-      "sha256": "2c5a7075c738a3676f1172ec919a851fd0086929780f024fbdf87899a80ad6ff",
-      "bytes": 16912
+      "sha256": "127fddd1cab1948d872115cf7f432abb85559fb8d618fa9b7ffa4890cb93821f",
+      "bytes": 19803
     },
     {
       "path": "docs/report/pollen-reconstruction/embsecbio-biome-reconstruction/cohort-diagnostics.json",
@@ -1903,6 +1908,11 @@
       "path": "docs/report/pollen-reconstruction/embsecbio-biome-reconstruction/source-audit.json",
       "sha256": "2c7c6653dc6460188b299b0a81b8d7ef27816b0c4c82a5c57d7ffbf46504877c",
       "bytes": 5682
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/embsecbio-biome-reconstruction/training-exposure.json",
+      "bytes": 149805,
+      "sha256": "79090928001393b0252d851ecaf887e3974ab9785d7e10e4284cbad3793fbe2c"
     },
     {
       "path": "docs/report/pollen-reconstruction/embsecbio-biome-reconstruction/training-reconstruction.json",
@@ -3937,7 +3947,7 @@
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scheduling.py",
       "sha256": "f74f8be403736e71e9c6152d18293a647b252843493aec0f7679437ac626d66d",
-      "bytes": 6375
+      "bytes": 6353
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scheduling_custody/__init__.py",
@@ -4685,14 +4695,19 @@
       "bytes": 5278
     },
     {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/embsecbio_biome/exposure.py",
+      "bytes": 10534,
+      "sha256": "bc8e912eaf30a06a0b4c6f5eee10796727909d802843743f152d5cab85720de7"
+    },
+    {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/embsecbio_biome/numerical.py",
       "sha256": "db84101e7e155e69e40879b95a22d022b82a9eaf1591871fd82aa932b7d79073",
       "bytes": 2180
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/embsecbio_biome/publication.py",
-      "sha256": "372b2b83807abf9e57cdf267de15e2567be15ecd270e55da8e4737f61bd93f6a",
-      "bytes": 10107
+      "sha256": "38ad5f4ad105481d3da65bf0fe87d1cf9fb34f0a00cff7df4e9448b3b69d6c96",
+      "bytes": 12062
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/embsecbio_biome/source.py",
@@ -5358,6 +5373,11 @@
       "path": "packages/bijux-pollenomics-dev/tests/source_completion/pollen_reconstruction/test_embsecbio_biome.py",
       "sha256": "5ecfb8bf89bf79fe143f03f32e3c93037a39fdf7bd5773e0fa7c71a34f88ca73",
       "bytes": 4380
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/tests/source_completion/pollen_reconstruction/test_embsecbio_exposure.py",
+      "bytes": 3344,
+      "sha256": "3ff879d83b101452cd502597c2ba0a8ab44ea181747e951d0d097160a2b23bc1"
     },
     {
       "path": "packages/bijux-pollenomics-dev/tests/source_completion/pollen_reconstruction/test_embsecbio_training.py",
