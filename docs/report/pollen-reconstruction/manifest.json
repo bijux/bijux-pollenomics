@@ -6231,7 +6231,7 @@
     },
     {
       "path": "reports/needed/report-claims.csv",
-      "sha256": "927f76fa8c8d2b21d5e07e9363bec7057533db2ff10f4c9363487bc77090b85c",
+      "sha256": "c67f971c9e7844bf4e8d46f56bd20f989dd81691c83309f1cc442d8fcf5c015e",
       "bytes": 88290
     },
     {
@@ -6246,7 +6246,7 @@
     },
     {
       "path": "reports/needed/scientific-review.csv",
-      "sha256": "96086c8b403d6de99cdcfb7d05a39f05fdc0776664029f75fa35c7307d1a670b",
+      "sha256": "864216484afbc82bad270758317b054a45f73410de2edbaf0f2e627c124d055a",
       "bytes": 64650
     },
     {
@@ -6656,8 +6656,8 @@
     },
     {
       "path": "reports/science/sweden-lake-transfer.md",
-      "sha256": "2df22f1964738d4b5d6c75e1a132c108aa230ab894888d44a29c37416f7b8034",
-      "bytes": 4494
+      "sha256": "22d55a4925d728ecfdda4735234087130729948fc3105664677542f40f85cd6e",
+      "bytes": 5780
     },
     {
       "path": "reports/science/sweden-spatiotemporal-sensitivity.md",

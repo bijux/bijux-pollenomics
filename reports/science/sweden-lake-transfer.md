@@ -11,8 +11,28 @@ source-default comparable calibrated ages, one 500 BP binning rule and the
 31-target author taxonomy. All Swedish targets remained outside the 81-site
 Denmark/Finland/Norway training set.
 
-We selected 268 of 273 source samples and retained the other five outside this
-study. The selected counts contain 238,797 native pollen NISP: 231,115
+We selected 268 of 273 source samples. The five refused samples have
+source-default calibrated point ages below 0 BP; the locked nonnegative-BP
+rule excludes them from this study, without converting them to missing pollen
+or ecological absence. Gilltjärnen has one refusal at −49.97366 BP, Lake
+Avegöl one at −15.4 BP, and Flinkasjön three at −50, −33.3 and −9.4 BP.
+Their native pollen counts remain source observations.
+
+| Lake | Selected / source samples | Selected native pollen NISP | Age-refused native pollen NISP | All source native pollen NISP |
+| --- | ---: | ---: | ---: | ---: |
+| Gilltjärnen | 100 / 101 | 59,073 | 610 | 59,683 |
+| Lake Avegöl | 62 / 63 | 67,949 | 920 | 68,869 |
+| Flinkasjön | 106 / 109 | 111,775 | 3,531 | 115,306 |
+| **Total** | **268 / 273** | **238,797** | **5,061** | **243,858** |
+
+The five excluded sample IDs are `551822` at Gilltjärnen, `552864` at Lake
+Avegöl, and `552982`, `552983` and `552996` at Flinkasjön, each with the
+`neotoma:sample:` prefix. These exclusions precede count aggregation and
+leave the retained predictions and scores unchanged. Native pollen `NISP`
+selects the source pollen/count measurement rows; it is not an independently
+authenticated terrestrial LRA denominator. Neotoma source attribution and
+[reuse terms](../../docs/public/pollenomics-data/sources/neotoma.md) continue
+to apply. The selected counts contain 238,797 native pollen NISP: 231,115
 assigned to the 31 targets, 3,825 author-excluded and 3,857 unmapped. The
 [input manifest](../../docs/report/regions/nordic/swedish-lake-transfer/input-manifest.json)
 binds the Neotoma relational snapshot, author lookup and training profiles.
