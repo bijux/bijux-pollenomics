@@ -7611,8 +7611,8 @@
     },
     {
       "path": "reports/needed/report-claims.csv",
-      "sha256": "ecb1d52e0e4b1206978f7877002c80b47496b0b224b18f7711a8d01b537847ac",
-      "bytes": 88994
+      "sha256": "63aa999851f84d6a78e9733dcf763797cfea49ecdba96ef835b6e43990436bcb",
+      "bytes": 89540
     },
     {
       "path": "reports/needed/report-claims.md",
@@ -7626,8 +7626,8 @@
     },
     {
       "path": "reports/needed/scientific-review.csv",
-      "sha256": "7d5123a9159b4274b70e84f9ea0353829379301fde6734350a5601e0ec502e8f",
-      "bytes": 64650
+      "sha256": "52608fba97fb7af5e6eafc447b2c4b83560219f7fc98b02fbce180ead8257f69",
+      "bytes": 64719
     },
     {
       "path": "reports/needed/scientific-review.md",
@@ -7806,8 +7806,8 @@
     },
     {
       "path": "reports/science/landclim-paper.md",
-      "sha256": "550782e8092ab655952d3003dd3250f91f0651ae1a7985d5a894153dcd871225",
-      "bytes": 24712
+      "sha256": "4fc9712abb4f18a0dbc83ad75eebeae3dea4d067dd8aff0b4ee05393e0a288f0",
+      "bytes": 37267
     },
     {
       "path": "reports/science/lilla-gloppsjon-direct-pollen.md",
