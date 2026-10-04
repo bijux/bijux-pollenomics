@@ -1601,6 +1601,17 @@
       "output_mode": "directory",
       "output_subdirectory": "source-products",
       "timeout_seconds": 240
+    },
+    {
+      "owner_id": "method-certification/original-r-reference/report-products",
+      "module": "bijux_pollenomics_dev.source_completion.method_certification.original_r_account",
+      "source_paths": {
+        "source-products/report.json": "docs/report/method-certification/original-r-reference/report.json"
+      },
+      "source_arguments": [],
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "timeout_seconds": 600
     }
   ]
 }
