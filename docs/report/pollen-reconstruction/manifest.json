@@ -3041,8 +3041,8 @@
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/atlas_browser/probe.mjs",
-      "sha256": "0e5094669df1cf5884788ab9798122277e46aa07a6037d0b3ed8b61d6a887960",
-      "bytes": 131197
+      "sha256": "3e73435c903f2d9f39211cfa10f0ce6fd6eb071c8a438a63daa1b4f2381012b8",
+      "bytes": 133961
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/dependency_audit.py",
@@ -5286,7 +5286,7 @@
     },
     {
       "path": "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/assets/document.html",
-      "sha256": "35841524f994ce10173fc532b411d08c4de036059482a702dd19a1d4bb5ae590",
+      "sha256": "4e71863410d759452d9cbf6d5f9674fdb1813e693e17371e588e12e93932cbe8",
       "bytes": 446562
     },
     {

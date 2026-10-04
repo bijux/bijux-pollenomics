@@ -1383,6 +1383,49 @@ async function captureNullInputs(cdp) {
   })()`);
 }
 
+function northOrientationFacts() {
+  const north = document.getElementById('north-orientation');
+  const box = (element) => {
+    const value = element.getBoundingClientRect();
+    return { left: value.left, right: value.right, top: value.top, bottom: value.bottom, width: value.width, height: value.height };
+  };
+  const visible = (element) => {
+    if (!element) return false;
+    const style = getComputedStyle(element), rect = box(element);
+    return style.display !== 'none' && style.visibility !== 'hidden' && Number(style.opacity) > 0
+      && rect.width > 0 && rect.height > 0 && rect.right > 0 && rect.left < innerWidth && rect.bottom > 0 && rect.top < innerHeight;
+  };
+  const bounded = (rect) => rect.left >= 0 && rect.right <= innerWidth && rect.top >= 0 && rect.bottom <= innerHeight;
+  const northRect = north ? box(north) : null;
+  const controls = [...document.querySelectorAll('.map-topbar button')].filter(visible).map((element) => {
+    const rect = box(element), x = (rect.left + rect.right) / 2, y = (rect.top + rect.bottom) / 2;
+    const insetX = Math.min(4, rect.width / 4), insetY = Math.min(4, rect.height / 4);
+    const hitPoints = [[x, y], [rect.left + insetX, y], [rect.right - insetX, y], [x, rect.top + insetY], [x, rect.bottom - insetY]];
+    return {
+      id: element.id, rect, disabled: element.disabled === true, bounded: bounded(rect),
+      overlaps_north: northRect !== null && rect.left < northRect.right && rect.right > northRect.left
+        && rect.top < northRect.bottom && rect.bottom > northRect.top,
+      hit_points_uncovered: hitPoints.every(([left, top]) => {
+        const hit = document.elementFromPoint(left, top);
+        return hit === element || element.contains(hit);
+      }),
+    };
+  });
+  return {
+    visible: visible(north), rect: northRect, bounded: northRect !== null && bounded(northRect),
+    role: north?.getAttribute('role') ?? null, label: north?.getAttribute('aria-label') ?? null,
+    required_controls_present: ['fit-active', 'search-toggle', 'panel-toggle'].every((id) => controls.some((control) => control.id === id)),
+    controls,
+  };
+}
+
+function northOrientationPasses(facts) {
+  return facts?.visible === true && facts.bounded === true && facts.role === 'img' && facts.label === 'North is up'
+    && facts.required_controls_present === true && facts.controls.length > 0
+    && facts.controls.every((control) => control.bounded === true && control.overlaps_north === false
+      && (control.disabled === true || control.hit_points_uncovered === true));
+}
+
 async function responsiveFacts(cdp, width) {
   return evaluate(cdp, `(async () => {
     document.documentElement.classList.add('atlas-probe-motion-mode');
@@ -1502,6 +1545,7 @@ async function responsiveFacts(cdp, width) {
         aggregate_cluster_footprint_ratio: mapArea > 0 ? clusterArea / mapArea : null,
       };
     };
+    const northOrientation = (${northOrientationFacts.toString()})();
     const clearMap = {
       panel_collapsed: sidebar.classList.contains('is-collapsed'),
       legend_collapsed: legendBody.classList.contains('is-collapsed'),
@@ -1765,6 +1809,7 @@ async function responsiveFacts(cdp, width) {
     }
     return {
       viewport: { width: innerWidth, height: innerHeight }, elements, mobile, clear_map: clearMap,
+      north_orientation: northOrientation,
       expanded_legend: expandedLegend,
       search_control: searchControl,
       expanded_panel: expandedPanel,
@@ -2461,6 +2506,7 @@ function focusedRecordPasses(facts) {
 
 function desktopLayoutPasses(layout) {
   return layout.viewport.width >= 901
+    && northOrientationPasses(layout.north_orientation)
     && layout.horizontally_bounded
     && layout.desktop_non_overlap === true
     && layout.clear_map.panel_collapsed
@@ -2501,6 +2547,7 @@ function helpDialogPasses(facts) {
 
 function mobileLayoutPasses(layout) {
   return layout.viewport.width <= 900
+    && northOrientationPasses(layout.north_orientation)
     && layout.horizontally_bounded
     && layout.clear_map.panel_collapsed
     && layout.clear_map.legend_collapsed
