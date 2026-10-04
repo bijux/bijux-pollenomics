@@ -1612,6 +1612,18 @@
       "output_mode": "directory",
       "output_subdirectory": "source-products",
       "timeout_seconds": 600
+    },
+    {
+      "owner_id": "method-certification/current-r-oracle/report-products",
+      "module": "bijux_pollenomics_dev.source_completion.method_certification.native_r_comparison",
+      "source_arguments": [],
+      "source_paths": {
+        "source-products/report.json": "docs/report/method-certification/current-r-oracle/report.json",
+        "source-products/source-replay.json": "docs/report/method-certification/current-r-oracle/source-replay.json"
+      },
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "timeout_seconds": 300
     }
   ]
 }

@@ -7,7 +7,6 @@ from pathlib import Path
 from typing import cast
 
 from bijux_pollenomics_dev.ci.rebuild_reports import InventoryEntry, inventory_reports
-from bijux_pollenomics_dev.lra_validation.reference_replay import CERTIFICATE_SHA256
 
 from .contracts import (
     JsonObject,
@@ -33,7 +32,6 @@ from .evidence import (
     require_inventory_matches_tree,
 )
 from .maintained_sources import validated_maintained_report_sources
-from .original_r_reference import validated_original_r_reference
 from .owner_process import run_owner_command
 from .planning import (
     current_binding,
@@ -41,6 +39,7 @@ from .planning import (
     require_current_binding,
     require_owner_plan_binding,
 )
+from .r_reference.selection import validated_r_references
 from .runtime_process import run_runtime_command
 
 FRAGMENT_SCHEMA = "partitioned-report-fragment.v1"
@@ -320,6 +319,7 @@ def assemble_partition_lane(
     source_root: Path | None = None,
     retain_maintained_report_sources: bool = False,
     retain_original_r_reference: bool = False,
+    retain_native_r_reference: bool = False,
 ) -> JsonObject:
     """Assemble one complete report tree from exactly one copy of every partition."""
     if lane not in _LANES:
@@ -390,27 +390,20 @@ def assemble_partition_lane(
         if retain_maintained_report_sources
         else ((), {})
     )
-    retained_r = (
-        validated_original_r_reference(repo_root, policy)
-        if retain_original_r_reference
-        else ()
+    r_sources = validated_r_references(
+        repo_root,
+        policy,
+        original=retain_original_r_reference,
+        native=retain_native_r_reference,
     )
+    retained_r = r_sources.inventory
     source_inputs: JsonObject = {
         **(
             {"maintained_report_sources": maintained_evidence}
             if retain_maintained_report_sources
             else {}
         ),
-        **(
-            {
-                "original_r_reference": {
-                    "certificate_sha256": CERTIFICATE_SHA256,
-                    "inventory": inventory_json(retained_r),
-                }
-            }
-            if retain_original_r_reference
-            else {}
-        ),
+        **r_sources.evidence,
     }
     source_paths = [entry.path for entry in (*maintained, *retained_r)]
     if len(source_paths) != len(set(source_paths)):
@@ -502,8 +495,13 @@ def assemble_partition_lane(
         if maintained_after != maintained or evidence_after != maintained_evidence:
             raise ReportRebuildError("maintained sources changed during assembly")
     if (
-        retain_original_r_reference
-        and validated_original_r_reference(repo_root, policy) != retained_r
+        validated_r_references(
+            repo_root,
+            policy,
+            original=retain_original_r_reference,
+            native=retain_native_r_reference,
+        )
+        != r_sources
     ):
         raise ReportRebuildError("retained R source changed during assembly")
     owners: dict[str, str] = {}

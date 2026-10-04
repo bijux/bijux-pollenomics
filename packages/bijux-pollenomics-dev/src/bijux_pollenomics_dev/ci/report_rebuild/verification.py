@@ -13,7 +13,6 @@ from bijux_pollenomics_dev.ci.rebuild_reports import (
     repository_identity,
     write_rebuild_evidence,
 )
-from bijux_pollenomics_dev.lra_validation.reference_replay import CERTIFICATE_SHA256
 
 from .contracts import (
     JsonObject,
@@ -39,10 +38,8 @@ from .evidence import (
 )
 from .execution import ASSEMBLY_SCHEMA, OWNED_ASSEMBLY_SCHEMA, SOURCE_ASSEMBLY_SCHEMA
 from .maintained_sources import validated_maintained_report_sources
-from .original_r_reference import (
-    validated_original_r_reference,
-)
 from .planning import parse_plan, require_current_binding
+from .r_reference.selection import validated_r_references
 
 
 def _parse_assembly_manifest(path: Path) -> JsonObject:
@@ -127,6 +124,7 @@ def _parse_assembly_manifest(path: Path) -> JsonObject:
         if not source_evidence or not set(source_evidence) <= {
             "maintained_report_sources",
             "original_r_reference",
+            "native_r_reference",
         }:
             raise ReportRebuildError("assembly source evidence roles are invalid")
     return manifest
@@ -332,6 +330,7 @@ def verify_partitioned_rebuild(
     owner_ids: tuple[str, ...] = (),
     source_root: Path | None = None,
     retain_original_r_reference: bool = False,
+    retain_native_r_reference: bool = False,
     retain_maintained_report_sources: bool = False,
 ) -> JsonObject:
     """Verify two complete partitioned builds and the tracked report tree."""
@@ -347,6 +346,11 @@ def verify_partitioned_rebuild(
         not identity for identity in owner_ids
     ):
         raise ReportRebuildError("owner identities must be nonempty and unique")
+    retains_sources = (
+        retain_maintained_report_sources
+        or retain_original_r_reference
+        or retain_native_r_reference
+    )
     repo_root = repo_root.resolve()
     plan = parse_plan(plan_path)
     policy, binding, inputs_before = require_current_binding(
@@ -403,7 +407,7 @@ def verify_partitioned_rebuild(
     ):
         expected_schema = (
             SOURCE_ASSEMBLY_SCHEMA
-            if retain_maintained_report_sources or retain_original_r_reference
+            if retains_sources
             else OWNED_ASSEMBLY_SCHEMA
             if owners
             else ASSEMBLY_SCHEMA
@@ -413,7 +417,7 @@ def verify_partitioned_rebuild(
                 raise ReportRebuildError(
                     f"{lane} assembly claims unexpected checked-in source inputs"
                 )
-            if retain_maintained_report_sources or retain_original_r_reference:
+            if retains_sources:
                 raise ReportRebuildError(f"{lane} assembly source-input schema changed")
             detail = (
                 "did not consume owner inputs"
@@ -421,7 +425,7 @@ def verify_partitioned_rebuild(
                 else "claims unexpected owner inputs"
             )
             raise ReportRebuildError(f"{lane} assembly {detail}")
-        if owners or retain_maintained_report_sources or retain_original_r_reference:
+        if owners or retains_sources:
             claimed_paths = require_mapping(
                 assembly["owner_paths"], "assembly owner_paths"
             )
@@ -448,11 +452,13 @@ def verify_partitioned_rebuild(
     tracked = inventory_reports(
         repo_root / cast(str, policy["tracked_report_root"]), policy
     )
-    retained_reference = (
-        validated_original_r_reference(repo_root, policy)
-        if retain_original_r_reference
-        else ()
+    r_sources = validated_r_references(
+        repo_root,
+        policy,
+        original=retain_original_r_reference,
+        native=retain_native_r_reference,
     )
+    retained_reference = r_sources.inventory
     maintained, maintained_evidence = (
         validated_maintained_report_sources(
             repo_root, tracked, expected_repository=binding.repository
@@ -466,16 +472,7 @@ def verify_partitioned_rebuild(
             if retain_maintained_report_sources
             else {}
         ),
-        **(
-            {
-                "original_r_reference": {
-                    "certificate_sha256": CERTIFICATE_SHA256,
-                    "inventory": inventory_json(retained_reference),
-                }
-            }
-            if retain_original_r_reference
-            else {}
-        ),
+        **r_sources.evidence,
     }
     if source_evidence:
         for lane, assembly in (
@@ -542,6 +539,16 @@ def verify_partitioned_rebuild(
         )
         if maintained_after != maintained or evidence_after != maintained_evidence:
             raise ReportRebuildError("maintained sources changed during verification")
+    if (
+        validated_r_references(
+            repo_root,
+            policy,
+            original=retain_original_r_reference,
+            native=retain_native_r_reference,
+        )
+        != r_sources
+    ):
+        raise ReportRebuildError("retained R source changed during verification")
     report: JsonObject = {
         "schema_version": "reproducible-report-build-evidence.v3",
         "status": "PASS" if not differences else "FAIL",
@@ -582,16 +589,7 @@ def verify_partitioned_rebuild(
             )
         },
         "retained_sources": {
-            **(
-                {
-                    "original_r_reference": {
-                        "certificate_sha256": CERTIFICATE_SHA256,
-                        "paths": [entry.path for entry in retained_reference],
-                    }
-                }
-                if retain_original_r_reference
-                else {}
-            ),
+            **r_sources.retained_evidence,
             **(
                 {"maintained_report_sources": maintained_evidence}
                 if retain_maintained_report_sources
