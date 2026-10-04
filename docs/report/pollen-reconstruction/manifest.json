@@ -6231,7 +6231,7 @@
     },
     {
       "path": "reports/needed/report-claims.csv",
-      "sha256": "12d624fd327df2fe339dbb5debe5dad6aec67755efc0c7e10c60b811ae23b060",
+      "sha256": "927f76fa8c8d2b21d5e07e9363bec7057533db2ff10f4c9363487bc77090b85c",
       "bytes": 88290
     },
     {
@@ -6246,7 +6246,7 @@
     },
     {
       "path": "reports/needed/scientific-review.csv",
-      "sha256": "d4875e4ea30a85c5c7e5060005fba9346f04a213c2efaa64aa9230b5d476cf7b",
+      "sha256": "96086c8b403d6de99cdcfb7d05a39f05fdc0776664029f75fa35c7307d1a670b",
       "bytes": 64650
     },
     {
@@ -6486,8 +6486,8 @@
     },
     {
       "path": "reports/science/nordic-pollen-study.md",
-      "sha256": "78a31532cc3b73fe34abd8a97d1d7edcacdc59ab15ea654f55bc0ab8f3a0a53f",
-      "bytes": 41816
+      "sha256": "129aea46d28373b14741f7b4f7f81d81a5825893ff8ad1e5407218324cbba6b9",
+      "bytes": 41976
     },
     {
       "path": "reports/science/paper-accounts.csv",
