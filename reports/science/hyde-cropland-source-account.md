@@ -99,3 +99,94 @@ PYTHONPATH=packages/bijux-pollenomics/src:packages/bijux-pollenomics-dev/src \
 We can relocate the external source root without changing its relative input
 paths. Our [HYDE source review](../../docs/public/pollenomics-data/sources/hyde.md)
 records the remaining release and admission conflicts.
+
+## Local cropland context for archived LandClim agricultural cover
+
+We subsequently completed a bounded local modeled-context calculation for
+LandClim II grids 779, 830 and 880. It reused retained source bytes for five
+positive CE points (500, 1000, 1500, 1700 and 1900), three HYDE source scenarios,
+and the archived LandClim agricultural-land category. This establishes a
+conditional arithmetic result, not admission of a comparable pollen-model
+HYDE covariate or independent vegetation accuracy. We publish execution scope
+and refusal counts here; the cell results remain local.
+
+| Observed outcome | Count | Scope |
+| --- | ---: | --- |
+| Contexts evaluated | 45 | Three grids, five source points, three scenarios |
+| Conditional contrast variants | 180 | Two spatial supports and two area denominators per context |
+| Local values retained | 90 | Source ISO 752 subset; comparable estimand remains unestablished |
+| Missing-quantity refusals | 90 | Every complete-cell contrast retained missing quantities as unknown |
+| Future-point refusals | 18 | CE 2000 and 2025, across three grids and three scenarios |
+
+The complete one-degree cell was partitioned into source ISO 752, other-country
+and unassigned positions. The retained ISO 752 subset excludes other-country and source-ISO no-data
+positions under an explicit source-country-mask assumption. A no-data value
+does not establish zero cropland, sea, lake or another physical class. Known
+area terms were conserved across the partitions; partial sums did not become
+complete quantities. Source ISO assignment does not establish a reviewed
+national boundary, and the narrower subset does not reproduce whole-cell
+spatial support.
+
+Two denominators remain distinct: source maximum available land area and source
+total spherical cell area. Neither is established as equivalent to LandClim's
+closed modeled vegetation denominator. Half-degree LandClim II coordinates
+were treated as centers of one-degree boxes by a declared spatial scenario;
+the documented northwest-corner convention for LandClim I was not transferred.
+Native degree-like axes were interpreted as geographic degrees, without
+admitting a formal CRS or datum. Spherical clipping retained boundary slivers
+and assumed uniform allocation of source quantities within native cells.
+Missing, nonpositive-denominator and impossible-capacity cases remained
+refusals rather than clipped or imputed values.
+
+For this finite scenario, documented AD 1950 BP conventions allow the five
+positive CE labels to be associated with archived BP interval labels. The
+point-to-window rule treats a source instant as contextual to an interval,
+not its observed or time-averaged cropland. The youngest archive label does
+not recover the contributing cores' actual surface dates. CE 2000 and 2025
+imply negative BP and were refused rather than coerced into the youngest
+interval. No year-zero or NetCDF calendar convention was inferred.
+
+Archived AL means and marginal standard errors are stored in percentage-cover
+units. The calculation checked 31-taxon closure and the AL addends, then
+explicitly divided percentage values by 100. AL is the source cereal-associated
+agricultural category, comprising Cerealia-type and Secale; HYDE total cropland
+is broader. Our [LandClim account](landclim-paper.md) describes the archived
+composition and distinguishes it from new pollen reconstructions. Category
+equivalence, spatial representativeness and instant-versus-interval equivalence
+remain unestablished here. HYDE lower, base and upper are scenarios, not
+calibrated confidence bounds. LandClim marginal standard errors do not supply
+cross-source covariance or standard errors for these contrasts. We claim no
+calibrated difference interval, predictive improvement, physical pollen-model
+validation or historical 1,128-record reproduction.
+
+The native calculation exited zero. Twenty-four focused source-fixture cases
+and four real command-line refusal cases reached their expected outcomes.
+A separate independent consumer also exited zero: it checked all 45 contexts,
+540 area-account values, 360 ratio accounts, 90 finite contrasts and 90 null
+contrasts. It used a distinct spherical rectangle formula and 50-digit decimal
+arithmetic for retained-token sums and ratios, with absolute tolerance
+`2e-9` in each checked quantity's units plus relative tolerance `2e-10`.
+Country partitions and observed-zero versus missing populations matched.
+This qualifies saved conditional arithmetic, not ecological comparability or
+uncertainty coverage. Both terminal receipts recorded unchanged input custody
+and no surviving owned processes.
+
+Nineteen native ASCII members were read through only the required prefixes.
+Their receipts bind actual prefix hashes, literal variable-specific headers,
+quantity roles, source positions and compressed archive identities. They do
+not claim full-member hashes, end-of-file checks or full-member CRC verification.
+The independent consumer reused the saved capture and did not read native ZIP
+members again. We did not repeat the whole-country conservation calculation,
+certify the complete HYDE collection or perform a new physical reconstruction.
+
+This calculation remains local noncommercial exploratory analysis under the
+more restrictive retained CC BY-NC 4.0 declaration described above. Permission
+to redistribute native cells or derived cell results is not established. No
+cell values, fractions, differences, area totals, maps or numerical data exports
+are published by this section. LandClim output licensing does not upgrade HYDE
+rights. The [provider record](../../docs/report/source-relations/hyde/provider-record/README.md)
+and [maintained source review](../../docs/public/pollenomics-data/sources/hyde.md)
+retain the conflicting declarations. Provider-version authority, formal
+geography, category and temporal comparability, qualified source review and
+public redistribution permission remain open. The finite arithmetic success
+does not establish release readiness.
