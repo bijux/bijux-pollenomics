@@ -1,10 +1,10 @@
 {
   "schema_version": "report-narrative-quality-review.v1",
-  "page_count": 309,
+  "page_count": 310,
   "quality_posture_counts": {
     "reader_ready": 120,
     "structured_reference": 19,
-    "thin_structure": 170
+    "thin_structure": 171
   },
   "rows": [
     {
@@ -1364,6 +1364,17 @@
       "repository_path": "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/joint-uncertainty-method.md",
       "content_sha256": "35afb3264b4168e89c36dbf66760ad1d0105d5e35e0d8973cbd9cd422a2d5d8a",
       "prose_paragraph_count": 7,
+      "link_bullet_count": 0,
+      "bullet_sentence_count": 0,
+      "heading_count": 1,
+      "table_line_count": 0,
+      "quality_posture": "thin_structure",
+      "note": "Page explains itself but still needs stronger internal wayfinding."
+    },
+    {
+      "repository_path": "docs/report/pollen-reconstruction/norwegian-one-family-forward/README.md",
+      "content_sha256": "62a94a2a022dec5150f542a1358334b4d8c18c888dc558fcc6f58e730cd2187c",
+      "prose_paragraph_count": 9,
       "link_bullet_count": 0,
       "bullet_sentence_count": 0,
       "heading_count": 1,
@@ -3353,7 +3364,7 @@
     },
     {
       "repository_path": "docs/report/index.md",
-      "content_sha256": "52708d804d899c1cb7f1739bf85e53e01ae1f802ba83cb386c845784de22db19",
+      "content_sha256": "6789e4e95384ab5d4ac738460380a8d95bd51a300446f1f33c5d156395409fcd",
       "prose_paragraph_count": 3,
       "link_bullet_count": 11,
       "bullet_sentence_count": 0,
@@ -3364,7 +3375,7 @@
     },
     {
       "repository_path": "docs/report/maintenance/index.md",
-      "content_sha256": "bca6dc735971192b306158478d6501777b99001dcd745d770dcf47984025afb9",
+      "content_sha256": "0012adf7d03267a3c6d1aca97624df873786d39aaa2d3f7c7b00dfd3e9737569",
       "prose_paragraph_count": 3,
       "link_bullet_count": 10,
       "bullet_sentence_count": 4,

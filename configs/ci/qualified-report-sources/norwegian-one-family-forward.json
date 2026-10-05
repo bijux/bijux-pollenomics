@@ -1,0 +1,193 @@
+{
+  "file_count": 36,
+  "files": [
+    {
+      "path": "algebra-controls.json",
+      "sha256": "d9aa6d8abd600232966476bf80a4cf14dc63b1508c4fc70c7d47720cc1e1a487",
+      "size": 4022
+    },
+    {
+      "path": "consumer-result.json",
+      "sha256": "6a22791b1ca9877173936a856fbb7a80cd37a126244904e8a004938ca10d2c19",
+      "size": 3340
+    },
+    {
+      "path": "independent-method-review.json",
+      "sha256": "0b6e626b481fee780e792d6c6106e3753a5e5e07572815cce73b05e03564bd11",
+      "size": 4657
+    },
+    {
+      "path": "independent-output-review.json",
+      "sha256": "b5cc6da41197680667a08013a52c143a87b92ada259f23f4060c67044b74093b",
+      "size": 6977
+    },
+    {
+      "path": "independent-physical-review.json",
+      "sha256": "7bc533a8886b326108e81b4c751c2e072c73d253d1acd4c1422a29705a8f719c",
+      "size": 2718
+    },
+    {
+      "path": "independent-scalar-review.json",
+      "sha256": "f2448151d7b2acc98f0abe4d682ca9fcfcf5ad54a26571b19c8631b0450f32b7",
+      "size": 1133
+    },
+    {
+      "path": "lens-complement-source-origin.json",
+      "sha256": "c2a1b4aad9a81e7a26f3fc4ad13531d1d66f7e3c5b4edaeddeaedf8bafc9f3f6",
+      "size": 533
+    },
+    {
+      "path": "lens-source-origin.json",
+      "sha256": "bdef1df8b5b79ab076188cd1e2031f7e69abfd9ed99889a8dbe86c7351fad519",
+      "size": 456
+    },
+    {
+      "path": "model-report.json",
+      "sha256": "c7b2584e49525d831510ab9c1bb8746011433bb0c518288be24b85ad6da4e6ec",
+      "size": 15203
+    },
+    {
+      "path": "mukk-publications.json",
+      "sha256": "cb0c4ac9c00bacaa78b530d593359e08c11016ac525a9dd071fdec74ed36a0c8",
+      "size": 1864
+    },
+    {
+      "path": "native-terminal.json",
+      "sha256": "ad03a1b2c44d384c71bc4c18056f13f8de9f00a2646d85d2d89d63442492d8ec",
+      "size": 4399
+    },
+    {
+      "path": "new-physical-tuples.json",
+      "sha256": "8a53772fdbbc850eb35639051a5370f9750e7b3100a1359cb43a5c9471ed87cb",
+      "size": 1069
+    },
+    {
+      "path": "original-collect.py",
+      "sha256": "a8e20f05e2f13dce9680db4497c186540377b3d1f07aab1f29247342ca815257",
+      "size": 2461
+    },
+    {
+      "path": "original-independent.py",
+      "sha256": "8b162daf02072e606113e4dc04a9e10596d78a0a595271230648457d80913db7",
+      "size": 17475
+    },
+    {
+      "path": "original-lens.py",
+      "sha256": "8069759c8acf609ae493ee64e648faf4fb8937529cac0928c651108d25daf411",
+      "size": 5221
+    },
+    {
+      "path": "original-predict.py",
+      "sha256": "b4d5c5f2134ef1b4b500facd06cccaece78b57412a7759553b798ec73ddd6987",
+      "size": 17736
+    },
+    {
+      "path": "original-runner.py",
+      "sha256": "fb4800221f11b09dbfaeabcfd16690a8325635e0207bec559b6883efcc6c2699",
+      "size": 10985
+    },
+    {
+      "path": "original-source_support.py",
+      "sha256": "a07004caacbeb5502214b51106c37611dbb4356d5a0ff9a75ec52d98ae695773",
+      "size": 16847
+    },
+    {
+      "path": "original-workbook.py",
+      "sha256": "9d5255028ea89bbde778474199d4773388385a0bebbef0dee009e526c07b84db",
+      "size": 2141
+    },
+    {
+      "path": "outcome-ledger.json",
+      "sha256": "363313b9123d975ac97ff328b848dc8c243e27ec22f82bb57de9d877058a1cf0",
+      "size": 3094
+    },
+    {
+      "path": "prediction-ledger.json",
+      "sha256": "36af6f2047946bca65433acc10c78ab8b3eae11a752c786a9ce8841499cd8977",
+      "size": 33533
+    },
+    {
+      "path": "prior-160m-physical-review.json",
+      "sha256": "ce27a738d2673396daf9555537671f6c06560ffe3501413c0f27d6e76938ec78",
+      "size": 22245
+    },
+    {
+      "path": "prior-160m-physical-terminal.json",
+      "sha256": "419854788e096ef9dfa7a0e9c650df5cea762164331e1a0034aa18897464f7c8",
+      "size": 1337
+    },
+    {
+      "path": "prior-98m-physical-review.json",
+      "sha256": "123de5038343c22bcf02c25a3b69160755d0c3c563cc4705e10db9630323147e",
+      "size": 241926
+    },
+    {
+      "path": "prior-98m-physical-terminal.json",
+      "sha256": "1c8b8f2efb9fa599ea708418c04b8f80f5c9e97a33455475f1fc44d9a7dbac0e",
+      "size": 985
+    },
+    {
+      "path": "private-native-source-support.json",
+      "sha256": "c3a13f0a5d42f418e9e0e4d2e1c14dda61119c2d0ec81c5cb14fa5ea125b4e29",
+      "size": 131032
+    },
+    {
+      "path": "protocol.json",
+      "sha256": "3a6a845ece69fa880d19903dc329bbcfab529a6b55bb6422efa786544af27f36",
+      "size": 9049
+    },
+    {
+      "path": "rattu-publications.json",
+      "sha256": "a659cd72c4d2e0fe8d424169aef74b9d64e8deba99c8660dfdaa9011e2f3bcfe",
+      "size": 1020
+    },
+    {
+      "path": "score-ledger.json",
+      "sha256": "b3487e092a08e4021c07041a987d1f24c3ddcc05e0db94b30f2912b1aea41190",
+      "size": 21237
+    },
+    {
+      "path": "source-guards.json",
+      "sha256": "88b3b4f7564babd56b7d69d508d4b0bc7b0fbe8bf0cfc3cbad1786372686dc9a",
+      "size": 2444
+    },
+    {
+      "path": "source-projection.json",
+      "sha256": "b8145f2be7ad873f48c740127ac29c6b8365ebeeb0bcfe04ccdb7696bbbe79bb",
+      "size": 10034
+    },
+    {
+      "path": "source-reuse-review.json",
+      "sha256": "01e3479f3b93073af6650d382d0496642bc6e7f9480124ed9be042306efe8e9c",
+      "size": 1721
+    },
+    {
+      "path": "stages.json",
+      "sha256": "d97519eee0dee05bc35a4801e4222e19dc13067706bf5b2d97b9ae828f106993",
+      "size": 1166
+    },
+    {
+      "path": "study-plan.json",
+      "sha256": "ee428d009b2e85d79b121f9a709e3b149a011ad76992134cf4cbdf3534fc4037",
+      "size": 1654806
+    },
+    {
+      "path": "target-publications-qualification.json",
+      "sha256": "7842db918ef4f02fc846f1edb6ba21d0c0269a66b88e9c95a9f67aff6a7914ea",
+      "size": 43453
+    },
+    {
+      "path": "workbook-source-origin.json",
+      "sha256": "17dc50f3cf476ab3dfde24ff43baafa2e5ab1190b1e5e150c42ea83f8f82aecd",
+      "size": 286
+    }
+  ],
+  "manifest": {
+    "path": "manifest.json",
+    "sha256": "185559bba343c82c2200dd584e0d9862512a7d46470ec51cd0d9626d88b18855",
+    "size": 3700
+  },
+  "schema_version": "qualified-author-snapshot.v1",
+  "snapshot_schema_version": "norwegian-one-family-forward-source-snapshot.v1",
+  "source_id": "nordic/norwegian-one-family-forward"
+}

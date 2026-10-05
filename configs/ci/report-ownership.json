@@ -2,8 +2,8 @@
   "schema_version": "report-output-ownership.v1",
   "root": "docs/report",
   "inventory_scope": "tracked report paths; ownership declarations do not certify reproduction",
-  "path_count": 2058,
-  "paths_sha256": "8e98b4a7d049eb8b398099f1d67fba5333753d7225e882eb7fcb92b0fab0e803",
+  "path_count": 2063,
+  "paths_sha256": "4ba92b108375a9c0241b2b998179860718654af0adbe2cf565d72fd2b56a0d0e",
   "owners": [
     {
       "owner_id": "atlas/boundary-orientation/browser-evidence",
@@ -45945,6 +45945,57 @@
         "uv.lock"
       ],
       "verification": "Replay18exact privately qualified original source/result captures into2compact products without raw per-taxon vectors. Original source-complete10363 consumer passed43source/refusal guards and direct twin products; original numerical/raw/R/model/training source authority remains separate. Current annotation-only source successor passes stricttyping/Ruff;6descriptor CLIcases prove exact/default acceptance and wrong/absolute/traversal refusal before publication. Current typed descriptor-aware direct twins exited0 with19actual production origins/18named callable entries, preserved source/private capsule custody and reproduced both original products byteexact. The external19-file packet is independently verified by identity. Original43guards retain originalsource scope;6CLI guards retain changedboundary scope. Ordinary clean-Git configured reference/replay requires its own exact candidate evidence; no original scientific rerun, historical crosswalk/amalgamation, age selector, geometry, rights/qualifiedreview or ecologicalaccuracy upgrade."
+    },
+    {
+      "owner_id": "pollen-reconstruction/norwegian-one-family-forward/reader-account",
+      "role": "maintained_editorial",
+      "paths": [
+        "docs/report/pollen-reconstruction/norwegian-one-family-forward/README.md"
+      ],
+      "producer_paths": [],
+      "producer_inputs": [],
+      "verification": "Explain the exposed-target conditional two-taxon forward experiment: two physical training cores in one shared primary-publication family, 20 predictions before 18 paired scoring windows, static basins and point ages. Preserve missing source/outcome rows, three poorer equal-source baseline windows and shared-PPE cancellation. No PPE identification, independent vegetation accuracy, untouched or historical/release/rights claim."
+    },
+    {
+      "owner_id": "pollen-reconstruction/norwegian-one-family-forward/account-products",
+      "role": "generated_owner",
+      "paths": [
+        "docs/report/pollen-reconstruction/norwegian-one-family-forward/assumptions.json",
+        "docs/report/pollen-reconstruction/norwegian-one-family-forward/comparisons.json",
+        "docs/report/pollen-reconstruction/norwegian-one-family-forward/report.json",
+        "docs/report/pollen-reconstruction/norwegian-one-family-forward/source-account.json"
+      ],
+      "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/artifact_paths.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/author_snapshot.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/contracts.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/qualified_sources.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/source_paths.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/audit.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/evidence.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/landclim.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/manifests.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/norwegian_one_family_forward/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/norwegian_one_family_forward/account.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/norwegian_one_family_forward/authority.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/norwegian_one_family_forward/producer.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/norwegian_one_family_forward/sources.py"
+      ],
+      "producer_inputs": [
+        "configs/ci/qualified-report-sources/norwegian-one-family-forward.json",
+        "data/method-certification/norwegian-one-family-forward/source-capture.json",
+        "packages/bijux-pollenomics-dev/pyproject.toml",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/norwegian_one_family_forward/__main__.py",
+        "packages/bijux-pollenomics-dev/tests/source_completion/pollen_reconstruction/test_norwegian_one_family_forward.py",
+        "pyproject.toml",
+        "uv.lock"
+      ],
+      "verification": "Replay 36 exact privately qualified original controls, protocol, source/capture and actual scalar/physical/native receipts into four compact account products. Actual75 source/capture/scope/atomic/privacy/CLI contracts and two direct writers exited0, products matched byteexact, source custody remained unchanged and19 production source origins were observed. Original ee428 scientific evidence is15 source guards,632 Decimal comparisons and two newly qualified252m response factors over40 window/taxon uses; original model pending=true and literal terminal status remain unchanged and are qualified separately by later actual reviews. The maintained writer does not repeat model/physics/Decimal/R/acquisition stages and publishes no private sample counts or IDs. Count/PPE working independence, one publication family and source-bound point-age/static-geometry assumptions remain. The __main__ wrapper, test and package metadata are conservative declared inputs, not observed producer execution/read claims. Ordinary clean-Git configured reference/replay still needs its own current candidate receipt; no independent vegetation, untouched, historical, rights or external scientific approval claim."
     }
   ]
 }

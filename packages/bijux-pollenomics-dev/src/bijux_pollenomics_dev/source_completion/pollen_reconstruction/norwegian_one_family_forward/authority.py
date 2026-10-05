@@ -1,0 +1,51 @@
+"""Pin original native execution and independent conditional qualification."""
+
+from pathlib import Path
+
+SOURCE_ID = "nordic/norwegian-one-family-forward"
+DESCRIPTOR = Path(
+    "configs/ci/qualified-report-sources/norwegian-one-family-forward.json"
+)
+DESCRIPTOR_SHA256 = "cf7e071ef5f0e86a95583fec18db975b4aa7b4ab32685d87d664402a6b8e479a"
+CAPTURE = Path(
+    "data/method-certification/norwegian-one-family-forward/source-capture.json"
+)
+CAPTURE_SHA256 = "1bd487f2753f532a36d8cce893d2776cd46656f791b58573d84fd201b657b7f3"
+SOURCE_SHA256 = {
+    "algebra-controls.json": "d9aa6d8abd600232966476bf80a4cf14dc63b1508c4fc70c7d47720cc1e1a487",
+    "consumer-result.json": "6a22791b1ca9877173936a856fbb7a80cd37a126244904e8a004938ca10d2c19",
+    "independent-method-review.json": "0b6e626b481fee780e792d6c6106e3753a5e5e07572815cce73b05e03564bd11",
+    "independent-output-review.json": "b5cc6da41197680667a08013a52c143a87b92ada259f23f4060c67044b74093b",
+    "independent-physical-review.json": "7bc533a8886b326108e81b4c751c2e072c73d253d1acd4c1422a29705a8f719c",
+    "independent-scalar-review.json": "f2448151d7b2acc98f0abe4d682ca9fcfcf5ad54a26571b19c8631b0450f32b7",
+    "lens-complement-source-origin.json": "c2a1b4aad9a81e7a26f3fc4ad13531d1d66f7e3c5b4edaeddeaedf8bafc9f3f6",
+    "lens-source-origin.json": "bdef1df8b5b79ab076188cd1e2031f7e69abfd9ed99889a8dbe86c7351fad519",
+    "model-report.json": "c7b2584e49525d831510ab9c1bb8746011433bb0c518288be24b85ad6da4e6ec",
+    "mukk-publications.json": "cb0c4ac9c00bacaa78b530d593359e08c11016ac525a9dd071fdec74ed36a0c8",
+    "native-terminal.json": "ad03a1b2c44d384c71bc4c18056f13f8de9f00a2646d85d2d89d63442492d8ec",
+    "new-physical-tuples.json": "8a53772fdbbc850eb35639051a5370f9750e7b3100a1359cb43a5c9471ed87cb",
+    "original-collect.py": "a8e20f05e2f13dce9680db4497c186540377b3d1f07aab1f29247342ca815257",
+    "original-independent.py": "8b162daf02072e606113e4dc04a9e10596d78a0a595271230648457d80913db7",
+    "original-lens.py": "8069759c8acf609ae493ee64e648faf4fb8937529cac0928c651108d25daf411",
+    "original-predict.py": "b4d5c5f2134ef1b4b500facd06cccaece78b57412a7759553b798ec73ddd6987",
+    "original-runner.py": "fb4800221f11b09dbfaeabcfd16690a8325635e0207bec559b6883efcc6c2699",
+    "original-source_support.py": "a07004caacbeb5502214b51106c37611dbb4356d5a0ff9a75ec52d98ae695773",
+    "original-workbook.py": "9d5255028ea89bbde778474199d4773388385a0bebbef0dee009e526c07b84db",
+    "outcome-ledger.json": "363313b9123d975ac97ff328b848dc8c243e27ec22f82bb57de9d877058a1cf0",
+    "prediction-ledger.json": "36af6f2047946bca65433acc10c78ab8b3eae11a752c786a9ce8841499cd8977",
+    "prior-160m-physical-review.json": "ce27a738d2673396daf9555537671f6c06560ffe3501413c0f27d6e76938ec78",
+    "prior-160m-physical-terminal.json": "419854788e096ef9dfa7a0e9c650df5cea762164331e1a0034aa18897464f7c8",
+    "prior-98m-physical-review.json": "123de5038343c22bcf02c25a3b69160755d0c3c563cc4705e10db9630323147e",
+    "prior-98m-physical-terminal.json": "1c8b8f2efb9fa599ea708418c04b8f80f5c9e97a33455475f1fc44d9a7dbac0e",
+    "private-native-source-support.json": "c3a13f0a5d42f418e9e0e4d2e1c14dda61119c2d0ec81c5cb14fa5ea125b4e29",
+    "protocol.json": "3a6a845ece69fa880d19903dc329bbcfab529a6b55bb6422efa786544af27f36",
+    "rattu-publications.json": "a659cd72c4d2e0fe8d424169aef74b9d64e8deba99c8660dfdaa9011e2f3bcfe",
+    "score-ledger.json": "b3487e092a08e4021c07041a987d1f24c3ddcc05e0db94b30f2912b1aea41190",
+    "source-guards.json": "88b3b4f7564babd56b7d69d508d4b0bc7b0fbe8bf0cfc3cbad1786372686dc9a",
+    "source-projection.json": "b8145f2be7ad873f48c740127ac29c6b8365ebeeb0bcfe04ccdb7696bbbe79bb",
+    "source-reuse-review.json": "01e3479f3b93073af6650d382d0496642bc6e7f9480124ed9be042306efe8e9c",
+    "stages.json": "d97519eee0dee05bc35a4801e4222e19dc13067706bf5b2d97b9ae828f106993",
+    "study-plan.json": "ee428d009b2e85d79b121f9a709e3b149a011ad76992134cf4cbdf3534fc4037",
+    "target-publications-qualification.json": "7842db918ef4f02fc846f1edb6ba21d0c0269a66b88e9c95a9f67aff6a7914ea",
+    "workbook-source-origin.json": "17dc50f3cf476ab3dfde24ff43baafa2e5ab1190b1e5e150c42ea83f8f82aecd",
+}

@@ -1875,6 +1875,21 @@
         "source-products/source-refusals.json": "docs/report/pollen-reconstruction/embsecbio-literal-correspondence/source-refusals.json"
       },
       "external_source_descriptor": "configs/ci/qualified-report-sources/embsecbio-literal-correspondence.json"
+    },
+    {
+      "owner_id": "pollen-reconstruction/norwegian-one-family-forward/account-products",
+      "module": "bijux_pollenomics_dev.source_completion.pollen_reconstruction.norwegian_one_family_forward.producer",
+      "source_arguments": [],
+      "output_subdirectory": "source-products",
+      "output_mode": "directory",
+      "timeout_seconds": 30,
+      "source_paths": {
+        "source-products/assumptions.json": "docs/report/pollen-reconstruction/norwegian-one-family-forward/assumptions.json",
+        "source-products/comparisons.json": "docs/report/pollen-reconstruction/norwegian-one-family-forward/comparisons.json",
+        "source-products/report.json": "docs/report/pollen-reconstruction/norwegian-one-family-forward/report.json",
+        "source-products/source-account.json": "docs/report/pollen-reconstruction/norwegian-one-family-forward/source-account.json"
+      },
+      "external_source_descriptor": "configs/ci/qualified-report-sources/norwegian-one-family-forward.json"
     }
   ],
   "schema_version": "configured-report-owner-execution.v1"
