@@ -2,8 +2,8 @@
   "schema_version": "report-output-ownership.v1",
   "root": "docs/report",
   "inventory_scope": "tracked report paths; ownership declarations do not certify reproduction",
-  "path_count": 2063,
-  "paths_sha256": "4ba92b108375a9c0241b2b998179860718654af0adbe2cf565d72fd2b56a0d0e",
+  "path_count": 2066,
+  "paths_sha256": "32171dc711daaef3daf430dc50c029c397c0708197cf8b573c2624675c28a91d",
   "owners": [
     {
       "owner_id": "atlas/boundary-orientation/browser-evidence",
@@ -45996,6 +45996,57 @@
         "uv.lock"
       ],
       "verification": "Replay 36 exact privately qualified original controls, protocol, source/capture and actual scalar/physical/native receipts into four compact account products. Actual75 source/capture/scope/atomic/privacy/CLI contracts and two direct writers exited0, products matched byteexact, source custody remained unchanged and19 production source origins were observed. Original ee428 scientific evidence is15 source guards,632 Decimal comparisons and two newly qualified252m response factors over40 window/taxon uses; original model pending=true and literal terminal status remain unchanged and are qualified separately by later actual reviews. The maintained writer does not repeat model/physics/Decimal/R/acquisition stages and publishes no private sample counts or IDs. Count/PPE working independence, one publication family and source-bound point-age/static-geometry assumptions remain. The __main__ wrapper, test and package metadata are conservative declared inputs, not observed producer execution/read claims. Ordinary clean-Git configured reference/replay still needs its own current candidate receipt; no independent vegetation, untouched, historical, rights or external scientific approval claim."
+    },
+    {
+      "owner_id": "pollen-reconstruction/swedish-conditional-love/reader-account",
+      "paths": [
+        "docs/report/pollen-reconstruction/swedish-conditional-love/README.md"
+      ],
+      "producer_inputs": [],
+      "producer_paths": [],
+      "role": "maintained_editorial",
+      "verification": "Explain the exact declared additive local/regional mixture and generalT inverse, source panels/denominators/chronology support, all three signed scenarios and two infeasible negative-cover outcomes. Preserve the original failed numerical predecessor versus admitted modelstage and genuine successor oracle, shared once-PPE/counting covariance with assumed-zero mixed blocks, SAME-source marginal lambda interpretation, small-basin regional proxy and unresolved CAA/workbook geometry provenance. Reader ownership supplies no ecology/history/untouched/coverage/rights or human review certificate."
+    },
+    {
+      "owner_id": "pollen-reconstruction/swedish-conditional-love/account-products",
+      "paths": [
+        "docs/report/pollen-reconstruction/swedish-conditional-love/report.json",
+        "docs/report/pollen-reconstruction/swedish-conditional-love/source-proof.json"
+      ],
+      "producer_inputs": [
+        "configs/ci/qualified-report-sources/swedish-conditional-love.json",
+        "packages/bijux-pollenomics-dev/pyproject.toml",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/swedish_conditional_love/__main__.py",
+        "pyproject.toml",
+        "uv.lock"
+      ],
+      "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/rebuild_reports.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/artifact_paths.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/author_snapshot.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/contracts.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/evidence.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/publisher_tables.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/qualified_sources.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/source_qualification.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/audit.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/evidence.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/landclim.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/manifests.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/swedish_conditional_love/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/swedish_conditional_love/authority.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/swedish_conditional_love/producer.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/swedish_conditional_love/sources.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/swedish_conditional_love/summary.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/trusted_process.py"
+      ],
+      "role": "generated_owner",
+      "verification": "Project exact14 original private conditional LOVE model/source/protocol/oracle captures into two compact aggregate/scientific source-proof products. Original model job remains overall native1 with modelstage0 and independentstage1; actual oracle-only08a15 source captured four responses/48scalar result cells after47guards with no model rerun. Current corrected covariance-sidecar scenario binding e444 and direct e865 producer actually passed20pure tests/40source/atomic guards, two byte-identical product writers,23observed first-party origins/four actual maintained callable entries each. The original failed9908 source-shape preparation is retained; typing proof previously recorded belongs to predecessor scope, current focused type validation remains separate. Raw sample/count/depth/age/mask rows remain external in the14-member source packet plus its authored manifest. Keep both negative-cover scenarios, exact29samples/7396literal-panelN/27940reportedNISP/20missingbounds, SAME-source lambda marginal covariance, assumed-zero count\u2013PPE crosscovariance, static80m receiving disk/unestimated1000m split/all-terrestrial masks and small80m regional proxy. Krageholm CAA186ha versus workbook837m remains documentary provenance uncertainty, not a correction. Ordinary genuine clean-Git configured reference/replay remains a separate current contract prerequisite; no new model/oracle/chronology/physical run, historical replay, independent vegetation accuracy, untouched confirmation, measured interval coverage, source rights or formal review admission."
     }
   ]
 }

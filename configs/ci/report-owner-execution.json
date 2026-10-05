@@ -1890,6 +1890,19 @@
         "source-products/source-account.json": "docs/report/pollen-reconstruction/norwegian-one-family-forward/source-account.json"
       },
       "external_source_descriptor": "configs/ci/qualified-report-sources/norwegian-one-family-forward.json"
+    },
+    {
+      "external_source_descriptor": "configs/ci/qualified-report-sources/swedish-conditional-love.json",
+      "module": "bijux_pollenomics_dev.source_completion.pollen_reconstruction.swedish_conditional_love.producer",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "pollen-reconstruction/swedish-conditional-love/account-products",
+      "source_arguments": [],
+      "source_paths": {
+        "source-products/report.json": "docs/report/pollen-reconstruction/swedish-conditional-love/report.json",
+        "source-products/source-proof.json": "docs/report/pollen-reconstruction/swedish-conditional-love/source-proof.json"
+      },
+      "timeout_seconds": 30
     }
   ],
   "schema_version": "configured-report-owner-execution.v1"

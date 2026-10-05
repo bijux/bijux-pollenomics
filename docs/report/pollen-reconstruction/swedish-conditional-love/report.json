@@ -1,0 +1,335 @@
+{
+  "actual_scientific_candidate": "480b7adc5f47a10bc173b25013ba5df59d6dbbdc",
+  "actual_scientific_plan_sha256": "d7d25a69060d6e6cc39b9efeb97ff752e974502cacd25f059f95188fe4931a12",
+  "all_three_same_source_marginal_scenarios": [
+    {
+      "conditional_SE": [
+        0.04587493439680477,
+        0.04587493439680477
+      ],
+      "counting_covariance": [
+        [
+          0.001697529442825491,
+          -0.001697529442825491
+        ],
+        [
+          -0.001697529442825491,
+          0.001697529442825491
+        ]
+      ],
+      "greater_than_one_taxon_labels": [],
+      "inverse_forward_roundtrip_is_prediction_accuracy": false,
+      "maintained_forward_refusal": null,
+      "maintained_forward_status": "accepted",
+      "negative_taxon_labels": [],
+      "once_shared_ppe_covariance": [
+        [
+          0.00040698016308565016,
+          -0.00040698016308565016
+        ],
+        [
+          -0.00040698016308565016,
+          0.00040698016308565016
+        ]
+      ],
+      "scenario": {
+        "id": "half_regional_panel_mass",
+        "lambda": 0.5
+      },
+      "signed_conditional_local_panel_cover": [
+        0.7781054913233862,
+        0.22189450867661392
+      ],
+      "simplex_feasible": true,
+      "total_conditional_covariance": [
+        [
+          0.002104509605911141,
+          -0.002104509605911141
+        ],
+        [
+          -0.002104509605911141,
+          0.002104509605911141
+        ]
+      ]
+    },
+    {
+      "conditional_SE": [
+        0.05952186390862364,
+        0.05952186390862364
+      ],
+      "counting_covariance": [
+        [
+          0.002882946039258487,
+          -0.002882946039258487
+        ],
+        [
+          -0.002882946039258487,
+          0.002882946039258487
+        ]
+      ],
+      "greater_than_one_taxon_labels": [
+        "Betula"
+      ],
+      "inverse_forward_roundtrip_is_prediction_accuracy": false,
+      "maintained_forward_refusal": "local_cover cannot contain negative values",
+      "maintained_forward_status": "refused",
+      "negative_taxon_labels": [
+        "Poaceae"
+      ],
+      "once_shared_ppe_covariance": [
+        [
+          0.0006599062438982268,
+          -0.0006599062438982268
+        ],
+        [
+          -0.0006599062438982268,
+          0.0006599062438982268
+        ]
+      ],
+      "scenario": {
+        "id": "equal_regional_local_panel_mass",
+        "lambda": 1.0
+      },
+      "signed_conditional_local_panel_cover": [
+        1.0016539822067665,
+        -0.001653982206766491
+      ],
+      "simplex_feasible": false,
+      "total_conditional_covariance": [
+        [
+          0.0035428522831567138,
+          -0.0035428522831567138
+        ],
+        [
+          -0.0035428522831567138,
+          0.0035428522831567138
+        ]
+      ]
+    },
+    {
+      "conditional_SE": [
+        0.08682643955512494,
+        0.08682643955512494
+      ],
+      "counting_covariance": [
+        [
+          0.0061905880631373195,
+          -0.0061905880631373195
+        ],
+        [
+          -0.0061905880631373195,
+          0.0061905880631373195
+        ]
+      ],
+      "greater_than_one_taxon_labels": [
+        "Betula"
+      ],
+      "inverse_forward_roundtrip_is_prediction_accuracy": false,
+      "maintained_forward_refusal": "local_cover cannot contain negative values",
+      "maintained_forward_status": "refused",
+      "negative_taxon_labels": [
+        "Poaceae"
+      ],
+      "once_shared_ppe_covariance": [
+        [
+          0.0013482425426824456,
+          -0.0013482425426824456
+        ],
+        [
+          -0.0013482425426824456,
+          0.0013482425426824456
+        ]
+      ],
+      "scenario": {
+        "id": "double_regional_panel_mass",
+        "lambda": 2.0
+      },
+      "signed_conditional_local_panel_cover": [
+        1.4487509639735274,
+        -0.4487509639735272
+      ],
+      "simplex_feasible": false,
+      "total_conditional_covariance": [
+        [
+          0.007538830605819765,
+          -0.007538830605819765
+        ],
+        [
+          -0.007538830605819765,
+          0.007538830605819765
+        ]
+      ]
+    }
+  ],
+  "assumptions": {
+    "all_terrestrial_without_landmask": true,
+    "chronology_bounds_not_repaired": true,
+    "count_ppe_cross_covariance_assumed_zero": true,
+    "lambda_is_unestimated_panel_mass_ratio": true,
+    "regional_outer_radius_m": 100000,
+    "regional_proxy_contains80m_basin": true,
+    "same_source_lambda_covariances_are_marginal_not_joint": true,
+    "static_receiving_radius_m": 80,
+    "unestimated_split_radius_m": 1000
+  },
+  "four_source_bound_response_factors": [
+    {
+      "absolute_difference": 5.243028233792302e-14,
+      "arguments": {
+        "absolute_tolerance": 1e-09,
+        "diffusion_coefficient": 0.12,
+        "fall_speed_m_s": 0.024,
+        "inner_radius_m": 80,
+        "outer_radius_m": 1000,
+        "quadrature_limit": 100,
+        "receiver_radius_m": 80,
+        "relative_tolerance": 1e-08,
+        "turbulence_parameter": 0.25,
+        "wind_speed_m_s": 3
+      },
+      "independent_factor": 0.13583999813846628,
+      "maintained_factor": 0.1358399981385187,
+      "nonrigorous_estimates": true,
+      "region": "local",
+      "taxon": "Betula"
+    },
+    {
+      "absolute_difference": 1.948718963973306e-13,
+      "arguments": {
+        "absolute_tolerance": 1e-09,
+        "diffusion_coefficient": 0.12,
+        "fall_speed_m_s": 0.035,
+        "inner_radius_m": 80,
+        "outer_radius_m": 1000,
+        "quadrature_limit": 100,
+        "receiver_radius_m": 80,
+        "relative_tolerance": 1e-08,
+        "turbulence_parameter": 0.25,
+        "wind_speed_m_s": 3
+      },
+      "independent_factor": 0.11642701706512992,
+      "maintained_factor": 0.1164270170653248,
+      "nonrigorous_estimates": true,
+      "region": "local",
+      "taxon": "Poaceae"
+    },
+    {
+      "absolute_difference": 2.7450264283856995e-14,
+      "arguments": {
+        "absolute_tolerance": 1e-09,
+        "diffusion_coefficient": 0.12,
+        "fall_speed_m_s": 0.024,
+        "inner_radius_m": 1000,
+        "outer_radius_m": 100000,
+        "quadrature_limit": 100,
+        "receiver_radius_m": 80,
+        "relative_tolerance": 1e-08,
+        "turbulence_parameter": 0.25,
+        "wind_speed_m_s": 3
+      },
+      "independent_factor": 0.1610331322815212,
+      "maintained_factor": 0.16103313228149374,
+      "nonrigorous_estimates": true,
+      "region": "regional",
+      "taxon": "Betula"
+    },
+    {
+      "absolute_difference": 5.70733738047835e-12,
+      "arguments": {
+        "absolute_tolerance": 1e-09,
+        "diffusion_coefficient": 0.12,
+        "fall_speed_m_s": 0.035,
+        "inner_radius_m": 1000,
+        "outer_radius_m": 100000,
+        "quadrature_limit": 100,
+        "receiver_radius_m": 80,
+        "relative_tolerance": 1e-08,
+        "turbulence_parameter": 0.25,
+        "wind_speed_m_s": 3
+      },
+      "independent_factor": 0.1001372879960563,
+      "maintained_factor": 0.10013728799034896,
+      "nonrigorous_estimates": true,
+      "region": "regional",
+      "taxon": "Poaceae"
+    }
+  ],
+  "historical_vegetation_untouched_intervalcoverage_rights_review_admission": false,
+  "independent_qualification": {
+    "geometry_estimates_nonrigorous": true,
+    "independent_review_sha256": "9c45fb17832cc3a759f3cc8ae5ced3be18da3354f39f0413ddc7e065c87d07ad",
+    "physical_tuples": 4,
+    "scalar_cover_covariance_SE_cells": 48
+  },
+  "literal_panel": [
+    "Betula",
+    "Poaceae"
+  ],
+  "oracle_only_native_exit": 0,
+  "oracle_only_plan_sha256": "08a15d88d83c69efff35fdeb5ce38a160c3d1898aa0fbeadff680501bc99095e",
+  "original_independent_stage_native_exit": 1,
+  "original_model_job_status": "FAIL",
+  "original_model_stage_native_exit": 0,
+  "raw_source_or_sample_rows_redistributed": false,
+  "schema_version": "swedish-conditional-love-account.v1",
+  "source_cores": [
+    {
+      "chronology_id": 38422,
+      "collection_unit_id": 39241,
+      "core": "BOKE",
+      "dataset_id": 54001,
+      "literal_panel_N": 707,
+      "reported_pollen_NISP": 2663,
+      "residual_reported_NISP": 1956,
+      "site_id": 28872,
+      "source_sample_count": 5,
+      "unknown_age_bounds": 5
+    },
+    {
+      "chronology_id": 13366,
+      "collection_unit_id": 16622,
+      "core": "KRAGMJNY",
+      "dataset_id": 23013,
+      "literal_panel_N": 1391,
+      "reported_pollen_NISP": 4905,
+      "residual_reported_NISP": 3514,
+      "site_id": 3204,
+      "source_sample_count": 9,
+      "unknown_age_bounds": 0
+    },
+    {
+      "chronology_id": 38421,
+      "collection_unit_id": 39240,
+      "core": "BJARE",
+      "dataset_id": 53999,
+      "literal_panel_N": 5298,
+      "reported_pollen_NISP": 20372,
+      "residual_reported_NISP": 15074,
+      "site_id": 28871,
+      "source_sample_count": 15,
+      "unknown_age_bounds": 15
+    }
+  ],
+  "source_denominators": {
+    "literal_panel_N": 7396,
+    "reported_pollen_NISP": 27940,
+    "residual_reported_NISP": 20544,
+    "source_samples": 29,
+    "unknown_age_bounds": 20
+  },
+  "source_window": {
+    "epoch": "AD1950 convention for exact named calibrated BP fields; no historical chronology identity",
+    "older_cal_bp_exclusive": 350,
+    "point_membership_only": true,
+    "younger_cal_bp_inclusive": 100
+  },
+  "unresolved_geometry_context": {
+    "CAA2007_area_ha": 186,
+    "CAA_document_url": "https://proceedings.caaconference.org/files/2007/125_Sugita_et_al_CAA2007.pdf",
+    "authority": "Browser parsed-text documentary review; no native PDF digest or historical geometry admission",
+    "core": "KRAGMJNY",
+    "interpretation": "Unresolved cross-source area/radius provenance; neither replaces the frozen scientific scenario",
+    "printed_page": 388,
+    "workbook_static_radius_m": 837
+  }
+}

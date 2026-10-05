@@ -61,13 +61,13 @@
     },
     {
       "path": "configs/ci/report-owner-execution.json",
-      "sha256": "4f886bacfcb1573b96dccbebe882bfb8d93541034116b258c9ebb30b9e55fa3f",
-      "bytes": 109026
+      "sha256": "afe2235d0685319386afee5e662c7b523168b4f4d8b2f74b88413ef8e6668000",
+      "bytes": 109754
     },
     {
       "path": "configs/ci/report-ownership.json",
-      "sha256": "5b5ad8d23a9dabefc99b6f7a66da306714cf5717ea8875f8f46862f188150f98",
-      "bytes": 4569404
+      "sha256": "79917711eeb05bca68d0e8a2f162e0335acdf8d9220d491977f5a4eb3ab3b5fb",
+      "bytes": 4575125
     },
     {
       "path": "configs/docs/science_downloads.py",
@@ -1246,12 +1246,12 @@
     },
     {
       "path": "docs/report/index.md",
-      "sha256": "6789e4e95384ab5d4ac738460380a8d95bd51a300446f1f33c5d156395409fcd",
+      "sha256": "29172dfd85297bbba3f593dee8ae3ac585057261bf134fdd86921e42765e85e3",
       "bytes": 2689
     },
     {
       "path": "docs/report/maintenance/index.md",
-      "sha256": "0012adf7d03267a3c6d1aca97624df873786d39aaa2d3f7c7b00dfd3e9737569",
+      "sha256": "bcff7cdc8a49ce5ce739fc00f7d94c1525d5cf2cefdc73dcd880af5cb612e5d4",
       "bytes": 1412
     },
     {
@@ -3756,22 +3756,22 @@
     },
     {
       "path": "docs/report/report_narrative_quality_review.json",
-      "sha256": "9b3970fa94a9bc8e6ae029813c4e67ce46c73aeb354ad76c1a40228ba615ff54",
-      "bytes": 146984
+      "sha256": "80b4b228dcd7e205ae4da5b4f956bafc8842ccae56c77fb2ddcdc537f6d2ec58",
+      "bytes": 147460
     },
     {
       "path": "docs/report/report_narrative_quality_review.md",
-      "sha256": "04da692704f249691ffca17ec69af2523c184eeb04765caaf7b9aa1d623ffeca",
+      "sha256": "872b4929b4bd29cc01e37a1d6359db272729726b0b9dbb082f33181e38a8cda5",
       "bytes": 754
     },
     {
       "path": "docs/report/report_surface_registry.json",
-      "sha256": "9a02083b83d0014aa541275773b869f5dc1957924531552793f0af6c1873eb2e",
-      "bytes": 1009884
+      "sha256": "de06a28fb7b7ad69bab130ac6f9380597022acbde339ec4b327f45fdb5fd1544",
+      "bytes": 1011433
     },
     {
       "path": "docs/report/report_surface_registry.md",
-      "sha256": "fef8b72b77fadf69ebe1cbfdff008b01d4e39d9ca3bd07910b4eecf1ee8a6a51",
+      "sha256": "991f3b2bb2ad02178250cffab30486380e142732da9da3249a3ceeb02cf2eeba",
       "bytes": 1078
     },
     {
@@ -4376,7 +4376,7 @@
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/maintained_sources.py",
-      "sha256": "71d7a608a2a587c50398b2f3822cd0b579e008f5fff9404a8c9c05b68c9be384",
+      "sha256": "1774191dd733f1fd79ffd9435182791d28257344a2d95692a7022bd0f1412638",
       "bytes": 10230
     },
     {
@@ -4416,7 +4416,7 @@
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scheduling.py",
-      "sha256": "49a237d8a8c02622d260324a108e3680fcff4e8b0ab3ef19e7a220f2d361a185",
+      "sha256": "e631efcf955a9389e1890a20fc0e3d20e2b1b0f14a3a1d0b822585eabd072415",
       "bytes": 6353
     },
     {
@@ -6426,8 +6426,8 @@
     },
     {
       "path": "packages/bijux-pollenomics-dev/tests/test_report_rebuild_configured_owner.py",
-      "sha256": "141fa8545421c9861b39b74879fec4293a49b85d1f85d9e62fe19de0ac443ed3",
-      "bytes": 55099
+      "sha256": "f3468f37fb0ccea40934a9b18c3dbb7cffa9688eb7094cb2429218588d23005b",
+      "bytes": 55104
     },
     {
       "path": "packages/bijux-pollenomics-dev/tests/test_report_rebuild_landclim_two_grid_packet.py",
@@ -8768,6 +8768,61 @@
       "path": "packages/bijux-pollenomics-dev/tests/source_completion/pollen_reconstruction/test_norwegian_one_family_forward.py",
       "sha256": "79b0f8b7d02636d213559742228108c129c11c42f77e57f0c7ab178f6bd1d5be",
       "bytes": 9209
+    },
+    {
+      "path": "configs/ci/qualified-report-sources/swedish-conditional-love.json",
+      "sha256": "57aebffe5a09fe796a4152b692ed3ee20a7ba3630d1de763a43c0c6130c8ce22",
+      "bytes": 2651
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/swedish-conditional-love/README.md",
+      "sha256": "c7efbda9b66eb34ee184d692f6c19d17bccff1584cc7c5ae4132da8182f57890",
+      "bytes": 9485
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/swedish-conditional-love/report.json",
+      "sha256": "2d52167f4787dc8542f82f2d644933322173998d494017520d7ffeda67362b60",
+      "bytes": 9738
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/swedish-conditional-love/source-proof.json",
+      "sha256": "bc4a3b4107b0e738e31852c1dea9933c1e90d1cdb4c7e6f5873cc7d04cfb63dd",
+      "bytes": 3558
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/swedish_conditional_love/__init__.py",
+      "sha256": "a692370d5f42a225fffa002066de50dfde8f9624c33beb5f055a1c92939a73a6",
+      "bytes": 88
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/swedish_conditional_love/__main__.py",
+      "sha256": "c699180062b03e363ecf679ca36531ff33f148de0599477af2a2da5ca516d864",
+      "bytes": 119
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/swedish_conditional_love/authority.py",
+      "sha256": "b067b92811f0c46732b8f17cd1ea1f9adb79649fc55691d1f818e60904907f9e",
+      "bytes": 1918
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/swedish_conditional_love/producer.py",
+      "sha256": "a5964e27ab631c1d0ef4f1443f0e0b1f734a9d55aaae84cb84f77a8fa03dfeb5",
+      "bytes": 4271
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/swedish_conditional_love/sources.py",
+      "sha256": "e258f6bedfcb6465f49a9add4294135461b61f5e78b4571899ad4c26fcc1f573",
+      "bytes": 3206
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/swedish_conditional_love/summary.py",
+      "sha256": "e4443964c669f7a0ae85b2c1111ec225b9407f02b2b17dceae3a78c57738a9a6",
+      "bytes": 20727
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/tests/source_completion/pollen_reconstruction/test_swedish_conditional_love.py",
+      "sha256": "8c0b2bfffe318ffb42ceefc9572429f4a4ecfe69d00a96ce2d483d3879110b98",
+      "bytes": 2469
     }
   ]
 }
