@@ -1862,6 +1862,19 @@
         "source-products/source-proof.json": "docs/report/pollen-reconstruction/swedish-grouped-forward-development/source-proof.json"
       },
       "external_source_descriptor": "configs/ci/qualified-report-sources/swedish-grouped-forward-development.json"
+    },
+    {
+      "owner_id": "pollen-reconstruction/embsecbio-literal-correspondence/account-products",
+      "module": "bijux_pollenomics_dev.source_completion.pollen_reconstruction.embsecbio_literal_correspondence.producer",
+      "source_arguments": [],
+      "output_subdirectory": "source-products",
+      "output_mode": "directory",
+      "timeout_seconds": 30,
+      "source_paths": {
+        "source-products/report.json": "docs/report/pollen-reconstruction/embsecbio-literal-correspondence/report.json",
+        "source-products/source-refusals.json": "docs/report/pollen-reconstruction/embsecbio-literal-correspondence/source-refusals.json"
+      },
+      "external_source_descriptor": "configs/ci/qualified-report-sources/embsecbio-literal-correspondence.json"
     }
   ],
   "schema_version": "configured-report-owner-execution.v1"

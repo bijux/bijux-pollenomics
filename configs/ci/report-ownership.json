@@ -2,8 +2,8 @@
   "schema_version": "report-output-ownership.v1",
   "root": "docs/report",
   "inventory_scope": "tracked report paths; ownership declarations do not certify reproduction",
-  "path_count": 2055,
-  "paths_sha256": "26ce5e328fdcb6b12c9819dad63d261e9a3ae3c5a885148c3634d80236a67253",
+  "path_count": 2058,
+  "paths_sha256": "8e98b4a7d049eb8b398099f1d67fba5333753d7225e882eb7fcb92b0fab0e803",
   "owners": [
     {
       "owner_id": "atlas/boundary-orientation/browser-evidence",
@@ -45896,6 +45896,55 @@
         "uv.lock"
       ],
       "verification": "Produce two saved-loss/source-proof accounts from the exact six original externally qualified prediction/scoring/preflight/protocol/native/independent-review captures. Actual36source/aggregation/output guards and two direct writers exited0, gave identical complete4750ledger/210loss comparison outputs, observed23first-party source origins and preserved private capture custody. Original edede scientific arithmetic/scoring authority remains separate; this writer does not execute raw/R/physical/model/prediction/scoring stages. The separate private seven-file source packet is admitted by exact identity; current type-annotated summary direct twins exited0 with unchanged scientific report and a source-proof hash refresh only, observing23actual source paths. The36guards retain their original Ec7domain source scope through runtime-AST equality. Ordinary clean-Git configured reference/replay remains a separate current prerequisite. No raw target taxon-count/sample redistribution, best-profile choice, PPE identification, independent vegetation accuracy, untouched confirmation, empirical coverage, original historical reproduction or external review admission."
+    },
+    {
+      "owner_id": "pollen-reconstruction/embsecbio-literal-correspondence/reader-account",
+      "role": "maintained_editorial",
+      "paths": [
+        "docs/report/pollen-reconstruction/embsecbio-literal-correspondence/README.md"
+      ],
+      "producer_paths": [],
+      "producer_inputs": [],
+      "verification": "Explain430eligible/950refused native source rows and860attempted IDhypotheses; distinguish214coordinateequal,112sharedliteral correspondences and2complete12/13label reported axes under declared decimalrounding. Preserve unresolved1184\u2192242transformation/crosswalk/denominator/zeros/age/rights/review and actual403supplementaccess. Source identity and local literal correspondence establish no historical/ecological pipeline."
+    },
+    {
+      "owner_id": "pollen-reconstruction/embsecbio-literal-correspondence/account-products",
+      "role": "generated_owner",
+      "paths": [
+        "docs/report/pollen-reconstruction/embsecbio-literal-correspondence/report.json",
+        "docs/report/pollen-reconstruction/embsecbio-literal-correspondence/source-refusals.json"
+      ],
+      "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/artifact_paths.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/author_snapshot.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/contracts.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/qualified_sources.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/source_paths.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/audit.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/evidence.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/landclim.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/manifests.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/embsecbio_literal_correspondence/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/embsecbio_literal_correspondence/account.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/embsecbio_literal_correspondence/authority.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/embsecbio_literal_correspondence/producer.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/embsecbio_literal_correspondence/sources.py"
+      ],
+      "producer_inputs": [
+        "configs/ci/qualified-report-sources/embsecbio-literal-correspondence.json",
+        "data/method-certification/embsecbio-literal-correspondence/source-capture.json",
+        "packages/bijux-pollenomics-dev/pyproject.toml",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/embsecbio_literal_correspondence/__main__.py",
+        "packages/bijux-pollenomics-dev/tests/source_completion/pollen_reconstruction/test_embsecbio_literal_correspondence.py",
+        "pyproject.toml",
+        "uv.lock"
+      ],
+      "verification": "Replay18exact privately qualified original source/result captures into2compact products without raw per-taxon vectors. Original source-complete10363 consumer passed43source/refusal guards and direct twin products; original numerical/raw/R/model/training source authority remains separate. Current annotation-only source successor passes stricttyping/Ruff;6descriptor CLIcases prove exact/default acceptance and wrong/absolute/traversal refusal before publication. Current typed descriptor-aware direct twins exited0 with19actual production origins/18named callable entries, preserved source/private capsule custody and reproduced both original products byteexact. The external19-file packet is independently verified by identity. Original43guards retain originalsource scope;6CLI guards retain changedboundary scope. Ordinary clean-Git configured reference/replay requires its own exact candidate evidence; no original scientific rerun, historical crosswalk/amalgamation, age selector, geometry, rights/qualifiedreview or ecologicalaccuracy upgrade."
     }
   ]
 }

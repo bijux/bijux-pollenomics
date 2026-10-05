@@ -1,6 +1,6 @@
 {
   "schema_version": "report-surface-registry.v1",
-  "surface_count": 2051,
+  "surface_count": 2054,
   "inventory_scope": "all input files plus generated navigation pages; registry metadata excluded",
   "content_identity_scope": "Markdown pages; machine outputs retain their domain manifests",
   "excluded_metadata_paths": [
@@ -11,14 +11,14 @@
   ],
   "family_counts": {
     "caveats": 10,
-    "maintenance": 1143,
+    "maintenance": 1146,
     "maps": 88,
     "portal": 2,
     "reviews": 34,
     "scopes": 774
   },
   "audience_counts": {
-    "maintainer_diagnostic": 1145,
+    "maintainer_diagnostic": 1148,
     "public_reading_surface": 783,
     "scientific_review_surface": 123
   },
@@ -28,7 +28,7 @@
     "finland": 14,
     "nordic": 498,
     "norway": 14,
-    "report_root": 1192,
+    "report_root": 1195,
     "sweden": 49,
     "world": 172
   },
@@ -10570,7 +10570,7 @@
     },
     {
       "repository_path": "docs/report/pollen-reconstruction/embsecbio-biome-reconstruction/README.md",
-      "content_sha256": "e6c23db4d3e5e5b932ab13ca09bea0030e8559954061971d2fceb482cebe5c54",
+      "content_sha256": "7cfab1ae30764cb550026c622130ac30f6a09f343f7a78d5f17c1b342f29834a",
       "family": "maintenance",
       "family_label": "Maintainer truth surfaces",
       "audience": "maintainer_diagnostic",
@@ -10643,6 +10643,43 @@
     },
     {
       "repository_path": "docs/report/pollen-reconstruction/embsecbio-biome-reconstruction/training-reconstruction.json",
+      "family": "maintenance",
+      "family_label": "Maintainer truth surfaces",
+      "audience": "maintainer_diagnostic",
+      "audience_label": "Maintainer diagnostic",
+      "format": "json",
+      "geography": "report_root",
+      "caution_level": "high",
+      "explanation": "Maintainer-facing truth or governance surface.",
+      "reader_route": "maintainer_truth"
+    },
+    {
+      "repository_path": "docs/report/pollen-reconstruction/embsecbio-literal-correspondence/README.md",
+      "content_sha256": "cf0e9ce34583eb968a7a1ef7b57b22a75a951457921ec243988fe7885c40be0f",
+      "family": "maintenance",
+      "family_label": "Maintainer truth surfaces",
+      "audience": "maintainer_diagnostic",
+      "audience_label": "Maintainer diagnostic",
+      "format": "md",
+      "geography": "report_root",
+      "caution_level": "high",
+      "explanation": "Reader-facing entry page for one scope bundle.",
+      "reader_route": "start_here"
+    },
+    {
+      "repository_path": "docs/report/pollen-reconstruction/embsecbio-literal-correspondence/report.json",
+      "family": "maintenance",
+      "family_label": "Maintainer truth surfaces",
+      "audience": "maintainer_diagnostic",
+      "audience_label": "Maintainer diagnostic",
+      "format": "json",
+      "geography": "report_root",
+      "caution_level": "high",
+      "explanation": "Maintainer-facing truth or governance surface.",
+      "reader_route": "maintainer_truth"
+    },
+    {
+      "repository_path": "docs/report/pollen-reconstruction/embsecbio-literal-correspondence/source-refusals.json",
       "family": "maintenance",
       "family_label": "Maintainer truth surfaces",
       "audience": "maintainer_diagnostic",
@@ -24890,7 +24927,7 @@
     },
     {
       "repository_path": "docs/report/index.md",
-      "content_sha256": "32c4019c861384347aa58e956a28456ded4d422149ec73a1477c068b0812c2e1",
+      "content_sha256": "52708d804d899c1cb7f1739bf85e53e01ae1f802ba83cb386c845784de22db19",
       "family": "portal",
       "family_label": "Portal guidance",
       "audience": "public_reading_surface",
@@ -24903,7 +24940,7 @@
     },
     {
       "repository_path": "docs/report/maintenance/index.md",
-      "content_sha256": "fd55a0f5a761ed6ac187139a8e168f4422f696f360f279abffe6384a6545d475",
+      "content_sha256": "bca6dc735971192b306158478d6501777b99001dcd745d770dcf47984025afb9",
       "family": "maintenance",
       "family_label": "Maintainer truth surfaces",
       "audience": "public_reading_surface",
