@@ -1956,8 +1956,8 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/english-receiver-annulus/README.md",
-      "sha256": "7e3f44a92c305b356f2b5a8fa7de07fb61f551edef1c6faa9d5d5d4d83f7c4a8",
-      "bytes": 5541
+      "sha256": "9c0b516668fe94d6696a4ef8b113ae6ac95942fcaa27c00ccb0a235874b8b6ed",
+      "bytes": 9624
     },
     {
       "path": "docs/report/pollen-reconstruction/english-receiver-annulus/diagnostics.json",
@@ -3736,17 +3736,17 @@
     },
     {
       "path": "docs/report/report_narrative_quality_review.json",
-      "sha256": "2a3dfe6710bfbc64c6f66c8a1b1b8da606cb86a2ddae759d23e3b056cc4d969f",
-      "bytes": 145017
+      "sha256": "33c2c356469234ecefe1bc93e14098bb718ad015004b44129b73f36277b237cb",
+      "bytes": 145011
     },
     {
       "path": "docs/report/report_narrative_quality_review.md",
-      "sha256": "4b01c16f3f93e4e1ba106660746bebe5a813763503e72ecde00801cc4971d849",
+      "sha256": "d484da8f9bbb2944a24adacf60dc5c36618b562b6d411c4a39377c47b72de52c",
       "bytes": 754
     },
     {
       "path": "docs/report/report_surface_registry.json",
-      "sha256": "7e9a07a42464f40106782d6229e70e15dda0713f4ca0b343d5c2b5ece5b5f7f1",
+      "sha256": "6e14b6606ccf795aedf813be23957955c2ac0484fdd56ae58702edfba80ea83a",
       "bytes": 1002047
     },
     {

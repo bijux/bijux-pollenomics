@@ -35,3 +35,31 @@ PYTHONDONTWRITEBYTECODE=1 OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 \
 ```
 
 The source-store parent must contain `landclim/author-reference`. Two clean maintained writer runs completed all 64 fits and produced byte-identical [compact reports](report.json) and [per-draw diagnostics](diagnostics.json). The independent numerical consumer and scalar review check the scientific calculations separately from this publication replay. Future reproductions must compare both derived files with these governed counterparts while preserving exact source and mathematical-capture identities. This technical owner admission leaves the external and ecological requirements above open.
+
+## Probability law and metre convention
+
+The conditional receiving-disk calculation has a normalized probability interpretation under its declared stationary, isotropic displacement assumption. This is a mathematical property of the chosen law; empirical pollen transport and paleobasin suitability still require separate evidence. Let `r` denote the numerical distance in metres, `beta = turbulence_parameter / 2 > 0`, and `a > 0` the coefficient of the existing GPM survival curve:
+
+```text
+S(r) = exp(-a * r^beta)
+a = 4 * fall_speed / (turbulence_parameter * wind_speed * sqrt(pi) * diffusion_coefficient)
+f_R(r) = a * beta * r^(beta - 1) * exp(-a * r^beta), r > 0
+```
+
+Since `S(0)=1` and `S(r)` tends to zero as `r` increases without bound, `f_R=-S'` integrates to one. With an independent uniform direction, its planar density is `h(r)=f_R(r)/(2*pi*r)`. This density may diverge at the origin when `beta < 2`, but the area element supplies the missing radial factor: the probability within radius `epsilon` is `1-exp(-a*epsilon^beta)`, which is finite and tends to zero. There is no point mass at zero. The change of variable `q=a*r^beta` gives `f_R(r) dr = exp(-q) dq`, so the hazard-coordinate density used by the quadrature is exactly normalized.
+
+For a receiver at offset `x` from the basin center and a displacement of length `r`, landing within a centered circle of radius `t` means `x^2+r^2+2*x*r*cos(theta) <= t^2`. For positive `x*r`, define `c=(t^2-x^2-r^2)/(2*x*r)`. The fraction of uniform directions is one if `x+r <= t`, zero if `abs(x-r) >= t` after the full-circle case, and otherwise `1-acos(c)/pi`. These are the implemented circle branches; zero-offset/zero-distance cases have their direct geometric limits. Subtracting the inner-circle fraction from the outer-circle fraction gives a nonnegative annulus probability no greater than one.
+
+A receiver uniformly distributed by area on a disk of radius `R` has radial density `2*x/R^2`. Therefore `z=x^2/R^2` is uniform on `[0,1]` and `x=R*sqrt(z)`. The maintained response is
+
+```text
+K = integral_z[0,1] integral_q[0,infinity]
+      exp(-q) * (circle_fraction(outer, (q/a)^(1/beta), R*sqrt(z))
+               - circle_fraction(inner, (q/a)^(1/beta), R*sqrt(z))) dq dz
+```
+
+Nonnegative integration proves `0 <= K <= 1`; disjoint concentric annuli conserve their combined probability. For `R=0`, the point response is exactly `S(inner)-S(outer)`. For a finite receiver the land-domain contract `0 <= R <= inner < outer` places the receiver disk inside the inner excluded circle. Consequently the angular integrand vanishes outside the distance range from `inner-x` to `outer+x`; the four geometric boundary hazards split the remaining integral. The implementation's exponential tail cutoff at `q=745` discards at most `exp(-745)` probability in exact arithmetic. This tail statement does not certify adaptive quadrature error: the returned quadrature estimate and the retained independent numerical comparisons remain nonrigorous diagnostics.
+
+The source GPM coefficient is an empirical metre-based convention. In physical notation the exponent is `a * (distance / one_metre)^beta`; it must be dimensionless. An equivalent length unit with `u` metres per unit requires coefficient `a_new = a * u^beta` when using that unit's numerical distance. Rescaling distances alone changes the model. The source value `0.12` is not an SI diffusivity inferred by this calculation; the dimensional requirement on the exponent does not authenticate its physical derivation, wind regime or transfer between taxa/sites. In the finite-disk implementation `a=-log(S(1))` recovers the existing curve's coefficient and refuses an unresolved rounded survival, rather than fitting a separate law.
+
+The law's normalization and these geometric identities establish the bounded conditional mathematical response. They do not establish the historical lake algorithm, a measured basin radius, independent vegetation accuracy or empirical uncertainty coverage. The original numerical capture and its failed predecessors remain unchanged.
