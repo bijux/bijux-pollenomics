@@ -23,7 +23,7 @@ from .contracts import ReportRebuildError
 from .scheduling_custody.context import _owner_schedule_context
 
 SCHEMA = "configured-report-owner-schedule.v1"
-MAX_OWNERS = 134
+MAX_OWNERS = 135
 IDENTITY = re.compile(r"[A-Za-z0-9_./-]+")
 
 

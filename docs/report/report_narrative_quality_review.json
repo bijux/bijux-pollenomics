@@ -1,10 +1,10 @@
 {
   "schema_version": "report-narrative-quality-review.v1",
-  "page_count": 304,
+  "page_count": 305,
   "quality_posture_counts": {
     "reader_ready": 117,
     "structured_reference": 19,
-    "thin_structure": 168
+    "thin_structure": 169
   },
   "rows": [
     {
@@ -1408,6 +1408,17 @@
       "repository_path": "docs/report/pollen-reconstruction/swedish-static-basin-scenarios/README.md",
       "content_sha256": "7f8a1b1390aca74733df392649ce072d2154829833f3363392b97b17d7f5724f",
       "prose_paragraph_count": 19,
+      "link_bullet_count": 0,
+      "bullet_sentence_count": 0,
+      "heading_count": 1,
+      "table_line_count": 6,
+      "quality_posture": "thin_structure",
+      "note": "Page explains itself but still needs stronger internal wayfinding."
+    },
+    {
+      "repository_path": "docs/report/pollen-reconstruction/tibetanus-point-age-sensitivity/README.md",
+      "content_sha256": "cdcd82af2bb123833cb37f6d20619cfaa08a74b4d0e97892d636577f668cb47d",
+      "prose_paragraph_count": 10,
       "link_bullet_count": 0,
       "bullet_sentence_count": 0,
       "heading_count": 1,
@@ -3298,7 +3309,7 @@
     },
     {
       "repository_path": "docs/report/index.md",
-      "content_sha256": "38bab4acdc15d38321295c41067de1063d8221a7d942b756ec508e49a933e24a",
+      "content_sha256": "6e6138b34fee468bd6556aaeaca15eb88e38c12d386f372817fd50416654169b",
       "prose_paragraph_count": 3,
       "link_bullet_count": 11,
       "bullet_sentence_count": 0,
@@ -3309,7 +3320,7 @@
     },
     {
       "repository_path": "docs/report/maintenance/index.md",
-      "content_sha256": "687c145eae9d50dc2eac35f8528f2a7d3ca8dd637fd040e848848378666f0d39",
+      "content_sha256": "1b1f4d2ff850ecdc0b1c2d9c2e73667ef2ee3052945454856319d1ce1e9c91e1",
       "prose_paragraph_count": 3,
       "link_bullet_count": 10,
       "bullet_sentence_count": 4,

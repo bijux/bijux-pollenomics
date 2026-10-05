@@ -61,13 +61,13 @@
     },
     {
       "path": "configs/ci/report-owner-execution.json",
-      "sha256": "f0a212ccaf652997ee2de37ec19f1b41e2961cdde4ed12795c433dec23b9881c",
-      "bytes": 104647
+      "sha256": "a98ea660212f166e2c649827f27421f71389ccd0bb82755c23fa71e0c2113b5d",
+      "bytes": 105153
     },
     {
       "path": "configs/ci/report-ownership.json",
-      "sha256": "388c8a7fbc2894266bdddca3d1524bb1c40b49dddb41cc53c86e4cd61796db49",
-      "bytes": 4533316
+      "sha256": "f77935f0cf357970ac13e354ea902d96ed158d83da269644f19956e1866b90cd",
+      "bytes": 4540995
     },
     {
       "path": "configs/docs/science_downloads.py",
@@ -1246,12 +1246,12 @@
     },
     {
       "path": "docs/report/index.md",
-      "sha256": "38bab4acdc15d38321295c41067de1063d8221a7d942b756ec508e49a933e24a",
+      "sha256": "6e6138b34fee468bd6556aaeaca15eb88e38c12d386f372817fd50416654169b",
       "bytes": 2689
     },
     {
       "path": "docs/report/maintenance/index.md",
-      "sha256": "687c145eae9d50dc2eac35f8528f2a7d3ca8dd637fd040e848848378666f0d39",
+      "sha256": "1b1f4d2ff850ecdc0b1c2d9c2e73667ef2ee3052945454856319d1ce1e9c91e1",
       "bytes": 1412
     },
     {
@@ -2293,6 +2293,66 @@
       "path": "docs/report/pollen-reconstruction/swedish-static-basin-scenarios/report.json",
       "sha256": "895968b71a8318688e10145c5a4a900266f695560d8d1f55bf52c0bf579c6e89",
       "bytes": 726215
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/tibetanus-point-age-sensitivity/README.md",
+      "sha256": "cdcd82af2bb123833cb37f6d20619cfaa08a74b4d0e97892d636577f668cb47d",
+      "bytes": 5740
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/tibetanus-point-age-sensitivity/assumptions/protocol.json",
+      "sha256": "3943070ee7076b042279a8f0c4d534c4de0cf72cb05c2001379ae78ff86bb586",
+      "bytes": 3274
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/tibetanus-point-age-sensitivity/assumptions/source-epoch-qualifier.json",
+      "sha256": "9f94792812a1b3495a94d5aea5f7815303b86d083823fc980831bfdf9984a5df",
+      "bytes": 1983
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/tibetanus-point-age-sensitivity/execution/actual-source-output-review.json",
+      "sha256": "2625f8ce8d37f520db3078f925cbdf549273f8dd7065bb6bd28025426d19af8f",
+      "bytes": 7233
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/tibetanus-point-age-sensitivity/execution/native-capture.json",
+      "sha256": "cb8111b4ee4d660a2633e967cf561af551a69ed5838df045af8dab87f90e0c0f",
+      "bytes": 3967
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/tibetanus-point-age-sensitivity/execution/prospective-scientific-review.json",
+      "sha256": "d52693243b1cf94792838b5d83c0942dcae759c941e607326f1327b533686758",
+      "bytes": 3680
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/tibetanus-point-age-sensitivity/execution/read-only-diagnostic.json",
+      "sha256": "def2dbbaddb3e3438c8e78242ecc3b6300b44d6083b967a6a1fa0b8ab37224ea",
+      "bytes": 5634
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/tibetanus-point-age-sensitivity/execution/source-cell-encoding-refusal.json",
+      "sha256": "9cf87176f9314c5639e3915e712af1215b8b96095729ba5157076a90cdbaaa1b",
+      "bytes": 1814
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/tibetanus-point-age-sensitivity/execution/source-census-status-refusal.json",
+      "sha256": "e2ea1061e13c09c44dce7f2908d044388ff0fff6a12475d03c2148009f494646",
+      "bytes": 1805
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/tibetanus-point-age-sensitivity/inputs/retained-source-identities.json",
+      "sha256": "d4435f76ccc70ca86291aea4847beeefdb84ef1f063e7d34f506ce569f79362f",
+      "bytes": 2193
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/tibetanus-point-age-sensitivity/report.json",
+      "sha256": "5abb9af22673ec7e93fb38642b2d5f7958bd002218a5edd4514e11ffa093e5fe",
+      "bytes": 4914501
+    },
+    {
+      "path": "docs/report/pollen-reconstruction/tibetanus-point-age-sensitivity/summary.json",
+      "sha256": "edb4f378c9d8f5a644c08e639cfc4e9ae0aac68ded9a4c396c9da8b86f466fc0",
+      "bytes": 7212
     },
     {
       "path": "docs/report/pollen-reconstruction/verify_report.py",
@@ -3536,22 +3596,22 @@
     },
     {
       "path": "docs/report/report_narrative_quality_review.json",
-      "sha256": "0609bf808088570e7f5fe8d76577a772152fc2d8611def05bca4eeb1c7376327",
-      "bytes": 144054
+      "sha256": "c84d44b84e5e5dffbcd768ecd549a6ac4376625002a99d1382936985404db8f5",
+      "bytes": 144543
     },
     {
       "path": "docs/report/report_narrative_quality_review.md",
-      "sha256": "52e6463eb4a33982610cf77d2f0e1a37b6f6d7a75c732e9de0dd7fa02e6725cd",
+      "sha256": "18d54bbcf06d4e1fe5cc08bb13cfbf085a14340994f779d029d143ad417854a6",
       "bytes": 754
     },
     {
       "path": "docs/report/report_surface_registry.json",
-      "sha256": "5087fa75800f5b8355ab2589b83308f01ce9e700593460cc31f1d0a24942cbb0",
-      "bytes": 981183
+      "sha256": "eeb6f36a1251eb298f251c2ee7a5260aabd827f1fe1eb24d7572bebc7a4314c0",
+      "bytes": 987433
     },
     {
       "path": "docs/report/report_surface_registry.md",
-      "sha256": "7d9d9ef79929ae1241c5cf067448835bb64204a9d2a412395f5eafb949c994f3",
+      "sha256": "7be41910d28b2a9b28679569bd3c600829d7e1d502ad4b79f661ab32892850e0",
       "bytes": 1078
     },
     {
@@ -4156,8 +4216,8 @@
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/maintained_sources.py",
-      "sha256": "0b9d4e9b4d7dbc857022cc756b7d92a65cacf95acfda35ea51103500e11e046c",
-      "bytes": 9438
+      "sha256": "9f3c2bbb5ed4e98d67121d2f422054353a530652c9e179a7c39eac8336a3c083",
+      "bytes": 9856
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/neotoma_publication_link.py",
@@ -4196,7 +4256,7 @@
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scheduling.py",
-      "sha256": "8fec730851153c02bd661ab118107b85101c5586d7e534f9d1f0fb81d418aaf6",
+      "sha256": "74312bcca5b1f7d4c56781542a02c86e7b0b9b1e9a60b5eba9b4d2fc1e5251cb",
       "bytes": 6353
     },
     {
@@ -4218,6 +4278,11 @@
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/swedish_parameter_transfer.py",
       "sha256": "6d3cad8c34006ed1dd955913cabb22497e09e7ac6dd3da63307b6ba8053784f2",
       "bytes": 5398
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/swedish_source_chronology.py",
+      "sha256": "615e9085d73c670bba851d30b5337ee5b6eef592adb1578f94844ac161f4ee9e",
+      "bytes": 4344
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/swedish_static_basin.py",
@@ -5105,6 +5170,36 @@
       "bytes": 2491
     },
     {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/swedish_source_chronology/__init__.py",
+      "sha256": "e0e42ff176d8de3c8d3885e26a9019327945962a818f8bf5478adfa2881c2c40",
+      "bytes": 70
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/swedish_source_chronology/__main__.py",
+      "sha256": "1dbf4a6f3bab874d89024ef4b074a16db33e16bafde9e8145ef83611a4aa3400",
+      "bytes": 135
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/swedish_source_chronology/authority.py",
+      "sha256": "3593c92055b22a433a374632cdfa32a9e572bfa4ea5f7d58893103ddc411b145",
+      "bytes": 1914
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/swedish_source_chronology/producer.py",
+      "sha256": "ba23247f5a5d23c4d2d71bfadcbbe87955fd93b63b8bc37eb18e19811ec9dbc3",
+      "bytes": 2760
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/swedish_source_chronology/sources.py",
+      "sha256": "8741ca98667d13bfe34b0335d066fa0fe11d1866faaaf8298a2bf97d265cf96b",
+      "bytes": 2043
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/swedish_source_chronology/summary.py",
+      "sha256": "224d02a5297dce44052f94e8ad33f97dcc114f12e3df5f8c9ba1bd51d11366cd",
+      "bytes": 13794
+    },
+    {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/swedish_static_basin/__init__.py",
       "sha256": "d188265c5a71902313b8a1a8b8872215edfc9d19ac2775e5cc3e79392723cb6e",
       "bytes": 77
@@ -5423,6 +5518,11 @@
       "path": "packages/bijux-pollenomics-dev/tests/ci/report_rebuild/test_swedish_scientific_capture_transport.py",
       "sha256": "8fca2c855d22a7cfc76ee8fd409e5dca2749ea2662b0fd5af495cd4b23a554a4",
       "bytes": 4157
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/tests/ci/report_rebuild/test_swedish_source_chronology_capture_transport.py",
+      "sha256": "1ab0a470d7a148b23ec693ac0348215f67e29afc5b0feb280e1db04d6d7b6c58",
+      "bytes": 4215
     },
     {
       "path": "packages/bijux-pollenomics-dev/tests/ci/test_dependency_audit.py",
@@ -5825,6 +5925,11 @@
       "bytes": 6984
     },
     {
+      "path": "packages/bijux-pollenomics-dev/tests/source_completion/pollen_reconstruction/test_swedish_source_chronology.py",
+      "sha256": "3d734d4ccdc44040c5ef9282ad13764ea45ec574dbc27c544fc502961f5b6236",
+      "bytes": 7238
+    },
+    {
       "path": "packages/bijux-pollenomics-dev/tests/source_completion/pollen_reconstruction/test_swedish_static_basin.py",
       "sha256": "3794874c9e867491d8705f71529563962b06d93b767c173fd0e7901153a9c3e4",
       "bytes": 6345
@@ -6081,8 +6186,8 @@
     },
     {
       "path": "packages/bijux-pollenomics-dev/tests/test_report_rebuild_configured_owner.py",
-      "sha256": "8b6ccd180a95e791d77e82b6ab52340a85ef0eb501436cf90b2f8d8c10f8d184",
-      "bytes": 55068
+      "sha256": "da16be57d4a86a17c4a034a87cc23977db9ee6d4bc1a6745905577cff6906c6d",
+      "bytes": 55073
     },
     {
       "path": "packages/bijux-pollenomics-dev/tests/test_report_rebuild_landclim_two_grid_packet.py",

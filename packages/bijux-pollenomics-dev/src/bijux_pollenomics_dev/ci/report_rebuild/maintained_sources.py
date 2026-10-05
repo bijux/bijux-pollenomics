@@ -26,6 +26,9 @@ from .evidence import inventory_json
 from .scientific_captures.swedish_parameter_transfer import (
     validated_swedish_parameter_transfer_captures,
 )
+from .scientific_captures.swedish_source_chronology import (
+    validated_swedish_source_chronology_captures,
+)
 from .scientific_captures.swedish_static_basin import (
     validated_swedish_static_basin_captures,
 )
@@ -45,12 +48,12 @@ MAINTAINED_ROLE_PATHS = {
         "0180b0dc0e74063546778f1d63acdfcccf13f476ac9c5f0048ccaeb19df6c56d",
     ),
     "maintained_editorial": (
-        186,
-        "cce775454986b6ffb87b58f2a86a539e8fec7220e29ec3caec8c1a179272ba48",
+        187,
+        "5f04afb6c22e3f2eaf99e44faee658ea0e1d9e1091299afbdf99bfebd4663249",
     ),
     "maintained_configuration": (
-        11,
-        "73f16f2acf6ec6734322163c74061aca93630478920d7cdc7436eca608a26498",
+        12,
+        "48921c6e6c9765a835da824a4604abaadf8cd2b38e1ed21e977aa63ac160822d",
     ),
 }
 SOURCE_FORMATS = {
@@ -204,7 +207,12 @@ def validated_maintained_report_sources(
             repository, tracked_by_path, inventory["owners"]
         )
     )
-    all_capture_entries = capture_entries + parameter_entries
+    chronology_entries, chronology_evidence = (
+        validated_swedish_source_chronology_captures(
+            repository, tracked_by_path, inventory["owners"]
+        )
+    )
+    all_capture_entries = capture_entries + parameter_entries + chronology_entries
     for entry in all_capture_entries:
         name = "docs/report/" + entry.path
         capture = _regular_confined_file(repository, name, "scientific capture")
@@ -238,4 +246,6 @@ def validated_maintained_report_sources(
         evidence["retained_scientific_captures"] = capture_evidence
     if parameter_entries:
         evidence["retained_parameter_transfer_captures"] = parameter_evidence
+    if chronology_entries:
+        evidence["retained_source_chronology_captures"] = chronology_evidence
     return tuple(sorted(selected, key=lambda entry: entry.path)), evidence

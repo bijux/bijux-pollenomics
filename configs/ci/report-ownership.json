@@ -2,8 +2,8 @@
   "schema_version": "report-output-ownership.v1",
   "root": "docs/report",
   "inventory_scope": "tracked report paths; ownership declarations do not certify reproduction",
-  "path_count": 2008,
-  "paths_sha256": "e995c09eca5195586dae3614397982019b7a670e6d4c8d63264b39bd7f3a0595",
+  "path_count": 2020,
+  "paths_sha256": "e5588b726f8246aaaeb569d22cf09d7a657d3ea43518a0b83178daf9a2a5bddc",
   "owners": [
     {
       "owner_id": "atlas/boundary-orientation/browser-evidence",
@@ -45640,6 +45640,87 @@
         "uv.lock"
       ],
       "verification": "Reproduce the six compact lake-panels products through the dedicated configured owner against its exact qualified source/result snapshot, then compare independently captured reference/replay outputs byte for byte. Original numerical, physical-factor integration and current policy/citation captures remain their actual native producer authority. Actual current direct writers independently verify every scalar conditional-cover/counting/shared-PPE covariance cell (2,685 common-panel or 5,040 lake-panel results), full 75-window domain and source/physical/publication identities. The observed 21 imported first-party files include the runpy entry; the six publisher-read source-control files yield a conservative 22-file union. Package metadata and the meaningful refusal test are conservative declared inputs, not observed mathematical imports. Preserve the original 150/284 independently integrated physical tuple populations, 16/19 or 27/30 current primary-citation scope, native masks and panel/full-count denominators, published-ratio disagreements and absent ratio covariance. Current retained-account verification does not rerun native physical/R acquisition, authenticate historical selected-1128 membership, establish ecological parameter transfer or independent vegetation accuracy, or close qualified review and release gates. Ordinary genuine clean-Git configured reference/replay authority requires its own real successor receipt."
+    },
+    {
+      "owner_id": "pollen-reconstruction/tibetanus-point-age-sensitivity/summary",
+      "paths": [
+        "docs/report/pollen-reconstruction/tibetanus-point-age-sensitivity/summary.json"
+      ],
+      "producer_inputs": [
+        "docs/report/pollen-reconstruction/tibetanus-point-age-sensitivity/assumptions/protocol.json",
+        "docs/report/pollen-reconstruction/tibetanus-point-age-sensitivity/assumptions/source-epoch-qualifier.json",
+        "docs/report/pollen-reconstruction/tibetanus-point-age-sensitivity/execution/actual-source-output-review.json",
+        "docs/report/pollen-reconstruction/tibetanus-point-age-sensitivity/execution/native-capture.json",
+        "docs/report/pollen-reconstruction/tibetanus-point-age-sensitivity/execution/prospective-scientific-review.json",
+        "docs/report/pollen-reconstruction/tibetanus-point-age-sensitivity/execution/read-only-diagnostic.json",
+        "docs/report/pollen-reconstruction/tibetanus-point-age-sensitivity/execution/source-cell-encoding-refusal.json",
+        "docs/report/pollen-reconstruction/tibetanus-point-age-sensitivity/execution/source-census-status-refusal.json",
+        "docs/report/pollen-reconstruction/tibetanus-point-age-sensitivity/inputs/retained-source-identities.json",
+        "docs/report/pollen-reconstruction/tibetanus-point-age-sensitivity/report.json",
+        "packages/bijux-pollenomics-dev/pyproject.toml",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/swedish_source_chronology.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/swedish_source_chronology/__main__.py",
+        "pyproject.toml",
+        "uv.lock"
+      ],
+      "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/contracts.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/source_paths.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/audit.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/evidence.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/landclim.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/manifests.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/swedish_source_chronology/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/swedish_source_chronology/authority.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/swedish_source_chronology/producer.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/swedish_source_chronology/sources.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/swedish_source_chronology/summary.py"
+      ],
+      "role": "generated_owner",
+      "verification": "Derive the exact retained Tibetanus chronology summary. Direct source qualification on candidate 41f9f4c9b588d9c7167ea10d3dbdba3b7b0d506d with the reviewed uncommitted overlay passed 39 guards and two writers; both summary files have SHA-256 edb4f378c9d8f5a644c08e639cfc4e9ae0aac68ded9a4c396c9da8b86f466fc0. The ef8c qualification retains 16 actual imported source files and four observed main, publish, load_inputs and summarize entries. The numerical capture, point diagnostic and read-only source/output review retain their original distinct authority. Nine immutable captures and their descriptor are bound by the maintained reader; delegation, capture-transport code and package metadata remain conservative controls. Ordinary configured SOURCE_RUNTIME execution must still establish its actual namespace, source closure and output coverage on a clean committed fixture. This writer summarizes 184 saved result rows; it does not rerun mathematical, physical, R or chronology models, establish historical reproduction or vegetation accuracy, or distribute raw sample masks."
+    },
+    {
+      "owner_id": "pollen-reconstruction/tibetanus-point-age-sensitivity/reader-account",
+      "paths": [
+        "docs/report/pollen-reconstruction/tibetanus-point-age-sensitivity/README.md"
+      ],
+      "producer_inputs": [],
+      "producer_paths": [],
+      "role": "maintained_editorial",
+      "verification": "Explain the actual 45 source points, 12 changed point bins and 16 of 23 changed pooled-count windows. Keep the mapped-panel NISP estimand, unknown age bounds and historical, ecological and source-rights limitations explicit."
+    },
+    {
+      "owner_id": "pollen-reconstruction/tibetanus-point-age-sensitivity/source-identity",
+      "paths": [
+        "docs/report/pollen-reconstruction/tibetanus-point-age-sensitivity/inputs/retained-source-identities.json"
+      ],
+      "producer_inputs": [],
+      "producer_paths": [],
+      "role": "maintained_configuration",
+      "verification": "Bind the exact nine retained scientific capture identities through an authored descriptor. The descriptor does not establish new measurements, chronology identity, source rights or independent numerical verification."
+    },
+    {
+      "owner_id": "pollen-reconstruction/tibetanus-point-age-sensitivity/scientific-capture",
+      "paths": [
+        "docs/report/pollen-reconstruction/tibetanus-point-age-sensitivity/assumptions/protocol.json",
+        "docs/report/pollen-reconstruction/tibetanus-point-age-sensitivity/assumptions/source-epoch-qualifier.json",
+        "docs/report/pollen-reconstruction/tibetanus-point-age-sensitivity/execution/actual-source-output-review.json",
+        "docs/report/pollen-reconstruction/tibetanus-point-age-sensitivity/execution/native-capture.json",
+        "docs/report/pollen-reconstruction/tibetanus-point-age-sensitivity/execution/prospective-scientific-review.json",
+        "docs/report/pollen-reconstruction/tibetanus-point-age-sensitivity/execution/read-only-diagnostic.json",
+        "docs/report/pollen-reconstruction/tibetanus-point-age-sensitivity/execution/source-cell-encoding-refusal.json",
+        "docs/report/pollen-reconstruction/tibetanus-point-age-sensitivity/execution/source-census-status-refusal.json",
+        "docs/report/pollen-reconstruction/tibetanus-point-age-sensitivity/report.json"
+      ],
+      "producer_inputs": [],
+      "producer_paths": [],
+      "role": "retained_source",
+      "verification": "Retain nine original numerical, protocol, epoch-qualifier, native, refusal, diagnostic and read-only review records under their strict capture authority. Eight capture-helper tests establish membership, bytes, roles and unchanged original authority. Current maintained transport must verify committed HEAD bytes and emit separate chronology-capture evidence. This transport does not distribute raw sample/control masks or admit new calibration, mathematical models, physics, historical reproduction, ecological accuracy or qualified external review."
     }
   ]
 }

@@ -1,0 +1,158 @@
+{
+  "limits": [
+    "No chronology calibration or posterior interval.",
+    "Conditional mapped-panel cover, not measured vegetation area or accuracy.",
+    "Native counts, parameter transfers, sparse-zero and partition hypotheses are unchanged.",
+    "No raw-source publication-rights admission."
+  ],
+  "native_baseline_windows_exact": 92,
+  "native_sample_population": 45,
+  "parameter_summaries": [
+    {
+      "alternative_only_windows": 0,
+      "changed_count_windows": 16,
+      "largest_absolute_conditional_cover_change": 0.22768167025657193,
+      "native_only_windows": 0,
+      "occupied_window_union_count": 23,
+      "parameter_profile": "all_literal_parameters_sparse_zero_hypothesis",
+      "profiles": [
+        {
+          "accepted_samples": 45,
+          "chronology": "native_default_calibrated_points",
+          "excluded_samples": {},
+          "mapped_NISP": 12259,
+          "occupied_windows": 23,
+          "reported_NISP": 43851,
+          "residual_NISP": 31592
+        },
+        {
+          "accepted_samples": 45,
+          "chronology": "published_TP_depth_matched_points",
+          "excluded_samples": {},
+          "mapped_NISP": 12259,
+          "occupied_windows": 23,
+          "reported_NISP": 43851,
+          "residual_NISP": 31592
+        }
+      ],
+      "signed_conditional_cover_change": -0.22768167025657193,
+      "taxon_of_largest_change": "Pinus sylvestris",
+      "window_of_largest_change_cal_BP": [
+        7200.0,
+        7700.0
+      ]
+    },
+    {
+      "alternative_only_windows": 0,
+      "changed_count_windows": 16,
+      "largest_absolute_conditional_cover_change": 0.14403793594117645,
+      "native_only_windows": 0,
+      "occupied_window_union_count": 23,
+      "parameter_profile": "large_grass_cereal_proxy_sparse_zero_hypothesis",
+      "profiles": [
+        {
+          "accepted_samples": 45,
+          "chronology": "native_default_calibrated_points",
+          "excluded_samples": {},
+          "mapped_NISP": 42275,
+          "occupied_windows": 23,
+          "reported_NISP": 43851,
+          "residual_NISP": 1576
+        },
+        {
+          "accepted_samples": 45,
+          "chronology": "published_TP_depth_matched_points",
+          "excluded_samples": {},
+          "mapped_NISP": 42275,
+          "occupied_windows": 23,
+          "reported_NISP": 43851,
+          "residual_NISP": 1576
+        }
+      ],
+      "signed_conditional_cover_change": -0.14403793594117645,
+      "taxon_of_largest_change": "Pinus sylvestris",
+      "window_of_largest_change_cal_BP": [
+        7200.0,
+        7700.0
+      ]
+    },
+    {
+      "alternative_only_windows": 0,
+      "changed_count_windows": 16,
+      "largest_absolute_conditional_cover_change": 0.15618387896376026,
+      "native_only_windows": 0,
+      "occupied_window_union_count": 23,
+      "parameter_profile": "major_parameter_transfers_sparse_zero_hypothesis",
+      "profiles": [
+        {
+          "accepted_samples": 45,
+          "chronology": "native_default_calibrated_points",
+          "excluded_samples": {},
+          "mapped_NISP": 38384,
+          "occupied_windows": 23,
+          "reported_NISP": 43851,
+          "residual_NISP": 5467
+        },
+        {
+          "accepted_samples": 45,
+          "chronology": "published_TP_depth_matched_points",
+          "excluded_samples": {},
+          "mapped_NISP": 38384,
+          "occupied_windows": 23,
+          "reported_NISP": 43851,
+          "residual_NISP": 5467
+        }
+      ],
+      "signed_conditional_cover_change": -0.15618387896376026,
+      "taxon_of_largest_change": "Pinus sylvestris",
+      "window_of_largest_change_cal_BP": [
+        7200.0,
+        7700.0
+      ]
+    },
+    {
+      "alternative_only_windows": 0,
+      "changed_count_windows": 16,
+      "largest_absolute_conditional_cover_change": 0.14403793594117645,
+      "native_only_windows": 0,
+      "occupied_window_union_count": 23,
+      "parameter_profile": "shared_birch_PPE_sparse_zero_hypothesis",
+      "profiles": [
+        {
+          "accepted_samples": 45,
+          "chronology": "native_default_calibrated_points",
+          "excluded_samples": {},
+          "mapped_NISP": 42275,
+          "occupied_windows": 23,
+          "reported_NISP": 43851,
+          "residual_NISP": 1576
+        },
+        {
+          "accepted_samples": 45,
+          "chronology": "published_TP_depth_matched_points",
+          "excluded_samples": {},
+          "mapped_NISP": 42275,
+          "occupied_windows": 23,
+          "reported_NISP": 43851,
+          "residual_NISP": 1576
+        }
+      ],
+      "signed_conditional_cover_change": -0.14403793594117645,
+      "taxon_of_largest_change": "Pinus sylvestris",
+      "window_of_largest_change_cal_BP": [
+        7200.0,
+        7700.0
+      ]
+    }
+  ],
+  "point_samples_moved_between_windows": 12,
+  "projection_source_sha256": "b4b09281b454efa70d5396f1c7e4e16944e8d24f4b6f06833d1c116d2f430b8b",
+  "scope": "Read-only aggregate projection of actual completed capture; no physical or mathematical model rerun, no independent scalar qualification. Window counts use the occupied-window union, not a full25-domain census.",
+  "source_sha256": {
+    "comparison/report.json": "5abb9af22673ec7e93fb38642b2d5f7958bd002218a5edd4514e11ffa093e5fe",
+    "inputs/original-broader-report.json": "4d682a9b8ed2fde20ec4cbec4d0604d21596451511726fd8a3692ae7f69e610d",
+    "inputs/source-chronology-comparison.json": "4906e08c5e9490722c212103b993c35f25c81651949626c6e1f4cf54dabefce2",
+    "run/receipt.json": "cb8111b4ee4d660a2633e967cf561af551a69ed5838df045af8dab87f90e0c0f"
+  },
+  "total_saved_case_windows": 184
+}

@@ -1,0 +1,25 @@
+{
+  "kind": "Declared Tibetanus chronology point sensitivity, separate from historical reproduction",
+  "native_dataset_id": 53980,
+  "native_site_id": 28860,
+  "native_collection_unit_id": 39229,
+  "native_sample_count": 45,
+  "source_depth_axis": "Actual source Tibetanus TP rows, depth(cm), uniquely matched to native AnalysisUnit depths in cm within absolute1e-8; no interpolation/extrapolation or depth offset",
+  "chronology_profiles": [
+    {"id": "native_default_calibrated_points", "native_chronology_id": 38408, "source": "Retained source sample ages, calibrated radiocarbon years BP, native named/default chronology38408; original bounds retained"},
+    {"id": "published_TP_depth_matched_points", "native_chronology_id": null, "source": "Actual2014 Arctic supplement Tibetanus TP age(calyrBP) at each of45 directly matching native sample depths; new declared point transfer, not a replacement of native chronology38408"}
+  ],
+  "epoch": "Native calBP follows documented Neotoma AD1950 datum. Alternative source calyrBP is interpreted on the same conventional1950 datum as an explicit point-transfer assumption, with original source label and source1995 collection-year surface kept. Never reset zero using publication/collection year.",
+  "chronology_uncertainty": "Both profiles are point scenarios. No source age bounds assigned when absent; no posterior, calibration curve, fitted age model or zero-width chronology certainty. Raw11 lab controls and explicit rejected Ua10120 are comparison witnesses, not inputs refitted or automatically admitted to a chronology model.",
+  "parameter_profiles": "Only the existing four explicit TIB transfer maps and parameter axes from actual4d68 report; native counts, sparse-zero and mutually-exclusive-partition assumptions unchanged",
+  "transport_profile": "metadata_radius_wind_3",
+  "physical_response": "Reuse exact actual TIB baseline factors from source-bound4d68 report, already independently qualified as part of300tuples. No physical quadrature rerun. Static100m radius,100km regional extent, wind3m/s and source empirical metre-based diffusion0.12/turbulence0.25 remain conditional geometry/protocol assumptions.",
+  "estimator": "Per-core/time-window pooled mapped integer NISP; cover is closure of n_i/(PPE_i*K_i) on mapped panel. Maintained fixed_site_cover_covariance supplies counting and diagonal shared-PPE delta covariance. Missing-source zeros stay explicit hypotheses, model completeness stays separate from actual source-label masks; zero boundary SE is conditional plug-in behavior, not an absence interval.",
+  "acceptance": "All45 raw samples/source-point axes authenticated, every sample included/excluded exactly once per profile, mapped+residual=NISP conserved, private actual source/point/mask support retained. Native chronology baseline must reproduce existing saved counts/windows/point/SE/covariance exactly. Alternative per-window changes retained, including disappearing/new windows; no unchanged-key-only accuracy claim.",
+  "historical_equivalence_claim": false,
+  "calibrated_chronology_accuracy_claim": false,
+  "measured_vegetation_accuracy_claim": false,
+  "taxonomy_or_observed_sparse_zero_admission": false,
+  "raw_redistribution_authorized": false,
+  "interpolation": false
+}

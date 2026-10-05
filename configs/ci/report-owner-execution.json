@@ -1822,6 +1822,17 @@
         "source-products/window-domain.json": "docs/report/pollen-reconstruction/swedish-observed-lake-panels/window-domain.json"
       },
       "timeout_seconds": 120
+    },
+    {
+      "owner_id": "pollen-reconstruction/tibetanus-point-age-sensitivity/summary",
+      "module": "bijux_pollenomics_dev.source_completion.pollen_reconstruction.swedish_source_chronology.producer",
+      "source_paths": {
+        "source-products/summary.json": "docs/report/pollen-reconstruction/tibetanus-point-age-sensitivity/summary.json"
+      },
+      "source_arguments": [],
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "timeout_seconds": 30
     }
   ]
 }

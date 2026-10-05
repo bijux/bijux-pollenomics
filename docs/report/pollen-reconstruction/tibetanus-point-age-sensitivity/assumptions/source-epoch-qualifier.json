@@ -1,0 +1,34 @@
+{
+  "actual_TP_points": {
+    "actual_point_count": 45,
+    "oldest_raw_calyrBP": 10237.5,
+    "relationship": "Actual TP extrema agree with the rounded Table1 Tibetanus endpoints. Together with the explicit source calyrBP column and article convention, this supports interpreting these45 source points on the AD1950 datum as a scoped inference.",
+    "source_comparison_sha256": "4906e08c5e9490722c212103b993c35f25c81651949626c6e1f4cf54dabefce2",
+    "youngest_raw_calyrBP": 39.4
+  },
+  "limits": [
+    "Rounded endpoint agreement does not authenticate every internal age, original calibration curve or chronology model.",
+    "The source1995 collection-year surface value remains a separately sourced control, not publication-year zero BP.",
+    "Calibrated/model ages, raw14C laboratory ages and error terms remain distinct.",
+    "No raw pollen rights, observed-zero, vegetation accuracy or historical LandClim selection admission."
+  ],
+  "primary_article": {
+    "abstract_interpretation": "Article specifies calendar years BP for all its ages.",
+    "abstract_page": 1605,
+    "browser_read_date": "2026-10-05",
+    "doi": "10.5194/cp-10-1605-2014",
+    "table1_caption_interpretation": "The oldest and youngest dates are defined relative to AD1950; the caption also links site short names to the workbook tabs.",
+    "table1_caption_page": 1609,
+    "tibetanus_row": {
+      "altitude_m": 560,
+      "citation": "Hammarlund et al. (2002)",
+      "latitude": 68.33,
+      "longitude": 18.7,
+      "oldest_calendar_years_before_AD1950": 10238,
+      "youngest_calendar_years_before_AD1950": 39
+    },
+    "tibetanus_row_page": 1610,
+    "url": "https://cp.copernicus.org/articles/10/1605/2014/cp-10-1605-2014.pdf"
+  },
+  "scope": "Separate primary-source documentary qualifier; no frozen a36 protocol, consumer, inputs or source receipt amended. Date-column interpretation support only, not age-model identity, calibration, reliable-bound or historical inclusion admission."
+}
