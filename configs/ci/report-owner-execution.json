@@ -1834,6 +1834,7 @@
       "timeout_seconds": 30
     },
     {
+      "external_source_descriptor": "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/inputs/joint-source-snapshot.json",
       "module": "bijux_pollenomics_dev.source_completion.pollen_reconstruction.nordic_static_basin.producer",
       "output_mode": "directory",
       "output_subdirectory": "source-products",
@@ -1843,6 +1844,8 @@
         "source-products/account.json": "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/account.json",
         "source-products/attribution.json": "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/attribution.json",
         "source-products/comparisons.json": "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/comparisons.json",
+        "source-products/joint-capture-authority.json": "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/joint-capture-authority.json",
+        "source-products/joint-uncertainty.json": "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/joint-uncertainty.json",
         "source-products/source-domain.json": "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/source-domain.json"
       },
       "timeout_seconds": 30

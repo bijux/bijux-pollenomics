@@ -1,6 +1,6 @@
 {
   "schema_version": "report-surface-registry.v1",
-  "surface_count": 2044,
+  "surface_count": 2048,
   "inventory_scope": "all input files plus generated navigation pages; registry metadata excluded",
   "content_identity_scope": "Markdown pages; machine outputs retain their domain manifests",
   "excluded_metadata_paths": [
@@ -11,14 +11,14 @@
   ],
   "family_counts": {
     "caveats": 10,
-    "maintenance": 1136,
+    "maintenance": 1140,
     "maps": 88,
     "portal": 2,
     "reviews": 34,
     "scopes": 774
   },
   "audience_counts": {
-    "maintainer_diagnostic": 1138,
+    "maintainer_diagnostic": 1142,
     "public_reading_surface": 783,
     "scientific_review_surface": 123
   },
@@ -28,7 +28,7 @@
     "finland": 14,
     "nordic": 498,
     "norway": 14,
-    "report_root": 1185,
+    "report_root": 1189,
     "sweden": 49,
     "world": 172
   },
@@ -10716,7 +10716,7 @@
     },
     {
       "repository_path": "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/README.md",
-      "content_sha256": "23a3b8cdf7b605c27521165f993515a53ae7cc9a778987c87a74e00a8bc82a3c",
+      "content_sha256": "85122e601bc6bf26d586acf8bada6725f813c64f1becd9d8511730a310ac4161",
       "family": "maintenance",
       "family_label": "Maintainer truth surfaces",
       "audience": "maintainer_diagnostic",
@@ -10788,7 +10788,56 @@
       "reader_route": "maintainer_truth"
     },
     {
+      "repository_path": "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/inputs/joint-source-snapshot.json",
+      "family": "maintenance",
+      "family_label": "Maintainer truth surfaces",
+      "audience": "maintainer_diagnostic",
+      "audience_label": "Maintainer diagnostic",
+      "format": "json",
+      "geography": "report_root",
+      "caution_level": "high",
+      "explanation": "Maintainer-facing truth or governance surface.",
+      "reader_route": "maintainer_truth"
+    },
+    {
       "repository_path": "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/inputs/retained-source-identities.json",
+      "family": "maintenance",
+      "family_label": "Maintainer truth surfaces",
+      "audience": "maintainer_diagnostic",
+      "audience_label": "Maintainer diagnostic",
+      "format": "json",
+      "geography": "report_root",
+      "caution_level": "high",
+      "explanation": "Maintainer-facing truth or governance surface.",
+      "reader_route": "maintainer_truth"
+    },
+    {
+      "repository_path": "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/joint-capture-authority.json",
+      "family": "maintenance",
+      "family_label": "Maintainer truth surfaces",
+      "audience": "maintainer_diagnostic",
+      "audience_label": "Maintainer diagnostic",
+      "format": "json",
+      "geography": "report_root",
+      "caution_level": "high",
+      "explanation": "Maintainer-facing truth or governance surface.",
+      "reader_route": "maintainer_truth"
+    },
+    {
+      "repository_path": "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/joint-uncertainty-method.md",
+      "content_sha256": "35afb3264b4168e89c36dbf66760ad1d0105d5e35e0d8973cbd9cd422a2d5d8a",
+      "family": "maintenance",
+      "family_label": "Maintainer truth surfaces",
+      "audience": "maintainer_diagnostic",
+      "audience_label": "Maintainer diagnostic",
+      "format": "md",
+      "geography": "report_root",
+      "caution_level": "high",
+      "explanation": "Maintainer-facing truth or governance surface.",
+      "reader_route": "maintainer_truth"
+    },
+    {
+      "repository_path": "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/joint-uncertainty.json",
       "family": "maintenance",
       "family_label": "Maintainer truth surfaces",
       "audience": "maintainer_diagnostic",
@@ -24804,7 +24853,7 @@
     },
     {
       "repository_path": "docs/report/index.md",
-      "content_sha256": "ba7e004aee3df09cbb80f1603627d6068fd8a5347690846558924eb27e9b9ff5",
+      "content_sha256": "4b3c25c2ec1242b4e15169bb9c3a884ecd4eec9c2765371a9c4867def7876ec4",
       "family": "portal",
       "family_label": "Portal guidance",
       "audience": "public_reading_surface",
@@ -24817,7 +24866,7 @@
     },
     {
       "repository_path": "docs/report/maintenance/index.md",
-      "content_sha256": "457b57d8a51572d78a78fa0caec0e5cff0888cf68d07c7d49ba1b000f6aaeb4d",
+      "content_sha256": "53bc42c3a1efc16078f3b539090a8c78cc996548c1edb44cfa9fb7d128d7a387",
       "family": "maintenance",
       "family_label": "Maintainer truth surfaces",
       "audience": "public_reading_surface",

@@ -51,12 +51,12 @@ MAINTAINED_ROLE_PATHS = {
         "0180b0dc0e74063546778f1d63acdfcccf13f476ac9c5f0048ccaeb19df6c56d",
     ),
     "maintained_editorial": (
-        188,
-        "2dfa059eef4569324817af912a804c910e3c15d9a777852d63f161fee7262654",
+        189,
+        "c9e36f0a8262ddc7fbc883eb6ca42726b07ec284ba52be7540da7abf6f035c8b",
     ),
     "maintained_configuration": (
-        13,
-        "4f827dfa54d23ded647f09eb2c1c150db99a76d821032f1dc904ec555645040c",
+        14,
+        "a81101b6cffc4ddc16e6691dc8a0eab0364b40e3787a316b4e7757d633298774",
     ),
 }
 SOURCE_FORMATS = {

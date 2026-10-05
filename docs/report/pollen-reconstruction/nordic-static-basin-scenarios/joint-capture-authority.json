@@ -1,0 +1,101 @@
+{
+  "actual_affected_source_guard_cases": 18,
+  "actual_executed_api_sha256": "faf894cf6db5f20cfbd8183b20efedd2f7a416f147aa7465d74f03032d1cc9b6",
+  "actual_plan_sha256": "9620790e626483cddb598437ea1f1441435880a50307c71f5d67ad80ca4a040a",
+  "actual_scientific_candidate": "ad5e209e9b358c68625559c0493a6584a94c3c6d",
+  "actual_supervisor_exit": 0,
+  "actual_terminal_sha256": "45e29f1759b98049177821819254075b1801f1cacfc1b02e99a46014b75e5f8f",
+  "capture_source_file_sha256": {
+    "independent-review.json": "ea2dd28c67786a810d332e060d1cad753357e67a162c54e17f244480b4bfbb5f",
+    "joint-covariance.json": "b9fb9856aa06db17dc01c3ae8e797d71346d6ae4ba5366e3b557b8d5d13599cb",
+    "launch-record-incident.json": "d13b90a4876c8d9157edbaf6a20616e2af8c86c2c0a4181c3f6f9dba9ccc6e45",
+    "native-terminal.json": "45e29f1759b98049177821819254075b1801f1cacfc1b02e99a46014b75e5f8f",
+    "postexecution-review.json": "38c39b70496550ac06b2a99d23eea59c472a504cfcf9c24c32546bd1d40d4b1f"
+  },
+  "execution_record": {
+    "control_files_verified": 10,
+    "custody_after_checked": true,
+    "custody_after_unchanged": true,
+    "frozen_members_verified": 9410,
+    "launch_incident_source_sha256": "d13b90a4876c8d9157edbaf6a20616e2af8c86c2c0a4181c3f6f9dba9ccc6e45",
+    "owned_survivors": {},
+    "postexecution_audit": true,
+    "postexecution_audit_source_sha256": "38c39b70496550ac06b2a99d23eea59c472a504cfcf9c24c32546bd1d40d4b1f",
+    "prelaunch_record_assertion_exit": 1,
+    "prelaunch_registration_succeeded": false,
+    "resource_failure": null
+  },
+  "independent_Decimal50": {
+    "all_derivative_cells_compared": 121212,
+    "all_joint_covariance_cells_compared": 804972,
+    "case_window_results": 182,
+    "common_ppe_forward_cancellation_algebraic_control": true,
+    "cover_components": 518,
+    "current_joint_product_sha256": "b9fb9856aa06db17dc01c3ae8e797d71346d6ae4ba5366e3b557b8d5d13599cb",
+    "decimal_precision": 50,
+    "distinct_count_supports": 80,
+    "empirical_interval_coverage_claim": false,
+    "equal_geometry_pooled_pollen_algebraic_control": true,
+    "geometry_contrasts": 124,
+    "independent_vegetation_accuracy_claim": false,
+    "maximum_absolute_differences": {
+      "count_derivative": "6.236877944665537973441633173574704E-18",
+      "counting_covariance": "4.1610659955606300145821320309542682E-18",
+      "cover": "1.4931031874788918652565494635266056E-16",
+      "geometry_contrast_counting": "4.991154145409915251270827155718340188215618E-19",
+      "geometry_contrast_shared_ppe": "1.308540155566381122480883584352556115316052896E-19",
+      "geometry_contrast_total": "9.529337416898138639080872058281848074680879E-19",
+      "geometry_difference": "2.4539030511251845056414476423104504E-16",
+      "parameter": "0",
+      "parameter_covariance": "2E-18",
+      "ppe_derivative": "1.1730401968481949253468948826244611E-16",
+      "shared_ppe_covariance": "1.7482763990229649050411703090984886E-19",
+      "total_covariance": "3.5400112197424070456002630393300733E-18"
+    },
+    "r_or_physical_kernel_execution": false,
+    "source_protocol_sha256": "dd8f4eb22b50c3fa32b4370c8fa47cc592fb47e813432d4569fbbba173b71cc5"
+  },
+  "native_stage_exits": [
+    0,
+    0,
+    0
+  ],
+  "native_stage_results": [
+    {
+      "log_sha256": "61d322b0d7c5c4fa5e2f11e9cf319c071ea7b69c5a53541ffa37c7d7824d6cef",
+      "name": "guards",
+      "native_exit": 0,
+      "wall_seconds": 22.542035459016915
+    },
+    {
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "name": "producer",
+      "native_exit": 0,
+      "wall_seconds": 2.844702625006903
+    },
+    {
+      "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "name": "oracle",
+      "native_exit": 0,
+      "wall_seconds": 3.4763174170511775
+    }
+  ],
+  "original_reconstruction_candidate": "33d45ecfd6be7d275b69a7a7350bb72ae7c5269e",
+  "peak_processes": 1,
+  "peak_rss_bytes": 240189440,
+  "previous_unchanged_API_math_cases": 18,
+  "publication_consumer_scope": "Retained source/output accounting only; no new raw/R/physical or global numerical execution",
+  "schema_version": 1,
+  "source_input_sha256": {
+    "account": "70911e6f14d2afb3ed54ec5d12f27b074514243ec525fd35222eca5b21cb77c5",
+    "independent_physical": "ce27a738d2673396daf9555537671f6c06560ffe3501413c0f27d6e76938ec78",
+    "independent_scalar": "d419615c986bccb09bb67e7af68508885502b2a56fe1030a6ca7b6f13f92e486",
+    "native_report": "50d2e11aa053f22afe8aeb2b0867c2ee3c00340ad002a6ece71c36aafdbbedfe",
+    "parameters": "32eac151566b41c186745dd077fabcddde06f64f9a3a2056699e88dbabd76d4d",
+    "physical_tuples": "675e7ae2107829fd575255249f2643bde31951945b15690e46631455137be8e3",
+    "protocol": "c64342e2de92dd755af2b8136fdc5c95ea15da1d28790d3e12fc4ec891cea19c",
+    "source_census": "659a2fb5039b778ceb1879036f1a87238f7b021c3b2db5174fb66e582c262156",
+    "source_descriptor": "f903051acee72613bad110c2539f37c082d52a340966ddd79bbc03253e5453cc"
+  },
+  "wall_seconds": 29.655595334013924
+}
