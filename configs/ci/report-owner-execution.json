@@ -1903,6 +1903,21 @@
         "source-products/source-proof.json": "docs/report/pollen-reconstruction/swedish-conditional-love/source-proof.json"
       },
       "timeout_seconds": 30
+    },
+    {
+      "owner_id": "vegetation-reference/namibia-grouped-mapped-area/account-products",
+      "module": "bijux_pollenomics_dev.source_completion.vegetation.namibia_grouped_mapped_area.producer",
+      "source_arguments": [],
+      "output_subdirectory": "source-products",
+      "output_mode": "directory",
+      "timeout_seconds": 60,
+      "source_paths": {
+        "source-products/assumptions.json": "docs/report/vegetation-reference/namibia-grouped-mapped-area/assumptions.json",
+        "source-products/comparisons.json": "docs/report/vegetation-reference/namibia-grouped-mapped-area/comparisons.json",
+        "source-products/report.json": "docs/report/vegetation-reference/namibia-grouped-mapped-area/report.json",
+        "source-products/source-account.json": "docs/report/vegetation-reference/namibia-grouped-mapped-area/source-account.json"
+      },
+      "external_source_descriptor": "configs/ci/qualified-report-sources/namibia-grouped-mapped-area.json"
     }
   ],
   "schema_version": "configured-report-owner-execution.v1"

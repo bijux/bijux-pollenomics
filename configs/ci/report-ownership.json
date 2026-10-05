@@ -2,8 +2,8 @@
   "schema_version": "report-output-ownership.v1",
   "root": "docs/report",
   "inventory_scope": "tracked report paths; ownership declarations do not certify reproduction",
-  "path_count": 2066,
-  "paths_sha256": "32171dc711daaef3daf430dc50c029c397c0708197cf8b573c2624675c28a91d",
+  "path_count": 2073,
+  "paths_sha256": "8377d1c98f654af94be6309e18d7702fad0a54be795e4b315829ad46bab88124",
   "owners": [
     {
       "owner_id": "atlas/boundary-orientation/browser-evidence",
@@ -46047,6 +46047,59 @@
       ],
       "role": "generated_owner",
       "verification": "Project exact14 original private conditional LOVE model/source/protocol/oracle captures into two compact aggregate/scientific source-proof products. Original model job remains overall native1 with modelstage0 and independentstage1; actual oracle-only08a15 source captured four responses/48scalar result cells after47guards with no model rerun. Current corrected covariance-sidecar scenario binding e444 and direct e865 producer actually passed20pure tests/40source/atomic guards, two byte-identical product writers,23observed first-party origins/four actual maintained callable entries each. The original failed9908 source-shape preparation is retained; typing proof previously recorded belongs to predecessor scope, current focused type validation remains separate. Raw sample/count/depth/age/mask rows remain external in the14-member source packet plus its authored manifest. Keep both negative-cover scenarios, exact29samples/7396literal-panelN/27940reportedNISP/20missingbounds, SAME-source lambda marginal covariance, assumed-zero count\u2013PPE crosscovariance, static80m receiving disk/unestimated1000m split/all-terrestrial masks and small80m regional proxy. Krageholm CAA186ha versus workbook837m remains documentary provenance uncertainty, not a correction. Ordinary genuine clean-Git configured reference/replay remains a separate current contract prerequisite; no new model/oracle/chronology/physical run, historical replay, independent vegetation accuracy, untouched confirmation, measured interval coverage, source rights or formal review admission."
+    },
+    {
+      "owner_id": "vegetation-reference/namibia-grouped-mapped-area/reader-account",
+      "role": "maintained_editorial",
+      "paths": [
+        "docs/report/vegetation-reference/namibia-grouped-mapped-area/README.md",
+        "docs/report/vegetation-reference/namibia-grouped-mapped-area/all-radius-means.md",
+        "docs/report/vegetation-reference/namibia-grouped-mapped-area/estimator-proof.md"
+      ],
+      "producer_paths": [],
+      "producer_inputs": [],
+      "verification": "Explain original five-axis deposited calculated mapped-area targets and grouped exposed-source development. Preserve all15 ring labels, three methods,110 poorer contrasts, equal10site/equal9nominalgroup denominators,6894 listed-panel grains once and training-only CLR point-estimator theorem. Actual field vegetation, PPE/ERV identification, statistical independence, historical replay, untouched confirmation and external/human review remain unestablished; no source year/BP conversion or pooled modern Acacia-to-fossil taxon equivalence."
+    },
+    {
+      "owner_id": "vegetation-reference/namibia-grouped-mapped-area/account-products",
+      "role": "generated_owner",
+      "paths": [
+        "docs/report/vegetation-reference/namibia-grouped-mapped-area/assumptions.json",
+        "docs/report/vegetation-reference/namibia-grouped-mapped-area/comparisons.json",
+        "docs/report/vegetation-reference/namibia-grouped-mapped-area/report.json",
+        "docs/report/vegetation-reference/namibia-grouped-mapped-area/source-account.json"
+      ],
+      "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/artifact_paths.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/author_snapshot.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/contracts.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/qualified_sources.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/source_paths.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/audit.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/evidence.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/landclim.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/manifests.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/vegetation/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/vegetation/namibia_grouped_mapped_area/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/vegetation/namibia_grouped_mapped_area/account.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/vegetation/namibia_grouped_mapped_area/authority.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/vegetation/namibia_grouped_mapped_area/producer.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/vegetation/namibia_grouped_mapped_area/sources.py"
+      ],
+      "producer_inputs": [
+        "configs/ci/qualified-report-sources/namibia-grouped-mapped-area.json",
+        "data/method-certification/namibia-grouped-mapped-area/source-capture.json",
+        "packages/bijux-pollenomics-dev/pyproject.toml",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/vegetation/namibia_grouped_mapped_area/__main__.py",
+        "packages/bijux-pollenomics-dev/tests/source_completion/vegetation/test_namibia_grouped_mapped_area.py",
+        "pyproject.toml",
+        "uv.lock"
+      ],
+      "verification": "Replay35 exact privately qualified original source/control/native/oracle/account/review files into four compact reader products. Actual89 source/capture/population/privacy/atomic/CLI contracts and two direct writers exited0, products matched byteexact, source custody stayed unchanged and19 production source origins were observed. Original native17 source guards and distinct Decimal7290 fields/2250 prediction cells/45 spherical-position pairs remain original ff837 scope, with450 predictions before450 scores,45 means and300 contrasts;110 poorer results remain20 versus pollen/90 versus training mapped baseline. Original native/model pending flags remain literal, qualified by separate actual numerical and later read-only source reviews;0 unfamiliar humans and0 qualified external decisions. This writer does not repeat predictions/scoring/Decimal/geometry/R/acquisition. No private rawcount/area/position or target/prediction vectors are promoted. The __main__ wrapper,test and package metadata are conservative declared inputs, not observed execution/read claims. Ordinary clean-Git configured reference/replay remains its own current candidate gate; no PPE/ERV, field ecology, chronology, untouched, history,rights or release admission."
     }
   ]
 }

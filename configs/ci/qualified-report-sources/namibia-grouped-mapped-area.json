@@ -1,0 +1,188 @@
+{
+  "file_count": 35,
+  "files": [
+    {
+      "path": "PANGAEA.931033.tab",
+      "sha256": "73c62c335a227283c27a224304b52fd21d1c674f95551d58a2e42dffa325a2e1",
+      "size": 4403
+    },
+    {
+      "path": "PANGAEA.931035.tab",
+      "sha256": "b2460910d5f72e234fef50a24c4ade08e57ab714bf482ba4afb3b4ed8e7b4f2a",
+      "size": 19528
+    },
+    {
+      "path": "documentary-source-review.json",
+      "sha256": "b2003cc4d5b5f9a26d103ed4c125418cbfd57e4bfbf2a07f8a7c25759417422b",
+      "size": 5839
+    },
+    {
+      "path": "independent-account-review.json",
+      "sha256": "497b4f24288848ed1ee8feb02a66d2a967e030e34bb67472947e6e66c3d2ff48",
+      "size": 5432
+    },
+    {
+      "path": "independent-numerical-review.json",
+      "sha256": "b10e20ee50e389c32f4206d7a074d17113c19514a53456aae07d0945e5a51894",
+      "size": 1939
+    },
+    {
+      "path": "native-report.json",
+      "sha256": "703a05942b62db742dba6e160d699bdc05818280946bd80f52526e760648e873",
+      "size": 32951
+    },
+    {
+      "path": "native-terminal.json",
+      "sha256": "ed01c21c43dd1096cf242b08ef3c42475c35b5326c11d72ae3144fba2f2866c9",
+      "size": 3178
+    },
+    {
+      "path": "native.log",
+      "sha256": "b5966d41d36e7c434b39405ce4e73fd718fe7b1b667952518f56dc63115bc287",
+      "size": 456
+    },
+    {
+      "path": "original-README.md",
+      "sha256": "99f6d04bb5aaea1f069382991c92c7c8d55b47329d6b1c971e1dad7954aa9cf2",
+      "size": 4245
+    },
+    {
+      "path": "original-account-all-radius-means.json",
+      "sha256": "5b01b3fe9ed22a9fe4208032c521d9bc84b61039ebdc2a0d5827ee7c61ec0d6c",
+      "size": 12105
+    },
+    {
+      "path": "original-account-all-radius-means.md",
+      "sha256": "ef0d6406cec5863789cb4fb1ccd9e2fcd8cafde6caab58ce251d06221c832da6",
+      "size": 1291
+    },
+    {
+      "path": "original-account-estimator-proof.md",
+      "sha256": "a3792644259966fa4a7dbfdc653c7e8fda16b17630430b3663880faee24f1f06",
+      "size": 3191
+    },
+    {
+      "path": "original-account-qualify_saved_account.py",
+      "sha256": "bae96d9d8dc44800fc794542c3670b434ae7d8284cfb1907c6adbc39b22ab321",
+      "size": 8771
+    },
+    {
+      "path": "original-account-read-only-execution.json",
+      "sha256": "0a3dbc9123d2a8f85eebf35f318590284d5ad16d88d0ca719543294ab27f7fdf",
+      "size": 818
+    },
+    {
+      "path": "original-account-reader-account.md",
+      "sha256": "efd113f992ade13d98745df894e79e23f0b9eb84282e7db020d066fa6c915157",
+      "size": 5933
+    },
+    {
+      "path": "original-account-saved-result-qualification.json",
+      "sha256": "cf34b04aa12cd3bd8df2681dfeb80aa8eefd5c19c927242c776ef6692d58ef82",
+      "size": 7139
+    },
+    {
+      "path": "original-collect.py",
+      "sha256": "b406acf7a9a0e2e3a0963ad1d87f7416483080a318da5f0e8fe411f9d4689f1c",
+      "size": 462
+    },
+    {
+      "path": "original-consume.py",
+      "sha256": "320560829c88cbd6838553d14e5bf6c8ae5cceef1c221228ea624565629ddf15",
+      "size": 8517
+    },
+    {
+      "path": "original-guards.py",
+      "sha256": "97cd798b7f7a15f08d9c10868d2cdee87733c381eb1bc02e66611245eef09fc0",
+      "size": 3582
+    },
+    {
+      "path": "original-independent.py",
+      "sha256": "ba8086990f620c1e11604c09ec72cc5c2aa0d10a15fbeb52e21d648e13d340f5",
+      "size": 14833
+    },
+    {
+      "path": "original-prediction.py",
+      "sha256": "16cf4a30e8702202c81f56d2cd543492ba05c0931412d74306e0893a14c82ec8",
+      "size": 5490
+    },
+    {
+      "path": "original-prepare.py",
+      "sha256": "c4097702daa033d049cb22645a14c835b1a85004cf9cff3614b719c7888cefe5",
+      "size": 6953
+    },
+    {
+      "path": "original-runner.py",
+      "sha256": "fb4800221f11b09dbfaeabcfd16690a8325635e0207bec559b6883efcc6c2699",
+      "size": 10985
+    },
+    {
+      "path": "original-source-manifest.json",
+      "sha256": "cdea5b2f70b21b17a93baaa790ddc867ccc0f0508d9524e0c0f8a5121cdd5502",
+      "size": 682
+    },
+    {
+      "path": "original-source.py",
+      "sha256": "9ea7af5b5e6468e2db0e0f93e10bbbcc854c4c8b555806744df39a7a8ad2a7d8",
+      "size": 8084
+    },
+    {
+      "path": "overlap-folds.json",
+      "sha256": "1affea14f41e7fbe7fe2cfe96e12a0e5e97c380148ddde4df793e26532084f0d",
+      "size": 8589
+    },
+    {
+      "path": "prediction-ledger.json",
+      "sha256": "0fa469e4cf60708ee958edff9188393d90a0f21f7f8312c6e7be26bb98b962c9",
+      "size": 424804
+    },
+    {
+      "path": "prospective-method-review.json",
+      "sha256": "2e20b2fd6d03a146db4733f7f3155bcced2712e1684923021c288e16417efde9",
+      "size": 5227
+    },
+    {
+      "path": "protocol.json",
+      "sha256": "a1662a4d5327e13e1d59cc1492ebdfdfcaccb8ffa67558ed6bbf51b4539a34ea",
+      "size": 5840
+    },
+    {
+      "path": "scientific-controls-inventory.json",
+      "sha256": "e6b329d0a05a56520a05bea2f8c845f7e996e04f6eca701e565d3bda644a2544",
+      "size": 1956
+    },
+    {
+      "path": "scores.json",
+      "sha256": "cabaa2c5feca95789db724dfcfa307b1391952b454c76e7ee13152024bd50492",
+      "size": 290306
+    },
+    {
+      "path": "source-account-inventory.json",
+      "sha256": "25a148d96e67bc50687542eb4f3f646d3a043ab8285b68957f296a1e4d9fba66",
+      "size": 2077
+    },
+    {
+      "path": "source-guards.json",
+      "sha256": "9f6504cda2905d9bd787933bee49d251a19ad0afb5a116856a1ded0e8c63f770",
+      "size": 2050
+    },
+    {
+      "path": "source-support.json",
+      "sha256": "edd527b232f3df394602806f5fa24bb3715e4ef385aea21f2c3d340f8b689e01",
+      "size": 21473
+    },
+    {
+      "path": "study-plan.json",
+      "sha256": "ff83706b464a57b5a680027ef8d87080337c23bbbd3d10976fe88ef6bfaa8a5c",
+      "size": 1047668
+    }
+  ],
+  "manifest": {
+    "path": "manifest.json",
+    "sha256": "5a079cc3a2322a596deca6257e71c31e47d2af3c6059f0affd0cf4c1e6c58653",
+    "size": 3633
+  },
+  "schema_version": "qualified-author-snapshot.v1",
+  "snapshot_schema_version": "namibia-grouped-mapped-area-source-snapshot.v1",
+  "source_id": "vegetation/namibia-grouped-mapped-area"
+}

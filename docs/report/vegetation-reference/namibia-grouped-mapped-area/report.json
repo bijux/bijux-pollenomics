@@ -1,0 +1,40 @@
+{
+  "original_native_authority": {
+    "candidate": "805ea9993cc7420b50197d94f08f1499bec99621",
+    "plan_sha256": "ff83706b464a57b5a680027ef8d87080337c23bbbd3d10976fe88ef6bfaa8a5c",
+    "terminal_sha256": "ed01c21c43dd1096cf242b08ef3c42475c35b5326c11d72ae3144fba2f2866c9"
+  },
+  "original_native_pending_status": "PASS_PENDING_SOURCE_CAPTURE_ADMISSION",
+  "original_report_pending_status": "new_training_only_development_consumer_completed_pending_independent_numerical_review",
+  "population": {
+    "methods": 3,
+    "nominal_overlap_groups": 9,
+    "paired_method_contrasts": 300,
+    "predicted_fraction_cells": 2250,
+    "prediction_vectors": 450,
+    "radius_labels": 15,
+    "scores": 450,
+    "sites": 10,
+    "summaries": 45,
+    "taxa": 5,
+    "unique_five_label_grain_total": 6894
+  },
+  "predictor_interpretation": "Unique conditional CLR least-squares point correction for five listed map quantities, with separate held-out squared Hellinger development scores; no PPE/ERV identification or environmental validity theorem.",
+  "producer_scope": "Replay retained, source-qualified mapped-area development result; no fresh prediction, scoring, Decimal oracle, physical model or acquisition.",
+  "raw_count_or_area_rows_promoted": false,
+  "schema_version": "namibia-grouped-mapped-area-account.v1",
+  "subsequent_qualification": {
+    "actual_source_controls": 17,
+    "distinct_prediction_cells": 2250,
+    "independent_numeric_fields": 7290,
+    "independent_position_pairs": 45,
+    "maximum_absolute_gap_exact_string": "5.356173115653247352695674042646595E-16",
+    "maximum_spherical_distance_gap_m": 6.912159733474255e-10,
+    "numerical_review_sha256": "b10e20ee50e389c32f4206d7a074d17113c19514a53456aae07d0945e5a51894",
+    "qualified_external_reviews_received": 0,
+    "same_interpreter_different_implementation": true,
+    "source_account_review_sha256": "497b4f24288848ed1ee8feb02a66d2a967e030e34bb67472947e6e66c3d2ff48",
+    "unfamiliar_human_exercises_completed": 0
+  },
+  "untouched_field_vegetation_PPE_ERV_or_historical_reproduction_claim": false
+}

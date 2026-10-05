@@ -1,0 +1,50 @@
+"""Pin retained native source and actual development-account authority."""
+
+from pathlib import Path
+
+SOURCE_ID = "vegetation/namibia-grouped-mapped-area"
+DESCRIPTOR = Path(
+    "configs/ci/qualified-report-sources/namibia-grouped-mapped-area.json"
+)
+DESCRIPTOR_SHA256 = "12a4cb89daa5b3b20e2f18450e1fd2deac36a5d97132dae965bbafd57a904c48"
+CAPTURE = Path(
+    "data/method-certification/namibia-grouped-mapped-area/source-capture.json"
+)
+CAPTURE_SHA256 = "e446bd6648ac8ad6a88537574908c231e029ce4709266d363fa8870ae3623a38"
+SOURCE_SHA256 = {
+    "PANGAEA.931033.tab": "73c62c335a227283c27a224304b52fd21d1c674f95551d58a2e42dffa325a2e1",
+    "PANGAEA.931035.tab": "b2460910d5f72e234fef50a24c4ade08e57ab714bf482ba4afb3b4ed8e7b4f2a",
+    "documentary-source-review.json": "b2003cc4d5b5f9a26d103ed4c125418cbfd57e4bfbf2a07f8a7c25759417422b",
+    "independent-account-review.json": "497b4f24288848ed1ee8feb02a66d2a967e030e34bb67472947e6e66c3d2ff48",
+    "independent-numerical-review.json": "b10e20ee50e389c32f4206d7a074d17113c19514a53456aae07d0945e5a51894",
+    "native-report.json": "703a05942b62db742dba6e160d699bdc05818280946bd80f52526e760648e873",
+    "native-terminal.json": "ed01c21c43dd1096cf242b08ef3c42475c35b5326c11d72ae3144fba2f2866c9",
+    "native.log": "b5966d41d36e7c434b39405ce4e73fd718fe7b1b667952518f56dc63115bc287",
+    "original-README.md": "99f6d04bb5aaea1f069382991c92c7c8d55b47329d6b1c971e1dad7954aa9cf2",
+    "original-account-all-radius-means.json": "5b01b3fe9ed22a9fe4208032c521d9bc84b61039ebdc2a0d5827ee7c61ec0d6c",
+    "original-account-all-radius-means.md": "ef0d6406cec5863789cb4fb1ccd9e2fcd8cafde6caab58ce251d06221c832da6",
+    "original-account-estimator-proof.md": "a3792644259966fa4a7dbfdc653c7e8fda16b17630430b3663880faee24f1f06",
+    "original-account-qualify_saved_account.py": "bae96d9d8dc44800fc794542c3670b434ae7d8284cfb1907c6adbc39b22ab321",
+    "original-account-read-only-execution.json": "0a3dbc9123d2a8f85eebf35f318590284d5ad16d88d0ca719543294ab27f7fdf",
+    "original-account-reader-account.md": "efd113f992ade13d98745df894e79e23f0b9eb84282e7db020d066fa6c915157",
+    "original-account-saved-result-qualification.json": "cf34b04aa12cd3bd8df2681dfeb80aa8eefd5c19c927242c776ef6692d58ef82",
+    "original-collect.py": "b406acf7a9a0e2e3a0963ad1d87f7416483080a318da5f0e8fe411f9d4689f1c",
+    "original-consume.py": "320560829c88cbd6838553d14e5bf6c8ae5cceef1c221228ea624565629ddf15",
+    "original-guards.py": "97cd798b7f7a15f08d9c10868d2cdee87733c381eb1bc02e66611245eef09fc0",
+    "original-independent.py": "ba8086990f620c1e11604c09ec72cc5c2aa0d10a15fbeb52e21d648e13d340f5",
+    "original-prediction.py": "16cf4a30e8702202c81f56d2cd543492ba05c0931412d74306e0893a14c82ec8",
+    "original-prepare.py": "c4097702daa033d049cb22645a14c835b1a85004cf9cff3614b719c7888cefe5",
+    "original-runner.py": "fb4800221f11b09dbfaeabcfd16690a8325635e0207bec559b6883efcc6c2699",
+    "original-source-manifest.json": "cdea5b2f70b21b17a93baaa790ddc867ccc0f0508d9524e0c0f8a5121cdd5502",
+    "original-source.py": "9ea7af5b5e6468e2db0e0f93e10bbbcc854c4c8b555806744df39a7a8ad2a7d8",
+    "overlap-folds.json": "1affea14f41e7fbe7fe2cfe96e12a0e5e97c380148ddde4df793e26532084f0d",
+    "prediction-ledger.json": "0fa469e4cf60708ee958edff9188393d90a0f21f7f8312c6e7be26bb98b962c9",
+    "prospective-method-review.json": "2e20b2fd6d03a146db4733f7f3155bcced2712e1684923021c288e16417efde9",
+    "protocol.json": "a1662a4d5327e13e1d59cc1492ebdfdfcaccb8ffa67558ed6bbf51b4539a34ea",
+    "scientific-controls-inventory.json": "e6b329d0a05a56520a05bea2f8c845f7e996e04f6eca701e565d3bda644a2544",
+    "scores.json": "cabaa2c5feca95789db724dfcfa307b1391952b454c76e7ee13152024bd50492",
+    "source-account-inventory.json": "25a148d96e67bc50687542eb4f3f646d3a043ab8285b68957f296a1e4d9fba66",
+    "source-guards.json": "9f6504cda2905d9bd787933bee49d251a19ad0afb5a116856a1ded0e8c63f770",
+    "source-support.json": "edd527b232f3df394602806f5fa24bb3715e4ef385aea21f2c3d340f8b689e01",
+    "study-plan.json": "ff83706b464a57b5a680027ef8d87080337c23bbbd3d10976fe88ef6bfaa8a5c",
+}

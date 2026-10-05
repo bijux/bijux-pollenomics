@@ -1,6 +1,6 @@
 {
   "schema_version": "report-surface-registry.v1",
-  "surface_count": 2062,
+  "surface_count": 2069,
   "inventory_scope": "all input files plus generated navigation pages; registry metadata excluded",
   "content_identity_scope": "Markdown pages; machine outputs retain their domain manifests",
   "excluded_metadata_paths": [
@@ -11,14 +11,14 @@
   ],
   "family_counts": {
     "caveats": 10,
-    "maintenance": 1154,
+    "maintenance": 1161,
     "maps": 88,
     "portal": 2,
     "reviews": 34,
     "scopes": 774
   },
   "audience_counts": {
-    "maintainer_diagnostic": 1156,
+    "maintainer_diagnostic": 1163,
     "public_reading_surface": 783,
     "scientific_review_surface": 123
   },
@@ -28,7 +28,7 @@
     "finland": 14,
     "nordic": 498,
     "norway": 14,
-    "report_root": 1203,
+    "report_root": 1210,
     "sweden": 49,
     "world": 172
   },
@@ -22816,6 +22816,93 @@
       "reader_route": "start_here"
     },
     {
+      "repository_path": "docs/report/vegetation-reference/namibia-grouped-mapped-area/README.md",
+      "content_sha256": "d408db80cff57114edececadde87c11cb3e430a07b0487444f1fd7ccf79ab095",
+      "family": "maintenance",
+      "family_label": "Maintainer truth surfaces",
+      "audience": "maintainer_diagnostic",
+      "audience_label": "Maintainer diagnostic",
+      "format": "md",
+      "geography": "report_root",
+      "caution_level": "high",
+      "explanation": "Reader-facing entry page for one scope bundle.",
+      "reader_route": "start_here"
+    },
+    {
+      "repository_path": "docs/report/vegetation-reference/namibia-grouped-mapped-area/all-radius-means.md",
+      "content_sha256": "ef0d6406cec5863789cb4fb1ccd9e2fcd8cafde6caab58ce251d06221c832da6",
+      "family": "maintenance",
+      "family_label": "Maintainer truth surfaces",
+      "audience": "maintainer_diagnostic",
+      "audience_label": "Maintainer diagnostic",
+      "format": "md",
+      "geography": "report_root",
+      "caution_level": "high",
+      "explanation": "Maintainer-facing truth or governance surface.",
+      "reader_route": "maintainer_truth"
+    },
+    {
+      "repository_path": "docs/report/vegetation-reference/namibia-grouped-mapped-area/assumptions.json",
+      "family": "maintenance",
+      "family_label": "Maintainer truth surfaces",
+      "audience": "maintainer_diagnostic",
+      "audience_label": "Maintainer diagnostic",
+      "format": "json",
+      "geography": "report_root",
+      "caution_level": "high",
+      "explanation": "Maintainer-facing truth or governance surface.",
+      "reader_route": "maintainer_truth"
+    },
+    {
+      "repository_path": "docs/report/vegetation-reference/namibia-grouped-mapped-area/comparisons.json",
+      "family": "maintenance",
+      "family_label": "Maintainer truth surfaces",
+      "audience": "maintainer_diagnostic",
+      "audience_label": "Maintainer diagnostic",
+      "format": "json",
+      "geography": "report_root",
+      "caution_level": "high",
+      "explanation": "Maintainer-facing truth or governance surface.",
+      "reader_route": "maintainer_truth"
+    },
+    {
+      "repository_path": "docs/report/vegetation-reference/namibia-grouped-mapped-area/estimator-proof.md",
+      "content_sha256": "131a3e2c240ad2e4f9a45f1e2d91f190fc01bd3f2dacd6dcd2490f0af0dbe206",
+      "family": "maintenance",
+      "family_label": "Maintainer truth surfaces",
+      "audience": "maintainer_diagnostic",
+      "audience_label": "Maintainer diagnostic",
+      "format": "md",
+      "geography": "report_root",
+      "caution_level": "high",
+      "explanation": "Maintainer-facing truth or governance surface.",
+      "reader_route": "maintainer_truth"
+    },
+    {
+      "repository_path": "docs/report/vegetation-reference/namibia-grouped-mapped-area/report.json",
+      "family": "maintenance",
+      "family_label": "Maintainer truth surfaces",
+      "audience": "maintainer_diagnostic",
+      "audience_label": "Maintainer diagnostic",
+      "format": "json",
+      "geography": "report_root",
+      "caution_level": "high",
+      "explanation": "Maintainer-facing truth or governance surface.",
+      "reader_route": "maintainer_truth"
+    },
+    {
+      "repository_path": "docs/report/vegetation-reference/namibia-grouped-mapped-area/source-account.json",
+      "family": "maintenance",
+      "family_label": "Maintainer truth surfaces",
+      "audience": "maintainer_diagnostic",
+      "audience_label": "Maintainer diagnostic",
+      "format": "json",
+      "geography": "report_root",
+      "caution_level": "high",
+      "explanation": "Maintainer-facing truth or governance surface.",
+      "reader_route": "maintainer_truth"
+    },
+    {
       "repository_path": "docs/report/vegetation-reference/namibia-pollen-vegetation/README.md",
       "content_sha256": "8bb72afa3b534931d869d90bab4a1386a6acc36179a7c6b9b9731da846dd5647",
       "family": "maintenance",
@@ -25025,7 +25112,7 @@
     },
     {
       "repository_path": "docs/report/index.md",
-      "content_sha256": "29172dfd85297bbba3f593dee8ae3ac585057261bf134fdd86921e42765e85e3",
+      "content_sha256": "af15f004d87da5a6bdcdfd01875c79b45925996802c81c1a56302a706e3b0246",
       "family": "portal",
       "family_label": "Portal guidance",
       "audience": "public_reading_surface",
@@ -25038,7 +25125,7 @@
     },
     {
       "repository_path": "docs/report/maintenance/index.md",
-      "content_sha256": "bcff7cdc8a49ce5ce739fc00f7d94c1525d5cf2cefdc73dcd880af5cb612e5d4",
+      "content_sha256": "1225a00be46497ba24b0405c5f12d79887263e484490f01ae2f5c6ccde5bf724",
       "family": "maintenance",
       "family_label": "Maintainer truth surfaces",
       "audience": "public_reading_surface",

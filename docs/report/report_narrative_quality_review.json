@@ -1,10 +1,10 @@
 {
   "schema_version": "report-narrative-quality-review.v1",
-  "page_count": 311,
+  "page_count": 314,
   "quality_posture_counts": {
     "reader_ready": 121,
-    "structured_reference": 19,
-    "thin_structure": 171
+    "structured_reference": 20,
+    "thin_structure": 173
   },
   "rows": [
     {
@@ -3242,6 +3242,39 @@
       "note": "Page explains itself but still needs stronger internal wayfinding."
     },
     {
+      "repository_path": "docs/report/vegetation-reference/namibia-grouped-mapped-area/README.md",
+      "content_sha256": "d408db80cff57114edececadde87c11cb3e430a07b0487444f1fd7ccf79ab095",
+      "prose_paragraph_count": 11,
+      "link_bullet_count": 0,
+      "bullet_sentence_count": 0,
+      "heading_count": 1,
+      "table_line_count": 0,
+      "quality_posture": "thin_structure",
+      "note": "Page explains itself but still needs stronger internal wayfinding."
+    },
+    {
+      "repository_path": "docs/report/vegetation-reference/namibia-grouped-mapped-area/all-radius-means.md",
+      "content_sha256": "ef0d6406cec5863789cb4fb1ccd9e2fcd8cafde6caab58ce251d06221c832da6",
+      "prose_paragraph_count": 0,
+      "link_bullet_count": 0,
+      "bullet_sentence_count": 0,
+      "heading_count": 0,
+      "table_line_count": 17,
+      "quality_posture": "structured_reference",
+      "note": "Page is table-heavy, but it behaves like a reference surface rather than a loose link dump."
+    },
+    {
+      "repository_path": "docs/report/vegetation-reference/namibia-grouped-mapped-area/estimator-proof.md",
+      "content_sha256": "131a3e2c240ad2e4f9a45f1e2d91f190fc01bd3f2dacd6dcd2490f0af0dbe206",
+      "prose_paragraph_count": 10,
+      "link_bullet_count": 0,
+      "bullet_sentence_count": 0,
+      "heading_count": 1,
+      "table_line_count": 0,
+      "quality_posture": "thin_structure",
+      "note": "Page explains itself but still needs stronger internal wayfinding."
+    },
+    {
       "repository_path": "docs/report/vegetation-reference/namibia-pollen-vegetation/README.md",
       "content_sha256": "8bb72afa3b534931d869d90bab4a1386a6acc36179a7c6b9b9731da846dd5647",
       "prose_paragraph_count": 8,
@@ -3375,7 +3408,7 @@
     },
     {
       "repository_path": "docs/report/index.md",
-      "content_sha256": "29172dfd85297bbba3f593dee8ae3ac585057261bf134fdd86921e42765e85e3",
+      "content_sha256": "af15f004d87da5a6bdcdfd01875c79b45925996802c81c1a56302a706e3b0246",
       "prose_paragraph_count": 3,
       "link_bullet_count": 11,
       "bullet_sentence_count": 0,
@@ -3386,7 +3419,7 @@
     },
     {
       "repository_path": "docs/report/maintenance/index.md",
-      "content_sha256": "bcff7cdc8a49ce5ce739fc00f7d94c1525d5cf2cefdc73dcd880af5cb612e5d4",
+      "content_sha256": "1225a00be46497ba24b0405c5f12d79887263e484490f01ae2f5c6ccde5bf724",
       "prose_paragraph_count": 3,
       "link_bullet_count": 10,
       "bullet_sentence_count": 4,

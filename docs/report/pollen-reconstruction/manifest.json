@@ -61,13 +61,13 @@
     },
     {
       "path": "configs/ci/report-owner-execution.json",
-      "sha256": "afe2235d0685319386afee5e662c7b523168b4f4d8b2f74b88413ef8e6668000",
-      "bytes": 109754
+      "sha256": "9de6075d3d9fecf4d39cedfa298cd5078c2c73b3f123713fb03a66789d9733d9",
+      "bytes": 110737
     },
     {
       "path": "configs/ci/report-ownership.json",
-      "sha256": "79917711eeb05bca68d0e8a2f162e0335acdf8d9220d491977f5a4eb3ab3b5fb",
-      "bytes": 4575125
+      "sha256": "4f0b1c4d7f39b20f53aa7fe7cea8b2c5a00864af4965b5f47cdfc3da62dac45f",
+      "bytes": 4580598
     },
     {
       "path": "configs/docs/science_downloads.py",
@@ -1246,12 +1246,12 @@
     },
     {
       "path": "docs/report/index.md",
-      "sha256": "29172dfd85297bbba3f593dee8ae3ac585057261bf134fdd86921e42765e85e3",
+      "sha256": "af15f004d87da5a6bdcdfd01875c79b45925996802c81c1a56302a706e3b0246",
       "bytes": 2689
     },
     {
       "path": "docs/report/maintenance/index.md",
-      "sha256": "bcff7cdc8a49ce5ce739fc00f7d94c1525d5cf2cefdc73dcd880af5cb612e5d4",
+      "sha256": "1225a00be46497ba24b0405c5f12d79887263e484490f01ae2f5c6ccde5bf724",
       "bytes": 1412
     },
     {
@@ -3756,22 +3756,22 @@
     },
     {
       "path": "docs/report/report_narrative_quality_review.json",
-      "sha256": "80b4b228dcd7e205ae4da5b4f956bafc8842ccae56c77fb2ddcdc537f6d2ec58",
-      "bytes": 147460
+      "sha256": "8f84822233ed985f5ed80557e18da90afa3ee136e7e3bb181dc033c6ba7d5dce",
+      "bytes": 148962
     },
     {
       "path": "docs/report/report_narrative_quality_review.md",
-      "sha256": "872b4929b4bd29cc01e37a1d6359db272729726b0b9dbb082f33181e38a8cda5",
+      "sha256": "9e7b5ba8d525aa6f834d03c849c4643d0a6f7a0a5e6edab28f2acdd3a3606fd1",
       "bytes": 754
     },
     {
       "path": "docs/report/report_surface_registry.json",
-      "sha256": "de06a28fb7b7ad69bab130ac6f9380597022acbde339ec4b327f45fdb5fd1544",
-      "bytes": 1011433
+      "sha256": "747c1af296b036ba59d662673bb01c0a6fb85b6ea5754dc042e3c4ea0bb2821a",
+      "bytes": 1015151
     },
     {
       "path": "docs/report/report_surface_registry.md",
-      "sha256": "991f3b2bb2ad02178250cffab30486380e142732da9da3249a3ceeb02cf2eeba",
+      "sha256": "b83a2e3709d4563da4d3b266ea35f1b9ff2cc0bcb37e99960154c51418690953",
       "bytes": 1078
     },
     {
@@ -4376,7 +4376,7 @@
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/maintained_sources.py",
-      "sha256": "1774191dd733f1fd79ffd9435182791d28257344a2d95692a7022bd0f1412638",
+      "sha256": "8e30abb9e45333e5fe274ed4e3bc5a5e7722e9dca1f6cfd5cb7db3c5ae1cbd9c",
       "bytes": 10230
     },
     {
@@ -4416,7 +4416,7 @@
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scheduling.py",
-      "sha256": "e631efcf955a9389e1890a20fc0e3d20e2b1b0f14a3a1d0b822585eabd072415",
+      "sha256": "5d913196adc9095d56964aaf576c4d159ab52fba417c5ecbbda7002e748b8121",
       "bytes": 6353
     },
     {
@@ -6426,8 +6426,8 @@
     },
     {
       "path": "packages/bijux-pollenomics-dev/tests/test_report_rebuild_configured_owner.py",
-      "sha256": "f3468f37fb0ccea40934a9b18c3dbb7cffa9688eb7094cb2429218588d23005b",
-      "bytes": 55104
+      "sha256": "a601fa80dc38fd40df5c4d1f7a0f5efc7dad9fcc65a1535c20a3a9aed01e2818",
+      "bytes": 55109
     },
     {
       "path": "packages/bijux-pollenomics-dev/tests/test_report_rebuild_landclim_two_grid_packet.py",
@@ -8823,6 +8823,86 @@
       "path": "packages/bijux-pollenomics-dev/tests/source_completion/pollen_reconstruction/test_swedish_conditional_love.py",
       "sha256": "8c0b2bfffe318ffb42ceefc9572429f4a4ecfe69d00a96ce2d483d3879110b98",
       "bytes": 2469
+    },
+    {
+      "path": "configs/ci/qualified-report-sources/namibia-grouped-mapped-area.json",
+      "sha256": "12a4cb89daa5b3b20e2f18450e1fd2deac36a5d97132dae965bbafd57a904c48",
+      "bytes": 5939
+    },
+    {
+      "path": "data/method-certification/namibia-grouped-mapped-area/source-capture.json",
+      "sha256": "e446bd6648ac8ad6a88537574908c231e029ce4709266d363fa8870ae3623a38",
+      "bytes": 4163
+    },
+    {
+      "path": "docs/report/vegetation-reference/namibia-grouped-mapped-area/README.md",
+      "sha256": "d408db80cff57114edececadde87c11cb3e430a07b0487444f1fd7ccf79ab095",
+      "bytes": 5929
+    },
+    {
+      "path": "docs/report/vegetation-reference/namibia-grouped-mapped-area/all-radius-means.md",
+      "sha256": "ef0d6406cec5863789cb4fb1ccd9e2fcd8cafde6caab58ce251d06221c832da6",
+      "bytes": 1291
+    },
+    {
+      "path": "docs/report/vegetation-reference/namibia-grouped-mapped-area/assumptions.json",
+      "sha256": "c47e79e33f2ce85dd472ce469cb4800ff7cefd01a2411eb7187162562dd22735",
+      "bytes": 4299
+    },
+    {
+      "path": "docs/report/vegetation-reference/namibia-grouped-mapped-area/comparisons.json",
+      "sha256": "660efefb384cf87b72aebf99acf13bbd0dad697307e8f4d47bc923b8ee8f8fcd",
+      "bytes": 128464
+    },
+    {
+      "path": "docs/report/vegetation-reference/namibia-grouped-mapped-area/estimator-proof.md",
+      "sha256": "131a3e2c240ad2e4f9a45f1e2d91f190fc01bd3f2dacd6dcd2490f0af0dbe206",
+      "bytes": 3179
+    },
+    {
+      "path": "docs/report/vegetation-reference/namibia-grouped-mapped-area/report.json",
+      "sha256": "a19f533e08c589507698cc9bfa89d97f2ac210f5c85db6eed3f7967b32d2b499",
+      "bytes": 2077
+    },
+    {
+      "path": "docs/report/vegetation-reference/namibia-grouped-mapped-area/source-account.json",
+      "sha256": "00c21f87b989dfce82e7a74fe7bb6fd89a4b7b3e52de072e83b0d224addab2b7",
+      "bytes": 5260
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/vegetation/namibia_grouped_mapped_area/__init__.py",
+      "sha256": "fa854d67fcec050ef910c9032bf6e588d69c655b3c79ddd7572a8a34d8b67abc",
+      "bytes": 74
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/vegetation/namibia_grouped_mapped_area/__main__.py",
+      "sha256": "239734bdca535290f9de7a4c3e792035f2d86d53493511582bf2d79c406de78b",
+      "bytes": 122
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/vegetation/namibia_grouped_mapped_area/account.py",
+      "sha256": "7cbdf6894e127844273a8e1818b3f81b81f80a9d7501071d5dd672651af33c46",
+      "bytes": 7051
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/vegetation/namibia_grouped_mapped_area/authority.py",
+      "sha256": "30ed76c53ff977fbdea00b64db7bfc6f7c42f241998f9eff13ff5db3b427fe97",
+      "bytes": 4063
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/vegetation/namibia_grouped_mapped_area/producer.py",
+      "sha256": "9d8285071bd1557cc9f7cfe4972cdbbaa454628cc4a3090673fd29eb1be82cf1",
+      "bytes": 2436
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/vegetation/namibia_grouped_mapped_area/sources.py",
+      "sha256": "456478b7d35dfb8c6bfea738c50c76b5dc28c2adcedd4ae267dbc444bce21502",
+      "bytes": 16365
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/tests/source_completion/vegetation/test_namibia_grouped_mapped_area.py",
+      "sha256": "5dce2c1e9f3369c10dddaa660484c891eb131ec29241d8b6dd427a1e4e08993c",
+      "bytes": 12473
     }
   ]
 }
