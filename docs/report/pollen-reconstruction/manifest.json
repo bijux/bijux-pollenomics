@@ -1976,8 +1976,8 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/README.md",
-      "sha256": "54c9204f6e7e58ccef74a07382e61e635860f7501c67bdeeaed27c371ff117c1",
-      "bytes": 10804
+      "sha256": "23a3b8cdf7b605c27521165f993515a53ae7cc9a778987c87a74e00a8bc82a3c",
+      "bytes": 11670
     },
     {
       "path": "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/account.json",
@@ -3736,7 +3736,7 @@
     },
     {
       "path": "docs/report/report_narrative_quality_review.json",
-      "sha256": "dbbd651c1359f63c9ec44d85da574434f44a5083aaf9d1edbffb7d22edf171f9",
+      "sha256": "86b07bb5a63773f648858b7c32e685f80180c525d19ef316564ce7e8010e8f76",
       "bytes": 145017
     },
     {
@@ -3746,7 +3746,7 @@
     },
     {
       "path": "docs/report/report_surface_registry.json",
-      "sha256": "043615dcc79e41a12358b2c6ca48e094012e9e760d6d67293e57309bed7bba48",
+      "sha256": "3fef0993b46b6630afda3071b8dea306217aecc0ef456d553c5991a6bd8069eb",
       "bytes": 1002047
     },
     {
@@ -8041,13 +8041,13 @@
     },
     {
       "path": "reports/needed/report-claims.csv",
-      "sha256": "63aa999851f84d6a78e9733dcf763797cfea49ecdba96ef835b6e43990436bcb",
-      "bytes": 89540
+      "sha256": "cf5acc8d5037ddd7a866659e745551a8b5c27d5ffae18c5006b0d198c0bd9e99",
+      "bytes": 91689
     },
     {
       "path": "reports/needed/report-claims.md",
-      "sha256": "623e783b5389e51729e189608351c8ec9be6ddb170397b31b2123118e1d94853",
-      "bytes": 24404
+      "sha256": "8b7784b7e69c4e6d07aa17fadcbcb06d1a670d74d7f1e733adf9165ae386ff55",
+      "bytes": 24540
     },
     {
       "path": "reports/needed/review-decision.md",
@@ -8056,7 +8056,7 @@
     },
     {
       "path": "reports/needed/scientific-review.csv",
-      "sha256": "52608fba97fb7af5e6eafc447b2c4b83560219f7fc98b02fbce180ead8257f69",
+      "sha256": "22ed2640595bd32a1a85ee39f0a76182360fa468dbf4c2a7ebde0dffb62245b6",
       "bytes": 64719
     },
     {
@@ -8236,8 +8236,8 @@
     },
     {
       "path": "reports/science/landclim-paper.md",
-      "sha256": "4fc9712abb4f18a0dbc83ad75eebeae3dea4d067dd8aff0b4ee05393e0a288f0",
-      "bytes": 37267
+      "sha256": "d66ae0422da48df8384707bb7cbda6e274aaf29ab7de89f609201b5cec0f3073",
+      "bytes": 42795
     },
     {
       "path": "reports/science/lilla-gloppsjon-direct-pollen.md",
