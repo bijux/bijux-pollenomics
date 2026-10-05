@@ -1786,6 +1786,42 @@
         "source-products/report.json": "docs/report/pollen-reconstruction/swedish-parameter-transfer-scenarios/report.json"
       },
       "timeout_seconds": 180
+    },
+    {
+      "artifact_output_flag": "--retained-artifacts-root",
+      "external_source_descriptor": "configs/ci/qualified-report-sources/swedish-observed-common-panel.json",
+      "module": "bijux_pollenomics_dev.source_completion.pollen_reconstruction.source_observed_panels.common",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "pollen-reconstruction/swedish-observed-common-panel/report-products",
+      "source_arguments": [],
+      "source_paths": {
+        "source-products/attribution.json": "docs/report/pollen-reconstruction/swedish-observed-common-panel/attribution.json",
+        "source-products/physical-factor-qualification.json": "docs/report/pollen-reconstruction/swedish-observed-common-panel/physical-factor-qualification.json",
+        "source-products/published-model-comparison.json": "docs/report/pollen-reconstruction/swedish-observed-common-panel/published-model-comparison.json",
+        "source-products/report.json": "docs/report/pollen-reconstruction/swedish-observed-common-panel/report.json",
+        "source-products/source-coverage.json": "docs/report/pollen-reconstruction/swedish-observed-common-panel/source-coverage.json",
+        "source-products/window-domain.json": "docs/report/pollen-reconstruction/swedish-observed-common-panel/window-domain.json"
+      },
+      "timeout_seconds": 120
+    },
+    {
+      "artifact_output_flag": "--retained-artifacts-root",
+      "external_source_descriptor": "configs/ci/qualified-report-sources/swedish-observed-lake-panels.json",
+      "module": "bijux_pollenomics_dev.source_completion.pollen_reconstruction.source_observed_panels.lake_panels",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "pollen-reconstruction/swedish-observed-lake-panels/report-products",
+      "source_arguments": [],
+      "source_paths": {
+        "source-products/attribution.json": "docs/report/pollen-reconstruction/swedish-observed-lake-panels/attribution.json",
+        "source-products/physical-factor-qualification.json": "docs/report/pollen-reconstruction/swedish-observed-lake-panels/physical-factor-qualification.json",
+        "source-products/published-model-comparison.json": "docs/report/pollen-reconstruction/swedish-observed-lake-panels/published-model-comparison.json",
+        "source-products/report.json": "docs/report/pollen-reconstruction/swedish-observed-lake-panels/report.json",
+        "source-products/source-coverage.json": "docs/report/pollen-reconstruction/swedish-observed-lake-panels/source-coverage.json",
+        "source-products/window-domain.json": "docs/report/pollen-reconstruction/swedish-observed-lake-panels/window-domain.json"
+      },
+      "timeout_seconds": 120
     }
   ]
 }

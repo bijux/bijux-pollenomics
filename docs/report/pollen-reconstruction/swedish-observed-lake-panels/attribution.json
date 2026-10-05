@@ -1,0 +1,858 @@
+{
+  "current_primary_publication_scope_counts": {
+    "current_native_primary_designation_and_citation_available": 27,
+    "official_endpoint_actual_empty": 3
+  },
+  "dataset_attribution_accounts": [
+    {
+      "actual_publication_source_URL": "https://api.neotomadb.org/v2.0/data/datasets/1438/publications",
+      "current_primary_publication_scope": "official_endpoint_actual_empty",
+      "native_collection_unit_id": 1400,
+      "native_constituent_database": "European Pollen Database",
+      "native_dataset_DOI_strings": [
+        "10.21233/n3x640",
+        "10.21233/n3h737"
+      ],
+      "native_dataset_id": 1438,
+      "native_primary_citation_strings": [],
+      "native_primary_designated_publication_ids": [],
+      "native_site_name": "Kansj\u00f6n",
+      "original_native_investigator_records": [
+        {
+          "contactid": 50,
+          "contactname": "Jacobson, G.L., Jr.",
+          "familyname": "Jacobson",
+          "firstname": "G.L.",
+          "initials": "G.L."
+        }
+      ],
+      "remaining_attribution_followthrough": [
+        "Resolve primary/original publication citation beyond the actual native endpoint fields; retain DOI/PI/constituent credit and every actual associated reference"
+      ]
+    },
+    {
+      "actual_publication_source_URL": "https://api.neotomadb.org/v2.0/data/datasets/3931/publications",
+      "current_primary_publication_scope": "current_native_primary_designation_and_citation_available",
+      "native_collection_unit_id": 3806,
+      "native_constituent_database": "European Pollen Database",
+      "native_dataset_DOI_strings": [
+        "10.21233/054g-vs09"
+      ],
+      "native_dataset_id": 3931,
+      "native_primary_citation_strings": [
+        "G\u00f6ransson, H. 1991. Vegetation and man around Lake Bj\u00e4rsj\u00f6holmssj\u00f6n during prehistoric time. Lundqua Report 31."
+      ],
+      "native_primary_designated_publication_ids": [
+        1113
+      ],
+      "native_site_name": "Bj\u00e4rsj\u00f6holmssj\u00f6n",
+      "original_native_investigator_records": [
+        {
+          "contactid": 1074,
+          "contactname": "G\u00f6ransson, Hans",
+          "familyname": "G\u00f6ransson",
+          "firstname": "Hans",
+          "initials": "H."
+        }
+      ],
+      "remaining_attribution_followthrough": []
+    },
+    {
+      "actual_publication_source_URL": "https://api.neotomadb.org/v2.0/data/datasets/4037/publications",
+      "current_primary_publication_scope": "current_native_primary_designation_and_citation_available",
+      "native_collection_unit_id": 3910,
+      "native_constituent_database": "European Pollen Database",
+      "native_dataset_DOI_strings": [
+        "10.21233/5sjg-nn53"
+      ],
+      "native_dataset_id": 4037,
+      "native_primary_citation_strings": [
+        "Berglund, B.E. 1966. Late-Quaternary Vegetation in Eastern Blekinge, South-Eastern Sweden. A Pollen-Analytical Study. II. Post-Glacial Time. Opera Botanica 12(2):3-190."
+      ],
+      "native_primary_designated_publication_ids": [
+        16068
+      ],
+      "native_site_name": "F\u00e4rskesj\u00f6n",
+      "original_native_investigator_records": [
+        {
+          "contactid": 1000,
+          "contactname": "Berglund, Bj\u00f6rn E.",
+          "familyname": "Berglund",
+          "firstname": "Bj\u00f6rn E.",
+          "initials": "B.E."
+        }
+      ],
+      "remaining_attribution_followthrough": []
+    },
+    {
+      "actual_publication_source_URL": "https://api.neotomadb.org/v2.0/data/datasets/4040/publications",
+      "current_primary_publication_scope": "current_native_primary_designation_and_citation_available",
+      "native_collection_unit_id": 3913,
+      "native_constituent_database": "European Pollen Database",
+      "native_dataset_DOI_strings": [
+        "10.21233/98yq-bv63"
+      ],
+      "native_dataset_id": 4040,
+      "native_primary_citation_strings": [
+        "K\u00f6nigsson, L.-K. 1984. Vegetationsgeschichte und Kultureinfl\u00fcsse in der Landschaftsentwicklung der s\u00fcdschwedischen Gebirge in H\u00e4rjedalen. Pages 177-189 in G. Lang, editor. Dissertationes Botanicae 72 (Festschrift. J. Cramer, Vaduz, Liechtenstein."
+      ],
+      "native_primary_designated_publication_ids": [
+        1191
+      ],
+      "native_site_name": "Fj\u00e4llnas",
+      "original_native_investigator_records": [
+        {
+          "contactid": 1127,
+          "contactname": "K\u00f6nigsson, Lars K\u00f6nig",
+          "familyname": "K\u00f6nigsson",
+          "firstname": "Lars K\u00f6nig",
+          "initials": "L.K."
+        }
+      ],
+      "remaining_attribution_followthrough": []
+    },
+    {
+      "actual_publication_source_URL": "https://api.neotomadb.org/v2.0/data/datasets/4042/publications",
+      "current_primary_publication_scope": "current_native_primary_designation_and_citation_available",
+      "native_collection_unit_id": 3915,
+      "native_constituent_database": "European Pollen Database",
+      "native_dataset_DOI_strings": [
+        "10.21233/xq55-z804"
+      ],
+      "native_dataset_id": 4042,
+      "native_primary_citation_strings": [
+        "Digerfeldt, G. 1977. The Flandrian development of Lake Flarken. Regional vegetation history and palaeolimnology. University of Lund, Department of Quaternary Geology. Report 13:1-101."
+      ],
+      "native_primary_designated_publication_ids": [
+        15525
+      ],
+      "native_site_name": "Lake Flarken",
+      "original_native_investigator_records": [
+        {
+          "contactid": 431,
+          "contactname": "Digerfeldt, Gunnar",
+          "familyname": "Digerfeldt",
+          "firstname": "Gunnar",
+          "initials": "G."
+        }
+      ],
+      "remaining_attribution_followthrough": []
+    },
+    {
+      "actual_publication_source_URL": "https://api.neotomadb.org/v2.0/data/datasets/4162/publications",
+      "current_primary_publication_scope": "current_native_primary_designation_and_citation_available",
+      "native_collection_unit_id": 4033,
+      "native_constituent_database": "European Pollen Database",
+      "native_dataset_DOI_strings": [
+        "10.21233/7144-8c50"
+      ],
+      "native_dataset_id": 4162,
+      "native_primary_citation_strings": [
+        "Regn\u00e9ll, J. 1989. Vegetation and land use during 6000 years. Palaeoecology of the cultural landscape at two lake sites in southern Sk\u00e5ne, Sweden. Doctoral dissertation. Lund University, Lund, Sweden. Notes: Lundqua Thesis 27, 1-62"
+      ],
+      "native_primary_designated_publication_ids": [
+        1290
+      ],
+      "native_site_name": "Krageholmssj\u00f6n",
+      "original_native_investigator_records": [
+        {
+          "contactid": 595,
+          "contactname": "Regn\u00e9ll, Joachim",
+          "familyname": "Regn\u00e9ll",
+          "firstname": "Joachim",
+          "initials": "J."
+        }
+      ],
+      "remaining_attribution_followthrough": []
+    },
+    {
+      "actual_publication_source_URL": "https://api.neotomadb.org/v2.0/data/datasets/4200/publications",
+      "current_primary_publication_scope": "current_native_primary_designation_and_citation_available",
+      "native_collection_unit_id": 4071,
+      "native_constituent_database": "European Pollen Database",
+      "native_dataset_DOI_strings": [
+        "10.21233/vpnw-pv89"
+      ],
+      "native_dataset_id": 4200,
+      "native_primary_citation_strings": [
+        "Almquist-Jacobson, H. 1994. Interaction of the Holocene climate, water balance, vegetation, fire, and cultural land-use in the Swedish Borderland.. Doctoral dissertation. Lund University, Lund, Sweden. Notes: Lundqua Thesis 30: 1-82"
+      ],
+      "native_primary_designated_publication_ids": [
+        16060
+      ],
+      "native_site_name": "Lilla Gloppsj\u00f6n",
+      "original_native_investigator_records": [
+        {
+          "contactid": 15791,
+          "contactname": "Almquist-Jacobson, Heather",
+          "familyname": "Almquist-Jacobson",
+          "firstname": "Heather",
+          "initials": "H."
+        }
+      ],
+      "remaining_attribution_followthrough": []
+    },
+    {
+      "actual_publication_source_URL": "https://api.neotomadb.org/v2.0/data/datasets/4370/publications",
+      "current_primary_publication_scope": "current_native_primary_designation_and_citation_available",
+      "native_collection_unit_id": 4230,
+      "native_constituent_database": "European Pollen Database",
+      "native_dataset_DOI_strings": [
+        "10.21233/djf1-3r43"
+      ],
+      "native_dataset_id": 4370,
+      "native_primary_citation_strings": [
+        "Digerfeldt, G. 1974. The Post-Glacial development of the Ranviken bay in Lake Immeln; I. The history of the regional vegetation, and II. The water-level changes. Geologiska F\u00f6reningen i Stockholm F\u00f6rhandlingar 96:3-32."
+      ],
+      "native_primary_designated_publication_ids": [
+        15542
+      ],
+      "native_site_name": "Ran Viken",
+      "original_native_investigator_records": [
+        {
+          "contactid": 431,
+          "contactname": "Digerfeldt, Gunnar",
+          "familyname": "Digerfeldt",
+          "firstname": "Gunnar",
+          "initials": "G."
+        }
+      ],
+      "remaining_attribution_followthrough": []
+    },
+    {
+      "actual_publication_source_URL": "https://api.neotomadb.org/v2.0/data/datasets/4403/publications",
+      "current_primary_publication_scope": "current_native_primary_designation_and_citation_available",
+      "native_collection_unit_id": 4262,
+      "native_constituent_database": "European Pollen Database",
+      "native_dataset_DOI_strings": [
+        "10.21233/53ys-nt12"
+      ],
+      "native_dataset_id": 4403,
+      "native_primary_citation_strings": [
+        "Digerfeldt, G. 1982. The Holocene development of Lake S\u00e4mbosj\u00f6n. 1. The regional vegetation history. Lundqua report 23, Lund University, Lund, Sweden. Notes: Pages 1-24"
+      ],
+      "native_primary_designated_publication_ids": [
+        1088
+      ],
+      "native_site_name": "Lake S\u00e4mbosj\u00f6n",
+      "original_native_investigator_records": [
+        {
+          "contactid": 431,
+          "contactname": "Digerfeldt, Gunnar",
+          "familyname": "Digerfeldt",
+          "firstname": "Gunnar",
+          "initials": "G."
+        }
+      ],
+      "remaining_attribution_followthrough": []
+    },
+    {
+      "actual_publication_source_URL": "https://api.neotomadb.org/v2.0/data/datasets/4496/publications",
+      "current_primary_publication_scope": "current_native_primary_designation_and_citation_available",
+      "native_collection_unit_id": 4353,
+      "native_constituent_database": "European Pollen Database",
+      "native_dataset_DOI_strings": [
+        "10.21233/nbaz-kx35"
+      ],
+      "native_dataset_id": 4496,
+      "native_primary_citation_strings": [
+        "Digerfeldt, G. 1972. The post-glacial development of Lake Trummen. Regional vegetation history, water level and palaeolimnology. Folia Limnologica Scandinavica 16:1-104."
+      ],
+      "native_primary_designated_publication_ids": [
+        16069
+      ],
+      "native_site_name": "Lake Trummen",
+      "original_native_investigator_records": [
+        {
+          "contactid": 431,
+          "contactname": "Digerfeldt, Gunnar",
+          "familyname": "Digerfeldt",
+          "firstname": "Gunnar",
+          "initials": "G."
+        }
+      ],
+      "remaining_attribution_followthrough": []
+    },
+    {
+      "actual_publication_source_URL": "https://api.neotomadb.org/v2.0/data/datasets/19909/publications",
+      "current_primary_publication_scope": "current_native_primary_designation_and_citation_available",
+      "native_collection_unit_id": 14908,
+      "native_constituent_database": "European Pollen Database",
+      "native_dataset_DOI_strings": [
+        "10.21233/6bhj-jv09"
+      ],
+      "native_dataset_id": 19909,
+      "native_primary_citation_strings": [
+        "Giesecke, T. 2005. Holocene dynamics of the southern boreal forest in Sweden. The Holocene 15(6):858-872. [DOI: 10.1191/0959683605hl859ra]"
+      ],
+      "native_primary_designated_publication_ids": [
+        9439
+      ],
+      "native_site_name": "Klotj\u00e4rnen",
+      "original_native_investigator_records": [
+        {
+          "contactid": 8710,
+          "contactname": "Giesecke, Thomas",
+          "familyname": "Giesecke",
+          "firstname": "Thomas",
+          "initials": "T."
+        }
+      ],
+      "remaining_attribution_followthrough": []
+    },
+    {
+      "actual_publication_source_URL": "https://api.neotomadb.org/v2.0/data/datasets/19913/publications",
+      "current_primary_publication_scope": "current_native_primary_designation_and_citation_available",
+      "native_collection_unit_id": 14910,
+      "native_constituent_database": "European Pollen Database",
+      "native_dataset_DOI_strings": [
+        "10.21233/2vzb-bg61"
+      ],
+      "native_dataset_id": 19913,
+      "native_primary_citation_strings": [
+        "Giesecke, T. 2005. Holocene forest development in the central Scandes Mountains, Sweden. Vegetation History and Archaeobotany 13:133-147."
+      ],
+      "native_primary_designated_publication_ids": [
+        9435
+      ],
+      "native_site_name": "Abborrtj\u00e4rnen",
+      "original_native_investigator_records": [
+        {
+          "contactid": 8710,
+          "contactname": "Giesecke, Thomas",
+          "familyname": "Giesecke",
+          "firstname": "Thomas",
+          "initials": "T."
+        }
+      ],
+      "remaining_attribution_followthrough": []
+    },
+    {
+      "actual_publication_source_URL": "https://api.neotomadb.org/v2.0/data/datasets/21790/publications",
+      "current_primary_publication_scope": "current_native_primary_designation_and_citation_available",
+      "native_collection_unit_id": 15810,
+      "native_constituent_database": "European Pollen Database",
+      "native_dataset_DOI_strings": [
+        "10.21233/bsv3-k317"
+      ],
+      "native_dataset_id": 21790,
+      "native_primary_citation_strings": [
+        "Giesecke, T. 2005. Holocene dynamics of the southern boreal forest in Sweden. The Holocene 15(6):858-872. [DOI: 10.1191/0959683605hl859ra]"
+      ],
+      "native_primary_designated_publication_ids": [
+        9439
+      ],
+      "native_site_name": "Holtj\u00e4rnen",
+      "original_native_investigator_records": [
+        {
+          "contactid": 8710,
+          "contactname": "Giesecke, Thomas",
+          "familyname": "Giesecke",
+          "firstname": "Thomas",
+          "initials": "T."
+        }
+      ],
+      "remaining_attribution_followthrough": []
+    },
+    {
+      "actual_publication_source_URL": "https://api.neotomadb.org/v2.0/data/datasets/23013/publications",
+      "current_primary_publication_scope": "current_native_primary_designation_and_citation_available",
+      "native_collection_unit_id": 16622,
+      "native_constituent_database": "European Pollen Database",
+      "native_dataset_DOI_strings": [
+        "10.21233/d642-mk20"
+      ],
+      "native_dataset_id": 23013,
+      "native_primary_citation_strings": [
+        "Gaillard-Lemdahl, M.J. 1984. A palaeohydrological study of Krageholmssj\u00f6n (Scania, south Sweden): Regional vegetation history and water-level changes. Lundqua Report 25:1-36. Notes: Department of Quaternary Geology, Lund Univsersity."
+      ],
+      "native_primary_designated_publication_ids": [
+        1104
+      ],
+      "native_site_name": "Krageholmssj\u00f6n",
+      "original_native_investigator_records": [
+        {
+          "contactid": 1066,
+          "contactname": "Gaillard-Lemdahl, Marie-Jos\u00e9",
+          "familyname": "Gaillard-Lemdahl",
+          "firstname": "Marie-Jos\u00e9",
+          "initials": "M.J."
+        }
+      ],
+      "remaining_attribution_followthrough": []
+    },
+    {
+      "actual_publication_source_URL": "https://api.neotomadb.org/v2.0/data/datasets/45311/publications",
+      "current_primary_publication_scope": "current_native_primary_designation_and_citation_available",
+      "native_collection_unit_id": 32166,
+      "native_constituent_database": "European Pollen Database",
+      "native_dataset_DOI_strings": [
+        "10.21233/mks1-mt36"
+      ],
+      "native_dataset_id": 45311,
+      "native_primary_citation_strings": [
+        "Bigler, C., I. Larocque, S.M. Peglar, H.J.B. Birks, and R.I. Hall. 2002. Quantitative multiproxy assessment of long-term patterns of Holocee environmental change from a small lake near Abisko, northern Sweden. The Holocene 12:481-496."
+      ],
+      "native_primary_designated_publication_ids": [
+        16022
+      ],
+      "native_site_name": "Vuoskkuj\u00e1vri",
+      "original_native_investigator_records": [
+        {
+          "contactid": 14,
+          "contactname": "Birks, Harry John Betteley",
+          "familyname": "Birks",
+          "firstname": "Harry John Betteley",
+          "initials": "H.J.B."
+        }
+      ],
+      "remaining_attribution_followthrough": []
+    },
+    {
+      "actual_publication_source_URL": "https://api.neotomadb.org/v2.0/data/datasets/45314/publications",
+      "current_primary_publication_scope": "current_native_primary_designation_and_citation_available",
+      "native_collection_unit_id": 32168,
+      "native_constituent_database": "European Pollen Database",
+      "native_dataset_DOI_strings": [
+        "10.21233/sb36-c222"
+      ],
+      "native_dataset_id": 45314,
+      "native_primary_citation_strings": [
+        "Heinrichs, M.L., S.M. Peglar, C. Bigler, and H.J.B. Birks. 2005. A multi-proxi palaeoecological study of Alanen Laanj\u00e4rvi, a boreal-forest lake in Swedish Lapland. Boreas 34:192-206."
+      ],
+      "native_primary_designated_publication_ids": [
+        16025
+      ],
+      "native_site_name": "Alanen Laanij\u00e4rvi",
+      "original_native_investigator_records": [
+        {
+          "contactid": 14,
+          "contactname": "Birks, Harry John Betteley",
+          "familyname": "Birks",
+          "firstname": "Harry John Betteley",
+          "initials": "H.J.B."
+        }
+      ],
+      "remaining_attribution_followthrough": []
+    },
+    {
+      "actual_publication_source_URL": "https://api.neotomadb.org/v2.0/data/datasets/52214/publications",
+      "current_primary_publication_scope": "current_native_primary_designation_and_citation_available",
+      "native_collection_unit_id": 37991,
+      "native_constituent_database": "European Pollen Database",
+      "native_dataset_DOI_strings": [
+        "10.21233/HNMB-N887",
+        "10.21233/hnmb-n887"
+      ],
+      "native_dataset_id": 52214,
+      "native_primary_citation_strings": [
+        "Barnekow, L. 2000. Holocene regional and local vegetation history and lake-level changes in the Tornetr\u00e4sk area, northern Sweden. Journal of Paleolimnology 23:399-420."
+      ],
+      "native_primary_designated_publication_ids": [
+        17395
+      ],
+      "native_site_name": "Lake Badsj\u00f6n",
+      "original_native_investigator_records": [
+        {
+          "contactid": 632,
+          "contactname": "Barnekow, Lena",
+          "familyname": "Barnekow",
+          "firstname": "Lena",
+          "initials": "L."
+        }
+      ],
+      "remaining_attribution_followthrough": []
+    },
+    {
+      "actual_publication_source_URL": "https://api.neotomadb.org/v2.0/data/datasets/53964/publications",
+      "current_primary_publication_scope": "current_native_primary_designation_and_citation_available",
+      "native_collection_unit_id": 39221,
+      "native_constituent_database": "European Pollen Database",
+      "native_dataset_DOI_strings": [
+        "10.21233/4MDA-EC83",
+        "10.21233/ypkp-7d28"
+      ],
+      "native_dataset_id": 53964,
+      "native_primary_citation_strings": [
+        "Sj\u00f6gren, P. 1999. Utmarkens vegetationsutveckling vid Ire i Blekinge, fr\u00e5n forntid till nutid : en pollenanalytisk studie. Master's thesis. Lund University, Lund, Sweden. Notes: 40pp."
+      ],
+      "native_primary_designated_publication_ids": [
+        18553
+      ],
+      "native_site_name": "V\u00e4stragylet",
+      "original_native_investigator_records": [
+        {
+          "contactid": 9729,
+          "contactname": "Bj\u00f6rkman, Leif",
+          "familyname": "Bj\u00f6rkman",
+          "firstname": "Leif",
+          "initials": "L."
+        },
+        {
+          "contactid": 15626,
+          "contactname": "Sj\u00f6gren, Per",
+          "familyname": "Sj\u00f6gren",
+          "firstname": "Per",
+          "initials": "P."
+        }
+      ],
+      "remaining_attribution_followthrough": []
+    },
+    {
+      "actual_publication_source_URL": "https://api.neotomadb.org/v2.0/data/datasets/53966/publications",
+      "current_primary_publication_scope": "current_native_primary_designation_and_citation_available",
+      "native_collection_unit_id": 39222,
+      "native_constituent_database": "European Pollen Database",
+      "native_dataset_DOI_strings": [
+        "10.21233/5FFA-6509",
+        "10.21233/hf9t-rm48"
+      ],
+      "native_dataset_id": 53966,
+      "native_primary_citation_strings": [
+        "Almquist-Jacobson, H. 1995. Lake-level fluctuations at Ljustj\u00e4rnen, central Sweden and their implications for the Holocene climate of Scandinavia. Palaeogeography, Palaeoclimatology, Palaeoecology 118:269-290."
+      ],
+      "native_primary_designated_publication_ids": [
+        17407
+      ],
+      "native_site_name": "Ljustj\u00e4rnen",
+      "original_native_investigator_records": [
+        {
+          "contactid": 15791,
+          "contactname": "Almquist-Jacobson, Heather",
+          "familyname": "Almquist-Jacobson",
+          "firstname": "Heather",
+          "initials": "H."
+        }
+      ],
+      "remaining_attribution_followthrough": []
+    },
+    {
+      "actual_publication_source_URL": "https://api.neotomadb.org/v2.0/data/datasets/53969/publications",
+      "current_primary_publication_scope": "official_endpoint_actual_empty",
+      "native_collection_unit_id": 39224,
+      "native_constituent_database": "European Pollen Database",
+      "native_dataset_DOI_strings": [
+        "10.21233/2ERS-RE93",
+        "10.21233/vrwa-cw36"
+      ],
+      "native_dataset_id": 53969,
+      "native_primary_citation_strings": [],
+      "native_primary_designated_publication_ids": [],
+      "native_site_name": "Lake Stentj\u00e4rn",
+      "original_native_investigator_records": [
+        {
+          "contactid": 17714,
+          "contactname": "Bergman, Jonas",
+          "familyname": "Bergman",
+          "firstname": "Jonas",
+          "initials": "J."
+        }
+      ],
+      "remaining_attribution_followthrough": [
+        "Resolve primary/original publication citation beyond the actual native endpoint fields; retain DOI/PI/constituent credit and every actual associated reference"
+      ]
+    },
+    {
+      "actual_publication_source_URL": "https://api.neotomadb.org/v2.0/data/datasets/53970/publications",
+      "current_primary_publication_scope": "official_endpoint_actual_empty",
+      "native_collection_unit_id": 39224,
+      "native_constituent_database": "European Pollen Database",
+      "native_dataset_DOI_strings": [
+        "10.21233/EE03-QC13",
+        "10.21233/spsk-yz98"
+      ],
+      "native_dataset_id": 53970,
+      "native_primary_citation_strings": [],
+      "native_primary_designated_publication_ids": [],
+      "native_site_name": "Lake Stentj\u00e4rn",
+      "original_native_investigator_records": [
+        {
+          "contactid": 17714,
+          "contactname": "Bergman, Jonas",
+          "familyname": "Bergman",
+          "firstname": "Jonas",
+          "initials": "J."
+        }
+      ],
+      "remaining_attribution_followthrough": [
+        "Resolve primary/original publication citation beyond the actual native endpoint fields; retain DOI/PI/constituent credit and every actual associated reference"
+      ]
+    },
+    {
+      "actual_publication_source_URL": "https://api.neotomadb.org/v2.0/data/datasets/53972/publications",
+      "current_primary_publication_scope": "current_native_primary_designation_and_citation_available",
+      "native_collection_unit_id": 39225,
+      "native_constituent_database": "European Pollen Database",
+      "native_dataset_DOI_strings": [
+        "10.21233/T53Q-YJ68",
+        "10.21233/1p3b-kt66"
+      ],
+      "native_dataset_id": 53972,
+      "native_primary_citation_strings": [
+        "Barnekow, L., P. Brag\u00e9e, D. Hammarlund, and N. St. Amour. 2008. Boreal forest dynamics in north-eastern Sweden during the last 10,000 years based on pollen analysis. Vegetation History and Archaeobotany 17:687-700."
+      ],
+      "native_primary_designated_publication_ids": [
+        17401
+      ],
+      "native_site_name": "Lake Svartk\u00e4lstj\u00e4rn",
+      "original_native_investigator_records": [
+        {
+          "contactid": 17709,
+          "contactname": "Brag\u00e9e, Petra",
+          "familyname": "Brag\u00e9e",
+          "firstname": "Petra",
+          "initials": "P."
+        }
+      ],
+      "remaining_attribution_followthrough": []
+    },
+    {
+      "actual_publication_source_URL": "https://api.neotomadb.org/v2.0/data/datasets/53978/publications",
+      "current_primary_publication_scope": "current_native_primary_designation_and_citation_available",
+      "native_collection_unit_id": 39228,
+      "native_constituent_database": "European Pollen Database",
+      "native_dataset_DOI_strings": [
+        "10.21233/TYNA-1M42",
+        "10.21233/fx8t-wk28"
+      ],
+      "native_dataset_id": 53978,
+      "native_primary_citation_strings": [
+        "Barnekow, L., G. Possnert, and P. Sandgren. 1998. AMS 14C chronologies of Holocene lake sediments in the Abisko area, northern Sweden \u2013 a comparison between dated bulk sediment and macrofossil samples. GFF 120:59-67.",
+        "Bigler, C., L. Barnekow, M.L. Heinrichs, and R.I. Hall. 2006. Holocene environmental history of Lake Vuolep Njakajaure (Abisko National Park, northern Sweden) reconstructed using biological proxy indicators. Vegetation History and Archaeobotany."
+      ],
+      "native_primary_designated_publication_ids": [
+        17397,
+        17398
+      ],
+      "native_site_name": "Lake Vuolep Njakajaure",
+      "original_native_investigator_records": [
+        {
+          "contactid": 632,
+          "contactname": "Barnekow, Lena",
+          "familyname": "Barnekow",
+          "firstname": "Lena",
+          "initials": "L."
+        }
+      ],
+      "remaining_attribution_followthrough": []
+    },
+    {
+      "actual_publication_source_URL": "https://api.neotomadb.org/v2.0/data/datasets/53980/publications",
+      "current_primary_publication_scope": "current_native_primary_designation_and_citation_available",
+      "native_collection_unit_id": 39229,
+      "native_constituent_database": "European Pollen Database",
+      "native_dataset_DOI_strings": [
+        "10.21233/D0ZH-G276",
+        "10.21233/0q3a-1458"
+      ],
+      "native_dataset_id": 53980,
+      "native_primary_citation_strings": [
+        "Barnekow, L. 1999. Holocene tree-line dynamics and inferred climatic changes in the Abisko area, northern Sweden, based on macrofossil and pollen records. The Holocene 9(3):253-265."
+      ],
+      "native_primary_designated_publication_ids": [
+        17396
+      ],
+      "native_site_name": "Lake Tibenatus",
+      "original_native_investigator_records": [
+        {
+          "contactid": 632,
+          "contactname": "Barnekow, Lena",
+          "familyname": "Barnekow",
+          "firstname": "Lena",
+          "initials": "L."
+        }
+      ],
+      "remaining_attribution_followthrough": []
+    },
+    {
+      "actual_publication_source_URL": "https://api.neotomadb.org/v2.0/data/datasets/53991/publications",
+      "current_primary_publication_scope": "current_native_primary_designation_and_citation_available",
+      "native_collection_unit_id": 39235,
+      "native_constituent_database": "European Pollen Database",
+      "native_dataset_DOI_strings": [
+        "10.21233/FPF4-A449",
+        "10.21233/6emx-5y59"
+      ],
+      "native_dataset_id": 53991,
+      "native_primary_citation_strings": [
+        "Antonsson, K., S.J. Brooks, H. Sepp\u00e4, R.J. Telford, and H.J.B. Birks. 2006. Quantitative palaeotemperature records inferred from fossil pollen and chironomid assemblages from Lake Gillj\u00e4rnen, northern central Sweden. Journal of Quaternary Science 21(8):831-841."
+      ],
+      "native_primary_designated_publication_ids": [
+        17391
+      ],
+      "native_site_name": "Gilltj\u00e4rnen",
+      "original_native_investigator_records": [
+        {
+          "contactid": 1233,
+          "contactname": "Sepp\u00e4, Heikki",
+          "familyname": "Sepp\u00e4",
+          "firstname": "Heikki",
+          "initials": "H."
+        }
+      ],
+      "remaining_attribution_followthrough": []
+    },
+    {
+      "actual_publication_source_URL": "https://api.neotomadb.org/v2.0/data/datasets/53995/publications",
+      "current_primary_publication_scope": "current_native_primary_designation_and_citation_available",
+      "native_collection_unit_id": 39238,
+      "native_constituent_database": "European Pollen Database",
+      "native_dataset_DOI_strings": [
+        "10.21233/PQFT-GY26",
+        "10.21233/mhqn-eq25"
+      ],
+      "native_dataset_id": 53995,
+      "native_primary_citation_strings": [
+        "H\u00e5kansson, H., and J. Regn\u00e9ll. 1993. Diatom succession related to land use during the last 6000 years: a study of a small eutrophic lake in southern Sweden. Journal of Paleolimnology 8:49-69."
+      ],
+      "native_primary_designated_publication_ids": [
+        17389
+      ],
+      "native_site_name": "Bussj\u00f6sj\u00f6n",
+      "original_native_investigator_records": [
+        {
+          "contactid": 595,
+          "contactname": "Regn\u00e9ll, Joachim",
+          "familyname": "Regn\u00e9ll",
+          "firstname": "Joachim",
+          "initials": "J."
+        }
+      ],
+      "remaining_attribution_followthrough": []
+    },
+    {
+      "actual_publication_source_URL": "https://api.neotomadb.org/v2.0/data/datasets/53999/publications",
+      "current_primary_publication_scope": "current_native_primary_designation_and_citation_available",
+      "native_collection_unit_id": 39240,
+      "native_constituent_database": "European Pollen Database",
+      "native_dataset_DOI_strings": [
+        "10.21233/WYNX-6J91",
+        "10.21233/j51g-nj67"
+      ],
+      "native_dataset_id": 53999,
+      "native_primary_citation_strings": [
+        "Gaillard-Lemdahl, M.J., J.A. Dearing, F. El-Daoushy, M. Enell, and H. H\u00e5kansson. 1991. A multidisciplinary study of the lake Bj\u00e4resj\u00f6sj\u00f6n (S Sweden): land-use history, soil erosion, lake trophy and lake-level fluctuations during the last 3000 years. Hydrobiologia 214:107-114."
+      ],
+      "native_primary_designated_publication_ids": [
+        17362
+      ],
+      "native_site_name": "Bj\u00e4resj\u00f6sj\u00f6n",
+      "original_native_investigator_records": [
+        {
+          "contactid": 1066,
+          "contactname": "Gaillard-Lemdahl, Marie-Jos\u00e9",
+          "familyname": "Gaillard-Lemdahl",
+          "firstname": "Marie-Jos\u00e9",
+          "initials": "M.J."
+        }
+      ],
+      "remaining_attribution_followthrough": []
+    },
+    {
+      "actual_publication_source_URL": "https://api.neotomadb.org/v2.0/data/datasets/54001/publications",
+      "current_primary_publication_scope": "current_native_primary_designation_and_citation_available",
+      "native_collection_unit_id": 39241,
+      "native_constituent_database": "European Pollen Database",
+      "native_dataset_DOI_strings": [
+        "10.21233/A5HN-WW50",
+        "10.21233/0msh-1a51"
+      ],
+      "native_dataset_id": 54001,
+      "native_primary_citation_strings": [
+        "Gaillard-Lemdahl, M.J., G.E. Hannon, H. H\u00e5kansson, S. Olsson, G. Possnert, and P. Sandgren. 1996. New data on the Holocene forest and land-use history of Sk\u00e5ne based on AMS 14C dates of terrestrial plant macroremains, and biostratigraphical, chemical, and mineral magnetic analyses of lakes sediments. Geologiska f\u00f6reningens i Stockhom f\u00f6rhandlingar 118(supp004):65-66."
+      ],
+      "native_primary_designated_publication_ids": [
+        17367
+      ],
+      "native_site_name": "B\u00f6kesj\u00f6n",
+      "original_native_investigator_records": [
+        {
+          "contactid": 1066,
+          "contactname": "Gaillard-Lemdahl, Marie-Jos\u00e9",
+          "familyname": "Gaillard-Lemdahl",
+          "firstname": "Marie-Jos\u00e9",
+          "initials": "M.J."
+        }
+      ],
+      "remaining_attribution_followthrough": []
+    },
+    {
+      "actual_publication_source_URL": "https://api.neotomadb.org/v2.0/data/datasets/54020/publications",
+      "current_primary_publication_scope": "current_native_primary_designation_and_citation_available",
+      "native_collection_unit_id": 39256,
+      "native_constituent_database": "European Pollen Database",
+      "native_dataset_DOI_strings": [
+        "10.21233/TGWG-Z760",
+        "10.21233/6d46-a609"
+      ],
+      "native_dataset_id": 54020,
+      "native_primary_citation_strings": [
+        "Lager\u00e5s, P. 1996. Farming and forest dynamics in an agriculturally marginal area of southern Sweden, 5000 BC to present: a palynological study of Lake Aveg\u00f6l in the Sm\u00e5land Uplands. The Holocene 6(3):301-314."
+      ],
+      "native_primary_designated_publication_ids": [
+        17411
+      ],
+      "native_site_name": "Lake Aveg\u00f6l",
+      "original_native_investigator_records": [
+        {
+          "contactid": 17721,
+          "contactname": "Lager\u00e5s, Per",
+          "familyname": "Lager\u00e5s",
+          "firstname": "Per",
+          "initials": "P."
+        }
+      ],
+      "remaining_attribution_followthrough": []
+    },
+    {
+      "actual_publication_source_URL": "https://api.neotomadb.org/v2.0/data/datasets/54024/publications",
+      "current_primary_publication_scope": "current_native_primary_designation_and_citation_available",
+      "native_collection_unit_id": 39258,
+      "native_constituent_database": "European Pollen Database",
+      "native_dataset_DOI_strings": [
+        "10.21233/8TSN-1G04",
+        "10.21233/rsp6-5m50"
+      ],
+      "native_dataset_id": 54024,
+      "native_primary_citation_strings": [
+        "Bj\u00f6rkman, L. 2004. Detaljerad pollenanalytisk unders\u00f6kning av tre lagerf\u00f6ljder (Flinkasj\u00f6n, E4:13, E4:16) fr\u00e5n \u00d6rkelljungatrakten i nordv\u00e4stra Sk\u00e5ne. LUNDQUA Uppdrag 54:1-20."
+      ],
+      "native_primary_designated_publication_ids": [
+        17432
+      ],
+      "native_site_name": "Flinkasj\u00f6n",
+      "original_native_investigator_records": [
+        {
+          "contactid": 9729,
+          "contactname": "Bj\u00f6rkman, Leif",
+          "familyname": "Bj\u00f6rkman",
+          "firstname": "Leif",
+          "initials": "L."
+        },
+        {
+          "contactid": 17721,
+          "contactname": "Lager\u00e5s, Per",
+          "familyname": "Lager\u00e5s",
+          "firstname": "Per",
+          "initials": "P."
+        }
+      ],
+      "remaining_attribution_followthrough": []
+    }
+  ],
+  "distinct_native_collection_units": 29,
+  "primary_policy_sources": [
+    {
+      "http_status": 200,
+      "sha256": "f5ae5e79f7dd1a4d6dd846fa9a63a14129dc8b0ea9c21ed484289304be01b85e",
+      "url": "https://www.neotomadb.org/data/data-use-and-embargo-policy"
+    },
+    {
+      "http_status": 200,
+      "sha256": "a6d049567190ee7671df82c859e4139e53c2efa432bfe9191f4b0538c1f4685c",
+      "url": "https://epdweblog.org/epd_data_home/epd_policy/"
+    }
+  ],
+  "scope": "Current public Neotoma/EPD analytical-use component with source-qualified attribution; historical workbook restrictions/private author material rights and historical source selection remain separate",
+  "used_native_datasets": 30
+}

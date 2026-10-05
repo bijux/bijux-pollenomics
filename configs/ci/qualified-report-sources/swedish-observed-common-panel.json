@@ -1,0 +1,128 @@
+{
+  "file_count": 23,
+  "files": [
+    {
+      "path": "comparison-terminal.json",
+      "sha256": "3dfa912d17d4a6d689888a5c1e843653c52cbaa27b929d207398dce8344e94cb",
+      "size": 2673
+    },
+    {
+      "path": "domain-terminal.json",
+      "sha256": "10b9117c9a7d7e60a2feb662c7e58790bd0f9423c20092d6b59badfacf9e239d",
+      "size": 2273
+    },
+    {
+      "path": "engine-source-identities.json",
+      "sha256": "df7fbaabdcc0c13ce9771a02dba2ecc014c2c1d81e3b21c69821a0f57453f48a",
+      "size": 8181
+    },
+    {
+      "path": "independent-factors.json",
+      "sha256": "775baf664ac912495b123c9789c2c2572fc71a7270bc00336578bffe1b0da72a",
+      "size": 124189
+    },
+    {
+      "path": "independent-terminal.json",
+      "sha256": "9402b5287169305c7b54ca55d1971b3705aac48cd92f254bd644832a60063962",
+      "size": 2536
+    },
+    {
+      "path": "native-consumer.py",
+      "sha256": "56fdb46c52cfb235f31adf7e222558308103d5ef7e6dae7a6d5c6d0eaa2423d9",
+      "size": 23894
+    },
+    {
+      "path": "native-plan.json",
+      "sha256": "4089e94dfc5063c466cb45eaebefcb6e49db3f3f578643d43583fa3f020f8bfd",
+      "size": 1651760
+    },
+    {
+      "path": "native-results.json",
+      "sha256": "d94545158940dd651fe90f3477ec73a3db608f26c2a7d382d171e112aa593f37",
+      "size": 7105291
+    },
+    {
+      "path": "native-supervisor.py",
+      "sha256": "a643cedd18820038323edcc1e3263a529d2d519d76e99a709c66ed0e222434af",
+      "size": 11942
+    },
+    {
+      "path": "native-terminal.json",
+      "sha256": "20ab854d470a41cf1383dd1217d81c091b8ad930bfc4ca0a661d3a57dfe6e950",
+      "size": 3064
+    },
+    {
+      "path": "observed-import-origins.json",
+      "sha256": "ad078e77b546b359fba2cf4ac49c8e9593efd1bc730229336a63e8aed43e924f",
+      "size": 227310
+    },
+    {
+      "path": "parameters.csv",
+      "sha256": "32eac151566b41c186745dd077fabcddde06f64f9a3a2056699e88dbabd76d4d",
+      "size": 1773
+    },
+    {
+      "path": "policy-acquisition.json",
+      "sha256": "5b993764ce054b8ec428440b6c26634464bc9f6eee0686f1120815d41bac752e",
+      "size": 2475
+    },
+    {
+      "path": "policy-epd.response",
+      "sha256": "a6d049567190ee7671df82c859e4139e53c2efa432bfe9191f4b0538c1f4685c",
+      "size": 90403
+    },
+    {
+      "path": "policy-neotoma.response",
+      "sha256": "f5ae5e79f7dd1a4d6dd846fa9a63a14129dc8b0ea9c21ed484289304be01b85e",
+      "size": 48638
+    },
+    {
+      "path": "policy-terminal.json",
+      "sha256": "bb27d6224c2616d380dc1e9ba3a6f439f9e9e53be1fe57d9ae238ab20a1557bd",
+      "size": 2423
+    },
+    {
+      "path": "protocol.json",
+      "sha256": "5dec18a4881732d70fa57eed6fe5b675f706549dbd1648036e8f9f86b1a94505",
+      "size": 40951
+    },
+    {
+      "path": "publication-attribution.json",
+      "sha256": "df0020c0f7eb90e1ee896b30bfcd56690a475f5b4be39ec57704e51640211a85",
+      "size": 139832
+    },
+    {
+      "path": "publication-terminal.json",
+      "sha256": "dca8c0b857c3c515e441a5debf9e48cca5f2f56f7293d9d326b627b6bc11bf5e",
+      "size": 2625
+    },
+    {
+      "path": "published-comparison.json",
+      "sha256": "8b91f61aafb336826fe663e63f3e69f532a00eaeddc1e7c5da3c28485e8cc4cd",
+      "size": 1174872
+    },
+    {
+      "path": "qualified-window-domain.json",
+      "sha256": "6b7a87a19da09538f97a5160a67d149a36b5e8ac96add07944873e39dbb2c2ee",
+      "size": 115201
+    },
+    {
+      "path": "source-eligibility.json",
+      "sha256": "dfa2e8c58dd6634b8a614cf8ed424b18528e6fad241da4c8f72df172ea470eb4",
+      "size": 4565333
+    },
+    {
+      "path": "source-terminal.json",
+      "sha256": "9bea1a02a926efb96206ad8149d2f1f4999776df71fb4e357ae1c3a553478f0e",
+      "size": 12823
+    }
+  ],
+  "manifest": {
+    "path": "snapshot-manifest.json",
+    "sha256": "0a136eb377477f7b8339b0ef6bf75ba74bc6b6bf765f988c382eac785ccb5c1c",
+    "size": 2355
+  },
+  "schema_version": "qualified-author-snapshot.v1",
+  "snapshot_schema_version": "source-observed-pollen-panel-capture.v1",
+  "source_id": "neotoma/swedish-observed-common-panel-results"
+}

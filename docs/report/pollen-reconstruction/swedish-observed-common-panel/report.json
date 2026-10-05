@@ -1,0 +1,2184 @@
+{
+  "actual_factor_uses": 5890,
+  "actual_physical_tuples": 150,
+  "current_scalar_covariance_replay_maximum_errors": {
+    "counting_covariance": 1.3877787807814457e-17,
+    "cover": 2.220446049250313e-16,
+    "direct_panel_pollen_fraction": 0,
+    "shared_ppe_covariance": 1.6263032587282567e-19,
+    "standard_error": 2.7755575615628914e-17,
+    "total_conditional_covariance": 1.3877787807814457e-17
+  },
+  "current_writer_scope": "Retained native source/account replay and all-cell scalar covariance verification; no fresh physical transport or native R execution",
+  "distinct_native_collection_units": 18,
+  "limits": [
+    "Conditional composition within two prespecified literal parameter-selection tokens only",
+    "Static workbook radius/grid association and shared public PPE are declared hypotheses, not authenticated historical inputs",
+    "Source masks, finite integer counts, named calendar-BP point ages and full repeated-dataset exclusions retained",
+    "Count-weighted source composition is not an area-weighted reconstruction of total regional vegetation",
+    "Conditional count/shared-PPE covariance holds membership, chronology, physical geometry and transport fixed",
+    "No new nativeR parity, historical1128 selection, rights, calibrated chronology posterior, empirical vegetation accuracy or release closure",
+    "Distinct native unit IDs establish deduplication, not empirical statistical independence",
+    "Within-result covariance only; shared PPE implies possible cross-result dependence, no joint time-series covariance exported",
+    "No historical1128source replay, total vegetation, independent vegetation accuracy, untouched confirmation, qualified external review, reader/application exercise or release completion"
+  ],
+  "multisite_baseline_windows": [
+    {
+      "conditional_panel_cover": [
+        0.04233428696535162,
+        0.9576657130346483
+      ],
+      "conditional_standard_error": [
+        0.0026115981433601676,
+        0.002611598143360167
+      ],
+      "distinct_native_units": 3,
+      "grid_id": "779",
+      "older_cal_bp_exclusive": 350.0,
+      "selected_panel_counts_by_dataset": {
+        "23013": [
+          434,
+          957
+        ],
+        "53999": [
+          673,
+          4625
+        ],
+        "54001": [
+          623,
+          84
+        ]
+      },
+      "window_index": 1,
+      "younger_cal_bp": 100.0
+    },
+    {
+      "conditional_panel_cover": [
+        0.05162771812854878,
+        0.9483722818714512
+      ],
+      "conditional_standard_error": [
+        0.003207078701572998,
+        0.003207078701572998
+      ],
+      "distinct_native_units": 3,
+      "grid_id": "779",
+      "older_cal_bp_exclusive": 700.0,
+      "selected_panel_counts_by_dataset": {
+        "23013": [
+          529,
+          1003
+        ],
+        "53999": [
+          526,
+          3091
+        ],
+        "54001": [
+          527,
+          91
+        ]
+      },
+      "window_index": 2,
+      "younger_cal_bp": 350.0
+    },
+    {
+      "conditional_panel_cover": [
+        0.09816252078021899,
+        0.901837479219781
+      ],
+      "conditional_standard_error": [
+        0.005632311901546782,
+        0.005632311901546782
+      ],
+      "distinct_native_units": 3,
+      "grid_id": "779",
+      "older_cal_bp_exclusive": 1200.0,
+      "selected_panel_counts_by_dataset": {
+        "23013": [
+          999,
+          1038
+        ],
+        "53999": [
+          633,
+          2536
+        ],
+        "54001": [
+          1315,
+          259
+        ]
+      },
+      "window_index": 3,
+      "younger_cal_bp": 700.0
+    },
+    {
+      "conditional_panel_cover": [
+        0.06697689825801763,
+        0.9330231017419823
+      ],
+      "conditional_standard_error": [
+        0.003992534491250378,
+        0.003992534491250378
+      ],
+      "distinct_native_units": 3,
+      "grid_id": "779",
+      "older_cal_bp_exclusive": 1700.0,
+      "selected_panel_counts_by_dataset": {
+        "23013": [
+          816,
+          1410
+        ],
+        "53999": [
+          743,
+          3150
+        ],
+        "54001": [
+          832,
+          64
+        ]
+      },
+      "window_index": 4,
+      "younger_cal_bp": 1200.0
+    },
+    {
+      "conditional_panel_cover": [
+        0.08805899159051793,
+        0.911941008409482
+      ],
+      "conditional_standard_error": [
+        0.005173199638389371,
+        0.00517319963838937
+      ],
+      "distinct_native_units": 3,
+      "grid_id": "779",
+      "older_cal_bp_exclusive": 2200.0,
+      "selected_panel_counts_by_dataset": {
+        "23013": [
+          500,
+          759
+        ],
+        "53999": [
+          599,
+          2226
+        ],
+        "54001": [
+          1059,
+          61
+        ]
+      },
+      "window_index": 5,
+      "younger_cal_bp": 1700.0
+    },
+    {
+      "conditional_panel_cover": [
+        0.06667967242432035,
+        0.9333203275756796
+      ],
+      "conditional_standard_error": [
+        0.00436808855440294,
+        0.00436808855440294
+      ],
+      "distinct_native_units": 3,
+      "grid_id": "779",
+      "older_cal_bp_exclusive": 2700.0,
+      "selected_panel_counts_by_dataset": {
+        "23013": [
+          423,
+          652
+        ],
+        "53999": [
+          321,
+          1310
+        ],
+        "54001": [
+          259,
+          34
+        ]
+      },
+      "window_index": 6,
+      "younger_cal_bp": 2200.0
+    },
+    {
+      "conditional_panel_cover": [
+        0.1143279483190686,
+        0.8856720516809314
+      ],
+      "conditional_standard_error": [
+        0.0073086530834840496,
+        0.007308653083484049
+      ],
+      "distinct_native_units": 3,
+      "grid_id": "779",
+      "older_cal_bp_exclusive": 3200.0,
+      "selected_panel_counts_by_dataset": {
+        "23013": [
+          506,
+          744
+        ],
+        "53999": [
+          170,
+          256
+        ],
+        "54001": [
+          451,
+          12
+        ]
+      },
+      "window_index": 7,
+      "younger_cal_bp": 2700.0
+    },
+    {
+      "conditional_panel_cover": [
+        0.6446095548044233,
+        0.35539044519557667
+      ],
+      "conditional_standard_error": [
+        0.018940834128142257,
+        0.018940834128142254
+      ],
+      "distinct_native_units": 2,
+      "grid_id": "830",
+      "older_cal_bp_exclusive": 1200.0,
+      "selected_panel_counts_by_dataset": {
+        "4370": [
+          3592,
+          243
+        ],
+        "4496": [
+          844,
+          86
+        ]
+      },
+      "window_index": 3,
+      "younger_cal_bp": 700.0
+    },
+    {
+      "conditional_panel_cover": [
+        0.6500253426013559,
+        0.34997465739864403
+      ],
+      "conditional_standard_error": [
+        0.017059865485346232,
+        0.017059865485346232
+      ],
+      "distinct_native_units": 2,
+      "grid_id": "830",
+      "older_cal_bp_exclusive": 1700.0,
+      "selected_panel_counts_by_dataset": {
+        "4370": [
+          4516,
+          250
+        ],
+        "4496": [
+          2833,
+          267
+        ]
+      },
+      "window_index": 4,
+      "younger_cal_bp": 1200.0
+    },
+    {
+      "conditional_panel_cover": [
+        0.6907888275979966,
+        0.3092111724020033
+      ],
+      "conditional_standard_error": [
+        0.01565486533036018,
+        0.01565486533036018
+      ],
+      "distinct_native_units": 2,
+      "grid_id": "830",
+      "older_cal_bp_exclusive": 2200.0,
+      "selected_panel_counts_by_dataset": {
+        "4370": [
+          5706,
+          282
+        ],
+        "4496": [
+          4173,
+          301
+        ]
+      },
+      "window_index": 5,
+      "younger_cal_bp": 1700.0
+    },
+    {
+      "conditional_panel_cover": [
+        0.6824366420214764,
+        0.31756335797852364
+      ],
+      "conditional_standard_error": [
+        0.01630943670232248,
+        0.01630943670232248
+      ],
+      "distinct_native_units": 2,
+      "grid_id": "830",
+      "older_cal_bp_exclusive": 2700.0,
+      "selected_panel_counts_by_dataset": {
+        "4370": [
+          4487,
+          327
+        ],
+        "4496": [
+          3374,
+          180
+        ]
+      },
+      "window_index": 6,
+      "younger_cal_bp": 2200.0
+    },
+    {
+      "conditional_panel_cover": [
+        0.6100312872157659,
+        0.389968712784234
+      ],
+      "conditional_standard_error": [
+        0.016886566090696744,
+        0.016886566090696744
+      ],
+      "distinct_native_units": 2,
+      "grid_id": "830",
+      "older_cal_bp_exclusive": 3200.0,
+      "selected_panel_counts_by_dataset": {
+        "4370": [
+          5560,
+          425
+        ],
+        "4496": [
+          2988,
+          304
+        ]
+      },
+      "window_index": 7,
+      "younger_cal_bp": 2700.0
+    },
+    {
+      "conditional_panel_cover": [
+        0.635451354391668,
+        0.3645486456083319
+      ],
+      "conditional_standard_error": [
+        0.01650635859937107,
+        0.016506358599371065
+      ],
+      "distinct_native_units": 2,
+      "grid_id": "830",
+      "older_cal_bp_exclusive": 3700.0,
+      "selected_panel_counts_by_dataset": {
+        "4370": [
+          5442,
+          304
+        ],
+        "4496": [
+          3951,
+          396
+        ]
+      },
+      "window_index": 8,
+      "younger_cal_bp": 3200.0
+    },
+    {
+      "conditional_panel_cover": [
+        0.7051944288006871,
+        0.2948055711993129
+      ],
+      "conditional_standard_error": [
+        0.01595225883654224,
+        0.015952258836542235
+      ],
+      "distinct_native_units": 2,
+      "grid_id": "830",
+      "older_cal_bp_exclusive": 4200.0,
+      "selected_panel_counts_by_dataset": {
+        "4370": [
+          5295,
+          306
+        ],
+        "4496": [
+          2689,
+          150
+        ]
+      },
+      "window_index": 9,
+      "younger_cal_bp": 3700.0
+    },
+    {
+      "conditional_panel_cover": [
+        0.7205892955820988,
+        0.2794107044179011
+      ],
+      "conditional_standard_error": [
+        0.016094083668007034,
+        0.016094083668007034
+      ],
+      "distinct_native_units": 2,
+      "grid_id": "830",
+      "older_cal_bp_exclusive": 4700.0,
+      "selected_panel_counts_by_dataset": {
+        "4370": [
+          4850,
+          224
+        ],
+        "4496": [
+          2381,
+          150
+        ]
+      },
+      "window_index": 10,
+      "younger_cal_bp": 4200.0
+    },
+    {
+      "conditional_panel_cover": [
+        0.8052034510083889,
+        0.19479654899161122
+      ],
+      "conditional_standard_error": [
+        0.013046995813602642,
+        0.013046995813602644
+      ],
+      "distinct_native_units": 2,
+      "grid_id": "830",
+      "older_cal_bp_exclusive": 5200.0,
+      "selected_panel_counts_by_dataset": {
+        "4370": [
+          5475,
+          264
+        ],
+        "4496": [
+          3170,
+          42
+        ]
+      },
+      "window_index": 11,
+      "younger_cal_bp": 4700.0
+    },
+    {
+      "conditional_panel_cover": [
+        0.7699265431951122,
+        0.23007345680488783
+      ],
+      "conditional_standard_error": [
+        0.014378273438040112,
+        0.014378273438040112
+      ],
+      "distinct_native_units": 2,
+      "grid_id": "830",
+      "older_cal_bp_exclusive": 5700.0,
+      "selected_panel_counts_by_dataset": {
+        "4370": [
+          5180,
+          285
+        ],
+        "4496": [
+          2781,
+          58
+        ]
+      },
+      "window_index": 12,
+      "younger_cal_bp": 5200.0
+    },
+    {
+      "conditional_panel_cover": [
+        0.815304538711084,
+        0.18469546128891604
+      ],
+      "conditional_standard_error": [
+        0.013684578680727677,
+        0.013684578680727677
+      ],
+      "distinct_native_units": 2,
+      "grid_id": "830",
+      "older_cal_bp_exclusive": 6200.0,
+      "selected_panel_counts_by_dataset": {
+        "4370": [
+          4953,
+          190
+        ],
+        "4496": [
+          1841,
+          30
+        ]
+      },
+      "window_index": 13,
+      "younger_cal_bp": 5700.0
+    },
+    {
+      "conditional_panel_cover": [
+        0.7999926286090395,
+        0.20000737139096045
+      ],
+      "conditional_standard_error": [
+        0.013575873096229414,
+        0.013575873096229414
+      ],
+      "distinct_native_units": 2,
+      "grid_id": "830",
+      "older_cal_bp_exclusive": 6700.0,
+      "selected_panel_counts_by_dataset": {
+        "4370": [
+          5582,
+          236
+        ],
+        "4496": [
+          2423,
+          49
+        ]
+      },
+      "window_index": 14,
+      "younger_cal_bp": 6200.0
+    },
+    {
+      "conditional_panel_cover": [
+        0.7764271644489571,
+        0.22357283555104296
+      ],
+      "conditional_standard_error": [
+        0.014196400306145983,
+        0.014196400306145985
+      ],
+      "distinct_native_units": 2,
+      "grid_id": "830",
+      "older_cal_bp_exclusive": 7200.0,
+      "selected_panel_counts_by_dataset": {
+        "4370": [
+          4991,
+          278
+        ],
+        "4496": [
+          2920,
+          53
+        ]
+      },
+      "window_index": 15,
+      "younger_cal_bp": 6700.0
+    },
+    {
+      "conditional_panel_cover": [
+        0.8080290864257161,
+        0.1919709135742839
+      ],
+      "conditional_standard_error": [
+        0.013602475783047376,
+        0.013602475783047376
+      ],
+      "distinct_native_units": 2,
+      "grid_id": "830",
+      "older_cal_bp_exclusive": 7700.0,
+      "selected_panel_counts_by_dataset": {
+        "4370": [
+          4981,
+          194
+        ],
+        "4496": [
+          2543,
+          58
+        ]
+      },
+      "window_index": 16,
+      "younger_cal_bp": 7200.0
+    },
+    {
+      "conditional_panel_cover": [
+        0.7302011070227568,
+        0.2697988929772433
+      ],
+      "conditional_standard_error": [
+        0.016144345643816806,
+        0.01614434564381681
+      ],
+      "distinct_native_units": 2,
+      "grid_id": "830",
+      "older_cal_bp_exclusive": 8200.0,
+      "selected_panel_counts_by_dataset": {
+        "4370": [
+          3592,
+          234
+        ],
+        "4496": [
+          2825,
+          101
+        ]
+      },
+      "window_index": 17,
+      "younger_cal_bp": 7700.0
+    },
+    {
+      "conditional_panel_cover": [
+        0.6629699004525599,
+        0.33703009954744
+      ],
+      "conditional_standard_error": [
+        0.01686596967546178,
+        0.01686596967546178
+      ],
+      "distinct_native_units": 2,
+      "grid_id": "830",
+      "older_cal_bp_exclusive": 8700.0,
+      "selected_panel_counts_by_dataset": {
+        "4370": [
+          4011,
+          293
+        ],
+        "4496": [
+          3220,
+          209
+        ]
+      },
+      "window_index": 18,
+      "younger_cal_bp": 8200.0
+    },
+    {
+      "conditional_panel_cover": [
+        0.6103894992806398,
+        0.38961050071936015
+      ],
+      "conditional_standard_error": [
+        0.01785646862490113,
+        0.01785646862490113
+      ],
+      "distinct_native_units": 2,
+      "grid_id": "830",
+      "older_cal_bp_exclusive": 9200.0,
+      "selected_panel_counts_by_dataset": {
+        "4370": [
+          3313,
+          244
+        ],
+        "4496": [
+          2859,
+          278
+        ]
+      },
+      "window_index": 19,
+      "younger_cal_bp": 8700.0
+    },
+    {
+      "conditional_panel_cover": [
+        0.5372776209002589,
+        0.4627223790997411
+      ],
+      "conditional_standard_error": [
+        0.018185641566589993,
+        0.018185641566589993
+      ],
+      "distinct_native_units": 2,
+      "grid_id": "830",
+      "older_cal_bp_exclusive": 9700.0,
+      "selected_panel_counts_by_dataset": {
+        "4370": [
+          2684,
+          259
+        ],
+        "4496": [
+          2761,
+          360
+        ]
+      },
+      "window_index": 20,
+      "younger_cal_bp": 9200.0
+    },
+    {
+      "conditional_panel_cover": [
+        0.5200877208574326,
+        0.4799122791425673
+      ],
+      "conditional_standard_error": [
+        0.01766891839056775,
+        0.01766891839056775
+      ],
+      "distinct_native_units": 2,
+      "grid_id": "830",
+      "older_cal_bp_exclusive": 10200.0,
+      "selected_panel_counts_by_dataset": {
+        "4370": [
+          3095,
+          306
+        ],
+        "4496": [
+          3207,
+          458
+        ]
+      },
+      "window_index": 21,
+      "younger_cal_bp": 9700.0
+    },
+    {
+      "conditional_panel_cover": [
+        0.5971678351765565,
+        0.40283216482344353
+      ],
+      "conditional_standard_error": [
+        0.017363815661468066,
+        0.017363815661468066
+      ],
+      "distinct_native_units": 2,
+      "grid_id": "830",
+      "older_cal_bp_exclusive": 10700.0,
+      "selected_panel_counts_by_dataset": {
+        "4370": [
+          2371,
+          182
+        ],
+        "4496": [
+          4975,
+          472
+        ]
+      },
+      "window_index": 22,
+      "younger_cal_bp": 10200.0
+    },
+    {
+      "conditional_panel_cover": [
+        0.7172135258218487,
+        0.2827864741781514
+      ],
+      "conditional_standard_error": [
+        0.014344028948580886,
+        0.01434402894858089
+      ],
+      "distinct_native_units": 2,
+      "grid_id": "830",
+      "older_cal_bp_exclusive": 11200.0,
+      "selected_panel_counts_by_dataset": {
+        "4370": [
+          7685,
+          410
+        ],
+        "4496": [
+          5929,
+          317
+        ]
+      },
+      "window_index": 23,
+      "younger_cal_bp": 10700.0
+    },
+    {
+      "conditional_panel_cover": [
+        0.6335327535543087,
+        0.36646724644569123
+      ],
+      "conditional_standard_error": [
+        0.014906810079884838,
+        0.014906810079884836
+      ],
+      "distinct_native_units": 2,
+      "grid_id": "830",
+      "older_cal_bp_exclusive": 11700.0,
+      "selected_panel_counts_by_dataset": {
+        "4370": [
+          9836,
+          1535
+        ],
+        "4496": [
+          9950,
+          206
+        ]
+      },
+      "window_index": 24,
+      "younger_cal_bp": 11200.0
+    },
+    {
+      "conditional_panel_cover": [
+        0.35569944986583446,
+        0.6443005501341655
+      ],
+      "conditional_standard_error": [
+        0.02006687076186095,
+        0.02006687076186095
+      ],
+      "distinct_native_units": 2,
+      "grid_id": "880",
+      "older_cal_bp_exclusive": 350.0,
+      "selected_panel_counts_by_dataset": {
+        "1438": [
+          284,
+          58
+        ],
+        "54020": [
+          928,
+          252
+        ]
+      },
+      "window_index": 1,
+      "younger_cal_bp": 100.0
+    },
+    {
+      "conditional_panel_cover": [
+        0.29899576682846335,
+        0.7010042331715366
+      ],
+      "conditional_standard_error": [
+        0.01673932384631859,
+        0.01673932384631859
+      ],
+      "distinct_native_units": 2,
+      "grid_id": "880",
+      "older_cal_bp_exclusive": 700.0,
+      "selected_panel_counts_by_dataset": {
+        "1438": [
+          341,
+          171
+        ],
+        "54020": [
+          1153,
+          287
+        ]
+      },
+      "window_index": 2,
+      "younger_cal_bp": 350.0
+    },
+    {
+      "conditional_panel_cover": [
+        0.608075058552514,
+        0.391924941447486
+      ],
+      "conditional_standard_error": [
+        0.021270349791752956,
+        0.021270349791752956
+      ],
+      "distinct_native_units": 2,
+      "grid_id": "880",
+      "older_cal_bp_exclusive": 1200.0,
+      "selected_panel_counts_by_dataset": {
+        "1438": [
+          301,
+          54
+        ],
+        "54020": [
+          2568,
+          193
+        ]
+      },
+      "window_index": 3,
+      "younger_cal_bp": 700.0
+    },
+    {
+      "conditional_panel_cover": [
+        0.5838722540373602,
+        0.4161277459626398
+      ],
+      "conditional_standard_error": [
+        0.020368348922011476,
+        0.020368348922011476
+      ],
+      "distinct_native_units": 2,
+      "grid_id": "880",
+      "older_cal_bp_exclusive": 1700.0,
+      "selected_panel_counts_by_dataset": {
+        "1438": [
+          361,
+          58
+        ],
+        "54020": [
+          2924,
+          260
+        ]
+      },
+      "window_index": 4,
+      "younger_cal_bp": 1200.0
+    },
+    {
+      "conditional_panel_cover": [
+        0.620199236135309,
+        0.37980076386469097
+      ],
+      "conditional_standard_error": [
+        0.020873396805879768,
+        0.020873396805879768
+      ],
+      "distinct_native_units": 2,
+      "grid_id": "880",
+      "older_cal_bp_exclusive": 2200.0,
+      "selected_panel_counts_by_dataset": {
+        "1438": [
+          460,
+          27
+        ],
+        "54020": [
+          2461,
+          228
+        ]
+      },
+      "window_index": 5,
+      "younger_cal_bp": 1700.0
+    },
+    {
+      "conditional_panel_cover": [
+        0.6442152595791835,
+        0.35578474042081665
+      ],
+      "conditional_standard_error": [
+        0.021748354783618223,
+        0.021748354783618223
+      ],
+      "distinct_native_units": 2,
+      "grid_id": "880",
+      "older_cal_bp_exclusive": 2700.0,
+      "selected_panel_counts_by_dataset": {
+        "1438": [
+          823,
+          102
+        ],
+        "54020": [
+          2013,
+          96
+        ]
+      },
+      "window_index": 6,
+      "younger_cal_bp": 2200.0
+    },
+    {
+      "conditional_panel_cover": [
+        0.7721566915027853,
+        0.22784330849721476
+      ],
+      "conditional_standard_error": [
+        0.021018605688441702,
+        0.021018605688441702
+      ],
+      "distinct_native_units": 2,
+      "grid_id": "880",
+      "older_cal_bp_exclusive": 3200.0,
+      "selected_panel_counts_by_dataset": {
+        "1438": [
+          845,
+          51
+        ],
+        "54020": [
+          1783,
+          48
+        ]
+      },
+      "window_index": 7,
+      "younger_cal_bp": 2700.0
+    },
+    {
+      "conditional_panel_cover": [
+        0.8106844477603397,
+        0.18931555223966032
+      ],
+      "conditional_standard_error": [
+        0.025869481998262358,
+        0.025869481998262358
+      ],
+      "distinct_native_units": 2,
+      "grid_id": "880",
+      "older_cal_bp_exclusive": 3700.0,
+      "selected_panel_counts_by_dataset": {
+        "1438": [
+          542,
+          28
+        ],
+        "54020": [
+          923,
+          14
+        ]
+      },
+      "window_index": 8,
+      "younger_cal_bp": 3200.0
+    },
+    {
+      "conditional_panel_cover": [
+        0.8027847859261928,
+        0.19721521407380715
+      ],
+      "conditional_standard_error": [
+        0.02420379872846086,
+        0.02420379872846086
+      ],
+      "distinct_native_units": 2,
+      "grid_id": "880",
+      "older_cal_bp_exclusive": 4200.0,
+      "selected_panel_counts_by_dataset": {
+        "1438": [
+          405,
+          26
+        ],
+        "54020": [
+          1316,
+          27
+        ]
+      },
+      "window_index": 9,
+      "younger_cal_bp": 3700.0
+    },
+    {
+      "conditional_panel_cover": [
+        0.8354129315210735,
+        0.16458706847892646
+      ],
+      "conditional_standard_error": [
+        0.024068740365008428,
+        0.024068740365008428
+      ],
+      "distinct_native_units": 2,
+      "grid_id": "880",
+      "older_cal_bp_exclusive": 4700.0,
+      "selected_panel_counts_by_dataset": {
+        "1438": [
+          404,
+          16
+        ],
+        "54020": [
+          1113,
+          23
+        ]
+      },
+      "window_index": 10,
+      "younger_cal_bp": 4200.0
+    },
+    {
+      "conditional_panel_cover": [
+        0.8436896409997022,
+        0.15631035900029774
+      ],
+      "conditional_standard_error": [
+        0.02475404726629794,
+        0.02475404726629794
+      ],
+      "distinct_native_units": 2,
+      "grid_id": "880",
+      "older_cal_bp_exclusive": 5200.0,
+      "selected_panel_counts_by_dataset": {
+        "1438": [
+          316,
+          16
+        ],
+        "54020": [
+          1108,
+          17
+        ]
+      },
+      "window_index": 11,
+      "younger_cal_bp": 4700.0
+    },
+    {
+      "conditional_panel_cover": [
+        0.8378637962850439,
+        0.16213620371495607
+      ],
+      "conditional_standard_error": [
+        0.030161872896943564,
+        0.030161872896943564
+      ],
+      "distinct_native_units": 2,
+      "grid_id": "880",
+      "older_cal_bp_exclusive": 5700.0,
+      "selected_panel_counts_by_dataset": {
+        "1438": [
+          295,
+          12
+        ],
+        "54020": [
+          640,
+          11
+        ]
+      },
+      "window_index": 12,
+      "younger_cal_bp": 5200.0
+    },
+    {
+      "conditional_panel_cover": [
+        0.8150690798171789,
+        0.18493092018282106
+      ],
+      "conditional_standard_error": [
+        0.024693086821257572,
+        0.024693086821257572
+      ],
+      "distinct_native_units": 2,
+      "grid_id": "880",
+      "older_cal_bp_exclusive": 6200.0,
+      "selected_panel_counts_by_dataset": {
+        "1438": [
+          622,
+          29
+        ],
+        "54020": [
+          971,
+          16
+        ]
+      },
+      "window_index": 13,
+      "younger_cal_bp": 5700.0
+    },
+    {
+      "conditional_panel_cover": [
+        0.8736903501305444,
+        0.1263096498694556
+      ],
+      "conditional_standard_error": [
+        0.022831617213429863,
+        0.022831617213429863
+      ],
+      "distinct_native_units": 2,
+      "grid_id": "880",
+      "older_cal_bp_exclusive": 6700.0,
+      "selected_panel_counts_by_dataset": {
+        "1438": [
+          267,
+          16
+        ],
+        "54020": [
+          1264,
+          10
+        ]
+      },
+      "window_index": 14,
+      "younger_cal_bp": 6200.0
+    },
+    {
+      "conditional_panel_cover": [
+        0.882987556831185,
+        0.11701244316881505
+      ],
+      "conditional_standard_error": [
+        0.021174564828081596,
+        0.021174564828081596
+      ],
+      "distinct_native_units": 2,
+      "grid_id": "880",
+      "older_cal_bp_exclusive": 7200.0,
+      "selected_panel_counts_by_dataset": {
+        "1438": [
+          303,
+          13
+        ],
+        "54020": [
+          1344,
+          14
+        ]
+      },
+      "window_index": 15,
+      "younger_cal_bp": 6700.0
+    },
+    {
+      "conditional_panel_cover": [
+        0.828558690565135,
+        0.17144130943486507
+      ],
+      "conditional_standard_error": [
+        0.03633452017509994,
+        0.036334520175099944
+      ],
+      "distinct_native_units": 2,
+      "grid_id": "880",
+      "older_cal_bp_exclusive": 7700.0,
+      "selected_panel_counts_by_dataset": {
+        "1438": [
+          314,
+          11
+        ],
+        "54020": [
+          327,
+          6
+        ]
+      },
+      "window_index": 16,
+      "younger_cal_bp": 7200.0
+    }
+  ],
+  "named_profiles": 24,
+  "native_datasets": 19,
+  "native_producer_authority": {
+    "native_candidate": "ea7b58bb6d7ab9b3cadc1f658f29d7c126757d7e",
+    "native_exit_code": 0,
+    "native_plan_sha256": "4089e94dfc5063c466cb45eaebefcb6e49db3f3f578643d43583fa3f020f8bfd",
+    "native_result_sha256": "d94545158940dd651fe90f3477ec73a3db608f26c2a7d382d171e112aa593f37",
+    "native_terminal_sha256": "20ab854d470a41cf1383dd1217d81c091b8ad930bfc4ca0a661d3a57dfe6e950",
+    "native_wall_seconds": 18.92018570797518,
+    "observed_import_capture_sha256": "ad078e77b546b359fba2cf4ac49c8e9593efd1bc730229336a63e8aed43e924f",
+    "observed_module_origin_count": 974,
+    "scientific_scope": "common-panel",
+    "scope": "Actual immutable native result custody; maintained publisher replays accounts and scalar covariance, not physical fits, integrations or raw-source acquisition"
+  },
+  "retained_numerical_results": 2685,
+  "schema_version": "source-observed-pollen-panel-publication.v1",
+  "scientific_assumptions": {
+    "PPE_dependence": "Shared two-entry PPE vector across sites; diagonal public SD\u00b2 across taxa. No independent per-site PPE draw approximation.",
+    "age_support": "Use only the exact named native calibrated chronology point ages; BP datum AD1950 per official Neotoma manual7.5. Publication year and collection year never reset zeroBP. Source raw negative ages retained as outside these nonnegative windows, not invalid BP dates. No chronology posterior or zero-width certainty inferred from missing bounds.",
+    "age_window_edges_cal_bp": [
+      0,
+      100,
+      350,
+      700,
+      1200,
+      1700,
+      2200,
+      2700,
+      3200,
+      3700,
+      4200,
+      4700,
+      5200,
+      5700,
+      6200,
+      6700,
+      7200,
+      7700,
+      8200,
+      8700,
+      9200,
+      9700,
+      10200,
+      10700,
+      11200,
+      11700
+    ],
+    "consumer": "Source-supported two-literal-taxon physical composition and shared-PPE multisite covariance on separately named native calBP chronology profiles",
+    "count_weighting": "Maintained fixed-site method sums count/(site-specific deposition*shared PPE); counts determine weights, not basin area or regional land area.",
+    "cross_grid_pooling": false,
+    "diffusion_coefficient": 0.12,
+    "ecological_parameter_transfer_admitted": false,
+    "full_31_taxon_claim": false,
+    "geographic_grid_association": "Original workbook grid ID association is a declared grouping assumption, not authenticated historical dataset selection or independent regional coverage.",
+    "geometry": "Metadata radius interpreted as a static circular uniformly weighted receiving disk; land annulus begins at disk edge and ends at100km. No claim of time-varying historical basin or measured physical kernel. TIB altitude inconsistency161m versus568m and398m coordinate separation retained; no authenticated historical match.",
+    "grid_vegetation_accuracy_admitted": false,
+    "historical_reproduction": false,
+    "kind": "conditional-common-panel-physical-reconstruction",
+    "literal_panel": [
+      "Betula",
+      "Poaceae"
+    ],
+    "panel_scope": "Betula/Poaceae only: conditional normalized composition within that source-observed panel, not total vegetation cover or a species assignment",
+    "pooling_chronology_policy": "Supported native default chronology if available; otherwise smallest supported named calibrated chronology ID, declared comparison scenario only. Alternate chronology scenarios never simultaneous sites.",
+    "pooling_grid_members": {
+      "779": [
+        23013,
+        53999,
+        54001
+      ],
+      "830": [
+        4370,
+        4496
+      ],
+      "880": [
+        1438,
+        54020
+      ]
+    },
+    "pooling_window_policy": "Only complete common-membership windows with all prespecified independent collection units; missing site-window never imputed or pooled as zero.",
+    "profiles": [
+      {
+        "id": "metadata_radius_wind_3",
+        "radius_multiplier": 1,
+        "wind_speed_m_s": 3
+      },
+      {
+        "id": "half_metadata_radius_wind_3",
+        "radius_multiplier": 0.5,
+        "wind_speed_m_s": 3
+      },
+      {
+        "id": "double_metadata_radius_wind_3",
+        "radius_multiplier": 2,
+        "wind_speed_m_s": 3
+      },
+      {
+        "id": "metadata_radius_wind_2",
+        "radius_multiplier": 1,
+        "wind_speed_m_s": 2
+      },
+      {
+        "id": "metadata_radius_wind_4",
+        "radius_multiplier": 1,
+        "wind_speed_m_s": 4
+      }
+    ],
+    "profiles_by_dataset_chronology": [
+      {
+        "grid_id": "830",
+        "jointly_observed_samples": 141,
+        "literal_panel": [
+          "Betula",
+          "Poaceae"
+        ],
+        "local_rights_scope": "Existing retained capture is local; preserve current public-license and historicalR/NR scopes separately; no redistribution decision",
+        "native_chronology_id": 25413,
+        "native_collection_unit_id": 4230,
+        "native_dataset_id": 4370,
+        "nonempty_windows": 24,
+        "source_default_chronology": 25412,
+        "source_depositional_environment": "Glacial Origin Lake",
+        "source_site_name": "Ran Viken",
+        "static_workbook_radius_candidates": [
+          {
+            "field_epoch": "BP1950 convention retained; source chronology basis evaluated separately",
+            "historical_identity_authenticated": false,
+            "metadata_bottom_BP": "11752",
+            "metadata_chronology_source": "LANDCLIMI",
+            "metadata_code": "RANV",
+            "metadata_radius_m": 138.0,
+            "metadata_radius_source_literal": "138",
+            "metadata_restriction_flag": "NR",
+            "metadata_sample_count": "141",
+            "metadata_site_name": "Ranviken",
+            "metadata_site_type": "lake",
+            "metadata_top_BP": "372",
+            "positive_static_radius_available": true,
+            "publication_row": 1024,
+            "source_core_handle_matches_workbook_code": false
+          }
+        ],
+        "strict_source_presence_panel": true
+      },
+      {
+        "grid_id": "831",
+        "jointly_observed_samples": 124,
+        "literal_panel": [
+          "Betula",
+          "Poaceae"
+        ],
+        "local_rights_scope": "Existing retained capture is local; preserve current public-license and historicalR/NR scopes separately; no redistribution decision",
+        "native_chronology_id": 30610,
+        "native_collection_unit_id": 3910,
+        "native_dataset_id": 4037,
+        "nonempty_windows": 24,
+        "source_default_chronology": 30609,
+        "source_depositional_environment": "Natural Lake",
+        "source_site_name": "F\u00e4rskesj\u00f6n",
+        "static_workbook_radius_candidates": [
+          {
+            "field_epoch": "BP1950 convention retained; source chronology basis evaluated separately",
+            "historical_identity_authenticated": false,
+            "metadata_bottom_BP": "12442",
+            "metadata_chronology_source": "Authors chronology",
+            "metadata_code": "FARSK",
+            "metadata_radius_m": 399.0,
+            "metadata_radius_source_literal": "399",
+            "metadata_restriction_flag": "NR",
+            "metadata_sample_count": "128",
+            "metadata_site_name": "F\u00e4rskesj\u00f6n",
+            "metadata_site_type": "lake",
+            "metadata_top_BP": "180",
+            "positive_static_radius_available": true,
+            "publication_row": 985,
+            "source_core_handle_matches_workbook_code": false
+          },
+          {
+            "field_epoch": "BP1950 convention retained; source chronology basis evaluated separately",
+            "historical_identity_authenticated": false,
+            "metadata_bottom_BP": "3055",
+            "metadata_chronology_source": "Authors chronology",
+            "metadata_code": "Farske",
+            "metadata_radius_m": 399.0,
+            "metadata_radius_source_literal": "399",
+            "metadata_restriction_flag": "R",
+            "metadata_sample_count": "50",
+            "metadata_site_name": "F\u00e4rskesj\u00f6n (core 2014)",
+            "metadata_site_type": "lake",
+            "metadata_top_BP": "-58",
+            "positive_static_radius_available": true,
+            "publication_row": 986,
+            "source_core_handle_matches_workbook_code": true
+          }
+        ],
+        "strict_source_presence_panel": true
+      },
+      {
+        "grid_id": "929",
+        "jointly_observed_samples": 111,
+        "literal_panel": [
+          "Betula",
+          "Poaceae"
+        ],
+        "local_rights_scope": "Existing retained capture is local; preserve current public-license and historicalR/NR scopes separately; no redistribution decision",
+        "native_chronology_id": 25402,
+        "native_collection_unit_id": 3915,
+        "native_dataset_id": 4042,
+        "nonempty_windows": 25,
+        "source_default_chronology": 25403,
+        "source_depositional_environment": "Glacial Origin Lake",
+        "source_site_name": "Lake Flarken",
+        "static_workbook_radius_candidates": [
+          {
+            "field_epoch": "BP1950 convention retained; source chronology basis evaluated separately",
+            "historical_identity_authenticated": false,
+            "metadata_bottom_BP": "12196",
+            "metadata_chronology_source": "Authors chronology",
+            "metadata_code": "FLA",
+            "metadata_radius_m": 229.0,
+            "metadata_radius_source_literal": "229",
+            "metadata_restriction_flag": "NR",
+            "metadata_sample_count": "114",
+            "metadata_site_name": "Lake Flarken",
+            "metadata_site_type": "lake",
+            "metadata_top_BP": "-50",
+            "positive_static_radius_available": true,
+            "publication_row": 1008,
+            "source_core_handle_matches_workbook_code": false
+          }
+        ],
+        "strict_source_presence_panel": true
+      },
+      {
+        "grid_id": "929",
+        "jointly_observed_samples": 111,
+        "literal_panel": [
+          "Betula",
+          "Poaceae"
+        ],
+        "local_rights_scope": "Existing retained capture is local; preserve current public-license and historicalR/NR scopes separately; no redistribution decision",
+        "native_chronology_id": 25404,
+        "native_collection_unit_id": 3915,
+        "native_dataset_id": 4042,
+        "nonempty_windows": 24,
+        "source_default_chronology": 25403,
+        "source_depositional_environment": "Glacial Origin Lake",
+        "source_site_name": "Lake Flarken",
+        "static_workbook_radius_candidates": [
+          {
+            "field_epoch": "BP1950 convention retained; source chronology basis evaluated separately",
+            "historical_identity_authenticated": false,
+            "metadata_bottom_BP": "12196",
+            "metadata_chronology_source": "Authors chronology",
+            "metadata_code": "FLA",
+            "metadata_radius_m": 229.0,
+            "metadata_radius_source_literal": "229",
+            "metadata_restriction_flag": "NR",
+            "metadata_sample_count": "114",
+            "metadata_site_name": "Lake Flarken",
+            "metadata_site_type": "lake",
+            "metadata_top_BP": "-50",
+            "positive_static_radius_available": true,
+            "publication_row": 1008,
+            "source_core_handle_matches_workbook_code": false
+          }
+        ],
+        "strict_source_presence_panel": true
+      },
+      {
+        "grid_id": "878",
+        "jointly_observed_samples": 111,
+        "literal_panel": [
+          "Betula",
+          "Poaceae"
+        ],
+        "local_rights_scope": "Existing retained capture is local; preserve current public-license and historicalR/NR scopes separately; no redistribution decision",
+        "native_chronology_id": 30017,
+        "native_collection_unit_id": 4262,
+        "native_dataset_id": 4403,
+        "nonempty_windows": 22,
+        "source_default_chronology": 30016,
+        "source_depositional_environment": "Drained Lake",
+        "source_site_name": "Lake S\u00e4mbosj\u00f6n",
+        "static_workbook_radius_candidates": [
+          {
+            "field_epoch": "BP1950 convention retained; source chronology basis evaluated separately",
+            "historical_identity_authenticated": false,
+            "metadata_bottom_BP": "11282",
+            "metadata_chronology_source": "LANDCLIMI",
+            "metadata_code": "SAM",
+            "metadata_radius_m": 282.0,
+            "metadata_radius_source_literal": "282",
+            "metadata_restriction_flag": "NR",
+            "metadata_sample_count": "111",
+            "metadata_site_name": "Lake Samb\u00f6sj\u00f6n",
+            "metadata_site_type": "lake",
+            "metadata_top_BP": "280",
+            "positive_static_radius_available": true,
+            "publication_row": 1009,
+            "source_core_handle_matches_workbook_code": false
+          }
+        ],
+        "strict_source_presence_panel": true
+      },
+      {
+        "grid_id": "1180",
+        "jointly_observed_samples": 105,
+        "literal_panel": [
+          "Betula",
+          "Poaceae"
+        ],
+        "local_rights_scope": "Existing retained capture is local; preserve current public-license and historicalR/NR scopes separately; no redistribution decision",
+        "native_chronology_id": 11516,
+        "native_collection_unit_id": 14910,
+        "native_dataset_id": 19913,
+        "nonempty_windows": 22,
+        "source_default_chronology": 11516,
+        "source_depositional_environment": "Lacustrine",
+        "source_site_name": "Abborrtj\u00e4rnen",
+        "static_workbook_radius_candidates": [
+          {
+            "field_epoch": "BP1950 convention retained; source chronology basis evaluated separately",
+            "historical_identity_authenticated": false,
+            "metadata_bottom_BP": "9799",
+            "metadata_chronology_source": "Authors chronology",
+            "metadata_code": "ABB",
+            "metadata_radius_m": 98.0,
+            "metadata_radius_source_literal": "98",
+            "metadata_restriction_flag": "NR",
+            "metadata_sample_count": "107",
+            "metadata_site_name": "Abborrtj\u00e4rnen",
+            "metadata_site_type": "lake",
+            "metadata_top_BP": "3",
+            "positive_static_radius_available": true,
+            "publication_row": 968,
+            "source_core_handle_matches_workbook_code": false
+          }
+        ],
+        "strict_source_presence_panel": true
+      },
+      {
+        "grid_id": "1030",
+        "jointly_observed_samples": 101,
+        "literal_panel": [
+          "Betula",
+          "Poaceae"
+        ],
+        "local_rights_scope": "Existing retained capture is local; preserve current public-license and historicalR/NR scopes separately; no redistribution decision",
+        "native_chronology_id": 12503,
+        "native_collection_unit_id": 15810,
+        "native_dataset_id": 21790,
+        "nonempty_windows": 23,
+        "source_default_chronology": 12504,
+        "source_depositional_environment": "Glacial Origin Lake",
+        "source_site_name": "Holtj\u00e4rnen",
+        "static_workbook_radius_candidates": [
+          {
+            "field_epoch": "BP1950 convention retained; source chronology basis evaluated separately",
+            "historical_identity_authenticated": false,
+            "metadata_bottom_BP": "10502",
+            "metadata_chronology_source": "Authors chronology",
+            "metadata_code": "HOL",
+            "metadata_radius_m": 56.0,
+            "metadata_radius_source_literal": "56",
+            "metadata_restriction_flag": "NR",
+            "metadata_sample_count": "101",
+            "metadata_site_name": "Holtj\u00e4rnen",
+            "metadata_site_type": "lake",
+            "metadata_top_BP": "15",
+            "positive_static_radius_available": true,
+            "publication_row": 999,
+            "source_core_handle_matches_workbook_code": false
+          }
+        ],
+        "strict_source_presence_panel": true
+      },
+      {
+        "grid_id": "1082",
+        "jointly_observed_samples": 101,
+        "literal_panel": [
+          "Betula",
+          "Poaceae"
+        ],
+        "local_rights_scope": "Existing retained capture is local; preserve current public-license and historicalR/NR scopes separately; no redistribution decision",
+        "native_chronology_id": 11514,
+        "native_collection_unit_id": 14908,
+        "native_dataset_id": 19909,
+        "nonempty_windows": 21,
+        "source_default_chronology": 11513,
+        "source_depositional_environment": "Natural Lake",
+        "source_site_name": "Klotj\u00e4rnen",
+        "static_workbook_radius_candidates": [
+          {
+            "field_epoch": "BP1950 convention retained; source chronology basis evaluated separately",
+            "historical_identity_authenticated": false,
+            "metadata_bottom_BP": "9497",
+            "metadata_chronology_source": "Authors chronology",
+            "metadata_code": "KLO",
+            "metadata_radius_m": 56.0,
+            "metadata_radius_source_literal": "56",
+            "metadata_restriction_flag": "NR",
+            "metadata_sample_count": "111",
+            "metadata_site_name": "Klotj\u00e4rnen",
+            "metadata_site_type": "lake",
+            "metadata_top_BP": "-60",
+            "positive_static_radius_available": true,
+            "publication_row": 1003,
+            "source_core_handle_matches_workbook_code": false
+          }
+        ],
+        "strict_source_presence_panel": true
+      },
+      {
+        "grid_id": "1030",
+        "jointly_observed_samples": 100,
+        "literal_panel": [
+          "Betula",
+          "Poaceae"
+        ],
+        "local_rights_scope": "Existing retained capture is local; preserve current public-license and historicalR/NR scopes separately; no redistribution decision",
+        "native_chronology_id": 12504,
+        "native_collection_unit_id": 15810,
+        "native_dataset_id": 21790,
+        "nonempty_windows": 25,
+        "source_default_chronology": 12504,
+        "source_depositional_environment": "Glacial Origin Lake",
+        "source_site_name": "Holtj\u00e4rnen",
+        "static_workbook_radius_candidates": [
+          {
+            "field_epoch": "BP1950 convention retained; source chronology basis evaluated separately",
+            "historical_identity_authenticated": false,
+            "metadata_bottom_BP": "10502",
+            "metadata_chronology_source": "Authors chronology",
+            "metadata_code": "HOL",
+            "metadata_radius_m": 56.0,
+            "metadata_radius_source_literal": "56",
+            "metadata_restriction_flag": "NR",
+            "metadata_sample_count": "101",
+            "metadata_site_name": "Holtj\u00e4rnen",
+            "metadata_site_type": "lake",
+            "metadata_top_BP": "15",
+            "positive_static_radius_available": true,
+            "publication_row": 999,
+            "source_core_handle_matches_workbook_code": false
+          }
+        ],
+        "strict_source_presence_panel": true
+      },
+      {
+        "grid_id": "1082",
+        "jointly_observed_samples": 100,
+        "literal_panel": [
+          "Betula",
+          "Poaceae"
+        ],
+        "local_rights_scope": "Existing retained capture is local; preserve current public-license and historicalR/NR scopes separately; no redistribution decision",
+        "native_chronology_id": 11513,
+        "native_collection_unit_id": 14908,
+        "native_dataset_id": 19909,
+        "nonempty_windows": 21,
+        "source_default_chronology": 11513,
+        "source_depositional_environment": "Natural Lake",
+        "source_site_name": "Klotj\u00e4rnen",
+        "static_workbook_radius_candidates": [
+          {
+            "field_epoch": "BP1950 convention retained; source chronology basis evaluated separately",
+            "historical_identity_authenticated": false,
+            "metadata_bottom_BP": "9497",
+            "metadata_chronology_source": "Authors chronology",
+            "metadata_code": "KLO",
+            "metadata_radius_m": 56.0,
+            "metadata_radius_source_literal": "56",
+            "metadata_restriction_flag": "NR",
+            "metadata_sample_count": "111",
+            "metadata_site_name": "Klotj\u00e4rnen",
+            "metadata_site_type": "lake",
+            "metadata_top_BP": "-60",
+            "positive_static_radius_available": true,
+            "publication_row": 1003,
+            "source_core_handle_matches_workbook_code": false
+          }
+        ],
+        "strict_source_presence_panel": true
+      },
+      {
+        "grid_id": "830",
+        "jointly_observed_samples": 97,
+        "literal_panel": [
+          "Betula",
+          "Poaceae"
+        ],
+        "local_rights_scope": "Existing retained capture is local; preserve current public-license and historicalR/NR scopes separately; no redistribution decision",
+        "native_chronology_id": 31004,
+        "native_collection_unit_id": 4353,
+        "native_dataset_id": 4496,
+        "nonempty_windows": 22,
+        "source_default_chronology": 31003,
+        "source_depositional_environment": "Natural Lake",
+        "source_site_name": "Lake Trummen",
+        "static_workbook_radius_candidates": [
+          {
+            "field_epoch": "BP1950 convention retained; source chronology basis evaluated separately",
+            "historical_identity_authenticated": false,
+            "metadata_bottom_BP": "11512",
+            "metadata_chronology_source": "Authors chronology",
+            "metadata_code": "TRU",
+            "metadata_radius_m": 492.0,
+            "metadata_radius_source_literal": "492",
+            "metadata_restriction_flag": "NR",
+            "metadata_sample_count": "95",
+            "metadata_site_name": "Lake Trummen",
+            "metadata_site_type": "lake",
+            "metadata_top_BP": null,
+            "positive_static_radius_available": true,
+            "publication_row": 1011,
+            "source_core_handle_matches_workbook_code": false
+          }
+        ],
+        "strict_source_presence_panel": true
+      },
+      {
+        "grid_id": "779",
+        "jointly_observed_samples": 95,
+        "literal_panel": [
+          "Betula",
+          "Poaceae"
+        ],
+        "local_rights_scope": "Existing retained capture is local; preserve current public-license and historicalR/NR scopes separately; no redistribution decision",
+        "native_chronology_id": 13366,
+        "native_collection_unit_id": 16622,
+        "native_dataset_id": 23013,
+        "nonempty_windows": 24,
+        "source_default_chronology": 13365,
+        "source_depositional_environment": "Glacial Origin Lake",
+        "source_site_name": "Krageholmssj\u00f6n",
+        "static_workbook_radius_candidates": [
+          {
+            "field_epoch": "BP1950 convention retained; source chronology basis evaluated separately",
+            "historical_identity_authenticated": false,
+            "metadata_bottom_BP": "11600",
+            "metadata_chronology_source": "Authors chronology",
+            "metadata_code": "KRA",
+            "metadata_radius_m": 837.0,
+            "metadata_radius_source_literal": "837",
+            "metadata_restriction_flag": "NR",
+            "metadata_sample_count": "96",
+            "metadata_site_name": "Krageholmssj\u00f6n",
+            "metadata_site_type": "lake",
+            "metadata_top_BP": "11",
+            "positive_static_radius_available": true,
+            "publication_row": 1004,
+            "source_core_handle_matches_workbook_code": false
+          }
+        ],
+        "strict_source_presence_panel": true
+      },
+      {
+        "grid_id": "1435",
+        "jointly_observed_samples": 65,
+        "literal_panel": [
+          "Betula",
+          "Poaceae"
+        ],
+        "local_rights_scope": "Existing retained capture is local; preserve current public-license and historicalR/NR scopes separately; no redistribution decision",
+        "native_chronology_id": 29525,
+        "native_collection_unit_id": 32166,
+        "native_dataset_id": 45311,
+        "nonempty_windows": 23,
+        "source_default_chronology": 29523,
+        "source_depositional_environment": "Natural Lake",
+        "source_site_name": "Vuoskkuj\u00e1vri",
+        "static_workbook_radius_candidates": [
+          {
+            "field_epoch": "BP1950 convention retained; source chronology basis evaluated separately",
+            "historical_identity_authenticated": false,
+            "metadata_bottom_BP": "10558",
+            "metadata_chronology_source": "Authors chronology",
+            "metadata_code": "VOUS",
+            "metadata_radius_m": 592.0,
+            "metadata_radius_source_literal": "592",
+            "metadata_restriction_flag": "R",
+            "metadata_sample_count": "67",
+            "metadata_site_name": "Vuoskkujavri",
+            "metadata_site_type": "lake",
+            "metadata_top_BP": "-45",
+            "positive_static_radius_available": true,
+            "publication_row": 1051,
+            "source_core_handle_matches_workbook_code": false
+          }
+        ],
+        "strict_source_presence_panel": true
+      },
+      {
+        "grid_id": "1435",
+        "jointly_observed_samples": 65,
+        "literal_panel": [
+          "Betula",
+          "Poaceae"
+        ],
+        "local_rights_scope": "Existing retained capture is local; preserve current public-license and historicalR/NR scopes separately; no redistribution decision",
+        "native_chronology_id": 29524,
+        "native_collection_unit_id": 32166,
+        "native_dataset_id": 45311,
+        "nonempty_windows": 22,
+        "source_default_chronology": 29523,
+        "source_depositional_environment": "Natural Lake",
+        "source_site_name": "Vuoskkuj\u00e1vri",
+        "static_workbook_radius_candidates": [
+          {
+            "field_epoch": "BP1950 convention retained; source chronology basis evaluated separately",
+            "historical_identity_authenticated": false,
+            "metadata_bottom_BP": "10558",
+            "metadata_chronology_source": "Authors chronology",
+            "metadata_code": "VOUS",
+            "metadata_radius_m": 592.0,
+            "metadata_radius_source_literal": "592",
+            "metadata_restriction_flag": "R",
+            "metadata_sample_count": "67",
+            "metadata_site_name": "Vuoskkujavri",
+            "metadata_site_type": "lake",
+            "metadata_top_BP": "-45",
+            "positive_static_radius_available": true,
+            "publication_row": 1051,
+            "source_core_handle_matches_workbook_code": false
+          }
+        ],
+        "strict_source_presence_panel": true
+      },
+      {
+        "grid_id": "779",
+        "jointly_observed_samples": 63,
+        "literal_panel": [
+          "Betula",
+          "Poaceae"
+        ],
+        "local_rights_scope": "Existing retained capture is local; preserve current public-license and historicalR/NR scopes separately; no redistribution decision",
+        "native_chronology_id": 38421,
+        "native_collection_unit_id": 39240,
+        "native_dataset_id": 53999,
+        "nonempty_windows": 8,
+        "source_default_chronology": 38420,
+        "source_depositional_environment": "Lacustrine",
+        "source_site_name": "Bj\u00e4resj\u00f6sj\u00f6n",
+        "static_workbook_radius_candidates": [
+          {
+            "field_epoch": "BP1950 convention retained; source chronology basis evaluated separately",
+            "historical_identity_authenticated": false,
+            "metadata_bottom_BP": "2803",
+            "metadata_chronology_source": "LANDCLIMI",
+            "metadata_code": "BJARE",
+            "metadata_radius_m": 80.0,
+            "metadata_radius_source_literal": "80",
+            "metadata_restriction_flag": "NR",
+            "metadata_sample_count": "66",
+            "metadata_site_name": "Bj\u00e4resj\u00f6sj\u00f6n",
+            "metadata_site_type": "lake",
+            "metadata_top_BP": "-33",
+            "positive_static_radius_available": true,
+            "publication_row": 974,
+            "source_core_handle_matches_workbook_code": true
+          }
+        ],
+        "strict_source_presence_panel": true
+      },
+      {
+        "grid_id": "880",
+        "jointly_observed_samples": 61,
+        "literal_panel": [
+          "Betula",
+          "Poaceae"
+        ],
+        "local_rights_scope": "Existing retained capture is local; preserve current public-license and historicalR/NR scopes separately; no redistribution decision",
+        "native_chronology_id": 38436,
+        "native_collection_unit_id": 39256,
+        "native_dataset_id": 54020,
+        "nonempty_windows": 17,
+        "source_default_chronology": 38436,
+        "source_depositional_environment": "Lacustrine",
+        "source_site_name": "Lake Aveg\u00f6l",
+        "static_workbook_radius_candidates": [
+          {
+            "field_epoch": "BP1950 convention retained; source chronology basis evaluated separately",
+            "historical_identity_authenticated": false,
+            "metadata_bottom_BP": "7312",
+            "metadata_chronology_source": "Authors chronology",
+            "metadata_code": "AVEG",
+            "metadata_radius_m": 98.0,
+            "metadata_radius_source_literal": "98",
+            "metadata_restriction_flag": "R",
+            "metadata_sample_count": "63",
+            "metadata_site_name": "Aveg\u00f6l",
+            "metadata_site_type": "lake",
+            "metadata_top_BP": "-15",
+            "positive_static_radius_available": true,
+            "publication_row": 972,
+            "source_core_handle_matches_workbook_code": true
+          }
+        ],
+        "strict_source_presence_panel": true
+      },
+      {
+        "grid_id": "1128",
+        "jointly_observed_samples": 60,
+        "literal_panel": [
+          "Betula",
+          "Poaceae"
+        ],
+        "local_rights_scope": "Existing retained capture is local; preserve current public-license and historicalR/NR scopes separately; no redistribution decision",
+        "native_chronology_id": 29977,
+        "native_collection_unit_id": 3913,
+        "native_dataset_id": 4040,
+        "nonempty_windows": 13,
+        "source_default_chronology": 29976,
+        "source_depositional_environment": "Unknown",
+        "source_site_name": "Fj\u00e4llnas",
+        "static_workbook_radius_candidates": [
+          {
+            "field_epoch": "BP1950 convention retained; source chronology basis evaluated separately",
+            "historical_identity_authenticated": false,
+            "metadata_bottom_BP": "5596",
+            "metadata_chronology_source": "LANDCLIMI",
+            "metadata_code": "FJALL",
+            "metadata_radius_m": 100.0,
+            "metadata_radius_source_literal": "100",
+            "metadata_restriction_flag": "NR",
+            "metadata_sample_count": "67",
+            "metadata_site_name": "Fj\u00e4llnas",
+            "metadata_site_type": "lake",
+            "metadata_top_BP": "-29",
+            "positive_static_radius_available": true,
+            "publication_row": 987,
+            "source_core_handle_matches_workbook_code": false
+          }
+        ],
+        "strict_source_presence_panel": true
+      },
+      {
+        "grid_id": "1386",
+        "jointly_observed_samples": 54,
+        "literal_panel": [
+          "Betula",
+          "Poaceae"
+        ],
+        "local_rights_scope": "Existing retained capture is local; preserve current public-license and historicalR/NR scopes separately; no redistribution decision",
+        "native_chronology_id": 29528,
+        "native_collection_unit_id": 32168,
+        "native_dataset_id": 45314,
+        "nonempty_windows": 19,
+        "source_default_chronology": 29527,
+        "source_depositional_environment": "Natural Lake",
+        "source_site_name": "Alanen Laanij\u00e4rvi",
+        "static_workbook_radius_candidates": [
+          {
+            "field_epoch": "BP1950 convention retained; source chronology basis evaluated separately",
+            "historical_identity_authenticated": false,
+            "metadata_bottom_BP": "8565",
+            "metadata_chronology_source": "Authors chronology",
+            "metadata_code": "ALAN",
+            "metadata_radius_m": 195.0,
+            "metadata_radius_source_literal": "195",
+            "metadata_restriction_flag": "R",
+            "metadata_sample_count": "56",
+            "metadata_site_name": "Alanen Laanijarvi",
+            "metadata_site_type": "lake",
+            "metadata_top_BP": "-45",
+            "positive_static_radius_available": true,
+            "publication_row": 971,
+            "source_core_handle_matches_workbook_code": false
+          }
+        ],
+        "strict_source_presence_panel": true
+      },
+      {
+        "grid_id": "1386",
+        "jointly_observed_samples": 53,
+        "literal_panel": [
+          "Betula",
+          "Poaceae"
+        ],
+        "local_rights_scope": "Existing retained capture is local; preserve current public-license and historicalR/NR scopes separately; no redistribution decision",
+        "native_chronology_id": 29529,
+        "native_collection_unit_id": 32168,
+        "native_dataset_id": 45314,
+        "nonempty_windows": 18,
+        "source_default_chronology": 29527,
+        "source_depositional_environment": "Natural Lake",
+        "source_site_name": "Alanen Laanij\u00e4rvi",
+        "static_workbook_radius_candidates": [
+          {
+            "field_epoch": "BP1950 convention retained; source chronology basis evaluated separately",
+            "historical_identity_authenticated": false,
+            "metadata_bottom_BP": "8565",
+            "metadata_chronology_source": "Authors chronology",
+            "metadata_code": "ALAN",
+            "metadata_radius_m": 195.0,
+            "metadata_radius_source_literal": "195",
+            "metadata_restriction_flag": "R",
+            "metadata_sample_count": "56",
+            "metadata_site_name": "Alanen Laanijarvi",
+            "metadata_site_type": "lake",
+            "metadata_top_BP": "-45",
+            "positive_static_radius_available": true,
+            "publication_row": 971,
+            "source_core_handle_matches_workbook_code": false
+          }
+        ],
+        "strict_source_presence_panel": true
+      },
+      {
+        "grid_id": "779",
+        "jointly_observed_samples": 48,
+        "literal_panel": [
+          "Betula",
+          "Poaceae"
+        ],
+        "local_rights_scope": "Existing retained capture is local; preserve current public-license and historicalR/NR scopes separately; no redistribution decision",
+        "native_chronology_id": 38422,
+        "native_collection_unit_id": 39241,
+        "native_dataset_id": 54001,
+        "nonempty_windows": 13,
+        "source_default_chronology": 38422,
+        "source_depositional_environment": "Lacustrine",
+        "source_site_name": "B\u00f6kesj\u00f6n",
+        "static_workbook_radius_candidates": [
+          {
+            "field_epoch": "BP1950 convention retained; source chronology basis evaluated separately",
+            "historical_identity_authenticated": false,
+            "metadata_bottom_BP": "5605",
+            "metadata_chronology_source": "LANDCLIMI",
+            "metadata_code": "BOKE",
+            "metadata_radius_m": 80.0,
+            "metadata_radius_source_literal": "80",
+            "metadata_restriction_flag": "NR",
+            "metadata_sample_count": "52",
+            "metadata_site_name": "B\u00f6kesj\u00f6n",
+            "metadata_site_type": "lake",
+            "metadata_top_BP": "-40",
+            "positive_static_radius_available": true,
+            "publication_row": 977,
+            "source_core_handle_matches_workbook_code": true
+          }
+        ],
+        "strict_source_presence_panel": true
+      },
+      {
+        "grid_id": "1235",
+        "jointly_observed_samples": 44,
+        "literal_panel": [
+          "Betula",
+          "Poaceae"
+        ],
+        "local_rights_scope": "Existing retained capture is local; preserve current public-license and historicalR/NR scopes separately; no redistribution decision",
+        "native_chronology_id": 38404,
+        "native_collection_unit_id": 39225,
+        "native_dataset_id": 53972,
+        "nonempty_windows": 21,
+        "source_default_chronology": 38404,
+        "source_depositional_environment": "Lacustrine",
+        "source_site_name": "Lake Svartk\u00e4lstj\u00e4rn",
+        "static_workbook_radius_candidates": [
+          {
+            "field_epoch": "BP1950 convention retained; source chronology basis evaluated separately",
+            "historical_identity_authenticated": false,
+            "metadata_bottom_BP": "10013",
+            "metadata_chronology_source": "Authors chronology",
+            "metadata_code": "SVA",
+            "metadata_radius_m": 126.0,
+            "metadata_radius_source_literal": "126",
+            "metadata_restriction_flag": "R",
+            "metadata_sample_count": "48",
+            "metadata_site_name": "Svartk\u00e4lstj\u00e4rn",
+            "metadata_site_type": "lake",
+            "metadata_top_BP": "-40",
+            "positive_static_radius_available": true,
+            "publication_row": 1040,
+            "source_core_handle_matches_workbook_code": true
+          }
+        ],
+        "strict_source_presence_panel": true
+      },
+      {
+        "grid_id": "880",
+        "jointly_observed_samples": 30,
+        "literal_panel": [
+          "Betula",
+          "Poaceae"
+        ],
+        "local_rights_scope": "Existing retained capture is local; preserve current public-license and historicalR/NR scopes separately; no redistribution decision",
+        "native_chronology_id": 25411,
+        "native_collection_unit_id": 1400,
+        "native_dataset_id": 1438,
+        "nonempty_windows": 23,
+        "source_default_chronology": 25410,
+        "source_depositional_environment": "Glacial Scour Lake",
+        "source_site_name": "Kansj\u00f6n",
+        "static_workbook_radius_candidates": [
+          {
+            "field_epoch": "BP1950 convention retained; source chronology basis evaluated separately",
+            "historical_identity_authenticated": false,
+            "metadata_bottom_BP": "11500",
+            "metadata_chronology_source": "Authors chronology",
+            "metadata_code": "KAN",
+            "metadata_radius_m": 505.0,
+            "metadata_radius_source_literal": "505",
+            "metadata_restriction_flag": "NR",
+            "metadata_sample_count": "32",
+            "metadata_site_name": "Kansjon",
+            "metadata_site_type": "lake",
+            "metadata_top_BP": null,
+            "positive_static_radius_available": true,
+            "publication_row": 1001,
+            "source_core_handle_matches_workbook_code": false
+          }
+        ],
+        "strict_source_presence_panel": true
+      },
+      {
+        "grid_id": "1178",
+        "jointly_observed_samples": 29,
+        "literal_panel": [
+          "Betula",
+          "Poaceae"
+        ],
+        "local_rights_scope": "Existing retained capture is local; preserve current public-license and historicalR/NR scopes separately; no redistribution decision",
+        "native_chronology_id": 38403,
+        "native_collection_unit_id": 39224,
+        "native_dataset_id": 53969,
+        "nonempty_windows": 19,
+        "source_default_chronology": 38403,
+        "source_depositional_environment": "Lacustrine",
+        "source_site_name": "Lake Stentj\u00e4rn",
+        "static_workbook_radius_candidates": [
+          {
+            "field_epoch": "BP1950 convention retained; source chronology basis evaluated separately",
+            "historical_identity_authenticated": false,
+            "metadata_bottom_BP": "10502",
+            "metadata_chronology_source": "Authors chronology",
+            "metadata_code": "STEN",
+            "metadata_radius_m": 149.0,
+            "metadata_radius_source_literal": "149",
+            "metadata_restriction_flag": "R",
+            "metadata_sample_count": "30",
+            "metadata_site_name": "Stentj\u00e4rn",
+            "metadata_site_type": "lake",
+            "metadata_top_BP": "-2",
+            "positive_static_radius_available": true,
+            "publication_row": 1031,
+            "source_core_handle_matches_workbook_code": false
+          }
+        ],
+        "strict_source_presence_panel": true
+      },
+      {
+        "grid_id": "1178",
+        "jointly_observed_samples": 29,
+        "literal_panel": [
+          "Betula",
+          "Poaceae"
+        ],
+        "local_rights_scope": "Existing retained capture is local; preserve current public-license and historicalR/NR scopes separately; no redistribution decision",
+        "native_chronology_id": 38403,
+        "native_collection_unit_id": 39224,
+        "native_dataset_id": 53970,
+        "nonempty_windows": 19,
+        "source_default_chronology": 38403,
+        "source_depositional_environment": "Lacustrine",
+        "source_site_name": "Lake Stentj\u00e4rn",
+        "static_workbook_radius_candidates": [
+          {
+            "field_epoch": "BP1950 convention retained; source chronology basis evaluated separately",
+            "historical_identity_authenticated": false,
+            "metadata_bottom_BP": "10502",
+            "metadata_chronology_source": "Authors chronology",
+            "metadata_code": "STEN",
+            "metadata_radius_m": 149.0,
+            "metadata_radius_source_literal": "149",
+            "metadata_restriction_flag": "R",
+            "metadata_sample_count": "30",
+            "metadata_site_name": "Stentj\u00e4rn",
+            "metadata_site_type": "lake",
+            "metadata_top_BP": "-2",
+            "positive_static_radius_available": true,
+            "publication_row": 1031,
+            "source_core_handle_matches_workbook_code": false
+          }
+        ],
+        "strict_source_presence_panel": true
+      }
+    ],
+    "publication_fit_or_accuracy_claim": false,
+    "regional_extent_m": 100000,
+    "rights_scope": "Local source-bound analysis only. Original per-profile workbook R/NR flags and native source custody retained; no new source redistribution authority.",
+    "source_eligibility_plan_sha256": "b450a991a0e6af271fc3873b9e3f47fed04364be4fce259cdc7dbaa66b3e1ee1",
+    "source_eligibility_report_sha256": "dfa2e8c58dd6634b8a614cf8ed424b18528e6fad241da4c8f72df172ea470eb4",
+    "source_gis_area_used_as_basin_area": false,
+    "source_source_presence": "Two literal unique native taxon datum observations per source sample and positive selected-panel mass; missing/duplicate/allzero panel samples remain exclusions.",
+    "taxon_support": "Two exact unique literal source datum labels per sample; public parameter rows are computational transfer tokens, no ecological equivalence admitted",
+    "transport_units": "Radii/distances metres, fall/wind m/s. Source GPM diffusion_coefficient0.12 is empirical metre-based transport coefficient, not SI diffusivity m\u00b2/s; exponent is turbulence_parameter/2=0.125. Radius0.5\u00d7/2\u00d7 means area0.25\u00d7/4\u00d7 under A=\u03c0r\u00b2, not half/double area.",
+    "turbulence_parameter": 0.25,
+    "uncertainty": "Maintained fixed-site delta covariance: independent fixed-total multinomial counts per single pooled core-window; diagonal covariance of public PPE SD squared, shared across window taxa with all off-diagonal entries assumed0. Chronology, radius, wind, site selection and physical response held fixed for conditional SE; separate declared geometry/wind sensitivity profiles are not probability intervals.",
+    "uncertainty_held_fixed": "Native named chronology point ages, fixed membership, source selection, static basin geometry and physical transport within each finite scenario; no calibrated age posterior or geographic bootstrap."
+  },
+  "scientific_scope": "common-panel"
+}

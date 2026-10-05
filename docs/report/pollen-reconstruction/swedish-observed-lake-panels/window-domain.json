@@ -1,0 +1,611 @@
+{
+  "classification_counts": {
+    "all_members_absent": 3,
+    "complete_membership": 45,
+    "partial_membership": 27
+  },
+  "conditional_independence_assumption": "Separate source-unit identity deduplication from assumed independent multinomial counts",
+  "declared_grid_windows": 75,
+  "windows": [
+    {
+      "classification": "partial_membership",
+      "grid_id": "779",
+      "missing_native_dataset_ids": [
+        23013
+      ],
+      "missing_units_filled_as_zero": false,
+      "window_index": 0
+    },
+    {
+      "classification": "complete_membership",
+      "grid_id": "779",
+      "missing_native_dataset_ids": [],
+      "missing_units_filled_as_zero": false,
+      "window_index": 1
+    },
+    {
+      "classification": "complete_membership",
+      "grid_id": "779",
+      "missing_native_dataset_ids": [],
+      "missing_units_filled_as_zero": false,
+      "window_index": 2
+    },
+    {
+      "classification": "complete_membership",
+      "grid_id": "779",
+      "missing_native_dataset_ids": [],
+      "missing_units_filled_as_zero": false,
+      "window_index": 3
+    },
+    {
+      "classification": "complete_membership",
+      "grid_id": "779",
+      "missing_native_dataset_ids": [],
+      "missing_units_filled_as_zero": false,
+      "window_index": 4
+    },
+    {
+      "classification": "complete_membership",
+      "grid_id": "779",
+      "missing_native_dataset_ids": [],
+      "missing_units_filled_as_zero": false,
+      "window_index": 5
+    },
+    {
+      "classification": "complete_membership",
+      "grid_id": "779",
+      "missing_native_dataset_ids": [],
+      "missing_units_filled_as_zero": false,
+      "window_index": 6
+    },
+    {
+      "classification": "complete_membership",
+      "grid_id": "779",
+      "missing_native_dataset_ids": [],
+      "missing_units_filled_as_zero": false,
+      "window_index": 7
+    },
+    {
+      "classification": "partial_membership",
+      "grid_id": "779",
+      "missing_native_dataset_ids": [
+        53999
+      ],
+      "missing_units_filled_as_zero": false,
+      "window_index": 8
+    },
+    {
+      "classification": "partial_membership",
+      "grid_id": "779",
+      "missing_native_dataset_ids": [
+        53999
+      ],
+      "missing_units_filled_as_zero": false,
+      "window_index": 9
+    },
+    {
+      "classification": "partial_membership",
+      "grid_id": "779",
+      "missing_native_dataset_ids": [
+        53999
+      ],
+      "missing_units_filled_as_zero": false,
+      "window_index": 10
+    },
+    {
+      "classification": "partial_membership",
+      "grid_id": "779",
+      "missing_native_dataset_ids": [
+        53999
+      ],
+      "missing_units_filled_as_zero": false,
+      "window_index": 11
+    },
+    {
+      "classification": "partial_membership",
+      "grid_id": "779",
+      "missing_native_dataset_ids": [
+        53999
+      ],
+      "missing_units_filled_as_zero": false,
+      "window_index": 12
+    },
+    {
+      "classification": "partial_membership",
+      "grid_id": "779",
+      "missing_native_dataset_ids": [
+        53999,
+        54001
+      ],
+      "missing_units_filled_as_zero": false,
+      "window_index": 13
+    },
+    {
+      "classification": "partial_membership",
+      "grid_id": "779",
+      "missing_native_dataset_ids": [
+        53999,
+        54001
+      ],
+      "missing_units_filled_as_zero": false,
+      "window_index": 14
+    },
+    {
+      "classification": "partial_membership",
+      "grid_id": "779",
+      "missing_native_dataset_ids": [
+        53999,
+        54001
+      ],
+      "missing_units_filled_as_zero": false,
+      "window_index": 15
+    },
+    {
+      "classification": "partial_membership",
+      "grid_id": "779",
+      "missing_native_dataset_ids": [
+        53999,
+        54001
+      ],
+      "missing_units_filled_as_zero": false,
+      "window_index": 16
+    },
+    {
+      "classification": "partial_membership",
+      "grid_id": "779",
+      "missing_native_dataset_ids": [
+        53999,
+        54001
+      ],
+      "missing_units_filled_as_zero": false,
+      "window_index": 17
+    },
+    {
+      "classification": "partial_membership",
+      "grid_id": "779",
+      "missing_native_dataset_ids": [
+        53999,
+        54001
+      ],
+      "missing_units_filled_as_zero": false,
+      "window_index": 18
+    },
+    {
+      "classification": "partial_membership",
+      "grid_id": "779",
+      "missing_native_dataset_ids": [
+        53999,
+        54001
+      ],
+      "missing_units_filled_as_zero": false,
+      "window_index": 19
+    },
+    {
+      "classification": "partial_membership",
+      "grid_id": "779",
+      "missing_native_dataset_ids": [
+        53999,
+        54001
+      ],
+      "missing_units_filled_as_zero": false,
+      "window_index": 20
+    },
+    {
+      "classification": "partial_membership",
+      "grid_id": "779",
+      "missing_native_dataset_ids": [
+        53999,
+        54001
+      ],
+      "missing_units_filled_as_zero": false,
+      "window_index": 21
+    },
+    {
+      "classification": "partial_membership",
+      "grid_id": "779",
+      "missing_native_dataset_ids": [
+        53999,
+        54001
+      ],
+      "missing_units_filled_as_zero": false,
+      "window_index": 22
+    },
+    {
+      "classification": "partial_membership",
+      "grid_id": "779",
+      "missing_native_dataset_ids": [
+        53999,
+        54001
+      ],
+      "missing_units_filled_as_zero": false,
+      "window_index": 23
+    },
+    {
+      "classification": "all_members_absent",
+      "grid_id": "779",
+      "missing_native_dataset_ids": [
+        23013,
+        53999,
+        54001
+      ],
+      "missing_units_filled_as_zero": false,
+      "window_index": 24
+    },
+    {
+      "classification": "all_members_absent",
+      "grid_id": "830",
+      "missing_native_dataset_ids": [
+        4370,
+        4496
+      ],
+      "missing_units_filled_as_zero": false,
+      "window_index": 0
+    },
+    {
+      "classification": "partial_membership",
+      "grid_id": "830",
+      "missing_native_dataset_ids": [
+        4496
+      ],
+      "missing_units_filled_as_zero": false,
+      "window_index": 1
+    },
+    {
+      "classification": "partial_membership",
+      "grid_id": "830",
+      "missing_native_dataset_ids": [
+        4496
+      ],
+      "missing_units_filled_as_zero": false,
+      "window_index": 2
+    },
+    {
+      "classification": "complete_membership",
+      "grid_id": "830",
+      "missing_native_dataset_ids": [],
+      "missing_units_filled_as_zero": false,
+      "window_index": 3
+    },
+    {
+      "classification": "complete_membership",
+      "grid_id": "830",
+      "missing_native_dataset_ids": [],
+      "missing_units_filled_as_zero": false,
+      "window_index": 4
+    },
+    {
+      "classification": "complete_membership",
+      "grid_id": "830",
+      "missing_native_dataset_ids": [],
+      "missing_units_filled_as_zero": false,
+      "window_index": 5
+    },
+    {
+      "classification": "complete_membership",
+      "grid_id": "830",
+      "missing_native_dataset_ids": [],
+      "missing_units_filled_as_zero": false,
+      "window_index": 6
+    },
+    {
+      "classification": "complete_membership",
+      "grid_id": "830",
+      "missing_native_dataset_ids": [],
+      "missing_units_filled_as_zero": false,
+      "window_index": 7
+    },
+    {
+      "classification": "complete_membership",
+      "grid_id": "830",
+      "missing_native_dataset_ids": [],
+      "missing_units_filled_as_zero": false,
+      "window_index": 8
+    },
+    {
+      "classification": "complete_membership",
+      "grid_id": "830",
+      "missing_native_dataset_ids": [],
+      "missing_units_filled_as_zero": false,
+      "window_index": 9
+    },
+    {
+      "classification": "complete_membership",
+      "grid_id": "830",
+      "missing_native_dataset_ids": [],
+      "missing_units_filled_as_zero": false,
+      "window_index": 10
+    },
+    {
+      "classification": "complete_membership",
+      "grid_id": "830",
+      "missing_native_dataset_ids": [],
+      "missing_units_filled_as_zero": false,
+      "window_index": 11
+    },
+    {
+      "classification": "complete_membership",
+      "grid_id": "830",
+      "missing_native_dataset_ids": [],
+      "missing_units_filled_as_zero": false,
+      "window_index": 12
+    },
+    {
+      "classification": "complete_membership",
+      "grid_id": "830",
+      "missing_native_dataset_ids": [],
+      "missing_units_filled_as_zero": false,
+      "window_index": 13
+    },
+    {
+      "classification": "complete_membership",
+      "grid_id": "830",
+      "missing_native_dataset_ids": [],
+      "missing_units_filled_as_zero": false,
+      "window_index": 14
+    },
+    {
+      "classification": "complete_membership",
+      "grid_id": "830",
+      "missing_native_dataset_ids": [],
+      "missing_units_filled_as_zero": false,
+      "window_index": 15
+    },
+    {
+      "classification": "complete_membership",
+      "grid_id": "830",
+      "missing_native_dataset_ids": [],
+      "missing_units_filled_as_zero": false,
+      "window_index": 16
+    },
+    {
+      "classification": "complete_membership",
+      "grid_id": "830",
+      "missing_native_dataset_ids": [],
+      "missing_units_filled_as_zero": false,
+      "window_index": 17
+    },
+    {
+      "classification": "complete_membership",
+      "grid_id": "830",
+      "missing_native_dataset_ids": [],
+      "missing_units_filled_as_zero": false,
+      "window_index": 18
+    },
+    {
+      "classification": "complete_membership",
+      "grid_id": "830",
+      "missing_native_dataset_ids": [],
+      "missing_units_filled_as_zero": false,
+      "window_index": 19
+    },
+    {
+      "classification": "complete_membership",
+      "grid_id": "830",
+      "missing_native_dataset_ids": [],
+      "missing_units_filled_as_zero": false,
+      "window_index": 20
+    },
+    {
+      "classification": "complete_membership",
+      "grid_id": "830",
+      "missing_native_dataset_ids": [],
+      "missing_units_filled_as_zero": false,
+      "window_index": 21
+    },
+    {
+      "classification": "complete_membership",
+      "grid_id": "830",
+      "missing_native_dataset_ids": [],
+      "missing_units_filled_as_zero": false,
+      "window_index": 22
+    },
+    {
+      "classification": "complete_membership",
+      "grid_id": "830",
+      "missing_native_dataset_ids": [],
+      "missing_units_filled_as_zero": false,
+      "window_index": 23
+    },
+    {
+      "classification": "complete_membership",
+      "grid_id": "830",
+      "missing_native_dataset_ids": [],
+      "missing_units_filled_as_zero": false,
+      "window_index": 24
+    },
+    {
+      "classification": "partial_membership",
+      "grid_id": "880",
+      "missing_native_dataset_ids": [
+        1438
+      ],
+      "missing_units_filled_as_zero": false,
+      "window_index": 0
+    },
+    {
+      "classification": "complete_membership",
+      "grid_id": "880",
+      "missing_native_dataset_ids": [],
+      "missing_units_filled_as_zero": false,
+      "window_index": 1
+    },
+    {
+      "classification": "complete_membership",
+      "grid_id": "880",
+      "missing_native_dataset_ids": [],
+      "missing_units_filled_as_zero": false,
+      "window_index": 2
+    },
+    {
+      "classification": "complete_membership",
+      "grid_id": "880",
+      "missing_native_dataset_ids": [],
+      "missing_units_filled_as_zero": false,
+      "window_index": 3
+    },
+    {
+      "classification": "complete_membership",
+      "grid_id": "880",
+      "missing_native_dataset_ids": [],
+      "missing_units_filled_as_zero": false,
+      "window_index": 4
+    },
+    {
+      "classification": "complete_membership",
+      "grid_id": "880",
+      "missing_native_dataset_ids": [],
+      "missing_units_filled_as_zero": false,
+      "window_index": 5
+    },
+    {
+      "classification": "complete_membership",
+      "grid_id": "880",
+      "missing_native_dataset_ids": [],
+      "missing_units_filled_as_zero": false,
+      "window_index": 6
+    },
+    {
+      "classification": "complete_membership",
+      "grid_id": "880",
+      "missing_native_dataset_ids": [],
+      "missing_units_filled_as_zero": false,
+      "window_index": 7
+    },
+    {
+      "classification": "complete_membership",
+      "grid_id": "880",
+      "missing_native_dataset_ids": [],
+      "missing_units_filled_as_zero": false,
+      "window_index": 8
+    },
+    {
+      "classification": "complete_membership",
+      "grid_id": "880",
+      "missing_native_dataset_ids": [],
+      "missing_units_filled_as_zero": false,
+      "window_index": 9
+    },
+    {
+      "classification": "complete_membership",
+      "grid_id": "880",
+      "missing_native_dataset_ids": [],
+      "missing_units_filled_as_zero": false,
+      "window_index": 10
+    },
+    {
+      "classification": "complete_membership",
+      "grid_id": "880",
+      "missing_native_dataset_ids": [],
+      "missing_units_filled_as_zero": false,
+      "window_index": 11
+    },
+    {
+      "classification": "complete_membership",
+      "grid_id": "880",
+      "missing_native_dataset_ids": [],
+      "missing_units_filled_as_zero": false,
+      "window_index": 12
+    },
+    {
+      "classification": "complete_membership",
+      "grid_id": "880",
+      "missing_native_dataset_ids": [],
+      "missing_units_filled_as_zero": false,
+      "window_index": 13
+    },
+    {
+      "classification": "complete_membership",
+      "grid_id": "880",
+      "missing_native_dataset_ids": [],
+      "missing_units_filled_as_zero": false,
+      "window_index": 14
+    },
+    {
+      "classification": "complete_membership",
+      "grid_id": "880",
+      "missing_native_dataset_ids": [],
+      "missing_units_filled_as_zero": false,
+      "window_index": 15
+    },
+    {
+      "classification": "complete_membership",
+      "grid_id": "880",
+      "missing_native_dataset_ids": [],
+      "missing_units_filled_as_zero": false,
+      "window_index": 16
+    },
+    {
+      "classification": "partial_membership",
+      "grid_id": "880",
+      "missing_native_dataset_ids": [
+        54020
+      ],
+      "missing_units_filled_as_zero": false,
+      "window_index": 17
+    },
+    {
+      "classification": "partial_membership",
+      "grid_id": "880",
+      "missing_native_dataset_ids": [
+        54020
+      ],
+      "missing_units_filled_as_zero": false,
+      "window_index": 18
+    },
+    {
+      "classification": "partial_membership",
+      "grid_id": "880",
+      "missing_native_dataset_ids": [
+        54020
+      ],
+      "missing_units_filled_as_zero": false,
+      "window_index": 19
+    },
+    {
+      "classification": "partial_membership",
+      "grid_id": "880",
+      "missing_native_dataset_ids": [
+        54020
+      ],
+      "missing_units_filled_as_zero": false,
+      "window_index": 20
+    },
+    {
+      "classification": "partial_membership",
+      "grid_id": "880",
+      "missing_native_dataset_ids": [
+        54020
+      ],
+      "missing_units_filled_as_zero": false,
+      "window_index": 21
+    },
+    {
+      "classification": "partial_membership",
+      "grid_id": "880",
+      "missing_native_dataset_ids": [
+        54020
+      ],
+      "missing_units_filled_as_zero": false,
+      "window_index": 22
+    },
+    {
+      "classification": "partial_membership",
+      "grid_id": "880",
+      "missing_native_dataset_ids": [
+        54020
+      ],
+      "missing_units_filled_as_zero": false,
+      "window_index": 23
+    },
+    {
+      "classification": "all_members_absent",
+      "grid_id": "880",
+      "missing_native_dataset_ids": [
+        1438,
+        54020
+      ],
+      "missing_units_filled_as_zero": false,
+      "window_index": 24
+    }
+  ]
+}

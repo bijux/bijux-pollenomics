@@ -1,10 +1,10 @@
 {
   "schema_version": "report-narrative-quality-review.v1",
-  "page_count": 302,
+  "page_count": 304,
   "quality_posture_counts": {
     "reader_ready": 117,
     "structured_reference": 19,
-    "thin_structure": 166
+    "thin_structure": 168
   },
   "rows": [
     {
@@ -1368,6 +1368,28 @@
       "bullet_sentence_count": 0,
       "heading_count": 1,
       "table_line_count": 0,
+      "quality_posture": "thin_structure",
+      "note": "Page explains itself but still needs stronger internal wayfinding."
+    },
+    {
+      "repository_path": "docs/report/pollen-reconstruction/swedish-observed-common-panel/README.md",
+      "content_sha256": "57a73f95389fad8f4823dee800d685afc23df8bc446af17bf258e1ff53a9805e",
+      "prose_paragraph_count": 13,
+      "link_bullet_count": 0,
+      "bullet_sentence_count": 0,
+      "heading_count": 1,
+      "table_line_count": 10,
+      "quality_posture": "thin_structure",
+      "note": "Page explains itself but still needs stronger internal wayfinding."
+    },
+    {
+      "repository_path": "docs/report/pollen-reconstruction/swedish-observed-lake-panels/README.md",
+      "content_sha256": "74e04f66d96268baa41a09f5ae6fa48451976dab1b34e00e6fe0f0a30c6d5617",
+      "prose_paragraph_count": 11,
+      "link_bullet_count": 0,
+      "bullet_sentence_count": 0,
+      "heading_count": 1,
+      "table_line_count": 10,
       "quality_posture": "thin_structure",
       "note": "Page explains itself but still needs stronger internal wayfinding."
     },
@@ -3276,7 +3298,7 @@
     },
     {
       "repository_path": "docs/report/index.md",
-      "content_sha256": "6407ef3ec5f4d762e1cdecdf8581d9b3f587d973e0dc2c6bc63d9bf7a0e34061",
+      "content_sha256": "38bab4acdc15d38321295c41067de1063d8221a7d942b756ec508e49a933e24a",
       "prose_paragraph_count": 3,
       "link_bullet_count": 11,
       "bullet_sentence_count": 0,
@@ -3287,7 +3309,7 @@
     },
     {
       "repository_path": "docs/report/maintenance/index.md",
-      "content_sha256": "19f9a585d68f930dd1a6a1b1003339a7fc8bf836c02e60afbada28832407175c",
+      "content_sha256": "687c145eae9d50dc2eac35f8528f2a7d3ca8dd637fd040e848848378666f0d39",
       "prose_paragraph_count": 3,
       "link_bullet_count": 10,
       "bullet_sentence_count": 4,
