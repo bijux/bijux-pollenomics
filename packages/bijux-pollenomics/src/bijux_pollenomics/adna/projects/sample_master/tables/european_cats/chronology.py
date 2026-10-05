@@ -20,7 +20,8 @@ _SHARED_ERA_RANGE_RE = re.compile(
 def _calendar_union_bp(value: str) -> tuple[int, int] | None:
     """Return the outer BP envelope of explicitly era-qualified calendar years.
 
-    Percentage weights and uncalibrated laboratory ages are intentionally ignored.
+    Calendar endpoints after AD 1950 retain negative BP values. Percentage weights
+    and uncalibrated laboratory ages are intentionally ignored.
     A range whose era is written once contributes both endpoints; otherwise a year
     contributes only when its own BC/BCE/AD/CE suffix is present.
     """
@@ -45,7 +46,7 @@ def _calendar_year_to_bp(year_text: str, era: str) -> int:
     year = int(year_text)
     if era.casefold() in {"bc", "bce"}:
         return year + 1949
-    return max(0, 1950 - year)
+    return 1950 - year
 
 
 def _calendar_union_label(value: str) -> str:
