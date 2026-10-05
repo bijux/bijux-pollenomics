@@ -14,7 +14,7 @@
     "reports/science/southern-sweden-validation-paper.md": "d1bf7607c5b978e7ba56d2873901ee79ae5fc7ebaf0af937c75e5c4c8354138d"
   },
   "inventory_sha256": "dec510a9ee0b53103124f3b7f2a8098733cb6d08b683f256ff25bfc84f3989c9",
-  "library_scope": "Eight unchanged baseline paper exports plus one separately reproduced nine-page LandClim account from its actual committed source; per-paper source/build/tool metadata identifies the successor. Baseline global production metadata is preserved.",
+  "library_scope": "Eight unchanged baseline paper exports plus one separately reproduced ten-page LandClim account including Nordic/Tibetanus evidence. Per-paper source/build/tool metadata identifies the successor; baseline global production metadata remains its original authority.",
   "papers": [
     {
       "account_status": "full_paper_account_scientific_gates_open",
@@ -35,21 +35,19 @@
           "sha256": "872d649a3887b234440a4cbb6464230a40067204fcf55a45d47322682ee069df"
         }
       ],
+      "build_receipt_sha256": "434f23c8f45a219535c10697999bdeec81780a7addf8fc19fed1737bf68f8a4f",
       "canonical_report": "reports/science/landclim-paper.md",
       "citation": "Githumbi et al. (2022), European pollen-based REVEALS land-cover reconstructions for the Holocene: methodology, mapping and potentials, ESSD 14, 1581\u20131619",
       "code_blocks": 1,
       "diagrams": 1,
       "external_links": 11,
-      "latex_sha256": "27920ff0042fec2733598a6040870b3972ac99580e288a08029a517a877f0597",
-      "local_repository_links": 67,
+      "latex_sha256": "1f7e7b6f218ef40bb2dab5efabd392baac7a1752a293ebcffa17496b8e34f1f1",
+      "local_repository_links": 74,
       "paper_id": "landclim-regional-reconstruction",
       "pdf": "landclim-regional-reconstruction.pdf",
-      "pdf_bytes": 104448,
-      "pdf_sha256": "9b3f80e9f6e142a4868814964917264343f4aa19ad905d5cbb284fedc34b00dd",
-      "source_sha256": "4fc9712abb4f18a0dbc83ad75eebeae3dea4d067dd8aff0b4ee05393e0a288f0",
-      "source_revision": "fb4a73535fc72adcffce5312783b69db51307445",
-      "producer_revision": "fb4a73535fc72adcffce5312783b69db51307445",
-      "build_receipt_sha256": "035404f66494a8d097f67b91f700eda4932402f760650509b5c00e44453813dc",
+      "pdf_bytes": 111219,
+      "pdf_sha256": "a4b67d92a773d0981e59f925caeea2cb41bbc9cdfc8118b75db58e13b5a38f90",
+      "producer_revision": "95fe2cd57c9fd1a61e11c413f047402f8fcd8a89",
       "producer_sha256": {
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/reader_reports/__init__.py": "0432268c6fe5114aefbf73a43c3ef6e8564650daaf8eb3ca83528067a4d2c1a5",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/reader_reports/__main__.py": "95a4d4c048fa94e0dcbba1d89bfb8a8782dcf81b74c443240f962f0311e76eef",
@@ -58,17 +56,19 @@
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/reader_reports/render.py": "c3d5aba6cc5211d49fe05ba39df5b2fcf7257074068de09d14b90da06fdc8a22",
         "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/reader_reports/source.py": "6fe3b0dd6330f715f6abbc21ab785753e0223a070d5ea1d34cf3debcf4a196f1"
       },
+      "python_dependencies": {
+        "markdown-it-py": "4.0.0"
+      },
+      "repository_link_base": "https://github.com/bijux/bijux-pollenomics/blob/95fe2cd57c9fd1a61e11c413f047402f8fcd8a89/",
+      "repository_links_verified_online": false,
+      "source_date_epoch": 1790812800,
+      "source_revision": "95fe2cd57c9fd1a61e11c413f047402f8fcd8a89",
+      "source_sha256": "fe7a731caeb02d8577a5490d68f8aa39fcddb998978b5b194db510a3db6e4076",
       "tools": {
         "dot": "dot - graphviz version 13.1.0 (20250701.0955)",
         "latexmk": "Latexmk, John Collins, 31 Jan. 2024. Version 4.83",
         "xelatex": "XeTeX 3.141592653-2.6-0.999996 (TeX Live 2024)"
-      },
-      "python_dependencies": {
-        "markdown-it-py": "4.0.0"
-      },
-      "source_date_epoch": 1790812800,
-      "repository_link_base": "https://github.com/bijux/bijux-pollenomics/blob/fb4a73535fc72adcffce5312783b69db51307445/",
-      "repository_links_verified_online": false
+      }
     },
     {
       "account_status": "full_paper_account_simulation_inputs_open",

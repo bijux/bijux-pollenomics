@@ -7971,8 +7971,8 @@
     },
     {
       "path": "reports/exports/papers/landclim-regional-reconstruction.pdf",
-      "sha256": "9b3f80e9f6e142a4868814964917264343f4aa19ad905d5cbb284fedc34b00dd",
-      "bytes": 104448
+      "sha256": "a4b67d92a773d0981e59f925caeea2cb41bbc9cdfc8118b75db58e13b5a38f90",
+      "bytes": 111219
     },
     {
       "path": "reports/exports/papers/local-love-theory.pdf",
@@ -7986,8 +7986,8 @@
     },
     {
       "path": "reports/exports/papers/manifest.json",
-      "sha256": "f92a5d8ac4d5a612de7fea0df569c3ee2bd72ab96794d7895dbd675296edf9bb",
-      "bytes": 16785
+      "sha256": "9faaaf74f85ced515c849facaf43944a2e545152f2a07eca8524f4c1173b0c50",
+      "bytes": 16805
     },
     {
       "path": "reports/exports/papers/namibia-modern-pollen-vegetation-reference.pdf",
@@ -8026,12 +8026,12 @@
     },
     {
       "path": "reports/exports/papers/visual-review.json",
-      "sha256": "42fdfa4b9dc1307f042704427cbb81fe095a87dae122dc758e3556be6fbf524c",
-      "bytes": 21056
+      "sha256": "5a0639e613ba00c9600ba613642f3d16eafe1eb131368185922b33f2f1869393",
+      "bytes": 21103
     },
     {
       "path": "reports/exports/site-downloads.json",
-      "sha256": "4bdd72a4e00b95eeab4815bd978753150705616f9d3e2569eef43af7ce26f40a",
+      "sha256": "b1a7e92a193143235ecf362b38989219afeb92b22f76d6f78a2e96bffcb0faf1",
       "bytes": 5775
     },
     {

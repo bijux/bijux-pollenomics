@@ -3,92 +3,100 @@
   "input_receipt_sha256": "18808f5e8c481f4f924a1878eb40e96fe4e0a6c766a200fec122a01189d0137b",
   "inventory_sha256": "dec510a9ee0b53103124f3b7f2a8098733cb6d08b683f256ff25bfc84f3989c9",
   "overall_status": "layout_pass",
-  "page_count": 30,
+  "page_count": 31,
   "page_evidence_sha256": "da4ff8c5cc723f284f3efedc67cf132ded9931dfbf7235d904ca6a2999d3a957",
   "paper_count": 9,
   "papers": [
     {
-      "paper_id": "landclim-regional-reconstruction",
-      "input_pdf": "landclim-regional-reconstruction.pdf",
-      "input_pdf_sha256": "9b3f80e9f6e142a4868814964917264343f4aa19ad905d5cbb284fedc34b00dd",
-      "input_receipt_sha256": "035404f66494a8d097f67b91f700eda4932402f760650509b5c00e44453813dc",
-      "source_revision": "fb4a73535fc72adcffce5312783b69db51307445",
-      "source_sha256": "4fc9712abb4f18a0dbc83ad75eebeae3dea4d067dd8aff0b4ee05393e0a288f0",
-      "review_status": "layout_pass",
       "all_fonts_embedded": true,
-      "page_count": 9,
+      "embedded_font_count": 7,
+      "input_pdf": "landclim-regional-reconstruction.pdf",
+      "input_pdf_sha256": "a4b67d92a773d0981e59f925caeea2cb41bbc9cdfc8118b75db58e13b5a38f90",
+      "input_receipt_sha256": "434f23c8f45a219535c10697999bdeec81780a7addf8fc19fed1737bf68f8a4f",
+      "page_count": 10,
+      "page_evidence_sha256": "ef264bc41a14f0db6408232b89ad7f62a2544a750d3e6d6024d17ab7ef7af96d",
       "pages": [
         {
+          "image": "page-01.png",
+          "observation": "Full citation, source fe7a731c and scientific scope readable. Original historical correspondence is distinguished from new conditional reconstruction; no clipping or footer overlap.",
           "page": 1,
-          "image": "page-1.png",
-          "png_sha256": "ce73e033b8023ee49a5693edba29b0975d3481fd020cdbe2b46d91f3ab19cbd6",
-          "visual_status": "readable",
-          "observation": "Source4fc9712a identity and full2022 citation readable. Intro distinguishes original two-grid/archive correspondence from new conditional Swedish work; sample/window definitions and conventional1950 reference visible. No clipping or footer overlap."
+          "png_sha256": "88e61784c6001bad55bfb95a24318f17ec2d254ca1c20e6522e10c15134b14c0",
+          "visual_status": "readable"
         },
         {
+          "image": "page-02.png",
+          "observation": "All six original flowchart boxes and arrows readable. Transport and LRA definitions and the 17-site profile fit; denominator paragraph continues correctly onto page 3.",
           "page": 2,
-          "image": "page-2.png",
           "png_sha256": "2cfdafa0ddbafe4b76ef5ffa8258239beaf14ea4fa268b3da7eb80eb28316574",
-          "visual_status": "readable",
-          "observation": "All six original flowchart boxes and arrows readable. Transport/LRA definitions and17-site profile fit; the425/184 denominator paragraph continues correctly onto page3 with a clear source footer."
+          "visual_status": "readable"
         },
         {
+          "image": "page-03.png",
+          "observation": "14,074-value denominator, WHH301-to297 trace, exact window, original means/SE exponents and two-grid numerical/archive results readable; continuation remains intact.",
           "page": 3,
-          "image": "page-3.png",
           "png_sha256": "20d6c456bdf325d9554a967d1c9f64fcc7949e53824b73fdb5d125c20109cb7b",
-          "visual_status": "readable",
-          "observation": "14,074-value denominator, WHH301-to297 trace, window1320/[1250,1750), original mean/SE exponents and two-grid numerical/archive values readable; continued archive text flows onto page4 without lost content."
+          "visual_status": "readable"
         },
         {
+          "image": "page-04.png",
+          "observation": "Archive TW2 and PFT qualifications and all six acquired-asset table rows readable; filenames wrap within cells. All32 workbook tabs and79 metadata candidates remain explicit.",
           "page": 4,
-          "image": "page-4.png",
           "png_sha256": "800db7a7ca697f7c673d5621f96dacc05d0134d77137f389755576db48075333",
-          "visual_status": "readable",
-          "observation": "Archive TW2/PFT11/12/13 qualifications and all six acquired-asset table rows readable. Long filenames wrap inside their cells.32-tab observations and79-candidate distinction remain within margins and continue onto page5."
+          "visual_status": "readable"
         },
         {
+          "image": "page-05.png",
+          "observation": "84 Swedish metadata rows,59 datasets/4548 samples and complete four-core table readable.261/273 samples,77 windows, panel grain denominators, BUS refusal and wider assumed-zero scope fit.",
           "page": 5,
-          "image": "page-5.png",
           "png_sha256": "4d1caaa06275f87034f46d7648102fb6c94a83976a2a86d930f95e63b4f21ae0",
-          "visual_status": "readable",
-          "observation": "New84row/59dataset/4548sample source lead scope readable. Complete four-core table includes native IDs,261/273 sample and77window totals, all panel count denominators. BUS0/69 refusal,TIB150/1024 grains and broader267/273/79/278368 scope/explicit hypothesized zeros readable; five-column table fits."
+          "visual_status": "readable"
         },
         {
+          "image": "page-06.png",
+          "observation": "Complete wider coverage/target table, residual conservation, transfer effects and static basin/PPE conditional uncertainty readable. AD1950, core-surface date, new0BP and negativeBP distinctions visible.",
           "page": 6,
-          "image": "page-6.png",
           "png_sha256": "c840a2f09472f0aca3e742ec0a2e70acfb3f8aec30de5019b8b07600be01b9d5",
-          "visual_status": "readable",
-          "observation": "Complete wider coverage/target table readable.969/310/410/139 assumed-source-zero cells, residual conservation, transfer effects and staticbasin/PPE conditional uncertainty are visible. AD1950 versus actual core-surface date/new0BP and negativeBP qualification readable. Numerical verification paragraph continues onpage7."
+          "visual_status": "readable"
         },
         {
+          "image": "page-07.png",
+          "observation": "Tibetanus45point/eightcase changes and historical0/1128 scope readable. Four Nordic core rows fit, with313/314 samples,182 windows and explicit count denominators. Inclusive0 <= age <11700calBP is visible and complete;222 unknown age bounds remain explicit.",
           "page": 7,
-          "image": "page-7.png",
-          "png_sha256": "10d6338d245ae7ae3c461dba1caefeb101583adc3f1937e99c5cbc4d46b07b0b",
-          "visual_status": "readable",
-          "observation": "1896rows/14910selected covariance cells/300tuples1340uses and nonrigorous integration limits readable.0/1128 historical identity is distinguished from real new calculations. First three open-evidence table rows fit without clipped cells; table continues with repeated headers onpage8."
+          "png_sha256": "aa446fcd0cb03eb5b66fad763b60a473deec98a7eb584d5321c9cc0b6ef9b3b1",
+          "visual_status": "readable"
         },
         {
+          "image": "page-08.png",
+          "observation": "Nordic static radius alternatives and conditional uncertainty limits readable.6840 independent Decimal cells and23 physical tuples/29 uses retain limits. Historical-input and source-citation distinctions intact; first three open-evidence rows fit.",
           "page": 8,
-          "image": "page-8.png",
-          "png_sha256": "321a48c25294a505b10f04881d686cd56e312ffd9d6d92f319095d31ae3da9a6",
-          "visual_status": "readable",
-          "observation": "Fourth open-evidence table row and historical0/1128 qualification readable. Prepared-count versus end-to-end replay requirements,EKE25positive/17zero and source/rights/accuracy distinctions fit. Code starts atpage8 and continues correctly ontopage9; no lost lines or footer collision."
+          "png_sha256": "7364f89d82fe36f86e6ccb8782c2d4b1a18580556d6072aeede6976deba0f229",
+          "visual_status": "readable"
         },
         {
+          "image": "page-09.png",
+          "observation": "Fourth open-evidence row readable. Original-input versus prepared-count replay requirements, EKE25positive/17zero and rights/accuracy distinctions fit. Reproduction command continues onto page10 without lost lines.",
           "page": 9,
-          "image": "page-9.png",
-          "png_sha256": "ba529287f81d56bbc94c550b128e76d395b92f6bb72bdf8f371f0876ab2cc070",
-          "visual_status": "readable",
-          "observation": "Continuation of reproduction command remains legible. Source-bound execution/private-access limitations and complete unsent source/reviewer questions fit; final scientific endorsement remains open. No clipped text, orphan source-hash page or footer overlap."
+          "png_sha256": "f42e8449cff967fe3002e3be7696d5de38866c33bd0c504ee324416ea163c566",
+          "visual_status": "readable"
+        },
+        {
+          "image": "page-10.png",
+          "observation": "Command continuation and bounded reproduction routes legible. Complete unsent source/reviewer questions fit; no clipped text, footer overlap or independent endorsement claim.",
+          "page": 10,
+          "png_sha256": "c46a8439df66fe21ae958828d14ab2cee7c7960dabd463e6ee551bd3175378f6",
+          "visual_status": "readable"
         }
       ],
-      "page_evidence_sha256": "828130cefe96bea4f89a47a9e9bd4ee680b0ccbb702779481f2be76d0500ccae",
+      "paper_id": "landclim-regional-reconstruction",
       "primary_source_url_annotated": true,
       "repository_revision_in_annotations": true,
+      "review_scope": "Actual10-page rendered PNG/text/font/annotation inspection by the model, bound to this one-paper native export. No human reader feedback, scientific endorsement, accessibility certification or release admission.",
+      "review_status": "layout_pass",
       "source_hash_and_citation_year_on_page_one": true,
       "source_path_in_each_page_footer": true,
-      "review_scope": "Model layout/font/text/annotation inspection of actual nine-page LandClim successor; no human feedback, scientific endorsement or accessibility certification.",
-      "text_reading_order": "All nine actual pages were read from rendered PNG images and complete extracted text; all source tables,numerical exponents,BP/core-date distinctions,code and continued paragraphs retain their content."
+      "source_revision": "95fe2cd57c9fd1a61e11c413f047402f8fcd8a89",
+      "source_sha256": "fe7a731caeb02d8577a5490d68f8aa39fcddb998978b5b194db510a3db6e4076",
+      "text_reading_order": "All ten actual page images inspected; extracted text, numerical notation, source tables and continued code checked. Inclusive age comparator is present; compiler missing-character and extracted replacement-character counts are zero."
     },
     {
       "all_fonts_embedded": true,
@@ -142,7 +150,7 @@
       "pages": [
         {
           "image": "page-1.png",
-          "observation": "2007a citation and abstract-only scope clear; regional104–105-km2 support, flow code and WHH05 trace visible with separate footer.",
+          "observation": "2007a citation and abstract-only scope clear; regional104\u2013105-km2 support, flow code and WHH05 trace visible with separate footer.",
           "page": 1,
           "png_sha256": "908c92bc1a6861b956c509eca1ec2956a33a48976f2c6d301230e4207baba327",
           "visual_status": "readable"
@@ -172,7 +180,7 @@
       "pages": [
         {
           "image": "page-1.png",
-          "observation": "2007b citation, code arrows and constructed200–300m ring trace readable;31000 cells/8312negative and signed minimum preserved.",
+          "observation": "2007b citation, code arrows and constructed200\u2013300m ring trace readable;31000 cells/8312negative and signed minimum preserved.",
           "page": 1,
           "png_sha256": "5740a86674a6a34a772a63f6d434e88e1c653baff02bc4933307ff70474289e8",
           "visual_status": "readable"
@@ -239,7 +247,7 @@
         },
         {
           "image": "page-2.png",
-          "observation": "Småland Picea16/54/44 percentages and28/10-point differences visible; full command, hash and scenario-specific unsent questions readable.",
+          "observation": "Sm\u00e5land Picea16/54/44 percentages and28/10-point differences visible; full command, hash and scenario-specific unsent questions readable.",
           "page": 2,
           "png_sha256": "3be93d2f1c6a8cb8d1ee4824be35b6f9d4d6a93fd67109b1c53e419f2a42cc52",
           "visual_status": "readable"
@@ -269,7 +277,7 @@
         },
         {
           "image": "page-2.png",
-          "observation": "Three-row table preserves Skane5/14.80/4.20,Småland4/20.50/6.25,pooled9/17.33/5.11; hash/code and unsent inputs fit.",
+          "observation": "Three-row table preserves Skane5/14.80/4.20,Sm\u00e5land4/20.50/6.25,pooled9/17.33/5.11; hash/code and unsent inputs fit.",
           "page": 2,
           "png_sha256": "f50a08982843e70d543a65de0ffb320b666f2b024ef0a5469c78f9f25857ad2d",
           "visual_status": "readable"
@@ -299,14 +307,14 @@
         },
         {
           "image": "page-2.png",
-          "observation": "Entire source-to-comparison flowchart and four CE windows visible;Stavsåkra617grains/1930 and100/75/24/10% support trace fit.",
+          "observation": "Entire source-to-comparison flowchart and four CE windows visible;Stavs\u00e5kra617grains/1930 and100/75/24/10% support trace fit.",
           "page": 2,
           "png_sha256": "74109679d667e359319a6039628cf3300547bd55c6a556822a13cf7e36db1474",
           "visual_status": "readable"
         },
         {
           "image": "page-3.png",
-          "observation": "Notteryd841/1993 and Storasjö574/1935 traces,1.3–1.7km/±50years limits and first two table rows readable; long refusal identifier wraps within cell.",
+          "observation": "Notteryd841/1993 and Storasj\u00f6574/1935 traces,1.3\u20131.7km/\u00b150years limits and first two table rows readable; long refusal identifier wraps within cell.",
           "page": 3,
           "png_sha256": "8336e898040076e4ee43cb505cc3c045168ad97ed4c8732004a828559f24e121",
           "visual_status": "readable"
@@ -343,7 +351,7 @@
         },
         {
           "image": "page-2.png",
-          "observation": "Entire diagram including dashed calibration limit readable;750rows/50series/9declines/700comparisons and64.621–93.534% annuli visible. All T1 counts, conditional fractions and full sqrt Hellinger expression intact.",
+          "observation": "Entire diagram including dashed calibration limit readable;750rows/50series/9declines/700comparisons and64.621\u201393.534% annuli visible. All T1 counts, conditional fractions and full sqrt Hellinger expression intact.",
           "page": 2,
           "png_sha256": "ce1f671f791220c91730f0693177af584ab8d106975335dab705492a0d62c1e7",
           "visual_status": "readable"
@@ -367,7 +375,7 @@
     }
   ],
   "repository_revision": "16c24efd53d91d5ae7aa02e820622cd581a6926f",
-  "review_scope": "Eight unchanged baseline page-review records plus one separately inspected nine-page LandClim successor. Baseline global receipt/evidence identity remains unchanged; new paper row binds actual successor evidence.",
+  "review_scope": "Eight unchanged baseline page-review records plus one separately inspected ten-page LandClim successor. Baseline global receipt/evidence identity remains unchanged; new paper row binds actual successor evidence.",
   "scientific_or_release_admission": false,
   "source_date_epoch": 1790812800
 }
