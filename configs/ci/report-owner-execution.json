@@ -1849,6 +1849,19 @@
         "source-products/source-domain.json": "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/source-domain.json"
       },
       "timeout_seconds": 30
+    },
+    {
+      "owner_id": "pollen-reconstruction/swedish-grouped-forward-development/account-products",
+      "module": "bijux_pollenomics_dev.source_completion.pollen_reconstruction.swedish_grouped_forward.producer",
+      "source_arguments": [],
+      "output_subdirectory": "source-products",
+      "output_mode": "directory",
+      "timeout_seconds": 30,
+      "source_paths": {
+        "source-products/report.json": "docs/report/pollen-reconstruction/swedish-grouped-forward-development/report.json",
+        "source-products/source-proof.json": "docs/report/pollen-reconstruction/swedish-grouped-forward-development/source-proof.json"
+      },
+      "external_source_descriptor": "configs/ci/qualified-report-sources/swedish-grouped-forward-development.json"
     }
   ],
   "schema_version": "configured-report-owner-execution.v1"

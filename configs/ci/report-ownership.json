@@ -2,8 +2,8 @@
   "schema_version": "report-output-ownership.v1",
   "root": "docs/report",
   "inventory_scope": "tracked report paths; ownership declarations do not certify reproduction",
-  "path_count": 2052,
-  "paths_sha256": "c8a62baf78529e27c3bf18429123fae92f77d2ce1868af5008aa91ab7561d71c",
+  "path_count": 2055,
+  "paths_sha256": "26ce5e328fdcb6b12c9819dad63d261e9a3ae3c5a885148c3634d80236a67253",
   "owners": [
     {
       "owner_id": "atlas/boundary-orientation/browser-evidence",
@@ -45845,6 +45845,57 @@
       "producer_paths": [],
       "role": "retained_source",
       "verification": "Transport exactly 14 original scientific/protocol/source/diagnostic/import/policy/scalar/physical records and 8 separately qualified current native publication acquisition/response/terminal records under maintained 22-member byte/role/membership/HEAD guards. Preserve original pending fields and failed predecessors under actual scope; do not rewrite captured authority to imply current whole-program acceptance. Four native dataset primary relations identify three articles; they do not authenticate original article contents, historical preparation, raw rights or ecological accuracy. Private 314-sample count/age/mask support remains local."
+    },
+    {
+      "owner_id": "pollen-reconstruction/swedish-grouped-forward-development/reader-account",
+      "role": "maintained_editorial",
+      "paths": [
+        "docs/report/pollen-reconstruction/swedish-grouped-forward-development/README.md"
+      ],
+      "producer_paths": [],
+      "producer_inputs": [],
+      "verification": "Explain the actual exposed two-taxon source-group development scenario, raw inverse-term pooling/PPE cancellation and equal-geometry count baseline, all five profiles/two dependency rules, full4750attempts/210dependent comparisons/21distinct outcomes and retained large/worse errors. Keep arithmetic qualification separate from measured vegetation accuracy, untouched confirmation, empirical interval coverage, PPE identification and historical LandClim reproduction."
+    },
+    {
+      "owner_id": "pollen-reconstruction/swedish-grouped-forward-development/account-products",
+      "role": "generated_owner",
+      "paths": [
+        "docs/report/pollen-reconstruction/swedish-grouped-forward-development/report.json",
+        "docs/report/pollen-reconstruction/swedish-grouped-forward-development/source-proof.json"
+      ],
+      "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/rebuild_reports.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/artifact_paths.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/author_snapshot.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/contracts.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/evidence.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/publisher_tables.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/qualified_sources.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/source_qualification.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/audit.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/evidence.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/landclim.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/manifests.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/swedish_grouped_forward/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/swedish_grouped_forward/authority.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/swedish_grouped_forward/producer.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/swedish_grouped_forward/sources.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/swedish_grouped_forward/summary.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/trusted_process.py"
+      ],
+      "producer_inputs": [
+        "configs/ci/qualified-report-sources/swedish-grouped-forward-development.json",
+        "packages/bijux-pollenomics-dev/pyproject.toml",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/swedish_grouped_forward/__main__.py",
+        "pyproject.toml",
+        "uv.lock"
+      ],
+      "verification": "Produce two saved-loss/source-proof accounts from the exact six original externally qualified prediction/scoring/preflight/protocol/native/independent-review captures. Actual36source/aggregation/output guards and two direct writers exited0, gave identical complete4750ledger/210loss comparison outputs, observed23first-party source origins and preserved private capture custody. Original edede scientific arithmetic/scoring authority remains separate; this writer does not execute raw/R/physical/model/prediction/scoring stages. The separate private seven-file source packet is admitted by exact identity; current type-annotated summary direct twins exited0 with unchanged scientific report and a source-proof hash refresh only, observing23actual source paths. The36guards retain their original Ec7domain source scope through runtime-AST equality. Ordinary clean-Git configured reference/replay remains a separate current prerequisite. No raw target taxon-count/sample redistribution, best-profile choice, PPE identification, independent vegetation accuracy, untouched confirmation, empirical coverage, original historical reproduction or external review admission."
     }
   ]
 }

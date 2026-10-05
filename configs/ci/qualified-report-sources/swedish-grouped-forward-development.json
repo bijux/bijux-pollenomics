@@ -1,0 +1,43 @@
+{
+  "file_count": 6,
+  "files": [
+    {
+      "path": "independent-score-review.json",
+      "sha256": "5e6b3a75a91b00174644b3b4a5b748cff9e4f109cce4ba100e348b9ef2194a58",
+      "size": 1016
+    },
+    {
+      "path": "native-terminal.json",
+      "sha256": "87cc93a93ef02d700651e46c319df6f63d8f1e16701c757d8afc54a5db03462b",
+      "size": 6339
+    },
+    {
+      "path": "prediction-ledger.json",
+      "sha256": "e81617c64d55b1fcabdfd6e105ae16026f1cd81d51f4e8363cf59afbeb9e9ee8",
+      "size": 1828461
+    },
+    {
+      "path": "protocol.json",
+      "sha256": "1c629a5111d423fdd0854871afcf950923b68d9193cad739989c0f6a8058314f",
+      "size": 21977
+    },
+    {
+      "path": "score-ledger.json",
+      "sha256": "d9038f114a9a76929d118e33875999145fbc3b737896c511c9c81e8855572487",
+      "size": 1520845
+    },
+    {
+      "path": "source-preflight.json",
+      "sha256": "974186ec6c9c7d7f7051488843d7dad0ba7996f7114e6e349cd64b16e39498b9",
+      "size": 2962834
+    }
+  ],
+  "manifest": {
+    "path": "manifest.json",
+    "sha256": "01fc5471dc2010951ca627bc00260a3b74eae1265a5992ad077ab06327dbd3ec",
+    "size": 681
+  },
+  "schema_version": "qualified-author-snapshot.v1",
+  "snapshot_schema_version": "swedish-grouped-forward-saved-capture.v1",
+  "source_id": "pollen-reconstruction/swedish-grouped-forward-development"
+}

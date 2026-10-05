@@ -1,6 +1,6 @@
 {
   "schema_version": "report-surface-registry.v1",
-  "surface_count": 2048,
+  "surface_count": 2051,
   "inventory_scope": "all input files plus generated navigation pages; registry metadata excluded",
   "content_identity_scope": "Markdown pages; machine outputs retain their domain manifests",
   "excluded_metadata_paths": [
@@ -11,14 +11,14 @@
   ],
   "family_counts": {
     "caveats": 10,
-    "maintenance": 1140,
+    "maintenance": 1143,
     "maps": 88,
     "portal": 2,
     "reviews": 34,
     "scopes": 774
   },
   "audience_counts": {
-    "maintainer_diagnostic": 1142,
+    "maintainer_diagnostic": 1145,
     "public_reading_surface": 783,
     "scientific_review_surface": 123
   },
@@ -28,7 +28,7 @@
     "finland": 14,
     "nordic": 498,
     "norway": 14,
-    "report_root": 1189,
+    "report_root": 1192,
     "sweden": 49,
     "world": 172
   },
@@ -11320,6 +11320,43 @@
     },
     {
       "repository_path": "docs/report/pollen-reconstruction/swedish-direct-pollen/summary.json",
+      "family": "maintenance",
+      "family_label": "Maintainer truth surfaces",
+      "audience": "maintainer_diagnostic",
+      "audience_label": "Maintainer diagnostic",
+      "format": "json",
+      "geography": "report_root",
+      "caution_level": "high",
+      "explanation": "Maintainer-facing truth or governance surface.",
+      "reader_route": "maintainer_truth"
+    },
+    {
+      "repository_path": "docs/report/pollen-reconstruction/swedish-grouped-forward-development/README.md",
+      "content_sha256": "23398a214715e620c8d0eb780c1939b5d4de0acde49ec69fb525f01e01a776b1",
+      "family": "maintenance",
+      "family_label": "Maintainer truth surfaces",
+      "audience": "maintainer_diagnostic",
+      "audience_label": "Maintainer diagnostic",
+      "format": "md",
+      "geography": "report_root",
+      "caution_level": "high",
+      "explanation": "Reader-facing entry page for one scope bundle.",
+      "reader_route": "start_here"
+    },
+    {
+      "repository_path": "docs/report/pollen-reconstruction/swedish-grouped-forward-development/report.json",
+      "family": "maintenance",
+      "family_label": "Maintainer truth surfaces",
+      "audience": "maintainer_diagnostic",
+      "audience_label": "Maintainer diagnostic",
+      "format": "json",
+      "geography": "report_root",
+      "caution_level": "high",
+      "explanation": "Maintainer-facing truth or governance surface.",
+      "reader_route": "maintainer_truth"
+    },
+    {
+      "repository_path": "docs/report/pollen-reconstruction/swedish-grouped-forward-development/source-proof.json",
       "family": "maintenance",
       "family_label": "Maintainer truth surfaces",
       "audience": "maintainer_diagnostic",
@@ -24853,7 +24890,7 @@
     },
     {
       "repository_path": "docs/report/index.md",
-      "content_sha256": "4b3c25c2ec1242b4e15169bb9c3a884ecd4eec9c2765371a9c4867def7876ec4",
+      "content_sha256": "32c4019c861384347aa58e956a28456ded4d422149ec73a1477c068b0812c2e1",
       "family": "portal",
       "family_label": "Portal guidance",
       "audience": "public_reading_surface",
@@ -24866,7 +24903,7 @@
     },
     {
       "repository_path": "docs/report/maintenance/index.md",
-      "content_sha256": "53bc42c3a1efc16078f3b539090a8c78cc996548c1edb44cfa9fb7d128d7a387",
+      "content_sha256": "fd55a0f5a761ed6ac187139a8e168f4422f696f360f279abffe6384a6545d475",
       "family": "maintenance",
       "family_label": "Maintainer truth surfaces",
       "audience": "public_reading_surface",
