@@ -23,6 +23,9 @@ from .contracts import (
     sha256_bytes,
 )
 from .evidence import inventory_json
+from .scientific_captures.nordic_static_basin import (
+    validated_nordic_static_basin_captures,
+)
 from .scientific_captures.swedish_parameter_transfer import (
     validated_swedish_parameter_transfer_captures,
 )
@@ -48,12 +51,12 @@ MAINTAINED_ROLE_PATHS = {
         "0180b0dc0e74063546778f1d63acdfcccf13f476ac9c5f0048ccaeb19df6c56d",
     ),
     "maintained_editorial": (
-        187,
-        "5f04afb6c22e3f2eaf99e44faee658ea0e1d9e1091299afbdf99bfebd4663249",
+        188,
+        "2dfa059eef4569324817af912a804c910e3c15d9a777852d63f161fee7262654",
     ),
     "maintained_configuration": (
-        12,
-        "48921c6e6c9765a835da824a4604abaadf8cd2b38e1ed21e977aa63ac160822d",
+        13,
+        "4f827dfa54d23ded647f09eb2c1c150db99a76d821032f1dc904ec555645040c",
     ),
 }
 SOURCE_FORMATS = {
@@ -212,7 +215,12 @@ def validated_maintained_report_sources(
             repository, tracked_by_path, inventory["owners"]
         )
     )
-    all_capture_entries = capture_entries + parameter_entries + chronology_entries
+    nordic_entries, nordic_evidence = validated_nordic_static_basin_captures(
+        repository, tracked_by_path, inventory["owners"]
+    )
+    all_capture_entries = (
+        capture_entries + parameter_entries + chronology_entries + nordic_entries
+    )
     for entry in all_capture_entries:
         name = "docs/report/" + entry.path
         capture = _regular_confined_file(repository, name, "scientific capture")
@@ -248,4 +256,6 @@ def validated_maintained_report_sources(
         evidence["retained_parameter_transfer_captures"] = parameter_evidence
     if chronology_entries:
         evidence["retained_source_chronology_captures"] = chronology_evidence
+    if nordic_entries:
+        evidence["retained_nordic_static_basin_captures"] = nordic_evidence
     return tuple(sorted(selected, key=lambda entry: entry.path)), evidence

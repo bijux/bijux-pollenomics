@@ -1,0 +1,329 @@
+{
+  "accepted_point_domain_samples": 313,
+  "case_window_results": 182,
+  "comparability_scope": "Panels differ (2/3/2/6 taxa); closed proportions and pollen-count coverage are panel-specific, not whole vegetation/cross-country area estimates. Sols\u00f8 cores share one lake; geometry alternatives are repeated scenarios, not independent observations.",
+  "cores": [
+    {
+      "accepted_all_reported_pollen_NISP": 101470,
+      "accepted_point_domain_samples": 65,
+      "all_selected_labels_explicit_in_each_included_sample": true,
+      "collection_unit_default_chronology_not_selected": 25731,
+      "country": "Denmark",
+      "dated_basin_geometry_admitted": false,
+      "equal_cohort_identity_inferred_from_equal_counts": false,
+      "historical_access_marker": "R",
+      "historical_access_marker_scope": "Historical workbook field; not substituted for current public-source terms or separately restricted author-copy rights.",
+      "mapped_panel_NISP": 36849,
+      "metadata_core_notes": "The Sols\u00f8 1981 core shows a hiatus at 472-480 cm (ca. 4200- 6000 14C yrs BP). The Solso 1983 core covers this interval, and a bit more.",
+      "metadata_locator": "landclim_ii_site_metadata.xlsx#LANDCLIMII metadata file!95",
+      "missing_label_zero_imputation": false,
+      "missing_reported_age_bounds_samples": 0,
+      "native_collection_unit_id": 4303,
+      "native_dataset_id": 4445,
+      "native_site_id": 3432,
+      "nested_model_default_flags_override_selected_named_id": false,
+      "occupied_windows": 23,
+      "parameter_taxa": [
+        "Betula",
+        "Calluna vulgaris"
+      ],
+      "point_domain_exclusions": {
+        "named_calibrated_point_outside_declared_domain": 1
+      },
+      "prior_signed_point_or_bounds_refused_samples": 1,
+      "represented_case_ids": [
+        "4445.metadata_static_radius",
+        "4445.reported_2_5_ha_static_circle"
+      ],
+      "selected_named_calibrated_chronology": {
+        "chronology_id": 25732,
+        "model": {
+          "agemodel": "clam",
+          "agerange": {
+            "ageboundolder": 12420,
+            "ageboundyounger": 0
+          },
+          "chronologyname": "Giesecke et al. 2014 (MADCAP)",
+          "contact": [
+            {
+              "contactid": 8710,
+              "contactname": "Giesecke, Thomas",
+              "familyname": "Giesecke",
+              "givenname": "Thomas",
+              "leadinginitial": "T."
+            }
+          ],
+          "dateprepared": "2011-01-01",
+          "isdefault": true,
+          "modelagetype": "Calibrated radiocarbon years BP",
+          "notes": "Linear age model. Based on IntCal09 calibration curve. Preparer notes: Hiatus between 478 and 474 to be compleeted witth SOLOSO83"
+        },
+        "raw_control_count": 31,
+        "raw_control_sha256": "70afc35f849d13537d9be5f47f0e2dd554a05b2f23a2e6410908499c3d3a909e"
+      },
+      "signed_reported_age_bounds_retained_samples": 1,
+      "source_handle": "SOLSOE81",
+      "source_samples": 66,
+      "static_geometry_alternatives": [
+        {
+          "authority": "Raw LandClim metadata siteradius; constant receiving-disk hypothesis, not dated shoreline",
+          "id": "metadata_static_radius",
+          "radius_m": 89
+        },
+        {
+          "authority": "Actual retained source report area transformed by r=sqrt(10000*A/pi), constant equivalent-circle hypothesis; no dated geometry admission",
+          "id": "reported_2_5_ha_static_circle",
+          "radius_m": 89.20620580763855,
+          "reported_area_ha": 2.5
+        }
+      ],
+      "unparameterized_reported_pollen_NISP": 64621
+    },
+    {
+      "accepted_all_reported_pollen_NISP": 28950,
+      "accepted_point_domain_samples": 26,
+      "all_selected_labels_explicit_in_each_included_sample": true,
+      "collection_unit_default_chronology_not_selected": 25739,
+      "country": "Denmark",
+      "dated_basin_geometry_admitted": false,
+      "equal_cohort_identity_inferred_from_equal_counts": false,
+      "historical_access_marker": "R",
+      "historical_access_marker_scope": "Historical workbook field; not substituted for current public-source terms or separately restricted author-copy rights.",
+      "mapped_panel_NISP": 18745,
+      "metadata_core_notes": null,
+      "metadata_locator": "landclim_ii_site_metadata.xlsx#LANDCLIMII metadata file!95",
+      "missing_label_zero_imputation": false,
+      "missing_reported_age_bounds_samples": 0,
+      "native_collection_unit_id": 4304,
+      "native_dataset_id": 4446,
+      "native_site_id": 3432,
+      "nested_model_default_flags_override_selected_named_id": false,
+      "occupied_windows": 11,
+      "parameter_taxa": [
+        "Alnus glutinosa",
+        "Betula",
+        "Calluna vulgaris",
+        "Corylus avellana",
+        "Tilia",
+        "Ulmus"
+      ],
+      "point_domain_exclusions": {},
+      "prior_signed_point_or_bounds_refused_samples": 0,
+      "represented_case_ids": [
+        "4446.metadata_static_radius",
+        "4446.reported_2_5_ha_static_circle"
+      ],
+      "selected_named_calibrated_chronology": {
+        "chronology_id": 25740,
+        "model": {
+          "agemodel": "clam",
+          "agerange": {
+            "ageboundolder": 9830,
+            "ageboundyounger": 2780
+          },
+          "chronologyname": "Giesecke et al. 2014 (MADCAP)",
+          "contact": [
+            {
+              "contactid": 8710,
+              "contactname": "Giesecke, Thomas",
+              "familyname": "Giesecke",
+              "givenname": "Thomas",
+              "leadinginitial": "T."
+            }
+          ],
+          "dateprepared": "2011-01-01",
+          "isdefault": true,
+          "modelagetype": "Calibrated radiocarbon years BP",
+          "notes": "Linear age model. Based on IntCal09 calibration curve. Preparer notes: Pollen stratigraphic connection: SO83 410 cm = SO81 450 cm, SO83 520 cm = SO81 480 cm"
+        },
+        "raw_control_count": 7,
+        "raw_control_sha256": "8e4ac27a8cb05a6c5bf86fa70e08718257de66a0c9c7e592b77a7eb004dfc6d1"
+      },
+      "signed_reported_age_bounds_retained_samples": 0,
+      "source_handle": "SOLSOE83",
+      "source_samples": 26,
+      "static_geometry_alternatives": [
+        {
+          "authority": "Raw LandClim metadata siteradius; constant receiving-disk hypothesis, not dated shoreline",
+          "id": "metadata_static_radius",
+          "radius_m": 89
+        },
+        {
+          "authority": "Actual retained source report area transformed by r=sqrt(10000*A/pi), constant equivalent-circle hypothesis; no dated geometry admission",
+          "id": "reported_2_5_ha_static_circle",
+          "radius_m": 89.20620580763855,
+          "reported_area_ha": 2.5
+        }
+      ],
+      "unparameterized_reported_pollen_NISP": 10205
+    },
+    {
+      "accepted_all_reported_pollen_NISP": 47085,
+      "accepted_point_domain_samples": 72,
+      "all_selected_labels_explicit_in_each_included_sample": true,
+      "collection_unit_default_chronology_not_selected": 11600,
+      "country": "Norway",
+      "dated_basin_geometry_admitted": false,
+      "equal_cohort_identity_inferred_from_equal_counts": false,
+      "historical_access_marker": "NR",
+      "historical_access_marker_scope": "Historical workbook field; not substituted for current public-source terms or separately restricted author-copy rights.",
+      "mapped_panel_NISP": 40576,
+      "metadata_core_notes": "Local vegetation: Sphagnum mosses.",
+      "metadata_locator": "landclim_ii_site_metadata.xlsx#LANDCLIMII metadata file!801",
+      "missing_label_zero_imputation": false,
+      "missing_reported_age_bounds_samples": 72,
+      "native_collection_unit_id": 14989,
+      "native_dataset_id": 20034,
+      "native_site_id": 13388,
+      "nested_model_default_flags_override_selected_named_id": false,
+      "occupied_windows": 22,
+      "parameter_taxa": [
+        "Betula",
+        "Pinus sylvestris",
+        "Poaceae"
+      ],
+      "point_domain_exclusions": {},
+      "prior_signed_point_or_bounds_refused_samples": 0,
+      "represented_case_ids": [
+        "20034.metadata_static_radius",
+        "20034.reported_7_2_ha_static_circle",
+        "20034.reported_8_0_ha_static_circle"
+      ],
+      "selected_named_calibrated_chronology": {
+        "chronology_id": 11601,
+        "model": {
+          "agemodel": "Weighted mixed effects regression procedure (Heegaard 2003)",
+          "agerange": {
+            "ageboundolder": 10550,
+            "ageboundyounger": 0
+          },
+          "chronologyname": "author preferred",
+          "contact": [
+            {
+              "contactid": 8769,
+              "contactname": "Heegaard, Einar",
+              "familyname": "Heegaard",
+              "givenname": "Einar",
+              "leadinginitial": "E"
+            }
+          ],
+          "dateprepared": "2003-01-01",
+          "isdefault": true,
+          "modelagetype": "Calibrated radiocarbon years BP",
+          "notes": null
+        },
+        "raw_control_count": 13,
+        "raw_control_sha256": "21e4ef233eeb2649e7470710eb279b2313a7b1a8f805f6bdfdec079a3743c955"
+      },
+      "signed_reported_age_bounds_retained_samples": 0,
+      "source_handle": "DALMUT",
+      "source_samples": 72,
+      "static_geometry_alternatives": [
+        {
+          "authority": "Raw LandClim metadata siteradius; constant receiving-disk hypothesis, not dated shoreline",
+          "id": "metadata_static_radius",
+          "radius_m": 160
+        },
+        {
+          "authority": "Actual retained source report area transformed by r=sqrt(10000*A/pi), constant equivalent-circle hypothesis; no dated geometry admission",
+          "id": "reported_7_2_ha_static_circle",
+          "radius_m": 151.3879513212096,
+          "reported_area_ha": 7.2
+        },
+        {
+          "authority": "Actual retained source report area transformed by r=sqrt(10000*A/pi), constant equivalent-circle hypothesis; no dated geometry admission",
+          "id": "reported_8_0_ha_static_circle",
+          "radius_m": 159.57691216057307,
+          "reported_area_ha": 8.0
+        }
+      ],
+      "unparameterized_reported_pollen_NISP": 6509
+    },
+    {
+      "accepted_all_reported_pollen_NISP": 85303,
+      "accepted_point_domain_samples": 150,
+      "all_selected_labels_explicit_in_each_included_sample": true,
+      "collection_unit_default_chronology_not_selected": 37159,
+      "country": "Finland",
+      "dated_basin_geometry_admitted": false,
+      "equal_cohort_identity_inferred_from_equal_counts": false,
+      "historical_access_marker": "R",
+      "historical_access_marker_scope": "Historical workbook field; not substituted for current public-source terms or separately restricted author-copy rights.",
+      "mapped_panel_NISP": 62607,
+      "metadata_core_notes": "Local vegetation: bogs with pine and  dwarf-shrubs.",
+      "metadata_locator": "landclim_ii_site_metadata.xlsx#LANDCLIMII metadata file!155",
+      "missing_label_zero_imputation": false,
+      "missing_reported_age_bounds_samples": 150,
+      "native_collection_unit_id": 37925,
+      "native_dataset_id": 52082,
+      "native_site_id": 28072,
+      "nested_model_default_flags_override_selected_named_id": false,
+      "occupied_windows": 24,
+      "parameter_taxa": [
+        "Betula",
+        "Pinus sylvestris"
+      ],
+      "point_domain_exclusions": {},
+      "prior_signed_point_or_bounds_refused_samples": 0,
+      "represented_case_ids": [
+        "52082.metadata_static_radius",
+        "52082.reported_25_5_ha_static_circle"
+      ],
+      "selected_named_calibrated_chronology": {
+        "chronology_id": 37160,
+        "model": {
+          "agemodel": "non-parametric weighted regression",
+          "agerange": {
+            "ageboundolder": 11000,
+            "ageboundyounger": 0
+          },
+          "chronologyname": "cal yr BP",
+          "contact": [
+            {
+              "contactid": 1233,
+              "contactname": "Sepp\u00e4, Heikki",
+              "familyname": "Sepp\u00e4",
+              "givenname": "Heikki",
+              "leadinginitial": "H."
+            }
+          ],
+          "dateprepared": "2002-01-01",
+          "isdefault": true,
+          "modelagetype": "Calibrated radiocarbon years BP",
+          "notes": "Calibrated BP age with CALIB4.2 (Stuiver et al.) and INTCAL98, bottom estimated from the deglaciation history of the basin"
+        },
+        "raw_control_count": 6,
+        "raw_control_sha256": "4fb1c7d2c4b1882e1cfd29ba8adc47494429c8b2244650cc2c633b8449193618"
+      },
+      "signed_reported_age_bounds_retained_samples": 0,
+      "source_handle": "LAIH",
+      "source_samples": 150,
+      "static_geometry_alternatives": [
+        {
+          "authority": "Raw LandClim metadata siteradius; constant receiving-disk hypothesis, not dated shoreline",
+          "id": "metadata_static_radius",
+          "radius_m": 285
+        },
+        {
+          "authority": "Actual retained source report area transformed by r=sqrt(10000*A/pi), constant equivalent-circle hypothesis; no dated geometry admission",
+          "id": "reported_25_5_ha_static_circle",
+          "radius_m": 284.9017742606504,
+          "reported_area_ha": 25.5
+        }
+      ],
+      "unparameterized_reported_pollen_NISP": 22696
+    }
+  ],
+  "distinct_sites": 3,
+  "geometry_case_count": 9,
+  "point_domain_cal_bp": {
+    "epoch": "AD1950",
+    "older_exclusive": 11700,
+    "younger_inclusive": 0
+  },
+  "point_vs_bounds_cohort_scope": "Sols\u00f881 retains point7 with younger bound\u221241 and excludes point12417; equal65sample totals do not establish identity with the earlier nonnegative-bounds cohort. Source point/control/calibration provenance remains distinct; no interpolation/refit/error bounds invented.",
+  "schema_version": "nordic-static-basin-source-domain.v1",
+  "source_samples": 314,
+  "uncertainty_scope": "Conditional marginal counting and assumed diagonal PPE delta covariance; shared PPE induces dependence across windows/cases, whose joint blocks are not computed. Chronology, basin history, parameter validity and model discrepancy are outside these SEs. Plug-in zero SE does not establish absence.",
+  "unknown_reported_age_bounds_samples": 222
+}

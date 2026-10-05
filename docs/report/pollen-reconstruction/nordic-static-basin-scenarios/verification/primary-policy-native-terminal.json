@@ -1,0 +1,61 @@
+{
+  "actual_command": [
+    "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/bin/python3.11",
+    "-I",
+    "-B",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/jobs/neotoma-public-data-use-policy-acquisition/fetch.py"
+  ],
+  "candidate": "ea7b58bb6d7ab9b3cadc1f658f29d7c126757d7e",
+  "consumer_result_sha256": "5b993764ce054b8ec428440b6c26634464bc9f6eee0686f1120815d41bac752e",
+  "custody_after_checked": true,
+  "custody_after_unchanged": true,
+  "custody_errors": [],
+  "log_bound_scope": [
+    "run/native.log",
+    "products/focused-tests.log",
+    "products/reference-writer.log",
+    "products/replay-writer.log"
+  ],
+  "log_sha256": "57240c340b41e95e7addd376af47b5314440fa3c664d2227609555e78c188376",
+  "native_exit_code": 0,
+  "native_pid": 6083,
+  "observed_descendants": {
+    "6083": {
+      "group": 6083,
+      "parent": 6072,
+      "pid": 6083,
+      "rss_bytes": 31735808,
+      "start": "Mon Oct  5 00:34:51 2026    ",
+      "state": "Ss"
+    }
+  },
+  "owned_survivors": {},
+  "peak_processes": 1,
+  "peak_rss_bytes": 31735808,
+  "plan_sha256": "1def089ac1ae4da3e7dbb49295d0505ca9bedf409fd3a1ff80c7cec4a7694eae",
+  "product_files": {
+    "acquisition-progress.json": {
+      "bytes": 1962,
+      "sha256": "e2dd1cd83c0cbd66350c5153b1cc07839c1d74ee59fad98c518b402087f9a5f0"
+    },
+    "consumer-result.json": {
+      "bytes": 2475,
+      "sha256": "5b993764ce054b8ec428440b6c26634464bc9f6eee0686f1120815d41bac752e"
+    },
+    "policy-epd.response": {
+      "bytes": 90403,
+      "sha256": "a6d049567190ee7671df82c859e4139e53c2efa432bfe9191f4b0538c1f4685c"
+    },
+    "policy-neotoma.response": {
+      "bytes": 48638,
+      "sha256": "f5ae5e79f7dd1a4d6dd846fa9a63a14129dc8b0ea9c21ed484289304be01b85e"
+    }
+  },
+  "resource_failure": null,
+  "scope": "Two precise public first-party source policy HTTPGETs 8s socket/4MiB perresponse/TLS/no retry; exactrawbytes and headers retained. No legal/historical/general licensing inference from transport success.",
+  "source_context": "Two first-party policy pages verified in official web sources, CC BY4.0 data accessible viaNeotoma. Exact bodies acquired prospectively, no scraping all counts, no outreach. Source-specific attribution follow-through required, not privateauthorcopy license inference.",
+  "status": "PASS",
+  "terminal_aggregate_log_bytes": 49,
+  "wall_seconds": 2.3197151250205934,
+  "writer_files": {}
+}

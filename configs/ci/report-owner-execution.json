@@ -1,124 +1,122 @@
 {
-  "schema_version": "configured-report-owner-execution.v1",
   "owners": [
     {
-      "owner_id": "countries/denmark/solsoe-source-lineage/report-products",
       "module": "bijux_pollenomics_dev.source_completion.solsoe_source_lineage",
+      "output_mode": "directory",
+      "owner_id": "countries/denmark/solsoe-source-lineage/report-products",
+      "source_arguments": [],
       "source_paths": {
         "report.json": "docs/report/countries/denmark/solsoe-source-lineage/report.json"
       },
-      "source_arguments": [],
-      "output_mode": "directory",
       "timeout_seconds": 240
     },
     {
-      "owner_id": "source-relations/neotoma/pollen-screen/compact-summary",
       "module": "bijux_pollenomics_dev.source_completion.neotoma_screen_summary",
-      "source_paths": {
-        "summary.json": "docs/report/source-relations/neotoma/pollen-screen/summary.json"
-      },
+      "output_mode": "single_file",
+      "owner_id": "source-relations/neotoma/pollen-screen/compact-summary",
       "source_arguments": [
         {
           "flag": "--screen",
           "path": "docs/report/source-relations/neotoma/pollen-screen/report.json"
         }
       ],
-      "output_mode": "single_file",
+      "source_paths": {
+        "summary.json": "docs/report/source-relations/neotoma/pollen-screen/summary.json"
+      },
       "timeout_seconds": 180
     },
     {
-      "owner_id": "countries/sweden/pollen-model-lineage/derived-report",
       "module": "bijux_pollenomics_dev.source_completion.swedish_model_lineage",
+      "output_mode": "directory",
+      "owner_id": "countries/sweden/pollen-model-lineage/derived-report",
+      "source_arguments": [],
       "source_paths": {
         "report.json": "docs/report/countries/sweden/pollen-model-lineage/report.json"
       },
-      "source_arguments": [],
-      "output_mode": "directory",
       "timeout_seconds": 180
     },
     {
-      "owner_id": "regions/nordic/source-capability/neotoma-entities/derived-products",
       "module": "bijux_pollenomics_dev.source_completion.neotoma_entity_decisions",
+      "output_mode": "single_file",
+      "owner_id": "regions/nordic/source-capability/neotoma-entities/derived-products",
+      "source_arguments": [],
       "source_paths": {
         "report.json": "docs/report/regions/nordic/source-capability/neotoma-entities/report.json"
       },
-      "source_arguments": [],
-      "output_mode": "single_file",
       "timeout_seconds": 180
     },
     {
-      "owner_id": "source-relations/neotoma/parameter-candidates/report-products",
       "module": "bijux_pollenomics_dev.source_completion.neotoma_parameter_candidates",
+      "output_mode": "directory",
+      "owner_id": "source-relations/neotoma/parameter-candidates/report-products",
+      "source_arguments": [],
       "source_paths": {
         "report.json": "docs/report/source-relations/neotoma/parameter-candidates/report.json"
       },
-      "source_arguments": [],
-      "output_mode": "directory",
       "timeout_seconds": 180
     },
     {
-      "owner_id": "source-relations/neotoma/parameter-correspondence/report-products",
       "module": "bijux_pollenomics_dev.source_completion.landclim_parameter_correspondence",
+      "output_mode": "directory",
+      "owner_id": "source-relations/neotoma/parameter-correspondence/report-products",
+      "source_arguments": [],
       "source_paths": {
         "report.json": "docs/report/source-relations/neotoma/parameter-correspondence/report.json"
       },
-      "source_arguments": [],
-      "output_mode": "directory",
       "timeout_seconds": 180
     },
     {
-      "owner_id": "countries/sweden/observed-pollen-trajectory/derived-report",
       "module": "bijux_pollenomics_dev.source_completion.swedish_lake_trajectory",
+      "output_mode": "directory",
+      "owner_id": "countries/sweden/observed-pollen-trajectory/derived-report",
+      "source_arguments": [],
       "source_paths": {
         "report.json": "docs/report/countries/sweden/observed-pollen-trajectory/report.json",
         "transitions.csv": "docs/report/countries/sweden/observed-pollen-trajectory/transitions.csv"
       },
-      "source_arguments": [],
-      "output_mode": "directory",
       "timeout_seconds": 180
     },
     {
-      "owner_id": "regions/nordic/landclim-modeled-panels",
       "module": "bijux_pollenomics_dev.source_completion.landclim_modeled_panels",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "regions/nordic/landclim-modeled-panels",
+      "source_arguments": [],
       "source_paths": {
         "source-products/panels.csv": "docs/report/regions/nordic/landclim-modeled-panels/panels.csv",
         "source-products/report.json": "docs/report/regions/nordic/landclim-modeled-panels/report.json"
       },
-      "source_arguments": [],
-      "output_mode": "directory",
-      "timeout_seconds": 180,
-      "output_subdirectory": "source-products"
+      "timeout_seconds": 180
     },
     {
-      "owner_id": "source-relations/neotoma/parameter-coverage/literal-name-counts",
       "module": "bijux_pollenomics_dev.source_completion.neotoma_parameter_mass",
+      "output_mode": "directory",
+      "owner_id": "source-relations/neotoma/parameter-coverage/literal-name-counts",
+      "source_arguments": [],
       "source_paths": {
         "bins.csv": "docs/report/source-relations/neotoma/parameter-coverage/bins.csv",
         "report.json": "docs/report/source-relations/neotoma/parameter-coverage/report.json"
       },
-      "source_arguments": [],
-      "output_mode": "directory",
       "timeout_seconds": 180
     },
     {
-      "owner_id": "source-relations/rootsi-landclim-overlap/derived-products",
       "module": "bijux_pollenomics_dev.source_completion.rootsi_landclim_overlap",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "source-relations/rootsi-landclim-overlap/derived-products",
+      "source_arguments": [],
       "source_paths": {
         "source-products/overlap.csv": "docs/report/source-relations/rootsi-landclim-overlap/overlap.csv",
         "source-products/report.json": "docs/report/source-relations/rootsi-landclim-overlap/report.json"
       },
-      "source_arguments": [],
-      "output_mode": "directory",
-      "timeout_seconds": 180,
-      "output_subdirectory": "source-products"
+      "timeout_seconds": 180
     },
     {
-      "owner_id": "source-relations/neotoma/abbo-core-identity/report-products",
+      "include_repository_argument": false,
       "module": "bijux_pollenomics_dev.source_completion.abborrtjarne_core",
-      "source_paths": {
-        "source-products/REPORT.md": "docs/report/source-relations/neotoma/abbo-core-identity/REPORT.md",
-        "source-products/report.json": "docs/report/source-relations/neotoma/abbo-core-identity/report.json"
-      },
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "source-relations/neotoma/abbo-core-identity/report-products",
       "source_arguments": [
         {
           "flag": "--raw-part",
@@ -145,19 +143,18 @@
           "path": "docs/report/source-relations/neotoma/lra-prerequisites/projection.json"
         }
       ],
-      "output_mode": "directory",
-      "timeout_seconds": 180,
-      "include_repository_argument": false,
-      "output_subdirectory": "source-products"
+      "source_paths": {
+        "source-products/REPORT.md": "docs/report/source-relations/neotoma/abbo-core-identity/REPORT.md",
+        "source-products/report.json": "docs/report/source-relations/neotoma/abbo-core-identity/report.json"
+      },
+      "timeout_seconds": 180
     },
     {
-      "owner_id": "source-relations/neotoma/landclim-site-identity/report-products",
+      "include_repository_argument": false,
       "module": "bijux_pollenomics_dev.source_completion.swedish_site_identity",
-      "source_paths": {
-        "source-products/REPORT.md": "docs/report/source-relations/neotoma/landclim-site-identity/REPORT.md",
-        "source-products/report.json": "docs/report/source-relations/neotoma/landclim-site-identity/report.json",
-        "source-products/site-comparison.csv": "docs/report/source-relations/neotoma/landclim-site-identity/site-comparison.csv"
-      },
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "source-relations/neotoma/landclim-site-identity/report-products",
       "source_arguments": [
         {
           "flag": "--workbook",
@@ -176,18 +173,19 @@
           "path": "data/neotoma/relational/surfaces/sites/part-00001.json"
         }
       ],
-      "output_mode": "directory",
-      "timeout_seconds": 180,
-      "include_repository_argument": false,
-      "output_subdirectory": "source-products"
+      "source_paths": {
+        "source-products/REPORT.md": "docs/report/source-relations/neotoma/landclim-site-identity/REPORT.md",
+        "source-products/report.json": "docs/report/source-relations/neotoma/landclim-site-identity/report.json",
+        "source-products/site-comparison.csv": "docs/report/source-relations/neotoma/landclim-site-identity/site-comparison.csv"
+      },
+      "timeout_seconds": 180
     },
     {
-      "owner_id": "source-relations/neotoma/swedish-lake-core-identity/report-products",
+      "include_repository_argument": false,
       "module": "bijux_pollenomics_dev.source_completion.swedish_lake_core_correspondence",
-      "source_paths": {
-        "source-products/REPORT.md": "docs/report/source-relations/neotoma/swedish-lake-core-identity/REPORT.md",
-        "source-products/report.json": "docs/report/source-relations/neotoma/swedish-lake-core-identity/report.json"
-      },
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "source-relations/neotoma/swedish-lake-core-identity/report-products",
       "source_arguments": [
         {
           "flag": "--raw-part",
@@ -214,215 +212,219 @@
           "path": "docs/report/source-relations/neotoma/lra-prerequisites/projection.json"
         }
       ],
-      "output_mode": "directory",
-      "timeout_seconds": 180,
-      "include_repository_argument": false,
-      "output_subdirectory": "source-products"
+      "source_paths": {
+        "source-products/REPORT.md": "docs/report/source-relations/neotoma/swedish-lake-core-identity/REPORT.md",
+        "source-products/report.json": "docs/report/source-relations/neotoma/swedish-lake-core-identity/report.json"
+      },
+      "timeout_seconds": 180
     },
     {
-      "owner_id": "regions/nordic/source-capability/derived-products",
       "module": "bijux_pollenomics_dev.source_completion.source_capability",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "regions/nordic/source-capability/derived-products",
+      "source_arguments": [],
       "source_paths": {
         "source-products/report.json": "docs/report/regions/nordic/source-capability/report.json"
       },
-      "source_arguments": [],
-      "output_mode": "directory",
-      "timeout_seconds": 180,
-      "output_subdirectory": "source-products"
+      "timeout_seconds": 180
     },
     {
-      "owner_id": "source-relations/sead-country-retrieval/derived-products",
       "module": "bijux_pollenomics_dev.source_completion.sead_country_retrieval",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "source-relations/sead-country-retrieval/derived-products",
+      "source_arguments": [],
       "source_paths": {
         "source-products/countries.csv": "docs/report/source-relations/sead-country-retrieval/countries.csv",
         "source-products/report.json": "docs/report/source-relations/sead-country-retrieval/report.json",
         "source-products/sites.csv": "docs/report/source-relations/sead-country-retrieval/sites.csv"
       },
-      "source_arguments": [],
-      "output_mode": "directory",
-      "timeout_seconds": 180,
-      "output_subdirectory": "source-products"
+      "timeout_seconds": 180
     },
     {
-      "owner_id": "source-relations/sead/chronology-country-accounting/report-products",
       "module": "bijux_pollenomics_dev.source_completion.sead_chronology_country_accounting",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "source-relations/sead/chronology-country-accounting/report-products",
+      "source_arguments": [],
       "source_paths": {
         "source-products/report.json": "docs/report/source-relations/sead/chronology-country-accounting/report.json",
         "source-products/rows.csv": "docs/report/source-relations/sead/chronology-country-accounting/rows.csv"
       },
-      "source_arguments": [],
-      "output_mode": "directory",
-      "timeout_seconds": 180,
-      "output_subdirectory": "source-products"
+      "timeout_seconds": 180
     },
     {
-      "owner_id": "source-relations/sead/country-coverage/report-products",
       "module": "bijux_pollenomics_dev.source_completion.sead_country_coverage",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "source-relations/sead/country-coverage/report-products",
+      "source_arguments": [],
       "source_paths": {
         "source-products/report.json": "docs/report/source-relations/sead/country-coverage/report.json",
         "source-products/rows.csv": "docs/report/source-relations/sead/country-coverage/rows.csv"
       },
-      "source_arguments": [],
-      "output_mode": "directory",
-      "timeout_seconds": 180,
-      "output_subdirectory": "source-products"
+      "timeout_seconds": 180
     },
     {
-      "owner_id": "source-relations/sead/source-unit-accounting/report-products",
       "module": "bijux_pollenomics_dev.source_completion.sead_country_source_units",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "source-relations/sead/source-unit-accounting/report-products",
+      "source_arguments": [],
       "source_paths": {
         "source-products/report.json": "docs/report/source-relations/sead/source-unit-accounting/report.json",
         "source-products/rows.csv": "docs/report/source-relations/sead/source-unit-accounting/rows.csv"
       },
-      "source_arguments": [],
-      "output_mode": "directory",
-      "timeout_seconds": 180,
-      "output_subdirectory": "source-products"
+      "timeout_seconds": 180
     },
     {
-      "owner_id": "source-relations/sead/chronology-claim-review/native-age-products",
       "module": "bijux_pollenomics_dev.source_completion.sead.chronology_age_review",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "source-relations/sead/chronology-claim-review/native-age-products",
+      "source_arguments": [],
       "source_paths": {
         "source-products/claims.csv": "docs/report/source-relations/sead/chronology-claim-review/claims.csv",
         "source-products/report.json": "docs/report/source-relations/sead/chronology-claim-review/report.json"
       },
-      "source_arguments": [],
-      "output_mode": "directory",
-      "timeout_seconds": 180,
-      "output_subdirectory": "source-products"
+      "timeout_seconds": 180
     },
     {
-      "owner_id": "source-relations/sead/interval-sets/record-unions",
       "module": "bijux_pollenomics_dev.source_completion.sead.record_intervals",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "source-relations/sead/interval-sets/record-unions",
+      "source_arguments": [],
       "source_paths": {
         "source-products/report.json": "docs/report/source-relations/sead/interval-sets/report.json",
         "source-products/sites.csv": "docs/report/source-relations/sead/interval-sets/sites.csv"
       },
-      "source_arguments": [],
-      "output_mode": "directory",
-      "timeout_seconds": 180,
-      "output_subdirectory": "source-products"
+      "timeout_seconds": 180
     },
     {
-      "owner_id": "countries/denmark/pollen-chronology-coverage/report-products",
       "module": "bijux_pollenomics_dev.source_completion.denmark_pollen_chronology_coverage",
+      "output_mode": "single_file",
+      "owner_id": "countries/denmark/pollen-chronology-coverage/report-products",
+      "source_arguments": [],
       "source_paths": {
         "report.json": "docs/report/countries/denmark/pollen-chronology-coverage/report.json"
       },
-      "source_arguments": [],
-      "output_mode": "single_file",
       "timeout_seconds": 180
     },
     {
-      "owner_id": "source-relations/neotoma/compact-summary/derived-report",
       "module": "bijux_pollenomics_dev.source_completion.neotoma_compact_summary",
+      "output_mode": "single_file",
+      "owner_id": "source-relations/neotoma/compact-summary/derived-report",
+      "source_arguments": [],
       "source_paths": {
         "report.json": "docs/report/source-relations/neotoma/compact-summary/report.json"
       },
-      "source_arguments": [],
-      "output_mode": "single_file",
       "timeout_seconds": 180
     },
     {
-      "owner_id": "source-relations/neotoma/acquisition-scope/retained-selection",
       "module": "bijux_pollenomics_dev.source_completion.neotoma_acquisition_scope",
+      "output_mode": "single_file",
+      "owner_id": "source-relations/neotoma/acquisition-scope/retained-selection",
+      "source_arguments": [],
       "source_paths": {
         "report.json": "docs/report/source-relations/neotoma/acquisition-scope/report.json"
       },
-      "source_arguments": [],
-      "output_mode": "single_file",
       "timeout_seconds": 180
     },
     {
-      "owner_id": "source-relations/dna-scope/galician-paper-crosswalk",
       "module": "bijux_pollenomics_dev.source_completion.galician_cattle_review",
+      "output_mode": "single_file",
+      "owner_id": "source-relations/dna-scope/galician-paper-crosswalk",
+      "source_arguments": [],
       "source_paths": {
         "report.json": "docs/report/source-relations/dna-scope/galician-cattle-paper.json"
       },
-      "source_arguments": [],
-      "output_mode": "single_file",
       "timeout_seconds": 180
     },
     {
-      "owner_id": "source-relations/dna-scope/source-posture",
       "module": "bijux_pollenomics_dev.source_completion.dna_scope_review",
+      "output_mode": "single_file",
+      "owner_id": "source-relations/dna-scope/source-posture",
+      "source_arguments": [],
       "source_paths": {
         "report.json": "docs/report/source-relations/dna-scope/report.json"
       },
-      "source_arguments": [],
-      "output_mode": "single_file",
       "timeout_seconds": 180
     },
     {
-      "owner_id": "source-relations/source-capability-evidence/derived-products",
       "module": "bijux_pollenomics_dev.source_completion.capability_evidence",
+      "output_mode": "single_file",
+      "owner_id": "source-relations/source-capability-evidence/derived-products",
+      "source_arguments": [],
       "source_paths": {
         "report.json": "docs/report/source-relations/source-capability-evidence/report.json"
       },
-      "source_arguments": [],
-      "output_mode": "single_file",
       "timeout_seconds": 180
     },
     {
-      "owner_id": "source-relations/sead/public-custody/source-map-bindings",
       "module": "bijux_pollenomics_dev.source_completion.sead_public_custody",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "source-relations/sead/public-custody/source-map-bindings",
+      "source_arguments": [],
       "source_paths": {
         "source-products/report.json": "docs/report/source-relations/sead/public-custody/report.json"
       },
-      "source_arguments": [],
-      "output_mode": "directory",
-      "timeout_seconds": 180,
-      "output_subdirectory": "source-products"
-    },
-    {
-      "owner_id": "source-relations/neotoma/variable-surface/native-variable-reconciliation",
-      "module": "bijux_pollenomics_dev.source_completion.neotoma_variable_surface",
-      "source_paths": {
-        "report.json": "docs/report/source-relations/neotoma/variable-surface/report.json"
-      },
-      "source_arguments": [],
-      "output_mode": "single_file",
       "timeout_seconds": 180
     },
     {
-      "owner_id": "source-relations/landclim/map-export-lineage/derived-transport-ledger",
+      "module": "bijux_pollenomics_dev.source_completion.neotoma_variable_surface",
+      "output_mode": "single_file",
+      "owner_id": "source-relations/neotoma/variable-surface/native-variable-reconciliation",
+      "source_arguments": [],
+      "source_paths": {
+        "report.json": "docs/report/source-relations/neotoma/variable-surface/report.json"
+      },
+      "timeout_seconds": 180
+    },
+    {
       "module": "bijux_pollenomics_dev.source_completion.landclim_map_export_lineage",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "source-relations/landclim/map-export-lineage/derived-transport-ledger",
+      "source_arguments": [],
       "source_paths": {
         "source-products/report.json": "docs/report/source-relations/landclim/map-export-lineage/report.json",
         "source-products/rows.csv": "docs/report/source-relations/landclim/map-export-lineage/rows.csv"
       },
-      "source_arguments": [],
-      "output_mode": "directory",
-      "timeout_seconds": 180,
-      "output_subdirectory": "source-products"
+      "timeout_seconds": 180
     },
     {
-      "owner_id": "source-relations/sead/analysis-numerical-values/report-products",
       "module": "bijux_pollenomics_dev.source_completion.sead.numerical_values",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "source-relations/sead/analysis-numerical-values/report-products",
+      "source_arguments": [],
       "source_paths": {
         "source-products/report.json": "docs/report/source-relations/sead/analysis-numerical-values/report.json",
         "source-products/values.csv": "docs/report/source-relations/sead/analysis-numerical-values/values.csv"
       },
-      "source_arguments": [],
-      "output_mode": "directory",
-      "timeout_seconds": 180,
-      "output_subdirectory": "source-products"
+      "timeout_seconds": 180
     },
     {
-      "owner_id": "source-relations/sead/pollen-named-dataset-screen/report-products",
       "module": "bijux_pollenomics_dev.source_completion.sead.pollen_dataset_screen",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "source-relations/sead/pollen-named-dataset-screen/report-products",
+      "source_arguments": [],
       "source_paths": {
         "source-products/report.json": "docs/report/source-relations/sead/pollen-named-dataset-screen/report.json",
         "source-products/sample-observations.csv": "docs/report/source-relations/sead/pollen-named-dataset-screen/sample-observations.csv"
       },
-      "source_arguments": [],
-      "output_mode": "directory",
-      "timeout_seconds": 180,
-      "output_subdirectory": "source-products"
+      "timeout_seconds": 180
     },
     {
-      "owner_id": "publication-replay/landclim-study-inputs/metadata-products",
       "module": "bijux_pollenomics_dev.source_completion.study_metadata.landclim",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "publication-replay/landclim-study-inputs/metadata-products",
+      "source_arguments": [],
       "source_paths": {
         "source-products/manifest.json": "docs/report/publication-replay/landclim-study-inputs/manifest.json",
         "source-products/primary-source-crosswalk.csv": "docs/report/publication-replay/landclim-study-inputs/primary-source-crosswalk.csv",
@@ -430,31 +432,28 @@
         "source-products/refusals.csv": "docs/report/publication-replay/landclim-study-inputs/refusals.csv",
         "source-products/report.json": "docs/report/publication-replay/landclim-study-inputs/report.json"
       },
-      "source_arguments": [],
-      "output_mode": "directory",
-      "timeout_seconds": 180,
-      "output_subdirectory": "source-products"
+      "timeout_seconds": 180
     },
     {
-      "owner_id": "method-certification/love-paper-correspondence/parameter-comparison",
       "module": "bijux_pollenomics_dev.source_completion.love.parameter_correspondence",
+      "output_mode": "single_file",
+      "owner_id": "method-certification/love-paper-correspondence/parameter-comparison",
+      "source_arguments": [],
       "source_paths": {
         "report.json": "docs/report/method-certification/love-paper-correspondence/source-parameter-correspondence.json"
       },
-      "source_arguments": [],
-      "output_mode": "single_file",
       "timeout_seconds": 180
     },
     {
       "module": "bijux_pollenomics_dev.source_completion.sead.integer_values",
       "output_mode": "directory",
+      "output_subdirectory": "source-products",
       "owner_id": "source-relations/sead/analysis-integer-values/report-products",
       "source_arguments": [],
       "source_paths": {
         "source-products/report.json": "docs/report/source-relations/sead/analysis-integer-values/report.json"
       },
-      "timeout_seconds": 180,
-      "output_subdirectory": "source-products"
+      "timeout_seconds": 180
     },
     {
       "module": "bijux_pollenomics_dev.source_completion.neotoma.relational_summary",
@@ -767,32 +766,32 @@
       "timeout_seconds": 600
     },
     {
-      "owner_id": "regions/nordic/author-target-pollen/frozen-predictions",
       "module": "bijux_pollenomics_dev.source_completion.nordic.nordic_heldout_predictions",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "regions/nordic/author-target-pollen/frozen-predictions",
+      "source_arguments": [],
       "source_paths": {
         "source-products/predictions-DK.json.gz": "docs/report/regions/nordic/author-target-pollen/predictions/predictions-DK.json.gz",
         "source-products/predictions-FI.json.gz": "docs/report/regions/nordic/author-target-pollen/predictions/predictions-FI.json.gz",
         "source-products/predictions-NO.json.gz": "docs/report/regions/nordic/author-target-pollen/predictions/predictions-NO.json.gz"
       },
-      "source_arguments": [],
-      "output_mode": "directory",
-      "output_subdirectory": "source-products",
       "timeout_seconds": 600
     },
     {
-      "owner_id": "countries/denmark/solsoe-source-lineage/legacyage-interval-sensitivity/report-products",
       "module": "bijux_pollenomics_dev.source_completion.denmark.solsoe_interval_sensitivity",
-      "source_arguments": [],
       "output_mode": "directory",
       "output_subdirectory": "source-products",
-      "timeout_seconds": 600,
+      "owner_id": "countries/denmark/solsoe-source-lineage/legacyage-interval-sensitivity/report-products",
+      "source_arguments": [],
       "source_paths": {
         "source-products/predictions.json": "docs/report/countries/denmark/solsoe-source-lineage/legacyage-interval-sensitivity/predictions.json",
         "source-products/protocol.json": "docs/report/countries/denmark/solsoe-source-lineage/legacyage-interval-sensitivity/protocol.json",
         "source-products/report.json": "docs/report/countries/denmark/solsoe-source-lineage/legacyage-interval-sensitivity/report.json",
         "source-products/sample-support.csv": "docs/report/countries/denmark/solsoe-source-lineage/legacyage-interval-sensitivity/sample-support.csv",
         "source-products/scores.csv": "docs/report/countries/denmark/solsoe-source-lineage/legacyage-interval-sensitivity/scores.csv"
-      }
+      },
+      "timeout_seconds": 600
     },
     {
       "module": "bijux_pollenomics_dev.source_completion.nordic.nordic_heldout_scores",
@@ -855,8 +854,11 @@
       "timeout_seconds": 180
     },
     {
-      "owner_id": "regions/nordic/dalmutladdo-age-interval-sensitivity/interval-products",
       "module": "bijux_pollenomics_dev.source_completion.nordic.dalmutladdo_interval_sensitivity",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "regions/nordic/dalmutladdo-age-interval-sensitivity/interval-products",
+      "source_arguments": [],
       "source_paths": {
         "source-products/predictions.json": "docs/report/regions/nordic/dalmutladdo-age-interval-sensitivity/predictions.json",
         "source-products/protocol.json": "docs/report/regions/nordic/dalmutladdo-age-interval-sensitivity/protocol.json",
@@ -864,9 +866,6 @@
         "source-products/sample-support.csv": "docs/report/regions/nordic/dalmutladdo-age-interval-sensitivity/sample-support.csv",
         "source-products/scores.csv": "docs/report/regions/nordic/dalmutladdo-age-interval-sensitivity/scores.csv"
       },
-      "source_arguments": [],
-      "output_mode": "directory",
-      "output_subdirectory": "source-products",
       "timeout_seconds": 600
     },
     {
@@ -894,10 +893,10 @@
       "timeout_seconds": 600
     },
     {
-      "owner_id": "regions/nordic/sambosjon-direct-pollen/scored-products",
       "module": "bijux_pollenomics_dev.source_completion.nordic.sambosjon_scores",
       "output_mode": "directory",
       "output_subdirectory": "source-products",
+      "owner_id": "regions/nordic/sambosjon-direct-pollen/scored-products",
       "source_arguments": [],
       "source_paths": {
         "source-products/coverage.csv": "docs/report/regions/nordic/sambosjon-direct-pollen/coverage.csv",
@@ -945,10 +944,10 @@
       "timeout_seconds": 600
     },
     {
-      "owner_id": "regions/nordic/swedish-training-scope/study-products",
       "module": "bijux_pollenomics_dev.source_completion.nordic.swedish_training_study",
       "output_mode": "directory",
       "output_subdirectory": "source-products",
+      "owner_id": "regions/nordic/swedish-training-scope/study-products",
       "source_arguments": [],
       "source_paths": {
         "source-products/coverage.csv": "docs/report/regions/nordic/swedish-training-scope/coverage.csv",
@@ -999,16 +998,16 @@
       "timeout_seconds": 600
     },
     {
-      "owner_id": "regions/nordic/lilla-gloppsjon-direct-pollen/prepared-products",
+      "external_source_descriptor": "configs/ci/qualified-report-sources/lilla-gloppsjon-publication-link.json",
       "module": "bijux_pollenomics_dev.source_completion.pollen_reconstruction.lilla_gloppsjon_preparation",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "regions/nordic/lilla-gloppsjon-direct-pollen/prepared-products",
+      "source_arguments": [],
       "source_paths": {
         "source-products/input-manifest.json": "docs/report/regions/nordic/lilla-gloppsjon-direct-pollen/inputs/input-manifest.json",
         "source-products/metadata.json": "docs/report/regions/nordic/lilla-gloppsjon-direct-pollen/inputs/metadata.json"
       },
-      "source_arguments": [],
-      "output_mode": "directory",
-      "output_subdirectory": "source-products",
-      "external_source_descriptor": "configs/ci/qualified-report-sources/lilla-gloppsjon-publication-link.json",
       "timeout_seconds": 180
     },
     {
@@ -1038,9 +1037,9 @@
       "timeout_seconds": 600
     },
     {
-      "owner_id": "propagation/source-first-observed/readiness-report",
       "module": "bijux_pollenomics_dev.source_completion.propagation.native_readiness",
       "output_mode": "single_file",
+      "owner_id": "propagation/source-first-observed/readiness-report",
       "source_arguments": [],
       "source_paths": {
         "report.json": "docs/report/propagation/source-first-observed/report.json"
@@ -1177,85 +1176,85 @@
       "timeout_seconds": 600
     },
     {
-      "owner_id": "source-relations/sead/analysis-boolean-values/report-products",
       "module": "bijux_pollenomics_dev.source_completion.sead.boolean_values",
+      "output_mode": "single_file",
+      "owner_id": "source-relations/sead/analysis-boolean-values/report-products",
+      "source_arguments": [],
       "source_paths": {
         "report.json": "docs/report/source-relations/sead/analysis-boolean-values/report.json"
       },
-      "source_arguments": [],
-      "output_mode": "single_file",
       "timeout_seconds": 180
     },
     {
-      "owner_id": "pollen-reconstruction/age-interval-sensitivity/conditional-membership/report-products",
       "module": "bijux_pollenomics_dev.source_completion.pollen_age_support.abborrtjarne_membership",
-      "source_arguments": [],
       "output_mode": "directory",
       "output_subdirectory": "source-products",
-      "timeout_seconds": 180,
+      "owner_id": "pollen-reconstruction/age-interval-sensitivity/conditional-membership/report-products",
+      "source_arguments": [],
       "source_paths": {
         "source-products/membership.csv": "docs/report/pollen-reconstruction/age-interval-sensitivity/conditional-membership/membership.csv",
         "source-products/report.json": "docs/report/pollen-reconstruction/age-interval-sensitivity/conditional-membership/report.json"
-      }
+      },
+      "timeout_seconds": 180
     },
     {
-      "owner_id": "source-relations/sead/analysis-categorical-values/report-products",
       "module": "bijux_pollenomics_dev.source_completion.sead.categorical_values",
+      "output_mode": "single_file",
+      "owner_id": "source-relations/sead/analysis-categorical-values/report-products",
+      "source_arguments": [],
       "source_paths": {
         "report.json": "docs/report/source-relations/sead/analysis-categorical-values/report.json"
       },
-      "source_arguments": [],
-      "output_mode": "single_file",
       "timeout_seconds": 180
     },
     {
-      "owner_id": "pollen-reconstruction/author-lra-optimized-feasibility/shared-ppe-sensitivity/report-products",
+      "external_source_descriptor": "configs/ci/qualified-report-sources/landclim-author-snapshot.json",
       "module": "bijux_pollenomics_dev.source_completion.pollen_reconstruction.english_shared_ppe",
-      "source_arguments": [],
       "output_mode": "directory",
       "output_subdirectory": "source-products",
-      "timeout_seconds": 600,
-      "external_source_descriptor": "configs/ci/qualified-report-sources/landclim-author-snapshot.json",
+      "owner_id": "pollen-reconstruction/author-lra-optimized-feasibility/shared-ppe-sensitivity/report-products",
+      "source_arguments": [],
       "source_paths": {
         "source-products/diagnostics.json": "docs/report/pollen-reconstruction/author-lra-optimized-feasibility/shared-ppe-sensitivity/diagnostics.json",
         "source-products/report.json": "docs/report/pollen-reconstruction/author-lra-optimized-feasibility/shared-ppe-sensitivity/report.json"
-      }
+      },
+      "timeout_seconds": 600
     },
     {
-      "owner_id": "source-relations/neotoma/author-parameter-binding/report-products",
+      "external_source_descriptor": "configs/ci/qualified-report-sources/landclim-author-snapshot.json",
       "module": "bijux_pollenomics_dev.source_completion.pollen_parameters.author_binding",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "source-relations/neotoma/author-parameter-binding/report-products",
+      "source_arguments": [],
       "source_paths": {
         "source-products/report.json": "docs/report/source-relations/neotoma/author-parameter-binding/report.json"
       },
-      "source_arguments": [],
-      "output_mode": "directory",
-      "output_subdirectory": "source-products",
-      "external_source_descriptor": "configs/ci/qualified-report-sources/landclim-author-snapshot.json",
       "timeout_seconds": 180
     },
     {
-      "owner_id": "source-relations/neotoma/author-taxonomy-mass/report-products",
+      "external_source_descriptor": "configs/ci/qualified-report-sources/landclim-author-snapshot.json",
       "module": "bijux_pollenomics_dev.source_completion.pollen_taxonomy.author_mass",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "source-relations/neotoma/author-taxonomy-mass/report-products",
+      "source_arguments": [],
       "source_paths": {
         "source-products/bins.csv": "docs/report/source-relations/neotoma/author-taxonomy-mass/bins.csv",
         "source-products/report.json": "docs/report/source-relations/neotoma/author-taxonomy-mass/report.json"
       },
-      "source_arguments": [],
-      "output_mode": "directory",
-      "output_subdirectory": "source-products",
-      "external_source_descriptor": "configs/ci/qualified-report-sources/landclim-author-snapshot.json",
       "timeout_seconds": 180
     },
     {
-      "owner_id": "source-relations/neotoma/author-taxonomy-candidates/report-products",
+      "external_source_descriptor": "configs/ci/qualified-report-sources/landclim-author-snapshot.json",
       "module": "bijux_pollenomics_dev.source_completion.pollen_taxonomy.author_candidates",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "source-relations/neotoma/author-taxonomy-candidates/report-products",
+      "source_arguments": [],
       "source_paths": {
         "source-products/report.json": "docs/report/source-relations/neotoma/author-taxonomy-candidates/report.json"
       },
-      "source_arguments": [],
-      "output_mode": "directory",
-      "output_subdirectory": "source-products",
-      "external_source_descriptor": "configs/ci/qualified-report-sources/landclim-author-snapshot.json",
       "timeout_seconds": 180
     },
     {
@@ -1271,28 +1270,28 @@
       "timeout_seconds": 180
     },
     {
-      "owner_id": "source-relations/landclim/author-example-taxon-support/source-ledger",
+      "external_source_descriptor": "configs/ci/qualified-report-sources/landclim-author-snapshot.json",
       "module": "bijux_pollenomics_dev.source_completion.pollen_taxonomy.author_site_support",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "source-relations/landclim/author-example-taxon-support/source-ledger",
+      "source_arguments": [],
       "source_paths": {
         "source-products/report.json": "docs/report/source-relations/landclim/author-example-taxon-support/report.json"
       },
-      "source_arguments": [],
-      "output_mode": "directory",
-      "output_subdirectory": "source-products",
-      "external_source_descriptor": "configs/ci/qualified-report-sources/landclim-author-snapshot.json",
       "timeout_seconds": 180
     },
     {
-      "owner_id": "regions/nordic/author-taxonomy-mass/report-products",
+      "external_source_descriptor": "configs/ci/qualified-report-sources/landclim-author-snapshot.json",
       "module": "bijux_pollenomics_dev.source_completion.pollen_taxonomy.author_nordic_mass",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "regions/nordic/author-taxonomy-mass/report-products",
+      "source_arguments": [],
       "source_paths": {
         "source-products/report.json": "docs/report/regions/nordic/author-taxonomy-mass/report.json",
         "source-products/sites.csv": "docs/report/regions/nordic/author-taxonomy-mass/sites.csv"
       },
-      "source_arguments": [],
-      "output_mode": "directory",
-      "output_subdirectory": "source-products",
-      "external_source_descriptor": "configs/ci/qualified-report-sources/landclim-author-snapshot.json",
       "timeout_seconds": 300
     },
     {
@@ -1317,122 +1316,122 @@
       "timeout_seconds": 300
     },
     {
-      "owner_id": "regions/nordic/dalmutladdo-author-target-age-interval/report-products",
+      "external_source_descriptor": "configs/ci/qualified-report-sources/landclim-author-snapshot.json",
       "module": "bijux_pollenomics_dev.source_completion.nordic.dalmutladdo_author_age_score",
       "output_mode": "directory",
       "output_subdirectory": "source-products",
+      "owner_id": "regions/nordic/dalmutladdo-author-target-age-interval/report-products",
       "source_arguments": [],
       "source_paths": {
         "source-products/report.json": "docs/report/regions/nordic/dalmutladdo-author-target-age-interval/report.json",
         "source-products/scores.csv": "docs/report/regions/nordic/dalmutladdo-author-target-age-interval/scores.csv"
       },
-      "timeout_seconds": 180,
-      "external_source_descriptor": "configs/ci/qualified-report-sources/landclim-author-snapshot.json"
+      "timeout_seconds": 180
     },
     {
-      "owner_id": "countries/denmark/solsoe-source-lineage/author-target-age-interval/scored-products",
+      "external_source_descriptor": "configs/ci/qualified-report-sources/landclim-author-snapshot.json",
       "module": "bijux_pollenomics_dev.source_completion.denmark.solsoe_author_age_score",
       "output_mode": "directory",
       "output_subdirectory": "source-products",
+      "owner_id": "countries/denmark/solsoe-source-lineage/author-target-age-interval/scored-products",
       "source_arguments": [],
       "source_paths": {
         "source-products/report.json": "docs/report/countries/denmark/solsoe-source-lineage/author-target-age-interval/report.json",
         "source-products/scores.csv": "docs/report/countries/denmark/solsoe-source-lineage/author-target-age-interval/scores.csv"
       },
-      "timeout_seconds": 180,
-      "external_source_descriptor": "configs/ci/qualified-report-sources/landclim-author-snapshot.json"
+      "timeout_seconds": 180
     },
     {
-      "owner_id": "publication-replay/landclim-window-alignment/report-products",
+      "external_source_descriptor": "configs/ci/qualified-report-sources/landclim-author-snapshot.json",
       "module": "bijux_pollenomics_dev.source_completion.essd.window_alignment",
       "output_mode": "directory",
       "output_subdirectory": "source-products",
+      "owner_id": "publication-replay/landclim-window-alignment/report-products",
       "source_arguments": [],
       "source_paths": {
         "source-products/REPORT.md": "docs/report/publication-replay/landclim-window-alignment/REPORT.md",
         "source-products/report.json": "docs/report/publication-replay/landclim-window-alignment/report.json",
         "source-products/window-correspondence.csv": "docs/report/publication-replay/landclim-window-alignment/window-correspondence.csv"
       },
-      "timeout_seconds": 180,
-      "external_source_descriptor": "configs/ci/qualified-report-sources/landclim-author-snapshot.json"
+      "timeout_seconds": 180
     },
     {
-      "owner_id": "publication-replay/landclim-published-window-provenance/report-products",
+      "external_source_descriptor": "configs/ci/qualified-report-sources/landclim-author-snapshot.json",
       "module": "bijux_pollenomics_dev.source_completion.essd.published_window_provenance",
       "output_mode": "directory",
       "output_subdirectory": "source-products",
+      "owner_id": "publication-replay/landclim-published-window-provenance/report-products",
       "source_arguments": [],
       "source_paths": {
         "source-products/REPORT.md": "docs/report/publication-replay/landclim-published-window-provenance/REPORT.md",
         "source-products/paper-correspondence.csv": "docs/report/publication-replay/landclim-published-window-provenance/paper-correspondence.csv",
         "source-products/report.json": "docs/report/publication-replay/landclim-published-window-provenance/report.json"
       },
-      "timeout_seconds": 180,
-      "external_source_descriptor": "configs/ci/qualified-report-sources/landclim-author-snapshot.json"
+      "timeout_seconds": 180
     },
     {
-      "owner_id": "publication-replay/landclim-method-profile/report-products",
+      "external_source_descriptor": "configs/ci/qualified-report-sources/landclim-author-snapshot.json",
       "module": "bijux_pollenomics_dev.source_completion.essd.method_profile",
       "output_mode": "directory",
       "output_subdirectory": "source-products",
+      "owner_id": "publication-replay/landclim-method-profile/report-products",
       "source_arguments": [],
       "source_paths": {
         "source-products/example_inputs.csv": "docs/report/publication-replay/landclim-method-profile/example_inputs.csv",
         "source-products/method_crosswalk.csv": "docs/report/publication-replay/landclim-method-profile/method_crosswalk.csv",
         "source-products/report.json": "docs/report/publication-replay/landclim-method-profile/report.json"
       },
-      "timeout_seconds": 180,
-      "external_source_descriptor": "configs/ci/qualified-report-sources/landclim-author-snapshot.json"
+      "timeout_seconds": 180
     },
     {
-      "owner_id": "publication-replay/landclim-author-example-correspondence/report-products",
+      "external_source_descriptor": "configs/ci/qualified-report-sources/landclim-two-grid-example.json",
       "module": "bijux_pollenomics_dev.source_completion.essd.author_example_correspondence",
       "output_mode": "directory",
       "output_subdirectory": "source-products",
+      "owner_id": "publication-replay/landclim-author-example-correspondence/report-products",
       "source_arguments": [],
       "source_paths": {
         "source-products/REPORT.md": "docs/report/publication-replay/landclim-author-example-correspondence/REPORT.md",
         "source-products/paper-correspondence.csv": "docs/report/publication-replay/landclim-author-example-correspondence/paper-correspondence.csv",
         "source-products/report.json": "docs/report/publication-replay/landclim-author-example-correspondence/report.json"
       },
-      "timeout_seconds": 180,
-      "external_source_descriptor": "configs/ci/qualified-report-sources/landclim-two-grid-example.json"
+      "timeout_seconds": 180
     },
     {
-      "owner_id": "publication-replay/landclim-published-window-correspondence/report-products",
+      "external_source_descriptor": "configs/ci/qualified-report-sources/landclim-two-grid-example.json",
       "module": "bijux_pollenomics_dev.source_completion.essd.published_window_correspondence",
       "output_mode": "directory",
       "output_subdirectory": "source-products",
+      "owner_id": "publication-replay/landclim-published-window-correspondence/report-products",
       "source_arguments": [],
       "source_paths": {
         "source-products/REPORT.md": "docs/report/publication-replay/landclim-published-window-correspondence/REPORT.md",
         "source-products/paper-correspondence.csv": "docs/report/publication-replay/landclim-published-window-correspondence/paper-correspondence.csv",
         "source-products/report.json": "docs/report/publication-replay/landclim-published-window-correspondence/report.json"
       },
-      "timeout_seconds": 180,
-      "external_source_descriptor": "configs/ci/qualified-report-sources/landclim-two-grid-example.json"
+      "timeout_seconds": 180
     },
     {
-      "owner_id": "source-relations/landclim/author-example-taxon-support/header-parity",
+      "external_source_descriptor": "configs/ci/qualified-report-sources/landclim-author-snapshot.json",
       "module": "bijux_pollenomics_dev.source_completion.pollen_taxonomy.header_parity",
       "output_mode": "single_file",
+      "owner_id": "source-relations/landclim/author-example-taxon-support/header-parity",
       "source_arguments": [],
       "source_paths": {
         "whh05-header-parity.csv": "docs/report/source-relations/landclim/author-example-taxon-support/whh05-header-parity.csv"
       },
-      "timeout_seconds": 120,
-      "external_source_descriptor": "configs/ci/qualified-report-sources/landclim-author-snapshot.json"
+      "timeout_seconds": 120
     },
     {
-      "owner_id": "source-relations/landclim/author-example-taxon-support/formatter-comparison",
+      "external_source_descriptor": "configs/ci/qualified-report-sources/landclim-author-snapshot.json",
       "module": "bijux_pollenomics_dev.source_completion.pollen_taxonomy.author_formatter_comparison",
+      "output_mode": "single_file",
+      "owner_id": "source-relations/landclim/author-example-taxon-support/formatter-comparison",
+      "source_arguments": [],
       "source_paths": {
         "sites.csv": "docs/report/source-relations/landclim/author-example-taxon-support/sites.csv"
       },
-      "source_arguments": [],
-      "output_mode": "single_file",
-      "timeout_seconds": 240,
-      "external_source_descriptor": "configs/ci/qualified-report-sources/landclim-author-snapshot.json"
+      "timeout_seconds": 240
     },
     {
       "module": "bijux_pollenomics_dev.source_completion.pollen_age_support.abborrtjarne_joint_membership",
@@ -1446,26 +1445,26 @@
       "timeout_seconds": 120
     },
     {
-      "owner_id": "countries/sweden/land-use-replay/historical-comparison",
       "module": "bijux_pollenomics_dev.source_completion.land_use.historical_comparison",
+      "output_mode": "single_file",
+      "owner_id": "countries/sweden/land-use-replay/historical-comparison",
+      "source_arguments": [],
       "source_paths": {
         "historical-comparison.json": "docs/report/countries/sweden/land-use-replay/historical-comparison.json"
       },
-      "source_arguments": [],
-      "output_mode": "single_file",
       "timeout_seconds": 180
     },
     {
-      "owner_id": "source-relations/sead/analysis-value-components/report-products",
       "module": "bijux_pollenomics_dev.source_completion.sead.analysis_value_components",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "source-relations/sead/analysis-value-components/report-products",
+      "source_arguments": [],
       "source_paths": {
         "source-products/report.json": "docs/report/source-relations/sead/analysis-value-components/report.json",
         "source-products/rows.csv": "docs/report/source-relations/sead/analysis-value-components/rows.csv"
       },
-      "source_arguments": [],
-      "output_mode": "directory",
-      "timeout_seconds": 180,
-      "output_subdirectory": "source-products"
+      "timeout_seconds": 180
     },
     {
       "external_source_descriptor": "configs/ci/qualified-report-sources/landclim-author-snapshot.json",
@@ -1530,16 +1529,16 @@
       "timeout_seconds": 600
     },
     {
-      "owner_id": "source-relations/sead/analysis-value-methods/report-products",
       "module": "bijux_pollenomics_dev.source_completion.sead.analysis_value_methods",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "source-relations/sead/analysis-value-methods/report-products",
+      "source_arguments": [],
       "source_paths": {
         "source-products/report.json": "docs/report/source-relations/sead/analysis-value-methods/report.json",
         "source-products/rows.csv": "docs/report/source-relations/sead/analysis-value-methods/rows.csv"
       },
-      "source_arguments": [],
-      "output_mode": "directory",
-      "timeout_seconds": 180,
-      "output_subdirectory": "source-products"
+      "timeout_seconds": 180
     },
     {
       "module": "bijux_pollenomics_dev.source_completion.pollen_age_support.interval_sensitivity",
@@ -1559,13 +1558,13 @@
       "timeout_seconds": 600
     },
     {
-      "owner_id": "regions/nordic/direct-pollen/source-measures/report-products",
       "module": "bijux_pollenomics_dev.source_completion.neotoma.direct_pollen_measure_strata",
+      "output_mode": "single_file",
+      "owner_id": "regions/nordic/direct-pollen/source-measures/report-products",
+      "source_arguments": [],
       "source_paths": {
         "report.json": "docs/report/regions/nordic/direct-pollen/source-measures/report.json"
       },
-      "source_arguments": [],
-      "output_mode": "single_file",
       "timeout_seconds": 240
     },
     {
@@ -1591,80 +1590,80 @@
       "timeout_seconds": 600
     },
     {
-      "owner_id": "source-relations/dna-scope/galician-cattle-samples/sample-review",
       "module": "bijux_pollenomics_dev.source_completion.adna.galician_sample_review",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "source-relations/dna-scope/galician-cattle-samples/sample-review",
+      "source_arguments": [],
       "source_paths": {
         "source-products/report.json": "docs/report/source-relations/dna-scope/galician-cattle-samples/report.json",
         "source-products/samples.csv": "docs/report/source-relations/dna-scope/galician-cattle-samples/samples.csv"
       },
-      "source_arguments": [],
-      "output_mode": "directory",
-      "output_subdirectory": "source-products",
       "timeout_seconds": 240
     },
     {
-      "owner_id": "method-certification/original-r-reference/report-products",
       "module": "bijux_pollenomics_dev.source_completion.method_certification.original_r_account",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "method-certification/original-r-reference/report-products",
+      "source_arguments": [],
       "source_paths": {
         "source-products/report.json": "docs/report/method-certification/original-r-reference/report.json"
       },
-      "source_arguments": [],
-      "output_mode": "directory",
-      "output_subdirectory": "source-products",
       "timeout_seconds": 600
     },
     {
-      "owner_id": "method-certification/current-r-oracle/report-products",
       "module": "bijux_pollenomics_dev.source_completion.method_certification.native_r_comparison",
+      "native_capture_profile": "count-domain",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "method-certification/current-r-oracle/report-products",
       "source_arguments": [],
       "source_paths": {
         "source-products/report.json": "docs/report/method-certification/current-r-oracle/report.json",
         "source-products/source-replay.json": "docs/report/method-certification/current-r-oracle/source-replay.json"
       },
-      "output_mode": "directory",
-      "output_subdirectory": "source-products",
-      "timeout_seconds": 300,
-      "native_capture_profile": "count-domain"
+      "timeout_seconds": 300
     },
     {
-      "owner_id": "method-certification/love-paper-correspondence/paper-table-transcription",
       "module": "bijux_pollenomics_dev.source_completion.love.paper_tables",
+      "output_mode": "single_file",
+      "owner_id": "method-certification/love-paper-correspondence/paper-table-transcription",
+      "source_arguments": [],
       "source_paths": {
         "report.json": "docs/report/method-certification/love-paper-correspondence/paper-parameter-tables.json"
       },
-      "source_arguments": [],
-      "output_mode": "single_file",
       "timeout_seconds": 180
     },
     {
-      "owner_id": "countries/denmark/solsoe-source-lineage/pangaea-core-controls/report-products",
+      "external_source_descriptor": "configs/ci/qualified-report-sources/solsoe-primary-age-controls.json",
       "module": "bijux_pollenomics_dev.source_completion.denmark.solsoe_core_controls",
       "output_mode": "directory",
       "output_subdirectory": "source-products",
+      "owner_id": "countries/denmark/solsoe-source-lineage/pangaea-core-controls/report-products",
       "source_arguments": [],
-      "external_source_descriptor": "configs/ci/qualified-report-sources/solsoe-primary-age-controls.json",
       "source_paths": {
         "source-products/report.json": "docs/report/countries/denmark/solsoe-source-lineage/pangaea-core-controls/report.json"
       },
       "timeout_seconds": 120
     },
     {
-      "owner_id": "countries/denmark/solsoe-source-lineage/pangaea-epd-age-join/report-products",
+      "external_source_descriptor": "configs/ci/qualified-report-sources/solsoe-published-epd-ages.json",
       "module": "bijux_pollenomics_dev.source_completion.denmark.solsoe_epd_age_join",
       "output_mode": "directory",
       "output_subdirectory": "source-products",
+      "owner_id": "countries/denmark/solsoe-source-lineage/pangaea-epd-age-join/report-products",
       "source_arguments": [],
-      "external_source_descriptor": "configs/ci/qualified-report-sources/solsoe-published-epd-ages.json",
       "source_paths": {
         "source-products/report.json": "docs/report/countries/denmark/solsoe-source-lineage/pangaea-epd-age-join/report.json"
       },
       "timeout_seconds": 120
     },
     {
-      "owner_id": "publication-replay/landclim-published-window-uncertainty/source-manifest",
       "module": "bijux_pollenomics_dev.source_completion.essd.uncertainty_custody",
       "output_mode": "directory",
       "output_subdirectory": "source-products",
+      "owner_id": "publication-replay/landclim-published-window-uncertainty/source-manifest",
       "source_arguments": [],
       "source_paths": {
         "source-products/manifest.json": "docs/report/publication-replay/landclim-published-window-uncertainty/manifest.json"
@@ -1672,6 +1671,7 @@
       "timeout_seconds": 60
     },
     {
+      "artifact_output_flag": "--retained-artifacts-root",
       "external_source_descriptor": "configs/ci/qualified-report-sources/rootsi-abborrtjarne-workbook.json",
       "module": "bijux_pollenomics_dev.source_completion.neotoma.native_correspondence",
       "output_mode": "directory",
@@ -1681,10 +1681,10 @@
       "source_paths": {
         "source-products/report.json": "docs/report/source-relations/neotoma/abbo-native-correspondence/report.json"
       },
-      "timeout_seconds": 180,
-      "artifact_output_flag": "--retained-artifacts-root"
+      "timeout_seconds": 180
     },
     {
+      "artifact_output_flag": "--retained-artifacts-root",
       "external_source_descriptor": "configs/ci/qualified-report-sources/abbo-pollen-profile.json",
       "module": "bijux_pollenomics_dev.source_completion.neotoma.abbo_profile",
       "output_mode": "directory",
@@ -1694,10 +1694,10 @@
       "source_paths": {
         "source-products/report.json": "docs/report/source-relations/neotoma/abbo-profile/report.json"
       },
-      "timeout_seconds": 180,
-      "artifact_output_flag": "--retained-artifacts-root"
+      "timeout_seconds": 180
     },
     {
+      "artifact_output_flag": "--retained-artifacts-root",
       "external_source_descriptor": "configs/ci/qualified-report-sources/rootsi-bokesjon-workbook.json",
       "module": "bijux_pollenomics_dev.source_completion.neotoma.native_correspondence",
       "output_mode": "directory",
@@ -1707,10 +1707,10 @@
       "source_paths": {
         "source-products/report.json": "docs/report/source-relations/neotoma/boke-native-correspondence/report.json"
       },
-      "timeout_seconds": 180,
-      "artifact_output_flag": "--retained-artifacts-root"
+      "timeout_seconds": 180
     },
     {
+      "artifact_output_flag": "--retained-artifacts-root",
       "external_source_descriptor": "configs/ci/qualified-report-sources/rootsi-bussjosjon-workbook.json",
       "module": "bijux_pollenomics_dev.source_completion.neotoma.native_correspondence",
       "output_mode": "directory",
@@ -1720,8 +1720,7 @@
       "source_paths": {
         "source-products/report.json": "docs/report/source-relations/neotoma/bus-native-correspondence/report.json"
       },
-      "timeout_seconds": 180,
-      "artifact_output_flag": "--retained-artifacts-root"
+      "timeout_seconds": 180
     },
     {
       "external_source_descriptor": "configs/ci/qualified-report-sources/landclim-author-snapshot.json",
@@ -1754,25 +1753,25 @@
       "timeout_seconds": 120
     },
     {
-      "owner_id": "pollen-reconstruction/swedish-static-basin-scenarios/report-products",
       "module": "bijux_pollenomics_dev.source_completion.pollen_reconstruction.swedish_static_basin.producer",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "pollen-reconstruction/swedish-static-basin-scenarios/report-products",
+      "source_arguments": [],
       "source_paths": {
         "source-products/report.json": "docs/report/pollen-reconstruction/swedish-static-basin-scenarios/report.json"
       },
-      "source_arguments": [],
-      "output_mode": "directory",
-      "output_subdirectory": "source-products",
       "timeout_seconds": 120
     },
     {
-      "owner_id": "pollen-reconstruction/swedish-static-basin-scenarios/figure-csv",
       "module": "bijux_pollenomics_dev.source_completion.pollen_reconstruction.swedish_static_basin.figures.producer",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "pollen-reconstruction/swedish-static-basin-scenarios/figure-csv",
+      "source_arguments": [],
       "source_paths": {
         "source-products/panel-comparison.csv": "docs/report/pollen-reconstruction/swedish-static-basin-scenarios/figures/panel-comparison.csv"
       },
-      "source_arguments": [],
-      "output_mode": "directory",
-      "output_subdirectory": "source-products",
       "timeout_seconds": 30
     },
     {
@@ -1824,15 +1823,30 @@
       "timeout_seconds": 120
     },
     {
-      "owner_id": "pollen-reconstruction/tibetanus-point-age-sensitivity/summary",
       "module": "bijux_pollenomics_dev.source_completion.pollen_reconstruction.swedish_source_chronology.producer",
+      "output_mode": "directory",
+      "output_subdirectory": "source-products",
+      "owner_id": "pollen-reconstruction/tibetanus-point-age-sensitivity/summary",
+      "source_arguments": [],
       "source_paths": {
         "source-products/summary.json": "docs/report/pollen-reconstruction/tibetanus-point-age-sensitivity/summary.json"
       },
-      "source_arguments": [],
+      "timeout_seconds": 30
+    },
+    {
+      "module": "bijux_pollenomics_dev.source_completion.pollen_reconstruction.nordic_static_basin.producer",
       "output_mode": "directory",
       "output_subdirectory": "source-products",
+      "owner_id": "pollen-reconstruction/nordic-static-basin-scenarios/account-products",
+      "source_arguments": [],
+      "source_paths": {
+        "source-products/account.json": "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/account.json",
+        "source-products/attribution.json": "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/attribution.json",
+        "source-products/comparisons.json": "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/comparisons.json",
+        "source-products/source-domain.json": "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/source-domain.json"
+      },
       "timeout_seconds": 30
     }
-  ]
+  ],
+  "schema_version": "configured-report-owner-execution.v1"
 }

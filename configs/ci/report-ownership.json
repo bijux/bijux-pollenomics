@@ -2,8 +2,8 @@
   "schema_version": "report-output-ownership.v1",
   "root": "docs/report",
   "inventory_scope": "tracked report paths; ownership declarations do not certify reproduction",
-  "path_count": 2020,
-  "paths_sha256": "e5588b726f8246aaaeb569d22cf09d7a657d3ea43518a0b83178daf9a2a5bddc",
+  "path_count": 2048,
+  "paths_sha256": "fc19a91078044b31143eeb71132685a649e454d413f079c96bded770d447f26e",
   "owners": [
     {
       "owner_id": "atlas/boundary-orientation/browser-evidence",
@@ -1730,7 +1730,7 @@
         "packages/bijux-pollenomics/src/bijux_pollenomics/core/geospatial/distance.py"
       ],
       "role": "generated_owner",
-      "verification": "Use the configured Sols\u00f8 freeze owner in a clean bound plan, compare all three files with tracked bytes, and retain the parent source identities. This only selects age-supported rows from frozen Denmark-excluded predictions; it does not score target pollen, verify historical LandClim input selection, or admit source rights."
+      "verification": "Use the configured Solsø freeze owner in a clean bound plan, compare all three files with tracked bytes, and retain the parent source identities. This only selects age-supported rows from frozen Denmark-excluded predictions; it does not score target pollen, verify historical LandClim input selection, or admit source rights."
     },
     {
       "owner_id": "countries/denmark/solsoe-source-lineage/author-target-age-interval/scored-products",
@@ -2820,7 +2820,7 @@
         "data/neotoma/relational/surfaces/age_claims/part-00001.json",
         "data/neotoma/relational/surfaces/samples/part-00001.json"
       ],
-      "verification": "Run the retained Sols\u00f8 depth join with an explicit qualified LegacyAge source root. The descriptor and custody receipt bind only consumed S5/S6 bytes, and the configured owner compares refused-samples.csv, report.json, and sample-depth-join.csv byte-for-byte with tracked outputs. The relation keeps the one refused age claim and admits no LRA input."
+      "verification": "Run the retained Solsø depth join with an explicit qualified LegacyAge source root. The descriptor and custody receipt bind only consumed S5/S6 bytes, and the configured owner compares refused-samples.csv, report.json, and sample-depth-join.csv byte-for-byte with tracked outputs. The relation keeps the one refused age claim and admits no LRA input."
     },
     {
       "owner_id": "countries/denmark/solsoe-source-lineage/legacyage-chronology/source-code",
@@ -2882,7 +2882,7 @@
         "docs/report/regions/nordic/direct-pollen/scores.csv",
         "docs/report/regions/nordic/direct-pollen/training-sources.csv"
       ],
-      "verification": "From an absent confined artifact destination, invoke the configured Sols\u00f8 interval-sensitivity owner: fixed retained replay freeze then score, no method selection or prediction refit. Compare all five original outputs in both lanes. This preserves prior-exposed development status, 92 source samples, 15 interval-contained samples, eight scored bins and 32 frozen prediction rows; no LRA or independent-site admission."
+      "verification": "From an absent confined artifact destination, invoke the configured Solsø interval-sensitivity owner: fixed retained replay freeze then score, no method selection or prediction refit. Compare all five original outputs in both lanes. This preserves prior-exposed development status, 92 source samples, 15 interval-contained samples, eight scored bins and 32 frozen prediction rows; no LRA or independent-site admission."
     },
     {
       "owner_id": "countries/denmark/solsoe-source-lineage/legacyage-interval-sensitivity/source-code",
@@ -5056,7 +5056,7 @@
       ],
       "producer_paths": [],
       "producer_inputs": [],
-      "verification": "Read the three authored Sols\u00f8 pages against their retained report identities and stated source limits. This ownership classification does not approve the 79-sample historical correspondence, age model, basin geometry, source rights or LRA admission."
+      "verification": "Read the three authored Solsø pages against their retained report identities and stated source limits. This ownership classification does not approve the 79-sample historical correspondence, age model, basin geometry, source rights or LRA admission."
     },
     {
       "owner_id": "countries/denmark/solsoe-source-lineage/report-products",
@@ -19509,7 +19509,7 @@
         "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/source_chronology/validation.py"
       ],
       "role": "generated_owner",
-      "verification": "The original writer compares only the exact author TW2 100\u2013350 BP bin in two grids against the pinned June 2021 archive using qualified 70-file native and 193-file author packets. The wrapper enforces the documented 63-row CRLF-to-LF serialization only and reproduces REPORT.md, paper-correspondence.csv and report.json byte-for-byte in two bound lanes. Historical manifest remains unresolved. Cross-revision gaps have no pass tolerance or causal diagnosis; no full 1,128-site replay, PFT approval, source-rights clearance or measured vegetation accuracy follows."
+      "verification": "The original writer compares only the exact author TW2 100–350 BP bin in two grids against the pinned June 2021 archive using qualified 70-file native and 193-file author packets. The wrapper enforces the documented 63-row CRLF-to-LF serialization only and reproduces REPORT.md, paper-correspondence.csv and report.json byte-for-byte in two bound lanes. Historical manifest remains unresolved. Cross-revision gaps have no pass tolerance or causal diagnosis; no full 1,128-site replay, PFT approval, source-rights clearance or measured vegetation accuracy follows."
     },
     {
       "owner_id": "publication-replay/landclim-published-window-correspondence/source-manifest",
@@ -28359,7 +28359,7 @@
         "docs/report/regions/nordic/sambosjon-direct-pollen/inputs/input-manifest.json",
         "docs/report/regions/nordic/sambosjon-direct-pollen/inputs/training.json.gz"
       ],
-      "verification": "The retained publication-link descriptor qualifies one selected captured response, and the maintained Lilla preparation route reproduced these two exact output bytes in a bounded source proof at 1d16c8dc1f6a5fca47dda1cce7ad11a60bde032d. Configured reference/replay lanes remain to be proved at the accepted candidate. The S\u00e4mbosj\u00f6n training and input manifest are consumed as retained inputs; their historical creation is not established by this owner. This declaration does not promote protocol authorship, predictions, scores, chronology, vegetation accuracy or source rights."
+      "verification": "The retained publication-link descriptor qualifies one selected captured response, and the maintained Lilla preparation route reproduced these two exact output bytes in a bounded source proof at 1d16c8dc1f6a5fca47dda1cce7ad11a60bde032d. Configured reference/replay lanes remain to be proved at the accepted candidate. The Sämbosjön training and input manifest are consumed as retained inputs; their historical creation is not established by this owner. This declaration does not promote protocol authorship, predictions, scores, chronology, vegetation accuracy or source rights."
     },
     {
       "owner_id": "regions/nordic/lilla-gloppsjon-direct-pollen/reader-account",
@@ -28380,7 +28380,7 @@
       "producer_inputs": [],
       "producer_paths": [],
       "role": "maintained_configuration",
-      "verification": "Maintain the authored prediction and scoring protocols as exact reviewed finite JSON configuration consumed by the maintained Lilla Gloppsj\u00f6n preparation, prediction and scoring contracts. Configuration custody authenticates declarations only: source-rights, chronology choices, external publication response, historical S\u00e4mbosj\u00f6n training creation, numerical predictions/scores and scientific approval remain separately governed. Do not regenerate historical capture/freezes or infer untouched confirmation from transporting these bytes."
+      "verification": "Maintain the authored prediction and scoring protocols as exact reviewed finite JSON configuration consumed by the maintained Lilla Gloppsjön preparation, prediction and scoring contracts. Configuration custody authenticates declarations only: source-rights, chronology choices, external publication response, historical Sämbosjön training creation, numerical predictions/scores and scientific approval remain separately governed. Do not regenerate historical capture/freezes or infer untouched confirmation from transporting these bytes."
     },
     {
       "owner_id": "regions/nordic/lilla-gloppsjon-direct-pollen/scored-products",
@@ -28622,7 +28622,7 @@
       "producer_inputs": [],
       "producer_paths": [],
       "role": "maintained_configuration",
-      "verification": "Maintain the authored target/core/dataset selection, withheld aliases, 22 nominal bins, baseline methods, primary metric and pre-score prediction digest as exact reviewed finite JSON configuration consumed by the maintained S\u00e4mbosj\u00f6n preparation, prediction and scoring contracts. Source screening exposure, the correction recorded by the historical freeze, 21 contained-age scored bins, original capture custody, numerical quality, rights and scientific approval remain separately governed. No historical freeze is regenerated or admitted by configuration transport."
+      "verification": "Maintain the authored target/core/dataset selection, withheld aliases, 22 nominal bins, baseline methods, primary metric and pre-score prediction digest as exact reviewed finite JSON configuration consumed by the maintained Sämbosjön preparation, prediction and scoring contracts. Source screening exposure, the correction recorded by the historical freeze, 21 contained-age scored bins, original capture custody, numerical quality, rights and scientific approval remain separately governed. No historical freeze is regenerated or admitted by configuration transport."
     },
     {
       "owner_id": "regions/nordic/sambosjon-direct-pollen/frozen-predictions",
@@ -45014,7 +45014,7 @@
       "producer_inputs": [],
       "producer_paths": [],
       "role": "unresolved",
-      "verification": "The tracked SLU calibration guide is pinned as SHA-256 793d90e287b2c686d0007f02497e12e8a72a47e5a45531918d9fc71d78499bc8 in the EMPD2\u2013NFI report. Bind its original provider retrieval/copy receipt and publication/use statement to these exact bytes before retained-source ownership; the pairing producer consumes the guide but does not produce it."
+      "verification": "The tracked SLU calibration guide is pinned as SHA-256 793d90e287b2c686d0007f02497e12e8a72a47e5a45531918d9fc71d78499bc8 in the EMPD2–NFI report. Bind its original provider retrieval/copy receipt and publication/use statement to these exact bytes before retained-source ownership; the pairing producer consumes the guide but does not produce it."
     },
     {
       "owner_id": "validation/empd2-nfi-pairing/measurement-schema",
@@ -45721,6 +45721,120 @@
       "producer_paths": [],
       "role": "retained_source",
       "verification": "Retain nine original numerical, protocol, epoch-qualifier, native, refusal, diagnostic and read-only review records under their strict capture authority. Eight capture-helper tests establish membership, bytes, roles and unchanged original authority. Current maintained transport must verify committed HEAD bytes and emit separate chronology-capture evidence. This transport does not distribute raw sample/control masks or admit new calibration, mathematical models, physics, historical reproduction, ecological accuracy or qualified external review."
+    },
+    {
+      "owner_id": "pollen-reconstruction/nordic-static-basin-scenarios/account-products",
+      "paths": [
+        "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/account.json",
+        "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/attribution.json",
+        "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/comparisons.json",
+        "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/source-domain.json"
+      ],
+      "producer_inputs": [
+        "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/assumptions/protocol.json",
+        "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/diagnostics/summary.json",
+        "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/inputs/retained-source-identities.json",
+        "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/report.json",
+        "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/verification/actual-first-party-import-closure.json",
+        "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/verification/independent-physical-review.json",
+        "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/verification/independent-physical-terminal.json",
+        "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/verification/independent-scalar-review.json",
+        "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/verification/independent-scalar-terminal.json",
+        "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/verification/native-terminal.json",
+        "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/verification/physical-response-tuples.json",
+        "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/verification/primary-policy-capture.json",
+        "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/verification/primary-policy-native-terminal.json",
+        "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/verification/publication-metadata/acquisition-terminal.json",
+        "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/verification/publication-metadata/acquisition.json",
+        "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/verification/publication-metadata/dataset-20034.json",
+        "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/verification/publication-metadata/dataset-4445.json",
+        "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/verification/publication-metadata/dataset-4446.json",
+        "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/verification/publication-metadata/dataset-52082.json",
+        "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/verification/publication-metadata/qualification-terminal.json",
+        "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/verification/publication-metadata/qualification.json",
+        "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/verification/source-census-terminal.json",
+        "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/verification/source-census.json",
+        "packages/bijux-pollenomics-dev/pyproject.toml",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/scientific_captures/nordic_static_basin.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/nordic_static_basin/__main__.py",
+        "pyproject.toml",
+        "uv.lock"
+      ],
+      "producer_paths": [
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/contracts.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/source_paths.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/audit.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/evidence.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/landclim.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/manifests.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/nordic_static_basin/__init__.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/nordic_static_basin/attribution.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/nordic_static_basin/authority.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/nordic_static_basin/numerical.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/nordic_static_basin/producer.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/nordic_static_basin/publications.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/nordic_static_basin/sources.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/nordic_static_basin/summary.py",
+        "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/pollen_reconstruction/nordic_static_basin/validation.py"
+      ],
+      "role": "generated_owner",
+      "verification": "Produce four exact Nordic retained-account products from 22 unchanged capture bytes and their authored descriptor. Current direct runpy/CLI qualification 74cfe on 9bfe plus 38 reviewed absent-path overlay passed 51 focused guards and two byte-identical four-product writers, each observing 20 first-party source files, 23 bound inputs, 182 saved-window oracle calls and 6,840 scalar comparisons. Native terminal a3af and consumer 59d8 preserve actual scoped authority; these are new source-account writer observations, not substituted original mathematical receipts. Original 314 source and 313 accepted samples, nine geometry cases, independent Decimal50 and 23 physical tuples with 29 uses retain their separate 33d science/source/review authority. Five delegator/capture-helper/package controls are conservative, not observed writer source reads. Ordinary configured SOURCE_RUNTIME execution on a clean committed fixture remains pending. No raw source capsule, physical model, R, calibration or acquisition rerun, historical identity, vegetation accuracy, raw redistribution or qualified human review is admitted."
+    },
+    {
+      "owner_id": "pollen-reconstruction/nordic-static-basin-scenarios/reader-account",
+      "paths": [
+        "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/README.md"
+      ],
+      "producer_inputs": [],
+      "producer_paths": [],
+      "role": "maintained_editorial",
+      "verification": "Explain distinct Nordic cores, 313 of 314 samples, literal parameter panels/full reported NISP, old named CalBP models, 222 missing bounds, static-basin alternatives, conditional covariance and source-specific attribution. Keep scoped mathematical and native publication-relation results separate from historical/vegetation/rights claims."
+    },
+    {
+      "owner_id": "pollen-reconstruction/nordic-static-basin-scenarios/source-identity",
+      "paths": [
+        "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/inputs/retained-source-identities.json"
+      ],
+      "producer_inputs": [],
+      "producer_paths": [],
+      "role": "maintained_configuration",
+      "verification": "Retain the authored exact 22-capture descriptor. Identity binding is not independent observation, chronology calibration, historical count membership, biological panel equivalence, article-content authentication or source permission."
+    },
+    {
+      "owner_id": "pollen-reconstruction/nordic-static-basin-scenarios/scientific-capture",
+      "paths": [
+        "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/assumptions/protocol.json",
+        "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/diagnostics/summary.json",
+        "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/report.json",
+        "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/verification/actual-first-party-import-closure.json",
+        "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/verification/independent-physical-review.json",
+        "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/verification/independent-physical-terminal.json",
+        "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/verification/independent-scalar-review.json",
+        "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/verification/independent-scalar-terminal.json",
+        "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/verification/native-terminal.json",
+        "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/verification/physical-response-tuples.json",
+        "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/verification/primary-policy-capture.json",
+        "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/verification/primary-policy-native-terminal.json",
+        "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/verification/publication-metadata/acquisition-terminal.json",
+        "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/verification/publication-metadata/acquisition.json",
+        "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/verification/publication-metadata/dataset-20034.json",
+        "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/verification/publication-metadata/dataset-4445.json",
+        "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/verification/publication-metadata/dataset-4446.json",
+        "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/verification/publication-metadata/dataset-52082.json",
+        "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/verification/publication-metadata/qualification-terminal.json",
+        "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/verification/publication-metadata/qualification.json",
+        "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/verification/source-census-terminal.json",
+        "docs/report/pollen-reconstruction/nordic-static-basin-scenarios/verification/source-census.json"
+      ],
+      "producer_inputs": [],
+      "producer_paths": [],
+      "role": "retained_source",
+      "verification": "Transport exactly 14 original scientific/protocol/source/diagnostic/import/policy/scalar/physical records and 8 separately qualified current native publication acquisition/response/terminal records under maintained 22-member byte/role/membership/HEAD guards. Preserve original pending fields and failed predecessors under actual scope; do not rewrite captured authority to imply current whole-program acceptance. Four native dataset primary relations identify three articles; they do not authenticate original article contents, historical preparation, raw rights or ecological accuracy. Private 314-sample count/age/mask support remains local."
     }
   ]
 }

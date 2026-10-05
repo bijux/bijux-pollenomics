@@ -1,0 +1,56 @@
+{
+  "actual_command": [
+    "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/bin/python3.11",
+    "-I",
+    "-B",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/jobs/nordic-primary-publication-attribution-qualification/qualify.py"
+  ],
+  "candidate": "b20246a1d3307a5930355a96ca76734783417633",
+  "consumer_result_sha256": "7842db918ef4f02fc846f1edb6ba21d0c0269a66b88e9c95a9f67aff6a7914ea",
+  "custody_after_checked": true,
+  "custody_after_unchanged": true,
+  "custody_errors": [],
+  "log_bound_scope": [
+    "run/native.log",
+    "products/focused-tests.log",
+    "products/reference-writer.log",
+    "products/replay-writer.log"
+  ],
+  "log_sha256": "e44639d37daa28fc8a8a0159ed57387cc636f14567bdce2d8f385c53fb2eefe7",
+  "native_exit_code": 0,
+  "native_pid": 47040,
+  "observed_descendants": {
+    "47040": {
+      "group": 47040,
+      "parent": 47025,
+      "pid": 47040,
+      "rss_bytes": 4407296,
+      "start": "Mon Oct  5 03:28:17 2026    ",
+      "state": "Rs"
+    }
+  },
+  "owned_survivors": {},
+  "peak_processes": 1,
+  "peak_rss_bytes": 4407296,
+  "plan_sha256": "fa7732715e5c4f45344f6bde2abd2ab6047530c8c52adc58ce8f0869a6334f6a",
+  "product_files": {
+    "consumer-result.json": {
+      "bytes": 43453,
+      "sha256": "7842db918ef4f02fc846f1edb6ba21d0c0269a66b88e9c95a9f67aff6a7914ea"
+    }
+  },
+  "resource_failure": null,
+  "scope": "Saved actual fourHTTP200 publication body qualification; no GET/outreach/scientific replay. Require positive unique publicationIDs within exactdatasetresponse, native booleans/correctdataset+site, nonempty primarycitation. Empty/secondary/refused inventories separatelyretained; validnegative classification is not attributioncompleteness. Prospectiveonepositive+17negative controls. Samearticle acrossdistinctcores allowed; nativeprimary flags not independentarticleidentity/historicalscope/chronologyaccuracy. No sourcecapture pending statusupgrade.",
+  "source_context": {
+    "actual_acquisition_consumer_sha256": "a9f38c757f147d55d8781e5b201ff7b3b0e6e5ff2e374fe6088e431611b7279b",
+    "actual_acquisition_plan_sha256": "b26977e999874fa576575fd1ef8eeff4a31471d0283aec2f4a65e116844f8fd8",
+    "actual_acquisition_terminal_sha256": "e5c3ef1e2fd56050bf2e67fd4676c42cdeb4b24745e677aa5715ce16a63f18e8",
+    "actual_source_census_sha256": "659a2fb5039b778ceb1879036f1a87238f7b021c3b2db5174fb66e582c262156",
+    "original_census_receipt_status": "PASS_PENDING_SOURCE_CAPTURE_ADMISSION, no status upgrade",
+    "runtime_scope": "Borrowed physical Homebrew Python framework frozen read-only; job-exclusive HOME/TMP/cache/config writers. Framework/site-packages symbolic selector is recorded, not external site-package member custody; -I excludes user environment and no third-party producer imports. OS/network/TLS libraries outside framework are not claimed fully frozen."
+  },
+  "status": "PASS",
+  "terminal_aggregate_log_bytes": 127,
+  "wall_seconds": 0.3432169579900801,
+  "writer_files": {}
+}

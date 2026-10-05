@@ -1,0 +1,46 @@
+{
+  "actual_command": [
+    "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/bin/python3.11",
+    "-I",
+    "-B",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/jobs/nordic-core-metadata-bound-feasibility/consume.py"
+  ],
+  "candidate": "33d45ecfd6be7d275b69a7a7350bb72ae7c5269e",
+  "comparison_files": {
+    "report.json": {
+      "bytes": 148001,
+      "sha256": "659a2fb5039b778ceb1879036f1a87238f7b021c3b2db5174fb66e582c262156"
+    }
+  },
+  "custody_after_checked": true,
+  "custody_after_unchanged": true,
+  "custody_errors": [],
+  "log_sha256": "9b226fbdf7a7b05c9b181d2973b6d6d077f1d59de6d4aeeee17be4d75906ecc5",
+  "native_exit_code": 0,
+  "native_files": {
+    "local-native-source-support.json": {
+      "bytes": 1366035,
+      "sha256": "b2c5e386411133f145e2e50816e889c5f33bfccd2e7ca3ecf24793ebbbd7490f"
+    }
+  },
+  "native_pid": 30893,
+  "observed_descendants": {
+    "30893": {
+      "group": 30893,
+      "parent": 30882,
+      "pid": 30893,
+      "rss_bytes": 191447040,
+      "start": "Mon Oct  5 02:10:27 2026    ",
+      "state": "Rs"
+    }
+  },
+  "owned_survivors": {},
+  "peak_processes": 1,
+  "peak_rss_bytes": 191447040,
+  "plan_sha256": "fc2ab54b5c1f8d9feeb5c8638aa0739ec659bbfe135432e725c10ca9e959ac8e",
+  "resource_failure": null,
+  "scope": "Finite314source samples/four physical cores acrossFI/NO/DK, allreportedintegerpollen NISP, literal31PPE/FSP presence and parameter annotation support, age dispositions/missingbounds, same-core and cross-core strict common panels, static/area-equivalent basin alternatives and actualsource notes. No model/physical quadrature/prediction/chronology fit, raw publication, externalGET or outreach.",
+  "source_context": "Exact committed clean33d candidate; onlyPDF/exportmetadata changedfromfb4, all12copied scientific inputs/helper independently match exact33d Gitblob bytes; exact current source helper and actual retained3Neotoma part bytes. Named37160/11601/25732/25740 CalBP sample models retained; uncalibrated collection-unit defaults not selected. New Nordic conditional reconstruction feasibility is the changed consumer; old observed-pollen/historical studies are not replayed.",
+  "status": "PASS_PENDING_SOURCE_CAPTURE_ADMISSION",
+  "wall_seconds": 0.8649901250028051
+}

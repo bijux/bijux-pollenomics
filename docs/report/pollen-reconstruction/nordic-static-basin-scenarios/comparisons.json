@@ -1,0 +1,3153 @@
+{
+  "cases": [
+    {
+      "case_id": "20034.metadata_static_radius",
+      "maximum_cover_changes": [
+        {
+          "change_fraction": 0.32428412028366155,
+          "comparison": "physical_corrected_cover_minus_direct_panel_fraction",
+          "parameter_taxon": "Poaceae",
+          "window_cal_bp": [
+            8700.0,
+            9200.0
+          ]
+        },
+        {
+          "change_fraction": 0.0,
+          "comparison": "static_geometry_cover_minus_metadata_baseline",
+          "parameter_taxon": "Betula",
+          "window_cal_bp": [
+            0.0,
+            100.0
+          ]
+        }
+      ],
+      "native_dataset_id": 20034,
+      "occupied_windows": 22,
+      "parameter_taxa": [
+        "Betula",
+        "Pinus sylvestris",
+        "Poaceae"
+      ],
+      "windows": [
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.15399382169039294,
+            -0.06985100218577195,
+            0.22384482387616506
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "window_cal_bp": [
+            0.0,
+            100.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.10964805025135993,
+            -0.06130801366409355,
+            0.17095606391545337
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "window_cal_bp": [
+            350.0,
+            700.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.07904217763140975,
+            -0.06640021283562553,
+            0.14544239046703514
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "window_cal_bp": [
+            700.0,
+            1200.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.07634389596595692,
+            -0.0649997898200238,
+            0.14134368578598072
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "window_cal_bp": [
+            1200.0,
+            1700.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.07547131277408842,
+            -0.05795201666659017,
+            0.13342332944067858
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "window_cal_bp": [
+            1700.0,
+            2200.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.08884978005062028,
+            -0.06834085009604102,
+            0.15719063014666126
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "window_cal_bp": [
+            2200.0,
+            2700.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.09089392499354915,
+            -0.06627061078384683,
+            0.15716453577739603
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "window_cal_bp": [
+            2700.0,
+            3200.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.08624251778156111,
+            -0.07491055587515316,
+            0.16115307365671439
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "window_cal_bp": [
+            3200.0,
+            3700.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.04919092894718635,
+            -0.05171978675298494,
+            0.10091071570017121
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "window_cal_bp": [
+            3700.0,
+            4200.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.04576460342728317,
+            -0.08223229175537139,
+            0.1279968951826546
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "window_cal_bp": [
+            4200.0,
+            4700.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.03850512806072032,
+            -0.05101772374743119,
+            0.08952285180815145
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "window_cal_bp": [
+            4700.0,
+            5200.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.034960808110648695,
+            -0.06282889727927743,
+            0.09778970538992604
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "window_cal_bp": [
+            5200.0,
+            5700.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.03551187829650143,
+            -0.05589162791472313,
+            0.09140350621122478
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "window_cal_bp": [
+            5700.0,
+            6200.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.03316560571283245,
+            -0.04522467658197871,
+            0.07839028229481129
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "window_cal_bp": [
+            6200.0,
+            6700.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.02481618754757739,
+            -0.059853426580254165,
+            0.08466961412783158
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "window_cal_bp": [
+            6700.0,
+            7200.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.056600008588228945,
+            -0.09195323336671402,
+            0.14855324195494304
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "window_cal_bp": [
+            7200.0,
+            7700.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.16249622857964302,
+            -0.07352445325940599,
+            0.2360206818390489
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "window_cal_bp": [
+            7700.0,
+            8200.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.2163853579523332,
+            -0.09534147258154149,
+            0.31172683053387473
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "window_cal_bp": [
+            8200.0,
+            8700.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.2799501440332372,
+            -0.04433397625042433,
+            0.32428412028366155
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "window_cal_bp": [
+            8700.0,
+            9200.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.23576407545323463,
+            -0.014117256181035938,
+            0.2498813316342705
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "window_cal_bp": [
+            9200.0,
+            9700.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.2565125793304177,
+            -0.006169381516591521,
+            0.26268196084700923
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "window_cal_bp": [
+            9700.0,
+            10200.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.3067526614283439,
+            -0.005477901579953051,
+            0.31223056300829694
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            0.0,
+            0.0,
+            0.0
+          ],
+          "window_cal_bp": [
+            10200.0,
+            10700.0
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "20034.reported_7_2_ha_static_circle",
+      "maximum_cover_changes": [
+        {
+          "change_fraction": 0.3237411342807582,
+          "comparison": "physical_corrected_cover_minus_direct_panel_fraction",
+          "parameter_taxon": "Poaceae",
+          "window_cal_bp": [
+            8700.0,
+            9200.0
+          ]
+        },
+        {
+          "change_fraction": 0.0005896911904048618,
+          "comparison": "static_geometry_cover_minus_metadata_baseline",
+          "parameter_taxon": "Betula",
+          "window_cal_bp": [
+            10200.0,
+            10700.0
+          ]
+        }
+      ],
+      "native_dataset_id": 20034,
+      "occupied_windows": 22,
+      "parameter_taxa": [
+        "Betula",
+        "Pinus sylvestris",
+        "Poaceae"
+      ],
+      "windows": [
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.15348839440363632,
+            -0.06997186187844334,
+            0.2234602562820796
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            0.0005054272867566212,
+            -0.0001208596926713934,
+            -0.0003845675940854498
+          ],
+          "window_cal_bp": [
+            0.0,
+            100.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.10917363109609218,
+            -0.061481722819001494,
+            0.17065535391509365
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            0.0004744191552677468,
+            -0.0001737091549079417,
+            -0.00030071000035972184
+          ],
+          "window_cal_bp": [
+            350.0,
+            700.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.07860777579005901,
+            -0.06659441944519584,
+            0.14520219523525496
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            0.00043440184135074,
+            -0.00019420660957031322,
+            -0.000240195231780177
+          ],
+          "window_cal_bp": [
+            700.0,
+            1200.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.07591223214249254,
+            -0.0651979414550462,
+            0.14111017359753858
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            0.0004316638234643788,
+            -0.0001981516350224033,
+            -0.00023351218844214205
+          ],
+          "window_cal_bp": [
+            1200.0,
+            1700.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.07503336158886165,
+            -0.05816294963939728,
+            0.13319631122825876
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            0.00043795118522677035,
+            -0.00021093297280710965,
+            -0.00022701821241982723
+          ],
+          "window_cal_bp": [
+            1700.0,
+            2200.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.08840320880765584,
+            -0.06852540857871758,
+            0.15692861738637354
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            0.00044657124296443307,
+            -0.00018455848267656672,
+            -0.0002620127602877276
+          ],
+          "window_cal_bp": [
+            2200.0,
+            2700.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.09044276296226955,
+            -0.0664566888596112,
+            0.1568994518218809
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            0.000451162031279595,
+            -0.00018607807576437319,
+            -0.0002650839555151385
+          ],
+          "window_cal_bp": [
+            2700.0,
+            3200.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.08580658399233393,
+            -0.07508609941710587,
+            0.16089268340943966
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            0.00043593378922718307,
+            -0.00017554354195270516,
+            -0.0002603902472747277
+          ],
+          "window_cal_bp": [
+            3200.0,
+            3700.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.04879897821277174,
+            -0.051949022474573,
+            0.10074800068734471
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            0.0003919507344146145,
+            -0.00022923572158806138,
+            -0.00016271501282649758
+          ],
+          "window_cal_bp": [
+            3700.0,
+            4200.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.04543714211978128,
+            -0.0823802949089869,
+            0.1278174370287682
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            0.0003274613075018862,
+            -0.00014800315361551686,
+            -0.00017945815388642483
+          ],
+          "window_cal_bp": [
+            4200.0,
+            4700.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.03814929655245708,
+            -0.0512363611414981,
+            0.08938565769395515
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            0.00035583150826323795,
+            -0.00021863739406691174,
+            -0.00013719411419629846
+          ],
+          "window_cal_bp": [
+            4700.0,
+            5200.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.03464506928720959,
+            -0.0630051331493543,
+            0.09765020243656372
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            0.00031573882343910453,
+            -0.00017623587007686847,
+            -0.00013950295336231933
+          ],
+          "window_cal_bp": [
+            5200.0,
+            5700.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.03517956368240277,
+            -0.05608932738821637,
+            0.09126889107061929
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            0.00033231461409866103,
+            -0.00019769947349324024,
+            -0.00013461514060549018
+          ],
+          "window_cal_bp": [
+            5700.0,
+            6200.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.03282167410728065,
+            -0.04544922736320478,
+            0.07827090147048552
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            0.0003439316055517949,
+            -0.00022455078122607386,
+            -0.00011938082432579045
+          ],
+          "window_cal_bp": [
+            6200.0,
+            6700.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.024553640873976962,
+            -0.06000209132125933,
+            0.0845557321952363
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            0.0002625466736004278,
+            -0.0001486647410051667,
+            -0.00011388193259528889
+          ],
+          "window_cal_bp": [
+            6700.0,
+            7200.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.056251650972973244,
+            -0.09209193167267882,
+            0.14834358264565206
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            0.0003483576152557011,
+            -0.0001386983059648017,
+            -0.00020965930929098264
+          ],
+          "window_cal_bp": [
+            7200.0,
+            7700.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.1619868838392134,
+            -0.07363482077911218,
+            0.2356217046183256
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            0.0005093447404296292,
+            -0.00011036751970619485,
+            -0.00039897722072329556
+          ],
+          "window_cal_bp": [
+            7700.0,
+            8200.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.2158646345398597,
+            -0.09539337084366853,
+            0.3112580053835282
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            0.0005207234124735005,
+            -5.1898262127036965e-05,
+            -0.00046882515034646355
+          ],
+          "window_cal_bp": [
+            8200.0,
+            8700.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.27937304382927225,
+            -0.044368090451485875,
+            0.3237411342807582
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            0.0005771002039649531,
+            -3.411420106154417e-05,
+            -0.0005429860029033673
+          ],
+          "window_cal_bp": [
+            8700.0,
+            9200.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.23522688671989767,
+            -0.014149374535745385,
+            0.24937626125564316
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            0.0005371887333369685,
+            -3.211835470944696e-05,
+            -0.000505070378627348
+          ],
+          "window_cal_bp": [
+            9200.0,
+            9700.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.25596668420742996,
+            -0.006182346315393793,
+            0.2621490305228236
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            0.0005458951229877496,
+            -1.2964798802271582e-05,
+            -0.0005329303241856098
+          ],
+          "window_cal_bp": [
+            9700.0,
+            10200.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.30616297023793904,
+            -0.005484438874735381,
+            0.31164740911267447
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            0.0005896911904048618,
+            -6.5372947823296584e-06,
+            -0.000583153895622468
+          ],
+          "window_cal_bp": [
+            10200.0,
+            10700.0
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "20034.reported_8_0_ha_static_circle",
+      "maximum_cover_changes": [
+        {
+          "change_fraction": 0.324258071969506,
+          "comparison": "physical_corrected_cover_minus_direct_panel_fraction",
+          "parameter_taxon": "Poaceae",
+          "window_cal_bp": [
+            8700.0,
+            9200.0
+          ]
+        },
+        {
+          "change_fraction": 2.8291797822599385e-05,
+          "comparison": "static_geometry_cover_minus_metadata_baseline",
+          "parameter_taxon": "Betula",
+          "window_cal_bp": [
+            10200.0,
+            10700.0
+          ]
+        }
+      ],
+      "native_dataset_id": 20034,
+      "occupied_windows": 22,
+      "parameter_taxa": [
+        "Betula",
+        "Pinus sylvestris",
+        "Poaceae"
+      ],
+      "windows": [
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.153969577902285,
+            -0.06985679440016285,
+            0.22382637230244795
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            2.424378810794714e-05,
+            -5.792214390898387e-06,
+            -1.8451573717104264e-05
+          ],
+          "window_cal_bp": [
+            0.0,
+            100.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.10962529388654008,
+            -0.061316340773709066,
+            0.17094163466024917
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            2.275636481985366e-05,
+            -8.327109615513528e-06,
+            -1.4429255204201352e-05
+          ],
+          "window_cal_bp": [
+            350.0,
+            700.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.07902134334916028,
+            -0.06640952182360044,
+            0.14543086517276066
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            2.0834282249471148e-05,
+            -9.308987974909755e-06,
+            -1.1525294274478126e-05
+          ],
+          "window_cal_bp": [
+            700.0,
+            1200.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.0763231930601383,
+            -0.06500928805051442,
+            0.14133248111065272
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            2.0702905818625883e-05,
+            -9.49823049062326e-06,
+            -1.1204675328002622e-05
+          ],
+          "window_cal_bp": [
+            1200.0,
+            1700.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.07545030749910547,
+            -0.05796212854477373,
+            0.13341243604387915
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            2.100527498294369e-05,
+            -1.011187818356074e-05,
+            -1.089339679943846e-05
+          ],
+          "window_cal_bp": [
+            1700.0,
+            2200.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.08882836159792723,
+            -0.06834969646674888,
+            0.15717805806467608
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            2.1418452693044987e-05,
+            -8.846370707860096e-06,
+            -1.257208198518489e-05
+          ],
+          "window_cal_bp": [
+            2200.0,
+            2700.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.09087228595362035,
+            -0.06627953026821387,
+            0.15715181622183425
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            2.163903992880023e-05,
+            -8.919484367042596e-06,
+            -1.271955556178539e-05
+          ],
+          "window_cal_bp": [
+            2700.0,
+            3200.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.08622161045478866,
+            -0.0749189692942564,
+            0.1611405797490451
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            2.090732677245688e-05,
+            -8.413419103237008e-06,
+            -1.2493907669275384e-05
+          ],
+          "window_cal_bp": [
+            3200.0,
+            3700.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.049172132026192195,
+            -0.05173077585897612,
+            0.1009029078851684
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            1.8796920994157418e-05,
+            -1.0989105991177084e-05,
+            -7.807815002827678e-06
+          ],
+          "window_cal_bp": [
+            3700.0,
+            4200.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.04574890185411795,
+            -0.0822393829499356,
+            0.12798828480405366
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            1.5701573165216587e-05,
+            -7.0911945642126994e-06,
+            -8.610378600948376e-06
+          ],
+          "window_cal_bp": [
+            4200.0,
+            4700.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.038488064691157786,
+            -0.05102820402017738,
+            0.0895162687113352
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            1.7063369562531072e-05,
+            -1.0480272746193897e-05,
+            -6.583096816253908e-06
+          ],
+          "window_cal_bp": [
+            4700.0,
+            5200.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.03494566863171972,
+            -0.0628373431474637,
+            0.09778301177918322
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            1.5139478928977157e-05,
+            -8.44586818626869e-06,
+            -6.693610742819489e-06
+          ],
+          "window_cal_bp": [
+            5200.0,
+            5700.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.03549594345403728,
+            -0.05590110354352307,
+            0.09139704699756035
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            1.5934842464149224e-05,
+            -9.475628799937574e-06,
+            -6.459213664433694e-06
+          ],
+          "window_cal_bp": [
+            5700.0,
+            6200.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.033149113271821296,
+            -0.045235440624900924,
+            0.07838455389672228
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            1.6492441011151104e-05,
+            -1.0764042922217776e-05,
+            -5.728398089016595e-06
+          ],
+          "window_cal_bp": [
+            6200.0,
+            6700.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.02480359960733991,
+            -0.05986055027167214,
+            0.08466414987901213
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            1.2587940237479556e-05,
+            -7.123691417976197e-06,
+            -5.464248819447848e-06
+          ],
+          "window_cal_bp": [
+            6700.0,
+            7200.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.05658330466867406,
+            -0.09195987808279749,
+            0.14854318275147155
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            1.6703919554883484e-05,
+            -6.644716083470392e-06,
+            -1.0059203471496359e-05
+          ],
+          "window_cal_bp": [
+            7200.0,
+            7700.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.16247179733295763,
+            -0.07352974209449145,
+            0.236001539427449
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            2.4431246685385766e-05,
+            -5.288835085465182e-06,
+            -1.9142411599892828e-05
+          ],
+          "window_cal_bp": [
+            7700.0,
+            8200.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.21636038431691668,
+            -0.09534395681455543,
+            0.31170434113147216
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            2.497363541653641e-05,
+            -2.4842330139385194e-06,
+            -2.2489402402514624e-05
+          ],
+          "window_cal_bp": [
+            8200.0,
+            8700.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.27992246178114155,
+            -0.044335610188364474,
+            0.324258071969506
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            2.7682252095651005e-05,
+            -1.6339379401431042e-06,
+            -2.6048314155535657e-05
+          ],
+          "window_cal_bp": [
+            8700.0,
+            9200.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.23573829926237932,
+            -0.01411879603397291,
+            0.2498570952963523
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            2.577619085530891e-05,
+            -1.5398529369728409e-06,
+            -2.423633791820423e-05
+          ],
+          "window_cal_bp": [
+            9200.0,
+            9700.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.25648638485336595,
+            -0.006170003071972702,
+            0.2626563879253386
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            2.6194477051766363e-05,
+            -6.215553811812768e-07,
+            -2.5572921670657944e-05
+          ],
+          "window_cal_bp": [
+            9700.0,
+            10200.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.3067243696305213,
+            -0.005478214854560678,
+            0.3122025844850819
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            2.8291797822599385e-05,
+            -3.1327460762661796e-07,
+            -2.797852321501093e-05
+          ],
+          "window_cal_bp": [
+            10200.0,
+            10700.0
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "4445.metadata_static_radius",
+      "maximum_cover_changes": [
+        {
+          "change_fraction": 0.454771127717013,
+          "comparison": "physical_corrected_cover_minus_direct_panel_fraction",
+          "parameter_taxon": "Calluna vulgaris",
+          "window_cal_bp": [
+            6200.0,
+            6700.0
+          ]
+        },
+        {
+          "change_fraction": 0.0,
+          "comparison": "static_geometry_cover_minus_metadata_baseline",
+          "parameter_taxon": "Betula",
+          "window_cal_bp": [
+            0.0,
+            100.0
+          ]
+        }
+      ],
+      "native_dataset_id": 4445,
+      "occupied_windows": 23,
+      "parameter_taxa": [
+        "Betula",
+        "Calluna vulgaris"
+      ],
+      "windows": [
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.219249461655206,
+            0.21924946165520587
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            0.0,
+            0.0
+          ],
+          "window_cal_bp": [
+            0.0,
+            100.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.14642201907475882,
+            0.14642201907475882
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            0.0,
+            0.0
+          ],
+          "window_cal_bp": [
+            100.0,
+            350.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.14965225544137886,
+            0.14965225544137883
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            0.0,
+            0.0
+          ],
+          "window_cal_bp": [
+            350.0,
+            700.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.13523380332826312,
+            0.13523380332826318
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            0.0,
+            0.0
+          ],
+          "window_cal_bp": [
+            700.0,
+            1200.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.15274147716929853,
+            0.15274147716929842
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            0.0,
+            0.0
+          ],
+          "window_cal_bp": [
+            1200.0,
+            1700.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.2286795120052949,
+            0.2286795120052949
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            0.0,
+            0.0
+          ],
+          "window_cal_bp": [
+            1700.0,
+            2200.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.261475575646296,
+            0.261475575646296
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            0.0,
+            0.0
+          ],
+          "window_cal_bp": [
+            2200.0,
+            2700.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.23939619403879214,
+            0.2393961940387922
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            0.0,
+            0.0
+          ],
+          "window_cal_bp": [
+            2700.0,
+            3200.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.25447637003153273,
+            0.2544763700315328
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            0.0,
+            0.0
+          ],
+          "window_cal_bp": [
+            3200.0,
+            3700.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.268745905204561,
+            0.2687459052045611
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            0.0,
+            0.0
+          ],
+          "window_cal_bp": [
+            3700.0,
+            4200.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.3346741498652547,
+            0.33467414986525457
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            0.0,
+            0.0
+          ],
+          "window_cal_bp": [
+            4200.0,
+            4700.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.4531686937070001,
+            0.45316869370700014
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            0.0,
+            0.0
+          ],
+          "window_cal_bp": [
+            5200.0,
+            5700.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.4547711277170129,
+            0.454771127717013
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            0.0,
+            0.0
+          ],
+          "window_cal_bp": [
+            6200.0,
+            6700.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.44449446439908485,
+            0.4444944643990849
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            0.0,
+            0.0
+          ],
+          "window_cal_bp": [
+            6700.0,
+            7200.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.4501845319722151,
+            0.45018453197221503
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            0.0,
+            0.0
+          ],
+          "window_cal_bp": [
+            7200.0,
+            7700.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.4236559812383941,
+            0.4236559812383941
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            0.0,
+            0.0
+          ],
+          "window_cal_bp": [
+            7700.0,
+            8200.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.4057475186641381,
+            0.40574751866413805
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            0.0,
+            0.0
+          ],
+          "window_cal_bp": [
+            8200.0,
+            8700.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.4408857708796021,
+            0.44088577087960207
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            0.0,
+            0.0
+          ],
+          "window_cal_bp": [
+            8700.0,
+            9200.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.4357188148125735,
+            0.43571881481257346
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            0.0,
+            0.0
+          ],
+          "window_cal_bp": [
+            9200.0,
+            9700.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.38006425536073224,
+            0.38006425536073224
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            0.0,
+            0.0
+          ],
+          "window_cal_bp": [
+            9700.0,
+            10200.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.1044743673815951,
+            0.10447436738159514
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            0.0,
+            0.0
+          ],
+          "window_cal_bp": [
+            10200.0,
+            10700.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.2644723798239209,
+            0.2644723798239209
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            0.0,
+            0.0
+          ],
+          "window_cal_bp": [
+            10700.0,
+            11200.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.323862756661239,
+            0.32386275666123915
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            0.0,
+            0.0
+          ],
+          "window_cal_bp": [
+            11200.0,
+            11700.0
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "4445.reported_2_5_ha_static_circle",
+      "maximum_cover_changes": [
+        {
+          "change_fraction": -0.4547975915563398,
+          "comparison": "physical_corrected_cover_minus_direct_panel_fraction",
+          "parameter_taxon": "Betula",
+          "window_cal_bp": [
+            6200.0,
+            6700.0
+          ]
+        },
+        {
+          "change_fraction": -3.1629197596527714e-05,
+          "comparison": "static_geometry_cover_minus_metadata_baseline",
+          "parameter_taxon": "Betula",
+          "window_cal_bp": [
+            9700.0,
+            10200.0
+          ]
+        }
+      ],
+      "native_dataset_id": 4445,
+      "occupied_windows": 23,
+      "parameter_taxa": [
+        "Betula",
+        "Calluna vulgaris"
+      ],
+      "windows": [
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.21925530137123495,
+            0.21925530137123495
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            -5.839716028945008e-06,
+            5.839716029076847e-06
+          ],
+          "window_cal_bp": [
+            0.0,
+            100.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.14642555315578948,
+            0.14642555315578942
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            -3.5340810306469517e-06,
+            3.5340810305983794e-06
+          ],
+          "window_cal_bp": [
+            100.0,
+            350.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.1496558822197351,
+            0.14965588221973503
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            -3.6267783562575484e-06,
+            3.626778356191629e-06
+          ],
+          "window_cal_bp": [
+            350.0,
+            700.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.13523702227490378,
+            0.13523702227490375
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            -3.2189466406644385e-06,
+            3.2189466405707634e-06
+          ],
+          "window_cal_bp": [
+            700.0,
+            1200.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.15274519333656789,
+            0.15274519333656777
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            -3.716167269369325e-06,
+            3.7161672693519776e-06
+          ],
+          "window_cal_bp": [
+            1200.0,
+            1700.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.22868568844919418,
+            0.22868568844919412
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            -6.1764438992958914e-06,
+            6.176443899219564e-06
+          ],
+          "window_cal_bp": [
+            1700.0,
+            2200.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.261483008846899,
+            0.261483008846899
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            -7.4332006030075615e-06,
+            7.433200603035317e-06
+          ],
+          "window_cal_bp": [
+            2200.0,
+            2700.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.23940276585887596,
+            0.23940276585887588
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            -6.571820083817181e-06,
+            6.5718200836784035e-06
+          ],
+          "window_cal_bp": [
+            2700.0,
+            3200.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.2544835229422468,
+            0.25448352294224674
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            -7.152910714056104e-06,
+            7.15291071395896e-06
+          ],
+          "window_cal_bp": [
+            3200.0,
+            3700.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.2687536371732636,
+            0.2687536371732636
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            -7.731968702656689e-06,
+            7.73196870251791e-06
+          ],
+          "window_cal_bp": [
+            3700.0,
+            4200.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.3346850360788011,
+            0.33468503607880107
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            -1.0886213546432155e-05,
+            1.0886213546501544e-05
+          ],
+          "window_cal_bp": [
+            4200.0,
+            4700.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.4531915625513745,
+            0.45319156255137455
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            -2.28688443744407e-05,
+            2.2868844374412944e-05
+          ],
+          "window_cal_bp": [
+            5200.0,
+            5700.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.4547975915563398,
+            0.4547975915563398
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            -2.646383932691787e-05,
+            2.646383932680685e-05
+          ],
+          "window_cal_bp": [
+            6200.0,
+            6700.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.44452322567119723,
+            0.4445232256711972
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            -2.8761272112376446e-05,
+            2.8761272112265424e-05
+          ],
+          "window_cal_bp": [
+            6700.0,
+            7200.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.45021234443007885,
+            0.4502123444300789
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            -2.781245786376285e-05,
+            2.7812457863873874e-05
+          ],
+          "window_cal_bp": [
+            7200.0,
+            7700.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.42368654605036415,
+            0.42368654605036415
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            -3.056481197005745e-05,
+            3.056481197005745e-05
+          ],
+          "window_cal_bp": [
+            7700.0,
+            8200.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.40577879840046366,
+            0.4057787984004636
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            -3.1279736325551255e-05,
+            3.1279736325551255e-05
+          ],
+          "window_cal_bp": [
+            8200.0,
+            8700.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.44091497670734664,
+            0.44091497670734664
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            -2.920582774451619e-05,
+            2.92058277445717e-05
+          ],
+          "window_cal_bp": [
+            8700.0,
+            9200.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.43574853384659323,
+            0.4357485338465932
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            -2.9719034019715096e-05,
+            2.9719034019715096e-05
+          ],
+          "window_cal_bp": [
+            9200.0,
+            9700.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.38009588455832877,
+            0.3800958845583287
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            -3.1629197596527714e-05,
+            3.16291975964722e-05
+          ],
+          "window_cal_bp": [
+            9700.0,
+            10200.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.10448809199409748,
+            0.10448809199409748
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            -1.3724612502374889e-05,
+            1.3724612502333255e-05
+          ],
+          "window_cal_bp": [
+            10200.0,
+            10700.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.2645002800483447,
+            0.2645002800483447
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            -2.7900224423782483e-05,
+            2.7900224423782483e-05
+          ],
+          "window_cal_bp": [
+            10700.0,
+            11200.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.3238934373045014,
+            0.3238934373045013
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            -3.068064326239295e-05,
+            3.0680643262170904e-05
+          ],
+          "window_cal_bp": [
+            11200.0,
+            11700.0
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "4446.metadata_static_radius",
+      "maximum_cover_changes": [
+        {
+          "change_fraction": 0.37530567420307825,
+          "comparison": "physical_corrected_cover_minus_direct_panel_fraction",
+          "parameter_taxon": "Calluna vulgaris",
+          "window_cal_bp": [
+            3700.0,
+            4200.0
+          ]
+        },
+        {
+          "change_fraction": 0.0,
+          "comparison": "static_geometry_cover_minus_metadata_baseline",
+          "parameter_taxon": "Alnus glutinosa",
+          "window_cal_bp": [
+            2700.0,
+            3200.0
+          ]
+        }
+      ],
+      "native_dataset_id": 4446,
+      "occupied_windows": 11,
+      "parameter_taxa": [
+        "Alnus glutinosa",
+        "Betula",
+        "Calluna vulgaris",
+        "Corylus avellana",
+        "Tilia",
+        "Ulmus"
+      ],
+      "windows": [
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.13762664178331718,
+            -0.17905441173960324,
+            0.3443292223360803,
+            -0.031457586369697435,
+            0.001495612834859732,
+            0.002313804721677767
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "window_cal_bp": [
+            2700.0,
+            3200.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.18189493746339988,
+            -0.17406308655041203,
+            0.3713505679936926,
+            -0.024445986580836382,
+            0.0022388892758800436,
+            0.00681455332507545
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "window_cal_bp": [
+            3200.0,
+            3700.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.19184092446844067,
+            -0.18869474692118615,
+            0.37530567420307825,
+            -0.010982179425962163,
+            0.005083650192292677,
+            0.011128526420218148
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "window_cal_bp": [
+            3700.0,
+            4200.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.21089692276921743,
+            -0.19416003703205564,
+            0.3430384605307163,
+            0.03336870763263963,
+            0.009287409165379821,
+            0.01936238247253741
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "window_cal_bp": [
+            4200.0,
+            4700.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.2288268496148116,
+            -0.18562647580260216,
+            0.2835320995376439,
+            0.08433751775620854,
+            0.019990557327644348,
+            0.026593150795916794
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "window_cal_bp": [
+            4700.0,
+            5200.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.20975738421895015,
+            -0.19692756156663543,
+            0.19824584216834884,
+            0.13096521209352968,
+            0.030258763790659997,
+            0.04721512773304711
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "window_cal_bp": [
+            5200.0,
+            5700.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.20407074078389914,
+            -0.2051385612524847,
+            0.2317925543175139,
+            0.12288634127425668,
+            0.016778308582968065,
+            0.03775209786164539
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "window_cal_bp": [
+            5700.0,
+            6200.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.19642889613433953,
+            -0.2113350101377968,
+            0.24842894276363126,
+            0.08986630696793138,
+            0.02020252396633946,
+            0.04926613257423425
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "window_cal_bp": [
+            6200.0,
+            6700.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.1861728701523367,
+            -0.21158926479944568,
+            0.21408705668375816,
+            0.08571734991840974,
+            0.033703013616088226,
+            0.06425471473352629
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "window_cal_bp": [
+            6700.0,
+            7200.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.20932769565682172,
+            -0.161532988334941,
+            0.17036410712569328,
+            0.09636422144524137,
+            0.0384342297450469,
+            0.06569812567578134
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "window_cal_bp": [
+            7700.0,
+            8200.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.14816000726396328,
+            -0.1827258747716022,
+            0.12404949183909943,
+            0.15845641688249246,
+            0.008937658650314793,
+            0.039442314663658676
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "window_cal_bp": [
+            9700.0,
+            10200.0
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "4446.reported_2_5_ha_static_circle",
+      "maximum_cover_changes": [
+        {
+          "change_fraction": 0.37533000376373216,
+          "comparison": "physical_corrected_cover_minus_direct_panel_fraction",
+          "parameter_taxon": "Calluna vulgaris",
+          "window_cal_bp": [
+            3700.0,
+            4200.0
+          ]
+        },
+        {
+          "change_fraction": 2.840986560215253e-05,
+          "comparison": "static_geometry_cover_minus_metadata_baseline",
+          "parameter_taxon": "Calluna vulgaris",
+          "window_cal_bp": [
+            4200.0,
+            4700.0
+          ]
+        }
+      ],
+      "native_dataset_id": 4446,
+      "occupied_windows": 11,
+      "parameter_taxa": [
+        "Alnus glutinosa",
+        "Betula",
+        "Calluna vulgaris",
+        "Corylus avellana",
+        "Tilia",
+        "Ulmus"
+      ],
+      "windows": [
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.13762831139911633,
+            -0.17906039706643256,
+            0.34434603552908993,
+            -0.03146600442931499,
+            0.0014953580808570992,
+            0.002313319284916843
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            -1.6696157991505367e-06,
+            -5.985326829306692e-06,
+            1.6813193009612704e-05,
+            -8.418059617557039e-06,
+            -2.547540026327788e-07,
+            -4.85436760924024e-07
+          ],
+          "window_cal_bp": [
+            2700.0,
+            3200.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.18189734493811469,
+            -0.17406955068240126,
+            0.37137155732587157,
+            -0.024457186889865395,
+            0.0022386821804506194,
+            0.0068138430040592494
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            -2.407474714812008e-06,
+            -6.464131989236677e-06,
+            2.0989332178977804e-05,
+            -1.1200309029013589e-05,
+            -2.0709542942424358e-07,
+            -7.103210162007212e-07
+          ],
+          "window_cal_bp": [
+            3200.0,
+            3700.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.19184362735535015,
+            -0.18870232972111767,
+            0.37533000376373216,
+            -0.010995287240466722,
+            0.005083373406420344,
+            0.011127867146782076
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            -2.7028869094940233e-06,
+            -7.582799931515893e-06,
+            2.4329560653901794e-05,
+            -1.3107814504559334e-05,
+            -2.7678587233292973e-07,
+            -6.592734360724717e-07
+          ],
+          "window_cal_bp": [
+            3700.0,
+            4200.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.21090015267532475,
+            -0.19416880101796763,
+            0.34306687039631845,
+            0.033352509873411096,
+            0.00928734085012179,
+            0.01936223257344105
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            -3.229906107321545e-06,
+            -8.763985912013661e-06,
+            2.840986560215253e-05,
+            -1.6197759228536723e-05,
+            -6.831525803038807e-08,
+            -1.49899096357764e-07
+          ],
+          "window_cal_bp": [
+            4200.0,
+            4700.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.22883048841856968,
+            -0.18563543623256104,
+            0.2835596936763605,
+            0.08432160843160766,
+            0.01999094145301083,
+            0.026593681090151637
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            -3.638803758101994e-06,
+            -8.96042995887636e-06,
+            2.7594138716613426e-05,
+            -1.5909324600882346e-05,
+            3.8412536648019246e-07,
+            5.302942348434092e-07
+          ],
+          "window_cal_bp": [
+            4700.0,
+            5200.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.20976084798879477,
+            -0.19693799535679488,
+            0.1982678782104526,
+            0.1309538305063062,
+            0.03026001000654719,
+            0.04721712462228369
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            -3.4637698446207676e-06,
+            -1.0433790159442013e-05,
+            2.2036042103767972e-05,
+            -1.1381587223469047e-05,
+            1.2462158871934248e-06,
+            1.9968892365773705e-06
+          ],
+          "window_cal_bp": [
+            5200.0,
+            5700.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.20407415549151148,
+            -0.2051495624258286,
+            0.23181742038959163,
+            0.1228738890624359,
+            0.016778912722954994,
+            0.03775349574235755
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            -3.4147076123369757e-06,
+            -1.1001173343905268e-05,
+            2.486607207774494e-05,
+            -1.2452211820779269e-05,
+            6.041399869295694e-07,
+            1.3978807121561854e-06
+          ],
+          "window_cal_bp": [
+            5700.0,
+            6200.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.19643198821057278,
+            -0.21134511074033727,
+            0.248454323650304,
+            0.0898522450883644,
+            0.020203055534086183,
+            0.049267474678155385
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            -3.092076233252028e-06,
+            -1.0100602540474846e-05,
+            2.538088667275451e-05,
+            -1.4061879566984459e-05,
+            5.315677467226942e-07,
+            1.3421039211369834e-06
+          ],
+          "window_cal_bp": [
+            6200.0,
+            6700.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.1861756433343637,
+            -0.21159856812984107,
+            0.21410978195890806,
+            0.08570367371490112,
+            0.03370403057034113,
+            0.06425672522005421
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            -2.77318202702298e-06,
+            -9.303330395393772e-06,
+            2.272527514990408e-05,
+            -1.3676203508616869e-05,
+            1.0169542529053777e-06,
+            2.0104865279119144e-06
+          ],
+          "window_cal_bp": [
+            6700.0,
+            7200.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.2093304376049378,
+            -0.1615388413692016,
+            0.17038393737319835,
+            0.09634863540528249,
+            0.03843579562943228,
+            0.06570091056622632
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            -2.7419481160723125e-06,
+            -5.853034260608347e-06,
+            1.9830247505070453e-05,
+            -1.5586039958881415e-05,
+            1.5658843853794124e-06,
+            2.784890444987309e-06
+          ],
+          "window_cal_bp": [
+            7700.0,
+            8200.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.14816165627418657,
+            -0.18273090403025125,
+            0.12406624819679508,
+            0.1584431082550971,
+            0.00893823830332222,
+            0.03944496554922332
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            -1.6490102232799564e-06,
+            -5.029258649036361e-06,
+            1.675635769565753e-05,
+            -1.330862739534755e-05,
+            5.796530074247269e-07,
+            2.6508855646423246e-06
+          ],
+          "window_cal_bp": [
+            9700.0,
+            10200.0
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "52082.metadata_static_radius",
+      "maximum_cover_changes": [
+        {
+          "change_fraction": 0.013435961483713121,
+          "comparison": "physical_corrected_cover_minus_direct_panel_fraction",
+          "parameter_taxon": "Pinus sylvestris",
+          "window_cal_bp": [
+            2700.0,
+            3200.0
+          ]
+        },
+        {
+          "change_fraction": 0.0,
+          "comparison": "static_geometry_cover_minus_metadata_baseline",
+          "parameter_taxon": "Betula",
+          "window_cal_bp": [
+            0.0,
+            100.0
+          ]
+        }
+      ],
+      "native_dataset_id": 52082,
+      "occupied_windows": 24,
+      "parameter_taxa": [
+        "Betula",
+        "Pinus sylvestris"
+      ],
+      "windows": [
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.01339300074518579,
+            0.013393000745185901
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            0.0,
+            0.0
+          ],
+          "window_cal_bp": [
+            0.0,
+            100.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.013373665071218177,
+            0.013373665071218288
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            0.0,
+            0.0
+          ],
+          "window_cal_bp": [
+            100.0,
+            350.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.013356388895745475,
+            0.013356388895745419
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            0.0,
+            0.0
+          ],
+          "window_cal_bp": [
+            350.0,
+            700.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.01315390744615097,
+            0.013153907446150859
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            0.0,
+            0.0
+          ],
+          "window_cal_bp": [
+            700.0,
+            1200.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.013151093984392848,
+            0.013151093984392848
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            0.0,
+            0.0
+          ],
+          "window_cal_bp": [
+            1200.0,
+            1700.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.013371238461905632,
+            0.013371238461905688
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            0.0,
+            0.0
+          ],
+          "window_cal_bp": [
+            1700.0,
+            2200.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.013432736354369479,
+            0.013432736354369368
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            0.0,
+            0.0
+          ],
+          "window_cal_bp": [
+            2200.0,
+            2700.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.013435961483712955,
+            0.013435961483713121
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            0.0,
+            0.0
+          ],
+          "window_cal_bp": [
+            2700.0,
+            3200.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.01263527420550059,
+            0.012635274205500702
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            0.0,
+            0.0
+          ],
+          "window_cal_bp": [
+            3200.0,
+            3700.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.012611322986204043,
+            0.012611322986203932
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            0.0,
+            0.0
+          ],
+          "window_cal_bp": [
+            3700.0,
+            4200.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.01246635905770943,
+            0.012466359057709597
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            0.0,
+            0.0
+          ],
+          "window_cal_bp": [
+            4200.0,
+            4700.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.011455840399037798,
+            0.011455840399037798
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            0.0,
+            0.0
+          ],
+          "window_cal_bp": [
+            4700.0,
+            5200.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.01125852264931082,
+            0.011258522649310765
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            0.0,
+            0.0
+          ],
+          "window_cal_bp": [
+            5200.0,
+            5700.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.011624298740939398,
+            0.011624298740939454
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            0.0,
+            0.0
+          ],
+          "window_cal_bp": [
+            5700.0,
+            6200.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.011978541606342707,
+            0.011978541606342707
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            0.0,
+            0.0
+          ],
+          "window_cal_bp": [
+            6200.0,
+            6700.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.01056806787707898,
+            0.01056806787707909
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            0.0,
+            0.0
+          ],
+          "window_cal_bp": [
+            6700.0,
+            7200.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.011164282944118198,
+            0.011164282944118142
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            0.0,
+            0.0
+          ],
+          "window_cal_bp": [
+            7200.0,
+            7700.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.011519072737676161,
+            0.011519072737676161
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            0.0,
+            0.0
+          ],
+          "window_cal_bp": [
+            7700.0,
+            8200.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.011631093884056698,
+            0.011631093884056531
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            0.0,
+            0.0
+          ],
+          "window_cal_bp": [
+            8200.0,
+            8700.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.0122603812368276,
+            0.012260381236827544
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            0.0,
+            0.0
+          ],
+          "window_cal_bp": [
+            8700.0,
+            9200.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.01298905185092003,
+            0.012989051850919975
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            0.0,
+            0.0
+          ],
+          "window_cal_bp": [
+            9200.0,
+            9700.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.01275598921990706,
+            0.012755989219907116
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            0.0,
+            0.0
+          ],
+          "window_cal_bp": [
+            9700.0,
+            10200.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.005959121615916052,
+            0.005959121615916094
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            0.0,
+            0.0
+          ],
+          "window_cal_bp": [
+            10200.0,
+            10700.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.007480068635915105,
+            0.007480068635915105
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            0.0,
+            0.0
+          ],
+          "window_cal_bp": [
+            10700.0,
+            11200.0
+          ]
+        }
+      ]
+    },
+    {
+      "case_id": "52082.reported_25_5_ha_static_circle",
+      "maximum_cover_changes": [
+        {
+          "change_fraction": -0.01343342607247544,
+          "comparison": "physical_corrected_cover_minus_direct_panel_fraction",
+          "parameter_taxon": "Betula",
+          "window_cal_bp": [
+            2700.0,
+            3200.0
+          ]
+        },
+        {
+          "change_fraction": -2.5354112377362625e-06,
+          "comparison": "static_geometry_cover_minus_metadata_baseline",
+          "parameter_taxon": "Pinus sylvestris",
+          "window_cal_bp": [
+            2700.0,
+            3200.0
+          ]
+        }
+      ],
+      "native_dataset_id": 52082,
+      "occupied_windows": 24,
+      "parameter_taxa": [
+        "Betula",
+        "Pinus sylvestris"
+      ],
+      "windows": [
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.013390470337499405,
+            0.01339047033749946
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            2.5304076863852387e-06,
+            -2.53040768644075e-06
+          ],
+          "window_cal_bp": [
+            0.0,
+            100.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.013371146925860944,
+            0.013371146925861055
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            2.518145357233159e-06,
+            -2.518145357233159e-06
+          ],
+          "window_cal_bp": [
+            100.0,
+            350.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.013353874594040027,
+            0.013353874594039916
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            2.5143017054474193e-06,
+            -2.5143017055029304e-06
+          ],
+          "window_cal_bp": [
+            350.0,
+            700.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.01315143574722466,
+            0.013151435747224549
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            2.4716989263096067e-06,
+            -2.4716989263096067e-06
+          ],
+          "window_cal_bp": [
+            700.0,
+            1200.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.013148622861830717,
+            0.013148622861830828
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            2.4711225621310007e-06,
+            -2.4711225620199784e-06
+          ],
+          "window_cal_bp": [
+            1200.0,
+            1700.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.013368720860958971,
+            0.013368720860958971
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            2.5176009466609806e-06,
+            -2.5176009467164917e-06
+          ],
+          "window_cal_bp": [
+            1700.0,
+            2200.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.013430203722085643,
+            0.013430203722085587
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            2.532632283835934e-06,
+            -2.5326322837804227e-06
+          ],
+          "window_cal_bp": [
+            2200.0,
+            2700.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.01343342607247544,
+            0.013433426072475385
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            2.535411237514218e-06,
+            -2.5354112377362625e-06
+          ],
+          "window_cal_bp": [
+            2700.0,
+            3200.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.012632874960235463,
+            0.012632874960235463
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            2.399245265127803e-06,
+            -2.399245265238825e-06
+          ],
+          "window_cal_bp": [
+            3200.0,
+            3700.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.01260892805596825,
+            0.012608928055968194
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            2.3949302357939573e-06,
+            -2.394930235738446e-06
+          ],
+          "window_cal_bp": [
+            3700.0,
+            4200.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.012463990328513197,
+            0.012463990328513253
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            2.3687291962337653e-06,
+            -2.3687291963447876e-06
+          ],
+          "window_cal_bp": [
+            4200.0,
+            4700.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.011453656931015521,
+            0.011453656931015632
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            2.1834680222765357e-06,
+            -2.1834680221655134e-06
+          ],
+          "window_cal_bp": [
+            4700.0,
+            5200.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.01125637571331739,
+            0.01125637571331739
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            2.146935993430077e-06,
+            -2.1469359933745658e-06
+          ],
+          "window_cal_bp": [
+            5200.0,
+            5700.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.01162208415803112,
+            0.011622084158031232
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            2.2145829082775847e-06,
+            -2.2145829082220736e-06
+          ],
+          "window_cal_bp": [
+            5700.0,
+            6200.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.01197626185396039,
+            0.011976261853960224
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            2.279752382317035e-06,
+            -2.2797523824835686e-06
+          ],
+          "window_cal_bp": [
+            6200.0,
+            6700.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.010566049386898979,
+            0.010566049386898924
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            2.018490180000221e-06,
+            -2.0184901801667543e-06
+          ],
+          "window_cal_bp": [
+            6700.0,
+            7200.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.011162153486177662,
+            0.011162153486177606
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            2.1294579405362057e-06,
+            -2.1294579405362057e-06
+          ],
+          "window_cal_bp": [
+            7200.0,
+            7700.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.011516877581987939,
+            0.011516877581987883
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            2.1951556882227052e-06,
+            -2.1951556882782164e-06
+          ],
+          "window_cal_bp": [
+            7700.0,
+            8200.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.01162887804760293,
+            0.011628878047602875
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            2.215836453767217e-06,
+            -2.2158364536561947e-06
+          ],
+          "window_cal_bp": [
+            8200.0,
+            8700.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.012258049946158978,
+            0.012258049946158922
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            2.3312906686223656e-06,
+            -2.3312906686223656e-06
+          ],
+          "window_cal_bp": [
+            8700.0,
+            9200.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.012986589510186053,
+            0.012986589510185997
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            2.4623407339774417e-06,
+            -2.4623407339774417e-06
+          ],
+          "window_cal_bp": [
+            9200.0,
+            9700.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.012753568297333429,
+            0.01275356829733354
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            2.4209225736315787e-06,
+            -2.4209225735760675e-06
+          ],
+          "window_cal_bp": [
+            9700.0,
+            10200.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.005957974713661218,
+            0.005957974713661204
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            1.146902254833826e-06,
+            -1.146902254889337e-06
+          ],
+          "window_cal_bp": [
+            10200.0,
+            10700.0
+          ]
+        },
+        {
+          "physical_corrected_cover_minus_direct_panel_fraction": [
+            -0.007478632107610239,
+            0.007478632107610322
+          ],
+          "static_geometry_cover_minus_metadata_baseline": [
+            1.4365283048656252e-06,
+            -1.4365283047823585e-06
+          ],
+          "window_cal_bp": [
+            10700.0,
+            11200.0
+          ]
+        }
+      ]
+    }
+  ],
+  "claim": "Within each fixed source panel only; corrections/sensitivities are not measured accuracy.",
+  "cross_core_pooling": false,
+  "schema_version": "nordic-static-basin-within-core-comparisons.v1"
+}

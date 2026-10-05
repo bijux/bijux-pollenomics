@@ -1,0 +1,617 @@
+{
+  "actual_case_target_uses": 29,
+  "actual_new_tuple_count": 23,
+  "exact_geometry_controls": 7,
+  "formula": "K=integral exp(-q)*[area(D_R intersect D_L at displacement d(q))-area(D_R intersect D_R at displacement d(q))]/(pi R^2) dq; q=a*d^(gamma/2), a=4v/(gamma*u*sqrt(pi)*D)",
+  "limits": "This distinct consumer computes allactualNordic23tuples/29caseuses with unchanged admitted scalar circle-lens formula and two adaptiveSimpson tolerances. PriorSwedish300tuple result is retained as code provenance only, never substituted as proof for these new tuples. Depth24anddeclaredagreementthresholdsunchanged. Error/convergence estimates are nonrigorous. Saved source fall speeds and empirical metre-coefficient define the conditional scenario, not SI diffusivity, real paleobasin geometry, age accuracy, taxonomy validity, historical equivalence, full vegetation or source rights.",
+  "maximum_absolute_factor_difference": 1.0097589431268261e-11,
+  "maximum_coarse_fine_difference": 3.6027264505023027e-11,
+  "plan_sha256": "f26faa0b522bc92068c04c6eeec1a50a0d9f6e55bc26d90c373c85c8c6f8aa81",
+  "results": [
+    {
+      "absolute_factor_difference": 5.995204332975845e-15,
+      "actual_factor": 0.31111443880959694,
+      "actual_nonrigorous_error_estimate": 2.0996308728577838e-09,
+      "case_uses": [
+        {
+          "case_id": "4446.metadata_static_radius",
+          "parameter_taxon": "Alnus glutinosa"
+        }
+      ],
+      "coarse_fine_absolute_difference": 3.1442848325013983e-11,
+      "evaluations": 1998,
+      "independent_factor": 0.31111443880960293,
+      "independent_nonrigorous_error_estimate": 8.592119515031395e-12,
+      "parameters": {
+        "diffusion_coefficient": 0.12,
+        "fall_speed_m_s": 0.021,
+        "inner_radius_m": 89,
+        "outer_radius_m": 100000.0,
+        "receiver_radius_m": 89,
+        "turbulence_parameter": 0.25,
+        "wind_speed_m_s": 3.0
+      },
+      "roundoff_probability_clips": 0
+    },
+    {
+      "absolute_factor_difference": 8.326672684688674e-15,
+      "actual_factor": 0.292007913782744,
+      "actual_nonrigorous_error_estimate": 2.394540116391155e-09,
+      "case_uses": [
+        {
+          "case_id": "4445.metadata_static_radius",
+          "parameter_taxon": "Betula"
+        },
+        {
+          "case_id": "4446.metadata_static_radius",
+          "parameter_taxon": "Betula"
+        }
+      ],
+      "coarse_fine_absolute_difference": 2.3886892464020093e-11,
+      "evaluations": 2014,
+      "independent_factor": 0.29200791378273566,
+      "independent_nonrigorous_error_estimate": 6.955171683084518e-12,
+      "parameters": {
+        "diffusion_coefficient": 0.12,
+        "fall_speed_m_s": 0.024,
+        "inner_radius_m": 89,
+        "outer_radius_m": 100000.0,
+        "receiver_radius_m": 89,
+        "turbulence_parameter": 0.25,
+        "wind_speed_m_s": 3.0
+      },
+      "roundoff_probability_clips": 0
+    },
+    {
+      "absolute_factor_difference": 1.9262369477246466e-14,
+      "actual_factor": 0.28503924311023676,
+      "actual_nonrigorous_error_estimate": 2.0462893343453205e-09,
+      "case_uses": [
+        {
+          "case_id": "4446.metadata_static_radius",
+          "parameter_taxon": "Corylus avellana"
+        }
+      ],
+      "coarse_fine_absolute_difference": 2.166117285540281e-11,
+      "evaluations": 2006,
+      "independent_factor": 0.2850392431102175,
+      "independent_nonrigorous_error_estimate": 7.250791524403831e-12,
+      "parameters": {
+        "diffusion_coefficient": 0.12,
+        "fall_speed_m_s": 0.025,
+        "inner_radius_m": 89,
+        "outer_radius_m": 100000.0,
+        "receiver_radius_m": 89,
+        "turbulence_parameter": 0.25,
+        "wind_speed_m_s": 3.0
+      },
+      "roundoff_probability_clips": 0
+    },
+    {
+      "absolute_factor_difference": 1.0049600041028839e-11,
+      "actual_factor": 0.23360957831389104,
+      "actual_nonrigorous_error_estimate": 2.3249850102356974e-09,
+      "case_uses": [
+        {
+          "case_id": "4446.metadata_static_radius",
+          "parameter_taxon": "Tilia"
+        },
+        {
+          "case_id": "4446.metadata_static_radius",
+          "parameter_taxon": "Ulmus"
+        }
+      ],
+      "coarse_fine_absolute_difference": 9.325873406851315e-15,
+      "evaluations": 1974,
+      "independent_factor": 0.23360957832394064,
+      "independent_nonrigorous_error_estimate": 1.1906792635657847e-11,
+      "parameters": {
+        "diffusion_coefficient": 0.12,
+        "fall_speed_m_s": 0.032,
+        "inner_radius_m": 89,
+        "outer_radius_m": 100000.0,
+        "receiver_radius_m": 89,
+        "turbulence_parameter": 0.25,
+        "wind_speed_m_s": 3.0
+      },
+      "roundoff_probability_clips": 0
+    },
+    {
+      "absolute_factor_difference": 4.472255898946287e-12,
+      "actual_factor": 0.19159422326155578,
+      "actual_nonrigorous_error_estimate": 2.548569426295491e-09,
+      "case_uses": [
+        {
+          "case_id": "4445.metadata_static_radius",
+          "parameter_taxon": "Calluna vulgaris"
+        },
+        {
+          "case_id": "4446.metadata_static_radius",
+          "parameter_taxon": "Calluna vulgaris"
+        }
+      ],
+      "coarse_fine_absolute_difference": 1.2490009027033011e-15,
+      "evaluations": 2002,
+      "independent_factor": 0.19159422326602804,
+      "independent_nonrigorous_error_estimate": 8.728044783331127e-12,
+      "parameters": {
+        "diffusion_coefficient": 0.12,
+        "fall_speed_m_s": 0.038,
+        "inner_radius_m": 89,
+        "outer_radius_m": 100000.0,
+        "receiver_radius_m": 89,
+        "turbulence_parameter": 0.25,
+        "wind_speed_m_s": 3.0
+      },
+      "roundoff_probability_clips": 0
+    },
+    {
+      "absolute_factor_difference": 2.831068712794149e-15,
+      "actual_factor": 0.3110097097630631,
+      "actual_nonrigorous_error_estimate": 2.100265151755393e-09,
+      "case_uses": [
+        {
+          "case_id": "4446.reported_2_5_ha_static_circle",
+          "parameter_taxon": "Alnus glutinosa"
+        }
+      ],
+      "coarse_fine_absolute_difference": 3.158873163044973e-11,
+      "evaluations": 1998,
+      "independent_factor": 0.3110097097630659,
+      "independent_nonrigorous_error_estimate": 8.595781767712785e-12,
+      "parameters": {
+        "diffusion_coefficient": 0.12,
+        "fall_speed_m_s": 0.021,
+        "inner_radius_m": 89.20620580763855,
+        "outer_radius_m": 100000.0,
+        "receiver_radius_m": 89.20620580763855,
+        "turbulence_parameter": 0.25,
+        "wind_speed_m_s": 3.0
+      },
+      "roundoff_probability_clips": 0
+    },
+    {
+      "absolute_factor_difference": 1.0380585280245214e-14,
+      "actual_factor": 0.2919022985513981,
+      "actual_nonrigorous_error_estimate": 2.395256302758451e-09,
+      "case_uses": [
+        {
+          "case_id": "4445.reported_2_5_ha_static_circle",
+          "parameter_taxon": "Betula"
+        },
+        {
+          "case_id": "4446.reported_2_5_ha_static_circle",
+          "parameter_taxon": "Betula"
+        }
+      ],
+      "coarse_fine_absolute_difference": 2.3997748233028915e-11,
+      "evaluations": 2014,
+      "independent_factor": 0.2919022985513877,
+      "independent_nonrigorous_error_estimate": 6.9592607173517895e-12,
+      "parameters": {
+        "diffusion_coefficient": 0.12,
+        "fall_speed_m_s": 0.024,
+        "inner_radius_m": 89.20620580763855,
+        "outer_radius_m": 100000.0,
+        "receiver_radius_m": 89.20620580763855,
+        "turbulence_parameter": 0.25,
+        "wind_speed_m_s": 3.0
+      },
+      "roundoff_probability_clips": 0
+    },
+    {
+      "absolute_factor_difference": 1.9317880628477724e-14,
+      "actual_factor": 0.284933715995061,
+      "actual_nonrigorous_error_estimate": 2.046885063775031e-09,
+      "case_uses": [
+        {
+          "case_id": "4446.reported_2_5_ha_static_circle",
+          "parameter_taxon": "Corylus avellana"
+        }
+      ],
+      "coarse_fine_absolute_difference": 2.1761592527980156e-11,
+      "evaluations": 2006,
+      "independent_factor": 0.2849337159950417,
+      "independent_nonrigorous_error_estimate": 7.254161846021869e-12,
+      "parameters": {
+        "diffusion_coefficient": 0.12,
+        "fall_speed_m_s": 0.025,
+        "inner_radius_m": 89.20620580763855,
+        "outer_radius_m": 100000.0,
+        "receiver_radius_m": 89.20620580763855,
+        "turbulence_parameter": 0.25,
+        "wind_speed_m_s": 3.0
+      },
+      "roundoff_probability_clips": 0
+    },
+    {
+      "absolute_factor_difference": 1.0097589431268261e-11,
+      "actual_factor": 0.23350860292096814,
+      "actual_nonrigorous_error_estimate": 2.3256753930897947e-09,
+      "case_uses": [
+        {
+          "case_id": "4446.reported_2_5_ha_static_circle",
+          "parameter_taxon": "Tilia"
+        },
+        {
+          "case_id": "4446.reported_2_5_ha_static_circle",
+          "parameter_taxon": "Ulmus"
+        }
+      ],
+      "coarse_fine_absolute_difference": 9.325873406851315e-15,
+      "evaluations": 1974,
+      "independent_factor": 0.23350860293106573,
+      "independent_nonrigorous_error_estimate": 1.1929451219992766e-11,
+      "parameters": {
+        "diffusion_coefficient": 0.12,
+        "fall_speed_m_s": 0.032,
+        "inner_radius_m": 89.20620580763855,
+        "outer_radius_m": 100000.0,
+        "receiver_radius_m": 89.20620580763855,
+        "turbulence_parameter": 0.25,
+        "wind_speed_m_s": 3.0
+      },
+      "roundoff_probability_clips": 0
+    },
+    {
+      "absolute_factor_difference": 4.495293026707259e-12,
+      "actual_factor": 0.19150069490390667,
+      "actual_nonrigorous_error_estimate": 2.5493319735483135e-09,
+      "case_uses": [
+        {
+          "case_id": "4445.reported_2_5_ha_static_circle",
+          "parameter_taxon": "Calluna vulgaris"
+        },
+        {
+          "case_id": "4446.reported_2_5_ha_static_circle",
+          "parameter_taxon": "Calluna vulgaris"
+        }
+      ],
+      "coarse_fine_absolute_difference": 1.1934897514720433e-15,
+      "evaluations": 2002,
+      "independent_factor": 0.19150069490840196,
+      "independent_nonrigorous_error_estimate": 8.73395541490016e-12,
+      "parameters": {
+        "diffusion_coefficient": 0.12,
+        "fall_speed_m_s": 0.038,
+        "inner_radius_m": 89.20620580763855,
+        "outer_radius_m": 100000.0,
+        "receiver_radius_m": 89.20620580763855,
+        "turbulence_parameter": 0.25,
+        "wind_speed_m_s": 3.0
+      },
+      "roundoff_probability_clips": 0
+    },
+    {
+      "absolute_factor_difference": 6.455946888195285e-14,
+      "actual_factor": 0.2677828057341759,
+      "actual_nonrigorous_error_estimate": 2.1046496643828098e-09,
+      "case_uses": [
+        {
+          "case_id": "20034.reported_7_2_ha_static_circle",
+          "parameter_taxon": "Betula"
+        }
+      ],
+      "coarse_fine_absolute_difference": 4.496403249731884e-15,
+      "evaluations": 2026,
+      "independent_factor": 0.26778280573424046,
+      "independent_nonrigorous_error_estimate": 8.852865858012885e-12,
+      "parameters": {
+        "diffusion_coefficient": 0.12,
+        "fall_speed_m_s": 0.024,
+        "inner_radius_m": 151.3879513212096,
+        "outer_radius_m": 100000.0,
+        "receiver_radius_m": 151.3879513212096,
+        "turbulence_parameter": 0.25,
+        "wind_speed_m_s": 3.0
+      },
+      "roundoff_probability_clips": 0
+    },
+    {
+      "absolute_factor_difference": 6.34492458573277e-14,
+      "actual_factor": 0.21780137156940987,
+      "actual_nonrigorous_error_estimate": 2.4123641671663298e-09,
+      "case_uses": [
+        {
+          "case_id": "20034.reported_7_2_ha_static_circle",
+          "parameter_taxon": "Pinus sylvestris"
+        }
+      ],
+      "coarse_fine_absolute_difference": 3.301706130720561e-11,
+      "evaluations": 2006,
+      "independent_factor": 0.21780137156934642,
+      "independent_nonrigorous_error_estimate": 7.633764306136789e-12,
+      "parameters": {
+        "diffusion_coefficient": 0.12,
+        "fall_speed_m_s": 0.031,
+        "inner_radius_m": 151.3879513212096,
+        "outer_radius_m": 100000.0,
+        "receiver_radius_m": 151.3879513212096,
+        "turbulence_parameter": 0.25,
+        "wind_speed_m_s": 3.0
+      },
+      "roundoff_probability_clips": 0
+    },
+    {
+      "absolute_factor_difference": 1.9301227283108346e-13,
+      "actual_factor": 0.1900234285954674,
+      "actual_nonrigorous_error_estimate": 2.5119042009485715e-09,
+      "case_uses": [
+        {
+          "case_id": "20034.reported_7_2_ha_static_circle",
+          "parameter_taxon": "Poaceae"
+        }
+      ],
+      "coarse_fine_absolute_difference": 2.039668434150599e-11,
+      "evaluations": 2010,
+      "independent_factor": 0.19002342859527438,
+      "independent_nonrigorous_error_estimate": 7.44610699107703e-12,
+      "parameters": {
+        "diffusion_coefficient": 0.12,
+        "fall_speed_m_s": 0.035,
+        "inner_radius_m": 151.3879513212096,
+        "outer_radius_m": 100000.0,
+        "receiver_radius_m": 151.3879513212096,
+        "turbulence_parameter": 0.25,
+        "wind_speed_m_s": 3.0
+      },
+      "roundoff_probability_clips": 0
+    },
+    {
+      "absolute_factor_difference": 7.738254481637341e-14,
+      "actual_factor": 0.2653845019469522,
+      "actual_nonrigorous_error_estimate": 2.119529663974196e-09,
+      "case_uses": [
+        {
+          "case_id": "20034.reported_8_0_ha_static_circle",
+          "parameter_taxon": "Betula"
+        }
+      ],
+      "coarse_fine_absolute_difference": 3.219646771412954e-15,
+      "evaluations": 2030,
+      "independent_factor": 0.26538450194702956,
+      "independent_nonrigorous_error_estimate": 9.172452504425085e-12,
+      "parameters": {
+        "diffusion_coefficient": 0.12,
+        "fall_speed_m_s": 0.024,
+        "inner_radius_m": 159.57691216057307,
+        "outer_radius_m": 100000.0,
+        "receiver_radius_m": 159.57691216057307,
+        "turbulence_parameter": 0.25,
+        "wind_speed_m_s": 3.0
+      },
+      "roundoff_probability_clips": 0
+    },
+    {
+      "absolute_factor_difference": 6.164513344231182e-14,
+      "actual_factor": 0.2155332322340275,
+      "actual_nonrigorous_error_estimate": 2.4293172090519065e-09,
+      "case_uses": [
+        {
+          "case_id": "20034.reported_8_0_ha_static_circle",
+          "parameter_taxon": "Pinus sylvestris"
+        }
+      ],
+      "coarse_fine_absolute_difference": 3.5832198319596387e-11,
+      "evaluations": 1998,
+      "independent_factor": 0.21553323223396587,
+      "independent_nonrigorous_error_estimate": 7.69869051923288e-12,
+      "parameters": {
+        "diffusion_coefficient": 0.12,
+        "fall_speed_m_s": 0.031,
+        "inner_radius_m": 159.57691216057307,
+        "outer_radius_m": 100000.0,
+        "receiver_radius_m": 159.57691216057307,
+        "turbulence_parameter": 0.25,
+        "wind_speed_m_s": 3.0
+      },
+      "roundoff_probability_clips": 0
+    },
+    {
+      "absolute_factor_difference": 1.9567680809018384e-13,
+      "actual_factor": 0.18787918393534733,
+      "actual_nonrigorous_error_estimate": 2.5297355322866417e-09,
+      "case_uses": [
+        {
+          "case_id": "20034.reported_8_0_ha_static_circle",
+          "parameter_taxon": "Poaceae"
+        }
+      ],
+      "coarse_fine_absolute_difference": 2.266292709052209e-11,
+      "evaluations": 2006,
+      "independent_factor": 0.18787918393515166,
+      "independent_nonrigorous_error_estimate": 7.427290058017774e-12,
+      "parameters": {
+        "diffusion_coefficient": 0.12,
+        "fall_speed_m_s": 0.035,
+        "inner_radius_m": 159.57691216057307,
+        "outer_radius_m": 100000.0,
+        "receiver_radius_m": 159.57691216057307,
+        "turbulence_parameter": 0.25,
+        "wind_speed_m_s": 3.0
+      },
+      "roundoff_probability_clips": 0
+    },
+    {
+      "absolute_factor_difference": 7.938094626069869e-14,
+      "actual_factor": 0.26526398916936,
+      "actual_nonrigorous_error_estimate": 2.120292625842446e-09,
+      "case_uses": [
+        {
+          "case_id": "20034.metadata_static_radius",
+          "parameter_taxon": "Betula"
+        }
+      ],
+      "coarse_fine_absolute_difference": 3.164135620181696e-15,
+      "evaluations": 2030,
+      "independent_factor": 0.2652639891694394,
+      "independent_nonrigorous_error_estimate": 9.17623555770753e-12,
+      "parameters": {
+        "diffusion_coefficient": 0.12,
+        "fall_speed_m_s": 0.024,
+        "inner_radius_m": 160,
+        "outer_radius_m": 100000.0,
+        "receiver_radius_m": 160,
+        "turbulence_parameter": 0.25,
+        "wind_speed_m_s": 3.0
+      },
+      "roundoff_probability_clips": 0
+    },
+    {
+      "absolute_factor_difference": 6.081246617384295e-14,
+      "actual_factor": 0.21541938103669986,
+      "actual_nonrigorous_error_estimate": 2.4301694308890403e-09,
+      "case_uses": [
+        {
+          "case_id": "20034.metadata_static_radius",
+          "parameter_taxon": "Pinus sylvestris"
+        }
+      ],
+      "coarse_fine_absolute_difference": 3.6027264505023027e-11,
+      "evaluations": 1998,
+      "independent_factor": 0.21541938103663905,
+      "independent_nonrigorous_error_estimate": 7.70219203020889e-12,
+      "parameters": {
+        "diffusion_coefficient": 0.12,
+        "fall_speed_m_s": 0.031,
+        "inner_radius_m": 160,
+        "outer_radius_m": 100000.0,
+        "receiver_radius_m": 160,
+        "turbulence_parameter": 0.25,
+        "wind_speed_m_s": 3.0
+      },
+      "roundoff_probability_clips": 0
+    },
+    {
+      "absolute_factor_difference": 1.9645396420742145e-13,
+      "actual_factor": 0.1877716165328432,
+      "actual_nonrigorous_error_estimate": 2.5306511276604297e-09,
+      "case_uses": [
+        {
+          "case_id": "20034.metadata_static_radius",
+          "parameter_taxon": "Poaceae"
+        }
+      ],
+      "coarse_fine_absolute_difference": 2.2783275266391456e-11,
+      "evaluations": 2006,
+      "independent_factor": 0.18777161653264673,
+      "independent_nonrigorous_error_estimate": 7.426556482217416e-12,
+      "parameters": {
+        "diffusion_coefficient": 0.12,
+        "fall_speed_m_s": 0.035,
+        "inner_radius_m": 160,
+        "outer_radius_m": 100000.0,
+        "receiver_radius_m": 160,
+        "turbulence_parameter": 0.25,
+        "wind_speed_m_s": 3.0
+      },
+      "roundoff_probability_clips": 0
+    },
+    {
+      "absolute_factor_difference": 3.865796571744795e-13,
+      "actual_factor": 0.23909910019425804,
+      "actual_nonrigorous_error_estimate": 2.306118270854007e-09,
+      "case_uses": [
+        {
+          "case_id": "52082.reported_25_5_ha_static_circle",
+          "parameter_taxon": "Betula"
+        }
+      ],
+      "coarse_fine_absolute_difference": 3.469446951953614e-15,
+      "evaluations": 2014,
+      "independent_factor": 0.23909910019464461,
+      "independent_nonrigorous_error_estimate": 9.681262608024088e-12,
+      "parameters": {
+        "diffusion_coefficient": 0.12,
+        "fall_speed_m_s": 0.024,
+        "inner_radius_m": 284.9017742606504,
+        "outer_radius_m": 100000.0,
+        "receiver_radius_m": 284.9017742606504,
+        "turbulence_parameter": 0.25,
+        "wind_speed_m_s": 3.0
+      },
+      "roundoff_probability_clips": 0
+    },
+    {
+      "absolute_factor_difference": 1.305622276959184e-13,
+      "actual_factor": 0.19098021042349436,
+      "actual_nonrigorous_error_estimate": 2.4324424794934563e-09,
+      "case_uses": [
+        {
+          "case_id": "52082.reported_25_5_ha_static_circle",
+          "parameter_taxon": "Pinus sylvestris"
+        }
+      ],
+      "coarse_fine_absolute_difference": 1.1379786002407855e-15,
+      "evaluations": 2018,
+      "independent_factor": 0.19098021042362492,
+      "independent_nonrigorous_error_estimate": 8.33799572067605e-12,
+      "parameters": {
+        "diffusion_coefficient": 0.12,
+        "fall_speed_m_s": 0.031,
+        "inner_radius_m": 284.9017742606504,
+        "outer_radius_m": 100000.0,
+        "receiver_radius_m": 284.9017742606504,
+        "turbulence_parameter": 0.25,
+        "wind_speed_m_s": 3.0
+      },
+      "roundoff_probability_clips": 0
+    },
+    {
+      "absolute_factor_difference": 3.876066134722578e-13,
+      "actual_factor": 0.2390835395925667,
+      "actual_nonrigorous_error_estimate": 2.3062602612499036e-09,
+      "case_uses": [
+        {
+          "case_id": "52082.metadata_static_radius",
+          "parameter_taxon": "Betula"
+        }
+      ],
+      "coarse_fine_absolute_difference": 3.4416913763379853e-15,
+      "evaluations": 2014,
+      "independent_factor": 0.2390835395929543,
+      "independent_nonrigorous_error_estimate": 9.681144491366752e-12,
+      "parameters": {
+        "diffusion_coefficient": 0.12,
+        "fall_speed_m_s": 0.024,
+        "inner_radius_m": 285,
+        "outer_radius_m": 100000.0,
+        "receiver_radius_m": 285,
+        "turbulence_parameter": 0.25,
+        "wind_speed_m_s": 3.0
+      },
+      "roundoff_probability_clips": 0
+    },
+    {
+      "absolute_factor_difference": 1.31117339208231e-13,
+      "actual_factor": 0.19096584468494196,
+      "actual_nonrigorous_error_estimate": 2.432584045326895e-09,
+      "case_uses": [
+        {
+          "case_id": "52082.metadata_static_radius",
+          "parameter_taxon": "Pinus sylvestris"
+        }
+      ],
+      "coarse_fine_absolute_difference": 1.1102230246251565e-15,
+      "evaluations": 2018,
+      "independent_factor": 0.19096584468507308,
+      "independent_nonrigorous_error_estimate": 8.338630321588952e-12,
+      "parameters": {
+        "diffusion_coefficient": 0.12,
+        "fall_speed_m_s": 0.031,
+        "inner_radius_m": 285,
+        "outer_radius_m": 100000.0,
+        "receiver_radius_m": 285,
+        "turbulence_parameter": 0.25,
+        "wind_speed_m_s": 3.0
+      },
+      "roundoff_probability_clips": 0
+    }
+  ],
+  "source_custody_before_after": "unchanged",
+  "source_native_terminal_sha256": "b00ad8785bacb49d6e48e3060acd9229e31e2ea26e356b6057bc82b6f924577c",
+  "source_report_sha256": "50d2e11aa053f22afe8aeb2b0867c2ee3c00340ad002a6ece71c36aafdbbedfe",
+  "source_tuple_ledger_sha256": "675e7ae2107829fd575255249f2643bde31951945b15690e46631455137be8e3",
+  "status": "PASS_SCOPED_INDEPENDENT_NORDIC_PHYSICAL_FACTORS",
+  "total_scalar_quadrature_evaluations": 46162
+}

@@ -1,0 +1,84 @@
+{
+  "actual_command": [
+    "/opt/homebrew/Cellar/python@3.11/3.11.13/Frameworks/Python.framework/Versions/3.11/bin/python3.11",
+    "-I",
+    "-B",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/jobs/nordic-primary-publication-source-receipt/acquire.py"
+  ],
+  "candidate": "b20246a1d3307a5930355a96ca76734783417633",
+  "consumer_result_sha256": "a9f38c757f147d55d8781e5b201ff7b3b0e6e5ff2e374fe6088e431611b7279b",
+  "custody_after_checked": true,
+  "custody_after_unchanged": true,
+  "custody_errors": [],
+  "log_bound_scope": [
+    "run/native.log",
+    "products/focused-tests.log",
+    "products/reference-writer.log",
+    "products/replay-writer.log"
+  ],
+  "log_sha256": "25525da9b3f4b89c9a1b352bd5ea77b36141e8d5ce8a398e0f49f394c0f84b40",
+  "native_exit_code": 0,
+  "native_pid": 45954,
+  "observed_descendants": {
+    "45954": {
+      "group": 45954,
+      "parent": 45943,
+      "pid": 45954,
+      "rss_bytes": 31457280,
+      "start": "Mon Oct  5 03:22:16 2026    ",
+      "state": "Ss"
+    }
+  },
+  "owned_survivors": {},
+  "peak_processes": 1,
+  "peak_rss_bytes": 31457280,
+  "plan_sha256": "b26977e999874fa576575fd1ef8eeff4a31471d0283aec2f4a65e116844f8fd8",
+  "product_files": {
+    "acquisition-progress.json": {
+      "bytes": 32753,
+      "sha256": "b249ca34aa6bf00e95b3abdd936f4c261b4b779ecca04107168ff8502f6857a9"
+    },
+    "consumer-result.json": {
+      "bytes": 38714,
+      "sha256": "a9f38c757f147d55d8781e5b201ff7b3b0e6e5ff2e374fe6088e431611b7279b"
+    },
+    "dataset-20034-publications.response": {
+      "bytes": 1178,
+      "sha256": "37f16906353c1e2574ca99b1ce02cab5cde1a7e63acf3fe684810abead15f5ed"
+    },
+    "dataset-4445-publications.response": {
+      "bytes": 2596,
+      "sha256": "d6f43348d5c3a8e367ef15a154a61b9fd8e5d1e9ea7c994aab9c5da82ad89693"
+    },
+    "dataset-4446-publications.response": {
+      "bytes": 1709,
+      "sha256": "e259b6247bdc43645ea75c7e6911d62431f3ae89bb7f4c90472ddec9f2c4e189"
+    },
+    "dataset-52082-publications.response": {
+      "bytes": 950,
+      "sha256": "3791c17a7b7f17c393fd0ec8d99970186aa4cb4219ca09d1ce0cb67a9f19a69b"
+    }
+  },
+  "resource_failure": null,
+  "scope": "Exactly4 finite documented native dataset publication GETs:4445,4446,20034,52082. No retries/redirect following/additional preferred-citation acquisition; existing policy text already specifies Williams/Grimm2018, Fyfe2009 and conditional Giesecke2014. Preserve actual HTTP/body/errors/DOIs/native boolean primary flags and source/core IDs. Native metadata completeness distinct from original historical identity, rights or numerical proof. No outreach/scientific replay/canonical edits. Successor changes only exact retained source receipt guard; no receipt-status upgrade, threshold relaxation or earlier scientific replay.",
+  "source_context": {
+    "actual_source_census_sha256": "659a2fb5039b778ceb1879036f1a87238f7b021c3b2db5174fb66e582c262156",
+    "actual_source_census_terminal_sha256": "4cf58a39d738f04c40e806b5f2ed716d7cf7327fe0003a2bceebbf4fe071af6f",
+    "failed_predecessor": {
+      "actual_GETs": 0,
+      "cause": "Incorrect literal census receipt status guard; corrected to exact actual pending-admission status with explicit custody/resource/survivor checks.",
+      "native_exit": 1,
+      "plan_sha256": "46c9c1e5ed857a4f445045e74377d60f6911580249ec15e993645e52588bf556",
+      "terminal_sha256": "de6ea69eccd7a34d3f0837c29b84d16ad8e3f48e60f46cd1780be2d52b0c845e"
+    },
+    "official_route_documentation_sha256": "7098cd425e388acd8adb46236ff2fb7eb31c6c2bafa10cbebfcd9a22fe39fa6a",
+    "original_source_census_status": "PASS_PENDING_SOURCE_CAPTURE_ADMISSION; actual native0/custodyunchanged/659a report authenticated, no capture-admission upgrade",
+    "retained_policies": "Original actual200 bodies/capture from Nordic source qualification; no fresh policy acquisition.",
+    "runtime_scope": "Borrowed physical Homebrew Python framework frozen read-only; job-exclusive HOME/TMP/cache/config writers. Framework/site-packages symbolic selector is recorded, not external site-package member custody; -I excludes user environment and no third-party producer imports. OS/network/TLS libraries outside framework are not claimed fully frozen.",
+    "source_scope": "4 Nordic datasets/4 collection units/3 sites; exact DOI/PI/core chronology metadata from authenticated census659a. 2 Solso cores share one lake. Private314 sample observations and numerical outputs not inputs to this attribution retrieval."
+  },
+  "status": "PASS",
+  "terminal_aggregate_log_bytes": 89,
+  "wall_seconds": 2.438259750022553,
+  "writer_files": {}
+}
