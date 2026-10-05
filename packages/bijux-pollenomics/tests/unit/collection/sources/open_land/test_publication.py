@@ -115,6 +115,8 @@ def test_materializer_writes_only_immutable_private_review_artifacts(
     assert manifest["added_spatial_interpolation"] is False
     assert manifest["added_temporal_interpolation"] is False
     assert "Behnaz Pirzamanbein" in manifest["required_attribution"]
+    assert "Githumbi et al. (2022)" in manifest["required_attribution"]
+    assert "Pirzamanbein et al. (2022)" not in manifest["required_attribution"]
     canonical_config = json.dumps(
         manifest["projection_configuration"],
         sort_keys=True,
@@ -154,6 +156,10 @@ def test_materializer_writes_only_immutable_private_review_artifacts(
         ).read_text(encoding="utf-8")
     )
     properties = feature_payload["features"][0]["properties"]
+    assert properties["source_attribution"] == manifest["required_attribution"]
+    assert properties["source_citation_doi"] == manifest["source_citation_doi"]
+    assert properties["source_data_license"] == manifest["source_data_license"]
+    assert manifest["source_data_license"] == "CC-BY-SA-4.0"
     assert properties["coniferous_proportion"] == "0"
     assert properties["coniferous_proportion_numeric"] == 0.0
     assert properties["time_start_bp"] == 0

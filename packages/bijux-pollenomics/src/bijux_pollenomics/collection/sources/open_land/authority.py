@@ -10,7 +10,8 @@ SOURCE_COMMIT = "894d44d58f66bb5c273491d98c3ec23a35e6a796"
 SOURCE_CITATION_DOI = "https://doi.org/10.3389/fevo.2022.795794"
 SOURCE_DATA_LICENSE = "CC-BY-SA-4.0"
 SOURCE_ATTRIBUTION = (
-    "Behnaz Pirzamanbein; Pirzamanbein et al. (2022), doi:10.3389/fevo.2022.795794"
+    "Behnaz Pirzamanbein (upstream data creator); "
+    "Githumbi et al. (2022), doi:10.3389/fevo.2022.795794"
 )
 SOURCE_MODEL_KIND = "spatially_interpolated_compositional_land_cover_model"
 SOURCE_SPATIAL_RESOLUTION_DEGREES = 1
