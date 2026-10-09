@@ -55,12 +55,12 @@ selected public distribution in the release matrices.
 
 Review broad posture, then the narrow gate that owns the proposed statement:
 
-1. [repository product model](../../../report/repository_product_model.md);
-2. [repository credibility dashboard](../../../report/repository_credibility_dashboard.md);
-3. [repository truth posture](../../../report/repository_truth_posture.md);
-4. [repository claim audit](../../../report/repository_claim_audit.md);
+1. [repository product model](../../report/repository_product_model.md);
+2. [repository credibility dashboard](../../report/repository_credibility_dashboard.md);
+3. [repository truth posture](../../report/repository_truth_posture.md);
+4. [repository claim audit](../../report/repository_claim_audit.md);
 5. relevant source, animal, atlas, or publication review;
-6. [repository final release refusal](../../../report/repository_final_release_refusal.md).
+6. [repository final release refusal](../../report/repository_final_release_refusal.md).
 
 If a refusal still blocks final language, neither README polish nor a passing
 package build closes it. Strengthen the governing evidence or retain the
@@ -84,10 +84,10 @@ the accepted revision and version.
 
 ## Direct Release Stops
 
-- [repository generated output policy](../../../report/repository_generated_output_policy.md)
-- [repository governance artifact review](../../../report/repository_governance_artifact_review.md)
-- [repository final release refusal](../../../report/repository_final_release_refusal.md)
-- [animal publication release gate](../../../report/animal_publication_release_gate.md)
+- [repository generated output policy](../../report/repository_generated_output_policy.md)
+- [repository governance artifact review](../../report/repository_governance_artifact_review.md)
+- [repository final release refusal](../../report/repository_final_release_refusal.md)
+- [animal publication release gate](../../report/animal_publication_release_gate.md)
 
 Each stop names its own scope. Report it as passed, failed, blocked, or not run;
 do not collapse several stops into an unqualified “release ready” label.
