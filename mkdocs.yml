@@ -216,3 +216,8 @@ nav:
       - Chronology Playback: public/nordic-atlas/chronology-playback/index.md
       - Sweden Lake Priorities: public/nordic-atlas/sweden-lake-priorities/index.md
       - Southern Sweden Land-Use Synthesis: public/nordic-atlas/southern-sweden-land-use/index.md
+exclude_docs: |
+  /overrides/
+  /hooks/
+  /assets/styles/README.md
+  /assets/javascripts/shell/README.md

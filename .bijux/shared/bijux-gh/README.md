@@ -242,3 +242,9 @@ The workflow validates and uploads the first detected directory containing
 3. `artifacts/site/bijux-masterclass`
 4. `artifacts/docs/site`
 5. `artifacts/root/docs/site`
+
+## Pull request history
+
+Record notable repository changes directly in `CHANGELOG.md`, with actual PR links
+and concise behavior summaries. Keep the newest PR first. Pending reviews do not
+claim a merge date; use verified GitHub dates when reconciling merged history.
