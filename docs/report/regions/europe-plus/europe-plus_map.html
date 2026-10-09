@@ -222,7 +222,7 @@
         min-width: 88px;
       }
       .mobile-scrim {
-        position: fixed;
+        position: absolute;
         inset: 0;
         z-index: 1180;
         border: 0;
@@ -323,10 +323,48 @@
       }
       .map-stage {
         position: relative;
-        min-height: 100vh;
+        display: grid;
+        grid-template-rows: minmax(0, 1fr) auto;
+        height: 100vh;
+        height: 100dvh;
         overflow: hidden;
       }
-      #map { height: 100vh; height: 100dvh; width: 100%; }
+      .map-viewport {
+        position: relative;
+        min-height: 0;
+        isolation: isolate;
+      }
+      #map { height: 100%; width: 100%; }
+      .map-reader-footer {
+        display: flex;
+        align-items: flex-end;
+        gap: 12px;
+        padding: 8px;
+        background: var(--surface);
+      }
+      .map-reader-evidence {
+        display: grid;
+        gap: 4px;
+        flex: 1;
+        min-width: 0;
+      }
+      .map-reader-footer .leaflet-control {
+        float: none;
+        margin: 0;
+      }
+      .map-provider-credit .leaflet-control-attribution {
+        max-width: 100%;
+        text-align: left;
+        white-space: normal;
+        overflow-wrap: anywhere;
+      }
+      .map-provider-credit a { display: inline-block; max-width: 100%; }
+      .map-zoom-controls { flex: 0 0 auto; }
+      .map-zoom-controls .leaflet-bar a {
+        width: 44px;
+        height: 44px;
+        line-height: 44px;
+      }
       .eyebrow {
         display: inline-flex;
         align-items: center;
@@ -1925,8 +1963,9 @@
   </head>
   <body>
     <div class="app-shell">
-      <button id="mobile-scrim" class="mobile-scrim" type="button" aria-label="Close controls" aria-hidden="true"></button>
       <main class="map-stage">
+        <div class="map-viewport">
+        <button id="mobile-scrim" class="mobile-scrim" type="button" aria-label="Close controls" aria-hidden="true"></button>
         <div class="map-topbar">
           <div class="map-topbar-main">
             <div class="topbar-context">
@@ -2310,6 +2349,14 @@
           <div class="status-pill"><span class="status-pill-label">Selection</span><span id="selection-readout" class="status-pill-value">No selection</span></div>
           <div class="status-pill"><span class="status-pill-label">Basemap</span><button id="basemap-readout" class="status-pill-value status-pill-action" type="button" aria-live="polite" aria-controls="basemap-switch">Starting</button></div>
         </div>
+        </div>
+        <footer class="map-reader-footer" aria-label="Map attribution and navigation controls">
+          <div class="map-reader-evidence">
+            <div id="map-provider-credit" class="map-provider-credit"></div>
+            <div id="map-distance-scale"></div>
+          </div>
+          <div id="map-zoom-controls" class="map-zoom-controls"></div>
+        </footer>
       </main>
     </div>
     <div id="help-dialog" class="help-dialog" hidden>
@@ -2981,6 +3028,19 @@
       const DEFAULT_TIME_INTERVAL_YEARS = 10520;
       const TIME_INTERVAL_MAX = 10520;
       const map = L.map('map', { preferCanvas: true, zoomControl: false, maxZoom: 20 });
+      // Attribution owns an intrinsic row, independent of responsive map overlays.
+      document.getElementById('map-provider-credit').appendChild(map.attributionControl.getContainer());
+      if (window.ResizeObserver) {
+        let mapResizeFrame = null;
+        const mapViewportResize = new ResizeObserver(() => {
+          if (mapResizeFrame !== null) return;
+          mapResizeFrame = requestAnimationFrame(() => {
+            mapResizeFrame = null;
+            map.invalidateSize({ animate: false, pan: false });
+          });
+        });
+        mapViewportResize.observe(document.querySelector('.map-viewport'));
+      }
       const basemaps = {
         street: L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', { attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>', maxZoom: 19 }),
         terrain: L.tileLayer('https://tile.opentopomap.org/{z}/{x}/{y}.png', { attribution: 'Map data: &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a> | DEM: SRTM, Sonny | Map style: &copy; <a href="https://opentopomap.org/">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a>)', maxZoom: 17 })
@@ -2989,8 +3049,10 @@
       const BASEMAP_FALLBACK_ORDER = ['street', 'terrain', 'none'];
       const DEFAULT_BASEMAP = 'street';
       const MAX_PROVIDER_TILE_ERRORS = 3;
-      L.control.zoom({ position: 'bottomright' }).addTo(map);
-      L.control.scale({ imperial: false }).addTo(map);
+      const mapZoom = L.control.zoom({ position: 'bottomright' }).addTo(map);
+      const mapScale = L.control.scale({ imperial: false }).addTo(map);
+      document.getElementById('map-zoom-controls').appendChild(mapZoom.getContainer());
+      document.getElementById('map-distance-scale').appendChild(mapScale.getContainer());
       map.createPane('pointPane').style.zIndex = 650;
       map.createPane('circlePane').style.zIndex = 500;
       map.createPane('edgePane').style.zIndex = 540;
