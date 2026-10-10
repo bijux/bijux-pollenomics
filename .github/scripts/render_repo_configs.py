@@ -7,7 +7,16 @@ import os
 import re
 import shlex
 from pathlib import Path
+from types import ModuleType
 from typing import Any
+
+# Bootstrap only the adjacent finite package loader from its captured source bytes.
+_POLICY_LOADER_PATH = Path(__file__).resolve().with_name("workflow_execution") / "source_loading.py"
+_POLICY_LOADER_SOURCE = _POLICY_LOADER_PATH.read_bytes()
+_POLICY_LOADER = ModuleType("bijux_workflow_source_loading")
+_POLICY_LOADER.__file__ = str(_POLICY_LOADER_PATH)
+exec(compile(_POLICY_LOADER_SOURCE, str(_POLICY_LOADER_PATH), "exec"), _POLICY_LOADER.__dict__)
+WORKFLOW_EXECUTION = _POLICY_LOADER.load_package(_POLICY_LOADER_SOURCE)
 
 ROOT = Path(__file__).resolve().parents[3]
 SCRIPT_REPO_ROOT = Path(__file__).resolve().parents[2]
@@ -89,13 +98,38 @@ def yaml_block_scalar(value: str, indent: int) -> list[str]:
     pad = " " * indent
     lines = [f"{pad}|"]
     for line in value.splitlines():
-        lines.append(f"{pad}  {line}")
-    if value.endswith("\n"):
-        lines.append(f"{pad}")
+        lines.append(f"{pad}  {line}" if line else "")
     return lines
 
 
-def dump_yaml(obj: Any, indent: int = 0) -> list[str]:
+def _dump_typed_workflow_yaml(obj: Any, indent: int = 0) -> list[str]:
+    """Retain source scalar and collection types when projecting complete workflows."""
+    pad = " " * indent
+    if isinstance(obj, dict) and obj:
+        lines = []
+        for key, value in obj.items():
+            if not isinstance(key, str):
+                raise ValueError("workflow mapping keys must be strings")
+            label = json.dumps(key, ensure_ascii=False)
+            if isinstance(value, (dict, list)) and value:
+                lines.append(f"{pad}{label}:")
+                lines.extend(_dump_typed_workflow_yaml(value, indent + 2))
+            else:
+                lines.append(f"{pad}{label}: {json.dumps(value, ensure_ascii=False, allow_nan=False)}")
+        return lines
+    if isinstance(obj, list) and obj:
+        lines = []
+        for item in obj:
+            child = _dump_typed_workflow_yaml(item, indent + 2)
+            lines.append(f"{pad}- {child[0].strip()}")
+            lines.extend(child[1:])
+        return lines
+    return [f"{pad}{json.dumps(obj, ensure_ascii=False, allow_nan=False)}"]
+
+
+def dump_yaml(obj: Any, indent: int = 0, *, preserve_scalar_types: bool = False) -> list[str]:
+    if preserve_scalar_types:
+        return _dump_typed_workflow_yaml(obj, indent)
     pad = " " * indent
     lines: list[str] = []
 
@@ -156,8 +190,8 @@ def render_release_env(entries: list[dict]) -> str:
     return PROVENANCE_HEADER + "\n".join(lines)
 
 
-def render_yaml_document(data: Any) -> str:
-    return PROVENANCE_HEADER + "\n".join(dump_yaml(data)) + "\n"
+def render_yaml_document(data: Any, *, preserve_scalar_types: bool = False) -> str:
+    return PROVENANCE_HEADER + "\n".join(dump_yaml(data, preserve_scalar_types=preserve_scalar_types)).rstrip("\n") + "\n"
 
 
 def render_dependabot_document(data: Any) -> str:
@@ -211,7 +245,7 @@ def render_required_status_ruleset(repo: dict[str, Any]) -> str:
     existing = {check["context"] for check in configured}
     for check in additional_required_status_checks(repo):
         if check["context"] not in existing:
-            configured.append({"context": check["context"]})
+            configured.append({"context": check["context"], "integration_id": 15368})
             existing.add(check["context"])
     return json.dumps(ruleset, indent=2) + "\n"
 
@@ -368,62 +402,65 @@ def inject_dependabot_pull_request_skip(
     return wrapper_definition
 
 
-def render_repo(repo_name: str, manifest: dict) -> None:
-    repo = find_repo_config(manifest, repo_name)
-    repo_root = resolve_repository_checkout(repo_name)
-
-    release_path = repo_root / ".github/release.env"
-    release_content = render_release_env(repo.get("release_env", []))
-    write_if_needed(release_path, release_content)
-
-    write_if_needed(
-        repo_root / ".github/rulesets/main-branch-protection.json",
-        render_required_status_ruleset(repo),
-    )
-    write_if_needed(
-        repo_root / ".github/required-status-checks.md",
-        render_required_status_reference(repo),
-    )
-
-    dependabot_data = repo.get("dependabot")
-    if dependabot_data is not None:
-        dependabot_path = repo_root / ".github/dependabot.yml"
-        dependabot_content = render_dependabot_document(dependabot_data)
-        write_if_needed(dependabot_path, dependabot_content)
-
-    labeler_data = repo.get("labeler")
-    if labeler_data is not None:
-        labeler_path = repo_root / ".github/labeler.yml"
-        normalized_labeler = normalize_labeler_rules(labeler_data)
-        validate_labeler_rules(normalized_labeler)
-        labeler_content = render_yaml_document(normalized_labeler)
-        write_if_needed(labeler_path, labeler_content)
-
-    codecov_data = repo.get("codecov")
-    if codecov_data is not None:
-        codecov_path = repo_root / ".github/codecov.yml"
-        codecov_content = render_yaml_document(codecov_data)
-        write_if_needed(codecov_path, codecov_content)
-
+def prepare_workflow_wrappers(repo: dict, policy: dict | None) -> dict:
     wrappers = repo.get("workflow_wrappers", {})
-    wrapper_paths = {
-        "ci": repo_root / ".github/workflows/ci.yml",
-        "verify": repo_root / ".github/workflows/verify.yml",
+    prepared = {}
+    for name in ["ci", "verify"]:
+        definition = wrappers.get(name)
+        if definition is not None:
+            prepared[name] = WORKFLOW_EXECUTION.project_automatic_events(name, definition, policy)
+            prepared[name] = WORKFLOW_EXECUTION.project_dependency_pull_requests(name, prepared[name], policy)
+    WORKFLOW_EXECUTION.validate_publication_calls(
+        {f".github/workflows/{name}.yml": definition for name, definition in prepared.items()}, policy
+    )
+    return prepared
+
+
+def prepare_repo_files(repo_name: str, manifest: dict) -> dict[str, bytes | None]:
+    """Derive owned generated bytes without selecting or writing a destination."""
+    policy = WORKFLOW_EXECUTION.validate_manifest(manifest, [repo_name])[repo_name]
+    repo = find_repo_config(manifest, repo_name)
+    wrappers = prepare_workflow_wrappers(repo, policy)
+    prepared = {
+        ".github/release.env": render_release_env(repo.get("release_env", [])).encode(),
+        ".github/rulesets/main-branch-protection.json": render_required_status_ruleset(repo).encode(),
+        ".github/required-status-checks.md": render_required_status_reference(repo).encode(),
     }
-    for wrapper_name, wrapper_path in wrapper_paths.items():
-        wrapper_definition = wrappers.get(wrapper_name)
-        if wrapper_definition is None:
-            remove_if_generated(wrapper_path)
+    for key, path, render in [
+        ("dependabot", ".github/dependabot.yml", render_dependabot_document),
+        ("codecov", ".github/codecov.yml", render_yaml_document),
+    ]:
+        if repo.get(key) is not None:
+            prepared[path] = render(repo[key]).encode()
+    if repo.get("labeler") is not None:
+        normalized = normalize_labeler_rules(repo["labeler"])
+        validate_labeler_rules(normalized)
+        prepared[".github/labeler.yml"] = render_yaml_document(normalized).encode()
+    for name in ["ci", "verify"]:
+        definition = wrappers.get(name)
+        path = f".github/workflows/{name}.yml"
+        if definition is None:
+            prepared[path] = None
             continue
-        wrapper_definition = inject_dependabot_pull_request_skip(
-            wrapper_name,
-            wrapper_definition,
-        )
-        wrapper_definition = normalize_workflow_wrapper(
-            wrapper_name,
-            wrapper_definition,
-        )
-        write_if_needed(wrapper_path, render_yaml_document(wrapper_definition))
+        if not WORKFLOW_EXECUTION.requires_dependency_projection(policy) and (policy or {}).get("dependency_pull_requests") != "canonical":
+            definition = inject_dependabot_pull_request_skip(name, definition)
+        definition = normalize_workflow_wrapper(name, definition)
+        prepared[path] = render_yaml_document(
+            definition,
+            preserve_scalar_types=WORKFLOW_EXECUTION.requires_event_projection(policy)
+            or WORKFLOW_EXECUTION.requires_dependency_projection(policy),
+        ).encode()
+    return prepared
+
+
+def render_repo(repo_name: str, manifest: dict) -> None:
+    prepared = prepare_repo_files(repo_name, manifest)
+    repo_root = resolve_repository_checkout(repo_name)
+    for relative, content in prepared.items():
+        if content is None:
+            remove_if_generated(repo_root / relative)
+        else:
+            write_if_needed(repo_root / relative, content.decode())
 
 
 def main() -> None:
@@ -435,6 +472,9 @@ def main() -> None:
     manifest = json.loads(Path(args.manifest).read_text(encoding="utf-8"))
     repos = args.repo or [repo["name"] for repo in manifest["repositories"]]
 
+    policies = WORKFLOW_EXECUTION.validate_manifest(manifest, repos)
+    for repo_name in repos:
+        prepare_workflow_wrappers(find_repo_config(manifest, repo_name), policies[repo_name])
     for repo_name in repos:
         render_repo(repo_name, manifest)
 
