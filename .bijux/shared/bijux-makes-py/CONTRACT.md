@@ -31,6 +31,31 @@ and process scratch space beneath the same artifact tree. Package dispatch
 provides package-owned locations rather than leaking root cache paths into a
 package run.
 
+## Candidate-bound SBOMs
+
+Repositories with a locked uv workspace can set
+`SBOM_REQUIRE_CANDIDATE_PROVENANCE=1` in their package profile. The SBOM task
+then exports the named package's production and development dependency closures
+with `uv export --frozen --offline`, refuses a virtualenv-wide fallback, and
+requires a clean tagged Git candidate or a producer-owned source snapshot. The
+snapshot records the original commit, Git description, and SHA-256 of every
+copied input. Snapshot input integrity is checked here; authentication of its
+declared repository and commit must be established by the upstream producer. The
+default source set includes the workspace and package
+`pyproject.toml`, `uv.lock`, and the local SBOM Make and provenance helper files;
+`SBOM_EXTRA_SOURCE_INPUTS` adds other repository-relative inputs. A configured
+requirements writer is refused in this mode because its source closure is not
+declared. Retained requirements inputs must be repository-relative and included
+in the snapshot identity.
+
+The supported natural version is the simple `vMAJOR.MINOR.PATCH` tag with the
+`guess-next-dev` distance form used by Hatch VCS. A configured version resolver
+must agree with that version. Each SBOM is staged and published only after the
+audit and source recheck succeed; a failed audit keeps a `.failed` artifact for
+inspection. Validation and summary use the two current package artifacts by
+exact name. Other package layouts retain their existing SBOM route until they
+configure and validate this stricter contract.
+
 ## Setup and inspection
 
 `make setup` creates missing canonical directories and aliases. It never
