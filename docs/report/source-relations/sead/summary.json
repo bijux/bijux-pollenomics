@@ -1,0 +1,57 @@
+{
+  "acquisition_bundle_sha256": "sha256:fdcda26e7de9a09383b0d9aae7ab7f9e8846c7cbf05513da17fdb8e329331ba9",
+  "acquisition_manifest_sha256": "6fc2428046d148f9ce6c158f982afbbbbaea39de2132850a4fb8f41acf8a4c14",
+  "admission_release_status": "refused",
+  "admission_sha256": "69f93b6bd34e457bedc4047077024de1beefc900142f45051fab60dce03751ea",
+  "build_id": "sha256:ce80714e4c9e9974b24913e5da50f49854670ed642879c1ca5076499e1d56725",
+  "country_accountability": {
+    "assigned_site_count": 2069,
+    "bbox_site_count": 2195,
+    "country_counts": {
+      "DK": 59,
+      "FI": 40,
+      "NO": 45,
+      "SE": 1925
+    },
+    "country_decisions_sha256": "e08c2fa2f70d9a3491b95a87b81c992ec3902051aa6e30c35dbcb0f86e214528",
+    "decision_status_counts": {
+      "assigned": 2069,
+      "review": 103,
+      "unassigned": 23
+    },
+    "excluded_site_count": 126,
+    "review_site_count": 103,
+    "unassigned_site_count": 23
+  },
+  "distinct_primary_key_count": 522270,
+  "downstream_statuses": {
+    "chronology_claims": {
+      "reason_code": "typed_chronology_claims_not_materialized",
+      "status": "refused"
+    },
+    "evidence_events": {
+      "reason_code": "source_native_evidence_events_not_materialized",
+      "status": "refused"
+    },
+    "propagation_events": {
+      "reason_code": "propagation_events_not_materialized",
+      "status": "refused"
+    }
+  },
+  "duplicate_primary_key_count": 0,
+  "empty_table_count": 8,
+  "interpretation": "Source capture, receipts, source keys and country UUID bindings were replayed against the pinned acquisition. This does not approve cross-source taxonomy, propagation events or independent vegetation truth.",
+  "normalized_manifest_sha256": "c5ec51e8e7360e4f47cffceeb7a907e022da4445caf853317cbcc908269b0093",
+  "receipt_status_counts": {
+    "complete": 61
+  },
+  "schema_version": "sead-source-relations-export.v1",
+  "scope_id": "sha256:39bfff6abd80041dc01c554711b2a57daf6ee68e1757e3515668a18874ffb7d7",
+  "site_country_binding_sha256": "c6849b1321a5863098dc9e9b22bc794fcbc2467af592f0cd9bed5a77731032c8",
+  "site_identity_sha256": "655f4d50ab81105fc564317f84027d8dd3ff118ea7fa25c3f4543d87096c62fe",
+  "source_key_set_sha256": "137a477c27bea227b3469d110a9535e00ad9fa0939b6e7856908fe37e28197f1",
+  "source_row_count": 522270,
+  "source_run_id": "sead-full-evidence-39bfff6a-ce80714e",
+  "table_count": 61,
+  "tables_csv_sha256": "89ee2b92ff3f1a29207e9b5a907b346b554df6439972eb47aecdc991e8437c8d"
+}

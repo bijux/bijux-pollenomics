@@ -6,6 +6,7 @@ from hashlib import sha256
 import json
 from pathlib import Path
 import sys
+from typing import Any, cast
 from zipfile import ZipFile
 
 from pyproj import Transformer
@@ -124,7 +125,7 @@ def _fixture(tmp_path: Path) -> tuple[Path, str, Path, str, Path, str, Path, str
 
 
 def test_exact_point_is_only_spatial_lead_with_unresolved_time(tmp_path: Path) -> None:
-    report = screen_empd2_nfi_geometry(*_fixture(tmp_path))
+    report = cast(dict[str, Any], screen_empd2_nfi_geometry(*_fixture(tmp_path)))
     assert report["nfi_plot_year_rows"] == 2
     assert report["swedish_pollen_samples"] == 1
     descriptive = report["thresholds_descriptive_only"]

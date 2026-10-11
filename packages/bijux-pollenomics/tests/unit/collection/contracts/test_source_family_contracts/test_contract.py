@@ -17,7 +17,7 @@ def test_capability_contract_covers_every_source_and_dimension_exactly() -> None
     assert payload["schema_version"] == "source-capability-contract.v1"
     assert payload["dimension_count"] == 17
     assert payload["dimensions"] == list(CAPABILITY_DIMENSIONS)
-    assert payload["source_count"] == 9
+    assert payload["source_count"] == 11
     sources = _rows(payload["sources"])
     assert isinstance(sources, list)
     assert {source["source_key"] for source in sources} == {
@@ -25,8 +25,10 @@ def test_capability_contract_covers_every_source_and_dimension_exactly() -> None
         "hyde",
         "animal_adna",
         "boundaries",
+        "empd2",
         "landclim",
         "neotoma",
+        "nfi",
         "raa",
         "sead",
         "svar",
@@ -154,7 +156,7 @@ def test_normative_support_map_and_repository_extension_are_explicit() -> None:
         "source_count": 7,
         "source_keys": sorted(partial),
     }
-    assert payload["extension_sources"] == ["aadr", "hyde"]
+    assert payload["extension_sources"] == ["aadr", "empd2", "hyde", "nfi"]
     assert sources["neotoma"]["evidence_class"] == "observed_paleoecological"
     assert (
         sources["animal_adna"]["evidence_class"]

@@ -5,6 +5,7 @@ from __future__ import annotations
 from collections.abc import Mapping
 from dataclasses import asdict, dataclass, field
 from datetime import UTC, datetime
+from functools import lru_cache
 import importlib.metadata
 import json
 from pathlib import Path
@@ -22,7 +23,9 @@ from bijux_pollenomics_lra.version import (
 )
 
 
+@lru_cache(maxsize=3)
 def _version_or_unknown(distribution: str) -> str:
+    """Read each runtime dependency once in an immutable worker environment."""
     try:
         return importlib.metadata.version(distribution)
     except importlib.metadata.PackageNotFoundError:

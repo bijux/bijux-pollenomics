@@ -58,6 +58,25 @@ def closed_composition(values: Mapping[str, float]) -> dict[str, float]:
     return result
 
 
+def hellinger_distance(
+    predicted: Mapping[str, float], observed: Mapping[str, float]
+) -> float:
+    """Distance between two closed compositions on the same named taxon axis."""
+    prediction = closed_composition(predicted)
+    observation = closed_composition(observed)
+    if set(prediction) != set(observation):
+        raise ValidationRefusal(
+            "taxon_denominator_mismatch", "Hellinger taxon keys must match"
+        )
+    return sqrt(
+        0.5
+        * sum(
+            (sqrt(prediction[taxon]) - sqrt(observation[taxon])) ** 2
+            for taxon in prediction
+        )
+    )
+
+
 def _score(
     target: str, predicted: Mapping[str, float], observed: Mapping[str, float | None]
 ) -> CompositionScore:

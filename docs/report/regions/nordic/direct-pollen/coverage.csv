@@ -1,0 +1,16 @@
+country,site_id,site_name,candidate_age_count_bins,positive_closed_taxon_bins,predicted_bins,scored_bins,empty_or_refused_outcome_bins,eligible_bins_without_prediction
+FI,neotoma:site:30965,Palomaa,2,2,2,2,0,0
+NO,neotoma:site:13476,Liten Cap’pesjav’ri,28,28,19,19,0,9
+NO,neotoma:site:13478,Over Gunnarsfjorden,21,21,19,19,0,2
+NO,neotoma:site:13481,Over Kobbkrokvatnet,26,25,19,19,1,6
+NO,neotoma:site:28412,Lake Topptjønna,19,19,7,7,0,12
+NO,neotoma:site:28431,Lake Heimtjønna,25,25,15,15,0,10
+NO,neotoma:site:28440,Lake Store Finnsjøen,24,24,17,17,0,7
+NO,neotoma:site:28451,Lervahå bog,17,17,12,12,0,5
+NO,neotoma:site:28452,Liastemmen bog,10,10,0,0,0,10
+NO,neotoma:site:28455,Eigebakken bog,10,10,0,0,0,10
+NO,neotoma:site:28457,Reinskaret bog,16,16,16,16,0,0
+NO,neotoma:site:28459,Hemma,4,4,2,2,0,2
+NO,neotoma:site:33292,Svanåvatnet,18,18,18,18,0,0
+NO,neotoma:site:33300,Brattheivatnet,17,17,5,5,0,12
+NO,neotoma:site:33301,Lusvatnet,14,14,5,5,0,9

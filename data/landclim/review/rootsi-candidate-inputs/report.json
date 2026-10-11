@@ -1,0 +1,73 @@
+{
+  "blocking_dependencies": [
+    "author or custodian confirmation of historical input revisions",
+    "historical selected ages and chronology construction",
+    "per-sequence rights and redistribution decisions",
+    "taxon mapping and count-unit denominator decisions",
+    "basin, radius and conflicting coordinate disposition",
+    "publication-specific profile and PFT/ISTS transformation rules",
+    "authenticated primary inputs for all publication records",
+    "qualified scientific review"
+  ],
+  "candidate_evidence_pattern_counts": {
+    "normalized_sequence_label": 2,
+    "normalized_sequence_label+normalized_site_name_and_exact_sample_count": 60,
+    "normalized_site_name_and_exact_sample_count": 17
+  },
+  "claims": {
+    "basin_and_profile_semantics_reviewed": false,
+    "historical_current_revision_crosswalk_completed": false,
+    "historical_primary_pollen_inputs_recovered": false,
+    "historical_selected_chronologies_recovered": false,
+    "original_profile_r_rerun_executed": false,
+    "per_sequence_rights_cleared": false,
+    "publication_allowed": false,
+    "reproduction_input_complete": false,
+    "rootsi_archive_membership_replayed_by_closure": false,
+    "rootsi_is_authenticated_historical_input": false,
+    "scientific_acceptance": "not_evaluated",
+    "scientifically_accepted": false,
+    "taxonomy_and_count_denominators_reviewed": false,
+    "whole_paper_reproduction_certified": false
+  },
+  "denominators": {
+    "applicable_requirement_status_records": 474,
+    "authenticated_historical_primary_input_records": 0,
+    "country_disagreeing_candidate_pairs_rejected": 1,
+    "not_applicable_requirement_status_records": 6294,
+    "not_authenticated_requirement_status_records": 237,
+    "publication_metadata_records": 1128,
+    "publication_rows_with_ambiguous_metadata_candidates": 0,
+    "publication_rows_with_unique_metadata_candidate": 79,
+    "publication_rows_without_rootsi_metadata_candidate": 1049,
+    "reproduction_ready_records": 0,
+    "requirement_status_records": 6768,
+    "rootsi_metadata_records": 81,
+    "rootsi_rows_with_ambiguous_publication_candidates": 0,
+    "rootsi_rows_with_unique_publication_candidate": 79,
+    "rootsi_rows_without_publication_candidate": 2,
+    "rootsi_typed_workbook_candidates": 79,
+    "typed_rectangle_positions": 547330,
+    "typed_workbook_sheets": 107,
+    "unique_candidate_sample_count_disagreements": 1,
+    "unresolved_requirement_status_records": 237
+  },
+  "pair_identity": {
+    "accepted_pairs": 79,
+    "country_rejected_pairs": 1,
+    "matching_profile": "normalized-sequence-label-or-normalized-site-name-plus-exact-sample-count-with-exact-SWE-to-Sweden-country-filter.v1",
+    "sha256": "ca94f04342f5c54212dc3ef9acfa0cbeea6e92419878f951ec23b2a0acf5cfd6"
+  },
+  "profile": "landclim-ii-rootsi-metadata-candidate-closure-v1",
+  "schema_version": "essd-rootsi-input-closure-report.v1",
+  "scope": {
+    "archive_membership_replayed": false,
+    "country_agreement_is_exact_source_label_comparison": true,
+    "emitted_string_matching_fields_preserve_source_native_text": true,
+    "metadata_matching_is_not_input_authentication": true,
+    "publication_metadata_records_complete": true,
+    "rootsi_metadata_records_complete": true,
+    "rootsi_sample_count_emission": "raw_source_text_and_normalized_integer_claim_separate",
+    "typed_cell_review_consumed_by_reference": true
+  }
+}

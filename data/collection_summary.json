@@ -1,6 +1,6 @@
 {
-  "generated_on": "2026-09-07",
-  "output_root": "/Users/bijan/bijux/bijux-pollenomics/data",
+  "generated_on": "2026-09-24",
+  "output_root": "data",
   "version": "v66",
   "collected_sources": [
     "aadr",
@@ -12,14 +12,14 @@
     "svar"
   ],
   "source_output_roots": {
-    "aadr": "/Users/bijan/bijux/bijux-pollenomics/data/aadr",
-    "aadr_version_dir": "/Users/bijan/bijux/bijux-pollenomics/data/aadr/v66",
-    "boundaries": "/Users/bijan/bijux/bijux-pollenomics/data/boundaries",
-    "landclim": "/Users/bijan/bijux/bijux-pollenomics/data/landclim",
-    "neotoma": "/Users/bijan/bijux/bijux-pollenomics/data/neotoma",
-    "raa": "/Users/bijan/bijux/bijux-pollenomics/data/raa",
-    "sead": "/Users/bijan/bijux/bijux-pollenomics/data/sead",
-    "svar": "/Users/bijan/bijux/bijux-pollenomics/data/svar"
+    "aadr": "data/aadr",
+    "aadr_version_dir": "data/aadr/v66",
+    "boundaries": "data/boundaries",
+    "landclim": "data/landclim",
+    "neotoma": "data/neotoma",
+    "raa": "data/raa",
+    "sead": "data/sead",
+    "svar": "data/svar"
   },
   "source_metadata": {
     "aadr": {
@@ -78,7 +78,7 @@
       "normalized_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
     },
     "boundaries": {
-      "snapshot_sha256": "04e13686a25d9d877567af0dcb9f40d2f06e07d035af56f828abe30a962cdee2",
+      "snapshot_sha256": "76355ef846b9d52cfe50efed99d42e265fb6609e4d917e073800f917499ab9d1",
       "normalized_sha256": "44c05182fe053907fd8af620ad6d573ff83eeb01219f00ccea2006a8a8b9bd59"
     },
     "landclim": {
@@ -111,8 +111,8 @@
       "license": "source-specific terms",
       "retrieved_on": "unavailable",
       "acquisition_method": "unavailable",
-      "snapshot_root": "/Users/bijan/bijux/bijux-pollenomics/data/aadr",
-      "normalized_root": "/Users/bijan/bijux/bijux-pollenomics/data/aadr/normalized",
+      "snapshot_root": "data/aadr",
+      "normalized_root": "data/aadr/normalized",
       "snapshot_sha256": "1a87ce20bfd7e975ee71b059973099a47b5a514d0fce82a7a6226e589cd9d127",
       "normalized_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
     },
@@ -124,9 +124,9 @@
       "license": "Natural Earth public domain",
       "retrieved_on": "2026-09-04",
       "acquisition_method": "unavailable",
-      "snapshot_root": "/Users/bijan/bijux/bijux-pollenomics/data/boundaries",
-      "normalized_root": "/Users/bijan/bijux/bijux-pollenomics/data/boundaries/normalized",
-      "snapshot_sha256": "04e13686a25d9d877567af0dcb9f40d2f06e07d035af56f828abe30a962cdee2",
+      "snapshot_root": "data/boundaries",
+      "normalized_root": "data/boundaries/normalized",
+      "snapshot_sha256": "76355ef846b9d52cfe50efed99d42e265fb6609e4d917e073800f917499ab9d1",
       "normalized_sha256": "44c05182fe053907fd8af620ad6d573ff83eeb01219f00ccea2006a8a8b9bd59"
     },
     "landclim": {
@@ -137,8 +137,8 @@
       "license": "source-specific terms",
       "retrieved_on": "2026-03-31",
       "acquisition_method": "unavailable",
-      "snapshot_root": "/Users/bijan/bijux/bijux-pollenomics/data/landclim",
-      "normalized_root": "/Users/bijan/bijux/bijux-pollenomics/data/landclim/normalized",
+      "snapshot_root": "data/landclim",
+      "normalized_root": "data/landclim/normalized",
       "snapshot_sha256": "e321e1561426a85a06a3f1c774add9a08a952f29d25900d5780f94dad6e6d9cb",
       "normalized_sha256": "773e2f013da03cad6f87eaa310e9f00290d863c525891f86168a6ba27d44cc2e"
     },
@@ -150,8 +150,8 @@
       "license": "source-specific terms",
       "retrieved_on": "2026-04-01",
       "acquisition_method": "unavailable",
-      "snapshot_root": "/Users/bijan/bijux/bijux-pollenomics/data/neotoma",
-      "normalized_root": "/Users/bijan/bijux/bijux-pollenomics/data/neotoma/normalized",
+      "snapshot_root": "data/neotoma",
+      "normalized_root": "data/neotoma/normalized",
       "snapshot_sha256": "9f9394aa40861eac03c977d54ad3080471684496d515fca7f1e6b16f2456eeba",
       "normalized_sha256": "8f078e95e6513d9e3a017f43fc2ef5d9cf0e7c41060c7ffa77e6f08489ffd1a7"
     },
@@ -163,8 +163,8 @@
       "license": "open data terms",
       "retrieved_on": "unavailable",
       "acquisition_method": "unavailable",
-      "snapshot_root": "/Users/bijan/bijux/bijux-pollenomics/data/raa",
-      "normalized_root": "/Users/bijan/bijux/bijux-pollenomics/data/raa/normalized",
+      "snapshot_root": "data/raa",
+      "normalized_root": "data/raa/normalized",
       "snapshot_sha256": "a84f4b99f96e4e237c4bbd8e984232433e4632ee554542552e987129141a94f7",
       "normalized_sha256": "e484c1b9230922cecaa4169dbbc21c3aef82429280cbcf4f36092749b7d4a53a"
     },
@@ -176,8 +176,8 @@
       "license": "source-specific terms",
       "retrieved_on": "2026-09-05",
       "acquisition_method": "postgrest_dependency_scoped",
-      "snapshot_root": "/Users/bijan/bijux/bijux-pollenomics/data/sead",
-      "normalized_root": "/Users/bijan/bijux/bijux-pollenomics/data/sead/normalized",
+      "snapshot_root": "data/sead",
+      "normalized_root": "data/sead/normalized",
       "snapshot_sha256": "2c9dd2e27d87bdc026a5a9da78156e5427e2051f63db86c0044e53006736117e",
       "normalized_sha256": "b3ea3f19732bbb61a22116c3d68bf8754c7836d588b74c404c7b7464082f3bf9"
     },
@@ -189,8 +189,8 @@
       "license": "open data terms",
       "retrieved_on": "2026-06-22",
       "acquisition_method": "unavailable",
-      "snapshot_root": "/Users/bijan/bijux/bijux-pollenomics/data/svar",
-      "normalized_root": "/Users/bijan/bijux/bijux-pollenomics/data/svar/normalized",
+      "snapshot_root": "data/svar",
+      "normalized_root": "data/svar/normalized",
       "snapshot_sha256": "d7393e481d3cd836d1e902794c9a531d7177f74e3c8237114459c266b6901ce9",
       "normalized_sha256": "631875550cf954c7136c78cc05296aaad4287a0f4537ffeb4d88575532034fae"
     }
@@ -199,56 +199,56 @@
     "aadr": {
       "source": "aadr",
       "refresh_mode": "staging_swap",
-      "final_output_root": "/Users/bijan/bijux/bijux-pollenomics/data/aadr",
-      "staging_output_root": "/Users/bijan/bijux/bijux-pollenomics/data/.aadr.staging",
+      "final_output_root": "data/aadr",
+      "staging_output_root": "data/.aadr.staging",
       "destructive_refresh": true,
       "preserves_previous_on_failure": true
     },
     "boundaries": {
       "source": "boundaries",
       "refresh_mode": "staging_swap",
-      "final_output_root": "/Users/bijan/bijux/bijux-pollenomics/data/boundaries",
-      "staging_output_root": "/Users/bijan/bijux/bijux-pollenomics/data/.boundaries.staging",
+      "final_output_root": "data/boundaries",
+      "staging_output_root": "data/.boundaries.staging",
       "destructive_refresh": true,
       "preserves_previous_on_failure": true
     },
     "landclim": {
       "source": "landclim",
       "refresh_mode": "staging_swap",
-      "final_output_root": "/Users/bijan/bijux/bijux-pollenomics/data/landclim",
-      "staging_output_root": "/Users/bijan/bijux/bijux-pollenomics/data/.landclim.staging",
+      "final_output_root": "data/landclim",
+      "staging_output_root": "data/.landclim.staging",
       "destructive_refresh": true,
       "preserves_previous_on_failure": true
     },
     "neotoma": {
       "source": "neotoma",
       "refresh_mode": "staging_swap",
-      "final_output_root": "/Users/bijan/bijux/bijux-pollenomics/data/neotoma",
-      "staging_output_root": "/Users/bijan/bijux/bijux-pollenomics/data/.neotoma.staging",
+      "final_output_root": "data/neotoma",
+      "staging_output_root": "data/.neotoma.staging",
       "destructive_refresh": true,
       "preserves_previous_on_failure": true
     },
     "raa": {
       "source": "raa",
       "refresh_mode": "staging_swap",
-      "final_output_root": "/Users/bijan/bijux/bijux-pollenomics/data/raa",
-      "staging_output_root": "/Users/bijan/bijux/bijux-pollenomics/data/.raa.staging",
+      "final_output_root": "data/raa",
+      "staging_output_root": "data/.raa.staging",
       "destructive_refresh": true,
       "preserves_previous_on_failure": true
     },
     "sead": {
       "source": "sead",
       "refresh_mode": "staging_swap",
-      "final_output_root": "/Users/bijan/bijux/bijux-pollenomics/data/sead",
-      "staging_output_root": "/Users/bijan/bijux/bijux-pollenomics/data/.sead.staging",
+      "final_output_root": "data/sead",
+      "staging_output_root": "data/.sead.staging",
       "destructive_refresh": true,
       "preserves_previous_on_failure": true
     },
     "svar": {
       "source": "svar",
       "refresh_mode": "staging_swap",
-      "final_output_root": "/Users/bijan/bijux/bijux-pollenomics/data/svar",
-      "staging_output_root": "/Users/bijan/bijux/bijux-pollenomics/data/.svar.staging",
+      "final_output_root": "data/svar",
+      "staging_output_root": "data/.svar.staging",
       "destructive_refresh": true,
       "preserves_previous_on_failure": true
     }
@@ -266,9 +266,9 @@
       "source": "boundaries",
       "source_identity": "boundaries",
       "source_version": "5.1.1",
-      "snapshot_sha256": "04e13686a25d9d877567af0dcb9f40d2f06e07d035af56f828abe30a962cdee2",
+      "snapshot_sha256": "76355ef846b9d52cfe50efed99d42e265fb6609e4d917e073800f917499ab9d1",
       "normalized_sha256": "44c05182fe053907fd8af620ad6d573ff83eeb01219f00ccea2006a8a8b9bd59",
-      "dispute_token": "boundaries@5.1.1:04e13686a25d"
+      "dispute_token": "boundaries@5.1.1:76355ef846b9"
     },
     "landclim": {
       "source": "landclim",
@@ -312,13 +312,13 @@
     }
   },
   "contract_artifacts": {
-    "source_family_contracts": "/Users/bijan/bijux/bijux-pollenomics/data/source_family_contracts.json",
-    "source_family_evidence_stage_matrix": "/Users/bijan/bijux/bijux-pollenomics/data/source_family_evidence_stage_matrix.json",
-    "source_spatiotemporal_posture_registry": "/Users/bijan/bijux/bijux-pollenomics/data/source_spatiotemporal_posture_registry.json",
-    "source_fact_ownership_registry": "/Users/bijan/bijux/bijux-pollenomics/data/source_fact_ownership_registry.json",
-    "evidence_artifact_contracts": "/Users/bijan/bijux/bijux-pollenomics/data/evidence_artifact_contracts.json",
-    "adna_governance_role_registry": "/Users/bijan/bijux/bijux-pollenomics/data/adna/governance/surface_role_registry.json",
-    "source_library_project_surface_contract": "/Users/bijan/bijux/bijux-pollenomics/data/adna/governance/source_library/project_surface_contract.json"
+    "source_family_contracts": "data/source_family_contracts.json",
+    "source_family_evidence_stage_matrix": "data/source_family_evidence_stage_matrix.json",
+    "source_spatiotemporal_posture_registry": "data/source_spatiotemporal_posture_registry.json",
+    "source_fact_ownership_registry": "data/source_fact_ownership_registry.json",
+    "evidence_artifact_contracts": "data/evidence_artifact_contracts.json",
+    "adna_governance_role_registry": "data/adna/governance/surface_role_registry.json",
+    "source_library_project_surface_contract": "data/adna/governance/source_library/project_surface_contract.json"
   },
   "source_family_state_rows": [
     {
@@ -513,6 +513,97 @@
         "experiment_to_biological_sample_mapping_unavailable",
         "qualified_animal_source_review_missing"
       ]
+    },
+    {
+      "source_key": "hyde",
+      "display_name": "HYDE 3.5 modeled land-use context",
+      "domain_group": "modelled_land_use_context",
+      "evidence_role": "external_model_comparison",
+      "primary_question": "How do separately admitted HYDE 3.5 modeled quantities compare at matched spatial and temporal support, with independent inputs audited?",
+      "raw_status": "missing",
+      "normalized_status": "missing",
+      "reviewed_status": "missing",
+      "published_status": "missing",
+      "provenance_depth": "missing_source_capture",
+      "publication_posture": "refused_not_publication_ready",
+      "authority_status": "refused",
+      "authority_reasons": [
+        "hyde_35_native_release_admission_unimplemented"
+      ],
+      "coverage_metrics": {
+        "hyde_admitted_cell_count": null,
+        "hyde_admitted_country_count": null
+      },
+      "blocking_reasons": [
+        "missing_raw_capture",
+        "missing_normalized_outputs",
+        "missing_review_surface",
+        "missing_published_surface",
+        "source_authority_refused",
+        "hyde_35_native_release_admission_unimplemented",
+        "unavailable_governed_coverage_metrics"
+      ]
+    },
+    {
+      "source_key": "empd2",
+      "display_name": "EMPD2 pollen reference source",
+      "domain_group": "pollen_reference",
+      "evidence_role": "candidate_reference_observations",
+      "primary_question": "Which source-bound EMPD2 records have review evidence sufficient for future admission without treating candidate review as publication?",
+      "raw_status": "missing",
+      "normalized_status": "missing",
+      "reviewed_status": "present",
+      "published_status": "missing",
+      "provenance_depth": "missing_source_capture",
+      "publication_posture": "review_required_not_publication_ready",
+      "authority_status": "review_required",
+      "authority_reasons": [
+        "qualified_empd2_source_review_missing"
+      ],
+      "coverage_metrics": {
+        "empd2_source_reported_sample_count": 915,
+        "empd2_source_reported_observation_count": 27161,
+        "empd2_mechanical_candidate_count": 914,
+        "empd2_unresolved_overlap_lead_count": 112,
+        "empd2_scientifically_admitted_record_count": 0
+      },
+      "blocking_reasons": [
+        "missing_raw_capture",
+        "missing_normalized_outputs",
+        "missing_published_surface",
+        "source_authority_review_required",
+        "qualified_empd2_source_review_missing"
+      ]
+    },
+    {
+      "source_key": "nfi",
+      "display_name": "Swedish NFI vegetation reference source",
+      "domain_group": "vegetation_reference",
+      "evidence_role": "candidate_reference_observations",
+      "primary_question": "Which source-bound Swedish NFI plot-year records have structural review evidence without opening or publishing held-out vegetation outcomes?",
+      "raw_status": "missing",
+      "normalized_status": "missing",
+      "reviewed_status": "present",
+      "published_status": "missing",
+      "provenance_depth": "missing_source_capture",
+      "publication_posture": "review_required_not_publication_ready",
+      "authority_status": "review_required",
+      "authority_reasons": [
+        "qualified_nfi_source_review_missing"
+      ],
+      "coverage_metrics": {
+        "nfi_plot_year_record_count": 43892,
+        "nfi_tract_plot_site_count": 6018,
+        "nfi_proximity_lead_count": 16,
+        "nfi_scientifically_admitted_record_count": 0
+      },
+      "blocking_reasons": [
+        "missing_raw_capture",
+        "missing_normalized_outputs",
+        "missing_published_surface",
+        "source_authority_review_required",
+        "qualified_nfi_source_review_missing"
+      ]
     }
   ],
   "boundary_source": "boundaries",
@@ -525,5 +616,5 @@
   "raa_total_site_count": 761917,
   "raa_heritage_site_count": 318265,
   "svar_lake_count": 40565,
-  "summary_path": "/Users/bijan/bijux/bijux-pollenomics/data/collection_summary.json"
+  "summary_path": "data/collection_summary.json"
 }

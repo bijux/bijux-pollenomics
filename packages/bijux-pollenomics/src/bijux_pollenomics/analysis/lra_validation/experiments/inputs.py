@@ -244,10 +244,13 @@ def _read_observation(
 ) -> dict[str, object]:
     """Read an already admitted pollen channel with exact geometry/sample identity."""
     data = read_reference(root, site.raw)
-    if set(data) != {"data_kind", "taxa", "sample"} or data["data_kind"] != "synthetic":
+    if (
+        set(data) != {"data_kind", "taxa", "sample"}
+        or data["data_kind"] != spec.template()["data_kind"]
+    ):
         raise ValidationRefusal(
             "unsupported_experiment_profile",
-            "Initial observations must explicitly be synthetic",
+            "Observation source posture must match the declared experiment",
         )
     if data["taxa"] != spec.template().get("taxa"):
         raise ValidationRefusal(

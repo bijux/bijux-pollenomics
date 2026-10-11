@@ -1,0 +1,12 @@
+biosample_accession,repo_stable_sample_id,source_native_tax_id,source_native_scientific_name,sample_species_latin_name,sample_species_common_name,project_species_latin_name,taxon_alignment_status,paper_sample_label,paper_specimen_code,paper_row,locality_status,chronology_status
+SAMN18106827,prjna705960:samn18106827,9909,Bos primigenius,Bos primigenius,aurochs,Bos taurus,project_species_mismatch,Bp_CL_(9100BP)_1,CL-68,16,unresolved,unresolved
+SAMN18106828,prjna705960:samn18106828,9909,Bos primigenius,Bos primigenius,aurochs,Bos taurus,project_species_mismatch,Bp_CL_(9100BP)_2,CL-69,17,unresolved,unresolved
+SAMN18106829,prjna705960:samn18106829,9909,Bos primigenius,Bos primigenius,aurochs,Bos taurus,project_species_mismatch,Bp_CL_(9100BP)_3,CL-85,18,unresolved,unresolved
+SAMN18106830,prjna705960:samn18106830,9913,Bos taurus,Bos taurus,cattle,Bos taurus,project_species_match,Bt_MR_(3736BP),MR-125,19,unresolved,unresolved
+SAMN18106831,prjna705960:samn18106831,9913,Bos taurus,Bos taurus,cattle,Bos taurus,project_species_match,Bt_AR_(2460 BP),ArLu-15,20,unresolved,unresolved
+SAMN18106832,prjna705960:samn18106832,9913,Bos taurus,Bos taurus,cattle,Bos taurus,project_species_match,Bt_AR_(1200BP),ArLu-01,21,unresolved,unresolved
+SAMN18106833,prjna705960:samn18106833,9913,Bos taurus,Bos taurus,cattle,Bos taurus,project_species_match,Bt_AT_(3370BP),CT-243,22,unresolved,unresolved
+SAMN18106834,prjna705960:samn18106834,9913,Bos taurus,Bos taurus,cattle,Bos taurus,project_species_match,Bt_AT_(1600BP),CT-244,23,unresolved,unresolved
+SAMN18106835,prjna705960:samn18106835,9913,Bos taurus,Bos taurus,cattle,Bos taurus,project_species_match,Bt_SA_(1200BP)_1,Sab-5,24,unresolved,unresolved
+SAMN18106836,prjna705960:samn18106836,9913,Bos taurus,Bos taurus,cattle,Bos taurus,project_species_match,Bt_SA_(1290BP)_2,Sab-2,25,unresolved,unresolved
+SAMN18106837,prjna705960:samn18106837,9913,Bos taurus,Bos taurus,cattle,Bos taurus,project_species_match,Bt_CO_(60BP),UK-LU-01,27,unresolved,unresolved

@@ -26,6 +26,7 @@ Nordic is the regional detail surface. It keeps the shared human and animal evid
 
 ## Output Files
 
+- Country-held-out direct-pollen study: [`RESULTS.md`](./direct-pollen/RESULTS.md)
 - Interactive map: [`nordic_map.html`](./nordic_map.html)
 - Combined GeoJSON: [`nordic_samples.geojson`](./nordic_samples.geojson)
 - Machine-readable summary: [`nordic_summary.json`](./nordic_summary.json)

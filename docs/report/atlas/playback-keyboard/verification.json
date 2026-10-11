@@ -1,0 +1,31 @@
+{
+  "schema_version": "atlas-playback-keyboard-verification.v1",
+  "status": "PASS",
+  "candidate_status": "controlled_bp_chronology_only",
+  "scientific_admission": "not_evaluated",
+  "geometry_status": "controlled_schematic_rectangles_only",
+  "fixture_bp_values": [0, 150, 300],
+  "producer": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/atlas_browser/playback_keyboard_candidate.py",
+  "verifier": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/atlas_browser/playback-keyboard.mjs",
+  "candidate": "artifacts/atlas-playback-keyboard/candidate-product/generation.json",
+  "receipt": "artifacts/atlas-playback-keyboard/browser-final-reverse/receipt.json",
+  "receipt_sha256": "68c8c83499a44ee089e0043b6b07f6134f547a6c6cbd0dba391532914f489ee4",
+  "generation_sha256": "70854310991bb9573d4cd9271a6422bb96c874437825d63963280f57836e10ce",
+  "fixture_sha256": "25061f6c84109f0eca5cdcf7d764ff10dc610506b803a79a7396587176e6b1fb",
+  "renderer_sha256": "c8ac5ed54c6e690d83a037a52acdc4a225878a47bd986a84d39bff1cd1736641",
+  "verifier_sha256": "86af58c876f4e8897023ce32af1ea814e8a52dc124701f145feaf5745a6fead6",
+  "producer_input_count": 62,
+  "candidate_output_count": 11,
+  "served_file_count": 6,
+  "screenshot_count": 8,
+  "scenario_count": 4,
+  "scenario_widths_px": [320, 1440],
+  "scenario_modes": ["provider-failure", "tile-free"],
+  "runtime_error_count": 0,
+  "checks": {
+    "browser_semantics": "84 passed",
+    "ruff_check": "PASS",
+    "ruff_format": "PASS",
+    "node_syntax": "PASS"
+  }
+}

@@ -388,6 +388,15 @@ Units and interval semantics also matter. A numeric label is not accepted for
 comparison merely because it contains “BP”; the review posture records whether
 the value is compatible with repository temporal rules.
 
+The [sample-level first-observed readiness screen](../../../report/propagation/source-first-observed/README.md)
+checked complete native records and source exports for sites 12 and 3009. Its
+128 source variables were each assessed under two named chronology profiles:
+256 attempts, 256 explicit refusals, and zero admitted events. Missing
+variable/sample cells remain unknown, the default ages are context-only, and
+the alternative calibrated intervals do not establish an unambiguous order.
+No accepted taxon-concept mapping is available for these variables. This
+screen does not turn site-level age coverage into a propagation claim.
+
 ## Site-Level Temporal Admission
 
 Temporal eligibility is decided per normalized site, not inherited from the

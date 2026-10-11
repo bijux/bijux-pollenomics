@@ -1,0 +1,2212 @@
+{
+  "schema_version": "atlas-narrow-viewport-controls-review.v1",
+  "status": "PASS",
+  "controlled_candidate": {
+    "producer": "../../../../packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/atlas_browser/boundary_orientation_candidate.py",
+    "generation_receipt": "../../../../artifacts/atlas-narrow-viewport-controls/candidate-clearance/generation.json",
+    "generation_sha256": "2217cb64d0c2c6dcb4a55d3452681587931f0d56e50f46d8d548ed0cb9bb343c",
+    "scientific_admission": "not_evaluated",
+    "status": "controlled_synthetic_geometry_only",
+    "countries": [
+      "Denmark",
+      "Finland",
+      "Norway",
+      "Sweden"
+    ],
+    "polygon_count": 4,
+    "geometry_sha256": "6189886c6d22a320a4cddd022d1bb94a7436a9f30b608149683a74155b012857",
+    "inputs_sha256": {
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/assets/map/leaflet/images/layers-2x.png": "066daca850d8ffbef007af00b06eac0015728dee279c51f3cb6c716df7c42edf",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/assets/map/leaflet/images/layers.png": "1dbbe9d028e292f36fcba8f8b3a28d5e8932754fc2215b9ac69e4cdecf5107c6",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/assets/map/leaflet/images/marker-icon-2x.png": "00179c4c1ee830d3a108412ae0d294f55776cfeb085c60129a39aa6fc4ae2528",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/assets/map/leaflet/images/marker-icon.png": "574c3a5cca85f4114085b6841596d62f00d7c892c7b03f28cbfa301deb1dc437",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/assets/map/leaflet/images/marker-shadow.png": "264f5c640339f042dd729062cfc04c17f8ea0f29882b538e3848ed8f10edb4da",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/assets/map/leaflet/leaflet.css": "a7837102824184820dfa198d1ebcd109ff6d0ff9a2672a074b9a1b4d147d04c6",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/assets/map/leaflet/leaflet.js": "db49d009c841f5ca34a888c96511ae936fd9f5533e90d8b2c4d57596f4e5641a",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/assets/map/markercluster/MarkerCluster.Default.css": "61258232d98d64dc2a7b1e02130d67421bc5b9bda5994eef70228ff97570c170",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/assets/map/markercluster/MarkerCluster.css": "614dea0a98ff3f4ead74f04918f6b1d1b9ba435c25b5fc23b21a394d1e3e4d87",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/assets/map/markercluster/leaflet.markercluster.js": "1e4e1d22972a3926f48598e0caf14e3fe7049835d428a344fed4f9e3665b3508",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/__init__.py": "7475911f82e1b4db0d9a6876e72dd1adaf853458daf0966a23793bdfab7db297",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/assets/document.html": "47e2d3916a3116a565cfdd6ec6071014e4d16fd2ae4f13a661a2964f855084e1",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/assets/native-lra.js": "33bd7c0644279d96c37d07960279be04f986c4d91ae42cbaa460536aa659818e",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/assets/source-record-export.js": "733d6c172381f2d9555cb7bf4290f48e97d8bc8dceb57b3697676d97e78ce43b",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/assets/url-state.js": "7f112ee6e727d3e51058724f2c80af9b610890ce793110f6404562800d2be682",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/coordinates.py": "066e553e1c58295c848e917577ef3e688f2fdf4faa40ef2fd8b5c394c90341fd",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/evidence.py": "b9b694dd0d0546a806e5f22fcf9cd503a0638267e0cf6e18424d571a24e4cd89",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/evidence_projection/__init__.py": "770d80bb6ac812fea5dd09f8c120fffc97f1c0e3f9bf43f407c38b40062d3cb7",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/evidence_projection/constants.py": "8c228dce3e1b6ac932e3e2d3aebeee8e28891b5e57874e7ea403014367f1f986",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/evidence_projection/io.py": "dde30ca2cf224f178a3d85f73fd633b4cd8f0e9f33c1f06cf394018fb776a7dc",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/evidence_projection/models.py": "2d3d43830973a98c8f79f172c6bb4de9e15808efe172f2d742a72003f95a82fe",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/evidence_projection/neotoma.py": "d9c37bbcc962063ad4abfc57b34b51cf6f37248dffd32eccc5ed00cec4ebaf73",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/evidence_projection/records.py": "38c68f150a22450a244aff47eddf9d8087aa7a4f635d29ff6a67a11e814e28c7",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/evidence_projection/sead/__init__.py": "09d8c0ceeb013541c6b8ae200f52448e40511bd7f5d899fd9412cf7340be7577",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/evidence_projection/sead/accounting.py": "f5db877900e8b6e06ba7e742c5d4c293f7597f200fd68985c3c23f7227bbfd80",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/evidence_projection/sead/admission.py": "fc9faf672ee0cf9315f2280dd7b898ebd7718aed4a09bea297aff23cc5fbd134",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/evidence_projection/sead/chronology.py": "a7384b4718c8043389f237a885e04255580057be5b61bc67743d8e05261e3e9f",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/evidence_projection/sead/detail_records.py": "0c6a7b5e391c677d7f78fe3ed0d3ecb0fa5c2e3a6051755e62863ceed9e06870",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/evidence_projection/sead/models.py": "e66b4a216bab40e505cb3abf1d83daad2a8a791da38823a18dbe9fe50c98b09f",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/evidence_projection/sead/observations.py": "5db7926fb8f89d5de974f743074bccee62b34a24a626d6a7ea83fd654723a0b4",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/evidence_projection/sead/projection.py": "f326308c502dabe14c02e0eeb5348cba9898fbc3e0892f8b2ee4a96206545ffe",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/evidence_projection/sead/provenance.py": "d483c8b346c94c4502569e069ee15e583610f3c74354b927dce01255be3cf620",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/evidence_projection/sead/relations.py": "abe3ce1dad847a51cc7d1c36be86e7a885c5f64f4b1c190ae29e4e9716c543dd",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/evidence_projection/sead/sites.py": "1eef187b51b2568407653bbea1a2550fd2bcef59bb3e0c45812a1b76c89e6786",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/evidence_projection/sead_claims.py": "747480541006ebc87df5b3d461a42f6bd7470eaa86d855c2863682c6b5579c56",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/evidence_projection/sead_records.py": "6bcf8f3575f8308568f2cd44656a92d6fd5cbdeb98b7b6403ca052c824ba5af3",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/evidence_projection/service.py": "cd11e76268f0abcb2a541136da6112a6e5a5ab9e23c8e3ad1365c7cc5b1b94b0",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/native_lra.py": "b443d56a9b0b807d2922857b0cfa7641fa8147ad21cb243aab98414f60260fad",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/payload.py": "e131724adacd5471cdc1b236079b5d091b33ed618ed5e1e1c8afab49363a0e57",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/render.py": "5214ac7f8ba86805b5a7e0bfd5529e5ecb3d3042854abcfc1340505400e99dc0",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/state.py": "50bd3e0a59d82f70c1c7ccd2934f05c2306161dc31f09e45d12bf61daaec1044",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/static_assets/__init__.py": "ae5191883dd9d1c2bcf2f793e5215d313abc09660dfcb9ef3a20a5566e484314",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/static_assets/asset_inventory.py": "dccd61cc2a03bbd20d89a4ef95e397bafc1ed3bd2736bb430761f0f691391bab",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/static_assets/budgets.py": "afa643cdd77e43b9bc1dc57adeea7572c2efcbd983a021d93b729b462877734b",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/static_assets/index_bundles.py": "b67d42828cd96dcff45b757c1924c3bb01e568c23228e817196bff8228b61ec0",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/static_assets/indexes.py": "596ca95bba4979e654fbb477b654741671e2a361cf12e77b41c3dfc09fd0fbd0",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/static_assets/models.py": "f5aa9f01bbcf8d6ec861d64e629f4359a39925084f57cb1c654e71f62ea268c0",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/static_assets/nodes.py": "70db748025f7fc8c3484ca0daddadaa867248ea57216c86c41f968ab670f9f09",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/static_assets/serialization.py": "4f517d2bbef9e7b19ccdeb2f9ef587c0214bf4b7884b7b6ab742abf6f0e2654f",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/static_assets/validation.py": "0603633df5605270d4ec1ba6e76b6d219d61bbaecdcd96a0eeac1fc3479cc246",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/static_assets/writer.py": "b8cde394647be01a8380b36935ef85af7474969f4eebcd65788d26a2e410fb7f",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/template.py": "29a3d6a20fcdd24a726369e61ae4bfabb83466020424ed3221bdd8eaaefc69bb",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/temporal_admission.py": "755f485ddddc41afa580e4361fd13aa620229ae807a86ec8c0835b8a1e91bc2d",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/modeled_context/__init__.py": "cfbccb6a8cb25f7715f6bb1711069c7ff3adc5459e8e7337e5957420b75c89bc",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/modeled_context/contracts.py": "15facb66f40c1458381d79e1ff2811bae8f9d909428ec371ebb6c59677d13d4c",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/modeled_context/manifest.py": "d628b1942fe97be65c9c55c6c7c7503aec1162f1ff5da4fa2f1bf8bcd063071f",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/modeled_context/metric_families.py": "621d2fe9df9b8328e03ef6524eae28bf246cdb0f871da0df81db6b3510d51e67",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/modeled_context/publication_projection.py": "f2905c720d8d30f85185f0a418a0be98bfeadc67601d6f902645584855af4a11",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/modeled_context/validation.py": "69e36496b9527416184c8dbf3ece5bfbebbdb9163c2af48154c84d4d93869efa",
+      "packages/bijux-pollenomics/src/bijux_pollenomics/reporting/scope_policy.py": "390dedffd808188fa91c940c8ff4cc7efbac28993e44fc2c257a4bf2591aa644",
+      "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/atlas_browser/boundary_orientation_candidate.py": "304c9de112fe850ceb706a7c20d332430a206bea53e314d658c9479d49df2c9c"
+    },
+    "outputs_sha256": {
+      "_map_assets/leaflet/images/layers-2x.png": "066daca850d8ffbef007af00b06eac0015728dee279c51f3cb6c716df7c42edf",
+      "_map_assets/leaflet/images/layers.png": "1dbbe9d028e292f36fcba8f8b3a28d5e8932754fc2215b9ac69e4cdecf5107c6",
+      "_map_assets/leaflet/images/marker-icon-2x.png": "00179c4c1ee830d3a108412ae0d294f55776cfeb085c60129a39aa6fc4ae2528",
+      "_map_assets/leaflet/images/marker-icon.png": "574c3a5cca85f4114085b6841596d62f00d7c892c7b03f28cbfa301deb1dc437",
+      "_map_assets/leaflet/images/marker-shadow.png": "264f5c640339f042dd729062cfc04c17f8ea0f29882b538e3848ed8f10edb4da",
+      "_map_assets/leaflet/leaflet.css": "a7837102824184820dfa198d1ebcd109ff6d0ff9a2672a074b9a1b4d147d04c6",
+      "_map_assets/leaflet/leaflet.js": "db49d009c841f5ca34a888c96511ae936fd9f5533e90d8b2c4d57596f4e5641a",
+      "_map_assets/markercluster/MarkerCluster.Default.css": "61258232d98d64dc2a7b1e02130d67421bc5b9bda5994eef70228ff97570c170",
+      "_map_assets/markercluster/MarkerCluster.css": "614dea0a98ff3f4ead74f04918f6b1d1b9ba435c25b5fc23b21a394d1e3e4d87",
+      "_map_assets/markercluster/leaflet.markercluster.js": "1e4e1d22972a3926f48598e0caf14e3fe7049835d428a344fed4f9e3665b3508",
+      "index.html": "6cdb54fc09151dd432dd53c8751f46aaa293cf340b94d32e08f0bd6a76b60c2e"
+    }
+  },
+  "baseline": {
+    "browser_receipt": "../../../../artifacts/atlas-narrow-viewport-controls/browser-obstructed/receipt.json",
+    "browser_receipt_sha256": "bcaf35682c9d54367cb6833e0e6163323f774df0382641930b20d9ea8c6beaf2",
+    "verifier_sha256_at_run": "eae58d88ac44ffe04c9eed120f56c4528917e8ba78c09f704e512e3381d24818",
+    "status": "FAIL",
+    "renderer_sha256": "467cec301414e77267eddb30e939336ec822dafa8d85d9406c3fec03562967f5",
+    "topbar_rect": {
+      "x": 8,
+      "y": 8,
+      "width": 304,
+      "height": 210,
+      "top": 8,
+      "right": 312,
+      "bottom": 218,
+      "left": 8
+    },
+    "north_rect": {
+      "x": 258.4375,
+      "y": 176,
+      "width": 53.5625,
+      "height": 44,
+      "top": 176,
+      "right": 312,
+      "bottom": 220,
+      "left": 258.4375
+    },
+    "playback_rect": {
+      "x": 17,
+      "y": 171,
+      "width": 286,
+      "height": 38,
+      "top": 171,
+      "right": 303,
+      "bottom": 209,
+      "left": 17
+    },
+    "diagnostic_screenshot": {
+      "path": "320-diagnostic.png",
+      "sha256": "a4ce45220b98dc1878550154eb48b5ed26095c020ee0105fb2725a00c83f4442"
+    }
+  },
+  "browser_verification": {
+    "verifier": "../../../../packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/atlas_browser/narrow-viewport-controls.mjs",
+    "verifier_sha256": "ffc0c83829d5b8cefc1620f8735c6b854e11043e26c9c83abc43b7162b71c1c7",
+    "browser_receipt": "../../../../artifacts/atlas-narrow-viewport-controls/browser-breakpoint/receipt.json",
+    "browser_receipt_sha256": "1f29ba6c62bab07ef06ae99f9084693615ab2232d7c5600aa990abfd4bf67644",
+    "renderer_sha256": "47e2d3916a3116a565cfdd6ec6071014e4d16fd2ae4f13a661a2964f855084e1",
+    "served_files_sha256": {
+      "_map_assets/leaflet/leaflet.css": "a7837102824184820dfa198d1ebcd109ff6d0ff9a2672a074b9a1b4d147d04c6",
+      "_map_assets/leaflet/leaflet.js": "db49d009c841f5ca34a888c96511ae936fd9f5533e90d8b2c4d57596f4e5641a",
+      "_map_assets/markercluster/MarkerCluster.Default.css": "61258232d98d64dc2a7b1e02130d67421bc5b9bda5994eef70228ff97570c170",
+      "_map_assets/markercluster/MarkerCluster.css": "614dea0a98ff3f4ead74f04918f6b1d1b9ba435c25b5fc23b21a394d1e3e4d87",
+      "_map_assets/markercluster/leaflet.markercluster.js": "1e4e1d22972a3926f48598e0caf14e3fe7049835d428a344fed4f9e3665b3508",
+      "index.html": "6cdb54fc09151dd432dd53c8751f46aaa293cf340b94d32e08f0bd6a76b60c2e"
+    },
+    "browser": {
+      "protocolVersion": "1.3",
+      "product": "Chrome/153.0.8010.53",
+      "revision": "@b395074596c663e344272cde7f7d7bd3d496e7e",
+      "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+      "jsVersion": "15.3.76.13"
+    },
+    "scenarios": [
+      {
+        "width": 320,
+        "mode": "provider-failure",
+        "tile_requests": 24,
+        "street_tile_failures": 12,
+        "terrain_tile_failures": 12,
+        "attribution": {
+          "text": "Leaflet",
+          "links": [
+            {
+              "text": "Leaflet",
+              "href": "https://leafletjs.com/"
+            }
+          ],
+          "rect": {
+            "left": 250.65625,
+            "top": 356,
+            "right": 312,
+            "bottom": 372.796875,
+            "width": 61.34375,
+            "height": 16.796875
+          },
+          "visible": true,
+          "center_hit": true,
+          "link_center_hit": true,
+          "hit_class": "",
+          "overlaps_status": false,
+          "overlaps_scale": false,
+          "overlaps_legend": false,
+          "overlaps_north": false,
+          "overlaps_topbar": false
+        },
+        "zoom_control": {
+          "rect": {
+            "left": 268,
+            "top": 282,
+            "right": 302,
+            "bottom": 346,
+            "width": 34,
+            "height": 64
+          },
+          "plus_center_hit": true,
+          "minus_center_hit": true,
+          "overlaps_attribution": false,
+          "overlaps_north": false,
+          "overlaps_status": false,
+          "overlaps_scale": false,
+          "overlaps_legend": false,
+          "overlaps_topbar": false
+        },
+        "north_indicator": {
+          "role": "img",
+          "label": "North is up",
+          "text": "↑N",
+          "rect": {
+            "left": 258.4375,
+            "top": 230,
+            "right": 312,
+            "bottom": 274,
+            "width": 53.5625,
+            "height": 44
+          },
+          "visible": true,
+          "overlaps_topbar": false
+        },
+        "topbar_buttons": {
+          "fit-active": {
+            "rect": {
+              "left": 17,
+              "top": 17,
+              "right": 95.515625,
+              "bottom": 61,
+              "width": 78.515625,
+              "height": 44
+            },
+            "visible": true,
+            "center_hit": true,
+            "inside_viewport": true
+          },
+          "search-toggle": {
+            "rect": {
+              "left": 238.046875,
+              "top": 17,
+              "right": 303,
+              "bottom": 61,
+              "width": 64.953125,
+              "height": 44
+            },
+            "visible": true,
+            "center_hit": true,
+            "inside_viewport": true
+          },
+          "panel-toggle": {
+            "rect": {
+              "left": 17,
+              "top": 71,
+              "right": 140.375,
+              "bottom": 115,
+              "width": 123.375,
+              "height": 44
+            },
+            "visible": true,
+            "center_hit": true,
+            "inside_viewport": true
+          },
+          "time-step-older": {
+            "rect": {
+              "left": 17,
+              "top": 121,
+              "right": 91.59375,
+              "bottom": 165,
+              "width": 74.59375,
+              "height": 44
+            },
+            "visible": true,
+            "center_hit": true,
+            "inside_viewport": true
+          },
+          "time-stepper-status": {
+            "rect": {
+              "left": 97.59375,
+              "top": 126.03125,
+              "right": 217,
+              "bottom": 159.96875,
+              "width": 119.40625,
+              "height": 33.9375
+            },
+            "visible": true,
+            "center_hit": true,
+            "inside_viewport": true
+          },
+          "time-step-newer": {
+            "rect": {
+              "left": 223,
+              "top": 121,
+              "right": 303,
+              "bottom": 165,
+              "width": 80,
+              "height": 44
+            },
+            "visible": true,
+            "center_hit": true,
+            "inside_viewport": true
+          },
+          "time-playback-toggle": {
+            "rect": {
+              "left": 17,
+              "top": 171,
+              "right": 303,
+              "bottom": 209,
+              "width": 286,
+              "height": 38
+            },
+            "visible": true,
+            "center_hit": true,
+            "inside_viewport": true
+          }
+        },
+        "document_width": 320,
+        "status_rect": {
+          "left": 8,
+          "top": 746,
+          "right": 312,
+          "bottom": 892,
+          "width": 304,
+          "height": 146
+        },
+        "scale_rect": {
+          "left": 5,
+          "top": 705.8125,
+          "right": 65,
+          "bottom": 724,
+          "width": 60,
+          "height": 18.1875
+        },
+        "legend_control": {
+          "rect": {
+            "left": 238.3125,
+            "top": 671,
+            "right": 301,
+            "bottom": 715,
+            "width": 62.6875,
+            "height": 44
+          },
+          "visible": true,
+          "center_hit": true
+        },
+        "basemap_control": {
+          "rect": {
+            "left": 21,
+            "top": 833,
+            "right": 299,
+            "bottom": 881,
+            "width": 278,
+            "height": 48
+          },
+          "visible": true,
+          "center_hit": true
+        },
+        "screenshot": {
+          "path": "320-provider-failure.png",
+          "sha256": "ef9c4fc3a878720c1ccc6a64831b55972c23662a0eaa2e4b15b85c9a263e587b"
+        }
+      },
+      {
+        "width": 320,
+        "mode": "tile-free",
+        "tile_requests": 0,
+        "street_tile_failures": 0,
+        "terrain_tile_failures": 0,
+        "attribution": {
+          "text": "Leaflet",
+          "links": [
+            {
+              "text": "Leaflet",
+              "href": "https://leafletjs.com/"
+            }
+          ],
+          "rect": {
+            "left": 250.65625,
+            "top": 356,
+            "right": 312,
+            "bottom": 372.796875,
+            "width": 61.34375,
+            "height": 16.796875
+          },
+          "visible": true,
+          "center_hit": true,
+          "link_center_hit": true,
+          "hit_class": "",
+          "overlaps_status": false,
+          "overlaps_scale": false,
+          "overlaps_legend": false,
+          "overlaps_north": false,
+          "overlaps_topbar": false
+        },
+        "zoom_control": {
+          "rect": {
+            "left": 268,
+            "top": 282,
+            "right": 302,
+            "bottom": 346,
+            "width": 34,
+            "height": 64
+          },
+          "plus_center_hit": true,
+          "minus_center_hit": true,
+          "overlaps_attribution": false,
+          "overlaps_north": false,
+          "overlaps_status": false,
+          "overlaps_scale": false,
+          "overlaps_legend": false,
+          "overlaps_topbar": false
+        },
+        "north_indicator": {
+          "role": "img",
+          "label": "North is up",
+          "text": "↑N",
+          "rect": {
+            "left": 258.4375,
+            "top": 230,
+            "right": 312,
+            "bottom": 274,
+            "width": 53.5625,
+            "height": 44
+          },
+          "visible": true,
+          "overlaps_topbar": false
+        },
+        "topbar_buttons": {
+          "fit-active": {
+            "rect": {
+              "left": 17,
+              "top": 17,
+              "right": 95.515625,
+              "bottom": 61,
+              "width": 78.515625,
+              "height": 44
+            },
+            "visible": true,
+            "center_hit": true,
+            "inside_viewport": true
+          },
+          "search-toggle": {
+            "rect": {
+              "left": 238.046875,
+              "top": 17,
+              "right": 303,
+              "bottom": 61,
+              "width": 64.953125,
+              "height": 44
+            },
+            "visible": true,
+            "center_hit": true,
+            "inside_viewport": true
+          },
+          "panel-toggle": {
+            "rect": {
+              "left": 17,
+              "top": 71,
+              "right": 140.375,
+              "bottom": 115,
+              "width": 123.375,
+              "height": 44
+            },
+            "visible": true,
+            "center_hit": true,
+            "inside_viewport": true
+          },
+          "time-step-older": {
+            "rect": {
+              "left": 17,
+              "top": 121,
+              "right": 91.59375,
+              "bottom": 165,
+              "width": 74.59375,
+              "height": 44
+            },
+            "visible": true,
+            "center_hit": true,
+            "inside_viewport": true
+          },
+          "time-stepper-status": {
+            "rect": {
+              "left": 97.59375,
+              "top": 126.03125,
+              "right": 217,
+              "bottom": 159.96875,
+              "width": 119.40625,
+              "height": 33.9375
+            },
+            "visible": true,
+            "center_hit": true,
+            "inside_viewport": true
+          },
+          "time-step-newer": {
+            "rect": {
+              "left": 223,
+              "top": 121,
+              "right": 303,
+              "bottom": 165,
+              "width": 80,
+              "height": 44
+            },
+            "visible": true,
+            "center_hit": true,
+            "inside_viewport": true
+          },
+          "time-playback-toggle": {
+            "rect": {
+              "left": 17,
+              "top": 171,
+              "right": 303,
+              "bottom": 209,
+              "width": 286,
+              "height": 38
+            },
+            "visible": true,
+            "center_hit": true,
+            "inside_viewport": true
+          }
+        },
+        "document_width": 320,
+        "status_rect": {
+          "left": 8,
+          "top": 750,
+          "right": 312,
+          "bottom": 892,
+          "width": 304,
+          "height": 142
+        },
+        "scale_rect": {
+          "left": 5,
+          "top": 705.8125,
+          "right": 65,
+          "bottom": 724,
+          "width": 60,
+          "height": 18.1875
+        },
+        "legend_control": {
+          "rect": {
+            "left": 238.3125,
+            "top": 671,
+            "right": 301,
+            "bottom": 715,
+            "width": 62.6875,
+            "height": 44
+          },
+          "visible": true,
+          "center_hit": true
+        },
+        "basemap_control": {
+          "rect": {
+            "left": 21,
+            "top": 837,
+            "right": 299,
+            "bottom": 881,
+            "width": 278,
+            "height": 44
+          },
+          "visible": true,
+          "center_hit": true
+        },
+        "screenshot": {
+          "path": "320-tile-free.png",
+          "sha256": "b7ad59ff753454fbd9d166255b1bb1b6bd84e36fc92a3259997f41c864b09092"
+        }
+      },
+      {
+        "width": 360,
+        "mode": "provider-failure",
+        "tile_requests": 24,
+        "street_tile_failures": 12,
+        "terrain_tile_failures": 12,
+        "attribution": {
+          "text": "Leaflet",
+          "links": [
+            {
+              "text": "Leaflet",
+              "href": "https://leafletjs.com/"
+            }
+          ],
+          "rect": {
+            "left": 290.65625,
+            "top": 356,
+            "right": 352,
+            "bottom": 372.796875,
+            "width": 61.34375,
+            "height": 16.796875
+          },
+          "visible": true,
+          "center_hit": true,
+          "link_center_hit": true,
+          "hit_class": "",
+          "overlaps_status": false,
+          "overlaps_scale": false,
+          "overlaps_legend": false,
+          "overlaps_north": false,
+          "overlaps_topbar": false
+        },
+        "zoom_control": {
+          "rect": {
+            "left": 308,
+            "top": 282,
+            "right": 342,
+            "bottom": 346,
+            "width": 34,
+            "height": 64
+          },
+          "plus_center_hit": true,
+          "minus_center_hit": true,
+          "overlaps_attribution": false,
+          "overlaps_north": false,
+          "overlaps_status": false,
+          "overlaps_scale": false,
+          "overlaps_legend": false,
+          "overlaps_topbar": false
+        },
+        "north_indicator": {
+          "role": "img",
+          "label": "North is up",
+          "text": "↑N",
+          "rect": {
+            "left": 298.4375,
+            "top": 230,
+            "right": 352,
+            "bottom": 274,
+            "width": 53.5625,
+            "height": 44
+          },
+          "visible": true,
+          "overlaps_topbar": false
+        },
+        "topbar_buttons": {
+          "fit-active": {
+            "rect": {
+              "left": 17,
+              "top": 17,
+              "right": 95.515625,
+              "bottom": 61,
+              "width": 78.515625,
+              "height": 44
+            },
+            "visible": true,
+            "center_hit": true,
+            "inside_viewport": true
+          },
+          "search-toggle": {
+            "rect": {
+              "left": 105.515625,
+              "top": 17,
+              "right": 170.46875,
+              "bottom": 61,
+              "width": 64.953125,
+              "height": 44
+            },
+            "visible": true,
+            "center_hit": true,
+            "inside_viewport": true
+          },
+          "panel-toggle": {
+            "rect": {
+              "left": 180.46875,
+              "top": 17,
+              "right": 303.84375,
+              "bottom": 61,
+              "width": 123.375,
+              "height": 44
+            },
+            "visible": true,
+            "center_hit": true,
+            "inside_viewport": true
+          },
+          "time-step-older": {
+            "rect": {
+              "left": 17,
+              "top": 67,
+              "right": 91.59375,
+              "bottom": 111,
+              "width": 74.59375,
+              "height": 44
+            },
+            "visible": true,
+            "center_hit": true,
+            "inside_viewport": true
+          },
+          "time-stepper-status": {
+            "rect": {
+              "left": 97.59375,
+              "top": 72.03125,
+              "right": 257,
+              "bottom": 105.96875,
+              "width": 159.40625,
+              "height": 33.9375
+            },
+            "visible": true,
+            "center_hit": true,
+            "inside_viewport": true
+          },
+          "time-step-newer": {
+            "rect": {
+              "left": 263,
+              "top": 67,
+              "right": 343,
+              "bottom": 111,
+              "width": 80,
+              "height": 44
+            },
+            "visible": true,
+            "center_hit": true,
+            "inside_viewport": true
+          },
+          "time-playback-toggle": {
+            "rect": {
+              "left": 17,
+              "top": 117,
+              "right": 343,
+              "bottom": 155,
+              "width": 326,
+              "height": 38
+            },
+            "visible": true,
+            "center_hit": true,
+            "inside_viewport": true
+          }
+        },
+        "document_width": 360,
+        "status_rect": {
+          "left": 8,
+          "top": 750,
+          "right": 352,
+          "bottom": 892,
+          "width": 344,
+          "height": 142
+        },
+        "scale_rect": {
+          "left": 5,
+          "top": 705.8125,
+          "right": 65,
+          "bottom": 724,
+          "width": 60,
+          "height": 18.1875
+        },
+        "legend_control": {
+          "rect": {
+            "left": 278.3125,
+            "top": 671,
+            "right": 341,
+            "bottom": 715,
+            "width": 62.6875,
+            "height": 44
+          },
+          "visible": true,
+          "center_hit": true
+        },
+        "basemap_control": {
+          "rect": {
+            "left": 21,
+            "top": 837,
+            "right": 339,
+            "bottom": 881,
+            "width": 318,
+            "height": 44
+          },
+          "visible": true,
+          "center_hit": true
+        },
+        "screenshot": {
+          "path": "360-provider-failure.png",
+          "sha256": "214be34da7cf87e5441487998e925a618216c1e22c7838262b6e6a694ac73ba7"
+        }
+      },
+      {
+        "width": 360,
+        "mode": "tile-free",
+        "tile_requests": 0,
+        "street_tile_failures": 0,
+        "terrain_tile_failures": 0,
+        "attribution": {
+          "text": "Leaflet",
+          "links": [
+            {
+              "text": "Leaflet",
+              "href": "https://leafletjs.com/"
+            }
+          ],
+          "rect": {
+            "left": 290.65625,
+            "top": 356,
+            "right": 352,
+            "bottom": 372.796875,
+            "width": 61.34375,
+            "height": 16.796875
+          },
+          "visible": true,
+          "center_hit": true,
+          "link_center_hit": true,
+          "hit_class": "",
+          "overlaps_status": false,
+          "overlaps_scale": false,
+          "overlaps_legend": false,
+          "overlaps_north": false,
+          "overlaps_topbar": false
+        },
+        "zoom_control": {
+          "rect": {
+            "left": 308,
+            "top": 282,
+            "right": 342,
+            "bottom": 346,
+            "width": 34,
+            "height": 64
+          },
+          "plus_center_hit": true,
+          "minus_center_hit": true,
+          "overlaps_attribution": false,
+          "overlaps_north": false,
+          "overlaps_status": false,
+          "overlaps_scale": false,
+          "overlaps_legend": false,
+          "overlaps_topbar": false
+        },
+        "north_indicator": {
+          "role": "img",
+          "label": "North is up",
+          "text": "↑N",
+          "rect": {
+            "left": 298.4375,
+            "top": 230,
+            "right": 352,
+            "bottom": 274,
+            "width": 53.5625,
+            "height": 44
+          },
+          "visible": true,
+          "overlaps_topbar": false
+        },
+        "topbar_buttons": {
+          "fit-active": {
+            "rect": {
+              "left": 17,
+              "top": 17,
+              "right": 95.515625,
+              "bottom": 61,
+              "width": 78.515625,
+              "height": 44
+            },
+            "visible": true,
+            "center_hit": true,
+            "inside_viewport": true
+          },
+          "search-toggle": {
+            "rect": {
+              "left": 105.515625,
+              "top": 17,
+              "right": 170.46875,
+              "bottom": 61,
+              "width": 64.953125,
+              "height": 44
+            },
+            "visible": true,
+            "center_hit": true,
+            "inside_viewport": true
+          },
+          "panel-toggle": {
+            "rect": {
+              "left": 180.46875,
+              "top": 17,
+              "right": 303.84375,
+              "bottom": 61,
+              "width": 123.375,
+              "height": 44
+            },
+            "visible": true,
+            "center_hit": true,
+            "inside_viewport": true
+          },
+          "time-step-older": {
+            "rect": {
+              "left": 17,
+              "top": 67,
+              "right": 91.59375,
+              "bottom": 111,
+              "width": 74.59375,
+              "height": 44
+            },
+            "visible": true,
+            "center_hit": true,
+            "inside_viewport": true
+          },
+          "time-stepper-status": {
+            "rect": {
+              "left": 97.59375,
+              "top": 72.03125,
+              "right": 257,
+              "bottom": 105.96875,
+              "width": 159.40625,
+              "height": 33.9375
+            },
+            "visible": true,
+            "center_hit": true,
+            "inside_viewport": true
+          },
+          "time-step-newer": {
+            "rect": {
+              "left": 263,
+              "top": 67,
+              "right": 343,
+              "bottom": 111,
+              "width": 80,
+              "height": 44
+            },
+            "visible": true,
+            "center_hit": true,
+            "inside_viewport": true
+          },
+          "time-playback-toggle": {
+            "rect": {
+              "left": 17,
+              "top": 117,
+              "right": 343,
+              "bottom": 155,
+              "width": 326,
+              "height": 38
+            },
+            "visible": true,
+            "center_hit": true,
+            "inside_viewport": true
+          }
+        },
+        "document_width": 360,
+        "status_rect": {
+          "left": 8,
+          "top": 750,
+          "right": 352,
+          "bottom": 892,
+          "width": 344,
+          "height": 142
+        },
+        "scale_rect": {
+          "left": 5,
+          "top": 705.8125,
+          "right": 65,
+          "bottom": 724,
+          "width": 60,
+          "height": 18.1875
+        },
+        "legend_control": {
+          "rect": {
+            "left": 278.3125,
+            "top": 671,
+            "right": 341,
+            "bottom": 715,
+            "width": 62.6875,
+            "height": 44
+          },
+          "visible": true,
+          "center_hit": true
+        },
+        "basemap_control": {
+          "rect": {
+            "left": 21,
+            "top": 837,
+            "right": 339,
+            "bottom": 881,
+            "width": 318,
+            "height": 44
+          },
+          "visible": true,
+          "center_hit": true
+        },
+        "screenshot": {
+          "path": "360-tile-free.png",
+          "sha256": "1243e3e42638df9c8c8beb86eace29c8e8ed67e9999f0731a78f28d2aee25b45"
+        }
+      },
+      {
+        "width": 361,
+        "mode": "provider-failure",
+        "tile_requests": 24,
+        "street_tile_failures": 12,
+        "terrain_tile_failures": 12,
+        "attribution": {
+          "text": "Leaflet",
+          "links": [
+            {
+              "text": "Leaflet",
+              "href": "https://leafletjs.com/"
+            }
+          ],
+          "rect": {
+            "left": 291.65625,
+            "top": 302,
+            "right": 353,
+            "bottom": 318.796875,
+            "width": 61.34375,
+            "height": 16.796875
+          },
+          "visible": true,
+          "center_hit": true,
+          "link_center_hit": true,
+          "hit_class": "",
+          "overlaps_status": false,
+          "overlaps_scale": false,
+          "overlaps_legend": false,
+          "overlaps_north": false,
+          "overlaps_topbar": false
+        },
+        "zoom_control": {
+          "rect": {
+            "left": 309,
+            "top": 228,
+            "right": 343,
+            "bottom": 292,
+            "width": 34,
+            "height": 64
+          },
+          "plus_center_hit": true,
+          "minus_center_hit": true,
+          "overlaps_attribution": false,
+          "overlaps_north": false,
+          "overlaps_status": false,
+          "overlaps_scale": false,
+          "overlaps_legend": false,
+          "overlaps_topbar": false
+        },
+        "north_indicator": {
+          "role": "img",
+          "label": "North is up",
+          "text": "↑N",
+          "rect": {
+            "left": 299.4375,
+            "top": 176,
+            "right": 353,
+            "bottom": 220,
+            "width": 53.5625,
+            "height": 44
+          },
+          "visible": true,
+          "overlaps_topbar": false
+        },
+        "topbar_buttons": {
+          "fit-active": {
+            "rect": {
+              "left": 17,
+              "top": 17,
+              "right": 95.515625,
+              "bottom": 61,
+              "width": 78.515625,
+              "height": 44
+            },
+            "visible": true,
+            "center_hit": true,
+            "inside_viewport": true
+          },
+          "search-toggle": {
+            "rect": {
+              "left": 105.515625,
+              "top": 17,
+              "right": 170.46875,
+              "bottom": 61,
+              "width": 64.953125,
+              "height": 44
+            },
+            "visible": true,
+            "center_hit": true,
+            "inside_viewport": true
+          },
+          "panel-toggle": {
+            "rect": {
+              "left": 180.46875,
+              "top": 17,
+              "right": 303.84375,
+              "bottom": 61,
+              "width": 123.375,
+              "height": 44
+            },
+            "visible": true,
+            "center_hit": true,
+            "inside_viewport": true
+          },
+          "time-step-older": {
+            "rect": {
+              "left": 17,
+              "top": 67,
+              "right": 91.59375,
+              "bottom": 111,
+              "width": 74.59375,
+              "height": 44
+            },
+            "visible": true,
+            "center_hit": true,
+            "inside_viewport": true
+          },
+          "time-stepper-status": {
+            "rect": {
+              "left": 97.59375,
+              "top": 72.03125,
+              "right": 258,
+              "bottom": 105.96875,
+              "width": 160.40625,
+              "height": 33.9375
+            },
+            "visible": true,
+            "center_hit": true,
+            "inside_viewport": true
+          },
+          "time-step-newer": {
+            "rect": {
+              "left": 264,
+              "top": 67,
+              "right": 344,
+              "bottom": 111,
+              "width": 80,
+              "height": 44
+            },
+            "visible": true,
+            "center_hit": true,
+            "inside_viewport": true
+          },
+          "time-playback-toggle": {
+            "rect": {
+              "left": 17,
+              "top": 117,
+              "right": 344,
+              "bottom": 155,
+              "width": 327,
+              "height": 38
+            },
+            "visible": true,
+            "center_hit": true,
+            "inside_viewport": true
+          }
+        },
+        "document_width": 361,
+        "status_rect": {
+          "left": 8,
+          "top": 750,
+          "right": 353,
+          "bottom": 892,
+          "width": 345,
+          "height": 142
+        },
+        "scale_rect": {
+          "left": 5,
+          "top": 705.8125,
+          "right": 65,
+          "bottom": 724,
+          "width": 60,
+          "height": 18.1875
+        },
+        "legend_control": {
+          "rect": {
+            "left": 279.3125,
+            "top": 671,
+            "right": 342,
+            "bottom": 715,
+            "width": 62.6875,
+            "height": 44
+          },
+          "visible": true,
+          "center_hit": true
+        },
+        "basemap_control": {
+          "rect": {
+            "left": 21,
+            "top": 837,
+            "right": 340,
+            "bottom": 881,
+            "width": 319,
+            "height": 44
+          },
+          "visible": true,
+          "center_hit": true
+        },
+        "screenshot": {
+          "path": "361-provider-failure.png",
+          "sha256": "f09341a48447d3c68d9738c6e4f3376546bfa327e200065ad65610086703b374"
+        }
+      },
+      {
+        "width": 361,
+        "mode": "tile-free",
+        "tile_requests": 0,
+        "street_tile_failures": 0,
+        "terrain_tile_failures": 0,
+        "attribution": {
+          "text": "Leaflet",
+          "links": [
+            {
+              "text": "Leaflet",
+              "href": "https://leafletjs.com/"
+            }
+          ],
+          "rect": {
+            "left": 291.65625,
+            "top": 302,
+            "right": 353,
+            "bottom": 318.796875,
+            "width": 61.34375,
+            "height": 16.796875
+          },
+          "visible": true,
+          "center_hit": true,
+          "link_center_hit": true,
+          "hit_class": "",
+          "overlaps_status": false,
+          "overlaps_scale": false,
+          "overlaps_legend": false,
+          "overlaps_north": false,
+          "overlaps_topbar": false
+        },
+        "zoom_control": {
+          "rect": {
+            "left": 309,
+            "top": 228,
+            "right": 343,
+            "bottom": 292,
+            "width": 34,
+            "height": 64
+          },
+          "plus_center_hit": true,
+          "minus_center_hit": true,
+          "overlaps_attribution": false,
+          "overlaps_north": false,
+          "overlaps_status": false,
+          "overlaps_scale": false,
+          "overlaps_legend": false,
+          "overlaps_topbar": false
+        },
+        "north_indicator": {
+          "role": "img",
+          "label": "North is up",
+          "text": "↑N",
+          "rect": {
+            "left": 299.4375,
+            "top": 176,
+            "right": 353,
+            "bottom": 220,
+            "width": 53.5625,
+            "height": 44
+          },
+          "visible": true,
+          "overlaps_topbar": false
+        },
+        "topbar_buttons": {
+          "fit-active": {
+            "rect": {
+              "left": 17,
+              "top": 17,
+              "right": 95.515625,
+              "bottom": 61,
+              "width": 78.515625,
+              "height": 44
+            },
+            "visible": true,
+            "center_hit": true,
+            "inside_viewport": true
+          },
+          "search-toggle": {
+            "rect": {
+              "left": 105.515625,
+              "top": 17,
+              "right": 170.46875,
+              "bottom": 61,
+              "width": 64.953125,
+              "height": 44
+            },
+            "visible": true,
+            "center_hit": true,
+            "inside_viewport": true
+          },
+          "panel-toggle": {
+            "rect": {
+              "left": 180.46875,
+              "top": 17,
+              "right": 303.84375,
+              "bottom": 61,
+              "width": 123.375,
+              "height": 44
+            },
+            "visible": true,
+            "center_hit": true,
+            "inside_viewport": true
+          },
+          "time-step-older": {
+            "rect": {
+              "left": 17,
+              "top": 67,
+              "right": 91.59375,
+              "bottom": 111,
+              "width": 74.59375,
+              "height": 44
+            },
+            "visible": true,
+            "center_hit": true,
+            "inside_viewport": true
+          },
+          "time-stepper-status": {
+            "rect": {
+              "left": 97.59375,
+              "top": 72.03125,
+              "right": 258,
+              "bottom": 105.96875,
+              "width": 160.40625,
+              "height": 33.9375
+            },
+            "visible": true,
+            "center_hit": true,
+            "inside_viewport": true
+          },
+          "time-step-newer": {
+            "rect": {
+              "left": 264,
+              "top": 67,
+              "right": 344,
+              "bottom": 111,
+              "width": 80,
+              "height": 44
+            },
+            "visible": true,
+            "center_hit": true,
+            "inside_viewport": true
+          },
+          "time-playback-toggle": {
+            "rect": {
+              "left": 17,
+              "top": 117,
+              "right": 344,
+              "bottom": 155,
+              "width": 327,
+              "height": 38
+            },
+            "visible": true,
+            "center_hit": true,
+            "inside_viewport": true
+          }
+        },
+        "document_width": 361,
+        "status_rect": {
+          "left": 8,
+          "top": 750,
+          "right": 353,
+          "bottom": 892,
+          "width": 345,
+          "height": 142
+        },
+        "scale_rect": {
+          "left": 5,
+          "top": 705.8125,
+          "right": 65,
+          "bottom": 724,
+          "width": 60,
+          "height": 18.1875
+        },
+        "legend_control": {
+          "rect": {
+            "left": 279.3125,
+            "top": 671,
+            "right": 342,
+            "bottom": 715,
+            "width": 62.6875,
+            "height": 44
+          },
+          "visible": true,
+          "center_hit": true
+        },
+        "basemap_control": {
+          "rect": {
+            "left": 21,
+            "top": 837,
+            "right": 340,
+            "bottom": 881,
+            "width": 319,
+            "height": 44
+          },
+          "visible": true,
+          "center_hit": true
+        },
+        "screenshot": {
+          "path": "361-tile-free.png",
+          "sha256": "8eefb2d1997738c0427e5b1afd75e5924828d7b2b54412df5259d8c74dc633a2"
+        }
+      },
+      {
+        "width": 390,
+        "mode": "provider-failure",
+        "tile_requests": 24,
+        "street_tile_failures": 12,
+        "terrain_tile_failures": 12,
+        "attribution": {
+          "text": "Leaflet",
+          "links": [
+            {
+              "text": "Leaflet",
+              "href": "https://leafletjs.com/"
+            }
+          ],
+          "rect": {
+            "left": 320.65625,
+            "top": 302,
+            "right": 382,
+            "bottom": 318.796875,
+            "width": 61.34375,
+            "height": 16.796875
+          },
+          "visible": true,
+          "center_hit": true,
+          "link_center_hit": true,
+          "hit_class": "",
+          "overlaps_status": false,
+          "overlaps_scale": false,
+          "overlaps_legend": false,
+          "overlaps_north": false,
+          "overlaps_topbar": false
+        },
+        "zoom_control": {
+          "rect": {
+            "left": 338,
+            "top": 228,
+            "right": 372,
+            "bottom": 292,
+            "width": 34,
+            "height": 64
+          },
+          "plus_center_hit": true,
+          "minus_center_hit": true,
+          "overlaps_attribution": false,
+          "overlaps_north": false,
+          "overlaps_status": false,
+          "overlaps_scale": false,
+          "overlaps_legend": false,
+          "overlaps_topbar": false
+        },
+        "north_indicator": {
+          "role": "img",
+          "label": "North is up",
+          "text": "↑N",
+          "rect": {
+            "left": 328.4375,
+            "top": 176,
+            "right": 382,
+            "bottom": 220,
+            "width": 53.5625,
+            "height": 44
+          },
+          "visible": true,
+          "overlaps_topbar": false
+        },
+        "topbar_buttons": {
+          "fit-active": {
+            "rect": {
+              "left": 17,
+              "top": 17,
+              "right": 95.515625,
+              "bottom": 61,
+              "width": 78.515625,
+              "height": 44
+            },
+            "visible": true,
+            "center_hit": true,
+            "inside_viewport": true
+          },
+          "search-toggle": {
+            "rect": {
+              "left": 105.515625,
+              "top": 17,
+              "right": 170.46875,
+              "bottom": 61,
+              "width": 64.953125,
+              "height": 44
+            },
+            "visible": true,
+            "center_hit": true,
+            "inside_viewport": true
+          },
+          "panel-toggle": {
+            "rect": {
+              "left": 180.46875,
+              "top": 17,
+              "right": 303.84375,
+              "bottom": 61,
+              "width": 123.375,
+              "height": 44
+            },
+            "visible": true,
+            "center_hit": true,
+            "inside_viewport": true
+          },
+          "time-step-older": {
+            "rect": {
+              "left": 17,
+              "top": 67,
+              "right": 91.59375,
+              "bottom": 111,
+              "width": 74.59375,
+              "height": 44
+            },
+            "visible": true,
+            "center_hit": true,
+            "inside_viewport": true
+          },
+          "time-stepper-status": {
+            "rect": {
+              "left": 97.59375,
+              "top": 72.03125,
+              "right": 287,
+              "bottom": 105.96875,
+              "width": 189.40625,
+              "height": 33.9375
+            },
+            "visible": true,
+            "center_hit": true,
+            "inside_viewport": true
+          },
+          "time-step-newer": {
+            "rect": {
+              "left": 293,
+              "top": 67,
+              "right": 373,
+              "bottom": 111,
+              "width": 80,
+              "height": 44
+            },
+            "visible": true,
+            "center_hit": true,
+            "inside_viewport": true
+          },
+          "time-playback-toggle": {
+            "rect": {
+              "left": 17,
+              "top": 117,
+              "right": 373,
+              "bottom": 155,
+              "width": 356,
+              "height": 38
+            },
+            "visible": true,
+            "center_hit": true,
+            "inside_viewport": true
+          }
+        },
+        "document_width": 390,
+        "status_rect": {
+          "left": 8,
+          "top": 750,
+          "right": 382,
+          "bottom": 892,
+          "width": 374,
+          "height": 142
+        },
+        "scale_rect": {
+          "left": 5,
+          "top": 705.8125,
+          "right": 65,
+          "bottom": 724,
+          "width": 60,
+          "height": 18.1875
+        },
+        "legend_control": {
+          "rect": {
+            "left": 308.3125,
+            "top": 671,
+            "right": 371,
+            "bottom": 715,
+            "width": 62.6875,
+            "height": 44
+          },
+          "visible": true,
+          "center_hit": true
+        },
+        "basemap_control": {
+          "rect": {
+            "left": 21,
+            "top": 837,
+            "right": 369,
+            "bottom": 881,
+            "width": 348,
+            "height": 44
+          },
+          "visible": true,
+          "center_hit": true
+        },
+        "screenshot": {
+          "path": "390-provider-failure.png",
+          "sha256": "bb6a5e5cef88529e396e8fa689ef7d6aadf137d589061c35fbef357f46a0570c"
+        }
+      },
+      {
+        "width": 390,
+        "mode": "tile-free",
+        "tile_requests": 0,
+        "street_tile_failures": 0,
+        "terrain_tile_failures": 0,
+        "attribution": {
+          "text": "Leaflet",
+          "links": [
+            {
+              "text": "Leaflet",
+              "href": "https://leafletjs.com/"
+            }
+          ],
+          "rect": {
+            "left": 320.65625,
+            "top": 302,
+            "right": 382,
+            "bottom": 318.796875,
+            "width": 61.34375,
+            "height": 16.796875
+          },
+          "visible": true,
+          "center_hit": true,
+          "link_center_hit": true,
+          "hit_class": "",
+          "overlaps_status": false,
+          "overlaps_scale": false,
+          "overlaps_legend": false,
+          "overlaps_north": false,
+          "overlaps_topbar": false
+        },
+        "zoom_control": {
+          "rect": {
+            "left": 338,
+            "top": 228,
+            "right": 372,
+            "bottom": 292,
+            "width": 34,
+            "height": 64
+          },
+          "plus_center_hit": true,
+          "minus_center_hit": true,
+          "overlaps_attribution": false,
+          "overlaps_north": false,
+          "overlaps_status": false,
+          "overlaps_scale": false,
+          "overlaps_legend": false,
+          "overlaps_topbar": false
+        },
+        "north_indicator": {
+          "role": "img",
+          "label": "North is up",
+          "text": "↑N",
+          "rect": {
+            "left": 328.4375,
+            "top": 176,
+            "right": 382,
+            "bottom": 220,
+            "width": 53.5625,
+            "height": 44
+          },
+          "visible": true,
+          "overlaps_topbar": false
+        },
+        "topbar_buttons": {
+          "fit-active": {
+            "rect": {
+              "left": 17,
+              "top": 17,
+              "right": 95.515625,
+              "bottom": 61,
+              "width": 78.515625,
+              "height": 44
+            },
+            "visible": true,
+            "center_hit": true,
+            "inside_viewport": true
+          },
+          "search-toggle": {
+            "rect": {
+              "left": 105.515625,
+              "top": 17,
+              "right": 170.46875,
+              "bottom": 61,
+              "width": 64.953125,
+              "height": 44
+            },
+            "visible": true,
+            "center_hit": true,
+            "inside_viewport": true
+          },
+          "panel-toggle": {
+            "rect": {
+              "left": 180.46875,
+              "top": 17,
+              "right": 303.84375,
+              "bottom": 61,
+              "width": 123.375,
+              "height": 44
+            },
+            "visible": true,
+            "center_hit": true,
+            "inside_viewport": true
+          },
+          "time-step-older": {
+            "rect": {
+              "left": 17,
+              "top": 67,
+              "right": 91.59375,
+              "bottom": 111,
+              "width": 74.59375,
+              "height": 44
+            },
+            "visible": true,
+            "center_hit": true,
+            "inside_viewport": true
+          },
+          "time-stepper-status": {
+            "rect": {
+              "left": 97.59375,
+              "top": 72.03125,
+              "right": 287,
+              "bottom": 105.96875,
+              "width": 189.40625,
+              "height": 33.9375
+            },
+            "visible": true,
+            "center_hit": true,
+            "inside_viewport": true
+          },
+          "time-step-newer": {
+            "rect": {
+              "left": 293,
+              "top": 67,
+              "right": 373,
+              "bottom": 111,
+              "width": 80,
+              "height": 44
+            },
+            "visible": true,
+            "center_hit": true,
+            "inside_viewport": true
+          },
+          "time-playback-toggle": {
+            "rect": {
+              "left": 17,
+              "top": 117,
+              "right": 373,
+              "bottom": 155,
+              "width": 356,
+              "height": 38
+            },
+            "visible": true,
+            "center_hit": true,
+            "inside_viewport": true
+          }
+        },
+        "document_width": 390,
+        "status_rect": {
+          "left": 8,
+          "top": 750,
+          "right": 382,
+          "bottom": 892,
+          "width": 374,
+          "height": 142
+        },
+        "scale_rect": {
+          "left": 5,
+          "top": 705.8125,
+          "right": 65,
+          "bottom": 724,
+          "width": 60,
+          "height": 18.1875
+        },
+        "legend_control": {
+          "rect": {
+            "left": 308.3125,
+            "top": 671,
+            "right": 371,
+            "bottom": 715,
+            "width": 62.6875,
+            "height": 44
+          },
+          "visible": true,
+          "center_hit": true
+        },
+        "basemap_control": {
+          "rect": {
+            "left": 21,
+            "top": 837,
+            "right": 369,
+            "bottom": 881,
+            "width": 348,
+            "height": 44
+          },
+          "visible": true,
+          "center_hit": true
+        },
+        "screenshot": {
+          "path": "390-tile-free.png",
+          "sha256": "6e33162d23175f57f9575345878002f320a2e37142aed9c965735ab23c4e4749"
+        }
+      },
+      {
+        "width": 1440,
+        "mode": "provider-failure",
+        "tile_requests": 48,
+        "street_tile_failures": 24,
+        "terrain_tile_failures": 24,
+        "attribution": {
+          "text": "Leaflet",
+          "links": [
+            {
+              "text": "Leaflet",
+              "href": "https://leafletjs.com/"
+            }
+          ],
+          "rect": {
+            "left": 1362.65625,
+            "top": 146,
+            "right": 1424,
+            "bottom": 162.796875,
+            "width": 61.34375,
+            "height": 16.796875
+          },
+          "visible": true,
+          "center_hit": true,
+          "link_center_hit": true,
+          "hit_class": "",
+          "overlaps_status": false,
+          "overlaps_scale": false,
+          "overlaps_legend": false,
+          "overlaps_north": false,
+          "overlaps_topbar": false
+        },
+        "zoom_control": {
+          "rect": {
+            "left": 1380,
+            "top": 72,
+            "right": 1414,
+            "bottom": 136,
+            "width": 34,
+            "height": 64
+          },
+          "plus_center_hit": true,
+          "minus_center_hit": true,
+          "overlaps_attribution": false,
+          "overlaps_north": false,
+          "overlaps_status": false,
+          "overlaps_scale": false,
+          "overlaps_legend": false,
+          "overlaps_topbar": false
+        },
+        "north_indicator": {
+          "role": "img",
+          "label": "North is up",
+          "text": "↑N",
+          "rect": {
+            "left": 1370.4375,
+            "top": 16,
+            "right": 1424,
+            "bottom": 60,
+            "width": 53.5625,
+            "height": 44
+          },
+          "visible": true,
+          "overlaps_topbar": false
+        },
+        "topbar_buttons": {
+          "fit-active": {
+            "rect": {
+              "left": 29,
+              "top": 70,
+              "right": 107.515625,
+              "bottom": 104,
+              "width": 78.515625,
+              "height": 34
+            },
+            "visible": true,
+            "center_hit": true,
+            "inside_viewport": true
+          },
+          "search-toggle": {
+            "rect": {
+              "left": 117.515625,
+              "top": 70,
+              "right": 182.46875,
+              "bottom": 104,
+              "width": 64.953125,
+              "height": 34
+            },
+            "visible": true,
+            "center_hit": true,
+            "inside_viewport": true
+          },
+          "panel-toggle": {
+            "rect": {
+              "left": 192.46875,
+              "top": 70,
+              "right": 315.84375,
+              "bottom": 104,
+              "width": 123.375,
+              "height": 34
+            },
+            "visible": true,
+            "center_hit": true,
+            "inside_viewport": true
+          },
+          "time-step-older": {
+            "rect": {
+              "left": 29,
+              "top": 116,
+              "right": 103.59375,
+              "bottom": 150,
+              "width": 74.59375,
+              "height": 34
+            },
+            "visible": true,
+            "center_hit": true,
+            "inside_viewport": true
+          },
+          "time-stepper-status": {
+            "rect": {
+              "left": 111.59375,
+              "top": 116.03125,
+              "right": 474.5625,
+              "bottom": 149.96875,
+              "width": 362.96875,
+              "height": 33.9375
+            },
+            "visible": true,
+            "center_hit": true,
+            "inside_viewport": true
+          },
+          "time-step-newer": {
+            "rect": {
+              "left": 482.5625,
+              "top": 116,
+              "right": 562.5625,
+              "bottom": 150,
+              "width": 80,
+              "height": 34
+            },
+            "visible": true,
+            "center_hit": true,
+            "inside_viewport": true
+          },
+          "time-playback-toggle": {
+            "rect": {
+              "left": 570.5625,
+              "top": 114,
+              "right": 723,
+              "bottom": 152,
+              "width": 152.4375,
+              "height": 38
+            },
+            "visible": true,
+            "center_hit": true,
+            "inside_viewport": true
+          }
+        },
+        "document_width": 1440,
+        "status_rect": {
+          "left": 332.625,
+          "top": 817,
+          "right": 1424,
+          "bottom": 876,
+          "width": 1091.375,
+          "height": 59
+        },
+        "scale_rect": {
+          "left": 5,
+          "top": 876.8125,
+          "right": 76,
+          "bottom": 895,
+          "width": 71,
+          "height": 18.1875
+        },
+        "legend_control": {
+          "rect": {
+            "left": 1350.3125,
+            "top": 774,
+            "right": 1413,
+            "bottom": 803,
+            "width": 62.6875,
+            "height": 29
+          },
+          "visible": true,
+          "center_hit": true
+        },
+        "basemap_control": {
+          "rect": {
+            "left": 865.953125,
+            "top": 847,
+            "right": 1407,
+            "bottom": 863,
+            "width": 541.046875,
+            "height": 16
+          },
+          "visible": true,
+          "center_hit": true
+        },
+        "screenshot": {
+          "path": "1440-provider-failure.png",
+          "sha256": "2dc77e54dd616012288ab1c1a84861e98824da661af67982ee1ecd8d2972b273"
+        }
+      },
+      {
+        "width": 1440,
+        "mode": "tile-free",
+        "tile_requests": 0,
+        "street_tile_failures": 0,
+        "terrain_tile_failures": 0,
+        "attribution": {
+          "text": "Leaflet",
+          "links": [
+            {
+              "text": "Leaflet",
+              "href": "https://leafletjs.com/"
+            }
+          ],
+          "rect": {
+            "left": 1362.65625,
+            "top": 146,
+            "right": 1424,
+            "bottom": 162.796875,
+            "width": 61.34375,
+            "height": 16.796875
+          },
+          "visible": true,
+          "center_hit": true,
+          "link_center_hit": true,
+          "hit_class": "",
+          "overlaps_status": false,
+          "overlaps_scale": false,
+          "overlaps_legend": false,
+          "overlaps_north": false,
+          "overlaps_topbar": false
+        },
+        "zoom_control": {
+          "rect": {
+            "left": 1380,
+            "top": 72,
+            "right": 1414,
+            "bottom": 136,
+            "width": 34,
+            "height": 64
+          },
+          "plus_center_hit": true,
+          "minus_center_hit": true,
+          "overlaps_attribution": false,
+          "overlaps_north": false,
+          "overlaps_status": false,
+          "overlaps_scale": false,
+          "overlaps_legend": false,
+          "overlaps_topbar": false
+        },
+        "north_indicator": {
+          "role": "img",
+          "label": "North is up",
+          "text": "↑N",
+          "rect": {
+            "left": 1370.4375,
+            "top": 16,
+            "right": 1424,
+            "bottom": 60,
+            "width": 53.5625,
+            "height": 44
+          },
+          "visible": true,
+          "overlaps_topbar": false
+        },
+        "topbar_buttons": {
+          "fit-active": {
+            "rect": {
+              "left": 29,
+              "top": 70,
+              "right": 107.515625,
+              "bottom": 104,
+              "width": 78.515625,
+              "height": 34
+            },
+            "visible": true,
+            "center_hit": true,
+            "inside_viewport": true
+          },
+          "search-toggle": {
+            "rect": {
+              "left": 117.515625,
+              "top": 70,
+              "right": 182.46875,
+              "bottom": 104,
+              "width": 64.953125,
+              "height": 34
+            },
+            "visible": true,
+            "center_hit": true,
+            "inside_viewport": true
+          },
+          "panel-toggle": {
+            "rect": {
+              "left": 192.46875,
+              "top": 70,
+              "right": 315.84375,
+              "bottom": 104,
+              "width": 123.375,
+              "height": 34
+            },
+            "visible": true,
+            "center_hit": true,
+            "inside_viewport": true
+          },
+          "time-step-older": {
+            "rect": {
+              "left": 29,
+              "top": 116,
+              "right": 103.59375,
+              "bottom": 150,
+              "width": 74.59375,
+              "height": 34
+            },
+            "visible": true,
+            "center_hit": true,
+            "inside_viewport": true
+          },
+          "time-stepper-status": {
+            "rect": {
+              "left": 111.59375,
+              "top": 116.03125,
+              "right": 474.5625,
+              "bottom": 149.96875,
+              "width": 362.96875,
+              "height": 33.9375
+            },
+            "visible": true,
+            "center_hit": true,
+            "inside_viewport": true
+          },
+          "time-step-newer": {
+            "rect": {
+              "left": 482.5625,
+              "top": 116,
+              "right": 562.5625,
+              "bottom": 150,
+              "width": 80,
+              "height": 34
+            },
+            "visible": true,
+            "center_hit": true,
+            "inside_viewport": true
+          },
+          "time-playback-toggle": {
+            "rect": {
+              "left": 570.5625,
+              "top": 114,
+              "right": 723,
+              "bottom": 152,
+              "width": 152.4375,
+              "height": 38
+            },
+            "visible": true,
+            "center_hit": true,
+            "inside_viewport": true
+          }
+        },
+        "document_width": 1440,
+        "status_rect": {
+          "left": 524.5625,
+          "top": 817,
+          "right": 1424,
+          "bottom": 876,
+          "width": 899.4375,
+          "height": 59
+        },
+        "scale_rect": {
+          "left": 5,
+          "top": 876.8125,
+          "right": 76,
+          "bottom": 895,
+          "width": 71,
+          "height": 18.1875
+        },
+        "legend_control": {
+          "rect": {
+            "left": 1350.3125,
+            "top": 774,
+            "right": 1413,
+            "bottom": 803,
+            "width": 62.6875,
+            "height": 29
+          },
+          "visible": true,
+          "center_hit": true
+        },
+        "basemap_control": {
+          "rect": {
+            "left": 1057.890625,
+            "top": 847,
+            "right": 1407,
+            "bottom": 863,
+            "width": 349.109375,
+            "height": 16
+          },
+          "visible": true,
+          "center_hit": true
+        },
+        "screenshot": {
+          "path": "1440-tile-free.png",
+          "sha256": "001eea0ff03fb9651cbee84c22010a8e48c509189d7d17463f2df8101bb2309f"
+        }
+      }
+    ],
+    "runtime_errors": []
+  },
+  "selected_checks": {
+    "browser_semantics": "82 passed in 7.18s",
+    "ruff_check_and_format": "PASS; owned focused test",
+    "node_syntax": "PASS; narrow viewport browser verifier",
+    "diff_check": "PASS; renderer change",
+    "source_closure": "PASS; all 61 source inputs, 11 candidate outputs, 6 served files, 10 screenshot hashes, verifier, and renderer checked"
+  },
+  "limitations": [
+    "Four controlled schematic rectangles are not admitted Nordic borders or scientific evidence.",
+    "These local Brave scenarios do not establish provider service availability, provider terms, a full browser matrix, or a full accessibility audit."
+  ]
+}

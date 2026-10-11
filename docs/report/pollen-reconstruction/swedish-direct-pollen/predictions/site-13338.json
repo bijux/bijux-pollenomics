@@ -1,0 +1,3428 @@
+{
+  "fit_records": [
+    {
+      "bin_id": -1,
+      "method": "training_mean",
+      "nearest_training_center_km": 927.2622007780084,
+      "training_dataset_ids": [
+        "53995",
+        "54001"
+      ],
+      "training_manifest_sha256": "2da90d14f8cdcf84638b19b8d8a3c3d038b0bfe1919fd02acf967f5341966c78",
+      "training_site_ids": [
+        "28869",
+        "28872"
+      ]
+    },
+    {
+      "bin_id": -1,
+      "method": "nearest_site",
+      "nearest_training_center_km": 927.2622007780084,
+      "training_dataset_ids": [
+        "53995",
+        "54001"
+      ],
+      "training_manifest_sha256": "41332ffa8fc1c898acb512f0f95aeaebfb8a81f644135c4bc3979725b56780de",
+      "training_site_ids": [
+        "28869",
+        "28872"
+      ]
+    },
+    {
+      "bin_id": -1,
+      "method": "inverse_distance_squared",
+      "nearest_training_center_km": 927.2622007780084,
+      "training_dataset_ids": [
+        "53995",
+        "54001"
+      ],
+      "training_manifest_sha256": "96439894c92919f40a9ff5d712a8ed04f10be5959d0bd29cb1111f377b7fc7b7",
+      "training_site_ids": [
+        "28869",
+        "28872"
+      ]
+    },
+    {
+      "bin_id": -1,
+      "length_scale_km": 932.7967733485327,
+      "method": "clr_rbf_ridge",
+      "model_sha256": "17ea7af4bea20a3dbf162812f1fbee91a740f637814d49cd30f1b1c1a2cfe895",
+      "prediction_sha256": "fc1f7f1ae4d345764d5fb75adb76fc37d0d55d67c9960b02c13fb97bc9d532b9",
+      "ridge_penalty": 0.01,
+      "training_dataset_ids": [
+        "53995",
+        "54001"
+      ],
+      "training_site_ids": [
+        "28869",
+        "28872"
+      ],
+      "zero_handling": "add 0.5 to each declared training taxon only"
+    },
+    {
+      "bin_id": 0,
+      "method": "training_mean",
+      "nearest_training_center_km": 927.2622007780084,
+      "training_dataset_ids": [
+        "53995",
+        "54001"
+      ],
+      "training_manifest_sha256": "d8404cf1ad5bd8d37e79e56fac7be75fa63de1264d4d710071cdaeced88506bc",
+      "training_site_ids": [
+        "28869",
+        "28872"
+      ]
+    },
+    {
+      "bin_id": 0,
+      "method": "nearest_site",
+      "nearest_training_center_km": 927.2622007780084,
+      "training_dataset_ids": [
+        "53995",
+        "54001"
+      ],
+      "training_manifest_sha256": "369f8a0d7190765f0c2ba729b93178d81730cc38aee80fdf0ae4ef836dbab3cc",
+      "training_site_ids": [
+        "28869",
+        "28872"
+      ]
+    },
+    {
+      "bin_id": 0,
+      "method": "inverse_distance_squared",
+      "nearest_training_center_km": 927.2622007780084,
+      "training_dataset_ids": [
+        "53995",
+        "54001"
+      ],
+      "training_manifest_sha256": "27fbb791ddd45d382081f224854f991e64a131a9fe43cfed059df097097f0377",
+      "training_site_ids": [
+        "28869",
+        "28872"
+      ]
+    },
+    {
+      "bin_id": 0,
+      "length_scale_km": 932.7967733485327,
+      "method": "clr_rbf_ridge",
+      "model_sha256": "57b843273271f952d4dc6fd2c6c3b8f1a50f901d7662b186055011deb32bcb46",
+      "prediction_sha256": "9d9176c1a34c9bb53bb6a56f96b1647970ee401427a9830179008a777ed730b1",
+      "ridge_penalty": 0.01,
+      "training_dataset_ids": [
+        "53995",
+        "54001"
+      ],
+      "training_site_ids": [
+        "28869",
+        "28872"
+      ],
+      "zero_handling": "add 0.5 to each declared training taxon only"
+    },
+    {
+      "bin_id": 1,
+      "method": "training_mean",
+      "nearest_training_center_km": 927.2622007780084,
+      "training_dataset_ids": [
+        "53995",
+        "54001"
+      ],
+      "training_manifest_sha256": "3d28417703d4ea091a039faeac5a35e0270924d2fdccff624a38b1084a043e85",
+      "training_site_ids": [
+        "28869",
+        "28872"
+      ]
+    },
+    {
+      "bin_id": 1,
+      "method": "nearest_site",
+      "nearest_training_center_km": 927.2622007780084,
+      "training_dataset_ids": [
+        "53995",
+        "54001"
+      ],
+      "training_manifest_sha256": "5feaa94a9a2d76870528589de269d79745d184f6fa98a3e02fb7dacd4a98f6b8",
+      "training_site_ids": [
+        "28869",
+        "28872"
+      ]
+    },
+    {
+      "bin_id": 1,
+      "method": "inverse_distance_squared",
+      "nearest_training_center_km": 927.2622007780084,
+      "training_dataset_ids": [
+        "53995",
+        "54001"
+      ],
+      "training_manifest_sha256": "09fadc78a897e3cf21b82183a16bd3c9400236bc6b79b86812bb53b46f07b5a8",
+      "training_site_ids": [
+        "28869",
+        "28872"
+      ]
+    },
+    {
+      "bin_id": 1,
+      "length_scale_km": 932.7967733485327,
+      "method": "clr_rbf_ridge",
+      "model_sha256": "b47730d321a272d9c09631cc00f5ea80a6baeddbd00dfd8f8330f6ed6c3f8ec9",
+      "prediction_sha256": "e0a1c185000119f6dba6a891f3ec2fcc5c71bd250e498474347c7fed648a45b6",
+      "ridge_penalty": 0.01,
+      "training_dataset_ids": [
+        "53995",
+        "54001"
+      ],
+      "training_site_ids": [
+        "28869",
+        "28872"
+      ],
+      "zero_handling": "add 0.5 to each declared training taxon only"
+    },
+    {
+      "bin_id": 2,
+      "method": "training_mean",
+      "nearest_training_center_km": 927.2622007780084,
+      "training_dataset_ids": [
+        "53995",
+        "54001"
+      ],
+      "training_manifest_sha256": "7c3bcabac5ec1899e45766df125a7bed263f68bf0cc3f4eb5309e5a10f5ea5dc",
+      "training_site_ids": [
+        "28869",
+        "28872"
+      ]
+    },
+    {
+      "bin_id": 2,
+      "method": "nearest_site",
+      "nearest_training_center_km": 927.2622007780084,
+      "training_dataset_ids": [
+        "53995",
+        "54001"
+      ],
+      "training_manifest_sha256": "96aeb8854f0eef696a2d955df3ab4c25dad036b8058f2094ba3d761d567f5077",
+      "training_site_ids": [
+        "28869",
+        "28872"
+      ]
+    },
+    {
+      "bin_id": 2,
+      "method": "inverse_distance_squared",
+      "nearest_training_center_km": 927.2622007780084,
+      "training_dataset_ids": [
+        "53995",
+        "54001"
+      ],
+      "training_manifest_sha256": "2018c2799c6d0287688c580ba99cc152fd8c2ef8f387aa22fa51b909e4e83a55",
+      "training_site_ids": [
+        "28869",
+        "28872"
+      ]
+    },
+    {
+      "bin_id": 2,
+      "length_scale_km": 932.7967733485327,
+      "method": "clr_rbf_ridge",
+      "model_sha256": "117a05fac30ff6ba2f30484b5401d16ca14029ae7a075991b0d6e69eebdcf808",
+      "prediction_sha256": "c4838bb114db1a3fa50d9c2b84b68ee25f5e40c25a1000fd3e9ad7cc346a4f9e",
+      "ridge_penalty": 0.01,
+      "training_dataset_ids": [
+        "53995",
+        "54001"
+      ],
+      "training_site_ids": [
+        "28869",
+        "28872"
+      ],
+      "zero_handling": "add 0.5 to each declared training taxon only"
+    },
+    {
+      "bin_id": 3,
+      "method": "training_mean",
+      "nearest_training_center_km": 927.2622007780084,
+      "training_dataset_ids": [
+        "53995",
+        "54001"
+      ],
+      "training_manifest_sha256": "167bd5501a58923118df66b69928882b4fc003f23984a0757389418b32522cee",
+      "training_site_ids": [
+        "28869",
+        "28872"
+      ]
+    },
+    {
+      "bin_id": 3,
+      "method": "nearest_site",
+      "nearest_training_center_km": 927.2622007780084,
+      "training_dataset_ids": [
+        "53995",
+        "54001"
+      ],
+      "training_manifest_sha256": "2b9ce4d997c6bf5ac3444e7452dd200be078b179e05e8dbea5ea7587cde7676b",
+      "training_site_ids": [
+        "28869",
+        "28872"
+      ]
+    },
+    {
+      "bin_id": 3,
+      "method": "inverse_distance_squared",
+      "nearest_training_center_km": 927.2622007780084,
+      "training_dataset_ids": [
+        "53995",
+        "54001"
+      ],
+      "training_manifest_sha256": "00481013d131acf04c32f2c248cb58e3c234a9a56ef09709e32f164bb8dc76a9",
+      "training_site_ids": [
+        "28869",
+        "28872"
+      ]
+    },
+    {
+      "bin_id": 3,
+      "length_scale_km": 932.7967733485327,
+      "method": "clr_rbf_ridge",
+      "model_sha256": "b822e4a1d8e09ac8ee45a3f1a5951ae685150b886e1b8be79c09610ba6a6ca00",
+      "prediction_sha256": "7bca755ae88576aee6169c2de52bcf920d8ddad92122e158705cb34ecbaf954e",
+      "ridge_penalty": 0.01,
+      "training_dataset_ids": [
+        "53995",
+        "54001"
+      ],
+      "training_site_ids": [
+        "28869",
+        "28872"
+      ],
+      "zero_handling": "add 0.5 to each declared training taxon only"
+    },
+    {
+      "bin_id": 4,
+      "method": "training_mean",
+      "nearest_training_center_km": 927.2622007780084,
+      "training_dataset_ids": [
+        "53995",
+        "54001"
+      ],
+      "training_manifest_sha256": "984c4743bb0eae7ad94573f7775c6d78d502ba8b19cc45ae4988e9f6460992cd",
+      "training_site_ids": [
+        "28869",
+        "28872"
+      ]
+    },
+    {
+      "bin_id": 4,
+      "method": "nearest_site",
+      "nearest_training_center_km": 927.2622007780084,
+      "training_dataset_ids": [
+        "53995",
+        "54001"
+      ],
+      "training_manifest_sha256": "80e86885f2cd46ec353044eddeee48831a4a7650e06161ca7fac52ead1c79ee0",
+      "training_site_ids": [
+        "28869",
+        "28872"
+      ]
+    },
+    {
+      "bin_id": 4,
+      "method": "inverse_distance_squared",
+      "nearest_training_center_km": 927.2622007780084,
+      "training_dataset_ids": [
+        "53995",
+        "54001"
+      ],
+      "training_manifest_sha256": "e11fc2e21e49a74c7f8811f278d3bec009f0b709ada5f6ca0c82a384fd77165f",
+      "training_site_ids": [
+        "28869",
+        "28872"
+      ]
+    },
+    {
+      "bin_id": 4,
+      "length_scale_km": 932.7967733485327,
+      "method": "clr_rbf_ridge",
+      "model_sha256": "9181f59405647e59935af68d7f4a0664690d22ab80fd537644c970d7b57b1dd3",
+      "prediction_sha256": "211a855f1f9114b8035b7448183ffcf03b1636587df298cba59d5987d1065997",
+      "ridge_penalty": 0.01,
+      "training_dataset_ids": [
+        "53995",
+        "54001"
+      ],
+      "training_site_ids": [
+        "28869",
+        "28872"
+      ],
+      "zero_handling": "add 0.5 to each declared training taxon only"
+    },
+    {
+      "bin_id": 5,
+      "method": "training_mean",
+      "nearest_training_center_km": 927.2622007780084,
+      "training_dataset_ids": [
+        "53995",
+        "54001"
+      ],
+      "training_manifest_sha256": "60739913c3da0c6051e21dd5410feaf1ae4dcf9b03e1e3bdc0b7f6a83bfd9091",
+      "training_site_ids": [
+        "28869",
+        "28872"
+      ]
+    },
+    {
+      "bin_id": 5,
+      "method": "nearest_site",
+      "nearest_training_center_km": 927.2622007780084,
+      "training_dataset_ids": [
+        "53995",
+        "54001"
+      ],
+      "training_manifest_sha256": "dc5ba6e695372d7240c1edf11e71e1d5451fa2e9e3ecffdbfd8bc63cf2b76903",
+      "training_site_ids": [
+        "28869",
+        "28872"
+      ]
+    },
+    {
+      "bin_id": 5,
+      "method": "inverse_distance_squared",
+      "nearest_training_center_km": 927.2622007780084,
+      "training_dataset_ids": [
+        "53995",
+        "54001"
+      ],
+      "training_manifest_sha256": "4bdf710b1b2234438124bd1a1fde3699a6e3b4631d81bdd34473942b5b799f45",
+      "training_site_ids": [
+        "28869",
+        "28872"
+      ]
+    },
+    {
+      "bin_id": 5,
+      "length_scale_km": 932.7967733485327,
+      "method": "clr_rbf_ridge",
+      "model_sha256": "0a08dd75b2999393167326e9cfeb46c933f953791c2bde3b4724c641585a3c42",
+      "prediction_sha256": "3ba24534b04bf4c0b3d293df67d944565b2fad1ba7744713cd4dbc340564d4c7",
+      "ridge_penalty": 0.01,
+      "training_dataset_ids": [
+        "53995",
+        "54001"
+      ],
+      "training_site_ids": [
+        "28869",
+        "28872"
+      ],
+      "zero_handling": "add 0.5 to each declared training taxon only"
+    },
+    {
+      "bin_id": 6,
+      "method": "training_mean",
+      "nearest_training_center_km": 927.2622007780084,
+      "training_dataset_ids": [
+        "53995",
+        "54001"
+      ],
+      "training_manifest_sha256": "a7cd6de450406c7c85b0ce5bd64239a6a89d242759581ca7a36d18918f9ba8ea",
+      "training_site_ids": [
+        "28869",
+        "28872"
+      ]
+    },
+    {
+      "bin_id": 6,
+      "method": "nearest_site",
+      "nearest_training_center_km": 927.2622007780084,
+      "training_dataset_ids": [
+        "53995",
+        "54001"
+      ],
+      "training_manifest_sha256": "bc9d272e275a6ea297c3cf63c283fc08eee345090cebb322e7ec6a81cf1bdab1",
+      "training_site_ids": [
+        "28869",
+        "28872"
+      ]
+    },
+    {
+      "bin_id": 6,
+      "method": "inverse_distance_squared",
+      "nearest_training_center_km": 927.2622007780084,
+      "training_dataset_ids": [
+        "53995",
+        "54001"
+      ],
+      "training_manifest_sha256": "6a71894d0aacccda159af869724487ebdd04c0107f9fc0a10e87ec3ac812fe5b",
+      "training_site_ids": [
+        "28869",
+        "28872"
+      ]
+    },
+    {
+      "bin_id": 6,
+      "length_scale_km": 932.7967733485327,
+      "method": "clr_rbf_ridge",
+      "model_sha256": "08204de9e2417b94a01def3079183796eeeaa463e95fd33f45fe9ae7b40bf24e",
+      "prediction_sha256": "63f949c5acd629b2e34cedb4bd89437558038eac9984dac30e7c096243b7b33c",
+      "ridge_penalty": 0.01,
+      "training_dataset_ids": [
+        "53995",
+        "54001"
+      ],
+      "training_site_ids": [
+        "28869",
+        "28872"
+      ],
+      "zero_handling": "add 0.5 to each declared training taxon only"
+    },
+    {
+      "bin_id": 7,
+      "method": "training_mean",
+      "nearest_training_center_km": 927.2622007780084,
+      "training_dataset_ids": [
+        "53995",
+        "54001"
+      ],
+      "training_manifest_sha256": "3d79f0cc36deaa917f0ba859d86efb4c0a7c2929c721fc493df2dfc00f958ec2",
+      "training_site_ids": [
+        "28869",
+        "28872"
+      ]
+    },
+    {
+      "bin_id": 7,
+      "method": "nearest_site",
+      "nearest_training_center_km": 927.2622007780084,
+      "training_dataset_ids": [
+        "53995",
+        "54001"
+      ],
+      "training_manifest_sha256": "b54c9adf9ccca4f813179b0c9a8470da99fe3fa4eeb11908e1a09959e52eaee8",
+      "training_site_ids": [
+        "28869",
+        "28872"
+      ]
+    },
+    {
+      "bin_id": 7,
+      "method": "inverse_distance_squared",
+      "nearest_training_center_km": 927.2622007780084,
+      "training_dataset_ids": [
+        "53995",
+        "54001"
+      ],
+      "training_manifest_sha256": "5b883db9fcae9876ebd97b63853f8bcb72fd18b27501ae2298ae6a90e20ecbb1",
+      "training_site_ids": [
+        "28869",
+        "28872"
+      ]
+    },
+    {
+      "bin_id": 7,
+      "length_scale_km": 932.7967733485327,
+      "method": "clr_rbf_ridge",
+      "model_sha256": "a0526220c82c7fd4b0c391a59ee30fce625f0c387cbfb2e463a302e03a8c1fac",
+      "prediction_sha256": "d1d74f5cfc6f9d7106ba31833206586b60d3b0fe8ef9bbc2345a4c58ea55db97",
+      "ridge_penalty": 0.01,
+      "training_dataset_ids": [
+        "53995",
+        "54001"
+      ],
+      "training_site_ids": [
+        "28869",
+        "28872"
+      ],
+      "zero_handling": "add 0.5 to each declared training taxon only"
+    },
+    {
+      "bin_id": 8,
+      "method": "training_mean",
+      "nearest_training_center_km": 927.2622007780084,
+      "training_dataset_ids": [
+        "53995",
+        "54001"
+      ],
+      "training_manifest_sha256": "2df1805006e5d71d928ce2b1772b4c6bb834f68e43c9e4fffcbbb8856685f829",
+      "training_site_ids": [
+        "28869",
+        "28872"
+      ]
+    },
+    {
+      "bin_id": 8,
+      "method": "nearest_site",
+      "nearest_training_center_km": 927.2622007780084,
+      "training_dataset_ids": [
+        "53995",
+        "54001"
+      ],
+      "training_manifest_sha256": "c46680d13e845d487eb176b5bf4bfb59790a7aa1bf92437f0b7ed03fcf0f66a6",
+      "training_site_ids": [
+        "28869",
+        "28872"
+      ]
+    },
+    {
+      "bin_id": 8,
+      "method": "inverse_distance_squared",
+      "nearest_training_center_km": 927.2622007780084,
+      "training_dataset_ids": [
+        "53995",
+        "54001"
+      ],
+      "training_manifest_sha256": "b7eb8bec2608531ed34f4188dbd60469e1d81533638eacbd1229de2d431f2e03",
+      "training_site_ids": [
+        "28869",
+        "28872"
+      ]
+    },
+    {
+      "bin_id": 8,
+      "length_scale_km": 932.7967733485327,
+      "method": "clr_rbf_ridge",
+      "model_sha256": "08f786b23a97ef23aa4779dbf2166d2ed70633d95c9847d455f8c83a8ea66cb4",
+      "prediction_sha256": "d333ec34a9ba7b1e1811629ec819190764e1abda1e584abeffe5a4980c57a314",
+      "ridge_penalty": 0.01,
+      "training_dataset_ids": [
+        "53995",
+        "54001"
+      ],
+      "training_site_ids": [
+        "28869",
+        "28872"
+      ],
+      "zero_handling": "add 0.5 to each declared training taxon only"
+    },
+    {
+      "bin_id": 9,
+      "method": "training_mean",
+      "nearest_training_center_km": 927.2622007780084,
+      "training_dataset_ids": [
+        "53995",
+        "54001"
+      ],
+      "training_manifest_sha256": "4db8cff3ab151c0abd73e3d8db9b61948928ba7eae3efa1422e53ba2d3371731",
+      "training_site_ids": [
+        "28869",
+        "28872"
+      ]
+    },
+    {
+      "bin_id": 9,
+      "method": "nearest_site",
+      "nearest_training_center_km": 927.2622007780084,
+      "training_dataset_ids": [
+        "53995",
+        "54001"
+      ],
+      "training_manifest_sha256": "d367abdbf0ad147264c3709a6692a5c5b056fc16945923a6e1c64f7871478cc6",
+      "training_site_ids": [
+        "28869",
+        "28872"
+      ]
+    },
+    {
+      "bin_id": 9,
+      "method": "inverse_distance_squared",
+      "nearest_training_center_km": 927.2622007780084,
+      "training_dataset_ids": [
+        "53995",
+        "54001"
+      ],
+      "training_manifest_sha256": "f82cac268a19db992c353eaef0dc9672463f8eefca670e47066dc4401e9302d6",
+      "training_site_ids": [
+        "28869",
+        "28872"
+      ]
+    },
+    {
+      "bin_id": 9,
+      "length_scale_km": 932.7967733485327,
+      "method": "clr_rbf_ridge",
+      "model_sha256": "25f4e14902d3c87004956fea174eb3a0b099945b93170ead1203f3ce9baf4c27",
+      "prediction_sha256": "8d77efc1fa7986667e4532c1aa9761ae519070a3063ec2fa1e8cc0f7b55c1558",
+      "ridge_penalty": 0.01,
+      "training_dataset_ids": [
+        "53995",
+        "54001"
+      ],
+      "training_site_ids": [
+        "28869",
+        "28872"
+      ],
+      "zero_handling": "add 0.5 to each declared training taxon only"
+    },
+    {
+      "bin_id": 10,
+      "method": "training_mean",
+      "nearest_training_center_km": 927.2622007780084,
+      "training_dataset_ids": [
+        "53995",
+        "54001"
+      ],
+      "training_manifest_sha256": "d51ad67d510b0c4619b6e33a950ff0c8928a839246ad5a5faef16454e4224448",
+      "training_site_ids": [
+        "28869",
+        "28872"
+      ]
+    },
+    {
+      "bin_id": 10,
+      "method": "nearest_site",
+      "nearest_training_center_km": 927.2622007780084,
+      "training_dataset_ids": [
+        "53995",
+        "54001"
+      ],
+      "training_manifest_sha256": "69478920d32ffdb8f78203b3f93728c452611ab6fc98bc991fcf112b7bf20ab0",
+      "training_site_ids": [
+        "28869",
+        "28872"
+      ]
+    },
+    {
+      "bin_id": 10,
+      "method": "inverse_distance_squared",
+      "nearest_training_center_km": 927.2622007780084,
+      "training_dataset_ids": [
+        "53995",
+        "54001"
+      ],
+      "training_manifest_sha256": "6b56402316ace0b21da6b499d6ffe8f8fd67f7b2dec90f3ab055289c725359fc",
+      "training_site_ids": [
+        "28869",
+        "28872"
+      ]
+    },
+    {
+      "bin_id": 10,
+      "length_scale_km": 932.7967733485327,
+      "method": "clr_rbf_ridge",
+      "model_sha256": "68fb506e98d33e0fb75f7a8eeb6ab88fc75048565bbd345ce9399c160ac4f118",
+      "prediction_sha256": "6ecb9997dd394ad58395b88a1c39c5e8e83413e37917bc80c7411d4a09b92e0e",
+      "ridge_penalty": 0.01,
+      "training_dataset_ids": [
+        "53995",
+        "54001"
+      ],
+      "training_site_ids": [
+        "28869",
+        "28872"
+      ],
+      "zero_handling": "add 0.5 to each declared training taxon only"
+    },
+    {
+      "bin_id": 11,
+      "method": "training_mean",
+      "nearest_training_center_km": 927.2622007780084,
+      "training_dataset_ids": [
+        "53995",
+        "54001"
+      ],
+      "training_manifest_sha256": "c86cc5b4eade3e0dcfb0e5cbd2492d7de5f23a81a70de687ba061bab6aca8d79",
+      "training_site_ids": [
+        "28869",
+        "28872"
+      ]
+    },
+    {
+      "bin_id": 11,
+      "method": "nearest_site",
+      "nearest_training_center_km": 927.2622007780084,
+      "training_dataset_ids": [
+        "53995",
+        "54001"
+      ],
+      "training_manifest_sha256": "60bd84b62d8bab18616c1ba3e766e6a181e94821001b97e225cc68ca3fd1c53c",
+      "training_site_ids": [
+        "28869",
+        "28872"
+      ]
+    },
+    {
+      "bin_id": 11,
+      "method": "inverse_distance_squared",
+      "nearest_training_center_km": 927.2622007780084,
+      "training_dataset_ids": [
+        "53995",
+        "54001"
+      ],
+      "training_manifest_sha256": "310ef87a37f6f05004a08acc65204dabf63079ea5b930c6c65fe91e621046118",
+      "training_site_ids": [
+        "28869",
+        "28872"
+      ]
+    },
+    {
+      "bin_id": 11,
+      "length_scale_km": 932.7967733485327,
+      "method": "clr_rbf_ridge",
+      "model_sha256": "2002209335f957934a4f8776147d03cc6a1e35581193ca9d33d7e5f2bb09fb37",
+      "prediction_sha256": "a75835913001516bbd5dca034922802fb523367d894966999528723835a0bf9f",
+      "ridge_penalty": 0.01,
+      "training_dataset_ids": [
+        "53995",
+        "54001"
+      ],
+      "training_site_ids": [
+        "28869",
+        "28872"
+      ],
+      "zero_handling": "add 0.5 to each declared training taxon only"
+    }
+  ],
+  "predictions": [
+    {
+      "bin_id": -1,
+      "candidate_id": "training_mean",
+      "predicted_fractions": {
+        "Alnus": 0.09945893961547182,
+        "Amaranthaceae": 0.02494976426343073,
+        "Betula": 0.48328576901725606,
+        "Cichorioideae": 0.027152317880794703,
+        "Cyperaceae": 0.02208495899043762,
+        "Filipendula": 0.0013245033112582781,
+        "Frangula alnus": 0.0059031877213695395,
+        "Nuphar": 0.005960264900662252,
+        "Plantago lanceolata": 0.015390509550654042,
+        "Plantago media": 0.0,
+        "Populus": 0.0011806375442739079,
+        "Quercus": 0.08781128564391659,
+        "Rosaceae undiff.": 0.0026490066225165563,
+        "Salix": 0.17860700407359045,
+        "Thalictrum": 0.0,
+        "Ulmus": 0.044241850864367424
+      },
+      "target_coordinate_used": {
+        "latitude": 63.88333,
+        "longitude": 14.45
+      },
+      "target_dataset_id": "19913",
+      "target_outcome_input": "target count profile was not opened by this prediction process",
+      "target_site_id": "13338",
+      "taxon_denominator": [
+        "Alnus",
+        "Amaranthaceae",
+        "Betula",
+        "Cichorioideae",
+        "Cyperaceae",
+        "Filipendula",
+        "Frangula alnus",
+        "Nuphar",
+        "Plantago lanceolata",
+        "Plantago media",
+        "Populus",
+        "Quercus",
+        "Rosaceae undiff.",
+        "Salix",
+        "Thalictrum",
+        "Ulmus"
+      ],
+      "training_dataset_ids": [
+        "53995",
+        "54001"
+      ]
+    },
+    {
+      "bin_id": -1,
+      "candidate_id": "nearest_site",
+      "predicted_fractions": {
+        "Alnus": 0.13931523022432113,
+        "Amaranthaceae": 0.0035419126328217238,
+        "Betula": 0.6765053128689492,
+        "Cichorioideae": 0.0,
+        "Cyperaceae": 0.0070838252656434475,
+        "Filipendula": 0.0,
+        "Frangula alnus": 0.011806375442739079,
+        "Nuphar": 0.0,
+        "Plantago lanceolata": 0.008264462809917356,
+        "Plantago media": 0.0,
+        "Populus": 0.0023612750885478157,
+        "Quercus": 0.12396694214876033,
+        "Rosaceae undiff.": 0.0,
+        "Salix": 0.014167650531286895,
+        "Thalictrum": 0.0,
+        "Ulmus": 0.012987012987012988
+      },
+      "target_coordinate_used": {
+        "latitude": 63.88333,
+        "longitude": 14.45
+      },
+      "target_dataset_id": "19913",
+      "target_outcome_input": "target count profile was not opened by this prediction process",
+      "target_site_id": "13338",
+      "taxon_denominator": [
+        "Alnus",
+        "Amaranthaceae",
+        "Betula",
+        "Cichorioideae",
+        "Cyperaceae",
+        "Filipendula",
+        "Frangula alnus",
+        "Nuphar",
+        "Plantago lanceolata",
+        "Plantago media",
+        "Populus",
+        "Quercus",
+        "Rosaceae undiff.",
+        "Salix",
+        "Thalictrum",
+        "Ulmus"
+      ],
+      "training_dataset_ids": [
+        "53995",
+        "54001"
+      ]
+    },
+    {
+      "bin_id": -1,
+      "candidate_id": "inverse_distance_squared",
+      "predicted_fractions": {
+        "Alnus": 0.09993188243376064,
+        "Amaranthaceae": 0.024695734359266974,
+        "Betula": 0.48557855126622457,
+        "Cichorioideae": 0.026830122976415783,
+        "Cyperaceae": 0.02190695249879095,
+        "Filipendula": 0.0013087864866544285,
+        "Frangula alnus": 0.005973236142714915,
+        "Nuphar": 0.005889539189944928,
+        "Plantago lanceolata": 0.015305950436463083,
+        "Plantago media": 0.0,
+        "Populus": 0.001194647228542983,
+        "Quercus": 0.08824031598826795,
+        "Rosaceae undiff.": 0.002617572973308857,
+        "Salix": 0.1766557333930064,
+        "Thalictrum": 0.0,
+        "Ulmus": 0.043870974626637624
+      },
+      "target_coordinate_used": {
+        "latitude": 63.88333,
+        "longitude": 14.45
+      },
+      "target_dataset_id": "19913",
+      "target_outcome_input": "target count profile was not opened by this prediction process",
+      "target_site_id": "13338",
+      "taxon_denominator": [
+        "Alnus",
+        "Amaranthaceae",
+        "Betula",
+        "Cichorioideae",
+        "Cyperaceae",
+        "Filipendula",
+        "Frangula alnus",
+        "Nuphar",
+        "Plantago lanceolata",
+        "Plantago media",
+        "Populus",
+        "Quercus",
+        "Rosaceae undiff.",
+        "Salix",
+        "Thalictrum",
+        "Ulmus"
+      ],
+      "training_dataset_ids": [
+        "53995",
+        "54001"
+      ]
+    },
+    {
+      "bin_id": -1,
+      "candidate_id": "clr_rbf_ridge",
+      "predicted_fractions": {
+        "Alnus": 0.11741697994041056,
+        "Amaranthaceae": 0.01781568058233179,
+        "Betula": 0.5673488946060546,
+        "Cichorioideae": 0.007278255102158854,
+        "Cyperaceae": 0.02175642760053063,
+        "Filipendula": 0.0017871252341519863,
+        "Frangula alnus": 0.003665056936018046,
+        "Nuphar": 0.003483055670397188,
+        "Plantago lanceolata": 0.018314663520964895,
+        "Plantago media": 0.000799418343518456,
+        "Populus": 0.0017879823857364931,
+        "Quercus": 0.10322679437310521,
+        "Rosaceae undiff.": 0.002397470169045171,
+        "Salix": 0.09101889680656203,
+        "Thalictrum": 0.000799418343518456,
+        "Ulmus": 0.04110388038549568
+      },
+      "target_coordinate_used": {
+        "latitude": 63.88333,
+        "longitude": 14.45
+      },
+      "target_dataset_id": "19913",
+      "target_outcome_input": "target count profile was not opened by this prediction process",
+      "target_site_id": "13338",
+      "taxon_denominator": [
+        "Alnus",
+        "Amaranthaceae",
+        "Betula",
+        "Cichorioideae",
+        "Cyperaceae",
+        "Filipendula",
+        "Frangula alnus",
+        "Nuphar",
+        "Plantago lanceolata",
+        "Plantago media",
+        "Populus",
+        "Quercus",
+        "Rosaceae undiff.",
+        "Salix",
+        "Thalictrum",
+        "Ulmus"
+      ],
+      "training_dataset_ids": [
+        "53995",
+        "54001"
+      ]
+    },
+    {
+      "bin_id": 0,
+      "candidate_id": "training_mean",
+      "predicted_fractions": {
+        "Alnus": 0.1506417691878294,
+        "Amaranthaceae": 0.022876960105553904,
+        "Betula": 0.35275556586607126,
+        "Cichorioideae": 0.10525576522955798,
+        "Cyperaceae": 0.12655050420838196,
+        "Filipendula": 0.010848092272671254,
+        "Frangula alnus": 0.003177582119632591,
+        "Nuphar": 0.0009374614865991489,
+        "Plantago lanceolata": 0.06054623782976533,
+        "Plantago media": 0.00046125461254612545,
+        "Populus": 0.002425891154785811,
+        "Quercus": 0.13212951014578908,
+        "Rosaceae undiff.": 0.0036900369003690036,
+        "Salix": 0.014525442405701071,
+        "Thalictrum": 0.0002455795677799607,
+        "Ulmus": 0.012932346906966121
+      },
+      "target_coordinate_used": {
+        "latitude": 63.88333,
+        "longitude": 14.45
+      },
+      "target_dataset_id": "19913",
+      "target_outcome_input": "target count profile was not opened by this prediction process",
+      "target_site_id": "13338",
+      "taxon_denominator": [
+        "Alnus",
+        "Amaranthaceae",
+        "Betula",
+        "Cichorioideae",
+        "Cyperaceae",
+        "Filipendula",
+        "Frangula alnus",
+        "Nuphar",
+        "Plantago lanceolata",
+        "Plantago media",
+        "Populus",
+        "Quercus",
+        "Rosaceae undiff.",
+        "Salix",
+        "Thalictrum",
+        "Ulmus"
+      ],
+      "training_dataset_ids": [
+        "53995",
+        "54001"
+      ]
+    },
+    {
+      "bin_id": 0,
+      "candidate_id": "nearest_site",
+      "predicted_fractions": {
+        "Alnus": 0.1832023575638507,
+        "Amaranthaceae": 0.0014734774066797642,
+        "Betula": 0.5496070726915521,
+        "Cichorioideae": 0.0029469548133595285,
+        "Cyperaceae": 0.0206286836935167,
+        "Filipendula": 0.007858546168958742,
+        "Frangula alnus": 0.005893909626719057,
+        "Nuphar": 0.0004911591355599214,
+        "Plantago lanceolata": 0.019155206286836934,
+        "Plantago media": 0.0,
+        "Populus": 0.003929273084479371,
+        "Quercus": 0.16601178781925344,
+        "Rosaceae undiff.": 0.0,
+        "Salix": 0.022593320235756387,
+        "Thalictrum": 0.0004911591355599214,
+        "Ulmus": 0.015717092337917484
+      },
+      "target_coordinate_used": {
+        "latitude": 63.88333,
+        "longitude": 14.45
+      },
+      "target_dataset_id": "19913",
+      "target_outcome_input": "target count profile was not opened by this prediction process",
+      "target_site_id": "13338",
+      "taxon_denominator": [
+        "Alnus",
+        "Amaranthaceae",
+        "Betula",
+        "Cichorioideae",
+        "Cyperaceae",
+        "Filipendula",
+        "Frangula alnus",
+        "Nuphar",
+        "Plantago lanceolata",
+        "Plantago media",
+        "Populus",
+        "Quercus",
+        "Rosaceae undiff.",
+        "Salix",
+        "Thalictrum",
+        "Ulmus"
+      ],
+      "training_dataset_ids": [
+        "53995",
+        "54001"
+      ]
+    },
+    {
+      "bin_id": 0,
+      "candidate_id": "inverse_distance_squared",
+      "predicted_fractions": {
+        "Alnus": 0.15102813972548998,
+        "Amaranthaceae": 0.022622982044019153,
+        "Betula": 0.3550914457234348,
+        "Cichorioideae": 0.10404174815985937,
+        "Cyperaceae": 0.12529361442894377,
+        "Filipendula": 0.01081261771299459,
+        "Frangula alnus": 0.0032098146120941866,
+        "Nuphar": 0.000932165572491614,
+        "Plantago lanceolata": 0.06005508346465121,
+        "Plantago media": 0.00045578127187458187,
+        "Populus": 0.0024437305893125123,
+        "Quercus": 0.13253156411639552,
+        "Rosaceae undiff.": 0.003646250174996655,
+        "Salix": 0.014621177478390174,
+        "Thalictrum": 0.0002484936646797413,
+        "Ulmus": 0.012965391260372121
+      },
+      "target_coordinate_used": {
+        "latitude": 63.88333,
+        "longitude": 14.45
+      },
+      "target_dataset_id": "19913",
+      "target_outcome_input": "target count profile was not opened by this prediction process",
+      "target_site_id": "13338",
+      "taxon_denominator": [
+        "Alnus",
+        "Amaranthaceae",
+        "Betula",
+        "Cichorioideae",
+        "Cyperaceae",
+        "Filipendula",
+        "Frangula alnus",
+        "Nuphar",
+        "Plantago lanceolata",
+        "Plantago media",
+        "Populus",
+        "Quercus",
+        "Rosaceae undiff.",
+        "Salix",
+        "Thalictrum",
+        "Ulmus"
+      ],
+      "training_dataset_ids": [
+        "53995",
+        "54001"
+      ]
+    },
+    {
+      "bin_id": 0,
+      "candidate_id": "clr_rbf_ridge",
+      "predicted_fractions": {
+        "Alnus": 0.19370859114925962,
+        "Amaranthaceae": 0.011495256819262313,
+        "Betula": 0.38530474024259104,
+        "Cichorioideae": 0.03384273397928543,
+        "Cyperaceae": 0.0916010749952152,
+        "Filipendula": 0.01403743399505691,
+        "Frangula alnus": 0.0027106496665650773,
+        "Nuphar": 0.0014337070385216169,
+        "Plantago lanceolata": 0.0585206918112626,
+        "Plantago media": 0.0006994979798537697,
+        "Populus": 0.0028853215759709057,
+        "Quercus": 0.16824558494064257,
+        "Rosaceae undiff.": 0.0017965377452943,
+        "Salix": 0.016252547755374026,
+        "Thalictrum": 0.0005420474307762677,
+        "Ulmus": 0.0169235828750684
+      },
+      "target_coordinate_used": {
+        "latitude": 63.88333,
+        "longitude": 14.45
+      },
+      "target_dataset_id": "19913",
+      "target_outcome_input": "target count profile was not opened by this prediction process",
+      "target_site_id": "13338",
+      "taxon_denominator": [
+        "Alnus",
+        "Amaranthaceae",
+        "Betula",
+        "Cichorioideae",
+        "Cyperaceae",
+        "Filipendula",
+        "Frangula alnus",
+        "Nuphar",
+        "Plantago lanceolata",
+        "Plantago media",
+        "Populus",
+        "Quercus",
+        "Rosaceae undiff.",
+        "Salix",
+        "Thalictrum",
+        "Ulmus"
+      ],
+      "training_dataset_ids": [
+        "53995",
+        "54001"
+      ]
+    },
+    {
+      "bin_id": 1,
+      "candidate_id": "training_mean",
+      "predicted_fractions": {
+        "Alnus": 0.18133899609654186,
+        "Amaranthaceae": 0.007219826739866324,
+        "Betula": 0.40729581458181163,
+        "Cichorioideae": 0.02078571821273454,
+        "Cyperaceae": 0.1363471250284709,
+        "Filipendula": 0.016205830839675472,
+        "Frangula alnus": 0.004559270516717325,
+        "Nuphar": 0.0017985752770512792,
+        "Plantago lanceolata": 0.06732778052669196,
+        "Plantago media": 0.0014058732514942312,
+        "Populus": 0.004052684903748734,
+        "Quercus": 0.12440014765596161,
+        "Rosaceae undiff.": 0.0009689922480620155,
+        "Salix": 0.016496430338587685,
+        "Thalictrum": 0.00025329280648429586,
+        "Ulmus": 0.009543640976100155
+      },
+      "target_coordinate_used": {
+        "latitude": 63.88333,
+        "longitude": 14.45
+      },
+      "target_dataset_id": "19913",
+      "target_outcome_input": "target count profile was not opened by this prediction process",
+      "target_site_id": "13338",
+      "taxon_denominator": [
+        "Alnus",
+        "Amaranthaceae",
+        "Betula",
+        "Cichorioideae",
+        "Cyperaceae",
+        "Filipendula",
+        "Frangula alnus",
+        "Nuphar",
+        "Plantago lanceolata",
+        "Plantago media",
+        "Populus",
+        "Quercus",
+        "Rosaceae undiff.",
+        "Salix",
+        "Thalictrum",
+        "Ulmus"
+      ],
+      "training_dataset_ids": [
+        "53995",
+        "54001"
+      ]
+    },
+    {
+      "bin_id": 1,
+      "candidate_id": "nearest_site",
+      "predicted_fractions": {
+        "Alnus": 0.19148936170212766,
+        "Amaranthaceae": 0.001519756838905775,
+        "Betula": 0.5516717325227963,
+        "Cichorioideae": 0.001519756838905775,
+        "Cyperaceae": 0.027862208713272545,
+        "Filipendula": 0.013677811550151976,
+        "Frangula alnus": 0.00911854103343465,
+        "Nuphar": 0.0010131712259371835,
+        "Plantago lanceolata": 0.01773049645390071,
+        "Plantago media": 0.001519756838905775,
+        "Populus": 0.008105369807497468,
+        "Quercus": 0.14285714285714285,
+        "Rosaceae undiff.": 0.0,
+        "Salix": 0.02330293819655522,
+        "Thalictrum": 0.0005065856129685917,
+        "Ulmus": 0.008105369807497468
+      },
+      "target_coordinate_used": {
+        "latitude": 63.88333,
+        "longitude": 14.45
+      },
+      "target_dataset_id": "19913",
+      "target_outcome_input": "target count profile was not opened by this prediction process",
+      "target_site_id": "13338",
+      "taxon_denominator": [
+        "Alnus",
+        "Amaranthaceae",
+        "Betula",
+        "Cichorioideae",
+        "Cyperaceae",
+        "Filipendula",
+        "Frangula alnus",
+        "Nuphar",
+        "Plantago lanceolata",
+        "Plantago media",
+        "Populus",
+        "Quercus",
+        "Rosaceae undiff.",
+        "Salix",
+        "Thalictrum",
+        "Ulmus"
+      ],
+      "training_dataset_ids": [
+        "53995",
+        "54001"
+      ]
+    },
+    {
+      "bin_id": 1,
+      "candidate_id": "inverse_distance_squared",
+      "predicted_fractions": {
+        "Alnus": 0.18145944239103728,
+        "Amaranthaceae": 0.007152188555724698,
+        "Betula": 0.4090090084711819,
+        "Cichorioideae": 0.020557104412253096,
+        "Cyperaceae": 0.1350598210350445,
+        "Filipendula": 0.016175832850670185,
+        "Frangula alnus": 0.004613371744267051,
+        "Nuphar": 0.0017892555134768216,
+        "Plantago lanceolata": 0.06673924910666944,
+        "Plantago media": 0.0014072246172125275,
+        "Populus": 0.004100774883792935,
+        "Quercus": 0.12461916209996136,
+        "Rosaceae undiff.": 0.0009574939897520285,
+        "Salix": 0.01657719773966483,
+        "Thalictrum": 0.00025629843023705845,
+        "Ulmus": 0.00952657415905443
+      },
+      "target_coordinate_used": {
+        "latitude": 63.88333,
+        "longitude": 14.45
+      },
+      "target_dataset_id": "19913",
+      "target_outcome_input": "target count profile was not opened by this prediction process",
+      "target_site_id": "13338",
+      "taxon_denominator": [
+        "Alnus",
+        "Amaranthaceae",
+        "Betula",
+        "Cichorioideae",
+        "Cyperaceae",
+        "Filipendula",
+        "Frangula alnus",
+        "Nuphar",
+        "Plantago lanceolata",
+        "Plantago media",
+        "Populus",
+        "Quercus",
+        "Rosaceae undiff.",
+        "Salix",
+        "Thalictrum",
+        "Ulmus"
+      ],
+      "training_dataset_ids": [
+        "53995",
+        "54001"
+      ]
+    },
+    {
+      "bin_id": 1,
+      "candidate_id": "clr_rbf_ridge",
+      "predicted_fractions": {
+        "Alnus": 0.20661557764253755,
+        "Amaranthaceae": 0.005519141231307644,
+        "Betula": 0.43432613574140294,
+        "Cichorioideae": 0.009635238433007428,
+        "Cyperaceae": 0.09455901092737892,
+        "Filipendula": 0.018562981367267882,
+        "Frangula alnus": 0.0019832588216746497,
+        "Nuphar": 0.002185813729223163,
+        "Plantago lanceolata": 0.05230242685297628,
+        "Plantago media": 0.0019279719486209733,
+        "Populus": 0.0018729582675841808,
+        "Quercus": 0.14050833213159689,
+        "Rosaceae undiff.": 0.0008619221612524492,
+        "Salix": 0.017500010825115944,
+        "Thalictrum": 0.0005645164782295461,
+        "Ulmus": 0.011074703440823657
+      },
+      "target_coordinate_used": {
+        "latitude": 63.88333,
+        "longitude": 14.45
+      },
+      "target_dataset_id": "19913",
+      "target_outcome_input": "target count profile was not opened by this prediction process",
+      "target_site_id": "13338",
+      "taxon_denominator": [
+        "Alnus",
+        "Amaranthaceae",
+        "Betula",
+        "Cichorioideae",
+        "Cyperaceae",
+        "Filipendula",
+        "Frangula alnus",
+        "Nuphar",
+        "Plantago lanceolata",
+        "Plantago media",
+        "Populus",
+        "Quercus",
+        "Rosaceae undiff.",
+        "Salix",
+        "Thalictrum",
+        "Ulmus"
+      ],
+      "training_dataset_ids": [
+        "53995",
+        "54001"
+      ]
+    },
+    {
+      "bin_id": 2,
+      "candidate_id": "training_mean",
+      "predicted_fractions": {
+        "Alnus": 0.2157136853528035,
+        "Amaranthaceae": 0.003566421503576796,
+        "Betula": 0.30180625189106125,
+        "Cichorioideae": 0.005175817209439311,
+        "Cyperaceae": 0.10812890774160601,
+        "Filipendula": 0.022894267494619862,
+        "Frangula alnus": 0.001158173395102581,
+        "Nuphar": 0.0002339728591483388,
+        "Plantago lanceolata": 0.06632131797794183,
+        "Plantago media": 0.0002339728591483388,
+        "Populus": 0.0021909986568626207,
+        "Quercus": 0.21807710543829728,
+        "Rosaceae undiff.": 0.0025737014506317267,
+        "Salix": 0.01877465734821882,
+        "Thalictrum": 0.0008673719196025279,
+        "Ulmus": 0.032283376901939206
+      },
+      "target_coordinate_used": {
+        "latitude": 63.88333,
+        "longitude": 14.45
+      },
+      "target_dataset_id": "19913",
+      "target_outcome_input": "target count profile was not opened by this prediction process",
+      "target_site_id": "13338",
+      "taxon_denominator": [
+        "Alnus",
+        "Amaranthaceae",
+        "Betula",
+        "Cichorioideae",
+        "Cyperaceae",
+        "Filipendula",
+        "Frangula alnus",
+        "Nuphar",
+        "Plantago lanceolata",
+        "Plantago media",
+        "Populus",
+        "Quercus",
+        "Rosaceae undiff.",
+        "Salix",
+        "Thalictrum",
+        "Ulmus"
+      ],
+      "training_dataset_ids": [
+        "53995",
+        "54001"
+      ]
+    },
+    {
+      "bin_id": 2,
+      "candidate_id": "nearest_site",
+      "predicted_fractions": {
+        "Alnus": 0.22038385175380543,
+        "Amaranthaceae": 0.001985440105890139,
+        "Betula": 0.3944407677035076,
+        "Cichorioideae": 0.0009927200529450694,
+        "Cyperaceae": 0.0066181336863004635,
+        "Filipendula": 0.006949040370615486,
+        "Frangula alnus": 0.002316346790205162,
+        "Nuphar": 0.0,
+        "Plantago lanceolata": 0.011912640635340834,
+        "Plantago media": 0.0,
+        "Populus": 0.0029781601588352085,
+        "Quercus": 0.3084050297816016,
+        "Rosaceae undiff.": 0.0,
+        "Salix": 0.001985440105890139,
+        "Thalictrum": 0.00033090668431502316,
+        "Ulmus": 0.04070152217074785
+      },
+      "target_coordinate_used": {
+        "latitude": 63.88333,
+        "longitude": 14.45
+      },
+      "target_dataset_id": "19913",
+      "target_outcome_input": "target count profile was not opened by this prediction process",
+      "target_site_id": "13338",
+      "taxon_denominator": [
+        "Alnus",
+        "Amaranthaceae",
+        "Betula",
+        "Cichorioideae",
+        "Cyperaceae",
+        "Filipendula",
+        "Frangula alnus",
+        "Nuphar",
+        "Plantago lanceolata",
+        "Plantago media",
+        "Populus",
+        "Quercus",
+        "Rosaceae undiff.",
+        "Salix",
+        "Thalictrum",
+        "Ulmus"
+      ],
+      "training_dataset_ids": [
+        "53995",
+        "54001"
+      ]
+    },
+    {
+      "bin_id": 2,
+      "candidate_id": "inverse_distance_squared",
+      "predicted_fractions": {
+        "Alnus": 0.215769102493381,
+        "Amaranthaceae": 0.003547661258043106,
+        "Betula": 0.3029054718212128,
+        "Cichorioideae": 0.005126179731185652,
+        "Cyperaceae": 0.10692436033302867,
+        "Filipendula": 0.022705058199447587,
+        "Frangula alnus": 0.0011719165152268938,
+        "Nuphar": 0.00023119648980442057,
+        "Plantago lanceolata": 0.06567569359070739,
+        "Plantago media": 0.00023119648980442057,
+        "Populus": 0.0022003392747049822,
+        "Quercus": 0.21914895488681613,
+        "Rosaceae undiff.": 0.002543161387848626,
+        "Salix": 0.018575433095330444,
+        "Thalictrum": 0.0008610061144456751,
+        "Ulmus": 0.0323832683190123
+      },
+      "target_coordinate_used": {
+        "latitude": 63.88333,
+        "longitude": 14.45
+      },
+      "target_dataset_id": "19913",
+      "target_outcome_input": "target count profile was not opened by this prediction process",
+      "target_site_id": "13338",
+      "taxon_denominator": [
+        "Alnus",
+        "Amaranthaceae",
+        "Betula",
+        "Cichorioideae",
+        "Cyperaceae",
+        "Filipendula",
+        "Frangula alnus",
+        "Nuphar",
+        "Plantago lanceolata",
+        "Plantago media",
+        "Populus",
+        "Quercus",
+        "Rosaceae undiff.",
+        "Salix",
+        "Thalictrum",
+        "Ulmus"
+      ],
+      "training_dataset_ids": [
+        "53995",
+        "54001"
+      ]
+    },
+    {
+      "bin_id": 2,
+      "candidate_id": "clr_rbf_ridge",
+      "predicted_fractions": {
+        "Alnus": 0.25481564222778147,
+        "Amaranthaceae": 0.004015509147880493,
+        "Betula": 0.33936031757399726,
+        "Cichorioideae": 0.003933403726849786,
+        "Cyperaceae": 0.04451746935543345,
+        "Filipendula": 0.01967644434701529,
+        "Frangula alnus": 0.0008998347639360233,
+        "Nuphar": 0.00040219020441072735,
+        "Plantago lanceolata": 0.045104719981209615,
+        "Plantago media": 0.00040219020441072735,
+        "Populus": 0.002678751079183704,
+        "Quercus": 0.2346142425677852,
+        "Rosaceae undiff.": 0.0011132763958160514,
+        "Salix": 0.010353801186627194,
+        "Thalictrum": 0.0010641350988763684,
+        "Ulmus": 0.037048072138786706
+      },
+      "target_coordinate_used": {
+        "latitude": 63.88333,
+        "longitude": 14.45
+      },
+      "target_dataset_id": "19913",
+      "target_outcome_input": "target count profile was not opened by this prediction process",
+      "target_site_id": "13338",
+      "taxon_denominator": [
+        "Alnus",
+        "Amaranthaceae",
+        "Betula",
+        "Cichorioideae",
+        "Cyperaceae",
+        "Filipendula",
+        "Frangula alnus",
+        "Nuphar",
+        "Plantago lanceolata",
+        "Plantago media",
+        "Populus",
+        "Quercus",
+        "Rosaceae undiff.",
+        "Salix",
+        "Thalictrum",
+        "Ulmus"
+      ],
+      "training_dataset_ids": [
+        "53995",
+        "54001"
+      ]
+    },
+    {
+      "bin_id": 3,
+      "candidate_id": "training_mean",
+      "predicted_fractions": {
+        "Alnus": 0.2691528479732179,
+        "Amaranthaceae": 0.003839245592620984,
+        "Betula": 0.27169162577019285,
+        "Cichorioideae": 0.006500847936687394,
+        "Cyperaceae": 0.11506013463732372,
+        "Filipendula": 0.020444602494847985,
+        "Frangula alnus": 0.0012717652459463705,
+        "Nuphar": 0.0008949976860899056,
+        "Plantago lanceolata": 0.0537257680122012,
+        "Plantago media": 0.0,
+        "Populus": 0.0011539729640619848,
+        "Quercus": 0.2085956867523009,
+        "Rosaceae undiff.": 0.0022611644997173543,
+        "Salix": 0.004946157557987071,
+        "Thalictrum": 0.0003297065611605671,
+        "Ulmus": 0.0401314763156438
+      },
+      "target_coordinate_used": {
+        "latitude": 63.88333,
+        "longitude": 14.45
+      },
+      "target_dataset_id": "19913",
+      "target_outcome_input": "target count profile was not opened by this prediction process",
+      "target_site_id": "13338",
+      "taxon_denominator": [
+        "Alnus",
+        "Amaranthaceae",
+        "Betula",
+        "Cichorioideae",
+        "Cyperaceae",
+        "Filipendula",
+        "Frangula alnus",
+        "Nuphar",
+        "Plantago lanceolata",
+        "Plantago media",
+        "Populus",
+        "Quercus",
+        "Rosaceae undiff.",
+        "Salix",
+        "Thalictrum",
+        "Ulmus"
+      ],
+      "training_dataset_ids": [
+        "53995",
+        "54001"
+      ]
+    },
+    {
+      "bin_id": 3,
+      "candidate_id": "nearest_site",
+      "predicted_fractions": {
+        "Alnus": 0.28222881635344543,
+        "Amaranthaceae": 0.0003297065611605671,
+        "Betula": 0.35344543356412794,
+        "Cichorioideae": 0.0,
+        "Cyperaceae": 0.0023079459281239697,
+        "Filipendula": 0.0013188262446422684,
+        "Frangula alnus": 0.0019782393669634025,
+        "Nuphar": 0.0006594131223211342,
+        "Plantago lanceolata": 0.006264424662050775,
+        "Plantago media": 0.0,
+        "Populus": 0.0023079459281239697,
+        "Quercus": 0.2871744147708539,
+        "Rosaceae undiff.": 0.0,
+        "Salix": 0.0019782393669634025,
+        "Thalictrum": 0.0006594131223211342,
+        "Ulmus": 0.05934718100890208
+      },
+      "target_coordinate_used": {
+        "latitude": 63.88333,
+        "longitude": 14.45
+      },
+      "target_dataset_id": "19913",
+      "target_outcome_input": "target count profile was not opened by this prediction process",
+      "target_site_id": "13338",
+      "taxon_denominator": [
+        "Alnus",
+        "Amaranthaceae",
+        "Betula",
+        "Cichorioideae",
+        "Cyperaceae",
+        "Filipendula",
+        "Frangula alnus",
+        "Nuphar",
+        "Plantago lanceolata",
+        "Plantago media",
+        "Populus",
+        "Quercus",
+        "Rosaceae undiff.",
+        "Salix",
+        "Thalictrum",
+        "Ulmus"
+      ],
+      "training_dataset_ids": [
+        "53995",
+        "54001"
+      ]
+    },
+    {
+      "bin_id": 3,
+      "candidate_id": "inverse_distance_squared",
+      "predicted_fractions": {
+        "Alnus": 0.26930801006289384,
+        "Amaranthaceae": 0.0037976006915256245,
+        "Betula": 0.2726617330148275,
+        "Cichorioideae": 0.006423707558155497,
+        "Cyperaceae": 0.11372219432522351,
+        "Filipendula": 0.02021765215944158,
+        "Frangula alnus": 0.0012801484109809943,
+        "Nuphar": 0.000892202191932469,
+        "Plantago lanceolata": 0.05316258209748366,
+        "Plantago media": 0.0,
+        "Populus": 0.0011676662410206636,
+        "Quercus": 0.20952811785712616,
+        "Rosaceae undiff.": 0.0022343330637062597,
+        "Salix": 0.004910939639503667,
+        "Thalictrum": 0.00033361892600590394,
+        "Ulmus": 0.0403594937601728
+      },
+      "target_coordinate_used": {
+        "latitude": 63.88333,
+        "longitude": 14.45
+      },
+      "target_dataset_id": "19913",
+      "target_outcome_input": "target count profile was not opened by this prediction process",
+      "target_site_id": "13338",
+      "taxon_denominator": [
+        "Alnus",
+        "Amaranthaceae",
+        "Betula",
+        "Cichorioideae",
+        "Cyperaceae",
+        "Filipendula",
+        "Frangula alnus",
+        "Nuphar",
+        "Plantago lanceolata",
+        "Plantago media",
+        "Populus",
+        "Quercus",
+        "Rosaceae undiff.",
+        "Salix",
+        "Thalictrum",
+        "Ulmus"
+      ],
+      "training_dataset_ids": [
+        "53995",
+        "54001"
+      ]
+    },
+    {
+      "bin_id": 3,
+      "candidate_id": "clr_rbf_ridge",
+      "predicted_fractions": {
+        "Alnus": 0.32539196362681483,
+        "Amaranthaceae": 0.002348462974157293,
+        "Betula": 0.3136747301075075,
+        "Cichorioideae": 0.0017884763401682887,
+        "Cyperaceae": 0.028701720109579457,
+        "Filipendula": 0.009294716703473076,
+        "Frangula alnus": 0.0016304614312948262,
+        "Nuphar": 0.001305128773415182,
+        "Plantago lanceolata": 0.030875875271316182,
+        "Plantago media": 0.00026102575468303657,
+        "Populus": 0.001011356313866371,
+        "Quercus": 0.23402839812425025,
+        "Rosaceae undiff.": 0.0010757826175737594,
+        "Salix": 0.005067597654148769,
+        "Thalictrum": 0.0005838112865195589,
+        "Ulmus": 0.04296049291123167
+      },
+      "target_coordinate_used": {
+        "latitude": 63.88333,
+        "longitude": 14.45
+      },
+      "target_dataset_id": "19913",
+      "target_outcome_input": "target count profile was not opened by this prediction process",
+      "target_site_id": "13338",
+      "taxon_denominator": [
+        "Alnus",
+        "Amaranthaceae",
+        "Betula",
+        "Cichorioideae",
+        "Cyperaceae",
+        "Filipendula",
+        "Frangula alnus",
+        "Nuphar",
+        "Plantago lanceolata",
+        "Plantago media",
+        "Populus",
+        "Quercus",
+        "Rosaceae undiff.",
+        "Salix",
+        "Thalictrum",
+        "Ulmus"
+      ],
+      "training_dataset_ids": [
+        "53995",
+        "54001"
+      ]
+    },
+    {
+      "bin_id": 4,
+      "candidate_id": "training_mean",
+      "predicted_fractions": {
+        "Alnus": 0.2776426332710683,
+        "Amaranthaceae": 0.008603909224800633,
+        "Betula": 0.23520345391191894,
+        "Cichorioideae": 0.010579064587973273,
+        "Cyperaceae": 0.1314440917091745,
+        "Filipendula": 0.020495815072921905,
+        "Frangula alnus": 0.0005040322580645161,
+        "Nuphar": 0.0022271714922048997,
+        "Plantago lanceolata": 0.052221221890940445,
+        "Plantago media": 0.0,
+        "Populus": 0.0010080645161290322,
+        "Quercus": 0.21557482128744881,
+        "Rosaceae undiff.": 0.0016703786191536749,
+        "Salix": 0.001365601875134708,
+        "Thalictrum": 0.0,
+        "Ulmus": 0.04145974028306631
+      },
+      "target_coordinate_used": {
+        "latitude": 63.88333,
+        "longitude": 14.45
+      },
+      "target_dataset_id": "19913",
+      "target_outcome_input": "target count profile was not opened by this prediction process",
+      "target_site_id": "13338",
+      "taxon_denominator": [
+        "Alnus",
+        "Amaranthaceae",
+        "Betula",
+        "Cichorioideae",
+        "Cyperaceae",
+        "Filipendula",
+        "Frangula alnus",
+        "Nuphar",
+        "Plantago lanceolata",
+        "Plantago media",
+        "Populus",
+        "Quercus",
+        "Rosaceae undiff.",
+        "Salix",
+        "Thalictrum",
+        "Ulmus"
+      ],
+      "training_dataset_ids": [
+        "53995",
+        "54001"
+      ]
+    },
+    {
+      "bin_id": 4,
+      "candidate_id": "nearest_site",
+      "predicted_fractions": {
+        "Alnus": 0.3069556451612903,
+        "Amaranthaceae": 0.0005040322580645161,
+        "Betula": 0.2933467741935484,
+        "Cichorioideae": 0.0,
+        "Cyperaceae": 0.0045362903225806455,
+        "Filipendula": 0.0020161290322580645,
+        "Frangula alnus": 0.0010080645161290322,
+        "Nuphar": 0.0,
+        "Plantago lanceolata": 0.007560483870967742,
+        "Plantago media": 0.0,
+        "Populus": 0.0020161290322580645,
+        "Quercus": 0.3119959677419355,
+        "Rosaceae undiff.": 0.0,
+        "Salix": 0.0005040322580645161,
+        "Thalictrum": 0.0,
+        "Ulmus": 0.06955645161290322
+      },
+      "target_coordinate_used": {
+        "latitude": 63.88333,
+        "longitude": 14.45
+      },
+      "target_dataset_id": "19913",
+      "target_outcome_input": "target count profile was not opened by this prediction process",
+      "target_site_id": "13338",
+      "taxon_denominator": [
+        "Alnus",
+        "Amaranthaceae",
+        "Betula",
+        "Cichorioideae",
+        "Cyperaceae",
+        "Filipendula",
+        "Frangula alnus",
+        "Nuphar",
+        "Plantago lanceolata",
+        "Plantago media",
+        "Populus",
+        "Quercus",
+        "Rosaceae undiff.",
+        "Salix",
+        "Thalictrum",
+        "Ulmus"
+      ],
+      "training_dataset_ids": [
+        "53995",
+        "54001"
+      ]
+    },
+    {
+      "bin_id": 4,
+      "candidate_id": "inverse_distance_squared",
+      "predicted_fractions": {
+        "Alnus": 0.2779904674082677,
+        "Amaranthaceae": 0.008507794443873423,
+        "Betula": 0.2358933943288166,
+        "Cichorioideae": 0.010453531264508783,
+        "Cyperaceae": 0.12993817802945828,
+        "Filipendula": 0.020276531374824235,
+        "Frangula alnus": 0.0005100132069435013,
+        "Nuphar": 0.0022007434241071125,
+        "Plantago lanceolata": 0.05169126852640595,
+        "Plantago media": 0.0,
+        "Populus": 0.0010200264138870026,
+        "Quercus": 0.21671897414387895,
+        "Rosaceae undiff.": 0.0016505575680803345,
+        "Salix": 0.0013553783155253068,
+        "Thalictrum": 0.0,
+        "Ulmus": 0.04179314155142293
+      },
+      "target_coordinate_used": {
+        "latitude": 63.88333,
+        "longitude": 14.45
+      },
+      "target_dataset_id": "19913",
+      "target_outcome_input": "target count profile was not opened by this prediction process",
+      "target_site_id": "13338",
+      "taxon_denominator": [
+        "Alnus",
+        "Amaranthaceae",
+        "Betula",
+        "Cichorioideae",
+        "Cyperaceae",
+        "Filipendula",
+        "Frangula alnus",
+        "Nuphar",
+        "Plantago lanceolata",
+        "Plantago media",
+        "Populus",
+        "Quercus",
+        "Rosaceae undiff.",
+        "Salix",
+        "Thalictrum",
+        "Ulmus"
+      ],
+      "training_dataset_ids": [
+        "53995",
+        "54001"
+      ]
+    },
+    {
+      "bin_id": 4,
+      "candidate_id": "clr_rbf_ridge",
+      "predicted_fractions": {
+        "Alnus": 0.3397488784086902,
+        "Amaranthaceae": 0.00443637139931067,
+        "Betula": 0.2805947988083166,
+        "Cichorioideae": 0.002872319835944732,
+        "Cyperaceae": 0.043234846048801456,
+        "Filipendula": 0.011629319821799326,
+        "Frangula alnus": 0.0010292636587747555,
+        "Nuphar": 0.0013801192549099464,
+        "Plantago lanceolata": 0.03388639801258285,
+        "Plantago media": 0.0004601903551765315,
+        "Populus": 0.0013810230240588034,
+        "Quercus": 0.2375777176075968,
+        "Rosaceae undiff.": 0.0012171963444813035,
+        "Salix": 0.0017821739586095487,
+        "Thalictrum": 0.0004601903551765315,
+        "Ulmus": 0.038309193105769954
+      },
+      "target_coordinate_used": {
+        "latitude": 63.88333,
+        "longitude": 14.45
+      },
+      "target_dataset_id": "19913",
+      "target_outcome_input": "target count profile was not opened by this prediction process",
+      "target_site_id": "13338",
+      "taxon_denominator": [
+        "Alnus",
+        "Amaranthaceae",
+        "Betula",
+        "Cichorioideae",
+        "Cyperaceae",
+        "Filipendula",
+        "Frangula alnus",
+        "Nuphar",
+        "Plantago lanceolata",
+        "Plantago media",
+        "Populus",
+        "Quercus",
+        "Rosaceae undiff.",
+        "Salix",
+        "Thalictrum",
+        "Ulmus"
+      ],
+      "training_dataset_ids": [
+        "53995",
+        "54001"
+      ]
+    },
+    {
+      "bin_id": 5,
+      "candidate_id": "training_mean",
+      "predicted_fractions": {
+        "Alnus": 0.3110077229696064,
+        "Amaranthaceae": 0.006388888888888889,
+        "Betula": 0.2777354260089686,
+        "Cichorioideae": 0.0075,
+        "Cyperaceae": 0.10336322869955157,
+        "Filipendula": 0.016393871449925265,
+        "Frangula alnus": 0.0011210762331838565,
+        "Nuphar": 0.0011160936721474838,
+        "Plantago lanceolata": 0.060863228699551575,
+        "Plantago media": 0.0,
+        "Populus": 0.0005605381165919282,
+        "Quercus": 0.17282262082710512,
+        "Rosaceae undiff.": 0.001388888888888889,
+        "Salix": 0.0027827603388141504,
+        "Thalictrum": 0.0,
+        "Ulmus": 0.03695565520677628
+      },
+      "target_coordinate_used": {
+        "latitude": 63.88333,
+        "longitude": 14.45
+      },
+      "target_dataset_id": "19913",
+      "target_outcome_input": "target count profile was not opened by this prediction process",
+      "target_site_id": "13338",
+      "taxon_denominator": [
+        "Alnus",
+        "Amaranthaceae",
+        "Betula",
+        "Cichorioideae",
+        "Cyperaceae",
+        "Filipendula",
+        "Frangula alnus",
+        "Nuphar",
+        "Plantago lanceolata",
+        "Plantago media",
+        "Populus",
+        "Quercus",
+        "Rosaceae undiff.",
+        "Salix",
+        "Thalictrum",
+        "Ulmus"
+      ],
+      "training_dataset_ids": [
+        "53995",
+        "54001"
+      ]
+    },
+    {
+      "bin_id": 5,
+      "candidate_id": "nearest_site",
+      "predicted_fractions": {
+        "Alnus": 0.289237668161435,
+        "Amaranthaceae": 0.0,
+        "Betula": 0.3654708520179372,
+        "Cichorioideae": 0.0,
+        "Cyperaceae": 0.006726457399103139,
+        "Filipendula": 0.0011210762331838565,
+        "Frangula alnus": 0.002242152466367713,
+        "Nuphar": 0.0011210762331838565,
+        "Plantago lanceolata": 0.006726457399103139,
+        "Plantago media": 0.0,
+        "Populus": 0.0011210762331838565,
+        "Quercus": 0.2600896860986547,
+        "Rosaceae undiff.": 0.0,
+        "Salix": 0.0011210762331838565,
+        "Thalictrum": 0.0,
+        "Ulmus": 0.06502242152466367
+      },
+      "target_coordinate_used": {
+        "latitude": 63.88333,
+        "longitude": 14.45
+      },
+      "target_dataset_id": "19913",
+      "target_outcome_input": "target count profile was not opened by this prediction process",
+      "target_site_id": "13338",
+      "taxon_denominator": [
+        "Alnus",
+        "Amaranthaceae",
+        "Betula",
+        "Cichorioideae",
+        "Cyperaceae",
+        "Filipendula",
+        "Frangula alnus",
+        "Nuphar",
+        "Plantago lanceolata",
+        "Plantago media",
+        "Populus",
+        "Quercus",
+        "Rosaceae undiff.",
+        "Salix",
+        "Thalictrum",
+        "Ulmus"
+      ],
+      "training_dataset_ids": [
+        "53995",
+        "54001"
+      ]
+    },
+    {
+      "bin_id": 5,
+      "candidate_id": "inverse_distance_squared",
+      "predicted_fractions": {
+        "Alnus": 0.31074939508916405,
+        "Amaranthaceae": 0.006313077039098376,
+        "Betula": 0.27877651234707446,
+        "Cichorioideae": 0.007411003480680701,
+        "Cyperaceae": 0.1022165171950189,
+        "Filipendula": 0.016212641367983074,
+        "Frangula alnus": 0.0011343791508698505,
+        "Nuphar": 0.0011161527962260881,
+        "Plantago lanceolata": 0.06022083080449493,
+        "Plantago media": 0.0,
+        "Populus": 0.0005671895754349252,
+        "Quercus": 0.17385814950182218,
+        "Rosaceae undiff.": 0.0013724080519779077,
+        "Salix": 0.002763042458599577,
+        "Thalictrum": 0.0,
+        "Ulmus": 0.03728870114155496
+      },
+      "target_coordinate_used": {
+        "latitude": 63.88333,
+        "longitude": 14.45
+      },
+      "target_dataset_id": "19913",
+      "target_outcome_input": "target count profile was not opened by this prediction process",
+      "target_site_id": "13338",
+      "taxon_denominator": [
+        "Alnus",
+        "Amaranthaceae",
+        "Betula",
+        "Cichorioideae",
+        "Cyperaceae",
+        "Filipendula",
+        "Frangula alnus",
+        "Nuphar",
+        "Plantago lanceolata",
+        "Plantago media",
+        "Populus",
+        "Quercus",
+        "Rosaceae undiff.",
+        "Salix",
+        "Thalictrum",
+        "Ulmus"
+      ],
+      "training_dataset_ids": [
+        "53995",
+        "54001"
+      ]
+    },
+    {
+      "bin_id": 5,
+      "candidate_id": "clr_rbf_ridge",
+      "predicted_fractions": {
+        "Alnus": 0.3712367203696947,
+        "Amaranthaceae": 0.003231099453200326,
+        "Betula": 0.315390979467202,
+        "Cichorioideae": 0.0034952043505379576,
+        "Cyperaceae": 0.04562784897588777,
+        "Filipendula": 0.008754354545061604,
+        "Frangula alnus": 0.0010547259062247526,
+        "Nuphar": 0.0018262619373759232,
+        "Plantago lanceolata": 0.034619608079203605,
+        "Plantago media": 0.0004715746886247326,
+        "Populus": 0.0008169250060982044,
+        "Quercus": 0.17876506201266631,
+        "Rosaceae undiff.": 0.0015634777120090344,
+        "Salix": 0.003366846779119375,
+        "Thalictrum": 0.0004715746886247326,
+        "Ulmus": 0.029307736028468905
+      },
+      "target_coordinate_used": {
+        "latitude": 63.88333,
+        "longitude": 14.45
+      },
+      "target_dataset_id": "19913",
+      "target_outcome_input": "target count profile was not opened by this prediction process",
+      "target_site_id": "13338",
+      "taxon_denominator": [
+        "Alnus",
+        "Amaranthaceae",
+        "Betula",
+        "Cichorioideae",
+        "Cyperaceae",
+        "Filipendula",
+        "Frangula alnus",
+        "Nuphar",
+        "Plantago lanceolata",
+        "Plantago media",
+        "Populus",
+        "Quercus",
+        "Rosaceae undiff.",
+        "Salix",
+        "Thalictrum",
+        "Ulmus"
+      ],
+      "training_dataset_ids": [
+        "53995",
+        "54001"
+      ]
+    },
+    {
+      "bin_id": 6,
+      "candidate_id": "training_mean",
+      "predicted_fractions": {
+        "Alnus": 0.5223876520804518,
+        "Amaranthaceae": 0.0024567802259439046,
+        "Betula": 0.2142611305417779,
+        "Cichorioideae": 0.0008237232289950577,
+        "Cyperaceae": 0.0038008733521864638,
+        "Filipendula": 0.006589785831960461,
+        "Frangula alnus": 0.0010695187165775401,
+        "Nuphar": 0.001098297638660077,
+        "Plantago lanceolata": 0.006546617448836656,
+        "Plantago media": 0.0,
+        "Populus": 0.0013440931262425594,
+        "Quercus": 0.19513694949299176,
+        "Rosaceae undiff.": 0.001098297638660077,
+        "Salix": 0.004899170990846541,
+        "Thalictrum": 0.0,
+        "Ulmus": 0.038487109685869256
+      },
+      "target_coordinate_used": {
+        "latitude": 63.88333,
+        "longitude": 14.45
+      },
+      "target_dataset_id": "19913",
+      "target_outcome_input": "target count profile was not opened by this prediction process",
+      "target_site_id": "13338",
+      "taxon_denominator": [
+        "Alnus",
+        "Amaranthaceae",
+        "Betula",
+        "Cichorioideae",
+        "Cyperaceae",
+        "Filipendula",
+        "Frangula alnus",
+        "Nuphar",
+        "Plantago lanceolata",
+        "Plantago media",
+        "Populus",
+        "Quercus",
+        "Rosaceae undiff.",
+        "Salix",
+        "Thalictrum",
+        "Ulmus"
+      ],
+      "training_dataset_ids": [
+        "53995",
+        "54001"
+      ]
+    },
+    {
+      "bin_id": 6,
+      "candidate_id": "nearest_site",
+      "predicted_fractions": {
+        "Alnus": 0.29518716577540105,
+        "Amaranthaceae": 0.0010695187165775401,
+        "Betula": 0.360427807486631,
+        "Cichorioideae": 0.0,
+        "Cyperaceae": 0.0032085561497326204,
+        "Filipendula": 0.0,
+        "Frangula alnus": 0.0021390374331550803,
+        "Nuphar": 0.0,
+        "Plantago lanceolata": 0.0032085561497326204,
+        "Plantago media": 0.0,
+        "Populus": 0.0021390374331550803,
+        "Quercus": 0.2716577540106952,
+        "Rosaceae undiff.": 0.0,
+        "Salix": 0.0032085561497326204,
+        "Thalictrum": 0.0,
+        "Ulmus": 0.057754010695187166
+      },
+      "target_coordinate_used": {
+        "latitude": 63.88333,
+        "longitude": 14.45
+      },
+      "target_dataset_id": "19913",
+      "target_outcome_input": "target count profile was not opened by this prediction process",
+      "target_site_id": "13338",
+      "taxon_denominator": [
+        "Alnus",
+        "Amaranthaceae",
+        "Betula",
+        "Cichorioideae",
+        "Cyperaceae",
+        "Filipendula",
+        "Frangula alnus",
+        "Nuphar",
+        "Plantago lanceolata",
+        "Plantago media",
+        "Populus",
+        "Quercus",
+        "Rosaceae undiff.",
+        "Salix",
+        "Thalictrum",
+        "Ulmus"
+      ],
+      "training_dataset_ids": [
+        "53995",
+        "54001"
+      ]
+    },
+    {
+      "bin_id": 6,
+      "candidate_id": "inverse_distance_squared",
+      "predicted_fractions": {
+        "Alnus": 0.5196916450846116,
+        "Amaranthaceae": 0.002440318699848006,
+        "Betula": 0.21599557394025262,
+        "Cichorioideae": 0.0008139487622933224,
+        "Cyperaceae": 0.0037938447962729527,
+        "Filipendula": 0.006511590098346579,
+        "Frangula alnus": 0.0010822098423271728,
+        "Nuphar": 0.0010852650163910968,
+        "Plantago lanceolata": 0.006507007337250694,
+        "Plantago media": 0.0,
+        "Populus": 0.001353526096424947,
+        "Quercus": 0.19604496086067016,
+        "Rosaceae undiff.": 0.0010852650163910968,
+        "Salix": 0.004879109812664049,
+        "Thalictrum": 0.0,
+        "Ulmus": 0.038715734636255765
+      },
+      "target_coordinate_used": {
+        "latitude": 63.88333,
+        "longitude": 14.45
+      },
+      "target_dataset_id": "19913",
+      "target_outcome_input": "target count profile was not opened by this prediction process",
+      "target_site_id": "13338",
+      "taxon_denominator": [
+        "Alnus",
+        "Amaranthaceae",
+        "Betula",
+        "Cichorioideae",
+        "Cyperaceae",
+        "Filipendula",
+        "Frangula alnus",
+        "Nuphar",
+        "Plantago lanceolata",
+        "Plantago media",
+        "Populus",
+        "Quercus",
+        "Rosaceae undiff.",
+        "Salix",
+        "Thalictrum",
+        "Ulmus"
+      ],
+      "training_dataset_ids": [
+        "53995",
+        "54001"
+      ]
+    },
+    {
+      "bin_id": 6,
+      "candidate_id": "clr_rbf_ridge",
+      "predicted_fractions": {
+        "Alnus": 0.5420120991967263,
+        "Amaranthaceae": 0.002958632489118616,
+        "Betula": 0.18088600553074025,
+        "Cichorioideae": 0.001166841902345749,
+        "Cyperaceae": 0.004811771163608899,
+        "Filipendula": 0.0030862787152026072,
+        "Frangula alnus": 0.0009866838419826745,
+        "Nuphar": 0.0013230248218904798,
+        "Plantago lanceolata": 0.007097919212790738,
+        "Plantago media": 0.0004411526471550267,
+        "Populus": 0.0017087068779166525,
+        "Quercus": 0.2071105352071544,
+        "Rosaceae undiff.": 0.0013230248218904798,
+        "Salix": 0.005834794405927352,
+        "Thalictrum": 0.0004411526471550267,
+        "Ulmus": 0.03881137651839466
+      },
+      "target_coordinate_used": {
+        "latitude": 63.88333,
+        "longitude": 14.45
+      },
+      "target_dataset_id": "19913",
+      "target_outcome_input": "target count profile was not opened by this prediction process",
+      "target_site_id": "13338",
+      "taxon_denominator": [
+        "Alnus",
+        "Amaranthaceae",
+        "Betula",
+        "Cichorioideae",
+        "Cyperaceae",
+        "Filipendula",
+        "Frangula alnus",
+        "Nuphar",
+        "Plantago lanceolata",
+        "Plantago media",
+        "Populus",
+        "Quercus",
+        "Rosaceae undiff.",
+        "Salix",
+        "Thalictrum",
+        "Ulmus"
+      ],
+      "training_dataset_ids": [
+        "53995",
+        "54001"
+      ]
+    },
+    {
+      "bin_id": 7,
+      "candidate_id": "training_mean",
+      "predicted_fractions": {
+        "Alnus": 0.5780158977556109,
+        "Amaranthaceae": 0.0,
+        "Betula": 0.1593204488778055,
+        "Cichorioideae": 0.0,
+        "Cyperaceae": 0.0024976620947630922,
+        "Filipendula": 0.0003117206982543641,
+        "Frangula alnus": 0.0018742206982543643,
+        "Nuphar": 0.0003117206982543641,
+        "Plantago lanceolata": 0.0059265897755610975,
+        "Plantago media": 0.0,
+        "Populus": 0.003125,
+        "Quercus": 0.20769560473815463,
+        "Rosaceae undiff.": 0.0009351620947630922,
+        "Salix": 0.0015625,
+        "Thalictrum": 0.0,
+        "Ulmus": 0.03842347256857855
+      },
+      "target_coordinate_used": {
+        "latitude": 63.88333,
+        "longitude": 14.45
+      },
+      "target_dataset_id": "19913",
+      "target_outcome_input": "target count profile was not opened by this prediction process",
+      "target_site_id": "13338",
+      "taxon_denominator": [
+        "Alnus",
+        "Amaranthaceae",
+        "Betula",
+        "Cichorioideae",
+        "Cyperaceae",
+        "Filipendula",
+        "Frangula alnus",
+        "Nuphar",
+        "Plantago lanceolata",
+        "Plantago media",
+        "Populus",
+        "Quercus",
+        "Rosaceae undiff.",
+        "Salix",
+        "Thalictrum",
+        "Ulmus"
+      ],
+      "training_dataset_ids": [
+        "53995",
+        "54001"
+      ]
+    },
+    {
+      "bin_id": 7,
+      "candidate_id": "nearest_site",
+      "predicted_fractions": {
+        "Alnus": 0.31875,
+        "Amaranthaceae": 0.0,
+        "Betula": 0.275,
+        "Cichorioideae": 0.0,
+        "Cyperaceae": 0.003125,
+        "Filipendula": 0.0,
+        "Frangula alnus": 0.003125,
+        "Nuphar": 0.0,
+        "Plantago lanceolata": 0.003125,
+        "Plantago media": 0.0,
+        "Populus": 0.00625,
+        "Quercus": 0.321875,
+        "Rosaceae undiff.": 0.0,
+        "Salix": 0.003125,
+        "Thalictrum": 0.0,
+        "Ulmus": 0.065625
+      },
+      "target_coordinate_used": {
+        "latitude": 63.88333,
+        "longitude": 14.45
+      },
+      "target_dataset_id": "19913",
+      "target_outcome_input": "target count profile was not opened by this prediction process",
+      "target_site_id": "13338",
+      "taxon_denominator": [
+        "Alnus",
+        "Amaranthaceae",
+        "Betula",
+        "Cichorioideae",
+        "Cyperaceae",
+        "Filipendula",
+        "Frangula alnus",
+        "Nuphar",
+        "Plantago lanceolata",
+        "Plantago media",
+        "Populus",
+        "Quercus",
+        "Rosaceae undiff.",
+        "Salix",
+        "Thalictrum",
+        "Ulmus"
+      ],
+      "training_dataset_ids": [
+        "53995",
+        "54001"
+      ]
+    },
+    {
+      "bin_id": 7,
+      "candidate_id": "inverse_distance_squared",
+      "predicted_fractions": {
+        "Alnus": 0.5749393960918187,
+        "Amaranthaceae": 0.0,
+        "Betula": 0.1606931258653114,
+        "Cichorioideae": 0.0,
+        "Cyperaceae": 0.0025051062134301785,
+        "Filipendula": 0.0003080217573017748,
+        "Frangula alnus": 0.001889062698826629,
+        "Nuphar": 0.0003080217573017748,
+        "Plantago lanceolata": 0.005893345543749702,
+        "Plantago media": 0.0,
+        "Populus": 0.003162081883049708,
+        "Quercus": 0.2090504805723262,
+        "Rosaceae undiff.": 0.0009240652719053243,
+        "Salix": 0.001581040941524854,
+        "Thalictrum": 0.0,
+        "Ulmus": 0.038746251403453884
+      },
+      "target_coordinate_used": {
+        "latitude": 63.88333,
+        "longitude": 14.45
+      },
+      "target_dataset_id": "19913",
+      "target_outcome_input": "target count profile was not opened by this prediction process",
+      "target_site_id": "13338",
+      "taxon_denominator": [
+        "Alnus",
+        "Amaranthaceae",
+        "Betula",
+        "Cichorioideae",
+        "Cyperaceae",
+        "Filipendula",
+        "Frangula alnus",
+        "Nuphar",
+        "Plantago lanceolata",
+        "Plantago media",
+        "Populus",
+        "Quercus",
+        "Rosaceae undiff.",
+        "Salix",
+        "Thalictrum",
+        "Ulmus"
+      ],
+      "training_dataset_ids": [
+        "53995",
+        "54001"
+      ]
+    },
+    {
+      "bin_id": 7,
+      "candidate_id": "clr_rbf_ridge",
+      "predicted_fractions": {
+        "Alnus": 0.6079373128840312,
+        "Amaranthaceae": 0.0008194350006558037,
+        "Betula": 0.1294569619292617,
+        "Cichorioideae": 0.0008194350006558037,
+        "Cyperaceae": 0.00375464897346735,
+        "Filipendula": 0.001419070792537407,
+        "Frangula alnus": 0.0024583050019674098,
+        "Nuphar": 0.001419070792537407,
+        "Plantago lanceolata": 0.0076405981902061835,
+        "Plantago media": 0.0008194350006558037,
+        "Populus": 0.001832751724184978,
+        "Quercus": 0.20453079617556102,
+        "Rosaceae undiff.": 0.002167392854106355,
+        "Salix": 0.001419535354749561,
+        "Thalictrum": 0.0008194350006558037,
+        "Ulmus": 0.03268581532476615
+      },
+      "target_coordinate_used": {
+        "latitude": 63.88333,
+        "longitude": 14.45
+      },
+      "target_dataset_id": "19913",
+      "target_outcome_input": "target count profile was not opened by this prediction process",
+      "target_site_id": "13338",
+      "taxon_denominator": [
+        "Alnus",
+        "Amaranthaceae",
+        "Betula",
+        "Cichorioideae",
+        "Cyperaceae",
+        "Filipendula",
+        "Frangula alnus",
+        "Nuphar",
+        "Plantago lanceolata",
+        "Plantago media",
+        "Populus",
+        "Quercus",
+        "Rosaceae undiff.",
+        "Salix",
+        "Thalictrum",
+        "Ulmus"
+      ],
+      "training_dataset_ids": [
+        "53995",
+        "54001"
+      ]
+    },
+    {
+      "bin_id": 8,
+      "candidate_id": "training_mean",
+      "predicted_fractions": {
+        "Alnus": 0.5163156339876096,
+        "Amaranthaceae": 0.0002465483234714004,
+        "Betula": 0.18954507877754234,
+        "Cichorioideae": 0.0,
+        "Cyperaceae": 0.004149118135902277,
+        "Filipendula": 0.0,
+        "Frangula alnus": 0.0015733165512901196,
+        "Nuphar": 0.00031466331025802394,
+        "Plantago lanceolata": 0.0012586532410320957,
+        "Plantago media": 0.0,
+        "Populus": 0.0028319697923222154,
+        "Quercus": 0.21354839670664816,
+        "Rosaceae undiff.": 0.0002465483234714004,
+        "Salix": 0.0026276248319623448,
+        "Thalictrum": 0.00031466331025802394,
+        "Ulmus": 0.06702778470823202
+      },
+      "target_coordinate_used": {
+        "latitude": 63.88333,
+        "longitude": 14.45
+      },
+      "target_dataset_id": "19913",
+      "target_outcome_input": "target count profile was not opened by this prediction process",
+      "target_site_id": "13338",
+      "taxon_denominator": [
+        "Alnus",
+        "Amaranthaceae",
+        "Betula",
+        "Cichorioideae",
+        "Cyperaceae",
+        "Filipendula",
+        "Frangula alnus",
+        "Nuphar",
+        "Plantago lanceolata",
+        "Plantago media",
+        "Populus",
+        "Quercus",
+        "Rosaceae undiff.",
+        "Salix",
+        "Thalictrum",
+        "Ulmus"
+      ],
+      "training_dataset_ids": [
+        "53995",
+        "54001"
+      ]
+    },
+    {
+      "bin_id": 8,
+      "candidate_id": "nearest_site",
+      "predicted_fractions": {
+        "Alnus": 0.32158590308370044,
+        "Amaranthaceae": 0.0,
+        "Betula": 0.3184392699811202,
+        "Cichorioideae": 0.0,
+        "Cyperaceae": 0.0018879798615481435,
+        "Filipendula": 0.0,
+        "Frangula alnus": 0.0031466331025802393,
+        "Nuphar": 0.0006293266205160479,
+        "Plantago lanceolata": 0.0025173064820641915,
+        "Plantago media": 0.0,
+        "Populus": 0.005663939584644431,
+        "Quercus": 0.2850849590937697,
+        "Rosaceae undiff.": 0.0,
+        "Salix": 0.003775959723096287,
+        "Thalictrum": 0.0006293266205160479,
+        "Ulmus": 0.056639395846444306
+      },
+      "target_coordinate_used": {
+        "latitude": 63.88333,
+        "longitude": 14.45
+      },
+      "target_dataset_id": "19913",
+      "target_outcome_input": "target count profile was not opened by this prediction process",
+      "target_site_id": "13338",
+      "taxon_denominator": [
+        "Alnus",
+        "Amaranthaceae",
+        "Betula",
+        "Cichorioideae",
+        "Cyperaceae",
+        "Filipendula",
+        "Frangula alnus",
+        "Nuphar",
+        "Plantago lanceolata",
+        "Plantago media",
+        "Populus",
+        "Quercus",
+        "Rosaceae undiff.",
+        "Salix",
+        "Thalictrum",
+        "Ulmus"
+      ],
+      "training_dataset_ids": [
+        "53995",
+        "54001"
+      ]
+    },
+    {
+      "bin_id": 8,
+      "candidate_id": "inverse_distance_squared",
+      "predicted_fractions": {
+        "Alnus": 0.5140049315531521,
+        "Amaranthaceae": 0.00024362273112033865,
+        "Betula": 0.19107456336122164,
+        "Cichorioideae": 0.0,
+        "Cyperaceae": 0.0041222870110866556,
+        "Filipendula": 0.0,
+        "Frangula alnus": 0.001591985844203755,
+        "Nuphar": 0.000318397168840751,
+        "Plantago lanceolata": 0.001273588675363004,
+        "Plantago media": 0.0,
+        "Populus": 0.002865574519566759,
+        "Quercus": 0.21439726404751772,
+        "Rosaceae undiff.": 0.00024362273112033865,
+        "Salix": 0.002641251206405522,
+        "Thalictrum": 0.000318397168840751,
+        "Ulmus": 0.06690451398156076
+      },
+      "target_coordinate_used": {
+        "latitude": 63.88333,
+        "longitude": 14.45
+      },
+      "target_dataset_id": "19913",
+      "target_outcome_input": "target count profile was not opened by this prediction process",
+      "target_site_id": "13338",
+      "taxon_denominator": [
+        "Alnus",
+        "Amaranthaceae",
+        "Betula",
+        "Cichorioideae",
+        "Cyperaceae",
+        "Filipendula",
+        "Frangula alnus",
+        "Nuphar",
+        "Plantago lanceolata",
+        "Plantago media",
+        "Populus",
+        "Quercus",
+        "Rosaceae undiff.",
+        "Salix",
+        "Thalictrum",
+        "Ulmus"
+      ],
+      "training_dataset_ids": [
+        "53995",
+        "54001"
+      ]
+    },
+    {
+      "bin_id": 8,
+      "candidate_id": "clr_rbf_ridge",
+      "predicted_fractions": {
+        "Alnus": 0.5327604413927594,
+        "Amaranthaceae": 0.0005371280983365887,
+        "Betula": 0.1551789555392965,
+        "Cichorioideae": 0.000310161808647817,
+        "Cyperaceae": 0.004263162504224997,
+        "Filipendula": 0.000310161808647817,
+        "Frangula alnus": 0.0010290578684570742,
+        "Nuphar": 0.0005373039383432228,
+        "Plantago lanceolata": 0.0009307900396175026,
+        "Plantago media": 0.000310161808647817,
+        "Populus": 0.0013525571200558436,
+        "Quercus": 0.2243929110514308,
+        "Rosaceae undiff.": 0.0005371280983365887,
+        "Salix": 0.002959027941531408,
+        "Thalictrum": 0.0005373039383432228,
+        "Ulmus": 0.07405374704332343
+      },
+      "target_coordinate_used": {
+        "latitude": 63.88333,
+        "longitude": 14.45
+      },
+      "target_dataset_id": "19913",
+      "target_outcome_input": "target count profile was not opened by this prediction process",
+      "target_site_id": "13338",
+      "taxon_denominator": [
+        "Alnus",
+        "Amaranthaceae",
+        "Betula",
+        "Cichorioideae",
+        "Cyperaceae",
+        "Filipendula",
+        "Frangula alnus",
+        "Nuphar",
+        "Plantago lanceolata",
+        "Plantago media",
+        "Populus",
+        "Quercus",
+        "Rosaceae undiff.",
+        "Salix",
+        "Thalictrum",
+        "Ulmus"
+      ],
+      "training_dataset_ids": [
+        "53995",
+        "54001"
+      ]
+    },
+    {
+      "bin_id": 9,
+      "candidate_id": "training_mean",
+      "predicted_fractions": {
+        "Alnus": 0.5349152610396691,
+        "Amaranthaceae": 0.0003368312310008082,
+        "Betula": 0.1992098240892944,
+        "Cichorioideae": 0.0008556828394407944,
+        "Cyperaceae": 0.0068636023981113875,
+        "Filipendula": 0.0006645926207091006,
+        "Frangula alnus": 0.0014749262536873156,
+        "Nuphar": 0.0,
+        "Plantago lanceolata": 0.002703719689298982,
+        "Plantago media": 0.00016388069485414618,
+        "Populus": 0.0008194034742707309,
+        "Quercus": 0.19990258990451837,
+        "Rosaceae undiff.": 0.0006736624620016164,
+        "Salix": 0.0010014238517099087,
+        "Thalictrum": 0.0,
+        "Ulmus": 0.050414599451433326
+      },
+      "target_coordinate_used": {
+        "latitude": 63.88333,
+        "longitude": 14.45
+      },
+      "target_dataset_id": "19913",
+      "target_outcome_input": "target count profile was not opened by this prediction process",
+      "target_site_id": "13338",
+      "taxon_denominator": [
+        "Alnus",
+        "Amaranthaceae",
+        "Betula",
+        "Cichorioideae",
+        "Cyperaceae",
+        "Filipendula",
+        "Frangula alnus",
+        "Nuphar",
+        "Plantago lanceolata",
+        "Plantago media",
+        "Populus",
+        "Quercus",
+        "Rosaceae undiff.",
+        "Salix",
+        "Thalictrum",
+        "Ulmus"
+      ],
+      "training_dataset_ids": [
+        "53995",
+        "54001"
+      ]
+    },
+    {
+      "bin_id": 9,
+      "candidate_id": "nearest_site",
+      "predicted_fractions": {
+        "Alnus": 0.3382497541789577,
+        "Amaranthaceae": 0.00032776138970829236,
+        "Betula": 0.3448049819731236,
+        "Cichorioideae": 0.00032776138970829236,
+        "Cyperaceae": 0.0019665683382497543,
+        "Filipendula": 0.0009832841691248771,
+        "Frangula alnus": 0.0029498525073746312,
+        "Nuphar": 0.0,
+        "Plantago lanceolata": 0.0022943297279580466,
+        "Plantago media": 0.00032776138970829236,
+        "Populus": 0.0016388069485414618,
+        "Quercus": 0.2635201573254671,
+        "Rosaceae undiff.": 0.0006555227794165847,
+        "Salix": 0.0013110455588331695,
+        "Thalictrum": 0.0,
+        "Ulmus": 0.04064241232382825
+      },
+      "target_coordinate_used": {
+        "latitude": 63.88333,
+        "longitude": 14.45
+      },
+      "target_dataset_id": "19913",
+      "target_outcome_input": "target count profile was not opened by this prediction process",
+      "target_site_id": "13338",
+      "taxon_denominator": [
+        "Alnus",
+        "Amaranthaceae",
+        "Betula",
+        "Cichorioideae",
+        "Cyperaceae",
+        "Filipendula",
+        "Frangula alnus",
+        "Nuphar",
+        "Plantago lanceolata",
+        "Plantago media",
+        "Populus",
+        "Quercus",
+        "Rosaceae undiff.",
+        "Salix",
+        "Thalictrum",
+        "Ulmus"
+      ],
+      "training_dataset_ids": [
+        "53995",
+        "54001"
+      ]
+    },
+    {
+      "bin_id": 9,
+      "candidate_id": "inverse_distance_squared",
+      "predicted_fractions": {
+        "Alnus": 0.5325815882955666,
+        "Amaranthaceae": 0.00033672360642669996,
+        "Betula": 0.20093748572681505,
+        "Cichorioideae": 0.0008494184165741023,
+        "Cyperaceae": 0.006805493199935955,
+        "Filipendula": 0.0006683742791818316,
+        "Frangula alnus": 0.0014924280273980923,
+        "Nuphar": 0.0,
+        "Plantago lanceolata": 0.0026988617850851678,
+        "Plantago media": 0.0001658253363775658,
+        "Populus": 0.0008291266818878291,
+        "Quercus": 0.20065748884692178,
+        "Rosaceae undiff.": 0.0006734472128533999,
+        "Salix": 0.0010050978856085315,
+        "Thalictrum": 0.0,
+        "Ulmus": 0.05029864069936749
+      },
+      "target_coordinate_used": {
+        "latitude": 63.88333,
+        "longitude": 14.45
+      },
+      "target_dataset_id": "19913",
+      "target_outcome_input": "target count profile was not opened by this prediction process",
+      "target_site_id": "13338",
+      "taxon_denominator": [
+        "Alnus",
+        "Amaranthaceae",
+        "Betula",
+        "Cichorioideae",
+        "Cyperaceae",
+        "Filipendula",
+        "Frangula alnus",
+        "Nuphar",
+        "Plantago lanceolata",
+        "Plantago media",
+        "Populus",
+        "Quercus",
+        "Rosaceae undiff.",
+        "Salix",
+        "Thalictrum",
+        "Ulmus"
+      ],
+      "training_dataset_ids": [
+        "53995",
+        "54001"
+      ]
+    },
+    {
+      "bin_id": 9,
+      "candidate_id": "clr_rbf_ridge",
+      "predicted_fractions": {
+        "Alnus": 0.5609060038098769,
+        "Amaranthaceae": 0.000569345916044686,
+        "Betula": 0.153597772211359,
+        "Cichorioideae": 0.0009859746772628252,
+        "Cyperaceae": 0.005682548989623406,
+        "Filipendula": 0.0008698000320909613,
+        "Frangula alnus": 0.000827603368145346,
+        "Nuphar": 0.00018978197201489544,
+        "Plantago lanceolata": 0.0032037756158001395,
+        "Plantago media": 0.00032876581883081664,
+        "Populus": 0.0006296604744621675,
+        "Quercus": 0.21385410018564704,
+        "Rosaceae undiff.": 0.0009489098600744764,
+        "Salix": 0.0012732076502917256,
+        "Thalictrum": 0.00018978197201489544,
+        "Ulmus": 0.05594296744646074
+      },
+      "target_coordinate_used": {
+        "latitude": 63.88333,
+        "longitude": 14.45
+      },
+      "target_dataset_id": "19913",
+      "target_outcome_input": "target count profile was not opened by this prediction process",
+      "target_site_id": "13338",
+      "taxon_denominator": [
+        "Alnus",
+        "Amaranthaceae",
+        "Betula",
+        "Cichorioideae",
+        "Cyperaceae",
+        "Filipendula",
+        "Frangula alnus",
+        "Nuphar",
+        "Plantago lanceolata",
+        "Plantago media",
+        "Populus",
+        "Quercus",
+        "Rosaceae undiff.",
+        "Salix",
+        "Thalictrum",
+        "Ulmus"
+      ],
+      "training_dataset_ids": [
+        "53995",
+        "54001"
+      ]
+    },
+    {
+      "bin_id": 10,
+      "candidate_id": "training_mean",
+      "predicted_fractions": {
+        "Alnus": 0.49022974296428407,
+        "Amaranthaceae": 0.0003201980063980296,
+        "Betula": 0.25106637234830753,
+        "Cichorioideae": 0.0001684068710003368,
+        "Cyperaceae": 0.0035554095415836137,
+        "Filipendula": 0.0003201980063980296,
+        "Frangula alnus": 0.0015179113539769277,
+        "Nuphar": 0.0001684068710003368,
+        "Plantago lanceolata": 0.00414595834757174,
+        "Plantago media": 0.0,
+        "Populus": 0.0029006473081588068,
+        "Quercus": 0.20479655897829485,
+        "Rosaceae undiff.": 0.0003368137420006736,
+        "Salix": 0.005073320895560542,
+        "Thalictrum": 0.00015179113539769278,
+        "Ulmus": 0.035248263630066855
+      },
+      "target_coordinate_used": {
+        "latitude": 63.88333,
+        "longitude": 14.45
+      },
+      "target_dataset_id": "19913",
+      "target_outcome_input": "target count profile was not opened by this prediction process",
+      "target_site_id": "13338",
+      "taxon_denominator": [
+        "Alnus",
+        "Amaranthaceae",
+        "Betula",
+        "Cichorioideae",
+        "Cyperaceae",
+        "Filipendula",
+        "Frangula alnus",
+        "Nuphar",
+        "Plantago lanceolata",
+        "Plantago media",
+        "Populus",
+        "Quercus",
+        "Rosaceae undiff.",
+        "Salix",
+        "Thalictrum",
+        "Ulmus"
+      ],
+      "training_dataset_ids": [
+        "53995",
+        "54001"
+      ]
+    },
+    {
+      "bin_id": 10,
+      "candidate_id": "nearest_site",
+      "predicted_fractions": {
+        "Alnus": 0.3600485731633273,
+        "Amaranthaceae": 0.00030358227079538557,
+        "Betula": 0.3482088646023072,
+        "Cichorioideae": 0.0,
+        "Cyperaceae": 0.00273224043715847,
+        "Filipendula": 0.00030358227079538557,
+        "Frangula alnus": 0.0030358227079538553,
+        "Nuphar": 0.0,
+        "Plantago lanceolata": 0.004250151791135397,
+        "Plantago media": 0.0,
+        "Populus": 0.00546448087431694,
+        "Quercus": 0.2459016393442623,
+        "Rosaceae undiff.": 0.0,
+        "Salix": 0.005768063145112325,
+        "Thalictrum": 0.00030358227079538557,
+        "Ulmus": 0.023679417122040074
+      },
+      "target_coordinate_used": {
+        "latitude": 63.88333,
+        "longitude": 14.45
+      },
+      "target_dataset_id": "19913",
+      "target_outcome_input": "target count profile was not opened by this prediction process",
+      "target_site_id": "13338",
+      "taxon_denominator": [
+        "Alnus",
+        "Amaranthaceae",
+        "Betula",
+        "Cichorioideae",
+        "Cyperaceae",
+        "Filipendula",
+        "Frangula alnus",
+        "Nuphar",
+        "Plantago lanceolata",
+        "Plantago media",
+        "Populus",
+        "Quercus",
+        "Rosaceae undiff.",
+        "Salix",
+        "Thalictrum",
+        "Ulmus"
+      ],
+      "training_dataset_ids": [
+        "53995",
+        "54001"
+      ]
+    },
+    {
+      "bin_id": 10,
+      "candidate_id": "inverse_distance_squared",
+      "predicted_fractions": {
+        "Alnus": 0.48868498683185746,
+        "Amaranthaceae": 0.00032000084071342094,
+        "Betula": 0.25221908484012195,
+        "Cichorioideae": 0.00016640852095387227,
+        "Cyperaceae": 0.003545641650236277,
+        "Filipendula": 0.00032000084071342094,
+        "Frangula alnus": 0.0015359231975954867,
+        "Nuphar": 0.00016640852095387227,
+        "Plantago lanceolata": 0.004147194728080148,
+        "Plantago media": 0.0,
+        "Populus": 0.0029310702766257484,
+        "Quercus": 0.20528432018881634,
+        "Rosaceae undiff.": 0.00033281704190774454,
+        "Salix": 0.005081564847831764,
+        "Thalictrum": 0.00015359231975954868,
+        "Ulmus": 0.035110985353833044
+      },
+      "target_coordinate_used": {
+        "latitude": 63.88333,
+        "longitude": 14.45
+      },
+      "target_dataset_id": "19913",
+      "target_outcome_input": "target count profile was not opened by this prediction process",
+      "target_site_id": "13338",
+      "taxon_denominator": [
+        "Alnus",
+        "Amaranthaceae",
+        "Betula",
+        "Cichorioideae",
+        "Cyperaceae",
+        "Filipendula",
+        "Frangula alnus",
+        "Nuphar",
+        "Plantago lanceolata",
+        "Plantago media",
+        "Populus",
+        "Quercus",
+        "Rosaceae undiff.",
+        "Salix",
+        "Thalictrum",
+        "Ulmus"
+      ],
+      "training_dataset_ids": [
+        "53995",
+        "54001"
+      ]
+    },
+    {
+      "bin_id": 10,
+      "candidate_id": "clr_rbf_ridge",
+      "predicted_fractions": {
+        "Alnus": 0.4942149981974546,
+        "Amaranthaceae": 0.0005014158225571226,
+        "Betula": 0.2422357085136632,
+        "Cichorioideae": 0.00028944518606823584,
+        "Cyperaceae": 0.003785408282828466,
+        "Filipendula": 0.0005014158225571226,
+        "Frangula alnus": 0.0007662727753630992,
+        "Nuphar": 0.00028944518606823584,
+        "Plantago lanceolata": 0.00450044423888732,
+        "Plantago media": 0.00016713860751904085,
+        "Populus": 0.0017615736506619763,
+        "Quercus": 0.20992189058653887,
+        "Rosaceae undiff.": 0.00037364369421854176,
+        "Salix": 0.00542393848757886,
+        "Thalictrum": 0.0002895399419441541,
+        "Ulmus": 0.03497772100609103
+      },
+      "target_coordinate_used": {
+        "latitude": 63.88333,
+        "longitude": 14.45
+      },
+      "target_dataset_id": "19913",
+      "target_outcome_input": "target count profile was not opened by this prediction process",
+      "target_site_id": "13338",
+      "taxon_denominator": [
+        "Alnus",
+        "Amaranthaceae",
+        "Betula",
+        "Cichorioideae",
+        "Cyperaceae",
+        "Filipendula",
+        "Frangula alnus",
+        "Nuphar",
+        "Plantago lanceolata",
+        "Plantago media",
+        "Populus",
+        "Quercus",
+        "Rosaceae undiff.",
+        "Salix",
+        "Thalictrum",
+        "Ulmus"
+      ],
+      "training_dataset_ids": [
+        "53995",
+        "54001"
+      ]
+    },
+    {
+      "bin_id": 11,
+      "candidate_id": "training_mean",
+      "predicted_fractions": {
+        "Alnus": 0.46875097411995215,
+        "Amaranthaceae": 0.00037313432835820896,
+        "Betula": 0.19749549121622123,
+        "Cichorioideae": 0.0,
+        "Cyperaceae": 0.0018656716417910447,
+        "Filipendula": 0.0002486325211337643,
+        "Frangula alnus": 0.0029850746268656717,
+        "Nuphar": 0.0002486325211337643,
+        "Plantago lanceolata": 0.0,
+        "Plantago media": 0.0,
+        "Populus": 0.0018656716417910447,
+        "Quercus": 0.24037550932557503,
+        "Rosaceae undiff.": 0.0,
+        "Salix": 0.002487067397967893,
+        "Thalictrum": 0.0,
+        "Ulmus": 0.08330414065921017
+      },
+      "target_coordinate_used": {
+        "latitude": 63.88333,
+        "longitude": 14.45
+      },
+      "target_dataset_id": "19913",
+      "target_outcome_input": "target count profile was not opened by this prediction process",
+      "target_site_id": "13338",
+      "taxon_denominator": [
+        "Alnus",
+        "Amaranthaceae",
+        "Betula",
+        "Cichorioideae",
+        "Cyperaceae",
+        "Filipendula",
+        "Frangula alnus",
+        "Nuphar",
+        "Plantago lanceolata",
+        "Plantago media",
+        "Populus",
+        "Quercus",
+        "Rosaceae undiff.",
+        "Salix",
+        "Thalictrum",
+        "Ulmus"
+      ],
+      "training_dataset_ids": [
+        "53995",
+        "54001"
+      ]
+    },
+    {
+      "bin_id": 11,
+      "candidate_id": "nearest_site",
+      "predicted_fractions": {
+        "Alnus": 0.3164179104477612,
+        "Amaranthaceae": 0.0007462686567164179,
+        "Betula": 0.32686567164179103,
+        "Cichorioideae": 0.0,
+        "Cyperaceae": 0.0037313432835820895,
+        "Filipendula": 0.0,
+        "Frangula alnus": 0.005970149253731343,
+        "Nuphar": 0.0,
+        "Plantago lanceolata": 0.0,
+        "Plantago media": 0.0,
+        "Populus": 0.0037313432835820895,
+        "Quercus": 0.2902985074626866,
+        "Rosaceae undiff.": 0.0,
+        "Salix": 0.0029850746268656717,
+        "Thalictrum": 0.0,
+        "Ulmus": 0.049253731343283584
+      },
+      "target_coordinate_used": {
+        "latitude": 63.88333,
+        "longitude": 14.45
+      },
+      "target_dataset_id": "19913",
+      "target_outcome_input": "target count profile was not opened by this prediction process",
+      "target_site_id": "13338",
+      "taxon_denominator": [
+        "Alnus",
+        "Amaranthaceae",
+        "Betula",
+        "Cichorioideae",
+        "Cyperaceae",
+        "Filipendula",
+        "Frangula alnus",
+        "Nuphar",
+        "Plantago lanceolata",
+        "Plantago media",
+        "Populus",
+        "Quercus",
+        "Rosaceae undiff.",
+        "Salix",
+        "Thalictrum",
+        "Ulmus"
+      ],
+      "training_dataset_ids": [
+        "53995",
+        "54001"
+      ]
+    },
+    {
+      "bin_id": 11,
+      "candidate_id": "inverse_distance_squared",
+      "predicted_fractions": {
+        "Alnus": 0.4669433591274095,
+        "Amaranthaceae": 0.00037756201588653234,
+        "Betula": 0.1990306239844326,
+        "Cichorioideae": 0.0,
+        "Cyperaceae": 0.0018878100794326616,
+        "Filipendula": 0.0002456821972710327,
+        "Frangula alnus": 0.0030204961270922587,
+        "Nuphar": 0.0002456821972710327,
+        "Plantago lanceolata": 0.0,
+        "Plantago media": 0.0,
+        "Populus": 0.0018878100794326616,
+        "Quercus": 0.24096790573466662,
+        "Rosaceae undiff.": 0.0,
+        "Salix": 0.0024929768526302603,
+        "Thalictrum": 0.0,
+        "Ulmus": 0.08290009160447485
+      },
+      "target_coordinate_used": {
+        "latitude": 63.88333,
+        "longitude": 14.45
+      },
+      "target_dataset_id": "19913",
+      "target_outcome_input": "target count profile was not opened by this prediction process",
+      "target_site_id": "13338",
+      "taxon_denominator": [
+        "Alnus",
+        "Amaranthaceae",
+        "Betula",
+        "Cichorioideae",
+        "Cyperaceae",
+        "Filipendula",
+        "Frangula alnus",
+        "Nuphar",
+        "Plantago lanceolata",
+        "Plantago media",
+        "Populus",
+        "Quercus",
+        "Rosaceae undiff.",
+        "Salix",
+        "Thalictrum",
+        "Ulmus"
+      ],
+      "training_dataset_ids": [
+        "53995",
+        "54001"
+      ]
+    },
+    {
+      "bin_id": 11,
+      "candidate_id": "clr_rbf_ridge",
+      "predicted_fractions": {
+        "Alnus": 0.48525107936904716,
+        "Amaranthaceae": 0.0005772063302888053,
+        "Betula": 0.1636592498118692,
+        "Cichorioideae": 0.0003331956953775104,
+        "Cyperaceae": 0.001105479922106028,
+        "Filipendula": 0.000577017431682813,
+        "Frangula alnus": 0.0013743809940585325,
+        "Nuphar": 0.000577017431682813,
+        "Plantago lanceolata": 0.0003331956953775104,
+        "Plantago media": 0.0003331956953775104,
+        "Populus": 0.001105479922106028,
+        "Quercus": 0.25755310927106323,
+        "Rosaceae undiff.": 0.0003331956953775104,
+        "Salix": 0.0029987612583975923,
+        "Thalictrum": 0.0003331956953775104,
+        "Ulmus": 0.08355523978081023
+      },
+      "target_coordinate_used": {
+        "latitude": 63.88333,
+        "longitude": 14.45
+      },
+      "target_dataset_id": "19913",
+      "target_outcome_input": "target count profile was not opened by this prediction process",
+      "target_site_id": "13338",
+      "taxon_denominator": [
+        "Alnus",
+        "Amaranthaceae",
+        "Betula",
+        "Cichorioideae",
+        "Cyperaceae",
+        "Filipendula",
+        "Frangula alnus",
+        "Nuphar",
+        "Plantago lanceolata",
+        "Plantago media",
+        "Populus",
+        "Quercus",
+        "Rosaceae undiff.",
+        "Salix",
+        "Thalictrum",
+        "Ulmus"
+      ],
+      "training_dataset_ids": [
+        "53995",
+        "54001"
+      ]
+    }
+  ],
+  "schema_version": "swedish-direct-pollen-held-out-predictions.v1",
+  "target_dataset_id": "19913",
+  "target_site_id": "13338"
+}

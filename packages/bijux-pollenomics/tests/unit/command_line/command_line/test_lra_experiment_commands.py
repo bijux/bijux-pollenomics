@@ -14,6 +14,7 @@ from bijux_pollenomics.analysis.lra_validation.experiments.configuration import 
     FITTED_PROFILE,
     LOCAL_PROFILE,
     PROFILE,
+    SOURCE_PROFILE,
     TEMPORAL_PROFILE,
 )
 from bijux_pollenomics.analysis.lra_validation.experiments.outputs import (
@@ -76,6 +77,7 @@ def test_invalid_json_never_starts_numerical_work(
     "profile,entry",
     [
         (PROFILE, "prepare_experiment_predictions"),
+        (SOURCE_PROFILE, "prepare_experiment_predictions"),
         (LOCAL_PROFILE, "prepare_local_pollen_predictions"),
         (FITTED_PROFILE, "prepare_fitted_spatial_predictions"),
         (BLOCK_PROFILE, "prepare_spatial_block_predictions"),

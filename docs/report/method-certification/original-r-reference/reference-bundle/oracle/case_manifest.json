@@ -1,0 +1,227 @@
+[
+  {
+    "id": "C0000",
+    "name": "K_lsm_unstable_peatland",
+    "api": "DispersalFactorK",
+    "mode": "unmodified_function",
+    "rtol": 1e-10,
+    "atol": 3e-10,
+    "values": 3
+  },
+  {
+    "id": "C0001",
+    "name": "K_lsm_unstable_lake",
+    "api": "DispersalFactorK",
+    "mode": "unmodified_function",
+    "rtol": 1e-10,
+    "atol": 3e-10,
+    "values": 1
+  },
+  {
+    "id": "C0002",
+    "name": "K_lsm_unstable_low_peatland",
+    "api": "DispersalFactorK",
+    "mode": "unmodified_function",
+    "rtol": 1e-10,
+    "atol": 3e-10,
+    "values": 3
+  },
+  {
+    "id": "C0003",
+    "name": "K_lsm_unstable_low_lake",
+    "api": "DispersalFactorK",
+    "mode": "unmodified_function",
+    "rtol": 1e-10,
+    "atol": 3e-10,
+    "values": 1
+  },
+  {
+    "id": "C0004",
+    "name": "K_gpm_neutral_peatland",
+    "api": "DispersalFactorK",
+    "mode": "unmodified_function",
+    "rtol": 1e-10,
+    "atol": 3e-10,
+    "values": 3
+  },
+  {
+    "id": "C0005",
+    "name": "K_gpm_neutral_lake",
+    "api": "DispersalFactorK",
+    "mode": "unmodified_function",
+    "rtol": 1e-10,
+    "atol": 3e-10,
+    "values": 1
+  },
+  {
+    "id": "C0006",
+    "name": "K_gpm_unstable_peatland",
+    "api": "DispersalFactorK",
+    "mode": "unmodified_function",
+    "rtol": 1e-10,
+    "atol": 3e-10,
+    "values": 3
+  },
+  {
+    "id": "C0007",
+    "name": "K_gpm_unstable_lake",
+    "api": "DispersalFactorK",
+    "mode": "unmodified_function",
+    "rtol": 1e-10,
+    "atol": 3e-10,
+    "values": 1
+  },
+  {
+    "id": "C0008",
+    "name": "K_1overd_peatland",
+    "api": "DispersalFactorK",
+    "mode": "unmodified_function",
+    "rtol": 1e-10,
+    "atol": 3e-10,
+    "values": 3
+  },
+  {
+    "id": "C0009",
+    "name": "K_1overd_lake",
+    "api": "DispersalFactorK",
+    "mode": "unmodified_function",
+    "rtol": 1e-10,
+    "atol": 3e-10,
+    "values": 1
+  },
+  {
+    "id": "C0010",
+    "name": "K_rounding_0.015",
+    "api": "DispersalFactorK",
+    "mode": "unmodified_function",
+    "rtol": 0,
+    "atol": 3e-13,
+    "values": 1
+  },
+  {
+    "id": "C0011",
+    "name": "K_rounding_0.025",
+    "api": "DispersalFactorK",
+    "mode": "unmodified_function",
+    "rtol": 0,
+    "atol": 3e-13,
+    "values": 1
+  },
+  {
+    "id": "C0012",
+    "name": "K_rounding_0.045",
+    "api": "DispersalFactorK",
+    "mode": "unmodified_function",
+    "rtol": 0,
+    "atol": 3e-13,
+    "values": 1
+  },
+  {
+    "id": "C0013",
+    "name": "K_rounding_0.055",
+    "api": "DispersalFactorK",
+    "mode": "unmodified_function",
+    "rtol": 0,
+    "atol": 3e-13,
+    "values": 1
+  },
+  {
+    "id": "C0014",
+    "name": "K_rounding_0.075",
+    "api": "DispersalFactorK",
+    "mode": "unmodified_function",
+    "rtol": 0,
+    "atol": 3e-13,
+    "values": 1
+  },
+  {
+    "id": "C0015",
+    "name": "REVEALSinR_deterministic_1",
+    "api": "REVEALSinR",
+    "mode": "sampler_instrumented_wrapper",
+    "rtol": 1e-10,
+    "atol": 1e-10,
+    "values": 78
+  },
+  {
+    "id": "C0016",
+    "name": "REVEALSinR_deterministic_3",
+    "api": "REVEALSinR",
+    "mode": "sampler_instrumented_wrapper",
+    "rtol": 1e-10,
+    "atol": 1e-10,
+    "values": 78
+  },
+  {
+    "id": "C0017",
+    "name": "REVEALSinR_labels",
+    "api": "REVEALSinR",
+    "mode": "sampler_instrumented_wrapper",
+    "rtol": 1e-10,
+    "atol": 1e-10,
+    "values": 28
+  },
+  {
+    "id": "C0018",
+    "name": "REVEALS_paired_draws",
+    "api": "REVEALS",
+    "mode": "supplied_random_draws",
+    "rtol": 1e-10,
+    "atol": 1e-10,
+    "values": 15
+  },
+  {
+    "id": "C0019",
+    "name": "lov_deterministic",
+    "api": "lov",
+    "mode": "unmodified_function",
+    "rtol": 1e-10,
+    "atol": 1e-10,
+    "values": 10
+  },
+  {
+    "id": "C0020",
+    "name": "calK_full",
+    "api": "calK",
+    "mode": "unmodified_function",
+    "rtol": 1e-10,
+    "atol": 3e-10,
+    "values": 360
+  },
+  {
+    "id": "C0021",
+    "name": "logeuclidean",
+    "api": "logeuclidean",
+    "mode": "unmodified_function",
+    "rtol": 1e-10,
+    "atol": 1e-10,
+    "values": 1
+  },
+  {
+    "id": "C0022",
+    "name": "tf_objective",
+    "api": "tf",
+    "mode": "unmodified_function",
+    "rtol": 1e-10,
+    "atol": 3e-10,
+    "values": 1
+  },
+  {
+    "id": "C0023",
+    "name": "LOVEr_deterministic",
+    "api": "LOVEr",
+    "mode": "sampler_instrumented_wrapper",
+    "rtol": 1e-10,
+    "atol": 3e-10,
+    "values": 420
+  },
+  {
+    "id": "C0024",
+    "name": "LOVEoptim_candidate_replay",
+    "api": "LOVEoptim",
+    "mode": "sampler_and_optimizer_replay",
+    "rtol": 1e-10,
+    "atol": 3e-08,
+    "values": 620
+  }
+]

@@ -11,6 +11,7 @@ from .context.land_use import build_hyde_source_family_contract
 from .dna_contracts import build_dna_source_family_contracts
 from .models import SourceFamilyContract
 from .pollen_contracts import build_pollen_source_family_contracts
+from .reference_sources import build_reference_source_family_contracts
 
 
 def build_source_family_contracts(
@@ -24,6 +25,7 @@ def build_source_family_contracts(
         *build_hydrography_source_family_contracts(),
         *build_dna_source_family_contracts(version),
         build_hyde_source_family_contract(),
+        *build_reference_source_family_contracts(),
     )
 
 

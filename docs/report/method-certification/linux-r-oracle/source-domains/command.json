@@ -1,0 +1,9 @@
+[
+  "Rscript",
+  "--vanilla",
+  "/run/source-domains/source_domains.R",
+  "/run/source-domains",
+  "/provision/library",
+  "/run/source-domains/r_support.R",
+  "ea496ae82807b52c9dd3d4b39b4dfa294bfac4068e20184ce56187bff70caf5c"
+]

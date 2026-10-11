@@ -1,0 +1,4919 @@
+{
+  "schema_version": "pollenomics-synthetic-site-leakage.v1",
+  "profile": "grouped-synthetic-withheld-site-challenge",
+  "source_kind": "fabricated_coordinates_and_independent_piecewise_constant_site_truth",
+  "source_sites": [
+    {
+      "site_id": "west-shore",
+      "latitude": 60.0,
+      "longitude": 12.0,
+      "true_vegetation_fraction": {
+        "tree": 0.8,
+        "grass": 0.19999999999999996
+      }
+    },
+    {
+      "site_id": "west-meadow",
+      "latitude": 60.0,
+      "longitude": 12.01,
+      "true_vegetation_fraction": {
+        "tree": 0.8,
+        "grass": 0.19999999999999996
+      }
+    },
+    {
+      "site_id": "central-shore",
+      "latitude": 60.0,
+      "longitude": 14.0,
+      "true_vegetation_fraction": {
+        "tree": 0.5,
+        "grass": 0.5
+      }
+    },
+    {
+      "site_id": "central-meadow",
+      "latitude": 60.0,
+      "longitude": 14.01,
+      "true_vegetation_fraction": {
+        "tree": 0.5,
+        "grass": 0.5
+      }
+    },
+    {
+      "site_id": "east-shore",
+      "latitude": 60.0,
+      "longitude": 16.0,
+      "true_vegetation_fraction": {
+        "tree": 0.2,
+        "grass": 0.8
+      }
+    },
+    {
+      "site_id": "east-meadow",
+      "latitude": 60.0,
+      "longitude": 16.01,
+      "true_vegetation_fraction": {
+        "tree": 0.2,
+        "grass": 0.8
+      }
+    }
+  ],
+  "source_sha256": "8e2549bf658b22babd6f756d2cc4bd0490fb12efd7d8806b312a26cc51785539",
+  "prospective_contract": {
+    "eligible_groups": 6,
+    "attempts_per_group": 4,
+    "requested_attempts": 24,
+    "calculation_absolute_tolerance": 1e-12,
+    "shuffle": "cyclic_shift_of_only_outer_training_site_compositions",
+    "expected_alias_and_derived_refusal": "withheld_input_leakage_before_numerical_call",
+    "distances": "unrounded_WGS84_inverse_metres_divided_by_1000",
+    "distance_library": "pyproj",
+    "distance_library_version": "3.7.2",
+    "truth_support": "same_two_category_synthetic_site_estimand_at_one_declared_fixture_time",
+    "forward_context": {
+      "taxa": [
+        "tree",
+        "grass"
+      ],
+      "regional_deposition": [
+        0.0,
+        0.0
+      ],
+      "local_k": [
+        [
+          1.0,
+          1.0
+        ]
+      ],
+      "terrestrial_fraction": [
+        1.0
+      ],
+      "ppe": [
+        2.0,
+        1.0
+      ],
+      "regional_input_ids": [
+        "synthetic-background"
+      ],
+      "parameter_input_ids": [
+        "synthetic-ppe"
+      ],
+      "geometry_input_ids": [
+        "synthetic-geometry"
+      ],
+      "temporal_support_id": "synthetic-time",
+      "method_profile": "disqover-0.9.14-homogeneous-local-forward",
+      "engine_build_id": "forward-module-sha256:a267ddcd2cbe07c215cddd26f4e763ea3fb1b780741196bf8aa6fb951dab4d57"
+    }
+  },
+  "cases": [
+    {
+      "case_id": "east-shore-nearest_site",
+      "target_site_id": "east-shore",
+      "control": "nearest_site",
+      "fold": {
+        "fold_id": "site-group:15165f2bef79db6bb3b486c6bfa0d32ce027c643d92b23d0105f49d5d4bc34b3",
+        "train_record_ids": [
+          "central-meadow:alias",
+          "central-meadow:pollen",
+          "central-shore:alias",
+          "central-shore:pollen",
+          "east-meadow:alias",
+          "east-meadow:pollen",
+          "west-meadow:alias",
+          "west-meadow:pollen",
+          "west-shore:alias",
+          "west-shore:pollen"
+        ],
+        "test_record_ids": [
+          "east-shore:alias",
+          "east-shore:pollen"
+        ],
+        "train_group_ids": [
+          "site-group:5d796d1ed95a7e60585025466cb0ebd61f7e5756bcdebdde18cd94d706f28d53",
+          "site-group:6ad95536db864a3747a5e8f8f33789b5aa278904fade5e3aeb0d166cb0ca1484",
+          "site-group:74530d2fe79cd60be2335c39e4df68ef865213fb1b0798f2d40d345b0ddfeb61",
+          "site-group:b0104b4e540351eb19a35f425110d8f2891f2ba07bb09b0aca9e43308a8c51a1",
+          "site-group:b2ed4e4682b475e284b0d2aaa563804b1bb95277afae05a6fb525d340e5a75c3"
+        ],
+        "test_group_ids": [
+          "site-group:15165f2bef79db6bb3b486c6bfa0d32ce027c643d92b23d0105f49d5d4bc34b3"
+        ]
+      },
+      "excluded_target_record_ids": [
+        "east-shore:alias",
+        "east-shore:pollen"
+      ],
+      "training_site_assignment": {
+        "central-meadow": "central-meadow",
+        "central-shore": "central-shore",
+        "east-meadow": "east-meadow",
+        "west-meadow": "west-meadow",
+        "west-shore": "west-shore"
+      },
+      "training_compositions": {
+        "site-group:5d796d1ed95a7e60585025466cb0ebd61f7e5756bcdebdde18cd94d706f28d53": {
+          "tree": 0.5,
+          "grass": 0.5
+        },
+        "site-group:6ad95536db864a3747a5e8f8f33789b5aa278904fade5e3aeb0d166cb0ca1484": {
+          "tree": 0.2,
+          "grass": 0.8
+        },
+        "site-group:74530d2fe79cd60be2335c39e4df68ef865213fb1b0798f2d40d345b0ddfeb61": {
+          "tree": 0.5,
+          "grass": 0.5
+        },
+        "site-group:b0104b4e540351eb19a35f425110d8f2891f2ba07bb09b0aca9e43308a8c51a1": {
+          "tree": 0.8,
+          "grass": 0.19999999999999996
+        },
+        "site-group:b2ed4e4682b475e284b0d2aaa563804b1bb95277afae05a6fb525d340e5a75c3": {
+          "tree": 0.8,
+          "grass": 0.19999999999999996
+        }
+      },
+      "training_input_ids": [
+        "central-meadow:alias",
+        "central-meadow:pollen",
+        "central-shore:alias",
+        "central-shore:pollen",
+        "east-meadow:alias",
+        "east-meadow:pollen",
+        "west-meadow:alias",
+        "west-meadow:pollen",
+        "west-shore:alias",
+        "west-shore:pollen"
+      ],
+      "dependency_graph": {
+        "central-meadow:alias": [],
+        "central-meadow:pollen": [],
+        "central-shore:alias": [],
+        "central-shore:pollen": [],
+        "east-meadow:alias": [],
+        "east-meadow:pollen": [],
+        "west-meadow:alias": [],
+        "west-meadow:pollen": [],
+        "west-shore:alias": [],
+        "west-shore:pollen": [],
+        "synthetic-background": [],
+        "synthetic-ppe": [],
+        "synthetic-geometry": [],
+        "synthetic-time": []
+      },
+      "admitted_synthetic_external_ids": [
+        "synthetic-background",
+        "synthetic-ppe",
+        "synthetic-geometry",
+        "synthetic-time"
+      ],
+      "distances_km": {
+        "site-group:5d796d1ed95a7e60585025466cb0ebd61f7e5756bcdebdde18cd94d706f28d53": 111.59575365062908,
+        "site-group:6ad95536db864a3747a5e8f8f33789b5aa278904fade5e3aeb0d166cb0ca1484": 0.5580000151932717,
+        "site-group:74530d2fe79cd60be2335c39e4df68ef865213fb1b0798f2d40d345b0ddfeb61": 111.03781705993448,
+        "site-group:b0104b4e540351eb19a35f425110d8f2891f2ba07bb09b0aca9e43308a8c51a1": 222.6082627337803,
+        "site-group:b2ed4e4682b475e284b0d2aaa563804b1bb95277afae05a6fb525d340e5a75c3": 223.1660083893193
+      },
+      "status": "scored",
+      "contract_status": "passed",
+      "numerical_calls": 1,
+      "prediction_manifest_sha256": "7951499eac5204e9e40e91ec0600ee169e4608dd29a4de44f679eb7ec2dad3cc",
+      "prediction_manifest": {
+        "allowed_input_closure": [
+          "central-meadow:alias",
+          "central-meadow:pollen",
+          "central-shore:alias",
+          "central-shore:pollen",
+          "east-meadow:alias",
+          "east-meadow:pollen",
+          "synthetic-background",
+          "synthetic-geometry",
+          "synthetic-ppe",
+          "synthetic-time",
+          "west-meadow:alias",
+          "west-meadow:pollen",
+          "west-shore:alias",
+          "west-shore:pollen"
+        ],
+        "experiment": "all_target_pollen_withheld",
+        "fold": {
+          "fold_id": "site-group:15165f2bef79db6bb3b486c6bfa0d32ce027c643d92b23d0105f49d5d4bc34b3",
+          "test_group_ids": [
+            "site-group:15165f2bef79db6bb3b486c6bfa0d32ce027c643d92b23d0105f49d5d4bc34b3"
+          ],
+          "test_record_ids": [
+            "east-shore:alias",
+            "east-shore:pollen"
+          ],
+          "train_group_ids": [
+            "site-group:5d796d1ed95a7e60585025466cb0ebd61f7e5756bcdebdde18cd94d706f28d53",
+            "site-group:6ad95536db864a3747a5e8f8f33789b5aa278904fade5e3aeb0d166cb0ca1484",
+            "site-group:74530d2fe79cd60be2335c39e4df68ef865213fb1b0798f2d40d345b0ddfeb61",
+            "site-group:b0104b4e540351eb19a35f425110d8f2891f2ba07bb09b0aca9e43308a8c51a1",
+            "site-group:b2ed4e4682b475e284b0d2aaa563804b1bb95277afae05a6fb525d340e5a75c3"
+          ],
+          "train_record_ids": [
+            "central-meadow:alias",
+            "central-meadow:pollen",
+            "central-shore:alias",
+            "central-shore:pollen",
+            "east-meadow:alias",
+            "east-meadow:pollen",
+            "west-meadow:alias",
+            "west-meadow:pollen",
+            "west-shore:alias",
+            "west-shore:pollen"
+          ]
+        },
+        "forward_inputs": {
+          "engine_build_id": "forward-module-sha256:a267ddcd2cbe07c215cddd26f4e763ea3fb1b780741196bf8aa6fb951dab4d57",
+          "geometry_input_ids": [
+            "synthetic-geometry"
+          ],
+          "local_k": [
+            [
+              1.0,
+              1.0
+            ]
+          ],
+          "method_profile": "disqover-0.9.14-homogeneous-local-forward",
+          "parameter_input_ids": [
+            "synthetic-ppe"
+          ],
+          "ppe": [
+            2.0,
+            1.0
+          ],
+          "regional_deposition": [
+            0.0,
+            0.0
+          ],
+          "regional_input_ids": [
+            "synthetic-background"
+          ],
+          "taxa": [
+            "tree",
+            "grass"
+          ],
+          "temporal_support_id": "synthetic-time",
+          "terrestrial_fraction": [
+            1.0
+          ]
+        },
+        "input_lineage": {
+          "central-meadow:alias": [],
+          "central-meadow:pollen": [],
+          "central-shore:alias": [],
+          "central-shore:pollen": [],
+          "east-meadow:alias": [],
+          "east-meadow:pollen": [],
+          "synthetic-background": [],
+          "synthetic-geometry": [],
+          "synthetic-ppe": [],
+          "synthetic-time": [],
+          "west-meadow:alias": [],
+          "west-meadow:pollen": [],
+          "west-shore:alias": [],
+          "west-shore:pollen": []
+        },
+        "nearest_training_distance_km": 0.5580000151932717,
+        "pollen_fraction": {
+          "grass": 0.6666666666666666,
+          "tree": 0.3333333333333333
+        },
+        "schema_version": "lra-heldout-prediction.v1",
+        "scientific_acceptance": "not_evaluated_by_prediction",
+        "spatial_input_sha256": "e9af8919d89b809875cd22a757fc47c74ed39f5c14c56bddccd04fde1073ce62",
+        "spatial_method": "nearest_site",
+        "target_group_id": "site-group:15165f2bef79db6bb3b486c6bfa0d32ce027c643d92b23d0105f49d5d4bc34b3",
+        "uncertainty_status": "deterministic_point_prediction_no_predictive_intervals",
+        "vegetation_fraction": {
+          "grass": 0.8,
+          "tree": 0.2
+        }
+      },
+      "prediction_frozen_before_truth_scoring": true,
+      "predicted_vegetation_fraction": {
+        "grass": 0.8,
+        "tree": 0.2
+      },
+      "predicted_pollen_fraction": {
+        "grass": 0.6666666666666666,
+        "tree": 0.3333333333333333
+      },
+      "independent_expected_vegetation_fraction": {
+        "tree": 0.2,
+        "grass": 0.8
+      },
+      "independent_expected_pollen_fraction": {
+        "tree": 0.3333333333333333,
+        "grass": 0.6666666666666666
+      },
+      "calculation_max_abs_error": 0.0,
+      "pollen_calculation_max_abs_error": 0.0,
+      "synthetic_truth_fraction": {
+        "tree": 0.2,
+        "grass": 0.8
+      },
+      "synthetic_pollen_truth_fraction": {
+        "tree": 0.3333333333333333,
+        "grass": 0.6666666666666666
+      },
+      "vegetation_score": {
+        "target": "vegetation_cover",
+        "status": "scored",
+        "taxon_count": 2,
+        "scored_taxon_count": 2,
+        "missing_observed_taxa": [],
+        "mae_fraction": 0.0,
+        "rmse_fraction": 0.0,
+        "bias_fraction": 0.0,
+        "total_variation": 0.0,
+        "count_conditioned_deviance": null,
+        "observed_total_count": null,
+        "zero_probability_positive_count": false,
+        "signed_error_by_taxon": [
+          [
+            "grass",
+            0.0
+          ],
+          [
+            "tree",
+            0.0
+          ]
+        ]
+      },
+      "pollen_mae_fraction": 0.0,
+      "pollen_hellinger": 0.0
+    },
+    {
+      "case_id": "east-shore-shuffled_training_sites",
+      "target_site_id": "east-shore",
+      "control": "shuffled_training_sites",
+      "fold": {
+        "fold_id": "site-group:15165f2bef79db6bb3b486c6bfa0d32ce027c643d92b23d0105f49d5d4bc34b3",
+        "train_record_ids": [
+          "central-meadow:alias",
+          "central-meadow:pollen",
+          "central-shore:alias",
+          "central-shore:pollen",
+          "east-meadow:alias",
+          "east-meadow:pollen",
+          "west-meadow:alias",
+          "west-meadow:pollen",
+          "west-shore:alias",
+          "west-shore:pollen"
+        ],
+        "test_record_ids": [
+          "east-shore:alias",
+          "east-shore:pollen"
+        ],
+        "train_group_ids": [
+          "site-group:5d796d1ed95a7e60585025466cb0ebd61f7e5756bcdebdde18cd94d706f28d53",
+          "site-group:6ad95536db864a3747a5e8f8f33789b5aa278904fade5e3aeb0d166cb0ca1484",
+          "site-group:74530d2fe79cd60be2335c39e4df68ef865213fb1b0798f2d40d345b0ddfeb61",
+          "site-group:b0104b4e540351eb19a35f425110d8f2891f2ba07bb09b0aca9e43308a8c51a1",
+          "site-group:b2ed4e4682b475e284b0d2aaa563804b1bb95277afae05a6fb525d340e5a75c3"
+        ],
+        "test_group_ids": [
+          "site-group:15165f2bef79db6bb3b486c6bfa0d32ce027c643d92b23d0105f49d5d4bc34b3"
+        ]
+      },
+      "excluded_target_record_ids": [
+        "east-shore:alias",
+        "east-shore:pollen"
+      ],
+      "training_site_assignment": {
+        "central-meadow": "central-shore",
+        "central-shore": "east-meadow",
+        "east-meadow": "west-meadow",
+        "west-meadow": "west-shore",
+        "west-shore": "central-meadow"
+      },
+      "training_compositions": {
+        "site-group:5d796d1ed95a7e60585025466cb0ebd61f7e5756bcdebdde18cd94d706f28d53": {
+          "tree": 0.2,
+          "grass": 0.8
+        },
+        "site-group:6ad95536db864a3747a5e8f8f33789b5aa278904fade5e3aeb0d166cb0ca1484": {
+          "tree": 0.8,
+          "grass": 0.19999999999999996
+        },
+        "site-group:74530d2fe79cd60be2335c39e4df68ef865213fb1b0798f2d40d345b0ddfeb61": {
+          "tree": 0.5,
+          "grass": 0.5
+        },
+        "site-group:b0104b4e540351eb19a35f425110d8f2891f2ba07bb09b0aca9e43308a8c51a1": {
+          "tree": 0.8,
+          "grass": 0.19999999999999996
+        },
+        "site-group:b2ed4e4682b475e284b0d2aaa563804b1bb95277afae05a6fb525d340e5a75c3": {
+          "tree": 0.5,
+          "grass": 0.5
+        }
+      },
+      "training_input_ids": [
+        "central-meadow:alias",
+        "central-meadow:pollen",
+        "central-shore:alias",
+        "central-shore:pollen",
+        "east-meadow:alias",
+        "east-meadow:pollen",
+        "west-meadow:alias",
+        "west-meadow:pollen",
+        "west-shore:alias",
+        "west-shore:pollen"
+      ],
+      "dependency_graph": {
+        "central-meadow:alias": [],
+        "central-meadow:pollen": [],
+        "central-shore:alias": [],
+        "central-shore:pollen": [],
+        "east-meadow:alias": [],
+        "east-meadow:pollen": [],
+        "west-meadow:alias": [],
+        "west-meadow:pollen": [],
+        "west-shore:alias": [],
+        "west-shore:pollen": [],
+        "synthetic-background": [],
+        "synthetic-ppe": [],
+        "synthetic-geometry": [],
+        "synthetic-time": []
+      },
+      "admitted_synthetic_external_ids": [
+        "synthetic-background",
+        "synthetic-ppe",
+        "synthetic-geometry",
+        "synthetic-time"
+      ],
+      "distances_km": {
+        "site-group:5d796d1ed95a7e60585025466cb0ebd61f7e5756bcdebdde18cd94d706f28d53": 111.59575365062908,
+        "site-group:6ad95536db864a3747a5e8f8f33789b5aa278904fade5e3aeb0d166cb0ca1484": 0.5580000151932717,
+        "site-group:74530d2fe79cd60be2335c39e4df68ef865213fb1b0798f2d40d345b0ddfeb61": 111.03781705993448,
+        "site-group:b0104b4e540351eb19a35f425110d8f2891f2ba07bb09b0aca9e43308a8c51a1": 222.6082627337803,
+        "site-group:b2ed4e4682b475e284b0d2aaa563804b1bb95277afae05a6fb525d340e5a75c3": 223.1660083893193
+      },
+      "status": "scored",
+      "contract_status": "passed",
+      "numerical_calls": 1,
+      "prediction_manifest_sha256": "7e1601ebada19ee0994acaeb4d475503a44674dac031e1447d79684a242bf172",
+      "prediction_manifest": {
+        "allowed_input_closure": [
+          "central-meadow:alias",
+          "central-meadow:pollen",
+          "central-shore:alias",
+          "central-shore:pollen",
+          "east-meadow:alias",
+          "east-meadow:pollen",
+          "synthetic-background",
+          "synthetic-geometry",
+          "synthetic-ppe",
+          "synthetic-time",
+          "west-meadow:alias",
+          "west-meadow:pollen",
+          "west-shore:alias",
+          "west-shore:pollen"
+        ],
+        "experiment": "all_target_pollen_withheld",
+        "fold": {
+          "fold_id": "site-group:15165f2bef79db6bb3b486c6bfa0d32ce027c643d92b23d0105f49d5d4bc34b3",
+          "test_group_ids": [
+            "site-group:15165f2bef79db6bb3b486c6bfa0d32ce027c643d92b23d0105f49d5d4bc34b3"
+          ],
+          "test_record_ids": [
+            "east-shore:alias",
+            "east-shore:pollen"
+          ],
+          "train_group_ids": [
+            "site-group:5d796d1ed95a7e60585025466cb0ebd61f7e5756bcdebdde18cd94d706f28d53",
+            "site-group:6ad95536db864a3747a5e8f8f33789b5aa278904fade5e3aeb0d166cb0ca1484",
+            "site-group:74530d2fe79cd60be2335c39e4df68ef865213fb1b0798f2d40d345b0ddfeb61",
+            "site-group:b0104b4e540351eb19a35f425110d8f2891f2ba07bb09b0aca9e43308a8c51a1",
+            "site-group:b2ed4e4682b475e284b0d2aaa563804b1bb95277afae05a6fb525d340e5a75c3"
+          ],
+          "train_record_ids": [
+            "central-meadow:alias",
+            "central-meadow:pollen",
+            "central-shore:alias",
+            "central-shore:pollen",
+            "east-meadow:alias",
+            "east-meadow:pollen",
+            "west-meadow:alias",
+            "west-meadow:pollen",
+            "west-shore:alias",
+            "west-shore:pollen"
+          ]
+        },
+        "forward_inputs": {
+          "engine_build_id": "forward-module-sha256:a267ddcd2cbe07c215cddd26f4e763ea3fb1b780741196bf8aa6fb951dab4d57",
+          "geometry_input_ids": [
+            "synthetic-geometry"
+          ],
+          "local_k": [
+            [
+              1.0,
+              1.0
+            ]
+          ],
+          "method_profile": "disqover-0.9.14-homogeneous-local-forward",
+          "parameter_input_ids": [
+            "synthetic-ppe"
+          ],
+          "ppe": [
+            2.0,
+            1.0
+          ],
+          "regional_deposition": [
+            0.0,
+            0.0
+          ],
+          "regional_input_ids": [
+            "synthetic-background"
+          ],
+          "taxa": [
+            "tree",
+            "grass"
+          ],
+          "temporal_support_id": "synthetic-time",
+          "terrestrial_fraction": [
+            1.0
+          ]
+        },
+        "input_lineage": {
+          "central-meadow:alias": [],
+          "central-meadow:pollen": [],
+          "central-shore:alias": [],
+          "central-shore:pollen": [],
+          "east-meadow:alias": [],
+          "east-meadow:pollen": [],
+          "synthetic-background": [],
+          "synthetic-geometry": [],
+          "synthetic-ppe": [],
+          "synthetic-time": [],
+          "west-meadow:alias": [],
+          "west-meadow:pollen": [],
+          "west-shore:alias": [],
+          "west-shore:pollen": []
+        },
+        "nearest_training_distance_km": 0.5580000151932717,
+        "pollen_fraction": {
+          "grass": 0.11111111111111108,
+          "tree": 0.888888888888889
+        },
+        "schema_version": "lra-heldout-prediction.v1",
+        "scientific_acceptance": "not_evaluated_by_prediction",
+        "spatial_input_sha256": "43d4ded2a3591af4cd96ec96efa2bb39a30ed1467b40a402926307fc5f9c5706",
+        "spatial_method": "nearest_site",
+        "target_group_id": "site-group:15165f2bef79db6bb3b486c6bfa0d32ce027c643d92b23d0105f49d5d4bc34b3",
+        "uncertainty_status": "deterministic_point_prediction_no_predictive_intervals",
+        "vegetation_fraction": {
+          "grass": 0.19999999999999996,
+          "tree": 0.8
+        }
+      },
+      "prediction_frozen_before_truth_scoring": true,
+      "predicted_vegetation_fraction": {
+        "grass": 0.19999999999999996,
+        "tree": 0.8
+      },
+      "predicted_pollen_fraction": {
+        "grass": 0.11111111111111108,
+        "tree": 0.888888888888889
+      },
+      "independent_expected_vegetation_fraction": {
+        "tree": 0.8,
+        "grass": 0.19999999999999996
+      },
+      "independent_expected_pollen_fraction": {
+        "tree": 0.888888888888889,
+        "grass": 0.11111111111111108
+      },
+      "calculation_max_abs_error": 0.0,
+      "pollen_calculation_max_abs_error": 0.0,
+      "synthetic_truth_fraction": {
+        "tree": 0.2,
+        "grass": 0.8
+      },
+      "synthetic_pollen_truth_fraction": {
+        "tree": 0.3333333333333333,
+        "grass": 0.6666666666666666
+      },
+      "vegetation_score": {
+        "target": "vegetation_cover",
+        "status": "scored",
+        "taxon_count": 2,
+        "scored_taxon_count": 2,
+        "missing_observed_taxa": [],
+        "mae_fraction": 0.6000000000000001,
+        "rmse_fraction": 0.6000000000000001,
+        "bias_fraction": 0.0,
+        "total_variation": 0.6000000000000001,
+        "count_conditioned_deviance": null,
+        "observed_total_count": null,
+        "zero_probability_positive_count": false,
+        "signed_error_by_taxon": [
+          [
+            "grass",
+            -0.6000000000000001
+          ],
+          [
+            "tree",
+            0.6000000000000001
+          ]
+        ]
+      },
+      "pollen_mae_fraction": 0.5555555555555556,
+      "pollen_hellinger": 0.42837299059613226
+    },
+    {
+      "case_id": "east-shore-heldout_alias_input",
+      "target_site_id": "east-shore",
+      "control": "heldout_alias_input",
+      "fold": {
+        "fold_id": "site-group:15165f2bef79db6bb3b486c6bfa0d32ce027c643d92b23d0105f49d5d4bc34b3",
+        "train_record_ids": [
+          "central-meadow:alias",
+          "central-meadow:pollen",
+          "central-shore:alias",
+          "central-shore:pollen",
+          "east-meadow:alias",
+          "east-meadow:pollen",
+          "west-meadow:alias",
+          "west-meadow:pollen",
+          "west-shore:alias",
+          "west-shore:pollen"
+        ],
+        "test_record_ids": [
+          "east-shore:alias",
+          "east-shore:pollen"
+        ],
+        "train_group_ids": [
+          "site-group:5d796d1ed95a7e60585025466cb0ebd61f7e5756bcdebdde18cd94d706f28d53",
+          "site-group:6ad95536db864a3747a5e8f8f33789b5aa278904fade5e3aeb0d166cb0ca1484",
+          "site-group:74530d2fe79cd60be2335c39e4df68ef865213fb1b0798f2d40d345b0ddfeb61",
+          "site-group:b0104b4e540351eb19a35f425110d8f2891f2ba07bb09b0aca9e43308a8c51a1",
+          "site-group:b2ed4e4682b475e284b0d2aaa563804b1bb95277afae05a6fb525d340e5a75c3"
+        ],
+        "test_group_ids": [
+          "site-group:15165f2bef79db6bb3b486c6bfa0d32ce027c643d92b23d0105f49d5d4bc34b3"
+        ]
+      },
+      "excluded_target_record_ids": [
+        "east-shore:alias",
+        "east-shore:pollen"
+      ],
+      "training_site_assignment": {
+        "central-meadow": "central-meadow",
+        "central-shore": "central-shore",
+        "east-meadow": "east-meadow",
+        "west-meadow": "west-meadow",
+        "west-shore": "west-shore"
+      },
+      "training_compositions": {
+        "site-group:5d796d1ed95a7e60585025466cb0ebd61f7e5756bcdebdde18cd94d706f28d53": {
+          "tree": 0.5,
+          "grass": 0.5
+        },
+        "site-group:6ad95536db864a3747a5e8f8f33789b5aa278904fade5e3aeb0d166cb0ca1484": {
+          "tree": 0.2,
+          "grass": 0.8
+        },
+        "site-group:74530d2fe79cd60be2335c39e4df68ef865213fb1b0798f2d40d345b0ddfeb61": {
+          "tree": 0.5,
+          "grass": 0.5
+        },
+        "site-group:b0104b4e540351eb19a35f425110d8f2891f2ba07bb09b0aca9e43308a8c51a1": {
+          "tree": 0.8,
+          "grass": 0.19999999999999996
+        },
+        "site-group:b2ed4e4682b475e284b0d2aaa563804b1bb95277afae05a6fb525d340e5a75c3": {
+          "tree": 0.8,
+          "grass": 0.19999999999999996
+        }
+      },
+      "training_input_ids": [
+        "central-meadow:alias",
+        "central-meadow:pollen",
+        "central-shore:alias",
+        "central-shore:pollen",
+        "east-meadow:alias",
+        "east-meadow:pollen",
+        "west-meadow:alias",
+        "west-meadow:pollen",
+        "west-shore:alias",
+        "west-shore:pollen",
+        "east-shore:alias"
+      ],
+      "dependency_graph": {
+        "central-meadow:alias": [],
+        "central-meadow:pollen": [],
+        "central-shore:alias": [],
+        "central-shore:pollen": [],
+        "east-meadow:alias": [],
+        "east-meadow:pollen": [],
+        "west-meadow:alias": [],
+        "west-meadow:pollen": [],
+        "west-shore:alias": [],
+        "west-shore:pollen": [],
+        "synthetic-background": [],
+        "synthetic-ppe": [],
+        "synthetic-geometry": [],
+        "synthetic-time": [],
+        "east-shore:alias": []
+      },
+      "admitted_synthetic_external_ids": [
+        "synthetic-background",
+        "synthetic-ppe",
+        "synthetic-geometry",
+        "synthetic-time"
+      ],
+      "distances_km": {
+        "site-group:5d796d1ed95a7e60585025466cb0ebd61f7e5756bcdebdde18cd94d706f28d53": 111.59575365062908,
+        "site-group:6ad95536db864a3747a5e8f8f33789b5aa278904fade5e3aeb0d166cb0ca1484": 0.5580000151932717,
+        "site-group:74530d2fe79cd60be2335c39e4df68ef865213fb1b0798f2d40d345b0ddfeb61": 111.03781705993448,
+        "site-group:b0104b4e540351eb19a35f425110d8f2891f2ba07bb09b0aca9e43308a8c51a1": 222.6082627337803,
+        "site-group:b2ed4e4682b475e284b0d2aaa563804b1bb95277afae05a6fb525d340e5a75c3": 223.1660083893193
+      },
+      "status": "refused",
+      "reason_code": "withheld_input_leakage",
+      "detail": "Withheld record in fit-input closure: east-shore:alias",
+      "numerical_calls": 0,
+      "contract_status": "passed"
+    },
+    {
+      "case_id": "east-shore-derived_target_input",
+      "target_site_id": "east-shore",
+      "control": "derived_target_input",
+      "fold": {
+        "fold_id": "site-group:15165f2bef79db6bb3b486c6bfa0d32ce027c643d92b23d0105f49d5d4bc34b3",
+        "train_record_ids": [
+          "central-meadow:alias",
+          "central-meadow:pollen",
+          "central-shore:alias",
+          "central-shore:pollen",
+          "east-meadow:alias",
+          "east-meadow:pollen",
+          "west-meadow:alias",
+          "west-meadow:pollen",
+          "west-shore:alias",
+          "west-shore:pollen"
+        ],
+        "test_record_ids": [
+          "east-shore:alias",
+          "east-shore:pollen"
+        ],
+        "train_group_ids": [
+          "site-group:5d796d1ed95a7e60585025466cb0ebd61f7e5756bcdebdde18cd94d706f28d53",
+          "site-group:6ad95536db864a3747a5e8f8f33789b5aa278904fade5e3aeb0d166cb0ca1484",
+          "site-group:74530d2fe79cd60be2335c39e4df68ef865213fb1b0798f2d40d345b0ddfeb61",
+          "site-group:b0104b4e540351eb19a35f425110d8f2891f2ba07bb09b0aca9e43308a8c51a1",
+          "site-group:b2ed4e4682b475e284b0d2aaa563804b1bb95277afae05a6fb525d340e5a75c3"
+        ],
+        "test_group_ids": [
+          "site-group:15165f2bef79db6bb3b486c6bfa0d32ce027c643d92b23d0105f49d5d4bc34b3"
+        ]
+      },
+      "excluded_target_record_ids": [
+        "east-shore:alias",
+        "east-shore:pollen"
+      ],
+      "training_site_assignment": {
+        "central-meadow": "central-meadow",
+        "central-shore": "central-shore",
+        "east-meadow": "east-meadow",
+        "west-meadow": "west-meadow",
+        "west-shore": "west-shore"
+      },
+      "training_compositions": {
+        "site-group:5d796d1ed95a7e60585025466cb0ebd61f7e5756bcdebdde18cd94d706f28d53": {
+          "tree": 0.5,
+          "grass": 0.5
+        },
+        "site-group:6ad95536db864a3747a5e8f8f33789b5aa278904fade5e3aeb0d166cb0ca1484": {
+          "tree": 0.2,
+          "grass": 0.8
+        },
+        "site-group:74530d2fe79cd60be2335c39e4df68ef865213fb1b0798f2d40d345b0ddfeb61": {
+          "tree": 0.5,
+          "grass": 0.5
+        },
+        "site-group:b0104b4e540351eb19a35f425110d8f2891f2ba07bb09b0aca9e43308a8c51a1": {
+          "tree": 0.8,
+          "grass": 0.19999999999999996
+        },
+        "site-group:b2ed4e4682b475e284b0d2aaa563804b1bb95277afae05a6fb525d340e5a75c3": {
+          "tree": 0.8,
+          "grass": 0.19999999999999996
+        }
+      },
+      "training_input_ids": [
+        "central-meadow:alias",
+        "central-meadow:pollen",
+        "central-shore:alias",
+        "central-shore:pollen",
+        "east-meadow:alias",
+        "east-meadow:pollen",
+        "west-meadow:alias",
+        "west-meadow:pollen",
+        "west-shore:alias",
+        "west-shore:pollen",
+        "synthetic-derived-product"
+      ],
+      "dependency_graph": {
+        "central-meadow:alias": [],
+        "central-meadow:pollen": [],
+        "central-shore:alias": [],
+        "central-shore:pollen": [],
+        "east-meadow:alias": [],
+        "east-meadow:pollen": [],
+        "west-meadow:alias": [],
+        "west-meadow:pollen": [],
+        "west-shore:alias": [],
+        "west-shore:pollen": [],
+        "synthetic-background": [],
+        "synthetic-ppe": [],
+        "synthetic-geometry": [],
+        "synthetic-time": [],
+        "synthetic-derived-intermediate": [
+          "east-shore:pollen"
+        ],
+        "synthetic-derived-product": [
+          "synthetic-derived-intermediate"
+        ],
+        "east-shore:pollen": []
+      },
+      "admitted_synthetic_external_ids": [
+        "synthetic-background",
+        "synthetic-ppe",
+        "synthetic-geometry",
+        "synthetic-time",
+        "synthetic-derived-product",
+        "synthetic-derived-intermediate"
+      ],
+      "distances_km": {
+        "site-group:5d796d1ed95a7e60585025466cb0ebd61f7e5756bcdebdde18cd94d706f28d53": 111.59575365062908,
+        "site-group:6ad95536db864a3747a5e8f8f33789b5aa278904fade5e3aeb0d166cb0ca1484": 0.5580000151932717,
+        "site-group:74530d2fe79cd60be2335c39e4df68ef865213fb1b0798f2d40d345b0ddfeb61": 111.03781705993448,
+        "site-group:b0104b4e540351eb19a35f425110d8f2891f2ba07bb09b0aca9e43308a8c51a1": 222.6082627337803,
+        "site-group:b2ed4e4682b475e284b0d2aaa563804b1bb95277afae05a6fb525d340e5a75c3": 223.1660083893193
+      },
+      "status": "refused",
+      "reason_code": "withheld_input_leakage",
+      "detail": "Withheld record in fit-input closure: east-shore:pollen",
+      "numerical_calls": 0,
+      "contract_status": "passed"
+    },
+    {
+      "case_id": "central-shore-nearest_site",
+      "target_site_id": "central-shore",
+      "control": "nearest_site",
+      "fold": {
+        "fold_id": "site-group:5d796d1ed95a7e60585025466cb0ebd61f7e5756bcdebdde18cd94d706f28d53",
+        "train_record_ids": [
+          "central-meadow:alias",
+          "central-meadow:pollen",
+          "east-meadow:alias",
+          "east-meadow:pollen",
+          "east-shore:alias",
+          "east-shore:pollen",
+          "west-meadow:alias",
+          "west-meadow:pollen",
+          "west-shore:alias",
+          "west-shore:pollen"
+        ],
+        "test_record_ids": [
+          "central-shore:alias",
+          "central-shore:pollen"
+        ],
+        "train_group_ids": [
+          "site-group:15165f2bef79db6bb3b486c6bfa0d32ce027c643d92b23d0105f49d5d4bc34b3",
+          "site-group:6ad95536db864a3747a5e8f8f33789b5aa278904fade5e3aeb0d166cb0ca1484",
+          "site-group:74530d2fe79cd60be2335c39e4df68ef865213fb1b0798f2d40d345b0ddfeb61",
+          "site-group:b0104b4e540351eb19a35f425110d8f2891f2ba07bb09b0aca9e43308a8c51a1",
+          "site-group:b2ed4e4682b475e284b0d2aaa563804b1bb95277afae05a6fb525d340e5a75c3"
+        ],
+        "test_group_ids": [
+          "site-group:5d796d1ed95a7e60585025466cb0ebd61f7e5756bcdebdde18cd94d706f28d53"
+        ]
+      },
+      "excluded_target_record_ids": [
+        "central-shore:alias",
+        "central-shore:pollen"
+      ],
+      "training_site_assignment": {
+        "central-meadow": "central-meadow",
+        "east-meadow": "east-meadow",
+        "east-shore": "east-shore",
+        "west-meadow": "west-meadow",
+        "west-shore": "west-shore"
+      },
+      "training_compositions": {
+        "site-group:15165f2bef79db6bb3b486c6bfa0d32ce027c643d92b23d0105f49d5d4bc34b3": {
+          "tree": 0.2,
+          "grass": 0.8
+        },
+        "site-group:6ad95536db864a3747a5e8f8f33789b5aa278904fade5e3aeb0d166cb0ca1484": {
+          "tree": 0.2,
+          "grass": 0.8
+        },
+        "site-group:74530d2fe79cd60be2335c39e4df68ef865213fb1b0798f2d40d345b0ddfeb61": {
+          "tree": 0.5,
+          "grass": 0.5
+        },
+        "site-group:b0104b4e540351eb19a35f425110d8f2891f2ba07bb09b0aca9e43308a8c51a1": {
+          "tree": 0.8,
+          "grass": 0.19999999999999996
+        },
+        "site-group:b2ed4e4682b475e284b0d2aaa563804b1bb95277afae05a6fb525d340e5a75c3": {
+          "tree": 0.8,
+          "grass": 0.19999999999999996
+        }
+      },
+      "training_input_ids": [
+        "central-meadow:alias",
+        "central-meadow:pollen",
+        "east-meadow:alias",
+        "east-meadow:pollen",
+        "east-shore:alias",
+        "east-shore:pollen",
+        "west-meadow:alias",
+        "west-meadow:pollen",
+        "west-shore:alias",
+        "west-shore:pollen"
+      ],
+      "dependency_graph": {
+        "central-meadow:alias": [],
+        "central-meadow:pollen": [],
+        "east-meadow:alias": [],
+        "east-meadow:pollen": [],
+        "east-shore:alias": [],
+        "east-shore:pollen": [],
+        "west-meadow:alias": [],
+        "west-meadow:pollen": [],
+        "west-shore:alias": [],
+        "west-shore:pollen": [],
+        "synthetic-background": [],
+        "synthetic-ppe": [],
+        "synthetic-geometry": [],
+        "synthetic-time": []
+      },
+      "admitted_synthetic_external_ids": [
+        "synthetic-background",
+        "synthetic-ppe",
+        "synthetic-geometry",
+        "synthetic-time"
+      ],
+      "distances_km": {
+        "site-group:15165f2bef79db6bb3b486c6bfa0d32ce027c643d92b23d0105f49d5d4bc34b3": 111.59575365062908,
+        "site-group:6ad95536db864a3747a5e8f8f33789b5aa278904fade5e3aeb0d166cb0ca1484": 112.15368960387114,
+        "site-group:74530d2fe79cd60be2335c39e4df68ef865213fb1b0798f2d40d345b0ddfeb61": 0.5580000151931725,
+        "site-group:b0104b4e540351eb19a35f425110d8f2891f2ba07bb09b0aca9e43308a8c51a1": 111.03781705993448,
+        "site-group:b2ed4e4682b475e284b0d2aaa563804b1bb95277afae05a6fb525d340e5a75c3": 111.59575365062908
+      },
+      "status": "scored",
+      "contract_status": "passed",
+      "numerical_calls": 1,
+      "prediction_manifest_sha256": "81bfa6d85ecad1cd6544f371083729e44a4d0446513b21ca9ce047a378a1f246",
+      "prediction_manifest": {
+        "allowed_input_closure": [
+          "central-meadow:alias",
+          "central-meadow:pollen",
+          "east-meadow:alias",
+          "east-meadow:pollen",
+          "east-shore:alias",
+          "east-shore:pollen",
+          "synthetic-background",
+          "synthetic-geometry",
+          "synthetic-ppe",
+          "synthetic-time",
+          "west-meadow:alias",
+          "west-meadow:pollen",
+          "west-shore:alias",
+          "west-shore:pollen"
+        ],
+        "experiment": "all_target_pollen_withheld",
+        "fold": {
+          "fold_id": "site-group:5d796d1ed95a7e60585025466cb0ebd61f7e5756bcdebdde18cd94d706f28d53",
+          "test_group_ids": [
+            "site-group:5d796d1ed95a7e60585025466cb0ebd61f7e5756bcdebdde18cd94d706f28d53"
+          ],
+          "test_record_ids": [
+            "central-shore:alias",
+            "central-shore:pollen"
+          ],
+          "train_group_ids": [
+            "site-group:15165f2bef79db6bb3b486c6bfa0d32ce027c643d92b23d0105f49d5d4bc34b3",
+            "site-group:6ad95536db864a3747a5e8f8f33789b5aa278904fade5e3aeb0d166cb0ca1484",
+            "site-group:74530d2fe79cd60be2335c39e4df68ef865213fb1b0798f2d40d345b0ddfeb61",
+            "site-group:b0104b4e540351eb19a35f425110d8f2891f2ba07bb09b0aca9e43308a8c51a1",
+            "site-group:b2ed4e4682b475e284b0d2aaa563804b1bb95277afae05a6fb525d340e5a75c3"
+          ],
+          "train_record_ids": [
+            "central-meadow:alias",
+            "central-meadow:pollen",
+            "east-meadow:alias",
+            "east-meadow:pollen",
+            "east-shore:alias",
+            "east-shore:pollen",
+            "west-meadow:alias",
+            "west-meadow:pollen",
+            "west-shore:alias",
+            "west-shore:pollen"
+          ]
+        },
+        "forward_inputs": {
+          "engine_build_id": "forward-module-sha256:a267ddcd2cbe07c215cddd26f4e763ea3fb1b780741196bf8aa6fb951dab4d57",
+          "geometry_input_ids": [
+            "synthetic-geometry"
+          ],
+          "local_k": [
+            [
+              1.0,
+              1.0
+            ]
+          ],
+          "method_profile": "disqover-0.9.14-homogeneous-local-forward",
+          "parameter_input_ids": [
+            "synthetic-ppe"
+          ],
+          "ppe": [
+            2.0,
+            1.0
+          ],
+          "regional_deposition": [
+            0.0,
+            0.0
+          ],
+          "regional_input_ids": [
+            "synthetic-background"
+          ],
+          "taxa": [
+            "tree",
+            "grass"
+          ],
+          "temporal_support_id": "synthetic-time",
+          "terrestrial_fraction": [
+            1.0
+          ]
+        },
+        "input_lineage": {
+          "central-meadow:alias": [],
+          "central-meadow:pollen": [],
+          "east-meadow:alias": [],
+          "east-meadow:pollen": [],
+          "east-shore:alias": [],
+          "east-shore:pollen": [],
+          "synthetic-background": [],
+          "synthetic-geometry": [],
+          "synthetic-ppe": [],
+          "synthetic-time": [],
+          "west-meadow:alias": [],
+          "west-meadow:pollen": [],
+          "west-shore:alias": [],
+          "west-shore:pollen": []
+        },
+        "nearest_training_distance_km": 0.5580000151931725,
+        "pollen_fraction": {
+          "grass": 0.3333333333333333,
+          "tree": 0.6666666666666666
+        },
+        "schema_version": "lra-heldout-prediction.v1",
+        "scientific_acceptance": "not_evaluated_by_prediction",
+        "spatial_input_sha256": "9045cc4a36868b95f68dc4edba02a7d5f75ff35603c1b1619c08c8f4d3de4688",
+        "spatial_method": "nearest_site",
+        "target_group_id": "site-group:5d796d1ed95a7e60585025466cb0ebd61f7e5756bcdebdde18cd94d706f28d53",
+        "uncertainty_status": "deterministic_point_prediction_no_predictive_intervals",
+        "vegetation_fraction": {
+          "grass": 0.5,
+          "tree": 0.5
+        }
+      },
+      "prediction_frozen_before_truth_scoring": true,
+      "predicted_vegetation_fraction": {
+        "grass": 0.5,
+        "tree": 0.5
+      },
+      "predicted_pollen_fraction": {
+        "grass": 0.3333333333333333,
+        "tree": 0.6666666666666666
+      },
+      "independent_expected_vegetation_fraction": {
+        "tree": 0.5,
+        "grass": 0.5
+      },
+      "independent_expected_pollen_fraction": {
+        "tree": 0.6666666666666666,
+        "grass": 0.3333333333333333
+      },
+      "calculation_max_abs_error": 0.0,
+      "pollen_calculation_max_abs_error": 0.0,
+      "synthetic_truth_fraction": {
+        "tree": 0.5,
+        "grass": 0.5
+      },
+      "synthetic_pollen_truth_fraction": {
+        "tree": 0.6666666666666666,
+        "grass": 0.3333333333333333
+      },
+      "vegetation_score": {
+        "target": "vegetation_cover",
+        "status": "scored",
+        "taxon_count": 2,
+        "scored_taxon_count": 2,
+        "missing_observed_taxa": [],
+        "mae_fraction": 0.0,
+        "rmse_fraction": 0.0,
+        "bias_fraction": 0.0,
+        "total_variation": 0.0,
+        "count_conditioned_deviance": null,
+        "observed_total_count": null,
+        "zero_probability_positive_count": false,
+        "signed_error_by_taxon": [
+          [
+            "grass",
+            0.0
+          ],
+          [
+            "tree",
+            0.0
+          ]
+        ]
+      },
+      "pollen_mae_fraction": 0.0,
+      "pollen_hellinger": 0.0
+    },
+    {
+      "case_id": "central-shore-shuffled_training_sites",
+      "target_site_id": "central-shore",
+      "control": "shuffled_training_sites",
+      "fold": {
+        "fold_id": "site-group:5d796d1ed95a7e60585025466cb0ebd61f7e5756bcdebdde18cd94d706f28d53",
+        "train_record_ids": [
+          "central-meadow:alias",
+          "central-meadow:pollen",
+          "east-meadow:alias",
+          "east-meadow:pollen",
+          "east-shore:alias",
+          "east-shore:pollen",
+          "west-meadow:alias",
+          "west-meadow:pollen",
+          "west-shore:alias",
+          "west-shore:pollen"
+        ],
+        "test_record_ids": [
+          "central-shore:alias",
+          "central-shore:pollen"
+        ],
+        "train_group_ids": [
+          "site-group:15165f2bef79db6bb3b486c6bfa0d32ce027c643d92b23d0105f49d5d4bc34b3",
+          "site-group:6ad95536db864a3747a5e8f8f33789b5aa278904fade5e3aeb0d166cb0ca1484",
+          "site-group:74530d2fe79cd60be2335c39e4df68ef865213fb1b0798f2d40d345b0ddfeb61",
+          "site-group:b0104b4e540351eb19a35f425110d8f2891f2ba07bb09b0aca9e43308a8c51a1",
+          "site-group:b2ed4e4682b475e284b0d2aaa563804b1bb95277afae05a6fb525d340e5a75c3"
+        ],
+        "test_group_ids": [
+          "site-group:5d796d1ed95a7e60585025466cb0ebd61f7e5756bcdebdde18cd94d706f28d53"
+        ]
+      },
+      "excluded_target_record_ids": [
+        "central-shore:alias",
+        "central-shore:pollen"
+      ],
+      "training_site_assignment": {
+        "central-meadow": "east-meadow",
+        "east-meadow": "east-shore",
+        "east-shore": "west-meadow",
+        "west-meadow": "west-shore",
+        "west-shore": "central-meadow"
+      },
+      "training_compositions": {
+        "site-group:15165f2bef79db6bb3b486c6bfa0d32ce027c643d92b23d0105f49d5d4bc34b3": {
+          "tree": 0.8,
+          "grass": 0.19999999999999996
+        },
+        "site-group:6ad95536db864a3747a5e8f8f33789b5aa278904fade5e3aeb0d166cb0ca1484": {
+          "tree": 0.2,
+          "grass": 0.8
+        },
+        "site-group:74530d2fe79cd60be2335c39e4df68ef865213fb1b0798f2d40d345b0ddfeb61": {
+          "tree": 0.2,
+          "grass": 0.8
+        },
+        "site-group:b0104b4e540351eb19a35f425110d8f2891f2ba07bb09b0aca9e43308a8c51a1": {
+          "tree": 0.8,
+          "grass": 0.19999999999999996
+        },
+        "site-group:b2ed4e4682b475e284b0d2aaa563804b1bb95277afae05a6fb525d340e5a75c3": {
+          "tree": 0.5,
+          "grass": 0.5
+        }
+      },
+      "training_input_ids": [
+        "central-meadow:alias",
+        "central-meadow:pollen",
+        "east-meadow:alias",
+        "east-meadow:pollen",
+        "east-shore:alias",
+        "east-shore:pollen",
+        "west-meadow:alias",
+        "west-meadow:pollen",
+        "west-shore:alias",
+        "west-shore:pollen"
+      ],
+      "dependency_graph": {
+        "central-meadow:alias": [],
+        "central-meadow:pollen": [],
+        "east-meadow:alias": [],
+        "east-meadow:pollen": [],
+        "east-shore:alias": [],
+        "east-shore:pollen": [],
+        "west-meadow:alias": [],
+        "west-meadow:pollen": [],
+        "west-shore:alias": [],
+        "west-shore:pollen": [],
+        "synthetic-background": [],
+        "synthetic-ppe": [],
+        "synthetic-geometry": [],
+        "synthetic-time": []
+      },
+      "admitted_synthetic_external_ids": [
+        "synthetic-background",
+        "synthetic-ppe",
+        "synthetic-geometry",
+        "synthetic-time"
+      ],
+      "distances_km": {
+        "site-group:15165f2bef79db6bb3b486c6bfa0d32ce027c643d92b23d0105f49d5d4bc34b3": 111.59575365062908,
+        "site-group:6ad95536db864a3747a5e8f8f33789b5aa278904fade5e3aeb0d166cb0ca1484": 112.15368960387114,
+        "site-group:74530d2fe79cd60be2335c39e4df68ef865213fb1b0798f2d40d345b0ddfeb61": 0.5580000151931725,
+        "site-group:b0104b4e540351eb19a35f425110d8f2891f2ba07bb09b0aca9e43308a8c51a1": 111.03781705993448,
+        "site-group:b2ed4e4682b475e284b0d2aaa563804b1bb95277afae05a6fb525d340e5a75c3": 111.59575365062908
+      },
+      "status": "scored",
+      "contract_status": "passed",
+      "numerical_calls": 1,
+      "prediction_manifest_sha256": "38bb73f096e1f134e5b95c4a7541ae7b80fbc91e072c38b4a563e88db981cf51",
+      "prediction_manifest": {
+        "allowed_input_closure": [
+          "central-meadow:alias",
+          "central-meadow:pollen",
+          "east-meadow:alias",
+          "east-meadow:pollen",
+          "east-shore:alias",
+          "east-shore:pollen",
+          "synthetic-background",
+          "synthetic-geometry",
+          "synthetic-ppe",
+          "synthetic-time",
+          "west-meadow:alias",
+          "west-meadow:pollen",
+          "west-shore:alias",
+          "west-shore:pollen"
+        ],
+        "experiment": "all_target_pollen_withheld",
+        "fold": {
+          "fold_id": "site-group:5d796d1ed95a7e60585025466cb0ebd61f7e5756bcdebdde18cd94d706f28d53",
+          "test_group_ids": [
+            "site-group:5d796d1ed95a7e60585025466cb0ebd61f7e5756bcdebdde18cd94d706f28d53"
+          ],
+          "test_record_ids": [
+            "central-shore:alias",
+            "central-shore:pollen"
+          ],
+          "train_group_ids": [
+            "site-group:15165f2bef79db6bb3b486c6bfa0d32ce027c643d92b23d0105f49d5d4bc34b3",
+            "site-group:6ad95536db864a3747a5e8f8f33789b5aa278904fade5e3aeb0d166cb0ca1484",
+            "site-group:74530d2fe79cd60be2335c39e4df68ef865213fb1b0798f2d40d345b0ddfeb61",
+            "site-group:b0104b4e540351eb19a35f425110d8f2891f2ba07bb09b0aca9e43308a8c51a1",
+            "site-group:b2ed4e4682b475e284b0d2aaa563804b1bb95277afae05a6fb525d340e5a75c3"
+          ],
+          "train_record_ids": [
+            "central-meadow:alias",
+            "central-meadow:pollen",
+            "east-meadow:alias",
+            "east-meadow:pollen",
+            "east-shore:alias",
+            "east-shore:pollen",
+            "west-meadow:alias",
+            "west-meadow:pollen",
+            "west-shore:alias",
+            "west-shore:pollen"
+          ]
+        },
+        "forward_inputs": {
+          "engine_build_id": "forward-module-sha256:a267ddcd2cbe07c215cddd26f4e763ea3fb1b780741196bf8aa6fb951dab4d57",
+          "geometry_input_ids": [
+            "synthetic-geometry"
+          ],
+          "local_k": [
+            [
+              1.0,
+              1.0
+            ]
+          ],
+          "method_profile": "disqover-0.9.14-homogeneous-local-forward",
+          "parameter_input_ids": [
+            "synthetic-ppe"
+          ],
+          "ppe": [
+            2.0,
+            1.0
+          ],
+          "regional_deposition": [
+            0.0,
+            0.0
+          ],
+          "regional_input_ids": [
+            "synthetic-background"
+          ],
+          "taxa": [
+            "tree",
+            "grass"
+          ],
+          "temporal_support_id": "synthetic-time",
+          "terrestrial_fraction": [
+            1.0
+          ]
+        },
+        "input_lineage": {
+          "central-meadow:alias": [],
+          "central-meadow:pollen": [],
+          "east-meadow:alias": [],
+          "east-meadow:pollen": [],
+          "east-shore:alias": [],
+          "east-shore:pollen": [],
+          "synthetic-background": [],
+          "synthetic-geometry": [],
+          "synthetic-ppe": [],
+          "synthetic-time": [],
+          "west-meadow:alias": [],
+          "west-meadow:pollen": [],
+          "west-shore:alias": [],
+          "west-shore:pollen": []
+        },
+        "nearest_training_distance_km": 0.5580000151931725,
+        "pollen_fraction": {
+          "grass": 0.6666666666666666,
+          "tree": 0.3333333333333333
+        },
+        "schema_version": "lra-heldout-prediction.v1",
+        "scientific_acceptance": "not_evaluated_by_prediction",
+        "spatial_input_sha256": "757fbd978adb41e2848a889a01fddf3819cbff4467369dc04cb676fe28e3a560",
+        "spatial_method": "nearest_site",
+        "target_group_id": "site-group:5d796d1ed95a7e60585025466cb0ebd61f7e5756bcdebdde18cd94d706f28d53",
+        "uncertainty_status": "deterministic_point_prediction_no_predictive_intervals",
+        "vegetation_fraction": {
+          "grass": 0.8,
+          "tree": 0.2
+        }
+      },
+      "prediction_frozen_before_truth_scoring": true,
+      "predicted_vegetation_fraction": {
+        "grass": 0.8,
+        "tree": 0.2
+      },
+      "predicted_pollen_fraction": {
+        "grass": 0.6666666666666666,
+        "tree": 0.3333333333333333
+      },
+      "independent_expected_vegetation_fraction": {
+        "tree": 0.2,
+        "grass": 0.8
+      },
+      "independent_expected_pollen_fraction": {
+        "tree": 0.3333333333333333,
+        "grass": 0.6666666666666666
+      },
+      "calculation_max_abs_error": 0.0,
+      "pollen_calculation_max_abs_error": 0.0,
+      "synthetic_truth_fraction": {
+        "tree": 0.5,
+        "grass": 0.5
+      },
+      "synthetic_pollen_truth_fraction": {
+        "tree": 0.6666666666666666,
+        "grass": 0.3333333333333333
+      },
+      "vegetation_score": {
+        "target": "vegetation_cover",
+        "status": "scored",
+        "taxon_count": 2,
+        "scored_taxon_count": 2,
+        "missing_observed_taxa": [],
+        "mae_fraction": 0.30000000000000004,
+        "rmse_fraction": 0.30000000000000004,
+        "bias_fraction": 2.7755575615628914e-17,
+        "total_variation": 0.30000000000000004,
+        "count_conditioned_deviance": null,
+        "observed_total_count": null,
+        "zero_probability_positive_count": false,
+        "signed_error_by_taxon": [
+          [
+            "grass",
+            0.30000000000000004
+          ],
+          [
+            "tree",
+            -0.3
+          ]
+        ]
+      },
+      "pollen_mae_fraction": 0.3333333333333333,
+      "pollen_hellinger": 0.2391463117381003
+    },
+    {
+      "case_id": "central-shore-heldout_alias_input",
+      "target_site_id": "central-shore",
+      "control": "heldout_alias_input",
+      "fold": {
+        "fold_id": "site-group:5d796d1ed95a7e60585025466cb0ebd61f7e5756bcdebdde18cd94d706f28d53",
+        "train_record_ids": [
+          "central-meadow:alias",
+          "central-meadow:pollen",
+          "east-meadow:alias",
+          "east-meadow:pollen",
+          "east-shore:alias",
+          "east-shore:pollen",
+          "west-meadow:alias",
+          "west-meadow:pollen",
+          "west-shore:alias",
+          "west-shore:pollen"
+        ],
+        "test_record_ids": [
+          "central-shore:alias",
+          "central-shore:pollen"
+        ],
+        "train_group_ids": [
+          "site-group:15165f2bef79db6bb3b486c6bfa0d32ce027c643d92b23d0105f49d5d4bc34b3",
+          "site-group:6ad95536db864a3747a5e8f8f33789b5aa278904fade5e3aeb0d166cb0ca1484",
+          "site-group:74530d2fe79cd60be2335c39e4df68ef865213fb1b0798f2d40d345b0ddfeb61",
+          "site-group:b0104b4e540351eb19a35f425110d8f2891f2ba07bb09b0aca9e43308a8c51a1",
+          "site-group:b2ed4e4682b475e284b0d2aaa563804b1bb95277afae05a6fb525d340e5a75c3"
+        ],
+        "test_group_ids": [
+          "site-group:5d796d1ed95a7e60585025466cb0ebd61f7e5756bcdebdde18cd94d706f28d53"
+        ]
+      },
+      "excluded_target_record_ids": [
+        "central-shore:alias",
+        "central-shore:pollen"
+      ],
+      "training_site_assignment": {
+        "central-meadow": "central-meadow",
+        "east-meadow": "east-meadow",
+        "east-shore": "east-shore",
+        "west-meadow": "west-meadow",
+        "west-shore": "west-shore"
+      },
+      "training_compositions": {
+        "site-group:15165f2bef79db6bb3b486c6bfa0d32ce027c643d92b23d0105f49d5d4bc34b3": {
+          "tree": 0.2,
+          "grass": 0.8
+        },
+        "site-group:6ad95536db864a3747a5e8f8f33789b5aa278904fade5e3aeb0d166cb0ca1484": {
+          "tree": 0.2,
+          "grass": 0.8
+        },
+        "site-group:74530d2fe79cd60be2335c39e4df68ef865213fb1b0798f2d40d345b0ddfeb61": {
+          "tree": 0.5,
+          "grass": 0.5
+        },
+        "site-group:b0104b4e540351eb19a35f425110d8f2891f2ba07bb09b0aca9e43308a8c51a1": {
+          "tree": 0.8,
+          "grass": 0.19999999999999996
+        },
+        "site-group:b2ed4e4682b475e284b0d2aaa563804b1bb95277afae05a6fb525d340e5a75c3": {
+          "tree": 0.8,
+          "grass": 0.19999999999999996
+        }
+      },
+      "training_input_ids": [
+        "central-meadow:alias",
+        "central-meadow:pollen",
+        "east-meadow:alias",
+        "east-meadow:pollen",
+        "east-shore:alias",
+        "east-shore:pollen",
+        "west-meadow:alias",
+        "west-meadow:pollen",
+        "west-shore:alias",
+        "west-shore:pollen",
+        "central-shore:alias"
+      ],
+      "dependency_graph": {
+        "central-meadow:alias": [],
+        "central-meadow:pollen": [],
+        "east-meadow:alias": [],
+        "east-meadow:pollen": [],
+        "east-shore:alias": [],
+        "east-shore:pollen": [],
+        "west-meadow:alias": [],
+        "west-meadow:pollen": [],
+        "west-shore:alias": [],
+        "west-shore:pollen": [],
+        "synthetic-background": [],
+        "synthetic-ppe": [],
+        "synthetic-geometry": [],
+        "synthetic-time": [],
+        "central-shore:alias": []
+      },
+      "admitted_synthetic_external_ids": [
+        "synthetic-background",
+        "synthetic-ppe",
+        "synthetic-geometry",
+        "synthetic-time"
+      ],
+      "distances_km": {
+        "site-group:15165f2bef79db6bb3b486c6bfa0d32ce027c643d92b23d0105f49d5d4bc34b3": 111.59575365062908,
+        "site-group:6ad95536db864a3747a5e8f8f33789b5aa278904fade5e3aeb0d166cb0ca1484": 112.15368960387114,
+        "site-group:74530d2fe79cd60be2335c39e4df68ef865213fb1b0798f2d40d345b0ddfeb61": 0.5580000151931725,
+        "site-group:b0104b4e540351eb19a35f425110d8f2891f2ba07bb09b0aca9e43308a8c51a1": 111.03781705993448,
+        "site-group:b2ed4e4682b475e284b0d2aaa563804b1bb95277afae05a6fb525d340e5a75c3": 111.59575365062908
+      },
+      "status": "refused",
+      "reason_code": "withheld_input_leakage",
+      "detail": "Withheld record in fit-input closure: central-shore:alias",
+      "numerical_calls": 0,
+      "contract_status": "passed"
+    },
+    {
+      "case_id": "central-shore-derived_target_input",
+      "target_site_id": "central-shore",
+      "control": "derived_target_input",
+      "fold": {
+        "fold_id": "site-group:5d796d1ed95a7e60585025466cb0ebd61f7e5756bcdebdde18cd94d706f28d53",
+        "train_record_ids": [
+          "central-meadow:alias",
+          "central-meadow:pollen",
+          "east-meadow:alias",
+          "east-meadow:pollen",
+          "east-shore:alias",
+          "east-shore:pollen",
+          "west-meadow:alias",
+          "west-meadow:pollen",
+          "west-shore:alias",
+          "west-shore:pollen"
+        ],
+        "test_record_ids": [
+          "central-shore:alias",
+          "central-shore:pollen"
+        ],
+        "train_group_ids": [
+          "site-group:15165f2bef79db6bb3b486c6bfa0d32ce027c643d92b23d0105f49d5d4bc34b3",
+          "site-group:6ad95536db864a3747a5e8f8f33789b5aa278904fade5e3aeb0d166cb0ca1484",
+          "site-group:74530d2fe79cd60be2335c39e4df68ef865213fb1b0798f2d40d345b0ddfeb61",
+          "site-group:b0104b4e540351eb19a35f425110d8f2891f2ba07bb09b0aca9e43308a8c51a1",
+          "site-group:b2ed4e4682b475e284b0d2aaa563804b1bb95277afae05a6fb525d340e5a75c3"
+        ],
+        "test_group_ids": [
+          "site-group:5d796d1ed95a7e60585025466cb0ebd61f7e5756bcdebdde18cd94d706f28d53"
+        ]
+      },
+      "excluded_target_record_ids": [
+        "central-shore:alias",
+        "central-shore:pollen"
+      ],
+      "training_site_assignment": {
+        "central-meadow": "central-meadow",
+        "east-meadow": "east-meadow",
+        "east-shore": "east-shore",
+        "west-meadow": "west-meadow",
+        "west-shore": "west-shore"
+      },
+      "training_compositions": {
+        "site-group:15165f2bef79db6bb3b486c6bfa0d32ce027c643d92b23d0105f49d5d4bc34b3": {
+          "tree": 0.2,
+          "grass": 0.8
+        },
+        "site-group:6ad95536db864a3747a5e8f8f33789b5aa278904fade5e3aeb0d166cb0ca1484": {
+          "tree": 0.2,
+          "grass": 0.8
+        },
+        "site-group:74530d2fe79cd60be2335c39e4df68ef865213fb1b0798f2d40d345b0ddfeb61": {
+          "tree": 0.5,
+          "grass": 0.5
+        },
+        "site-group:b0104b4e540351eb19a35f425110d8f2891f2ba07bb09b0aca9e43308a8c51a1": {
+          "tree": 0.8,
+          "grass": 0.19999999999999996
+        },
+        "site-group:b2ed4e4682b475e284b0d2aaa563804b1bb95277afae05a6fb525d340e5a75c3": {
+          "tree": 0.8,
+          "grass": 0.19999999999999996
+        }
+      },
+      "training_input_ids": [
+        "central-meadow:alias",
+        "central-meadow:pollen",
+        "east-meadow:alias",
+        "east-meadow:pollen",
+        "east-shore:alias",
+        "east-shore:pollen",
+        "west-meadow:alias",
+        "west-meadow:pollen",
+        "west-shore:alias",
+        "west-shore:pollen",
+        "synthetic-derived-product"
+      ],
+      "dependency_graph": {
+        "central-meadow:alias": [],
+        "central-meadow:pollen": [],
+        "east-meadow:alias": [],
+        "east-meadow:pollen": [],
+        "east-shore:alias": [],
+        "east-shore:pollen": [],
+        "west-meadow:alias": [],
+        "west-meadow:pollen": [],
+        "west-shore:alias": [],
+        "west-shore:pollen": [],
+        "synthetic-background": [],
+        "synthetic-ppe": [],
+        "synthetic-geometry": [],
+        "synthetic-time": [],
+        "synthetic-derived-intermediate": [
+          "central-shore:pollen"
+        ],
+        "synthetic-derived-product": [
+          "synthetic-derived-intermediate"
+        ],
+        "central-shore:pollen": []
+      },
+      "admitted_synthetic_external_ids": [
+        "synthetic-background",
+        "synthetic-ppe",
+        "synthetic-geometry",
+        "synthetic-time",
+        "synthetic-derived-product",
+        "synthetic-derived-intermediate"
+      ],
+      "distances_km": {
+        "site-group:15165f2bef79db6bb3b486c6bfa0d32ce027c643d92b23d0105f49d5d4bc34b3": 111.59575365062908,
+        "site-group:6ad95536db864a3747a5e8f8f33789b5aa278904fade5e3aeb0d166cb0ca1484": 112.15368960387114,
+        "site-group:74530d2fe79cd60be2335c39e4df68ef865213fb1b0798f2d40d345b0ddfeb61": 0.5580000151931725,
+        "site-group:b0104b4e540351eb19a35f425110d8f2891f2ba07bb09b0aca9e43308a8c51a1": 111.03781705993448,
+        "site-group:b2ed4e4682b475e284b0d2aaa563804b1bb95277afae05a6fb525d340e5a75c3": 111.59575365062908
+      },
+      "status": "refused",
+      "reason_code": "withheld_input_leakage",
+      "detail": "Withheld record in fit-input closure: central-shore:pollen",
+      "numerical_calls": 0,
+      "contract_status": "passed"
+    },
+    {
+      "case_id": "east-meadow-nearest_site",
+      "target_site_id": "east-meadow",
+      "control": "nearest_site",
+      "fold": {
+        "fold_id": "site-group:6ad95536db864a3747a5e8f8f33789b5aa278904fade5e3aeb0d166cb0ca1484",
+        "train_record_ids": [
+          "central-meadow:alias",
+          "central-meadow:pollen",
+          "central-shore:alias",
+          "central-shore:pollen",
+          "east-shore:alias",
+          "east-shore:pollen",
+          "west-meadow:alias",
+          "west-meadow:pollen",
+          "west-shore:alias",
+          "west-shore:pollen"
+        ],
+        "test_record_ids": [
+          "east-meadow:alias",
+          "east-meadow:pollen"
+        ],
+        "train_group_ids": [
+          "site-group:15165f2bef79db6bb3b486c6bfa0d32ce027c643d92b23d0105f49d5d4bc34b3",
+          "site-group:5d796d1ed95a7e60585025466cb0ebd61f7e5756bcdebdde18cd94d706f28d53",
+          "site-group:74530d2fe79cd60be2335c39e4df68ef865213fb1b0798f2d40d345b0ddfeb61",
+          "site-group:b0104b4e540351eb19a35f425110d8f2891f2ba07bb09b0aca9e43308a8c51a1",
+          "site-group:b2ed4e4682b475e284b0d2aaa563804b1bb95277afae05a6fb525d340e5a75c3"
+        ],
+        "test_group_ids": [
+          "site-group:6ad95536db864a3747a5e8f8f33789b5aa278904fade5e3aeb0d166cb0ca1484"
+        ]
+      },
+      "excluded_target_record_ids": [
+        "east-meadow:alias",
+        "east-meadow:pollen"
+      ],
+      "training_site_assignment": {
+        "central-meadow": "central-meadow",
+        "central-shore": "central-shore",
+        "east-shore": "east-shore",
+        "west-meadow": "west-meadow",
+        "west-shore": "west-shore"
+      },
+      "training_compositions": {
+        "site-group:15165f2bef79db6bb3b486c6bfa0d32ce027c643d92b23d0105f49d5d4bc34b3": {
+          "tree": 0.2,
+          "grass": 0.8
+        },
+        "site-group:5d796d1ed95a7e60585025466cb0ebd61f7e5756bcdebdde18cd94d706f28d53": {
+          "tree": 0.5,
+          "grass": 0.5
+        },
+        "site-group:74530d2fe79cd60be2335c39e4df68ef865213fb1b0798f2d40d345b0ddfeb61": {
+          "tree": 0.5,
+          "grass": 0.5
+        },
+        "site-group:b0104b4e540351eb19a35f425110d8f2891f2ba07bb09b0aca9e43308a8c51a1": {
+          "tree": 0.8,
+          "grass": 0.19999999999999996
+        },
+        "site-group:b2ed4e4682b475e284b0d2aaa563804b1bb95277afae05a6fb525d340e5a75c3": {
+          "tree": 0.8,
+          "grass": 0.19999999999999996
+        }
+      },
+      "training_input_ids": [
+        "central-meadow:alias",
+        "central-meadow:pollen",
+        "central-shore:alias",
+        "central-shore:pollen",
+        "east-shore:alias",
+        "east-shore:pollen",
+        "west-meadow:alias",
+        "west-meadow:pollen",
+        "west-shore:alias",
+        "west-shore:pollen"
+      ],
+      "dependency_graph": {
+        "central-meadow:alias": [],
+        "central-meadow:pollen": [],
+        "central-shore:alias": [],
+        "central-shore:pollen": [],
+        "east-shore:alias": [],
+        "east-shore:pollen": [],
+        "west-meadow:alias": [],
+        "west-meadow:pollen": [],
+        "west-shore:alias": [],
+        "west-shore:pollen": [],
+        "synthetic-background": [],
+        "synthetic-ppe": [],
+        "synthetic-geometry": [],
+        "synthetic-time": []
+      },
+      "admitted_synthetic_external_ids": [
+        "synthetic-background",
+        "synthetic-ppe",
+        "synthetic-geometry",
+        "synthetic-time"
+      ],
+      "distances_km": {
+        "site-group:15165f2bef79db6bb3b486c6bfa0d32ce027c643d92b23d0105f49d5d4bc34b3": 0.5580000151932717,
+        "site-group:5d796d1ed95a7e60585025466cb0ebd61f7e5756bcdebdde18cd94d706f28d53": 112.15368960387114,
+        "site-group:74530d2fe79cd60be2335c39e4df68ef865213fb1b0798f2d40d345b0ddfeb61": 111.59575365062916,
+        "site-group:b0104b4e540351eb19a35f425110d8f2891f2ba07bb09b0aca9e43308a8c51a1": 223.16600838931936,
+        "site-group:b2ed4e4682b475e284b0d2aaa563804b1bb95277afae05a6fb525d340e5a75c3": 223.72375276970988
+      },
+      "status": "scored",
+      "contract_status": "passed",
+      "numerical_calls": 1,
+      "prediction_manifest_sha256": "e8051ec10915192977b478262408b6b1040b2f5f151e8fdeb694faabb1f2148d",
+      "prediction_manifest": {
+        "allowed_input_closure": [
+          "central-meadow:alias",
+          "central-meadow:pollen",
+          "central-shore:alias",
+          "central-shore:pollen",
+          "east-shore:alias",
+          "east-shore:pollen",
+          "synthetic-background",
+          "synthetic-geometry",
+          "synthetic-ppe",
+          "synthetic-time",
+          "west-meadow:alias",
+          "west-meadow:pollen",
+          "west-shore:alias",
+          "west-shore:pollen"
+        ],
+        "experiment": "all_target_pollen_withheld",
+        "fold": {
+          "fold_id": "site-group:6ad95536db864a3747a5e8f8f33789b5aa278904fade5e3aeb0d166cb0ca1484",
+          "test_group_ids": [
+            "site-group:6ad95536db864a3747a5e8f8f33789b5aa278904fade5e3aeb0d166cb0ca1484"
+          ],
+          "test_record_ids": [
+            "east-meadow:alias",
+            "east-meadow:pollen"
+          ],
+          "train_group_ids": [
+            "site-group:15165f2bef79db6bb3b486c6bfa0d32ce027c643d92b23d0105f49d5d4bc34b3",
+            "site-group:5d796d1ed95a7e60585025466cb0ebd61f7e5756bcdebdde18cd94d706f28d53",
+            "site-group:74530d2fe79cd60be2335c39e4df68ef865213fb1b0798f2d40d345b0ddfeb61",
+            "site-group:b0104b4e540351eb19a35f425110d8f2891f2ba07bb09b0aca9e43308a8c51a1",
+            "site-group:b2ed4e4682b475e284b0d2aaa563804b1bb95277afae05a6fb525d340e5a75c3"
+          ],
+          "train_record_ids": [
+            "central-meadow:alias",
+            "central-meadow:pollen",
+            "central-shore:alias",
+            "central-shore:pollen",
+            "east-shore:alias",
+            "east-shore:pollen",
+            "west-meadow:alias",
+            "west-meadow:pollen",
+            "west-shore:alias",
+            "west-shore:pollen"
+          ]
+        },
+        "forward_inputs": {
+          "engine_build_id": "forward-module-sha256:a267ddcd2cbe07c215cddd26f4e763ea3fb1b780741196bf8aa6fb951dab4d57",
+          "geometry_input_ids": [
+            "synthetic-geometry"
+          ],
+          "local_k": [
+            [
+              1.0,
+              1.0
+            ]
+          ],
+          "method_profile": "disqover-0.9.14-homogeneous-local-forward",
+          "parameter_input_ids": [
+            "synthetic-ppe"
+          ],
+          "ppe": [
+            2.0,
+            1.0
+          ],
+          "regional_deposition": [
+            0.0,
+            0.0
+          ],
+          "regional_input_ids": [
+            "synthetic-background"
+          ],
+          "taxa": [
+            "tree",
+            "grass"
+          ],
+          "temporal_support_id": "synthetic-time",
+          "terrestrial_fraction": [
+            1.0
+          ]
+        },
+        "input_lineage": {
+          "central-meadow:alias": [],
+          "central-meadow:pollen": [],
+          "central-shore:alias": [],
+          "central-shore:pollen": [],
+          "east-shore:alias": [],
+          "east-shore:pollen": [],
+          "synthetic-background": [],
+          "synthetic-geometry": [],
+          "synthetic-ppe": [],
+          "synthetic-time": [],
+          "west-meadow:alias": [],
+          "west-meadow:pollen": [],
+          "west-shore:alias": [],
+          "west-shore:pollen": []
+        },
+        "nearest_training_distance_km": 0.5580000151932717,
+        "pollen_fraction": {
+          "grass": 0.6666666666666666,
+          "tree": 0.3333333333333333
+        },
+        "schema_version": "lra-heldout-prediction.v1",
+        "scientific_acceptance": "not_evaluated_by_prediction",
+        "spatial_input_sha256": "b3241c3c01315e9855deb5a464453b2f43fa25d5c5610f20a98a84ed666fa2c9",
+        "spatial_method": "nearest_site",
+        "target_group_id": "site-group:6ad95536db864a3747a5e8f8f33789b5aa278904fade5e3aeb0d166cb0ca1484",
+        "uncertainty_status": "deterministic_point_prediction_no_predictive_intervals",
+        "vegetation_fraction": {
+          "grass": 0.8,
+          "tree": 0.2
+        }
+      },
+      "prediction_frozen_before_truth_scoring": true,
+      "predicted_vegetation_fraction": {
+        "grass": 0.8,
+        "tree": 0.2
+      },
+      "predicted_pollen_fraction": {
+        "grass": 0.6666666666666666,
+        "tree": 0.3333333333333333
+      },
+      "independent_expected_vegetation_fraction": {
+        "tree": 0.2,
+        "grass": 0.8
+      },
+      "independent_expected_pollen_fraction": {
+        "tree": 0.3333333333333333,
+        "grass": 0.6666666666666666
+      },
+      "calculation_max_abs_error": 0.0,
+      "pollen_calculation_max_abs_error": 0.0,
+      "synthetic_truth_fraction": {
+        "tree": 0.2,
+        "grass": 0.8
+      },
+      "synthetic_pollen_truth_fraction": {
+        "tree": 0.3333333333333333,
+        "grass": 0.6666666666666666
+      },
+      "vegetation_score": {
+        "target": "vegetation_cover",
+        "status": "scored",
+        "taxon_count": 2,
+        "scored_taxon_count": 2,
+        "missing_observed_taxa": [],
+        "mae_fraction": 0.0,
+        "rmse_fraction": 0.0,
+        "bias_fraction": 0.0,
+        "total_variation": 0.0,
+        "count_conditioned_deviance": null,
+        "observed_total_count": null,
+        "zero_probability_positive_count": false,
+        "signed_error_by_taxon": [
+          [
+            "grass",
+            0.0
+          ],
+          [
+            "tree",
+            0.0
+          ]
+        ]
+      },
+      "pollen_mae_fraction": 0.0,
+      "pollen_hellinger": 0.0
+    },
+    {
+      "case_id": "east-meadow-shuffled_training_sites",
+      "target_site_id": "east-meadow",
+      "control": "shuffled_training_sites",
+      "fold": {
+        "fold_id": "site-group:6ad95536db864a3747a5e8f8f33789b5aa278904fade5e3aeb0d166cb0ca1484",
+        "train_record_ids": [
+          "central-meadow:alias",
+          "central-meadow:pollen",
+          "central-shore:alias",
+          "central-shore:pollen",
+          "east-shore:alias",
+          "east-shore:pollen",
+          "west-meadow:alias",
+          "west-meadow:pollen",
+          "west-shore:alias",
+          "west-shore:pollen"
+        ],
+        "test_record_ids": [
+          "east-meadow:alias",
+          "east-meadow:pollen"
+        ],
+        "train_group_ids": [
+          "site-group:15165f2bef79db6bb3b486c6bfa0d32ce027c643d92b23d0105f49d5d4bc34b3",
+          "site-group:5d796d1ed95a7e60585025466cb0ebd61f7e5756bcdebdde18cd94d706f28d53",
+          "site-group:74530d2fe79cd60be2335c39e4df68ef865213fb1b0798f2d40d345b0ddfeb61",
+          "site-group:b0104b4e540351eb19a35f425110d8f2891f2ba07bb09b0aca9e43308a8c51a1",
+          "site-group:b2ed4e4682b475e284b0d2aaa563804b1bb95277afae05a6fb525d340e5a75c3"
+        ],
+        "test_group_ids": [
+          "site-group:6ad95536db864a3747a5e8f8f33789b5aa278904fade5e3aeb0d166cb0ca1484"
+        ]
+      },
+      "excluded_target_record_ids": [
+        "east-meadow:alias",
+        "east-meadow:pollen"
+      ],
+      "training_site_assignment": {
+        "central-meadow": "central-shore",
+        "central-shore": "east-shore",
+        "east-shore": "west-meadow",
+        "west-meadow": "west-shore",
+        "west-shore": "central-meadow"
+      },
+      "training_compositions": {
+        "site-group:15165f2bef79db6bb3b486c6bfa0d32ce027c643d92b23d0105f49d5d4bc34b3": {
+          "tree": 0.8,
+          "grass": 0.19999999999999996
+        },
+        "site-group:5d796d1ed95a7e60585025466cb0ebd61f7e5756bcdebdde18cd94d706f28d53": {
+          "tree": 0.2,
+          "grass": 0.8
+        },
+        "site-group:74530d2fe79cd60be2335c39e4df68ef865213fb1b0798f2d40d345b0ddfeb61": {
+          "tree": 0.5,
+          "grass": 0.5
+        },
+        "site-group:b0104b4e540351eb19a35f425110d8f2891f2ba07bb09b0aca9e43308a8c51a1": {
+          "tree": 0.8,
+          "grass": 0.19999999999999996
+        },
+        "site-group:b2ed4e4682b475e284b0d2aaa563804b1bb95277afae05a6fb525d340e5a75c3": {
+          "tree": 0.5,
+          "grass": 0.5
+        }
+      },
+      "training_input_ids": [
+        "central-meadow:alias",
+        "central-meadow:pollen",
+        "central-shore:alias",
+        "central-shore:pollen",
+        "east-shore:alias",
+        "east-shore:pollen",
+        "west-meadow:alias",
+        "west-meadow:pollen",
+        "west-shore:alias",
+        "west-shore:pollen"
+      ],
+      "dependency_graph": {
+        "central-meadow:alias": [],
+        "central-meadow:pollen": [],
+        "central-shore:alias": [],
+        "central-shore:pollen": [],
+        "east-shore:alias": [],
+        "east-shore:pollen": [],
+        "west-meadow:alias": [],
+        "west-meadow:pollen": [],
+        "west-shore:alias": [],
+        "west-shore:pollen": [],
+        "synthetic-background": [],
+        "synthetic-ppe": [],
+        "synthetic-geometry": [],
+        "synthetic-time": []
+      },
+      "admitted_synthetic_external_ids": [
+        "synthetic-background",
+        "synthetic-ppe",
+        "synthetic-geometry",
+        "synthetic-time"
+      ],
+      "distances_km": {
+        "site-group:15165f2bef79db6bb3b486c6bfa0d32ce027c643d92b23d0105f49d5d4bc34b3": 0.5580000151932717,
+        "site-group:5d796d1ed95a7e60585025466cb0ebd61f7e5756bcdebdde18cd94d706f28d53": 112.15368960387114,
+        "site-group:74530d2fe79cd60be2335c39e4df68ef865213fb1b0798f2d40d345b0ddfeb61": 111.59575365062916,
+        "site-group:b0104b4e540351eb19a35f425110d8f2891f2ba07bb09b0aca9e43308a8c51a1": 223.16600838931936,
+        "site-group:b2ed4e4682b475e284b0d2aaa563804b1bb95277afae05a6fb525d340e5a75c3": 223.72375276970988
+      },
+      "status": "scored",
+      "contract_status": "passed",
+      "numerical_calls": 1,
+      "prediction_manifest_sha256": "4015f2709ed3ff86797b660c42b94fca2ca8defc7ee854a7376c507d2b32ae62",
+      "prediction_manifest": {
+        "allowed_input_closure": [
+          "central-meadow:alias",
+          "central-meadow:pollen",
+          "central-shore:alias",
+          "central-shore:pollen",
+          "east-shore:alias",
+          "east-shore:pollen",
+          "synthetic-background",
+          "synthetic-geometry",
+          "synthetic-ppe",
+          "synthetic-time",
+          "west-meadow:alias",
+          "west-meadow:pollen",
+          "west-shore:alias",
+          "west-shore:pollen"
+        ],
+        "experiment": "all_target_pollen_withheld",
+        "fold": {
+          "fold_id": "site-group:6ad95536db864a3747a5e8f8f33789b5aa278904fade5e3aeb0d166cb0ca1484",
+          "test_group_ids": [
+            "site-group:6ad95536db864a3747a5e8f8f33789b5aa278904fade5e3aeb0d166cb0ca1484"
+          ],
+          "test_record_ids": [
+            "east-meadow:alias",
+            "east-meadow:pollen"
+          ],
+          "train_group_ids": [
+            "site-group:15165f2bef79db6bb3b486c6bfa0d32ce027c643d92b23d0105f49d5d4bc34b3",
+            "site-group:5d796d1ed95a7e60585025466cb0ebd61f7e5756bcdebdde18cd94d706f28d53",
+            "site-group:74530d2fe79cd60be2335c39e4df68ef865213fb1b0798f2d40d345b0ddfeb61",
+            "site-group:b0104b4e540351eb19a35f425110d8f2891f2ba07bb09b0aca9e43308a8c51a1",
+            "site-group:b2ed4e4682b475e284b0d2aaa563804b1bb95277afae05a6fb525d340e5a75c3"
+          ],
+          "train_record_ids": [
+            "central-meadow:alias",
+            "central-meadow:pollen",
+            "central-shore:alias",
+            "central-shore:pollen",
+            "east-shore:alias",
+            "east-shore:pollen",
+            "west-meadow:alias",
+            "west-meadow:pollen",
+            "west-shore:alias",
+            "west-shore:pollen"
+          ]
+        },
+        "forward_inputs": {
+          "engine_build_id": "forward-module-sha256:a267ddcd2cbe07c215cddd26f4e763ea3fb1b780741196bf8aa6fb951dab4d57",
+          "geometry_input_ids": [
+            "synthetic-geometry"
+          ],
+          "local_k": [
+            [
+              1.0,
+              1.0
+            ]
+          ],
+          "method_profile": "disqover-0.9.14-homogeneous-local-forward",
+          "parameter_input_ids": [
+            "synthetic-ppe"
+          ],
+          "ppe": [
+            2.0,
+            1.0
+          ],
+          "regional_deposition": [
+            0.0,
+            0.0
+          ],
+          "regional_input_ids": [
+            "synthetic-background"
+          ],
+          "taxa": [
+            "tree",
+            "grass"
+          ],
+          "temporal_support_id": "synthetic-time",
+          "terrestrial_fraction": [
+            1.0
+          ]
+        },
+        "input_lineage": {
+          "central-meadow:alias": [],
+          "central-meadow:pollen": [],
+          "central-shore:alias": [],
+          "central-shore:pollen": [],
+          "east-shore:alias": [],
+          "east-shore:pollen": [],
+          "synthetic-background": [],
+          "synthetic-geometry": [],
+          "synthetic-ppe": [],
+          "synthetic-time": [],
+          "west-meadow:alias": [],
+          "west-meadow:pollen": [],
+          "west-shore:alias": [],
+          "west-shore:pollen": []
+        },
+        "nearest_training_distance_km": 0.5580000151932717,
+        "pollen_fraction": {
+          "grass": 0.11111111111111108,
+          "tree": 0.888888888888889
+        },
+        "schema_version": "lra-heldout-prediction.v1",
+        "scientific_acceptance": "not_evaluated_by_prediction",
+        "spatial_input_sha256": "70e9b1f42dce1ceeae79757f3fb65ffea93f34e01ce1b0e8648e4d31f377538f",
+        "spatial_method": "nearest_site",
+        "target_group_id": "site-group:6ad95536db864a3747a5e8f8f33789b5aa278904fade5e3aeb0d166cb0ca1484",
+        "uncertainty_status": "deterministic_point_prediction_no_predictive_intervals",
+        "vegetation_fraction": {
+          "grass": 0.19999999999999996,
+          "tree": 0.8
+        }
+      },
+      "prediction_frozen_before_truth_scoring": true,
+      "predicted_vegetation_fraction": {
+        "grass": 0.19999999999999996,
+        "tree": 0.8
+      },
+      "predicted_pollen_fraction": {
+        "grass": 0.11111111111111108,
+        "tree": 0.888888888888889
+      },
+      "independent_expected_vegetation_fraction": {
+        "tree": 0.8,
+        "grass": 0.19999999999999996
+      },
+      "independent_expected_pollen_fraction": {
+        "tree": 0.888888888888889,
+        "grass": 0.11111111111111108
+      },
+      "calculation_max_abs_error": 0.0,
+      "pollen_calculation_max_abs_error": 0.0,
+      "synthetic_truth_fraction": {
+        "tree": 0.2,
+        "grass": 0.8
+      },
+      "synthetic_pollen_truth_fraction": {
+        "tree": 0.3333333333333333,
+        "grass": 0.6666666666666666
+      },
+      "vegetation_score": {
+        "target": "vegetation_cover",
+        "status": "scored",
+        "taxon_count": 2,
+        "scored_taxon_count": 2,
+        "missing_observed_taxa": [],
+        "mae_fraction": 0.6000000000000001,
+        "rmse_fraction": 0.6000000000000001,
+        "bias_fraction": 0.0,
+        "total_variation": 0.6000000000000001,
+        "count_conditioned_deviance": null,
+        "observed_total_count": null,
+        "zero_probability_positive_count": false,
+        "signed_error_by_taxon": [
+          [
+            "grass",
+            -0.6000000000000001
+          ],
+          [
+            "tree",
+            0.6000000000000001
+          ]
+        ]
+      },
+      "pollen_mae_fraction": 0.5555555555555556,
+      "pollen_hellinger": 0.42837299059613226
+    },
+    {
+      "case_id": "east-meadow-heldout_alias_input",
+      "target_site_id": "east-meadow",
+      "control": "heldout_alias_input",
+      "fold": {
+        "fold_id": "site-group:6ad95536db864a3747a5e8f8f33789b5aa278904fade5e3aeb0d166cb0ca1484",
+        "train_record_ids": [
+          "central-meadow:alias",
+          "central-meadow:pollen",
+          "central-shore:alias",
+          "central-shore:pollen",
+          "east-shore:alias",
+          "east-shore:pollen",
+          "west-meadow:alias",
+          "west-meadow:pollen",
+          "west-shore:alias",
+          "west-shore:pollen"
+        ],
+        "test_record_ids": [
+          "east-meadow:alias",
+          "east-meadow:pollen"
+        ],
+        "train_group_ids": [
+          "site-group:15165f2bef79db6bb3b486c6bfa0d32ce027c643d92b23d0105f49d5d4bc34b3",
+          "site-group:5d796d1ed95a7e60585025466cb0ebd61f7e5756bcdebdde18cd94d706f28d53",
+          "site-group:74530d2fe79cd60be2335c39e4df68ef865213fb1b0798f2d40d345b0ddfeb61",
+          "site-group:b0104b4e540351eb19a35f425110d8f2891f2ba07bb09b0aca9e43308a8c51a1",
+          "site-group:b2ed4e4682b475e284b0d2aaa563804b1bb95277afae05a6fb525d340e5a75c3"
+        ],
+        "test_group_ids": [
+          "site-group:6ad95536db864a3747a5e8f8f33789b5aa278904fade5e3aeb0d166cb0ca1484"
+        ]
+      },
+      "excluded_target_record_ids": [
+        "east-meadow:alias",
+        "east-meadow:pollen"
+      ],
+      "training_site_assignment": {
+        "central-meadow": "central-meadow",
+        "central-shore": "central-shore",
+        "east-shore": "east-shore",
+        "west-meadow": "west-meadow",
+        "west-shore": "west-shore"
+      },
+      "training_compositions": {
+        "site-group:15165f2bef79db6bb3b486c6bfa0d32ce027c643d92b23d0105f49d5d4bc34b3": {
+          "tree": 0.2,
+          "grass": 0.8
+        },
+        "site-group:5d796d1ed95a7e60585025466cb0ebd61f7e5756bcdebdde18cd94d706f28d53": {
+          "tree": 0.5,
+          "grass": 0.5
+        },
+        "site-group:74530d2fe79cd60be2335c39e4df68ef865213fb1b0798f2d40d345b0ddfeb61": {
+          "tree": 0.5,
+          "grass": 0.5
+        },
+        "site-group:b0104b4e540351eb19a35f425110d8f2891f2ba07bb09b0aca9e43308a8c51a1": {
+          "tree": 0.8,
+          "grass": 0.19999999999999996
+        },
+        "site-group:b2ed4e4682b475e284b0d2aaa563804b1bb95277afae05a6fb525d340e5a75c3": {
+          "tree": 0.8,
+          "grass": 0.19999999999999996
+        }
+      },
+      "training_input_ids": [
+        "central-meadow:alias",
+        "central-meadow:pollen",
+        "central-shore:alias",
+        "central-shore:pollen",
+        "east-shore:alias",
+        "east-shore:pollen",
+        "west-meadow:alias",
+        "west-meadow:pollen",
+        "west-shore:alias",
+        "west-shore:pollen",
+        "east-meadow:alias"
+      ],
+      "dependency_graph": {
+        "central-meadow:alias": [],
+        "central-meadow:pollen": [],
+        "central-shore:alias": [],
+        "central-shore:pollen": [],
+        "east-shore:alias": [],
+        "east-shore:pollen": [],
+        "west-meadow:alias": [],
+        "west-meadow:pollen": [],
+        "west-shore:alias": [],
+        "west-shore:pollen": [],
+        "synthetic-background": [],
+        "synthetic-ppe": [],
+        "synthetic-geometry": [],
+        "synthetic-time": [],
+        "east-meadow:alias": []
+      },
+      "admitted_synthetic_external_ids": [
+        "synthetic-background",
+        "synthetic-ppe",
+        "synthetic-geometry",
+        "synthetic-time"
+      ],
+      "distances_km": {
+        "site-group:15165f2bef79db6bb3b486c6bfa0d32ce027c643d92b23d0105f49d5d4bc34b3": 0.5580000151932717,
+        "site-group:5d796d1ed95a7e60585025466cb0ebd61f7e5756bcdebdde18cd94d706f28d53": 112.15368960387114,
+        "site-group:74530d2fe79cd60be2335c39e4df68ef865213fb1b0798f2d40d345b0ddfeb61": 111.59575365062916,
+        "site-group:b0104b4e540351eb19a35f425110d8f2891f2ba07bb09b0aca9e43308a8c51a1": 223.16600838931936,
+        "site-group:b2ed4e4682b475e284b0d2aaa563804b1bb95277afae05a6fb525d340e5a75c3": 223.72375276970988
+      },
+      "status": "refused",
+      "reason_code": "withheld_input_leakage",
+      "detail": "Withheld record in fit-input closure: east-meadow:alias",
+      "numerical_calls": 0,
+      "contract_status": "passed"
+    },
+    {
+      "case_id": "east-meadow-derived_target_input",
+      "target_site_id": "east-meadow",
+      "control": "derived_target_input",
+      "fold": {
+        "fold_id": "site-group:6ad95536db864a3747a5e8f8f33789b5aa278904fade5e3aeb0d166cb0ca1484",
+        "train_record_ids": [
+          "central-meadow:alias",
+          "central-meadow:pollen",
+          "central-shore:alias",
+          "central-shore:pollen",
+          "east-shore:alias",
+          "east-shore:pollen",
+          "west-meadow:alias",
+          "west-meadow:pollen",
+          "west-shore:alias",
+          "west-shore:pollen"
+        ],
+        "test_record_ids": [
+          "east-meadow:alias",
+          "east-meadow:pollen"
+        ],
+        "train_group_ids": [
+          "site-group:15165f2bef79db6bb3b486c6bfa0d32ce027c643d92b23d0105f49d5d4bc34b3",
+          "site-group:5d796d1ed95a7e60585025466cb0ebd61f7e5756bcdebdde18cd94d706f28d53",
+          "site-group:74530d2fe79cd60be2335c39e4df68ef865213fb1b0798f2d40d345b0ddfeb61",
+          "site-group:b0104b4e540351eb19a35f425110d8f2891f2ba07bb09b0aca9e43308a8c51a1",
+          "site-group:b2ed4e4682b475e284b0d2aaa563804b1bb95277afae05a6fb525d340e5a75c3"
+        ],
+        "test_group_ids": [
+          "site-group:6ad95536db864a3747a5e8f8f33789b5aa278904fade5e3aeb0d166cb0ca1484"
+        ]
+      },
+      "excluded_target_record_ids": [
+        "east-meadow:alias",
+        "east-meadow:pollen"
+      ],
+      "training_site_assignment": {
+        "central-meadow": "central-meadow",
+        "central-shore": "central-shore",
+        "east-shore": "east-shore",
+        "west-meadow": "west-meadow",
+        "west-shore": "west-shore"
+      },
+      "training_compositions": {
+        "site-group:15165f2bef79db6bb3b486c6bfa0d32ce027c643d92b23d0105f49d5d4bc34b3": {
+          "tree": 0.2,
+          "grass": 0.8
+        },
+        "site-group:5d796d1ed95a7e60585025466cb0ebd61f7e5756bcdebdde18cd94d706f28d53": {
+          "tree": 0.5,
+          "grass": 0.5
+        },
+        "site-group:74530d2fe79cd60be2335c39e4df68ef865213fb1b0798f2d40d345b0ddfeb61": {
+          "tree": 0.5,
+          "grass": 0.5
+        },
+        "site-group:b0104b4e540351eb19a35f425110d8f2891f2ba07bb09b0aca9e43308a8c51a1": {
+          "tree": 0.8,
+          "grass": 0.19999999999999996
+        },
+        "site-group:b2ed4e4682b475e284b0d2aaa563804b1bb95277afae05a6fb525d340e5a75c3": {
+          "tree": 0.8,
+          "grass": 0.19999999999999996
+        }
+      },
+      "training_input_ids": [
+        "central-meadow:alias",
+        "central-meadow:pollen",
+        "central-shore:alias",
+        "central-shore:pollen",
+        "east-shore:alias",
+        "east-shore:pollen",
+        "west-meadow:alias",
+        "west-meadow:pollen",
+        "west-shore:alias",
+        "west-shore:pollen",
+        "synthetic-derived-product"
+      ],
+      "dependency_graph": {
+        "central-meadow:alias": [],
+        "central-meadow:pollen": [],
+        "central-shore:alias": [],
+        "central-shore:pollen": [],
+        "east-shore:alias": [],
+        "east-shore:pollen": [],
+        "west-meadow:alias": [],
+        "west-meadow:pollen": [],
+        "west-shore:alias": [],
+        "west-shore:pollen": [],
+        "synthetic-background": [],
+        "synthetic-ppe": [],
+        "synthetic-geometry": [],
+        "synthetic-time": [],
+        "synthetic-derived-intermediate": [
+          "east-meadow:pollen"
+        ],
+        "synthetic-derived-product": [
+          "synthetic-derived-intermediate"
+        ],
+        "east-meadow:pollen": []
+      },
+      "admitted_synthetic_external_ids": [
+        "synthetic-background",
+        "synthetic-ppe",
+        "synthetic-geometry",
+        "synthetic-time",
+        "synthetic-derived-product",
+        "synthetic-derived-intermediate"
+      ],
+      "distances_km": {
+        "site-group:15165f2bef79db6bb3b486c6bfa0d32ce027c643d92b23d0105f49d5d4bc34b3": 0.5580000151932717,
+        "site-group:5d796d1ed95a7e60585025466cb0ebd61f7e5756bcdebdde18cd94d706f28d53": 112.15368960387114,
+        "site-group:74530d2fe79cd60be2335c39e4df68ef865213fb1b0798f2d40d345b0ddfeb61": 111.59575365062916,
+        "site-group:b0104b4e540351eb19a35f425110d8f2891f2ba07bb09b0aca9e43308a8c51a1": 223.16600838931936,
+        "site-group:b2ed4e4682b475e284b0d2aaa563804b1bb95277afae05a6fb525d340e5a75c3": 223.72375276970988
+      },
+      "status": "refused",
+      "reason_code": "withheld_input_leakage",
+      "detail": "Withheld record in fit-input closure: east-meadow:pollen",
+      "numerical_calls": 0,
+      "contract_status": "passed"
+    },
+    {
+      "case_id": "central-meadow-nearest_site",
+      "target_site_id": "central-meadow",
+      "control": "nearest_site",
+      "fold": {
+        "fold_id": "site-group:74530d2fe79cd60be2335c39e4df68ef865213fb1b0798f2d40d345b0ddfeb61",
+        "train_record_ids": [
+          "central-shore:alias",
+          "central-shore:pollen",
+          "east-meadow:alias",
+          "east-meadow:pollen",
+          "east-shore:alias",
+          "east-shore:pollen",
+          "west-meadow:alias",
+          "west-meadow:pollen",
+          "west-shore:alias",
+          "west-shore:pollen"
+        ],
+        "test_record_ids": [
+          "central-meadow:alias",
+          "central-meadow:pollen"
+        ],
+        "train_group_ids": [
+          "site-group:15165f2bef79db6bb3b486c6bfa0d32ce027c643d92b23d0105f49d5d4bc34b3",
+          "site-group:5d796d1ed95a7e60585025466cb0ebd61f7e5756bcdebdde18cd94d706f28d53",
+          "site-group:6ad95536db864a3747a5e8f8f33789b5aa278904fade5e3aeb0d166cb0ca1484",
+          "site-group:b0104b4e540351eb19a35f425110d8f2891f2ba07bb09b0aca9e43308a8c51a1",
+          "site-group:b2ed4e4682b475e284b0d2aaa563804b1bb95277afae05a6fb525d340e5a75c3"
+        ],
+        "test_group_ids": [
+          "site-group:74530d2fe79cd60be2335c39e4df68ef865213fb1b0798f2d40d345b0ddfeb61"
+        ]
+      },
+      "excluded_target_record_ids": [
+        "central-meadow:alias",
+        "central-meadow:pollen"
+      ],
+      "training_site_assignment": {
+        "central-shore": "central-shore",
+        "east-meadow": "east-meadow",
+        "east-shore": "east-shore",
+        "west-meadow": "west-meadow",
+        "west-shore": "west-shore"
+      },
+      "training_compositions": {
+        "site-group:15165f2bef79db6bb3b486c6bfa0d32ce027c643d92b23d0105f49d5d4bc34b3": {
+          "tree": 0.2,
+          "grass": 0.8
+        },
+        "site-group:5d796d1ed95a7e60585025466cb0ebd61f7e5756bcdebdde18cd94d706f28d53": {
+          "tree": 0.5,
+          "grass": 0.5
+        },
+        "site-group:6ad95536db864a3747a5e8f8f33789b5aa278904fade5e3aeb0d166cb0ca1484": {
+          "tree": 0.2,
+          "grass": 0.8
+        },
+        "site-group:b0104b4e540351eb19a35f425110d8f2891f2ba07bb09b0aca9e43308a8c51a1": {
+          "tree": 0.8,
+          "grass": 0.19999999999999996
+        },
+        "site-group:b2ed4e4682b475e284b0d2aaa563804b1bb95277afae05a6fb525d340e5a75c3": {
+          "tree": 0.8,
+          "grass": 0.19999999999999996
+        }
+      },
+      "training_input_ids": [
+        "central-shore:alias",
+        "central-shore:pollen",
+        "east-meadow:alias",
+        "east-meadow:pollen",
+        "east-shore:alias",
+        "east-shore:pollen",
+        "west-meadow:alias",
+        "west-meadow:pollen",
+        "west-shore:alias",
+        "west-shore:pollen"
+      ],
+      "dependency_graph": {
+        "central-shore:alias": [],
+        "central-shore:pollen": [],
+        "east-meadow:alias": [],
+        "east-meadow:pollen": [],
+        "east-shore:alias": [],
+        "east-shore:pollen": [],
+        "west-meadow:alias": [],
+        "west-meadow:pollen": [],
+        "west-shore:alias": [],
+        "west-shore:pollen": [],
+        "synthetic-background": [],
+        "synthetic-ppe": [],
+        "synthetic-geometry": [],
+        "synthetic-time": []
+      },
+      "admitted_synthetic_external_ids": [
+        "synthetic-background",
+        "synthetic-ppe",
+        "synthetic-geometry",
+        "synthetic-time"
+      ],
+      "distances_km": {
+        "site-group:15165f2bef79db6bb3b486c6bfa0d32ce027c643d92b23d0105f49d5d4bc34b3": 111.03781705993448,
+        "site-group:5d796d1ed95a7e60585025466cb0ebd61f7e5756bcdebdde18cd94d706f28d53": 0.5580000151931725,
+        "site-group:6ad95536db864a3747a5e8f8f33789b5aa278904fade5e3aeb0d166cb0ca1484": 111.59575365062916,
+        "site-group:b0104b4e540351eb19a35f425110d8f2891f2ba07bb09b0aca9e43308a8c51a1": 111.59575365062908,
+        "site-group:b2ed4e4682b475e284b0d2aaa563804b1bb95277afae05a6fb525d340e5a75c3": 112.15368960387106
+      },
+      "status": "scored",
+      "contract_status": "passed",
+      "numerical_calls": 1,
+      "prediction_manifest_sha256": "7f3ac236c8fedbecd1a41e9f81914b0cac98eb2c26b7867cc68bfa3b22804f6d",
+      "prediction_manifest": {
+        "allowed_input_closure": [
+          "central-shore:alias",
+          "central-shore:pollen",
+          "east-meadow:alias",
+          "east-meadow:pollen",
+          "east-shore:alias",
+          "east-shore:pollen",
+          "synthetic-background",
+          "synthetic-geometry",
+          "synthetic-ppe",
+          "synthetic-time",
+          "west-meadow:alias",
+          "west-meadow:pollen",
+          "west-shore:alias",
+          "west-shore:pollen"
+        ],
+        "experiment": "all_target_pollen_withheld",
+        "fold": {
+          "fold_id": "site-group:74530d2fe79cd60be2335c39e4df68ef865213fb1b0798f2d40d345b0ddfeb61",
+          "test_group_ids": [
+            "site-group:74530d2fe79cd60be2335c39e4df68ef865213fb1b0798f2d40d345b0ddfeb61"
+          ],
+          "test_record_ids": [
+            "central-meadow:alias",
+            "central-meadow:pollen"
+          ],
+          "train_group_ids": [
+            "site-group:15165f2bef79db6bb3b486c6bfa0d32ce027c643d92b23d0105f49d5d4bc34b3",
+            "site-group:5d796d1ed95a7e60585025466cb0ebd61f7e5756bcdebdde18cd94d706f28d53",
+            "site-group:6ad95536db864a3747a5e8f8f33789b5aa278904fade5e3aeb0d166cb0ca1484",
+            "site-group:b0104b4e540351eb19a35f425110d8f2891f2ba07bb09b0aca9e43308a8c51a1",
+            "site-group:b2ed4e4682b475e284b0d2aaa563804b1bb95277afae05a6fb525d340e5a75c3"
+          ],
+          "train_record_ids": [
+            "central-shore:alias",
+            "central-shore:pollen",
+            "east-meadow:alias",
+            "east-meadow:pollen",
+            "east-shore:alias",
+            "east-shore:pollen",
+            "west-meadow:alias",
+            "west-meadow:pollen",
+            "west-shore:alias",
+            "west-shore:pollen"
+          ]
+        },
+        "forward_inputs": {
+          "engine_build_id": "forward-module-sha256:a267ddcd2cbe07c215cddd26f4e763ea3fb1b780741196bf8aa6fb951dab4d57",
+          "geometry_input_ids": [
+            "synthetic-geometry"
+          ],
+          "local_k": [
+            [
+              1.0,
+              1.0
+            ]
+          ],
+          "method_profile": "disqover-0.9.14-homogeneous-local-forward",
+          "parameter_input_ids": [
+            "synthetic-ppe"
+          ],
+          "ppe": [
+            2.0,
+            1.0
+          ],
+          "regional_deposition": [
+            0.0,
+            0.0
+          ],
+          "regional_input_ids": [
+            "synthetic-background"
+          ],
+          "taxa": [
+            "tree",
+            "grass"
+          ],
+          "temporal_support_id": "synthetic-time",
+          "terrestrial_fraction": [
+            1.0
+          ]
+        },
+        "input_lineage": {
+          "central-shore:alias": [],
+          "central-shore:pollen": [],
+          "east-meadow:alias": [],
+          "east-meadow:pollen": [],
+          "east-shore:alias": [],
+          "east-shore:pollen": [],
+          "synthetic-background": [],
+          "synthetic-geometry": [],
+          "synthetic-ppe": [],
+          "synthetic-time": [],
+          "west-meadow:alias": [],
+          "west-meadow:pollen": [],
+          "west-shore:alias": [],
+          "west-shore:pollen": []
+        },
+        "nearest_training_distance_km": 0.5580000151931725,
+        "pollen_fraction": {
+          "grass": 0.3333333333333333,
+          "tree": 0.6666666666666666
+        },
+        "schema_version": "lra-heldout-prediction.v1",
+        "scientific_acceptance": "not_evaluated_by_prediction",
+        "spatial_input_sha256": "d8b60aa874d56120d40d0df8be0277fc0235f3d80b1bd563433e2ba4bff53e4d",
+        "spatial_method": "nearest_site",
+        "target_group_id": "site-group:74530d2fe79cd60be2335c39e4df68ef865213fb1b0798f2d40d345b0ddfeb61",
+        "uncertainty_status": "deterministic_point_prediction_no_predictive_intervals",
+        "vegetation_fraction": {
+          "grass": 0.5,
+          "tree": 0.5
+        }
+      },
+      "prediction_frozen_before_truth_scoring": true,
+      "predicted_vegetation_fraction": {
+        "grass": 0.5,
+        "tree": 0.5
+      },
+      "predicted_pollen_fraction": {
+        "grass": 0.3333333333333333,
+        "tree": 0.6666666666666666
+      },
+      "independent_expected_vegetation_fraction": {
+        "tree": 0.5,
+        "grass": 0.5
+      },
+      "independent_expected_pollen_fraction": {
+        "tree": 0.6666666666666666,
+        "grass": 0.3333333333333333
+      },
+      "calculation_max_abs_error": 0.0,
+      "pollen_calculation_max_abs_error": 0.0,
+      "synthetic_truth_fraction": {
+        "tree": 0.5,
+        "grass": 0.5
+      },
+      "synthetic_pollen_truth_fraction": {
+        "tree": 0.6666666666666666,
+        "grass": 0.3333333333333333
+      },
+      "vegetation_score": {
+        "target": "vegetation_cover",
+        "status": "scored",
+        "taxon_count": 2,
+        "scored_taxon_count": 2,
+        "missing_observed_taxa": [],
+        "mae_fraction": 0.0,
+        "rmse_fraction": 0.0,
+        "bias_fraction": 0.0,
+        "total_variation": 0.0,
+        "count_conditioned_deviance": null,
+        "observed_total_count": null,
+        "zero_probability_positive_count": false,
+        "signed_error_by_taxon": [
+          [
+            "grass",
+            0.0
+          ],
+          [
+            "tree",
+            0.0
+          ]
+        ]
+      },
+      "pollen_mae_fraction": 0.0,
+      "pollen_hellinger": 0.0
+    },
+    {
+      "case_id": "central-meadow-shuffled_training_sites",
+      "target_site_id": "central-meadow",
+      "control": "shuffled_training_sites",
+      "fold": {
+        "fold_id": "site-group:74530d2fe79cd60be2335c39e4df68ef865213fb1b0798f2d40d345b0ddfeb61",
+        "train_record_ids": [
+          "central-shore:alias",
+          "central-shore:pollen",
+          "east-meadow:alias",
+          "east-meadow:pollen",
+          "east-shore:alias",
+          "east-shore:pollen",
+          "west-meadow:alias",
+          "west-meadow:pollen",
+          "west-shore:alias",
+          "west-shore:pollen"
+        ],
+        "test_record_ids": [
+          "central-meadow:alias",
+          "central-meadow:pollen"
+        ],
+        "train_group_ids": [
+          "site-group:15165f2bef79db6bb3b486c6bfa0d32ce027c643d92b23d0105f49d5d4bc34b3",
+          "site-group:5d796d1ed95a7e60585025466cb0ebd61f7e5756bcdebdde18cd94d706f28d53",
+          "site-group:6ad95536db864a3747a5e8f8f33789b5aa278904fade5e3aeb0d166cb0ca1484",
+          "site-group:b0104b4e540351eb19a35f425110d8f2891f2ba07bb09b0aca9e43308a8c51a1",
+          "site-group:b2ed4e4682b475e284b0d2aaa563804b1bb95277afae05a6fb525d340e5a75c3"
+        ],
+        "test_group_ids": [
+          "site-group:74530d2fe79cd60be2335c39e4df68ef865213fb1b0798f2d40d345b0ddfeb61"
+        ]
+      },
+      "excluded_target_record_ids": [
+        "central-meadow:alias",
+        "central-meadow:pollen"
+      ],
+      "training_site_assignment": {
+        "central-shore": "east-meadow",
+        "east-meadow": "east-shore",
+        "east-shore": "west-meadow",
+        "west-meadow": "west-shore",
+        "west-shore": "central-shore"
+      },
+      "training_compositions": {
+        "site-group:15165f2bef79db6bb3b486c6bfa0d32ce027c643d92b23d0105f49d5d4bc34b3": {
+          "tree": 0.8,
+          "grass": 0.19999999999999996
+        },
+        "site-group:5d796d1ed95a7e60585025466cb0ebd61f7e5756bcdebdde18cd94d706f28d53": {
+          "tree": 0.2,
+          "grass": 0.8
+        },
+        "site-group:6ad95536db864a3747a5e8f8f33789b5aa278904fade5e3aeb0d166cb0ca1484": {
+          "tree": 0.2,
+          "grass": 0.8
+        },
+        "site-group:b0104b4e540351eb19a35f425110d8f2891f2ba07bb09b0aca9e43308a8c51a1": {
+          "tree": 0.8,
+          "grass": 0.19999999999999996
+        },
+        "site-group:b2ed4e4682b475e284b0d2aaa563804b1bb95277afae05a6fb525d340e5a75c3": {
+          "tree": 0.5,
+          "grass": 0.5
+        }
+      },
+      "training_input_ids": [
+        "central-shore:alias",
+        "central-shore:pollen",
+        "east-meadow:alias",
+        "east-meadow:pollen",
+        "east-shore:alias",
+        "east-shore:pollen",
+        "west-meadow:alias",
+        "west-meadow:pollen",
+        "west-shore:alias",
+        "west-shore:pollen"
+      ],
+      "dependency_graph": {
+        "central-shore:alias": [],
+        "central-shore:pollen": [],
+        "east-meadow:alias": [],
+        "east-meadow:pollen": [],
+        "east-shore:alias": [],
+        "east-shore:pollen": [],
+        "west-meadow:alias": [],
+        "west-meadow:pollen": [],
+        "west-shore:alias": [],
+        "west-shore:pollen": [],
+        "synthetic-background": [],
+        "synthetic-ppe": [],
+        "synthetic-geometry": [],
+        "synthetic-time": []
+      },
+      "admitted_synthetic_external_ids": [
+        "synthetic-background",
+        "synthetic-ppe",
+        "synthetic-geometry",
+        "synthetic-time"
+      ],
+      "distances_km": {
+        "site-group:15165f2bef79db6bb3b486c6bfa0d32ce027c643d92b23d0105f49d5d4bc34b3": 111.03781705993448,
+        "site-group:5d796d1ed95a7e60585025466cb0ebd61f7e5756bcdebdde18cd94d706f28d53": 0.5580000151931725,
+        "site-group:6ad95536db864a3747a5e8f8f33789b5aa278904fade5e3aeb0d166cb0ca1484": 111.59575365062916,
+        "site-group:b0104b4e540351eb19a35f425110d8f2891f2ba07bb09b0aca9e43308a8c51a1": 111.59575365062908,
+        "site-group:b2ed4e4682b475e284b0d2aaa563804b1bb95277afae05a6fb525d340e5a75c3": 112.15368960387106
+      },
+      "status": "scored",
+      "contract_status": "passed",
+      "numerical_calls": 1,
+      "prediction_manifest_sha256": "fe895fdafbdbcfc3dc4950301a37816dda8aee3532972bbba7217a7da08bdbce",
+      "prediction_manifest": {
+        "allowed_input_closure": [
+          "central-shore:alias",
+          "central-shore:pollen",
+          "east-meadow:alias",
+          "east-meadow:pollen",
+          "east-shore:alias",
+          "east-shore:pollen",
+          "synthetic-background",
+          "synthetic-geometry",
+          "synthetic-ppe",
+          "synthetic-time",
+          "west-meadow:alias",
+          "west-meadow:pollen",
+          "west-shore:alias",
+          "west-shore:pollen"
+        ],
+        "experiment": "all_target_pollen_withheld",
+        "fold": {
+          "fold_id": "site-group:74530d2fe79cd60be2335c39e4df68ef865213fb1b0798f2d40d345b0ddfeb61",
+          "test_group_ids": [
+            "site-group:74530d2fe79cd60be2335c39e4df68ef865213fb1b0798f2d40d345b0ddfeb61"
+          ],
+          "test_record_ids": [
+            "central-meadow:alias",
+            "central-meadow:pollen"
+          ],
+          "train_group_ids": [
+            "site-group:15165f2bef79db6bb3b486c6bfa0d32ce027c643d92b23d0105f49d5d4bc34b3",
+            "site-group:5d796d1ed95a7e60585025466cb0ebd61f7e5756bcdebdde18cd94d706f28d53",
+            "site-group:6ad95536db864a3747a5e8f8f33789b5aa278904fade5e3aeb0d166cb0ca1484",
+            "site-group:b0104b4e540351eb19a35f425110d8f2891f2ba07bb09b0aca9e43308a8c51a1",
+            "site-group:b2ed4e4682b475e284b0d2aaa563804b1bb95277afae05a6fb525d340e5a75c3"
+          ],
+          "train_record_ids": [
+            "central-shore:alias",
+            "central-shore:pollen",
+            "east-meadow:alias",
+            "east-meadow:pollen",
+            "east-shore:alias",
+            "east-shore:pollen",
+            "west-meadow:alias",
+            "west-meadow:pollen",
+            "west-shore:alias",
+            "west-shore:pollen"
+          ]
+        },
+        "forward_inputs": {
+          "engine_build_id": "forward-module-sha256:a267ddcd2cbe07c215cddd26f4e763ea3fb1b780741196bf8aa6fb951dab4d57",
+          "geometry_input_ids": [
+            "synthetic-geometry"
+          ],
+          "local_k": [
+            [
+              1.0,
+              1.0
+            ]
+          ],
+          "method_profile": "disqover-0.9.14-homogeneous-local-forward",
+          "parameter_input_ids": [
+            "synthetic-ppe"
+          ],
+          "ppe": [
+            2.0,
+            1.0
+          ],
+          "regional_deposition": [
+            0.0,
+            0.0
+          ],
+          "regional_input_ids": [
+            "synthetic-background"
+          ],
+          "taxa": [
+            "tree",
+            "grass"
+          ],
+          "temporal_support_id": "synthetic-time",
+          "terrestrial_fraction": [
+            1.0
+          ]
+        },
+        "input_lineage": {
+          "central-shore:alias": [],
+          "central-shore:pollen": [],
+          "east-meadow:alias": [],
+          "east-meadow:pollen": [],
+          "east-shore:alias": [],
+          "east-shore:pollen": [],
+          "synthetic-background": [],
+          "synthetic-geometry": [],
+          "synthetic-ppe": [],
+          "synthetic-time": [],
+          "west-meadow:alias": [],
+          "west-meadow:pollen": [],
+          "west-shore:alias": [],
+          "west-shore:pollen": []
+        },
+        "nearest_training_distance_km": 0.5580000151931725,
+        "pollen_fraction": {
+          "grass": 0.6666666666666666,
+          "tree": 0.3333333333333333
+        },
+        "schema_version": "lra-heldout-prediction.v1",
+        "scientific_acceptance": "not_evaluated_by_prediction",
+        "spatial_input_sha256": "137095597889a71eb9eb1bbbfd5887bc1efd568dc6d123dca18183490daaefc6",
+        "spatial_method": "nearest_site",
+        "target_group_id": "site-group:74530d2fe79cd60be2335c39e4df68ef865213fb1b0798f2d40d345b0ddfeb61",
+        "uncertainty_status": "deterministic_point_prediction_no_predictive_intervals",
+        "vegetation_fraction": {
+          "grass": 0.8,
+          "tree": 0.2
+        }
+      },
+      "prediction_frozen_before_truth_scoring": true,
+      "predicted_vegetation_fraction": {
+        "grass": 0.8,
+        "tree": 0.2
+      },
+      "predicted_pollen_fraction": {
+        "grass": 0.6666666666666666,
+        "tree": 0.3333333333333333
+      },
+      "independent_expected_vegetation_fraction": {
+        "tree": 0.2,
+        "grass": 0.8
+      },
+      "independent_expected_pollen_fraction": {
+        "tree": 0.3333333333333333,
+        "grass": 0.6666666666666666
+      },
+      "calculation_max_abs_error": 0.0,
+      "pollen_calculation_max_abs_error": 0.0,
+      "synthetic_truth_fraction": {
+        "tree": 0.5,
+        "grass": 0.5
+      },
+      "synthetic_pollen_truth_fraction": {
+        "tree": 0.6666666666666666,
+        "grass": 0.3333333333333333
+      },
+      "vegetation_score": {
+        "target": "vegetation_cover",
+        "status": "scored",
+        "taxon_count": 2,
+        "scored_taxon_count": 2,
+        "missing_observed_taxa": [],
+        "mae_fraction": 0.30000000000000004,
+        "rmse_fraction": 0.30000000000000004,
+        "bias_fraction": 2.7755575615628914e-17,
+        "total_variation": 0.30000000000000004,
+        "count_conditioned_deviance": null,
+        "observed_total_count": null,
+        "zero_probability_positive_count": false,
+        "signed_error_by_taxon": [
+          [
+            "grass",
+            0.30000000000000004
+          ],
+          [
+            "tree",
+            -0.3
+          ]
+        ]
+      },
+      "pollen_mae_fraction": 0.3333333333333333,
+      "pollen_hellinger": 0.2391463117381003
+    },
+    {
+      "case_id": "central-meadow-heldout_alias_input",
+      "target_site_id": "central-meadow",
+      "control": "heldout_alias_input",
+      "fold": {
+        "fold_id": "site-group:74530d2fe79cd60be2335c39e4df68ef865213fb1b0798f2d40d345b0ddfeb61",
+        "train_record_ids": [
+          "central-shore:alias",
+          "central-shore:pollen",
+          "east-meadow:alias",
+          "east-meadow:pollen",
+          "east-shore:alias",
+          "east-shore:pollen",
+          "west-meadow:alias",
+          "west-meadow:pollen",
+          "west-shore:alias",
+          "west-shore:pollen"
+        ],
+        "test_record_ids": [
+          "central-meadow:alias",
+          "central-meadow:pollen"
+        ],
+        "train_group_ids": [
+          "site-group:15165f2bef79db6bb3b486c6bfa0d32ce027c643d92b23d0105f49d5d4bc34b3",
+          "site-group:5d796d1ed95a7e60585025466cb0ebd61f7e5756bcdebdde18cd94d706f28d53",
+          "site-group:6ad95536db864a3747a5e8f8f33789b5aa278904fade5e3aeb0d166cb0ca1484",
+          "site-group:b0104b4e540351eb19a35f425110d8f2891f2ba07bb09b0aca9e43308a8c51a1",
+          "site-group:b2ed4e4682b475e284b0d2aaa563804b1bb95277afae05a6fb525d340e5a75c3"
+        ],
+        "test_group_ids": [
+          "site-group:74530d2fe79cd60be2335c39e4df68ef865213fb1b0798f2d40d345b0ddfeb61"
+        ]
+      },
+      "excluded_target_record_ids": [
+        "central-meadow:alias",
+        "central-meadow:pollen"
+      ],
+      "training_site_assignment": {
+        "central-shore": "central-shore",
+        "east-meadow": "east-meadow",
+        "east-shore": "east-shore",
+        "west-meadow": "west-meadow",
+        "west-shore": "west-shore"
+      },
+      "training_compositions": {
+        "site-group:15165f2bef79db6bb3b486c6bfa0d32ce027c643d92b23d0105f49d5d4bc34b3": {
+          "tree": 0.2,
+          "grass": 0.8
+        },
+        "site-group:5d796d1ed95a7e60585025466cb0ebd61f7e5756bcdebdde18cd94d706f28d53": {
+          "tree": 0.5,
+          "grass": 0.5
+        },
+        "site-group:6ad95536db864a3747a5e8f8f33789b5aa278904fade5e3aeb0d166cb0ca1484": {
+          "tree": 0.2,
+          "grass": 0.8
+        },
+        "site-group:b0104b4e540351eb19a35f425110d8f2891f2ba07bb09b0aca9e43308a8c51a1": {
+          "tree": 0.8,
+          "grass": 0.19999999999999996
+        },
+        "site-group:b2ed4e4682b475e284b0d2aaa563804b1bb95277afae05a6fb525d340e5a75c3": {
+          "tree": 0.8,
+          "grass": 0.19999999999999996
+        }
+      },
+      "training_input_ids": [
+        "central-shore:alias",
+        "central-shore:pollen",
+        "east-meadow:alias",
+        "east-meadow:pollen",
+        "east-shore:alias",
+        "east-shore:pollen",
+        "west-meadow:alias",
+        "west-meadow:pollen",
+        "west-shore:alias",
+        "west-shore:pollen",
+        "central-meadow:alias"
+      ],
+      "dependency_graph": {
+        "central-shore:alias": [],
+        "central-shore:pollen": [],
+        "east-meadow:alias": [],
+        "east-meadow:pollen": [],
+        "east-shore:alias": [],
+        "east-shore:pollen": [],
+        "west-meadow:alias": [],
+        "west-meadow:pollen": [],
+        "west-shore:alias": [],
+        "west-shore:pollen": [],
+        "synthetic-background": [],
+        "synthetic-ppe": [],
+        "synthetic-geometry": [],
+        "synthetic-time": [],
+        "central-meadow:alias": []
+      },
+      "admitted_synthetic_external_ids": [
+        "synthetic-background",
+        "synthetic-ppe",
+        "synthetic-geometry",
+        "synthetic-time"
+      ],
+      "distances_km": {
+        "site-group:15165f2bef79db6bb3b486c6bfa0d32ce027c643d92b23d0105f49d5d4bc34b3": 111.03781705993448,
+        "site-group:5d796d1ed95a7e60585025466cb0ebd61f7e5756bcdebdde18cd94d706f28d53": 0.5580000151931725,
+        "site-group:6ad95536db864a3747a5e8f8f33789b5aa278904fade5e3aeb0d166cb0ca1484": 111.59575365062916,
+        "site-group:b0104b4e540351eb19a35f425110d8f2891f2ba07bb09b0aca9e43308a8c51a1": 111.59575365062908,
+        "site-group:b2ed4e4682b475e284b0d2aaa563804b1bb95277afae05a6fb525d340e5a75c3": 112.15368960387106
+      },
+      "status": "refused",
+      "reason_code": "withheld_input_leakage",
+      "detail": "Withheld record in fit-input closure: central-meadow:alias",
+      "numerical_calls": 0,
+      "contract_status": "passed"
+    },
+    {
+      "case_id": "central-meadow-derived_target_input",
+      "target_site_id": "central-meadow",
+      "control": "derived_target_input",
+      "fold": {
+        "fold_id": "site-group:74530d2fe79cd60be2335c39e4df68ef865213fb1b0798f2d40d345b0ddfeb61",
+        "train_record_ids": [
+          "central-shore:alias",
+          "central-shore:pollen",
+          "east-meadow:alias",
+          "east-meadow:pollen",
+          "east-shore:alias",
+          "east-shore:pollen",
+          "west-meadow:alias",
+          "west-meadow:pollen",
+          "west-shore:alias",
+          "west-shore:pollen"
+        ],
+        "test_record_ids": [
+          "central-meadow:alias",
+          "central-meadow:pollen"
+        ],
+        "train_group_ids": [
+          "site-group:15165f2bef79db6bb3b486c6bfa0d32ce027c643d92b23d0105f49d5d4bc34b3",
+          "site-group:5d796d1ed95a7e60585025466cb0ebd61f7e5756bcdebdde18cd94d706f28d53",
+          "site-group:6ad95536db864a3747a5e8f8f33789b5aa278904fade5e3aeb0d166cb0ca1484",
+          "site-group:b0104b4e540351eb19a35f425110d8f2891f2ba07bb09b0aca9e43308a8c51a1",
+          "site-group:b2ed4e4682b475e284b0d2aaa563804b1bb95277afae05a6fb525d340e5a75c3"
+        ],
+        "test_group_ids": [
+          "site-group:74530d2fe79cd60be2335c39e4df68ef865213fb1b0798f2d40d345b0ddfeb61"
+        ]
+      },
+      "excluded_target_record_ids": [
+        "central-meadow:alias",
+        "central-meadow:pollen"
+      ],
+      "training_site_assignment": {
+        "central-shore": "central-shore",
+        "east-meadow": "east-meadow",
+        "east-shore": "east-shore",
+        "west-meadow": "west-meadow",
+        "west-shore": "west-shore"
+      },
+      "training_compositions": {
+        "site-group:15165f2bef79db6bb3b486c6bfa0d32ce027c643d92b23d0105f49d5d4bc34b3": {
+          "tree": 0.2,
+          "grass": 0.8
+        },
+        "site-group:5d796d1ed95a7e60585025466cb0ebd61f7e5756bcdebdde18cd94d706f28d53": {
+          "tree": 0.5,
+          "grass": 0.5
+        },
+        "site-group:6ad95536db864a3747a5e8f8f33789b5aa278904fade5e3aeb0d166cb0ca1484": {
+          "tree": 0.2,
+          "grass": 0.8
+        },
+        "site-group:b0104b4e540351eb19a35f425110d8f2891f2ba07bb09b0aca9e43308a8c51a1": {
+          "tree": 0.8,
+          "grass": 0.19999999999999996
+        },
+        "site-group:b2ed4e4682b475e284b0d2aaa563804b1bb95277afae05a6fb525d340e5a75c3": {
+          "tree": 0.8,
+          "grass": 0.19999999999999996
+        }
+      },
+      "training_input_ids": [
+        "central-shore:alias",
+        "central-shore:pollen",
+        "east-meadow:alias",
+        "east-meadow:pollen",
+        "east-shore:alias",
+        "east-shore:pollen",
+        "west-meadow:alias",
+        "west-meadow:pollen",
+        "west-shore:alias",
+        "west-shore:pollen",
+        "synthetic-derived-product"
+      ],
+      "dependency_graph": {
+        "central-shore:alias": [],
+        "central-shore:pollen": [],
+        "east-meadow:alias": [],
+        "east-meadow:pollen": [],
+        "east-shore:alias": [],
+        "east-shore:pollen": [],
+        "west-meadow:alias": [],
+        "west-meadow:pollen": [],
+        "west-shore:alias": [],
+        "west-shore:pollen": [],
+        "synthetic-background": [],
+        "synthetic-ppe": [],
+        "synthetic-geometry": [],
+        "synthetic-time": [],
+        "synthetic-derived-intermediate": [
+          "central-meadow:pollen"
+        ],
+        "synthetic-derived-product": [
+          "synthetic-derived-intermediate"
+        ],
+        "central-meadow:pollen": []
+      },
+      "admitted_synthetic_external_ids": [
+        "synthetic-background",
+        "synthetic-ppe",
+        "synthetic-geometry",
+        "synthetic-time",
+        "synthetic-derived-product",
+        "synthetic-derived-intermediate"
+      ],
+      "distances_km": {
+        "site-group:15165f2bef79db6bb3b486c6bfa0d32ce027c643d92b23d0105f49d5d4bc34b3": 111.03781705993448,
+        "site-group:5d796d1ed95a7e60585025466cb0ebd61f7e5756bcdebdde18cd94d706f28d53": 0.5580000151931725,
+        "site-group:6ad95536db864a3747a5e8f8f33789b5aa278904fade5e3aeb0d166cb0ca1484": 111.59575365062916,
+        "site-group:b0104b4e540351eb19a35f425110d8f2891f2ba07bb09b0aca9e43308a8c51a1": 111.59575365062908,
+        "site-group:b2ed4e4682b475e284b0d2aaa563804b1bb95277afae05a6fb525d340e5a75c3": 112.15368960387106
+      },
+      "status": "refused",
+      "reason_code": "withheld_input_leakage",
+      "detail": "Withheld record in fit-input closure: central-meadow:pollen",
+      "numerical_calls": 0,
+      "contract_status": "passed"
+    },
+    {
+      "case_id": "west-meadow-nearest_site",
+      "target_site_id": "west-meadow",
+      "control": "nearest_site",
+      "fold": {
+        "fold_id": "site-group:b0104b4e540351eb19a35f425110d8f2891f2ba07bb09b0aca9e43308a8c51a1",
+        "train_record_ids": [
+          "central-meadow:alias",
+          "central-meadow:pollen",
+          "central-shore:alias",
+          "central-shore:pollen",
+          "east-meadow:alias",
+          "east-meadow:pollen",
+          "east-shore:alias",
+          "east-shore:pollen",
+          "west-shore:alias",
+          "west-shore:pollen"
+        ],
+        "test_record_ids": [
+          "west-meadow:alias",
+          "west-meadow:pollen"
+        ],
+        "train_group_ids": [
+          "site-group:15165f2bef79db6bb3b486c6bfa0d32ce027c643d92b23d0105f49d5d4bc34b3",
+          "site-group:5d796d1ed95a7e60585025466cb0ebd61f7e5756bcdebdde18cd94d706f28d53",
+          "site-group:6ad95536db864a3747a5e8f8f33789b5aa278904fade5e3aeb0d166cb0ca1484",
+          "site-group:74530d2fe79cd60be2335c39e4df68ef865213fb1b0798f2d40d345b0ddfeb61",
+          "site-group:b2ed4e4682b475e284b0d2aaa563804b1bb95277afae05a6fb525d340e5a75c3"
+        ],
+        "test_group_ids": [
+          "site-group:b0104b4e540351eb19a35f425110d8f2891f2ba07bb09b0aca9e43308a8c51a1"
+        ]
+      },
+      "excluded_target_record_ids": [
+        "west-meadow:alias",
+        "west-meadow:pollen"
+      ],
+      "training_site_assignment": {
+        "central-meadow": "central-meadow",
+        "central-shore": "central-shore",
+        "east-meadow": "east-meadow",
+        "east-shore": "east-shore",
+        "west-shore": "west-shore"
+      },
+      "training_compositions": {
+        "site-group:15165f2bef79db6bb3b486c6bfa0d32ce027c643d92b23d0105f49d5d4bc34b3": {
+          "tree": 0.2,
+          "grass": 0.8
+        },
+        "site-group:5d796d1ed95a7e60585025466cb0ebd61f7e5756bcdebdde18cd94d706f28d53": {
+          "tree": 0.5,
+          "grass": 0.5
+        },
+        "site-group:6ad95536db864a3747a5e8f8f33789b5aa278904fade5e3aeb0d166cb0ca1484": {
+          "tree": 0.2,
+          "grass": 0.8
+        },
+        "site-group:74530d2fe79cd60be2335c39e4df68ef865213fb1b0798f2d40d345b0ddfeb61": {
+          "tree": 0.5,
+          "grass": 0.5
+        },
+        "site-group:b2ed4e4682b475e284b0d2aaa563804b1bb95277afae05a6fb525d340e5a75c3": {
+          "tree": 0.8,
+          "grass": 0.19999999999999996
+        }
+      },
+      "training_input_ids": [
+        "central-meadow:alias",
+        "central-meadow:pollen",
+        "central-shore:alias",
+        "central-shore:pollen",
+        "east-meadow:alias",
+        "east-meadow:pollen",
+        "east-shore:alias",
+        "east-shore:pollen",
+        "west-shore:alias",
+        "west-shore:pollen"
+      ],
+      "dependency_graph": {
+        "central-meadow:alias": [],
+        "central-meadow:pollen": [],
+        "central-shore:alias": [],
+        "central-shore:pollen": [],
+        "east-meadow:alias": [],
+        "east-meadow:pollen": [],
+        "east-shore:alias": [],
+        "east-shore:pollen": [],
+        "west-shore:alias": [],
+        "west-shore:pollen": [],
+        "synthetic-background": [],
+        "synthetic-ppe": [],
+        "synthetic-geometry": [],
+        "synthetic-time": []
+      },
+      "admitted_synthetic_external_ids": [
+        "synthetic-background",
+        "synthetic-ppe",
+        "synthetic-geometry",
+        "synthetic-time"
+      ],
+      "distances_km": {
+        "site-group:15165f2bef79db6bb3b486c6bfa0d32ce027c643d92b23d0105f49d5d4bc34b3": 222.6082627337803,
+        "site-group:5d796d1ed95a7e60585025466cb0ebd61f7e5756bcdebdde18cd94d706f28d53": 111.03781705993448,
+        "site-group:6ad95536db864a3747a5e8f8f33789b5aa278904fade5e3aeb0d166cb0ca1484": 223.16600838931936,
+        "site-group:74530d2fe79cd60be2335c39e4df68ef865213fb1b0798f2d40d345b0ddfeb61": 111.59575365062908,
+        "site-group:b2ed4e4682b475e284b0d2aaa563804b1bb95277afae05a6fb525d340e5a75c3": 0.5580000151931725
+      },
+      "status": "scored",
+      "contract_status": "passed",
+      "numerical_calls": 1,
+      "prediction_manifest_sha256": "b4b333a238164b50693345ae31fb5a9c78778165b6a6da60b65c61c033969001",
+      "prediction_manifest": {
+        "allowed_input_closure": [
+          "central-meadow:alias",
+          "central-meadow:pollen",
+          "central-shore:alias",
+          "central-shore:pollen",
+          "east-meadow:alias",
+          "east-meadow:pollen",
+          "east-shore:alias",
+          "east-shore:pollen",
+          "synthetic-background",
+          "synthetic-geometry",
+          "synthetic-ppe",
+          "synthetic-time",
+          "west-shore:alias",
+          "west-shore:pollen"
+        ],
+        "experiment": "all_target_pollen_withheld",
+        "fold": {
+          "fold_id": "site-group:b0104b4e540351eb19a35f425110d8f2891f2ba07bb09b0aca9e43308a8c51a1",
+          "test_group_ids": [
+            "site-group:b0104b4e540351eb19a35f425110d8f2891f2ba07bb09b0aca9e43308a8c51a1"
+          ],
+          "test_record_ids": [
+            "west-meadow:alias",
+            "west-meadow:pollen"
+          ],
+          "train_group_ids": [
+            "site-group:15165f2bef79db6bb3b486c6bfa0d32ce027c643d92b23d0105f49d5d4bc34b3",
+            "site-group:5d796d1ed95a7e60585025466cb0ebd61f7e5756bcdebdde18cd94d706f28d53",
+            "site-group:6ad95536db864a3747a5e8f8f33789b5aa278904fade5e3aeb0d166cb0ca1484",
+            "site-group:74530d2fe79cd60be2335c39e4df68ef865213fb1b0798f2d40d345b0ddfeb61",
+            "site-group:b2ed4e4682b475e284b0d2aaa563804b1bb95277afae05a6fb525d340e5a75c3"
+          ],
+          "train_record_ids": [
+            "central-meadow:alias",
+            "central-meadow:pollen",
+            "central-shore:alias",
+            "central-shore:pollen",
+            "east-meadow:alias",
+            "east-meadow:pollen",
+            "east-shore:alias",
+            "east-shore:pollen",
+            "west-shore:alias",
+            "west-shore:pollen"
+          ]
+        },
+        "forward_inputs": {
+          "engine_build_id": "forward-module-sha256:a267ddcd2cbe07c215cddd26f4e763ea3fb1b780741196bf8aa6fb951dab4d57",
+          "geometry_input_ids": [
+            "synthetic-geometry"
+          ],
+          "local_k": [
+            [
+              1.0,
+              1.0
+            ]
+          ],
+          "method_profile": "disqover-0.9.14-homogeneous-local-forward",
+          "parameter_input_ids": [
+            "synthetic-ppe"
+          ],
+          "ppe": [
+            2.0,
+            1.0
+          ],
+          "regional_deposition": [
+            0.0,
+            0.0
+          ],
+          "regional_input_ids": [
+            "synthetic-background"
+          ],
+          "taxa": [
+            "tree",
+            "grass"
+          ],
+          "temporal_support_id": "synthetic-time",
+          "terrestrial_fraction": [
+            1.0
+          ]
+        },
+        "input_lineage": {
+          "central-meadow:alias": [],
+          "central-meadow:pollen": [],
+          "central-shore:alias": [],
+          "central-shore:pollen": [],
+          "east-meadow:alias": [],
+          "east-meadow:pollen": [],
+          "east-shore:alias": [],
+          "east-shore:pollen": [],
+          "synthetic-background": [],
+          "synthetic-geometry": [],
+          "synthetic-ppe": [],
+          "synthetic-time": [],
+          "west-shore:alias": [],
+          "west-shore:pollen": []
+        },
+        "nearest_training_distance_km": 0.5580000151931725,
+        "pollen_fraction": {
+          "grass": 0.11111111111111108,
+          "tree": 0.888888888888889
+        },
+        "schema_version": "lra-heldout-prediction.v1",
+        "scientific_acceptance": "not_evaluated_by_prediction",
+        "spatial_input_sha256": "a5fc9fbdf9d56c2136ec723b65e77b851f750280bab3210d9dd31cded53a4a7b",
+        "spatial_method": "nearest_site",
+        "target_group_id": "site-group:b0104b4e540351eb19a35f425110d8f2891f2ba07bb09b0aca9e43308a8c51a1",
+        "uncertainty_status": "deterministic_point_prediction_no_predictive_intervals",
+        "vegetation_fraction": {
+          "grass": 0.19999999999999996,
+          "tree": 0.8
+        }
+      },
+      "prediction_frozen_before_truth_scoring": true,
+      "predicted_vegetation_fraction": {
+        "grass": 0.19999999999999996,
+        "tree": 0.8
+      },
+      "predicted_pollen_fraction": {
+        "grass": 0.11111111111111108,
+        "tree": 0.888888888888889
+      },
+      "independent_expected_vegetation_fraction": {
+        "tree": 0.8,
+        "grass": 0.19999999999999996
+      },
+      "independent_expected_pollen_fraction": {
+        "tree": 0.888888888888889,
+        "grass": 0.11111111111111108
+      },
+      "calculation_max_abs_error": 0.0,
+      "pollen_calculation_max_abs_error": 0.0,
+      "synthetic_truth_fraction": {
+        "tree": 0.8,
+        "grass": 0.19999999999999996
+      },
+      "synthetic_pollen_truth_fraction": {
+        "tree": 0.888888888888889,
+        "grass": 0.11111111111111108
+      },
+      "vegetation_score": {
+        "target": "vegetation_cover",
+        "status": "scored",
+        "taxon_count": 2,
+        "scored_taxon_count": 2,
+        "missing_observed_taxa": [],
+        "mae_fraction": 0.0,
+        "rmse_fraction": 0.0,
+        "bias_fraction": 0.0,
+        "total_variation": 0.0,
+        "count_conditioned_deviance": null,
+        "observed_total_count": null,
+        "zero_probability_positive_count": false,
+        "signed_error_by_taxon": [
+          [
+            "grass",
+            0.0
+          ],
+          [
+            "tree",
+            0.0
+          ]
+        ]
+      },
+      "pollen_mae_fraction": 0.0,
+      "pollen_hellinger": 0.0
+    },
+    {
+      "case_id": "west-meadow-shuffled_training_sites",
+      "target_site_id": "west-meadow",
+      "control": "shuffled_training_sites",
+      "fold": {
+        "fold_id": "site-group:b0104b4e540351eb19a35f425110d8f2891f2ba07bb09b0aca9e43308a8c51a1",
+        "train_record_ids": [
+          "central-meadow:alias",
+          "central-meadow:pollen",
+          "central-shore:alias",
+          "central-shore:pollen",
+          "east-meadow:alias",
+          "east-meadow:pollen",
+          "east-shore:alias",
+          "east-shore:pollen",
+          "west-shore:alias",
+          "west-shore:pollen"
+        ],
+        "test_record_ids": [
+          "west-meadow:alias",
+          "west-meadow:pollen"
+        ],
+        "train_group_ids": [
+          "site-group:15165f2bef79db6bb3b486c6bfa0d32ce027c643d92b23d0105f49d5d4bc34b3",
+          "site-group:5d796d1ed95a7e60585025466cb0ebd61f7e5756bcdebdde18cd94d706f28d53",
+          "site-group:6ad95536db864a3747a5e8f8f33789b5aa278904fade5e3aeb0d166cb0ca1484",
+          "site-group:74530d2fe79cd60be2335c39e4df68ef865213fb1b0798f2d40d345b0ddfeb61",
+          "site-group:b2ed4e4682b475e284b0d2aaa563804b1bb95277afae05a6fb525d340e5a75c3"
+        ],
+        "test_group_ids": [
+          "site-group:b0104b4e540351eb19a35f425110d8f2891f2ba07bb09b0aca9e43308a8c51a1"
+        ]
+      },
+      "excluded_target_record_ids": [
+        "west-meadow:alias",
+        "west-meadow:pollen"
+      ],
+      "training_site_assignment": {
+        "central-meadow": "central-shore",
+        "central-shore": "east-meadow",
+        "east-meadow": "east-shore",
+        "east-shore": "west-shore",
+        "west-shore": "central-meadow"
+      },
+      "training_compositions": {
+        "site-group:15165f2bef79db6bb3b486c6bfa0d32ce027c643d92b23d0105f49d5d4bc34b3": {
+          "tree": 0.8,
+          "grass": 0.19999999999999996
+        },
+        "site-group:5d796d1ed95a7e60585025466cb0ebd61f7e5756bcdebdde18cd94d706f28d53": {
+          "tree": 0.2,
+          "grass": 0.8
+        },
+        "site-group:6ad95536db864a3747a5e8f8f33789b5aa278904fade5e3aeb0d166cb0ca1484": {
+          "tree": 0.2,
+          "grass": 0.8
+        },
+        "site-group:74530d2fe79cd60be2335c39e4df68ef865213fb1b0798f2d40d345b0ddfeb61": {
+          "tree": 0.5,
+          "grass": 0.5
+        },
+        "site-group:b2ed4e4682b475e284b0d2aaa563804b1bb95277afae05a6fb525d340e5a75c3": {
+          "tree": 0.5,
+          "grass": 0.5
+        }
+      },
+      "training_input_ids": [
+        "central-meadow:alias",
+        "central-meadow:pollen",
+        "central-shore:alias",
+        "central-shore:pollen",
+        "east-meadow:alias",
+        "east-meadow:pollen",
+        "east-shore:alias",
+        "east-shore:pollen",
+        "west-shore:alias",
+        "west-shore:pollen"
+      ],
+      "dependency_graph": {
+        "central-meadow:alias": [],
+        "central-meadow:pollen": [],
+        "central-shore:alias": [],
+        "central-shore:pollen": [],
+        "east-meadow:alias": [],
+        "east-meadow:pollen": [],
+        "east-shore:alias": [],
+        "east-shore:pollen": [],
+        "west-shore:alias": [],
+        "west-shore:pollen": [],
+        "synthetic-background": [],
+        "synthetic-ppe": [],
+        "synthetic-geometry": [],
+        "synthetic-time": []
+      },
+      "admitted_synthetic_external_ids": [
+        "synthetic-background",
+        "synthetic-ppe",
+        "synthetic-geometry",
+        "synthetic-time"
+      ],
+      "distances_km": {
+        "site-group:15165f2bef79db6bb3b486c6bfa0d32ce027c643d92b23d0105f49d5d4bc34b3": 222.6082627337803,
+        "site-group:5d796d1ed95a7e60585025466cb0ebd61f7e5756bcdebdde18cd94d706f28d53": 111.03781705993448,
+        "site-group:6ad95536db864a3747a5e8f8f33789b5aa278904fade5e3aeb0d166cb0ca1484": 223.16600838931936,
+        "site-group:74530d2fe79cd60be2335c39e4df68ef865213fb1b0798f2d40d345b0ddfeb61": 111.59575365062908,
+        "site-group:b2ed4e4682b475e284b0d2aaa563804b1bb95277afae05a6fb525d340e5a75c3": 0.5580000151931725
+      },
+      "status": "scored",
+      "contract_status": "passed",
+      "numerical_calls": 1,
+      "prediction_manifest_sha256": "25339547eeee2412315f51f5f21c5f441e7dc41abc225d9885316fabee5839f1",
+      "prediction_manifest": {
+        "allowed_input_closure": [
+          "central-meadow:alias",
+          "central-meadow:pollen",
+          "central-shore:alias",
+          "central-shore:pollen",
+          "east-meadow:alias",
+          "east-meadow:pollen",
+          "east-shore:alias",
+          "east-shore:pollen",
+          "synthetic-background",
+          "synthetic-geometry",
+          "synthetic-ppe",
+          "synthetic-time",
+          "west-shore:alias",
+          "west-shore:pollen"
+        ],
+        "experiment": "all_target_pollen_withheld",
+        "fold": {
+          "fold_id": "site-group:b0104b4e540351eb19a35f425110d8f2891f2ba07bb09b0aca9e43308a8c51a1",
+          "test_group_ids": [
+            "site-group:b0104b4e540351eb19a35f425110d8f2891f2ba07bb09b0aca9e43308a8c51a1"
+          ],
+          "test_record_ids": [
+            "west-meadow:alias",
+            "west-meadow:pollen"
+          ],
+          "train_group_ids": [
+            "site-group:15165f2bef79db6bb3b486c6bfa0d32ce027c643d92b23d0105f49d5d4bc34b3",
+            "site-group:5d796d1ed95a7e60585025466cb0ebd61f7e5756bcdebdde18cd94d706f28d53",
+            "site-group:6ad95536db864a3747a5e8f8f33789b5aa278904fade5e3aeb0d166cb0ca1484",
+            "site-group:74530d2fe79cd60be2335c39e4df68ef865213fb1b0798f2d40d345b0ddfeb61",
+            "site-group:b2ed4e4682b475e284b0d2aaa563804b1bb95277afae05a6fb525d340e5a75c3"
+          ],
+          "train_record_ids": [
+            "central-meadow:alias",
+            "central-meadow:pollen",
+            "central-shore:alias",
+            "central-shore:pollen",
+            "east-meadow:alias",
+            "east-meadow:pollen",
+            "east-shore:alias",
+            "east-shore:pollen",
+            "west-shore:alias",
+            "west-shore:pollen"
+          ]
+        },
+        "forward_inputs": {
+          "engine_build_id": "forward-module-sha256:a267ddcd2cbe07c215cddd26f4e763ea3fb1b780741196bf8aa6fb951dab4d57",
+          "geometry_input_ids": [
+            "synthetic-geometry"
+          ],
+          "local_k": [
+            [
+              1.0,
+              1.0
+            ]
+          ],
+          "method_profile": "disqover-0.9.14-homogeneous-local-forward",
+          "parameter_input_ids": [
+            "synthetic-ppe"
+          ],
+          "ppe": [
+            2.0,
+            1.0
+          ],
+          "regional_deposition": [
+            0.0,
+            0.0
+          ],
+          "regional_input_ids": [
+            "synthetic-background"
+          ],
+          "taxa": [
+            "tree",
+            "grass"
+          ],
+          "temporal_support_id": "synthetic-time",
+          "terrestrial_fraction": [
+            1.0
+          ]
+        },
+        "input_lineage": {
+          "central-meadow:alias": [],
+          "central-meadow:pollen": [],
+          "central-shore:alias": [],
+          "central-shore:pollen": [],
+          "east-meadow:alias": [],
+          "east-meadow:pollen": [],
+          "east-shore:alias": [],
+          "east-shore:pollen": [],
+          "synthetic-background": [],
+          "synthetic-geometry": [],
+          "synthetic-ppe": [],
+          "synthetic-time": [],
+          "west-shore:alias": [],
+          "west-shore:pollen": []
+        },
+        "nearest_training_distance_km": 0.5580000151931725,
+        "pollen_fraction": {
+          "grass": 0.3333333333333333,
+          "tree": 0.6666666666666666
+        },
+        "schema_version": "lra-heldout-prediction.v1",
+        "scientific_acceptance": "not_evaluated_by_prediction",
+        "spatial_input_sha256": "403509dee0af79773c451982fb81800206f7495c6b65bbf3683b7eee5f12acd1",
+        "spatial_method": "nearest_site",
+        "target_group_id": "site-group:b0104b4e540351eb19a35f425110d8f2891f2ba07bb09b0aca9e43308a8c51a1",
+        "uncertainty_status": "deterministic_point_prediction_no_predictive_intervals",
+        "vegetation_fraction": {
+          "grass": 0.5,
+          "tree": 0.5
+        }
+      },
+      "prediction_frozen_before_truth_scoring": true,
+      "predicted_vegetation_fraction": {
+        "grass": 0.5,
+        "tree": 0.5
+      },
+      "predicted_pollen_fraction": {
+        "grass": 0.3333333333333333,
+        "tree": 0.6666666666666666
+      },
+      "independent_expected_vegetation_fraction": {
+        "tree": 0.5,
+        "grass": 0.5
+      },
+      "independent_expected_pollen_fraction": {
+        "tree": 0.6666666666666666,
+        "grass": 0.3333333333333333
+      },
+      "calculation_max_abs_error": 0.0,
+      "pollen_calculation_max_abs_error": 0.0,
+      "synthetic_truth_fraction": {
+        "tree": 0.8,
+        "grass": 0.19999999999999996
+      },
+      "synthetic_pollen_truth_fraction": {
+        "tree": 0.888888888888889,
+        "grass": 0.11111111111111108
+      },
+      "vegetation_score": {
+        "target": "vegetation_cover",
+        "status": "scored",
+        "taxon_count": 2,
+        "scored_taxon_count": 2,
+        "missing_observed_taxa": [],
+        "mae_fraction": 0.30000000000000004,
+        "rmse_fraction": 0.30000000000000004,
+        "bias_fraction": 0.0,
+        "total_variation": 0.30000000000000004,
+        "count_conditioned_deviance": null,
+        "observed_total_count": null,
+        "zero_probability_positive_count": false,
+        "signed_error_by_taxon": [
+          [
+            "grass",
+            0.30000000000000004
+          ],
+          [
+            "tree",
+            -0.30000000000000004
+          ]
+        ]
+      },
+      "pollen_mae_fraction": 0.22222222222222227,
+      "pollen_hellinger": 0.19429243770827453
+    },
+    {
+      "case_id": "west-meadow-heldout_alias_input",
+      "target_site_id": "west-meadow",
+      "control": "heldout_alias_input",
+      "fold": {
+        "fold_id": "site-group:b0104b4e540351eb19a35f425110d8f2891f2ba07bb09b0aca9e43308a8c51a1",
+        "train_record_ids": [
+          "central-meadow:alias",
+          "central-meadow:pollen",
+          "central-shore:alias",
+          "central-shore:pollen",
+          "east-meadow:alias",
+          "east-meadow:pollen",
+          "east-shore:alias",
+          "east-shore:pollen",
+          "west-shore:alias",
+          "west-shore:pollen"
+        ],
+        "test_record_ids": [
+          "west-meadow:alias",
+          "west-meadow:pollen"
+        ],
+        "train_group_ids": [
+          "site-group:15165f2bef79db6bb3b486c6bfa0d32ce027c643d92b23d0105f49d5d4bc34b3",
+          "site-group:5d796d1ed95a7e60585025466cb0ebd61f7e5756bcdebdde18cd94d706f28d53",
+          "site-group:6ad95536db864a3747a5e8f8f33789b5aa278904fade5e3aeb0d166cb0ca1484",
+          "site-group:74530d2fe79cd60be2335c39e4df68ef865213fb1b0798f2d40d345b0ddfeb61",
+          "site-group:b2ed4e4682b475e284b0d2aaa563804b1bb95277afae05a6fb525d340e5a75c3"
+        ],
+        "test_group_ids": [
+          "site-group:b0104b4e540351eb19a35f425110d8f2891f2ba07bb09b0aca9e43308a8c51a1"
+        ]
+      },
+      "excluded_target_record_ids": [
+        "west-meadow:alias",
+        "west-meadow:pollen"
+      ],
+      "training_site_assignment": {
+        "central-meadow": "central-meadow",
+        "central-shore": "central-shore",
+        "east-meadow": "east-meadow",
+        "east-shore": "east-shore",
+        "west-shore": "west-shore"
+      },
+      "training_compositions": {
+        "site-group:15165f2bef79db6bb3b486c6bfa0d32ce027c643d92b23d0105f49d5d4bc34b3": {
+          "tree": 0.2,
+          "grass": 0.8
+        },
+        "site-group:5d796d1ed95a7e60585025466cb0ebd61f7e5756bcdebdde18cd94d706f28d53": {
+          "tree": 0.5,
+          "grass": 0.5
+        },
+        "site-group:6ad95536db864a3747a5e8f8f33789b5aa278904fade5e3aeb0d166cb0ca1484": {
+          "tree": 0.2,
+          "grass": 0.8
+        },
+        "site-group:74530d2fe79cd60be2335c39e4df68ef865213fb1b0798f2d40d345b0ddfeb61": {
+          "tree": 0.5,
+          "grass": 0.5
+        },
+        "site-group:b2ed4e4682b475e284b0d2aaa563804b1bb95277afae05a6fb525d340e5a75c3": {
+          "tree": 0.8,
+          "grass": 0.19999999999999996
+        }
+      },
+      "training_input_ids": [
+        "central-meadow:alias",
+        "central-meadow:pollen",
+        "central-shore:alias",
+        "central-shore:pollen",
+        "east-meadow:alias",
+        "east-meadow:pollen",
+        "east-shore:alias",
+        "east-shore:pollen",
+        "west-shore:alias",
+        "west-shore:pollen",
+        "west-meadow:alias"
+      ],
+      "dependency_graph": {
+        "central-meadow:alias": [],
+        "central-meadow:pollen": [],
+        "central-shore:alias": [],
+        "central-shore:pollen": [],
+        "east-meadow:alias": [],
+        "east-meadow:pollen": [],
+        "east-shore:alias": [],
+        "east-shore:pollen": [],
+        "west-shore:alias": [],
+        "west-shore:pollen": [],
+        "synthetic-background": [],
+        "synthetic-ppe": [],
+        "synthetic-geometry": [],
+        "synthetic-time": [],
+        "west-meadow:alias": []
+      },
+      "admitted_synthetic_external_ids": [
+        "synthetic-background",
+        "synthetic-ppe",
+        "synthetic-geometry",
+        "synthetic-time"
+      ],
+      "distances_km": {
+        "site-group:15165f2bef79db6bb3b486c6bfa0d32ce027c643d92b23d0105f49d5d4bc34b3": 222.6082627337803,
+        "site-group:5d796d1ed95a7e60585025466cb0ebd61f7e5756bcdebdde18cd94d706f28d53": 111.03781705993448,
+        "site-group:6ad95536db864a3747a5e8f8f33789b5aa278904fade5e3aeb0d166cb0ca1484": 223.16600838931936,
+        "site-group:74530d2fe79cd60be2335c39e4df68ef865213fb1b0798f2d40d345b0ddfeb61": 111.59575365062908,
+        "site-group:b2ed4e4682b475e284b0d2aaa563804b1bb95277afae05a6fb525d340e5a75c3": 0.5580000151931725
+      },
+      "status": "refused",
+      "reason_code": "withheld_input_leakage",
+      "detail": "Withheld record in fit-input closure: west-meadow:alias",
+      "numerical_calls": 0,
+      "contract_status": "passed"
+    },
+    {
+      "case_id": "west-meadow-derived_target_input",
+      "target_site_id": "west-meadow",
+      "control": "derived_target_input",
+      "fold": {
+        "fold_id": "site-group:b0104b4e540351eb19a35f425110d8f2891f2ba07bb09b0aca9e43308a8c51a1",
+        "train_record_ids": [
+          "central-meadow:alias",
+          "central-meadow:pollen",
+          "central-shore:alias",
+          "central-shore:pollen",
+          "east-meadow:alias",
+          "east-meadow:pollen",
+          "east-shore:alias",
+          "east-shore:pollen",
+          "west-shore:alias",
+          "west-shore:pollen"
+        ],
+        "test_record_ids": [
+          "west-meadow:alias",
+          "west-meadow:pollen"
+        ],
+        "train_group_ids": [
+          "site-group:15165f2bef79db6bb3b486c6bfa0d32ce027c643d92b23d0105f49d5d4bc34b3",
+          "site-group:5d796d1ed95a7e60585025466cb0ebd61f7e5756bcdebdde18cd94d706f28d53",
+          "site-group:6ad95536db864a3747a5e8f8f33789b5aa278904fade5e3aeb0d166cb0ca1484",
+          "site-group:74530d2fe79cd60be2335c39e4df68ef865213fb1b0798f2d40d345b0ddfeb61",
+          "site-group:b2ed4e4682b475e284b0d2aaa563804b1bb95277afae05a6fb525d340e5a75c3"
+        ],
+        "test_group_ids": [
+          "site-group:b0104b4e540351eb19a35f425110d8f2891f2ba07bb09b0aca9e43308a8c51a1"
+        ]
+      },
+      "excluded_target_record_ids": [
+        "west-meadow:alias",
+        "west-meadow:pollen"
+      ],
+      "training_site_assignment": {
+        "central-meadow": "central-meadow",
+        "central-shore": "central-shore",
+        "east-meadow": "east-meadow",
+        "east-shore": "east-shore",
+        "west-shore": "west-shore"
+      },
+      "training_compositions": {
+        "site-group:15165f2bef79db6bb3b486c6bfa0d32ce027c643d92b23d0105f49d5d4bc34b3": {
+          "tree": 0.2,
+          "grass": 0.8
+        },
+        "site-group:5d796d1ed95a7e60585025466cb0ebd61f7e5756bcdebdde18cd94d706f28d53": {
+          "tree": 0.5,
+          "grass": 0.5
+        },
+        "site-group:6ad95536db864a3747a5e8f8f33789b5aa278904fade5e3aeb0d166cb0ca1484": {
+          "tree": 0.2,
+          "grass": 0.8
+        },
+        "site-group:74530d2fe79cd60be2335c39e4df68ef865213fb1b0798f2d40d345b0ddfeb61": {
+          "tree": 0.5,
+          "grass": 0.5
+        },
+        "site-group:b2ed4e4682b475e284b0d2aaa563804b1bb95277afae05a6fb525d340e5a75c3": {
+          "tree": 0.8,
+          "grass": 0.19999999999999996
+        }
+      },
+      "training_input_ids": [
+        "central-meadow:alias",
+        "central-meadow:pollen",
+        "central-shore:alias",
+        "central-shore:pollen",
+        "east-meadow:alias",
+        "east-meadow:pollen",
+        "east-shore:alias",
+        "east-shore:pollen",
+        "west-shore:alias",
+        "west-shore:pollen",
+        "synthetic-derived-product"
+      ],
+      "dependency_graph": {
+        "central-meadow:alias": [],
+        "central-meadow:pollen": [],
+        "central-shore:alias": [],
+        "central-shore:pollen": [],
+        "east-meadow:alias": [],
+        "east-meadow:pollen": [],
+        "east-shore:alias": [],
+        "east-shore:pollen": [],
+        "west-shore:alias": [],
+        "west-shore:pollen": [],
+        "synthetic-background": [],
+        "synthetic-ppe": [],
+        "synthetic-geometry": [],
+        "synthetic-time": [],
+        "synthetic-derived-intermediate": [
+          "west-meadow:pollen"
+        ],
+        "synthetic-derived-product": [
+          "synthetic-derived-intermediate"
+        ],
+        "west-meadow:pollen": []
+      },
+      "admitted_synthetic_external_ids": [
+        "synthetic-background",
+        "synthetic-ppe",
+        "synthetic-geometry",
+        "synthetic-time",
+        "synthetic-derived-product",
+        "synthetic-derived-intermediate"
+      ],
+      "distances_km": {
+        "site-group:15165f2bef79db6bb3b486c6bfa0d32ce027c643d92b23d0105f49d5d4bc34b3": 222.6082627337803,
+        "site-group:5d796d1ed95a7e60585025466cb0ebd61f7e5756bcdebdde18cd94d706f28d53": 111.03781705993448,
+        "site-group:6ad95536db864a3747a5e8f8f33789b5aa278904fade5e3aeb0d166cb0ca1484": 223.16600838931936,
+        "site-group:74530d2fe79cd60be2335c39e4df68ef865213fb1b0798f2d40d345b0ddfeb61": 111.59575365062908,
+        "site-group:b2ed4e4682b475e284b0d2aaa563804b1bb95277afae05a6fb525d340e5a75c3": 0.5580000151931725
+      },
+      "status": "refused",
+      "reason_code": "withheld_input_leakage",
+      "detail": "Withheld record in fit-input closure: west-meadow:pollen",
+      "numerical_calls": 0,
+      "contract_status": "passed"
+    },
+    {
+      "case_id": "west-shore-nearest_site",
+      "target_site_id": "west-shore",
+      "control": "nearest_site",
+      "fold": {
+        "fold_id": "site-group:b2ed4e4682b475e284b0d2aaa563804b1bb95277afae05a6fb525d340e5a75c3",
+        "train_record_ids": [
+          "central-meadow:alias",
+          "central-meadow:pollen",
+          "central-shore:alias",
+          "central-shore:pollen",
+          "east-meadow:alias",
+          "east-meadow:pollen",
+          "east-shore:alias",
+          "east-shore:pollen",
+          "west-meadow:alias",
+          "west-meadow:pollen"
+        ],
+        "test_record_ids": [
+          "west-shore:alias",
+          "west-shore:pollen"
+        ],
+        "train_group_ids": [
+          "site-group:15165f2bef79db6bb3b486c6bfa0d32ce027c643d92b23d0105f49d5d4bc34b3",
+          "site-group:5d796d1ed95a7e60585025466cb0ebd61f7e5756bcdebdde18cd94d706f28d53",
+          "site-group:6ad95536db864a3747a5e8f8f33789b5aa278904fade5e3aeb0d166cb0ca1484",
+          "site-group:74530d2fe79cd60be2335c39e4df68ef865213fb1b0798f2d40d345b0ddfeb61",
+          "site-group:b0104b4e540351eb19a35f425110d8f2891f2ba07bb09b0aca9e43308a8c51a1"
+        ],
+        "test_group_ids": [
+          "site-group:b2ed4e4682b475e284b0d2aaa563804b1bb95277afae05a6fb525d340e5a75c3"
+        ]
+      },
+      "excluded_target_record_ids": [
+        "west-shore:alias",
+        "west-shore:pollen"
+      ],
+      "training_site_assignment": {
+        "central-meadow": "central-meadow",
+        "central-shore": "central-shore",
+        "east-meadow": "east-meadow",
+        "east-shore": "east-shore",
+        "west-meadow": "west-meadow"
+      },
+      "training_compositions": {
+        "site-group:15165f2bef79db6bb3b486c6bfa0d32ce027c643d92b23d0105f49d5d4bc34b3": {
+          "tree": 0.2,
+          "grass": 0.8
+        },
+        "site-group:5d796d1ed95a7e60585025466cb0ebd61f7e5756bcdebdde18cd94d706f28d53": {
+          "tree": 0.5,
+          "grass": 0.5
+        },
+        "site-group:6ad95536db864a3747a5e8f8f33789b5aa278904fade5e3aeb0d166cb0ca1484": {
+          "tree": 0.2,
+          "grass": 0.8
+        },
+        "site-group:74530d2fe79cd60be2335c39e4df68ef865213fb1b0798f2d40d345b0ddfeb61": {
+          "tree": 0.5,
+          "grass": 0.5
+        },
+        "site-group:b0104b4e540351eb19a35f425110d8f2891f2ba07bb09b0aca9e43308a8c51a1": {
+          "tree": 0.8,
+          "grass": 0.19999999999999996
+        }
+      },
+      "training_input_ids": [
+        "central-meadow:alias",
+        "central-meadow:pollen",
+        "central-shore:alias",
+        "central-shore:pollen",
+        "east-meadow:alias",
+        "east-meadow:pollen",
+        "east-shore:alias",
+        "east-shore:pollen",
+        "west-meadow:alias",
+        "west-meadow:pollen"
+      ],
+      "dependency_graph": {
+        "central-meadow:alias": [],
+        "central-meadow:pollen": [],
+        "central-shore:alias": [],
+        "central-shore:pollen": [],
+        "east-meadow:alias": [],
+        "east-meadow:pollen": [],
+        "east-shore:alias": [],
+        "east-shore:pollen": [],
+        "west-meadow:alias": [],
+        "west-meadow:pollen": [],
+        "synthetic-background": [],
+        "synthetic-ppe": [],
+        "synthetic-geometry": [],
+        "synthetic-time": []
+      },
+      "admitted_synthetic_external_ids": [
+        "synthetic-background",
+        "synthetic-ppe",
+        "synthetic-geometry",
+        "synthetic-time"
+      ],
+      "distances_km": {
+        "site-group:15165f2bef79db6bb3b486c6bfa0d32ce027c643d92b23d0105f49d5d4bc34b3": 223.1660083893193,
+        "site-group:5d796d1ed95a7e60585025466cb0ebd61f7e5756bcdebdde18cd94d706f28d53": 111.59575365062908,
+        "site-group:6ad95536db864a3747a5e8f8f33789b5aa278904fade5e3aeb0d166cb0ca1484": 223.72375276970988,
+        "site-group:74530d2fe79cd60be2335c39e4df68ef865213fb1b0798f2d40d345b0ddfeb61": 112.15368960387106,
+        "site-group:b0104b4e540351eb19a35f425110d8f2891f2ba07bb09b0aca9e43308a8c51a1": 0.5580000151931725
+      },
+      "status": "scored",
+      "contract_status": "passed",
+      "numerical_calls": 1,
+      "prediction_manifest_sha256": "3db6a0cd7127c342a94ca50f1979ec066c0e2ed8d3c29e85a8f7441c1defb603",
+      "prediction_manifest": {
+        "allowed_input_closure": [
+          "central-meadow:alias",
+          "central-meadow:pollen",
+          "central-shore:alias",
+          "central-shore:pollen",
+          "east-meadow:alias",
+          "east-meadow:pollen",
+          "east-shore:alias",
+          "east-shore:pollen",
+          "synthetic-background",
+          "synthetic-geometry",
+          "synthetic-ppe",
+          "synthetic-time",
+          "west-meadow:alias",
+          "west-meadow:pollen"
+        ],
+        "experiment": "all_target_pollen_withheld",
+        "fold": {
+          "fold_id": "site-group:b2ed4e4682b475e284b0d2aaa563804b1bb95277afae05a6fb525d340e5a75c3",
+          "test_group_ids": [
+            "site-group:b2ed4e4682b475e284b0d2aaa563804b1bb95277afae05a6fb525d340e5a75c3"
+          ],
+          "test_record_ids": [
+            "west-shore:alias",
+            "west-shore:pollen"
+          ],
+          "train_group_ids": [
+            "site-group:15165f2bef79db6bb3b486c6bfa0d32ce027c643d92b23d0105f49d5d4bc34b3",
+            "site-group:5d796d1ed95a7e60585025466cb0ebd61f7e5756bcdebdde18cd94d706f28d53",
+            "site-group:6ad95536db864a3747a5e8f8f33789b5aa278904fade5e3aeb0d166cb0ca1484",
+            "site-group:74530d2fe79cd60be2335c39e4df68ef865213fb1b0798f2d40d345b0ddfeb61",
+            "site-group:b0104b4e540351eb19a35f425110d8f2891f2ba07bb09b0aca9e43308a8c51a1"
+          ],
+          "train_record_ids": [
+            "central-meadow:alias",
+            "central-meadow:pollen",
+            "central-shore:alias",
+            "central-shore:pollen",
+            "east-meadow:alias",
+            "east-meadow:pollen",
+            "east-shore:alias",
+            "east-shore:pollen",
+            "west-meadow:alias",
+            "west-meadow:pollen"
+          ]
+        },
+        "forward_inputs": {
+          "engine_build_id": "forward-module-sha256:a267ddcd2cbe07c215cddd26f4e763ea3fb1b780741196bf8aa6fb951dab4d57",
+          "geometry_input_ids": [
+            "synthetic-geometry"
+          ],
+          "local_k": [
+            [
+              1.0,
+              1.0
+            ]
+          ],
+          "method_profile": "disqover-0.9.14-homogeneous-local-forward",
+          "parameter_input_ids": [
+            "synthetic-ppe"
+          ],
+          "ppe": [
+            2.0,
+            1.0
+          ],
+          "regional_deposition": [
+            0.0,
+            0.0
+          ],
+          "regional_input_ids": [
+            "synthetic-background"
+          ],
+          "taxa": [
+            "tree",
+            "grass"
+          ],
+          "temporal_support_id": "synthetic-time",
+          "terrestrial_fraction": [
+            1.0
+          ]
+        },
+        "input_lineage": {
+          "central-meadow:alias": [],
+          "central-meadow:pollen": [],
+          "central-shore:alias": [],
+          "central-shore:pollen": [],
+          "east-meadow:alias": [],
+          "east-meadow:pollen": [],
+          "east-shore:alias": [],
+          "east-shore:pollen": [],
+          "synthetic-background": [],
+          "synthetic-geometry": [],
+          "synthetic-ppe": [],
+          "synthetic-time": [],
+          "west-meadow:alias": [],
+          "west-meadow:pollen": []
+        },
+        "nearest_training_distance_km": 0.5580000151931725,
+        "pollen_fraction": {
+          "grass": 0.11111111111111108,
+          "tree": 0.888888888888889
+        },
+        "schema_version": "lra-heldout-prediction.v1",
+        "scientific_acceptance": "not_evaluated_by_prediction",
+        "spatial_input_sha256": "50b4d8a81b81bc2759e9f6e529375582cf08734b1fe1fbd7724ec39017052723",
+        "spatial_method": "nearest_site",
+        "target_group_id": "site-group:b2ed4e4682b475e284b0d2aaa563804b1bb95277afae05a6fb525d340e5a75c3",
+        "uncertainty_status": "deterministic_point_prediction_no_predictive_intervals",
+        "vegetation_fraction": {
+          "grass": 0.19999999999999996,
+          "tree": 0.8
+        }
+      },
+      "prediction_frozen_before_truth_scoring": true,
+      "predicted_vegetation_fraction": {
+        "grass": 0.19999999999999996,
+        "tree": 0.8
+      },
+      "predicted_pollen_fraction": {
+        "grass": 0.11111111111111108,
+        "tree": 0.888888888888889
+      },
+      "independent_expected_vegetation_fraction": {
+        "tree": 0.8,
+        "grass": 0.19999999999999996
+      },
+      "independent_expected_pollen_fraction": {
+        "tree": 0.888888888888889,
+        "grass": 0.11111111111111108
+      },
+      "calculation_max_abs_error": 0.0,
+      "pollen_calculation_max_abs_error": 0.0,
+      "synthetic_truth_fraction": {
+        "tree": 0.8,
+        "grass": 0.19999999999999996
+      },
+      "synthetic_pollen_truth_fraction": {
+        "tree": 0.888888888888889,
+        "grass": 0.11111111111111108
+      },
+      "vegetation_score": {
+        "target": "vegetation_cover",
+        "status": "scored",
+        "taxon_count": 2,
+        "scored_taxon_count": 2,
+        "missing_observed_taxa": [],
+        "mae_fraction": 0.0,
+        "rmse_fraction": 0.0,
+        "bias_fraction": 0.0,
+        "total_variation": 0.0,
+        "count_conditioned_deviance": null,
+        "observed_total_count": null,
+        "zero_probability_positive_count": false,
+        "signed_error_by_taxon": [
+          [
+            "grass",
+            0.0
+          ],
+          [
+            "tree",
+            0.0
+          ]
+        ]
+      },
+      "pollen_mae_fraction": 0.0,
+      "pollen_hellinger": 0.0
+    },
+    {
+      "case_id": "west-shore-shuffled_training_sites",
+      "target_site_id": "west-shore",
+      "control": "shuffled_training_sites",
+      "fold": {
+        "fold_id": "site-group:b2ed4e4682b475e284b0d2aaa563804b1bb95277afae05a6fb525d340e5a75c3",
+        "train_record_ids": [
+          "central-meadow:alias",
+          "central-meadow:pollen",
+          "central-shore:alias",
+          "central-shore:pollen",
+          "east-meadow:alias",
+          "east-meadow:pollen",
+          "east-shore:alias",
+          "east-shore:pollen",
+          "west-meadow:alias",
+          "west-meadow:pollen"
+        ],
+        "test_record_ids": [
+          "west-shore:alias",
+          "west-shore:pollen"
+        ],
+        "train_group_ids": [
+          "site-group:15165f2bef79db6bb3b486c6bfa0d32ce027c643d92b23d0105f49d5d4bc34b3",
+          "site-group:5d796d1ed95a7e60585025466cb0ebd61f7e5756bcdebdde18cd94d706f28d53",
+          "site-group:6ad95536db864a3747a5e8f8f33789b5aa278904fade5e3aeb0d166cb0ca1484",
+          "site-group:74530d2fe79cd60be2335c39e4df68ef865213fb1b0798f2d40d345b0ddfeb61",
+          "site-group:b0104b4e540351eb19a35f425110d8f2891f2ba07bb09b0aca9e43308a8c51a1"
+        ],
+        "test_group_ids": [
+          "site-group:b2ed4e4682b475e284b0d2aaa563804b1bb95277afae05a6fb525d340e5a75c3"
+        ]
+      },
+      "excluded_target_record_ids": [
+        "west-shore:alias",
+        "west-shore:pollen"
+      ],
+      "training_site_assignment": {
+        "central-meadow": "central-shore",
+        "central-shore": "east-meadow",
+        "east-meadow": "east-shore",
+        "east-shore": "west-meadow",
+        "west-meadow": "central-meadow"
+      },
+      "training_compositions": {
+        "site-group:15165f2bef79db6bb3b486c6bfa0d32ce027c643d92b23d0105f49d5d4bc34b3": {
+          "tree": 0.8,
+          "grass": 0.19999999999999996
+        },
+        "site-group:5d796d1ed95a7e60585025466cb0ebd61f7e5756bcdebdde18cd94d706f28d53": {
+          "tree": 0.2,
+          "grass": 0.8
+        },
+        "site-group:6ad95536db864a3747a5e8f8f33789b5aa278904fade5e3aeb0d166cb0ca1484": {
+          "tree": 0.2,
+          "grass": 0.8
+        },
+        "site-group:74530d2fe79cd60be2335c39e4df68ef865213fb1b0798f2d40d345b0ddfeb61": {
+          "tree": 0.5,
+          "grass": 0.5
+        },
+        "site-group:b0104b4e540351eb19a35f425110d8f2891f2ba07bb09b0aca9e43308a8c51a1": {
+          "tree": 0.5,
+          "grass": 0.5
+        }
+      },
+      "training_input_ids": [
+        "central-meadow:alias",
+        "central-meadow:pollen",
+        "central-shore:alias",
+        "central-shore:pollen",
+        "east-meadow:alias",
+        "east-meadow:pollen",
+        "east-shore:alias",
+        "east-shore:pollen",
+        "west-meadow:alias",
+        "west-meadow:pollen"
+      ],
+      "dependency_graph": {
+        "central-meadow:alias": [],
+        "central-meadow:pollen": [],
+        "central-shore:alias": [],
+        "central-shore:pollen": [],
+        "east-meadow:alias": [],
+        "east-meadow:pollen": [],
+        "east-shore:alias": [],
+        "east-shore:pollen": [],
+        "west-meadow:alias": [],
+        "west-meadow:pollen": [],
+        "synthetic-background": [],
+        "synthetic-ppe": [],
+        "synthetic-geometry": [],
+        "synthetic-time": []
+      },
+      "admitted_synthetic_external_ids": [
+        "synthetic-background",
+        "synthetic-ppe",
+        "synthetic-geometry",
+        "synthetic-time"
+      ],
+      "distances_km": {
+        "site-group:15165f2bef79db6bb3b486c6bfa0d32ce027c643d92b23d0105f49d5d4bc34b3": 223.1660083893193,
+        "site-group:5d796d1ed95a7e60585025466cb0ebd61f7e5756bcdebdde18cd94d706f28d53": 111.59575365062908,
+        "site-group:6ad95536db864a3747a5e8f8f33789b5aa278904fade5e3aeb0d166cb0ca1484": 223.72375276970988,
+        "site-group:74530d2fe79cd60be2335c39e4df68ef865213fb1b0798f2d40d345b0ddfeb61": 112.15368960387106,
+        "site-group:b0104b4e540351eb19a35f425110d8f2891f2ba07bb09b0aca9e43308a8c51a1": 0.5580000151931725
+      },
+      "status": "scored",
+      "contract_status": "passed",
+      "numerical_calls": 1,
+      "prediction_manifest_sha256": "04c92fcf0396d04fd35af60ee09e682e2ba4d1a24807edb142ef5120ae0116b8",
+      "prediction_manifest": {
+        "allowed_input_closure": [
+          "central-meadow:alias",
+          "central-meadow:pollen",
+          "central-shore:alias",
+          "central-shore:pollen",
+          "east-meadow:alias",
+          "east-meadow:pollen",
+          "east-shore:alias",
+          "east-shore:pollen",
+          "synthetic-background",
+          "synthetic-geometry",
+          "synthetic-ppe",
+          "synthetic-time",
+          "west-meadow:alias",
+          "west-meadow:pollen"
+        ],
+        "experiment": "all_target_pollen_withheld",
+        "fold": {
+          "fold_id": "site-group:b2ed4e4682b475e284b0d2aaa563804b1bb95277afae05a6fb525d340e5a75c3",
+          "test_group_ids": [
+            "site-group:b2ed4e4682b475e284b0d2aaa563804b1bb95277afae05a6fb525d340e5a75c3"
+          ],
+          "test_record_ids": [
+            "west-shore:alias",
+            "west-shore:pollen"
+          ],
+          "train_group_ids": [
+            "site-group:15165f2bef79db6bb3b486c6bfa0d32ce027c643d92b23d0105f49d5d4bc34b3",
+            "site-group:5d796d1ed95a7e60585025466cb0ebd61f7e5756bcdebdde18cd94d706f28d53",
+            "site-group:6ad95536db864a3747a5e8f8f33789b5aa278904fade5e3aeb0d166cb0ca1484",
+            "site-group:74530d2fe79cd60be2335c39e4df68ef865213fb1b0798f2d40d345b0ddfeb61",
+            "site-group:b0104b4e540351eb19a35f425110d8f2891f2ba07bb09b0aca9e43308a8c51a1"
+          ],
+          "train_record_ids": [
+            "central-meadow:alias",
+            "central-meadow:pollen",
+            "central-shore:alias",
+            "central-shore:pollen",
+            "east-meadow:alias",
+            "east-meadow:pollen",
+            "east-shore:alias",
+            "east-shore:pollen",
+            "west-meadow:alias",
+            "west-meadow:pollen"
+          ]
+        },
+        "forward_inputs": {
+          "engine_build_id": "forward-module-sha256:a267ddcd2cbe07c215cddd26f4e763ea3fb1b780741196bf8aa6fb951dab4d57",
+          "geometry_input_ids": [
+            "synthetic-geometry"
+          ],
+          "local_k": [
+            [
+              1.0,
+              1.0
+            ]
+          ],
+          "method_profile": "disqover-0.9.14-homogeneous-local-forward",
+          "parameter_input_ids": [
+            "synthetic-ppe"
+          ],
+          "ppe": [
+            2.0,
+            1.0
+          ],
+          "regional_deposition": [
+            0.0,
+            0.0
+          ],
+          "regional_input_ids": [
+            "synthetic-background"
+          ],
+          "taxa": [
+            "tree",
+            "grass"
+          ],
+          "temporal_support_id": "synthetic-time",
+          "terrestrial_fraction": [
+            1.0
+          ]
+        },
+        "input_lineage": {
+          "central-meadow:alias": [],
+          "central-meadow:pollen": [],
+          "central-shore:alias": [],
+          "central-shore:pollen": [],
+          "east-meadow:alias": [],
+          "east-meadow:pollen": [],
+          "east-shore:alias": [],
+          "east-shore:pollen": [],
+          "synthetic-background": [],
+          "synthetic-geometry": [],
+          "synthetic-ppe": [],
+          "synthetic-time": [],
+          "west-meadow:alias": [],
+          "west-meadow:pollen": []
+        },
+        "nearest_training_distance_km": 0.5580000151931725,
+        "pollen_fraction": {
+          "grass": 0.3333333333333333,
+          "tree": 0.6666666666666666
+        },
+        "schema_version": "lra-heldout-prediction.v1",
+        "scientific_acceptance": "not_evaluated_by_prediction",
+        "spatial_input_sha256": "82bc7f8642c7cb322956b12d5acdea88218cde3dcd782b646af28231c04dbfdf",
+        "spatial_method": "nearest_site",
+        "target_group_id": "site-group:b2ed4e4682b475e284b0d2aaa563804b1bb95277afae05a6fb525d340e5a75c3",
+        "uncertainty_status": "deterministic_point_prediction_no_predictive_intervals",
+        "vegetation_fraction": {
+          "grass": 0.5,
+          "tree": 0.5
+        }
+      },
+      "prediction_frozen_before_truth_scoring": true,
+      "predicted_vegetation_fraction": {
+        "grass": 0.5,
+        "tree": 0.5
+      },
+      "predicted_pollen_fraction": {
+        "grass": 0.3333333333333333,
+        "tree": 0.6666666666666666
+      },
+      "independent_expected_vegetation_fraction": {
+        "tree": 0.5,
+        "grass": 0.5
+      },
+      "independent_expected_pollen_fraction": {
+        "tree": 0.6666666666666666,
+        "grass": 0.3333333333333333
+      },
+      "calculation_max_abs_error": 0.0,
+      "pollen_calculation_max_abs_error": 0.0,
+      "synthetic_truth_fraction": {
+        "tree": 0.8,
+        "grass": 0.19999999999999996
+      },
+      "synthetic_pollen_truth_fraction": {
+        "tree": 0.888888888888889,
+        "grass": 0.11111111111111108
+      },
+      "vegetation_score": {
+        "target": "vegetation_cover",
+        "status": "scored",
+        "taxon_count": 2,
+        "scored_taxon_count": 2,
+        "missing_observed_taxa": [],
+        "mae_fraction": 0.30000000000000004,
+        "rmse_fraction": 0.30000000000000004,
+        "bias_fraction": 0.0,
+        "total_variation": 0.30000000000000004,
+        "count_conditioned_deviance": null,
+        "observed_total_count": null,
+        "zero_probability_positive_count": false,
+        "signed_error_by_taxon": [
+          [
+            "grass",
+            0.30000000000000004
+          ],
+          [
+            "tree",
+            -0.30000000000000004
+          ]
+        ]
+      },
+      "pollen_mae_fraction": 0.22222222222222227,
+      "pollen_hellinger": 0.19429243770827453
+    },
+    {
+      "case_id": "west-shore-heldout_alias_input",
+      "target_site_id": "west-shore",
+      "control": "heldout_alias_input",
+      "fold": {
+        "fold_id": "site-group:b2ed4e4682b475e284b0d2aaa563804b1bb95277afae05a6fb525d340e5a75c3",
+        "train_record_ids": [
+          "central-meadow:alias",
+          "central-meadow:pollen",
+          "central-shore:alias",
+          "central-shore:pollen",
+          "east-meadow:alias",
+          "east-meadow:pollen",
+          "east-shore:alias",
+          "east-shore:pollen",
+          "west-meadow:alias",
+          "west-meadow:pollen"
+        ],
+        "test_record_ids": [
+          "west-shore:alias",
+          "west-shore:pollen"
+        ],
+        "train_group_ids": [
+          "site-group:15165f2bef79db6bb3b486c6bfa0d32ce027c643d92b23d0105f49d5d4bc34b3",
+          "site-group:5d796d1ed95a7e60585025466cb0ebd61f7e5756bcdebdde18cd94d706f28d53",
+          "site-group:6ad95536db864a3747a5e8f8f33789b5aa278904fade5e3aeb0d166cb0ca1484",
+          "site-group:74530d2fe79cd60be2335c39e4df68ef865213fb1b0798f2d40d345b0ddfeb61",
+          "site-group:b0104b4e540351eb19a35f425110d8f2891f2ba07bb09b0aca9e43308a8c51a1"
+        ],
+        "test_group_ids": [
+          "site-group:b2ed4e4682b475e284b0d2aaa563804b1bb95277afae05a6fb525d340e5a75c3"
+        ]
+      },
+      "excluded_target_record_ids": [
+        "west-shore:alias",
+        "west-shore:pollen"
+      ],
+      "training_site_assignment": {
+        "central-meadow": "central-meadow",
+        "central-shore": "central-shore",
+        "east-meadow": "east-meadow",
+        "east-shore": "east-shore",
+        "west-meadow": "west-meadow"
+      },
+      "training_compositions": {
+        "site-group:15165f2bef79db6bb3b486c6bfa0d32ce027c643d92b23d0105f49d5d4bc34b3": {
+          "tree": 0.2,
+          "grass": 0.8
+        },
+        "site-group:5d796d1ed95a7e60585025466cb0ebd61f7e5756bcdebdde18cd94d706f28d53": {
+          "tree": 0.5,
+          "grass": 0.5
+        },
+        "site-group:6ad95536db864a3747a5e8f8f33789b5aa278904fade5e3aeb0d166cb0ca1484": {
+          "tree": 0.2,
+          "grass": 0.8
+        },
+        "site-group:74530d2fe79cd60be2335c39e4df68ef865213fb1b0798f2d40d345b0ddfeb61": {
+          "tree": 0.5,
+          "grass": 0.5
+        },
+        "site-group:b0104b4e540351eb19a35f425110d8f2891f2ba07bb09b0aca9e43308a8c51a1": {
+          "tree": 0.8,
+          "grass": 0.19999999999999996
+        }
+      },
+      "training_input_ids": [
+        "central-meadow:alias",
+        "central-meadow:pollen",
+        "central-shore:alias",
+        "central-shore:pollen",
+        "east-meadow:alias",
+        "east-meadow:pollen",
+        "east-shore:alias",
+        "east-shore:pollen",
+        "west-meadow:alias",
+        "west-meadow:pollen",
+        "west-shore:alias"
+      ],
+      "dependency_graph": {
+        "central-meadow:alias": [],
+        "central-meadow:pollen": [],
+        "central-shore:alias": [],
+        "central-shore:pollen": [],
+        "east-meadow:alias": [],
+        "east-meadow:pollen": [],
+        "east-shore:alias": [],
+        "east-shore:pollen": [],
+        "west-meadow:alias": [],
+        "west-meadow:pollen": [],
+        "synthetic-background": [],
+        "synthetic-ppe": [],
+        "synthetic-geometry": [],
+        "synthetic-time": [],
+        "west-shore:alias": []
+      },
+      "admitted_synthetic_external_ids": [
+        "synthetic-background",
+        "synthetic-ppe",
+        "synthetic-geometry",
+        "synthetic-time"
+      ],
+      "distances_km": {
+        "site-group:15165f2bef79db6bb3b486c6bfa0d32ce027c643d92b23d0105f49d5d4bc34b3": 223.1660083893193,
+        "site-group:5d796d1ed95a7e60585025466cb0ebd61f7e5756bcdebdde18cd94d706f28d53": 111.59575365062908,
+        "site-group:6ad95536db864a3747a5e8f8f33789b5aa278904fade5e3aeb0d166cb0ca1484": 223.72375276970988,
+        "site-group:74530d2fe79cd60be2335c39e4df68ef865213fb1b0798f2d40d345b0ddfeb61": 112.15368960387106,
+        "site-group:b0104b4e540351eb19a35f425110d8f2891f2ba07bb09b0aca9e43308a8c51a1": 0.5580000151931725
+      },
+      "status": "refused",
+      "reason_code": "withheld_input_leakage",
+      "detail": "Withheld record in fit-input closure: west-shore:alias",
+      "numerical_calls": 0,
+      "contract_status": "passed"
+    },
+    {
+      "case_id": "west-shore-derived_target_input",
+      "target_site_id": "west-shore",
+      "control": "derived_target_input",
+      "fold": {
+        "fold_id": "site-group:b2ed4e4682b475e284b0d2aaa563804b1bb95277afae05a6fb525d340e5a75c3",
+        "train_record_ids": [
+          "central-meadow:alias",
+          "central-meadow:pollen",
+          "central-shore:alias",
+          "central-shore:pollen",
+          "east-meadow:alias",
+          "east-meadow:pollen",
+          "east-shore:alias",
+          "east-shore:pollen",
+          "west-meadow:alias",
+          "west-meadow:pollen"
+        ],
+        "test_record_ids": [
+          "west-shore:alias",
+          "west-shore:pollen"
+        ],
+        "train_group_ids": [
+          "site-group:15165f2bef79db6bb3b486c6bfa0d32ce027c643d92b23d0105f49d5d4bc34b3",
+          "site-group:5d796d1ed95a7e60585025466cb0ebd61f7e5756bcdebdde18cd94d706f28d53",
+          "site-group:6ad95536db864a3747a5e8f8f33789b5aa278904fade5e3aeb0d166cb0ca1484",
+          "site-group:74530d2fe79cd60be2335c39e4df68ef865213fb1b0798f2d40d345b0ddfeb61",
+          "site-group:b0104b4e540351eb19a35f425110d8f2891f2ba07bb09b0aca9e43308a8c51a1"
+        ],
+        "test_group_ids": [
+          "site-group:b2ed4e4682b475e284b0d2aaa563804b1bb95277afae05a6fb525d340e5a75c3"
+        ]
+      },
+      "excluded_target_record_ids": [
+        "west-shore:alias",
+        "west-shore:pollen"
+      ],
+      "training_site_assignment": {
+        "central-meadow": "central-meadow",
+        "central-shore": "central-shore",
+        "east-meadow": "east-meadow",
+        "east-shore": "east-shore",
+        "west-meadow": "west-meadow"
+      },
+      "training_compositions": {
+        "site-group:15165f2bef79db6bb3b486c6bfa0d32ce027c643d92b23d0105f49d5d4bc34b3": {
+          "tree": 0.2,
+          "grass": 0.8
+        },
+        "site-group:5d796d1ed95a7e60585025466cb0ebd61f7e5756bcdebdde18cd94d706f28d53": {
+          "tree": 0.5,
+          "grass": 0.5
+        },
+        "site-group:6ad95536db864a3747a5e8f8f33789b5aa278904fade5e3aeb0d166cb0ca1484": {
+          "tree": 0.2,
+          "grass": 0.8
+        },
+        "site-group:74530d2fe79cd60be2335c39e4df68ef865213fb1b0798f2d40d345b0ddfeb61": {
+          "tree": 0.5,
+          "grass": 0.5
+        },
+        "site-group:b0104b4e540351eb19a35f425110d8f2891f2ba07bb09b0aca9e43308a8c51a1": {
+          "tree": 0.8,
+          "grass": 0.19999999999999996
+        }
+      },
+      "training_input_ids": [
+        "central-meadow:alias",
+        "central-meadow:pollen",
+        "central-shore:alias",
+        "central-shore:pollen",
+        "east-meadow:alias",
+        "east-meadow:pollen",
+        "east-shore:alias",
+        "east-shore:pollen",
+        "west-meadow:alias",
+        "west-meadow:pollen",
+        "synthetic-derived-product"
+      ],
+      "dependency_graph": {
+        "central-meadow:alias": [],
+        "central-meadow:pollen": [],
+        "central-shore:alias": [],
+        "central-shore:pollen": [],
+        "east-meadow:alias": [],
+        "east-meadow:pollen": [],
+        "east-shore:alias": [],
+        "east-shore:pollen": [],
+        "west-meadow:alias": [],
+        "west-meadow:pollen": [],
+        "synthetic-background": [],
+        "synthetic-ppe": [],
+        "synthetic-geometry": [],
+        "synthetic-time": [],
+        "synthetic-derived-intermediate": [
+          "west-shore:pollen"
+        ],
+        "synthetic-derived-product": [
+          "synthetic-derived-intermediate"
+        ],
+        "west-shore:pollen": []
+      },
+      "admitted_synthetic_external_ids": [
+        "synthetic-background",
+        "synthetic-ppe",
+        "synthetic-geometry",
+        "synthetic-time",
+        "synthetic-derived-product",
+        "synthetic-derived-intermediate"
+      ],
+      "distances_km": {
+        "site-group:15165f2bef79db6bb3b486c6bfa0d32ce027c643d92b23d0105f49d5d4bc34b3": 223.1660083893193,
+        "site-group:5d796d1ed95a7e60585025466cb0ebd61f7e5756bcdebdde18cd94d706f28d53": 111.59575365062908,
+        "site-group:6ad95536db864a3747a5e8f8f33789b5aa278904fade5e3aeb0d166cb0ca1484": 223.72375276970988,
+        "site-group:74530d2fe79cd60be2335c39e4df68ef865213fb1b0798f2d40d345b0ddfeb61": 112.15368960387106,
+        "site-group:b0104b4e540351eb19a35f425110d8f2891f2ba07bb09b0aca9e43308a8c51a1": 0.5580000151931725
+      },
+      "status": "refused",
+      "reason_code": "withheld_input_leakage",
+      "detail": "Withheld record in fit-input closure: west-shore:pollen",
+      "numerical_calls": 0,
+      "contract_status": "passed"
+    }
+  ],
+  "summaries": {
+    "nearest_site": {
+      "sites_scored": 6,
+      "site_macro_vegetation_mae_fraction": 0.0,
+      "site_macro_pollen_mae_fraction": 0.0,
+      "site_macro_pollen_hellinger": 0.0
+    },
+    "shuffled_training_sites": {
+      "sites_scored": 6,
+      "site_macro_vegetation_mae_fraction": 0.4000000000000001,
+      "site_macro_pollen_mae_fraction": 0.3703703703703704,
+      "site_macro_pollen_hellinger": 0.287270580014169
+    }
+  },
+  "denominators": {
+    "requested": 24,
+    "attempted": 24,
+    "predicted": 12,
+    "scored": 12,
+    "refused": 12,
+    "numerical_calls": 12,
+    "contract_passed": 24,
+    "contract_failed": 0
+  },
+  "claims": {
+    "synthetic_only": true,
+    "real_observations_used": false,
+    "empirical_ecological_accuracy": false,
+    "reviewed_source_crosswalk": false,
+    "predictive_intervals_calibrated": false,
+    "synthetic_crosswalk_complete_by_construction": true
+  }
+}

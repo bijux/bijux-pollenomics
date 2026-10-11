@@ -9,12 +9,20 @@ last_reviewed: 2026-09-24
 
 # EMPD2 reference candidate
 
-EMPD2 is a candidate pollen reference source for the Nordic study. It is not
-one of the nine contracted source families, and none of its rows is currently
-admitted to LRA reconstruction, model tuning, or held-out scoring. The source
-SQLite file is held in local artifact custody, outside Git. Its published
+EMPD2 is one of the eleven contracted source families and remains a candidate
+pollen reference for the Nordic study. A family contract registers its role,
+lifecycle, and refusal boundary; it does not admit a row. None of its rows is
+currently admitted to LRA reconstruction, model tuning, held-out scoring, or
+a governed public product. The source SQLite file is held in local artifact
+custody, outside Git. Its published
 [PANGAEA deposit](https://doi.pangaea.de/10.1594/PANGAEA.909130) is marked
 CC BY 4.0; reuse still needs source attribution and review of the intended join.
+
+The checked-in family lifecycle is `raw: missing`, `normalized: missing`,
+`reviewed: present`, and `published: missing`. Its authority remains
+`review_required`, with publication posture
+`review_required_not_publication_ready`; the compact review evidence does not
+promote the locally held SQLite file into a governed raw layer.
 
 The pinned SQLite file is 21,327,872 bytes with SHA-256
 `5634e85d922ee0741c41a77d081010c9cc1c113966b283bc52e2051a9d3722e2`.
@@ -31,6 +39,11 @@ are:
 | Norway | 622 | 19,774 | 622 | 66 |
 | Finland | 141 | 3,040 | 141 | 25 |
 | **Total** | **915** | **27,161** | **914** | **112** |
+
+These are source-native country labels and database counts, not governed
+country assignments or publication membership. The four-country source
+population is useful for coverage accounting, while its admitted scientific
+and published denominators remain zero.
 
 The mechanical rule requires at least one count row, all rows finite
 nonnegative integers, at least one positive row, and source `ispercent=0` and
@@ -176,3 +189,5 @@ hash, and refusal codes. It can be rerun on the pinned local SQLite file with
 the pinned 112-row overlap review; both inputs must match their recorded
 SHA-256 hashes. The next source decision is sample-level identity and timing
 review, followed by taxa/PPE, basin, rights-for-join and scientific admission.
+Contracted-family status does not change that sequence or authorize an EMPD2
+or EMPD2–NFI publication.

@@ -83,6 +83,7 @@ function sourceChronologyFeatureMatches(){return true}
 function featureMatchesAnimalFilters(){return true}
 function featureMatchesScientificSelection(){return true}
 function animalSourceChronologyCountryFilterBypassed(){return false}
+function isRetainedNeighborContext(){return false}
 function animalSourceChronologyLayerIsValid(){return true}
 function animalSourceChronologyFeatureIsValid(){return true}
 function modeledContextFeatureVisible(){return true}

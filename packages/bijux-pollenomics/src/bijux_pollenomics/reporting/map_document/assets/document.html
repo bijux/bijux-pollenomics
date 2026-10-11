@@ -1266,6 +1266,35 @@
           linear-gradient(180deg, rgba(255, 255, 255, 0.46), rgba(255, 255, 255, 0)),
           var(--surface);
       }
+      .north-orientation {
+        position: absolute;
+        top: 16px;
+        right: 16px;
+        z-index: 1100;
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        height: 44px;
+        padding: 0 12px;
+        border: 1px solid var(--surface-edge);
+        border-radius: 999px;
+        background: var(--surface-strong);
+        box-shadow: var(--shadow-sm);
+        color: var(--ink-soft);
+        font-size: 14px;
+        font-weight: 700;
+        pointer-events: none;
+        user-select: none;
+      }
+      .leaflet-bottom.leaflet-right {
+        top: 72px;
+        bottom: auto;
+        right: 16px;
+      }
+      .north-orientation-arrow {
+        font-size: 23px;
+        line-height: 1;
+      }
       .status-pill {
         display: grid;
         gap: 3px;
@@ -1541,6 +1570,13 @@
         outline-offset: 2px;
       }
       .leaflet-popup-content-wrapper { border-radius: 18px; }
+      .leaflet-tooltip.atlas-neighbor-context-label {
+        border: 1px solid #475569;
+        border-radius: 8px;
+        background: #fff;
+        color: #1e293b;
+        font-weight: 700;
+      }
       .popup-grid { display: grid; gap: 6px; font-size: 13px; }
       .popup-grid strong { display: inline-block; min-width: 96px; }
       .popup-card {
@@ -1781,11 +1817,30 @@
           grid-template-columns: repeat(2, minmax(0, 1fr));
           transition: opacity 160ms ease, transform 160ms ease;
         }
-        .map-status .status-pill:nth-child(-n + 3) {
+        .map-status .status-pill:nth-child(1),
+        .map-status .status-pill:nth-child(3) {
           display: none;
+        }
+        .map-status .status-pill:nth-child(5) {
+          grid-column: 1 / -1;
         }
       }
       @media (max-width: 640px) {
+        .north-orientation {
+          top: 176px;
+          right: 8px;
+        }
+        .leaflet-bottom.leaflet-right {
+          top: 228px;
+          bottom: auto;
+          right: 8px;
+          max-width: calc(100vw - 16px);
+        }
+        .leaflet-bottom.leaflet-right .leaflet-control-attribution {
+          max-width: 100%;
+          overflow-wrap: anywhere;
+          border-radius: 6px;
+        }
         .map-topbar {
           gap: 6px;
           padding: 8px;
@@ -1846,10 +1901,16 @@
         }
         .floating-legend {
           right: 8px;
-          bottom: 72px;
+          bottom: calc(176px + env(safe-area-inset-bottom));
           width: min(188px, calc(100vw - 16px));
           --legend-max-height: min(24vh, 184px);
           padding: 8px;
+        }
+        .legend-toggle {
+          min-height: 44px;
+        }
+        .leaflet-bottom .leaflet-control-scale {
+          margin-bottom: calc(176px + env(safe-area-inset-bottom));
         }
         .control-panel {
           left: 8px;
@@ -1904,6 +1965,9 @@
           grid-template-columns: repeat(2, minmax(0, 1fr));
           font-size: 11px;
         }
+        .map-status .status-pill-action {
+          min-height: 44px;
+        }
         .inline-button,
         .preset-button,
         .toolbar-button,
@@ -1926,11 +1990,19 @@
           grid-column: 1 / -1;
         }
       }
+      @media (max-width: 360px) {
+        .north-orientation {
+          top: 230px;
+        }
+        .leaflet-bottom.leaflet-right {
+          top: 282px;
+        }
+      }
     </style>
   </head>
   <body>
     <div class="app-shell">
-      <button id="mobile-scrim" class="mobile-scrim" type="button" aria-label="Close controls" aria-hidden="true"></button>
+      <button id="mobile-scrim" class="mobile-scrim" type="button" tabindex="-1" aria-label="Close controls" aria-hidden="true"></button>
       <main class="map-stage">
         <div class="map-topbar">
           <div class="map-topbar-main">
@@ -1965,6 +2037,7 @@
           </div>
         </div>
         <div id="map" aria-label="__TITLE__"></div>
+        <div id="north-orientation" class="north-orientation" role="img" aria-label="North is up"><span class="north-orientation-arrow" aria-hidden="true">↑</span><span aria-hidden="true">N</span></div>
         <section id="atlas-capture-overlay" class="atlas-capture-overlay" aria-label="Chronology frame evidence key">
           <div class="atlas-capture-heading">
             <span id="atlas-capture-role" class="atlas-capture-role">Preparing governed evidence</span>
@@ -1993,7 +2066,7 @@
             </div>
           </div>
         </div>
-        <aside id="sidebar" class="control-panel is-collapsed" aria-label="Map controls">
+        <aside id="sidebar" class="control-panel is-collapsed" aria-label="Map controls" inert>
           <div class="control-panel-card">
             <div class="control-panel-head">
               <div>
@@ -2288,7 +2361,7 @@ __CHRONOLOGY_PLAYBACK_ACTION__
             </div>
           </div>
         </aside>
-        <section id="focus-card" class="focus-card" hidden aria-live="polite">
+        <section id="focus-card" class="focus-card" hidden aria-live="polite" aria-labelledby="focus-title">
           <div class="focus-card-head">
             <div>
               <div class="focus-card-kicker">Focused Record</div>
@@ -2299,15 +2372,18 @@ __CHRONOLOGY_PLAYBACK_ACTION__
           </div>
           <div id="focus-meta" class="focus-meta"></div>
           <div id="focus-tabs" class="focus-tabs" role="tablist" aria-label="Evidence detail sections"></div>
-          <div id="focus-detail" class="focus-detail" role="tabpanel"></div>
+          <div id="focus-detail" class="focus-detail" role="tabpanel" tabindex="0"></div>
           <div class="focus-nav">
             <button id="focus-previous" class="toolbar-button" type="button">Previous</button>
             <button id="focus-next" class="toolbar-button" type="button">Next</button>
           </div>
           <div class="focus-actions">
             <button id="focus-zoom" class="toolbar-button is-primary" type="button">Zoom to record</button>
+            <button id="focus-export" class="toolbar-button" type="button" disabled>Download pollen/time-series records</button>
+            <button id="focus-copy-link" class="toolbar-button" type="button">Copy record link</button>
             <a id="focus-source-link" class="toolbar-button focus-link" href="#" target="_blank" rel="noreferrer">Open source</a>
           </div>
+          <p id="focus-export-status" class="search-meta" aria-live="polite"></p>
         </section>
         <div class="map-status">
           <div class="status-pill"><span class="status-pill-label">Zoom</span><span id="zoom-readout" class="status-pill-value">--</span></div>
@@ -2928,6 +3004,8 @@ __STATIC_CHUNK_SCRIPT_TAGS__
       const COUNTRIES = __COUNTRIES_JSON__;
 __NATIVE_LRA_CONTROLLER__
       const NATIVE_LRA_BINDING = __NATIVE_LRA_BINDING__;
+__SOURCE_RECORD_EXPORT_CONTROLLER__
+__URL_STATE_CONTROLLER__
       let nativeLraController = null;
       let signedNativeTime = null;
       let signedNativeTimeControls = null;
@@ -3035,6 +3113,7 @@ __NATIVE_LRA_CONTROLLER__
       let renderedPolygonLayers = [];
       let renderedFittablePolygonLayers = [];
       let visiblePointEntries = [];
+      let retainedNeighborRecordCountries = new Map();
       let visiblePolygonFeatureEntries = [];
       let highlightedPointEntry = null;
       const sidebar = document.getElementById('sidebar');
@@ -3146,6 +3225,9 @@ __NATIVE_LRA_CONTROLLER__
       const focusZoomButton = document.getElementById('focus-zoom');
       const focusSourceLink = document.getElementById('focus-source-link');
       const focusCloseButton = document.getElementById('focus-close');
+      const focusExportButton = document.getElementById('focus-export');
+      const focusCopyLinkButton = document.getElementById('focus-copy-link');
+      const focusExportStatus = document.getElementById('focus-export-status');
       const selectionReadout = document.getElementById('selection-readout');
       const zoomReadout = document.getElementById('zoom-readout');
       const centerReadout = document.getElementById('center-readout');
@@ -3155,6 +3237,7 @@ __NATIVE_LRA_CONTROLLER__
         const raw = window.location.hash.startsWith('#') ? window.location.hash.slice(1) : '';
         const params = new URLSearchParams(raw);
         return {
+          focus: sourceRecordFocusFromHash(params, DETAIL_TAB_DEFINITIONS.map(([key]) => key)),
           countries: params.get('countries'),
           layers: params.get('layers'),
           scientificSignals: params.get('scientific_signals'),
@@ -3199,10 +3282,22 @@ __NATIVE_LRA_CONTROLLER__
         return [String(leftCountry || ''), String(rightCountry || '')].sort().join('|');
       }
       function atlasEdgeVisible(edge, countries, countryPair, crossBorder, signalIds) {
-        if (!edge || !countries.has(edge.source_country) || !countries.has(edge.target_country)) return false;
+        if (!edge || (!countries.has(edge.source_country) && !countries.has(edge.target_country))) return false;
         if (countryPair !== 'all' && atlasCountryPairKey(edge.source_country, edge.target_country) !== countryPair) return false;
         if (crossBorder && edge.source_country === edge.target_country) return false;
         return signalIds.has(edge.signal_id);
+      }
+      function atlasRetainedNeighborRecordCountries(edges, countries) {
+        const retained = new Map();
+        edges.forEach((edge) => {
+          if (edge.source_country === edge.target_country) return;
+          if (countries.has(edge.source_country) && !countries.has(edge.target_country)) {
+            retained.set(String(edge.target_record_id), edge.target_country);
+          } else if (countries.has(edge.target_country) && !countries.has(edge.source_country)) {
+            retained.set(String(edge.source_record_id), edge.source_country);
+          }
+        });
+        return retained;
       }
       function atlasFilterStateSnapshot(countries, signalIds, countryPair, crossBorder) {
         return {
@@ -3412,6 +3507,13 @@ __NATIVE_LRA_CONTROLLER__
         refreshTimePlaybackControl();
       }
       const initialState = parseHashState();
+      const atlasURLState = createAtlasURLStateController({
+        readURL: () => window.location.href,
+        publishURL: (href) => window.history.replaceState(null, '', href),
+        replayURL: () => window.location.reload(),
+      });
+      window.addEventListener('hashchange', atlasURLState.observe);
+      window.addEventListener('popstate', atlasURLState.observe);
       const MODELED_CONTEXT_WINDOWS = Object.freeze(Array.isArray(MODELED_CONTEXT.windows_oldest_to_present) ? [...MODELED_CONTEXT.windows_oldest_to_present] : []);
       const MODELED_CONTEXT_FAMILIES = Object.freeze(Array.isArray(MODELED_CONTEXT.metric_families) ? [...MODELED_CONTEXT.metric_families] : []);
       const MODELED_CONTEXT_PALETTE = Object.freeze(Array.isArray(MODELED_CONTEXT.palette) ? [...MODELED_CONTEXT.palette] : []);
@@ -4513,6 +4615,7 @@ __NATIVE_LRA_CONTROLLER__
       let legendCollapsed = initialState.legend !== 'expanded';
       let focusState = null;
       let activeFocusTab = 'overview';
+      let focusCardReturnFocus = null;
       const DETAIL_TABLE_PAGE_SIZE = 25;
       const detailTablePages = new Map();
       let staticAtlasLoadGeneration = 0;
@@ -4526,7 +4629,10 @@ __NATIVE_LRA_CONTROLLER__
         if (!layer.applies_country_filter || animalSourceChronologyCountryFilterBypassed(layer)) return true;
         if (!activeCountries.size) return false;
         const countryKeys = Array.isArray(row.country_keys) ? row.country_keys : [];
-        return countryKeys.some((country) => activeCountries.has(country));
+        if (countryKeys.some((country) => activeCountries.has(country))) return true;
+        if (row.layer_kind !== 'point') return false;
+        const neighborCountries = new Set(retainedNeighborRecordCountries.values());
+        return countryKeys.some((country) => neighborCountries.has(country));
       }
       function staticAtlasTimeNeeded(row, layer) {
         if (!layer.applies_time_filter || !TIME_HAS_DATA) return true;
@@ -4816,7 +4922,6 @@ __NATIVE_LRA_CONTROLLER__
         panelToggleButton.setAttribute('aria-expanded', String(!sidebar.classList.contains('is-collapsed')));
         panelToggleButton.setAttribute('aria-controls', 'sidebar');
         mobileScrim.classList.toggle('is-visible', mobileOpen);
-        mobileScrim.setAttribute('aria-hidden', mobileOpen ? 'false' : 'true');
         document.body.classList.toggle('has-mobile-panel-open', mobileOpen);
       }
       function setPanelCollapsed(collapsed, persist = true) {
@@ -4825,6 +4930,7 @@ __NATIVE_LRA_CONTROLLER__
           if (!topbarSearch.hidden) setSearchOpen(false);
         }
         sidebar.classList.toggle('is-collapsed', collapsed);
+        sidebar.inert = collapsed;
         updatePanelToggleLabel();
         syncMobilePanelState();
         window.setTimeout(() => map.invalidateSize(), 180);
@@ -4892,6 +4998,7 @@ __NATIVE_LRA_CONTROLLER__
           .filter((element) => !element.hidden && getComputedStyle(element).display !== 'none' && getComputedStyle(element).visibility !== 'hidden');
       }
       function syncHashState() {
+        if (!atlasURLState.canPublish()) return;
         const params = new URLSearchParams();
         if (activeCountries.size !== COUNTRIES.length) params.set('countries', activeCountries.size ? [...activeCountries].join(',') : 'none');
         if (activeLayerKeys.size !== DEFAULT_LAYER_KEYS.length || DEFAULT_LAYER_KEYS.some((key) => !activeLayerKeys.has(key))) params.set('layers', activeLayerKeys.size ? [...activeLayerKeys].join(',') : 'none');
@@ -4927,9 +5034,10 @@ __NATIVE_LRA_CONTROLLER__
         }
         if (!legendCollapsed) params.set('legend', 'expanded');
         if (nativeLraController) nativeLraController.writeHash(params);
+        if (!focusCard.hidden) writeSourceRecordFocusHash(params, focusState, activeFocusTab);
         const nextHash = params.toString();
         const desiredHash = nextHash ? `#${nextHash}` : '';
-        if (window.location.hash !== desiredHash) window.history.replaceState(null, '', `${window.location.pathname}${window.location.search}${desiredHash}`);
+        atlasURLState.publish(desiredHash);
       }
       function clearHighlightedPoint() {
         if (!highlightedPointEntry || !highlightedPointEntry.marker) return;
@@ -5000,6 +5108,11 @@ __NATIVE_LRA_CONTROLLER__
         return uniquePointEntryForFocus(visiblePointEntries, state);
       }
       function setFocusState(nextState) {
+        const opening = Boolean(nextState) && focusCard.hidden;
+        if (opening) {
+          const origin = document.activeElement;
+          focusCardReturnFocus = topbarSearch.contains(origin) ? searchToggleButton : origin;
+        }
         if (nextState) {
           setPanelCollapsed(true, false);
           mobilePanelReturnFocus = null;
@@ -5015,6 +5128,17 @@ __NATIVE_LRA_CONTROLLER__
           clearHighlightedPoint();
         }
         renderFocusCard();
+        if (opening && !focusCard.hidden) focusTabs.querySelector('[aria-selected="true"]').focus({ preventScroll: true });
+        syncHashState();
+      }
+      function restoreFocusFromCard() {
+        const origin = focusCardReturnFocus;
+        focusCardReturnFocus = null;
+        if (origin instanceof HTMLElement && origin.isConnected && origin.getClientRects().length && !origin.matches(':disabled')) {
+          origin.focus({ preventScroll: true });
+        } else {
+          document.getElementById('map').focus({ preventScroll: true });
+        }
       }
       function unavailableDetailTabs(reasonCode) {
         return Object.fromEntries(DETAIL_TAB_DEFINITIONS.map(([key]) => [key, { status: 'unavailable', reason_code: reasonCode }]));
@@ -5192,11 +5316,21 @@ __NATIVE_LRA_CONTROLLER__
         return `<span>${escapeHtml(String(value))}</span>`;
       }
       function renderFocusDetail() {
+        const focused = document.activeElement;
+        const focusedTab = focusTabs.contains(focused) ? focused.dataset.focusTab : null;
+        const focusedTable = focusDetail.contains(focused) ? focused.dataset.detailTablePage : null;
+        const focusedDirection = focusedTable ? focused.dataset.pageDirection : null;
         const tabs = focusState && focusState.detailTabs ? focusState.detailTabs : unavailableDetailTabs('record_level_evidence_not_available');
         if (!Object.prototype.hasOwnProperty.call(tabs, activeFocusTab)) activeFocusTab = 'overview';
-        focusTabs.innerHTML = DETAIL_TAB_DEFINITIONS.map(([key, label]) => `<button class="focus-tab" type="button" role="tab" data-focus-tab="${key}" aria-selected="${String(activeFocusTab === key)}">${escapeHtml(label)}</button>`).join('');
+        focusTabs.innerHTML = DETAIL_TAB_DEFINITIONS.map(([key, label]) => `<button id="focus-tab-${key}" class="focus-tab" type="button" role="tab" data-focus-tab="${key}" aria-selected="${String(activeFocusTab === key)}" aria-controls="focus-detail" tabindex="${activeFocusTab === key ? '0' : '-1'}">${escapeHtml(label)}</button>`).join('');
+        focusDetail.setAttribute('aria-labelledby', `focus-tab-${activeFocusTab}`);
         focusDetail.innerHTML = renderDetailValue(tabs[activeFocusTab], activeFocusTab);
         focusDetail.dataset.detailStatus = tabs[activeFocusTab] && tabs[activeFocusTab].status === 'unavailable' ? 'unavailable' : 'available';
+        focusExportButton.disabled = !sourcePollenExportAvailable(focusState);
+        focusCopyLinkButton.disabled = focusState?.kind !== 'point';
+        focusExportStatus.textContent = focusExportButton.disabled
+          ? 'Pollen record export unavailable: complete sample, chronology and source observation tables are required.'
+          : 'Download includes all source observations, samples and chronology claims, including contextual and refused claims. Map time filters do not trim this complete record.';
         focusTabs.querySelectorAll('[data-focus-tab]').forEach((button) => {
           button.addEventListener('click', () => {
             activeFocusTab = button.dataset.focusTab;
@@ -5212,6 +5346,13 @@ __NATIVE_LRA_CONTROLLER__
             renderFocusDetail();
           });
         });
+        if (focusedTab) {
+          document.getElementById(`focus-tab-${activeFocusTab}`).focus({ preventScroll: true });
+        } else if (focusedTable) {
+          const replacement = [...focusDetail.querySelectorAll('[data-detail-table-page]')].find((button) => button.dataset.detailTablePage === focusedTable && button.dataset.pageDirection === focusedDirection && !button.disabled);
+          (replacement || focusDetail).focus({ preventScroll: true });
+        }
+        syncHashState();
       }
       function renderFocusCard() {
         const pointEntry = visiblePointEntryForFocus();
@@ -5219,12 +5360,14 @@ __NATIVE_LRA_CONTROLLER__
           ? visibleGovernedEdges().some((edge) => edge.edge_id === focusState.edgeId)
           : true;
         if (!focusState || !activeLayerKeys.has(focusState.layerKey) || (focusState.kind === 'point' && !pointEntry) || !edgeVisible) {
+          const containedFocus = focusCard.contains(document.activeElement);
           focusCard.hidden = true;
           focusSourceLink.hidden = true;
           focusPreviousButton.disabled = true;
           focusNextButton.disabled = true;
           focusTabs.innerHTML = '';
           focusDetail.innerHTML = '';
+          if (containedFocus) restoreFocusFromCard();
           return;
         }
         focusCard.hidden = false;
@@ -5258,13 +5401,16 @@ __NATIVE_LRA_CONTROLLER__
           { label: 'Country', value: entry.feature.country || 'Unassigned' },
           { label: 'Coordinates', value: coordinateLabel(entry.feature, 4) },
         ];
+        if (entry.neighborContext) meta.unshift({ label: 'Display role', value: 'Retained cross-border neighbor context' });
         const timeDescriptor = featureTimeDescriptor(entry.feature);
         if (timeDescriptor) meta.splice(2, 0, timeDescriptor);
         const nextFocus = {
           kind: 'point',
           ...identity,
           title: entry.feature.title || entry.layer.label,
-          subtitle: entry.feature.subtitle || 'Point record',
+          subtitle: entry.neighborContext
+            ? `Neighbor context · ${entry.feature.country} · ${entry.feature.subtitle || 'Point record'}`
+            : (entry.feature.subtitle || 'Point record'),
           meta,
           sourceUrl: primaryAction ? primaryAction.url : '',
           sourceLabel: primaryAction ? primaryAction.label : 'Open source',
@@ -5312,7 +5458,7 @@ __NATIVE_LRA_CONTROLLER__
         const pointCountsByCountry = Object.fromEntries(
           COUNTRIES.map((country) => [
             country,
-            visiblePointEntries.filter(({ feature }) => feature.country === country).length,
+            visiblePointEntries.filter(({ feature, neighborContext }) => !neighborContext && feature.country === country).length,
           ])
         );
         countryFilters.innerHTML = COUNTRIES.map((country) => {
@@ -5367,6 +5513,13 @@ __NATIVE_LRA_CONTROLLER__
       }
       function visibleGovernedEdges() {
         return GOVERNED_EDGE_RECORDS.filter((edge) => atlasEdgeVisible(edge, activeCountries, activeCountryPair, crossBorderOnly, activeScientificSignalIds));
+      }
+      function isRetainedNeighborContext(layer, feature) {
+        return Boolean(
+          layer.applies_country_filter
+          && !activeCountries.has(feature.country)
+          && retainedNeighborRecordCountries.get(String(feature.record_id)) === feature.country
+        );
       }
       function renderRelationControls() {
         const available = !STATIC_ATLAS_INLINE && STATIC_ATLAS_CHUNKS.edges.status === 'available';
@@ -5530,7 +5683,7 @@ __NATIVE_LRA_CONTROLLER__
         const unitCount = selectedLayer.facet_metadata.source_unit_counts.length;
         const untimedExclusion = sourceChronologyUntimedExclusion(selectedLayer);
         const extentLabel = `[${selectedFacet.time_min_bp}, ${selectedFacet.time_max_bp}] BP`;
-        const visibleSourceEntries = visiblePointEntries.filter(({ layer }) => layer.key === selectedLayer.key);
+        const visibleSourceEntries = visiblePointEntries.filter(({ layer, neighborContext }) => !neighborContext && layer.key === selectedLayer.key);
         const visibleObservationCounts = visibleSourceEntries.map(({ feature }) => sourceChronologyCount(feature.observation_denominator));
         const visibleObservationDenominator = visibleObservationCounts.every((count) => count !== null)
           ? visibleObservationCounts.reduce((total, count) => total + count, 0)
@@ -5595,7 +5748,7 @@ __NATIVE_LRA_CONTROLLER__
           visibleNodeCount = sourceRecordConcentrationSnapshot.visible_node_count;
           visibleObservationDenominator = sourceRecordConcentrationSnapshot.visible_observation_denominator;
         } else {
-          const visible = visiblePointEntries.filter(({ layer }) => layer.key === selectedLayer.key);
+          const visible = visiblePointEntries.filter(({ layer, neighborContext }) => !neighborContext && layer.key === selectedLayer.key);
           visibleNodeCount = visible.length;
           const observationCounts = visible.map(({ feature }) => sourceChronologyCount(feature.observation_denominator));
           visibleObservationDenominator = observationCounts.every((count) => count !== null)
@@ -5802,7 +5955,10 @@ __NATIVE_LRA_CONTROLLER__
         const sourceConcentrationLegendSection = concentrationLayer && sourceRecordConcentrationActive && sourceRecordConcentrationSnapshot?.status === 'available'
           ? `<div class="legend-group"><div class="legend-group-label">Captured source-record concentration</div><div class="legend-list">${[[7, '1 raw visible node at one source site'], [10, '2–4 nodes'], [13, '5–9 nodes'], [16, '10–24 nodes'], [19, '25+ nodes']].map(([size, label]) => `<div class="legend-item"><span class="legend-swatch" data-legend-concentration-size="${size}" style="width:${size}px;height:${size}px;background:${escapeHtml(layerColor(concentrationLayer))};border-color:${escapeHtml(concentrationLayer.style.stroke || layerColor(concentrationLayer))};"></span><span>${label}</span></div>`).join('')}<div class="legend-item"><span>${sourceRecordConcentrationSnapshot.visible_observation_denominator} contributing observations for visible symbols; ${sourceRecordConcentrationSnapshot.global_observation_denominator} in the global pre-filter facet denominator. Values are not weighted.</span></div></div></div>`
           : '';
-        legendItems.innerHTML = `${clusterLegendSection}${scientificLegendSection}${sourceConcentrationLegendSection}${LAYER_GROUP_DEFINITIONS
+        const neighborContextLegendSection = visiblePointEntries.some(({ neighborContext }) => neighborContext)
+          ? '<div class="legend-group"><div class="legend-group-label">Cross-border context</div><div class="legend-item">Dimmed, labeled neighboring endpoints are retained for selected cross-border relations. They are excluded from focal-country point counts.</div></div>'
+          : '';
+        legendItems.innerHTML = `${clusterLegendSection}${scientificLegendSection}${sourceConcentrationLegendSection}${neighborContextLegendSection}${LAYER_GROUP_DEFINITIONS
           .map((group) => renderGroup(group.label, activeLegendLayers.filter((layer) => layer.group === group.key)))
           .join('')}` || '<div class="legend-item"><span>No layers are visible. Restore defaults or enable one or more layers.</span></div>';
         const visibleRaaDensityLayer = visiblePolygonFeatureEntries.find(({ layer }) => layer.key === 'raa-archaeology')?.layer || null;
@@ -6056,7 +6212,7 @@ __NATIVE_LRA_CONTROLLER__
           && (layer.semantic_role !== 'exploratory_lra_model_anchor' || (nativeLraController && nativeLraController.anchorVisible(feature.record_id)))
           && (!((layer.semantic_role === 'animal_source_chronology_context' || layer.group === 'animal-chronology-context')) || (animalSourceChronologyLayerIsValid(layer) && animalSourceChronologyFeatureIsValid(feature)))
           && featureCoordinatePair(feature) !== null
-          && (!layer.applies_country_filter || animalSourceChronologyCountryFilterBypassed(layer) || activeCountries.has(feature.country))
+          && (!layer.applies_country_filter || animalSourceChronologyCountryFilterBypassed(layer) || activeCountries.has(feature.country) || isRetainedNeighborContext(layer, feature))
           && pointFeatureInTimeWindow(layer, feature)
           && sourceChronologyFeatureMatches(layer, feature)
           && featureMatchesAnimalFilters(layer, feature)
@@ -6176,8 +6332,10 @@ __NATIVE_LRA_CONTROLLER__
             return;
           }
           const clusterGroup = createClusterGroup(layer);
+          const neighborGroup = L.layerGroup();
           layer.features.forEach((feature) => {
             if (!pointFeatureVisible(layer, feature)) return;
+            const neighborContext = isRetainedNeighborContext(layer, feature);
             const coordinates = featureCoordinatePair(feature);
             if (!coordinates) return;
             const latLng = [coordinates.latitude, coordinates.longitude];
@@ -6204,19 +6362,25 @@ __NATIVE_LRA_CONTROLLER__
                 value: row.native_value === null ? 'N/A (source statistic unavailable)' : row.native_value,
               })),
             ]} : feature;
-            marker.bindPopup(popupHtml(popupFeature, layer), { maxWidth: 360 });
-            const entry = { layer, feature, marker };
+            if (neighborContext) {
+              if (typeof marker.setStyle === 'function') marker.setStyle({ opacity: 0.45, fillOpacity: 0.25 });
+              else marker.setOpacity(0.45);
+              marker.bindTooltip(`Neighbor context · ${escapeHtml(feature.country)}`, { permanent: true, direction: 'top', className: 'atlas-neighbor-context-label' });
+            }
+            marker.bindPopup(`${neighborContext ? `<div class="popup-grid"><div><strong>Display role</strong> Neighbor context · ${escapeHtml(feature.country)}</div></div>` : ''}${popupHtml(popupFeature, layer)}`, { maxWidth: 360 });
+            const entry = { layer, feature, marker, neighborContext };
             marker.on('click', () => {
               focusPointAtVisibleIndex(visiblePointEntries.indexOf(entry));
             });
-            clusterGroup.addLayer(marker);
+            if (neighborContext) neighborGroup.addLayer(marker); else clusterGroup.addLayer(marker);
             visiblePointEntries.push(entry);
-            if (layer.circle_enabled && diameterKm > 0) {
+            if (!neighborContext && layer.circle_enabled && diameterKm > 0) {
               const circle = L.circle(latLng, { pane: 'circlePane', radius: radiusMeters, color: layer.style.circleStroke, weight: 1, opacity: 0.55, fillColor: layer.style.circleFill, fillOpacity: 0.12, interactive: false });
               circleLayerGroup.addLayer(circle);
             }
           });
           if (clusterGroup.getLayers().length > 0) { clusterGroup.addTo(map); renderedPointGroups.push(clusterGroup); }
+          if (neighborGroup.getLayers().length > 0) { neighborGroup.addTo(map); renderedPointGroups.push(neighborGroup); }
         });
       }
       function scientificSignalById(signalId) {
@@ -6411,8 +6575,10 @@ __NATIVE_LRA_CONTROLLER__
       }
       function updateStats() {
         const enabledLayers = ALL_LAYERS.filter((layer) => activeLayerKeys.has(layer.key)).length;
-        const visibleAnimalCount = visiblePointEntries.filter(({ layer }) => isAnimalLayer(layer)).length;
-        const timedVisiblePoints = visiblePointEntries.filter(({ layer, feature }) => layer.applies_time_filter && featureTimeWindow(feature)).length;
+        const focalPoints = visiblePointEntries.filter(({ neighborContext }) => !neighborContext);
+        const neighborCount = visiblePointEntries.length - focalPoints.length;
+        const visibleAnimalCount = focalPoints.filter(({ layer }) => isAnimalLayer(layer)).length;
+        const timedVisiblePoints = focalPoints.filter(({ layer, feature }) => layer.applies_time_filter && featureTimeWindow(feature)).length;
         const timedVisiblePolygons = POLYGON_LAYERS.reduce((count, layer) => {
           if (!activeLayerKeys.has(layer.key) || !layer.applies_time_filter) return count;
           const features = Array.isArray(layer.geojson && layer.geojson.features) ? layer.geojson.features : [];
@@ -6438,28 +6604,36 @@ __NATIVE_LRA_CONTROLLER__
           ? `${timeRecordSummary} Automatic playback is disabled. ${playbackBlockReason}`
           : timeRecordSummary;
         const visiblePolygonLayers = renderedPolygonLayers.length;
-        selectionReadout.textContent = `${visiblePointEntries.length} points · ${visibleAnimalCount} animal · ${visiblePolygonLayers} overlays`;
+        selectionReadout.textContent = neighborCount
+          ? `${focalPoints.length} focal ${focalPoints.length === 1 ? 'point' : 'points'} · ${neighborCount} labeled neighbor context · ${visibleAnimalCount} animal · ${visiblePolygonLayers} overlays`
+          : `${focalPoints.length} points · ${visibleAnimalCount} animal · ${visiblePolygonLayers} overlays`;
         selectionReadout.dataset.governedEdgeEligibility = String(GOVERNED_EDGE_ELIGIBILITY_COUNT);
         selectionReadout.dataset.visibleGovernedEdges = String(renderedEdgeLayers.length);
-        topbarStatePill.textContent = `${activeCountries.size} countries · ${enabledLayers} layers · ${visiblePointEntries.length} visible points`;
+        topbarStatePill.textContent = `${activeCountries.size} countries · ${enabledLayers} layers · ${focalPoints.length} visible ${focalPoints.length === 1 ? 'point' : 'points'}`;
         countrySummary.textContent = activeCountries.size === COUNTRIES.length ? 'All countries visible' : activeCountries.size ? `${activeCountries.size} countries active` : 'No countries active';
       }
       function buildSearchResults() {
         const query = searchInput.value.trim().toLowerCase();
         searchClearButton.hidden = !query;
+        const focalCount = visiblePointEntries.filter(({ neighborContext }) => !neighborContext).length;
+        const neighborCount = visiblePointEntries.length - focalCount;
         if (!query) {
-          searchCount.textContent = `${visiblePointEntries.length} visible points and sites`;
+          searchCount.textContent = neighborCount
+            ? `${focalCount} focal ${focalCount === 1 ? 'point' : 'points'} and sites · ${neighborCount} labeled neighbor context`
+            : `${focalCount} visible points and sites`;
           searchResults.hidden = true;
           searchResults.innerHTML = '';
           return;
         }
         const matches = visiblePointEntries.filter(({ layer, feature }) => `${feature.title || ''} ${feature.subtitle || ''} ${feature.country || ''} ${layer.label || ''} ${featureTimeLabel(feature)}`.toLowerCase().includes(query)).slice(0, 12);
-        searchCount.textContent = `${matches.length} matches · ${visiblePointEntries.length} visible`;
+        searchCount.textContent = neighborCount
+          ? `${matches.length} matches · ${focalCount} focal visible · ${neighborCount} neighbor context`
+          : `${matches.length} matches · ${focalCount} visible`;
         searchResults.hidden = false;
-        searchResults.innerHTML = matches.map(({ layer, feature }, index) => {
+        searchResults.innerHTML = matches.map(({ layer, feature, neighborContext }, index) => {
           const timeDescriptor = featureTimeDescriptor(feature);
           const timeBadge = timeDescriptor ? `<span class="search-badge">${escapeHtml(timeDescriptor.label)}: ${escapeHtml(timeDescriptor.value)}</span>` : '';
-          return `<button class="search-result" type="button" data-search-index="${index}"><strong>${escapeHtml(feature.title || '')}</strong><span>${escapeHtml(feature.subtitle || 'Unspecified type')}</span><div class="search-result-meta"><span class="search-badge">${escapeHtml(layer.label)}</span><span class="search-badge">${escapeHtml(feature.country || 'Unassigned')}</span>${timeBadge}</div></button>`;
+          return `<button class="search-result" type="button" data-search-index="${index}"><strong>${escapeHtml(feature.title || '')}</strong><span>${escapeHtml(feature.subtitle || 'Unspecified type')}</span><div class="search-result-meta"><span class="search-badge">${escapeHtml(layer.label)}</span><span class="search-badge">${escapeHtml(feature.country || 'Unassigned')}</span>${neighborContext ? '<span class="search-badge">Neighbor context</span>' : ''}${timeBadge}</div></button>`;
         }).join('') || '<div class="summary-item"><span>No visible records match the current query.</span></div>';
         searchResults.querySelectorAll('[data-search-index]').forEach((button, index) => {
           button.addEventListener('click', () => {
@@ -6476,6 +6650,7 @@ __NATIVE_LRA_CONTROLLER__
       }
       async function renderMapState() {
         const generation = ++staticAtlasLoadGeneration;
+        retainedNeighborRecordCountries = atlasRetainedNeighborRecordCountries(visibleGovernedEdges(), activeCountries);
         topbarStatePill.textContent = 'Loading selected evidence…';
         topbarStatePill.setAttribute('aria-live', 'polite');
         document.getElementById('map').setAttribute('aria-busy', 'true');
@@ -6655,7 +6830,7 @@ __NATIVE_LRA_CONTROLLER__
         const sourcePresetAuthority = activeSourceChronologyLevel === 'source_taxon' && activeSourceChronologyPreset !== 'none'
           ? sourceChronologyCapturePresetAuthority(sourceLayer, activeSourceChronologyPreset)
           : null;
-        const visibleSourceEntries = visiblePointEntries.filter(({ layer }) => layer.semantic_role === 'source_chronology_context');
+        const visibleSourceEntries = visiblePointEntries.filter(({ layer, neighborContext }) => !neighborContext && layer.semantic_role === 'source_chronology_context');
         const visibleSourceSiteCount = new Set(visibleSourceEntries.map(({ feature }) => feature.record_id)).size;
         const visibleSourceObservationValues = visibleSourceEntries.map(({ feature }) => sourceChronologyCount(feature.observation_denominator));
         const visibleSourceObservationDenominator = visibleSourceObservationValues.every((value) => value !== null)
@@ -6728,10 +6903,11 @@ __NATIVE_LRA_CONTROLLER__
             interpolation_allowed: false,
             propagation_use_allowed: false,
           } : null,
-          visible_point_count: visiblePointEntries.length,
+          visible_point_count: visiblePointEntries.filter(({ neighborContext }) => !neighborContext).length,
+          visible_neighbor_context_point_count: visiblePointEntries.filter(({ neighborContext }) => neighborContext).length,
           visible_polygon_layer_count: renderedPolygonLayers.length,
           visible_polygon_feature_count: visiblePolygonFeatureEntries.length,
-          visible_source_chronology_point_count: visiblePointEntries.filter(({ layer }) => layer.semantic_role === 'source_chronology_context').length,
+          visible_source_chronology_point_count: visibleSourceEntries.length,
           visible_modeled_context_feature_count: visiblePolygonFeatureEntries.filter(({ layer, feature }) => modeledContextActive && isModeledContextFeature(layer, feature.properties || {})).length,
           visible_modeled_no_pollen_data_count: modeledContextActive ? modeledContextFrameQualitySummary().no_pollen_data : null,
           capture_layers: {
@@ -7199,17 +7375,21 @@ __NATIVE_LRA_CONTROLLER__
       timePlaybackToggle.addEventListener('click', () => {
         if (timePlaybackTimer === null) startTimePlayback(); else stopTimePlayback();
       });
-      timeStepOlder.addEventListener('click', () => {
+      timeStepOlder.addEventListener('click', async () => {
+        const restoreFocus = document.activeElement === timeStepOlder;
         stopTimePlayback();
         deactivateModeledContext();
         timeStartBp = previousPlaybackTimeStart(timeStartBp, timeIntervalYears);
-        renderMapState();
+        await renderMapState();
+        if (restoreFocus && timeStepOlder.disabled && !timeStepNewer.disabled) timeStepNewer.focus({ preventScroll: true });
       });
-      timeStepNewer.addEventListener('click', () => {
+      timeStepNewer.addEventListener('click', async () => {
+        const restoreFocus = document.activeElement === timeStepNewer;
         stopTimePlayback();
         deactivateModeledContext();
         timeStartBp = nextPlaybackTimeStart(timeStartBp, timeIntervalYears);
-        renderMapState();
+        await renderMapState();
+        if (restoreFocus && timeStepNewer.disabled && !timeStepOlder.disabled) timeStepOlder.focus({ preventScroll: true });
       });
       modeledContextFamily.addEventListener('change', () => {
         const family = modeledContextFamilyByKey(modeledContextFamily.value);
@@ -7336,6 +7516,56 @@ __NATIVE_LRA_CONTROLLER__
         }
       });
       focusCloseButton.addEventListener('click', () => setFocusState(null));
+      focusCopyLinkButton.addEventListener('click', async () => {
+        syncHashState();
+        try {
+          await navigator.clipboard.writeText(window.location.href);
+          focusExportStatus.textContent = 'Record link copied.';
+        } catch {
+          focusExportStatus.textContent = 'Copy this record link from your browser address bar.';
+        }
+      });
+      focusExportButton.addEventListener('click', () => {
+        try {
+          if (focusCard.hidden) throw Error('selected_record_not_visible');
+          syncHashState();
+          const selection = {
+            atlas_build_id: STATIC_ATLAS_BOOTSTRAP.build_id || null,
+            shared_url: window.location.href,
+            countries: [...activeCountries].sort(),
+            layers: [...activeLayerKeys].sort(),
+            scientific_signals: [...activeScientificSignalIds].sort(),
+            map_window_bp: TIME_HAS_DATA ? [timeStartBp, timeWindowEndBp()] : null,
+            selected_detail_section: activeFocusTab,
+            basemap: currentBasemap,
+          };
+          const payload = buildSourcePollenRecordExport(focusState, selection, decodeDetailTableRow);
+          const blob = new Blob([`${JSON.stringify(payload, null, 2)}\n`], { type: 'application/json' });
+          const url = URL.createObjectURL(blob);
+          const link = document.createElement('a');
+          link.href = url;
+          link.download = sourcePollenRecordFilename(focusState.recordId);
+          link.click();
+          window.setTimeout(() => URL.revokeObjectURL(url), 1000);
+          focusExportStatus.textContent = `${payload.pollen_observations.record_count} source observations downloaded with ${payload.chronology_claims.record_count} chronology claims.`;
+        } catch (error) {
+          focusExportStatus.textContent = error instanceof Error ? error.message : 'Source pollen export failed.';
+        }
+      });
+      focusTabs.addEventListener('keydown', (event) => {
+        if (!event.target.matches('[data-focus-tab]')) return;
+        const keys = DETAIL_TAB_DEFINITIONS.map(([key]) => key);
+        const index = keys.indexOf(event.target.dataset.focusTab);
+        let nextIndex;
+        if (event.key === 'ArrowRight') nextIndex = (index + 1) % keys.length;
+        else if (event.key === 'ArrowLeft') nextIndex = (index + keys.length - 1) % keys.length;
+        else if (event.key === 'Home') nextIndex = 0;
+        else if (event.key === 'End') nextIndex = keys.length - 1;
+        else return;
+        event.preventDefault();
+        activeFocusTab = keys[nextIndex];
+        renderFocusDetail();
+      });
       focusPreviousButton.addEventListener('click', () => {
         if (!focusState || focusState.kind !== 'point' || !visiblePointEntries.length) return;
         const currentIndex = visiblePointEntries.indexOf(visiblePointEntryForFocus(focusState));
@@ -7397,6 +7627,11 @@ __NATIVE_LRA_CONTROLLER__
           closeHelpDialog();
           return;
         }
+        if (event.key === 'Escape' && !focusCard.hidden && focusCard.contains(document.activeElement)) {
+          event.preventDefault();
+          setFocusState(null);
+          return;
+        }
         if (event.key === 'Escape' && !topbarSearch.hidden) {
           setSearchOpen(false, true);
           return;
@@ -7448,7 +7683,18 @@ __NATIVE_LRA_CONTROLLER__
       setBasemap(currentBasemap, { sync: false });
       setLegendCollapsed(legendCollapsed, false);
       resetView();
-      renderMapState();
+      await renderMapState();
+      if (initialState.focus) {
+        const requestedEntry = uniquePointEntryForFocus(visiblePointEntries, initialState.focus);
+        if (requestedEntry) {
+          await focusPointAtVisibleIndex(visiblePointEntries.indexOf(requestedEntry));
+          activeFocusTab = initialState.focus.tab;
+          renderFocusDetail();
+          syncHashState();
+        } else {
+          topbarStatePill.textContent = 'Shared record is unavailable under the current filters.';
+        }
+      }
       zoomReadout.textContent = map.getZoom().toFixed(1);
       centerReadout.textContent = `${map.getCenter().lat.toFixed(3)}, ${map.getCenter().lng.toFixed(3)}`;
       })().catch((error) => {
