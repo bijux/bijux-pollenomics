@@ -1,0 +1,480 @@
+{
+  "schema_version": "author-pollen-fitted-common-support-comparison.v1",
+  "source": "rmfyfe/landclimII@57ead2e2fcc493d099be4e5a3092fc396e1c3d3a",
+  "split": "leave_one_adjacent_one_degree_grid_out_with_20km_basin_edge_buffer",
+  "observed_site_bins": 184,
+  "score_receipts": {
+    "training_mean": {
+      "report_sha256": "05a1f85d82c0e18a509760ecc33b0e4bda5d540fc73749966cecdfb21cabae23",
+      "scores_sha256": "2acee3f7f75ab3dfc2539e6a88264b25b818cb80b807f8c9e66dc7b31e5d3ae7"
+    },
+    "nearest_site": {
+      "report_sha256": "394473048d6a49756a005115c362a5c24ac2beccfd0847207735e63b80fe8249",
+      "scores_sha256": "e8c43e62a5cae82465da2801f2d9877955ad3c8cfc1cc4c916a13a3c18c45b6d"
+    },
+    "inverse_distance_squared": {
+      "report_sha256": "7f8a43087e50e394438890d0e8839b7d6ee671d011a50f1940bdaf8370340afd",
+      "scores_sha256": "7cd59b4495d51ada1288c83abb682e57a78e03427f5d9f8e1d3c7a77ea889376"
+    },
+    "clr_rbf_ridge_half_count": {
+      "report_sha256": "a2b883dfac3732d30d7c02d53e5c19309093fc26f24a244828d0955d5f82790f",
+      "scores_sha256": "1d8e737b7e41d0e390beee8d3916e8f087713ebbcf9096f8493a92e1fd2db828"
+    }
+  },
+  "method_specific_scored_bins": {
+    "training_mean": 148,
+    "nearest_site": 148,
+    "inverse_distance_squared": 148,
+    "clr_rbf_ridge_half_count": 140
+  },
+  "fitted_refusal_reasons": {
+    "no_training_site_same_bin": 36,
+    "fitted_model_requires_two_training_sites": 8,
+    "no_positive_training_distance": 0
+  },
+  "common_scored_site_bins": 140,
+  "common_sites": 17,
+  "sites": [
+    {
+      "site_id": "BECKHAM",
+      "block_grid_id": "562",
+      "common_scored_bins": 11,
+      "methods": {
+        "training_mean": {
+          "mae_fraction": 0.026699355146715547,
+          "total_variation": 0.413840004774091
+        },
+        "nearest_site": {
+          "mae_fraction": 0.02629933665616094,
+          "total_variation": 0.4076397181704946
+        },
+        "inverse_distance_squared": {
+          "mae_fraction": 0.026648047974392377,
+          "total_variation": 0.41304474360308185
+        },
+        "clr_rbf_ridge_half_count": {
+          "mae_fraction": 0.04037535772210344,
+          "total_variation": 0.6258180446926034
+        }
+      }
+    },
+    {
+      "site_id": "BROADOWN",
+      "block_grid_id": "512",
+      "common_scored_bins": 10,
+      "methods": {
+        "training_mean": {
+          "mae_fraction": 0.024830002333862608,
+          "total_variation": 0.38486503617487045
+        },
+        "nearest_site": {
+          "mae_fraction": 0.024562488253268358,
+          "total_variation": 0.38071856792565956
+        },
+        "inverse_distance_squared": {
+          "mae_fraction": 0.024625787329975033,
+          "total_variation": 0.38169970361461303
+        },
+        "clr_rbf_ridge_half_count": {
+          "mae_fraction": 0.040518886711774234,
+          "total_variation": 0.6280427440325006
+        }
+      }
+    },
+    {
+      "site_id": "COMERSLA",
+      "block_grid_id": "562",
+      "common_scored_bins": 14,
+      "methods": {
+        "training_mean": {
+          "mae_fraction": 0.020770368099317787,
+          "total_variation": 0.32194070553942566
+        },
+        "nearest_site": {
+          "mae_fraction": 0.020852886579109668,
+          "total_variation": 0.32321974197619985
+        },
+        "inverse_distance_squared": {
+          "mae_fraction": 0.02091662448342061,
+          "total_variation": 0.32420767949301943
+        },
+        "clr_rbf_ridge_half_count": {
+          "mae_fraction": 0.04175449693532879,
+          "total_variation": 0.6471947024975961
+        }
+      }
+    },
+    {
+      "site_id": "CUTHILL2",
+      "block_grid_id": "512",
+      "common_scored_bins": 7,
+      "methods": {
+        "training_mean": {
+          "mae_fraction": 0.023822496511654308,
+          "total_variation": 0.3692486959306418
+        },
+        "nearest_site": {
+          "mae_fraction": 0.023672240880686358,
+          "total_variation": 0.36691973365063857
+        },
+        "inverse_distance_squared": {
+          "mae_fraction": 0.023638224487637444,
+          "total_variation": 0.36639247955838034
+        },
+        "clr_rbf_ridge_half_count": {
+          "mae_fraction": 0.034516200348056796,
+          "total_variation": 0.5350011053948803
+        }
+      }
+    },
+    {
+      "site_id": "EXEBRID",
+      "block_grid_id": "562",
+      "common_scored_bins": 2,
+      "methods": {
+        "training_mean": {
+          "mae_fraction": 0.04008693409456921,
+          "total_variation": 0.6213474784658228
+        },
+        "nearest_site": {
+          "mae_fraction": 0.04175998412968477,
+          "total_variation": 0.6472797540101138
+        },
+        "inverse_distance_squared": {
+          "mae_fraction": 0.040142145959372905,
+          "total_variation": 0.62220326237028
+        },
+        "clr_rbf_ridge_half_count": {
+          "mae_fraction": 0.05421095835015628,
+          "total_variation": 0.8402698544274223
+        }
+      }
+    },
+    {
+      "site_id": "GOURTEMIRES",
+      "block_grid_id": "562",
+      "common_scored_bins": 9,
+      "methods": {
+        "training_mean": {
+          "mae_fraction": 0.018306637070181684,
+          "total_variation": 0.2837528745878161
+        },
+        "nearest_site": {
+          "mae_fraction": 0.019590244464096247,
+          "total_variation": 0.3036487891934918
+        },
+        "inverse_distance_squared": {
+          "mae_fraction": 0.01836612396842166,
+          "total_variation": 0.28467492151053575
+        },
+        "clr_rbf_ridge_half_count": {
+          "mae_fraction": 0.03702183019382817,
+          "total_variation": 0.5738383680043366
+        }
+      }
+    },
+    {
+      "site_id": "HANGINGS",
+      "block_grid_id": "512",
+      "common_scored_bins": 10,
+      "methods": {
+        "training_mean": {
+          "mae_fraction": 0.021413382268975628,
+          "total_variation": 0.33190742516912225
+        },
+        "nearest_site": {
+          "mae_fraction": 0.023252855224867402,
+          "total_variation": 0.3604192559854447
+        },
+        "inverse_distance_squared": {
+          "mae_fraction": 0.021352902513082077,
+          "total_variation": 0.3309699889527722
+        },
+        "clr_rbf_ridge_half_count": {
+          "mae_fraction": 0.03890167571111691,
+          "total_variation": 0.6029759735223121
+        }
+      }
+    },
+    {
+      "site_id": "HARESDOWN",
+      "block_grid_id": "512",
+      "common_scored_bins": 7,
+      "methods": {
+        "training_mean": {
+          "mae_fraction": 0.013797786127378435,
+          "total_variation": 0.21386568497436576
+        },
+        "nearest_site": {
+          "mae_fraction": 0.014778124863118518,
+          "total_variation": 0.22906093537833702
+        },
+        "inverse_distance_squared": {
+          "mae_fraction": 0.013589176425432496,
+          "total_variation": 0.21063223459420372
+        },
+        "clr_rbf_ridge_half_count": {
+          "mae_fraction": 0.046689293233090616,
+          "total_variation": 0.7236840451129045
+        }
+      }
+    },
+    {
+      "site_id": "LARKBARR",
+      "block_grid_id": "562",
+      "common_scored_bins": 9,
+      "methods": {
+        "training_mean": {
+          "mae_fraction": 0.02846603239095323,
+          "total_variation": 0.44122350205977506
+        },
+        "nearest_site": {
+          "mae_fraction": 0.0253415982502584,
+          "total_variation": 0.3927947728790052
+        },
+        "inverse_distance_squared": {
+          "mae_fraction": 0.028372581472880482,
+          "total_variation": 0.4397750128296475
+        },
+        "clr_rbf_ridge_half_count": {
+          "mae_fraction": 0.032970398723525966,
+          "total_variation": 0.5110411802146525
+        }
+      }
+    },
+    {
+      "site_id": "LOBBSBOG",
+      "block_grid_id": "512",
+      "common_scored_bins": 7,
+      "methods": {
+        "training_mean": {
+          "mae_fraction": 0.023824707968230722,
+          "total_variation": 0.36928297350757616
+        },
+        "nearest_site": {
+          "mae_fraction": 0.02428483673244792,
+          "total_variation": 0.3764149693529427
+        },
+        "inverse_distance_squared": {
+          "mae_fraction": 0.023590039309102223,
+          "total_variation": 0.3656456092910845
+        },
+        "clr_rbf_ridge_half_count": {
+          "mae_fraction": 0.04796339372926256,
+          "total_variation": 0.7434326028035696
+        }
+      }
+    },
+    {
+      "site_id": "LONGBREACH",
+      "block_grid_id": "562",
+      "common_scored_bins": 15,
+      "methods": {
+        "training_mean": {
+          "mae_fraction": 0.023529758941303765,
+          "total_variation": 0.36471126359020833
+        },
+        "nearest_site": {
+          "mae_fraction": 0.023637438504803626,
+          "total_variation": 0.3663802968244562
+        },
+        "inverse_distance_squared": {
+          "mae_fraction": 0.023602888961979134,
+          "total_variation": 0.36584477891067657
+        },
+        "clr_rbf_ridge_half_count": {
+          "mae_fraction": 0.040904496604942116,
+          "total_variation": 0.6340196973766028
+        }
+      }
+    },
+    {
+      "site_id": "MOLECHAM",
+      "block_grid_id": "562",
+      "common_scored_bins": 7,
+      "methods": {
+        "training_mean": {
+          "mae_fraction": 0.024930018620991815,
+          "total_variation": 0.3864152886253731
+        },
+        "nearest_site": {
+          "mae_fraction": 0.02281453479990477,
+          "total_variation": 0.35362528939852395
+        },
+        "inverse_distance_squared": {
+          "mae_fraction": 0.024871732551393994,
+          "total_variation": 0.3855118545466069
+        },
+        "clr_rbf_ridge_half_count": {
+          "mae_fraction": 0.03227665794371365,
+          "total_variation": 0.5002881981275615
+        }
+      }
+    },
+    {
+      "site_id": "NTWITCHEN",
+      "block_grid_id": "562",
+      "common_scored_bins": 10,
+      "methods": {
+        "training_mean": {
+          "mae_fraction": 0.022942514258522177,
+          "total_variation": 0.35560897100709377
+        },
+        "nearest_site": {
+          "mae_fraction": 0.023252855224867402,
+          "total_variation": 0.3604192559854447
+        },
+        "inverse_distance_squared": {
+          "mae_fraction": 0.022965435353042313,
+          "total_variation": 0.35596424797215587
+        },
+        "clr_rbf_ridge_half_count": {
+          "mae_fraction": 0.03691330461312893,
+          "total_variation": 0.5721562215034984
+        }
+      }
+    },
+    {
+      "site_id": "WHH05",
+      "block_grid_id": "512",
+      "common_scored_bins": 3,
+      "methods": {
+        "training_mean": {
+          "mae_fraction": 0.042361960810384264,
+          "total_variation": 0.6566103925609561
+        },
+        "nearest_site": {
+          "mae_fraction": 0.0415239187608116,
+          "total_variation": 0.6436207407925798
+        },
+        "inverse_distance_squared": {
+          "mae_fraction": 0.04231992881272281,
+          "total_variation": 0.6559588965972036
+        },
+        "clr_rbf_ridge_half_count": {
+          "mae_fraction": 0.03593728564706767,
+          "total_variation": 0.5570279275295489
+        }
+      }
+    },
+    {
+      "site_id": "WHH11",
+      "block_grid_id": "512",
+      "common_scored_bins": 3,
+      "methods": {
+        "training_mean": {
+          "mae_fraction": 0.024066006722034804,
+          "total_variation": 0.37302310419153945
+        },
+        "nearest_site": {
+          "mae_fraction": 0.027055681398282464,
+          "total_variation": 0.41936306167337817
+        },
+        "inverse_distance_squared": {
+          "mae_fraction": 0.02386290610126696,
+          "total_variation": 0.3698750445696379
+        },
+        "clr_rbf_ridge_half_count": {
+          "mae_fraction": 0.03630272349671445,
+          "total_variation": 0.562692214199074
+        }
+      }
+    },
+    {
+      "site_id": "WINDMILL",
+      "block_grid_id": "512",
+      "common_scored_bins": 7,
+      "methods": {
+        "training_mean": {
+          "mae_fraction": 0.025837139101306802,
+          "total_variation": 0.4004756560702554
+        },
+        "nearest_site": {
+          "mae_fraction": 0.024763950513139437,
+          "total_variation": 0.3838412329536613
+        },
+        "inverse_distance_squared": {
+          "mae_fraction": 0.02561059867305867,
+          "total_variation": 0.39696427943240936
+        },
+        "clr_rbf_ridge_half_count": {
+          "mae_fraction": 0.04977706739443335,
+          "total_variation": 0.7715445446137169
+        }
+      }
+    },
+    {
+      "site_id": "WINNEYS",
+      "block_grid_id": "512",
+      "common_scored_bins": 9,
+      "methods": {
+        "training_mean": {
+          "mae_fraction": 0.024386324984290678,
+          "total_variation": 0.37798803725650554
+        },
+        "nearest_site": {
+          "mae_fraction": 0.023455628677947093,
+          "total_variation": 0.3635622445081799
+        },
+        "inverse_distance_squared": {
+          "mae_fraction": 0.024024290093075357,
+          "total_variation": 0.372376496442668
+        },
+        "clr_rbf_ridge_half_count": {
+          "mae_fraction": 0.042557390331243124,
+          "total_variation": 0.6596395501342684
+        }
+      }
+    }
+  ],
+  "methods": [
+    {
+      "method": "training_mean",
+      "common_site_macro_mae_fraction": 0.025298319144157262,
+      "common_site_macro_total_variation": 0.39212394673443757,
+      "mae_minus_training_mean_fraction": 0.0,
+      "total_variation_minus_training_mean": 0.0
+    },
+    {
+      "method": "nearest_site",
+      "common_site_macro_mae_fraction": 0.02534697670079147,
+      "common_site_macro_total_variation": 0.39287813886226775,
+      "mae_minus_training_mean_fraction": 4.865755663420804e-05,
+      "total_variation_minus_training_mean": 0.0007541921278301777
+    },
+    {
+      "method": "inverse_distance_squared",
+      "common_site_macro_mae_fraction": 0.02520584908648568,
+      "common_site_macro_total_variation": 0.390690660840528,
+      "mae_minus_training_mean_fraction": -9.247005767158353e-05,
+      "total_variation_minus_training_mean": -0.0014332858939095638
+    },
+    {
+      "method": "clr_rbf_ridge_half_count",
+      "common_site_macro_mae_fraction": 0.040564201040558065,
+      "common_site_macro_total_variation": 0.6287451161286499,
+      "mae_minus_training_mean_fraction": 0.015265881896400803,
+      "total_variation_minus_training_mean": 0.23662116939421235
+    }
+  ],
+  "blocks": [
+    {
+      "grid_id": "512",
+      "sites": 9,
+      "common_scored_bins": 63,
+      "fitted_minus_training_mean_mae_fraction": 0.016536012197182384
+    },
+    {
+      "grid_id": "562",
+      "sites": 8,
+      "common_scored_bins": 77,
+      "fitted_minus_training_mean_mae_fraction": 0.013836985308021516
+    }
+  ],
+  "fitted_site_mae_direction_vs_training_mean": {
+    "higher": 16,
+    "lower": 1
+  },
+  "measured_vegetation_accuracy": "not_evaluated",
+  "swedish_lra_cohort": "not_evaluated"
+}

@@ -1,0 +1,418 @@
+{
+  "schema_version": "landclim-author-preparation-audit.v2",
+  "scope": "17 authenticated author examples, not 1128 historical study inputs",
+  "totals": {
+    "sites": 17,
+    "grid_512_sites": 9,
+    "grid_562_sites": 8,
+    "raw_count": 501713,
+    "prepared_count": 299660,
+    "raw_minus_prepared": 202053
+  },
+  "sites": [
+    {
+      "site": "BECKHAM",
+      "grid": "562",
+      "raw_count": 9992,
+      "prepared_count": 7655,
+      "raw_minus_prepared": 2337,
+      "raw_nonblank_rows": 26,
+      "source_raw_sha256": "6f3ec4d7f0a8b34194b4f487562547847df0936b1b25bf997cc4617c210611c8",
+      "source_prepared_sha256": "1982eb43353cb632319d97943decde8539d98111a7ade7ecaaa5757532231b5e",
+      "source_categories": {
+        "raw": 9992,
+        "retained": 7655,
+        "excluded_zz": 2337,
+        "excluded_not_ppe": 0,
+        "unmapped": 0,
+        "outside_window": 0
+      },
+      "unmapped_source_labels": [],
+      "historical_partition_status": "all_raw_numeric_counts_partitioned"
+    },
+    {
+      "site": "BROADOWN",
+      "grid": "512",
+      "raw_count": 18739,
+      "prepared_count": 17757,
+      "raw_minus_prepared": 982,
+      "raw_nonblank_rows": 59,
+      "source_raw_sha256": "a8cae297f7c5ad443c9e383608c39d89296ebe5034a6d377b017dff07b903571",
+      "source_prepared_sha256": "1eb04f58c13321fc9f284186df85003d4f73803f2485b842984f49a64c21a0c8",
+      "source_categories": {
+        "raw": 18739,
+        "retained": 17757,
+        "excluded_zz": 982,
+        "excluded_not_ppe": 0,
+        "unmapped": 0,
+        "outside_window": 0
+      },
+      "unmapped_source_labels": [],
+      "historical_partition_status": "all_raw_numeric_counts_partitioned"
+    },
+    {
+      "site": "COMERSLA",
+      "grid": "562",
+      "raw_count": 19314,
+      "prepared_count": 11732,
+      "raw_minus_prepared": 7582,
+      "raw_nonblank_rows": 40,
+      "source_raw_sha256": "7697d1fc988ec5af169796ce8974862b87142fa645fb41c32f20b1d9e41072c6",
+      "source_prepared_sha256": "bc702bc41f578a5ffad078144d50961d1f47f1d003f0ace5a63b019f4b3340b3",
+      "source_categories": {
+        "raw": 19314,
+        "retained": 11732,
+        "excluded_zz": 7582,
+        "excluded_not_ppe": 0,
+        "unmapped": 0,
+        "outside_window": 0
+      },
+      "unmapped_source_labels": [],
+      "historical_partition_status": "all_raw_numeric_counts_partitioned"
+    },
+    {
+      "site": "CUTHILL2",
+      "grid": "512",
+      "raw_count": 33906,
+      "prepared_count": 23841,
+      "raw_minus_prepared": 10065,
+      "raw_nonblank_rows": 77,
+      "source_raw_sha256": "1056fb2b2a441fada77c3f5cb1727a40186e5c9b96431a08c8ac7904ba5113bd",
+      "source_prepared_sha256": "a17ad8a86c4fb7fdffda4799dbc8de6909a037f7b106e07263fdd727c4c7f283",
+      "source_categories": {
+        "raw": 33906,
+        "retained": 23841,
+        "excluded_zz": 10065,
+        "excluded_not_ppe": 0,
+        "unmapped": 0,
+        "outside_window": 0
+      },
+      "unmapped_source_labels": [],
+      "historical_partition_status": "all_raw_numeric_counts_partitioned"
+    },
+    {
+      "site": "EXEBRID",
+      "grid": "562",
+      "raw_count": 41588,
+      "prepared_count": 24141,
+      "raw_minus_prepared": 17447,
+      "raw_nonblank_rows": 57,
+      "source_raw_sha256": "8e148c9151323ae4d749deb7d28408fdc564b45f6ee996913a677f74a4f7371f",
+      "source_prepared_sha256": "80a5294684564c1475bd3311e049cde2de78e5c7e098af0277dda49d353bb698",
+      "source_categories": {
+        "raw": 41588,
+        "retained": 24141,
+        "excluded_zz": 16059,
+        "excluded_not_ppe": 0,
+        "unmapped": 0,
+        "outside_window": 1388
+      },
+      "unmapped_source_labels": [],
+      "historical_partition_status": "all_raw_numeric_counts_partitioned"
+    },
+    {
+      "site": "GOURTEMIRES",
+      "grid": "562",
+      "raw_count": 28193,
+      "prepared_count": 22356,
+      "raw_minus_prepared": 5837,
+      "raw_nonblank_rows": 48,
+      "source_raw_sha256": "4c18262c065ea2da760f9e0787be1cfeab88a76addef25d68dd014ab742726dd",
+      "source_prepared_sha256": "c10e7acd64a7065cc7681554dd3e07730087dddc3f816a312e304268109201dd",
+      "source_categories": {
+        "raw": 28193,
+        "retained": 22356,
+        "excluded_zz": 5837,
+        "excluded_not_ppe": 0,
+        "unmapped": 0,
+        "outside_window": 0
+      },
+      "unmapped_source_labels": [],
+      "historical_partition_status": "all_raw_numeric_counts_partitioned"
+    },
+    {
+      "site": "HANGINGS",
+      "grid": "512",
+      "raw_count": 18894,
+      "prepared_count": 18275,
+      "raw_minus_prepared": 619,
+      "raw_nonblank_rows": 61,
+      "source_raw_sha256": "ceed0ee6d5f7ea067101d04e66fd31d6a5679d6373216d3ba7e1a245557cb5a6",
+      "source_prepared_sha256": "8249ce97a114048400a1497924cac0bc1c07fc7ae110dd5f868accd9425eda2f",
+      "source_categories": {
+        "raw": 18894,
+        "retained": 18275,
+        "excluded_zz": 619,
+        "excluded_not_ppe": 0,
+        "unmapped": 0,
+        "outside_window": 0
+      },
+      "unmapped_source_labels": [],
+      "historical_partition_status": "all_raw_numeric_counts_partitioned"
+    },
+    {
+      "site": "HARESDOWN",
+      "grid": "512",
+      "raw_count": 21716,
+      "prepared_count": 18086,
+      "raw_minus_prepared": 3630,
+      "raw_nonblank_rows": 39,
+      "source_raw_sha256": "e7442895e27850c33e4084af15b679fc53ab9cdd127cf4dfbf3c65d3692b2888",
+      "source_prepared_sha256": "406896858243381630c3e7a66f29c97d8ee7725c4f418f72396c4d31095e33d9",
+      "source_categories": {
+        "raw": 21716,
+        "retained": 18086,
+        "excluded_zz": 3630,
+        "excluded_not_ppe": 0,
+        "unmapped": 0,
+        "outside_window": 0
+      },
+      "unmapped_source_labels": [],
+      "historical_partition_status": "all_raw_numeric_counts_partitioned"
+    },
+    {
+      "site": "LARKBARR",
+      "grid": "562",
+      "raw_count": 7726,
+      "prepared_count": 6192,
+      "raw_minus_prepared": 1534,
+      "raw_nonblank_rows": 22,
+      "source_raw_sha256": "d7897e8b18788fce8e584f403dbb44b6e8255693513f58bbb0c3824f4ce4dcc6",
+      "source_prepared_sha256": "07daff782dae844eaa787e547d1b49937f975f49ea457a9576b9db58ddc4bbf6",
+      "source_categories": {
+        "raw": 7726,
+        "retained": 6192,
+        "excluded_zz": 1534,
+        "excluded_not_ppe": 0,
+        "unmapped": 0,
+        "outside_window": 0
+      },
+      "unmapped_source_labels": [],
+      "historical_partition_status": "all_raw_numeric_counts_partitioned"
+    },
+    {
+      "site": "LOBBSBOG",
+      "grid": "512",
+      "raw_count": 28424,
+      "prepared_count": 21913,
+      "raw_minus_prepared": 6511,
+      "raw_nonblank_rows": 48,
+      "source_raw_sha256": "916cc1ddeaf0fa1b313002a303956b280e33c1abf47d38868afc6bd35ee53af3",
+      "source_prepared_sha256": "13b8ad5fa65022aeb6ad351317c77e68710b398e2abd7d6b7159811e880ad8a7",
+      "source_categories": {
+        "raw": 28424,
+        "retained": 21913,
+        "excluded_zz": 6511,
+        "excluded_not_ppe": 0,
+        "unmapped": 0,
+        "outside_window": 0
+      },
+      "unmapped_source_labels": [],
+      "historical_partition_status": "all_raw_numeric_counts_partitioned"
+    },
+    {
+      "site": "LONGBREACH",
+      "grid": "562",
+      "raw_count": 31342,
+      "prepared_count": 21154,
+      "raw_minus_prepared": 10188,
+      "raw_nonblank_rows": 47,
+      "source_raw_sha256": "af10eaa8aacb350cd49c21234753f6da04c403b67532ed07e11ab3b1f82f40e1",
+      "source_prepared_sha256": "512ff3258e6badcb5c85c0c315bbd1dc00c2035243c2337d172eb55ca54abb3b",
+      "source_categories": {
+        "raw": 31342,
+        "retained": 21154,
+        "excluded_zz": 10188,
+        "excluded_not_ppe": 0,
+        "unmapped": 0,
+        "outside_window": 0
+      },
+      "unmapped_source_labels": [],
+      "historical_partition_status": "all_raw_numeric_counts_partitioned"
+    },
+    {
+      "site": "MOLECHAM",
+      "grid": "562",
+      "raw_count": 142133,
+      "prepared_count": 21469,
+      "raw_minus_prepared": 120664,
+      "raw_nonblank_rows": 53,
+      "source_raw_sha256": "b25697032e23aa7236d106c357dd81d666017f332c518fec378b4b7d311fa5ee",
+      "source_prepared_sha256": "8addaceb66b78791f77bf1b8ff37cb282506baf8b3524b286f0113dde214bc57",
+      "source_categories": {
+        "raw": 142133,
+        "retained": 21469,
+        "excluded_zz": 120664,
+        "excluded_not_ppe": 0,
+        "unmapped": 0,
+        "outside_window": 0
+      },
+      "unmapped_source_labels": [],
+      "historical_partition_status": "all_raw_numeric_counts_partitioned"
+    },
+    {
+      "site": "NTWITCHEN",
+      "grid": "562",
+      "raw_count": 33303,
+      "prepared_count": 26828,
+      "raw_minus_prepared": 6475,
+      "raw_nonblank_rows": 59,
+      "source_raw_sha256": "526c665de0ee4b135b87083c5fe3db9d83cd47e1f59710d5a7dee4e453a4a525",
+      "source_prepared_sha256": "eaae23b481debf5cbb13b54f94b5ae97187a79d2a0c716ff309d52a7c347a328",
+      "source_categories": {
+        "raw": 33303,
+        "retained": 26828,
+        "excluded_zz": 6331,
+        "excluded_not_ppe": 0,
+        "unmapped": 144,
+        "outside_window": 0
+      },
+      "unmapped_source_labels": [
+        {
+          "source_column_index_zero_based": 42,
+          "native_header": "Euphorbia t. ",
+          "count": 7
+        },
+        {
+          "source_column_index_zero_based": 54,
+          "native_header": "Leguminoseae undiff. ",
+          "count": 1
+        },
+        {
+          "source_column_index_zero_based": 64,
+          "native_header": "Plantago major/minor ",
+          "count": 9
+        },
+        {
+          "source_column_index_zero_based": 68,
+          "native_header": "Ranunculus t. ",
+          "count": 127
+        }
+      ],
+      "historical_partition_status": "all_raw_numeric_counts_partitioned"
+    },
+    {
+      "site": "WHH05",
+      "grid": "512",
+      "raw_count": 2482,
+      "prepared_count": 2448,
+      "raw_minus_prepared": 34,
+      "raw_nonblank_rows": 8,
+      "source_raw_sha256": "977b32b96578aeb701288e77e37ab137e0475acd99274ddbdcc05180a8a99469",
+      "source_prepared_sha256": "298b66d7033703ce42d27f933b4d3ccec3a16f68b35a6fbf7a61806c01c88273",
+      "source_categories": {
+        "raw": 2482,
+        "retained": 2448,
+        "excluded_zz": 34,
+        "excluded_not_ppe": 0,
+        "unmapped": 0,
+        "outside_window": 0
+      },
+      "unmapped_source_labels": [],
+      "historical_partition_status": "independent_exact_first_match_all_8_samples"
+    },
+    {
+      "site": "WHH11",
+      "grid": "512",
+      "raw_count": 20433,
+      "prepared_count": 19968,
+      "raw_minus_prepared": 465,
+      "raw_nonblank_rows": 56,
+      "source_raw_sha256": "d889a693cec0597e06b179ccf34e0906c0149977efbfc065da1b50fcbf3c91f8",
+      "source_prepared_sha256": "d38734ceb0c134eeffbb40091a81d3a8a8d32143dd14504296cc7baa38bf735e",
+      "source_categories": {
+        "raw": 20433,
+        "retained": 19968,
+        "excluded_zz": 191,
+        "excluded_not_ppe": 0,
+        "unmapped": 274,
+        "outside_window": 0
+      },
+      "unmapped_source_labels": [
+        {
+          "source_column_index_zero_based": 9,
+          "native_header": "Prunus spp",
+          "count": 20
+        },
+        {
+          "source_column_index_zero_based": 15,
+          "native_header": "Hedera Helix",
+          "count": 38
+        },
+        {
+          "source_column_index_zero_based": 27,
+          "native_header": "Filipendunla",
+          "count": 11
+        },
+        {
+          "source_column_index_zero_based": 33,
+          "native_header": "Ranunculus acris-type`",
+          "count": 205
+        }
+      ],
+      "historical_partition_status": "all_raw_numeric_counts_partitioned"
+    },
+    {
+      "site": "WINDMILL",
+      "grid": "512",
+      "raw_count": 20535,
+      "prepared_count": 14414,
+      "raw_minus_prepared": 6121,
+      "raw_nonblank_rows": 32,
+      "source_raw_sha256": "bdc665514c054d7c879952c5c07dcea10951ef3cdaca7720d33ec2e1dca6315a",
+      "source_prepared_sha256": "5cbfff585068fd2d3b27bb4d1156bde39b6b80f975ca78433cee960ce854c20f",
+      "source_categories": {
+        "raw": 20535,
+        "retained": 14414,
+        "excluded_zz": 6121,
+        "excluded_not_ppe": 0,
+        "unmapped": 0,
+        "outside_window": 0
+      },
+      "unmapped_source_labels": [],
+      "historical_partition_status": "all_raw_numeric_counts_partitioned"
+    },
+    {
+      "site": "WINNEYS",
+      "grid": "512",
+      "raw_count": 22993,
+      "prepared_count": 21431,
+      "raw_minus_prepared": 1562,
+      "raw_nonblank_rows": 81,
+      "source_raw_sha256": "7cd4c1e0b5d6e8d582c5eaa67805381af5d9b5925c342adb0394db701d0a6212",
+      "source_prepared_sha256": "b268187404a6ec1b0d0935990acd70bce678c55c95a2fadf38b7e50f27e29dd6",
+      "source_categories": {
+        "raw": 22993,
+        "retained": 21431,
+        "excluded_zz": 1562,
+        "excluded_not_ppe": 0,
+        "unmapped": 0,
+        "outside_window": 0
+      },
+      "unmapped_source_labels": [],
+      "historical_partition_status": "all_raw_numeric_counts_partitioned"
+    }
+  ],
+  "category_totals": {
+    "raw": 501713,
+    "retained": 299660,
+    "excluded_zz": 200247,
+    "excluded_not_ppe": 0,
+    "unmapped": 418,
+    "outside_window": 1388
+  },
+  "whh05_source_categories": {
+    "raw": 2482,
+    "retained": 2448,
+    "excluded_zz": 34,
+    "excluded_not_ppe": 0,
+    "unmapped": 0,
+    "outside_window": 0
+  },
+  "historical_exclusion_evidence": "Fresh source replay classifies all 17 site count partitions by exact author lookup, PPE membership and time-window support; historical producer receipts independently support raw/prepared totals",
+  "input_sha256": {
+    "author_snapshot_manifest": "48d853468f979a04636642c6c757e9d05edf708d799b29cbae4d2286a9ac0acb",
+    "historical_audit_custody": "3ef177f6734471330cd2b8331d1b9786847b38eb054c5cd56f6ff4354dd40976",
+    "historical_terminal_report": "4046de43b9674d67ea57537d3556d62359e941def478af60314c48bc08e3e049"
+  }
+}

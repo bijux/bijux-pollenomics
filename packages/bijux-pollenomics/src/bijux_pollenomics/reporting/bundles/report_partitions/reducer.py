@@ -58,6 +58,14 @@ def assemble_report_partition_tree(
     world_scope = plan.geography.world_scope
     map_report = scope_reports[world_scope.key]
 
+    write_geography_packets_fn(
+        staging_output_root,
+        plan=plan.geography,
+        scope_reports=scope_reports,
+        country_reports=country_reports_by_scope,
+        build_atlas_bundle_paths_fn=build_atlas_bundle_paths_fn,
+        write_summary_json_fn=write_summary_json_fn,
+    )
     repository_truth_artifacts = publish_repository_truth_outputs_fn(
         staging_output_root,
         data_root=data_root,
@@ -66,14 +74,6 @@ def assemble_report_partition_tree(
     require_release_gate(
         staging_output_root,
         enforce_release_gates=enforce_release_gates,
-    )
-    write_geography_packets_fn(
-        staging_output_root,
-        plan=plan.geography,
-        scope_reports=scope_reports,
-        country_reports=country_reports_by_scope,
-        build_atlas_bundle_paths_fn=build_atlas_bundle_paths_fn,
-        write_summary_json_fn=write_summary_json_fn,
     )
 
     generated_report = PublishedReportsReport(

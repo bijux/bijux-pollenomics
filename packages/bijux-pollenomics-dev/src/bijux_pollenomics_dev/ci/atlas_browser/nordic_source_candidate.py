@@ -143,7 +143,7 @@ def generate_nordic_source_candidate(
             for entry in provenance["layers"]
             if entry["layer"]["key"] == layer_key
         )
-        features = []
+        features: list[dict[str, Any]] = []
         for country, selections in SOURCE_SELECTION.items():
             record_id = selections[layer_key]
             matches: list[dict[str, object]] = []

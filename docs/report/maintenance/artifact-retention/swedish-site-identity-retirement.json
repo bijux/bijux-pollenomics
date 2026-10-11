@@ -1,0 +1,138 @@
+{
+  "schema_version": "swedish-site-identity-artifact-retirement.v1",
+  "retired_directory": "artifacts/v4/swedish-site-identity",
+  "files": [
+    {
+      "path": "checks-a.plan.json",
+      "bytes": 1375,
+      "sha256": "659f3a37e66687bde5dcd8bb78d9a16580b90e2592152c3ce727e98c2e1235ef"
+    },
+    {
+      "path": "checks-b.plan.json",
+      "bytes": 1375,
+      "sha256": "1eb8f970e73e183b5427dddd022a17baa72057b7cacb2a57ea5619e91b776bc6"
+    },
+    {
+      "path": "checks-c.plan.json",
+      "bytes": 1375,
+      "sha256": "60e437b39c58e7d83e008d3f60a8d87ef73a5dc2a92036134040a1bbec54bb9d"
+    },
+    {
+      "path": "compare_sites.py",
+      "bytes": 11884,
+      "sha256": "3d7252fc774e2acc5a95c4937be1ba6c47cf70e68d180c688cd432a03f7a3b57"
+    },
+    {
+      "path": "pytest-cache-a/.gitignore",
+      "bytes": 37,
+      "sha256": "3ed731b65d06150c138e2dadb0be0697550888a6b47eb8c45ecc9adba8b8e9bd"
+    },
+    {
+      "path": "pytest-cache-a/CACHEDIR.TAG",
+      "bytes": 191,
+      "sha256": "37dc88ef9a0abeddbe81053a6dd8fdfb13afb613045ea1eb4a5c815a74a3bde4"
+    },
+    {
+      "path": "pytest-cache-a/README.md",
+      "bytes": 302,
+      "sha256": "73fd6fccdd802c419a6b2d983d6c3173b7da97558ac4b589edec2dfe443db9ad"
+    },
+    {
+      "path": "pytest-cache-a/v/cache/lastfailed",
+      "bytes": 14,
+      "sha256": "b4f32003e51cde54cde421f19e6f5b30cc4fc35f4e08e7012c44dd4541576f49"
+    },
+    {
+      "path": "pytest-cache-a/v/cache/nodeids",
+      "bytes": 2,
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "path": "pytest-cache-b/.gitignore",
+      "bytes": 37,
+      "sha256": "3ed731b65d06150c138e2dadb0be0697550888a6b47eb8c45ecc9adba8b8e9bd"
+    },
+    {
+      "path": "pytest-cache-b/CACHEDIR.TAG",
+      "bytes": 191,
+      "sha256": "37dc88ef9a0abeddbe81053a6dd8fdfb13afb613045ea1eb4a5c815a74a3bde4"
+    },
+    {
+      "path": "pytest-cache-b/README.md",
+      "bytes": 302,
+      "sha256": "73fd6fccdd802c419a6b2d983d6c3173b7da97558ac4b589edec2dfe443db9ad"
+    },
+    {
+      "path": "pytest-cache-b/v/cache/nodeids",
+      "bytes": 108,
+      "sha256": "55fa8d31f8ca4369270626c349d8176e487de324a2b55afa7c544c3b2115813b"
+    },
+    {
+      "path": "pytest-cache-c/.gitignore",
+      "bytes": 37,
+      "sha256": "3ed731b65d06150c138e2dadb0be0697550888a6b47eb8c45ecc9adba8b8e9bd"
+    },
+    {
+      "path": "pytest-cache-c/CACHEDIR.TAG",
+      "bytes": 191,
+      "sha256": "37dc88ef9a0abeddbe81053a6dd8fdfb13afb613045ea1eb4a5c815a74a3bde4"
+    },
+    {
+      "path": "pytest-cache-c/README.md",
+      "bytes": 302,
+      "sha256": "73fd6fccdd802c419a6b2d983d6c3173b7da97558ac4b589edec2dfe443db9ad"
+    },
+    {
+      "path": "pytest-cache-c/v/cache/nodeids",
+      "bytes": 108,
+      "sha256": "55fa8d31f8ca4369270626c349d8176e487de324a2b55afa7c544c3b2115813b"
+    },
+    {
+      "path": "result/report.json",
+      "bytes": 1423,
+      "sha256": "739fd23090e212c063414899040d8ea63fa1426cbc59e87fc434797729f768de"
+    },
+    {
+      "path": "result/site-comparison.csv",
+      "bytes": 4462,
+      "sha256": "6eadba0873e70c60189ed6e926485b2390b26dd7afe8996a9167069b029de49e"
+    },
+    {
+      "path": "result-b/REPORT.md",
+      "bytes": 949,
+      "sha256": "6629d5c01e6c67b73baa39b4dd97c066bd5ec4c920695acb31e26b61af249f46"
+    },
+    {
+      "path": "result-b/report.json",
+      "bytes": 1525,
+      "sha256": "46e942b6e30791ecd7d4307aa4c94791e6c56d0d0209432c15634e408026c1bf"
+    },
+    {
+      "path": "result-b/site-comparison.csv",
+      "bytes": 4676,
+      "sha256": "3b3875b7e4f16395d0cb4084c555cfec067590329a6e8b566486e0c43e9f6de4"
+    },
+    {
+      "path": "science-a.plan.json",
+      "bytes": 1045,
+      "sha256": "9dd00d32fb13c2dc70a73eda97576abf13add35f43c949e3ee7c869d8b10c025"
+    },
+    {
+      "path": "science-b.plan.json",
+      "bytes": 1151,
+      "sha256": "fb671f1f1fec5ecaebd43e66b2a69d5076bd8546f40ccdf2ac660ec91dc97f9d"
+    },
+    {
+      "path": "test_compare_sites.py",
+      "bytes": 1400,
+      "sha256": "be570a53c6a73a5524bde6666eeb0caa8391be462f52b8cbaf280e843aed8e5d"
+    }
+  ],
+  "retained_report": "docs/report/source-relations/neotoma/landclim-site-identity/README.md",
+  "retained_producer": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/swedish_site_identity.py",
+  "historical_result_relation": "The corrected historical result has 37 rows; the current governed 77-row ledger includes all 37 row values exactly. The governed manifest retains the historical site IDs, summary, original output hashes and old producer hash. A preliminary result lacked final name-point diagnostics and is superseded.",
+  "process_files": "Five plan JSON files, a two-test comparison script and pytest caches are historical process products. The retained producer preserves the source comparison with governed current input selection.",
+  "consumer_check": "The only repository mention is in a retained historical unsent source request; it is not a live read dependency.",
+  "liveness_check": "lsof +D returned no open files; all 25 files are regular with one hardlink each; no symlinks.",
+  "scientific_admission": "No cross-source core identity, basin-radius transfer or LRA sample is admitted."
+}

@@ -1,0 +1,18 @@
+{
+  "schema_version": "landclimii-author-published-window-alignment.v1",
+  "source_revision": "57ead2e2fcc493d099be4e5a3092fc396e1c3d3a",
+  "published_archive_sha256": "c585f0691ad95342b8aba083b90fe91dc398f985b6b7fbc19561299389c4fb86",
+  "author_report_sha256": "56f3dc776aa0a3405338fba62ae51a8b383b0c64787bd6fa4364677ac7ae24c5",
+  "published_report_sha256": "0a22e51a8e109dbadbd713f27b84826421a0e156bdd9d97856a053a4eb0cee32",
+  "author_bins_sha256": "62cac73bafacb8be8d8b7007e9871494024e661ab1a2f28774dcf7cb7046a71f",
+  "author_lookup_sha256": "888a2d5d035c8a49bd957917ca0658bb08824240ac15c1da4b717c633ddae3dd",
+  "published_axis": "documented TW filename mapping; archived TW2 numerical receipt",
+  "compared_windows": 25,
+  "exact_windows": 1,
+  "exact_tw_indices": [
+    "2"
+  ],
+  "nonexact_windows": 24,
+  "historical_raw_input_closure": "not_established",
+  "measured_vegetation_accuracy": "not_evaluated"
+}

@@ -7,7 +7,7 @@ read set. Its full reproducible audit records 308 repository input paths and
 checks 204 manifest-declared file identities; it also verifies both original
 private intake archives. The mechanical accounting has **zero findings**;
 its content-bound full-audit digest is
-`13b754aafbfc502597872ef4f9df1154b1f2836cc5a6b4e9cd926f876ed27c31`.
+`009dd44e02c10578ec09d0d31562e7d70d0ca9e127158cfbe0e61d0a2a42255d`.
 The governed summary retains the input-closure digest, per-family blockers,
 country publication states, intake decisions and the full-audit digest without
 duplicating the existing source and country ledgers.

@@ -24,9 +24,23 @@ The join is a **metadata candidate overlap**. Each row carries its Rootsi typed-
 
 The LandClim site time bounds are **sequence coverage**, not sample ages or change events. Thirty-five site features have numeric coverage intervals. Thirty-six have negative BP source bounds and eight have partial source bounds; their normalized numeric intervals are refused. The ledger keeps the source Top/Bottom BP labels alongside the refusal reason. The chronology basis text is a source label, not an authenticated sample chronology.
 
+A [source-byte-bound age-column audit](../landclim/workbook-chronology/README.md)
+checks FLINK, HOLK, RANV and STAV directly. It preserves one source-age reversal
+in each of FLINK and HOLK and confirms that RANV and STAV have no workbook
+sample-age column. The [Neotoma chronology witness](../landclim/neotoma-chronology-witness/README.md)
+then depth-matches FLINK and STAV to shared EPD records, resolving the location
+of FLINK's sign discrepancy and identifying an STAV candidate age vector.
+Neither comparison establishes a qualified historical LandClim age model.
+
 The LandClim II DOI, sequence ID, country, access marker, sample count, site window count, and source workbook provenance must match before a row is emitted. `LCGRID_ID` is retained as site metadata. It does not prove that a specific Rootsi workbook or site contributed to a particular modeled grid cell, time window, value, or standard error. That contributor lineage remains unresolved.
 
 These candidate dependencies block treating LandClim REVEALS outputs as independent vegetation ground truth for the matched Rootsi inputs. Per-sequence rights, historical input identity, source-age basis, taxonomy, count denominator, and exact grid/window contribution remain unresolved. This review does not certify complete V2-DATA-007 grid/window/value/SE lineage or admit raw Rootsi observations for scientific use.
+
+## Gilltjärnen source question
+
+The [published LandClim II metadata](https://doi.pangaea.de/10.1594/PANGAEA.937075), workbook `LANDCLIMII metadata file` row 994, describes `GIL` as a lake at 60.083333° N, **15.083333° E**, with `siteradius` **169 m**, 101 pollen samples, 24 time windows, eight radiocarbon dates for its model, and an `Authors chronology` label. The workbook's explanation sheet explicitly defines `siteradius` in metres. The overlap ledger's `24` is `site_window_count`, not a radius. Neotoma site 28866 instead places its `GILL` core at 60.08333° N, **15.83333° E**, and has 101 source samples. The 0.75° longitude disagreement is approximately 42 km at this latitude, far beyond the 169 m reported radius. Equal sample counts and similar sequence names cannot resolve that conflict. [Antonsson et al. (2006)](https://doi.org/10.1002/jqs.1004) identifies a radiocarbon-dated Gilltjärnen pollen record, but its accessible abstract does not bind these two database coordinates, the two core handles, or a time-specific basin outline.
+
+**Question for the source holder:** Which coordinate is correct for the physical `GIL`/`GILL` sediment core, does the LandClim `GIL` input contain the same 101 counted samples as Neotoma dataset 53991, and what evidence binds the reported 169 m modern site radius and author chronology to each retained sample age? Until the identity, historical basin geometry, count denominator and analytical-use rights are resolved, this candidate supports metadata context and the separate Neotoma observed-pollen transfer only; it does not admit Gilltjärnen to LRA or make LandClim output independent vegetation truth.
 
 ## Private structural row review
 

@@ -28,6 +28,11 @@ def test_governed_trajectory_keeps_pollen_and_context_roles(tmp_path: Path) -> N
     ).read_bytes()
     assert report["bin_count"] == 13
     assert report["transition_count"] == 48
+    assert report["country_scope"]["SE"].startswith("two named Swedish sites")
+    assert all(
+        report["country_scope"][country].startswith("not evaluated")
+        for country in ("DK", "NO", "FI")
+    )
     assert {row["pollen_site_direction_outcome"] for row in report["transitions"]} == {
         "descriptive_agreement",
         "descriptive_contradiction",

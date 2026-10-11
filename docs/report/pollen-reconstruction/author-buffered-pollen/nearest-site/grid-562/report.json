@@ -1,0 +1,48 @@
+{
+  "schema_version": "author-observed-pollen-spatial-block-predictions.v1",
+  "target_grid_id": "562",
+  "split": "leave_one_adjacent_one_degree_grid_out",
+  "method": "nearest_site_31_taxon_observed_pollen_fraction_by_bin",
+  "buffer_rule": "minimum_center_distance_minus_both_reported_basin_radii_at_least_20_km_to_every_target_in_block",
+  "buffer_km": 20.0,
+  "site_identity": "author_site_ids; no reviewed cross_database_alias_closure",
+  "source_manifest_sha256": "48d853468f979a04636642c6c757e9d05edf708d799b29cbae4d2286a9ac0acb",
+  "metadata_sha256": "72949e9e3faf417be0b7425fc111a9638b37c4a38aab8f8d82e0c3d8739da2de",
+  "crosswalk_sha256": "3a0f598ba5e550ca39da52b2047b7020b013dad013d15f79bef8e1c3c1a979c3",
+  "target_site_ids": [
+    "BECKHAM",
+    "COMERSLA",
+    "EXEBRID",
+    "GOURTEMIRES",
+    "LARKBARR",
+    "LONGBREACH",
+    "MOLECHAM",
+    "NTWITCHEN"
+  ],
+  "eligible_training_site_ids": [
+    "BROADOWN",
+    "CUTHILL2",
+    "HANGINGS",
+    "WHH05",
+    "WHH11",
+    "WINNEYS"
+  ],
+  "excluded_by_buffer_site_ids": [
+    "HARESDOWN",
+    "LOBBSBOG",
+    "WINDMILL"
+  ],
+  "training_count_sha256": {
+    "BROADOWN": "1eb04f58c13321fc9f284186df85003d4f73803f2485b842984f49a64c21a0c8",
+    "CUTHILL2": "a17ad8a86c4fb7fdffda4799dbc8de6909a037f7b106e07263fdd727c4c7f283",
+    "HANGINGS": "8249ce97a114048400a1497924cac0bc1c07fc7ae110dd5f868accd9425eda2f",
+    "WHH05": "298b66d7033703ce42d27f933b4d3ccec3a16f68b35a6fbf7a61806c01c88273",
+    "WHH11": "d38734ceb0c134eeffbb40091a81d3a8a8d32143dd14504296cc7baa38bf735e",
+    "WINNEYS": "b268187404a6ec1b0d0935990acd70bce678c55c95a2fadf38b7e50f27e29dd6"
+  },
+  "target_count_files_opened": 0,
+  "attempted_target_bins_without_outcomes": 200,
+  "predicted_target_bins_without_outcomes": 144,
+  "predictions_sha256": "d0c06921d65c31728e579eff40dd5a44bdae448ff64994947eb42c34b5359701",
+  "statuses_sha256": "1fcd1dc17ee51135d266055197acff24390257b65e8f7ef0689101a9c6705199"
+}

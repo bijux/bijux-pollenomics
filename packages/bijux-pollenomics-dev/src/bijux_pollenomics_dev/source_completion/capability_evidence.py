@@ -126,6 +126,10 @@ def derive(
             raise ValueError(
                 f"Capability materialization status differs: {row['source_key']}:{dimension}"
             )
+        if row["human_review_required"] is not (support != "unsupported"):
+            raise ValueError(
+                f"Capability review requirement differs: {row['source_key']}:{dimension}"
+            )
         if support == "unsupported" and declared_paths:
             raise ValueError("Unsupported capability has evidence paths")
         if any(

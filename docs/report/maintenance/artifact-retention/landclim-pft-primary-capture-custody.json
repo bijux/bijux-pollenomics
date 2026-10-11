@@ -1,0 +1,50 @@
+{
+  "schema_version": "landclim-pft-primary-capture-custody.v1",
+  "source_artifact": "artifacts/v3/landclim/pft-primary-capture001",
+  "private_source_root": "landclim/provider-descriptions",
+  "files": [
+    {
+      "name": "REVIEW.md",
+      "bytes": 1460,
+      "sha256": "90a6304b37e92ed08614525fad838214369abc993138ac61e75596552c57a3fc",
+      "private_path": "landclim/provider-descriptions/primary-capture/REVIEW.md",
+      "custody": "retained_process_evidence"
+    },
+    {
+      "name": "capture.py",
+      "bytes": 2227,
+      "sha256": "e92690f5722603932da145d9951fa9f6d195699f8de5137082870321f2ceb71c",
+      "private_path": "landclim/provider-descriptions/primary-capture/capture.py",
+      "custody": "retained_process_evidence"
+    },
+    {
+      "name": "essd_article.response",
+      "bytes": 443030,
+      "sha256": "d965af99738e1b068e6cf371747c6d96080046d0ca09db42ec1911916c19ed38",
+      "private_path": "landclim/provider-descriptions/essd_article.html",
+      "custody": "existing_page_duplicate"
+    },
+    {
+      "name": "pangaea_deposit.response",
+      "bytes": 142500,
+      "sha256": "6ed1b534fb4ab51e092cd9b4816dac3f15e171842de4feb4a1a694caf6194e06",
+      "private_path": "landclim/provider-descriptions/pangaea_deposit.html",
+      "custody": "existing_page_duplicate"
+    },
+    {
+      "name": "plan.json",
+      "bytes": 1465,
+      "sha256": "4825b692a53d10f1c27a66abf1cc4f60a42c498811716b9812c55894eda281e5",
+      "private_path": "landclim/provider-descriptions/primary-capture/plan.json",
+      "custody": "retained_process_evidence"
+    },
+    {
+      "name": "receipt.json",
+      "bytes": 1114,
+      "sha256": "4aaf25137091eaed5b98f6abacd561252a2247595acaa2e98a45917ab61d7694",
+      "private_path": "landclim/provider-descriptions/primary-capture/receipt.json",
+      "custody": "retained_process_evidence"
+    }
+  ],
+  "scope": "All six original files accounted for by exact bytes. Two public HTML responses duplicate the previously retained provider capture; four distinct process files are retained privately. The pages establish the 11/12 wording conflict but do not authenticate the archive-producing ISTS transformation or a PFT taxonomy decision."
+}

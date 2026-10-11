@@ -8,7 +8,7 @@ The crosswalk marks the differences that matter when interpreting those results:
 
 ## PFT classification remains blocked
 
-The [paper](https://essd.copernicus.org/articles/14/1581/2022/) describes 12 PFTs; the [PANGAEA dataset description](https://doi.org/10.1594/PANGAEA.937075) describes 11. Those publisher prose statements have URLs but no locally retained page-byte hash in this report. The content-bound PANGAEA parameter CSV has 12 nonblank PFT codes for its 31 taxa. All 50 mean/SE CSV members in the pinned PANGAEA result archive share a header with **13 PFT-position columns** between the 31 taxa and three LCT columns. `ISTS` is present in the output headers and absent from that parameter table. Without the version-specific grouping and column crosswalk, none of 11, 12, or 13 is admitted as a universal classification count.
+The [paper](https://essd.copernicus.org/articles/14/1581/2022/) describes 12 PFTs; the [PANGAEA dataset description](https://doi.org/10.1594/PANGAEA.937075) describes 11. Their 2026-09-21 page bytes are now bound by the [provider-description custody](../../maintenance/artifact-retention/landclim-provider-description-custody.json); the capture does not identify the archive-producing grouping rule. The content-bound PANGAEA parameter CSV has 12 nonblank PFT codes for its 31 taxa. All 50 mean/SE CSV members in the pinned PANGAEA result archive share a header with **13 PFT-position columns** between the 31 taxa and three LCT columns. `ISTS` is present in the output headers and absent from that parameter table. Without the version-specific grouping and column crosswalk, none of 11, 12, or 13 is admitted as a universal classification count.
 
 ## Reproduce
 

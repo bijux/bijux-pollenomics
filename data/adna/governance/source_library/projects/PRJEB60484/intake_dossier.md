@@ -4,8 +4,8 @@
 - Archive status: `comparator_only`
 - Inventory disposition: `tracked_intake_candidate`
 - Paper DOI: `10.1111/mec.17274`
-- Publication readiness: `blocked`
-- Next required stage: `chronology_recovery`
+- Publication readiness: `complete`
+- Next required stage: `coordinate_derivation`
 - Exact expected sample count: `unknown`
 - Minimum expected sample count: `1`
 - Final recovered sample rows: `20`
@@ -19,15 +19,14 @@
 - `supplement_capture`: `not_required`
 - `sample_identity_recovery`: `complete`
 - `site_recovery`: `complete`
-- `chronology_recovery`: `in_progress`
+- `chronology_recovery`: `complete`
 - `coordinate_derivation`: `in_progress`
-- `publication_readiness`: `blocked`
+- `publication_readiness`: `complete`
 
 ## Expected Contributions
 
 - `sample_identities`
 - `taxonomic_context`
-- `sample_chronology`
 
 ## Known Assets
 
@@ -83,8 +82,4 @@
 
 ## Missing Assets
 
-- Some recovered sample rows still lack sample-level chronology.
-
-## Manual Curation Work Units
-
-- `chronology_recovery`: 2 item(s), blocks chronology honesty and publication precision
+- none

@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+from collections import Counter
 import csv
 import gzip
 import hashlib
@@ -26,7 +27,7 @@ def sha256(path: Path) -> str:
 
 
 def verify_publication_correspondence(scope: dict[str, Any]) -> None:
-    """Keep the two numerical ledgers bound to their distinct scientific claims."""
+    """Keep publication ledgers bound to their distinct scientific claims."""
     correspondence = scope["publication_correspondence"]
     author_dir = REPOSITORY_ROOT / correspondence["author_example"]["directory"]
     author = json.loads((author_dir / "report.json").read_text(encoding="utf-8"))
@@ -84,6 +85,178 @@ def verify_publication_correspondence(scope: dict[str, Any]) -> None:
         )
     ):
         raise ValueError("published-window correspondence differs from retained claims")
+
+    provenance_dir = (
+        REPOSITORY_ROOT / correspondence["three_way_provenance"]["directory"]
+    )
+    provenance = json.loads(
+        (provenance_dir / "report.json").read_text(encoding="utf-8")
+    )
+    with (provenance_dir / "paper-correspondence.csv").open(
+        newline="", encoding="utf-8"
+    ) as stream:
+        provenance_rows = list(csv.DictReader(stream))
+    if (
+        provenance["paired_mean_se_values"] != 124
+        or len(provenance_rows) != 124
+        or {row["metric"] for row in provenance_rows} != {"mean", "standard_error"}
+        or {row["grid_id"] for row in provenance_rows} != {"512", "562"}
+        or provenance["historical_raw_input_closure"] != "not_established"
+        or correspondence["three_way_provenance"]["paired_mean_se_values"] != 124
+    ):
+        raise ValueError(
+            "three-way publication provenance differs from retained claims"
+        )
+
+    envelopes_dir = (
+        REPOSITORY_ROOT / correspondence["uncertainty_envelopes"]["directory"]
+    )
+    envelopes = json.loads((envelopes_dir / "report.json").read_text(encoding="utf-8"))
+    with (envelopes_dir / "taxon-envelopes.csv").open(
+        newline="", encoding="utf-8"
+    ) as stream:
+        envelope_rows = list(csv.DictReader(stream))
+    if (
+        len(envelope_rows) != 62
+        or any(row["one_se_envelopes_disjoint"] != "False" for row in envelope_rows)
+        or any(
+            grid["disjoint_one_se_envelopes"] != 0 for grid in envelopes["summaries"]
+        )
+        or envelopes["inferential_comparison"] != "not_evaluated"
+        or correspondence["uncertainty_envelopes"]["taxon_envelopes"] != 62
+        or correspondence["uncertainty_envelopes"]["disjoint_one_se_envelopes"] != 0
+    ):
+        raise ValueError("uncertainty envelopes differ from retained claims")
+
+    alignment_dir = REPOSITORY_ROOT / correspondence["window_alignment"]["directory"]
+    alignment = json.loads((alignment_dir / "report.json").read_text(encoding="utf-8"))
+    with (alignment_dir / "window-correspondence.csv").open(
+        newline="", encoding="utf-8"
+    ) as stream:
+        alignment_rows = list(csv.DictReader(stream))
+    exact = [row["tw_index"] for row in alignment_rows if row["exact_bounds"] == "True"]
+    if (
+        len(alignment_rows) != 25
+        or exact != ["2"]
+        or alignment["compared_windows"] != 25
+        or alignment["exact_tw_indices"] != exact
+        or correspondence["window_alignment"]["compared_windows"] != 25
+        or correspondence["window_alignment"]["exact_tw_indices"] != exact
+    ):
+        raise ValueError("publication window alignment differs from retained claims")
+
+
+def verify_publication_input_inventory(scope: dict[str, Any]) -> None:
+    """Keep publication metadata distinct from authenticated primary inputs."""
+    declared = scope["publication_input_inventory"]
+    directory = REPOSITORY_ROOT / declared["directory"]
+    manifest = json.loads((directory / "manifest.json").read_text(encoding="utf-8"))
+    report = json.loads((directory / "report.json").read_text(encoding="utf-8"))
+    source = manifest["source"]
+    for key in ("receipt", "workbook"):
+        item = source[key]
+        if sha256(REPOSITORY_ROOT / item["path"]) != item["sha256"]:
+            raise ValueError(f"publication metadata source differs: {key}")
+    for item in manifest["artifacts"]:
+        path = directory / item["path"]
+        if path.stat().st_size != item["byte_count"] or sha256(path) != item["sha256"]:
+            raise ValueError(f"publication inventory artifact differs: {item['path']}")
+    with (directory / "primary-source-crosswalk.csv").open(
+        newline="", encoding="utf-8"
+    ) as stream:
+        crosswalk = list(csv.DictReader(stream))
+    with (directory / "refusals.csv").open(newline="", encoding="utf-8") as stream:
+        refusals = list(csv.DictReader(stream))
+    rows = {row["worksheet_row"] for row in crosswalk}
+    if (
+        len(crosswalk) != declared["publication_metadata_records"]
+        or len(rows) != len(crosswalk)
+        or any(row["crosswalk_status"] != "unresolved" for row in crosswalk)
+        or len(refusals) != declared["refusal_ledger_records"]
+        or {row["worksheet_row"] for row in refusals} != rows
+        or set(Counter(row["worksheet_row"] for row in refusals).values()) != {4}
+        or any(
+            row["state"] not in {"not_authenticated", "unresolved"} for row in refusals
+        )
+        or report["denominators"]["reproduction_ready_records"]
+        != declared["reproduction_ready_records"]
+        or report["claims"]["whole_paper_reproduction_certified"] is not False
+    ):
+        raise ValueError("publication input inventory differs from retained claims")
+
+
+def verify_author_buffered_pollen(scope: dict[str, Any]) -> None:
+    """Bind the buffered four-method diagnostic to frozen source and scores."""
+    declared = scope["author_buffered_spatial_pollen"]
+    directory = REPOSITORY_ROOT / declared["directory"]
+    manifest = json.loads((directory / "manifest.json").read_text(encoding="utf-8"))
+    if (
+        manifest["private_source_manifest_sha256"]
+        != declared["private_source_manifest_sha256"]
+        or len(manifest["files"]) != 53
+    ):
+        raise ValueError("buffered author source custody differs")
+    for item in manifest["files"]:
+        path = directory / item["path"]
+        if path.stat().st_size != item["bytes"] or sha256(path) != item["sha256"]:
+            raise ValueError(f"buffered author output differs: {item['path']}")
+    for relative, digest in manifest["producer_sha256"].items():
+        if sha256(REPOSITORY_ROOT / relative) != digest:
+            raise ValueError(f"buffered author producer differs: {relative}")
+
+    comparison = json.loads(
+        (directory / "comparisons/fitted-common-support/report.json").read_text(
+            encoding="utf-8"
+        )
+    )
+    baseline = json.loads(
+        (directory / "comparisons/taxon/report.json").read_text(encoding="utf-8")
+    )
+    strict = json.loads(
+        (directory / "comparisons/strict-clr-support/report.json").read_text(
+            encoding="utf-8"
+        )
+    )
+    if (
+        comparison["observed_site_bins"] != declared["observed_site_bins"]
+        or baseline["common_scored_site_bins"] != declared["fixed_baseline_scored_bins"]
+        or comparison["common_scored_site_bins"]
+        != declared["four_method_common_scored_bins"]
+        or any(block["bins_with_strict_clr_fit"] != 0 for block in strict["blocks"])
+    ):
+        raise ValueError("buffered author support differs from retained claims")
+    method_dirs = {
+        "training_mean": "training-mean",
+        "nearest_site": "nearest-site",
+        "inverse_distance_squared": "inverse-distance-squared",
+        "clr_rbf_ridge_half_count": "fitted-clr-rbf",
+    }
+    metrics = {item["method"]: item for item in comparison["methods"]}
+    if (
+        metrics["clr_rbf_ridge_half_count"]["common_site_macro_mae_fraction"]
+        != declared["fitted_site_macro_mae_fraction"]
+        or metrics["training_mean"]["common_site_macro_mae_fraction"]
+        != declared["training_mean_common_site_macro_mae_fraction"]
+    ):
+        raise ValueError("buffered author method scores differ")
+    for method, name in method_dirs.items():
+        scores_dir = directory / name / "scores"
+        report_path = scores_dir / "report.json"
+        score_path = scores_dir / "scores.csv"
+        receipt = comparison["score_receipts"][method]
+        report = json.loads(report_path.read_text(encoding="utf-8"))
+        if (
+            sha256(report_path) != receipt["report_sha256"]
+            or sha256(score_path) != receipt["scores_sha256"]
+            or report["scored_site_bins"]
+            != comparison["method_specific_scored_bins"][method]
+        ):
+            raise ValueError(f"buffered author score receipt differs: {method}")
+        for grid, digest in report["prediction_report_sha256"].items():
+            if sha256(directory / name / f"grid-{grid}/report.json") != digest:
+                raise ValueError(
+                    f"buffered author prediction receipt differs: {method}"
+                )
 
 
 def verify_author_source(source_root: Path) -> None:
@@ -347,7 +520,9 @@ def verify_pft_uncertainty_bounds() -> dict[str, Any]:
         REPOSITORY_ROOT
         / "docs/report/publication-replay/landclim-pft-crosswalk/uncertainty-bounds"
     )
-    report = json.loads((directory / "report.json").read_text(encoding="utf-8"))
+    report: dict[str, Any] = json.loads(
+        (directory / "report.json").read_text(encoding="utf-8")
+    )
     if sha256(directory / "windows.csv") != report["window_csv_sha256"]:
         raise ValueError("PFT uncertainty window ledger changed")
     for source in report["inputs"]:
@@ -415,6 +590,8 @@ def main() -> None:
     if scope.get("confirmatory_result") is not False:
         raise ValueError("scoped report must not declare a confirmatory result")
     verify_publication_correspondence(scope)
+    verify_publication_input_inventory(scope)
+    verify_author_buffered_pollen(scope)
     with (REPORT_DIR / "swedish-source-questions.csv").open(
         newline="", encoding="utf-8"
     ) as stream:
@@ -569,6 +746,36 @@ def main() -> None:
         or swedish_author_scope["author_target_taxa"] != len(swedish_author["axis"])
     ):
         raise ValueError("Swedish author-target scope differs from the retained study")
+
+    lake_scope = scope["swedish_lake_transfer"]
+    lake_dir = REPOSITORY_ROOT / Path(lake_scope["report"]).parent
+    lake_report = json.loads((lake_dir / "report.json").read_text())
+    lake_inputs = json.loads((lake_dir / "input-manifest.json").read_text())
+    lake_freeze = json.loads((lake_dir / "prediction-freeze.json").read_text())
+    with (lake_dir / "coverage.csv").open(newline="", encoding="utf-8") as stream:
+        lake_coverage = list(csv.DictReader(stream))
+    lake_denominator = lake_report["country_source_denominators"]["SE"]
+    if (
+        lake_scope["protocol"]
+        != str(Path(lake_scope["report"]).parent / "protocol.json")
+        or lake_scope["prediction_freeze"]
+        != str(Path(lake_scope["report"]).parent / "prediction-freeze.json")
+        or lake_scope["prediction_freeze_sha256"]
+        != sha256(lake_dir / "prediction-freeze.json")
+        or lake_freeze["prediction_sha256"] != lake_report["prediction_sha256"]["SE"]
+        or lake_scope["physical_lake_sites"] != lake_denominator["sites"]
+        or lake_scope["selected_samples"] != lake_denominator["selected_samples"]
+        or lake_scope["excluded_source_samples"]
+        != lake_inputs["excluded_source_samples"]
+        or lake_scope["native_pollen_nisp"] != lake_denominator["native_nisp"]
+        or lake_scope["author_assigned_nisp"] != lake_denominator["assigned_nisp"]
+        or lake_scope["fixed_method_score_rows"] != lake_report["score_rows"]
+        or len(lake_coverage) != 1
+        or lake_scope["candidate_and_scored_site_bins"]
+        != int(lake_coverage[0]["positive_target_and_predicted_site_bins"])
+        or "swedish-lake-transfer" not in {row[0] for row in results[1:]}
+    ):
+        raise ValueError("Swedish lake transfer scope differs from retained result")
 
     pft_bounds = verify_pft_uncertainty_bounds()
     pft_scope = scope["pft_uncertainty_bounds"]

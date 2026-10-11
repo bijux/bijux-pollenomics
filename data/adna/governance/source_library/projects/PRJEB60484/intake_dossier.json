@@ -12,15 +12,13 @@
     "supplement_capture": "not_required",
     "sample_identity_recovery": "complete",
     "site_recovery": "complete",
-    "chronology_recovery": "in_progress",
+    "chronology_recovery": "complete",
     "coordinate_derivation": "in_progress",
-    "publication_readiness": "blocked"
+    "publication_readiness": "complete"
   },
-  "blocking_stages": [
-    "publication_readiness"
-  ],
-  "next_required_stage": "chronology_recovery",
-  "publication_readiness_status": "blocked",
+  "blocking_stages": [],
+  "next_required_stage": "coordinate_derivation",
+  "publication_readiness_status": "complete",
   "expected_sample_count": null,
   "expected_sample_count_status": "not_yet_curated",
   "expected_sample_count_provenance": "No trustworthy expected sample count is published yet because the current archive or paper capture is still too weak.",
@@ -86,13 +84,10 @@
     "data/adna/governance/source_library/projects/PRJEB60484/sample_chronology.json",
     "data/adna/governance/source_library/projects/PRJEB60484/sample_locality_evidence.json"
   ],
-  "missing_assets": [
-    "Some recovered sample rows still lack sample-level chronology."
-  ],
+  "missing_assets": [],
   "expected_contributions": [
     "sample_identities",
-    "taxonomic_context",
-    "sample_chronology"
+    "taxonomic_context"
   ],
   "expected_contribution_surfaces": [
     "data/adna/governance/source_library/projects/PRJEB60484/archive_metadata.html",
@@ -100,23 +95,8 @@
   ],
   "contradictory_evidence": [],
   "inferred_claims": [],
-  "manual_curation_work_units": [
-    {
-      "project_accession": "PRJEB60484",
-      "species_latin_name": "Rangifer tarandus",
-      "work_unit_type": "chronology_recovery",
-      "work_unit_state": "pending_source_recovery",
-      "open_item_count": 2,
-      "rationale": "missing_sample_level_date_evidence",
-      "downstream_impact": "blocks chronology honesty and publication precision",
-      "recommended_source_surfaces": [
-        "data/adna/governance/source_library/projects/PRJEB60484/sample_chronology.json",
-        "data/adna/governance/source_library/projects/PRJEB60484/intake_dossier.json"
-      ]
-    }
-  ],
+  "manual_curation_work_units": [],
   "major_deficit_reasons": [
-    "chronology_gap",
     "coordinate_precision_gap"
   ]
 }

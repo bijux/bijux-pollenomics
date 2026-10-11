@@ -1,6 +1,6 @@
 # Sample chronology ambiguity ledger
 
-- Rows requiring chronology review: `679`
+- Rows requiring chronology review: `678`
 
 | Project accession | Sample id | Strength | Normalization | Chronology | Note |
 | --- | --- | --- | --- | --- | --- |
@@ -682,4 +682,3 @@
 | SRP073444 | srp073444:samn04631965 | sample_owned_interval / contextual_interval | normalized_interval | 1456-1870 CE | Chronology comes from the recovered sample-owned source row. |
 | SRP073444 | srp073444:samn04631966 | sample_owned_interval / contextual_interval | normalized_interval | 1260-1456 CE | Chronology comes from the recovered sample-owned source row. |
 | SRP073444 | srp073444:samn04631967 | sample_owned_interval / contextual_interval | normalized_interval | 1650-2050 BP | Chronology comes from the recovered sample-owned source row. |
-| PRJEB60484 | prjeb60484:samea112757337 | unresolved / unresolved | unresolved |  | No chronology claim has been recovered yet for this sample row. |

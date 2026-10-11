@@ -1,15 +1,15 @@
 # Animal sample chronology review
 
 - Sample chronology rows: `1475`
-- Normalized intervals: `404`
+- Normalized intervals: `405`
 - Normalized points: `528`
 - Text-only rows: `136`
-- Unresolved rows: `407`
-- Direct radiocarbon rows: `822`
+- Unresolved rows: `406`
+- Direct radiocarbon rows: `823`
 - Modeled rows: `6`
 - Contextual rows: `117`
 - Broad period rows: `1`
-- Numeric interval rows: `796`
+- Numeric interval rows: `797`
 - Numeric rows with caveat: `136`
 - Context-only rows: `136`
 
@@ -1141,7 +1141,7 @@
 | Rangifer tarandus | PRJEB60484 | prjeb60484:samea112757334 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 27-260 BP |
 | Rangifer tarandus | PRJEB60484 | prjeb60484:samea112757335 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 549-647 BP |
 | Rangifer tarandus | PRJEB60484 | prjeb60484:samea112757336 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 1825-1935 BP |
-| Rangifer tarandus | PRJEB60484 | prjeb60484:samea112757337 | unresolved | unresolved | unresolved | unresolved |  |
+| Rangifer tarandus | PRJEB60484 | prjeb60484:samea112757337 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 0-450 BP |
 | Rangifer tarandus | PRJEB60484 | prjeb60484:samea112757338 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 8-277 BP |
 | Rangifer tarandus | PRJEB60484 | prjeb60484:samea112757339 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 12-267 BP |
 | Rangifer tarandus | PRJEB60484 | prjeb60484:samea112757340 | sample_owned_interval | direct_radiocarbon_date | sample_precise_interval | normalized_interval | 1-282 BP |

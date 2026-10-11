@@ -1,0 +1,1266 @@
+{
+  "schema_version": "author-observed-pollen-spatial-baseline-comparison.v3",
+  "source": "rmfyfe/landclimII@57ead2e2fcc493d099be4e5a3092fc396e1c3d3a",
+  "split": "leave_one_adjacent_one_degree_grid_out_with_20km_basin_edge_buffer",
+  "target_sites": 17,
+  "observed_site_bins": 184,
+  "common_scored_site_bins": 148,
+  "refused_no_training_site_bins": 36,
+  "score_receipts": {
+    "training_mean": {
+      "report_sha256": "05a1f85d82c0e18a509760ecc33b0e4bda5d540fc73749966cecdfb21cabae23",
+      "scores_sha256": "2acee3f7f75ab3dfc2539e6a88264b25b818cb80b807f8c9e66dc7b31e5d3ae7"
+    },
+    "nearest_site": {
+      "report_sha256": "394473048d6a49756a005115c362a5c24ac2beccfd0847207735e63b80fe8249",
+      "scores_sha256": "e8c43e62a5cae82465da2801f2d9877955ad3c8cfc1cc4c916a13a3c18c45b6d"
+    },
+    "inverse_distance_squared": {
+      "report_sha256": "7f8a43087e50e394438890d0e8839b7d6ee671d011a50f1940bdaf8370340afd",
+      "scores_sha256": "7cd59b4495d51ada1288c83abb682e57a78e03427f5d9f8e1d3c7a77ea889376"
+    }
+  },
+  "methods": [
+    {
+      "method": "training_mean",
+      "site_macro_mae_fraction": 0.025302858383934906,
+      "site_macro_total_variation": 0.39219430495099106,
+      "mae_minus_training_mean_fraction": 0.0,
+      "total_variation_minus_training_mean": 0.0
+    },
+    {
+      "method": "nearest_site",
+      "site_macro_mae_fraction": 0.025284919087540415,
+      "site_macro_total_variation": 0.39191624585687646,
+      "mae_minus_training_mean_fraction": -1.793929639449035e-05,
+      "total_variation_minus_training_mean": -0.00027805909411460217
+    },
+    {
+      "method": "inverse_distance_squared",
+      "site_macro_mae_fraction": 0.025217237116038006,
+      "site_macro_total_variation": 0.3908671752985891,
+      "mae_minus_training_mean_fraction": -8.562126789690011e-05,
+      "total_variation_minus_training_mean": -0.0013271296524019482
+    }
+  ],
+  "sites": [
+    {
+      "site_id": "BECKHAM",
+      "block_grid_id": "562",
+      "observed_site_bins": 11,
+      "common_scored_site_bins": 11,
+      "refused_no_training_site_bins": 0,
+      "nearest_training_basin_edge_km": 59.255980150573166,
+      "methods": {
+        "training_mean": {
+          "mae_fraction": 0.026699355146715547,
+          "total_variation": 0.413840004774091,
+          "mae_minus_training_mean_fraction": 0.0,
+          "total_variation_minus_training_mean": 0.0
+        },
+        "nearest_site": {
+          "mae_fraction": 0.02629933665616094,
+          "total_variation": 0.4076397181704946,
+          "mae_minus_training_mean_fraction": -0.00040001849055460587,
+          "total_variation_minus_training_mean": -0.006200286603596394
+        },
+        "inverse_distance_squared": {
+          "mae_fraction": 0.026648047974392377,
+          "total_variation": 0.41304474360308185,
+          "mae_minus_training_mean_fraction": -5.130717232317006e-05,
+          "total_variation_minus_training_mean": -0.0007952611710091428
+        }
+      }
+    },
+    {
+      "site_id": "BROADOWN",
+      "block_grid_id": "512",
+      "observed_site_bins": 17,
+      "common_scored_site_bins": 11,
+      "refused_no_training_site_bins": 6,
+      "nearest_training_basin_edge_km": 57.11805895387993,
+      "methods": {
+        "training_mean": {
+          "mae_fraction": 0.024686274016419315,
+          "total_variation": 0.3826372472544994,
+          "mae_minus_training_mean_fraction": 0.0,
+          "total_variation_minus_training_mean": 0.0
+        },
+        "nearest_site": {
+          "mae_fraction": 0.024443079397697267,
+          "total_variation": 0.3788677306643077,
+          "mae_minus_training_mean_fraction": -0.00024319461872204795,
+          "total_variation_minus_training_mean": -0.0037695165901917016
+        },
+        "inverse_distance_squared": {
+          "mae_fraction": 0.024500624012885153,
+          "total_variation": 0.3797596721997199,
+          "mae_minus_training_mean_fraction": -0.00018565000353416156,
+          "total_variation_minus_training_mean": -0.00287757505477948
+        }
+      }
+    },
+    {
+      "site_id": "COMERSLA",
+      "block_grid_id": "562",
+      "observed_site_bins": 16,
+      "common_scored_site_bins": 15,
+      "refused_no_training_site_bins": 1,
+      "nearest_training_basin_edge_km": 52.707277972093294,
+      "methods": {
+        "training_mean": {
+          "mae_fraction": 0.021097971844323216,
+          "total_variation": 0.3270185635870098,
+          "mae_minus_training_mean_fraction": 0.0,
+          "total_variation_minus_training_mean": 0.0
+        },
+        "nearest_site": {
+          "mae_fraction": 0.021174989092128973,
+          "total_variation": 0.32821233092799906,
+          "mae_minus_training_mean_fraction": 7.701724780575722e-05,
+          "total_variation_minus_training_mean": 0.001193767340989249
+        },
+        "inverse_distance_squared": {
+          "mae_fraction": 0.021234477802819184,
+          "total_variation": 0.32913440594369736,
+          "mae_minus_training_mean_fraction": 0.00013650595849596867,
+          "total_variation_minus_training_mean": 0.0021158423566875473
+        }
+      }
+    },
+    {
+      "site_id": "CUTHILL2",
+      "block_grid_id": "512",
+      "observed_site_bins": 13,
+      "common_scored_site_bins": 8,
+      "refused_no_training_site_bins": 5,
+      "nearest_training_basin_edge_km": 55.78668261264102,
+      "methods": {
+        "training_mean": {
+          "mae_fraction": 0.023351516392008467,
+          "total_variation": 0.3619485040761312,
+          "mae_minus_training_mean_fraction": 0.0,
+          "total_variation_minus_training_mean": 0.0
+        },
+        "nearest_site": {
+          "mae_fraction": 0.023220042714911508,
+          "total_variation": 0.35991066208112843,
+          "mae_minus_training_mean_fraction": -0.00013147367709695837,
+          "total_variation_minus_training_mean": -0.002037841995002787
+        },
+        "inverse_distance_squared": {
+          "mae_fraction": 0.02319027837099371,
+          "total_variation": 0.3594493147504025,
+          "mae_minus_training_mean_fraction": -0.00016123802101475695,
+          "total_variation_minus_training_mean": -0.0024991893257287345
+        }
+      }
+    },
+    {
+      "site_id": "EXEBRID",
+      "block_grid_id": "562",
+      "observed_site_bins": 10,
+      "common_scored_site_bins": 3,
+      "refused_no_training_site_bins": 7,
+      "nearest_training_basin_edge_km": 50.626556930421806,
+      "methods": {
+        "training_mean": {
+          "mae_fraction": 0.041757118976231446,
+          "total_variation": 0.6472353441315875,
+          "mae_minus_training_mean_fraction": 0.0,
+          "total_variation_minus_training_mean": 0.0
+        },
+        "nearest_site": {
+          "mae_fraction": 0.04287248566630848,
+          "total_variation": 0.6645235278277815,
+          "mae_minus_training_mean_fraction": 0.0011153666900770368,
+          "total_variation_minus_training_mean": 0.017288183696194004
+        },
+        "inverse_distance_squared": {
+          "mae_fraction": 0.04179392688610058,
+          "total_variation": 0.6478058667345589,
+          "mae_minus_training_mean_fraction": 3.680790986913124e-05,
+          "total_variation_minus_training_mean": 0.0005705226029714128
+        }
+      }
+    },
+    {
+      "site_id": "GOURTEMIRES",
+      "block_grid_id": "562",
+      "observed_site_bins": 9,
+      "common_scored_site_bins": 9,
+      "refused_no_training_site_bins": 0,
+      "nearest_training_basin_edge_km": 48.40386329775029,
+      "methods": {
+        "training_mean": {
+          "mae_fraction": 0.018306637070181684,
+          "total_variation": 0.2837528745878161,
+          "mae_minus_training_mean_fraction": 0.0,
+          "total_variation_minus_training_mean": 0.0
+        },
+        "nearest_site": {
+          "mae_fraction": 0.019590244464096247,
+          "total_variation": 0.3036487891934918,
+          "mae_minus_training_mean_fraction": 0.0012836073939145633,
+          "total_variation_minus_training_mean": 0.01989591460567569
+        },
+        "inverse_distance_squared": {
+          "mae_fraction": 0.01836612396842166,
+          "total_variation": 0.28467492151053575,
+          "mae_minus_training_mean_fraction": 5.948689823997641e-05,
+          "total_variation_minus_training_mean": 0.0009220469227196326
+        }
+      }
+    },
+    {
+      "site_id": "HANGINGS",
+      "block_grid_id": "512",
+      "observed_site_bins": 17,
+      "common_scored_site_bins": 11,
+      "refused_no_training_site_bins": 6,
+      "nearest_training_basin_edge_km": 52.48043091770649,
+      "methods": {
+        "training_mean": {
+          "mae_fraction": 0.021517895317376513,
+          "total_variation": 0.3335273774193359,
+          "mae_minus_training_mean_fraction": 0.0,
+          "total_variation_minus_training_mean": 0.0
+        },
+        "nearest_site": {
+          "mae_fraction": 0.023190143459096303,
+          "total_variation": 0.3594472236159927,
+          "mae_minus_training_mean_fraction": 0.0016722481417197899,
+          "total_variation_minus_training_mean": 0.02591984619665677
+        },
+        "inverse_distance_squared": {
+          "mae_fraction": 0.021462913721109644,
+          "total_variation": 0.3326751626771995,
+          "mae_minus_training_mean_fraction": -5.49815962668683e-05,
+          "total_variation_minus_training_mean": -0.0008522147421364257
+        }
+      }
+    },
+    {
+      "site_id": "HARESDOWN",
+      "block_grid_id": "512",
+      "observed_site_bins": 7,
+      "common_scored_site_bins": 7,
+      "refused_no_training_site_bins": 0,
+      "nearest_training_basin_edge_km": 20.07817302490274,
+      "methods": {
+        "training_mean": {
+          "mae_fraction": 0.013797786127378435,
+          "total_variation": 0.21386568497436576,
+          "mae_minus_training_mean_fraction": 0.0,
+          "total_variation_minus_training_mean": 0.0
+        },
+        "nearest_site": {
+          "mae_fraction": 0.014778124863118518,
+          "total_variation": 0.22906093537833702,
+          "mae_minus_training_mean_fraction": 0.0009803387357400824,
+          "total_variation_minus_training_mean": 0.015195250403971267
+        },
+        "inverse_distance_squared": {
+          "mae_fraction": 0.013589176425432496,
+          "total_variation": 0.21063223459420372,
+          "mae_minus_training_mean_fraction": -0.0002086097019459391,
+          "total_variation_minus_training_mean": -0.0032334503801620396
+        }
+      }
+    },
+    {
+      "site_id": "LARKBARR",
+      "block_grid_id": "562",
+      "observed_site_bins": 9,
+      "common_scored_site_bins": 9,
+      "refused_no_training_site_bins": 0,
+      "nearest_training_basin_edge_km": 60.191481644883204,
+      "methods": {
+        "training_mean": {
+          "mae_fraction": 0.02846603239095323,
+          "total_variation": 0.44122350205977506,
+          "mae_minus_training_mean_fraction": 0.0,
+          "total_variation_minus_training_mean": 0.0
+        },
+        "nearest_site": {
+          "mae_fraction": 0.0253415982502584,
+          "total_variation": 0.3927947728790052,
+          "mae_minus_training_mean_fraction": -0.0031244341406948296,
+          "total_variation_minus_training_mean": -0.04842872918076985
+        },
+        "inverse_distance_squared": {
+          "mae_fraction": 0.028372581472880482,
+          "total_variation": 0.4397750128296475,
+          "mae_minus_training_mean_fraction": -9.345091807274816e-05,
+          "total_variation_minus_training_mean": -0.001448489230127581
+        }
+      }
+    },
+    {
+      "site_id": "LOBBSBOG",
+      "block_grid_id": "512",
+      "observed_site_bins": 7,
+      "common_scored_site_bins": 7,
+      "refused_no_training_site_bins": 0,
+      "nearest_training_basin_edge_km": 21.644868656437517,
+      "methods": {
+        "training_mean": {
+          "mae_fraction": 0.023824707968230722,
+          "total_variation": 0.36928297350757616,
+          "mae_minus_training_mean_fraction": 0.0,
+          "total_variation_minus_training_mean": 0.0
+        },
+        "nearest_site": {
+          "mae_fraction": 0.02428483673244792,
+          "total_variation": 0.3764149693529427,
+          "mae_minus_training_mean_fraction": 0.0004601287642171971,
+          "total_variation_minus_training_mean": 0.007131995845366557
+        },
+        "inverse_distance_squared": {
+          "mae_fraction": 0.023590039309102223,
+          "total_variation": 0.3656456092910845,
+          "mae_minus_training_mean_fraction": -0.00023466865912849869,
+          "total_variation_minus_training_mean": -0.0036373642164916897
+        }
+      }
+    },
+    {
+      "site_id": "LONGBREACH",
+      "block_grid_id": "562",
+      "observed_site_bins": 15,
+      "common_scored_site_bins": 15,
+      "refused_no_training_site_bins": 0,
+      "nearest_training_basin_edge_km": 49.38146197933778,
+      "methods": {
+        "training_mean": {
+          "mae_fraction": 0.023529758941303765,
+          "total_variation": 0.36471126359020833,
+          "mae_minus_training_mean_fraction": 0.0,
+          "total_variation_minus_training_mean": 0.0
+        },
+        "nearest_site": {
+          "mae_fraction": 0.023637438504803626,
+          "total_variation": 0.3663802968244562,
+          "mae_minus_training_mean_fraction": 0.00010767956349986077,
+          "total_variation_minus_training_mean": 0.0016690332342478853
+        },
+        "inverse_distance_squared": {
+          "mae_fraction": 0.023602888961979134,
+          "total_variation": 0.36584477891067657,
+          "mae_minus_training_mean_fraction": 7.313002067536878e-05,
+          "total_variation_minus_training_mean": 0.0011335153204682369
+        }
+      }
+    },
+    {
+      "site_id": "MOLECHAM",
+      "block_grid_id": "562",
+      "observed_site_bins": 7,
+      "common_scored_site_bins": 7,
+      "refused_no_training_site_bins": 0,
+      "nearest_training_basin_edge_km": 54.453599830604446,
+      "methods": {
+        "training_mean": {
+          "mae_fraction": 0.024930018620991815,
+          "total_variation": 0.3864152886253731,
+          "mae_minus_training_mean_fraction": 0.0,
+          "total_variation_minus_training_mean": 0.0
+        },
+        "nearest_site": {
+          "mae_fraction": 0.02281453479990477,
+          "total_variation": 0.35362528939852395,
+          "mae_minus_training_mean_fraction": -0.002115483821087047,
+          "total_variation_minus_training_mean": -0.032789999226849165
+        },
+        "inverse_distance_squared": {
+          "mae_fraction": 0.024871732551393994,
+          "total_variation": 0.3855118545466069,
+          "mae_minus_training_mean_fraction": -5.8286069597821705e-05,
+          "total_variation_minus_training_mean": -0.0009034340787661965
+        }
+      }
+    },
+    {
+      "site_id": "NTWITCHEN",
+      "block_grid_id": "562",
+      "observed_site_bins": 10,
+      "common_scored_site_bins": 10,
+      "refused_no_training_site_bins": 0,
+      "nearest_training_basin_edge_km": 52.48043091770649,
+      "methods": {
+        "training_mean": {
+          "mae_fraction": 0.022942514258522177,
+          "total_variation": 0.35560897100709377,
+          "mae_minus_training_mean_fraction": 0.0,
+          "total_variation_minus_training_mean": 0.0
+        },
+        "nearest_site": {
+          "mae_fraction": 0.023252855224867402,
+          "total_variation": 0.3604192559854447,
+          "mae_minus_training_mean_fraction": 0.0003103409663452253,
+          "total_variation_minus_training_mean": 0.004810284978350954
+        },
+        "inverse_distance_squared": {
+          "mae_fraction": 0.022965435353042313,
+          "total_variation": 0.35596424797215587,
+          "mae_minus_training_mean_fraction": 2.292109452013691e-05,
+          "total_variation_minus_training_mean": 0.00035527696506210127
+        }
+      }
+    },
+    {
+      "site_id": "WHH05",
+      "block_grid_id": "512",
+      "observed_site_bins": 8,
+      "common_scored_site_bins": 4,
+      "refused_no_training_site_bins": 4,
+      "nearest_training_basin_edge_km": 52.68521445643577,
+      "methods": {
+        "training_mean": {
+          "mae_fraction": 0.04237063239150256,
+          "total_variation": 0.6567448020682898,
+          "mae_minus_training_mean_fraction": 0.0,
+          "total_variation_minus_training_mean": 0.0
+        },
+        "nearest_site": {
+          "mae_fraction": 0.04174210085432306,
+          "total_variation": 0.6470025632420076,
+          "mae_minus_training_mean_fraction": -0.000628531537179497,
+          "total_variation_minus_training_mean": -0.009742238826282223
+        },
+        "inverse_distance_squared": {
+          "mae_fraction": 0.04233910839325647,
+          "total_variation": 0.6562561800954754,
+          "mae_minus_training_mean_fraction": -3.1523998246088536e-05,
+          "total_variation_minus_training_mean": -0.000488621972814407
+        }
+      }
+    },
+    {
+      "site_id": "WHH11",
+      "block_grid_id": "512",
+      "observed_site_bins": 4,
+      "common_scored_site_bins": 4,
+      "refused_no_training_site_bins": 0,
+      "nearest_training_basin_edge_km": 52.68521445643577,
+      "methods": {
+        "training_mean": {
+          "mae_fraction": 0.023250517267538937,
+          "total_variation": 0.36038301764685354,
+          "mae_minus_training_mean_fraction": 0.0,
+          "total_variation_minus_training_mean": 0.0
+        },
+        "nearest_site": {
+          "mae_fraction": 0.025492773274724684,
+          "total_variation": 0.39513798575823256,
+          "mae_minus_training_mean_fraction": 0.0022422560071857466,
+          "total_variation_minus_training_mean": 0.034754968111379014
+        },
+        "inverse_distance_squared": {
+          "mae_fraction": 0.023098191801963056,
+          "total_variation": 0.35802197293042737,
+          "mae_minus_training_mean_fraction": -0.0001523254655758817,
+          "total_variation_minus_training_mean": -0.002361044716426175
+        }
+      }
+    },
+    {
+      "site_id": "WINDMILL",
+      "block_grid_id": "512",
+      "observed_site_bins": 7,
+      "common_scored_site_bins": 7,
+      "refused_no_training_site_bins": 0,
+      "nearest_training_basin_edge_km": 20.820172540620586,
+      "methods": {
+        "training_mean": {
+          "mae_fraction": 0.025837139101306802,
+          "total_variation": 0.4004756560702554,
+          "mae_minus_training_mean_fraction": 0.0,
+          "total_variation_minus_training_mean": 0.0
+        },
+        "nearest_site": {
+          "mae_fraction": 0.024763950513139437,
+          "total_variation": 0.3838412329536613,
+          "mae_minus_training_mean_fraction": -0.0010731885881673647,
+          "total_variation_minus_training_mean": -0.016634423116594133
+        },
+        "inverse_distance_squared": {
+          "mae_fraction": 0.02561059867305867,
+          "total_variation": 0.39696427943240936,
+          "mae_minus_training_mean_fraction": -0.00022654042824813217,
+          "total_variation_minus_training_mean": -0.0035113766378460642
+        }
+      }
+    },
+    {
+      "site_id": "WINNEYS",
+      "block_grid_id": "512",
+      "observed_site_bins": 17,
+      "common_scored_site_bins": 10,
+      "refused_no_training_site_bins": 7,
+      "nearest_training_basin_edge_km": 55.71869443650598,
+      "methods": {
+        "training_mean": {
+          "mae_fraction": 0.02378271669590876,
+          "total_variation": 0.36863210878658575,
+          "mae_minus_training_mean_fraction": 0.0,
+          "total_variation_minus_training_mean": 0.0
+        },
+        "nearest_site": {
+          "mae_fraction": 0.02294509002019953,
+          "total_variation": 0.35564889531309274,
+          "mae_minus_training_mean_fraction": -0.0008376266757092292,
+          "total_variation_minus_training_mean": -0.012983213473493016
+        },
+        "inverse_distance_squared": {
+          "mae_fraction": 0.02345688529381497,
+          "total_variation": 0.363581722054132,
+          "mae_minus_training_mean_fraction": -0.00032583140209379094,
+          "total_variation_minus_training_mean": -0.005050386732453782
+        }
+      }
+    }
+  ],
+  "blocks": [
+    {
+      "block_grid_id": "512",
+      "target_sites": 9,
+      "observed_site_bins": 97,
+      "common_scored_site_bins": 69,
+      "refused_no_training_site_bins": 28,
+      "methods": {
+        "training_mean": {
+          "mae_fraction": 0.024713242808630055,
+          "total_variation": 0.3830552635337659,
+          "mae_minus_training_mean_fraction": 0.0,
+          "total_variation_minus_training_mean": 0.0
+        },
+        "nearest_site": {
+          "mae_fraction": 0.02498446020329536,
+          "total_variation": 0.38725913315107807,
+          "mae_minus_training_mean_fraction": 0.0002712173946653021,
+          "total_variation_minus_training_mean": 0.004203869617312194
+        },
+        "inverse_distance_squared": {
+          "mae_fraction": 0.02453753511129071,
+          "total_variation": 0.380331794225006,
+          "mae_minus_training_mean_fraction": -0.00017570769733934644,
+          "total_variation_minus_training_mean": -0.0027234693087598663
+        }
+      }
+    },
+    {
+      "block_grid_id": "562",
+      "target_sites": 8,
+      "observed_site_bins": 87,
+      "common_scored_site_bins": 79,
+      "refused_no_training_site_bins": 8,
+      "methods": {
+        "training_mean": {
+          "mae_fraction": 0.02596617590615286,
+          "total_variation": 0.40247572654536934,
+          "mae_minus_training_mean_fraction": 0.0,
+          "total_variation_minus_training_mean": 0.0
+        },
+        "nearest_site": {
+          "mae_fraction": 0.025622935332316105,
+          "total_variation": 0.39715549765089964,
+          "mae_minus_training_mean_fraction": -0.0003432405738367549,
+          "total_variation_minus_training_mean": -0.005320228894469703
+        },
+        "inverse_distance_squared": {
+          "mae_fraction": 0.025981901871378714,
+          "total_variation": 0.40271947900637006,
+          "mae_minus_training_mean_fraction": 1.572596522585526e-05,
+          "total_variation_minus_training_mean": 0.00024375246100075132
+        }
+      }
+    }
+  ],
+  "paired_site_directions": {
+    "nearest_site": {
+      "mae_minus_training_mean_fraction": {
+        "sites_lower": 8,
+        "sites_equal": 0,
+        "sites_higher": 9
+      },
+      "total_variation_minus_training_mean": {
+        "sites_lower": 8,
+        "sites_equal": 0,
+        "sites_higher": 9
+      }
+    },
+    "inverse_distance_squared": {
+      "mae_minus_training_mean_fraction": {
+        "sites_lower": 12,
+        "sites_equal": 0,
+        "sites_higher": 5
+      },
+      "total_variation_minus_training_mean": {
+        "sites_lower": 12,
+        "sites_equal": 0,
+        "sites_higher": 5
+      }
+    }
+  },
+  "taxon_prediction_sha256": {
+    "training_mean": "de91d032886a48834ed5764e8b7f36a79b7ee714d4cb1f2dbbd6875b467f5bb3",
+    "nearest_site": "e240bc22d523edd240f94ad564235debf87255b9ff0a4d7adda239fcce113c38",
+    "inverse_distance_squared": "3de42a8201102f1d32f37de9816f48c71e8edd8d1851cb10be5661cc5aba1159"
+  },
+  "taxa": [
+    {
+      "taxon": "Abies alba",
+      "scored_sites": 17,
+      "methods": {
+        "training_mean": {
+          "site_macro_absolute_error_fraction": 3.8034963680615066e-05,
+          "site_macro_bias_fraction": -3.8034963680615066e-05,
+          "absolute_error_minus_training_mean_fraction": 0.0
+        },
+        "nearest_site": {
+          "site_macro_absolute_error_fraction": 3.8034963680615066e-05,
+          "site_macro_bias_fraction": -3.8034963680615066e-05,
+          "absolute_error_minus_training_mean_fraction": 0.0
+        },
+        "inverse_distance_squared": {
+          "site_macro_absolute_error_fraction": 3.8034963680615066e-05,
+          "site_macro_bias_fraction": -3.8034963680615066e-05,
+          "absolute_error_minus_training_mean_fraction": 0.0
+        }
+      }
+    },
+    {
+      "taxon": "Alnus glutinosa",
+      "scored_sites": 17,
+      "methods": {
+        "training_mean": {
+          "site_macro_absolute_error_fraction": 0.051488547615403356,
+          "site_macro_bias_fraction": -0.0009124384270412227,
+          "absolute_error_minus_training_mean_fraction": 0.0
+        },
+        "nearest_site": {
+          "site_macro_absolute_error_fraction": 0.05728019922265208,
+          "site_macro_bias_fraction": -0.017416054463857845,
+          "absolute_error_minus_training_mean_fraction": 0.005791651607248725
+        },
+        "inverse_distance_squared": {
+          "site_macro_absolute_error_fraction": 0.05054514101092368,
+          "site_macro_bias_fraction": -0.0024645226978565167,
+          "absolute_error_minus_training_mean_fraction": -0.0009434066044796754
+        }
+      }
+    },
+    {
+      "taxon": "Amanranthaceae/Chenopodiaceae",
+      "scored_sites": 17,
+      "methods": {
+        "training_mean": {
+          "site_macro_absolute_error_fraction": 0.0008607989321141195,
+          "site_macro_bias_fraction": 4.461597606181238e-05,
+          "absolute_error_minus_training_mean_fraction": 0.0
+        },
+        "nearest_site": {
+          "site_macro_absolute_error_fraction": 0.0009325785754212528,
+          "site_macro_bias_fraction": -2.7411015663197968e-05,
+          "absolute_error_minus_training_mean_fraction": 7.177964330713337e-05
+        },
+        "inverse_distance_squared": {
+          "site_macro_absolute_error_fraction": 0.0008585792165560389,
+          "site_macro_bias_fraction": 3.795103701754286e-05,
+          "absolute_error_minus_training_mean_fraction": -2.2197155580805893e-06
+        }
+      }
+    },
+    {
+      "taxon": "Artemisia",
+      "scored_sites": 17,
+      "methods": {
+        "training_mean": {
+          "site_macro_absolute_error_fraction": 0.0010764152577178105,
+          "site_macro_bias_fraction": 0.0004497632413119589,
+          "absolute_error_minus_training_mean_fraction": 0.0
+        },
+        "nearest_site": {
+          "site_macro_absolute_error_fraction": 0.001017112738001508,
+          "site_macro_bias_fraction": 0.00013920724844160518,
+          "absolute_error_minus_training_mean_fraction": -5.9302519716302555e-05
+        },
+        "inverse_distance_squared": {
+          "site_macro_absolute_error_fraction": 0.001065211864439636,
+          "site_macro_bias_fraction": 0.00043203084368731383,
+          "absolute_error_minus_training_mean_fraction": -1.120339327817456e-05
+        }
+      }
+    },
+    {
+      "taxon": "Betula",
+      "scored_sites": 17,
+      "methods": {
+        "training_mean": {
+          "site_macro_absolute_error_fraction": 0.038899427960001016,
+          "site_macro_bias_fraction": 0.022890597227793047,
+          "absolute_error_minus_training_mean_fraction": 0.0
+        },
+        "nearest_site": {
+          "site_macro_absolute_error_fraction": 0.029100711594324292,
+          "site_macro_bias_fraction": 0.005667964398973852,
+          "absolute_error_minus_training_mean_fraction": -0.009798716365676724
+        },
+        "inverse_distance_squared": {
+          "site_macro_absolute_error_fraction": 0.03755489852842067,
+          "site_macro_bias_fraction": 0.02140002614870041,
+          "absolute_error_minus_training_mean_fraction": -0.001344529431580345
+        }
+      }
+    },
+    {
+      "taxon": "Buxus sempervirens",
+      "scored_sites": 17,
+      "methods": {
+        "training_mean": {
+          "site_macro_absolute_error_fraction": 0.0,
+          "site_macro_bias_fraction": 0.0,
+          "absolute_error_minus_training_mean_fraction": 0.0
+        },
+        "nearest_site": {
+          "site_macro_absolute_error_fraction": 0.0,
+          "site_macro_bias_fraction": 0.0,
+          "absolute_error_minus_training_mean_fraction": 0.0
+        },
+        "inverse_distance_squared": {
+          "site_macro_absolute_error_fraction": 0.0,
+          "site_macro_bias_fraction": 0.0,
+          "absolute_error_minus_training_mean_fraction": 0.0
+        }
+      }
+    },
+    {
+      "taxon": "Calluna vulgaris",
+      "scored_sites": 17,
+      "methods": {
+        "training_mean": {
+          "site_macro_absolute_error_fraction": 0.1361789902700061,
+          "site_macro_bias_fraction": -0.0007528855728048324,
+          "absolute_error_minus_training_mean_fraction": 0.0
+        },
+        "nearest_site": {
+          "site_macro_absolute_error_fraction": 0.11938100943715098,
+          "site_macro_bias_fraction": -0.009095829684371986,
+          "absolute_error_minus_training_mean_fraction": -0.016797980832855122
+        },
+        "inverse_distance_squared": {
+          "site_macro_absolute_error_fraction": 0.1366178062077345,
+          "site_macro_bias_fraction": 0.00033754381860857306,
+          "absolute_error_minus_training_mean_fraction": 0.000438815937728404
+        }
+      }
+    },
+    {
+      "taxon": "Carpinus betulus",
+      "scored_sites": 17,
+      "methods": {
+        "training_mean": {
+          "site_macro_absolute_error_fraction": 0.0005145660804428483,
+          "site_macro_bias_fraction": 4.924955561985046e-05,
+          "absolute_error_minus_training_mean_fraction": 0.0
+        },
+        "nearest_site": {
+          "site_macro_absolute_error_fraction": 0.0006912880961504645,
+          "site_macro_bias_fraction": 0.00018794886988628134,
+          "absolute_error_minus_training_mean_fraction": 0.00017672201570761623
+        },
+        "inverse_distance_squared": {
+          "site_macro_absolute_error_fraction": 0.0005266836272198948,
+          "site_macro_bias_fraction": 6.310991263878957e-05,
+          "absolute_error_minus_training_mean_fraction": 1.2117546777046565e-05
+        }
+      }
+    },
+    {
+      "taxon": "Carpinus orientalis",
+      "scored_sites": 17,
+      "methods": {
+        "training_mean": {
+          "site_macro_absolute_error_fraction": 0.0,
+          "site_macro_bias_fraction": 0.0,
+          "absolute_error_minus_training_mean_fraction": 0.0
+        },
+        "nearest_site": {
+          "site_macro_absolute_error_fraction": 0.0,
+          "site_macro_bias_fraction": 0.0,
+          "absolute_error_minus_training_mean_fraction": 0.0
+        },
+        "inverse_distance_squared": {
+          "site_macro_absolute_error_fraction": 0.0,
+          "site_macro_bias_fraction": 0.0,
+          "absolute_error_minus_training_mean_fraction": 0.0
+        }
+      }
+    },
+    {
+      "taxon": "Castanea",
+      "scored_sites": 17,
+      "methods": {
+        "training_mean": {
+          "site_macro_absolute_error_fraction": 0.0,
+          "site_macro_bias_fraction": 0.0,
+          "absolute_error_minus_training_mean_fraction": 0.0
+        },
+        "nearest_site": {
+          "site_macro_absolute_error_fraction": 0.0,
+          "site_macro_bias_fraction": 0.0,
+          "absolute_error_minus_training_mean_fraction": 0.0
+        },
+        "inverse_distance_squared": {
+          "site_macro_absolute_error_fraction": 0.0,
+          "site_macro_bias_fraction": 0.0,
+          "absolute_error_minus_training_mean_fraction": 0.0
+        }
+      }
+    },
+    {
+      "taxon": "Cerealia-t",
+      "scored_sites": 17,
+      "methods": {
+        "training_mean": {
+          "site_macro_absolute_error_fraction": 0.002353520073249061,
+          "site_macro_bias_fraction": -0.0010950027248404306,
+          "absolute_error_minus_training_mean_fraction": 0.0
+        },
+        "nearest_site": {
+          "site_macro_absolute_error_fraction": 0.002228758624325975,
+          "site_macro_bias_fraction": -0.000265654344166726,
+          "absolute_error_minus_training_mean_fraction": -0.00012476144892308591
+        },
+        "inverse_distance_squared": {
+          "site_macro_absolute_error_fraction": 0.0023287362830728036,
+          "site_macro_bias_fraction": -0.0010595298874811585,
+          "absolute_error_minus_training_mean_fraction": -2.4783790176257335e-05
+        }
+      }
+    },
+    {
+      "taxon": "Corylus avellana",
+      "scored_sites": 17,
+      "methods": {
+        "training_mean": {
+          "site_macro_absolute_error_fraction": 0.1202662409479744,
+          "site_macro_bias_fraction": 0.019162732369507652,
+          "absolute_error_minus_training_mean_fraction": 0.0
+        },
+        "nearest_site": {
+          "site_macro_absolute_error_fraction": 0.11940263403767858,
+          "site_macro_bias_fraction": 0.03178286427891069,
+          "absolute_error_minus_training_mean_fraction": -0.0008636069102958277
+        },
+        "inverse_distance_squared": {
+          "site_macro_absolute_error_fraction": 0.11931419852061641,
+          "site_macro_bias_fraction": 0.018993678983214045,
+          "absolute_error_minus_training_mean_fraction": -0.0009520424273579964
+        }
+      }
+    },
+    {
+      "taxon": "Cyperaceae",
+      "scored_sites": 17,
+      "methods": {
+        "training_mean": {
+          "site_macro_absolute_error_fraction": 0.13744002225159885,
+          "site_macro_bias_fraction": -0.07891682938276867,
+          "absolute_error_minus_training_mean_fraction": 0.0
+        },
+        "nearest_site": {
+          "site_macro_absolute_error_fraction": 0.14282690003661266,
+          "site_macro_bias_fraction": -0.06861593250891637,
+          "absolute_error_minus_training_mean_fraction": 0.005386877785013816
+        },
+        "inverse_distance_squared": {
+          "site_macro_absolute_error_fraction": 0.1365912455546783,
+          "site_macro_bias_fraction": -0.07891336728918884,
+          "absolute_error_minus_training_mean_fraction": -0.0008487766969205446
+        }
+      }
+    },
+    {
+      "taxon": "Ericaceae",
+      "scored_sites": 17,
+      "methods": {
+        "training_mean": {
+          "site_macro_absolute_error_fraction": 0.005145461181914725,
+          "site_macro_bias_fraction": 0.000149997194977,
+          "absolute_error_minus_training_mean_fraction": 0.0
+        },
+        "nearest_site": {
+          "site_macro_absolute_error_fraction": 0.0042447541830042505,
+          "site_macro_bias_fraction": -0.0025968694613945527,
+          "absolute_error_minus_training_mean_fraction": -0.0009007069989104746
+        },
+        "inverse_distance_squared": {
+          "site_macro_absolute_error_fraction": 0.005103483439196088,
+          "site_macro_bias_fraction": 0.0001043171064860912,
+          "absolute_error_minus_training_mean_fraction": -4.1977742718636926e-05
+        }
+      }
+    },
+    {
+      "taxon": "Fagus sylvatica",
+      "scored_sites": 17,
+      "methods": {
+        "training_mean": {
+          "site_macro_absolute_error_fraction": 0.002899354872281653,
+          "site_macro_bias_fraction": -3.582454710547357e-05,
+          "absolute_error_minus_training_mean_fraction": 0.0
+        },
+        "nearest_site": {
+          "site_macro_absolute_error_fraction": 0.004146809208055426,
+          "site_macro_bias_fraction": 0.0022047977788388438,
+          "absolute_error_minus_training_mean_fraction": 0.0012474543357737728
+        },
+        "inverse_distance_squared": {
+          "site_macro_absolute_error_fraction": 0.0028900594447056997,
+          "site_macro_bias_fraction": 6.501742455928794e-05,
+          "absolute_error_minus_training_mean_fraction": -9.295427575953252e-06
+        }
+      }
+    },
+    {
+      "taxon": "Filipendula",
+      "scored_sites": 17,
+      "methods": {
+        "training_mean": {
+          "site_macro_absolute_error_fraction": 0.010320561368689486,
+          "site_macro_bias_fraction": 0.0017762206336530643,
+          "absolute_error_minus_training_mean_fraction": 0.0
+        },
+        "nearest_site": {
+          "site_macro_absolute_error_fraction": 0.005618409441648322,
+          "site_macro_bias_fraction": -0.004555829761434193,
+          "absolute_error_minus_training_mean_fraction": -0.004702151927041164
+        },
+        "inverse_distance_squared": {
+          "site_macro_absolute_error_fraction": 0.010122799313683987,
+          "site_macro_bias_fraction": 0.0015749539386595859,
+          "absolute_error_minus_training_mean_fraction": -0.00019776205500549905
+        }
+      }
+    },
+    {
+      "taxon": "Fraxinus",
+      "scored_sites": 17,
+      "methods": {
+        "training_mean": {
+          "site_macro_absolute_error_fraction": 0.003312812092846915,
+          "site_macro_bias_fraction": 0.0005840613085816509,
+          "absolute_error_minus_training_mean_fraction": 0.0
+        },
+        "nearest_site": {
+          "site_macro_absolute_error_fraction": 0.003413689225907797,
+          "site_macro_bias_fraction": -0.0006177291822528729,
+          "absolute_error_minus_training_mean_fraction": 0.00010087713306088184
+        },
+        "inverse_distance_squared": {
+          "site_macro_absolute_error_fraction": 0.003291929065359548,
+          "site_macro_bias_fraction": 0.0005090149201590808,
+          "absolute_error_minus_training_mean_fraction": -2.088302748736717e-05
+        }
+      }
+    },
+    {
+      "taxon": "Juniperus",
+      "scored_sites": 17,
+      "methods": {
+        "training_mean": {
+          "site_macro_absolute_error_fraction": 0.00022732499140579328,
+          "site_macro_bias_fraction": -7.327412008579266e-05,
+          "absolute_error_minus_training_mean_fraction": 0.0
+        },
+        "nearest_site": {
+          "site_macro_absolute_error_fraction": 0.00016270757466945612,
+          "site_macro_bias_fraction": -0.00016270757466945612,
+          "absolute_error_minus_training_mean_fraction": -6.461741673633717e-05
+        },
+        "inverse_distance_squared": {
+          "site_macro_absolute_error_fraction": 0.0002287084732397351,
+          "site_macro_bias_fraction": -7.170019295101267e-05,
+          "absolute_error_minus_training_mean_fraction": 1.3834818339418151e-06
+        }
+      }
+    },
+    {
+      "taxon": "Phillyrea",
+      "scored_sites": 17,
+      "methods": {
+        "training_mean": {
+          "site_macro_absolute_error_fraction": 0.0,
+          "site_macro_bias_fraction": 0.0,
+          "absolute_error_minus_training_mean_fraction": 0.0
+        },
+        "nearest_site": {
+          "site_macro_absolute_error_fraction": 0.0,
+          "site_macro_bias_fraction": 0.0,
+          "absolute_error_minus_training_mean_fraction": 0.0
+        },
+        "inverse_distance_squared": {
+          "site_macro_absolute_error_fraction": 0.0,
+          "site_macro_bias_fraction": 0.0,
+          "absolute_error_minus_training_mean_fraction": 0.0
+        }
+      }
+    },
+    {
+      "taxon": "Picea",
+      "scored_sites": 17,
+      "methods": {
+        "training_mean": {
+          "site_macro_absolute_error_fraction": 1.607149865197151e-05,
+          "site_macro_bias_fraction": -1.607149865197151e-05,
+          "absolute_error_minus_training_mean_fraction": 0.0
+        },
+        "nearest_site": {
+          "site_macro_absolute_error_fraction": 1.607149865197151e-05,
+          "site_macro_bias_fraction": -1.607149865197151e-05,
+          "absolute_error_minus_training_mean_fraction": 0.0
+        },
+        "inverse_distance_squared": {
+          "site_macro_absolute_error_fraction": 1.607149865197151e-05,
+          "site_macro_bias_fraction": -1.607149865197151e-05,
+          "absolute_error_minus_training_mean_fraction": 0.0
+        }
+      }
+    },
+    {
+      "taxon": "Pinus",
+      "scored_sites": 17,
+      "methods": {
+        "training_mean": {
+          "site_macro_absolute_error_fraction": 0.0074302877006143,
+          "site_macro_bias_fraction": -0.0035670818500936684,
+          "absolute_error_minus_training_mean_fraction": 0.0
+        },
+        "nearest_site": {
+          "site_macro_absolute_error_fraction": 0.007266986809995315,
+          "site_macro_bias_fraction": -0.003158805162660936,
+          "absolute_error_minus_training_mean_fraction": -0.00016330089061898471
+        },
+        "inverse_distance_squared": {
+          "site_macro_absolute_error_fraction": 0.007417970137099507,
+          "site_macro_bias_fraction": -0.0034888471757143326,
+          "absolute_error_minus_training_mean_fraction": -1.2317563514792525e-05
+        }
+      }
+    },
+    {
+      "taxon": "Pistacia",
+      "scored_sites": 17,
+      "methods": {
+        "training_mean": {
+          "site_macro_absolute_error_fraction": 0.0,
+          "site_macro_bias_fraction": 0.0,
+          "absolute_error_minus_training_mean_fraction": 0.0
+        },
+        "nearest_site": {
+          "site_macro_absolute_error_fraction": 0.0,
+          "site_macro_bias_fraction": 0.0,
+          "absolute_error_minus_training_mean_fraction": 0.0
+        },
+        "inverse_distance_squared": {
+          "site_macro_absolute_error_fraction": 0.0,
+          "site_macro_bias_fraction": 0.0,
+          "absolute_error_minus_training_mean_fraction": 0.0
+        }
+      }
+    },
+    {
+      "taxon": "Plantago lanceolata type",
+      "scored_sites": 17,
+      "methods": {
+        "training_mean": {
+          "site_macro_absolute_error_fraction": 0.011844508392679602,
+          "site_macro_bias_fraction": 0.00508842503351761,
+          "absolute_error_minus_training_mean_fraction": 0.0
+        },
+        "nearest_site": {
+          "site_macro_absolute_error_fraction": 0.013789252669715346,
+          "site_macro_bias_fraction": 0.005358797194170559,
+          "absolute_error_minus_training_mean_fraction": 0.0019447442770357433
+        },
+        "inverse_distance_squared": {
+          "site_macro_absolute_error_fraction": 0.0119012213403451,
+          "site_macro_bias_fraction": 0.005118780782289101,
+          "absolute_error_minus_training_mean_fraction": 5.671294766549685e-05
+        }
+      }
+    },
+    {
+      "taxon": "Poaceae",
+      "scored_sites": 17,
+      "methods": {
+        "training_mean": {
+          "site_macro_absolute_error_fraction": 0.1866854561921541,
+          "site_macro_bias_fraction": 0.025388359720447472,
+          "absolute_error_minus_training_mean_fraction": 0.0
+        },
+        "nearest_site": {
+          "site_macro_absolute_error_fraction": 0.19065469001718216,
+          "site_macro_bias_fraction": 0.04514807270147077,
+          "absolute_error_minus_training_mean_fraction": 0.003969233825028062
+        },
+        "inverse_distance_squared": {
+          "site_macro_absolute_error_fraction": 0.18683776155398882,
+          "site_macro_bias_fraction": 0.026459744834689165,
+          "absolute_error_minus_training_mean_fraction": 0.00015230536183472032
+        }
+      }
+    },
+    {
+      "taxon": "Quercus deciduous",
+      "scored_sites": 17,
+      "methods": {
+        "training_mean": {
+          "site_macro_absolute_error_fraction": 0.03781152128710637,
+          "site_macro_bias_fraction": 0.0037629424262445054,
+          "absolute_error_minus_training_mean_fraction": 0.0
+        },
+        "nearest_site": {
+          "site_macro_absolute_error_fraction": 0.057888430208082285,
+          "site_macro_bias_fraction": 0.018531265774600146,
+          "absolute_error_minus_training_mean_fraction": 0.020076908920975918
+        },
+        "inverse_distance_squared": {
+          "site_macro_absolute_error_fraction": 0.038926912039058036,
+          "site_macro_bias_fraction": 0.004942961357028084,
+          "absolute_error_minus_training_mean_fraction": 0.0011153907519516684
+        }
+      }
+    },
+    {
+      "taxon": "Quercus evergreen",
+      "scored_sites": 17,
+      "methods": {
+        "training_mean": {
+          "site_macro_absolute_error_fraction": 0.0,
+          "site_macro_bias_fraction": 0.0,
+          "absolute_error_minus_training_mean_fraction": 0.0
+        },
+        "nearest_site": {
+          "site_macro_absolute_error_fraction": 0.0,
+          "site_macro_bias_fraction": 0.0,
+          "absolute_error_minus_training_mean_fraction": 0.0
+        },
+        "inverse_distance_squared": {
+          "site_macro_absolute_error_fraction": 0.0,
+          "site_macro_bias_fraction": 0.0,
+          "absolute_error_minus_training_mean_fraction": 0.0
+        }
+      }
+    },
+    {
+      "taxon": "Rumex acetosa-t",
+      "scored_sites": 17,
+      "methods": {
+        "training_mean": {
+          "site_macro_absolute_error_fraction": 0.007141037527930042,
+          "site_macro_bias_fraction": 0.0005026775433345591,
+          "absolute_error_minus_training_mean_fraction": 0.0
+        },
+        "nearest_site": {
+          "site_macro_absolute_error_fraction": 0.0051570943322619385,
+          "site_macro_bias_fraction": -0.0028758946776403496,
+          "absolute_error_minus_training_mean_fraction": -0.0019839431956681034
+        },
+        "inverse_distance_squared": {
+          "site_macro_absolute_error_fraction": 0.007082371244060728,
+          "site_macro_bias_fraction": 0.00043438875023370547,
+          "absolute_error_minus_training_mean_fraction": -5.866628386931409e-05
+        }
+      }
+    },
+    {
+      "taxon": "Salix",
+      "scored_sites": 17,
+      "methods": {
+        "training_mean": {
+          "site_macro_absolute_error_fraction": 0.017099712244264348,
+          "site_macro_bias_fraction": 0.005837933313121677,
+          "absolute_error_minus_training_mean_fraction": 0.0
+        },
+        "nearest_site": {
+          "site_macro_absolute_error_fraction": 0.012451968682731141,
+          "site_macro_bias_fraction": -0.00028843320911650606,
+          "absolute_error_minus_training_mean_fraction": -0.004647743561533206
+        },
+        "inverse_distance_squared": {
+          "site_macro_absolute_error_fraction": 0.01713400689090526,
+          "site_macro_bias_fraction": 0.005843111037112282,
+          "absolute_error_minus_training_mean_fraction": 3.429464664091164e-05
+        }
+      }
+    },
+    {
+      "taxon": "Secale",
+      "scored_sites": 17,
+      "methods": {
+        "training_mean": {
+          "site_macro_absolute_error_fraction": 0.0015758012796007303,
+          "site_macro_bias_fraction": -0.001213209507069602,
+          "absolute_error_minus_training_mean_fraction": 0.0
+        },
+        "nearest_site": {
+          "site_macro_absolute_error_fraction": 0.0015007009430099665,
+          "site_macro_bias_fraction": -0.0009452353522157457,
+          "absolute_error_minus_training_mean_fraction": -7.510033659076376e-05
+        },
+        "inverse_distance_squared": {
+          "site_macro_absolute_error_fraction": 0.0015725440907542472,
+          "site_macro_bias_fraction": -0.0012029510763651578,
+          "absolute_error_minus_training_mean_fraction": -3.2571888464831555e-06
+        }
+      }
+    },
+    {
+      "taxon": "Tilia",
+      "scored_sites": 17,
+      "methods": {
+        "training_mean": {
+          "site_macro_absolute_error_fraction": 0.0008049209083411421,
+          "site_macro_bias_fraction": -0.00012766502809363826,
+          "absolute_error_minus_training_mean_fraction": 0.0
+        },
+        "nearest_site": {
+          "site_macro_absolute_error_fraction": 0.0010155256362191277,
+          "site_macro_bias_fraction": -0.00016030673498753574,
+          "absolute_error_minus_training_mean_fraction": 0.00021060472787798562
+        },
+        "inverse_distance_squared": {
+          "site_macro_absolute_error_fraction": 0.000812953770308794,
+          "site_macro_bias_fraction": -0.00013312612512301081,
+          "absolute_error_minus_training_mean_fraction": 8.032861967651925e-06
+        }
+      }
+    },
+    {
+      "taxon": "Ulmus",
+      "scored_sites": 17,
+      "methods": {
+        "training_mean": {
+          "site_macro_absolute_error_fraction": 0.002957214011312706,
+          "site_macro_bias_fraction": 0.0010607420780640673,
+          "absolute_error_minus_training_mean_fraction": 0.0
+        },
+        "nearest_site": {
+          "site_macro_absolute_error_fraction": 0.003606173956619961,
+          "site_macro_bias_fraction": 0.0018158813503881216,
+          "absolute_error_minus_training_mean_fraction": 0.000648959945307255
+        },
+        "inverse_distance_squared": {
+          "site_macro_absolute_error_fraction": 0.002955022518478115,
+          "site_macro_bias_fraction": 0.0010715200119295663,
+          "absolute_error_minus_training_mean_fraction": -2.191492834591191e-06
+        }
+      }
+    }
+  ],
+  "measured_vegetation_accuracy": "not_evaluated",
+  "swedish_lra_cohort": "not_evaluated"
+}

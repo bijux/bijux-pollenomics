@@ -3,9 +3,9 @@
   "row_count": 40,
   "summary": {
     "complete_projects": 6,
-    "blocked_projects": 24,
+    "blocked_projects": 23,
     "in_progress_projects": 0,
-    "ready_for_publication_review": 10
+    "ready_for_publication_review": 11
   },
   "stage_totals": {
     "project_admission": {
@@ -33,26 +33,26 @@
       "not_required": 6
     },
     "site_recovery": {
-      "complete": 14,
+      "complete": 15,
       "blocked": 12,
-      "in_progress": 8,
+      "in_progress": 7,
       "not_required": 6
     },
     "chronology_recovery": {
-      "complete": 10,
+      "complete": 11,
       "blocked": 12,
-      "in_progress": 12,
+      "in_progress": 11,
       "not_required": 6
     },
     "coordinate_derivation": {
       "complete": 8,
-      "blocked": 17,
-      "in_progress": 9,
+      "blocked": 16,
+      "in_progress": 10,
       "not_required": 6
     },
     "publication_readiness": {
-      "complete": 10,
-      "blocked": 24,
+      "complete": 11,
+      "blocked": 23,
       "in_progress": 0,
       "not_required": 6
     }
@@ -2782,12 +2782,12 @@
       "sample_table_extraction_status": "project_sample_master_published",
       "paper_download_status": "archived",
       "supplement_download_status": "missing",
-      "lacking_defensible_site_assignment_count": 1,
+      "lacking_defensible_site_assignment_count": 0,
       "named_place_inferred_count": 0,
       "sample_group_site_count": 0,
-      "missing_chronology_count": 1,
+      "missing_chronology_count": 0,
       "chronology_conflict_count": 0,
-      "chronology_ambiguity_count": 1,
+      "chronology_ambiguity_count": 0,
       "material_evidence_expected_count": 0,
       "material_evidence_conflict_count": 0,
       "mappable_coordinate_count": 0,
@@ -2795,10 +2795,7 @@
       "publication_blocked_by_locality_substitution": false,
       "expected_contributions": [
         "sample_identities",
-        "taxonomic_context",
-        "site_evidence",
-        "coordinate_candidates",
-        "sample_chronology"
+        "taxonomic_context"
       ],
       "expected_contribution_surfaces": [
         "data/adna/governance/source_library/projects/PRJEB60484/archive_metadata.html",
@@ -2809,26 +2806,24 @@
         "paper_capture": "complete",
         "supplement_capture": "not_required",
         "sample_identity_recovery": "complete",
-        "site_recovery": "in_progress",
-        "chronology_recovery": "in_progress",
-        "coordinate_derivation": "blocked",
-        "publication_readiness": "blocked"
+        "site_recovery": "complete",
+        "chronology_recovery": "complete",
+        "coordinate_derivation": "in_progress",
+        "publication_readiness": "complete"
       },
-      "blocking_stages": [
-        "coordinate_derivation",
-        "publication_readiness"
-      ],
-      "next_required_stage": "site_recovery",
-      "publication_readiness_status": "blocked",
-      "overall_recovery_status": "blocked_projects",
-      "completed_stage_count": 3,
+      "blocking_stages": [],
+      "next_required_stage": "coordinate_derivation",
+      "publication_readiness_status": "complete",
+      "overall_recovery_status": "ready_for_publication_review",
+      "completed_stage_count": 6,
       "required_stage_count": 7,
-      "recovery_depth_score": 0.4286,
+      "recovery_depth_score": 0.8571,
       "recovery_gap_status": "minimum_expected_floor_met",
       "implausibly_low_recovery": false,
       "implausibly_low_recovery_reason": "",
       "known_assets": [
         "adna/governance/source_library/papers/10.1111-mec.17274/article.pdf",
+        "adna/governance/source_library/papers/10.1111-mec.17274/supplementary/author-preprint-table-s3.xlsx",
         "adna/governance/source_library/papers/10.1111-mec.17274/author_preprint.pdf",
         "adna/governance/source_library/papers/10.1111-mec.17274/crossref.json",
         "adna/governance/source_library/projects/PRJEB60484/ena_samples/SAMEA112757323.xml",
@@ -2877,13 +2872,8 @@
         "data/adna/governance/source_library/projects/PRJEB60484/sample_chronology.json",
         "data/adna/governance/source_library/projects/PRJEB60484/sample_locality_evidence.json"
       ],
-      "missing_assets": [
-        "Some recovered sample rows still lack a defensible site assignment.",
-        "Some recovered sample rows still lack sample-level chronology."
-      ],
+      "missing_assets": [],
       "major_deficit_reasons": [
-        "site_assignment_gap",
-        "chronology_gap",
         "coordinate_precision_gap"
       ]
     },

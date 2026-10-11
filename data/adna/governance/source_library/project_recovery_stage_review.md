@@ -1,8 +1,8 @@
 # Project recovery stage review
 
 - Tracked projects: `40`
-- Ready for publication review: `10`
-- Blocked projects: `24`
+- Ready for publication review: `11`
+- Blocked projects: `23`
 
 | Project | Species | Recovery status | Next required stage | Blocking stages |
 | --- | --- | --- | --- | --- |
@@ -39,7 +39,7 @@
 | `PRJEB69690` | `Ovis aries` | `blocked_projects` | `paper_capture` | `paper_capture; site_recovery; chronology_recovery; coordinate_derivation; publication_readiness` |
 | `PRJEB81145` | `Ovis aries` | `blocked_projects` | `paper_capture` | `paper_capture; site_recovery; chronology_recovery; coordinate_derivation; publication_readiness` |
 | `PRJEB57293` | `Rangifer tarandus` | `complete_projects` | `none` | `none` |
-| `PRJEB60484` | `Rangifer tarandus` | `blocked_projects` | `site_recovery` | `coordinate_derivation; publication_readiness` |
+| `PRJEB60484` | `Rangifer tarandus` | `ready_for_publication_review` | `coordinate_derivation` | `none` |
 | `PRJEB61721` | `Rangifer tarandus` | `complete_projects` | `none` | `none` |
 | `PRJNA634908` | `Rangifer tarandus` | `complete_projects` | `none` | `none` |
 | `PRJEB30282` | `Sus scrofa domesticus` | `blocked_projects` | `site_recovery` | `publication_readiness` |

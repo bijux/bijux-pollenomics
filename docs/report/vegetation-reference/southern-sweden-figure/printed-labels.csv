@@ -1,0 +1,10 @@
+region,taxon,pollen_percent,reveals_percent,observed_vegetation_percent,pollen_absolute_error_pp,reveals_absolute_error_pp
+Skåne,Picea,3,7,13,10,6
+Skåne,Pinus,13,3,3,10,0
+Skåne,Betula,16,2,3,13,1
+Skåne,Poaceae,15,24,19,4,5
+Skåne,Cerealia-t,4,32,41,37,9
+Småland,Picea,16,54,44,28,10
+Småland,Pinus,42,13,19,23,6
+Småland,Betula,24,4,6,18,2
+Småland,Poaceae,5,11,18,13,7

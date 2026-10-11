@@ -238,6 +238,7 @@
       }
     }
   ],
+  "intake_contract_sha256": "ed8e2252c1f08dee0c3a90e84392c7d468fdb9bd750700b27ead56769a123795",
   "private_custody_manifest_sha256": "5224fafb5854450d1f02163d8ad0b9c32479ad80576d3565a230873c24643220",
   "receipt_count": 3,
   "schema_version": "source-intake-custody-review.v1",

@@ -81,7 +81,7 @@
         "published_atlas_points": 170,
         "tracked_samples": 1470,
         "mapped_samples": 331,
-        "unresolved_samples": 379,
+        "unresolved_samples": 378,
         "mappable_coordinate_provenance": 304,
         "refused_coordinate_provenance": 4
       },

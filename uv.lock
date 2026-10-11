@@ -235,6 +235,7 @@ name = "bijux-pollenomics-dev"
 source = { editable = "packages/bijux-pollenomics-dev" }
 dependencies = [
     { name = "bijux-pollenomics" },
+    { name = "jsonschema" },
     { name = "pytest" },
     { name = "pyyaml" },
 ]
@@ -258,6 +259,7 @@ dev = [
     { name = "radon" },
     { name = "ruff" },
     { name = "twine" },
+    { name = "types-jsonschema" },
     { name = "types-pyyaml" },
     { name = "vulture" },
 ]
@@ -272,6 +274,7 @@ requires-dist = [
     { name = "deptry", marker = "extra == 'dev'", specifier = ">=0.24.0,<1.0" },
     { name = "hatch", marker = "extra == 'dev'", specifier = ">=1.14.0,<2.0" },
     { name = "interrogate", marker = "extra == 'dev'", specifier = ">=1.7.0,<2.0" },
+    { name = "jsonschema", specifier = ">=4.24,<5" },
     { name = "mypy", marker = "extra == 'dev'", specifier = ">=1.18.2,<3.0" },
     { name = "pip-audit", marker = "extra == 'dev'", specifier = ">=2.9.0,<3.0" },
     { name = "pydantic", marker = "extra == 'dev'", specifier = ">=2.12,<3.0" },
@@ -284,6 +287,7 @@ requires-dist = [
     { name = "radon", marker = "extra == 'dev'", specifier = ">=6.0.1,<7.0" },
     { name = "ruff", marker = "extra == 'dev'", specifier = ">=0.13.0,<1.0" },
     { name = "twine", marker = "extra == 'dev'", specifier = ">=6.2.0,<8.0" },
+    { name = "types-jsonschema", marker = "extra == 'dev'", specifier = ">=4.24,<5" },
     { name = "types-pyyaml", marker = "extra == 'dev'", specifier = ">=6.0.12,<7.0" },
     { name = "vulture", marker = "extra == 'dev'", specifier = ">=2.14,<3.0" },
 ]
