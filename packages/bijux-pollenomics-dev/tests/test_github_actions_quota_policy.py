@@ -16,7 +16,8 @@ from bijux_pollenomics.reporting.bundles.report_partitions import (
 
 REPO_ROOT = Path(__file__).resolve().parents[3]
 DEPENDABOT_SKIP = "github.event.pull_request.user.login != 'dependabot[bot]'"
-DEPENDABOT_GOVERNANCE_WORKFLOWS = {
+DEPENDABOT_REQUIRED_WORKFLOWS = {
+    "verify.yml",
     "automerge-pr.yml",
     "github-policy.yml",
     "pr-approval-policy.yml",
@@ -168,9 +169,35 @@ def required_status_check_names() -> set[str]:
     }
 
 
-def test_dependabot_pull_requests_do_not_allocate_workflow_runners() -> None:
+def standard_owned_job_is_unreachable(
+    job_name: str, jobs: dict[str, object], visited: frozenset[str] = frozenset()
+) -> bool:
+    """Prove that an ordinary dependent job cannot run in this consumer."""
+    assert job_name not in visited, "workflow job dependencies must be acyclic"
+    job = jobs[job_name]
+    assert isinstance(job, dict)
+    condition = job.get("if", "")
+    if condition in {
+        "${{ github.repository == 'bijux/bijux-std' }}",
+        "${{ always() && github.repository == 'bijux/bijux-std' }}",
+    }:
+        return True
+    assert isinstance(condition, str)
+    if "always()" in condition:
+        return False
+    needs = job.get("needs", [])
+    if isinstance(needs, str):
+        needs = [needs]
+    assert isinstance(needs, list)
+    return any(
+        standard_owned_job_is_unreachable(name, jobs, visited | {job_name})
+        for name in needs
+    )
+
+
+def test_optional_pull_request_jobs_preserve_dependency_runner_policy() -> None:
     for path, document in workflow_documents():
-        if path.name in DEPENDABOT_GOVERNANCE_WORKFLOWS:
+        if path.name in DEPENDABOT_REQUIRED_WORKFLOWS:
             continue
         events = document.get("on")
         assert isinstance(events, dict), f"{path.name} must define workflow events"
@@ -185,6 +212,10 @@ def test_dependabot_pull_requests_do_not_allocate_workflow_runners() -> None:
             )
             condition = job.get("if", "")
             assert isinstance(condition, str)
+            if path.name == "bijux-std.yml" and standard_owned_job_is_unreachable(
+                job_name, jobs
+            ):
+                continue
             assert DEPENDABOT_SKIP in condition, (
                 f"{path.name} job {job_name} must skip Dependabot PRs "
                 "before allocating a runner"
@@ -211,3 +242,13 @@ def test_required_status_check_documentation_matches_ruleset() -> None:
     )
 
     assert documented == required_status_check_names()
+
+
+def test_required_package_admission_runs_for_dependency_pull_requests() -> None:
+    workflow = dict(workflow_documents())[REPO_ROOT / ".github/workflows/verify.yml"]
+    jobs = workflow["jobs"]
+    assert isinstance(jobs, dict)
+    assert set(jobs) == {"repository", "package", "verification_ready"}
+    for job in jobs.values():
+        assert isinstance(job, dict)
+        assert "dependabot[bot]" not in str(job.get("if", ""))
