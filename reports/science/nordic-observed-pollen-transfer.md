@@ -42,28 +42,32 @@ independent confirmation or measured vegetation accuracy. Our response is
 observed pollen composition; we used no PPE, basin geometry, HYDE or LRA
 output in this calculation.
 
-To replay our result, first regenerate the exact source profiles in the
-[development search](nordic-observed-pollen-selection.md). Use absent
-destinations under `artifacts/` and run prediction and scoring separately:
+To replay these retained results, use the authenticated historical
+[development preparation](../../data/neotoma/pollen-development/custody.json)
+and [transfer metadata](../../data/neotoma/selected-pollen-transfer/custody.json).
+The replay stages their original publication manifest, training profiles,
+target metadata, fixed scores and Neotoma observations under `artifacts/`.
+It runs the current producer's prediction command first, pins the newly
+written freeze, and then opens target observations in its separate score
+command. The three prediction files and paired score ledger must match the
+historical bytes. The current freeze records the current producer hash,
+and the current report records that freeze's hash; all other values must
+match the historical receipts.
 
-The checked-in freeze belongs to product revision
-`6cf0e1134193174f214cd280a96e60b08fadf22f`. Run that revision to verify
-its exact input and producer hashes. A later source-row validation changed only
-the direct-pollen manifest's runner identity; current-tree commands create a
-new lineage and must not overwrite the historical freeze.
+The original [freeze](../../data/neotoma/selected-pollen-transfer/historical-freeze.json)
+and [score report](../../data/neotoma/selected-pollen-transfer/historical-report.json)
+remain separate historical receipts. Their publication and prepared-input
+hashes identify the saved development study. Regenerating preparation from
+the present direct-pollen manifest creates a different lineage.
+
+Use an absent destination beneath the repository's `artifacts/` directory:
 
 ```sh
+repository=$(pwd -P)
 PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -m \
-  bijux_pollenomics_dev.source_completion.nordic_pollen_transfer predict \
-  --repository . --inputs artifacts/jobs/nordic-development-inputs \
-  --output artifacts/jobs/nordic-selected-pollen-freeze-replay
-freeze_sha=$(shasum -a 256 artifacts/jobs/nordic-selected-pollen-freeze-replay/freeze.json | cut -d ' ' -f 1)
-PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -m \
-  bijux_pollenomics_dev.source_completion.nordic_pollen_transfer score \
-  --repository . --inputs artifacts/jobs/nordic-development-inputs \
-  --frozen artifacts/jobs/nordic-selected-pollen-freeze-replay \
-  --freeze-sha256 "$freeze_sha" \
-  --output artifacts/jobs/nordic-selected-pollen-score-replay
+  bijux_pollenomics_dev.source_completion.nordic.nordic_selected_transfer_replay \
+  --repository "$repository" \
+  --output "$repository/artifacts/jobs/nordic-selected-pollen-replay"
 ```
 
 We verify the supplied freeze digest, producer, selection, published

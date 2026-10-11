@@ -44,8 +44,8 @@ identities. The [scientific verifier](../../docs/report/pollen-reconstruction/ve
 checks its governed results. A complete report-tree rebuild is a separate
 acceptance decision.
 
-The current tracked report tree contains 1,938 files. Its navigation registry
-indexes 1,934 surfaces and deliberately excludes its four registry/review
+The current tracked report tree contains 1,948 files. Its navigation registry
+indexes 1,944 surfaces and deliberately excludes its four registry/review
 metadata files. Each indexed Markdown surface and its layout row carries the exact content
 hash used by that consumer. Machine-readable products keep their domain
 manifest identities, avoiding recursive hashes through the scientific
@@ -62,23 +62,27 @@ or qualified scientific review.
 
 The [output ownership inventory](../../configs/ci/report-ownership.json)
 assigns every tracked report path exactly one declaration. Its population is
-1,938 paths: 709 declared publisher paths, 125 original-R retained source
-files, 35 generated domain outputs, 62 maintained source files, 25
-maintained reader accounts and 982 paths with unresolved output custody.
+1,948 paths: 709 declared publisher paths, 125 original-R retained source
+files, 246 generated domain outputs, 62 maintained source files, 176
+maintained reader accounts and 630 paths with unresolved output custody.
 These role counts describe the current declarations. They do not measure
 how many outputs have been independently reproduced.
 
 The generated category includes 11 SEAD numeric products from six named
-source consumers, the two LandClim modeled-panel files and four contained-age
+source consumers, one additional [boolean lineage account](../../docs/report/source-relations/sead/analysis-boolean-values/README.md),
+one [categorical lineage account](../../docs/report/source-relations/sead/analysis-categorical-values/README.md),
+two source-bound ABBO conditional-membership products, two compact English
+shared-PPE sensitivity products, the two LandClim modeled-panel files and four contained-age
 files for each of two direct-pollen studies. The SEAD declarations name their
 actual raw/normalized and secondary report inputs, including source parts and
 retrieval receipts. Their reader accounts have separate editorial owners.
 Declaring the input closure does not rerun the source studies, authenticate
 new source permissions or qualify ecological events.
 
-Nine declared Danish chronology/freeze products have repository-bound input
-closures. Seven other Danish numeric products remain unresolved because their
-producer routes need exact external author taxonomy, LegacyAge tables,
+Nine declared Danish chronology/freeze products have repository-contained input
+closures. Three further Solsø chronology products use the qualified external
+LegacyAge contract described below. Four other Danish numeric products remain
+unresolved because their producer routes need exact external author taxonomy,
 Odgaard source paper or the published EPD age table. A digest in a retained
 report does not establish possession or permitted use of those source bytes.
 The older pollen-coverage replay differs from the current governed report,
@@ -86,10 +90,24 @@ so it cannot serve as a current matching-output receipt. These declarations
 keep source custody separate from a completed replay and from Solsø LRA
 admission.
 
+The compact English shared-PPE owner authenticates the full original author
+snapshot through its explicit descriptor and rebuilds private request evidence
+transiently. Its conservative closure binds 1,162 semantic/bootstrap code paths,
+seven repository metadata/descriptor inputs and 194 external source files.
+The broad code closure reflects eager package imports; source identity checks
+cover that initialization even when particular functions do not use every
+imported domain. This declaration requires a real producer replay and does
+not make the source-use or scientific admission decision.
+
+
 Three propagation outputs declare their exact repository input closure.
 The derived edge ledger consumes retained compact event and classification
-evidence; those original source bundles remain unresolved. The classification
-manifest names nine payloads while only three are retained locally. The
+evidence; those original source bundles remain unresolved. The historical
+classification compact manifest names nine payloads while only three remain in
+that original compact bundle. A separate current producer consumer has
+created all nine classification and seven propagation payloads, with their
+two manifests and zero scientific admissions. That consumer checks the
+original relational readset at each publication boundary. The
 source-first screen and derived ledger preserve zero admitted events and
 zero evaluated pairs. Their empty country bins establish neither ecological
 routes nor event absence. Both reader accounts are maintained separately.
@@ -103,6 +121,153 @@ capture inputs. The lake-parameter verifier reads its expected capture digest
 from the retained report, so that verification route remains unresolved; it
 cannot independently certify basin input or LRA admission.
 
+Five human/animal source-scope and Swedish lineage/trajectory outputs name
+their local source closures, with ten authored reader accounts kept separate.
+Four sample-review and land-use comparison outputs remain unresolved because
+their transitive source or prior Git-object/time-control inputs are not closed.
+Source linkage, modeled-site overlap and descriptive pollen transitions do
+not establish cross-source comparability or independent vegetation accuracy.
+
+The LandClim map-export lineage ledger declares all 171 atlas-node shards
+read by its selector and its eight other source/map inputs. Its two outputs
+check static modeled transport. Six reader accounts are editorial; eight
+author-reference, chronology and browser-capture products still require
+private source custody or a governed capture certificate. These declarations
+do not reopen completed studies or certify historical production inputs.
+
+The atlas declarations separate 17 authored accounts from 88 browser,
+candidate and native-reference files. Frozen candidate input maps differ
+from current source/producer bytes, and screenshots, downloads and browser
+receipts need executed capture custody. They remain unresolved; declaration
+checks do not recertify historical browser observations on the current
+candidate or turn a retained synthetic reference into a fresh output.
+
+The native-variable reconciliation and literal parameter-name count screen
+declare three machine outputs with their raw/relational or six retained
+count-study inputs. Three source/count accounts are maintained editorially.
+Literal name equality remains a taxonomic lead; closed count arithmetic
+does not qualify a pollen denominator, PPE profile, basin or LRA input.
+
+Five constructed validation reports declare their inline fixtures, domain
+producers and locked source environment. Their six reader guides have an
+editorial owner. The byte-comparison routes exercise change-time,
+propagation, reconstruction, site leakage and spatial eligibility contracts;
+synthetic agreement does not establish empirical accuracy or source
+admission. Their declarations do not replace actual producer replay.
+
+The Neotoma parameter-name lead and its comparison with the retained author
+parameter report declare their two local report consumers. Five author and
+parameter explanations have an editorial owner. The lookup, mean/covariance
+and author R-script bundle inputs remain external custody requirements for
+three author-derived families; their four numeric outputs remain unresolved.
+Mechanical comparison with a retained author report does not authenticate
+that upstream source or qualify taxonomic and PPE application.
+
+Seven HYDE and vegetation reference accounts have editorial owners. The
+9 modeled-grid, provider-capture and EMPD2–NFI
+result files retain external input or capture custody requirements. The two
+Namibia publisher-row join outputs use the source contract described below.
+Their receipt and primary headers are distinct from model evaluation. The EMPD2–NFI pairing ledger
+retains 16 leads and zero admitted measured pairs; it is not an accuracy
+score. HYDE provider metadata does not resolve conflicting package terms.
+
+The two constructed covariance and joint-draw producers declare four
+machine outputs and their inline or upstream fixture inputs. Six method
+reader accounts have editorial owners. Eight author-site comparison, paired
+R and installed-batch receipt files still need exact private-source or runtime
+custody. A fresh execution measurement cannot reconstruct the historical
+wall-time and memory receipt; its installed-wheel scope remains distinct
+from deterministic numerical output reproduction.
+
+Three Neotoma core/site identity consumers declare seven mechanically
+generated report files. Their source manifests and selected count-mass
+extracts remain separately unresolved; the consumers do not generate those
+inputs. Fourteen source accounts have editorial owners. External PANGAEA,
+Rootsi workbook, LegacyAge and original lakeparameter/site capture inputs
+remain explicit requirements for the other source products. The LRA
+projection retains zero accepted samples and no executable request.
+
+The LOVE paper/source parameter comparison declares its four local inputs
+and deterministic JSON producer; its article-table transcription still needs
+independent publisher/source custody. Fourteen other method/performance
+accounts are editorial. The current/Linux R outputs, author/R comparisons,
+case declarations and historical timing products retain unresolved source
+and runtime custody. Existing successful numerical receipts remain scoped
+to their recorded sources and platforms; this declaration does not request
+new unchanged R runs or remeasure historical timings.
+
+The Rootsi metadata overlap, SEAD country retrieval and source-capability
+ledger declare six local products. The capability consumer binds its two
+governing matrices and all 74 present evidence files; its 30 expected missing
+paths stay absent facts rather than observed zeros. Seven source explanations
+are editorial. Original OpenLand/DOI captures, the full private-intake audit
+and the SVAR export inputs retain separate custody requirements. Source
+accounting and a metadata join do not establish scientific admission.
+
+The Nordic source/country cube and Neotoma study-entity consumer declare
+their governing ledgers, including all 20 country parent artifacts and six
+entity/study inputs. Three source/entity explanations are editorial. The
+Neotoma publication and DOI comparison outputs still require their original
+private HTTP captures; current mutable API responses would not reproduce
+the retained capture identity. Entity inclusion and source citation posture
+remain distinct from LRA and measured-vegetation admission.
+
+The Nordic observed-pollen declarations keep preparation, count-blind
+prediction, scoring and age-bound screens with distinct input closures.
+Their reader accounts are maintained separately. Historical timestamps,
+authored protocols and private author taxonomy lookups still require source
+custody. The 16-label direct-pollen response and 31-target author subcomposition
+remain distinct; these prior-exposed development comparisons do not establish
+LRA reconstruction or independent measured vegetation validation.
+
+The Nordic development and selected-transfer routes preserve authenticated
+historical publication, training and target-metadata packets under
+`data/neotoma/`. The transfer route writes a current-source prediction freeze
+before scoring, verifies its three prediction files and paired score ledger
+against the historical bytes, and retains the original freeze and report as
+separate receipts. Only the current producer identity and resulting freeze
+identity differ. Reproducing those products resolves their execution custody;
+it does not make the development-selected predictors independently confirmed.
+
+The Neotoma acquisition selector, full sample screen, bounded candidate
+series, concept priority, dataset attribution and relational summary declare
+six mechanical outputs. Their raw/normalized source roots and scoped concept
+review remain explicit inputs. Four explanations are editorial. The compact
+sample-screen summary has a separate exporter that preserves the parent values,
+checks candidate/sample population identity and refuses scientific admission.
+Source transport, necessary count/age leads and dataset DOI attribution do not approve
+chronology, taxa, pollen denominator, basin geometry, PPE or LRA admission.
+
+The LandClim publication declarations distinguish five metadata inventory
+products and three descriptive one-SE envelope products from ten authored
+accounts. Twenty-five historical/private files remain unresolved, including
+original R captures, author crosswalks, window inputs and verification-only
+manifests. The 1,128-row metadata population and 124 matched TW2 values do not
+establish the original full study input chain or independent vegetation accuracy.
+
+The SEAD native age, record-interval, public custody and relational consumers
+declare seven products and their full validator read sets, including all 128
+raw acquisition members and 54 normalized evidence members where consumed.
+Four explanations are editorial. The two map-audit products still depend on
+historical browser and candidate-generation receipts. Native AD conversion,
+record intervals, 86 complete joins and 61 retained tables remain source/display
+accounting; acquisition release and scientific event/LRA admission stay refused.
+
+The pollen reconstruction declarations separate eleven local preparation,
+paired-comparison and native-sequence files from twelve authored accounts.
+The remaining 109 products still require private author sources, numerical
+execution custody, historical captures or independent configuration/manifest
+ownership. An interval preparation or paired development join does not certify
+held-out LOVE predictions, a constrained optimization or vegetation accuracy.
+
+The Solsø parent lineage report declares its maintained producer and forty
+local workbook, raw/normalized Neotoma and cohort/manifest inputs. Four Solsø
+and taxonomy explanations are editorial. The three primary PANGAEA products
+retain external primary-text custody requirements; they are separate from the
+three qualified LegacyAge chronology outputs. A close core/count-control
+join still does not identify the LandClim II 79-sample author selection, an
+age-specific basin, qualified taxonomy or an admitted Danish LRA sample.
+
 A fresh canonical publisher build from fixed product
 `d535ca7f3bed0ead63e5f96e45658c435ed6613a` produced exactly the 709 declared
 publisher paths, with no missing or extra output. Its path-set digest is
@@ -110,10 +275,82 @@ publisher paths, with no missing or extra output. Its path-set digest is
 This single isolated source-checkout check establishes publisher membership;
 it does not establish an installed release, full-tree byte equality or the
 required two independent assembly lanes.
-The new declaration keeps the current-R and Linux-R raw outputs unresolved;
+The retained-source declaration keeps the current-R and Linux-R raw outputs unresolved;
 the original-R source category applies only to its separately authenticated
 125-file bundle. A maintained source file or editorial account requires
 source custody and review, rather than an invented generated-output proof.
+
+The partitioned assembly transports maintained source files and reader accounts
+to the reducers before they build the portal and cross-tree reviews. The
+[source validator](../../packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/maintained_sources.py)
+checks the separately reviewed path sets, ownership inventory, clean Git
+candidate and every committed file byte. It accepts Python and R source files
+for code owners and Markdown for editorial owners. A role label or a renamed
+numeric product cannot expand those admitted source sets.
+
+The certified original-R bundle uses its own certificate validation and source
+inventory. Assembly injects these 363 source files alongside verified generated
+owner inputs, records their distinct identities and removes the injected files
+from the publisher output after the reducers read them. Both assembly lanes
+must record the exact source evidence required by final verification. That
+verification combines source inventories with generated outputs; it refuses
+overlaps, changed inputs or missing source receipts. The canonical Make routes
+enable both source categories. This source transport does not reproduce the
+630 unresolved products, authenticate their historical executions or establish
+scientific review or release readiness.
+
+The ABBO/DALMUT chronology owner uses the
+[external source contract](../../configs/ci/qualified-report-sources/legacyage.json)
+to pin its PANGAEA custody receipt and the consumed S5/S6 tables. The
+[external source validator](../../packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/report_rebuild/qualified_sources.py)
+checks real directory ancestors, exact sizes and hashes, and the receipt's
+source, license and retrieval identities. Source bytes stay in the external
+store. The configured command passes the declared descriptor and an explicit
+source root to the replay; its receipt includes those external input identities.
+Assembly and final verification require the same declared inputs and command.
+An unavailable store or a substituted input cannot be replaced by a saved receipt.
+
+Set `REBUILD_SOURCE_ROOT` to the qualified store when selecting these owners
+through the Make scheduler, owner build, assembly or final verifier. This is a
+runtime prerequisite for external-source consumers. The source contract does
+not establish remote access to the store. The three ABBO/DALMUT files preserve
+178 exact sample-depth joins and DALMUT's unmatched 4.5 cm sample. They admit
+zero LRA samples and do not select the historical LandClim chronology or
+supply basin, pollen denominator or taxon eligibility.
+
+The Solsø chronology owner uses the same qualified S5/S6 contract and a shared
+artifact-output guard. Its three files preserve 92 exact depth joins and one
+refused age claim. Both source joins pin their maintained replay and the two
+Neotoma surfaces. The shared guard refuses existing outputs, traversal and
+linked ancestors. Reproducing these bytes admits no Danish LRA samples and
+does not establish the historical LandClim age selection.
+
+DALMUT’s depth-allocation owner uses a separate
+[S4/S5 source descriptor](../../configs/ci/qualified-report-sources/legacyage-depth-allocation.json).
+Its one report verifies all 72 source pollen depths against Neotoma and
+interpolates published rounded summaries at the 4.5 cm sample with fraction
+0.5. The 635.5-year allocated minimum-to-maximum width describes those
+summaries. It does not supply a joint age posterior, repair the exact-depth
+join, identify the historical LandClim age or admit an LRA sample.
+
+The Namibia source-row owner uses a separate
+[publisher-table descriptor](../../configs/ci/qualified-report-sources/namibia-modern-pollen-vegetation.json).
+It binds the assessed receipt's source, rights, retrieval time and exact two
+TSV identities, then checks each primary header's dataset DOI, parent DOI,
+CC BY 4.0 license and columns. That receipt contains no HTTP response status
+or content length. Its contract preserves that limitation; the LegacyAge
+capture validator retains its stricter requirements. An explicit descriptor
+schema selects the appropriate validator, and unknown schemas are refused.
+The two source-join outputs describe 10 Namibian sites, 15 publisher radius
+labels and 750 conditional five-taxon pairs. These previously exposed data
+provide descriptive development context outside the Nordic region. The join
+does not fit or predict a model, select an ecological radius or establish
+Nordic vegetation accuracy. The separate radius-sensitivity owner pins both
+retained scripts and supplies the exact local replay import. Its real producer
+reads the same two TSVs, without consuming tracked source-join outputs. The
+two radius products preserve 150 descriptive distances over 10 sites and
+15 publisher labels; they do not choose an ecological source radius or
+establish model accuracy.
 
 Check the declaration without executing the scientific studies:
 
@@ -123,11 +360,82 @@ python -m bijux_pollenomics_dev.ci.report_rebuild.ownership --repository .
 
 The checker compares the exact tracked namespace, path-set digest and unique
 owner assignments; it rejects missing or extra paths, unsafe source paths
-and generated owners that consume their own declared outputs. Adding
+and generated owners that consume their own declared outputs. It also refuses
+cycles between generated owners through their declared inputs or producer
+files: reconstruction cannot obtain an input through its downstream output.
+Shared retained inputs and acyclic secondary consumers remain valid
+declarations, with source certification and replay checked separately. Adding
 `--require-resolved` refuses any unresolved declaration. Even when every role
 is resolved, this inventory check does not replace independent owner
 manifests, retained-source certificate validation or the two-lane full-tree
 comparison. Those checks remain with the existing report rebuild verifier.
+
+The rebuild runner preserves domain-qualified owner identities as relative
+artifact paths. Assembly and final verification discover nested namespaces
+until they reach an owner receipt, then stop before its generated payloads.
+A report itself may be named `manifest.json` without becoming an owner receipt.
+Each receipt must match its full directory identity and lane; unsafe paths,
+symlink namespaces, malformed receipts and changed inputs remain refusals.
+
+The configured owner runner executes bounded native producers listed in the
+[execution configuration](../../configs/ci/report-owner-execution.json).
+The [ownership inventory](../../configs/ci/report-ownership.json) supplies
+each producer's exact code and data read set. The configuration is the authority
+for scheduled modules, complete output maps, source arguments and time bounds.
+
+| Producer family | Covered source accounts | Meaning of reproduced bytes |
+| --- | --- | --- |
+| Source lineage and parameter binding | Solsø lineage, LandClim study metadata, LOVE parameter correspondence, Swedish model lineage, Nordic Neotoma entity decisions, literal parameter candidates, correspondence and count coverage | Retained identities and literal source compatibility; parameter admission stays separate. |
+| Observed and modeled source views | Swedish observed-pollen transitions, Nordic LandClim panels, map transport lineage and candidate site overlaps | Direct pollen and modeled context remain distinct. Polygon, calendar, geometry and metric code belongs in the producer closure. |
+| Core and site identity | Abborrtjärnen, Swedish lake cores and LandClim site correspondence | Workbook, source receipt, native archive, count-mass and projection inputs are explicit. Their upstream custody remains separate; comparison does not admit a core, basin or LRA request. |
+| Country and capability accounting | Nordic country capability, SEAD retrieval, coverage and source units, native-variable reconciliation and capability evidence | Source, assigned and publication countries remain separate. Every retained manifest member is an input; missing evidence remains missing. |
+| Source chronology | Danish pollen chronology coverage, SEAD age accounting, record intervals and chronology-country accounting | Source age interpretation and interval accounting preserve refusals; they do not establish event or LRA admission. |
+| Retained prediction support and comparison | Swedish author-target prepared inputs, Dalmutladdo and Solsø saved-prediction age selection, Sämbosjön source age bounds, English radius paired ledgers | Selection and joining reuse retained predictions or scores. Source age bounds are not an age posterior; prior-exposed development comparison does not establish independent vegetation accuracy. |
+| Source custody and source posture | Compact Neotoma sample display, relational summaries and SEAD relation exports, retained acquisition selection and native hierarchy round-trip, SEAD public custody, typed numerical and integer values, governed propagation ledgers, pollen-named dataset screens and DNA accounts | Retained source bindings and read sets are checked. Original HTTP capture, DNA rights and ecological admission still require their own evidence. |
+| Constructed temporal, spatial and uncertainty contracts | Fixed change-time and propagation scenarios, regional event-pair eligibility, grouped site-exclusion controls, public REVEALS reconstruction, fixed-site covariance and paired joint-site/count/PPE draws | Deterministic synthetic pass/fail coverage tests code contracts; it is not empirical ecological accuracy or independent measured vegetation validation. |
+
+The Abborrtjärnen age-input preparer also carries two unchanged upstream profiles
+needed by later prediction stages. Its adapter retains all five preparation
+products under repository artifacts, verifies the two carried profiles against
+declared inputs, and logs the complete stage path and hashes. It exports its three
+owned report files for the same exact output checks. Missing, extra, changed or
+linked products cause refusal; preparation does not run prediction or scoring.
+
+Directory producers must map their complete declared output set without duplicate
+destinations. Producers that require an absent destination use a canonical output
+subdirectory beneath the execution root; every produced path must stay inside it.
+Their overwrite guards remain active. Single-file producers require one output.
+Every fresh output and tracked oracle must match the identity captured before
+execution. A missing expected source path becoming present reopens its read set
+and report identity.
+
+Native source CLIs may explicitly omit the producer `--repository` argument while
+the runtime still binds and checks the candidate repository. Only named source
+path flags are accepted, and every path must be a declared producer input. The
+child interpreter loads candidate source paths and refuses a different module
+origin. Maintained SEAD chronology entry points and Danish/Neotoma replay adapters
+preserve their underlying writers' numerical behavior, serialization and source
+refusals; their wrapper code is part of the declared producer closure.
+
+`make build-report-rebuild-owner` uses `REBUILD_LANE`, `REBUILD_OWNER_ID` and an
+absent `REBUILD_EVIDENCE_ROOT`. Assembly accepts `REBUILD_OWNER_IDS` and
+`REBUILD_OWNER_ARTIFACTS_ROOT`; final verification accepts the same identities
+and both `REBUILD_REFERENCE_OWNERS_ROOT` and `REBUILD_REPLAY_OWNERS_ROOT`.
+The execution configuration currently names 87 generated owners covering 240
+tracked report paths. Reproducing a configured subset establishes only those
+owners' declared files.
+The complete report-tree comparison remains mandatory and refuses any missing owner. The scientific CI
+workflow derives the owner matrix and assembly selection from the same
+validated execution configuration, using a digest of each full identity as
+its artifact label. Preflight rejects unsafe or hidden identities, ancestor
+namespace collisions and more than 128 owners for the two-lane matrix before
+writing a partition plan. It schedules both lanes after the bound partition plan,
+then merges owner artifacts into each lane before assembly and final
+verification. Each isolated owner job uploads its lane root, so the archive
+retains the full domain identity beneath it. Pattern downloads merge those
+namespaces without inserting artifact labels or collapsing shared leaf names.
+Owner jobs retain command and failure diagnostics separately from publisher
+artifacts.
 
 The [method correspondence](../science/method-correspondence.md),
 [publication correspondence](../science/publication-correspondence.md),

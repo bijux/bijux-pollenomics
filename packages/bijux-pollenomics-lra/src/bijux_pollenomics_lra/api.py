@@ -46,9 +46,17 @@ from bijux_pollenomics_lra.reconstruction.fixed_site_covariance import (
     fixed_site_cover_covariance,
 )
 from bijux_pollenomics_lra.reconstruction.forward import forward_deposition
+from bijux_pollenomics_lra.reconstruction.homogeneous_likelihood import (
+    HomogeneousLikelihoodFit,
+    fit_homogeneous_likelihood,
+)
 from bijux_pollenomics_lra.reconstruction.joint_site_draws import (
     JointSiteDrawResult,
     joint_site_cover_draws,
+)
+from bijux_pollenomics_lra.reconstruction.shared_ppe_likelihood import (
+    SharedPpeLikelihoodResult,
+    fit_shared_ppe_likelihood,
 )
 from bijux_pollenomics_lra.workflows.forward import prepare_forward_inputs
 from bijux_pollenomics_lra.workflows.local import (
@@ -89,6 +97,8 @@ def extension_descriptor() -> dict[str, Any]:
             "lra.love.optimized." + OptimizedLoveProfile.RING_TAXON_PRESERVING.value,
             "lra.series.exact-coordinate",
             "lra.forward.homogeneous-local",
+            "lra.love.homogeneous-fixed-input-likelihood",
+            "lra.love.homogeneous-shared-ppe-conditional-draws",
             "lra.forward.prepare-target-geometry",
             "lra.observation.conditional-multinomial",
         ],
@@ -105,6 +115,7 @@ __all__ = [
     "ForwardConfig",
     "ForwardResult",
     "FixedSiteCovariance",
+    "HomogeneousLikelihoodFit",
     "LRAConfig",
     "LRAError",
     "LRAResult",
@@ -123,10 +134,13 @@ __all__ = [
     "PublicationRevealsConfig",
     "RevealsConfig",
     "RevealsResult",
+    "SharedPpeLikelihoodResult",
     "ValidationError",
     "extension_descriptor",
     "forward_deposition",
     "fixed_site_cover_covariance",
+    "fit_homogeneous_likelihood",
+    "fit_shared_ppe_likelihood",
     "joint_site_cover_draws",
     "prepare_forward_inputs",
     "publication_bin_bounds_sha256",

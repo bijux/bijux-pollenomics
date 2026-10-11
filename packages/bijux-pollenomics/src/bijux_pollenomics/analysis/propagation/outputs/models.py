@@ -153,7 +153,7 @@ class _ClassificationAuthority:
 
 
 _CLASSIFICATION_AUTHORITY = _ClassificationAuthority(
-    manifest_sha256="ea5eb4a75abaa7726a840c791aea76589d8cc7a785eb3a22cc1862678b910076",
+    manifest_sha256="ddef37ba011b4c7ab00a7075f415b9a9856addc6541108fb39ddb7e1ac46d02a",
     source_family="neotoma",
     source_snapshot_id=(
         "sha256:b2bcb99157e10b0c9f13c228acc12eabcb39d96a1f39c86ec25e34aacd78c791"
@@ -166,7 +166,7 @@ _CLASSIFICATION_AUTHORITY = _ClassificationAuthority(
     producer_id="bijux-pollenomics.neotoma-classification-audit",
     producer_version="1",
     producer_digest=(
-        "sha256:5a932522f580d6645849ebb80fc51e0d4b21694a4ba4f5c2a163fcbff62579df"
+        "sha256:efb43ee09bb2f08e9e6e170aa5f875e94f8db1a37a167678dcc7f123b7e3b6c3"
     ),
     accepted_mapping_count=0,
 )

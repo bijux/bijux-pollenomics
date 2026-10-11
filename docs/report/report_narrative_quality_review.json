@@ -1,10 +1,10 @@
 {
   "schema_version": "report-narrative-quality-review.v1",
-  "page_count": 291,
+  "page_count": 295,
   "quality_posture_counts": {
-    "reader_ready": 112,
+    "reader_ready": 115,
     "structured_reference": 19,
-    "thin_structure": 160
+    "thin_structure": 161
   },
   "rows": [
     {
@@ -548,7 +548,7 @@
     },
     {
       "repository_path": "docs/report/countries/denmark/solsoe-source-lineage/pangaea-pollen-profile/README.md",
-      "content_sha256": "14d5bde67af393ca87485f280360a6dcf07ac02555bf36a3f4c434d759167a15",
+      "content_sha256": "83dd13d12cc79fd05b4ecba17cdc27f0db38eb92b77f6c8cc8a12088835fab2b",
       "prose_paragraph_count": 4,
       "link_bullet_count": 0,
       "bullet_sentence_count": 0,
@@ -1097,6 +1097,17 @@
       "note": "Page explains its purpose before or alongside artifact links."
     },
     {
+      "repository_path": "docs/report/pollen-reconstruction/age-interval-sensitivity/conditional-membership/README.md",
+      "content_sha256": "c54411e5b9a6830ba8deb5a1302c4d7944cc24d8a63ec8dac88b527cca68a1a4",
+      "prose_paragraph_count": 5,
+      "link_bullet_count": 0,
+      "bullet_sentence_count": 0,
+      "heading_count": 1,
+      "table_line_count": 0,
+      "quality_posture": "thin_structure",
+      "note": "Page explains itself but still needs stronger internal wayfinding."
+    },
+    {
       "repository_path": "docs/report/pollen-reconstruction/author-buffered-pollen/README.md",
       "content_sha256": "e7a691f0ba04b056bef8bf2d2da86bbbb3b38f21cba47021f13d3e939f9cd320",
       "prose_paragraph_count": 7,
@@ -1287,6 +1298,17 @@
       "repository_path": "docs/report/pollen-reconstruction/author-lra-optimized-feasibility/README.md",
       "content_sha256": "1569859a0abbfbcc991c1ead728b4e9030a1aee4f92e00d41537c150623bae72",
       "prose_paragraph_count": 8,
+      "link_bullet_count": 0,
+      "bullet_sentence_count": 0,
+      "heading_count": 1,
+      "table_line_count": 0,
+      "quality_posture": "thin_structure",
+      "note": "Page explains itself but still needs stronger internal wayfinding."
+    },
+    {
+      "repository_path": "docs/report/pollen-reconstruction/author-lra-optimized-feasibility/shared-ppe-sensitivity/README.md",
+      "content_sha256": "958424249c606666a18f084a2667e4d37dadfab92ed52d19dfa77c4a9363da2f",
+      "prose_paragraph_count": 3,
       "link_bullet_count": 0,
       "bullet_sentence_count": 0,
       "heading_count": 1,
@@ -1846,7 +1868,7 @@
     },
     {
       "repository_path": "docs/report/regions/nordic/sambosjon-direct-pollen/interval-support/README.md",
-      "content_sha256": "42650298ee90990f8125e2236e1682460db2381acd86859eefbf281cf3555d3a",
+      "content_sha256": "f310296f6d26888737c96f14c4848d91518980f34105a12ba0056bdee7ed6fb2",
       "prose_paragraph_count": 8,
       "link_bullet_count": 0,
       "bullet_sentence_count": 0,
@@ -2462,11 +2484,11 @@
     },
     {
       "repository_path": "docs/report/source-relations/neotoma/author-taxonomy-candidates/README.md",
-      "content_sha256": "cc6127568f5281f46ba0a4ec41fa588e1654ff1ce178f562f21c7a7a3522e773",
-      "prose_paragraph_count": 7,
+      "content_sha256": "46566d75dfdd28be2b665695186c9c8f09dc5146649ae064f12e35becced5a12",
+      "prose_paragraph_count": 11,
       "link_bullet_count": 0,
       "bullet_sentence_count": 0,
-      "heading_count": 2,
+      "heading_count": 3,
       "table_line_count": 9,
       "quality_posture": "reader_ready",
       "note": "Page explains its purpose before or alongside artifact links."
@@ -2594,14 +2616,14 @@
     },
     {
       "repository_path": "docs/report/source-relations/neotoma/lra-prerequisites/README.md",
-      "content_sha256": "7e6daede649d5d7161565818b8d670d1292dad6326b9a498292b6823a6210335",
-      "prose_paragraph_count": 4,
+      "content_sha256": "53cb52c36de696d3090cea07251311248a8df58bdfab5a7bacd9f99837a8a45c",
+      "prose_paragraph_count": 6,
       "link_bullet_count": 0,
       "bullet_sentence_count": 0,
-      "heading_count": 1,
+      "heading_count": 2,
       "table_line_count": 0,
-      "quality_posture": "thin_structure",
-      "note": "Page explains itself but still needs stronger internal wayfinding."
+      "quality_posture": "reader_ready",
+      "note": "Page explains its purpose before or alongside artifact links."
     },
     {
       "repository_path": "docs/report/source-relations/neotoma/native-roundtrip/README.md",
@@ -2660,8 +2682,8 @@
     },
     {
       "repository_path": "docs/report/source-relations/neotoma/pollen-screen/README.md",
-      "content_sha256": "d67c8d1f168bb6053e5f4fc61a340f17ef72414bd380572bbd819a7bcf2230dc",
-      "prose_paragraph_count": 6,
+      "content_sha256": "34289d57cb539e767346aa5d5ada1326e22d96c957aa7c60ad169d79994a75e8",
+      "prose_paragraph_count": 8,
       "link_bullet_count": 0,
       "bullet_sentence_count": 0,
       "heading_count": 2,
@@ -2770,12 +2792,34 @@
     },
     {
       "repository_path": "docs/report/source-relations/sead/README.md",
-      "content_sha256": "7b68a3f5e166cb6a125698325c687b9818ea2a104e2fb94f87c5f16f045c0897",
-      "prose_paragraph_count": 17,
+      "content_sha256": "1b672e5144b0089cda19194d8371aa7d5c7f450cd8e456ba4164d41312417256",
+      "prose_paragraph_count": 19,
       "link_bullet_count": 0,
       "bullet_sentence_count": 0,
       "heading_count": 5,
       "table_line_count": 0,
+      "quality_posture": "reader_ready",
+      "note": "Page explains its purpose before or alongside artifact links."
+    },
+    {
+      "repository_path": "docs/report/source-relations/sead/analysis-boolean-values/README.md",
+      "content_sha256": "10ab451b47fc1e9d1980553b59f7c510111757be5d45233db9119b08aaf5df66",
+      "prose_paragraph_count": 6,
+      "link_bullet_count": 0,
+      "bullet_sentence_count": 0,
+      "heading_count": 4,
+      "table_line_count": 9,
+      "quality_posture": "reader_ready",
+      "note": "Page explains its purpose before or alongside artifact links."
+    },
+    {
+      "repository_path": "docs/report/source-relations/sead/analysis-categorical-values/README.md",
+      "content_sha256": "766d68a14a4a6fffdd6fd005f1c5d37c7ca8e64a57ba1b69385eb4cf55bfa82d",
+      "prose_paragraph_count": 6,
+      "link_bullet_count": 0,
+      "bullet_sentence_count": 0,
+      "heading_count": 3,
+      "table_line_count": 11,
       "quality_posture": "reader_ready",
       "note": "Page explains its purpose before or alongside artifact links."
     },
@@ -3023,7 +3067,7 @@
     },
     {
       "repository_path": "docs/report/vegetation-reference/namibia-pollen-vegetation/README.md",
-      "content_sha256": "bc4b28f5617a129d6eb55953871488424d813a6865a5287373e8dcf40ad6ead7",
+      "content_sha256": "8bb72afa3b534931d869d90bab4a1386a6acc36179a7c6b9b9731da846dd5647",
       "prose_paragraph_count": 8,
       "link_bullet_count": 0,
       "bullet_sentence_count": 0,
@@ -3155,7 +3199,7 @@
     },
     {
       "repository_path": "docs/report/index.md",
-      "content_sha256": "146678d275830a7a847e33c7de8000f88e22f808ee56341654fe1e2cb9bf568e",
+      "content_sha256": "f4495c78d9fc687c7801bcdc046642e59c468c2adb9addecb4789961585a364a",
       "prose_paragraph_count": 3,
       "link_bullet_count": 11,
       "bullet_sentence_count": 0,
@@ -3166,7 +3210,7 @@
     },
     {
       "repository_path": "docs/report/maintenance/index.md",
-      "content_sha256": "c2b0a7de051edca222ce5bcae84e6256fc4c20483ef27a73e808d1c47ef6a0b9",
+      "content_sha256": "481758f74d2a21205c6cbca84ab91770348c3ad31a5dcf46378d0a77357f63c0",
       "prose_paragraph_count": 3,
       "link_bullet_count": 10,
       "bullet_sentence_count": 4,

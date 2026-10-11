@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from dataclasses import replace
+import hashlib
 import json
 from pathlib import Path
 from typing import Any, cast
@@ -16,6 +17,9 @@ from bijux_pollenomics.analysis.propagation.outputs import (
 from bijux_pollenomics.evidence.classification.audit_outputs import (
     ClassificationAuditMaterializationResult,
     ClassificationAuditRefusalError,
+)
+from bijux_pollenomics.evidence.classification.neotoma import (
+    build_neotoma_classification_accounting,
 )
 from bijux_pollenomics_dev.ci import scientific_evidence
 from bijux_pollenomics_dev.ci.scientific_evidence import (
@@ -33,14 +37,17 @@ def _install_successful_producers(
     monkeypatch.setattr(
         scientific_evidence,
         "_classification_snapshot",
-        lambda *_: {
-            "source_family": "neotoma",
-            "source_snapshot_id": "sha256:source",
-            "build_id": "sha256:build",
-            "sites": [],
-            "variables": [],
-            "observations": [],
-        },
+        lambda *_: (
+            {
+                "source_family": "neotoma",
+                "source_snapshot_id": "sha256:source",
+                "build_id": "sha256:build",
+                "sites": [],
+                "variables": [],
+                "observations": [],
+            },
+            lambda: None,
+        ),
     )
     monkeypatch.setattr(
         scientific_evidence,
@@ -184,6 +191,23 @@ def test_relational_validation_failure_prevents_both_publications(
     assert called == []
 
 
+def test_missing_relational_manifest_refuses_before_validation(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    root, _ = repository_fixture(tmp_path, monkeypatch)
+    (root / "data/neotoma/relational/manifest.json").unlink()
+    monkeypatch.setattr(
+        scientific_evidence,
+        "read_validated_neotoma_relational_manifest",
+        lambda _: pytest.fail("missing manifest must be refused before validation"),
+    )
+
+    with pytest.raises(ScientificEvidenceMaterializationError) as refusal:
+        materialize_scientific_evidence(root.absolute())
+
+    assert refusal.value.reason_code == "invalid_relational_manifest"
+
+
 def test_relational_part_digest_is_rechecked_after_manifest_validation(
     tmp_path: Path, monkeypatch: pytest.MonkeyPatch
 ) -> None:
@@ -209,6 +233,9 @@ def test_relational_part_digest_is_rechecked_after_manifest_validation(
             }
         },
     }
+    (root / "data/neotoma/relational/manifest.json").write_text(
+        json.dumps(manifest), encoding="utf-8"
+    )
     monkeypatch.setattr(
         scientific_evidence,
         "read_validated_neotoma_relational_manifest",
@@ -220,6 +247,187 @@ def test_relational_part_digest_is_rechecked_after_manifest_validation(
 
     assert refusal.value.reason_code == "invalid_relational_manifest"
     assert "changed after validation" in str(refusal.value)
+
+
+@pytest.mark.parametrize(
+    "changed_relative",
+    [
+        "surfaces/sites/part-00001.json",
+        "surfaces/datasets/part-00001.json",
+        "manifest.json",
+        "reconciliation.json",
+    ],
+)
+def test_relational_source_change_after_accounting_refuses_before_publication(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+    changed_relative: str,
+) -> None:
+    root, _ = repository_fixture(tmp_path, monkeypatch)
+    source_root = root / "data/neotoma/relational"
+    surfaces: dict[str, object] = {}
+    for name in ("sites", "variables", "observations", "datasets"):
+        relative = f"surfaces/{name}/part-00001.json"
+        payload = b'{"rows": []}\n'
+        target = source_root / relative
+        target.parent.mkdir(parents=True, exist_ok=True)
+        target.write_bytes(payload)
+        surfaces[name] = {
+            "row_count": 0,
+            "parts": [
+                {
+                    "path": relative,
+                    "row_count": 0,
+                    "sha256": hashlib.sha256(payload).hexdigest(),
+                }
+            ],
+        }
+    reconciliation = b'{"source": "synthetic"}\n'
+    (source_root / "reconciliation.json").write_bytes(reconciliation)
+    manifest: dict[str, object] = {
+        "relational_snapshot_schema_version": "neotoma-relational-snapshot.v2",
+        "source_family": "neotoma",
+        "source_snapshot_id": "sha256:source",
+        "build_id": "sha256:build",
+        "surfaces": surfaces,
+        "reconciliation": {
+            "path": "reconciliation.json",
+            "sha256": hashlib.sha256(reconciliation).hexdigest(),
+        },
+    }
+    (source_root / "manifest.json").write_text(json.dumps(manifest), encoding="utf-8")
+    monkeypatch.setattr(
+        scientific_evidence,
+        "read_validated_neotoma_relational_manifest",
+        lambda _: manifest,
+    )
+
+    def change_after_accounting(snapshot: dict[str, object]) -> dict[str, object]:
+        accounting = build_neotoma_classification_accounting(snapshot)
+        (source_root / changed_relative).write_bytes(b'{"changed": true}\n')
+        return accounting
+
+    monkeypatch.setattr(
+        scientific_evidence,
+        "build_neotoma_classification_accounting",
+        change_after_accounting,
+    )
+    attempted: list[str] = []
+
+    def classification(*args: object, **kwargs: Any) -> object:
+        del args
+        attempted.append("classification")
+        callback = cast(Any, kwargs["before_commit"])
+        callback()
+        pytest.fail("classification publication must not commit changed source")
+
+    def propagation(*args: object, **kwargs: Any) -> object:
+        del args, kwargs
+        attempted.append("propagation")
+        pytest.fail("propagation must not follow changed classification source")
+
+    monkeypatch.setattr(
+        scientific_evidence, "materialize_classification_audit", classification
+    )
+    monkeypatch.setattr(
+        scientific_evidence, "materialize_propagation_outputs", propagation
+    )
+
+    with pytest.raises(ScientificEvidenceMaterializationError) as refusal:
+        materialize_scientific_evidence(root.absolute())
+
+    assert refusal.value.reason_code == "invalid_relational_manifest"
+    assert attempted == ["classification"]
+    policy = json.loads((root / "configs/release_evidence_policy.json").read_text())
+    classification_path = next(
+        entry["path"]
+        for entry in policy["required_artifacts"]
+        if entry["identity"] == "classification"
+    )
+    assert not (root / classification_path).exists()
+
+
+def test_relational_source_change_after_classification_refuses_propagation(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    root, policy = repository_fixture(tmp_path, monkeypatch)
+    source = root / "data/neotoma/relational/manifest.json"
+    original_bytes = source.read_bytes()
+
+    def verify_source() -> None:
+        if source.read_bytes() != original_bytes:
+            raise ScientificEvidenceMaterializationError(
+                "invalid_relational_manifest", "source changed before publication"
+            )
+
+    monkeypatch.setattr(
+        scientific_evidence,
+        "_classification_snapshot",
+        lambda *_: (
+            {
+                "source_family": "neotoma",
+                "source_snapshot_id": "sha256:source",
+                "build_id": "sha256:build",
+                "sites": [],
+                "variables": [],
+                "observations": [],
+            },
+            verify_source,
+        ),
+    )
+    monkeypatch.setattr(
+        scientific_evidence,
+        "build_neotoma_classification_accounting",
+        lambda _: {"synthetic": True},
+    )
+
+    def classification(*args: object, **kwargs: Any) -> object:
+        del args
+        cast(Any, kwargs["before_commit"])()
+        paths = cast(Any, kwargs["paths"])
+        paths.output_root.mkdir()
+        (paths.output_root / "manifest.json").write_bytes(b"classification")
+        return ClassificationAuditMaterializationResult(
+            output_root=paths.output_root,
+            disposition="created",
+            manifest_sha256="c" * 64,
+            file_count=10,
+            concept_count=0,
+            observation_count=0,
+            accepted_mapping_count=0,
+            release_status="refused",
+        )
+
+    def propagation(*args: object, **kwargs: Any) -> object:
+        del args
+        source.write_bytes(b'{"changed": true}\n')
+        cast(Any, kwargs["before_commit"])()
+        pytest.fail("propagation must not publish changed source")
+
+    monkeypatch.setattr(
+        scientific_evidence, "materialize_classification_audit", classification
+    )
+    monkeypatch.setattr(
+        scientific_evidence, "materialize_propagation_outputs", propagation
+    )
+
+    with pytest.raises(ScientificEvidenceMaterializationError) as refusal:
+        materialize_scientific_evidence(root.absolute())
+
+    assert refusal.value.reason_code == "invalid_relational_manifest"
+    artifacts = cast(list[dict[str, Any]], policy["required_artifacts"])
+    classification_manifest = next(
+        root / str(entry["path"])
+        for entry in artifacts
+        if entry["identity"] == "classification"
+    )
+    propagation_manifest = next(
+        root / str(entry["path"])
+        for entry in artifacts
+        if entry["identity"] == "propagation"
+    )
+    assert classification_manifest.read_bytes() == b"classification"
+    assert not propagation_manifest.exists()
 
 
 def test_nonzero_accepted_universe_requires_an_explicit_event_producer(

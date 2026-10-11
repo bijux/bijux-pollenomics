@@ -2,8 +2,11 @@ from __future__ import annotations
 
 import json
 from pathlib import Path
+import shlex
 import shutil
+import subprocess
 import sys
+from typing import Any, cast
 
 import pytest
 
@@ -11,6 +14,7 @@ from bijux_pollenomics_dev.ci.rebuild_reports import (
     inventory_reports,
     load_policy,
 )
+from bijux_pollenomics_dev.ci.report_rebuild import verification as rebuild_verification
 from bijux_pollenomics_dev.ci.report_rebuild.contracts import (
     ReportRebuildError,
     parse_binding,
@@ -22,6 +26,9 @@ from bijux_pollenomics_dev.ci.report_rebuild.evidence import (
     merge_fragment_trees,
 )
 from bijux_pollenomics_dev.ci.report_rebuild.execution import load_fragments
+from bijux_pollenomics_dev.ci.report_rebuild.original_r_reference import (
+    validated_original_r_reference,
+)
 from bijux_pollenomics_dev.ci.report_rebuild.workflow import (
     assemble_partition_lane,
     build_owner_output,
@@ -29,6 +36,7 @@ from bijux_pollenomics_dev.ci.report_rebuild.workflow import (
     build_partition_plan,
     verify_partitioned_rebuild,
 )
+from bijux_pollenomics_dev.lra_validation.reference_replay import CERTIFICATE_SHA256
 
 
 def _policy(root: Path) -> Path:
@@ -138,18 +146,26 @@ def _assembly(
         "partition_ids": partition_ids,
     }
     owner_root = root.parent / "artifacts/owners" / lane
-    owner_manifests = sorted(owner_root.glob("*/manifest.json"))
+    owner_manifests = sorted(
+        path
+        for path in owner_root.rglob("manifest.json")
+        if not {"output", "producer-output"}.intersection(
+            path.relative_to(owner_root).parts
+        )
+    )
     if owner_manifests:
         manifest["schema_version"] = "partitioned-report-assembly.v2"
         manifest["owner_paths"] = {
-            path.parent.name: [
+            path.parent.relative_to(owner_root).as_posix(): [
                 entry["path"]
                 for entry in json.loads(path.read_text(encoding="utf-8"))["inventory"]
             ]
             for path in owner_manifests
         }
         manifest["owner_manifest_sha256"] = {
-            path.parent.name: sha256_bytes(path.read_bytes())
+            path.parent.relative_to(owner_root).as_posix(): sha256_bytes(
+                path.read_bytes()
+            )
             for path in owner_manifests
         }
     (assembly / "manifest.json").write_text(json.dumps(manifest), encoding="utf-8")
@@ -430,6 +446,22 @@ def test_partitioned_rebuild_keeps_authenticated_r_source_out_of_generated_owner
         root / "assemblies", lane="reference", binding=plan["binding"]
     )
     replay = _assembly(root / "assemblies", lane="replay", binding=plan["binding"])
+    retained = validated_original_r_reference(root, load_policy(policy_path))
+    source_evidence = {
+        "original_r_reference": {
+            "certificate_sha256": CERTIFICATE_SHA256,
+            "inventory": inventory_json(retained),
+        }
+    }
+    for manifest_path in (reference, replay):
+        manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+        manifest.update(
+            schema_version="partitioned-report-assembly.v3",
+            owner_paths={},
+            owner_manifest_sha256={},
+            source_inputs=source_evidence,
+        )
+        manifest_path.write_text(json.dumps(manifest), encoding="utf-8")
 
     report = verify_partitioned_rebuild(
         repo_root=root,
@@ -446,9 +478,9 @@ def test_partitioned_rebuild_keeps_authenticated_r_source_out_of_generated_owner
     assert report["owners"] == {"reference": {}, "replay": {}}
     retained_sources = report["retained_sources"]
     assert isinstance(retained_sources, dict)
-    retained: object = retained_sources["original_r_reference"]
-    assert isinstance(retained, dict)
-    retained_paths: object = retained["paths"]
+    retained_report: object = retained_sources["original_r_reference"]
+    assert isinstance(retained_report, dict)
+    retained_paths: object = retained_report["paths"]
     assert isinstance(retained_paths, list)
     assert len(retained_paths) == 125
     assert all(
@@ -623,11 +655,12 @@ def _owner(
     lane: str,
     source_paths: dict[str, str],
     produced: tuple[str, ...] | None = None,
+    owner_id: str = "petrkunes",
 ) -> Path:
     payload = "from pathlib import Path; import sys; root=Path(sys.argv[1]); "
     payload += "[(root / name).write_text(name + '\\n', encoding='utf-8') "
     payload += "for name in sys.argv[2:]]"
-    output = root / "artifacts" / "owners" / lane / "petrkunes"
+    output = root / "artifacts" / "owners" / lane / owner_id
     source = root / "external-source.txt"
     if not source.exists():
         source.write_text("source identity\n", encoding="utf-8")
@@ -636,7 +669,7 @@ def _owner(
         policy_path=root / "policy.json",
         plan_path=root / "plan.json",
         lane=lane,
-        owner_id="petrkunes",
+        owner_id=owner_id,
         producer_command=(
             sys.executable,
             "-c",
@@ -649,6 +682,14 @@ def _owner(
         evidence_root=output,
     )
     return output / "manifest.json"
+
+
+def _reference_owners(report: dict[str, object]) -> dict[str, object]:
+    owners = report["owners"]
+    assert isinstance(owners, dict)
+    reference = owners["reference"]
+    assert isinstance(reference, dict)
+    return reference
 
 
 def _verify_with_owner(
@@ -914,3 +955,646 @@ def test_mixed_owner_rebuild_rejects_changed_evidence(
         ReportRebuildError, match="binding|manifest|overlaps|changed|argv"
     ):
         _verify_with_owner(root)
+
+
+@pytest.mark.parametrize(
+    "owner_id",
+    [
+        "neotoma/pollen-screen/compact-summary",
+        "countries/denmark/solsoe-source-lineage/root-lineage",
+    ],
+)
+def test_mixed_owner_rebuild_accepts_nested_domain_identity(
+    tmp_path: Path, owner_id: str
+) -> None:
+    root, _, plan_path = _fixture(tmp_path)
+    _write_complete_tree(root / "docs/report", plan_path=plan_path)
+    target = "method/manifest.json"
+    for lane in ("reference", "replay"):
+        _owner(
+            root, lane=lane, owner_id=owner_id, source_paths={"manifest.json": target}
+        )
+    destination = root / "docs/report" / target
+    destination.parent.mkdir(parents=True)
+    destination.write_text("manifest.json\n", encoding="utf-8")
+    report = _verify_with_owner(root, owner_ids=(owner_id,))
+    assert report["status"] == "PASS"
+    assert set(_reference_owners(report)) == {owner_id}
+
+
+@pytest.mark.parametrize(
+    "owner_id",
+    ["../escape", "/absolute", "domain//leaf", "domain/./leaf", "domain\\leaf"],
+)
+def test_owner_producer_rejects_unsafe_identity_before_execution(
+    tmp_path: Path, owner_id: str
+) -> None:
+    root, _, _ = _fixture(tmp_path)
+    with pytest.raises(ReportRebuildError, match="safe relative path"):
+        _owner(
+            root,
+            lane="reference",
+            owner_id=owner_id,
+            source_paths={"summary.csv": "method/summary.csv"},
+        )
+    assert not (root / "artifacts/owners").exists()
+
+
+@pytest.mark.parametrize(
+    "mutation", ["symlink", "empty", "file", "identity", "manifest-directory"]
+)
+def test_nested_owner_loader_rejects_invalid_namespace(
+    tmp_path: Path, mutation: str
+) -> None:
+    from bijux_pollenomics_dev.ci.report_rebuild.verification import _load_owner_outputs
+
+    root, policy_path, plan_path = _fixture(tmp_path)
+    manifest_path = _owner(
+        root,
+        lane="reference",
+        owner_id="domain/leaf",
+        source_paths={"summary.csv": "method/summary.csv"},
+    )
+    owners_root = root / "artifacts/owners/reference"
+    if mutation == "symlink":
+        namespace = owners_root / "domain"
+        namespace.rename(owners_root / "retained")
+        namespace.symlink_to(owners_root / "retained", target_is_directory=True)
+    elif mutation == "empty":
+        (owners_root / "missing/deep").mkdir(parents=True)
+    elif mutation == "file":
+        (owners_root / "unexpected.txt").write_text("unexpected", encoding="utf-8")
+    elif mutation == "manifest-directory":
+        manifest_path.unlink()
+        manifest_path.mkdir()
+    else:
+        record = json.loads(manifest_path.read_text(encoding="utf-8"))
+        record["owner_id"] = "other/leaf"
+        manifest_path.write_text(json.dumps(record), encoding="utf-8")
+    plan = json.loads(plan_path.read_text(encoding="utf-8"))
+    with pytest.raises(
+        ReportRebuildError, match="artifact directory|manifest|differs from identity"
+    ):
+        _load_owner_outputs(
+            artifacts_root=owners_root,
+            repo_root=root,
+            lane="reference",
+            binding=parse_binding(plan["binding"], "test binding"),
+            policy=load_policy(policy_path),
+            publisher_ids=set(plan["partition_ids"]),
+        )
+
+
+def test_mixed_owner_rebuild_keeps_same_leaf_in_distinct_domains(
+    tmp_path: Path,
+) -> None:
+    root, _, plan_path = _fixture(tmp_path)
+    _write_complete_tree(root / "docs/report", plan_path=plan_path)
+    identities = ("countries/denmark/summary", "source-relations/neotoma/summary")
+    for index, identity in enumerate(identities):
+        target = f"method/{index}/summary.csv"
+        for lane in ("reference", "replay"):
+            _owner(
+                root, lane=lane, owner_id=identity, source_paths={"summary.csv": target}
+            )
+        destination = root / "docs/report" / target
+        destination.parent.mkdir(parents=True)
+        destination.write_text("summary.csv\n", encoding="utf-8")
+    report = _verify_with_owner(root, owner_ids=identities)
+    assert report["status"] == "PASS"
+    assert set(_reference_owners(report)) == set(identities)
+
+
+def test_make_partition_verifier_dispatches_authenticated_retained_source(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    repository = Path(__file__).resolve().parents[3]
+    fragment = repository / "makes/pollenomics-verification.mk"
+    argv_log = tmp_path / "verify-argv.json"
+    recorder = tmp_path / "record_verify_argv.py"
+    recorder.write_text(
+        "import json\n"
+        "import os\n"
+        "from pathlib import Path\n"
+        "import sys\n"
+        "Path(os.environ['REBUILD_ARGV_LOG']).write_text("
+        "json.dumps(sys.argv[1:]), encoding='utf-8')\n",
+        encoding="utf-8",
+    )
+    wrapper = tmp_path / "Makefile"
+    wrapper.write_text(
+        f"DEV_RUN := {shlex.quote(sys.executable)} "
+        f"{shlex.quote(str(recorder))}\n"
+        "root-check-env:\n\t@:\n"
+        f"include {fragment}\n",
+        encoding="utf-8",
+    )
+    monkeypatch.setenv("REBUILD_ARGV_LOG", str(argv_log))
+    result = subprocess.run(
+        [
+            "make",
+            "-f",
+            str(wrapper),
+            "verify-partitioned-report-rebuild",
+            "REBUILD_REFERENCE_MANIFEST=artifacts/reference/manifest.json",
+            "REBUILD_REPLAY_MANIFEST=artifacts/replay/manifest.json",
+            "REBUILD_EVIDENCE_ROOT=artifacts/final-evidence",
+            "REBUILD_OWNER_IDS=source/pollen source/chronology",
+            "REBUILD_REFERENCE_OWNERS_ROOT=artifacts/owners/reference",
+            "REBUILD_REPLAY_OWNERS_ROOT=artifacts/owners/replay",
+        ],
+        cwd=tmp_path,
+        capture_output=True,
+        text=True,
+        check=False,
+        timeout=30,
+    )
+    assert result.returncode == 0, result.stderr
+    argv = json.loads(argv_log.read_text(encoding="utf-8"))
+    assert argv == [
+        "-m",
+        "bijux_pollenomics_dev.ci.report_rebuild",
+        "verify",
+        "--repo-root",
+        str(tmp_path),
+        "--policy",
+        str(tmp_path / "configs/ci/reproducible-report-build.json"),
+        "--plan",
+        str(tmp_path / "artifacts/execution-control/report-rebuild-plan/plan.json"),
+        "--reference-manifest",
+        "artifacts/reference/manifest.json",
+        "--replay-manifest",
+        "artifacts/replay/manifest.json",
+        "--evidence-root",
+        "artifacts/final-evidence",
+        "--retain-original-r-reference",
+        "--retain-maintained-report-sources",
+        "--owner-id",
+        "source/pollen",
+        "--owner-id",
+        "source/chronology",
+        "--reference-owners-root",
+        "artifacts/owners/reference",
+        "--replay-owners-root",
+        "artifacts/owners/replay",
+    ]
+    assert argv.count("--retain-original-r-reference") == 1
+
+
+def test_partitioned_rebuild_keeps_checked_in_sources_distinct(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    root, policy_path, plan_path = _fixture(tmp_path)
+    _write_complete_tree(root / "docs/report", plan_path=plan_path)
+    source = root / "docs/report/source/README.md"
+    source.parent.mkdir(parents=True)
+    source.write_text("# Human account\n", encoding="utf-8")
+    plan = json.loads(plan_path.read_text(encoding="utf-8"))
+    reference = _assembly(
+        root / "assemblies", lane="reference", binding=plan["binding"]
+    )
+    replay = _assembly(root / "assemblies", lane="replay", binding=plan["binding"])
+    inventory = inventory_reports(root / "docs/report", load_policy(policy_path))
+    source_entry = next(
+        entry for entry in inventory if entry.path == "source/README.md"
+    )
+    evidence = {
+        "schema_version": "maintained-report-source-evidence.v1",
+        "path_count": 1,
+    }
+    for manifest_path in (reference, replay):
+        manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+        manifest.update(
+            schema_version="partitioned-report-assembly.v3",
+            owner_paths={},
+            owner_manifest_sha256={},
+            source_inputs={"maintained_report_sources": evidence},
+        )
+        manifest_path.write_text(json.dumps(manifest), encoding="utf-8")
+    calls = []
+
+    def checked_sources(
+        repository: Path, tracked: tuple[object, ...], *, expected_repository: object
+    ) -> tuple[tuple[object, ...], dict[str, object]]:
+        calls.append((repository, len(tracked), expected_repository))
+        return (source_entry,), evidence
+
+    monkeypatch.setattr(
+        rebuild_verification, "validated_maintained_report_sources", checked_sources
+    )
+    report = verify_partitioned_rebuild(
+        repo_root=root,
+        policy_path=policy_path,
+        plan_path=plan_path,
+        reference_manifest_path=reference,
+        replay_manifest_path=replay,
+        evidence_root=root / "artifacts/final",
+        retain_maintained_report_sources=True,
+    )
+    assert report["status"] == "PASS"
+    assert len(calls) == 2
+    assert report["retained_sources"] == {"maintained_report_sources": evidence}
+    assert "source/README.md" in {
+        entry["path"] for entry in cast(Any, report)["inventories"]["reference"]
+    }
+
+
+def test_partitioned_rebuild_refuses_maintained_overlap_with_publisher(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    root, policy_path, plan_path = _fixture(tmp_path)
+    _write_complete_tree(root / "docs/report", plan_path=plan_path)
+    plan = json.loads(plan_path.read_text(encoding="utf-8"))
+    reference = _assembly(
+        root / "assemblies", lane="reference", binding=plan["binding"]
+    )
+    replay = _assembly(root / "assemblies", lane="replay", binding=plan["binding"])
+    inventory = inventory_reports(root / "docs/report", load_policy(policy_path))
+    publisher_entry = next(
+        entry for entry in inventory if entry.path == _fragment_path("world")
+    )
+    evidence = {"schema_version": "maintained-report-source-evidence.v1"}
+    for manifest_path in (reference, replay):
+        manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+        manifest.update(
+            schema_version="partitioned-report-assembly.v3",
+            owner_paths={},
+            owner_manifest_sha256={},
+            source_inputs={"maintained_report_sources": evidence},
+        )
+        manifest_path.write_text(json.dumps(manifest), encoding="utf-8")
+    monkeypatch.setattr(
+        rebuild_verification,
+        "validated_maintained_report_sources",
+        lambda *_args, **_kwargs: ((publisher_entry,), evidence),
+    )
+    with pytest.raises(ReportRebuildError, match="maintained source overlaps"):
+        verify_partitioned_rebuild(
+            repo_root=root,
+            policy_path=policy_path,
+            plan_path=plan_path,
+            reference_manifest_path=reference,
+            replay_manifest_path=replay,
+            evidence_root=root / "artifacts/final",
+            retain_maintained_report_sources=True,
+        )
+
+
+def test_lane_assembly_exposes_maintained_source_before_reducer(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    from bijux_pollenomics_dev.ci.report_rebuild import execution
+
+    root, policy_path, plan_path = _fixture(tmp_path)
+    account = root / "docs/report/source/README.md"
+    account.parent.mkdir(parents=True)
+    account.write_text("# Checked-in account\n", encoding="utf-8")
+    plan = json.loads(plan_path.read_text(encoding="utf-8"))
+    fragments = root / "fragment-artifacts"
+    for partition_id in plan["partition_ids"]:
+        _fragment(
+            fragments,
+            partition_id=partition_id,
+            relative_path=_fragment_path(partition_id),
+            binding=plan["binding"],
+        )
+    tracked = inventory_reports(root / "docs/report", load_policy(policy_path))
+    source = next(entry for entry in tracked if entry.path == "source/README.md")
+    evidence = {
+        "schema_version": "maintained-report-source-evidence.v1",
+        "path_count": 1,
+    }
+    monkeypatch.setattr(
+        execution,
+        "validated_maintained_report_sources",
+        lambda *_args, **_kwargs: ((source,), evidence),
+    )
+
+    def reducer(request: dict[str, object]) -> dict[str, object]:
+        source_root = Path(str(request["owner_input_root"]))
+        assert (source_root / "source/README.md").read_text(encoding="utf-8") == (
+            "# Checked-in account\n"
+        )
+        output_root = Path(str(request["output_root"]))
+        _write_complete_tree(output_root, plan_path=plan_path, report_payload="world\n")
+        return {"output_root": str(output_root)}
+
+    monkeypatch.setattr(execution, "run_runtime_command", reducer)
+    manifest = assemble_partition_lane(
+        repo_root=root,
+        policy_path=policy_path,
+        plan_path=plan_path,
+        lane="reference",
+        partition_artifacts_root=fragments,
+        evidence_root=root / "artifacts/assembly",
+        retain_maintained_report_sources=True,
+    )
+    assert manifest["schema_version"] == "partitioned-report-assembly.v3"
+    assert manifest["source_inputs"] == {"maintained_report_sources": evidence}
+    assert manifest["owner_paths"] == {}
+    assert not (root / "artifacts/assembly/output/source/README.md").exists()
+
+
+def test_lane_assembly_refuses_publisher_collision_with_maintained_source(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    from bijux_pollenomics_dev.ci.report_rebuild import execution
+
+    root, policy_path, plan_path = _fixture(tmp_path)
+    plan = json.loads(plan_path.read_text(encoding="utf-8"))
+    fragments = root / "fragment-artifacts"
+    for partition_id in plan["partition_ids"]:
+        _fragment(
+            fragments,
+            partition_id=partition_id,
+            relative_path=_fragment_path(partition_id),
+            binding=plan["binding"],
+        )
+    publisher = inventory_reports(fragments / "world/output", load_policy(policy_path))[
+        0
+    ]
+    monkeypatch.setattr(
+        execution,
+        "validated_maintained_report_sources",
+        lambda *_args, **_kwargs: (
+            (publisher,),
+            {"schema_version": "maintained-report-source-evidence.v1"},
+        ),
+    )
+    with pytest.raises(ReportRebuildError, match="overlaps publisher fragment"):
+        assemble_partition_lane(
+            repo_root=root,
+            policy_path=policy_path,
+            plan_path=plan_path,
+            lane="reference",
+            partition_artifacts_root=fragments,
+            evidence_root=root / "artifacts/assembly",
+            retain_maintained_report_sources=True,
+        )
+    assert not (root / "artifacts/assembly").exists()
+
+
+def test_lane_assembly_exposes_certificate_checked_original_r_to_reducer(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    from bijux_pollenomics_dev.ci.report_rebuild import execution
+
+    root, policy_path, plan_path = _fixture(tmp_path)
+    repository = Path(__file__).resolve().parents[3]
+    prefix = Path("method-certification/original-r-reference/reference-bundle")
+    shutil.copytree(repository / "docs/report" / prefix, root / "docs/report" / prefix)
+    plan = json.loads(plan_path.read_text(encoding="utf-8"))
+    fragments = root / "fragment-artifacts"
+    for partition_id in plan["partition_ids"]:
+        _fragment(
+            fragments,
+            partition_id=partition_id,
+            relative_path=_fragment_path(partition_id),
+            binding=plan["binding"],
+        )
+
+    def reducer(request: dict[str, object]) -> dict[str, object]:
+        source_root = Path(str(request["owner_input_root"]))
+        assert (source_root / prefix / "certificate.json").is_file()
+        output_root = Path(str(request["output_root"]))
+        _write_complete_tree(output_root, plan_path=plan_path, report_payload="world\n")
+        return {"output_root": str(output_root)}
+
+    monkeypatch.setattr(execution, "run_runtime_command", reducer)
+    manifest = assemble_partition_lane(
+        repo_root=root,
+        policy_path=policy_path,
+        plan_path=plan_path,
+        lane="reference",
+        partition_artifacts_root=fragments,
+        evidence_root=root / "artifacts/assembly",
+        retain_original_r_reference=True,
+    )
+    r_source = cast(Any, manifest)["source_inputs"]["original_r_reference"]
+    assert manifest["schema_version"] == "partitioned-report-assembly.v3"
+    assert len(r_source["inventory"]) == 125
+    assert not (root / "artifacts/assembly/output" / prefix).exists()
+
+
+def test_original_r_reference_refuses_symlinked_bundle_ancestor(tmp_path: Path) -> None:
+    root, policy_path, _ = _fixture(tmp_path)
+    repository = Path(__file__).resolve().parents[3]
+    prefix = Path("method-certification/original-r-reference/reference-bundle")
+    bundle = root / "docs/report" / prefix
+    bundle.parent.mkdir(parents=True)
+    bundle.symlink_to(repository / "docs/report" / prefix, target_is_directory=True)
+    with pytest.raises(
+        ReportRebuildError, match="original R retained source validation failed"
+    ):
+        validated_original_r_reference(root, load_policy(policy_path))
+
+
+def test_lane_assembly_refuses_reducer_mutation_of_checked_source(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    from bijux_pollenomics_dev.ci.report_rebuild import execution
+
+    root, policy_path, plan_path = _fixture(tmp_path)
+    account = root / "docs/report/source/README.md"
+    account.parent.mkdir(parents=True)
+    account.write_text("# Checked-in account\n", encoding="utf-8")
+    plan = json.loads(plan_path.read_text(encoding="utf-8"))
+    fragments = root / "fragment-artifacts"
+    for partition_id in plan["partition_ids"]:
+        _fragment(
+            fragments,
+            partition_id=partition_id,
+            relative_path=_fragment_path(partition_id),
+            binding=plan["binding"],
+        )
+    tracked = inventory_reports(root / "docs/report", load_policy(policy_path))
+    source = next(entry for entry in tracked if entry.path == "source/README.md")
+    monkeypatch.setattr(
+        execution,
+        "validated_maintained_report_sources",
+        lambda *_args, **_kwargs: (
+            (source,),
+            {"schema_version": "maintained-report-source-evidence.v1"},
+        ),
+    )
+
+    def mutate(request: dict[str, object]) -> dict[str, object]:
+        source_root = Path(str(request["owner_input_root"]))
+        (source_root / "source/README.md").write_text("changed\n", encoding="utf-8")
+        output_root = Path(str(request["output_root"]))
+        _write_complete_tree(output_root, plan_path=plan_path, report_payload="world\n")
+        return {"output_root": str(output_root)}
+
+    monkeypatch.setattr(execution, "run_runtime_command", mutate)
+    with pytest.raises(ReportRebuildError, match="post-reducer source inputs"):
+        assemble_partition_lane(
+            repo_root=root,
+            policy_path=policy_path,
+            plan_path=plan_path,
+            lane="reference",
+            partition_artifacts_root=fragments,
+            evidence_root=root / "artifacts/assembly",
+            retain_maintained_report_sources=True,
+        )
+
+
+def test_verifier_refuses_missing_or_unexpected_checked_source_receipt(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    root, policy_path, plan_path = _fixture(tmp_path)
+    _write_complete_tree(root / "docs/report", plan_path=plan_path)
+    plan = json.loads(plan_path.read_text(encoding="utf-8"))
+    reference = _assembly(
+        root / "assemblies", lane="reference", binding=plan["binding"]
+    )
+    replay = _assembly(root / "assemblies", lane="replay", binding=plan["binding"])
+    with pytest.raises(ReportRebuildError, match="source-input schema changed"):
+        verify_partitioned_rebuild(
+            repo_root=root,
+            policy_path=policy_path,
+            plan_path=plan_path,
+            reference_manifest_path=reference,
+            replay_manifest_path=replay,
+            evidence_root=root / "artifacts/missing-source-receipt",
+            retain_maintained_report_sources=True,
+        )
+    for manifest_path in (reference, replay):
+        manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+        manifest.update(
+            schema_version="partitioned-report-assembly.v3",
+            owner_paths={},
+            owner_manifest_sha256={},
+            source_inputs={
+                "maintained_report_sources": {
+                    "schema_version": "maintained-report-source-evidence.v1"
+                }
+            },
+        )
+        manifest_path.write_text(json.dumps(manifest), encoding="utf-8")
+    with pytest.raises(
+        ReportRebuildError, match="claims unexpected checked-in source inputs"
+    ):
+        verify_partitioned_rebuild(
+            repo_root=root,
+            policy_path=policy_path,
+            plan_path=plan_path,
+            reference_manifest_path=reference,
+            replay_manifest_path=replay,
+            evidence_root=root / "artifacts/unexpected-source-receipt",
+        )
+
+
+def test_verifier_refuses_source_identity_different_from_current_candidate(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    root, policy_path, plan_path = _fixture(tmp_path)
+    _write_complete_tree(root / "docs/report", plan_path=plan_path)
+    plan = json.loads(plan_path.read_text(encoding="utf-8"))
+    reference = _assembly(
+        root / "assemblies", lane="reference", binding=plan["binding"]
+    )
+    replay = _assembly(root / "assemblies", lane="replay", binding=plan["binding"])
+    evidence = {
+        "schema_version": "maintained-report-source-evidence.v1",
+        "digest": "current",
+    }
+    for manifest_path in (reference, replay):
+        manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+        manifest.update(
+            schema_version="partitioned-report-assembly.v3",
+            owner_paths={},
+            owner_manifest_sha256={},
+            source_inputs={"maintained_report_sources": evidence},
+        )
+        manifest_path.write_text(json.dumps(manifest), encoding="utf-8")
+    replay_manifest = json.loads(replay.read_text(encoding="utf-8"))
+    replay_manifest["source_inputs"]["maintained_report_sources"]["digest"] = "old"
+    replay.write_text(json.dumps(replay_manifest), encoding="utf-8")
+    monkeypatch.setattr(
+        rebuild_verification,
+        "validated_maintained_report_sources",
+        lambda *_args, **_kwargs: ((), evidence),
+    )
+    with pytest.raises(
+        ReportRebuildError, match="replay checked-in source inputs changed"
+    ):
+        verify_partitioned_rebuild(
+            repo_root=root,
+            policy_path=policy_path,
+            plan_path=plan_path,
+            reference_manifest_path=reference,
+            replay_manifest_path=replay,
+            evidence_root=root / "artifacts/stale-source-receipt",
+            retain_maintained_report_sources=True,
+        )
+
+
+def test_make_partition_assembly_dispatches_separate_checked_sources(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    repository = Path(__file__).resolve().parents[3]
+    fragment = repository / "makes/pollenomics-verification.mk"
+    argv_log = tmp_path / "assemble-argv.json"
+    recorder = tmp_path / "record_assemble_argv.py"
+    recorder.write_text(
+        "import json\n"
+        "import os\n"
+        "from pathlib import Path\n"
+        "import sys\n"
+        "Path(os.environ['REBUILD_ARGV_LOG']).write_text("
+        "json.dumps(sys.argv[1:]), encoding='utf-8')\n",
+        encoding="utf-8",
+    )
+    wrapper = tmp_path / "Makefile"
+    wrapper.write_text(
+        f"DEV_RUN := {shlex.quote(sys.executable)} "
+        f"{shlex.quote(str(recorder))}\n"
+        "root-check-env:\n\t@:\n"
+        f"include {fragment}\n",
+        encoding="utf-8",
+    )
+    monkeypatch.setenv("REBUILD_ARGV_LOG", str(argv_log))
+    result = subprocess.run(
+        [
+            "make",
+            "-f",
+            str(wrapper),
+            "assemble-report-rebuild",
+            "REBUILD_LANE=reference",
+            "REBUILD_PARTITION_ARTIFACTS_ROOT=artifacts/partitions/reference",
+            "REBUILD_EVIDENCE_ROOT=artifacts/assembly/reference",
+            "REBUILD_OWNER_IDS=source/first source/second",
+            "REBUILD_OWNER_ARTIFACTS_ROOT=artifacts/owners/reference",
+        ],
+        cwd=tmp_path,
+        capture_output=True,
+        text=True,
+        check=False,
+        timeout=30,
+    )
+    assert result.returncode == 0, result.stderr
+    assert json.loads(argv_log.read_text(encoding="utf-8")) == [
+        "-m",
+        "bijux_pollenomics_dev.ci.report_rebuild",
+        "assemble",
+        "--repo-root",
+        str(tmp_path),
+        "--policy",
+        str(tmp_path / "configs/ci/reproducible-report-build.json"),
+        "--plan",
+        str(tmp_path / "artifacts/execution-control/report-rebuild-plan/plan.json"),
+        "--lane",
+        "reference",
+        "--partition-artifacts-root",
+        "artifacts/partitions/reference",
+        "--evidence-root",
+        "artifacts/assembly/reference",
+        "--retain-maintained-report-sources",
+        "--retain-original-r-reference",
+        "--owner-id",
+        "source/first",
+        "--owner-id",
+        "source/second",
+        "--owner-artifacts-root",
+        "artifacts/owners/reference",
+    ]

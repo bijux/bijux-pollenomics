@@ -1,0 +1,24 @@
+{
+  "schema_version": "qualified-report-source-bundle.v1",
+  "source_id": "legacyage/pangaea-933132",
+  "source_doi": "10.1594/PANGAEA.933132",
+  "license": "CC-BY-4.0",
+  "authority_url": "https://doi.pangaea.de/10.1594/PANGAEA.933132",
+  "custody": {
+    "path": "source-manifest.json",
+    "sha256": "fbfbcff24e2564090f302888eee062bfd104c17590badf0f61c315edf234db7d",
+    "size": 2210
+  },
+  "files": [
+    {
+      "path": "table-s4-original-chronology.csv",
+      "sha256": "943d6151d05cfc47df65b5a3ccedc683393fe6e8e24d14733ba7c58dcd071bb2",
+      "size": 64963286
+    },
+    {
+      "path": "table-s5-legacyage-chronology.csv",
+      "sha256": "bbe0e8d5854acf091a11737ddedc10d5656f8a25c8eeb9637b85f9e69a37cb41",
+      "size": 66989363
+    }
+  ]
+}

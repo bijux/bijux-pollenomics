@@ -1,0 +1,191 @@
+{
+  "cohort_sha256": "03fc3f0522c2e65082ea245785db84a76431eb6a099b81ce0358fbe9e249dc32",
+  "coverage_sha256": "634a78011031e180290304d9843e42a36e3d59c24f4a1c396b41dcf7a96df9a1",
+  "input_identity": {
+    "age_bin_width_bp": 500,
+    "country_candidate_samples": {
+      "DK": 91,
+      "FI": 1797,
+      "NO": 3544
+    },
+    "pollen_screen_sha256": "8f455c330e0b5be663eef1c6595ac32b168e9508517d8225f294460ad21c8480",
+    "relational_build_id": "sha256:92dd52619837f3641d004a1a5dbe38f9ab6023a79f61989314bb90e612eb58e1",
+    "relational_file_sha256": {
+      "manifest.json": "6f6777a40b67bd0704eb1a982f19e6d451cad0d6e4a41dfebf5e3f28be33105b",
+      "surfaces/age_claims/part-00001.json": "6b8983b43138ec68895d96070508218d0b7c4f9908bf87860f96b79d2725c558",
+      "surfaces/chronologies/part-00001.json": "0703828826bde8a4860d5ea03100cf85145702a042bb3d29dafcb8a3bef4f569",
+      "surfaces/datasets/part-00001.json": "be7fccfa6e0284ac7984e64c844618a6d8682c03282296cef5cabaab594e27e9",
+      "surfaces/observations/part-00001.json": "6afa864a9e06384678e63e9f85b13ca79882a87f5c14751cb27af46df60539be",
+      "surfaces/observations/part-00002.json": "571b55edc7ce7b6472cacc0db41c41c0e5ccb7d11f0890f88e7ba5f99ef3c719",
+      "surfaces/observations/part-00003.json": "a96543819902f5cf5b2b2de355558fd1dd85946c2c08254ec84fad6f9e43fcb5",
+      "surfaces/observations/part-00004.json": "b78776421961eb1bf64d886340e2e0f5a42dfe6d0a4ca937d028eb66b1ca0219",
+      "surfaces/observations/part-00005.json": "c4705ced69897dcb8f154435d0ba6bdfb0baa942642de94b18f3c856cbfc2e3a",
+      "surfaces/observations/part-00006.json": "a33597470799a6b85add81bb699c8a32ec6b55881809345f44351f5530d4d2b7",
+      "surfaces/observations/part-00007.json": "48a285e8be25f0ffc9d41feb0cd08ac8c2b6ba54783cf7f3ceeb57e4595ef1bf",
+      "surfaces/observations/part-00008.json": "517a9b6fd807cd420dbaf7f2d09a5c93d6a4d4374bc823d25fba7307bc0852dd",
+      "surfaces/samples/part-00001.json": "c959e77f7c645b814bffe92a92ff2d8fabcc077b4fc4c894e6315e448d14100c",
+      "surfaces/sites/part-00001.json": "b6ca4e49d0aec59aee576fc540c77b6c2e21601ce28338227e98717ee0bb93e9"
+    },
+    "runner_sha256": "65fd5dd1fd55390360ce118ff137f6fba6e43803074e21d23159fe340292f97b",
+    "schema_version": "nordic-direct-pollen-inputs.v1",
+    "source_screen_country_denominators": {
+      "DK": {
+        "count_candidate_observations": 9208,
+        "count_candidate_source_label_statuses": {
+          "source_element_not_pollen": 1278,
+          "source_element_type_missing": 0,
+          "source_label_pollen": 7930
+        },
+        "observations": 9247,
+        "pollen_count_observations": 7930,
+        "refused_count_observations": 39,
+        "sample_refusal_reason_occurrences": {
+          "no_numeric_count_candidate": 0,
+          "no_sample_owned_comparable_typed_age": 188
+        },
+        "samples": 279,
+        "samples_with_count_and_comparable_age": 91,
+        "samples_with_count_candidates": 279,
+        "samples_with_owned_comparable_age": 91,
+        "samples_with_pollen_count": 279,
+        "screen_candidate_samples": 91,
+        "screen_refused_samples": 188
+      },
+      "FI": {
+        "count_candidate_observations": 44428,
+        "count_candidate_source_label_statuses": {
+          "source_element_not_pollen": 11257,
+          "source_element_type_missing": 0,
+          "source_label_pollen": 33171
+        },
+        "observations": 46241,
+        "pollen_count_observations": 33171,
+        "refused_count_observations": 1813,
+        "sample_refusal_reason_occurrences": {
+          "no_numeric_count_candidate": 53,
+          "no_sample_owned_comparable_typed_age": 340
+        },
+        "samples": 2184,
+        "samples_with_count_and_comparable_age": 1797,
+        "samples_with_count_candidates": 2131,
+        "samples_with_owned_comparable_age": 1844,
+        "samples_with_pollen_count": 2131,
+        "screen_candidate_samples": 1797,
+        "screen_refused_samples": 387
+      },
+      "NO": {
+        "count_candidate_observations": 136157,
+        "count_candidate_source_label_statuses": {
+          "source_element_not_pollen": 44069,
+          "source_element_type_missing": 236,
+          "source_label_pollen": 91852
+        },
+        "observations": 143065,
+        "pollen_count_observations": 91852,
+        "refused_count_observations": 6908,
+        "sample_refusal_reason_occurrences": {
+          "no_numeric_count_candidate": 0,
+          "no_sample_owned_comparable_typed_age": 340
+        },
+        "samples": 3884,
+        "samples_with_count_and_comparable_age": 3544,
+        "samples_with_count_candidates": 3884,
+        "samples_with_owned_comparable_age": 3544,
+        "samples_with_pollen_count": 3884,
+        "screen_candidate_samples": 3544,
+        "screen_refused_samples": 340
+      },
+      "SE": {
+        "count_candidate_observations": 159337,
+        "count_candidate_source_label_statuses": {
+          "source_element_not_pollen": 34034,
+          "source_element_type_missing": 236,
+          "source_label_pollen": 125067
+        },
+        "observations": 162683,
+        "pollen_count_observations": 125067,
+        "refused_count_observations": 3346,
+        "sample_refusal_reason_occurrences": {
+          "no_numeric_count_candidate": 0,
+          "no_sample_owned_comparable_typed_age": 753
+        },
+        "samples": 5764,
+        "samples_with_count_and_comparable_age": 5011,
+        "samples_with_count_candidates": 5764,
+        "samples_with_owned_comparable_age": 5011,
+        "samples_with_pollen_count": 5764,
+        "screen_candidate_samples": 5011,
+        "screen_refused_samples": 753
+      },
+      "UNASSIGNED": {
+        "count_candidate_observations": 9540,
+        "count_candidate_source_label_statuses": {
+          "source_element_not_pollen": 2037,
+          "source_element_type_missing": 0,
+          "source_label_pollen": 7503
+        },
+        "observations": 9700,
+        "pollen_count_observations": 7503,
+        "refused_count_observations": 160,
+        "sample_refusal_reason_occurrences": {
+          "no_numeric_count_candidate": 0,
+          "no_sample_owned_comparable_typed_age": 83
+        },
+        "samples": 277,
+        "samples_with_count_and_comparable_age": 194,
+        "samples_with_count_candidates": 277,
+        "samples_with_owned_comparable_age": 194,
+        "samples_with_pollen_count": 277,
+        "screen_candidate_samples": 194,
+        "screen_refused_samples": 83
+      }
+    },
+    "source_snapshot_id": "sha256:b2bcb99157e10b0c9f13c228acc12eabcb39d96a1f39c86ec25e34aacd78c791",
+    "swedish_raw_file_sha256": {
+      "part-004.json": "d96046c88b497ba07082120e446fecacad0d9b5533d8960bdbc03811976ea435",
+      "part-008.json": "9cdcb2d394bc8ef23bf2b4b5e3f1f3ae5916aae16db71542c58f4b80a2dd1134"
+    },
+    "swedish_training_datasets": [
+      "19913",
+      "53995",
+      "54001"
+    ],
+    "target_outcomes_in_prediction_inputs": false,
+    "taxon_axis": [
+      "Alnus",
+      "Amaranthaceae",
+      "Betula",
+      "Cichorioideae",
+      "Cyperaceae",
+      "Filipendula",
+      "Frangula alnus",
+      "Nuphar",
+      "Plantago lanceolata",
+      "Plantago media",
+      "Populus",
+      "Quercus",
+      "Rosaceae undiff.",
+      "Salix",
+      "Thalictrum",
+      "Ulmus"
+    ]
+  },
+  "prediction_counts": {
+    "DK": 96,
+    "FI": 1740,
+    "NO": 4336
+  },
+  "prediction_sha256": {
+    "DK": "ab637ecd8dfaaf672e5f5a496059a9aaa516d28d76cdef1aabac2dacb23aeee8",
+    "FI": "f3727dc8111ef2c8794f93f32cc21b452785e1ebcf6b14117c6534b79dd19e5a",
+    "NO": "4b4e5d15a43af53691943eb3e39f301b56a986f7711464e52e1ff016131d28b1"
+  },
+  "prediction_table_sha256": "f1997cfe75185b7d672c8ad9c409b16c6d9568eb789a851ac2ae0ec7deb04696",
+  "results_sha256": "be05e7fdaf846dfb1f049964cd72e64975b7e04f7d40858c75d876bcb4adcff4",
+  "schema_version": "nordic-direct-pollen-results.v1",
+  "scored_rows": 6172,
+  "scores_sha256": "b85963e3b2e0386541dfcebf0e14530571d1bcc22f630f0720e43592e44ef2d8",
+  "site_scores_sha256": "60381b7e2d07f7ff1f9e58554b0439ce40fb8933093357eea70388ffbd298d0c",
+  "source_snapshot_id": "sha256:b2bcb99157e10b0c9f13c228acc12eabcb39d96a1f39c86ec25e34aacd78c791",
+  "training_sources_sha256": "df901240f952fadccd2977553382709134f11c43cb5f3163c84f195ce863321a"
+}

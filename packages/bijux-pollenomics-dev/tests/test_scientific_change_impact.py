@@ -2,9 +2,11 @@
 
 from __future__ import annotations
 
+from fnmatch import fnmatchcase
 import json
 from pathlib import Path
 import re
+from zipfile import ZipFile
 
 import pytest
 import yaml
@@ -14,6 +16,13 @@ from bijux_pollenomics_dev.ci.path_selection import (
     ChangeImpactContract,
     load_contract,
     select_changed_paths,
+)
+from bijux_pollenomics_dev.ci.report_rebuild import configured_owner
+from bijux_pollenomics_dev.ci.report_rebuild.qualified_sources import (
+    QualifiedReportSources,
+)
+from bijux_pollenomics_dev.ci.report_rebuild.scheduling import (
+    configured_owner_schedule,
 )
 
 REPO_ROOT = Path(__file__).resolve().parents[3]
@@ -341,3 +350,215 @@ def test_scientific_verification_requires_explicit_manual_dispatch() -> None:
     )
     assert "workflow_dispatch)" in script
     assert 'echo "select_all=true"' in script
+
+
+@pytest.fixture(scope="module")
+def configured_owner_rows(
+    tmp_path_factory: pytest.TempPathFactory,
+) -> list[dict[str, str]]:
+    """Supply synthetic external inputs for CI identity and archive layout only.
+
+    These tests execute no producer and make no source-custody claim. Real
+    external authentication and missing-store refusals have separate tests.
+    """
+    store = tmp_path_factory.mktemp("configured-owner-schedule") / "source-store"
+
+    def synthetic_sources(
+        repository: Path, source_root: Path, descriptor_path: Path
+    ) -> QualifiedReportSources:
+        assert repository == REPO_ROOT and source_root == store
+        descriptor_file = repository / descriptor_path
+        descriptor = json.loads(descriptor_file.read_text())
+        identity = descriptor["source_id"]
+        directory = store / identity
+        directory.mkdir(parents=True, exist_ok=True)
+        inputs = {descriptor_path.as_posix(): descriptor_file}
+        schema = descriptor["schema_version"]
+        if schema == "qualified-author-snapshot.v1":
+            receipt = descriptor["manifest"]
+        else:
+            assert schema in {
+                "qualified-report-source-bundle.v1",
+                "qualified-publisher-report-tables.v1",
+            }
+            receipt = descriptor["custody"]
+        for spec in [receipt, *descriptor["files"]]:
+            path = directory / spec["path"]
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_text("synthetic archive-layout fixture\n", encoding="utf-8")
+            inputs[f"external/{identity}/{spec['path']}"] = path
+        return QualifiedReportSources(directory, inputs, "a" * 64)
+
+    # Identity checks share one checked schedule; no test mutates these rows.
+    with pytest.MonkeyPatch.context() as patch:
+        patch.setattr(
+            configured_owner, "validated_external_report_sources", synthetic_sources
+        )
+        rows = configured_owner_schedule(REPO_ROOT, source_root=store)["owners"]
+    assert isinstance(rows, list)
+    return rows
+
+
+def test_report_owner_ci_matrix_matches_configured_execution_contract(
+    configured_owner_rows: list[dict[str, str]],
+) -> None:
+    workflow = yaml.load(
+        WORKFLOW_PATH.read_text(encoding="utf-8"), Loader=yaml.BaseLoader
+    )
+    configured = json.loads(
+        (REPO_ROOT / "configs/ci/report-owner-execution.json").read_text()
+    )
+    owner_job = workflow["jobs"]["rebuild-owners"]
+    matrix = owner_job["strategy"]["matrix"]
+    assert matrix["owner"] == "${{ fromJSON(needs.rebuild-plan.outputs.owners) }}"
+    rows = configured_owner_rows
+    assert isinstance(rows, list)
+    assert {row["id"] for row in rows} == {
+        row["owner_id"] for row in configured["owners"]
+    }
+    assert set(matrix["lane"]) == {"reference", "replay"}
+    assert len({row["id"] for row in rows}) == len(rows)
+    assert len({row["artifact"] for row in rows}) == len(rows)
+    plan_outputs = workflow["jobs"]["rebuild-plan"]["outputs"]
+    assert plan_outputs["owners"] == "${{ steps.plan.outputs.owners }}"
+    assert plan_outputs["owner_ids"] == "${{ steps.plan.outputs.owner_ids }}"
+    assert set(owner_job["needs"]) == {"impact", "rebuild-plan"}
+    assert owner_job["strategy"]["fail-fast"] == "false"
+    assert int(owner_job["timeout-minutes"]) == 10
+    build = next(
+        step
+        for step in owner_job["steps"]
+        if step.get("run") == "make build-report-rebuild-owner"
+    )
+    assert build["env"]["REBUILD_OWNER_ID"] == "${{ matrix.owner.id }}"
+    assert build["env"]["REBUILD_EVIDENCE_ROOT"].endswith(
+        "/${{ matrix.lane }}/${{ matrix.owner.id }}"
+    )
+    upload = next(
+        step
+        for step in owner_job["steps"]
+        if step.get("name") == "Upload owner output and diagnostics"
+    )
+    assert upload["with"]["name"].startswith("report-owner-")
+    assert upload["if"] == "always()"
+    assert upload["with"]["if-no-files-found"] == "error"
+    assert upload["with"]["name"] == (
+        "report-owner-${{ matrix.lane }}-${{ matrix.owner.artifact }}"
+    )
+    assert upload["with"]["path"] == (
+        "artifacts/execution-control/report-rebuild-owner/${{ matrix.lane }}"
+    )
+
+
+def test_report_owner_ci_downloads_preserve_exact_nested_identities(
+    configured_owner_rows: list[dict[str, str]],
+) -> None:
+    workflow = yaml.load(
+        WORKFLOW_PATH.read_text(encoding="utf-8"), Loader=yaml.BaseLoader
+    )
+    jobs = workflow["jobs"]
+    owners = configured_owner_rows
+    assert isinstance(owners, list)
+    assembly = jobs["rebuild-assemble"]
+    assert "rebuild-owners" in assembly["needs"]
+    for job, lanes, target in (
+        (assembly, ("${{ matrix.lane }}",), "make assemble-report-rebuild"),
+        (
+            jobs["rebuild-verify"],
+            ("reference", "replay"),
+            "make verify-partitioned-report-rebuild",
+        ),
+    ):
+        owner_downloads = [
+            step
+            for step in job["steps"]
+            if step.get("uses", "").startswith("actions/download-artifact")
+            and step.get("with", {}).get("pattern", "").startswith("report-owner-")
+        ]
+        assert len(owner_downloads) == len(lanes)
+        for lane, download in zip(lanes, owner_downloads, strict=True):
+            settings = download["with"]
+            assert "name" not in settings
+            assert settings["pattern"] == f"report-owner-{lane}-*"
+            assert settings["path"] == (
+                f"artifacts/execution-control/report-rebuild-owner-input/{lane}"
+            )
+            assert settings["merge-multiple"] == "true"
+            for owner in owners:
+                assert fnmatchcase(
+                    f"report-owner-{lane}-{owner['artifact']}", settings["pattern"]
+                )
+            assert not fnmatchcase(
+                f"report-rebuild-{lane}-foundation", settings["pattern"]
+            )
+        run = next(step for step in job["steps"] if step.get("run") == target)
+        assert run["env"]["REBUILD_OWNER_IDS"] == (
+            "${{ needs.rebuild-plan.outputs.owner_ids }}"
+        )
+        if len(lanes) == 1:
+            assert (
+                run["env"]["REBUILD_OWNER_ARTIFACTS_ROOT"]
+                == f"artifacts/execution-control/report-rebuild-owner-input/{lanes[0]}"
+            )
+        else:
+            for lane in lanes:
+                assert (
+                    run["env"][f"REBUILD_{lane.upper()}_OWNERS_ROOT"]
+                    == f"artifacts/execution-control/report-rebuild-owner-input/{lane}"
+                )
+    partitions = next(
+        step
+        for step in assembly["steps"]
+        if step.get("name") == "Download complete partition set"
+    )
+    assert partitions["with"]["pattern"] == "report-rebuild-${{ matrix.lane }}-*"
+    assert not partitions["with"]["pattern"].startswith("report-owner")
+
+
+def test_owner_lane_root_archives_keep_duplicate_leaf_names_separate(
+    tmp_path: Path,
+    configured_owner_rows: list[dict[str, str]],
+) -> None:
+    workflow = yaml.load(
+        WORKFLOW_PATH.read_text(encoding="utf-8"), Loader=yaml.BaseLoader
+    )
+    owner_job = workflow["jobs"]["rebuild-owners"]
+    assert owner_job["steps"][-1]["with"]["path"].endswith("/${{ matrix.lane }}")
+    owners = configured_owner_rows
+    assert isinstance(owners, list)
+    same_leaf = [row for row in owners if row["id"].endswith("/report-products")]
+    assert len(same_leaf) >= 2
+    selected = same_leaf[:2]
+    merged = tmp_path / "downloaded-owner-lane"
+    merged.mkdir()
+    expected: dict[str, str] = {}
+    for index, owner in enumerate(selected):
+        identity = owner["id"]
+        archive = tmp_path / f"owner-{index}.zip"
+        with ZipFile(archive, "w") as bundle:
+            bundle.writestr(f"{identity}/manifest.json", identity)
+            bundle.writestr(f"{identity}/producer.stderr.log", f"diagnostic {index}")
+            bundle.writestr(f"{identity}/output/{index}.json", f'{{"owner": {index}}}')
+        with ZipFile(archive) as bundle:
+            bundle.extractall(merged)
+        expected[identity] = f"diagnostic {index}"
+    assert {
+        path.relative_to(merged).as_posix() for path in merged.rglob("manifest.json")
+    } == {f"{identity}/manifest.json" for identity in expected}
+    for identity, diagnostic in expected.items():
+        assert (merged / identity / "manifest.json").read_text() == identity
+        assert (merged / identity / "producer.stderr.log").read_text() == diagnostic
+
+
+def test_report_plan_preflights_owner_schedule_before_writing_partition_plan() -> None:
+    makefile = (REPO_ROOT / "makes/pollenomics-verification.mk").read_text()
+    recipe = makefile.split("plan-report-rebuild: root-check-env", 1)[1].split(
+        "\nbuild-report-rebuild-partition:", 1
+    )[0]
+    assert recipe.count("-m bijux_pollenomics_dev.ci.report_rebuild.scheduling") == 2
+    assert recipe.index("--check-only") < recipe.index(
+        "-m bijux_pollenomics_dev.ci.report_rebuild plan"
+    )
+    assert recipe.index(
+        "-m bijux_pollenomics_dev.ci.report_rebuild plan"
+    ) < recipe.rindex("-m bijux_pollenomics_dev.ci.report_rebuild.scheduling")

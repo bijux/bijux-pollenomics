@@ -4,8 +4,8 @@ POLLENOMICS_SOURCE_ROOT := packages/bijux-pollenomics/src/bijux_pollenomics
 POLLENOMICS_TEST_ROOT := packages/bijux-pollenomics/tests
 POLLENOMICS_GATE_ARTIFACTS := artifacts/release-verification/gates
 POLLENOMICS_SEAD_GOVERNED_RUN := sead-full-evidence-39bfff6a-ce80714e
-POLLENOMICS_CLASSIFICATION_EVIDENCE := artifacts/release-verification/classification/neotoma-audit-visual-profile-5a932522
-POLLENOMICS_PROPAGATION_EVIDENCE := artifacts/release-verification/propagation/neotoma-audit-1b5114cd
+POLLENOMICS_CLASSIFICATION_EVIDENCE := artifacts/release-verification/classification/neotoma-audit-visual-profile-efb43ee0
+POLLENOMICS_PROPAGATION_EVIDENCE := artifacts/release-verification/propagation/neotoma-audit-196d7403
 POLLENOMICS_RELEASE_CANDIDATE_ID ?= $(shell git rev-parse HEAD 2>/dev/null)
 POLLENOMICS_RELEASE_EVIDENCE_DIRECTORY ?= artifacts/release-verification/release-evidence/$(POLLENOMICS_RELEASE_CANDIDATE_ID)
 POLLENOMICS_RELEASE_EVIDENCE_REQUEST ?= $(POLLENOMICS_RELEASE_EVIDENCE_DIRECTORY)/request.json
@@ -206,7 +206,7 @@ define run_pollenomics_pytest_gate
 		$(2)
 endef
 
-.PHONY: materialize-scientific-evidence verify-science verify-data verify-map verify-provenance verify-doc-counts collect-doc-count-universe verify-doc-count-shard attest-doc-count-shards verify-rebuild plan-report-rebuild build-report-rebuild-partition assemble-report-rebuild verify-partitioned-report-rebuild verify-sead-evidence-fixed-point refresh-release-gates release-evidence-request release-evidence verify-release-candidate
+.PHONY: materialize-scientific-evidence verify-science verify-data verify-map verify-provenance verify-doc-counts collect-doc-count-universe verify-doc-count-shard attest-doc-count-shards verify-rebuild plan-report-rebuild build-report-rebuild-partition build-report-rebuild-owner assemble-report-rebuild verify-partitioned-report-rebuild verify-sead-evidence-fixed-point refresh-release-gates release-evidence-request release-evidence verify-release-candidate
 
 materialize-scientific-evidence: root-check-env ## Recreate policy-owned classification and propagation evidence
 	@$(DEV_RUN) -m bijux_pollenomics_dev.ci.scientific_evidence \
@@ -222,10 +222,20 @@ verify-rebuild: root-check-env ## Prove tracked reports rebuild deterministicall
 
 plan-report-rebuild: root-check-env ## Bind the report partition plan to repository inputs
 	@test -n "$(POLLENOMICS_REBUILD_PLAN)"
+	@$(DEV_RUN) -m bijux_pollenomics_dev.ci.report_rebuild.scheduling \
+		--repository "$(CURDIR)" \
+		--output "$(dir $(POLLENOMICS_REBUILD_PLAN))owner-schedule.json" \
+		$(if $(REBUILD_SOURCE_ROOT),--source-root "$(REBUILD_SOURCE_ROOT)") \
+		--check-only
 	@$(DEV_RUN) -m bijux_pollenomics_dev.ci.report_rebuild plan \
 		--repo-root "$(CURDIR)" \
 		--policy "$(POLLENOMICS_REBUILD_POLICY)" \
 		--output "$(POLLENOMICS_REBUILD_PLAN)" \
+		$(if $(GITHUB_OUTPUT),--github-output "$(GITHUB_OUTPUT)")
+	@$(DEV_RUN) -m bijux_pollenomics_dev.ci.report_rebuild.scheduling \
+		--repository "$(CURDIR)" \
+		--output "$(dir $(POLLENOMICS_REBUILD_PLAN))owner-schedule.json" \
+		$(if $(REBUILD_SOURCE_ROOT),--source-root "$(REBUILD_SOURCE_ROOT)") \
 		$(if $(GITHUB_OUTPUT),--github-output "$(GITHUB_OUTPUT)")
 
 build-report-rebuild-partition: root-check-env ## Materialize one evidence-bound report partition
@@ -239,6 +249,16 @@ build-report-rebuild-partition: root-check-env ## Materialize one evidence-bound
 		--evidence-root "$(REBUILD_EVIDENCE_ROOT)" \
 		$(if $(REBUILD_SCOPE_ARTIFACTS_ROOT),--scope-artifacts-root "$(REBUILD_SCOPE_ARTIFACTS_ROOT)")
 
+build-report-rebuild-owner: root-check-env ## Reproduce one configured report owner with declared inputs
+	@test -n "$(REBUILD_LANE)" && test -n "$(REBUILD_OWNER_ID)" && test -n "$(REBUILD_EVIDENCE_ROOT)"
+	@$(DEV_RUN) -m bijux_pollenomics_dev.ci.report_rebuild.configured_owner \
+		--repository "$(CURDIR)" \
+		--plan "$(POLLENOMICS_REBUILD_PLAN)" \
+		--lane "$(REBUILD_LANE)" \
+		--owner-id "$(REBUILD_OWNER_ID)" \
+		$(if $(REBUILD_SOURCE_ROOT),--source-root "$(REBUILD_SOURCE_ROOT)") \
+		--evidence-root "$(REBUILD_EVIDENCE_ROOT)"
+
 assemble-report-rebuild: root-check-env ## Assemble one complete report tree from exact partitions
 	@test -n "$(REBUILD_LANE)" && test -n "$(REBUILD_PARTITION_ARTIFACTS_ROOT)" && test -n "$(REBUILD_EVIDENCE_ROOT)"
 	@$(DEV_RUN) -m bijux_pollenomics_dev.ci.report_rebuild assemble \
@@ -247,7 +267,12 @@ assemble-report-rebuild: root-check-env ## Assemble one complete report tree fro
 		--plan "$(POLLENOMICS_REBUILD_PLAN)" \
 		--lane "$(REBUILD_LANE)" \
 		--partition-artifacts-root "$(REBUILD_PARTITION_ARTIFACTS_ROOT)" \
-		--evidence-root "$(REBUILD_EVIDENCE_ROOT)"
+		--evidence-root "$(REBUILD_EVIDENCE_ROOT)" \
+		--retain-maintained-report-sources \
+		--retain-original-r-reference \
+		$(if $(REBUILD_SOURCE_ROOT),--source-root "$(REBUILD_SOURCE_ROOT)") \
+		$(foreach owner,$(REBUILD_OWNER_IDS),--owner-id "$(owner)") \
+		$(if $(REBUILD_OWNER_ARTIFACTS_ROOT),--owner-artifacts-root "$(REBUILD_OWNER_ARTIFACTS_ROOT)")
 
 verify-partitioned-report-rebuild: root-check-env ## Compare two complete partitioned builds with tracked reports
 	@test -n "$(REBUILD_REFERENCE_MANIFEST)" && test -n "$(REBUILD_REPLAY_MANIFEST)" && test -n "$(REBUILD_EVIDENCE_ROOT)"
@@ -257,7 +282,13 @@ verify-partitioned-report-rebuild: root-check-env ## Compare two complete partit
 		--plan "$(POLLENOMICS_REBUILD_PLAN)" \
 		--reference-manifest "$(REBUILD_REFERENCE_MANIFEST)" \
 		--replay-manifest "$(REBUILD_REPLAY_MANIFEST)" \
-		--evidence-root "$(REBUILD_EVIDENCE_ROOT)"
+		--evidence-root "$(REBUILD_EVIDENCE_ROOT)" \
+		--retain-original-r-reference \
+		--retain-maintained-report-sources \
+		$(if $(REBUILD_SOURCE_ROOT),--source-root "$(REBUILD_SOURCE_ROOT)") \
+		$(foreach owner,$(REBUILD_OWNER_IDS),--owner-id "$(owner)") \
+		$(if $(REBUILD_REFERENCE_OWNERS_ROOT),--reference-owners-root "$(REBUILD_REFERENCE_OWNERS_ROOT)") \
+		$(if $(REBUILD_REPLAY_OWNERS_ROOT),--replay-owners-root "$(REBUILD_REPLAY_OWNERS_ROOT)")
 
 verify-sead-evidence-fixed-point: root-check-env ## Prove governed SEAD evidence rebuilds byte-identically without network
 	@mkdir -p "$(CURDIR)/artifacts/execution-control"; \

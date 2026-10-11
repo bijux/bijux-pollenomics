@@ -1,0 +1,16 @@
+{
+  "files_sha256": {
+    "prepared/input-manifest.json": "d1e20733eeabde12ab8ab2ee3ff687cd854c2fee4269fb20fe175365267d99d5",
+    "prepared/inputs/training-DK.json": "def96acd422e9a4975ee8fff3b79a2127c4d1747b3345d2d24296b9670070700",
+    "prepared/inputs/training-FI.json": "908f2868c5b8020878119329cb0de3c941ac680f54fdb4ca073a83776920793f",
+    "prepared/inputs/training-NO.json": "c16fd213650f022076ad157a4b3f09c96c4c9d6bfd889c06180e068dceae305f",
+    "publication-manifest.json": "3e7814bf9697783397cdce11639ebc861620a6a3c9d9295d1357ab69bc7b5edf"
+  },
+  "historical_creation_commit": "27ff47c4a829f59ae37b6a0e85b136b01a36cfa9",
+  "historical_development_source_git_blob": "c64c833a1308384d0403bd80a69633dd51b1d2dd",
+  "historical_direct_source_git_blob": "7c9bfb80e0173b5fb101fda435bcd6dc227df39a",
+  "packet_scope": "historical observed-pollen development input bytes; no fresh study or source rights decision",
+  "publication_git_blob": "7c61600e883f2603a75d7287d6071a99485c56da",
+  "retained_training_source_checkout": "4fc6e9cb6073713d5da2e16133f7b2ab4e06b682",
+  "schema_version": "nordic-development-retained-input-custody.v1"
+}

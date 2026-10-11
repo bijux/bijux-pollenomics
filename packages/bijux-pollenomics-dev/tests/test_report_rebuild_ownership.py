@@ -45,7 +45,7 @@ def _write_inventory(repository: Path, payload: dict[str, object]) -> None:
 
 
 def _inventory(repository: Path) -> dict[str, object]:
-    value = json.loads(
+    value: object = json.loads(
         (repository / "configs/ci/report-ownership.json").read_text(encoding="utf-8")
     )
     assert isinstance(value, dict)
@@ -226,6 +226,40 @@ def test_rejects_self_fed_generated_output(repository: Path, field: str) -> None
     _write_inventory(repository, payload)
     with pytest.raises(ReportOwnershipError, match="feeds its own output"):
         check_report_ownership(repository)
+
+
+@pytest.mark.parametrize("field", ["producer_inputs", "producer_paths"])
+def test_rejects_indirect_generated_output_feedback(
+    repository: Path, field: str
+) -> None:
+    payload = _inventory(repository)
+    downstream = _owner(payload, "open-evidence")
+    downstream.update(
+        role="generated_owner",
+        producer_paths=["packages/report_producer.py"],
+        producer_inputs=["docs/report/analysis/result.json"],
+    )
+    _owner(payload, "analysis/result")[field] = ["docs/report/pending.json"]
+    _write_inventory(repository, payload)
+    with pytest.raises(ReportOwnershipError, match="generated owner dependency cycle"):
+        check_report_ownership(repository)
+
+
+def test_allows_generated_chain_with_shared_retained_input(repository: Path) -> None:
+    payload = _inventory(repository)
+    _owner(payload, "open-evidence").update(
+        role="generated_owner",
+        producer_paths=["packages/report_producer.py"],
+        producer_inputs=["docs/report/source/seed.csv"],
+    )
+    _owner(payload, "analysis/result")["producer_inputs"] = [
+        "docs/report/pending.json",
+        "docs/report/source/seed.csv",
+    ]
+    _write_inventory(repository, payload)
+    result = check_report_ownership(repository, require_resolved=True)
+    assert result.role_counts["generated_owner"] == 2
+    assert result.unresolved_path_count == 0
 
 
 def test_rejects_symlinked_source_and_ancestor(repository: Path) -> None:

@@ -5,6 +5,7 @@ from __future__ import annotations
 import argparse
 from collections import Counter
 from dataclasses import asdict, dataclass
+from graphlib import CycleError, TopologicalSorter
 import hashlib
 import json
 from pathlib import Path
@@ -34,10 +35,10 @@ OWNER_ID = re.compile(
     r"[a-z][a-z0-9]*(?:[-_][a-z0-9]+)*(?:/[a-z][a-z0-9]*(?:[-_][a-z0-9]+)*)*\Z"
 )
 SHA256 = re.compile(r"[0-9a-f]{64}\Z")
-OWNER_FIELDS = frozenset(
+OWNER_FIELDS: frozenset[str] = frozenset(
     {"owner_id", "role", "paths", "producer_paths", "producer_inputs", "verification"}
 )
-INVENTORY_FIELDS = frozenset(
+INVENTORY_FIELDS: frozenset[str] = frozenset(
     {
         "schema_version",
         "root",
@@ -176,7 +177,7 @@ def _load_inventory(repository: Path, inventory: Path) -> dict[str, Any]:
         raise ReportOwnershipError(
             f"cannot read ownership inventory: {error}"
         ) from error
-    if not isinstance(payload, dict) or set(payload) != INVENTORY_FIELDS:
+    if not isinstance(payload, dict) or frozenset(payload) != INVENTORY_FIELDS:
         raise ReportOwnershipError("ownership inventory fields are not exact")
     return payload
 
@@ -218,7 +219,7 @@ def check_report_ownership(
     role_counts: Counter[str] = Counter()
     unresolved_ids: list[str] = []
     for index, raw in enumerate(owners):
-        if not isinstance(raw, dict) or set(raw) != OWNER_FIELDS:
+        if not isinstance(raw, dict) or frozenset(raw) != OWNER_FIELDS:
             raise ReportOwnershipError(f"owner {index} fields are not exact")
         owner_id = raw["owner_id"]
         if not isinstance(owner_id, str) or OWNER_ID.fullmatch(owner_id) is None:
@@ -280,6 +281,7 @@ def check_report_ownership(
         raise ReportOwnershipError(
             f"ownership population differs: missing={missing}, extra={extra}"
         )
+    _require_acyclic_generated_owners(owners, assigned)
     if require_resolved and unresolved_ids:
         raise ReportOwnershipError(
             f"unresolved report owners remain: {', '.join(sorted(unresolved_ids))}"
@@ -291,6 +293,31 @@ def check_report_ownership(
         unresolved_owner_ids=sorted(unresolved_ids),
         unresolved_path_count=role_counts["unresolved"],
     )
+
+
+def _require_acyclic_generated_owners(
+    owners: list[dict[str, Any]], assigned: dict[str, str]
+) -> None:
+    """An owner cannot reconstruct its inputs through its own downstream output."""
+    generated = {
+        owner["owner_id"]: owner
+        for owner in owners
+        if owner["role"] == "generated_owner"
+    }
+    dependencies = {
+        owner_id: {
+            assigned[path]
+            for path in (*owner["producer_paths"], *owner["producer_inputs"])
+            if path in assigned and assigned[path] in generated
+        }
+        for owner_id, owner in generated.items()
+    }
+    try:
+        TopologicalSorter(dependencies).prepare()
+    except CycleError as error:
+        raise ReportOwnershipError(
+            "generated owner dependency cycle: " + " -> ".join(error.args[1])
+        ) from error
 
 
 def main(argv: list[str] | None = None) -> int:

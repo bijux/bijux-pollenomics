@@ -24,13 +24,13 @@ register. Repository-local work can continue on the already admitted pollen
 and English author examples while external fields remain open.
 
 The [prepared source requests](source-requests.md) and their
-[structured field list](source-requests.csv) bind 17 specific packets to the
+[structured field list](source-requests.csv) bind 18 specific packets to the
 existing evidence, resolver role, intended use and reopening condition. They
 remain unsent.
 
 The [independent scientific review questions](scientific-review.md) bind each
 material claim to exact versions, qualifications, decision scope and its
-admission consumer. All 35 questions remain unassigned and no decisions have
+admission consumer. All 36 questions remain unassigned and no decisions have
 been received. Use the [decision record](review-decision.md) only when a real
 qualified reviewer returns a scoped answer.
 
@@ -490,3 +490,7 @@ relational source payloads reconcile. These are serialized source products,
 not original HTTP receipts. **Reopen when:** original receipt and boundary
 authority arrives, or a separately identified capture with complete request
 and response custody is ready for its own source-bound replay.
+
+## Rhododendron pollen synonym
+
+The [source-specific candidate](../../docs/report/source-relations/neotoma/author-taxonomy-candidates/README.md#rhododendron-synonym-review) links a citable botanical synonym to one pinned author lookup row. A qualified palynologist must decide whether it applies to native concept `4431`, starting with the two unmapped Abborrtjärnen counts. The matching request and review remain unsent and unreceived; the mapping and all denominators retain their original dispositions.

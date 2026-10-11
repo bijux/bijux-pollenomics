@@ -49,3 +49,18 @@ from `bijux_pollenomics.analysis.lra.materialization.api` with raw root
 `data/neotoma/relational`, and the 16 explicit sample IDs above. Write
 `result.canonical_json` without an added newline. Its SHA-256 is
 `77666e63575f5da0a82842d33d72b0527dc7a592691e8560e595b04d5cd69071`.
+
+To reproduce the compact summary from the retained complete sample decisions:
+
+```sh
+PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=packages/bijux-pollenomics/src:packages/bijux-pollenomics-dev/src \
+  .venv/bin/python -m bijux_pollenomics_dev.source_completion.neotoma_screen_summary \
+  --repository . \
+  --screen docs/report/source-relations/neotoma/pollen-screen/report.json \
+  --output artifacts/jobs/neotoma-screen-summary/summary.json
+```
+
+Use an absent artifact output and compare its bytes with `summary.json`.
+This exporter checks the candidate digest, sample decisions, country totals and
+refusal scope. It preserves the parent report values; it does not revalidate raw
+source custody or approve any scientific prerequisite.
