@@ -166,7 +166,8 @@ def inspect_source_identity(repository: Path, git_tree: bytes) -> SourceIdentity
     for path, expected in blobs.items():
         data = (repository / path).read_bytes()
         actual = hashlib.sha1(
-            b"blob " + str(len(data)).encode("ascii") + b"\0" + data
+            b"blob " + str(len(data)).encode("ascii") + b"\0" + data,
+            usedforsecurity=False,
         ).hexdigest()
         if actual != expected:
             raise ReferenceRefusal(
