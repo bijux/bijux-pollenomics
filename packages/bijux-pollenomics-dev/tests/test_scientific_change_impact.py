@@ -175,10 +175,8 @@ def test_workflow_has_no_path_filter_and_uses_selector_as_authority() -> None:
     )
     events = workflow["on"]
 
-    assert "paths" not in events["push"]
-    assert "paths-ignore" not in events["push"]
-    assert "paths" not in events["pull_request"]
-    assert "paths-ignore" not in events["pull_request"]
+    assert set(events) == {"workflow_dispatch"}
+    assert events["workflow_dispatch"] == ""
     select_step = next(
         step
         for step in workflow["jobs"]["impact"]["steps"]
@@ -277,27 +275,24 @@ def test_contract_is_canonical_json() -> None:
     assert "deployed-smoke" not in document["gates"]
 
 
-def test_atlas_workflow_separates_premerge_browser_from_postdeployment_smoke() -> None:
+def test_atlas_workflow_separates_manual_source_and_deployed_verification() -> None:
     workflow = yaml.load(
         ATLAS_WORKFLOW_PATH.read_text(encoding="utf-8"), Loader=yaml.BaseLoader
     )
     events = workflow["on"]
     jobs = workflow["jobs"]
 
-    assert {"push", "pull_request", "merge_group", "workflow_dispatch"} <= set(events)
-    assert events["workflow_run"] == {
-        "workflows": ["deploy-docs"],
-        "types": ["completed"],
-        "branches": ["main"],
-    }
+    assert set(events) == {"workflow_dispatch"}
+    scope = events["workflow_dispatch"]["inputs"]["verification_scope"]
+    assert scope["type"] == "choice"
+    assert scope["default"] == "source"
+    assert scope["options"] == ["source", "deployed"]
+    assert scope["required"] == "true"
     browser_job = jobs["browser"]
     smoke_job = jobs["deployed-smoke"]
-    assert "github.event_name != 'workflow_run'" in browser_job["if"]
-    assert DEPENDABOT_SKIP in browser_job["if"]
-    assert "github.event_name == 'workflow_run'" in smoke_job["if"]
-    assert "github.event.workflow_run.conclusion == 'success'" in smoke_job["if"]
-    assert "github.event.workflow_run.head_branch == 'main'" in smoke_job["if"]
-    assert DEPENDABOT_SKIP in smoke_job["if"]
+    assert browser_job["if"] == "${{ inputs.verification_scope == 'source' }}"
+    assert smoke_job["if"] == "${{ inputs.verification_scope == 'deployed' }}"
+    assert workflow["permissions"] == {"contents": "read"}
 
     browser_script = "\n".join(step.get("run", "") for step in browser_job["steps"])
     assert "repository_head" in browser_script
@@ -311,7 +306,13 @@ def test_atlas_workflow_separates_premerge_browser_from_postdeployment_smoke() -
 
     smoke_script = "\n".join(step.get("run", "") for step in smoke_job["steps"])
     assert "DEPLOYED_CANDIDATE_SHA" in smoke_script
-    assert "workflow_run.head_sha" in smoke_job["steps"][0]["with"]["ref"]
+    assert smoke_job["steps"][0]["with"]["ref"] == "${{ github.sha }}"
+    smoke_step = next(
+        step
+        for step in smoke_job["steps"]
+        if "DEPLOYED_CANDIDATE_SHA" in step.get("env", {})
+    )
+    assert smoke_step["env"]["DEPLOYED_CANDIDATE_SHA"] == "${{ github.sha }}"
     assert "nordic_map.html" in smoke_script
     assert "nordic_map_assets.json" in smoke_script
     assert "publication-manifest.json" in smoke_script
@@ -325,3 +326,18 @@ def test_atlas_workflow_separates_premerge_browser_from_postdeployment_smoke() -
     ]
     assert action_references
     assert all(PINNED_ACTION.fullmatch(reference) for reference in action_references)
+
+
+def test_scientific_verification_requires_explicit_manual_dispatch() -> None:
+    workflow = yaml.load(
+        WORKFLOW_PATH.read_text(encoding="utf-8"), Loader=yaml.BaseLoader
+    )
+    assert set(workflow["on"]) == {"workflow_dispatch"}
+    assert workflow["permissions"] == {"contents": "read"}
+    script = next(
+        step["run"]
+        for step in workflow["jobs"]["impact"]["steps"]
+        if step.get("name") == "Resolve changed paths"
+    )
+    assert "workflow_dispatch)" in script
+    assert 'echo "select_all=true"' in script

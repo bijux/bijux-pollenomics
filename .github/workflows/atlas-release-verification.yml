@@ -1,23 +1,16 @@
 name: atlas release verification
 
 on:
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
-  merge_group:
-    branches:
-      - main
   workflow_dispatch:
-  workflow_run:
-    workflows:
-      - deploy-docs
-    types:
-      - completed
-    branches:
-      - main
+    inputs:
+      verification_scope:
+        description: Verify source browser behavior or exact publicly deployed bytes
+        required: true
+        type: choice
+        default: source
+        options:
+          - source
+          - deployed
 
 permissions:
   contents: read
@@ -29,7 +22,7 @@ concurrency:
 jobs:
   browser:
     name: atlas / browser
-    if: "${{ github.event_name != 'workflow_run' && (github.event_name != 'pull_request' || github.event.pull_request.user.login != 'dependabot[bot]') }}"
+    if: "${{ inputs.verification_scope == 'source' }}"
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -147,19 +140,19 @@ jobs:
 
   deployed-smoke:
     name: atlas / deployed smoke
-    if: "${{ github.event_name == 'workflow_run' && github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.head_branch == 'main' && (github.event_name != 'pull_request' || github.event.pull_request.user.login != 'dependabot[bot]') }}"
+    if: "${{ inputs.verification_scope == 'deployed' }}"
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
       - name: Checkout deployed candidate
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          ref: ${{ github.event.workflow_run.head_sha }}
+          ref: ${{ github.sha }}
 
       - name: Prove exact candidate is publicly served
         shell: bash
         env:
-          DEPLOYED_CANDIDATE_SHA: ${{ github.event.workflow_run.head_sha }}
+          DEPLOYED_CANDIDATE_SHA: ${{ github.sha }}
         run: |
           set -euo pipefail
           mkdir -p artifacts/execution-control/deployed-smoke
@@ -286,6 +279,6 @@ jobs:
         if: always()
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
-          name: atlas-deployed-smoke-${{ github.event.workflow_run.head_sha }}
+          name: atlas-deployed-smoke-${{ github.sha }}
           path: artifacts/execution-control/deployed-smoke
           if-no-files-found: error
