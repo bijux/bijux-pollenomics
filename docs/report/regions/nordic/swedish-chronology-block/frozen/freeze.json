@@ -1,0 +1,18 @@
+{
+  "prepare_sha256": "d60788603e9c63ec3730440d4d5bc498573e0e19af633831a3a3d455557f49b6",
+  "products": [
+    {
+      "prediction_sha256": "4f749b9c7d9e0d40762804b73755da14cc84bfec63ea32830630f678db7a4e83",
+      "site_id": "13338"
+    },
+    {
+      "prediction_sha256": "e01c5d21bcbca9206a24c61cd20fb89a2018683d503c1f4918a8930cb35e8d89",
+      "site_id": "28869"
+    },
+    {
+      "prediction_sha256": "5d665503dd8d46501219ac6e5b50f0682a1f9ce2d22c7adfe588c2c9bed0de52",
+      "site_id": "28872"
+    }
+  ],
+  "schema_version": "swedish-chronology-block-freeze.v1"
+}

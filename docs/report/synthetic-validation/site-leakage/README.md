@@ -51,5 +51,7 @@ Reproduce from the repository root:
 PYTHONDONTWRITEBYTECODE=1 OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 \
 MKL_NUM_THREADS=1 NUMEXPR_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 \
 .venv/bin/python -m bijux_pollenomics_dev.lra_validation.site_leakage_challenge \
-  --output docs/report/synthetic-validation/site-leakage/report.json
+  --output artifacts/jobs/synthetic-validation/site-leakage/report.json
+cmp docs/report/synthetic-validation/site-leakage/report.json \
+  artifacts/jobs/synthetic-validation/site-leakage/report.json
 ```

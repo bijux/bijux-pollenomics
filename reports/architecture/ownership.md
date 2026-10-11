@@ -31,6 +31,42 @@ checks its governed result set. Neither alone proves a full clean-tree
 rebuild. The [rebuild policy](../../configs/ci/reproducible-report-build.json)
 must be satisfied against every actual producer before that broader claim.
 
+We have bound and replayed the six [SEAD source report owners](../../docs/report/source-relations/sead/README.md#report-ownership).
+They reproduce 11 governed JSON/CSV outputs byte for byte, and the six
+explanatory pages have 15 resolving local links. This is a verified portion of
+the mixed report tree; the remaining nonpublisher outputs still need their own
+owner replay before an assembled whole-tree no-difference claim.
+
+We also replayed the source capability, DNA scope, Rootsi–LandClim overlap,
+LandClim author preparation, OpenLand intake and aggregate source
+reconciliation owners. Their eight generated JSON/CSV outputs now match the
+governed files. The [OpenLand decision](../../docs/report/source-relations/openland-intake/README.md)
+uses the current producer identity while retaining the same 51-member ledger.
+The [source reconciliation](../../docs/report/source-relations/source-reconciliation/README.md)
+now records the 13 authority paths added to its verified input closure; its
+accounting checks still pass without changing scientific admission. These
+source-specific replays account for another part of the tree, while full
+mixed-owner assembly remains open.
+
+The five [synthetic method challenges](../../docs/report/synthetic-validation/README.md)
+also replayed their five governed JSON outputs byte for byte. Their explanatory
+pages are separately authored and linked from the family index. This gives
+these numerical and workflow checks producer ownership without treating
+fabricated cases as measured ecological validation.
+
+The [LandClim II study-input inventory](../../docs/report/publication-replay/landclim-study-inputs/README.md)
+replayed its five generated files byte for byte from the pinned raw workbook
+and receipt. Its 1,128 publication metadata rows and 4,512 explicit input
+refusals are reproducible; none becomes an authenticated historical pollen
+input or a publication reproduction merely because the inventory matches.
+
+The [LandClim window alignment](../../docs/report/publication-replay/landclim-window-alignment/README.md)
+now replays its three governed outputs byte for byte from the pinned author
+time axis and published-window report. We fixed the CSV writer to use LF and
+removed an obsolete line-ending discrepancy from its manifest. The result
+still supports an exact time-bound comparison only for TW2; it does not
+authenticate the other historical publication inputs.
+
 Our source-bound vegetation results illustrate the boundary: the
 [Färskesjön](../science/vegetation-reference/farskesjon/plot_support.py),
 [Småland historical-map](../science/vegetation-reference/smaland-historical-maps/coverage.py)

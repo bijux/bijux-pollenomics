@@ -252,7 +252,7 @@ def main() -> int:
     rows, report = compare(args.workbook, args.receipt, args.projection, args.sites)
     output.mkdir(parents=True, exist_ok=False)
     with (output / "site-comparison.csv").open("w", newline="") as stream:
-        writer = csv.DictWriter(stream, fieldnames=list(rows[0]))
+        writer = csv.DictWriter(stream, fieldnames=list(rows[0]), lineterminator="\n")
         writer.writeheader()
         writer.writerows(rows)
     (output / "report.json").write_text(

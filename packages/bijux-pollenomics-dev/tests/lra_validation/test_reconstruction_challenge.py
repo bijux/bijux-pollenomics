@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from dataclasses import replace
 import inspect
 import json
 from pathlib import Path
@@ -14,6 +15,7 @@ import bijux_pollenomics_dev.lra_validation.known_landscape as generator
 import bijux_pollenomics_dev.lra_validation.reconstruction_challenge as challenge
 from bijux_pollenomics_lra.api import RevealsConfig, ValidationError, run_reveals
 from bijux_pollenomics_lra.models.results import RevealsResult
+from bijux_pollenomics_lra.provenance.manifest import RunManifest
 
 JsonObject = dict[str, object]
 
@@ -35,6 +37,22 @@ def _number(case: JsonObject, key: str) -> float:
     return cast(float, case[key])
 
 
+def test_retained_reconstruction_identity_ignores_editable_package_distance() -> None:
+    manifest = RunManifest(
+        algorithm="REVEALS",
+        parameters={"radius_m": 350},
+        inputs={"pollen": "source-digest"},
+        stochastic=False,
+        seed=None,
+        package_version="0.1.9.dev232+dirty",
+    )
+    later = replace(manifest, package_version="0.1.9.dev841")
+    assert manifest.scientific_identity() != later.scientific_identity()
+    assert challenge._retained_production_manifest(
+        manifest.scientific_identity()
+    ) == challenge._retained_production_manifest(later.scientific_identity())
+
+
 def test_public_consumer_executes_all_declared_truth_and_control_cases(
     report: JsonObject,
 ) -> None:
@@ -52,6 +70,8 @@ def test_public_consumer_executes_all_declared_truth_and_control_cases(
     for case in _cases(report):
         manifest = cast(JsonObject, case["production_manifest"])
         assert manifest["algorithm"] == "REVEALS"
+        assert manifest["package"] == "bijux-pollenomics-lra"
+        assert "package_version" not in manifest
         assert case["status"] == "scored"
         assert (
             _number(case, "calculation_max_abs_error_fraction")
@@ -173,6 +193,11 @@ def test_retained_result_matches_scientific_values_on_current_inputs(
         assert case["control"] == rebuilt["control"]
         assert case["transport_matched"] == rebuilt["transport_matched"]
         assert case["contract_status"] == rebuilt["contract_status"]
+        assert case["config"] == rebuilt["config"]
+        assert (
+            cast(dict[str, object], case["production_manifest"])["parameters"]
+            == cast(dict[str, object], rebuilt["production_manifest"])["parameters"]
+        )
         assert case["reconstructed_vegetation_fraction"] == pytest.approx(
             rebuilt["reconstructed_vegetation_fraction"], abs=1e-12
         )

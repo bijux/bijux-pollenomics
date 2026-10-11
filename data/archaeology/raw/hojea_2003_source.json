@@ -1,0 +1,17 @@
+{
+  "source_family": "Höje å archaeological report",
+  "title": "Arkeologisk förundersökning: Gullåkra och Vesums mossar",
+  "source_url": "https://hojea.se/rapporter/2003_Arkeologisk_foerundersoekning_Gullaakra_Vesums_mossar.pdf",
+  "private_source_root_relative_path": "reference-sources/hojea-archaeology-2003/2003_Arkeologisk_foerundersoekning_Gullaakra_Vesums_mossar.pdf",
+  "captured_at_utc": "2026-09-06T22:53:00Z",
+  "media_type": "application/pdf",
+  "page_count": 9,
+  "byte_count": 7468313,
+  "sha256": "ba7eb40a85654c1305f4d41503d67f67726c889af948ef49a6449acd07ef1663",
+  "current_product_use": "The Swedish land-use synthesis cites project-area coordinates for Gullåkra and Vesums mossar; it excludes both places from lake ranking.",
+  "coordinate_precision": "project area, not a pollen core or archaeological event point",
+  "ecological_measurement_admitted": false,
+  "archaeological_event_join_admitted": false,
+  "redistribution_rights": "not reviewed; PDF bytes remain in the private source store",
+  "review_limit": "The original intake OCR was unreviewed and is not an authoritative transcription; coordinate, chronology and event claims require source-specific checking before a joined analysis."
+}

@@ -1,0 +1,36 @@
+{
+  "age_bin_width_bp": 500,
+  "baseline_scores_sha256": "7bc1e5a99c6cac177ae58ebe6d9f652a4464ab21f78c1cb3c1137e4a120092b7",
+  "excluded_source_bin_offsets": [
+    -1,
+    0,
+    1
+  ],
+  "folds": [
+    {
+      "input_manifest_sha256": "78a94d08c94a3ad69fb020cdfbbab2d7780cd69eecd2838bccbade7ab4976745",
+      "scope": "four_country",
+      "site_id": "13338"
+    },
+    {
+      "input_manifest_sha256": "966c5013e2fcf817b050fdd7f47c6a2d6fe16f6b5fed5ba52d9234c35c46fff9",
+      "scope": "four_country",
+      "site_id": "28869"
+    },
+    {
+      "input_manifest_sha256": "ca1e3cfc63fec0c879bed0fcd957e4dc0c62fb63a157710be9363709fada0cfb",
+      "scope": "four_country",
+      "site_id": "28872"
+    }
+  ],
+  "interpretation": "Previously exposed whole-site-excluded Swedish observed-pollen development cohort; source bin is exactly 1000 nominal BP older than each target bin, with target and adjacent bins excluded.",
+  "methods": [
+    "training_mean",
+    "nearest_site",
+    "inverse_distance_squared"
+  ],
+  "older_source_bin_offset": 2,
+  "schema_version": "swedish-chronology-block-preparation.v1",
+  "sealed_outcome_sha256": "7ab08c7c1c59158f8c6b249aca12a34c72f752f18a551b439540af7804b215c5",
+  "source_prepare_sha256": "36a86fe1293d223a8aa3820351ae82f0ee8aec80666a83d37cb43afb862e7020"
+}

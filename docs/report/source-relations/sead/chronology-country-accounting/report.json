@@ -1,0 +1,125 @@
+{
+  "assigned_site_count": 2069,
+  "chronology_eligibility_counts": {
+    "eligible": 13170,
+    "refused": 11939
+  },
+  "chronology_refusal_reasons_by_country": {
+    "DK": {
+      "analysis_entity_age_basis_unspecified": 143,
+      "chronology_not_comparable": 1939,
+      "geochronology_calibration_posture_unknown": 48,
+      "relative_period_requires_governed_mapping": 1748
+    },
+    "FI": {
+      "analysis_entity_age_basis_unspecified": 6,
+      "chronology_not_comparable": 59,
+      "relative_period_requires_governed_mapping": 53
+    },
+    "NO": {
+      "analysis_entity_age_basis_unspecified": 32,
+      "chronology_not_comparable": 468,
+      "geochronology_calibration_posture_unknown": 7,
+      "relative_period_requires_governed_mapping": 429
+    },
+    "SE": {
+      "analysis_entity_age_basis_unspecified": 460,
+      "chronology_not_comparable": 9473,
+      "geochronology_calibration_posture_unknown": 32,
+      "negative_bp": 60,
+      "open_ended_dendro_from_uncertainty": 1094,
+      "relative_period_requires_governed_mapping": 7827
+    }
+  },
+  "claim_count": 25109,
+  "claim_site_count": 853,
+  "claim_type_counts": {
+    "analysis_entity_age": 641,
+    "dating_range": 7377,
+    "dendrochronology": 6947,
+    "geochronology": 87,
+    "relative_period": 10057
+  },
+  "comparability_counts": {
+    "comparable": 13170,
+    "context_only": 11238,
+    "refused": 60,
+    "unresolved": 641
+  },
+  "country_counts": {
+    "DK": 1939,
+    "FI": 59,
+    "NO": 468,
+    "SE": 22643
+  },
+  "country_site_denominators": [
+    {
+      "assigned_site_count": 1925,
+      "assigned_sites_without_claim_count": 1184,
+      "claim_count": 22643,
+      "claim_site_count": 741,
+      "country": "Sweden",
+      "country_code": "SE"
+    },
+    {
+      "assigned_site_count": 59,
+      "assigned_sites_without_claim_count": 3,
+      "claim_count": 1939,
+      "claim_site_count": 56,
+      "country": "Denmark",
+      "country_code": "DK"
+    },
+    {
+      "assigned_site_count": 45,
+      "assigned_sites_without_claim_count": 18,
+      "claim_count": 468,
+      "claim_site_count": 27,
+      "country": "Norway",
+      "country_code": "NO"
+    },
+    {
+      "assigned_site_count": 40,
+      "assigned_sites_without_claim_count": 11,
+      "claim_count": 59,
+      "claim_site_count": 29,
+      "country": "Finland",
+      "country_code": "FI"
+    }
+  ],
+  "excluded_site_count": 126,
+  "excluded_site_status_counts": {
+    "review": 103,
+    "unassigned": 23
+  },
+  "group_count": 16,
+  "input_sha256": {
+    "data/sead/normalized/chronology_claims.json": "8699d529912a90affd546b6a357fca1015fe2dda81621667286e6e95c537a470",
+    "data/sead/normalized/nordic_environmental_sites.csv": "dbf4df63e8da625637f3ddb19ed7f5e7ddc7d884da9a45a85cebd286f0dbf158",
+    "data/sead/normalized/source_lineage.json": "86d539d9a1a26ff39b61859f0d100e0afdbf8775c73207982f368b89e766f010",
+    "docs/report/source-relations/sead/chronology-claim-review/claims.csv": "e3ec1cc2c01cb9addea5247a1d116b4009b436fdab9f062efcb4ffde0a9c6546",
+    "docs/report/source-relations/sead/chronology-claim-review/report.json": "6e1d9c759862257fafe7b8b2c32c7b9d0b8a8c9860955ed06e4772f447056fa9",
+    "docs/report/source-relations/sead/public-custody/report.json": "8a772532e3f9792c432095bb7953b8cafc0438b8078f4ab785580cff6a867063"
+  },
+  "posture": "reviewed chronology display/context accounting only; no event, propagation, or pollen admission",
+  "propagation_refusal_counts_by_country": {
+    "DK": 1939,
+    "FI": 59,
+    "NO": 468,
+    "SE": 22643
+  },
+  "reviewed_age_basis_counts": {
+    "ad_calendar_year_negative_bp_refused": 60,
+    "ad_calendar_year_open_ended_from_context": 1094,
+    "ad_calendar_year_to_1950_bp": 13170,
+    "analysis_entity_age_basis_unspecified": 641,
+    "geochronology_calibration_posture_unknown": 87,
+    "relative_period_requires_governed_mapping": 10057
+  },
+  "rows_csv": {
+    "path": "rows.csv",
+    "row_count": 16,
+    "sha256": "afdf52ee1b5dea2945fbc0c652dce92ce30eb5cfab2b01d2fa0f2e57f5e1fb8a"
+  },
+  "schema_version": "sead-chronology-country-accounting.v1",
+  "source_run_id": "sead-full-evidence-39bfff6a-ce80714e"
+}

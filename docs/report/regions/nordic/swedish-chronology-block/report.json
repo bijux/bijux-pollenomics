@@ -1,0 +1,135 @@
+{
+  "age_bin_width_bp": 500,
+  "attempted_bins": 54,
+  "attempted_sites": 3,
+  "baseline_scores_sha256": "7bc1e5a99c6cac177ae58ebe6d9f652a4464ab21f78c1cb3c1137e4a120092b7",
+  "coverage_sha256": "d5ff485d20a774740359446f064daedc50c526deaa30e4dbb157ffee229a0e50",
+  "eligible_bins": 54,
+  "eligible_sites": 3,
+  "excluded_source_bin_offsets": [
+    -1,
+    0,
+    1
+  ],
+  "failed_bins": 0,
+  "failed_sites": 0,
+  "interpretation": "Prior-exposed observed-pollen development comparison using an exactly 1000 nominal BP older source bin, excluding target and adjacent source bins. Source age-bin separation is not age-model uncertainty, independent confirmation, LRA reconstruction or measured vegetation accuracy.",
+  "matched_site_macro": {
+    "inverse_distance_squared": {
+      "baseline_equal_site_hellinger_distance": 0.3416185728996632,
+      "baseline_equal_site_mae_fraction": 0.023647323193382915,
+      "baseline_sample_weighted_mae_fraction": 0.022012213748371565,
+      "block_equal_site_hellinger_distance": 0.34256678137850044,
+      "block_equal_site_mae_fraction": 0.02402276814363089,
+      "block_sample_weighted_mae_fraction": 0.023074558328174934,
+      "scored_bins": 54,
+      "scored_sites": 3
+    },
+    "nearest_site": {
+      "baseline_equal_site_hellinger_distance": 0.3939787295968372,
+      "baseline_equal_site_mae_fraction": 0.02693962157281796,
+      "baseline_sample_weighted_mae_fraction": 0.02693421220579161,
+      "block_equal_site_hellinger_distance": 0.38352258437217307,
+      "block_equal_site_mae_fraction": 0.026199091203446843,
+      "block_sample_weighted_mae_fraction": 0.02727756343826053,
+      "scored_bins": 54,
+      "scored_sites": 3
+    },
+    "training_mean": {
+      "baseline_equal_site_hellinger_distance": 0.4510581761396758,
+      "baseline_equal_site_mae_fraction": 0.03171827248998266,
+      "baseline_sample_weighted_mae_fraction": 0.028061266211634482,
+      "block_equal_site_hellinger_distance": 0.4435632465345613,
+      "block_equal_site_mae_fraction": 0.030970326364503205,
+      "block_sample_weighted_mae_fraction": 0.027753265598918556,
+      "scored_bins": 54,
+      "scored_sites": 3
+    }
+  },
+  "matched_site_scores": {
+    "inverse_distance_squared": {
+      "13338": {
+        "baseline_hellinger_distance": 0.2813803799063506,
+        "baseline_mae_fraction": 0.017122291480340994,
+        "block_hellinger_distance": 0.28447572083043926,
+        "block_mae_fraction": 0.017733413456775236,
+        "scored_bins": 21
+      },
+      "28869": {
+        "baseline_hellinger_distance": 0.39307059692832114,
+        "baseline_mae_fraction": 0.02867262726479962,
+        "block_hellinger_distance": 0.43424064700120246,
+        "block_mae_fraction": 0.03174895237195578,
+        "scored_bins": 20
+      },
+      "28872": {
+        "baseline_hellinger_distance": 0.35040474186431775,
+        "baseline_mae_fraction": 0.025147050835008136,
+        "block_hellinger_distance": 0.30898397630385965,
+        "block_mae_fraction": 0.02258593860216165,
+        "scored_bins": 13
+      }
+    },
+    "nearest_site": {
+      "13338": {
+        "baseline_hellinger_distance": 0.42834915896537457,
+        "baseline_mae_fraction": 0.027699598933340282,
+        "block_hellinger_distance": 0.423863634461525,
+        "block_mae_fraction": 0.027367420754874604,
+        "scored_bins": 21
+      },
+      "28869": {
+        "baseline_hellinger_distance": 0.38914121317118006,
+        "baseline_mae_fraction": 0.027204655164475944,
+        "block_hellinger_distance": 0.39862881892214647,
+        "block_mae_fraction": 0.027547699414316923,
+        "scored_bins": 20
+      },
+      "28872": {
+        "baseline_hellinger_distance": 0.36444581665395703,
+        "baseline_mae_fraction": 0.025914610620637657,
+        "block_hellinger_distance": 0.32807529973284777,
+        "block_mae_fraction": 0.023682153441149,
+        "scored_bins": 13
+      }
+    },
+    "training_mean": {
+      "13338": {
+        "baseline_hellinger_distance": 0.27864122775326045,
+        "baseline_mae_fraction": 0.017339443534339354,
+        "block_hellinger_distance": 0.2750305680908015,
+        "block_mae_fraction": 0.01729104859005536,
+        "scored_bins": 21
+      },
+      "28869": {
+        "baseline_hellinger_distance": 0.5250745491367312,
+        "baseline_mae_fraction": 0.039483621767304335,
+        "block_hellinger_distance": 0.5232728541937974,
+        "block_mae_fraction": 0.03898325622207158,
+        "scored_bins": 20
+      },
+      "28872": {
+        "baseline_hellinger_distance": 0.5494587515290358,
+        "baseline_mae_fraction": 0.03833175216830428,
+        "block_hellinger_distance": 0.5323863173190849,
+        "block_mae_fraction": 0.036636674281382675,
+        "scored_bins": 13
+      }
+    }
+  },
+  "older_source_bin_offset": 2,
+  "paired_score_rows": 162,
+  "paired_scores_sha256": "c24fd487ff7ae400743293ae2c9b69c63fdb543ca4678ebfd8ad3309bd140732",
+  "predicted_bins": 54,
+  "predicted_sites": 3,
+  "prediction_freeze_sha256": "8592b580600da80a76903c9fa68435619bc53039d4f958e7f5b826a361360c49",
+  "prepare_sha256": "d60788603e9c63ec3730440d4d5bc498573e0e19af633831a3a3d455557f49b6",
+  "refused_bins": 0,
+  "refused_sites": 0,
+  "schema_version": "swedish-chronology-block-study.v1",
+  "score_rows": 162,
+  "scored_bins": 54,
+  "scored_sites": 3,
+  "scores_sha256": "27ac6ae6eb847d5cb79942c3c70c46029d39048c79f4642f6f4d6fbd74db12cc",
+  "sealed_outcome_sha256": "7ab08c7c1c59158f8c6b249aca12a34c72f752f18a551b439540af7804b215c5"
+}

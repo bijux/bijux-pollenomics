@@ -117,7 +117,7 @@ def _build_raa_row(output_root: Path) -> SourceSpatiotemporalPostureRecord:
         availability_status="available" if authority.admitted else "refused",
         refusal_reasons=authority.reason_codes,
         record_count=all_published_sites,
-        numeric_interval_record_count=0,
+        numeric_interval_record_count=0 if authority.admitted else None,
         detail_metrics={
             "all_published_sites": all_published_sites,
             "fornlamning_count": (

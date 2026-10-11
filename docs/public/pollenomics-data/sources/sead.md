@@ -57,6 +57,24 @@ also reconciles all 2,195 discovered IDs to source retrieval and normalized
 site rows. The source supplied no country field, so its per-country counts are
 governed boundary assignments; the 126 pending decisions remain excluded.
 
+The [four-country chronology account](../../../report/source-relations/sead/chronology-country-accounting/README.md)
+groups all 25,109 reviewed claims by country, age basis and display eligibility.
+Its 853 sites with claims are distinct from the 2,069 assigned site denominator;
+none of those claims is admitted as an ecological event.
+
+The [country retrieval and evidence account](../../../report/source-relations/sead/country-coverage/README.md)
+finds zero terminal site losses among the 2,069 assigned sites and zero
+recorded query failures across the 61-table capture. All 177,763 source-native
+observation dispositions are refused for ecological events; no event is
+eligible for propagation. The 126 review and unassigned site decisions remain
+outside these assigned-country denominators.
+
+The [country source-unit account](../../../report/source-relations/sead/source-unit-accounting/README.md)
+separately follows assigned sites to captured sample groups, physical samples,
+analysis entities, linked datasets and analysis values. The excluded 126 sites
+have unknown downstream unit counts. These relations support source audit,
+not a pollen cohort or an approved ecological event.
+
 ## From A Relational Database To A Map Point
 
 A SEAD date belongs to a chain of records, not directly to a coordinate. The

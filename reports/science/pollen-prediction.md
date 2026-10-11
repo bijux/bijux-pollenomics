@@ -40,6 +40,33 @@ MAE from 0.023151 to 0.029171; the shift and nearest-five effects are smaller
 and differ between sites. We report a three-site development sensitivity,
 not an age-model uncertainty estimate or independent spatial validation.
 
+## A newly evaluated Swedish physical site on the literal-label axis
+
+We applied three fixed predictors to [Lake Sämbosjön](sambosjon-direct-pollen.md),
+which was absent from the earlier target studies. All 22 candidate bins were
+predicted and scored; inverse-distance-squared equal-bin MAE was 0.022991.
+The 16 exact source labels contain 224,291 of 393,822 native pollen counts.
+This closed response differs from the 31-author-target studies above, so we do
+not compare their error magnitudes. Aggregate target count support was screened
+before prediction, and aggregate scores were inspected before a later protocol
+annotation correction; the frozen prediction bytes and fixed methods did not
+change. This is one-site descriptive development evidence, not independent
+confirmation, an LRA reconstruction or a vegetation score. A separate
+[source age-bound screen](sambosjon-direct-pollen.md) finds 58 of 111 selected
+sample intervals crossing a nominal bin boundary, with at least one crossing
+in every scored bin. It does not reassign pollen or estimate a new score.
+
+We separately froze and scored [Lilla Gloppsjön](lilla-gloppsjon-direct-pollen.md),
+another physical site excluded from the 84-site training set. All 23 bins
+produced three fixed scores. The prespecified inverse-distance-squared
+method's equal-bin MAE is 0.017295, while training mean has lower MAE
+(0.016272) and nearest site has lower Hellinger distance (0.228724 versus
+0.237576). Its 16 literal labels cover 55,638 of 127,027 native pollen
+counts; two source samples are refused from calibrated-age bins. A prior
+source-validation screen parsed the target partition, so the result is
+descriptive development, not untouched independent confirmation. We keep
+the two lakes separate because site histories and age support differ.
+
 ## Matched English direct pollen and LRA forward pollen
 
 In our [constrained LOVE source study](english-lra-pollen-prediction.md), we

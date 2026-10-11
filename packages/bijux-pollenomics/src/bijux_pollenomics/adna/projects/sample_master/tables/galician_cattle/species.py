@@ -22,7 +22,7 @@ _NATIVE_TAXA: dict[tuple[tuple[str, ...], tuple[str, ...]], tuple[str, str]] = {
     (("9913",), ("Bos taurus",)): ("Bos taurus", "cattle"),
 }
 _PINNED_PAPER_REVIEW_SHA256 = (
-    "2a4d441163c5b30d0fd8c89a44a4a641f5cd7f2f2d1b0506f4d3af0798c2dacd"
+    "34f3899c37c437d55c8a891d834a7f119edf4ede46f076da03160e9f31a8b567"
 )
 _CSV_FIELDS = (
     "biosample_accession",

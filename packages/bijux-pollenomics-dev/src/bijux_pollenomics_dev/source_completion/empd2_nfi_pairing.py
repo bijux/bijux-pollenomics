@@ -336,7 +336,6 @@ def build(
             "review_state": "awaiting_qualified_source_review",
         },
         "pairs_csv": {"bytes": ledger.stat().st_size, "sha256": _file_sha(ledger)},
-        "local_source_bound_ledger_sha256": _file_sha(source_ledger),
     }
     (output / "report.json").write_text(
         json.dumps(report, indent=2, sort_keys=True) + "\n"

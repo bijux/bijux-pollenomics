@@ -1,0 +1,82 @@
+{
+  "age_refused_samples": 2,
+  "age_selected_samples": 84,
+  "candidate_bins": 23,
+  "closed_fraction_of_all_source_native": 0.43800136978752546,
+  "closed_fraction_of_selected_native": 0.4451873824807106,
+  "mass": {
+    "all_source_closed_nisp": 55638,
+    "all_source_native_nisp": 127027,
+    "all_source_outside_axis_nisp": 71389,
+    "refused_closed_nisp": 709,
+    "refused_native_nisp": 3643,
+    "refused_outside_axis_nisp": 2934,
+    "selected_closed_nisp": 54929,
+    "selected_native_nisp": 123384,
+    "selected_outside_axis_nisp": 68455
+  },
+  "methods": {
+    "inverse_distance_squared": {
+      "paired_common_bins": 23,
+      "scored_bins": 23,
+      "site_macro_hellinger": 0.23757555445002904,
+      "site_macro_mae_fraction": 0.017294681351123404
+    },
+    "nearest_site": {
+      "paired_common_bins": 23,
+      "scored_bins": 23,
+      "site_macro_hellinger": 0.22872368458954617,
+      "site_macro_mae_fraction": 0.02000035045203762
+    },
+    "training_mean": {
+      "paired_common_bins": 23,
+      "scored_bins": 23,
+      "site_macro_hellinger": 0.2563917072103837,
+      "site_macro_mae_fraction": 0.01627158490190808
+    }
+  },
+  "predicted_bins": 23,
+  "prediction_freeze_sha256": "bc89f334d95b727d2a051efaa794a131f1d13eee0613f1c32f6e6ace67a6e997",
+  "prediction_sha256": "844db7dd47a93eba5d0630719df992d211ced59464e917314e2b5ff131d36a17",
+  "primary_method": "inverse_distance_squared",
+  "refused_or_failed_bins": 0,
+  "schema_version": "lilla-gloppsjon-direct-pollen-score.v1",
+  "scored_common_bin_ids": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22
+  ],
+  "scored_common_bins": 23,
+  "scoring_protocol_sha256": "e3ebc64b8804a6583d72d542beb9550f7046d735f92f2a6817a60eb18f545e51",
+  "source_direct_count_rows": 1946,
+  "source_other_observation_rows": 579,
+  "source_relational_manifest_sha256": "6f6777a40b67bd0704eb1a982f19e6d451cad0d6e4a41dfebf5e3f28be33105b",
+  "source_samples": 86,
+  "source_samples_with_direct_count_rows": 86,
+  "status": "new_site_descriptive_observed_pollen_development_with_prior_source_validation_parsing",
+  "target_core_id": "neotoma:collection-unit:4071",
+  "target_dataset_doi": "10.21233/vpnw-pv89",
+  "target_dataset_id": "neotoma:dataset:4200",
+  "target_site_id": "neotoma:site:3234",
+  "training_physical_sites": 84
+}

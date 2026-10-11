@@ -13,8 +13,8 @@ EMPD2 is one of the eleven contracted source families and remains a candidate
 pollen reference for the Nordic study. A family contract registers its role,
 lifecycle, and refusal boundary; it does not admit a row. None of its rows is
 currently admitted to LRA reconstruction, model tuning, held-out scoring, or
-a governed public product. The source SQLite file is held in local artifact
-custody, outside Git. Its published
+a governed public product. The source SQLite file is held in the private
+source store, outside Git. Its published
 [PANGAEA deposit](https://doi.pangaea.de/10.1594/PANGAEA.909130) is marked
 CC BY 4.0; reuse still needs source attribution and review of the intended join.
 
@@ -64,7 +64,7 @@ range label “0BP to Present”. Their source-native `agebp` values are `-46`
 (16 samples), `-55` (two), `-48` (one) and `-30` (one). The exact 20 source rows
 and the three lookup definitions are retained in
 `reference-sources/empd2-nfi/empd2/age-lookup.json` relative to the private
-source store; see the [custody manifest](../../../report/validation/empd2-nfi-pairing/private-source-custody.json).
+source store.
 Its SHA-256 is `c39ebc03ddd038a8f013767fa7745b57ad6c6e602533fd014963bb540241068f`.
 
 The [EMPD2 source paper](https://essd.copernicus.org/articles/12/2423/2020/)

@@ -1,0 +1,68 @@
+{
+  "schema_version": "neotoma-acquisition-scope.v1",
+  "source_family": "neotoma",
+  "inputs_sha256": {
+    "data/neotoma/raw/neotoma_pollen_dataset_inventory.json": "3ce72b7a503561a7b2c15c33b5fc5bba99d647e0c7801559c6e5b7d6255499c9",
+    "data/neotoma/raw/neotoma_pollen_dataset_downloads/manifest.json": "248dc5c1a8aedc441484f2c0a5d4bc54317329aa4fb96f4a3a16f8cec80c947d",
+    "data/boundaries/raw/denmark.geojson": "90b4fb95c8368020620ccd1e94182304530bc79b4251b115fc496b52a35098b3",
+    "data/boundaries/raw/finland.geojson": "2aa1b2df5366ac377a6835b3e6667743f9c9c57a077ea79066c187d487104316",
+    "data/boundaries/raw/norway.geojson": "c51db9962996c0cd570c1e0b5c9528413b387f80f77a5fe96f8e8c9b57f5317a",
+    "data/boundaries/raw/sweden.geojson": "20e2ca00f348cddb95a41ca8e8f22a92390a8210618a525e2cef98d3069fc00d"
+  },
+  "retained_json_reconciliation": {
+    "queried_row_count": 387,
+    "retained_row_count": 206,
+    "requested_dataset_count": 209,
+    "retained_rows_are_ordered_copies_of_queried_json_objects": true,
+    "retained_dataset_ids_match_manifest_request_and_download_ids": true,
+    "current_selector_row_count": 200,
+    "current_selector_dataset_count": 203,
+    "retained_only_rows": [
+      {
+        "queried_row_index": 3,
+        "site_id": 700,
+        "dataset_ids": [
+          720
+        ]
+      },
+      {
+        "queried_row_index": 21,
+        "site_id": 3025,
+        "dataset_ids": [
+          3941
+        ]
+      },
+      {
+        "queried_row_index": 44,
+        "site_id": 3138,
+        "dataset_ids": [
+          4082
+        ]
+      },
+      {
+        "queried_row_index": 72,
+        "site_id": 3221,
+        "dataset_ids": [
+          4181
+        ]
+      },
+      {
+        "queried_row_index": 99,
+        "site_id": 3311,
+        "dataset_ids": [
+          4298
+        ]
+      },
+      {
+        "queried_row_index": 181,
+        "site_id": 13395,
+        "dataset_ids": [
+          20058
+        ]
+      }
+    ],
+    "current_only_rows": []
+  },
+  "original_http_receipt_status": "unavailable",
+  "missing_original_authority": "Original GET /datasets request and response bytes with exact datasettype, loc, limit and offset for every page; response status, timestamp, total or termination evidence and byte digest; plus each of 209 original GET /downloads/{datasetid} response byte digests. The retained JSON files and nine-part archive are producer-serialized objects."
+}

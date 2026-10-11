@@ -3,11 +3,15 @@
 The [combined audit summary](report.json) rechecks the 11 registered source families,
 198 country-dimension cells, 187 capability cells, and three historical
 external intake receipts against one pinned repository and private-source
-read set. Its full reproducible audit records 308 repository input paths and
-checks 204 manifest-declared file identities; it also verifies both original
-private intake archives. The mechanical accounting has **zero findings**;
+read set. Its full reproducible audit records 321 repository input paths, 284
+of them present, and checks 204 manifest-declared file identities; it also
+verifies both original private intake archives. The mechanical accounting has
+**zero findings**;
 its content-bound full-audit digest is
-`009dd44e02c10578ec09d0d31562e7d70d0ca9e127158cfbe0e61d0a2a42255d`.
+`26116f18017f5695c8782849e9ab827251d033cc56a8e1e76eabf38063c9ba90`.
+The current audit includes 13 existing authority paths added to the source
+validation closure; this changes its input and audit digests without changing
+the source-family accounting or scientific admission decisions.
 The governed summary retains the input-closure digest, per-family blockers,
 country publication states, intake decisions and the full-audit digest without
 duplicating the existing source and country ledgers.

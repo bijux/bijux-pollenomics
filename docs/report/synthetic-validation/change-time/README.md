@@ -77,7 +77,9 @@ persistence criterion, not continuous presence between dated observations.
 PYTHONDONTWRITEBYTECODE=1 OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 \
 MKL_NUM_THREADS=1 NUMEXPR_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 \
 .venv/bin/python -m bijux_pollenomics_dev.lra_validation.change_time_challenge \
-  --output docs/report/synthetic-validation/change-time/report.json
+  --output artifacts/jobs/synthetic-validation/change-time/report.json
+cmp docs/report/synthetic-validation/change-time/report.json \
+  artifacts/jobs/synthetic-validation/change-time/report.json
 ```
 
 The event is labelled **first observed in governed data**. It estimates an observed
@@ -86,6 +88,5 @@ appearance. This independent synthetic scoring exposes sampling and shuffle bias
 it does not establish real-data accuracy, confidence interval coverage, continuous
 presence, or historical spread.
 
-Focused command receipts and logs live under
-`artifacts/jobs/lra-synthetic-change-time/`. Numerical LRA parity and R execution
-are not changed by this sample-event estimator.
+Numerical LRA parity and R execution are not changed by this sample-event
+estimator.

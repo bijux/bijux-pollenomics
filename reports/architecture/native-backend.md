@@ -28,6 +28,19 @@ measurement omits raw profiler stacks and local process paths. This result
 supports the metadata-cache change, not a general speedup or a compiled
 backend.
 
+We profiled the published [optimized LOVE example](../../docs/report/numerical-performance/love-source-profile/README.md)
+through its installed Python public call. Twelve warm calls had a 21.601 ms
+median. The profiled call spread time across ring factors, objective evaluation,
+regional preparation and summaries; no single deterministic path met our
+condition for another narrow C++ experiment. Scientific outputs and missing
+values matched the retained Python baseline. The earlier source-R comparison
+used eight different engine files, including the optimizer. We have since
+[rerun native R](../../docs/report/method-certification/current-r-oracle/README.md)
+against the installed source: 18 optimized LOVE cases pass on three declared
+fixtures. The profiled `LOVEexample` is a different input, so a larger qualified
+workload and an identical-input R/Python comparison remain prerequisites before
+reconsidering a native LOVE candidate.
+
 ## Boundary we would use if a new kernel qualifies
 
 We would place an optional C++17 extension inside the separately licensed

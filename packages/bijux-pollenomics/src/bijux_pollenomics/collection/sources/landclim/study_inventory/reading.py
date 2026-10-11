@@ -94,6 +94,20 @@ def read_landclim_study_inventory(raw_dir: Path) -> LandClimStudyMetadataInvento
     )
 
 
+def require_landclim_site_radius_metres(raw_dir: Path) -> None:
+    """Require the pinned workbook to define its site-radius field in metres."""
+    workbook = Path(raw_dir) / _WORKBOOK
+    before = _pinned_digest(workbook, _WORKBOOK_SHA256, "workbook")
+    definitions = [
+        row[1]
+        for row in read_xlsx_sheet_rows(workbook, "readme")
+        if len(row) > 1 and row[0] == "siteradius"
+    ]
+    if definitions != ["radius of the site in meters"]:
+        raise LandClimStudyInventoryRefusal("LandClim site-radius unit changed")
+    _pinned_digest(workbook, before, "workbook")
+
+
 def reopen_landclim_study_inventory(
     canonical_bytes: bytes, raw_dir: Path
 ) -> LandClimStudyMetadataInventory:

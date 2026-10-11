@@ -70,7 +70,26 @@ def test_direct_chronology_overlap_uses_canonical_closed_bp_intervals(
             id="PROP-004",
         ),
         pytest.param(
+            16.0, (5600, 5600), (5501, 5501), "definite_candidate", True, id="TIME-003"
+        ),
+        pytest.param(
             16.0, (5590, 5610), (5490, 5510), "possible_candidate", True, id="PROP-005"
+        ),
+        pytest.param(
+            16.0,
+            (5610, 5630),
+            (5480, 5500),
+            "excluded_temporal_too_large",
+            False,
+            id="TIME-007",
+        ),
+        pytest.param(
+            16.0,
+            (5500, 5520),
+            (5530, 5550),
+            "excluded_temporal_nonpositive",
+            False,
+            id="TIME-008",
         ),
         pytest.param(
             16.0,
@@ -81,6 +100,8 @@ def test_direct_chronology_overlap_uses_canonical_closed_bp_intervals(
             id="PROP-006",
         ),
         pytest.param(16.0, None, (5500, 5500), "unresolved", False, id="PROP-007"),
+        pytest.param(16.0, (5500, 5500), None, "unresolved", False, id="TIME-009"),
+        pytest.param(16.0, (0, 0), None, "unresolved", False, id="TIME-010"),
         pytest.param(
             16.0,
             (5500, 5500),

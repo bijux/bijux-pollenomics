@@ -1,0 +1,31 @@
+{
+  "metadata_sha256": "367c4d6fa1eed47c64d7360f6898b457e68718a26ef86eb1aed82b3eea2909ba",
+  "protocol_sha256": "f5ddf56f67668382c769d1cf530e5a28491268ca70bfb9d51bae48537abe81ae",
+  "schema_version": "sambosjon-direct-pollen-inputs.v1",
+  "source_screen_digest": "8f455c330e0b5be663eef1c6595ac32b168e9508517d8225f294460ad21c8480",
+  "source_surface_sha256": {
+    "manifest.json": "6f6777a40b67bd0704eb1a982f19e6d451cad0d6e4a41dfebf5e3f28be33105b",
+    "surfaces/age_claims/part-00001.json": "6b8983b43138ec68895d96070508218d0b7c4f9908bf87860f96b79d2725c558",
+    "surfaces/chronologies/part-00001.json": "0703828826bde8a4860d5ea03100cf85145702a042bb3d29dafcb8a3bef4f569",
+    "surfaces/datasets/part-00001.json": "be7fccfa6e0284ac7984e64c844618a6d8682c03282296cef5cabaab594e27e9",
+    "surfaces/observations/part-00001.json": "6afa864a9e06384678e63e9f85b13ca79882a87f5c14751cb27af46df60539be",
+    "surfaces/observations/part-00002.json": "571b55edc7ce7b6472cacc0db41c41c0e5ccb7d11f0890f88e7ba5f99ef3c719",
+    "surfaces/observations/part-00003.json": "a96543819902f5cf5b2b2de355558fd1dd85946c2c08254ec84fad6f9e43fcb5",
+    "surfaces/observations/part-00004.json": "b78776421961eb1bf64d886340e2e0f5a42dfe6d0a4ca937d028eb66b1ca0219",
+    "surfaces/observations/part-00005.json": "c4705ced69897dcb8f154435d0ba6bdfb0baa942642de94b18f3c856cbfc2e3a",
+    "surfaces/observations/part-00006.json": "a33597470799a6b85add81bb699c8a32ec6b55881809345f44351f5530d4d2b7",
+    "surfaces/observations/part-00007.json": "48a285e8be25f0ffc9d41feb0cd08ac8c2b6ba54783cf7f3ceeb57e4595ef1bf",
+    "surfaces/observations/part-00008.json": "517a9b6fd807cd420dbaf7f2d09a5c93d6a4d4374bc823d25fba7307bc0852dd",
+    "surfaces/samples/part-00001.json": "c959e77f7c645b814bffe92a92ff2d8fabcc077b4fc4c894e6315e448d14100c",
+    "surfaces/sites/part-00001.json": "b6ca4e49d0aec59aee576fc540c77b6c2e21601ce28338227e98717ee0bb93e9"
+  },
+  "swedish_source_sha256": {
+    "part-004.json": "d96046c88b497ba07082120e446fecacad0d9b5533d8960bdbc03811976ea435",
+    "part-008.json": "9cdcb2d394bc8ef23bf2b4b5e3f1f3ae5916aae16db71542c58f4b80a2dd1134"
+  },
+  "target_candidate_bins": 22,
+  "target_observation_profile_in_prepared_inputs": false,
+  "target_samples": 111,
+  "training_physical_sites": 84,
+  "training_sha256": "4ec0de377bba7ad501ca5bf141374b4a3bde97ea266e64b0135a639d309a8647"
+}

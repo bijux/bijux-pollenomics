@@ -87,6 +87,11 @@ def test_pinned_paper_ena_crosswalk_accounts_for_each_sample_without_admission()
         "nordic_relevance": "none_galician_source_context",
     }
     assert len(report["source_hashes"]["primary_captures"]) == 16
+    assert all(
+        source["path"].startswith("data/adna/review/galician_cattle/")
+        for key, source in report["source_hashes"]["primary_captures"].items()
+        if key != "archive"
+    )
     assert set(report["governed_sample_master"]) == {
         "sample_master.json",
         "sample_master.csv",

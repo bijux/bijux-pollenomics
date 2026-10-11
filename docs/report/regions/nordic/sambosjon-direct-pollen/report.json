@@ -1,0 +1,48 @@
+{
+  "alias_corrected_pre_score_freeze_sha256": "6f0682edf83c8b8575a5a0c45e5f9c4294de61261a15055a0ddc42cb04ab636a",
+  "methods": {
+    "inverse_distance_squared": {
+      "scored_bins": 22,
+      "site_macro_hellinger": 0.1841764519336392,
+      "site_macro_mae_fraction": 0.022990669519074067
+    },
+    "nearest_site": {
+      "scored_bins": 22,
+      "site_macro_hellinger": 0.23367346102734832,
+      "site_macro_mae_fraction": 0.026202083437769873
+    },
+    "training_mean": {
+      "scored_bins": 22,
+      "site_macro_hellinger": 0.28310846055715816,
+      "site_macro_mae_fraction": 0.037466244285752286
+    }
+  },
+  "pre_score_predictions_sha256": "97a2b45ce51e2e42c851e64ba5b91ea721e887fac6c1e92e16f3938b428f4e65",
+  "pre_score_review_correction": "The first freeze was scored but not inspected. The alias-corrected freeze was scored and aggregate metrics inspected. Later annotations disclosed preparation's target-row parsing and qualified descriptive development evidence. Deterministic gzip now stores the same training JSON; fixed prediction bytes, methods, target set and support rule did not change.",
+  "prediction_bytes_identical_to_pre_score_freezes": true,
+  "prediction_freeze_sha256": "8337d7b6316295b2506dd2efff73d2c3e08a2ecd35d3690a5b2047280c3337ec",
+  "prediction_sha256": "97a2b45ce51e2e42c851e64ba5b91ea721e887fac6c1e92e16f3938b428f4e65",
+  "preparation_target_row_access": "The shared Neotoma source screen parsed target observation partitions for validation but excluded site 3398 from prepared training and predictions.",
+  "prepared_training_encoding": "deterministic gzip JSON, mtime=0",
+  "prior_uncompressed_freeze_sha256": "c70fd1b6c87f4ab0ad86855f6e092980cf159319978b08b2f42a0f956f7fd0bc",
+  "protocol_sha256": "f5ddf56f67668382c769d1cf530e5a28491268ca70bfb9d51bae48537abe81ae",
+  "schema_version": "sambosjon-direct-pollen-result.v1",
+  "source_relational_manifest_sha256": "6f6777a40b67bd0704eb1a982f19e6d451cad0d6e4a41dfebf5e3f28be33105b",
+  "status": "new_physical_site_descriptive_observed_pollen_development_with_prior_aggregate_count_exposure",
+  "target_candidate_bins": 22,
+  "target_closed_fraction_of_native": 0.5695237950139911,
+  "target_closed_nisp": 224291,
+  "target_collection_unit_id": "neotoma:collection-unit:4262",
+  "target_dataset_doi": "10.21233/53ys-nt12",
+  "target_dataset_id": "neotoma:dataset:4403",
+  "target_failed_bins": 0,
+  "target_native_nisp": 393822,
+  "target_outside_axis_nisp": 169531,
+  "target_predicted_bins": 22,
+  "target_refused_bins": 0,
+  "target_sample_count": 111,
+  "target_scored_bins": 22,
+  "target_site_id": "neotoma:site:3398",
+  "training_physical_sites": 84,
+  "uninspected_superseded_freeze_sha256": "f30cec9b3a9aec925b4b92beadc8eb33cc5fca69336aabb98362dcfdcb7e671a"
+}

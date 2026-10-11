@@ -10,6 +10,7 @@ from bijux_pollenomics.collection.sources.landclim.study_inventory import (
     LandClimStudyMetadataInventory,
     read_landclim_study_inventory,
     reopen_landclim_study_inventory,
+    require_landclim_site_radius_metres,
 )
 from bijux_pollenomics.collection.sources.landclim.study_inventory.reading import (
     _inventory_from_rows,
@@ -58,6 +59,10 @@ def test_exact_governed_workbook_builds_refusal_only_inventory() -> None:
         "authenticated_historical_chronology_records": 0,
         "rights_cleared_records": 0,
     }
+
+
+def test_pinned_workbook_defines_site_radius_in_metres() -> None:
+    require_landclim_site_radius_metres(RAW_ROOT)
 
 
 def test_public_reader_has_no_caller_supplied_identity_or_schema() -> None:

@@ -13,6 +13,7 @@ from pathlib import Path
 from typing import Any, cast
 
 from bijux_pollenomics.evidence.sources.sead import (
+    SEAD_GOVERNED_ADMISSION_SHA256,
     SEAD_GOVERNED_BUILD_ID,
     SEAD_GOVERNED_EVIDENCE_MANIFEST_SHA256,
     SEAD_GOVERNED_EVIDENCE_RUN_ID,
@@ -33,6 +34,7 @@ CSV_FIELDS = (
     "physical_sample_id",
     "analysis_entity_id",
     "taxon_relation_id",
+    "source_value_field",
     "source_value_json",
     "source_value_state",
     "source_unit_id",
@@ -91,6 +93,67 @@ def _refusal_reasons(observation: dict[str, Any]) -> list[str]:
     return sorted(reasons)
 
 
+def _source_abundances(
+    data_root: Path, source_digest: str
+) -> dict[int, dict[str, Any]]:
+    """Read abundance rows only from the independently admitted raw payload."""
+    raw_root = (
+        data_root / "sead" / "raw" / "acquisitions" / SEAD_GOVERNED_EVIDENCE_RUN_ID
+    )
+    admission = _read_object(
+        raw_root / "admission.json", SEAD_GOVERNED_ADMISSION_SHA256
+    )
+    if (
+        admission["run_id"] != SEAD_GOVERNED_EVIDENCE_RUN_ID
+        or admission["build_id"] != SEAD_GOVERNED_BUILD_ID
+        or admission["parent_admission_sha256"] != SEAD_GOVERNED_PARENT_ADMISSION_SHA256
+    ):
+        raise ValueError("SEAD raw admission identity differs")
+    relative = "payloads/tbl_abundances.json"
+    records = [
+        record for record in admission["copied_files"] if record["path"] == relative
+    ]
+    if len(records) != 1 or records[0]["sha256"] != source_digest:
+        raise ValueError("SEAD abundance payload admission differs")
+    payload = _read_object(raw_root / relative, source_digest)
+    if payload["table"] != "tbl_abundances" or not isinstance(payload["rows"], list):
+        raise ValueError("SEAD abundance table identity differs")
+    rows: dict[int, dict[str, Any]] = {}
+    for row in payload["rows"]:
+        source_id = row["abundance_id"]
+        if not isinstance(source_id, int) or source_id in rows:
+            raise ValueError("SEAD abundance source key is invalid or duplicated")
+        rows[source_id] = row
+    return rows
+
+
+def _reconcile_abundance(
+    row: dict[str, Any], raw_rows: dict[int, dict[str, Any]]
+) -> None:
+    if (
+        row["source_table"] != "tbl_abundances"
+        or row["source_value_field"] != "abundance"
+    ):
+        raise ValueError("SEAD pollen candidate has an unexpected source value field")
+    source_id = int(row["source_record_id"])
+    if row["source_record_id"] != str(source_id):
+        raise ValueError(f"SEAD candidate abundance key is not canonical: {source_id}")
+    source_row = raw_rows.get(source_id)
+    if (
+        source_row is None
+        or row["source_row"] != source_row
+        or row["source_value"] != source_row["abundance"]
+    ):
+        raise ValueError(
+            f"SEAD candidate abundance differs from raw source: {source_id}"
+        )
+    expected_state = "source_null" if source_row["abundance"] is None else "reported"
+    if row["source_value_state"] != expected_state:
+        raise ValueError(
+            f"SEAD candidate abundance state differs from raw source: {source_id}"
+        )
+
+
 def build_screen(data_root: Path) -> tuple[dict[str, Any], str]:
     """Return a source-bound refusal report and sample-level native export."""
     root = governed_sead_evidence_root(data_root)
@@ -114,6 +177,8 @@ def build_screen(data_root: Path) -> tuple[dict[str, Any], str]:
 
     relations = document("observation_relation_index.json")
     native = document("source_native_observations.json")
+    abundance_digest = native["source_table_sha256"]["tbl_abundances"]
+    raw_abundances = _source_abundances(data_root, abundance_digest)
     dataset_names: dict[str, str] = {}
     for row in _parts(root, files, relations, "dataset_semantics"):
         dataset_id = row["dataset_semantics_id"]
@@ -161,6 +226,7 @@ def build_screen(data_root: Path) -> tuple[dict[str, Any], str]:
     writer = csv.DictWriter(output, fieldnames=CSV_FIELDS, lineterminator="\n")
     writer.writeheader()
     for row in sorted(candidate_rows, key=lambda item: item["observation_id"]):
+        _reconcile_abundance(row, raw_abundances)
         entity = entities[row["entity_relation_id"]]
         dataset_id = row["source_semantics"]["dataset_semantics_id"]
         if dataset_id != f"sead-dataset:{entity['dataset_id']}":
@@ -192,6 +258,7 @@ def build_screen(data_root: Path) -> tuple[dict[str, Any], str]:
                 "physical_sample_id": entity["physical_sample_id"],
                 "analysis_entity_id": entity["analysis_entity_id"],
                 "taxon_relation_id": row["taxon_relation_id"],
+                "source_value_field": row["source_value_field"],
                 "source_value_json": json.dumps(
                     row["source_value"], ensure_ascii=False
                 ),
@@ -205,11 +272,13 @@ def build_screen(data_root: Path) -> tuple[dict[str, Any], str]:
         )
     csv_text = output.getvalue()
     report = {
-        "schema_version": "sead-pollen-named-dataset-screen.v1",
+        "schema_version": "sead-pollen-named-dataset-screen.v2",
         "source_run_id": manifest["source_run_id"],
         "build_id": manifest["build_id"],
         "parent_admission_sha256": manifest["parent_admission_sha256"],
         "evidence_manifest_sha256": SEAD_GOVERNED_EVIDENCE_MANIFEST_SHA256,
+        "raw_abundance_payload_sha256": abundance_digest,
+        "source_reconciliation_rule": "tbl_abundances.abundance_id joins the exact raw row; abundance and null state must agree",
         "screen_rule": "dataset_name_contains_pollen_case_insensitive; proxy identity is unconfirmed",
         "source_observation_denominator": observation_count,
         "pollen_named_dataset_count": len(candidate_datasets),

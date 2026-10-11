@@ -7,16 +7,16 @@ The [pair ledger](pairs.csv) records **16 geographic proximity leads and zero ad
 The original Swedish subset has 132 EMPD2 metadata samples. The NFI workbook has 43,892 plot-year rows across 6,018 distinct tract/plot keys. WGS84 inverse-geodesic screening after transforming NFI points from SWEREF99 TM gives 53 plot-year/sample combinations within 1 km, across 16 pollen samples. The ledger selects one nearest NFI plot-year per sample, including 14 distinct selected plot-years. Distance is only a lead-generation screen. It does not establish shared time, vegetation footprint, measurement units, or independent validation support.
 
 The original source dossier, spatial screen, EMPD2 SQLite and NFI workbook are
-preserved in the external private source store. The [source
-manifest](private-source-custody.json) records their relative private paths, exact
-hashes and byte counts. The dossier and screen contain
-exact NFI row locations and are not tracked in Git. The tracked [SLU calibration
-guide](inputs/slu-calibration-guide.pdf) is an exact byte copy of its original.
+preserved in the external private source store. The [result](report.json)
+records the exact input hashes checked by its producer. The dossier and screen
+contain exact NFI row locations and are not tracked in Git. The tracked [SLU
+calibration guide](inputs/slu-calibration-guide.pdf) is an exact byte copy of
+its original.
 The producer checks the private inputs' exact hashes and reads only the NFI
 workbook's first six identity/coordinate fields to bind every selected plot-year
 to an original row and recompute each geodesic distance. The source-native NFI
-date is preserved only in the ignored local `pairs-source-bound.csv`; pollen
-`agebp` is not treated as a collection year. The tracked CSV replaces each NFI
+date is checked during replay but omitted from the public CSV; pollen `agebp`
+is not treated as a collection year. The tracked CSV replaces each NFI
 row location and key with an opaque SHA-256 identity; it contains no NFI tract,
 plot, year, date, or coordinates.
 
@@ -28,11 +28,11 @@ metadata from its 43,892 plot-year rows. The dictionary describes an undivided
 circular plot with radius 7 m and area 153.94 m²; every plot-year row has that
 area. Five tree-group basal-area columns are labeled in m²/ha: pine, contorta,
 spruce, birch and other deciduous trees. The workbook also contains five
-land-use codes; their meanings are not assigned by this receipt. Inventory
+land-use codes; their meanings are not assigned by this schema. Inventory
 dates remain source-native Excel serial values. No basal-area or other tree
 measurement outcome cell was decoded, and no target taxon composition or
 minimum benchmark threshold was chosen. Five other workbook headers lack exact
-field-dictionary names and remain listed in the schema receipt. To reproduce
+field-dictionary names and remain listed in the schema report. To reproduce
 this bounded schema read:
 
 ```sh
@@ -65,11 +65,11 @@ PYTHONDONTWRITEBYTECODE=1 OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=1 \
   --output artifacts/jobs/empd2-nfi-pairing/publication
 ```
 
-The output destination must be absent. Source-bound replay requires the private
-files at the custody manifest's relative paths; default focused tests exercise
-the tracked guide, public output and refusal contract without them. The public
-CSV is byte-identical to the earlier artifact-backed result, and the report's
-denominators and decisions are unchanged. The ignored local replay also retains
-the exact source-row ledger for private verification. The decision can change
+The output destination must be absent. Source-bound replay requires the
+original SQLite, workbook, dossier and spatial screen in the private source
+store. The producer checks their identities; default focused tests exercise
+the tracked guide, public output and refusal contract without them. Its private
+source-row ledger can be regenerated for review and discarded with the run
+output. The decision can change
 only after the missing source facts and scientific review are supplied, then
 with a new source-bound record; proximity alone cannot promote a lead.

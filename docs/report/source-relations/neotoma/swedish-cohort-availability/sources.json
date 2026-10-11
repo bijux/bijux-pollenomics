@@ -1,0 +1,62 @@
+{
+  "schema_version": "swedish-cohort-availability-sources.v1",
+  "private_source_subdir": "neotoma/swedish-cohort-metadata",
+  "private_source_manifest_sha256": "83e2a3ca13a2b8cbcd397b5f96da0be86be3c52fa8647d146dc0de0fe774d58f",
+  "source_capture_utc": "2026-10-01T09:04:25.688487+00:00",
+  "sources": [
+    {
+      "file": "neotoma-klot-site-metadata.json",
+      "url": "https://api.neotomadb.org/v2.0/data/sites/13336",
+      "http_status": 200,
+      "bytes": 2405,
+      "sha256": "72be09e4575400b2baee270fc482aad165053a2166cdd3dcdc881752ea8637a8"
+    },
+    {
+      "file": "neotoma-sambosjon-dataset-metadata.json",
+      "url": "https://api.neotomadb.org/v2.0/data/datasets/4403",
+      "http_status": 200,
+      "bytes": 1053,
+      "sha256": "bb8cfb8db5ab5d6380f6fae6a291e948701a8da92c50fb75aa0ef220c47c6ad3"
+    },
+    {
+      "file": "neotoma-sambosjon-site-metadata.json",
+      "url": "https://api.neotomadb.org/v2.0/data/sites/3398",
+      "http_status": 200,
+      "bytes": 746,
+      "sha256": "77b0abff82a931b1348ad59c4918ba640f3e018023f736daf88ea45ec6698d51"
+    },
+    {
+      "file": "neotoma-sweden-datasets-current.json",
+      "url": "https://api.neotomadb.org/v2.0/data/datasets?gpid=5392&datasettype=pollen&limit=500",
+      "http_status": 200,
+      "bytes": 99956,
+      "sha256": "f792b798c9c0eeca1954abbb6adc5e49571b6f0b686e3f439f288376294774b8"
+    },
+    {
+      "file": "pangaea-klot-pollen-metadata.jsonld",
+      "url": "https://doi.pangaea.de/10.1594/PANGAEA.739382?format=metadata_jsonld",
+      "http_status": 200,
+      "bytes": 51713,
+      "sha256": "0dcb8f901f8854ebfefe529a01246845658aa53a513558f6dc752054c02d9f28"
+    },
+    {
+      "file": "pangaea-sambotot-age-controls-metadata.jsonld",
+      "url": "https://doi.pangaea.de/10.1594/PANGAEA.740716?format=metadata_jsonld",
+      "http_status": 200,
+      "bytes": 5954,
+      "sha256": "f96ae90bf6e9f2613b39a92f9b0220a6c19d6d3be345b35cdffaad1a76d1f252"
+    },
+    {
+      "file": "pangaea-sambotot-pollen-metadata.jsonld",
+      "url": "https://doi.pangaea.de/10.1594/PANGAEA.739778?format=metadata_jsonld",
+      "http_status": 200,
+      "bytes": 42708,
+      "sha256": "4b979048a64efb2854e60bc63a7850585a4cc90115d57b4c83b7d818e4d5b881"
+    }
+  ],
+  "relational_manifest_sha256": "6f6777a40b67bd0704eb1a982f19e6d451cad0d6e4a41dfebf5e3f28be33105b",
+  "relational_sites_part_sha256": "b6ca4e49d0aec59aee576fc540c77b6c2e21601ce28338227e98717ee0bb93e9",
+  "epd_private_source_subdir": "epd/swedish-cohort-metadata",
+  "epd_source_manifest_sha256": "4ab9abd1ed3edb9af0df7370563035adc02617fe6361a842f73840d36c56bc6c",
+  "relational_collection_units_part_sha256": "dea88b9cadd08256b94f537a5d6a48c8b6b6c5820e5f340ae4786c3e28066780"
+}

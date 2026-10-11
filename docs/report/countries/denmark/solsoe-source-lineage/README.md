@@ -14,7 +14,7 @@ The primary checks remain available here:
 - [Odgaard 1981/1983 core selection](original-core-selection/README.md)
 
 The published 79 LandClim II pollen samples have not been identified among
-the 92 Neotoma source samples. A reported lake area or unit-unstated radius
+the 92 Neotoma source samples. A reported lake area or site radius in metres
 does not provide the sample-age basin boundaries needed for LRA. The root
 research account gives the exact unresolved source packet and reproduction
 command; this page remains a stable website citation to the governed evidence.

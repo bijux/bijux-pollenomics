@@ -7,6 +7,10 @@ from bijux_pollenomics.reporting.map_document.static_assets.indexes import build
 from bijux_pollenomics.reporting.map_document.static_assets.nodes import (
     node_asset_selection,
 )
+from bijux_pollenomics.reporting.map_document.temporal_admission import (
+    feature_interval,
+    feature_temporal_admission,
+)
 from bijux_pollenomics.reporting.map_publication import MapScopePolicy
 
 
@@ -39,6 +43,16 @@ def test_coordinate_admission_preserves_zero_and_rejects_missing_or_impossible()
     assert point_coordinate_pair({"latitude": False, "longitude": 0}) is None
     assert point_coordinate_pair({"latitude": 91, "longitude": 0}) is None
     assert point_coordinate_pair({"latitude": 0, "longitude": -181}) is None
+
+
+def test_golden_zero_bp_and_missing_age_remain_distinct_in_map_data() -> None:
+    dated = {"time_start_bp": 0, "time_end_bp": 0}
+    missing = {"time_start_bp": None, "time_end_bp": None}
+
+    assert feature_temporal_admission(dated) == ("admitted", (0.0, 0.0))
+    assert feature_temporal_admission(missing) == ("absent", None)
+    assert feature_interval(dated) == (0.0, 0.0)
+    assert feature_interval(missing) is None
 
 
 def test_bounds_use_only_complete_admitted_coordinate_pairs() -> None:

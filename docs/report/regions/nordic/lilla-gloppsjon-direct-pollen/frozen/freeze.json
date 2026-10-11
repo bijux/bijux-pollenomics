@@ -1,0 +1,14 @@
+{
+  "candidate_bins": 23,
+  "input_manifest_sha256": "47d9b2cc54c416373fd6d6ad11722ad63e1c54b2bc8e4af9222a6dd488b62285",
+  "metadata_sha256": "9054bfc34bd4444070f616e5810f180d827bca10a54c09c72133c0374e01dcb5",
+  "predicted_bins": 23,
+  "prediction_rows": 69,
+  "predictions_sha256": "844db7dd47a93eba5d0630719df992d211ced59464e917314e2b5ff131d36a17",
+  "protocol_sha256": "9d04c225b571a98362fca38e1ef0976d19a9eb87e20b7e66e09529f4b09f0699",
+  "refused_bins": 0,
+  "schema_version": "lilla-gloppsjon-direct-pollen-freeze.v1",
+  "target_observations_used_for_prediction": false,
+  "target_site_id": "neotoma:site:3234",
+  "training_sha256": "4ec0de377bba7ad501ca5bf141374b4a3bde97ea266e64b0135a639d309a8647"
+}

@@ -81,3 +81,32 @@ class StagingUnitTests(unittest.TestCase):
 
             self.assertEqual(prior_file.read_text(encoding="utf-8"), "prior")
             self.assertFalse(staging_output_root.exists())
+
+    def test_collect_into_staging_dir_preserves_interrupted_recovery(self) -> None:
+        for final_present in (False, True):
+            with (
+                self.subTest(final_present=final_present),
+                tempfile.TemporaryDirectory() as workspace,
+            ):
+                final_root = Path(workspace) / "neotoma"
+                recovery_root = Path(workspace) / ".neotoma.recovery"
+                recovery_root.mkdir()
+                prior = recovery_root / "prior.csv"
+                prior.write_text("prior", encoding="utf-8")
+                if final_present:
+                    final_root.mkdir()
+                    (final_root / "current.csv").write_text("current", encoding="utf-8")
+
+                def collect(staging_root: Path) -> None:
+                    (staging_root / "candidate.csv").write_text(
+                        "candidate", encoding="utf-8"
+                    )
+
+                with self.assertRaisesRegex(
+                    FileExistsError, "recovery requires review"
+                ):
+                    collect_into_staging_dir(final_root, collect)
+
+                self.assertEqual(prior.read_text(encoding="utf-8"), "prior")
+                self.assertEqual(final_root.exists(), final_present)
+                self.assertFalse((Path(workspace) / ".neotoma.staging").exists())

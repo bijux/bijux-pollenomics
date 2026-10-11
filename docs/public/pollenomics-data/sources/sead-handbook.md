@@ -4,7 +4,7 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-08-01
+last_reviewed: 2026-10-01
 ---
 
 # SEAD Environmental Archaeology Context
@@ -142,6 +142,13 @@ stateDiagram-v2
 
 This behavior retains undated spatial context without pretending that an
 undated site is present in the selected period.
+
+We checked the [built Nordic map candidate](../../../report/source-relations/sead/map-candidate/README.md)
+against the governed source and a four-country browser replay. The site layer
+contains 2,069 context points; the Swedish discovery layer contains 7,244
+numeric intervals and 1,555 unresolved records. The live time filter excludes
+a known gap between intervals and does not treat an unresolved label as 0 BP.
+There are no admitted ecological events or propagation edges in this capture.
 
 ## Use The Governed Sweden Discovery Surface
 

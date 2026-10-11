@@ -9,8 +9,8 @@
   },
   "landclim_ii": {
     "source_locator": "landclim_ii_site_metadata.xlsx#LANDCLIMII metadata file!95",
-    "reported_site_radius_unit_unstated": 89.0,
-    "conditional_circular_area_if_radius_metres_ha": 2.488456,
+    "reported_site_radius_m": 89.0,
+    "circle_area_from_site_radius_ha": 2.488456,
     "reported_pollen_samples": 79,
     "reported_time_windows": 25,
     "reported_age_range_bp": [
@@ -113,7 +113,7 @@
     }
   },
   "lra_admitted_samples": 0,
-  "interpretation": "Published Solsø site metadata and Neotoma cores share a close site lineage. Applying the published 10–11659 BP age bounds to all 92 Neotoma calibrated sample ages retains 90, still 11 more than the published 79; this conditional screen cannot explain the denominator and does not identify the author chronology or input subset. The reported LandClim I area and conditional LandClim II radius arithmetic are not sample-age basin boundaries.",
+  "interpretation": "Published Solsø site metadata and Neotoma cores share a close site lineage. Applying the published 10–11659 BP age bounds to all 92 Neotoma calibrated sample ages retains 90, still 11 more than the published 79; this conditional screen cannot explain the denominator and does not identify the author chronology or input subset. The reported LandClim I area and circle-equivalent LandClim II site-radius area are not sample-age basin boundaries.",
   "inputs": [
     {
       "path": "data/landclim/raw/landclim_i_land_cover_types.xlsx",
@@ -129,7 +129,7 @@
     },
     {
       "path": "docs/report/regions/nordic/direct-pollen/manifest.json",
-      "sha256": "3e7814bf9697783397cdce11639ebc861620a6a3c9d9295d1357ab69bc7b5edf"
+      "sha256": "e1cf9fddc91dcce3e862079c5fa3515a985e3571339e19ef356b296d4117d61d"
     },
     {
       "path": "data/neotoma/relational/manifest.json",

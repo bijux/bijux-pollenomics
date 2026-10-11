@@ -100,7 +100,7 @@ a native LandClim archive or their role as published study inputs. We have
 not cleared workbook output for public release or evaluated scientific
 acceptance.
 
-Our [independent metadata challenge](publication-correspondence/landclim-metadata-challenge/README.md)
+Our [independent metadata integrity check](publication-correspondence/landclim-metadata-integrity/README.md)
 reconstructed the five governed inventory and refusal outputs and challenged
 the old candidate with nine adversarial edits. All five result hashes still
 match the current retained product. Its passing verdict supports exact

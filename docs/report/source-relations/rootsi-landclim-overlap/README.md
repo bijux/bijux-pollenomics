@@ -2,6 +2,18 @@
 
 The [row ledger](overlap.csv) binds 79 unique Rootsi metadata candidates to 79 of the 223 normalized LandClim II site features. It uses the five byte-identical derived candidate files retained in `data/landclim/review/rootsi-candidate-inputs/`, the published LandClim II site metadata workbook and receipt, and the normalized site consumer. [report.json](report.json) records their exact input hashes, denominators, the matching profile, and the dependency boundary. Regenerate with `python -m bijux_pollenomics_dev.source_completion.rootsi_landclim_overlap --repository . --output <absent-repository-directory>` using the repository's development package environment. The replay requires the tracked review copy and its fixed manifest and file hashes. The private typed workbooks are not part of this copy.
 
+For the opt-in original-input replay, set `BIJUX_LANDCLIM_SOURCE_ROOT` to the
+qualified external LandClim source store. Its `rootsi-input-closure/metadata.xlsx`
+has SHA-256 `08c928407aa1c70c38be8a310a1d9d5e6215434a96ee7fbbd3ba849184e9ee47`;
+`rootsi-input-closure/typed-cell-review/manifest.json` has SHA-256
+`2e5b5a3a10cec59fc8086c0c99db56bb394e9d1f180bbd5571c1098c262c9179`.
+The original 79 workbooks live under `rootsi-workbooks/rootsi/`. The opt-in
+workbook replay reads the tracked candidate closure from
+`data/landclim/review/rootsi-candidate-inputs/`. These inputs were checked
+byte-for-byte against their former local copies. Their source roles and
+scientific refusals remain in the governed candidate manifest; a successful
+replay does not authenticate the historical paper's input revision.
+
 The 79 typed workbooks are retained under `landclim/rootsi-workbooks/` in the
 external source data store, outside the product repository. Its
 `manifest.json` has SHA-256

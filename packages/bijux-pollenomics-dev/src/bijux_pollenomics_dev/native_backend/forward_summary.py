@@ -184,7 +184,7 @@ def build(raw_bytes: bytes, reference_root: Path) -> dict[str, Any]:
 
 
 def main() -> None:
-    """Publish compact forward measurements bound to the reference report."""
+    """Write a compact native forward workload summary."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--raw-report", required=True, type=Path)
     parser.add_argument("--reference-root", required=True, type=Path)

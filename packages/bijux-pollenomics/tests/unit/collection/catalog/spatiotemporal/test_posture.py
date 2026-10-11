@@ -38,6 +38,7 @@ def test_posture_registry_refuses_missing_source_authority_without_zero_claims()
     )
     assert rows["raa"]["availability_status"] == "refused"
     assert rows["raa"]["record_count"] is None
+    assert rows["raa"]["numeric_interval_record_count"] is None
     assert rows["raa"]["detail_metrics"] == {
         "all_published_sites": None,
         "fornlamning_count": None,
@@ -51,9 +52,11 @@ def test_posture_registry_refuses_missing_source_authority_without_zero_claims()
     )
     assert rows["svar"]["availability_status"] == "refused"
     assert rows["svar"]["record_count"] is None
+    assert rows["svar"]["numeric_interval_record_count"] is None
     assert rows["svar"]["refusal_reasons"] == ("missing_governing_normalized_registry",)
     assert rows["boundaries"]["availability_status"] == "refused"
     assert rows["boundaries"]["record_count"] is None
+    assert rows["boundaries"]["numeric_interval_record_count"] is None
 
 
 def test_posture_registry_distinguishes_empty_svar_registry_from_missing_registry() -> (
@@ -72,6 +75,7 @@ def test_posture_registry_distinguishes_empty_svar_registry_from_missing_registr
 
     assert rows["svar"]["availability_status"] == "available"
     assert rows["svar"]["record_count"] == 0
+    assert rows["svar"]["numeric_interval_record_count"] == 0
     assert rows["svar"]["refusal_reasons"] == ()
 
 
@@ -93,14 +97,14 @@ def test_repository_posture_uses_governed_landclim_counts_and_refuses_missing_au
     }
     assert rows["raa"]["availability_status"] == "refused"
     assert rows["raa"]["record_count"] is None
-    assert rows["raa"]["numeric_interval_record_count"] == 0
+    assert rows["raa"]["numeric_interval_record_count"] is None
     assert rows["raa"]["detail_metrics"] == {
         "all_published_sites": None,
         "fornlamning_count": None,
     }
     assert rows["svar"]["availability_status"] == "refused"
     assert rows["svar"]["record_count"] is None
-    assert rows["svar"]["numeric_interval_record_count"] == 0
+    assert rows["svar"]["numeric_interval_record_count"] is None
     assert rows["svar"]["detail_metrics"] == {"lake_count": None}
 
 

@@ -22,7 +22,7 @@ class SourceSpatiotemporalPostureRecord:
     availability_status: str
     refusal_reasons: tuple[str, ...]
     record_count: int | None
-    numeric_interval_record_count: int
+    numeric_interval_record_count: int | None
     detail_metrics: dict[str, int | None]
     caveats: tuple[str, ...]
     capability_contract_path: str = "data/source_family_contracts.json"

@@ -4,7 +4,7 @@ audience: reader
 type: reference
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-09-28
+last_reviewed: 2026-10-01
 ---
 
 # LandClim modeled Nordic panels
@@ -28,3 +28,5 @@ The [400-row country and source-window inventory](../../../report/regions/nordic
 | Sweden | 26 | 650 | 568 | 82 |
 
 The [source-bound report](../../../report/regions/nordic/landclim-modeled-panels/README.md) and its [machine-readable receipt](../../../report/regions/nordic/landclim-modeled-panels/report.json) record the exact source bytes and calculation. Source windows remain discrete, from 11,200–11,700 BP through 0–100 BP. The map's modeled-context controls use the same source metric families and keep modeled evidence separate from observed pollen layers.
+
+We also checked the [published map transport](../../../report/source-relations/landclim/map-export-lineage/README.md) against all 2,515 normalized temporal features. The 1,875 LandClim II cell windows retain 47 estimate and standard-error metrics: 73,696 numeric pairs and 14,429 explicit null pairs across the four countries. The [browser download check](../../../report/source-relations/landclim/browser-export/README.md) reconciles a selected 32-cell Denmark/Sweden frame at 0–100 BP, including all 47 paired metrics and explicit nulls. The archive supplies WGS84 longitude/latitude centers under PANGAEA's geocode policy; our one-degree polygons are derived geometry with no separate file-level CRS declaration. Metadata overlap with pollen sources does not establish independent validation or the historical contributors to each modeled cell.

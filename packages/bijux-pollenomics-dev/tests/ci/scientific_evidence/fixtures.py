@@ -79,9 +79,9 @@ def repository_fixture(
         accepted_mapping_count=0,
     )
     monkeypatch.setattr(scientific_evidence, "_CLASSIFICATION_AUTHORITY", authority)
-    classification_root = f"artifacts/execution-control/classification/neotoma-{classification_digest[:8]}"
+    classification_root = f"artifacts/release-verification/classification/neotoma-{classification_digest[:8]}"
     propagation_root = (
-        f"artifacts/execution-control/propagation/neotoma-{propagation_digest[:8]}"
+        f"artifacts/release-verification/propagation/neotoma-{propagation_digest[:8]}"
     )
     policy: dict[str, object] = {
         "schema_version": "release-evidence-policy.v3",
