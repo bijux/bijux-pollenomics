@@ -50,15 +50,15 @@ flowchart LR
 The configured GitHub artifact build and PyPI publication sets contain
 `bijux-pollenomics`, `pollenomics` and `bijux-pollenomics-lra`. The GHCR package
 set contains the host and alias only. The authoritative selection is
-[the generated release configuration](../../../.github/release.env), consumed
+[the generated release configuration](https://github.com/bijux/bijux-pollenomics/blob/main/.github/release.env), consumed
 by the managed release workflows. `bijux-pollenomics-dev` is verified as a
 repository component and remains outside all three public publication sets.
 Configuration is not evidence that a distribution has been published.
 
 The host extra `bijux-pollenomics[lra]` requires a separately installed engine.
-The [distribution account](../../../reports/architecture/lra-distribution.md)
+The [distribution account](https://github.com/bijux/bijux-pollenomics/blob/main/reports/architecture/lra-distribution.md)
 records the local wheel installation proof and its platform/version scope.
-The [PyPI release gate](../../../packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/lra_reference/release_gate.py)
+The [PyPI release gate](https://github.com/bijux/bijux-pollenomics/blob/main/packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/lra_reference/release_gate.py)
 requires actual-R certification and native-parity artifacts for the exact
 release revision. A retained local R result or a green unit test cannot
 replace those same-revision CI artifacts.
@@ -102,13 +102,13 @@ set across the following evidence, recording a failure or unknown explicitly.
 
 | Surface | Required evidence and current limit |
 | --- | --- |
-| Source and rights | Exact capture/source identities, permitted use, counts, chronology, basin and parameter admission; [source requests](../../../reports/needed/source-requests.md) retain unresolved inputs. |
-| Four-country science | Country-specific eligible inputs, LRA outputs, development comparisons and independent measured vegetation; [country status](../../../reports/science/country-evidence-status.md) retains the current refusals and unadmitted comparisons. |
-| Method correspondence | Source-bound publication profiles and numerical/uncertainty scope; [method correspondence](../../../reports/science/method-correspondence.md) distinguishes numerical parity from scientific validation. |
+| Source and rights | Exact capture/source identities, permitted use, counts, chronology, basin and parameter admission; [source requests](https://github.com/bijux/bijux-pollenomics/blob/main/reports/needed/source-requests.md) retain unresolved inputs. |
+| Four-country science | Country-specific eligible inputs, LRA outputs, development comparisons and independent measured vegetation; [country status](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/country-evidence-status.md) retains the current refusals and unadmitted comparisons. |
+| Method correspondence | Source-bound publication profiles and numerical/uncertainty scope; [method correspondence](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/method-correspondence.md) distinguishes numerical parity from scientific validation. |
 | Package installation | Matching host, alias and engine artifacts, legal assets, optional-engine discovery and installed API/CLI tests on supported platforms; source-checkout execution is a separate check. |
-| Report reproduction | Exact publisher namespace plus independent owner inputs/certificates and two-lane whole-tree equality; [report ownership](../../../reports/architecture/ownership.md) retains unresolved custody. |
+| Report reproduction | Exact publisher namespace plus independent owner inputs/certificates and two-lane whole-tree equality; [report ownership](https://github.com/bijux/bijux-pollenomics/blob/main/reports/architecture/ownership.md) retains unresolved custody. |
 | Reader and application delivery | Current exported documents, built local routes and browser/provider/export behavior, followed by actual collaborator use and deployed revision evidence where claimed. |
-| Qualified review | Claim-specific scope, version identities, reviewer qualifications and returned decisions; [review questions](../../../reports/needed/scientific-review.md) are prepared questions, not received approval. |
+| Qualified review | Claim-specific scope, version identities, reviewer qualifications and returned decisions; [review questions](https://github.com/bijux/bijux-pollenomics/blob/main/reports/needed/scientific-review.md) are prepared questions, not received approval. |
 
 Run the complete repository and release-specific matrix on the final stable
 candidate after affected focused checks. Preserve earlier receipts with their

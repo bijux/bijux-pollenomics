@@ -43,7 +43,7 @@ multi-site certification.
 
 ## Conditional composition and covariance identities
 
-The [maintained covariance implementation](../../../../packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/fixed_site_covariance.py)
+The [maintained covariance implementation](https://github.com/bijux/bijux-pollenomics/blob/main/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/fixed_site_covariance.py)
 has the following algebraic properties for any declared panel of $m\geq2$
 taxa and $S\geq1$ fixed sites. These properties concern its conditional
 composition and first-order delta covariance.
