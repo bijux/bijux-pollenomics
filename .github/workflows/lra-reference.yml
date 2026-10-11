@@ -1,4 +1,4 @@
-# Authored repository workflow; generated verify wrapper calls this same revision.
+# Authored exact-source R certification for explicit dispatch or reusable calls.
 name: LRA source-locked R certification
 on:
   workflow_call:
@@ -27,7 +27,7 @@ jobs:
       - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
         with:
           python-version: "3.11"
-      - uses: astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d
+      - uses: astral-sh/setup-uv@c18668ad3cf93ea998bef934396af7bb5c839dc7 # v10.2.0
         with:
           enable-cache: true
           cache-dependency-glob: uv.lock
@@ -52,14 +52,14 @@ jobs:
         run: make -C packages/bijux-pollenomics-lra -f ../../makes/packages/bijux-pollenomics-lra.mk ACT="$GITHUB_WORKSPACE/.venv/bin" test-live-r
       - name: Upload the complete source-bound certificate bundle
         if: success()
-        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: lra-live-r-${{ github.sha }}-attempt-${{ github.run_attempt }}
           path: artifacts/bijux-pollenomics-lra/reference/receipts/certification/bundle/
           if-no-files-found: error
       - name: Retain diagnostic receipts even on failure
         if: always()
-        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: lra-live-r-debug-${{ github.sha }}-attempt-${{ github.run_attempt }}
           path: |
