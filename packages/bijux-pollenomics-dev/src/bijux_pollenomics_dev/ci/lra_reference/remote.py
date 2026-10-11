@@ -43,7 +43,7 @@ class GitHubReader:
         self.started = time.monotonic()
 
     def read(self, path: str) -> bytes:
-        """Read validated GitHub evidence within the collection deadline."""
+        """Fetch validated GitHub evidence within the bounded deadline without exposing credentials."""
         if time.monotonic() - self.started > 300:
             raise ReferenceRefusal("Release evidence collection exceeded deadline")
         if (

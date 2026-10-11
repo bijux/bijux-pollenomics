@@ -2,8 +2,10 @@
 
 from __future__ import annotations
 
+import json
+
 from .....lra.batches.models import LRABatchItem
-from ....contracts import ValidationRefusal, manifest_sha256
+from ....contracts import ValidationRefusal, canonical_json, manifest_sha256
 from ...configuration import identity, object_list, object_mapping
 from ...outputs import ExperimentProduct, read_member
 from .evidence import digest
@@ -192,3 +194,81 @@ def batch_evidence(
             "invalid_local_batch_evidence", "Operation denominator differs"
         )
     return requests, results
+
+
+def validate_failure_batch_evidence(
+    failures_value: object,
+    folds: dict[str, dict[str, object]],
+    requests: dict[str, dict[str, object]],
+    results: dict[str, dict[str, object]],
+) -> None:
+    """Bind scientific failure details to raw operation evidence when attempted."""
+    for value in object_list(failures_value, "failures"):
+        failure = object_mapping(value, "failure")
+        fold_id = identity(failure["fold_id"])
+        record = identity(
+            object_list(folds[fold_id]["test_record_ids"], "test_record_ids")[0]
+        )
+        batch_item_id = failure.get("batch_item_id")
+        if batch_item_id is None:
+            if record in requests or record in results:
+                raise ValidationRefusal(
+                    "invalid_local_batch_evidence",
+                    "An attempted failure lacks its batch item identity",
+                )
+            continue
+        if identity(batch_item_id) != record or record not in requests:
+            raise ValidationRefusal(
+                "invalid_local_batch_evidence", "Failure batch ownership differs"
+            )
+        operation = results.get(record)
+        detail_value = failure.get("detail")
+        if operation is None or not isinstance(detail_value, str):
+            raise ValidationRefusal(
+                "invalid_local_batch_evidence", "Failure operation detail is absent"
+            )
+        try:
+            detail = object_mapping(json.loads(detail_value), "failure_detail")
+        except (TypeError, ValueError) as exc:
+            raise ValidationRefusal(
+                "invalid_local_batch_evidence", "Failure detail is not canonical JSON"
+            ) from exc
+        projection_error = detail.get("projection_error")
+        fields = {
+            "batch_item_status",
+            "operational_error",
+            "projection_interrupted",
+        }
+        if projection_error is not None:
+            fields.add("projection_error")
+        status = identity(failure["status"])
+        raw_status = identity(operation["item_status"])
+        if (
+            set(detail) != fields
+            or detail_value != canonical_json(detail)
+            or detail.get("batch_item_status") != raw_status
+            or detail.get("operational_error") != operation.get("error")
+            or type(detail.get("projection_interrupted")) is not bool
+            or (projection_error is not None)
+            is not (status == "refused" and raw_status == "completed")
+            or (
+                detail.get("projection_interrupted") is True
+                and not (status == "not_run" and raw_status == "completed")
+            )
+        ):
+            raise ValidationRefusal(
+                "invalid_local_batch_evidence",
+                "Scientific failure differs from its raw batch terminal",
+            )
+        if projection_error is not None:
+            error = object_mapping(projection_error, "projection_error")
+            if (
+                set(error) != {"reason_code", "detail"}
+                or error.get("reason_code") != failure.get("reason_code")
+                or not isinstance(error.get("detail"), str)
+                or not error["detail"]
+            ):
+                raise ValidationRefusal(
+                    "invalid_local_batch_evidence",
+                    "Projection refusal detail differs from its scientific terminal",
+                )

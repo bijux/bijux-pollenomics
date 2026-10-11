@@ -35,7 +35,7 @@ def _build_empty_report(
     raa_authority: dict[str, object] | None = None,
 ) -> LakeEvidenceRichnessReport:
     return LakeEvidenceRichnessReport(
-        schema_version="sweden-lake-evidence-richness.v2",
+        schema_version="sweden-lake-evidence-richness.v3",
         country="Sweden",
         radii_km=radii_km,
         methodology=_build_methodology(
@@ -57,6 +57,7 @@ def _build_methodology(
     candidates: Sequence[LakeEvidenceCandidate] = (),
     raa_authority: dict[str, object] | None = None,
 ) -> dict[str, object]:
+    raa_admitted = raa_authority is not None and raa_authority.get("admitted") is True
     if candidate_source == "svar_registry_authority_unavailable":
         payload: dict[str, object] = {
             "candidate_derivation": (
@@ -143,6 +144,11 @@ def _build_methodology(
                 "human locality windows. RAÄ contributes coarse density cells, so the "
                 "archaeology term still measures surrounding evidence richness rather "
                 "than exact site-to-lake proximity."
+                if raa_admitted
+                else "SEAD contributes site-level point counts and gains stronger "
+                "weight when those site spans are numerically comparable and overlap "
+                "nearby human locality windows. RAÄ density is excluded because its "
+                "source authority is refused; the SEAD terms are renormalized."
             ),
             "animal_note": (
                 "Domesticated animal aDNA remains a secondary contextual signal. "
@@ -200,6 +206,10 @@ def _build_methodology(
             "SEAD contributes site-level point counts. RAÄ contributes coarse "
             "1-degree density cells, so the RAÄ term captures archaeology "
             "richness around the lake rather than precise site-by-site distance."
+            if raa_admitted
+            else "SEAD contributes site-level point counts. RAÄ density is excluded "
+            "because its source authority is refused; the SEAD terms are "
+            "renormalized."
         ),
         "animal_note": (
             "Domesticated animal aDNA remains sparse in the current Sweden bundle. "

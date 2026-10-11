@@ -9,10 +9,22 @@ from .batches.models import (
 )
 from .engine.errors import LRARefusal
 from .execution.cache import CachedLRAProduct, run_lra_cached
+from .execution.regional_draw_love import (
+    run_regional_draw_love_request,
+    validate_regional_draw_love_inputs,
+)
 from .execution.service import run_lra_request, validate_lra_inputs
 from .inputs.validation import ValidatedRequest
+from .materialization import NeotomaLraFrontier, inspect_neotoma_lra_frontier
 from .outputs.publication import LRAProduct
 from .outputs.reading import VerifiedLRAProduct, read_lra_product
+from .publication_draws import read_multisite_regional_draw_source
+from .regional_components import (
+    RegionalComponentPlan,
+    RegionalComponentSet,
+    bind_regional_component_set,
+    read_regional_component_set,
+)
 from .uncertainty.api import (
     JointLRAPlan,
     JointLRAProduct,
@@ -30,13 +42,22 @@ __all__ = [
     "LRABatchResult",
     "LRAProduct",
     "LRARefusal",
+    "NeotomaLraFrontier",
+    "RegionalComponentPlan",
+    "RegionalComponentSet",
     "ValidatedRequest",
     "VerifiedLRAProduct",
+    "bind_regional_component_set",
+    "inspect_neotoma_lra_frontier",
     "read_joint_lra_ensemble",
     "read_lra_product",
+    "read_multisite_regional_draw_source",
+    "read_regional_component_set",
     "run_joint_lra_ensemble",
     "run_lra_batch",
     "run_lra_cached",
     "run_lra_request",
+    "run_regional_draw_love_request",
     "validate_lra_inputs",
+    "validate_regional_draw_love_inputs",
 ]

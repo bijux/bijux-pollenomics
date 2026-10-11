@@ -9,7 +9,7 @@ import json
 import os
 from pathlib import Path
 
-from ..engine.discovery import load_engine
+from ..engine.discovery import load_engine, required_capability_for_profile
 from ..engine.errors import LRARefusal
 from ..inputs.validation import validate_request
 from ..outputs.identity import capture_code_identity, verify_code_identity
@@ -39,7 +39,11 @@ def run_lra_cached(
     after the active owner finishes; this call does not poll or wait.
     """
     request = validate_request(payload, input_root=input_root)
-    binding = load_engine()
+    binding = load_engine(
+        required_capability=required_capability_for_profile(
+            request.payload()["method_profile"]
+        )
+    )
     validate_engine_configuration(binding, request)
     identity = capture_code_identity(binding)
     lookup = {

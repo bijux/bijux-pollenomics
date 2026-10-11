@@ -8,6 +8,7 @@ from .contracts import (
     GENERIC_TIME_AWARE_PROFILE,
     NATIVE_LRA_PROFILE,
     NORDIC_SOURCE_CHRONOLOGY_PROFILE,
+    RAA_RETAINED_CONTEXT_PROFILE,
     SIGNED_NATIVE_LRA_PROFILE,
     AtlasBrowserContractError,
     BrowserCandidate,
@@ -114,11 +115,32 @@ SIGNED_NATIVE_LRA_REQUIRED_ASSERTIONS = NATIVE_LRA_REQUIRED_ASSERTIONS | frozens
         "signed_calendar_legacy_media_refused",
     }
 )
+RAA_RETAINED_CONTEXT_REQUIRED_ASSERTIONS = frozenset(
+    {
+        "capture_api_ready",
+        "candidate_identity",
+        "keyless_provider_policy",
+        "raa_contract_exact",
+        "raa_static_asset_exact",
+        "raa_default_enabled",
+        "raa_degraded_warning_visible",
+        "raa_layer_toggle_exact",
+        "raa_time_filter_non_effect",
+        "raa_analysis_refused",
+        "raa_no_edges",
+        "no_basemap_zero_tile_requests",
+        "provider_failure_osm_terrain_none",
+        "provider_failure_evidence_unchanged",
+        "runtime_console_clean",
+        "receipt_inventory_complete",
+    }
+)
 PROFILE_REQUIRED_ASSERTIONS = {
     NORDIC_SOURCE_CHRONOLOGY_PROFILE: NORDIC_SOURCE_CHRONOLOGY_REQUIRED_ASSERTIONS,
     GENERIC_TIME_AWARE_PROFILE: GENERIC_TIME_AWARE_REQUIRED_ASSERTIONS,
     NATIVE_LRA_PROFILE: NATIVE_LRA_REQUIRED_ASSERTIONS,
     SIGNED_NATIVE_LRA_PROFILE: SIGNED_NATIVE_LRA_REQUIRED_ASSERTIONS,
+    RAA_RETAINED_CONTEXT_PROFILE: RAA_RETAINED_CONTEXT_REQUIRED_ASSERTIONS,
 }
 REQUIRED_ASSERTIONS = NORDIC_SOURCE_CHRONOLOGY_REQUIRED_ASSERTIONS
 _BROWSER_IDENTITY_FIELDS = frozenset(

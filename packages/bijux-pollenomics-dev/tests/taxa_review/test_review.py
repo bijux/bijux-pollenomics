@@ -233,7 +233,7 @@ def test_publication_race_refuses_without_touching_other_owner(
         if path == target:
             original(path)
             (path / "other-owner").write_text("keep")
-        return original(path, *args, **kwargs)
+        original(path, *args, **kwargs)
 
     monkeypatch.setattr(Path, "mkdir", competing)
     with pytest.raises(FileExistsError):

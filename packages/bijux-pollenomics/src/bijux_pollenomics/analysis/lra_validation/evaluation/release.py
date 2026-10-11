@@ -9,6 +9,7 @@ from typing import Literal, cast
 
 from ..contracts import SiteRecord, canonical_json, manifest_sha256
 from ..splits import split_manifest
+from .cohort import ReviewedCohortAdmission, validate_cohort_admission
 from .contracts import EvaluationPolicy, EvaluationScope, digest, refuse
 from .policy import validate_evaluation_policy
 
@@ -36,6 +37,7 @@ _RELEASE_KEYS = frozenset(
         "empirical_evaluation_performed",
         "scientific_acceptance",
         "scope_sha256",
+        "cohort_admission_sha256",
         "required_matrix",
         "protocols",
     }
@@ -45,6 +47,7 @@ _PROTOCOL_KEYS = frozenset(
         "protocol_id",
         "split_kind",
         "scope_sha256",
+        "cohort_admission_sha256",
         "scope_split_sha256",
         "split_manifest_sha256",
         "policy_sha256",
@@ -93,9 +96,13 @@ def _validate_receipt_payload(payload: dict[str, object]) -> None:
     ):
         refuse("Release admission receipt claim boundary or matrix differs")
     scope_sha256 = payload.get("scope_sha256")
+    cohort_admission_sha256 = payload.get("cohort_admission_sha256")
     if not isinstance(scope_sha256, str):
         refuse("Release admission receipt scope identity is missing")
     digest(scope_sha256)
+    if not isinstance(cohort_admission_sha256, str):
+        refuse("Release admission cohort identity is missing")
+    digest(cohort_admission_sha256)
     protocols = payload.get("protocols")
     if not isinstance(protocols, list) or len(protocols) != len(_PROTOCOL_SPLIT_KINDS):
         refuse("Release admission receipt protocols are incomplete")
@@ -107,6 +114,7 @@ def _validate_receipt_payload(payload: dict[str, object]) -> None:
             protocol.get("protocol_id") != protocol_id
             or protocol.get("split_kind") != split_kind
             or protocol.get("scope_sha256") != scope_sha256
+            or protocol.get("cohort_admission_sha256") != cohort_admission_sha256
         ):
             refuse("Release admission protocol identity or scope differs")
         for key in (
@@ -147,6 +155,7 @@ class FinalEvaluationProtocol:
 
     protocol_id: ProtocolId
     scope: EvaluationScope
+    cohort_admission: ReviewedCohortAdmission
     policy: EvaluationPolicy
     canonical_split_manifest_json: str
     split_manifest_sha256: str
@@ -304,8 +313,9 @@ def admit_final_evaluation_release(
 ) -> FinalEvaluationReleaseAdmission:
     """Admit only the exact six-cell, two-protocol engineering release matrix.
 
-    This boundary binds policy and split identities before empirical scoring. It
-    neither authenticates reviewer authority nor evaluates outcomes or accuracy.
+    This boundary binds cohort, policy and split identities before empirical
+    scoring. Reviewer authority remains explicitly unauthenticated, and this
+    boundary evaluates neither outcomes nor accuracy.
     """
     if not isinstance(protocols, tuple) or any(
         not isinstance(item, FinalEvaluationProtocol) for item in protocols
@@ -321,29 +331,36 @@ def admit_final_evaluation_release(
     admitted: list[dict[str, object]] = []
     record_payloads: list[object] = []
     scope_hashes: set[str] = set()
+    cohort_admission_hashes: set[str] = set()
     for protocol_id in ("grouped_outer", "spatial_block"):
         protocol = indexed[protocol_id]
         expected_kind = _PROTOCOL_SPLIT_KINDS[protocol_id]
         split_payload = _split_payload(protocol, expected_kind=expected_kind)
+        validate_cohort_admission(protocol.cohort_admission, scope=protocol.scope)
         cells = _policy_cells(protocol.policy, protocol.scope)
         record_payloads.append(split_payload["records"])
         scope_hashes.add(protocol.scope.scope_sha256)
+        cohort_admission_hashes.add(protocol.cohort_admission.admission_sha256)
         admitted.append(
             {
                 "protocol_id": protocol_id,
                 "split_kind": expected_kind,
                 "scope_sha256": protocol.scope.scope_sha256,
+                "cohort_admission_sha256": (protocol.cohort_admission.admission_sha256),
                 "scope_split_sha256": protocol.scope.split_sha256,
                 "split_manifest_sha256": protocol.split_manifest_sha256,
                 "policy_sha256": protocol.policy.policy_sha256,
                 "cells": cells,
             }
         )
-    if len(scope_hashes) != 1 or canonical_json(record_payloads[0]) != canonical_json(
-        record_payloads[1]
+    if (
+        len(scope_hashes) != 1
+        or len(cohort_admission_hashes) != 1
+        or canonical_json(record_payloads[0]) != canonical_json(record_payloads[1])
     ):
         refuse(
-            "Both release protocols must use the same frozen site and alias universe"
+            "Both release protocols must use the same cohort admission, frozen site "
+            "and alias universe"
         )
     payload = {
         "profile": FINAL_EVALUATION_RELEASE_PROFILE,
@@ -351,6 +368,7 @@ def admit_final_evaluation_release(
         "empirical_evaluation_performed": False,
         "scientific_acceptance": "not_evaluated",
         "scope_sha256": next(iter(scope_hashes)),
+        "cohort_admission_sha256": next(iter(cohort_admission_hashes)),
         "required_matrix": _required_matrix(),
         "protocols": admitted,
     }

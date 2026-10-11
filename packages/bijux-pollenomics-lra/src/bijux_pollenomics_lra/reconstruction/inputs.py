@@ -10,11 +10,14 @@ import pandas as pd
 
 from bijux_pollenomics_lra.models.errors import ValidationError
 from bijux_pollenomics_lra.models.validation import (
+    DEFAULT_FALL_SPEED_PROFILE,
+    fall_speed_bounds,
     frame,
     integer,
     normalise_parameters,
     parameter_value,
     sample_counts,
+    validate_fall_speeds,
     vector,
 )
 from bijux_pollenomics_lra.reconstruction.regional import REVEALSinR
@@ -23,7 +26,16 @@ from bijux_pollenomics_lra.reconstruction.regional import REVEALSinR
 def _fallspeeds(
     params: Mapping[str, object],
     taxa: list[str] | None = None,
+    *,
+    fall_speed_profile: str = DEFAULT_FALL_SPEED_PROFILE,
+    distance_weighting: str = "lsm unstable",
 ) -> tuple[np.ndarray, list[str]]:
+    """Return positive fall speeds aligned with the requested pollen taxa.
+
+    Values may come from a separate fall-speed input or the PPE table. A table
+    must identify each taxon exactly once; an unnamed vector retains the given
+    taxon order or receives positional names when no taxa were supplied.
+    """
     value = params.get("fallspeed")
     if value is None and "ppes" in params and isinstance(params["ppes"], pd.DataFrame):
         ppe_table = params["ppes"]
@@ -49,10 +61,12 @@ def _fallspeeds(
             if missing:
                 raise ValidationError(f"Fall-speed table is missing taxa: {missing}")
             table = table.loc[taxa]
-        values = vector(table["fallspeed"], "fallspeed", positive=True)
+        values = validate_fall_speeds(
+            table["fallspeed"], fall_speed_profile, distance_weighting
+        )
         names = list(table.index)
     else:
-        values = vector(value, "fallspeed", positive=True)
+        values = validate_fall_speeds(value, fall_speed_profile, distance_weighting)
         names = (
             list(taxa)
             if taxa is not None
@@ -63,16 +77,18 @@ def _fallspeeds(
 
 def _prepare_inputs(
     pollenLoc: pd.DataFrame,
-    pollenReg: pd.DataFrame,
+    pollenReg: pd.DataFrame | None,
     lParams: Mapping[str, object],
     dfRadii: pd.DataFrame,
     maxRingLove: int,
     repeats: int,
     *,
     require_remaining_regional_ring: bool = False,
+    allow_publication_profile: bool = False,
+    allow_draw_only: bool = False,
 ) -> tuple[
     pd.DataFrame,
-    pd.DataFrame,
+    pd.DataFrame | None,
     pd.DataFrame,
     np.ndarray,
     pd.DataFrame,
@@ -80,20 +96,58 @@ def _prepare_inputs(
     int,
     int,
 ]:
+    """Validate LOVE pollen, PPE, fall speeds, ring geometry and repeat counts.
+
+    Local and regional counts must share the exact taxon names and order.
+    Rings are ordered, nonoverlapping radial intervals in the supplied table;
+    optimized LOVE can require a remaining regional ring. Return the validated
+    inputs and aligned taxon axis without inferring chronology or vegetation.
+    """
     local = frame(pollenLoc, "pollenLoc")
-    regional = frame(pollenReg, "pollenReg")
+    if pollenReg is None and not allow_draw_only:
+        raise ValidationError("Regional pollen is required without a draw-only source")
+    regional = None if pollenReg is None else frame(pollenReg, "pollenReg")
     _, taxa, _ = sample_counts(local, "pollenLoc")
-    _, regional_taxa, _ = sample_counts(regional, "pollenReg")
-    if regional_taxa != taxa:
-        raise ValidationError(
-            "Local and regional pollen taxa must agree exactly in name and order"
-        )
+    if regional is not None:
+        _, regional_taxa, _ = sample_counts(regional, "pollenReg")
+        if regional_taxa != taxa:
+            raise ValidationError(
+                "Local and regional pollen taxa must agree exactly in name and order"
+            )
     if "ppes" not in lParams:
         raise ValidationError("LOVE parameters require a ppes table")
-    ppe_table = normalise_parameters(frame(lParams["ppes"], "ppes"), taxa)
-    fall_speeds, _ = _fallspeeds(lParams, taxa)
+    fall_speed_profile = str(
+        parameter_value(lParams, "fall_speed_profile", DEFAULT_FALL_SPEED_PROFILE)
+    )
+    distance_weighting = str(parameter_value(lParams, "dwm", "lsm unstable")).lower()
+    fall_speed_bounds(fall_speed_profile, distance_weighting)
+    if (
+        fall_speed_profile != DEFAULT_FALL_SPEED_PROFILE
+        and not allow_publication_profile
+    ):
+        raise ValidationError(
+            "The LandClim II fall-speed profile requires analytical LOVE"
+        )
+    ppe_table = normalise_parameters(
+        frame(lParams["ppes"], "ppes"),
+        taxa,
+        fall_speed_profile=fall_speed_profile,
+        distance_weighting=distance_weighting,
+    )
+    fall_speeds, _ = _fallspeeds(
+        lParams,
+        taxa,
+        fall_speed_profile=fall_speed_profile,
+        distance_weighting=distance_weighting,
+    )
     if fall_speeds.shape != (len(taxa),):
         raise ValidationError("Fall-speed and pollen dimensions disagree")
+    if fall_speed_profile != DEFAULT_FALL_SPEED_PROFILE and not np.array_equal(
+        fall_speeds, ppe_table["fallspeed"].to_numpy(dtype=float)
+    ):
+        raise ValidationError(
+            "LandClim II fall speeds must agree between PPE and fall-speed tables"
+        )
 
     radii = frame(dfRadii, "dfRadii")
     required = {"inner", "outer", "mean"}
@@ -139,7 +193,7 @@ def _prepare_inputs(
 
 
 def _regional_cover(
-    regional: pd.DataFrame,
+    regional: pd.DataFrame | None,
     ppe_table: pd.DataFrame,
     params: Mapping[str, object],
     rng: np.random.Generator,
@@ -147,6 +201,11 @@ def _regional_cover(
     draws: object | None,
     repeat_index: int,
 ) -> np.ndarray:
+    """Select an explicit regional cover draw or estimate it with REVEALS.
+
+    Explicit draws are taxon-aligned nonnegative fractions with positive total.
+    The REVEALS path converts its percent means to fractions for the LOVE step.
+    """
     if draws is not None:
         values = np.asarray(draws, dtype=float)
         if values.ndim == 1:
@@ -162,6 +221,10 @@ def _regional_cover(
             raise ValidationError("regional_cover_draws must contain fractions")
         return cover
 
+    if regional is None:
+        raise ValidationError(
+            "Regional pollen is required without supplied cover draws"
+        )
     result = REVEALSinR(
         regional,
         ppe_table,
@@ -186,6 +249,12 @@ def _summary_frames(
     include_sd: bool = False,
     mean_na_rm: bool = True,
 ) -> dict[str, pd.DataFrame]:
+    """Summarize replicate arrays by ring radius and taxon.
+
+    Return mean, linear-interpolated 10th and 90th quantiles, and optional
+    sample standard deviation. Missing values are omitted from the mean only
+    when ``mean_na_rm`` is true; quantiles and SD omit them in either case.
+    """
     with warnings.catch_warnings():
         warnings.simplefilter("ignore", RuntimeWarning)
         mean = np.nanmean(values, axis=0) if mean_na_rm else np.mean(values, axis=0)

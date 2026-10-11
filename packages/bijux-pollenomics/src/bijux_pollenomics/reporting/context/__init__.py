@@ -12,6 +12,10 @@ from .polygons import (
     build_density_polygon_layer,
     build_external_polygon_layer,
 )
+from .raa import (
+    RAA_ATLAS_INPUT_STATUS_FILENAME,
+    build_raa_atlas_input_status,
+)
 from .time import (
     extract_layer_identity,
     feature_has_time,
@@ -21,6 +25,7 @@ from .time import (
 )
 
 __all__ = [
+    "RAA_ATLAS_INPUT_STATUS_FILENAME",
     "build_aadr_point_layer",
     "build_context_layers",
     "build_country_boundary_layer",
@@ -28,6 +33,7 @@ __all__ = [
     "build_external_point_layer",
     "build_external_polygon_layer",
     "build_fieldwork_point_layer",
+    "build_raa_atlas_input_status",
     "extract_layer_identity",
     "feature_has_time",
     "feature_time_payload",

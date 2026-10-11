@@ -1,5 +1,5 @@
 {
-  "schema_version": "sweden-lake-evidence-richness.v2",
+  "schema_version": "sweden-lake-evidence-richness.v3",
   "country": "Sweden",
   "radii_km": [
     10,

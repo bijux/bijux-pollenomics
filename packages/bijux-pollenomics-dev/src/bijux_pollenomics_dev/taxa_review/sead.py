@@ -14,7 +14,7 @@ from .rows import Occurrences, review_row
 
 
 def sead_rows(reader: EvidenceReader) -> tuple[list[dict[str, Any]], dict[str, Any]]:
-    """Build SEAD review rows from validated scientific and source-native authorities."""
+    """Preserve governed SEAD review candidates and count taxonless observations."""
     path = "data/sead/review/scientific_classification_review.json"
     packet = reader.json(path)
     if packet is None:

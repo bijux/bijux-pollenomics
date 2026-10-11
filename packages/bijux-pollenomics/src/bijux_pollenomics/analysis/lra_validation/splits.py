@@ -30,14 +30,26 @@ def _groups(records: Iterable[SiteRecord]) -> tuple[tuple[SiteRecord, ...], ...]
             index = parents[index]
         return index
 
-    owners: dict[tuple[str, str], int] = {}
+    site_owners: dict[str, int] = {}
+    identity_values_by_text: dict[str, set[int]] = {}
+    key_owners: dict[str, set[int]] = {}
     for index, row in enumerate(rows):
-        keys = [("site", row.site_id), *(("alias", key) for key in row.identity_keys)]
-        for key in keys:
-            if key in owners:
-                parents[root(index)] = root(owners[key])
-            else:
-                owners[key] = index
+        owner = site_owners.setdefault(row.site_id, index)
+        parents[root(index)] = root(owner)
+        identity_values_by_text.setdefault(row.record_id, set()).add(index)
+        identity_values_by_text.setdefault(row.site_id, set()).add(index)
+        for key in row.identity_keys:
+            key_owners.setdefault(key, set()).add(index)
+    for key, declarers in sorted(key_owners.items()):
+        targets = identity_values_by_text.get(key, set())
+        if len({root(index) for index in targets}) > 1:
+            raise ValidationRefusal(
+                "ambiguous_identity_key",
+                f"Identity key names unrelated record and site groups: {key}",
+            )
+        members = sorted(declarers | targets)
+        for index in members[1:]:
+            parents[root(index)] = root(members[0])
     grouped: dict[int, list[SiteRecord]] = {}
     for index, row in enumerate(rows):
         grouped.setdefault(root(index), []).append(row)

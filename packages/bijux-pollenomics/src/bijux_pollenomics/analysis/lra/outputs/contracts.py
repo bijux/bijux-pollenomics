@@ -11,6 +11,11 @@ from typing import Any
 
 def request_metadata(payload: dict[str, Any]) -> dict[str, Any]:
     """Project descriptive product fields from their single request authority."""
+    regional_units = (
+        {"regional_cover_draws": "fraction"}
+        if payload["schema_version"] == "lra-regional-draw-love-request.v1"
+        else {"regional_cover": "percent"}
+    )
     return {
         **{
             key: payload[key]
@@ -34,7 +39,7 @@ def request_metadata(payload: dict[str, Any]) -> dict[str, Any]:
         ),
         "excluded_record_count": len(payload["exclusions"]),
         "units": {
-            "regional_cover": "percent",
+            **regional_units,
             "local_cover": "fraction",
             "distance": "metre",
             "age_support": "typed BP intervals; present=1950 CE",
@@ -141,12 +146,17 @@ def validate_numerical_tables(directory: Path, payload: dict[str, Any]) -> None:
     """
     numerical = directory / "numerical"
     operation = payload["operation"]
-    coordinates = [sample["coordinate"] for sample in payload["regional"]["samples"]]
     if operation == "reveals":
+        coordinates = [
+            sample["coordinate"] for sample in payload["regional"]["samples"]
+        ]
         stages = [(numerical, "reveals", coordinates)]
     elif operation == "love":
-        stages = [(numerical, "love", coordinates)]
+        stages = [(numerical, "love", [])]
     elif operation == "lra":
+        coordinates = [
+            sample["coordinate"] for sample in payload["regional"]["samples"]
+        ]
         stages = [
             (numerical / "regional_reveals", "reveals", coordinates),
             (numerical / "local_love", "love", coordinates),

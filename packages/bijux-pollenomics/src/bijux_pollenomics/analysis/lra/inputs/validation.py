@@ -190,6 +190,24 @@ def _temporal_and_denominators(payload: dict[str, Any], roles: dict[str, str]) -
         )
 
 
+def _method_profile(payload: dict[str, Any]) -> None:
+    """Bind the public method label to the exact configured LOVE equations."""
+    love = payload["configuration"].get("love", {})
+    revised = payload["method_profile"] == "ring-taxon-preserving"
+    selected = love.get("optimized_profile") == "ring-taxon-preserving"
+    if revised != selected or (
+        revised
+        and (
+            payload["operation"] not in {"love", "lra", "series"}
+            or love.get("method") != "optimized"
+        )
+    ):
+        _refuse(
+            "method_profile_configuration_mismatch",
+            "The request method profile must match optimized LOVE configuration",
+        )
+
+
 def validate_request(
     payload: Mapping[str, object], *, input_root: Path
 ) -> ValidatedRequest:
@@ -218,6 +236,7 @@ def validate_request(
         _refuse(
             "invalid_lra_schema", f"{'/'.join(map(str, error.path))}: {error.message}"
         )
+    _method_profile(copy)
     _finite_json(copy)
     omissions = {
         "chronology",

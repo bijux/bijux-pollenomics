@@ -132,3 +132,33 @@ def test_code_mutation_during_serialization_refuses_publication(tmp_path: Path) 
         )
     assert error.value.reason_code == "lra_code_changed_during_run"
     assert not destination.exists()
+
+
+def test_selected_input_verifier_runs_after_numerical_serialization(
+    tmp_path: Path,
+) -> None:
+    engine = binding(tmp_path)
+    request = validate_request(request_fixture(tmp_path), input_root=tmp_path)
+    destination = tmp_path / "product"
+    source_changed = False
+
+    def mutate() -> None:
+        nonlocal source_changed
+        source_changed = True
+
+    def verify() -> None:
+        if source_changed:
+            raise LRARefusal("source_changed_during_run", "synthetic source change")
+
+    with pytest.raises(LRARefusal) as error:
+        publish_result(
+            Result(mutate),
+            engine,
+            request,
+            destination=destination,
+            input_root=tmp_path,
+            code_identity=capture_code_identity(engine),
+            verify_inputs=verify,
+        )
+    assert error.value.reason_code == "source_changed_during_run"
+    assert not destination.exists()

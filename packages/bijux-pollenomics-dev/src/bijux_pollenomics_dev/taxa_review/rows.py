@@ -18,7 +18,7 @@ def review_row(
     domain: str,
     evidence: dict[str, Any],
 ) -> dict[str, Any]:
-    """Construct a review row that preserves native identity and evidence."""
+    """Construct an unresolved review row with native identity, evidence and explicit nulls."""
     return {
         "review_row_id": row_id,
         "source_family": source,
@@ -81,7 +81,7 @@ class Occurrences:
         unit: str | None,
         value: object,
     ) -> None:
-        """Account for one native observation while refusing duplicate identities."""
+        """Count a native observation and its value state while refusing duplicate identities."""
         if observation_id in self.ids:
             raise ValueError(f"Duplicate observation identity: {observation_id}")
         self.ids.add(observation_id)

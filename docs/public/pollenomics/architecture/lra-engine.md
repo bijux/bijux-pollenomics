@@ -350,7 +350,8 @@ This adapter supplies only the outcome-free spatial-block
 interval for local vegetation exists, so the cell remains ineligible for final
 coverage acceptance. The adapter does not bind a release receipt, open vegetation
 truth, establish first-access timing, approve a threshold or grant scientific
-review. Grouped-outer and remaining release/product joins remain separate work.
+review. The grouped-local vegetation adapter and the factory-only six-cell
+release product remain separate boundaries.
 
 `adapt_authenticated_spatial_block_withheld_vegetation_rows` performs the paired
 point-row projection for the spatial-block all-target-withheld vegetation cell.
@@ -382,6 +383,111 @@ forward dimensions and exploratory status, and returns independently owned data.
 Reading and scoring retained products work without installing the numerical
 engine. These consistency checks establish neither external authorship nor
 scientific acceptance; numerical reproduction is separate evidence.
+
+`adapt_authenticated_grouped_withheld_vegetation_rows` joins the paired
+grouped-outer product to the exact frozen evaluation scope. It authenticates the
+two-method terminal denominator, singleton target ownership, support, taxa and
+the complete training/external dependency closure. Successful fitted and
+training-mean rows receive distinct source identities; refused and interrupted
+parents remain value-free. This is an outcome-free point ledger and supplies no
+vegetation uncertainty or accuracy claim.
+
+`adapt_authenticated_grouped_withheld_pollen_rows` builds the corresponding
+pollen point ledger and authenticates the complete conditional-observation
+denominator once. Every successful parent must have its generated interval;
+authenticated parent failures remain value-free and cannot shrink the ledger.
+The intervals propagate only the declared pollen counting process and do not
+establish empirical coverage, preregistration timing or scientific acceptance.
+
+`read_local_pollen_predictions`, exported from both experiment facades,
+authenticates grouped-local request bytes, raw batch operations, numerical
+products and exact fold terminals. Operational failures and unobserved items are
+published as scientific refusals unless a genuine interruption starts the
+deterministic `not_run` suffix. Raw status and error evidence remain bound to each
+attempted failure; a post-completion projection refusal is recorded separately
+from the completed numerical batch item.
+
+`adapt_authenticated_grouped_local_vegetation_rows` joins that strict local
+product with the independently retained grouped training-mean comparator. It
+requires singleton target ownership, the exact fold/bin/taxon/geometry/support
+universe, target-specific observed-pollen bytes and the complete causal input
+closure. The comparator must declare the exact pollen-free training and external
+lineage admitted by the frozen scope. Either parent may retain an independent
+refused or interrupted terminal without inventing a prediction or source. The
+successful pair uses distinct authenticated local-assimilation and training-mean
+source identities and the generic v2 prediction envelope.
+
+This completes the six outcome-free protocol/cell adapter paths, not a release
+evaluation product. Callers still cannot treat an assembled row tuple as release
+evidence; a governed factory must bind the six adapter outputs and their reopened
+product identities before any separately authenticated observation join. The
+grouped-local cell has no vegetation predictive-observation interval, outcome,
+threshold, historical first-access proof or scientific approval.
+
+`build_six_cell_prediction_product` is that engineering factory boundary. It
+accepts only the two typed release protocols, their factory-minted release
+admission and fixed-schema path/digest locators. It dispatches the six adapters
+itself; callers cannot supply rows, manifest mappings, observations or adapter
+callbacks. Only after every governed reader has reopened and authenticated the
+retained local, withheld and conditional-uncertainty products does the factory
+record those product identities. It then requires the exact protocol, cell,
+fold, record, method and terminal denominator and reopens every successful v2
+prediction envelope.
+
+The resulting private-constructor `SixCellPredictionProduct` stores a canonical
+receipt and immutable outcome-free rows. Reopening the typed product regenerates
+release admission and repeats the row, source, taxa, interval and claim-boundary
+checks. This does not score outcomes: independent observation attachment remains
+a separate governed producer, and caller-built row tuples remain outside this
+release-product boundary. The receipt explicitly records that empirical
+evaluation and scientific acceptance were not performed.
+
+`build_observation_access_plan` derives the next, still value-free boundary from
+that complete prediction product. It removes the model dimension so each
+protocol/cell/fold/record outcome will later be shared identically by the model
+and its baseline, binds separate typed locators for independent measured
+vegetation and held-out pollen counts, and records only mismatch guards and
+reader/reference identities. Building the plan never opens, stats or hashes an
+outcome path.
+
+`start_outcome_access` reopens the plan, revalidates both policies at its
+internally captured UTC instant and requires every successful prediction to have
+frozen strictly earlier. It then exclusively publishes and fsyncs a canonical
+start receipt before returning. That receipt contains no outcome reads or
+values, refuses overwrite, and explicitly says it authenticates this process
+ordering—not historical human non-access. HYDE, ESSD and reconstruction output
+remain ineligible as independent measured vegetation; actual source products,
+observation joins, scoring and qualified review are separate downstream gates.
+
+`read_observation_source_products` implements the next engineering gate. It
+accepts only that durable start receipt, reads the fixed measured-vegetation and
+held-out-pollen locators in order, verifies their exact bytes and governed reader
+identity, and publishes either a canonical completion receipt or a canonical
+failure receipt. Its two typed products retain complete available, missing and
+refused denominators; source snapshot/member, rights, reviewed-mapping and
+normalization identities; exact ownership and support; vegetation fractions or
+nulls; and nonnegative integer pollen counts, effort and all-zero status. Reopen
+replays those fields from embedded canonical source bytes without reopening an
+outcome path. These declarations are byte-bound, not independent authentication
+of a provider, rights holder or scientific reviewer.
+
+`build_authenticated_observation_product` accepts only a successful typed source
+completion. It rederives the model-free access assignments and retains the exact
+source-unit envelopes. `build_observed_six_cell_product` then expands each
+assignment over the already frozen model/baseline pair. Prediction failures stay
+prediction failures; missing or refused observations remain a separate source
+terminal and do not rewrite prediction bytes. Available observations attach the
+same values, support and provenance identity to both comparison methods.
+
+`evaluate_observed_six_cell_product` is the release-oriented scoring entry point.
+It rejects a raw tuple, mapping or lazy iterable before row access, reopens the
+joined product, and evaluates grouped-outer and spatial-block protocols under
+their own policy and scope. The result binds every prediction, access, source,
+observation and protocol parent while retaining missing and refused source
+statuses separately. `evaluate_final` remains the generic compatibility scorer;
+its result alone is not release-product evidence. Neither entry point verifies
+reviewer authenticity, grants scientific approval or supplies missing reviewed
+thresholds and real admitted observations.
 
 `bijux_pollenomics_lra.sample_pollen_observations` supplies a separate conditional
 observation model. It accepts predicted pollen fractions, declared counting
@@ -555,16 +661,17 @@ site and alias universe, and a spatial fold cannot place one block in both train
 and test. The returned receipt records that no empirical evaluation was performed
 and that scientific acceptance was not evaluated.
 
-For a fitted all-target-withheld pollen prediction,
-`freeze_authenticated_pollen_interval` can attach a governed conditional
-observation interval before outcomes are available. It reopens caller-pinned
-prediction and uncertainty products, checks every planned uncertainty unit and
-effort declaration, and requires observation-process-only propagation with the
-exact taxa, nominal level, model and training-input identities. The frozen
-prediction binds both the uncertainty-product manifest and the governed draw.
-This verifies product lineage and conditional interval semantics; it does not
-authenticate historical preregistration timing, establish empirical coverage or
-grant scientific acceptance.
+For one fitted or training-mean all-target-withheld pollen prediction,
+`freeze_authenticated_pollen_interval` attaches a governed conditional
+observation interval before outcomes are available. The batch
+`freeze_authenticated_pollen_rows` boundary instead requires the complete
+grouped method/fold ledger. Both reopen caller-pinned prediction and uncertainty
+products, check planned uncertainty units and effort declarations, and require
+observation-process-only propagation with exact taxa, model and training-input
+identities. The frozen prediction binds the uncertainty-product manifest and
+governed draw. This verifies lineage and conditional interval semantics; it does
+not authenticate historical preregistration timing, establish empirical coverage
+or grant scientific acceptance.
 
 The immutable evidence binds its projections to retained product identities.
 Caller-pinned product bytes establish retained consistency; they do not

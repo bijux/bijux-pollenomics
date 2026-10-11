@@ -7,11 +7,13 @@ import pytest
 from bijux_pollenomics_dev.ci.atlas_browser.contracts import (
     GENERIC_TIME_AWARE_PROFILE,
     NORDIC_SOURCE_CHRONOLOGY_PROFILE,
+    RAA_RETAINED_CONTEXT_PROFILE,
     AtlasBrowserContractError,
 )
 from bijux_pollenomics_dev.ci.atlas_browser.verdict import (
     GENERIC_TIME_AWARE_REQUIRED_ASSERTIONS,
     PROFILE_REQUIRED_ASSERTIONS,
+    RAA_RETAINED_CONTEXT_REQUIRED_ASSERTIONS,
     evaluate_browser_report,
 )
 
@@ -160,3 +162,13 @@ def test_generic_profile_has_an_exact_independent_verdict() -> None:
             candidate=candidate(),
             verification_profile=NORDIC_SOURCE_CHRONOLOGY_PROFILE,
         )
+
+
+def test_raa_profile_has_an_exact_independent_verdict() -> None:
+    assert (
+        PROFILE_REQUIRED_ASSERTIONS[RAA_RETAINED_CONTEXT_PROFILE]
+        == RAA_RETAINED_CONTEXT_REQUIRED_ASSERTIONS
+    )
+    assert "raa_default_enabled" in RAA_RETAINED_CONTEXT_REQUIRED_ASSERTIONS
+    assert "raa_time_filter_non_effect" in RAA_RETAINED_CONTEXT_REQUIRED_ASSERTIONS
+    assert "raa_analysis_refused" in RAA_RETAINED_CONTEXT_REQUIRED_ASSERTIONS

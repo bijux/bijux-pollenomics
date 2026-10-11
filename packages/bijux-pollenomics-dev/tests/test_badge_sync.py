@@ -8,6 +8,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 
 from bijux_pollenomics_dev.docs.badge_sync import (
     BadgeTarget,
+    iter_badge_targets,
     load_badge_catalog,
     render_badge_block,
     synchronize_badges,
@@ -104,6 +105,10 @@ def test_managed_surfaces_only_use_generated_badges() -> None:
         Path("packages/pollenomics/README.md"),
         Path("packages/bijux-pollenomics-dev/README.md"),
     ]
+    repo_root = Path(__file__).resolve().parents[3]
+    assert {
+        target.path.relative_to(repo_root) for target in iter_badge_targets()
+    } == set(targets)
     for path in targets:
         text = path.read_text(encoding="utf-8")
         stripped = GENERATED_BLOCK_RE.sub("", text)

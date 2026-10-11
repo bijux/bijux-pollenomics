@@ -32,6 +32,39 @@ def _numeric_mapping(
     }
 
 
+def _required_numeric_mapping(
+    row: Mapping[str, object],
+    *,
+    variables: tuple[str, ...],
+    dataset_id: str,
+    record_id: str,
+    value_kind: str,
+    require_nonnegative: bool,
+) -> dict[str, float]:
+    """Read a published numeric row without turning missing tokens into zero."""
+    from . import clean_optional_text, math, parse_float
+
+    values: dict[str, float] = {}
+    invalid: list[str] = []
+    for variable in variables:
+        token = clean_optional_text(row.get(variable))
+        value = parse_float(token)
+        if (
+            value is None
+            or not math.isfinite(value)
+            or (require_nonnegative and value < 0)
+        ):
+            invalid.append(variable)
+        else:
+            values[variable] = value
+    if invalid:
+        raise ValueError(
+            f"LandClim {value_kind} tokens are missing or invalid for dataset "
+            f"{dataset_id} record {record_id}: {invalid}"
+        )
+    return values
+
+
 def _require_uncertainty_pair(
     estimates: Mapping[str, float],
     standard_errors: Mapping[str, float],

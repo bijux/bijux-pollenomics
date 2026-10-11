@@ -352,7 +352,7 @@ def _verify_product(root: Path, expected: str) -> None:
 
 
 def audit_artifact_candidate(plan: BrowserVerificationPlan) -> JsonObject:
-    """Validate the artifact candidate against source and product input evidence."""
+    """Validate local LRA presentation against source receipts and product bytes."""
     candidate = plan.candidate
     if not isinstance(candidate, AtlasArtifactCandidate):
         raise AtlasBrowserContractError("artifact audit requires an artifact candidate")

@@ -9,6 +9,11 @@ from bijux_pollenomics_lra.provenance.identity import sha256_file
 
 
 def _write_checksum_manifest(directory: Path) -> Path:
+    """Write relative file sizes and SHA-256 digests for an output directory.
+
+    Exclude the checksum manifest itself so the manifest is stable across
+    repeated writes to an otherwise unchanged directory.
+    """
     files = sorted(
         path
         for path in directory.rglob("*")

@@ -5,7 +5,6 @@ from __future__ import annotations
 from collections import defaultdict
 from dataclasses import asdict
 from datetime import datetime
-import json
 from statistics import mean
 from typing import Any, cast
 
@@ -40,7 +39,7 @@ from .contracts import (
     refuse,
     validate_frozen_prediction,
 )
-from .policy import validate_evaluation_policy
+from .scoring_ledger.pairs import assert_final_inputs, assert_pair_observations
 
 
 def _key(row: EvaluationRow) -> tuple[str, str, str, str, str]:
@@ -79,8 +78,6 @@ def _composition(values: object) -> dict[str, Any]:
 
 
 def _support_matches(target: Support | None, observed: Support | None) -> bool:
-    # A shared footprint hash cannot override contradictory declared geometry,
-    # uncertainty, coordinate/age type or temporal support metadata.
     return target is not None and observed is not None and target == observed
 
 
@@ -311,18 +308,26 @@ def evaluate_final(
     policy: EvaluationPolicy, *, scope: EvaluationScope, rows: tuple[EvaluationRow, ...]
 ) -> EvaluationResult:
     """Evaluate supplied held-out evidence; no engineering receipt authenticates review."""
-    # Public dataclasses can be manually instantiated: revalidate their declaration.
-    checked = validate_evaluation_policy(
-        json.loads(policy.canonical_policy_json),
-        scope=scope,
-        first_test_access_at=policy.first_test_access_at,
+    assert_final_inputs(policy, scope, rows)
+    return _evaluate_final_ledger(policy, scope=scope, rows=rows)
+
+
+def _evaluate_authenticated_final(
+    policy: EvaluationPolicy, *, scope: EvaluationScope, rows: tuple[EvaluationRow, ...]
+) -> EvaluationResult:
+    assert_final_inputs(policy, scope, rows)
+    return _evaluate_final_ledger(
+        policy, scope=scope, rows=rows, authenticated_failures=True
     )
-    if checked != policy:
-        refuse("Policy object differs from its canonical immutable declaration")
-    if not isinstance(rows, tuple) or any(
-        not isinstance(row, EvaluationRow) for row in rows
-    ):
-        refuse("Evaluation requires a complete typed immutable row ledger")
+
+
+def _evaluate_final_ledger(
+    policy: EvaluationPolicy,
+    *,
+    scope: EvaluationScope,
+    rows: tuple[EvaluationRow, ...],
+    authenticated_failures: bool = False,
+) -> EvaluationResult:
     sites = {site.record_id: site for site in scope.sites}
     folds = {fold.fold_id: fold for fold in scope.folds}
     expected: set[tuple[str, str, str, str, str]] = set()
@@ -366,20 +371,11 @@ def evaluate_final(
                 ledger[(*key, cell.model_id)],
                 ledger[(*key, cell.baseline_id)],
             )
-            if (
-                model.observation,
-                model.observation_reference_id,
-                model.observation_kind,
-                model.observation_support,
-            ) != (
-                baseline.observation,
-                baseline.observation_reference_id,
-                baseline.observation_kind,
-                baseline.observation_support,
-            ):
-                refuse(
-                    "Paired baseline and model must use identical observation values/support"
-                )
+            assert_pair_observations(
+                model,
+                baseline,
+                authenticated_failures=authenticated_failures,
+            )
             score, status = scored[(*key, cell.model_id)]
             base_score, base_status = scored[(*key, cell.baseline_id)]
             site = sites[record_id]

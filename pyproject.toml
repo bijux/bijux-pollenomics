@@ -50,6 +50,10 @@ badge_packages = [
     "bijux-pollenomics",
     "pollenomics",
 ]
+badge_target_packages = [
+    "bijux-pollenomics",
+    "pollenomics",
+]
 docs_package = "bijux-pollenomics-dev"
 package_owned_legal_assets = ["bijux-pollenomics-lra"]
 config_dir = "configs"

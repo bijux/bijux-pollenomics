@@ -28,6 +28,55 @@ def test_source_hashes_and_canonical_request_remain_bound(tmp_path: Path) -> Non
 
 
 @pytest.mark.parametrize(
+    "profile,configured,method,operation,accepted",
+    [
+        ("disqover-0.9.14-source-compatible", None, "optimized", "love", True),
+        (
+            "disqover-0.9.14-source-compatible",
+            "ring-taxon-preserving",
+            "optimized",
+            "love",
+            False,
+        ),
+        ("ring-taxon-preserving", "ring-taxon-preserving", "optimized", "love", True),
+        ("ring-taxon-preserving", None, "optimized", "love", False),
+        ("ring-taxon-preserving", "ring-taxon-preserving", "analytical", "love", False),
+        (
+            "ring-taxon-preserving",
+            "ring-taxon-preserving",
+            "optimized",
+            "reveals",
+            False,
+        ),
+    ],
+)
+def test_method_label_matches_selected_love_equations(
+    tmp_path: Path,
+    profile: str,
+    configured: str | None,
+    method: str,
+    operation: str,
+    accepted: bool,
+) -> None:
+    payload = request_fixture(tmp_path, operation)
+    payload["method_profile"] = profile
+    if operation == "reveals":
+        payload["configuration"]["love"] = {}
+    payload["configuration"]["love"]["method"] = method
+    if configured is not None:
+        payload["configuration"]["love"]["optimized_profile"] = configured
+    if accepted:
+        assert (
+            validate_request(payload, input_root=tmp_path).payload()["method_profile"]
+            == profile
+        )
+    else:
+        with pytest.raises(LRARefusal) as error:
+            validate_request(payload, input_root=tmp_path)
+        assert error.value.reason_code == "method_profile_configuration_mismatch"
+
+
+@pytest.mark.parametrize(
     "kind",
     [
         "missing",

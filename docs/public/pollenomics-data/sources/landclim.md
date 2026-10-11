@@ -4,7 +4,7 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-08-01
+last_reviewed: 2026-09-21
 ---
 
 # LandClim
@@ -167,6 +167,78 @@ estimate, standard error, quality evidence, dataset DOI, and method references.
 Its midpoint is useful for navigation, but the polygon remains modeled areal
 context—not a pollen observation at the center and not a continuous value
 between published windows.
+
+The retained LandClim II archive has 25 mean and 25 standard-error members,
+with 10,500 rows in each result family. Ingestion validates all 10,500 row
+pairs before spatial filtering. Exactly 150 pairs—six published grid IDs in
+all 25 windows—carry the provider's paired `#N/A` longitude and latitude and
+are accounted as nonspatial exclusions; their values are not converted to
+zero. Three finite mean tokens in two otherwise spatial rows are slightly
+negative (`-0.0117533696932253` twice and `-0.000677087305195939` percentage
+points). They remain exact source values, while standard errors must remain
+finite and nonnegative. The atlas treats estimates outside the display domain
+as unavailable instead of clipping them. These rules establish source fidelity
+and exclusion accounting, not ecological accuracy or raw-input reproduction.
+
+### Reproduction Evidence And Its Boundary
+
+A separate, locally supplied LandClim II author-example bundle (SHA-256
+`464a05e3a62c0454dfbadb9fdbe786ccddc42c88e051abc0ddd56938621e219c`)
+was replayed through the original R preprocessing steps 1–4. All **17 paired
+example sites** (nine in grid 512 and eight in grid 562) reproduced their
+archived prepared files byte for byte. An independent count check reconciled
+**501,713 raw pollen counts = 202,053 excluded or outside the declared windows
++ 299,660 prepared counts**. The exclusions remain explicit; they are not zero
+cover or missing observations. For those two example grids, the R and Python
+site and regional cover and standard-error results also agree on the declared
+input closure, including missing-value masks.
+
+A separate method-interface run joined the first time bin (`50`) of author
+grid `512` to analytical LOVE on the committed Python engine
+`c150668d0d878b5d6a5f5f06224c628a43436856`. Five source sites contributed
+to the 31-taxon regional estimate. The same 1,000 archived site-bootstrap
+index rows produced 1,000 regional cover draws, which were supplied to one
+constructed positive-geometry **200–300 m** local LOVE ring. All
+**31,000/31,000** resulting local draw cells were finite, and a deliberately
+truncated 999-draw input was refused. **8,312/31,000** local cells were negative
+(minimum `-0.46953`): the analytical equation leaves mathematical outputs
+unclipped, so finite output here must not be read as valid physical cover.
+The named `landclimii-2016-gpm-neutral-analytical-v1` profile preserved the
+author's Filipendula fall speed of **0.006 m/s**; the default profile still
+refuses that value. The regional draw and local bundle identities are saved in
+the run manifest and checksums under
+`artifacts/v3/lra/multisite-love-join002/result/` (report SHA-256
+`2bd598d15717ed2302d7a561376d866a0e791eba8c584f407d0ce0bba5c8ad6e`).
+An earlier source-R comparison of the same grid/bin's regional draw method
+matched 31,000 cells within `1.8874e-13` absolute difference on a separately
+frozen candidate. The local site, `BROADOWN`, is also in the regional cohort;
+the constructed local ring is a method control. These outputs are neither an
+independent held-out reconstruction nor a measured-vegetation accuracy result.
+
+This establishes reproduction of the supplied examples. The full published
+study identifies 1,128 historical site records whose raw counts, selected
+chronologies, revisions, and reuse rights are not yet authenticated as one
+input closure here. Its complete raw-input run, article figure and table
+comparison, and accuracy against independently measured vegetation remain
+unverified. The published REVEALS estimates are model outputs, not measured
+vegetation reference labels.
+
+A bounded recovery check illustrates this gap. The publication metadata lists
+Amsoldingersee as an ALPADABA record with filename code `E#69`, 23 pollen
+samples and an author chronology. The [current Neotoma site](https://api.neotomadb.org/v2.0/data/sites?sitename=Amsoldingersee)
+has three pollen cores. One has 23 sample IDs but no chronology record; the
+other two have 24 and 52 sample IDs with radiocarbon chronologies. None of the
+three public core responses establishes an `E#69` identity or the historical
+author age model. This one publication row remains excluded from raw-input
+reproduction; a sample-count match alone cannot supply its missing lineage.
+
+The [ESSD article](https://essd.copernicus.org/articles/14/1581/2022/) says
+12 plant functional types, while the [PANGAEA deposit](https://doi.pangaea.de/10.1594/PANGAEA.937075)
+says 11. The captured parameter table assigns 31 taxa to 12 distinct codes
+with 11 distinct descriptions. The archived result headers have 13
+functional-type positions, including populated `ISTS`, which has no matching
+parameter-table code. This count and mapping conflict remains unresolved;
+`ISTS` is preserved rather than silently merged or discarded.
 
 ```mermaid
 flowchart LR

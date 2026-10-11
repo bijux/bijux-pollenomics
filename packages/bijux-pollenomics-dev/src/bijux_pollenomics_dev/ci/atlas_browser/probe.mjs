@@ -5,17 +5,19 @@ import { mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';
 import { extname, join, normalize, relative, resolve } from 'node:path';
 import { finished } from 'node:stream/promises';
 import { assertArtifactCandidate, readArtifactMember } from './artifact-candidate.mjs';
+import { assertGeneratedReportCandidate, readGeneratedReportMember } from './generated-report-candidate.mjs';
 import { NATIVE_LRA_REQUIRED_ASSERTIONS, SIGNED_NATIVE_LRA_REQUIRED_ASSERTIONS, verifyNativeLraScope } from './native-lra.mjs';
+import { RAA_RETAINED_CONTEXT_REQUIRED_ASSERTIONS, verifyRaaRetainedContextScope } from './raa-retained-context.mjs';
 
 const plan = JSON.parse(await readFile(resolve(process.argv[2]), 'utf8'));
-if (!['atlas-browser-verification-plan.v2', 'atlas-browser-verification-plan.v3'].includes(plan.schema_version)) throw new Error('unsupported plan schema');
+if (!['atlas-browser-verification-plan.v2', 'atlas-browser-verification-plan.v3', 'atlas-browser-verification-plan.v4'].includes(plan.schema_version)) throw new Error('unsupported plan schema');
 const repositoryRoot = resolve(plan.repository_root);
 const artifactRoot = resolve(plan.artifact_root);
 const timeoutMs = Number(plan.timeout_seconds) * 1000;
 const candidate = plan.candidate;
 const scopes = plan.scopes;
 const verificationProfile = plan.verification_profile;
-if (!['nordic-source-chronology-v1', 'generic-time-aware-atlas-v1', 'native-lra-exploratory-v1', 'native-lra-signed-calendar-v1'].includes(verificationProfile)) {
+if (!['nordic-source-chronology-v1', 'generic-time-aware-atlas-v1', 'native-lra-exploratory-v1', 'native-lra-signed-calendar-v1', 'raa-retained-context-v1'].includes(verificationProfile)) {
   throw new Error('unsupported verification profile');
 }
 const providerHosts = ['tile.openstreetmap.org', 'tile.opentopomap.org'];
@@ -57,12 +59,17 @@ function parseSliderBounds(slider) {
 const requests = [];
 const servedArtifactBytes = [];
 const refusedArtifactReads = [];
-const artifactMode = plan.schema_version === 'atlas-browser-verification-plan.v3';
-if (artifactMode !== ['native-lra-exploratory-v1', 'native-lra-signed-calendar-v1'].includes(verificationProfile)) throw new Error('candidate kind and profile differ');
+const nativeArtifactMode = plan.schema_version === 'atlas-browser-verification-plan.v3';
+const reportArtifactMode = plan.schema_version === 'atlas-browser-verification-plan.v4';
+const artifactMode = nativeArtifactMode || reportArtifactMode;
+if (nativeArtifactMode !== ['native-lra-exploratory-v1', 'native-lra-signed-calendar-v1'].includes(verificationProfile)
+    || reportArtifactMode !== (verificationProfile === 'raa-retained-context-v1')) throw new Error('candidate kind and profile differ');
 let activeScenario = 'server-startup';
 
 await mkdir(artifactRoot, { recursive: true });
-const artifactAudit = artifactMode ? await assertArtifactCandidate(plan) : null;
+const artifactAudit = nativeArtifactMode
+  ? await assertArtifactCandidate(plan)
+  : reportArtifactMode ? await assertGeneratedReportCandidate(plan) : null;
 if (!artifactMode) assertCandidate();
 const server = createServer(async (request, response) => {
   const requestUrl = new URL(request.url, 'http://127.0.0.1');
@@ -76,7 +83,9 @@ const server = createServer(async (request, response) => {
     return;
   }
   try {
-    const served = artifactMode ? await readArtifactMember(plan, artifactAudit, requestedPath) : null;
+    const served = nativeArtifactMode
+      ? await readArtifactMember(plan, artifactAudit, requestedPath)
+      : reportArtifactMode ? await readGeneratedReportMember(plan, artifactAudit, requestedPath) : null;
     if (artifactMode && served === null) {
       receipt.status = 404;
       response.writeHead(404).end('not an inventoried presentation member');
@@ -152,6 +161,11 @@ try {
   for (const scope of scopes) {
     const scopeResult = verificationProfile === 'nordic-source-chronology-v1'
       ? await verifyNordicSourceChronologyScope(scope, debuggerOrigin.origin)
+      : verificationProfile === 'raa-retained-context-v1'
+        ? await verifyRaaRetainedContextScope(scope, debuggerOrigin.origin, {
+          artifactRoot, candidate, openAtlas, closeAtlas, captureReady, evaluate,
+          screenshot, writeScenario, pageFacts, waitForProviderRefusal, readFile, join,
+        })
       : ['native-lra-exploratory-v1', 'native-lra-signed-calendar-v1'].includes(verificationProfile)
         ? await verifyNativeLraScope(scope, debuggerOrigin.origin, {
           repositoryRoot, artifactRoot, candidate, openAtlas, closeAtlas, captureReady, verificationProfile,
@@ -162,7 +176,8 @@ try {
     scenarios.push(...scopeResult.scenarios);
     receipts.push(...scopeResult.receipts);
   }
-  if (artifactMode) await assertArtifactCandidate(plan);
+  if (nativeArtifactMode) await assertArtifactCandidate(plan);
+  else if (reportArtifactMode) await assertGeneratedReportCandidate(plan);
   else assertCandidate();
   const assertionRows = scenarios.flatMap((scenario) => Object.entries(scenario.assertions || {}));
   const assertions = Object.fromEntries([...new Set(assertionRows.map(([name]) => name))].map((name) => [
@@ -170,6 +185,7 @@ try {
     assertionRows.filter(([candidateName]) => candidateName === name).every(([, passed]) => passed === true),
   ]));
   const requiredAssertionsByProfile = {
+    'raa-retained-context-v1': RAA_RETAINED_CONTEXT_REQUIRED_ASSERTIONS,
     'native-lra-exploratory-v1': NATIVE_LRA_REQUIRED_ASSERTIONS,
     'native-lra-signed-calendar-v1': SIGNED_NATIVE_LRA_REQUIRED_ASSERTIONS,
     'nordic-source-chronology-v1': [

@@ -57,7 +57,7 @@ link farms or coded operator notes.
 | `docs/report/countries/sweden/sweden_animal_adna_v66_citations.md` | `thin_structure` | 1 | 0 | 0 | 4 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/countries/sweden/sweden_animal_adna_v66_samples.md` | `thin_structure` | 1 | 0 | 0 | 7 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/countries/sweden/sweden_animal_adna_v66_warnings.md` | `thin_structure` | 1 | 0 | 0 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
-| `docs/report/countries/sweden/sweden_lake_archaeology_sensitivity_v66.md` | `reader_ready` | 6 | 0 | 0 | 2 | 4 | Page explains its purpose before or alongside artifact links. |
+| `docs/report/countries/sweden/sweden_lake_archaeology_sensitivity_v66.md` | `reader_ready` | 7 | 0 | 0 | 2 | 4 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/countries/sweden/sweden_lake_evidence_richness_v66.md` | `thin_structure` | 2 | 0 | 4 | 0 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/countries/sweden/sweden_lake_fieldwork_preparation_v66.md` | `reader_ready` | 2 | 0 | 9 | 3 | 3 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/countries/sweden/sweden_land_use_synthesis_v66.md` | `reader_ready` | 5 | 0 | 5 | 8 | 4 | Page explains its purpose before or alongside artifact links. |
@@ -72,11 +72,11 @@ link farms or coded operator notes.
 | `docs/report/regions/europe-plus/europe-plus_map_publication_contract.md` | `reader_ready` | 6 | 0 | 6 | 13 | 7 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/regions/europe-plus/europe-plus_point_traceability.md` | `reader_ready` | 1 | 0 | 0 | 42 | 3 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/regions/europe-plus/europe-plus_scientific_review.md` | `reader_ready` | 3 | 0 | 8 | 196 | 10 | Page explains its purpose before or alongside artifact links. |
-| `docs/report/regions/nordic/README.md` | `reader_ready` | 10 | 0 | 307 | 37 | 14 | Page explains its purpose before or alongside artifact links. |
+| `docs/report/regions/nordic/README.md` | `reader_ready` | 10 | 0 | 310 | 38 | 14 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/regions/nordic/nordic_candidate_site_sensitivity.md` | `thin_structure` | 1 | 0 | 0 | 449 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/regions/nordic/nordic_candidate_sites.md` | `thin_structure` | 4 | 0 | 0 | 449 | 1 | Page explains itself but still needs stronger internal wayfinding. |
 | `docs/report/regions/nordic/nordic_evidence_surface.md` | `reader_ready` | 1 | 0 | 0 | 47 | 4 | Page explains its purpose before or alongside artifact links. |
-| `docs/report/regions/nordic/nordic_map_publication_contract.md` | `reader_ready` | 7 | 0 | 19 | 22 | 7 | Page explains its purpose before or alongside artifact links. |
+| `docs/report/regions/nordic/nordic_map_publication_contract.md` | `reader_ready` | 7 | 0 | 19 | 23 | 7 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/regions/nordic/nordic_point_traceability.md` | `reader_ready` | 1 | 0 | 0 | 42 | 3 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/regions/nordic/nordic_scientific_review.md` | `reader_ready` | 3 | 0 | 8 | 324 | 10 | Page explains its purpose before or alongside artifact links. |
 | `docs/report/regions/nordic/sweden_archaeology_site_discovery.md` | `reader_ready` | 4 | 0 | 4 | 42 | 4 | Page explains its purpose before or alongside artifact links. |

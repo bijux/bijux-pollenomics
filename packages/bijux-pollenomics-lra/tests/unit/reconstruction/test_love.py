@@ -8,6 +8,10 @@ import pytest
 
 from bijux_pollenomics_lra.models.configuration import LoveConfig
 from bijux_pollenomics_lra.models.errors import NativeOptimizerWarning, ValidationError
+from bijux_pollenomics_lra.models.validation import (
+    LANDCLIM_II_GPM_ANALYTICAL_FALL_SPEED_PROFILE,
+    normalise_parameters,
+)
 from bijux_pollenomics_lra.optimization.solver import ReplayOptimizer
 from bijux_pollenomics_lra.reconstruction.analytical import LOVEr, lov
 from bijux_pollenomics_lra.reconstruction.optimized import (
@@ -93,6 +97,114 @@ def test_full_analytical_workflow() -> None:
     np.testing.assert_allclose(result["Mean"].iloc[7:].sum(axis=1), 1, atol=1e-12)
     assert result["samples"].shape == (2, 10, 10)
     assert result["Kreg"].shape == result["Kloc"].shape == (10, 10)
+
+
+def test_named_landclim_gpm_analytical_profile_keeps_source_fall_speed() -> None:
+    local, regional, params, rings = _love_inputs()
+    # These rings begin beyond the local basin diameter, so source GPM Kloc is
+    # positive; earlier source-example rings can produce negative Kloc.
+    supported_rings = rings.iloc[8:11].copy(deep=True)
+    low = params.copy(deep=True)
+    low.loc[low.index[0], "fallspeed"] = 0.006
+    with pytest.raises(ValidationError, match="between 0.01 and 0.15"):
+        normalise_parameters(low)
+    config = LoveConfig(
+        "analytical",
+        "lake",
+        300,
+        12.9,
+        3,
+        distance_weighting="gpm neutral",
+        fall_speed_profile=LANDCLIM_II_GPM_ANALYTICAL_FALL_SPEED_PROFILE,
+        repeats=1,
+        stochastic=False,
+    )
+    regional_draws = np.full((1, 10), 0.1)
+    with pytest.raises(ValidationError, match="requires supplied regional_cover_draws"):
+        run_love(local, regional, low, supported_rings, config)
+    result = run_love(
+        local,
+        regional,
+        low,
+        supported_rings,
+        config,
+        regional_cover_draws=regional_draws,
+    )
+    reference = run_love(
+        local,
+        regional,
+        params,
+        supported_rings,
+        config,
+        regional_cover_draws=regional_draws,
+    )
+    assert result.manifest.parameters["fall_speed_profile"] == (
+        LANDCLIM_II_GPM_ANALYTICAL_FALL_SPEED_PROFILE
+    )
+    assert result.manifest.parameters["distance_weighting"] == "gpm neutral"
+    assert result.manifest.parameters["paired_regional_cover_draws"] is True
+    assert np.isfinite(result.auxiliary["Kreg"].to_numpy()).all()
+    assert (result.auxiliary["Kreg"].to_numpy() > 0).all()
+    assert not np.array_equal(
+        result.auxiliary["Kreg"]["Alnus"],
+        reference.auxiliary["Kreg"]["Alnus"],
+    )
+    assert low.loc[low.index[0], "fallspeed"] == 0.006
+    with pytest.raises(ValidationError, match="deposition must be finite and positive"):
+        run_love(
+            local,
+            regional,
+            low,
+            rings,
+            LoveConfig(
+                "analytical",
+                "lake",
+                300,
+                12.9,
+                10,
+                distance_weighting="gpm neutral",
+                fall_speed_profile=LANDCLIM_II_GPM_ANALYTICAL_FALL_SPEED_PROFILE,
+                repeats=1,
+                stochastic=False,
+            ),
+            regional_cover_draws=regional_draws,
+        )
+
+
+def test_named_landclim_profile_refuses_outside_range_or_wrong_method() -> None:
+    profile = LANDCLIM_II_GPM_ANALYTICAL_FALL_SPEED_PROFILE
+    local, regional, params, rings = _love_inputs()
+    for method, weighting in (
+        ("optimized", "gpm neutral"),
+        ("analytical", "lsm unstable"),
+        ("analytical", "gpm unstable"),
+    ):
+        with pytest.raises(ValidationError, match="LandClim II"):
+            LoveConfig(
+                method,
+                "lake",
+                300,
+                12.9,
+                10,
+                distance_weighting=weighting,
+                fall_speed_profile=profile,
+            )
+    for fall_speed in (0.005999, 0.150001):
+        invalid = params.copy(deep=True)
+        invalid.loc[invalid.index[0], "fallspeed"] = fall_speed
+        config = LoveConfig(
+            "analytical",
+            "lake",
+            300,
+            12.9,
+            10,
+            distance_weighting="gpm neutral",
+            fall_speed_profile=profile,
+            repeats=1,
+            stochastic=False,
+        )
+        with pytest.raises(ValidationError, match="between 0.006 and 0.15"):
+            run_love(local, regional, invalid, rings, config)
 
 
 def test_analytical_supplied_draw_shape_is_validated() -> None:

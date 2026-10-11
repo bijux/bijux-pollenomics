@@ -18,9 +18,14 @@ from .contracts import (
     AtlasArtifactCandidate,
     AtlasBrowserContractError,
     AtlasCandidate,
+    AtlasGeneratedReportCandidate,
     BrowserVerificationPlan,
     JsonObject,
     load_plan,
+)
+from .generated_report_candidate import (
+    audit_generated_report_candidate,
+    verify_generated_report_served_bytes,
 )
 from .static_integrity import audit_static_atlas
 from .verdict import evaluate_browser_report
@@ -75,6 +80,8 @@ def _observed_candidate(plan: BrowserVerificationPlan) -> AtlasCandidate:
 def _require_candidate(plan: BrowserVerificationPlan) -> JsonObject | None:
     if isinstance(plan.candidate, AtlasArtifactCandidate):
         return audit_artifact_candidate(plan)
+    if isinstance(plan.candidate, AtlasGeneratedReportCandidate):
+        return audit_generated_report_candidate(plan)
     observed = _observed_candidate(plan)
     if observed != plan.candidate:
         raise AtlasBrowserContractError(
@@ -173,7 +180,10 @@ def run_browser_verification(plan: BrowserVerificationPlan) -> JsonObject:
     )
     artifact_after = _require_candidate(plan)
     if artifact_before is not None:
-        verify_served_bytes(plan, artifact_before, report)
+        if isinstance(plan.candidate, AtlasGeneratedReportCandidate):
+            verify_generated_report_served_bytes(plan, artifact_before, report)
+        else:
+            verify_served_bytes(plan, artifact_before, report)
         if artifact_after != artifact_before or _verifier_files() != verifier_before:
             raise AtlasBrowserContractError(
                 "artifact or verifier changed during browser execution"

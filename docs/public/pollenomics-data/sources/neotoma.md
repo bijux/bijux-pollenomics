@@ -4,7 +4,7 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-07-22
+last_reviewed: 2026-09-21
 ---
 
 # Neotoma
@@ -53,6 +53,266 @@ and build
 `sha256:92dd52619837f3641d004a1a5dbe38f9ab6023a79f61989314bb90e612eb58e1`.
 The manifest validates row counts, stable IDs, country partitions, part hashes,
 and the complete materialization digest.
+
+### Sample-level LRA prerequisite screen
+
+The source-bound prerequisite report
+`artifacts/v3/source/neotoma-chronology-count-frontier001/report002.json`
+checks each relational sample for at least one mechanical numeric-count candidate
+and at least one source age claim marked `comparable`. These conditions are
+screening leads, not a selected chronology, an authenticated pollen count table,
+or an executable LRA request. The report is bound to the raw archive and
+relational manifests and has SHA-256
+`aff96149a10b36bb89e9a781ae1f7a653b219deec6a09d2a6f089d474c3763cb`.
+
+| Source partition | Samples | With numeric-count candidate | With count candidate and comparable age claim |
+| --- | ---: | ---: | ---: |
+| Sweden | 5,764 | 3,093 | 2,379 |
+| Denmark | 279 | 187 | 0 |
+| Norway | 3,884 | 1,233 | 921 |
+| Finland | 2,184 | 402 | 127 |
+| Unassigned | 277 | 194 | 111 |
+| **Captured total** | **12,388** | **5,109** | **3,538** |
+
+Every captured sample has some age claim; the comparable-claim intersection
+therefore narrows the numeric-count leads from 5,109 to 3,538. Denmark's zero
+is specific to this captured source and conservative count screen: its 91
+comparable age claims and 187 count-candidate samples belong to disjoint
+sample sets. `Unassigned` is an accounting partition, not a fifth Nordic
+country. Multiple alternative claims are retained, and no age model is chosen.
+The mechanical count screen also includes non-pollen source elements and
+conservatively refuses observations with source identity conflicts. An
+independent source-part check found 32,899 non-`pollen` elements among the
+140,541 numeric-count observations and 218,833 otherwise numeric observations
+refused because a parent carried a source identity conflict, including
+dataset-level default-chronology assertion conflicts. That coupling still
+needs source-level review; dropping the refusal would change the denominator.
+Taxon/PPE, count denominator and unit, chronology selection, basin geometry
+and parameter binding still require review. **Zero real Neotoma samples are
+admitted to LRA or held-out vegetation scoring from this report.**
+
+### Bounded candidate sample series
+
+`inspect_neotoma_lra_candidate_series` in the installed host materialization
+API reads the authenticated raw and relational parents and requires an explicit
+list of at most 16 source sample IDs. It returns a canonical, hashed review
+export with each sample's source identity, native observation values and units,
+count decisions, agreement of both source element labels, all typed age-claim
+alternatives and reason-coded refusals. A source label of `pollen` is a review
+lead only when both source element fields agree; it does not establish a
+reviewed taxon mapping, PPE or compatible count denominator. The API never
+chooses an age claim or produces an executable LRA request.
+
+For source samples `552226` through `552229` in one captured Swedish collection
+unit, the bounded export preserves 116 numeric count observations: 109 carry
+the exact source element label `pollen` and seven are labelled spore. It retains
+four comparable typed age claims without ordering or selecting them. The four
+samples remain refused for numerical LRA and held-out scoring pending chronology,
+taxa/PPE, basin, unit and source-conflict review. These four source samples are
+not asserted to be four independent sites or a complete stratigraphic core.
+
+### Full-source agreeing-pollen prerequisite screen
+
+`inspect_neotoma_lra_pollen_screen` in the installed host API reads the
+authenticated source and screens every captured sample. It requires at least
+one numeric count observation with **both** source element fields agreeing on
+`pollen`, plus a separate typed, comparable age claim owned by that sample.
+The canonical report is
+`artifacts/v3/source/neotoma-pollen-screen-20260921/report002.json` (SHA-256
+`e8a8f392abb5be421111a01bb75823c7743b6b3d66bc6cbb415f65dc61be4e42`).
+Its independent source reconciliation is recorded in
+`artifacts/v3/source/neotoma-pollen-screen-challenge-20260921/REVIEW.md`.
+
+| Source partition | Samples | Agreeing pollen count observations | Necessary candidate samples | Refused samples |
+| --- | ---: | ---: | ---: | ---: |
+| Sweden | 5,764 | 63,510 | 2,379 | 3,385 |
+| Denmark | 279 | 4,477 | 0 | 279 |
+| Norway | 3,884 | 28,376 | 921 | 2,963 |
+| Finland | 2,184 | 5,172 | 127 | 2,057 |
+| Unassigned | 277 | 6,107 | 111 | 166 |
+| **Captured total** | **12,388** | **107,642** | **3,538** | **8,850** |
+
+The 140,541 mechanical count candidates comprise 107,642 agreeing pollen
+labels, 32,740 non-pollen labels and 159 with a missing second element-type
+field. Another 230,395 observations fail the numeric count screen. Refusal
+reason counts can overlap; 8,850 is the number of distinct refused samples.
+Denmark has pollen count observations, but its 187 samples with such counts are
+disjoint from its 91 samples with an owned comparable age claim. The 3,538
+necessary candidates equal the older count-and-age lead set for this captured
+source by independently checked sample ID, not by assumption. `Unassigned`
+remains an accounting partition, not a fifth Nordic country.
+
+This is a source-screening result, not a reviewed pollen denominator or LRA
+admission. Taxa/PPE, count compatibility, selected chronology, source rights,
+basin geometry and parameters still need review. **Zero Neotoma samples are
+admitted to numerical LRA or held-out vegetation scoring by this screen.**
+
+### How many source locations are behind the sample leads?
+
+The 3,538 prerequisite samples belong to **54 distinct Neotoma source site
+IDs**, 56 collection unit IDs and 58 dataset IDs in this captured snapshot.
+The source-bound group report at
+`artifacts/v3/source/neotoma-group-frontier-20260921/report.json` has SHA-256
+`6c14877d687c4a72c813f89f2c940d52c31c63b6059850717920047c2d73f714`
+and links every candidate sample back to its source site, collection unit and
+dataset. These are different entity levels, so their counts must not be added.
+
+| Source partition | Prerequisite samples | Source site IDs | Collection unit IDs | Dataset IDs |
+| --- | ---: | ---: | ---: | ---: |
+| Sweden | 2,379 | 37 | 39 | 41 |
+| Denmark | 0 | 0 | 0 | 0 |
+| Norway | 921 | 14 | 14 | 14 |
+| Finland | 127 | 1 | 1 | 1 |
+| Unassigned | 111 | 2 | 2 | 2 |
+| **Captured total** | **3,538** | **54** | **56** | **58** |
+
+A source site ID is a review lead, not proof of an independent basin or a
+benchmark fold. Cross-database aliases, basin identity, chronology, taxa/PPE,
+compatible count denominators and rights remain unresolved. The group report
+admits **zero** samples to numerical LRA or measured held-out scoring.
+
+### What basin evidence accompanies those source locations?
+
+The authenticated site and collection-unit review at
+`artifacts/v3/source/neotoma-site-evidence-20260921/report002.json`
+(SHA-256 `aaded8ed751a8f245a357c50bb2c2a96a8710168deab7223f0c48284180e96ce`)
+retains source row locators and native descriptions, geography, area, collection
+unit type, depositional environment, water depth, location and collection date.
+It covers the same **54 site IDs, 56 collection unit IDs and 3,538 prerequisite
+samples**, with **zero basin or numerical LRA admissions**.
+
+| Source partition | Site descriptions present | Site area values present | Point / polygon site geometries | Collection-unit environment labels present | Water depths present |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| Sweden | 35 / 37 | 5 / 37 | 33 / 4 | 39 / 39 | 7 / 39 |
+| Denmark | 0 / 0 | 0 / 0 | 0 / 0 | 0 / 0 | 0 / 0 |
+| Norway | 14 / 14 | 5 / 14 | 11 / 3 | 14 / 14 | 5 / 14 |
+| Finland | 1 / 1 | 0 / 1 | 1 / 0 | 1 / 1 | 0 / 1 |
+| Unassigned | 2 / 2 | 0 / 2 | 2 / 0 | 2 / 2 | 1 / 2 |
+| **Captured total** | **52 / 54** | **10 / 54** | **47 / 7** | **56 / 56** | **13 / 56** |
+
+The 56 native depositional-environment labels are 20 `Lacustrine`, 20 `Bog`,
+five `Glacial Origin Lake`, four `Raised Bog`, two each `Natural Lake`, `Mire`
+and `Fen`, and one `Fjord`. These are review leads, not an accepted
+lake/peatland classification. [Neotoma's site and collection-unit
+manual](https://open.neotomadb.org/manual/database-design-concepts.html)
+places depositional environment on the collection unit, warns that a site
+polygon can express imprecise or concealed location, and describes this
+environment as present-day context that may change through time. The site's
+`area` and polygon are therefore not converted into a pollen basin radius or
+diameter; their applicability and units for this captured API value require
+source review. A collection date is not a sample age. Historical basin size,
+source aliases, chronology, taxa/PPE and compatible counts remain unresolved.
+
+The host `inspect_neotoma_lra_lakeparameters` review accepts an explicitly
+pinned public Neotoma lakeparameter capture, verifies every captured page and
+type-table hash, and joins only exact source site IDs. The 2026-09-21 bounded
+capture (`capture.json` SHA-256
+`0c800ed252d6bd2bbed72f5ac7798e27d7a72f89330170b8ce33989384c758fd`)
+contains 24,554 lakeparameter rows and 21 parameter types. Five rows match
+five of the 54 candidate source sites: maximum depth 6 m at Swedish
+Klotjärnen and 2.2 m at Lillsjön; reported surface area 2.5 ha at Norwegian
+Liten Cap’pesjav’ri, 5 ha at Over Gunnarsfjorden, and 1.7 ha at Over
+Kobbkrokvatnet. No parameter row was observed for the other 49 sites in
+this capture. The capture used serial live `offset` pages, not a transactional
+snapshot, so absence is not certified. These are native parameter labels and
+reported values, not historical basin dimensions, a derived radius, a
+lake-versus-peatland decision or a scientifically admitted LRA input. The
+three Norwegian site-level `area` values in the earlier review differ from
+their lakeparameter `Area` values; the site-area unit and meaning remain
+unresolved, so those fields are not substituted for each other. The
+review retains source page and row locators; **zero sites or samples are
+admitted** by this source match.
+
+The source-bound priority slice
+`artifacts/v3/taxa-review/neotoma-candidate-priority-20260921/priority-successor.json`
+(SHA-256 `af8e6116776ca320d416a157a79e3a6280aa8332dc72c41661aadac267461e34`)
+links the 3,538 prerequisite samples to **73,559** agreeing pollen count
+observations across **674 existing Neotoma review concepts**. It retains each
+concept's stable row ID, source identity, country counts and distinct sample
+frequency for prioritizing Anneli's review. The complete review bundle still
+contains **10,908 rows** across sources; every selected Neotoma concept remains
+`needs_discussion`. Frequency does not approve a taxon, PPE, count denominator
+or LRA input.
+
+The successor priority slice
+`artifacts/v3/taxa-review/neotoma-priority-mass-20260921/priority-mass.json`
+(SHA-256 `1e683bea9f87cb49b6d43efe3df4ee48cfbb6f26d26cf919a256d19b5bca3351`)
+adds the exact observed count sum, reported-zero count and country sums for
+each of the 674 concepts. These values retain the source unit on every row:
+`NISP` and `NISP digitized` remain separate. The previous priority fields and
+sample selection are preserved. The sums help a reviewer focus on source
+material; they do not establish compatible pollen totals, taxon/PPE approval,
+or LRA admission.
+
+The candidate dataset attribution index
+`artifacts/v3/taxa-review/neotoma-priority-provenance-20260921/candidate-attribution.json`
+(SHA-256 `cf5639d2076984bab3454510f78920b12c0bfcade8c7ed6abc2fcfbc098aaaae`)
+links those 674 concepts and 73,559 candidate pollen observations to
+**58 source datasets**. It retains each source dataset ID, constituent database,
+dataset name, source-listed DOI, contributor field and the concept's observation
+and sample counts by dataset. All 58 datasets have at least one source-listed
+DOI. These are attribution leads from the captured Neotoma response; they do
+not verify each original publication, reuse right, taxon assignment, PPE or
+LRA admission.
+
+The bounded [Neotoma dataset-publications endpoint](https://api.neotomadb.org/api-docs/)
+lookup for these 58 source datasets is retained in
+`artifacts/v3/source/neotoma-publication-intake-20260921/publication-attribution002.json`
+(SHA-256 `220d928fa7596edd4f2553a0b7d0a29cb1f59a09fa6117b774b14154d037b42d`),
+with exact response bytes and hashes in its capture manifest. The 58 responses
+contain 62 linked publication records: 48 datasets have exactly one provider
+`primary=true` publication, 4 have multiple provider-primary publications,
+and 6 have no linked publication. Source dataset coverage is Sweden 41,
+Denmark 0, Norway 14, Finland 1, and unassigned 2. Publication DOI is null
+on 44 of the 62 records; dataset DOI and publication DOI are kept separate.
+The provider's [publication-link schema](https://open.neotomadb.org/dbschema/tables/datasetpublications.html)
+allows a null primary flag. These links are citation-review leads, not verified
+reuse rights or permission to publish source material. The four ambiguous and
+six missing links remain explicit review cases. Rights review is `not_evaluated`,
+and **zero samples are admitted to numerical LRA** by this lookup.
+
+Neotoma's [2025 Data Use and Embargo Policy](https://www.neotomadb.org/data/data-use-and-embargo-policy)
+(captured 2026-09-21, SHA-256
+`ba75c8f22491f5b5e83a835f964aedea53b62e526cf6ea36bb10b376e774b3a4`)
+states that data available through Neotoma are reusable
+under CC BY 4.0 with attribution. Its publication guidance calls for the
+Neotoma citation, the constituent database, original investigators and primary
+publications, and a site/dataset table with the dataset DOI. The policy's EPD
+appendix recommends Fyfe et al. (2009), plus Giesecke et al. (2014) for
+extensive use of the described chronologies, and supplies an acknowledgment.
+All 58 candidate datasets here identify EPD as their
+constituent database, but **10 lack a unique provider-primary publication**
+(four multiple-primary and six no-link cases). The default license is a
+policy-level rights lead; those citation gaps, possible source-specific
+protections and the scientific eligibility checks still need review before a
+publication-ready LRA input can be declared. The report's rights status remains
+`not_evaluated`, with zero admitted samples.
+
+### Observed count mass in prerequisite samples
+
+The source-bound count-mass audit
+`artifacts/v3/source/neotoma-candidate-mass-20260921/mass-snapshot007.json`
+(`sha256:fe589394b134de482195045819437c4cd567ea15833e54cb002fb95648024e19`)
+retains exact integer values for the **3,538** prerequisite samples by sample,
+source unit, source element label and country. It separates reported zero from
+missing or refused values. These are observed source sums, not a reviewed
+compatible pollen denominator. Denmark's zero below applies to the prerequisite
+sample intersection; the whole-source screen above still records Danish pollen
+counts.
+
+| Source partition | Prerequisite samples | Agreeing pollen count observations | `NISP` pollen source sum | `NISP digitized` pollen source sum |
+| --- | ---: | ---: | ---: | ---: |
+| Sweden | 2,379 | 47,722 | 2,032,773 | 12,911 |
+| Denmark | 0 | 0 | 0 | 0 |
+| Norway | 921 | 22,183 | 691,964 | 0 |
+| Finland | 127 | 1,621 | 33,504 | 0 |
+| Unassigned | 111 | 2,033 | 70,578 | 0 |
+
+The audit also retains non-pollen counts, conflicting or missing element labels,
+refused count observations and zeros in separate partitions. `NISP` and
+`NISP digitized` stay separate, and `Unassigned` is not a fifth Nordic country.
+Taxon/PPE, compatible denominator, source rights, selected chronology, basin
+geometry and parameters remain unresolved; **zero samples are admitted to LRA**.
 
 ### Curation Lineage
 

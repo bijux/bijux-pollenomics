@@ -13,6 +13,7 @@ from bijux_pollenomics_dev.ci.atlas_browser.contracts import (
     GENERIC_TIME_AWARE_PROFILE,
     NATIVE_LRA_PROFILE,
     NORDIC_SOURCE_CHRONOLOGY_PROFILE,
+    RAA_RETAINED_CONTEXT_PROFILE,
     SIGNED_NATIVE_LRA_PROFILE,
 )
 from bijux_pollenomics_dev.ci.atlas_browser.verdict import PROFILE_REQUIRED_ASSERTIONS
@@ -696,6 +697,22 @@ def test_probe_emits_the_exact_profile_assertion_inventories() -> None:
             names = json.loads(result.stdout)
             assert len(names) == len(set(names))
             assert frozenset(names) == required
+            continue
+        if profile == RAA_RETAINED_CONTEXT_PROFILE:
+            assert f"'{profile}': RAA_RETAINED_CONTEXT_REQUIRED_ASSERTIONS" in probe
+            source = (
+                Path(atlas_browser.__file__)
+                .with_name("raa-retained-context.mjs")
+                .read_text(encoding="utf-8")
+            )
+            match = re.search(
+                r"export const RAA_RETAINED_CONTEXT_REQUIRED_ASSERTIONS = "
+                r"\[(?P<body>.*?)\];",
+                source,
+                re.DOTALL,
+            )
+            assert match is not None
+            assert frozenset(re.findall(r"'([^']+)'", match.group("body"))) == required
             continue
         match = re.search(
             rf"'{re.escape(profile)}': \[(?P<body>.*?)\n    \]",

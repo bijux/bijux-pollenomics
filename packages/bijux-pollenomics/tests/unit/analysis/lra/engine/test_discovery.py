@@ -3,6 +3,8 @@
 from __future__ import annotations
 
 from collections.abc import Callable
+from dataclasses import dataclass
+from enum import StrEnum
 from importlib import metadata
 from types import ModuleType, SimpleNamespace
 from unittest.mock import patch
@@ -11,11 +13,17 @@ import pytest
 
 from bijux_pollenomics.analysis.lra.api import LRARefusal
 from bijux_pollenomics.analysis.lra.engine import discovery
-from bijux_pollenomics.analysis.lra.engine.discovery import load_engine
+from bijux_pollenomics.analysis.lra.engine.discovery import (
+    LANDCLIM_ANALYTICAL_LOVE_CAPABILITY,
+    MULTISITE_DRAW_LOVE_CAPABILITY,
+    MULTISITE_PUBLICATION_CAPABILITY,
+    OPTIMIZED_RING_TAXON_CAPABILITY,
+    load_engine,
+)
 
 
 class StubAPI(ModuleType):
-    extension_descriptor: Callable[[], dict[str, str]]
+    extension_descriptor: Callable[[], dict[str, object]]
 
 
 def _installed() -> tuple[SimpleNamespace, StubAPI]:
@@ -119,3 +127,274 @@ def test_missing_binary_dependency_is_broken_install_not_absent_extra() -> None:
     ):
         load_engine()
     assert raised.value.as_dict()["reason_code"] == "lra_extension_broken"
+
+
+def _selected(distribution: SimpleNamespace, api: StubAPI, capability: str) -> None:
+    with (
+        patch.object(metadata, "distribution", return_value=distribution),
+        patch.object(discovery, "import_module", return_value=api),
+    ):
+        assert load_engine(required_capability=capability).api is api
+
+
+@pytest.mark.parametrize(
+    "capability",
+    [
+        MULTISITE_PUBLICATION_CAPABILITY,
+        LANDCLIM_ANALYTICAL_LOVE_CAPABILITY,
+        MULTISITE_DRAW_LOVE_CAPABILITY,
+        OPTIMIZED_RING_TAXON_CAPABILITY,
+    ],
+)
+def test_old_descriptor_retains_default_contract_but_refuses_selected_feature(
+    capability: str,
+) -> None:
+    distribution, api = _installed()
+    with (
+        patch.object(metadata, "distribution", return_value=distribution),
+        patch.object(discovery, "import_module", return_value=api),
+    ):
+        assert load_engine().api is api
+        with pytest.raises(LRARefusal) as raised:
+            load_engine(required_capability=capability)
+    assert raised.value.reason_code == "lra_extension_capability_unavailable"
+    assert capability in str(raised.value)
+
+
+def test_multisite_capability_requires_actual_callable_and_typed_facade() -> None:
+    distribution, api = _installed()
+    api.extension_descriptor()["capabilities"] = [MULTISITE_PUBLICATION_CAPABILITY]
+    api.run_reveals_multisite = lambda *args: None
+    api.MultisiteRevealsInput = type("MultisiteRevealsInput", (), {})
+    api.PublicationRevealsConfig = type("PublicationRevealsConfig", (), {})
+    api.MultisiteRevealsResult = type(
+        "MultisiteRevealsResult", (), {"write": lambda self, path: path}
+    )
+    _selected(distribution, api, MULTISITE_PUBLICATION_CAPABILITY)
+    delattr(api, "MultisiteRevealsInput")
+    with (
+        patch.object(metadata, "distribution", return_value=distribution),
+        patch.object(discovery, "import_module", return_value=api),
+        pytest.raises(LRARefusal) as raised,
+    ):
+        load_engine(required_capability=MULTISITE_PUBLICATION_CAPABILITY)
+    assert raised.value.reason_code == "lra_extension_capability_invalid"
+
+
+def test_draw_capability_requires_typed_source_and_bounds_identity() -> None:
+    distribution, api = _installed()
+    api.extension_descriptor()["capabilities"] = [MULTISITE_DRAW_LOVE_CAPABILITY]
+    api.RegionalCoverDrawSource = type(
+        "RegionalCoverDrawSource",
+        (),
+        {"from_verified_member": classmethod(lambda cls, **kwargs: cls())},
+    )
+    api.RegionalDrawLoveConfig = _DrawLoveConfig
+    api.run_love_from_regional_draws = lambda *args: None
+    api.publication_bin_bounds_sha256 = lambda bounds: "0" * 64
+    _selected(distribution, api, MULTISITE_DRAW_LOVE_CAPABILITY)
+    for invalid in (
+        None,
+        _IncompleteDrawLoveConfig,
+        _WrongDrawLoveConfig,
+        _IncompleteProvenanceDrawLoveConfig,
+    ):
+        if invalid is None:
+            delattr(api, "RegionalDrawLoveConfig")
+        else:
+            api.RegionalDrawLoveConfig = invalid
+        with (
+            patch.object(metadata, "distribution", return_value=distribution),
+            patch.object(discovery, "import_module", return_value=api),
+            pytest.raises(LRARefusal) as raised,
+        ):
+            load_engine(required_capability=MULTISITE_DRAW_LOVE_CAPABILITY)
+        assert raised.value.reason_code == "lra_extension_capability_invalid"
+    api.RegionalDrawLoveConfig = _DrawLoveConfig
+    delattr(api, "publication_bin_bounds_sha256")
+    with (
+        patch.object(metadata, "distribution", return_value=distribution),
+        patch.object(discovery, "import_module", return_value=api),
+        pytest.raises(LRARefusal) as raised,
+    ):
+        load_engine(required_capability=MULTISITE_DRAW_LOVE_CAPABILITY)
+    assert raised.value.reason_code == "lra_extension_capability_invalid"
+
+
+class _RevisedProfile(StrEnum):
+    RING_TAXON_PRESERVING = "ring-taxon-preserving"
+
+
+@dataclass
+class _DrawLoveConfig:
+    local_basin_diameter_m: float
+    max_ring: int
+    repeats: int = 1000
+    stochastic: bool = True
+    seed: int | None = None
+    retain_samples: bool = False
+    ppe_error: bool = True
+
+    method = "analytical"
+    distance_weighting = "gpm neutral"
+    fall_speed_profile = "landclimii-2016-gpm-neutral-analytical-v1"
+
+    def as_dict(self) -> dict[str, object]:
+        return {
+            "configuration_kind": "regional-cover-draws",
+            "method": self.method,
+            "local_basin_diameter_m": self.local_basin_diameter_m,
+            "max_ring": self.max_ring,
+            "distance_weighting": self.distance_weighting,
+            "fall_speed_profile": self.fall_speed_profile,
+            "repeats": self.repeats,
+            "stochastic": self.stochastic,
+            "seed": self.seed,
+            "retain_samples": self.retain_samples,
+            "ppe_error": self.ppe_error,
+        }
+
+
+@dataclass
+class _IncompleteDrawLoveConfig:
+    local_basin_diameter_m: float
+    max_ring: int
+    repeats: int
+
+
+@dataclass
+class _WrongDrawLoveConfig(_DrawLoveConfig):
+    fall_speed_profile = "unsupported"
+
+
+@dataclass
+class _IncompleteProvenanceDrawLoveConfig(_DrawLoveConfig):
+    def as_dict(self) -> dict[str, object]:
+        return {"configuration_kind": "regional-cover-draws"}
+
+
+@dataclass
+class _RevisedLoveConfig:
+    method: str
+    regional_basin_type: str
+    regional_basin_diameter_m: float
+    local_basin_diameter_m: float
+    max_ring: int
+    optimized_profile: str
+    repeats: int
+    stochastic: bool
+
+    def as_dict(self) -> dict[str, str]:
+        return {"optimized_profile": self.optimized_profile}
+
+
+def test_revised_optimized_capability_requires_a_typed_profile_facade() -> None:
+    distribution, api = _installed()
+    api.extension_descriptor()["capabilities"] = [OPTIMIZED_RING_TAXON_CAPABILITY]
+    api.LoveConfig = _RevisedLoveConfig
+    api.OptimizedLoveProfile = _RevisedProfile
+    _selected(distribution, api, OPTIMIZED_RING_TAXON_CAPABILITY)
+    delattr(api, "OptimizedLoveProfile")
+    with (
+        patch.object(metadata, "distribution", return_value=distribution),
+        patch.object(discovery, "import_module", return_value=api),
+        pytest.raises(LRARefusal) as raised,
+    ):
+        load_engine(required_capability=OPTIMIZED_RING_TAXON_CAPABILITY)
+    assert raised.value.reason_code == "lra_extension_capability_invalid"
+
+
+@dataclass
+class _NamedLoveConfig:
+    method: str
+    regional_basin_type: str
+    regional_basin_diameter_m: float
+    local_basin_diameter_m: float
+    max_ring: int
+    distance_weighting: str
+    fall_speed_profile: str
+    repeats: int
+    stochastic: bool
+
+    def as_dict(self) -> dict[str, object]:
+        return {"fall_speed_profile": self.fall_speed_profile}
+
+
+def _draw_aware_love(*args: object, regional_cover_draws: object) -> None:
+    del args, regional_cover_draws
+
+
+def test_named_love_capability_requires_profile_aware_configuration() -> None:
+    distribution, api = _installed()
+    api.extension_descriptor()["capabilities"] = [LANDCLIM_ANALYTICAL_LOVE_CAPABILITY]
+    api.LoveConfig = _NamedLoveConfig
+    api.run_love = _draw_aware_love
+    _selected(distribution, api, LANDCLIM_ANALYTICAL_LOVE_CAPABILITY)
+    api.LoveConfig = type("OldLoveConfig", (), {})
+    with (
+        patch.object(metadata, "distribution", return_value=distribution),
+        patch.object(discovery, "import_module", return_value=api),
+        pytest.raises(LRARefusal) as raised,
+    ):
+        load_engine(required_capability=LANDCLIM_ANALYTICAL_LOVE_CAPABILITY)
+    assert raised.value.reason_code == "lra_extension_capability_invalid"
+
+
+def test_broken_advertised_named_profile_is_structured_refusal() -> None:
+    distribution, api = _installed()
+    api.extension_descriptor()["capabilities"] = [LANDCLIM_ANALYTICAL_LOVE_CAPABILITY]
+    api.run_love = _draw_aware_love
+
+    @dataclass
+    class BrokenConfig(_NamedLoveConfig):
+        def as_dict(self) -> dict[str, object]:
+            raise RuntimeError("broken optional configuration")
+
+    api.LoveConfig = BrokenConfig
+    with (
+        patch.object(metadata, "distribution", return_value=distribution),
+        patch.object(discovery, "import_module", return_value=api),
+        pytest.raises(LRARefusal) as raised,
+    ):
+        load_engine(required_capability=LANDCLIM_ANALYTICAL_LOVE_CAPABILITY)
+    assert raised.value.reason_code == "lra_extension_capability_invalid"
+
+
+def test_named_love_capability_refuses_missing_regional_draw_keyword() -> None:
+    distribution, api = _installed()
+    api.extension_descriptor()["capabilities"] = [LANDCLIM_ANALYTICAL_LOVE_CAPABILITY]
+    api.LoveConfig = _NamedLoveConfig
+    with (
+        patch.object(metadata, "distribution", return_value=distribution),
+        patch.object(discovery, "import_module", return_value=api),
+        pytest.raises(LRARefusal) as raised,
+    ):
+        load_engine(required_capability=LANDCLIM_ANALYTICAL_LOVE_CAPABILITY)
+    assert raised.value.reason_code == "lra_extension_capability_invalid"
+
+
+def test_unhashable_requested_capability_is_structured_refusal() -> None:
+    distribution, api = _installed()
+    with (
+        patch.object(metadata, "distribution", return_value=distribution),
+        patch.object(discovery, "import_module", return_value=api),
+        pytest.raises(LRARefusal) as raised,
+    ):
+        load_engine(required_capability=[])  # type: ignore[arg-type]
+    assert raised.value.reason_code == "lra_extension_capability_unknown"
+
+
+def test_optional_capability_inventory_is_strict_only_on_selected_path() -> None:
+    distribution, api = _installed()
+    api.extension_descriptor()["capabilities"] = [
+        MULTISITE_PUBLICATION_CAPABILITY,
+        MULTISITE_PUBLICATION_CAPABILITY,
+    ]
+    with (
+        patch.object(metadata, "distribution", return_value=distribution),
+        patch.object(discovery, "import_module", return_value=api),
+    ):
+        assert load_engine().api is api
+        with pytest.raises(LRARefusal) as raised:
+            load_engine(required_capability=MULTISITE_PUBLICATION_CAPABILITY)
+    assert raised.value.reason_code == "lra_extension_capability_invalid"

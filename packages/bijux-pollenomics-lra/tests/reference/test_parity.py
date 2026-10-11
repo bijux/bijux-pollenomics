@@ -6,6 +6,10 @@ import subprocess
 import sys
 
 from lra_oracle.cases import build_cases, r_literal
+from lra_oracle.prospective import (
+    EXPECTED_DECLARATION_SHA256,
+    load_prospective_optimized_declaration,
+)
 from lra_oracle.scope import R_COMPATIBLE_API
 from lra_oracle.stored import run_stored_parity
 import numpy as np
@@ -17,7 +21,7 @@ from bijux_pollenomics_lra.dispersal.rounding import r_round
 @pytest.mark.parametrize("digits", [0, 2, 3, 4])
 def test_r_round_handles_sign_and_nonfinite(digits: int) -> None:
     values = np.array([0.015, 0.025, 2.675, np.inf, np.nan, 0.0])
-    result = r_round(values, digits)
+    result = np.asarray(r_round(values, digits))
     np.testing.assert_allclose(r_round(-values, digits), -result, equal_nan=True)
     assert np.isinf(result[3]) and np.isnan(result[4])
 
@@ -49,9 +53,33 @@ def test_live_oracle_preparation_covers_all_apis(tmp_path: Path) -> None:
     assert setup
 
 
+def test_prospective_optimized_declaration_is_frozen_and_covered(
+    tmp_path: Path,
+) -> None:
+    declaration = load_prospective_optimized_declaration()
+    assert declaration.declaration_sha256 == EXPECTED_DECLARATION_SHA256
+    assert len(declaration.cases) == 3
+    assert declaration.rtol == declaration.atol == 1e-10
+    assert len({case.input_sha256 for case in declaration.cases}) == 3
+    _, cases = build_cases(tmp_path)
+    prepared = {case.name: case for case in cases}
+    for declared in declaration.cases:
+        assert f"{declared.case_id}_intermediates" in prepared
+        assert f"{declared.case_id}_taxon_axis" in prepared
+        ring_axis = prepared[f"{declared.case_id}_ring_axis"]
+        assert ring_axis.expected.dtype.kind in "USO"
+        assert ring_axis.exact_indices == ()
+        assert ring_axis.expected[10] == "24.8"
+        wrapper = prepared[f"{declared.case_id}_wrapper_replay"]
+        assert wrapper.exact_indices
+        assert f"{declared.case_id}_nonfinite_objective" in prepared
+        assert f"{declared.case_id}_all_nonfinite_refusal" in prepared
+
+
 def test_r_literals_escape_and_encode_arrays() -> None:
     assert r_literal('a"b') == '"a\\"b"'
     assert r_literal(np.nan) == "NA_real_"
+    assert r_literal(24.799999999999997) == "0x1.8ccccccccccccp+4"
     matrix = r_literal(np.array([[1, 2], [3, 4]]))
     assert matrix.startswith("array(c(") and "dim=c(2,2)" in matrix
 
@@ -75,7 +103,9 @@ def test_prepare_only_writes_explicit_nonexecution_report(
     )
     assert completed.returncode == 0, completed.stderr
     report = json.loads((output / "report.json").read_text())
+    oracle = (output / "oracle.R").read_text()
     assert report["status"] == "prepared_not_executed"
     assert report["live_R_executed"] is False
+    assert 'sprintf("%.17g",val)' in oracle
     assert (output / "python_expected_not_R_goldens.npz").is_file()
     assert (output / "oracle.R").is_file()

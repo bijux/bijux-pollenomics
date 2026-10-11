@@ -4,7 +4,7 @@ audience: reader
 type: explanation
 status: canonical
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-09-04
+last_reviewed: 2026-09-21
 ---
 
 # RAÄ Exports
@@ -12,8 +12,10 @@ last_reviewed: 2026-09-04
 RAÄ is intended to provide Sweden-specific archaeology context from
 Riksantikvarieämbetet/Fornsök Open Data. The repository retains capture
 metadata and derived density files for audit, but RAÄ is not currently an
-admitted export. Source authority is refused until the raw inventory, raw
-summary, normalized counts, and qualified scientific review reconcile.
+admitted scientific export. Decision D2-033 publishes only the exact v0.1.8
+normalized pair as default-visible degraded historical context. Source authority
+is refused until the raw inventory, raw summary, normalized counts, and
+qualified scientific review reconcile.
 
 ## Current Governed Surface
 
@@ -21,14 +23,18 @@ summary, normalized counts, and qualified scientific review reconcile.
 | --- | --- |
 | source inventory denominator | unavailable |
 | classified-record denominators | unavailable |
-| admitted public density features | none |
+| displayed historical density features | 106 |
+| scientifically admitted density features | none |
 | temporal evidence | not applicable while authority is refused |
 
 `data/raa/normalized/sweden_archaeology_layer.json` and
 `data/raa/normalized/sweden_archaeology_density.geojson` are retained evidence
-of an earlier derived surface. They do not establish a current source
-population and are excluded from governed maps, reports, and analytical
-counts. Unavailable denominators are not zeroes.
+of an earlier derived surface. Their hashes are bound to the v0.1.8 pair before
+display; a substituted pair is withheld. They do not establish a current source
+population and are excluded from analytical counts. Unavailable denominators
+are not zeroes. The 106 cell values sum to 339,412, while metadata declares
+318,265 `Fornlämning`; that 21,147 disagreement is carried into the map status,
+legend, popup and publication contract.
 
 ```mermaid
 flowchart LR
@@ -42,8 +48,9 @@ flowchart LR
 
 If authority is admitted in a future capture, a one-degree density feature
 will remain an aggregate display object, not an archaeological site or sample.
-Until then, values inside the retained files are historical provenance only
-and cannot support current source-wide or cell-level claims.
+Until then, values inside the retained files are historical provenance only.
+They may be displayed for orientation under D2-033 but cannot support current
+source-wide or cell-level scientific claims.
 
 | Reuse operation | Defensible result | Information lost or invented |
 | --- | --- | --- |
@@ -58,8 +65,9 @@ source population cannot be reconstructed or compared responsibly.
 
 ## Supported Interpretation
 
-No current public or analytical interpretation is supported. After a future
-authority admission, a regenerated layer may support questions about the
+No current analytical interpretation is supported. The current public display
+means only that an exact retained cell and value exist in the historical pair.
+After a future authority admission, a regenerated layer may support questions about the
 spatial density of published Swedish archaeology records under a declared
 classification and grid.
 
@@ -71,13 +79,15 @@ It does not establish:
 - equivalent archaeology coverage outside Sweden; or
 - exact site chronology from a density cell.
 
-The refused surface cannot contribute numeric temporal evidence. Its absence
-from a governed view means “authority refused,” not “no archaeology observed.”
+The refused surface cannot contribute numeric temporal evidence. Its degraded
+presence means “retained historical context,” not “authority admitted” or “no
+archaeology observed.”
 
 ## Reuse Contract
 
-Do not publish or analyze the retained density files as current RAÄ evidence.
-Preserve them unchanged for audit. A future admitted export must bind its raw
+Do not analyze the retained density files as current RAÄ evidence. Publish only
+the exact hash-bound pair as degraded display context, preserving the visible
+authority and count warnings. A future admitted export must bind its raw
 inventory, normalized population, classification, grid definition, source
 identity, review decision, and temporal posture, and must be regenerated from
 that authority rather than recovered from a downstream map.

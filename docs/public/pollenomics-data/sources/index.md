@@ -36,6 +36,16 @@ or admitted to a product.
 | [AADR](aadr.md) | human ancient-DNA evidence | release-versioned sample metadata | current scope excludes genotype processing |
 | [Animal source intake](animal-source-intake.md) | sample-owned animal aDNA evidence | project, paper, supplement, sample, locality, and chronology recovery | source completeness varies by project and sample |
 
+## Reference candidates outside the family registry
+
+[EMPD2](empd2.md) has a hash-bound Nordic pollen count screen and unresolved
+cross-database identity leads. Its 914 mechanical candidates are not admitted
+LRA inputs or independent measured vegetation references.
+
+The [Nordic forest-inventory access review](nordic-nfi-reference-access.md)
+checks four country-level measured tree-plot source leads and records why none
+is yet an admitted vegetation–pollen reference cohort.
+
 ## Choose By Question And Observation Unit
 
 The most convenient layer is not necessarily the right evidence. Select a

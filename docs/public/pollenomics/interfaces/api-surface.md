@@ -247,3 +247,28 @@ the latter conditions on the now-observed count total. Missing targets and
 incompatible taxon denominators remain explicit. These primitives do not
 materialize real source observations, choose a regional background, authenticate
 scientific review, or constitute a complete experiment runner.
+
+## Governed observation and release-scoring products
+
+The evaluation API exposes a prospective, fixed-order lifecycle rather than a
+raw-row scoring shortcut:
+
+1. `build_observation_access_plan` and `start_outcome_access` freeze the exact
+   value-free denominator and durably record process-local access start.
+2. `read_observation_source_products` reads only the two planned paths and
+   returns an `ObservationSourceCompletionReceipt` containing separate
+   `MeasuredVegetationSourceProduct` and `HeldoutPollenCountSourceProduct`
+   parents, or persists a terminal refusal.
+3. `build_authenticated_observation_product` rederives model-free assignments;
+   `build_observed_six_cell_product` attaches available outcomes identically to
+   each frozen model/baseline pair while retaining source exclusions separately.
+4. `evaluate_observed_six_cell_product` accepts only the resulting
+   `ObservedSixCellEvaluationProduct` and emits one parent-bound two-protocol
+   `ObservedSixCellEvaluationResult`.
+
+Every product has an exact canonical reopen function. Callers cannot substitute
+row tuples, source mappings, adapter callbacks or iterables at the release
+scorer. Canonical receipts retain structural provenance and process ordering,
+but do not prove historical human non-access or authenticate external rights,
+taxon decisions, reviewer identity, threshold approval, empirical accuracy or
+scientific acceptance.
