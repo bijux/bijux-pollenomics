@@ -6,7 +6,7 @@ from typing import IO
 
 import pytest
 
-from bijux_pollenomics.collection.sources.quarantine import IntakeRefusal
+from bijux_pollenomics.collection.sources.quarantine import IntakeRefusal, sha256_stream
 from bijux_pollenomics.collection.sources.rootsi import normalization
 
 
@@ -64,7 +64,7 @@ def test_archive_identity_keeps_hash_and_size_on_one_descriptor(
     replacement_path = tmp_path / "replacement.7z"
     replacement_path.write_bytes(replacement)
     expected_digest = hashlib.sha256(original).hexdigest()
-    real_sha256_stream = normalization.sha256_stream
+    real_sha256_stream = sha256_stream
 
     def replace_path_after_descriptor_open(stream: IO[bytes]) -> str:
         replacement_path.replace(path)

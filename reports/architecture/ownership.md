@@ -63,8 +63,12 @@ or qualified scientific review.
 The [output ownership inventory](../../configs/ci/report-ownership.json)
 assigns every tracked report path exactly one declaration. Its population is
 1,948 paths: 709 declared publisher paths, 125 original-R retained source
-files, 246 generated domain outputs, 62 maintained source files, 176
-maintained reader accounts and 630 paths with unresolved output custody.
+files, 284 generated domain outputs, 62 maintained source files, 176
+maintained reader accounts and 592 paths with unresolved output custody.
+The Solsø and Dalmutladdo age-supported scorers contribute two output files
+each. Their qualified wrappers authenticate the complete author snapshot
+before and after scoring existing frozen predictions; they do not refit
+predictions or establish independent scientific admission.
 These role counts describe the current declarations. They do not measure
 how many outputs have been independently reproduced.
 
@@ -92,13 +96,37 @@ admission.
 
 The compact English shared-PPE owner authenticates the full original author
 snapshot through its explicit descriptor and rebuilds private request evidence
-transiently. Its conservative closure binds 1,162 semantic/bootstrap code paths,
+transiently. Its conservative closure binds 1,163 semantic/bootstrap code paths,
 seven repository metadata/descriptor inputs and 194 external source files.
 The broad code closure reflects eager package imports; source identity checks
 cover that initialization even when particular functions do not use every
 imported domain. This declaration requires a real producer replay and does
 not make the source-use or scientific admission decision.
 
+
+Four additional original-author source accounts declare qualified producers:
+parameter binding, Swedish taxonomy mass, unresolved taxonomy candidates and
+17-site preparation counts. Their closures bind 247, 251, 250 and 249 inputs,
+respectively, including the full 193-file snapshot and its manifest. They
+preserve the existing report bytes, unmapped/excluded counts, discussion-only
+concepts and zero scientific admission. The declarations require both actual
+configured producer lanes; they do not establish source-use rights, historical
+population completeness or ecological validation.
+
+The original 17-site taxon-support ledger additionally binds 250 producer
+and source inputs. It retains literal gaps and whitespace witnesses across
+31 targets, with both original admission flags false. Its qualified wrapper
+authenticates all 40 consumed source identities within the complete snapshot;
+source custody cannot settle those biological or historical decisions.
+
+The Nordic author taxonomy mass owner consumes the same qualified snapshot
+with its original source count producer. Its closure names 1,041 code paths
+and 37 repository inputs, including raw and relational Neotoma source parts.
+Its two outputs preserve 81 sites, 5,432 selected samples and 116,727 observation
+rows. Native NISP partitions into 3,370,312 assigned, 269,144 excluded and
+36,613 unmapped counts; every LRA admission count stays zero. Qualification
+authenticates source custody. Configured and installed execution must still
+reproduce the two current governed bytes before accepting this owner.
 
 Three propagation outputs declare their exact repository input closure.
 The derived edge ledger consumes retained compact event and classification
@@ -421,7 +449,7 @@ refusals; their wrapper code is part of the declared producer closure.
 absent `REBUILD_EVIDENCE_ROOT`. Assembly accepts `REBUILD_OWNER_IDS` and
 `REBUILD_OWNER_ARTIFACTS_ROOT`; final verification accepts the same identities
 and both `REBUILD_REFERENCE_OWNERS_ROOT` and `REBUILD_REPLAY_OWNERS_ROOT`.
-The execution configuration currently names 87 generated owners covering 240
+The execution configuration currently names 106 generated owners covering 284
 tracked report paths. Reproducing a configured subset establishes only those
 owners' declared files.
 The complete report-tree comparison remains mandatory and refuses any missing owner. The scientific CI

@@ -82,7 +82,7 @@ def _scorable_joined(
             for fold in protocol.scope.folds
             if fold.fold_id == value.fold_id and value.record_id in fold.test_record_ids
         )
-        fit_inputs = (fold.train_record_ids[0],)
+        fit_inputs: tuple[str, ...] = (fold.train_record_ids[0],)
         observed_pollen = value.observed_pollen
         if value.observed_pollen is not None:
             governed_channel = next(

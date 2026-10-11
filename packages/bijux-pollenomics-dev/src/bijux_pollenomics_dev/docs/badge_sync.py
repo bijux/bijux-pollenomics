@@ -5,16 +5,44 @@ from __future__ import annotations
 import importlib.util
 from pathlib import Path
 import sys
+import tomllib
 from types import ModuleType
 from typing import Any, cast
 
-REPO_ROOT = Path(__file__).resolve().parents[5]
+
+def _repository_root() -> Path:
+    """Bind this repository-only writer to the invoking repository."""
+    root = Path.cwd().resolve()
+    project = root / "pyproject.toml"
+    if not project.is_file() or project.is_symlink():
+        raise RuntimeError(
+            f"Badge synchronization requires the repository root: {root}"
+        )
+    with project.open("rb") as stream:
+        metadata = tomllib.load(stream)
+    if (
+        metadata.get("tool", {}).get("bijux_pollenomics", {}).get("repository")
+        != "bijux-pollenomics"
+    ):
+        raise RuntimeError(f"Not a bijux-pollenomics repository root: {root}")
+    return root
+
+
+REPO_ROOT = _repository_root()
 SHARED_RENDERER = (
     REPO_ROOT / ".bijux/shared/bijux-makes-py/repository/badge_renderer.py"
 )
 
 
 def _load_shared_renderer() -> ModuleType:
+    relative = SHARED_RENDERER.relative_to(REPO_ROOT)
+    current = REPO_ROOT
+    for part in relative.parts:
+        current /= part
+        if current.is_symlink():
+            raise RuntimeError(f"Shared badge renderer path is a symlink: {current}")
+    if not SHARED_RENDERER.is_file():
+        raise RuntimeError(f"Shared badge renderer is unavailable: {SHARED_RENDERER}")
     module_name = "bijux_shared_badge_renderer"
     spec = importlib.util.spec_from_file_location(module_name, SHARED_RENDERER)
     if spec is None or spec.loader is None:

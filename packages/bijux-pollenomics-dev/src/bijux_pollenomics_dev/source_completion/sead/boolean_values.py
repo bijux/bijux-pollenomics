@@ -42,9 +42,13 @@ def _reconcile_component(
     parent_digest: str,
 ) -> None:
     parent_id = parent["analysis_value_id"]
+    entity_id = parent["analysis_entity_id"]
+    if type(entity_id) is not int or entity_id <= 0:
+        raise ValueError(f"SEAD boolean parent entity key is invalid: {parent_id}")
     if (
         observation["source_table"] != "tbl_analysis_values"
         or observation["source_record_id"] != str(parent_id)
+        or observation.get("entity_relation_id") != f"sead-analysis-entity:{entity_id}"
         or observation["source_payload_sha256"] != parent_digest
         or _canonical(observation["source_row"]) != _canonical(parent)
         or observation["source_value_field"] != "analysis_value"

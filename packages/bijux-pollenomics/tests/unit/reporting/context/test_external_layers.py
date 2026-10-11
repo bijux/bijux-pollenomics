@@ -152,7 +152,10 @@ class ExternalLayerTests(unittest.TestCase):
         self.assertEqual(feature["time_start_bp"], 100)
         self.assertEqual(feature["time_end_bp"], 200)
         self.assertIsNone(feature["time_mean_bp"])
-        self.assertIn("negative_bp", semantics["uncertainty_notes"])
+        notes = semantics["uncertainty_notes"]
+        self.assertIsInstance(notes, list)
+        assert isinstance(notes, list)
+        self.assertIn("negative_bp", notes)
 
     def test_external_negative_bp_remains_context_without_numeric_admission(
         self,

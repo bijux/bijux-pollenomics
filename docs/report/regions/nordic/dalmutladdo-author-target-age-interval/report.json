@@ -32,7 +32,7 @@
   "parent_nominal_bins": 22,
   "parent_scores_sha256": "6febc4c908470614571b0df3633cfaca218c098cea684929f75b82c56344c205",
   "parent_sealed_outcomes_sha256": "87b1e8f13e5d70c7ac33f9c8c9d2ab1b2d0244b62c2aafc747c9f4fa48f495bf",
-  "protocol_sha256": "a162c3165be72c15902c960194f7ee6eca62768559b232a2110d5c0161aa2786",
+  "protocol_sha256": "446d38d29184295c0aaf035115db290b0e93982e033f9a6e721be9b8e69c0572",
   "refused_boundary_crossing_intervals": 69,
   "refused_no_exact_depth": 1,
   "retained_full_interval_samples": 2,

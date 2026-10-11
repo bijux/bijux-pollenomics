@@ -115,11 +115,23 @@ def account(
     ] or bindings["assignment_methods"] != ["strict_boundary_containment"]:
         raise ValueError("SEAD normalized country binding contract changed")
     codes = bindings["country_codes"]
-    bound = {
-        site_id: (site_uuid, codes[code_index])
-        for site_id, site_uuid, code_index, method_index in bindings["rows"]
-        if method_index == 0
-    }
+    bound: dict[int, tuple[str, str]] = {}
+    for binding in bindings["rows"]:
+        if not isinstance(binding, list) or len(binding) != 4:
+            raise ValueError("SEAD normalized site country binding row changed")
+        site_id, site_uuid, code_index, method_index = binding
+        if (
+            type(site_id) is not int
+            or site_id <= 0
+            or type(site_uuid) is not str
+            or type(code_index) is not int
+            or not 0 <= code_index < len(codes)
+            or type(method_index) is not int
+            or method_index != 0
+            or site_id in bound
+        ):
+            raise ValueError("SEAD normalized site country binding key changed")
+        bound[site_id] = (site_uuid, codes[code_index])
     if len(bound) != len(bindings["rows"]) or set(bound) != set(sites):
         raise ValueError("SEAD normalized site country bindings do not close")
     decisions_by_id = _indexed(decisions, "site_id", "country-decisions")
@@ -397,7 +409,7 @@ def build(repository: Path, output: Path) -> dict[str, Any]:
 
 
 def main() -> None:
-    """Publish country-assigned source units with explicit review exclusions."""
+    """Account for governed SEAD units by site country with explicit review exclusions."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repository", required=True, type=Path)
     parser.add_argument("--output", required=True, type=Path)

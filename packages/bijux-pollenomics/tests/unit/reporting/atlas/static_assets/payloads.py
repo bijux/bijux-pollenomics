@@ -30,4 +30,14 @@ def read_static_asset_payload(path: Path) -> dict[str, object]:
     return payload
 
 
-__all__ = ["read_static_asset_payload"]
+def mapping_rows(value: object) -> list[dict[str, object]]:
+    assert isinstance(value, list)
+    rows: list[dict[str, object]] = []
+    for row in value:
+        assert isinstance(row, dict)
+        assert all(isinstance(key, str) for key in row)
+        rows.append(row)
+    return rows
+
+
+__all__ = ["mapping_rows", "read_static_asset_payload"]

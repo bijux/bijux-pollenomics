@@ -5,6 +5,7 @@ from pathlib import Path
 from types import SimpleNamespace
 
 from bijux_pollenomics.analysis import build_sweden_land_use_synthesis
+from tests.unit.analysis.fieldwork.payload_views import require_rows
 
 
 def test_sweden_land_use_synthesis_keeps_time_and_target_decisions(
@@ -133,7 +134,11 @@ def test_sweden_land_use_synthesis_keeps_time_and_target_decisions(
     assert payload["time_row_count"] == 7
     assert payload["landclim_covered_target_count"] == 7
     assert payload["landclim_uncovered_target_count"] == 1
-    finja = next(row for row in payload["rows"] if row["target_name"] == "Finjasjön")
+    finja = next(
+        row
+        for row in require_rows(payload["rows"])
+        if row["target_name"] == "Finjasjön"
+    )
     assert finja["forest_cover"] == 50.0
     assert finja["quality_class"] == "high"
     assert finja["open_land_cover"] == 50.0
@@ -145,23 +150,26 @@ def test_sweden_land_use_synthesis_keeps_time_and_target_decisions(
     assert finja["animal_adna_sample_count_20km"] == 1
     gullakra = next(
         row
-        for row in payload["target_decisions"]
+        for row in require_rows(payload["target_decisions"])
         if row["requested_name"] == "Gullåkra"
     )
     assert gullakra["lake_decision"] == "exclude_lake_ranking_include_context"
     assert gullakra["registry_id"] == ""
     registry_lake = next(
         row
-        for row in payload["target_decisions"]
+        for row in require_rows(payload["target_decisions"])
         if row["requested_name"] == "Registry Lake"
     )
     assert registry_lake["landclim_coverage_posture"] == "covered_by_governed_grid"
     assert registry_lake["landclim_window_count"] == 1
     outside_grid = next(
         row
-        for row in payload["target_decisions"]
+        for row in require_rows(payload["target_decisions"])
         if row["requested_name"] == "Outside Grid Lake"
     )
     assert outside_grid["landclim_coverage_posture"] == "outside_governed_grid"
     assert outside_grid["landclim_window_count"] == 0
-    assert not any(row["target_name"] == "Outside Grid Lake" for row in payload["rows"])
+    assert not any(
+        row["target_name"] == "Outside Grid Lake"
+        for row in require_rows(payload["rows"])
+    )

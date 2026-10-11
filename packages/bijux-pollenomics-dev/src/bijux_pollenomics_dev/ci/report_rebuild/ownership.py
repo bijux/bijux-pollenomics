@@ -321,7 +321,7 @@ def _require_acyclic_generated_owners(
 
 
 def main(argv: list[str] | None = None) -> int:
-    """Check report ownership and refuse incomplete producer declarations."""
+    """Validate exact tracked report ownership declarations without replay claims."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
         "--repository",

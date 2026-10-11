@@ -3,6 +3,8 @@ from __future__ import annotations
 from pathlib import Path
 import shutil
 
+import pytest
+
 from bijux_pollenomics.reporting.bundles.paths import build_atlas_bundle_paths
 from bijux_pollenomics.reporting.bundles.published_reports import (
     _write_geography_packets,
@@ -36,7 +38,7 @@ from .support import (
 
 
 def test_partitioned_publication_is_byte_identical_to_monolithic_tree(
-    tmp_path: Path, monkeypatch
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
 ) -> None:
     version_dir = tmp_path / "source" / "v66"
     version_dir.mkdir(parents=True)

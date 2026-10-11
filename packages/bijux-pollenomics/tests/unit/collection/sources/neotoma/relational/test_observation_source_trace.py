@@ -6,6 +6,7 @@ import json
 from pathlib import Path
 
 from bijux_pollenomics.collection.sources.neotoma.relational.identifiers import digest
+from tests.support.neotoma.relational_shapes import nested, rows
 
 ROOT = Path(__file__).resolve().parents[8]
 SOURCE_SNAPSHOT_ID = (
@@ -14,7 +15,9 @@ SOURCE_SNAPSHOT_ID = (
 
 
 def _json(path: Path) -> dict[str, object]:
-    return json.loads(path.read_text(encoding="utf-8"))
+    payload = json.loads(path.read_text(encoding="utf-8"))
+    assert isinstance(payload, dict)
+    return payload
 
 
 def test_pinned_observation_attributes_and_parent_ids_survive() -> None:
@@ -23,17 +26,21 @@ def test_pinned_observation_attributes_and_parent_ids_survive() -> None:
     )
     source_rows = [
         row
-        for row in raw["rows"]
-        if row["site"]["siteid"] == 12
-        and row["site"]["collectionunit"]["dataset"]["datasetid"] == 12
+        for row in rows(raw["rows"])
+        if nested(row, "site")["siteid"] == 12
+        and nested(row, "site", "collectionunit", "dataset")["datasetid"] == 12
     ]
     assert len(source_rows) == 1
-    site = source_rows[0]["site"]
-    unit = site["collectionunit"]
-    dataset = unit["dataset"]
-    samples = [sample for sample in dataset["samples"] if sample["sampleid"] == 355236]
+    site = nested(source_rows[0], "site")
+    unit = nested(site, "collectionunit")
+    dataset = nested(unit, "dataset")
+    samples = [
+        sample for sample in rows(dataset["samples"]) if sample["sampleid"] == 355236
+    ]
     assert len(samples) == 1
-    datum_rows = [datum for datum in samples[0]["datum"] if datum.get("taxonid") == 309]
+    datum_rows = [
+        datum for datum in rows(samples[0]["datum"]) if datum.get("taxonid") == 309
+    ]
     assert len(datum_rows) == 1
     datum = datum_rows[0]
     assert datum == {
@@ -54,7 +61,9 @@ def test_pinned_observation_attributes_and_parent_ids_survive() -> None:
     )
     observation_id = f"neotoma:observation:355236:{digest(datum)[:20]}:1"
     observations = [
-        row for row in materialized["rows"] if row["observation_id"] == observation_id
+        row
+        for row in rows(materialized["rows"])
+        if row["observation_id"] == observation_id
     ]
     assert len(observations) == 1
     observation = observations[0]

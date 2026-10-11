@@ -20,7 +20,7 @@ class SourceError(ValueError):
 
 @dataclass(frozen=True)
 class Paper:
-    """Bind one inventoried report to its identity, citation and source digest."""
+    """Bind one canonical report to its source identity and inventory account."""
 
     paper_id: str
     relative_path: PurePosixPath
@@ -31,12 +31,12 @@ class Paper:
 
 
 def sha256_bytes(data: bytes) -> str:
-    """Hash the exact report source bytes for artifact custody."""
+    """Return the SHA-256 digest of the exact supplied bytes."""
     return hashlib.sha256(data).hexdigest()
 
 
 def file_sha256(path: Path) -> str:
-    """Hash the exact bytes of the declared repository file."""
+    """Return the SHA-256 digest of a repository file's current bytes."""
     return sha256_bytes(path.read_bytes())
 
 
@@ -57,7 +57,7 @@ def _require_plain_path(root: Path, candidate: Path) -> Path:
 
 
 def repository_root(path: Path) -> Path:
-    """Resolve an existing repository root before reading report sources."""
+    """Require a real repository root before resolving report sources."""
     root = path.resolve(strict=True)
     if not root.is_dir() or not (root / ".git").exists():
         raise SourceError(f"not a repository root: {path}")
@@ -65,7 +65,7 @@ def repository_root(path: Path) -> Path:
 
 
 def repository_file(root: Path, value: str | Path) -> Path:
-    """Resolve an owned plain file without crossing symlink boundaries."""
+    """Resolve a repository file while refusing symlinks and path escape."""
     candidate = Path(value)
     if not candidate.is_absolute():
         candidate = root / candidate
@@ -76,7 +76,7 @@ def repository_file(root: Path, value: str | Path) -> Path:
 
 
 def load_inventory(root: Path, value: str | Path) -> tuple[Path, str, list[Paper]]:
-    """Validate complete report inventory identities and bind source hashes."""
+    """Read the canonical paper inventory and pin each report's source bytes."""
     inventory = repository_file(root, value)
     if inventory.suffix != ".csv":
         raise SourceError("inventory must be a CSV file")
@@ -131,7 +131,7 @@ def load_inventory(root: Path, value: str | Path) -> tuple[Path, str, list[Paper
 
 
 def output_directory(root: Path, value: str | Path) -> Path:
-    """Require an absent output directory within repository artifacts."""
+    """Require an absent output directory below repository artifacts."""
     candidate = Path(value)
     if not candidate.is_absolute():
         candidate = root / candidate
@@ -152,7 +152,7 @@ def output_directory(root: Path, value: str | Path) -> Path:
 
 
 def portable_link(root: Path, source: Path, destination: str, revision: str) -> str:
-    """Bind local report links to the declared repository revision."""
+    """Resolve a report link to its pinned portable repository destination."""
     if any(ord(char) < 32 for char in destination):
         raise SourceError("control character in Markdown link")
     parsed = urlsplit(destination)

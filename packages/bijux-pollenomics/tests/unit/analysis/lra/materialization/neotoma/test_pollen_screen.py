@@ -71,23 +71,21 @@ def test_context_only_age_refuses_a_pollen_count_sample(tmp_path: Path) -> None:
 
 
 def test_comparable_claim_requires_owner_type_and_ordered_numeric_bounds() -> None:
-    claim = {
-        "source_claim": {
-            "comparability_status": "comparable",
-            "source_age_type": "Calendar years BP",
-            "younger_bp": 100,
-            "older_bp": 200,
-        },
-        "ownership_mismatches": [],
+    source_claim: dict[str, object] = {
+        "comparability_status": "comparable",
+        "source_age_type": "Calendar years BP",
+        "younger_bp": 100,
+        "older_bp": 200,
     }
+    claim = {"source_claim": source_claim, "ownership_mismatches": []}
     assert _comparable_owned_claim(claim)
     assert not _comparable_owned_claim({**claim, "ownership_mismatches": ["site_id"]})
     assert not _comparable_owned_claim(
-        {**claim, "source_claim": {**claim["source_claim"], "source_age_type": None}}
+        {**claim, "source_claim": {**source_claim, "source_age_type": None}}
     )
     assert not _comparable_owned_claim(
-        {**claim, "source_claim": {**claim["source_claim"], "younger_bp": 300}}
+        {**claim, "source_claim": {**source_claim, "younger_bp": 300}}
     )
     assert not _comparable_owned_claim(
-        {**claim, "source_claim": {**claim["source_claim"], "older_bp": True}}
+        {**claim, "source_claim": {**source_claim, "older_bp": True}}
     )

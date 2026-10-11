@@ -18,6 +18,7 @@ on its tested sites; neither measures vegetation accuracy.
 
 | Start here | Question answered |
 | --- | --- |
+| [Scientific concepts](glossary.md) | What do counts, age bins, LRA components, error metrics and evidence roles mean? |
 | [Papers and evidence roles](papers.md) | Which original finding, calculation and validation claim does each paper support? |
 | [Reports and presentations](downloads.md) | Download the nine canonical paper PDFs and three audience briefings for offline reading. |
 | [Country evidence status](country-status.md) | What is scored, refused or still missing in each Nordic country? |
@@ -31,7 +32,14 @@ connects headline findings to numeric tables, manifests and producers. Open
 source questions remain visible in the repository's
 [`reports/needed` register](https://github.com/bijux/bijux-pollenomics/tree/main/reports/needed).
 
+## Use the application
+
 Follow the [atlas walkthrough](../interfaces/atlas-walkthrough.md) to inspect
 one published modeled-context cell, trace its source and reproduce its
 bounded country/window summary. The route separates map behavior from
 scientific acceptance.
+
+For installation and command usage, follow [installation and setup](../operations/installation-and-setup.md)
+and the [supported interfaces](../interfaces/index.md). Read the input
+prerequisites before selecting an exploratory reconstruction; a working map
+or command does not supply missing scientific inputs.

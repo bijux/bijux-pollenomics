@@ -98,7 +98,7 @@ def _ancient_audit_row(
     coordinate: PigSiteCoordinateEvidence | None,
 ) -> PigPanelJoinAuditRow:
     row_number, row = workbook_row
-    statuses = tuple(cell(row, index) for index in (33, 37, 38))
+    statuses: tuple[str, str, str] = (cell(row, 33), cell(row, 37), cell(row, 38))
     domestication_status, disposition, disposition_reason = classify_domestication(
         sample_label, statuses
     )

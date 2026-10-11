@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+from collections.abc import Callable
+
 import numpy as np
 import pandas as pd
 import pytest
@@ -207,7 +209,9 @@ def test_invalid_ring_support_cannot_double_count_or_mislabel_geometry(
     reason: str,
 ) -> None:
     local, regional, params, rings = load_love_example()
-    rings.iloc[1, rings.columns.get_loc(column)] = value
+    position = rings.columns.get_loc(column)
+    assert isinstance(position, int)
+    rings.iat[1, position] = value
     with pytest.raises(ValidationError) as error:
         run_love(local, regional, params["ppes"], rings, _config().love)
     assert error.value.reason_code == reason
@@ -215,4 +219,6 @@ def test_invalid_ring_support_cannot_double_count_or_mislabel_geometry(
 
 def test_fractional_regional_diameter_is_rejected_not_truncated() -> None:
     with pytest.raises(ValidationError, match="integer"):
-        LoveConfig("analytical", "lake", 300.5, 12.9, 10)
+        diameter: object = 300.5
+        dynamic_config: Callable[..., LoveConfig] = LoveConfig
+        dynamic_config("analytical", "lake", diameter, 12.9, 10)

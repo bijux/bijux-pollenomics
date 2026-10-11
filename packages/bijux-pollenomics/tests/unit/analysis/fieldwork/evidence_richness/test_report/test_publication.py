@@ -18,6 +18,7 @@ from bijux_pollenomics.analysis import (
     write_lake_evidence_richness_registry_csv,
     write_lake_evidence_richness_scenario_csv,
 )
+from tests.unit.analysis.fieldwork.payload_views import require_mapping, require_rows
 
 from .support import (
     _locality,
@@ -307,9 +308,10 @@ def test_source_spatiotemporal_registry_does_not_override_scoped_counts() -> Non
             animal_localities=(),
         )
 
-        landclim_summary = report.methodology["source_temporal_coverage"][
-            "landclim_pollen"
-        ]
+        landclim_summary = require_mapping(
+            report.methodology["source_temporal_coverage"]
+        )["landclim_pollen"]
+        landclim_summary = require_mapping(landclim_summary)
         assert landclim_summary["record_count"] == 1
         assert landclim_summary["numeric_interval_record_count"] == 1
 
@@ -369,4 +371,4 @@ def test_lake_evidence_geojson_matches_report_candidate_count() -> None:
         )
         geojson = build_lake_evidence_richness_geojson(report)
 
-        assert len(geojson["features"]) == report.candidate_count
+        assert len(require_rows(geojson["features"])) == report.candidate_count

@@ -38,6 +38,8 @@ from bijux_pollenomics.collection.sources.aadr.materialization.source_rows impor
     load_aadr_source_table,
 )
 
+from .payload_views import require_mapping, require_rows, require_strings
+
 _AADR_TEST_HEADER = "\t".join(
     (
         "Genetic ID",
@@ -119,10 +121,14 @@ class SourceContractPublicationTests(unittest.TestCase):
                 counts={"sead_point_count": 4},
             )
 
-        row = next(row for row in payload["rows"] if row["source_key"] == "sead")
+        row = next(
+            row for row in require_rows(payload["rows"]) if row["source_key"] == "sead"
+        )
         self.assertEqual(row["published_status"], "present")
         self.assertEqual(row["publication_posture"], "published_with_review_support")
-        self.assertNotIn("missing_published_surface", row["blocking_reasons"])
+        self.assertNotIn(
+            "missing_published_surface", require_strings(row["blocking_reasons"])
+        )
 
     def test_stale_raa_and_boundary_files_do_not_admit_publication(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
@@ -152,14 +158,16 @@ class SourceContractPublicationTests(unittest.TestCase):
                 },
             )
 
-        rows = {row["source_key"]: row for row in payload["rows"]}
+        rows = {row["source_key"]: row for row in require_rows(payload["rows"])}
         for source_key in ("raa", "boundaries"):
             row = rows[source_key]
             self.assertEqual(row["authority_status"], "refused")
             self.assertEqual(
                 row["publication_posture"], "refused_not_publication_ready"
             )
-            self.assertIn("source_authority_refused", row["blocking_reasons"])
+            self.assertIn(
+                "source_authority_refused", require_strings(row["blocking_reasons"])
+            )
         self.assertEqual(rows["raa"]["published_status"], "refused")
         self.assertEqual(rows["boundaries"]["published_status"], "present")
         self.assertEqual(
@@ -167,7 +175,9 @@ class SourceContractPublicationTests(unittest.TestCase):
             {"raa_total_site_count": None, "raa_heritage_site_count": None},
         )
         self.assertEqual(
-            rows["boundaries"]["coverage_metrics"]["boundary_country_count"],
+            require_mapping(rows["boundaries"]["coverage_metrics"])[
+                "boundary_country_count"
+            ],
             None,
         )
 
@@ -238,16 +248,22 @@ class SourceContractPublicationTests(unittest.TestCase):
             )
 
         pending = next(
-            row for row in pending_payload["rows"] if row["source_key"] == "svar"
+            row
+            for row in require_rows(pending_payload["rows"])
+            if row["source_key"] == "svar"
         )
         admitted = next(
-            row for row in admitted_payload["rows"] if row["source_key"] == "svar"
+            row
+            for row in require_rows(admitted_payload["rows"])
+            if row["source_key"] == "svar"
         )
         self.assertEqual(pending["authority_status"], "review_required")
         self.assertEqual(
             pending["publication_posture"], "review_required_not_publication_ready"
         )
-        self.assertEqual(pending["coverage_metrics"]["svar_lake_count"], 2)
+        self.assertEqual(
+            require_mapping(pending["coverage_metrics"])["svar_lake_count"], 2
+        )
         self.assertEqual(admitted["authority_status"], "admitted")
         self.assertEqual(
             admitted["publication_posture"], "published_with_review_support"
@@ -287,9 +303,13 @@ class SourceContractPublicationTests(unittest.TestCase):
             )
 
         animal_row = next(
-            row for row in payload["rows"] if row["source_key"] == "animal_adna"
+            row
+            for row in require_rows(payload["rows"])
+            if row["source_key"] == "animal_adna"
         )
-        self.assertEqual(animal_row["coverage_metrics"]["animal_sample_count"], 37)
+        self.assertEqual(
+            require_mapping(animal_row["coverage_metrics"])["animal_sample_count"], 37
+        )
 
     def test_fact_and_artifact_contract_payloads_choose_governing_surfaces(
         self,
@@ -303,12 +323,14 @@ class SourceContractPublicationTests(unittest.TestCase):
         self.assertEqual(
             artifact_payload["schema_version"], "evidence-artifact-contracts.v1"
         )
-        fact_keys = {row["fact_key"] for row in fact_payload["rows"]}
-        artifact_keys = {row["artifact_key"] for row in artifact_payload["rows"]}
+        fact_keys = {row["fact_key"] for row in require_rows(fact_payload["rows"])}
+        artifact_keys = {
+            row["artifact_key"] for row in require_rows(artifact_payload["rows"])
+        }
         self.assertIn("animal_sample_identity", fact_keys)
         self.assertIn("country_publication_bundle", artifact_keys)
 
-        facts = {row["fact_key"]: row for row in fact_payload["rows"]}
+        facts = {row["fact_key"]: row for row in require_rows(fact_payload["rows"])}
         self.assertEqual(
             facts["sead_archaeology_context"]["governing_surface_path"],
             SEAD_NORMALIZED_EVIDENCE_MANIFEST,
@@ -327,7 +349,9 @@ class SourceContractPublicationTests(unittest.TestCase):
         )
         self.assertIn(
             SEAD_ADMITTED_ACQUISITION_ADMISSION,
-            facts["sead_archaeology_context"]["supporting_surface_paths"],
+            require_strings(
+                facts["sead_archaeology_context"]["supporting_surface_paths"]
+            ),
         )
 
     def test_materialize_adna_governance_contracts_writes_role_and_project_contracts(

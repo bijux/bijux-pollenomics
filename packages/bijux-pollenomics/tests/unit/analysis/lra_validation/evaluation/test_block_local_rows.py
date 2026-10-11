@@ -185,12 +185,14 @@ def test_adapter_freezes_local_model_and_target_pollen_free_baseline(
         scope=_scope(),
     )
     model, baseline = rows
+    assert model.source_model is not None
     assert (model.model_id, model.source_model.kind) == (
         LOCAL_METHOD,
         "local_pollen_assimilation",
     )
     assert model.observed_pollen is not None
     assert model.fitted_model_sha256 is None
+    assert baseline.source_model is not None
     assert (baseline.model_id, baseline.source_model.kind) == (
         BLOCK_BASELINE_METHOD,
         "admitted_reconstruction_training_mean",
@@ -201,8 +203,10 @@ def test_adapter_freezes_local_model_and_target_pollen_free_baseline(
     assert (
         validate_frozen_prediction(baseline) == "pollenomics-evaluation-prediction.v2"
     )
-    assert model.observation is baseline.observation is None
-    assert model.interval is baseline.interval is None
+    assert model.observation is None
+    assert baseline.observation is None
+    assert model.interval is None
+    assert baseline.interval is None
 
 
 def test_cross_product_admission_change_refuses(
@@ -226,7 +230,7 @@ def test_cross_product_admission_change_refuses(
 def test_parent_refusal_stays_unfrozen_without_invented_values(
     tmp_path: Path, monkeypatch: pytest.MonkeyPatch
 ) -> None:
-    failure = {
+    failure: dict[str, object] = {
         "fold_id": "block:b",
         "record_id": "p2",
         "method": LOCAL_METHOD,
@@ -244,7 +248,9 @@ def test_parent_refusal_stays_unfrozen_without_invented_values(
     model, baseline = rows
     assert model.status == "prediction_failed"
     assert model.reason == "parent_refused:no_admitted_anchor"
-    assert model.prediction is model.source_model is model.prediction_sha256 is None
+    assert model.prediction is None
+    assert model.source_model is None
+    assert model.prediction_sha256 is None
     assert baseline.status == "predicted"
 
 

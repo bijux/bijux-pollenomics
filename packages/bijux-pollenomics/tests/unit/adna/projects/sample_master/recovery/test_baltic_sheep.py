@@ -11,6 +11,9 @@ from bijux_pollenomics.adna.projects.sample_master.tables import _read_xlsx_rows
 from bijux_pollenomics.adna.projects.sample_master.tables.baltic_sheep import (
     build_baltic_sheep_join_audit,
 )
+from bijux_pollenomics.adna.projects.sample_master.tables.baltic_sheep.reconciliation import (
+    BalticSheepJoinAuditRow,
+)
 from bijux_pollenomics.adna.workflow.source_artifacts import read_source_artifact_text
 from tests.support.repository import REPOSITORY_ROOT
 
@@ -53,7 +56,7 @@ def _audit(
     astf_rows: tuple[tuple[str, ...], ...],
     akas_rows: tuple[tuple[str, ...], ...],
     archive_text: str,
-) -> object:
+) -> tuple[BalticSheepJoinAuditRow, ...]:
     return build_baltic_sheep_join_audit(
         source_path=WORKBOOK_SOURCE_PATH,
         ancient_remains_rows=ancient_rows,

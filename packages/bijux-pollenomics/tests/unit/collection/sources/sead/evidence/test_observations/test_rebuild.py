@@ -11,6 +11,7 @@ from bijux_pollenomics.collection.sources.sead.acquisition.governed import (
     governed_sead_expected_identity,
 )
 from bijux_pollenomics.collection.sources.sead.evidence import rebuild
+from bijux_pollenomics.evidence.sources.sead import SEAD_GOVERNED_EVIDENCE_RUN_ID
 
 
 def _repository(tmp_path: Path) -> tuple[Path, Path]:
@@ -42,7 +43,7 @@ def test_rebuild_uses_pinned_identity_and_validates_offline(
     calls: list[str] = []
 
     def validate_admission(acquisition_root: Path, *, data_root: Path) -> object:
-        assert acquisition_root.name == rebuild.SEAD_GOVERNED_EVIDENCE_RUN_ID
+        assert acquisition_root.name == SEAD_GOVERNED_EVIDENCE_RUN_ID
         assert data_root == repository / "data"
         calls.append("admission")
         return object()
@@ -89,7 +90,7 @@ def test_rebuild_uses_pinned_identity_and_validates_offline(
     assert result["file_count"] == 54
     assert result["network_policy"] == "forbidden"
     identity = governed_sead_expected_identity(repository / "data")
-    assert identity.run_id == rebuild.SEAD_GOVERNED_EVIDENCE_RUN_ID
+    assert identity.run_id == SEAD_GOVERNED_EVIDENCE_RUN_ID
     assert identity.country_authority_root == (repository / "data/boundaries").resolve()
 
 

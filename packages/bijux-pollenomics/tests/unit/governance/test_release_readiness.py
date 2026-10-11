@@ -1,10 +1,12 @@
 from __future__ import annotations
 
 import unittest
+from unittest.mock import patch
 
 from bijux_pollenomics.governance import (
     build_release_bar,
     build_release_readiness_report,
+    release_readiness,
 )
 
 
@@ -34,6 +36,58 @@ class ReleaseReadinessUnitTests(unittest.TestCase):
 
         self.assertTrue(report.atlas_bundle_contract_ok)
         self.assertNotIn("atlas_bundle_contract_failed", report.findings)
+
+    def test_atlas_contract_refuses_malformed_artifact_container(self) -> None:
+        with patch(
+            "bijux_pollenomics.reporting.bundles.summary_builders.atlas."
+            "build_multi_country_map_summary",
+            return_value={
+                "schema_version": "geographic-evidence-surface-summary.v1",
+                "artifacts": ["candidate_sites_json"],
+                "map_publication_contract": {
+                    "schema_version": "map-publication-contract.v1"
+                },
+            },
+        ):
+            self.assertFalse(release_readiness._atlas_bundle_contract_ok())
+
+    def test_atlas_contract_refuses_missing_manifest_artifact(self) -> None:
+        with patch(
+            "bijux_pollenomics.reporting.bundles.summary_builders.atlas."
+            "build_multi_country_bundle_manifest",
+            return_value={
+                "schema_version": "geographic-evidence-surface-manifest.v1",
+                "artifacts": {},
+            },
+        ):
+            self.assertFalse(release_readiness._atlas_bundle_contract_ok())
+
+    def test_ranking_contract_refuses_malformed_profile(self) -> None:
+        with patch(
+            "bijux_pollenomics.analysis.review.fieldwork."
+            "build_candidate_sites_json_payload",
+            return_value={
+                "schema_version": "candidate-site-ranking.v2",
+                "evidence_boundary": "explicit evidence and missingness signals",
+                "profile": ["atlas_exploration"],
+                "rows": [],
+            },
+        ):
+            self.assertFalse(release_readiness._ranking_provenance_ok())
+
+    def test_release_report_preserves_atlas_refusal_finding(self) -> None:
+        with patch.object(
+            release_readiness, "_atlas_bundle_contract_ok", return_value=False
+        ):
+            report = build_release_readiness_report("dog")
+        self.assertFalse(report.overall_ok)
+        self.assertIn("atlas_bundle_contract_failed", report.findings)
+
+    def test_release_report_preserves_missing_source_refusal(self) -> None:
+        with patch.object(release_readiness, "_source_identity_ok", return_value=False):
+            report = build_release_readiness_report("dog")
+        self.assertFalse(report.overall_ok)
+        self.assertIn("source_identity_contract_failed", report.findings)
 
     def test_release_bar_keeps_current_posture_honest(self) -> None:
         release_bar = build_release_bar()

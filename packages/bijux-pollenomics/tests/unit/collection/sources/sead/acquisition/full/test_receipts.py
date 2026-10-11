@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from email.message import Message
 from urllib.error import HTTPError, URLError
 
 import pytest
@@ -11,6 +12,12 @@ from bijux_pollenomics.collection.sources.sead.acquisition.full import (
 from .support import _acquire
 
 
+def retry_headers(seconds: int) -> Message:
+    headers = Message()
+    headers["Retry-After"] = str(seconds)
+    return headers
+
+
 def test_rate_limit_retry_honors_server_delay() -> None:
     from bijux_pollenomics.collection.sources.sead.acquisition.full import (
         acquire_sead_table,
@@ -19,7 +26,7 @@ def test_rate_limit_retry_honors_server_delay() -> None:
     waits: list[float] = []
     responses: list[object] = [
         HTTPError(
-            "https://browser.sead.se", 429, "rate limited", {"Retry-After": "7"}, None
+            "https://browser.sead.se", 429, "rate limited", retry_headers(7), None
         ),
         [{"site_id": 1}],
     ]
@@ -43,7 +50,9 @@ def test_rate_limit_retry_honors_server_delay() -> None:
     )
     assert waits == [7.0]
     assert result.receipt["status"] == "complete"
-    assert result.receipt["result"]["retry_count"] == 1
+    result_fields = result.receipt["result"]
+    assert isinstance(result_fields, dict)
+    assert result_fields["retry_count"] == 1
 
 
 def test_long_server_delay_fails_closed_without_early_retry() -> None:
@@ -53,7 +62,7 @@ def test_long_server_delay_fails_closed_without_early_retry() -> None:
         nonlocal calls
         calls += 1
         raise HTTPError(
-            "https://browser.sead.se", 429, "rate limited", {"Retry-After": "120"}, None
+            "https://browser.sead.se", 429, "rate limited", retry_headers(120), None
         )
 
     with pytest.raises(SeadAcquisitionError) as raised:

@@ -202,7 +202,7 @@ def export_reports(
     paper_id: str | None = None,
     source_date_epoch: str | None = None,
 ) -> Path:
-    """Export inventoried reports with exact source custody and exclusive output."""
+    """Render inventoried reports into exclusive artifacts with source receipts."""
     root = repository_root(repository)
     inventory, inventory_hash, papers = load_inventory(root, inventory_value)
     output = output_directory(root, output_value)

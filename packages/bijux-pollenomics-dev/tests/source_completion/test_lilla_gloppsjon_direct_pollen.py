@@ -26,11 +26,64 @@ from bijux_pollenomics_dev.source_completion.sambosjon_direct_pollen import _sur
 
 REPOSITORY = Path(__file__).resolve().parents[4]
 GOVERNED = REPOSITORY / study.PROTOCOL.parent
+PUBLICATION_LOCATOR = (
+    "bijux-pollenomics-data/neotoma/publication-links/2026-09-29/"
+    "responses/dataset-4200-publications.json"
+)
+PUBLICATION_SHA256 = "1a13124e576effcbd1f95d5db4b9b7cbda65baf92ab679381b161f209319d471"
+
+
+def _publication_fixture(
+    tmp_path: Path, publication_ids: tuple[int, ...] = (16060,)
+) -> tuple[Path, dict[str, str], Path]:
+    """Exercise the production publication guard with a test-owned response."""
+    repository = tmp_path / "repository"
+    repository.mkdir()
+    response = tmp_path / "publications.json"
+    response.write_text(
+        json.dumps(
+            {
+                "data": [
+                    {
+                        "publication": {
+                            "publicationid": publication_id,
+                            "datasets": [
+                                {"siteid": 3234, "datasetid": 4200, "primary": True}
+                            ],
+                        }
+                    }
+                    for publication_id in publication_ids
+                ]
+            }
+        ),
+        encoding="utf-8",
+    )
+    return (
+        repository,
+        {
+            "publication_response_locator": response.name,
+            "publication_response_sha256": _sha(response),
+        },
+        response,
+    )
 
 
 def test_prepared_metadata_and_predictions_replay_without_observation_read(
     tmp_path: Path, monkeypatch: pytest.MonkeyPatch
 ) -> None:
+    protocol, _ = study._protocol(REPOSITORY)
+    assert protocol["publication_response_locator"] == PUBLICATION_LOCATOR
+    assert protocol["publication_response_sha256"] == PUBLICATION_SHA256
+    source_guard = study._verify_publication
+    fixture_repository, fixture_protocol, _ = _publication_fixture(tmp_path)
+
+    def portable_publication_guard(repository: Path, actual: dict[str, object]) -> None:
+        assert repository == REPOSITORY
+        assert actual["publication_response_locator"] == PUBLICATION_LOCATOR
+        assert actual["publication_response_sha256"] == PUBLICATION_SHA256
+        source_guard(fixture_repository, fixture_protocol)
+
+    monkeypatch.setattr(study, "_verify_publication", portable_publication_guard)
     original_open = Path.open
 
     def guarded_open(
@@ -76,6 +129,22 @@ def test_prepared_metadata_and_predictions_replay_without_observation_read(
     )
 
 
+@pytest.mark.parametrize("publication_ids", [(), (16061,), (16060, 16060)])
+def test_publication_guard_refuses_missing_wrong_or_duplicate_primary(
+    tmp_path: Path, publication_ids: tuple[int, ...]
+) -> None:
+    repository, protocol, _ = _publication_fixture(tmp_path, publication_ids)
+    with pytest.raises(ValueError, match="primary publication changed"):
+        study._verify_publication(repository, protocol)
+
+
+def test_publication_guard_refuses_response_byte_drift(tmp_path: Path) -> None:
+    repository, protocol, response = _publication_fixture(tmp_path)
+    response.write_text('{"data":[]}', encoding="utf-8")
+    with pytest.raises(ValueError, match="publication response changed"):
+        study._verify_publication(repository, protocol)
+
+
 def test_prepare_refuses_changed_selected_age_claim(
     tmp_path: Path, monkeypatch: pytest.MonkeyPatch
 ) -> None:
@@ -91,7 +160,9 @@ def test_prepare_refuses_changed_selected_age_claim(
                     row["site_id"] == study.SITE
                     and row["chronology_id"] == study.CHRONOLOGY
                 ):
-                    row["source_age_value"] = row["source_age_value"] + 1
+                    value = row["source_age_value"]
+                    assert isinstance(value, (int, float))
+                    row["source_age_value"] = value + 1
                     break
         return rows
 
@@ -105,7 +176,7 @@ def test_training_refuses_target_site_entry(monkeypatch: pytest.MonkeyPatch) -> 
     protocol, _ = study._protocol(REPOSITORY)
     original_read = _compressed_read
 
-    def leaked_training(path: Path) -> dict[str, dict[str, object]]:
+    def leaked_training(path: Path) -> object:
         training = original_read(path)
         assert isinstance(training, dict)
         assert all(isinstance(profile, dict) for profile in training.values())
@@ -195,7 +266,7 @@ def test_synthetic_score_retains_refusals_and_all_sample_mass() -> None:
         ],
         "refusals": [],
     }
-    sample_counts: dict[str, scoring_study.SampleCounts] = {
+    sample_counts: dict[str, scoring_study._SampleCounts] = {
         "sample:a": {
             "native_nisp": 10,
             "counts": counts,

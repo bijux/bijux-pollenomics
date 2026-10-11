@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from collections.abc import Sequence
+
 from ...adna import (
     resolve_homo_sapiens_schema,
     sample_time_interval,
@@ -20,7 +22,7 @@ __all__ = [
 ]
 
 
-def resolve_schema(fieldnames):
+def resolve_schema(fieldnames: Sequence[str]) -> dict[str, str | None]:
     """Compatibility wrapper for the Homo sapiens AADR schema contract."""
     try:
         return resolve_homo_sapiens_schema(fieldnames)
@@ -28,7 +30,7 @@ def resolve_schema(fieldnames):
         raise SchemaError(str(error)) from error
 
 
-def find_column(fieldnames, *prefixes):
+def find_column(fieldnames: Sequence[str], *prefixes: str) -> str | None:
     """Compatibility wrapper for schema column resolution."""
     try:
         return resolve_homo_sapiens_schema(fieldnames)[_lookup_key(prefixes)]
@@ -38,7 +40,7 @@ def find_column(fieldnames, *prefixes):
         ) from None
 
 
-def find_optional_column(fieldnames, *prefixes):
+def find_optional_column(fieldnames: Sequence[str], *prefixes: str) -> str | None:
     """Compatibility wrapper for optional schema columns."""
     try:
         return find_column(fieldnames, *prefixes)

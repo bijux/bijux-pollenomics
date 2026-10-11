@@ -122,7 +122,7 @@ def test_governed_admission_rejects_symlinked_raw_payload_tree(
     (mirror / "country-decisions.json").symlink_to(source / "country-decisions.json")
 
     with pytest.raises(ValueError, match="symlink"):
-        production_sead.validate_governed_sead_admission(  # type: ignore[attr-defined]
+        production_sead.validate_governed_sead_admission(
             mirror,
             data_root=data_root,
         )

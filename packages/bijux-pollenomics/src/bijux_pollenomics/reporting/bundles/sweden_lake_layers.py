@@ -173,7 +173,7 @@ def _load_grouped_scenario_rows(
     *,
     registry_csv_path: Path | None,
 ) -> dict[str, list[dict[str, str]]]:
-    grouped_rows = {key: [] for key in _SCENARIO_KEYS}
+    grouped_rows: dict[str, list[dict[str, str]]] = {key: [] for key in _SCENARIO_KEYS}
     with scenario_csv_path.open(newline="", encoding="utf-8") as handle:
         for row in csv.DictReader(handle):
             scenario_key = str(row.get("scenario_key", "")).strip()

@@ -80,9 +80,9 @@ def test_source_moments_match_exact_axis_and_diagonal(tmp_path: Path) -> None:
 def test_source_off_diagonal_and_axis_refused(tmp_path: Path) -> None:
     root, payload = _source_case(tmp_path)
     bad_axis = copy.deepcopy(payload)
-    taxa = bad_axis["taxa"]
-    assert isinstance(taxa, list)
-    taxa[0] = "Other"
+    axis = bad_axis["taxa"]
+    assert isinstance(axis, list)
+    axis[0] = "Other"
     with pytest.raises(ValueError, match="taxon mapping"):
         subject._source_moments(root, bad_axis)
     covariance = root / "author/run.REVEALS.files/avar-RPP.all.landclimII.csv"

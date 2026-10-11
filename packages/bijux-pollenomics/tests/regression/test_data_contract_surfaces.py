@@ -28,7 +28,10 @@ class DataContractSurfaceRegressionTests(unittest.TestCase):
 
         self.assertIn("contract_artifacts", payload)
         self.assertIn("source_family_state_rows", payload)
-        for artifact_path in payload["contract_artifacts"].values():
+        artifacts = payload["contract_artifacts"]
+        assert isinstance(artifacts, dict)
+        for artifact_path in artifacts.values():
+            assert isinstance(artifact_path, str)
             self.assertTrue((REPO_ROOT / artifact_path).is_file())
 
     def test_source_family_contracts_and_stage_matrix_stay_in_sync(self) -> None:

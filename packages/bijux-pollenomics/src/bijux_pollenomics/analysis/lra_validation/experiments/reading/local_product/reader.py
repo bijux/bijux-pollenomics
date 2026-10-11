@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 from pathlib import Path
-from typing import cast
 
 from ....contracts import ValidationRefusal, canonical_json
 from ....splits import grouped_leave_one_out
@@ -77,7 +76,7 @@ def _terminal_accounting(
         ):
             raise ValidationRefusal("invalid_local_prediction_failure", fold_id)
         identity(reason)
-        failures[fold_id] = cast(str, status)
+        failures[fold_id] = status
     terminal = dict.fromkeys(predictions, "predicted")
     terminal.update(failures)
     first_not_run = next(

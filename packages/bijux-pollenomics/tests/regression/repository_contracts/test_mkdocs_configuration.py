@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from collections.abc import Mapping
 import unittest
 
 import pytest
@@ -39,19 +40,38 @@ class MkDocsConfigurationTests(unittest.TestCase):
         def nav_entry(label: str) -> list[object]:
             for item in nav:
                 if label in item:
-                    return item[label]
+                    entries = item[label]
+                    assert isinstance(entries, list)
+                    return entries
             raise AssertionError(f"Missing nav section: {label}")
 
         pollenomics = nav_entry("Pollenomics")
         self.assertEqual(pollenomics[0], {"Overview": "public/pollenomics/index.md"})
+
+        def section_names(entries: list[object]) -> list[str]:
+            names: list[str] = []
+            for item in entries:
+                assert isinstance(item, Mapping)
+                name = next(iter(item.keys()))
+                assert isinstance(name, str)
+                names.append(name)
+            return names
+
         self.assertEqual(
-            [next(iter(item.keys())) for item in pollenomics[1:]],
-            ["Foundation", "Architecture", "Interfaces", "Operations", "Quality"],
+            section_names(pollenomics[1:]),
+            [
+                "Scientific Evidence",
+                "Foundation",
+                "Architecture",
+                "Interfaces",
+                "Operations",
+                "Quality",
+            ],
         )
 
         pollenomics_data = nav_entry("Data")
         self.assertEqual(
-            [next(iter(item.keys())) for item in pollenomics_data[1:]],
+            section_names(pollenomics_data[1:]),
             [
                 "System",
                 "Database",

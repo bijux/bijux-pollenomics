@@ -1,6 +1,8 @@
 from __future__ import annotations
 
 from pathlib import Path
+import shutil
+import subprocess
 import tempfile
 from types import SimpleNamespace
 import unittest
@@ -17,10 +19,15 @@ from bijux_pollenomics.adna.projects.registry.sites import (
     build_sample_site_ambiguity_ledger,
     build_sample_site_manual_curation_queue,
 )
-from bijux_pollenomics.adna.projects.registry.sites import hierarchy as site_hierarchy
 from tests.support.repository import REPOSITORY_ROOT
 
 pytestmark = pytest.mark.generated_artifacts
+
+
+def _count(value: object) -> int:
+    if isinstance(value, bool) or not isinstance(value, int):
+        raise AssertionError("expected a project sample-site count")
+    return value
 
 
 class AdnaProjectSampleSitesUnitTests(unittest.TestCase):
@@ -100,7 +107,7 @@ class AdnaProjectSampleSitesUnitTests(unittest.TestCase):
         sheep_review = next(
             row for row in review_rows if row["project_accession"] == "PRJEB36540"
         )
-        self.assertGreater(sheep_review["direct_sample_site_count"], 10)
+        self.assertGreater(_count(sheep_review["direct_sample_site_count"]), 10)
         self.assertEqual(sheep_review["lacking_defensible_site_assignment_count"], 0)
 
         self.assertTrue(
@@ -113,7 +120,7 @@ class AdnaProjectSampleSitesUnitTests(unittest.TestCase):
         self.assertTrue(
             any(
                 row["project_accession"] == "SRS1407451"
-                and row["queued_sample_count"] > 0
+                and _count(row["queued_sample_count"]) > 0
                 for row in queue_rows
             )
         )
@@ -124,12 +131,12 @@ class AdnaProjectSampleSitesUnitTests(unittest.TestCase):
             pdf_path.write_bytes(b"%PDF-1.4\n")
             with (
                 patch.object(
-                    site_hierarchy.shutil,
+                    shutil,
                     "which",
                     return_value="/usr/bin/gs",
                 ),
                 patch.object(
-                    site_hierarchy.subprocess,
+                    subprocess,
                     "run",
                     return_value=SimpleNamespace(returncode=0, stdout="atlas text"),
                 ) as mock_run,

@@ -1,6 +1,6 @@
 PACKAGE_KIND := python
 PACKAGE_IMPORT_NAME := bijux_pollenomics_dev
-PACKAGE_INSTALL_SPEC := .[dev]
+PACKAGE_INSTALL_SPEC := .[dev,reports]
 RUFF_CONFIG = $(MONOREPO_ROOT)/configs/ruff.toml
 BUILD_PRE_TARGETS := sync-license-assets-package
 TEST_PATHS := tests
@@ -9,8 +9,8 @@ TEST_SOURCE_PATHS := src
 INTERROGATE_PATHS := src
 QUALITY_INTERROGATE_FLAGS = --config "$(MONOREPO_ROOT)/pyproject.toml"
 QUALITY_PATHS := src tests
-SECURITY_AUDIT_PREPARE_MODE = pyproject
-PIP_AUDIT_INPUTS = -r "$(SECURITY_REQS)"
+# Audit the installed third-party closure of the editable workspace packages.
+# The frozen-lock hook below also covers optional and platform registry versions.
 SECURITY_EXTRA_TARGETS := security-locked-dependencies
 SECURITY_SELF_MAKE = $(MAKE) -f "$(MONOREPO_ROOT)/makes/packages/bijux-pollenomics-dev.mk"
 ENABLE_PYDOCSTYLE := 1

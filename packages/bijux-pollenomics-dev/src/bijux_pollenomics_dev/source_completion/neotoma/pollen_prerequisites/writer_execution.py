@@ -12,7 +12,7 @@ RELATIONAL = Path("data/neotoma/relational")
 
 
 def arguments(argv: list[str] | None = None) -> tuple[Path, Path]:
-    """Parse the repository and artifact output paths."""
+    """Parse required repository and absent artifact output paths for a source writer."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--repository", required=True, type=Path)
     parser.add_argument("--output", required=True, type=Path)
@@ -54,7 +54,7 @@ def confined_paths(repository: Path, output: Path) -> tuple[Path, Path, Path, Pa
 
 
 def retained_object(repository: Path, relative: Path) -> dict[str, Any]:
-    """Read a real retained prerequisite file and require a JSON object."""
+    """Read a real repository-bound Neotoma prerequisite and require a JSON object."""
     source = repository / relative
     if source.is_symlink() or not source.is_file() or source.resolve() != source:
         raise ValueError("retained Neotoma prerequisite is not a real repository file")

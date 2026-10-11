@@ -12,8 +12,44 @@ from .repository_paths import REPO_ROOT
 pytestmark = pytest.mark.generated_artifacts
 
 
+def _mapping(value: object) -> dict[str, object]:
+    if not isinstance(value, dict):
+        raise AssertionError("expected an animal evidence mapping")
+    result: dict[str, object] = {}
+    for key, item in value.items():
+        if not isinstance(key, str):
+            raise AssertionError("animal evidence keys must be strings")
+        result[key] = item
+    return result
+
+
+def _rows(value: object) -> tuple[dict[str, object], ...]:
+    if not isinstance(value, list):
+        raise AssertionError("expected animal evidence rows")
+    return tuple(_mapping(row) for row in value)
+
+
+def _text(value: object) -> str:
+    if not isinstance(value, str):
+        raise AssertionError("expected animal evidence text")
+    return value
+
+
+def _count(value: object) -> int:
+    if isinstance(value, bool) or not isinstance(value, int):
+        raise AssertionError("expected an animal evidence count")
+    return value
+
+
+def _text_items(value: object) -> tuple[str, ...]:
+    if not isinstance(value, list):
+        raise AssertionError("expected animal evidence identifiers")
+    return tuple(_text(item) for item in value)
+
+
 def _load_json(relative_path: str) -> dict[str, object]:
-    return json.loads((REPO_ROOT / relative_path).read_text(encoding="utf-8"))
+    payload = json.loads((REPO_ROOT / relative_path).read_text(encoding="utf-8"))
+    return _mapping(payload)
 
 
 def _normalized_markdown(relative_path: str) -> str:
@@ -49,24 +85,25 @@ class PublicAnimalClaimParityTests(unittest.TestCase):
             "project_sample_master_completeness.json"
         )
 
-        candidate_rows = candidates["rows"]
-        self.assertIsInstance(candidate_rows, list)
+        candidate_rows = _rows(candidates["rows"])
         sample_ids = {
             sample_id
             for row in candidate_rows
-            for sample_id in row["sample_record_ids"]
+            for sample_id in _text_items(row["sample_record_ids"])
         }
-        scope_counts = Counter(row["animal_scope"] for row in candidate_rows)
-        readiness_totals = readiness["totals"]
-        foundation_summary = foundation["summary"]
-        project_rows = sample_master["rows"]
+        scope_counts = Counter(_text(row["animal_scope"]) for row in candidate_rows)
+        readiness_totals = _mapping(readiness["totals"])
+        foundation_summary = _mapping(foundation["summary"])
+        project_rows = _rows(sample_master["rows"])
 
         published_features = len(candidate_rows)
         mapped_samples = len(sample_ids)
-        recovered_raw = sum(row["recovered_sample_count"] for row in project_rows)
-        final_samples = sum(row["final_sample_count"] for row in project_rows)
+        recovered_raw = sum(
+            _count(row["recovered_sample_count"]) for row in project_rows
+        )
+        final_samples = sum(_count(row["final_sample_count"]) for row in project_rows)
         contributing_projects = sum(
-            row["final_sample_count"] > 0 for row in project_rows
+            _count(row["final_sample_count"]) > 0 for row in project_rows
         )
 
         self.assertEqual(candidates["row_count"], published_features)
@@ -77,13 +114,13 @@ class PublicAnimalClaimParityTests(unittest.TestCase):
             readiness_totals["publication_candidate_count"], published_features
         )
         self.assertEqual(
-            readiness_totals["coordinate_provenance_mappable_count"],
-            published_features + readiness_totals["not_materialized_count"],
+            _count(readiness_totals["coordinate_provenance_mappable_count"]),
+            published_features + _count(readiness_totals["not_materialized_count"]),
         )
         self.assertEqual(
-            readiness_totals["coordinate_provenance_row_count"],
-            readiness_totals["coordinate_provenance_mappable_count"]
-            + readiness_totals["refused_coordinate_provenance_count"],
+            _count(readiness_totals["coordinate_provenance_row_count"]),
+            _count(readiness_totals["coordinate_provenance_mappable_count"])
+            + _count(readiness_totals["refused_coordinate_provenance_count"]),
         )
         self.assertEqual(final_samples, foundation_summary["sample_row_count"])
 
@@ -93,7 +130,7 @@ class PublicAnimalClaimParityTests(unittest.TestCase):
         required_claims = (
             f"**{final_samples:,} final sample rows**",
             (
-                f"**{foundation_summary['tracked_species_count']:,} species and "
+                f"**{_count(foundation_summary['tracked_species_count']):,} species and "
                 f"{contributing_projects:,} contributing projects**"
             ),
             f"**{len(project_rows):,} tracked projects**",
@@ -124,13 +161,15 @@ class PublicAnimalClaimParityTests(unittest.TestCase):
             ("blocked: weak chronology", "blocked_weak_chronology_count"),
         ):
             with self.subTest(foundation=field):
-                self.assertIn(f"| {label} | {foundation_summary[field]:,} |", intake)
+                self.assertIn(
+                    f"| {label} | {_count(foundation_summary[field]):,} |", intake
+                )
 
         point_rules = _normalized_markdown(
             "docs/public/pollenomics-data/publications/point-rules.md"
         )
         confidence_counts = Counter(
-            row["coordinate_confidence"] for row in candidate_rows
+            _text(row["coordinate_confidence"]) for row in candidate_rows
         )
         self.assertIn(
             f"{confidence_counts['exact']:,} `exact`, "
@@ -142,11 +181,11 @@ class PublicAnimalClaimParityTests(unittest.TestCase):
             "docs/public/pollenomics-data/evidence/coordinates.md"
         )
         self.assertIn(
-            f"{readiness_totals['coordinate_provenance_row_count']:,} "
+            f"{_count(readiness_totals['coordinate_provenance_row_count']):,} "
             "coordinate-provenance rows therefore reconcile to "
-            f"{readiness_totals['coordinate_provenance_mappable_count']:,} "
+            f"{_count(readiness_totals['coordinate_provenance_mappable_count']):,} "
             "mappable and "
-            f"{readiness_totals['refused_coordinate_provenance_count']:,} refused",
+            f"{_count(readiness_totals['refused_coordinate_provenance_count']):,} refused",
             coordinates,
         )
 
@@ -194,7 +233,7 @@ class PublicAnimalClaimParityTests(unittest.TestCase):
         readiness = _load_json("data/adna/governance/cross_species_map_readiness.json")
         wadi_rows = [
             row
-            for row in readiness["not_materialized_rows"]
+            for row in _rows(readiness["not_materialized_rows"])
             if row["project_accession"] == "SRP073444"
         ]
         self.assertEqual(len(wadi_rows), 1)
@@ -202,9 +241,9 @@ class PublicAnimalClaimParityTests(unittest.TestCase):
         self.assertEqual(reason_code, "no_admitted_sample_backed_locality_candidate")
         self.assertFalse(
             any(
-                "Wadi Halfa" in row["locality"]
+                "Wadi Halfa" in _text(row["locality"])
                 or row["primary_project_accession"] == "SRP073444"
-                for row in candidates["rows"]
+                for row in _rows(candidates["rows"])
             )
         )
 

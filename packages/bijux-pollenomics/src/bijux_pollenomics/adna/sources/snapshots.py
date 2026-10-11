@@ -1,6 +1,10 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from .archive.contracts import AdnaArchiveProject
 
 __all__ = [
     "ADNA_SOURCE_CAPTURE_BASES",
@@ -295,7 +299,9 @@ _ARCHIVE_SOURCE_SNAPSHOTS = {
 }
 
 
-def resolve_archive_source_snapshot(project) -> AdnaArchiveSourceSnapshot:
+def resolve_archive_source_snapshot(
+    project: AdnaArchiveProject,
+) -> AdnaArchiveSourceSnapshot:
     """Resolve the offline source snapshot for one curated archive record."""
     payload = _ARCHIVE_SOURCE_SNAPSHOTS[project.project_accession]
     return AdnaArchiveSourceSnapshot(

@@ -114,9 +114,11 @@ def _patch_local_batch(
 
 
 def _local_scientific(product: ExperimentProduct) -> dict[str, Any]:
-    return json.loads((product.directory / "manifest.json").read_text())[
-        "scientific_payload"
-    ]
+    document: object = json.loads((product.directory / "manifest.json").read_text())
+    assert isinstance(document, dict)
+    scientific = document["scientific_payload"]
+    assert isinstance(scientific, dict)
+    return scientific
 
 
 def test_failed_and_unobserved_batch_items_publish_only_refusals(

@@ -6,6 +6,7 @@ import json
 from pathlib import Path
 from unittest.mock import patch
 
+import pandas as pd
 import pytest
 
 from bijux_pollenomics.analysis.lra import publication_draws
@@ -14,6 +15,9 @@ from bijux_pollenomics.analysis.lra.engine.errors import LRARefusal
 from bijux_pollenomics.analysis.lra.execution import regional_draw_love
 from bijux_pollenomics.analysis.lra.outputs.reading import read_lra_product
 from bijux_pollenomics_lra import api as engine_api
+from bijux_pollenomics_lra.models.configuration import RegionalDrawLoveConfig
+from bijux_pollenomics_lra.models.regional_draw_source import RegionalCoverDrawSource
+from bijux_pollenomics_lra.models.results import LoveResult
 
 from ..support import regional_draw_love_fixture
 from ..test_publication_draws import _bundle, _pin
@@ -82,8 +86,29 @@ def test_source_change_during_calculation_refuses_before_publication(
     binding = _binding()
     original = engine_api.run_love_from_regional_draws
 
-    def mutate_source(*args: object, **kwargs: object) -> object:
-        result = original(*args, **kwargs)
+    def mutate_source(
+        local_pollen: pd.DataFrame,
+        draw_source: RegionalCoverDrawSource,
+        params: pd.DataFrame,
+        rings: pd.DataFrame,
+        config: RegionalDrawLoveConfig,
+        *,
+        local_site_id: str,
+        local_sample_id: str,
+        local_ppe_draws: object | None = None,
+        local_count_draws: object | None = None,
+    ) -> LoveResult:
+        result = original(
+            local_pollen,
+            draw_source,
+            params,
+            rings,
+            config,
+            local_site_id=local_site_id,
+            local_sample_id=local_sample_id,
+            local_ppe_draws=local_ppe_draws,
+            local_count_draws=local_count_draws,
+        )
         member = bundle / "regional-cover-draws/bin-0.csv"
         member.write_text(member.read_text() + "changed\n")
         return result

@@ -33,7 +33,7 @@ def _axis(
         attributes["calendar"] = "365_day"
     else:
         attributes["long_name"] = f"{name} centers"
-    variable = {
+    variable: dict[str, object] = {
         "dtype": "float32",
         "dimensions": [name],
         "shape": [len(values)],
@@ -209,9 +209,9 @@ def write_inputs(tmp_path: Path) -> dict[str, object]:
     }
     result: dict[str, object] = {}
     for role, content in contents.items():
-        path = tmp_path / f"{role}.json"
-        path.write_bytes(content)
-        result[f"{role}_path"] = path
+        output_path = tmp_path / f"{role}.json"
+        output_path.write_bytes(content)
+        result[f"{role}_path"] = output_path
         result[f"expected_{role}_sha256"] = hashlib.sha256(content).hexdigest()
     return result
 

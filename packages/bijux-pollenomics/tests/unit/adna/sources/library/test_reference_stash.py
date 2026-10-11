@@ -21,6 +21,8 @@ from bijux_pollenomics.adna.sources.library.materialization import (
     _materialize_curated_local_supplements,
 )
 
+from .payloads import rows, strings
+
 
 class ReferenceStashTests(unittest.TestCase):
     def test_reference_stash_reconciliation_marks_local_staging_ahead_of_repo(
@@ -48,22 +50,22 @@ class ReferenceStashTests(unittest.TestCase):
 
         cell_row = next(
             row
-            for row in reconciliation["rows"]
+            for row in rows(reconciliation["rows"])
             if row["stash_slug"] == "10.1016-j.cell.2019.03.049"
         )
         checklist_row = next(
             row
-            for row in checklist["rows"]
+            for row in rows(checklist["rows"])
             if row["paper_doi"] == "10.1016/j.cell.2019.03.049"
         )
         family_row = next(
             row
-            for row in file_family_audit["rows"]
+            for row in rows(file_family_audit["rows"])
             if row["paper_doi"] == "10.1016/j.cell.2019.03.049"
         )
         recovery_row = next(
             row
-            for row in recovery["rows"]
+            for row in rows(recovery["rows"])
             if row["paper_doi"] == "10.1016/j.cell.2019.03.049"
         )
         self.assertEqual(cell_row["alignment_status"], "local_reference_ahead_of_repo")
@@ -73,7 +75,9 @@ class ReferenceStashTests(unittest.TestCase):
             checklist_row["acquisition_check_status"],
             "local_reference_ready_for_ingestion",
         )
-        self.assertIn("xlsx_table", family_row["expected_supplementary_file_families"])
+        self.assertIn(
+            "xlsx_table", strings(family_row["expected_supplementary_file_families"])
+        )
         self.assertEqual(
             recovery_row["recovery_status"],
             "local_reference_staged_needs_repo_ingestion",
@@ -105,7 +109,7 @@ class ReferenceStashTests(unittest.TestCase):
         )
         recovery_row = next(
             row
-            for row in recovery["rows"]
+            for row in rows(recovery["rows"])
             if row["paper_doi"] == "10.1111/1755-0998.12551"
         )
         self.assertEqual(paper_row.supplementary_count, 1)

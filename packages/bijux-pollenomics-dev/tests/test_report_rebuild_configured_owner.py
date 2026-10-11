@@ -1124,7 +1124,7 @@ def test_qualified_owner_verifier_rejects_extra_input_and_missing_root(
         repository, OWNER_ID, source_root=root
     )
     policy: dict[str, object] = {"tracked_report_root": "docs/report"}
-    manifest = {
+    manifest: dict[str, object] = {
         "producer_inputs": producer_input_identity(selected.inputs, repository),
         "source_paths": selected.source_paths,
         "producer_command": list(selected.command),
@@ -1144,9 +1144,8 @@ def test_qualified_owner_verifier_rejects_extra_input_and_missing_root(
         _require_current_owner_inputs(
             manifest, repository, OWNER_ID, policy, source_root=root
         )
-    manifest["producer_inputs"] = producer_input_identity(selected.inputs, repository)
-    producer_inputs = manifest["producer_inputs"]
-    assert isinstance(producer_inputs, dict)
+    producer_inputs = producer_input_identity(selected.inputs, repository)
+    manifest["producer_inputs"] = producer_inputs
     producer_inputs["external/legacyage/undeclared.csv"] = {
         "path": str(repository / "unreadable-undeclared.csv"),
         "sha256": "0" * 64,

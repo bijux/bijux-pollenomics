@@ -64,7 +64,7 @@ def test_core_package_make_installs_runtime_dev_extras_for_ci_tests() -> None:
         encoding="utf-8"
     )
 
-    assert "PACKAGE_INSTALL_SPEC := .[dev]" in core_make
+    assert "PACKAGE_INSTALL_SPEC := .[dev,lra]" in core_make
 
 
 def test_shared_package_make_uses_virtualenv_interpreter_as_readiness_target() -> None:

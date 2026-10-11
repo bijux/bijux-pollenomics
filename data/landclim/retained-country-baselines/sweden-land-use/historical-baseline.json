@@ -1,0 +1,22 @@
+{
+  "baseline_revision": "0a3a42ade39112b256faa527b898fb98df2c57cf",
+  "baseline_tree": "9a86afea1c1741636e38adedab324aa756d61a70",
+  "files": {
+    "docs/report/countries/sweden/sweden_land_use_synthesis_v66.csv": {
+      "bytes": 20157,
+      "git_blob_oid": "7345f790ffc37dfe6905991d5017f557352a40d7",
+      "sha256": "3f14ca3fdb36069b44b754c0fc5870b817d781917594b02ddff5e6f381796451"
+    },
+    "docs/report/countries/sweden/sweden_land_use_synthesis_v66.json": {
+      "bytes": 65820,
+      "git_blob_oid": "19851a71beef804646b6d6991bb598b790871dc9",
+      "sha256": "17c7dc55520d67d98f3824a8a279b310ec49e98a0d98fc2b6ed77fa3e2f0defe"
+    },
+    "docs/report/countries/sweden/sweden_land_use_synthesis_v66.md": {
+      "bytes": 3187,
+      "git_blob_oid": "a6e538d79582a435b8db651d958fe0e7ed5c86ef",
+      "sha256": "6dc2dfd47a99011fc9e0b01d5982ed53a9a291769e07047f57519df34f2638c9"
+    }
+  },
+  "schema_version": "sweden-land-use-prior-product.v1"
+}

@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from pathlib import Path
+
 import numpy as np
 import pandas as pd
 import pytest
@@ -203,7 +205,7 @@ def test_sampling_reproducibility_and_dimensions() -> None:
     )
 
 
-def test_full_bundled_record_and_parameter_reordering(tmp_path) -> None:
+def test_full_bundled_record_and_parameter_reordering(tmp_path: Path) -> None:
     dataset = load_dataset("Tiefer_See")
     params = dataset["paramsTS"]
     pollen = dataset["pollenTS"]
@@ -245,7 +247,7 @@ def test_full_bundled_record_and_parameter_reordering(tmp_path) -> None:
     assert not list(tmp_path.iterdir())
 
 
-def test_typed_reveals_result_and_artifacts(tmp_path) -> None:
+def test_typed_reveals_result_and_artifacts(tmp_path: Path) -> None:
     dataset = load_dataset("Tiefer_See")
     config = RevealsConfig(
         "lake", 600, iterations=3, stochastic=False, retain_samples=True

@@ -30,7 +30,7 @@ def test_scientific_fixture_refuses_unaccepted_or_unknown_signals(
     tmp_path: Path,
 ) -> None:
     signals = build_scientific_signals()
-    signals[0]["status"] = "review"
+    signals[0] = {**signals[0], "status": "review"}
     with pytest.raises(ValueError, match="not accepted"):
         write_static_atlas_assets(
             tmp_path,

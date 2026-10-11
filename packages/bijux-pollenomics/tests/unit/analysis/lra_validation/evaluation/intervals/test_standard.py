@@ -5,9 +5,11 @@ from __future__ import annotations
 from dataclasses import replace
 import hashlib
 import json
+import os
 from pathlib import Path
 import shutil
-from typing import Any, cast
+from typing import Any, TypedDict, cast
+from unittest.mock import Mock, patch
 
 import pytest
 
@@ -41,6 +43,13 @@ from bijux_pollenomics.analysis.lra_validation.observation_uncertainty import (
 
 from ...experiments.fitted.test_model import payload
 from ...observation_uncertainty.support import rewrite
+
+
+class _FreezeInputs(TypedDict):
+    predictions: Path
+    expected_prediction_manifest_sha256: str
+    uncertainty: Path
+    expected_uncertainty_manifest_sha256: str
 
 
 def _store_effort(root: Path, record_id: str, effort: int) -> tuple[str, str]:
@@ -96,6 +105,20 @@ def _evaluation_row(source: dict[str, object], method: str) -> EvaluationRow:
 
 @pytest.fixture(scope="module")
 def products(
+    tmp_path_factory: pytest.TempPathFactory,
+) -> tuple[ExperimentProduct, ExperimentProduct, EvaluationRow]:
+    thread_controls = {
+        "OMP_NUM_THREADS": "1",
+        "OPENBLAS_NUM_THREADS": "1",
+        "MKL_NUM_THREADS": "1",
+        "NUMEXPR_NUM_THREADS": "1",
+        "VECLIB_MAXIMUM_THREADS": "1",
+    }
+    with patch.dict(os.environ, thread_controls):
+        return _build_products(tmp_path_factory)
+
+
+def _build_products(
     tmp_path_factory: pytest.TempPathFactory,
 ) -> tuple[ExperimentProduct, ExperimentProduct, EvaluationRow]:
     tmp_path = tmp_path_factory.mktemp("authenticated-interval")
@@ -311,13 +334,7 @@ def test_batch_freezes_complete_paired_denominator_once(
     predictions, uncertainty, _ = products
     rows = _complete_rows(predictions)
     original = intervals._authenticated_draws
-    calls = 0
-
-    def authenticate(*args: object, **kwargs: object) -> object:
-        nonlocal calls
-        calls += 1
-        return original(*args, **kwargs)
-
+    authenticate = Mock(wraps=original)
     monkeypatch.setattr(intervals, "_authenticated_draws", authenticate)
     frozen = freeze_authenticated_pollen_rows(
         rows,
@@ -326,7 +343,7 @@ def test_batch_freezes_complete_paired_denominator_once(
         uncertainty=uncertainty.directory,
         expected_uncertainty_manifest_sha256=uncertainty.manifest_sha256,
     )
-    assert calls == 1
+    assert authenticate.call_count == 1
     assert len(frozen) == len(rows)
     assert all(
         row.interval is not None and row.source_model is not None for row in frozen
@@ -344,7 +361,7 @@ def test_batch_refuses_incomplete_or_parent_mismatched_ledger(
 ) -> None:
     predictions, uncertainty, _ = products
     rows = _complete_rows(predictions)
-    common = {
+    common: _FreezeInputs = {
         "predictions": predictions.directory,
         "expected_prediction_manifest_sha256": predictions.manifest_sha256,
         "uncertainty": uncertainty.directory,
@@ -411,5 +428,6 @@ def test_batch_preserves_authenticated_parent_failure_without_values(
         expected_uncertainty_manifest_sha256=uncertainty.manifest_sha256,
     )
     assert frozen[0] == failure
-    assert frozen[0].prediction is frozen[0].source_model is None
+    assert frozen[0].prediction is None
+    assert frozen[0].source_model is None
     assert all(row.interval is not None for row in frozen[1:])

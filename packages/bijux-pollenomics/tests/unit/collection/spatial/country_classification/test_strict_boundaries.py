@@ -194,7 +194,7 @@ def test_geometry_preparation_is_reused_and_invalidated_after_mutation() -> None
     with patch.object(
         topology,
         "parse_polygon",
-        wraps=topology.parse_polygon,
+        wraps=vars(topology)["parse_polygon"],
     ) as parse_polygon:
         assert not country_classification.point_on_geometry_boundary(
             1.0,

@@ -24,13 +24,13 @@ def test_grouped_training_mean_has_own_fold_lineage_and_model_identity(
 ) -> None:
     spec, fold, fits, groups = fitted_fixture(tmp_path, monkeypatch)
     from bijux_pollenomics.analysis.lra_validation.experiments.fitted import (
-        model,
         training_mean,
     )
-
-    monkeypatch.setattr(
-        training_mean, "prepare_target_forward", model.prepare_target_forward
+    from bijux_pollenomics.analysis.lra_validation.experiments.prediction import (
+        prepare_target_forward,
     )
+
+    monkeypatch.setattr(training_mean, "prepare_target_forward", prepare_target_forward)
     baseline = cast(dict[str, Any], training_mean_model(spec, fold, fits, groups))
     row = cast(
         dict[str, Any],

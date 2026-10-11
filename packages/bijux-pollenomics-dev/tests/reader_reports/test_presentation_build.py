@@ -60,7 +60,7 @@ def test_timeout_kills_compiler_group_and_retains_failure_log(
     tmp_path: Path, monkeypatch: pytest.MonkeyPatch
 ) -> None:
     builder, _ = _builder(tmp_path, monkeypatch)
-    calls = []
+    calls: list[tuple[int, signal.Signals]] = []
 
     class Compiler:
         pid = 12345

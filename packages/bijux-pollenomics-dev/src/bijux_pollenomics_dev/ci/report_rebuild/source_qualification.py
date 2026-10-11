@@ -45,4 +45,10 @@ def validated_external_report_sources(
         )
     if schema == AUTHOR_SNAPSHOT_SCHEMA:
         return validated_author_snapshot(repository, source_root, descriptor_path)
+    if schema == "qualified-landclim-two-grid-packet.v1":
+        from .landclim_two_grid_packet import validated_landclim_two_grid_packet
+
+        return validated_landclim_two_grid_packet(
+            repository, source_root, descriptor_path
+        )
     raise ReportRebuildError("unknown external report source schema")

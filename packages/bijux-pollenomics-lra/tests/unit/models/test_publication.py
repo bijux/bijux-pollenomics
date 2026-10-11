@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from collections.abc import Callable
 from dataclasses import replace
 
 import numpy as np
@@ -31,8 +32,9 @@ from bijux_pollenomics_lra.api import (
 def test_invalid_publication_input_is_refused(
     publication_inputs: MultisiteRevealsInput, changes: dict[str, object]
 ) -> None:
+    dynamic_replace: Callable[..., MultisiteRevealsInput] = replace
     with pytest.raises(ValidationError):
-        replace(publication_inputs, **changes)
+        dynamic_replace(publication_inputs, **changes)
 
 
 def test_source_arrays_are_owned_and_readonly(
@@ -49,5 +51,6 @@ def test_source_arrays_are_owned_and_readonly(
     [{"time_bin_profile": ""}, {"wind_speed_m_s": True}, {"profile": "corrected"}],
 )
 def test_no_implicit_publication_profile(changes: dict[str, object]) -> None:
+    dynamic_replace: Callable[..., PublicationRevealsConfig] = replace
     with pytest.raises(ValidationError):
-        replace(PublicationRevealsConfig("synthetic-bp-v1"), **changes)
+        dynamic_replace(PublicationRevealsConfig("synthetic-bp-v1"), **changes)

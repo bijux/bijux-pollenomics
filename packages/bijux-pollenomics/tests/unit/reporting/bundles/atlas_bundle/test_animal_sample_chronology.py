@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+from dataclasses import replace
 import json
 from pathlib import Path
 from types import SimpleNamespace
@@ -17,6 +18,7 @@ from bijux_pollenomics.reporting.adna import build_animal_sample_chronology_cont
 from bijux_pollenomics.reporting.bundles import atlas_bundle
 from bijux_pollenomics.reporting.bundles.atlas_bundle.contracts import publish_contracts
 from bijux_pollenomics.reporting.bundles.atlas_bundle.layers import prepare_layers
+from bijux_pollenomics.reporting.bundles.paths import build_atlas_bundle_paths
 from bijux_pollenomics.reporting.map_document.static_assets import (
     validate_static_atlas_assets,
     write_static_atlas_assets,
@@ -240,7 +242,8 @@ def test_real_animal_chronology_layers_link_the_accountability_artifact(
 
     atlas_bundle._attach_traceability_surfaces(
         layers,
-        SimpleNamespace(
+        replace(
+            build_atlas_bundle_paths(tmp_path, "world", "v66"),
             animal_sample_chronology_context_json_path=artifact_path,
             samples_geojson_path=tmp_path / "samples.geojson",
             animal_point_traceability_json_path=tmp_path / "animal-points.json",

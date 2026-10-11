@@ -1,5 +1,8 @@
 from __future__ import annotations
 
+from collections.abc import Mapping
+from typing import cast
+
 from ...publication_policy import (
     build_country_report_policy,
     build_sample_inventory_policy,
@@ -12,6 +15,56 @@ __all__ = [
     "render_sample_markdown",
     "render_summary_markdown",
 ]
+
+
+def _present_coordinates(values: list[float | None], *, axis: str) -> list[float]:
+    if any(value is None for value in values):
+        raise ValueError(f"Country report requires {axis} for every sample")
+    return [value for value in values if value is not None]
+
+
+def _required_locality(value: str | None) -> str:
+    if value is None:
+        raise ValueError("Country report locality label is missing")
+    return value
+
+
+def _optional_rows(
+    payload: Mapping[str, object], field: str
+) -> list[dict[str, object]]:
+    value = payload.get(field, [])
+    if not isinstance(value, list) or any(not isinstance(row, dict) for row in value):
+        raise ValueError(f"Map report {field} must be a list of rows")
+    return cast(list[dict[str, object]], value)
+
+
+def _optional_labels(payload: Mapping[str, object], field: str) -> list[str]:
+    value = payload.get(field, [])
+    if not isinstance(value, list) or any(
+        not isinstance(label, str) for label in value
+    ):
+        raise ValueError(f"Map report {field} must be a list of labels")
+    return cast(list[str], value)
+
+
+def _optional_counts(payload: Mapping[str, object], field: str) -> dict[str, int]:
+    value = payload.get(field, {})
+    if not isinstance(value, dict) or any(
+        not isinstance(key, str)
+        or isinstance(count, bool)
+        or not isinstance(count, int)
+        or count < 0
+        for key, count in value.items()
+    ):
+        raise ValueError(f"Map report {field} must contain nonnegative counts")
+    return cast(dict[str, int], value)
+
+
+def _optional_nonnegative_count(payload: Mapping[str, object], field: str) -> int:
+    value = payload.get(field, 0)
+    if isinstance(value, bool) or not isinstance(value, int) or value < 0:
+        raise ValueError(f"Map report {field} must be a nonnegative integer")
+    return value
 
 
 def render_summary_markdown(
@@ -28,8 +81,12 @@ def render_summary_markdown(
 ) -> str:
     """Render the country summary README."""
     policy = build_country_report_policy(report)
-    latitude_values = [sample.latitude for sample in report.samples]
-    longitude_values = [sample.longitude for sample in report.samples]
+    latitude_values = _present_coordinates(
+        [sample.latitude for sample in report.samples], axis="latitude"
+    )
+    longitude_values = _present_coordinates(
+        [sample.longitude for sample in report.samples], axis="longitude"
+    )
     latitude_range = (
         f"`{min(latitude_values):.6f}` to `{max(latitude_values):.6f}`"
         if latitude_values and longitude_values
@@ -50,7 +107,7 @@ def render_summary_markdown(
     )
     top_locality_lines = (
         "\n".join(
-            f"| {escape_pipes(locality.locality)} | {locality.sample_count} | {locality.latitude_text} | {locality.longitude_text} | {escape_pipes(locality.time_label or '-')} | `{','.join(locality.datasets)}` |"
+            f"| {escape_pipes(_required_locality(locality.locality))} | {locality.sample_count} | {locality.latitude_text} | {locality.longitude_text} | {escape_pipes(locality.time_label or '-')} | `{','.join(locality.datasets)}` |"
             for locality in report.localities[:15]
         )
         or "| No matching localities | 0 | - | - | - | - |"
@@ -123,7 +180,7 @@ def render_sample_markdown(report: CountryReport) -> str:
                     escape_pipes(sample.genetic_id),
                     escape_pipes(sample.master_id),
                     escape_pipes(sample.group_id),
-                    escape_pipes(sample.locality),
+                    escape_pipes(_required_locality(sample.locality)),
                     sample.latitude_text,
                     sample.longitude_text,
                     escape_pipes(sample.publication),
@@ -170,52 +227,55 @@ def render_multi_country_map_markdown(
     layer_rows = (
         "\n".join(
             f"| {escape_pipes(str(row['label']))} | `{row['publication_role']}` | {escape_pipes(str(row['coverage_label']))} | `{row['count']}` |"
-            for row in map_publication_contract.get("layer_rows", [])
+            for row in _optional_rows(map_publication_contract, "layer_rows")
         )
         or "| No visible layers | `-` | - | `0` |"
     )
     filter_lines = (
         "\n".join(
             f"- {escape_pipes(str(label))}"
-            for label in map_publication_contract.get("filter_surfaces", [])
+            for label in _optional_labels(map_publication_contract, "filter_surfaces")
         )
         or "- No governed filter surfaces"
     )
     caveat_lines = (
         "\n".join(
             f"- {escape_pipes(str(label))}"
-            for label in map_publication_contract.get("visible_caveats", [])
+            for label in _optional_labels(map_publication_contract, "visible_caveats")
         )
         or "- No governed caveats"
     )
     animal_section = ""
     if (
         animal_atlas_summary
-        and int(animal_atlas_summary.get("total_locality_points", 0)) > 0
+        and _optional_nonnegative_count(animal_atlas_summary, "total_locality_points")
+        > 0
     ):
         layer_group_lines = (
             "\n".join(
-                f"- {label}" for label in animal_atlas_summary.get("layer_groups", [])
+                f"- {label}"
+                for label in _optional_labels(animal_atlas_summary, "layer_groups")
             )
             or "- No animal layer groups shipped"
         )
         animal_filter_lines = (
             "\n".join(
                 f"- {label}"
-                for label in animal_atlas_summary.get("filter_surfaces", [])
+                for label in _optional_labels(animal_atlas_summary, "filter_surfaces")
             )
             or "- No animal-specific filters shipped"
         )
         ui_lines = (
             "\n".join(
-                f"- {label}" for label in animal_atlas_summary.get("ui_surfaces", [])
+                f"- {label}"
+                for label in _optional_labels(animal_atlas_summary, "ui_surfaces")
             )
             or "- No animal-specific inspection surfaces shipped"
         )
         caution_lines = (
             "\n".join(
                 f"- {label}"
-                for label in animal_atlas_summary.get("visible_caveats", [])
+                for label in _optional_labels(animal_atlas_summary, "visible_caveats")
             )
             or "- No animal-specific caveats shipped"
         )
@@ -223,7 +283,9 @@ def render_multi_country_map_markdown(
             "\n".join(
                 f"| {escape_pipes(str(label))} | {count} |"
                 for label, count in sorted(
-                    animal_atlas_summary.get("coordinate_confidence_counts", {}).items()
+                    _optional_counts(
+                        animal_atlas_summary, "coordinate_confidence_counts"
+                    ).items()
                 )
             )
             or "| No visible coordinate-confidence counts | 0 |"
@@ -231,7 +293,7 @@ def render_multi_country_map_markdown(
         species_lines = (
             "\n".join(
                 f"| {escape_pipes(str(row.get('common_name', '')))} | {escape_pipes(str(row.get('latin_name', '')))} | {escape_pipes(str(row.get('animal_scope', '')))} | {row.get('locality_count', 0)} |"
-                for row in animal_atlas_summary.get("species_layers", [])
+                for row in _optional_rows(animal_atlas_summary, "species_layers")
             )
             or "| No animal species layers shipped | - | - | 0 |"
         )

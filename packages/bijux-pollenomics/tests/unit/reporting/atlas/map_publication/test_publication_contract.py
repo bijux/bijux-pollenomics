@@ -265,7 +265,9 @@ class PublicationContractTests(MapPublicationTestCase):
 
                 self.assertEqual(row["publication_role"], "shared_world_scale_layer")
                 self.assertNotIn("withheld", str(row["scope_caveat"]).casefold())
-                self.assertIn("display-only source chronology", row["scope_caveat"])
+                scope_caveat = row["scope_caveat"]
+                assert isinstance(scope_caveat, str)
+                self.assertIn("display-only source chronology", scope_caveat)
                 self.assertEqual(row["group"], "animal-chronology-context")
                 self.assertEqual(
                     row["semantic_role"], "animal_source_chronology_context"

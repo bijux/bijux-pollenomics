@@ -35,6 +35,7 @@ def test_prepared_arrays_own_labeled_inputs_and_are_read_only() -> None:
     regional.iloc[0, 1:] = 0
     table.loc[:, "ppe"] = 99
     np.testing.assert_array_equal(prepared.local_counts, expected)
+    assert prepared.regional_counts is not None
     assert prepared.regional_counts.sum() > 0
     assert not np.any(prepared.ppe_means == 99)
     for values in (

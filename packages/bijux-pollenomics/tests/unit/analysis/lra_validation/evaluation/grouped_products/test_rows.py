@@ -159,7 +159,9 @@ def test_adapter_freezes_exact_fitted_and_training_mean_vegetation_rows(
     assert all(
         row.status == "predicted"
         and row.prediction == (("Alnus", 0.6), ("Betula", 0.4))
-        and row.observation is row.interval is row.observed_pollen is None
+        and row.observation is None
+        and row.interval is None
+        and row.observed_pollen is None
         and validate_frozen_prediction(row) == "pollenomics-evaluation-prediction.v2"
         for row in rows
     )
@@ -182,7 +184,7 @@ def test_parent_terminal_preserves_denominator_without_values(
     scope = _scope()
     fold = scope.folds[0]
     other = next(value for value in FITTED_METHODS if value != method)
-    failure = {
+    failure: dict[str, object] = {
         "fold_id": fold.fold_id,
         "record_ids": ["p3"],
         "method": method,
@@ -201,7 +203,8 @@ def test_parent_terminal_preserves_denominator_without_values(
     failed = by_method[method]
     assert failed.status == "prediction_failed"
     assert failed.reason == f"parent_{status}:{reason}"
-    assert failed.prediction is failed.source_model is None
+    assert failed.prediction is None
+    assert failed.source_model is None
     assert failed.prediction_sha256 is failed.prediction_manifest_json is None
     assert failed.fit_input_ids == ()
     assert by_method[other].status == "predicted"
@@ -267,7 +270,7 @@ def test_scope_product_or_denominator_contradictions_refuse(
     fold = scope.folds[0]
     parents = {(fold.fold_id, method): _parent(method) for method in FITTED_METHODS}
     folds = None
-    methods = FITTED_METHODS
+    methods: tuple[str, ...] = FITTED_METHODS
     if mutation == "fold":
         folds = {fold.fold_id: {**fold.as_dict(), "train_record_ids": ["p1"]}}
     elif mutation == "methods":

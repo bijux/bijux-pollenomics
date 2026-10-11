@@ -1,5 +1,8 @@
 """Load MkDocs YAML while tolerating its application-specific tags."""
 
+from collections.abc import Callable
+from typing import cast
+
 import yaml
 
 
@@ -20,6 +23,10 @@ def _construct_unknown(
     return None
 
 
-MkDocsLoader.add_multi_constructor("", _construct_unknown)
+register_constructor = cast(
+    Callable[[str, Callable[[MkDocsLoader, str, yaml.Node], object]], None],
+    MkDocsLoader.add_multi_constructor,
+)
+register_constructor("", _construct_unknown)
 
 __all__ = ["MkDocsLoader"]

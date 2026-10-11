@@ -410,7 +410,9 @@ def test_block_local_channel_admits_only_target_and_buffered_anchor(
     target = next(site for site in spec.sites if site.record.record_id == "p04")
     anchor = next(site for site in spec.sites if site.record.record_id == "p02")
     evidence = block_local_channel_evidence(spec, fold, target, anchor, admission)
-    assert set(evidence["pollen_channel_closure"]) == {"raw:p04", "raw:p02", "p02"}
+    closure = evidence["pollen_channel_closure"]
+    assert isinstance(closure, tuple)
+    assert set(closure) == {"raw:p04", "raw:p02", "p02"}
     sibling = next(site for site in spec.sites if site.record.record_id == "p05")
     with pytest.raises(ValidationRefusal):
         block_local_channel_evidence(spec, fold, sibling, target, admission)

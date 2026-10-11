@@ -33,7 +33,7 @@ def test_repository_state_override_remains_compatible(
     tmp_path: Path, monkeypatch: pytest.MonkeyPatch
 ) -> None:
     _inputs(tmp_path)
-    observed = request_service._repository_state(tmp_path, "fixture")
+    observed = vars(request_service)["_repository_state"](tmp_path, "fixture")
     dirty_state = {**observed, "dirty": True}
     monkeypatch.setattr(
         request_service,

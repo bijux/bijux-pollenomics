@@ -25,6 +25,29 @@ from tests.unit.adna.sources.library.registries.materialization.support import (
 pytestmark = pytest.mark.generated_artifacts
 
 
+def _mapping(value: object) -> dict[str, object]:
+    if not isinstance(value, dict):
+        raise AssertionError("expected an animal sample accounting mapping")
+    result: dict[str, object] = {}
+    for key, item in value.items():
+        if not isinstance(key, str):
+            raise AssertionError("animal sample accounting keys must be strings")
+        result[key] = item
+    return result
+
+
+def _rows(value: object) -> tuple[dict[str, object], ...]:
+    if not isinstance(value, list):
+        raise AssertionError("expected animal sample accounting rows")
+    return tuple(_mapping(row) for row in value)
+
+
+def _count(value: object) -> int:
+    if isinstance(value, bool) or not isinstance(value, int):
+        raise AssertionError("expected an animal sample count")
+    return value
+
+
 class AdnaSampleTruthUnitTests(unittest.TestCase):
     def test_reindeer_unresolved_placeholder_is_not_a_source_backed_site(self) -> None:
         drift_rows = build_project_locality_count_drift(REPOSITORY_ROOT / "data")
@@ -39,7 +62,7 @@ class AdnaSampleTruthUnitTests(unittest.TestCase):
 
         self.assertEqual(payload["schema_version"], "animal-sample-product-contract.v1")
         self.assertEqual(payload["primary_durable_unit"], "sample_record")
-        required_fields = {row["field"] for row in payload["required_fields"]}
+        required_fields = {row["field"] for row in _rows(payload["required_fields"])}
         self.assertIn("identity.stable_token", required_fields)
         self.assertIn("species_latin_name", required_fields)
         self.assertIn("project_accession", required_fields)
@@ -48,9 +71,15 @@ class AdnaSampleTruthUnitTests(unittest.TestCase):
         self.assertIn("chronology.original_text", required_fields)
         self.assertIn("coordinates.confidence", required_fields)
         self.assertIn("inclusion_status", required_fields)
-        meanings = {row["field"]: row["meaning"] for row in payload["required_fields"]}
-        self.assertIn("younger bound", meanings["chronology.time_start_bp"])
-        self.assertIn("older bound", meanings["chronology.time_end_bp"])
+        meanings = {
+            row["field"]: row["meaning"] for row in _rows(payload["required_fields"])
+        }
+        younger = meanings["chronology.time_start_bp"]
+        older = meanings["chronology.time_end_bp"]
+        assert isinstance(younger, str)
+        assert isinstance(older, str)
+        self.assertIn("younger bound", younger)
+        self.assertIn("older bound", older)
 
     def test_animal_sample_foundation_truth_counts_current_species_and_projects(
         self,
@@ -59,7 +88,7 @@ class AdnaSampleTruthUnitTests(unittest.TestCase):
         payload = build_animal_sample_foundation_truth(repo_root / "data")
 
         self.assertEqual(payload["schema_version"], "animal-sample-foundation-truth.v1")
-        summary = payload["summary"]
+        summary = _mapping(payload["summary"])
         self.assertEqual(summary["tracked_species_count"], 10)
         self.assertEqual(summary["tracked_project_count"], 22)
         self.assertEqual(summary["sample_row_count"], 1468)
@@ -70,7 +99,7 @@ class AdnaSampleTruthUnitTests(unittest.TestCase):
         self.assertEqual(summary["blocked_weak_chronology_count"], 162)
         self.assertEqual(
             sum(
-                int(summary[field])
+                _count(summary[field])
                 for field in (
                     "fully_grounded_count",
                     "partially_grounded_count",
@@ -83,7 +112,7 @@ class AdnaSampleTruthUnitTests(unittest.TestCase):
         )
         sheep_row = next(
             row
-            for row in payload["species_rows"]
+            for row in _rows(payload["species_rows"])
             if row["species_latin_name"] == "Ovis aries"
         )
         self.assertEqual(sheep_row["sample_row_count"], 200)
@@ -315,7 +344,7 @@ class AdnaSampleTruthUnitTests(unittest.TestCase):
             },
         )
         warning_counts = {
-            row["warning_class"]: row["count"] for row in payload["warning_rows"]
+            row["warning_class"]: row["count"] for row in _rows(payload["warning_rows"])
         }
         self.assertEqual(
             warning_counts,
@@ -366,14 +395,15 @@ class AdnaSampleTruthUnitTests(unittest.TestCase):
                 Path(tmp) / "report",
             )
 
-        self.assertEqual(payload["summary"]["total_sample_row_count"], 1)
-        self.assertEqual(payload["summary"]["project_accession_anchor_count"], 1)
+        summary = _mapping(payload["summary"])
+        self.assertEqual(summary["total_sample_row_count"], 1)
+        self.assertEqual(summary["project_accession_anchor_count"], 1)
         self.assertEqual(
-            payload["summary"]["projects_with_project_level_sample_anchors"],
+            summary["projects_with_project_level_sample_anchors"],
             1,
         )
         warning_counts = {
-            row["warning_class"]: row["count"] for row in payload["warning_rows"]
+            row["warning_class"]: row["count"] for row in _rows(payload["warning_rows"])
         }
         self.assertEqual(warning_counts["project_level_sample_anchors"], 1)
 

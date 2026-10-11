@@ -745,6 +745,20 @@ def verify_pft_uncertainty_bounds() -> dict[str, Any]:
     return report
 
 
+def _same_or_adjacent_float(observed: float, expected: float) -> bool:
+    """Allow one binary rounding step across Python summation implementations."""
+    return (
+        math.isfinite(observed)
+        and math.isfinite(expected)
+        and observed
+        in (
+            expected,
+            math.nextafter(expected, math.inf),
+            math.nextafter(expected, -math.inf),
+        )
+    )
+
+
 def verify_sambosjon_contained_age_support(
     scope: dict[str, Any], results: list[list[str]]
 ) -> None:
@@ -800,7 +814,10 @@ def verify_sambosjon_contained_age_support(
             if r["method"] == method and r["status"] == "scored"
         ]
         if len(selected) != summary["paired_bins"] or any(
-            sum(float(r[key]) for r in selected) / len(selected) != summary[key]
+            not _same_or_adjacent_float(
+                sum(float(r[key]) for r in selected) / len(selected),
+                summary[key],
+            )
             for key in (
                 "mae_fraction",
                 "hellinger_distance",

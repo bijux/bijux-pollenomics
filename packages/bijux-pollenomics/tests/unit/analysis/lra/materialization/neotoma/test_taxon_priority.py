@@ -5,7 +5,7 @@ from __future__ import annotations
 from copy import deepcopy
 import hashlib
 import json
-from typing import Any
+from typing import Any, cast
 
 import pytest
 
@@ -15,6 +15,10 @@ from bijux_pollenomics.analysis.lra.materialization.neotoma import (
 )
 from bijux_pollenomics.analysis.lra.materialization.neotoma import (
     taxon_provenance as provenance,
+)
+from bijux_pollenomics.analysis.lra.materialization.reading import (
+    NeotomaEvidence,
+    json_object,
 )
 
 
@@ -44,12 +48,37 @@ class _Evidence:
         pass
 
     def manifest(self) -> dict[str, str]:
-        return json.loads(self.manifest_bytes)
+        manifest = json_object(self.manifest_bytes)
+        validated: dict[str, str] = {}
+        for key, value in manifest.items():
+            assert isinstance(key, str)
+            assert isinstance(value, str)
+            validated[key] = value
+        return validated
 
     def rows(self, surface: str) -> list[_Row]:
         if surface == "observations":
             return self.source_rows
         return self.extra_rows[surface]
+
+
+def _prioritize(
+    evidence: _Evidence, screen: dict[str, Any], review: dict[str, Any]
+) -> dict[str, Any]:
+    return priority.prioritize_neotoma_candidate_taxa(
+        cast(NeotomaEvidence, evidence), screen, review
+    )
+
+
+def _attribute(
+    evidence: _Evidence,
+    screen: dict[str, Any],
+    review: dict[str, Any],
+    prior: dict[str, Any],
+) -> dict[str, Any]:
+    return provenance.attribute_neotoma_priority_datasets(
+        cast(NeotomaEvidence, evidence), screen, review, prior
+    )
 
 
 def _inputs(
@@ -140,7 +169,7 @@ def test_prioritizes_agreeing_pollen_and_never_admits(
     monkeypatch: pytest.MonkeyPatch,
 ) -> None:
     evidence, screen, review = _inputs(monkeypatch)
-    result = priority.prioritize_neotoma_candidate_taxa(evidence, screen, review)
+    result = _prioritize(evidence, screen, review)
 
     assert result["candidate_sample_count"] == 1
     assert result["candidate_pollen_observation_count"] == 1
@@ -161,25 +190,25 @@ def test_rejects_mismatched_screen_or_review(monkeypatch: pytest.MonkeyPatch) ->
     changed_screen = deepcopy(screen)
     changed_screen["sample_decisions"][0]["pollen_count_observations"] += 1
     with pytest.raises(ValueError, match="Candidate pollen observations differ"):
-        priority.prioritize_neotoma_candidate_taxa(evidence, changed_screen, review)
+        _prioritize(evidence, changed_screen, review)
     changed_review = deepcopy(review)
     changed_review["rows"][0]["review_state"] = "accepted"
     with pytest.raises(ValueError, match="bundle digest differs"):
-        priority.prioritize_neotoma_candidate_taxa(evidence, screen, changed_review)
+        _prioritize(evidence, screen, changed_review)
     changed_review["bundle_sha256"] = digest(
         {key: value for key, value in changed_review.items() if key != "bundle_sha256"}
     )
-    later = priority.prioritize_neotoma_candidate_taxa(evidence, screen, changed_review)
+    later = _prioritize(evidence, screen, changed_review)
     assert later["selected_review_state_counts"] == {"accepted": 1}
     assert later["lra_accepted_samples"] == 0
     assert later["publication_allowed"] is False
     evidence.source_rows[0].value["country_code"] = "NO"
     with pytest.raises(ValueError, match="country differs from sample"):
-        priority.prioritize_neotoma_candidate_taxa(evidence, screen, review)
+        _prioritize(evidence, screen, review)
     evidence.source_rows[0].value["country_code"] = "SE"
     evidence.source_rows[0].value["source_value"] = 0.5
     with pytest.raises(ValueError, match="no exact nonnegative count"):
-        priority.prioritize_neotoma_candidate_taxa(evidence, screen, review)
+        _prioritize(evidence, screen, review)
 
 
 def test_priority_dataset_attribution_preserves_native_fields(
@@ -205,11 +234,11 @@ def test_priority_dataset_attribution_preserves_native_fields(
             )
         ],
     }
-    monkeypatch.setattr(provenance, "source_accounting", priority.source_accounting)
-    prior = priority.prioritize_neotoma_candidate_taxa(evidence, screen, review)
-    result = provenance.attribute_neotoma_priority_datasets(
-        evidence, screen, review, prior
+    monkeypatch.setattr(
+        provenance, "source_accounting", priority.__dict__["source_accounting"]
     )
+    prior = _prioritize(evidence, screen, review)
+    result = _attribute(evidence, screen, review, prior)
     assert result["candidate_dataset_count"] == 1
     assert result["dataset_doi_status_counts"] == {"source_doi_listed": 1}
     assert result["rows"][0]["source_datasets"] == [
@@ -225,7 +254,7 @@ def test_priority_dataset_attribution_preserves_native_fields(
     stale = deepcopy(prior)
     stale["rows"][0]["candidate_exact_count_sum"] += 1
     with pytest.raises(ValueError, match="Priority report differs"):
-        provenance.attribute_neotoma_priority_datasets(evidence, screen, review, stale)
+        _attribute(evidence, screen, review, stale)
     evidence.source_rows[0].value["dataset_id"] = "another-dataset"
     with pytest.raises(ValueError, match="Observation dataset differs"):
-        provenance.attribute_neotoma_priority_datasets(evidence, screen, review, prior)
+        _attribute(evidence, screen, review, prior)

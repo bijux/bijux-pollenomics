@@ -3,6 +3,7 @@ from __future__ import annotations
 from copy import deepcopy
 import json
 from pathlib import Path
+from typing import TypedDict
 
 from bijux_pollenomics.collection.contracts.capabilities import (
     build_source_capability_contract_payload,
@@ -59,6 +60,16 @@ _EVIDENCE_PATHS = {
 }
 
 
+class CoverageEvidence(TypedDict):
+    schema_version: str
+    source_key: str
+    reviewed_record_count: int
+    scientifically_admitted_record_count: int
+    review_status: str
+    countries: list[dict[str, object]]
+    evidence_paths: list[dict[str, str]]
+
+
 def _canonical_bytes(value: object) -> bytes:
     return (
         json.dumps(value, ensure_ascii=False, allow_nan=False, indent=2, sort_keys=True)
@@ -66,7 +77,7 @@ def _canonical_bytes(value: object) -> bytes:
     ).encode()
 
 
-def _coverage_evidence(source_key: str) -> dict[str, object]:
+def _coverage_evidence(source_key: str) -> CoverageEvidence:
     is_empd2 = source_key == "empd2"
     record_counts = (
         (132, 20, 622, 141, None, None)
@@ -146,7 +157,7 @@ def _coverage_evidence(source_key: str) -> dict[str, object]:
             ("not_applicable", ["partition_not_applicable"]),
         ),
     }
-    countries = []
+    countries: list[dict[str, object]] = []
     for index, country_code in enumerate(
         ("SE", "DK", "NO", "FI", "UNASSIGNED", "OUTSIDE")
     ):
@@ -238,7 +249,7 @@ def test_reference_metrics_reject_corrupt_identity_and_denominators(
     path = output_root / "empd2/review/country_coverage_evidence.json"
     path.parent.mkdir(parents=True)
     baseline = _coverage_evidence("empd2")
-    attacks = []
+    attacks: list[object] = []
     bad_digest = deepcopy(baseline)
     bad_digest["countries"][0]["source_artifact_sha256"] = "z" * 64
     attacks.append(bad_digest)
@@ -251,7 +262,7 @@ def test_reference_metrics_reject_corrupt_identity_and_denominators(
     reordered_evidence = deepcopy(baseline)
     reordered_evidence["evidence_paths"].reverse()
     attacks.append(reordered_evidence)
-    malformed_evidence = deepcopy(baseline)
+    malformed_evidence: dict[str, object] = dict(deepcopy(baseline))
     malformed_evidence["evidence_paths"] = ["not-an-object"]
     attacks.append(malformed_evidence)
     changed_posture = deepcopy(baseline)
@@ -327,10 +338,12 @@ def test_reference_sources_extend_capabilities_without_normative_promotion() -> 
     payload = build_source_capability_contract_payload()
     sources = payload["sources"]
     assert isinstance(sources, list)
+    normative_contract = payload["normative_contract"]
+    assert isinstance(normative_contract, dict)
 
     assert payload["source_count"] == 11
     assert payload["dimension_count"] == 17
-    assert payload["normative_contract"]["source_count"] == 7
+    assert normative_contract["source_count"] == 7
     assert payload["extension_sources"] == ["aadr", "empd2", "hyde", "nfi"]
     assert len(sources) * payload["dimension_count"] == 187
     by_key = {source["source_key"]: source for source in sources}

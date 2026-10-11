@@ -365,8 +365,8 @@ def validate_payload(
                     fold_id,
                     record_id,
                     method,
-                    cast(str, combination[0]),
-                    cast(str, combination[1]),
+                    combination[0],
+                    combination[1],
                 )
                 for fold_id, record_id in parsed_units
                 for method in sorted((model_id, baseline_id))
@@ -386,7 +386,7 @@ def validate_payload(
             receipt.get("target"),
         )
         if key != expected_key or receipt != row_receipt(
-            cast(ProtocolId, key[0]), cast(str, key[1]), row
+            cast(ProtocolId, key[0]), key[1], row
         ):
             refuse("Prediction product row bytes or ordered identity differ")
         protocol_id = cast(ProtocolId, receipt["protocol_id"])

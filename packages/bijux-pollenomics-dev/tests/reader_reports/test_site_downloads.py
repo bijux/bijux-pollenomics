@@ -16,7 +16,7 @@ HOOK = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(HOOK)
 
 
-class DownloadFile(TypedDict):
+class _DownloadFile(TypedDict):
     """Bind one fixture download to its owned source and exact PDF bytes."""
 
     path: str
@@ -27,15 +27,15 @@ class DownloadFile(TypedDict):
     bytes: NotRequired[int]
 
 
-class DownloadManifest(TypedDict):
+class _DownloadManifest(TypedDict):
     """Retain the complete fixture source and downloadable-file population."""
 
     schema_version: str
     inputs: dict[str, str]
-    files: list[DownloadFile]
+    files: list[_DownloadFile]
 
 
-def _fixture(root: Path) -> DownloadManifest:
+def _fixture(root: Path) -> _DownloadManifest:
     def write(relative: str, content: bytes) -> str:
         path = root / relative
         path.parent.mkdir(parents=True, exist_ok=True)
@@ -43,8 +43,8 @@ def _fixture(root: Path) -> DownloadManifest:
         return hashlib.sha256(content).hexdigest()
 
     inventory = "paper_id,canonical_report\n"
-    rows: list[DownloadFile] = []
-    sources = {}
+    rows: list[_DownloadFile] = []
+    sources: dict[str, str] = {}
     for number in range(9):
         identity = f"paper-{number}"
         source = f"reports/science/{identity}.md"
@@ -88,7 +88,7 @@ def _fixture(root: Path) -> DownloadManifest:
             json.dumps({"decks": list(HOOK.DECKS), "sources": sources}).encode(),
         ),
     }
-    manifest: DownloadManifest = {
+    manifest: _DownloadManifest = {
         "schema_version": "scientific-reader-downloads.v1",
         "inputs": inputs,
         "files": rows,
