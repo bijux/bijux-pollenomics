@@ -1,0 +1,287 @@
+{
+  "schema_version": "author-observed-pollen-spatial-block-scores.v1",
+  "prediction_report_sha256": {
+    "512": "9685d80e30def4f6836f4a41bb2add29b0157af506836599cb1d394078dabfe7",
+    "562": "5c6ea9fc1f48d51aba57ec388ea1d9bdd58b0b33b37ca9140a1b49a6ee748648"
+  },
+  "source": "rmfyfe/landclimII@57ead2e2fcc493d099be4e5a3092fc396e1c3d3a",
+  "split": "leave_one_adjacent_one_degree_grid_out_with_20km_basin_edge_buffer",
+  "method": "inverse_distance_squared_31_taxon_observed_pollen_fraction_by_bin",
+  "target_sites": 17,
+  "independent_outer_blocks": 2,
+  "target_bins_total": 425,
+  "attempted_observed_site_bins": 184,
+  "scored_site_bins": 148,
+  "refused_no_training_site_bins": 36,
+  "site_macro_mae_fraction": 0.025217237116038006,
+  "site_macro_total_variation": 0.3908671752985891,
+  "site_scores": [
+    {
+      "site_id": "BECKHAM",
+      "block_grid_id": "562",
+      "attempted_bins": 11,
+      "scored_bins": 11,
+      "mean_mae_fraction": 0.026648047974392377,
+      "mean_total_variation": 0.41304474360308185
+    },
+    {
+      "site_id": "BROADOWN",
+      "block_grid_id": "512",
+      "attempted_bins": 17,
+      "scored_bins": 11,
+      "mean_mae_fraction": 0.024500624012885153,
+      "mean_total_variation": 0.3797596721997199
+    },
+    {
+      "site_id": "COMERSLA",
+      "block_grid_id": "562",
+      "attempted_bins": 16,
+      "scored_bins": 15,
+      "mean_mae_fraction": 0.021234477802819184,
+      "mean_total_variation": 0.32913440594369736
+    },
+    {
+      "site_id": "CUTHILL2",
+      "block_grid_id": "512",
+      "attempted_bins": 13,
+      "scored_bins": 8,
+      "mean_mae_fraction": 0.02319027837099371,
+      "mean_total_variation": 0.3594493147504025
+    },
+    {
+      "site_id": "EXEBRID",
+      "block_grid_id": "562",
+      "attempted_bins": 10,
+      "scored_bins": 3,
+      "mean_mae_fraction": 0.04179392688610058,
+      "mean_total_variation": 0.6478058667345589
+    },
+    {
+      "site_id": "GOURTEMIRES",
+      "block_grid_id": "562",
+      "attempted_bins": 9,
+      "scored_bins": 9,
+      "mean_mae_fraction": 0.01836612396842166,
+      "mean_total_variation": 0.28467492151053575
+    },
+    {
+      "site_id": "HANGINGS",
+      "block_grid_id": "512",
+      "attempted_bins": 17,
+      "scored_bins": 11,
+      "mean_mae_fraction": 0.021462913721109644,
+      "mean_total_variation": 0.3326751626771995
+    },
+    {
+      "site_id": "HARESDOWN",
+      "block_grid_id": "512",
+      "attempted_bins": 7,
+      "scored_bins": 7,
+      "mean_mae_fraction": 0.013589176425432496,
+      "mean_total_variation": 0.21063223459420372
+    },
+    {
+      "site_id": "LARKBARR",
+      "block_grid_id": "562",
+      "attempted_bins": 9,
+      "scored_bins": 9,
+      "mean_mae_fraction": 0.028372581472880482,
+      "mean_total_variation": 0.4397750128296475
+    },
+    {
+      "site_id": "LOBBSBOG",
+      "block_grid_id": "512",
+      "attempted_bins": 7,
+      "scored_bins": 7,
+      "mean_mae_fraction": 0.023590039309102223,
+      "mean_total_variation": 0.3656456092910845
+    },
+    {
+      "site_id": "LONGBREACH",
+      "block_grid_id": "562",
+      "attempted_bins": 15,
+      "scored_bins": 15,
+      "mean_mae_fraction": 0.023602888961979134,
+      "mean_total_variation": 0.36584477891067657
+    },
+    {
+      "site_id": "MOLECHAM",
+      "block_grid_id": "562",
+      "attempted_bins": 7,
+      "scored_bins": 7,
+      "mean_mae_fraction": 0.024871732551393994,
+      "mean_total_variation": 0.3855118545466069
+    },
+    {
+      "site_id": "NTWITCHEN",
+      "block_grid_id": "562",
+      "attempted_bins": 10,
+      "scored_bins": 10,
+      "mean_mae_fraction": 0.022965435353042313,
+      "mean_total_variation": 0.35596424797215587
+    },
+    {
+      "site_id": "WHH05",
+      "block_grid_id": "512",
+      "attempted_bins": 8,
+      "scored_bins": 4,
+      "mean_mae_fraction": 0.04233910839325647,
+      "mean_total_variation": 0.6562561800954754
+    },
+    {
+      "site_id": "WHH11",
+      "block_grid_id": "512",
+      "attempted_bins": 4,
+      "scored_bins": 4,
+      "mean_mae_fraction": 0.023098191801963056,
+      "mean_total_variation": 0.35802197293042737
+    },
+    {
+      "site_id": "WINDMILL",
+      "block_grid_id": "512",
+      "attempted_bins": 7,
+      "scored_bins": 7,
+      "mean_mae_fraction": 0.02561059867305867,
+      "mean_total_variation": 0.39696427943240936
+    },
+    {
+      "site_id": "WINNEYS",
+      "block_grid_id": "512",
+      "attempted_bins": 17,
+      "scored_bins": 10,
+      "mean_mae_fraction": 0.02345688529381497,
+      "mean_total_variation": 0.363581722054132
+    }
+  ],
+  "block_scores": [
+    {
+      "grid_id": "512",
+      "target_sites": 9,
+      "attempted_site_bins": 97,
+      "scored_site_bins": 69,
+      "refused_no_training_site_bins": 28,
+      "site_macro_mae_fraction": 0.02453753511129071,
+      "median_nearest_training_basin_edge_km": 52.68521445643577,
+      "minimum_nearest_training_basin_edge_km": 20.07817302490274
+    },
+    {
+      "grid_id": "562",
+      "target_sites": 8,
+      "attempted_site_bins": 87,
+      "scored_site_bins": 79,
+      "refused_no_training_site_bins": 8,
+      "site_macro_mae_fraction": 0.025981901871378714,
+      "median_nearest_training_basin_edge_km": 52.707277972093294,
+      "minimum_nearest_training_basin_edge_km": 48.40386329775029
+    }
+  ],
+  "paired_within_grid_comparison": {
+    "local_scores_sha256": "644ca0bd0049f0fe682b75fa24bca1ab9b9a456de3cb4704c2976f33d1c974c9",
+    "common_scored_site_bins": 148,
+    "common_sites": 17,
+    "spatial_site_macro_mae_fraction": 0.025217237116038006,
+    "within_grid_site_macro_mae_fraction": 0.019518231934931206,
+    "spatial_minus_within_grid_mae_fraction": 0.0056990051811068,
+    "spatial_site_macro_total_variation": 0.3908671752985891,
+    "within_grid_site_macro_total_variation": 0.30253259499143365,
+    "spatial_minus_within_grid_total_variation": 0.08833458030715546
+  },
+  "block_reports": [
+    {
+      "schema_version": "author-observed-pollen-spatial-block-predictions.v1",
+      "target_grid_id": "512",
+      "split": "leave_one_adjacent_one_degree_grid_out",
+      "method": "inverse_distance_squared_31_taxon_observed_pollen_fraction_by_bin",
+      "buffer_rule": "minimum_center_distance_minus_both_reported_basin_radii_at_least_20_km_to_every_target_in_block",
+      "buffer_km": 20.0,
+      "site_identity": "author_site_ids; no reviewed cross_database_alias_closure",
+      "source_manifest_sha256": "48d853468f979a04636642c6c757e9d05edf708d799b29cbae4d2286a9ac0acb",
+      "metadata_sha256": "72949e9e3faf417be0b7425fc111a9638b37c4a38aab8f8d82e0c3d8739da2de",
+      "crosswalk_sha256": "3a0f598ba5e550ca39da52b2047b7020b013dad013d15f79bef8e1c3c1a979c3",
+      "target_site_ids": [
+        "BROADOWN",
+        "CUTHILL2",
+        "HANGINGS",
+        "HARESDOWN",
+        "LOBBSBOG",
+        "WHH05",
+        "WHH11",
+        "WINDMILL",
+        "WINNEYS"
+      ],
+      "eligible_training_site_ids": [
+        "BECKHAM",
+        "LARKBARR",
+        "MOLECHAM",
+        "NTWITCHEN"
+      ],
+      "excluded_by_buffer_site_ids": [
+        "COMERSLA",
+        "EXEBRID",
+        "GOURTEMIRES",
+        "LONGBREACH"
+      ],
+      "training_count_sha256": {
+        "BECKHAM": "1982eb43353cb632319d97943decde8539d98111a7ade7ecaaa5757532231b5e",
+        "LARKBARR": "07daff782dae844eaa787e547d1b49937f975f49ea457a9576b9db58ddc4bbf6",
+        "MOLECHAM": "8addaceb66b78791f77bf1b8ff37cb282506baf8b3524b286f0113dde214bc57",
+        "NTWITCHEN": "eaae23b481debf5cbb13b54f94b5ae97187a79d2a0c716ff309d52a7c347a328"
+      },
+      "target_count_files_opened": 0,
+      "attempted_target_bins_without_outcomes": 225,
+      "predicted_target_bins_without_outcomes": 99,
+      "predictions_sha256": "f89c5c467e48bf0045038f4cc5ec23b400527317118ba26315df596208076a58",
+      "statuses_sha256": "913657b9b0a0baf61a0fb34fab99171ac1ae1f1be98781f13b1f33229e0779f1"
+    },
+    {
+      "schema_version": "author-observed-pollen-spatial-block-predictions.v1",
+      "target_grid_id": "562",
+      "split": "leave_one_adjacent_one_degree_grid_out",
+      "method": "inverse_distance_squared_31_taxon_observed_pollen_fraction_by_bin",
+      "buffer_rule": "minimum_center_distance_minus_both_reported_basin_radii_at_least_20_km_to_every_target_in_block",
+      "buffer_km": 20.0,
+      "site_identity": "author_site_ids; no reviewed cross_database_alias_closure",
+      "source_manifest_sha256": "48d853468f979a04636642c6c757e9d05edf708d799b29cbae4d2286a9ac0acb",
+      "metadata_sha256": "72949e9e3faf417be0b7425fc111a9638b37c4a38aab8f8d82e0c3d8739da2de",
+      "crosswalk_sha256": "3a0f598ba5e550ca39da52b2047b7020b013dad013d15f79bef8e1c3c1a979c3",
+      "target_site_ids": [
+        "BECKHAM",
+        "COMERSLA",
+        "EXEBRID",
+        "GOURTEMIRES",
+        "LARKBARR",
+        "LONGBREACH",
+        "MOLECHAM",
+        "NTWITCHEN"
+      ],
+      "eligible_training_site_ids": [
+        "BROADOWN",
+        "CUTHILL2",
+        "HANGINGS",
+        "WHH05",
+        "WHH11",
+        "WINNEYS"
+      ],
+      "excluded_by_buffer_site_ids": [
+        "HARESDOWN",
+        "LOBBSBOG",
+        "WINDMILL"
+      ],
+      "training_count_sha256": {
+        "BROADOWN": "1eb04f58c13321fc9f284186df85003d4f73803f2485b842984f49a64c21a0c8",
+        "CUTHILL2": "a17ad8a86c4fb7fdffda4799dbc8de6909a037f7b106e07263fdd727c4c7f283",
+        "HANGINGS": "8249ce97a114048400a1497924cac0bc1c07fc7ae110dd5f868accd9425eda2f",
+        "WHH05": "298b66d7033703ce42d27f933b4d3ccec3a16f68b35a6fbf7a61806c01c88273",
+        "WHH11": "d38734ceb0c134eeffbb40091a81d3a8a8d32143dd14504296cc7baa38bf735e",
+        "WINNEYS": "b268187404a6ec1b0d0935990acd70bce678c55c95a2fadf38b7e50f27e29dd6"
+      },
+      "target_count_files_opened": 0,
+      "attempted_target_bins_without_outcomes": 200,
+      "predicted_target_bins_without_outcomes": 144,
+      "predictions_sha256": "39dcacd1d784219e8a08faa6cf4f16b616f9c32c1e58ed61ae8c3c5c24340186",
+      "statuses_sha256": "7916259258379bc606293b2207b81ab26aeb15a627fff90ba7c5fce21cb14530"
+    }
+  ],
+  "measured_vegetation_accuracy": "not_evaluated",
+  "swedish_lra_cohort": "not_evaluated"
+}

@@ -1,11 +1,11 @@
 # Sample chronology normalization audit
 
 - Sample rows: `1475`
-- Normalized intervals: `404`
+- Normalized intervals: `405`
 - Normalized points: `528`
 - Text-only rows: `136`
-- Unresolved rows: `407`
-- Direct radiocarbon rows: `822`
+- Unresolved rows: `406`
+- Direct radiocarbon rows: `823`
 - Modeled sample-date rows: `6`
 - Archaeological-context rows: `117`
 - Broad period rows: `1`
@@ -27,7 +27,6 @@
 - `PRJNA1178732`
 - `SRS1407451`
 - `SRP073444`
-- `PRJEB60484`
 
 | Project accession | Sample rows | Interval rows | Point rows | Text-only rows | Unresolved rows | Conflicts |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
@@ -67,7 +66,7 @@
 | PRJEB52590 | 0 | 0 | 0 | 0 | 0 | 0 |
 | PRJEB43564 | 0 | 0 | 0 | 0 | 0 | 0 |
 | PRJEB55549 | 0 | 0 | 0 | 0 | 0 | 0 |
-| PRJEB60484 | 20 | 19 | 0 | 0 | 1 | 0 |
+| PRJEB60484 | 20 | 20 | 0 | 0 | 0 | 0 |
 | PRJEB57293 | 0 | 0 | 0 | 0 | 0 | 0 |
 | PRJEB61721 | 0 | 0 | 0 | 0 | 0 | 0 |
 | PRJNA634908 | 0 | 0 | 0 | 0 | 0 | 0 |

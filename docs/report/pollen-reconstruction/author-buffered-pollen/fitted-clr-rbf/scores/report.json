@@ -1,0 +1,800 @@
+{
+  "schema_version": "author-observed-pollen-spatial-block-scores.v1",
+  "prediction_report_sha256": {
+    "512": "cf73be27204501674670e05fe5068c4629371c6a8ff4ed75e58f0fa9b675eb48",
+    "562": "06a746aec2c8d92ccb6cd91c162aa0bdee75b718e1d1d0d782c1833b2fdcb80b"
+  },
+  "source": "rmfyfe/landclimII@57ead2e2fcc493d099be4e5a3092fc396e1c3d3a",
+  "split": "leave_one_adjacent_one_degree_grid_out_with_20km_basin_edge_buffer",
+  "method": "clr_wgs84_rbf_ridge_half_count_31_taxon_observed_pollen_fraction_by_bin",
+  "target_sites": 17,
+  "independent_outer_blocks": 2,
+  "target_bins_total": 425,
+  "attempted_observed_site_bins": 184,
+  "scored_site_bins": 140,
+  "refused_no_training_site_bins": 36,
+  "refusal_reasons": {
+    "no_training_site_same_bin": 36,
+    "fitted_model_requires_two_training_sites": 8,
+    "no_positive_training_distance": 0
+  },
+  "site_macro_mae_fraction": 0.040564201040558065,
+  "site_macro_total_variation": 0.6287451161286499,
+  "site_scores": [
+    {
+      "site_id": "BECKHAM",
+      "block_grid_id": "562",
+      "attempted_bins": 11,
+      "scored_bins": 11,
+      "mean_mae_fraction": 0.04037535772210344,
+      "mean_total_variation": 0.6258180446926034
+    },
+    {
+      "site_id": "BROADOWN",
+      "block_grid_id": "512",
+      "attempted_bins": 17,
+      "scored_bins": 10,
+      "mean_mae_fraction": 0.040518886711774234,
+      "mean_total_variation": 0.6280427440325006
+    },
+    {
+      "site_id": "COMERSLA",
+      "block_grid_id": "562",
+      "attempted_bins": 16,
+      "scored_bins": 14,
+      "mean_mae_fraction": 0.04175449693532879,
+      "mean_total_variation": 0.6471947024975961
+    },
+    {
+      "site_id": "CUTHILL2",
+      "block_grid_id": "512",
+      "attempted_bins": 13,
+      "scored_bins": 7,
+      "mean_mae_fraction": 0.034516200348056796,
+      "mean_total_variation": 0.5350011053948803
+    },
+    {
+      "site_id": "EXEBRID",
+      "block_grid_id": "562",
+      "attempted_bins": 10,
+      "scored_bins": 2,
+      "mean_mae_fraction": 0.05421095835015628,
+      "mean_total_variation": 0.8402698544274223
+    },
+    {
+      "site_id": "GOURTEMIRES",
+      "block_grid_id": "562",
+      "attempted_bins": 9,
+      "scored_bins": 9,
+      "mean_mae_fraction": 0.03702183019382817,
+      "mean_total_variation": 0.5738383680043366
+    },
+    {
+      "site_id": "HANGINGS",
+      "block_grid_id": "512",
+      "attempted_bins": 17,
+      "scored_bins": 10,
+      "mean_mae_fraction": 0.03890167571111691,
+      "mean_total_variation": 0.6029759735223121
+    },
+    {
+      "site_id": "HARESDOWN",
+      "block_grid_id": "512",
+      "attempted_bins": 7,
+      "scored_bins": 7,
+      "mean_mae_fraction": 0.046689293233090616,
+      "mean_total_variation": 0.7236840451129045
+    },
+    {
+      "site_id": "LARKBARR",
+      "block_grid_id": "562",
+      "attempted_bins": 9,
+      "scored_bins": 9,
+      "mean_mae_fraction": 0.032970398723525966,
+      "mean_total_variation": 0.5110411802146525
+    },
+    {
+      "site_id": "LOBBSBOG",
+      "block_grid_id": "512",
+      "attempted_bins": 7,
+      "scored_bins": 7,
+      "mean_mae_fraction": 0.04796339372926256,
+      "mean_total_variation": 0.7434326028035696
+    },
+    {
+      "site_id": "LONGBREACH",
+      "block_grid_id": "562",
+      "attempted_bins": 15,
+      "scored_bins": 15,
+      "mean_mae_fraction": 0.040904496604942116,
+      "mean_total_variation": 0.6340196973766028
+    },
+    {
+      "site_id": "MOLECHAM",
+      "block_grid_id": "562",
+      "attempted_bins": 7,
+      "scored_bins": 7,
+      "mean_mae_fraction": 0.03227665794371365,
+      "mean_total_variation": 0.5002881981275615
+    },
+    {
+      "site_id": "NTWITCHEN",
+      "block_grid_id": "562",
+      "attempted_bins": 10,
+      "scored_bins": 10,
+      "mean_mae_fraction": 0.03691330461312893,
+      "mean_total_variation": 0.5721562215034984
+    },
+    {
+      "site_id": "WHH05",
+      "block_grid_id": "512",
+      "attempted_bins": 8,
+      "scored_bins": 3,
+      "mean_mae_fraction": 0.03593728564706767,
+      "mean_total_variation": 0.5570279275295489
+    },
+    {
+      "site_id": "WHH11",
+      "block_grid_id": "512",
+      "attempted_bins": 4,
+      "scored_bins": 3,
+      "mean_mae_fraction": 0.03630272349671445,
+      "mean_total_variation": 0.562692214199074
+    },
+    {
+      "site_id": "WINDMILL",
+      "block_grid_id": "512",
+      "attempted_bins": 7,
+      "scored_bins": 7,
+      "mean_mae_fraction": 0.04977706739443335,
+      "mean_total_variation": 0.7715445446137169
+    },
+    {
+      "site_id": "WINNEYS",
+      "block_grid_id": "512",
+      "attempted_bins": 17,
+      "scored_bins": 9,
+      "mean_mae_fraction": 0.042557390331243124,
+      "mean_total_variation": 0.6596395501342684
+    }
+  ],
+  "block_scores": [
+    {
+      "grid_id": "512",
+      "target_sites": 9,
+      "attempted_site_bins": 97,
+      "scored_site_bins": 63,
+      "refused_no_training_site_bins": 28,
+      "refused_insufficient_fit_sites_bins": 6,
+      "refused_no_positive_scale_bins": 0,
+      "site_macro_mae_fraction": 0.041462657400306635,
+      "median_nearest_training_basin_edge_km": 52.68521445643577,
+      "minimum_nearest_training_basin_edge_km": 20.07817302490274
+    },
+    {
+      "grid_id": "562",
+      "target_sites": 8,
+      "attempted_site_bins": 87,
+      "scored_site_bins": 77,
+      "refused_no_training_site_bins": 8,
+      "refused_insufficient_fit_sites_bins": 2,
+      "refused_no_positive_scale_bins": 0,
+      "site_macro_mae_fraction": 0.03955343763584092,
+      "median_nearest_training_basin_edge_km": 52.707277972093294,
+      "minimum_nearest_training_basin_edge_km": 48.40386329775029
+    }
+  ],
+  "paired_within_grid_comparison": {
+    "local_scores_sha256": "644ca0bd0049f0fe682b75fa24bca1ab9b9a456de3cb4704c2976f33d1c974c9",
+    "common_scored_site_bins": 140,
+    "common_sites": 17,
+    "spatial_site_macro_mae_fraction": 0.040564201040558065,
+    "within_grid_site_macro_mae_fraction": 0.0199549512403078,
+    "spatial_minus_within_grid_mae_fraction": 0.020609249800250265,
+    "spatial_site_macro_total_variation": 0.6287451161286499,
+    "within_grid_site_macro_total_variation": 0.3093017442247709,
+    "spatial_minus_within_grid_total_variation": 0.319443371903879
+  },
+  "block_reports": [
+    {
+      "schema_version": "author-observed-pollen-spatial-block-predictions.v1",
+      "target_grid_id": "512",
+      "split": "leave_one_adjacent_one_degree_grid_out",
+      "method": "clr_wgs84_rbf_ridge_half_count_31_taxon_observed_pollen_fraction_by_bin",
+      "buffer_rule": "minimum_center_distance_minus_both_reported_basin_radii_at_least_20_km_to_every_target_in_block",
+      "buffer_km": 20.0,
+      "site_identity": "author_site_ids; no reviewed cross_database_alias_closure",
+      "source_manifest_sha256": "48d853468f979a04636642c6c757e9d05edf708d799b29cbae4d2286a9ac0acb",
+      "metadata_sha256": "72949e9e3faf417be0b7425fc111a9638b37c4a38aab8f8d82e0c3d8739da2de",
+      "crosswalk_sha256": "3a0f598ba5e550ca39da52b2047b7020b013dad013d15f79bef8e1c3c1a979c3",
+      "target_site_ids": [
+        "BROADOWN",
+        "CUTHILL2",
+        "HANGINGS",
+        "HARESDOWN",
+        "LOBBSBOG",
+        "WHH05",
+        "WHH11",
+        "WINDMILL",
+        "WINNEYS"
+      ],
+      "eligible_training_site_ids": [
+        "BECKHAM",
+        "LARKBARR",
+        "MOLECHAM",
+        "NTWITCHEN"
+      ],
+      "excluded_by_buffer_site_ids": [
+        "COMERSLA",
+        "EXEBRID",
+        "GOURTEMIRES",
+        "LONGBREACH"
+      ],
+      "training_count_sha256": {
+        "BECKHAM": "1982eb43353cb632319d97943decde8539d98111a7ade7ecaaa5757532231b5e",
+        "LARKBARR": "07daff782dae844eaa787e547d1b49937f975f49ea457a9576b9db58ddc4bbf6",
+        "MOLECHAM": "8addaceb66b78791f77bf1b8ff37cb282506baf8b3524b286f0113dde214bc57",
+        "NTWITCHEN": "eaae23b481debf5cbb13b54f94b5ae97187a79d2a0c716ff309d52a7c347a328"
+      },
+      "zero_policy": "add_one_half_to_each_named_training_taxon",
+      "pseudocount_per_training_taxon": 0.5,
+      "length_scale_rule": "median_positive_pairwise_training_center_distance_per_bin",
+      "ridge_penalty": 0.01,
+      "fits": [
+        {
+          "bin_id_bp": "50",
+          "training_site_ids": [
+            "BECKHAM",
+            "LARKBARR",
+            "NTWITCHEN"
+          ],
+          "training_count_sha256": {
+            "BECKHAM": "1982eb43353cb632319d97943decde8539d98111a7ade7ecaaa5757532231b5e",
+            "LARKBARR": "07daff782dae844eaa787e547d1b49937f975f49ea457a9576b9db58ddc4bbf6",
+            "NTWITCHEN": "eaae23b481debf5cbb13b54f94b5ae97187a79d2a0c716ff309d52a7c347a328"
+          },
+          "length_scale_km": 9.581452739438708,
+          "ridge_penalty": 0.01,
+          "model_sha256": "ba666b0f923d4cdaf6d5b758a3a0210484044414b73a90eb59732449fd7c4fff"
+        },
+        {
+          "bin_id_bp": "225",
+          "training_site_ids": [
+            "BECKHAM",
+            "LARKBARR",
+            "MOLECHAM",
+            "NTWITCHEN"
+          ],
+          "training_count_sha256": {
+            "BECKHAM": "1982eb43353cb632319d97943decde8539d98111a7ade7ecaaa5757532231b5e",
+            "LARKBARR": "07daff782dae844eaa787e547d1b49937f975f49ea457a9576b9db58ddc4bbf6",
+            "MOLECHAM": "8addaceb66b78791f77bf1b8ff37cb282506baf8b3524b286f0113dde214bc57",
+            "NTWITCHEN": "eaae23b481debf5cbb13b54f94b5ae97187a79d2a0c716ff309d52a7c347a328"
+          },
+          "length_scale_km": 9.457174753717474,
+          "ridge_penalty": 0.01,
+          "model_sha256": "9382d0ab8f87148bd4d02f1796f8f7321c10bc78c1c9cea4944d8a5c6d9c752d"
+        },
+        {
+          "bin_id_bp": "550",
+          "training_site_ids": [
+            "BECKHAM",
+            "LARKBARR",
+            "MOLECHAM",
+            "NTWITCHEN"
+          ],
+          "training_count_sha256": {
+            "BECKHAM": "1982eb43353cb632319d97943decde8539d98111a7ade7ecaaa5757532231b5e",
+            "LARKBARR": "07daff782dae844eaa787e547d1b49937f975f49ea457a9576b9db58ddc4bbf6",
+            "MOLECHAM": "8addaceb66b78791f77bf1b8ff37cb282506baf8b3524b286f0113dde214bc57",
+            "NTWITCHEN": "eaae23b481debf5cbb13b54f94b5ae97187a79d2a0c716ff309d52a7c347a328"
+          },
+          "length_scale_km": 9.457174753717474,
+          "ridge_penalty": 0.01,
+          "model_sha256": "d81df6a1fd9dfb33f282db8c972914b6b0af62ef359b846de0a3bea4543b64c9"
+        },
+        {
+          "bin_id_bp": "1000",
+          "training_site_ids": [
+            "BECKHAM",
+            "LARKBARR",
+            "MOLECHAM",
+            "NTWITCHEN"
+          ],
+          "training_count_sha256": {
+            "BECKHAM": "1982eb43353cb632319d97943decde8539d98111a7ade7ecaaa5757532231b5e",
+            "LARKBARR": "07daff782dae844eaa787e547d1b49937f975f49ea457a9576b9db58ddc4bbf6",
+            "MOLECHAM": "8addaceb66b78791f77bf1b8ff37cb282506baf8b3524b286f0113dde214bc57",
+            "NTWITCHEN": "eaae23b481debf5cbb13b54f94b5ae97187a79d2a0c716ff309d52a7c347a328"
+          },
+          "length_scale_km": 9.457174753717474,
+          "ridge_penalty": 0.01,
+          "model_sha256": "215ad00e0071a6fa8211ad1690644ffe64bd4a0252addc64ecf3e2452eefd6d0"
+        },
+        {
+          "bin_id_bp": "1500",
+          "training_site_ids": [
+            "BECKHAM",
+            "LARKBARR",
+            "MOLECHAM",
+            "NTWITCHEN"
+          ],
+          "training_count_sha256": {
+            "BECKHAM": "1982eb43353cb632319d97943decde8539d98111a7ade7ecaaa5757532231b5e",
+            "LARKBARR": "07daff782dae844eaa787e547d1b49937f975f49ea457a9576b9db58ddc4bbf6",
+            "MOLECHAM": "8addaceb66b78791f77bf1b8ff37cb282506baf8b3524b286f0113dde214bc57",
+            "NTWITCHEN": "eaae23b481debf5cbb13b54f94b5ae97187a79d2a0c716ff309d52a7c347a328"
+          },
+          "length_scale_km": 9.457174753717474,
+          "ridge_penalty": 0.01,
+          "model_sha256": "01ff51ca01699e15a16e52bb60a20148d13b8bc7f8841cc10224a1b8a7ffea47"
+        },
+        {
+          "bin_id_bp": "2000",
+          "training_site_ids": [
+            "BECKHAM",
+            "LARKBARR",
+            "MOLECHAM",
+            "NTWITCHEN"
+          ],
+          "training_count_sha256": {
+            "BECKHAM": "1982eb43353cb632319d97943decde8539d98111a7ade7ecaaa5757532231b5e",
+            "LARKBARR": "07daff782dae844eaa787e547d1b49937f975f49ea457a9576b9db58ddc4bbf6",
+            "MOLECHAM": "8addaceb66b78791f77bf1b8ff37cb282506baf8b3524b286f0113dde214bc57",
+            "NTWITCHEN": "eaae23b481debf5cbb13b54f94b5ae97187a79d2a0c716ff309d52a7c347a328"
+          },
+          "length_scale_km": 9.457174753717474,
+          "ridge_penalty": 0.01,
+          "model_sha256": "4d33a59838c8e219847bbe7ab71220031df1eb224eb42cbda70599918f6a9e8e"
+        },
+        {
+          "bin_id_bp": "2500",
+          "training_site_ids": [
+            "BECKHAM",
+            "LARKBARR",
+            "MOLECHAM",
+            "NTWITCHEN"
+          ],
+          "training_count_sha256": {
+            "BECKHAM": "1982eb43353cb632319d97943decde8539d98111a7ade7ecaaa5757532231b5e",
+            "LARKBARR": "07daff782dae844eaa787e547d1b49937f975f49ea457a9576b9db58ddc4bbf6",
+            "MOLECHAM": "8addaceb66b78791f77bf1b8ff37cb282506baf8b3524b286f0113dde214bc57",
+            "NTWITCHEN": "eaae23b481debf5cbb13b54f94b5ae97187a79d2a0c716ff309d52a7c347a328"
+          },
+          "length_scale_km": 9.457174753717474,
+          "ridge_penalty": 0.01,
+          "model_sha256": "75571925fd0279dc7add6490ec08502a5cda49a7ace216b4f7991437c45495a8"
+        },
+        {
+          "bin_id_bp": "3000",
+          "training_site_ids": [
+            "BECKHAM",
+            "LARKBARR",
+            "MOLECHAM",
+            "NTWITCHEN"
+          ],
+          "training_count_sha256": {
+            "BECKHAM": "1982eb43353cb632319d97943decde8539d98111a7ade7ecaaa5757532231b5e",
+            "LARKBARR": "07daff782dae844eaa787e547d1b49937f975f49ea457a9576b9db58ddc4bbf6",
+            "MOLECHAM": "8addaceb66b78791f77bf1b8ff37cb282506baf8b3524b286f0113dde214bc57",
+            "NTWITCHEN": "eaae23b481debf5cbb13b54f94b5ae97187a79d2a0c716ff309d52a7c347a328"
+          },
+          "length_scale_km": 9.457174753717474,
+          "ridge_penalty": 0.01,
+          "model_sha256": "e5488980ce5f048146083701a3effacff3cc880f879f729e5dbcd981b4d26b9d"
+        },
+        {
+          "bin_id_bp": "3500",
+          "training_site_ids": [
+            "BECKHAM",
+            "LARKBARR",
+            "NTWITCHEN"
+          ],
+          "training_count_sha256": {
+            "BECKHAM": "1982eb43353cb632319d97943decde8539d98111a7ade7ecaaa5757532231b5e",
+            "LARKBARR": "07daff782dae844eaa787e547d1b49937f975f49ea457a9576b9db58ddc4bbf6",
+            "NTWITCHEN": "eaae23b481debf5cbb13b54f94b5ae97187a79d2a0c716ff309d52a7c347a328"
+          },
+          "length_scale_km": 9.581452739438708,
+          "ridge_penalty": 0.01,
+          "model_sha256": "40834461b9ab5214950c49171638162b928652e58cec83822d3579858ffff39b"
+        },
+        {
+          "bin_id_bp": "4000",
+          "training_site_ids": [
+            "BECKHAM",
+            "NTWITCHEN"
+          ],
+          "training_count_sha256": {
+            "BECKHAM": "1982eb43353cb632319d97943decde8539d98111a7ade7ecaaa5757532231b5e",
+            "NTWITCHEN": "eaae23b481debf5cbb13b54f94b5ae97187a79d2a0c716ff309d52a7c347a328"
+          },
+          "length_scale_km": 9.581452739438708,
+          "ridge_penalty": 0.01,
+          "model_sha256": "d5fd9f636f2dec402570b12858797e4240334acd4443f2990e32f21509852c70"
+        }
+      ],
+      "target_count_files_opened": 0,
+      "attempted_target_bins_without_outcomes": 225,
+      "predicted_target_bins_without_outcomes": 90,
+      "predictions_sha256": "ad5e8644c61f3f25d75eb87965372f92f190553d1383f05f98d51ca5f641846a",
+      "statuses_sha256": "c6d6c130bf6537b4861c7a3392efd524cad81ff278b9c3027772a66bfcf64255"
+    },
+    {
+      "schema_version": "author-observed-pollen-spatial-block-predictions.v1",
+      "target_grid_id": "562",
+      "split": "leave_one_adjacent_one_degree_grid_out",
+      "method": "clr_wgs84_rbf_ridge_half_count_31_taxon_observed_pollen_fraction_by_bin",
+      "buffer_rule": "minimum_center_distance_minus_both_reported_basin_radii_at_least_20_km_to_every_target_in_block",
+      "buffer_km": 20.0,
+      "site_identity": "author_site_ids; no reviewed cross_database_alias_closure",
+      "source_manifest_sha256": "48d853468f979a04636642c6c757e9d05edf708d799b29cbae4d2286a9ac0acb",
+      "metadata_sha256": "72949e9e3faf417be0b7425fc111a9638b37c4a38aab8f8d82e0c3d8739da2de",
+      "crosswalk_sha256": "3a0f598ba5e550ca39da52b2047b7020b013dad013d15f79bef8e1c3c1a979c3",
+      "target_site_ids": [
+        "BECKHAM",
+        "COMERSLA",
+        "EXEBRID",
+        "GOURTEMIRES",
+        "LARKBARR",
+        "LONGBREACH",
+        "MOLECHAM",
+        "NTWITCHEN"
+      ],
+      "eligible_training_site_ids": [
+        "BROADOWN",
+        "CUTHILL2",
+        "HANGINGS",
+        "WHH05",
+        "WHH11",
+        "WINNEYS"
+      ],
+      "excluded_by_buffer_site_ids": [
+        "HARESDOWN",
+        "LOBBSBOG",
+        "WINDMILL"
+      ],
+      "training_count_sha256": {
+        "BROADOWN": "1eb04f58c13321fc9f284186df85003d4f73803f2485b842984f49a64c21a0c8",
+        "CUTHILL2": "a17ad8a86c4fb7fdffda4799dbc8de6909a037f7b106e07263fdd727c4c7f283",
+        "HANGINGS": "8249ce97a114048400a1497924cac0bc1c07fc7ae110dd5f868accd9425eda2f",
+        "WHH05": "298b66d7033703ce42d27f933b4d3ccec3a16f68b35a6fbf7a61806c01c88273",
+        "WHH11": "d38734ceb0c134eeffbb40091a81d3a8a8d32143dd14504296cc7baa38bf735e",
+        "WINNEYS": "b268187404a6ec1b0d0935990acd70bce678c55c95a2fadf38b7e50f27e29dd6"
+      },
+      "zero_policy": "add_one_half_to_each_named_training_taxon",
+      "pseudocount_per_training_taxon": 0.5,
+      "length_scale_rule": "median_positive_pairwise_training_center_distance_per_bin",
+      "ridge_penalty": 0.01,
+      "fits": [
+        {
+          "bin_id_bp": "50",
+          "training_site_ids": [
+            "BROADOWN",
+            "HANGINGS"
+          ],
+          "training_count_sha256": {
+            "BROADOWN": "1eb04f58c13321fc9f284186df85003d4f73803f2485b842984f49a64c21a0c8",
+            "HANGINGS": "8249ce97a114048400a1497924cac0bc1c07fc7ae110dd5f868accd9425eda2f"
+          },
+          "length_scale_km": 4.7116485840827425,
+          "ridge_penalty": 0.01,
+          "model_sha256": "cca18bd99027a747111519c04e79db940ae1d417212e26843535810826385687"
+        },
+        {
+          "bin_id_bp": "225",
+          "training_site_ids": [
+            "BROADOWN",
+            "HANGINGS",
+            "WINNEYS"
+          ],
+          "training_count_sha256": {
+            "BROADOWN": "1eb04f58c13321fc9f284186df85003d4f73803f2485b842984f49a64c21a0c8",
+            "HANGINGS": "8249ce97a114048400a1497924cac0bc1c07fc7ae110dd5f868accd9425eda2f",
+            "WINNEYS": "b268187404a6ec1b0d0935990acd70bce678c55c95a2fadf38b7e50f27e29dd6"
+          },
+          "length_scale_km": 3.693403691456168,
+          "ridge_penalty": 0.01,
+          "model_sha256": "c6a4a5ef956fc3dc3814f98822e765e6d7ed33ffca226aeb645698d1332b4277"
+        },
+        {
+          "bin_id_bp": "550",
+          "training_site_ids": [
+            "BROADOWN",
+            "HANGINGS",
+            "WINNEYS"
+          ],
+          "training_count_sha256": {
+            "BROADOWN": "1eb04f58c13321fc9f284186df85003d4f73803f2485b842984f49a64c21a0c8",
+            "HANGINGS": "8249ce97a114048400a1497924cac0bc1c07fc7ae110dd5f868accd9425eda2f",
+            "WINNEYS": "b268187404a6ec1b0d0935990acd70bce678c55c95a2fadf38b7e50f27e29dd6"
+          },
+          "length_scale_km": 3.693403691456168,
+          "ridge_penalty": 0.01,
+          "model_sha256": "afba058286e87979edcd84f1b8e54fa6804929c88ff57e913566312438206a42"
+        },
+        {
+          "bin_id_bp": "1000",
+          "training_site_ids": [
+            "BROADOWN",
+            "CUTHILL2",
+            "HANGINGS",
+            "WINNEYS"
+          ],
+          "training_count_sha256": {
+            "BROADOWN": "1eb04f58c13321fc9f284186df85003d4f73803f2485b842984f49a64c21a0c8",
+            "CUTHILL2": "a17ad8a86c4fb7fdffda4799dbc8de6909a037f7b106e07263fdd727c4c7f283",
+            "HANGINGS": "8249ce97a114048400a1497924cac0bc1c07fc7ae110dd5f868accd9425eda2f",
+            "WINNEYS": "b268187404a6ec1b0d0935990acd70bce678c55c95a2fadf38b7e50f27e29dd6"
+          },
+          "length_scale_km": 3.1661498574897218,
+          "ridge_penalty": 0.01,
+          "model_sha256": "c61e039cf68e1e5f190df61582910ef6dc9f1b587def2b55d03c7507c6fb997b"
+        },
+        {
+          "bin_id_bp": "1500",
+          "training_site_ids": [
+            "BROADOWN",
+            "CUTHILL2",
+            "HANGINGS",
+            "WHH05",
+            "WINNEYS"
+          ],
+          "training_count_sha256": {
+            "BROADOWN": "1eb04f58c13321fc9f284186df85003d4f73803f2485b842984f49a64c21a0c8",
+            "CUTHILL2": "a17ad8a86c4fb7fdffda4799dbc8de6909a037f7b106e07263fdd727c4c7f283",
+            "HANGINGS": "8249ce97a114048400a1497924cac0bc1c07fc7ae110dd5f868accd9425eda2f",
+            "WHH05": "298b66d7033703ce42d27f933b4d3ccec3a16f68b35a6fbf7a61806c01c88273",
+            "WINNEYS": "b268187404a6ec1b0d0935990acd70bce678c55c95a2fadf38b7e50f27e29dd6"
+          },
+          "length_scale_km": 3.3668998708404403,
+          "ridge_penalty": 0.01,
+          "model_sha256": "8025be78f16ee041a79bff3cfe2711231c8d97bc0711a6f633b41dc711875569"
+        },
+        {
+          "bin_id_bp": "2000",
+          "training_site_ids": [
+            "BROADOWN",
+            "CUTHILL2",
+            "HANGINGS",
+            "WINNEYS"
+          ],
+          "training_count_sha256": {
+            "BROADOWN": "1eb04f58c13321fc9f284186df85003d4f73803f2485b842984f49a64c21a0c8",
+            "CUTHILL2": "a17ad8a86c4fb7fdffda4799dbc8de6909a037f7b106e07263fdd727c4c7f283",
+            "HANGINGS": "8249ce97a114048400a1497924cac0bc1c07fc7ae110dd5f868accd9425eda2f",
+            "WINNEYS": "b268187404a6ec1b0d0935990acd70bce678c55c95a2fadf38b7e50f27e29dd6"
+          },
+          "length_scale_km": 3.1661498574897218,
+          "ridge_penalty": 0.01,
+          "model_sha256": "1171b98e14bf1cfc78e98790a2db956ad6a111448cf6c9e8cb7f4d9c2670dcd6"
+        },
+        {
+          "bin_id_bp": "2500",
+          "training_site_ids": [
+            "BROADOWN",
+            "CUTHILL2",
+            "HANGINGS",
+            "WINNEYS"
+          ],
+          "training_count_sha256": {
+            "BROADOWN": "1eb04f58c13321fc9f284186df85003d4f73803f2485b842984f49a64c21a0c8",
+            "CUTHILL2": "a17ad8a86c4fb7fdffda4799dbc8de6909a037f7b106e07263fdd727c4c7f283",
+            "HANGINGS": "8249ce97a114048400a1497924cac0bc1c07fc7ae110dd5f868accd9425eda2f",
+            "WINNEYS": "b268187404a6ec1b0d0935990acd70bce678c55c95a2fadf38b7e50f27e29dd6"
+          },
+          "length_scale_km": 3.1661498574897218,
+          "ridge_penalty": 0.01,
+          "model_sha256": "807c7ab71620997909587b17a0846e6aec5b3c1231bde0eeaf6d9fd6779b5fba"
+        },
+        {
+          "bin_id_bp": "3000",
+          "training_site_ids": [
+            "BROADOWN",
+            "CUTHILL2",
+            "HANGINGS",
+            "WHH05",
+            "WHH11",
+            "WINNEYS"
+          ],
+          "training_count_sha256": {
+            "BROADOWN": "1eb04f58c13321fc9f284186df85003d4f73803f2485b842984f49a64c21a0c8",
+            "CUTHILL2": "a17ad8a86c4fb7fdffda4799dbc8de6909a037f7b106e07263fdd727c4c7f283",
+            "HANGINGS": "8249ce97a114048400a1497924cac0bc1c07fc7ae110dd5f868accd9425eda2f",
+            "WHH05": "298b66d7033703ce42d27f933b4d3ccec3a16f68b35a6fbf7a61806c01c88273",
+            "WHH11": "d38734ceb0c134eeffbb40091a81d3a8a8d32143dd14504296cc7baa38bf735e",
+            "WINNEYS": "b268187404a6ec1b0d0935990acd70bce678c55c95a2fadf38b7e50f27e29dd6"
+          },
+          "length_scale_km": 3.3668998708404403,
+          "ridge_penalty": 0.01,
+          "model_sha256": "c53a158c90239620f895faf526148b02bf1fef555dbea2c192a40196c69e490e"
+        },
+        {
+          "bin_id_bp": "3500",
+          "training_site_ids": [
+            "BROADOWN",
+            "CUTHILL2",
+            "HANGINGS",
+            "WHH11",
+            "WINNEYS"
+          ],
+          "training_count_sha256": {
+            "BROADOWN": "1eb04f58c13321fc9f284186df85003d4f73803f2485b842984f49a64c21a0c8",
+            "CUTHILL2": "a17ad8a86c4fb7fdffda4799dbc8de6909a037f7b106e07263fdd727c4c7f283",
+            "HANGINGS": "8249ce97a114048400a1497924cac0bc1c07fc7ae110dd5f868accd9425eda2f",
+            "WHH11": "d38734ceb0c134eeffbb40091a81d3a8a8d32143dd14504296cc7baa38bf735e",
+            "WINNEYS": "b268187404a6ec1b0d0935990acd70bce678c55c95a2fadf38b7e50f27e29dd6"
+          },
+          "length_scale_km": 3.3668998708404403,
+          "ridge_penalty": 0.01,
+          "model_sha256": "6adfc2ddc609e3856072fa1e24eff0c7bcad5e6968b3224be74e7c2feed67ca6"
+        },
+        {
+          "bin_id_bp": "4000",
+          "training_site_ids": [
+            "BROADOWN",
+            "CUTHILL2",
+            "HANGINGS",
+            "WHH05",
+            "WHH11",
+            "WINNEYS"
+          ],
+          "training_count_sha256": {
+            "BROADOWN": "1eb04f58c13321fc9f284186df85003d4f73803f2485b842984f49a64c21a0c8",
+            "CUTHILL2": "a17ad8a86c4fb7fdffda4799dbc8de6909a037f7b106e07263fdd727c4c7f283",
+            "HANGINGS": "8249ce97a114048400a1497924cac0bc1c07fc7ae110dd5f868accd9425eda2f",
+            "WHH05": "298b66d7033703ce42d27f933b4d3ccec3a16f68b35a6fbf7a61806c01c88273",
+            "WHH11": "d38734ceb0c134eeffbb40091a81d3a8a8d32143dd14504296cc7baa38bf735e",
+            "WINNEYS": "b268187404a6ec1b0d0935990acd70bce678c55c95a2fadf38b7e50f27e29dd6"
+          },
+          "length_scale_km": 3.3668998708404403,
+          "ridge_penalty": 0.01,
+          "model_sha256": "f5eb21a35ba4a877dfc93cb71fc82848db36f351210add0e40a827b6f054bfd0"
+        },
+        {
+          "bin_id_bp": "4500",
+          "training_site_ids": [
+            "BROADOWN",
+            "CUTHILL2",
+            "HANGINGS",
+            "WHH05",
+            "WHH11",
+            "WINNEYS"
+          ],
+          "training_count_sha256": {
+            "BROADOWN": "1eb04f58c13321fc9f284186df85003d4f73803f2485b842984f49a64c21a0c8",
+            "CUTHILL2": "a17ad8a86c4fb7fdffda4799dbc8de6909a037f7b106e07263fdd727c4c7f283",
+            "HANGINGS": "8249ce97a114048400a1497924cac0bc1c07fc7ae110dd5f868accd9425eda2f",
+            "WHH05": "298b66d7033703ce42d27f933b4d3ccec3a16f68b35a6fbf7a61806c01c88273",
+            "WHH11": "d38734ceb0c134eeffbb40091a81d3a8a8d32143dd14504296cc7baa38bf735e",
+            "WINNEYS": "b268187404a6ec1b0d0935990acd70bce678c55c95a2fadf38b7e50f27e29dd6"
+          },
+          "length_scale_km": 3.3668998708404403,
+          "ridge_penalty": 0.01,
+          "model_sha256": "499efb83740ab477f8630a19e885ecbe7079b6b345a3ffa41dbeb63ce62d054d"
+        },
+        {
+          "bin_id_bp": "5000",
+          "training_site_ids": [
+            "BROADOWN",
+            "CUTHILL2",
+            "HANGINGS",
+            "WHH05",
+            "WINNEYS"
+          ],
+          "training_count_sha256": {
+            "BROADOWN": "1eb04f58c13321fc9f284186df85003d4f73803f2485b842984f49a64c21a0c8",
+            "CUTHILL2": "a17ad8a86c4fb7fdffda4799dbc8de6909a037f7b106e07263fdd727c4c7f283",
+            "HANGINGS": "8249ce97a114048400a1497924cac0bc1c07fc7ae110dd5f868accd9425eda2f",
+            "WHH05": "298b66d7033703ce42d27f933b4d3ccec3a16f68b35a6fbf7a61806c01c88273",
+            "WINNEYS": "b268187404a6ec1b0d0935990acd70bce678c55c95a2fadf38b7e50f27e29dd6"
+          },
+          "length_scale_km": 3.3668998708404403,
+          "ridge_penalty": 0.01,
+          "model_sha256": "571743c986f29f12d9de7d29e8cfdc0407c859d8ae21057e6a60eddc2289edf9"
+        },
+        {
+          "bin_id_bp": "5500",
+          "training_site_ids": [
+            "BROADOWN",
+            "CUTHILL2",
+            "HANGINGS",
+            "WHH05",
+            "WINNEYS"
+          ],
+          "training_count_sha256": {
+            "BROADOWN": "1eb04f58c13321fc9f284186df85003d4f73803f2485b842984f49a64c21a0c8",
+            "CUTHILL2": "a17ad8a86c4fb7fdffda4799dbc8de6909a037f7b106e07263fdd727c4c7f283",
+            "HANGINGS": "8249ce97a114048400a1497924cac0bc1c07fc7ae110dd5f868accd9425eda2f",
+            "WHH05": "298b66d7033703ce42d27f933b4d3ccec3a16f68b35a6fbf7a61806c01c88273",
+            "WINNEYS": "b268187404a6ec1b0d0935990acd70bce678c55c95a2fadf38b7e50f27e29dd6"
+          },
+          "length_scale_km": 3.3668998708404403,
+          "ridge_penalty": 0.01,
+          "model_sha256": "cdd4bf3cc92604fc72e1900b2ef93a6b54e8d58963e1166db19f122e86d08440"
+        },
+        {
+          "bin_id_bp": "6000",
+          "training_site_ids": [
+            "BROADOWN",
+            "CUTHILL2",
+            "HANGINGS",
+            "WHH05",
+            "WINNEYS"
+          ],
+          "training_count_sha256": {
+            "BROADOWN": "1eb04f58c13321fc9f284186df85003d4f73803f2485b842984f49a64c21a0c8",
+            "CUTHILL2": "a17ad8a86c4fb7fdffda4799dbc8de6909a037f7b106e07263fdd727c4c7f283",
+            "HANGINGS": "8249ce97a114048400a1497924cac0bc1c07fc7ae110dd5f868accd9425eda2f",
+            "WHH05": "298b66d7033703ce42d27f933b4d3ccec3a16f68b35a6fbf7a61806c01c88273",
+            "WINNEYS": "b268187404a6ec1b0d0935990acd70bce678c55c95a2fadf38b7e50f27e29dd6"
+          },
+          "length_scale_km": 3.3668998708404403,
+          "ridge_penalty": 0.01,
+          "model_sha256": "d0ba3af0844027b2afa4c3bc293472700d2f241634e714277af4bb7e7d7aae63"
+        },
+        {
+          "bin_id_bp": "6500",
+          "training_site_ids": [
+            "BROADOWN",
+            "CUTHILL2",
+            "HANGINGS",
+            "WHH05",
+            "WINNEYS"
+          ],
+          "training_count_sha256": {
+            "BROADOWN": "1eb04f58c13321fc9f284186df85003d4f73803f2485b842984f49a64c21a0c8",
+            "CUTHILL2": "a17ad8a86c4fb7fdffda4799dbc8de6909a037f7b106e07263fdd727c4c7f283",
+            "HANGINGS": "8249ce97a114048400a1497924cac0bc1c07fc7ae110dd5f868accd9425eda2f",
+            "WHH05": "298b66d7033703ce42d27f933b4d3ccec3a16f68b35a6fbf7a61806c01c88273",
+            "WINNEYS": "b268187404a6ec1b0d0935990acd70bce678c55c95a2fadf38b7e50f27e29dd6"
+          },
+          "length_scale_km": 3.3668998708404403,
+          "ridge_penalty": 0.01,
+          "model_sha256": "c2c13c3ac0665f4eb24fac08d1e5495b44751b816e72cd7a201e482441c38a71"
+        },
+        {
+          "bin_id_bp": "7000",
+          "training_site_ids": [
+            "BROADOWN",
+            "CUTHILL2",
+            "HANGINGS",
+            "WINNEYS"
+          ],
+          "training_count_sha256": {
+            "BROADOWN": "1eb04f58c13321fc9f284186df85003d4f73803f2485b842984f49a64c21a0c8",
+            "CUTHILL2": "a17ad8a86c4fb7fdffda4799dbc8de6909a037f7b106e07263fdd727c4c7f283",
+            "HANGINGS": "8249ce97a114048400a1497924cac0bc1c07fc7ae110dd5f868accd9425eda2f",
+            "WINNEYS": "b268187404a6ec1b0d0935990acd70bce678c55c95a2fadf38b7e50f27e29dd6"
+          },
+          "length_scale_km": 3.1661498574897218,
+          "ridge_penalty": 0.01,
+          "model_sha256": "ca9f537b93e450c5f5b6ff1723a02eddaeec3d81c1543cec2cee8a53a04e66f5"
+        },
+        {
+          "bin_id_bp": "7500",
+          "training_site_ids": [
+            "BROADOWN",
+            "HANGINGS",
+            "WINNEYS"
+          ],
+          "training_count_sha256": {
+            "BROADOWN": "1eb04f58c13321fc9f284186df85003d4f73803f2485b842984f49a64c21a0c8",
+            "HANGINGS": "8249ce97a114048400a1497924cac0bc1c07fc7ae110dd5f868accd9425eda2f",
+            "WINNEYS": "b268187404a6ec1b0d0935990acd70bce678c55c95a2fadf38b7e50f27e29dd6"
+          },
+          "length_scale_km": 3.693403691456168,
+          "ridge_penalty": 0.01,
+          "model_sha256": "5df67cc6c89c8cc2d08c5fd94ffb6ea2bd9b8dff1ddae73466d33150e01dd0a2"
+        }
+      ],
+      "target_count_files_opened": 0,
+      "attempted_target_bins_without_outcomes": 200,
+      "predicted_target_bins_without_outcomes": 136,
+      "predictions_sha256": "f6f5d50e2b2ecfd972ea5dc01171bd7ac4f23c2abb2e5f19e01c62ad45f78cdf",
+      "statuses_sha256": "7f4ff7bd19a261e1a0fa80aca5a09ef508d2cc5087b781f26e4cd68b8e146a90"
+    }
+  ],
+  "measured_vegetation_accuracy": "not_evaluated",
+  "swedish_lra_cohort": "not_evaluated"
+}

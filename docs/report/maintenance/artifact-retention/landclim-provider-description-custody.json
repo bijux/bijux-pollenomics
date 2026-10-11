@@ -1,0 +1,37 @@
+{
+  "schema_version": "landclim-provider-description-custody.v1",
+  "source_artifact": "artifacts/v3/landclim/pft-source-capture001",
+  "private_source_directory": "landclim/provider-descriptions",
+  "captured_pages": [
+    "https://essd.copernicus.org/articles/14/1581/2022/",
+    "https://doi.pangaea.de/10.1594/PANGAEA.937075"
+  ],
+  "files": [
+    {
+      "name": "capture.py",
+      "bytes": 2158,
+      "sha256": "f5207f8b6de0f0bbd7e8b79674e8e28024f2a8532c966bd450864e44aa846ef5"
+    },
+    {
+      "name": "essd_article.html",
+      "bytes": 443030,
+      "sha256": "d965af99738e1b068e6cf371747c6d96080046d0ca09db42ec1911916c19ed38"
+    },
+    {
+      "name": "pangaea_deposit.html",
+      "bytes": 142500,
+      "sha256": "6ed1b534fb4ab51e092cd9b4816dac3f15e171842de4feb4a1a694caf6194e06"
+    },
+    {
+      "name": "plan.json",
+      "bytes": 1921,
+      "sha256": "144f578c3f0779e00292cff55f266cc267984e6f1a41d9b56b6af9582eccb62a"
+    },
+    {
+      "name": "receipt.json",
+      "bytes": 3852,
+      "sha256": "6f578519e81eeab92c46874f0d9b3e410d63428a00e9a31ed952d3eac0050083"
+    }
+  ],
+  "scope": "Exact 2026-09-21 public provider page capture and process receipt. The provider prose is not an authenticated archive-producing PFT/LCT transformation or scientific review."
+}

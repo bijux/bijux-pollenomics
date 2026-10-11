@@ -4,7 +4,7 @@ audience: scientific reviewer
 type: reference review
 status: proposed; no scientific admission
 owner: bijux-pollenomics-docs
-last_reviewed: 2026-09-21
+last_reviewed: 2026-09-29
 ---
 
 # EMPD2–NFI candidate reference review
@@ -45,6 +45,13 @@ Review decisions require named evidence and a qualified reviewer; blank or silen
 
 `Nielsen_b4` has the source note “Surface smaple collected September 2013”; its distance-selected NFI row carries 2013 and lies 427.12 m away.
 A source note and a matching NFI year do not establish matched collection time. Lake sediment and a forest plot have different support. Cross-database identity flags remain unresolved proximity hypotheses.
+
+The [source-bound Färskesjön plot review](../../../report/vegetation-reference/farskesjon/README.md)
+decodes the selected NFI inventory date to **17 May 2013** and its circular
+plot radius to **7 m**. Its measured tree-volume classes describe that small
+plot; the 427.12 m source-point separation and different vegetation footprint
+refuse this particular lead as an independent pollen–landscape validation pair.
+The remaining 15 leads are still candidates subject to their own source review.
 
 For each proposed reference, a qualified reviewer must record: exact collection date and age-type evidence; physical sample/core and cross-database identity; position datum and uncertainty; basin footprint and a defensible point/plot versus regional estimand; compatible measured vegetation variables/units and observation time; taxon/PPE decision; independence and leakage group; and a documented eligible/refused outcome with reason. The benchmark also needs a predeclared minimum independent site/block count, non-null error thresholds and a blind label store before test access.
 

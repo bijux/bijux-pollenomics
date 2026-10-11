@@ -1,0 +1,130 @@
+{
+  "schema_version": "landclim-amsoldingersee-source-review.v1",
+  "source_capture_date": "2026-09-21",
+  "publication_locator": "landclim_ii_site_metadata.xlsx#LANDCLIMII metadata file!1059",
+  "publication_fields": {
+    "SiteName": "Amsoldingersee",
+    "csvfilename": "E#69",
+    "Country": "Switzerland",
+    "nPollenSamples": "23",
+    "chronologySource": "Authors chronology",
+    "DataRestricted/NotRestriced": "NR"
+  },
+  "outside_author_example_set": true,
+  "site_id": 2973,
+  "candidates": [
+    {
+      "dataset_id": 3873,
+      "site_id": 2973,
+      "collection_handle": "AMSOPO1",
+      "sample_id_count": 23,
+      "age_range_as_reported": [],
+      "chronology_ids": [],
+      "age_types": [
+        "None"
+      ],
+      "chronology_record_count": 0,
+      "observation_units": {
+        "None": 2,
+        "NISP": 594
+      },
+      "element_types": {
+        "pollen": 549,
+        "pollen/spore": 30,
+        "spore": 15
+      },
+      "publication_code_e69_present": false,
+      "source_sha256": {
+        "dataset": "4633e0cb727804ea7d749a87363bd46ecebc6b1c23907519d97d5280d55a04da",
+        "download": "946de88e33477eadd1be4352967dcbab31da3f103385a2ad758439b2bad90c8d",
+        "chronologies": "d03c69384b381b33eebcf23efb790306d581e65dbe81f2d719a4f2cdaaa776bc"
+      }
+    },
+    {
+      "dataset_id": 3874,
+      "site_id": 2973,
+      "collection_handle": "AMSOPO2",
+      "sample_id_count": 24,
+      "age_range_as_reported": [
+        {
+          "units": "Radiocarbon years BP",
+          "ageold": 14048,
+          "ageyoung": 7520
+        }
+      ],
+      "chronology_ids": [
+        "1515"
+      ],
+      "age_types": [
+        "None",
+        "Radiocarbon years BP"
+      ],
+      "chronology_record_count": 1,
+      "observation_units": {
+        "Radiocarbon years BP": 2,
+        "NISP": 479
+      },
+      "element_types": {
+        "pollen": 429,
+        "pollen/spore": 31,
+        "spore": 19
+      },
+      "publication_code_e69_present": false,
+      "source_sha256": {
+        "dataset": "4c9737804be8dd57db73fe5da943f2dbf7f06c48f11efd43a3a2d24b56276a68",
+        "download": "8399bf295f8f4d4fead1d6f2f8d3786c15c542a6260ec2bb891f36ad4d83a6e9",
+        "chronologies": "5d4e9606a45fba5b1465f0a7af414d0dd1334fbec046977f4c1247d74db4829b"
+      }
+    },
+    {
+      "dataset_id": 3875,
+      "site_id": 2973,
+      "collection_handle": "AMSOPO3",
+      "sample_id_count": 52,
+      "age_range_as_reported": [
+        {
+          "units": "Radiocarbon years BP",
+          "ageold": 38600,
+          "ageyoung": 602
+        }
+      ],
+      "chronology_ids": [
+        "1516"
+      ],
+      "age_types": [
+        "None",
+        "Radiocarbon years BP"
+      ],
+      "chronology_record_count": 1,
+      "observation_units": {
+        "Radiocarbon years BP": 2,
+        "NISP": 1357
+      },
+      "element_types": {
+        "pollen": 1200,
+        "pollen/spore": 69,
+        "spore": 88
+      },
+      "publication_code_e69_present": false,
+      "source_sha256": {
+        "dataset": "1a1d300846eadc6d01d1d461df5db67b5a2c84b441cf2e76e70d7639945e19e9",
+        "download": "f067287ed8e79997933c52802f62b8a8fe487457c9c521f2498252e25cedc08b",
+        "chronologies": "44d4f13546812cd34fd229ab9e4d033ed7ebafd56cc2a90462b36a0e8b1a31dc"
+      }
+    }
+  ],
+  "denominators": {
+    "selected_publication_rows": 1,
+    "candidate_core_count": 3,
+    "candidate_with_23_current_sample_ids": 1,
+    "candidate_with_exact_e69_bridge": 0,
+    "candidate_with_authenticated_author_chronology": 0,
+    "reproduction_ready": 0
+  },
+  "admission": "refused_historical_input_identity",
+  "required_next_source": "Source-owner E#69-to-core mapping, exact historical 23-sample count revision, author age-depth output, and authenticated taxon/PFT transformation",
+  "input_sha256": {
+    "private_capture_custody": "eab4595d161d0f8000ee02ec2dcf6eb2644d117a83015641b8fa8821e6f0280f",
+    "author_example_site_metadata": "72949e9e3faf417be0b7425fc111a9638b37c4a38aab8f8d82e0c3d8739da2de"
+  }
+}

@@ -100,14 +100,14 @@
     {
       "species_latin_name": "Rangifer tarandus",
       "recovered_sample_row_count": 20,
-      "normalized_row_count": 19,
-      "exact_sample_date_count": 19,
+      "normalized_row_count": 20,
+      "exact_sample_date_count": 20,
       "modeled_or_approximate_sample_date_count": 0,
       "contextual_date_count": 0,
       "broad_label_count": 0,
       "text_only_unparsed_count": 0,
-      "unresolved_count": 1,
-      "chronology_completeness_ratio": 0.95
+      "unresolved_count": 0,
+      "chronology_completeness_ratio": 1.0
     },
     {
       "species_latin_name": "Sus scrofa domesticus",

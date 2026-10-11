@@ -137,6 +137,69 @@
     {
       "identity": {
         "namespace": "rangifer_tarandus:project_locality",
+        "stable_token": "rangifer_tarandus:locality:prjeb60484:edgeya:norway",
+        "locality_text": "Edgeøya",
+        "political_entity": "Norway",
+        "source_anchor_tokens": [
+          "PRJEB60484",
+          "",
+          ""
+        ]
+      },
+      "species_latin_name": "Rangifer tarandus",
+      "species_common_name": "reindeer",
+      "source_family": "ENA",
+      "source_releases": [
+        "PRJEB60484"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "comparator_only"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Edgeøya",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "unknown"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "prjeb60484:samea112757327"
+      ],
+      "datasets": [
+        "rangifer_tarandus:project:PRJEB60484"
+      ],
+      "chronology": {
+        "original_text": "2329-2460 BP",
+        "time_start_bp": 2329,
+        "time_end_bp": 2460,
+        "time_mean_bp": 2394,
+        "date_stddev_bp": "",
+        "source_mean_bp_text": "",
+        "dating_basis": "radiocarbon",
+        "evidence_class": "direct_radiocarbon_date",
+        "precision_posture": "sample_precise_interval",
+        "refusal_reason_code": ""
+      },
+      "sample_namespace": "rangifer_tarandus:sample_locality",
+      "project_accessions": [
+        "PRJEB60484"
+      ],
+      "original_location_text": "Edgeøya",
+      "nordic_inclusion": true,
+      "nordic_inclusion_reason": "This locality falls inside the Nordic publication footprint through direct Norway sample evidence.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "rangifer_tarandus:project_locality",
         "stable_token": "rangifer_tarandus:locality:prjeb60484:gipsdalen:norway",
         "locality_text": "Gipsdalen",
         "political_entity": "Norway",
@@ -497,10 +560,10 @@
         "rangifer_tarandus:project:PRJEB60484"
       ],
       "chronology": {
-        "original_text": "1-282 BP",
-        "time_start_bp": 1,
-        "time_end_bp": 282,
-        "time_mean_bp": 142,
+        "original_text": "0-450 BP",
+        "time_start_bp": 0,
+        "time_end_bp": 450,
+        "time_mean_bp": 225,
         "date_stddev_bp": "",
         "source_mean_bp_text": "",
         "dating_basis": "radiocarbon",

@@ -85,7 +85,7 @@ class AdnaNormalizationUnitTests(unittest.TestCase):
         self.assertIsNone(galician_sample.coordinates.latitude)
         self.assertIsNone(galician_sample.coordinates.longitude)
 
-    def test_species_normalization_bundle_refuses_unlocated_reindeer_locality(
+    def test_species_normalization_bundle_keeps_reindeer_localities_unmapped(
         self,
     ) -> None:
         bundle = build_species_normalization_bundle("reindeer")
@@ -96,20 +96,21 @@ class AdnaNormalizationUnitTests(unittest.TestCase):
         )
 
         self.assertEqual(project.domestication_status, "comparator_only")
-        self.assertFalse(bundle.locality_records)
+        self.assertEqual(len(bundle.locality_records), 9)
+        wijdefjorden = next(
+            item for item in bundle.locality_records if item.locality == "Wijdefjorden"
+        )
+        self.assertEqual(wijdefjorden.sample_count, 4)
+        self.assertEqual(wijdefjorden.chronology.original_text, "0-450 BP")
         self.assertTrue(
-            any(
-                refusal.reason == "locality_text_not_evidenced"
-                and refusal.source_token == "PRJEB60484:unresolved"
-                for refusal in bundle.refusals
-            )
+            all(item.coordinates.latitude is None for item in bundle.locality_records)
         )
         sample = next(
             item
             for item in bundle.sample_records
-            if item.project_accession == "PRJEB60484"
+            if item.archive_native_sample_id == "SAMEA112757337"
         )
-        self.assertEqual(sample.inclusion_status, "sample_context_blocked")
-        self.assertEqual(sample.chronology.precision_posture, "unresolved")
-        self.assertIsNone(sample.time_start_bp)
-        self.assertIsNone(sample.time_end_bp)
+        self.assertEqual(sample.inclusion_status, "comparator_site_curated")
+        self.assertEqual(sample.chronology.precision_posture, "sample_precise_interval")
+        self.assertEqual((sample.time_start_bp, sample.time_end_bp), (0, 450))
+        self.assertIsNone(sample.coordinates.latitude)

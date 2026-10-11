@@ -1,0 +1,230 @@
+{
+  "schema_version": "author-observed-pollen-spatial-hellinger.v1",
+  "comparison_sha256": "e3fe6ba62e1983dddb4b1f1a324e96979a8b60c3d4416110e864a70c2d0ced1a",
+  "source": "rmfyfe/landclimII@57ead2e2fcc493d099be4e5a3092fc396e1c3d3a",
+  "split": "leave_one_adjacent_one_degree_grid_out_with_20km_basin_edge_buffer",
+  "observed_site_bins": 184,
+  "common_scored_site_bins": 148,
+  "refused_no_training_site_bins": 36,
+  "scored_sites": 17,
+  "independent_outer_blocks": 2,
+  "distance_definition": "sqrt(0.5 * sum_taxa((sqrt(predicted_fraction)-sqrt(observed_count/total_count))^2))",
+  "distance_range": [
+    0,
+    1
+  ],
+  "methods": [
+    {
+      "method": "training_mean",
+      "site_macro_hellinger": 0.3579262319110921,
+      "hellinger_minus_training_mean": 0.0
+    },
+    {
+      "method": "nearest_site",
+      "site_macro_hellinger": 0.36254580394562325,
+      "hellinger_minus_training_mean": 0.004619572034531172
+    },
+    {
+      "method": "inverse_distance_squared",
+      "site_macro_hellinger": 0.35668150060581594,
+      "hellinger_minus_training_mean": -0.0012447313052761366
+    }
+  ],
+  "sites": [
+    {
+      "site_id": "BECKHAM",
+      "block_grid_id": "562",
+      "scored_bins": 11,
+      "methods": {
+        "training_mean": 0.3995605473762158,
+        "nearest_site": 0.40059240519633543,
+        "inverse_distance_squared": 0.3999631188792833
+      }
+    },
+    {
+      "site_id": "BROADOWN",
+      "block_grid_id": "512",
+      "scored_bins": 11,
+      "methods": {
+        "training_mean": 0.34076672081764386,
+        "nearest_site": 0.33339706598592844,
+        "inverse_distance_squared": 0.3375455880615211
+      }
+    },
+    {
+      "site_id": "COMERSLA",
+      "block_grid_id": "562",
+      "scored_bins": 15,
+      "methods": {
+        "training_mean": 0.3400275332718056,
+        "nearest_site": 0.34406384413418,
+        "inverse_distance_squared": 0.342348132741643
+      }
+    },
+    {
+      "site_id": "CUTHILL2",
+      "block_grid_id": "512",
+      "scored_bins": 8,
+      "methods": {
+        "training_mean": 0.339302598608326,
+        "nearest_site": 0.32010208218047026,
+        "inverse_distance_squared": 0.3347761371666146
+      }
+    },
+    {
+      "site_id": "EXEBRID",
+      "block_grid_id": "562",
+      "scored_bins": 3,
+      "methods": {
+        "training_mean": 0.5909119151014997,
+        "nearest_site": 0.6142712501497064,
+        "inverse_distance_squared": 0.5913397760392395
+      }
+    },
+    {
+      "site_id": "GOURTEMIRES",
+      "block_grid_id": "562",
+      "scored_bins": 9,
+      "methods": {
+        "training_mean": 0.25615584558998616,
+        "nearest_site": 0.28979905420826263,
+        "inverse_distance_squared": 0.2568085314363717
+      }
+    },
+    {
+      "site_id": "HANGINGS",
+      "block_grid_id": "512",
+      "scored_bins": 11,
+      "methods": {
+        "training_mean": 0.3277752922970142,
+        "nearest_site": 0.3360817807304709,
+        "inverse_distance_squared": 0.3259931546784701
+      }
+    },
+    {
+      "site_id": "HARESDOWN",
+      "block_grid_id": "512",
+      "scored_bins": 7,
+      "methods": {
+        "training_mean": 0.21365296928936722,
+        "nearest_site": 0.2268420495273695,
+        "inverse_distance_squared": 0.21042434795690254
+      }
+    },
+    {
+      "site_id": "LARKBARR",
+      "block_grid_id": "562",
+      "scored_bins": 9,
+      "methods": {
+        "training_mean": 0.3748423297239138,
+        "nearest_site": 0.35905235946455205,
+        "inverse_distance_squared": 0.37418851236819123
+      }
+    },
+    {
+      "site_id": "LOBBSBOG",
+      "block_grid_id": "512",
+      "scored_bins": 7,
+      "methods": {
+        "training_mean": 0.30648400463515524,
+        "nearest_site": 0.3180680583452446,
+        "inverse_distance_squared": 0.3030392543120642
+      }
+    },
+    {
+      "site_id": "LONGBREACH",
+      "block_grid_id": "562",
+      "scored_bins": 15,
+      "methods": {
+        "training_mean": 0.3222627890933158,
+        "nearest_site": 0.3396943439107956,
+        "inverse_distance_squared": 0.32375119026466187
+      }
+    },
+    {
+      "site_id": "MOLECHAM",
+      "block_grid_id": "562",
+      "scored_bins": 7,
+      "methods": {
+        "training_mean": 0.3453002750140045,
+        "nearest_site": 0.34303378917557104,
+        "inverse_distance_squared": 0.3454625563617318
+      }
+    },
+    {
+      "site_id": "NTWITCHEN",
+      "block_grid_id": "562",
+      "scored_bins": 10,
+      "methods": {
+        "training_mean": 0.30770551894746473,
+        "nearest_site": 0.3287908800527434,
+        "inverse_distance_squared": 0.30837481230708463
+      }
+    },
+    {
+      "site_id": "WHH05",
+      "block_grid_id": "512",
+      "scored_bins": 4,
+      "methods": {
+        "training_mean": 0.6165002061044225,
+        "nearest_site": 0.6039961168711292,
+        "inverse_distance_squared": 0.6156548011919323
+      }
+    },
+    {
+      "site_id": "WHH11",
+      "block_grid_id": "512",
+      "scored_bins": 4,
+      "methods": {
+        "training_mean": 0.338779608863916,
+        "nearest_site": 0.36452757590368745,
+        "inverse_distance_squared": 0.3365641543918421
+      }
+    },
+    {
+      "site_id": "WINDMILL",
+      "block_grid_id": "512",
+      "scored_bins": 7,
+      "methods": {
+        "training_mean": 0.34002594924108476,
+        "nearest_site": 0.31630094717536084,
+        "inverse_distance_squared": 0.3360089324316067
+      }
+    },
+    {
+      "site_id": "WINNEYS",
+      "block_grid_id": "512",
+      "scored_bins": 10,
+      "methods": {
+        "training_mean": 0.32469183851342903,
+        "nearest_site": 0.32466506406378787,
+        "inverse_distance_squared": 0.32134250970971034
+      }
+    }
+  ],
+  "blocks": [
+    {
+      "block_grid_id": "512",
+      "scored_sites": 9,
+      "scored_bins": 69,
+      "methods": {
+        "training_mean": 0.3497754653744843,
+        "nearest_site": 0.3493311934203832,
+        "inverse_distance_squared": 0.34681654221118485
+      }
+    },
+    {
+      "block_grid_id": "562",
+      "scored_sites": 8,
+      "scored_bins": 79,
+      "methods": {
+        "training_mean": 0.36709584426477576,
+        "nearest_site": 0.3774122407865183,
+        "inverse_distance_squared": 0.36777957879977585
+      }
+    }
+  ],
+  "measured_vegetation_accuracy": "not_evaluated",
+  "swedish_lra_cohort": "not_evaluated",
+  "scores_sha256": "65dd74dc9ab35d1405dd519c6ce9810f3e7384be073612ffec52de72846d0eb0"
+}

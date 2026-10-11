@@ -6,6 +6,7 @@ from pathlib import Path
 from typing import cast
 
 from ..documentation import build_repository_docs_scope_validation
+from .refusal import build_repository_final_release_refusal
 
 
 def build_repository_extension_review(
@@ -15,11 +16,22 @@ def build_repository_extension_review(
     report_root: Path,
 ) -> dict[str, object]:
     """Review whether new work makes the repository easier to extend and harder to misread."""
-    _ = data_root
     docs_scope = build_repository_docs_scope_validation(
         data_root=data_root,
         docs_root=docs_root,
         report_root=report_root,
+    )
+    refusal = build_repository_final_release_refusal(
+        data_root=data_root,
+        docs_root=docs_root,
+        report_root=report_root,
+    )
+    refusal_rows = cast(list[dict[str, object]], refusal.get("rows", []))
+    refusal_contract_ready = (
+        refusal.get("schema_version") == "repository-final-release-refusal.v1"
+        and refusal.get("final_release_language_allowed") is False
+        and {row.get("dimension_key") for row in refusal_rows}
+        >= {"data_recovery", "sead_treatment", "geographic_extensibility"}
     )
     rows: list[dict[str, object]] = [
         {
@@ -44,9 +56,7 @@ def build_repository_extension_review(
         },
         {
             "dimension_key": "scientific_misread_resistance",
-            "score": 4
-            if (report_root / "repository_final_release_refusal.json").exists()
-            else 2,
+            "score": 4 if refusal_contract_ready else 2,
             "finding": "release-facing wording is now anchored to explicit refusal criteria instead of optimistic prose alone",
             "evidence_anchors": [
                 "docs/report/repository_final_release_refusal.json",

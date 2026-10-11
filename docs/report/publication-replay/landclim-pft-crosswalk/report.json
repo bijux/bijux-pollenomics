@@ -73,6 +73,16 @@
       "OL": 5921,
       "ST": 7892
     },
+    "source_parameter_definition_count": 11,
+    "source_parameter_duplicate_definition_groups": [
+      {
+        "codes": [
+          "TBE1",
+          "TBE2"
+        ],
+        "definition": "Shade-tolerant evergreen trees"
+      }
+    ],
     "source_parameter_pft_codes": [
       "TBE1",
       "TBE2",

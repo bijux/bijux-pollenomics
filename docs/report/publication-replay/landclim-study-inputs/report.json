@@ -1,0 +1,182 @@
+{
+  "blocking_dependencies": [
+    "historical primary pollen counts and sample identities",
+    "historical selected chronology and age-model identities",
+    "historical-to-current source revision decisions",
+    "per-sequence rights and redistribution decisions",
+    "publication-specific R execution and intermediate matrices",
+    "qualified 11/12/13 PFT discrepancy disposition",
+    "qualified scientific review"
+  ],
+  "claims": {
+    "historical_chronology_inputs_recovered": false,
+    "historical_current_revision_crosswalk_completed": false,
+    "historical_primary_pollen_inputs_recovered": false,
+    "independent_measured_vegetation_truth": false,
+    "native_r_parity_certified": false,
+    "original_profile_r_rerun_executed": false,
+    "per_sequence_rights_cleared": false,
+    "pft_discrepancy_resolved": false,
+    "publication_allowed": false,
+    "scientific_acceptance": "not_evaluated",
+    "scientifically_accepted": false,
+    "whole_paper_reproduction_certified": false
+  },
+  "denominators": {
+    "authenticated_historical_chronology_records": 0,
+    "authenticated_historical_current_revision_matches": 0,
+    "authenticated_primary_pollen_count_records": 0,
+    "crosswalk_ledger_records": 1128,
+    "expected_study_records": 1128,
+    "publication_metadata_records": 1128,
+    "refusal_ledger_records": 4512,
+    "reproduction_ready_records": 0,
+    "rights_cleared_records": 0
+  },
+  "profile": "landclim-ii-publication-metadata-only-v1",
+  "schema_version": "essd-study-input-metadata-report.v1",
+  "scope": {
+    "pinned_publication_metadata_inventory_complete": true,
+    "publication_metadata_only": true,
+    "source_labels_are_not_governed_country_or_rights_decisions": true
+  },
+  "source_label_denominators": {
+    "publication_country_raw": [
+      {
+        "raw": "Belarus",
+        "record_count": 4
+      },
+      {
+        "raw": "Bulgaria",
+        "record_count": 4
+      },
+      {
+        "raw": "Czekoslovakia",
+        "record_count": 35
+      },
+      {
+        "raw": "Denmark",
+        "record_count": 66
+      },
+      {
+        "raw": "Estonia",
+        "record_count": 34
+      },
+      {
+        "raw": "Finland",
+        "record_count": 31
+      },
+      {
+        "raw": "France",
+        "record_count": 163
+      },
+      {
+        "raw": "GBR",
+        "record_count": 157
+      },
+      {
+        "raw": "Germany",
+        "record_count": 62
+      },
+      {
+        "raw": "Greece",
+        "record_count": 6
+      },
+      {
+        "raw": "Hungary",
+        "record_count": 3
+      },
+      {
+        "raw": "IRE",
+        "record_count": 11
+      },
+      {
+        "raw": "IRL",
+        "record_count": 24
+      },
+      {
+        "raw": "ITALY",
+        "record_count": 25
+      },
+      {
+        "raw": "Latvia",
+        "record_count": 16
+      },
+      {
+        "raw": "Lithuania",
+        "record_count": 17
+      },
+      {
+        "raw": "Middle East",
+        "record_count": 133
+      },
+      {
+        "raw": "Norway",
+        "record_count": 42
+      },
+      {
+        "raw": "Poland",
+        "record_count": 49
+      },
+      {
+        "raw": "Portugal",
+        "record_count": 2
+      },
+      {
+        "raw": "Romania",
+        "record_count": 8
+      },
+      {
+        "raw": "Russia",
+        "record_count": 22
+      },
+      {
+        "raw": "Slovakia",
+        "record_count": 8
+      },
+      {
+        "raw": "Spain",
+        "record_count": 44
+      },
+      {
+        "raw": "Sweden",
+        "record_count": 84
+      },
+      {
+        "raw": "Switzerland",
+        "record_count": 73
+      },
+      {
+        "raw": "The Netherlands",
+        "record_count": 1
+      },
+      {
+        "raw": "Turkey",
+        "record_count": 3
+      },
+      {
+        "raw": "Ukraine",
+        "record_count": 1
+      }
+    ],
+    "publication_restriction_raw": [
+      {
+        "raw": null,
+        "record_count": 1
+      },
+      {
+        "raw": "NR",
+        "record_count": 662
+      },
+      {
+        "raw": "R",
+        "record_count": 445
+      },
+      {
+        "raw": "R ",
+        "record_count": 20
+      }
+    ]
+  },
+  "task_scope": "V2-ESSD-003-partial-input-accounting"
+}

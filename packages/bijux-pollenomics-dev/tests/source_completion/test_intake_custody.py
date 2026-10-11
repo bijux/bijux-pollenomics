@@ -24,6 +24,15 @@ def _json(path: Path, value: dict[str, object]) -> dict[str, object]:
 def _sources(tmp_path: Path) -> tuple[Path, Path]:
     repository = tmp_path / "repository"
     private = tmp_path / "private"
+    _json(
+        repository / "data/source_intake_contract.schema.json",
+        {
+            "$schema": "https://json-schema.org/draft/2020-12/schema",
+            "type": "object",
+            "required": ["intake_id", "country_coverage", "decision"],
+            "properties": {"intake_id": {"type": "string"}},
+        },
+    )
     receipts = []
     archives = []
     for name, disposition, archive_bytes in (
@@ -110,4 +119,14 @@ def test_changed_archive_refuses_the_custody_report(tmp_path: Path) -> None:
     repository, private = _sources(tmp_path)
     (private / "original/ROOTSI-001.zip").write_bytes(b"changed")
     with pytest.raises(ValueError, match="identity changed"):
+        build_intake_custody_report(repository, private)
+
+
+def test_intake_contract_refuses_incompatible_receipts(tmp_path: Path) -> None:
+    repository, private = _sources(tmp_path)
+    _json(
+        repository / "data/source_intake_contract.schema.json",
+        {"type": "object", "properties": {"intake_id": {"const": "other"}}},
+    )
+    with pytest.raises(ValueError, match="Invalid intake receipt contract"):
         build_intake_custody_report(repository, private)

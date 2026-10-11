@@ -33,6 +33,11 @@ def materialize_test_library(output_root: Path) -> Path:
         destination = output_root / camel_source_dir / name
         destination.parent.mkdir(parents=True, exist_ok=True)
         shutil.copyfile(REPOSITORY_ROOT / "data" / camel_source_dir / name, destination)
+    reindeer_paper = "adna/governance/source_library/papers/10.1111-mec.17274"
+    for name in ("article.pdf", "article.pdf.metadata.json"):
+        destination = output_root / reindeer_paper / name
+        destination.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copyfile(REPOSITORY_ROOT / "data" / reindeer_paper / name, destination)
     materialize_source_library(output_root)
     return output_root
 

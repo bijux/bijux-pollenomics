@@ -1,0 +1,26 @@
+{
+  "schema_version": "landclim-pft-audit-custody.v1",
+  "source_artifact": "artifacts/v3/landclim/pft-audit001",
+  "private_process_copy": "landclim/provider-descriptions/pft-audit-note.md",
+  "files": [
+    {
+      "name": "NOTE.md",
+      "bytes": 4286,
+      "sha256": "546d247a7199fedbcfc1f59d99c26b57dd41eeec26f801f317523dbff3473425"
+    }
+  ],
+  "retained_scientific_account": "docs/report/publication-replay/landclim-pft-crosswalk/README.md",
+  "retained_provider_capture": "docs/report/maintenance/artifact-retention/landclim-provider-description-custody.json",
+  "source_csv_sha256": "32eac151566b41c186745dd077fabcddde06f64f9a3a2056699e88dbabd76d4d",
+  "source_archive_sha256": "c585f0691ad95342b8aba083b90fe91dc398f985b6b7fbc19561299389c4fb86",
+  "verified_observations": {
+    "parameter_pft_codes": 12,
+    "parameter_definition_strings": 11,
+    "duplicate_definition_codes": ["TBE1", "TBE2"],
+    "archive_pft_positions": 13,
+    "ists_nonzero_mean_rows": 7692,
+    "ists_nonzero_standard_error_rows": 7691,
+    "archive_rows_per_measure": 10500
+  },
+  "scope": "The old single-note artifact is fully represented by the governed source-bound crosswalk, this exact private process copy and the separately retained provider page capture. Its suggestion that duplicate definitions may explain the provider's 11 is a hypothesis, not a taxonomy decision."
+}

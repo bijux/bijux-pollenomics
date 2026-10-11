@@ -15,6 +15,7 @@ dependencies = [
     "bijux-pollenomics>=0.1.5,<1.0",
     "pytest>=9.0.3,<10.0",
     "PyYAML>=6.0,<7.0",
+    "jsonschema>=4.24,<5",
 ]
 dynamic = ["version"]
 
@@ -46,6 +47,7 @@ dev = [
     "radon>=6.0.1,<7.0",
     "twine>=6.2.0,<8.0",
     "types-PyYAML>=6.0.12,<7.0",
+    "types-jsonschema>=4.24,<5",
 ]
 
 [tool.hatch.build]

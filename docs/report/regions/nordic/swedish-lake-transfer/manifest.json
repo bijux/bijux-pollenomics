@@ -1,0 +1,83 @@
+{
+  "schema_version": "swedish-lake-pollen-report-manifest.v1",
+  "as_of": "2026-09-29",
+  "status": "scored_prior_exposed_direct_pollen_transfer",
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 4058,
+      "sha256": "e658351ef06d26a997e0c49da6c8bccea137eb18fb4d05b09f70143efa795036"
+    },
+    {
+      "path": "coverage.csv",
+      "bytes": 137,
+      "sha256": "bf94946b02002eea74e464d211fd098e718246b9c62790aba00afba77ec59142"
+    },
+    {
+      "path": "input-manifest.json",
+      "bytes": 3279,
+      "sha256": "8c266e2c44fabe0e7c3a31c38fc0058b27b3db08cff670b65ca239ea5eeb7905"
+    },
+    {
+      "path": "inputs/metadata-SE.json.gz",
+      "bytes": 1016,
+      "sha256": "83895824a229cad9d974ace2887275e37d174beda2057433fb5bb0c7f692d5b4"
+    },
+    {
+      "path": "inputs/training-SE.json.gz",
+      "bytes": 99397,
+      "sha256": "de2683e4a01ab4d3aa3e8add4891ddbb487f4cc0ee650aada57ed839abecce80"
+    },
+    {
+      "path": "prediction-freeze.json",
+      "bytes": 1193,
+      "sha256": "3aa60965e7d79b02674a0a61d8806e267bc04a7e2d37df711feb003ef289f18a"
+    },
+    {
+      "path": "predictions/predictions-SE.json.gz",
+      "bytes": 53238,
+      "sha256": "eb10b5e7225cef3c51b544c1a25cebc264d9b5ab10477d9c4216b83a38bad909"
+    },
+    {
+      "path": "protocol.json",
+      "bytes": 3662,
+      "sha256": "046be3fa589fde3cba0d67f3d4a46f21f73a81a2dd2e089c454775affebabade"
+    },
+    {
+      "path": "report.json",
+      "bytes": 2241,
+      "sha256": "9e70b542d843466cbb2933a6d0c9cbb7c5c4ae6ddfc9fd4e8f8a73ab42d4789c"
+    },
+    {
+      "path": "scores.csv",
+      "bytes": 31503,
+      "sha256": "8104c864f81264022d6535fce008cd877b998ea84f870a88d223a920b531290b"
+    },
+    {
+      "path": "sealed-outcomes/outcomes-SE.json.gz",
+      "bytes": 4718,
+      "sha256": "44c4ea3b2c607436b1c882d0881c2a1f8d0fe733a7a95c674b6481db9754473a"
+    },
+    {
+      "path": "site-scores.csv",
+      "bytes": 820,
+      "sha256": "6bcc1063abb058f4f958aecbaa34ba1e5d28c49e7bdecc82a8e09bdce208d75c"
+    },
+    {
+      "path": "taxon-diagnostics.csv",
+      "bytes": 4964,
+      "sha256": "8d2302c4cd8b1523e7d647158181c20f4a2d4c3059acbef6d3c79b00b9a4f722"
+    },
+    {
+      "path": "verify.py",
+      "bytes": 9656,
+      "sha256": "1dc50aaa2ce11891c33785ac3a46731f9b92925f221e39e6f3a014d33f779aa7"
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/swedish_lake_transfer.py",
+      "bytes": 13425,
+      "sha256": "3c4321f729c5ea4cc53172b3ebf0a22b782f0e873ae88ad67225b43a0ad01b62",
+      "path_root": "repository"
+    }
+  ]
+}

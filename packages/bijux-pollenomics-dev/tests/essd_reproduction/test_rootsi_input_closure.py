@@ -19,6 +19,7 @@ from bijux_pollenomics.collection.sources.landclim.study_inventory import (
     StudyMetadataValue,
 )
 from bijux_pollenomics.collection.sources.rootsi import RootsiSiteMetadataClaim
+from bijux_pollenomics.collection.sources.rootsi.authority import ARCHIVE_SHA256
 from bijux_pollenomics_dev.essd_reproduction import rootsi_input_closure
 from bijux_pollenomics_dev.essd_reproduction.rootsi_input_closure import (
     RootsiInputClosureError,
@@ -235,7 +236,7 @@ def _synthetic_inputs() -> rootsi_input_closure._Inputs:
         "scientific_admission": "refused",
         "capture": {
             "scope": "complete_retained_capture",
-            "archive_sha256": rootsi_input_closure.ARCHIVE_SHA256,
+            "archive_sha256": ARCHIVE_SHA256,
             "archive_membership_verification": ("retained_receipt_bound_not_replayed"),
             "selected_workbooks": typed_rows,
         },

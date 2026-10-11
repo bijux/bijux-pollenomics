@@ -232,6 +232,12 @@ def publish(repository: Path, output: Path) -> dict[str, Any]:
         "bin_count": len(windows),
         "transition_count": len(transitions),
         "taxa": list(TAXA),
+        "country_scope": {
+            "SE": "two named Swedish sites; descriptive within-country question only",
+            "DK": "not evaluated for this named two-site question",
+            "NO": "not evaluated for this named two-site question",
+            "FI": "not evaluated for this named two-site question",
+        },
         "source_roles": {
             "neotoma": "two independent observed-pollen site series, same exact taxon labels",
             "sead": "independent dated site-location context only, not land-use magnitude",

@@ -1,0 +1,53 @@
+{
+  "schema_version": "governed-edge-ledger-artifact-retirement.v1",
+  "removed_directory": "artifacts/execution-control/propagation/neotoma-pollen-release-refusal-87866be3",
+  "retained_directory": "docs/report/propagation/governed-edge-ledger/evidence",
+  "file_count": 8,
+  "files": [
+    {
+      "name": "excluded_non_pollen_events.json",
+      "bytes": 272,
+      "sha256": "641499cecbb3d08955708d46a328701ac0a91edd2bdacb8e445f12e066de2e97"
+    },
+    {
+      "name": "manifest.json",
+      "bytes": 2406,
+      "sha256": "5bf220c6e0df35cbf646a33d432d50326cfc1b87c6a0b6453ebfa43624ec2fed"
+    },
+    {
+      "name": "phenomenon_events.json",
+      "bytes": 436,
+      "sha256": "0d307fbb235360c0ddd5b257c1bb21a03e3075a46b799cb9637699904a12a3c8"
+    },
+    {
+      "name": "primary_scenario_candidates.json",
+      "bytes": 455,
+      "sha256": "1b014d88fde734b6d6d94014bbef444a55908b0591a57c3dc429070b4c9d1084"
+    },
+    {
+      "name": "primary_scenario_reconciliation.json",
+      "bytes": 7641,
+      "sha256": "fa3eafdba42b3a61d8076b3c4969412dad079ae2b7e6bb4ea81f27527472a529"
+    },
+    {
+      "name": "primary_scenario_refusals.json",
+      "bytes": 328,
+      "sha256": "64df3c9fe77aa154a353ca72cb288feae200938dc6c7ef1d2909f7a99f4c9e95"
+    },
+    {
+      "name": "release_metadata.json",
+      "bytes": 1097,
+      "sha256": "c60a0952eff7d394a61f29a30864140de7c146fd0bbabff4233ea91607993735"
+    },
+    {
+      "name": "sensitivity_summary.json",
+      "bytes": 204520,
+      "sha256": "9c8d0950cec84e224779dbb85f87dca71a996b500c21d48144e08f62acee4b95"
+    }
+  ],
+  "source_and_retained_files_byte_identical": true,
+  "active_owned_jobs": 0,
+  "repository_consumers_of_removed_directory": 0,
+  "scope": "Only the exact copied zero-event release directory; classification audit and other propagation artifacts remain untouched.",
+  "scientific_claim": "Current refused-scope reporting ledger only; zero admitted events and no ecological edge claim."
+}

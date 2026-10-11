@@ -152,10 +152,15 @@ def compare_lakes(
     mass = json.loads(count_mass.read_text())
     prerequisite = json.loads(projection.read_text())
     if (
-        mass["lra_accepted_samples"] != 0
+        mass["schema_version"] != "neotoma-swedish-lake-count-mass-crosscheck.v1"
+        or mass["lra_accepted_samples"] != 0
         or prerequisite["denominators"]["accepted_samples"] != 0
         or mass["source_snapshot_id"]
         != prerequisite["source_identities"]["source_snapshot_id"]
+        or prerequisite["source_identities"]["raw_manifest_sha256"]
+        != _digest(raw_manifest)
+        or {row["sample_id"] for row in mass["sample_rows"]}
+        != {f"neotoma:sample:{sample_id}" for _, _, sample_id, _, _ in LEADS}
     ):
         raise ValueError("Retained source admission or snapshot differs")
     results: list[dict[str, Any]] = []

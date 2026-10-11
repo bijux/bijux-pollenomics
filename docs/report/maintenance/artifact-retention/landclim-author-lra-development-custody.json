@@ -1,0 +1,29 @@
+{
+  "schema_version": "landclim-author-lra-development-process-custody.v1",
+  "artifact_prefix": "artifacts/jobs/author-lra-development",
+  "private_archive_path": "landclim/author-lra-development-process/author-lra-process.tar.gz",
+  "private_archive_sha256": "36aeb7d50e7d657843362be1a11ffa21fc472f6d2125c85dd1fed602f4ffd0ac",
+  "private_archive_bytes": 604015,
+  "archive_regular_members": 861,
+  "archive_uncompressed_bytes": 3251386,
+  "archive_path_sha256_inventory": "bd9fa6db985079abb83401749a1e8bcc8ccc1839bccf4296e712b6254976e218",
+  "preserved_sections": [
+    "run.py",
+    "cache",
+    "predictions",
+    "summary",
+    "summary-replay"
+  ],
+  "cached_unique_numerical_products": 27,
+  "training_items_completed": 195,
+  "source_input_files_in_each_of_two_artifact_copies": 37,
+  "source_input_copies_match_fresh_private_capsule_replay": true,
+  "governed_final_summary_files_match": 3,
+  "earlier_summaries_differ_from_governed": [
+    "summary/report.json",
+    "summary/cover-diagnostics.csv",
+    "summary-replay/report.json",
+    "summary-replay/cover-diagnostics.csv"
+  ],
+  "scientific_scope": "prior-exposed_English_author_prepared_31_taxa; negative_analytical_cover; zero_predictions_or_scores; no_Swedish_or_Nordic_LRA_admission"
+}

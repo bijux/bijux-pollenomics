@@ -201,6 +201,33 @@
     "training_support_refusals": 3,
     "status": "prior_exposed_observed_pollen_subcomposition; no LRA or measured vegetation claim"
   },
+  "swedish_neotoma_holdout": {
+    "report": "docs/report/regions/nordic/swedish-neotoma-holdout/report.json",
+    "protocol": "docs/report/regions/nordic/swedish-neotoma-holdout/protocol.json",
+    "prediction_freeze": "docs/report/regions/nordic/swedish-neotoma-holdout/prediction-freeze.json",
+    "physical_core_sites": 1,
+    "selected_samples": 77,
+    "excluded_parallel_dataset_samples": 77,
+    "candidate_and_scored_site_bins": 22,
+    "fixed_method_score_rows": 66,
+    "native_pollen_nisp": 35767,
+    "author_assigned_nisp": 35505,
+    "status": "additional_prior_exposed_development_transfer; no LRA, vegetation or country-wide claim"
+  },
+  "swedish_lake_transfer": {
+    "report": "docs/report/regions/nordic/swedish-lake-transfer/report.json",
+    "protocol": "docs/report/regions/nordic/swedish-lake-transfer/protocol.json",
+    "prediction_freeze": "docs/report/regions/nordic/swedish-lake-transfer/prediction-freeze.json",
+    "prediction_freeze_sha256": "3aa60965e7d79b02674a0a61d8806e267bc04a7e2d37df711feb003ef289f18a",
+    "physical_lake_sites": 3,
+    "selected_samples": 268,
+    "excluded_source_samples": 5,
+    "candidate_and_scored_site_bins": 63,
+    "fixed_method_score_rows": 189,
+    "native_pollen_nisp": 238797,
+    "author_assigned_nisp": 231115,
+    "status": "additional_prior_exposed_development_transfer; no LRA, vegetation or country-wide claim"
+  },
   "pft_uncertainty_bounds": {
     "report": "docs/report/publication-replay/landclim-pft-crosswalk/uncertainty-bounds/report.json",
     "groups": 5,
@@ -219,6 +246,23 @@
     "site_macro_total_variation": 0.29370261399256353,
     "status": "prior_exposed_development_baseline_not_confirmatory"
   },
+  "author_buffered_spatial_pollen": {
+    "directory": "docs/report/pollen-reconstruction/author-buffered-pollen",
+    "private_source_manifest_sha256": "48d853468f979a04636642c6c757e9d05edf708d799b29cbae4d2286a9ac0acb",
+    "observed_site_bins": 184,
+    "fixed_baseline_scored_bins": 148,
+    "four_method_common_scored_bins": 140,
+    "fitted_site_macro_mae_fraction": 0.040564201040558065,
+    "training_mean_common_site_macro_mae_fraction": 0.025298319144157262,
+    "status": "prior_exposed_english_direct_pollen_development_diagnostic"
+  },
+  "publication_input_inventory": {
+    "directory": "docs/report/publication-replay/landclim-study-inputs",
+    "publication_metadata_records": 1128,
+    "refusal_ledger_records": 4512,
+    "reproduction_ready_records": 0,
+    "status": "metadata_only_no_authenticated_historical_primary_input_closure"
+  },
   "publication_correspondence": {
     "author_example": {
       "directory": "docs/report/publication-replay/landclim-author-example-correspondence",
@@ -232,6 +276,24 @@
       "window": "100-350 BP",
       "unit": "percentage_cover",
       "status": "descriptive_cross_revision_difference_without_pass_tolerance"
+    },
+    "three_way_provenance": {
+      "directory": "docs/report/publication-replay/landclim-published-window-provenance",
+      "paired_mean_se_values": 124,
+      "unit": "percentage_cover",
+      "status": "author_R_and_installed_python_agree_archive_difference_is_cross_revision"
+    },
+    "uncertainty_envelopes": {
+      "directory": "docs/report/publication-replay/landclim-published-window-uncertainty",
+      "taxon_envelopes": 62,
+      "disjoint_one_se_envelopes": 0,
+      "status": "descriptive_overlap_without_inferential_test"
+    },
+    "window_alignment": {
+      "directory": "docs/report/publication-replay/landclim-window-alignment",
+      "compared_windows": 25,
+      "exact_tw_indices": ["2"],
+      "status": "only_TW2_has_exact_shared_bounds"
     }
   }
 }

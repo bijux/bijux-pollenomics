@@ -1,0 +1,61 @@
+{
+  "build_id": "sha256:92dd52619837f3641d004a1a5dbe38f9ab6023a79f61989314bb90e612eb58e1",
+  "bundle_digest": "b795e0e226e3b1ca6055dd666de96953415c427050fccfc568eb38b911a6d34c",
+  "event_manifest_digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+  "files": [
+    {
+      "path": "excluded_non_pollen_events.json",
+      "record_count": 0,
+      "sha256": "641499cecbb3d08955708d46a328701ac0a91edd2bdacb8e445f12e066de2e97"
+    },
+    {
+      "path": "phenomenon_events.json",
+      "record_count": 0,
+      "sha256": "0d307fbb235360c0ddd5b257c1bb21a03e3075a46b799cb9637699904a12a3c8"
+    },
+    {
+      "path": "primary_scenario_candidates.json",
+      "record_count": 0,
+      "sha256": "1b014d88fde734b6d6d94014bbef444a55908b0591a57c3dc429070b4c9d1084"
+    },
+    {
+      "path": "primary_scenario_reconciliation.json",
+      "record_count": 1,
+      "sha256": "fa3eafdba42b3a61d8076b3c4969412dad079ae2b7e6bb4ea81f27527472a529"
+    },
+    {
+      "path": "primary_scenario_refusals.json",
+      "record_count": 0,
+      "sha256": "64df3c9fe77aa154a353ca72cb288feae200938dc6c7ef1d2909f7a99f4c9e95"
+    },
+    {
+      "path": "release_metadata.json",
+      "record_count": 1,
+      "sha256": "c60a0952eff7d394a61f29a30864140de7c146fd0bbabff4233ea91607993735"
+    },
+    {
+      "path": "sensitivity_summary.json",
+      "record_count": 16,
+      "sha256": "9c8d0950cec84e224779dbb85f87dca71a996b500c21d48144e08f62acee4b95"
+    }
+  ],
+  "payload_file_count": 7,
+  "propagation_contract_digest": "cd3c6ebdb01d1d3e2759df1984b8bc0e8993e19891e517dffe6babb77e11acea",
+  "propagation_contract_version": "1.0.0",
+  "propagation_producer_digest": "4aeccd191c1d63826417ef995ea1cfe68c226836af24f4f9a3438dd57365e3c1",
+  "propagation_producer_id": "bijux-pollenomics.propagation-output-materializer",
+  "propagation_producer_version": "1",
+  "schema_version": "propagation-output-manifest.v2",
+  "validated_record_schemas": [
+    {
+      "name": "phenomenon-event.schema.json",
+      "schema_id": "https://bijux.io/schemas/pollenomics/phenomenon-event.v1.json",
+      "sha256": "f8343d21392c196e4f83dd2cfb2c5d305dec01cf447c269835bc58570742f71a"
+    },
+    {
+      "name": "propagation-candidate.schema.json",
+      "schema_id": "https://bijux.io/schemas/pollenomics/propagation-candidate.v1.json",
+      "sha256": "6955b1ad241668ef5027c5a525a1257ee3873bcdafeafa999246426c8853bf16"
+    }
+  ]
+}

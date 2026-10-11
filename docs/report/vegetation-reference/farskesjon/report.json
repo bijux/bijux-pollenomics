@@ -1,0 +1,33 @@
+{
+  "coordinate_publication": "withheld; plot source identifiers and coordinates stay in the private source store",
+  "distance_between_source_points_m": 427.1218982849811,
+  "empd2_context": "lake surface sediment, 0–1 cm; agebp -63 is source age, not collection date",
+  "empd2_sample": "Nielsen_b4",
+  "empd2_source_note": "Surface smaple collected September 2013",
+  "inventory_precedes_possible_september_sampling_days": [
+    107,
+    136
+  ],
+  "nfi_inventory_date": "2013-05-17",
+  "nfi_land_use_class_native": "1",
+  "nfi_plot_area_m2": 153.94,
+  "nfi_plot_radius_m": 7.0000445626533505,
+  "nfi_source_date_serial": "41411.343055555597",
+  "nfi_tree_volume_m3_per_ha": {
+    "birch": 26.2432173361928,
+    "contorta": 0.0,
+    "other_deciduous": 266.116408575599,
+    "pine": 0.0,
+    "spruce": 10.4884630707725
+  },
+  "nfi_tree_volume_total_m3_per_ha": 302.84808898256426,
+  "point_separation_minus_plot_radius_m": 420.1218537223278,
+  "reason": "One 7 m radius forest plot sampled 107–136 days before a lake surface sample and 427 m from its point does not measure the lake pollen's regional vegetation footprint; plot tree volume classes are not 31-taxon landscape cover fractions.",
+  "schema_version": "farskesjon-pollen-nfi-plot-support.v1",
+  "source_sha256": {
+    "empd2/source.sqlite3": "5634e85d922ee0741c41a77d081010c9cc1c113966b283bc52e2051a9d3722e2",
+    "nfi/swedish-plot-data.xlsx": "862d13f26b868e3b32504f0f714f369018e700e54b245fcd2e16c80640316294",
+    "pairing/spatial-feasibility.json": "5d35aed59cb5e3b49582976264837fab1c8d4ffa3dc1937e73bf2f04f32e2c66"
+  },
+  "vegetation_pair_admission": "refused"
+}

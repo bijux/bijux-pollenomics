@@ -163,19 +163,19 @@ def compare_core(
     sample = selected[0]
     counts = _count_labels(sample["datum"])
     mass = json.loads(count_mass.read_text())
-    mass_rows = [
-        row
-        for row in mass["sample_rows"]
-        if row["sample_id"] == f"neotoma:sample:{SAMPLE_ID}"
-    ]
     if (
-        len(mass_rows) != 1
+        mass["schema_version"] != "neotoma-sample-count-mass-crosscheck.v1"
         or mass["lra_accepted_samples"] != 0
-        or mass_rows[0]["known_compatible_pollen_denominator_status"] != "not_evaluated"
-        or len(mass_rows[0]["source_unit_partitions"]) != 1
     ):
-        raise ValueError("Retained Neotoma count-mass receipt differs")
-    unit = mass_rows[0]["source_unit_partitions"][0]
+        raise ValueError("Retained Neotoma count-mass cross-check differs")
+    mass_row = mass["sample_row"]
+    if (
+        mass_row["sample_id"] != f"neotoma:sample:{SAMPLE_ID}"
+        or mass_row["known_compatible_pollen_denominator_status"] != "not_evaluated"
+        or len(mass_row["source_unit_partitions"]) != 1
+    ):
+        raise ValueError("Retained Neotoma sample-mass row differs")
+    unit = mass_row["source_unit_partitions"][0]
     if (
         unit["source_unit"] != "NISP"
         or counts["pollen_observations"] != unit["pollen_count_observations"]
@@ -185,6 +185,10 @@ def compare_core(
     ):
         raise ValueError("Raw Neotoma counts and retained mass do not reconcile")
     prerequisite = json.loads(projection.read_text())
+    if prerequisite["source_identities"]["raw_manifest_sha256"] != _digest(
+        raw_manifest
+    ):
+        raise ValueError("Prerequisite projection and raw source manifest differ")
     selected_age = [
         row
         for row in prerequisite["chronology_rows"]

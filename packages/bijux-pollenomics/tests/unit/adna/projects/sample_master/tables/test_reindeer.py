@@ -35,11 +35,13 @@ def test_reindeer_table_joins_keep_geography_and_unresolved_aliases() -> None:
     assert all(not row.latitude_text and not row.longitude_text for row in rows)
 
 
-def test_reindeer_chronology_uses_own_table_row_and_holds_disputed_date() -> None:
+def test_reindeer_chronology_selects_primary_project_date_with_secondary_visible() -> (
+    None
+):
     rows = build_project_sample_chronology_rows(REPOSITORY_ROOT / "data", "PRJEB60484")
     by_alias = {row.preferred_sample_label: row for row in rows}
 
-    assert sum(row.chronology_strength == "sample_owned_interval" for row in rows) == 19
+    assert sum(row.chronology_strength == "sample_owned_interval" for row in rows) == 20
     assert (by_alias["MLM12"].time_start_bp, by_alias["MLM12"].time_end_bp) == (
         1298,
         1349,
@@ -48,11 +50,12 @@ def test_reindeer_chronology_uses_own_table_row_and_holds_disputed_date() -> Non
     assert by_alias["MLM12"].chronology_provenance_path.endswith(
         "41598_2024_54296_MOESM2_ESM.xlsx"
     )
-    assert by_alias["R20"].chronology_strength == "unresolved"
-    assert by_alias["R20"].time_start_bp is None
-    assert {
-        alias
-        for alias, row in by_alias.items()
-        if row.chronology_strength == "unresolved"
-    } == {"R20"}
+    assert by_alias["R20"].chronology_strength == "sample_owned_interval"
+    assert (by_alias["R20"].time_start_bp, by_alias["R20"].time_end_bp) == (0, 450)
+    assert by_alias["R20"].time_mean_bp == 225
+    assert by_alias["R20"].chronology_provenance_path.endswith("article.pdf")
+    assert by_alias["R20"].chronology_provenance_kind == "article_or_archive_text"
+    assert "41-252 BP" in by_alias["R20"].chronology_provenance_text
+    assert "0–450 calibrated BP" in by_alias["R20"].chronology_provenance_text
     assert by_alias["B20"].chronology_provenance_path.endswith("author_preprint.pdf")
+    assert by_alias["B20"].chronology_provenance_kind == "article_or_archive_text"

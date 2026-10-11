@@ -1,0 +1,40 @@
+{
+  "schema_version": "landclim-study-input-artifact-retirement.v1",
+  "retired_directory": "artifacts/v2/essd/full-study-metadata",
+  "files": [
+    {
+      "path": "manifest.json",
+      "bytes": 3390,
+      "sha256": "aaab3414a4168c910210b3e275b759f19fe478501de3ec5656f2e1ddcec58e93",
+      "retained": "docs/report/publication-replay/landclim-study-inputs/manifest.json"
+    },
+    {
+      "path": "primary-source-crosswalk.csv",
+      "bytes": 239514,
+      "sha256": "7252e1424a072775cbbdd1172d35ab28d9b76f089040164df4bfe940fce61893",
+      "retained": "docs/report/publication-replay/landclim-study-inputs/primary-source-crosswalk.csv"
+    },
+    {
+      "path": "records.jsonl",
+      "bytes": 3664403,
+      "sha256": "9ce0d30784d62b8d9f718994b471eb4c9cc839616a1647015ff91f5902a3828a",
+      "retained": "docs/report/publication-replay/landclim-study-inputs/records.jsonl"
+    },
+    {
+      "path": "refusals.csv",
+      "bytes": 1160987,
+      "sha256": "055f960736e349a2cd1be12dbfd201fa31040d007342f619a5e98612f2c4655f",
+      "retained": "docs/report/publication-replay/landclim-study-inputs/refusals.csv"
+    },
+    {
+      "path": "report.json",
+      "bytes": 4184,
+      "sha256": "6c6f28f22b3c46d4a9adcd7b8814f07b1db304306ac0cf6c02e85cbd170c2e02",
+      "retained": "docs/report/publication-replay/landclim-study-inputs/report.json"
+    }
+  ],
+  "result_relation": "All five generated metadata, crosswalk, refusal, summary and manifest files are retained byte for byte under docs/report/publication-replay/landclim-study-inputs. The current source-bound producer reproduced their exact bytes from the pinned raw workbook and receipt.",
+  "consumer_check": "No current package or report source reads the retired artifact directory; older artifact reviews cite it as historical evidence.",
+  "liveness_check": "lsof +D found no open files; all five regular files have one hardlink each.",
+  "scientific_admission": "Metadata only; zero authenticated historical primary input closures and zero reproduction-ready study records."
+}

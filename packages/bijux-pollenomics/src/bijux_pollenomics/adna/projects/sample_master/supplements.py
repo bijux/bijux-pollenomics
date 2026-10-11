@@ -61,6 +61,8 @@ def _project_specific_sample_rows(
     species: AdnaSpeciesDefinition,
     project: AdnaArchiveProject,
 ) -> tuple[AdnaProjectSampleMasterRow, ...]:
+    if not (output_root / ADNA_SOURCE_LIBRARY_DIR.removeprefix("data/")).is_dir():
+        return ()
     if project.project_accession == "PRJEB36540":
         return _sheep_supplementary_sample_rows(output_root, species, project)
     if project.project_accession == "PRJEB19970":

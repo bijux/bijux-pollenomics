@@ -76,6 +76,12 @@ The [replay script](author_prepared_replay.R) transcribes the calculation with
 absolute source paths and per-site scratch files under `artifacts/`; it does not
 claim execution of the original Windows-path wrapper unmodified.
 
+The separate [count preparation audit](../author-preparation-audit/README.md)
+recounts all 17 raw and prepared source files: 501,713 raw counts, 299,660
+prepared counts and a 202,053-count difference. It verifies the older
+independent challenge's site totals from private custody while keeping its
+historical exclusion-category checks distinct from the fresh count sums.
+
 The additional exact source identities are: `run.all.taxa.100219.csv`
 `055a38b01755b5c47510199b44f7adebaf7fb33c6e75927544a76e2ceeb9df72`,
 `bins.csv` `62cac73bafacb8be8d8b7007e9871494024e661ab1a2f28774dcf7cb7046a71f`,

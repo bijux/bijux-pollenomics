@@ -1,0 +1,30 @@
+{
+  "collection_unit_id": "neotoma:collection-unit:39243",
+  "counting_decision": "use one physical-core pollen count vector per depth",
+  "distinct_source_names_by_dataset": {
+    "neotoma:dataset:54004": 60,
+    "neotoma:dataset:54005": 60
+  },
+  "exact_matching_pollen_count_vectors": 77,
+  "excluded_parallel_dataset_id": "neotoma:dataset:54005",
+  "native_pollen_nisp_by_dataset": {
+    "neotoma:dataset:54004": 35767,
+    "neotoma:dataset:54005": 35767
+  },
+  "schema_version": "storasjo-parallel-epd-pollen-review.v1",
+  "selected_dataset_id": "neotoma:dataset:54004",
+  "shared_depth_count": 77,
+  "site_id": "neotoma:site:28874",
+  "source_manifest_sha256": "6f6777a40b67bd0704eb1a982f19e6d451cad0d6e4a41dfebf5e3f28be33105b",
+  "source_part_sha256": {
+    "data/neotoma/relational/surfaces/observations/part-00001.json": "6afa864a9e06384678e63e9f85b13ca79882a87f5c14751cb27af46df60539be",
+    "data/neotoma/relational/surfaces/observations/part-00002.json": "571b55edc7ce7b6472cacc0db41c41c0e5ccb7d11f0890f88e7ba5f99ef3c719",
+    "data/neotoma/relational/surfaces/observations/part-00003.json": "a96543819902f5cf5b2b2de355558fd1dd85946c2c08254ec84fad6f9e43fcb5",
+    "data/neotoma/relational/surfaces/observations/part-00004.json": "b78776421961eb1bf64d886340e2e0f5a42dfe6d0a4ca937d028eb66b1ca0219",
+    "data/neotoma/relational/surfaces/observations/part-00005.json": "c4705ced69897dcb8f154435d0ba6bdfb0baa942642de94b18f3c856cbfc2e3a",
+    "data/neotoma/relational/surfaces/observations/part-00006.json": "a33597470799a6b85add81bb699c8a32ec6b55881809345f44351f5530d4d2b7",
+    "data/neotoma/relational/surfaces/observations/part-00007.json": "48a285e8be25f0ffc9d41feb0cd08ac8c2b6ba54783cf7f3ceeb57e4595ef1bf",
+    "data/neotoma/relational/surfaces/observations/part-00008.json": "517a9b6fd807cd420dbaf7f2d09a5c93d6a4d4374bc823d25fba7307bc0852dd",
+    "data/neotoma/relational/surfaces/samples/part-00001.json": "c959e77f7c645b814bffe92a92ff2d8fabcc077b4fc4c894e6315e448d14100c"
+  }
+}

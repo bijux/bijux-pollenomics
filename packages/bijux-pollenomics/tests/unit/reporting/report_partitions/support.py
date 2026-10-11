@@ -203,6 +203,7 @@ def render_audit(_payload: dict[str, object]) -> str:
 
 
 def publish_truth(output_root: Path, **_: object) -> dict[str, str]:
+    assert (output_root / "publication_country_onboarding_contract.json").is_file()
     write_json(output_root / "repository_claim_audit.json", {"overall_ok": True})
     write_json(output_root / "repository_truth_posture.json", {"posture": "fixture"})
     return {

@@ -20,6 +20,46 @@ also checks the three historical Rootsi and OpenLand intake receipts and their
 12 four-country claims. Those claims remain separate from this 11-family cube;
 their original archives do not create new admitted country observations.
 
+The [Neotoma dataset ledger](neotoma-entities/README.md) adds source-bound
+entity decisions for one family: 85 datasets occur in the selected direct
+observed-pollen study and 124 do not. Its separate sample prerequisites do not
+admit any dataset to LRA or measured-vegetation validation. Entity decisions
+for the other source families still require their own source evidence.
+
+The [used-dataset publication ledger](neotoma-attribution/README.md) joins
+those 85 Neotoma study datasets to exact provider citation responses. Seventy-nine
+have one provider-flagged primary publication; six need primary-link review.
+Thirteen carry distinct source DOI names, with 18 datasets in the union of
+citation-review cases. Neotoma's policy-level CC BY 4.0 statement and these
+metadata do not resolve sample-specific scientific admission or vegetation truth.
+
+The existing [SEAD site ledger](../../../source-relations/sead-country-retrieval/README.md)
+already records all 2,195 discovered site IDs and UUIDs. Governed boundaries
+assign 2,069 to SE/DK/NO/FI and retain 103 for review plus 23 unassigned;
+only assigned sites occur in the retrieved and normalized site consumers.
+This is archaeological site context and country accountability. It does not
+admit a SEAD pollen series, an LRA cohort, or vegetation truth. The two linked
+entity ledgers therefore cover different scientific roles and denominators.
+
+LandClim's governed [sequence inventory](../../../../../data/landclim/normalized/nordic_pollen_site_sequences.csv)
+supplies 490 context rows: Sweden 198, Denmark 127, Norway 93 and Finland 72.
+These rows already feed the atlas and describe source site coverage, not
+authenticated historical counts. The separate [1,128-row LandClim II study
+crosswalk](../../../publication-replay/landclim-study-inputs/README.md) leaves
+every historical primary input identity unresolved; its Nordic country labels
+are publication metadata. Neither inventory supplies measured vegetation truth
+or a qualified LRA cohort for the current Neotoma sites.
+
+The [human and animal DNA source-scope review](../../../source-relations/dna-scope/README.md)
+keeps two more entity populations distinct. AADR v66 has 51,005 annotation
+rows across its 1240K and HO captures, representing 27,755 Genetic IDs;
+these are human-source accountability units. The animal point surface has
+170 features backed by 331 distinct sample IDs, of which eight Nordic
+locality features represent 12 sample IDs. Its 1,450-row foundation still
+has eleven unresolved paper-link rows. Neither population supplies pollen
+counts or an independent vegetation reference, and the eight animal locality
+features are not a Nordic pollen cohort.
+
 | Family | Governed raw stage | Governed published stage | Four-country publication availability | Qualification |
 | --- | --- | --- | --- | --- |
 | AADR | present | present | collected in SE/DK/NO/FI | authority and source review required |

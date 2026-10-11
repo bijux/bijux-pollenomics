@@ -1,0 +1,76 @@
+{
+  "schema_version": "rootsi-neotoma-chronology-witness.v1",
+  "overlap_ledger_sha256": "34bb9b19d1a3ba3a479ce77174ea85e87c52f1bae51e42a44b57eaf5739165c6",
+  "neotoma_raw_part_sha256": "9cdcb2d394bc8ef23bf2b4b5e3f1f3ae5916aae16db71542c58f4b80a2dd1134",
+  "findings": [
+    {
+      "sequence": "FLINK",
+      "workbook_member": "rootsi/FLINK.xls",
+      "workbook_sha256": "6e57c67c843ee5a6d023e0060460675409c370c15dee3aaa99d4015dd7ed9195",
+      "neotoma_dataset_id": 54024,
+      "neotoma_site_id": 28889,
+      "neotoma_chronology_id": 38438,
+      "neotoma_chronology_notes": "Calibrated year BP ages with OxCalv3.10, sigma 2, IntCal04.",
+      "workbook_sample_rows": 109,
+      "neotoma_sample_rows": 109,
+      "numeric_depth_scale_to_neotoma_cm": 100,
+      "paired_depth_rows": 109,
+      "neotoma_age_type": "Calibrated radiocarbon years BP",
+      "neotoma_age_min_bp": -50.0,
+      "neotoma_age_max_bp": 12010.5,
+      "neotoma_samples_with_age_bounds": 0,
+      "historical_landclim_input_authenticated": false,
+      "lra_admitted_samples": 0,
+      "diagnostic_conversion": "1950 - Neotoma calibrated BP, compared numerically with workbook AD/BC label",
+      "age_labels_within_0_05": 108,
+      "max_absolute_difference_among_matched": 0.049999999999272404,
+      "selected_count_anchor_taxa": [
+        "Betula",
+        "Pinus",
+        "Populus"
+      ],
+      "selected_count_cell_status": {
+        "absent_source_zero": 57,
+        "explicit_agreement": 270
+      },
+      "unmatched_age_rows": [
+        {
+          "workbook_sheet_row": 56,
+          "depth_cm": 275.0,
+          "workbook_age_label": 3910.84326171875,
+          "neotoma_implied_ad_bc": -3910.8,
+          "neotoma_age_bp": 5860.8,
+          "neotoma_sample_id": 553036
+        }
+      ]
+    },
+    {
+      "sequence": "STAV",
+      "workbook_member": "rootsi/STAV.xls",
+      "workbook_sha256": "2a2f0212ffe0e52945603fb7ee9c717ab5157fe62450d4dc9e7ee1ce6d5c818e",
+      "neotoma_dataset_id": 54003,
+      "neotoma_site_id": 28873,
+      "neotoma_chronology_id": 38423,
+      "neotoma_chronology_notes": "Calibrated yr BP age with Bacon (Blaauw &amp; Christen 2011)",
+      "workbook_sample_rows": 77,
+      "neotoma_sample_rows": 77,
+      "numeric_depth_scale_to_neotoma_cm": 1,
+      "paired_depth_rows": 77,
+      "neotoma_age_type": "Calibrated radiocarbon years BP",
+      "neotoma_age_min_bp": 70.0,
+      "neotoma_age_max_bp": 10585.0,
+      "neotoma_samples_with_age_bounds": 0,
+      "historical_landclim_input_authenticated": false,
+      "lra_admitted_samples": 0,
+      "workbook_age_column": false,
+      "exact_workbook_count_labels": 82,
+      "count_cell_status": {
+        "absent_source_positive": 854,
+        "absent_source_zero": 4520,
+        "explicit_agreement": 940
+      },
+      "neotoma_age_vector_transfer": "candidate_only_no_workbook_age_field"
+    }
+  ],
+  "interpretation": "Depth and selected pollen counts show shared EPD source lineage, not independent chronology validation. Neotoma point ages witness a FLINK workbook sign discrepancy and provide an STAV candidate age vector; source rights, historical input identity, uncertainty, basin geometry and complete target denominator remain unresolved."
+}

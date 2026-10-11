@@ -543,8 +543,17 @@ def reconcile(
         }
         for lct in ("ET", "ST", "OL")
     ]
+    codes_by_definition: dict[str, list[str]] = {}
+    for code in codes:
+        codes_by_definition.setdefault(definitions[code], []).append(code)
     summary: dict[str, object] = {
         "source_parameter_pft_codes": codes,
+        "source_parameter_definition_count": len(codes_by_definition),
+        "source_parameter_duplicate_definition_groups": [
+            {"definition": definition, "codes": members}
+            for definition, members in codes_by_definition.items()
+            if len(members) > 1
+        ],
         "output_pft_position_codes": output_pfts,
         "unmapped_output_codes": ["ISTS"],
         "mean_files": 25,

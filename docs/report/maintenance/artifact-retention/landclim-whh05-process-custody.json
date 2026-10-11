@@ -1,0 +1,1204 @@
+{
+  "schema_version": "landclim-whh05-process-custody.v1",
+  "private_source_root": "landclim/whh05-process",
+  "selected_prefix": "artifacts/v3/landclim/whh05-current",
+  "file_count": 169,
+  "path_bytes": 2931171,
+  "exact_author_reference_duplicates": 132,
+  "distinct_content_hashes": 97,
+  "files": [
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/challenge/run002/result.json",
+      "private_path": "landclim/whh05-process/challenge/run002/result.json",
+      "bytes": 705,
+      "sha256": "4c920b51f600416387c67e54fa8c9b7ee6375fc1ba214b3f85d9994d96f42bb4",
+      "exact_author_reference_duplicate": null
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/challenge/verify.py",
+      "private_path": "landclim/whh05-process/challenge/verify.py",
+      "bytes": 4916,
+      "sha256": "629359f9ae77111362477a0c891101a6de02f87811526597f97697001e03fcfa",
+      "exact_author_reference_duplicate": null
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/prepare_snapshot.py",
+      "private_path": "landclim/whh05-process/prepare_snapshot.py",
+      "bytes": 2965,
+      "sha256": "414539a80b035d465b26425b7c67a4b0c84b7728c22e92bc93d4645de57ec849",
+      "exact_author_reference_duplicate": null
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/run001.plan.json",
+      "private_path": "landclim/whh05-process/run001.plan.json",
+      "bytes": 1819,
+      "sha256": "426dc6f55a4c0a8e008c59caa5f68f2f892320b5e84bebf2b154c818af33f0ee",
+      "exact_author_reference_duplicate": null
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/run002/comparison-values.csv",
+      "private_path": "landclim/whh05-process/run002/comparison-values.csv",
+      "bytes": 2255,
+      "sha256": "9b566f6ee0c7fc33ed0e969b3585f11ba52ea0591197db23b741b7875ed20760",
+      "exact_author_reference_duplicate": null
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/run002/host-result/availability.csv",
+      "private_path": "landclim/whh05-process/run002/host-result/availability.csv",
+      "bytes": 23,
+      "sha256": "f265cda712d14a14d8e691f92d2bdc7a77311e199fd69191c69ce372db004625",
+      "exact_author_reference_duplicate": null
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/run002/host-result/bootstrap-indices.json",
+      "private_path": "landclim/whh05-process/run002/host-result/bootstrap-indices.json",
+      "bytes": 3,
+      "sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+      "exact_author_reference_duplicate": null
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/run002/host-result/checksums.json",
+      "private_path": "landclim/whh05-process/run002/host-result/checksums.json",
+      "bytes": 1436,
+      "sha256": "f020dc7e58c07e210053dfdea97779811ca6b8f5902375b88cd9c0de8a405497",
+      "exact_author_reference_duplicate": null
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/run002/host-result/diagnostics.json",
+      "private_path": "landclim/whh05-process/run002/host-result/diagnostics.json",
+      "bytes": 3,
+      "sha256": "37517e5f3dc66819f61f5a7bb8ace1921282415f10551d2defa5c3eb0985b570",
+      "exact_author_reference_duplicate": null
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/run002/host-result/regional-cover.csv",
+      "private_path": "landclim/whh05-process/run002/host-result/regional-cover.csv",
+      "bytes": 703,
+      "sha256": "5740b826114d158e6b25305159a79136ed14e1d96403f0898a06a7af78ce30f6",
+      "exact_author_reference_duplicate": null
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/run002/host-result/regional-standard-error.csv",
+      "private_path": "landclim/whh05-process/run002/host-result/regional-standard-error.csv",
+      "bytes": 704,
+      "sha256": "f5383455050dc1216e80ccb7fa8f5bf0a21eca8ddfe0edc6f48f7f9b6f764558",
+      "exact_author_reference_duplicate": null
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/run002/host-result/run-manifest.json",
+      "private_path": "landclim/whh05-process/run002/host-result/run-manifest.json",
+      "bytes": 2166,
+      "sha256": "6d34130a2859e479c52821a6ec1b3d27d51664e1ec5a3178a0c866baee0b854a",
+      "exact_author_reference_duplicate": null
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/run002/host-result/site-0/cover.csv",
+      "private_path": "landclim/whh05-process/run002/host-result/site-0/cover.csv",
+      "bytes": 703,
+      "sha256": "5740b826114d158e6b25305159a79136ed14e1d96403f0898a06a7af78ce30f6",
+      "exact_author_reference_duplicate": null
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/run002/host-result/site-0/deposition.csv",
+      "private_path": "landclim/whh05-process/run002/host-result/site-0/deposition.csv",
+      "bytes": 980,
+      "sha256": "9a397f2c90410f6d6872d3446dba70577c82aaccd386c7dc52c22d816a68752d",
+      "exact_author_reference_duplicate": null
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/run002/host-result/site-0/standard-error.csv",
+      "private_path": "landclim/whh05-process/run002/host-result/site-0/standard-error.csv",
+      "bytes": 704,
+      "sha256": "f5383455050dc1216e80ccb7fa8f5bf0a21eca8ddfe0edc6f48f7f9b6f764558",
+      "exact_author_reference_duplicate": null
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/run002/host-result/site-count.csv",
+      "private_path": "landclim/whh05-process/run002/host-result/site-count.csv",
+      "bytes": 25,
+      "sha256": "75ec6274808bbf0fc898ef60e9cc6dd76d433ee4d3926645f1928acff9644f5b",
+      "exact_author_reference_duplicate": null
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/run002/host-result/site-index.json",
+      "private_path": "landclim/whh05-process/run002/host-result/site-index.json",
+      "bytes": 57,
+      "sha256": "073ead98e4172041a736940fdbe8f056f4fc7431412dca890131f85329995dc2",
+      "exact_author_reference_duplicate": null
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/run002/input-lineage.json",
+      "private_path": "landclim/whh05-process/run002/input-lineage.json",
+      "bytes": 7773,
+      "sha256": "af49780ee4dc1a18044e1b1ea20320417cd4f704b8c586af052177ffadd70396",
+      "exact_author_reference_duplicate": null
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/run002/report.json",
+      "private_path": "landclim/whh05-process/run002/report.json",
+      "bytes": 2187,
+      "sha256": "c4bc8d418b743ae2634a521efdedebf779abd03cfae4af62b1ff53bceec96e4b",
+      "exact_author_reference_duplicate": null
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/run002.plan.json",
+      "private_path": "landclim/whh05-process/run002.plan.json",
+      "bytes": 1903,
+      "sha256": "1c1642cd10e21ec7e30d54a738836c761ebc87e68a56aacf6a46168f88d77281",
+      "exact_author_reference_duplicate": null
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/run_comparison.py",
+      "private_path": "landclim/whh05-process/run_comparison.py",
+      "bytes": 7587,
+      "sha256": "98476b43768e8a1fc554ba257555df74f1722305a549c9e993275cf9435cf27e",
+      "exact_author_reference_duplicate": null
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot001/author/LANDCLIM.ALLEUROPE.taxa.LUT.080219.csv",
+      "private_path": "landclim/whh05-process/snapshot001/author/LANDCLIM.ALLEUROPE.taxa.LUT.080219.csv",
+      "bytes": 329074,
+      "sha256": "3a745f9b7606e5d0b59feaba2683b930c8d3990e4810f8217b69160a29a1b507",
+      "exact_author_reference_duplicate": "landclim/author-reference/author/LANDCLIM.ALLEUROPE.taxa.LUT.080219.csv"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot001/author/TWlookup.csv",
+      "private_path": "landclim/whh05-process/snapshot001/author/TWlookup.csv",
+      "bytes": 200,
+      "sha256": "888a2d5d035c8a49bd957917ca0658bb08824240ac15c1da4b717c633ddae3dd",
+      "exact_author_reference_duplicate": "landclim/author-reference/author/TWlookup.csv"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot001/author/bins.csv",
+      "private_path": "landclim/whh05-process/snapshot001/author/bins.csv",
+      "bytes": 130,
+      "sha256": "62cac73bafacb8be8d8b7007e9871494024e661ab1a2f28774dcf7cb7046a71f",
+      "exact_author_reference_duplicate": "landclim/author-reference/author/bins.csv"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot001/author/input/WHH05.csv",
+      "private_path": "landclim/whh05-process/snapshot001/author/input/WHH05.csv",
+      "bytes": 1037,
+      "sha256": "977b32b96578aeb701288e77e37ab137e0475acd99274ddbdcc05180a8a99469",
+      "exact_author_reference_duplicate": "landclim/author-reference/author/input/WHH05.csv"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot001/author/run.REVEALS.files/LRA-REVEALS-release.R",
+      "private_path": "landclim/whh05-process/snapshot001/author/run.REVEALS.files/LRA-REVEALS-release.R",
+      "bytes": 14501,
+      "sha256": "7675b6e615cddba328bad506692b3a6a31e00d9273cef5ad4641a1737fddfd87",
+      "exact_author_reference_duplicate": "landclim/author-reference/author/run.REVEALS.files/LRA-REVEALS-release.R"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot001/author/run.REVEALS.files/LRAready_WHH05.csv",
+      "private_path": "landclim/whh05-process/snapshot001/author/run.REVEALS.files/LRAready_WHH05.csv",
+      "bytes": 2309,
+      "sha256": "298b66d7033703ce42d27f933b4d3ccec3a16f68b35a6fbf7a61806c01c88273",
+      "exact_author_reference_duplicate": "landclim/author-reference/author/run.REVEALS.files/LRAready_WHH05.csv"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot001/author/run.REVEALS.files/av-RPP.all.landclimII.csv",
+      "private_path": "landclim/whh05-process/snapshot001/author/run.REVEALS.files/av-RPP.all.landclimII.csv",
+      "bytes": 772,
+      "sha256": "066ebadbe6ab10aead80c74a184284e05b9db3cd1f5daff04249596170a663e2",
+      "exact_author_reference_duplicate": "landclim/author-reference/author/run.REVEALS.files/av-RPP.all.landclimII.csv"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot001/author/run.REVEALS.files/avar-RPP.all.landclimII.csv",
+      "private_path": "landclim/whh05-process/snapshot001/author/run.REVEALS.files/avar-RPP.all.landclimII.csv",
+      "bytes": 2977,
+      "sha256": "8821de94682c454e3a751897b487c8bf1612cf60994dc6246fb33284a73e9918",
+      "exact_author_reference_duplicate": "landclim/author-reference/author/run.REVEALS.files/avar-RPP.all.landclimII.csv"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot001/author/site.metadata.csv",
+      "private_path": "landclim/whh05-process/snapshot001/author/site.metadata.csv",
+      "bytes": 1019,
+      "sha256": "72949e9e3faf417be0b7425fc111a9638b37c4a38aab8f8d82e0c3d8739da2de",
+      "exact_author_reference_duplicate": "landclim/author-reference/author/site.metadata.csv"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot001/packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/__init__.py",
+      "private_path": "landclim/whh05-process/snapshot001/packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/__init__.py",
+      "bytes": 62,
+      "sha256": "7b81431bc8a66b84fe91baea2c452b58458f8b54b3cabc6ee248dc88cb8d8c0c",
+      "exact_author_reference_duplicate": null
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot001/packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/__init__.py",
+      "private_path": "landclim/whh05-process/snapshot001/packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/__init__.py",
+      "bytes": 209,
+      "sha256": "2ea9a6fa9740747cd2c670b7abebba10c69ddf8ddf6ee0a8694635c6ad874a9d",
+      "exact_author_reference_duplicate": null
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot001/packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/one_site.py",
+      "private_path": "landclim/whh05-process/snapshot001/packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/one_site.py",
+      "bytes": 21206,
+      "sha256": "ca46ad52edfad8edf8ed37fb877df3b34c27ce712bf2c8db91f589dd9f7b7fd6",
+      "exact_author_reference_duplicate": null
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot001/packages/bijux-pollenomics-lra/pyproject.toml",
+      "private_path": "landclim/whh05-process/snapshot001/packages/bijux-pollenomics-lra/pyproject.toml",
+      "bytes": 1754,
+      "sha256": "d1bf129ca8cf814d5dae150699652b67160d082fd5180ec55444d804dc596fc7",
+      "exact_author_reference_duplicate": "landclim/author-reference/packages/bijux-pollenomics-lra/pyproject.toml"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot001/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/__init__.py",
+      "private_path": "landclim/whh05-process/snapshot001/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/__init__.py",
+      "bytes": 1419,
+      "sha256": "addeb10944b0de9de912e6069d544bc27840fcc6c666a136f061f9cff7fae5bb",
+      "exact_author_reference_duplicate": "landclim/author-reference/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/__init__.py"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot001/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/_build_version.py",
+      "private_path": "landclim/whh05-process/snapshot001/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/_build_version.py",
+      "bytes": 537,
+      "sha256": "e2fa8d48ae25e6e2d6f29ea32343bb2cb0dbd833d71d24bbf1032763b6cf14e0",
+      "exact_author_reference_duplicate": "landclim/author-reference/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/_build_version.py"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot001/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/api.py",
+      "private_path": "landclim/whh05-process/snapshot001/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/api.py",
+      "bytes": 3193,
+      "sha256": "1b543c2aad0f870e633c96db7e91800e53b693ae098a6a198c2ecd7bd3540248",
+      "exact_author_reference_duplicate": "landclim/author-reference/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/api.py"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot001/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/dispersal/__init__.py",
+      "private_path": "landclim/whh05-process/snapshot001/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/dispersal/__init__.py",
+      "bytes": 78,
+      "sha256": "d9f9b56935570b5e5996a4a8a033ac052ec7597a1b9652dc48b7985045da7066",
+      "exact_author_reference_duplicate": "landclim/author-reference/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/dispersal/__init__.py"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot001/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/dispersal/kernels.py",
+      "private_path": "landclim/whh05-process/snapshot001/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/dispersal/kernels.py",
+      "bytes": 9757,
+      "sha256": "3cc137c3c13d752adaacdc078cbfee33fd8fc1a065ca6662c6f862dd7a097c0d",
+      "exact_author_reference_duplicate": "landclim/author-reference/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/dispersal/kernels.py"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot001/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/dispersal/loess.py",
+      "private_path": "landclim/whh05-process/snapshot001/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/dispersal/loess.py",
+      "bytes": 5972,
+      "sha256": "3c631b0c5877801b477c6bfec32773b7f60b5058946f5ff56aebf51de2a8ecf4",
+      "exact_author_reference_duplicate": "landclim/author-reference/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/dispersal/loess.py"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot001/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/dispersal/publication.py",
+      "private_path": "landclim/whh05-process/snapshot001/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/dispersal/publication.py",
+      "bytes": 1645,
+      "sha256": "707eefbed4f6e3231fb49de255dafbe3f26691206f90026b58caa6f2fb1f0a89",
+      "exact_author_reference_duplicate": "landclim/author-reference/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/dispersal/publication.py"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot001/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/dispersal/rounding.py",
+      "private_path": "landclim/whh05-process/snapshot001/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/dispersal/rounding.py",
+      "bytes": 1614,
+      "sha256": "d4370f315599b5a87f8c87fbed1a89b0bac4f324dbd687a4d36e5d6cbe39e231",
+      "exact_author_reference_duplicate": "landclim/author-reference/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/dispersal/rounding.py"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot001/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/models/__init__.py",
+      "private_path": "landclim/whh05-process/snapshot001/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/models/__init__.py",
+      "bytes": 75,
+      "sha256": "5c684fb536c58944bae01da0e9e6b668c961cf9c0114c325a5f77884b429d41a",
+      "exact_author_reference_duplicate": "landclim/author-reference/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/models/__init__.py"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot001/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/models/configuration.py",
+      "private_path": "landclim/whh05-process/snapshot001/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/models/configuration.py",
+      "bytes": 10849,
+      "sha256": "8b98e1f1bb6c2ecb8508f9780bda70739316c36d867423f44c660659bb3147d9",
+      "exact_author_reference_duplicate": "landclim/author-reference/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/models/configuration.py"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot001/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/models/errors.py",
+      "private_path": "landclim/whh05-process/snapshot001/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/models/errors.py",
+      "bytes": 1526,
+      "sha256": "95977107f59fb7aa118dcbfcee57fd81655d2ae7f540d94e657ef19d1b69737e",
+      "exact_author_reference_duplicate": "landclim/author-reference/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/models/errors.py"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot001/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/models/observation.py",
+      "private_path": "landclim/whh05-process/snapshot001/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/models/observation.py",
+      "bytes": 10216,
+      "sha256": "b8b1544d9df032e37106403c657edd01d498836c64908654e3d2a992a5a2efad",
+      "exact_author_reference_duplicate": "landclim/author-reference/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/models/observation.py"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot001/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/models/publication.py",
+      "private_path": "landclim/whh05-process/snapshot001/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/models/publication.py",
+      "bytes": 7794,
+      "sha256": "f1304e2b5f2161e212f8debdd99fcce7a211aa83c28fffede60f0e68aecb8d36",
+      "exact_author_reference_duplicate": "landclim/author-reference/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/models/publication.py"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot001/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/models/results.py",
+      "private_path": "landclim/whh05-process/snapshot001/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/models/results.py",
+      "bytes": 4624,
+      "sha256": "5b918d8aa88d8edbb72066c74ff44ec37f415ec68e9d780e36367bd6b146a6bd",
+      "exact_author_reference_duplicate": "landclim/author-reference/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/models/results.py"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot001/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/models/validation.py",
+      "private_path": "landclim/whh05-process/snapshot001/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/models/validation.py",
+      "bytes": 8109,
+      "sha256": "4973587cefd2477ef8f902f818d7aae3783e4dcf2c92d922cbbac96cc287d37e",
+      "exact_author_reference_duplicate": "landclim/author-reference/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/models/validation.py"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot001/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/optimization/__init__.py",
+      "private_path": "landclim/whh05-process/snapshot001/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/optimization/__init__.py",
+      "bytes": 81,
+      "sha256": "6715afeb562c188f23d6357bf7c1dfee1d64bcbdf17c7d1313ad8f29543ad6c5",
+      "exact_author_reference_duplicate": "landclim/author-reference/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/optimization/__init__.py"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot001/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/optimization/solver.py",
+      "private_path": "landclim/whh05-process/snapshot001/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/optimization/solver.py",
+      "bytes": 8011,
+      "sha256": "bfbc02e20da60e8b0f70e4e47ecf405a623baad7c688b7a4d39bfeba0b2e8aa5",
+      "exact_author_reference_duplicate": "landclim/author-reference/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/optimization/solver.py"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot001/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/outputs/__init__.py",
+      "private_path": "landclim/whh05-process/snapshot001/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/outputs/__init__.py",
+      "bytes": 76,
+      "sha256": "d08fdfb713ac5c837e1b91c7389ff40c5c579911a84a4904835162f0c3b87a52",
+      "exact_author_reference_duplicate": "landclim/author-reference/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/outputs/__init__.py"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot001/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/outputs/checksums.py",
+      "private_path": "landclim/whh05-process/snapshot001/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/outputs/checksums.py",
+      "bytes": 722,
+      "sha256": "aaf932bc4339c2a6d2f2538fce5504dee3e5a375ee019eca04d0795ed9e77649",
+      "exact_author_reference_duplicate": "landclim/author-reference/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/outputs/checksums.py"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot001/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/outputs/publication.py",
+      "private_path": "landclim/whh05-process/snapshot001/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/outputs/publication.py",
+      "bytes": 2148,
+      "sha256": "076ff7aadf090268356e78122ed0357a7c19d9a2b678970674916c74bdd37020",
+      "exact_author_reference_duplicate": "landclim/author-reference/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/outputs/publication.py"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot001/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/outputs/serialization.py",
+      "private_path": "landclim/whh05-process/snapshot001/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/outputs/serialization.py",
+      "bytes": 7726,
+      "sha256": "a6ba7a8628319ccf9e0d969942546eced8ddbfc16ef447a3e5923ab76095ef52",
+      "exact_author_reference_duplicate": "landclim/author-reference/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/outputs/serialization.py"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot001/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/provenance/__init__.py",
+      "private_path": "landclim/whh05-process/snapshot001/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/provenance/__init__.py",
+      "bytes": 79,
+      "sha256": "48c463deef270fbae3f89caa1c69f1278871134e7e9ca9848d467ef7b36e6fd4",
+      "exact_author_reference_duplicate": "landclim/author-reference/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/provenance/__init__.py"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot001/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/provenance/identity.py",
+      "private_path": "landclim/whh05-process/snapshot001/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/provenance/identity.py",
+      "bytes": 2958,
+      "sha256": "0947a99e3e98780ece802c2e018380059e9bf42867ff2d1c021cf2ae7514d9ff",
+      "exact_author_reference_duplicate": "landclim/author-reference/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/provenance/identity.py"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot001/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/provenance/manifest.py",
+      "private_path": "landclim/whh05-process/snapshot001/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/provenance/manifest.py",
+      "bytes": 3229,
+      "sha256": "42f7136c9156f5f07be290b88da715972aac5dbcbd1c40dec5a87120425dc5d3",
+      "exact_author_reference_duplicate": "landclim/author-reference/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/provenance/manifest.py"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot001/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/py.typed",
+      "private_path": "landclim/whh05-process/snapshot001/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/py.typed",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "exact_author_reference_duplicate": "landclim/author-reference/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/py.typed"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot001/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/__init__.py",
+      "private_path": "landclim/whh05-process/snapshot001/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/__init__.py",
+      "bytes": 83,
+      "sha256": "ea9afa16257735c495eeb5468fe4ac5c43b93b331148b52ebc18e17de7e42caf",
+      "exact_author_reference_duplicate": "landclim/author-reference/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/__init__.py"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot001/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/analytical.py",
+      "private_path": "landclim/whh05-process/snapshot001/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/analytical.py",
+      "bytes": 10759,
+      "sha256": "3541e602156413afcdaa8baac938f4cf02f69c6eb990f417ee1410f8ad6e6b97",
+      "exact_author_reference_duplicate": "landclim/author-reference/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/analytical.py"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot001/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/draws.py",
+      "private_path": "landclim/whh05-process/snapshot001/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/draws.py",
+      "bytes": 4143,
+      "sha256": "d2f6171d08a7ece80770f6f99c58b4b79bdbfecd91a405df1b50832242e7d27d",
+      "exact_author_reference_duplicate": "landclim/author-reference/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/draws.py"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot001/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/forward.py",
+      "private_path": "landclim/whh05-process/snapshot001/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/forward.py",
+      "bytes": 2876,
+      "sha256": "a267ddcd2cbe07c215cddd26f4e763ea3fb1b780741196bf8aa6fb951dab4d57",
+      "exact_author_reference_duplicate": "landclim/author-reference/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/forward.py"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot001/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/inputs.py",
+      "private_path": "landclim/whh05-process/snapshot001/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/inputs.py",
+      "bytes": 7087,
+      "sha256": "e898b04513240a19dafe780e3f9648ca3aae970202cfc731293c30f73d1c6402",
+      "exact_author_reference_duplicate": "landclim/author-reference/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/inputs.py"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot001/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/optimized.py",
+      "private_path": "landclim/whh05-process/snapshot001/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/optimized.py",
+      "bytes": 11890,
+      "sha256": "be33d763b853adf0c022dd51536737b1e1c90148454ca84487ac02f8ddeb6ab3",
+      "exact_author_reference_duplicate": "landclim/author-reference/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/optimized.py"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot001/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/preparation.py",
+      "private_path": "landclim/whh05-process/snapshot001/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/preparation.py",
+      "bytes": 2755,
+      "sha256": "60383ee95cfe288978ad5e7e7bdcd58e4893dbed75ff25d87920727234e040b4",
+      "exact_author_reference_duplicate": "landclim/author-reference/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/preparation.py"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot001/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/publication.py",
+      "private_path": "landclim/whh05-process/snapshot001/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/publication.py",
+      "bytes": 3513,
+      "sha256": "b7a1a49d08def7af15d84498fbb08a977f37fa84b7eabf76b76f404882ce7371",
+      "exact_author_reference_duplicate": "landclim/author-reference/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/publication.py"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot001/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/regional.py",
+      "private_path": "landclim/whh05-process/snapshot001/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/regional.py",
+      "bytes": 15822,
+      "sha256": "73d7d2f22c0f7ab9671b90b938c7149b3d1fcedb2405a26ad2a726ca55a729bc",
+      "exact_author_reference_duplicate": "landclim/author-reference/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/regional.py"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot001/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/__init__.py",
+      "private_path": "landclim/whh05-process/snapshot001/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/__init__.py",
+      "bytes": 78,
+      "sha256": "f6fa13667a633dd13d01657038e619363de49409eb02c3c562093df826acadbe",
+      "exact_author_reference_duplicate": "landclim/author-reference/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/__init__.py"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot001/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/data/LOVEexampleParams.json",
+      "private_path": "landclim/whh05-process/snapshot001/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/data/LOVEexampleParams.json",
+      "bytes": 1103,
+      "sha256": "34e861280b7a6ee4bc2d938f2f7c891ea057c44cdc3bfd60e5c27eadca915430",
+      "exact_author_reference_duplicate": "landclim/author-reference/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/data/LOVEexampleParams.json"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot001/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/data/LOVEexamplePollen.json",
+      "private_path": "landclim/whh05-process/snapshot001/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/data/LOVEexamplePollen.json",
+      "bytes": 284,
+      "sha256": "40e94bd1b261097ba6417054975f60a6d525b239cf3604079030e0929f0e0fcc",
+      "exact_author_reference_duplicate": "landclim/author-reference/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/data/LOVEexamplePollen.json"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot001/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/data/LOVEexampleRings.json",
+      "private_path": "landclim/whh05-process/snapshot001/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/data/LOVEexampleRings.json",
+      "bytes": 2407,
+      "sha256": "bd574247e704e446dd2d3d70895aeefeae6d6d9f067436e289692cf3a5048445",
+      "exact_author_reference_duplicate": "landclim/author-reference/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/data/LOVEexampleRings.json"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot001/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/data/Tiefer_See.json",
+      "private_path": "landclim/whh05-process/snapshot001/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/data/Tiefer_See.json",
+      "bytes": 4037,
+      "sha256": "2118278c3d5417043d5f58032cfbf1cda4db01875986dd48b7274184fee0363e",
+      "exact_author_reference_duplicate": "landclim/author-reference/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/data/Tiefer_See.json"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot001/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/data/lsm_models.npz",
+      "private_path": "landclim/whh05-process/snapshot001/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/data/lsm_models.npz",
+      "bytes": 247591,
+      "sha256": "b779f6fda16d370fdd6dc1ad958bf212b48c282b8bc001de149398973b7821e5",
+      "exact_author_reference_duplicate": "landclim/author-reference/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/data/lsm_models.npz"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot001/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/data/upstream_data_manifest.json",
+      "private_path": "landclim/whh05-process/snapshot001/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/data/upstream_data_manifest.json",
+      "bytes": 1398,
+      "sha256": "2e6c8cadbd6055b3df8adbf9b4d2eb0160bbd0aa70be211b16d02e4060c83efe",
+      "exact_author_reference_duplicate": "landclim/author-reference/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/data/upstream_data_manifest.json"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot001/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/examples.py",
+      "private_path": "landclim/whh05-process/snapshot001/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/examples.py",
+      "bytes": 1802,
+      "sha256": "f5471ce866452832ed8aef10cc9774a23f5617da874f1a213c2fd01f500938de",
+      "exact_author_reference_duplicate": "landclim/author-reference/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/examples.py"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot001/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/schemas/__init__.py",
+      "private_path": "landclim/whh05-process/snapshot001/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/schemas/__init__.py",
+      "bytes": 890,
+      "sha256": "d2bbd87589c87c798941856592b47fedee50b9da817b60ee51f291360d5e7829",
+      "exact_author_reference_duplicate": "landclim/author-reference/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/schemas/__init__.py"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot001/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/schemas/extension-descriptor.schema.json",
+      "private_path": "landclim/whh05-process/snapshot001/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/schemas/extension-descriptor.schema.json",
+      "bytes": 1574,
+      "sha256": "6554d7704de5d79b695347b3752e3aeae52f940561256fd237ed8642c67a8973",
+      "exact_author_reference_duplicate": "landclim/author-reference/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/schemas/extension-descriptor.schema.json"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot001/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/schemas/run-manifest.schema.json",
+      "private_path": "landclim/whh05-process/snapshot001/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/schemas/run-manifest.schema.json",
+      "bytes": 1489,
+      "sha256": "27589c2cda866f0c26d2983ac82fb696200c1fb34282e40795e51c727903b53d",
+      "exact_author_reference_duplicate": "landclim/author-reference/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/schemas/run-manifest.schema.json"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot001/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/version.py",
+      "private_path": "landclim/whh05-process/snapshot001/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/version.py",
+      "bytes": 601,
+      "sha256": "c6ad1a1f6f861f7b1efc6d4ab7f39bf503cebcab8eb7e4d10b0ef03d9dacda8d",
+      "exact_author_reference_duplicate": "landclim/author-reference/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/version.py"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot001/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/workflows/__init__.py",
+      "private_path": "landclim/whh05-process/snapshot001/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/workflows/__init__.py",
+      "bytes": 78,
+      "sha256": "00eb0f15a9358eba47078dffc08589e4f00aa9e5c5ecad9dfdf5b5a334cbd5ab",
+      "exact_author_reference_duplicate": "landclim/author-reference/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/workflows/__init__.py"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot001/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/workflows/forward.py",
+      "private_path": "landclim/whh05-process/snapshot001/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/workflows/forward.py",
+      "bytes": 6737,
+      "sha256": "6c5bd907f2264334e9c9ee2d1a443cfb02b2d4adf0d85bafb09b107cb2e9b97a",
+      "exact_author_reference_duplicate": "landclim/author-reference/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/workflows/forward.py"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot001/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/workflows/local.py",
+      "private_path": "landclim/whh05-process/snapshot001/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/workflows/local.py",
+      "bytes": 10322,
+      "sha256": "73cf7895c595755577cb638eae14bbd7da596862836ef5a58c98b32cdac5bf44",
+      "exact_author_reference_duplicate": "landclim/author-reference/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/workflows/local.py"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot001/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/workflows/multisite.py",
+      "private_path": "landclim/whh05-process/snapshot001/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/workflows/multisite.py",
+      "bytes": 7778,
+      "sha256": "ace4e64880aee274e8c50fb050e7e843bf8c27b7ede263c2c0151b3fd26e5527",
+      "exact_author_reference_duplicate": "landclim/author-reference/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/workflows/multisite.py"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot001/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/workflows/observation.py",
+      "private_path": "landclim/whh05-process/snapshot001/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/workflows/observation.py",
+      "bytes": 9901,
+      "sha256": "cbdc8329001282aa5aa93397c1017cf719f8a5fe54c4b2d24bd3273d185eefd3",
+      "exact_author_reference_duplicate": "landclim/author-reference/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/workflows/observation.py"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot001/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/workflows/paired.py",
+      "private_path": "landclim/whh05-process/snapshot001/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/workflows/paired.py",
+      "bytes": 3496,
+      "sha256": "32259f85718d021686c6b702e5eeaf49d3a101ef112fe2e7150410c4f5decf74",
+      "exact_author_reference_duplicate": "landclim/author-reference/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/workflows/paired.py"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot001/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/workflows/regional.py",
+      "private_path": "landclim/whh05-process/snapshot001/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/workflows/regional.py",
+      "bytes": 1792,
+      "sha256": "f81f4a7361f63eaca5d672f611a3a241b2cf0c0bd68c5d6edf677352bf62cd71",
+      "exact_author_reference_duplicate": "landclim/author-reference/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/workflows/regional.py"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot001/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/workflows/series.py",
+      "private_path": "landclim/whh05-process/snapshot001/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/workflows/series.py",
+      "bytes": 5466,
+      "sha256": "1a312ceafc76face2ce898a0b0742defb4431b87dfbff1d90008924ab2ff5c47",
+      "exact_author_reference_duplicate": "landclim/author-reference/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/workflows/series.py"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot001/pyproject.toml",
+      "private_path": "landclim/whh05-process/snapshot001/pyproject.toml",
+      "bytes": 2297,
+      "sha256": "c31ee3e8fcca6687432158cfd6fc04d3e8553fcc5606583e02a2e73c6826a685",
+      "exact_author_reference_duplicate": "landclim/author-reference/pyproject.toml"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot001/reference/whh05-tw1500-result.csv",
+      "private_path": "landclim/whh05-process/snapshot001/reference/whh05-tw1500-result.csv",
+      "bytes": 1651,
+      "sha256": "6ab1151729bfbd8dfbed06014161df2aba01e8bc06b329713f1bcc545efc4f41",
+      "exact_author_reference_duplicate": null
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot001/snapshot-manifest.json",
+      "private_path": "landclim/whh05-process/snapshot001/snapshot-manifest.json",
+      "bytes": 10357,
+      "sha256": "d9b95f9e4e329abf0084b7511368e63874081d77c7c802c8f82980fe960732c9",
+      "exact_author_reference_duplicate": null
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot001/uv.lock",
+      "private_path": "landclim/whh05-process/snapshot001/uv.lock",
+      "bytes": 556311,
+      "sha256": "4f1c5f0dae208b088cad7121f12e48e9bea505d9a8c8bc1a82668287dd642e16",
+      "exact_author_reference_duplicate": "landclim/author-reference/uv.lock"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot001.plan.json",
+      "private_path": "landclim/whh05-process/snapshot001.plan.json",
+      "bytes": 2701,
+      "sha256": "5415cebcc433096c59c72ba0cf07cb7fd90719ad9343436f8cba63a9cc4f63fa",
+      "exact_author_reference_duplicate": null
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot002/author/LANDCLIM.ALLEUROPE.taxa.LUT.080219.csv",
+      "private_path": "landclim/whh05-process/snapshot002/author/LANDCLIM.ALLEUROPE.taxa.LUT.080219.csv",
+      "bytes": 329074,
+      "sha256": "3a745f9b7606e5d0b59feaba2683b930c8d3990e4810f8217b69160a29a1b507",
+      "exact_author_reference_duplicate": "landclim/author-reference/author/LANDCLIM.ALLEUROPE.taxa.LUT.080219.csv"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot002/author/TWlookup.csv",
+      "private_path": "landclim/whh05-process/snapshot002/author/TWlookup.csv",
+      "bytes": 200,
+      "sha256": "888a2d5d035c8a49bd957917ca0658bb08824240ac15c1da4b717c633ddae3dd",
+      "exact_author_reference_duplicate": "landclim/author-reference/author/TWlookup.csv"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot002/author/bins.csv",
+      "private_path": "landclim/whh05-process/snapshot002/author/bins.csv",
+      "bytes": 130,
+      "sha256": "62cac73bafacb8be8d8b7007e9871494024e661ab1a2f28774dcf7cb7046a71f",
+      "exact_author_reference_duplicate": "landclim/author-reference/author/bins.csv"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot002/author/input/WHH05.csv",
+      "private_path": "landclim/whh05-process/snapshot002/author/input/WHH05.csv",
+      "bytes": 1037,
+      "sha256": "977b32b96578aeb701288e77e37ab137e0475acd99274ddbdcc05180a8a99469",
+      "exact_author_reference_duplicate": "landclim/author-reference/author/input/WHH05.csv"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot002/author/run.REVEALS.files/LRA-REVEALS-release.R",
+      "private_path": "landclim/whh05-process/snapshot002/author/run.REVEALS.files/LRA-REVEALS-release.R",
+      "bytes": 14501,
+      "sha256": "7675b6e615cddba328bad506692b3a6a31e00d9273cef5ad4641a1737fddfd87",
+      "exact_author_reference_duplicate": "landclim/author-reference/author/run.REVEALS.files/LRA-REVEALS-release.R"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot002/author/run.REVEALS.files/LRAready_WHH05.csv",
+      "private_path": "landclim/whh05-process/snapshot002/author/run.REVEALS.files/LRAready_WHH05.csv",
+      "bytes": 2309,
+      "sha256": "298b66d7033703ce42d27f933b4d3ccec3a16f68b35a6fbf7a61806c01c88273",
+      "exact_author_reference_duplicate": "landclim/author-reference/author/run.REVEALS.files/LRAready_WHH05.csv"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot002/author/run.REVEALS.files/av-RPP.all.landclimII.csv",
+      "private_path": "landclim/whh05-process/snapshot002/author/run.REVEALS.files/av-RPP.all.landclimII.csv",
+      "bytes": 772,
+      "sha256": "066ebadbe6ab10aead80c74a184284e05b9db3cd1f5daff04249596170a663e2",
+      "exact_author_reference_duplicate": "landclim/author-reference/author/run.REVEALS.files/av-RPP.all.landclimII.csv"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot002/author/run.REVEALS.files/avar-RPP.all.landclimII.csv",
+      "private_path": "landclim/whh05-process/snapshot002/author/run.REVEALS.files/avar-RPP.all.landclimII.csv",
+      "bytes": 2977,
+      "sha256": "8821de94682c454e3a751897b487c8bf1612cf60994dc6246fb33284a73e9918",
+      "exact_author_reference_duplicate": "landclim/author-reference/author/run.REVEALS.files/avar-RPP.all.landclimII.csv"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot002/author/site.metadata.csv",
+      "private_path": "landclim/whh05-process/snapshot002/author/site.metadata.csv",
+      "bytes": 1019,
+      "sha256": "72949e9e3faf417be0b7425fc111a9638b37c4a38aab8f8d82e0c3d8739da2de",
+      "exact_author_reference_duplicate": "landclim/author-reference/author/site.metadata.csv"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot002/packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/__init__.py",
+      "private_path": "landclim/whh05-process/snapshot002/packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/__init__.py",
+      "bytes": 62,
+      "sha256": "7b81431bc8a66b84fe91baea2c452b58458f8b54b3cabc6ee248dc88cb8d8c0c",
+      "exact_author_reference_duplicate": null
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot002/packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/__init__.py",
+      "private_path": "landclim/whh05-process/snapshot002/packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/__init__.py",
+      "bytes": 209,
+      "sha256": "2ea9a6fa9740747cd2c670b7abebba10c69ddf8ddf6ee0a8694635c6ad874a9d",
+      "exact_author_reference_duplicate": null
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot002/packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/__main__.py",
+      "private_path": "landclim/whh05-process/snapshot002/packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/__main__.py",
+      "bytes": 1211,
+      "sha256": "c67c59cb2b70501f55b5a9b80fea13cdc8a7f7a769699bf8c5f7ad67ca28c1a9",
+      "exact_author_reference_duplicate": null
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot002/packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/comparison.py",
+      "private_path": "landclim/whh05-process/snapshot002/packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/comparison.py",
+      "bytes": 16166,
+      "sha256": "dfeab85f8c67a8963857d49b58b41a58c1c75ed8144b91940cc893909a19ca05",
+      "exact_author_reference_duplicate": null
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot002/packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/one_site.py",
+      "private_path": "landclim/whh05-process/snapshot002/packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/one_site.py",
+      "bytes": 21206,
+      "sha256": "ca46ad52edfad8edf8ed37fb877df3b34c27ce712bf2c8db91f589dd9f7b7fd6",
+      "exact_author_reference_duplicate": null
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot002/packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/reconcile.py",
+      "private_path": "landclim/whh05-process/snapshot002/packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/reconcile.py",
+      "bytes": 38140,
+      "sha256": "7c62e8ef22bd6e70c72edfceaa5737f584ea2e29654b94b7a5d200a5fc822286",
+      "exact_author_reference_duplicate": null
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot002/packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/study_inputs.py",
+      "private_path": "landclim/whh05-process/snapshot002/packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/study_inputs.py",
+      "bytes": 17906,
+      "sha256": "a77b54f45df2f892ada751cdbb956a0db55934bbf94823fdde5075e1adb46cbe",
+      "exact_author_reference_duplicate": null
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot002/packages/bijux-pollenomics-lra/pyproject.toml",
+      "private_path": "landclim/whh05-process/snapshot002/packages/bijux-pollenomics-lra/pyproject.toml",
+      "bytes": 1754,
+      "sha256": "d1bf129ca8cf814d5dae150699652b67160d082fd5180ec55444d804dc596fc7",
+      "exact_author_reference_duplicate": "landclim/author-reference/packages/bijux-pollenomics-lra/pyproject.toml"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot002/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/__init__.py",
+      "private_path": "landclim/whh05-process/snapshot002/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/__init__.py",
+      "bytes": 1419,
+      "sha256": "addeb10944b0de9de912e6069d544bc27840fcc6c666a136f061f9cff7fae5bb",
+      "exact_author_reference_duplicate": "landclim/author-reference/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/__init__.py"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot002/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/_build_version.py",
+      "private_path": "landclim/whh05-process/snapshot002/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/_build_version.py",
+      "bytes": 537,
+      "sha256": "e2fa8d48ae25e6e2d6f29ea32343bb2cb0dbd833d71d24bbf1032763b6cf14e0",
+      "exact_author_reference_duplicate": "landclim/author-reference/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/_build_version.py"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot002/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/api.py",
+      "private_path": "landclim/whh05-process/snapshot002/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/api.py",
+      "bytes": 3193,
+      "sha256": "1b543c2aad0f870e633c96db7e91800e53b693ae098a6a198c2ecd7bd3540248",
+      "exact_author_reference_duplicate": "landclim/author-reference/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/api.py"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot002/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/dispersal/__init__.py",
+      "private_path": "landclim/whh05-process/snapshot002/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/dispersal/__init__.py",
+      "bytes": 78,
+      "sha256": "d9f9b56935570b5e5996a4a8a033ac052ec7597a1b9652dc48b7985045da7066",
+      "exact_author_reference_duplicate": "landclim/author-reference/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/dispersal/__init__.py"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot002/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/dispersal/kernels.py",
+      "private_path": "landclim/whh05-process/snapshot002/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/dispersal/kernels.py",
+      "bytes": 9757,
+      "sha256": "3cc137c3c13d752adaacdc078cbfee33fd8fc1a065ca6662c6f862dd7a097c0d",
+      "exact_author_reference_duplicate": "landclim/author-reference/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/dispersal/kernels.py"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot002/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/dispersal/loess.py",
+      "private_path": "landclim/whh05-process/snapshot002/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/dispersal/loess.py",
+      "bytes": 5972,
+      "sha256": "3c631b0c5877801b477c6bfec32773b7f60b5058946f5ff56aebf51de2a8ecf4",
+      "exact_author_reference_duplicate": "landclim/author-reference/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/dispersal/loess.py"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot002/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/dispersal/publication.py",
+      "private_path": "landclim/whh05-process/snapshot002/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/dispersal/publication.py",
+      "bytes": 1645,
+      "sha256": "707eefbed4f6e3231fb49de255dafbe3f26691206f90026b58caa6f2fb1f0a89",
+      "exact_author_reference_duplicate": "landclim/author-reference/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/dispersal/publication.py"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot002/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/dispersal/rounding.py",
+      "private_path": "landclim/whh05-process/snapshot002/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/dispersal/rounding.py",
+      "bytes": 1614,
+      "sha256": "d4370f315599b5a87f8c87fbed1a89b0bac4f324dbd687a4d36e5d6cbe39e231",
+      "exact_author_reference_duplicate": "landclim/author-reference/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/dispersal/rounding.py"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot002/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/models/__init__.py",
+      "private_path": "landclim/whh05-process/snapshot002/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/models/__init__.py",
+      "bytes": 75,
+      "sha256": "5c684fb536c58944bae01da0e9e6b668c961cf9c0114c325a5f77884b429d41a",
+      "exact_author_reference_duplicate": "landclim/author-reference/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/models/__init__.py"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot002/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/models/configuration.py",
+      "private_path": "landclim/whh05-process/snapshot002/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/models/configuration.py",
+      "bytes": 10849,
+      "sha256": "8b98e1f1bb6c2ecb8508f9780bda70739316c36d867423f44c660659bb3147d9",
+      "exact_author_reference_duplicate": "landclim/author-reference/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/models/configuration.py"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot002/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/models/errors.py",
+      "private_path": "landclim/whh05-process/snapshot002/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/models/errors.py",
+      "bytes": 1526,
+      "sha256": "95977107f59fb7aa118dcbfcee57fd81655d2ae7f540d94e657ef19d1b69737e",
+      "exact_author_reference_duplicate": "landclim/author-reference/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/models/errors.py"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot002/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/models/observation.py",
+      "private_path": "landclim/whh05-process/snapshot002/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/models/observation.py",
+      "bytes": 10216,
+      "sha256": "b8b1544d9df032e37106403c657edd01d498836c64908654e3d2a992a5a2efad",
+      "exact_author_reference_duplicate": "landclim/author-reference/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/models/observation.py"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot002/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/models/publication.py",
+      "private_path": "landclim/whh05-process/snapshot002/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/models/publication.py",
+      "bytes": 7794,
+      "sha256": "f1304e2b5f2161e212f8debdd99fcce7a211aa83c28fffede60f0e68aecb8d36",
+      "exact_author_reference_duplicate": "landclim/author-reference/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/models/publication.py"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot002/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/models/results.py",
+      "private_path": "landclim/whh05-process/snapshot002/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/models/results.py",
+      "bytes": 4624,
+      "sha256": "5b918d8aa88d8edbb72066c74ff44ec37f415ec68e9d780e36367bd6b146a6bd",
+      "exact_author_reference_duplicate": "landclim/author-reference/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/models/results.py"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot002/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/models/validation.py",
+      "private_path": "landclim/whh05-process/snapshot002/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/models/validation.py",
+      "bytes": 8109,
+      "sha256": "4973587cefd2477ef8f902f818d7aae3783e4dcf2c92d922cbbac96cc287d37e",
+      "exact_author_reference_duplicate": "landclim/author-reference/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/models/validation.py"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot002/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/optimization/__init__.py",
+      "private_path": "landclim/whh05-process/snapshot002/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/optimization/__init__.py",
+      "bytes": 81,
+      "sha256": "6715afeb562c188f23d6357bf7c1dfee1d64bcbdf17c7d1313ad8f29543ad6c5",
+      "exact_author_reference_duplicate": "landclim/author-reference/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/optimization/__init__.py"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot002/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/optimization/solver.py",
+      "private_path": "landclim/whh05-process/snapshot002/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/optimization/solver.py",
+      "bytes": 8011,
+      "sha256": "bfbc02e20da60e8b0f70e4e47ecf405a623baad7c688b7a4d39bfeba0b2e8aa5",
+      "exact_author_reference_duplicate": "landclim/author-reference/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/optimization/solver.py"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot002/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/outputs/__init__.py",
+      "private_path": "landclim/whh05-process/snapshot002/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/outputs/__init__.py",
+      "bytes": 76,
+      "sha256": "d08fdfb713ac5c837e1b91c7389ff40c5c579911a84a4904835162f0c3b87a52",
+      "exact_author_reference_duplicate": "landclim/author-reference/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/outputs/__init__.py"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot002/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/outputs/checksums.py",
+      "private_path": "landclim/whh05-process/snapshot002/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/outputs/checksums.py",
+      "bytes": 722,
+      "sha256": "aaf932bc4339c2a6d2f2538fce5504dee3e5a375ee019eca04d0795ed9e77649",
+      "exact_author_reference_duplicate": "landclim/author-reference/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/outputs/checksums.py"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot002/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/outputs/publication.py",
+      "private_path": "landclim/whh05-process/snapshot002/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/outputs/publication.py",
+      "bytes": 2148,
+      "sha256": "076ff7aadf090268356e78122ed0357a7c19d9a2b678970674916c74bdd37020",
+      "exact_author_reference_duplicate": "landclim/author-reference/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/outputs/publication.py"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot002/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/outputs/serialization.py",
+      "private_path": "landclim/whh05-process/snapshot002/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/outputs/serialization.py",
+      "bytes": 7726,
+      "sha256": "a6ba7a8628319ccf9e0d969942546eced8ddbfc16ef447a3e5923ab76095ef52",
+      "exact_author_reference_duplicate": "landclim/author-reference/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/outputs/serialization.py"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot002/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/provenance/__init__.py",
+      "private_path": "landclim/whh05-process/snapshot002/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/provenance/__init__.py",
+      "bytes": 79,
+      "sha256": "48c463deef270fbae3f89caa1c69f1278871134e7e9ca9848d467ef7b36e6fd4",
+      "exact_author_reference_duplicate": "landclim/author-reference/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/provenance/__init__.py"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot002/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/provenance/identity.py",
+      "private_path": "landclim/whh05-process/snapshot002/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/provenance/identity.py",
+      "bytes": 2958,
+      "sha256": "0947a99e3e98780ece802c2e018380059e9bf42867ff2d1c021cf2ae7514d9ff",
+      "exact_author_reference_duplicate": "landclim/author-reference/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/provenance/identity.py"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot002/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/provenance/manifest.py",
+      "private_path": "landclim/whh05-process/snapshot002/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/provenance/manifest.py",
+      "bytes": 3229,
+      "sha256": "42f7136c9156f5f07be290b88da715972aac5dbcbd1c40dec5a87120425dc5d3",
+      "exact_author_reference_duplicate": "landclim/author-reference/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/provenance/manifest.py"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot002/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/py.typed",
+      "private_path": "landclim/whh05-process/snapshot002/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/py.typed",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "exact_author_reference_duplicate": "landclim/author-reference/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/py.typed"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot002/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/__init__.py",
+      "private_path": "landclim/whh05-process/snapshot002/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/__init__.py",
+      "bytes": 83,
+      "sha256": "ea9afa16257735c495eeb5468fe4ac5c43b93b331148b52ebc18e17de7e42caf",
+      "exact_author_reference_duplicate": "landclim/author-reference/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/__init__.py"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot002/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/analytical.py",
+      "private_path": "landclim/whh05-process/snapshot002/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/analytical.py",
+      "bytes": 10759,
+      "sha256": "3541e602156413afcdaa8baac938f4cf02f69c6eb990f417ee1410f8ad6e6b97",
+      "exact_author_reference_duplicate": "landclim/author-reference/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/analytical.py"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot002/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/draws.py",
+      "private_path": "landclim/whh05-process/snapshot002/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/draws.py",
+      "bytes": 4143,
+      "sha256": "d2f6171d08a7ece80770f6f99c58b4b79bdbfecd91a405df1b50832242e7d27d",
+      "exact_author_reference_duplicate": "landclim/author-reference/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/draws.py"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot002/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/forward.py",
+      "private_path": "landclim/whh05-process/snapshot002/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/forward.py",
+      "bytes": 2876,
+      "sha256": "a267ddcd2cbe07c215cddd26f4e763ea3fb1b780741196bf8aa6fb951dab4d57",
+      "exact_author_reference_duplicate": "landclim/author-reference/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/forward.py"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot002/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/inputs.py",
+      "private_path": "landclim/whh05-process/snapshot002/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/inputs.py",
+      "bytes": 7087,
+      "sha256": "e898b04513240a19dafe780e3f9648ca3aae970202cfc731293c30f73d1c6402",
+      "exact_author_reference_duplicate": "landclim/author-reference/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/inputs.py"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot002/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/optimized.py",
+      "private_path": "landclim/whh05-process/snapshot002/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/optimized.py",
+      "bytes": 11890,
+      "sha256": "be33d763b853adf0c022dd51536737b1e1c90148454ca84487ac02f8ddeb6ab3",
+      "exact_author_reference_duplicate": "landclim/author-reference/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/optimized.py"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot002/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/preparation.py",
+      "private_path": "landclim/whh05-process/snapshot002/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/preparation.py",
+      "bytes": 2755,
+      "sha256": "60383ee95cfe288978ad5e7e7bdcd58e4893dbed75ff25d87920727234e040b4",
+      "exact_author_reference_duplicate": "landclim/author-reference/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/preparation.py"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot002/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/publication.py",
+      "private_path": "landclim/whh05-process/snapshot002/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/publication.py",
+      "bytes": 3513,
+      "sha256": "b7a1a49d08def7af15d84498fbb08a977f37fa84b7eabf76b76f404882ce7371",
+      "exact_author_reference_duplicate": "landclim/author-reference/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/publication.py"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot002/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/regional.py",
+      "private_path": "landclim/whh05-process/snapshot002/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/regional.py",
+      "bytes": 15822,
+      "sha256": "73d7d2f22c0f7ab9671b90b938c7149b3d1fcedb2405a26ad2a726ca55a729bc",
+      "exact_author_reference_duplicate": "landclim/author-reference/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/reconstruction/regional.py"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot002/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/__init__.py",
+      "private_path": "landclim/whh05-process/snapshot002/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/__init__.py",
+      "bytes": 78,
+      "sha256": "f6fa13667a633dd13d01657038e619363de49409eb02c3c562093df826acadbe",
+      "exact_author_reference_duplicate": "landclim/author-reference/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/__init__.py"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot002/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/data/LOVEexampleParams.json",
+      "private_path": "landclim/whh05-process/snapshot002/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/data/LOVEexampleParams.json",
+      "bytes": 1103,
+      "sha256": "34e861280b7a6ee4bc2d938f2f7c891ea057c44cdc3bfd60e5c27eadca915430",
+      "exact_author_reference_duplicate": "landclim/author-reference/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/data/LOVEexampleParams.json"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot002/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/data/LOVEexamplePollen.json",
+      "private_path": "landclim/whh05-process/snapshot002/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/data/LOVEexamplePollen.json",
+      "bytes": 284,
+      "sha256": "40e94bd1b261097ba6417054975f60a6d525b239cf3604079030e0929f0e0fcc",
+      "exact_author_reference_duplicate": "landclim/author-reference/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/data/LOVEexamplePollen.json"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot002/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/data/LOVEexampleRings.json",
+      "private_path": "landclim/whh05-process/snapshot002/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/data/LOVEexampleRings.json",
+      "bytes": 2407,
+      "sha256": "bd574247e704e446dd2d3d70895aeefeae6d6d9f067436e289692cf3a5048445",
+      "exact_author_reference_duplicate": "landclim/author-reference/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/data/LOVEexampleRings.json"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot002/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/data/Tiefer_See.json",
+      "private_path": "landclim/whh05-process/snapshot002/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/data/Tiefer_See.json",
+      "bytes": 4037,
+      "sha256": "2118278c3d5417043d5f58032cfbf1cda4db01875986dd48b7274184fee0363e",
+      "exact_author_reference_duplicate": "landclim/author-reference/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/data/Tiefer_See.json"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot002/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/data/lsm_models.npz",
+      "private_path": "landclim/whh05-process/snapshot002/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/data/lsm_models.npz",
+      "bytes": 247591,
+      "sha256": "b779f6fda16d370fdd6dc1ad958bf212b48c282b8bc001de149398973b7821e5",
+      "exact_author_reference_duplicate": "landclim/author-reference/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/data/lsm_models.npz"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot002/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/data/upstream_data_manifest.json",
+      "private_path": "landclim/whh05-process/snapshot002/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/data/upstream_data_manifest.json",
+      "bytes": 1398,
+      "sha256": "2e6c8cadbd6055b3df8adbf9b4d2eb0160bbd0aa70be211b16d02e4060c83efe",
+      "exact_author_reference_duplicate": "landclim/author-reference/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/data/upstream_data_manifest.json"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot002/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/examples.py",
+      "private_path": "landclim/whh05-process/snapshot002/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/examples.py",
+      "bytes": 1802,
+      "sha256": "f5471ce866452832ed8aef10cc9774a23f5617da874f1a213c2fd01f500938de",
+      "exact_author_reference_duplicate": "landclim/author-reference/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/examples.py"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot002/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/schemas/__init__.py",
+      "private_path": "landclim/whh05-process/snapshot002/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/schemas/__init__.py",
+      "bytes": 890,
+      "sha256": "d2bbd87589c87c798941856592b47fedee50b9da817b60ee51f291360d5e7829",
+      "exact_author_reference_duplicate": "landclim/author-reference/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/schemas/__init__.py"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot002/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/schemas/extension-descriptor.schema.json",
+      "private_path": "landclim/whh05-process/snapshot002/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/schemas/extension-descriptor.schema.json",
+      "bytes": 1574,
+      "sha256": "6554d7704de5d79b695347b3752e3aeae52f940561256fd237ed8642c67a8973",
+      "exact_author_reference_duplicate": "landclim/author-reference/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/schemas/extension-descriptor.schema.json"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot002/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/schemas/run-manifest.schema.json",
+      "private_path": "landclim/whh05-process/snapshot002/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/schemas/run-manifest.schema.json",
+      "bytes": 1489,
+      "sha256": "27589c2cda866f0c26d2983ac82fb696200c1fb34282e40795e51c727903b53d",
+      "exact_author_reference_duplicate": "landclim/author-reference/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/resources/schemas/run-manifest.schema.json"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot002/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/version.py",
+      "private_path": "landclim/whh05-process/snapshot002/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/version.py",
+      "bytes": 601,
+      "sha256": "c6ad1a1f6f861f7b1efc6d4ab7f39bf503cebcab8eb7e4d10b0ef03d9dacda8d",
+      "exact_author_reference_duplicate": "landclim/author-reference/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/version.py"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot002/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/workflows/__init__.py",
+      "private_path": "landclim/whh05-process/snapshot002/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/workflows/__init__.py",
+      "bytes": 78,
+      "sha256": "00eb0f15a9358eba47078dffc08589e4f00aa9e5c5ecad9dfdf5b5a334cbd5ab",
+      "exact_author_reference_duplicate": "landclim/author-reference/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/workflows/__init__.py"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot002/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/workflows/forward.py",
+      "private_path": "landclim/whh05-process/snapshot002/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/workflows/forward.py",
+      "bytes": 6737,
+      "sha256": "6c5bd907f2264334e9c9ee2d1a443cfb02b2d4adf0d85bafb09b107cb2e9b97a",
+      "exact_author_reference_duplicate": "landclim/author-reference/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/workflows/forward.py"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot002/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/workflows/local.py",
+      "private_path": "landclim/whh05-process/snapshot002/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/workflows/local.py",
+      "bytes": 10322,
+      "sha256": "73cf7895c595755577cb638eae14bbd7da596862836ef5a58c98b32cdac5bf44",
+      "exact_author_reference_duplicate": "landclim/author-reference/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/workflows/local.py"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot002/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/workflows/multisite.py",
+      "private_path": "landclim/whh05-process/snapshot002/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/workflows/multisite.py",
+      "bytes": 7778,
+      "sha256": "ace4e64880aee274e8c50fb050e7e843bf8c27b7ede263c2c0151b3fd26e5527",
+      "exact_author_reference_duplicate": "landclim/author-reference/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/workflows/multisite.py"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot002/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/workflows/observation.py",
+      "private_path": "landclim/whh05-process/snapshot002/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/workflows/observation.py",
+      "bytes": 9901,
+      "sha256": "cbdc8329001282aa5aa93397c1017cf719f8a5fe54c4b2d24bd3273d185eefd3",
+      "exact_author_reference_duplicate": "landclim/author-reference/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/workflows/observation.py"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot002/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/workflows/paired.py",
+      "private_path": "landclim/whh05-process/snapshot002/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/workflows/paired.py",
+      "bytes": 3496,
+      "sha256": "32259f85718d021686c6b702e5eeaf49d3a101ef112fe2e7150410c4f5decf74",
+      "exact_author_reference_duplicate": "landclim/author-reference/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/workflows/paired.py"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot002/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/workflows/regional.py",
+      "private_path": "landclim/whh05-process/snapshot002/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/workflows/regional.py",
+      "bytes": 1792,
+      "sha256": "f81f4a7361f63eaca5d672f611a3a241b2cf0c0bd68c5d6edf677352bf62cd71",
+      "exact_author_reference_duplicate": "landclim/author-reference/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/workflows/regional.py"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot002/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/workflows/series.py",
+      "private_path": "landclim/whh05-process/snapshot002/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/workflows/series.py",
+      "bytes": 5466,
+      "sha256": "1a312ceafc76face2ce898a0b0742defb4431b87dfbff1d90008924ab2ff5c47",
+      "exact_author_reference_duplicate": "landclim/author-reference/packages/bijux-pollenomics-lra/src/bijux_pollenomics_lra/workflows/series.py"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot002/pyproject.toml",
+      "private_path": "landclim/whh05-process/snapshot002/pyproject.toml",
+      "bytes": 2297,
+      "sha256": "c31ee3e8fcca6687432158cfd6fc04d3e8553fcc5606583e02a2e73c6826a685",
+      "exact_author_reference_duplicate": "landclim/author-reference/pyproject.toml"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot002/reference/whh05-tw1500-result.csv",
+      "private_path": "landclim/whh05-process/snapshot002/reference/whh05-tw1500-result.csv",
+      "bytes": 1651,
+      "sha256": "6ab1151729bfbd8dfbed06014161df2aba01e8bc06b329713f1bcc545efc4f41",
+      "exact_author_reference_duplicate": null
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot002/snapshot-manifest.json",
+      "private_path": "landclim/whh05-process/snapshot002/snapshot-manifest.json",
+      "bytes": 11012,
+      "sha256": "82d3273da963e1f41678b59cf9141e6cdb8c43bd6346bae574edaaebac785077",
+      "exact_author_reference_duplicate": null
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot002/uv.lock",
+      "private_path": "landclim/whh05-process/snapshot002/uv.lock",
+      "bytes": 556311,
+      "sha256": "4f1c5f0dae208b088cad7121f12e48e9bea505d9a8c8bc1a82668287dd642e16",
+      "exact_author_reference_duplicate": "landclim/author-reference/uv.lock"
+    },
+    {
+      "original_artifact_path": "artifacts/v3/landclim/whh05-current/snapshot002.plan.json",
+      "private_path": "landclim/whh05-process/snapshot002.plan.json",
+      "bytes": 2663,
+      "sha256": "1a963b45623573424e52b433cc13101b25b66853f212efbd2809ccdc31de3d5b",
+      "exact_author_reference_duplicate": null
+    }
+  ],
+  "historical_result": {
+    "site": "WHH05",
+    "author_window_bp": 1500,
+    "source_age_cal_bp": 1320,
+    "raw_counts": 301,
+    "prepared_counts": 297,
+    "cover_max_absolute_fraction_error": 4.773959005888173e-15,
+    "standard_error_max_absolute_fraction_error": 8.89913143176102e-16,
+    "scope": "Historical one-site author-example parity only; later 17-site source preparation and two-grid correspondence supersede its preprocessing limitation. No full-study input closure or vegetation accuracy."
+  }
+}

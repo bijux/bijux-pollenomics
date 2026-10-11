@@ -1,0 +1,274 @@
+{
+  "build_id": "sha256:92dd52619837f3641d004a1a5dbe38f9ab6023a79f61989314bb90e612eb58e1",
+  "event_manifest_digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+  "reconciliation": {
+    "connected_component_count": 0,
+    "denominator_partitions": {
+      "candidate_status": {
+        "counting_basis": "evaluated_pair",
+        "counts": {
+          "definite_candidate": 0,
+          "excluded_spatial": 0,
+          "excluded_temporal_nonpositive": 0,
+          "excluded_temporal_too_large": 0,
+          "indeterminate_order": 0,
+          "possible_candidate": 0,
+          "unresolved": 0
+        },
+        "total_count": 0
+      },
+      "country_code": {
+        "counting_basis": "input_event",
+        "counts": {
+          "DK": 0,
+          "FI": 0,
+          "NO": 0,
+          "SE": 0
+        },
+        "total_count": 0
+      },
+      "evidence_domain": {
+        "counting_basis": "input_event",
+        "counts": {
+          "animal_ancient_dna": 0,
+          "human_ancient_dna": 0,
+          "pollen_context": 0
+        },
+        "total_count": 0
+      },
+      "feature_key": {
+        "counting_basis": "input_event",
+        "counts": {},
+        "total_count": 0
+      },
+      "ordered_country_pair": {
+        "counting_basis": "evaluated_or_refused_pair",
+        "counts": {
+          "DK-DK": 0,
+          "DK-FI": 0,
+          "DK-NO": 0,
+          "DK-SE": 0,
+          "FI-DK": 0,
+          "FI-FI": 0,
+          "FI-NO": 0,
+          "FI-SE": 0,
+          "NO-DK": 0,
+          "NO-FI": 0,
+          "NO-NO": 0,
+          "NO-SE": 0,
+          "SE-DK": 0,
+          "SE-FI": 0,
+          "SE-NO": 0,
+          "SE-SE": 0
+        },
+        "total_count": 0
+      },
+      "resolution": {
+        "counting_basis": "input_event",
+        "counts": {},
+        "total_count": 0
+      },
+      "scenario_id": {
+        "counting_basis": "evaluated_or_refused_pair",
+        "counts": {
+          "rectangular_100km_100yr_v1": 0
+        },
+        "total_count": 0
+      },
+      "source_family": {
+        "counting_basis": "input_event",
+        "counts": {},
+        "total_count": 0
+      },
+      "threshold_profile_id": {
+        "counting_basis": "input_event",
+        "counts": {},
+        "total_count": 0
+      }
+    },
+    "eligible_event_count": 0,
+    "evaluated_pair_count": 0,
+    "evidence_domain_event_counts": {
+      "animal_ancient_dna": 0,
+      "human_ancient_dna": 0,
+      "pollen_context": 0
+    },
+    "excluded_non_pollen_event_count": 0,
+    "input_event_count": 0,
+    "ordered_country_pair_counts": {
+      "DK-DK": {
+        "definite_candidate": 0,
+        "excluded_spatial": 0,
+        "excluded_temporal_nonpositive": 0,
+        "excluded_temporal_too_large": 0,
+        "indeterminate_order": 0,
+        "possible_candidate": 0,
+        "refused": 0,
+        "unresolved": 0
+      },
+      "DK-FI": {
+        "definite_candidate": 0,
+        "excluded_spatial": 0,
+        "excluded_temporal_nonpositive": 0,
+        "excluded_temporal_too_large": 0,
+        "indeterminate_order": 0,
+        "possible_candidate": 0,
+        "refused": 0,
+        "unresolved": 0
+      },
+      "DK-NO": {
+        "definite_candidate": 0,
+        "excluded_spatial": 0,
+        "excluded_temporal_nonpositive": 0,
+        "excluded_temporal_too_large": 0,
+        "indeterminate_order": 0,
+        "possible_candidate": 0,
+        "refused": 0,
+        "unresolved": 0
+      },
+      "DK-SE": {
+        "definite_candidate": 0,
+        "excluded_spatial": 0,
+        "excluded_temporal_nonpositive": 0,
+        "excluded_temporal_too_large": 0,
+        "indeterminate_order": 0,
+        "possible_candidate": 0,
+        "refused": 0,
+        "unresolved": 0
+      },
+      "FI-DK": {
+        "definite_candidate": 0,
+        "excluded_spatial": 0,
+        "excluded_temporal_nonpositive": 0,
+        "excluded_temporal_too_large": 0,
+        "indeterminate_order": 0,
+        "possible_candidate": 0,
+        "refused": 0,
+        "unresolved": 0
+      },
+      "FI-FI": {
+        "definite_candidate": 0,
+        "excluded_spatial": 0,
+        "excluded_temporal_nonpositive": 0,
+        "excluded_temporal_too_large": 0,
+        "indeterminate_order": 0,
+        "possible_candidate": 0,
+        "refused": 0,
+        "unresolved": 0
+      },
+      "FI-NO": {
+        "definite_candidate": 0,
+        "excluded_spatial": 0,
+        "excluded_temporal_nonpositive": 0,
+        "excluded_temporal_too_large": 0,
+        "indeterminate_order": 0,
+        "possible_candidate": 0,
+        "refused": 0,
+        "unresolved": 0
+      },
+      "FI-SE": {
+        "definite_candidate": 0,
+        "excluded_spatial": 0,
+        "excluded_temporal_nonpositive": 0,
+        "excluded_temporal_too_large": 0,
+        "indeterminate_order": 0,
+        "possible_candidate": 0,
+        "refused": 0,
+        "unresolved": 0
+      },
+      "NO-DK": {
+        "definite_candidate": 0,
+        "excluded_spatial": 0,
+        "excluded_temporal_nonpositive": 0,
+        "excluded_temporal_too_large": 0,
+        "indeterminate_order": 0,
+        "possible_candidate": 0,
+        "refused": 0,
+        "unresolved": 0
+      },
+      "NO-FI": {
+        "definite_candidate": 0,
+        "excluded_spatial": 0,
+        "excluded_temporal_nonpositive": 0,
+        "excluded_temporal_too_large": 0,
+        "indeterminate_order": 0,
+        "possible_candidate": 0,
+        "refused": 0,
+        "unresolved": 0
+      },
+      "NO-NO": {
+        "definite_candidate": 0,
+        "excluded_spatial": 0,
+        "excluded_temporal_nonpositive": 0,
+        "excluded_temporal_too_large": 0,
+        "indeterminate_order": 0,
+        "possible_candidate": 0,
+        "refused": 0,
+        "unresolved": 0
+      },
+      "NO-SE": {
+        "definite_candidate": 0,
+        "excluded_spatial": 0,
+        "excluded_temporal_nonpositive": 0,
+        "excluded_temporal_too_large": 0,
+        "indeterminate_order": 0,
+        "possible_candidate": 0,
+        "refused": 0,
+        "unresolved": 0
+      },
+      "SE-DK": {
+        "definite_candidate": 0,
+        "excluded_spatial": 0,
+        "excluded_temporal_nonpositive": 0,
+        "excluded_temporal_too_large": 0,
+        "indeterminate_order": 0,
+        "possible_candidate": 0,
+        "refused": 0,
+        "unresolved": 0
+      },
+      "SE-FI": {
+        "definite_candidate": 0,
+        "excluded_spatial": 0,
+        "excluded_temporal_nonpositive": 0,
+        "excluded_temporal_too_large": 0,
+        "indeterminate_order": 0,
+        "possible_candidate": 0,
+        "refused": 0,
+        "unresolved": 0
+      },
+      "SE-NO": {
+        "definite_candidate": 0,
+        "excluded_spatial": 0,
+        "excluded_temporal_nonpositive": 0,
+        "excluded_temporal_too_large": 0,
+        "indeterminate_order": 0,
+        "possible_candidate": 0,
+        "refused": 0,
+        "unresolved": 0
+      },
+      "SE-SE": {
+        "definite_candidate": 0,
+        "excluded_spatial": 0,
+        "excluded_temporal_nonpositive": 0,
+        "excluded_temporal_too_large": 0,
+        "indeterminate_order": 0,
+        "possible_candidate": 0,
+        "refused": 0,
+        "unresolved": 0
+      }
+    },
+    "refused_pair_count": 0,
+    "status_counts": {
+      "definite_candidate": 0,
+      "excluded_spatial": 0,
+      "excluded_temporal_nonpositive": 0,
+      "excluded_temporal_too_large": 0,
+      "indeterminate_order": 0,
+      "possible_candidate": 0,
+      "unresolved": 0
+    }
+  },
+  "record_count": 1,
+  "scenario_id": "rectangular_100km_100yr_v1",
+  "schema_version": "propagation-reconciliation-artifact.v1"
+}

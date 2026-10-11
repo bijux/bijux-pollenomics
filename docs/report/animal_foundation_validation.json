@@ -2,7 +2,7 @@
   "schema_version": "animal-foundation-validation.v1",
   "overall_ok": false,
   "sample_row_count": 1470,
-  "site_evidence_row_count": 552,
+  "site_evidence_row_count": 553,
   "coordinate_row_count": 308,
   "atlas_row_count": 170,
   "checks": [

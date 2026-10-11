@@ -1,0 +1,78 @@
+neotoma_site_id,neotoma_name,neotoma_lon,neotoma_lat,neotoma_altitude_m,neotoma_geometry_type,nearest_landclim_sequence,nearest_landclim_distance_km,same_name_count,same_name_sequence,same_name_distance_km,same_name_radius_m,same_name_site_type,same_name_source_row,same_name_count_availability_label,identity_decision,radius_transfer
+neotoma:site:12,Ageröds Mosse,,,47,non_point_or_missing,,,1,,,,,,,not_established,refused
+neotoma:site:1401,Kansjön,14.53458,57.64055,299,Point,KAN,0.80592,0,,,,,,,not_established,refused
+neotoma:site:2986,Åsbotorpsjön,13.81996,58.40981,284,Point,FLA,21.251561,0,,,,,,,not_established,refused
+neotoma:site:3009,Bergakyllen,16.14528,57.18367,73,Point,SKAR,18.650152,0,,,,,,,not_established,refused
+neotoma:site:3017,Bjärsjöholmssjön,,,36,non_point_or_missing,,,1,,,,,,,not_established,refused
+neotoma:site:3020,Björksjödamm,,,94,non_point_or_missing,,,0,,,,,,,not_established,refused
+neotoma:site:3077,Dags Mosse,14.70652,58.32288,89,Point,DAG,35.904704,1,DAG,35.904704,561,bog,979,NR,not_established,refused
+neotoma:site:3102,Färskesjön,15.86049,56.15907,11,Point,FARSK,0.927296,1,FARSK,0.927296,399,lake,985,NR,not_established,refused
+neotoma:site:3104,Fjallsjön 1,12.85762,57.75152,275,Point,BOCK1,72.708594,0,,,,,,,not_established,refused
+neotoma:site:3105,Fjällnas,,,779,non_point_or_missing,,,1,,,,,,,not_established,refused
+neotoma:site:3107,Lake Flarken,13.67319,58.55679,104,Point,FLA,2.975587,1,FLA,2.975587,229,lake,1008,NR,not_established,refused
+neotoma:site:3120,Galtsjön,15.21014,56.21884,24,Point,ERIK,13.584726,0,,,,,,,not_established,refused
+neotoma:site:3140,Hälsegyl,14.6097,56.5436,138,Point,SIGG,8.952873,0,,,,,,,not_established,refused
+neotoma:site:3179,Kalven,14.55571,56.53516,150,Point,SIGG,7.645713,0,,,,,,,not_established,refused
+neotoma:site:3185,Kassjön,20.00963,63.92548,91,Point,KAS,1.038582,1,KAS,1.038582,271,lake,1002,NR,not_established,refused
+neotoma:site:3204,Krageholmssjön,13.74492,55.50078,71,Point,KRA,0.734896,1,KRA,0.734896,837,lake,1004,NR,not_established,refused
+neotoma:site:3234,Lilla Gloppsjön,14.62333,59.80167,186,Point,LGLOPPSJ,0.396271,1,LGLOPPSJ,0.396271,400,lake,1014,NR,not_established,refused
+neotoma:site:3238,Lillsjön,12.53333,57.08333,46,Point,BOCK1,4.218455,0,,,,,,,not_established,refused
+neotoma:site:3240,Ljungsjön,13.33269,57.73429,229,Point,ROGB,56.742977,0,,,,,,,not_established,refused
+neotoma:site:3303,Lake Mullsjön,14.21136,58.31761,155,Point,FLA,43.328071,0,,,,,,,not_established,refused
+neotoma:site:3317,Madtjärn,12.17463,58.5959,140,Point,TRE,33.704756,0,,,,,,,not_established,refused
+neotoma:site:3370,Ran Viken,14.29056,56.28145,77,Point,RANV,0.619156,0,,,,,,,not_established,refused
+neotoma:site:3398,Lake Sämbosjön,12.41426,57.16313,12,Point,SAM,3.316459,0,,,,,,,not_established,refused
+neotoma:site:3419,Skvarran,16.15266,57.1894,85,Point,SKAR,19.329673,0,,,,,,,not_established,refused
+neotoma:site:3435,Spjällsjön,14.59256,56.68361,151,Point,OSIN,14.857757,0,,,,,,,not_established,refused
+neotoma:site:3470,Åkerhultagöl [Tomtabaken],14.46667,57.48333,297,Point,MATT,8.965672,0,,,,,,,not_established,refused
+neotoma:site:3472,Toppeladugärd,13.36716,55.60223,22,Point,BOKE,5.323035,0,,,,,,,not_established,refused
+neotoma:site:3477,Lake Trummen,14.82952,56.863,162,Point,TRU,0.469014,1,TRU,0.469014,492,lake,1011,NR,not_established,refused
+neotoma:site:3493,Vingölen,15.93773,57.13371,96,Point,SKAR,16.921522,0,,,,,,,not_established,refused
+neotoma:site:13335,Styggtjärnen,,,711,non_point_or_missing,,,0,,,,,,,not_established,refused
+neotoma:site:13336,Klotjärnen,16.40472,61.82125,214,Point,KLO,6.773038,1,KLO,6.773038,56,lake,1003,NR,not_established,refused
+neotoma:site:13338,Abborrtjärnen,14.45,63.88333,374,Point,ABB,0.000334,1,ABB,0.000334,98,lake,968,NR,not_established,refused
+neotoma:site:14040,Holtjärnen,,,232,non_point_or_missing,,,1,,,,,,,not_established,refused
+neotoma:site:14458,Domsjön,,,138,non_point_or_missing,,,0,,,,,,,not_established,refused
+neotoma:site:15711,Mabo Moss,16.05602,58.02114,97,Point,MABO,0.800349,1,MABO,0.800349,309,bog,1017,NR,not_established,refused
+neotoma:site:22660,Logylet,14.98368,56.29419,54,Point,IREV,8.763325,0,,,,,,,not_established,refused
+neotoma:site:25895,Rönneholms Mosse,,,38,non_point_or_missing,,,0,,,,,,,not_established,refused
+neotoma:site:25958,Lerbäcker Moor,,,121,non_point_or_missing,,,0,,,,,,,not_established,refused
+neotoma:site:26117,Vuoskkujávri,19.1,68.34556,345,Point,VOUS,2.461658,0,,,,,,,not_established,refused
+neotoma:site:26119,Alanen Laanijärvi,20.46028,67.96611,354,Point,ALAN,0.433279,0,,,,,,,not_established,refused
+neotoma:site:28144,Lake Badsjön,18.79667,68.34472,395,Point,BAD,2.296165,1,BAD,2.296165,70,lake,1007,R,not_established,refused
+neotoma:site:28811,Bjärabygget,13.46667,56.35,128,Point,BJARA,0.000185,1,BJARA,0.000185,472,bog,973,R,not_established,refused
+neotoma:site:28812,Grisavad,13.33333,56.28333,88,Point,GRIS,0.000382,1,GRIS,0.000382,219,bog,996,R,not_established,refused
+neotoma:site:28813,Uddared,13.25,56.51667,91,Point,UDDA,0.000334,1,UDDA,0.000334,69,bog,1047,R,not_established,refused
+neotoma:site:28852,Västragylet,14.88333,56.35,112,Point,IREV,0.000205,1,IREV,0.000205,69,lake,1050,R,not_established,refused
+neotoma:site:28853,Ljustjärnen,14.48222,59.76,161,Point,LJU,0.467849,1,LJU,0.467849,178,lake,1016,R,not_established,refused
+neotoma:site:28854,Storsnasen,12.41667,63.23333,686,Point,STORN,0.000366,0,,,,,,,not_established,refused
+neotoma:site:28855,Lake Stentjärn,12.24194,63.1,989,Point,STEN,0.003019,0,,,,,,,not_established,refused
+neotoma:site:28856,Lake Svartkälstjärn,19.55,64.26667,267,Point,SVA,0.000334,0,,,,,,,not_established,refused
+neotoma:site:28857,Trälhultet,12.9,56.8,151,Point,HOLK,0.0,1,TRAL,0.0,25,bog,1044,R,not_established,refused
+neotoma:site:28858,Rogberga,14.28861,57.73611,215,Point,ROGB,0.000126,1,ROGB,0.000126,40,bog,1026,R,not_established,refused
+neotoma:site:28859,Lake Vuolep Njakajaure,18.78056,68.34167,402,Point,BAD,1.559761,1,VoNj,1.559761,600,lake,1012,R,not_established,refused
+neotoma:site:28860,Lake Tibenatus,18.69306,68.33583,568,Point,TIB,0.397818,0,,,,,,,not_established,refused
+neotoma:site:28861,Kullaberg,12.50556,56.29111,135,Point,KULL,1.046364,1,KULL,1.046364,6,bog,1006,R,not_established,refused
+neotoma:site:28862,Övre myren från Skallskog,14.78333,57.48333,219,Point,MATT,9.961837,0,,,,,,,not_established,refused
+neotoma:site:28863,Trygåsen (II),13.33333,61.76667,569,Point,TRY,0.000369,1,TRY,0.000369,500,bog,1046,R,not_established,refused
+neotoma:site:28864,Stor-flen,14.58333,60.3,268,Point,STF,0.000165,0,,,,,,,not_established,refused
+neotoma:site:28866,Gilltjärnen,15.83333,60.08333,169,Point,GIL,41.592679,1,GIL,41.592679,169,lake,994,R,not_established,refused
+neotoma:site:28867,Flahult,13.83333,56.96667,178,Point,FLAH,0.00038,1,FLAH,0.00038,16,bog,988,R,not_established,refused
+neotoma:site:28868,Exhult,13.65,56.48333,130,Point,EXHU,0.000334,1,EXHU,0.000334,346,bog,983,R,not_established,refused
+neotoma:site:28869,Bussjösjön,13.81667,55.46667,49,Point,BUS,0.000383,1,BUS,0.000383,69,lake,978,NR,not_established,refused
+neotoma:site:28870,Fårarps Mosse,13.90889,55.48833,18,Point,FARAR,0.000339,0,,,,,,,not_established,refused
+neotoma:site:28871,Bjäresjösjön,13.75194,55.45917,39,Point,BJARE,1.02697,1,BJARE,1.02697,80,lake,974,NR,not_established,refused
+neotoma:site:28872,Bökesjön,13.4375,55.57556,57,Point,BOKE,0.000445,1,BOKE,0.000445,80,lake,977,NR,not_established,refused
+neotoma:site:28873,Stavsåkra,14.81306,57.02417,182,Point,STAV,0.000412,1,STAV,0.000412,80,bog,1030,R,not_established,refused
+neotoma:site:28874,Storasjö,15.26667,56.93333,254,Point,STOR,2.110801,2,STOR,2.110801,28,bog,1033,R,not_established,refused
+neotoma:site:28885,Stobydeltat,13.83333,56.16667,32,Point,STOB,0.000382,0,,,,,,,not_established,refused
+neotoma:site:28886,Östra Ringarp,13.31861,56.26417,93,Point,ORING,0.30247,1,ORING,0.30247,150,lake/bog,1022,R,not_established,refused
+neotoma:site:28887,Lake Avegöl,14.49444,57.68889,292,Point,AVEG,0.700739,0,,,,,,,not_established,refused
+neotoma:site:28888,Värsjö Utmark,13.43333,56.31667,127,Point,VUTM,0.000381,1,VUTM,0.000381,80,bog,1049,R,not_established,refused
+neotoma:site:28889,Flinkasjön,13.24333,56.25444,75,Point,FLINK,0.643049,1,FLINK,0.643049,98,lake,989,R,not_established,refused
+neotoma:site:28890,Siggaboda,14.56667,56.46667,139,Point,SIGG,0.000381,1,SIGG,0.000381,10,bog,1027,R,not_established,refused
+neotoma:site:28891,Mattarp,14.61667,57.48333,266,Point,MATT,0.000379,1,MATT,0.000379,25,bog,1018,R,not_established,refused
+neotoma:site:28892,Bocksten site A,12.56667,57.11667,125,Point,BOCK1,0.00038,0,,,,,,,not_established,refused
+neotoma:site:29383,Lina myr,18.63309,57.57549,20,Point,SKEMO,140.436689,0,,,,,,,not_established,refused
+neotoma:site:30418,Lake Öagöl,14.80083,57.20944,221,Point,STAV,20.614664,0,,,,,,,not_established,refused
+neotoma:site:31818,Lillsjön,16.38903,57.93223,16,Point,MABO,21.200914,0,,,,,,,not_established,refused

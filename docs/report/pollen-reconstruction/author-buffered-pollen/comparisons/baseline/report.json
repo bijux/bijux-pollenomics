@@ -1,0 +1,48 @@
+{
+  "schema_version": "author-observed-pollen-spatial-baseline-comparison.v1",
+  "source": "rmfyfe/landclimII@57ead2e2fcc493d099be4e5a3092fc396e1c3d3a",
+  "split": "leave_one_adjacent_one_degree_grid_out_with_20km_basin_edge_buffer",
+  "target_sites": 17,
+  "observed_site_bins": 184,
+  "common_scored_site_bins": 148,
+  "refused_no_training_site_bins": 36,
+  "score_receipts": {
+    "training_mean": {
+      "report_sha256": "05a1f85d82c0e18a509760ecc33b0e4bda5d540fc73749966cecdfb21cabae23",
+      "scores_sha256": "2acee3f7f75ab3dfc2539e6a88264b25b818cb80b807f8c9e66dc7b31e5d3ae7"
+    },
+    "nearest_site": {
+      "report_sha256": "394473048d6a49756a005115c362a5c24ac2beccfd0847207735e63b80fe8249",
+      "scores_sha256": "e8c43e62a5cae82465da2801f2d9877955ad3c8cfc1cc4c916a13a3c18c45b6d"
+    },
+    "inverse_distance_squared": {
+      "report_sha256": "7f8a43087e50e394438890d0e8839b7d6ee671d011a50f1940bdaf8370340afd",
+      "scores_sha256": "7cd59b4495d51ada1288c83abb682e57a78e03427f5d9f8e1d3c7a77ea889376"
+    }
+  },
+  "methods": [
+    {
+      "method": "training_mean",
+      "site_macro_mae_fraction": 0.025302858383934906,
+      "site_macro_total_variation": 0.39219430495099106,
+      "mae_minus_training_mean_fraction": 0.0,
+      "total_variation_minus_training_mean": 0.0
+    },
+    {
+      "method": "nearest_site",
+      "site_macro_mae_fraction": 0.025284919087540415,
+      "site_macro_total_variation": 0.39191624585687646,
+      "mae_minus_training_mean_fraction": -1.793929639449035e-05,
+      "total_variation_minus_training_mean": -0.00027805909411460217
+    },
+    {
+      "method": "inverse_distance_squared",
+      "site_macro_mae_fraction": 0.025217237116038006,
+      "site_macro_total_variation": 0.3908671752985891,
+      "mae_minus_training_mean_fraction": -8.562126789690011e-05,
+      "total_variation_minus_training_mean": -0.0013271296524019482
+    }
+  ],
+  "measured_vegetation_accuracy": "not_evaluated",
+  "swedish_lra_cohort": "not_evaluated"
+}

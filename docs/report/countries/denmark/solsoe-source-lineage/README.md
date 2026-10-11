@@ -16,7 +16,10 @@ describe possible pollen input lineage, not independent vegetation observations.
 
 The Neotoma source has **66** samples in core `SOLSOE81` and **26** in
 `SOLSOE83`; **65** and **26**, respectively, are in the held-out cohort. The
-excluded 1981 sample at source depth 98 has calibrated age 7 BP with a
+separate [Danish chronology coverage report](../pollen-chronology-coverage/README.md)
+accounts for all five captured Danish sites: 279 pollen-count samples, 91
+comparable-age candidates at Solsø and 188 prerequisite refusals.
+The excluded 1981 sample at source depth 98 has calibrated age 7 BP with a
 **−41 BP younger bound**. Its calibrated claim is refused as `negative_bp`;
 its separate uncalibrated radiocarbon claim is context only. The 1981 core
 notes a hiatus near source depths 472–480 and says the 1983 core covers that
@@ -50,6 +53,12 @@ MADCAP chronology is a calibrated `clam` model. All 65 selected 1981 pollen
 samples use the latter model's comparable ages. This narrows core identity but
 does not select the LandClim II author chronology or establish a historical
 basin outline.
+
+The [published EPD final-age join](pangaea-epd-age-join/README.md) independently
+locates all 92 Solsø core depths in the 2013 Giesecke table. Published ages and
+bounds match the Neotoma calibrated claims within 0.5 BP after unit conversion,
+including the one refused negative younger bound. This authenticates the
+calibrated-age lineage without supplying a separate age model or LRA admission.
 
 The [primary 1981 pollen-count join](pangaea-pollen-profile/README.md) now
 also matches all 66 core depths and all 2,881 positive counts to the Neotoma

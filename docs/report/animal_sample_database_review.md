@@ -12,7 +12,7 @@
 - Tracked papers: `18`
 - Tracked supplements: `73`
 - Sample rows: `1470`
-- Site evidence rows: `552`
+- Site evidence rows: `553`
 - Sample site rows: `1475`
 - Chronology rows: `1475`
 - Coordinate rows: `308`
@@ -20,8 +20,8 @@
 - Published country bundles: `4`
 - Papers with archived supplements: `17`
 - Mapped sample share: `0.2252`
-- Projects blocked in intake recovery: `24`
-- Projects ready for publication review: `10`
+- Projects blocked in intake recovery: `23`
+- Projects ready for publication review: `11`
 - Implausibly low recovery projects: `0`
 
 ## Thresholds

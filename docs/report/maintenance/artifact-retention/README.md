@@ -156,11 +156,90 @@ and repository consumers. Historical report snapshots retain their original
 path strings as provenance, not live read dependencies. Other correspondence
 plans, caches and runs remain pending separate custody review.
 
+The [remaining correspondence retirement receipt](landclim-correspondence-retirement.json)
+records the 46 file and symlink entries left in the two bounded working
+directories, including their process plans, earlier numerical reports and
+pytest products. Both earlier row-level CSVs equal the governed ledgers after
+newline normalization. Shared JSON values also agree: the final author report
+adds explicit zero missing and extra key counts, while the final
+published-window report names the author site count and signed extreme taxa.
+The original final outputs remain bound by the
+two ledger manifests. Four pytest symlinks point within the retired directories;
+no regular file has another hardlink, no file was open, and no current repository
+consumer reads either directory. The historical snapshot's old artifact paths
+remain provenance strings. This retirement changes no scientific admission.
+
 The [earlier Swedish direct-pollen run](historical-swedish-direct-pollen-run/README.md)
 retains its unique producer, input manifest and report bytes. Its custody ledger
 maps the other 12 files to byte-identical or newline-normalized current study
 outputs, so the inactive 15-file working directory can be retired without
 losing its scientific or process record.
+
+The [author-example holdout retirement receipt](author-pollen-holdout-retirement.json)
+binds the 33 remaining file and symlink entries in its working directory. The
+governed holdout contains the verified numerical report and newline-normalized
+prediction and score ledgers. The unique [unsent Swedish LRA source request](swedish-lra-source-request/README.md)
+is retained byte for byte with its historical status explained; current Swedish
+source questions supersede its admission claims. No file was open or had another
+hardlink, and the sole repository path mention is historical replay provenance.
+
+The [buffered author-pollen retirement receipt](author-buffered-pollen-retirement.json)
+binds 577 regular files and 56 internal symlinks from the earlier two-grid
+spatial-block working directory. The [governed English study](../../pollen-reconstruction/author-buffered-pollen/README.md)
+retains the four final prediction and score chains, paired baseline/taxon and
+Hellinger diagnostics, fixed fitted comparison, and strict CLR support result.
+Current consumers reproduced all four governing comparison reports from the
+retained inputs. Earlier baseline and site reports add no non-schema values
+to the retained taxon report; the remaining plans and fixtures are process
+products. No file was open or multiply linked, and no live report or package
+consumer reads the retired directory. Scientific admission is unchanged.
+
+The [Swedish site comparison retirement receipt](swedish-site-identity-retirement.json)
+binds 25 process and result files from the earlier 37-site cross-source review.
+The governed [current comparison](../../source-relations/neotoma/landclim-site-identity/README.md)
+uses the 77-site prerequisite projection and includes all 37 earlier rows with
+identical values. Its manifest retains the old selection IDs and summary, so
+the earlier denominator remains interpretable after the working directory is
+removed. No open file, multiple hardlink or live consumer depended on it.
+
+The [Abborrtjärnen core retirement receipt](abborrtjarne-core-retirement.json)
+binds 67 files and two local pytest symlinks from the old core comparison
+working directory. The governed [core lead](../../source-relations/neotoma/abbo-core-identity/README.md)
+replays the scientific fields using the current prerequisite projection and a
+selected independent count-mass receipt. The governed
+[workbook comparison](../../source-relations/neotoma/abbo-native-correspondence/README.md)
+retains the native-count summary; its private per-sample CSV is reproducible
+from retained source inputs. All four old native-count reports match that
+summary exactly. No file was open or multiply linked, and the only repository
+path mention is historical.
+
+The [two-lake core retirement receipt](swedish-lake-core-retirement.json)
+binds 61 files and two pytest symlinks from the earlier Bussjösjön and
+Bökesjön working directory. The governed [core and age comparison](../../source-relations/neotoma/swedish-lake-core-identity/README.md)
+reproduces its final scientific fields using current prerequisite inputs and
+two selected independent count-mass rows. The governed BUS and BOKE native
+reports retain their source summaries and add later diagnostics; private
+cell-level CSVs remain reproducible from the retained source inputs. No file
+was open or multiply linked, and the sole repository path mention is
+historical.
+
+The [published-window retirement receipt](landclim-published-window-retirement.json)
+binds 98 files and 13 pytest symlinks from the earlier time-window and
+numerical-provenance workspace. Governed reports now retain the
+[three-way numerical ledger](../../publication-replay/landclim-published-window-provenance/README.md),
+[reported uncertainty envelopes](../../publication-replay/landclim-published-window-uncertainty/README.md)
+and [25-window axis comparison](../../publication-replay/landclim-window-alignment/README.md).
+Their manifests bind original final outputs and current source inputs. The
+early runs are superseded by those checked results; no live consumer or open
+file depends on this working directory.
+
+The [publication study-input retirement receipt](landclim-study-input-retirement.json)
+binds the five-file metadata/refusal working product byte for byte to its
+[governed 1,128-row inventory](../../publication-replay/landclim-study-inputs/README.md).
+The current producer rebuilt all five files from the pinned raw workbook and
+acquisition receipt; no open file or current consumer uses the earlier artifact
+directory. The 4,512 requirement refusals still leave zero historical
+primary-input closures and zero reproduction-ready full-study records.
 
 The [earlier scientific report provenance](scientific-report-provenance/README.md)
 retains exact results, scope, and evidence-manifest bytes from the previous
@@ -184,6 +263,118 @@ same ordered records; only CRLF versus LF line endings differ. The current
 scientific report verifier authenticated those retained outputs. No product
 consumer or live open file depended on either retired artifact directory. This
 does not turn previously exposed development outcomes into confirmatory data.
+
+## LandClim provider description custody
+
+The [LandClim provider-description custody](landclim-provider-description-custody.json)
+retains the five exact files from the earlier PFT count source capture in the
+private source store. The captured ESSD article and PANGAEA deposit pages,
+their 2026-09-21 retrieval receipt, and the capture code are bound by byte
+counts and SHA-256. No current repository consumer or open process used the
+artifact directory when it was retired. These page descriptions help explain
+the public 11/12 PFT wording, while the separately pinned archive actually
+contains 13 PFT columns. They do not authenticate the missing archive-producing
+PFT/LCT transformation or resolve the `ISTS` classification.
+
+The earlier [primary-page capture custody](landclim-pft-primary-capture-custody.json)
+accounts for six more files from the same public-page review: its two HTML
+responses match the retained page bytes exactly, and four distinct capture,
+plan, receipt and review files remain in private process custody. The receipt
+records HTTP 200 responses on 21 September 2026 and the exact retrieved URLs.
+Neither page gives an archive-producing rule for `ISTS`.
+
+The [earlier PFT audit note custody](landclim-pft-audit-custody.json) binds its
+single historical file by SHA-256. Its distinct count of 11 parameter-table
+description strings and the populated `ISTS` mean/standard-error counts are now
+in the governed [PFT crosswalk](../../publication-replay/landclim-pft-crosswalk/README.md),
+alongside the already retained 11/12/13 source disagreement. The old note was
+retired after its source-backed observations were checked against the pinned CSV
+and archive; no PFT assignment was inferred from the description count.
+
+The [historical public-note custody](landclim-public-note-custody.json) retains
+seven check scripts, plans and results in the private source store. Both checked
+page hashes predate the current committed and user-staged LandClim source page,
+so these process files do not validate today's prose. Their 17-site count
+arithmetic is represented in the governed publication replay; the original
+artifact directory was retired only after exact private-byte and liveness checks.
+
+The [Amsoldingersee source custody](landclim-amsoldingersee-custody.json)
+preserves all 47 files from a selected Neotoma API candidate search and its
+dependent historical public-page check. The governed
+[one-row source review](../../publication-replay/landclim-amsoldingersee-source-review/README.md)
+replays the raw response hashes and refuses a historical `E#69` input identity:
+one current core has 23 sample IDs, but no captured core has the exact source
+code or an authenticated author chronology. The original page check is stale
+against the current LandClim page and remains private process evidence only.
+
+The [17-site author-preparation audit custody](landclim-author-preparation-audit-custody.json)
+preserves all 28 files from the older independent count challenge, including
+its terminal 17-site report and its earlier failed diagnostics. The governed
+[source recount](../../source-relations/landclim/author-preparation-audit/README.md)
+checks the same 17 author raw/prepared pairs directly from private source
+bytes. The 501,713 raw, 299,660 prepared and 202,053 difference counts do not
+identify the examples as the historical publication's 1,128 inputs.
+
+The [preparation process custody](landclim-author-preparation-process-custody.json)
+accounts for three further selected producer directories: **207 paths,
+2,597,893 path bytes and 108 distinct content hashes**. Eighty paths match
+the private author source at the same relative name and exact hash; the other
+files include generated intermediates, reports, scripts and diagnostics. All
+207 original bytes are retained under private `landclim/author-preparation-process/`.
+The current source recount above consumes the author capsule and terminal
+independent audit; older v2 job receipts are outside this selected retirement.
+
+The [two-grid process custody](landclim-two-grid-process-custody.json) preserves
+the 267-file frozen author-example run and one historical full-scope note in the
+private source store. All 194 snapshot files match the current private author
+reference byte for byte; the run report also matches the governed method-profile
+reference report. The other run outputs and process files remain privately
+available. The governed [method profile](../../publication-replay/landclim-method-profile/README.md)
+and [author correspondence](../../publication-replay/landclim-author-example-correspondence/README.md)
+carry the current two-grid numerical conclusions. The full-scope note predates
+the 17-site raw/prepared recount and is retained only as historical process
+evidence. Neither record authenticates the 1,128 study inputs.
+
+The [WHH05 one-site process custody](landclim-whh05-process-custody.json)
+preserves a further 169 files from a frozen author-example replay, including
+two snapshots, an independent reference challenge, raw comparison values and
+the terminal run. Its 132 snapshot paths match the current private author
+reference at identical relative names and hashes. The historical run used
+297 prepared counts after four source exclusions and matched all 31 cover and
+31 standard-error fractions to its R reference with maximum residuals
+4.78e-15 and 8.90e-16. The later [17-site preparation
+audit](../../source-relations/landclim/author-preparation-audit/README.md)
+and [two-grid correspondence](../../publication-replay/landclim-author-example-correspondence/README.md)
+supersede that run's then-open preprocessing limitation. This is method
+parity on author examples, not the historical 1,128-input study or measured
+vegetation accuracy.
+
+The [earlier example-review custody](landclim-historical-example-review-custody.json)
+retains 12 more historical files. Its independent WHH05 R challenge found
+301 raw counts, four explicit exclusions and an exact 297-count prepared
+author reference; a one-count `Calluna` perturbation produced one detected
+cell mismatch. The current [17-site formatter
+replay](../../source-relations/landclim/author-example-taxon-support/README.md)
+and count audit supersede that one-site preparation status. The other eight
+files checked 13 claims against a LandClim page hash that still matches the
+current committed page. The distinct user-staged page has not been checked
+by that historical run. Exact source and process bytes remain in private
+custody.
+
+## WHH05 author preparation process custody
+
+The [one-site R process custody](whh05-author-preparation-custody.json) accounts
+for all 37 files in the earlier WHH05 raw-to-prepared artifact. Twenty-four
+paths match exact author source files already held privately; 13 paths reduce
+to nine unique process files, now retained in the private source store. The
+historical run's 2,309-byte prepared matrix matches the author file, and its
+source/parser audit explains 301 raw `Sum` counts minus four excluded counts
+equals 297. The governed [17-site formatter replay](../../source-relations/landclim/author-example-taxon-support/README.md)
+subsumes that numerical result with 15,028 matching cells. The older one-site
+run, its failure diagnostic and its adapted R script remain available as
+historical process evidence; they do not authenticate the full published study.
+The inactive artifact prefix was retired after every source and retained file
+hash matched the custody record.
 
 ## Scientific source refusal custody
 
@@ -236,3 +427,53 @@ manifest does not authenticate a new scientific transformation. The source
 workbooks, unqualified rights and refused LRA use are unaffected. Both
 interrupted directories were retired after file, handle and bounded consumer
 checks.
+
+## Optimized author LOVE process custody
+
+The [author optimized LOVE receipt](../../pollen-reconstruction/author-lra-optimized-feasibility/custody.json)
+records both bounded request designs, the original preparation script and the
+two numerical refusal logs in private source custody. The governed
+[negative result](../../pollen-reconstruction/author-lra-optimized-feasibility/README.md)
+rebuilds the exact 30-taxon requests from the retained author capsule; all
+20 request/evidence files across the two budgets matched that replay byte for
+byte. The 25-file pilot and 57-file replay process prefixes contained no
+published LRA product or live consumer. They were retired after the exact
+file, private-copy and open-handle checks.
+
+## Author LRA development process custody
+
+The [analytical author LRA receipt](landclim-author-lra-development-custody.json)
+accounts for the original 938-file English development run. The 37 source input
+files in each of its two working copies match a fresh materialization from the
+private author capsule. Its final three equation-summary files match the
+[governed negative result](../../pollen-reconstruction/author-lra-development/README.md)
+byte for byte. An exact private archive retains the other 861 files, including
+27 cached numerical products, 195 training-item batch records, the original
+runner and two earlier differing summaries. The archive was reopened and every
+member checked against the original path and SHA-256 inventory before the
+inactive artifact directory was retired. This preserves numerical process
+evidence without treating cached predictions as scientific acceptance.
+
+## Swedish lake-transfer run custody
+
+The [lake-transfer run receipt](swedish-lake-transfer-run-custody.json)
+maps all ten files from the inactive three-lake process directory to byte-identical
+governed [study inputs, frozen predictions and scores](../../regions/nordic/swedish-lake-transfer/README.md).
+The original folder contains no distinct process evidence or live consumer; its
+reproduction command names a future disposable output. It was retired after
+the exact byte and open-handle checks. The prior-exposed direct-pollen result
+remains separate from LRA and vegetation accuracy.
+
+## Nordic direct-pollen process custody
+
+The [Nordic process receipt](nordic-direct-pollen-process-custody.json) maps
+26 files across five inactive Swedish/Nordic working directories. Twenty-two
+match the governed Storasjö, Swedish 31-target or three-country author-target
+studies byte for byte. Four distinct process files are retained privately:
+two Swedish documentation-gate logs and an earlier Swedish 31-target input
+manifest with its matching score report. The current governed manifest adds
+two Swedish common-bin source digests; the earlier score report differs only
+in that manifest hash, with the numerical score files unchanged. The exact
+five prefixes were retired after private-copy, governed-file and open-handle
+checks. These are prior-exposed observed-pollen results, not LRA or independent
+vegetation accuracy.

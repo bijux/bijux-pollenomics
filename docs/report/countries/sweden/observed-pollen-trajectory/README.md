@@ -15,6 +15,9 @@ point change. The [transition table](transitions.csv) records all 48
 taxon/threshold/transitions. These fixed thresholds are descriptive
 sensitivity checks, not sampling confidence intervals or ecological effect
 sizes.
+The report's country scope records Sweden as a two-site comparison and
+Denmark, Norway and Finland as **not evaluated for this question**. The
+result cannot estimate a national Swedish trend or a four-country trend.
 
 At the 0.5-point threshold, `Alnus` has five descriptive same-direction
 transitions and one opposite-direction transition; the remaining 18

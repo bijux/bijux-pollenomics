@@ -1,0 +1,97 @@
+{
+  "schema_version": "swedish-landclim-site-identity-custody.v1",
+  "inputs": {
+    "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/swedish_site_identity.py": {
+      "bytes": 12036,
+      "sha256": "9a579852dac334939260ccd72add520acca5655f44dfc4e94ba6d272ebef94c2"
+    },
+    "data/landclim/raw/landclim_ii_site_metadata.xlsx": {
+      "bytes": 264067,
+      "sha256": "2d4a0cf1401e36c2606f7761cecc85c4bbc15272460c2a4926cb1702d4565ebb"
+    },
+    "data/landclim/raw/landclim_sources.json": {
+      "bytes": 4880,
+      "sha256": "eb4350724c176d0dbcb7e441f2d21489bdae1cfff7ebe3088eab27093f315677"
+    },
+    "docs/report/source-relations/neotoma/lra-prerequisites/projection.json": {
+      "bytes": 22907955,
+      "sha256": "26135d91bbe5d729dcca3a1f6f0ea69f5cec4dc00a54a6dd740d5004d4e4b809"
+    },
+    "data/neotoma/relational/surfaces/sites/part-00001.json": {
+      "bytes": 307210,
+      "sha256": "b6ca4e49d0aec59aee576fc540c77b6c2e21601ce28338227e98717ee0bb93e9"
+    }
+  },
+  "outputs": {
+    "REPORT.md": {
+      "bytes": 949,
+      "sha256": "5a6822cfad53a1c69f5704a1c1be2f2872bec1a24de725e3f1ffe5f55e35b533"
+    },
+    "report.json": {
+      "bytes": 1525,
+      "sha256": "9a0b6aee4ead3f8a658b63a279e74c11210bb680c78d538ed83a4b0b4c90f4cf"
+    },
+    "site-comparison.csv": {
+      "bytes": 9050,
+      "sha256": "104049578ccd4f6fb0e0df869ffa33ed5033bb8a68d5208e019428de7ee43e8c"
+    }
+  },
+  "historical_comparison": {
+    "scope": "37 Swedish candidate sites from earlier prerequisite projection",
+    "report_sha256": "46e942b6e30791ecd7d4307aa4c94791e6c56d0d0209432c15634e408026c1bf",
+    "site_comparison_sha256": "3b3875b7e4f16395d0cb4084c555cfec067590329a6e8b566486e0c43e9f6de4",
+    "row_relation": "all 37 historical site rows equal the corresponding current-projection rows after CSV parsing",
+    "old_producer_sha256": "3d7252fc774e2acc5a95c4937be1ba6c47cf70e68d180c688cd432a03f7a3b57",
+    "site_ids": [
+      "neotoma:site:13335",
+      "neotoma:site:13336",
+      "neotoma:site:13338",
+      "neotoma:site:14040",
+      "neotoma:site:25895",
+      "neotoma:site:25958",
+      "neotoma:site:28144",
+      "neotoma:site:28811",
+      "neotoma:site:28812",
+      "neotoma:site:28813",
+      "neotoma:site:28852",
+      "neotoma:site:28854",
+      "neotoma:site:28855",
+      "neotoma:site:28856",
+      "neotoma:site:28857",
+      "neotoma:site:28858",
+      "neotoma:site:28859",
+      "neotoma:site:28860",
+      "neotoma:site:28861",
+      "neotoma:site:28862",
+      "neotoma:site:28863",
+      "neotoma:site:28864",
+      "neotoma:site:28866",
+      "neotoma:site:28868",
+      "neotoma:site:28869",
+      "neotoma:site:28870",
+      "neotoma:site:28872",
+      "neotoma:site:28873",
+      "neotoma:site:28874",
+      "neotoma:site:28885",
+      "neotoma:site:28886",
+      "neotoma:site:28887",
+      "neotoma:site:28888",
+      "neotoma:site:28889",
+      "neotoma:site:29383",
+      "neotoma:site:30418",
+      "neotoma:site:31818"
+    ],
+    "summary": {
+      "neotoma_swedish_candidate_sites": 37,
+      "landclim_swedish_sequences": 84,
+      "neotoma_point_sites": 33,
+      "same_name_candidates": 22,
+      "same_name_point_candidates": 21,
+      "same_name_within_10m": 13,
+      "same_name_within_1km": 15,
+      "identity_admitted": 0,
+      "lra_samples_admitted": 0
+    }
+  },
+  "admission": "no cross-source core identity, basin-radius transfer or LRA sample is admitted"
+}

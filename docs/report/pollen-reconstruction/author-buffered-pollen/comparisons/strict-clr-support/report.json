@@ -1,0 +1,692 @@
+{
+  "schema_version": "author-pollen-buffered-training-clr-support.v1",
+  "source_manifest_sha256": "48d853468f979a04636642c6c757e9d05edf708d799b29cbae4d2286a9ac0acb",
+  "metadata_sha256": "72949e9e3faf417be0b7425fc111a9638b37c4a38aab8f8d82e0c3d8739da2de",
+  "crosswalk_sha256": "3a0f598ba5e550ca39da52b2047b7020b013dad013d15f79bef8e1c3c1a979c3",
+  "consumed_training_count_sha256": {
+    "BECKHAM": "1982eb43353cb632319d97943decde8539d98111a7ade7ecaaa5757532231b5e",
+    "LARKBARR": "07daff782dae844eaa787e547d1b49937f975f49ea457a9576b9db58ddc4bbf6",
+    "MOLECHAM": "8addaceb66b78791f77bf1b8ff37cb282506baf8b3524b286f0113dde214bc57",
+    "NTWITCHEN": "eaae23b481debf5cbb13b54f94b5ae97187a79d2a0c716ff309d52a7c347a328",
+    "BROADOWN": "1eb04f58c13321fc9f284186df85003d4f73803f2485b842984f49a64c21a0c8",
+    "CUTHILL2": "a17ad8a86c4fb7fdffda4799dbc8de6909a037f7b106e07263fdd727c4c7f283",
+    "HANGINGS": "8249ce97a114048400a1497924cac0bc1c07fc7ae110dd5f868accd9425eda2f",
+    "WHH05": "298b66d7033703ce42d27f933b4d3ccec3a16f68b35a6fbf7a61806c01c88273",
+    "WHH11": "d38734ceb0c134eeffbb40091a81d3a8a8d32143dd14504296cc7baa38bf735e",
+    "WINNEYS": "b268187404a6ec1b0d0935990acd70bce678c55c95a2fadf38b7e50f27e29dd6"
+  },
+  "taxa": [
+    "Abies alba",
+    "Alnus glutinosa",
+    "Amanranthaceae/Chenopodiaceae",
+    "Artemisia",
+    "Betula",
+    "Buxus sempervirens",
+    "Calluna vulgaris",
+    "Carpinus betulus",
+    "Carpinus orientalis",
+    "Castanea",
+    "Cerealia-t",
+    "Corylus avellana",
+    "Cyperaceae",
+    "Ericaceae",
+    "Fagus sylvatica",
+    "Filipendula",
+    "Fraxinus",
+    "Juniperus",
+    "Phillyrea",
+    "Picea",
+    "Pinus",
+    "Pistacia",
+    "Plantago lanceolata type",
+    "Poaceae",
+    "Quercus deciduous",
+    "Quercus evergreen",
+    "Rumex acetosa-t",
+    "Salix",
+    "Secale",
+    "Tilia",
+    "Ulmus"
+  ],
+  "bins": [
+    "50",
+    "225",
+    "550",
+    "1000",
+    "1500",
+    "2000",
+    "2500",
+    "3000",
+    "3500",
+    "4000",
+    "4500",
+    "5000",
+    "5500",
+    "6000",
+    "6500",
+    "7000",
+    "7500",
+    "8000",
+    "8500",
+    "9000",
+    "9500",
+    "10000",
+    "10500",
+    "11000",
+    "11500"
+  ],
+  "zero_policy": "strictly_positive_no_replacement",
+  "required_training_sites_per_fit": 2,
+  "target_count_files_opened_within_each_fold": 0,
+  "blocks": [
+    {
+      "target_grid_id": "512",
+      "buffered_training_sites": 4,
+      "bins_with_any_training_site": 11,
+      "bins_with_at_least_two_training_sites": 10,
+      "bins_with_strict_clr_fit": 0
+    },
+    {
+      "target_grid_id": "562",
+      "buffered_training_sites": 6,
+      "bins_with_any_training_site": 18,
+      "bins_with_at_least_two_training_sites": 17,
+      "bins_with_strict_clr_fit": 0
+    }
+  ],
+  "bin_support": [
+    {
+      "target_grid_id": "512",
+      "bin_id_bp": "50",
+      "available_training_sites": 3,
+      "strict_positive_training_sites": 0,
+      "training_sites_with_zero_taxa": 3,
+      "zero_taxa_by_training_site": {
+        "BECKHAM": 14,
+        "LARKBARR": 13,
+        "NTWITCHEN": 14
+      },
+      "strict_clr_fit_possible": false
+    },
+    {
+      "target_grid_id": "512",
+      "bin_id_bp": "225",
+      "available_training_sites": 4,
+      "strict_positive_training_sites": 0,
+      "training_sites_with_zero_taxa": 4,
+      "zero_taxa_by_training_site": {
+        "BECKHAM": 16,
+        "LARKBARR": 19,
+        "MOLECHAM": 14,
+        "NTWITCHEN": 11
+      },
+      "strict_clr_fit_possible": false
+    },
+    {
+      "target_grid_id": "512",
+      "bin_id_bp": "550",
+      "available_training_sites": 4,
+      "strict_positive_training_sites": 0,
+      "training_sites_with_zero_taxa": 4,
+      "zero_taxa_by_training_site": {
+        "BECKHAM": 17,
+        "LARKBARR": 15,
+        "MOLECHAM": 11,
+        "NTWITCHEN": 12
+      },
+      "strict_clr_fit_possible": false
+    },
+    {
+      "target_grid_id": "512",
+      "bin_id_bp": "1000",
+      "available_training_sites": 4,
+      "strict_positive_training_sites": 0,
+      "training_sites_with_zero_taxa": 4,
+      "zero_taxa_by_training_site": {
+        "BECKHAM": 13,
+        "LARKBARR": 14,
+        "MOLECHAM": 12,
+        "NTWITCHEN": 11
+      },
+      "strict_clr_fit_possible": false
+    },
+    {
+      "target_grid_id": "512",
+      "bin_id_bp": "1500",
+      "available_training_sites": 4,
+      "strict_positive_training_sites": 0,
+      "training_sites_with_zero_taxa": 4,
+      "zero_taxa_by_training_site": {
+        "BECKHAM": 14,
+        "LARKBARR": 17,
+        "MOLECHAM": 11,
+        "NTWITCHEN": 12
+      },
+      "strict_clr_fit_possible": false
+    },
+    {
+      "target_grid_id": "512",
+      "bin_id_bp": "2000",
+      "available_training_sites": 4,
+      "strict_positive_training_sites": 0,
+      "training_sites_with_zero_taxa": 4,
+      "zero_taxa_by_training_site": {
+        "BECKHAM": 12,
+        "LARKBARR": 17,
+        "MOLECHAM": 13,
+        "NTWITCHEN": 14
+      },
+      "strict_clr_fit_possible": false
+    },
+    {
+      "target_grid_id": "512",
+      "bin_id_bp": "2500",
+      "available_training_sites": 4,
+      "strict_positive_training_sites": 0,
+      "training_sites_with_zero_taxa": 4,
+      "zero_taxa_by_training_site": {
+        "BECKHAM": 13,
+        "LARKBARR": 20,
+        "MOLECHAM": 13,
+        "NTWITCHEN": 11
+      },
+      "strict_clr_fit_possible": false
+    },
+    {
+      "target_grid_id": "512",
+      "bin_id_bp": "3000",
+      "available_training_sites": 4,
+      "strict_positive_training_sites": 0,
+      "training_sites_with_zero_taxa": 4,
+      "zero_taxa_by_training_site": {
+        "BECKHAM": 17,
+        "LARKBARR": 16,
+        "MOLECHAM": 16,
+        "NTWITCHEN": 12
+      },
+      "strict_clr_fit_possible": false
+    },
+    {
+      "target_grid_id": "512",
+      "bin_id_bp": "3500",
+      "available_training_sites": 3,
+      "strict_positive_training_sites": 0,
+      "training_sites_with_zero_taxa": 3,
+      "zero_taxa_by_training_site": {
+        "BECKHAM": 14,
+        "LARKBARR": 15,
+        "NTWITCHEN": 13
+      },
+      "strict_clr_fit_possible": false
+    },
+    {
+      "target_grid_id": "512",
+      "bin_id_bp": "4000",
+      "available_training_sites": 2,
+      "strict_positive_training_sites": 0,
+      "training_sites_with_zero_taxa": 2,
+      "zero_taxa_by_training_site": {
+        "BECKHAM": 18,
+        "NTWITCHEN": 11
+      },
+      "strict_clr_fit_possible": false
+    },
+    {
+      "target_grid_id": "512",
+      "bin_id_bp": "4500",
+      "available_training_sites": 1,
+      "strict_positive_training_sites": 0,
+      "training_sites_with_zero_taxa": 1,
+      "zero_taxa_by_training_site": {
+        "BECKHAM": 17
+      },
+      "strict_clr_fit_possible": false
+    },
+    {
+      "target_grid_id": "512",
+      "bin_id_bp": "5000",
+      "available_training_sites": 0,
+      "strict_positive_training_sites": 0,
+      "training_sites_with_zero_taxa": 0,
+      "zero_taxa_by_training_site": {},
+      "strict_clr_fit_possible": false
+    },
+    {
+      "target_grid_id": "512",
+      "bin_id_bp": "5500",
+      "available_training_sites": 0,
+      "strict_positive_training_sites": 0,
+      "training_sites_with_zero_taxa": 0,
+      "zero_taxa_by_training_site": {},
+      "strict_clr_fit_possible": false
+    },
+    {
+      "target_grid_id": "512",
+      "bin_id_bp": "6000",
+      "available_training_sites": 0,
+      "strict_positive_training_sites": 0,
+      "training_sites_with_zero_taxa": 0,
+      "zero_taxa_by_training_site": {},
+      "strict_clr_fit_possible": false
+    },
+    {
+      "target_grid_id": "512",
+      "bin_id_bp": "6500",
+      "available_training_sites": 0,
+      "strict_positive_training_sites": 0,
+      "training_sites_with_zero_taxa": 0,
+      "zero_taxa_by_training_site": {},
+      "strict_clr_fit_possible": false
+    },
+    {
+      "target_grid_id": "512",
+      "bin_id_bp": "7000",
+      "available_training_sites": 0,
+      "strict_positive_training_sites": 0,
+      "training_sites_with_zero_taxa": 0,
+      "zero_taxa_by_training_site": {},
+      "strict_clr_fit_possible": false
+    },
+    {
+      "target_grid_id": "512",
+      "bin_id_bp": "7500",
+      "available_training_sites": 0,
+      "strict_positive_training_sites": 0,
+      "training_sites_with_zero_taxa": 0,
+      "zero_taxa_by_training_site": {},
+      "strict_clr_fit_possible": false
+    },
+    {
+      "target_grid_id": "512",
+      "bin_id_bp": "8000",
+      "available_training_sites": 0,
+      "strict_positive_training_sites": 0,
+      "training_sites_with_zero_taxa": 0,
+      "zero_taxa_by_training_site": {},
+      "strict_clr_fit_possible": false
+    },
+    {
+      "target_grid_id": "512",
+      "bin_id_bp": "8500",
+      "available_training_sites": 0,
+      "strict_positive_training_sites": 0,
+      "training_sites_with_zero_taxa": 0,
+      "zero_taxa_by_training_site": {},
+      "strict_clr_fit_possible": false
+    },
+    {
+      "target_grid_id": "512",
+      "bin_id_bp": "9000",
+      "available_training_sites": 0,
+      "strict_positive_training_sites": 0,
+      "training_sites_with_zero_taxa": 0,
+      "zero_taxa_by_training_site": {},
+      "strict_clr_fit_possible": false
+    },
+    {
+      "target_grid_id": "512",
+      "bin_id_bp": "9500",
+      "available_training_sites": 0,
+      "strict_positive_training_sites": 0,
+      "training_sites_with_zero_taxa": 0,
+      "zero_taxa_by_training_site": {},
+      "strict_clr_fit_possible": false
+    },
+    {
+      "target_grid_id": "512",
+      "bin_id_bp": "10000",
+      "available_training_sites": 0,
+      "strict_positive_training_sites": 0,
+      "training_sites_with_zero_taxa": 0,
+      "zero_taxa_by_training_site": {},
+      "strict_clr_fit_possible": false
+    },
+    {
+      "target_grid_id": "512",
+      "bin_id_bp": "10500",
+      "available_training_sites": 0,
+      "strict_positive_training_sites": 0,
+      "training_sites_with_zero_taxa": 0,
+      "zero_taxa_by_training_site": {},
+      "strict_clr_fit_possible": false
+    },
+    {
+      "target_grid_id": "512",
+      "bin_id_bp": "11000",
+      "available_training_sites": 0,
+      "strict_positive_training_sites": 0,
+      "training_sites_with_zero_taxa": 0,
+      "zero_taxa_by_training_site": {},
+      "strict_clr_fit_possible": false
+    },
+    {
+      "target_grid_id": "512",
+      "bin_id_bp": "11500",
+      "available_training_sites": 0,
+      "strict_positive_training_sites": 0,
+      "training_sites_with_zero_taxa": 0,
+      "zero_taxa_by_training_site": {},
+      "strict_clr_fit_possible": false
+    },
+    {
+      "target_grid_id": "562",
+      "bin_id_bp": "50",
+      "available_training_sites": 2,
+      "strict_positive_training_sites": 0,
+      "training_sites_with_zero_taxa": 2,
+      "zero_taxa_by_training_site": {
+        "BROADOWN": 16,
+        "HANGINGS": 19
+      },
+      "strict_clr_fit_possible": false
+    },
+    {
+      "target_grid_id": "562",
+      "bin_id_bp": "225",
+      "available_training_sites": 3,
+      "strict_positive_training_sites": 0,
+      "training_sites_with_zero_taxa": 3,
+      "zero_taxa_by_training_site": {
+        "BROADOWN": 17,
+        "HANGINGS": 17,
+        "WINNEYS": 12
+      },
+      "strict_clr_fit_possible": false
+    },
+    {
+      "target_grid_id": "562",
+      "bin_id_bp": "550",
+      "available_training_sites": 3,
+      "strict_positive_training_sites": 0,
+      "training_sites_with_zero_taxa": 3,
+      "zero_taxa_by_training_site": {
+        "BROADOWN": 12,
+        "HANGINGS": 21,
+        "WINNEYS": 10
+      },
+      "strict_clr_fit_possible": false
+    },
+    {
+      "target_grid_id": "562",
+      "bin_id_bp": "1000",
+      "available_training_sites": 4,
+      "strict_positive_training_sites": 0,
+      "training_sites_with_zero_taxa": 4,
+      "zero_taxa_by_training_site": {
+        "BROADOWN": 11,
+        "CUTHILL2": 15,
+        "HANGINGS": 15,
+        "WINNEYS": 10
+      },
+      "strict_clr_fit_possible": false
+    },
+    {
+      "target_grid_id": "562",
+      "bin_id_bp": "1500",
+      "available_training_sites": 5,
+      "strict_positive_training_sites": 0,
+      "training_sites_with_zero_taxa": 5,
+      "zero_taxa_by_training_site": {
+        "BROADOWN": 12,
+        "CUTHILL2": 11,
+        "HANGINGS": 14,
+        "WHH05": 21,
+        "WINNEYS": 9
+      },
+      "strict_clr_fit_possible": false
+    },
+    {
+      "target_grid_id": "562",
+      "bin_id_bp": "2000",
+      "available_training_sites": 4,
+      "strict_positive_training_sites": 0,
+      "training_sites_with_zero_taxa": 4,
+      "zero_taxa_by_training_site": {
+        "BROADOWN": 14,
+        "CUTHILL2": 13,
+        "HANGINGS": 12,
+        "WINNEYS": 11
+      },
+      "strict_clr_fit_possible": false
+    },
+    {
+      "target_grid_id": "562",
+      "bin_id_bp": "2500",
+      "available_training_sites": 4,
+      "strict_positive_training_sites": 0,
+      "training_sites_with_zero_taxa": 4,
+      "zero_taxa_by_training_site": {
+        "BROADOWN": 14,
+        "CUTHILL2": 16,
+        "HANGINGS": 13,
+        "WINNEYS": 12
+      },
+      "strict_clr_fit_possible": false
+    },
+    {
+      "target_grid_id": "562",
+      "bin_id_bp": "3000",
+      "available_training_sites": 6,
+      "strict_positive_training_sites": 0,
+      "training_sites_with_zero_taxa": 6,
+      "zero_taxa_by_training_site": {
+        "BROADOWN": 17,
+        "CUTHILL2": 17,
+        "HANGINGS": 14,
+        "WHH05": 22,
+        "WHH11": 15,
+        "WINNEYS": 12
+      },
+      "strict_clr_fit_possible": false
+    },
+    {
+      "target_grid_id": "562",
+      "bin_id_bp": "3500",
+      "available_training_sites": 5,
+      "strict_positive_training_sites": 0,
+      "training_sites_with_zero_taxa": 5,
+      "zero_taxa_by_training_site": {
+        "BROADOWN": 19,
+        "CUTHILL2": 19,
+        "HANGINGS": 16,
+        "WHH11": 14,
+        "WINNEYS": 11
+      },
+      "strict_clr_fit_possible": false
+    },
+    {
+      "target_grid_id": "562",
+      "bin_id_bp": "4000",
+      "available_training_sites": 6,
+      "strict_positive_training_sites": 0,
+      "training_sites_with_zero_taxa": 6,
+      "zero_taxa_by_training_site": {
+        "BROADOWN": 18,
+        "CUTHILL2": 18,
+        "HANGINGS": 16,
+        "WHH05": 18,
+        "WHH11": 15,
+        "WINNEYS": 11
+      },
+      "strict_clr_fit_possible": false
+    },
+    {
+      "target_grid_id": "562",
+      "bin_id_bp": "4500",
+      "available_training_sites": 6,
+      "strict_positive_training_sites": 0,
+      "training_sites_with_zero_taxa": 6,
+      "zero_taxa_by_training_site": {
+        "BROADOWN": 17,
+        "CUTHILL2": 15,
+        "HANGINGS": 19,
+        "WHH05": 20,
+        "WHH11": 16,
+        "WINNEYS": 16
+      },
+      "strict_clr_fit_possible": false
+    },
+    {
+      "target_grid_id": "562",
+      "bin_id_bp": "5000",
+      "available_training_sites": 5,
+      "strict_positive_training_sites": 0,
+      "training_sites_with_zero_taxa": 5,
+      "zero_taxa_by_training_site": {
+        "BROADOWN": 19,
+        "CUTHILL2": 13,
+        "HANGINGS": 18,
+        "WHH05": 20,
+        "WINNEYS": 16
+      },
+      "strict_clr_fit_possible": false
+    },
+    {
+      "target_grid_id": "562",
+      "bin_id_bp": "5500",
+      "available_training_sites": 5,
+      "strict_positive_training_sites": 0,
+      "training_sites_with_zero_taxa": 5,
+      "zero_taxa_by_training_site": {
+        "BROADOWN": 16,
+        "CUTHILL2": 13,
+        "HANGINGS": 16,
+        "WHH05": 20,
+        "WINNEYS": 15
+      },
+      "strict_clr_fit_possible": false
+    },
+    {
+      "target_grid_id": "562",
+      "bin_id_bp": "6000",
+      "available_training_sites": 5,
+      "strict_positive_training_sites": 0,
+      "training_sites_with_zero_taxa": 5,
+      "zero_taxa_by_training_site": {
+        "BROADOWN": 16,
+        "CUTHILL2": 15,
+        "HANGINGS": 18,
+        "WHH05": 21,
+        "WINNEYS": 20
+      },
+      "strict_clr_fit_possible": false
+    },
+    {
+      "target_grid_id": "562",
+      "bin_id_bp": "6500",
+      "available_training_sites": 5,
+      "strict_positive_training_sites": 0,
+      "training_sites_with_zero_taxa": 5,
+      "zero_taxa_by_training_site": {
+        "BROADOWN": 20,
+        "CUTHILL2": 19,
+        "HANGINGS": 22,
+        "WHH05": 20,
+        "WINNEYS": 15
+      },
+      "strict_clr_fit_possible": false
+    },
+    {
+      "target_grid_id": "562",
+      "bin_id_bp": "7000",
+      "available_training_sites": 4,
+      "strict_positive_training_sites": 0,
+      "training_sites_with_zero_taxa": 4,
+      "zero_taxa_by_training_site": {
+        "BROADOWN": 20,
+        "CUTHILL2": 19,
+        "HANGINGS": 21,
+        "WINNEYS": 16
+      },
+      "strict_clr_fit_possible": false
+    },
+    {
+      "target_grid_id": "562",
+      "bin_id_bp": "7500",
+      "available_training_sites": 3,
+      "strict_positive_training_sites": 0,
+      "training_sites_with_zero_taxa": 3,
+      "zero_taxa_by_training_site": {
+        "BROADOWN": 21,
+        "HANGINGS": 18,
+        "WINNEYS": 18
+      },
+      "strict_clr_fit_possible": false
+    },
+    {
+      "target_grid_id": "562",
+      "bin_id_bp": "8000",
+      "available_training_sites": 1,
+      "strict_positive_training_sites": 0,
+      "training_sites_with_zero_taxa": 1,
+      "zero_taxa_by_training_site": {
+        "WINNEYS": 22
+      },
+      "strict_clr_fit_possible": false
+    },
+    {
+      "target_grid_id": "562",
+      "bin_id_bp": "8500",
+      "available_training_sites": 0,
+      "strict_positive_training_sites": 0,
+      "training_sites_with_zero_taxa": 0,
+      "zero_taxa_by_training_site": {},
+      "strict_clr_fit_possible": false
+    },
+    {
+      "target_grid_id": "562",
+      "bin_id_bp": "9000",
+      "available_training_sites": 0,
+      "strict_positive_training_sites": 0,
+      "training_sites_with_zero_taxa": 0,
+      "zero_taxa_by_training_site": {},
+      "strict_clr_fit_possible": false
+    },
+    {
+      "target_grid_id": "562",
+      "bin_id_bp": "9500",
+      "available_training_sites": 0,
+      "strict_positive_training_sites": 0,
+      "training_sites_with_zero_taxa": 0,
+      "zero_taxa_by_training_site": {},
+      "strict_clr_fit_possible": false
+    },
+    {
+      "target_grid_id": "562",
+      "bin_id_bp": "10000",
+      "available_training_sites": 0,
+      "strict_positive_training_sites": 0,
+      "training_sites_with_zero_taxa": 0,
+      "zero_taxa_by_training_site": {},
+      "strict_clr_fit_possible": false
+    },
+    {
+      "target_grid_id": "562",
+      "bin_id_bp": "10500",
+      "available_training_sites": 0,
+      "strict_positive_training_sites": 0,
+      "training_sites_with_zero_taxa": 0,
+      "zero_taxa_by_training_site": {},
+      "strict_clr_fit_possible": false
+    },
+    {
+      "target_grid_id": "562",
+      "bin_id_bp": "11000",
+      "available_training_sites": 0,
+      "strict_positive_training_sites": 0,
+      "training_sites_with_zero_taxa": 0,
+      "zero_taxa_by_training_site": {},
+      "strict_clr_fit_possible": false
+    },
+    {
+      "target_grid_id": "562",
+      "bin_id_bp": "11500",
+      "available_training_sites": 0,
+      "strict_positive_training_sites": 0,
+      "training_sites_with_zero_taxa": 0,
+      "zero_taxa_by_training_site": {},
+      "strict_clr_fit_possible": false
+    }
+  ],
+  "scientific_acceptance": "training-support-diagnostic-only"
+}
