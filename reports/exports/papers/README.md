@@ -36,6 +36,10 @@ in the canonical reports; a portable export cannot strengthen those findings.
 Run `python3 reports/exports/papers/verify.py` from the repository root to
 reconcile inventory, source revisions, producer hashes, retained PDFs and
 page-review identities. `python3 reports/verify.py` includes that check.
+The producer check reads the exact historical renderer revision declared by
+each export, including separately rebuilt papers. A later renderer revision
+does not change an already reviewed PDF's provenance. Current canonical report
+text, retained PDF bytes and page-review identities must still match.
 Changes to a canonical account invalidate its PDF until it is rebuilt and
 reviewed; changes to source admission require the owning scientific review too.
 

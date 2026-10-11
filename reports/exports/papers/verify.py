@@ -31,6 +31,46 @@ def committed_digest(revision: str, relative: str) -> str:
     return hashlib.sha256(result.stdout).hexdigest()
 
 
+def verify_producer(manifest: dict, paper: dict) -> None:
+    """Verify the historical renderer that actually made each retained export."""
+    override = {"producer_revision", "producer_sha256"} & paper.keys()
+    if override and override != {"producer_revision", "producer_sha256"}:
+        raise ValueError("A separately produced paper needs complete producer identity")
+    revision = paper.get("producer_revision", manifest["producer_revision"])
+    records = paper.get("producer_sha256", manifest["producer_sha256"])
+    if (
+        not isinstance(revision, str)
+        or not re.fullmatch(r"[0-9a-f]{40}", revision)
+        or not isinstance(records, dict)
+        or not records
+        or set(records) != set(manifest["producer_sha256"])
+    ):
+        raise ValueError("A paper needs its complete exact historical producer closure")
+    accepted = subprocess.run(
+        ["git", "merge-base", "--is-ancestor", revision, "HEAD"],
+        cwd=ROOT,
+        capture_output=True,
+        check=False,
+        timeout=10,
+    )
+    if accepted.returncode:
+        raise ValueError(
+            "Paper producer revision is absent from accepted source history"
+        )
+    for relative, expected in records.items():
+        if (
+            not isinstance(relative, str)
+            or not relative.startswith(
+                "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/reader_reports/"
+            )
+            or ".." in Path(relative).parts
+            or not isinstance(expected, str)
+            or not re.fullmatch(r"[0-9a-f]{64}", expected)
+            or committed_digest(revision, relative) != expected
+        ):
+            raise ValueError(f"Historical export producer changed: {relative}")
+
+
 def main() -> None:
     manifest = json.loads((HERE / "manifest.json").read_text())
     review = json.loads((HERE / "visual-review.json").read_text())
@@ -104,12 +144,7 @@ def main() -> None:
             raise ValueError("Page-by-page review is incomplete")
         if any(page["visual_status"] != "readable" for page in visual["pages"]):
             raise ValueError("A PDF page is not accepted for layout")
-    for relative, expected in manifest["producer_sha256"].items():
-        if (
-            digest(ROOT / relative) != expected
-            or committed_digest(manifest["producer_revision"], relative) != expected
-        ):
-            raise ValueError(f"Export producer changed: {relative}")
+        verify_producer(manifest, row)
     print(
         f"verified {len(papers)} standalone paper PDFs and their source/layout identities"
     )
