@@ -1,0 +1,35 @@
+{
+  "actual_command": [
+    "/opt/homebrew/Cellar/python@3.14/3.14.4_1/Frameworks/Python.framework/Versions/3.14/bin/python3.14",
+    "-B",
+    "/Users/bijan/bijux/bijux-pollenomics/artifacts/jobs/swedish-landclim-neotoma-recovery/arctic-native-source-receipt-comparison/compare.py"
+  ],
+  "candidate": "ea7b58bb6d7ab9b3cadc1f658f29d7c126757d7e",
+  "comparison_files": {},
+  "custody_after_checked": true,
+  "custody_after_unchanged": true,
+  "custody_errors": [],
+  "log_sha256": "ea5c4eb8e17f47de90afd9f1cb60428620fc750a30f4353489508bb59a197c64",
+  "native_exit_code": 1,
+  "native_files": {},
+  "native_pid": 10187,
+  "observed_descendants": {
+    "10187": {
+      "group": 10187,
+      "parent": 10176,
+      "pid": 10187,
+      "rss_bytes": 238796800,
+      "start": "Mon Oct  5 00:49:01 2026    ",
+      "state": "Rs"
+    }
+  },
+  "owned_survivors": {},
+  "peak_processes": 1,
+  "peak_rss_bytes": 238796800,
+  "plan_sha256": "a4395700c6b740ba38546a39360e33da857ead9a655793e4848c3339a43e403e",
+  "resource_failure": null,
+  "scope": "Finite source lab/control/raw14C/depth/material and coincident depth age-point comparison for Tibetanus; Trehorn raw controls/derived climate points retained with no current native comparison. No interpolation/model calibration, historical LandClim membership, universal epoch, rights or vegetation admission. Native depth numbers provisional pending source depth unit authority.",
+  "source_context": "Actual clean ea7b registration context; source census retained302471 acquisition and original native count qualification source scope, no numerical producer/engine dependency changes. Comparator reads exact raw native row3 and authenticates qualified core/chronology/sample projection before source comparison.",
+  "status": "FAIL",
+  "wall_seconds": 0.9245517079834826
+}

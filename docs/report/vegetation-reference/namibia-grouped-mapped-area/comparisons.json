@@ -1,0 +1,4118 @@
+{
+  "all110_poorer_contrasts": [
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.012023643073769394,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 100,
+      "site": "Namibia_T2"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.0211749152823274,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 100,
+      "site": "Namibia_T3"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.0935811830857172,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 100,
+      "site": "Namibia_T3"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.0017583703299817142,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 100,
+      "site": "Namibia_T4"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.020425313835536793,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 100,
+      "site": "Namibia_T8"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.004311658595611681,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 100,
+      "site": "Namibia_T9"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.06642550743153962,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 100,
+      "site": "Namibia_T9"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.019303888721066365,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 100,
+      "site": "Namibia_T10"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.013854933902066373,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 200,
+      "site": "Namibia_T2"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.0646310216654804,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 200,
+      "site": "Namibia_T3"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.004662347113792164,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 200,
+      "site": "Namibia_T4"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.016892731460955546,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 200,
+      "site": "Namibia_T8"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.011038796119316449,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 200,
+      "site": "Namibia_T9"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.06295853647060465,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 200,
+      "site": "Namibia_T9"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.015432057476419958,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 200,
+      "site": "Namibia_T10"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.01581001594915887,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 300,
+      "site": "Namibia_T2"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.041804467040822926,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 300,
+      "site": "Namibia_T3"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.00885851674013128,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 300,
+      "site": "Namibia_T4"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.014359587411615037,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 300,
+      "site": "Namibia_T8"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.01578520787033394,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 300,
+      "site": "Namibia_T9"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.061125340325016715,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 300,
+      "site": "Namibia_T9"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.015980244495904072,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 300,
+      "site": "Namibia_T10"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.014679998113164023,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 400,
+      "site": "Namibia_T2"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.0427546710126336,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 400,
+      "site": "Namibia_T3"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.008367799849716483,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 400,
+      "site": "Namibia_T4"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.01575795680152982,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 400,
+      "site": "Namibia_T8"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.0229005332253681,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 400,
+      "site": "Namibia_T9"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.05812371366117578,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 400,
+      "site": "Namibia_T9"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.013678133537118442,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 400,
+      "site": "Namibia_T10"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.016081970754464048,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 500,
+      "site": "Namibia_T2"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.041236082884550405,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 500,
+      "site": "Namibia_T3"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.00958522976065274,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 500,
+      "site": "Namibia_T4"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.019824490637251217,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 500,
+      "site": "Namibia_T8"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.030022645496790942,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 500,
+      "site": "Namibia_T9"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.057444774432900934,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 500,
+      "site": "Namibia_T9"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.015937430968833044,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 500,
+      "site": "Namibia_T10"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.01724490045113415,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 600,
+      "site": "Namibia_T2"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.041619666276176234,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 600,
+      "site": "Namibia_T3"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.012915769443614951,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 600,
+      "site": "Namibia_T4"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.019498120885601926,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 600,
+      "site": "Namibia_T8"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.027512591190335653,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 600,
+      "site": "Namibia_T9"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.05773664096603746,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 600,
+      "site": "Namibia_T9"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.01622488090560345,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 600,
+      "site": "Namibia_T10"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.016605931381496727,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 700,
+      "site": "Namibia_T2"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.03787126180559748,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 700,
+      "site": "Namibia_T3"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.01377663926933611,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 700,
+      "site": "Namibia_T4"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.016546074838708087,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 700,
+      "site": "Namibia_T8"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.021237407370661723,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 700,
+      "site": "Namibia_T9"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.05983906368269162,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 700,
+      "site": "Namibia_T9"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.016396589167875827,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 700,
+      "site": "Namibia_T10"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.01423820561333665,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 800,
+      "site": "Namibia_T2"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.053571606492039646,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 800,
+      "site": "Namibia_T3"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.010618563665749616,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 800,
+      "site": "Namibia_T4"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.01572443087750259,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 800,
+      "site": "Namibia_T8"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.017853077797207656,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 800,
+      "site": "Namibia_T9"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.06027398787951002,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 800,
+      "site": "Namibia_T9"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.015873735776569392,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 800,
+      "site": "Namibia_T10"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.014305282272798727,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 900,
+      "site": "Namibia_T2"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.05216733479708789,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 900,
+      "site": "Namibia_T3"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.008134147924648151,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 900,
+      "site": "Namibia_T4"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.014681538359529633,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 900,
+      "site": "Namibia_T8"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.024106013099939164,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 900,
+      "site": "Namibia_T9"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.05848711583871917,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 900,
+      "site": "Namibia_T9"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.015136576979304511,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 900,
+      "site": "Namibia_T10"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.015642261821820706,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 1000,
+      "site": "Namibia_T2"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.06103550849170847,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 1000,
+      "site": "Namibia_T3"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.007647053122285721,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 1000,
+      "site": "Namibia_T4"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.01623517271181838,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 1000,
+      "site": "Namibia_T8"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.017879491399363318,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 1000,
+      "site": "Namibia_T9"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.06121717821159587,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 1000,
+      "site": "Namibia_T9"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.014830929850450661,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 1000,
+      "site": "Namibia_T10"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.016904586373753555,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 1100,
+      "site": "Namibia_T2"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.06927523405019195,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 1100,
+      "site": "Namibia_T3"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.008516735549381555,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 1100,
+      "site": "Namibia_T4"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.01956681228342319,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 1100,
+      "site": "Namibia_T8"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.01375042286084785,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 1100,
+      "site": "Namibia_T9"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.06310398368235268,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 1100,
+      "site": "Namibia_T9"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.014186989065145872,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 1100,
+      "site": "Namibia_T10"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.01668184575141033,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 1200,
+      "site": "Namibia_T2"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.022705735523320433,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 1200,
+      "site": "Namibia_T3"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.09590084515120995,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 1200,
+      "site": "Namibia_T3"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.0038799659089942574,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 1200,
+      "site": "Namibia_T4"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.021704993368788027,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 1200,
+      "site": "Namibia_T8"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.015824058457083193,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 1200,
+      "site": "Namibia_T9"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.06271908096196795,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 1200,
+      "site": "Namibia_T9"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.014899247828562126,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 1200,
+      "site": "Namibia_T10"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.017733644386189927,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 1300,
+      "site": "Namibia_T2"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.03152587964749226,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 1300,
+      "site": "Namibia_T3"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.10432152493318195,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 1300,
+      "site": "Namibia_T3"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.0035557479460036484,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 1300,
+      "site": "Namibia_T4"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.022488546501117028,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 1300,
+      "site": "Namibia_T8"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.017745173601305453,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 1300,
+      "site": "Namibia_T9"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.0625718899887081,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 1300,
+      "site": "Namibia_T9"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.014018947247316019,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 1300,
+      "site": "Namibia_T10"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.018635670218436054,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 1400,
+      "site": "Namibia_T2"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.03223026817880571,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 1400,
+      "site": "Namibia_T3"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.10533325817676459,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 1400,
+      "site": "Namibia_T3"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.004609145482126053,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 1400,
+      "site": "Namibia_T4"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.02241084481755512,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 1400,
+      "site": "Namibia_T8"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.015252181793025829,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 1400,
+      "site": "Namibia_T9"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.06326171968645049,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 1400,
+      "site": "Namibia_T9"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.012730516590589484,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 1400,
+      "site": "Namibia_T10"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.01777196776843861,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 1500,
+      "site": "Namibia_T2"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.021341334748068833,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 1500,
+      "site": "Namibia_T3"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.09277689142040692,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 1500,
+      "site": "Namibia_T3"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.003818689007635715,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 1500,
+      "site": "Namibia_T4"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.022564151527864347,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 1500,
+      "site": "Namibia_T8"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.020539558141097383,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 1500,
+      "site": "Namibia_T9"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.061791101652444315,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 1500,
+      "site": "Namibia_T9"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.012787438705597606,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 1500,
+      "site": "Namibia_T10"
+    }
+  ],
+  "all300_paired_contrasts": [
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.019413788765453334,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 100,
+      "site": "Namibia_T1"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.06200476765543856,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 100,
+      "site": "Namibia_T1"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.08584880363988048,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 100,
+      "site": "Namibia_T2"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.012023643073769394,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 100,
+      "site": "Namibia_T2"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.0211749152823274,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 100,
+      "site": "Namibia_T3"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.0935811830857172,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 100,
+      "site": "Namibia_T3"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.07060251842940507,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 100,
+      "site": "Namibia_T4"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.0017583703299817142,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 100,
+      "site": "Namibia_T4"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.05693724847628337,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 100,
+      "site": "Namibia_T5"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.05371748384266152,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 100,
+      "site": "Namibia_T5"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.07665045024511209,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 100,
+      "site": "Namibia_T6"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.01672915353872099,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 100,
+      "site": "Namibia_T6"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.193520202678981,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 100,
+      "site": "Namibia_T7"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.05634477086694418,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 100,
+      "site": "Namibia_T7"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.1935103248919135,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 100,
+      "site": "Namibia_T8"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.020425313835536793,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 100,
+      "site": "Namibia_T8"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.004311658595611681,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 100,
+      "site": "Namibia_T9"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.06642550743153962,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 100,
+      "site": "Namibia_T9"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.2252352682969268,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 100,
+      "site": "Namibia_T10"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.019303888721066365,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 100,
+      "site": "Namibia_T10"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.006868276970135197,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 200,
+      "site": "Namibia_T1"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.05182651346815864,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 200,
+      "site": "Namibia_T1"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.08730896566843253,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 200,
+      "site": "Namibia_T2"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.013854933902066373,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 200,
+      "site": "Namibia_T2"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.006078290352678928,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 200,
+      "site": "Namibia_T3"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.0646310216654804,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 200,
+      "site": "Namibia_T3"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.05070978650367955,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 200,
+      "site": "Namibia_T4"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.004662347113792164,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 200,
+      "site": "Namibia_T4"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.08807492647101202,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 200,
+      "site": "Namibia_T5"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.04143689869334643,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 200,
+      "site": "Namibia_T5"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.10398547423551496,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 200,
+      "site": "Namibia_T6"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.01143902241087651,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 200,
+      "site": "Namibia_T6"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.16409591137699267,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 200,
+      "site": "Namibia_T7"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.04730444456517152,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 200,
+      "site": "Namibia_T7"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.1681345088521346,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 200,
+      "site": "Namibia_T8"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.016892731460955546,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 200,
+      "site": "Namibia_T8"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.011038796119316449,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 200,
+      "site": "Namibia_T9"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.06295853647060465,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 200,
+      "site": "Namibia_T9"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.19491513650505976,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 200,
+      "site": "Namibia_T10"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.015432057476419958,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 200,
+      "site": "Namibia_T10"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.017309234133633354,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 300,
+      "site": "Namibia_T1"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.058735797471836194,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 300,
+      "site": "Namibia_T1"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.09405222417130771,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 300,
+      "site": "Namibia_T2"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.01581001594915887,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 300,
+      "site": "Namibia_T2"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.023601714121273598,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 300,
+      "site": "Namibia_T3"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.041804467040822926,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 300,
+      "site": "Namibia_T3"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.031232652332711476,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 300,
+      "site": "Namibia_T4"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.00885851674013128,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 300,
+      "site": "Namibia_T4"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.11385146011435077,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 300,
+      "site": "Namibia_T5"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.03289024048612442,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 300,
+      "site": "Namibia_T5"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.07470942814764034,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 300,
+      "site": "Namibia_T6"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.01535286308513126,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 300,
+      "site": "Namibia_T6"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.1432852692352383,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 300,
+      "site": "Namibia_T7"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.03857478683691781,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 300,
+      "site": "Namibia_T7"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.15626711503585217,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 300,
+      "site": "Namibia_T8"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.014359587411615037,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 300,
+      "site": "Namibia_T8"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.01578520787033394,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 300,
+      "site": "Namibia_T9"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.061125340325016715,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 300,
+      "site": "Namibia_T9"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.19470284826103296,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 300,
+      "site": "Namibia_T10"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.015980244495904072,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 300,
+      "site": "Namibia_T10"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.019731242586764085,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 400,
+      "site": "Namibia_T1"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.059842867198313984,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 400,
+      "site": "Namibia_T1"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.08654087127984955,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 400,
+      "site": "Namibia_T2"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.014679998113164023,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 400,
+      "site": "Namibia_T2"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.0236039724317426,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 400,
+      "site": "Namibia_T3"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.0427546710126336,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 400,
+      "site": "Namibia_T3"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.03156470573621796,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 400,
+      "site": "Namibia_T4"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.008367799849716483,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 400,
+      "site": "Namibia_T4"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.10584032487183381,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 400,
+      "site": "Namibia_T5"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.03364642568799503,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 400,
+      "site": "Namibia_T5"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.05965674227991194,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 400,
+      "site": "Namibia_T6"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.016894374027626283,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 400,
+      "site": "Namibia_T6"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.17735318210887208,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 400,
+      "site": "Namibia_T7"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.056412302177899686,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 400,
+      "site": "Namibia_T7"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.15702523220933637,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 400,
+      "site": "Namibia_T8"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.01575795680152982,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 400,
+      "site": "Namibia_T8"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.0229005332253681,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 400,
+      "site": "Namibia_T9"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.05812371366117578,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 400,
+      "site": "Namibia_T9"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.17888063440273633,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 400,
+      "site": "Namibia_T10"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.013678133537118442,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 400,
+      "site": "Namibia_T10"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.016234652628002014,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 500,
+      "site": "Namibia_T1"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.05893440641992419,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 500,
+      "site": "Namibia_T1"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.09949959638003465,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 500,
+      "site": "Namibia_T2"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.016081970754464048,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 500,
+      "site": "Namibia_T2"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.02312657150789109,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 500,
+      "site": "Namibia_T3"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.041236082884550405,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 500,
+      "site": "Namibia_T3"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.03111151145018467,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 500,
+      "site": "Namibia_T4"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.00958522976065274,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 500,
+      "site": "Namibia_T4"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.10530135236140525,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 500,
+      "site": "Namibia_T5"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.03818262864432766,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 500,
+      "site": "Namibia_T5"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.026911177271954502,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 500,
+      "site": "Namibia_T6"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.022234494813537724,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 500,
+      "site": "Namibia_T6"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.20504757290005662,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 500,
+      "site": "Namibia_T7"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.06494459362891616,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 500,
+      "site": "Namibia_T7"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.1836007844976862,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 500,
+      "site": "Namibia_T8"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.019824490637251217,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 500,
+      "site": "Namibia_T8"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.030022645496790942,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 500,
+      "site": "Namibia_T9"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.057444774432900934,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 500,
+      "site": "Namibia_T9"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.20237892728279688,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 500,
+      "site": "Namibia_T10"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.015937430968833044,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 500,
+      "site": "Namibia_T10"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.02770093611855938,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 600,
+      "site": "Namibia_T1"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.0664736740711198,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 600,
+      "site": "Namibia_T1"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.10202925419423489,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 600,
+      "site": "Namibia_T2"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.01724490045113415,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 600,
+      "site": "Namibia_T2"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.02329346408855154,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 600,
+      "site": "Namibia_T3"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.041619666276176234,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 600,
+      "site": "Namibia_T3"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.015280964435923361,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 600,
+      "site": "Namibia_T4"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.012915769443614951,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 600,
+      "site": "Namibia_T4"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.10995961301651427,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 600,
+      "site": "Namibia_T5"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.03581277891238268,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 600,
+      "site": "Namibia_T5"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.0012592972866691046,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 600,
+      "site": "Namibia_T6"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.025000961996796203,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 600,
+      "site": "Namibia_T6"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.19754868297850764,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 600,
+      "site": "Namibia_T7"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.06284175394927093,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 600,
+      "site": "Namibia_T7"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.17879158746949017,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 600,
+      "site": "Namibia_T8"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.019498120885601926,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 600,
+      "site": "Namibia_T8"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.027512591190335653,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 600,
+      "site": "Namibia_T9"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.05773664096603746,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 600,
+      "site": "Namibia_T9"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.1995770186799239,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 600,
+      "site": "Namibia_T10"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.01622488090560345,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 600,
+      "site": "Namibia_T10"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.01806214984941761,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 700,
+      "site": "Namibia_T1"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.05977736023773761,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 700,
+      "site": "Namibia_T1"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.09973951642527375,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 700,
+      "site": "Namibia_T2"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.016605931381496727,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 700,
+      "site": "Namibia_T2"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.025995389709353167,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 700,
+      "site": "Namibia_T3"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.03787126180559748,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 700,
+      "site": "Namibia_T3"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.011657100834607137,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 700,
+      "site": "Namibia_T4"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.01377663926933611,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 700,
+      "site": "Namibia_T4"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.11182651262955215,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 700,
+      "site": "Namibia_T5"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.03549993511864688,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 700,
+      "site": "Namibia_T5"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.015411972359532324,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 700,
+      "site": "Namibia_T6"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.023375038957493974,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 700,
+      "site": "Namibia_T6"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.2039729368114857,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 700,
+      "site": "Namibia_T7"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.06579144510847114,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 700,
+      "site": "Namibia_T7"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.1682790975081768,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 700,
+      "site": "Namibia_T8"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.016546074838708087,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 700,
+      "site": "Namibia_T8"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.021237407370661723,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 700,
+      "site": "Namibia_T9"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.05983906368269162,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 700,
+      "site": "Namibia_T9"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.20090472722769598,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 700,
+      "site": "Namibia_T10"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.016396589167875827,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 700,
+      "site": "Namibia_T10"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.018467887219357607,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 800,
+      "site": "Namibia_T1"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.05938200645300795,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 800,
+      "site": "Namibia_T1"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.08679041390983769,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 800,
+      "site": "Namibia_T2"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.01423820561333665,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 800,
+      "site": "Namibia_T2"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.015192468736973719,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 800,
+      "site": "Namibia_T3"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.053571606492039646,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 800,
+      "site": "Namibia_T3"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.023631545542765385,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 800,
+      "site": "Namibia_T4"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.010618563665749616,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 800,
+      "site": "Namibia_T4"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.10423504931270397,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 800,
+      "site": "Namibia_T5"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.035695395678751005,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 800,
+      "site": "Namibia_T5"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.02412381164402537,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 800,
+      "site": "Namibia_T6"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.021905876155849692,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 800,
+      "site": "Namibia_T6"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.21114387695498726,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 800,
+      "site": "Namibia_T7"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.07190011465954826,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 800,
+      "site": "Namibia_T7"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.160209986798622,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 800,
+      "site": "Namibia_T8"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.01572443087750259,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 800,
+      "site": "Namibia_T8"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.017853077797207656,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 800,
+      "site": "Namibia_T9"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.06027398787951002,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 800,
+      "site": "Namibia_T9"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.19271883972905512,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 800,
+      "site": "Namibia_T10"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.015873735776569392,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 800,
+      "site": "Namibia_T10"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.017475634904661485,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 900,
+      "site": "Namibia_T1"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.05895657817137545,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 900,
+      "site": "Namibia_T1"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.08829215592424887,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 900,
+      "site": "Namibia_T2"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.014305282272798727,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 900,
+      "site": "Namibia_T2"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.015856871133176284,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 900,
+      "site": "Namibia_T3"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.05216733479708789,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 900,
+      "site": "Namibia_T3"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.034951103098489665,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 900,
+      "site": "Namibia_T4"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.008134147924648151,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 900,
+      "site": "Namibia_T4"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.10197888395665472,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 900,
+      "site": "Namibia_T5"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.03690821741679866,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 900,
+      "site": "Namibia_T5"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.048729161420360656,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 900,
+      "site": "Namibia_T6"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.018948496746136866,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 900,
+      "site": "Namibia_T6"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.21065564971787018,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 900,
+      "site": "Namibia_T7"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.0706188182541018,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 900,
+      "site": "Namibia_T7"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.15821165932608602,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 900,
+      "site": "Namibia_T8"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.014681538359529633,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 900,
+      "site": "Namibia_T8"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.024106013099939164,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 900,
+      "site": "Namibia_T9"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.05848711583871917,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 900,
+      "site": "Namibia_T9"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.19179981774336807,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 900,
+      "site": "Namibia_T10"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.015136576979304511,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 900,
+      "site": "Namibia_T10"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.018426177271196956,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 1000,
+      "site": "Namibia_T1"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.06032499739875412,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 1000,
+      "site": "Namibia_T1"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.0971613666845844,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 1000,
+      "site": "Namibia_T2"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.015642261821820706,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 1000,
+      "site": "Namibia_T2"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.008053865518629619,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 1000,
+      "site": "Namibia_T3"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.06103550849170847,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 1000,
+      "site": "Namibia_T3"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.03914975132804501,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 1000,
+      "site": "Namibia_T4"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.007647053122285721,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 1000,
+      "site": "Namibia_T4"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.10602386442895777,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 1000,
+      "site": "Namibia_T5"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.037491774522624075,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 1000,
+      "site": "Namibia_T5"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.062212046033130686,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 1000,
+      "site": "Namibia_T6"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.017728810370880563,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 1000,
+      "site": "Namibia_T6"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.20027184451534513,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 1000,
+      "site": "Namibia_T7"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.06294816771020705,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 1000,
+      "site": "Namibia_T7"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.1693061202067492,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 1000,
+      "site": "Namibia_T8"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.01623517271181838,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 1000,
+      "site": "Namibia_T8"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.017879491399363318,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 1000,
+      "site": "Namibia_T9"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.06121717821159587,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 1000,
+      "site": "Namibia_T9"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.1964304301799417,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 1000,
+      "site": "Namibia_T10"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.014830929850450661,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 1000,
+      "site": "Namibia_T10"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.016309331214008536,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 1100,
+      "site": "Namibia_T1"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.05951563436953954,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 1100,
+      "site": "Namibia_T1"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.105511775221827,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 1100,
+      "site": "Namibia_T2"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.016904586373753555,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 1100,
+      "site": "Namibia_T2"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.0004299719798994961,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 1100,
+      "site": "Namibia_T3"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.06927523405019195,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 1100,
+      "site": "Namibia_T3"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.03755827199042072,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 1100,
+      "site": "Namibia_T4"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.008516735549381555,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 1100,
+      "site": "Namibia_T4"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.09862665077946803,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 1100,
+      "site": "Namibia_T5"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.04142830135541395,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 1100,
+      "site": "Namibia_T5"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.07726609237032572,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 1100,
+      "site": "Namibia_T6"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.01625478325590221,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 1100,
+      "site": "Namibia_T6"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.19426256493819696,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 1100,
+      "site": "Namibia_T7"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.05810470120596012,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 1100,
+      "site": "Namibia_T7"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.1866387067817672,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 1100,
+      "site": "Namibia_T8"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.01956681228342319,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 1100,
+      "site": "Namibia_T8"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.01375042286084785,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 1100,
+      "site": "Namibia_T9"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.06310398368235268,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 1100,
+      "site": "Namibia_T9"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.1985989557332261,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 1100,
+      "site": "Namibia_T10"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.014186989065145872,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 1100,
+      "site": "Namibia_T10"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.01499502660871881,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 1200,
+      "site": "Namibia_T1"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.05893810496005468,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 1200,
+      "site": "Namibia_T1"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.10592181760047434,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 1200,
+      "site": "Namibia_T2"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.01668184575141033,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 1200,
+      "site": "Namibia_T2"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.022705735523320433,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 1200,
+      "site": "Namibia_T3"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.09590084515120995,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 1200,
+      "site": "Namibia_T3"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.05879691831734375,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 1200,
+      "site": "Namibia_T4"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.0038799659089942574,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 1200,
+      "site": "Namibia_T4"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.10090999495124832,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 1200,
+      "site": "Namibia_T5"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.040988860387639124,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 1200,
+      "site": "Namibia_T5"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.09233402933917857,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 1200,
+      "site": "Namibia_T6"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.014482936103522026,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 1200,
+      "site": "Namibia_T6"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.19219971049821422,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 1200,
+      "site": "Namibia_T7"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.05630398746516207,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 1200,
+      "site": "Namibia_T7"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.19675067434272658,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 1200,
+      "site": "Namibia_T8"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.021704993368788027,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 1200,
+      "site": "Namibia_T8"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.015824058457083193,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 1200,
+      "site": "Namibia_T9"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.06271908096196795,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 1200,
+      "site": "Namibia_T9"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.20441598771152236,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 1200,
+      "site": "Namibia_T10"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.014899247828562126,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 1200,
+      "site": "Namibia_T10"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.012036187524834499,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 1300,
+      "site": "Namibia_T1"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.05753087864958197,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 1300,
+      "site": "Namibia_T1"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.11280373756082485,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 1300,
+      "site": "Namibia_T2"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.017733644386189927,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 1300,
+      "site": "Namibia_T2"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.03152587964749226,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 1300,
+      "site": "Namibia_T3"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.10432152493318195,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 1300,
+      "site": "Namibia_T3"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.06149234977330752,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 1300,
+      "site": "Namibia_T4"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.0035557479460036484,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 1300,
+      "site": "Namibia_T4"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.11424082509836336,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 1300,
+      "site": "Namibia_T5"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.038155166237004844,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 1300,
+      "site": "Namibia_T5"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.10776315677002105,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 1300,
+      "site": "Namibia_T6"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.012815674115671258,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 1300,
+      "site": "Namibia_T6"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.19467617486489613,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 1300,
+      "site": "Namibia_T7"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.0560731024760517,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 1300,
+      "site": "Namibia_T7"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.2033300182844971,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 1300,
+      "site": "Namibia_T8"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.022488546501117028,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 1300,
+      "site": "Namibia_T8"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.017745173601305453,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 1300,
+      "site": "Namibia_T9"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.0625718899887081,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 1300,
+      "site": "Namibia_T9"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.20404166419954242,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 1300,
+      "site": "Namibia_T10"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.014018947247316019,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 1300,
+      "site": "Namibia_T10"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.013016302819761395,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 1400,
+      "site": "Namibia_T1"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.058076462812771804,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 1400,
+      "site": "Namibia_T1"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.11631715740052886,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 1400,
+      "site": "Namibia_T2"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.018635670218436054,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 1400,
+      "site": "Namibia_T2"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.03223026817880571,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 1400,
+      "site": "Namibia_T3"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.10533325817676459,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 1400,
+      "site": "Namibia_T3"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.0559778420599828,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 1400,
+      "site": "Namibia_T4"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.004609145482126053,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 1400,
+      "site": "Namibia_T4"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.1302963705138647,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 1400,
+      "site": "Namibia_T5"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.0331532864344088,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 1400,
+      "site": "Namibia_T5"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.098205376271994,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 1400,
+      "site": "Namibia_T6"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.0140517485796351,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 1400,
+      "site": "Namibia_T6"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.1997487353833342,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 1400,
+      "site": "Namibia_T7"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.05862013429521348,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 1400,
+      "site": "Namibia_T7"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.20246252998617398,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 1400,
+      "site": "Namibia_T8"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.02241084481755512,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 1400,
+      "site": "Namibia_T8"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.015252181793025829,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 1400,
+      "site": "Namibia_T9"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.06326171968645049,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 1400,
+      "site": "Namibia_T9"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.19681698221878546,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 1400,
+      "site": "Namibia_T10"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.012730516590589484,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 1400,
+      "site": "Namibia_T10"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.01111161973202884,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 1500,
+      "site": "Namibia_T1"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.05702188053610288,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 1500,
+      "site": "Namibia_T1"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.11332571389935846,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 1500,
+      "site": "Namibia_T2"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.01777196776843861,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 1500,
+      "site": "Namibia_T2"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.021341334748068833,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 1500,
+      "site": "Namibia_T3"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.09277689142040692,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 1500,
+      "site": "Namibia_T3"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.05929114717507774,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 1500,
+      "site": "Namibia_T4"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.003818689007635715,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 1500,
+      "site": "Namibia_T4"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.14827455993123356,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 1500,
+      "site": "Namibia_T5"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.02776726400314659,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 1500,
+      "site": "Namibia_T5"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.09472401018511278,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 1500,
+      "site": "Namibia_T6"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.01465060165719637,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 1500,
+      "site": "Namibia_T6"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.19505450306244815,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 1500,
+      "site": "Namibia_T7"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.05604173954927674,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 1500,
+      "site": "Namibia_T7"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.20416803683734666,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 1500,
+      "site": "Namibia_T8"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.022564151527864347,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 1500,
+      "site": "Namibia_T8"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.020539558141097383,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 1500,
+      "site": "Namibia_T9"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.061791101652444315,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 1500,
+      "site": "Namibia_T9"
+    },
+    {
+      "comparator": "uncorrected_pollen",
+      "empirical_better": true,
+      "empirical_minus_baseline_squared_Hellinger": -0.19829482345842164,
+      "empirical_poorer": false,
+      "equal": false,
+      "radius_label_m": 1500,
+      "site": "Namibia_T10"
+    },
+    {
+      "comparator": "training_mapped_composition",
+      "empirical_better": false,
+      "empirical_minus_baseline_squared_Hellinger": 0.012787438705597606,
+      "empirical_poorer": true,
+      "equal": false,
+      "radius_label_m": 1500,
+      "site": "Namibia_T10"
+    }
+  ],
+  "all45_method_radius_means": [
+    {
+      "equal_group_mean_squared_Hellinger": 0.06127348269288821,
+      "equal_site_mean_squared_Hellinger": 0.05711866493797875,
+      "method": "empirical_compositional_correction",
+      "overlap_group_denominator": 9,
+      "radius_label_m": 100,
+      "site_denominator": 10
+    },
+    {
+      "equal_group_mean_squared_Hellinger": 0.15376927692546294,
+      "equal_site_mean_squared_Hellinger": 0.1467418680925804,
+      "method": "uncorrected_pollen",
+      "overlap_group_denominator": 9,
+      "radius_label_m": 100,
+      "site_denominator": 10
+    },
+    {
+      "equal_group_mean_squared_Hellinger": 0.05564000632286757,
+      "equal_site_mean_squared_Hellinger": 0.05464649188059417,
+      "method": "training_mapped_composition",
+      "overlap_group_denominator": 9,
+      "radius_label_m": 100,
+      "site_denominator": 10
+    },
+    {
+      "equal_group_mean_squared_Hellinger": 0.0516045603695742,
+      "equal_site_mean_squared_Hellinger": 0.04826394427640582,
+      "method": "empirical_compositional_correction",
+      "overlap_group_denominator": 9,
+      "radius_label_m": 200,
+      "site_denominator": 10
+    },
+    {
+      "equal_group_mean_squared_Hellinger": 0.13935346307279398,
+      "equal_site_mean_squared_Hellinger": 0.1341771923580382,
+      "method": "uncorrected_pollen",
+      "overlap_group_denominator": 9,
+      "radius_label_m": 200,
+      "site_denominator": 10
+    },
+    {
+      "equal_group_mean_squared_Hellinger": 0.04662544650940274,
+      "equal_site_mean_squared_Hellinger": 0.04562146938122923,
+      "method": "training_mapped_composition",
+      "overlap_group_denominator": 9,
+      "radius_label_m": 200,
+      "site_denominator": 10
+    },
+    {
+      "equal_group_mean_squared_Hellinger": 0.048936415623042656,
+      "equal_site_mean_squared_Hellinger": 0.0462533493444059,
+      "method": "empirical_compositional_correction",
+      "overlap_group_denominator": 9,
+      "radius_label_m": 300,
+      "site_denominator": 10
+    },
+    {
+      "equal_group_mean_squared_Hellinger": 0.13345693578517326,
+      "equal_site_mean_squared_Hellinger": 0.12957602311267657,
+      "method": "uncorrected_pollen",
+      "overlap_group_denominator": 9,
+      "radius_label_m": 300,
+      "site_denominator": 10
+    },
+    {
+      "equal_group_mean_squared_Hellinger": 0.046225266072416456,
+      "equal_site_mean_squared_Hellinger": 0.04501490093614198,
+      "method": "training_mapped_composition",
+      "overlap_group_denominator": 9,
+      "radius_label_m": 300,
+      "site_denominator": 10
+    },
+    {
+      "equal_group_mean_squared_Hellinger": 0.04681712886886998,
+      "equal_site_mean_squared_Hellinger": 0.044239928973409795,
+      "method": "empirical_compositional_correction",
+      "overlap_group_denominator": 9,
+      "radius_label_m": 400,
+      "site_denominator": 10
+    },
+    {
+      "equal_group_mean_squared_Hellinger": 0.12999422435530006,
+      "equal_site_mean_squared_Hellinger": 0.12596956644159946,
+      "method": "uncorrected_pollen",
+      "overlap_group_denominator": 9,
+      "radius_label_m": 400,
+      "site_denominator": 10
+    },
+    {
+      "equal_group_mean_squared_Hellinger": 0.04690539366857637,
+      "equal_site_mean_squared_Hellinger": 0.04558329858505948,
+      "method": "training_mapped_composition",
+      "overlap_group_denominator": 9,
+      "radius_label_m": 400,
+      "site_denominator": 10
+    },
+    {
+      "equal_group_mean_squared_Hellinger": 0.05358657324054053,
+      "equal_site_mean_squared_Hellinger": 0.05043925683113162,
+      "method": "empirical_compositional_correction",
+      "overlap_group_denominator": 9,
+      "radius_label_m": 500,
+      "site_denominator": 10
+    },
+    {
+      "equal_group_mean_squared_Hellinger": 0.1419180253380323,
+      "equal_site_mean_squared_Hellinger": 0.1367582069094537,
+      "method": "uncorrected_pollen",
+      "overlap_group_denominator": 9,
+      "radius_label_m": 500,
+      "site_denominator": 10
+    },
+    {
+      "equal_group_mean_squared_Hellinger": 0.05468517819900896,
+      "equal_site_mean_squared_Hellinger": 0.05285787123793695,
+      "method": "training_mapped_composition",
+      "overlap_group_denominator": 9,
+      "radius_label_m": 500,
+      "site_denominator": 10
+    },
+    {
+      "equal_group_mean_squared_Hellinger": 0.05472069945240361,
+      "equal_site_mean_squared_Hellinger": 0.051762164489279186,
+      "method": "empirical_compositional_correction",
+      "overlap_group_denominator": 9,
+      "radius_label_m": 600,
+      "site_denominator": 10
+    },
+    {
+      "equal_group_mean_squared_Hellinger": 0.13975491482482802,
+      "equal_site_mean_squared_Hellinger": 0.13455498719708306,
+      "method": "uncorrected_pollen",
+      "overlap_group_denominator": 9,
+      "radius_label_m": 600,
+      "site_denominator": 10
+    },
+    {
+      "equal_group_mean_squared_Hellinger": 0.05621410892651667,
+      "equal_site_mean_squared_Hellinger": 0.05425108348941933,
+      "method": "training_mapped_composition",
+      "overlap_group_denominator": 9,
+      "radius_label_m": 600,
+      "site_denominator": 10
+    },
+    {
+      "equal_group_mean_squared_Hellinger": 0.05361634468478246,
+      "equal_site_mean_squared_Hellinger": 0.05086427204740703,
+      "method": "empirical_compositional_correction",
+      "overlap_group_denominator": 9,
+      "radius_label_m": 700,
+      "site_denominator": 10
+    },
+    {
+      "equal_group_mean_squared_Hellinger": 0.13949081015726617,
+      "equal_site_mean_squared_Hellinger": 0.13432547164585032,
+      "method": "uncorrected_pollen",
+      "overlap_group_denominator": 9,
+      "radius_label_m": 700,
+      "site_denominator": 10
+    },
+    {
+      "equal_group_mean_squared_Hellinger": 0.05501040816833672,
+      "equal_site_mean_squared_Hellinger": 0.05320509397507141,
+      "method": "training_mapped_composition",
+      "overlap_group_denominator": 9,
+      "radius_label_m": 700,
+      "site_denominator": 10
+    },
+    {
+      "equal_group_mean_squared_Hellinger": 0.05293076241362818,
+      "equal_site_mean_squared_Hellinger": 0.049903443759866516,
+      "method": "empirical_compositional_correction",
+      "overlap_group_denominator": 9,
+      "radius_label_m": 800,
+      "site_denominator": 10
+    },
+    {
+      "equal_group_mean_squared_Hellinger": 0.13678937403844882,
+      "equal_site_mean_squared_Hellinger": 0.13176952396497857,
+      "method": "uncorrected_pollen",
+      "overlap_group_denominator": 9,
+      "radius_label_m": 800,
+      "site_denominator": 10
+    },
+    {
+      "equal_group_mean_squared_Hellinger": 0.05360236759540021,
+      "equal_site_mean_squared_Hellinger": 0.05176173002411142,
+      "method": "training_mapped_composition",
+      "overlap_group_denominator": 9,
+      "radius_label_m": 800,
+      "site_denominator": 10
+    },
+    {
+      "equal_group_mean_squared_Hellinger": 0.050494778477803065,
+      "equal_site_mean_squared_Hellinger": 0.04751423680299207,
+      "method": "empirical_compositional_correction",
+      "overlap_group_denominator": 9,
+      "radius_label_m": 900,
+      "site_denominator": 10
+    },
+    {
+      "equal_group_mean_squared_Hellinger": 0.1366481040997369,
+      "equal_site_mean_squared_Hellinger": 0.13189872921548976,
+      "method": "uncorrected_pollen",
+      "overlap_group_denominator": 9,
+      "radius_label_m": 900,
+      "site_denominator": 10
+    },
+    {
+      "equal_group_mean_squared_Hellinger": 0.05139845399671967,
+      "equal_site_mean_squared_Hellinger": 0.049766248244624535,
+      "method": "training_mapped_composition",
+      "overlap_group_denominator": 9,
+      "radius_label_m": 900,
+      "site_denominator": 10
+    },
+    {
+      "equal_group_mean_squared_Hellinger": 0.05165901978934812,
+      "equal_site_mean_squared_Hellinger": 0.048563197741907024,
+      "method": "empirical_compositional_correction",
+      "overlap_group_denominator": 9,
+      "radius_label_m": 1000,
+      "site_denominator": 10
+    },
+    {
+      "equal_group_mean_squared_Hellinger": 0.14127781611031653,
+      "equal_site_mean_squared_Hellinger": 0.13647879521862874,
+      "method": "uncorrected_pollen",
+      "overlap_group_denominator": 9,
+      "radius_label_m": 1000,
+      "site_denominator": 10
+    },
+    {
+      "equal_group_mean_squared_Hellinger": 0.05021049591074998,
+      "equal_site_mean_squared_Hellinger": 0.048751762321185624,
+      "method": "training_mapped_composition",
+      "overlap_group_denominator": 9,
+      "radius_label_m": 1000,
+      "site_denominator": 10
+    },
+    {
+      "equal_group_mean_squared_Hellinger": 0.05374389299265821,
+      "equal_site_mean_squared_Hellinger": 0.050497485587678824,
+      "method": "empirical_compositional_correction",
+      "overlap_group_denominator": 9,
+      "radius_label_m": 1100,
+      "site_denominator": 10
+    },
+    {
+      "equal_group_mean_squared_Hellinger": 0.14633938596636348,
+      "equal_site_mean_squared_Hellinger": 0.14064267540250802,
+      "method": "uncorrected_pollen",
+      "overlap_group_denominator": 9,
+      "radius_label_m": 1100,
+      "site_denominator": 10
+    },
+    {
+      "equal_group_mean_squared_Hellinger": 0.050109814801497184,
+      "equal_site_mean_squared_Hellinger": 0.04887239350593552,
+      "method": "training_mapped_composition",
+      "overlap_group_denominator": 9,
+      "radius_label_m": 1100,
+      "site_denominator": 10
+    },
+    {
+      "equal_group_mean_squared_Hellinger": 0.05819393706926143,
+      "equal_site_mean_squared_Hellinger": 0.054221112001713236,
+      "method": "empirical_compositional_correction",
+      "overlap_group_denominator": 9,
+      "radius_label_m": 1200,
+      "site_denominator": 10
+    },
+    {
+      "equal_group_mean_squared_Hellinger": 0.15240959359756445,
+      "equal_site_mean_squared_Hellinger": 0.14700054854061556,
+      "method": "uncorrected_pollen",
+      "overlap_group_denominator": 9,
+      "radius_label_m": 1200,
+      "site_denominator": 10
+    },
+    {
+      "equal_group_mean_squared_Hellinger": 0.05112432181438619,
+      "equal_site_mean_squared_Hellinger": 0.04971390299625776,
+      "method": "training_mapped_composition",
+      "overlap_group_denominator": 9,
+      "radius_label_m": 1200,
+      "site_denominator": 10
+    },
+    {
+      "equal_group_mean_squared_Hellinger": 0.05979919051161036,
+      "equal_site_mean_squared_Hellinger": 0.055709298697638354,
+      "method": "empirical_compositional_correction",
+      "overlap_group_denominator": 9,
+      "radius_label_m": 1300,
+      "site_denominator": 10
+    },
+    {
+      "equal_group_mean_squared_Hellinger": 0.15682657644401632,
+      "equal_site_mean_squared_Hellinger": 0.15182060478038728,
+      "method": "uncorrected_pollen",
+      "overlap_group_denominator": 9,
+      "radius_label_m": 1300,
+      "site_denominator": 10
+    },
+    {
+      "equal_group_mean_squared_Hellinger": 0.051197502881642855,
+      "equal_site_mean_squared_Hellinger": 0.049697750745217664,
+      "method": "training_mapped_composition",
+      "overlap_group_denominator": 9,
+      "radius_label_m": 1300,
+      "site_denominator": 10
+    },
+    {
+      "equal_group_mean_squared_Hellinger": 0.059556936341360785,
+      "equal_site_mean_squared_Hellinger": 0.05567948487814304,
+      "method": "empirical_compositional_correction",
+      "overlap_group_denominator": 9,
+      "radius_label_m": 1400,
+      "site_denominator": 10
+    },
+    {
+      "equal_group_mean_squared_Hellinger": 0.15647046305199078,
+      "equal_site_mean_squared_Hellinger": 0.1522153695464024,
+      "method": "uncorrected_pollen",
+      "overlap_group_denominator": 9,
+      "radius_label_m": 1400,
+      "site_denominator": 10
+    },
+    {
+      "equal_group_mean_squared_Hellinger": 0.05096231486069033,
+      "equal_site_mean_squared_Hellinger": 0.04937153259315377,
+      "method": "training_mapped_composition",
+      "overlap_group_denominator": 9,
+      "radius_label_m": 1400,
+      "site_denominator": 10
+    },
+    {
+      "equal_group_mean_squared_Hellinger": 0.05774914944507739,
+      "equal_site_mean_squared_Hellinger": 0.05426096485228057,
+      "method": "empirical_compositional_correction",
+      "overlap_group_denominator": 9,
+      "radius_label_m": 1500,
+      "site_denominator": 10
+    },
+    {
+      "equal_group_mean_squared_Hellinger": 0.15536922364937805,
+      "equal_site_mean_squared_Hellinger": 0.15249731699146674,
+      "method": "uncorrected_pollen",
+      "overlap_group_denominator": 9,
+      "radius_label_m": 1500,
+      "site_denominator": 10
+    },
+    {
+      "equal_group_mean_squared_Hellinger": 0.050193255907919565,
+      "equal_site_mean_squared_Hellinger": 0.04865808941861407,
+      "method": "training_mapped_composition",
+      "overlap_group_denominator": 9,
+      "radius_label_m": 1500,
+      "site_denominator": 10
+    }
+  ],
+  "all_original_radii_m": [
+    100,
+    200,
+    300,
+    400,
+    500,
+    600,
+    700,
+    800,
+    900,
+    1000,
+    1100,
+    1200,
+    1300,
+    1400,
+    1500
+  ],
+  "all_radius_mean_better_poorer_counts": {
+    "equal_group": {
+      "training_mapped_composition": {
+        "better": 6,
+        "poorer": 9
+      },
+      "uncorrected_pollen": {
+        "better": 15
+      }
+    },
+    "equal_site": {
+      "training_mapped_composition": {
+        "better": 7,
+        "poorer": 8
+      },
+      "uncorrected_pollen": {
+        "better": 15
+      }
+    }
+  },
+  "field_accuracy_or_independent_cohorts_claim": false,
+  "methods": [
+    "empirical_compositional_correction",
+    "uncorrected_pollen",
+    "training_mapped_composition"
+  ],
+  "paired_better_poorer_counts": {
+    "training_mapped_composition": {
+      "better": 60,
+      "poorer": 90
+    },
+    "uncorrected_pollen": {
+      "better": 130,
+      "poorer": 20
+    }
+  },
+  "radius_selected": false,
+  "same_paired_source_support_all_methods": true,
+  "schema_version": "namibia-grouped-mapped-area-comparisons.v1",
+  "score": "squaredHellinger=0.5*sum((sqrt(predicted_i)-sqrt(deposited_area_share_i))^2)",
+  "stronger_baseline_outcome": "Training mapped composition has smaller mean loss at 8/15 equal-site radii and 9/15 equal-group radii; empirical correction is poorer in 90/150 mapped-baseline site/radius contrasts.",
+  "uncertainty": "unknown pollen sampling/map classification/date/parameter errors and crosssite campaign dependence; no calibrated confidenceinterval or statistical independence",
+  "weighting": "Equal ten-site means and equal nine nominal-group means remain distinct; all sites equally weighted within each group."
+}

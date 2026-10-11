@@ -1,0 +1,1351 @@
+{
+  "attribution_complete": true,
+  "attribution_scope": "Complete attribution of the four returned native dataset publication inventories only; no article-content authentication, historical replay, chronology accuracy or rights upgrade.",
+  "captured_primary_policy_records": [
+    {
+      "body_text_characters": 48610,
+      "cc_by_4_0_marker_observed": true,
+      "final_url": "https://www.neotomadb.org/data/data-use-and-embargo-policy",
+      "http_status": 200,
+      "policy_id": "neotoma",
+      "response_bytes": 48638,
+      "response_file": "policy-neotoma.response",
+      "response_headers": {
+        "Connection": "close",
+        "Content-Type": "text/html; charset=UTF-8",
+        "Date": "Sun, 04 Oct 2026 22:34:52 GMT",
+        "Server": "Apache/2.4.58 (Ubuntu)",
+        "Transfer-Encoding": "chunked",
+        "Vary": "Accept-Encoding",
+        "X-Powered-By": "Craft CMS"
+      },
+      "response_sha256": "f5ae5e79f7dd1a4d6dd846fa9a63a14129dc8b0ea9c21ed484289304be01b85e",
+      "transport_passed": true,
+      "url": "https://www.neotomadb.org/data/data-use-and-embargo-policy",
+      "wall_seconds": 0.9734952499857172
+    },
+    {
+      "body_text_characters": 90385,
+      "cc_by_4_0_marker_observed": true,
+      "final_url": "https://epdweblog.org/epd_data_home/epd_policy/",
+      "http_status": 200,
+      "policy_id": "epd",
+      "response_bytes": 90403,
+      "response_file": "policy-epd.response",
+      "response_headers": {
+        "Alt-Svc": "clear",
+        "Connection": "close",
+        "Content-Type": "text/html; charset=UTF-8",
+        "Date": "Sun, 04 Oct 2026 22:34:53 GMT",
+        "Host-Header": "WordPress.com",
+        "Link": "<https://wp.me/P7GatR-W>; rel=shortlink",
+        "Server": "nginx",
+        "Server-Timing": "a8c-cdn, dc;desc=arn, cache;desc=MISS;dur=379.0",
+        "Strict-Transport-Security": "max-age=31536000",
+        "Transfer-Encoding": "chunked",
+        "Vary": "accept, content-type, cookie",
+        "X-ac": "14.arn _dca MISS",
+        "X-hacker": "Want root?  Visit join.a8c.com/hacker and mention this header."
+      },
+      "response_sha256": "a6d049567190ee7671df82c859e4139e53c2efa432bfe9191f4b0538c1f4685c",
+      "transport_passed": true,
+      "url": "https://epdweblog.org/epd_data_home/epd_policy/",
+      "wall_seconds": 0.9688671250478365
+    }
+  ],
+  "constituent": "European Pollen Database",
+  "datasets": [
+    {
+      "constituent_database": "European Pollen Database",
+      "dataset_name": "EPD E# 614",
+      "historical_marker_applied_as_current_public_source_permission": false,
+      "historical_workbook_access_marker": "R",
+      "native_collection_unit_id": 4303,
+      "native_dataset_id": 4445,
+      "native_site_id": 3432,
+      "original_contribution_notes": "Data contributed by Odgaard Bent V.",
+      "original_doi_tokens": [
+        "10.21233/4r4q-0m97"
+      ],
+      "original_investigator_records": [
+        {
+          "contactid": 1181,
+          "contactname": "Odgaard, Bent V.",
+          "familyname": "Odgaard",
+          "firstname": "Bent V.",
+          "initials": "B.V."
+        }
+      ],
+      "returned_native_publication_inventory": {
+        "actual_response_sha256": "d6f43348d5c3a8e367ef15a154a61b9fd8e5d1e9ea7c994aab9c5da82ad89693",
+        "attribution_complete": true,
+        "empty_publication_response": false,
+        "primary": [
+          {
+            "actual_native_primary": true,
+            "admitted_as_returned_native_relation": true,
+            "native_dataset_relation": {
+              "datasetid": 4445,
+              "primary": true,
+              "siteid": 3432
+            },
+            "native_publication": {
+              "articletitle": "The Holocene vegetation history of northern West Jutland, Denmark",
+              "author": [
+                {
+                  "familyname": "Odgaard",
+                  "givennames": "Bent V.",
+                  "order": 1
+                }
+              ],
+              "booktitle": null,
+              "citation": "Odgaard, B.V. 1994. The Holocene vegetation history of northern West Jutland, Denmark. Opera botanica 123:1-171.",
+              "citationnumber": null,
+              "city": null,
+              "country": null,
+              "datasets": [
+                {
+                  "datasetid": 4445,
+                  "primary": true,
+                  "siteid": 3432
+                }
+              ],
+              "doi": null,
+              "edition": null,
+              "issue": null,
+              "journal": "Opera botanica",
+              "notes": null,
+              "numvolumes": null,
+              "originallanguage": null,
+              "pages": "1-171",
+              "publicationid": 15707,
+              "publisher": null,
+              "pubtype": "Journal Article",
+              "pubtypeid": 1,
+              "seriestitle": null,
+              "seriesvolume": null,
+              "state": null,
+              "url": null,
+              "volume": "123",
+              "volumetitle": null,
+              "year": "1994"
+            },
+            "refusals": [],
+            "source_row_ordinal": 2
+          }
+        ],
+        "publication_decisions": [
+          {
+            "actual_native_primary": false,
+            "admitted_as_returned_native_relation": true,
+            "native_dataset_relation": {
+              "datasetid": 4445,
+              "primary": false,
+              "siteid": 3432
+            },
+            "native_publication": {
+              "articletitle": "Heathland history in western Jutland, Denmark.",
+              "author": [
+                {
+                  "familyname": "Odgaard",
+                  "givennames": "Bent V.",
+                  "order": 1
+                }
+              ],
+              "booktitle": "The Cultural landscape - Past, Present and Future.",
+              "citation": "Odgaard, B.V. 1988. Heathland history in western Jutland, Denmark. Pages 311-319 in H.H. Birks, H.J.B. Birks, P.E. Kaland, and D. Moe, editors. The Cultural landscape - Past, Present and Future. Cambridge, United Kingdom.",
+              "citationnumber": null,
+              "city": null,
+              "country": "United Kingdom",
+              "datasets": [
+                {
+                  "datasetid": 4445,
+                  "primary": false,
+                  "siteid": 3432
+                }
+              ],
+              "doi": null,
+              "edition": null,
+              "issue": null,
+              "journal": null,
+              "notes": null,
+              "numvolumes": null,
+              "originallanguage": null,
+              "pages": "311-319",
+              "publicationid": 1253,
+              "publisher": "Cambridge",
+              "pubtype": "Book Chapter",
+              "pubtypeid": 2,
+              "seriestitle": null,
+              "seriesvolume": null,
+              "state": null,
+              "url": null,
+              "volume": null,
+              "volumetitle": null,
+              "year": "1988"
+            },
+            "refusals": [],
+            "source_row_ordinal": 0
+          },
+          {
+            "actual_native_primary": false,
+            "admitted_as_returned_native_relation": true,
+            "native_dataset_relation": {
+              "datasetid": 4445,
+              "primary": false,
+              "siteid": 3432
+            },
+            "native_publication": {
+              "articletitle": "The fire history of Danish heathland areas as reflected by pollen and charred particles in lake sediments",
+              "author": [
+                {
+                  "familyname": "Odgaard",
+                  "givennames": "Bent V.",
+                  "order": 1
+                }
+              ],
+              "booktitle": null,
+              "citation": "Odgaard, B.V. 1992. The fire history of Danish heathland areas as reflected by pollen and charred particles in lake sediments. The Holocene 2:218-226. [DOI: 10.1177/095968369200200303]",
+              "citationnumber": null,
+              "city": null,
+              "country": null,
+              "datasets": [
+                {
+                  "datasetid": 4445,
+                  "primary": false,
+                  "siteid": 3432
+                }
+              ],
+              "doi": "10.1177/095968369200200303",
+              "edition": null,
+              "issue": null,
+              "journal": "The Holocene",
+              "notes": null,
+              "numvolumes": null,
+              "originallanguage": null,
+              "pages": "218-226",
+              "publicationid": 15706,
+              "publisher": null,
+              "pubtype": "Journal Article",
+              "pubtypeid": 1,
+              "seriestitle": null,
+              "seriesvolume": null,
+              "state": null,
+              "url": null,
+              "volume": "2",
+              "volumetitle": null,
+              "year": "1992"
+            },
+            "refusals": [],
+            "source_row_ordinal": 1
+          },
+          {
+            "actual_native_primary": true,
+            "admitted_as_returned_native_relation": true,
+            "native_dataset_relation": {
+              "datasetid": 4445,
+              "primary": true,
+              "siteid": 3432
+            },
+            "native_publication": {
+              "articletitle": "The Holocene vegetation history of northern West Jutland, Denmark",
+              "author": [
+                {
+                  "familyname": "Odgaard",
+                  "givennames": "Bent V.",
+                  "order": 1
+                }
+              ],
+              "booktitle": null,
+              "citation": "Odgaard, B.V. 1994. The Holocene vegetation history of northern West Jutland, Denmark. Opera botanica 123:1-171.",
+              "citationnumber": null,
+              "city": null,
+              "country": null,
+              "datasets": [
+                {
+                  "datasetid": 4445,
+                  "primary": true,
+                  "siteid": 3432
+                }
+              ],
+              "doi": null,
+              "edition": null,
+              "issue": null,
+              "journal": "Opera botanica",
+              "notes": null,
+              "numvolumes": null,
+              "originallanguage": null,
+              "pages": "1-171",
+              "publicationid": 15707,
+              "publisher": null,
+              "pubtype": "Journal Article",
+              "pubtypeid": 1,
+              "seriestitle": null,
+              "seriesvolume": null,
+              "state": null,
+              "url": null,
+              "volume": "123",
+              "volumetitle": null,
+              "year": "1994"
+            },
+            "refusals": [],
+            "source_row_ordinal": 2
+          }
+        ],
+        "refusals": [],
+        "returned_native_publication_count": 3,
+        "scope": "Attribution of returned native records only; not historical equivalence, chronology accuracy or independently checked original article identity.",
+        "secondary": [
+          {
+            "actual_native_primary": false,
+            "admitted_as_returned_native_relation": true,
+            "native_dataset_relation": {
+              "datasetid": 4445,
+              "primary": false,
+              "siteid": 3432
+            },
+            "native_publication": {
+              "articletitle": "Heathland history in western Jutland, Denmark.",
+              "author": [
+                {
+                  "familyname": "Odgaard",
+                  "givennames": "Bent V.",
+                  "order": 1
+                }
+              ],
+              "booktitle": "The Cultural landscape - Past, Present and Future.",
+              "citation": "Odgaard, B.V. 1988. Heathland history in western Jutland, Denmark. Pages 311-319 in H.H. Birks, H.J.B. Birks, P.E. Kaland, and D. Moe, editors. The Cultural landscape - Past, Present and Future. Cambridge, United Kingdom.",
+              "citationnumber": null,
+              "city": null,
+              "country": "United Kingdom",
+              "datasets": [
+                {
+                  "datasetid": 4445,
+                  "primary": false,
+                  "siteid": 3432
+                }
+              ],
+              "doi": null,
+              "edition": null,
+              "issue": null,
+              "journal": null,
+              "notes": null,
+              "numvolumes": null,
+              "originallanguage": null,
+              "pages": "311-319",
+              "publicationid": 1253,
+              "publisher": "Cambridge",
+              "pubtype": "Book Chapter",
+              "pubtypeid": 2,
+              "seriestitle": null,
+              "seriesvolume": null,
+              "state": null,
+              "url": null,
+              "volume": null,
+              "volumetitle": null,
+              "year": "1988"
+            },
+            "refusals": [],
+            "source_row_ordinal": 0
+          },
+          {
+            "actual_native_primary": false,
+            "admitted_as_returned_native_relation": true,
+            "native_dataset_relation": {
+              "datasetid": 4445,
+              "primary": false,
+              "siteid": 3432
+            },
+            "native_publication": {
+              "articletitle": "The fire history of Danish heathland areas as reflected by pollen and charred particles in lake sediments",
+              "author": [
+                {
+                  "familyname": "Odgaard",
+                  "givennames": "Bent V.",
+                  "order": 1
+                }
+              ],
+              "booktitle": null,
+              "citation": "Odgaard, B.V. 1992. The fire history of Danish heathland areas as reflected by pollen and charred particles in lake sediments. The Holocene 2:218-226. [DOI: 10.1177/095968369200200303]",
+              "citationnumber": null,
+              "city": null,
+              "country": null,
+              "datasets": [
+                {
+                  "datasetid": 4445,
+                  "primary": false,
+                  "siteid": 3432
+                }
+              ],
+              "doi": "10.1177/095968369200200303",
+              "edition": null,
+              "issue": null,
+              "journal": "The Holocene",
+              "notes": null,
+              "numvolumes": null,
+              "originallanguage": null,
+              "pages": "218-226",
+              "publicationid": 15706,
+              "publisher": null,
+              "pubtype": "Journal Article",
+              "pubtypeid": 1,
+              "seriestitle": null,
+              "seriesvolume": null,
+              "state": null,
+              "url": null,
+              "volume": "2",
+              "volumetitle": null,
+              "year": "1992"
+            },
+            "refusals": [],
+            "source_row_ordinal": 1
+          }
+        ],
+        "selected_named_chronology": {
+          "chronology_id": 25732,
+          "model": {
+            "agemodel": "clam",
+            "agerange": {
+              "ageboundolder": 12420,
+              "ageboundyounger": 0
+            },
+            "chronologyname": "Giesecke et al. 2014 (MADCAP)",
+            "contact": [
+              {
+                "contactid": 8710,
+                "contactname": "Giesecke, Thomas",
+                "familyname": "Giesecke",
+                "givenname": "Thomas",
+                "leadinginitial": "T."
+              }
+            ],
+            "dateprepared": "2011-01-01",
+            "isdefault": true,
+            "modelagetype": "Calibrated radiocarbon years BP",
+            "notes": "Linear age model. Based on IntCal09 calibration curve. Preparer notes: Hiatus between 478 and 474 to be compleeted witth SOLOSO83"
+          },
+          "raw_control_count": 31,
+          "raw_control_sha256": "70afc35f849d13537d9be5f47f0e2dd554a05b2f23a2e6410908499c3d3a909e"
+        },
+        "source_core": {
+          "country": "Denmark",
+          "country_code": "DK",
+          "expected_handle": "SOLSOE81",
+          "expected_samples": 66,
+          "metadata_code": "Solsoe",
+          "metadata_radius_m": 89,
+          "named_calibrated_chronology_id": 25732,
+          "native_collection_unit_id": 4303,
+          "native_dataset_id": 4445,
+          "native_site_id": 3432,
+          "part": "part-003.json",
+          "reported_area_alternatives_ha": [
+            2.5
+          ]
+        },
+        "source_dataset_metadata": {
+          "agerange": [
+            {
+              "ageold": 13410,
+              "ageyoung": -41,
+              "units": "Calibrated radiocarbon years BP"
+            },
+            {
+              "ageold": 9788,
+              "ageyoung": 720,
+              "units": "Radiocarbon years BP"
+            }
+          ],
+          "database": "European Pollen Database",
+          "datasetid": 4445,
+          "datasetname": "EPD E# 614",
+          "datasetnotes": "Data contributed by Odgaard Bent V.",
+          "datasetpi": [
+            {
+              "contactid": 1181,
+              "contactname": "Odgaard, Bent V.",
+              "familyname": "Odgaard",
+              "firstname": "Bent V.",
+              "initials": "B.V."
+            }
+          ],
+          "datasettype": "pollen",
+          "doi": [
+            "10.21233/4r4q-0m97"
+          ]
+        }
+      },
+      "source_handle": "SOLSOE81"
+    },
+    {
+      "constituent_database": "European Pollen Database",
+      "dataset_name": "EPD E# 615",
+      "historical_marker_applied_as_current_public_source_permission": false,
+      "historical_workbook_access_marker": "R",
+      "native_collection_unit_id": 4304,
+      "native_dataset_id": 4446,
+      "native_site_id": 3432,
+      "original_contribution_notes": "Data contributed by Odgaard Bent V.",
+      "original_doi_tokens": [
+        "10.21233/mtmk-d772"
+      ],
+      "original_investigator_records": [
+        {
+          "contactid": 1181,
+          "contactname": "Odgaard, Bent V.",
+          "familyname": "Odgaard",
+          "firstname": "Bent V.",
+          "initials": "B.V."
+        }
+      ],
+      "returned_native_publication_inventory": {
+        "actual_response_sha256": "e259b6247bdc43645ea75c7e6911d62431f3ae89bb7f4c90472ddec9f2c4e189",
+        "attribution_complete": true,
+        "empty_publication_response": false,
+        "primary": [
+          {
+            "actual_native_primary": true,
+            "admitted_as_returned_native_relation": true,
+            "native_dataset_relation": {
+              "datasetid": 4446,
+              "primary": true,
+              "siteid": 3432
+            },
+            "native_publication": {
+              "articletitle": "The Holocene vegetation history of northern West Jutland, Denmark",
+              "author": [
+                {
+                  "familyname": "Odgaard",
+                  "givennames": "Bent V.",
+                  "order": 1
+                }
+              ],
+              "booktitle": null,
+              "citation": "Odgaard, B.V. 1994. The Holocene vegetation history of northern West Jutland, Denmark. Opera botanica 123:1-171.",
+              "citationnumber": null,
+              "city": null,
+              "country": null,
+              "datasets": [
+                {
+                  "datasetid": 4446,
+                  "primary": true,
+                  "siteid": 3432
+                }
+              ],
+              "doi": null,
+              "edition": null,
+              "issue": null,
+              "journal": "Opera botanica",
+              "notes": null,
+              "numvolumes": null,
+              "originallanguage": null,
+              "pages": "1-171",
+              "publicationid": 15707,
+              "publisher": null,
+              "pubtype": "Journal Article",
+              "pubtypeid": 1,
+              "seriestitle": null,
+              "seriesvolume": null,
+              "state": null,
+              "url": null,
+              "volume": "123",
+              "volumetitle": null,
+              "year": "1994"
+            },
+            "refusals": [],
+            "source_row_ordinal": 1
+          }
+        ],
+        "publication_decisions": [
+          {
+            "actual_native_primary": false,
+            "admitted_as_returned_native_relation": true,
+            "native_dataset_relation": {
+              "datasetid": 4446,
+              "primary": false,
+              "siteid": 3432
+            },
+            "native_publication": {
+              "articletitle": "Heathland history in western Jutland, Denmark.",
+              "author": [
+                {
+                  "familyname": "Odgaard",
+                  "givennames": "Bent V.",
+                  "order": 1
+                }
+              ],
+              "booktitle": "The Cultural landscape - Past, Present and Future.",
+              "citation": "Odgaard, B.V. 1988. Heathland history in western Jutland, Denmark. Pages 311-319 in H.H. Birks, H.J.B. Birks, P.E. Kaland, and D. Moe, editors. The Cultural landscape - Past, Present and Future. Cambridge, United Kingdom.",
+              "citationnumber": null,
+              "city": null,
+              "country": "United Kingdom",
+              "datasets": [
+                {
+                  "datasetid": 4446,
+                  "primary": false,
+                  "siteid": 3432
+                }
+              ],
+              "doi": null,
+              "edition": null,
+              "issue": null,
+              "journal": null,
+              "notes": null,
+              "numvolumes": null,
+              "originallanguage": null,
+              "pages": "311-319",
+              "publicationid": 1253,
+              "publisher": "Cambridge",
+              "pubtype": "Book Chapter",
+              "pubtypeid": 2,
+              "seriestitle": null,
+              "seriesvolume": null,
+              "state": null,
+              "url": null,
+              "volume": null,
+              "volumetitle": null,
+              "year": "1988"
+            },
+            "refusals": [],
+            "source_row_ordinal": 0
+          },
+          {
+            "actual_native_primary": true,
+            "admitted_as_returned_native_relation": true,
+            "native_dataset_relation": {
+              "datasetid": 4446,
+              "primary": true,
+              "siteid": 3432
+            },
+            "native_publication": {
+              "articletitle": "The Holocene vegetation history of northern West Jutland, Denmark",
+              "author": [
+                {
+                  "familyname": "Odgaard",
+                  "givennames": "Bent V.",
+                  "order": 1
+                }
+              ],
+              "booktitle": null,
+              "citation": "Odgaard, B.V. 1994. The Holocene vegetation history of northern West Jutland, Denmark. Opera botanica 123:1-171.",
+              "citationnumber": null,
+              "city": null,
+              "country": null,
+              "datasets": [
+                {
+                  "datasetid": 4446,
+                  "primary": true,
+                  "siteid": 3432
+                }
+              ],
+              "doi": null,
+              "edition": null,
+              "issue": null,
+              "journal": "Opera botanica",
+              "notes": null,
+              "numvolumes": null,
+              "originallanguage": null,
+              "pages": "1-171",
+              "publicationid": 15707,
+              "publisher": null,
+              "pubtype": "Journal Article",
+              "pubtypeid": 1,
+              "seriestitle": null,
+              "seriesvolume": null,
+              "state": null,
+              "url": null,
+              "volume": "123",
+              "volumetitle": null,
+              "year": "1994"
+            },
+            "refusals": [],
+            "source_row_ordinal": 1
+          }
+        ],
+        "refusals": [],
+        "returned_native_publication_count": 2,
+        "scope": "Attribution of returned native records only; not historical equivalence, chronology accuracy or independently checked original article identity.",
+        "secondary": [
+          {
+            "actual_native_primary": false,
+            "admitted_as_returned_native_relation": true,
+            "native_dataset_relation": {
+              "datasetid": 4446,
+              "primary": false,
+              "siteid": 3432
+            },
+            "native_publication": {
+              "articletitle": "Heathland history in western Jutland, Denmark.",
+              "author": [
+                {
+                  "familyname": "Odgaard",
+                  "givennames": "Bent V.",
+                  "order": 1
+                }
+              ],
+              "booktitle": "The Cultural landscape - Past, Present and Future.",
+              "citation": "Odgaard, B.V. 1988. Heathland history in western Jutland, Denmark. Pages 311-319 in H.H. Birks, H.J.B. Birks, P.E. Kaland, and D. Moe, editors. The Cultural landscape - Past, Present and Future. Cambridge, United Kingdom.",
+              "citationnumber": null,
+              "city": null,
+              "country": "United Kingdom",
+              "datasets": [
+                {
+                  "datasetid": 4446,
+                  "primary": false,
+                  "siteid": 3432
+                }
+              ],
+              "doi": null,
+              "edition": null,
+              "issue": null,
+              "journal": null,
+              "notes": null,
+              "numvolumes": null,
+              "originallanguage": null,
+              "pages": "311-319",
+              "publicationid": 1253,
+              "publisher": "Cambridge",
+              "pubtype": "Book Chapter",
+              "pubtypeid": 2,
+              "seriestitle": null,
+              "seriesvolume": null,
+              "state": null,
+              "url": null,
+              "volume": null,
+              "volumetitle": null,
+              "year": "1988"
+            },
+            "refusals": [],
+            "source_row_ordinal": 0
+          }
+        ],
+        "selected_named_chronology": {
+          "chronology_id": 25740,
+          "model": {
+            "agemodel": "clam",
+            "agerange": {
+              "ageboundolder": 9830,
+              "ageboundyounger": 2780
+            },
+            "chronologyname": "Giesecke et al. 2014 (MADCAP)",
+            "contact": [
+              {
+                "contactid": 8710,
+                "contactname": "Giesecke, Thomas",
+                "familyname": "Giesecke",
+                "givenname": "Thomas",
+                "leadinginitial": "T."
+              }
+            ],
+            "dateprepared": "2011-01-01",
+            "isdefault": true,
+            "modelagetype": "Calibrated radiocarbon years BP",
+            "notes": "Linear age model. Based on IntCal09 calibration curve. Preparer notes: Pollen stratigraphic connection: SO83 410 cm = SO81 450 cm, SO83 520 cm = SO81 480 cm"
+          },
+          "raw_control_count": 7,
+          "raw_control_sha256": "8e4ac27a8cb05a6c5bf86fa70e08718257de66a0c9c7e592b77a7eb004dfc6d1"
+        },
+        "source_core": {
+          "country": "Denmark",
+          "country_code": "DK",
+          "expected_handle": "SOLSOE83",
+          "expected_samples": 26,
+          "metadata_code": "Solsoe",
+          "metadata_radius_m": 89,
+          "named_calibrated_chronology_id": 25740,
+          "native_collection_unit_id": 4304,
+          "native_dataset_id": 4446,
+          "native_site_id": 3432,
+          "part": "part-003.json",
+          "reported_area_alternatives_ha": [
+            2.5
+          ]
+        },
+        "source_dataset_metadata": {
+          "agerange": [
+            {
+              "ageold": 7149,
+              "ageyoung": 2731,
+              "units": "Radiocarbon years BP"
+            },
+            {
+              "ageold": 10956,
+              "ageyoung": 2410,
+              "units": "Calibrated radiocarbon years BP"
+            }
+          ],
+          "database": "European Pollen Database",
+          "datasetid": 4446,
+          "datasetname": "EPD E# 615",
+          "datasetnotes": "Data contributed by Odgaard Bent V.",
+          "datasetpi": [
+            {
+              "contactid": 1181,
+              "contactname": "Odgaard, Bent V.",
+              "familyname": "Odgaard",
+              "firstname": "Bent V.",
+              "initials": "B.V."
+            }
+          ],
+          "datasettype": "pollen",
+          "doi": [
+            "10.21233/mtmk-d772"
+          ]
+        }
+      },
+      "source_handle": "SOLSOE83"
+    },
+    {
+      "constituent_database": "European Pollen Database",
+      "dataset_name": null,
+      "historical_marker_applied_as_current_public_source_permission": false,
+      "historical_workbook_access_marker": "NR",
+      "native_collection_unit_id": 14989,
+      "native_dataset_id": 20034,
+      "native_site_id": 13388,
+      "original_contribution_notes": "Data contributed by Bjune Anne E.",
+      "original_doi_tokens": [
+        "10.21233/c8mz-0061"
+      ],
+      "original_investigator_records": [
+        {
+          "contactid": 8804,
+          "contactname": "Bjune, Anne Elisabeth",
+          "familyname": "Bjune",
+          "firstname": "Anne Elisabeth",
+          "initials": "A.E."
+        }
+      ],
+      "returned_native_publication_inventory": {
+        "actual_response_sha256": "37f16906353c1e2574ca99b1ce02cab5cde1a7e63acf3fe684810abead15f5ed",
+        "attribution_complete": true,
+        "empty_publication_response": false,
+        "primary": [
+          {
+            "actual_native_primary": true,
+            "admitted_as_returned_native_relation": true,
+            "native_dataset_relation": {
+              "datasetid": 20034,
+              "primary": true,
+              "siteid": 13388
+            },
+            "native_publication": {
+              "articletitle": "Holocene vegetation and climate history on a continental-oceanic transect in northern Fennoscandia based on pollen and plant macrofossils",
+              "author": [
+                {
+                  "familyname": "Bjune",
+                  "givennames": "Anne Elisabeth",
+                  "order": 1
+                },
+                {
+                  "familyname": "Birks",
+                  "givennames": "Harry John Betteley",
+                  "order": 2
+                },
+                {
+                  "familyname": "Sepp\u00e4",
+                  "givennames": "Heikki",
+                  "order": 3
+                }
+              ],
+              "booktitle": null,
+              "citation": "Bjune, A.E., H.J.B. Birks, and H. Sepp\u00e4. 2004. Holocene vegetation and climate history on a continental-oceanic transect in northern Fennoscandia based on pollen and plant macrofossils. Boreas 33(3):211-223. [DOI: 10.1111/j.1502-3885.2004.tb01142.x]",
+              "citationnumber": null,
+              "city": null,
+              "country": null,
+              "datasets": [
+                {
+                  "datasetid": 20034,
+                  "primary": true,
+                  "siteid": 13388
+                }
+              ],
+              "doi": "10.1111/j.1502-3885.2004.tb01142.x",
+              "edition": null,
+              "issue": "3",
+              "journal": "Boreas",
+              "notes": null,
+              "numvolumes": null,
+              "originallanguage": null,
+              "pages": "211-223",
+              "publicationid": 9495,
+              "publisher": null,
+              "pubtype": "Journal Article",
+              "pubtypeid": 1,
+              "seriestitle": null,
+              "seriesvolume": null,
+              "state": null,
+              "url": null,
+              "volume": "33",
+              "volumetitle": null,
+              "year": "2004"
+            },
+            "refusals": [],
+            "source_row_ordinal": 0
+          }
+        ],
+        "publication_decisions": [
+          {
+            "actual_native_primary": true,
+            "admitted_as_returned_native_relation": true,
+            "native_dataset_relation": {
+              "datasetid": 20034,
+              "primary": true,
+              "siteid": 13388
+            },
+            "native_publication": {
+              "articletitle": "Holocene vegetation and climate history on a continental-oceanic transect in northern Fennoscandia based on pollen and plant macrofossils",
+              "author": [
+                {
+                  "familyname": "Bjune",
+                  "givennames": "Anne Elisabeth",
+                  "order": 1
+                },
+                {
+                  "familyname": "Birks",
+                  "givennames": "Harry John Betteley",
+                  "order": 2
+                },
+                {
+                  "familyname": "Sepp\u00e4",
+                  "givennames": "Heikki",
+                  "order": 3
+                }
+              ],
+              "booktitle": null,
+              "citation": "Bjune, A.E., H.J.B. Birks, and H. Sepp\u00e4. 2004. Holocene vegetation and climate history on a continental-oceanic transect in northern Fennoscandia based on pollen and plant macrofossils. Boreas 33(3):211-223. [DOI: 10.1111/j.1502-3885.2004.tb01142.x]",
+              "citationnumber": null,
+              "city": null,
+              "country": null,
+              "datasets": [
+                {
+                  "datasetid": 20034,
+                  "primary": true,
+                  "siteid": 13388
+                }
+              ],
+              "doi": "10.1111/j.1502-3885.2004.tb01142.x",
+              "edition": null,
+              "issue": "3",
+              "journal": "Boreas",
+              "notes": null,
+              "numvolumes": null,
+              "originallanguage": null,
+              "pages": "211-223",
+              "publicationid": 9495,
+              "publisher": null,
+              "pubtype": "Journal Article",
+              "pubtypeid": 1,
+              "seriestitle": null,
+              "seriesvolume": null,
+              "state": null,
+              "url": null,
+              "volume": "33",
+              "volumetitle": null,
+              "year": "2004"
+            },
+            "refusals": [],
+            "source_row_ordinal": 0
+          }
+        ],
+        "refusals": [],
+        "returned_native_publication_count": 1,
+        "scope": "Attribution of returned native records only; not historical equivalence, chronology accuracy or independently checked original article identity.",
+        "secondary": [],
+        "selected_named_chronology": {
+          "chronology_id": 11601,
+          "model": {
+            "agemodel": "Weighted mixed effects regression procedure (Heegaard 2003)",
+            "agerange": {
+              "ageboundolder": 10550,
+              "ageboundyounger": 0
+            },
+            "chronologyname": "author preferred",
+            "contact": [
+              {
+                "contactid": 8769,
+                "contactname": "Heegaard, Einar",
+                "familyname": "Heegaard",
+                "givenname": "Einar",
+                "leadinginitial": "E"
+              }
+            ],
+            "dateprepared": "2003-01-01",
+            "isdefault": true,
+            "modelagetype": "Calibrated radiocarbon years BP",
+            "notes": null
+          },
+          "raw_control_count": 13,
+          "raw_control_sha256": "21e4ef233eeb2649e7470710eb279b2313a7b1a8f805f6bdfdec079a3743c955"
+        },
+        "source_core": {
+          "country": "Norway",
+          "country_code": "NO",
+          "expected_handle": "DALMUT",
+          "expected_samples": 72,
+          "metadata_code": "dalmutladdo",
+          "metadata_radius_m": 160,
+          "named_calibrated_chronology_id": 11601,
+          "native_collection_unit_id": 14989,
+          "native_dataset_id": 20034,
+          "native_site_id": 13388,
+          "part": "part-004.json",
+          "reported_area_alternatives_ha": [
+            7.2,
+            8.0
+          ]
+        },
+        "source_dataset_metadata": {
+          "agerange": [
+            {
+              "ageold": 10541,
+              "ageyoung": 0,
+              "units": "Calibrated radiocarbon years BP"
+            },
+            {
+              "ageold": 9584,
+              "ageyoung": 0,
+              "units": "Radiocarbon years BP"
+            }
+          ],
+          "database": "European Pollen Database",
+          "datasetid": 20034,
+          "datasetname": null,
+          "datasetnotes": "Data contributed by Bjune Anne E.",
+          "datasetpi": [
+            {
+              "contactid": 8804,
+              "contactname": "Bjune, Anne Elisabeth",
+              "familyname": "Bjune",
+              "firstname": "Anne Elisabeth",
+              "initials": "A.E."
+            }
+          ],
+          "datasettype": "pollen",
+          "doi": [
+            "10.21233/c8mz-0061"
+          ]
+        }
+      },
+      "source_handle": "DALMUT"
+    },
+    {
+      "constituent_database": "European Pollen Database",
+      "dataset_name": "EPD E# 2586",
+      "historical_marker_applied_as_current_public_source_permission": false,
+      "historical_workbook_access_marker": "R",
+      "native_collection_unit_id": 37925,
+      "native_dataset_id": 52082,
+      "native_site_id": 28072,
+      "original_contribution_notes": "Data submitted by Sepp\u00e4, H. and Heikkil\u00e4, M.to  Landclim Project and submitted by Gaillard, M.J. to the EPD.",
+      "original_doi_tokens": [
+        "10.21233/T585-EP25",
+        "10.21233/t585-ep25"
+      ],
+      "original_investigator_records": [
+        {
+          "contactid": 11478,
+          "contactname": "Heikkil\u00e4, Maija",
+          "familyname": "Heikkil\u00e4",
+          "firstname": "Maija",
+          "initials": "M."
+        }
+      ],
+      "returned_native_publication_inventory": {
+        "actual_response_sha256": "3791c17a7b7f17c393fd0ec8d99970186aa4cb4219ca09d1ce0cb67a9f19a69b",
+        "attribution_complete": true,
+        "empty_publication_response": false,
+        "primary": [
+          {
+            "actual_native_primary": true,
+            "admitted_as_returned_native_relation": true,
+            "native_dataset_relation": {
+              "datasetid": 52082,
+              "primary": true,
+              "siteid": 28072
+            },
+            "native_publication": {
+              "articletitle": "A 11,000yr palaeotemperature reconstruction from the southern boreal zone in Finland",
+              "author": [
+                {
+                  "familyname": "Heikkil\u00e4",
+                  "givennames": "Maija",
+                  "order": 1
+                },
+                {
+                  "familyname": "Sepp\u00e4",
+                  "givennames": "Heikki",
+                  "order": 2
+                }
+              ],
+              "booktitle": null,
+              "citation": "Heikkil\u00e4, M., and H. Sepp\u00e4. 2003. A 11,000yr palaeotemperature reconstruction from the southern boreal zone in Finland. Quaternary Science Review 22:541-554.",
+              "citationnumber": null,
+              "city": null,
+              "country": null,
+              "datasets": [
+                {
+                  "datasetid": 52082,
+                  "primary": true,
+                  "siteid": 28072
+                }
+              ],
+              "doi": null,
+              "edition": null,
+              "issue": null,
+              "journal": "Quaternary Science Review",
+              "notes": null,
+              "numvolumes": null,
+              "originallanguage": null,
+              "pages": "541-554",
+              "publicationid": 16469,
+              "publisher": null,
+              "pubtype": "Journal Article",
+              "pubtypeid": 1,
+              "seriestitle": null,
+              "seriesvolume": null,
+              "state": null,
+              "url": null,
+              "volume": "22",
+              "volumetitle": null,
+              "year": "2003"
+            },
+            "refusals": [],
+            "source_row_ordinal": 0
+          }
+        ],
+        "publication_decisions": [
+          {
+            "actual_native_primary": true,
+            "admitted_as_returned_native_relation": true,
+            "native_dataset_relation": {
+              "datasetid": 52082,
+              "primary": true,
+              "siteid": 28072
+            },
+            "native_publication": {
+              "articletitle": "A 11,000yr palaeotemperature reconstruction from the southern boreal zone in Finland",
+              "author": [
+                {
+                  "familyname": "Heikkil\u00e4",
+                  "givennames": "Maija",
+                  "order": 1
+                },
+                {
+                  "familyname": "Sepp\u00e4",
+                  "givennames": "Heikki",
+                  "order": 2
+                }
+              ],
+              "booktitle": null,
+              "citation": "Heikkil\u00e4, M., and H. Sepp\u00e4. 2003. A 11,000yr palaeotemperature reconstruction from the southern boreal zone in Finland. Quaternary Science Review 22:541-554.",
+              "citationnumber": null,
+              "city": null,
+              "country": null,
+              "datasets": [
+                {
+                  "datasetid": 52082,
+                  "primary": true,
+                  "siteid": 28072
+                }
+              ],
+              "doi": null,
+              "edition": null,
+              "issue": null,
+              "journal": "Quaternary Science Review",
+              "notes": null,
+              "numvolumes": null,
+              "originallanguage": null,
+              "pages": "541-554",
+              "publicationid": 16469,
+              "publisher": null,
+              "pubtype": "Journal Article",
+              "pubtypeid": 1,
+              "seriestitle": null,
+              "seriesvolume": null,
+              "state": null,
+              "url": null,
+              "volume": "22",
+              "volumetitle": null,
+              "year": "2003"
+            },
+            "refusals": [],
+            "source_row_ordinal": 0
+          }
+        ],
+        "refusals": [],
+        "returned_native_publication_count": 1,
+        "scope": "Attribution of returned native records only; not historical equivalence, chronology accuracy or independently checked original article identity.",
+        "secondary": [],
+        "selected_named_chronology": {
+          "chronology_id": 37160,
+          "model": {
+            "agemodel": "non-parametric weighted regression",
+            "agerange": {
+              "ageboundolder": 11000,
+              "ageboundyounger": 0
+            },
+            "chronologyname": "cal yr BP",
+            "contact": [
+              {
+                "contactid": 1233,
+                "contactname": "Sepp\u00e4, Heikki",
+                "familyname": "Sepp\u00e4",
+                "givenname": "Heikki",
+                "leadinginitial": "H."
+              }
+            ],
+            "dateprepared": "2002-01-01",
+            "isdefault": true,
+            "modelagetype": "Calibrated radiocarbon years BP",
+            "notes": "Calibrated BP age with CALIB4.2 (Stuiver et al.) and INTCAL98, bottom estimated from the deglaciation history of the basin"
+          },
+          "raw_control_count": 6,
+          "raw_control_sha256": "4fb1c7d2c4b1882e1cfd29ba8adc47494429c8b2244650cc2c633b8449193618"
+        },
+        "source_core": {
+          "country": "Finland",
+          "country_code": "FI",
+          "expected_handle": "LAIH",
+          "expected_samples": 150,
+          "metadata_code": "LAIH",
+          "metadata_radius_m": 285,
+          "named_calibrated_chronology_id": 37160,
+          "native_collection_unit_id": 37925,
+          "native_dataset_id": 52082,
+          "native_site_id": 28072,
+          "part": "part-007.json",
+          "reported_area_alternatives_ha": [
+            25.5
+          ]
+        },
+        "source_dataset_metadata": {
+          "agerange": [
+            {
+              "ageold": 11000,
+              "ageyoung": 0,
+              "units": "Calibrated radiocarbon years BP"
+            },
+            {
+              "ageold": 8984.615,
+              "ageyoung": 112.7273,
+              "units": "Radiocarbon years BP"
+            }
+          ],
+          "database": "European Pollen Database",
+          "datasetid": 52082,
+          "datasetname": "EPD E# 2586",
+          "datasetnotes": "Data submitted by Sepp\u00e4, H. and Heikkil\u00e4, M.to  Landclim Project and submitted by Gaillard, M.J. to the EPD.",
+          "datasetpi": [
+            {
+              "contactid": 11478,
+              "contactname": "Heikkil\u00e4, Maija",
+              "familyname": "Heikkil\u00e4",
+              "firstname": "Maija",
+              "initials": "M."
+            }
+          ],
+          "datasettype": "pollen",
+          "doi": [
+            "10.21233/T585-EP25",
+            "10.21233/t585-ep25"
+          ]
+        }
+      },
+      "source_handle": "LAIH"
+    }
+  ],
+  "distinct_primary_publication_ids": [
+    9495,
+    15707,
+    16469
+  ],
+  "empty_native_publication_response_count": 0,
+  "existing_policy_citation_account": {
+    "acknowledgment_scope": "Original investigators, dataset DOI and primary publications, Neotoma and constituent EPD. Citation does not constitute author consent or scientific review.",
+    "existing_actual_HTTP200_policy_bytes": {
+      "epd": {
+        "sha256": "a6d049567190ee7671df82c859e4139e53c2efa432bfe9191f4b0538c1f4685c",
+        "url": "https://epdweblog.org/epd_data_home/epd_policy/"
+      },
+      "neotoma": {
+        "sha256": "f5ae5e79f7dd1a4d6dd846fa9a63a14129dc8b0ea9c21ed484289304be01b85e",
+        "url": "https://www.neotomadb.org/data/data-use-and-embargo-policy"
+      }
+    },
+    "extra_primary_reference_GETs_needed": false,
+    "policy_citation_excerpts": [
+      "The preferred citation for the Neotoma Paleoecology Database is Williams, Grimm et al. (2018): Williams, J.W., Grimm, E.G., Blois, J., Charles, D.F., Davis, E., Goring, S.J., Graham, R., Smith, A.J., Anderson, M., Arroyo-Cabrales, J., Ashworth, A.C., Betancourt, J.L., Bills, B.W., Booth, R.K., Buckland, P., Curry, B., Giesecke, T., Hausmann, S., Jackson, S.T., Latorre, C., Nichols, J., Purdum, T., Roth, R.E., Stryker, M., Takahara, H., 2018. The Neotoma Paleoecology Database: A multi-proxy, international community-curated data resource. Quaternary Research 89, 156-177. Neotoma\u2019s Permanent identifier (PID): http://doi.org/10.17616/R3PD38 Acknowledgments Any use of Neotoma data should include the following or similar text in the acknowledgments: \u201cData were obtained from the Neotoma Paleoecology Database ( http://www.neotomadb.org , http://doi.org/10.17616/R3PD38 ) and its constituent database(s) [list here ]. The work of data contributors, data stewards, and the Neotoma community is gratefully acknowledged.\u201d Supplementary Data Table Neotoma site metadata, publications, and dataset DOIs can be retrieved using the Neotoma APIs , neotoma2 R package , or third-party applications such as FossilPol . Appendix 2. Preferred Citation, Acknowledgments, and Data Use Policies for Constituent Databases Constituent Databases are listed alphabetically. If a Constituent Database is not listed below, please use the standard Neotoma citation and policy above. Alpine Pollen Database (ALPADABA) Please see the European Pollen Database section for Citation information. BugsCEP Citation Please refe",
+      "The currently preferred citation for EPD (including ALPADABA) is Fyfe et al. (2009). Please also cite Giesecke et al. (2014) if extensive use is made of the chronologies described there. Fyfe, R. M., J. L. de Beaulieu, H. Binney, R. H. W. Bradshaw, S. Brewer, A. Le Flao, W. Finsinger, M. J. Gaillard, T. Giesecke, G. Gil-Romera, E. C. Grimm, B. Huntley, P. Kunes, N. Kuhl, M. Leydet, A. F. Lotter, P. E. Tarasov, and S. Tonkov. 2009. The European Pollen Database: past efforts and current activities. Vegetation History and Archaeobotany 18:417-424. Giesecke, T., B. Davis, S. Brewer, W. Finsinger, S. Wolters, M. Blaauw, J.-L. Beaulieu, H. Binney, R. Fyfe, M.-J. Gaillard, G. Gil-Romera, W. O. Knaap, P. Kune\u0161, N. K\u00fchl, J. N. Leeuwen, M. Leydet, A. Lotter, E. Ortu, M. Semmler, and R. W. Bradshaw. 2014. Towards mapping the late Quaternary vegetation change of Europe. Vegetation History and Archaeobotany 23:75-86. Acknowledgment Please use the following or similar acknowledgment: \u201cData were obtained from the Neotoma Paleoecology Database ( http://www.neotomadb.org , http://doi.org/10.17616/R3PD38 ), and the work of the data contributors, data stewards, and the Neotoma and in particular the EPD/ALPADABA community is gratefully acknowledged.\u201d More Pages From the Data Section Overview Constituent Databases Find Data Contribute Data DB Snapshots Data Use and Embargo Policy Close Navigation Menu Close Navigation Menu Site Navigation Menu Home Neotoma Neotoma Overview Governance Funders & Partners Join the Neotoma Community Data Data Overview Constituent Databases Find Data Contribute Data"
+    ],
+    "policy_retrieval_fresh_in_this_job": false,
+    "preferred_citations": [
+      {
+        "citation_key": "Williams_Grimm_2018",
+        "purpose": "Neotoma database preferred reference",
+        "source": "Neotoma Appendix1"
+      },
+      {
+        "citation_key": "Fyfe_2009",
+        "purpose": "EPD constituent-database preferred reference",
+        "source": "Neotoma Appendix2 EPD"
+      },
+      {
+        "citation_key": "Giesecke_2014",
+        "purpose": "Chronology reference condition: extensive use of chronologies described there. Solso81 and Solso83 native model names explicitly name Giesecke2014(MADCAP); retained as applicable source-provenance citation, not proof of correct model reproduction.",
+        "source": "Neotoma Appendix2 EPD"
+      }
+    ],
+    "reason": "Existing official native200 policy bodies already state full preferred citation text. This job targets the missing per-dataset native primary publication relation, and does not require scholarly article retrieval or policy reacquisition."
+  },
+  "native_primary_dataset_relation_count": 4,
+  "native_secondary_dataset_relation_count": 3,
+  "original_articles_acquired_or_authenticated": false,
+  "original_source_census_receipt_status": "PASS_PENDING_SOURCE_CAPTURE_ADMISSION",
+  "pending_primary_publication_dataset_ids": [],
+  "policy_scope": "Actual recorded HTTP200 bodies/CCBY markers, with constituent and original investigator/dataset attribution. A separate later403 lookup does not replace these bytes. This account does not grant blanket historical author/PANGAEA rights or per-dataset embargo authority.",
+  "preferred_policy_citations": [
+    {
+      "database_pid": "https://doi.org/10.17616/R3PD38",
+      "policy_body_sha256": "f5ae5e79f7dd1a4d6dd846fa9a63a14129dc8b0ea9c21ed484289304be01b85e",
+      "reference": "Williams, Grimm et al. (2018). The Neotoma Paleoecology Database: A multi-proxy, international community-curated data resource. Quaternary Research 89, 156-177.",
+      "scope": "Neotoma Paleoecology Database"
+    },
+    {
+      "policy_body_sha256": "f5ae5e79f7dd1a4d6dd846fa9a63a14129dc8b0ea9c21ed484289304be01b85e",
+      "reference": "Fyfe et al. (2009). The European Pollen Database: past efforts and current activities. Vegetation History and Archaeobotany 18, 417-424.",
+      "scope": "European Pollen Database"
+    },
+    {
+      "policy_body_sha256": "f5ae5e79f7dd1a4d6dd846fa9a63a14129dc8b0ea9c21ed484289304be01b85e",
+      "reference": "Giesecke et al. (2014). Towards mapping the late Quaternary vegetation change of Europe. Vegetation History and Archaeobotany 23, 75-86.",
+      "scope": "Named MADCAP chronologies used for the two Solsoe cores",
+      "scope_limit": "Policy-preferred citation and named model attribution; no article acquisition, chronology refit or age accuracy is established by this account.",
+      "selected_chronology_ids": [
+        25732,
+        25740
+      ]
+    }
+  ],
+  "primary_publication_inventory_status": "Four native primary dataset relations to three distinct publication IDs qualified from saved HTTP200 responses. Secondary records and DOI nulls remain native.",
+  "publication_capture_authority": {
+    "acquisition": {
+      "candidate": "b20246a1d3307a5930355a96ca76734783417633",
+      "output_sha256": "a9f38c757f147d55d8781e5b201ff7b3b0e6e5ff2e374fe6088e431611b7279b",
+      "plan_sha256": "b26977e999874fa576575fd1ef8eeff4a31471d0283aec2f4a65e116844f8fd8",
+      "terminal_sha256": "e5c3ef1e2fd56050bf2e67fd4676c42cdeb4b24745e677aa5715ce16a63f18e8"
+    },
+    "qualification": {
+      "candidate": "b20246a1d3307a5930355a96ca76734783417633",
+      "output_sha256": "7842db918ef4f02fc846f1edb6ba21d0c0269a66b88e9c95a9f67aff6a7914ea",
+      "plan_sha256": "fa7732715e5c4f45344f6bde2abd2ab6047530c8c52adc58ce8f0869a6334f6a",
+      "terminal_sha256": "49043fd1e075d7c823a0c3c404324ad75ac9cd3a8ff53222439b39a9a9e055a7"
+    }
+  },
+  "raw_counts_or_sample_age_masks_included": false,
+  "raw_source_support_remains_local": true,
+  "refused_native_publication_relation_count": 0,
+  "rights_and_raw_redistribution_admitted": false,
+  "schema_version": "nordic-retained-source-attribution.v1",
+  "source_provider": "Neotoma Paleoecology Database"
+}

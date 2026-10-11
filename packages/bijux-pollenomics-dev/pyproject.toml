@@ -90,4 +90,5 @@ raw-options = { git_describe_command = "git describe --dirty --tags --long --mat
 
 [tool.codespell]
 # Exact, populated PFT-position header in the archived ESSD output; unresolved.
-ignore-words-list = "ISTS,dokument"
+# Preserve literal EMB matrix keys and Khodzal basin codes from retained sources.
+ignore-words-list = "ISTS,dokument,composit,larg,smal"

@@ -20,16 +20,16 @@ from ...projects.evidence.chronology import AdnaProjectSampleChronologyRow
 from ...projects.registry.samples import AdnaCuratedSampleRow
 
 _BP_MEAN_STDDEV_RE = re.compile(
-    r"(?P<mean>\d{1,5})\s*(?:±|\+/-)\s*(?P<stddev>\d{1,4})\s*BP",
+    r"(?P<mean>-?\d{1,5})\s*(?:±|\+/-)\s*(?P<stddev>\d{1,4})\s*BP",
     re.IGNORECASE,
 )
 
 
-_BP_SINGLE_RE = re.compile(r"(?P<mean>\d{1,5})\s*BP", re.IGNORECASE)
+_BP_SINGLE_RE = re.compile(r"(?P<mean>-?\d{1,5})\s*BP", re.IGNORECASE)
 
 
 _CENSORED_CHRONOLOGY_RE = re.compile(
-    r"^\s*(?:<=|>=|<|>|≤|≥)\s*\d",
+    r"^\s*(?:<=|>=|<|>|≤|≥)\s*-?\d",
     re.IGNORECASE,
 )
 
@@ -414,4 +414,5 @@ def _bce_to_bp(year_bce: int) -> int:
 
 
 def _ce_to_bp(year_ce: int) -> int:
-    return max(0, 1950 - year_ce)
+    """Preserve calendar endpoints after the conventional AD 1950 reference."""
+    return 1950 - year_ce

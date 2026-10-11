@@ -1,0 +1,13 @@
+{
+  "capture_custody": "not_established",
+  "doi": "10.1594/PANGAEA.738429",
+  "license": "CC-BY-NC-3.0",
+  "schema_version": "qualified-pangaea-abbo-profile.v1",
+  "scientific_admission": false,
+  "source_id": "epd/pangaea",
+  "table": {
+    "path": "abbo-pollen-profile-pangaea-738429.tsv",
+    "sha256": "ee4671277fc4120c65f6fe4fa19fb1d302167e419d5419a55287d09c226ab154",
+    "size": 43894
+  }
+}

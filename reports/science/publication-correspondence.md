@@ -95,6 +95,26 @@ and zero reproduction-ready rows. We replayed the exact retained bytes for
 all 79 typed workbook candidates. The replay records 7,459 header positions,
 5,170 mechanical data rows and the original sample-count claims; 78 claims
 agree with row counts, while EKE claims 25 and has 42 mechanical data rows.
+
+For EKE, we separately checked the original 27,648-byte workbook against its
+retained typed capture: all 1,376 cached cell values and types agree exactly.
+After the `Sample` and `Sample age (cal AD/BC)` columns, its 30 feature
+columns contain **25 rows with positive values and 17 rows with only zeros**.
+The zero-feature rows are source sheet rows 3, 6, 8, 12, 14, 16, 17, 19,
+24, 26, 27, 32, 34, 35, 37, 40 and 41; their identifier and age cells do not
+authenticate their status as observed pollen samples. Removing these 17 rows from the retained
+5,170 mechanical rows gives **5,153**, exactly the 79-workbook metadata
+sample-count total. The other 78 workbooks each match their metadata row count; EKE alone
+accounts for the difference. This reconciles the numerical totals under the declared
+row partition; it does not establish an interpolation procedure or ecological
+absence. We did not repeat the other 78 workbooks' feature-value census.
+Twenty-four of EKE's 25 positive-feature rows contain noninteger values, so
+we preserve the decoded numbers rather than round them into admitted grain
+counts. Original formula provenance, feature units, taxonomy, selected
+chronology and analytical-use rights remain unresolved. The workbook is
+identified by SHA-256
+`f75bc109cc6e6d1bf20cd8c30493ffc765a2c27cce0578d4c0cbef7331a2d10e`.
+
 We verified the retained candidate file structures, not their membership in
 a native LandClim archive or their role as published study inputs. We have
 not cleared workbook output for public release or evaluated scientific

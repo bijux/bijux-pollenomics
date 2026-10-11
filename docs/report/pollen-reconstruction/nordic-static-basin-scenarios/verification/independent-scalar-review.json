@@ -1,0 +1,47 @@
+{
+  "accepted_distinct_source_samples": 313,
+  "analytic_boundary_controls": 5,
+  "case_window_results": 182,
+  "cases": 9,
+  "distinct_source_datasets": 4,
+  "fields": {
+    "assumed_ppe_covariance": {
+      "cells": 1762,
+      "maximum_absolute_difference": 1.7265120593038403e-19
+    },
+    "conditional_cover": {
+      "cells": 518,
+      "maximum_absolute_difference": 1.4931031874788918e-16
+    },
+    "conditional_standard_error": {
+      "cells": 518,
+      "maximum_absolute_difference": 2.6596291354595535e-17
+    },
+    "counting_covariance": {
+      "cells": 1762,
+      "maximum_absolute_difference": 4.16106599556063e-18
+    },
+    "direct_pollen_panel_fraction": {
+      "cells": 518,
+      "maximum_absolute_difference": 9.75609756097561e-17
+    },
+    "total_conditional_covariance": {
+      "cells": 1762,
+      "maximum_absolute_difference": 3.540011219742407e-18
+    }
+  },
+  "formula": "p=n/N; a=1/(PPE*K); x=a*p/sum(a*p); J_ik=a_k*(delta_ik-x_i)/sum(a*p); C_count=J*(diag(p)-p*pT)/N*JT; H_ik=-x_k*(delta_ik-x_i)/PPE_k; C_PPE=H*diag(SD^2)*HT; C_total=C_count+C_PPE; SE=sqrt(diag(C_total))",
+  "independent_precision_digits": 50,
+  "limitations": "Independent saved-input numerical equation/covariance qualification, not source-row acquisition, calibration, full vegetation composition, cross-country comparable panel, reconstructed basin history, source rights or ecological accuracy. The 2/3/6-target panels have distinct denominators; assumed diagonal PPE uncertainty is shared within a case, not an independently measured covariance. Cross-window/case joint PPE dependence is not propagated. Conditional plug-in zero variance at count zero is not an absence interval. Physical factors are saved inputs to this checker; their independent geometry qualification is a distinct job.",
+  "plan_sha256": "3871dae600cf61f2b28ae728c5f2a9490833c94b9af6c06a6f32c3cafa500bec",
+  "scalar_values_compared": 6840,
+  "source_custody_before_after": "unchanged",
+  "source_native_terminal_sha256": "b00ad8785bacb49d6e48e3060acd9229e31e2ea26e356b6057bc82b6f924577c",
+  "source_report_sha256": "50d2e11aa053f22afe8aeb2b0867c2ee3c00340ad002a6ece71c36aafdbbedfe",
+  "source_samples": 314,
+  "status": "PASS_SCOPED_INDEPENDENT_NORDIC_DECIMAL_COVARIANCE",
+  "tolerance": {
+    "absolute": "2e-12",
+    "relative": "2e-12"
+  }
+}

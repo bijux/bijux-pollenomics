@@ -1,0 +1,13 @@
+{
+  "actual_plan_sha256": "51b48eb0ae2e32277384924d2de3c10ffb84d8683177b8c192399669cf19d35d",
+  "actual_receipt_sha256": "a37554e1d429d81ea3327ffad700536002d0aa179b51358e2aa510e7d370564b",
+  "actual_output_sha256": "dfe91c17907e1253a69e5b093e0d458ecc2c89206d6678d506fc381b5a143a29",
+  "native_exit_code": 0,
+  "actual_wall_seconds": 25.782377499970607,
+  "peak_rss_bytes": 174587904,
+  "peak_processes": 1,
+  "custody_after_unchanged": true,
+  "owned_survivors": {},
+  "scope": "Actual cold imports and bound callable source origins of the exact successful maintained producer on disjoint identical source/runtime bytes. No numerical execution, dynamic source-read trace, external shared-library resolution, Python/platform matrix or full runtime completeness claimed. Source inputs, mathematical results and ordinary reference/replay are independently bound by the genuine99b9/e260 native receipt.",
+  "source_candidate": "8d60365e15b0e4cf57e4f4ef21b6185296f177dc"
+}

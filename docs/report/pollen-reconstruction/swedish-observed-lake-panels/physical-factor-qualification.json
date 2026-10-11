@@ -1,0 +1,20 @@
+{
+  "actual_conditional_results": 5040,
+  "actual_result_factor_uses": 10600,
+  "exact_circle_lens_controls": 7,
+  "formula": "K=integral exp(-q)*[area(D_R intersect D_L at displacement d(q))-area(D_R intersect D_R at displacement d(q))]/(pi R^2) dq; q=a*d^(gamma/2), a=4v/(gamma*u*sqrt(pi)*D)",
+  "independence": "Analytical circle-intersection geometry with adaptive scalar Simpson at two prespecified tolerances; no maintained receiver-offset/angle quadrature, GPM implementation, numerical packages, original model producer or R imported",
+  "limits": [
+    "Current49profile literal-panel physical tuple qualification only; old150/300tuple receipts retain their original numerical populations.",
+    "Adaptive estimates/convergence are nonrigorous, not certified numerical enclosures",
+    "Declared isotropic disk/annulus empirical transport scenario only; no actual paleobasin geometry, taxonomy/PPE transfer, source rights, chronology posterior, vegetation accuracy or empirical uncertainty coverage"
+  ],
+  "maximum_absolute_factor_difference": 7.875591845341035e-11,
+  "maximum_coarse_fine_difference": 6.225092663569853e-11,
+  "new_actual_tuples_independently_integrated": 284,
+  "passed": true,
+  "scoped_independent_physical_factor_qualification": true,
+  "source_actual_result_sha256": "bc8c21626bd7749a8435b27d3677b156eb6ea786c95b8c172608be8c387526e5",
+  "source_actual_terminal_sha256": "d91341a8dbc459740a6dcb90a9113162d5b64758c52a306857e5c43fa6d1ff18",
+  "total_scalar_evaluations": 562624
+}

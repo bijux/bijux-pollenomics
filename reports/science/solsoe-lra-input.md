@@ -67,6 +67,39 @@ absolute fraction error is 0.032310 on those eight restricted bins, versus
 changes its nominal bin, so this is a sample-support sensitivity,
 not a new chronology fit or evidence for LRA accuracy.
 
+## Core ownership within the observed-pollen target
+
+The separate observed-pollen target pools the 65 selected `SOLSOE81` samples
+and 26 selected `SOLSOE83` samples into **24 nominal 500-cal-BP bins**. A
+source-core decomposition reproduces every parent bin's sample and count
+denominators: **129,768 reported pollen grains**, of which **38,295** belong
+to the study's 16 literal labels. Both cores contribute positive counts on
+that axis in **11 bins**; the remaining **13 bins** contain one core. No
+shared bin has a zero denominator on that axis. These are conditional
+recorded-count compositions, including `Nuphar`, rather than an eligible
+terrestrial LRA denominator; a zero for an unreported label does not establish
+measured ecological absence.
+
+For the 11 shared bins, we compared each core's unsmoothed composition using
+Hellinger distance, `sqrt(sum((sqrt(p)-sqrt(q))^2)/2)`. The observed core
+compositions differ by **0.046596–0.218394**. The existing pooled composition
+weights each core by its retained 16-label grain count; the 1981 core's
+weight ranges from **0.185400 to 0.901268**. Thus a shared bin does not imply
+equal core contribution. In the **9500–<10000 cal-BP** bin, four 1981 samples
+contribute 1,910 retained grains and one 1983 sample contributes 358. Their
+core distance is 0.218394. Averaging the two normalized core compositions
+with equal weights, solely as a sensitivity comparator, differs from the
+existing grain pool by Hellinger distance **0.076995**, with a maximum
+absolute taxon-fraction difference of **5.26 percentage points**. This is the
+largest such pooling difference across the 11 shared bins.
+
+This decomposition preserves the frozen predictions and scores. It measures
+composition and pooling sensitivity, without choosing a preferred weighting
+or estimating accuracy. The two cores belong to one lake, and nominal bin
+membership supplies no joint chronology posterior. The result therefore adds
+neither an independent vegetation outcome nor the missing historical
+79-row selection, basin geometry or analytical rights.
+
 ## What would change this decision
 
 We need a source-owner packet naming the actual LandClim II 79 pollen rows,

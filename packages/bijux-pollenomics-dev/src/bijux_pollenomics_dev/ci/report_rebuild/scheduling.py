@@ -16,14 +16,14 @@ from .configured_owner import (
     _configuration_owner,
     _read_object,
     _repository_relative,
-    _safe_file,
     resolve_configured_owner,
 )
 from .contracts import ReportRebuildError
 from .scheduling_custody.context import _owner_schedule_context
+from .source_paths import safe_source_file as _safe_file
 
 SCHEMA = "configured-report-owner-schedule.v1"
-MAX_OWNERS = 128
+MAX_OWNERS = 141
 IDENTITY = re.compile(r"[A-Za-z0-9_./-]+")
 
 
@@ -48,7 +48,7 @@ def configured_owner_schedule(
     if not isinstance(rows, list) or not rows:
         raise ReportRebuildError("configured owner list is empty")
     if len(rows) > MAX_OWNERS:
-        raise ReportRebuildError("two-lane owner schedule exceeds 128 owners")
+        raise ReportRebuildError(f"two-lane owner schedule exceeds {MAX_OWNERS} owners")
     with _owner_schedule_context(
         repository,
         Path(relative),
@@ -56,7 +56,7 @@ def configured_owner_schedule(
         configuration,
         inventory,
         check_ownership=owner_runner._schedule_ownership,
-        safe_file=owner_runner._safe_file,
+        safe_file=_safe_file,
         relative_path=owner_runner._repository_relative,
         digest=owner_runner._digest,
     ):

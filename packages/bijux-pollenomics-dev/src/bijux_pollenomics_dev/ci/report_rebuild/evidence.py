@@ -205,7 +205,10 @@ def parse_owner_manifest(path: Path) -> JsonObject:
     template = cast(list[str], record["producer_command"])
     argv = cast(list[str], record["producer_argv"])
     if not any("{output_root}" in argument for argument in template) or argv != [
-        argument.replace("{output_root}", str(output_root)) for argument in template
+        argument.replace("{output_root}", str(output_root)).replace(
+            "{artifact_root}", str(output_root.parent / "producer-artifacts")
+        )
+        for argument in template
     ]:
         raise ReportRebuildError("owner producer argv does not match its command")
     inputs = require_mapping(record["producer_inputs"], "owner producer_inputs")

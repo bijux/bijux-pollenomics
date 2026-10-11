@@ -1,0 +1,105 @@
+{
+  "age_windows_cal_bp": [
+    0,
+    100,
+    350,
+    700,
+    1200,
+    1700,
+    2200,
+    2700,
+    3200,
+    3700,
+    4200,
+    4700,
+    5200,
+    5700,
+    6200,
+    6700,
+    7200,
+    7700,
+    8200,
+    8700,
+    9200,
+    9700,
+    10200,
+    10700,
+    11200,
+    11700
+  ],
+  "covariance_scope": "SharedPPE cancels inverse-forward. Conditional trainingcover covariance assumes independentfixed-totalmultinomialsitecounts, diagonalsharedPPE(.303\u00b2,0), and zero count\u2013PPE cross-covariance as workingindependence. Unknown sharedinvestigator/chronology/countcorrelations omitted, notauthenticatedzero; endogenousPPEdependency notincluded. No forwardSE, empiricalcoverage, familyindependence orPPEidentification claim.",
+  "epoch": "AD1950 with literal namednativeCalibratedradiocarbonBP point fields only; no14C substitution orpublicationyearzero",
+  "grouping": {
+    "all_reference_training_family": [
+      1096,
+      1149
+    ],
+    "independent_training_family_count": 1,
+    "primary_training_family": [
+      1096
+    ],
+    "shared_investigator_and_MADCAP_source_retained": true,
+    "statistical_independence_established": false,
+    "target_primary_family": [
+      9495
+    ]
+  },
+  "measurement_policy": "Everyincluded sample actualintegerNISP pollen datum for BOTHnative literal labels. Missing,duplicate orwrongnativeIDs refused; observedzero retained; no inferredtaxonomy/sparsezero",
+  "original_protocol_sha256": "3a6a845ece69fa880d19903dc329bbcfab529a6b55bb6422efa786544af27f36",
+  "panel": [
+    {
+      "PPE": 5.106,
+      "SD": 0.303,
+      "fall_speed_m_s": 0.024,
+      "name": "Betula",
+      "native_taxon_id": 29
+    },
+    {
+      "PPE": 1.0,
+      "SD": 0.0,
+      "fall_speed_m_s": 0.035,
+      "name": "Poaceae",
+      "native_taxon_id": 417
+    }
+  ],
+  "physical": {
+    "diffusion_coefficient": 0.12,
+    "new_radius_m": 252,
+    "old_reuse_radius_m": [
+      98,
+      160
+    ],
+    "outer_radius_m": 100000.0,
+    "static_geometry": "Circularreceiver radius equalslandannulusinner radius; nohistoric/paleobasin authentication",
+    "turbulence_parameter": 0.25,
+    "units": "metres,metres/sec,sourceempiricalmetre-basedD; noSIdiffusivityclaim",
+    "wind_speed_m_s": 3.0
+  },
+  "point_age_policy": "Half-open younger<=nativepoint<older, nointerpolation/sourcebounds weighting. Preservebounds,includingMukknegativelower; source temporalintervalcomparability notclaimed",
+  "remaining_acceptance": [
+    "Two independenttrainingfamilies",
+    "Chronologyaccuracy/intervalprobability/sourcechronology correlation",
+    "Full31/fullp10/history/independentvegetation/untouchedvalidation",
+    "Rights/qualifiedreviews/currentR release gates"
+  ],
+  "schema_version": "norwegian-one-family-forward-assumptions.v1",
+  "scoring_protocol": {
+    "contrasts": "Physicalminus eachbaseline perpairedwindow andaggregate; retain negative/improvement outcomes withoutparameter tuning",
+    "ecological_accuracy_claim": false,
+    "metrics": [
+      "squared_L2_panel_fraction_error",
+      "target_panel_count_mean_negative_log_probability"
+    ],
+    "negative_log_rule": "-sum(n_i*ln(q_i))/sum(n_i);0targetcount contributes0;positivecount/qzero refusedscore, noepsilon/pseudocount",
+    "prediction_freeze": "Write and hash complete20window/60method-vector predictionledger BEFORE separateoutcome/scoring loop; scoringreads thefrozenvectors. Targetdata were previouslyexposed/inspected, notuntouched orpre-discovery preregistration.",
+    "rules_frozen_before_this_native_execution": true,
+    "source_exposure": "Targetalreadydevelopmentexposed; no untouchedconfirmation",
+    "summary_denominators": [
+      "18equalwindowmean",
+      "sumactualtargetpanelN countweightedmean"
+    ],
+    "support": "All20trainingwindows predictedallthree;18pairedscorewindows;2missingtarget keptnull withactualreason"
+  },
+  "shared_PPE_cancellation": "U_i=sum_s n_si/(K_si p_i); c_i=U_i/sum_j U_j. close(K_target,i p_i c_i)=close(K_target,i sum_s n_si/K_si). Positive shared PPE therefore cancels from this pollen prediction, which cannot identify PPE or validate vegetation cover.",
+  "spatial_assumption": "Exact workbookcontext associations plusnativePoint representative distance only; nothistorical membership/shoreline/regional vegetation homogeneity"
+}

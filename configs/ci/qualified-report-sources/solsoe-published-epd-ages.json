@@ -1,0 +1,13 @@
+{
+  "schema_version": "qualified-pangaea-epd-age-table.v1",
+  "source_id": "epd/pangaea",
+  "table": {
+    "path": "epd-age-cut-pangaea-804596.tsv",
+    "sha256": "d332d5c7921b914e84da689c918607befdb162f5c68bbcce9cd3534d1f5e58e0",
+    "size": 3613957
+  },
+  "doi": "10.1594/PANGAEA.804596",
+  "license": "CC-BY-3.0",
+  "capture_custody": "not_established",
+  "scientific_admission": false
+}

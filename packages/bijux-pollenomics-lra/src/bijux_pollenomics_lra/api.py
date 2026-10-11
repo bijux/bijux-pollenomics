@@ -46,6 +46,12 @@ from bijux_pollenomics_lra.reconstruction.fixed_site_covariance import (
     fixed_site_cover_covariance,
 )
 from bijux_pollenomics_lra.reconstruction.forward import forward_deposition
+from bijux_pollenomics_lra.reconstruction.joint_fixed_site_covariance import (
+    ConditionalResultInput,
+    CountSupport,
+    JointFixedSiteCovariance,
+    joint_fixed_site_covariance,
+)
 from bijux_pollenomics_lra.reconstruction.joint_site_draws import (
     JointSiteDrawResult,
     joint_site_cover_draws,
@@ -88,6 +94,7 @@ def extension_descriptor() -> dict[str, Any]:
             "lra.reveals.regional",
             "lra.reveals.multisite.publication-source",
             "lra.reveals.multisite.fixed-site-delta-covariance",
+            "lra.reveals.multisite.joint-fixed-site-delta-covariance",
             "lra.reveals.multisite.joint-site-count-ppe-draws",
             "lra.love.analytical",
             "lra.love.analytical.fall-speed-profile."
@@ -111,6 +118,8 @@ def extension_descriptor() -> dict[str, Any]:
 __all__ = [
     "BasinType",
     "ConvergenceError",
+    "ConditionalResultInput",
+    "CountSupport",
     "DistanceWeighting",
     "ForwardConfig",
     "ForwardResult",
@@ -121,6 +130,7 @@ __all__ = [
     "LRAResult",
     "LRASeriesResult",
     "JointSiteDrawResult",
+    "JointFixedSiteCovariance",
     "LoveConfig",
     "LoveMethod",
     "OptimizedLoveProfile",
@@ -142,6 +152,7 @@ __all__ = [
     "fit_homogeneous_likelihood",
     "fit_shared_ppe_likelihood",
     "joint_site_cover_draws",
+    "joint_fixed_site_covariance",
     "prepare_forward_inputs",
     "publication_bin_bounds_sha256",
     "run_love",

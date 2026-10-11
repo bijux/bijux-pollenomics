@@ -202,7 +202,7 @@ output root, member and non-member diff, subset results, focused tests,
 documentation result, warnings, and any publication or release guard that
 remains active.
 
-Use the generated [country onboarding contract](../../../report/publication_country_onboarding_contract.md),
-[geography registry](../../../report/publication_geography_registry.md), and
-[subset validation](../../../report/publication_geography_subset_validation.md)
+Use the generated [country onboarding contract](../../report/publication_country_onboarding_contract.md),
+[geography registry](../../report/publication_geography_registry.md), and
+[subset validation](../../report/publication_geography_subset_validation.md)
 as the checked-in evidence companions.

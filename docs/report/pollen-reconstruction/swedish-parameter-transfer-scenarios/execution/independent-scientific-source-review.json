@@ -1,0 +1,26 @@
+{
+  "scope": "Independent read-only inspection of maintained broader conditional scientific source. No numerical/runtime producer launch or byte/reference acceptance inferred.",
+  "inspected_scientific_module_sha256": {
+    "__init__.py": "465ab39f6f574da16b9e48a4834418bf75f728bc160109b467a3366a05a683e1",
+    "__main__.py": "72787edec1db45aab25da4b6ab51cb9736c9282848cc4caaa786a44943cec4e0",
+    "comparison.py": "c957eee575fbbcec70ab8cb5662f8bbfd419426beeab190a432db926e99b6cdd",
+    "mapping.py": "7086521b63183848554c65045bba0679f6f7378cb673db19ee59104fbf029733",
+    "producer.py": "aed5eacb114afe8ec2302a002e683c7137ea42ebf0c20b5ae0f6852e022ea933",
+    "reconstruction.py": "1544f02f58e674eec132305029564111e4879da2053b8a5be9b3c82bda04fd50",
+    "sources.py": "6234f3b8b8d31ab9142efa9064b83ee438e8cdc67b5be6dcf33bb7867bb42382"
+  },
+  "findings": [
+    "The source-name presence axis, any contributing-label target presence and all contributing-label completeness remain distinct from the all-true hypothesis-conditioned mathematical input mask.",
+    "Each source count is allocated once, mapped plus residual NISP conserves reported NISP, and parent/child lexical conflicts refuse without claiming a fully authenticated taxonomic hierarchy.",
+    "Shared tree/dwarf birch merges source counts before applying one PPE target and one target covariance variable; it is an explicit parameter-transfer hypothesis, not independent species estimates.",
+    "Per-core factor cache is keyed by taxon and physical profile, so immutable geometry/wind/PPE alternatives may reuse exact factors without sharing writers or assuming independent taxa.",
+    "Accepted samples plus actual exclusion counts equal native samples; zero-panel windows are separately refused.",
+    "Baseline full covariance and all physical-profile point estimates/SE remain portable, while exact per-sample raw masks are retained in a separately hashed private artifact capsule.",
+    "Scientific interpretation remains the normalized mapped panel conditional on declared missing-row-zero and mutually-exclusive-partition hypotheses. Residual mass is not vegetation coverage; delta-method zero-cell SE is not absence or calibrated boundary uncertainty.",
+    "The original deterministic byte mismatch is an output serialization failure, preserved independently of the exact parsed numerical agreement. This inspection does not turn parsed equality into native byte acceptance."
+  ],
+  "limits": [
+    "No taxonomy, historical LandClim reproduction, observed complete measurement, calibrated chronology/boundary/geometry uncertainty, ecological accuracy, native R parity, unfamiliar-reader qualification or rights admission established.",
+    "Actual maintained reference/replay, native source/import custody and independent new physical-factor results retain their separately declared receipts and scopes."
+  ]
+}

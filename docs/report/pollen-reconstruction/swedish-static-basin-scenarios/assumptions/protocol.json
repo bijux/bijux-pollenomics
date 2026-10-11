@@ -1,0 +1,111 @@
+{
+  "kind": "new explicitly supported pollen-panel reconstruction, separate from historical LandClim replay",
+  "taxon_support": "literal source strings and integer NISP with both source element labels pollen; each panel target must be actually present in every included sample datum matrix. Missing rows never turned into zero; parameter application is a declared scenario, not a reviewed taxon-equivalence decision.",
+  "cores": [
+    {
+      "metadata_code": "ABB",
+      "native_dataset_id": 19913,
+      "chronology_id": 11516,
+      "taxa": [
+        "Betula",
+        "Pinus sylvestris"
+      ]
+    },
+    {
+      "metadata_code": "BOKE",
+      "native_dataset_id": 54001,
+      "chronology_id": 38422,
+      "taxa": [
+        "Betula",
+        "Fraxinus",
+        "Ulmus"
+      ]
+    },
+    {
+      "metadata_code": "BUS",
+      "native_dataset_id": 53995,
+      "chronology_id": 38418,
+      "taxa": [
+        "Betula",
+        "Ulmus"
+      ]
+    },
+    {
+      "metadata_code": "TIB",
+      "native_dataset_id": 53980,
+      "chronology_id": 38408,
+      "taxa": [
+        "Pinus sylvestris",
+        "Poaceae"
+      ]
+    }
+  ],
+  "age_window_edges_cal_bp": [
+    0,
+    100,
+    350,
+    700,
+    1200,
+    1700,
+    2200,
+    2700,
+    3200,
+    3700,
+    4200,
+    4700,
+    5200,
+    5700,
+    6200,
+    6700,
+    7200,
+    7700,
+    8200,
+    8700,
+    9200,
+    9700,
+    10200,
+    10700,
+    11200,
+    11700
+  ],
+  "age_support": "Use only the exact named native calibrated chronology point ages; BP datum AD1950 per official Neotoma manual7.5. Publication year and collection year never reset zeroBP. Source raw negative ages retained as outside these nonnegative windows, not invalid BP dates. No chronology posterior or zero-width certainty inferred from missing bounds.",
+  "geometry": "Metadata radius interpreted as a static circular uniformly weighted receiving disk; land annulus begins at disk edge and ends at100km. No claim of time-varying historical basin or measured physical kernel. TIB altitude inconsistency161m versus568m and398m coordinate separation retained; no authenticated historical match.",
+  "diffusion_coefficient": 0.12,
+  "turbulence_parameter": 0.25,
+  "regional_extent_m": 100000,
+  "profiles": [
+    {
+      "id": "metadata_radius_wind_3",
+      "radius_multiplier": 1,
+      "wind_speed_m_s": 3
+    },
+    {
+      "id": "half_metadata_radius_wind_3",
+      "radius_multiplier": 0.5,
+      "wind_speed_m_s": 3
+    },
+    {
+      "id": "double_metadata_radius_wind_3",
+      "radius_multiplier": 2,
+      "wind_speed_m_s": 3
+    },
+    {
+      "id": "metadata_radius_wind_2",
+      "radius_multiplier": 1,
+      "wind_speed_m_s": 2
+    },
+    {
+      "id": "metadata_radius_wind_4",
+      "radius_multiplier": 1,
+      "wind_speed_m_s": 4
+    }
+  ],
+  "uncertainty": "Maintained fixed-site delta covariance: independent fixed-total multinomial counts per single pooled core-window; diagonal covariance of public PPE SD squared, shared across window taxa with all off-diagonal entries assumed0. Chronology, radius, wind, site selection and physical response held fixed for conditional SE; separate declared geometry/wind sensitivity profiles are not probability intervals.",
+  "consumer": "Physical circular_receiver_annulus feeds maintained fixed_site_cover_covariance; exact native sample/core/dataset IDs and count denominator/source mass retained for each window. Direct pollen panel fractions are a computational comparator, not vegetation truth.",
+  "rights_scope": "Retained raw data remains local. Current official Neotoma CC BY4.0 evidence, original database/PI/DOIs and historical metadata R/NR retained; raw redistribution/publication decisions remain separate.",
+  "historical_reproduction": false,
+  "full_31_taxon_claim": false,
+  "publication_fit_or_accuracy_claim": false,
+  "panel_scope": "Four explicitly reported per-core conditional panels, including actual BUS Betula/Ulmus successor. Different taxon axes forbid pooling or interpreting cross-core fraction differences as vegetation contrasts.",
+  "transport_units": "Radii/distances metres, fall/wind m/s. Source GPM diffusion_coefficient0.12 is empirical metre-based transport coefficient, not SI diffusivity m²/s; exponent is turbulence_parameter/2=0.125. Radius0.5×/2× means area0.25×/4× under A=πr², not half/double area."
+}

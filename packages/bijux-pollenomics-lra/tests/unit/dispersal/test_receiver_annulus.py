@@ -127,3 +127,142 @@ def test_invalid_numerical_budget_refused() -> None:
             wind_speed_m_s=3,
             quadrature_limit=1,
         )
+
+
+def _decimal_point_response(inner: float, outer: float, fall: float) -> float:
+    """Independent integral of the radial survival law using exact float inputs."""
+    from decimal import Decimal, localcontext
+
+    with localcontext() as context:
+        context.prec = 160
+        coefficient = (4 * Decimal.from_float(fall)) / (
+            Decimal.from_float(0.25)
+            * Decimal.from_float(3.0)
+            * Decimal.from_float(math.sqrt(math.pi))
+            * Decimal.from_float(0.12)
+        )
+        exponent = Decimal(1) / 8
+        left = coefficient * context.power(Decimal.from_float(inner), exponent)
+        right = coefficient * context.power(Decimal.from_float(outer), exponent)
+        return float(context.exp(-left) - context.exp(-right))
+
+
+@pytest.mark.parametrize("inner", [1.0, 10.0, 100.0, 1000.0, 10000.0])
+@pytest.mark.parametrize("width_ulps", [1, 2, 4, 8, 16])
+def test_point_annulus_preserves_positive_survival_difference(
+    inner: float, width_ulps: int
+) -> None:
+    outer = inner
+    for _ in range(width_ulps):
+        outer = math.nextafter(outer, math.inf)
+    previous = float(gpm_values(inner, 0.035, 0.12, 0.25, 3)) - float(
+        gpm_values(outer, 0.035, 0.12, 0.25, 3)
+    )
+    actual = _factor(0.0, inner, outer, 0.035)
+    expected = _decimal_point_response(inner, outer, 0.035)
+    assert expected > 0.0
+    if previous == 0.0:
+        assert actual == pytest.approx(expected, rel=2e-14, abs=0.0)
+    else:
+        assert actual.hex() == previous.hex()
+
+
+@pytest.mark.parametrize("fall", [0.003, 0.03, 0.12])
+@pytest.mark.parametrize("inner,outer", [(0.0, 81.0), (1.0, 500.0), (81.0, 500.0)])
+def test_ordinary_point_annulus_subtraction_is_byte_identical(
+    fall: float, inner: float, outer: float
+) -> None:
+    expected = float(gpm_values(inner, fall, 0.12, 0.25, 3)) - float(
+        gpm_values(outer, fall, 0.12, 0.25, 3)
+    )
+    assert expected > 0.0
+    assert _factor(0.0, inner, outer, fall).hex() == expected.hex()
+
+
+@pytest.mark.parametrize("fall", [1e-8, 1e-14])
+@pytest.mark.parametrize("inner", [1.0, 100.0, 10000.0])
+@pytest.mark.parametrize("width_ulps", [1, 2, 16])
+def test_point_cancellation_uses_parameter_law(
+    fall: float, inner: float, width_ulps: int
+) -> None:
+    outer = inner
+    for _ in range(width_ulps):
+        outer = math.nextafter(outer, math.inf)
+    ordinary = float(gpm_values(inner, fall, 0.12, 0.25, 3.0)) - float(
+        gpm_values(outer, fall, 0.12, 0.25, 3.0)
+    )
+    assert ordinary == 0.0
+    expected = _decimal_point_response(inner, outer, fall)
+    assert expected > 0.0
+    assert _factor(0.0, inner, outer, fall) == pytest.approx(
+        expected, rel=3e-14, abs=0.0
+    )
+
+
+def test_point_cancellation_with_overflowing_radius_ratio() -> None:
+    """An infinite ratio must not turn a tiny exponent into order-one mass."""
+    from decimal import Decimal, localcontext
+
+    inner, outer, fall, turbulence = math.ulp(0.0), 1e308, 1e-310, 2e-308
+    assert math.isinf((outer - inner) / inner)
+    assert float(gpm_values(inner, fall, 0.12, turbulence, 3.0)) == float(
+        gpm_values(outer, fall, 0.12, turbulence, 3.0)
+    )
+    with localcontext() as context:
+        context.prec = 420
+        coefficient = (4 * Decimal.from_float(fall)) / (
+            Decimal.from_float(turbulence)
+            * Decimal.from_float(3.0)
+            * Decimal.from_float(math.sqrt(math.pi))
+            * Decimal.from_float(0.12)
+        )
+        exponent = Decimal.from_float(turbulence) / 2
+        left = coefficient * context.power(Decimal.from_float(inner), exponent)
+        right = coefficient * context.power(Decimal.from_float(outer), exponent)
+        expected = float(context.exp(-left) - context.exp(-right))
+    actual = circular_receiver_annulus(
+        receiver_radius_m=0.0,
+        inner_radius_m=inner,
+        outer_radius_m=outer,
+        fall_speed_m_s=fall,
+        diffusion_coefficient=0.12,
+        turbulence_parameter=turbulence,
+        wind_speed_m_s=3.0,
+    )
+    assert 0.0 < expected < 1e-300
+    assert actual.factor == pytest.approx(expected, rel=3e-14, abs=0.0)
+    assert actual.estimated_absolute_error == 0.0
+
+
+def test_point_cancellation_with_underflowing_inner_power() -> None:
+    """The outer hazard remains representable when the inner power underflows."""
+    from decimal import Decimal, localcontext
+
+    inner, outer, fall, turbulence = math.ulp(0.0), 1e-3, 0.035, 200.0
+    assert inner ** (turbulence / 2) == 0.0
+    assert float(gpm_values(inner, fall, 0.12, turbulence, 3.0)) == float(
+        gpm_values(outer, fall, 0.12, turbulence, 3.0)
+    )
+    with localcontext() as context:
+        context.prec = 420
+        coefficient = (4 * Decimal.from_float(fall)) / (
+            Decimal.from_float(turbulence)
+            * Decimal.from_float(3.0)
+            * Decimal.from_float(math.sqrt(math.pi))
+            * Decimal.from_float(0.12)
+        )
+        exponent = Decimal.from_float(turbulence) / 2
+        left = coefficient * context.power(Decimal.from_float(inner), exponent)
+        right = coefficient * context.power(Decimal.from_float(outer), exponent)
+        expected = float(context.exp(-left) - context.exp(-right))
+    actual = circular_receiver_annulus(
+        receiver_radius_m=0.0,
+        inner_radius_m=inner,
+        outer_radius_m=outer,
+        fall_speed_m_s=fall,
+        diffusion_coefficient=0.12,
+        turbulence_parameter=turbulence,
+        wind_speed_m_s=3.0,
+    ).factor
+    assert expected > 0.0
+    assert actual == pytest.approx(expected, rel=3e-14, abs=0.0)

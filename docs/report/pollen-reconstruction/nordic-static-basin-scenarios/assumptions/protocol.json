@@ -1,0 +1,316 @@
+{
+  "age_epoch_scope": "Only Neotoma named Calibrated radiocarbon years BP sample fields inherit the official documented AD1950 datum. Native radiocarbon defaults remain context, never converted by subtracting1950. IntCal98/09 or old named age model remains actualsource provenance, not current calibration. Workbook TopBP/BotBP remain source labels, not an automatically authenticated chronology.",
+  "age_window_edges_cal_bp": [
+    0,
+    100,
+    350,
+    700,
+    1200,
+    1700,
+    2200,
+    2700,
+    3200,
+    3700,
+    4200,
+    4700,
+    5200,
+    5700,
+    6200,
+    6700,
+    7200,
+    7700,
+    8200,
+    8700,
+    9200,
+    9700,
+    10200,
+    10700,
+    11200,
+    11700
+  ],
+  "chronology_scope": "Point-domain0<=age<11700 only, named source CalBP IDs. LAIH150/DALMUT72 unknown age bounds remain unknown. Danish model bounds retained with their semantics; signed reported bounds kept as prior comparability refusal view, not repaired. Solsoe81 excludes point12417 but includes point7 with younger-41: new65-row cohort differs from prior nonnegative-bounds65. No calibration, interpolation, boundary-probability, new model fit or age uncertainty propagation.",
+  "conditional_estimand": "v_i=(n_i/(K_i*PPE_i))/sum_j(n_j/(K_j*PPE_j)), conditional composition of selected actual-present panel. Multinomial counting covariance uses mapped-panel N, not allreported NISP; diagonal PPE SD-squared independent uncertainty assumption. Full-source NISP/residual mass retained separately, not inferred vegetation area.",
+  "cores": [
+    {
+      "country": "Finland",
+      "country_code": "FI",
+      "expected_eligible_samples": 150,
+      "expected_handle": "LAIH",
+      "expected_samples": 150,
+      "geometry_profiles": [
+        {
+          "authority": "Raw LandClim metadata siteradius; constant receiving-disk hypothesis, not dated shoreline",
+          "id": "metadata_static_radius",
+          "radius_m": 285
+        },
+        {
+          "authority": "Actual retained source report area transformed by r=sqrt(10000*A/pi), constant equivalent-circle hypothesis; no dated geometry admission",
+          "id": "reported_25_5_ha_static_circle",
+          "radius_m": 284.9017742606504,
+          "reported_area_ha": 25.5
+        }
+      ],
+      "metadata_code": "LAIH",
+      "metadata_radius_m": 285,
+      "metadata_row": "landclim_ii_site_metadata.xlsx#LANDCLIMII metadata file!155",
+      "named_calibrated_chronology_id": 37160,
+      "native_collection_unit_id": 37925,
+      "native_dataset_id": 52082,
+      "native_site_id": 28072,
+      "part": "part-007.json",
+      "reported_area_alternatives_ha": [
+        25.5
+      ],
+      "selected_chronology": {
+        "chronology_id": 37160,
+        "model": {
+          "agemodel": "non-parametric weighted regression",
+          "agerange": {
+            "ageboundolder": 11000,
+            "ageboundyounger": 0
+          },
+          "chronologyname": "cal yr BP",
+          "contact": [
+            {
+              "contactid": 1233,
+              "contactname": "Sepp\u00e4, Heikki",
+              "familyname": "Sepp\u00e4",
+              "givenname": "Heikki",
+              "leadinginitial": "H."
+            }
+          ],
+          "dateprepared": "2002-01-01",
+          "isdefault": true,
+          "modelagetype": "Calibrated radiocarbon years BP",
+          "notes": "Calibrated BP age with CALIB4.2 (Stuiver et al.) and INTCAL98, bottom estimated from the deglaciation history of the basin"
+        },
+        "raw_control_count": 6,
+        "raw_control_sha256": "4fb1c7d2c4b1882e1cfd29ba8adc47494429c8b2244650cc2c633b8449193618"
+      },
+      "source_default_chronology": 37159,
+      "taxa": [
+        "Betula",
+        "Pinus sylvestris"
+      ]
+    },
+    {
+      "country": "Norway",
+      "country_code": "NO",
+      "expected_eligible_samples": 72,
+      "expected_handle": "DALMUT",
+      "expected_samples": 72,
+      "geometry_profiles": [
+        {
+          "authority": "Raw LandClim metadata siteradius; constant receiving-disk hypothesis, not dated shoreline",
+          "id": "metadata_static_radius",
+          "radius_m": 160
+        },
+        {
+          "authority": "Actual retained source report area transformed by r=sqrt(10000*A/pi), constant equivalent-circle hypothesis; no dated geometry admission",
+          "id": "reported_7_2_ha_static_circle",
+          "radius_m": 151.3879513212096,
+          "reported_area_ha": 7.2
+        },
+        {
+          "authority": "Actual retained source report area transformed by r=sqrt(10000*A/pi), constant equivalent-circle hypothesis; no dated geometry admission",
+          "id": "reported_8_0_ha_static_circle",
+          "radius_m": 159.57691216057307,
+          "reported_area_ha": 8.0
+        }
+      ],
+      "metadata_code": "dalmutladdo",
+      "metadata_radius_m": 160,
+      "metadata_row": "landclim_ii_site_metadata.xlsx#LANDCLIMII metadata file!801",
+      "named_calibrated_chronology_id": 11601,
+      "native_collection_unit_id": 14989,
+      "native_dataset_id": 20034,
+      "native_site_id": 13388,
+      "part": "part-004.json",
+      "reported_area_alternatives_ha": [
+        7.2,
+        8.0
+      ],
+      "selected_chronology": {
+        "chronology_id": 11601,
+        "model": {
+          "agemodel": "Weighted mixed effects regression procedure (Heegaard 2003)",
+          "agerange": {
+            "ageboundolder": 10550,
+            "ageboundyounger": 0
+          },
+          "chronologyname": "author preferred",
+          "contact": [
+            {
+              "contactid": 8769,
+              "contactname": "Heegaard, Einar",
+              "familyname": "Heegaard",
+              "givenname": "Einar",
+              "leadinginitial": "E"
+            }
+          ],
+          "dateprepared": "2003-01-01",
+          "isdefault": true,
+          "modelagetype": "Calibrated radiocarbon years BP",
+          "notes": null
+        },
+        "raw_control_count": 13,
+        "raw_control_sha256": "21e4ef233eeb2649e7470710eb279b2313a7b1a8f805f6bdfdec079a3743c955"
+      },
+      "source_default_chronology": 11600,
+      "taxa": [
+        "Betula",
+        "Pinus sylvestris",
+        "Poaceae"
+      ]
+    },
+    {
+      "country": "Denmark",
+      "country_code": "DK",
+      "expected_eligible_samples": 65,
+      "expected_handle": "SOLSOE81",
+      "expected_samples": 66,
+      "geometry_profiles": [
+        {
+          "authority": "Raw LandClim metadata siteradius; constant receiving-disk hypothesis, not dated shoreline",
+          "id": "metadata_static_radius",
+          "radius_m": 89
+        },
+        {
+          "authority": "Actual retained source report area transformed by r=sqrt(10000*A/pi), constant equivalent-circle hypothesis; no dated geometry admission",
+          "id": "reported_2_5_ha_static_circle",
+          "radius_m": 89.20620580763855,
+          "reported_area_ha": 2.5
+        }
+      ],
+      "metadata_code": "Solsoe",
+      "metadata_radius_m": 89,
+      "metadata_row": "landclim_ii_site_metadata.xlsx#LANDCLIMII metadata file!95",
+      "named_calibrated_chronology_id": 25732,
+      "native_collection_unit_id": 4303,
+      "native_dataset_id": 4445,
+      "native_site_id": 3432,
+      "part": "part-003.json",
+      "reported_area_alternatives_ha": [
+        2.5
+      ],
+      "selected_chronology": {
+        "chronology_id": 25732,
+        "model": {
+          "agemodel": "clam",
+          "agerange": {
+            "ageboundolder": 12420,
+            "ageboundyounger": 0
+          },
+          "chronologyname": "Giesecke et al. 2014 (MADCAP)",
+          "contact": [
+            {
+              "contactid": 8710,
+              "contactname": "Giesecke, Thomas",
+              "familyname": "Giesecke",
+              "givenname": "Thomas",
+              "leadinginitial": "T."
+            }
+          ],
+          "dateprepared": "2011-01-01",
+          "isdefault": true,
+          "modelagetype": "Calibrated radiocarbon years BP",
+          "notes": "Linear age model. Based on IntCal09 calibration curve. Preparer notes: Hiatus between 478 and 474 to be compleeted witth SOLOSO83"
+        },
+        "raw_control_count": 31,
+        "raw_control_sha256": "70afc35f849d13537d9be5f47f0e2dd554a05b2f23a2e6410908499c3d3a909e"
+      },
+      "source_default_chronology": 25731,
+      "taxa": [
+        "Betula",
+        "Calluna vulgaris"
+      ]
+    },
+    {
+      "country": "Denmark",
+      "country_code": "DK",
+      "expected_eligible_samples": 26,
+      "expected_handle": "SOLSOE83",
+      "expected_samples": 26,
+      "geometry_profiles": [
+        {
+          "authority": "Raw LandClim metadata siteradius; constant receiving-disk hypothesis, not dated shoreline",
+          "id": "metadata_static_radius",
+          "radius_m": 89
+        },
+        {
+          "authority": "Actual retained source report area transformed by r=sqrt(10000*A/pi), constant equivalent-circle hypothesis; no dated geometry admission",
+          "id": "reported_2_5_ha_static_circle",
+          "radius_m": 89.20620580763855,
+          "reported_area_ha": 2.5
+        }
+      ],
+      "metadata_code": "Solsoe",
+      "metadata_radius_m": 89,
+      "metadata_row": "landclim_ii_site_metadata.xlsx#LANDCLIMII metadata file!95",
+      "named_calibrated_chronology_id": 25740,
+      "native_collection_unit_id": 4304,
+      "native_dataset_id": 4446,
+      "native_site_id": 3432,
+      "part": "part-003.json",
+      "reported_area_alternatives_ha": [
+        2.5
+      ],
+      "selected_chronology": {
+        "chronology_id": 25740,
+        "model": {
+          "agemodel": "clam",
+          "agerange": {
+            "ageboundolder": 9830,
+            "ageboundyounger": 2780
+          },
+          "chronologyname": "Giesecke et al. 2014 (MADCAP)",
+          "contact": [
+            {
+              "contactid": 8710,
+              "contactname": "Giesecke, Thomas",
+              "familyname": "Giesecke",
+              "givenname": "Thomas",
+              "leadinginitial": "T."
+            }
+          ],
+          "dateprepared": "2011-01-01",
+          "isdefault": true,
+          "modelagetype": "Calibrated radiocarbon years BP",
+          "notes": "Linear age model. Based on IntCal09 calibration curve. Preparer notes: Pollen stratigraphic connection: SO83 410 cm = SO81 450 cm, SO83 520 cm = SO81 480 cm"
+        },
+        "raw_control_count": 7,
+        "raw_control_sha256": "8e4ac27a8cb05a6c5bf86fa70e08718257de66a0c9c7e592b77a7eb004dfc6d1"
+      },
+      "source_default_chronology": 25739,
+      "taxa": [
+        "Alnus glutinosa",
+        "Betula",
+        "Calluna vulgaris",
+        "Corylus avellana",
+        "Tilia",
+        "Ulmus"
+      ]
+    }
+  ],
+  "diffusion_coefficient": 0.12,
+  "diffusion_units": "Source GPM empirical metre-based coefficient under exponent gamma/2, not an SI diffusivity in m2/s.",
+  "full_31_taxon_claim": false,
+  "geometry_scope": "Raw metadata radius in documented metres and distinct paper/LandClimI areas; static metadata or circle-equivalent area radii are named future geometry assumptions, not dated shorelines. Drained lake/hiatus/bog notes retained. No bog accepted as empirical receiving-lake geometry. Do not pool Solsoe cores as independent lakes or replace its historical79rows with92.",
+  "historical_reproduction": false,
+  "raw_support_publication": false,
+  "regional_extent_m": 100000.0,
+  "scope": "New conditional per-core literal-panel reconstruction, four cores across Finland/Norway/Denmark and nine explicit static geometry cases. Source counts and named old calibrated chronology points retained; no historic LandClim preparation identity, ecological accuracy, full31, whole vegetation cover or raw redistribution claim.",
+  "source_bounds": {
+    "cores": 4,
+    "external_GETs": 0,
+    "geometry_cases": 9,
+    "point_domain_samples": 313,
+    "source_samples": 314
+  },
+  "source_policy": "Actual previous public Neotoma/EPD primaryHTTP200 policy bodies+consumer+native0 terminal retained as independent inputs; CC BY4.0 marker and constituent/DOI attribution scope are source-bound, not unrestricted author/PANGAEA historical rights. New failed403 documentarylookup remains separate and never replaces capturedHTTP200. Raw sample/control/age data remain local; derivedconditional analysis only. Per-sourceR/NR historic access markers do not automatically restrict or authorize current publicNeotoma holdings.",
+  "taxon_support": "Each core distinct literal exact public31-table panel, every included sample must actually report each selected label; no sparse-zero imputation or transfer/synonym. Explicit count zero is source observation; plug-in delta SE at boundary0 is not true absence or an absence interval. Source labels outside panel remain unparameterized residual. Different panels prohibit complete composition/cross-country area claims.",
+  "transport": "circular receiving disk spatial mean of source GPM deposited response for regional annulus from receiver radius to100km; local inside-basin sources excluded; maintained annulus quadrature and estimated, nonrigorous errors retained",
+  "turbulence_parameter": 0.25,
+  "vegetation_accuracy_claim": false,
+  "wind_speed_m_s": 3.0
+}

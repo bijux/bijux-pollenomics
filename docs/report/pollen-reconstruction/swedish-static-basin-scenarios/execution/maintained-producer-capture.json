@@ -1,0 +1,45 @@
+{
+  "plan_sha256": "99b9ded9ae88da59906c00f16ee1307293a29f78ed3e1093c9d380b27680146d",
+  "actual_receipt_sha256": "e2603f44225a3c1ac52beee71c60fb29ce16ca08cf20e8df63c0625981488e66",
+  "native_reference_sha256": "895968b71a8318688e10145c5a4a900266f695560d8d1f55bf52c0bf579c6e89",
+  "native_replay_sha256": "895968b71a8318688e10145c5a4a900266f695560d8d1f55bf52c0bf579c6e89",
+  "actual_comparison_sha256": "6b32139841daa01520b3a6d3e18af6fd49dbb2270bfafc707b05040b3952a6b0",
+  "base_candidate": "8d60365e15b0e4cf57e4f4ef21b6185296f177dc",
+  "maintained_producer_module": "bijux_pollenomics_dev.source_completion.pollen_reconstruction.swedish_static_basin.producer",
+  "scope": "One new maintained source/producer/reference/replay contract qualified; original5fe+4dde scientific numerical values preserved exactly, not relabeled as an original8d scientific fit. No numericalRparity/historical31/vegetation accuracy claim.",
+  "actual_native_exit_code": 0,
+  "actual_wall_seconds": 13.21297233295627,
+  "peak_rss_bytes": 384483328,
+  "peak_processes": 2,
+  "custody_after_unchanged": true,
+  "owned_survivors": {},
+  "comparison": {
+    "actual_maintained_reference_and_replay_agree": true,
+    "original_scientific_results_preserved": [
+      {
+        "core": "ABB",
+        "window_profile_rows": 132,
+        "max_absolute_difference": 0.0
+      },
+      {
+        "core": "BOKE",
+        "window_profile_rows": 78,
+        "max_absolute_difference": 0.0
+      },
+      {
+        "core": "BUS",
+        "window_profile_rows": 114,
+        "max_absolute_difference": 0.0
+      },
+      {
+        "core": "TIB",
+        "window_profile_rows": 138,
+        "max_absolute_difference": 0.0
+      }
+    ],
+    "reference_sha256": "895968b71a8318688e10145c5a4a900266f695560d8d1f55bf52c0bf579c6e89",
+    "replay_sha256": "895968b71a8318688e10145c5a4a900266f695560d8d1f55bf52c0bf579c6e89",
+    "predecessor_account_sha256": "81723f23d08ba3b8d78cfa89a471378ebe510455cb90f9e6e04700ca5ab3e8f5",
+    "scope": "New maintained producer contract, same literal panels/declared physical assumptions. Not numericalRparity, historical replay, complete31taxa or vegetation accuracy."
+  }
+}

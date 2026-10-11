@@ -1,0 +1,5066 @@
+{
+  "actual_native_count_helper_origin": "/Users/bijan/bijux/bijux-pollenomics/artifacts/jobs/nordic-core-metadata-bound-feasibility/candidate/native_sources.py",
+  "actual_native_count_helper_sha256": "c3a33898f0aecc42f0c48f04e176f79d6444cead076e550a19ba7dafd25ccd0d",
+  "candidate": "33d45ecfd6be7d275b69a7a7350bb72ae7c5269e",
+  "cores": [
+    {
+      "Betula_Poaceae_actual_presence_positive_panel_samples": 0,
+      "Betula_Poaceae_eligible_source_sample_denominator": 150,
+      "all_reported_label_count": 63,
+      "all_reported_pollen_NISP": 85303,
+      "all_source_core_count_denominator_known": true,
+      "count_refusals": {},
+      "count_valid_samples": 150,
+      "count_valid_source_pollen_NISP": 85303,
+      "eligible_missing_both_age_error_bounds": 150,
+      "geometry_alternatives": {
+        "metadata_circle_area_ha": 25.517586328783096,
+        "metadata_static_radius_m_assumption": 285,
+        "reported_area_circle_equivalent_radius_m_assumptions": [
+          {
+            "circle_equivalent_radius_m": 284.9017742606504,
+            "dated_geometry_admission": false,
+            "reported_area_ha": 25.5
+          }
+        ]
+      },
+      "historical_selected_model_or_row_admission": false,
+      "literal_PPE_labels_present": [
+        "Artemisia",
+        "Betula",
+        "Calluna vulgaris",
+        "Carpinus betulus",
+        "Corylus avellana",
+        "Fagus sylvatica",
+        "Filipendula",
+        "Juniperus communis",
+        "Pinus sylvestris",
+        "Plantago lanceolata",
+        "Secale cereale",
+        "Ulmus"
+      ],
+      "literal_PPE_mapped_NISP": 66342,
+      "metadata_locator": "landclim_ii_site_metadata.xlsx#LANDCLIMII metadata file!155",
+      "named_point_domain_eligible_samples": 150,
+      "named_point_refusals": {},
+      "native_default_chronology": 37159,
+      "prior_nonnegative_BP_point_or_bounds_refusals": 0,
+      "raw_metadata_fields": {
+        "0-100": "L",
+        "100-350": "L",
+        "10200-10700": "L",
+        "10700-11200": "L",
+        "11200-11700": "-",
+        "1200-1700": "L",
+        "1700-2200": "L",
+        "2200-2700": "L",
+        "2700-3200": "L",
+        "3200-3700": "L",
+        "350-700": "L",
+        "3700-4200": "L",
+        "4200-4700": "L",
+        "4700-5200": "L",
+        "5200-5700": "L",
+        "5700-6200": "L",
+        "6200-6700": "L",
+        "6700-7200": "L",
+        "700-1200": "L",
+        "7200-7700": "L",
+        "7700-8200": "L",
+        "8200-8700": "L",
+        "8700-9200": "L",
+        "9200-9700": "L",
+        "9700-10200": "L",
+        "BotBP": "11000",
+        "ChronologyNotes": null,
+        "Country": "Finland",
+        "DataRestricted/NotRestriced": "R",
+        "Database/Authorname and/or data collector": "Heikki Sepp\u00e4",
+        "Elevation": "137",
+        "LCGRID_ID": "1092",
+        "LandClimProject": "LandClimI",
+        "No. of 14C dates for model": "\u2265 3",
+        "SiteName": "Laihalampi",
+        "TopBP": null,
+        "chronologySource": "Authors chronology",
+        "csvfilename": "LAIH",
+        "latdd": "61.488332999999997",
+        "londd": "26.080832999999998",
+        "nPollenSamples": "150",
+        "nTWs": "24",
+        "siteType": "lake",
+        "siteradius": "285"
+      },
+      "raw_source_metadata": {
+        "collection_unit": {
+          "colldate": "1999-12-01",
+          "collectiondevice": "Russian sampler (10cm)",
+          "collectionunit": "Laihalampi core",
+          "collectionunitid": 37925,
+          "collunittype": "Core",
+          "defaultchronology": 37159,
+          "depositionalenvironment": "Lacustrine",
+          "gpslocation": {
+            "gpsaltitude": null,
+            "gpserror": null,
+            "latitude": null,
+            "longitude": null
+          },
+          "handle": "LAIH",
+          "location": "centre of the lake (water depth = 1.2m)",
+          "notes": "Local vegetation: bogs with pine and  dwarf-shrubs.",
+          "waterdepth": null
+        },
+        "dataset": {
+          "agerange": [
+            {
+              "ageold": 11000,
+              "ageyoung": 0,
+              "units": "Calibrated radiocarbon years BP"
+            },
+            {
+              "ageold": 8984.615,
+              "ageyoung": 112.7273,
+              "units": "Radiocarbon years BP"
+            }
+          ],
+          "database": "European Pollen Database",
+          "datasetid": 52082,
+          "datasetname": "EPD E# 2586",
+          "datasetnotes": "Data submitted by Sepp\u00e4, H. and Heikkil\u00e4, M.to  Landclim Project and submitted by Gaillard, M.J. to the EPD.",
+          "datasetpi": [
+            {
+              "contactid": 11478,
+              "contactname": "Heikkil\u00e4, Maija",
+              "familyname": "Heikkil\u00e4",
+              "firstname": "Maija",
+              "initials": "M."
+            }
+          ],
+          "datasettype": "pollen",
+          "doi": [
+            "10.21233/T585-EP25",
+            "10.21233/t585-ep25"
+          ]
+        },
+        "site": {
+          "altitude": 137,
+          "area": null,
+          "dataset": {
+            "agerange": [
+              {
+                "ageold": 11000,
+                "ageyoung": 0,
+                "units": "Calibrated radiocarbon years BP"
+              },
+              {
+                "ageold": 8984.615,
+                "ageyoung": 112.7273,
+                "units": "Radiocarbon years BP"
+              }
+            ],
+            "database": "European Pollen Database",
+            "datasetid": 52082,
+            "datasetname": "EPD E# 2586",
+            "datasetnotes": "Data submitted by Sepp\u00e4, H. and Heikkil\u00e4, M.to  Landclim Project and submitted by Gaillard, M.J. to the EPD.",
+            "datasetpi": [
+              {
+                "contactid": 11478,
+                "contactname": "Heikkil\u00e4, Maija",
+                "familyname": "Heikkil\u00e4",
+                "firstname": "Maija",
+                "initials": "M."
+              }
+            ],
+            "datasettype": "pollen",
+            "doi": [
+              "10.21233/T585-EP25",
+              "10.21233/t585-ep25"
+            ]
+          },
+          "geopolitical": [
+            "Finland",
+            "Etel\u00e4-Suomen [Southern Finland]"
+          ],
+          "notes": "Data source Sepp\u00e4, H. and Heikkil\u00e4, M. for Landclim Project",
+          "sitedescription": "Small shallow lake.\r\nPhysiography: basin.\r\nSurrounding vegetation: Pinus sylvestris &amp; Picea abies.",
+          "siteid": 28072,
+          "sitename": "Laihalampi"
+        }
+      },
+      "selected_named_calibrated_chronology": {
+        "chronology_id": 37160,
+        "model": {
+          "agemodel": "non-parametric weighted regression",
+          "agerange": {
+            "ageboundolder": 11000,
+            "ageboundyounger": 0
+          },
+          "chronologyname": "cal yr BP",
+          "contact": [
+            {
+              "contactid": 1233,
+              "contactname": "Sepp\u00e4, Heikki",
+              "familyname": "Sepp\u00e4",
+              "givenname": "Heikki",
+              "leadinginitial": "H."
+            }
+          ],
+          "dateprepared": "2002-01-01",
+          "isdefault": true,
+          "modelagetype": "Calibrated radiocarbon years BP",
+          "notes": "Calibrated BP age with CALIB4.2 (Stuiver et al.) and INTCAL98, bottom estimated from the deglaciation history of the basin"
+        },
+        "raw_control_count": 6,
+        "raw_control_sha256": "4fb1c7d2c4b1882e1cfd29ba8adc47494429c8b2244650cc2c633b8449193618"
+      },
+      "source_core": {
+        "country": "Finland",
+        "country_code": "FI",
+        "expected_handle": "LAIH",
+        "expected_samples": 150,
+        "metadata_code": "LAIH",
+        "metadata_radius_m": 285,
+        "named_calibrated_chronology_id": 37160,
+        "native_collection_unit_id": 37925,
+        "native_dataset_id": 52082,
+        "native_site_id": 28072,
+        "part": "part-007.json",
+        "reported_area_alternatives_ha": [
+          25.5
+        ]
+      },
+      "source_label_ledger": [
+        {
+          "explicit_presence_samples": 1,
+          "literal_public_parameter": null,
+          "name": "Achillea-type",
+          "native_taxon_ids": [
+            820
+          ],
+          "reported_NISP": 1
+        },
+        {
+          "explicit_presence_samples": 140,
+          "literal_public_parameter": null,
+          "name": "Alnus",
+          "native_taxon_ids": [
+            330
+          ],
+          "reported_NISP": 6981
+        },
+        {
+          "explicit_presence_samples": 35,
+          "literal_public_parameter": null,
+          "name": "Amaranthaceae",
+          "native_taxon_ids": [
+            391
+          ],
+          "reported_NISP": 51
+        },
+        {
+          "explicit_presence_samples": 18,
+          "literal_public_parameter": null,
+          "name": "Apiaceae undiff.",
+          "native_taxon_ids": [
+            1172
+          ],
+          "reported_NISP": 20
+        },
+        {
+          "explicit_presence_samples": 68,
+          "literal_public_parameter": {
+            "PPE": 3.937,
+            "SD": 0.146,
+            "fall_speed_m_s": 0.025,
+            "numerical_annotation_refusal": false,
+            "source": {
+              "": "",
+              "FSP (m/s)": "0.025",
+              "Land-cover types (LCTs)": "",
+              "PFT": "GL",
+              "PFT definition": "Grassland - all herbs",
+              "PPE (SD)": "3.937 (0.146)",
+              "Plant taxa/Pollen-morphological types": "Artemisia"
+            }
+          },
+          "name": "Artemisia",
+          "native_taxon_ids": [
+            25
+          ],
+          "reported_NISP": 200
+        },
+        {
+          "explicit_presence_samples": 150,
+          "literal_public_parameter": {
+            "PPE": 5.106,
+            "SD": 0.303,
+            "fall_speed_m_s": 0.024,
+            "numerical_annotation_refusal": false,
+            "source": {
+              "": "",
+              "FSP (m/s)": "0.024",
+              "Land-cover types (LCTs)": "",
+              "PFT": "",
+              "PFT definition": "",
+              "PPE (SD)": "5.106 (0.303)",
+              "Plant taxa/Pollen-morphological types": "Betula"
+            }
+          },
+          "name": "Betula",
+          "native_taxon_ids": [
+            29
+          ],
+          "reported_NISP": 40554
+        },
+        {
+          "explicit_presence_samples": 35,
+          "literal_public_parameter": {
+            "PPE": 1.085,
+            "SD": 0.029,
+            "fall_speed_m_s": 0.038,
+            "numerical_annotation_refusal": false,
+            "source": {
+              "": "",
+              "FSP (m/s)": "0.038",
+              "Land-cover types (LCTs)": "Open land (OL)",
+              "PFT": "LSE",
+              "PFT definition": "Low shrub, broadleaved evergreen",
+              "PPE (SD)": "1.085 (0.029)",
+              "Plant taxa/Pollen-morphological types": "Calluna vulgaris"
+            }
+          },
+          "name": "Calluna vulgaris",
+          "native_taxon_ids": [
+            2897
+          ],
+          "reported_NISP": 55
+        },
+        {
+          "explicit_presence_samples": 11,
+          "literal_public_parameter": {
+            "PPE": 4.52,
+            "SD": 0.425,
+            "fall_speed_m_s": 0.042,
+            "numerical_annotation_refusal": false,
+            "source": {
+              "": "",
+              "FSP (m/s)": "0.042",
+              "Land-cover types (LCTs)": "",
+              "PFT": "TBS",
+              "PFT definition": "Shade-tolerant summer-green trees",
+              "PPE (SD)": "4.52 (0.425)",
+              "Plant taxa/Pollen-morphological types": "Carpinus betulus"
+            }
+          },
+          "name": "Carpinus betulus",
+          "native_taxon_ids": [
+            1319
+          ],
+          "reported_NISP": 12
+        },
+        {
+          "explicit_presence_samples": 2,
+          "literal_public_parameter": null,
+          "name": "Caryophyllaceae undiff.",
+          "native_taxon_ids": [
+            1013
+          ],
+          "reported_NISP": 2
+        },
+        {
+          "explicit_presence_samples": 4,
+          "literal_public_parameter": null,
+          "name": "Cichorioideae",
+          "native_taxon_ids": [
+            160
+          ],
+          "reported_NISP": 4
+        },
+        {
+          "explicit_presence_samples": 1,
+          "literal_public_parameter": null,
+          "name": "Cornus suecica",
+          "native_taxon_ids": [
+            4175
+          ],
+          "reported_NISP": 2
+        },
+        {
+          "explicit_presence_samples": 144,
+          "literal_public_parameter": {
+            "PPE": 1.71,
+            "SD": 0.1,
+            "fall_speed_m_s": 0.025,
+            "numerical_annotation_refusal": false,
+            "source": {
+              "": "",
+              "FSP (m/s)": "0.025",
+              "Land-cover types (LCTs)": "",
+              "PFT": "",
+              "PFT definition": "",
+              "PPE (SD)": "1.71 (0.1)",
+              "Plant taxa/Pollen-morphological types": "Corylus avellana"
+            }
+          },
+          "name": "Corylus avellana",
+          "native_taxon_ids": [
+            1316
+          ],
+          "reported_NISP": 1647
+        },
+        {
+          "explicit_presence_samples": 130,
+          "literal_public_parameter": null,
+          "name": "Cyperaceae undiff.",
+          "native_taxon_ids": [
+            430
+          ],
+          "reported_NISP": 432
+        },
+        {
+          "explicit_presence_samples": 8,
+          "literal_public_parameter": null,
+          "name": "Empetrum nigrum",
+          "native_taxon_ids": [
+            4242
+          ],
+          "reported_NISP": 85
+        },
+        {
+          "explicit_presence_samples": 1,
+          "literal_public_parameter": null,
+          "name": "Epilobium",
+          "native_taxon_ids": [
+            90
+          ],
+          "reported_NISP": 1
+        },
+        {
+          "explicit_presence_samples": 37,
+          "literal_public_parameter": null,
+          "name": "Ericaceae-type",
+          "native_taxon_ids": [
+            722
+          ],
+          "reported_NISP": 295
+        },
+        {
+          "explicit_presence_samples": 2,
+          "literal_public_parameter": {
+            "PPE": 5.863,
+            "SD": 0.176,
+            "fall_speed_m_s": 0.057,
+            "numerical_annotation_refusal": false,
+            "source": {
+              "": "",
+              "FSP (m/s)": "0.057",
+              "Land-cover types (LCTs)": "",
+              "PFT": "",
+              "PFT definition": "",
+              "PPE (SD)": "5.863 (0.176)",
+              "Plant taxa/Pollen-morphological types": "Fagus sylvatica"
+            }
+          },
+          "name": "Fagus sylvatica",
+          "native_taxon_ids": [
+            1320
+          ],
+          "reported_NISP": 2
+        },
+        {
+          "explicit_presence_samples": 73,
+          "literal_public_parameter": {
+            "PPE": 3.0,
+            "SD": 0.285,
+            "fall_speed_m_s": 0.006,
+            "numerical_annotation_refusal": false,
+            "source": {
+              "": "",
+              "FSP (m/s)": "0.006",
+              "Land-cover types (LCTs)": "",
+              "PFT": "",
+              "PFT definition": "",
+              "PPE (SD)": "3 (0.285)",
+              "Plant taxa/Pollen-morphological types": "Filipendula"
+            }
+          },
+          "name": "Filipendula",
+          "native_taxon_ids": [
+            1428
+          ],
+          "reported_NISP": 129
+        },
+        {
+          "explicit_presence_samples": 14,
+          "literal_public_parameter": null,
+          "name": "Frangula alnus",
+          "native_taxon_ids": [
+            2322
+          ],
+          "reported_NISP": 15
+        },
+        {
+          "explicit_presence_samples": 89,
+          "literal_public_parameter": null,
+          "name": "Fraxinus excelsior",
+          "native_taxon_ids": [
+            3579
+          ],
+          "reported_NISP": 171
+        },
+        {
+          "explicit_presence_samples": 5,
+          "literal_public_parameter": null,
+          "name": "Hippopha\u00eb rhamnoides",
+          "native_taxon_ids": [
+            1306
+          ],
+          "reported_NISP": 7
+        },
+        {
+          "explicit_presence_samples": 1,
+          "literal_public_parameter": null,
+          "name": "Hordeum-type",
+          "native_taxon_ids": [
+            3705
+          ],
+          "reported_NISP": 1
+        },
+        {
+          "explicit_presence_samples": 79,
+          "literal_public_parameter": null,
+          "name": "Humulus lupulus",
+          "native_taxon_ids": [
+            1335
+          ],
+          "reported_NISP": 166
+        },
+        {
+          "explicit_presence_samples": 104,
+          "literal_public_parameter": {
+            "PPE": 2.07,
+            "SD": 0.04,
+            "fall_speed_m_s": 0.016,
+            "numerical_annotation_refusal": false,
+            "source": {
+              "": "",
+              "FSP (m/s)": "0.016",
+              "Land-cover types (LCTs)": "",
+              "PFT": "TSE",
+              "PFT definition": "Tall shrub, evergreen",
+              "PPE (SD)": "2.07 (0.04)",
+              "Plant taxa/Pollen-morphological types": "Juniperus communis"
+            }
+          },
+          "name": "Juniperus communis",
+          "native_taxon_ids": [
+            4416
+          ],
+          "reported_NISP": 310
+        },
+        {
+          "explicit_presence_samples": 1,
+          "literal_public_parameter": null,
+          "name": "Lonicera xylosteum",
+          "native_taxon_ids": [
+            4469
+          ],
+          "reported_NISP": 1
+        },
+        {
+          "explicit_presence_samples": 4,
+          "literal_public_parameter": null,
+          "name": "Melampyrum",
+          "native_taxon_ids": [
+            997
+          ],
+          "reported_NISP": 5
+        },
+        {
+          "explicit_presence_samples": 3,
+          "literal_public_parameter": null,
+          "name": "Menyanthes trifoliata",
+          "native_taxon_ids": [
+            182
+          ],
+          "reported_NISP": 3
+        },
+        {
+          "explicit_presence_samples": 26,
+          "literal_public_parameter": null,
+          "name": "Myriophyllum alterniflorum",
+          "native_taxon_ids": [
+            667
+          ],
+          "reported_NISP": 43
+        },
+        {
+          "explicit_presence_samples": 5,
+          "literal_public_parameter": null,
+          "name": "Myriophyllum spicatum",
+          "native_taxon_ids": [
+            1310
+          ],
+          "reported_NISP": 12
+        },
+        {
+          "explicit_presence_samples": 6,
+          "literal_public_parameter": null,
+          "name": "Nuphar",
+          "native_taxon_ids": [
+            190
+          ],
+          "reported_NISP": 7
+        },
+        {
+          "explicit_presence_samples": 7,
+          "literal_public_parameter": null,
+          "name": "Nymphaea",
+          "native_taxon_ids": [
+            192
+          ],
+          "reported_NISP": 7
+        },
+        {
+          "explicit_presence_samples": 106,
+          "literal_public_parameter": null,
+          "name": "Picea",
+          "native_taxon_ids": [
+            210
+          ],
+          "reported_NISP": 7714
+        },
+        {
+          "explicit_presence_samples": 150,
+          "literal_public_parameter": {
+            "PPE": 6.058,
+            "SD": 0.237,
+            "fall_speed_m_s": 0.031,
+            "numerical_annotation_refusal": false,
+            "source": {
+              "": "",
+              "FSP (m/s)": "0.031",
+              "Land-cover types (LCTs)": "",
+              "PFT": "IBE",
+              "PFT definition": "Shade-intolerant evergreen trees",
+              "PPE (SD)": "6.058 (0.237)",
+              "Plant taxa/Pollen-morphological types": "Pinus sylvestris"
+            }
+          },
+          "name": "Pinus sylvestris",
+          "native_taxon_ids": [
+            1287
+          ],
+          "reported_NISP": 22053
+        },
+        {
+          "explicit_presence_samples": 2,
+          "literal_public_parameter": {
+            "PPE": 2.33,
+            "SD": 0.201,
+            "fall_speed_m_s": 0.029,
+            "numerical_annotation_refusal": false,
+            "source": {
+              "": "",
+              "FSP (m/s)": "0.029",
+              "Land-cover types (LCTs)": "",
+              "PFT": "",
+              "PFT definition": "",
+              "PPE (SD)": "2.33 (0.201)",
+              "Plant taxa/Pollen-morphological types": "Plantago lanceolata"
+            }
+          },
+          "name": "Plantago lanceolata",
+          "native_taxon_ids": [
+            220
+          ],
+          "reported_NISP": 2
+        },
+        {
+          "explicit_presence_samples": 2,
+          "literal_public_parameter": null,
+          "name": "Plantago major/P. media",
+          "native_taxon_ids": [
+            2905
+          ],
+          "reported_NISP": 3
+        },
+        {
+          "explicit_presence_samples": 2,
+          "literal_public_parameter": null,
+          "name": "Plantago undiff.",
+          "native_taxon_ids": [
+            218
+          ],
+          "reported_NISP": 2
+        },
+        {
+          "explicit_presence_samples": 11,
+          "literal_public_parameter": null,
+          "name": "Poaceae (Cerealia) undiff.",
+          "native_taxon_ids": [
+            427
+          ],
+          "reported_NISP": 28
+        },
+        {
+          "explicit_presence_samples": 147,
+          "literal_public_parameter": null,
+          "name": "Poaceae undiff.",
+          "native_taxon_ids": [
+            125
+          ],
+          "reported_NISP": 950
+        },
+        {
+          "explicit_presence_samples": 111,
+          "literal_public_parameter": null,
+          "name": "Populus tremula",
+          "native_taxon_ids": [
+            3435
+          ],
+          "reported_NISP": 270
+        },
+        {
+          "explicit_presence_samples": 32,
+          "literal_public_parameter": null,
+          "name": "Potamogeton",
+          "native_taxon_ids": [
+            517
+          ],
+          "reported_NISP": 42
+        },
+        {
+          "explicit_presence_samples": 1,
+          "literal_public_parameter": null,
+          "name": "Potentilla-type",
+          "native_taxon_ids": [
+            242
+          ],
+          "reported_NISP": 1
+        },
+        {
+          "explicit_presence_samples": 3,
+          "literal_public_parameter": null,
+          "name": "Prunus padus",
+          "native_taxon_ids": [
+            4512
+          ],
+          "reported_NISP": 3
+        },
+        {
+          "explicit_presence_samples": 115,
+          "literal_public_parameter": null,
+          "name": "Quercus",
+          "native_taxon_ids": [
+            251
+          ],
+          "reported_NISP": 366
+        },
+        {
+          "explicit_presence_samples": 7,
+          "literal_public_parameter": null,
+          "name": "Ranunculaceae undiff.",
+          "native_taxon_ids": [
+            252
+          ],
+          "reported_NISP": 8
+        },
+        {
+          "explicit_presence_samples": 5,
+          "literal_public_parameter": null,
+          "name": "Ranunculus acris-type",
+          "native_taxon_ids": [
+            996
+          ],
+          "reported_NISP": 7
+        },
+        {
+          "explicit_presence_samples": 4,
+          "literal_public_parameter": null,
+          "name": "Rosa",
+          "native_taxon_ids": [
+            843
+          ],
+          "reported_NISP": 4
+        },
+        {
+          "explicit_presence_samples": 20,
+          "literal_public_parameter": null,
+          "name": "Rosaceae undiff.",
+          "native_taxon_ids": [
+            355
+          ],
+          "reported_NISP": 22
+        },
+        {
+          "explicit_presence_samples": 9,
+          "literal_public_parameter": null,
+          "name": "Rubiaceae",
+          "native_taxon_ids": [
+            733
+          ],
+          "reported_NISP": 11
+        },
+        {
+          "explicit_presence_samples": 17,
+          "literal_public_parameter": null,
+          "name": "Rumex acetosa/R. acetosella-type",
+          "native_taxon_ids": [
+            4073
+          ],
+          "reported_NISP": 24
+        },
+        {
+          "explicit_presence_samples": 6,
+          "literal_public_parameter": null,
+          "name": "Rumex acetosella-type",
+          "native_taxon_ids": [
+            1532
+          ],
+          "reported_NISP": 8
+        },
+        {
+          "explicit_presence_samples": 123,
+          "literal_public_parameter": null,
+          "name": "Salix undiff.",
+          "native_taxon_ids": [
+            1216
+          ],
+          "reported_NISP": 398
+        },
+        {
+          "explicit_presence_samples": 3,
+          "literal_public_parameter": {
+            "PPE": 3.99,
+            "SD": 0.32,
+            "fall_speed_m_s": 0.06,
+            "numerical_annotation_refusal": false,
+            "source": {
+              "": "",
+              "FSP (m/s)": "0.06",
+              "Land-cover types (LCTs)": "",
+              "PFT": "",
+              "PFT definition": "",
+              "PPE (SD)": "3.99 (0.320)",
+              "Plant taxa/Pollen-morphological types": "Secale cereale"
+            }
+          },
+          "name": "Secale cereale",
+          "native_taxon_ids": [
+            3926
+          ],
+          "reported_NISP": 3
+        },
+        {
+          "explicit_presence_samples": 9,
+          "literal_public_parameter": null,
+          "name": "Sinapis-type",
+          "native_taxon_ids": [
+            4856
+          ],
+          "reported_NISP": 9
+        },
+        {
+          "explicit_presence_samples": 3,
+          "literal_public_parameter": null,
+          "name": "Solidago-type",
+          "native_taxon_ids": [
+            3407
+          ],
+          "reported_NISP": 3
+        },
+        {
+          "explicit_presence_samples": 9,
+          "literal_public_parameter": null,
+          "name": "Sparganium emersum-type",
+          "native_taxon_ids": [
+            4890
+          ],
+          "reported_NISP": 13
+        },
+        {
+          "explicit_presence_samples": 101,
+          "literal_public_parameter": null,
+          "name": "Spermatophyta undiff. (aquatics)",
+          "native_taxon_ids": [
+            20
+          ],
+          "reported_NISP": 281
+        },
+        {
+          "explicit_presence_samples": 14,
+          "literal_public_parameter": null,
+          "name": "Thalictrum",
+          "native_taxon_ids": [
+            300
+          ],
+          "reported_NISP": 18
+        },
+        {
+          "explicit_presence_samples": 84,
+          "literal_public_parameter": null,
+          "name": "Tilia cordata",
+          "native_taxon_ids": [
+            3472
+          ],
+          "reported_NISP": 329
+        },
+        {
+          "explicit_presence_samples": 1,
+          "literal_public_parameter": null,
+          "name": "Typha latifolia",
+          "native_taxon_ids": [
+            309
+          ],
+          "reported_NISP": 1
+        },
+        {
+          "explicit_presence_samples": 142,
+          "literal_public_parameter": {
+            "PPE": 1.27,
+            "SD": 0.05,
+            "fall_speed_m_s": 0.032,
+            "numerical_annotation_refusal": false,
+            "source": {
+              "": "",
+              "FSP (m/s)": "0.032",
+              "Land-cover types (LCTs)": "",
+              "PFT": "",
+              "PFT definition": "",
+              "PPE (SD)": "1.27 (0.05)",
+              "Plant taxa/Pollen-morphological types": "Ulmus"
+            }
+          },
+          "name": "Ulmus",
+          "native_taxon_ids": [
+            310
+          ],
+          "reported_NISP": 1375
+        },
+        {
+          "explicit_presence_samples": 57,
+          "literal_public_parameter": null,
+          "name": "Urtica",
+          "native_taxon_ids": [
+            498
+          ],
+          "reported_NISP": 89
+        },
+        {
+          "explicit_presence_samples": 10,
+          "literal_public_parameter": null,
+          "name": "Vaccinium-type",
+          "native_taxon_ids": [
+            1173
+          ],
+          "reported_NISP": 16
+        },
+        {
+          "explicit_presence_samples": 23,
+          "literal_public_parameter": null,
+          "name": "cf. Sorbus aucuparia",
+          "native_taxon_ids": [
+            32456
+          ],
+          "reported_NISP": 29
+        }
+      ],
+      "source_locator": {
+        "part": "part-007.json",
+        "row_ordinal": 1
+      },
+      "source_sample_count": 150,
+      "strict_common_numerically_unannotated_parameter_labels": [
+        "Betula",
+        "Pinus sylvestris"
+      ],
+      "strict_common_parameter_labels_across_eligible_samples": [
+        "Betula",
+        "Pinus sylvestris"
+      ],
+      "unparameterized_reported_NISP": 18961
+    },
+    {
+      "Betula_Poaceae_actual_presence_positive_panel_samples": 72,
+      "Betula_Poaceae_eligible_source_sample_denominator": 72,
+      "all_reported_label_count": 68,
+      "all_reported_pollen_NISP": 47085,
+      "all_source_core_count_denominator_known": true,
+      "count_refusals": {},
+      "count_valid_samples": 72,
+      "count_valid_source_pollen_NISP": 47085,
+      "eligible_missing_both_age_error_bounds": 72,
+      "geometry_alternatives": {
+        "metadata_circle_area_ha": 8.042477193189871,
+        "metadata_static_radius_m_assumption": 160,
+        "reported_area_circle_equivalent_radius_m_assumptions": [
+          {
+            "circle_equivalent_radius_m": 151.3879513212096,
+            "dated_geometry_admission": false,
+            "reported_area_ha": 7.2
+          },
+          {
+            "circle_equivalent_radius_m": 159.57691216057307,
+            "dated_geometry_admission": false,
+            "reported_area_ha": 8.0
+          }
+        ]
+      },
+      "historical_selected_model_or_row_admission": false,
+      "literal_PPE_labels_present": [
+        "Artemisia",
+        "Betula",
+        "Calluna vulgaris",
+        "Filipendula",
+        "Juniperus communis",
+        "Pinus sylvestris",
+        "Poaceae",
+        "Ulmus"
+      ],
+      "literal_PPE_mapped_NISP": 42453,
+      "metadata_locator": "landclim_ii_site_metadata.xlsx#LANDCLIMII metadata file!801",
+      "named_point_domain_eligible_samples": 72,
+      "named_point_refusals": {},
+      "native_default_chronology": 11600,
+      "prior_nonnegative_BP_point_or_bounds_refusals": 0,
+      "raw_metadata_fields": {
+        "0-100": "L",
+        "100-350": "L",
+        "10200-10700": "L",
+        "10700-11200": "-",
+        "11200-11700": "-",
+        "1200-1700": "L",
+        "1700-2200": "L",
+        "2200-2700": "L",
+        "2700-3200": "L",
+        "3200-3700": "L",
+        "350-700": "L",
+        "3700-4200": "L",
+        "4200-4700": "L",
+        "4700-5200": "L",
+        "5200-5700": "L",
+        "5700-6200": "L",
+        "6200-6700": "L",
+        "6700-7200": "L",
+        "700-1200": "L",
+        "7200-7700": "L",
+        "7700-8200": "L",
+        "8200-8700": "L",
+        "8700-9200": "L",
+        "9200-9700": "L",
+        "9700-10200": "L",
+        "BotBP": "10514",
+        "ChronologyNotes": null,
+        "Country": "Norway",
+        "DataRestricted/NotRestriced": "NR",
+        "Database/Authorname and/or data collector": "EPD",
+        "Elevation": "355",
+        "LCGRID_ID": "1486",
+        "LandClimProject": "LandClimI",
+        "No. of 14C dates for model": "11",
+        "SiteName": "Dalmutladdo",
+        "TopBP": "-64",
+        "chronologySource": "Authors chronology",
+        "csvfilename": "dalmutladdo",
+        "latdd": "69.166667000000004",
+        "londd": "20.716667000000001",
+        "nPollenSamples": "72",
+        "nTWs": "23",
+        "siteType": "lake",
+        "siteradius": "160"
+      },
+      "raw_source_metadata": {
+        "collection_unit": {
+          "colldate": "2001-01-01",
+          "collectiondevice": "11 cm diameter.",
+          "collectionunit": null,
+          "collectionunitid": 14989,
+          "collunittype": "Core",
+          "defaultchronology": 11600,
+          "depositionalenvironment": "Glacial Origin Lake",
+          "gpslocation": {
+            "gpsaltitude": null,
+            "gpserror": null,
+            "latitude": null,
+            "longitude": null
+          },
+          "handle": "DALMUT",
+          "location": null,
+          "notes": "Local vegetation: Sphagnum mosses.",
+          "waterdepth": 4.5
+        },
+        "dataset": {
+          "agerange": [
+            {
+              "ageold": 10541,
+              "ageyoung": 0,
+              "units": "Calibrated radiocarbon years BP"
+            },
+            {
+              "ageold": 9584,
+              "ageyoung": 0,
+              "units": "Radiocarbon years BP"
+            }
+          ],
+          "database": "European Pollen Database",
+          "datasetid": 20034,
+          "datasetname": null,
+          "datasetnotes": "Data contributed by Bjune Anne E.",
+          "datasetpi": [
+            {
+              "contactid": 8804,
+              "contactname": "Bjune, Anne Elisabeth",
+              "familyname": "Bjune",
+              "firstname": "Anne Elisabeth",
+              "initials": "A.E."
+            }
+          ],
+          "datasettype": "pollen",
+          "doi": [
+            "10.21233/c8mz-0061"
+          ]
+        },
+        "site": {
+          "altitude": 569,
+          "area": null,
+          "dataset": {
+            "agerange": [
+              {
+                "ageold": 10541,
+                "ageyoung": 0,
+                "units": "Calibrated radiocarbon years BP"
+              },
+              {
+                "ageold": 9584,
+                "ageyoung": 0,
+                "units": "Radiocarbon years BP"
+              }
+            ],
+            "database": "European Pollen Database",
+            "datasetid": 20034,
+            "datasetname": null,
+            "datasetnotes": "Data contributed by Bjune Anne E.",
+            "datasetpi": [
+              {
+                "contactid": 8804,
+                "contactname": "Bjune, Anne Elisabeth",
+                "familyname": "Bjune",
+                "firstname": "Anne Elisabeth",
+                "initials": "A.E."
+              }
+            ],
+            "datasettype": "pollen",
+            "doi": [
+              "10.21233/c8mz-0061"
+            ]
+          },
+          "geopolitical": [
+            "Norway",
+            "Troms"
+          ],
+          "notes": null,
+          "sitedescription": "Lake. Physiography: Depression in the valley. Surrounding vegetation: Betula forest. Vegetation formation: Boreal forest.",
+          "siteid": 13388,
+          "sitename": "Dalmutladdo"
+        }
+      },
+      "selected_named_calibrated_chronology": {
+        "chronology_id": 11601,
+        "model": {
+          "agemodel": "Weighted mixed effects regression procedure (Heegaard 2003)",
+          "agerange": {
+            "ageboundolder": 10550,
+            "ageboundyounger": 0
+          },
+          "chronologyname": "author preferred",
+          "contact": [
+            {
+              "contactid": 8769,
+              "contactname": "Heegaard, Einar",
+              "familyname": "Heegaard",
+              "givenname": "Einar",
+              "leadinginitial": "E"
+            }
+          ],
+          "dateprepared": "2003-01-01",
+          "isdefault": true,
+          "modelagetype": "Calibrated radiocarbon years BP",
+          "notes": null
+        },
+        "raw_control_count": 13,
+        "raw_control_sha256": "21e4ef233eeb2649e7470710eb279b2313a7b1a8f805f6bdfdec079a3743c955"
+      },
+      "source_core": {
+        "country": "Norway",
+        "country_code": "NO",
+        "expected_handle": "DALMUT",
+        "expected_samples": 72,
+        "metadata_code": "dalmutladdo",
+        "metadata_radius_m": 160,
+        "named_calibrated_chronology_id": 11601,
+        "native_collection_unit_id": 14989,
+        "native_dataset_id": 20034,
+        "native_site_id": 13388,
+        "part": "part-004.json",
+        "reported_area_alternatives_ha": [
+          7.2,
+          8.0
+        ]
+      },
+      "source_label_ledger": [
+        {
+          "explicit_presence_samples": 3,
+          "literal_public_parameter": null,
+          "name": "Achillea-type",
+          "native_taxon_ids": [
+            820
+          ],
+          "reported_NISP": 3
+        },
+        {
+          "explicit_presence_samples": 65,
+          "literal_public_parameter": null,
+          "name": "Alnus",
+          "native_taxon_ids": [
+            330
+          ],
+          "reported_NISP": 761
+        },
+        {
+          "explicit_presence_samples": 11,
+          "literal_public_parameter": null,
+          "name": "Amaranthaceae",
+          "native_taxon_ids": [
+            391
+          ],
+          "reported_NISP": 12
+        },
+        {
+          "explicit_presence_samples": 4,
+          "literal_public_parameter": null,
+          "name": "Angelica-type",
+          "native_taxon_ids": [
+            3784
+          ],
+          "reported_NISP": 4
+        },
+        {
+          "explicit_presence_samples": 5,
+          "literal_public_parameter": null,
+          "name": "Apiaceae undiff.",
+          "native_taxon_ids": [
+            1172
+          ],
+          "reported_NISP": 5
+        },
+        {
+          "explicit_presence_samples": 29,
+          "literal_public_parameter": {
+            "PPE": 3.937,
+            "SD": 0.146,
+            "fall_speed_m_s": 0.025,
+            "numerical_annotation_refusal": false,
+            "source": {
+              "": "",
+              "FSP (m/s)": "0.025",
+              "Land-cover types (LCTs)": "",
+              "PFT": "GL",
+              "PFT definition": "Grassland - all herbs",
+              "PPE (SD)": "3.937 (0.146)",
+              "Plant taxa/Pollen-morphological types": "Artemisia"
+            }
+          },
+          "name": "Artemisia",
+          "native_taxon_ids": [
+            25
+          ],
+          "reported_NISP": 42
+        },
+        {
+          "explicit_presence_samples": 1,
+          "literal_public_parameter": null,
+          "name": "Astragalus cf. A. alpinus",
+          "native_taxon_ids": [
+            3896
+          ],
+          "reported_NISP": 1
+        },
+        {
+          "explicit_presence_samples": 72,
+          "literal_public_parameter": {
+            "PPE": 5.106,
+            "SD": 0.303,
+            "fall_speed_m_s": 0.024,
+            "numerical_annotation_refusal": false,
+            "source": {
+              "": "",
+              "FSP (m/s)": "0.024",
+              "Land-cover types (LCTs)": "",
+              "PFT": "",
+              "PFT definition": "",
+              "PPE (SD)": "5.106 (0.303)",
+              "Plant taxa/Pollen-morphological types": "Betula"
+            }
+          },
+          "name": "Betula",
+          "native_taxon_ids": [
+            29
+          ],
+          "reported_NISP": 20016
+        },
+        {
+          "explicit_presence_samples": 21,
+          "literal_public_parameter": null,
+          "name": "Betula/Corylus/Myrica",
+          "native_taxon_ids": [
+            2890
+          ],
+          "reported_NISP": 26
+        },
+        {
+          "explicit_presence_samples": 3,
+          "literal_public_parameter": null,
+          "name": "Brassicaceae",
+          "native_taxon_ids": [
+            420
+          ],
+          "reported_NISP": 3
+        },
+        {
+          "explicit_presence_samples": 11,
+          "literal_public_parameter": {
+            "PPE": 1.085,
+            "SD": 0.029,
+            "fall_speed_m_s": 0.038,
+            "numerical_annotation_refusal": false,
+            "source": {
+              "": "",
+              "FSP (m/s)": "0.038",
+              "Land-cover types (LCTs)": "Open land (OL)",
+              "PFT": "LSE",
+              "PFT definition": "Low shrub, broadleaved evergreen",
+              "PPE (SD)": "1.085 (0.029)",
+              "Plant taxa/Pollen-morphological types": "Calluna vulgaris"
+            }
+          },
+          "name": "Calluna vulgaris",
+          "native_taxon_ids": [
+            2897
+          ],
+          "reported_NISP": 13
+        },
+        {
+          "explicit_presence_samples": 4,
+          "literal_public_parameter": null,
+          "name": "Caltha-type",
+          "native_taxon_ids": [
+            585
+          ],
+          "reported_NISP": 4
+        },
+        {
+          "explicit_presence_samples": 70,
+          "literal_public_parameter": null,
+          "name": "Carex-type",
+          "native_taxon_ids": [
+            5064
+          ],
+          "reported_NISP": 1415
+        },
+        {
+          "explicit_presence_samples": 1,
+          "literal_public_parameter": null,
+          "name": "Caryophyllaceae undiff.",
+          "native_taxon_ids": [
+            1013
+          ],
+          "reported_NISP": 1
+        },
+        {
+          "explicit_presence_samples": 5,
+          "literal_public_parameter": null,
+          "name": "Cerastium-type",
+          "native_taxon_ids": [
+            999
+          ],
+          "reported_NISP": 7
+        },
+        {
+          "explicit_presence_samples": 13,
+          "literal_public_parameter": null,
+          "name": "Cichorioideae",
+          "native_taxon_ids": [
+            160
+          ],
+          "reported_NISP": 16
+        },
+        {
+          "explicit_presence_samples": 7,
+          "literal_public_parameter": null,
+          "name": "Cirsium/Carduus-type",
+          "native_taxon_ids": [
+            822
+          ],
+          "reported_NISP": 7
+        },
+        {
+          "explicit_presence_samples": 40,
+          "literal_public_parameter": null,
+          "name": "Corylus",
+          "native_taxon_ids": [
+            67
+          ],
+          "reported_NISP": 68
+        },
+        {
+          "explicit_presence_samples": 69,
+          "literal_public_parameter": null,
+          "name": "Cyperaceae undiff.",
+          "native_taxon_ids": [
+            430
+          ],
+          "reported_NISP": 277
+        },
+        {
+          "explicit_presence_samples": 5,
+          "literal_public_parameter": null,
+          "name": "Dryas octopetala",
+          "native_taxon_ids": [
+            4047
+          ],
+          "reported_NISP": 7
+        },
+        {
+          "explicit_presence_samples": 27,
+          "literal_public_parameter": null,
+          "name": "Empetrum nigrum",
+          "native_taxon_ids": [
+            4242
+          ],
+          "reported_NISP": 62
+        },
+        {
+          "explicit_presence_samples": 7,
+          "literal_public_parameter": null,
+          "name": "Epilobium",
+          "native_taxon_ids": [
+            90
+          ],
+          "reported_NISP": 7
+        },
+        {
+          "explicit_presence_samples": 67,
+          "literal_public_parameter": null,
+          "name": "Ericaceae-type",
+          "native_taxon_ids": [
+            722
+          ],
+          "reported_NISP": 722
+        },
+        {
+          "explicit_presence_samples": 1,
+          "literal_public_parameter": null,
+          "name": "Euphrasia",
+          "native_taxon_ids": [
+            2759
+          ],
+          "reported_NISP": 1
+        },
+        {
+          "explicit_presence_samples": 44,
+          "literal_public_parameter": {
+            "PPE": 3.0,
+            "SD": 0.285,
+            "fall_speed_m_s": 0.006,
+            "numerical_annotation_refusal": false,
+            "source": {
+              "": "",
+              "FSP (m/s)": "0.006",
+              "Land-cover types (LCTs)": "",
+              "PFT": "",
+              "PFT definition": "",
+              "PPE (SD)": "3 (0.285)",
+              "Plant taxa/Pollen-morphological types": "Filipendula"
+            }
+          },
+          "name": "Filipendula",
+          "native_taxon_ids": [
+            1428
+          ],
+          "reported_NISP": 80
+        },
+        {
+          "explicit_presence_samples": 16,
+          "literal_public_parameter": null,
+          "name": "Fraxinus excelsior",
+          "native_taxon_ids": [
+            3579
+          ],
+          "reported_NISP": 18
+        },
+        {
+          "explicit_presence_samples": 7,
+          "literal_public_parameter": null,
+          "name": "Geranium sylvaticum-type",
+          "native_taxon_ids": [
+            27617
+          ],
+          "reported_NISP": 7
+        },
+        {
+          "explicit_presence_samples": 2,
+          "literal_public_parameter": null,
+          "name": "Hippopha\u00eb rhamnoides",
+          "native_taxon_ids": [
+            1306
+          ],
+          "reported_NISP": 2
+        },
+        {
+          "explicit_presence_samples": 69,
+          "literal_public_parameter": {
+            "PPE": 2.07,
+            "SD": 0.04,
+            "fall_speed_m_s": 0.016,
+            "numerical_annotation_refusal": false,
+            "source": {
+              "": "",
+              "FSP (m/s)": "0.016",
+              "Land-cover types (LCTs)": "",
+              "PFT": "TSE",
+              "PFT definition": "Tall shrub, evergreen",
+              "PPE (SD)": "2.07 (0.04)",
+              "Plant taxa/Pollen-morphological types": "Juniperus communis"
+            }
+          },
+          "name": "Juniperus communis",
+          "native_taxon_ids": [
+            4416
+          ],
+          "reported_NISP": 1703
+        },
+        {
+          "explicit_presence_samples": 1,
+          "literal_public_parameter": null,
+          "name": "Knautia arvensis",
+          "native_taxon_ids": [
+            1326
+          ],
+          "reported_NISP": 1
+        },
+        {
+          "explicit_presence_samples": 28,
+          "literal_public_parameter": null,
+          "name": "Melampyrum",
+          "native_taxon_ids": [
+            997
+          ],
+          "reported_NISP": 48
+        },
+        {
+          "explicit_presence_samples": 4,
+          "literal_public_parameter": null,
+          "name": "Menyanthes trifoliata",
+          "native_taxon_ids": [
+            182
+          ],
+          "reported_NISP": 5
+        },
+        {
+          "explicit_presence_samples": 4,
+          "literal_public_parameter": null,
+          "name": "Micranthes stellaris-type",
+          "native_taxon_ids": [
+            748
+          ],
+          "reported_NISP": 6
+        },
+        {
+          "explicit_presence_samples": 27,
+          "literal_public_parameter": null,
+          "name": "Oxyria digyna",
+          "native_taxon_ids": [
+            198
+          ],
+          "reported_NISP": 37
+        },
+        {
+          "explicit_presence_samples": 36,
+          "literal_public_parameter": null,
+          "name": "Picea",
+          "native_taxon_ids": [
+            210
+          ],
+          "reported_NISP": 132
+        },
+        {
+          "explicit_presence_samples": 72,
+          "literal_public_parameter": {
+            "PPE": 6.058,
+            "SD": 0.237,
+            "fall_speed_m_s": 0.031,
+            "numerical_annotation_refusal": false,
+            "source": {
+              "": "",
+              "FSP (m/s)": "0.031",
+              "Land-cover types (LCTs)": "",
+              "PFT": "IBE",
+              "PFT definition": "Shade-intolerant evergreen trees",
+              "PPE (SD)": "6.058 (0.237)",
+              "Plant taxa/Pollen-morphological types": "Pinus sylvestris"
+            }
+          },
+          "name": "Pinus sylvestris",
+          "native_taxon_ids": [
+            1287
+          ],
+          "reported_NISP": 19108
+        },
+        {
+          "explicit_presence_samples": 72,
+          "literal_public_parameter": {
+            "PPE": 1.0,
+            "SD": 0.0,
+            "fall_speed_m_s": 0.035,
+            "numerical_annotation_refusal": false,
+            "source": {
+              "": "",
+              "FSP (m/s)": "0.035",
+              "Land-cover types (LCTs)": "",
+              "PFT": "",
+              "PFT definition": "",
+              "PPE (SD)": "1 (0)",
+              "Plant taxa/Pollen-morphological types": "Poaceae"
+            }
+          },
+          "name": "Poaceae",
+          "native_taxon_ids": [
+            417
+          ],
+          "reported_NISP": 1452
+        },
+        {
+          "explicit_presence_samples": 26,
+          "literal_public_parameter": null,
+          "name": "Potamogeton",
+          "native_taxon_ids": [
+            517
+          ],
+          "reported_NISP": 77
+        },
+        {
+          "explicit_presence_samples": 19,
+          "literal_public_parameter": null,
+          "name": "Potentilla-type",
+          "native_taxon_ids": [
+            242
+          ],
+          "reported_NISP": 22
+        },
+        {
+          "explicit_presence_samples": 18,
+          "literal_public_parameter": null,
+          "name": "Quercus",
+          "native_taxon_ids": [
+            251
+          ],
+          "reported_NISP": 25
+        },
+        {
+          "explicit_presence_samples": 11,
+          "literal_public_parameter": null,
+          "name": "Ranunculus acris-type",
+          "native_taxon_ids": [
+            996
+          ],
+          "reported_NISP": 11
+        },
+        {
+          "explicit_presence_samples": 1,
+          "literal_public_parameter": null,
+          "name": "Ranunculus trichophyllus-type",
+          "native_taxon_ids": [
+            1467
+          ],
+          "reported_NISP": 1
+        },
+        {
+          "explicit_presence_samples": 1,
+          "literal_public_parameter": null,
+          "name": "Rhinanthus-type",
+          "native_taxon_ids": [
+            2931
+          ],
+          "reported_NISP": 1
+        },
+        {
+          "explicit_presence_samples": 1,
+          "literal_public_parameter": null,
+          "name": "Rhododendron tomentosum",
+          "native_taxon_ids": [
+            4431
+          ],
+          "reported_NISP": 1
+        },
+        {
+          "explicit_presence_samples": 2,
+          "literal_public_parameter": null,
+          "name": "Rosaceae undiff.",
+          "native_taxon_ids": [
+            355
+          ],
+          "reported_NISP": 2
+        },
+        {
+          "explicit_presence_samples": 3,
+          "literal_public_parameter": null,
+          "name": "Rubiaceae",
+          "native_taxon_ids": [
+            733
+          ],
+          "reported_NISP": 3
+        },
+        {
+          "explicit_presence_samples": 16,
+          "literal_public_parameter": null,
+          "name": "Rubus chamaemorus",
+          "native_taxon_ids": [
+            734
+          ],
+          "reported_NISP": 34
+        },
+        {
+          "explicit_presence_samples": 33,
+          "literal_public_parameter": null,
+          "name": "Rumex acetosa-type",
+          "native_taxon_ids": [
+            736
+          ],
+          "reported_NISP": 80
+        },
+        {
+          "explicit_presence_samples": 30,
+          "literal_public_parameter": null,
+          "name": "Rumex acetosa/R. acetosella-type",
+          "native_taxon_ids": [
+            4073
+          ],
+          "reported_NISP": 64
+        },
+        {
+          "explicit_presence_samples": 3,
+          "literal_public_parameter": null,
+          "name": "Rumex acetosella-type",
+          "native_taxon_ids": [
+            1532
+          ],
+          "reported_NISP": 4
+        },
+        {
+          "explicit_presence_samples": 11,
+          "literal_public_parameter": null,
+          "name": "Salix herbacea-type",
+          "native_taxon_ids": [
+            739
+          ],
+          "reported_NISP": 21
+        },
+        {
+          "explicit_presence_samples": 67,
+          "literal_public_parameter": null,
+          "name": "Salix undiff.",
+          "native_taxon_ids": [
+            1216
+          ],
+          "reported_NISP": 323
+        },
+        {
+          "explicit_presence_samples": 8,
+          "literal_public_parameter": null,
+          "name": "Saxifraga oppositifolia-type",
+          "native_taxon_ids": [
+            747
+          ],
+          "reported_NISP": 10
+        },
+        {
+          "explicit_presence_samples": 5,
+          "literal_public_parameter": null,
+          "name": "Sedum",
+          "native_taxon_ids": [
+            285
+          ],
+          "reported_NISP": 5
+        },
+        {
+          "explicit_presence_samples": 2,
+          "literal_public_parameter": null,
+          "name": "Silene dioica-type",
+          "native_taxon_ids": [
+            3814
+          ],
+          "reported_NISP": 2
+        },
+        {
+          "explicit_presence_samples": 1,
+          "literal_public_parameter": null,
+          "name": "Silene vulgaris-type",
+          "native_taxon_ids": [
+            3815
+          ],
+          "reported_NISP": 1
+        },
+        {
+          "explicit_presence_samples": 44,
+          "literal_public_parameter": null,
+          "name": "Solidago-type",
+          "native_taxon_ids": [
+            3407
+          ],
+          "reported_NISP": 76
+        },
+        {
+          "explicit_presence_samples": 25,
+          "literal_public_parameter": null,
+          "name": "Sorbus-type",
+          "native_taxon_ids": [
+            3455
+          ],
+          "reported_NISP": 34
+        },
+        {
+          "explicit_presence_samples": 4,
+          "literal_public_parameter": null,
+          "name": "Sparganium emersum-type",
+          "native_taxon_ids": [
+            4890
+          ],
+          "reported_NISP": 4
+        },
+        {
+          "explicit_presence_samples": 34,
+          "literal_public_parameter": null,
+          "name": "Thalictrum",
+          "native_taxon_ids": [
+            300
+          ],
+          "reported_NISP": 50
+        },
+        {
+          "explicit_presence_samples": 2,
+          "literal_public_parameter": null,
+          "name": "Tilia cordata",
+          "native_taxon_ids": [
+            3472
+          ],
+          "reported_NISP": 2
+        },
+        {
+          "explicit_presence_samples": 1,
+          "literal_public_parameter": null,
+          "name": "Tofieldia pusilla",
+          "native_taxon_ids": [
+            2200
+          ],
+          "reported_NISP": 1
+        },
+        {
+          "explicit_presence_samples": 3,
+          "literal_public_parameter": null,
+          "name": "Trientalis europaea",
+          "native_taxon_ids": [
+            4907
+          ],
+          "reported_NISP": 3
+        },
+        {
+          "explicit_presence_samples": 3,
+          "literal_public_parameter": null,
+          "name": "Trollius europaeus",
+          "native_taxon_ids": [
+            4923
+          ],
+          "reported_NISP": 6
+        },
+        {
+          "explicit_presence_samples": 29,
+          "literal_public_parameter": {
+            "PPE": 1.27,
+            "SD": 0.05,
+            "fall_speed_m_s": 0.032,
+            "numerical_annotation_refusal": false,
+            "source": {
+              "": "",
+              "FSP (m/s)": "0.032",
+              "Land-cover types (LCTs)": "",
+              "PFT": "",
+              "PFT definition": "",
+              "PPE (SD)": "1.27 (0.05)",
+              "Plant taxa/Pollen-morphological types": "Ulmus"
+            }
+          },
+          "name": "Ulmus",
+          "native_taxon_ids": [
+            310
+          ],
+          "reported_NISP": 39
+        },
+        {
+          "explicit_presence_samples": 33,
+          "literal_public_parameter": null,
+          "name": "Urtica",
+          "native_taxon_ids": [
+            498
+          ],
+          "reported_NISP": 40
+        },
+        {
+          "explicit_presence_samples": 31,
+          "literal_public_parameter": null,
+          "name": "Vaccinium-type",
+          "native_taxon_ids": [
+            1173
+          ],
+          "reported_NISP": 63
+        },
+        {
+          "explicit_presence_samples": 1,
+          "literal_public_parameter": null,
+          "name": "Valeriana excelsa subsp. sambucifolia-type",
+          "native_taxon_ids": [
+            34225
+          ],
+          "reported_NISP": 1
+        }
+      ],
+      "source_locator": {
+        "part": "part-004.json",
+        "row_ordinal": 21
+      },
+      "source_sample_count": 72,
+      "strict_common_numerically_unannotated_parameter_labels": [
+        "Betula",
+        "Pinus sylvestris",
+        "Poaceae"
+      ],
+      "strict_common_parameter_labels_across_eligible_samples": [
+        "Betula",
+        "Pinus sylvestris",
+        "Poaceae"
+      ],
+      "unparameterized_reported_NISP": 4632
+    },
+    {
+      "Betula_Poaceae_actual_presence_positive_panel_samples": 0,
+      "Betula_Poaceae_eligible_source_sample_denominator": 65,
+      "all_reported_label_count": 136,
+      "all_reported_pollen_NISP": 101991,
+      "all_source_core_count_denominator_known": true,
+      "count_refusals": {},
+      "count_valid_samples": 66,
+      "count_valid_source_pollen_NISP": 101991,
+      "eligible_missing_both_age_error_bounds": 0,
+      "geometry_alternatives": {
+        "metadata_circle_area_ha": 2.488455540908475,
+        "metadata_static_radius_m_assumption": 89,
+        "reported_area_circle_equivalent_radius_m_assumptions": [
+          {
+            "circle_equivalent_radius_m": 89.20620580763855,
+            "dated_geometry_admission": false,
+            "reported_area_ha": 2.5
+          }
+        ]
+      },
+      "historical_selected_model_or_row_admission": false,
+      "literal_PPE_labels_present": [
+        "Alnus glutinosa",
+        "Artemisia",
+        "Betula",
+        "Calluna vulgaris",
+        "Carpinus betulus",
+        "Corylus avellana",
+        "Fagus sylvatica",
+        "Filipendula",
+        "Juniperus communis",
+        "Plantago lanceolata",
+        "Salix",
+        "Tilia",
+        "Ulmus"
+      ],
+      "literal_PPE_mapped_NISP": 66470,
+      "metadata_locator": "landclim_ii_site_metadata.xlsx#LANDCLIMII metadata file!95",
+      "named_point_domain_eligible_samples": 65,
+      "named_point_refusals": {
+        "point_outside_declared_windows": 1
+      },
+      "native_default_chronology": 25731,
+      "prior_nonnegative_BP_point_or_bounds_refusals": 1,
+      "raw_metadata_fields": {
+        "0-100": "L",
+        "100-350": "L",
+        "10200-10700": "L",
+        "10700-11200": "L",
+        "11200-11700": "L",
+        "1200-1700": "L",
+        "1700-2200": "L",
+        "2200-2700": "L",
+        "2700-3200": "L",
+        "3200-3700": "L",
+        "350-700": "L",
+        "3700-4200": "L",
+        "4200-4700": "L",
+        "4700-5200": "L",
+        "5200-5700": "L",
+        "5700-6200": "L",
+        "6200-6700": "L",
+        "6700-7200": "L",
+        "700-1200": "L",
+        "7200-7700": "L",
+        "7700-8200": "L",
+        "8200-8700": "L",
+        "8700-9200": "L",
+        "9200-9700": "L",
+        "9700-10200": "L",
+        "BotBP": "11659",
+        "ChronologyNotes": null,
+        "Country": "Denmark",
+        "DataRestricted/NotRestriced": "R",
+        "Database/Authorname and/or data collector": "Bent Odgaard",
+        "Elevation": "41",
+        "LCGRID_ID": "824",
+        "LandClimProject": "LandClimI",
+        "No. of 14C dates for model": "\u2265 3",
+        "SiteName": "Sols\u00f8",
+        "TopBP": "10",
+        "chronologySource": "Authors chronology",
+        "csvfilename": "Solsoe",
+        "latdd": "56.128432779999997",
+        "londd": "8.6145224999999996",
+        "nPollenSamples": "79",
+        "nTWs": "25",
+        "siteType": "lake",
+        "siteradius": "89"
+      },
+      "raw_source_metadata": {
+        "collection_unit": {
+          "colldate": "1981-11-01",
+          "collectiondevice": "Livingstone corer 10 cm diameter.",
+          "collectionunit": null,
+          "collectionunitid": 4303,
+          "collunittype": "Core",
+          "defaultchronology": 25731,
+          "depositionalenvironment": "Drained Lake",
+          "gpslocation": {
+            "gpsaltitude": null,
+            "gpserror": null,
+            "latitude": null,
+            "longitude": null
+          },
+          "handle": "SOLSOE81",
+          "location": "Central",
+          "notes": "The Sols\u00f8 1981 core shows a hiatus at 472-480 cm (ca. 4200- 6000 14C yrs BP). The Solso 1983 core covers this interval, and a bit more.",
+          "waterdepth": 0.95
+        },
+        "dataset": {
+          "agerange": [
+            {
+              "ageold": 13410,
+              "ageyoung": -41,
+              "units": "Calibrated radiocarbon years BP"
+            },
+            {
+              "ageold": 9788,
+              "ageyoung": 720,
+              "units": "Radiocarbon years BP"
+            }
+          ],
+          "database": "European Pollen Database",
+          "datasetid": 4445,
+          "datasetname": "EPD E# 614",
+          "datasetnotes": "Data contributed by Odgaard Bent V.",
+          "datasetpi": [
+            {
+              "contactid": 1181,
+              "contactname": "Odgaard, Bent V.",
+              "familyname": "Odgaard",
+              "firstname": "Bent V.",
+              "initials": "B.V."
+            }
+          ],
+          "datasettype": "pollen",
+          "doi": [
+            "10.21233/4r4q-0m97"
+          ]
+        },
+        "site": {
+          "altitude": 24,
+          "area": 25563.444301605225,
+          "dataset": {
+            "agerange": [
+              {
+                "ageold": 13410,
+                "ageyoung": -41,
+                "units": "Calibrated radiocarbon years BP"
+              },
+              {
+                "ageold": 9788,
+                "ageyoung": 720,
+                "units": "Radiocarbon years BP"
+              }
+            ],
+            "database": "European Pollen Database",
+            "datasetid": 4445,
+            "datasetname": "EPD E# 614",
+            "datasetnotes": "Data contributed by Odgaard Bent V.",
+            "datasetpi": [
+              {
+                "contactid": 1181,
+                "contactname": "Odgaard, Bent V.",
+                "familyname": "Odgaard",
+                "firstname": "Bent V.",
+                "initials": "B.V."
+              }
+            ],
+            "datasettype": "pollen",
+            "doi": [
+              "10.21233/4r4q-0m97"
+            ]
+          },
+          "geopolitical": [
+            "Denmark",
+            "Midtjylland [Central Jutland]"
+          ],
+          "notes": null,
+          "sitedescription": "Strongly drained lake, now mostly fen. Physiography: almost flat landscape, 30-90 asl heights. Surrounding vegetation: dry-moist pasture, fertilized.",
+          "siteid": 3432,
+          "sitename": "Lake Sols\u00f8"
+        }
+      },
+      "selected_named_calibrated_chronology": {
+        "chronology_id": 25732,
+        "model": {
+          "agemodel": "clam",
+          "agerange": {
+            "ageboundolder": 12420,
+            "ageboundyounger": 0
+          },
+          "chronologyname": "Giesecke et al. 2014 (MADCAP)",
+          "contact": [
+            {
+              "contactid": 8710,
+              "contactname": "Giesecke, Thomas",
+              "familyname": "Giesecke",
+              "givenname": "Thomas",
+              "leadinginitial": "T."
+            }
+          ],
+          "dateprepared": "2011-01-01",
+          "isdefault": true,
+          "modelagetype": "Calibrated radiocarbon years BP",
+          "notes": "Linear age model. Based on IntCal09 calibration curve. Preparer notes: Hiatus between 478 and 474 to be compleeted witth SOLOSO83"
+        },
+        "raw_control_count": 31,
+        "raw_control_sha256": "70afc35f849d13537d9be5f47f0e2dd554a05b2f23a2e6410908499c3d3a909e"
+      },
+      "source_core": {
+        "country": "Denmark",
+        "country_code": "DK",
+        "expected_handle": "SOLSOE81",
+        "expected_samples": 66,
+        "metadata_code": "Solsoe",
+        "metadata_radius_m": 89,
+        "named_calibrated_chronology_id": 25732,
+        "native_collection_unit_id": 4303,
+        "native_dataset_id": 4445,
+        "native_site_id": 3432,
+        "part": "part-003.json",
+        "reported_area_alternatives_ha": [
+          2.5
+        ]
+      },
+      "source_label_ledger": [
+        {
+          "explicit_presence_samples": 4,
+          "literal_public_parameter": null,
+          "name": "Acer",
+          "native_taxon_ids": [
+            338
+          ],
+          "reported_NISP": 5
+        },
+        {
+          "explicit_presence_samples": 17,
+          "literal_public_parameter": null,
+          "name": "Achillea-type",
+          "native_taxon_ids": [
+            820
+          ],
+          "reported_NISP": 28
+        },
+        {
+          "explicit_presence_samples": 63,
+          "literal_public_parameter": {
+            "PPE": 13.562,
+            "SD": 0.293,
+            "fall_speed_m_s": 0.021,
+            "numerical_annotation_refusal": false,
+            "source": {
+              "": "",
+              "FSP (m/s)": "0.021",
+              "Land-cover types (LCTs)": "Summer-green trees (ST)",
+              "PFT": "IBS",
+              "PFT definition": "Shade-intolerant summer-green trees",
+              "PPE (SD)": "13.562 (0.293)",
+              "Plant taxa/Pollen-morphological types": "Alnus glutinosa"
+            }
+          },
+          "name": "Alnus glutinosa",
+          "native_taxon_ids": [
+            1299
+          ],
+          "reported_NISP": 8972
+        },
+        {
+          "explicit_presence_samples": 44,
+          "literal_public_parameter": null,
+          "name": "Amaranthaceae",
+          "native_taxon_ids": [
+            391
+          ],
+          "reported_NISP": 105
+        },
+        {
+          "explicit_presence_samples": 5,
+          "literal_public_parameter": null,
+          "name": "Anemone",
+          "native_taxon_ids": [
+            1142
+          ],
+          "reported_NISP": 7
+        },
+        {
+          "explicit_presence_samples": 1,
+          "literal_public_parameter": null,
+          "name": "Apiaceae undiff.",
+          "native_taxon_ids": [
+            1172
+          ],
+          "reported_NISP": 1
+        },
+        {
+          "explicit_presence_samples": 11,
+          "literal_public_parameter": null,
+          "name": "Apium-type",
+          "native_taxon_ids": [
+            3832
+          ],
+          "reported_NISP": 27
+        },
+        {
+          "explicit_presence_samples": 1,
+          "literal_public_parameter": null,
+          "name": "Arctium",
+          "native_taxon_ids": [
+            3837
+          ],
+          "reported_NISP": 1
+        },
+        {
+          "explicit_presence_samples": 1,
+          "literal_public_parameter": null,
+          "name": "Arctostaphylos uva-ursi",
+          "native_taxon_ids": [
+            568
+          ],
+          "reported_NISP": 1
+        },
+        {
+          "explicit_presence_samples": 1,
+          "literal_public_parameter": null,
+          "name": "Armeria maritima",
+          "native_taxon_ids": [
+            569
+          ],
+          "reported_NISP": 1
+        },
+        {
+          "explicit_presence_samples": 54,
+          "literal_public_parameter": {
+            "PPE": 3.937,
+            "SD": 0.146,
+            "fall_speed_m_s": 0.025,
+            "numerical_annotation_refusal": false,
+            "source": {
+              "": "",
+              "FSP (m/s)": "0.025",
+              "Land-cover types (LCTs)": "",
+              "PFT": "GL",
+              "PFT definition": "Grassland - all herbs",
+              "PPE (SD)": "3.937 (0.146)",
+              "Plant taxa/Pollen-morphological types": "Artemisia"
+            }
+          },
+          "name": "Artemisia",
+          "native_taxon_ids": [
+            25
+          ],
+          "reported_NISP": 172
+        },
+        {
+          "explicit_presence_samples": 5,
+          "literal_public_parameter": null,
+          "name": "Avena/Triticum",
+          "native_taxon_ids": [
+            415
+          ],
+          "reported_NISP": 10
+        },
+        {
+          "explicit_presence_samples": 66,
+          "literal_public_parameter": {
+            "PPE": 5.106,
+            "SD": 0.303,
+            "fall_speed_m_s": 0.024,
+            "numerical_annotation_refusal": false,
+            "source": {
+              "": "",
+              "FSP (m/s)": "0.024",
+              "Land-cover types (LCTs)": "",
+              "PFT": "",
+              "PFT definition": "",
+              "PPE (SD)": "5.106 (0.303)",
+              "Plant taxa/Pollen-morphological types": "Betula"
+            }
+          },
+          "name": "Betula",
+          "native_taxon_ids": [
+            29
+          ],
+          "reported_NISP": 18369
+        },
+        {
+          "explicit_presence_samples": 1,
+          "literal_public_parameter": null,
+          "name": "Bidens",
+          "native_taxon_ids": [
+            349
+          ],
+          "reported_NISP": 1
+        },
+        {
+          "explicit_presence_samples": 24,
+          "literal_public_parameter": null,
+          "name": "Brassicaceae",
+          "native_taxon_ids": [
+            420
+          ],
+          "reported_NISP": 59
+        },
+        {
+          "explicit_presence_samples": 66,
+          "literal_public_parameter": {
+            "PPE": 1.085,
+            "SD": 0.029,
+            "fall_speed_m_s": 0.038,
+            "numerical_annotation_refusal": false,
+            "source": {
+              "": "",
+              "FSP (m/s)": "0.038",
+              "Land-cover types (LCTs)": "Open land (OL)",
+              "PFT": "LSE",
+              "PFT definition": "Low shrub, broadleaved evergreen",
+              "PPE (SD)": "1.085 (0.029)",
+              "Plant taxa/Pollen-morphological types": "Calluna vulgaris"
+            }
+          },
+          "name": "Calluna vulgaris",
+          "native_taxon_ids": [
+            2897
+          ],
+          "reported_NISP": 18599
+        },
+        {
+          "explicit_presence_samples": 4,
+          "literal_public_parameter": null,
+          "name": "Caltha palustris",
+          "native_taxon_ids": [
+            2944
+          ],
+          "reported_NISP": 4
+        },
+        {
+          "explicit_presence_samples": 11,
+          "literal_public_parameter": null,
+          "name": "Campanula-type",
+          "native_taxon_ids": [
+            586
+          ],
+          "reported_NISP": 12
+        },
+        {
+          "explicit_presence_samples": 1,
+          "literal_public_parameter": null,
+          "name": "Carduus",
+          "native_taxon_ids": [
+            2460
+          ],
+          "reported_NISP": 1
+        },
+        {
+          "explicit_presence_samples": 66,
+          "literal_public_parameter": null,
+          "name": "Carex-type",
+          "native_taxon_ids": [
+            5064
+          ],
+          "reported_NISP": 2662
+        },
+        {
+          "explicit_presence_samples": 34,
+          "literal_public_parameter": {
+            "PPE": 4.52,
+            "SD": 0.425,
+            "fall_speed_m_s": 0.042,
+            "numerical_annotation_refusal": false,
+            "source": {
+              "": "",
+              "FSP (m/s)": "0.042",
+              "Land-cover types (LCTs)": "",
+              "PFT": "TBS",
+              "PFT definition": "Shade-tolerant summer-green trees",
+              "PPE (SD)": "4.52 (0.425)",
+              "Plant taxa/Pollen-morphological types": "Carpinus betulus"
+            }
+          },
+          "name": "Carpinus betulus",
+          "native_taxon_ids": [
+            1319
+          ],
+          "reported_NISP": 111
+        },
+        {
+          "explicit_presence_samples": 1,
+          "literal_public_parameter": null,
+          "name": "Caryophyllaceae undiff.",
+          "native_taxon_ids": [
+            1013
+          ],
+          "reported_NISP": 1
+        },
+        {
+          "explicit_presence_samples": 1,
+          "literal_public_parameter": null,
+          "name": "Centaurea cyanus",
+          "native_taxon_ids": [
+            1336
+          ],
+          "reported_NISP": 1
+        },
+        {
+          "explicit_presence_samples": 1,
+          "literal_public_parameter": null,
+          "name": "Centaurea jacea-type",
+          "native_taxon_ids": [
+            4001
+          ],
+          "reported_NISP": 1
+        },
+        {
+          "explicit_presence_samples": 1,
+          "literal_public_parameter": null,
+          "name": "Centaurea scabiosa",
+          "native_taxon_ids": [
+            3441
+          ],
+          "reported_NISP": 1
+        },
+        {
+          "explicit_presence_samples": 12,
+          "literal_public_parameter": null,
+          "name": "Cerastium-type",
+          "native_taxon_ids": [
+            999
+          ],
+          "reported_NISP": 14
+        },
+        {
+          "explicit_presence_samples": 41,
+          "literal_public_parameter": null,
+          "name": "Cichorioideae",
+          "native_taxon_ids": [
+            160
+          ],
+          "reported_NISP": 90
+        },
+        {
+          "explicit_presence_samples": 1,
+          "literal_public_parameter": null,
+          "name": "Cornus suecica",
+          "native_taxon_ids": [
+            4175
+          ],
+          "reported_NISP": 2
+        },
+        {
+          "explicit_presence_samples": 63,
+          "literal_public_parameter": {
+            "PPE": 1.71,
+            "SD": 0.1,
+            "fall_speed_m_s": 0.025,
+            "numerical_annotation_refusal": false,
+            "source": {
+              "": "",
+              "FSP (m/s)": "0.025",
+              "Land-cover types (LCTs)": "",
+              "PFT": "",
+              "PFT definition": "",
+              "PPE (SD)": "1.71 (0.1)",
+              "Plant taxa/Pollen-morphological types": "Corylus avellana"
+            }
+          },
+          "name": "Corylus avellana",
+          "native_taxon_ids": [
+            1316
+          ],
+          "reported_NISP": 16753
+        },
+        {
+          "explicit_presence_samples": 2,
+          "literal_public_parameter": null,
+          "name": "Crataegus",
+          "native_taxon_ids": [
+            1430
+          ],
+          "reported_NISP": 3
+        },
+        {
+          "explicit_presence_samples": 42,
+          "literal_public_parameter": null,
+          "name": "Daucus-type",
+          "native_taxon_ids": [
+            4221
+          ],
+          "reported_NISP": 69
+        },
+        {
+          "explicit_presence_samples": 1,
+          "literal_public_parameter": null,
+          "name": "Dianthus-type",
+          "native_taxon_ids": [
+            2549
+          ],
+          "reported_NISP": 1
+        },
+        {
+          "explicit_presence_samples": 1,
+          "literal_public_parameter": null,
+          "name": "Drosera rotundifolia/D. anglica",
+          "native_taxon_ids": [
+            4235
+          ],
+          "reported_NISP": 1
+        },
+        {
+          "explicit_presence_samples": 51,
+          "literal_public_parameter": null,
+          "name": "Empetrum",
+          "native_taxon_ids": [
+            86
+          ],
+          "reported_NISP": 406
+        },
+        {
+          "explicit_presence_samples": 1,
+          "literal_public_parameter": null,
+          "name": "Epilobium",
+          "native_taxon_ids": [
+            90
+          ],
+          "reported_NISP": 1
+        },
+        {
+          "explicit_presence_samples": 2,
+          "literal_public_parameter": null,
+          "name": "Erica tetralix",
+          "native_taxon_ids": [
+            4252
+          ],
+          "reported_NISP": 2
+        },
+        {
+          "explicit_presence_samples": 3,
+          "literal_public_parameter": null,
+          "name": "Fabaceae undiff.",
+          "native_taxon_ids": [
+            157
+          ],
+          "reported_NISP": 4
+        },
+        {
+          "explicit_presence_samples": 1,
+          "literal_public_parameter": null,
+          "name": "Fagopyrum esculentum",
+          "native_taxon_ids": [
+            1324
+          ],
+          "reported_NISP": 1
+        },
+        {
+          "explicit_presence_samples": 39,
+          "literal_public_parameter": {
+            "PPE": 5.863,
+            "SD": 0.176,
+            "fall_speed_m_s": 0.057,
+            "numerical_annotation_refusal": false,
+            "source": {
+              "": "",
+              "FSP (m/s)": "0.057",
+              "Land-cover types (LCTs)": "",
+              "PFT": "",
+              "PFT definition": "",
+              "PPE (SD)": "5.863 (0.176)",
+              "Plant taxa/Pollen-morphological types": "Fagus sylvatica"
+            }
+          },
+          "name": "Fagus sylvatica",
+          "native_taxon_ids": [
+            1320
+          ],
+          "reported_NISP": 363
+        },
+        {
+          "explicit_presence_samples": 49,
+          "literal_public_parameter": {
+            "PPE": 3.0,
+            "SD": 0.285,
+            "fall_speed_m_s": 0.006,
+            "numerical_annotation_refusal": false,
+            "source": {
+              "": "",
+              "FSP (m/s)": "0.006",
+              "Land-cover types (LCTs)": "",
+              "PFT": "",
+              "PFT definition": "",
+              "PPE (SD)": "3 (0.285)",
+              "Plant taxa/Pollen-morphological types": "Filipendula"
+            }
+          },
+          "name": "Filipendula",
+          "native_taxon_ids": [
+            1428
+          ],
+          "reported_NISP": 185
+        },
+        {
+          "explicit_presence_samples": 16,
+          "literal_public_parameter": null,
+          "name": "Frangula alnus",
+          "native_taxon_ids": [
+            2322
+          ],
+          "reported_NISP": 18
+        },
+        {
+          "explicit_presence_samples": 52,
+          "literal_public_parameter": null,
+          "name": "Fraxinus excelsior",
+          "native_taxon_ids": [
+            3579
+          ],
+          "reported_NISP": 422
+        },
+        {
+          "explicit_presence_samples": 20,
+          "literal_public_parameter": null,
+          "name": "Galium-type",
+          "native_taxon_ids": [
+            1416
+          ],
+          "reported_NISP": 27
+        },
+        {
+          "explicit_presence_samples": 27,
+          "literal_public_parameter": null,
+          "name": "Genista-type",
+          "native_taxon_ids": [
+            3449
+          ],
+          "reported_NISP": 66
+        },
+        {
+          "explicit_presence_samples": 11,
+          "literal_public_parameter": null,
+          "name": "Gentiana pneumonanthe",
+          "native_taxon_ids": [
+            2270
+          ],
+          "reported_NISP": 15
+        },
+        {
+          "explicit_presence_samples": 11,
+          "literal_public_parameter": null,
+          "name": "Geum-type",
+          "native_taxon_ids": [
+            121
+          ],
+          "reported_NISP": 19
+        },
+        {
+          "explicit_presence_samples": 10,
+          "literal_public_parameter": null,
+          "name": "Hedera helix",
+          "native_taxon_ids": [
+            4367
+          ],
+          "reported_NISP": 18
+        },
+        {
+          "explicit_presence_samples": 7,
+          "literal_public_parameter": null,
+          "name": "Heracleum",
+          "native_taxon_ids": [
+            2537
+          ],
+          "reported_NISP": 9
+        },
+        {
+          "explicit_presence_samples": 2,
+          "literal_public_parameter": null,
+          "name": "Hippopha\u00eb rhamnoides",
+          "native_taxon_ids": [
+            1306
+          ],
+          "reported_NISP": 2
+        },
+        {
+          "explicit_presence_samples": 19,
+          "literal_public_parameter": null,
+          "name": "Hordeum-type",
+          "native_taxon_ids": [
+            3705
+          ],
+          "reported_NISP": 60
+        },
+        {
+          "explicit_presence_samples": 29,
+          "literal_public_parameter": null,
+          "name": "Humulus/Cannabis",
+          "native_taxon_ids": [
+            806
+          ],
+          "reported_NISP": 60
+        },
+        {
+          "explicit_presence_samples": 22,
+          "literal_public_parameter": null,
+          "name": "Hydrocotyle vulgaris",
+          "native_taxon_ids": [
+            4395
+          ],
+          "reported_NISP": 38
+        },
+        {
+          "explicit_presence_samples": 15,
+          "literal_public_parameter": null,
+          "name": "Hypericum",
+          "native_taxon_ids": [
+            132
+          ],
+          "reported_NISP": 29
+        },
+        {
+          "explicit_presence_samples": 1,
+          "literal_public_parameter": null,
+          "name": "Ilex aquifolium",
+          "native_taxon_ids": [
+            4406
+          ],
+          "reported_NISP": 1
+        },
+        {
+          "explicit_presence_samples": 46,
+          "literal_public_parameter": null,
+          "name": "Jasione montana",
+          "native_taxon_ids": [
+            4412
+          ],
+          "reported_NISP": 78
+        },
+        {
+          "explicit_presence_samples": 11,
+          "literal_public_parameter": {
+            "PPE": 2.07,
+            "SD": 0.04,
+            "fall_speed_m_s": 0.016,
+            "numerical_annotation_refusal": false,
+            "source": {
+              "": "",
+              "FSP (m/s)": "0.016",
+              "Land-cover types (LCTs)": "",
+              "PFT": "TSE",
+              "PFT definition": "Tall shrub, evergreen",
+              "PPE (SD)": "2.07 (0.04)",
+              "Plant taxa/Pollen-morphological types": "Juniperus communis"
+            }
+          },
+          "name": "Juniperus communis",
+          "native_taxon_ids": [
+            4416
+          ],
+          "reported_NISP": 90
+        },
+        {
+          "explicit_presence_samples": 8,
+          "literal_public_parameter": null,
+          "name": "Lobelia dortmanna",
+          "native_taxon_ids": [
+            4121
+          ],
+          "reported_NISP": 13
+        },
+        {
+          "explicit_presence_samples": 21,
+          "literal_public_parameter": null,
+          "name": "Lotus",
+          "native_taxon_ids": [
+            2904
+          ],
+          "reported_NISP": 24
+        },
+        {
+          "explicit_presence_samples": 24,
+          "literal_public_parameter": null,
+          "name": "Lysimachia",
+          "native_taxon_ids": [
+            539
+          ],
+          "reported_NISP": 27
+        },
+        {
+          "explicit_presence_samples": 5,
+          "literal_public_parameter": null,
+          "name": "Lythrum salicaria",
+          "native_taxon_ids": [
+            655
+          ],
+          "reported_NISP": 6
+        },
+        {
+          "explicit_presence_samples": 1,
+          "literal_public_parameter": null,
+          "name": "Maianthemum-type",
+          "native_taxon_ids": [
+            4503
+          ],
+          "reported_NISP": 1
+        },
+        {
+          "explicit_presence_samples": 1,
+          "literal_public_parameter": null,
+          "name": "Malus",
+          "native_taxon_ids": [
+            4505
+          ],
+          "reported_NISP": 1
+        },
+        {
+          "explicit_presence_samples": 33,
+          "literal_public_parameter": null,
+          "name": "Melampyrum",
+          "native_taxon_ids": [
+            997
+          ],
+          "reported_NISP": 67
+        },
+        {
+          "explicit_presence_samples": 3,
+          "literal_public_parameter": null,
+          "name": "Mentha-type",
+          "native_taxon_ids": [
+            656
+          ],
+          "reported_NISP": 3
+        },
+        {
+          "explicit_presence_samples": 5,
+          "literal_public_parameter": null,
+          "name": "Menyanthes trifoliata",
+          "native_taxon_ids": [
+            182
+          ],
+          "reported_NISP": 6
+        },
+        {
+          "explicit_presence_samples": 8,
+          "literal_public_parameter": null,
+          "name": "Mercurialis perennis",
+          "native_taxon_ids": [
+            4533
+          ],
+          "reported_NISP": 8
+        },
+        {
+          "explicit_presence_samples": 39,
+          "literal_public_parameter": null,
+          "name": "Myrica gale",
+          "native_taxon_ids": [
+            666
+          ],
+          "reported_NISP": 1996
+        },
+        {
+          "explicit_presence_samples": 13,
+          "literal_public_parameter": null,
+          "name": "Myriophyllum alterniflorum",
+          "native_taxon_ids": [
+            667
+          ],
+          "reported_NISP": 84
+        },
+        {
+          "explicit_presence_samples": 1,
+          "literal_public_parameter": null,
+          "name": "Narthecium-type",
+          "native_taxon_ids": [
+            4563
+          ],
+          "reported_NISP": 1
+        },
+        {
+          "explicit_presence_samples": 4,
+          "literal_public_parameter": null,
+          "name": "Nuphar",
+          "native_taxon_ids": [
+            190
+          ],
+          "reported_NISP": 5
+        },
+        {
+          "explicit_presence_samples": 38,
+          "literal_public_parameter": null,
+          "name": "Nymphaea",
+          "native_taxon_ids": [
+            192
+          ],
+          "reported_NISP": 161
+        },
+        {
+          "explicit_presence_samples": 1,
+          "literal_public_parameter": null,
+          "name": "Ononis-type",
+          "native_taxon_ids": [
+            842
+          ],
+          "reported_NISP": 1
+        },
+        {
+          "explicit_presence_samples": 1,
+          "literal_public_parameter": null,
+          "name": "Parnassia palustris",
+          "native_taxon_ids": [
+            3699
+          ],
+          "reported_NISP": 2
+        },
+        {
+          "explicit_presence_samples": 4,
+          "literal_public_parameter": null,
+          "name": "Pedicularis",
+          "native_taxon_ids": [
+            476
+          ],
+          "reported_NISP": 7
+        },
+        {
+          "explicit_presence_samples": 3,
+          "literal_public_parameter": null,
+          "name": "Persicaria amphibia",
+          "native_taxon_ids": [
+            230
+          ],
+          "reported_NISP": 9
+        },
+        {
+          "explicit_presence_samples": 5,
+          "literal_public_parameter": null,
+          "name": "Persicaria maculosa-type",
+          "native_taxon_ids": [
+            884
+          ],
+          "reported_NISP": 7
+        },
+        {
+          "explicit_presence_samples": 41,
+          "literal_public_parameter": null,
+          "name": "Picea",
+          "native_taxon_ids": [
+            210
+          ],
+          "reported_NISP": 68
+        },
+        {
+          "explicit_presence_samples": 66,
+          "literal_public_parameter": null,
+          "name": "Pinus",
+          "native_taxon_ids": [
+            385
+          ],
+          "reported_NISP": 8014
+        },
+        {
+          "explicit_presence_samples": 41,
+          "literal_public_parameter": {
+            "PPE": 2.33,
+            "SD": 0.201,
+            "fall_speed_m_s": 0.029,
+            "numerical_annotation_refusal": false,
+            "source": {
+              "": "",
+              "FSP (m/s)": "0.029",
+              "Land-cover types (LCTs)": "",
+              "PFT": "",
+              "PFT definition": "",
+              "PPE (SD)": "2.33 (0.201)",
+              "Plant taxa/Pollen-morphological types": "Plantago lanceolata"
+            }
+          },
+          "name": "Plantago lanceolata",
+          "native_taxon_ids": [
+            220
+          ],
+          "reported_NISP": 295
+        },
+        {
+          "explicit_presence_samples": 17,
+          "literal_public_parameter": null,
+          "name": "Plantago major",
+          "native_taxon_ids": [
+            219
+          ],
+          "reported_NISP": 20
+        },
+        {
+          "explicit_presence_samples": 7,
+          "literal_public_parameter": null,
+          "name": "Plantago maritima",
+          "native_taxon_ids": [
+            1307
+          ],
+          "reported_NISP": 12
+        },
+        {
+          "explicit_presence_samples": 52,
+          "literal_public_parameter": null,
+          "name": "Plantago uniflora",
+          "native_taxon_ids": [
+            38770
+          ],
+          "reported_NISP": 604
+        },
+        {
+          "explicit_presence_samples": 66,
+          "literal_public_parameter": null,
+          "name": "Poaceae undiff.",
+          "native_taxon_ids": [
+            125
+          ],
+          "reported_NISP": 10598
+        },
+        {
+          "explicit_presence_samples": 3,
+          "literal_public_parameter": null,
+          "name": "Polygonum aviculare",
+          "native_taxon_ids": [
+            947
+          ],
+          "reported_NISP": 3
+        },
+        {
+          "explicit_presence_samples": 48,
+          "literal_public_parameter": null,
+          "name": "Populus tremula",
+          "native_taxon_ids": [
+            3435
+          ],
+          "reported_NISP": 359
+        },
+        {
+          "explicit_presence_samples": 23,
+          "literal_public_parameter": null,
+          "name": "Potamogeton",
+          "native_taxon_ids": [
+            517
+          ],
+          "reported_NISP": 228
+        },
+        {
+          "explicit_presence_samples": 53,
+          "literal_public_parameter": null,
+          "name": "Potentilla-type",
+          "native_taxon_ids": [
+            242
+          ],
+          "reported_NISP": 224
+        },
+        {
+          "explicit_presence_samples": 1,
+          "literal_public_parameter": null,
+          "name": "Poterium sanguisorba",
+          "native_taxon_ids": [
+            33823
+          ],
+          "reported_NISP": 1
+        },
+        {
+          "explicit_presence_samples": 3,
+          "literal_public_parameter": null,
+          "name": "Prunus",
+          "native_taxon_ids": [
+            715
+          ],
+          "reported_NISP": 4
+        },
+        {
+          "explicit_presence_samples": 63,
+          "literal_public_parameter": null,
+          "name": "Quercus",
+          "native_taxon_ids": [
+            251
+          ],
+          "reported_NISP": 6537
+        },
+        {
+          "explicit_presence_samples": 1,
+          "literal_public_parameter": null,
+          "name": "Radiola linoides",
+          "native_taxon_ids": [
+            4728
+          ],
+          "reported_NISP": 1
+        },
+        {
+          "explicit_presence_samples": 3,
+          "literal_public_parameter": null,
+          "name": "Ranunculaceae undiff.",
+          "native_taxon_ids": [
+            252
+          ],
+          "reported_NISP": 3
+        },
+        {
+          "explicit_presence_samples": 32,
+          "literal_public_parameter": null,
+          "name": "Ranunculus acris-type",
+          "native_taxon_ids": [
+            996
+          ],
+          "reported_NISP": 59
+        },
+        {
+          "explicit_presence_samples": 7,
+          "literal_public_parameter": null,
+          "name": "Ranunculus peltatus-type",
+          "native_taxon_ids": [
+            4737
+          ],
+          "reported_NISP": 8
+        },
+        {
+          "explicit_presence_samples": 1,
+          "literal_public_parameter": null,
+          "name": "Rhamnus cathartica",
+          "native_taxon_ids": [
+            725
+          ],
+          "reported_NISP": 1
+        },
+        {
+          "explicit_presence_samples": 7,
+          "literal_public_parameter": null,
+          "name": "Rhinanthus-type",
+          "native_taxon_ids": [
+            2931
+          ],
+          "reported_NISP": 7
+        },
+        {
+          "explicit_presence_samples": 12,
+          "literal_public_parameter": null,
+          "name": "Rhynchospora alba",
+          "native_taxon_ids": [
+            2227
+          ],
+          "reported_NISP": 20
+        },
+        {
+          "explicit_presence_samples": 7,
+          "literal_public_parameter": null,
+          "name": "Rubus idaeus-type",
+          "native_taxon_ids": [
+            4768
+          ],
+          "reported_NISP": 7
+        },
+        {
+          "explicit_presence_samples": 34,
+          "literal_public_parameter": null,
+          "name": "Rumex acetosa",
+          "native_taxon_ids": [
+            4053
+          ],
+          "reported_NISP": 100
+        },
+        {
+          "explicit_presence_samples": 62,
+          "literal_public_parameter": null,
+          "name": "Rumex acetosella-type",
+          "native_taxon_ids": [
+            1532
+          ],
+          "reported_NISP": 916
+        },
+        {
+          "explicit_presence_samples": 8,
+          "literal_public_parameter": null,
+          "name": "Rumex crispus-type",
+          "native_taxon_ids": [
+            4055
+          ],
+          "reported_NISP": 9
+        },
+        {
+          "explicit_presence_samples": 61,
+          "literal_public_parameter": {
+            "PPE": 1.182,
+            "SD": 0.077,
+            "fall_speed_m_s": 0.022,
+            "numerical_annotation_refusal": false,
+            "source": {
+              "": "",
+              "FSP (m/s)": "0.022",
+              "Land-cover types (LCTs)": "",
+              "PFT": "TSD",
+              "PFT definition": "Tall shrub, summer-green",
+              "PPE (SD)": "1.182 (0.077)",
+              "Plant taxa/Pollen-morphological types": "Salix"
+            }
+          },
+          "name": "Salix",
+          "native_taxon_ids": [
+            271
+          ],
+          "reported_NISP": 424
+        },
+        {
+          "explicit_presence_samples": 4,
+          "literal_public_parameter": null,
+          "name": "Sambucus",
+          "native_taxon_ids": [
+            275
+          ],
+          "reported_NISP": 4
+        },
+        {
+          "explicit_presence_samples": 1,
+          "literal_public_parameter": null,
+          "name": "Saxifraga hirculus-type",
+          "native_taxon_ids": [
+            4805
+          ],
+          "reported_NISP": 3
+        },
+        {
+          "explicit_presence_samples": 1,
+          "literal_public_parameter": null,
+          "name": "Scheuchzeria palustris",
+          "native_taxon_ids": [
+            283
+          ],
+          "reported_NISP": 1
+        },
+        {
+          "explicit_presence_samples": 14,
+          "literal_public_parameter": null,
+          "name": "Schoenoplectus lacustris-type",
+          "native_taxon_ids": [
+            4840
+          ],
+          "reported_NISP": 35
+        },
+        {
+          "explicit_presence_samples": 17,
+          "literal_public_parameter": null,
+          "name": "Schoenus-type",
+          "native_taxon_ids": [
+            4834
+          ],
+          "reported_NISP": 24
+        },
+        {
+          "explicit_presence_samples": 2,
+          "literal_public_parameter": null,
+          "name": "Scleranthus annuus",
+          "native_taxon_ids": [
+            4845
+          ],
+          "reported_NISP": 2
+        },
+        {
+          "explicit_presence_samples": 1,
+          "literal_public_parameter": null,
+          "name": "Scrophularia-type",
+          "native_taxon_ids": [
+            4123
+          ],
+          "reported_NISP": 1
+        },
+        {
+          "explicit_presence_samples": 16,
+          "literal_public_parameter": null,
+          "name": "Secale",
+          "native_taxon_ids": [
+            967
+          ],
+          "reported_NISP": 143
+        },
+        {
+          "explicit_presence_samples": 1,
+          "literal_public_parameter": null,
+          "name": "Sedum",
+          "native_taxon_ids": [
+            285
+          ],
+          "reported_NISP": 1
+        },
+        {
+          "explicit_presence_samples": 32,
+          "literal_public_parameter": null,
+          "name": "Senecio-type",
+          "native_taxon_ids": [
+            1915
+          ],
+          "reported_NISP": 68
+        },
+        {
+          "explicit_presence_samples": 2,
+          "literal_public_parameter": null,
+          "name": "Silene-type",
+          "native_taxon_ids": [
+            3703
+          ],
+          "reported_NISP": 2
+        },
+        {
+          "explicit_presence_samples": 9,
+          "literal_public_parameter": null,
+          "name": "Silene-type undiff.",
+          "native_taxon_ids": [
+            38081
+          ],
+          "reported_NISP": 9
+        },
+        {
+          "explicit_presence_samples": 1,
+          "literal_public_parameter": null,
+          "name": "Solanum dulcamara",
+          "native_taxon_ids": [
+            3600
+          ],
+          "reported_NISP": 1
+        },
+        {
+          "explicit_presence_samples": 24,
+          "literal_public_parameter": null,
+          "name": "Sorbus aucuparia",
+          "native_taxon_ids": [
+            1315
+          ],
+          "reported_NISP": 31
+        },
+        {
+          "explicit_presence_samples": 45,
+          "literal_public_parameter": null,
+          "name": "Sparganium-type",
+          "native_taxon_ids": [
+            293
+          ],
+          "reported_NISP": 97
+        },
+        {
+          "explicit_presence_samples": 15,
+          "literal_public_parameter": null,
+          "name": "Spergula",
+          "native_taxon_ids": [
+            2932
+          ],
+          "reported_NISP": 26
+        },
+        {
+          "explicit_presence_samples": 1,
+          "literal_public_parameter": null,
+          "name": "Spergularia",
+          "native_taxon_ids": [
+            2936
+          ],
+          "reported_NISP": 1
+        },
+        {
+          "explicit_presence_samples": 2,
+          "literal_public_parameter": null,
+          "name": "Stachys-type",
+          "native_taxon_ids": [
+            491
+          ],
+          "reported_NISP": 2
+        },
+        {
+          "explicit_presence_samples": 22,
+          "literal_public_parameter": null,
+          "name": "Succisa pratensis",
+          "native_taxon_ids": [
+            4421
+          ],
+          "reported_NISP": 25
+        },
+        {
+          "explicit_presence_samples": 2,
+          "literal_public_parameter": null,
+          "name": "Taxus baccata",
+          "native_taxon_ids": [
+            4870
+          ],
+          "reported_NISP": 4
+        },
+        {
+          "explicit_presence_samples": 15,
+          "literal_public_parameter": null,
+          "name": "Thalictrum",
+          "native_taxon_ids": [
+            300
+          ],
+          "reported_NISP": 17
+        },
+        {
+          "explicit_presence_samples": 54,
+          "literal_public_parameter": {
+            "PPE": 1.21,
+            "SD": 0.116,
+            "fall_speed_m_s": 0.032,
+            "numerical_annotation_refusal": false,
+            "source": {
+              "": "",
+              "FSP (m/s)": "0.032",
+              "Land-cover types (LCTs)": "",
+              "PFT": "",
+              "PFT definition": "",
+              "PPE (SD)": "1.21 (0.116)",
+              "Plant taxa/Pollen-morphological types": "Tilia"
+            }
+          },
+          "name": "Tilia",
+          "native_taxon_ids": [
+            302
+          ],
+          "reported_NISP": 579
+        },
+        {
+          "explicit_presence_samples": 1,
+          "literal_public_parameter": null,
+          "name": "Trientalis europaea",
+          "native_taxon_ids": [
+            4907
+          ],
+          "reported_NISP": 1
+        },
+        {
+          "explicit_presence_samples": 2,
+          "literal_public_parameter": null,
+          "name": "Trifolium pratense",
+          "native_taxon_ids": [
+            495
+          ],
+          "reported_NISP": 2
+        },
+        {
+          "explicit_presence_samples": 11,
+          "literal_public_parameter": null,
+          "name": "Trifolium repens-type",
+          "native_taxon_ids": [
+            496
+          ],
+          "reported_NISP": 71
+        },
+        {
+          "explicit_presence_samples": 1,
+          "literal_public_parameter": null,
+          "name": "Trollius europaeus",
+          "native_taxon_ids": [
+            4923
+          ],
+          "reported_NISP": 1
+        },
+        {
+          "explicit_presence_samples": 20,
+          "literal_public_parameter": null,
+          "name": "Typha latifolia",
+          "native_taxon_ids": [
+            309
+          ],
+          "reported_NISP": 29
+        },
+        {
+          "explicit_presence_samples": 63,
+          "literal_public_parameter": {
+            "PPE": 1.27,
+            "SD": 0.05,
+            "fall_speed_m_s": 0.032,
+            "numerical_annotation_refusal": false,
+            "source": {
+              "": "",
+              "FSP (m/s)": "0.032",
+              "Land-cover types (LCTs)": "",
+              "PFT": "",
+              "PFT definition": "",
+              "PPE (SD)": "1.27 (0.05)",
+              "Plant taxa/Pollen-morphological types": "Ulmus"
+            }
+          },
+          "name": "Ulmus",
+          "native_taxon_ids": [
+            310
+          ],
+          "reported_NISP": 1558
+        },
+        {
+          "explicit_presence_samples": 43,
+          "literal_public_parameter": null,
+          "name": "Urtica",
+          "native_taxon_ids": [
+            498
+          ],
+          "reported_NISP": 141
+        },
+        {
+          "explicit_presence_samples": 1,
+          "literal_public_parameter": null,
+          "name": "Utricularia",
+          "native_taxon_ids": [
+            316
+          ],
+          "reported_NISP": 1
+        },
+        {
+          "explicit_presence_samples": 38,
+          "literal_public_parameter": null,
+          "name": "Vaccinium",
+          "native_taxon_ids": [
+            317
+          ],
+          "reported_NISP": 106
+        },
+        {
+          "explicit_presence_samples": 6,
+          "literal_public_parameter": null,
+          "name": "Viburnum opulus",
+          "native_taxon_ids": [
+            794
+          ],
+          "reported_NISP": 8
+        },
+        {
+          "explicit_presence_samples": 30,
+          "literal_public_parameter": null,
+          "name": "Vicia/Lathyrus",
+          "native_taxon_ids": [
+            1876
+          ],
+          "reported_NISP": 41
+        },
+        {
+          "explicit_presence_samples": 3,
+          "literal_public_parameter": null,
+          "name": "Viscum album",
+          "native_taxon_ids": [
+            4977
+          ],
+          "reported_NISP": 6
+        }
+      ],
+      "source_locator": {
+        "part": "part-003.json",
+        "row_ordinal": 21
+      },
+      "source_sample_count": 66,
+      "strict_common_numerically_unannotated_parameter_labels": [
+        "Betula",
+        "Calluna vulgaris"
+      ],
+      "strict_common_parameter_labels_across_eligible_samples": [
+        "Betula",
+        "Calluna vulgaris"
+      ],
+      "unparameterized_reported_NISP": 35521
+    },
+    {
+      "Betula_Poaceae_actual_presence_positive_panel_samples": 0,
+      "Betula_Poaceae_eligible_source_sample_denominator": 26,
+      "all_reported_label_count": 99,
+      "all_reported_pollen_NISP": 28950,
+      "all_source_core_count_denominator_known": true,
+      "count_refusals": {},
+      "count_valid_samples": 26,
+      "count_valid_source_pollen_NISP": 28950,
+      "eligible_missing_both_age_error_bounds": 0,
+      "geometry_alternatives": {
+        "metadata_circle_area_ha": 2.488455540908475,
+        "metadata_static_radius_m_assumption": 89,
+        "reported_area_circle_equivalent_radius_m_assumptions": [
+          {
+            "circle_equivalent_radius_m": 89.20620580763855,
+            "dated_geometry_admission": false,
+            "reported_area_ha": 2.5
+          }
+        ]
+      },
+      "historical_selected_model_or_row_admission": false,
+      "literal_PPE_labels_present": [
+        "Alnus glutinosa",
+        "Artemisia",
+        "Betula",
+        "Calluna vulgaris",
+        "Carpinus betulus",
+        "Corylus avellana",
+        "Fagus sylvatica",
+        "Filipendula",
+        "Juniperus communis",
+        "Plantago lanceolata",
+        "Salix",
+        "Tilia",
+        "Ulmus"
+      ],
+      "literal_PPE_mapped_NISP": 19044,
+      "metadata_locator": "landclim_ii_site_metadata.xlsx#LANDCLIMII metadata file!95",
+      "named_point_domain_eligible_samples": 26,
+      "named_point_refusals": {},
+      "native_default_chronology": 25739,
+      "prior_nonnegative_BP_point_or_bounds_refusals": 0,
+      "raw_metadata_fields": {
+        "0-100": "L",
+        "100-350": "L",
+        "10200-10700": "L",
+        "10700-11200": "L",
+        "11200-11700": "L",
+        "1200-1700": "L",
+        "1700-2200": "L",
+        "2200-2700": "L",
+        "2700-3200": "L",
+        "3200-3700": "L",
+        "350-700": "L",
+        "3700-4200": "L",
+        "4200-4700": "L",
+        "4700-5200": "L",
+        "5200-5700": "L",
+        "5700-6200": "L",
+        "6200-6700": "L",
+        "6700-7200": "L",
+        "700-1200": "L",
+        "7200-7700": "L",
+        "7700-8200": "L",
+        "8200-8700": "L",
+        "8700-9200": "L",
+        "9200-9700": "L",
+        "9700-10200": "L",
+        "BotBP": "11659",
+        "ChronologyNotes": null,
+        "Country": "Denmark",
+        "DataRestricted/NotRestriced": "R",
+        "Database/Authorname and/or data collector": "Bent Odgaard",
+        "Elevation": "41",
+        "LCGRID_ID": "824",
+        "LandClimProject": "LandClimI",
+        "No. of 14C dates for model": "\u2265 3",
+        "SiteName": "Sols\u00f8",
+        "TopBP": "10",
+        "chronologySource": "Authors chronology",
+        "csvfilename": "Solsoe",
+        "latdd": "56.128432779999997",
+        "londd": "8.6145224999999996",
+        "nPollenSamples": "79",
+        "nTWs": "25",
+        "siteType": "lake",
+        "siteradius": "89"
+      },
+      "raw_source_metadata": {
+        "collection_unit": {
+          "colldate": "1983-11-01",
+          "collectiondevice": "Russian corer (5cm)",
+          "collectionunit": null,
+          "collectionunitid": 4304,
+          "collunittype": "Core",
+          "defaultchronology": 25739,
+          "depositionalenvironment": "Drained Lake",
+          "gpslocation": {
+            "gpsaltitude": null,
+            "gpserror": null,
+            "latitude": null,
+            "longitude": null
+          },
+          "handle": "SOLSOE83",
+          "location": "Central",
+          "notes": null,
+          "waterdepth": 0
+        },
+        "dataset": {
+          "agerange": [
+            {
+              "ageold": 7149,
+              "ageyoung": 2731,
+              "units": "Radiocarbon years BP"
+            },
+            {
+              "ageold": 10956,
+              "ageyoung": 2410,
+              "units": "Calibrated radiocarbon years BP"
+            }
+          ],
+          "database": "European Pollen Database",
+          "datasetid": 4446,
+          "datasetname": "EPD E# 615",
+          "datasetnotes": "Data contributed by Odgaard Bent V.",
+          "datasetpi": [
+            {
+              "contactid": 1181,
+              "contactname": "Odgaard, Bent V.",
+              "familyname": "Odgaard",
+              "firstname": "Bent V.",
+              "initials": "B.V."
+            }
+          ],
+          "datasettype": "pollen",
+          "doi": [
+            "10.21233/mtmk-d772"
+          ]
+        },
+        "site": {
+          "altitude": 24,
+          "area": 25563.444301605225,
+          "dataset": {
+            "agerange": [
+              {
+                "ageold": 7149,
+                "ageyoung": 2731,
+                "units": "Radiocarbon years BP"
+              },
+              {
+                "ageold": 10956,
+                "ageyoung": 2410,
+                "units": "Calibrated radiocarbon years BP"
+              }
+            ],
+            "database": "European Pollen Database",
+            "datasetid": 4446,
+            "datasetname": "EPD E# 615",
+            "datasetnotes": "Data contributed by Odgaard Bent V.",
+            "datasetpi": [
+              {
+                "contactid": 1181,
+                "contactname": "Odgaard, Bent V.",
+                "familyname": "Odgaard",
+                "firstname": "Bent V.",
+                "initials": "B.V."
+              }
+            ],
+            "datasettype": "pollen",
+            "doi": [
+              "10.21233/mtmk-d772"
+            ]
+          },
+          "geopolitical": [
+            "Denmark",
+            "Midtjylland [Central Jutland]"
+          ],
+          "notes": null,
+          "sitedescription": "Strongly drained lake, now mostly fen. Physiography: almost flat landscape, 30-90 asl heights. Surrounding vegetation: dry-moist pasture, fertilized.",
+          "siteid": 3432,
+          "sitename": "Lake Sols\u00f8"
+        }
+      },
+      "selected_named_calibrated_chronology": {
+        "chronology_id": 25740,
+        "model": {
+          "agemodel": "clam",
+          "agerange": {
+            "ageboundolder": 9830,
+            "ageboundyounger": 2780
+          },
+          "chronologyname": "Giesecke et al. 2014 (MADCAP)",
+          "contact": [
+            {
+              "contactid": 8710,
+              "contactname": "Giesecke, Thomas",
+              "familyname": "Giesecke",
+              "givenname": "Thomas",
+              "leadinginitial": "T."
+            }
+          ],
+          "dateprepared": "2011-01-01",
+          "isdefault": true,
+          "modelagetype": "Calibrated radiocarbon years BP",
+          "notes": "Linear age model. Based on IntCal09 calibration curve. Preparer notes: Pollen stratigraphic connection: SO83 410 cm = SO81 450 cm, SO83 520 cm = SO81 480 cm"
+        },
+        "raw_control_count": 7,
+        "raw_control_sha256": "8e4ac27a8cb05a6c5bf86fa70e08718257de66a0c9c7e592b77a7eb004dfc6d1"
+      },
+      "source_core": {
+        "country": "Denmark",
+        "country_code": "DK",
+        "expected_handle": "SOLSOE83",
+        "expected_samples": 26,
+        "metadata_code": "Solsoe",
+        "metadata_radius_m": 89,
+        "named_calibrated_chronology_id": 25740,
+        "native_collection_unit_id": 4304,
+        "native_dataset_id": 4446,
+        "native_site_id": 3432,
+        "part": "part-003.json",
+        "reported_area_alternatives_ha": [
+          2.5
+        ]
+      },
+      "source_label_ledger": [
+        {
+          "explicit_presence_samples": 4,
+          "literal_public_parameter": null,
+          "name": "Achillea-type",
+          "native_taxon_ids": [
+            820
+          ],
+          "reported_NISP": 4
+        },
+        {
+          "explicit_presence_samples": 26,
+          "literal_public_parameter": {
+            "PPE": 13.562,
+            "SD": 0.293,
+            "fall_speed_m_s": 0.021,
+            "numerical_annotation_refusal": false,
+            "source": {
+              "": "",
+              "FSP (m/s)": "0.021",
+              "Land-cover types (LCTs)": "Summer-green trees (ST)",
+              "PFT": "IBS",
+              "PFT definition": "Shade-intolerant summer-green trees",
+              "PPE (SD)": "13.562 (0.293)",
+              "Plant taxa/Pollen-morphological types": "Alnus glutinosa"
+            }
+          },
+          "name": "Alnus glutinosa",
+          "native_taxon_ids": [
+            1299
+          ],
+          "reported_NISP": 4406
+        },
+        {
+          "explicit_presence_samples": 18,
+          "literal_public_parameter": null,
+          "name": "Amaranthaceae",
+          "native_taxon_ids": [
+            391
+          ],
+          "reported_NISP": 30
+        },
+        {
+          "explicit_presence_samples": 1,
+          "literal_public_parameter": null,
+          "name": "Apiaceae undiff.",
+          "native_taxon_ids": [
+            1172
+          ],
+          "reported_NISP": 1
+        },
+        {
+          "explicit_presence_samples": 1,
+          "literal_public_parameter": null,
+          "name": "Apium-type",
+          "native_taxon_ids": [
+            3832
+          ],
+          "reported_NISP": 1
+        },
+        {
+          "explicit_presence_samples": 21,
+          "literal_public_parameter": {
+            "PPE": 3.937,
+            "SD": 0.146,
+            "fall_speed_m_s": 0.025,
+            "numerical_annotation_refusal": false,
+            "source": {
+              "": "",
+              "FSP (m/s)": "0.025",
+              "Land-cover types (LCTs)": "",
+              "PFT": "GL",
+              "PFT definition": "Grassland - all herbs",
+              "PPE (SD)": "3.937 (0.146)",
+              "Plant taxa/Pollen-morphological types": "Artemisia"
+            }
+          },
+          "name": "Artemisia",
+          "native_taxon_ids": [
+            25
+          ],
+          "reported_NISP": 49
+        },
+        {
+          "explicit_presence_samples": 2,
+          "literal_public_parameter": null,
+          "name": "Avena/Triticum",
+          "native_taxon_ids": [
+            415
+          ],
+          "reported_NISP": 3
+        },
+        {
+          "explicit_presence_samples": 26,
+          "literal_public_parameter": {
+            "PPE": 5.106,
+            "SD": 0.303,
+            "fall_speed_m_s": 0.024,
+            "numerical_annotation_refusal": false,
+            "source": {
+              "": "",
+              "FSP (m/s)": "0.024",
+              "Land-cover types (LCTs)": "",
+              "PFT": "",
+              "PFT definition": "",
+              "PPE (SD)": "5.106 (0.303)",
+              "Plant taxa/Pollen-morphological types": "Betula"
+            }
+          },
+          "name": "Betula",
+          "native_taxon_ids": [
+            29
+          ],
+          "reported_NISP": 6269
+        },
+        {
+          "explicit_presence_samples": 2,
+          "literal_public_parameter": null,
+          "name": "Brassicaceae",
+          "native_taxon_ids": [
+            420
+          ],
+          "reported_NISP": 2
+        },
+        {
+          "explicit_presence_samples": 26,
+          "literal_public_parameter": {
+            "PPE": 1.085,
+            "SD": 0.029,
+            "fall_speed_m_s": 0.038,
+            "numerical_annotation_refusal": false,
+            "source": {
+              "": "",
+              "FSP (m/s)": "0.038",
+              "Land-cover types (LCTs)": "Open land (OL)",
+              "PFT": "LSE",
+              "PFT definition": "Low shrub, broadleaved evergreen",
+              "PPE (SD)": "1.085 (0.029)",
+              "Plant taxa/Pollen-morphological types": "Calluna vulgaris"
+            }
+          },
+          "name": "Calluna vulgaris",
+          "native_taxon_ids": [
+            2897
+          ],
+          "reported_NISP": 3342
+        },
+        {
+          "explicit_presence_samples": 1,
+          "literal_public_parameter": null,
+          "name": "Caltha palustris",
+          "native_taxon_ids": [
+            2944
+          ],
+          "reported_NISP": 1
+        },
+        {
+          "explicit_presence_samples": 2,
+          "literal_public_parameter": null,
+          "name": "Campanula-type",
+          "native_taxon_ids": [
+            586
+          ],
+          "reported_NISP": 2
+        },
+        {
+          "explicit_presence_samples": 26,
+          "literal_public_parameter": null,
+          "name": "Carex-type",
+          "native_taxon_ids": [
+            5064
+          ],
+          "reported_NISP": 594
+        },
+        {
+          "explicit_presence_samples": 8,
+          "literal_public_parameter": {
+            "PPE": 4.52,
+            "SD": 0.425,
+            "fall_speed_m_s": 0.042,
+            "numerical_annotation_refusal": false,
+            "source": {
+              "": "",
+              "FSP (m/s)": "0.042",
+              "Land-cover types (LCTs)": "",
+              "PFT": "TBS",
+              "PFT definition": "Shade-tolerant summer-green trees",
+              "PPE (SD)": "4.52 (0.425)",
+              "Plant taxa/Pollen-morphological types": "Carpinus betulus"
+            }
+          },
+          "name": "Carpinus betulus",
+          "native_taxon_ids": [
+            1319
+          ],
+          "reported_NISP": 13
+        },
+        {
+          "explicit_presence_samples": 1,
+          "literal_public_parameter": null,
+          "name": "Caryophyllaceae undiff.",
+          "native_taxon_ids": [
+            1013
+          ],
+          "reported_NISP": 1
+        },
+        {
+          "explicit_presence_samples": 1,
+          "literal_public_parameter": null,
+          "name": "Cerastium-type",
+          "native_taxon_ids": [
+            999
+          ],
+          "reported_NISP": 1
+        },
+        {
+          "explicit_presence_samples": 11,
+          "literal_public_parameter": null,
+          "name": "Cichorioideae",
+          "native_taxon_ids": [
+            160
+          ],
+          "reported_NISP": 15
+        },
+        {
+          "explicit_presence_samples": 26,
+          "literal_public_parameter": {
+            "PPE": 1.71,
+            "SD": 0.1,
+            "fall_speed_m_s": 0.025,
+            "numerical_annotation_refusal": false,
+            "source": {
+              "": "",
+              "FSP (m/s)": "0.025",
+              "Land-cover types (LCTs)": "",
+              "PFT": "",
+              "PFT definition": "",
+              "PPE (SD)": "1.71 (0.1)",
+              "Plant taxa/Pollen-morphological types": "Corylus avellana"
+            }
+          },
+          "name": "Corylus avellana",
+          "native_taxon_ids": [
+            1316
+          ],
+          "reported_NISP": 3981
+        },
+        {
+          "explicit_presence_samples": 2,
+          "literal_public_parameter": null,
+          "name": "Crataegus",
+          "native_taxon_ids": [
+            1430
+          ],
+          "reported_NISP": 2
+        },
+        {
+          "explicit_presence_samples": 18,
+          "literal_public_parameter": null,
+          "name": "Daucus-type",
+          "native_taxon_ids": [
+            4221
+          ],
+          "reported_NISP": 39
+        },
+        {
+          "explicit_presence_samples": 2,
+          "literal_public_parameter": null,
+          "name": "Drosera rotundifolia/D. anglica",
+          "native_taxon_ids": [
+            4235
+          ],
+          "reported_NISP": 2
+        },
+        {
+          "explicit_presence_samples": 15,
+          "literal_public_parameter": null,
+          "name": "Empetrum",
+          "native_taxon_ids": [
+            86
+          ],
+          "reported_NISP": 82
+        },
+        {
+          "explicit_presence_samples": 10,
+          "literal_public_parameter": {
+            "PPE": 5.863,
+            "SD": 0.176,
+            "fall_speed_m_s": 0.057,
+            "numerical_annotation_refusal": false,
+            "source": {
+              "": "",
+              "FSP (m/s)": "0.057",
+              "Land-cover types (LCTs)": "",
+              "PFT": "",
+              "PFT definition": "",
+              "PPE (SD)": "5.863 (0.176)",
+              "Plant taxa/Pollen-morphological types": "Fagus sylvatica"
+            }
+          },
+          "name": "Fagus sylvatica",
+          "native_taxon_ids": [
+            1320
+          ],
+          "reported_NISP": 31
+        },
+        {
+          "explicit_presence_samples": 19,
+          "literal_public_parameter": {
+            "PPE": 3.0,
+            "SD": 0.285,
+            "fall_speed_m_s": 0.006,
+            "numerical_annotation_refusal": false,
+            "source": {
+              "": "",
+              "FSP (m/s)": "0.006",
+              "Land-cover types (LCTs)": "",
+              "PFT": "",
+              "PFT definition": "",
+              "PPE (SD)": "3 (0.285)",
+              "Plant taxa/Pollen-morphological types": "Filipendula"
+            }
+          },
+          "name": "Filipendula",
+          "native_taxon_ids": [
+            1428
+          ],
+          "reported_NISP": 36
+        },
+        {
+          "explicit_presence_samples": 4,
+          "literal_public_parameter": null,
+          "name": "Frangula alnus",
+          "native_taxon_ids": [
+            2322
+          ],
+          "reported_NISP": 4
+        },
+        {
+          "explicit_presence_samples": 25,
+          "literal_public_parameter": null,
+          "name": "Fraxinus excelsior",
+          "native_taxon_ids": [
+            3579
+          ],
+          "reported_NISP": 332
+        },
+        {
+          "explicit_presence_samples": 3,
+          "literal_public_parameter": null,
+          "name": "Galium-type",
+          "native_taxon_ids": [
+            1416
+          ],
+          "reported_NISP": 3
+        },
+        {
+          "explicit_presence_samples": 21,
+          "literal_public_parameter": null,
+          "name": "Genista-type",
+          "native_taxon_ids": [
+            3449
+          ],
+          "reported_NISP": 50
+        },
+        {
+          "explicit_presence_samples": 3,
+          "literal_public_parameter": null,
+          "name": "Gentiana pneumonanthe",
+          "native_taxon_ids": [
+            2270
+          ],
+          "reported_NISP": 3
+        },
+        {
+          "explicit_presence_samples": 1,
+          "literal_public_parameter": null,
+          "name": "Geum-type",
+          "native_taxon_ids": [
+            121
+          ],
+          "reported_NISP": 1
+        },
+        {
+          "explicit_presence_samples": 7,
+          "literal_public_parameter": null,
+          "name": "Hedera helix",
+          "native_taxon_ids": [
+            4367
+          ],
+          "reported_NISP": 9
+        },
+        {
+          "explicit_presence_samples": 1,
+          "literal_public_parameter": null,
+          "name": "Hippopha\u00eb rhamnoides",
+          "native_taxon_ids": [
+            1306
+          ],
+          "reported_NISP": 1
+        },
+        {
+          "explicit_presence_samples": 5,
+          "literal_public_parameter": null,
+          "name": "Hordeum-type",
+          "native_taxon_ids": [
+            3705
+          ],
+          "reported_NISP": 5
+        },
+        {
+          "explicit_presence_samples": 4,
+          "literal_public_parameter": null,
+          "name": "Humulus/Cannabis",
+          "native_taxon_ids": [
+            806
+          ],
+          "reported_NISP": 4
+        },
+        {
+          "explicit_presence_samples": 12,
+          "literal_public_parameter": null,
+          "name": "Hydrocotyle vulgaris",
+          "native_taxon_ids": [
+            4395
+          ],
+          "reported_NISP": 18
+        },
+        {
+          "explicit_presence_samples": 7,
+          "literal_public_parameter": null,
+          "name": "Hypericum",
+          "native_taxon_ids": [
+            132
+          ],
+          "reported_NISP": 10
+        },
+        {
+          "explicit_presence_samples": 1,
+          "literal_public_parameter": null,
+          "name": "Ilex aquifolium",
+          "native_taxon_ids": [
+            4406
+          ],
+          "reported_NISP": 1
+        },
+        {
+          "explicit_presence_samples": 19,
+          "literal_public_parameter": null,
+          "name": "Jasione montana",
+          "native_taxon_ids": [
+            4412
+          ],
+          "reported_NISP": 36
+        },
+        {
+          "explicit_presence_samples": 3,
+          "literal_public_parameter": {
+            "PPE": 2.07,
+            "SD": 0.04,
+            "fall_speed_m_s": 0.016,
+            "numerical_annotation_refusal": false,
+            "source": {
+              "": "",
+              "FSP (m/s)": "0.016",
+              "Land-cover types (LCTs)": "",
+              "PFT": "TSE",
+              "PFT definition": "Tall shrub, evergreen",
+              "PPE (SD)": "2.07 (0.04)",
+              "Plant taxa/Pollen-morphological types": "Juniperus communis"
+            }
+          },
+          "name": "Juniperus communis",
+          "native_taxon_ids": [
+            4416
+          ],
+          "reported_NISP": 4
+        },
+        {
+          "explicit_presence_samples": 5,
+          "literal_public_parameter": null,
+          "name": "Lotus",
+          "native_taxon_ids": [
+            2904
+          ],
+          "reported_NISP": 8
+        },
+        {
+          "explicit_presence_samples": 6,
+          "literal_public_parameter": null,
+          "name": "Lysimachia",
+          "native_taxon_ids": [
+            539
+          ],
+          "reported_NISP": 8
+        },
+        {
+          "explicit_presence_samples": 2,
+          "literal_public_parameter": null,
+          "name": "Lythrum salicaria",
+          "native_taxon_ids": [
+            655
+          ],
+          "reported_NISP": 2
+        },
+        {
+          "explicit_presence_samples": 19,
+          "literal_public_parameter": null,
+          "name": "Melampyrum",
+          "native_taxon_ids": [
+            997
+          ],
+          "reported_NISP": 37
+        },
+        {
+          "explicit_presence_samples": 1,
+          "literal_public_parameter": null,
+          "name": "Mentha-type",
+          "native_taxon_ids": [
+            656
+          ],
+          "reported_NISP": 1
+        },
+        {
+          "explicit_presence_samples": 3,
+          "literal_public_parameter": null,
+          "name": "Menyanthes trifoliata",
+          "native_taxon_ids": [
+            182
+          ],
+          "reported_NISP": 3
+        },
+        {
+          "explicit_presence_samples": 1,
+          "literal_public_parameter": null,
+          "name": "Mercurialis perennis",
+          "native_taxon_ids": [
+            4533
+          ],
+          "reported_NISP": 1
+        },
+        {
+          "explicit_presence_samples": 6,
+          "literal_public_parameter": null,
+          "name": "Myrica gale",
+          "native_taxon_ids": [
+            666
+          ],
+          "reported_NISP": 87
+        },
+        {
+          "explicit_presence_samples": 11,
+          "literal_public_parameter": null,
+          "name": "Nuphar",
+          "native_taxon_ids": [
+            190
+          ],
+          "reported_NISP": 12
+        },
+        {
+          "explicit_presence_samples": 24,
+          "literal_public_parameter": null,
+          "name": "Nymphaea",
+          "native_taxon_ids": [
+            192
+          ],
+          "reported_NISP": 354
+        },
+        {
+          "explicit_presence_samples": 1,
+          "literal_public_parameter": null,
+          "name": "Ononis-type",
+          "native_taxon_ids": [
+            842
+          ],
+          "reported_NISP": 1
+        },
+        {
+          "explicit_presence_samples": 4,
+          "literal_public_parameter": null,
+          "name": "Persicaria maculosa-type",
+          "native_taxon_ids": [
+            884
+          ],
+          "reported_NISP": 5
+        },
+        {
+          "explicit_presence_samples": 11,
+          "literal_public_parameter": null,
+          "name": "Picea",
+          "native_taxon_ids": [
+            210
+          ],
+          "reported_NISP": 13
+        },
+        {
+          "explicit_presence_samples": 26,
+          "literal_public_parameter": null,
+          "name": "Pinus",
+          "native_taxon_ids": [
+            385
+          ],
+          "reported_NISP": 1153
+        },
+        {
+          "explicit_presence_samples": 20,
+          "literal_public_parameter": {
+            "PPE": 2.33,
+            "SD": 0.201,
+            "fall_speed_m_s": 0.029,
+            "numerical_annotation_refusal": false,
+            "source": {
+              "": "",
+              "FSP (m/s)": "0.029",
+              "Land-cover types (LCTs)": "",
+              "PFT": "",
+              "PFT definition": "",
+              "PPE (SD)": "2.33 (0.201)",
+              "Plant taxa/Pollen-morphological types": "Plantago lanceolata"
+            }
+          },
+          "name": "Plantago lanceolata",
+          "native_taxon_ids": [
+            220
+          ],
+          "reported_NISP": 124
+        },
+        {
+          "explicit_presence_samples": 1,
+          "literal_public_parameter": null,
+          "name": "Plantago major",
+          "native_taxon_ids": [
+            219
+          ],
+          "reported_NISP": 1
+        },
+        {
+          "explicit_presence_samples": 2,
+          "literal_public_parameter": null,
+          "name": "Plantago maritima",
+          "native_taxon_ids": [
+            1307
+          ],
+          "reported_NISP": 2
+        },
+        {
+          "explicit_presence_samples": 21,
+          "literal_public_parameter": null,
+          "name": "Plantago uniflora",
+          "native_taxon_ids": [
+            38770
+          ],
+          "reported_NISP": 65
+        },
+        {
+          "explicit_presence_samples": 26,
+          "literal_public_parameter": null,
+          "name": "Poaceae undiff.",
+          "native_taxon_ids": [
+            125
+          ],
+          "reported_NISP": 2517
+        },
+        {
+          "explicit_presence_samples": 2,
+          "literal_public_parameter": null,
+          "name": "Polygonum aviculare",
+          "native_taxon_ids": [
+            947
+          ],
+          "reported_NISP": 2
+        },
+        {
+          "explicit_presence_samples": 19,
+          "literal_public_parameter": null,
+          "name": "Populus tremula",
+          "native_taxon_ids": [
+            3435
+          ],
+          "reported_NISP": 44
+        },
+        {
+          "explicit_presence_samples": 19,
+          "literal_public_parameter": null,
+          "name": "Potamogeton",
+          "native_taxon_ids": [
+            517
+          ],
+          "reported_NISP": 120
+        },
+        {
+          "explicit_presence_samples": 19,
+          "literal_public_parameter": null,
+          "name": "Potentilla-type",
+          "native_taxon_ids": [
+            242
+          ],
+          "reported_NISP": 50
+        },
+        {
+          "explicit_presence_samples": 3,
+          "literal_public_parameter": null,
+          "name": "Prunus",
+          "native_taxon_ids": [
+            715
+          ],
+          "reported_NISP": 3
+        },
+        {
+          "explicit_presence_samples": 26,
+          "literal_public_parameter": null,
+          "name": "Quercus",
+          "native_taxon_ids": [
+            251
+          ],
+          "reported_NISP": 3740
+        },
+        {
+          "explicit_presence_samples": 14,
+          "literal_public_parameter": null,
+          "name": "Ranunculus acris-type",
+          "native_taxon_ids": [
+            996
+          ],
+          "reported_NISP": 19
+        },
+        {
+          "explicit_presence_samples": 4,
+          "literal_public_parameter": null,
+          "name": "Ranunculus peltatus-type",
+          "native_taxon_ids": [
+            4737
+          ],
+          "reported_NISP": 4
+        },
+        {
+          "explicit_presence_samples": 2,
+          "literal_public_parameter": null,
+          "name": "Rhinanthus-type",
+          "native_taxon_ids": [
+            2931
+          ],
+          "reported_NISP": 2
+        },
+        {
+          "explicit_presence_samples": 2,
+          "literal_public_parameter": null,
+          "name": "Rhynchospora alba",
+          "native_taxon_ids": [
+            2227
+          ],
+          "reported_NISP": 2
+        },
+        {
+          "explicit_presence_samples": 1,
+          "literal_public_parameter": null,
+          "name": "Rubus idaeus-type",
+          "native_taxon_ids": [
+            4768
+          ],
+          "reported_NISP": 1
+        },
+        {
+          "explicit_presence_samples": 14,
+          "literal_public_parameter": null,
+          "name": "Rumex acetosa",
+          "native_taxon_ids": [
+            4053
+          ],
+          "reported_NISP": 27
+        },
+        {
+          "explicit_presence_samples": 26,
+          "literal_public_parameter": null,
+          "name": "Rumex acetosella-type",
+          "native_taxon_ids": [
+            1532
+          ],
+          "reported_NISP": 172
+        },
+        {
+          "explicit_presence_samples": 2,
+          "literal_public_parameter": null,
+          "name": "Rumex crispus-type",
+          "native_taxon_ids": [
+            4055
+          ],
+          "reported_NISP": 3
+        },
+        {
+          "explicit_presence_samples": 18,
+          "literal_public_parameter": {
+            "PPE": 1.182,
+            "SD": 0.077,
+            "fall_speed_m_s": 0.022,
+            "numerical_annotation_refusal": false,
+            "source": {
+              "": "",
+              "FSP (m/s)": "0.022",
+              "Land-cover types (LCTs)": "",
+              "PFT": "TSD",
+              "PFT definition": "Tall shrub, summer-green",
+              "PPE (SD)": "1.182 (0.077)",
+              "Plant taxa/Pollen-morphological types": "Salix"
+            }
+          },
+          "name": "Salix",
+          "native_taxon_ids": [
+            271
+          ],
+          "reported_NISP": 42
+        },
+        {
+          "explicit_presence_samples": 3,
+          "literal_public_parameter": null,
+          "name": "Sambucus",
+          "native_taxon_ids": [
+            275
+          ],
+          "reported_NISP": 6
+        },
+        {
+          "explicit_presence_samples": 1,
+          "literal_public_parameter": null,
+          "name": "Sanicula europaea",
+          "native_taxon_ids": [
+            5092
+          ],
+          "reported_NISP": 1
+        },
+        {
+          "explicit_presence_samples": 3,
+          "literal_public_parameter": null,
+          "name": "Scheuchzeria palustris",
+          "native_taxon_ids": [
+            283
+          ],
+          "reported_NISP": 4
+        },
+        {
+          "explicit_presence_samples": 4,
+          "literal_public_parameter": null,
+          "name": "Schoenoplectus lacustris-type",
+          "native_taxon_ids": [
+            4840
+          ],
+          "reported_NISP": 4
+        },
+        {
+          "explicit_presence_samples": 2,
+          "literal_public_parameter": null,
+          "name": "Schoenus-type",
+          "native_taxon_ids": [
+            4834
+          ],
+          "reported_NISP": 2
+        },
+        {
+          "explicit_presence_samples": 1,
+          "literal_public_parameter": null,
+          "name": "Scleranthus annuus",
+          "native_taxon_ids": [
+            4845
+          ],
+          "reported_NISP": 1
+        },
+        {
+          "explicit_presence_samples": 1,
+          "literal_public_parameter": null,
+          "name": "Scrophularia-type",
+          "native_taxon_ids": [
+            4123
+          ],
+          "reported_NISP": 1
+        },
+        {
+          "explicit_presence_samples": 3,
+          "literal_public_parameter": null,
+          "name": "Sedum",
+          "native_taxon_ids": [
+            285
+          ],
+          "reported_NISP": 3
+        },
+        {
+          "explicit_presence_samples": 9,
+          "literal_public_parameter": null,
+          "name": "Senecio-type",
+          "native_taxon_ids": [
+            1915
+          ],
+          "reported_NISP": 12
+        },
+        {
+          "explicit_presence_samples": 4,
+          "literal_public_parameter": null,
+          "name": "Silene-type",
+          "native_taxon_ids": [
+            3703
+          ],
+          "reported_NISP": 4
+        },
+        {
+          "explicit_presence_samples": 11,
+          "literal_public_parameter": null,
+          "name": "Sorbus aucuparia",
+          "native_taxon_ids": [
+            1315
+          ],
+          "reported_NISP": 12
+        },
+        {
+          "explicit_presence_samples": 17,
+          "literal_public_parameter": null,
+          "name": "Sparganium-type",
+          "native_taxon_ids": [
+            293
+          ],
+          "reported_NISP": 28
+        },
+        {
+          "explicit_presence_samples": 1,
+          "literal_public_parameter": null,
+          "name": "Spergula",
+          "native_taxon_ids": [
+            2932
+          ],
+          "reported_NISP": 1
+        },
+        {
+          "explicit_presence_samples": 1,
+          "literal_public_parameter": null,
+          "name": "Stachys-type",
+          "native_taxon_ids": [
+            491
+          ],
+          "reported_NISP": 1
+        },
+        {
+          "explicit_presence_samples": 1,
+          "literal_public_parameter": null,
+          "name": "Stellaria palustris",
+          "native_taxon_ids": [
+            4038
+          ],
+          "reported_NISP": 1
+        },
+        {
+          "explicit_presence_samples": 4,
+          "literal_public_parameter": null,
+          "name": "Succisa pratensis",
+          "native_taxon_ids": [
+            4421
+          ],
+          "reported_NISP": 5
+        },
+        {
+          "explicit_presence_samples": 4,
+          "literal_public_parameter": null,
+          "name": "Thalictrum",
+          "native_taxon_ids": [
+            300
+          ],
+          "reported_NISP": 5
+        },
+        {
+          "explicit_presence_samples": 26,
+          "literal_public_parameter": {
+            "PPE": 1.21,
+            "SD": 0.116,
+            "fall_speed_m_s": 0.032,
+            "numerical_annotation_refusal": false,
+            "source": {
+              "": "",
+              "FSP (m/s)": "0.032",
+              "Land-cover types (LCTs)": "",
+              "PFT": "",
+              "PFT definition": "",
+              "PPE (SD)": "1.21 (0.116)",
+              "Plant taxa/Pollen-morphological types": "Tilia"
+            }
+          },
+          "name": "Tilia",
+          "native_taxon_ids": [
+            302
+          ],
+          "reported_NISP": 239
+        },
+        {
+          "explicit_presence_samples": 1,
+          "literal_public_parameter": null,
+          "name": "Trientalis europaea",
+          "native_taxon_ids": [
+            4907
+          ],
+          "reported_NISP": 1
+        },
+        {
+          "explicit_presence_samples": 3,
+          "literal_public_parameter": null,
+          "name": "Trifolium repens-type",
+          "native_taxon_ids": [
+            496
+          ],
+          "reported_NISP": 4
+        },
+        {
+          "explicit_presence_samples": 10,
+          "literal_public_parameter": null,
+          "name": "Typha latifolia",
+          "native_taxon_ids": [
+            309
+          ],
+          "reported_NISP": 20
+        },
+        {
+          "explicit_presence_samples": 26,
+          "literal_public_parameter": {
+            "PPE": 1.27,
+            "SD": 0.05,
+            "fall_speed_m_s": 0.032,
+            "numerical_annotation_refusal": false,
+            "source": {
+              "": "",
+              "FSP (m/s)": "0.032",
+              "Land-cover types (LCTs)": "",
+              "PFT": "",
+              "PFT definition": "",
+              "PPE (SD)": "1.27 (0.05)",
+              "Plant taxa/Pollen-morphological types": "Ulmus"
+            }
+          },
+          "name": "Ulmus",
+          "native_taxon_ids": [
+            310
+          ],
+          "reported_NISP": 508
+        },
+        {
+          "explicit_presence_samples": 19,
+          "literal_public_parameter": null,
+          "name": "Urtica",
+          "native_taxon_ids": [
+            498
+          ],
+          "reported_NISP": 43
+        },
+        {
+          "explicit_presence_samples": 1,
+          "literal_public_parameter": null,
+          "name": "Utricularia",
+          "native_taxon_ids": [
+            316
+          ],
+          "reported_NISP": 1
+        },
+        {
+          "explicit_presence_samples": 9,
+          "literal_public_parameter": null,
+          "name": "Vaccinium",
+          "native_taxon_ids": [
+            317
+          ],
+          "reported_NISP": 14
+        },
+        {
+          "explicit_presence_samples": 13,
+          "literal_public_parameter": null,
+          "name": "Vicia/Lathyrus",
+          "native_taxon_ids": [
+            1876
+          ],
+          "reported_NISP": 16
+        }
+      ],
+      "source_locator": {
+        "part": "part-003.json",
+        "row_ordinal": 22
+      },
+      "source_sample_count": 26,
+      "strict_common_numerically_unannotated_parameter_labels": [
+        "Alnus glutinosa",
+        "Betula",
+        "Calluna vulgaris",
+        "Corylus avellana",
+        "Tilia",
+        "Ulmus"
+      ],
+      "strict_common_parameter_labels_across_eligible_samples": [
+        "Alnus glutinosa",
+        "Betula",
+        "Calluna vulgaris",
+        "Corylus avellana",
+        "Tilia",
+        "Ulmus"
+      ],
+      "unparameterized_reported_NISP": 9906
+    }
+  ],
+  "cross_core_strict_common_numeric_parameter_labels": [
+    "Betula"
+  ],
+  "historical_equivalence_claim": false,
+  "input_sha256": {
+    "data/landclim/raw/landclim_ii_site_metadata.xlsx": "2d4a0cf1401e36c2606f7761cecc85c4bbc15272460c2a4926cb1702d4565ebb",
+    "data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv": "32eac151566b41c186745dd077fabcddde06f64f9a3a2056699e88dbabd76d4d",
+    "data/neotoma/raw/neotoma_pollen_dataset_downloads/manifest.json": "248dc5c1a8aedc441484f2c0a5d4bc54317329aa4fb96f4a3a16f8cec80c947d",
+    "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-003.json": "d7b9f9e0616b71ab74be03e15ae3f81fa856582463d51e0c1559d763bb3552af",
+    "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-004.json": "d96046c88b497ba07082120e446fecacad0d9b5533d8960bdbc03811976ea435",
+    "data/neotoma/raw/neotoma_pollen_dataset_downloads/part-007.json": "8a37070b8796030365585eb2cf7b30d6555e39fc1c5bea8167104845c35adc1d",
+    "data/neotoma/relational/surfaces/chronologies/part-00001.json": "0703828826bde8a4860d5ea03100cf85145702a042bb3d29dafcb8a3bef4f569",
+    "data/neotoma/review/relational_baseline.json": "3e1f2c126da5dec9cc0e572ff815760b9d66d41fcffd612142458949e45a18b5",
+    "docs/report/countries/denmark/solsoe-source-lineage/original-core-selection/report.json": "8456bf919423c4b57ed202704cc43d04b891ba98069b9ad9e0765192abf533a6",
+    "docs/report/countries/denmark/solsoe-source-lineage/report.json": "508c3808131dddc4f4c455a42c4f16af37fe0e01793ff7e3da9562bfda9238e6",
+    "reports/science/dalmutladdo-lra-input/report.json": "55734d1ac5b783d53c7b43730359e63fbad57be99921f0780bcbc2da43b6b0b8",
+    "reports/science/laihalampi-lra-input/report.json": "baa364c53ad90a665b53a0f89f8fbd2b6c2b540ca57e5af287a7fbf6a2c792bd"
+  },
+  "physical_reconstruction_executed": false,
+  "private_native_source_support_sha256": "b2c5e386411133f145e2e50816e889c5f33bfccd2e7ca3ecf24793ebbbd7490f",
+  "protocol": {
+    "age_epoch_scope": "Only Neotoma named Calibrated radiocarbon years BP sample fields inherit the official documented AD1950 datum. Native radiocarbon defaults remain context, never converted by subtracting1950. IntCal98/09 or old named age model remains actualsource provenance, not current calibration. Workbook TopBP/BotBP remain source labels, not an automatically authenticated chronology.",
+    "age_window_edges_cal_bp": [
+      0,
+      100,
+      350,
+      700,
+      1200,
+      1700,
+      2200,
+      2700,
+      3200,
+      3700,
+      4200,
+      4700,
+      5200,
+      5700,
+      6200,
+      6700,
+      7200,
+      7700,
+      8200,
+      8700,
+      9200,
+      9700,
+      10200,
+      10700,
+      11200,
+      11700
+    ],
+    "cores": [
+      {
+        "country": "Finland",
+        "country_code": "FI",
+        "expected_handle": "LAIH",
+        "expected_samples": 150,
+        "metadata_code": "LAIH",
+        "metadata_radius_m": 285,
+        "named_calibrated_chronology_id": 37160,
+        "native_collection_unit_id": 37925,
+        "native_dataset_id": 52082,
+        "native_site_id": 28072,
+        "part": "part-007.json",
+        "reported_area_alternatives_ha": [
+          25.5
+        ]
+      },
+      {
+        "country": "Norway",
+        "country_code": "NO",
+        "expected_handle": "DALMUT",
+        "expected_samples": 72,
+        "metadata_code": "dalmutladdo",
+        "metadata_radius_m": 160,
+        "named_calibrated_chronology_id": 11601,
+        "native_collection_unit_id": 14989,
+        "native_dataset_id": 20034,
+        "native_site_id": 13388,
+        "part": "part-004.json",
+        "reported_area_alternatives_ha": [
+          7.2,
+          8.0
+        ]
+      },
+      {
+        "country": "Denmark",
+        "country_code": "DK",
+        "expected_handle": "SOLSOE81",
+        "expected_samples": 66,
+        "metadata_code": "Solsoe",
+        "metadata_radius_m": 89,
+        "named_calibrated_chronology_id": 25732,
+        "native_collection_unit_id": 4303,
+        "native_dataset_id": 4445,
+        "native_site_id": 3432,
+        "part": "part-003.json",
+        "reported_area_alternatives_ha": [
+          2.5
+        ]
+      },
+      {
+        "country": "Denmark",
+        "country_code": "DK",
+        "expected_handle": "SOLSOE83",
+        "expected_samples": 26,
+        "metadata_code": "Solsoe",
+        "metadata_radius_m": 89,
+        "named_calibrated_chronology_id": 25740,
+        "native_collection_unit_id": 4304,
+        "native_dataset_id": 4446,
+        "native_site_id": 3432,
+        "part": "part-003.json",
+        "reported_area_alternatives_ha": [
+          2.5
+        ]
+      }
+    ],
+    "count_denominator": "Actual all-reported native pollen NISP, validated nonnegative integer, with explicit non-pollen exclusions. LiteralPPE coverage is a subcomposition, not a verified terrestrial denominator, measured completeness or vegetation area.",
+    "eligibility_views": [
+      "Finite named calibrated point inside declared0\u201311700domain: conditional point scenario only; retain actual unknown/signed source errorbounds.",
+      "Prior nonnegative BP point-and-reported-bounds comparability rule: report refusals separately without erasing/replacing them."
+    ],
+    "geometry_scope": "Raw metadata radius in documented metres and distinct paper/LandClimI areas; static metadata or circle-equivalent area radii are named future geometry assumptions, not dated shorelines. Drained lake/hiatus/bog notes retained. No bog accepted as empirical receiving-lake geometry. Do not pool Solsoe cores as independent lakes or replace its historical79rows with92.",
+    "historical_equivalence_claim": false,
+    "output_acceptance": "Four exact distinctnativecore IDs, total314source samples. Account all314 count and age dispositions; no zero denominator hidden. Authenticate copied3rawpart/manifest against originalretainedbaseline hashes, rawxlsx/CSV identities and exact sourcehelper; write full per-source presence/age/sample support only to private artifact output, compact derived census separately.",
+    "physical_reconstruction_executed": false,
+    "raw_redistribution_authorized": false,
+    "scope": "Finite retained-source feasibility census for new Nordic reconstructions; no model fit, physical transport, prediction replay, acquisition, historical input admission or source redistribution.",
+    "source_policy": "Inspect actual raw dataset/core/site restriction and source metadata plus recorded historicalR/NR access markers separately. Official indexedNeotoma v2025 policy CC BY4.0 withNeotoma/EPD/original-investigator attribution supports publicly available source scope; actualdirect policyGET403 and any per-source restriction must remain visible. Do not infer permission for original restricted LandClim authorinputs or separatelyrestricted PANGAEA bytes. Local audit only, no raw redistribution or outreach.",
+    "taxon_support": "All source literal labels/IDs/presence, literal31PPE/FSP parameter support and numeric annotation refusals; core-specific and cross-core strict common panels among actual eligible samples. Sparse absence stays absence, zero hypotheses not silently inserted. Generic genus/species/hierarchy synonyms are separate future proposals, not admitted by label match.",
+    "vegetation_accuracy_claim": false
+  },
+  "raw_redistribution_authorized": false,
+  "scope": "Finite retained-source feasibility census for new Nordic reconstructions; no model fit, physical transport, prediction replay, acquisition, historical input admission or source redistribution.",
+  "source_sample_count": 314
+}

@@ -15,7 +15,8 @@ SECURITY_EXTRA_TARGETS := security-locked-dependencies
 SECURITY_SELF_MAKE = $(MAKE) -f "$(MONOREPO_ROOT)/makes/packages/bijux-pollenomics-dev.mk"
 ENABLE_PYDOCSTYLE := 1
 # ISTS is an archived LandClim header; dokument is part of the official SLU source URL.
-CODESPELL = $(VENV_PYTHON) -m codespell_lib --ignore-words-list=ists,dokument
+# Composit is a retained EMB matrix key; LARG and SMAL are native Khodzal basin codes.
+CODESPELL = $(VENV_PYTHON) -m codespell_lib --ignore-words-list=ists,dokument,composit,larg,smal
 SKIP_MYPY := 0
 PACKAGE_ALL_TARGETS := clean install test lint quality security build sbom
 

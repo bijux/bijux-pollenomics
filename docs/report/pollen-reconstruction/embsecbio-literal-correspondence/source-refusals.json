@@ -1,0 +1,33 @@
+{
+  "conditional_literal_evidence_retained": true,
+  "external_outreach_sent": false,
+  "schema_version": "embsecbio-literal-correspondence-source-refusals.v1",
+  "scoped_alternate_discovery": {
+    "exact_named_S1_found": false,
+    "scope": "Inspected primary Reading, institutional, author-repository and local bundles; no exhaustive worldwide absence claim."
+  },
+  "source_refused_rows": 950,
+  "supplement": {
+    "DOCX_admitted": false,
+    "body_sha256": "f0f4934b880e90b4a9dad9a0229af1621db489a344a42569a6ea4097b5f6774c",
+    "complete_response_body_bytes": 5826,
+    "http_status": 403,
+    "url": "https://onlinelibrary.wiley.com/action/downloadSupplement?doi=10.1111%2Fjbi.14448&file=jbi14448-sup-0001-supinfo.docx"
+  },
+  "unauthenticated_claims": [
+    "full taxon amalgamation",
+    "historical author crosswalk",
+    "general pollen denominator",
+    "missing-row measurement zeros",
+    "original release/age selector",
+    "taxonomy review",
+    "rights"
+  ],
+  "unsettled_inputs": [
+    "Table S1 mapping bytes",
+    "author sample ID crosswalk",
+    "denominator and excluded taxa",
+    "missing/zero rules",
+    "exact raw release and age field"
+  ]
+}

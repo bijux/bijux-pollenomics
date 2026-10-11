@@ -37,6 +37,8 @@ def fixed_site_cover_covariance(
     ``w_i = sum_s counts[s,i] / (deposition[s,i] * ppe[i])``. The delta method
     uses independent fixed-total multinomial counts at each site and the full
     covariance of the shared PPE vector. Sites and PPE are assumed independent.
+    Each site's integer count total must be below 2**53 so its fixed
+    multinomial denominator remains exactly representable in binary64.
     Site selection, chronology, geometry and transport uncertainty are held
     fixed; no site bootstrap or empirical vegetation accuracy is represented.
     Declared PPE variances must be nonnegative, with no covariance for a
@@ -81,6 +83,7 @@ def fixed_site_cover_covariance(
         or np.any(n < 0)
         or np.any(n > 2**53 - 1)
         or np.any(n != np.floor(n))
+        or np.any(n.sum(axis=1) >= 2**53)
         or np.any(n.sum(axis=1) <= 0)
         or not np.isfinite(k).all()
         or np.any(k <= 0)

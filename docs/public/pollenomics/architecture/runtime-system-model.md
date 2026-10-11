@@ -61,7 +61,7 @@ sequenceDiagram
         Owner-->>Operator: result and exit status
     else contract refused
         Contract-->>Owner: findings
-        Owner-->>Operator: refusal; prior state retained
+        Owner-->>Operator: refusal#59; prior state retained
     end
 ```
 

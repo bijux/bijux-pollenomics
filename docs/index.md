@@ -15,6 +15,8 @@ ancient DNA. Its database preserves captured source identity, family-specific
 preparation, scientific decisions, publication membership, and the gaps that
 prevent stronger claims.
 
+[Product guide](public/pollenomics/index.md) · [Domain language](public/pollenomics-data/domain-language.md)
+
 <!-- bijux-pollenomics-badges:generated:start -->
 [![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-3776AB?logo=python&logoColor=white)](https://pypi.org/project/bijux-pollenomics/)
 [![License: Apache-2.0](https://img.shields.io/badge/license-Apache--2.0-0F766E)](https://github.com/bijux/bijux-pollenomics/blob/main/LICENSE)

@@ -185,3 +185,43 @@ def test_valid_ppe_covariance_matches_independent_two_taxon_variance(
     np.testing.assert_allclose(
         result.standard_error, np.sqrt(counting_variance + ppe_variance), rtol=2e-15
     )
+
+
+@pytest.mark.parametrize("count_dtype", [np.int64, np.uint64, np.float64])
+@pytest.mark.parametrize(
+    "count_pair", [[2**53 - 1, 1], [2**53 - 1, 2], [2**53 - 1, 2**53 - 1]]
+)
+def test_inexact_site_count_total_is_refused(
+    count_dtype: type[np.generic], count_pair: list[int]
+) -> None:
+    # Each cell is representable, but the multinomial denominator must also
+    # stay within the consecutive binary64 integer range.
+    counts = np.array([count_pair], dtype=count_dtype)
+    with pytest.raises(ValidationError, match="counts"):
+        fixed_site_cover_covariance(
+            counts,
+            np.ones((1, 2)),
+            np.ones(2),
+            np.zeros((2, 2)),
+            taxon_measured=np.ones((1, 2), dtype=bool),
+        )
+
+
+def test_largest_exact_site_total_retains_binomial_covariance() -> None:
+    total = 2**53 - 1
+    counts = np.array([[2**52, 2**52 - 1]], dtype=np.int64)
+    result = fixed_site_cover_covariance(
+        counts,
+        np.ones((1, 2)),
+        np.ones(2),
+        np.zeros((2, 2)),
+        taxon_measured=np.ones((1, 2), dtype=bool),
+    )
+    probability = 2**52 / total
+    variance = probability * (1 - probability) / total
+    np.testing.assert_allclose(result.cover, [probability, 1 - probability], rtol=2e-15)
+    np.testing.assert_allclose(
+        result.counting_covariance,
+        np.array([[variance, -variance], [-variance, variance]]),
+        rtol=2e-15,
+    )

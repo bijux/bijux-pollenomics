@@ -352,6 +352,132 @@ def test_scientific_verification_requires_explicit_manual_dispatch() -> None:
     assert 'echo "select_all=true"' in script
 
 
+def synthetic_scheduling_sources(
+    repository: Path, source_root: Path, descriptor_path: Path
+) -> QualifiedReportSources:
+    assert repository == REPO_ROOT
+    descriptor_file = repository / descriptor_path
+    descriptor = json.loads(descriptor_file.read_text())
+    inputs = {descriptor_path.as_posix(): descriptor_file}
+    schema = descriptor["schema_version"]
+    reviewed_schemas = {
+        "qualified-report-source-bundle.v1",
+        "qualified-publisher-report-tables.v1",
+        "qualified-pangaea-solsoe-age-table.v1",
+        "qualified-pangaea-epd-age-table.v1",
+        "qualified-pangaea-abbo-profile.v1",
+        "qualified-author-snapshot.v1",
+        "qualified-landclim-two-grid-packet.v1",
+        "qualified-neotoma-publication-link.v1",
+        "qualified-rootsi-bokesjon-workbook.v1",
+        "qualified-rootsi-native-workbook.v1",
+    }
+    assert schema in reviewed_schemas, f"Unreviewed synthetic source schema: {schema}"
+    if schema == "qualified-rootsi-native-workbook.v1":
+        base_path = Path(descriptor["base_descriptor"])
+        assert base_path == Path(
+            "configs/ci/qualified-report-sources/rootsi-bokesjon-workbook.json"
+        )
+        base_file = repository / base_path
+        base = json.loads(base_file.read_text())
+        assert base["schema_version"] == "qualified-rootsi-bokesjon-workbook.v1"
+        assert base["source_id"] == "landclim/rootsi-workbooks"
+        assert descriptor["workbook"]["path"] in {
+            "rootsi/ABB.xls",
+            "rootsi/BUS.xls",
+        }
+        inputs[base_path.as_posix()] = base_file
+        identity = base["source_id"]
+    else:
+        identity = descriptor["source_id"]
+    directory = source_root / identity
+    directory.mkdir(parents=True, exist_ok=True)
+    if schema in {
+        "qualified-report-source-bundle.v1",
+        "qualified-publisher-report-tables.v1",
+    }:
+        packets = [(identity, Path(), [descriptor["custody"], *descriptor["files"]])]
+    elif schema in {
+        "qualified-pangaea-solsoe-age-table.v1",
+        "qualified-pangaea-epd-age-table.v1",
+        "qualified-pangaea-abbo-profile.v1",
+    }:
+        packets = [(identity, Path(), [descriptor["table"]])]
+    elif schema == "qualified-rootsi-bokesjon-workbook.v1":
+        packets = [(identity, Path(), [descriptor["manifest"], descriptor["workbook"]])]
+    elif schema == "qualified-rootsi-native-workbook.v1":
+        packets = [
+            (
+                identity,
+                Path(),
+                [base["manifest"], base["workbook"], descriptor["workbook"]],
+            )
+        ]
+    elif schema == "qualified-author-snapshot.v1":
+        packets = [(identity, Path(), [descriptor["manifest"], *descriptor["files"]])]
+    elif schema == "qualified-landclim-two-grid-packet.v1":
+        author = json.loads((repository / descriptor["author_descriptor"]).read_text())
+        packets = [
+            (
+                author["source_id"],
+                Path(),
+                [author["manifest"], *author["files"]],
+            ),
+            (identity, Path(descriptor["run_path"]), descriptor["files"]),
+        ]
+    elif schema == "qualified-neotoma-publication-link.v1":
+        packets = [
+            (
+                identity,
+                Path(),
+                [descriptor["capture_manifest"], descriptor["response"]],
+            )
+        ]
+    elif schema == "qualified-pangaea-solsoe-age-table.v1":
+        assert descriptor["scientific_admission"] is False
+        packets = [(identity, Path(), [descriptor["table"]])]
+    elif schema == "qualified-rootsi-bokesjon-workbook.v1":
+        assert descriptor["source_rights_status"] == "unapproved_for_analytical_reuse"
+        packets = [(identity, Path(), [descriptor["manifest"], descriptor["workbook"]])]
+    else:
+        raise AssertionError(f"Unreviewed synthetic source schema: {schema}")
+    for source_id, prefix, specs in packets:
+        for spec in specs:
+            path = source_root / source_id / prefix / spec["path"]
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_text("synthetic archive-layout fixture\n", encoding="utf-8")
+            inputs[f"external/{source_id}/{prefix / spec['path']}"] = path
+    if schema in {
+        "qualified-pangaea-solsoe-age-table.v1",
+        "qualified-pangaea-epd-age-table.v1",
+        "qualified-pangaea-abbo-profile.v1",
+    }:
+        assert set(inputs) == {
+            descriptor_path.as_posix(),
+            f"external/{identity}/{descriptor['table']['path']}",
+        }
+    if schema == "qualified-landclim-two-grid-packet.v1":
+        assert len(inputs) == 265
+    if schema == "qualified-neotoma-publication-link.v1":
+        assert set(inputs) == {
+            descriptor_path.as_posix(),
+            f"external/{identity}/capture-manifest.json",
+            f"external/{identity}/responses/dataset-4200-publications.json",
+        }
+    if schema == "qualified-pangaea-solsoe-age-table.v1":
+        assert set(inputs) == {
+            descriptor_path.as_posix(),
+            f"external/{identity}/solsoe81-age-740759.txt",
+        }
+    if schema == "qualified-rootsi-bokesjon-workbook.v1":
+        assert set(inputs) == {
+            descriptor_path.as_posix(),
+            f"external/{identity}/manifest.json",
+            f"external/{identity}/rootsi/BOKE.xls",
+        }
+    return QualifiedReportSources(directory, inputs, "a" * 64)
+
+
 @pytest.fixture(scope="module")
 def configured_owner_rows(
     tmp_path_factory: pytest.TempPathFactory,
@@ -363,91 +489,12 @@ def configured_owner_rows(
     """
     store = tmp_path_factory.mktemp("configured-owner-schedule") / "source-store"
 
-    def synthetic_sources(
-        repository: Path, source_root: Path, descriptor_path: Path
-    ) -> QualifiedReportSources:
-        assert repository == REPO_ROOT and source_root == store
-        descriptor_file = repository / descriptor_path
-        descriptor = json.loads(descriptor_file.read_text())
-        identity = descriptor["source_id"]
-        directory = store / identity
-        directory.mkdir(parents=True, exist_ok=True)
-        inputs = {descriptor_path.as_posix(): descriptor_file}
-        schema = descriptor["schema_version"]
-        if schema in {
-            "qualified-report-source-bundle.v1",
-            "qualified-publisher-report-tables.v1",
-        }:
-            packets = [
-                (identity, Path(), [descriptor["custody"], *descriptor["files"]])
-            ]
-        elif schema == "qualified-author-snapshot.v1":
-            packets = [
-                (identity, Path(), [descriptor["manifest"], *descriptor["files"]])
-            ]
-        elif schema == "qualified-landclim-two-grid-packet.v1":
-            author = json.loads(
-                (repository / descriptor["author_descriptor"]).read_text()
-            )
-            packets = [
-                (
-                    author["source_id"],
-                    Path(),
-                    [author["manifest"], *author["files"]],
-                ),
-                (identity, Path(descriptor["run_path"]), descriptor["files"]),
-            ]
-        elif schema == "qualified-neotoma-publication-link.v1":
-            packets = [
-                (
-                    identity,
-                    Path(),
-                    [descriptor["capture_manifest"], descriptor["response"]],
-                )
-            ]
-        elif schema == "qualified-pangaea-solsoe-age-table.v1":
-            assert descriptor["scientific_admission"] is False
-            packets = [(identity, Path(), [descriptor["table"]])]
-        elif schema == "qualified-rootsi-bokesjon-workbook.v1":
-            assert (
-                descriptor["source_rights_status"] == "unapproved_for_analytical_reuse"
-            )
-            packets = [
-                (identity, Path(), [descriptor["manifest"], descriptor["workbook"]])
-            ]
-        else:
-            raise AssertionError(f"Unreviewed synthetic source schema: {schema}")
-        for source_id, prefix, specs in packets:
-            for spec in specs:
-                path = store / source_id / prefix / spec["path"]
-                path.parent.mkdir(parents=True, exist_ok=True)
-                path.write_text("synthetic archive-layout fixture\n", encoding="utf-8")
-                inputs[f"external/{source_id}/{prefix / spec['path']}"] = path
-        if schema == "qualified-landclim-two-grid-packet.v1":
-            assert len(inputs) == 265
-        if schema == "qualified-neotoma-publication-link.v1":
-            assert set(inputs) == {
-                descriptor_path.as_posix(),
-                f"external/{identity}/capture-manifest.json",
-                f"external/{identity}/responses/dataset-4200-publications.json",
-            }
-        if schema == "qualified-pangaea-solsoe-age-table.v1":
-            assert set(inputs) == {
-                descriptor_path.as_posix(),
-                f"external/{identity}/solsoe81-age-740759.txt",
-            }
-        if schema == "qualified-rootsi-bokesjon-workbook.v1":
-            assert set(inputs) == {
-                descriptor_path.as_posix(),
-                f"external/{identity}/manifest.json",
-                f"external/{identity}/rootsi/BOKE.xls",
-            }
-        return QualifiedReportSources(directory, inputs, "a" * 64)
-
     # Identity checks share one checked schedule; no test mutates these rows.
     with pytest.MonkeyPatch.context() as patch:
         patch.setattr(
-            configured_owner, "validated_external_report_sources", synthetic_sources
+            configured_owner,
+            "validated_external_report_sources",
+            synthetic_scheduling_sources,
         )
         rows = configured_owner_schedule(REPO_ROOT, source_root=store)["owners"]
     assert isinstance(rows, list)

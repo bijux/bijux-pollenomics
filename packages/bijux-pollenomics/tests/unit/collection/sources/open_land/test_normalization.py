@@ -99,6 +99,12 @@ def test_source_interval_is_modeled_context_and_preserves_numeric_zero(
     assert len(cell.source_member_sha256) == 64
     assert cell.source_archive_sha256 == hashlib.sha256(path.read_bytes()).hexdigest()
     assert "independent_release_review_required" in cell.refusal_reasons
+    assert cell.as_dict()["source_attribution"] == (
+        "Behnaz Pirzamanbein (upstream data creator); "
+        "Githumbi et al. (2022), doi:10.3389/fevo.2022.795794"
+    )
+    assert cell.as_dict()["source_citation_doi"] == SOURCE_CITATION_DOI
+    assert cell.as_dict()["source_data_license"] == SOURCE_DATA_LICENSE
 
 
 @pytest.mark.parametrize(

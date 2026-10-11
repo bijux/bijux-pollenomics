@@ -1,0 +1,243 @@
+{
+  "status": "actual_saved_output_source_membership_and_baseline_identity_review_no_identified_blocker",
+  "source_plan_sha256": "a36aff64a0e7e794c6911fa021da0a1f1efc1598382db0c4616cf6843b9cd5be",
+  "native_terminal_sha256": "cb8111b4ee4d660a2633e967cf561af551a69ed5838df045af8dab87f90e0c0f",
+  "actual_native_exit": 0,
+  "actual_wall_seconds": 25.688179832999595,
+  "actual_peak_rss_bytes": 396115968,
+  "actual_custody_after_unchanged": true,
+  "actual_owned_survivors": {},
+  "comparison_sha256": "5abb9af22673ec7e93fb38642b2d5f7958bd002218a5edd4514e11ffa093e5fe",
+  "private_support_sha256": "7173832dbe169d089db1219b97cf3ee3c62529a4c069a42262190aee921ab156",
+  "original_baseline_sha256": "4d682a9b8ed2fde20ec4cbec4d0604d21596451511726fd8a3692ae7f69e610d",
+  "review_method": "Read-only equality/identity/membership assertions on actual saved outputs,originalbaseline and private source capsule. No model,physical integration,R,source acquisition or independent covariance numerical oracle rerun.",
+  "cases": 8,
+  "source_point_sample_ids": 45,
+  "actual_private_support_keys": 184,
+  "exact_saved_native_baseline_windows_checked": 92,
+  "complete_source_membership_in_every_case": true,
+  "actual_saved_partition_conservation_checked": true,
+  "comparisons": [
+    {
+      "parameter_profile": "all_literal_parameters_sparse_zero_hypothesis",
+      "count_changed_windows": 16,
+      "occupied_window_union": 23,
+      "missing_branches": 0,
+      "window_cal_bp": [
+        7200.0,
+        7700.0
+      ],
+      "Pinus_sylvestris_saved_cover_difference_fraction": -0.22768167025657193,
+      "actual_native_panel_counts": [
+        [
+          0,
+          3,
+          1,
+          6,
+          0,
+          330,
+          6,
+          0
+        ]
+      ],
+      "actual_TP_panel_counts": [
+        [
+          0,
+          16,
+          0,
+          14,
+          0,
+          354,
+          13,
+          5
+        ]
+      ],
+      "parameter_taxa": [
+        "Artemisia",
+        "Cyperaceae",
+        "Filipendula",
+        "Juniperus communis",
+        "Picea abies",
+        "Pinus sylvestris",
+        "Poaceae",
+        "Salix"
+      ]
+    },
+    {
+      "parameter_profile": "large_grass_cereal_proxy_sparse_zero_hypothesis",
+      "count_changed_windows": 16,
+      "occupied_window_union": 23,
+      "missing_branches": 0,
+      "window_cal_bp": [
+        7200.0,
+        7700.0
+      ],
+      "Pinus_sylvestris_saved_cover_difference_fraction": -0.14403793594117645,
+      "actual_native_panel_counts": [
+        [
+          0,
+          0,
+          0,
+          711,
+          3,
+          1,
+          6,
+          0,
+          330,
+          6,
+          0
+        ]
+      ],
+      "actual_TP_panel_counts": [
+        [
+          4,
+          0,
+          0,
+          1707,
+          16,
+          0,
+          14,
+          0,
+          354,
+          13,
+          5
+        ]
+      ],
+      "parameter_taxa": [
+        "Alnus glutinosa",
+        "Amaranthaceae/Chenopodiaceae",
+        "Artemisia",
+        "Betula",
+        "Cyperaceae",
+        "Filipendula",
+        "Juniperus communis",
+        "Picea abies",
+        "Pinus sylvestris",
+        "Poaceae",
+        "Salix"
+      ]
+    },
+    {
+      "parameter_profile": "major_parameter_transfers_sparse_zero_hypothesis",
+      "count_changed_windows": 16,
+      "occupied_window_union": 23,
+      "missing_branches": 0,
+      "window_cal_bp": [
+        7200.0,
+        7700.0
+      ],
+      "Pinus_sylvestris_saved_cover_difference_fraction": -0.15618387896376026,
+      "actual_native_panel_counts": [
+        [
+          0,
+          0,
+          0,
+          574,
+          3,
+          1,
+          6,
+          0,
+          330,
+          6,
+          0
+        ]
+      ],
+      "actual_TP_panel_counts": [
+        [
+          4,
+          0,
+          0,
+          1338,
+          16,
+          0,
+          14,
+          0,
+          354,
+          13,
+          5
+        ]
+      ],
+      "parameter_taxa": [
+        "Alnus glutinosa",
+        "Amaranthaceae/Chenopodiaceae",
+        "Artemisia",
+        "Betula",
+        "Cyperaceae",
+        "Filipendula",
+        "Juniperus communis",
+        "Picea abies",
+        "Pinus sylvestris",
+        "Poaceae",
+        "Salix"
+      ]
+    },
+    {
+      "parameter_profile": "shared_birch_PPE_sparse_zero_hypothesis",
+      "count_changed_windows": 16,
+      "occupied_window_union": 23,
+      "missing_branches": 0,
+      "window_cal_bp": [
+        7200.0,
+        7700.0
+      ],
+      "Pinus_sylvestris_saved_cover_difference_fraction": -0.14403793594117645,
+      "actual_native_panel_counts": [
+        [
+          0,
+          0,
+          0,
+          711,
+          3,
+          1,
+          6,
+          0,
+          330,
+          6,
+          0
+        ]
+      ],
+      "actual_TP_panel_counts": [
+        [
+          4,
+          0,
+          0,
+          1707,
+          16,
+          0,
+          14,
+          0,
+          354,
+          13,
+          5
+        ]
+      ],
+      "parameter_taxa": [
+        "Alnus glutinosa",
+        "Amaranthaceae/Chenopodiaceae",
+        "Artemisia",
+        "Betula",
+        "Cyperaceae",
+        "Filipendula",
+        "Juniperus communis",
+        "Picea abies",
+        "Pinus sylvestris",
+        "Poaceae",
+        "Salix"
+      ]
+    }
+  ],
+  "same_TIB_shared_birch_and_large_grass_values_checked": true,
+  "findings": [
+    "Direct source TP45 age points reassign existing pollen samples. Largest retained literal-panel Pinus change is\u22120.22768167025657193 fraction at7200\u20137700calBP (\u221222.768167pp); this is chronology-bin sensitivity,not vegetation error or ecological change.",
+    "All eight cases retain45samples/23occupiedwindows,noexclusions.Each map changes16of23count windows;source ID membership remainscomplete andnonduplicated. No missing unionbranch occurred,whichdoesnotimply complete25window support.",
+    "Native baseline92windows is exactlysame saved counts/point/SE/counting/PPE/totalcovariance asoriginal4d68. This independent saved-output comparison doesnotconstitute independently recomputed scalar covariance.",
+    "Shared dwarf-birch and large-grass TIB alternatives are numerically identical: TIB has no added large-grass mapping. Do not count them as new observations or four distinct independent ecological tests.",
+    "Both chronology profiles retain absent agebounds/unknown datinguncertainty. Sourcepoint datum is declaredAD1950 transfer,now supported by separateprimary documentary qualifier9f947; no chronology-model/calibration superiority or historical membership inferred.",
+    "Sparse-source zeros,mutually exclusive counts,parameter transfers andstatic100mbasin/100km/wind3 remainconditional assumptions.Source presence/masks stayprivate andseparatefromhypothesis mask.",
+    "No newphysical factors used; originalexactbaseline tuple qualification scope reusablehere becausephysicalinputsunchanged. No nativeR parity,vegetation accuracy,rights,source publication orqualified externalreview supplied."
+  ],
+  "scientific_blocker_identified": false,
+  "canonical_product_changed": false,
+  "native_replay_launched_by_reviewer": false,
+  "qualified_human_review_claimed": false
+}

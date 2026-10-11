@@ -1,0 +1,76 @@
+{
+  "PPE_or_ERV_estimation": false,
+  "conditional_limits": "One exposed Namibian campaign; paired repeat radius labels. No calibrated intervals, ecological/PPE/ERV validation, Nordic vegetation scope, historicalmodel reproduction or independentconfirmation.",
+  "denominators": "source fivegrains and fivecalculatedareas only; neither allterrestrial grains, wholelandscape vegetation nor measured field truth",
+  "estimand": "positive five-listed-taxon conditional calculated satellite-derived area composition at each original100m ring label",
+  "estimator_objective_proof": {
+    "conditions": "All five source pollen/area shares positive and finite; M nonempty traininggroups; n_G positive; source groups disjoint and site weightsw_s=1/(M*n_G),sumw=1",
+    "coordinates": "z_s=clr(v_s)-clr(p_s),whereclr(x)=log(x)-mean(log(x))",
+    "different_losses": "TrainCLR squaredresiduals; heldoutprespecified squaredHellinger score. No targetscore optimization/tuning",
+    "does_not_prove": "PPE/ERV identification, inferred likelihood, statistical independence, uncertainty, chronology or environmental validity",
+    "gauge": "Uncentered rawlogratio LSmean is unique; commonoffset onlyunidentifiable after closure/CLRgauge",
+    "objective": "L(b)=sum_s w_s||z_s-b||^2 under sum_i b_i=0",
+    "prediction": "close(p*exp(delta_raw))=close(p*exp(center(delta_raw))) because commonfactorcancels",
+    "solution": "barz=sum_s w_sz_s=center(delta_raw); L(b)=L(barz)+||b-barz||^2 since sum_s w_s(z_s-barz)=0. Unique centeredminimizerb=barz"
+  },
+  "native_taxon_axes": [
+    "Acacia",
+    "Dichrostachys",
+    "Grewia",
+    "Poaceae",
+    "Combretaceae"
+  ],
+  "nominal_geometry": {
+    "groups": [
+      [
+        "Namibia_T1"
+      ],
+      [
+        "Namibia_T2"
+      ],
+      [
+        "Namibia_T3"
+      ],
+      [
+        "Namibia_T4",
+        "Namibia_T5"
+      ],
+      [
+        "Namibia_T6"
+      ],
+      [
+        "Namibia_T7"
+      ],
+      [
+        "Namibia_T8"
+      ],
+      [
+        "Namibia_T9"
+      ],
+      [
+        "Namibia_T10"
+      ]
+    ],
+    "intersection_threshold_m": 3000,
+    "maximum_circle_radius_m": 1500,
+    "scope": "connected overlapping nominal maximum1.5km envelopes before predictions; conservative source support assumption, actual sector/image masks unknown",
+    "source_precision": "source metadata extra digits used under declared sphere, not authenticated survey error. EdgeT4/T5=2111.061995m, closest nonedgeT8/T10=5317.682656m versus3000m; several-meter displayedprecision cannot bridge those margins. Actual footprint boundaries are unknown; no spatial or campaign independence claimed.",
+    "sphere_radius_m": 6371000
+  },
+  "prediction_before_scoring_sequence": "all450 predictions atomicallywritten/hash-frozen before first scorer call; scorer rereads exactledger. Exposure already occurred; sequence does not restore untouched outcomes.",
+  "prediction_rule": "empirical q=close(p*exp(delta)); identity q=p; trainingmapped q=close(exp(mapped)). Shifted logs preserve closure and positivity. Common correction factor unidentifiable; these are pointpredictors notPPE/ERV or physicaltransport.",
+  "protocol_sha256": "a1662a4d5327e13e1d59cc1492ebdfdfcaccb8ffa67558ed6bbf51b4539a34ea",
+  "schema_version": "namibia-grouped-mapped-area-assumptions.v1",
+  "source_already_exposed": true,
+  "source_observation_rule": "All 50 native integer count cells and all 750 calculated area cells are positive on the five source axes; no pseudocount, missing zero imputation or six-axis fossil input.",
+  "source_year_or_BP_conversion": false,
+  "taxon_transfer_boundary": "ModernAcacia pooled five-axis source; do not split Acacia or borrow fossil six-axis Senegalia/Vachellia output parameters or observations",
+  "training_rule": "Each heldout whole overlap group removed at every radius; other groups equally weighted, sites equally within eachgroup. For eachradius andtaxon delta_i=mean_training_groups(mean_sites(log(v_i/p_i))) and mapped_i=mean_training_groups(mean_sites(log(v_i))).",
+  "unresolved_source_assumptions": [
+    "exact soil/image dates",
+    "actual image masks and per-taxon classification construction",
+    "species-level partition equivalence",
+    "sampling and map error covariance",
+    "shared survey/campaign/site dependence"
+  ]
+}

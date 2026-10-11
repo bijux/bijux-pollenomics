@@ -34,6 +34,7 @@ class Case:
 
 @pytest.fixture
 def case(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> Case:
+    """Provide case for the retained source contract."""
     repository = tmp_path / "repository"
     (repository / "artifacts/output").mkdir(parents=True)
     core = repository / "core.py"
@@ -97,6 +98,7 @@ def case(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> Case:
 
 
 def invoke(case: Case, *, output: Path | None = None) -> None:
+    """Provide invoke for the retained source contract."""
     subject.run(
         case.repository,
         case.source_root,
@@ -106,6 +108,7 @@ def invoke(case: Case, *, output: Path | None = None) -> None:
 
 
 def change_writer(monkeypatch: pytest.MonkeyPatch, mutate: Callable[[], int]) -> None:
+    """Provide change writer for the retained source contract."""
     original = runpy.run_module
 
     def changed(module: str, *, run_name: str) -> None:
@@ -116,6 +119,7 @@ def change_writer(monkeypatch: pytest.MonkeyPatch, mutate: Callable[[], int]) ->
 
 
 def test_original_flags_output_population_and_lf_serialization(case: Case) -> None:
+    """Verify original flags output population and lf serialization."""
     original_argv = sys.argv
     invoke(case)
     assert {path.name for path in case.output.iterdir()} == set(subject.OUTPUTS)
@@ -124,6 +128,7 @@ def test_original_flags_output_population_and_lf_serialization(case: Case) -> No
 
 
 def test_changed_original_writer_refused(case: Case) -> None:
+    """Verify changed original writer refused."""
     case.core.write_bytes(b"changed writer")
     with pytest.raises(ValueError, match="writer identity differs"):
         invoke(case)
@@ -134,6 +139,7 @@ def test_changed_original_writer_refused(case: Case) -> None:
 def test_changed_source_during_writer_refused(
     case: Case, monkeypatch: pytest.MonkeyPatch, changed: str
 ) -> None:
+    """Verify changed source during writer refused."""
     path = case.raw if changed == "raw" else case.candidate
     change_writer(monkeypatch, lambda: path.write_bytes(b"changed"))
     with pytest.raises(ValueError, match="inputs changed during publication"):
@@ -144,6 +150,7 @@ def test_changed_source_during_writer_refused(
 def test_mixed_csv_line_endings_refused(
     case: Case, monkeypatch: pytest.MonkeyPatch
 ) -> None:
+    """Verify mixed csv line endings refused."""
     change_writer(
         monkeypatch,
         lambda: (Path(sys.argv[-1]) / "paper-correspondence.csv").write_bytes(
@@ -156,6 +163,7 @@ def test_mixed_csv_line_endings_refused(
 
 
 def test_extra_output_refused(case: Case, monkeypatch: pytest.MonkeyPatch) -> None:
+    """Verify extra output refused."""
     change_writer(
         monkeypatch, lambda: (Path(sys.argv[-1]) / "extra.json").write_bytes(b"x")
     )
@@ -165,6 +173,7 @@ def test_extra_output_refused(case: Case, monkeypatch: pytest.MonkeyPatch) -> No
 
 
 def test_wrong_descriptor_refused(case: Case) -> None:
+    """Verify wrong descriptor refused."""
     with pytest.raises(ValueError, match="descriptor differs"):
         subject.run(
             case.repository,
@@ -176,6 +185,17 @@ def test_wrong_descriptor_refused(case: Case) -> None:
 
 
 def test_outside_artifact_destination_refused(case: Case) -> None:
+    """Verify outside artifact destination refused."""
     with pytest.raises(ReportRebuildError, match="artifact"):
         invoke(case, output=case.repository / "docs/report/result")
     assert not case.output.exists()
+
+
+def test_declared_window_writer_matches_packaged_source() -> None:
+    """Verify declared window writer matches packaged source."""
+    spec = importlib.util.find_spec(subject.CORE)
+    assert spec is not None and spec.origin is not None
+    assert (
+        hashlib.sha256(Path(spec.origin).read_bytes()).hexdigest()
+        == subject.CORE_SHA256
+    )

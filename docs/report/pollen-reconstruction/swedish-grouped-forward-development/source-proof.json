@@ -1,0 +1,30 @@
+{
+  "actual_scientific_candidate": "cd1edb86e03f0861632e6d70ffd01c2eb093de0c",
+  "actual_scientific_plan_sha256": "edede7b5181fdfc659971e0212b4c9a5a331a498119e4ce8c391ad2c476ca53e",
+  "actual_writer_module_sha256": {
+    "__init__.py": "7e64f6fcd2e9beec24e9f6f1473ab178d7bc46de9714be948db71c0373c3cfc5",
+    "__main__.py": "c699180062b03e363ecf679ca36531ff33f148de0599477af2a2da5ca516d864",
+    "authority.py": "b1fc26a0402f9e58d2345794994e0589570e557e3bf5e8d2de4b02e7d9b36606",
+    "producer.py": "fe4cb0838034fe583f652dcaaa49c3f7b7a9be4a1eea4724e377b6cf084e34bb",
+    "sources.py": "970fd4603a27d906d57bf7279a628ab7af91ead1beaf15cc9bdfd6048724607b",
+    "summary.py": "1ae1bc2e7996e61d47bd7099444ade8108b628d15a1e8f0a82b1cb3f870852d8"
+  },
+  "operation": "New saved-loss projection, not transport attributed to the original model run",
+  "original_capture_sha256": {
+    "independent-score-review.json": "5e6b3a75a91b00174644b3b4a5b748cff9e4f109cce4ba100e348b9ef2194a58",
+    "native-terminal.json": "87cc93a93ef02d700651e46c319df6f63d8f1e16701c757d8afc54a5db03462b",
+    "prediction-ledger.json": "e81617c64d55b1fcabdfd6e105ae16026f1cd81d51f4e8363cf59afbeb9e9ee8",
+    "protocol.json": "1c629a5111d423fdd0854871afcf950923b68d9193cad739989c0f6a8058314f",
+    "score-ledger.json": "d9038f114a9a76929d118e33875999145fbc3b737896c511c9c81e8855572487",
+    "source-preflight.json": "974186ec6c9c7d7f7051488843d7dad0ba7996f7114e6e349cd64b16e39498b9"
+  },
+  "original_complete_ledgers_remain_external": true,
+  "qualified_descriptor_sha256": "5c3fec9aa327e9b88fd8d0fee7e291232eab97816fd82c33e0fbb1b1f93901ae",
+  "qualified_snapshot_schema": "qualified-author-snapshot.v1",
+  "qualified_source_identity_is_not_rights_admission": true,
+  "raw_count_or_native_sample_redistribution": false,
+  "schema_version": "swedish-grouped-forward-source-proof.v1",
+  "snapshot_manifest_files_contract": "dict of sorted relative filename to SHA256; descriptor.files sorted distinct complete specs",
+  "source_id": "pollen-reconstruction/swedish-grouped-forward-development",
+  "writer_source_base": "ec7c0b8e4878c0d07f70c27f3173483279692e11"
+}

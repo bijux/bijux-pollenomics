@@ -1,0 +1,40 @@
+{
+  "authority_files": {
+    "historical-distinction.json": "1766bcb7320d2c30941dc389889158f31451edb9d4d3edce670a4fc5c7281428",
+    "raw-authentication.json": "08422f756a99aeda97ead5764812e9e4c406c8245ea88c98d33b56e82f96c294",
+    "recovery.json": "f233adc8963d28a51f03e03cedc01b8bc77dd2ea9ae9d80f60fe395aef145763"
+  },
+  "bundle": "reference-bundle",
+  "certificate_sha256": "9560a9eb36259a4f665f61ba18de108193eb1d4e864f751640a392737501410e",
+  "historical_boundary": {
+    "absent_from_recovered": 2,
+    "byte_different_from_recovered": 23,
+    "byte_equal_to_recovered": 112,
+    "changed_native_csv_vectors": 14,
+    "changed_python_expectation_binaries": 3,
+    "changed_script_or_metadata_files": 6,
+    "historical_owned_products": 137,
+    "historical_platform": "aarch64-unknown-linux-gnu",
+    "historical_products_reclassified": false,
+    "historical_products_replaced": false,
+    "numerical_parity_claim": false
+  },
+  "member_bytes": 1930585,
+  "member_count": 143,
+  "profile_sha256": "308251ed20fe9e8f30bf2b5d2f2a9248648dc5bcc05ad3d89d47a20b23dd889d",
+  "qualification": {
+    "current_linux_or_R_execution": false,
+    "disk_recovery": "read_only_original_disk_prepost_sha_equal",
+    "original_host_supervision_restored": false,
+    "physical_image_build_library_closure_restored": false,
+    "recorded_execution": "passed_source_locked_linux_x86_64",
+    "release_or_scientific_admission": false
+  },
+  "recorded_tracked_source_count": 1925,
+  "schema_version": "source-locked-linux-r-source-packet.v1",
+  "scope": "Retained executed source/certificate/reference bytes only. No current calculations, native R/VM/build/tool restoration, provider/image rights, historical137 replacement, or release qualification.",
+  "separate_generated_version_count": 1,
+  "source_commit": "10fe3c1ed008651ad843e9dc42a31241fd16b2ed",
+  "source_role": "immutable_retained_reference",
+  "source_tree": "6ed8ff8be50458e1227ce5940d9ed28881cbfa3c"
+}

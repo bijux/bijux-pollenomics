@@ -1,0 +1,83 @@
+{
+  "file_count": 14,
+  "files": [
+    {
+      "path": "capture-reuse-review.json",
+      "sha256": "9d47562b9ee1cb2fb244145132215912d9b468303d2d878419f07860d587994e",
+      "size": 2496
+    },
+    {
+      "path": "four-annulus-factors.json",
+      "sha256": "41902072f70c2aa759a5d6ba5563fa41a220aa98af2fd705b2a563b4af30db9b",
+      "size": 2618
+    },
+    {
+      "path": "independent-review.json",
+      "sha256": "9c45fb17832cc3a759f3cc8ae5ced3be18da3354f39f0413ddc7e065c87d07ad",
+      "size": 10533
+    },
+    {
+      "path": "model-native-stages.json",
+      "sha256": "424a1b1abaf3cf3051d9e979309dc8a5a8401b6589756acf30661803d8e13eb1",
+      "size": 2759
+    },
+    {
+      "path": "model-native-terminal.json",
+      "sha256": "af623bc0ac762bb3aece4808a3b6b95435f49857fd93d38e0cfa91efe390c47c",
+      "size": 5629
+    },
+    {
+      "path": "observed-source-closure.json",
+      "sha256": "f7a4c4519cb9615608120e167971f6d3e3595e9a651840daa6d49e8aeea8ce26",
+      "size": 17947
+    },
+    {
+      "path": "oracle-native-stages.json",
+      "sha256": "bb79e41b6430168c1d303c648af93074b648d3f69acac374b5663be57f96ac2d",
+      "size": 1374
+    },
+    {
+      "path": "oracle-native-terminal.json",
+      "sha256": "5fa761fb9dc60c494abf7fe10ac4a5e2f6488264443618054ffae15471863e09",
+      "size": 3037
+    },
+    {
+      "path": "protocol.json",
+      "sha256": "a71d14713312022c162e02611c2b0efcbcb951dc1fd2665fbb1b56b48924c0eb",
+      "size": 32583
+    },
+    {
+      "path": "shared-ppe-counting-covariance.json",
+      "sha256": "b83af20d0548ba7f8e5055ae677bd738569487c2d9897837d332d3c61113e49d",
+      "size": 7034
+    },
+    {
+      "path": "signed-forward-roundtrip-and-native-refusals.json",
+      "sha256": "a84e3e4a9d92246b0c8e795ac236b55dbaacac58519960a13a9088a3d3b4d4a4",
+      "size": 6160
+    },
+    {
+      "path": "source-case-census.json",
+      "sha256": "877c6abcbd76dfd6e483293238c16ce89b212121352a9eda509f41bbbc2ac89b",
+      "size": 22537
+    },
+    {
+      "path": "source-masks-and-assumptions.json",
+      "sha256": "7ad267306f098e72070f4e06804953b45732a91cedbffba693c7fda0a22aaa22",
+      "size": 19621
+    },
+    {
+      "path": "three-conditional-love-cases.json",
+      "sha256": "d96202c7a5cb48f3493f9df646456f4c8e95bb69b355489fb0efe81635423fac",
+      "size": 10458
+    }
+  ],
+  "manifest": {
+    "path": "manifest.json",
+    "sha256": "fe8db8c99fdaa19734646e425325dc6efb8ec4e081434c8d3fdcb278cc693bb2",
+    "size": 1558
+  },
+  "schema_version": "qualified-author-snapshot.v1",
+  "snapshot_schema_version": "swedish-conditional-love-saved-capture.v1",
+  "source_id": "pollen-reconstruction/swedish-conditional-love"
+}

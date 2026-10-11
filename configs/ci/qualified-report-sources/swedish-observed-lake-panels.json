@@ -1,0 +1,118 @@
+{
+  "file_count": 21,
+  "files": [
+    {
+      "path": "comparison-terminal.json",
+      "sha256": "0c6037e7f481bdfa0b24e33edc6e43b4124fc5c72183a2097e83e02d83433ff8",
+      "size": 2811
+    },
+    {
+      "path": "engine-source-identities.json",
+      "sha256": "ee7b00dc655be06c676114674d3891d74f2e4d701ee92593700bf6e0b8d69d9b",
+      "size": 8128
+    },
+    {
+      "path": "independent-factors.json",
+      "sha256": "160c8a6ddee227cafd659af17920446b9a0adebf201990e58160002d5e0de920",
+      "size": 233812
+    },
+    {
+      "path": "independent-terminal.json",
+      "sha256": "9eeaa5f127fdf9e19dd02ac2298fe907c3475985b6f2817fa29a1506b69624d0",
+      "size": 2364
+    },
+    {
+      "path": "native-consumer.py",
+      "sha256": "1f894992f7302ce1b94b18e71b68625a6dca2f3e15bcab16236d7dfcfa976382",
+      "size": 22759
+    },
+    {
+      "path": "native-plan.json",
+      "sha256": "be34c3d0ba4a796dee28d7fefd119c2c52073de27dce19e4c0ff950947c24956",
+      "size": 1653944
+    },
+    {
+      "path": "native-results.json",
+      "sha256": "bc8c21626bd7749a8435b27d3677b156eb6ea786c95b8c172608be8c387526e5",
+      "size": 13282679
+    },
+    {
+      "path": "native-supervisor.py",
+      "sha256": "a643cedd18820038323edcc1e3263a529d2d519d76e99a709c66ed0e222434af",
+      "size": 11942
+    },
+    {
+      "path": "native-terminal.json",
+      "sha256": "d91341a8dbc459740a6dcb90a9113162d5b64758c52a306857e5c43fa6d1ff18",
+      "size": 3490
+    },
+    {
+      "path": "observed-import-origins.json",
+      "sha256": "ca429c238c8b41bf0f971ae8cdf7aa02115c676c001dc830fb473ff06d4af246",
+      "size": 227294
+    },
+    {
+      "path": "parameters.csv",
+      "sha256": "32eac151566b41c186745dd077fabcddde06f64f9a3a2056699e88dbabd76d4d",
+      "size": 1773
+    },
+    {
+      "path": "policy-acquisition.json",
+      "sha256": "5b993764ce054b8ec428440b6c26634464bc9f6eee0686f1120815d41bac752e",
+      "size": 2475
+    },
+    {
+      "path": "policy-epd.response",
+      "sha256": "a6d049567190ee7671df82c859e4139e53c2efa432bfe9191f4b0538c1f4685c",
+      "size": 90403
+    },
+    {
+      "path": "policy-neotoma.response",
+      "sha256": "f5ae5e79f7dd1a4d6dd846fa9a63a14129dc8b0ea9c21ed484289304be01b85e",
+      "size": 48638
+    },
+    {
+      "path": "policy-terminal.json",
+      "sha256": "bb27d6224c2616d380dc1e9ba3a6f439f9e9e53be1fe57d9ae238ab20a1557bd",
+      "size": 2423
+    },
+    {
+      "path": "protocol.json",
+      "sha256": "e0bdedd9731a4bce8f89a277f48d062a2f04a6ba00041ed476a18c0b30d0ae32",
+      "size": 244173
+    },
+    {
+      "path": "publication-attribution.json",
+      "sha256": "80e1e9d6654fb9f4928a748b83d1a9c8a7a2d5dedbb339dab3d4f95f86aae1bb",
+      "size": 221776
+    },
+    {
+      "path": "publication-terminal.json",
+      "sha256": "24b0c305a2a8d142a1fcdd47615b98d9cd169f89d1b6d5b73aaac9838a241a67",
+      "size": 2672
+    },
+    {
+      "path": "published-comparison.json",
+      "sha256": "ff30b1079a4e74d741a5a8a44e8417d5a04f9bb18a6d2690dbc381cc0ca67e11",
+      "size": 1072478
+    },
+    {
+      "path": "source-eligibility.json",
+      "sha256": "dfa2e8c58dd6634b8a614cf8ed424b18528e6fad241da4c8f72df172ea470eb4",
+      "size": 4565333
+    },
+    {
+      "path": "source-terminal.json",
+      "sha256": "9bea1a02a926efb96206ad8149d2f1f4999776df71fb4e357ae1c3a553478f0e",
+      "size": 12823
+    }
+  ],
+  "manifest": {
+    "path": "snapshot-manifest.json",
+    "sha256": "474f32550de684631f27a192f86b13a7bc99e3d6598622a39712f2452f0779e2",
+    "size": 2155
+  },
+  "schema_version": "qualified-author-snapshot.v1",
+  "snapshot_schema_version": "source-observed-pollen-panel-capture.v1",
+  "source_id": "neotoma/swedish-observed-lake-panel-results"
+}
