@@ -1,0 +1,45 @@
+{
+  "schema": 1,
+  "readers": [
+    {
+      "output": "report/regions/nordic/nordic_map.html",
+      "title": "Nordic evidence atlas",
+      "purpose": "Inspect the retained Nordic evidence atlas and its source-owned chronology and spatial context.",
+      "return_route": "public/nordic-atlas/index.html",
+      "search_route": "index.html",
+      "query": "Nordic evidence"
+    },
+    {
+      "output": "report/regions/europe-plus/europe-plus_map.html",
+      "title": "Europe evidence atlas",
+      "purpose": "Inspect retained European evidence locations and their declared source context.",
+      "return_route": "public/nordic-atlas/index.html",
+      "search_route": "index.html",
+      "query": "Nordic evidence"
+    },
+    {
+      "output": "report/world/world_map.html",
+      "title": "World evidence atlas",
+      "purpose": "Inspect retained worldwide evidence locations and their declared source context.",
+      "return_route": "public/nordic-atlas/index.html",
+      "search_route": "index.html",
+      "query": "Nordic evidence"
+    },
+    {
+      "output": "report/pollen-reconstruction/swedish-native-sequences/index.html",
+      "title": "Swedish native pollen sequences",
+      "purpose": "Compare the three retained Swedish pollen sequences using their source-owned samples, native taxa and chronology.",
+      "return_route": "public/nordic-atlas/index.html",
+      "search_route": "index.html",
+      "query": "Nordic evidence"
+    },
+    {
+      "output": "report/countries/sweden/sweden_lake_evidence_richness_v66_map.html",
+      "title": "Sweden lake evidence availability",
+      "purpose": "Read the retained notice explaining why the Sweden lake evidence view has no eligible candidates.",
+      "return_route": "public/nordic-atlas/index.html",
+      "search_route": "index.html",
+      "query": "Nordic evidence"
+    }
+  ]
+}

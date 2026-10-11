@@ -47,6 +47,7 @@ theme:
 extra:
   bijux:
     repository: bijux-pollenomics
+    interactive_report_owner: configs/docs/maps/report-owner.json
     docs_package: bijux-pollenomics-dev
     nav_mode: default
     theme_key: bijux:theme
