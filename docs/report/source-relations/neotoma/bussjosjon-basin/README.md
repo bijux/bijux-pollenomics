@@ -1,6 +1,6 @@
 # Bussjösjön basin and coordinate review
 
-The [Neotoma/EPD source site](../../../../../data/neotoma/raw/neotoma_pollen_sites.json)
+The [Neotoma/EPD source site](https://github.com/bijux/bijux-pollenomics/blob/828081f963fa574cd217c8f9c4c2cfcdb9397d52/data/neotoma/raw/neotoma_pollen_sites.json)
 `28869` places Bussjösjön at **55.46667° N, 13.81667° E**. Its pollen dataset
 `53995` belongs to collection unit `39238` (`BUS core`, handle `BUS`). The
 source says that the core was taken at the lake centre in 2.5 m of water, but

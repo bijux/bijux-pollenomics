@@ -1,0 +1,178 @@
+{
+  "schema_version": "atlas-desktop-zoom-controls-browser.v1",
+  "status": "FAIL",
+  "candidate": {
+    "schema_version": "atlas-controlled-boundary-candidate.v1",
+    "status": "controlled_synthetic_geometry_only",
+    "scientific_admission": "not_evaluated",
+    "geometry_sha256": "6189886c6d22a320a4cddd022d1bb94a7436a9f30b608149683a74155b012857",
+    "generation_sha256": "ff65cf8d6a11a1a7527aa656443385c1515bff721548c05b8ee4a4cdd0ced38d",
+    "renderer_sha256": "db8866ab0ba779dfed675ba1f6836e5d0493d4a875a1bfa231a81c96b9079108",
+    "outputs_sha256": {
+      "_map_assets/leaflet/images/layers-2x.png": "066daca850d8ffbef007af00b06eac0015728dee279c51f3cb6c716df7c42edf",
+      "_map_assets/leaflet/images/layers.png": "1dbbe9d028e292f36fcba8f8b3a28d5e8932754fc2215b9ac69e4cdecf5107c6",
+      "_map_assets/leaflet/images/marker-icon-2x.png": "00179c4c1ee830d3a108412ae0d294f55776cfeb085c60129a39aa6fc4ae2528",
+      "_map_assets/leaflet/images/marker-icon.png": "574c3a5cca85f4114085b6841596d62f00d7c892c7b03f28cbfa301deb1dc437",
+      "_map_assets/leaflet/images/marker-shadow.png": "264f5c640339f042dd729062cfc04c17f8ea0f29882b538e3848ed8f10edb4da",
+      "_map_assets/leaflet/leaflet.css": "a7837102824184820dfa198d1ebcd109ff6d0ff9a2672a074b9a1b4d147d04c6",
+      "_map_assets/leaflet/leaflet.js": "db49d009c841f5ca34a888c96511ae936fd9f5533e90d8b2c4d57596f4e5641a",
+      "_map_assets/markercluster/MarkerCluster.Default.css": "61258232d98d64dc2a7b1e02130d67421bc5b9bda5994eef70228ff97570c170",
+      "_map_assets/markercluster/MarkerCluster.css": "614dea0a98ff3f4ead74f04918f6b1d1b9ba435c25b5fc23b21a394d1e3e4d87",
+      "_map_assets/markercluster/leaflet.markercluster.js": "1e4e1d22972a3926f48598e0caf14e3fe7049835d428a344fed4f9e3665b3508",
+      "index.html": "358e0e6fca4d2ac83463edddf8fcbaa00c8b7158f549b537a31d886c68340c74"
+    }
+  },
+  "scenarios": [],
+  "runtime_errors": [],
+  "browser": {
+    "protocolVersion": "1.3",
+    "product": "Chrome/153.0.8010.53",
+    "revision": "@b395074596c663e344272cde7f7d7bd3d496e7e",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.0.0 Safari/537.36",
+    "jsVersion": "15.3.76.13"
+  },
+  "error": "AssertionError [ERR_ASSERTION]: zoom controls are obscured\n    at repository/packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/atlas_browser/desktop-zoom-controls.mjs:110:14",
+  "diagnostic": {
+    "hash": "#basemap=none",
+    "attribution": {
+      "x": 1378.65625,
+      "y": 883.203125,
+      "width": 61.34375,
+      "height": 16.796875,
+      "top": 883.203125,
+      "right": 1440,
+      "bottom": 900,
+      "left": 1378.65625
+    },
+    "attribution_text": " Leaflet",
+    "hit_class": "",
+    "hit_id": null,
+    "zoom": {
+      "x": 1396,
+      "y": 809.203125,
+      "width": 34,
+      "height": 64,
+      "top": 809.203125,
+      "right": 1430,
+      "bottom": 873.203125,
+      "left": 1396
+    },
+    "zoom_plus": {
+      "visible": false,
+      "hit_class": "map-status",
+      "hit_id": null
+    },
+    "zoom_minus": {
+      "visible": false,
+      "hit_class": "map-status",
+      "hit_id": null
+    },
+    "status": {
+      "x": 332.625,
+      "y": 817,
+      "width": 1091.375,
+      "height": 59,
+      "top": 817,
+      "right": 1424,
+      "bottom": 876,
+      "left": 332.625
+    },
+    "scale": {
+      "x": 5,
+      "y": 876.8125,
+      "width": 71,
+      "height": 18.1875,
+      "top": 876.8125,
+      "right": 76,
+      "bottom": 895,
+      "left": 5
+    },
+    "legend": {
+      "x": 1282.09375,
+      "y": 765,
+      "width": 141.90625,
+      "height": 47,
+      "top": 765,
+      "right": 1424,
+      "bottom": 812,
+      "left": 1282.09375
+    },
+    "north": {
+      "x": 1370.4375,
+      "y": 16,
+      "width": 53.5625,
+      "height": 44,
+      "top": 16,
+      "right": 1424,
+      "bottom": 60,
+      "left": 1370.4375
+    },
+    "snapshot": {
+      "capture_api_version": "atlas-capture.v1",
+      "ready": true,
+      "basemap": "none",
+      "view": {
+        "latitude": 64.43722114159246,
+        "longitude": 19.50000000000001,
+        "zoom": 4
+      },
+      "countries": [
+        "Denmark",
+        "Finland",
+        "Norway",
+        "Sweden"
+      ],
+      "time_window_bp": {
+        "younger_bp": 0,
+        "older_bp": 0
+      },
+      "source_chronology": null,
+      "modeled_context": null,
+      "visible_point_count": 0,
+      "visible_polygon_layer_count": 1,
+      "visible_polygon_feature_count": 4,
+      "visible_source_chronology_point_count": 0,
+      "visible_modeled_context_feature_count": 0,
+      "visible_modeled_no_pollen_data_count": null,
+      "capture_layers": {
+        "active_keys": [
+          "country-boundaries"
+        ],
+        "evidence_layer_key": null,
+        "orientation_keys": [
+          "country-boundaries"
+        ]
+      },
+      "capture_presentation": null,
+      "capture_layout": {
+        "overlay_visible": false,
+        "overlay_bounded": false,
+        "overlay_content_bounded": true,
+        "overlay_content_overflow": false,
+        "overlay_overlaps_map": false,
+        "map_bounded": true,
+        "map_width_px": 1440,
+        "map_height_px": 900,
+        "scroll_x_px": 0,
+        "scroll_y_px": 0,
+        "viewport_width_px": 1440,
+        "viewport_height_px": 900
+      },
+      "visible_governed_candidate_count": 0,
+      "scientific_posture": {
+        "classifications_status": "unavailable",
+        "classifications_reason_code": "accepted_scientific_classifications_not_available",
+        "observation_chronology_is_propagation": false
+      }
+    }
+  },
+  "served_files_sha256": {
+    "_map_assets/leaflet/leaflet.css": "a7837102824184820dfa198d1ebcd109ff6d0ff9a2672a074b9a1b4d147d04c6",
+    "_map_assets/leaflet/leaflet.js": "db49d009c841f5ca34a888c96511ae936fd9f5533e90d8b2c4d57596f4e5641a",
+    "_map_assets/markercluster/MarkerCluster.Default.css": "61258232d98d64dc2a7b1e02130d67421bc5b9bda5994eef70228ff97570c170",
+    "_map_assets/markercluster/MarkerCluster.css": "614dea0a98ff3f4ead74f04918f6b1d1b9ba435c25b5fc23b21a394d1e3e4d87",
+    "_map_assets/markercluster/leaflet.markercluster.js": "1e4e1d22972a3926f48598e0caf14e3fe7049835d428a344fed4f9e3665b3508",
+    "index.html": "358e0e6fca4d2ac83463edddf8fcbaa00c8b7158f549b537a31d886c68340c74"
+  },
+  "verifier_sha256": "37eddee45fd465ab97cfee4d8ef5b4c39a731a6fa186ea9f43abd79625025e48"
+}

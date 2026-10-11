@@ -1,6 +1,6 @@
 # Sample locality conflict ledger
 
-- Conflicting rows: `1942`
+- Conflicting rows: `1986`
 
 | Project accession | Sample id | Sample locality | Conflicting surface | Conflicting locality | Reason |
 | --- | --- | --- | --- | --- | --- |
@@ -1492,79 +1492,63 @@
 | PRJEB60484 | prjeb60484:samea112757323 | Diskobukta | archive_metadata | Svalbard ancient reindeer context | project_context_disagrees_with_sample_owned_site |
 | PRJEB60484 | prjeb60484:samea112757323 | Diskobukta | archive_metadata | Svalbard archipelago reindeer context | project_context_disagrees_with_sample_owned_site |
 | PRJEB60484 | prjeb60484:samea112757323 | Diskobukta | coordinate_resolution | Svalbard ancient reindeer context | project_context_disagrees_with_sample_owned_site |
-| PRJEB60484 | prjeb60484:samea112757323 | Diskobukta | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
 | PRJEB60484 | prjeb60484:samea112757324 | Sassendalen | archive_metadata | Svalbard ancient reindeer context | project_context_disagrees_with_sample_owned_site |
 | PRJEB60484 | prjeb60484:samea112757324 | Sassendalen | archive_metadata | Svalbard archipelago reindeer context | project_context_disagrees_with_sample_owned_site |
 | PRJEB60484 | prjeb60484:samea112757324 | Sassendalen | coordinate_resolution | Svalbard ancient reindeer context | project_context_disagrees_with_sample_owned_site |
-| PRJEB60484 | prjeb60484:samea112757324 | Sassendalen | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
 | PRJEB60484 | prjeb60484:samea112757325 | Diskobukta | archive_metadata | Svalbard ancient reindeer context | project_context_disagrees_with_sample_owned_site |
 | PRJEB60484 | prjeb60484:samea112757325 | Diskobukta | archive_metadata | Svalbard archipelago reindeer context | project_context_disagrees_with_sample_owned_site |
 | PRJEB60484 | prjeb60484:samea112757325 | Diskobukta | coordinate_resolution | Svalbard ancient reindeer context | project_context_disagrees_with_sample_owned_site |
-| PRJEB60484 | prjeb60484:samea112757325 | Diskobukta | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
-| PRJEB60484 | prjeb60484:samea112757326 | Barentsøya | archive_metadata | Svalbard ancient reindeer context | project_context_disagrees_with_sample_owned_site |
-| PRJEB60484 | prjeb60484:samea112757326 | Barentsøya | archive_metadata | Svalbard archipelago reindeer context | project_context_disagrees_with_sample_owned_site |
-| PRJEB60484 | prjeb60484:samea112757326 | Barentsøya | coordinate_resolution | Svalbard ancient reindeer context | project_context_disagrees_with_sample_owned_site |
-| PRJEB60484 | prjeb60484:samea112757326 | Barentsøya | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
+| PRJEB60484 | prjeb60484:samea112757326 | Barentsøya | archive_metadata | Svalbard ancient reindeer context | project_context_cannot_substitute_for_sample_owned_or_unresolved_sample_locality |
+| PRJEB60484 | prjeb60484:samea112757326 | Barentsøya | archive_metadata | Svalbard archipelago reindeer context | project_context_cannot_substitute_for_sample_owned_or_unresolved_sample_locality |
+| PRJEB60484 | prjeb60484:samea112757326 | Barentsøya | coordinate_resolution | Svalbard ancient reindeer context | coordinate_resolution_names_a_different_place_than_the_sample_row |
+| PRJEB60484 | prjeb60484:samea112757327 | Edgeøya | archive_metadata | Svalbard ancient reindeer context | project_context_cannot_substitute_for_sample_owned_or_unresolved_sample_locality |
+| PRJEB60484 | prjeb60484:samea112757327 | Edgeøya | archive_metadata | Svalbard archipelago reindeer context | project_context_cannot_substitute_for_sample_owned_or_unresolved_sample_locality |
+| PRJEB60484 | prjeb60484:samea112757327 | Edgeøya | coordinate_resolution | Svalbard ancient reindeer context | coordinate_resolution_names_a_different_place_than_the_sample_row |
 | PRJEB60484 | prjeb60484:samea112757328 | Diskobukta | archive_metadata | Svalbard ancient reindeer context | project_context_disagrees_with_sample_owned_site |
 | PRJEB60484 | prjeb60484:samea112757328 | Diskobukta | archive_metadata | Svalbard archipelago reindeer context | project_context_disagrees_with_sample_owned_site |
 | PRJEB60484 | prjeb60484:samea112757328 | Diskobukta | coordinate_resolution | Svalbard ancient reindeer context | project_context_disagrees_with_sample_owned_site |
-| PRJEB60484 | prjeb60484:samea112757328 | Diskobukta | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
-| PRJEB60484 | prjeb60484:samea112757329 | Barentsøya | archive_metadata | Svalbard ancient reindeer context | project_context_disagrees_with_sample_owned_site |
-| PRJEB60484 | prjeb60484:samea112757329 | Barentsøya | archive_metadata | Svalbard archipelago reindeer context | project_context_disagrees_with_sample_owned_site |
-| PRJEB60484 | prjeb60484:samea112757329 | Barentsøya | coordinate_resolution | Svalbard ancient reindeer context | project_context_disagrees_with_sample_owned_site |
-| PRJEB60484 | prjeb60484:samea112757329 | Barentsøya | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
+| PRJEB60484 | prjeb60484:samea112757329 | Barentsøya | archive_metadata | Svalbard ancient reindeer context | project_context_cannot_substitute_for_sample_owned_or_unresolved_sample_locality |
+| PRJEB60484 | prjeb60484:samea112757329 | Barentsøya | archive_metadata | Svalbard archipelago reindeer context | project_context_cannot_substitute_for_sample_owned_or_unresolved_sample_locality |
+| PRJEB60484 | prjeb60484:samea112757329 | Barentsøya | coordinate_resolution | Svalbard ancient reindeer context | coordinate_resolution_names_a_different_place_than_the_sample_row |
 | PRJEB60484 | prjeb60484:samea112757330 | Rijpjorden | archive_metadata | Svalbard ancient reindeer context | project_context_disagrees_with_sample_owned_site |
 | PRJEB60484 | prjeb60484:samea112757330 | Rijpjorden | archive_metadata | Svalbard archipelago reindeer context | project_context_disagrees_with_sample_owned_site |
 | PRJEB60484 | prjeb60484:samea112757330 | Rijpjorden | coordinate_resolution | Svalbard ancient reindeer context | project_context_disagrees_with_sample_owned_site |
-| PRJEB60484 | prjeb60484:samea112757330 | Rijpjorden | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
 | PRJEB60484 | prjeb60484:samea112757331 | Gipsdalen | archive_metadata | Svalbard ancient reindeer context | project_context_disagrees_with_sample_owned_site |
 | PRJEB60484 | prjeb60484:samea112757331 | Gipsdalen | archive_metadata | Svalbard archipelago reindeer context | project_context_disagrees_with_sample_owned_site |
 | PRJEB60484 | prjeb60484:samea112757331 | Gipsdalen | coordinate_resolution | Svalbard ancient reindeer context | project_context_disagrees_with_sample_owned_site |
-| PRJEB60484 | prjeb60484:samea112757331 | Gipsdalen | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
 | PRJEB60484 | prjeb60484:samea112757332 | Gipsdalen | archive_metadata | Svalbard ancient reindeer context | project_context_disagrees_with_sample_owned_site |
 | PRJEB60484 | prjeb60484:samea112757332 | Gipsdalen | archive_metadata | Svalbard archipelago reindeer context | project_context_disagrees_with_sample_owned_site |
 | PRJEB60484 | prjeb60484:samea112757332 | Gipsdalen | coordinate_resolution | Svalbard ancient reindeer context | project_context_disagrees_with_sample_owned_site |
-| PRJEB60484 | prjeb60484:samea112757332 | Gipsdalen | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
 | PRJEB60484 | prjeb60484:samea112757333 | Sassendalen | archive_metadata | Svalbard ancient reindeer context | project_context_disagrees_with_sample_owned_site |
 | PRJEB60484 | prjeb60484:samea112757333 | Sassendalen | archive_metadata | Svalbard archipelago reindeer context | project_context_disagrees_with_sample_owned_site |
 | PRJEB60484 | prjeb60484:samea112757333 | Sassendalen | coordinate_resolution | Svalbard ancient reindeer context | project_context_disagrees_with_sample_owned_site |
-| PRJEB60484 | prjeb60484:samea112757333 | Sassendalen | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
-| PRJEB60484 | prjeb60484:samea112757334 | Barentsøya | archive_metadata | Svalbard ancient reindeer context | project_context_disagrees_with_sample_owned_site |
-| PRJEB60484 | prjeb60484:samea112757334 | Barentsøya | archive_metadata | Svalbard archipelago reindeer context | project_context_disagrees_with_sample_owned_site |
-| PRJEB60484 | prjeb60484:samea112757334 | Barentsøya | coordinate_resolution | Svalbard ancient reindeer context | project_context_disagrees_with_sample_owned_site |
-| PRJEB60484 | prjeb60484:samea112757334 | Barentsøya | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
-| PRJEB60484 | prjeb60484:samea112757335 | Barentsøya | archive_metadata | Svalbard ancient reindeer context | project_context_disagrees_with_sample_owned_site |
-| PRJEB60484 | prjeb60484:samea112757335 | Barentsøya | archive_metadata | Svalbard archipelago reindeer context | project_context_disagrees_with_sample_owned_site |
-| PRJEB60484 | prjeb60484:samea112757335 | Barentsøya | coordinate_resolution | Svalbard ancient reindeer context | project_context_disagrees_with_sample_owned_site |
-| PRJEB60484 | prjeb60484:samea112757335 | Barentsøya | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
-| PRJEB60484 | prjeb60484:samea112757336 | Barentsøya | archive_metadata | Svalbard ancient reindeer context | project_context_disagrees_with_sample_owned_site |
-| PRJEB60484 | prjeb60484:samea112757336 | Barentsøya | archive_metadata | Svalbard archipelago reindeer context | project_context_disagrees_with_sample_owned_site |
-| PRJEB60484 | prjeb60484:samea112757336 | Barentsøya | coordinate_resolution | Svalbard ancient reindeer context | project_context_disagrees_with_sample_owned_site |
-| PRJEB60484 | prjeb60484:samea112757336 | Barentsøya | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
+| PRJEB60484 | prjeb60484:samea112757334 | Barentsøya | archive_metadata | Svalbard ancient reindeer context | project_context_cannot_substitute_for_sample_owned_or_unresolved_sample_locality |
+| PRJEB60484 | prjeb60484:samea112757334 | Barentsøya | archive_metadata | Svalbard archipelago reindeer context | project_context_cannot_substitute_for_sample_owned_or_unresolved_sample_locality |
+| PRJEB60484 | prjeb60484:samea112757334 | Barentsøya | coordinate_resolution | Svalbard ancient reindeer context | coordinate_resolution_names_a_different_place_than_the_sample_row |
+| PRJEB60484 | prjeb60484:samea112757335 | Barentsøya | archive_metadata | Svalbard ancient reindeer context | project_context_cannot_substitute_for_sample_owned_or_unresolved_sample_locality |
+| PRJEB60484 | prjeb60484:samea112757335 | Barentsøya | archive_metadata | Svalbard archipelago reindeer context | project_context_cannot_substitute_for_sample_owned_or_unresolved_sample_locality |
+| PRJEB60484 | prjeb60484:samea112757335 | Barentsøya | coordinate_resolution | Svalbard ancient reindeer context | coordinate_resolution_names_a_different_place_than_the_sample_row |
+| PRJEB60484 | prjeb60484:samea112757336 | Barentsøya | archive_metadata | Svalbard ancient reindeer context | project_context_cannot_substitute_for_sample_owned_or_unresolved_sample_locality |
+| PRJEB60484 | prjeb60484:samea112757336 | Barentsøya | archive_metadata | Svalbard archipelago reindeer context | project_context_cannot_substitute_for_sample_owned_or_unresolved_sample_locality |
+| PRJEB60484 | prjeb60484:samea112757336 | Barentsøya | coordinate_resolution | Svalbard ancient reindeer context | coordinate_resolution_names_a_different_place_than_the_sample_row |
 | PRJEB60484 | prjeb60484:samea112757337 | Wijdefjorden | archive_metadata | Svalbard ancient reindeer context | project_context_disagrees_with_sample_owned_site |
 | PRJEB60484 | prjeb60484:samea112757337 | Wijdefjorden | archive_metadata | Svalbard archipelago reindeer context | project_context_disagrees_with_sample_owned_site |
 | PRJEB60484 | prjeb60484:samea112757337 | Wijdefjorden | coordinate_resolution | Svalbard ancient reindeer context | project_context_disagrees_with_sample_owned_site |
-| PRJEB60484 | prjeb60484:samea112757337 | Wijdefjorden | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
 | PRJEB60484 | prjeb60484:samea112757338 | Wijdefjorden | archive_metadata | Svalbard ancient reindeer context | project_context_disagrees_with_sample_owned_site |
 | PRJEB60484 | prjeb60484:samea112757338 | Wijdefjorden | archive_metadata | Svalbard archipelago reindeer context | project_context_disagrees_with_sample_owned_site |
 | PRJEB60484 | prjeb60484:samea112757338 | Wijdefjorden | coordinate_resolution | Svalbard ancient reindeer context | project_context_disagrees_with_sample_owned_site |
-| PRJEB60484 | prjeb60484:samea112757338 | Wijdefjorden | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
 | PRJEB60484 | prjeb60484:samea112757339 | Wijdefjorden | archive_metadata | Svalbard ancient reindeer context | project_context_disagrees_with_sample_owned_site |
 | PRJEB60484 | prjeb60484:samea112757339 | Wijdefjorden | archive_metadata | Svalbard archipelago reindeer context | project_context_disagrees_with_sample_owned_site |
 | PRJEB60484 | prjeb60484:samea112757339 | Wijdefjorden | coordinate_resolution | Svalbard ancient reindeer context | project_context_disagrees_with_sample_owned_site |
-| PRJEB60484 | prjeb60484:samea112757339 | Wijdefjorden | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
 | PRJEB60484 | prjeb60484:samea112757340 | Wijdefjorden | archive_metadata | Svalbard ancient reindeer context | project_context_disagrees_with_sample_owned_site |
 | PRJEB60484 | prjeb60484:samea112757340 | Wijdefjorden | archive_metadata | Svalbard archipelago reindeer context | project_context_disagrees_with_sample_owned_site |
 | PRJEB60484 | prjeb60484:samea112757340 | Wijdefjorden | coordinate_resolution | Svalbard ancient reindeer context | project_context_disagrees_with_sample_owned_site |
-| PRJEB60484 | prjeb60484:samea112757340 | Wijdefjorden | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
 | PRJEB60484 | prjeb60484:samea114857470 | Kapp Flora | archive_metadata | Svalbard ancient reindeer context | project_context_disagrees_with_sample_owned_site |
 | PRJEB60484 | prjeb60484:samea114857470 | Kapp Flora | archive_metadata | Svalbard archipelago reindeer context | project_context_disagrees_with_sample_owned_site |
 | PRJEB60484 | prjeb60484:samea114857470 | Kapp Flora | coordinate_resolution | Svalbard ancient reindeer context | project_context_disagrees_with_sample_owned_site |
-| PRJEB60484 | prjeb60484:samea114857470 | Kapp Flora | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
 | PRJEB60484 | prjeb60484:samea114857471 | Tchaiabukta/Hooken Island | archive_metadata | Svalbard ancient reindeer context | project_context_disagrees_with_sample_owned_site |
 | PRJEB60484 | prjeb60484:samea114857471 | Tchaiabukta/Hooken Island | archive_metadata | Svalbard archipelago reindeer context | project_context_disagrees_with_sample_owned_site |
 | PRJEB60484 | prjeb60484:samea114857471 | Tchaiabukta/Hooken Island | coordinate_resolution | Svalbard ancient reindeer context | project_context_disagrees_with_sample_owned_site |
-| PRJEB60484 | prjeb60484:samea114857471 | Tchaiabukta/Hooken Island | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
 | PRJEB75467 | prjeb75467:samea115574404 | Barguzin river, Baikal | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
 | PRJEB75467 | prjeb75467:samea115574405 | Bedburg-Königshoven | tracked_source_artifact |  | project_context_disagrees_with_sample_owned_site |
 | PRJEB75467 | prjeb75467:samea115574407 | Borly 4, Pavlodar region | tracked_source_artifact |  | project_context_cannot_substitute_for_sample_owned_or_unresolved_sample_locality |
@@ -1946,3 +1930,63 @@
 | PRJNA1328209 | prjna1328209:dc47_4he | Lake Qinghai basin | coordinate_resolution | Lake Qinghai Basin ancient goat context | coordinate_resolution_names_a_different_place_than_the_sample_row |
 | PRJNA1328209 | prjna1328209:dc48-1 | Lake Qinghai basin | article_text | Lake Qinghai Basin ancient goat context | project_context_cannot_substitute_for_sample_owned_or_unresolved_sample_locality |
 | PRJNA1328209 | prjna1328209:dc48-1 | Lake Qinghai basin | coordinate_resolution | Lake Qinghai Basin ancient goat context | coordinate_resolution_names_a_different_place_than_the_sample_row |
+| SRP073444 | srp073444:samn04631877 | Palmyra | article_text | Site 1040 near Wadi Halfa | project_context_disagrees_with_sample_owned_site |
+| SRP073444 | srp073444:samn04631877 | Palmyra | article_text | Site 1040 near Wadi Halfa C. thomasi context | project_context_disagrees_with_sample_owned_site |
+| SRP073444 | srp073444:samn04631877 | Palmyra | coordinate_resolution | Site 1040 near Wadi Halfa C. thomasi context | project_context_disagrees_with_sample_owned_site |
+| SRP073444 | srp073444:samn04631949 | Al Sufouh 2 | article_text | Site 1040 near Wadi Halfa | project_context_disagrees_with_sample_owned_site |
+| SRP073444 | srp073444:samn04631949 | Al Sufouh 2 | article_text | Site 1040 near Wadi Halfa C. thomasi context | project_context_disagrees_with_sample_owned_site |
+| SRP073444 | srp073444:samn04631949 | Al Sufouh 2 | coordinate_resolution | Site 1040 near Wadi Halfa C. thomasi context | project_context_disagrees_with_sample_owned_site |
+| SRP073444 | srp073444:samn04631950 | Al Sufouh 2 | article_text | Site 1040 near Wadi Halfa | project_context_disagrees_with_sample_owned_site |
+| SRP073444 | srp073444:samn04631950 | Al Sufouh 2 | article_text | Site 1040 near Wadi Halfa C. thomasi context | project_context_disagrees_with_sample_owned_site |
+| SRP073444 | srp073444:samn04631950 | Al Sufouh 2 | coordinate_resolution | Site 1040 near Wadi Halfa C. thomasi context | project_context_disagrees_with_sample_owned_site |
+| SRP073444 | srp073444:samn04631951 | Muweilah (Sharjah) | article_text | Site 1040 near Wadi Halfa | project_context_disagrees_with_sample_owned_site |
+| SRP073444 | srp073444:samn04631951 | Muweilah (Sharjah) | article_text | Site 1040 near Wadi Halfa C. thomasi context | project_context_disagrees_with_sample_owned_site |
+| SRP073444 | srp073444:samn04631951 | Muweilah (Sharjah) | coordinate_resolution | Site 1040 near Wadi Halfa C. thomasi context | project_context_disagrees_with_sample_owned_site |
+| SRP073444 | srp073444:samn04631952 | Muweilah (Sharjah) | article_text | Site 1040 near Wadi Halfa | project_context_disagrees_with_sample_owned_site |
+| SRP073444 | srp073444:samn04631952 | Muweilah (Sharjah) | article_text | Site 1040 near Wadi Halfa C. thomasi context | project_context_disagrees_with_sample_owned_site |
+| SRP073444 | srp073444:samn04631952 | Muweilah (Sharjah) | coordinate_resolution | Site 1040 near Wadi Halfa C. thomasi context | project_context_disagrees_with_sample_owned_site |
+| SRP073444 | srp073444:samn04631953 | Tell Abraq | article_text | Site 1040 near Wadi Halfa | project_context_disagrees_with_sample_owned_site |
+| SRP073444 | srp073444:samn04631953 | Tell Abraq | article_text | Site 1040 near Wadi Halfa C. thomasi context | project_context_disagrees_with_sample_owned_site |
+| SRP073444 | srp073444:samn04631953 | Tell Abraq | coordinate_resolution | Site 1040 near Wadi Halfa C. thomasi context | project_context_disagrees_with_sample_owned_site |
+| SRP073444 | srp073444:samn04631954 | Muweilah (Sharjah) | article_text | Site 1040 near Wadi Halfa | project_context_disagrees_with_sample_owned_site |
+| SRP073444 | srp073444:samn04631954 | Muweilah (Sharjah) | article_text | Site 1040 near Wadi Halfa C. thomasi context | project_context_disagrees_with_sample_owned_site |
+| SRP073444 | srp073444:samn04631954 | Muweilah (Sharjah) | coordinate_resolution | Site 1040 near Wadi Halfa C. thomasi context | project_context_disagrees_with_sample_owned_site |
+| SRP073444 | srp073444:samn04631955 | Al Buhais 18 | article_text | Site 1040 near Wadi Halfa | project_context_disagrees_with_sample_owned_site |
+| SRP073444 | srp073444:samn04631955 | Al Buhais 18 | article_text | Site 1040 near Wadi Halfa C. thomasi context | project_context_disagrees_with_sample_owned_site |
+| SRP073444 | srp073444:samn04631955 | Al Buhais 18 | coordinate_resolution | Site 1040 near Wadi Halfa C. thomasi context | project_context_disagrees_with_sample_owned_site |
+| SRP073444 | srp073444:samn04631956 | Al Buhais 18 | article_text | Site 1040 near Wadi Halfa | project_context_disagrees_with_sample_owned_site |
+| SRP073444 | srp073444:samn04631956 | Al Buhais 18 | article_text | Site 1040 near Wadi Halfa C. thomasi context | project_context_disagrees_with_sample_owned_site |
+| SRP073444 | srp073444:samn04631956 | Al Buhais 18 | coordinate_resolution | Site 1040 near Wadi Halfa C. thomasi context | project_context_disagrees_with_sample_owned_site |
+| SRP073444 | srp073444:samn04631957 | Tell Abraq | article_text | Site 1040 near Wadi Halfa | project_context_disagrees_with_sample_owned_site |
+| SRP073444 | srp073444:samn04631957 | Tell Abraq | article_text | Site 1040 near Wadi Halfa C. thomasi context | project_context_disagrees_with_sample_owned_site |
+| SRP073444 | srp073444:samn04631957 | Tell Abraq | coordinate_resolution | Site 1040 near Wadi Halfa C. thomasi context | project_context_disagrees_with_sample_owned_site |
+| SRP073444 | srp073444:samn04631958 | Tell Abraq | article_text | Site 1040 near Wadi Halfa | project_context_disagrees_with_sample_owned_site |
+| SRP073444 | srp073444:samn04631958 | Tell Abraq | article_text | Site 1040 near Wadi Halfa C. thomasi context | project_context_disagrees_with_sample_owned_site |
+| SRP073444 | srp073444:samn04631958 | Tell Abraq | coordinate_resolution | Site 1040 near Wadi Halfa C. thomasi context | project_context_disagrees_with_sample_owned_site |
+| SRP073444 | srp073444:samn04631959 | Umm an-Nar | article_text | Site 1040 near Wadi Halfa | project_context_disagrees_with_sample_owned_site |
+| SRP073444 | srp073444:samn04631959 | Umm an-Nar | article_text | Site 1040 near Wadi Halfa C. thomasi context | project_context_disagrees_with_sample_owned_site |
+| SRP073444 | srp073444:samn04631959 | Umm an-Nar | coordinate_resolution | Site 1040 near Wadi Halfa C. thomasi context | project_context_disagrees_with_sample_owned_site |
+| SRP073444 | srp073444:samn04631960 | Apamea | article_text | Site 1040 near Wadi Halfa | project_context_disagrees_with_sample_owned_site |
+| SRP073444 | srp073444:samn04631960 | Apamea | article_text | Site 1040 near Wadi Halfa C. thomasi context | project_context_disagrees_with_sample_owned_site |
+| SRP073444 | srp073444:samn04631960 | Apamea | coordinate_resolution | Site 1040 near Wadi Halfa C. thomasi context | project_context_disagrees_with_sample_owned_site |
+| SRP073444 | srp073444:samn04631961 | Aqaba | article_text | Site 1040 near Wadi Halfa | project_context_disagrees_with_sample_owned_site |
+| SRP073444 | srp073444:samn04631961 | Aqaba | article_text | Site 1040 near Wadi Halfa C. thomasi context | project_context_disagrees_with_sample_owned_site |
+| SRP073444 | srp073444:samn04631961 | Aqaba | coordinate_resolution | Site 1040 near Wadi Halfa C. thomasi context | project_context_disagrees_with_sample_owned_site |
+| SRP073444 | srp073444:samn04631962 | Aqaba | article_text | Site 1040 near Wadi Halfa | project_context_disagrees_with_sample_owned_site |
+| SRP073444 | srp073444:samn04631962 | Aqaba | article_text | Site 1040 near Wadi Halfa C. thomasi context | project_context_disagrees_with_sample_owned_site |
+| SRP073444 | srp073444:samn04631962 | Aqaba | coordinate_resolution | Site 1040 near Wadi Halfa C. thomasi context | project_context_disagrees_with_sample_owned_site |
+| SRP073444 | srp073444:samn04631963 | Aqaba | article_text | Site 1040 near Wadi Halfa | project_context_disagrees_with_sample_owned_site |
+| SRP073444 | srp073444:samn04631963 | Aqaba | article_text | Site 1040 near Wadi Halfa C. thomasi context | project_context_disagrees_with_sample_owned_site |
+| SRP073444 | srp073444:samn04631963 | Aqaba | coordinate_resolution | Site 1040 near Wadi Halfa C. thomasi context | project_context_disagrees_with_sample_owned_site |
+| SRP073444 | srp073444:samn04631964 | Aqaba | article_text | Site 1040 near Wadi Halfa | project_context_disagrees_with_sample_owned_site |
+| SRP073444 | srp073444:samn04631964 | Aqaba | article_text | Site 1040 near Wadi Halfa C. thomasi context | project_context_disagrees_with_sample_owned_site |
+| SRP073444 | srp073444:samn04631964 | Aqaba | coordinate_resolution | Site 1040 near Wadi Halfa C. thomasi context | project_context_disagrees_with_sample_owned_site |
+| SRP073444 | srp073444:samn04631965 | Aqaba | article_text | Site 1040 near Wadi Halfa | project_context_disagrees_with_sample_owned_site |
+| SRP073444 | srp073444:samn04631965 | Aqaba | article_text | Site 1040 near Wadi Halfa C. thomasi context | project_context_disagrees_with_sample_owned_site |
+| SRP073444 | srp073444:samn04631965 | Aqaba | coordinate_resolution | Site 1040 near Wadi Halfa C. thomasi context | project_context_disagrees_with_sample_owned_site |
+| SRP073444 | srp073444:samn04631966 | Aqaba | article_text | Site 1040 near Wadi Halfa | project_context_disagrees_with_sample_owned_site |
+| SRP073444 | srp073444:samn04631966 | Aqaba | article_text | Site 1040 near Wadi Halfa C. thomasi context | project_context_disagrees_with_sample_owned_site |
+| SRP073444 | srp073444:samn04631966 | Aqaba | coordinate_resolution | Site 1040 near Wadi Halfa C. thomasi context | project_context_disagrees_with_sample_owned_site |
+| SRP073444 | srp073444:samn04631967 | Palmyra | article_text | Site 1040 near Wadi Halfa | project_context_disagrees_with_sample_owned_site |
+| SRP073444 | srp073444:samn04631967 | Palmyra | article_text | Site 1040 near Wadi Halfa C. thomasi context | project_context_disagrees_with_sample_owned_site |
+| SRP073444 | srp073444:samn04631967 | Palmyra | coordinate_resolution | Site 1040 near Wadi Halfa C. thomasi context | project_context_disagrees_with_sample_owned_site |

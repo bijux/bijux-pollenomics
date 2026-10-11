@@ -1,0 +1,43 @@
+{
+  "schema_version": "atlas-browser-evidence-retention.v1",
+  "status": "controlled_browser_evidence_not_scientific_admission",
+  "source_commit_context": "verification.json",
+  "files": [
+    {
+      "original_artifact": "artifacts/atlas-cross-border-neighbor/browser-baseline-country/receipt.json",
+      "original_bytes": 20668,
+      "original_sha256": "4bbf1c81c8c7523ed9ed47f2a22a5206a2d66ee17f4e37c8857a222ce49314fc",
+      "retained": "evidence/baseline/receipt.json",
+      "retained_bytes": 20635,
+      "retained_sha256": "b8f1263c1d9e8554cfdd190fabe3d32fcff16543d7e289b0acaa334bb0c37215",
+      "relation": "local_file_url_rebased"
+    },
+    {
+      "original_artifact": "artifacts/atlas-cross-border-neighbor/browser-final-bound/1440-tile-free-sweden.png",
+      "original_bytes": 86985,
+      "original_sha256": "5dfe9f87d974c46479fbfc414420ea20007dda39117313d9d67ff2fcf522912c",
+      "retained": "evidence/selected/1440-tile-free-sweden.png",
+      "retained_bytes": 86985,
+      "retained_sha256": "5dfe9f87d974c46479fbfc414420ea20007dda39117313d9d67ff2fcf522912c",
+      "relation": "exact_bytes"
+    },
+    {
+      "original_artifact": "artifacts/atlas-cross-border-neighbor/browser-final-bound/320-tile-free-sweden.png",
+      "original_bytes": 65369,
+      "original_sha256": "69b535947c53b9ab3bc54443e0c2e6e4b6db08374dd8406b70645eb226e75f33",
+      "retained": "evidence/selected/320-tile-free-sweden.png",
+      "retained_bytes": 65369,
+      "retained_sha256": "69b535947c53b9ab3bc54443e0c2e6e4b6db08374dd8406b70645eb226e75f33",
+      "relation": "exact_bytes"
+    },
+    {
+      "original_artifact": "artifacts/atlas-cross-border-neighbor/browser-final-bound/receipt.json",
+      "original_bytes": 31944,
+      "original_sha256": "e1177e6980236814dc64721300ab66ce9023b5213de0a965046e646854a02db4",
+      "retained": "evidence/selected/receipt.json",
+      "retained_bytes": 31944,
+      "retained_sha256": "e1177e6980236814dc64721300ab66ce9023b5213de0a965046e646854a02db4",
+      "relation": "exact_bytes"
+    }
+  ]
+}

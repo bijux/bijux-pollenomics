@@ -572,6 +572,522 @@
       "nordic_inclusion": false,
       "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
       "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "camelus_dromedarius:project_locality",
+        "stable_token": "camelus_dromedarius:locality:srp073444:albuhais18:uae",
+        "locality_text": "Al Buhais 18",
+        "political_entity": "UAE",
+        "source_anchor_tokens": [
+          "SRP073444",
+          "",
+          ""
+        ]
+      },
+      "species_latin_name": "Camelus dromedarius",
+      "species_common_name": "dromedary camel",
+      "source_family": "SRA",
+      "source_releases": [
+        "SRP073444"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Al Buhais 18",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "unknown"
+      },
+      "sample_count": 2,
+      "sample_ids": [
+        "srp073444:samn04631955",
+        "srp073444:samn04631956"
+      ],
+      "datasets": [
+        "camelus_dromedarius:project:SRP073444"
+      ],
+      "chronology": {
+        "original_text": "5949-6949 BP",
+        "time_start_bp": 5949,
+        "time_end_bp": 6949,
+        "time_mean_bp": 6449,
+        "date_stddev_bp": "",
+        "source_mean_bp_text": "",
+        "dating_basis": "historical_and_archaeological_context",
+        "evidence_class": "archaeological_context_date",
+        "precision_posture": "contextual_interval",
+        "refusal_reason_code": ""
+      },
+      "sample_namespace": "camelus_dromedarius:sample_locality",
+      "project_accessions": [
+        "SRP073444"
+      ],
+      "original_location_text": "Al Buhais 18",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "camelus_dromedarius:project_locality",
+        "stable_token": "camelus_dromedarius:locality:srp073444:alsufouh2:uae",
+        "locality_text": "Al Sufouh 2",
+        "political_entity": "UAE",
+        "source_anchor_tokens": [
+          "SRP073444",
+          "",
+          ""
+        ]
+      },
+      "species_latin_name": "Camelus dromedarius",
+      "species_common_name": "dromedary camel",
+      "source_family": "SRA",
+      "source_releases": [
+        "SRP073444"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Al Sufouh 2",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "unknown"
+      },
+      "sample_count": 2,
+      "sample_ids": [
+        "srp073444:samn04631949",
+        "srp073444:samn04631950"
+      ],
+      "datasets": [
+        "camelus_dromedarius:project:SRP073444"
+      ],
+      "chronology": {
+        "original_text": "3549-3949 BP",
+        "time_start_bp": 3549,
+        "time_end_bp": 3949,
+        "time_mean_bp": 3749,
+        "date_stddev_bp": "",
+        "source_mean_bp_text": "",
+        "dating_basis": "historical_and_archaeological_context",
+        "evidence_class": "archaeological_context_date",
+        "precision_posture": "contextual_interval",
+        "refusal_reason_code": ""
+      },
+      "sample_namespace": "camelus_dromedarius:sample_locality",
+      "project_accessions": [
+        "SRP073444"
+      ],
+      "original_location_text": "Al Sufouh 2",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "camelus_dromedarius:project_locality",
+        "stable_token": "camelus_dromedarius:locality:srp073444:apamea:syria",
+        "locality_text": "Apamea",
+        "political_entity": "Syria",
+        "source_anchor_tokens": [
+          "SRP073444",
+          "",
+          ""
+        ]
+      },
+      "species_latin_name": "Camelus dromedarius",
+      "species_common_name": "dromedary camel",
+      "source_family": "SRA",
+      "source_releases": [
+        "SRP073444"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Apamea",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "unknown"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "srp073444:samn04631960"
+      ],
+      "datasets": [
+        "camelus_dromedarius:project:SRP073444"
+      ],
+      "chronology": {
+        "original_text": "1350-1550 BP",
+        "time_start_bp": 1350,
+        "time_end_bp": 1550,
+        "time_mean_bp": 1450,
+        "date_stddev_bp": "",
+        "source_mean_bp_text": "",
+        "dating_basis": "historical_and_archaeological_context",
+        "evidence_class": "archaeological_context_date",
+        "precision_posture": "contextual_interval",
+        "refusal_reason_code": ""
+      },
+      "sample_namespace": "camelus_dromedarius:sample_locality",
+      "project_accessions": [
+        "SRP073444"
+      ],
+      "original_location_text": "Apamea",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "camelus_dromedarius:project_locality",
+        "stable_token": "camelus_dromedarius:locality:srp073444:aqaba:jordan",
+        "locality_text": "Aqaba",
+        "political_entity": "Jordan",
+        "source_anchor_tokens": [
+          "SRP073444",
+          "",
+          ""
+        ]
+      },
+      "species_latin_name": "Camelus dromedarius",
+      "species_common_name": "dromedary camel",
+      "source_family": "SRA",
+      "source_releases": [
+        "SRP073444"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Aqaba",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "unknown"
+      },
+      "sample_count": 6,
+      "sample_ids": [
+        "srp073444:samn04631961",
+        "srp073444:samn04631962",
+        "srp073444:samn04631963",
+        "srp073444:samn04631964",
+        "srp073444:samn04631965",
+        "srp073444:samn04631966"
+      ],
+      "datasets": [
+        "camelus_dromedarius:project:SRP073444"
+      ],
+      "chronology": {
+        "original_text": "80-690 BP",
+        "time_start_bp": 80,
+        "time_end_bp": 690,
+        "time_mean_bp": 385,
+        "date_stddev_bp": "",
+        "source_mean_bp_text": "",
+        "dating_basis": "historical_and_archaeological_context",
+        "evidence_class": "archaeological_context_date",
+        "precision_posture": "contextual_interval",
+        "refusal_reason_code": ""
+      },
+      "sample_namespace": "camelus_dromedarius:sample_locality",
+      "project_accessions": [
+        "SRP073444"
+      ],
+      "original_location_text": "Aqaba",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "camelus_dromedarius:project_locality",
+        "stable_token": "camelus_dromedarius:locality:srp073444:muweilahsharjah:uae",
+        "locality_text": "Muweilah (Sharjah)",
+        "political_entity": "UAE",
+        "source_anchor_tokens": [
+          "SRP073444",
+          "",
+          ""
+        ]
+      },
+      "species_latin_name": "Camelus dromedarius",
+      "species_common_name": "dromedary camel",
+      "source_family": "SRA",
+      "source_releases": [
+        "SRP073444"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Muweilah (Sharjah)",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "unknown"
+      },
+      "sample_count": 3,
+      "sample_ids": [
+        "srp073444:samn04631951",
+        "srp073444:samn04631952",
+        "srp073444:samn04631954"
+      ],
+      "datasets": [
+        "camelus_dromedarius:project:SRP073444"
+      ],
+      "chronology": {
+        "original_text": "",
+        "time_start_bp": null,
+        "time_end_bp": null,
+        "time_mean_bp": null,
+        "date_stddev_bp": "",
+        "source_mean_bp_text": "",
+        "dating_basis": "historical_and_archaeological_context",
+        "evidence_class": "unresolved",
+        "precision_posture": "unresolved",
+        "refusal_reason_code": ""
+      },
+      "sample_namespace": "camelus_dromedarius:sample_locality",
+      "project_accessions": [
+        "SRP073444"
+      ],
+      "original_location_text": "Muweilah (Sharjah)",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "camelus_dromedarius:project_locality",
+        "stable_token": "camelus_dromedarius:locality:srp073444:palmyra:syria",
+        "locality_text": "Palmyra",
+        "political_entity": "Syria",
+        "source_anchor_tokens": [
+          "SRP073444",
+          "",
+          ""
+        ]
+      },
+      "species_latin_name": "Camelus dromedarius",
+      "species_common_name": "dromedary camel",
+      "source_family": "SRA",
+      "source_releases": [
+        "SRP073444"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Palmyra",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "unknown"
+      },
+      "sample_count": 2,
+      "sample_ids": [
+        "srp073444:samn04631877",
+        "srp073444:samn04631967"
+      ],
+      "datasets": [
+        "camelus_dromedarius:project:SRP073444"
+      ],
+      "chronology": {
+        "original_text": "1650-2050 BP",
+        "time_start_bp": 1650,
+        "time_end_bp": 2050,
+        "time_mean_bp": 1850,
+        "date_stddev_bp": "",
+        "source_mean_bp_text": "",
+        "dating_basis": "historical_and_archaeological_context",
+        "evidence_class": "archaeological_context_date",
+        "precision_posture": "contextual_interval",
+        "refusal_reason_code": ""
+      },
+      "sample_namespace": "camelus_dromedarius:sample_locality",
+      "project_accessions": [
+        "SRP073444"
+      ],
+      "original_location_text": "Palmyra",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "camelus_dromedarius:project_locality",
+        "stable_token": "camelus_dromedarius:locality:srp073444:tellabraq:uae",
+        "locality_text": "Tell Abraq",
+        "political_entity": "UAE",
+        "source_anchor_tokens": [
+          "SRP073444",
+          "",
+          ""
+        ]
+      },
+      "species_latin_name": "Camelus dromedarius",
+      "species_common_name": "dromedary camel",
+      "source_family": "SRA",
+      "source_releases": [
+        "SRP073444"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Tell Abraq",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "unknown"
+      },
+      "sample_count": 3,
+      "sample_ids": [
+        "srp073444:samn04631953",
+        "srp073444:samn04631957",
+        "srp073444:samn04631958"
+      ],
+      "datasets": [
+        "camelus_dromedarius:project:SRP073444"
+      ],
+      "chronology": {
+        "original_text": "2449-3209 BP",
+        "time_start_bp": 2449,
+        "time_end_bp": 3209,
+        "time_mean_bp": 2829,
+        "date_stddev_bp": "",
+        "source_mean_bp_text": "",
+        "dating_basis": "historical_and_archaeological_context",
+        "evidence_class": "archaeological_context_date",
+        "precision_posture": "contextual_interval",
+        "refusal_reason_code": ""
+      },
+      "sample_namespace": "camelus_dromedarius:sample_locality",
+      "project_accessions": [
+        "SRP073444"
+      ],
+      "original_location_text": "Tell Abraq",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
+    },
+    {
+      "identity": {
+        "namespace": "camelus_dromedarius:project_locality",
+        "stable_token": "camelus_dromedarius:locality:srp073444:ummannar:uae",
+        "locality_text": "Umm an-Nar",
+        "political_entity": "UAE",
+        "source_anchor_tokens": [
+          "SRP073444",
+          "",
+          ""
+        ]
+      },
+      "species_latin_name": "Camelus dromedarius",
+      "species_common_name": "dromedary camel",
+      "source_family": "SRA",
+      "source_releases": [
+        "SRP073444"
+      ],
+      "record_modalities": [
+        "archive_reads"
+      ],
+      "review_strengths": [
+        "primary_paper_pinned"
+      ],
+      "provenance_qualities": [
+        "primary_paper_pinned"
+      ],
+      "locality": "Umm an-Nar",
+      "coordinates": {
+        "latitude": null,
+        "longitude": null,
+        "latitude_text": "",
+        "longitude_text": "",
+        "confidence": "unknown"
+      },
+      "sample_count": 1,
+      "sample_ids": [
+        "srp073444:samn04631959"
+      ],
+      "datasets": [
+        "camelus_dromedarius:project:SRP073444"
+      ],
+      "chronology": {
+        "original_text": "3949-4949 BP",
+        "time_start_bp": 3949,
+        "time_end_bp": 4949,
+        "time_mean_bp": 4449,
+        "date_stddev_bp": "",
+        "source_mean_bp_text": "",
+        "dating_basis": "historical_and_archaeological_context",
+        "evidence_class": "archaeological_context_date",
+        "precision_posture": "contextual_interval",
+        "refusal_reason_code": ""
+      },
+      "sample_namespace": "camelus_dromedarius:sample_locality",
+      "project_accessions": [
+        "SRP073444"
+      ],
+      "original_location_text": "Umm an-Nar",
+      "nordic_inclusion": false,
+      "nordic_inclusion_reason": "The current curated project inventory does not yet identify a shipped Nordic-localized lead for this record.",
+      "interpretation_note": "Sample-level locality comes directly from the recovered sample source row."
     }
   ]
 }

@@ -205,6 +205,30 @@ jobs:
             artifacts/bijux-pollenomics-lra/reference/system/provision/
           if-no-files-found: warn
 
+  native:
+    name: lra-native-case-inventory
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: "3.11"
+      - uses: astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d
+        with:
+          enable-cache: true
+          cache-dependency-glob: uv.lock
+      - run: uv sync --frozen --all-packages --all-extras --python 3.11
+      - name: Prepare native cases and exact shared-input digests
+        run: .venv/bin/python packages/bijux-pollenomics-lra/tests/reference/lra_oracle/run_live_r.py --prepare-only --output artifacts/bijux-pollenomics-lra/reference/native-cases
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: lra-native-cases-${{ github.sha }}-attempt-${{ github.run_attempt }}
+          path: |
+            artifacts/bijux-pollenomics-lra/reference/native-cases/case_manifest.json
+            artifacts/bijux-pollenomics-lra/reference/native-cases/report.json
+          if-no-files-found: error
+
   reference:
     name: lra-live-r-certification
     needs: [runtime, provision]
@@ -277,4 +301,41 @@ jobs:
           path: |
             artifacts/bijux-pollenomics-lra/reference/receipts/
             artifacts/bijux-pollenomics-lra/reference/system/
+          if-no-files-found: error
+
+  parity:
+    name: lra-native-live-r-parity
+    needs: [native, reference]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97
+        with:
+          python-version: "3.11"
+      - uses: astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d
+        with:
+          enable-cache: true
+          cache-dependency-glob: uv.lock
+      - run: uv sync --frozen --all-packages --all-extras --python 3.11
+      - uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c
+        with:
+          name: lra-native-cases-${{ github.sha }}-attempt-${{ github.run_attempt }}
+          path: artifacts/bijux-pollenomics-lra/reference/ci-native
+      - uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c
+        with:
+          name: lra-live-r-${{ github.sha }}-attempt-${{ github.run_attempt }}
+          path: artifacts/bijux-pollenomics-lra/reference/ci-live
+      - name: Refuse missing R execution or different native cases
+        run: |
+          .venv/bin/python -m bijux_pollenomics_dev.ci.lra_reference.native_parity \
+            --native artifacts/bijux-pollenomics-lra/reference/ci-native \
+            --live artifacts/bijux-pollenomics-lra/reference/ci-live \
+            --lock configs/ci/lra-r-source-lock.v1.json \
+            --target-sha "${{ github.sha }}" \
+            --output artifacts/bijux-pollenomics-lra/reference/ci-parity/report.json
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: lra-native-live-r-${{ github.sha }}-attempt-${{ github.run_attempt }}
+          path: artifacts/bijux-pollenomics-lra/reference/ci-parity/report.json
           if-no-files-found: error

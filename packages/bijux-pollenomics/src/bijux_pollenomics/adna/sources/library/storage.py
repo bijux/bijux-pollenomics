@@ -244,6 +244,55 @@ def _iter_materialized_artifacts(output_root: Path) -> tuple[AdnaSourceArtifact,
                     )
                 )
                 seen_artifact_ids.add(receipt_id)
+        if project.project_accession == "SRP073444":
+            for filename, artifact_kind, label, content_type in (
+                (
+                    "paper_table_s1_sample_bridge.csv",
+                    "paper_supplementary_sample_bridge_csv",
+                    "paper Table S1 to BioSample bridge",
+                    "text/csv",
+                ),
+                (
+                    "paper_table_s1_sample_bridge.csv.metadata.json",
+                    "source_receipt_json",
+                    "paper Table S1 bridge provenance",
+                    "application/json",
+                ),
+            ):
+                asset_path = (
+                    source_root / "projects" / project.project_accession / filename
+                )
+                exists = asset_path.is_file()
+                rows.append(
+                    AdnaSourceArtifact(
+                        artifact_id=f"{project.project_accession}:{filename}",
+                        artifact_kind=artifact_kind,
+                        label=label,
+                        source_url=(
+                            "https://www.ebi.ac.uk/europepmc/webservices/rest/"
+                            "PMC5324683/supplementaryFiles"
+                        ),
+                        local_path=str(asset_path.relative_to(output_root)),
+                        fetch_status="archived" if exists else "missing",
+                        remote_note=(
+                            "Curated exact specimen bridge from the primary paper "
+                            "supplement; archive accessions remain distinct."
+                        ),
+                        project_accessions=(project.project_accession,),
+                        paper_doi=(
+                            None
+                            if project.paper_linkage is None
+                            else project.paper_linkage.doi
+                        ),
+                        content_type=content_type if exists else None,
+                        byte_size=asset_path.stat().st_size if exists else None,
+                        storage_path=(
+                            str(asset_path.relative_to(output_root)) if exists else None
+                        ),
+                        storage_byte_size=asset_path.stat().st_size if exists else None,
+                    )
+                )
+                seen_artifact_ids.add(f"{project.project_accession}:{filename}")
         if project.project_accession == "PRJEB59481":
             for filename, artifact_kind in (
                 (

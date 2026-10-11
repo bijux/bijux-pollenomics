@@ -25,6 +25,14 @@ def materialize_test_library(output_root: Path) -> Path:
         destination = output_root / source_dir / name
         destination.parent.mkdir(parents=True, exist_ok=True)
         shutil.copyfile(REPOSITORY_ROOT / "data" / source_dir / name, destination)
+    camel_source_dir = "adna/governance/source_library/projects/SRP073444"
+    for name in (
+        "paper_table_s1_sample_bridge.csv",
+        "paper_table_s1_sample_bridge.csv.metadata.json",
+    ):
+        destination = output_root / camel_source_dir / name
+        destination.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copyfile(REPOSITORY_ROOT / "data" / camel_source_dir / name, destination)
     materialize_source_library(output_root)
     return output_root
 
@@ -35,6 +43,18 @@ def source_library_root(output_root: Path) -> Path:
 
 
 def _fixture_downloader(url: str) -> tuple[bytes, str]:
+    if url.endswith("/sra?term=SRP073444"):
+        source_path = (
+            REPOSITORY_ROOT
+            / "data/adna/governance/source_library/projects/SRP073444/archive_metadata.html"
+        )
+        return (read_source_artifact_bytes(source_path), "text/html")
+    if "accession=SRP073444&result=read_run" in url:
+        source_path = (
+            REPOSITORY_ROOT
+            / "data/adna/governance/source_library/projects/SRP073444/ena_run_samples.tsv"
+        )
+        return (source_path.read_bytes(), "text/tab-separated-values")
     if any(
         f"accession={accession}" in url
         for accession in ("PRJEB41594", "PRJEB60484", "PRJNA705960")
@@ -80,6 +100,16 @@ def _fixture_downloader(url: str) -> tuple[bytes, str]:
             / "data/adna/governance/source_library/papers/10.1111-mec.17274/author_preprint.pdf"
         )
         return (source_path.read_bytes(), "application/pdf")
+    if "2023.09.21.558762/DC2/embed/media-2.xlsx" in url:
+        source_path = (
+            REPOSITORY_ROOT
+            / "data/adna/governance/source_library/papers/10.1111-mec.17274/"
+            "supplementary/author-preprint-table-s3.xlsx"
+        )
+        return (
+            source_path.read_bytes(),
+            "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+        )
     if url.endswith("PMC11162877/fullTextXML"):
         source_path = (
             REPOSITORY_ROOT

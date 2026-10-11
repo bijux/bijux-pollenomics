@@ -10,6 +10,7 @@ import pytest
 from bijux_pollenomics.adna.species.tracked_data import (
     materialize_tracked_species_adna,
 )
+from tests.support.adna_sources import copy_governed_adna_sources
 
 pytestmark = pytest.mark.generated_artifacts
 
@@ -18,6 +19,7 @@ def test_tracked_species_materialization_reaches_a_fixed_point_in_one_run(
     tmp_path: Path,
 ) -> None:
     data_root = tmp_path / "data"
+    copy_governed_adna_sources(data_root)
     materialize_tracked_species_adna(data_root)
     first = {
         path.relative_to(data_root): path.read_bytes()
@@ -30,9 +32,9 @@ def test_tracked_species_materialization_reaches_a_fixed_point_in_one_run(
         first[Path("adna/governance/source_library/source_recovery_progress.json")]
     )
     accounting = progress["sample_evidence_depth_accounting"]
-    assert accounting["counted_sample_rows"] == 1450
-    assert accounting["project_source_master_final_sample_rows"] == 17
-    assert accounting["source_master_species_alignment"] == "unreconciled"
+    assert accounting["counted_sample_rows"] == 1470
+    assert accounting["project_source_master_final_sample_rows"] == 1470
+    assert accounting["source_master_species_alignment"] == "aligned"
 
     materialize_tracked_species_adna(data_root)
     second = {

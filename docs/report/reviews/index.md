@@ -19,6 +19,7 @@ supported by sample, chronology, coordinate, intake, and cross-family evidence.
 - [animal intake recovery review](../animal_intake_recovery_review.md)
 - [animal temporal comparison review](../animal_temporal_comparison_review.md)
 - [SEAD legibility review](../repository_sead_legibility_review.md)
+- [source-bound taxa review](../taxa-review/README.md)
 
 ## What This Family Is For
 
@@ -29,4 +30,4 @@ supported by sample, chronology, coordinate, intake, and cross-family evidence.
 
 ## Current Count
 
-- review artifacts: `32`
+- review artifacts: `33`

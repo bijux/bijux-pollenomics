@@ -1,6 +1,6 @@
 # Date evidence gap queue
 
-- Projects still needing stronger sample-level chronology: `12`
+- Projects still needing stronger sample-level chronology: `13`
 
 | Project accession | Species | Sample rows | Exact sample dates | Contextual dates | Broad labels | Missing dates | Gap reasons |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | --- |
@@ -10,6 +10,7 @@
 | PRJNA705960 | Bos taurus | 11 | 0 | 0 | 0 | 11 | no_sample_owned_chronology_recovered, missing_sample_level_date_evidence |
 | PRJEB36540 | Ovis aries | 190 | 167 | 0 | 0 | 10 | missing_sample_level_date_evidence |
 | PRJEB31613 | Equus caballus | 245 | 237 | 0 | 0 | 8 | missing_sample_level_date_evidence |
+| SRP073444 | Camelus dromedarius | 20 | 0 | 16 | 0 | 4 | missing_sample_level_date_evidence, project_context_dates_still_dominate |
 | PRJEB81815 | Felis catus | 87 | 0 | 8 | 39 | 3 | missing_sample_level_date_evidence, broad_period_labels_still_need_stronger_date_support, project_context_dates_still_dominate |
 | PRJEB19970 | Equus caballus | 15 | 13 | 0 | 0 | 2 | missing_sample_level_date_evidence |
 | PRJEB41594 | Ovis aries | 5 | 3 | 0 | 0 | 2 | missing_sample_level_date_evidence |

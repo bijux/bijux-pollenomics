@@ -4,7 +4,7 @@
   "title": "Nordic Evidence Surface",
   "slug": "nordic",
   "version": "v66",
-  "generated_on": "2026-09-28",
+  "generated_on": "2026-09-29",
   "scope_key": "nordic",
   "scope_label": "Nordic",
   "scope_kind": "region",
@@ -1643,9 +1643,9 @@
     },
     "animal_sample_chronology_context": {
       "artifact": "nordic_animal_sample_chronology_context.json",
-      "content_sha256": "5fc8fb1e4cd3de1a8586b436d1ba3c58ed0e11b1055e0de0c1c0399be48cd8c7",
-      "input_identity_sha256": "47197b87f1409384b1924681e71db0466a94dd6126e3fa33b1b4b0c49ec9d617",
-      "corpus_identity_sha256": "a8fe4bb5f4b2adbe947b553a15e33fb3326bfaceec70531841c6bbdf84803c21",
+      "content_sha256": "16abe45b871fb863d487ef40ab0e2f08a68ee0837757f840f789ded879fea2a0",
+      "input_identity_sha256": "ce3fef41b5986818708a7db8f83f26a522970f91c0159a9372dc86b812be33ea",
+      "corpus_identity_sha256": "7b15f7a057e895fd6966849918110a08612523934c8afcb142fbab2cf7c1e52f",
       "scope": {
         "key": "nordic",
         "kind": "region",

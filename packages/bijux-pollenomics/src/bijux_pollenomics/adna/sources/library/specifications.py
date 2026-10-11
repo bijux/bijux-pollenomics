@@ -161,6 +161,19 @@ def _paper_source_specs() -> dict[str, _PaperSourceSpec]:
                     relative_path="papers/10.1111-mec.17274/author_preprint.pdf",
                     remote_note="Author preprint Table 1 independently confirms specimen-level Svalbard UTM grid values and calibrated ages in the captured published article.",
                 ),
+                _RemoteArtifactSpec(
+                    artifact_kind="author_preprint_supplementary_xlsx",
+                    label="author bioRxiv Table S3",
+                    source_url=(
+                        "https://www.biorxiv.org/content/biorxiv/early/2023/09/22/"
+                        "2023.09.21.558762/DC2/embed/media-2.xlsx?download=true"
+                    ),
+                    relative_path=(
+                        "papers/10.1111-mec.17274/supplementary/"
+                        "author-preprint-table-s3.xlsx"
+                    ),
+                    remote_note="Author preprint Table S3 has 18 ancient specimen rows and a distinct version role from the published Wiley appendix.",
+                ),
             ),
         ),
         "10.1126/science.aam5298": _PaperSourceSpec(
@@ -293,6 +306,25 @@ def _expand_remote_assets(
 
 
 def _project_remote_assets(project_accession: str) -> tuple[_RemoteArtifactSpec, ...]:
+    if project_accession == "SRP073444":
+        return (
+            _RemoteArtifactSpec(
+                artifact_kind="ena_run_report_tsv",
+                label="ENA run-to-BioSample report",
+                source_url=(
+                    "https://www.ebi.ac.uk/ena/portal/api/filereport?"
+                    "accession=SRP073444&result=read_run&fields=study_accession,"
+                    "sample_accession,experiment_accession,run_accession,"
+                    "sample_alias,sample_title,scientific_name,tax_id"
+                    "&format=tsv&limit=0"
+                ),
+                relative_path="projects/SRP073444/ena_run_samples.tsv",
+                remote_note=(
+                    "Official ENA mirror binds SRA experiments to biological samples, "
+                    "submitted specimen titles, and source taxonomy."
+                ),
+            ),
+        )
     sample_accessions = {
         "PRJEB41594": (
             "SAMEA8022720",

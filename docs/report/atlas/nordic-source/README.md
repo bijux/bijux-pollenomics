@@ -34,7 +34,7 @@ node packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/atlas_browser/n
   '/Applications/Brave Browser.app/Contents/MacOS/Brave Browser'
 ```
 
-The [producer](../../../../packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/atlas_browser/nordic_source_candidate.py) and [browser verifier](../../../../packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/atlas_browser/nordic-country.mjs) use existing local dependencies. The verification receipt stores the current generated and served byte identities; artifact output directories are disposable reproduction products.
+The [producer](https://github.com/bijux/bijux-pollenomics/blob/828081f963fa574cd217c8f9c4c2cfcdb9397d52/packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/atlas_browser/nordic_source_candidate.py) and [browser verifier](https://github.com/bijux/bijux-pollenomics/blob/828081f963fa574cd217c8f9c4c2cfcdb9397d52/packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/atlas_browser/nordic-country.mjs) use existing local dependencies. The verification receipt stores the current generated and served byte identities; artifact output directories are disposable reproduction products.
 
 ## Scope of this evidence
 

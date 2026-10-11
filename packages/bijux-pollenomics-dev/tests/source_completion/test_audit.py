@@ -5,7 +5,10 @@ from pathlib import Path
 
 import pytest
 
-from bijux_pollenomics_dev.source_completion.audit import build_source_audit
+from bijux_pollenomics_dev.source_completion.audit import (
+    build_source_audit,
+    summarize_source_audit,
+)
 from bijux_pollenomics_dev.source_completion.evidence import (
     EvidenceReader,
     indexed_rows,
@@ -50,6 +53,9 @@ def repository(tmp_path: Path) -> Path:
                 {
                     "source_key": "pollen",
                     "raw_status": "present",
+                    "normalized_status": "missing",
+                    "reviewed_status": "missing",
+                    "published_status": "missing",
                     "authority_status": "refused",
                 }
             ],
@@ -104,6 +110,16 @@ def test_file_presence_never_upgrades_refused_semantics(repository: Path) -> Non
     assert row["source_stage_record"]["authority_status"] == "refused"
     assert row["qualified_review_dimensions"] == ["taxa"]
     assert row["country_availability_records"][0]["counts"]["observations"] is None
+
+
+def test_compact_summary_retains_refusal_and_content_identity(repository: Path) -> None:
+    full = build_source_audit(repository)
+    summary = summarize_source_audit(full)
+    assert summary["full_audit_sha256"] == full["audit_sha256"]
+    assert summary["input_closure_sha256"] == full["input_closure_sha256"]
+    assert summary["source_rows"][0]["authority_status"] == "refused"
+    assert summary["source_rows"][0]["nordic_publication_availability"] == {}
+    assert summary["full_source_confirmation"] is False
 
 
 def test_changed_source_invalidates_content_address(repository: Path) -> None:

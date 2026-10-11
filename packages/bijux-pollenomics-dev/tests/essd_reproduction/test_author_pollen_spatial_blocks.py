@@ -358,7 +358,7 @@ def test_taxon_error_comparison_uses_common_bins_and_equal_site_weights(
         },
         "inverse_distance_squared": {key: [1 / 31] * 31 for key in keys},
     }
-    score_dirs = {}
+    score_dirs: dict[str, Path] = {}
     score_rows: dict[str, dict[tuple[str, str], dict[str, str]]] = {}
     for method, values in fractions.items():
         directory = tmp_path / method

@@ -1,6 +1,6 @@
 # Sample site ambiguity ledger
 
-- Ambiguous or weak site rows: `63`
+- Ambiguous or weak site rows: `62`
 
 | Project accession | Sample id | Status | Locality | Note |
 | --- | --- | --- | --- | --- |
@@ -66,4 +66,3 @@
 | PRJEB81815 | prjeb81815:samea120246598 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
 | PRJEB81815 | prjeb81815:samea120246599 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
 | SRS1407451 | srs1407451:srs1407451 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |
-| PRJEB60484 | prjeb60484:samea112757327 | unresolved |  | No location evidence has been extracted yet for this recovered sample row. |

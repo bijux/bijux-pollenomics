@@ -2,13 +2,13 @@
   "schema_version": "animal-sample-foundation-truth.v1",
   "summary": {
     "tracked_species_count": 10,
-    "tracked_project_count": 21,
-    "sample_row_count": 1450,
+    "tracked_project_count": 22,
+    "sample_row_count": 1470,
     "fully_grounded_count": 557,
-    "partially_grounded_count": 355,
+    "partially_grounded_count": 371,
     "blocked_missing_metadata_count": 11,
     "blocked_missing_location_detail_count": 368,
-    "blocked_weak_chronology_count": 159
+    "blocked_weak_chronology_count": 163
   },
   "species_rows": [
     {
@@ -105,14 +105,14 @@
     {
       "species_latin_name": "Camelus dromedarius",
       "species_common_name": "dromedary camel",
-      "sample_row_count": 13,
+      "sample_row_count": 33,
       "fully_grounded_count": 0,
-      "partially_grounded_count": 13,
+      "partially_grounded_count": 29,
       "blocked_missing_metadata_count": 0,
       "blocked_missing_location_detail_count": 0,
-      "blocked_weak_chronology_count": 0,
-      "project_count": 1,
-      "reported_curated_sample_count": 13,
+      "blocked_weak_chronology_count": 4,
+      "project_count": 2,
+      "reported_curated_sample_count": 33,
       "uses_project_level_sample_anchor": false
     },
     {
@@ -483,6 +483,23 @@
       "uses_project_level_sample_anchor": false,
       "sample_basis_values": [
         "primary_article_accession_mapping"
+      ]
+    },
+    {
+      "species_latin_name": "Camelus dromedarius",
+      "species_common_name": "dromedary camel",
+      "project_accession": "SRP073444",
+      "sample_row_count": 20,
+      "fully_grounded_count": 0,
+      "partially_grounded_count": 16,
+      "blocked_missing_metadata_count": 0,
+      "blocked_missing_location_detail_count": 0,
+      "blocked_weak_chronology_count": 4,
+      "sample_backed_site_count": 8,
+      "project_locality_summary_count": 8,
+      "uses_project_level_sample_anchor": false,
+      "sample_basis_values": [
+        "official_archive_experiment_sample_join"
       ]
     },
     {

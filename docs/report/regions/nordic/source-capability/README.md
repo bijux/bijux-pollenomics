@@ -15,6 +15,11 @@ capability/materialization audit; the country ledger has 198 cells. This
 consumer does not reinterpret a `null` count as zero, sum incompatible
 families, or promote capture to scientific admission.
 
+The [combined source reconciliation](../../../source-relations/source-reconciliation/README.md)
+also checks the three historical Rootsi and OpenLand intake receipts and their
+12 four-country claims. Those claims remain separate from this 11-family cube;
+their original archives do not create new admitted country observations.
+
 | Family | Governed raw stage | Governed published stage | Four-country publication availability | Qualification |
 | --- | --- | --- | --- | --- |
 | AADR | present | present | collected in SE/DK/NO/FI | authority and source review required |

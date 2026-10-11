@@ -1,9 +1,8 @@
 {
   "schema_version": "adna-source-inventory.v1",
-  "row_count": 20,
+  "row_count": 19,
   "counts": {
     "paper_capture": 13,
-    "site_extraction": 1,
     "scope_filter": 6
   },
   "rows": [
@@ -18,17 +17,6 @@
         "stable_doi_linkage"
       ],
       "explanation": "The tracked project still lacks a reliable readable paper surface inside the repository."
-    },
-    {
-      "project_accession": "SRP073444",
-      "species_latin_name": "Camelus dromedarius",
-      "paper_doi": "10.1111/1755-0998.12551",
-      "blocking_stage": "site_extraction",
-      "evidence_acquisition_state": "sample_tables_published",
-      "required_evidence": [
-        "project_sample_sites"
-      ],
-      "explanation": "Sample identities exist, but exact locality extraction is not yet published."
     },
     {
       "project_accession": "PRJEB43564",

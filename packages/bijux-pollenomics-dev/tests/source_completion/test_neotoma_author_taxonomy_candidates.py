@@ -5,6 +5,7 @@ from __future__ import annotations
 from copy import deepcopy
 import json
 from pathlib import Path
+from typing import Any
 
 import pytest
 
@@ -20,7 +21,7 @@ REPORT = Path(
 )
 
 
-def _inputs() -> tuple[dict[str, object], dict[str, object], dict[str, str]]:
+def _inputs() -> tuple[dict[str, Any], dict[str, Any], dict[str, str]]:
     priority = json.loads((REPOSITORY / PRIORITY).read_text(encoding="utf-8"))
     concepts = json.loads((REPOSITORY / CONCEPTS).read_text(encoding="utf-8"))
     retained = json.loads((REPOSITORY / REPORT).read_text(encoding="utf-8"))

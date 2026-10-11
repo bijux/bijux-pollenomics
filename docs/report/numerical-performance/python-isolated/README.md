@@ -4,17 +4,28 @@ The [measurement](report.json) runs each of the seven declared [Python baseline]
 
 | Workload | Median process peak MiB | Median peak increment MiB | Median call ms | Median full worker s |
 | --- | ---: | ---: | ---: | ---: |
-| reveals-interactive | 162.4 | 2.5 | 77.84 | 1.68 |
-| reveals-reference-series | 161.5 | 2.8 | 96.89 | 1.68 |
-| love-analytical | 161.9 | 2.6 | 62.65 | 1.66 |
-| love-optimized-replay | 162.9 | 2.6 | 80.00 | 1.66 |
-| lra-replicated-series | 161.3 | 2.5 | 152.61 | 1.75 |
-| forward-validated | 160.3 | 0.0 | 0.10 | 1.61 |
-| forward-dot-compute | 159.4 | 0.0 | 0.02 | 1.62 |
+| reveals-interactive | 161.3 | 2.6 | 68.39 | 1.47 |
+| reveals-reference-series | 161.4 | 2.7 | 86.20 | 1.48 |
+| love-analytical | 161.1 | 2.5 | 54.74 | 1.46 |
+| love-optimized-replay | 161.3 | 2.6 | 73.00 | 1.48 |
+| lra-replicated-series | 162.0 | 2.5 | 136.03 | 1.54 |
+| forward-validated | 158.7 | 0.0 | 0.10 | 1.38 |
+| forward-dot-compute | 159.0 | 0.0 | 0.02 | 1.37 |
 
-These peaks include Python startup, imports, and construction of **all seven** retained fixtures because the existing workload factory constructs them together. The before/after difference is a process high water increment, not allocated bytes. A zero increment can occur when the call stays below the peak reached during setup. The full worker duration includes startup, fixture construction, one call, and receipt serialization. It is not a cold-cache kernel latency or a comparable full study pipeline time.
+These peaks include Python startup, imports, and construction of only the named
+fixture. The before/after difference is a process high water increment, not
+allocated bytes. A zero increment can occur when the call stays below the peak
+reached during setup. The full worker duration includes startup, named fixture
+construction, one call, and receipt serialization. It is not a cold-cache
+kernel latency or a comparable full study pipeline time.
 
-The current source closure differs from the earlier shared-process baseline in `bijux_pollenomics_lra/provenance/manifest.py`; both file identities are in the report. Scientific outputs and workload contracts match, but the two timing sets are not an identical-source latency comparison. This Python-only measurement makes no C++ adoption decision. The [forward worker comparison](../native-memory/README.md) contains the separate bounded C++ memory and latency decision.
+The current source closure matches the refreshed shared-process baseline. All
+35 workers matched its workload contracts, scientific outputs and nonfinite
+meanings. The earlier isolated report constructed all seven fixtures in each
+worker and used an older source closure; its timings are not a controlled
+before/after speed comparison. This Python-only measurement makes no C++
+adoption decision. The [forward worker comparison](../native-memory/README.md)
+contains the separate bounded C++ memory and latency decision.
 
 ## Reproduce
 

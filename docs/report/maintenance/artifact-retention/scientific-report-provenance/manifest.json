@@ -1,0 +1,475 @@
+{
+  "schema_version": "pollenomics-v5-scientific-report-manifest.v1",
+  "status": "scoped_development_report_with_external_source_blockers",
+  "repository": "bijux-pollenomics",
+  "head": "907c948fe3ae471f36a268de87e49793e3700a4f",
+  "evidence": [
+    {
+      "path": "artifacts/v2/hyde-native-metadata/report.json",
+      "sha256": "1de8918edcb9e27507effc6ab360a7c23a4e06c9bbb369552ea3e4d88589fcbb",
+      "bytes": 3730
+    },
+    {
+      "path": "artifacts/v2/hyde/netcdf-independent/REVIEW.md",
+      "sha256": "b39cd8ae73f205d76103a2a1d1c099da7a94765e007f90662c718f2cd69c9a53",
+      "bytes": 1703
+    },
+    {
+      "path": "artifacts/v2/jobs/author-pollen-grouped-development-search-per-bin-predictors.plan.json",
+      "sha256": "43c74149003cb1703209f1f3e8b689d3da763cb6fe82bccdbed03ac9e6f8127b",
+      "bytes": 2107
+    },
+    {
+      "path": "artifacts/v2/jobs/author-pollen-grouped-development-search-per-bin-predictors/result.json",
+      "sha256": "f4109f0aa516e30c153d782d6c6c3b75a0fcdc4ed45816391bdbdf4cda27fa45",
+      "bytes": 41470
+    },
+    {
+      "path": "artifacts/v2/jobs/author-pollen-grouped-development-search-score-validation.plan.json",
+      "sha256": "c26d2cb3d393a6452715d8df68480300af8acba5807e98eadf0ecfd04f730bf2",
+      "bytes": 2082
+    },
+    {
+      "path": "artifacts/v2/jobs/author-pollen-grouped-development-search-score-validation/result.json",
+      "sha256": "3d30a03cffa6be421b93cb7bdd1af3c0abef441d0601aed7ca5a16fa35e34748",
+      "bytes": 43562
+    },
+    {
+      "path": "artifacts/v2/jobs/author-pollen-search-unit-check-per-bin.plan.json",
+      "sha256": "fefdc8dd1058b8fdca108078f4e05c50a39a3a132ef920d0069e06153b4e5626",
+      "bytes": 1381
+    },
+    {
+      "path": "artifacts/v2/jobs/author-pollen-search-unit-check-per-bin/result.json",
+      "sha256": "9fd1c4b9f23936d0bb356d56bdc95fb7b54697fde5cd81db469c08b93b74e7cf",
+      "bytes": 148889
+    },
+    {
+      "path": "artifacts/v2/jobs/nordic-direct-pollen-country-provenance-prepare.plan.json",
+      "sha256": "a97f3222aa661e97041d6fb943b7cc86b89775cc8b893424577b9d376c8d673d",
+      "bytes": 17991
+    },
+    {
+      "path": "artifacts/v2/jobs/nordic-direct-pollen-country-provenance-prepare/result.json",
+      "sha256": "f6aedbb2b461c02f120ba5dcdd07dbca3ec477d0d197c6909126f13aaa1291c2",
+      "bytes": 86847
+    },
+    {
+      "path": "artifacts/v2/jobs/nordic-direct-pollen-provenance-predict-fi.plan.json",
+      "sha256": "3fa88e6fa904330fd97a239ca1af71be8be56ff47af1adc2c1c024f57d074705",
+      "bytes": 1974
+    },
+    {
+      "path": "artifacts/v2/jobs/nordic-direct-pollen-provenance-predict-fi/result.json",
+      "sha256": "4ae4fa82714a157926e11471dbba03c774017cc4a0020a7f07314292a412b1ed",
+      "bytes": 7970
+    },
+    {
+      "path": "artifacts/v2/jobs/nordic-direct-pollen-provenance-predict-no.plan.json",
+      "sha256": "c3ddef981f2257d3703ac96d1e7c864452c9fb4823f980308a0b9ea7c77607c3",
+      "bytes": 1974
+    },
+    {
+      "path": "artifacts/v2/jobs/nordic-direct-pollen-provenance-predict-no/result.json",
+      "sha256": "2fc0ff7d292794f5436a1569e41561bab8250b9df8a748e3a1dbb8a66a518efa",
+      "bytes": 7970
+    },
+    {
+      "path": "artifacts/v2/jobs/nordic-direct-pollen-provenance-score.plan.json",
+      "sha256": "9e4856255a85440f1fb7225faa66eccd75b1e8edb03cf9bd8df921970d53689a",
+      "bytes": 2802
+    },
+    {
+      "path": "artifacts/v2/jobs/nordic-direct-pollen-provenance-score/result.json",
+      "sha256": "390de8f15a877e41760baa01898994220fbcc6c054a5a556a4804b1a198999c4",
+      "bytes": 11784
+    },
+    {
+      "path": "artifacts/v2/jobs/rootsi-workbook-replay-hash-order-corrected/result.json",
+      "sha256": "314b7b29af8f17fa1935852a680f3fdf7f8e934f0afd6bb0bea9043571e2ea82",
+      "bytes": 755617
+    },
+    {
+      "path": "artifacts/v2/jobs/rootsi-workbook-retained-structural-replay-validated/result.json",
+      "sha256": "526810b8f8ce9c027b98c37d8aeab97ce16970920748917e9ea67d9a1211fdc2",
+      "bytes": 50435
+    },
+    {
+      "path": "artifacts/v2/jobs/scientific-delivery-clean-root-dev-suite.plan.json",
+      "sha256": "107507878d6ca7f77a3a289d9bdf46a06f062d9910aaa08dce1bcb177cb4dfd4",
+      "bytes": 1535
+    },
+    {
+      "path": "artifacts/v2/jobs/scientific-delivery-clean-root-dev-suite/result.json",
+      "sha256": "6fdacd344ce1c8cafd1d2bff8a4452354a0cde02ccdaafac1459d6f6f483fac3",
+      "bytes": 7394397
+    },
+    {
+      "path": "artifacts/v2/jobs/scientific-delivery-dev-tests-final/RUN.md",
+      "sha256": "23169aa9ce14064c3d302d1489d2cdec2546bfa5fdb0d8cc08cd749ce601cc9d",
+      "bytes": 907
+    },
+    {
+      "path": "artifacts/v2/jobs/scientific-delivery-isolated-package-build.plan.json",
+      "sha256": "c596eacc93efac3396a8296d64d0846a08c00e21983b06524188aa1a7140282e",
+      "bytes": 905
+    },
+    {
+      "path": "artifacts/v2/jobs/scientific-delivery-isolated-package-build/dist/bijux_pollenomics_dev-0.1.9.dev237+dirty-py3-none-any.whl",
+      "sha256": "aacb64643f4a12a6503582b32a476b2d3e46a891c2b7bfdb01167bb7b81907d8",
+      "bytes": 523473
+    },
+    {
+      "path": "artifacts/v2/jobs/scientific-delivery-isolated-package-build/dist/bijux_pollenomics_dev-0.1.9.dev237+dirty.tar.gz",
+      "sha256": "c64404d871030f517d83c1a325a6c0d228194f0aa923b9bc3db3940db93b1759",
+      "bytes": 410944
+    },
+    {
+      "path": "artifacts/v2/jobs/scientific-delivery-isolated-package-build/result.json",
+      "sha256": "41fcf9e20785e8c3f304bfc604580a5c05fa48b41da45d10f50dad613837343b",
+      "bytes": 2721081
+    },
+    {
+      "path": "artifacts/v2/jobs/swedish-neotoma-cohort-source-domain-validation/result.json",
+      "sha256": "f1b37fa033f9c3f5e7f32e8f9c6266d3156f8214ddca731362dd5b1556c6e118",
+      "bytes": 4786
+    },
+    {
+      "path": "artifacts/v2/jobs/swedish-neotoma-heldout-score-source-domain-validation/result.json",
+      "sha256": "50f6d7a472f7be671286e1ed8eb9a0952ceb7a663ab9de7d91b2490fb65ead21",
+      "bytes": 14866
+    },
+    {
+      "path": "artifacts/v2/jobs/swedish-neotoma-predict-site-13338-source-domain-validation/result.json",
+      "sha256": "63752df0c2f208db2810eefcc2c55aefe439fa0fed235ed3478df389fb08cfe6",
+      "bytes": 12409
+    },
+    {
+      "path": "artifacts/v2/jobs/swedish-neotoma-predict-site-28869-source-domain-validation/result.json",
+      "sha256": "77a9356b24b8765750be704295b678b8a0c306d7218c8d848852a3f7cb9d21df",
+      "bytes": 12411
+    },
+    {
+      "path": "artifacts/v2/jobs/swedish-neotoma-predict-site-28872-source-domain-validation/result.json",
+      "sha256": "b78d9fc2973bb0d2fcef8ded10a12d6eacab7c9e25c8237e75eb79ab07d4c0b1",
+      "bytes": 12411
+    },
+    {
+      "path": "artifacts/v3/hyde/nordic-intent-window-9180abe1/bundles/final005/manifest.json",
+      "sha256": "360cbfd1f979ee001b19f94391ad791d600f40bf2aced5a8e282f485e8ca3a5b",
+      "bytes": 8422
+    },
+    {
+      "path": "artifacts/v3/reference/empd2-nfi-feasibility001/report004.json",
+      "sha256": "5d35aed59cb5e3b49582976264837fab1c8d4ffa3dc1937e73bf2f04f32e2c66",
+      "bytes": 81363
+    },
+    {
+      "path": "artifacts/v3/reference/empd2-nfi-provenance001/report004.json",
+      "sha256": "bcab3834980f6934143f3a2bf4e2a0155bf3c7024850989de4f0f28f89584c31",
+      "bytes": 28945
+    },
+    {
+      "path": "artifacts/v3/reference/swedish-nfi-eligibility001/report.json",
+      "sha256": "b8408231ab5a837404fb420713c454c4ff96c1948e1646307cbe2592a3538103",
+      "bytes": 1657
+    },
+    {
+      "path": "artifacts/v3/reference/swedish-nfi-rights001/check.json",
+      "sha256": "c773a40fa80958d02f48409fa741cb2c1a9ecd8dd22280bd259f64875d21902b",
+      "bytes": 350
+    },
+    {
+      "path": "artifacts/v3/source/neotoma-pollen-screen-20260921/report002.json",
+      "sha256": "e8a8f392abb5be421111a01bb75823c7743b6b3d66bc6cbb415f65dc61be4e42",
+      "bytes": 8128480
+    },
+    {
+      "path": "artifacts/v4/author-pollen-spatial-block/baseline-comparison-verified/report.json",
+      "sha256": "19f9d1de88e9f7283d3ef1c60ad17d3c8b6b15ba12a0573aa39ddfbb2c9910f9",
+      "bytes": 1987
+    },
+    {
+      "path": "artifacts/v4/author-pollen-spatial-block/fitted-pollen/common-support-comparison-final/REPORT.md",
+      "sha256": "6c8eab1a9ff11367dd701c6ecf52d1d20a761827f06c9e12342671ee35c86534",
+      "bytes": 1141
+    },
+    {
+      "path": "artifacts/v4/author-pollen-spatial-block/fitted-pollen/common-support-comparison-final/report.json",
+      "sha256": "8c9d218fd294cfbe485a153d1e635f953146e408bd5aa31321e2cf1b4036754a",
+      "bytes": 14936
+    },
+    {
+      "path": "artifacts/v4/paper-correspondence/author-example-final/report.json",
+      "sha256": "a9bbb131a8094a2c0b1efaa83b6afba09f3f59f6e20257934d73a470de36fc9f",
+      "bytes": 19162
+    },
+    {
+      "path": "artifacts/v4/published-window-provenance/uncertainty-envelope-verified/report.json",
+      "sha256": "56bb62a2ad41c5dfbdca60841a54ad464c228ca3c93b6c3767eaad639de2e750",
+      "bytes": 1163
+    },
+    {
+      "path": "artifacts/v4/published-window-provenance/window-alignment-corrected/report.json",
+      "sha256": "5b2892b1972934e484d2530078e9b7c844b6ebc0bcd1aeb08d167d8b7f7bd8f6",
+      "bytes": 915
+    },
+    {
+      "path": "artifacts/v5/author-pollen-development-search-score-validation/INTERPRETATION.md",
+      "sha256": "ad7926e4de3c55cb6d39a6849d2d15f39467af70de44befa60542ffc354d91f5",
+      "bytes": 788
+    },
+    {
+      "path": "artifacts/v5/author-pollen-development-search-score-validation/coverage.csv",
+      "sha256": "4ed5bb027a24f1a7af7021d861cfe9ac4d7b0ee04fbdcf642698ed1c5165a26d",
+      "bytes": 2087
+    },
+    {
+      "path": "artifacts/v5/author-pollen-development-search-score-validation/design.json",
+      "sha256": "fba18f97abc529b4d35c95b187ca025f69970e6d63ff87c3141d885d941dc8ee",
+      "bytes": 3755
+    },
+    {
+      "path": "artifacts/v5/author-pollen-development-search-score-validation/leaderboard.csv",
+      "sha256": "de905d6f5b8e732a8b711bb9e9c3944270676ab5ffd1aa8de922d73ebf40229b",
+      "bytes": 2318
+    },
+    {
+      "path": "artifacts/v5/author-pollen-development-search-score-validation/predictions.csv",
+      "sha256": "55825780ccc836debd26903e9478812925ac9974ce7e4b36326e838646e17921",
+      "bytes": 9641220
+    },
+    {
+      "path": "artifacts/v5/author-pollen-development-search-score-validation/scores.csv",
+      "sha256": "15a253480e6906f92e51b090df0c39a808f719de345cb68f935d5bd727472b7a",
+      "bytes": 364947
+    },
+    {
+      "path": "artifacts/v5/author-pollen-development-search/coverage.csv",
+      "sha256": "4ed5bb027a24f1a7af7021d861cfe9ac4d7b0ee04fbdcf642698ed1c5165a26d",
+      "bytes": 2087
+    },
+    {
+      "path": "artifacts/v5/author-pollen-development-search/design.json",
+      "sha256": "fba18f97abc529b4d35c95b187ca025f69970e6d63ff87c3141d885d941dc8ee",
+      "bytes": 3755
+    },
+    {
+      "path": "artifacts/v5/author-pollen-development-search/leaderboard.csv",
+      "sha256": "de905d6f5b8e732a8b711bb9e9c3944270676ab5ffd1aa8de922d73ebf40229b",
+      "bytes": 2318
+    },
+    {
+      "path": "artifacts/v5/author-pollen-development-search/predictions.csv",
+      "sha256": "55825780ccc836debd26903e9478812925ac9974ce7e4b36326e838646e17921",
+      "bytes": 9641220
+    },
+    {
+      "path": "artifacts/v5/author-pollen-development-search/scores.csv",
+      "sha256": "15a253480e6906f92e51b090df0c39a808f719de345cb68f935d5bd727472b7a",
+      "bytes": 364947
+    },
+    {
+      "path": "artifacts/v5/hyde-extension/BLOCKER.md",
+      "sha256": "b0dc371b0d24322c5c0e82d34090a3b19d0a48f1209934177da3015e014d9447",
+      "bytes": 3588
+    },
+    {
+      "path": "artifacts/v5/nordic-extension/BLOCKER.md",
+      "sha256": "9ce9541340539ba0ae3b045d0497ea1a027909de2a1c177ce509bc2b2f1104a8",
+      "bytes": 2556
+    },
+    {
+      "path": "artifacts/v5/paper-correspondence/INTERPRETATION.md",
+      "sha256": "42a762199a469b18832060da94aa0bfea9e3fbd22d4930ec43747ad5e7f0c055",
+      "bytes": 3890
+    },
+    {
+      "path": "artifacts/v5/paper-correspondence/REFERENCE.md",
+      "sha256": "60267d3c09f668d75ad81b3a2b00d2f9c26ac2e05ad3da5a9f4f1366ed0b890b",
+      "bytes": 1774
+    },
+    {
+      "path": "artifacts/v5/paper-correspondence/paper-correspondence.csv",
+      "sha256": "a900d07118a014a9bc0fb5883517392e115ce9dd369d2a2f532026fdc826403c",
+      "bytes": 6032
+    },
+    {
+      "path": "artifacts/v5/rootsi-workbook-replay-validated/manifest.json",
+      "sha256": "6a1197c56ef58a7e4ee67261b2a21bbfa2204245d42f77f3316c5a485e4eef77",
+      "bytes": 15036
+    },
+    {
+      "path": "artifacts/v5/rootsi-workbook-replay-validated/report.json",
+      "sha256": "3dd96443ce497aa08f1739922943bc1b89f0533558ddc06e7398c0fe13a2d37c",
+      "bytes": 3905
+    },
+    {
+      "path": "artifacts/v5/swedish-cohort-questions/questions.csv",
+      "sha256": "5c35a661070a25ea3d6ce9f737356885ceb4abd06f8078d66d25413becbbda37",
+      "bytes": 4271
+    },
+    {
+      "path": "artifacts/v5/swedish-direct-lra/BLOCKER.md",
+      "sha256": "4fbbe617ad570cad596d505e9e2e66cdf79ce7db6dc3dac32196500793754859",
+      "bytes": 4256
+    },
+    {
+      "path": "artifacts/v5/swedish-direct-pollen/REPORT.md",
+      "sha256": "0bf164f88c55499b4ad146bd6fcb82320ecc85a3c1006ee5b412fb77ffb08ca4",
+      "bytes": 3332
+    },
+    {
+      "path": "artifacts/v5/swedish-direct-pollen/cohort.csv",
+      "sha256": "174c64f4a2d33e49a447541e975343bd03ff47e2270d23404e726710b0880339",
+      "bytes": 2408
+    },
+    {
+      "path": "artifacts/v5/swedish-direct-pollen/config.json",
+      "sha256": "9e330aec087180acb11638f544e773f53b6ffc1444da4e4d9840e53ad1849fd0",
+      "bytes": 2238
+    },
+    {
+      "path": "artifacts/v5/swedish-direct-pollen/exclusions.csv",
+      "sha256": "392b60a58ed20c55426dd0ccecbf1db5562745dd48a8b3fe9bdf69a1f47cc9e9",
+      "bytes": 374708
+    },
+    {
+      "path": "artifacts/v5/swedish-direct-pollen/input-manifest.json",
+      "sha256": "d2d286e66b6af51600918df786a54dbfb235045532930290e76f9f75222580ba",
+      "bytes": 1073
+    },
+    {
+      "path": "artifacts/v5/swedish-direct-pollen/scores.csv",
+      "sha256": "c8333471fbfdbd9fa20b802a31a8d3f1f281b8bf824187bfcdbe0c8738516531",
+      "bytes": 30557
+    },
+    {
+      "path": "artifacts/v5/swedish-direct-pollen/summary.json",
+      "sha256": "a42c2feaf536cd3ef026c84a650e37080574afd406073d49e8c70f545688a64e",
+      "bytes": 2860
+    },
+    {
+      "path": "artifacts/v5/vegetation-reference/BLOCKER.md",
+      "sha256": "607bf49dc076ae7b96bdccd667ba2b2ed9fb9ec91c311259ff76f3396452d9ac",
+      "bytes": 2651
+    },
+    {
+      "path": "data/empd2/review/country_coverage_evidence.json",
+      "sha256": "b5de10b8a3a68271b121f937b7c57649cd28c4ffce5dafa9bb645b598c70c8d2",
+      "bytes": 3903
+    },
+    {
+      "path": "data/landclim/normalized/nordic_pollen_site_sequences.csv",
+      "sha256": "3f0bbc4978d54ee9bff164594e1f358c4adee544de5c198ef970699511cc9b9e",
+      "bytes": 831329
+    },
+    {
+      "path": "data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv",
+      "sha256": "32eac151566b41c186745dd077fabcddde06f64f9a3a2056699e88dbabd76d4d",
+      "bytes": 1773
+    },
+    {
+      "path": "data/nfi/review/country_coverage_evidence.json",
+      "sha256": "c85f488fd13a17ee9c29d62553830da198174db5e7d63f5a0fc118d24f962d99",
+      "bytes": 4190
+    },
+    {
+      "path": "docs/report/regions/nordic/direct-pollen/RESULTS.md",
+      "sha256": "bd195c7f8e4fb3cbf1304a005b807619ac5f98d6066ab32a508ce8e2f87fcde8",
+      "bytes": 5193
+    },
+    {
+      "path": "docs/report/regions/nordic/direct-pollen/cohort.csv",
+      "sha256": "88e8104a3d42c87189f2dad2d6942ca2291f2028dde5ea8e8520626258ae77e2",
+      "bytes": 3330
+    },
+    {
+      "path": "docs/report/regions/nordic/direct-pollen/coverage.csv",
+      "sha256": "7180899cac6ad0fa1ad730570e3525954f7ada0a0c2a1c1a82bf624d4d94c07c",
+      "bytes": 955
+    },
+    {
+      "path": "docs/report/regions/nordic/direct-pollen/manifest.json",
+      "sha256": "ab011a74bc9546673b821f1b7a7fdd6172815f9dd0f99e661befaa37ce4f56c0",
+      "bytes": 8049
+    },
+    {
+      "path": "docs/report/regions/nordic/direct-pollen/predictions-FI.json",
+      "sha256": "60e3d0de262f1989012703d94c51809197ed5dac60dd7737f7597b125ecb634d",
+      "bytes": 16279
+    },
+    {
+      "path": "docs/report/regions/nordic/direct-pollen/predictions-NO.json",
+      "sha256": "4fb126b962fe97e8a035ffd66e3356ce50b1d284ffb92267465088f615c3255a",
+      "bytes": 1011524
+    },
+    {
+      "path": "docs/report/regions/nordic/direct-pollen/predictions.csv",
+      "sha256": "f470a92828ccdbc9a12e8b584acdbb77de173f485d432b73824c4a0e8b8dadef",
+      "bytes": 437333
+    },
+    {
+      "path": "docs/report/regions/nordic/direct-pollen/scores.csv",
+      "sha256": "faac69dc368ad1085197f4e152f515f05978d71362438c334112aef4c6571fcc",
+      "bytes": 130846
+    },
+    {
+      "path": "docs/report/regions/nordic/direct-pollen/site-scores.csv",
+      "sha256": "d30b0a8b9aafb64990f5d459040c80c0170962700aef7a01e99f652dc59c9c75",
+      "bytes": 643
+    },
+    {
+      "path": "docs/report/regions/nordic/direct-pollen/training-sources.csv",
+      "sha256": "c7fdd9db457815a5085febd44e0a772df31e6f97eeb9a9887656625e05b91ab3",
+      "bytes": 4203
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/author_pollen_spatial/development_search.py",
+      "sha256": "a0bdd0efc2294d959b5de31958ade5f6f844d9694add448e4cf46e000a585770",
+      "bytes": 21944
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/nordic_direct_pollen.py",
+      "sha256": "7abffb4a1c1d9606c35222c26cfcf3a7b4bbd7b7b20cdf6f20d66b3ce2b930e0",
+      "bytes": 55401
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/tests/essd_reproduction/test_author_pollen_development_search.py",
+      "sha256": "9c61d545d23e8d7350bfacefae6316935199213f9b1bcf6872df821018565400",
+      "bytes": 1754
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/tests/source_completion/test_nordic_direct_pollen.py",
+      "sha256": "9fd9a60c4b2e311f99bb38c6e6b67e78c5f0c60b9cd3e7beb1dc3c5edd18dce7",
+      "bytes": 1815
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/tests/test_runtime_isolation.py",
+      "sha256": "500656806d5adb5922837cefb1a821bf3ec1567972fabf1afb01c0943abeff06",
+      "bytes": 19244
+    }
+  ],
+  "deliverables": [
+    {
+      "path": "artifacts/v5/scientific-report/REPORT.md",
+      "sha256": "805909d6e84de64f3af8e7279ef547c7ed01f284c524308a21c8fab687e10e33",
+      "bytes": 18077
+    },
+    {
+      "path": "artifacts/v5/scientific-report/results.csv",
+      "sha256": "3347ceb4cb191bfe05d02b5a229a803e0b0ebc692ce6821041f26dee8eb5c26f",
+      "bytes": 5637
+    },
+    {
+      "path": "artifacts/v5/scientific-report/scope.json",
+      "sha256": "9dadfa94218a9e07f97a4a7617c0b72fad6b709b2b6d54d93db3210225b1e968",
+      "bytes": 7246
+    },
+    {
+      "path": "artifacts/v5/scientific-report/verify_report.py",
+      "sha256": "0dc7a523699457d02aaacab8631657c2d79a8efeb2a3935d98b2386183c289a0",
+      "bytes": 1592
+    }
+  ]
+}

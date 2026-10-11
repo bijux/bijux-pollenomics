@@ -409,8 +409,9 @@ PRJEB52849,Equus asinus,Africa to Europe and Asia donkey spread context,africato
 PRJEB52849,Equus asinus,North African donkey domestication and spread transect,northafricandonkeydomesticationandspreadtransect,North Africa and Levant dispersal extent;North African donkey domestication and spread transect,North Africa and Levant dispersal extent,archive_metadata;coordinate_resolution,broader_locality
 PRJEB59481,Ovis aries,Kastelholm,kastelholm,Kastelholm,,supplementary_table,excavation_site
 PRJEB59481,Ovis aries,Stora Förvar,storaförvar,Stora Förvar,,supplementary_table,excavation_site
-PRJEB60484,Rangifer tarandus,Barentsøya,barentsøya,Barentsøya,,supplementary_table,excavation_site
+PRJEB60484,Rangifer tarandus,Barentsøya,barentsøya,Barentsøya,,supplementary_table,broader_locality
 PRJEB60484,Rangifer tarandus,Diskobukta,diskobukta,Diskobukta,,supplementary_table,excavation_site
+PRJEB60484,Rangifer tarandus,Edgeøya,edgeøya,Edgeøya,,supplementary_table,broader_locality
 PRJEB60484,Rangifer tarandus,Gipsdalen,gipsdalen,Gipsdalen,,supplementary_table,excavation_site
 PRJEB60484,Rangifer tarandus,Kapp Flora,kappflora,Kapp Flora,,supplementary_table,excavation_site
 PRJEB60484,Rangifer tarandus,Rijpjorden,rijpjorden,Rijpjorden,,supplementary_table,excavation_site
@@ -550,8 +551,16 @@ PRJNA1328209,Capra hircus,Lake Qinghai Basin,lakeqinghaibasin,Lake Qinghai Basin
 PRJNA1328209,Capra hircus,Lake Qinghai Basin ancient goat context,lakeqinghaibasinancientgoatcontext,"Lake Qinghai Basin ancient goat context;Lake Qinghai Basin, Qinghai-Xizang Plateau","Lake Qinghai Basin, Qinghai-Xizang Plateau",article_text;coordinate_resolution,broader_locality
 PRJNA705960,Bos taurus,different mountain caves in Galicia,differentmountaincavesingalicia,different mountain caves in Galicia,,archive_metadata,broader_locality
 PRJNA705960,Bos taurus,Galician mountain cave cattle context,galicianmountaincavecattlecontext,"Galicia, Spain;Galician mountain cave cattle context","Galicia, Spain",archive_metadata;coordinate_resolution,broader_locality
+SRP073444,Camelus dromedarius,Al Buhais 18,albuhais18,Al Buhais 18,,archive_metadata,excavation_site
+SRP073444,Camelus dromedarius,Al Sufouh 2,alsufouh2,Al Sufouh 2,,archive_metadata,excavation_site
+SRP073444,Camelus dromedarius,Apamea,apamea,Apamea,,archive_metadata,excavation_site
+SRP073444,Camelus dromedarius,Aqaba,aqaba,Aqaba,,archive_metadata,excavation_site
+SRP073444,Camelus dromedarius,Muweilah (Sharjah),muweilahsharjah,Muweilah (Sharjah),,archive_metadata,excavation_site
+SRP073444,Camelus dromedarius,Palmyra,palmyra,Palmyra,,archive_metadata,excavation_site
 SRP073444,Camelus dromedarius,Site 1040 near Wadi Halfa,site1040nearwadihalfa,Site 1040 near Wadi Halfa,,article_text,country
-SRP073444,Camelus dromedarius,Site 1040 near Wadi Halfa dromedary context,site1040nearwadihalfadromedarycontext,Site 1040 near Wadi Halfa dromedary context;Wadi Halfa,Wadi Halfa,article_text;coordinate_resolution,broader_locality;country
+SRP073444,Camelus dromedarius,Site 1040 near Wadi Halfa C. thomasi context,site1040nearwadihalfacthomasicontext,Site 1040 near Wadi Halfa C. thomasi context;Wadi Halfa,Wadi Halfa,article_text;coordinate_resolution,broader_locality;country
+SRP073444,Camelus dromedarius,Tell Abraq,tellabraq,Tell Abraq,,archive_metadata,excavation_site
+SRP073444,Camelus dromedarius,Umm an-Nar,ummannar,Umm an-Nar,,archive_metadata,excavation_site
 SRS1407451,Canis lupus familiaris,Ancient European dog CTC sample context,ancienteuropeandogctcsamplecontext,Ancient European dog CTC sample context;Central Europe multi-site dog context,Central Europe multi-site dog context,article_text;coordinate_resolution,broader_locality
 SRS1407451,Canis lupus familiaris,Herxheim and Cherry Tree Cave ancient dog contexts,herxheimandcherrytreecaveancientdogcontexts,Herxheim and Cherry Tree Cave ancient dog contexts,,article_text,broader_locality
 SRS1407453,Canis lupus familiaris,Herxheim,herxheim,Herxheim,,archive_metadata,excavation_site

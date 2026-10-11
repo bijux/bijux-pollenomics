@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import csv
 import json
 
 import pytest
@@ -66,6 +67,16 @@ class IdentityIntegrityTests(SampleMasterRecoveryTestCase):
         catalog_species = {
             row.project_accession: row.species_latin_name for row in catalog
         }
+        ena_path = (
+            self.data_root
+            / "adna/governance/source_library/projects/SRP073444/ena_run_samples.tsv"
+        )
+        self.assert_source_receipt_closes(ena_path, "SRP073444")
+        with ena_path.open(encoding="utf-8", newline="") as handle:
+            camel_biosamples = {
+                row["experiment_accession"]: row
+                for row in csv.DictReader(handle, delimiter="\t")
+            }
         raw_expected: dict[tuple[str, str], tuple[str, str, str, str, str, str]] = {}
         for project_accession in archive_projects:
             logical_path = (
@@ -82,13 +93,27 @@ class IdentityIntegrityTests(SampleMasterRecoveryTestCase):
                     raw_row.archive_native_sample_id
                     or raw_row.archive_native_experiment_id
                 )
+                camel_link = (
+                    camel_biosamples[raw_row.archive_native_experiment_id]
+                    if project_accession == "SRP073444"
+                    else None
+                )
+                source_names = (
+                    camel_link["scientific_name"] if camel_link is not None else names
+                )
                 raw_expected[(project_accession, archive_source_identity)] = (
-                    raw_row.archive_native_sample_id,
+                    camel_link["sample_accession"]
+                    if camel_link is not None
+                    else raw_row.archive_native_sample_id,
                     raw_row.archive_native_experiment_id,
-                    raw_row.source_native_identity_kind,
-                    " | ".join(raw_row.source_native_tax_ids),
-                    names,
-                    expected_taxon_alignment(configured_species, names),
+                    "biological_sample_accession"
+                    if camel_link is not None
+                    else raw_row.source_native_identity_kind,
+                    camel_link["tax_id"]
+                    if camel_link is not None
+                    else " | ".join(raw_row.source_native_tax_ids),
+                    source_names,
+                    expected_taxon_alignment(configured_species, source_names),
                 )
 
         cat_workbook = (
@@ -123,7 +148,9 @@ class IdentityIntegrityTests(SampleMasterRecoveryTestCase):
         master_by_source_identity = {
             (
                 row.project_accession,
-                row.archive_native_sample_id
+                row.archive_native_experiment_id
+                if row.project_accession == "SRP073444"
+                else row.archive_native_sample_id
                 or row.archive_native_experiment_id
                 or row.supplementary_table_sample_label,
             ): row
@@ -169,9 +196,9 @@ class IdentityIntegrityTests(SampleMasterRecoveryTestCase):
         normalized_by_master = {
             (row.project_accession, row.master_id): row for row in normalized_rows
         }
-        self.assertEqual(len(stable_tokens), 1450)
-        self.assertEqual(len(set(stable_tokens)), 1450)
-        self.assertEqual(len(normalized_by_master), 1450)
+        self.assertEqual(len(stable_tokens), 1470)
+        self.assertEqual(len(set(stable_tokens)), 1470)
+        self.assertEqual(len(normalized_by_master), 1470)
         all_master_rows = [
             row
             for project in catalog
@@ -186,7 +213,7 @@ class IdentityIntegrityTests(SampleMasterRecoveryTestCase):
             and row.sample_evidence_status != "experiment_level_only"
         }
         self.assertEqual(len(all_master_rows), 1475)
-        self.assertEqual(len(admitted_master_by_identity), 1450)
+        self.assertEqual(len(admitted_master_by_identity), 1470)
         self.assertEqual(set(normalized_by_master), set(admitted_master_by_identity))
         for key, normalized in normalized_by_master.items():
             master_row = admitted_master_by_identity[key]

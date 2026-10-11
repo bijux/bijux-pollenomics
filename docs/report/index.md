@@ -20,6 +20,7 @@ internal functions that emitted each file.
 - [map surfaces](./maps/index.md) if you want the interactive world, Europe-plus, or Nordic view
 - [scope-filtered outputs](./scopes/index.md) if your question is world, region, or country specific
 - [evidence reviews](./reviews/index.md) if you want chronology, intake, sample-database, or point-support reviews
+- [source-bound taxa review](./taxa-review/README.md) for the private reviewer package scope and reproduction receipt
 - [scientific caveats](./caveats/index.md) if you want honesty, exclusion, or release-boundary checks
 - [maintainer truth surfaces](./maintenance/index.md) if you need repository integrity, docs integrity, or governance surfaces
 
@@ -28,10 +29,10 @@ internal functions that emitted each file.
 | Family | Surface count | Reader value |
 | --- | ---: | --- |
 | Map surfaces | `84` | interactive surfaces, traceability, contracts, and atlas-facing evidence rows |
-| Scope-filtered outputs | `543` | world, regional, and country bundles that answer geography-first reading questions |
-| Evidence reviews | `32` | animal evidence, chronology, recovery, and cross-family review surfaces |
+| Scope-filtered outputs | `607` | world, regional, and country bundles that answer geography-first reading questions |
+| Evidence reviews | `33` | animal evidence, chronology, recovery, and cross-family review surfaces |
 | Scientific caveats | `9` | blocked, thin, overclaim-sensitive, and honesty-oriented publication surfaces |
-| Maintainer truth surfaces | `706` | repository truth, docs integrity, source audits, and geography governance surfaces |
+| Maintainer truth surfaces | `853` | repository truth, docs integrity, source audits, and geography governance surfaces |
 
 ## Geographic Scopes
 
@@ -46,6 +47,6 @@ Use the tree in this order: reader portal first, scope bundle second, evidence r
 
 ## Audience Mix
 
-- Maintainer diagnostic: `709`
-- Public reading surface: `546`
-- Scientific review surface: `119`
+- Maintainer diagnostic: `856`
+- Public reading surface: `610`
+- Scientific review surface: `120`

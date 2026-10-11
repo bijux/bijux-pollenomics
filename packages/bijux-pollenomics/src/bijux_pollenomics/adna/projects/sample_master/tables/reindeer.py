@@ -23,6 +23,15 @@ _WORKBOOK_SHA256 = "1a11850c94d8a08f91a11feecc298dc9be9003911bd6dc39df6f6796c234
 _PREPRINT = f"{ADNA_SOURCE_LIBRARY_DIR}/papers/10.1111-mec.17274/author_preprint.pdf"
 _PREPRINT_SHA256 = "59862eade5dee058b4e0050001c189ec1c7edc18dea06cf15dadba353600f2af"
 _PREPRINT_URL = "https://www.biorxiv.org/content/10.1101/2023.09.21.558762v1.full.pdf"
+_PREPRINT_S3 = (
+    f"{ADNA_SOURCE_LIBRARY_DIR}/papers/10.1111-mec.17274/"
+    "supplementary/author-preprint-table-s3.xlsx"
+)
+_PREPRINT_S3_SHA256 = "fe4066aecc10fb4573613ac1641756c80503cb4bf41c7bf9a49ab25aa2ecfe97"
+_PREPRINT_S3_URL = (
+    "https://www.biorxiv.org/content/biorxiv/early/2023/09/22/"
+    "2023.09.21.558762/DC2/embed/media-2.xlsx?download=true"
+)
 # Author preprint Table 1, printed pp. 41–43. The source gives UTM E/N but no zone;
 # these values are custody evidence only and do not become WGS84 map coordinates.
 _PREPRINT_ROWS = {
@@ -75,7 +84,11 @@ def reindeer_chronology_evidence(
     source = _WORKBOOK if row.supplementary_table_sample_label else _PREPRINT
     return (
         source,
-        row.sample_lineage_locator.split(" || ")[-1],
+        (
+            "Table 1 pp. 41-43, ID B20"
+            if row.preferred_sample_label == "B20"
+            else row.sample_lineage_locator.split(" || ")[-1]
+        ),
         row.sample_lineage_excerpt,
     )
 
@@ -105,6 +118,35 @@ def build_reindeer_sample_rows(
         or preprint_receipt.get("content_sha256") != _PREPRINT_SHA256
     ):
         raise ValueError("Reindeer author preprint receipt changed")
+    preprint_s3_path = Path(output_root) / _PREPRINT_S3.removeprefix("data/")
+    if (
+        sha256(read_source_artifact_bytes(preprint_s3_path)).hexdigest()
+        != _PREPRINT_S3_SHA256
+    ):
+        raise ValueError("Reindeer author Table S3 changed")
+    preprint_s3_receipt = json.loads(
+        preprint_s3_path.with_suffix(".xlsx.metadata.json").read_text(encoding="utf-8")
+    )
+    if (
+        preprint_s3_receipt.get("source_url") != _PREPRINT_S3_URL
+        or preprint_s3_receipt.get("content_sha256") != _PREPRINT_S3_SHA256
+        or preprint_s3_receipt.get("preprint_version") != "1"
+    ):
+        raise ValueError("Reindeer author Table S3 receipt changed")
+    preprint_s3_sheet = _read_xlsx_rows(preprint_s3_path, sheet_name="Tabellenblatt1")
+    preprint_s3_ancient = preprint_s3_sheet[2:20]
+    if (
+        len(preprint_s3_ancient) != 18
+        or {cells[0] for cells in preprint_s3_ancient} != set(_PREPRINT_ROWS)
+        or any(
+            cells[6] != _PREPRINT_ROWS[cells[0]][4] or cells[7] != "ancient"
+            for cells in preprint_s3_ancient
+        )
+    ):
+        raise ValueError("Reindeer author Table S3 specimen or age rows changed")
+    preprint_s3_areas = {cells[0]: cells[1] for cells in preprint_s3_ancient}
+    if preprint_s3_areas["B20"] != "Edgeøya":
+        raise ValueError("Reindeer B20 author locality changed")
     sheet = _read_xlsx_rows(workbook_path, sheet_name="SI Table S1")
     if len(sheet) < 34 or sheet[3][: len(_HEADER)] != _HEADER:
         raise ValueError("Reindeer supplementary table layout changed")
@@ -168,6 +210,8 @@ def build_reindeer_sample_rows(
             if preprint is not None:
                 area, easting, northing, median, age = preprint
                 locator = f"Table 1 pp. 41-43, ID {alias}"
+                s3_locator = "Table S3 row 5, ID B20"
+                b20 = alias == "B20"
                 name_note = (
                     " Source spelling Wijdfjorden is normalized to Wijdefjorden "
                     "using the later table and the same or adjacent R25a grid."
@@ -180,17 +224,34 @@ def build_reindeer_sample_rows(
                         paper_native_sample_label=alias,
                         preferred_sample_label=alias,
                         sample_evidence_status="direct_table_extracted",
-                        sample_lineage_path=f"{relative} || {_PREPRINT}",
+                        sample_lineage_path=(
+                            f"{relative} || {_PREPRINT} || {_PREPRINT_S3}"
+                            if b20
+                            else f"{relative} || {_PREPRINT}"
+                        ),
                         sample_lineage_locator=(
-                            f"SAMPLE[@accession='{accession}']/@alias || {locator}"
+                            f"SAMPLE[@accession='{accession}']/@alias || "
+                            + locator
+                            + (f" || {s3_locator}" if b20 else "")
                         ),
                         sample_lineage_excerpt=(
                             f"ENA BioSample {accession} aliases {alias}; author bioRxiv "
                             f"preprint {locator} reports {area}, {age} BP (2 sigma), "
                             f"UTM E {easting} m and N {northing} m. The UTM zone is "
                             f"not given; no WGS84 point is derived.{name_note}"
+                            + (
+                                " Author preprint Table S3 row 5 names Edgeøya."
+                                if b20
+                                else ""
+                            )
                         ),
-                        locality_text="Wijdefjorden" if area == "Wijdfjorden" else "",
+                        locality_text=(
+                            "Wijdefjorden"
+                            if area == "Wijdfjorden"
+                            else preprint_s3_areas[alias]
+                            if b20
+                            else ""
+                        ),
                         political_entity="Norway",
                         chronology_text=f"{age} BP",
                         chronology_dating_basis="radiocarbon",

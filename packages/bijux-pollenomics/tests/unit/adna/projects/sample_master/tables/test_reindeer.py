@@ -20,10 +20,10 @@ def test_reindeer_table_joins_keep_geography_and_unresolved_aliases() -> None:
         sum(row.sample_evidence_status == "direct_table_extracted" for row in rows)
         == 20
     )
-    assert {alias for alias, row in by_alias.items() if not row.locality_text} == {
-        "B20"
-    }
+    assert all(row.locality_text for row in rows)
     assert by_alias["B20"].supplementary_table_sample_label == ""
+    assert by_alias["B20"].locality_text == "Edgeøya"
+    assert "author-preprint-table-s3.xlsx" in by_alias["B20"].sample_lineage_path
     assert by_alias["B20"].chronology_text == "2329-2460 BP"
     assert "author_preprint.pdf" in by_alias["R29a"].sample_lineage_path
     assert by_alias["R29a"].locality_text == "Wijdefjorden"

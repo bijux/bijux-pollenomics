@@ -1,0 +1,231 @@
+{
+  "schema_version": "solsoe-primary-pollen-lineage.v1",
+  "primary_doi": "10.1594/PANGAEA.739834",
+  "primary_event": "SOLSOE81",
+  "primary_profile_rows": 66,
+  "primary_parameter_count": 147,
+  "primary_count_cells": 9702,
+  "primary_positive_count_cells": 2881,
+  "primary_zero_count_cells": 6821,
+  "primary_total_count": 128653,
+  "neotoma_1981_sample_count": 66,
+  "neotoma_positive_observation_count": 2881,
+  "exact_same_name_parameter_count": 129,
+  "numeric_rename_candidate_count": 18,
+  "numeric_rename_candidates": [
+    {
+      "pangaea_parameter_name": "Caryophyllaceae undifferentiated",
+      "neotoma_source_reported_name": "Caryophyllaceae undiff.",
+      "positive_sample_count": 1,
+      "source_count_sum": 1,
+      "vector_equal_at_all_66_depths": true,
+      "status": "numeric_source_name_candidate_not_ecological_approval"
+    },
+    {
+      "pangaea_parameter_name": "Chenopodiaceae",
+      "neotoma_source_reported_name": "Amaranthaceae",
+      "positive_sample_count": 44,
+      "source_count_sum": 105,
+      "vector_equal_at_all_66_depths": true,
+      "status": "numeric_source_name_candidate_not_ecological_approval"
+    },
+    {
+      "pangaea_parameter_name": "Cruciferae",
+      "neotoma_source_reported_name": "Brassicaceae",
+      "positive_sample_count": 24,
+      "source_count_sum": 59,
+      "vector_equal_at_all_66_depths": true,
+      "status": "numeric_source_name_candidate_not_ecological_approval"
+    },
+    {
+      "pangaea_parameter_name": "Diphasium complanatum-type",
+      "neotoma_source_reported_name": "Diphasiastrum complanatum-type",
+      "positive_sample_count": 1,
+      "source_count_sum": 1,
+      "vector_equal_at_all_66_depths": true,
+      "status": "numeric_source_name_candidate_not_ecological_approval"
+    },
+    {
+      "pangaea_parameter_name": "Gramineae undifferentiated",
+      "neotoma_source_reported_name": "Poaceae undiff.",
+      "positive_sample_count": 66,
+      "source_count_sum": 10598,
+      "vector_equal_at_all_66_depths": true,
+      "status": "numeric_source_name_candidate_not_ecological_approval"
+    },
+    {
+      "pangaea_parameter_name": "Hippophae rhamnoides",
+      "neotoma_source_reported_name": "Hippophaë rhamnoides",
+      "positive_sample_count": 2,
+      "source_count_sum": 2,
+      "vector_equal_at_all_66_depths": true,
+      "status": "numeric_source_name_candidate_not_ecological_approval"
+    },
+    {
+      "pangaea_parameter_name": "Isoetes lacustris",
+      "neotoma_source_reported_name": "Isoëtes lacustris",
+      "positive_sample_count": 62,
+      "source_count_sum": 12787,
+      "vector_equal_at_all_66_depths": true,
+      "status": "numeric_source_name_candidate_not_ecological_approval"
+    },
+    {
+      "pangaea_parameter_name": "Isoetes setacea",
+      "neotoma_source_reported_name": "Isoëtes setacea",
+      "positive_sample_count": 53,
+      "source_count_sum": 8663,
+      "vector_equal_at_all_66_depths": true,
+      "status": "numeric_source_name_candidate_not_ecological_approval"
+    },
+    {
+      "pangaea_parameter_name": "Leguminosae undifferentiated",
+      "neotoma_source_reported_name": "Fabaceae undiff.",
+      "positive_sample_count": 3,
+      "source_count_sum": 4,
+      "vector_equal_at_all_66_depths": true,
+      "status": "numeric_source_name_candidate_not_ecological_approval"
+    },
+    {
+      "pangaea_parameter_name": "Littorella uniflora",
+      "neotoma_source_reported_name": "Plantago uniflora",
+      "positive_sample_count": 52,
+      "source_count_sum": 604,
+      "vector_equal_at_all_66_depths": true,
+      "status": "numeric_source_name_candidate_not_ecological_approval"
+    },
+    {
+      "pangaea_parameter_name": "Lychnis-type",
+      "neotoma_source_reported_name": "Silene-type undiff.",
+      "positive_sample_count": 9,
+      "source_count_sum": 9,
+      "vector_equal_at_all_66_depths": true,
+      "status": "numeric_source_name_candidate_not_ecological_approval"
+    },
+    {
+      "pangaea_parameter_name": "Polygonum amphibium",
+      "neotoma_source_reported_name": "Persicaria amphibia",
+      "positive_sample_count": 3,
+      "source_count_sum": 9,
+      "vector_equal_at_all_66_depths": true,
+      "status": "numeric_source_name_candidate_not_ecological_approval"
+    },
+    {
+      "pangaea_parameter_name": "Polygonum persicaria-type",
+      "neotoma_source_reported_name": "Persicaria maculosa-type",
+      "positive_sample_count": 5,
+      "source_count_sum": 7,
+      "vector_equal_at_all_66_depths": true,
+      "status": "numeric_source_name_candidate_not_ecological_approval"
+    },
+    {
+      "pangaea_parameter_name": "Ranunculaceae undifferentiated",
+      "neotoma_source_reported_name": "Ranunculaceae undiff.",
+      "positive_sample_count": 3,
+      "source_count_sum": 3,
+      "vector_equal_at_all_66_depths": true,
+      "status": "numeric_source_name_candidate_not_ecological_approval"
+    },
+    {
+      "pangaea_parameter_name": "Rhamnus catharticus",
+      "neotoma_source_reported_name": "Rhamnus cathartica",
+      "positive_sample_count": 1,
+      "source_count_sum": 1,
+      "vector_equal_at_all_66_depths": true,
+      "status": "numeric_source_name_candidate_not_ecological_approval"
+    },
+    {
+      "pangaea_parameter_name": "Sanguisorba minor",
+      "neotoma_source_reported_name": "Poterium sanguisorba",
+      "positive_sample_count": 1,
+      "source_count_sum": 1,
+      "vector_equal_at_all_66_depths": true,
+      "status": "numeric_source_name_candidate_not_ecological_approval"
+    },
+    {
+      "pangaea_parameter_name": "Scirpus lacustris-type",
+      "neotoma_source_reported_name": "Schoenoplectus lacustris-type",
+      "positive_sample_count": 14,
+      "source_count_sum": 35,
+      "vector_equal_at_all_66_depths": true,
+      "status": "numeric_source_name_candidate_not_ecological_approval"
+    },
+    {
+      "pangaea_parameter_name": "Umbelliferae undifferentiated",
+      "neotoma_source_reported_name": "Apiaceae undiff.",
+      "positive_sample_count": 1,
+      "source_count_sum": 1,
+      "vector_equal_at_all_66_depths": true,
+      "status": "numeric_source_name_candidate_not_ecological_approval"
+    }
+  ],
+  "all_source_sample_depths_match_exactly_cm": true,
+  "all_positive_source_counts_match_exactly": true,
+  "neotoma_zero_cells_are_sparse_absences": true,
+  "author_79_sample_selection_identified": false,
+  "author_chronology_identified": false,
+  "lra_admitted_samples": 0,
+  "interpretation": "The primary EPD PANGAEA 1981 pollen profile and Neotoma 1981 collection unit have the same 66 depth rows and 2,881 positive NISP values. Eighteen source-name pairs are unique count-vector candidates, not qualified ecological-taxonomy approvals. The LandClim II 79-sample author selection and its chronology and age-specific basin are still unidentified.",
+  "source_rights": "PANGAEA CC BY-NC 3.0; primary raw text remains external",
+  "inputs": [
+    {
+      "path": "landclim/pangaea/solsoe/solsoe81-pollen-739834.txt",
+      "bytes": 41614,
+      "sha256": "da790080493ccfe7e37ab16d154e438cfbeb7b0046bc41d7f24499572a0353d0"
+    },
+    {
+      "path": "data/neotoma/relational/manifest.json",
+      "bytes": 9223,
+      "sha256": "6f6777a40b67bd0704eb1a982f19e6d451cad0d6e4a41dfebf5e3f28be33105b"
+    },
+    {
+      "path": "data/neotoma/relational/surfaces/samples/part-00001.json",
+      "bytes": 16941983,
+      "sha256": "c959e77f7c645b814bffe92a92ff2d8fabcc077b4fc4c894e6315e448d14100c"
+    },
+    {
+      "path": "data/neotoma/relational/surfaces/observations/part-00001.json",
+      "bytes": 70897094,
+      "sha256": "6afa864a9e06384678e63e9f85b13ca79882a87f5c14751cb27af46df60539be"
+    },
+    {
+      "path": "data/neotoma/relational/surfaces/observations/part-00002.json",
+      "bytes": 70461143,
+      "sha256": "571b55edc7ce7b6472cacc0db41c41c0e5ccb7d11f0890f88e7ba5f99ef3c719"
+    },
+    {
+      "path": "data/neotoma/relational/surfaces/observations/part-00003.json",
+      "bytes": 71224059,
+      "sha256": "a96543819902f5cf5b2b2de355558fd1dd85946c2c08254ec84fad6f9e43fcb5"
+    },
+    {
+      "path": "data/neotoma/relational/surfaces/observations/part-00004.json",
+      "bytes": 71086686,
+      "sha256": "b78776421961eb1bf64d886340e2e0f5a42dfe6d0a4ca937d028eb66b1ca0219"
+    },
+    {
+      "path": "data/neotoma/relational/surfaces/observations/part-00005.json",
+      "bytes": 70418997,
+      "sha256": "c4705ced69897dcb8f154435d0ba6bdfb0baa942642de94b18f3c856cbfc2e3a"
+    },
+    {
+      "path": "data/neotoma/relational/surfaces/observations/part-00006.json",
+      "bytes": 70853697,
+      "sha256": "a33597470799a6b85add81bb699c8a32ec6b55881809345f44351f5530d4d2b7"
+    },
+    {
+      "path": "data/neotoma/relational/surfaces/observations/part-00007.json",
+      "bytes": 70837689,
+      "sha256": "48a285e8be25f0ffc9d41feb0cd08ac8c2b6ba54783cf7f3ceeb57e4595ef1bf"
+    },
+    {
+      "path": "data/neotoma/relational/surfaces/observations/part-00008.json",
+      "bytes": 29761480,
+      "sha256": "517a9b6fd807cd420dbaf7f2d09a5c93d6a4d4374bc823d25fba7307bc0852dd"
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/solsoe_pollen_lineage.py",
+      "bytes": 12027,
+      "sha256": "738d3049e1f4d26975823a11971854a21689d0c474cea9b776a72c5724797cfa"
+    }
+  ]
+}

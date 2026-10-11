@@ -80,7 +80,7 @@ hierarchies, source admission, real regional borders, empirical threshold choice
 or causal spread. Country labels are annotations in the fixture, not coordinate
 claims about actual national territories.
 
-A separate focused [network consumer check](../../../../packages/bijux-pollenomics/tests/unit/analysis/propagation/network/test_pair_evaluation.py)
+A separate focused [network consumer check](https://github.com/bijux/bijux-pollenomics/blob/828081f963fa574cd217c8f9c4c2cfcdb9397d52/packages/bijux-pollenomics/tests/unit/analysis/propagation/network/test_pair_evaluation.py)
 uses fabricated older/younger pairs in seven feature universes spanning whole
 pollen, group, subgroup, two roles and two taxa. The indexed network evaluates
 only the 14 within-feature oriented pairs and emits seven forward candidates;

@@ -135,7 +135,8 @@ def _repository(
     trailing_header: str | None = None,
     vegetation_accuracy: str = "not_evaluated",
 ) -> None:
-    comparison = root / "artifacts/v2/engine/publication-check-004/comparison"
+    method_profile = root / "docs/report/publication-replay/landclim-method-profile"
+    comparison = method_profile / "reference"
     comparison.mkdir(parents=True)
     (comparison / "report.json").write_text(
         json.dumps(
@@ -169,15 +170,45 @@ def _repository(
             }
         )
     )
-    design = root / "artifacts/v2/engine/multisite-audit"
-    design.mkdir(parents=True)
-    (design / "IMPLEMENTATION-DESIGN.md").write_text(
-        "The article reports 1128 pollen records, 31 taxa, 12 PFTs.\n"
+    (method_profile / "report.json").write_text(
+        json.dumps(
+            {
+                "scope": "two_retained_author_example_grids_method_and_input_identity",
+                "example_grid_sites": {"512": 9, "562": 8},
+                "inputs": [
+                    {
+                        "path": "docs/report/publication-replay/landclim-method-profile/reference/report.json",
+                        "sha256": hashlib.sha256(
+                            (comparison / "report.json").read_bytes()
+                        ).hexdigest(),
+                    }
+                ],
+                "pft_evidence": {
+                    "paper_prose_claim": 12,
+                    "parameter_table_nonblank_codes": 12,
+                },
+                "admission": {
+                    "private_input_redistribution_rights_cleared": False,
+                    "whole_paper_reproduction": False,
+                },
+            }
+        )
     )
-    rights = root / "artifacts/v2/engine/publication-license-audit"
-    rights.mkdir(parents=True)
-    (rights / "DISPOSITION.md").write_text(
-        "release and host redistribution are **not cleared**\n"
+    reexecution = root / "docs/report/publication-replay/landclim-example-reexecution"
+    reexecution.mkdir(parents=True)
+    (reexecution / "report.json").write_text(
+        json.dumps(
+            {
+                "passed": True,
+                "native_comparison": json.loads(
+                    (comparison / "report.json").read_text()
+                ),
+                "admission": {
+                    "private_input_redistribution_rights_cleared": False,
+                    "full_study_reproduction": False,
+                },
+            }
+        )
     )
     raw = root / "data/landclim/raw"
     raw.mkdir(parents=True)
@@ -405,7 +436,7 @@ def test_example_grid_scope_is_fail_closed(
         _repository(repository)
         report_path = (
             repository
-            / "artifacts/v2/engine/publication-check-004/comparison/report.json"
+            / "docs/report/publication-replay/landclim-method-profile/reference/report.json"
         )
         report = json.loads(report_path.read_text())
         first = report["grids"][0]
@@ -428,6 +459,15 @@ def test_example_grid_scope_is_fail_closed(
         else:
             raise AssertionError(f"Unhandled mutation: {mutation}")
         report_path.write_text(json.dumps(report))
+        method_path = (
+            repository
+            / "docs/report/publication-replay/landclim-method-profile/report.json"
+        )
+        method_report = json.loads(method_path.read_text())
+        method_report["inputs"][0]["sha256"] = hashlib.sha256(
+            report_path.read_bytes()
+        ).hexdigest()
+        method_path.write_text(json.dumps(method_report))
 
         with pytest.raises(ValueError, match=message):
             build_reconciliation(candidate, repository)
@@ -476,4 +516,53 @@ def test_independent_vegetation_accuracy_overclaim_is_rejected(
     _repository(repository, vegetation_accuracy="passed")
 
     with pytest.raises(ValueError, match="must not claim independent measured"):
+        build_reconciliation(candidate, repository)
+
+
+def test_governed_redistribution_claim_cannot_be_promoted(
+    tmp_path: Path,
+) -> None:
+    candidate = tmp_path / "candidate.zip"
+    repository = tmp_path / "repository"
+    _candidate(candidate)
+    _repository(repository)
+    method_report = (
+        repository
+        / "docs/report/publication-replay/landclim-method-profile/report.json"
+    )
+    report = json.loads(method_report.read_text())
+    report["admission"]["private_input_redistribution_rights_cleared"] = True
+    method_report.write_text(json.dumps(report))
+
+    with pytest.raises(ValueError, match="Governed source rights"):
+        build_reconciliation(candidate, repository)
+
+
+def test_governed_comparison_must_match_method_and_fresh_replay(
+    tmp_path: Path,
+) -> None:
+    candidate = tmp_path / "candidate.zip"
+    repository = tmp_path / "repository"
+    _candidate(candidate)
+    _repository(repository)
+    method_path = (
+        repository
+        / "docs/report/publication-replay/landclim-method-profile/report.json"
+    )
+    original_method = method_path.read_text()
+    method_report = json.loads(original_method)
+    method_report["inputs"][0]["sha256"] = "0" * 64
+    method_path.write_text(json.dumps(method_report))
+    with pytest.raises(ValueError, match="bind its comparison bytes"):
+        build_reconciliation(candidate, repository)
+
+    method_path.write_text(original_method)
+    replay_path = (
+        repository
+        / "docs/report/publication-replay/landclim-example-reexecution/report.json"
+    )
+    replay = json.loads(replay_path.read_text())
+    replay["native_comparison"]["grids"][0]["available_site_bins"] = 0
+    replay_path.write_text(json.dumps(replay))
+    with pytest.raises(ValueError, match="comparison grids disagree"):
         build_reconciliation(candidate, repository)

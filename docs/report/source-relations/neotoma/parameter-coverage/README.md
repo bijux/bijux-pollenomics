@@ -40,6 +40,6 @@ PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -m \
 ```
 
 Compare `bins.csv` and `report.json` byte-for-byte with this directory. The
-[producer](../../../../../packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/neotoma_parameter_mass.py)
+[producer](https://github.com/bijux/bijux-pollenomics/blob/828081f963fa574cd217c8f9c4c2cfcdb9397d52/packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/neotoma_parameter_mass.py)
 refuses a changed source population, incomplete count denominator, changed
 parameter review state or a nonzero LRA admission claim.

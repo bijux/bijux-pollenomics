@@ -1,0 +1,6 @@
+"r_read_name","source_column_index","author_target","raw_column_sum","prepared_target_sum","sums_equal"
+"Fagus",8,"Fagus sylvatica",5,5,TRUE
+"Fraxinus",9,"Fraxinus",1,1,TRUE
+"Juniperus",14,"Juniperus",2,2,TRUE
+"Calluna",17,"Calluna vulgaris",1364,1364,TRUE
+"Poaceae",18,"Poaceae",138,138,TRUE

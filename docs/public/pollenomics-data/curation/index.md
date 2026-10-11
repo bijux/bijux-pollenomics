@@ -117,7 +117,7 @@ separate records. That separation is visible in two animal cases:
 | Case | Captured evidence | Curated database state | Product consequence |
 | --- | --- | --- | --- |
 | Direkli Cave goat | supplementary workbook Table S2, row 2 names archive sample `SAMEA4453841`, locality, coordinates, and chronology | final project-owned sample identity with separate locality, coordinate, and chronology claims | admitted as a sample-backed point at the supported precision |
-| Wadi Halfa dromedary | paper-backed Site 1040 place context for project `SRP073444`; no recoverable sample-master row | contextual named-place evidence retained with its approximate coordinate basis and missing sample evidence | not published; accounted as `no_admitted_sample_backed_locality_candidate` |
+| Wadi Halfa camel | paper-backed `C.thomasi` Site 1040 place context for project `SRP073444`; the project's 20 archive BioSamples do not link to this context | contextual named-place evidence retained with its approximate coordinate basis and missing sample relation | not published; accounted as `no_admitted_sample_backed_locality_candidate` |
 
 ```mermaid
 flowchart LR

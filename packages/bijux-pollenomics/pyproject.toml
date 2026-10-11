@@ -71,12 +71,12 @@ include = [
 ]
 
 [tool.hatch.build.targets.sdist]
-include = [
+only-include = [
     "README.md",
     "CHANGELOG.md",
     "LICENSE",
     "NOTICE",
-    "src/bijux_pollenomics/**",
+    "src/bijux_pollenomics",
 ]
 
 [tool.hatch.build.targets.wheel]

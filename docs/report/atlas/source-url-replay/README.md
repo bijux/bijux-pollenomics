@@ -4,7 +4,7 @@ The atlas restores external URL changes through its complete document initializa
 
 ## Replay boundary
 
-[The URL controller](../../../../packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/assets/url-state.js) tracks the last address published by the current document. A changed external address requests one reload. While that replay is pending, old map callbacks and drawer actions cannot publish their stale state. Duplicate `popstate` and `hashchange` events reuse the pending replay. The complete incoming URL is retained, including any native or modeled state keys; normal startup validation then applies the keys supported by the current atlas.
+[The URL controller](https://github.com/bijux/bijux-pollenomics/blob/828081f963fa574cd217c8f9c4c2cfcdb9397d52/packages/bijux-pollenomics/src/bijux_pollenomics/reporting/map_document/assets/url-state.js) tracks the last address published by the current document. A changed external address requests one reload. While that replay is pending, old map callbacks and drawer actions cannot publish their stale state. Duplicate `popstate` and `hashchange` events reuse the pending replay. The complete incoming URL is retained, including any native or modeled state keys; normal startup validation then applies the keys supported by the current atlas.
 
 The implementation deliberately reloads on external navigation. It uses the same initialization boundary as opening a shared link, including native and modeled controllers, instead of maintaining a second partial parser. Browser controls that change the current selection or presentation do not reload the atlas. Table paging, search text, and other state without URL fields follow normal document initialization on external navigation.
 
@@ -37,7 +37,7 @@ node packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/atlas_browser/s
   '/Applications/Brave Browser.app/Contents/MacOS/Brave Browser'
 ```
 
-The verification receipt records the current candidate and browser result byte identities; artifact output directories are disposable reproduction products. The [producer](../../../../packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/atlas_browser/nordic_source_candidate.py) and [verifier](../../../../packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/atlas_browser/source-url-replay.mjs) use existing local dependencies. Browser profiles are removed after the observed terminal result.
+The verification receipt records the current candidate and browser result byte identities; artifact output directories are disposable reproduction products. The [producer](https://github.com/bijux/bijux-pollenomics/blob/828081f963fa574cd217c8f9c4c2cfcdb9397d52/packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/atlas_browser/nordic_source_candidate.py) and [verifier](https://github.com/bijux/bijux-pollenomics/blob/828081f963fa574cd217c8f9c4c2cfcdb9397d52/packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/ci/atlas_browser/source-url-replay.mjs) use existing local dependencies. Browser profiles are removed after the observed terminal result.
 
 ## Scope
 

@@ -1,9 +1,9 @@
 {
   "schema_version": "animal-output-honesty.v2",
   "totals": {
-    "tracked_sample_count": 1450,
+    "tracked_sample_count": 1470,
     "mapped_sample_count": 331,
-    "blocked_sample_count": 1119,
+    "blocked_sample_count": 1139,
     "unresolved_sample_count": 379,
     "country_published_sample_count": 12
   },
@@ -24,9 +24,9 @@
       "species_latin_name": "Camelus dromedarius",
       "species_common_name": "dromedary camel",
       "source_taxon_mismatches": {},
-      "tracked_sample_count": 13,
+      "tracked_sample_count": 33,
       "mapped_sample_count": 0,
-      "blocked_sample_count": 13,
+      "blocked_sample_count": 33,
       "unresolved_sample_count": 0,
       "country_published_sample_count": 0
     },

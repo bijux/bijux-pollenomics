@@ -14,6 +14,11 @@ from typing import Any, cast
 import pytest
 
 from bijux_pollenomics.collection.sources.rootsi import RootsiSiteMetadataClaim
+from bijux_pollenomics.collection.sources.rootsi.authority import (
+    ARCHIVE_SHA256,
+    METADATA_MEMBER,
+    METADATA_SHA256,
+)
 from bijux_pollenomics_dev.essd_reproduction import rootsi_workbook_replay
 from bijux_pollenomics_dev.essd_reproduction.rootsi_workbook_replay import (
     RootsiWorkbookReplayError,
@@ -81,11 +86,10 @@ def _cell(
     value: object,
 ) -> JsonObject:
     numeric = cell_type in (2, 3)
+    binary64_hex = None
     if numeric:
         assert isinstance(value, (int, float))
         binary64_hex = float(value).hex()
-    else:
-        binary64_hex = None
     return {
         "cell_id": rootsi_workbook_replay._source_id(
             workbook.workbook_id, sheet.ordinal, row, column
@@ -195,7 +199,7 @@ def replay_harness(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> _Harness:
             sha256=workbook_sha,
             byte_count=len(payload),
             workbook_id=rootsi_workbook_replay._source_id(
-                rootsi_workbook_replay.ARCHIVE_SHA256, member, workbook_sha
+                ARCHIVE_SHA256, member, workbook_sha
             ),
             excel_date_mode=0,
             sheet_count=sheet_count,
@@ -432,8 +436,7 @@ def replay_harness(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> _Harness:
                 "workbook_sha256": workbook.sha256,
                 "rootsi_source_row": claim.source_row_number,
                 "rootsi_source_locator": (
-                    f"{rootsi_workbook_replay.METADATA_MEMBER}!"
-                    f"{claim.source_row_number}"
+                    f"{METADATA_MEMBER}!{claim.source_row_number}"
                 ),
                 "rootsi_site_name_raw": claim.site_name,
                 "rootsi_sequence_label_raw": claim.site_label,
@@ -472,8 +475,8 @@ def replay_harness(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> _Harness:
         "HEADER_EMPTY_POSITIONS": 1,
         "HEADER_NONEMPTY_TEXT_POSITIONS": 209,
     }
-    for constant_name, constant_value in constants.items():
-        monkeypatch.setattr(rootsi_workbook_replay, constant_name, constant_value)
+    for name, constant_value in constants.items():
+        monkeypatch.setattr(rootsi_workbook_replay, name, constant_value)
     monkeypatch.setattr(
         rootsi_workbook_replay,
         "_producer_identity",
@@ -1057,7 +1060,7 @@ def test_real_retained_workbook_replay_is_opt_in(tmp_path: Path) -> None:
             "artifacts/v2/sources/remaining-frontier/rootsi-lineage/"
             "intake-001/metadata.xlsx"
         ),
-        expected_rootsi_metadata_sha256=rootsi_workbook_replay.METADATA_SHA256,
+        expected_rootsi_metadata_sha256=METADATA_SHA256,
         candidate_closure_dir=closure,
         expected_candidate_closure_manifest_sha256=(
             rootsi_workbook_replay.CANDIDATE_CLOSURE_MANIFEST_SHA256
