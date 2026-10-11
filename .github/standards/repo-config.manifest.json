@@ -2797,6 +2797,11 @@
               "package_slug": "pollenomics"
             }
           ]
+        },
+        {
+          "key": "BIJUX_RELEASE_ARTIFACT_VERIFICATION_COMMAND",
+          "value": "test -n \"${RELEASE_TAG}\"; guard_python=\"${ARTIFACTS_DIR}/venv/bin/python\"; test -x \"${guard_python}\"; resolved_version=\"$(PYTHONPATH=\"${GITHUB_WORKSPACE}/packages/bijux-pollenomics-dev/src\" \"${guard_python}\" -m bijux_pollenomics_dev.release.publication_guard --pyproject \"${PACKAGE_DIR}/pyproject.toml\" --package-name \"${PACKAGE_SLUG}\" --dist-dir \"${DIST_DIR}\")\"; test \"${resolved_version}\" = \"${RELEASE_TAG#v}\"",
+          "type": "string"
         }
       ],
       "dependabot": {
