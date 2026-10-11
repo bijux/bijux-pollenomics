@@ -238,3 +238,10 @@ renderable with null moments and visible denominators; successful subsets are no
 renormalized. No geometry is accepted by this command, and a successful render is
 neither scientific acceptance nor publication authorization. Invalid or changed
 inputs and existing outputs return exit 2.
+
+Joint-report CSV downloads prefix a leading apostrophe on text cells that start
+with an apostrophe or whose first character after leading whitespace or byte-order
+marks is `=`, `+`, `-`, or `@`. This keeps source labels inert in
+spreadsheet applications. Remove exactly one leading apostrophe to recover the
+original label; `joint-summary.json` and the retained product preserve the exact
+source text without this CSV encoding.

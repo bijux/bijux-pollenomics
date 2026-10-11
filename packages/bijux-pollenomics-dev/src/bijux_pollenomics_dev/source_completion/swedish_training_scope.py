@@ -381,7 +381,7 @@ def score(
 
 
 def main() -> None:
-    """Compare retained Swedish training scopes on the same held-out targets."""
+    """Run a Swedish training-scope stage with explicit source paths."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("stage", choices=("prepare", "predict", "score"))
     parser.add_argument("--repository", type=Path)

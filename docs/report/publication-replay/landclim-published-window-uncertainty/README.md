@@ -22,5 +22,6 @@ PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=packages/bijux-pollenomics-dev/src \
   --output artifacts/landclim-published-window-uncertainty/replay
 ```
 
-The producer emits CRLF CSV line endings. The governed ledger uses LF with
-identical parsed rows.
+The current producer emits the governed LF CSV line endings. The historical
+manifest records the source revision that first produced this report; the
+current replay is checked separately against the retained outputs.

@@ -1,6 +1,8 @@
 # What we reproduced from the numerical method
 
-We checked bounded numerical contracts against retained author source cases
+We [bound the released author profile](publication-correspondence/author-method-profile.md)
+to its 17 example sites, 31-taxon PPE/covariance axis and 25 bins. We
+checked bounded numerical contracts against retained author source cases
 in our [original-R certification](../../docs/report/method-certification/original-r-reference/README.md).
 We then compared the installed Python publication profile with an
 independently executed author-R example in the
@@ -14,6 +16,42 @@ We reproduced 17 prepared author-example files byte for byte from 871 raw
 sample rows and 15,028 matching prepared cells in the
 [raw-to-prepared replay](../../docs/report/source-relations/landclim/author-example-taxon-support/README.md).
 We have not authenticated the historical Nordic publication revisions.
+
+## Optimizer budget accounting
+
+We independently challenged an earlier differential-evolution solver against
+its corrected successor on 135 combinations of dimension, fixed bounds,
+population size and evaluation budget. In both executed runs, 54 cases changed
+the reported completed-generation count; 81 did not. Every case retained the
+same objective-evaluation trace, random-generator state and other result fields.
+The corrected snapshots in that comparison precede today's
+solver, so this is evidence for the historical accounting change, not a fresh
+135-case certification of current code. Our [current focused regression](../../packages/bijux-pollenomics-lra/tests/unit/optimization/test_solver.py)
+checks completed generations and exact evaluations at four budgets. Generation
+accounting alone says nothing about the quality of a vegetation optimum or
+agreement with the original R optimizer.
+
+## Optimized LOVE on shared objectives
+
+We compared the installed RcppDE and Python searches on three declared LOVE
+objectives with identical pollen, deposition, background, PPE, bounds and
+iteration cap. In the [governed solution-quality study](../../docs/report/method-certification/optimizer-solution-quality/README.md),
+both achieved objective values within `1e-4` of the independently derived
+optima. Evaluating each selected candidate in the other implementation gave
+absolute objective gaps below `1e-10`. The [three result rows](../../docs/report/method-certification/optimizer-solution-quality/summary.csv)
+include a composition-ambiguous case where different cover vectors are equally
+good; we judged objective quality and common-candidate arithmetic, not vector
+identity. Python reported success after 29–40 iterations and 600–1,230
+evaluations. R used its full 400-iteration cap in all three cases. These
+small, declared objectives support bounded numerical solution quality; they
+do not establish identical random search paths, global convergence on other
+landscapes or ecological accuracy.
+
+We also [replayed analytical LOVE across ten example rings](analytical-love-ring-sensitivity/README.md).
+Only three satisfy the source's local-basin boundary; 16 of their 30
+taxon/ring estimates are negative and six exceed one. We retained those
+unconstrained results to show ring sensitivity rather than presenting an
+invented closed vegetation composition or a recommended Nordic radius.
 
 ## A real publication difference
 

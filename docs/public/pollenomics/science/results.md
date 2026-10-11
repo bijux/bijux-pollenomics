@@ -18,6 +18,25 @@ and 7.16e-14 for standard errors in fraction units. The [raw-to-prepared
 replay](../../../report/source-relations/landclim/author-example-taxon-support/README.md)
 also reproduces the 17 released example files byte for byte.
 
+We separately compared RcppDE and Python LOVE optimization on
+[three declared shared objectives](../../../report/method-certification/optimizer-solution-quality/README.md).
+Both attained objective gaps below `1e-4` from independent optima, and each
+selected candidate evaluated in the other implementation within `1e-10`.
+The [result rows](../../../report/method-certification/optimizer-solution-quality/summary.csv)
+include a case with equally good but different vegetation vectors. This
+checks bounded objective quality and arithmetic; it does not show identical
+random searches, global convergence on other inputs or ecological accuracy.
+
+For the nominated [2024 LOVEr/LOVEoptim paper](../../../report/method-certification/love-paper-correspondence/README.md),
+all 30 printed fall-speed, pollen-productivity and productivity-error values
+match the later packaged DISQOVER example by row position. Nine of ten taxon
+labels match exactly; the paper uses `Grasses` and the package uses `Gras`.
+The example does not contain the eight-site landscape, pollen and random
+draws needed to rerun the paper's Figure 2 RMSE. Its reported preferred ring
+range is therefore a result of that simulation, not a selected setting for
+Nordic lakes. The [paper-result matrix](../../../report/pollen-reconstruction/paper-correspondence.csv)
+records the input match and the unavailable output separately.
+
 The [paper/archive comparison](../../../report/pollen-reconstruction/paper-correspondence.md)
 finds a genuine difference on the one exact shared 100–350 BP window:
 archived means differ from the author replay by up to 9.20 percentage points
@@ -27,6 +46,29 @@ closes the archived ISTS/TBS means but does not identify their biological
 definition or standard-error aggregation. The source revision and archive
 transformation remain open; the differences are not ecological accuracy
 estimates.
+
+Across all 10,500 archived grid/window mean rows, `ISTS` equals the sum of
+`Corylus.avellana`, `Fraxinus` and `Quercus.deciduous` within numerical
+tolerance. The paper assigns deciduous Quercus type to TBS, while this
+archived output places its mean in `ISTS`. All checked aggregate standard
+errors satisfy necessary component-error bounds, but the archive does not
+expose the covariance needed to reproduce its aggregation. We keep the
+paper/archive classification difference and the unresolved `ISTS` meaning
+visible; numerical agreement does not authorize a taxon relabeling.
+
+## HYDE as modeled context
+
+The retained [HYDE country table](../../../report/regions/nordic/hyde-country-cropland/country-years.csv)
+has 84 source-reported cropland areas for Denmark, Finland, Norway and
+Sweden at seven native CE labels and three source scenarios. Selected native
+ASCII grids reproduce those country totals within the declared area
+tolerance. This checks internal modeled-source accounting. HYDE cropland is
+neither measured vegetation nor cereal pollen, and the scenarios are not
+confidence bounds. Release-specific rights, formal CRS, calendar support
+and comparable class/footprint rules are still unresolved, so we have not
+run or scored a no-HYDE/HYDE pollen-model comparison. The
+[source review](../../pollenomics-data/sources/hyde.md) records those exact
+limits.
 
 ## Direct pollen and LRA forward pollen
 
@@ -71,6 +113,19 @@ finds lower aggregate direct-pollen MAE and Hellinger at all three radius
 factors for each fixed method. Individual sites disagree, and direct and LRA
 used different training information.
 
+## Additional Swedish lake transfer
+
+Three further Swedish EPD lakes were selected from site and age metadata
+before their pollen counts were read. The [three-lake transfer](../../../report/regions/nordic/swedish-lake-transfer/README.md)
+withheld Gilltjärnen, Lake Avegöl and Flinkasjön from the 81-site
+Denmark/Finland/Norway training set. All 63 site by 500 BP bins received
+three fixed 31-target pollen predictions, giving 189 matched score rows.
+Inverse distance squared had the lowest three-site mean absolute fraction
+error (0.017334), compared with nearest site (0.017932) and training mean
+(0.020682); nearest site performed better at Lake Avegöl. These are
+previously exposed development outcomes for observed pollen. They do not
+admit these lakes to LRA or measure vegetation accuracy.
+
 ## Swedish training scope on matched pollen targets
 
 The [whole-site comparison](../../../report/regions/nordic/swedish-training-scope/README.md)
@@ -104,6 +159,21 @@ uncertainty, LRA accuracy or vegetation accuracy.
 
 ## Parameters and next experiments
 
+### Measured vegetation evidence
+
+Our [EMPD2–NFI source screen](../../../report/validation/empd2-nfi-pairing/README.md)
+admits zero matched vegetation pairs for repository prediction accuracy. A
+[Färskesjön plot](../../../report/vegetation-reference/farskesjon/README.md)
+provides measured tree volume but is a 7 m radius plot whose source point is
+427 m from the lake pollen point. [Historical Småland maps](../../../report/vegetation-reference/smaland-historical-maps/README.md)
+give map coverage and shared pollen samples for three bogs, without the full
+numerical vegetation fractions. A [published southern Swedish figure](../../../report/vegetation-reference/southern-sweden-figure/README.md)
+supports a bounded nine-label comparison of its authors' estimates, not a
+score of this repository's predictions. These source results answer different
+questions; none supplies our missing independent vegetation outcome.
+
+### Model settings
+
 For the English LRA run, published PPE and fall speeds were fixed after a
 declared one-taxon transport exclusion. A simplex-constrained LOVE fit used a
 uniform-start SLSQP search, 300 iterations, 16,000 objective evaluations and
@@ -111,6 +181,11 @@ uniform-start SLSQP search, 300 iterations, 16,000 objective evaluations and
 check still refused those cases. The original author-R optimizer differs.
 These settings are a reproducible development profile, not universal ideal
 parameters.
+The [two-case synthetic PPE and transport sweep](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/synthetic-model-selection/README.md)
+completed 12 development trials and ranked one candidate first within that
+set. Its independent pollen generator and installed REVEALS use different
+transport laws, so the winning candidate may compensate for model mismatch.
+We do not recommend its PPE or transport settings for a real core.
 The repository's [model-use guide](https://github.com/bijux/bijux-pollenomics/blob/main/reports/science/model-use.md)
 sets out the target-specific choices, source gates, numerical settings,
 uncertainty scope and refusal conditions in one place.

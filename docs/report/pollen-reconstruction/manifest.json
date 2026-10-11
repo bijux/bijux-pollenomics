@@ -5,14 +5,34 @@
   "as_of": "2026-09-30",
   "files": [
     {
+      "path": "data/landclim/raw/landclim_ii_taxa_pft_ppe_fsp_values.csv",
+      "sha256": "32eac151566b41c186745dd077fabcddde06f64f9a3a2056699e88dbabd76d4d",
+      "bytes": 1773
+    },
+    {
+      "path": "data/landclim/review/amsoldingersee-source-inputs.json",
+      "sha256": "09811a8a6042d586770fa99b9f2e9d1a79209c4452a4dd839a3411cd644ff397",
+      "bytes": 2190
+    },
+    {
+      "path": "data/landclim/review/provider-description-sources.json",
+      "sha256": "5505bffe177f5d59463c04a14d8018f329760cd66c99c7d988308fc9877a189a",
+      "bytes": 589
+    },
+    {
+      "path": "data/synthetic/score_protocol_source.json",
+      "sha256": "c95983fdd52ab5f8e98fa46dccb1d8201ff9e62699108878f88776422feaad87",
+      "bytes": 1684
+    },
+    {
       "path": "docs/public/pollenomics-data/sources/empd2-nfi-review.md",
       "sha256": "3bc09525c19ea91f7d817fea495d41d47e3dc079276e239005653b8975069e64",
       "bytes": 4853
     },
     {
       "path": "docs/public/pollenomics-data/sources/hyde.md",
-      "sha256": "9cda95427788899587928f6d02272ef577d94f425ceefab57ca67b7ea3acbf0c",
-      "bytes": 14682
+      "sha256": "37e9ac44bec48ab1b887c06a4700b19c2d6d5ba01028ccfd8f866d5f69a8a436",
+      "bytes": 14560
     },
     {
       "path": "docs/public/pollenomics-data/sources/neotoma.md",
@@ -23,6 +43,11 @@
       "path": "docs/public/pollenomics-data/sources/nordic-nfi-reference-access.md",
       "sha256": "667fedcd011df24f0cd707ea0ccdf904c0d5b1c251d2608bdd1b7af454fe0fb1",
       "bytes": 5175
+    },
+    {
+      "path": "docs/public/pollenomics/science/sources.md",
+      "sha256": "2b3e23816cd1f71fb63186bc72b4904f7f4135ce6a2f4b51e530461201d666b0",
+      "bytes": 4824
     },
     {
       "path": "docs/report/countries/denmark/pollen-chronology-coverage/README.md",
@@ -61,88 +86,28 @@
     },
     {
       "path": "docs/report/index.md",
-      "sha256": "d9629891f41df85dcce25ae0d086bd135fa71ee2de46126e3ffa0a37eea68327",
-      "bytes": 2670
-    },
-    {
-      "path": "docs/report/maintenance/artifact-retention/README.md",
-      "sha256": "789f0cee6e01dff6a10d70fce6a4dded9966e5e900c2f85d8cfa45b48e3c2783",
-      "bytes": 30483
-    },
-    {
-      "path": "docs/report/maintenance/artifact-retention/landclim-amsoldingersee-custody.json",
-      "bytes": 15084,
-      "sha256": "eab4595d161d0f8000ee02ec2dcf6eb2644d117a83015641b8fa8821e6f0280f"
-    },
-    {
-      "path": "docs/report/maintenance/artifact-retention/landclim-author-lra-development-custody.json",
-      "sha256": "a2e079e3c0aeec7c912d5409951b936156e6c80ad7f0c2b1b746df2cc845d722",
-      "bytes": 1255
-    },
-    {
-      "path": "docs/report/maintenance/artifact-retention/landclim-author-preparation-audit-custody.json",
-      "bytes": 8968,
-      "sha256": "3ef177f6734471330cd2b8331d1b9786847b38eb054c5cd56f6ff4354dd40976"
-    },
-    {
-      "path": "docs/report/maintenance/artifact-retention/landclim-author-preparation-process-custody.json",
-      "bytes": 82450,
-      "sha256": "f1cc44f27f1676e1b9b41439b67b13d0ec6f963639626976212897afc46166c1"
-    },
-    {
-      "path": "docs/report/maintenance/artifact-retention/landclim-historical-example-review-custody.json",
-      "sha256": "88e3e27d0c5f9115b049f52096c0d8ec143b3d47310d37fe2b6ab7a03f983b4e",
-      "bytes": 4424
-    },
-    {
-      "path": "docs/report/maintenance/artifact-retention/landclim-pft-audit-custody.json",
-      "bytes": 1369,
-      "sha256": "a5f990eeea6690e707bb439f989e2e423a2cb1498b86f212221a89a0529aa185"
-    },
-    {
-      "path": "docs/report/maintenance/artifact-retention/landclim-pft-primary-capture-custody.json",
-      "bytes": 2203,
-      "sha256": "8bb1ae87a56825ea8891082732287c6f9936ec9d852243ec80b40620bc91186e"
-    },
-    {
-      "path": "docs/report/maintenance/artifact-retention/landclim-provider-description-custody.json",
-      "bytes": 1287,
-      "sha256": "82464c8192e95cb675da6098fe65e4797fea57a1f59aa4af05a5bb8f581ae1e1"
-    },
-    {
-      "path": "docs/report/maintenance/artifact-retention/landclim-public-note-custody.json",
-      "bytes": 2565,
-      "sha256": "d46f54e140b232748c42cb18357192b20f6a82b42e3fb14d43c9ddb80a68c155"
-    },
-    {
-      "path": "docs/report/maintenance/artifact-retention/landclim-two-grid-process-custody.json",
-      "sha256": "4fdf61a179f50e1a7034feb1e2847ae2521b8b554ac822f08d1560270ee0fca1",
-      "bytes": 117879
-    },
-    {
-      "path": "docs/report/maintenance/artifact-retention/landclim-whh05-process-custody.json",
-      "sha256": "bfc8db76ea9844ee0315d96c68873404caef62ef9f170378a6153d5a0b6b8014",
-      "bytes": 87367
-    },
-    {
-      "path": "docs/report/maintenance/artifact-retention/nordic-direct-pollen-process-custody.json",
-      "sha256": "0cbdcc5e67b4695d322c31eb22a19343a5c12ea42b44c1cace410edc626f428e",
-      "bytes": 8960
-    },
-    {
-      "path": "docs/report/maintenance/artifact-retention/scientific-report-provenance/README.md",
-      "bytes": 2729,
-      "sha256": "7fc4eec5d45fe5490b28e03bde3e269c91e0a751df81a91233ae19b0a099fc4f"
-    },
-    {
-      "path": "docs/report/maintenance/artifact-retention/swedish-lake-transfer-run-custody.json",
-      "sha256": "873f2427d78d00902fafd8789492e643c32eb166fb883fcb6a69b57aef4b59c4",
-      "bytes": 3479
+      "sha256": "f5b3eb27d2b93516ef1419875602c3f160cfdbdbd3827d6fe8f29a39f1e3a67e",
+      "bytes": 2668
     },
     {
       "path": "docs/report/method-certification/current-r-oracle/README.md",
       "sha256": "f333cecb08fc94a12ea0fbf3f5436c4a08bfdf3d5e7f07d399834536e839cd22",
       "bytes": 6323
+    },
+    {
+      "path": "docs/report/method-certification/love-paper-correspondence/README.md",
+      "sha256": "a6d836b045ba3f1eb63fc74c182e77fdf5f54cb3b44ede427ed32093468de66f",
+      "bytes": 8237
+    },
+    {
+      "path": "docs/report/method-certification/love-paper-correspondence/paper-parameter-tables.json",
+      "sha256": "9c0ce8de012ee978d158a402856fd4fcf3fbda3fcaf71d6257964b893b9a392e",
+      "bytes": 6239
+    },
+    {
+      "path": "docs/report/method-certification/love-paper-correspondence/source-parameter-correspondence.json",
+      "sha256": "2e80c14354d0e571a7fd0d30433a3b205b85ea6902893a4ca242c47af2d33c75",
+      "bytes": 3838
     },
     {
       "path": "docs/report/pollen-reconstruction/README.md",
@@ -436,18 +401,13 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/author-example-site-mean-holdout/README.md",
-      "sha256": "4b26b419550f6801567d4bca1b88f7792e8bcfb887260cf18480d0db892bf099",
-      "bytes": 2104
+      "sha256": "3a02c893337eb5c9e6cb96e3d77779af00ca7529ca1912e05be70a7007f46ef3",
+      "bytes": 2100
     },
     {
       "path": "docs/report/pollen-reconstruction/author-example-site-mean-holdout/REPORT.md",
       "sha256": "8d136b9b09284df76803ef002754709cf6b52508be5addab63893eb5621debc7",
       "bytes": 1293
-    },
-    {
-      "path": "docs/report/pollen-reconstruction/author-example-site-mean-holdout/manifest.json",
-      "sha256": "f96bbc170cfbdde9eb6bbf43c2be06f079af9802017b4ac4f23f77102baf2d66",
-      "bytes": 2278
     },
     {
       "path": "docs/report/pollen-reconstruction/author-example-site-mean-holdout/predictions.csv",
@@ -526,8 +486,8 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/author-lra-constrained/radius-sensitivity/README.md",
-      "sha256": "379239a5599b16b0a2d3fd6f70af74c56f8193288b0efc54cc739f7b4315ed94",
-      "bytes": 5065
+      "sha256": "ec31fc26515f61191b43d5eea47386e2cbc9839bb9a159fae5c0db3dae327729",
+      "bytes": 6193
     },
     {
       "path": "docs/report/pollen-reconstruction/author-lra-constrained/radius-sensitivity/frozen/predictions.json",
@@ -561,8 +521,8 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/author-lra-constrained/radius_sensitivity.py",
-      "sha256": "081e556c044dc652e0f59edaf39d32410e0b24d0388a1dea77f8503f8edb0187",
-      "bytes": 11478
+      "sha256": "dede38022ace3e350d854e4a35cd1ed590ca8ddfbbe7a6c7b089c9df76a39b9e",
+      "bytes": 12945
     },
     {
       "path": "docs/report/pollen-reconstruction/author-lra-constrained/report.json",
@@ -586,33 +546,13 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/author-lra-development/README.md",
-      "sha256": "658e67e08677b2317c7128d84c2e8a7b6434992509ab8c96815a31176e8205be",
-      "bytes": 5059
-    },
-    {
-      "path": "docs/report/pollen-reconstruction/author-lra-development/cover-diagnostics.csv",
-      "sha256": "df35d30d48af8df508ee89a3e2bf633f40efea5c6ba663311900a5ba66edd1f8",
-      "bytes": 9269
-    },
-    {
-      "path": "docs/report/pollen-reconstruction/author-lra-development/folds.csv",
-      "sha256": "d3bc46bca53fb428b6de4717e3d27450d4b821c3434ef25605855e38af5f104b",
-      "bytes": 1846
-    },
-    {
-      "path": "docs/report/pollen-reconstruction/author-lra-development/report.json",
-      "sha256": "cf36b604ed37ddc22b1c0bba4e9efb39df9a9099bb19c318a2fe92012e0e8013",
-      "bytes": 1672
+      "sha256": "3df0b9182c0f152a4152e8e5807fa2404ee5ee96054db518322403686283c985",
+      "bytes": 283
     },
     {
       "path": "docs/report/pollen-reconstruction/author-lra-optimized-feasibility/README.md",
-      "sha256": "18a2cb5b0b88725920950c49a3fbadb5dd9cb587ef6c4e7efb8f8c04e76e4308",
-      "bytes": 5087
-    },
-    {
-      "path": "docs/report/pollen-reconstruction/author-lra-optimized-feasibility/custody.json",
-      "sha256": "08ae43aac0cc18675aa6773da0a84abc41b373d34d8f387bf6130d7ae3f97e5e",
-      "bytes": 2442
+      "sha256": "1569859a0abbfbcc991c1ead728b4e9030a1aee4f92e00d41537c150623bae72",
+      "bytes": 5091
     },
     {
       "path": "docs/report/pollen-reconstruction/author-lra-optimized-feasibility/finite-candidate.json",
@@ -651,8 +591,8 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/paper-correspondence.csv",
-      "sha256": "fd542b1895848dfa0f91d1fad43c9a82c08b4624412c146f661e6d75f6e75c91",
-      "bytes": 8172
+      "sha256": "21b5354a2155345e44964ed513471d32648bdb062eda1ebed3e0b79ccb8ff9cc",
+      "bytes": 10061
     },
     {
       "path": "docs/report/pollen-reconstruction/paper-correspondence.md",
@@ -661,13 +601,13 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/results.csv",
-      "sha256": "aa71147960aa9a9ea9d34d02f9396831cd363c65524377eae3a351c9d7f5e2f2",
-      "bytes": 17265
+      "sha256": "2df68893dc413e1a472e12e9133c24f416b3b20e156d16e463d4c3ee2d9ba5e7",
+      "bytes": 17282
     },
     {
       "path": "docs/report/pollen-reconstruction/scope.json",
-      "sha256": "b97c8bdecbec8c22c647c73c7442d3b1be5eff0d67ac4c2e0607263fb53d88d3",
-      "bytes": 16919
+      "sha256": "f6a896fb6738b5070ff5b8ffbaade02e31883f9df324a8aca05600e2563a0e39",
+      "bytes": 16902
     },
     {
       "path": "docs/report/pollen-reconstruction/scores.csv",
@@ -676,8 +616,8 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/swedish-direct-pollen/REPORT.md",
-      "sha256": "b3ab556df4c9ec52f6309873d0071f2ab4f6657953d53aabb8502fa36af00d76",
-      "bytes": 5201
+      "sha256": "dbc126e485a0b975cdd8c1341345887882210ee56f32b8ba64df79f6a95e6a36",
+      "bytes": 5281
     },
     {
       "path": "docs/report/pollen-reconstruction/swedish-direct-pollen/cohort.csv",
@@ -771,18 +711,18 @@
     },
     {
       "path": "docs/report/pollen-reconstruction/verify_report.py",
-      "sha256": "78301b98a4a1c9fa36ac113a67f3962828ce4498e03d876c61568e002e7a89f2",
-      "bytes": 44022
+      "sha256": "b382d31299c46625eeab0a9bd6cab292ea33f2a6a4e7418e4be732f462a734ce",
+      "bytes": 45837
     },
     {
       "path": "docs/report/publication-replay/landclim-amsoldingersee-source-review/README.md",
-      "bytes": 2435,
-      "sha256": "2cd65c753d344e4209c4e15534721642b27755dd415767a343fa6c0866b65baa"
+      "bytes": 2479,
+      "sha256": "ad0098d692f5a2d30a8447adc5e73a50984c9ca8e3b45be9f18ecdd0d085e2f0"
     },
     {
       "path": "docs/report/publication-replay/landclim-amsoldingersee-source-review/report.json",
-      "bytes": 4016,
-      "sha256": "f463fe19ce7eb59d7b7de19b584a57d934f311b769473a86dba2c641f52d6898"
+      "bytes": 4006,
+      "sha256": "eb1d20e578c9bdbdb12ffbeab3eba87522cc98006de7c8919bac2bc29683d1a7"
     },
     {
       "path": "docs/report/publication-replay/landclim-author-example-correspondence/README.md",
@@ -811,8 +751,38 @@
     },
     {
       "path": "docs/report/publication-replay/landclim-method-profile/README.md",
-      "sha256": "ffbac90dbbe4ab5b230648d824688c71687114aaa824743dc62a80e3e5068884",
-      "bytes": 4216
+      "sha256": "41b41cf18d5591f437984f370a8f38493bb2b800d79f3e3ecb33ccaee5565ff2",
+      "bytes": 502
+    },
+    {
+      "path": "docs/report/publication-replay/landclim-method-profile/example_inputs.csv",
+      "sha256": "251a350fb53c9c38812e083c4bb0c3e0a6223e6b403b83714bebdbaf4ae2b3d2",
+      "bytes": 4923
+    },
+    {
+      "path": "docs/report/publication-replay/landclim-method-profile/method_crosswalk.csv",
+      "sha256": "22982f57d1cee091be579f22929ce8a096ad9165463072b75890d46d08b88c65",
+      "bytes": 3369
+    },
+    {
+      "path": "docs/report/publication-replay/landclim-method-profile/reference/512/run-manifest.json",
+      "sha256": "c6b82fcc1cc916b060f9723cc760fbbfa79fe990741057ac71524fca4ac8bc6f",
+      "bytes": 2160
+    },
+    {
+      "path": "docs/report/publication-replay/landclim-method-profile/reference/562/run-manifest.json",
+      "sha256": "137881d83a1f861924a14a4d1f1490b7c9a201f0d51ffef3bb5f5f128d91b5ee",
+      "bytes": 2160
+    },
+    {
+      "path": "docs/report/publication-replay/landclim-method-profile/reference/report.json",
+      "sha256": "56f3dc776aa0a3405338fba62ae51a8b383b0c64787bd6fa4364677ac7ae24c5",
+      "bytes": 24499
+    },
+    {
+      "path": "docs/report/publication-replay/landclim-method-profile/report.json",
+      "sha256": "28fa10bc766ef2b16a214cc91f9d48e267b95ce906b4e0935838857ee427f8f3",
+      "bytes": 4603
     },
     {
       "path": "docs/report/publication-replay/landclim-pft-crosswalk/README.md",
@@ -846,8 +816,8 @@
     },
     {
       "path": "docs/report/publication-replay/landclim-published-window-provenance/README.md",
-      "sha256": "1e51a02e02376548f64e57740e202fe9c968fec9203968bb51ff64a6f9a0d582",
-      "bytes": 2343
+      "sha256": "52323ac983273c43c288e76fae61dafedbc0ac95d7f0305f80b3ed8c303653eb",
+      "bytes": 520
     },
     {
       "path": "docs/report/publication-replay/landclim-published-window-provenance/REPORT.md",
@@ -871,8 +841,8 @@
     },
     {
       "path": "docs/report/publication-replay/landclim-published-window-uncertainty/README.md",
-      "sha256": "6575604b315c4f84c23ca2043ea81d73b78aee704d421e0204ceafb3cffd6530",
-      "bytes": 1462
+      "sha256": "7e87ebf3a035cab1a674098749b7689fd1088a24f6af47cede6c1d1a78e31f55",
+      "bytes": 1581
     },
     {
       "path": "docs/report/publication-replay/landclim-published-window-uncertainty/REPORT.md",
@@ -1050,6 +1020,11 @@
       "bytes": 14948
     },
     {
+      "path": "docs/report/regions/nordic/author-taxonomy-mass/sites.csv",
+      "sha256": "49270325c1581de633a9f9f3cb423280c0f186dea5624594a38063ac8627c74c",
+      "bytes": 6154
+    },
+    {
       "path": "docs/report/regions/nordic/direct-pollen/RESULTS.md",
       "sha256": "be05e7fdaf846dfb1f049964cd72e64975b7e04f7d40858c75d876bcb4adcff4",
       "bytes": 5755
@@ -1116,8 +1091,8 @@
     },
     {
       "path": "docs/report/regions/nordic/hyde-country-cropland/grid-conservation/README.md",
-      "sha256": "4f953577e7956366939389999dbb73e93a0824d42a0cfed925c9c640db781035",
-      "bytes": 2296
+      "sha256": "2f30ffdd70b442222f6d1d324ffaba7fb39b39c64ee973e878bb3f4cf83498fc",
+      "bytes": 2327
     },
     {
       "path": "docs/report/regions/nordic/hyde-country-cropland/grid-conservation/grid-conservation.csv",
@@ -1271,8 +1246,8 @@
     },
     {
       "path": "docs/report/regions/nordic/swedish-lake-transfer/README.md",
-      "sha256": "e658351ef06d26a997e0c49da6c8bccea137eb18fb4d05b09f70143efa795036",
-      "bytes": 4058
+      "sha256": "c5bd1b213f31169f0b788bd9069ec96a4ef00fa35bd505512ca57885180151b4",
+      "bytes": 4967
     },
     {
       "path": "docs/report/regions/nordic/swedish-lake-transfer/coverage.csv",
@@ -1296,8 +1271,8 @@
     },
     {
       "path": "docs/report/regions/nordic/swedish-lake-transfer/manifest.json",
-      "sha256": "78e819cd5f917d5d9b78debdd5bace349bf91900966f535e481ac8f82f3f0009",
-      "bytes": 2587
+      "sha256": "96ba8f67438f6cb0e7dfd4c2a4dde5ecd3d4706c12fc609bbdee211a5bc96526",
+      "bytes": 2491
     },
     {
       "path": "docs/report/regions/nordic/swedish-lake-transfer/prediction-freeze.json",
@@ -1313,6 +1288,11 @@
       "path": "docs/report/regions/nordic/swedish-lake-transfer/protocol.json",
       "sha256": "046be3fa589fde3cba0d67f3d4a46f21f73a81a2dd2e089c454775affebabade",
       "bytes": 3662
+    },
+    {
+      "path": "docs/report/regions/nordic/swedish-lake-transfer/reference/prediction-producer.py.txt",
+      "sha256": "3c4321f729c5ea4cc53172b3ebf0a22b782f0e873ae88ad67225b43a0ad01b62",
+      "bytes": 13425
     },
     {
       "path": "docs/report/regions/nordic/swedish-lake-transfer/report.json",
@@ -1341,8 +1321,8 @@
     },
     {
       "path": "docs/report/regions/nordic/swedish-lake-transfer/verify.py",
-      "sha256": "1dc50aaa2ce11891c33785ac3a46731f9b92925f221e39e6f3a014d33f779aa7",
-      "bytes": 9656
+      "sha256": "4f2af544c8d3b8f1320e01da5b2a8de3621b45982dabf40b7b1524b1d2966781",
+      "bytes": 9486
     },
     {
       "path": "docs/report/regions/nordic/swedish-neotoma-holdout/README.md",
@@ -1635,29 +1615,24 @@
       "bytes": 385
     },
     {
-      "path": "docs/report/source-relations/hyde/source-custody/README.md",
-      "sha256": "c16289c0086210358afd1423d245ad57c1319e6f96884caf62dbfb8fe2502bc1",
-      "bytes": 2264
-    },
-    {
-      "path": "docs/report/source-relations/hyde/source-custody/receipt.json",
-      "sha256": "480244737bc886dc83e1ab451979e83cdd7788b32503978b5ffb82946c1cfd81",
-      "bytes": 4053
-    },
-    {
       "path": "docs/report/source-relations/landclim/author-example-taxon-support/README.md",
       "bytes": 6473,
       "sha256": "0b3aa8aa5802bfc61d6865b5f33a3e94942166dad52ffb28096b99fc684fb8c2"
     },
     {
       "path": "docs/report/source-relations/landclim/author-preparation-audit/README.md",
-      "bytes": 3167,
-      "sha256": "9db3da599ffe0b35400aeaed4cd27e97a902eac10f8a925002b378a2c4881e77"
+      "bytes": 2978,
+      "sha256": "6a7372a520e395ec1c7bd20aaf9807c656176f54cc932f7233b1d3a787d30444"
+    },
+    {
+      "path": "docs/report/source-relations/landclim/author-preparation-audit/independent-counts.json",
+      "sha256": "753458772b750d1dd392ca964f74a5bebd584f1d4191b81991dc0b1861ab98d7",
+      "bytes": 7154
     },
     {
       "path": "docs/report/source-relations/landclim/author-preparation-audit/report.json",
-      "bytes": 13994,
-      "sha256": "fa290c5a6675e7f54b79d2decf915969c97f66589d4a99200535a810736000a3"
+      "bytes": 13897,
+      "sha256": "595c8e21c4bda3f8fee259c435aa0ff2a339ed7aea39e2d50b09f36523bd725c"
     },
     {
       "path": "docs/report/source-relations/landclim/neotoma-chronology-witness/README.md",
@@ -1726,8 +1701,8 @@
     },
     {
       "path": "docs/report/source-relations/neotoma/lakeparameters/README.md",
-      "sha256": "3b78c812f4f69e9868c1c462f9ac378cf2769fbd20be9181f8972e7c7e892b28",
-      "bytes": 2309
+      "sha256": "1ef931da50bb51efdafdb1db8509686ecfcbf4274daefad709b4db2b56852ee8",
+      "bytes": 2236
     },
     {
       "path": "docs/report/source-relations/neotoma/lakeparameters/report.json",
@@ -1756,8 +1731,8 @@
     },
     {
       "path": "docs/report/source-relations/rootsi-landclim-overlap/README.md",
-      "sha256": "ca7c7d5321c154bac76af04bf82ba5ab426b4284111964f1101c1cedbb362d2a",
-      "bytes": 6862
+      "sha256": "f85139af69d6576b3ed43135e10f67db067b821f569edbe4669ed079d65cf2b9",
+      "bytes": 6298
     },
     {
       "path": "docs/report/source-relations/rootsi-landclim-overlap/overlap.csv",
@@ -1771,53 +1746,18 @@
     },
     {
       "path": "docs/report/vegetation-reference/farskesjon/README.md",
-      "sha256": "fe7e5becb761b75a9b63523b064d84657a3785983ff5e41160b6c9c169b01e49",
-      "bytes": 2705
-    },
-    {
-      "path": "docs/report/vegetation-reference/farskesjon/plot_support.py",
-      "sha256": "b31a34f782c7664626c54be2170cc38ed2478d7a7645a9ff1f8729ab6df4b8e3",
-      "bytes": 9690
-    },
-    {
-      "path": "docs/report/vegetation-reference/farskesjon/report.json",
-      "sha256": "c2a21045859c27672a310fc1faf6b6651ee8320320c56764ccecc5639540b855",
-      "bytes": 1635
+      "sha256": "d1601d84f868973b98de600d2704f946d5fb3ba7aa49bd7597e7d13fbacddea9",
+      "bytes": 823
     },
     {
       "path": "docs/report/vegetation-reference/smaland-historical-maps/README.md",
-      "sha256": "7fb812be336c566c9352219fc12109aa0d9705cce2fa735615e59d500ebccf35",
-      "bytes": 3018
-    },
-    {
-      "path": "docs/report/vegetation-reference/smaland-historical-maps/coverage.json",
-      "sha256": "f13f1e5ece6e4060b98036d7bdca42b4ff2c47ca8dc118931d2b43c074519012",
-      "bytes": 1982
-    },
-    {
-      "path": "docs/report/vegetation-reference/smaland-historical-maps/coverage.py",
-      "sha256": "03dd52b4a911f3cfdee09ff29f03794c56f9c5494a88a764ba17c62aa4f3adba",
-      "bytes": 5182
+      "sha256": "85a619b3cdd2ef0ab928d92fc5b77fff14b82a0176cadba2eeed55b8ae958f16",
+      "bytes": 872
     },
     {
       "path": "docs/report/vegetation-reference/southern-sweden-figure/README.md",
-      "sha256": "40e22c8d990a855ba5bc4a012baedcea32cb12d41466e0efcfb3b0f1803dc8c4",
-      "bytes": 2255
-    },
-    {
-      "path": "docs/report/vegetation-reference/southern-sweden-figure/compare.py",
-      "sha256": "5ac673246f7f7685dc485e2d4b6624b14c1ae58361608f0f3606ea83a36e21b1",
-      "bytes": 3845
-    },
-    {
-      "path": "docs/report/vegetation-reference/southern-sweden-figure/printed-labels.csv",
-      "sha256": "e7e6f04e4711690421ca4c84af9e1237cbdb3b95554d63a6d81e2a61ff2a3f54",
-      "bytes": 375
-    },
-    {
-      "path": "docs/report/vegetation-reference/southern-sweden-figure/report.json",
-      "sha256": "7205071dc7bd4b7bdf99c77788583bfbb1ab8699546c9f5acd3e6566da4e7e57",
-      "bytes": 994
+      "sha256": "09a70153a8e3132be6577c3dd3f21cf8b687115869e3d037d92b6c636cfc495b",
+      "bytes": 1091
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/author_example_correspondence.py",
@@ -1856,8 +1796,8 @@
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/author_preparation_audit.py",
-      "bytes": 12591,
-      "sha256": "ae26b4a44035dd3fc96433f0054ec5d95416ae66a00395e4e0ce4b13c33d9fba"
+      "bytes": 11696,
+      "sha256": "913a4187a78e98b02ee23f8ae003ef86e291f3973be63ec8956c186d56a28e48"
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/observed_pollen_baseline.py",
@@ -1891,8 +1831,8 @@
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/published_window_uncertainty.py",
-      "sha256": "4a0746780b06118a274ac57c28b8e0614e27b7ed4989b3e52719bb67965bcfa2",
-      "bytes": 7641
+      "sha256": "d5f13d5b8533e18a9a4b3cad06f1c0df9b312455e2f62736a4485f5a946006d4",
+      "bytes": 7662
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/essd_reproduction/reconcile.py",
@@ -1906,8 +1846,8 @@
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/bjaresjo_context.py",
-      "sha256": "3d877770d5dadc92bfa1136e903be068d53b83516b3233da052341a6ac88fe5c",
-      "bytes": 10442
+      "sha256": "54a877ddd100916f15849563c58da67429335ba5d9ba8a30f4b1d4702dc63c1b",
+      "bytes": 10532
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/hyde_country_cropland.py",
@@ -1921,8 +1861,8 @@
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/landclim_amsoldingersee_recovery.py",
-      "bytes": 8405,
-      "sha256": "a50e97982718c33142d5581dde3a47acb1d46fad9583b061c7318ce141f03755"
+      "bytes": 8383,
+      "sha256": "629607a1fad4ff2a9357edb731d4ef95dd69897595fd87a5b19c5a9e96c98bb0"
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/neotoma_doi_review.py",
@@ -1986,18 +1926,23 @@
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/swedish_support_sensitivity.py",
-      "sha256": "8e7db6760f3d24478e7ba180afb6fc7ba0033341fc8bd93440233c8bd7470692",
-      "bytes": 26110
+      "sha256": "fd7487f954e6d03c638d58ed1d4c72c861d3bd235bf1726f023be4056e7207fd",
+      "bytes": 26188
     },
     {
       "path": "packages/bijux-pollenomics-dev/src/bijux_pollenomics_dev/source_completion/swedish_training_scope.py",
-      "sha256": "0e1fd122903f3e76c6846a8367b6874457ed9677e3c1954df3963842d072f1b2",
-      "bytes": 18035
+      "sha256": "0689138e87370a75977c216bc4ef891c97d792d08d751a5ff2541b3774168d1b",
+      "bytes": 18108
     },
     {
       "path": "packages/bijux-pollenomics-dev/tests/essd_reproduction/test_author_preparation_audit.py",
-      "bytes": 2928,
-      "sha256": "5714d8e7c2b59a23554d5219f92d542f0debd3dd9165e8ea4bac69f677e75cc6"
+      "bytes": 2750,
+      "sha256": "b02581611b6cf61f9013075674bb0f575b1fd9ca1d6f1fe2652724d79bb4782d"
+    },
+    {
+      "path": "packages/bijux-pollenomics-dev/tests/essd_reproduction/test_one_site.py",
+      "sha256": "c05b41d783b637a8541a1451dc72e7271f4b0bec81abdb65590ed4fdf845e669",
+      "bytes": 11591
     },
     {
       "path": "packages/bijux-pollenomics-dev/tests/essd_reproduction/test_pft_uncertainty_bounds.py",
@@ -2011,8 +1956,8 @@
     },
     {
       "path": "packages/bijux-pollenomics-dev/tests/source_completion/test_landclim_amsoldingersee_recovery.py",
-      "bytes": 1799,
-      "sha256": "dd7b6c5175ace903a247265be644e822dfddba6fdf9adca152be58da77606a70"
+      "bytes": 1797,
+      "sha256": "a12f76997d0c5c5e11ac61c7c9eb490219d2674886363b811d1d732095824853"
     },
     {
       "path": "packages/bijux-pollenomics-dev/tests/source_completion/test_nordic_direct_pollen.py",
@@ -2031,13 +1976,13 @@
     },
     {
       "path": "packages/bijux-pollenomics-dev/tests/source_completion/test_swedish_support_sensitivity.py",
-      "sha256": "5c46cddd5489a83c9b213cd2e01ed207fc953be63717aa8bb1d4630655b0c3ba",
-      "bytes": 4488
+      "sha256": "f106477338d4094dd6c0832fe50a587f8891a9e95a859909cae30ae550656d96",
+      "bytes": 4523
     },
     {
       "path": "packages/bijux-pollenomics-dev/tests/source_completion/test_swedish_training_scope.py",
-      "sha256": "317f67a225b0a4359ec49524df3fcbb9386e40bd6dbcdcb6b026137729ecc9a9",
-      "bytes": 3535
+      "sha256": "9d3b7164dd98ea703dbbb0b6dc8635241843406a8a759c541122539bb45fa8af",
+      "bytes": 3596
     },
     {
       "path": "packages/bijux-pollenomics-dev/tests/test_runtime_isolation.py",
@@ -2080,6 +2025,26 @@
       "bytes": 14038
     },
     {
+      "path": "reports/README.md",
+      "sha256": "479f86bf4dc4ef731751d30b2f77976dd9324e86922872783d19ab482144b64c",
+      "bytes": 7797
+    },
+    {
+      "path": "reports/architecture/ownership.md",
+      "sha256": "270d006270f751e39cea0e4a653a7133f514ccf5a9b4d6b987731458f7727c3c",
+      "bytes": 2987
+    },
+    {
+      "path": "reports/evidence-index.md",
+      "sha256": "29f9184a6d26a1dde76c3e7add6383e736dfe3d1b537fafc864fcf3550413b4e",
+      "bytes": 19147
+    },
+    {
+      "path": "reports/needed/README.md",
+      "sha256": "9ab557d20117e4e2a278a01b28aa36b31ad9b3c4e0f74b63dc4024f1eed6fba6",
+      "bytes": 16055
+    },
+    {
       "path": "reports/science/abborrtjarnen-source-method.md",
       "sha256": "53c4aaa4f5e5aaef18d5641ca2dd3f1cf9acee457b44461e1de58545263f4232",
       "bytes": 5893
@@ -2105,19 +2070,79 @@
       "bytes": 1285
     },
     {
+      "path": "reports/science/dalmutladdo-lra-input/README.md",
+      "sha256": "e14b94e385d7636d3804be17cce6e4262050a5918b73a25c350646308ae8ac53",
+      "bytes": 5410
+    },
+    {
+      "path": "reports/science/dalmutladdo-lra-input/controls.csv",
+      "sha256": "23b56388d2ea3bf97ff8e9c44ed80061bd48067c4a75916631436347dff7681c",
+      "bytes": 1280
+    },
+    {
+      "path": "reports/science/dalmutladdo-lra-input/replay.py",
+      "sha256": "0da7193ae4a443e25d7a10f986a9da1c77eb4399c74fe46166c9931d143afbc4",
+      "bytes": 12463
+    },
+    {
+      "path": "reports/science/dalmutladdo-lra-input/report.json",
+      "sha256": "9f92a1ab140e32e7dc071c88f53d5436dc5be8c9062cfd4480c7ad929b4b51e3",
+      "bytes": 2421
+    },
+    {
       "path": "reports/science/denmark-finland-norway-author-pollen.md",
       "sha256": "610b2c47e86cebe980afcee5310f560df94ba33d5a8f2c5f5e3cf10edc791321",
       "bytes": 5099
     },
     {
+      "path": "reports/science/english-analytical-love/README.md",
+      "sha256": "31fa30a7660c24ec32842b34a9facce527f8987b7d3c53fa0424b492bf1e712d",
+      "bytes": 4323
+    },
+    {
+      "path": "reports/science/english-analytical-love/cover-diagnostics.csv",
+      "sha256": "df35d30d48af8df508ee89a3e2bf633f40efea5c6ba663311900a5ba66edd1f8",
+      "bytes": 9269
+    },
+    {
+      "path": "reports/science/english-analytical-love/folds.csv",
+      "sha256": "d3bc46bca53fb428b6de4717e3d27450d4b821c3434ef25605855e38af5f104b",
+      "bytes": 1846
+    },
+    {
+      "path": "reports/science/english-analytical-love/report.json",
+      "sha256": "cf36b604ed37ddc22b1c0bba4e9efb39df9a9099bb19c318a2fe92012e0e8013",
+      "bytes": 1672
+    },
+    {
       "path": "reports/science/english-lra-pollen-prediction.md",
-      "sha256": "3d69d66ec56cb135733c0e37be4a3c7169cb79d4de6c0223a0673f7541320d7f",
-      "bytes": 12920
+      "sha256": "221331ca0c1b95a0091b21a01d913caa1b8131725fded62242a8325796858c45",
+      "bytes": 15865
     },
     {
       "path": "reports/science/hyde-cropland-source-account.md",
-      "sha256": "9934deeb42c4e01818d21665eb50a8fd73437de972c1f84ee052bf9749456d04",
-      "bytes": 3171
+      "sha256": "56158824d80dca73cbee1d4e39c2479a283d2e969a46b49d8755279f24b6986b",
+      "bytes": 6039
+    },
+    {
+      "path": "reports/science/laihalampi-lra-input/README.md",
+      "sha256": "9f8fd6e8371de780a1fd98780c252941119f447f819faa217797c2ab4fc69263",
+      "bytes": 4802
+    },
+    {
+      "path": "reports/science/laihalampi-lra-input/replay.py",
+      "sha256": "4366f0ee1948cbab7f24158c999e7082976d8063b8b0c461cc0fb5a5619bf4e9",
+      "bytes": 8455
+    },
+    {
+      "path": "reports/science/laihalampi-lra-input/report.json",
+      "sha256": "72a06d21a12228cd9cf833a46e6d5d7c48d49ee3fbff7423f1258c9faef8371d",
+      "bytes": 2276
+    },
+    {
+      "path": "reports/science/method-correspondence.md",
+      "sha256": "31223d13a2a4e40778a3a1b86180c4442496dd43d35887f173b089b4a0250f83",
+      "bytes": 5249
     },
     {
       "path": "reports/science/nordic-observed-pollen-selection.md",
@@ -2131,18 +2156,33 @@
     },
     {
       "path": "reports/science/nordic-pollen-study.md",
-      "sha256": "4fc5170b272f25c4a36ae85ff08a84754240daa0225cf36331ce396c33e988cf",
-      "bytes": 43389
+      "sha256": "b016fda0d4b4d2d4b80a8d533daf8f92e950a5995350badfc12785e50d824b36",
+      "bytes": 40465
     },
     {
       "path": "reports/science/publication-correspondence.md",
-      "sha256": "9306687427124e57a0eb08d5d5126ee1d5d966a5f44b0ff63f8b4d350005b808",
-      "bytes": 10634
+      "sha256": "d88e8f4f67061c595d0381de94b1e6f35d6e202639f78eb94c649545c007ff62",
+      "bytes": 15118
+    },
+    {
+      "path": "reports/science/publication-correspondence/author-example-reexecution.md",
+      "sha256": "3689a28400129add3a28e573593c1d6e3bf12689aa74e98e9281638fb30189a1",
+      "bytes": 5228
+    },
+    {
+      "path": "reports/science/publication-correspondence/author-example-site-replay.md",
+      "sha256": "6472d5b3b1d10d6d183972a6592c7386a7fb74c97b37a4ccde76436b5eebebe1",
+      "bytes": 7405
+    },
+    {
+      "path": "reports/science/publication-correspondence/author-method-profile.md",
+      "sha256": "641962fde0f2acda85ffbc89f71ef6381da40ce5cb28ba7c18eced1b8bfbbe9f",
+      "bytes": 4903
     },
     {
       "path": "reports/science/publication-correspondence/pft-crosswalk/README.md",
-      "sha256": "f4c15e2114b3b4304bc27219c440f44c4f05fc99c58f47043ed7ce36c4343bd1",
-      "bytes": 9109
+      "sha256": "602b391d4a811c4a58c6418a81d22da6e7cd11a4d384a5105be9def5f8b0c592",
+      "bytes": 9081
     },
     {
       "path": "reports/science/publication-correspondence/pft-crosswalk/author-name-review/report.json",
@@ -2195,14 +2235,54 @@
       "bytes": 2487
     },
     {
+      "path": "reports/science/publication-correspondence/published-window-provenance.md",
+      "sha256": "310ae9d6f98db7ea4760e433b16a48dd3493fd49d495d29f3d8a3c28bb135e4e",
+      "bytes": 4160
+    },
+    {
       "path": "reports/science/reindeer-appendix-correspondence.md",
       "sha256": "84713ac84656be54bb8ad937ea0e331fb99a07f7aabfd714dc3b560daab73fdd",
       "bytes": 3734
     },
     {
+      "path": "reports/science/reveals-love-interface/README.md",
+      "sha256": "c36f4b9c91b5a4dd4c65afa31e84836b07719f942d48efb8650a96e4c2feea77",
+      "bytes": 2442
+    },
+    {
+      "path": "reports/science/reveals-love-interface/replay.py",
+      "sha256": "947750a9894123a54b149b166720fa8bd4eb2da6d462b0a95e332b0d55a70904",
+      "bytes": 9797
+    },
+    {
+      "path": "reports/science/reveals-love-interface/report.json",
+      "sha256": "da72f5c714ba97f517f4cfb6a2c5e6e6a5672c20c9a8ea439c5b86ea76d39dfc",
+      "bytes": 3235
+    },
+    {
+      "path": "reports/science/reveals-love-interface/taxon-summary.csv",
+      "sha256": "7b9e02e2813e95b84733d88e10bded9d3763b898cfb5e05cdbcfdb33e0821838",
+      "bytes": 1568
+    },
+    {
+      "path": "reports/science/solsoe-lra-input.md",
+      "sha256": "073d13099516257952441c9a6f87e6d71ad2ad7e298cb1042f5dfb728d579621",
+      "bytes": 4866
+    },
+    {
+      "path": "reports/science/source-cohorts.md",
+      "sha256": "f9c7e7bbc6e061b98036b10c5bb07e048443cd007d0a654f0772b13b6a6877b3",
+      "bytes": 4507
+    },
+    {
       "path": "reports/science/sweden-author-pollen.md",
       "sha256": "bee5fd81cb4384bfc60154359aded0e010892444d38eda54a4ec5d38c0738c3a",
       "bytes": 4987
+    },
+    {
+      "path": "reports/science/sweden-lake-transfer.md",
+      "sha256": "2df22f1964738d4b5d6c75e1a132c108aa230ab894888d44a29c37416f7b8034",
+      "bytes": 4494
     },
     {
       "path": "reports/science/sweden-spatiotemporal-sensitivity.md",
@@ -2213,6 +2293,66 @@
       "path": "reports/science/sweden-training-scope.md",
       "sha256": "f314ad31c3ce166f7c8ea2aa2b03ed82c097c8026bb969008711c33e11f39246",
       "bytes": 4711
+    },
+    {
+      "path": "reports/science/synthetic-protocol-metrics/README.md",
+      "sha256": "e3fd2f6c05b4ad258f6f86207523ac74b2863edb8f8c25ff71dbb2040b6fa23a",
+      "bytes": 4454
+    },
+    {
+      "path": "reports/science/synthetic-protocol-metrics/replay.py",
+      "sha256": "9e38fadbca0ed6847227413b48c471948e539741395c61c90f3bc49bab621321",
+      "bytes": 8702
+    },
+    {
+      "path": "reports/science/synthetic-protocol-metrics/report.json",
+      "sha256": "f13b48253150b6703ddf853b492b8b7bb4a1ab3fde069cb153010379d269f166",
+      "bytes": 12841
+    },
+    {
+      "path": "reports/science/synthetic-protocol-metrics/scores.csv",
+      "sha256": "c5bf6f88d14a625f2a53abeba91bb6785ee17687e9611c16da2df2fed3a98ab1",
+      "bytes": 4562
+    },
+    {
+      "path": "reports/science/vegetation-reference.md",
+      "sha256": "be7791432d738eab0f430c2a2d7139e195a1fabae3d6ec32f6e0ffbae4e00892",
+      "bytes": 5208
+    },
+    {
+      "path": "reports/science/vegetation-reference/farskesjon/plot_support.py",
+      "sha256": "b31a34f782c7664626c54be2170cc38ed2478d7a7645a9ff1f8729ab6df4b8e3",
+      "bytes": 9690
+    },
+    {
+      "path": "reports/science/vegetation-reference/farskesjon/report.json",
+      "sha256": "c2a21045859c27672a310fc1faf6b6651ee8320320c56764ccecc5639540b855",
+      "bytes": 1635
+    },
+    {
+      "path": "reports/science/vegetation-reference/smaland-historical-maps/coverage.json",
+      "sha256": "f13f1e5ece6e4060b98036d7bdca42b4ff2c47ca8dc118931d2b43c074519012",
+      "bytes": 1982
+    },
+    {
+      "path": "reports/science/vegetation-reference/smaland-historical-maps/coverage.py",
+      "sha256": "03dd52b4a911f3cfdee09ff29f03794c56f9c5494a88a764ba17c62aa4f3adba",
+      "bytes": 5182
+    },
+    {
+      "path": "reports/science/vegetation-reference/southern-sweden-figure/compare.py",
+      "sha256": "5ac673246f7f7685dc485e2d4b6624b14c1ae58361608f0f3606ea83a36e21b1",
+      "bytes": 3845
+    },
+    {
+      "path": "reports/science/vegetation-reference/southern-sweden-figure/printed-labels.csv",
+      "sha256": "e7e6f04e4711690421ca4c84af9e1237cbdb3b95554d63a6d81e2a61ff2a3f54",
+      "bytes": 375
+    },
+    {
+      "path": "reports/science/vegetation-reference/southern-sweden-figure/report.json",
+      "sha256": "7205071dc7bd4b7bdf99c77788583bfbb1ab8699546c9f5acd3e6566da4e7e57",
+      "bytes": 994
     }
   ]
 }

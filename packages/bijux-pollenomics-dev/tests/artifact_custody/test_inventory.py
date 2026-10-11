@@ -160,7 +160,7 @@ def test_native_cap_binding_checks_raw_units_and_independent_references(
             }
         )
     )
-    output = repository / "docs/report/maintenance/artifact-retention/report.json"
+    output = retained / "report.json"
     report = inventory.bind_native_cap_check(
         repository, metadata, receipt, output, concurrent_artifact_writes_observed=True
     )

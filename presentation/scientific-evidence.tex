@@ -34,6 +34,17 @@ Sweden & 3 & 228 & 221,800/240,966 & 51/54 \\
 \evidence{reports/science/denmark-finland-norway-author-pollen.md; reports/science/sweden-author-pollen.md}
 \end{frame}
 
+\begin{frame}{Three further Swedish lake cores}
+\begin{itemize}
+\item Metadata-only selection added Gilltjarnen, Lake Avegol and Flinkasjon outside the original Swedish targets.
+\item We assigned 231,115 of 238,797 native pollen grains to the 31 author targets; excluded and unmapped counts remain visible.
+\item All 63 site-bins received three fixed predictions, yielding 189 matched scores with no training-support refusal.
+\item Equal-site pollen MAE: IDW 0.017334, nearest site 0.017932, training mean 0.020682. Nearest site wins at Lake Avegol.
+\end{itemize}
+\scope{Three prior-exposed lake groups; direct observed pollen only, with no Nordic LRA or independent vegetation score.}
+\evidence{reports/science/sweden-lake-transfer.md; docs/report/regions/nordic/swedish-lake-transfer/site-scores.csv}
+\end{frame}
+
 \begin{frame}{Swedish training scope on shared pollen targets}
 \begin{itemize}
 \item Hold out each Swedish site; train on the other two Swedish sites or those same two plus 81 DK/FI/NO sites.
@@ -57,11 +68,33 @@ Sweden & 3 & 228 & 221,800/240,966 & 51/54 \\
 \begin{frame}{What reproduces numerically}
 \begin{itemize}
 \item Author raw-to-prepared replay: 17 example files, 871 raw sample rows, 15,028 matching prepared cells.
-\item Python/independent author-R: 14,074 supported mean and SE values within declared tolerances.
-\item Archived 100--350 BP means can differ by over 10 percentage points; window and source identity are not the same.
+\item WHH05: 301 raw grains map to 297 prepared; 31 paired means and SEs agree at 1500 BP.
+\item Reexecuted author R/native calculations on two grids (9+8 sites); 14,074 supported mean and SE values agree within declared tolerances.
+\item Archive TW2 differs: total variation 0.092/0.111; two taxa explain 73\%/94\% of each grid's L1 gap. Historical inputs remain unclosed.
 \item Archived ISTS and TBS mean arithmetic closes over all 10,500 grid-window rows, but biological classification and SE transformation remain open.
 \end{itemize}
-\evidence{reports/science/publication-correspondence.md}
+\evidence{reports/science/publication-correspondence.md; reports/science/publication-correspondence/published-window-provenance.md; reports/science/publication-correspondence/author-example-reexecution.md}
+\end{frame}
+
+\begin{frame}{LOVE 2024: paper inputs and unavailable output}
+\begin{itemize}
+\item All 30 published fall-speed, PPE and PPE-SD values match the later DISQOVER example by row position; nine of ten taxon labels match exactly.
+\item The paper's eight simulated ponds, landscape extraction, ring geometry, pollen inputs and 100 random runs are not present in the retained example.
+\item Figure 2 RMSE and its 100--500 m tendency therefore remain a paper result, not a reproduced Nordic model setting.
+\end{itemize}
+\scope{Input correspondence is established; the eight-site numerical simulation is blocked on its original inputs.}
+\evidence{reports/science/publication-correspondence.md; docs/report/method-certification/love-paper-correspondence/README.md}
+\end{frame}
+
+\begin{frame}{LOVE optimizers: shared objectives, different searches}
+\begin{itemize}
+\item We gave installed RcppDE and Python the same three declared pollen, deposition, background, PPE and bound profiles.
+\item Both attained objective gaps below $10^{-4}$ from independent optima; cross-evaluating selected candidates differed by less than $10^{-10}$.
+\item Python reported success after 29--40 iterations and 600--1,230 evaluations. R used its full 400-iteration cap in all three cases.
+\item One objective has different, equally good vegetation vectors; vector equality would misstate solution quality.
+\end{itemize}
+\scope{Bounded objective and arithmetic checks; no identical random path, general global guarantee or ecological accuracy.}
+\evidence{reports/science/method-correspondence.md; docs/report/method-certification/optimizer-solution-quality/summary.csv}
 \end{frame}
 
 \begin{frame}{English LOVE: declared model profile}
@@ -72,6 +105,21 @@ Sweden & 3 & 228 & 221,800/240,966 & 51/54 \\
 \item 192/195 training fits complete; three failures also refused under a bounded 600-iteration check.
 \end{itemize}
 \scope{These are source-specific development choices, not universally optimal LRA parameters or the original R optimizer.}
+\evidence{reports/science/english-lra-pollen-prediction.md}
+\end{frame}
+
+\begin{frame}{English LOVE routes have different support}
+\small
+\begin{tabular}{p{0.26\textwidth}p{0.24\textwidth}p{0.40\textwidth}}
+\toprule
+Route & Source axis and attempts & Retained result \\
+\midrule
+Analytical & 31 taxa; 15 folds & 15/15 invalid compositions; all 54 local ring rows include negative cover. \\
+Differential evolution & 30 taxa; one pair, two requests & Both requests refused convergence; no held-out score. \\
+Constrained SLSQP & 30 taxa; 15 folds & 14/15 folds predicted; BECKHAM had three training-fit refusals. \\
+\bottomrule
+\end{tabular}
+\scope{Excluding 159 Filipendula counts changed the taxon response. These development runs are not a paired solver ranking or a vegetation-accuracy comparison.}
 \evidence{reports/science/english-lra-pollen-prediction.md}
 \end{frame}
 
@@ -107,29 +155,44 @@ Inverse distance squared & .018579 & .021088 & .243673 & .285415 \\
 \item Fixed spatial baselines permit clear paired interpretation on observed pollen.
 \item A bounded RBF candidate improved one prior-exposed author comparison on common support but reduced coverage.
 \item Country-excluded tuning did not establish superiority over inverse-distance-squared in the Nordic development holdouts.
+\item A two-case synthetic PPE/transport winner reflects a transport-law mismatch and is not a real-core parameter recommendation.
 \item For LRA, input identity, chronology, basin geometry, PPE and denominator must be qualified before any parameter search is meaningful.
 \end{itemize}
-\evidence{reports/science/model-use.md; reports/science/pollen-prediction.md; reports/needed/README.md}
+\evidence{reports/science/model-use.md; reports/science/synthetic-model-selection/README.md; reports/needed/README.md}
 \end{frame}
 
 \begin{frame}{HYDE and vegetation: retain the boundary}
 \begin{itemize}
 \item Four-country HYDE source cropland grid sums match 84 country/year/scenario totals within $8.51\times10^{-11}$ km$^2$.
 \item This checks modeled-source internal accounting, not pollen-model benefit.
+\item The retained release has conflicting rights and version declarations; formal CRS and historical calendar support remain unresolved.
 \item No independent vegetation measurement pair has been admitted for prediction accuracy.
 \end{itemize}
 \scope{Next experiments require source semantics and a matched ecological reference, with outcomes protected from model selection.}
-\evidence{reports/science/publication-correspondence.md; reports/needed/README.md}
+\evidence{reports/science/hyde-cropland-source-account.md; reports/needed/README.md}
+\end{frame}
+
+\begin{frame}{Why no vegetation-accuracy score exists yet}
+\begin{itemize}
+\item EMPD2--NFI screen: 16 nearby candidates, zero measured pairs admitted for our benchmark.
+\item F\"arskesj\"on: the measured 7 m forest plot is 427 m from the lake pollen point; five volume classes do not supply 31-taxon landscape cover.
+\item Three Sm\aa land bogs: historical-map coverage and pollen anchors are published, but full numerical vegetation fractions are absent.
+\item A published southern-Swedish figure favors its authors' REVEALS estimates on nine rounded printed labels; it does not score our predictions or recover the full 26-taxon study.
+\end{itemize}
+\scope{A physical-site, time, taxon and landscape-support match is still required before ecological validation.}
+\evidence{reports/science/vegetation-reference.md; docs/report/validation/empd2-nfi-pairing/report.json}
 \end{frame}
 
 \begin{frame}{Open source decisions}
 \begin{itemize}
 \item Abborrtjärnen: LandClim-selected age model, historical basin radius, eligible denominator, PPE use and rights.
 \item Bjäresjösjön: modern lake identity and nearby SEAD display intervals close; pollen-core identity and ecological event join remain refused.
-\item Other Nordic cores: physical-site and sample/window lineage before LRA admission.
+\item Sols\o: 79 LandClim II samples versus 92 Neotoma source samples; the published age span retains 90, and no historical basin series is bound to the selected rows.
+\item Dalmutladdo (Norway): 72 source samples and 11 radiocarbon controls align; published 7.2 ha versus LandClim 8 ha, with no dated basin series. Zero LRA admission.
+\item Laihalampi (Finland): one LAIH core and 150 depths align; modern area claims agree conditionally, but selected ages and dated basin remain unqualified.
 \item Historical publication: exact source revisions and authenticated PFT/uncertainty transformation.
 \item Independent confirmation: new qualified cohort frozen before target inspection.
 \end{itemize}
-\evidence{reports/needed/README.md; reports/science/bjaresjo-context.md}
+\evidence{reports/needed/README.md; reports/science/solsoe-lra-input.md; reports/science/dalmutladdo-lra-input/README.md; reports/science/laihalampi-lra-input/README.md}
 \end{frame}
 \end{document}

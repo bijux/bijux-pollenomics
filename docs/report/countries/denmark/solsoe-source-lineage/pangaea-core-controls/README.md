@@ -50,9 +50,10 @@ relational control part.
 Reproduce from the repository root into an absent artifacts directory:
 
 ```sh
+source_store="/path/to/qualified/bijux-pollenomics-data"
 PYTHONDONTWRITEBYTECODE=1 .venv/bin/python -m \
   bijux_pollenomics_dev.source_completion.solsoe_core_age_lineage \
   --repository . \
-  --source-root /Users/bijan/bijux/bijux-pollenomics-data \
+  --source-root "$source_store" \
   --output artifacts/jobs/solsoe-primary-core-age-replay
 ```

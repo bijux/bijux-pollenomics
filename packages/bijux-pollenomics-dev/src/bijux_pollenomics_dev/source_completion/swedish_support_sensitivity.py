@@ -550,7 +550,7 @@ def score(
 
 
 def main() -> None:
-    """Probe retained Swedish support sensitivity under the locked design."""
+    """Run the declared Swedish support study stage from the command line."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("stage", choices=("prepare", "predict", "score"))
     parser.add_argument("--repository", type=Path, required=True)

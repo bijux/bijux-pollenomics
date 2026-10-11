@@ -1,0 +1,148 @@
+{
+  "baseline": "005627aff2f288dc11cbf8db803fd631e9543984",
+  "candidate_files": {
+    "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/landclim/catalog.py": "dcb18012c57404b41a137345233e87406d10aa4eda3088a79d92a93d0c5fe311",
+    "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/landclim/collection/model.py": "40ab5f003ec770736d458b050f89405122e21642f6379f0f69637e0e6b8e4841",
+    "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/landclim/collection/receipt/validation.py": "ed42612dcefe282d920ea3bd05aac3e30505c446a9d17cec16f04ed142d40eb2",
+    "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/landclim/published_inventory/__init__.py": "c1118263d9c2c6486798a3f4ab3e4f93f1c9eadb519deb4fabf19e8a821e4cef",
+    "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/landclim/published_inventory/contracts.py": "d42c5dc961d7fc841c2063f8172c7f80a8c8da17a365be1f246604c77efb9a5e",
+    "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/landclim/published_inventory/reading.py": "39f7fc55d9ba67956dd257f3b43bf7e68aeff1f828f8d1d67caa649c7a7c75be",
+    "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/landclim/published_inventory/source_rows.py": "4e5e06fafe178a81d751bf96c72b787c51fb9dfa51d28ea53af48f457bb69103",
+    "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/landclim/time_windows/landclim_ii_rows.py": "6469e4b28a25cc4ce7824cae05a6fed9c683198291bd398e8c1b6584df4d7e63",
+    "packages/bijux-pollenomics/src/bijux_pollenomics/collection/sources/landclim/time_windows/values.py": "b2a9d5d569cd53b6015cd6e33587438bc3e1e5732d53b01f34e4690661ffbb6b",
+    "packages/bijux-pollenomics/tests/unit/collection/sources/landclim/published_inventory/__init__.py": "507671b391fb874514f43f3838ea119dbca0d402066efb83ce516b495ab28a42",
+    "packages/bijux-pollenomics/tests/unit/collection/sources/landclim/published_inventory/support.py": "4fbddd12085c0d8cf774f80326e7904a2077ade09489aadd6ffd2cdd61bf07b6",
+    "packages/bijux-pollenomics/tests/unit/collection/sources/landclim/published_inventory/test_reading.py": "048e187e55e7687f5b2a5332d5372d8e945743a096063a22c15728032de94a99"
+  },
+  "claim_boundary": {
+    "PFT_discrepancy_resolution": "not_resolved",
+    "historical_chronology_recovery": "not_performed",
+    "independent_vegetation_accuracy": "not_evaluated",
+    "publication_specific_R_execution": "not_performed",
+    "published_estimate_inventory": "structurally_authenticated",
+    "published_estimate_replotting": "prepared_not_executed",
+    "raw_input_reproduction": "not_performed",
+    "rights_resolution": "not_evaluated",
+    "scientific_acceptance": "not_evaluated"
+  },
+  "coordinate_refused_ids": [
+    "47953",
+    "48310",
+    "48670",
+    "49030",
+    "49388",
+    "49391"
+  ],
+  "findings": [],
+  "group_count": 4,
+  "groups": [
+    {
+      "details": {
+        "dataset_doi": "https://doi.org/10.1594/PANGAEA.937075",
+        "dataset_id": "937075",
+        "member_manifest_sha256": "0d09ed48245409eca0d8551ef5e25bf60ef49f3e5c807e7e2487e15e7f1a3bfe"
+      },
+      "id": "raw-receipt-and-archive-replay",
+      "passed": true
+    },
+    {
+      "details": {
+        "canonical_size_bytes": 72392989,
+        "inventory_sha256": "0333fec471bcf4c0fcd173de006a2efebe3f9fda545c4f0893bf10e288417c23",
+        "record_count": 10500,
+        "value_pair_count": 493500
+      },
+      "id": "candidate-exact-raw-agreement",
+      "passed": true
+    },
+    {
+      "details": {
+        "refusal_count": 7,
+        "refusals": [
+          "noncanonical-newline: LandClimPublishedInventoryRefusal: LandClim published inventory does not match its raw inputs",
+          "role: LandClimPublishedInventoryRefusal: LandClim published inventory does not match its raw inputs",
+          "unit: LandClimPublishedInventoryRefusal: LandClim published inventory does not match its raw inputs",
+          "r-claim: LandClimPublishedInventoryRefusal: LandClim published inventory does not match its raw inputs",
+          "rights-claim: LandClimPublishedInventoryRefusal: LandClim published inventory does not match its raw inputs",
+          "science-claim: LandClimPublishedInventoryRefusal: LandClim published inventory does not match its raw inputs",
+          "direct-construction: LandClimPublishedInventoryRefusal: LandClim published inventory must be created by its governed reader"
+        ]
+      },
+      "id": "canonical-unit-role-claim-direct-construction",
+      "passed": true
+    },
+    {
+      "details": {
+        "case_count": 7,
+        "cases": [
+          {
+            "evidence": "header-substitution: LandClimPublishedInventoryRefusal: LandClim mean/standard-error headers differ",
+            "id": "header-substitution",
+            "passed": true
+          },
+          {
+            "evidence": "row-drop: LandClimPublishedInventoryRefusal: LandClim mean/standard-error row universes differ",
+            "id": "row-drop",
+            "passed": true
+          },
+          {
+            "evidence": "row-duplicate: LandClimPublishedInventoryRefusal: LandClim mean rows repeat ('0-100 BP', '8')",
+            "id": "row-duplicate",
+            "passed": true
+          },
+          {
+            "evidence": "null-is-not-zero: ValueError: LandClim mean tokens are missing or invalid for dataset 937075 record 8:0-100 BP: ['Abies.alba']",
+            "id": "null-is-not-zero",
+            "passed": true
+          },
+          {
+            "evidence": "member-substitution: LandClimPublishedInventoryRefusal: LandClim published denominators differ: expected={'record_count': 10500, 'variable_count': 47, 'value_pair_count': 493500, 'coordinate_available': 10350, 'coordinate_refused': 150, 'coordinate_refused_ids': 6, 'mean_zero': 251123, 'mean_above_one': 138862, 'mean_negative': 3, 'negative_records': 2}, actual={'record_count': 10500, 'variable_count': 47, 'value_pair_count': 493500, 'coordinate_available': 10350, 'coordinate_refused': 150, 'coordinate_refused_ids': 6, 'mean_zero': 250407, 'mean_above_one': 139178, 'mean_negative': 3, 'negative_records': 2}",
+            "id": "member-substitution",
+            "passed": true
+          },
+          {
+            "evidence": "coherent-rehash: LandClimPublishedInventoryRefusal: LandClim published denominators differ: expected={'record_count': 10500, 'variable_count': 47, 'value_pair_count': 493500, 'coordinate_available': 10350, 'coordinate_refused': 150, 'coordinate_refused_ids': 6, 'mean_zero': 251123, 'mean_above_one': 138862, 'mean_negative': 3, 'negative_records': 2}, actual={'record_count': 10500, 'variable_count': 47, 'value_pair_count': 493500, 'coordinate_available': 10350, 'coordinate_refused': 150, 'coordinate_refused_ids': 6, 'mean_zero': 251122, 'mean_above_one': 138862, 'mean_negative': 3, 'negative_records': 2}",
+            "id": "coherent-rehash",
+            "passed": true
+          },
+          {
+            "first_cell_id": "49391",
+            "id": "row-order-and-locators",
+            "inventory_sha256": "6a6e6093382fe5e3b8832b7f7218aceb36af438578b363b388a4f5f9fd8f4c5c",
+            "passed": true
+          }
+        ]
+      },
+      "id": "archive-member-header-row-order-null-coherent-rehash",
+      "passed": true
+    }
+  ],
+  "independent_counts": {
+    "coordinate_available_records": 10350,
+    "coordinate_refused_records": 150,
+    "mean_literal_zero_tokens": 251123,
+    "mean_members": 25,
+    "mean_negative_records": 2,
+    "mean_negative_values": 3,
+    "mean_numeric_zero_values": 251123,
+    "mean_values_above_one": 138862,
+    "paired_records": 10500,
+    "paired_values": 493500,
+    "standard_error_members": 25,
+    "standard_error_negative_values": 0,
+    "variables": 47
+  },
+  "inputs": {
+    "archive": {
+      "path": "data/landclim/raw/landclim_ii_reveals_results.zip",
+      "sha256": "c585f0691ad95342b8aba083b90fe91dc398f985b6b7fbc19561299389c4fb86"
+    },
+    "receipt": {
+      "path": "data/landclim/raw/landclim_sources.json",
+      "sha256": "eb4350724c176d0dbcb7e441f2d21489bdae1cfff7ebe3088eab27093f315677"
+    }
+  },
+  "passed_group_count": 4,
+  "schema_version": "pollenomics-landclim-published-inventory-independent.v1",
+  "verdict": "pass_scoped_published_inventory_closure"
+}

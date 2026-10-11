@@ -124,7 +124,7 @@
   "admission": "refused_historical_input_identity",
   "required_next_source": "Source-owner E#69-to-core mapping, exact historical 23-sample count revision, author age-depth output, and authenticated taxon/PFT transformation",
   "input_sha256": {
-    "private_capture_custody": "eab4595d161d0f8000ee02ec2dcf6eb2644d117a83015641b8fa8821e6f0280f",
+    "source_inputs": "09811a8a6042d586770fa99b9f2e9d1a79209c4452a4dd839a3411cd644ff397",
     "author_example_site_metadata": "72949e9e3faf417be0b7425fc111a9638b37c4a38aab8f8d82e0c3d8739da2de"
   }
 }

@@ -26,8 +26,7 @@ from local wheel directories into a fresh CPython 3.11 environment with one
 `bijux-pollenomics[lra]` command. The host loaded the installed engine from
 `site-packages`, verified its `lra` entry point and analytical LOVE capability,
 and the engine ran a deterministic REVEALS plus analytical LOVE example from
-bundled inputs without R on `PATH` or `R_HOME`. The [earlier engine build report](../../docs/report/lra-distribution/README.md)
-records the separate wheel-content and R-free checks.
+bundled inputs without R on `PATH` or `R_HOME`.
 
 | Built wheel | Bytes | SHA-256 |
 | --- | ---: | --- |

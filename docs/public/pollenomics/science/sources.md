@@ -39,8 +39,37 @@ to the same analytical window. The [Abborrtjärnen source review](../../../repor
 matches substantial depth and count evidence but cannot yet identify the
 LandClim-selected chronology or historical basin series. The
 [Solsø source-lineage review](../../../report/countries/denmark/solsoe-source-lineage/README.md)
-retains a different sample-selection question. The Nordic observed-pollen
+retains a different sample-selection question: LandClim II names 79 pollen
+samples, while the Neotoma site has 92 source samples and its published age
+span alone retains 90. The Nordic observed-pollen
 scores do not bypass those gates.
+
+Our Dalmutladdo Norwegian core review (`reports/science/dalmutladdo-lra-input/README.md`)
+matches 72 [published](https://doi.org/10.1111/j.1502-3885.2004.tb01142.x),
+LandClim II and Neotoma samples and all 11 published
+radiocarbon source controls to one physical core. Its source records report
+7.2 ha, `8.00*` ha and a radius value of 160 with unstated unit; two printed
+calibrated age intervals exclude their own centres. Historical basin geometry
+and the exact count/taxon/PPE use remain unqualified, so this lead also has
+zero admitted LRA samples.
+
+The existing [31-target source ledger](../../../report/regions/nordic/author-taxonomy-mass/sites.csv)
+assigns 46,477 of 47,085 native
+Dalmutladdo pollen counts; 600 are excluded and eight remain unmapped.
+That closed pollen accounting does not establish an LRA denominator.
+
+For Finnish Laihalampi, the `LAIH` core and 150 Neotoma source depths match
+the LandClim II sample count. LandClim I reports 25.50 ha, close to the
+conditional 25.52 ha area of a 285 m circular radius. The original
+[lake study](https://doi.org/10.1016/S0277-3791(02)00189-0) describes a
+five-date fitted chronology. The exact selected ages and historical basin
+series are still unqualified; our source account is at
+`reports/science/laihalampi-lra-input/README.md`. No Finnish LRA sample was
+admitted from this correspondence.
+
+The same source ledger assigns 84,078 of 85,303 native Laihalampi pollen
+counts; 916 are excluded and 309 remain unmapped. This pollen-only mapping
+does not qualify the core for LRA.
 
 The [HYDE source result](../../../report/regions/nordic/hyde-country-cropland/README.md)
 checks modeled cropland quantity accounting at selected labels. It is not an

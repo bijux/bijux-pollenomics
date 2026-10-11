@@ -7,9 +7,9 @@ The [pair ledger](pairs.csv) records **16 geographic proximity leads and zero ad
 The original Swedish subset has 132 EMPD2 metadata samples. The NFI workbook has 43,892 plot-year rows across 6,018 distinct tract/plot keys. WGS84 inverse-geodesic screening after transforming NFI points from SWEREF99 TM gives 53 plot-year/sample combinations within 1 km, across 16 pollen samples. The ledger selects one nearest NFI plot-year per sample, including 14 distinct selected plot-years. Distance is only a lead-generation screen. It does not establish shared time, vegetation footprint, measurement units, or independent validation support.
 
 The original source dossier, spatial screen, EMPD2 SQLite and NFI workbook are
-preserved in the external private source store. The [custody
-manifest](private-source-custody.json) records their relative paths, exact hashes,
-byte counts and historical artifact origins. The dossier and screen contain
+preserved in the external private source store. The [source
+manifest](private-source-custody.json) records their relative private paths, exact
+hashes and byte counts. The dossier and screen contain
 exact NFI row locations and are not tracked in Git. The tracked [SLU calibration
 guide](inputs/slu-calibration-guide.pdf) is an exact byte copy of its original.
 The producer checks the private inputs' exact hashes and reads only the NFI

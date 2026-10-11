@@ -31,3 +31,12 @@ The stored LSM model assets originate from serialized models in the reference
 archive. Native LOESS evaluation and refitting code was developed to reproduce
 those numerical responses. The parity documentation states exactly what has and
 has not been executed.
+
+The decimal rounding decision in `dispersal/rounding.py` was adapted through
+the supplied Python prototype from R Mathlib `fround.c`. The prototype credits
+the R Core Team (2000–2020) and Ross Ihaka (1998), under GPL-2.0-or-later.
+The source reference is https://github.com/wch/r-source/blob/trunk/src/nmath/fround.c .
+Only the numerical domain used by this engine is implemented; this is not the
+complete R rounding API. The LOESS reconstruction was also developed with
+reference to R's LOESS algorithm and serialized model structure. The engine
+does not redistribute R's LOESS Fortran source.

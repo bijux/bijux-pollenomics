@@ -5,7 +5,10 @@ a private C buffer interface, the optimized NumPy batch and an independent R
 matrix equation. All use the same deterministic binary64 covers, kernels,
 fractions, PPE and regional deposition. These are numerical stress arrays, not
 observed pollen or independent vegetation measurements. Every input hash and
-source/toolchain identity is retained. Raw R results are retained beside the report.
+source/toolchain identity is retained. The compact report stores scientific-output
+digests, exact comparison errors and timing blocks. Raw R results are retained
+beside it; local compiler commands and large Python/native output arrays are
+execution diagnostics.
 
 | Cover rows | Rings | Taxa | NumPy/native validated batch latency ratio | Largest difference from public Python |
 |---:|---:|---:|---:|---:|
@@ -69,6 +72,18 @@ MKL_NUM_THREADS=1 NUMEXPR_NUM_THREADS=1 VECLIB_MAXIMUM_THREADS=1 \
   --compiler /usr/bin/clang++ --rscript /usr/local/bin/Rscript
 ```
 
-The producer refuses an existing destination and checks its numerical input/source
-closure after measurement. Platform-dependent timing is not reproduced bit for
-bit; source, shape, numerical tolerance and refusal contracts are explicit.
+The comparison producer refuses an existing destination and checks its numerical
+input/source closure after measurement. Select the reader result from that raw
+measurement and the retained R reference files:
+
+```sh
+.venv/bin/python -m bijux_pollenomics_dev.native_backend.forward_summary \
+  --raw-report artifacts/numerical-performance/native-forward/report.json \
+  --reference-root docs/report/numerical-performance/native-forward \
+  --output artifacts/numerical-performance/native-forward-summary.json
+```
+
+The summary producer checks every input CSV identity, R result, output shape,
+numerical comparison, timing block and adoption ratio before selecting fields.
+Platform-dependent timing is not reproduced bit for bit; source, shape,
+numerical tolerance and refusal contracts are explicit.

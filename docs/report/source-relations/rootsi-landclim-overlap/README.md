@@ -16,7 +16,7 @@ historical inputs or clear their analytical reuse rights.
 
 The original `rootsi.7z` archive is separately retained at
 `landclim/rootsi-workbooks/original/rootsi.7z` in the same private store. The
-[intake custody review](../source-intake-custody/README.md) verifies its
+[source-reconciliation audit](../source-reconciliation/README.md) verifies its
 509,919 original bytes against the historical receipt; this does not promote
 the receipt's sample claims to admitted counts.
 
@@ -42,17 +42,10 @@ The [published LandClim II metadata](https://doi.pangaea.de/10.1594/PANGAEA.9370
 
 **Question for the source holder:** Which coordinate is correct for the physical `GIL`/`GILL` sediment core, does the LandClim `GIL` input contain the same 101 counted samples as Neotoma dataset 53991, and what evidence binds the reported 169 m modern site radius and author chronology to each retained sample age? Until the identity, historical basin geometry, count denominator and analytical-use rights are resolved, this candidate supports metadata context and the separate Neotoma observed-pollen transfer only; it does not admit Gilltjärnen to LRA or make LandClim output independent vegetation truth.
 
-## Private structural row review
+## Workbook structure
 
-The private source store also retains `landclim/rootsi-workbooks/structural-review/`.
-Its `custody.json` has SHA-256
-`f718e3d954e655968af804b94d5ab52bde9bddf922cda4ba9e506c7f4e97adb3`.
-The review preserves 79 workbook profiles, 7,459 header positions, 5,170
-mechanical data-row candidates, a 79-row sample-denominator review, and the
-original report. The five outputs are byte-identical across the two retired
-local replay directories. Both original manifests are retained because they
-record different producer file identities despite identical outputs. The
-[retirement receipt](../../maintenance/artifact-retention/rootsi-workbook-review-retirement.json)
-records exact hashes and directory scope. These private candidates preserve
-the refused source review; they do not establish chronology, taxonomy, count
-meaning, historical input identity, reuse rights, or scientific admission.
+The private structural review covers 79 workbooks, 7,459 header positions,
+5,170 mechanical data-row candidates and 79 sample-denominator questions.
+Those counts describe the source files. They do not establish chronology,
+taxonomy, count meaning, historical input identity, reuse rights or LRA
+admission for a physical core.

@@ -1,0 +1,115 @@
+{
+  "archive": {
+    "path": "data/landclim/raw/landclim_ii_reveals_results.zip",
+    "sha256": "c585f0691ad95342b8aba083b90fe91dc398f985b6b7fbc19561299389c4fb86"
+  },
+  "archive_members": 50,
+  "candidate_checks": [
+    {
+      "id": "candidate_standard_error_oracle_agreement",
+      "passed": true
+    },
+    {
+      "id": "candidate_complete_archive_validation",
+      "passed": true
+    },
+    {
+      "exception": "ValueError",
+      "id": "candidate_duplicate_header_refusal",
+      "passed": true
+    },
+    {
+      "exception": "ValueError",
+      "id": "candidate_partial_missing_coordinate_refusal",
+      "passed": true
+    },
+    {
+      "exception": "ValueError",
+      "id": "candidate_unpaired_uncertainty_refusal",
+      "passed": true
+    },
+    {
+      "id": "candidate_signed_mean_preservation",
+      "passed": true
+    },
+    {
+      "exception": "ValueError",
+      "id": "candidate_missing_mean_refusal",
+      "passed": true
+    },
+    {
+      "exception": "ValueError",
+      "id": "candidate_nonfinite_mean_refusal",
+      "passed": true
+    },
+    {
+      "exception": "ValueError",
+      "id": "candidate_negative_standard_error_refusal",
+      "passed": true
+    },
+    {
+      "exception": "ValueError",
+      "id": "candidate_nonfinite_standard_error_refusal",
+      "passed": true
+    }
+  ],
+  "claim_boundary": {
+    "ecological_accuracy": "not_evaluated",
+    "numerical_parity": "not_evaluated",
+    "publication_specific_R_execution": "not_performed",
+    "published_estimate_replotting": "structurally_audited",
+    "raw_input_reproduction": "not_performed",
+    "rights_or_PFT_review": "not_resolved",
+    "scientific_review": "not_supplied"
+  },
+  "counts": {
+    "distinct_header_profiles": 1,
+    "excluded_coordinate_ids": [
+      "47953",
+      "48310",
+      "48670",
+      "49030",
+      "49388",
+      "49391"
+    ],
+    "excluded_coordinate_pairs": 150,
+    "excluded_coordinate_rows": 300,
+    "included_pairs": 10350,
+    "maximum_published_mean": 99.4977107979804,
+    "mean_exact_zero_values": 251123,
+    "mean_numeric_values": 493500,
+    "mean_rows": 10500,
+    "mean_values_greater_than_one": 138862,
+    "negative_mean_rows": 2,
+    "negative_mean_values": 3,
+    "negative_standard_error_values": 0,
+    "paired_rows": 10500,
+    "signed_mean_facts": [
+      {
+        "cell_id": "725",
+        "time_window": 4,
+        "value": -0.000677087305195939,
+        "variable": "Castanea"
+      },
+      {
+        "cell_id": "725",
+        "time_window": 12,
+        "value": -0.0117533696932253,
+        "variable": "Picea"
+      },
+      {
+        "cell_id": "725",
+        "time_window": 12,
+        "value": -0.0117533696932253,
+        "variable": "TBE1"
+      }
+    ],
+    "standard_error_numeric_values": 493500,
+    "standard_error_rows": 10500
+  },
+  "findings": [],
+  "mean_members": 25,
+  "schema_version": "pollenomics-landclim-published-independent.v1",
+  "standard_error_members": 25,
+  "verdict": "pass_published_row_structure"
+}

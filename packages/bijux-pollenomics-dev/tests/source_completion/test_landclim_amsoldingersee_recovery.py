@@ -50,6 +50,6 @@ def test_capture_drift_refuses_before_output(tmp_path: Path) -> None:
     path = source / "capture/sites.raw"
     path.write_bytes(path.read_bytes() + b" ")
     output = tmp_path / "refused"
-    with pytest.raises(ValueError, match="source custody changed"):
+    with pytest.raises(ValueError, match="source input changed"):
         build(REPOSITORY, source, output)
     assert not output.exists()

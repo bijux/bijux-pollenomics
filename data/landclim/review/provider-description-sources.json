@@ -1,0 +1,17 @@
+{
+  "schema_version": "landclim-provider-description-sources.v1",
+  "capture_date": "2026-09-21",
+  "source_store_relative": "landclim/provider-descriptions",
+  "pages": {
+    "essd_article.html": {
+      "url": "https://essd.copernicus.org/articles/14/1581/2022/",
+      "bytes": 443030,
+      "sha256": "d965af99738e1b068e6cf371747c6d96080046d0ca09db42ec1911916c19ed38"
+    },
+    "pangaea_deposit.html": {
+      "url": "https://doi.pangaea.de/10.1594/PANGAEA.937075",
+      "bytes": 142500,
+      "sha256": "6ed1b534fb4ab51e092cd9b4816dac3f15e171842de4feb4a1a694caf6194e06"
+    }
+  }
+}

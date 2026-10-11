@@ -1,0 +1,27 @@
+{
+  "schema_version": "synthetic-score-source.v1",
+  "archive_sha256": "8dd272c3bd93f8354045596b2b712a2a3670cd35ebd0b7332d0b001ee95c3cc6",
+  "source_report_sha256": "a41760438c0c492f6eac30c7fa858da548562fe4c3b08b92cf1ac28833b5856a",
+  "source_report_accounting": {
+    "pollen_composition": {
+      "prediction_failed": 8,
+      "requested": 39,
+      "scored": 31
+    },
+    "vegetation_cover": {
+      "prediction_failed": 8,
+      "requested": 39,
+      "scored": 31
+    }
+  },
+  "members": {
+    "artifacts/v2/block-cli/installed001/scores/scores.json": "348a6f1f658372e9985bb46dec23a5fe8c650425ab1a0203720a62fc44ed2b3b",
+    "artifacts/v2/experiment-profiles-cli/installed002/baseline-scores/scores.json": "c6298f7ec9fe994fd0fb77d9bc6ca84eec7ad87a4df0163f008f65d292f31ab8",
+    "artifacts/v2/experiment-profiles-cli/installed002/fitted-scores/scores.json": "ab3ad72d80f1e9e2ff5ad8c0339834a4f6fd949b9751e20a65b8be7263a71160",
+    "artifacts/v2/experiment-profiles-cli/installed002/local-scores/scores.json": "1c3d8dbb7a5356e3aa4b363bf520d9b2f89fe78ed6eccb22b4cb94266f80c45f",
+    "artifacts/v2/validation/spatial-blocks/challenge-003/partial-scores/scores.json": "f0baa51b0a7b5248e98b263a77a5d999df8076d1ef08953ac568929024cb1a9f",
+    "artifacts/v2/validation/temporal-persistence/installed-002/scores-constant/scores.json": "ed676c9987d2036fa4923c25575db4afb3fb2d0c17649375975d8dbf04d6979d",
+    "artifacts/v2/resumed-frontier/metrics-002/report.json": "a41760438c0c492f6eac30c7fa858da548562fe4c3b08b92cf1ac28833b5856a",
+    "artifacts/v2/validation/scored-evaluator-adapter-design/fixture-bindings.json": "8994dd55f8d549b0de01d4574f00b305e47cf5cdc78cd171baa945ab28dfa10d"
+  }
+}

@@ -1,8 +1,11 @@
-"""Verify the bounded WHH05 author-example input reconstruction."""
+"""Verify the bounded WHH05 author example against the private source snapshot."""
 
 from __future__ import annotations
 
+import csv
+import hashlib
 import json
+import os
 from pathlib import Path
 import shutil
 from typing import cast
@@ -17,8 +20,10 @@ from bijux_pollenomics_dev.essd_reproduction.one_site import (
 )
 
 REPOSITORY = Path(__file__).resolve().parents[4]
-SOURCE_ROOT = (
-    REPOSITORY / "artifacts/v2/engine/multisite-audit/rmfyfe-landclimII-current/source"
+_SOURCE_CAPSULE = os.environ.get("BIJUX_LANDCLIM_AUTHOR_REFERENCE")
+SOURCE_ROOT = Path(_SOURCE_CAPSULE).resolve() / "author" if _SOURCE_CAPSULE else Path()
+pytestmark = pytest.mark.skipif(
+    not _SOURCE_CAPSULE, reason="private LandClim author reference not supplied"
 )
 
 JsonObject = dict[str, object]
@@ -223,6 +228,73 @@ def test_product_is_deterministic_and_payload_is_defensively_copied() -> None:
     changed = first.payload()
     changed["scope"] = "mutated"
     assert first.payload()["scope"] == "single_site_author_example_input_reconstruction"
+
+
+def test_whh05_source_window_links_to_executed_site_estimate(
+    payload: JsonObject,
+) -> None:
+    selection = _object(payload["selection"])
+    site = _object(selection["site"])
+    window = _object(selection["repository_time_window"])
+    raw = _object(selection["raw_observation"])
+    prepared = _object(selection["prepared_observation"])
+    assert (site["landclim_grid_id_raw"], site["site_id"]) == ("512", "WHH05")
+    assert (raw["source_age_raw"], window["repository_window_label_bp"]) == (
+        "1320",
+        1500,
+    )
+    assert (raw["declared_sum"], prepared["total_count"]) == (301, 297)
+
+    ledger = (
+        REPOSITORY
+        / "docs/report/publication-replay/landclim-author-example-correspondence/paper-correspondence.csv"
+    )
+    assert hashlib.sha256(ledger.read_bytes()).hexdigest() == (
+        "9c574919c250b9fe386154b72266869b290365ee9afe5d8a270250ed01c211d8"
+    )
+    with ledger.open(newline="", encoding="utf-8") as stream:
+        rows = [
+            row
+            for row in csv.DictReader(stream)
+            if row["grid_id"] == site["landclim_grid_id_raw"]
+            and row["scope"] == "site"
+            and row["site_id"] == site["site_id"]
+            and row["bin_id_bp"] == str(window["repository_window_label_bp"])
+        ]
+    means = [row for row in rows if row["metric"] == "mean"]
+    errors = [row for row in rows if row["metric"] == "standard_error"]
+    assert len(rows) == 62
+    assert len(means) == len(errors) == prepared["taxon_count"] == 31
+    assert {row["taxon"] for row in means} == {row["taxon"] for row in errors}
+    assert all(
+        row["unit"] == "fraction" and row["within_declared_tolerance"] == "True"
+        for row in rows
+    )
+    assert sum(float(row["author_reference"]) for row in means) == pytest.approx(
+        1.0, abs=1e-12
+    )
+    assert max(abs(float(row["signed_residual"])) for row in means) < 5e-15
+    assert max(abs(float(row["signed_residual"])) for row in errors) < 9e-16
+
+    execution = json.loads(
+        (
+            REPOSITORY
+            / "docs/report/publication-replay/landclim-example-reexecution/report.json"
+        ).read_text(encoding="utf-8")
+    )
+    grid = next(
+        grid
+        for grid in execution["native_comparison"]["grids"]
+        if grid["grid_id"] == site["landclim_grid_id_raw"]
+    )
+    estimate = next(
+        row for row in grid["checks"]["sites"] if row["site_id"] == site["site_id"]
+    )
+    assert grid["sites"] == 9
+    assert estimate["cover"]["finite_pairs"] == 8 * 31
+    assert estimate["se"]["finite_pairs"] == 8 * 31
+    assert estimate["cover"]["passed"] is True
+    assert estimate["se"]["passed"] is True
 
 
 def test_any_input_drift_fails_closed(tmp_path: Path) -> None:

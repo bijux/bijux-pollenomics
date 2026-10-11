@@ -1,0 +1,43 @@
+{
+  "schema_version": "known-landscape-synthetic-development-policy.v1",
+  "purpose": "train_only_synthetic_exploration",
+  "oracle_seed": 20260921,
+  "host_seed": 7,
+  "cases": ["homogeneous-noise-free", "heterogeneous-noise-free"],
+  "candidates": [
+    {"id": "lsm-ppe080", "distance_weighting": "lsm unstable", "broadleaf_ppe_scale": 0.8},
+    {"id": "lsm-ppe100", "distance_weighting": "lsm unstable", "broadleaf_ppe_scale": 1.0},
+    {"id": "lsm-ppe120", "distance_weighting": "lsm unstable", "broadleaf_ppe_scale": 1.2},
+    {"id": "gpm-ppe080", "distance_weighting": "gpm neutral", "broadleaf_ppe_scale": 0.8},
+    {"id": "gpm-ppe100", "distance_weighting": "gpm neutral", "broadleaf_ppe_scale": 1.0},
+    {"id": "gpm-ppe120", "distance_weighting": "gpm neutral", "broadleaf_ppe_scale": 1.2}
+  ],
+  "fixed_inputs": {
+    "taxa": ["broadleaf", "conifer", "open_land"],
+    "pollen_source": "independent_known_landscape_oracle",
+    "counting_effort": 1000000,
+    "integer_count_rule": "largest_remainder",
+    "basin_radius_m": 175,
+    "host_basin_diameter_m": 350,
+    "regional_extent_rule": "match_each_oracle_case_declared_support",
+    "fall_speed_rule": "oracle_true_values",
+    "other_ppe_rule": "oracle_true_values",
+    "uncertainty": "none; deterministic point estimates only",
+    "method_profile": "disqover-0.9.14-source-compatible"
+  },
+  "objective": {
+    "metric": "mean_absolute_error_fraction",
+    "aggregation": "unweighted_mean_across_two_development_cases",
+    "eligibility": "candidate_completed_on_both_cases",
+    "tie_break": "smaller_maximum_case_mae_then_lexicographic_candidate_id",
+    "final_test_access": false,
+    "threshold": null
+  },
+  "claim_limits": [
+    "synthetic development only",
+    "oracle and host forward laws differ",
+    "no independent empirical vegetation or pollen validation",
+    "no Nordic or scientific accuracy claim",
+    "no final-test access"
+  ]
+}

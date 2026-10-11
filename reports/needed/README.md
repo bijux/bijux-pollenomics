@@ -59,12 +59,34 @@ rerun the admission and reconstruction consumer before closing this question.
 **Affected result:** Denmark, Finland and Norway have country-held-out
 observed-pollen scores, but those cohorts contain zero admitted LRA inputs.
 The [four-country source account](../science/source-cohorts.md) keeps that
-response separate from vegetation reconstruction. For Danish Solsø, the
-[source-lineage review](../../docs/report/countries/denmark/solsoe-source-lineage/README.md)
+response separate from vegetation reconstruction. For Danish Solsø, our
+[source-lineage decision](../science/solsoe-lra-input.md)
 finds 79 LandClim II samples versus 92 Neotoma source samples; applying the
 published age span alone retains 90, so the historical selection is still
 unidentified. Its reported site area or site radius does not supply an
 age-specific shoreline.
+
+For Norwegian Dalmutladdo, the [source-bound review](../science/dalmutladdo-lra-input/README.md)
+identifies one `DALMUT` core and 72 samples across LandClim II, Neotoma and
+the paper. All 11 published radiocarbon lab/depth/age/error controls match the
+author chronology. The paper reports 7.2 ha, LandClim I reports `8.00*` ha,
+and LandClim II gives an unqualified radius of 160. Two printed calibrated
+intervals exclude their own centres. The exact resolver is a source-owner
+account of area/interval differences and a same-core packet for historical
+basin geometry, sample denominator, taxon/PPE use and rights. We retain zero
+Norwegian LRA admission until these fields are joined and reviewed.
+
+For Finnish Laihalampi, our [source screen](../science/laihalampi-lra-input/README.md)
+matches the `LAIH` core and all 150 source depths to the LandClim II sample
+count. LandClim I's 25.50 ha and a conditional 285 m circle agree as modern
+site-area claims. The Neotoma calibrated chronology retains five dated
+controls and an assumed core top. The original authors explicitly excluded
+the sixth, deeper Hela-4421 date from their fitted chronology and assumed an
+11,000 BP base; the control-selection question is settled. The exact resolver
+is the LandClim-selected age vector/uncertainty, dated basin geometry,
+eligible denominator, taxon/PPE use and rights for those 150 samples. We
+retain zero Finnish LRA
+admissions until that same-core packet is reviewed.
 
 **Needed:** nominate a specific physical core and time window in each target
 country, then bind source sample selection, chronology and uncertainty,
@@ -103,6 +125,14 @@ found no admitted repository measurement pair; the original ten-lake inputs
 and unrounded outputs are not retained. **Reopen when:** a source owner
 supplies a measured series or full original cohort with usable site/time/taxon
 support and terms; independently review the match, then score it.
+
+We checked the [original ten-lake publication](https://onlinelibrary.wiley.com/doi/abs/10.1002/jqs.1126)
+and the [companion parameter study](https://portal.research.lu.se/en/publications/effects-of-the-sampling-design-and-selection-of-parameter-values-/).
+Their accessible publisher records describe the vegetation compilation and
+the PPE/sample-design comparison, but provide no bound, reusable table of
+the ten lake counts, measured vegetation and unrounded 26-taxon outputs.
+The nine rounded labels already transcribed from a later figure remain a
+publication correspondence check, not a new matched validation cohort.
 
 ## HYDE source semantics
 
