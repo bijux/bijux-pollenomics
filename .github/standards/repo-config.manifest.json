@@ -52,6 +52,11 @@
         "id": "codecov",
         "source": "shared/bijux-gh/workflows/codecov.yml",
         "consumer_runtime": ".github/workflows/codecov.yml"
+      },
+      {
+        "id": "dependency-notice",
+        "source": "shared/bijux-gh/workflows/dependency-notice.yml",
+        "consumer_runtime": ".github/workflows/dependency-notice.yml"
       }
     ]
   },
@@ -467,7 +472,8 @@
         "release-artifacts",
         "release-crates",
         "release-ghcr",
-        "release-github"
+        "release-github",
+        "dependency-notice"
       ],
       "pinned_std_sha": "44a77e32edc759e92b95feb63b2988ff90f0ca59",
       "workflow_execution_policy": {
@@ -490,7 +496,10 @@
             "mode": "manual-only",
             "controller": "iac"
           }
-        }
+        },
+        "dependency_pull_requests": "notification-only",
+        "dependency_merge": "owner-consolidation",
+        "main_verification": "accepted-pull-request"
       }
     },
     {
@@ -1364,12 +1373,13 @@
         "release-artifacts",
         "release-ghcr",
         "release-github",
-        "release-pypi"
+        "release-pypi",
+        "dependency-notice"
       ],
       "pinned_std_sha": "214f8c6e8881a97a258e57c450badb74a5fb7b5c",
       "workflow_execution_policy": {
         "schema": 1,
-        "dependency_pull_requests": "canonical",
+        "dependency_pull_requests": "notification-only",
         "publication_entrypoints": {
           "deploy-docs": {
             "mode": "manual-only",
@@ -1388,7 +1398,9 @@
             "mode": "manual-only",
             "controller": "iac"
           }
-        }
+        },
+        "dependency_merge": "owner-consolidation",
+        "main_verification": "accepted-pull-request"
       }
     },
     {
@@ -1800,7 +1812,8 @@
         "release-crates",
         "release-ghcr",
         "release-github",
-        "release-pypi"
+        "release-pypi",
+        "dependency-notice"
       ],
       "pinned_std_sha": "a44a4e85b09714ce8863c9573ef1059e843b5e8e",
       "workflow_execution_policy": {
@@ -1827,7 +1840,10 @@
             "mode": "manual-only",
             "controller": "iac"
           }
-        }
+        },
+        "dependency_pull_requests": "notification-only",
+        "dependency_merge": "owner-consolidation",
+        "main_verification": "accepted-pull-request"
       }
     },
     {
@@ -2041,7 +2057,8 @@
       "workflow_allowlist": [
         "deploy-docs",
         "github-policy",
-        "pr-approval-policy"
+        "pr-approval-policy",
+        "dependency-notice"
       ],
       "pinned_std_sha": "05d63cd12b4d96afe4b74dbda1cd1e27bee344e5",
       "workflow_execution_policy": {
@@ -2052,7 +2069,10 @@
             "controller": "iac",
             "refs": "main-only"
           }
-        }
+        },
+        "dependency_pull_requests": "notification-only",
+        "dependency_merge": "owner-consolidation",
+        "main_verification": "accepted-pull-request"
       }
     },
     {
@@ -2060,7 +2080,8 @@
       "release_env": [],
       "workflow_allowlist": [
         "github-policy",
-        "pr-approval-policy"
+        "pr-approval-policy",
+        "dependency-notice"
       ],
       "additional_required_status_checks": [
         {
@@ -2078,7 +2099,10 @@
       ],
       "workflow_execution_policy": {
         "schema": 1,
-        "publication_entrypoints": {}
+        "publication_entrypoints": {},
+        "dependency_pull_requests": "notification-only",
+        "dependency_merge": "owner-consolidation",
+        "main_verification": "accepted-pull-request"
       }
     },
     {
@@ -2176,7 +2200,8 @@
       "workflow_allowlist": [
         "deploy-docs",
         "github-policy",
-        "pr-approval-policy"
+        "pr-approval-policy",
+        "dependency-notice"
       ],
       "pinned_std_sha": "5d4059e207559a51ed40dac1384693c57347018f",
       "workflow_execution_policy": {
@@ -2187,7 +2212,10 @@
             "controller": "iac",
             "refs": "main-only"
           }
-        }
+        },
+        "dependency_pull_requests": "notification-only",
+        "dependency_merge": "owner-consolidation",
+        "main_verification": "existing-events"
       }
     },
     {
@@ -2707,7 +2735,8 @@
         "release-artifacts",
         "release-ghcr",
         "release-github",
-        "release-pypi"
+        "release-pypi",
+        "dependency-notice"
       ],
       "pinned_std_sha": "214f8c6e8881a97a258e57c450badb74a5fb7b5c",
       "workflow_execution_policy": {
@@ -2730,7 +2759,10 @@
             "mode": "manual-only",
             "controller": "iac"
           }
-        }
+        },
+        "dependency_pull_requests": "notification-only",
+        "dependency_merge": "owner-consolidation",
+        "main_verification": "accepted-pull-request"
       }
     },
     {
@@ -3124,7 +3156,8 @@
         "release-artifacts",
         "release-ghcr",
         "release-github",
-        "release-pypi"
+        "release-pypi",
+        "dependency-notice"
       ],
       "pinned_std_sha": "214f8c6e8881a97a258e57c450badb74a5fb7b5c",
       "additional_required_status_checks": [
@@ -3135,7 +3168,7 @@
       ],
       "workflow_execution_policy": {
         "schema": 1,
-        "dependency_pull_requests": "canonical",
+        "dependency_pull_requests": "notification-only",
         "publication_entrypoints": {
           "deploy-docs": {
             "mode": "manual-only",
@@ -3154,7 +3187,9 @@
             "mode": "manual-only",
             "controller": "iac"
           }
-        }
+        },
+        "dependency_merge": "owner-consolidation",
+        "main_verification": "accepted-pull-request"
       }
     },
     {
@@ -3970,7 +4005,8 @@
         "release-artifacts",
         "release-ghcr",
         "release-github",
-        "release-pypi"
+        "release-pypi",
+        "dependency-notice"
       ],
       "pinned_std_sha": "214f8c6e8881a97a258e57c450badb74a5fb7b5c",
       "additional_required_status_checks": [
@@ -3981,7 +4017,7 @@
       ],
       "workflow_execution_policy": {
         "schema": 1,
-        "dependency_pull_requests": "canonical",
+        "dependency_pull_requests": "notification-only",
         "publication_entrypoints": {
           "deploy-docs": {
             "mode": "manual-only",
@@ -4000,7 +4036,9 @@
             "mode": "manual-only",
             "controller": "iac"
           }
-        }
+        },
+        "dependency_merge": "owner-consolidation",
+        "main_verification": "accepted-pull-request"
       }
     },
     {
@@ -4051,12 +4089,16 @@
       },
       "workflow_allowlist": [
         "github-policy",
-        "pr-approval-policy"
+        "pr-approval-policy",
+        "dependency-notice"
       ],
       "pinned_std_sha": "5da4225aedcfc2af92bb431875243fa2db2b0ce9",
       "workflow_execution_policy": {
         "schema": 1,
-        "publication_entrypoints": {}
+        "publication_entrypoints": {},
+        "dependency_pull_requests": "notification-only",
+        "dependency_merge": "owner-consolidation",
+        "main_verification": "accepted-pull-request"
       }
     },
     {
@@ -4421,7 +4463,8 @@
         "release-artifacts",
         "release-crates",
         "release-ghcr",
-        "release-github"
+        "release-github",
+        "dependency-notice"
       ],
       "pinned_std_sha": "44a77e32edc759e92b95feb63b2988ff90f0ca59",
       "workflow_execution_policy": {
@@ -4444,7 +4487,10 @@
             "mode": "manual-only",
             "controller": "iac"
           }
-        }
+        },
+        "dependency_pull_requests": "notification-only",
+        "dependency_merge": "owner-consolidation",
+        "main_verification": "accepted-pull-request"
       }
     },
     {
@@ -4482,7 +4528,8 @@
       "workflow_allowlist": [
         "deploy-docs",
         "github-policy",
-        "pr-approval-policy"
+        "pr-approval-policy",
+        "dependency-notice"
       ],
       "pinned_std_sha": "5d4059e207559a51ed40dac1384693c57347018f",
       "workflow_execution_policy": {
@@ -4493,7 +4540,10 @@
             "controller": "iac",
             "refs": "main-only"
           }
-        }
+        },
+        "dependency_pull_requests": "notification-only",
+        "dependency_merge": "owner-consolidation",
+        "main_verification": "accepted-pull-request"
       }
     }
   ]

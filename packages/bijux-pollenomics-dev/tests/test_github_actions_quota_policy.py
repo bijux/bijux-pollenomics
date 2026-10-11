@@ -16,12 +16,9 @@ from bijux_pollenomics.reporting.bundles.report_partitions import (
 
 REPO_ROOT = Path(__file__).resolve().parents[3]
 DEPENDABOT_SKIP = "github.event.pull_request.user.login != 'dependabot[bot]'"
-DEPENDABOT_REQUIRED_WORKFLOWS = {
-    "verify.yml",
-    "automerge-pr.yml",
-    "github-policy.yml",
-    "pr-approval-policy.yml",
-}
+DEPENDABOT_NOTIFICATION_WORKFLOWS = {"dependency-notice.yml"}
+DEPENDABOT_NAME_PREFIX = "${{ (github.event.pull_request.user.login == 'dependabot[bot]' || (github.event.pull_request.user.login == 'github-actions[bot]' && github.event.pull_request.head.ref == 'automation/dependency-lock-refresh')) && 'unverified dependency / ' || '' }}"
+DEPENDENCY_NOTICE_CONDITION = "${{ github.event.pull_request.user.login == 'dependabot[bot]' || (github.event.pull_request.user.login == 'github-actions[bot]' && github.event.pull_request.head.ref == 'automation/dependency-lock-refresh') }}"
 MATRIX_REFERENCE = re.compile(r"\$\{\{\s*matrix\.([a-zA-Z0-9_-]+)\s*\}\}")
 PULL_REQUEST_EVENTS = {
     "pull_request",
@@ -136,6 +133,7 @@ def pull_request_check_names() -> set[str]:
             )
             check_name = job.get("name", job_name)
             assert isinstance(check_name, str)
+            check_name = check_name.removeprefix(DEPENDABOT_NAME_PREFIX)
             matrix_keys = sorted(set(MATRIX_REFERENCE.findall(check_name)))
             if not matrix_keys:
                 names.add(check_name)
@@ -197,7 +195,7 @@ def standard_owned_job_is_unreachable(
 
 def test_optional_pull_request_jobs_preserve_dependency_runner_policy() -> None:
     for path, document in workflow_documents():
-        if path.name in DEPENDABOT_REQUIRED_WORKFLOWS:
+        if path.name in DEPENDABOT_NOTIFICATION_WORKFLOWS:
             continue
         events = document.get("on")
         assert isinstance(events, dict), f"{path.name} must define workflow events"
@@ -244,11 +242,57 @@ def test_required_status_check_documentation_matches_ruleset() -> None:
     assert documented == required_status_check_names()
 
 
-def test_required_package_admission_runs_for_dependency_pull_requests() -> None:
+def test_dependency_proposals_cannot_allocate_package_runners_or_required_names() -> (
+    None
+):
     workflow = dict(workflow_documents())[REPO_ROOT / ".github/workflows/verify.yml"]
     jobs = workflow["jobs"]
     assert isinstance(jobs, dict)
     assert set(jobs) == {"repository", "package", "verification_ready"}
     for job in jobs.values():
         assert isinstance(job, dict)
-        assert "dependabot[bot]" not in str(job.get("if", ""))
+        assert DEPENDABOT_SKIP in str(job.get("if", ""))
+        assert str(job["name"]).startswith(DEPENDABOT_NAME_PREFIX)
+    events = workflow["on"]
+    assert isinstance(events, dict)
+    assert "push" not in events
+
+
+def test_dependency_notice_is_bounded_read_only_and_cannot_merge() -> None:
+    workflow = dict(workflow_documents())[
+        REPO_ROOT / ".github/workflows/dependency-notice.yml"
+    ]
+    assert workflow["permissions"] == {"contents": "read"}
+    jobs = workflow["jobs"]
+    assert isinstance(jobs, dict)
+    assert set(jobs) == {"notice"}
+    notice = jobs["notice"]
+    assert isinstance(notice, dict)
+    assert notice["name"] == "dependency / owner review notice"
+    assert notice["timeout-minutes"] == "1"
+    assert notice["if"] == DEPENDENCY_NOTICE_CONDITION
+    assert all("uses" not in step for step in notice["steps"])
+    script = "\n".join(step.get("run", "") for step in notice["steps"])
+    for forbidden in (
+        "gh api",
+        "gh pr merge",
+        "checkout",
+        "uv sync",
+        "make lint",
+        "make test",
+    ):
+        assert forbidden not in script
+    automerge = dict(workflow_documents())[
+        REPO_ROOT / ".github/workflows/automerge-pr.yml"
+    ]
+    events = automerge["on"]
+    assert isinstance(events, dict)
+    assert set(events) == {"workflow_dispatch"}
+    assert automerge["permissions"] == {"contents": "read"}
+    jobs = automerge["jobs"]
+    assert isinstance(jobs, dict)
+    for job in jobs.values():
+        assert isinstance(job, dict)
+        steps = job["steps"]
+        assert isinstance(steps, list)
+        assert all(isinstance(step, dict) and "uses" not in step for step in steps)

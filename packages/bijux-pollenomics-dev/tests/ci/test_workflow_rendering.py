@@ -56,7 +56,6 @@ def test_manifest_renders_exact_source_admission_wrappers() -> None:
         "target": "${{ fromJson(inputs.check_targets) }}"
     }
     assert set(verify["on"]) == {
-        "push",
         "pull_request",
         "workflow_dispatch",
         "merge_group",
@@ -79,10 +78,29 @@ def test_manifest_renders_exact_source_admission_wrappers() -> None:
         assert (REPOSITORY / row["package_dir"] / "pyproject.toml").is_file()
         assert "test_shards" not in row
     ready = verify["jobs"]["verification_ready"]
-    assert ready["if"] == "${{ always() }}"
+    assert "always()" in ready["if"]
+    assert "github.event.pull_request.user.login != 'dependabot[bot]'" in ready["if"]
     assert ready["needs"] == ["repository", "package"]
     assert all(
-        "dependabot[bot]" not in job.get("if", "") for job in verify["jobs"].values()
+        "github.event.pull_request.user.login != 'dependabot[bot]'" in job.get("if", "")
+        for job in verify["jobs"].values()
+    )
+    selected = next(
+        entry["workflow_execution_policy"]
+        for entry in manifest["repositories"]
+        if entry["name"] == "bijux-pollenomics"
+    )
+    assert selected["dependency_pull_requests"] == "notification-only"
+    assert selected["main_verification"] == "accepted-pull-request"
+    assert selected["dependency_merge"] == "owner-consolidation"
+    typed_verify = renderer.WORKFLOW_EXECUTION.parse_workflow(
+        prepared[".github/workflows/verify.yml"], "verify"
+    )
+    assert (
+        renderer.WORKFLOW_EXECUTION.project_dependency_pull_requests(
+            "verify", typed_verify, selected
+        )
+        == typed_verify
     )
 
 

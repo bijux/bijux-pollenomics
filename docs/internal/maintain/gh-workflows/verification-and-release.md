@@ -43,8 +43,8 @@ remain in the frozen graph. Scientific product tests remain a separate gate.
 
 ### Automatic Source Admission
 
-The canonical `bijux-std` manifest renders `ci.yml` and `verify.yml`. On pull
-requests, pushes to `main` and merge groups, repository checks validate shared
+The canonical `bijux-std` manifest renders `ci.yml` and `verify.yml`. On human pull
+requests, merge groups and manual dispatches, repository checks validate shared
 Make parity, configuration layout and Make layout. Each of the four package
 roles then runs its complete configured lint and security targets:
 `bijux-pollenomics`, the `pollenomics` compatibility package,
@@ -53,9 +53,11 @@ roles then runs its complete configured lint and security targets:
 Lint includes format checks and the package's configured static checks. Security
 includes the complete frozen dependency audit above. The final
 `verification-ready` job runs even when a dependency fails and accepts only
-successful repository and package results. Failed, cancelled or skipped
+successful repository and package results. Skipped dependency jobs use distinct
+unverified names and never supply required human contexts. Failed, cancelled or skipped
 package checks cannot produce a successful aggregate. Required source admission
-also runs for dependency pull requests.
+does not run for dependency proposals. They receive a bounded owner-review
+notice; owners carry accepted updates into a verified human PR.
 
 Automatic source admission does not execute product tests, scientific rebuilds,
 live R certification or browser verification. A green aggregate certifies the
